@@ -1,29 +1,29 @@
 {
  "id": 3,
- "question": "A refrigerated locker is loaded with cartons of frozen peas weighing $14.5$ kilograms each on a steel dolly weighing $62$ kilograms. What is the least number of cartons $c$ for which $14.5c + 62 \\ge 250$?",
+ "question": "$6x + 11 \\ge 50$\nWhat is the least integer value of $x$ that satisfies the given inequality?",
  "choices": [
   {
    "id": "A",
-   "text": "$12$"
+   "text": "$6$"
   },
   {
    "id": "B",
-   "text": "$13$"
+   "text": "$7$"
   },
   {
    "id": "C",
-   "text": "$18$"
+   "text": "$9$"
   },
   {
    "id": "D",
-   "text": "$22$"
+   "text": "$11$"
   }
  ],
  "distractorNotes": {
-  "A": "truncates 12.96 down to 12 instead of moving up to the next whole carton",
-  "C": "divides 250 by 14.5 and ignores the 62-kilogram dolly, rounding 17.2 up",
-  "D": "adds the dolly mass to 250 instead of subtracting it, rounding 21.5 up"
+  "A": "rounds 6.5 down to 6, which does not satisfy the inequality",
+  "C": "divides 50 by 6 without first subtracting 11, then rounds 8.33 up to 9",
+  "D": "adds 11 to both sides instead of subtracting it, solving 6x >= 61 and rounding 10.17 up to 11"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Smallest Integer in an Inequality**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $14.5c \\ge 188$ gives $c \\ge 12.96\\ldots$, and cartons come whole, so the least value is $13$.\n\n**The Full Solution:**\nStep 1: Subtract the dolly mass from both sides: $14.5c + 62 \\ge 250$ becomes $14.5c \\ge 188$.\nStep 2: Divide both sides by $14.5$: $c \\ge \\frac{188}{14.5} = 12.965\\ldots$\nStep 3: The least integer at or above $12.965\\ldots$ is $13$. Check: $14.5(13) + 62 = 188.5 + 62 = 250.5 \\ge 250$, while $14.5(12) + 62 = 236 < 250$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): rounds $12.96$ down. Twelve cartons give only $236$ kilograms, which misses the $250$-kilogram requirement.\n* Choice C ($18$): divides $250$ by $14.5$ to get $17.2$ and rounds up, forgetting that the $62$-kilogram dolly already counts toward the total.\n* Choice D ($22$): adds the dolly mass instead of subtracting it, dividing $312$ by $14.5$ to get $21.5$ and rounding up.\n\n**Test Day Takeaway:** Isolate the variable first, then round in the direction the inequality demands: for $c \\ge$ a decimal, always round up, even when the decimal part is tiny."
+ "explanation": "**SAT Pattern: Smallest Integer in an Inequality**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $6x \\ge 39$ gives $x \\ge 6.5$, and the least integer that is at least $6.5$ is $7$.\n\n**The Full Solution:**\nStep 1: Subtract $11$ from both sides: $6x \\ge 39$.\nStep 2: Divide both sides by $6$: $x \\ge \\frac{39}{6} = 6.5$.\nStep 3: The least integer greater than or equal to $6.5$ is $7$. Check: $6(7) + 11 = 53 \\ge 50$, while $6(6) + 11 = 47$ is less than $50$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): rounds $6.5$ down. Testing it fails: $6(6) + 11 = 47$, which is less than $50$.\n* Choice C ($9$): divides $50$ by $6$ before removing the $11$, getting $8.33$ and rounding up.\n* Choice D ($11$): adds $11$ to both sides instead of subtracting it, solving $6x \\ge 61$ and rounding $10.17$ up.\n\n**Test Day Takeaway:** Isolate $x$ first, then round in the direction the inequality points: for $x \\ge$ a non-integer, round up, and test the integer you choose in the original inequality."
 }

@@ -22,19 +22,19 @@ export const practiceTest12M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 2,
-      question: "The table lists the total number of parcels sorted by each of two constant-rate sorting lines after $h$ hours at a distribution center. For how many values of $h$ do the two lines have the same total?",
-      questionTable: { headers: ["$h$", "Line A total", "Line B total"], rows: [["$1$", "$340$", "$415$"], ["$2$", "$620$", "$695$"], ["$3$", "$900$", "$975$"]] },
+      question: "The table shows three values of $x$ and their corresponding values of $y$ for each of two linear equations. How many solutions does the system of these two equations have?",
+      questionTable: { headers: ["$x$", "$y$ (first equation)", "$y$ (second equation)"], rows: [["$0$", "$4$", "$-1$"], ["$1$", "$7$", "$2$"], ["$2$", "$10$", "$5$"]] },
       choices: [
         { id: "A", text: "Zero" },
-        // distractor: assumes two different lines must cross somewhere, ignoring that both totals climb by the same 280 parcels per hour
+        // distractor: assumes any two different lines must cross once, ignoring that both y-values rise by the same 3 for each increase of 1 in x
         { id: "B", text: "Exactly one" },
-        // distractor: treats the two totals as curves that could meet twice; two linear models meet at most once
+        // distractor: treats the equations as curves that could meet twice; two distinct lines meet at most once
         { id: "C", text: "Exactly two" },
-        // distractor: reads the fixed 75-parcel gap as the two lines being the same line
+        // distractor: reads the constant gap of 5 between the y-values as the two equations describing the same line
         { id: "D", text: "Infinitely many" }
       ],
       correctAnswer: "A",
-      explanation: "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Both totals rise by $280$ parcels every hour, so the $75$-parcel gap between them never closes. Equal slopes with different starting totals means the lines are parallel and share no point.\n\n**The Full Solution:**\nStep 1: Find each rate. Line A: $620 - 340 = 280$ and $900 - 620 = 280$. Line B: $695 - 415 = 280$ and $975 - 695 = 280$. Both lines have slope $280$.\nStep 2: Extend each model back to $h = 0$. Line A started at $340 - 280 = 60$ parcels and Line B at $415 - 280 = 135$, so $A = 280h + 60$ and $B = 280h + 135$.\nStep 3: Set them equal: $280h + 60 = 280h + 135$. Subtracting $280h$ leaves $60 = 135$, which is false for every $h$, so there is no solution. Check the table: the gap is $415 - 340 = 75$, $695 - 620 = 75$, and $975 - 900 = 75$ — constant, never zero. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly one): a pair of lines usually crosses once, but that requires different slopes. Here both slopes are $280$, and $280h + 60 = 280h + 135$ has no solution at all.\n* Choice C (Exactly two): two straight-line models can agree at most once, so two matching hours is impossible for a system of two linear equations.\n* Choice D (Infinitely many): that would require the totals to match at every hour, but every row of the table shows Line B ahead by exactly $75$ parcels.\n\n**Test Day Takeaway:** Read the slopes out of the table first. Equal rates of change with different starting values is the signature of parallel lines, and a parallel pair has zero solutions.",
+      explanation: "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Both $y$-columns increase by $3$ each time $x$ increases by $1$, so the lines have the same slope, but at $x = 0$ they start at different values. Parallel, distinct lines never meet.\n\n**The Full Solution:**\nStep 1: Find each slope from the table. First equation: $7 - 4 = 3$ and $10 - 7 = 3$. Second equation: $2 - (-1) = 3$ and $5 - 2 = 3$. Both slopes are $3$.\nStep 2: Read each $y$-intercept from the row $x = 0$: the first line is $y = 3x + 4$ and the second is $y = 3x - 1$.\nStep 3: Set them equal: $3x + 4 = 3x - 1$ gives $4 = -1$, which is false for every $x$, so the system has no solution. Check: in every row the first $y$-value is exactly $5$ more than the second ($4 - (-1)$, $7 - 2$, $10 - 5$), so the gap never closes ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly one): two lines usually cross once, but only when their slopes differ. Here both slopes are $3$.\n* Choice C (Exactly two): two different lines can share at most one point, so a system of two linear equations never has exactly two solutions.\n* Choice D (Infinitely many): that would require the two $y$-values to be equal in every row, but each row shows a difference of $5$.\n\n**Test Day Takeaway:** Equal slopes with different $y$-intercepts means parallel lines and zero solutions; equal slopes with equal intercepts means the same line and infinitely many.",
       skills: ["system-solution-types"]
     },
     {
@@ -42,18 +42,18 @@ export const practiceTest12M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 3,
-      question: "On a harbor chart, buoy $M$ at $(3, -1)$ marks the midpoint of the straight channel between buoy $J$ at $(-5, 4)$ and buoy $K$. Which ordered pair gives the coordinates of buoy $K$?",
+      question: "In the $xy$-plane, the midpoint of segment $JK$ is $(3, -1)$, and point $J$ has coordinates $(-5, 4)$. What are the coordinates of point $K$?",
       choices: [
         // distractor: runs the doubling in the wrong direction, computing 2J - M instead of 2M - J
         { id: "A", text: "$(-13, 9)$" },
-        // distractor: averages J with M again instead of continuing past M
+        // distractor: averages J and M, finding the midpoint of segment JM instead of the far endpoint
         { id: "B", text: "$(-1, 1.5)$" },
-        // distractor: computes M - J, the change from J to M, and reports it as a location
+        // distractor: computes M - J, the change from J to M, and reports it as a point
         { id: "C", text: "$(8, -5)$" },
         { id: "D", text: "$(11, -6)$" }
       ],
       correctAnswer: "D",
-      explanation: "**SAT Pattern: Midpoint Formula**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Going from $J$ to $M$ moves right $8$ and down $5$; repeating that step from $M$ lands on $(3 + 8, -1 - 5) = (11, -6)$.\n\n**The Full Solution:**\nStep 1: Let $K = (x, y)$. The midpoint formula gives $\\frac{-5 + x}{2} = 3$ and $\\frac{4 + y}{2} = -1$.\nStep 2: Multiply each equation by $2$: $-5 + x = 6$ and $4 + y = -2$.\nStep 3: Solve: $x = 11$ and $y = -6$, so $K = (11, -6)$. Check by taking the midpoint of $J$ and $K$: $\\left(\\frac{-5 + 11}{2}, \\frac{4 + (-6)}{2}\\right) = (3, -1)$, which is buoy $M$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-13, 9)$): doubles $J$ and subtracts $M$, computing $(2(-5) - 3,\\ 2(4) - (-1))$. That reverses which buoy is the endpoint and which is the midpoint.\n* Choice B ($(-1, 1.5)$): averages $J$ and $M$, giving $\\left(\\frac{-5 + 3}{2}, \\frac{4 - 1}{2}\\right)$. That is the midpoint of the half-channel, not the far end.\n* Choice C ($(8, -5)$): computes $M - J = (3 - (-5),\\ -1 - 4)$. That is the step from $J$ to $M$, not a position on the chart.\n\n**Test Day Takeaway:** The midpoint is the average of the endpoints, so the missing endpoint is $2M - J$. Confirm by re-averaging: the answer and the known endpoint must return the given midpoint.",
+      explanation: "**SAT Pattern: Midpoint Formula**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Going from $J$ to $M$ moves right $8$ and down $5$; repeating that move from $M$ lands on $(3 + 8, -1 - 5) = (11, -6)$.\n\n**The Full Solution:**\nStep 1: Let $K = (x, y)$. The midpoint formula gives $\\frac{-5 + x}{2} = 3$ and $\\frac{4 + y}{2} = -1$.\nStep 2: Multiply each equation by $2$: $-5 + x = 6$ and $4 + y = -2$.\nStep 3: Solve: $x = 11$ and $y = -6$, so $K = (11, -6)$. Check: the midpoint of $(-5, 4)$ and $(11, -6)$ is $\\left(\\frac{-5 + 11}{2}, \\frac{4 + (-6)}{2}\\right) = (3, -1)$, which is $M$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-13, 9)$): computes $2J - M = (2(-5) - 3,\\ 2(4) - (-1))$, which swaps the roles of the endpoint and the midpoint.\n* Choice B ($(-1, 1.5)$): averages $J$ and $M$, giving $\\left(\\frac{-5 + 3}{2}, \\frac{4 - 1}{2}\\right)$, the midpoint of segment $JM$ rather than point $K$.\n* Choice C ($(8, -5)$): computes $M - J = (3 - (-5),\\ -1 - 4)$, the change from $J$ to $M$, not a location.\n\n**Test Day Takeaway:** The midpoint is the average of the endpoints, so a missing endpoint is $2M - J$. Confirm by averaging your answer with the known endpoint.",
       skills: ["coordinate-geometry"]
     },
     {
@@ -61,18 +61,18 @@ export const practiceTest12M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 3,
-      question: "A refrigerated locker is loaded with cartons of frozen peas weighing $14.5$ kilograms each on a steel dolly weighing $62$ kilograms. What is the least number of cartons $c$ for which $14.5c + 62 \\ge 250$?",
+      question: "$6x + 11 \\ge 50$\nWhat is the least integer value of $x$ that satisfies the given inequality?",
       choices: [
-        // distractor: truncates 12.96 down to 12 instead of moving up to the next whole carton
-        { id: "A", text: "$12$" },
-        { id: "B", text: "$13$" },
-        // distractor: divides 250 by 14.5 and ignores the 62-kilogram dolly, rounding 17.2 up
-        { id: "C", text: "$18$" },
-        // distractor: adds the dolly mass to 250 instead of subtracting it, rounding 21.5 up
-        { id: "D", text: "$22$" }
+        // distractor: rounds 6.5 down to 6, which does not satisfy the inequality
+        { id: "A", text: "$6$" },
+        { id: "B", text: "$7$" },
+        // distractor: divides 50 by 6 without first subtracting 11, then rounds 8.33 up to 9
+        { id: "C", text: "$9$" },
+        // distractor: adds 11 to both sides instead of subtracting it, solving 6x >= 61 and rounding 10.17 up to 11
+        { id: "D", text: "$11$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Smallest Integer in an Inequality**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $14.5c \\ge 188$ gives $c \\ge 12.96\\ldots$, and cartons come whole, so the least value is $13$.\n\n**The Full Solution:**\nStep 1: Subtract the dolly mass from both sides: $14.5c + 62 \\ge 250$ becomes $14.5c \\ge 188$.\nStep 2: Divide both sides by $14.5$: $c \\ge \\frac{188}{14.5} = 12.965\\ldots$\nStep 3: The least integer at or above $12.965\\ldots$ is $13$. Check: $14.5(13) + 62 = 188.5 + 62 = 250.5 \\ge 250$, while $14.5(12) + 62 = 236 < 250$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): rounds $12.96$ down. Twelve cartons give only $236$ kilograms, which misses the $250$-kilogram requirement.\n* Choice C ($18$): divides $250$ by $14.5$ to get $17.2$ and rounds up, forgetting that the $62$-kilogram dolly already counts toward the total.\n* Choice D ($22$): adds the dolly mass instead of subtracting it, dividing $312$ by $14.5$ to get $21.5$ and rounding up.\n\n**Test Day Takeaway:** Isolate the variable first, then round in the direction the inequality demands: for $c \\ge$ a decimal, always round up, even when the decimal part is tiny.",
+      explanation: "**SAT Pattern: Smallest Integer in an Inequality**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $6x \\ge 39$ gives $x \\ge 6.5$, and the least integer that is at least $6.5$ is $7$.\n\n**The Full Solution:**\nStep 1: Subtract $11$ from both sides: $6x \\ge 39$.\nStep 2: Divide both sides by $6$: $x \\ge \\frac{39}{6} = 6.5$.\nStep 3: The least integer greater than or equal to $6.5$ is $7$. Check: $6(7) + 11 = 53 \\ge 50$, while $6(6) + 11 = 47$ is less than $50$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): rounds $6.5$ down. Testing it fails: $6(6) + 11 = 47$, which is less than $50$.\n* Choice C ($9$): divides $50$ by $6$ before removing the $11$, getting $8.33$ and rounding up.\n* Choice D ($11$): adds $11$ to both sides instead of subtracting it, solving $6x \\ge 61$ and rounding $10.17$ up.\n\n**Test Day Takeaway:** Isolate $x$ first, then round in the direction the inequality points: for $x \\ge$ a non-integer, round up, and test the integer you choose in the original inequality.",
       skills: ["inequalities"]
     },
     // ============================================================
@@ -83,9 +83,9 @@ export const practiceTest12M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 4,
-      question: "A haulage firm quotes $3(2x + k) - 12$ dollars for express handling and $5x + 21$ dollars for standard handling of $x$ pallets, where $k$ is a constant. The two quotes are equal when $x = 9$. What is the value of $k$?",
+      question: "$3(2x + k) - 12 = 5x + 21$\nIn the given equation, $k$ is a constant. If $x = 9$ is the solution to the given equation, what is the value of $k$?",
       choices: [
-        // distractor: subtracts 12 from both sides instead of adding it, leaving 54 + 3k = 54
+        // distractor: subtracts 12 from the right side instead of adding it, leaving 54 + 3k = 54
         { id: "A", text: "$0$" },
         // distractor: drops the -12 term entirely and solves 54 + 3k = 66
         { id: "B", text: "$4$" },
@@ -94,7 +94,7 @@ export const practiceTest12M2Easy = {
         { id: "D", text: "$24$" }
       ],
       correctAnswer: "C",
-      explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** At $x = 9$ the standard quote is $66$, so $3(18 + k) = 78$, giving $18 + k = 26$ and $k = 8$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 9$ into both expressions: $3(2 \\cdot 9 + k) - 12 = 3(18 + k) - 12$ and $5(9) + 21 = 66$.\nStep 2: Set them equal and distribute: $54 + 3k - 12 = 66$, so $3k + 42 = 66$.\nStep 3: Subtract $42$ and divide by $3$: $3k = 24$, so $k = 8$. Check with $k = 8$: $3(18 + 8) - 12 = 78 - 12 = 66$, which matches the standard quote of $66$ dollars. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): moves the $-12$ to the right side as a subtraction, solving $54 + 3k = 66 - 12 = 54$. The $-12$ is already on the left, so it must be added to both sides.\n* Choice B ($4$): ignores the $-12$ and solves $54 + 3k = 66$, giving $3k = 12$.\n* Choice D ($24$): distributes the $3$ only onto $2x$ and writes $54 + k - 12 = 66$, which loses the factor of $3$ on $k$.\n\n**Test Day Takeaway:** Substitute the given solution first, then distribute completely before combining. Every term inside the parentheses, constants included, gets the outside factor.",
+      explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** At $x = 9$ the right side is $66$, so $3(18 + k) - 12 = 66$, giving $3(18 + k) = 78$, $18 + k = 26$, and $k = 8$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 9$ into both sides: the left side becomes $3(18 + k) - 12$ and the right side becomes $5(9) + 21 = 66$.\nStep 2: Distribute and combine: $54 + 3k - 12 = 66$, so $3k + 42 = 66$.\nStep 3: Subtract $42$ and divide by $3$: $3k = 24$, so $k = 8$. Check: $3(2 \\cdot 9 + 8) - 12 = 78 - 12 = 66$, which matches the right side ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): moves the $-12$ to the right side as a subtraction, solving $54 + 3k = 66 - 12 = 54$. Undoing $-12$ requires adding $12$.\n* Choice B ($4$): ignores the $-12$ and solves $54 + 3k = 66$, giving $3k = 12$.\n* Choice D ($24$): multiplies only the $2x$ by $3$, writing $54 + k - 12 = 66$, which loses the factor of $3$ on $k$.\n\n**Test Day Takeaway:** Substitute the given solution, then distribute the outside factor to every term in the parentheses, constants included, before solving for the parameter.",
       skills: ["solving-equations"]
     },
     {
@@ -102,9 +102,9 @@ export const practiceTest12M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "A telescope's declination axis lies along the line $ax + 15y = 60$ and its polar axis lies along the line $y = \\frac{5}{3}x - 7$, where $a$ is a constant. The two axes are perpendicular. What is the value of $a$?",
+      question: "Lines $j$ and $k$ are perpendicular in the $xy$-plane. Line $j$ is defined by $ax + 15y = 60$, where $a$ is a constant, and line $k$ is defined by $y = \\frac{5}{3}x - 7$. What is the value of $a$?",
       choices: [
-        // distractor: matches the given slope 5/3 instead of using its negative reciprocal
+        // distractor: sets line j's slope equal to 5/3, the slope of line k itself, instead of its negative reciprocal
         { id: "A", text: "$-25$" },
         // distractor: flips 5/3 to 3/5 but keeps the slope positive
         { id: "B", text: "$-9$" },
@@ -113,7 +113,7 @@ export const practiceTest12M2Easy = {
         { id: "D", text: "$25$" }
       ],
       correctAnswer: "C",
-      explanation: "**SAT Pattern: Perpendicular Slope**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The declination axis must have slope $-\\frac{3}{5}$. Since that line's slope is $-\\frac{a}{15}$, set $-\\frac{a}{15} = -\\frac{3}{5}$ and get $a = 9$.\n\n**The Full Solution:**\nStep 1: The polar axis has slope $\\frac{5}{3}$, so a perpendicular line has slope $-\\frac{3}{5}$, the negative reciprocal.\nStep 2: Put the other line in slope-intercept form: $15y = -ax + 60$, so $y = -\\frac{a}{15}x + 4$ and its slope is $-\\frac{a}{15}$.\nStep 3: Set the slopes equal: $-\\frac{a}{15} = -\\frac{3}{5}$, so $a = \\frac{3}{5}(15) = 9$. Check: with $a = 9$ the line is $9x + 15y = 60$, or $y = -\\frac{3}{5}x + 4$, and $\\left(-\\frac{3}{5}\\right)\\left(\\frac{5}{3}\\right) = -1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-25$): sets $-\\frac{a}{15} = \\frac{5}{3}$, using the polar axis's own slope. That would make the two axes parallel, not perpendicular.\n* Choice B ($-9$): sets $-\\frac{a}{15} = \\frac{3}{5}$, flipping the fraction but forgetting the negative sign that perpendicularity requires.\n* Choice D ($25$): sets $-\\frac{a}{15} = -\\frac{5}{3}$, negating the slope without flipping it. The product of the slopes would be $-\\frac{25}{9}$, not $-1$.\n\n**Test Day Takeaway:** Perpendicular means flip AND negate. Solve for $y$ before reading the slope off a line written in $Ax + By = C$ form.",
+      explanation: "**SAT Pattern: Perpendicular Slope**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Line $j$ must have slope $-\\frac{3}{5}$. Its slope is $-\\frac{a}{15}$, so $-\\frac{a}{15} = -\\frac{3}{5}$ and $a = 9$.\n\n**The Full Solution:**\nStep 1: Line $k$ has slope $\\frac{5}{3}$, so a line perpendicular to it has slope $-\\frac{3}{5}$, the negative reciprocal.\nStep 2: Solve line $j$'s equation for $y$: $15y = -ax + 60$, so $y = -\\frac{a}{15}x + 4$, and its slope is $-\\frac{a}{15}$.\nStep 3: Set the slopes equal: $-\\frac{a}{15} = -\\frac{3}{5}$, so $a = \\frac{3}{5}(15) = 9$. Check: with $a = 9$, line $j$ is $y = -\\frac{3}{5}x + 4$, and $\\left(-\\frac{3}{5}\\right)\\left(\\frac{5}{3}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-25$): sets $-\\frac{a}{15} = \\frac{5}{3}$, using line $k$'s own slope, which would make the lines parallel.\n* Choice B ($-9$): sets $-\\frac{a}{15} = \\frac{3}{5}$, flipping the fraction but leaving out the negative sign.\n* Choice D ($25$): sets $-\\frac{a}{15} = -\\frac{5}{3}$, negating the slope without flipping it; the product of the slopes would be $-\\frac{25}{9}$, not $-1$.\n\n**Test Day Takeaway:** Perpendicular slopes are negative reciprocals: flip and negate. Solve an equation in $Ax + By = C$ form for $y$ before reading its slope.",
       skills: ["perpendicular-negative-reciprocal"]
     },
     {
@@ -121,10 +121,10 @@ export const practiceTest12M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "A line is drawn through the two plotted points and extended downward to the right until its height is $y = -22$. What is the $x$-coordinate of the line at that height?",
+      question: "The graph of the linear function $f$ passes through the two points shown in the $xy$-plane. If $f(a) = -22$, what is the value of $a$?",
       diagram: { type: "coordinatePoints", params: { points: [[-2, 6], [2, -2]], xMin: -6, xMax: 6, yMin: -4, yMax: 8 } },
       correctAnswer: "12",
-      explanation: "**SAT Pattern: Line from Two Points**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~30s):** The plotted points $(-2, 6)$ and $(2, -2)$ give slope $-2$ and the line $y = -2x + 2$. Setting $-2x + 2 = -22$ gives $x = 12$.\n\n**The Full Solution:**\nStep 1: Read the plotted points from the grid: $(-2, 6)$ and $(2, -2)$. The slope is $\\frac{-2 - 6}{2 - (-2)} = \\frac{-8}{4} = -2$.\nStep 2: Find the $y$-intercept using $(2, -2)$: $-2 = -2(2) + b = -4 + b$, so $b = 2$ and the line is $y = -2x + 2$.\nStep 3: Set $y = -22$: $-2x + 2 = -22$, so $-2x = -24$ and $x = 12$. Check: $-2(12) + 2 = -24 + 2 = -22$. $\\checkmark$\n\n**Common Mistakes:** Entering $-12$ (dividing $-24$ by $2$ instead of by $-2$, so a negative divided by a negative is reported as negative); entering $11$ (taking $b = 0$, as if the line passed through the origin, and solving $-2x = -22$); entering $-24$ (stopping at $-2x = -24$ and reporting that value instead of dividing by the slope).\n\n**Test Day Takeaway:** Two plotted points give you slope and intercept in two moves; write the equation once, then plug in the target $y$ rather than counting squares off the edge of the grid.",
+      explanation: "**SAT Pattern: Line from Two Points**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~30s):** The points $(-2, 6)$ and $(2, -2)$ give slope $-2$ and $f(x) = -2x + 2$. Setting $-2a + 2 = -22$ gives $a = 12$.\n\n**The Full Solution:**\nStep 1: Read the points from the graph: $(-2, 6)$ and $(2, -2)$. The slope is $\\frac{-2 - 6}{2 - (-2)} = \\frac{-8}{4} = -2$.\nStep 2: Find the $y$-intercept using $(2, -2)$: $-2 = -2(2) + b$, so $b = 2$ and $f(x) = -2x + 2$.\nStep 3: Set $f(a) = -22$: $-2a + 2 = -22$, so $-2a = -24$ and $a = 12$. Check: $f(12) = -2(12) + 2 = -22$ ✓\n\n**Common Mistakes:**\n* $-12$: divides $-24$ by $2$ instead of by $-2$.\n* $11$: takes the $y$-intercept to be $0$, as if the line passed through the origin, and solves $-2a = -22$.\n* $-24$: stops at $-2a = -24$ and reports that value instead of dividing by $-2$.\n\n**Test Day Takeaway:** Two points give the slope and then the intercept; write the function once, then set it equal to the given output and solve for the input.",
       skills: ["linear-functions", "slope", "coordinate-geometry"]
     },
     {
@@ -132,18 +132,18 @@ export const practiceTest12M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "During a contact window a deep-space probe transmits $f(x) = 3x + c$ megabytes in $x$ hours, where the constant $c$ accounts for a fixed header block sent once per window. Given that $f(2) = 17$, what is the value of $f(6)$?",
+      question: "The function $f$ is defined by $f(x) = 3x + c$, where $c$ is a constant. If $f(2) = 17$, what is the value of $f(6)$?",
       choices: [
         // distractor: uses the input 2 as the constant, computing 3(6) + 2
         { id: "A", text: "$20$" },
         { id: "B", text: "$29$" },
         // distractor: finds c = 17 - 2 = 15 by subtracting the input instead of 3 times the input
         { id: "C", text: "$33$" },
-        // distractor: triples f(2), treating f as if it were proportional
+        // distractor: triples f(2) because the input tripled, treating f as proportional
         { id: "D", text: "$51$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Function Evaluation**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $f(2) = 6 + c = 17$ gives $c = 11$, so $f(6) = 18 + 11 = 29$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 2$ into the rule: $f(2) = 3(2) + c = 6 + c$.\nStep 2: Set that equal to the given output: $6 + c = 17$, so $c = 11$ and the function is $f(x) = 3x + 11$.\nStep 3: Evaluate at $x = 6$: $f(6) = 3(6) + 11 = 18 + 11 = 29$. Check the rule against the given data point: $f(2) = 3(2) + 11 = 17$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): plugs the input $2$ in where the constant belongs, computing $3(6) + 2$. The number $2$ is an hour count, not the header size.\n* Choice C ($33$): finds $c = 17 - 2 = 15$ by subtracting the input rather than $3(2) = 6$, then computes $18 + 15$.\n* Choice D ($51$): multiplies $f(2)$ by $3$ because the input tripled. A function with a nonzero constant term is not proportional, so outputs do not scale with inputs.\n\n**Test Day Takeaway:** Pin the unknown constant with the given data point first, then evaluate. Never scale outputs in proportion to inputs unless the constant term is zero.",
+      explanation: "**SAT Pattern: Function Evaluation**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $f(2) = 6 + c = 17$ gives $c = 11$, so $f(6) = 18 + 11 = 29$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 2$: $f(2) = 3(2) + c = 6 + c$.\nStep 2: Set it equal to $17$: $6 + c = 17$, so $c = 11$ and $f(x) = 3x + 11$.\nStep 3: Evaluate at $x = 6$: $f(6) = 3(6) + 11 = 29$. Check: $f(2) = 3(2) + 11 = 17$, as given ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): puts the input $2$ in place of the constant, computing $3(6) + 2$.\n* Choice C ($33$): finds $c = 17 - 2 = 15$ by subtracting the input rather than $3(2) = 6$, then computes $18 + 15$.\n* Choice D ($51$): multiplies $f(2)$ by $3$ because the input tripled. With a nonzero constant term, $f$ is not proportional.\n\n**Test Day Takeaway:** Use the given input-output pair to find the constant first, then evaluate. Outputs scale with inputs only when the constant term is $0$.",
       skills: ["function-evaluation"]
     },
     {
@@ -151,18 +151,18 @@ export const practiceTest12M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "Two straight paths on a site map are perpendicular. One is the service road $x + 2y = 14$; the other is a loading ramp through $(6, -3)$. The ramp's line reaches the $y$-axis at $y = b$. What is the value of $b$?",
+      question: "In the $xy$-plane, line $k$ passes through the point $(6, -3)$ and is perpendicular to the graph of $x + 2y = 14$. Which equation defines line $k$?",
       choices: [
-        { id: "A", text: "$-15$" },
-        // distractor: uses the service road's own slope -1/2 instead of the perpendicular slope 2
-        { id: "B", text: "$0$" },
+        { id: "A", text: "$y = 2x - 15$" },
+        // distractor: uses the given line's own slope -1/2 instead of the perpendicular slope 2
+        { id: "B", text: "$y = -\\frac{1}{2}x$" },
         // distractor: uses -2, the reciprocal of -1/2 with the negative sign left in place
-        { id: "C", text: "$9$" },
+        { id: "C", text: "$y = -2x + 9$" },
         // distractor: substitutes the coordinates in reverse, using x = -3 and y = 6
-        { id: "D", text: "$12$" }
+        { id: "D", text: "$y = 2x + 12$" }
       ],
       correctAnswer: "A",
-      explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The ramp has slope $2$, so $-3 = 2(6) + b$ gives $b = -15$.\n\n**The Full Solution:**\nStep 1: Solve the road's equation for $y$: $2y = -x + 14$, so $y = -\\frac{1}{2}x + 7$ and the road has slope $-\\frac{1}{2}$.\nStep 2: A perpendicular line has the negative reciprocal slope, so the ramp has slope $2$ and its equation is $y = 2x + b$.\nStep 3: Substitute the point $(6, -3)$: $-3 = 2(6) + b = 12 + b$, so $b = -15$. Check: the ramp is $y = 2x - 15$, and at $x = 6$ it gives $y = 12 - 15 = -3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($0$): substitutes with the road's own slope, $-3 = -\\frac{1}{2}(6) + b = -3 + b$. That builds a line parallel to the road, which never meets it at a right angle.\n* Choice C ($9$): uses slope $-2$, the reciprocal of $-\\frac{1}{2}$ with the sign left negative, giving $-3 = -12 + b$.\n* Choice D ($12$): plugs the point in backwards as $x = -3$, $y = 6$, computing $6 = 2(-3) + b$.\n\n**Test Day Takeaway:** Convert to slope-intercept form, flip and negate for the perpendicular slope, then substitute the point in the order $(x, y)$ — reversing it is the most common silent error.",
+      explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The given line has slope $-\\frac{1}{2}$, so line $k$ has slope $2$; then $-3 = 2(6) + b$ gives $b = -15$.\n\n**The Full Solution:**\nStep 1: Solve $x + 2y = 14$ for $y$: $y = -\\frac{1}{2}x + 7$, so its slope is $-\\frac{1}{2}$.\nStep 2: A perpendicular line has the negative reciprocal slope, $2$, so line $k$ is $y = 2x + b$.\nStep 3: Substitute $(6, -3)$: $-3 = 12 + b$, so $b = -15$ and line $k$ is $y = 2x - 15$. Check: $2(6) - 15 = -3$, and $(2)\\left(-\\frac{1}{2}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = -\\frac{1}{2}x$): keeps the given slope, $-3 = -\\frac{1}{2}(6) + b$, so $b = 0$. That line is parallel to the given line.\n* Choice C ($y = -2x + 9$): flips $-\\frac{1}{2}$ to $-2$ but does not negate it, then solves $-3 = -12 + b$.\n* Choice D ($y = 2x + 12$): has the right slope but substitutes the point backward, $6 = 2(-3) + b$.\n\n**Test Day Takeaway:** Flip and negate the slope for a perpendicular line, then substitute the point in the order $(x, y)$ to find the intercept.",
       skills: ["perpendicular-negative-reciprocal"]
     },
     {
@@ -170,7 +170,7 @@ export const practiceTest12M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "Fifteen daily temperature readings from a fermentation vat have a mean of $4.5$ degrees Celsius. Every reading is converted to degrees Fahrenheit with $F = 1.8C + 32$. What is the mean, in degrees Fahrenheit, of the converted readings?",
+      question: "A data set consists of $15$ temperatures, in degrees Celsius, and has a mean of $4.5$. Each temperature is converted to degrees Fahrenheit using the formula $F = 1.8C + 32$. What is the mean, in degrees Fahrenheit, of the converted temperatures?",
       choices: [
         // distractor: multiplies the mean by 1.8 but never adds the 32
         { id: "A", text: "$8.1$" },
@@ -181,7 +181,7 @@ export const practiceTest12M2Easy = {
         { id: "D", text: "$65.7$" }
       ],
       correctAnswer: "C",
-      explanation: "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** A mean transforms exactly the way each value does, so the new mean is $1.8(4.5) + 32 = 40.1$.\n\n**The Full Solution:**\nStep 1: Multiplying every value by $1.8$ multiplies the mean by $1.8$: the mean becomes $1.8(4.5) = 8.1$.\nStep 2: Adding $32$ to every value adds $32$ to the mean: $8.1 + 32 = 40.1$ degrees Fahrenheit.\nStep 3: Confirm with the totals. The $15$ Celsius readings sum to $15(4.5) = 67.5$, so the Fahrenheit readings sum to $1.8(67.5) + 15(32) = 121.5 + 480 = 601.5$, and $\\frac{601.5}{15} = 40.1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8.1$): applies only the multiplication, $1.8(4.5)$, and never adds the $32$-degree shift.\n* Choice B ($36.5$): applies only the shift, $4.5 + 32$, and never scales by $1.8$.\n* Choice D ($65.7$): adds first and multiplies second, computing $1.8(4.5 + 32)$. The conversion multiplies before it adds.\n\n**Test Day Takeaway:** Under $y = mx + k$ applied to every value, the mean follows the same rule: multiply the old mean by $m$, then add $k$, in that order.",
+      explanation: "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The mean changes the same way each value does, so the new mean is $1.8(4.5) + 32 = 40.1$.\n\n**The Full Solution:**\nStep 1: Multiplying every value by $1.8$ multiplies the mean by $1.8$: $1.8(4.5) = 8.1$.\nStep 2: Adding $32$ to every value adds $32$ to the mean: $8.1 + 32 = 40.1$ degrees Fahrenheit.\nStep 3: Confirm with the sums. The Celsius values total $15(4.5) = 67.5$, so the Fahrenheit values total $1.8(67.5) + 15(32) = 121.5 + 480 = 601.5$, and $\\frac{601.5}{15} = 40.1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8.1$): applies only the multiplication, $1.8(4.5)$, and leaves out the $32$.\n* Choice B ($36.5$): applies only the addition, $4.5 + 32$, and leaves out the factor of $1.8$.\n* Choice D ($65.7$): adds before multiplying, computing $1.8(4.5 + 32)$; the formula multiplies first.\n\n**Test Day Takeaway:** When every value is transformed by $y = mx + k$, the mean is transformed by the same rule: multiply the old mean by $m$, then add $k$.",
       skills: ["data-analysis"]
     },
     {
@@ -189,18 +189,18 @@ export const practiceTest12M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "A dryer removes water at a steady rate, so the moisture content of a rice batch, in grams per kilogram, after $n$ hours is modeled by $M(n) = 96 - 3n$. For what value of $n$ does $M(n)$ equal $42$?",
+      question: "The function $g$ is defined by $g(x) = 96 - 3x$. For what value of $x$ does $g(x) = 42$?",
       choices: [
-        // distractor: divides the output 42 by 3 and ignores the starting 96
+        // distractor: divides the output 42 by 3 and ignores the 96
         { id: "A", text: "$14$" },
         { id: "B", text: "$18$" },
         // distractor: adds 96 and 42 before dividing by 3 instead of subtracting
         { id: "C", text: "$46$" },
-        // distractor: stops at 3n = 54 without dividing by 3
+        // distractor: stops at 3x = 54 without dividing by 3
         { id: "D", text: "$54$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Solve $f(a) = c$**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $96 - 3n = 42$ gives $3n = 54$, so $n = 18$.\n\n**The Full Solution:**\nStep 1: Set the rule equal to the given output: $96 - 3n = 42$.\nStep 2: Move the variable term: add $3n$ to both sides and subtract $42$, giving $54 = 3n$.\nStep 3: Divide by $3$: $n = 18$ hours. Check by evaluating the model: $M(18) = 96 - 3(18) = 96 - 54 = 42$ grams per kilogram. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($14$): divides the target output by $3$, computing $\\frac{42}{3}$, and never subtracts from the starting moisture of $96$.\n* Choice C ($46$): adds instead of subtracts, computing $\\frac{96 + 42}{3}$. The $96$ is the starting value the drying removes from, not something added to the output.\n* Choice D ($54$): stops at $3n = 54$ and reports $54$, which is the drop in moisture content, not the number of hours.\n\n**Test Day Takeaway:** Solving $f(n) = c$ means substituting for the OUTPUT and solving for the input. Finish the division, then re-evaluate the model to confirm the output lands on $c$.",
+      explanation: "**SAT Pattern: Solve $f(a) = c$**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $96 - 3x = 42$ gives $3x = 54$, so $x = 18$.\n\n**The Full Solution:**\nStep 1: Set the function equal to the given output: $96 - 3x = 42$.\nStep 2: Add $3x$ to both sides and subtract $42$: $54 = 3x$.\nStep 3: Divide by $3$: $x = 18$. Check: $g(18) = 96 - 3(18) = 96 - 54 = 42$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($14$): computes $\\frac{42}{3}$, ignoring the $96$ in the function.\n* Choice C ($46$): computes $\\frac{96 + 42}{3}$, adding where the equation requires subtracting.\n* Choice D ($54$): stops at $3x = 54$ and reports $54$ without dividing by $3$.\n\n**Test Day Takeaway:** $g(x) = 42$ gives the OUTPUT; set the rule equal to it and solve for the input, then evaluate $g$ at your answer to confirm.",
       skills: ["function-notation"]
     },
     {
@@ -208,10 +208,10 @@ export const practiceTest12M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "A $40$-kilogram flour blend contains $x$ kilograms of oat flour and the rest barley flour, with the fiber contents given in the table. The total fiber in the blend, in grams, can be written as $ax + b$, where $a$ and $b$ are constants. What is the value of $a + b$?",
+      question: "The table shows the amount of fiber in each kilogram of two types of flour. A $40$-kilogram blend contains $x$ kilograms of oat flour and the rest barley flour. The total amount of fiber in the blend, in grams, can be written as $ax + b$, where $a$ and $b$ are constants. What is the value of $a + b$?",
       questionTable: { headers: ["Flour", "Fiber per kilogram (grams)"], rows: [["Oat", "$96$"], ["Barley", "$132$"]] },
       correctAnswer: "5244",
-      explanation: "**SAT Pattern: Matching Coefficients**\n\n**The correct answer is $5244$.**\n\n**The Fast Way (~35s):** Total fiber $= 96x + 132(40 - x) = 5280 - 36x$, so $a = -36$, $b = 5280$, and $a + b = 5244$.\n\n**The Full Solution:**\nStep 1: With $x$ kilograms of oat flour in a $40$-kilogram blend, the barley portion is $40 - x$ kilograms. Total fiber $= 96x + 132(40 - x)$ grams.\nStep 2: Distribute and collect like terms: $96x + 5280 - 132x = -36x + 5280$.\nStep 3: Match this to $ax + b$: the coefficient of $x$ is $a = -36$ and the constant term is $b = 5280$, so $a + b = -36 + 5280 = 5244$. Check at $x = 40$ (all oat flour): the expression gives $-36(40) + 5280 = -1440 + 5280 = 3840$, and $96(40) = 3840$ grams. $\\checkmark$\n\n**Common Mistakes:** Entering $5316$ (writing $a = 36$ from $132 - 96$ and losing the sign; oat flour has LESS fiber per kilogram, so total fiber falls as $x$ grows); entering $5280$ (reporting $b$ alone and forgetting to add $a$); entering $-36$ (reporting $a$ alone); entering $228$ (adding the two table values, $96 + 132$, instead of building the expression).\n\n**Test Day Takeaway:** Write the mixture expression, expand it completely, and read $a$ and $b$ off the collected form. The sign of $a$ comes from the subtraction, not from the larger table value.",
+      explanation: "**SAT Pattern: Matching Coefficients**\n\n**The correct answer is $5244$.**\n\n**The Fast Way (~35s):** Total fiber $= 96x + 132(40 - x) = -36x + 5280$, so $a = -36$, $b = 5280$, and $a + b = 5244$.\n\n**The Full Solution:**\nStep 1: The blend has $x$ kilograms of oat flour and $40 - x$ kilograms of barley flour, so the total fiber is $96x + 132(40 - x)$ grams.\nStep 2: Distribute and combine like terms: $96x + 5280 - 132x = -36x + 5280$.\nStep 3: Match to $ax + b$: $a = -36$ and $b = 5280$, so $a + b = 5244$. Check at $x = 40$ (all oat flour): $-36(40) + 5280 = 3840$, and $96(40) = 3840$ ✓\n\n**Common Mistakes:**\n* $5316$: takes $a = 36$ from $132 - 96$, losing the sign; oat flour has less fiber per kilogram, so the total falls as $x$ increases.\n* $5280$: reports $b$ alone without adding $a$.\n* $228$: adds the two table values, $96 + 132$, instead of building the expression.\n\n**Test Day Takeaway:** Write the expression for the total, expand it completely, and read $a$ and $b$ from the collected form; the sign of $a$ comes from the subtraction.",
       skills: ["distributive-property"]
     },
     {
@@ -219,18 +219,18 @@ export const practiceTest12M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "A conveyor guard is shaped as a triangle whose two shorter sides are perpendicular. One of those sides is $5\\sqrt{2}$ centimeters long and the guard's surface is $60$ square centimeters. How long, in centimeters, is the other perpendicular side?",
+      question: "A right triangle has a leg of length $5\\sqrt{2}$ centimeters and an area of $60$ square centimeters. What is the length, in centimeters, of the other leg of the triangle?",
       choices: [
         // distractor: omits the factor of 1/2 in the area formula, dividing 60 rather than 120 by 5 root 2
         { id: "A", text: "$6\\sqrt{2}$" },
         { id: "B", text: "$12\\sqrt{2}$" },
         // distractor: drops the radical and divides 120 by 5
         { id: "C", text: "$24$" },
-        // distractor: multiplies by root 2 instead of dividing by it when clearing the radical
+        // distractor: multiplies 24 by root 2 instead of dividing by it
         { id: "D", text: "$24\\sqrt{2}$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Right Triangle Area with Surds**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** $\\frac{1}{2}(5\\sqrt{2})h = 60$ gives $h = \\frac{120}{5\\sqrt{2}} = \\frac{24}{\\sqrt{2}} = 12\\sqrt{2}$.\n\n**The Full Solution:**\nStep 1: The two perpendicular sides are the legs, so the area is $\\frac{1}{2}(5\\sqrt{2})(h) = 60$, where $h$ is the unknown side.\nStep 2: Multiply both sides by $2$ and divide by $5\\sqrt{2}$: $h = \\frac{120}{5\\sqrt{2}} = \\frac{24}{\\sqrt{2}}$.\nStep 3: Rationalize: $\\frac{24}{\\sqrt{2}} \\cdot \\frac{\\sqrt{2}}{\\sqrt{2}} = \\frac{24\\sqrt{2}}{2} = 12\\sqrt{2}$ centimeters. Check: $5\\sqrt{2} \\cdot 12\\sqrt{2} = 60 \\cdot 2 = 120$, and half of $120$ is $60$ square centimeters. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($6\\sqrt{2}$): divides $60$ by $5\\sqrt{2}$ and skips the factor of $2$ that clearing $\\frac{1}{2}$ requires. That triangle would have area $30$ square centimeters.\n* Choice C ($24$): treats the given side as $5$ and computes $\\frac{120}{5}$, dropping the radical entirely.\n* Choice D ($24\\sqrt{2}$): multiplies $\\frac{120}{5} = 24$ by $\\sqrt{2}$ instead of dividing by it, doubling the true length.\n\n**Test Day Takeaway:** For a right triangle the legs are the base and height, so double the area before dividing by the known leg. When a radical lands in the denominator, rationalize and simplify before comparing to the choices.",
+      explanation: "**SAT Pattern: Right Triangle Area with Surds**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $\\frac{1}{2}(5\\sqrt{2})h = 60$ gives $h = \\frac{120}{5\\sqrt{2}} = \\frac{24}{\\sqrt{2}} = 12\\sqrt{2}$.\n\n**The Full Solution:**\nStep 1: The legs of a right triangle are its base and height, so $\\frac{1}{2}(5\\sqrt{2})h = 60$, where $h$ is the other leg.\nStep 2: Multiply both sides by $2$ and divide by $5\\sqrt{2}$: $h = \\frac{120}{5\\sqrt{2}} = \\frac{24}{\\sqrt{2}}$.\nStep 3: Rationalize: $\\frac{24}{\\sqrt{2}} \\cdot \\frac{\\sqrt{2}}{\\sqrt{2}} = \\frac{24\\sqrt{2}}{2} = 12\\sqrt{2}$. Check: $\\frac{1}{2}(5\\sqrt{2})(12\\sqrt{2}) = \\frac{1}{2}(60 \\cdot 2) = 60$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6\\sqrt{2}$): divides $60$ by $5\\sqrt{2}$ without first doubling the area; that triangle's area would be $30$.\n* Choice C ($24$): treats the leg as $5$ and computes $\\frac{120}{5}$, dropping the radical.\n* Choice D ($24\\sqrt{2}$): multiplies $24$ by $\\sqrt{2}$ instead of dividing by it, giving twice the correct length.\n\n**Test Day Takeaway:** For a right triangle, double the area and divide by the known leg; if a radical ends up in the denominator, rationalize before comparing with the choices.",
       skills: ["triangle-area"]
     },
     {
@@ -238,18 +238,18 @@ export const practiceTest12M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "In a random sample of $240$ vans drawn from a regional delivery fleet, the mean odometer reading was $47.6$ thousand kilometers, and the associated margin of error was $2.3$ thousand kilometers. Which statement about odometer readings is best supported?",
+      question: "A random sample of $240$ vans was selected from all the vans owned by a delivery service. The mean odometer reading of the vans in the sample was $47.6$ thousand kilometers, with an associated margin of error of $2.3$ thousand kilometers. Which of the following is the most appropriate conclusion about the mean odometer reading of all the vans owned by the delivery service?",
       choices: [
         // distractor: doubles the margin of error before building the interval, giving 47.6 plus or minus 4.6
-        { id: "A", text: "The mean odometer reading of all vans in the fleet is between $43.0$ and $52.2$ thousand kilometers." },
+        { id: "A", text: "It is plausible that the mean is between $43.0$ and $52.2$ thousand kilometers." },
         // distractor: subtracts the margin but keeps the sample mean itself as the upper bound
-        { id: "B", text: "The mean odometer reading of all vans in the fleet is between $45.3$ and $47.6$ thousand kilometers." },
-        // distractor: attaches the interval to the 240 sampled vans, whose mean is already known exactly to be 47.6
-        { id: "C", text: "The mean odometer reading of the $240$ sampled vans is between $45.3$ and $49.9$ thousand kilometers." },
-        { id: "D", text: "The mean odometer reading of all vans in the fleet is between $45.3$ and $49.9$ thousand kilometers." }
+        { id: "B", text: "It is plausible that the mean is between $45.3$ and $47.6$ thousand kilometers." },
+        // distractor: treats the sample mean as the exact population mean, ignoring the margin of error
+        { id: "C", text: "The mean is exactly $47.6$ thousand kilometers." },
+        { id: "D", text: "It is plausible that the mean is between $45.3$ and $49.9$ thousand kilometers." }
       ],
       correctAnswer: "D",
-      explanation: "**SAT Pattern: Margin of Error**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The interval is the sample mean plus or minus the margin: $47.6 - 2.3 = 45.3$ and $47.6 + 2.3 = 49.9$, and it describes the whole fleet.\n\n**The Full Solution:**\nStep 1: A margin of error is applied to the sample mean in both directions to estimate the population value.\nStep 2: Lower bound $= 47.6 - 2.3 = 45.3$ thousand kilometers; upper bound $= 47.6 + 2.3 = 49.9$ thousand kilometers.\nStep 3: The population here is every van in the fleet, not the $240$ sampled, so the supported statement is that the fleet's mean lies between $45.3$ and $49.9$ thousand kilometers. Check the width: the interval spans $49.9 - 45.3 = 4.6$, which is twice the $2.3$ margin, as it must be. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($43.0$ to $52.2$): doubles the margin before applying it, using $\\pm 4.6$. The margin of error is already the full one-sided distance.\n* Choice B ($45.3$ to $47.6$): subtracts the margin but leaves the sample mean as the top of the interval, making it one-sided. A margin of error extends above the mean as well as below.\n* Choice C (the $240$ sampled vans): builds the right interval but attaches it to the sample. The sample's mean is known to be exactly $47.6$; the interval estimates the unknown population mean.\n\n**Test Day Takeaway:** Sample mean $\\pm$ margin of error, applied once in each direction, and the resulting interval always describes the POPULATION, never the sample you already measured.",
+      explanation: "**SAT Pattern: Margin of Error**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The plausible values are the sample mean plus or minus the margin of error: $47.6 - 2.3 = 45.3$ and $47.6 + 2.3 = 49.9$.\n\n**The Full Solution:**\nStep 1: A margin of error is applied to the sample estimate in both directions to give plausible values for the population.\nStep 2: Lower bound: $47.6 - 2.3 = 45.3$ thousand kilometers. Upper bound: $47.6 + 2.3 = 49.9$ thousand kilometers.\nStep 3: So it is plausible that the mean odometer reading of all the vans is between $45.3$ and $49.9$ thousand kilometers. Check: the interval's width is $49.9 - 45.3 = 4.6$, twice the margin of error, with $47.6$ at its center ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($43.0$ to $52.2$): applies $\\pm 4.6$, doubling the margin of error before using it.\n* Choice B ($45.3$ to $47.6$): subtracts the margin but leaves the sample mean as the upper bound; the interval extends above the estimate as well.\n* Choice C (exactly $47.6$): treats the sample mean as the population mean. A sample gives an estimate, which is why a margin of error is reported.\n\n**Test Day Takeaway:** Estimate $\\pm$ margin of error gives the plausible values for the whole population, never a single exact value.",
       skills: ["margin-of-error"]
     },
     {
@@ -257,18 +257,18 @@ export const practiceTest12M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "Two constraints of a scheduling model, $6x - 9y = 15$ and $kx + 12y = 7$, apply to the same pair of quantities, yet no ordered pair $(x, y)$ meets them both. What is the value of the constant $k$ in the second constraint?",
+      question: "$6x - 8y = 5$\n$kx + 12y = 7$\nIn the given system of equations, $k$ is a constant. If the system has no solution, what is the value of $k$?",
       choices: [
-        // distractor: uses 3/2, the reciprocal of the first constraint's slope 2/3
-        { id: "A", text: "$-18$" },
-        { id: "B", text: "$-8$" },
-        // distractor: matches the slopes but drops the minus sign that dividing by 12y introduces
-        { id: "C", text: "$8$" },
-        // distractor: flips the slope to 3/2 and also drops the minus sign
-        { id: "D", text: "$18$" }
+        // distractor: uses 4/3, the reciprocal of the first line's slope 3/4
+        { id: "A", text: "$-16$" },
+        { id: "B", text: "$-9$" },
+        // distractor: matches the slopes but drops the minus sign that solving for y introduces
+        { id: "C", text: "$9$" },
+        // distractor: inverts the slope to 4/3 and also drops the minus sign
+        { id: "D", text: "$16$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** No solution means equal slopes. The first constraint has slope $\\frac{2}{3}$ and the second has slope $-\\frac{k}{12}$, so $-\\frac{k}{12} = \\frac{2}{3}$ and $k = -8$.\n\n**The Full Solution:**\nStep 1: Solve each constraint for $y$. From $6x - 9y = 15$: $9y = 6x - 15$, so $y = \\frac{2}{3}x - \\frac{5}{3}$. From $kx + 12y = 7$: $12y = -kx + 7$, so $y = -\\frac{k}{12}x + \\frac{7}{12}$.\nStep 2: Two linear equations have no common solution exactly when their slopes are equal and their $y$-intercepts differ: $-\\frac{k}{12} = \\frac{2}{3}$.\nStep 3: Solve: $k = -12 \\cdot \\frac{2}{3} = -8$. Check the intercepts: $-\\frac{5}{3}$ and $\\frac{7}{12}$ are different, so the lines are parallel and distinct rather than identical. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-18$): sets $-\\frac{k}{12} = \\frac{3}{2}$, inverting the first slope. Reading $6x - 9y = 15$ as slope $\\frac{9}{6}$ flips rise and run.\n* Choice C ($8$): sets $\\frac{k}{12} = \\frac{2}{3}$, forgetting that moving $kx$ across the equal sign makes the slope $-\\frac{k}{12}$.\n* Choice D ($18$): combines both slips, inverting the slope and dropping the sign.\n\n**Test Day Takeaway:** Put both equations in slope-intercept form before comparing. No solution needs equal slopes AND different intercepts — always confirm the intercepts differ, or the system has infinitely many solutions instead.",
+      explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** No solution means equal slopes. The first line has slope $\\frac{3}{4}$ and the second has slope $-\\frac{k}{12}$, so $-\\frac{k}{12} = \\frac{3}{4}$ and $k = -9$.\n\n**The Full Solution:**\nStep 1: Solve each equation for $y$. From $6x - 8y = 5$: $y = \\frac{3}{4}x - \\frac{5}{8}$. From $kx + 12y = 7$: $y = -\\frac{k}{12}x + \\frac{7}{12}$.\nStep 2: A system of two linear equations has no solution when the slopes are equal and the $y$-intercepts differ: $-\\frac{k}{12} = \\frac{3}{4}$.\nStep 3: Solve: $k = -12 \\cdot \\frac{3}{4} = -9$. Check: the intercepts $-\\frac{5}{8}$ and $\\frac{7}{12}$ are different, so the lines are parallel and distinct ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-16$): sets $-\\frac{k}{12} = \\frac{4}{3}$, reading the first slope as $\\frac{8}{6}$ instead of $\\frac{6}{8}$.\n* Choice C ($9$): sets $\\frac{k}{12} = \\frac{3}{4}$, forgetting that moving $kx$ to the other side makes the slope $-\\frac{k}{12}$.\n* Choice D ($16$): combines both slips, inverting the slope and dropping the sign.\n\n**Test Day Takeaway:** Put both equations in slope-intercept form before comparing. No solution requires equal slopes AND different intercepts; equal intercepts too would mean infinitely many solutions.",
       skills: ["system-solution-types"]
     },
     {
@@ -276,9 +276,9 @@ export const practiceTest12M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "A blending sheet lists $4x + 10y = 26$ beside $6x + cy = 39$ for the ingredient masses $x$ and $y$, in kilograms, and any masses that satisfy the first equation satisfy the second as well. What is the value of the constant $c$?",
+      question: "$4x + 10y = 26$\n$6x + cy = 39$\nIn the given system of equations, $c$ is a constant. For what value of $c$ does the system have infinitely many solutions?",
       correctAnswer: "15",
-      explanation: "**SAT Pattern: System Equivalence Check**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~30s):** The constants scale by $\\frac{39}{26} = \\frac{3}{2}$, and $6 = \\frac{3}{2}(4)$ confirms it, so $c = \\frac{3}{2}(10) = 15$.\n\n**The Full Solution:**\nStep 1: If every solution of one equation solves the other, the two equations are multiples of each other, so all three matching parts share one scale factor.\nStep 2: Find the factor from the parts you know: $\\frac{6}{4} = \\frac{3}{2}$ from the $x$-coefficients and $\\frac{39}{26} = \\frac{3}{2}$ from the constants. They agree, so the factor is $\\frac{3}{2}$.\nStep 3: Apply it to the $y$-coefficient: $c = \\frac{3}{2}(10) = 15$. Check by scaling the whole first equation: $\\frac{3}{2}(4x + 10y = 26)$ gives $6x + 15y = 39$, matching the second line exactly. $\\checkmark$\n\n**Common Mistakes:** Entering $10$ (copying the $y$-coefficient from the first equation, as if only the other two terms changed); entering $6.67$ (scaling by $\\frac{26}{39} = \\frac{2}{3}$, the reciprocal of the correct factor); entering $12$ (adding the difference $6 - 4 = 2$ to $10$ instead of multiplying by $\\frac{3}{2}$ — equivalent equations scale, they do not shift).\n\n**Test Day Takeaway:** Equivalent equations means one is a constant multiple of the other. Read the factor off a pair of terms you can see, verify it on a second pair, then apply it to the unknown.",
+      explanation: "**SAT Pattern: System Equivalence Check**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~25s):** The constants scale by $\\frac{39}{26} = \\frac{3}{2}$, and $\\frac{6}{4} = \\frac{3}{2}$ confirms it, so $c = \\frac{3}{2}(10) = 15$.\n\n**The Full Solution:**\nStep 1: A system of two linear equations has infinitely many solutions when one equation is a constant multiple of the other, so all three pairs of matching parts share one scale factor.\nStep 2: Find the factor from the known parts: $\\frac{6}{4} = \\frac{3}{2}$ for the $x$-coefficients and $\\frac{39}{26} = \\frac{3}{2}$ for the constants.\nStep 3: Apply it to the $y$-coefficient: $c = \\frac{3}{2}(10) = 15$. Check: multiplying $4x + 10y = 26$ by $\\frac{3}{2}$ gives $6x + 15y = 39$, the second equation exactly ✓\n\n**Common Mistakes:**\n* $10$: copies the $y$-coefficient from the first equation, as if only the other parts changed.\n* $6.666$: scales by $\\frac{26}{39} = \\frac{2}{3}$, the reciprocal of the correct factor.\n* $12$: adds the difference $6 - 4 = 2$ to $10$; equivalent equations are multiples, not shifts.\n\n**Test Day Takeaway:** For infinitely many solutions, find the scale factor from one pair of matching terms, confirm it on a second pair, then apply it to the unknown coefficient.",
       skills: ["system-solution-types", "infinite-solutions-condition"]
     },
     {
@@ -286,7 +286,7 @@ export const practiceTest12M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "During a meteor watch, an observer logged the number of meteors visible in each of $10$ consecutive one-hour sessions, and the dot plot displays those counts. What was the mean number of meteors per session?",
+      question: "The dot plot shows the number of meteors an observer counted during each of $10$ one-hour sessions. What is the mean number of meteors counted per session?",
       diagram: { type: "dotPlot", params: { data: [{ value: 3, count: 1 }, { value: 4, count: 2 }, { value: 6, count: 1 }, { value: 7, count: 1 }, { value: 8, count: 3 }, { value: 10, count: 1 }, { value: 12, count: 1 }], xMin: 2, xMax: 13, xLabel: "Meteors per session" } },
       choices: [
         { id: "A", text: "$7$" },
@@ -298,7 +298,7 @@ export const practiceTest12M2Easy = {
         { id: "D", text: "$9$" }
       ],
       correctAnswer: "A",
-      explanation: "**SAT Pattern: Mean from List**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The ten dots sum to $70$, and $\\frac{70}{10} = 7$.\n\n**The Full Solution:**\nStep 1: Read one value per dot: $3, 4, 4, 6, 7, 8, 8, 8, 10, 12$. That is $10$ values, matching the $10$ sessions.\nStep 2: Add them, using the stacks: $3 + 2(4) + 6 + 7 + 3(8) + 10 + 12 = 3 + 8 + 6 + 7 + 24 + 10 + 12 = 70$.\nStep 3: Divide by the number of sessions: $\\frac{70}{10} = 7$ meteors per session. Check: $10 \\times 7 = 70$, which is the total counted. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($7.5$): averages the $5$th and $6$th ordered values, $7$ and $8$. That is the median, which a dot plot makes easy to find but is not what the question asks for.\n* Choice C ($8$): reads off the tallest stack, the mode. Three sessions had $8$ meteors, but the mean weighs every session.\n* Choice D ($9$): computes $12 - 3$, the range. That measures spread, not center.\n\n**Test Day Takeaway:** Every dot is a separate value, so multiply each value by its stack height, add, and divide by the total number of dots — not by the number of distinct positions.",
+      explanation: "**SAT Pattern: Mean from List**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The ten values sum to $70$, and $\\frac{70}{10} = 7$.\n\n**The Full Solution:**\nStep 1: List one value per dot: $3, 4, 4, 6, 7, 8, 8, 8, 10, 12$. That is $10$ values, one for each session.\nStep 2: Add them: $3 + 2(4) + 6 + 7 + 3(8) + 10 + 12 = 3 + 8 + 6 + 7 + 24 + 10 + 12 = 70$.\nStep 3: Divide by the number of sessions: $\\frac{70}{10} = 7$. Check: $10 \\times 7 = 70$, the total number of meteors counted ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($7.5$): averages the $5$th and $6$th ordered values, $7$ and $8$; that is the median.\n* Choice C ($8$): reads the tallest stack, the mode.\n* Choice D ($9$): computes $12 - 3$, the range, which measures spread rather than center.\n\n**Test Day Takeaway:** Each dot is one value, so multiply each value by the number of dots above it, add, and divide by the total number of dots.",
       skills: ["calculate-mean"]
     },
     // ============================================================
@@ -309,18 +309,18 @@ export const practiceTest12M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 6,
-      question: "A star tracker reports a guide star's vertical offset, in arcseconds, $t$ seconds after a correction begins as $D(t) = a(t - 4)^2 - 9$ for $0 \\le t \\le 8$, where $a$ is a constant, and the offset at $t = 0$ is $23$ arcseconds. Rewriting $D(t)$ in the form $at^2 + bt + c$, what is the value of $b$?",
+      question: "$a(x - 4)^{2} - 9$\nIn the given expression, $a$ is a constant. The expression is equivalent to $ax^{2} + bx + 23$, where $b$ is a constant. What is the value of $b$?",
       choices: [
         { id: "A", text: "$-16$" },
         // distractor: expands the square but never multiplies the middle term by a, reporting -2 times 4
         { id: "B", text: "$-8$" },
         // distractor: solves 16a - 9 = 23 as 16a = 14, getting a = 0.875 and then b = -7
         { id: "C", text: "$-7$" },
-        // distractor: keeps the middle term positive, reporting +2 times 2 times 4
+        // distractor: finds a = 2 but writes the middle term of (x - 4)^2 as +8x, giving b = 16
         { id: "D", text: "$16$" }
       ],
       correctAnswer: "A",
-      explanation: "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** $D(0) = 16a - 9 = 23$ gives $a = 2$, and the middle term of $a(t - 4)^2$ is $-8at = -16t$, so $b = -16$.\n\n**The Full Solution:**\nStep 1: Use the given offset at $t = 0$: $D(0) = a(0 - 4)^2 - 9 = 16a - 9$. Setting $16a - 9 = 23$ gives $16a = 32$, so $a = 2$.\nStep 2: Expand with $a = 2$: $2(t - 4)^2 - 9 = 2(t^2 - 8t + 16) - 9 = 2t^2 - 16t + 32 - 9$.\nStep 3: Collect: $D(t) = 2t^2 - 16t + 23$, so $b = -16$. Check the constant term against the given value: $c = 23$, which is exactly $D(0)$, as it must be. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-8$): expands $(t - 4)^2$ to $t^2 - 8t + 16$ and copies the $-8$ straight down, forgetting that every term inside gets multiplied by $a = 2$.\n* Choice C ($-7$): solves $16a - 9 = 23$ by subtracting $9$ instead of adding it, getting $16a = 14$ and $a = 0.875$, then $b = -8(0.875) = -7$.\n* Choice D ($16$): expands correctly in size but drops the minus sign; $(t - 4)^2$ has a NEGATIVE middle term because the binomial is a difference.\n\n**Test Day Takeaway:** Pin the leading coefficient with a known point first, then expand the square completely before distributing. In $a(t - h)^2 + k$ the middle coefficient is always $-2ah$, sign included.",
+      explanation: "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** The constant term of $a(x - 4)^{2} - 9$ is $16a - 9$, so $16a - 9 = 23$ and $a = 2$. The middle term is $-8ax = -16x$, so $b = -16$.\n\n**The Full Solution:**\nStep 1: Expand: $a(x - 4)^{2} - 9 = a(x^{2} - 8x + 16) - 9 = ax^{2} - 8ax + 16a - 9$.\nStep 2: Match the constant terms: $16a - 9 = 23$, so $16a = 32$ and $a = 2$.\nStep 3: Match the $x$-terms: $b = -8a = -8(2) = -16$. Check: $2(x - 4)^{2} - 9 = 2x^{2} - 16x + 32 - 9 = 2x^{2} - 16x + 23$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-8$): copies the $-8$ from $x^{2} - 8x + 16$ without multiplying it by $a = 2$.\n* Choice C ($-7$): solves $16a - 9 = 23$ by subtracting $9$, getting $16a = 14$ and $a = 0.875$, then $b = -8(0.875) = -7$.\n* Choice D ($16$): finds $a = 2$ but expands $(x - 4)^{2}$ with a middle term of $+8x$; squaring a difference gives a negative middle term.\n\n**Test Day Takeaway:** Expand the vertex form completely, then match coefficients term by term; in $a(x - h)^{2} + k$, the $x$-coefficient is $-2ah$ and the constant is $ah^{2} + k$.",
       skills: ["distributive-property", "converting-quadratic-forms"]
     },
     {
@@ -328,9 +328,9 @@ export const practiceTest12M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 6,
-      question: "A two-stage image filter processes an input $a$ by first applying $g(x) = (x - 2)^2$ and then applying $f(x) = 3x - 7$ to the value that $g$ returns. For one input the filter's output is $41$. What is the greatest possible value of $a$?",
+      question: "The functions $f$ and $g$ are defined by $f(x) = 3x - 5$ and $g(x) = (x - 2)^{2}$. If $f(g(a)) = 43$, what is the greatest possible value of $a$?",
       correctAnswer: "6",
-      explanation: "**SAT Pattern: Function Composition**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~40s):** $3(a - 2)^2 - 7 = 41$ gives $(a - 2)^2 = 16$, so $a - 2 = \\pm 4$ and the greater input is $a = 6$.\n\n**The Full Solution:**\nStep 1: Write the composition in order. The inner stage gives $g(a) = (a - 2)^2$, and the outer stage gives $f(g(a)) = 3(a - 2)^2 - 7 = 41$.\nStep 2: Undo the outer stage: add $7$ to both sides for $3(a - 2)^2 = 48$, then divide by $3$ for $(a - 2)^2 = 16$.\nStep 3: Take both square roots: $a - 2 = 4$ or $a - 2 = -4$, so $a = 6$ or $a = -2$. The greater value is $6$. Check: $g(6) = (6 - 2)^2 = 16$ and $f(16) = 3(16) - 7 = 41$. $\\checkmark$\n\n**Common Mistakes:** Entering $-2$ (the other valid input; the question asks for the GREATEST value, so both roots must be found and compared); entering $18$ (writing $a - 2 = 16$ without taking the square root of both sides); entering $4$ (stopping at $a - 2 = 4$ and never adding the $2$ back).\n\n**Test Day Takeaway:** Work a composition from the outside in, undoing one stage at a time. A squared expression yields two roots, so solve for both and then answer the question that was actually asked.",
+      explanation: "**SAT Pattern: Function Composition**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~40s):** $3(a - 2)^{2} - 5 = 43$ gives $(a - 2)^{2} = 16$, so $a - 2 = \\pm 4$ and the greater value is $a = 6$.\n\n**The Full Solution:**\nStep 1: Work from the inside out: $g(a) = (a - 2)^{2}$, so $f(g(a)) = 3(a - 2)^{2} - 5$. Set this equal to $43$.\nStep 2: Add $5$ to both sides, $3(a - 2)^{2} = 48$, then divide by $3$: $(a - 2)^{2} = 16$.\nStep 3: Take both square roots: $a - 2 = 4$ or $a - 2 = -4$, so $a = 6$ or $a = -2$. The greater value is $6$. Check: $g(6) = 16$ and $f(16) = 3(16) - 5 = 43$ ✓\n\n**Common Mistakes:**\n* $-2$: the other solution; the question asks for the greatest possible value.\n* $18$: writes $a - 2 = 16$ without taking the square root.\n* $4$: stops at $a - 2 = 4$ and never adds the $2$.\n\n**Test Day Takeaway:** Undo a composition one function at a time, starting with the outer function. A squared expression gives two roots, so find both before choosing the one the question asks for.",
       skills: ["function-composition"]
     },
     {
@@ -338,9 +338,9 @@ export const practiceTest12M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 7,
-      question: "At a rail yard with $n$ stacking rows, where $n$ is an integer greater than $1$, the ratio of loaded slots to empty slots is $\\frac{25n^2 - 4}{5n^2 + 8n - 4}$. Which of the following expressions is equivalent to that ratio for every such value of $n$?",
+      question: "$\\frac{25n^{2} - 4}{5n^{2} + 8n - 4}$\nWhich of the following is equivalent to the given expression for $n > 1$?",
       choices: [
-        // distractor: inverts the simplified ratio, reporting empty slots per loaded slot
+        // distractor: inverts the simplified expression, writing the denominator's remaining factor on top
         { id: "A", text: "$\\frac{n + 2}{5n + 2}$" },
         // distractor: keeps 5n - 2 in the numerator and cancels 5n + 2, which is not a factor of the denominator
         { id: "B", text: "$\\frac{5n - 2}{n + 2}$" },
@@ -349,7 +349,7 @@ export const practiceTest12M2Easy = {
         { id: "D", text: "$\\frac{5n + 2}{n + 2}$" }
       ],
       correctAnswer: "D",
-      explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** The numerator is a difference of squares, $(5n - 2)(5n + 2)$, and the denominator factors as $(5n - 2)(n + 2)$. The common factor $5n - 2$ divides out, leaving $\\frac{5n + 2}{n + 2}$.\n\n**The Full Solution:**\nStep 1: Factor the numerator. $25n^2 - 4 = (5n)^2 - 2^2 = (5n - 2)(5n + 2)$.\nStep 2: Factor the denominator. Look for factors of $5n^2 + 8n - 4$: $(5n - 2)(n + 2) = 5n^2 + 10n - 2n - 4 = 5n^2 + 8n - 4$. $\\checkmark$\nStep 3: Divide out the shared factor $5n - 2$, which is nonzero because $n > 1$: $\\frac{(5n - 2)(5n + 2)}{(5n - 2)(n + 2)} = \\frac{5n + 2}{n + 2}$. Check at $n = 2$: the original is $\\frac{100 - 4}{20 + 16 - 4} = \\frac{96}{32} = 3$, and the simplified form gives $\\frac{12}{4} = 3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{n + 2}{5n + 2}$): the correct simplification turned upside down. At $n = 2$ it equals $\\frac{1}{3}$, not $3$.\n* Choice B ($\\frac{5n - 2}{n + 2}$): cancels the wrong half of the difference of squares, keeping $5n - 2$ instead of the factor that survives. At $n = 2$ it gives $\\frac{8}{4} = 2$.\n* Choice C ($\\frac{5n + 2}{n - 2}$): comes from factoring the denominator as $(5n + 2)(n - 2)$, which multiplies out to $5n^2 - 8n - 4$ — the middle term has the wrong sign.\n\n**Test Day Takeaway:** Factor both parts completely before cancelling, and verify any factorization by multiplying it back out. A quick numerical check at one legal value catches every sign slip.",
+      explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** The numerator is a difference of squares, $(5n - 2)(5n + 2)$, and the denominator factors as $(5n - 2)(n + 2)$. Dividing out $5n - 2$ leaves $\\frac{5n + 2}{n + 2}$.\n\n**The Full Solution:**\nStep 1: Factor the numerator: $25n^{2} - 4 = (5n)^{2} - 2^{2} = (5n - 2)(5n + 2)$.\nStep 2: Factor the denominator: $(5n - 2)(n + 2) = 5n^{2} + 10n - 2n - 4 = 5n^{2} + 8n - 4$.\nStep 3: Divide out the common factor $5n - 2$, which is not zero for $n > 1$: $\\frac{(5n - 2)(5n + 2)}{(5n - 2)(n + 2)} = \\frac{5n + 2}{n + 2}$. Check at $n = 2$: the original is $\\frac{96}{32} = 3$, and $\\frac{5(2) + 2}{2 + 2} = \\frac{12}{4} = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{n + 2}{5n + 2}$): the correct result turned upside down; at $n = 2$ it equals $\\frac{1}{3}$, not $3$.\n* Choice B ($\\frac{5n - 2}{n + 2}$): cancels the wrong factor of the numerator; at $n = 2$ it equals $2$.\n* Choice C ($\\frac{5n + 2}{n - 2}$): factors the denominator as $(5n + 2)(n - 2)$, which expands to $5n^{2} - 8n - 4$, the wrong sign on the middle term.\n\n**Test Day Takeaway:** Factor the numerator and denominator completely before cancelling, and check the result at one allowed value of the variable.",
       skills: ["simplifying-rational-expressions", "difference-of-squares"]
     },
     {
@@ -357,18 +357,18 @@ export const practiceTest12M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 7,
-      question: "A freight desk charges a flat fee of \\$15 per crate plus \\$2.50 for each kilogram of a crate's mass above $30$ kilograms. One crate was charged \\$75. What was that crate's mass, in kilograms?",
+      question: "A courier charges \\$15 to deliver a package, plus \\$2.50 for each pound of the package's weight over $30$ pounds. The courier charged \\$75 to deliver one package. What is the weight, in pounds, of that package?",
       choices: [
-        // distractor: divides the 60-dollar overage by 2.50 but never adds the 30-kilogram allowance back
+        // distractor: divides the 60-dollar overage by 2.50 but never adds the 30-pound allowance back
         { id: "A", text: "$24$" },
-        // distractor: treats the 15-dollar flat fee as a 15-kilogram allowance, solving 15 + 2.50(m - 15) = 75
+        // distractor: treats the 15-dollar charge as a 15-pound allowance, solving 15 + 2.50(w - 15) = 75
         { id: "B", text: "$39$" },
         { id: "C", text: "$54$" },
-        // distractor: divides the full 75-dollar charge by 2.50 before removing the flat fee, then adds 30
+        // distractor: divides the full 75-dollar charge by 2.50 before removing the 15-dollar charge, then adds 30
         { id: "D", text: "$60$" }
       ],
       correctAnswer: "C",
-      explanation: "**SAT Pattern: Word-to-Expression Translation**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** The charge above the flat fee is $75 - 15 = 60$ dollars, which buys $\\frac{60}{2.50} = 24$ kilograms beyond the $30$-kilogram allowance, so the mass is $54$ kilograms.\n\n**The Full Solution:**\nStep 1: Translate the fee structure. With mass $m$ kilograms, only the part above $30$ is billed per kilogram, so the charge is $15 + 2.50(m - 30)$ dollars.\nStep 2: Set the charge equal to $75$: $15 + 2.50(m - 30) = 75$. Subtract $15$: $2.50(m - 30) = 60$.\nStep 3: Divide by $2.50$ and add $30$: $m - 30 = 24$, so $m = 54$ kilograms. Check: $2.50(54 - 30) = 2.50(24) = 60$ dollars, and $15 + 60 = 75$ dollars. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($24$): correctly finds the billable $24$ kilograms above the allowance but reports that as the mass. The first $30$ kilograms still count toward the crate's mass; they are just not billed per kilogram.\n* Choice B ($39$): reads the $15$ as a mass allowance, solving $15 + 2.50(m - 15) = 75$. The $15$ is a fee in dollars, and the allowance is $30$ kilograms.\n* Choice D ($60$): divides the entire $75$-dollar charge by $2.50$ to get $30$, then adds the $30$-kilogram allowance. The flat fee must come off before the per-kilogram rate is applied.\n\n**Test Day Takeaway:** In a fee with an allowance, the per-unit rate applies only to the excess. Peel off the flat fee first, divide by the rate, then add the allowance back to answer for the total.",
+      explanation: "**SAT Pattern: Word-to-Expression Translation**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The charge beyond the \\$15 is $75 - 15 = 60$ dollars, which pays for $\\frac{60}{2.50} = 24$ pounds over $30$, so the package weighs $54$ pounds.\n\n**The Full Solution:**\nStep 1: Translate: for a package weighing $w$ pounds, only the weight over $30$ pounds is charged per pound, so the charge is $15 + 2.50(w - 30)$ dollars.\nStep 2: Set the charge equal to $75$: $15 + 2.50(w - 30) = 75$, so $2.50(w - 30) = 60$.\nStep 3: Divide by $2.50$ and add $30$: $w - 30 = 24$, so $w = 54$. Check: $15 + 2.50(54 - 30) = 15 + 60 = 75$ dollars ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($24$): finds the $24$ pounds over $30$ and reports that as the weight, leaving out the first $30$ pounds.\n* Choice B ($39$): uses $15$ as the weight allowance, solving $15 + 2.50(w - 15) = 75$; the $15$ is dollars and the allowance is $30$ pounds.\n* Choice D ($60$): divides the whole \\$75 by $2.50$ to get $30$ and adds $30$, without first subtracting the \\$15.\n\n**Test Day Takeaway:** When a rate applies only above a threshold, write it as rate $\\times$ (amount $-$ threshold); subtract the flat charge first, divide by the rate, then add the threshold back.",
       skills: ["word-problem-to-equation"]
     },
     {
@@ -376,11 +376,11 @@ export const practiceTest12M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 7,
-      question: "A balloon-borne telescope rises at a constant rate after release from its launch pad. The table gives the instrument's altitude above sea level at two times after release. What is the telescope's rate of change of altitude, in meters per second?",
-      questionTable: { headers: ["Time since release (minutes)", "Altitude above sea level (meters)"], rows: [["$6.0$", "$3{,}000$"], ["$16.0$", "$6{,}000$"]] },
+      question: "A weather balloon rises at a constant rate after it is released. The table shows the balloon's altitude above sea level at two times after its release. At what rate, in meters per second, does the balloon's altitude increase?",
+      questionTable: { headers: ["Time after release (minutes)", "Altitude (meters)"], rows: [["$6$", "$3{,}000$"], ["$16$", "$6{,}000$"]] },
       choices: [
         { id: "A", text: "$5$" },
-        // distractor: divides the later altitude by the later time in seconds, assuming the line passes through the origin
+        // distractor: divides the later altitude by the later time in seconds, treating the altitude at release as 0
         { id: "B", text: "$6.25$" },
         // distractor: divides the 3,000-meter rise by 60 instead of by the 600-second interval
         { id: "C", text: "$50$" },
@@ -388,7 +388,7 @@ export const practiceTest12M2Easy = {
         { id: "D", text: "$300$" }
       ],
       correctAnswer: "A",
-      explanation: "**SAT Pattern: Slope from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** The rise is $6{,}000 - 3{,}000 = 3{,}000$ meters over $16.0 - 6.0 = 10$ minutes, which is $600$ seconds, so the rate is $\\frac{3{,}000}{600} = 5$ meters per second.\n\n**The Full Solution:**\nStep 1: Take the two rows as the points $(6.0, 3{,}000)$ and $(16.0, 6{,}000)$, with time in minutes. The change in altitude is $6{,}000 - 3{,}000 = 3{,}000$ meters and the change in time is $16.0 - 6.0 = 10$ minutes.\nStep 2: Convert the time interval to the units the question asks for: $10$ minutes $\\times 60 = 600$ seconds.\nStep 3: Divide: $\\frac{3{,}000 \\text{ m}}{600 \\text{ s}} = 5$ meters per second. Check with the model: at $5$ meters per second the telescope gains $5(600) = 3{,}000$ meters between the two rows, matching the table. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($6.25$): computes $\\frac{6{,}000}{960}$, dividing the second altitude by the second time in seconds. That treats the altitude as $0$ at release; extending the line back to time $0$ gives $3{,}000 - 5(360) = 1{,}200$ meters, the pad's elevation above sea level.\n* Choice C ($50$): divides the $3{,}000$-meter rise by $60$, converting as though the interval were one minute rather than $10$ minutes.\n* Choice D ($300$): computes $\\frac{3{,}000}{10} = 300$ meters per MINUTE and stops, skipping the conversion the question requires.\n\n**Test Day Takeaway:** Slope is the change in output over the change in input — never an endpoint over an endpoint. Convert units inside the denominator before dividing, and reread the unit the answer must carry.",
+      explanation: "**SAT Pattern: Slope from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** The balloon rises $6{,}000 - 3{,}000 = 3{,}000$ meters in $16 - 6 = 10$ minutes, or $600$ seconds, so the rate is $\\frac{3{,}000}{600} = 5$ meters per second.\n\n**The Full Solution:**\nStep 1: Use the two rows as points: the change in altitude is $6{,}000 - 3{,}000 = 3{,}000$ meters, and the change in time is $16 - 6 = 10$ minutes.\nStep 2: Convert the time to seconds: $10 \\times 60 = 600$ seconds.\nStep 3: Divide: $\\frac{3{,}000}{600} = 5$ meters per second. Check: at $5$ meters per second, the balloon gains $5(600) = 3{,}000$ meters between the two times, matching the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($6.25$): computes $\\frac{6{,}000}{960}$, assuming the balloon started at altitude $0$; the line through the table values gives $3{,}000 - 5(360) = 1{,}200$ meters at release.\n* Choice C ($50$): divides $3{,}000$ by $60$, as though the interval were $1$ minute rather than $10$.\n* Choice D ($300$): finds $\\frac{3{,}000}{10} = 300$ meters per minute and does not convert to seconds.\n\n**Test Day Takeaway:** A rate of change is the change in output divided by the change in input, not one endpoint divided by another; convert units before you divide.",
       skills: ["slope-from-points"]
     },
     {
@@ -396,9 +396,9 @@ export const practiceTest12M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 7,
-      question: "Eleven archived exposures have a mean duration of $46$ seconds. A twelfth exposure, much longer than the others, is added, and the mean duration of all $12$ exposures is $6$ seconds greater than the mean of the first eleven. What is the duration, in seconds, of the twelfth exposure?",
+      question: "Data set A consists of $11$ values and has a mean of $46$. Data set B consists of the values in data set A and one additional value, $x$. The mean of data set B is $6$ greater than that of data set A. What is the value of $x$?",
       correctAnswer: "118",
-      explanation: "**SAT Pattern: Outlier Effect**\n\n**The correct answer is $118$.**\n\n**The Fast Way (~40s):** The new mean is $46 + 6 = 52$, so the twelfth exposure is $12(52) - 11(46) = 624 - 506 = 118$ seconds.\n\n**The Full Solution:**\nStep 1: The mean of all twelve is $6$ seconds above $46$, so it is $52$ seconds. Convert each mean to a total: the first eleven exposures total $11 \\times 46 = 506$ seconds.\nStep 2: All twelve exposures total $12 \\times 52 = 624$ seconds.\nStep 3: The added exposure accounts for the difference: $624 - 506 = 118$ seconds. Check: $\\frac{506 + 118}{12} = \\frac{624}{12} = 52$ seconds, which is $6$ more than $46$. $\\checkmark$\n\n**Common Mistakes:** Entering $52$ (reporting the new mean instead of the new value; a $52$-second exposure would lift the mean only to $\\frac{506 + 52}{12} = 46.5$ seconds); entering $66$ (computing $11(52) - 11(46)$, which spreads the new mean over eleven exposures instead of twelve); entering $72$ (computing $12 \\times 6 = 72$, the amount the total must rise above $12 \\times 46$, and stopping there instead of adding the $46$ seconds a twelfth average-length exposure would already supply).\n\n**Test Day Takeaway:** Means are hard to combine, but totals add. Turn every mean into a sum with mean times count, subtract, and the unknown value falls out — and remember a single far value moves the mean far more than it moves the median.",
+      explanation: "**SAT Pattern: Outlier Effect**\n\n**The correct answer is $118$.**\n\n**The Fast Way (~35s):** Data set B has mean $46 + 6 = 52$, so $x = 12(52) - 11(46) = 624 - 506 = 118$.\n\n**The Full Solution:**\nStep 1: The values in data set A total $11 \\times 46 = 506$.\nStep 2: Data set B has $12$ values and a mean of $52$, so its values total $12 \\times 52 = 624$.\nStep 3: The added value is the difference: $x = 624 - 506 = 118$. Check: $\\frac{506 + 118}{12} = \\frac{624}{12} = 52$, which is $6$ more than $46$ ✓\n\n**Common Mistakes:**\n* $52$: reports the new mean instead of the added value; adding $52$ would raise the mean only to $\\frac{558}{12} = 46.5$.\n* $66$: computes $11(52) - 11(46)$, using $11$ values for data set B instead of $12$.\n* $72$: computes $12 \\times 6$, the amount by which $x$ must exceed $46$, and forgets to add the $46$.\n\n**Test Day Takeaway:** Means do not combine directly, but totals do: convert each mean to a total (mean $\\times$ count), subtract, and the added value appears. A single extreme value moves the mean much more than the median.",
       skills: ["calculate-mean", "find-median"]
     }
   ]

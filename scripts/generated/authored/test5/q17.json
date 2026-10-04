@@ -6,7 +6,7 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 1,
- "passage": "The painter Rachel Ruysch specialized in flower pieces of almost scientific exactness, rendering each petal, beetle, and dewdrop with its own focused ______ collectors across Europe paid some of the highest prices of the era for her panels, and she continued painting them into her eighties.",
+ "passage": "The painter Rachel Ruysch specialized in flower pieces of almost scientific exactness, rendering each petal, beetle, and dewdrop with its own focused ______ collectors across Europe paid some of the highest prices of the era for her paintings, and she continued painting them into her eighties.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
@@ -27,7 +27,7 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** Two independent clauses meet at the blank, and a semicolon is the standard way to join them without a coordinating conjunction.\n\n**The Full Solution:**\n- Before the blank stands a complete sentence: \"The painter Rachel Ruysch specialized in flower pieces... rendering each petal, beetle, and dewdrop with its own focused clarity.\"\n- After the blank stands another complete sentence: \"collectors across Europe paid some of the highest prices of the era for her panels, and she continued painting them into her eighties.\"\n- With no conjunction between them, the two independent clauses require a semicolon.\n\n**Why the other choices are wrong:**\n- B: A comma alone between two independent clauses produces a comma splice.\n- C: No punctuation at all fuses the two clauses into a run-on.\n- D: A colon signals that what follows explains or specifies what precedes; the second clause reports the market's response, a related but new statement, not an elaboration of the first clause's content.",
+ "explanation": "**Choice A is correct.** Two independent clauses meet at the blank, and a semicolon is the standard way to join them without a coordinating conjunction.\n\n**The Full Solution:**\n- Before the blank stands a complete sentence: \"The painter Rachel Ruysch specialized in flower pieces... rendering each petal, beetle, and dewdrop with its own focused clarity.\"\n- After the blank stands another complete sentence: \"collectors across Europe paid some of the highest prices of the era for her paintings, and she continued painting them into her eighties.\"\n- With no conjunction between them, the two independent clauses require a semicolon.\n\n**Why the other choices are wrong:**\n- B: A comma alone between two independent clauses produces a comma splice.\n- C: No punctuation at all fuses the two clauses into a run-on.\n- D: A colon signals that what follows explains or specifies what precedes; the second clause reports the market's response, a related but new statement, not an elaboration of the first clause's content.",
  "_meta": {
   "anchor": "Rachel Ruysch flower still lifes; semicolon between independent clauses"
  }

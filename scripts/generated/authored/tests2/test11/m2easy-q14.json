@@ -1,6 +1,6 @@
 {
  "id": 14,
- "question": "During a calibration run at the meter's outlet, a flow meter's reading $q$, in liters per second, satisfies $7q + 23 = 100$. What is the value of the expression $7q - 9$?",
+ "question": "$7q + 23 = 100$\nWhat is the value of $7q - 9$?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "B": "stops at 7q = 77 and never subtracts the 9",
-  "C": "adds 9 to 77 instead of subtracting it",
-  "D": "subtracts 9 from the total 100 instead of from 7q"
+  "B": "finds 7q = 77 and stops there",
+  "C": "adds 9 to 7q instead of subtracting it",
+  "D": "subtracts 9 from 100 without first removing the 23"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Shifted Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The expression asked for is $32$ less than the given left side, so subtract $32$ from $100$: $7q - 9 = 68$.\n\n**The Full Solution:**\nStep 1: Isolate the shared piece rather than the variable: $7q + 23 = 100$ gives $7q = 77$.\nStep 2: Build the requested expression from it: $7q - 9 = 77 - 9$.\nStep 3: Evaluate: $7q - 9 = 68$. Check by solving outright: $q = 11$, so $7(11) - 9 = 77 - 9 = 68$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($77$): the value of $7q$ itself; the question shifts that value down by $9$.\n* Choice C ($86$): adds the $9$ instead of subtracting it, moving in the wrong direction.\n* Choice D ($91$): subtracts $9$ from $100$, but the $100$ still contains the $+23$ that has to come off first.\n\n**Test Day Takeaway:** When the question asks for an expression rather than the variable, isolate that whole expression — solving for $q$ is legal but slower."
+ "explanation": "**SAT Pattern: Shifted Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Subtract $23$ from both sides to get $7q = 77$, so $7q - 9 = 77 - 9 = 68$.\n\n**The Full Solution:**\nStep 1: Isolate the term $7q$: subtract $23$ from both sides to get $7q = 77$.\nStep 2: There is no need to find $q$; substitute $77$ for $7q$ in $7q - 9$.\nStep 3: Compute: $77 - 9 = 68$. Check: $q = 11$, and $7(11) - 9 = 77 - 9 = 68$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($77$): this is the value of $7q$, one step short of $7q - 9$.\n* Choice C ($86$): computes $77 + 9$, adding the $9$ instead of subtracting it.\n* Choice D ($91$): computes $100 - 9$, which skips removing the $23$ from the left side.\n\n**Test Day Takeaway:** When the question asks for an expression that contains the same term as the equation, solve for that term and substitute; finding the variable itself is an extra step."
 }

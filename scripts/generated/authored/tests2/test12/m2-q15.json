@@ -1,6 +1,6 @@
 {
  "id": 15,
- "question": "A steel bracing frame on a pedestrian overpass forms a triangle whose sides measure $9$ feet, $k$ feet, and $41$ feet, and the angle opposite the $41$-foot side measures $90^\\circ$. What is the value of $k$?",
+ "question": "In triangle $ABC$, angle $C$ is a right angle, $AC = 9$, and $AB = 41$. What is the length of $\\overline{BC}$?",
  "choices": [
   {
    "id": "A",
@@ -21,9 +21,9 @@
  ],
  "correctAnswer": "B",
  "distractorNotes": {
-  "A": "subtracts the side lengths, 41 - 9, instead of the squares",
-  "C": "adds the two given side lengths, 9 + 41, as if 41 were a leg",
-  "D": "stops at k squared, 1,600, without taking the square root"
+  "A": "subtracts the side lengths, 41 - 9, instead of their squares",
+  "C": "adds the side lengths, 9 + 41, as though BC were the longest side",
+  "D": "stops at BC squared, 1,600, without taking the square root"
  },
- "explanation": "**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice B is correct.** The side opposite the right angle is the hypotenuse, so $9^2 + k^2 = 41^2$, giving $k^2 = 1{,}681 - 81 = 1{,}600$ and $k = 40$.\n\n**The Fast Way (~25s):** $41$ is the hypotenuse, and $9$-$40$-$41$ is a standard Pythagorean triple.\n\n**The Full Solution:**\nStep 1: The angle opposite the $41$-foot side is the right angle, so $41$ is the hypotenuse and $9$ and $k$ are the legs.\nStep 2: Apply the Pythagorean theorem: $9^2 + k^2 = 41^2$, or $81 + k^2 = 1{,}681$.\nStep 3: Solve: $k^2 = 1{,}600$, so $k = 40$ feet. Check: $81 + 1{,}600 = 1{,}681 = 41^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($32$): subtracts the side lengths themselves, $41 - 9$, instead of subtracting their squares — the theorem never applies to the sides directly.\n* Choice C ($50$): adds $9$ and $41$, which would treat $41$ as a leg and $k$ as the hypotenuse, contradicting the given right angle.\n* Choice D ($1{,}600$): the value of $k^2$, one square root short of the length.\n\n**Test Day Takeaway:** Find the hypotenuse first — it is always the side opposite the right angle — then square, subtract, and remember to take the root."
+ "explanation": "**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Side $\\overline{AB}$ is opposite the right angle at $C$, so it is the hypotenuse: $BC = \\sqrt{41^{2} - 9^{2}} = \\sqrt{1{,}600} = 40$.\n\n**The Full Solution:**\nStep 1: The right angle is at $C$, so the hypotenuse is the side opposite $C$, which is $\\overline{AB}$; the legs are $\\overline{AC}$ and $\\overline{BC}$.\nStep 2: By the Pythagorean theorem, $AC^{2} + BC^{2} = AB^{2}$, so $81 + BC^{2} = 1{,}681$ and $BC^{2} = 1{,}600$.\nStep 3: Take the positive square root: $BC = 40$. Check: $9^{2} + 40^{2} = 81 + 1{,}600 = 1{,}681 = 41^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($32$): subtracts the lengths, $41 - 9$, instead of their squares.\n* Choice C ($50$): adds the two given lengths, $9 + 41$, as though $\\overline{BC}$ were the longest side.\n* Choice D ($1{,}600$): is $BC^{2}$; the square root still has to be taken.\n\n**Test Day Takeaway:** Find the hypotenuse first: it is always the side opposite the right angle. Then subtract squares to find a missing leg."
 }

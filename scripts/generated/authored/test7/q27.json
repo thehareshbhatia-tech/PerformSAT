@@ -9,12 +9,11 @@
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "Ancient Egyptians produced animal mummies by the million as religious offerings, and museums around the world hold large collections of them.",
-   "Because unwrapping destroys a mummy, most bundles have remained sealed, their contents unknown.",
-   "For decades, scholars could only infer from a bundle's outer shape what animal it might contain.",
-   "Researchers have begun examining wrapped bundles with micro-CT scanning, which reconstructs the interior in three dimensions without opening the wrappings.",
-   "Scans show that some bundles hold complete animals, others partial remains, and some only mud, feathers, or scraps of bone.",
-   "Researchers now conclude that offerings were produced on a scale that outran the supply of animals."
+   "Ancient Egyptians produced millions of animal mummies as religious offerings.",
+   "Because unwrapping destroys a mummy, scholars long had to guess from a sealed bundle's shape what animal it held.",
+   "Researchers have now examined more than 800 bundles with X-ray and CT scans, which show the interior without unwrapping.",
+   "About a third held whole animals, a third partial remains, and a third no animal remains, only materials such as mud or feathers.",
+   "Researchers suggest that demand for offerings may have outstripped the supply of animals."
   ],
   "goal": "The student wants to emphasize how imaging technology changed researchers' understanding of the mummies."
  },
@@ -22,21 +21,21 @@
  "choices": [
   {
    "id": "A",
-   "text": "Ancient Egyptians produced animal mummies by the million as religious offerings, and museums around the world still hold large collections of them."
+   "text": "Ancient Egyptians produced millions of animal mummies as religious offerings, and for centuries scholars could only guess at what each sealed bundle held."
   },
   {
    "id": "B",
-   "text": "Because unwrapping destroys a mummy, scholars long had to infer from a sealed bundle's outer shape what animal it might contain."
+   "text": "Because unwrapping destroys a mummy, scholars long had to guess from a sealed bundle's shape what animal it held."
   },
   {
    "id": "C",
-   "text": "Micro-CT scans of sealed bundles — some of which proved to hold only mud, feathers, or scraps of bone — led researchers to conclude that offerings were produced on a scale that outran the supply of animals."
+   "text": "X-ray and CT scans revealing that a third of bundles held no animal remains suggest demand for offerings may have outstripped the supply of animals."
   },
   {
    "id": "D",
-   "text": "Micro-CT scanning reconstructs the interior of a wrapped bundle in three dimensions, so researchers can examine a mummy without opening its wrappings."
+   "text": "X-ray and CT scans show the interior of a sealed bundle, so researchers can examine a mummy without unwrapping it."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The goal demands a link from the technology to a changed understanding, and C forges it: scans revealed bundles holding only mud or feathers, and that evidence drove a new conclusion about production outrunning the supply of animals.\n\n**The Full Solution:**\n- The goal's two required parts: name the imaging technology, and show the understanding it changed.\n- C names micro-CT scanning of sealed bundles and reports what the scans revealed inside.\n- It then completes the arc with the revised conclusion researchers drew — exactly the change in understanding the goal asks the sentence to emphasize.\n\n**Why the other choices are wrong:**\n- A: It gives background on the offerings and collections, with no imaging and no new understanding.\n- B: It describes the old predicament the technology solved but stops before the technology appears.\n- D: It explains how the scanning works without stating anything researchers came to understand differently."
+ "explanation": "**Choice C is correct.** The goal demands a link from the technology to a changed understanding, and C forges it: scans revealed that a third of the bundles held no animal at all, and that evidence supports a new view of offerings outrunning the supply of animals.\n\n**The Full Solution:**\n- The goal's two required parts: name the imaging technology, and show the understanding it changed.\n- C names the X-ray and CT scans and reports what they revealed inside the bundles.\n- It then completes the arc with the conclusion researchers drew — exactly the change in understanding the goal asks the sentence to emphasize.\n\n**Why the other choices are wrong:**\n- A: It gives background on the offerings, with no imaging and no new understanding.\n- B: It describes the old predicament the technology solved but stops before the technology appears.\n- D: It explains what the scans can do without stating anything researchers came to understand differently."
 }

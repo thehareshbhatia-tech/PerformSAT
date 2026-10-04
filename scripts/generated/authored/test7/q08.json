@@ -9,11 +9,11 @@
  "passages": [
   {
    "label": "Text 1",
-   "text": "In experiments reported through the 1940s and 1950s, the zoologist Karl von Frisch observed that a honeybee returning from a rich food source performs a repeated figure-eight movement — a 'waggle dance' — on the comb, and that the dance's angle and duration correspond to the direction and distance of the source. Hive mates that attended the dancer, he found, arrived at the advertised site far more often than chance would predict. Von Frisch concluded that the dance is a symbolic communication system through which a forager directs nest mates to food they have never seen."
+   "text": "In experiments reported in the 1940s, the zoologist Karl von Frisch observed that a honeybee returning from a rich food source performs a figure-eight 'waggle dance' on the comb, and that the dance's angle and duration correspond to the direction and distance of the source. Hive mates that attended the dancer arrived at the advertised site far more often than chance would predict. Von Frisch concluded that the dance is a symbolic communication system through which a forager directs nest mates to food they have never seen."
   },
   {
    "label": "Text 2",
-   "text": "The biologist Adrian Wenner questioned whether recruited bees actually use the dance's spatial code. Bees are superb learners of odors, he noted, and a recruit leaving the hive carries the scent of the food the dancer collected. In his experiments, recruits often turned up at strongly scented sites that the dance, read as a code, had not indicated. Recruitment, Wenner argued, could rest on odor alone, and the dance-language conclusion would remain undemonstrated until experiments separated what the dance encodes from what the bees can smell."
+   "text": "The biologist Adrian Wenner questioned whether recruited bees actually use the dance's spatial code. Bees are superb learners of odors, and a recruit leaving the hive carries the scent of the food the dancer collected. In his experiments, recruits often turned up at strongly scented sites that the dance had not indicated. Recruitment, Wenner argued, could rest on odor alone; the dance-language conclusion would remain undemonstrated until experiments separated what the dance encodes from what the bees can smell."
   }
  ],
  "question": "Based on the texts, how would Wenner (Text 2) most likely respond to the conclusion presented in Text 1?",

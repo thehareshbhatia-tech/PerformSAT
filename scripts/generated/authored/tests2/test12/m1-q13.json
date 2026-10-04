@@ -1,6 +1,6 @@
 {
   "id": 13,
-  "question": "A rowing club recorded the weekly training distance, in kilometers, and the $2{,}000$-meter ergometer time, in seconds, for each of its $12$ members. For the line of best fit $\\hat{y} = 452 - 0.8x$, what does $0.8$ represent?",
+  "question": "The scatterplot shows the weekly running distance $x$, in kilometers, and the time $y$, in seconds, that each of $12$ runners took to run $1$ mile. An equation of the line of best fit shown is $y = 452 - 0.8x$. Which statement is the best interpretation of the slope of the line of best fit?",
   "diagram": {
     "type": "scatterplot",
     "params": {
@@ -62,8 +62,8 @@
       "yGridStep": 10,
       "xLabelStep": 10,
       "yLabelStep": 20,
-      "xLabel": "Weekly training distance (km)",
-      "yLabel": "Ergometer time (s)",
+      "xLabel": "Weekly running distance (km)",
+      "yLabel": "Time to run 1 mile (s)",
       "bestFitLine": {
         "slope": -0.8,
         "intercept": 452
@@ -73,26 +73,26 @@
   "choices": [
     {
       "id": "A",
-      "text": "The predicted weekly training distance falls by $0.8$ kilometer for each additional second of ergometer time."
+      "text": "For each additional second of time to run $1$ mile, the predicted weekly running distance decreases by $0.8$ kilometer."
     },
     {
       "id": "B",
-      "text": "The predicted ergometer time falls by $0.8$ second for each additional kilometer of weekly training distance."
+      "text": "For each additional kilometer of weekly running distance, the predicted time to run $1$ mile decreases by $0.8$ second."
     },
     {
       "id": "C",
-      "text": "The predicted ergometer time rises by $0.8$ second for each additional kilometer of weekly training distance."
+      "text": "For each additional kilometer of weekly running distance, the predicted time to run $1$ mile increases by $0.8$ second."
     },
     {
       "id": "D",
-      "text": "A member who trains $0$ kilometers per week has a predicted ergometer time of $0.8$ second."
+      "text": "For a runner whose weekly running distance is $0$ kilometers, the predicted time to run $1$ mile is $0.8$ second."
     }
   ],
   "distractorNotes": {
     "A": "swaps the input and the output, reading the slope as kilometers per second instead of seconds per kilometer",
-    "C": "ignores the minus sign in front of 0.8, turning a falling model into a rising one",
-    "D": "reads 0.8 as the value at x = 0; that value is the intercept 452 seconds"
+    "C": "ignores the negative sign of the slope, turning a decreasing model into an increasing one",
+    "D": "reads 0.8 as the value at x = 0; that value is the y-intercept, 452 seconds"
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice B is correct.** In $\\hat{y} = 452 - 0.8x$ the coefficient of $x$ is $-0.8$, so each additional kilometer of weekly training distance lowers the predicted ergometer time by $0.8$ second.\n\n**The Fast Way (~20s):** The number attached to $x$ is the change in predicted $y$ per one unit of $x$, and it is negative, so the time drops $0.8$ second per kilometer.\n\n**The Full Solution:**\nStep 1: Identify the variables. $x$ is weekly training distance in kilometers and $\\hat{y}$ is predicted ergometer time in seconds.\nStep 2: The slope of a line of best fit is the predicted change in $y$ for a one-unit increase in $x$, so its units here are seconds per kilometer.\nStep 3: The slope is $-0.8$, a decrease of $0.8$ second per extra kilometer. Check: $\\hat{y}$ at $x = 40$ is $452 - 32 = 420$ seconds and at $x = 50$ is $452 - 40 = 412$ seconds, which is $8$ seconds faster over $10$ additional kilometers. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.8$ kilometer per second): reverses the roles of the variables. Distance is the predictor, so the rate is seconds per kilometer, not kilometers per second.\n* Choice C ($+0.8$ second per kilometer): keeps the size of the slope but drops the minus sign, which reverses what the data show.\n* Choice D ($0.8$ second at $0$ kilometers): describes the value of $\\hat{y}$ when $x = 0$, which is the intercept $452$ seconds, not $0.8$.\n\n**Test Day Takeaway:** Say the slope out loud with its units attached, \"seconds per kilometer\", before comparing statements; the wrong choices almost always break the units or the sign."
+  "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice B is correct.** In $y = 452 - 0.8x$, the slope is $-0.8$, so each additional kilometer of weekly running distance is associated with a predicted time to run $1$ mile that is $0.8$ second less.\n\n**The Fast Way (~20s):** The slope is the change in predicted $y$ per one unit of $x$. It is $-0.8$, so the predicted time decreases by $0.8$ second per kilometer.\n\n**The Full Solution:**\nStep 1: Identify the variables: $x$ is weekly running distance, in kilometers, and $y$ is the time to run $1$ mile, in seconds.\nStep 2: The slope of a line of best fit is the predicted change in $y$ for each increase of $1$ in $x$, so its units here are seconds per kilometer.\nStep 3: The slope is $-0.8$, a predicted decrease of $0.8$ second for each additional kilometer. Check: at $x = 40$ the line gives $452 - 32 = 420$ seconds, and at $x = 50$ it gives $452 - 40 = 412$ seconds, a decrease of $8$ seconds over $10$ kilometers, or $0.8$ second per kilometer ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.8$ kilometer per second): reverses the roles of the variables. Weekly distance is $x$, so the slope is seconds per kilometer, not kilometers per second.\n* Choice C (an increase of $0.8$ second): keeps the size of the slope but drops the negative sign, which reverses the trend in the data.\n* Choice D ($0.8$ second at $0$ kilometers): describes the predicted value when $x = 0$, which is the y-intercept, $452$ seconds, not $0.8$.\n\n**Test Day Takeaway:** State the slope with its units attached, \"seconds per kilometer,\" before comparing statements; the wrong choices usually break the units or the sign."
 }

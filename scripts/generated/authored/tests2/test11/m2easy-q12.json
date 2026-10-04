@@ -1,29 +1,29 @@
 {
  "id": 12,
- "question": "An equipment loan is repaid on a schedule for which the amount still owed, in dollars, after $m$ months equals $9{,}250 - 385m$. Which of the following describes the meaning of $385$ in that expression?",
+ "question": "The amount, in dollars, that Lena still owes on a loan $m$ months after she begins repaying it is given by the expression $9{,}250 - 385m$. What is the best interpretation of $385$ in this context?",
  "choices": [
   {
    "id": "A",
-   "text": "The amount, in dollars, owed when the loan began."
+   "text": "Lena owed $\\$385$ when she began repaying the loan."
   },
   {
    "id": "B",
-   "text": "The amount, in dollars, by which the amount owed increases each month."
+   "text": "The amount Lena owes increases by $\\$385$ each month."
   },
   {
    "id": "C",
-   "text": "The number of months needed to repay the loan."
+   "text": "The amount Lena owes decreases by $\\$385$ each month."
   },
   {
    "id": "D",
-   "text": "The amount, in dollars, by which the amount owed decreases each month."
+   "text": "Lena will finish repaying the loan in $385$ months."
   }
  ],
  "distractorNotes": {
-  "A": "mistakes the coefficient of m for the constant term 9,250",
-  "B": "ignores the minus sign in front of 385 and reads the balance as growing",
-  "C": "reads 385 as a count of months rather than a rate in dollars per month; the balance actually reaches zero after about 24 months"
+  "A": "confuses the rate of change with the starting amount, which is 9,250",
+  "B": "ignores the minus sign in front of 385m",
+  "D": "treats the coefficient of m as a number of months"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Interpret Slope in Context**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** $385$ multiplies $m$ and carries a minus sign, so it is the dollars removed from the balance per month.\n\n**The Full Solution:**\nStep 1: Match the expression to $y = b + mx$ form: the constant $9{,}250$ is the starting balance and $-385$ is the rate of change per month.\nStep 2: Read the units of the rate: dollars per month, since $385$ multiplies a number of months and the result is in dollars.\nStep 3: Read the sign: the term is subtracted, so each additional month lowers the balance by $\\$385$. Check: after $1$ month the balance is $9{,}250 - 385 = \\$8{,}865$, exactly $\\$385$ less ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: the amount owed at the start is the constant $9{,}250$, the value of the expression when $m = 0$.\n* Choice B: the sign is part of the meaning; because $385m$ is subtracted, the balance falls rather than rises.\n* Choice C: $385$ counts dollars, not months; the balance hits zero near $m = 24$, since $9{,}250 \\div 385 \\approx 24$.\n\n**Test Day Takeaway:** The number attached to the variable is a rate — say it with its units and its sign, and the correct interpretation writes itself."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Interpret Slope in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The expression is linear in $m$ with slope $-385$, so each month the amount owed goes down by $\\$385$.\n\n**The Full Solution:**\nStep 1: Write the expression as $-385m + 9{,}250$: the constant $9{,}250$ is the amount owed at $m = 0$, and $-385$ is the change per month.\nStep 2: Each time $m$ increases by $1$, the expression changes by $-385$, so the amount owed drops by $\\$385$.\nStep 3: So $385$ is the amount by which the balance decreases each month. Check: $m = 0$ gives $9{,}250$ and $m = 1$ gives $8{,}865$, a decrease of $385$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: the amount owed at the start is the value at $m = 0$, which is $\\$9{,}250$, not $\\$385$.\n* Choice B: overlooks the minus sign; $385m$ is subtracted, so the balance goes down as $m$ increases.\n* Choice D: $385$ is a dollar amount per month, not a number of months; the loan is repaid when $9{,}250 - 385m = 0$, about $24$ months.\n\n**Test Day Takeaway:** In a linear model, the coefficient of the variable is the change per unit and its sign tells you the direction; the constant term is the starting value."
 }

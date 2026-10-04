@@ -1,29 +1,29 @@
 {
-  "id": 7,
-  "question": "A quality engineer triples every recorded latency in a set of $30$ network measurements to model performance under a heavier load. Which statement compares the mean and the standard deviation of the tripled measurements with those of the original measurements?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "Both the mean and the standard deviation are $3$ times as large."
-    },
-    {
-      "id": "B",
-      "text": "The mean is $3$ times as large, and the standard deviation is unchanged."
-    },
-    {
-      "id": "C",
-      "text": "The mean is unchanged, and the standard deviation is $3$ times as large."
-    },
-    {
-      "id": "D",
-      "text": "Both the mean and the standard deviation are unchanged."
-    }
-  ],
-  "distractorNotes": {
-    "B": "treats spread as unaffected by a multiplier (that is what adding a constant does)",
-    "C": "swaps the two measures, leaving the mean alone instead of the spread",
-    "D": "assumes a common factor cancels out of both summary measures"
+ "id": 7,
+ "question": "Data set B is created by multiplying each value in data set A by $3$. Which of the following correctly compares the means and the standard deviations of the two data sets?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "The mean and the standard deviation of data set B are both $3$ times those of data set A."
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Multiplying every value by $3$ multiplies the average by $3$ and stretches every distance from the average by $3$, so the mean and the standard deviation are both $3$ times as large.\n\n**The Full Solution:**\nStep 1: The mean is the sum divided by the count. Tripling all $30$ latencies triples the sum while the count stays $30$, so the mean is $3$ times its original value.\nStep 2: The standard deviation measures typical distance from the mean. If a value was $d$ milliseconds above the mean, after tripling it is $3d$ above the tripled mean, so every deviation is $3$ times as large and so is their typical size.\nStep 3: Both measures scale by the same factor $3$. Check with the two-value set $20$ and $40$: the mean is $30$ and each value sits $10$ from it; tripled, the values $60$ and $120$ have mean $90 = 3(30)$ and each sits $30$ from that mean, so every deviation, and with it the standard deviation, is $3$ times as large. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (mean tripled, spread unchanged): that is what *adding* a constant does. In the check above it would keep the deviations at $10$, but $60$ and $120$ each sit $30$ from their mean.\n* Choice C (mean unchanged, spread tripled): the mean moves with the values — the tripled set of the check averages $90$, not $30$.\n* Choice D (neither changes): multiplying is not a relabeling — the tripled set has mean $90$ and deviations of $30$, three times the original mean $30$ and deviations of $10$.\n\n**Test Day Takeaway:** Multiplying every value by $k$ multiplies the mean, the median, the range, and the standard deviation by $k$; adding a constant moves the center but leaves the spread alone."
+  {
+   "id": "B",
+   "text": "The mean of data set B is $3$ times the mean of data set A, and the standard deviations are equal."
+  },
+  {
+   "id": "C",
+   "text": "The standard deviation of data set B is $3$ times that of data set A, and the means are equal."
+  },
+  {
+   "id": "D",
+   "text": "The means of the two data sets are equal, and the standard deviations are equal."
+  }
+ ],
+ "distractorNotes": {
+  "B": "treats spread as unaffected by a multiplier (that is what adding a constant does)",
+  "C": "swaps the two measures, leaving the mean alone instead of the spread",
+  "D": "assumes a common factor has no effect on either summary measure"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Multiplying every value by $3$ multiplies the mean by $3$ and also multiplies every distance from the mean by $3$, so both the mean and the standard deviation are $3$ times as large.\n\n**The Full Solution:**\nStep 1: If data set A has values $a_{1}, a_{2}, \\ldots, a_{n}$ with mean $m$, then data set B has values $3a_{1}, 3a_{2}, \\ldots, 3a_{n}$, and its mean is $\\frac{3a_{1} + 3a_{2} + \\cdots + 3a_{n}}{n} = 3m$.\nStep 2: Each value of data set B is $3a_{i} - 3m = 3(a_{i} - m)$ from the mean of B, so every distance from the mean is $3$ times the corresponding distance in data set A. The standard deviation measures the typical distance from the mean, so it is also multiplied by $3$.\nStep 3: Both measures of data set B are $3$ times those of data set A. Check with the values $1$, $2$, $3$: the mean is $2$ and the distances from the mean are $1$, $0$, $1$; after multiplying by $3$, the values $3$, $6$, $9$ have mean $6$ and distances $3$, $0$, $3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: treats the standard deviation as unaffected, which is what happens when the same number is added to every value, not when every value is multiplied.\n* Choice C: switches the two effects, leaving the mean unchanged even though every value is $3$ times as large.\n* Choice D: assumes a common factor has no effect on either measure.\n\n**Test Day Takeaway:** Multiplying every value by $k$ multiplies both the mean and the standard deviation by $k$; adding $k$ to every value changes the mean but not the standard deviation."
 }

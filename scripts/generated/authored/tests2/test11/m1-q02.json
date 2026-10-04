@@ -1,22 +1,22 @@
 {
  "id": 2,
- "question": "The masses, in milligrams, of nine crystals grown in a lab are $45$, $47$, $50$, $51$, $51$, $53$, $55$, $57$, and $212$. How do the mean and the median of these masses change if the crystal of mass $212$ milligrams is removed?",
+ "question": "Data set A consists of the nine values $14$, $15$, $17$, $18$, $18$, $20$, $22$, $23$, and $91$. Data set B is created by removing $91$ from data set A. Which of the following correctly compares the means and the medians of the two data sets?",
  "choices": [
   {
    "id": "A",
-   "text": "The mean decreases, and the median stays the same."
+   "text": "The mean of data set B is less than the mean of data set A, and the medians are equal."
   },
   {
    "id": "B",
-   "text": "The mean stays the same, and the median decreases."
+   "text": "The mean of data set B is equal to the mean of data set A, and the median of data set B is less."
   },
   {
    "id": "C",
-   "text": "Both the mean and the median decrease."
+   "text": "The mean and the median of data set B are both less than those of data set A."
   },
   {
    "id": "D",
-   "text": "Neither the mean nor the median changes."
+   "text": "The means of data sets A and B are equal, and the medians are equal."
   }
  ],
  "distractorNotes": {
@@ -25,5 +25,5 @@
   "D": "assumes one value out of nine cannot change either measure"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Outlier Effect**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The mean uses every value, so dropping the far-out $212$ pulls it down sharply. The median only depends on the middle of the ordered list, and the two central values are both $51$ either way.\n\n**The Full Solution:**\nStep 1: With all nine masses, the sum is $621$, so the mean is $\\frac{621}{9} = 69$ milligrams, and the fifth of the nine ordered values is the median, $51$ milligrams.\nStep 2: Without $212$, the sum is $409$ over eight values, so the mean is $\\frac{409}{8} = 51.125$ milligrams — a drop of almost $18$ milligrams.\nStep 3: The eight remaining values in order are $45$, $47$, $50$, $51$, $51$, $53$, $55$, $57$, so the median is the average of the fourth and fifth values, $\\frac{51 + 51}{2} = 51$ milligrams. Check: the median is $51$ before and $51$ after, while the mean falls from $69$ to $51.125$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (mean unchanged, median lower): this swaps the two measures. Removing a value from the sum must change the mean, while the median is protected by the repeated middle value $51$.\n* Choice C (both lower): the median is $51$ in both lists, so it does not decrease; only the mean does.\n* Choice D (neither changes): the mean is $69$ with the outlier and $51.125$ without it, so it clearly changes.\n\n**Test Day Takeaway:** An extreme value drags the mean toward itself and usually leaves the median alone — check the middle of the ordered list before claiming the median moved."
+ "explanation": "**SAT Pattern: Outlier Effect**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The mean uses every value, so removing the far-out value $91$ lowers it. The median depends only on the middle of the ordered list, and the middle values are $18$ in both data sets.\n\n**The Full Solution:**\nStep 1: Data set A has $9$ values with sum $238$, so its mean is $\\frac{238}{9} \\approx 26.4$; its median is the $5$th value, $18$.\nStep 2: Data set B has $8$ values with sum $238 - 91 = 147$, so its mean is $\\frac{147}{8} \\approx 18.4$, which is less than the mean of data set A.\nStep 3: The median of data set B is the average of its $4$th and $5$th values, $\\frac{18 + 18}{2} = 18$, the same as the median of data set A. Check: $18.4 < 26.4$ and $18 = 18$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: this reverses the roles of the two measures; an extreme value pulls the mean, not the median.\n* Choice C: this assumes removing a value must also shift the median, but the two middle values of data set B are both $18$.\n* Choice D: this assumes one value out of nine is too few to matter, but $91$ is far from the other values and pulls the mean up by about $8$.\n\n**Test Day Takeaway:** Removing an outlier moves the mean toward the rest of the data; the median moves little or not at all, so check the middle values directly."
 }

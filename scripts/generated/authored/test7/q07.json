@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "text-structure-and-purpose",
  "module": 1,
- "passage": "Prairie dogs give short barking calls when a predator approaches, and for years the calls were assumed to convey little beyond the presence of danger. Recordings told a richer story: calls prompted by a hawk, a coyote, and a human differ consistently in their acoustic structure. When researchers played the recordings back to colonies with no predator in sight, the animals responded with escape behavior matched to each call type — diving into burrows at a hawk call, standing upright to scan at a coyote call. The team suggests that similar playback experiments could reveal how much information other social mammals pack into their alarm calls.",
+ "passage": "Prairie dogs give short barking calls when a predator approaches, and for years the calls were assumed to convey little beyond the presence of danger. Recordings told a richer story: calls prompted by a hawk, a coyote, and a human differ consistently in their acoustic structure. When researchers played the recordings back to colonies with no predator in sight, the animals responded with escape behavior matched to each call type — diving into burrows at a hawk call, standing upright to scan at a coyote call. Similar playback experiments could reveal how much information other social mammals pack into their alarm calls.",
  "question": "Which choice best describes the overall structure of the text?",
  "choices": [
   {
@@ -15,7 +15,7 @@
   },
   {
    "id": "B",
-   "text": "It presents an assumption about a behavior, reports findings that revealed the behavior to be more complex, and closes with a possible extension of the research."
+   "text": "It presents an assumption about a behavior, reports findings showing the behavior is more complex, and proposes extending the research."
   },
   {
    "id": "C",
@@ -23,9 +23,9 @@
   },
   {
    "id": "D",
-   "text": "It recounts a single season of fieldwork at one colony and then explains in detail why the results of that season could not later be replicated by other research teams."
+   "text": "It recounts a single season of fieldwork at one colony and then explains in detail why other research teams could not later replicate its results."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The passage moves through exactly the three beats B names: the old assumption (calls mean only \"danger\"), the findings that complicated it (distinct calls per predator, and matched responses on playback), and a closing extension (the method could be tried on other species).\n\n**The Full Solution:**\n- Beat one: for years the calls \"were assumed to convey little beyond the presence of danger.\"\n- Beat two: recordings showed hawk, coyote, and human calls differ consistently, and playback with no predator present triggered escape behavior suited to each call type.\n- Beat three: the team proposes extending playback experiments to other social mammals.\n\n**Why the other choices are wrong:**\n- A: No technical term is defined or tracked through decades of use.\n- C: The passage reports one line of evidence, not a contest between two explanations.\n- D: Nothing suggests the results failed to replicate — the playback results are presented as the confirming step, not a fluke."
+ "explanation": "**Choice B is correct.** The passage moves through exactly the three beats B names: the old assumption (calls mean only \"danger\"), the findings that complicated it (distinct calls per predator, and matched responses on playback), and a closing extension (the method could be tried on other species).\n\n**The Full Solution:**\n- Beat one: for years the calls \"were assumed to convey little beyond the presence of danger.\"\n- Beat two: recordings showed hawk, coyote, and human calls differ consistently, and playback with no predator present triggered escape behavior suited to each call type.\n- Beat three: the closing sentence proposes extending playback experiments to other social mammals.\n\n**Why the other choices are wrong:**\n- A: No technical term is defined or tracked through decades of use.\n- C: The passage reports one line of evidence, not a contest between two explanations.\n- D: Nothing suggests the results failed to replicate — the playback results are presented as the confirming step, not a fluke."
 }

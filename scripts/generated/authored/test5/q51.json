@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 2,
- "passage": "Many reef fishes invest nothing in their offspring after spawning: a female releases many thousands of eggs into open water, currents scatter them, predators take the overwhelming majority, and the strategy succeeds by arithmetic alone, with enormous numbers offsetting enormous losses. ______ certain cichlid fishes shelter broods of only a few dozen young inside a parent's mouth for weeks, the guarding parent forgoing food almost entirely while it carries a family small enough to count.",
+ "passage": "Many reef fishes invest nothing in their offspring after spawning: a female releases thousands of eggs into open water, predators take most of them, and the strategy succeeds by sheer numbers. ______ certain cichlid fishes shelter broods of only a few dozen young inside a parent's mouth for weeks, the parent going almost without food while it carries them.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,7 +27,7 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The passage sets two opposite parental strategies side by side — thousands of abandoned eggs versus a few dozen young guarded at great cost — and \"By contrast\" is the transition built for exactly that opposition.\n\n**The Full Solution:**\n- Sentence one describes the broadcast strategy: no care, vast numbers, survival by arithmetic.\n- Sentence two describes its mirror image: intensive care, tiny numbers, heavy parental sacrifice.\n- The second sentence neither follows from nor qualifies the first; it opposes it point for point, which calls for a comparative-contrast transition.\n\n**Why the other choices are wrong:**\n- A: \"As a result\" would make mouthbrooding a consequence of broadcast spawning, a causal link the text never draws.\n- C: \"Specifically\" would introduce a detailed instance of the first strategy, but the cichlids practice a different strategy altogether.\n- D: \"Nevertheless\" concedes an expectation and defies it; the second sentence describes a separate group's approach, not a surprising exception within the first group.",
+ "explanation": "**Choice B is correct.** The passage sets two opposite parental strategies side by side — thousands of abandoned eggs versus a few dozen young guarded at great cost — and \"By contrast\" is the transition built for exactly that opposition.\n\n**The Full Solution:**\n- Sentence one describes the broadcast strategy: no care, vast numbers, survival by sheer numbers.\n- Sentence two describes its mirror image: intensive care, tiny numbers, heavy parental sacrifice.\n- The second sentence neither follows from nor qualifies the first; it opposes it point for point, which calls for a comparative-contrast transition.\n\n**Why the other choices are wrong:**\n- A: \"As a result\" would make mouthbrooding a consequence of broadcast spawning, a causal link the text never draws.\n- C: \"Specifically\" would introduce a detailed instance of the first strategy, but the cichlids practice a different strategy altogether.\n- D: \"Nevertheless\" concedes an expectation and defies it; the second sentence describes a separate group's approach, not a surprising exception within the first group.",
  "_meta": {
   "anchor": "broadcast spawning vs. cichlid mouthbrooding — opposed parental strategies; contrast transition"
  }

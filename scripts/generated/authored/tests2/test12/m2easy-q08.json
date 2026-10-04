@@ -1,29 +1,29 @@
 {
  "id": 8,
- "question": "Two straight paths on a site map are perpendicular. One is the service road $x + 2y = 14$; the other is a loading ramp through $(6, -3)$. The ramp's line reaches the $y$-axis at $y = b$. What is the value of $b$?",
+ "question": "In the $xy$-plane, line $k$ passes through the point $(6, -3)$ and is perpendicular to the graph of $x + 2y = 14$. Which equation defines line $k$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-15$"
+   "text": "$y = 2x - 15$"
   },
   {
    "id": "B",
-   "text": "$0$"
+   "text": "$y = -\\frac{1}{2}x$"
   },
   {
    "id": "C",
-   "text": "$9$"
+   "text": "$y = -2x + 9$"
   },
   {
    "id": "D",
-   "text": "$12$"
+   "text": "$y = 2x + 12$"
   }
  ],
  "distractorNotes": {
-  "B": "uses the service road's own slope -1/2 instead of the perpendicular slope 2",
+  "B": "uses the given line's own slope -1/2 instead of the perpendicular slope 2",
   "C": "uses -2, the reciprocal of -1/2 with the negative sign left in place",
   "D": "substitutes the coordinates in reverse, using x = -3 and y = 6"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The ramp has slope $2$, so $-3 = 2(6) + b$ gives $b = -15$.\n\n**The Full Solution:**\nStep 1: Solve the road's equation for $y$: $2y = -x + 14$, so $y = -\\frac{1}{2}x + 7$ and the road has slope $-\\frac{1}{2}$.\nStep 2: A perpendicular line has the negative reciprocal slope, so the ramp has slope $2$ and its equation is $y = 2x + b$.\nStep 3: Substitute the point $(6, -3)$: $-3 = 2(6) + b = 12 + b$, so $b = -15$. Check: the ramp is $y = 2x - 15$, and at $x = 6$ it gives $y = 12 - 15 = -3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($0$): substitutes with the road's own slope, $-3 = -\\frac{1}{2}(6) + b = -3 + b$. That builds a line parallel to the road, which never meets it at a right angle.\n* Choice C ($9$): uses slope $-2$, the reciprocal of $-\\frac{1}{2}$ with the sign left negative, giving $-3 = -12 + b$.\n* Choice D ($12$): plugs the point in backwards as $x = -3$, $y = 6$, computing $6 = 2(-3) + b$.\n\n**Test Day Takeaway:** Convert to slope-intercept form, flip and negate for the perpendicular slope, then substitute the point in the order $(x, y)$ — reversing it is the most common silent error."
+ "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The given line has slope $-\\frac{1}{2}$, so line $k$ has slope $2$; then $-3 = 2(6) + b$ gives $b = -15$.\n\n**The Full Solution:**\nStep 1: Solve $x + 2y = 14$ for $y$: $y = -\\frac{1}{2}x + 7$, so its slope is $-\\frac{1}{2}$.\nStep 2: A perpendicular line has the negative reciprocal slope, $2$, so line $k$ is $y = 2x + b$.\nStep 3: Substitute $(6, -3)$: $-3 = 12 + b$, so $b = -15$ and line $k$ is $y = 2x - 15$. Check: $2(6) - 15 = -3$, and $(2)\\left(-\\frac{1}{2}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = -\\frac{1}{2}x$): keeps the given slope, $-3 = -\\frac{1}{2}(6) + b$, so $b = 0$. That line is parallel to the given line.\n* Choice C ($y = -2x + 9$): flips $-\\frac{1}{2}$ to $-2$ but does not negate it, then solves $-3 = -12 + b$.\n* Choice D ($y = 2x + 12$): has the right slope but substitutes the point backward, $6 = 2(-3) + b$.\n\n**Test Day Takeaway:** Flip and negate the slope for a perpendicular line, then substitute the point in the order $(x, y)$ to find the intercept."
 }

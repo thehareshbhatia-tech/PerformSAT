@@ -1,29 +1,29 @@
 {
  "id": 13,
- "question": "For a chartered coach tour, the numbers of adult tickets $a$ and student tickets $s$ sold satisfy $18a + 12s = 540$. Every ordered pair $(a, s)$ that satisfies that equation also satisfies $ka + 8s = 360$, where $k$ is a constant. What is the value of $k$?",
+ "question": "$21x + 15y = 90$\n$kx + 10y = 60$\nIn the given system of equations, $k$ is a constant. If the system has infinitely many solutions, what is the value of $k$?",
  "choices": [
   {
    "id": "A",
-   "text": "$8$"
+   "text": "$10$"
   },
   {
    "id": "B",
-   "text": "$12$"
+   "text": "$14$"
   },
   {
    "id": "C",
-   "text": "$18$"
+   "text": "$21$"
   },
   {
    "id": "D",
-   "text": "$27$"
+   "text": "$31.5$"
   }
  ],
- "distractorNotes": {
-  "A": "copies the student-ticket coefficient 8 into k, as if the two coefficients in an equation must match",
-  "C": "assumes the adult-ticket coefficient 18 survives the rescaling unchanged",
-  "D": "uses the reciprocal scale factor 3/2 instead of 2/3, giving 18(3/2) = 27"
- },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: System Equivalence Check**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** If every solution of the first equation solves the second, the two are the same equation rescaled. The student-ticket coefficient went from $12$ to $8$, a factor of $\\frac{2}{3}$, so $k = 18 \\cdot \\frac{2}{3} = 12$.\n\n**The Full Solution:**\nStep 1: Two linear equations in $a$ and $s$ share every solution only when one is a nonzero multiple of the other. Let that multiplier be $m$, so $18m = k$, $12m = 8$, and $540m = 360$.\nStep 2: Solve for $m$ two ways and confirm they agree: $12m = 8$ gives $m = \\frac{2}{3}$, and $540m = 360$ gives $m = \\frac{360}{540} = \\frac{2}{3}$ as well. The scaling is consistent, so such a $k$ exists.\nStep 3: Apply the multiplier to the first coefficient: $k = 18 \\cdot \\frac{2}{3} = 12$. Check a solution of the first equation, $(a, s) = (10, 30)$: $18(10) + 12(30) = 540$ $\\checkmark$, and $12(10) + 8(30) = 120 + 240 = 360$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): borrowing the $8$ from the student-ticket term. Then $8(10) + 8(30) = 320 \\ne 360$, so the pair $(10, 30)$ fails.\n* Choice C ($18$): leaving the adult coefficient alone while the rest of the equation shrinks. Then $18(10) + 8(30) = 420 \\ne 360$.\n* Choice D ($27$): scaling in the wrong direction with $\\frac{3}{2}$. The second equation is smaller than the first, so its coefficients must shrink, not grow.\n\n**Test Day Takeaway:** \"Every solution of one is a solution of the other\" means the equations are proportional. Find the multiplier from a term you can see, then confirm it on the constant before applying it to the unknown coefficient."
+ "distractorNotes": {
+  "A": "copies the y-coefficient 10 of the second equation into k",
+  "C": "assumes the x-coefficient 21 stays the same, even though the other coefficients are scaled by 2/3",
+  "D": "uses the reciprocal scale factor 3/2 instead of 2/3, giving 21(3/2) = 31.5"
+ },
+ "explanation": "**SAT Pattern: System Equivalence Check**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The second equation must be a multiple of the first. Since $\\frac{10}{15} = \\frac{60}{90} = \\frac{2}{3}$, $k = \\frac{2}{3}(21) = 14$.\n\n**The Full Solution:**\nStep 1: A system of two linear equations has infinitely many solutions when one equation is a constant multiple of the other.\nStep 2: Compare the terms that are known: $\\frac{10}{15} = \\frac{2}{3}$ and $\\frac{60}{90} = \\frac{2}{3}$, so the second equation is $\\frac{2}{3}$ times the first.\nStep 3: Then $k = \\frac{2}{3}(21) = 14$. Check: $\\frac{2}{3}(21x + 15y) = \\frac{2}{3}(90)$ gives $14x + 10y = 60$, the second equation ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): copies the $y$-coefficient; the coefficients in one equation do not have to match each other.\n* Choice C ($21$): leaves the $x$-coefficient unscaled, which would make the lines intersect at one point.\n* Choice D ($31.5$): multiplies by $\\frac{3}{2}$, the factor that turns the second equation into the first, instead of $\\frac{2}{3}$.\n\n**Test Day Takeaway:** Infinitely many solutions means the two equations are the same line; find the scale factor from the terms you know and apply it to the unknown coefficient."
 }

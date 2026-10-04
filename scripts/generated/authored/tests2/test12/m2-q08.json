@@ -1,6 +1,6 @@
 {
  "id": 8,
- "question": "A county health department recorded $900$ confirmed cases of a respiratory illness, $540$ of them in adults and the rest in children. Hospitalization was required for $30\\%$ of the adult cases and for $15\\%$ of the child cases. If one of the $900$ cases is selected at random, what is the probability that the selected case required hospitalization?",
+ "question": "A clinic has $900$ patients: $540$ adults and $360$ children. Last year, $30\\%$ of the adults and $15\\%$ of the children received a flu shot. One of these patients will be selected at random. What is the probability of selecting a patient who received a flu shot last year?",
  "choices": [
   {
    "id": "A",
@@ -21,9 +21,9 @@
  ],
  "correctAnswer": "C",
  "distractorNotes": {
-  "A": "reports the child hospitalization rate alone, ignoring the 540 adult cases",
+  "A": "reports the children's rate alone, ignoring the 540 adults",
   "B": "averages the two rates, (0.30 + 0.15)/2, instead of weighting them by group size",
-  "D": "reports the adult hospitalization rate alone, ignoring the 360 child cases"
+  "D": "reports the adults' rate alone, ignoring the 360 children"
  },
- "explanation": "**SAT Pattern: Marginal Probability**\n\n**Choice C is correct.** There are $162$ adult and $54$ child hospitalizations, so $216$ of the $900$ cases required hospitalization and the probability is $\\frac{216}{900} = 0.24$.\n\n**The Fast Way (~40s):** Weight each rate by its share: $0.6(0.30) + 0.4(0.15) = 0.18 + 0.06 = 0.24$.\n\n**The Full Solution:**\nStep 1: Count the children: $900 - 540 = 360$.\nStep 2: Count hospitalizations in each group: $0.30(540) = 162$ adults and $0.15(360) = 54$ children, for $162 + 54 = 216$ in all.\nStep 3: A marginal probability is the group total over the grand total: $\\frac{216}{900} = 0.24$. Check: $216$ is a little under a quarter of $900$, and $0.24$ lands between the two group rates but closer to $0.30$ because adults are the larger group. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.15$): the child rate by itself. That is the probability of hospitalization GIVEN a child case, not the probability across all $900$ cases.\n* Choice B ($0.225$): the plain average of $0.30$ and $0.15$. Averaging rates works only when the groups are the same size, and here adults outnumber children $540$ to $360$.\n* Choice D ($0.30$): the adult rate by itself, which would be the answer only if every case were an adult case.\n\n**Test Day Takeaway:** A marginal probability puts the whole population in the denominator. When two subgroups have different rates, weight each rate by its share before combining."
+ "explanation": "**SAT Pattern: Marginal Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** $0.30(540) = 162$ adults and $0.15(360) = 54$ children received a flu shot, so the probability is $\\frac{162 + 54}{900} = \\frac{216}{900} = 0.24$.\n\n**The Full Solution:**\nStep 1: Adults who received a flu shot: $0.30(540) = 162$.\nStep 2: Children who received a flu shot: $0.15(360) = 54$. In all, $162 + 54 = 216$ patients received a flu shot.\nStep 3: The probability is $\\frac{216}{900} = 0.24$. Check with weighted rates: adults are $\\frac{540}{900} = 0.6$ of the patients, so $0.6(0.30) + 0.4(0.15) = 0.18 + 0.06 = 0.24$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.15$): uses only the children's rate, leaving out the $540$ adults.\n* Choice B ($0.225$): averages $30\\%$ and $15\\%$ as if the groups were the same size; there are more adults, so the overall rate is pulled toward $30\\%$.\n* Choice D ($0.30$): uses only the adults' rate, leaving out the $360$ children.\n\n**Test Day Takeaway:** To combine rates from groups of different sizes, convert each rate to a count, add the counts, and divide by the total."
 }

@@ -1,27 +1,27 @@
 {
  "id": 1,
- "question": "The table lists the total number of parcels sorted by each of two constant-rate sorting lines after $h$ hours at a distribution center. For how many values of $h$ do the two lines have the same total?",
+ "question": "The table shows three values of $x$ and their corresponding values of $y$ for each of two linear equations. How many solutions does the system of these two equations have?",
  "questionTable": {
   "headers": [
-   "$h$",
-   "Line A total",
-   "Line B total"
+   "$x$",
+   "$y$ (first equation)",
+   "$y$ (second equation)"
   ],
   "rows": [
    [
+    "$0$",
+    "$4$",
+    "$-1$"
+   ],
+   [
     "$1$",
-    "$340$",
-    "$415$"
+    "$7$",
+    "$2$"
    ],
    [
     "$2$",
-    "$620$",
-    "$695$"
-   ],
-   [
-    "$3$",
-    "$900$",
-    "$975$"
+    "$10$",
+    "$5$"
    ]
   ]
  },
@@ -44,10 +44,10 @@
   }
  ],
  "distractorNotes": {
-  "B": "assumes two different lines must cross somewhere, ignoring that both totals climb by the same 280 parcels per hour",
-  "C": "treats the two totals as curves that could meet twice; two linear models meet at most once",
-  "D": "reads the fixed 75-parcel gap as the two lines being the same line"
+  "B": "assumes any two different lines must cross once, ignoring that both y-values rise by the same 3 for each increase of 1 in x",
+  "C": "treats the equations as curves that could meet twice; two distinct lines meet at most once",
+  "D": "reads the constant gap of 5 between the y-values as the two equations describing the same line"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Both totals rise by $280$ parcels every hour, so the $75$-parcel gap between them never closes. Equal slopes with different starting totals means the lines are parallel and share no point.\n\n**The Full Solution:**\nStep 1: Find each rate. Line A: $620 - 340 = 280$ and $900 - 620 = 280$. Line B: $695 - 415 = 280$ and $975 - 695 = 280$. Both lines have slope $280$.\nStep 2: Extend each model back to $h = 0$. Line A started at $340 - 280 = 60$ parcels and Line B at $415 - 280 = 135$, so $A = 280h + 60$ and $B = 280h + 135$.\nStep 3: Set them equal: $280h + 60 = 280h + 135$. Subtracting $280h$ leaves $60 = 135$, which is false for every $h$, so there is no solution. Check the table: the gap is $415 - 340 = 75$, $695 - 620 = 75$, and $975 - 900 = 75$ — constant, never zero. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly one): a pair of lines usually crosses once, but that requires different slopes. Here both slopes are $280$, and $280h + 60 = 280h + 135$ has no solution at all.\n* Choice C (Exactly two): two straight-line models can agree at most once, so two matching hours is impossible for a system of two linear equations.\n* Choice D (Infinitely many): that would require the totals to match at every hour, but every row of the table shows Line B ahead by exactly $75$ parcels.\n\n**Test Day Takeaway:** Read the slopes out of the table first. Equal rates of change with different starting values is the signature of parallel lines, and a parallel pair has zero solutions."
+ "explanation": "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Both $y$-columns increase by $3$ each time $x$ increases by $1$, so the lines have the same slope, but at $x = 0$ they start at different values. Parallel, distinct lines never meet.\n\n**The Full Solution:**\nStep 1: Find each slope from the table. First equation: $7 - 4 = 3$ and $10 - 7 = 3$. Second equation: $2 - (-1) = 3$ and $5 - 2 = 3$. Both slopes are $3$.\nStep 2: Read each $y$-intercept from the row $x = 0$: the first line is $y = 3x + 4$ and the second is $y = 3x - 1$.\nStep 3: Set them equal: $3x + 4 = 3x - 1$ gives $4 = -1$, which is false for every $x$, so the system has no solution. Check: in every row the first $y$-value is exactly $5$ more than the second ($4 - (-1)$, $7 - 2$, $10 - 5$), so the gap never closes ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly one): two lines usually cross once, but only when their slopes differ. Here both slopes are $3$.\n* Choice C (Exactly two): two different lines can share at most one point, so a system of two linear equations never has exactly two solutions.\n* Choice D (Infinitely many): that would require the two $y$-values to be equal in every row, but each row shows a difference of $5$.\n\n**Test Day Takeaway:** Equal slopes with different $y$-intercepts means parallel lines and zero solutions; equal slopes with equal intercepts means the same line and infinitely many."
 }

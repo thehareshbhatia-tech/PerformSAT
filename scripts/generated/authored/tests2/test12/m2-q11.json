@@ -1,26 +1,6 @@
 {
  "id": 11,
- "question": "The table lists the ticket price for each seating section of a concert hall. The mezzanine was closed for one performance; the other two sections sold $610$ tickets and took in $\\$19{,}060$. How many more balcony tickets than orchestra tickets were sold?",
- "questionTable": {
-  "headers": [
-   "Section",
-   "Ticket price (dollars)"
-  ],
-  "rows": [
-   [
-    "Balcony",
-    "$24$"
-   ],
-   [
-    "Mezzanine",
-    "$33$"
-   ],
-   [
-    "Orchestra",
-    "$41$"
-   ]
-  ]
- },
+ "question": "The table shows the price of a ticket in each of three sections of a theater. For one show, no mezzanine tickets were sold, and the theater sold $610$ tickets for a total of $\\$19{,}060$. How many more balcony tickets than orchestra tickets were sold?",
  "choices": [
   {
    "id": "A",
@@ -43,7 +23,27 @@
  "distractorNotes": {
   "B": "stops at the number of orchestra tickets, 260, instead of the difference",
   "C": "stops at the number of balcony tickets, 350, instead of the difference",
-  "D": "reports the total number of tickets sold rather than the difference between the two sections"
+  "D": "reports the total number of tickets sold instead of the difference between the two sections"
  },
- "explanation": "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice A is correct.** With $b$ balcony and $r$ orchestra tickets, $b + r = 610$ and $24b + 41r = 19{,}060$, which give $r = 260$ and $b = 350$, a difference of $90$.\n\n**The Fast Way (~50s):** If all $610$ tickets were balcony seats, sales would be $24(610) = 14{,}640$ dollars. Each orchestra seat adds $17$ dollars, so $r = \\frac{19{,}060 - 14{,}640}{17} = 260$, leaving $b = 350$ and $b - r = 90$.\n\n**The Full Solution:**\nStep 1: Write the system. Ticket count: $b + r = 610$. Revenue, using only the two open sections: $24b + 41r = 19{,}060$.\nStep 2: Substitute $b = 610 - r$: $24(610 - r) + 41r = 19{,}060$, so $14{,}640 + 17r = 19{,}060$ and $17r = 4{,}420$, giving $r = 260$.\nStep 3: Then $b = 610 - 260 = 350$, so $b - r = 350 - 260 = 90$. Check the revenue: $24(350) + 41(260) = 8{,}400 + 10{,}660 = 19{,}060$ dollars. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($260$): the orchestra count. It is the value the substitution produces first, so it is easy to bubble before finishing the comparison.\n* Choice C ($350$): the balcony count, the second quantity the system produces — still not the difference the question asks for.\n* Choice D ($610$): the total tickets sold, which is a given rather than a result.\n\n**Test Day Takeaway:** Build the system from the sections that actually sold, then reread the last sentence — \"how many more\" asks for a difference, not for either count."
+ "explanation": "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice A is correct.**\n\n**The Fast Way (~50s):** If all $610$ tickets were balcony tickets, the total would be $24(610) = \\$14{,}640$. The extra $\\$4{,}420$ comes from orchestra tickets at $\\$17$ more each, so there were $\\frac{4420}{17} = 260$ orchestra tickets and $350$ balcony tickets, a difference of $90$.\n\n**The Full Solution:**\nStep 1: Let $b$ and $r$ be the numbers of balcony and orchestra tickets. Then $b + r = 610$ and $24b + 41r = 19{,}060$.\nStep 2: Substitute $b = 610 - r$: $24(610 - r) + 41r = 19{,}060$, so $14{,}640 + 17r = 19{,}060$, $17r = 4{,}420$, and $r = 260$.\nStep 3: Then $b = 610 - 260 = 350$, and $350 - 260 = 90$. Check: $24(350) + 41(260) = 8{,}400 + 10{,}660 = 19{,}060$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($260$): is the number of orchestra tickets, one of the two values needed for the difference.\n* Choice C ($350$): is the number of balcony tickets, the other value needed for the difference.\n* Choice D ($610$): is the total number of tickets, which the question gives.\n\n**Test Day Takeaway:** Write one equation for the count and one for the money, solve the system, and then reread the question; it often asks for a combination of the two values rather than either one.",
+ "questionTable": {
+  "headers": [
+   "Section",
+   "Ticket price (dollars)"
+  ],
+  "rows": [
+   [
+    "Balcony",
+    "$24$"
+   ],
+   [
+    "Mezzanine",
+    "$33$"
+   ],
+   [
+    "Orchestra",
+    "$41$"
+   ]
+  ]
+ }
 }

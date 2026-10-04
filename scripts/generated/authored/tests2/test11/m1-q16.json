@@ -1,33 +1,33 @@
 {
  "id": 16,
- "question": "The bar chart shows the storage, in gigabytes, used by each of four file categories on a server. After $40\\%$ of the storage used by video files is freed and the other categories are unchanged, image files use what percent of the storage still in use?",
+ "question": "The bar graph shows the amount of storage, in gigabytes, used by four types of files on a computer. If $40\\%$ of the storage used by videos is deleted and nothing else changes, what percent of the remaining storage is used by photos?",
  "diagram": {
   "type": "barChart",
   "params": {
    "data": [
     {
-     "label": "Video",
+     "label": "Videos",
      "value": 300
     },
     {
-     "label": "Images",
+     "label": "Photos",
      "value": 120
     },
     {
-     "label": "Logs",
+     "label": "Music",
      "value": 60
     },
     {
-     "label": "Backups",
+     "label": "Documents",
      "value": 120
     }
    ],
-   "xAxisLabel": "File category",
-   "yAxisLabel": "Storage used (GB)",
+   "xAxisLabel": "Type of file",
+   "yAxisLabel": "Storage used (gigabytes)",
    "yMax": 360,
    "yStep": 60
   }
  },
  "correctAnswer": "25",
- "explanation": "**SAT Pattern: Percent of a Whole**\n\n**The correct answer is $25$.**\n\n**The Fast Way (~40s):** Freeing $40\\%$ of the $300$ GB of video removes $120$ GB, so the server holds $600 - 120 = 480$ GB. Images still occupy $120$ GB, and $\\frac{120}{480} = 25\\%$.\n\n**The Full Solution:**\nStep 1: Read the four bars: video $300$ GB, images $120$ GB, logs $60$ GB, and backups $120$ GB, for a total of $600$ GB in use at the start.\nStep 2: Freeing $40\\%$ of the video storage removes $0.40(300) = 120$ GB, leaving $180$ GB of video and a new total of $180 + 120 + 60 + 120 = 480$ GB.\nStep 3: Images are unchanged at $120$ GB, so they now occupy $\\frac{120}{480} = 0.25$, or $25\\%$, of the storage in use. Check: the four new shares are $\\frac{180}{480} = 37.5\\%$, $25\\%$, $12.5\\%$, and $25\\%$, and these add to $100\\%$. ✓\n\n**Common Mistakes:**\n* Using the original $600$ GB total gives $\\frac{120}{600} = 20\\%$ and ignores that the whole shrank.\n* Computing the video share of the new total gives $\\frac{180}{480} = 37.5\\%$, the wrong category.\n* Removing $40$ GB instead of $40\\%$ of $300$ GB leaves $560$ GB and gives about $21.4\\%$.\n\n**Test Day Takeaway:** When part of the whole is removed, rebuild the new total before taking any percent — the denominator changes even when the numerator does not."
+ "explanation": "**SAT Pattern: Percent of a Whole**\n\n**The correct answer is $25$.**\n\n**The Fast Way (~40s):** Deleting $40\\%$ of the $300$ gigabytes of videos removes $120$ gigabytes, so $600 - 120 = 480$ gigabytes remain. Photos still use $120$ gigabytes, and $\\frac{120}{480} = 25\\%$.\n\n**The Full Solution:**\nStep 1: Read the bars: videos $300$ gigabytes, photos $120$ gigabytes, music $60$ gigabytes, and documents $120$ gigabytes, for a total of $600$ gigabytes.\nStep 2: Deleting $40\\%$ of the videos removes $0.40(300) = 120$ gigabytes, leaving $180$ gigabytes of videos and a new total of $180 + 120 + 60 + 120 = 480$ gigabytes.\nStep 3: Photos are unchanged at $120$ gigabytes, so they use $\\frac{120}{480} = 0.25$, or $25\\%$, of the remaining storage. Check: the four new shares are $37.5\\%$, $25\\%$, $12.5\\%$, and $25\\%$, which add to $100\\%$ ✓\n\n**Common Mistakes:**\n* $20$: uses the original total, $\\frac{120}{600}$, and ignores that the total decreased.\n* $37.5$: computes the share used by videos, $\\frac{180}{480}$, instead of photos.\n* About $21.4$: deletes $40$ gigabytes instead of $40\\%$ of $300$ gigabytes, giving $\\frac{120}{560}$.\n\n**Test Day Takeaway:** When part of a whole is removed, find the new total before computing a percent; the denominator changes even when the part you want does not."
 }

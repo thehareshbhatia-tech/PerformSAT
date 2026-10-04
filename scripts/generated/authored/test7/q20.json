@@ -6,7 +6,7 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 1,
- "passage": "By the time fountain pens that could be carried in a pocket without leaking reached shop counters in the 1880s, inventors ______ hundreds of reservoir pens over the preceding half century — most of them prone to flooding the page without warning. The successful designs owed less to the idea of storing ink in the barrel than to a feed that let air return as smoothly as the ink flowed out.",
+ "passage": "By the time fountain pens that did not leak in a pocket reached shop counters in the 1880s, inventors ______ reservoir pens for decades, most of them prone to flooding the page without warning. The successful designs owed their reliability to a feed that let air enter the barrel as smoothly as the ink flowed out.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** \"By the time\" sets up two past events in sequence — the patenting came before the pens' arrival in the 1880s — and the earlier of two past events takes the past perfect, \"had patented.\"\n\n**The Full Solution:**\n- The sentence anchors a reference point in the past: leak-proof fountain pens reaching shop counters in the 1880s.\n- The inventors' patenting happened \"over the preceding half century,\" wholly before that reference point.\n- Past perfect (\"had\" plus the past participle) is the verb form that places one past action before another.\n\n**Why the other choices are wrong:**\n- A: \"Are patenting\" is present progressive, impossible alongside the sentence's nineteenth-century time frame.\n- B: Simple past \"patented\" reports a past event but fails to mark that it preceded the other past event the sentence hinges on.\n- D: \"Have patented\" is present perfect, which connects a past action to the present — the wrong relationship for something finished before the 1880s."
+ "explanation": "**Choice C is correct.** \"By the time\" sets up two past events in sequence — the patenting came before the pens' arrival in the 1880s — and the earlier of two past events takes the past perfect, \"had patented.\"\n\n**The Full Solution:**\n- The sentence anchors a reference point in the past: leak-proof fountain pens reaching shop counters in the 1880s.\n- The inventors' patenting went on \"for decades\" before that reference point and was complete by then.\n- Past perfect (\"had\" plus the past participle) is the verb form that places one past action before another.\n\n**Why the other choices are wrong:**\n- A: \"Are patenting\" is present progressive, impossible alongside the sentence's nineteenth-century time frame.\n- B: Simple past \"patented\" reports a past event but fails to mark that it preceded the other past event the sentence hinges on.\n- D: \"Have patented\" is present perfect, which connects a past action to the present — the wrong relationship for something finished before the 1880s."
 }

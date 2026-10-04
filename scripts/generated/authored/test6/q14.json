@@ -6,35 +6,35 @@
   "band": 4,
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-quantitative",
-  "passage": "The carbon dioxide record kept since 1958 at the Mauna Loa Observatory in Hawaii traces a rising curve with a sawtooth edge: each year the concentration dips as Northern Hemisphere plants leaf out and draw carbon from the air, then climbs again as leaves fall and decay. A research team reviewing the record has argued that the two motions are strikingly independent — the seasonal breathing of the land, they claim, has continued at nearly the same amplitude even as the long-term baseline has climbed relentlessly beneath it.",
+  "passage": "The carbon dioxide record kept since 1958 at the Mauna Loa Observatory in Hawaii traces a rising curve with a sawtooth edge: each year the concentration dips as Northern Hemisphere plants leaf out and draw carbon from the air, then climbs again as leaves fall and decay. A research team reviewing the record has argued that the long-term rise now dwarfs this seasonal breathing: over the decades, the baseline has climbed many times farther than the concentration swings within any single year.",
   "questionTable": {
     "type": "table",
     "caption": "Atmospheric carbon dioxide at Mauna Loa Observatory in selected years",
     "headers": [
       "Year",
       "Annual mean (parts per million)",
-      "Seasonal swing, spring peak to autumn low (parts per million)"
+      "Seasonal swing, highest to lowest monthly mean (parts per million)"
     ],
     "rows": [
       [
         "1970",
         "325.7",
-        "5.9"
+        "5.1"
       ],
       [
         "1990",
-        "354.4",
+        "354.5",
         "6.0"
       ],
       [
         "2010",
-        "389.9",
+        "390.1",
         "6.2"
       ],
       [
         "2023",
-        "419.3",
-        "6.3"
+        "421.1",
+        "5.5"
       ]
     ]
   },
@@ -42,21 +42,21 @@
   "choices": [
     {
       "id": "A",
-      "text": "The annual mean concentration rose from 325.7 parts per million in 1970 to 419.3 parts per million in 2023."
+      "text": "The annual mean concentration rose from 325.7 parts per million in 1970 to 421.1 parts per million in 2023."
     },
     {
       "id": "B",
-      "text": "The seasonal swing was smallest in 1970, at 5.9 parts per million, and largest in 2023, at 6.3 parts per million."
+      "text": "The seasonal swing was smallest in 1970, at 5.1 parts per million, and largest in 2010, at 6.2 parts per million."
     },
     {
       "id": "C",
-      "text": "In every one of the years shown in the table, the seasonal swing from spring peak to autumn low was far smaller than the annual mean concentration recorded for that same year."
+      "text": "In every one of the years shown in the table, the seasonal swing from the highest to the lowest monthly mean was far smaller than the annual mean concentration recorded for that same year."
     },
     {
       "id": "D",
-      "text": "While the annual mean climbed by more than 90 parts per million between 1970 and 2023, the seasonal swing stayed within a narrow band of 5.9 to 6.3 parts per million."
+      "text": "While the annual mean climbed by more than 95 parts per million between 1970 and 2023, the seasonal swing in each year shown never exceeded 6.2 parts per million."
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The claim joins two motions — a relentlessly climbing baseline and a seasonal cycle of nearly constant amplitude — so support requires both columns at once, and D supplies them: a rise of more than 90 parts per million against a swing confined to 5.9-6.3.\n\n**The Full Solution:**\n- Break the claim into its parts: (1) the baseline climbed steeply; (2) the seasonal amplitude held nearly steady; (3) the two are independent.\n- D documents (1) with the 325.7-to-419.3 rise and (2) with the narrow 5.9-6.3 band, and setting them side by side exhibits (3).\n\n**Why the other choices are wrong:**\n- A: It gives only the rising baseline, leaving the claim's other half — the steady seasonal swing — without evidence.\n- B: It emphasizes the extremes of the swing as though it varied meaningfully, which tilts against the claim rather than supporting it, and it ignores the baseline entirely.\n- C: Comparing the swing's size with the mean's size is beside the point — the claim concerns how each changed over time, not their relative magnitudes."
+  "explanation": "**Choice D is correct.** The claim compares two quantities — how far the baseline has climbed over the decades and how far the concentration swings within a single year — so support requires both columns at once, and D supplies them: a rise of more than 95 parts per million against yearly swings of no more than 6.2.\n\n**The Full Solution:**\n- Break the claim into its parts: (1) the baseline climbed a long way over the decades; (2) the swing within any one year is small; (3) the first is many times the second.\n- D documents (1) with the 325.7-to-421.1 rise and (2) with swings that never exceed 6.2, and setting them side by side shows (3): roughly fifteen times as large.\n\n**Why the other choices are wrong:**\n- A: It gives only the rising baseline, leaving the claim's other half — the size of the seasonal swing — without evidence.\n- B: It reports how the swing varied from year to year but never compares it with the long-term rise, which is the heart of the claim.\n- C: Comparing the swing with the mean concentration itself is beside the point — the claim compares the swing with how far the baseline has risen, not with the total amount of carbon dioxide in the air."
 }

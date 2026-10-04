@@ -9,12 +9,11 @@
   "studentNotes": {
     "intro": "While researching a topic, a student has taken the following notes:",
     "bullets": [
-      "In the early 1800s, most live plants shipped between continents died at sea from salt spray, temperature swings, and lack of fresh water.",
-      "In 1829, the London doctor Nathaniel Bagshaw Ward found that plants sealed inside a glass case could thrive for years on recycled moisture.",
-      "A sealed Wardian case let sunlight in but kept salt spray out, and water inside condensed and returned to the soil like rain.",
+      "In the early 1800s, most live plants shipped overseas died at sea.",
+      "In 1829, the London doctor Nathaniel Bagshaw Ward found that plants could thrive for years inside a sealed glass case.",
+      "A sealed Wardian case let in sunlight but kept out salt spray.",
       "In an 1833 trial, ferns and grasses sealed in Wardian cases reached Sydney alive after months at sea.",
-      "Plant shipments carried on open decks in the same era commonly lost most of their plants.",
-      "Nurseries and botanic gardens soon adopted the case for long-distance plant transport."
+      "Plant shipments carried on open decks in the same era commonly lost most of their plants."
     ],
     "goal": "The student wants to emphasize the difference between the outcomes of the two shipping methods."
   },
@@ -22,7 +21,7 @@
   "choices": [
     {
       "id": "A",
-      "text": "Nathaniel Bagshaw Ward, a London doctor, discovered in 1829 that plants sealed inside a glass case could thrive for years on recycled moisture."
+      "text": "Nathaniel Bagshaw Ward, a London doctor, discovered in 1829 that plants could thrive for years inside a sealed glass case."
     },
     {
       "id": "B",
@@ -30,7 +29,7 @@
     },
     {
       "id": "C",
-      "text": "The Wardian case admitted sunlight while excluding salt spray, and moisture inside condensed and returned to the soil like rain."
+      "text": "A sealed Wardian case admitted sunlight but kept out salt spray, so the plants inside it were sheltered from the sea air."
     },
     {
       "id": "D",

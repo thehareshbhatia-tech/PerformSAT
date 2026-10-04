@@ -1,9 +1,9 @@
 {
   "id": 16,
-  "question": "The table shows the total cost, in dollars, for a cycling club to reserve one velodrome session for several numbers of riders, and the cost is a linear function of the number of riders. If the club has $\\$600$ available for a session, what is the greatest number of riders it can register?",
+  "question": "The table shows the total cost, in dollars, to rent a picnic shelter for different numbers of guests. The total cost is a linear function of the number of guests. If the total cost can be at most $\\$600$, what is the greatest number of guests possible?",
   "questionTable": {
     "headers": [
-      "Riders",
+      "Number of guests",
       "Total cost (dollars)"
     ],
     "rows": [
@@ -44,10 +44,10 @@
     }
   ],
   "distractorNotes": {
-    "B": "rounds 30.83 up instead of down, exceeding the 600-dollar budget by 3 dollars",
-    "C": "ignores the 45-dollar reservation fee and computes 600 / 18 = 33.3, rounded down to 33",
-    "D": "adds the 45-dollar fee instead of subtracting it, computing (600 + 45) / 18 = 35.8, rounded down to 35"
+    "B": "rounds 30.83 up instead of down, so the cost is 603 dollars, over the 600-dollar limit",
+    "C": "ignores the 45-dollar fixed cost and computes 600 / 18 = 33.3, rounded down to 33",
+    "D": "adds the 45-dollar fixed cost instead of subtracting it, computing (600 + 45) / 18 = 35.8, rounded down to 35"
   },
   "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Linear Cost Setup**\n\n**Choice A is correct.** The table gives a rate of $\\$18$ per rider and a fixed $\\$45$ per session, so $45 + 18n \\leq 600$ yields $n \\leq 30.8\\overline{3}$, and the greatest whole number of riders is $30$.\n\n**The Fast Way (~40s):** Cost per rider is $\\frac{153 - 117}{6 - 4} = 18$, and $117 - 4(18) = 45$ is fixed, so $n \\leq \\frac{600 - 45}{18} = 30.8$, giving $30$ riders.\n\n**The Full Solution:**\nStep 1: Find the per-rider rate from two table rows: $\\frac{153 - 117}{6 - 4} = \\frac{36}{2} = 18$ dollars per rider.\nStep 2: Find the fixed part by working one row back to zero riders: $117 - 4(18) = 45$ dollars. So the cost model is $C = 45 + 18n$, and the row $n = 12$ confirms it: $45 + 216 = 261$.\nStep 3: Solve $45 + 18n \\leq 600$, so $18n \\leq 555$ and $n \\leq 30.8\\overline{3}$. Since $n$ counts riders, $n = 30$. Check: $45 + 18(30) = 585 \\leq 600$, while $31$ riders would cost $45 + 558 = 603$, over budget. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($31$): rounds $30.8$ up. Rounding up a \"greatest number that fits\" answer always breaks the budget, here by $\\$3$.\n* Choice C ($33$): drops the fixed $\\$45$ and divides the whole budget by $18$. The reservation fee is charged once no matter how many ride.\n* Choice D ($35$): adds the fee to the budget rather than removing it, computing $\\frac{645}{18} \\approx 35.8$.\n\n**Test Day Takeaway:** Pull the rate from two rows and the fixed charge from one row, then round a \"greatest number\" answer down every time, even when the decimal looks close."
+  "explanation": "**SAT Pattern: Linear Cost Setup**\n\n**Choice A is correct.** The table gives a rate of $\\$18$ per guest and a fixed cost of $\\$45$, so the total cost is $45 + 18n$. Solving $45 + 18n \\leq 600$ gives $n \\leq 30.8\\overline{3}$, so the greatest number of guests is $30$.\n\n**The Fast Way (~40s):** The cost per guest is $\\frac{153 - 117}{6 - 4} = 18$, and the fixed cost is $117 - 4(18) = 45$, so $n \\leq \\frac{600 - 45}{18} \\approx 30.8$, which gives $30$ guests.\n\n**The Full Solution:**\nStep 1: Find the cost per guest from two rows of the table: $\\frac{153 - 117}{6 - 4} = \\frac{36}{2} = 18$ dollars per guest.\nStep 2: Find the fixed cost by working back to $0$ guests: $117 - 4(18) = 45$ dollars. So the total cost is $C = 45 + 18n$, and the last row confirms it: $45 + 18(12) = 261$.\nStep 3: Solve $45 + 18n \\leq 600$: $18n \\leq 555$, so $n \\leq 30.8\\overline{3}$. Since $n$ is a whole number, the greatest value is $30$. Check: $45 + 18(30) = 585 \\leq 600$, while $31$ guests would cost $45 + 18(31) = 603$, which is more than $600$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($31$): rounds $30.8$ up. Rounding up a \"greatest number\" answer breaks the limit, here by $\\$3$.\n* Choice C ($33$): leaves out the fixed $\\$45$ and divides the whole $\\$600$ by $18$. The fixed cost is charged once no matter how many guests there are.\n* Choice D ($35$): adds the fixed cost to $600$ instead of subtracting it, computing $\\frac{645}{18} \\approx 35.8$.\n\n**Test Day Takeaway:** Get the rate from two rows and the fixed cost from one row, then round a \"greatest number\" answer down, even when the decimal is close to the next whole number."
 }

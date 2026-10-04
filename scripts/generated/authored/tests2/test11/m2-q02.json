@@ -1,29 +1,29 @@
 {
  "id": 2,
- "question": "A denim gusset is cut so that its hypotenuse is $25$ centimeters and its shorter leg is $7$ centimeters. Let $w$ be the acute angle formed where those two edges meet. What is the value of $\\tan w$?",
+ "question": "In right triangle $ABC$, angle $C$ is a right angle, $AB = 41$, and $BC = 9$. What is the value of $\\tan B$?",
  "choices": [
   {
    "id": "A",
-   "text": "$\\dfrac{7}{25}$"
+   "text": "$\\dfrac{9}{41}$"
   },
   {
    "id": "B",
-   "text": "$\\dfrac{7}{24}$"
+   "text": "$\\dfrac{9}{40}$"
   },
   {
    "id": "C",
-   "text": "$\\dfrac{24}{25}$"
+   "text": "$\\dfrac{40}{41}$"
   },
   {
    "id": "D",
-   "text": "$\\dfrac{24}{7}$"
+   "text": "$\\dfrac{40}{9}$"
   }
  ],
- "distractorNotes": {
-  "A": "reports cos w = 7/25 instead of the tangent",
-  "B": "finds the tangent of the other acute angle, 7/24",
-  "C": "reports sin w = 24/25, using the hypotenuse where the adjacent leg belongs"
- },
  "correctAnswer": "D",
- "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The missing leg is $24$, since $7$-$24$-$25$ is a Pythagorean triple. Angle $w$ has the $7$ cm leg adjacent and the $24$ cm leg opposite, so $\\tan w = \\frac{24}{7}$.\n\n**The Full Solution:**\nStep 1: The hypotenuse is $25$ and one leg is $7$, so the other leg $b$ satisfies $7^2 + b^2 = 25^2$. Then $b^2 = 625 - 49 = 576$, so $b = 24$, and $7$ is indeed the shorter leg.\nStep 2: Angle $w$ sits where the hypotenuse meets the $7$ cm leg. Measured from $w$, the $7$ cm leg is adjacent and the $24$ cm leg is opposite, so $\\tan w = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{24}{7}$.\nStep 3: Check against the other two ratios: $\\sin w = \\frac{24}{25}$ and $\\cos w = \\frac{7}{25}$, and $\\frac{24/25}{7/25} = \\frac{24}{7}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7}{25}$): this is adjacent over hypotenuse — that is $\\cos w$, not $\\tan w$.\n* Choice B ($\\frac{7}{24}$): this is the tangent of the *other* acute angle, the one where the $24$ cm leg meets the hypotenuse.\n* Choice C ($\\frac{24}{25}$): this is opposite over hypotenuse — that is $\\sin w$. Tangent never uses the hypotenuse.\n\n**Test Day Takeaway:** Label the sides from the angle named in the question before writing any ratio. The hypotenuse always lies opposite the right angle, and tangent is the one ratio that ignores it."
+ "distractorNotes": {
+  "A": "reports cos B = BC/AB = 9/41 instead of the tangent",
+  "B": "inverts the ratio, giving adjacent over opposite, which is tan A = 9/40",
+  "C": "reports sin B = AC/AB = 40/41, dividing by the hypotenuse instead of the adjacent leg"
+ },
+ "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The missing leg is $AC = \\sqrt{41^{2} - 9^{2}} = 40$. From angle $B$, $AC$ is opposite and $BC$ is adjacent, so $\\tan B = \\frac{40}{9}$.\n\n**The Full Solution:**\nStep 1: Since angle $C$ is the right angle, $AB = 41$ is the hypotenuse and $BC = 9$ and $AC$ are the legs.\nStep 2: Use the Pythagorean theorem: $AC^{2} = 41^{2} - 9^{2} = 1{,}681 - 81 = 1{,}600$, so $AC = 40$.\nStep 3: From angle $B$, the opposite leg is $AC = 40$ and the adjacent leg is $BC = 9$, so $\\tan B = \\frac{40}{9}$. Check: $9^{2} + 40^{2} = 81 + 1{,}600 = 1{,}681 = 41^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{9}{41}$): this is $\\cos B$, adjacent over hypotenuse.\n* Choice B ($\\frac{9}{40}$): this is adjacent over opposite, which is $\\tan A$, the tangent of the other acute angle.\n* Choice C ($\\frac{40}{41}$): this is $\\sin B$, opposite over hypotenuse; tangent does not use the hypotenuse.\n\n**Test Day Takeaway:** Find the missing side first, then label opposite and adjacent from the angle named in the question; tangent never involves the hypotenuse."
 }

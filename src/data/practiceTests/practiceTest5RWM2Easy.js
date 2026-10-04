@@ -26,7 +26,7 @@ export const practiceTest5RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "A photograph records a plant as it happened to look at one moment, chewed leaf and all. A botanical illustrator is after something else. Working from many specimens of the same species, the illustrator draws a single plate that ______ the features those specimens share — the typical leaf outline, the flower's structure, the way buds attach to the stem — while leaving out any one plant's accidents.",
+      "passage": "A photograph records a plant as it looked at one moment, chewed leaf and all. A botanical illustrator, working from many specimens of a species, draws a single plate that ______ the features those specimens share — the typical leaf outline, the flower's structure — while leaving out any one plant's accidents.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "distills" },
@@ -44,7 +44,7 @@ export const practiceTest5RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "Competitive swimmers lose most of their speed to the water's resistance, and measurements with force sensors show that body position between strokes matters as much as the strokes themselves. When a swimmer pushes off the wall and stretches into a tight, arrow-straight glide — legs together, arms squeezed behind the head — that posture can ______ drag enough to carry the swimmer several extra meters before the first stroke is needed.",
+      "passage": "Competitive swimmers lose most of their speed to the water's resistance. When a swimmer pushes off the wall and stretches into a tight, arrow-straight glide — legs together, arms squeezed behind the head — that posture can ______ drag enough to carry the swimmer several extra meters before the first stroke is needed.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "record" },
@@ -53,7 +53,7 @@ export const practiceTest5RWM2Easy = {
         { "id": "D", "text": "reduce" }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The tight glide lets the swimmer travel farther on the same push, which can only happen if the posture cuts down the water's resistance — that is, if it can \"reduce\" drag.\n\n**The Full Solution:**\n- How to spot it: read the payoff after the blank — the posture carries the swimmer \"several extra meters.\" Ask what would have to happen to drag for that to be true.\n- The passage opens by naming drag as the enemy: swimmers lose most of their speed to the water's resistance.\n- Less resistance means the push off the wall lasts longer, so the verb must mean lessening. \"Reduce\" says it directly.\n\n**Why the other choices are wrong:**\n- A: \"Record\" is what the force sensors do, not what a body position does to drag.\n- B: \"Resemble\" means to look like; a posture looking like drag makes no sense.\n- C: \"Produce\" reverses the physics — creating more drag would shorten the glide, not extend it."
+      "explanation": "**Choice D is correct.** The tight glide lets the swimmer travel farther on the same push, which can only happen if the posture cuts down the water's resistance — that is, if it can \"reduce\" drag.\n\n**The Full Solution:**\n- How to spot it: read the payoff after the blank — the posture carries the swimmer \"several extra meters.\" Ask what would have to happen to drag for that to be true.\n- The passage opens by naming drag as the enemy: swimmers lose most of their speed to the water's resistance.\n- Less resistance means the push off the wall lasts longer, so the verb must mean lessening. \"Reduce\" says it directly.\n\n**Why the other choices are wrong:**\n- A: \"Record\" means to make a lasting account of something, which is not what a body position does to drag.\n- B: \"Resemble\" means to look like; a posture looking like drag makes no sense.\n- C: \"Produce\" reverses the physics — creating more drag would shorten the glide, not extend it."
     },
     {
       "id": 556,
@@ -62,7 +62,7 @@ export const practiceTest5RWM2Easy = {
       "band": 2,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "Backyard birds take their food in different ways: finches perch at tubes and crack small seeds, woodpeckers cling to hanging blocks of suet, and doves prefer to pick fallen grain off the ground. Because each style of feeder suits some birds and not others, people hoping to see a wider range of species often ______ several feeder types in one yard rather than relying on a single design.",
+      "passage": "Backyard birds feed in different ways: finches perch at tubes to crack small seeds, woodpeckers cling to blocks of suet, and doves pick fallen grain off the ground. Because each feeder style suits some birds and not others, people hoping to see many species often ______ several feeder types in one yard rather than relying on a single design.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "repair" },
@@ -498,7 +498,7 @@ export const practiceTest5RWM2Easy = {
       "band": 4,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "Each winter, tens of thousands of volunteers tally the birds at their feeders and mail in the counts, giving researchers a continent-wide record that no field team could hope to gather. The record is enormous, and it has revealed real shifts in where species spend the winter. Yet a feeder count can register only the birds that come to feeders. ______ a woodland species that ignores seed trays entirely may be thriving or collapsing a hundred yards from a diligent counter's window, and the count will say nothing about it either way.",
+      "passage": "Each winter, more than twenty thousand volunteers count the birds at their feeders and submit the tallies, giving researchers a continent-wide record no field team could gather. Yet a feeder count can register only the birds that come to feeders. ______ a woodland species that ignores seed trays may be thriving or collapsing a hundred yards from a counter's window, and the count will say nothing about it.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "Even so," },
@@ -533,7 +533,7 @@ export const practiceTest5RWM2Easy = {
         { "id": "A", "text": "The first two kinds of flying balloon that carried people aloft, hot-air and gas, both appeared before the public in France in the year 1783." },
         { "id": "B", "text": "The fire aboard a hot-air balloon of the era demanded both a heavy supply of fuel and constant tending by the members of the crew." },
         { "id": "C", "text": "During the nineteenth century, scientists used balloons of more than one kind to carry recording instruments high into the upper reaches of the atmosphere." },
-        { "id": "D", "text": "Because a hot-air balloon stayed up only as long as its fire could be fed and tended, while a gas balloon could fly for many hours, nineteenth-century scientists generally chose gas balloons for the long, steady flights their measurements required." }
+        { "id": "D", "text": "Because a gas balloon, unlike a fire-dependent hot-air balloon, could stay up for hours, nineteenth-century scientists generally chose gas balloons for long flights." }
       ],
       "correctAnswer": "D",
       "explanation": "**Choice D is correct.** The goal asks for an explanation of a choice, so the sentence must supply a reason — and D does, tying the fire's limits and the gas balloon's endurance to the scientists' need for long, steady flights.\n\n**The Full Solution:**\n- How to spot it: do exactly what the goal sentence says. \"Explain why\" means the winning choice must contain a because, not merely a fact.\n- The notes hold the reason in three pieces: hot-air flight lasted only as long as the fire; the fire needed fuel and tending; gas balloons flew for many hours, and the scientists' measurements needed long, steady flights.\n- Choice D assembles those pieces into a single cause-and-effect sentence: the limitation, the alternative, and the choice it explains.\n\n**Why the other choices are wrong:**\n- A: The 1783 debut is background; it gives no reason for preferring one balloon over the other.\n- B: The fire's demands are half the reason, but with no mention of gas balloons or the scientists' choice, nothing is explained.\n- C: It says scientists used balloons without ever saying why they favored the gas kind — the very thing the goal requires."
@@ -559,9 +559,9 @@ export const practiceTest5RWM2Easy = {
       },
       "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       "choices": [
-        { "id": "A", "text": "Potters today shape their vessels on two common kinds of wheel, the kick wheel and the electric wheel, and some studios keep both kinds on hand for students to try." },
-        { "id": "B", "text": "A kick wheel is driven by the potter's foot rather than by a motor, and for that reason it can be used in a studio that has no electricity at all." },
-        { "id": "C", "text": "A kick wheel needs no electricity and lets the speed follow the rhythm of the potter's own body, but keeping its heavy flywheel turning by foot grows tiring over a long session." },
+        { "id": "A", "text": "Potters shape vessels on two common kinds of wheel, kick wheels and electric wheels, and some studios keep both for students to try." },
+        { "id": "B", "text": "A kick wheel is driven by the potter's foot rather than a motor, so it can be used in a studio with no electricity." },
+        { "id": "C", "text": "A kick wheel needs no electricity and lets its speed follow the potter's own rhythm, but keeping its heavy flywheel turning by foot grows tiring." },
         { "id": "D", "text": "Because an electric wheel holds any chosen speed steadily for as long as the potter needs, many studios have replaced their kick wheels with electric ones." }
       ],
       "correctAnswer": "C",

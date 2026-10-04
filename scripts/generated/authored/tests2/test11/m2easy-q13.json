@@ -1,29 +1,29 @@
 {
  "id": 13,
- "question": "The energy a furnace uses per firing cycle rose from $65$ kilowatt-hours to $91$ kilowatt-hours after a larger crucible was installed in it. Which statement correctly compares the energy used per cycle before and after the change?",
+ "question": "The number $60$ is what percent greater than the number $48$?",
  "choices": [
   {
    "id": "A",
-   "text": "$91$ is $26\\%$ greater than $65$."
+   "text": "$12\\%$"
   },
   {
    "id": "B",
-   "text": "$91$ is $29\\%$ greater than $65$."
+   "text": "$20\\%$"
   },
   {
    "id": "C",
-   "text": "$91$ is $40\\%$ greater than $65$."
+   "text": "$25\\%$"
   },
   {
    "id": "D",
-   "text": "$91$ is $140\\%$ greater than $65$."
+   "text": "$125\\%$"
   }
  ],
  "distractorNotes": {
-  "A": "reports the raw difference of 26 kilowatt-hours as if it were a percent",
-  "B": "divides the 26-unit increase by the new amount, 91, instead of by the original 65",
-  "D": "reports the ratio 91/65 = 140% without subtracting the original 100%"
+  "A": "reports the difference, 60 - 48 = 12, as the percent",
+  "B": "divides the difference by 60 instead of 48",
+  "D": "finds 60 as a percent of 48, 60/48 = 125%, instead of the increase"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Percent Increase**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The rise is $26$ kilowatt-hours on a base of $65$, and $\\frac{26}{65} = 0.4$, so the new figure is $40\\%$ greater.\n\n**The Full Solution:**\nStep 1: Find the increase: $91 - 65 = 26$ kilowatt-hours.\nStep 2: Divide by the original amount: $\\frac{26}{65} = 0.40$.\nStep 3: Convert to a percent: $0.40 = 40\\%$. Check: $65 + 0.40(65) = 65 + 26 = 91$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($26\\%$): uses the difference itself as a percent; $26\\%$ of $65$ is only about $16.9$ kilowatt-hours.\n* Choice B ($29\\%$): divides $26$ by the new value $91$; percent increase is always measured against the starting value.\n* Choice D ($140\\%$): $\\frac{91}{65} = 1.40$ says $91$ is $140\\%$ OF $65$, which is $40\\%$ GREATER than $65$.\n\n**Test Day Takeaway:** \"Percent of\" and \"percent greater than\" differ by exactly $100\\%$ — decide which phrase the question uses before you divide."
+ "explanation": "**SAT Pattern: Percent Increase**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The increase is $60 - 48 = 12$, and $\\frac{12}{48} = 0.25$, so $60$ is $25\\%$ greater than $48$.\n\n**The Full Solution:**\nStep 1: Find the difference: $60 - 48 = 12$.\nStep 2: Divide by the number being compared to, $48$: $\\frac{12}{48} = 0.25$.\nStep 3: Write as a percent: $25\\%$. Check: $1.25(48) = 60$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($12\\%$): reports the difference itself; $12$ must be compared with $48$ to become a percent.\n* Choice B ($20\\%$): divides by $60$, giving $\\frac{12}{60} = 20\\%$; that says $48$ is $20\\%$ less than $60$, a different comparison.\n* Choice D ($125\\%$): finds $60$ as a percent of $48$; the increase is the part above $100\\%$, which is $25\\%$.\n\n**Test Day Takeaway:** \"$A$ is what percent greater than $B$\" divides the difference by $B$, the number after \"than.\""
 }

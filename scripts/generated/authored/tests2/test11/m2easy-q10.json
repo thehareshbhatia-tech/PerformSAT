@@ -1,29 +1,29 @@
 {
  "id": 10,
- "question": "A redesign that switched the alloy reduced the mass of a cast bracket used on an assembly arm from $2{,}500$ grams to $1{,}900$ grams. Which statement correctly describes the change in the bracket's mass?",
+ "question": "The price of a bicycle decreased from \\$250 to \\$200. The price decreased by $p\\%$. What is the value of $p$?",
  "choices": [
   {
    "id": "A",
-   "text": "The mass decreased by about $2.4\\%$."
+   "text": "$20$"
   },
   {
    "id": "B",
-   "text": "The mass decreased by about $24\\%$."
+   "text": "$25$"
   },
   {
    "id": "C",
-   "text": "The mass decreased by about $32\\%$."
+   "text": "$80$"
   },
   {
    "id": "D",
-   "text": "The mass decreased by about $76\\%$."
+   "text": "$125$"
   }
  ],
  "distractorNotes": {
-  "A": "moves the decimal point one place when converting the ratio 0.24 to a percent",
-  "C": "divides the 600-gram decrease by the new mass, 1,900, instead of by the original 2,500",
-  "D": "reports the percent of the original mass that remains rather than the percent removed"
+  "B": "divides the \\$50 decrease by the new price, 200, instead of the original price, 250",
+  "C": "finds the new price as a percent of the original price, 200/250 = 80%",
+  "D": "finds the original price as a percent of the new price, 250/200 = 125%"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Percent Decrease**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The drop is $600$ grams out of the original $2{,}500$, and $\\frac{600}{2{,}500} = 0.24$, or $24\\%$.\n\n**The Full Solution:**\nStep 1: Find the amount of change: $2{,}500 - 1{,}900 = 600$ grams.\nStep 2: Divide by the ORIGINAL amount, because percent change is always measured against where you started: $\\frac{600}{2{,}500} = 0.24$.\nStep 3: Convert to a percent: $0.24 = 24\\%$. Check: $2{,}500 - 0.24(2{,}500) = 2{,}500 - 600 = 1{,}900$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.4\\%$): the ratio $0.24$ becomes $24\\%$, not $2.4\\%$; a $2.4\\%$ cut would remove only $60$ grams.\n* Choice C ($32\\%$): divides $600$ by the new mass $1{,}900$; that ratio answers \"the old mass is what percent more than the new,\" a different question.\n* Choice D ($76\\%$): $\\frac{1{,}900}{2{,}500} = 76\\%$ is the share of the mass that is still there, not the share that was removed.\n\n**Test Day Takeaway:** Percent change is change over the ORIGINAL value; check your answer by applying the percent back to the starting number."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Percent Decrease**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The price fell by $250 - 200 = 50$ dollars, and $\\frac{50}{250} = 0.20$, so $p = 20$.\n\n**The Full Solution:**\nStep 1: Find the amount of the decrease: $250 - 200 = 50$ dollars.\nStep 2: Divide by the original price: $\\frac{50}{250} = 0.20$.\nStep 3: Write $0.20$ as a percent: $20\\%$, so $p = 20$. Check: $20\\%$ of $250$ is $50$, and $250 - 50 = 200$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($25$): divides the decrease by the new price, $\\frac{50}{200} = 0.25$; a percent change is always measured from the original value.\n* Choice C ($80$): finds what percent the new price is of the original, $\\frac{200}{250} = 80\\%$, which is the part that remains, not the decrease.\n* Choice D ($125$): divides the original price by the new price, $\\frac{250}{200} = 1.25$.\n\n**Test Day Takeaway:** Percent decrease is the amount of change divided by the original amount; dividing by the new amount is the most common trap."
 }

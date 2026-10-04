@@ -27,7 +27,7 @@ export const practiceTest6RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "Cheesemakers often send young wheels to age for months in caves or cellars where temperature and humidity barely move. The environment is doing more than housing the cheese: the moisture in the air decides how each wheel's rind forms, and the cave's resident molds and bacteria settle onto the surface and slowly work changes on the interior. For an aging cheese, the room itself is less a shelter than a ______ in the making of the final flavor.",
+      "passage": "Cheesemakers often age young wheels for months in caves where temperature and humidity barely change. The cave does more than house the cheese: its moist air shapes how each rind forms, and its resident molds and bacteria settle on the surface and slowly change the interior. For an aging cheese, the cave is less a shelter than a ______ in the making of the final flavor.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "obstacle" },
@@ -36,7 +36,7 @@ export const practiceTest6RWM2Easy = {
         { "id": "D", "text": "participant" }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The passage shows the cave actively shaping the cheese — its moisture forms the rind, its microbes change the interior — and a \"participant\" is something that takes an active part.\n\n**The Full Solution:**\n- How to spot it: the sentence sets up a contrast, \"less a shelter than a ______,\" so the blank must be the strong opposite of a passive shelter.\n- The middle of the passage lists what the room actually does: its humidity decides how the rind forms, and its molds and bacteria work changes on the cheese.\n- Something that does part of the work is a participant in it, so the room is a \"participant\" in making the flavor.\n\n**Why the other choices are wrong:**\n- A: \"Obstacle\" would mean the cave works against the cheese, but the passage describes it helping create the flavor.\n- B: \"Spectator\" names something that only watches — precisely the passive role the sentence's contrast is rejecting.\n- C: \"Container\" restates the \"shelter\" idea the sentence says the room is more than."
+      "explanation": "**Choice D is correct.** The passage shows the cave actively shaping the cheese — its moist air shapes the rind, its microbes change the interior — and a \"participant\" is something that takes an active part.\n\n**The Full Solution:**\n- How to spot it: the sentence sets up a contrast, \"less a shelter than a ______,\" so the blank must be the strong opposite of a passive shelter.\n- The middle of the passage lists what the cave actually does: its moist air shapes how the rind forms, and its molds and bacteria slowly change the cheese.\n- Something that does part of the work is a participant in it, so the cave is a \"participant\" in making the flavor.\n\n**Why the other choices are wrong:**\n- A: \"Obstacle\" would mean the cave works against the cheese, but the passage describes it helping create the flavor.\n- B: \"Spectator\" names something that only watches — precisely the passive role the sentence's contrast is rejecting.\n- C: \"Container\" restates the \"shelter\" idea the sentence says the cave is more than."
     },
     {
       "id": 655,
@@ -230,16 +230,16 @@ export const practiceTest6RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "command-of-evidence-textual",
-      "passage": "Young sunflowers face east at dawn and follow the sun across the sky through the day, swinging back toward the east overnight. Some plant scientists have proposed that this daily swing is driven not simply by light striking the plant moment to moment but by an internal clock — a roughly twenty-four-hour rhythm that would keep the motion going even if the sun's cues were taken away.",
+      "passage": "The leaves of the sensitive plant open by day and fold up at night. Some plant scientists have proposed that this daily motion is driven not simply by changes in light but by an internal clock — a roughly twenty-four-hour rhythm that would keep the leaves opening and closing even if the cycle of day and night were taken away.",
       "question": "Which finding, if true, would most directly support the scientists' claim?",
       "choices": [
-        { "id": "A", "text": "Sunflowers moved indoors under constant light keep swinging east to west and back on a roughly twenty-four-hour cycle for several days." },
-        { "id": "B", "text": "Young sunflowers grown outdoors in full sunlight develop sturdier stems on the side of the stalk that faces away from the midday sun." },
-        { "id": "C", "text": "Mature sunflowers stop tracking the sun and settle into facing east permanently." },
-        { "id": "D", "text": "Sunflowers watered at dawn grow taller over a season than sunflowers watered at dusk." }
+        { "id": "A", "text": "Sensitive plants kept in constant darkness continue to open and fold their leaves on a roughly twenty-four-hour cycle for several days." },
+        { "id": "B", "text": "The leaves of the sensitive plant fold up quickly when they are touched and then reopen several minutes later." },
+        { "id": "C", "text": "Sensitive plants grown in bright sunlight produce noticeably more leaves over a growing season than sensitive plants grown in heavy shade nearby." },
+        { "id": "D", "text": "Sensitive plants watered at dawn grow taller over a season than sensitive plants watered at dusk." }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The claim predicts that the swinging should continue \"even if the sun's cues were taken away,\" and choice A reports exactly that test: constant light, no sun cues, and the twenty-four-hour swing goes on.\n\n**The Full Solution:**\n- Pin down the claim precisely: the daily motion is driven by an internal clock, not just by moment-to-moment light.\n- The claim's own logic supplies the test — remove the changing light and see whether the rhythm survives.\n- Choice A runs that test: indoors, under light that never moves or changes, the plants keep swinging on roughly the same cycle for days. Only an internal rhythm could sustain that; the finding supports the clock directly.\n\n**Why the other choices are wrong:**\n- B: Stem thickness under outdoor sun says nothing about whether the daily motion needs the sun's cues.\n- C: What mature plants stop doing does not test what drives the motion in young plants.\n- D: Watering time and season-long height are unrelated to the daily swinging the claim explains."
+      "explanation": "**Choice A is correct.** The claim predicts that the leaf motion should continue \"even if the cycle of day and night were taken away,\" and choice A reports exactly that test: constant darkness, no daylight cues, and the twenty-four-hour opening and folding goes on.\n\n**The Full Solution:**\n- Pin down the claim precisely: the daily motion is driven by an internal clock, not just by changes in light.\n- The claim's own logic supplies the test — remove the day-night cycle and see whether the rhythm survives.\n- Choice A runs that test: in constant darkness, the plants keep opening and folding their leaves on roughly the same cycle for days. Only an internal rhythm could sustain that, so the finding supports the clock directly.\n\n**Why the other choices are wrong:**\n- B: A quick response to touch says nothing about what drives the daily day-night motion.\n- C: How many leaves grow in sun or shade does not test whether the daily motion needs light cues.\n- D: Watering time and season-long height are unrelated to the daily leaf movements the claim explains."
     },
     {
       "id": 670,
@@ -463,7 +463,7 @@ export const practiceTest6RWM2Easy = {
       "band": 4,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "Several traditional crafts build a long wait into their schedules because cut wood keeps changing long after it leaves the tree. A boatbuilder may stack oak planks to air-dry for years before shaping them, since timber that still holds much of its moisture will shrink and open seams after the hull is fastened tight. ______ coopers once let the staves for a barrel season through several winters outdoors, knowing that a cask built of green wood would leak as its boards dried and drew apart.",
+      "passage": "Some traditional crafts build in a long wait because cut wood keeps shrinking as it dries. A boatbuilder may air-dry oak planks for years before shaping them, since damp timber will shrink and open seams after the hull is fastened. ______ coopers once seasoned barrel staves outdoors for several winters, knowing that a cask built of green wood would leak as its boards dried.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "However," },
@@ -472,7 +472,7 @@ export const practiceTest6RWM2Easy = {
         { "id": "D", "text": "Therefore," }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The boatbuilder and the cooper are two parallel cases of the same practice — waiting years for wood to dry so the finished work will not fail — and \"Likewise\" is the transition for a second, similar instance.\n\n**The Full Solution:**\n- Map the passage's structure. The first sentence states a general practice: crafts build in a wait because wood keeps changing. The second gives case one: the boatbuilder air-dries oak so seams will not open. The third gives case two: the cooper seasons staves so the cask will not leak.\n- Case two mirrors case one — same reason (moisture leaves wood slowly), same solution (wait), different craft.\n- A transition marking similarity is what the spot needs, and \"Likewise\" marks exactly that.\n\n**Why the other choices are wrong:**\n- A: \"However\" would set the cooper against the boatbuilder, but the two examples agree completely.\n- C: \"In fact\" signals an intensification of the previous claim, but the cooper sentence adds a parallel case rather than sharpening the boatbuilder one.\n- D: \"Therefore\" would make the cooper's seasoning a consequence of the boatbuilder's practice, but neither craft causes the other."
+      "explanation": "**Choice B is correct.** The boatbuilder and the cooper are two parallel cases of the same practice — waiting for wood to dry so the finished work will not fail — and \"Likewise\" is the transition for a second, similar instance.\n\n**The Full Solution:**\n- Map the passage's structure. The first sentence states a general practice: crafts build in a wait because wood keeps shrinking as it dries. The second gives case one: the boatbuilder air-dries oak so seams will not open. The third gives case two: the cooper seasons staves so the cask will not leak.\n- Case two mirrors case one — same reason (wood shrinks as it dries), same solution (wait), different craft.\n- A transition marking similarity is what the spot needs, and \"Likewise\" marks exactly that.\n\n**Why the other choices are wrong:**\n- A: \"However\" would set the cooper against the boatbuilder, but the two examples agree completely.\n- C: \"In fact\" signals an intensification of the previous claim, but the cooper sentence adds a parallel case rather than sharpening the boatbuilder one.\n- D: \"Therefore\" would make the cooper's seasoning a consequence of the boatbuilder's practice, but neither craft causes the other."
     },
     {
       "id": 678,
@@ -521,23 +521,22 @@ export const practiceTest6RWM2Easy = {
         "intro": "While researching a topic, a student has taken the following notes:",
         "bullets": [
           "Before steam power, mills commonly ran on water wheels of two main designs: overshot and undershot.",
-          "An overshot wheel is fed from above — a channel pours water into buckets at the top of the wheel, and the weight of the falling water turns it.",
+          "An overshot wheel is fed from above: water poured into buckets at its top turns it by its weight.",
           "Overshot wheels need a dam or millpond to raise the water above the wheel.",
-          "An undershot wheel dips its lower paddles directly into a stream, and the push of the flowing current turns it.",
-          "Undershot wheels can run on flat rivers where no height of water is available.",
-          "Millwrights chose between the designs based on a site's terrain."
+          "An undershot wheel dips its lower paddles into a stream and is turned by the push of the current.",
+          "Undershot wheels can run on flat rivers where no dam is possible."
         ],
         "goal": "The student wants to emphasize a difference in how the two wheel designs are set in motion."
       },
       "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       "choices": [
-        { "id": "A", "text": "An overshot wheel turns under the weight of water poured into its buckets from above, while an undershot wheel is pushed by the current flowing against its lower paddles." },
-        { "id": "B", "text": "Overshot and undershot water wheels were both common ways of powering mills before steam power spread." },
-        { "id": "C", "text": "Because an overshot wheel must be fed with water from above, a mill that used one usually needed a dam or millpond to raise the level of its stream." },
-        { "id": "D", "text": "Undershot wheels could run on flat rivers, which is one reason many mills were built where no dam could be." }
+        { "id": "A", "text": "An overshot wheel is turned by the weight of water poured in from above, while an undershot wheel is pushed by a stream's current." },
+        { "id": "B", "text": "Before steam power spread, overshot and undershot water wheels were both common ways of powering mills." },
+        { "id": "C", "text": "Because an overshot wheel is fed from above, a mill that used one usually needed a dam or a millpond to raise the level of its water." },
+        { "id": "D", "text": "Undershot wheels could run on flat rivers, so many mills were built where no dam was possible." }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The goal asks for a difference in how the wheels are SET IN MOTION, and choice A pairs the two mechanisms directly: falling water's weight turns one, the current's push turns the other.\n\n**The Full Solution:**\n- The goal has two requirements: mention BOTH designs, and contrast the way each one is driven.\n- Choice A does both in a single balanced sentence — \"turns under the weight of water poured... from above\" for the overshot wheel, \"pushed by the current... against its lower paddles\" for the undershot — with \"while\" marking the contrast.\n- Both halves come straight from the second and fourth notes, and nothing off-goal (dams, terrain, steam) crowds the sentence.\n\n**Why the other choices are wrong:**\n- B: It says the two designs existed but never contrasts how either one moves.\n- C: It covers only the overshot wheel, and its focus is the dam a mill needed, not the motion itself.\n- D: It covers only the undershot wheel, and it emphasizes where mills could be built rather than how the wheel is driven."
+      "explanation": "**Choice A is correct.** The goal asks for a difference in how the wheels are SET IN MOTION, and choice A pairs the two mechanisms directly: falling water's weight turns one, the current's push turns the other.\n\n**The Full Solution:**\n- The goal has two requirements: mention BOTH designs, and contrast the way each one is driven.\n- Choice A does both in a single balanced sentence — \"turned by the weight of water poured in from above\" for the overshot wheel, \"pushed by a stream's current\" for the undershot — with \"while\" marking the contrast.\n- Both halves come straight from the second and fourth notes, and nothing off-goal (dams, terrain, steam) crowds the sentence.\n\n**Why the other choices are wrong:**\n- B: It says the two designs existed but never contrasts how either one moves.\n- C: It covers only the overshot wheel, and its focus is the dam a mill needed, not the motion itself.\n- D: It covers only the undershot wheel, and it emphasizes where mills could be built rather than how the wheel is driven."
     },
     {
       "id": 680,
@@ -553,8 +552,7 @@ export const practiceTest6RWM2Easy = {
           "The larger a snowshoe's frame, the less its wearer sinks with each step — an advantage called flotation.",
           "A large frame is also heavier and forces a wide, tiring stride, making it awkward on hills and among trees.",
           "Long, narrow designs with upturned toes suited travel across open country and packed trails.",
-          "Short, rounded designs gave up some flotation but let hunters turn easily in dense forest.",
-          "Makers traditionally matched a snowshoe's shape to the terrain and snow its wearer expected."
+          "Short, rounded designs gave up some flotation but let hunters turn easily in dense forest."
         ],
         "goal": "The student wants to emphasize the trade-off involved in choosing a snowshoe's size."
       },
@@ -562,7 +560,7 @@ export const practiceTest6RWM2Easy = {
       "choices": [
         { "id": "A", "text": "Snowshoes let a walker cross deep snow by spreading body weight over a larger area than a boot covers." },
         { "id": "B", "text": "Long, narrow snowshoes with upturned toes were traditionally favored in open country and on packed trails." },
-        { "id": "C", "text": "A larger snowshoe frame keeps its wearer from sinking, but the same size makes the shoe heavier and harder to maneuver, so choosing one means weighing flotation against agility." },
+        { "id": "C", "text": "A larger frame keeps its wearer from sinking, but it is also heavier and harder to maneuver, so choosing a size means weighing flotation against agility." },
         { "id": "D", "text": "Short, rounded snowshoes allowed hunters to turn easily in dense forest, though they provided less flotation." }
       ],
       "correctAnswer": "C",

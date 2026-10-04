@@ -6,26 +6,26 @@
   "band": 4,
   "domain": "standard-english-conventions",
   "skill": "form-structure-and-sense",
-  "passage": "Along the shores of the Salish Sea, lines of wooden stakes and low stone walls once guided salmon into holding pools on the falling tide, keeping part of each run close at hand while the rest passed on upstream to spawn. After mapping hundreds of these intertidal alignments and dating stakes preserved in the mud, ______",
+  "passage": "In Comox Harbour, on the Salish Sea, lines of wooden stakes once supported fences that trapped herring and salmon as the tide fell. After recording the positions of more than 13,000 of these stakes and radiocarbon dating dozens of them, ______",
   "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
   "choices": [
     {
       "id": "A",
-      "text": "the weirs, archaeologists have concluded, were maintained continuously at some sites for well over a thousand years."
+      "text": "the traps, archaeologists have concluded, were in use from about 1,300 years ago until roughly a century ago."
     },
     {
       "id": "B",
-      "text": "the conclusion of archaeologists is that some sites saw continuous maintenance for well over a thousand years."
+      "text": "the conclusion of archaeologists is that the traps were in use from about 1,300 years ago until roughly a century ago."
     },
     {
       "id": "C",
-      "text": "continuous maintenance at some sites, archaeologists have concluded, extended over more than a thousand years."
+      "text": "use of the traps, archaeologists have concluded, extended from about 1,300 years ago until roughly a century ago."
     },
     {
       "id": "D",
-      "text": "archaeologists have concluded that the weirs at some sites were maintained continuously for well over a thousand years."
+      "text": "archaeologists have concluded that the traps were in use from about 1,300 years ago until roughly a century ago."
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The opening phrase \"After mapping... and dating...\" needs a subject that did the mapping and dating; only D puts that subject — \"archaeologists\" — immediately after the modifier.\n\n**The Full Solution:**\n- An introductory participial phrase attaches to the subject of the main clause that follows.\n- The mappers and daters are the archaeologists, so \"archaeologists\" must head the main clause: \"...dating stakes preserved in the mud, archaeologists have concluded that...\"\n\n**Why the other choices are wrong:**\n- A: It makes \"the weirs\" the subject, absurdly crediting the weirs with mapping and dating themselves.\n- B: \"The conclusion of archaeologists\" is the subject, but a conclusion cannot map alignments or date stakes — the modifier dangles.\n- C: \"Continuous maintenance\" becomes the mapper, another dangling attachment; tucking \"archaeologists have concluded\" inside commas does not rescue the opening phrase."
+  "explanation": "**Choice D is correct.** The opening phrase \"After recording... and radiocarbon dating...\" needs a subject that did the recording and dating; only D puts that subject — \"archaeologists\" — immediately after the modifier.\n\n**The Full Solution:**\n- An introductory phrase like this attaches to the subject of the main clause that follows.\n- The people who recorded and dated the stakes are the archaeologists, so \"archaeologists\" must head the main clause: \"...dating dozens of them, archaeologists have concluded that...\"\n\n**Why the other choices are wrong:**\n- A: It makes \"the traps\" the subject, absurdly crediting the traps with recording and dating their own stakes.\n- B: \"The conclusion of archaeologists\" is the subject, but a conclusion cannot record stakes or date them — the modifier dangles.\n- C: \"Use of the traps\" becomes the recorder, another dangling attachment; tucking \"archaeologists have concluded\" inside commas does not rescue the opening phrase."
 }

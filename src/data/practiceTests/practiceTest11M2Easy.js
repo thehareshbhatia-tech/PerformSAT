@@ -24,19 +24,19 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 2,
-      question: "A shear produces scrap at the rate $d(x) = 2(x - 3)^2 + 1$ kilograms per hour when it runs at $x$ strokes per second, as the graph shows. Which expression is equivalent to $d(x)$?",
+      question: "$f(x) = 2(x - 3)^{2} + 1$\nThe graph of $y = f(x)$ for the given function $f$ is shown. Which expression is equivalent to $f(x)$?",
       diagram: { type: "parabola", params: { vertex: { h: 3, k: 1 }, a: 2, xRange: [1, 5], yRange: [0, 10], xTickInterval: 1, yTickInterval: 2, gridInterval: 1, showVertex: false } },
       choices: [
-        // distractor: keeps +1 as the entire constant term, dropping the 2 times 9 = 18 produced by squaring (x - 3)
-        { id: "A", text: "$2x^2 - 12x + 1$" },
+        // distractor: squares (x - 3) as x^2 - 6x, dropping the +9, so the constant term stays at 1
+        { id: "A", text: "$2x^{2} - 12x + 1$" },
         // distractor: adds 9 + 1 = 10 without first multiplying the 9 by 2
-        { id: "B", text: "$2x^2 - 12x + 10$" },
-        // distractor: distributes the 2 to the squared and constant terms only, leaving the middle term at -6x
-        { id: "C", text: "$2x^2 - 6x + 19$" },
-        { id: "D", text: "$2x^2 - 12x + 19$" }
+        { id: "B", text: "$2x^{2} - 12x + 10$" },
+        // distractor: squares (x - 3) as x^2 - 3x + 9, forgetting to double the middle term
+        { id: "C", text: "$2x^{2} - 6x + 19$" },
+        { id: "D", text: "$2x^{2} - 12x + 19$" }
       ],
       correctAnswer: "D",
-      explanation: "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Square the binomial and distribute the $2$: $2(x^2 - 6x + 9) + 1$ becomes $2x^2 - 12x + 18 + 1$.\n\n**The Full Solution:**\nStep 1: Expand the squared binomial: $(x - 3)^2 = x^2 - 6x + 9$.\nStep 2: Multiply every term of that trinomial by $2$: $2x^2 - 12x + 18$.\nStep 3: Add the outside constant: $2x^2 - 12x + 18 + 1 = 2x^2 - 12x + 19$. Check at $x = 5$: the given form gives $2(2)^2 + 1 = 9$ and the answer gives $2(25) - 12(5) + 19 = 9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2x^2 - 12x + 1$): keeps $+1$ as the whole constant term and throws away the $2 \\cdot 9 = 18$ that the square produces; at $x = 5$ this gives $-9$, not $9$.\n* Choice B ($2x^2 - 12x + 10$): adds $9 + 1 = 10$ before multiplying the $9$ by $2$, so the constant is short by $9$.\n* Choice C ($2x^2 - 6x + 19$): distributes the $2$ to $x^2$ and to the constant but not to $-6x$, leaving a middle term half as large as it should be.\n\n**Test Day Takeaway:** Expand the square first, then multiply the whole trinomial by the leading coefficient — every term inside the parentheses gets it, not just the ones that are easy to see.",
+      explanation: "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Square first, then distribute: $(x - 3)^{2} = x^{2} - 6x + 9$, so $2(x^{2} - 6x + 9) + 1 = 2x^{2} - 12x + 19$.\n\n**The Full Solution:**\nStep 1: Expand the square: $(x - 3)^{2} = x^{2} - 6x + 9$.\nStep 2: Multiply every term by $2$: $2(x^{2} - 6x + 9) = 2x^{2} - 12x + 18$.\nStep 3: Add the $1$: $2x^{2} - 12x + 18 + 1 = 2x^{2} - 12x + 19$. Check at $x = 3$: the original gives $2(0)^{2} + 1 = 1$, and $2(9) - 36 + 19 = 1$, which matches the lowest point of the graph shown ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2x^{2} - 12x + 1$): drops the $+9$ from $(x - 3)^{2}$, so the constant term never picks up $2(9) = 18$. At $x = 3$ it gives $-17$, not $1$.\n* Choice B ($2x^{2} - 12x + 10$): adds $9 + 1 = 10$ without multiplying the $9$ by $2$ first.\n* Choice C ($2x^{2} - 6x + 19$): expands $(x - 3)^{2}$ as $x^{2} - 3x + 9$; the middle term of a square is twice the product, $2(x)(-3) = -6x$, before the factor of $2$ doubles it again.\n\n**Test Day Takeaway:** Expand the square completely before distributing the outside factor, and test the vertex: the standard form must give the same output there.",
       skills: ["distributive-property", "converting-quadratic-forms"]
     },
     {
@@ -44,18 +44,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 3,
-      question: "Three steel disks and two brass disks have a combined mass of $1{,}260$ grams, and three steel disks and five brass disks have a combined mass of $1{,}710$ grams. All steel disks have the same mass, and all brass disks have the same mass. What is the mass, in grams, of one brass disk?",
+      question: "$2x + 3y = 23$\n$2x - y = 11$\nThe solution to the given system of equations is $(x, y)$. What is the value of $y$?",
       choices: [
-        { id: "A", text: "$150$" },
-        // distractor: divides the 450-gram difference by 2, the number of brass disks in the first weighing, instead of by the 3 brass disks the difference represents
-        { id: "B", text: "$225$" },
-        // distractor: solves for the mass of one steel disk instead of one brass disk
-        { id: "C", text: "$320$" },
-        // distractor: stops at 3b = 450 and never divides by 3
-        { id: "D", text: "$450$" }
+        { id: "A", text: "$3$" },
+        // distractor: subtracts the equations but treats 3y - (-y) as 2y, so 2y = 12 and y = 6
+        { id: "B", text: "$6$" },
+        // distractor: reports the value of x instead of y
+        { id: "C", text: "$7$" },
+        // distractor: finds 4y = 12 and stops before dividing by 4
+        { id: "D", text: "$12$" }
       ],
       correctAnswer: "A",
-      explanation: "**SAT Pattern: System of Equations — Elimination**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Both weighings contain three steel disks, so subtracting them cancels the steel: $3$ extra brass disks account for $1{,}710 - 1{,}260 = 450$ grams, or $150$ grams each.\n\n**The Full Solution:**\nStep 1: Let $s$ be the mass of one steel disk and $b$ the mass of one brass disk: $3s + 2b = 1{,}260$ and $3s + 5b = 1{,}710$.\nStep 2: Subtract the first equation from the second. The $3s$ terms cancel, leaving $3b = 450$, so $b = 150$.\nStep 3: Back-substitute: $3s + 2(150) = 1{,}260$ gives $3s = 960$ and $s = 320$. Check the second weighing: $3(320) + 5(150) = 960 + 750 = 1{,}710$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($225$): divides the $450$-gram difference by $2$ instead of $3$; the difference between the weighings is three brass disks, not two.\n* Choice C ($320$): this is the mass of one steel disk — the value you get after back-substituting, not the value the question asks for.\n* Choice D ($450$): stops at $3b = 450$, reporting the mass of all three extra brass disks.\n\n**Test Day Takeaway:** When two equations share an identical term, subtract them on sight — elimination is faster than substitution, and the leftover coefficient tells you what to divide by.",
+      explanation: "**SAT Pattern: System of Equations — Elimination**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Subtracting the second equation from the first eliminates $x$: $4y = 12$, so $y = 3$.\n\n**The Full Solution:**\nStep 1: Both equations have $2x$, so subtract the second equation from the first: $(2x + 3y) - (2x - y) = 23 - 11$.\nStep 2: Simplify: $3y - (-y) = 4y$, so $4y = 12$.\nStep 3: Divide by $4$: $y = 3$. Then $2x - 3 = 11$ gives $x = 7$. Check in the first equation: $2(7) + 3(3) = 14 + 9 = 23$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($6$): subtracts $-y$ as though it were $+y$, getting $2y = 12$. Subtracting a negative adds it, so the $y$-terms combine to $4y$.\n* Choice C ($7$): this is the value of $x$ in the solution, not $y$.\n* Choice D ($12$): stops at $4y = 12$ without dividing by $4$.\n\n**Test Day Takeaway:** When the same $x$-term appears in both equations, subtract to eliminate it, and watch the signs: subtracting $-y$ adds $y$.",
       skills: ["elimination-method", "setting-up-systems"]
     },
     {
@@ -63,18 +63,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 3,
-      question: "A triangular brace is cut from flat stock so that its two perpendicular edges measure $a$ inches and $a\\sqrt{3}$ inches, where $a > 0$. Which expression gives the area of the brace, in square inches?",
+      question: "A right triangle has legs of length $a$ units and $a\\sqrt{3}$ units. What is the area, in square units, of the triangle?",
       choices: [
-        // distractor: halves one edge before substituting it into the area formula, so the factor one-half is applied twice
-        { id: "A", text: "$\\dfrac{a^2\\sqrt{3}}{4}$" },
-        { id: "B", text: "$\\dfrac{a^2\\sqrt{3}}{2}$" },
-        // distractor: replaces the radical with 3, squaring the square root instead of carrying it
-        { id: "C", text: "$\\dfrac{3a^2}{2}$" },
-        // distractor: multiplies the two perpendicular edges but omits the one-half in the triangle area formula
-        { id: "D", text: "$a^2\\sqrt{3}$" }
+        // distractor: uses the area formula for an equilateral triangle, s^2 sqrt(3)/4, with side a
+        { id: "A", text: "$\\dfrac{a^{2}\\sqrt{3}}{4}$" },
+        { id: "B", text: "$\\dfrac{a^{2}\\sqrt{3}}{2}$" },
+        // distractor: multiplies a by a sqrt(3) as though sqrt(3) times a gave 3a, getting 3a^2 before halving
+        { id: "C", text: "$\\dfrac{3a^{2}}{2}$" },
+        // distractor: multiplies the two legs and forgets the factor of 1/2
+        { id: "D", text: "$a^{2}\\sqrt{3}$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Right Triangle Area with Surds**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The two perpendicular edges are the legs, so the area is $\\frac{1}{2}(a)(a\\sqrt{3}) = \\frac{a^2\\sqrt{3}}{2}$.\n\n**The Full Solution:**\nStep 1: Perpendicular edges of a triangle are its base and height, so area $= \\frac{1}{2}(\\text{base})(\\text{height})$.\nStep 2: Substitute the given lengths: $\\frac{1}{2}(a)(a\\sqrt{3})$.\nStep 3: Multiply the coefficients and keep the radical intact: $\\frac{a^2\\sqrt{3}}{2}$. Check with $a = 2$: the legs are $2$ and $2\\sqrt{3} \\approx 3.46$, giving an area of about $3.46$, and $\\frac{4\\sqrt{3}}{2} \\approx 3.46$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{a^2\\sqrt{3}}{4}$): halves one leg before substituting it and then halves again in the formula, so the factor $\\frac{1}{2}$ is applied twice; with $a = 2$ it gives about $1.73$, exactly half the true area.\n* Choice C ($\\frac{3a^2}{2}$): turns $\\sqrt{3}$ into $3$; a square root is only squared when it is multiplied by itself, and here it is multiplied by $a$.\n* Choice D ($a^2\\sqrt{3}$): this is the area of the rectangle with those two edges — twice the triangle.\n\n**Test Day Takeaway:** A radical in a leg length changes nothing about the method: multiply the coefficients, leave the radical alone, and keep the one-half.",
+      explanation: "**SAT Pattern: Right Triangle Area with Surds**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The legs of a right triangle are a base and a height, so the area is $\\frac{1}{2}(a)(a\\sqrt{3}) = \\frac{a^{2}\\sqrt{3}}{2}$.\n\n**The Full Solution:**\nStep 1: In a right triangle the two legs are perpendicular, so one leg is the base and the other is the height.\nStep 2: Apply $A = \\frac{1}{2}bh$: $A = \\frac{1}{2}(a)(a\\sqrt{3})$.\nStep 3: Multiply: $a \\cdot a\\sqrt{3} = a^{2}\\sqrt{3}$, so $A = \\frac{a^{2}\\sqrt{3}}{2}$. Check with $a = 2$: the legs are $2$ and $2\\sqrt{3}$, the area is $\\frac{1}{2}(2)(2\\sqrt{3}) = 2\\sqrt{3}$, and $\\frac{4\\sqrt{3}}{2} = 2\\sqrt{3}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{a^{2}\\sqrt{3}}{4}$): uses the equilateral-triangle formula $\\frac{s^{2}\\sqrt{3}}{4}$; this triangle is a right triangle with two different legs.\n* Choice C ($\\frac{3a^{2}}{2}$): treats $a \\cdot a\\sqrt{3}$ as $3a^{2}$, which squares the $\\sqrt{3}$ when it should stay as $\\sqrt{3}$.\n* Choice D ($a^{2}\\sqrt{3}$): multiplies the legs but leaves out the $\\frac{1}{2}$ in the triangle area formula.\n\n**Test Day Takeaway:** For a right triangle, the legs are the base and height; multiply them, keep any radical as it is, and halve.",
       skills: ["triangle-area"]
     },
     // ============================================================
@@ -85,18 +85,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 4,
-      question: "A monthly budget assigns $x$ dollars to transit and $3x$ dollars to rent, and those two categories together account for $\\$1{,}596$ of the month's spending. What is the value of $x$?",
+      question: "Last month, Ana spent $x$ dollars on groceries and $3x$ dollars on rent, for a total of $\\$1{,}596$. What is the value of $x$?",
       choices: [
         { id: "A", text: "$399$" },
-        // distractor: divides the total by 3, using only the coefficient of the rent term
+        // distractor: drops the x term and solves 3x = 1,596, so x = 532
         { id: "B", text: "$532$" },
-        // distractor: divides the total by 2, treating the two categories as equal amounts
-        { id: "C", text: "$798$" },
-        // distractor: reports the rent, 3x, instead of the value of x
-        { id: "D", text: "$1{,}197$" }
+        // distractor: reports the amount spent on rent, 3x = 1,197, instead of x
+        { id: "C", text: "$1{,}197$" },
+        // distractor: subtracts the combined coefficient 4 from 1,596 instead of dividing by it
+        { id: "D", text: "$1{,}592$" }
       ],
       correctAnswer: "A",
-      explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The two categories are $x + 3x = 4x$ dollars, so $4x = 1{,}596$ and $x = 399$.\n\n**The Full Solution:**\nStep 1: Translate the sentence: transit plus rent is $x + 3x$, and that total is $1{,}596$.\nStep 2: Combine like terms on the left: $4x = 1{,}596$.\nStep 3: Divide both sides by $4$: $x = 399$. Check: transit is $\\$399$, rent is $3(399) = \\$1{,}197$, and $399 + 1{,}197 = 1{,}596$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($532$): divides $1{,}596$ by $3$, using the rent coefficient alone and ignoring the transit dollar.\n* Choice C ($798$): divides by $2$ because there are two categories, which would be right only if the categories were equal.\n* Choice D ($1{,}197$): this is the rent, $3x$ — the largest piece of the total, but not what the question defines as $x$.\n\n**Test Day Takeaway:** Combine the like terms before dividing; the number you divide by is the total count of $x$'s, not the count of categories.",
+      explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The total is $x + 3x = 4x$, so $4x = 1{,}596$ and $x = 399$.\n\n**The Full Solution:**\nStep 1: Write the total as an equation: $x + 3x = 1{,}596$.\nStep 2: Combine like terms: $x + 3x = 4x$, so $4x = 1{,}596$.\nStep 3: Divide by $4$: $x = 399$. Check: $3(399) = 1{,}197$ and $399 + 1{,}197 = 1{,}596$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($532$): solves $3x = 1{,}596$, leaving out the $x$ dollars spent on groceries.\n* Choice C ($1{,}197$): this is $3x$, the amount spent on rent, not the value of $x$.\n* Choice D ($1{,}592$): subtracts $4$ from $1{,}596$; the $4$ in $4x$ multiplies $x$, so undo it by dividing.\n\n**Test Day Takeaway:** Combine the like terms into one term first; then a single division finishes the equation.",
       skills: ["combining-like-terms"]
     },
     {
@@ -104,18 +104,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "The resistance of a sensing element changes linearly with temperature: it measures $4{,}120$ ohms at $15$ degrees Celsius and $3{,}040$ ohms at $42$ degrees Celsius. Which equation gives the resistance $R$, in ohms, at a temperature of $t$ degrees Celsius?",
+      question: "In the $xy$-plane, the graph of the linear function $f$ passes through the points $(2, 11)$ and $(6, 23)$. Which equation defines $f$?",
       choices: [
-        // distractor: subtracts 40 times 15 from 4,120 instead of adding it back when solving for the intercept
-        { id: "A", text: "$R = -40t + 3{,}520$" },
-        // distractor: uses the resistance measured at 15 degrees as the value at 0 degrees
-        { id: "B", text: "$R = -40t + 4{,}120$" },
-        { id: "C", text: "$R = -40t + 4{,}720$" },
-        // distractor: reverses the order of the points in the slope quotient, getting +40, and then solves for the intercept
-        { id: "D", text: "$R = 40t + 3{,}520$" }
+        { id: "A", text: "$f(x) = 3x + 5$" },
+        // distractor: uses the y-coordinate of the point (2, 11) as the y-intercept
+        { id: "B", text: "$f(x) = 3x + 11$" },
+        // distractor: adds instead of subtracts when solving for the intercept: b = 11 + 3(2) = 17
+        { id: "C", text: "$f(x) = 3x + 17$" },
+        // distractor: uses the change in y, 12, as the slope without dividing by the change in x, 4, then b = 11 - 12(2) = -13
+        { id: "D", text: "$f(x) = 12x - 13$" }
       ],
-      correctAnswer: "C",
-      explanation: "**SAT Pattern: Line from Two Points**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The resistance falls $1{,}080$ ohms over $27$ degrees, so the slope is $-40$; running back the $15$ degrees to $t = 0$ adds $600$ ohms, giving $R = -40t + 4{,}720$.\n\n**The Full Solution:**\nStep 1: Treat the measurements as points $(15,\\ 4{,}120)$ and $(42,\\ 3{,}040)$ and compute the slope: $\\frac{3{,}040 - 4{,}120}{42 - 15} = \\frac{-1{,}080}{27} = -40$.\nStep 2: Substitute one point into $R = -40t + b$: $4{,}120 = -40(15) + b$, so $b = 4{,}120 + 600 = 4{,}720$.\nStep 3: Write the equation: $R = -40t + 4{,}720$. Check the second measurement: $-40(42) + 4{,}720 = -1{,}680 + 4{,}720 = 3{,}040$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($R = -40t + 3{,}520$): subtracts $600$ from $4{,}120$ instead of adding it; moving backward along a falling line raises the value.\n* Choice B ($R = -40t + 4{,}120$): treats the $15$-degree reading as the reading at $0$ degrees, so the whole line sits $600$ ohms too low.\n* Choice D ($R = 40t + 3{,}520$): computes the slope as $\\frac{4{,}120 - 3{,}040}{42 - 15} = 40$, which makes resistance rise with temperature — the opposite of the data.\n\n**Test Day Takeaway:** Keep the two points in the same order top and bottom of the slope fraction, then solve for the intercept with a point rather than assuming the first measurement happens at zero.",
+      correctAnswer: "A",
+      explanation: "**SAT Pattern: Line from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The slope is $\\frac{23 - 11}{6 - 2} = 3$, and $11 = 3(2) + b$ gives $b = 5$, so $f(x) = 3x + 5$.\n\n**The Full Solution:**\nStep 1: Find the slope from the two points: $m = \\frac{23 - 11}{6 - 2} = \\frac{12}{4} = 3$.\nStep 2: Substitute the slope and the point $(2, 11)$ into $f(x) = mx + b$: $11 = 3(2) + b$, so $b = 5$.\nStep 3: Write the function: $f(x) = 3x + 5$. Check with the other point: $f(6) = 3(6) + 5 = 23$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($f(x) = 3x + 11$): uses $11$ as the $y$-intercept, but $11$ is the output at $x = 2$, not at $x = 0$. This line gives $f(2) = 17$.\n* Choice C ($f(x) = 3x + 17$): solves $11 = 6 + b$ as $b = 11 + 6$, adding when it should subtract.\n* Choice D ($f(x) = 12x - 13$): takes the change in $y$, $12$, as the slope without dividing by the change in $x$, $4$.\n\n**Test Day Takeaway:** Slope is change in $y$ divided by change in $x$; then substitute one point to find the intercept and check the other point.",
       skills: ["linear-functions", "slope", "coordinate-geometry"]
     },
     {
@@ -123,10 +123,10 @@ export const practiceTest11M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "A coil of steel strip holds enough material for several stamped parts, and the table lists the length remaining, in meters, after four different numbers of parts. The remaining length is the linear function $f$ of the number of parts stamped, $x$. What is $f(16)$?",
-      diagram: { type: "dataTable", params: { headers: ["Parts stamped, x", "Length remaining (meters)"], rows: [["2", "47"], ["5", "38"], ["8", "29"], ["11", "20"]] } },
+      question: "For the linear function $f$, the table shows four values of $x$ and their corresponding values of $f(x)$. What is the value of $f(16)$?",
+      diagram: { type: "dataTable", params: { headers: ["x", "f(x)"], rows: [["2", "47"], ["5", "38"], ["8", "29"], ["11", "20"]] } },
       correctAnswer: "5",
-      explanation: "**SAT Pattern: Function Evaluation**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~25s):** Each row advances $3$ parts and drops $9$ meters, so each part uses $3$ meters; from $20$ meters at $11$ parts, five more parts remove $15$ meters, leaving $5$.\n\n**The Full Solution:**\nStep 1: Find the rate: between $x = 2$ and $x = 5$ the length falls from $47$ to $38$, a drop of $9$ meters over $3$ parts, so the slope is $-3$ meters per part.\nStep 2: Write the rule: $f(x) = -3x + b$, and $47 = -3(2) + b$ gives $b = 53$, so $f(x) = -3x + 53$.\nStep 3: Evaluate at $x = 16$: $f(16) = -3(16) + 53 = -48 + 53 = 5$. Check the rule against a listed row: $f(8) = -24 + 53 = 29$ ✓\n\n**Common Mistakes:**\n* $-79$: using the $9$-meter drop between rows as the drop per part, which gives $f(x) = -9x + 65$ and $f(16) = -79$; the rows step by $3$ parts, not $1$.\n* $11$: evaluating $f(14)$ — one more table row past $11$ — instead of $f(16)$.\n* $-1$: taking $47$ as the starting length at $x = 0$ and writing $f(x) = -3x + 47$; the $47$ belongs to $x = 2$.\n\n**Test Day Takeaway:** With a table, get the rate from the change in outputs divided by the change in inputs, then anchor the rule on one row before evaluating anywhere else.",
+      explanation: "**SAT Pattern: Function Evaluation**\n\n**The correct answer is 5.**\n\n**The Fast Way (~25s):** Each increase of $3$ in $x$ lowers $f(x)$ by $9$, so the slope is $-3$; from $f(11) = 20$, five more units give $f(16) = 20 - 15 = 5$.\n\n**The Full Solution:**\nStep 1: Find the slope: from $x = 2$ to $x = 5$, $f(x)$ goes from $47$ to $38$, so $m = \\frac{38 - 47}{5 - 2} = \\frac{-9}{3} = -3$.\nStep 2: Find the intercept: $47 = -3(2) + b$, so $b = 53$ and $f(x) = -3x + 53$.\nStep 3: Evaluate: $f(16) = -3(16) + 53 = -48 + 53 = 5$. Check the rule against another row: $f(8) = -24 + 53 = 29$ ✓\n\n**Common Mistakes:**\n* $-79$: uses the drop of $9$ between rows as the slope, giving $f(x) = -9x + 65$; the rows are $3$ units apart in $x$, so the slope is $-3$.\n* $11$: evaluates $f(14)$, the next value in the table's pattern, instead of $f(16)$.\n* $-1$: uses $47$ as the $y$-intercept, writing $f(x) = -3x + 47$; the $47$ is the output at $x = 2$, not at $x = 0$.\n\n**Test Day Takeaway:** From a table, divide the change in outputs by the change in inputs to get the slope, then anchor the rule on one row before evaluating.",
       skills: ["function-evaluation"]
     },
     {
@@ -134,18 +134,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "A shipment contains $24$ crates of machined pins, each crate holding either $18$ pins or $30$ pins, and the shipment holds $552$ pins in all. How many of the crates hold $30$ pins?",
+      question: "Each of the $24$ boxes in a shipment contains either $18$ pens or $30$ pens. There are $552$ pens in the shipment. How many boxes in the shipment contain $30$ pens?",
       choices: [
-        // distractor: divides the 120-pin excess by 30 instead of by the 12-pin difference between the two crate sizes
+        // distractor: finds the 120 extra pens but divides by 30 instead of by the 12-pen difference per box
         { id: "A", text: "$4$" },
         { id: "B", text: "$10$" },
-        // distractor: answers the number of 18-pin crates instead of the number of 30-pin crates
+        // distractor: reports the number of boxes that contain 18 pens
         { id: "C", text: "$14$" },
-        // distractor: divides 552 pins by 24 crates and reports the 23-pin average as a count of crates
+        // distractor: divides the total number of pens by the number of boxes, 552/24 = 23
         { id: "D", text: "$23$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** If all $24$ crates held $18$ pins the shipment would have $432$ pins; the extra $120$ pins come from swapping in $30$-pin crates, each swap adding $12$ pins, so $120 \\div 12 = 10$ crates.\n\n**The Full Solution:**\nStep 1: Let $x$ be the number of $18$-pin crates and $y$ the number of $30$-pin crates: $x + y = 24$ and $18x + 30y = 552$.\nStep 2: Substitute $x = 24 - y$ into the second equation: $18(24 - y) + 30y = 552$, or $432 + 12y = 552$.\nStep 3: Solve: $12y = 120$, so $y = 10$ and $x = 14$. Check: $14(18) + 10(30) = 252 + 300 = 552$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): divides the $120$-pin excess by $30$ rather than by $12$; the excess is created $12$ pins at a time, not $30$.\n* Choice C ($14$): the number of $18$-pin crates, the other variable in the system.\n* Choice D ($23$): $552 \\div 24 = 23$ is the average number of pins per crate, a pin count rather than a crate count.\n\n**Test Day Takeaway:** For a two-size counting problem, assume every item is the smaller size first; the leftover divided by the size difference is the count of larger items.",
+      explanation: "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** If all $24$ boxes held $18$ pens there would be $432$ pens; each $30$-pen box adds $12$ more, and $\\frac{552 - 432}{12} = 10$.\n\n**The Full Solution:**\nStep 1: Let $a$ be the number of $18$-pen boxes and $b$ the number of $30$-pen boxes: $a + b = 24$ and $18a + 30b = 552$.\nStep 2: Substitute $a = 24 - b$: $18(24 - b) + 30b = 552$, so $432 + 12b = 552$ and $12b = 120$.\nStep 3: Divide: $b = 10$, so $a = 14$. Check: $18(14) + 30(10) = 252 + 300 = 552$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): divides the $120$ extra pens by $30$; each $30$-pen box adds only $30 - 18 = 12$ pens beyond an $18$-pen box.\n* Choice C ($14$): this is the number of boxes that contain $18$ pens.\n* Choice D ($23$): divides $552$ by $24$, the average number of pens per box, which is not a count of boxes.\n\n**Test Day Takeaway:** Write one equation for the count and one for the total; substitute, and make sure your answer is the quantity the question names.",
       skills: ["word-problem-to-equation", "setting-up-systems"]
     },
     {
@@ -153,18 +153,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "Two hairline scribes on a layout plate meet at a right angle. One scribe lies along $y = \\frac{3}{4}x + 2$, and the other passes through a punch mark at $(6, 5)$. Which equation represents the second scribe?",
+      question: "Line $k$ is defined by $y = \\frac{3}{4}x + 2$. Line $j$ is perpendicular to line $k$ and passes through the point $(6, 5)$. Which equation defines line $j$?",
       choices: [
-        // distractor: reuses the slope 3/4, giving a scribe parallel to the first rather than perpendicular to it
+        // distractor: uses the same slope as line k, which gives a parallel line through (6, 5)
         { id: "A", text: "$y = \\frac{3}{4}x + \\frac{1}{2}$" },
-        // distractor: inverts the slope to 4/3 but never negates it
+        // distractor: takes the reciprocal of 3/4 but not its opposite
         { id: "B", text: "$y = \\frac{4}{3}x - 3$" },
-        // distractor: negates the slope to -3/4 but never inverts it
+        // distractor: takes the opposite of 3/4 but not its reciprocal
         { id: "C", text: "$y = -\\frac{3}{4}x + \\frac{19}{2}$" },
         { id: "D", text: "$y = -\\frac{4}{3}x + 13$" }
       ],
       correctAnswer: "D",
-      explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Perpendicular means the negative reciprocal of $\\frac{3}{4}$, which is $-\\frac{4}{3}$; through $(6, 5)$ the intercept is $5 + 8 = 13$.\n\n**The Full Solution:**\nStep 1: The first scribe has slope $\\frac{3}{4}$, so the perpendicular scribe has slope $-\\frac{4}{3}$ — flip the fraction and change the sign.\nStep 2: Substitute the point into $y = -\\frac{4}{3}x + b$: $5 = -\\frac{4}{3}(6) + b = -8 + b$.\nStep 3: Solve for the intercept: $b = 13$, so $y = -\\frac{4}{3}x + 13$. Check at $x = 6$: $-8 + 13 = 5$ ✓, and $\\frac{3}{4} \\cdot \\left(-\\frac{4}{3}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = \\frac{3}{4}x + \\frac{1}{2}$): keeps the slope $\\frac{3}{4}$, which describes a scribe parallel to the first, so the two would never meet.\n* Choice B ($y = \\frac{4}{3}x - 3$): flips the fraction but leaves it positive; the product of the slopes is $+1$, not $-1$.\n* Choice C ($y = -\\frac{3}{4}x + \\frac{19}{2}$): changes the sign but not the fraction, giving a slope product of $-\\frac{9}{16}$.\n\n**Test Day Takeaway:** Perpendicular slopes need both moves — flip and negate — and only then do you substitute the point to find the intercept.",
+      explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** A perpendicular slope is the negative reciprocal, $-\\frac{4}{3}$, and $5 = -\\frac{4}{3}(6) + b$ gives $b = 13$.\n\n**The Full Solution:**\nStep 1: The slope of line $k$ is $\\frac{3}{4}$, so the slope of line $j$ is its negative reciprocal, $-\\frac{4}{3}$.\nStep 2: Substitute the point $(6, 5)$ into $y = -\\frac{4}{3}x + b$: $5 = -8 + b$, so $b = 13$.\nStep 3: Line $j$ is $y = -\\frac{4}{3}x + 13$. Check: $-\\frac{4}{3}(6) + 13 = 5$, and $\\frac{3}{4} \\cdot \\left(-\\frac{4}{3}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = \\frac{3}{4}x + \\frac{1}{2}$): keeps the slope $\\frac{3}{4}$, which makes the line parallel to line $k$, not perpendicular.\n* Choice B ($y = \\frac{4}{3}x - 3$): flips the fraction but keeps the positive sign; the product of the slopes is $1$, not $-1$.\n* Choice C ($y = -\\frac{3}{4}x + \\frac{19}{2}$): changes the sign but does not flip the fraction.\n\n**Test Day Takeaway:** Perpendicular slopes multiply to $-1$: flip the fraction and change its sign, then use the given point to find the intercept.",
       skills: ["perpendicular-negative-reciprocal"]
     },
     {
@@ -172,18 +172,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "The model $\\hat{P} = 0.85m + 14.2$ estimates the chamber pressure, in kilopascals, from the mass flow rate $m$, in grams per second. At $m = 26$ the pressure measured in the chamber was $37.7$ kilopascals. Which statement describes the model's estimate at $m = 26$?",
+      question: "The equation $y = 0.85x + 14.2$ is a linear model for a data set. One of the data points is $(26, 37.7)$. Which statement about this data point is true?",
       choices: [
-        // distractor: subtracts in the wrong order, predicted minus measured, reversing the direction of the miss
-        { id: "A", text: "The model overestimates the measured pressure by $1.4$ kilopascals." },
-        { id: "B", text: "The model underestimates the measured pressure by $1.4$ kilopascals." },
-        // distractor: leaves out the constant 14.2, predicting 22.1 instead of 36.3
-        { id: "C", text: "The model underestimates the measured pressure by $15.6$ kilopascals." },
-        // distractor: uses only the constant 14.2 as the prediction, ignoring the 0.85m term
-        { id: "D", text: "The model underestimates the measured pressure by $23.5$ kilopascals." }
+        // distractor: computes the correct difference of 1.4 but reverses which value is larger
+        { id: "A", text: "The model predicts a $y$-value that is $1.4$ greater than the actual $y$-value." },
+        { id: "B", text: "The model predicts a $y$-value that is $1.4$ less than the actual $y$-value." },
+        // distractor: leaves out the intercept, predicting 0.85(26) = 22.1 and subtracting it from 37.7
+        { id: "C", text: "The model predicts a $y$-value that is $15.6$ less than the actual $y$-value." },
+        // distractor: leaves out the slope term, subtracting only the intercept 14.2 from 37.7
+        { id: "D", text: "The model predicts a $y$-value that is $23.5$ less than the actual $y$-value." }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The model predicts $0.85(26) + 14.2 = 36.3$, and the chamber actually read $37.7$, so the measurement sits $1.4$ above the model.\n\n**The Full Solution:**\nStep 1: Evaluate the model at $m = 26$: $0.85(26) = 22.1$, and $22.1 + 14.2 = 36.3$ kilopascals.\nStep 2: Compare measured with predicted: $37.7 - 36.3 = 1.4$ kilopascals, a positive difference.\nStep 3: Interpret the sign. A positive measured-minus-predicted difference means the model's value is too small, so the model underestimates by $1.4$. Check: $36.3 + 1.4 = 37.7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (overestimates by $1.4$): the size is right but the direction is backwards; subtract measured minus predicted, not predicted minus measured.\n* Choice C (underestimates by $15.6$): drops the constant and predicts $22.1$, giving $37.7 - 22.1 = 15.6$.\n* Choice D (underestimates by $23.5$): uses $14.2$ alone as the prediction, giving $37.7 - 14.2 = 23.5$.\n\n**Test Day Takeaway:** Always compute measured minus predicted, in that order — the sign of that difference is what tells you whether the model runs low or high.",
+      explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** At $x = 26$ the model predicts $0.85(26) + 14.2 = 36.3$, which is $37.7 - 36.3 = 1.4$ less than the actual value.\n\n**The Full Solution:**\nStep 1: Substitute $x = 26$ into the model: $y = 0.85(26) + 14.2 = 22.1 + 14.2 = 36.3$.\nStep 2: Compare the prediction with the actual $y$-value of the data point: $37.7 - 36.3 = 1.4$.\nStep 3: The actual value is larger, so the predicted value is $1.4$ less than the actual value. Check: $36.3 + 1.4 = 37.7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: has the right difference, $1.4$, but the wrong direction; the prediction $36.3$ is below the actual $37.7$, so the model underestimates.\n* Choice C: leaves out the $14.2$, predicting $0.85(26) = 22.1$ and getting $37.7 - 22.1 = 15.6$.\n* Choice D: leaves out the $0.85x$ term, subtracting only $14.2$ from $37.7$.\n\n**Test Day Takeaway:** To compare a data point with a model, plug its $x$-value into the equation and subtract the prediction from the actual $y$-value; a positive result means the model predicts too low.",
       skills: ["calculate-mean", "slope-intercept-form"]
     },
     {
@@ -191,18 +191,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "A redesign that switched the alloy reduced the mass of a cast bracket used on an assembly arm from $2{,}500$ grams to $1{,}900$ grams. Which statement correctly describes the change in the bracket's mass?",
+      question: "The price of a bicycle decreased from \\$250 to \\$200. The price decreased by $p\\%$. What is the value of $p$?",
       choices: [
-        // distractor: moves the decimal point one place when converting the ratio 0.24 to a percent
-        { id: "A", text: "The mass decreased by about $2.4\\%$." },
-        { id: "B", text: "The mass decreased by about $24\\%$." },
-        // distractor: divides the 600-gram decrease by the new mass, 1,900, instead of by the original 2,500
-        { id: "C", text: "The mass decreased by about $32\\%$." },
-        // distractor: reports the percent of the original mass that remains rather than the percent removed
-        { id: "D", text: "The mass decreased by about $76\\%$." }
+        { id: "A", text: "$20$" },
+        // distractor: divides the \$50 decrease by the new price, 200, instead of the original price, 250
+        { id: "B", text: "$25$" },
+        // distractor: finds the new price as a percent of the original price, 200/250 = 80%
+        { id: "C", text: "$80$" },
+        // distractor: finds the original price as a percent of the new price, 250/200 = 125%
+        { id: "D", text: "$125$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: Percent Decrease**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The drop is $600$ grams out of the original $2{,}500$, and $\\frac{600}{2{,}500} = 0.24$, or $24\\%$.\n\n**The Full Solution:**\nStep 1: Find the amount of change: $2{,}500 - 1{,}900 = 600$ grams.\nStep 2: Divide by the ORIGINAL amount, because percent change is always measured against where you started: $\\frac{600}{2{,}500} = 0.24$.\nStep 3: Convert to a percent: $0.24 = 24\\%$. Check: $2{,}500 - 0.24(2{,}500) = 2{,}500 - 600 = 1{,}900$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.4\\%$): the ratio $0.24$ becomes $24\\%$, not $2.4\\%$; a $2.4\\%$ cut would remove only $60$ grams.\n* Choice C ($32\\%$): divides $600$ by the new mass $1{,}900$; that ratio answers \"the old mass is what percent more than the new,\" a different question.\n* Choice D ($76\\%$): $\\frac{1{,}900}{2{,}500} = 76\\%$ is the share of the mass that is still there, not the share that was removed.\n\n**Test Day Takeaway:** Percent change is change over the ORIGINAL value; check your answer by applying the percent back to the starting number.",
+      correctAnswer: "A",
+      explanation: "**SAT Pattern: Percent Decrease**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The price fell by $250 - 200 = 50$ dollars, and $\\frac{50}{250} = 0.20$, so $p = 20$.\n\n**The Full Solution:**\nStep 1: Find the amount of the decrease: $250 - 200 = 50$ dollars.\nStep 2: Divide by the original price: $\\frac{50}{250} = 0.20$.\nStep 3: Write $0.20$ as a percent: $20\\%$, so $p = 20$. Check: $20\\%$ of $250$ is $50$, and $250 - 50 = 200$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($25$): divides the decrease by the new price, $\\frac{50}{200} = 0.25$; a percent change is always measured from the original value.\n* Choice C ($80$): finds what percent the new price is of the original, $\\frac{200}{250} = 80\\%$, which is the part that remains, not the decrease.\n* Choice D ($125$): divides the original price by the new price, $\\frac{250}{200} = 1.25$.\n\n**Test Day Takeaway:** Percent decrease is the amount of change divided by the original amount; dividing by the new amount is the most common trap.",
       skills: ["percent-change"]
     },
     {
@@ -210,10 +210,10 @@ export const practiceTest11M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "The table gives the number of relays built on each of two assembly lines, classified by whether the relay passed a continuity check. Two of the rejected relays are chosen at random, one after the other, without replacement. What is the probability that both were built on Line 1?",
-      diagram: { type: "twoWayTable", params: { headers: ["", "Passed", "Rejected", "Total"], rows: [["Line 1", "18", "6", "24"], ["Line 2", "10", "6", "16"], ["Total", "28", "12", "40"]] } },
+      question: "The table shows the number of juniors and seniors in a club who did or did not sign up for a field trip. Two of the students who did not sign up will be selected at random, one at a time, without replacement. What is the probability that both students selected are juniors? (Express your answer as a decimal or fraction, not as a percent.)",
+      diagram: { type: "twoWayTable", params: { headers: ["", "Signed up", "Did not sign up", "Total"], rows: [["Juniors", "18", "6", "24"], ["Seniors", "10", "6", "16"], ["Total", "28", "12", "40"]] } },
       correctAnswer: "5/22",
-      explanation: "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $\\frac{5}{22}$.**\n\n**The Fast Way (~30s):** Only the $12$ rejected relays are in play, $6$ of them from Line 1: $\\frac{6}{12} \\cdot \\frac{5}{11} = \\frac{5}{22}$.\n\n**The Full Solution:**\nStep 1: Restrict to the group the question names. The rejected column totals $12$ relays, of which $6$ came from Line 1.\nStep 2: First draw: $\\frac{6}{12} = \\frac{1}{2}$.\nStep 3: Second draw, with the first relay gone: $5$ Line 1 relays remain among $11$ rejected relays, so $\\frac{5}{11}$. Multiply: $\\frac{1}{2} \\cdot \\frac{5}{11} = \\frac{5}{22}$. Check: $\\frac{5}{22} \\approx 0.227$, a little below the $0.25$ you would get if the relay were replaced ✓\n\n**Common Mistakes:**\n* $\\frac{1}{4}$: multiplying $\\frac{6}{12} \\cdot \\frac{6}{12}$, which is the with-replacement probability; the first relay is not put back.\n* $\\frac{1}{52}$: using all $40$ relays as the pool, $\\frac{6}{40} \\cdot \\frac{5}{39}$, instead of only the $12$ rejected ones.\n* $\\frac{21}{22}$: adding $\\frac{6}{12} + \\frac{5}{11}$; \"both\" events call for multiplication, not addition.\n\n**Test Day Takeaway:** Read the conditioning phrase first — it fixes the pool — then drop the numerator and the denominator by one for the second draw.",
+      explanation: "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $\\frac{5}{22}$ (or $0.2272$ or $0.2273$).**\n\n**The Fast Way (~30s):** Of the $12$ students who did not sign up, $6$ are juniors, so the probability is $\\frac{6}{12} \\cdot \\frac{5}{11} = \\frac{30}{132} = \\frac{5}{22}$.\n\n**The Full Solution:**\nStep 1: Restrict to the students who did not sign up: there are $12$ of them, and $6$ are juniors.\nStep 2: The first selection is a junior with probability $\\frac{6}{12}$. After one junior is removed, $5$ juniors remain among $11$ students, so the second is a junior with probability $\\frac{5}{11}$.\nStep 3: Multiply: $\\frac{6}{12} \\cdot \\frac{5}{11} = \\frac{30}{132} = \\frac{5}{22}$. Check by counting pairs: there are $6 \\cdot 5 = 30$ ordered junior pairs out of $12 \\cdot 11 = 132$ ordered pairs ✓\n\n**Common Mistakes:**\n* $\\frac{1}{4}$: uses $\\frac{6}{12}$ for both selections, as though the first student were put back.\n* $\\frac{1}{2}$: finds the probability for only the first selection.\n* $\\frac{5}{92}$: divides by the $24$ juniors instead of the $12$ students who did not sign up, computing $\\frac{6}{24} \\cdot \\frac{5}{23}$.\n\n**Test Day Takeaway:** Find the group the selection comes from first, then reduce both the favorable count and the total by one for the second selection.",
       skills: ["probability-basics"]
     },
     {
@@ -221,18 +221,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "An equipment loan is repaid on a schedule for which the amount still owed, in dollars, after $m$ months equals $9{,}250 - 385m$. Which of the following describes the meaning of $385$ in that expression?",
+      question: "The amount, in dollars, that Lena still owes on a loan $m$ months after she begins repaying it is given by the expression $9{,}250 - 385m$. What is the best interpretation of $385$ in this context?",
       choices: [
-        // distractor: mistakes the coefficient of m for the constant term 9,250
-        { id: "A", text: "The amount, in dollars, owed when the loan began." },
-        // distractor: ignores the minus sign in front of 385 and reads the balance as growing
-        { id: "B", text: "The amount, in dollars, by which the amount owed increases each month." },
-        // distractor: reads 385 as a count of months rather than a rate in dollars per month; the balance actually reaches zero after about 24 months
-        { id: "C", text: "The number of months needed to repay the loan." },
-        { id: "D", text: "The amount, in dollars, by which the amount owed decreases each month." }
+        // distractor: confuses the rate of change with the starting amount, which is 9,250
+        { id: "A", text: "Lena owed $\\$385$ when she began repaying the loan." },
+        // distractor: ignores the minus sign in front of 385m
+        { id: "B", text: "The amount Lena owes increases by $\\$385$ each month." },
+        { id: "C", text: "The amount Lena owes decreases by $\\$385$ each month." },
+        // distractor: treats the coefficient of m as a number of months
+        { id: "D", text: "Lena will finish repaying the loan in $385$ months." }
       ],
-      correctAnswer: "D",
-      explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** $385$ multiplies $m$ and carries a minus sign, so it is the dollars removed from the balance per month.\n\n**The Full Solution:**\nStep 1: Match the expression to $y = b + mx$ form: the constant $9{,}250$ is the starting balance and $-385$ is the rate of change per month.\nStep 2: Read the units of the rate: dollars per month, since $385$ multiplies a number of months and the result is in dollars.\nStep 3: Read the sign: the term is subtracted, so each additional month lowers the balance by $\\$385$. Check: after $1$ month the balance is $9{,}250 - 385 = \\$8{,}865$, exactly $\\$385$ less ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: the amount owed at the start is the constant $9{,}250$, the value of the expression when $m = 0$.\n* Choice B: the sign is part of the meaning; because $385m$ is subtracted, the balance falls rather than rises.\n* Choice C: $385$ counts dollars, not months; the balance hits zero near $m = 24$, since $9{,}250 \\div 385 \\approx 24$.\n\n**Test Day Takeaway:** The number attached to the variable is a rate — say it with its units and its sign, and the correct interpretation writes itself.",
+      correctAnswer: "C",
+      explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The expression is linear in $m$ with slope $-385$, so each month the amount owed goes down by $\\$385$.\n\n**The Full Solution:**\nStep 1: Write the expression as $-385m + 9{,}250$: the constant $9{,}250$ is the amount owed at $m = 0$, and $-385$ is the change per month.\nStep 2: Each time $m$ increases by $1$, the expression changes by $-385$, so the amount owed drops by $\\$385$.\nStep 3: So $385$ is the amount by which the balance decreases each month. Check: $m = 0$ gives $9{,}250$ and $m = 1$ gives $8{,}865$, a decrease of $385$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: the amount owed at the start is the value at $m = 0$, which is $\\$9{,}250$, not $\\$385$.\n* Choice B: overlooks the minus sign; $385m$ is subtracted, so the balance goes down as $m$ increases.\n* Choice D: $385$ is a dollar amount per month, not a number of months; the loan is repaid when $9{,}250 - 385m = 0$, about $24$ months.\n\n**Test Day Takeaway:** In a linear model, the coefficient of the variable is the change per unit and its sign tells you the direction; the constant term is the starting value.",
       skills: ["slope-intercept-form"]
     },
     {
@@ -240,18 +240,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "The energy a furnace uses per firing cycle rose from $65$ kilowatt-hours to $91$ kilowatt-hours after a larger crucible was installed in it. Which statement correctly compares the energy used per cycle before and after the change?",
+      question: "The number $60$ is what percent greater than the number $48$?",
       choices: [
-        // distractor: reports the raw difference of 26 kilowatt-hours as if it were a percent
-        { id: "A", text: "$91$ is $26\\%$ greater than $65$." },
-        // distractor: divides the 26-unit increase by the new amount, 91, instead of by the original 65
-        { id: "B", text: "$91$ is $29\\%$ greater than $65$." },
-        { id: "C", text: "$91$ is $40\\%$ greater than $65$." },
-        // distractor: reports the ratio 91/65 = 140% without subtracting the original 100%
-        { id: "D", text: "$91$ is $140\\%$ greater than $65$." }
+        // distractor: reports the difference, 60 - 48 = 12, as the percent
+        { id: "A", text: "$12\\%$" },
+        // distractor: divides the difference by 60 instead of 48
+        { id: "B", text: "$20\\%$" },
+        { id: "C", text: "$25\\%$" },
+        // distractor: finds 60 as a percent of 48, 60/48 = 125%, instead of the increase
+        { id: "D", text: "$125\\%$" }
       ],
       correctAnswer: "C",
-      explanation: "**SAT Pattern: Percent Increase**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The rise is $26$ kilowatt-hours on a base of $65$, and $\\frac{26}{65} = 0.4$, so the new figure is $40\\%$ greater.\n\n**The Full Solution:**\nStep 1: Find the increase: $91 - 65 = 26$ kilowatt-hours.\nStep 2: Divide by the original amount: $\\frac{26}{65} = 0.40$.\nStep 3: Convert to a percent: $0.40 = 40\\%$. Check: $65 + 0.40(65) = 65 + 26 = 91$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($26\\%$): uses the difference itself as a percent; $26\\%$ of $65$ is only about $16.9$ kilowatt-hours.\n* Choice B ($29\\%$): divides $26$ by the new value $91$; percent increase is always measured against the starting value.\n* Choice D ($140\\%$): $\\frac{91}{65} = 1.40$ says $91$ is $140\\%$ OF $65$, which is $40\\%$ GREATER than $65$.\n\n**Test Day Takeaway:** \"Percent of\" and \"percent greater than\" differ by exactly $100\\%$ — decide which phrase the question uses before you divide.",
+      explanation: "**SAT Pattern: Percent Increase**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The increase is $60 - 48 = 12$, and $\\frac{12}{48} = 0.25$, so $60$ is $25\\%$ greater than $48$.\n\n**The Full Solution:**\nStep 1: Find the difference: $60 - 48 = 12$.\nStep 2: Divide by the number being compared to, $48$: $\\frac{12}{48} = 0.25$.\nStep 3: Write as a percent: $25\\%$. Check: $1.25(48) = 60$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($12\\%$): reports the difference itself; $12$ must be compared with $48$ to become a percent.\n* Choice B ($20\\%$): divides by $60$, giving $\\frac{12}{60} = 20\\%$; that says $48$ is $20\\%$ less than $60$, a different comparison.\n* Choice D ($125\\%$): finds $60$ as a percent of $48$; the increase is the part above $100\\%$, which is $25\\%$.\n\n**Test Day Takeaway:** \"$A$ is what percent greater than $B$\" divides the difference by $B$, the number after \"than.\"",
       skills: ["percent-of-value", "percent-change"]
     },
     {
@@ -259,18 +259,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "During a calibration run at the meter's outlet, a flow meter's reading $q$, in liters per second, satisfies $7q + 23 = 100$. What is the value of the expression $7q - 9$?",
+      question: "$7q + 23 = 100$\nWhat is the value of $7q - 9$?",
       choices: [
         { id: "A", text: "$68$" },
-        // distractor: stops at 7q = 77 and never subtracts the 9
+        // distractor: finds 7q = 77 and stops there
         { id: "B", text: "$77$" },
-        // distractor: adds 9 to 77 instead of subtracting it
+        // distractor: adds 9 to 7q instead of subtracting it
         { id: "C", text: "$86$" },
-        // distractor: subtracts 9 from the total 100 instead of from 7q
+        // distractor: subtracts 9 from 100 without first removing the 23
         { id: "D", text: "$91$" }
       ],
       correctAnswer: "A",
-      explanation: "**SAT Pattern: Shifted Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The expression asked for is $32$ less than the given left side, so subtract $32$ from $100$: $7q - 9 = 68$.\n\n**The Full Solution:**\nStep 1: Isolate the shared piece rather than the variable: $7q + 23 = 100$ gives $7q = 77$.\nStep 2: Build the requested expression from it: $7q - 9 = 77 - 9$.\nStep 3: Evaluate: $7q - 9 = 68$. Check by solving outright: $q = 11$, so $7(11) - 9 = 77 - 9 = 68$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($77$): the value of $7q$ itself; the question shifts that value down by $9$.\n* Choice C ($86$): adds the $9$ instead of subtracting it, moving in the wrong direction.\n* Choice D ($91$): subtracts $9$ from $100$, but the $100$ still contains the $+23$ that has to come off first.\n\n**Test Day Takeaway:** When the question asks for an expression rather than the variable, isolate that whole expression — solving for $q$ is legal but slower.",
+      explanation: "**SAT Pattern: Shifted Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Subtract $23$ from both sides to get $7q = 77$, so $7q - 9 = 77 - 9 = 68$.\n\n**The Full Solution:**\nStep 1: Isolate the term $7q$: subtract $23$ from both sides to get $7q = 77$.\nStep 2: There is no need to find $q$; substitute $77$ for $7q$ in $7q - 9$.\nStep 3: Compute: $77 - 9 = 68$. Check: $q = 11$, and $7(11) - 9 = 77 - 9 = 68$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($77$): this is the value of $7q$, one step short of $7q - 9$.\n* Choice C ($86$): computes $77 + 9$, adding the $9$ instead of subtracting it.\n* Choice D ($91$): computes $100 - 9$, which skips removing the $23$ from the left side.\n\n**Test Day Takeaway:** When the question asks for an expression that contains the same term as the equation, solve for that term and substitute; finding the variable itself is an extra step.",
       skills: ["solving-equations", "ratios"]
     },
     {
@@ -278,9 +278,9 @@ export const practiceTest11M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "A triangular gusset with sides of $9$ centimeters and $15$ centimeters is enlarged to a similar gusset whose side corresponding to the $9$-centimeter side measures $24$ centimeters. How long, in centimeters, is the enlarged gusset's side corresponding to the $15$-centimeter side?",
+      question: "Triangle $ABC$ is similar to triangle $DEF$, where $A$, $B$, and $C$ correspond to $D$, $E$, and $F$, respectively. In these triangles, $AB = 9$, $BC = 15$, and $DE = 24$. What is the length of $\\overline{EF}$?",
       correctAnswer: "40",
-      explanation: "**SAT Pattern: Similar Triangles Proportion**\n\n**The correct answer is $40$.**\n\n**The Fast Way (~25s):** The enlargement multiplies every side by $\\frac{24}{9} = \\frac{8}{3}$, so $15 \\cdot \\frac{8}{3} = 40$.\n\n**The Full Solution:**\nStep 1: Similar figures have proportional corresponding sides, so $\\frac{9}{24} = \\frac{15}{w}$, where $w$ is the length asked for.\nStep 2: Cross-multiply: $9w = 15 \\cdot 24 = 360$.\nStep 3: Solve: $w = 40$ centimeters. Check the two ratios: $\\frac{24}{9} \\approx 2.67$ and $\\frac{40}{15} \\approx 2.67$ ✓\n\n**Common Mistakes:**\n* $30$: adding the $15$-centimeter growth of the first side to the second side; similarity scales by multiplication, not by a constant addition.\n* $5.625$: setting up the proportion upside down as $\\frac{9}{24} = \\frac{w}{15}$, which shrinks the figure instead of enlarging it.\n* $14.4$: pairing the $24$-centimeter side with the $15$-centimeter side, so the $24$ is matched to the wrong original side.\n\n**Test Day Takeaway:** Write the proportion with matching triangles on matching sides of the equation, then sanity-check the scale factor: an enlargement must make every side longer.",
+      explanation: "**SAT Pattern: Similar Triangles Proportion**\n\n**The correct answer is 40.**\n\n**The Fast Way (~20s):** The scale factor from triangle $ABC$ to triangle $DEF$ is $\\frac{24}{9} = \\frac{8}{3}$, so $EF = \\frac{8}{3}(15) = 40$.\n\n**The Full Solution:**\nStep 1: Corresponding sides are $\\overline{AB}$ and $\\overline{DE}$, and $\\overline{BC}$ and $\\overline{EF}$.\nStep 2: Set up the proportion: $\\frac{EF}{BC} = \\frac{DE}{AB}$, so $\\frac{EF}{15} = \\frac{24}{9}$.\nStep 3: Solve: $EF = \\frac{24 \\cdot 15}{9} = \\frac{360}{9} = 40$. Check: $\\frac{40}{15} = \\frac{8}{3}$ and $\\frac{24}{9} = \\frac{8}{3}$ ✓\n\n**Common Mistakes:**\n* $30$: adds the difference $24 - 9 = 15$ to $15$; similar triangles scale by multiplying, not by adding.\n* $14.4$: uses the ratio upside down, computing $\\frac{9}{15}(24)$.\n* $5.625$: computes $\\frac{9 \\cdot 15}{24}$, which scales $15$ down instead of up.\n\n**Test Day Takeaway:** Match corresponding sides by the order of the letters, find the scale factor from one known pair, and multiply.",
       skills: ["similar-triangles"]
     },
     {
@@ -288,19 +288,19 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "The table lists four readings of a load cell, with the reading $g(x)$, in millivolts, linear in the applied mass $x$, in kilograms. The reading can be written as $g(x) = a(x - 5) + b$ for constants $a$ and $b$. What is the value of $a + b$?",
-      diagram: { type: "dataTable", params: { headers: ["Applied mass x (kilograms)", "Reading g(x) (millivolts)"], rows: [["0", "3"], ["1", "7"], ["2", "11"], ["3", "15"]] } },
+      question: "The linear function $g$ can be written as $g(x) = a(x - 5) + b$, where $a$ and $b$ are constants. The table shows four values of $x$ and their corresponding values of $g(x)$. What is the value of $a + b$?",
+      diagram: { type: "dataTable", params: { headers: ["x", "g(x)"], rows: [["0", "3"], ["1", "7"], ["2", "11"], ["3", "15"]] } },
       choices: [
-        // distractor: expands a(x - 5) + b as ax + b + 5a, so the constant equation becomes b + 20 = 3 and b = -17
+        // distractor: expands a(x - 5) + b as ax + 5a + b, so 5(4) + b = 3 and b = -17
         { id: "A", text: "$-13$" },
-        // distractor: takes b to be the reading at x = 0, which is 3, instead of the reading at x = 5
+        // distractor: takes b to be g(0) = 3 instead of g(5)
         { id: "B", text: "$7$" },
-        // distractor: takes b to be the reading in the last row, at x = 3, instead of the reading at x = 5
+        // distractor: takes b to be the last value in the table, g(3) = 15, instead of g(5)
         { id: "C", text: "$19$" },
         { id: "D", text: "$27$" }
       ],
       correctAnswer: "D",
-      explanation: "**SAT Pattern: Matching Coefficients**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Each kilogram adds $4$ millivolts, so $a = 4$; the form $a(x - 5) + b$ makes $b$ the reading at $x = 5$, which is $4(5) + 3 = 23$, and $4 + 23 = 27$.\n\n**The Full Solution:**\nStep 1: The readings rise $4$ millivolts per kilogram and start at $3$, so $g(x) = 4x + 3$.\nStep 2: Expand the target form and match coefficients: $a(x - 5) + b = ax + (b - 5a)$, so $a = 4$ and $b - 5(4) = 3$.\nStep 3: Solve the constant equation: $b = 23$, so $a + b = 27$. Check: $4(x - 5) + 23 = 4x - 20 + 23 = 4x + 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-13$): distributes $a$ over $x - 5$ as $ax + 5a$, dropping the minus sign, which gives $b = -17$.\n* Choice B ($7$): reads $b$ off the table as the value at $x = 0$; in this form the constant is the output at $x = 5$, not at $x = 0$.\n* Choice C ($19$): uses the last listed reading, $15$, as $b$; the table stops at $x = 3$, so $b$ has to be extended, not read.\n\n**Test Day Takeaway:** Expand the shifted form, line up the $x$ coefficients and the constants separately, and remember that $a(x - h) + b$ makes $b$ the output at $x = h$.",
+      explanation: "**SAT Pattern: Matching Coefficients**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The outputs rise by $4$ for each increase of $1$ in $x$, so $a = 4$, and $b = g(5) = 4(5) + 3 = 23$, giving $a + b = 27$.\n\n**The Full Solution:**\nStep 1: From the table, $g(0) = 3$ and $g(x)$ increases by $4$ each time $x$ increases by $1$, so $g(x) = 4x + 3$.\nStep 2: Expand the given form: $a(x - 5) + b = ax + (b - 5a)$. Matching coefficients gives $a = 4$ and $b - 5(4) = 3$.\nStep 3: Solve: $b = 23$, so $a + b = 4 + 23 = 27$. Check: $4(x - 5) + 23 = 4x - 20 + 23 = 4x + 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-13$): expands $a(x - 5)$ as $ax + 5a$, dropping the minus sign, which gives $b = -17$.\n* Choice B ($7$): uses $g(0) = 3$ as $b$; in the form $a(x - 5) + b$, the constant $b$ is the output at $x = 5$.\n* Choice C ($19$): uses the last table value, $15$, as $b$; that is $g(3)$, not $g(5)$.\n\n**Test Day Takeaway:** Expand the given form and match the $x$-coefficients and the constants separately; in $a(x - h) + b$, the constant $b$ is the output at $x = h$.",
       skills: ["distributive-property"]
     },
     // ============================================================
@@ -311,18 +311,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 6,
-      question: "A family phone plan's monthly rate was reduced by $12\\%$, and a fixed $\\$9.50$ device-support fee was then added to the reduced rate, giving a monthly charge of $\\$255.90$ for the first full month at the new rate. Which expression gives the plan's monthly rate, in dollars, before the reduction?",
+      question: "The monthly rate for renting a storage unit was reduced by $12\\%$. Then a \\$9.50 fee was added to the reduced rate, for a total monthly charge of \\$255.90. Which expression represents the monthly rate, in dollars, before it was reduced?",
       choices: [
-        // distractor: divides by 1.12, as if the reduced rate were 12 percent above the original rather than 12 percent below it
+        // distractor: removes the fee correctly but divides by 1.12, treating the 12% reduction as an increase
         { id: "A", text: "$\\dfrac{255.90 - 9.50}{1.12}$" },
-        // distractor: undoes a 12 percent decrease by applying a 12 percent increase, which lands 1.44 percent short
+        // distractor: removes the fee but multiplies by 1.12, as though adding 12% back undoes a 12% reduction
         { id: "B", text: "$1.12(255.90 - 9.50)$" },
         { id: "C", text: "$\\dfrac{255.90 - 9.50}{0.88}$" },
-        // distractor: adds the 9.50 fee back instead of removing it before undoing the reduction
+        // distractor: adds the fee to the total instead of subtracting it before undoing the reduction
         { id: "D", text: "$\\dfrac{255.90 + 9.50}{0.88}$" }
       ],
       correctAnswer: "C",
-      explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Strip the fee first, leaving $255.90 - 9.50$, which is $88\\%$ of the original rate, so divide by $0.88$.\n\n**The Full Solution:**\nStep 1: Undo the last step first. The fee was added at the end, so the reduced rate is $255.90 - 9.50 = 246.40$ dollars.\nStep 2: A $12\\%$ reduction leaves $100\\% - 12\\% = 88\\%$ of the original, so if $r$ is the original rate, $0.88r = 246.40$.\nStep 3: Solve: $r = \\frac{246.40}{0.88} = \\frac{255.90 - 9.50}{0.88} = 280$. Check forward: $0.88(280) = 246.40$, and $246.40 + 9.50 = 255.90$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($220$): divides by $1.12$, the multiplier for a $12\\%$ increase; here the rate went down, so the multiplier is $0.88$.\n* Choice B ($275.97$): multiplies by $1.12$ to reverse a $12\\%$ cut, but percent changes are not undone by the same percent — $0.88 \\times 1.12 = 0.9856$, not $1$.\n* Choice D ($301.59$): adds the $\\$9.50$ fee instead of subtracting it, so the percent step is applied to a charge that is $\\$19$ too large.\n\n**Test Day Takeaway:** Undo the steps in reverse order, and reverse a percent change by DIVIDING by its multiplier — never by applying the same percent the other way.",
+      explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Undo the steps in reverse order: subtract the fee, then divide by $0.88$, the multiplier for a $12\\%$ reduction, giving $\\dfrac{255.90 - 9.50}{0.88}$.\n\n**The Full Solution:**\nStep 1: Let $r$ be the original monthly rate. A $12\\%$ reduction leaves $88\\%$ of the rate, so the reduced rate is $0.88r$.\nStep 2: Adding the fee gives the total: $0.88r + 9.50 = 255.90$, so $0.88r = 255.90 - 9.50$.\nStep 3: Divide by $0.88$: $r = \\dfrac{255.90 - 9.50}{0.88}$. Check: this equals $\\dfrac{246.40}{0.88} = 280$, and $0.88(280) + 9.50 = 246.40 + 9.50 = 255.90$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\dfrac{255.90 - 9.50}{1.12}$): divides by $1.12$, which would undo a $12\\%$ increase, not a reduction.\n* Choice B ($1.12(255.90 - 9.50)$): adds $12\\%$ of the reduced rate back, but the $12\\%$ was taken of the larger original rate, so this gives about $\\$275.97$ instead of $\\$280$.\n* Choice D ($\\dfrac{255.90 + 9.50}{0.88}$): adds the fee to the total; the fee was added to produce the total, so it must be subtracted to undo it.\n\n**Test Day Takeaway:** To reverse a chain of changes, undo the last change first, and undo a percent change by dividing by its multiplier ($0.88$ for a $12\\%$ decrease).",
       skills: ["percent-word-problems", "percent-of-value"]
     },
     {
@@ -330,18 +330,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 7,
-      question: "On a coating line, one applicator uses $0.6$ gram of primer per part plus $45$ grams for setup, and a second applicator uses $0.85$ gram per part with no setup. The two applicators use the same total mass of primer for a run of $n$ parts. What is that total mass, in grams?",
+      question: "$\\frac{2}{3}(6x - 9) + 4 = \\frac{1}{2}(10x + 2) - 11$\nWhat is the solution to the given equation?",
       choices: [
-        // distractor: divides the 45-gram setup by 0.6 instead of by the 0.25-gram-per-part difference, getting 75 parts, then adds the setup
-        { id: "A", text: "$90$" },
-        // distractor: multiplies the correct run of 180 parts by 0.6 but leaves out the 45-gram setup mass
-        { id: "B", text: "$108$" },
-        { id: "C", text: "$153$" },
-        // distractor: reports the number of parts in the run instead of the mass of primer
-        { id: "D", text: "$180$" }
+        // distractor: reaches -x = -8 correctly but drops the negative sign on only one side when dividing by -1
+        { id: "A", text: "$-8$" },
+        // distractor: multiplies only the 6x by 2/3, getting 4x - 9 + 4 on the left
+        { id: "B", text: "$5$" },
+        // distractor: multiplies only the 10x by 1/2, getting 5x + 2 - 11 on the right
+        { id: "C", text: "$7$" },
+        { id: "D", text: "$8$" }
       ],
-      correctAnswer: "C",
-      explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The second applicator gains $0.25$ gram per part on the first, so it needs $45 \\div 0.25 = 180$ parts to make up the setup; $0.85(180) = 153$ grams.\n\n**The Full Solution:**\nStep 1: Write both totals for a run of $n$ parts: $0.6n + 45$ grams and $0.85n$ grams.\nStep 2: Set them equal and solve: $0.6n + 45 = 0.85n$, so $45 = 0.25n$ and $n = 180$ parts.\nStep 3: The question asks for the mass, not the run: $0.6(180) + 45 = 108 + 45 = 153$ grams. Check the other applicator: $0.85(180) = 153$ grams ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($90$): divides $45$ by $0.6$ to get $75$ parts; the setup is made up at the RATE DIFFERENCE of $0.25$ gram per part, not at one applicator's rate.\n* Choice B ($108$): computes $0.6(180)$ and forgets the $45$ grams of setup that are part of the first applicator's total.\n* Choice D ($180$): the number of parts in the run — the value of $n$, which is the step before the answer.\n\n**Test Day Takeaway:** After solving an equal-cost equation, reread the question: the variable you solved for is usually not the quantity being asked for.",
+      correctAnswer: "D",
+      explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** Distributing gives $4x - 6 + 4 = 5x + 1 - 11$, or $4x - 2 = 5x - 10$, so $x = 8$.\n\n**The Full Solution:**\nStep 1: Distribute on each side: $\\frac{2}{3}(6x - 9) = 4x - 6$ and $\\frac{1}{2}(10x + 2) = 5x + 1$, so the equation becomes $4x - 6 + 4 = 5x + 1 - 11$.\nStep 2: Combine constants: $4x - 2 = 5x - 10$.\nStep 3: Subtract $4x$ and add $10$ to both sides: $8 = x$. Check: the left side is $\\frac{2}{3}(39) + 4 = 26 + 4 = 30$ and the right side is $\\frac{1}{2}(82) - 11 = 41 - 11 = 30$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): gets $-x = -8$ and then writes $x = -8$, changing the sign of only one side.\n* Choice B ($5$): multiplies only $6x$ by $\\frac{2}{3}$, leaving the $-9$ unchanged, so the left side becomes $4x - 5$.\n* Choice C ($7$): multiplies only $10x$ by $\\frac{1}{2}$, leaving the $+2$ unchanged, so the right side becomes $5x - 9$.\n\n**Test Day Takeaway:** Distribute a fraction to every term inside the parentheses, then combine constants before moving terms; check by substituting into the original equation.",
       skills: ["solving-equations"]
     },
     {
@@ -349,9 +349,9 @@ export const practiceTest11M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 6,
-      question: "A drilled pilot hole at $(5, -2)$ lies halfway along the segment joining an anchor bolt at $(a, 7)$ to an anchor bolt at $(12, b)$, where every position is measured in centimeters on a survey grid. What is the value of $a + b$?",
+      question: "In the $xy$-plane, the midpoint of the line segment with endpoints $(a, 7)$ and $(12, b)$ is $(5, -2)$. What is the value of $a + b$?",
       correctAnswer: "-13",
-      explanation: "**SAT Pattern: Midpoint Formula**\n\n**The correct answer is $-13$.**\n\n**The Fast Way (~30s):** Each midpoint coordinate is the average of the endpoints, so $a = 2(5) - 12 = -2$ and $b = 2(-2) - 7 = -11$, giving $-13$.\n\n**The Full Solution:**\nStep 1: Write the midpoint conditions: $\\frac{a + 12}{2} = 5$ and $\\frac{7 + b}{2} = -2$.\nStep 2: Clear each denominator: $a + 12 = 10$ and $7 + b = -4$.\nStep 3: Solve: $a = -2$ and $b = -11$, so $a + b = -13$. Check the midpoint of $(-2, 7)$ and $(12, -11)$: $\\left(\\frac{-2 + 12}{2}, \\frac{7 - 11}{2}\\right) = (5, -2)$ ✓\n\n**Common Mistakes:**\n* $11$: averaging the numbers that are already given, $\\frac{5 + 12}{2}$ and $\\frac{-2 + 7}{2}$, instead of solving backward for the missing coordinates.\n* $-16$: subtracting without doubling, using $a = 5 - 12$ and $b = -2 - 7$; the midpoint equals the SUM of the endpoints divided by two, so the sum is twice the midpoint.\n* $1$: sign-slipping on the $y$ equation to $b = 2(-2) + 7 = 3$, which places the midpoint at $y = 5$ instead of $y = -2$.\n\n**Test Day Takeaway:** Read the midpoint formula backward as \"endpoint $=$ twice the midpoint minus the other endpoint,\" and always verify by re-averaging the two endpoints you end up with.",
+      explanation: "**SAT Pattern: Midpoint Formula**\n\n**The correct answer is -13.**\n\n**The Fast Way (~30s):** Each endpoint coordinate is twice the midpoint coordinate minus the other endpoint: $a = 2(5) - 12 = -2$ and $b = 2(-2) - 7 = -11$, so $a + b = -13$.\n\n**The Full Solution:**\nStep 1: The midpoint averages the coordinates: $\\frac{a + 12}{2} = 5$ and $\\frac{7 + b}{2} = -2$.\nStep 2: Solve each: $a + 12 = 10$, so $a = -2$; $7 + b = -4$, so $b = -11$.\nStep 3: Add: $a + b = -2 + (-11) = -13$. Check: $\\frac{-2 + 12}{2} = 5$ and $\\frac{7 + (-11)}{2} = -2$ ✓\n\n**Common Mistakes:**\n* $-16$: sets $a + 12 = 5$ and $7 + b = -2$, forgetting to multiply the midpoint coordinates by $2$, which gives $a = -7$ and $b = -9$.\n* $1$: solves $7 + b = -4$ as $b = -4 + 7 = 3$, adding the $7$ instead of subtracting it.\n* $-2$: reports $a$ alone instead of $a + b$.\n\n**Test Day Takeaway:** A midpoint coordinate is an average, so double it and subtract the known endpoint to recover the missing one.",
       skills: ["coordinate-geometry"]
     },
     {
@@ -359,18 +359,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 7,
-      question: "Of the $900$ measurements logged by a torque sensor, the probability that a randomly selected measurement is within tolerance is $0.86$, and the probability that a randomly selected measurement is both within tolerance and from the night shift is $0.22$. Which statement must be true?",
+      question: "A school has $900$ students. If one student is selected at random, the probability of selecting a student who plays a sport is $0.86$, and the probability of selecting a student who plays a sport and is a senior is $0.22$. Which of the following must be true?",
       choices: [
-        // distractor: uses 1 - 0.86 = 0.14, the probability of being out of tolerance, in place of the 0.22 joint probability
-        { id: "A", text: "Exactly $126$ of the measurements were within tolerance and from the night shift." },
-        { id: "B", text: "Exactly $198$ of the measurements were within tolerance and from the night shift." },
-        // distractor: subtracts 0.22 from 0.86 and reads the result as the night-shift share; that 0.64 counts the in-tolerance measurements NOT from the night shift
-        { id: "C", text: "Exactly $576$ of the measurements were from the night shift." },
-        // distractor: applies the 0.86 within-tolerance probability to the joint event
-        { id: "D", text: "Exactly $774$ of the measurements were within tolerance and from the night shift." }
+        // distractor: uses 1 - 0.86 = 0.14, the probability of not playing a sport, giving 0.14(900) = 126
+        { id: "A", text: "Exactly $126$ students play a sport and are seniors." },
+        { id: "B", text: "Exactly $198$ students play a sport and are seniors." },
+        // distractor: subtracts 0.22 from 0.86 and treats 0.64(900) = 576 as the number of seniors
+        { id: "C", text: "Exactly $576$ students are seniors." },
+        // distractor: uses 0.86, the probability of playing a sport, giving 0.86(900) = 774
+        { id: "D", text: "Exactly $774$ students play a sport and are seniors." }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Basic Probability**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** A probability times the group size is a count: $0.22 \\times 900 = 198$ measurements are both within tolerance and from the night shift.\n\n**The Full Solution:**\nStep 1: Identify what each probability counts. The $0.86$ describes one event, within tolerance; the $0.22$ describes the overlap of two events, within tolerance AND night shift.\nStep 2: Convert the overlap probability to a count: $0.22(900) = 198$.\nStep 3: Test the other statements. The night-shift total is unknown, because nothing is given about night-shift measurements that fall outside tolerance, so only the overlap count is forced. Check: $0.86(900) = 774$ measurements are within tolerance, and $198$ of those $774$ are from the night shift, which is consistent ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($126$): uses $1 - 0.86 = 0.14$; that fraction counts measurements OUT of tolerance, not the overlap.\n* Choice C ($576$): comes from $(0.86 - 0.22)(900)$, which counts measurements within tolerance that are NOT from the night shift; the night-shift total cannot be determined from what is given.\n* Choice D ($774$): applies the within-tolerance probability to the two-event overlap, counting every in-tolerance measurement as a night-shift measurement.\n\n**Test Day Takeaway:** On a must-be-true probability question, name the event each number belongs to before multiplying by the total — a joint probability never describes either event on its own.",
+      explanation: "**SAT Pattern: Basic Probability**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** A probability times the total gives a count, so $0.22(900) = 198$ students play a sport and are seniors.\n\n**The Full Solution:**\nStep 1: For a random selection, probability equals (number of students in the group) divided by $900$.\nStep 2: The group \"plays a sport and is a senior\" has probability $0.22$, so it contains $0.22(900) = 198$ students.\nStep 3: Only this count is fixed by the given information; the total number of seniors is not given, because some seniors may not play a sport. Check: $\\frac{198}{900} = 0.22$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($126$): $0.14(900)$, or $126$, is the number of students who do not play a sport, not the number who play a sport and are seniors.\n* Choice C ($576$): subtracting $0.22$ from $0.86$ leaves $0.64$, and $0.64(900) = 576$ is the number of students who play a sport and are not seniors; the number of seniors cannot be found from the information given.\n* Choice D ($774$): $0.86(900)$, or $774$, counts every student who plays a sport, seniors or not.\n\n**Test Day Takeaway:** Multiply a probability by the total to get a count, and match each probability to exactly the group it describes.",
       skills: ["probability-basics"]
     },
     {
@@ -378,19 +378,19 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 7,
-      question: "The table lists four deviations of a ground surface from a reference plane, in micrometers, measured at positions $x$ centimeters from a reference mark on the surface. The deviations satisfy $f(x) = 3x^2 + bx + c$ for constants $b$ and $c$. What is the value of $b + c$?",
-      diagram: { type: "dataTable", params: { headers: ["Position x (centimeters)", "Deviation f(x) (micrometers)"], rows: [["1", "0"], ["2", "-6"], ["3", "-6"], ["4", "0"]] } },
+      question: "$f(x) = 3x^{2} + bx + c$\nIn the given function, $b$ and $c$ are constants. The table shows four values of $x$ and their corresponding values of $f(x)$. What is the value of $b + c$?",
+      diagram: { type: "dataTable", params: { headers: ["x", "f(x)"], rows: [["1", "0"], ["2", "-6"], ["3", "-6"], ["4", "0"]] } },
       choices: [
         // distractor: takes c to be the product of the zeros, 4, instead of 3 times that product, 12
         { id: "A", text: "$-11$" },
         { id: "B", text: "$-3$" },
-        // distractor: takes b to be the negative of the sum of the zeros, -5, instead of -3 times the sum
+        // distractor: takes b to be the negative of the sum of the zeros, -5, instead of 3 times that, -15
         { id: "C", text: "$7$" },
-        // distractor: reverses the sign relating the sum of the zeros to b, using b = +15
+        // distractor: uses b = +15, reversing the sign relating the sum of the zeros to b
         { id: "D", text: "$27$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Quadratic — Vieta's Sum/Product**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The deviation is $0$ at $x = 1$ and $x = 4$, so for $3x^2 + bx + c$ the zeros sum to $-\\frac{b}{3} = 5$ and multiply to $\\frac{c}{3} = 4$, giving $b = -15$, $c = 12$, and $b + c = -3$.\n\n**The Full Solution:**\nStep 1: Read the zeros from the table: $f(1) = 0$ and $f(4) = 0$, so $1$ and $4$ are the solutions of $3x^2 + bx + c = 0$.\nStep 2: Apply the sum and product relationships for $ax^2 + bx + c$ with $a = 3$: the sum of the solutions is $-\\frac{b}{3}$, so $1 + 4 = -\\frac{b}{3}$ and $b = -15$; the product is $\\frac{c}{3}$, so $1 \\cdot 4 = \\frac{c}{3}$ and $c = 12$.\nStep 3: Add: $b + c = -15 + 12 = -3$. Check against a row the zeros did not supply: $f(2) = 3(4) - 15(2) + 12 = 12 - 30 + 12 = -6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-11$): sets $c$ equal to the product of the zeros, $4$; the product equals $\\frac{c}{a}$, so $c$ is $3$ times as large.\n* Choice C ($7$): sets $b$ equal to $-(1 + 4) = -5$; the sum equals $-\\frac{b}{a}$, so $b$ is $3$ times as large in magnitude.\n* Choice D ($27$): uses $b = +15$, which would put the zeros at negative positions and make $f(2)$ positive instead of $-6$.\n\n**Test Day Takeaway:** Vieta's relationships carry the leading coefficient: the sum of the roots is $-\\frac{b}{a}$ and the product is $\\frac{c}{a}$, so never read $b$ and $c$ straight off the roots when $a \\ne 1$.",
+      explanation: "**SAT Pattern: Quadratic — Vieta's Sum/Product**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The table shows $f(1) = 0$ and $f(4) = 0$, so the zeros sum to $-\\frac{b}{3} = 5$ and multiply to $\\frac{c}{3} = 4$, giving $b = -15$, $c = 12$, and $b + c = -3$.\n\n**The Full Solution:**\nStep 1: From the table, $f(1) = 0$ and $f(4) = 0$, so $1$ and $4$ are the solutions of $3x^{2} + bx + c = 0$.\nStep 2: For $ax^{2} + bx + c$, the sum of the solutions is $-\\frac{b}{a}$ and the product is $\\frac{c}{a}$. With $a = 3$: $1 + 4 = -\\frac{b}{3}$, so $b = -15$, and $1 \\cdot 4 = \\frac{c}{3}$, so $c = 12$.\nStep 3: Add: $b + c = -15 + 12 = -3$. Check with a row not used: $f(2) = 3(4) - 15(2) + 12 = 12 - 30 + 12 = -6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-11$): uses the product of the zeros, $4$, as $c$; the product equals $\\frac{c}{3}$, so $c = 12$.\n* Choice C ($7$): uses $-(1 + 4) = -5$ as $b$; the sum equals $-\\frac{b}{3}$, so $b = -15$.\n* Choice D ($27$): uses $b = 15$, which would make $f(2) = 12 + 30 + 12 = 54$, not $-6$.\n\n**Test Day Takeaway:** When the leading coefficient is not $1$, the sum of the zeros is $-\\frac{b}{a}$ and the product is $\\frac{c}{a}$; multiply by $a$ before reading off $b$ and $c$.",
       skills: ["quadratic-factoring"]
     },
     {
@@ -398,9 +398,9 @@ export const practiceTest11M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 7,
-      question: "Two reference marks on a cable profile sit at $(-2, 17)$ and $(k, 5)$, with both coordinates measured in millimeters, and between the marks the profile drops $4$ millimeters for every $7$ millimeters of horizontal travel. What is the value of $k$?",
+      question: "In the $xy$-plane, a line with a slope of $-\\frac{4}{7}$ passes through the points $(-2, 17)$ and $(k, 5)$. What is the value of $k$?",
       correctAnswer: "19",
-      explanation: "**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $19$.**\n\n**The Fast Way (~30s):** The profile falls $12$ millimeters between the marks, and at $4$ down per $7$ across that takes $21$ millimeters of run, so $k = -2 + 21 = 19$.\n\n**The Full Solution:**\nStep 1: Turn the description into a slope: dropping $4$ for every $7$ across means slope $-\\frac{4}{7}$.\nStep 2: Set up the slope from the two marks: $\\frac{5 - 17}{k - (-2)} = -\\frac{4}{7}$, or $\\frac{-12}{k + 2} = -\\frac{4}{7}$.\nStep 3: Cross-multiply: $-12(7) = -4(k + 2)$, so $-84 = -4k - 8$, $-76 = -4k$, and $k = 19$. Check: from $(-2, 17)$ to $(19, 5)$ the run is $21$ and the fall is $12$, and $\\frac{-12}{21} = -\\frac{4}{7}$ ✓\n\n**Common Mistakes:**\n* $21$: reporting the horizontal run instead of the coordinate; the run has to be added to the starting $x$-value of $-2$.\n* $10$: adding the vertical drop of $12$ to $-2$ rather than the horizontal run of $21$.\n* $-23$: subtracting the run from $-2$; the second mark is lower and farther right, so $k$ must be greater than $-2$.\n\n**Test Day Takeaway:** A described rate (\"drops $4$ for every $7$\") is a slope with a sign; solve the slope equation for the missing coordinate, then confirm the direction of the point makes sense.",
+      explanation: "**SAT Pattern: Slope from Two Points**\n\n**The correct answer is 19.**\n\n**The Fast Way (~30s):** The $y$-value drops by $17 - 5 = 12$, which is $3$ times $4$, so $x$ must increase by $3 \\cdot 7 = 21$: $k = -2 + 21 = 19$.\n\n**The Full Solution:**\nStep 1: Write the slope between the two points: $\\frac{5 - 17}{k - (-2)} = \\frac{-12}{k + 2}$.\nStep 2: Set it equal to the given slope: $\\frac{-12}{k + 2} = -\\frac{4}{7}$, so $4(k + 2) = 84$ and $k + 2 = 21$.\nStep 3: Solve: $k = 19$. Check: $\\frac{5 - 17}{19 - (-2)} = \\frac{-12}{21} = -\\frac{4}{7}$ ✓\n\n**Common Mistakes:**\n* $23$: writes the run as $k - 2$ instead of $k - (-2)$, which gives $k - 2 = 21$.\n* $-23$: drops the negative sign of the slope, solving $\\frac{-12}{k + 2} = \\frac{4}{7}$.\n* $\\frac{34}{7}$: uses the slope upside down, solving $\\frac{-12}{k + 2} = -\\frac{7}{4}$.\n\n**Test Day Takeaway:** Subtract coordinates in the same order in the numerator and denominator, and be careful subtracting a negative $x$-coordinate.",
       skills: ["slope-from-points"]
     }
   ]

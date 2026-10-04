@@ -1,6 +1,6 @@
 {
   "id": 22,
-  "question": "In a field-archery round, a hit in the inner ring scores $5$ points and a hit in the outer ring scores $3$ points. An archer scored $254$ points, and the number of outer-ring hits was $2$ fewer than half the number of inner-ring hits. How many outer-ring hits did the archer record?",
+  "question": "In a game, a player earns $5$ points for each red token and $3$ points for each blue token. Leo earned $254$ points. The number of blue tokens he earned was $2$ less than half the number of red tokens he earned. How many blue tokens did Leo earn?",
   "choices": [
     {
       "id": "A",
@@ -20,10 +20,10 @@
     }
   ],
   "distractorNotes": {
-    "B": "reports the 40 inner-ring hits instead of the outer-ring hits the question asks for",
-    "C": "swaps the relationship, making the inner-ring count 2 fewer than half the outer-ring count, which gives 48 outer-ring hits",
-    "D": "reports the total number of scoring hits, 40 + 18 = 58"
+    "B": "reports the 40 red tokens instead of the blue tokens the question asks for",
+    "C": "reverses the relationship, making the number of red tokens 2 less than half the number of blue tokens, which gives 48 blue tokens",
+    "D": "reports the total number of tokens, 40 + 18 = 58"
   },
   "correctAnswer": "A",
-  "explanation": "**SAT Pattern: System of Equations — Substitution**\n\n**Choice A is correct.** With $i$ inner-ring and $r$ outer-ring hits, $5i + 3r = 254$ and $r = \\frac{i}{2} - 2$; substituting gives $6.5i = 260$, so $i = 40$ and $r = 18$.\n\n**The Fast Way (~50s):** Replace $r$ with $\\frac{i}{2} - 2$: $5i + 1.5i - 6 = 254$, so $6.5i = 260$, $i = 40$, and $r = 20 - 2 = 18$.\n\n**The Full Solution:**\nStep 1: Name the counts. Let $i$ be inner-ring hits and $r$ outer-ring hits. The score gives $5i + 3r = 254$.\nStep 2: Translate the comparison. \"Two fewer than half the inner-ring hits\" is $\\frac{i}{2} - 2$, so $r = \\frac{i}{2} - 2$. Substitute into the score equation: $5i + 3\\left(\\frac{i}{2} - 2\\right) = 254$, which becomes $5i + 1.5i - 6 = 254$.\nStep 3: Solve: $6.5i = 260$, so $i = 40$, and then $r = \\frac{40}{2} - 2 = 18$. Check: $5(40) + 3(18) = 200 + 54 = 254$ points, and $18$ is indeed $2$ fewer than half of $40$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($40$): is the inner-ring count. It comes out of the algebra first, which makes it easy to stop there.\n* Choice C ($48$): reverses the comparison to $i = \\frac{r}{2} - 2$, giving $11i = 242$, $i = 22$, and $r = 48$. The sentence defines the outer count in terms of the inner count, not the other way around.\n* Choice D ($58$): totals the two counts, $40 + 18$, answering how many scoring hits there were rather than how many were in the outer ring.\n\n**Test Day Takeaway:** Write the comparison sentence as an equation exactly in the order it is stated, then circle the letter the question asks for before you start solving."
+  "explanation": "**SAT Pattern: System of Equations — Substitution**\n\n**Choice A is correct.** With $r$ red tokens and $b$ blue tokens, $5r + 3b = 254$ and $b = \\frac{r}{2} - 2$. Substituting gives $6.5r - 6 = 254$, so $r = 40$ and $b = 18$.\n\n**The Fast Way (~50s):** Replace $b$ with $\\frac{r}{2} - 2$: $5r + 1.5r - 6 = 254$, so $6.5r = 260$, $r = 40$, and $b = 20 - 2 = 18$.\n\n**The Full Solution:**\nStep 1: Let $r$ be the number of red tokens and $b$ the number of blue tokens. The points give $5r + 3b = 254$.\nStep 2: \"$2$ less than half the number of red tokens\" is $\\frac{r}{2} - 2$, so $b = \\frac{r}{2} - 2$. Substitute into the first equation: $5r + 3\\left(\\frac{r}{2} - 2\\right) = 254$, which becomes $5r + 1.5r - 6 = 254$.\nStep 3: Solve: $6.5r = 260$, so $r = 40$, and then $b = \\frac{40}{2} - 2 = 18$. Check: $5(40) + 3(18) = 200 + 54 = 254$ points, and $18$ is $2$ less than half of $40$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($40$): is the number of red tokens. It comes out of the algebra first, which makes it easy to stop there.\n* Choice C ($48$): reverses the relationship to $r = \\frac{b}{2} - 2$, which gives $11r = 242$, $r = 22$, and $b = 48$. The sentence describes the blue tokens in terms of the red tokens, not the other way around.\n* Choice D ($58$): adds the two counts, $40 + 18$, giving the total number of tokens rather than the number of blue tokens.\n\n**Test Day Takeaway:** Write a comparison sentence as an equation in the order it is stated, then circle the quantity the question asks for before you start solving."
 }

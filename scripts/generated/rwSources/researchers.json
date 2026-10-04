@@ -5209,6 +5209,29 @@
   "passagePromptHint": "Christie-Blick accepts low-latitude glaciation but argues the sedimentary record shows persistent open seas, not a totally frozen planet."
  },
  {
+  "id": "res-t7-020",
+  "name": "Philip Allen",
+  "field": "geology / sedimentology",
+  "affiliation": "Imperial College London",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "sedimentary basin analysis",
+   "sedimentary critique of the hard Snowball Earth hypothesis"
+  ],
+  "publications": [
+   {
+    "title": "Sedimentary challenge to Snowball Earth (with James L. Etienne), Nature Geoscience 1:817-825",
+    "year": 2008,
+    "claim": "sedimentary rocks from the Neoproterozoic glacial intervals, including wave ripples and glacial marine deposits, show dynamic glaciers delivering sediment to open oceans, so some seas must have remained ice-free"
+   }
+  ],
+  "suitableForSkills": [
+   "cross-text-connections"
+  ],
+  "passagePromptHint": "Allen accepts severe low-latitude glaciation but argues the sedimentary record (wave ripples, sediment delivered to open seas) rules out a fully ice-sealed ocean."
+ },
+ {
   "id": "res-t7-007",
   "name": "June Almeida",
   "field": "virology / electron microscopy",

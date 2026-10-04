@@ -1,29 +1,29 @@
 {
  "id": 9,
- "question": "The model $\\hat{P} = 0.85m + 14.2$ estimates the chamber pressure, in kilopascals, from the mass flow rate $m$, in grams per second. At $m = 26$ the pressure measured in the chamber was $37.7$ kilopascals. Which statement describes the model's estimate at $m = 26$?",
+ "question": "The equation $y = 0.85x + 14.2$ is a linear model for a data set. One of the data points is $(26, 37.7)$. Which statement about this data point is true?",
  "choices": [
   {
    "id": "A",
-   "text": "The model overestimates the measured pressure by $1.4$ kilopascals."
+   "text": "The model predicts a $y$-value that is $1.4$ greater than the actual $y$-value."
   },
   {
    "id": "B",
-   "text": "The model underestimates the measured pressure by $1.4$ kilopascals."
+   "text": "The model predicts a $y$-value that is $1.4$ less than the actual $y$-value."
   },
   {
    "id": "C",
-   "text": "The model underestimates the measured pressure by $15.6$ kilopascals."
+   "text": "The model predicts a $y$-value that is $15.6$ less than the actual $y$-value."
   },
   {
    "id": "D",
-   "text": "The model underestimates the measured pressure by $23.5$ kilopascals."
+   "text": "The model predicts a $y$-value that is $23.5$ less than the actual $y$-value."
   }
  ],
  "distractorNotes": {
-  "A": "subtracts in the wrong order, predicted minus measured, reversing the direction of the miss",
-  "C": "leaves out the constant 14.2, predicting 22.1 instead of 36.3",
-  "D": "uses only the constant 14.2 as the prediction, ignoring the 0.85m term"
+  "A": "computes the correct difference of 1.4 but reverses which value is larger",
+  "C": "leaves out the intercept, predicting 0.85(26) = 22.1 and subtracting it from 37.7",
+  "D": "leaves out the slope term, subtracting only the intercept 14.2 from 37.7"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The model predicts $0.85(26) + 14.2 = 36.3$, and the chamber actually read $37.7$, so the measurement sits $1.4$ above the model.\n\n**The Full Solution:**\nStep 1: Evaluate the model at $m = 26$: $0.85(26) = 22.1$, and $22.1 + 14.2 = 36.3$ kilopascals.\nStep 2: Compare measured with predicted: $37.7 - 36.3 = 1.4$ kilopascals, a positive difference.\nStep 3: Interpret the sign. A positive measured-minus-predicted difference means the model's value is too small, so the model underestimates by $1.4$. Check: $36.3 + 1.4 = 37.7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (overestimates by $1.4$): the size is right but the direction is backwards; subtract measured minus predicted, not predicted minus measured.\n* Choice C (underestimates by $15.6$): drops the constant and predicts $22.1$, giving $37.7 - 22.1 = 15.6$.\n* Choice D (underestimates by $23.5$): uses $14.2$ alone as the prediction, giving $37.7 - 14.2 = 23.5$.\n\n**Test Day Takeaway:** Always compute measured minus predicted, in that order — the sign of that difference is what tells you whether the model runs low or high."
+ "explanation": "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** At $x = 26$ the model predicts $0.85(26) + 14.2 = 36.3$, which is $37.7 - 36.3 = 1.4$ less than the actual value.\n\n**The Full Solution:**\nStep 1: Substitute $x = 26$ into the model: $y = 0.85(26) + 14.2 = 22.1 + 14.2 = 36.3$.\nStep 2: Compare the prediction with the actual $y$-value of the data point: $37.7 - 36.3 = 1.4$.\nStep 3: The actual value is larger, so the predicted value is $1.4$ less than the actual value. Check: $36.3 + 1.4 = 37.7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: has the right difference, $1.4$, but the wrong direction; the prediction $36.3$ is below the actual $37.7$, so the model underestimates.\n* Choice C: leaves out the $14.2$, predicting $0.85(26) = 22.1$ and getting $37.7 - 22.1 = 15.6$.\n* Choice D: leaves out the $0.85x$ term, subtracting only $14.2$ from $37.7$.\n\n**Test Day Takeaway:** To compare a data point with a model, plug its $x$-value into the equation and subtract the prediction from the actual $y$-value; a positive result means the model predicts too low."
 }

@@ -6,7 +6,7 @@
   "band": 3,
   "domain": "craft-and-structure",
   "skill": "text-structure-and-purpose",
-  "passage": "When sea otters were hunted nearly to extinction along the North Pacific rim, the kelp forests in which they had lived largely vanished as well, and for decades the two disappearances were treated as unrelated. Comparative surveys in the 1970s connected them. Around islands where otters persisted, the ecologist James Estes found luxuriant kelp and few sea urchins; around otherwise similar islands without otters, urchins carpeted the seafloor and the kelp was gone. The mechanism proved simple: otters eat urchins, and urchins eat kelp. Removing the predator had released the grazer, and the grazer had leveled the forest.",
+  "passage": "When the fur trade drove sea otters nearly to extinction along the North Pacific rim, many of the kelp forests where they had lived disappeared as well, but the connection between the two losses was not established until the 1970s. Comparative surveys in the Aleutian Islands revealed it. Around islands where otters persisted, the ecologist James Estes found thick kelp and few sea urchins; around similar islands without otters, urchins carpeted the seafloor and the kelp was gone. The mechanism proved simple: otters eat urchins, and urchins eat kelp.",
   "question": "Which choice best describes the overall structure of the text?",
   "choices": [
     {
@@ -19,7 +19,7 @@
     },
     {
       "id": "C",
-      "text": "It notes a pair of disappearances long assumed to be unconnected, then presents the comparison that revealed the link between them."
+      "text": "It notes a pair of losses whose connection had long gone unestablished, then presents the comparison that revealed the link between them."
     },
     {
       "id": "D",
@@ -27,5 +27,5 @@
     }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The text opens with two losses \"treated as unrelated,\" pivots on the 1970s island comparison, and closes by stating the mechanism that ties them together — precisely the structure C describes.\n\n**The Full Solution:**\n- First movement: otters vanish, kelp vanishes, and the coincidence goes unexplained for decades.\n- Second movement: Estes's with-otters versus without-otters comparison exposes the pattern.\n- Third movement: the causal chain (otter eats urchin, urchin eats kelp) converts the coincidence into a connection.\n\n**Why the other choices are wrong:**\n- A: Only one explanation is ever offered, and the text endorses rather than rejects it.\n- B: No recovery occurs in the text, and no debate among ecologists is described.\n- D: Diet is inferred from the urchin counts, not measured, and a methods account would ignore the text's before-and-after arc."
+  "explanation": "**Choice C is correct.** The text opens with two losses whose connection \"was not established until the 1970s,\" pivots on the Aleutian island comparison, and closes by stating the mechanism that ties them together — precisely the structure C describes.\n\n**The Full Solution:**\n- First movement: otters vanish, kelp forests vanish, and no link between the losses is established.\n- Second movement: Estes's with-otters versus without-otters comparison exposes the pattern.\n- Third movement: the causal chain (otters eat urchins, urchins eat kelp) turns the coincidence into a connection.\n\n**Why the other choices are wrong:**\n- A: Only one explanation is ever offered, and the text endorses rather than rejects it.\n- B: No recovery occurs in the text, and no debate among ecologists is described.\n- D: Diet is stated as the mechanism, not measured, and a methods account would ignore the text's movement from puzzle to explanation."
 }

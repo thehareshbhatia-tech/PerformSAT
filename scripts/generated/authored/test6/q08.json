@@ -9,11 +9,11 @@
   "passages": [
     {
       "label": "Text 1",
-      "text": "The multi-ton stone figures of Rapa Nui, the moai, were carved at a single quarry and moved as far as eighteen kilometers to platforms along the coast. Drawing on the island's oral traditions and on trials with replicas, the archaeologist Jo Anne Van Tilburg has argued that work crews lashed each statue horizontally to a wooden sledge and hauled it over log rollers or rails — a method her team demonstrated by moving a replica statue this way with a modest crew of volunteers."
+      "text": "The multi-ton stone figures of Rapa Nui, the moai, were carved at a single quarry and moved as far as eighteen kilometers to platforms along the coast. Drawing on Polynesian methods for moving canoes and on trials with replicas, the archaeologist Jo Anne Van Tilburg has argued that work crews lashed each statue horizontally to a wooden sledge and hauled it over log rollers or rails — a method her team tested in 1998 by moving a ten-ton concrete replica with several dozen islanders."
     },
     {
       "label": "Text 2",
-      "text": "Archaeologists Terry Hunt and Carl Lipo note that moai abandoned along the island's ancient roads lean forward, with bases carved wider at the front — features that would be liabilities for a statue dragged on its back but assets for one moved upright. In their experiments, crews pulling three ropes rocked a five-ton upright replica from side to side and \"walked\" it forward hundreds of meters in under an hour. The statues' own design, they conclude, records the transport method."
+      "text": "Archaeologists Terry Hunt and Carl Lipo note that moai abandoned along the island's ancient roads lean forward, with wide D-shaped bases — features that would be liabilities for a statue dragged on its back but assets for one moved upright. In their experiments, a crew of eighteen people used ropes to rock an upright replica weighing more than four tons from side to side and \"walked\" it 100 meters in 40 minutes. The statues' own design, they conclude, records the transport method."
     }
   ],
   "question": "Based on the texts, how would Hunt and Lipo (Text 2) most likely respond to the argument presented in Text 1?",
@@ -32,11 +32,11 @@
     },
     {
       "id": "D",
-      "text": "They would object that oral traditions cannot establish the route that any particular statue traveled."
+      "text": "They would object that Text 1 overstates the distance that the statues traveled from the quarry to the coast."
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** Hunt and Lipo's case rests on the statues themselves — the forward lean and front-heavy bases that suit upright \"walking\" but would hinder a statue dragged on its back — so they would answer Text 1's sledge argument by pointing to those design features.\n\n**The Full Solution:**\n- Text 1's method is horizontal: statue lashed to a sledge, hauled over rollers.\n- Text 2 argues the physical evidence cuts the other way: the road moai's lean and base shape are \"liabilities for a statue dragged on its back but assets for one moved upright,\" and their walking experiment showed the upright method works.\n- Their concluding claim — the design \"records the transport method\" — is exactly the rejoinder choice B attributes to them.\n\n**Why the other choices are wrong:**\n- A: Hunt and Lipo ran replica experiments themselves, so they could hardly dismiss the approach.\n- C: They do not accept sledges at all; their objection is to the method, not the crew size.\n- D: Text 2 never questions oral traditions or concerns itself with routes — its evidence is the statues' anatomy.",
+  "explanation": "**Choice B is correct.** Hunt and Lipo's case rests on the statues themselves — the forward lean and wide bases that suit upright \"walking\" but would hinder a statue dragged on its back — so they would answer Text 1's sledge argument by pointing to those design features.\n\n**The Full Solution:**\n- Text 1's method is horizontal: statue lashed to a sledge, hauled over rollers or rails.\n- Text 2 argues the physical evidence cuts the other way: the road moai's lean and base shape are \"liabilities for a statue dragged on its back but assets for one moved upright,\" and their walking experiment showed the upright method works.\n- Their concluding claim — the design \"records the transport method\" — is exactly the rejoinder choice B attributes to them.\n\n**Why the other choices are wrong:**\n- A: Hunt and Lipo ran replica experiments themselves, so they could hardly dismiss the approach.\n- C: They do not accept sledges at all; their objection is to the method, not the crew size.\n- D: Text 2 never disputes how far the statues traveled — its evidence is the statues' design, not the route.",
   "_meta": {
     "source_pair": "moai transport (horizontal sledge-hauling vs upright walking)",
     "crossTextRelationship": "alternative-explanation"

@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "text-structure-and-purpose",
  "module": 2,
- "passage": "The following text is from Claude McKay's poem \"The Tropics in New York,\" published in his 1922 collection Harlem Shadows.\n\nBananas ripe and green, and ginger-root,\nCocoa in pods and alligator pears,\nAnd tangerines and mangoes and grape fruit,\nFit for the highest prize at parish fairs,\n\nSet in the window, bringing memories\nOf fruit-trees laden by low-singing rills,\nAnd dewy dawns, and mystical blue skies\nIn benediction over nun-like hills.\n\nMy eyes grew dim, and I could no more gaze;\nA wave of longing through my body swept,\nAnd, hungry for the old, familiar ways,\nI turned aside and wept.",
+ "passage": "The following text is from Claude McKay's poem \"The Tropics in New York,\" published in his 1922 collection Harlem Shadows.\n\nBananas ripe and green, and ginger-root,\nCocoa in pods and alligator pears,\nAnd tangerines and mangoes and grape fruit,\nFit for the highest prize at parish fairs,\n\nSet in the window, bringing memories\nOf fruit-trees laden by low-singing rills,\nAnd dewy dawns, and mystical blue skies\nIn benediction over nun-like hills.\n\nMy eyes grew dim, and I could no more gaze;\nA wave of longing through my body swept,\nAnd, hungry for the old, familiar ways,\nI turned aside and bowed my head and wept.",
  "question": "Which choice best states the main purpose of the text?",
  "choices": [
   {
@@ -23,11 +23,11 @@
   },
   {
    "id": "D",
-   "text": "To describe the deep contentment that the speaker feels upon unexpectedly discovering the familiar foods of home displayed in a shop window far away in a northern city."
+   "text": "To describe the deep contentment the speaker feels on unexpectedly discovering the familiar foods of home displayed in a northern shop window."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The poem moves from the fruit in the window, to the memories it brings — laden fruit trees, dewy dawns, hills — to the speaker's overpowering response: \"a wave of longing,\" hunger \"for the old, familiar ways,\" and tears.\n\n**The Full Solution:**\n- Stanza one shows the trigger: tropical fruit \"set in the window.\"\n- Stanza two makes the mechanism explicit — the display is \"bringing memories\" of the landscape of home.\n- Stanza three delivers the emotional point the poem exists for: the speaker's eyes grow dim, longing sweeps through, and the speaker turns aside and weeps.\n\n**Why the other choices are wrong:**\n- B: The fruit list is the poem's occasion, not its purpose — the final stanza's grief has nothing to do with cataloging produce.\n- C: The fruits are \"fit for the highest prize,\" but no comparison with northern fruit is drawn or argued.\n- D: It reverses the poem's emotion — the sight brings longing sharp enough for tears, not contentment.",
+ "explanation": "**Choice A is correct.** The poem moves from the fruit in the window, to the memories it brings — laden fruit trees, dewy dawns, hills — to the speaker's overpowering response: \"a wave of longing,\" hunger \"for the old, familiar ways,\" and tears.\n\n**The Full Solution:**\n- Stanza one shows the trigger: tropical fruit \"set in the window.\"\n- Stanza two makes the mechanism explicit — the display is \"bringing memories\" of the landscape of home.\n- Stanza three delivers the emotional point the poem exists for: the speaker's eyes grow dim, longing sweeps through, and the speaker turns aside, bows, and weeps.\n\n**Why the other choices are wrong:**\n- B: The fruit list is the poem's occasion, not its purpose — the final stanza's grief has nothing to do with cataloging produce.\n- C: The fruits are \"fit for the highest prize,\" but no comparison with northern fruit is drawn or argued.\n- D: It reverses the poem's emotion — the sight brings longing sharp enough for tears, not contentment.",
  "_meta": {
   "quoteVerify": true,
   "source": "Claude McKay, \"The Tropics in New York,\" Harlem Shadows (1922)"

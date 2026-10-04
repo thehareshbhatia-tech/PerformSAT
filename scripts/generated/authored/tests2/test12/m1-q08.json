@@ -1,6 +1,6 @@
 {
   "id": 8,
-  "question": "During a six-hour storm a tipping-bucket gauge recorded $r$ millimeters and a manual gauge recorded $m$ millimeters, where $r + m = k$ and $r - m = 14$. If the tipping-bucket gauge recorded $48$ millimeters, what is the value of $k$?",
+  "question": "$x + y = k$\n$x - y = 14$\nThe solution to the given system of equations is $(x, y)$, where $k$ is a constant. If $x = 48$, what is the value of $k$?",
   "choices": [
     {
       "id": "A",
@@ -20,10 +20,10 @@
     }
   ],
   "distractorNotes": {
-    "A": "reports m, the manual gauge's 34 millimeters, instead of the combined total k",
-    "B": "adds the 14-millimeter difference to 48 and reports 62 as the total",
-    "D": "solves r - m = 14 as m = 48 + 14 = 62, then reports k = 48 + 62 = 110"
+    "A": "reports y = 34 instead of k = x + y",
+    "B": "adds the difference 14 to x = 48 and reports 62 as k",
+    "D": "solves x - y = 14 as y = 48 + 14 = 62, then reports k = 48 + 62 = 110"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: System of Equations — Elimination**\n\n**Choice C is correct.** Substituting $r = 48$ into $r - m = 14$ gives $m = 34$, so $k = r + m = 48 + 34 = 82$.\n\n**The Fast Way (~25s):** The gauges differ by $14$, so the manual gauge read $48 - 14 = 34$, and the two together read $82$.\n\n**The Full Solution:**\nStep 1: Subtracting the second equation from the first eliminates $r$: $(r + m) - (r - m) = k - 14$, so $2m = k - 14$.\nStep 2: Use the given reading. With $r = 48$, the equation $r - m = 14$ becomes $48 - m = 14$, so $m = 34$.\nStep 3: Substitute both readings into $r + m = k$: $48 + 34 = 82$, so $k = 82$. Check: $48 - 34 = 14$, matching the second equation. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($34$): stops at the manual gauge's reading. The question asks for $k$, the combined total, not for $m$.\n* Choice B ($62$): adds the $14$-millimeter difference to the tipping-bucket reading and calls the result the total. The difference and the sum are different quantities.\n* Choice D ($110$): solves $r - m = 14$ as $m = 48 + 14 = 62$, a sign error, and then totals $48 + 62 = 110$. The larger reading is $r$, so $m$ must be smaller than $48$.\n\n**Test Day Takeaway:** When a system pairs a sum with a difference, one substitution settles the second variable; then re-read the question to see which quantity it actually wants."
+  "explanation": "**SAT Pattern: System of Equations — Elimination**\n\n**Choice C is correct.** Adding the two equations eliminates $y$: $2x = k + 14$. With $x = 48$, this gives $96 = k + 14$, so $k = 82$.\n\n**The Fast Way (~25s):** Add the equations: $2x = k + 14$, so $k = 2(48) - 14 = 82$.\n\n**The Full Solution:**\nStep 1: Add the two equations so the $y$ terms cancel: $(x + y) + (x - y) = k + 14$, which gives $2x = k + 14$.\nStep 2: Substitute $x = 48$: $2(48) = k + 14$, so $96 = k + 14$.\nStep 3: Subtract $14$ from both sides: $k = 82$. Check: from $x - y = 14$, $y = 48 - 14 = 34$, and $x + y = 48 + 34 = 82 = k$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($34$): is the value of $y$. The question asks for $k$, which equals $x + y$.\n* Choice B ($62$): adds the difference $14$ to $x$ and calls the result $k$. The sum $x + y$ and the difference $x - y$ are different quantities.\n* Choice D ($110$): solves $x - y = 14$ as $y = 48 + 14 = 62$, a sign error, and then computes $48 + 62 = 110$. Since $x - y$ is positive, $y$ must be less than $48$.\n\n**Test Day Takeaway:** When a system pairs a sum with a difference, adding the equations isolates one variable at once; then re-read the question to see which quantity it actually wants."
 }

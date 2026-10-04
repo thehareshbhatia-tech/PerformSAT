@@ -6,7 +6,7 @@
   "band": 3,
   "domain": "expression-of-ideas",
   "skill": "transitions",
-  "passage": "African baobabs produce growth rings only erratically, swelling and shrinking with the rains, so the ages of the biggest trees were long a matter of educated guessing — claims of a thousand years or more rested mainly on sheer girth. ______ radiocarbon dating of wood sampled from the trees' internal cavities has put the question on firmer ground: several of the largest individuals proved to be more than two thousand years old.",
+  "passage": "African baobabs form growth rings only erratically, so the ages of the biggest trees were long a matter of guesswork based mainly on sheer girth. ______ radiocarbon dating of wood sampled from the trees' trunks and inner cavities has put the question on firmer ground: the oldest tree dated, in Zimbabwe, proved to be about 2,500 years old.",
   "question": "Which choice completes the text with the most logical transition?",
   "choices": [
     {
@@ -27,5 +27,5 @@
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** The first sentence describes an era of guesswork; the second describes measurement replacing it. That is a reversal of the earlier situation, and \"However,\" marks it.\n\n**The Full Solution:**\n- Before the blank: ages were \"educated guessing,\" resting on girth alone.\n- After the blank: radiocarbon dating \"has put the question on firmer ground\" — the opposite of guesswork.\n- The relation is contrast between the old uncertainty and the new precision, so the contrast transition fits.\n\n**Why the other choices are wrong:**\n- A: \"Furthermore\" would add more support to the guesswork era, but the second sentence displaces it.\n- C: \"For example\" would make the dating an instance of the guessing, when it is the corrective to it.\n- D: \"Consequently\" claims the dating resulted from the guessing, but nothing says the guesswork caused the radiocarbon work."
+  "explanation": "**Choice B is correct.** The first sentence describes an era of guesswork; the second describes measurement replacing it. That is a reversal of the earlier situation, and \"However,\" marks it.\n\n**The Full Solution:**\n- Before the blank: ages were \"a matter of guesswork,\" resting on girth alone.\n- After the blank: radiocarbon dating \"has put the question on firmer ground\" — the opposite of guesswork.\n- The relation is contrast between the old uncertainty and the new precision, so the contrast transition fits.\n\n**Why the other choices are wrong:**\n- A: \"Furthermore\" would add more support to the guesswork era, but the second sentence displaces it.\n- C: \"For example\" would make the dating an instance of the guessing, when it is the corrective to it.\n- D: \"Consequently\" claims the dating resulted from the guessing, but nothing says the guesswork caused the radiocarbon work."
 }

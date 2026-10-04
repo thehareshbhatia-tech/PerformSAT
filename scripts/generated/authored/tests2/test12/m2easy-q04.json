@@ -1,6 +1,6 @@
 {
  "id": 4,
- "question": "A haulage firm quotes $3(2x + k) - 12$ dollars for express handling and $5x + 21$ dollars for standard handling of $x$ pallets, where $k$ is a constant. The two quotes are equal when $x = 9$. What is the value of $k$?",
+ "question": "$3(2x + k) - 12 = 5x + 21$\nIn the given equation, $k$ is a constant. If $x = 9$ is the solution to the given equation, what is the value of $k$?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "subtracts 12 from both sides instead of adding it, leaving 54 + 3k = 54",
+  "A": "subtracts 12 from the right side instead of adding it, leaving 54 + 3k = 54",
   "B": "drops the -12 term entirely and solves 54 + 3k = 66",
   "D": "distributes the 3 onto 2x only, solving 54 + k - 12 = 66"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** At $x = 9$ the standard quote is $66$, so $3(18 + k) = 78$, giving $18 + k = 26$ and $k = 8$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 9$ into both expressions: $3(2 \\cdot 9 + k) - 12 = 3(18 + k) - 12$ and $5(9) + 21 = 66$.\nStep 2: Set them equal and distribute: $54 + 3k - 12 = 66$, so $3k + 42 = 66$.\nStep 3: Subtract $42$ and divide by $3$: $3k = 24$, so $k = 8$. Check with $k = 8$: $3(18 + 8) - 12 = 78 - 12 = 66$, which matches the standard quote of $66$ dollars. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): moves the $-12$ to the right side as a subtraction, solving $54 + 3k = 66 - 12 = 54$. The $-12$ is already on the left, so it must be added to both sides.\n* Choice B ($4$): ignores the $-12$ and solves $54 + 3k = 66$, giving $3k = 12$.\n* Choice D ($24$): distributes the $3$ only onto $2x$ and writes $54 + k - 12 = 66$, which loses the factor of $3$ on $k$.\n\n**Test Day Takeaway:** Substitute the given solution first, then distribute completely before combining. Every term inside the parentheses, constants included, gets the outside factor."
+ "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** At $x = 9$ the right side is $66$, so $3(18 + k) - 12 = 66$, giving $3(18 + k) = 78$, $18 + k = 26$, and $k = 8$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 9$ into both sides: the left side becomes $3(18 + k) - 12$ and the right side becomes $5(9) + 21 = 66$.\nStep 2: Distribute and combine: $54 + 3k - 12 = 66$, so $3k + 42 = 66$.\nStep 3: Subtract $42$ and divide by $3$: $3k = 24$, so $k = 8$. Check: $3(2 \\cdot 9 + 8) - 12 = 78 - 12 = 66$, which matches the right side ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): moves the $-12$ to the right side as a subtraction, solving $54 + 3k = 66 - 12 = 54$. Undoing $-12$ requires adding $12$.\n* Choice B ($4$): ignores the $-12$ and solves $54 + 3k = 66$, giving $3k = 12$.\n* Choice D ($24$): multiplies only the $2x$ by $3$, writing $54 + k - 12 = 66$, which loses the factor of $3$ on $k$.\n\n**Test Day Takeaway:** Substitute the given solution, then distribute the outside factor to every term in the parentheses, constants included, before solving for the parameter."
 }

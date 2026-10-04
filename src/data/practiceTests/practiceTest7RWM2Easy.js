@@ -98,7 +98,7 @@ export const practiceTest7RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "text-structure-and-purpose",
-      "passage": "The first roller skates placed their wheels in a single line, and skaters found them nearly impossible to steer or stop. An 1863 design set four wheels in two side-by-side pairs and mounted them on rubber cushions, so that when a skater leaned to one side, the wheels turned gently in that direction. Steering now required no more than a shift of weight. Skating suddenly became something an ordinary person could learn in an afternoon, and within a decade cities across the country had opened public rinks.",
+      "passage": "The first roller skates placed their wheels in a single line, and skaters found them nearly impossible to steer or stop. An 1863 design set four wheels in two side-by-side pairs and mounted them on rubber cushions, so that when a skater leaned to one side, the wheels turned gently in that direction. Steering now required no more than a shift of weight. Skating suddenly became something an ordinary person could learn in an afternoon, and public rinks soon opened in cities across the country.",
       "question": "Which choice best states the main purpose of the text?",
       "choices": [
         { "id": "A", "text": "To describe the materials that manufacturers of early roller skates used in producing their wheels, cushions, and frames." },
@@ -330,7 +330,7 @@ export const practiceTest7RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "inferences",
-      "passage": "A duck's outer feathers shed water because the duck oils them. A gland at the base of the tail supplies a waxy secretion, and the bird spends hours spreading it across its plumage with its bill. The oiled surface keeps water from soaking through to the layer of down beneath, and it is the dry down that traps the air keeping the bird warm and afloat. Detergents that wash into ponds and streams dissolve exactly this kind of oily coating, so a duck swimming in detergent-tainted water is likely to ______",
+      "passage": "A duck's outer feathers shed water partly because the duck oils them. A gland at the base of the tail supplies a waxy secretion, and the bird spends hours spreading it across its plumage with its bill. The oiled surface keeps water from soaking through to the layer of down beneath, and it is the dry down that traps the air keeping the bird warm and afloat. Detergents that wash into ponds and streams dissolve exactly this kind of oily coating, so a duck swimming in detergent-tainted water is likely to ______",
       "question": "Which choice most logically completes the text?",
       "choices": [
         { "id": "A", "text": "produce more oil from the gland at the base of its tail than it otherwise would." },
@@ -351,7 +351,7 @@ export const practiceTest7RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "The star-nosed mole ______ hunts by touch alone. As the mole tunnels, the fleshy rays around its snout tap the soil dozens of times each second, and the moment they brush against a worm or grub, the mole strikes.",
+      "passage": "The star-nosed mole ______ hunts by touch alone. As the mole tunnels, the fleshy rays around its snout touch the soil more than ten times each second, and the moment they brush against a worm or grub, the mole strikes.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
         { "id": "A", "text": "a nearly sightless burrower of damp meadows and streambanks" },
@@ -405,7 +405,7 @@ export const practiceTest7RWM2Easy = {
       "band": 2,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "A typist who works too quickly can jam a manual typewriter: two type bars swinging toward the paper at the same moment lock against each other. The keys on the keyboard ______ arranged not in alphabetical order but in a layout that separates letters often typed in sequence, so that neighboring type bars rarely swing at the same time.",
+      "passage": "A manual typewriter prints each letter with a separate metal arm called a type bar. The type bars inside the machine ______ arranged in a half circle, so that whichever key is pressed, its bar swings up and strikes the paper at the same point.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
         { "id": "A", "text": "is" },
@@ -414,7 +414,7 @@ export const practiceTest7RWM2Easy = {
         { "id": "D", "text": "has been" }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The word the verb belongs to is \"keys,\" which is plural, so it takes the plural verb \"are.\"\n\n**The Full Solution:**\n- How to spot it: find the real subject and ignore any phrase sitting between it and the verb. Ask \"one or many?\" Many means a plural verb.\n- The subject is \"The keys\" — more than one — so the verb must be plural.\n- The phrase \"on the keyboard\" comes between the subject and the verb and can pull you toward a singular verb, but stripping it out leaves \"The keys...are arranged.\"\n\n**Why the other choices are wrong:**\n- A: \"Is\" is singular and does not match the plural \"keys.\"\n- B: \"Was\" is singular as well, and it also shifts the sentence into the past while the rest of the passage stays in the present.\n- D: \"Has been\" is singular, so it cannot match the plural subject."
+      "explanation": "**Choice C is correct.** The word the verb belongs to is \"bars,\" which is plural, so it takes the plural verb \"are.\"\n\n**The Full Solution:**\n- How to spot it: find the real subject and ignore any phrase sitting between it and the verb. Ask \"one or many?\" Many means a plural verb.\n- The subject is \"The type bars\" — more than one — so the verb must be plural.\n- The phrase \"inside the machine\" comes between the subject and the verb and can pull you toward a singular verb, but stripping it out leaves \"The type bars...are arranged.\"\n\n**Why the other choices are wrong:**\n- A: \"Is\" is singular and does not match the plural \"bars.\"\n- B: \"Was\" is singular as well, and it also shifts the sentence into the past while the rest of the passage stays in the present.\n- D: \"Has been\" is singular, so it cannot match the plural subject."
     },
     {
       "id": 774,
@@ -480,7 +480,7 @@ export const practiceTest7RWM2Easy = {
       "band": 2,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "In the 1890s, most farm families collected their mail in town, and a household busy with planting or harvest might not see a letter until weeks after it arrived. ______ once rural free delivery reached an area, a carrier brought the mail to a box at the end of the farm lane six days a week.",
+      "passage": "In the 1890s, most farm families collected their mail in town, and a household busy with planting or harvest might not see a letter until weeks after it arrived. ______ once rural free delivery reached an area, a carrier brought the mail to a box at the end of the farm lane.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "However," },
@@ -489,7 +489,7 @@ export const practiceTest7RWM2Easy = {
         { "id": "D", "text": "Meanwhile," }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The two sentences describe opposite situations — letters waiting in town for weeks, against mail delivered to the farm lane six days a week — so a contrast word is needed.\n\n**The Full Solution:**\n- How to spot it: read both sides and name the link in plain words. Slow, infrequent access versus fast, regular delivery is a clash, which calls for a contrast word.\n- Before the blank: families had to travel to town, and busy households went weeks without seeing their letters.\n- After the blank: a carrier brought the mail to a box at the end of the lane six days a week.\n- \"However\" marks that reversal.\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" would make daily delivery a result of families going without mail, which reverses the logic.\n- C: \"For example\" would introduce an illustration of the old town-pickup system, not a change from it.\n- D: \"Meanwhile\" signals two things happening at the same time, but these sentences describe an earlier situation and a later one."
+      "explanation": "**Choice A is correct.** The two sentences describe opposite situations — letters waiting in town for weeks, against mail delivered to the farm lane — so a contrast word is needed.\n\n**The Full Solution:**\n- How to spot it: read both sides and name the link in plain words. Slow, infrequent access versus fast, regular delivery is a clash, which calls for a contrast word.\n- Before the blank: families had to travel to town, and busy households went weeks without seeing their letters.\n- After the blank: a carrier brought the mail to a box at the end of the lane.\n- \"However\" marks that reversal.\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" would make daily delivery a result of families going without mail, which reverses the logic.\n- C: \"For example\" would introduce an illustration of the old town-pickup system, not a change from it.\n- D: \"Meanwhile\" signals two things happening at the same time, but these sentences describe an earlier situation and a later one."
     },
     {
       "id": 779,
@@ -498,7 +498,7 @@ export const practiceTest7RWM2Easy = {
       "band": 4,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "Old wooden windows have a poor reputation among energy-minded homeowners. A single pane of wavy glass in a loose sash lets heat pour out of a house, and swapping such windows for sealed modern units is one of the most commonly recommended upgrades. ______ replacement is not always the wiser choice: a restored sash paired with a good storm window can come close to a new unit's performance, and it keeps old-growth wood and handmade glass that, once thrown away, cannot be bought back.",
+      "passage": "Old wooden windows have a poor reputation among energy-minded homeowners: a single pane in a loose sash lets heat escape, and sealed modern units are a commonly recommended replacement. ______ replacement is not always the wiser choice. A restored sash with a good storm window can come close to a new unit's performance while keeping old-growth wood and handmade glass that cannot be bought back.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "For example," },
@@ -507,7 +507,7 @@ export const practiceTest7RWM2Easy = {
         { "id": "D", "text": "As a result," }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The passage grants that old windows leak heat and that replacement is the standard advice, then argues that replacing is still not always better — a give-ground-then-turn move that \"Nevertheless\" marks.\n\n**The Full Solution:**\n- How to spot it: when a text admits a real drawback and then pushes back anyway, you need a yes-but word such as \"nevertheless,\" \"still,\" or \"even so.\"\n- Before the blank: loose sashes pour heat out of a house, and sealed modern units are the most commonly recommended fix.\n- After the blank: restoration plus a storm window comes close in performance, and it saves wood and glass that can never be replaced.\n- The turn from the case for replacement to the case for keeping the originals is exactly what \"Nevertheless\" signals.\n\n**Why the other choices are wrong:**\n- A: \"For example\" would introduce an instance of the heat problem, but the sentence argues against the standard response to it.\n- B: \"In addition\" would add another reason to replace old windows, but the sentence pushes the other way.\n- D: \"As a result\" would make the argument against replacement a consequence of the heat loss, which reverses the logic."
+      "explanation": "**Choice C is correct.** The passage grants that old windows leak heat and that replacement is the standard advice, then argues that replacing is still not always better — a give-ground-then-turn move that \"Nevertheless\" marks.\n\n**The Full Solution:**\n- How to spot it: when a text admits a real drawback and then pushes back anyway, you need a yes-but word such as \"nevertheless,\" \"still,\" or \"even so.\"\n- Before the blank: loose sashes pour heat out of a house, and sealed modern units are a commonly recommended fix.\n- After the blank: restoration plus a storm window comes close in performance, and it saves wood and glass that can never be replaced.\n- The turn from the case for replacement to the case for keeping the originals is exactly what \"Nevertheless\" signals.\n\n**Why the other choices are wrong:**\n- A: \"For example\" would introduce an instance of the heat problem, but the sentence argues against the standard response to it.\n- B: \"In addition\" would add another reason to replace old windows, but the sentence pushes the other way.\n- D: \"As a result\" would make the argument against replacement a consequence of the heat loss, which reverses the logic."
     },
     {
       "id": 780,
@@ -529,13 +529,13 @@ export const practiceTest7RWM2Easy = {
       },
       "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       "choices": [
-        { "id": "A", "text": "In many nineteenth-century farm communities, women pieced quilt tops at home in the evenings, sewing together fabric scraps that they had saved from worn-out clothing and from earlier sewing projects over the years." },
-        { "id": "B", "text": "Because a quilter working alone at a frame might need weeks to finish the stitching, neighbors gathered in bees of six or more and completed the same work in an afternoon." },
+        { "id": "A", "text": "In many nineteenth-century farm communities, women pieced quilt tops at home in the evenings from fabric scraps they had saved." },
+        { "id": "B", "text": "A quilter working alone might need weeks to finish the stitching, but a bee of six or more neighbors could do the same work in an afternoon." },
         { "id": "C", "text": "Quilting required stretching the pieced top, the batting, and the backing together on a frame large enough to hold the entire quilt." },
         { "id": "D", "text": "Quilting bees brought six or more neighbors together around a single quilting frame, where they sat and stitched." }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The goal is to show how bees changed the time a quilt took, and B sets the before (weeks alone at a frame) directly against the after (the same work done in an afternoon).\n\n**The Full Solution:**\n- How to spot it: read the goal line and treat it as a checklist. It asks how bees CHANGED the time needed, so the answer must show the before and the after, not just one or the other.\n- B gives the before: a quilter working alone might need weeks to finish the stitching.\n- It gives what changed: neighbors gathered in bees of six or more.\n- It gives the after: the same work was completed in an afternoon.\n\n**Why the other choices are wrong:**\n- A: This describes piecing the tops, which happened before the frame work — no bee and no time change appears.\n- C: This describes the equipment without mentioning bees or how long the work took.\n- D: This describes the gathering but never says what it did to the time a quilt required."
+      "explanation": "**Choice B is correct.** The goal is to show how bees changed the time a quilt took, and B sets the before (weeks alone at a frame) directly against the after (the same work done in an afternoon).\n\n**The Full Solution:**\n- How to spot it: read the goal line and treat it as a checklist. It asks how bees CHANGED the time needed, so the answer must show the before and the after, not just one or the other.\n- B gives the before: a quilter working alone might need weeks to finish the stitching.\n- It gives what changed: six or more neighbors worked together in a bee.\n- It gives the after: the same work was completed in an afternoon.\n\n**Why the other choices are wrong:**\n- A: This describes piecing the tops, which happened before the frame work — no bee and no time change appears.\n- C: This describes the equipment without mentioning bees or how long the work took.\n- D: This describes the gathering but never says what it did to the time a quilt required."
     },
     {
       "id": 781,
@@ -548,23 +548,22 @@ export const practiceTest7RWM2Easy = {
         "intro": "While researching a topic, a student has taken the following notes:",
         "bullets": [
           "Into the early nineteenth century, buildings in many towns were identified by descriptions, such as \"the third house past the mill.\"",
-          "Town governments later assigned each building a number, with odd numbers on one side of the street and even numbers on the other.",
-          "Numbers ran in a single direction, so they rose steadily along the street.",
-          "In some systems, numbers advanced by a fixed amount for each unit of distance, leaving unused numbers for buildings not yet built.",
-          "A stranger could find any address by walking the street in one direction and watching the numbers.",
-          "Letter carriers and fire companies could locate an unfamiliar address without stopping to ask directions."
+          "Towns later numbered each building, with odd numbers on one side of the street and even numbers on the other.",
+          "Numbers ran in a single direction, rising steadily along the street.",
+          "In some systems, numbers advanced by a fixed amount for each unit of distance.",
+          "A stranger could find any address by walking the street in one direction and watching the numbers."
         ],
         "goal": "The student wants to explain why systematic house numbering mattered for people trying to find an address."
       },
       "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       "choices": [
-        { "id": "A", "text": "Because house numbers rose steadily along each street, with odd and even sides, even a stranger could find an address by walking in one direction and watching the numbers." },
+        { "id": "A", "text": "Because numbers rose steadily along each street, even a stranger could find an address by walking in one direction and watching the numbers." },
         { "id": "B", "text": "Into the early nineteenth century, buildings in many towns were identified only by descriptions, such as \"the third house past the mill.\"" },
         { "id": "C", "text": "Town governments assigned each building a number, placing odd numbers on one side of the street and even numbers on the other." },
-        { "id": "D", "text": "In some numbering systems, numbers advanced by a fixed amount for each unit of distance along the street, which left unused numbers available for buildings that had not yet been built." }
+        { "id": "D", "text": "In some numbering systems, numbers advanced by a fixed amount for each unit of distance along the street." }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The goal asks why numbering mattered for finding an address, and A gives the reasons — steadily rising numbers, odd and even sides — together with the payoff: even a stranger could find any address.\n\n**The Full Solution:**\n- How to spot it: turn the goal into a checklist. \"Why it mattered for people trying to find an address\" means the answer needs a consequence for address-finders, not just a description of the system.\n- A names the features that made the system work: numbers rising steadily in one direction, split into odd and even sides.\n- It then states the result those features produced: a stranger could locate any address just by walking and watching the numbers.\n\n**Why the other choices are wrong:**\n- B: This describes the muddle before numbering without saying what numbering achieved.\n- C: This reports what governments did, but stops before saying why it helped anyone find an address.\n- D: This explains a detail of how numbers were spaced for future buildings, not why the system helped people searching for an address."
+      "explanation": "**Choice A is correct.** The goal asks why numbering mattered for finding an address, and A gives the reason — steadily rising numbers — together with the payoff: even a stranger could find any address.\n\n**The Full Solution:**\n- How to spot it: turn the goal into a checklist. \"Why it mattered for people trying to find an address\" means the answer needs a consequence for address-finders, not just a description of the system.\n- A names the feature that made the system work: numbers rising steadily in one direction.\n- It then states the result those features produced: a stranger could locate any address just by walking and watching the numbers.\n\n**Why the other choices are wrong:**\n- B: This describes the muddle before numbering without saying what numbering achieved.\n- C: This reports what governments did, but stops before saying why it helped anyone find an address.\n- D: This explains a detail of how numbers were spaced along the street, not why the system helped people searching for an address."
     }
   ]
 };

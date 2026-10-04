@@ -6,7 +6,7 @@
  "domain": "information-and-ideas",
  "skill": "inferences",
  "module": 1,
- "passage": "Across Iran and Central Asia, hundreds of caravanserais — fortified courtyard inns that sheltered traveling merchants, their goods, and their animals — still line the old overland trade routes. Their spacing is strikingly regular: ruins succeed one another at intervals of roughly 25 to 35 kilometers, even across stretches of desert with no permanent water and no town within days of travel. A loaded camel caravan moving at walking pace covered about 30 kilometers between dawn and dusk. Where a route crossed settled country, the inns often stand in or near towns; where it did not, they stand alone, supplied by wells dug expressly to serve them. Taken together, these patterns suggest that ______",
+ "passage": "Across Iran and Central Asia, hundreds of caravanserais — fortified courtyard inns that sheltered traveling merchants, their goods, and their animals — still line the old overland trade routes. On level ground their spacing is strikingly regular: ruins succeed one another at intervals of roughly 30 to 40 kilometers, even across stretches of desert with no town within days of travel. A loaded camel caravan moving at walking pace covered about 35 kilometers in a day. Where a route crossed settled country, the inns often stand in or near towns; where it did not, they stand alone, supplied by cisterns built expressly to serve them. Taken together, these patterns suggest that ______",
  "question": "Which choice most logically completes the text?",
  "choices": [
   {
@@ -23,11 +23,11 @@
   },
   {
    "id": "D",
-   "text": "caravans of the period were unable to undertake journeys much longer than 35 kilometers in total."
+   "text": "caravans of the period were unable to undertake journeys much longer than 40 kilometers in total."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The interval between inns matches a caravan's daily range almost exactly, and the inns appear even where no settlement could explain them — so daily travel distance, not existing towns, must have governed their placement.\n\n**The Full Solution:**\n- Premise one: the inns recur every 25 to 35 kilometers with striking regularity.\n- Premise two: a loaded caravan covered about 30 kilometers per day — squarely inside that interval.\n- Premise three: the regular spacing persists across empty desert, where inns stand alone with wells dug expressly for them, so settlement locations cannot account for the pattern there.\n- The conclusion that fits all three is deliberate planning around a day's travel, with towns incorporated where they happened to lie on the route — precisely choice B's claim.\n\n**Why the other choices are wrong:**\n- A: The text describes where inns were built, not which routes merchants preferred; no comparison of route choice is made.\n- C: Abandonment is never mentioned; the ruins line the routes, but nothing dates their disuse or ties it to growing towns.\n- D: It confuses a day's stage with a whole journey — the chain of inns exists precisely because caravans strung many such days together.",
+ "explanation": "**Choice B is correct.** The interval between inns matches a caravan's daily range almost exactly, and the inns appear even where no settlement could explain them — so daily travel distance, not existing towns, must have governed their placement.\n\n**The Full Solution:**\n- Premise one: on level ground the inns recur every 30 to 40 kilometers with striking regularity.\n- Premise two: a loaded caravan covered about 35 kilometers per day — squarely inside that interval.\n- Premise three: the regular spacing persists across empty desert, where inns stand alone with cisterns built expressly for them, so settlement locations cannot account for the pattern there.\n- The conclusion that fits all three is deliberate planning around a day's travel, with towns incorporated where they happened to lie on the route — precisely choice B's claim.\n\n**Why the other choices are wrong:**\n- A: The text describes where inns were built, not which routes merchants preferred; no comparison of route choice is made.\n- C: Abandonment is never mentioned; the ruins line the routes, but nothing dates their disuse or ties it to growing towns.\n- D: It confuses a day's stage with a whole journey — the chain of inns exists precisely because caravans strung many such days together.",
  "_meta": {
   "anchor": "caravanserai spacing — inns placed at one-day caravan intervals along overland routes"
  }

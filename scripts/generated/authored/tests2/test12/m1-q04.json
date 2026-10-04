@@ -1,6 +1,6 @@
 {
   "id": 4,
-  "question": "A snowpack survey measured depths of $2d$, $3d-4$, and $d+10$ centimeters at three stakes on one ridge. The three depths total $66$ centimeters. What is the value of $d$?",
+  "question": "$2x + (3x - 4) + (x + 10) = 66$\nWhat value of $x$ is the solution to the given equation?",
   "choices": [
     {
       "id": "A",
@@ -16,14 +16,14 @@
     },
     {
       "id": "D",
-      "text": "$22$"
+      "text": "$60$"
     }
   ],
   "distractorNotes": {
-    "B": "drops the constant terms -4 and +10 and solves 6d = 66",
-    "C": "adds the net constant instead of subtracting it, solving 6d = 66 + 6",
-    "D": "divides the total by the number of stakes, 66 / 3, instead of by the coefficient sum"
+    "B": "drops the constant terms -4 and +10 and solves 6x = 66",
+    "C": "adds the net constant instead of subtracting it, solving 6x = 66 + 6",
+    "D": "stops at 6x = 60 and reports the value of 6x instead of x"
   },
   "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice A is correct.** Combining the three depths gives $2d + (3d - 4) + (d + 10) = 6d + 6$, so $6d + 6 = 66$ and $d = 10$.\n\n**The Fast Way (~20s):** The $d$ terms add to $6d$ and the constants add to $+6$, so $6d = 60$ and $d = 10$.\n\n**The Full Solution:**\nStep 1: Add the three expressions: $2d + 3d + d = 6d$, and $-4 + 10 = 6$, so the total depth is $6d + 6$.\nStep 2: Set the total equal to the measured $66$: $6d + 6 = 66$, then subtract $6$ from both sides to get $6d = 60$.\nStep 3: Divide by $6$ to get $d = 10$. Check: the stakes read $2(10) = 20$, $3(10) - 4 = 26$, and $10 + 10 = 20$ centimeters, and $20 + 26 + 20 = 66$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($11$): combines only the variable terms and solves $6d = 66$. The constants $-4$ and $+10$ are part of the total and cannot be dropped.\n* Choice C ($12$): moves the $+6$ to the right side by adding, solving $6d = 72$. Undoing $+6$ requires subtracting it.\n* Choice D ($22$): divides the total by the three stakes, $66 \\div 3$, as if each stake read the same depth $d$.\n\n**Test Day Takeaway:** Collect the variable terms and the constants separately before you touch the equals sign; the arithmetic slips happen during the combining, not the solving."
+  "explanation": "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice A is correct.** Combining like terms on the left side gives $6x + 6 = 66$, so $6x = 60$ and $x = 10$.\n\n**The Fast Way (~20s):** The $x$ terms add to $6x$ and the constants add to $+6$, so $6x = 60$ and $x = 10$.\n\n**The Full Solution:**\nStep 1: Combine like terms: $2x + 3x + x = 6x$, and $-4 + 10 = 6$, so the left side is $6x + 6$.\nStep 2: The equation becomes $6x + 6 = 66$. Subtract $6$ from both sides to get $6x = 60$.\nStep 3: Divide by $6$ to get $x = 10$. Check: $2(10) + (3(10) - 4) + (10 + 10) = 20 + 26 + 20 = 66$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($11$): combines only the variable terms and solves $6x = 66$. The constants $-4$ and $+10$ are part of the left side and cannot be dropped.\n* Choice C ($12$): moves the $+6$ to the right side by adding, solving $6x = 72$. Undoing $+6$ requires subtracting it.\n* Choice D ($60$): stops at $6x = 60$ and reports the value of $6x$, not $x$.\n\n**Test Day Takeaway:** Collect the variable terms and the constants separately before you touch the equals sign, then finish by solving for $x$ itself, not a multiple of it."
 }

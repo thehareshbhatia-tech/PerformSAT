@@ -6,20 +6,20 @@
  "domain": "information-and-ideas",
  "skill": "inferences",
  "module": 1,
- "passage": "Male bowerbirds build display structures — avenues of woven sticks opening onto courts decorated with sorted pebbles, bones, and bits of glass — that females inspect before choosing mates. Field studies report two consistent observations. First, males spend hours each day maintaining their bowers, and when researchers deliberately disarrange the decorations, the builders restore the layout within hours. Second, females visit many bowers repeatedly, and they mate most often with the males whose displays remain the most consistently ordered across those visits. Taken together, the observations suggest that ______",
+ "passage": "Male great bowerbirds of northern Australia build an avenue of sticks that opens onto a court covered with gray stones, bones, and shells, which a visiting female views from inside the avenue. Field studies report two consistent observations. First, males place the objects so that they grow larger with distance from the avenue, and when researchers reversed that size order, the builders restored it within about three days. Second, males whose courts show the most regular size gradient mate more often than rival males. Taken together, the observations suggest that ______",
  "question": "Which choice most logically completes the text?",
  "choices": [
   {
    "id": "A",
-   "text": "females select mates according to bower arrangement alone, ignoring every other male trait."
+   "text": "females select mates according to the arrangement of objects on the court alone, ignoring every other trait a male displays."
   },
   {
    "id": "B",
-   "text": "the arrangement of a bower, and not merely its existence, carries information that females weigh when choosing among males."
+   "text": "the arrangement of a court's objects, not merely their presence, carries information that females use in choosing mates."
   },
   {
    "id": "C",
-   "text": "males restore disarranged decorations chiefly to recover scarce building materials."
+   "text": "males restore disarranged objects chiefly because suitable decorating materials are scarce and hard to replace."
   },
   {
    "id": "D",
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** Both observations point at arrangement specifically — males labor to restore a disturbed layout, and females favor the most consistently ordered displays — so the modest conclusion is that arrangement itself carries information females use.\n\n**The Full Solution:**\n- Observation one shows males treating the layout, not just the structure, as worth hours of daily upkeep and prompt repair.\n- Observation two ties female choice to how consistently ordered a display remains across repeated visits.\n- The safe inference joins them: arrangement is a signal females weigh — note B's careful wording, which claims no more than the evidence shows.\n\n**Why the other choices are wrong:**\n- A: \"Alone\" and \"ignoring every other trait\" overreach — the observations show arrangement matters, not that nothing else does.\n- C: It substitutes a motive the evidence undercuts — males restore the layout of the same materials, which is effort spent on order, not on recovering supplies.\n- D: It leaps to species that build no bowers, about which the passage offers no evidence at all."
+ "explanation": "**Choice B is correct.** Both observations point at arrangement specifically — males promptly restore a reversed size order, and the males with the most regular gradients mate most often — so the modest conclusion is that arrangement itself carries information females use.\n\n**The Full Solution:**\n- Observation one shows males treating the order of the objects, not just their presence, as worth restoring within days.\n- Observation two ties mating success to how regular a court's size gradient is.\n- The safe inference joins them: arrangement is a signal females weigh — note B's careful wording, which claims no more than the evidence shows.\n\n**Why the other choices are wrong:**\n- A: \"Alone\" and \"ignoring every other trait\" overreach — the observations show arrangement matters, not that nothing else does.\n- C: It substitutes a motive the evidence undercuts — males put the same objects back in order, which is effort spent on arrangement, not on recovering supplies.\n- D: It leaps to species that build no bowers, about which the passage offers no evidence at all."
 }

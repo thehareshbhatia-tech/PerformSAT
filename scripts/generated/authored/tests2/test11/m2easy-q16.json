@@ -1,56 +1,56 @@
 {
-  "id": 16,
-  "question": "The table lists four readings of a load cell, with the reading $g(x)$, in millivolts, linear in the applied mass $x$, in kilograms. The reading can be written as $g(x) = a(x - 5) + b$ for constants $a$ and $b$. What is the value of $a + b$?",
-  "diagram": {
-    "type": "dataTable",
-    "params": {
-      "headers": [
-        "Applied mass x (kilograms)",
-        "Reading g(x) (millivolts)"
-      ],
-      "rows": [
-        [
-          "0",
-          "3"
-        ],
-        [
-          "1",
-          "7"
-        ],
-        [
-          "2",
-          "11"
-        ],
-        [
-          "3",
-          "15"
-        ]
-      ]
-    }
+ "id": 16,
+ "question": "The linear function $g$ can be written as $g(x) = a(x - 5) + b$, where $a$ and $b$ are constants. The table shows four values of $x$ and their corresponding values of $g(x)$. What is the value of $a + b$?",
+ "diagram": {
+  "type": "dataTable",
+  "params": {
+   "headers": [
+    "x",
+    "g(x)"
+   ],
+   "rows": [
+    [
+     "0",
+     "3"
+    ],
+    [
+     "1",
+     "7"
+    ],
+    [
+     "2",
+     "11"
+    ],
+    [
+     "3",
+     "15"
+    ]
+   ]
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-13$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-13$"
-    },
-    {
-      "id": "B",
-      "text": "$7$"
-    },
-    {
-      "id": "C",
-      "text": "$19$"
-    },
-    {
-      "id": "D",
-      "text": "$27$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "expands a(x - 5) + b as ax + b + 5a, so the constant equation becomes b + 20 = 3 and b = -17",
-    "B": "takes b to be the reading at x = 0, which is 3, instead of the reading at x = 5",
-    "C": "takes b to be the reading in the last row, at x = 3, instead of the reading at x = 5"
+  {
+   "id": "B",
+   "text": "$7$"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Matching Coefficients**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Each kilogram adds $4$ millivolts, so $a = 4$; the form $a(x - 5) + b$ makes $b$ the reading at $x = 5$, which is $4(5) + 3 = 23$, and $4 + 23 = 27$.\n\n**The Full Solution:**\nStep 1: The readings rise $4$ millivolts per kilogram and start at $3$, so $g(x) = 4x + 3$.\nStep 2: Expand the target form and match coefficients: $a(x - 5) + b = ax + (b - 5a)$, so $a = 4$ and $b - 5(4) = 3$.\nStep 3: Solve the constant equation: $b = 23$, so $a + b = 27$. Check: $4(x - 5) + 23 = 4x - 20 + 23 = 4x + 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-13$): distributes $a$ over $x - 5$ as $ax + 5a$, dropping the minus sign, which gives $b = -17$.\n* Choice B ($7$): reads $b$ off the table as the value at $x = 0$; in this form the constant is the output at $x = 5$, not at $x = 0$.\n* Choice C ($19$): uses the last listed reading, $15$, as $b$; the table stops at $x = 3$, so $b$ has to be extended, not read.\n\n**Test Day Takeaway:** Expand the shifted form, line up the $x$ coefficients and the constants separately, and remember that $a(x - h) + b$ makes $b$ the output at $x = h$."
+  {
+   "id": "C",
+   "text": "$19$"
+  },
+  {
+   "id": "D",
+   "text": "$27$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "expands a(x - 5) + b as ax + 5a + b, so 5(4) + b = 3 and b = -17",
+  "B": "takes b to be g(0) = 3 instead of g(5)",
+  "C": "takes b to be the last value in the table, g(3) = 15, instead of g(5)"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Matching Coefficients**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The outputs rise by $4$ for each increase of $1$ in $x$, so $a = 4$, and $b = g(5) = 4(5) + 3 = 23$, giving $a + b = 27$.\n\n**The Full Solution:**\nStep 1: From the table, $g(0) = 3$ and $g(x)$ increases by $4$ each time $x$ increases by $1$, so $g(x) = 4x + 3$.\nStep 2: Expand the given form: $a(x - 5) + b = ax + (b - 5a)$. Matching coefficients gives $a = 4$ and $b - 5(4) = 3$.\nStep 3: Solve: $b = 23$, so $a + b = 4 + 23 = 27$. Check: $4(x - 5) + 23 = 4x - 20 + 23 = 4x + 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-13$): expands $a(x - 5)$ as $ax + 5a$, dropping the minus sign, which gives $b = -17$.\n* Choice B ($7$): uses $g(0) = 3$ as $b$; in the form $a(x - 5) + b$, the constant $b$ is the output at $x = 5$.\n* Choice C ($19$): uses the last table value, $15$, as $b$; that is $g(3)$, not $g(5)$.\n\n**Test Day Takeaway:** Expand the given form and match the $x$-coefficients and the constants separately; in $a(x - h) + b$, the constant $b$ is the output at $x = h$."
 }

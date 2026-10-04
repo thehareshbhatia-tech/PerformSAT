@@ -10,9 +10,8 @@
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
    "Before the 1880s, printers composed pages by hand, picking individual metal letters from a case and refiling each letter after printing.",
-   "A skilled hand compositor could set about 1,500 characters an hour.",
-   "Ottmar Mergenthaler's Linotype machine, introduced in 1886, cast type as complete lines of fresh metal at the touch of a keyboard.",
-   "A Linotype operator could set more than 5,000 characters an hour.",
+   "Ottmar Mergenthaler's Linotype machine, first used commercially in 1886, cast type as complete lines of fresh metal at the touch of a keyboard.",
+   "The Linotype allowed text to be set three to five times as fast as hand composition.",
    "Used Linotype lines were melted down for recasting rather than refiled letter by letter."
   ],
   "goal": "The student wants to emphasize a difference between hand composition and composition on the Linotype machine."
@@ -25,11 +24,11 @@
   },
   {
    "id": "B",
-   "text": "Before the 1880s, printers composed every page by hand, picking individual metal letters one at a time from a case and refiling each of them after printing, with a skilled compositor setting about 1,500 characters an hour at best."
+   "text": "Before the 1880s, printers composed every page by hand, picking individual metal letters one at a time from a case and refiling each of them after printing."
   },
   {
    "id": "C",
-   "text": "Whereas a hand compositor picked and later refiled every letter individually, setting about 1,500 characters an hour, a Linotype operator cast whole lines at a keyboard at more than three times that pace."
+   "text": "Whereas a hand compositor picked and refiled every letter individually, a Linotype operator cast whole lines at a keyboard, three to five times as fast."
   },
   {
    "id": "D",
@@ -37,7 +36,7 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The goal is a difference between the two methods, and C sets them against each other directly — letter-by-letter handling at 1,500 characters an hour versus whole lines at a keyboard at more than triple the speed.\n\n**The Full Solution:**\n- Emphasizing a difference requires both sides of the comparison in one statement, framed contrastively.\n- Choice C uses \"Whereas\" to oppose the two methods on matched terms: unit of work (single letters versus whole lines) and rate (about 1,500 versus more than three times that).\n- The figures come straight from the notes, and the contrastive frame does the emphasizing the goal demands.\n\n**Why the other choices are wrong:**\n- A: It describes only the Linotype, so no difference is drawn.\n- B: It describes only hand composition, leaving the comparison half made.\n- D: It reports what happened to used Linotype lines without mentioning hand composition at all.",
+ "explanation": "**Choice C is correct.** The goal is a difference between the two methods, and C sets them against each other directly — letter-by-letter handling versus whole lines cast at a keyboard, three to five times as fast.\n\n**The Full Solution:**\n- Emphasizing a difference requires both sides of the comparison in one statement, framed contrastively.\n- Choice C uses \"Whereas\" to oppose the two methods on matched terms: unit of work (single letters versus whole lines) and speed (the Linotype's three-to-fivefold advantage).\n- The details come straight from the notes, and the contrastive frame does the emphasizing the goal demands.\n\n**Why the other choices are wrong:**\n- A: It describes only the Linotype, so no difference is drawn.\n- B: It describes only hand composition, leaving the comparison half made.\n- D: It reports what happened to used Linotype lines without mentioning hand composition at all.",
  "_meta": {
   "anchor": "hand typesetting vs. Mergenthaler's Linotype — contrast in method and speed"
  }

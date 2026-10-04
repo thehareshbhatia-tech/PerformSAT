@@ -1,24 +1,24 @@
 {
  "id": 11,
- "question": "The table gives the number of relays built on each of two assembly lines, classified by whether the relay passed a continuity check. Two of the rejected relays are chosen at random, one after the other, without replacement. What is the probability that both were built on Line 1?",
+ "question": "The table shows the number of juniors and seniors in a club who did or did not sign up for a field trip. Two of the students who did not sign up will be selected at random, one at a time, without replacement. What is the probability that both students selected are juniors? (Express your answer as a decimal or fraction, not as a percent.)",
  "diagram": {
   "type": "twoWayTable",
   "params": {
    "headers": [
     "",
-    "Passed",
-    "Rejected",
+    "Signed up",
+    "Did not sign up",
     "Total"
    ],
    "rows": [
     [
-     "Line 1",
+     "Juniors",
      "18",
      "6",
      "24"
     ],
     [
-     "Line 2",
+     "Seniors",
      "10",
      "6",
      "16"
@@ -33,5 +33,5 @@
   }
  },
  "correctAnswer": "5/22",
- "explanation": "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $\\frac{5}{22}$.**\n\n**The Fast Way (~30s):** Only the $12$ rejected relays are in play, $6$ of them from Line 1: $\\frac{6}{12} \\cdot \\frac{5}{11} = \\frac{5}{22}$.\n\n**The Full Solution:**\nStep 1: Restrict to the group the question names. The rejected column totals $12$ relays, of which $6$ came from Line 1.\nStep 2: First draw: $\\frac{6}{12} = \\frac{1}{2}$.\nStep 3: Second draw, with the first relay gone: $5$ Line 1 relays remain among $11$ rejected relays, so $\\frac{5}{11}$. Multiply: $\\frac{1}{2} \\cdot \\frac{5}{11} = \\frac{5}{22}$. Check: $\\frac{5}{22} \\approx 0.227$, a little below the $0.25$ you would get if the relay were replaced ✓\n\n**Common Mistakes:**\n* $\\frac{1}{4}$: multiplying $\\frac{6}{12} \\cdot \\frac{6}{12}$, which is the with-replacement probability; the first relay is not put back.\n* $\\frac{1}{52}$: using all $40$ relays as the pool, $\\frac{6}{40} \\cdot \\frac{5}{39}$, instead of only the $12$ rejected ones.\n* $\\frac{21}{22}$: adding $\\frac{6}{12} + \\frac{5}{11}$; \"both\" events call for multiplication, not addition.\n\n**Test Day Takeaway:** Read the conditioning phrase first — it fixes the pool — then drop the numerator and the denominator by one for the second draw."
+ "explanation": "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $\\frac{5}{22}$ (or $0.2272$ or $0.2273$).**\n\n**The Fast Way (~30s):** Of the $12$ students who did not sign up, $6$ are juniors, so the probability is $\\frac{6}{12} \\cdot \\frac{5}{11} = \\frac{30}{132} = \\frac{5}{22}$.\n\n**The Full Solution:**\nStep 1: Restrict to the students who did not sign up: there are $12$ of them, and $6$ are juniors.\nStep 2: The first selection is a junior with probability $\\frac{6}{12}$. After one junior is removed, $5$ juniors remain among $11$ students, so the second is a junior with probability $\\frac{5}{11}$.\nStep 3: Multiply: $\\frac{6}{12} \\cdot \\frac{5}{11} = \\frac{30}{132} = \\frac{5}{22}$. Check by counting pairs: there are $6 \\cdot 5 = 30$ ordered junior pairs out of $12 \\cdot 11 = 132$ ordered pairs ✓\n\n**Common Mistakes:**\n* $\\frac{1}{4}$: uses $\\frac{6}{12}$ for both selections, as though the first student were put back.\n* $\\frac{1}{2}$: finds the probability for only the first selection.\n* $\\frac{5}{92}$: divides by the $24$ juniors instead of the $12$ students who did not sign up, computing $\\frac{6}{24} \\cdot \\frac{5}{23}$.\n\n**Test Day Takeaway:** Find the group the selection comes from first, then reduce both the favorable count and the total by one for the second selection."
 }

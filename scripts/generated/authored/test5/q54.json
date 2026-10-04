@@ -9,11 +9,11 @@
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "George Ellery Hale (1868-1938) was an American astronomer and a tireless organizer of observatories.",
-   "In the 1890s he secured the funding for Yerkes Observatory in Wisconsin, whose 40-inch refractor was the world's largest telescope when it was completed in 1897.",
-   "Convinced that larger instruments would open new science, he founded the Mount Wilson Observatory in California in 1904.",
-   "At Mount Wilson he oversaw the 60-inch reflector of 1908 and the 100-inch reflector of 1917, each the world's largest telescope upon completion.",
-   "Observations with the 100-inch telescope soon reshaped astronomers' understanding of the scale of the universe."
+   "George Ellery Hale (1868-1938) was an American astronomer and organizer of observatories.",
+   "In the 1890s he secured funding for Yerkes Observatory in Wisconsin, whose 40-inch refractor was the world's largest telescope when completed in 1897.",
+   "He founded the Mount Wilson Observatory in California in 1904.",
+   "There he oversaw the 60-inch reflector of 1908 and the 100-inch reflector of 1917, each the world's largest telescope when completed.",
+   "Observations with the 100-inch telescope reshaped astronomers' understanding of the scale of the universe."
   ],
   "goal": "The student wants to emphasize that Hale's work at Mount Wilson continued an approach he had already used at Yerkes."
  },
@@ -21,11 +21,11 @@
  "choices": [
   {
    "id": "A",
-   "text": "Having already secured the world's largest telescope for Yerkes in the 1890s, Hale repeated the formula at Mount Wilson, where the 60-inch and then the 100-inch reflectors each claimed that title in turn."
+   "text": "Having already secured the world's largest telescope for Yerkes, Hale repeated the feat at Mount Wilson, where the 60-inch and then the 100-inch reflectors each claimed that title."
   },
   {
    "id": "B",
-   "text": "Convinced that larger instruments would open new science, Hale founded the Mount Wilson Observatory in California in 1904."
+   "text": "In 1904, the American astronomer George Ellery Hale founded the Mount Wilson Observatory in California."
   },
   {
    "id": "C",
@@ -33,11 +33,11 @@
   },
   {
    "id": "D",
-   "text": "Yerkes Observatory's 40-inch refractor was the world's largest telescope when it was completed in 1897, and George Ellery Hale, who had secured its funding, was an American astronomer and a tireless organizer of observatories."
+   "text": "Yerkes Observatory's 40-inch refractor was the world's largest telescope when it was completed in 1897, and Hale, an American astronomer and organizer of observatories, had secured its funding."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The goal is continuity — Mount Wilson as a continuation of the Yerkes approach — and A binds the two explicitly: having secured the world's largest telescope once, Hale \"repeated the formula,\" producing successive record-holders at Mount Wilson.\n\n**The Full Solution:**\n- Emphasizing continuation requires both episodes and a link that presents the later one as the earlier one's extension.\n- Choice A supplies the earlier episode (\"the world's largest telescope for Yerkes in the 1890s\"), the connective logic (\"repeated the formula\"), and the later episodes (the 60-inch and 100-inch, \"each claimed that title in turn\").\n- The sentence's structure — \"Having already... repeated...\" — is itself the emphasis the goal demands.\n\n**Why the other choices are wrong:**\n- B: It records the founding of Mount Wilson without mentioning Yerkes, so no continuity is expressed.\n- C: It celebrates a result at Mount Wilson but connects it to nothing that came before.\n- D: It sets two facts side by side without any link presenting one project as continuing the other.",
+ "explanation": "**Choice A is correct.** The goal is continuity — Mount Wilson as a continuation of the Yerkes approach — and A binds the two explicitly: having secured the world's largest telescope once, Hale \"repeated the formula,\" producing successive record-holders at Mount Wilson.\n\n**The Full Solution:**\n- Emphasizing continuation requires both episodes and a link that presents the later one as the earlier one's extension.\n- Choice A supplies the earlier episode (\"the world's largest telescope for Yerkes\"), the connective logic (\"repeated the feat\"), and the later episodes (the 60-inch and 100-inch, \"each claimed that title in turn\").\n- The sentence's structure — \"Having already... repeated...\" — is itself the emphasis the goal demands.\n\n**Why the other choices are wrong:**\n- B: It records the founding of Mount Wilson without mentioning Yerkes, so no continuity is expressed.\n- C: It celebrates a result at Mount Wilson but connects it to nothing that came before.\n- D: It sets two facts side by side without any link presenting one project as continuing the other.",
  "_meta": {
   "anchor": "George Ellery Hale — world's-largest-telescope strategy repeated from Yerkes to Mount Wilson"
  }

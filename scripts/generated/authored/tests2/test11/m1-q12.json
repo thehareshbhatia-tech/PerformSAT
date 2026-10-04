@@ -1,29 +1,29 @@
 {
  "id": 12,
- "question": "The function $C$ models a building's monthly heating cost, in dollars, where $C(t)$ is the cost $t$ months after January. Next year the same seasonal pattern is expected $2$ months later, with each month's cost $\\$300$ greater. Which function models next year's cost?",
+ "question": "$f(x) = (x + 3)^{2} - 5$\nThe graph of $y = g(x)$ is the graph of $y = f(x)$ translated right $4$ units and up $2$ units in the $xy$-plane. Which equation defines $g$?",
  "choices": [
   {
    "id": "A",
-   "text": "$C(t + 2) + 300$"
+   "text": "$g(x) = (x - 1)^{2} - 7$"
   },
   {
    "id": "B",
-   "text": "$C(t + 2) - 300$"
+   "text": "$g(x) = (x - 1)^{2} - 3$"
   },
   {
    "id": "C",
-   "text": "$C(t - 2) + 300$"
+   "text": "$g(x) = (x - 4)^{2} - 3$"
   },
   {
    "id": "D",
-   "text": "$C(t - 2) - 300$"
+   "text": "$g(x) = (x + 7)^{2} - 3$"
   }
  ],
  "distractorNotes": {
-  "A": "uses t + 2 inside, which slides the pattern 2 months earlier instead of later",
-  "B": "slides the pattern 2 months earlier and lowers every cost",
-  "D": "shifts the timing correctly but subtracts the 300-dollar increase"
+  "A": "shifts right correctly but subtracts 2 instead of adding it",
+  "C": "moves the vertex to x = 4 instead of 4 units right of x = -3",
+  "D": "uses f(x + 4), translating left instead of right"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Function Transformation**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** A pattern that happens later is fed a delayed input, so use $C(t - 2)$; costs that are higher get a constant added, so the model is $C(t - 2) + 300$.\n\n**The Full Solution:**\nStep 1: Next year's cost in month $t$ repeats what this year's pattern did $2$ months earlier, which is $C(t - 2)$. Subtracting inside the parentheses delays the pattern; adding inside would move it earlier.\nStep 2: Every month also costs $\\$300$ more, and that is an adjustment to the output, so add $300$ outside the function.\nStep 3: Combining the two gives $C(t - 2) + 300$. Check: if this year's peak cost of $\\$800$ occurs in January ($t = 0$), next year's peak should be $\\$1{,}100$ in March ($t = 2$), and $C(2 - 2) + 300 = C(0) + 300 = 800 + 300 = 1{,}100$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($C(t + 2) + 300$): the cost increase is right, but $C(t + 2)$ pulls the pattern $2$ months earlier — it would put next year's $\\$1{,}100$ peak in November of the previous year, not March.\n* Choice B ($C(t + 2) - 300$): this gets both directions wrong, moving the peak earlier and dropping it to $\\$500$.\n* Choice D ($C(t - 2) - 300$): the timing is right, but subtracting gives a March peak of $\\$500$ instead of the required $\\$1{,}100$.\n\n**Test Day Takeaway:** Changes inside the parentheses shift time in the opposite direction; changes outside move the output the way they read."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Translating right $4$ and up $2$ gives $g(x) = f(x - 4) + 2 = (x - 4 + 3)^{2} - 5 + 2 = (x - 1)^{2} - 3$.\n\n**The Full Solution:**\nStep 1: A translation right $4$ units replaces $x$ with $x - 4$, and a translation up $2$ units adds $2$ to the output, so $g(x) = f(x - 4) + 2$.\nStep 2: Substitute: $f(x - 4) = ((x - 4) + 3)^{2} - 5 = (x - 1)^{2} - 5$.\nStep 3: Add $2$: $g(x) = (x - 1)^{2} - 3$. Check with the vertex: the vertex of $f$ is $(-3, -5)$, and moving it right $4$ and up $2$ gives $(1, -3)$, the vertex of $g$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x - 1)^{2} - 7$): shifts the graph right correctly but subtracts $2$ instead of adding it, which moves the graph down.\n* Choice C ($(x - 4)^{2} - 3$): puts the vertex at $x = 4$ instead of moving it $4$ units right from $x = -3$.\n* Choice D ($(x + 7)^{2} - 3$): uses $f(x + 4)$, which translates the graph left $4$ units instead of right.\n\n**Test Day Takeaway:** For $f(x - h) + k$, a positive $h$ moves the graph right and a positive $k$ moves it up; track the vertex to check."
 }

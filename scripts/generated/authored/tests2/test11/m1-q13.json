@@ -1,22 +1,22 @@
 {
  "id": 13,
- "question": "The table classifies $180$ concrete test cylinders by curing method and by whether the cylinder passed a compression test. Which expression gives the probability that a cylinder chosen at random from those that failed was steam cured?",
+ "question": "The table shows the results of planting $180$ seeds of two types. One of the seeds that did not sprout will be selected at random. What is the probability of selecting a type A seed?",
  "questionTable": {
   "headers": [
-   "Curing method",
-   "Passed",
-   "Failed",
+   "Seed type",
+   "Sprouted",
+   "Did not sprout",
    "Total"
   ],
   "rows": [
    [
-    "Steam",
+    "Type A",
     "$72$",
     "$18$",
     "$90$"
    ],
    [
-    "Moist",
+    "Type B",
     "$54$",
     "$36$",
     "$90$"
@@ -48,10 +48,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "divides by the 180 cylinders in the whole study instead of the 54 that failed",
-  "B": "divides by the 90 steam-cured cylinders, which reverses the condition",
-  "C": "gives the probability that a cylinder failed, ignoring the curing method"
+  "A": "divides by all 180 seeds instead of the 54 that did not sprout",
+  "B": "divides by the 90 type A seeds, which reverses the condition",
+  "C": "gives the probability that a seed did not sprout, ignoring the seed type"
  },
  "correctAnswer": "D",
- "explanation": "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The condition \"failed\" makes the $54$ failed cylinders the whole group, and $18$ of them were steam cured, so the probability is $\\frac{18}{54}$.\n\n**The Full Solution:**\nStep 1: The phrase \"chosen at random from those that failed\" restricts attention to the Failed column, whose total is $54$ cylinders.\nStep 2: Within that column, the steam-cured row contributes $18$ cylinders.\nStep 3: The probability is the part over the restricted whole: $\\frac{18}{54}$. Check the column: $18$ steam-cured failures plus $36$ moist-cured failures is $54$, so the two conditional probabilities $\\frac{18}{54}$ and $\\frac{36}{54}$ add to $1$, as they must. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{18}{180}$): this divides by every cylinder in the study, giving the probability that a randomly chosen cylinder is both steam cured and failed, which is $0.1$ rather than the required conditional probability of about $0.33$.\n* Choice B ($\\frac{18}{90}$): this divides by the steam-cured total, answering the reversed question — the probability that a steam-cured cylinder failed, which is $0.2$.\n* Choice C ($\\frac{54}{180}$): this is the overall failure rate, $0.3$, and never uses the curing method at all.\n\n**Test Day Takeaway:** In a conditional probability, the group named after \"given\" or \"from those that\" becomes the denominator — find that row or column total first."
+ "explanation": "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The selection is made only from the $54$ seeds that did not sprout, and $18$ of them are type A, so the probability is $\\frac{18}{54}$.\n\n**The Full Solution:**\nStep 1: The seed is selected from those that did not sprout, so the \"Did not sprout\" column total, $54$, is the denominator.\nStep 2: The type A row of that column shows $18$ seeds, so $18$ is the numerator.\nStep 3: The probability is $\\frac{18}{54}$, which equals $\\frac{1}{3}$. Check: the column entries $18$ and $36$ add to the column total $54$, and $\\frac{18}{54} + \\frac{36}{54} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{18}{180}$): divides by all $180$ seeds instead of only the $54$ that did not sprout.\n* Choice B ($\\frac{18}{90}$): divides by the $90$ type A seeds, which gives the probability that a type A seed did not sprout.\n* Choice C ($\\frac{54}{180}$): gives the probability that a seed did not sprout, ignoring the seed type.\n\n**Test Day Takeaway:** In a two-way table, the group the selection is made from supplies the denominator; find that row or column total first."
 }

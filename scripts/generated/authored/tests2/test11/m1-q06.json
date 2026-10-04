@@ -1,10 +1,10 @@
 {
  "id": 6,
- "question": "The table gives the capacity, in terabytes, of each drive model a data center installs. One rack holds $12$ model A drives, $8$ model B drives, and $n$ model C drives, for a total capacity of $232$ terabytes. What is the value of $n$?",
+ "question": "The table shows the storage capacity, in terabytes, of each of three types of hard drives. A computer system has $12$ type A drives, $8$ type B drives, and $n$ type C drives, with a total capacity of $232$ terabytes. What is the value of $n$?",
  "questionTable": {
   "headers": [
-   "Drive model",
-   "Capacity (TB)"
+   "Type of drive",
+   "Capacity (terabytes)"
   ],
   "rows": [
    [
@@ -22,5 +22,5 @@
   ]
  },
  "correctAnswer": "13",
- "explanation": "**SAT Pattern: Word-to-Expression Translation**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~30s):** The model A and model B drives supply $12(4) + 8(10) = 128$ terabytes, leaving $232 - 128 = 104$ terabytes for the model C drives at $8$ terabytes each, so $n = 13$.\n\n**The Full Solution:**\nStep 1: Read each capacity from the table: model A is $4$ TB, model B is $10$ TB, and model C is $8$ TB. The $12$ model A drives hold $12(4) = 48$ TB and the $8$ model B drives hold $8(10) = 80$ TB.\nStep 2: Translate the total into an equation: $48 + 80 + 8n = 232$, so $8n = 232 - 128 = 104$.\nStep 3: Divide: $n = \\frac{104}{8} = 13$. Check: $48 + 80 + 8(13) = 48 + 80 + 104 = 232$ terabytes, matching the rack total. ✓\n\n**Common Mistakes:**\n* Pairing the model C count with model A's capacity gives $\\frac{104}{4} = 26$, a rack of $46$ drives that would hold far more than $232$ TB.\n* Pairing it with model B's capacity gives $\\frac{104}{10} = 10.4$, which is not a whole number of drives — a signal that the wrong row was used.\n* Forgetting the model B drives entirely gives $\\frac{232 - 48}{8} = 23$, which double-counts their $80$ TB as model C capacity.\n\n**Test Day Takeaway:** Convert each row of a table into a product of count and unit value first; the unknown count is then a one-step division."
+ "explanation": "**SAT Pattern: Word-to-Expression Translation**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~30s):** The type A and type B drives hold $12(4) + 8(10) = 128$ terabytes, which leaves $232 - 128 = 104$ terabytes for the type C drives at $8$ terabytes each, so $n = \\frac{104}{8} = 13$.\n\n**The Full Solution:**\nStep 1: Read each capacity from the table: type A is $4$ terabytes, type B is $10$ terabytes, and type C is $8$ terabytes. The $12$ type A drives hold $12(4) = 48$ terabytes, and the $8$ type B drives hold $8(10) = 80$ terabytes.\nStep 2: The $n$ type C drives hold $8n$ terabytes, so $48 + 80 + 8n = 232$, which gives $8n = 104$.\nStep 3: Divide: $n = \\frac{104}{8} = 13$. Check: $48 + 80 + 8(13) = 48 + 80 + 104 = 232$ ✓\n\n**Common Mistakes:**\n* $26$: divides the remaining $104$ terabytes by type A's capacity, $4$, instead of type C's capacity, $8$.\n* $10.4$: divides the remaining $104$ terabytes by type B's capacity, $10$; a number of drives must be a whole number.\n* $23$: leaves out the type B drives, computing $\\frac{232 - 48}{8} = 23$.\n\n**Test Day Takeaway:** Turn each row of the table into count times capacity, subtract the known totals, and divide what is left by the unknown type's capacity."
 }

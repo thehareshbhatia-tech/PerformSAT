@@ -6,7 +6,7 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 1,
- "passage": "In the 1890s, most working-class tenements in American cities had no bathing facilities at all, and reformers made the public bath a cause: cleanliness, they argued, was a public good the city owed residents whose homes could not provide it. The campaign had concrete results in New York. State legislation required large cities to maintain free public baths, and New York City went on to build a network of year-round municipal bathhouses, some handsome enough to be mistaken for small libraries, that recorded millions of visits annually in their busiest years.",
+ "passage": "In the 1890s, nearly all working-class tenements in New York lacked bathtubs, and reformers made the public bath a cause: cleanliness, they argued, was a public good the city owed residents whose homes could not provide it. The campaign had concrete results. State legislation passed in 1895 required large cities to maintain free public baths, and New York City went on to build a network of year-round municipal bathhouses that recorded millions of visits a year at their peak.",
  "question": "According to the text, what was one result of the reformers' campaign for public baths?",
  "choices": [
   {
@@ -27,7 +27,7 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The text states directly that the campaign \"had concrete results in New York,\" and the first result named is that \"State legislation required large cities to maintain free public baths.\"\n\n**The Full Solution:**\n- The question asks for a result of the campaign, so the answer must come from the sentences following \"The campaign had concrete results.\"\n- Two results are given: the state legislation requiring free baths, and the city's network of year-round bathhouses.\n- Choice A restates the first of these almost verbatim.\n\n**Why the other choices are wrong:**\n- B: The text says tenements lacked baths, but no requirement on landlords is ever mentioned.\n- C: It garbles a comparison — some bathhouses looked like small libraries; none were converted from them.\n- D: It contradicts the text, which specifies that the legislation mandated free baths.",
+ "explanation": "**Choice A is correct.** The text states directly that the campaign \"had concrete results,\" and the first result named is that \"State legislation required large cities to maintain free public baths.\"\n\n**The Full Solution:**\n- The question asks for a result of the campaign, so the answer must come from the sentences following \"The campaign had concrete results.\"\n- Two results are given: the state legislation requiring free baths, and the city's network of year-round bathhouses.\n- Choice A restates the first of these almost verbatim.\n\n**Why the other choices are wrong:**\n- B: The text says tenements lacked baths, but no requirement on landlords is ever mentioned.\n- C: No libraries are mentioned; the text describes a network of bathhouses the city built, not buildings converted from other uses.\n- D: It contradicts the text, which specifies that the legislation mandated free baths.",
  "_meta": {
   "anchor": "Progressive-era municipal bath movement — state mandate and New York's bathhouse network"
  }

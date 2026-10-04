@@ -1,29 +1,29 @@
 {
-  "id": 5,
-  "question": "The resistance of a sensing element changes linearly with temperature: it measures $4{,}120$ ohms at $15$ degrees Celsius and $3{,}040$ ohms at $42$ degrees Celsius. Which equation gives the resistance $R$, in ohms, at a temperature of $t$ degrees Celsius?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$R = -40t + 3{,}520$"
-    },
-    {
-      "id": "B",
-      "text": "$R = -40t + 4{,}120$"
-    },
-    {
-      "id": "C",
-      "text": "$R = -40t + 4{,}720$"
-    },
-    {
-      "id": "D",
-      "text": "$R = 40t + 3{,}520$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "subtracts 40 times 15 from 4,120 instead of adding it back when solving for the intercept",
-    "B": "uses the resistance measured at 15 degrees as the value at 0 degrees",
-    "D": "reverses the order of the points in the slope quotient, getting +40, and then solves for the intercept"
+ "id": 5,
+ "question": "In the $xy$-plane, the graph of the linear function $f$ passes through the points $(2, 11)$ and $(6, 23)$. Which equation defines $f$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$f(x) = 3x + 5$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Line from Two Points**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The resistance falls $1{,}080$ ohms over $27$ degrees, so the slope is $-40$; running back the $15$ degrees to $t = 0$ adds $600$ ohms, giving $R = -40t + 4{,}720$.\n\n**The Full Solution:**\nStep 1: Treat the measurements as points $(15,\\ 4{,}120)$ and $(42,\\ 3{,}040)$ and compute the slope: $\\frac{3{,}040 - 4{,}120}{42 - 15} = \\frac{-1{,}080}{27} = -40$.\nStep 2: Substitute one point into $R = -40t + b$: $4{,}120 = -40(15) + b$, so $b = 4{,}120 + 600 = 4{,}720$.\nStep 3: Write the equation: $R = -40t + 4{,}720$. Check the second measurement: $-40(42) + 4{,}720 = -1{,}680 + 4{,}720 = 3{,}040$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($R = -40t + 3{,}520$): subtracts $600$ from $4{,}120$ instead of adding it; moving backward along a falling line raises the value.\n* Choice B ($R = -40t + 4{,}120$): treats the $15$-degree reading as the reading at $0$ degrees, so the whole line sits $600$ ohms too low.\n* Choice D ($R = 40t + 3{,}520$): computes the slope as $\\frac{4{,}120 - 3{,}040}{42 - 15} = 40$, which makes resistance rise with temperature — the opposite of the data.\n\n**Test Day Takeaway:** Keep the two points in the same order top and bottom of the slope fraction, then solve for the intercept with a point rather than assuming the first measurement happens at zero."
+  {
+   "id": "B",
+   "text": "$f(x) = 3x + 11$"
+  },
+  {
+   "id": "C",
+   "text": "$f(x) = 3x + 17$"
+  },
+  {
+   "id": "D",
+   "text": "$f(x) = 12x - 13$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "uses the y-coordinate of the point (2, 11) as the y-intercept",
+  "C": "adds instead of subtracts when solving for the intercept: b = 11 + 3(2) = 17",
+  "D": "uses the change in y, 12, as the slope without dividing by the change in x, 4, then b = 11 - 12(2) = -13"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Line from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The slope is $\\frac{23 - 11}{6 - 2} = 3$, and $11 = 3(2) + b$ gives $b = 5$, so $f(x) = 3x + 5$.\n\n**The Full Solution:**\nStep 1: Find the slope from the two points: $m = \\frac{23 - 11}{6 - 2} = \\frac{12}{4} = 3$.\nStep 2: Substitute the slope and the point $(2, 11)$ into $f(x) = mx + b$: $11 = 3(2) + b$, so $b = 5$.\nStep 3: Write the function: $f(x) = 3x + 5$. Check with the other point: $f(6) = 3(6) + 5 = 23$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($f(x) = 3x + 11$): uses $11$ as the $y$-intercept, but $11$ is the output at $x = 2$, not at $x = 0$. This line gives $f(2) = 17$.\n* Choice C ($f(x) = 3x + 17$): solves $11 = 6 + b$ as $b = 11 + 6$, adding when it should subtract.\n* Choice D ($f(x) = 12x - 13$): takes the change in $y$, $12$, as the slope without dividing by the change in $x$, $4$.\n\n**Test Day Takeaway:** Slope is change in $y$ divided by change in $x$; then substitute one point to find the intercept and check the other point."
 }

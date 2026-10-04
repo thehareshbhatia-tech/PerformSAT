@@ -6,28 +6,28 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 1,
- "passage": "In the town of Akwete, in southeastern Nigeria, Igbo women have long woven a broad, densely patterned cloth on upright looms. The cloths Akwete weavers produced ______ established a repertoire of named motifs that weavers today still reproduce and reinterpret.",
+ "passage": "In the town of Akwete, in southeastern Nigeria, Igbo women weave a broad, densely patterned cloth on upright looms. The cloths Akwete weavers produced ______ established a repertoire of named motifs that weavers today still reproduce and reinterpret.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "in the early twentieth century the most elaborate of which combined imported rayon with local cotton"
+   "text": "in the late nineteenth century the most elaborate of which resembled imported cloth prized by Ijo traders"
   },
   {
    "id": "B",
-   "text": "in the early twentieth century, the most elaborate of which combined imported rayon with local cotton"
+   "text": "in the late nineteenth century, the most elaborate of which resembled imported cloth prized by Ijo traders"
   },
   {
    "id": "C",
-   "text": "in the early twentieth century; the most elaborate of which combined imported rayon with local cotton;"
+   "text": "in the late nineteenth century; the most elaborate of which resembled imported cloth prized by Ijo traders;"
   },
   {
    "id": "D",
-   "text": "in the early twentieth century, the most elaborate of which combined imported rayon with local cotton,"
+   "text": "in the late nineteenth century, the most elaborate of which resembled imported cloth prized by Ijo traders,"
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The clause \"the most elaborate of which combined imported rayon with local cotton\" is a nonessential supplement interrupting the main clause, so it must be enclosed by commas on both sides.\n\n**The Full Solution:**\n- The main clause runs: \"The cloths Akwete weavers produced in the early twentieth century... established a repertoire of named motifs...\"\n- \"The most elaborate of which combined imported rayon with local cotton\" adds nonessential information about those cloths; the sentence is complete without it.\n- A supplement inserted mid-sentence takes paired punctuation: a comma before it and a comma after it, as in choice D.\n\n**Why the other choices are wrong:**\n- A: With no punctuation at all, the supplement collides with the main clause, leaving \"cotton established a repertoire\" reading as if the cotton did the establishing.\n- B: An opening comma without a closing one leaves the interruption unclosed, splicing the supplement into the main verb \"established.\"\n- C: Semicolons cannot set off a dependent \"of which\" clause; each semicolon here would need an independent clause on both sides.",
+ "explanation": "**Choice D is correct.** The clause \"the most elaborate of which resembled imported cloth prized by Ijo traders\" is a nonessential supplement interrupting the main clause, so it must be enclosed by commas on both sides.\n\n**The Full Solution:**\n- The main clause runs: \"The cloths Akwete weavers produced in the late nineteenth century... established a repertoire of named motifs...\"\n- \"The most elaborate of which resembled imported cloth prized by Ijo traders\" adds nonessential information about those cloths; the sentence is complete without it.\n- A supplement inserted mid-sentence takes paired punctuation: a comma before it and a comma after it, as in choice D.\n\n**Why the other choices are wrong:**\n- A: With no punctuation at all, the supplement collides with the main clause, leaving \"traders established a repertoire\" reading as if the traders did the establishing.\n- B: An opening comma without a closing one leaves the interruption unclosed, splicing the supplement into the main verb \"established.\"\n- C: Semicolons cannot set off a dependent \"of which\" clause; each semicolon here would need an independent clause on both sides.",
  "_meta": {
   "anchor": "Akwete cloth motifs; paired commas around a nonessential 'of which' supplement"
  }

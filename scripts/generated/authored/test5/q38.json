@@ -6,7 +6,7 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 2,
- "passage": "Predicting the tide at a given port means summing dozens of overlapping astronomical cycles, each contributing its own rhythm to the water's rise and fall — a calculation so laborious that doing it by hand for a single year of tides could consume weeks. In the 1870s a British physicist designed a machine that performed the summation bodily: each of its pulleys oscillated with the amplitude and period of one tidal constituent, and a single wire threading them all added the motions together, driving a pen that drew a year's tide curve in a matter of hours. Refined successors of the device computed the official tide tables of several nations well into the era of electronic computing.",
+ "passage": "Predicting the tide at a port means summing many overlapping astronomical cycles, each contributing its own rhythm to the water's rise and fall, a calculation enormously laborious by hand. In the 1870s a British physicist designed a machine that performed the summation mechanically: each of its pulleys moved with the amplitude and period of one tidal cycle, and a single wire threading them all added the motions together, driving a pen that drew a year's tide curve in about four hours. Successors of the device computed official tide tables into the 1960s.",
  "question": "Which choice best states the main idea of the text?",
  "choices": [
   {
@@ -23,11 +23,11 @@
   },
   {
    "id": "D",
-   "text": "A mechanical device that physically summed tidal cycles turned a weeks-long calculation into a matter of hours and served official tide prediction for decades."
+   "text": "A mechanical device that physically summed tidal cycles turned a laborious calculation into a matter of hours and served official tide prediction for decades."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The text's through-line is the machine's achievement: it embodied the laborious summation in pulleys and wire, collapsed weeks of hand calculation into hours, and its successors produced national tide tables into the electronic era.\n\n**The Full Solution:**\n- The first sentence sets up the problem: summing dozens of cycles by hand could take weeks per year of tides.\n- The second describes the solution and its mechanism: one pulley per constituent, one wire summing them, a year's curve drawn in hours.\n- The third establishes lasting significance: refined versions computed official tables for nations across decades. Choice D contains all three movements — problem, mechanical solution, longevity.\n\n**Why the other choices are wrong:**\n- A: It inverts the machine's purpose — the device existed to produce tide tables, not to replace them.\n- B: It contradicts the final sentence, which reports decades of official service.\n- C: The text credits the designer with the machine, not with discovering the cycles, which the opening treats as established knowledge.",
+ "explanation": "**Choice D is correct.** The text's through-line is the machine's achievement: it embodied the laborious summation in pulleys and wire, reduced the work to hours, and its successors produced official tide tables for decades.\n\n**The Full Solution:**\n- The first sentence sets up the problem: summing many cycles by hand was enormously laborious.\n- The second describes the solution and its mechanism: one pulley per cycle, one wire summing them, a year's curve drawn in about four hours.\n- The third establishes lasting significance: successors computed official tide tables into the 1960s. Choice D contains all three movements — problem, mechanical solution, longevity.\n\n**Why the other choices are wrong:**\n- A: It inverts the machine's purpose — the device existed to produce tide tables, not to replace them.\n- B: It contradicts the final sentence, which reports official use into the 1960s.\n- C: The text credits the designer with the machine, not with discovering the cycles, which the opening treats as established knowledge.",
  "_meta": {
   "anchor": "Victorian tide-predicting machines — mechanical summation of tidal constituents"
  }

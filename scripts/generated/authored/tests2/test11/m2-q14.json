@@ -1,6 +1,6 @@
 {
  "id": 14,
- "question": "Junctions $A$, $B$, and $C$ on a hiking trail network form a triangular loop, and the trail leaving $B$ passes through $C$ and continues straight to a lookout at $D$. Angle $ACD$ measures $(4x + 6)^\\circ$, angle $A$ measures $(x + 30)^\\circ$, and angle $B$ measures $(2x - 4)^\\circ$. What is the measure, in degrees, of angle $ACB$?",
+ "question": "In triangle $ABC$, side $\\overline{BC}$ is extended through $C$ to point $D$. The measures of angles $A$, $B$, and $ACD$ are $(x + 30)^{\\circ}$, $(2x - 4)^{\\circ}$, and $(4x + 6)^{\\circ}$, respectively. What is the measure, in degrees, of angle $ACB$?",
  "choices": [
   {
    "id": "A",
@@ -19,11 +19,11 @@
    "text": "$94$"
   }
  ],
- "distractorNotes": {
-  "A": "reports x = 20 instead of substituting it back into an angle expression",
-  "B": "reports angle A, (20) + 30 = 50 degrees, rather than the angle at C inside the loop",
-  "C": "reports angle ACD, 4(20) + 6 = 86 degrees, the angle outside the loop, instead of its supplement"
- },
  "correctAnswer": "D",
- "explanation": "**SAT Pattern: Triangle Angle Sum**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** Angle $ACD$ is the exterior angle at $C$, so it equals the two remote interior angles: $4x + 6 = (x + 30) + (2x - 4)$, giving $x = 20$ and angle $ACD = 86^\\circ$. Then angle $ACB = 180^\\circ - 86^\\circ = 94^\\circ$.\n\n**The Full Solution:**\nStep 1: Because $B$, $C$, and $D$ lie on one straight trail, angle $ACB$ and angle $ACD$ are supplementary, and angle $ACD$ is an exterior angle of triangle $ABC$. An exterior angle equals the sum of the two interior angles not next to it, so $4x + 6 = (x + 30) + (2x - 4)$.\nStep 2: Solve: $4x + 6 = 3x + 26$, so $x = 20$. That makes angle $A = 50^\\circ$, angle $B = 36^\\circ$, and angle $ACD = 86^\\circ$.\nStep 3: Take the supplement: angle $ACB = 180^\\circ - 86^\\circ = 94^\\circ$. Check the interior angles of the loop: $50 + 36 + 94 = 180$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): $x = 20$ is only the intermediate value. Every angle in this problem still needs $x$ substituted into its expression.\n* Choice B ($50$): angle $A$, not the angle at junction $C$. Naming the vertex letters in order — $ACB$ has its vertex at $C$ — keeps the target straight.\n* Choice C ($86$): angle $ACD$ points away from the loop, toward the lookout. The angle inside the loop is its supplement.\n\n**Test Day Takeaway:** When a side is extended, the exterior angle equals the sum of the two remote interior angles — that single equation solves for the variable faster than the three-angle sum. Then check which angle the question actually names before answering."
+ "distractorNotes": {
+  "A": "reports x = 20 instead of substituting it into an angle measure",
+  "B": "reports the measure of angle A, 20 + 30 = 50 degrees",
+  "C": "reports the measure of angle ACD, 4(20) + 6 = 86 degrees, instead of its supplement"
+ },
+ "explanation": "**SAT Pattern: Triangle Angle Sum**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** An exterior angle equals the sum of the two remote interior angles: $4x + 6 = (x + 30) + (2x - 4)$, so $x = 20$. Then angle $ACD = 86^{\\circ}$ and angle $ACB = 180^{\\circ} - 86^{\\circ} = 94^{\\circ}$.\n\n**The Full Solution:**\nStep 1: Angle $ACD$ is an exterior angle of triangle $ABC$ at $C$, so its measure equals the sum of the measures of angles $A$ and $B$: $4x + 6 = (x + 30) + (2x - 4)$.\nStep 2: Simplify: $4x + 6 = 3x + 26$, so $x = 20$, and angle $ACD$ measures $4(20) + 6 = 86^{\\circ}$.\nStep 3: Angles $ACB$ and $ACD$ form a straight angle, so angle $ACB$ measures $180^{\\circ} - 86^{\\circ} = 94^{\\circ}$. Check: angles $A$ and $B$ measure $50^{\\circ}$ and $36^{\\circ}$, and $50 + 36 + 94 = 180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): this is the value of $x$, not an angle measure.\n* Choice B ($50$): this is the measure of angle $A$.\n* Choice C ($86$): this is the exterior angle $ACD$; the interior angle at $C$ is its supplement.\n\n**Test Day Takeaway:** An exterior angle equals the sum of the two interior angles that are not next to it, and it is supplementary to the interior angle that is."
 }

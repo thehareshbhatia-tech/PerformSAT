@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 1,
- "passage": "European eels hatch in the open Atlantic and spend their adult lives in rivers, but for a century no tracking study had followed an adult eel all the way back to its presumed spawning grounds in the Sargasso Sea: tagged fish were eaten by predators, shed their instruments, or simply vanished mid-ocean. ______ in 2022, researchers reported that redesigned satellite tags had finally survived the whole journey, recording adult eels swimming into the Sargasso itself.",
+ "passage": "European eels hatch in the open Atlantic and spend their adult lives in rivers, but for a century no one had tracked an adult eel back to its presumed spawning grounds in the Sargasso Sea: tagged fish were eaten, shed their tags, or vanished. ______ in 2022, researchers reported that satellite tags had followed five eels released from the Azores into the Sargasso itself.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The first sentence is a century of failure — tags eaten, shed, or lost — and the second is the success that broke the pattern, so the turn needs the contrast word \"However.\"\n\n**The Full Solution:**\n- Before the blank: every tracking attempt for a hundred years fell short of the spawning grounds.\n- After the blank: redesigned tags survived the whole journey and recorded eels entering the Sargasso.\n- Failure giving way to success is a reversal of direction, and \"However\" is the signal for exactly that turn.\n\n**Why the other choices are wrong:**\n- B: \"As a result\" would make the 2022 success a consequence of the earlier failures, but the failures caused nothing — the redesign did.\n- C: \"Similarly\" would promise another instance of the same pattern, yet the second sentence breaks the pattern.\n- D: \"For example\" would offer the success as an illustration of the failures it actually overturns."
+ "explanation": "**Choice A is correct.** The first sentence is a century of failure — tags eaten, shed, or lost — and the second is the success that broke the pattern, so the turn needs the contrast word \"However.\"\n\n**The Full Solution:**\n- Before the blank: every tracking attempt for a hundred years fell short of the spawning grounds.\n- After the blank: satellite tags finally followed eels all the way into the Sargasso.\n- Failure giving way to success is a reversal of direction, and \"However\" is the signal for exactly that turn.\n\n**Why the other choices are wrong:**\n- B: \"As a result\" would make the 2022 success a consequence of the earlier failures, but the failures did not produce the 2022 result — it overturned them.\n- C: \"Similarly\" would promise another instance of the same pattern, yet the second sentence breaks the pattern.\n- D: \"For example\" would offer the success as an illustration of the failures it actually overturns."
 }

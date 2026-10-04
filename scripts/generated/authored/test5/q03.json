@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 1,
- "passage": "Seventeenth-century Dutch banquet still lifes can look like records of interrupted meals: goblets lie tipped on their sides, a lemon's peel spirals off the table's edge, a pie stands half cut. The disorder, though, was entirely ______. Painters positioned each rumpled cloth and toppled cup so that the eye travels an intended path across the table, and preparatory studies show compositions being adjusted long before paint touched the panel.",
+ "passage": "Seventeenth-century Dutch banquet still lifes can look like records of interrupted meals: goblets lie tipped on their sides, a lemon's peel spirals off the table's edge, a pie stands half cut. The disorder, though, was entirely ______. Painters arranged each rumpled cloth and toppled cup so that the eye travels an intended path across the table.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
@@ -27,7 +27,7 @@
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The text argues that the apparent mess was deliberately engineered, and \"contrived\" means artfully arranged or planned.\n\n**The Full Solution:**\n- The first sentence establishes the appearance: scenes that look like interrupted meals.\n- The word \"though\" signals a turn: the disorder is not what it seems.\n- The evidence that follows — objects positioned to steer the eye, compositions adjusted in preparatory studies — shows calculation, so the blank must mean deliberately constructed. \"Contrived\" fits exactly.\n\n**Why the other choices are wrong:**\n- A: \"Concealed\" fails because the disorder is on full display; what is hidden is the planning behind it, not the disorder itself.\n- B: \"Accidental\" states the opposite of the point the evidence supports.\n- C: \"Conventional\" addresses whether the disorder followed custom, but the sentences after the blank are about planning, not convention.",
+ "explanation": "**Choice D is correct.** The text argues that the apparent mess was deliberately engineered, and \"contrived\" means artfully arranged or planned.\n\n**The Full Solution:**\n- The first sentence establishes the appearance: scenes that look like interrupted meals.\n- The word \"though\" signals a turn: the disorder is not what it seems.\n- The evidence that follows — each cloth and cup arranged to steer the eye along an intended path — shows calculation, so the blank must mean deliberately constructed. \"Contrived\" fits exactly.\n\n**Why the other choices are wrong:**\n- A: \"Concealed\" fails because the disorder is on full display; what is hidden is the planning behind it, not the disorder itself.\n- B: \"Accidental\" states the opposite of the point the evidence supports.\n- C: \"Conventional\" addresses whether the disorder followed custom, but the sentences after the blank are about planning, not convention.",
  "_meta": {
   "anchor": "Dutch banquet still lifes — staged disorder guiding the viewer's eye"
  }

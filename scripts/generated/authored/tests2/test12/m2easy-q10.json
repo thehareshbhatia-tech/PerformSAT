@@ -1,6 +1,6 @@
 {
  "id": 10,
- "question": "A dryer removes water at a steady rate, so the moisture content of a rice batch, in grams per kilogram, after $n$ hours is modeled by $M(n) = 96 - 3n$. For what value of $n$ does $M(n)$ equal $42$?",
+ "question": "The function $g$ is defined by $g(x) = 96 - 3x$. For what value of $x$ does $g(x) = 42$?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "divides the output 42 by 3 and ignores the starting 96",
+  "A": "divides the output 42 by 3 and ignores the 96",
   "C": "adds 96 and 42 before dividing by 3 instead of subtracting",
-  "D": "stops at 3n = 54 without dividing by 3"
+  "D": "stops at 3x = 54 without dividing by 3"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Solve $f(a) = c$**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $96 - 3n = 42$ gives $3n = 54$, so $n = 18$.\n\n**The Full Solution:**\nStep 1: Set the rule equal to the given output: $96 - 3n = 42$.\nStep 2: Move the variable term: add $3n$ to both sides and subtract $42$, giving $54 = 3n$.\nStep 3: Divide by $3$: $n = 18$ hours. Check by evaluating the model: $M(18) = 96 - 3(18) = 96 - 54 = 42$ grams per kilogram. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($14$): divides the target output by $3$, computing $\\frac{42}{3}$, and never subtracts from the starting moisture of $96$.\n* Choice C ($46$): adds instead of subtracts, computing $\\frac{96 + 42}{3}$. The $96$ is the starting value the drying removes from, not something added to the output.\n* Choice D ($54$): stops at $3n = 54$ and reports $54$, which is the drop in moisture content, not the number of hours.\n\n**Test Day Takeaway:** Solving $f(n) = c$ means substituting for the OUTPUT and solving for the input. Finish the division, then re-evaluate the model to confirm the output lands on $c$."
+ "explanation": "**SAT Pattern: Solve $f(a) = c$**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $96 - 3x = 42$ gives $3x = 54$, so $x = 18$.\n\n**The Full Solution:**\nStep 1: Set the function equal to the given output: $96 - 3x = 42$.\nStep 2: Add $3x$ to both sides and subtract $42$: $54 = 3x$.\nStep 3: Divide by $3$: $x = 18$. Check: $g(18) = 96 - 3(18) = 96 - 54 = 42$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($14$): computes $\\frac{42}{3}$, ignoring the $96$ in the function.\n* Choice C ($46$): computes $\\frac{96 + 42}{3}$, adding where the equation requires subtracting.\n* Choice D ($54$): stops at $3x = 54$ and reports $54$ without dividing by $3$.\n\n**Test Day Takeaway:** $g(x) = 42$ gives the OUTPUT; set the rule equal to it and solve for the input, then evaluate $g$ at your answer to confirm."
 }

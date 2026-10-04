@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 2,
- "passage": "Giant kelp anchors to rocky seafloor and grows toward the light in dense stands whose canopies float at the surface. As waves pass through a kelp forest, much of their energy is spent dragging against the flexible fronds. Because the water that finally reaches land has been calmed in this way, shorelines sheltered by healthy kelp forests ______ measurably less erosion than nearby unsheltered stretches of coast.",
+ "passage": "Salt-marsh grasses such as cordgrass grow in dense stands along sheltered coasts, their stems rising above the mud at low tide. As waves roll across a marsh, much of their energy is spent pushing against the stiff stems. Because the water that finally reaches land has been calmed in this way, shorelines fronted by healthy marshes ______ measurably less erosion than nearby unprotected stretches of coast.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The cause-and-effect chain — wave energy spent on the fronds, calmer water reaching land — leads to shorelines experiencing less erosion, and \"undergo\" means to experience or be subjected to.\n\n**The Full Solution:**\n- \"Because\" marks the logic: calmed water is the cause, and the blank must state its effect on the shoreline.\n- The effect is that less erosion happens to sheltered shorelines than to unsheltered ones.\n- \"Undergo\" is the verb for what a thing is subjected to, fitting a shoreline that erosion acts upon.\n\n**Why the other choices are wrong:**\n- A: \"Predict\" would make shorelines forecasters of their own erosion, which makes no sense.\n- B: \"Conceal\" would mean the erosion occurs but is hidden, while the passage says calmer water genuinely reduces it.\n- D: \"Require\" would make erosion something the shorelines need — the reverse of the benefit being described."
+ "explanation": "**Choice C is correct.** The cause-and-effect chain — wave energy spent on the stems, calmer water reaching land — leads to shorelines experiencing less erosion, and \"undergo\" means to experience or be subjected to.\n\n**The Full Solution:**\n- \"Because\" marks the logic: calmed water is the cause, and the blank must state its effect on the shoreline.\n- The effect is that less erosion happens to sheltered shorelines than to unsheltered ones.\n- \"Undergo\" is the verb for what a thing is subjected to, fitting a shoreline that erosion acts upon.\n\n**Why the other choices are wrong:**\n- A: \"Predict\" would make shorelines forecasters of their own erosion, which makes no sense.\n- B: \"Conceal\" would mean the erosion occurs but is hidden, while the passage says calmer water genuinely reduces it.\n- D: \"Require\" would make erosion something the shorelines need — the reverse of the benefit being described."
 }

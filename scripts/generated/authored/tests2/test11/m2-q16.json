@@ -1,6 +1,6 @@
 {
  "id": 16,
- "question": "The drawn line contains the two marked points. For exactly one constant $n$, no ordered pair $(x, y)$ satisfies both $y = (n^2 - 2n)x + 4n - 4$ and the equation of that line. What is the value of $n$?",
+ "question": "Line $\\ell$ is shown in the $xy$-plane. Line $m$ is the graph of $y = (n^{2} - 2n)x + 4n - 4$, where $n$ is a constant. If lines $\\ell$ and $m$ have no point of intersection, what is the value of $n$?",
  "diagram": {
   "type": "linearGraph",
   "params": {
@@ -47,11 +47,11 @@
    "text": "$4$"
   }
  ],
- "distractorNotes": {
-  "A": "reports the second line's y-intercept at n = -1, namely 4(-1) - 4 = -8, instead of n itself",
-  "C": "the other root of n^2 - 2n = 3, which also makes 4n - 4 equal 8, so the two equations describe the same line and share every point",
-  "D": "matches n^2 - 2n to the drawn line's y-intercept 8 instead of its slope 3, solving n^2 - 2n = 8 and taking the positive root"
- },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The drawn line is $y = 3x + 8$. Equal slopes need $n^2 - 2n = 3$, so $n = 3$ or $n = -1$; $n = 3$ rebuilds the same line, so only $n = -1$ leaves no shared point.\n\n**The Full Solution:**\nStep 1: Read the drawn line from its two marked points, $(0, 8)$ and $(4, 20)$. Its slope is $\\frac{20 - 8}{4 - 0} = 3$ and its $y$-intercept is $8$, so the line is $y = 3x + 8$.\nStep 2: Two lines have no point in common exactly when their slopes are equal and their $y$-intercepts are not. Equal slopes require $n^2 - 2n = 3$, that is $n^2 - 2n - 3 = 0$, so $(n - 3)(n + 1) = 0$ and $n = 3$ or $n = -1$.\nStep 3: Test the intercepts of those two candidates. At $n = 3$ the constant is $4(3) - 4 = 8$, the drawn line's own intercept, so that equation *is* the drawn line and every point is shared. At $n = -1$ the constant is $4(-1) - 4 = -8$, and $3x + 8 = 3x - 8$ reduces to $8 = -8$, false for every $x$, so no ordered pair satisfies both. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): $-8$ is the second line's $y$-intercept once $n = -1$ is found, not the constant the question asks for.\n* Choice C ($3$): this value does make the slopes match, but it also makes $4n - 4$ equal $8$. The two equations then describe one line, which shares every point — infinitely many solutions, not none.\n* Choice D ($4$): matching $n^2 - 2n$ to the intercept $8$ instead of the slope $3$ gives $n = 4$. That line, $y = 8x + 12$, crosses the drawn line at $x = -\\frac{4}{5}$.\n\n**Test Day Takeaway:** \"No solution\" is two conditions, not one: equal slopes **and** unequal intercepts. When the slope condition is quadratic in the parameter, both roots must be tested — the root that also matches the intercept produces the same line, whose system has infinitely many solutions."
+ "distractorNotes": {
+  "A": "finds n = -1 but reports line m's y-intercept, 4(-1) - 4 = -8, instead of n",
+  "C": "uses the other root of n^2 - 2n = 3; at n = 3 the y-intercept 4n - 4 is 8, so line m is line l and the lines share every point",
+  "D": "sets n^2 - 2n equal to line l's y-intercept 8 instead of its slope 3 and takes the positive root"
+ },
+ "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** Line $\\ell$ is $y = 3x + 8$. Parallel lines need $n^{2} - 2n = 3$, so $n = 3$ or $n = -1$; $n = 3$ gives the same line, so $n = -1$.\n\n**The Full Solution:**\nStep 1: Line $\\ell$ passes through $(0, 8)$ and $(4, 20)$, so its slope is $\\frac{20 - 8}{4 - 0} = 3$ and its $y$-intercept is $8$: $y = 3x + 8$.\nStep 2: Two lines have no point of intersection when they have equal slopes and different $y$-intercepts. Equal slopes require $n^{2} - 2n = 3$, so $(n - 3)(n + 1) = 0$ and $n = 3$ or $n = -1$.\nStep 3: At $n = 3$, the $y$-intercept of line $m$ is $4(3) - 4 = 8$, so line $m$ is line $\\ell$. At $n = -1$, line $m$ is $y = 3x - 8$. Check: $3x + 8 = 3x - 8$ gives $8 = -8$, which is false for every $x$, so the lines never meet ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): this is line $m$'s $y$-intercept when $n = -1$, not the value of $n$.\n* Choice C ($3$): gives equal slopes but also the same $y$-intercept, $8$, so the lines coincide and share every point.\n* Choice D ($4$): sets $n^{2} - 2n$ equal to the $y$-intercept $8$ instead of the slope $3$; line $y = 8x + 12$ crosses line $\\ell$.\n\n**Test Day Takeaway:** No intersection means equal slopes and unequal intercepts; when the slope condition gives two values of the constant, test each one against the intercept."
 }

@@ -6,7 +6,7 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 2,
- "passage": "Working the crumbling cliffs near Lyme Regis in the 1820s, Mary Anning ______ some of the first complete skeletons of ichthyosaurs and plesiosaurs — marine reptiles then unknown to science — and sold them to collectors and museums that rarely credited her by name.",
+ "passage": "Working the crumbling cliffs near Lyme Regis in the 1810s and 1820s, Mary Anning ______ some of the first complete skeletons of ichthyosaurs and plesiosaurs — marine reptiles then unknown to science — and sold them to collectors and museums that rarely credited her by name.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
@@ -27,7 +27,7 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The sentence recounts events fixed \"in the 1820s,\" and its second verb, \"sold,\" is simple past, so the blank takes the matching simple past \"extracted.\"\n\n**The Full Solution:**\n- The time frame is historical and explicit: the 1820s.\n- The subject, Mary Anning, is singular, and the blank's verb is coordinated with \"sold\" later in the sentence.\n- Tense consistency across the coordinated verbs and agreement with the singular subject both point to \"extracted.\"\n\n**Why the other choices are wrong:**\n- A: \"Are extracting\" is present progressive and plural, failing the time frame and the singular subject at once.\n- C: \"Extracts\" is present tense, clashing with \"in the 1820s\" and with the past-tense \"sold.\"\n- D: \"Have extracted\" is plural in form for this subject and, as a present perfect, ties the action to the present rather than to the completed historical period.",
+ "explanation": "**Choice B is correct.** The sentence recounts events fixed \"in the 1810s and 1820s,\" and its second verb, \"sold,\" is simple past, so the blank takes the matching simple past \"extracted.\"\n\n**The Full Solution:**\n- The time frame is historical and explicit: the 1810s and 1820s.\n- The subject, Mary Anning, is singular, and the blank's verb is coordinated with \"sold\" later in the sentence.\n- Tense consistency across the coordinated verbs and agreement with the singular subject both point to \"extracted.\"\n\n**Why the other choices are wrong:**\n- A: \"Are extracting\" is present progressive and plural, failing the time frame and the singular subject at once.\n- C: \"Extracts\" is present tense, clashing with \"in the 1810s and 1820s\" and with the past-tense \"sold.\"\n- D: \"Have extracted\" is plural in form for this subject and, as a present perfect, ties the action to the present rather than to the completed historical period.",
  "_meta": {
   "anchor": "Mary Anning at Lyme Regis; simple-past historical narration"
  }

@@ -10,10 +10,10 @@
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
    "El Anatsui (born 1944) is a Ghanaian sculptor who has spent most of his career in Nsukka, Nigeria.",
-   "Since the late 1990s he has assembled monumental wall-hung works from thousands of aluminum bottle caps flattened and stitched together with copper wire.",
-   "The finished metal sheets drape and fold like cloth, and he invites curators to hang each one differently every time it is shown.",
-   "He has cited the patterns of traditional Ghanaian textiles as an influence on the works.",
-   "His metal hangings have been exhibited by major museums on several continents."
+   "Since the late 1990s he has made monumental wall hangings from thousands of aluminum bottle caps stitched together with copper wire.",
+   "The metal sheets drape and fold like cloth, and each can be hung differently every time it is shown.",
+   "He has cited traditional Ghanaian textiles as an influence on the works.",
+   "His hangings have been exhibited by major museums on several continents."
   ],
   "goal": "The student wants to introduce El Anatsui's sculpture to an audience unfamiliar with his work."
  },
@@ -21,7 +21,7 @@
  "choices": [
   {
    "id": "A",
-   "text": "El Anatsui invites the curators of his exhibitions to hang each of his works differently every time it is shown, and he has cited the patterns of traditional Ghanaian textiles as an influence on the finished works."
+   "text": "Each of El Anatsui's works can be hung differently every time it is shown, and the sculptor has cited traditional Ghanaian textiles as an important influence on them."
   },
   {
    "id": "B",
@@ -29,11 +29,11 @@
   },
   {
    "id": "C",
-   "text": "Metal hangings stitched together from bottle caps have been exhibited by major museums on several continents."
+   "text": "Metal wall hangings stitched together from bottle caps have been exhibited by major museums on several continents."
   },
   {
    "id": "D",
-   "text": "The Ghanaian sculptor El Anatsui builds monumental wall-hung works from thousands of flattened aluminum bottle caps stitched together with wire, creating metal sheets that drape and fold like cloth."
+   "text": "The Ghanaian sculptor El Anatsui makes monumental wall hangings from thousands of aluminum bottle caps, creating metal sheets that drape and fold like cloth."
   }
  ],
  "correctAnswer": "D",

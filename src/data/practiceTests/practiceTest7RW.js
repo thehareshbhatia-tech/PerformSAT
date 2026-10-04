@@ -203,11 +203,11 @@ export const practiceTest7RW = {
             },
             {
               "id": "C",
-              "text": "To describe, step by step, the process a zoo nutritionist follows when preparing a single day's meals for the flamingos, pythons, and orangutans in one large collection."
+              "text": "To describe, step by step, how a zoo nutritionist prepares a single day's meals for flamingos, pythons, and orangutans in one large collection."
             },
             {
               "id": "D",
-              "text": "To explain that planning zoo diets means balancing nutritional needs against practical constraints rather than simply reproducing what animals eat in the wild."
+              "text": "To explain that planning zoo diets means balancing nutrition against practical limits rather than simply copying what animals eat in the wild."
             }
           ],
           "correctAnswer": "D",
@@ -220,7 +220,7 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "Prairie dogs give short barking calls when a predator approaches, and for years the calls were assumed to convey little beyond the presence of danger. Recordings told a richer story: calls prompted by a hawk, a coyote, and a human differ consistently in their acoustic structure. When researchers played the recordings back to colonies with no predator in sight, the animals responded with escape behavior matched to each call type — diving into burrows at a hawk call, standing upright to scan at a coyote call. The team suggests that similar playback experiments could reveal how much information other social mammals pack into their alarm calls.",
+          "passage": "Prairie dogs give short barking calls when a predator approaches, and for years the calls were assumed to convey little beyond the presence of danger. Recordings told a richer story: calls prompted by a hawk, a coyote, and a human differ consistently in their acoustic structure. When researchers played the recordings back to colonies with no predator in sight, the animals responded with escape behavior matched to each call type — diving into burrows at a hawk call, standing upright to scan at a coyote call. Similar playback experiments could reveal how much information other social mammals pack into their alarm calls.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
@@ -229,7 +229,7 @@ export const practiceTest7RW = {
             },
             {
               "id": "B",
-              "text": "It presents an assumption about a behavior, reports findings that revealed the behavior to be more complex, and closes with a possible extension of the research."
+              "text": "It presents an assumption about a behavior, reports findings showing the behavior is more complex, and proposes extending the research."
             },
             {
               "id": "C",
@@ -237,11 +237,11 @@ export const practiceTest7RW = {
             },
             {
               "id": "D",
-              "text": "It recounts a single season of fieldwork at one colony and then explains in detail why the results of that season could not later be replicated by other research teams."
+              "text": "It recounts a single season of fieldwork at one colony and then explains in detail why other research teams could not later replicate its results."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The passage moves through exactly the three beats B names: the old assumption (calls mean only \"danger\"), the findings that complicated it (distinct calls per predator, and matched responses on playback), and a closing extension (the method could be tried on other species).\n\n**The Full Solution:**\n- Beat one: for years the calls \"were assumed to convey little beyond the presence of danger.\"\n- Beat two: recordings showed hawk, coyote, and human calls differ consistently, and playback with no predator present triggered escape behavior suited to each call type.\n- Beat three: the team proposes extending playback experiments to other social mammals.\n\n**Why the other choices are wrong:**\n- A: No technical term is defined or tracked through decades of use.\n- C: The passage reports one line of evidence, not a contest between two explanations.\n- D: Nothing suggests the results failed to replicate — the playback results are presented as the confirming step, not a fluke."
+          "explanation": "**Choice B is correct.** The passage moves through exactly the three beats B names: the old assumption (calls mean only \"danger\"), the findings that complicated it (distinct calls per predator, and matched responses on playback), and a closing extension (the method could be tried on other species).\n\n**The Full Solution:**\n- Beat one: for years the calls \"were assumed to convey little beyond the presence of danger.\"\n- Beat two: recordings showed hawk, coyote, and human calls differ consistently, and playback with no predator present triggered escape behavior suited to each call type.\n- Beat three: the closing sentence proposes extending playback experiments to other social mammals.\n\n**Why the other choices are wrong:**\n- A: No technical term is defined or tracked through decades of use.\n- C: The passage reports one line of evidence, not a contest between two explanations.\n- D: Nothing suggests the results failed to replicate — the playback results are presented as the confirming step, not a fluke."
         },
         {
           "id": 708,
@@ -253,11 +253,11 @@ export const practiceTest7RW = {
           "passages": [
             {
               "label": "Text 1",
-              "text": "In experiments reported through the 1940s and 1950s, the zoologist Karl von Frisch observed that a honeybee returning from a rich food source performs a repeated figure-eight movement — a 'waggle dance' — on the comb, and that the dance's angle and duration correspond to the direction and distance of the source. Hive mates that attended the dancer, he found, arrived at the advertised site far more often than chance would predict. Von Frisch concluded that the dance is a symbolic communication system through which a forager directs nest mates to food they have never seen."
+              "text": "In experiments reported in the 1940s, the zoologist Karl von Frisch observed that a honeybee returning from a rich food source performs a figure-eight 'waggle dance' on the comb, and that the dance's angle and duration correspond to the direction and distance of the source. Hive mates that attended the dancer arrived at the advertised site far more often than chance would predict. Von Frisch concluded that the dance is a symbolic communication system through which a forager directs nest mates to food they have never seen."
             },
             {
               "label": "Text 2",
-              "text": "The biologist Adrian Wenner questioned whether recruited bees actually use the dance's spatial code. Bees are superb learners of odors, he noted, and a recruit leaving the hive carries the scent of the food the dancer collected. In his experiments, recruits often turned up at strongly scented sites that the dance, read as a code, had not indicated. Recruitment, Wenner argued, could rest on odor alone, and the dance-language conclusion would remain undemonstrated until experiments separated what the dance encodes from what the bees can smell."
+              "text": "The biologist Adrian Wenner questioned whether recruited bees actually use the dance's spatial code. Bees are superb learners of odors, and a recruit leaving the hive carries the scent of the food the dancer collected. In his experiments, recruits often turned up at strongly scented sites that the dance had not indicated. Recruitment, Wenner argued, could rest on odor alone; the dance-language conclusion would remain undemonstrated until experiments separated what the dance encodes from what the bees can smell."
             }
           ],
           "question": "Based on the texts, how would Wenner (Text 2) most likely respond to the conclusion presented in Text 1?",
@@ -319,20 +319,20 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "inferences",
-          "passage": "Male bowerbirds build display structures — avenues of woven sticks opening onto courts decorated with sorted pebbles, bones, and bits of glass — that females inspect before choosing mates. Field studies report two consistent observations. First, males spend hours each day maintaining their bowers, and when researchers deliberately disarrange the decorations, the builders restore the layout within hours. Second, females visit many bowers repeatedly, and they mate most often with the males whose displays remain the most consistently ordered across those visits. Taken together, the observations suggest that ______",
+          "passage": "Male great bowerbirds of northern Australia build an avenue of sticks that opens onto a court covered with gray stones, bones, and shells, which a visiting female views from inside the avenue. Field studies report two consistent observations. First, males place the objects so that they grow larger with distance from the avenue, and when researchers reversed that size order, the builders restored it within about three days. Second, males whose courts show the most regular size gradient mate more often than rival males. Taken together, the observations suggest that ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
               "id": "A",
-              "text": "females select mates according to bower arrangement alone, ignoring every other male trait."
+              "text": "females select mates according to the arrangement of objects on the court alone, ignoring every other trait a male displays."
             },
             {
               "id": "B",
-              "text": "the arrangement of a bower, and not merely its existence, carries information that females weigh when choosing among males."
+              "text": "the arrangement of a court's objects, not merely their presence, carries information that females use in choosing mates."
             },
             {
               "id": "C",
-              "text": "males restore disarranged decorations chiefly to recover scarce building materials."
+              "text": "males restore disarranged objects chiefly because suitable decorating materials are scarce and hard to replace."
             },
             {
               "id": "D",
@@ -340,7 +340,7 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** Both observations point at arrangement specifically — males labor to restore a disturbed layout, and females favor the most consistently ordered displays — so the modest conclusion is that arrangement itself carries information females use.\n\n**The Full Solution:**\n- Observation one shows males treating the layout, not just the structure, as worth hours of daily upkeep and prompt repair.\n- Observation two ties female choice to how consistently ordered a display remains across repeated visits.\n- The safe inference joins them: arrangement is a signal females weigh — note B's careful wording, which claims no more than the evidence shows.\n\n**Why the other choices are wrong:**\n- A: \"Alone\" and \"ignoring every other trait\" overreach — the observations show arrangement matters, not that nothing else does.\n- C: It substitutes a motive the evidence undercuts — males restore the layout of the same materials, which is effort spent on order, not on recovering supplies.\n- D: It leaps to species that build no bowers, about which the passage offers no evidence at all."
+          "explanation": "**Choice B is correct.** Both observations point at arrangement specifically — males promptly restore a reversed size order, and the males with the most regular gradients mate most often — so the modest conclusion is that arrangement itself carries information females use.\n\n**The Full Solution:**\n- Observation one shows males treating the order of the objects, not just their presence, as worth restoring within days.\n- Observation two ties mating success to how regular a court's size gradient is.\n- The safe inference joins them: arrangement is a signal females weigh — note B's careful wording, which claims no more than the evidence shows.\n\n**Why the other choices are wrong:**\n- A: \"Alone\" and \"ignoring every other trait\" overreach — the observations show arrangement matters, not that nothing else does.\n- C: It substitutes a motive the evidence undercuts — males put the same objects back in order, which is effort spent on arrangement, not on recovering supplies.\n- D: It leaps to species that build no bowers, about which the passage offers no evidence at all."
         },
         {
           "id": 713,
@@ -405,7 +405,7 @@ export const practiceTest7RW = {
           "band": 2,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "During the twelfth and thirteenth centuries, the counts of Champagne, in northeastern France, sponsored a cycle of six trade fairs that rotated among four towns, keeping a market open in the region for much of the year. Surviving regulations show that the counts provided visiting merchants with safe-conduct guarantees on the roads to the fairs and appointed wardens who enforced the contracts merchants made there. Flemish cloth, Mediterranean silk and spices, and silver from German mines all changed hands at the fairs, which for a time formed the principal meeting point of Europe's northern and southern trade.",
+          "passage": "During the twelfth and thirteenth centuries, the counts of Champagne, in northeastern France, sponsored a cycle of six trade fairs that rotated among four towns, keeping a market open in the region for much of the year. Surviving regulations show that the counts provided visiting merchants with safe-conduct guarantees on the roads to the fairs and appointed wardens who enforced the contracts merchants made there. Flemish cloth, English wool, and Mediterranean silk and spices all changed hands at the fairs, which for a time formed the principal meeting point of Europe's northern and southern trade.",
           "question": "According to the text, what did the counts of Champagne provide for merchants traveling to the fairs?",
           "choices": [
             {
@@ -414,7 +414,7 @@ export const practiceTest7RW = {
             },
             {
               "id": "B",
-              "text": "Interest-free loans of German silver with which merchants visiting the fairs could stock their market stalls at low cost."
+              "text": "Interest-free loans with which merchants visiting the fairs could stock their market stalls at low cost."
             },
             {
               "id": "C",
@@ -426,7 +426,7 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The text states it directly: the counts \"provided visiting merchants with safe-conduct guarantees on the roads to the fairs and appointed wardens who enforced the contracts merchants made there.\"\n\n**The Full Solution:**\n- The question asks for a stated detail, so the answer should match a sentence of the passage nearly word for word.\n- The second sentence names exactly two provisions: protection on the roads and contract-enforcing wardens.\n- Choice A restates both provisions and adds nothing beyond them.\n\n**Why the other choices are wrong:**\n- B: Silver appears in the passage only as a trade good from German mines, never as loans from the counts.\n- C: The goods are listed as things that changed hands at the fairs; no transport service is mentioned.\n- D: The counts issued regulations and enforced contracts — the text says nothing about exempting anyone from the rules."
+          "explanation": "**Choice A is correct.** The text states it directly: the counts \"provided visiting merchants with safe-conduct guarantees on the roads to the fairs and appointed wardens who enforced the contracts merchants made there.\"\n\n**The Full Solution:**\n- The question asks for a stated detail, so the answer should match a sentence of the passage nearly word for word.\n- The second sentence names exactly two provisions: protection on the roads and contract-enforcing wardens.\n- Choice A restates both provisions and adds nothing beyond them.\n\n**Why the other choices are wrong:**\n- B: The passage never mentions loans; the only provisions it credits to the counts are road protection and contract enforcement.\n- C: The goods are listed as things that changed hands at the fairs; no transport service is mentioned.\n- D: The counts issued regulations and enforced contracts — the text says nothing about exempting anyone from the rules."
         },
         {
           "id": 710,
@@ -435,7 +435,7 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "The United States census of 1880 took most of a decade to tabulate by hand, and officials feared the 1890 count would still be in progress when the next one began. The Census Office adopted a system devised by the engineer Herman Hollerith: each person's answers were punched as a pattern of holes in a card, and machines read the cards electrically, advancing counting dials automatically. Clerks processed the 1890 returns several times faster than the previous count despite a larger population, and the punched card outlived its first job, organizing payrolls, inventories, and scientific records for the next half century.",
+          "passage": "The United States census of 1880 took most of a decade to tabulate by hand, and officials feared the 1890 count would still be in progress when the next one began. The Census Office adopted a system devised by the engineer Herman Hollerith: each person's answers were punched as a pattern of holes in a card, and machines read the cards electrically, advancing counting dials automatically. Clerks using the machines tabulated the 1890 returns faster than the previous count despite a larger population, and the punched card outlived its first job, organizing payrolls, inventories, and scientific records for the next half century.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
@@ -456,7 +456,7 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The passage's arc runs from a crisis (hand tabulation too slow), through the fix (Hollerith's punched-card machines speeding the 1890 count), to the larger legacy (punched cards organizing data for half a century) — and only C spans all of it.\n\n**The Full Solution:**\n- The opening establishes the problem the system was adopted to solve: the 1880 count took most of a decade.\n- The middle describes the solution working — the 1890 returns were processed several times faster despite a larger population.\n- The final sentence widens the frame: the punched card \"outlived its first job,\" which C captures as a technology used far beyond the census.\n\n**Why the other choices are wrong:**\n- A: It stops at the opening problem and never reaches the solution or its legacy.\n- B: It contradicts the text, which says clerks processed the returns faster, not that clerks were eliminated.\n- D: It inflates the closing list into a ranking the text never makes — nothing says payrolls mattered more than the census."
+          "explanation": "**Choice C is correct.** The passage's arc runs from a crisis (hand tabulation too slow), through the fix (Hollerith's punched-card machines speeding the 1890 count), to the larger legacy (punched cards organizing data for half a century) — and only C spans all of it.\n\n**The Full Solution:**\n- The opening establishes the problem the system was adopted to solve: the 1880 count took most of a decade.\n- The middle describes the solution working — the 1890 returns were tabulated faster despite a larger population.\n- The final sentence widens the frame: the punched card \"outlived its first job,\" which C captures as a technology used far beyond the census.\n\n**Why the other choices are wrong:**\n- A: It stops at the opening problem and never reaches the solution or its legacy.\n- B: It contradicts the text, which says clerks using the machines tabulated the returns faster, not that clerks were eliminated.\n- D: It inflates the closing list into a ranking the text never makes — nothing says payrolls mattered more than the census."
         },
         {
           "id": 714,
@@ -465,10 +465,10 @@ export const practiceTest7RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "Removing salt from seawater always takes energy, but how much has fallen dramatically since the first large plants were built. Reviewing the typical energy budgets of seawater desalination plants by decade of construction, an engineer argues that the steepest gains came earliest and that each later generation of plants improved on its predecessor by a progressively smaller margin because ______",
+          "passage": "Removing salt from seawater always takes energy, but the amount that reverse-osmosis plants need has fallen dramatically since the first large ones were built. Reviewing the typical energy budgets of such plants by decade of construction, an engineer argues that the steepest gains came earliest and that each later generation of plants improved on its predecessor by a progressively smaller margin because ______",
           "questionTable": {
             "type": "table",
-            "caption": "Typical energy required by large seawater desalination plants, by decade of construction (kilowatt-hours per cubic meter of fresh water)",
+            "caption": "Typical energy required by large seawater reverse-osmosis desalination plants, by decade of construction (kilowatt-hours per cubic meter of fresh water)",
             "headers": [
               "Decade",
               "Energy (kWh per cubic meter)"
@@ -585,7 +585,7 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "Saffron commands a high price partly because the crop is so exacting. Mapping soil drainage and autumn temperatures across a hillside lets growers match ______ notoriously narrow requirements — fast-draining soil, dry summers, a cool but not freezing flowering season — to the ground most likely to satisfy them.",
+          "passage": "Saffron commands a high price partly because the crop is so exacting. Mapping soil drainage and autumn temperatures across a hillside lets growers match ______ notoriously narrow requirements — fast-draining soil, hot and dry summers, mild weather during the autumn bloom — to the ground most likely to satisfy them.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -645,7 +645,7 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "By the time fountain pens that could be carried in a pocket without leaking reached shop counters in the 1880s, inventors ______ hundreds of reservoir pens over the preceding half century — most of them prone to flooding the page without warning. The successful designs owed less to the idea of storing ink in the barrel than to a feed that let air return as smoothly as the ink flowed out.",
+          "passage": "By the time fountain pens that did not leak in a pocket reached shop counters in the 1880s, inventors ______ reservoir pens for decades, most of them prone to flooding the page without warning. The successful designs owed their reliability to a feed that let air enter the barrel as smoothly as the ink flowed out.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -666,7 +666,7 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** \"By the time\" sets up two past events in sequence — the patenting came before the pens' arrival in the 1880s — and the earlier of two past events takes the past perfect, \"had patented.\"\n\n**The Full Solution:**\n- The sentence anchors a reference point in the past: leak-proof fountain pens reaching shop counters in the 1880s.\n- The inventors' patenting happened \"over the preceding half century,\" wholly before that reference point.\n- Past perfect (\"had\" plus the past participle) is the verb form that places one past action before another.\n\n**Why the other choices are wrong:**\n- A: \"Are patenting\" is present progressive, impossible alongside the sentence's nineteenth-century time frame.\n- B: Simple past \"patented\" reports a past event but fails to mark that it preceded the other past event the sentence hinges on.\n- D: \"Have patented\" is present perfect, which connects a past action to the present — the wrong relationship for something finished before the 1880s."
+          "explanation": "**Choice C is correct.** \"By the time\" sets up two past events in sequence — the patenting came before the pens' arrival in the 1880s — and the earlier of two past events takes the past perfect, \"had patented.\"\n\n**The Full Solution:**\n- The sentence anchors a reference point in the past: leak-proof fountain pens reaching shop counters in the 1880s.\n- The inventors' patenting went on \"for decades\" before that reference point and was complete by then.\n- Past perfect (\"had\" plus the past participle) is the verb form that places one past action before another.\n\n**Why the other choices are wrong:**\n- A: \"Are patenting\" is present progressive, impossible alongside the sentence's nineteenth-century time frame.\n- B: Simple past \"patented\" reports a past event but fails to mark that it preceded the other past event the sentence hinges on.\n- D: \"Have patented\" is present perfect, which connects a past action to the present — the wrong relationship for something finished before the 1880s."
         },
         {
           "id": 721,
@@ -765,7 +765,7 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Stacked hydroponic farms can raise leafy greens in the middle of a city in any season, but the economics remain difficult: sunlight must be replaced with electric light, climate control runs around the clock, and only a few fast-growing, high-value crops repay the expense. ______ the farms have proved valuable as testing grounds, letting growers trial soilless nutrient mixes and new cultivars under conditions no open field can hold steady.",
+          "passage": "Stacked hydroponic farms can raise leafy greens in the middle of a city in any season, but the economics remain difficult: electric light must replace sunlight, climate control runs around the clock, and only a few fast-growing, high-value crops repay the expense. ______ the farms have proved valuable as testing grounds, letting growers trial nutrient mixes and new varieties under steady conditions.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -795,7 +795,7 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "European eels hatch in the open Atlantic and spend their adult lives in rivers, but for a century no tracking study had followed an adult eel all the way back to its presumed spawning grounds in the Sargasso Sea: tagged fish were eaten by predators, shed their instruments, or simply vanished mid-ocean. ______ in 2022, researchers reported that redesigned satellite tags had finally survived the whole journey, recording adult eels swimming into the Sargasso itself.",
+          "passage": "European eels hatch in the open Atlantic and spend their adult lives in rivers, but for a century no one had tracked an adult eel back to its presumed spawning grounds in the Sargasso Sea: tagged fish were eaten, shed their tags, or vanished. ______ in 2022, researchers reported that satellite tags had followed five eels released from the Azores into the Sargasso itself.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -816,7 +816,7 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The first sentence is a century of failure — tags eaten, shed, or lost — and the second is the success that broke the pattern, so the turn needs the contrast word \"However.\"\n\n**The Full Solution:**\n- Before the blank: every tracking attempt for a hundred years fell short of the spawning grounds.\n- After the blank: redesigned tags survived the whole journey and recorded eels entering the Sargasso.\n- Failure giving way to success is a reversal of direction, and \"However\" is the signal for exactly that turn.\n\n**Why the other choices are wrong:**\n- B: \"As a result\" would make the 2022 success a consequence of the earlier failures, but the failures caused nothing — the redesign did.\n- C: \"Similarly\" would promise another instance of the same pattern, yet the second sentence breaks the pattern.\n- D: \"For example\" would offer the success as an illustration of the failures it actually overturns."
+          "explanation": "**Choice A is correct.** The first sentence is a century of failure — tags eaten, shed, or lost — and the second is the success that broke the pattern, so the turn needs the contrast word \"However.\"\n\n**The Full Solution:**\n- Before the blank: every tracking attempt for a hundred years fell short of the spawning grounds.\n- After the blank: satellite tags finally followed eels all the way into the Sargasso.\n- Failure giving way to success is a reversal of direction, and \"However\" is the signal for exactly that turn.\n\n**Why the other choices are wrong:**\n- B: \"As a result\" would make the 2022 success a consequence of the earlier failures, but the failures did not produce the 2022 result — it overturned them.\n- C: \"Similarly\" would promise another instance of the same pattern, yet the second sentence breaks the pattern.\n- D: \"For example\" would offer the success as an illustration of the failures it actually overturns."
         },
         {
           "id": 724,
@@ -825,7 +825,7 @@ export const practiceTest7RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "When Dmitri Mendeleev published his periodic table in 1871, he left deliberate gaps for elements no one had yet found and predicted the properties of the missing substances — including, for one gap below aluminum, a soft metal with a specific density and a low melting point. ______ when that element, now called gallium, was isolated four years later, its measured density and melting point matched Mendeleev's predictions almost exactly.",
+          "passage": "In an 1871 version of his periodic table, Dmitri Mendeleev left gaps for undiscovered elements and predicted their properties, including the atomic weight, density, and oxide formula of a metal that would fill the gap below aluminum. ______ when that element, now called gallium, was isolated four years later, careful measurements closely matched his predictions.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -846,7 +846,7 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The second sentence delivers a striking confirmation of the first — the predicted properties \"matched...almost exactly\" — and \"Indeed\" is the transition that introduces a statement reinforcing what came before.\n\n**The Full Solution:**\n- The first sentence sets up a bold claim: Mendeleev predicted the properties of an element nobody had found.\n- The second sentence verifies it — gallium's measured density and melting point matched the predictions.\n- Verification strengthens rather than opposes the setup, so the emphasizing \"Indeed\" fits the join.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals a result in spite of what preceded, but the discovery fulfilled the prediction rather than defying it.\n- B: \"By contrast\" would set the two sentences against each other, and there is no opposition between a prediction and its confirmation.\n- D: \"Otherwise\" introduces what would happen if the preceding statement were untrue — a hypothetical the passage never entertains."
+          "explanation": "**Choice C is correct.** The second sentence delivers a striking confirmation of the first — careful measurements \"closely matched\" the predictions — and \"Indeed\" is the transition that introduces a statement reinforcing what came before.\n\n**The Full Solution:**\n- The first sentence sets up a bold claim: Mendeleev predicted the properties of an element nobody had found.\n- The second sentence verifies it — careful measurements of gallium closely matched the predictions.\n- Verification strengthens rather than opposes the setup, so the emphasizing \"Indeed\" fits the join.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals a result in spite of what preceded, but the discovery fulfilled the prediction rather than defying it.\n- B: \"By contrast\" would set the two sentences against each other, and there is no opposition between a prediction and its confirmation.\n- D: \"Otherwise\" introduces what would happen if the preceding statement were untrue — a hypothetical the passage never entertains."
         },
         {
           "id": 727,
@@ -858,12 +858,11 @@ export const practiceTest7RW = {
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "Ancient Egyptians produced animal mummies by the million as religious offerings, and museums around the world hold large collections of them.",
-              "Because unwrapping destroys a mummy, most bundles have remained sealed, their contents unknown.",
-              "For decades, scholars could only infer from a bundle's outer shape what animal it might contain.",
-              "Researchers have begun examining wrapped bundles with micro-CT scanning, which reconstructs the interior in three dimensions without opening the wrappings.",
-              "Scans show that some bundles hold complete animals, others partial remains, and some only mud, feathers, or scraps of bone.",
-              "Researchers now conclude that offerings were produced on a scale that outran the supply of animals."
+              "Ancient Egyptians produced millions of animal mummies as religious offerings.",
+              "Because unwrapping destroys a mummy, scholars long had to guess from a sealed bundle's shape what animal it held.",
+              "Researchers have now examined more than 800 bundles with X-ray and CT scans, which show the interior without unwrapping.",
+              "About a third held whole animals, a third partial remains, and a third no animal remains, only materials such as mud or feathers.",
+              "Researchers suggest that demand for offerings may have outstripped the supply of animals."
             ],
             "goal": "The student wants to emphasize how imaging technology changed researchers' understanding of the mummies."
           },
@@ -871,23 +870,23 @@ export const practiceTest7RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Ancient Egyptians produced animal mummies by the million as religious offerings, and museums around the world still hold large collections of them."
+              "text": "Ancient Egyptians produced millions of animal mummies as religious offerings, and for centuries scholars could only guess at what each sealed bundle held."
             },
             {
               "id": "B",
-              "text": "Because unwrapping destroys a mummy, scholars long had to infer from a sealed bundle's outer shape what animal it might contain."
+              "text": "Because unwrapping destroys a mummy, scholars long had to guess from a sealed bundle's shape what animal it held."
             },
             {
               "id": "C",
-              "text": "Micro-CT scans of sealed bundles — some of which proved to hold only mud, feathers, or scraps of bone — led researchers to conclude that offerings were produced on a scale that outran the supply of animals."
+              "text": "X-ray and CT scans revealing that a third of bundles held no animal remains suggest demand for offerings may have outstripped the supply of animals."
             },
             {
               "id": "D",
-              "text": "Micro-CT scanning reconstructs the interior of a wrapped bundle in three dimensions, so researchers can examine a mummy without opening its wrappings."
+              "text": "X-ray and CT scans show the interior of a sealed bundle, so researchers can examine a mummy without unwrapping it."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The goal demands a link from the technology to a changed understanding, and C forges it: scans revealed bundles holding only mud or feathers, and that evidence drove a new conclusion about production outrunning the supply of animals.\n\n**The Full Solution:**\n- The goal's two required parts: name the imaging technology, and show the understanding it changed.\n- C names micro-CT scanning of sealed bundles and reports what the scans revealed inside.\n- It then completes the arc with the revised conclusion researchers drew — exactly the change in understanding the goal asks the sentence to emphasize.\n\n**Why the other choices are wrong:**\n- A: It gives background on the offerings and collections, with no imaging and no new understanding.\n- B: It describes the old predicament the technology solved but stops before the technology appears.\n- D: It explains how the scanning works without stating anything researchers came to understand differently."
+          "explanation": "**Choice C is correct.** The goal demands a link from the technology to a changed understanding, and C forges it: scans revealed that a third of the bundles held no animal at all, and that evidence supports a new view of offerings outrunning the supply of animals.\n\n**The Full Solution:**\n- The goal's two required parts: name the imaging technology, and show the understanding it changed.\n- C names the X-ray and CT scans and reports what they revealed inside the bundles.\n- It then completes the arc with the conclusion researchers drew — exactly the change in understanding the goal asks the sentence to emphasize.\n\n**Why the other choices are wrong:**\n- A: It gives background on the offerings, with no imaging and no new understanding.\n- B: It describes the old predicament the technology solved but stops before the technology appears.\n- D: It explains what the scans can do without stating anything researchers came to understand differently."
         },
         {
           "id": 726,
@@ -899,35 +898,35 @@ export const practiceTest7RW = {
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "June Almeida (1930-2007) was a Scottish virologist who worked at a London hospital.",
-              "She was an expert in electron microscopy and developed a method that used antibodies to clump virus particles together, making them easier to see.",
-              "In 1966 she examined samples from a patient with a common cold and imaged virus particles ringed by a halo of surface projections.",
-              "The particles matched no known virus family, and the crown-like halo led Almeida and her colleagues to propose the name coronavirus.",
-              "Her images established coronaviruses as a distinct family of viruses that infect humans and animals."
+              "June Almeida (1930-2007) was a Scottish virologist who worked at a London teaching hospital.",
+              "She pioneered a method that used antibodies to clump virus particles, making them easier to see in an electron microscope.",
+              "Examining a sample from a boy with a common cold, she imaged virus particles ringed by a halo of surface projections.",
+              "The virus she imaged was among the first human coronaviruses identified.",
+              "She and her colleagues named the group coronaviruses, after the crown-like halo."
             ],
-            "goal": "The student wants to explain the significance of Almeida's 1966 finding."
+            "goal": "The student wants to explain the significance of Almeida's images of the cold virus."
           },
           "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
           "choices": [
             {
               "id": "A",
-              "text": "June Almeida, a Scottish virologist working at a London hospital, was an expert in the technique of electron microscopy."
+              "text": "June Almeida, a Scottish virologist, worked at a London teaching hospital."
             },
             {
               "id": "B",
-              "text": "Imaging cold-sample virus particles that matched no known family, Almeida identified what became the first recognized human coronavirus, establishing coronaviruses as a distinct viral family."
+              "text": "Almeida's images of a cold virus revealed one of the first known human coronaviruses, a group named for its crown-like halo."
             },
             {
               "id": "C",
-              "text": "Almeida's method used antibodies to clump virus particles together so that they were easier to see under an electron microscope."
+              "text": "Almeida pioneered a method that used antibodies to clump virus particles together so that they were easier to see in an electron microscope."
             },
             {
               "id": "D",
-              "text": "Because the virus particles in Almeida's 1966 images were ringed by a distinctive crown-like halo of surface projections, she and her colleagues proposed for the newly recognized group the name coronavirus."
+              "text": "Examining a sample from a boy with a common cold, Almeida saw virus particles ringed by a halo of surface projections."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The goal asks why the 1966 finding mattered, and B answers with both the discovery (a virus matching no known family) and its lasting consequence (coronaviruses established as a distinct family) — the significance itself.\n\n**The Full Solution:**\n- Treat the goal as a checklist: state what Almeida found in 1966 AND why it was important.\n- B covers the finding — cold-sample particles matching no known family — and the importance: the first recognized human coronavirus, and a newly established viral family.\n- No other choice connects the observation to what it changed.\n\n**Why the other choices are wrong:**\n- A: It offers biography and expertise, never reaching the 1966 finding at all.\n- C: It explains her imaging method — how she saw viruses, not what the 1966 result meant.\n- D: It relates only the naming anecdote; how the group got its name is not why the finding was significant."
+          "explanation": "**Choice B is correct.** The goal asks why Almeida's images mattered, and B answers with both what they showed (a cold virus) and what that turned out to be (one of the first known human coronaviruses, in a group named for its crown-like halo) — the significance itself.\n\n**The Full Solution:**\n- Treat the goal as a checklist: state what Almeida's images showed AND why that was important.\n- B covers the finding — virus particles from a cold sample — and the importance: one of the first human coronaviruses identified, in a group named for its halo.\n- No other choice connects the observation to what it led to.\n\n**Why the other choices are wrong:**\n- A: It offers biography, never reaching the images at all.\n- C: It explains her imaging method — how she saw viruses, not what her result meant.\n- D: It describes what she saw in the sample but never says why the observation mattered."
         }
       ]
     },
@@ -943,7 +942,7 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Cork is harvested by stripping the cork oak's thick outer bark in sheets, a layer the living tree regrows over the following decade. Because the harvest removes no living wood beneath the bark, a skilled crew ______ the tree itself, and a single oak may yield a dozen harvests across a productive life of nearly two centuries.",
+          "passage": "Cork is harvested by stripping the cork oak's thick outer bark in sheets, a layer the living tree regrows over the following nine years or so. Because the harvest removes no living wood beneath the bark, a skilled crew ______ the tree itself, and a single oak may be stripped about fifteen times over a life that can exceed two centuries.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -964,7 +963,7 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** \"Because the harvest removes no living wood\" sets up the consequence: the crew leaves the tree unharmed — \"spares\" it — which is why one oak can be harvested a dozen times over two centuries.\n\n**The Full Solution:**\n- The causal clue: nothing living is removed, so the tree survives the harvest intact.\n- The follow-on clause depends on that survival — repeated harvests across a productive life of nearly two centuries.\n- \"Spares\" means to refrain from harming, exactly the relationship between crew and tree.\n\n**Why the other choices are wrong:**\n- B: \"Examines\" would have the crew inspecting the tree, but the sentence is about the harvest's effect on it, not an inspection.\n- A: \"Prunes\" means cutting living branches away — precisely the kind of removal the sentence rules out.\n- C: \"Cultivates\" means to tend and raise a plant over time, a broader activity than the harvesting the clause describes."
+          "explanation": "**Choice D is correct.** \"Because the harvest removes no living wood\" sets up the consequence: the crew leaves the tree unharmed — \"spares\" it — which is why one oak can be stripped about fifteen times over its life.\n\n**The Full Solution:**\n- The causal clue: nothing living is removed, so the tree survives the harvest intact.\n- The follow-on clause depends on that survival — repeated harvests over a life that can exceed two centuries.\n- \"Spares\" means to refrain from harming, exactly the relationship between crew and tree.\n\n**Why the other choices are wrong:**\n- B: \"Examines\" would have the crew inspecting the tree, but the sentence is about the harvest's effect on it, not an inspection.\n- A: \"Prunes\" means cutting living branches away — precisely the kind of removal the sentence rules out.\n- C: \"Cultivates\" means to tend and raise a plant over time, a broader activity than the harvesting the clause describes."
         },
         {
           "id": 730,
@@ -973,7 +972,7 @@ export const practiceTest7RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "When chemists first synthesized musk compounds in the late nineteenth century, perfume houses hesitated to adopt them, since the trade had long equated quality with rare and costly natural extracts. The equation did not survive testing. In blind evaluations, trained perfumers repeatedly judged compositions built on the synthetic musks to be ______ those built around the natural material — and the new compounds soon anchored several of the era's celebrated perfumes.",
+          "passage": "When BASF began selling synthetic indigo in 1897, dyers had long relied on blue extracted from indigo plants. The factory product, however, was the same molecule as the plant dye, so cloth dyed with it was ______ cloth dyed the traditional way. Cheaper and more uniform, the synthetic dye cut world production of plant indigo from about 19,000 tons in 1897 to about 1,000 by 1914.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -994,7 +993,7 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The old assumption tied quality to natural extracts, but \"the equation did not survive testing\": in blind evaluations even trained noses could not tell the difference, so the synthetic-based compositions were judged \"indistinguishable from\" the natural ones.\n\n**The Full Solution:**\n- The pivot sentence announces that the quality-equals-natural assumption failed under testing, so the blank must report a result that defeats it.\n- A blind evaluation is precisely a test of telling things apart; the assumption fails if the evaluators cannot.\n- The sequel confirms the reading: compounds that passed as equals went on to anchor celebrated perfumes.\n\n**Why the other choices are wrong:**\n- A: \"Derivative of\" would call the synthetic compositions imitative and lesser, preserving the very hierarchy the tests dissolved.\n- C: \"Incompatible with\" describes things that cannot coexist or combine, not a comparison of quality between two compositions.\n- D: \"Subordinate to\" would rank the synthetics below the natural material, contradicting the failed equation and the compounds' later success."
+          "explanation": "**Choice B is correct.** The factory dye \"was the same molecule as the plant dye,\" so the cloth it produced could not be told apart from traditionally dyed cloth — it was \"indistinguishable from\" it.\n\n**The Full Solution:**\n- The \"so\" clause states a consequence of chemical identity: if the dye molecule is the same, the dyed cloth must be the same too.\n- The blank therefore needs a phrase meaning \"impossible to tell apart from.\"\n- The final sentence confirms the reading: a product that matched the plant dye, at lower cost, quickly displaced it.\n\n**Why the other choices are wrong:**\n- A: \"Derivative of\" would call the synthetic product an imitation of lesser standing, but the passage stresses that the two dyes are identical.\n- C: \"Incompatible with\" describes things that cannot coexist or combine, not a comparison between two dyed cloths.\n- D: \"Subordinate to\" would rank the synthetic dye below the plant dye, contradicting both its identical chemistry and its rapid success."
         },
         {
           "id": 728,
@@ -1033,7 +1032,7 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Giant kelp anchors to rocky seafloor and grows toward the light in dense stands whose canopies float at the surface. As waves pass through a kelp forest, much of their energy is spent dragging against the flexible fronds. Because the water that finally reaches land has been calmed in this way, shorelines sheltered by healthy kelp forests ______ measurably less erosion than nearby unsheltered stretches of coast.",
+          "passage": "Salt-marsh grasses such as cordgrass grow in dense stands along sheltered coasts, their stems rising above the mud at low tide. As waves roll across a marsh, much of their energy is spent pushing against the stiff stems. Because the water that finally reaches land has been calmed in this way, shorelines fronted by healthy marshes ______ measurably less erosion than nearby unprotected stretches of coast.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -1054,7 +1053,7 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The cause-and-effect chain — wave energy spent on the fronds, calmer water reaching land — leads to shorelines experiencing less erosion, and \"undergo\" means to experience or be subjected to.\n\n**The Full Solution:**\n- \"Because\" marks the logic: calmed water is the cause, and the blank must state its effect on the shoreline.\n- The effect is that less erosion happens to sheltered shorelines than to unsheltered ones.\n- \"Undergo\" is the verb for what a thing is subjected to, fitting a shoreline that erosion acts upon.\n\n**Why the other choices are wrong:**\n- A: \"Predict\" would make shorelines forecasters of their own erosion, which makes no sense.\n- B: \"Conceal\" would mean the erosion occurs but is hidden, while the passage says calmer water genuinely reduces it.\n- D: \"Require\" would make erosion something the shorelines need — the reverse of the benefit being described."
+          "explanation": "**Choice C is correct.** The cause-and-effect chain — wave energy spent on the stems, calmer water reaching land — leads to shorelines experiencing less erosion, and \"undergo\" means to experience or be subjected to.\n\n**The Full Solution:**\n- \"Because\" marks the logic: calmed water is the cause, and the blank must state its effect on the shoreline.\n- The effect is that less erosion happens to sheltered shorelines than to unsheltered ones.\n- \"Undergo\" is the verb for what a thing is subjected to, fitting a shoreline that erosion acts upon.\n\n**Why the other choices are wrong:**\n- A: \"Predict\" would make shorelines forecasters of their own erosion, which makes no sense.\n- B: \"Conceal\" would mean the erosion occurs but is hidden, while the passage says calmer water genuinely reduces it.\n- D: \"Require\" would make erosion something the shorelines need — the reverse of the benefit being described."
         },
         {
           "id": 733,
@@ -1063,7 +1062,7 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "The following text is from Claude McKay's poem \"The Tropics in New York,\" published in his 1922 collection Harlem Shadows.\n\nBananas ripe and green, and ginger-root,\nCocoa in pods and alligator pears,\nAnd tangerines and mangoes and grape fruit,\nFit for the highest prize at parish fairs,\n\nSet in the window, bringing memories\nOf fruit-trees laden by low-singing rills,\nAnd dewy dawns, and mystical blue skies\nIn benediction over nun-like hills.\n\nMy eyes grew dim, and I could no more gaze;\nA wave of longing through my body swept,\nAnd, hungry for the old, familiar ways,\nI turned aside and wept.",
+          "passage": "The following text is from Claude McKay's poem \"The Tropics in New York,\" published in his 1922 collection Harlem Shadows.\n\nBananas ripe and green, and ginger-root,\nCocoa in pods and alligator pears,\nAnd tangerines and mangoes and grape fruit,\nFit for the highest prize at parish fairs,\n\nSet in the window, bringing memories\nOf fruit-trees laden by low-singing rills,\nAnd dewy dawns, and mystical blue skies\nIn benediction over nun-like hills.\n\nMy eyes grew dim, and I could no more gaze;\nA wave of longing through my body swept,\nAnd, hungry for the old, familiar ways,\nI turned aside and bowed my head and wept.",
           "question": "Which choice best states the main purpose of the text?",
           "choices": [
             {
@@ -1080,11 +1079,11 @@ export const practiceTest7RW = {
             },
             {
               "id": "D",
-              "text": "To describe the deep contentment that the speaker feels upon unexpectedly discovering the familiar foods of home displayed in a shop window far away in a northern city."
+              "text": "To describe the deep contentment the speaker feels on unexpectedly discovering the familiar foods of home displayed in a northern shop window."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The poem moves from the fruit in the window, to the memories it brings — laden fruit trees, dewy dawns, hills — to the speaker's overpowering response: \"a wave of longing,\" hunger \"for the old, familiar ways,\" and tears.\n\n**The Full Solution:**\n- Stanza one shows the trigger: tropical fruit \"set in the window.\"\n- Stanza two makes the mechanism explicit — the display is \"bringing memories\" of the landscape of home.\n- Stanza three delivers the emotional point the poem exists for: the speaker's eyes grow dim, longing sweeps through, and the speaker turns aside and weeps.\n\n**Why the other choices are wrong:**\n- B: The fruit list is the poem's occasion, not its purpose — the final stanza's grief has nothing to do with cataloging produce.\n- C: The fruits are \"fit for the highest prize,\" but no comparison with northern fruit is drawn or argued.\n- D: It reverses the poem's emotion — the sight brings longing sharp enough for tears, not contentment.",
+          "explanation": "**Choice A is correct.** The poem moves from the fruit in the window, to the memories it brings — laden fruit trees, dewy dawns, hills — to the speaker's overpowering response: \"a wave of longing,\" hunger \"for the old, familiar ways,\" and tears.\n\n**The Full Solution:**\n- Stanza one shows the trigger: tropical fruit \"set in the window.\"\n- Stanza two makes the mechanism explicit — the display is \"bringing memories\" of the landscape of home.\n- Stanza three delivers the emotional point the poem exists for: the speaker's eyes grow dim, longing sweeps through, and the speaker turns aside, bows, and weeps.\n\n**Why the other choices are wrong:**\n- B: The fruit list is the poem's occasion, not its purpose — the final stanza's grief has nothing to do with cataloging produce.\n- C: The fruits are \"fit for the highest prize,\" but no comparison with northern fruit is drawn or argued.\n- D: It reverses the poem's emotion — the sight brings longing sharp enough for tears, not contentment.",
           "_meta": {
             "quoteVerify": true,
             "source": "Claude McKay, \"The Tropics in New York,\" Harlem Shadows (1922)"
@@ -1127,7 +1126,7 @@ export const practiceTest7RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "Medieval European manuscripts are usually studied for the texts they carry, but their pages are themselves artifacts of animal husbandry: before paper spread, books were written on parchment prepared from the skins of calves, sheep, and goats. __Because finished parchment preserves fragments of the source animal's proteins and DNA for centuries, researchers can now determine the species — and sometimes the sex and regional herd — behind each page, using nothing more invasive than the crumbs lifted by rubbing a page with an ordinary eraser.__ Early results are beginning to reveal how much livestock the production of a single large book once demanded, tying monastic libraries to the farm economies around them.",
+          "passage": "Medieval European manuscripts are usually studied for the texts they carry, but their pages are themselves artifacts of animal husbandry: before paper spread, books were written on parchment prepared from the skins of calves, sheep, and goats. __Because finished parchment preserves fragments of the source animal's proteins and DNA for centuries, researchers can now determine the species — and sometimes the sex — of the animal behind each page, using nothing more invasive than the crumbs lifted by rubbing a page with an ordinary eraser.__ Early results are beginning to reveal how much livestock the production of a single large book once demanded, tying monastic libraries to the farm economies around them.",
           "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
           "choices": [
             {
@@ -1148,7 +1147,7 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The underlined sentence does two jobs: its \"Because\" clause explains what makes biological analysis possible (parchment preserves proteins and DNA), and its main clause specifies the yield — species, sometimes sex and herd, from an eraser's crumbs.\n\n**The Full Solution:**\n- The preceding sentence establishes that pages are animal products; the underlined sentence explains the consequence — biological traces survive in them for centuries.\n- It then states what researchers can determine from those traces and how gently the sampling works.\n- The following sentence builds on exactly this capability (\"Early results...\"), confirming the underlined sentence's role as the passage's enabling explanation.\n\n**Why the other choices are wrong:**\n- A: The sentence asserts that the biological material survives for centuries — the opposite of raising a doubt about survival.\n- B: No competing method appears; the analysis extends the study of manuscripts rather than rivaling it.\n- D: The sentence concerns a modern technique, not a survey of bookmaking history."
+          "explanation": "**Choice C is correct.** The underlined sentence does two jobs: its \"Because\" clause explains what makes biological analysis possible (parchment preserves proteins and DNA), and its main clause specifies the yield — species and sometimes sex, from an eraser's crumbs.\n\n**The Full Solution:**\n- The preceding sentence establishes that pages are animal products; the underlined sentence explains the consequence — biological traces survive in them for centuries.\n- It then states what researchers can determine from those traces and how gently the sampling works.\n- The following sentence builds on exactly this capability (\"Early results...\"), confirming the underlined sentence's role as the passage's enabling explanation.\n\n**Why the other choices are wrong:**\n- A: The sentence asserts that the biological material survives for centuries — the opposite of raising a doubt about survival.\n- B: No competing method appears; the analysis extends the study of manuscripts rather than rivaling it.\n- D: The sentence concerns a modern technique, not a survey of bookmaking history."
         },
         {
           "id": 735,
@@ -1160,14 +1159,14 @@ export const practiceTest7RW = {
           "passages": [
             {
               "label": "Text 1",
-              "text": "In the 1990s, the geologist Paul Hoffman and his colleagues revived a startling explanation for glacial deposits preserved in rocks that formed in the tropics: around 700 million years ago, they argued, ice sheets advanced until the entire planet froze over, oceans included. This 'Snowball Earth' would have held the globe in ice for millions of years, until volcanic carbon dioxide built up in the atmosphere and forced an abrupt planetary thaw. Hoffman pointed to the distinctive 'cap' carbonate rocks lying directly atop the glacial deposits as the signature of that sudden escape from ice."
+              "text": "In the 1990s, the geologist Paul Hoffman and his colleagues revived a startling explanation for glacial deposits in rocks that formed in the tropics: around 700 million years ago, they argued, ice advanced until the entire planet froze over, oceans included. This 'Snowball Earth' would have lasted millions of years, until volcanic carbon dioxide built up in the atmosphere and forced an abrupt thaw. Hoffman pointed to the 'cap' carbonate rocks lying directly atop the glacial deposits as the signature of that sudden escape from ice."
             },
             {
               "label": "Text 2",
-              "text": "The geologist Nicholas Christie-Blick accepts that glaciers reached sea level in the tropics — the deposits allow no other reading — but questions the leap to a fully frozen planet. Sedimentary layers within the glacial intervals, he notes, preserve ripples and other marks of open, wave-stirred water, and they record glaciers advancing and retreating repeatedly rather than holding the world in one long freeze. In his view the evidence supports severe glaciation with persistent open seas; the hypothesis's most dramatic element — oceans sealed beneath ice — remains undemonstrated."
+              "text": "The geologist Philip Allen accepts that glaciers reached sea level in the tropics but questions the leap to a fully frozen planet. Sedimentary rocks from the glacial intervals, he notes, preserve wave ripples, a mark of open water, and show glaciers delivering large amounts of sediment to the sea throughout the cold periods. In his view the evidence supports severe glaciation with some open seas; the hypothesis's most dramatic element, oceans sealed beneath ice, remains undemonstrated."
             }
           ],
-          "question": "Based on the texts, how would Christie-Blick (Text 2) most likely respond to the explanation presented in Text 1?",
+          "question": "Based on the texts, how would Allen (Text 2) most likely respond to the explanation presented in Text 1?",
           "choices": [
             {
               "id": "A",
@@ -1187,7 +1186,7 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** Christie-Blick's position is a precise partial concession: tropical glaciation is beyond dispute (\"the deposits allow no other reading\"), but ripples and other marks of wave-stirred water persuade him that open seas persisted — so the fully frozen planet, the hypothesis's defining claim, \"remains undemonstrated.\"\n\n**The Full Solution:**\n- Locate the agreement: both geologists read the tropical deposits as glacial.\n- Locate the split: Hoffman infers a planet frozen \"oceans included,\" while Christie-Blick cites sedimentary structures requiring open, wave-stirred water and repeated glacial advance and retreat.\n- A reproduces exactly that shape — grant the glaciers, reject the leap to total freeze as unestablished.\n\n**Why the other choices are wrong:**\n- B: It denies the very point Text 2 concedes outright — that the deposits are glacial.\n- C: It hands Christie-Blick the frozen-ocean claim he explicitly calls undemonstrated, relocating the dispute to the thaw.\n- D: It puts Hoffman's evidence to a use Text 2 never makes — Christie-Blick nowhere treats the cap carbonates as confirming a long freeze."
+          "explanation": "**Choice A is correct.** Allen's position is a precise partial concession: he accepts that glaciers reached sea level in the tropics, but wave ripples and glaciers delivering sediment to the sea persuade him that open water persisted — so the fully frozen planet, the hypothesis's defining claim, \"remains undemonstrated.\"\n\n**The Full Solution:**\n- Locate the agreement: both geologists read the tropical deposits as glacial.\n- Locate the split: Hoffman infers a planet frozen \"oceans included,\" while Allen cites sedimentary evidence — wave ripples, sediment delivered to the sea throughout the cold periods — that requires open water.\n- A reproduces exactly that shape — grant the glaciers, reject the leap to total freeze as unestablished.\n\n**Why the other choices are wrong:**\n- B: It denies the very point Text 2 concedes outright — that glaciers reached the tropics.\n- C: It hands Allen the frozen-ocean claim he explicitly calls undemonstrated, relocating the dispute to the thaw.\n- D: It puts Hoffman's evidence to a use Text 2 never makes — Allen nowhere treats the cap carbonates as confirming a long freeze."
         },
         {
           "id": 736,
@@ -1256,7 +1255,7 @@ export const practiceTest7RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "inferences",
-          "passage": "Publicity photographs from ENIAC's 1946 debut show the machine flanked by men in suits, and early histories of computing mention the six women who programmed it barely or not at all. Historians revisiting the project have worked from a different record: operations logbooks, surviving wiring diagrams, and interviews with the programmers themselves. Those sources document the women designing the machine's first instruction sequences, tracing hardware faults, and inventing techniques that became standard practice. The women appear peripheral only when publicity materials serve as the principal evidence, so the fuller record supports the conclusion that their early invisibility chiefly reflected ______",
+          "passage": "Press coverage of ENIAC's 1946 debut named the men who built the machine but not the women photographed beside it, and early histories of computing mention the six women who programmed it barely or not at all. Historians revisiting the project have worked from a different record: operations logbooks, surviving wiring diagrams, and interviews with the programmers themselves. Those sources document the women designing the machine's first instruction sequences, tracing hardware faults, and inventing techniques that became standard practice. The women appear peripheral only when publicity materials serve as the principal evidence, so the fuller record supports the conclusion that their early invisibility chiefly reflected ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
@@ -1277,7 +1276,7 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The passage's hinge is conditional: the women look peripheral \"only when publicity materials serve as the principal evidence,\" while logbooks, diagrams, and interviews document central work. What varies is the sources consulted, not the work performed — so the invisibility reflected the histories' narrow evidence base.\n\n**The Full Solution:**\n- Two portraits diverge: publicity photographs minus the programmers, versus operational records documenting them designing instruction sequences and inventing standard techniques.\n- The \"only when\" clause ties each portrait to its evidence, making source selection the variable that produced the early invisibility.\n- D draws that inference and adds its proper contrast — the invisibility did not reflect the actual scope of the programmers' work, which the fuller record establishes.\n\n**Why the other choices are wrong:**\n- A: The logbooks survive — historians are using them, so their destruction cannot be the explanation.\n- B: No preference for privacy appears anywhere; the interviews suggest the programmers were willing to speak.\n- C: Discarding every earlier account overshoots a passage about correcting emphasis with fuller evidence."
+          "explanation": "**Choice D is correct.** The passage's hinge is conditional: the women look peripheral \"only when publicity materials serve as the principal evidence,\" while logbooks, diagrams, and interviews document central work. What varies is the sources consulted, not the work performed — so the invisibility reflected the histories' narrow evidence base.\n\n**The Full Solution:**\n- Two portraits diverge: publicity that left the programmers unnamed, versus operational records documenting them designing instruction sequences and inventing standard techniques.\n- The \"only when\" clause ties each portrait to its evidence, making source selection the variable that produced the early invisibility.\n- D draws that inference and adds its proper contrast — the invisibility did not reflect the actual scope of the programmers' work, which the fuller record establishes.\n\n**Why the other choices are wrong:**\n- A: The logbooks survive — historians are using them, so their destruction cannot be the explanation.\n- B: No preference for privacy appears anywhere; the interviews suggest the programmers were willing to speak.\n- C: Discarding every earlier account overshoots a passage about correcting emphasis with fuller evidence."
         },
         {
           "id": 740,
@@ -1418,7 +1417,7 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "In the wet uplands of Meghalaya, in northeastern India, Khasi villagers train the aerial roots of rubber fig trees across streams, threading young roots through hollowed canes until they take hold on the far bank. Over decades the roots thicken, fuse, and stiffen into a bridge that carries foot traffic through monsoon floods capable of sweeping away timber spans. Unlike built structures, a root bridge grows stronger with age — and because a crossing can take thirty years to become usable, the guiding of new roots is work that one generation begins largely for the benefit of the next.",
+          "passage": "In the wet uplands of Meghalaya, in northeastern India, Khasi villagers train the aerial roots of rubber fig trees across streams, threading young roots through hollowed palm trunks until they take hold on the far bank. Over decades the roots thicken, fuse, and stiffen into a bridge that carries foot traffic through monsoon floods capable of sweeping away timber spans. Unlike built structures, a root bridge grows stronger with age — and because a crossing can take fifteen years or more to become usable, the guiding of new roots is work that one generation begins largely for the benefit of the next.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
@@ -1435,11 +1434,11 @@ export const practiceTest7RW = {
             },
             {
               "id": "D",
-              "text": "The hollowed canes through which young fig roots are threaded remain part of a root bridge's structure permanently, bearing much of its weight."
+              "text": "The hollowed palm trunks through which young fig roots are threaded remain part of a root bridge's structure permanently, bearing much of its weight."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The passage's three movements — how the bridges are grown, how they outperform timber in floods and strengthen with age, and how the work spans generations — are exactly the three elements C compresses.\n\n**The Full Solution:**\n- The technique: aerial roots trained across streams through hollowed canes until they root on the far bank.\n- The structures' character: living bridges that thicken, fuse, and grow stronger with age, unlike built spans.\n- The social dimension: a thirty-year path to usability makes the work an intergenerational undertaking — the point the passage closes on.\n\n**Why the other choices are wrong:**\n- A: It contradicts the timeline — a crossing takes decades, not a single season, and young roots are trained, not mature ones woven.\n- B: The passage says monsoon floods can sweep timber spans away, not that timber outlasts the root bridges.\n- D: The canes are a training aid in the passage; nothing says they permanently bear the bridge's weight."
+          "explanation": "**Choice C is correct.** The passage's three movements — how the bridges are grown, how they outperform timber in floods and strengthen with age, and how the work spans generations — are exactly the three elements C compresses.\n\n**The Full Solution:**\n- The technique: aerial roots trained across streams through hollowed palm trunks until they root on the far bank.\n- The structures' character: living bridges that thicken, fuse, and grow stronger with age, unlike built spans.\n- The social dimension: a path to usability of fifteen years or more makes the work an intergenerational undertaking — the point the passage closes on.\n\n**Why the other choices are wrong:**\n- A: It contradicts the timeline — a crossing takes years, not a single season, and young roots are trained, not mature ones woven.\n- B: The passage says monsoon floods can sweep timber spans away, not that timber outlasts the root bridges.\n- D: The palm trunks are a training aid in the passage; nothing says they permanently bear the bridge's weight."
         },
         {
           "id": 739,
@@ -1538,7 +1537,7 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "The mineral olivine ______ gives the sand of Papakolea Beach in Hawaii its deep green color. Waves pry the dense grains loose from the surrounding rock, and while lighter fragments wash out with the tide, the olivine settles back, accumulating at the rear of the small bay.",
+          "passage": "The mineral olivine ______ gives the sand of Papakolea Beach in Hawaii its deep green color. Waves erode the grains from an old volcanic cone that rings the small bay, and while the lighter ash washes out to sea, the denser olivine stays behind on the beach.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1568,7 +1567,7 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "High-speed video of starling flocks has shown that ______ sudden collective turns are not commanded by any leader. Each bird tracks only six or seven nearby neighbors, and a turn begun by a handful of birds at the flock's edge sweeps through thousands of others in under a second.",
+          "passage": "Three-dimensional photography of starling flocks has shown that ______ sudden collective turns are not commanded by any leader. Each bird tracks only six or seven nearby neighbors, and a turn begun by a handful of birds spreads rapidly through hundreds of others.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1589,7 +1588,7 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The pronoun points back to \"starling flocks,\" a plural noun, so the plural pronoun \"their\" is required: the flocks' sudden collective turns.\n\n**The Full Solution:**\n- Trace the antecedent: the turns belong to the flocks in \"video of starling flocks.\"\n- \"Flocks\" is plural, so the pronoun standing in for it must be plural as well.\n- \"Their sudden collective turns\" makes the agreement correct in number.\n\n**Why the other choices are wrong:**\n- A: \"His\" is singular and refers to a male person, not to flocks of birds.\n- C: \"His or her\" likewise refers to individual people and is singular.\n- D: \"Its\" is the right kind of pronoun for a nonhuman antecedent but the wrong number — the antecedent \"flocks\" is plural."
+          "explanation": "**Choice B is correct.** The pronoun points back to \"starling flocks,\" a plural noun, so the plural pronoun \"their\" is required: the flocks' sudden collective turns.\n\n**The Full Solution:**\n- Trace the antecedent: the turns belong to the flocks in \"photography of starling flocks.\"\n- \"Flocks\" is plural, so the pronoun standing in for it must be plural as well.\n- \"Their sudden collective turns\" makes the agreement correct in number.\n\n**Why the other choices are wrong:**\n- A: \"His\" is singular and refers to a male person, not to flocks of birds.\n- C: \"His or her\" likewise refers to individual people and is singular.\n- D: \"Its\" is the right kind of pronoun for a nonhuman antecedent but the wrong number — the antecedent \"flocks\" is plural."
         },
         {
           "id": 749,
@@ -1628,7 +1627,7 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "For decades, most geologists assumed that the rock of Earth's deep mantle was essentially dry. A battered diamond carried up from more than 500 kilometers below the surface suggested something quite ______ sealed inside it was a fleck of ringwoodite, a deep-mantle mineral, holding about one percent water by weight — a hint that the mantle may store oceans' worth of water bound inside rock.",
+          "passage": "Geologists had long debated whether the rock deep in Earth's mantle holds water. A battered diamond carried up from more than 500 kilometers below the surface revealed something quite ______ sealed inside it was a fleck of ringwoodite, a deep-mantle mineral, holding about 1.5 percent water by weight — evidence that the mantle may store vast amounts of water bound inside rock.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1649,7 +1648,7 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The clause before the blank is complete — the diamond \"suggested something quite unexpected\" — and what follows spells out what that something was; a colon is the mark that introduces such an explanation.\n\n**The Full Solution:**\n- Check the left side: \"A battered diamond...suggested something quite unexpected\" can stand alone as a sentence, which a colon requires.\n- Check the relationship: \"sealed inside it was a fleck of ringwoodite...\" delivers the promised surprise, unpacking \"something quite unexpected.\"\n- A complete statement followed by its elaboration is the colon's defining use.\n\n**Why the other choices are wrong:**\n- A: A comma is too weak to hold two independent statements apart — it produces a comma splice here.\n- B: With no punctuation, the two statements run together ungrammatically.\n- D: A semicolon signals two coordinate statements, but the second exists to explain the first — the colon's introducing function, not the semicolon's balancing one."
+          "explanation": "**Choice C is correct.** The clause before the blank is complete — the diamond \"revealed something quite unexpected\" — and what follows spells out what that something was; a colon is the mark that introduces such an explanation.\n\n**The Full Solution:**\n- Check the left side: \"A battered diamond...revealed something quite unexpected\" can stand alone as a sentence, which a colon requires.\n- Check the relationship: \"sealed inside it was a fleck of ringwoodite...\" delivers the promised surprise, unpacking \"something quite unexpected.\"\n- A complete statement followed by its elaboration is the colon's defining use.\n\n**Why the other choices are wrong:**\n- A: A comma is too weak to hold two independent statements apart — it produces a comma splice here.\n- B: With no punctuation, the two statements run together ungrammatically.\n- D: A semicolon signals two coordinate statements, but the second exists to explain the first — the colon's introducing function, not the semicolon's balancing one."
         },
         {
           "id": 748,
@@ -1688,7 +1687,7 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "The trailing edge of a humpback whale's tail flukes carries nicks, scars, and pigment patches distinctive enough to identify an individual whale for life. Image-matching software can now compare a new fluke photograph against catalogs holding hundreds of thousands of identified individuals in seconds. ______ nearly any clear photograph — including the thousands taken from whale-watching boats each season — can serve as a scientific sighting record, extending researchers' view of individual whales far beyond what survey cruises alone could provide.",
+          "passage": "The trailing edge of a humpback whale's tail flukes carries nicks, scars, and pigment patches distinctive enough to identify an individual for life. Image-matching software can now compare a new fluke photograph against catalogs of tens of thousands of known whales in seconds. ______ nearly any clear photograph, including those taken from whale-watching boats, can serve as a scientific sighting record.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1709,7 +1708,7 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** Because flukes identify individuals for life and software can match any photograph against vast catalogs in seconds, it follows that nearly any clear photograph can serve as a sighting record — a conclusion drawn from the two facts before it, which \"Therefore\" signals.\n\n**The Full Solution:**\n- Premise one: fluke markings are unique and permanent identifiers.\n- Premise two: matching software makes any new photograph checkable against hundreds of thousands of known individuals.\n- The final sentence is what those premises jointly entail — tourist photographs become usable scientific records — so a conclusion-drawing transition fits.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" would concede an obstacle, but nothing in the preceding sentences works against the conclusion.\n- B: \"Specifically\" would narrow the prior claim to a finer detail, whereas the final sentence broadens to a general consequence.\n- C: \"Similarly\" would introduce a parallel case, and the final sentence extends the same case rather than matching it with another."
+          "explanation": "**Choice D is correct.** Because flukes identify individuals for life and software can match any photograph against vast catalogs in seconds, it follows that nearly any clear photograph can serve as a sighting record — a conclusion drawn from the two facts before it, which \"Therefore\" signals.\n\n**The Full Solution:**\n- Premise one: fluke markings are unique and permanent identifiers.\n- Premise two: matching software makes any new photograph checkable against tens of thousands of known whales.\n- The final sentence is what those premises jointly entail — tourist photographs become usable scientific records — so a conclusion-drawing transition fits.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" would concede an obstacle, but nothing in the preceding sentences works against the conclusion.\n- B: \"Specifically\" would narrow the prior claim to a finer detail, whereas the final sentence broadens to a general consequence.\n- C: \"Similarly\" would introduce a parallel case, and the final sentence extends the same case rather than matching it with another."
         },
         {
           "id": 750,
@@ -1718,7 +1717,7 @@ export const practiceTest7RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Shipwrights of the ancient Mediterranean worked shell first: a hull's planks were edge-joined with thousands of tight mortise-and-tenon joints, and ribs were fitted in afterward to stiffen a shell that was already watertight — a method demanding enormous skill and labor at the planking stage. ______ the frame-first method that spread through medieval Europe raised a skeleton of ribs before any planking went on, letting less specialized workers bend and fasten planks around a form that already fixed the hull's shape.",
+          "passage": "Ancient Mediterranean shipwrights built hulls shell first: planks were edge-joined with thousands of mortise-and-tenon joints, and ribs were added afterward to stiffen the finished shell, a method demanding great skill at the planking stage. ______ the frame-first method that later spread through Europe raised a skeleton of ribs before any planking, letting less specialized workers fasten planks around a form that already fixed the hull's shape.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1748,7 +1747,7 @@ export const practiceTest7RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Most earthquakes begin beneath the ocean, yet the seafloor has long been nearly bare of seismometers, which are costly to install and maintain offshore. Over the past decade, researchers have learned to turn ordinary telecommunications cables into sensing instruments, using laser pulses to read the minute stretching of the glass fiber as seismic waves pass. ______ stretches of seafloor that no dedicated instrument has ever monitored can now be watched using cables already lying across them.",
+          "passage": "Most earthquakes begin beneath the ocean, yet the seafloor has few seismometers, which are costly to install and maintain offshore. Researchers have recently learned to turn telecommunications cables into sensors, using laser pulses to detect the tiny stretching of the glass fiber as seismic waves pass. ______ stretches of seafloor that no dedicated instrument has ever monitored can now be watched using cables already lying across them.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1782,35 +1781,34 @@ export const practiceTest7RW = {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
               "Maria Sibylla Merian (1647-1717) was a German-born naturalist and artist.",
-              "In her lifetime, many European scholars still believed that insects arose spontaneously from mud or rotting matter.",
-              "Merian raised insects from the egg through every stage of life, painting caterpillars, cocoons, and adults together with the plants each species fed on.",
-              "In 1699 she traveled to Suriname and later published a pioneering illustrated study of its insects based on direct observation.",
-              "For two centuries after her death she was remembered mostly as a flower painter, and some of her observations were dismissed as fanciful.",
-              "Historians of science who have re-examined her books now identify her as a founder of the study of insect life cycles."
+              "In her time, many Europeans believed that insects arose spontaneously from mud.",
+              "Merian raised insects and painted every stage of their lives, from egg to adult, together with the plants each species fed on.",
+              "In 1699 she traveled to Suriname, and in 1705 she published an illustrated study of its insects.",
+              "Her work showed that insects develop through a life cycle rather than arising from mud."
             ],
-            "goal": "The student wants to emphasize how renewed attention to Merian's work has changed her reputation."
+            "goal": "The student wants to emphasize how Merian's work challenged a common belief of her time."
           },
           "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
           "choices": [
             {
               "id": "A",
-              "text": "Maria Sibylla Merian, a German-born naturalist and artist who lived from 1647 to 1717, patiently raised insects from the egg through every successive stage of their lives, painting them alongside the plants each species fed on."
+              "text": "Maria Sibylla Merian (1647-1717), a German-born naturalist and artist, raised insects and painted every stage of their lives alongside the plants they fed on."
             },
             {
               "id": "B",
-              "text": "In Merian's lifetime, many European scholars still believed that insects arose spontaneously from mud or from rotting matter."
+              "text": "In Merian's time, many Europeans believed that insects arose spontaneously from mud."
             },
             {
               "id": "C",
-              "text": "In 1699 Merian traveled to Suriname, where she gathered the direct observations behind her pioneering illustrated study of the region's insects."
+              "text": "In 1699 Merian traveled to Suriname, and in 1705 she published an illustrated study of the region's insects."
             },
             {
               "id": "D",
-              "text": "Long remembered mostly as a flower painter, Merian is now identified by historians who have re-examined her books as a founder of the study of insect life cycles."
+              "text": "Merian's paintings of insects at every stage from egg to adult revealed a life cycle, countering the common belief that insects arose from mud."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The goal is the change in Merian's reputation, and D is built on that change: the old standing (\"long remembered mostly as a flower painter\") set against the new one (\"now identified...as a founder of the study of insect life cycles\"), with the historians' re-examination as the cause.\n\n**The Full Solution:**\n- The goal requires a before, an after, and the renewed attention that connects them.\n- D supplies all three: the flower-painter reputation, the historians' re-examination of her books, and the founder status that resulted.\n- Its \"Long remembered...is now identified\" frame is the reputational turn itself.\n\n**Why the other choices are wrong:**\n- A: It details her methods and artistry but never mentions how she was regarded, then or now.\n- B: It describes her contemporaries' beliefs about insects, not anyone's view of Merian.\n- C: It reports the Suriname journey without touching either her long neglect or her modern reassessment."
+          "explanation": "**Choice D is correct.** The goal pairs Merian's work with the belief it challenged, and D does both: her paintings of every stage revealed a life cycle, set against \"the common belief that insects arose from mud.\"\n\n**The Full Solution:**\n- The goal requires two elements: the belief of her time and the way her work went against it.\n- D supplies both — the egg-to-adult paintings and the life cycle they revealed, contrasted with the common belief.\n- Its \"countering the common belief\" frame is the challenge itself.\n\n**Why the other choices are wrong:**\n- A: It details her methods and artistry but never mentions the belief her work contradicted.\n- B: It states the belief but leaves out Merian's work, so nothing challenges it.\n- C: It reports the Suriname journey and book without connecting them to any belief about insects."
         },
         {
           "id": 754,
@@ -1822,11 +1820,11 @@ export const practiceTest7RW = {
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "In 1086, England's Norman king ordered a survey of landholding across the kingdom; the record it produced became known as the Domesday Book.",
-              "Royal commissioners recorded each estate's plow teams, mills, livestock, tenants, and taxable value.",
-              "The survey said little about whatever it was not designed to tax: churches, towns, and entire northern regions are thinly covered or absent.",
-              "For centuries, readers nevertheless treated the book as a comprehensive portrait of eleventh-century England.",
-              "Historians studying the survey now conclude that any such record reflects the questions its makers asked rather than a neutral picture of the society it describes."
+              "In 1085, England's Norman king ordered a survey of landholding across his kingdom; the record, completed in 1086, became known as the Domesday Book.",
+              "Royal commissioners recorded each estate's plow teams, mills, livestock, tenants, and value.",
+              "The survey was designed to assess land and its value to the crown.",
+              "London, Winchester, and the far northern counties were left out of it.",
+              "Historians therefore caution that the book shows England as the king's assessors saw it, not a complete picture of eleventh-century society."
             ],
             "goal": "The student wants to emphasize the central insight historians draw from the Domesday survey."
           },
@@ -1834,23 +1832,23 @@ export const practiceTest7RW = {
           "choices": [
             {
               "id": "A",
-              "text": "In 1086, England's Norman king ordered a survey of landholding across the whole kingdom, and the record that the survey produced became known as the Domesday Book."
+              "text": "In 1085, England's Norman king ordered a survey of landholding, and the record that it produced became known as the Domesday Book."
             },
             {
               "id": "B",
-              "text": "Royal commissioners compiling the Domesday Book recorded each estate's plow teams, mills, livestock, tenants, and taxable value for the crown."
+              "text": "Royal commissioners compiling the Domesday Book recorded each estate's plow teams, mills, livestock, tenants, and value."
             },
             {
               "id": "C",
-              "text": "Historians conclude from the Domesday survey — long read as a portrait of England yet shaped by what the crown meant to tax — that records reflect their makers' questions, not a neutral picture of society."
+              "text": "Because the Domesday survey recorded what the crown wished to assess, historians caution that it shows England as the assessors saw it, not a complete picture of society."
             },
             {
               "id": "D",
-              "text": "For centuries, readers treated the Domesday Book as a comprehensive and dependable portrait of eleventh-century England and its people, despite the survey's thin or entirely absent coverage of churches, of towns, and of entire northern regions."
+              "text": "The Domesday survey left out London, Winchester, and the far northern counties, even though it was meant to record landholding across the whole of the Norman king's realm."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The goal is the historians' central insight, and C states it — records reflect their makers' questions, not a neutral picture of society — while anchoring it in the case that yields it: a survey long read as a portrait but shaped by what the crown meant to tax.\n\n**The Full Solution:**\n- The insight lives in the final note: what a record shows is governed by the questions its makers asked.\n- C leads with the historians' conclusion and folds in the supporting facts — the book's tax-driven design and its long misreading as a comprehensive portrait.\n- Joining the general claim to the specific case is what makes the insight emphatic rather than merely implied.\n\n**Why the other choices are wrong:**\n- A: It recounts the survey's commissioning and naming, never arriving at any conclusion about records.\n- B: It lists what the commissioners recorded — raw material for the insight, but not the insight.\n- D: It documents the long misreading and the gaps, stopping one step short of the general lesson historians draw from them."
+          "explanation": "**Choice C is correct.** The goal is the historians' central insight, and C states it — the book shows England as the crown's assessors saw it, not a complete picture of society — while anchoring it in the reason behind it: the survey recorded what the crown wished to assess.\n\n**The Full Solution:**\n- The insight lives in the final note: what the record shows is governed by the purpose its makers had.\n- C leads with the cause (a survey built to assess land for the crown) and arrives at the historians' caution.\n- Joining the conclusion to its reason is what makes the insight emphatic rather than merely implied.\n\n**Why the other choices are wrong:**\n- A: It recounts the survey's commissioning and naming, never arriving at any conclusion historians draw.\n- B: It lists what the commissioners recorded — raw material for the insight, but not the insight.\n- D: It documents the survey's gaps, stopping one step short of the general lesson historians draw from them."
         }
       ]
     }

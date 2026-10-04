@@ -6,7 +6,7 @@
   "band": 3,
   "domain": "expression-of-ideas",
   "skill": "transitions",
-  "passage": "For two centuries, botanists explained English ivy's grip on stone and bark mechanically: the plant's clusters of rootlets were said to work like tiny hooks, lodging in crevices and holding on by shape alone. ______ chemical analysis has shown that the rootlets secrete a glue — a suspension of nanoscale particles that seeps into microscopic pores and then hardens — and that this adhesive, not any hooking action, is what anchors the vine.",
+  "passage": "For much of the twentieth century, doctors blamed most stomach ulcers on stress, spicy food, and excess stomach acid, and treated them with bland diets and antacids. ______ most ulcers, the Australian researchers Robin Warren and Barry Marshall showed in the early 1980s, are caused by infection with the bacterium Helicobacter pylori and can be cured with antibiotics.",
   "question": "Which choice completes the text with the most logical transition?",
   "choices": [
     {
@@ -27,5 +27,5 @@
     }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The second sentence does not merely differ from the first — it replaces it: the glue explanation supplants the hook explanation (\"this adhesive, not any hooking action\"). \"Instead,\" is the transition of substitution.\n\n**The Full Solution:**\n- Before the blank: the accepted account — rootlets as mechanical hooks.\n- After the blank: analysis overturns it and supplies the true mechanism, explicitly displacing the old one.\n- When a second statement swaps in for a rejected first, \"Instead\" is the logical connector.\n\n**Why the other choices are wrong:**\n- A: \"For instance\" would offer the glue finding as an example of the hook theory it actually refutes.\n- B: \"Meanwhile\" sets two things running in parallel, but these accounts cannot coexist — one dethrones the other.\n- D: \"In short\" introduces a summary of what came before, yet the second sentence contradicts rather than condenses the first."
+  "explanation": "**Choice C is correct.** The second sentence does not merely differ from the first — it replaces it: infection by a bacterium supplants stress, diet, and acid as the cause of most ulcers. \"Instead,\" is the transition of substitution.\n\n**The Full Solution:**\n- Before the blank: the accepted account — ulcers caused by stress, spicy food, and excess acid.\n- After the blank: research overturns it and supplies the actual cause, a bacterial infection curable with antibiotics.\n- When a second statement swaps in for a rejected first, \"Instead\" is the logical connector.\n\n**Why the other choices are wrong:**\n- A: \"For instance\" would offer the bacterial finding as an example of the stress-and-acid account it actually refutes.\n- B: \"Meanwhile\" sets two things running in parallel, but these explanations cannot both stand — one displaces the other.\n- D: \"In short\" introduces a summary of what came before, yet the second sentence contradicts rather than condenses the first."
 }

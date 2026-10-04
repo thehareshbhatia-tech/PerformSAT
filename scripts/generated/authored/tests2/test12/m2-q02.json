@@ -1,10 +1,10 @@
 {
  "id": 2,
- "question": "A contact-tracing unit has completed $900$ of the $3{,}600$ interviews it must finish. Each of the $c$ callers on the unit completes $r$ interviews per hour and works $h$ hours each day. Which expression gives the number of additional days the unit needs to finish the remaining interviews?",
+ "question": "So far, $900$ of the $3{,}600$ posters in an order have been printed. Each of $c$ printers prints $r$ posters per hour, and each printer runs $h$ hours per day. Which expression represents the number of additional days needed to print the rest of the order?",
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{2700h}{cr}$"
+   "text": "$\\frac{900}{crh}$"
   },
   {
    "id": "B",
@@ -12,18 +12,18 @@
   },
   {
    "id": "C",
-   "text": "$\\frac{3600}{crh}$"
+   "text": "$\\frac{2700h}{cr}$"
   },
   {
    "id": "D",
-   "text": "$\\frac{3600h}{cr}$"
+   "text": "$\\frac{3600}{crh}$"
   }
  ],
  "correctAnswer": "B",
  "distractorNotes": {
-  "A": "multiplies by the hours per day instead of dividing by them",
-  "C": "uses the full 3,600 interviews instead of the 2,700 that remain",
-  "D": "uses 3,600 instead of 2,700 AND multiplies by h instead of dividing"
+  "A": "divides the 900 posters already printed instead of the 2,700 that remain",
+  "C": "multiplies by the hours per day instead of dividing by them, so h ends up in the numerator",
+  "D": "uses the full order of 3,600 posters instead of the 2,700 that remain"
  },
- "explanation": "**SAT Pattern: Word-to-Expression Translation**\n\n**Choice B is correct.** The unit still owes $3{,}600 - 900 = 2{,}700$ interviews, and it finishes $crh$ interviews per day, so it needs $\\frac{2700}{crh}$ days.\n\n**The Fast Way (~30s):** Remaining work over work per day. Remaining $= 2{,}700$; per day $= c \\cdot r \\cdot h$. Divide.\n\n**The Full Solution:**\nStep 1: Subtract what is already done: $3{,}600 - 900 = 2{,}700$ interviews remain.\nStep 2: Build the daily rate. One caller does $r$ interviews each hour for $h$ hours, or $rh$ interviews per day; $c$ callers do $crh$ interviews per day.\nStep 3: Days $=$ $\\frac{\\text{interviews remaining}}{\\text{interviews per day}} = \\frac{2700}{crh}$. Check the units: interviews divided by (interviews per day) leaves days. With $c = 5$, $r = 3$, and $h = 6$ the unit does $90$ interviews per day and needs $\\frac{2700}{90} = 30$ days, which is exactly what $\\frac{2700}{crh}$ returns. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2700h}{cr}$): keeps the correct numerator but multiplies by $h$. More hours per day should shorten the job, so $h$ belongs in the denominator; with $c = 5$, $r = 3$, $h = 6$ this returns $1{,}080$ days.\n* Choice C ($\\frac{3600}{crh}$): divides the whole assignment by the daily rate and ignores the $900$ interviews already finished, overstating the answer by $\\frac{900}{crh}$ days.\n* Choice D ($\\frac{3600h}{cr}$): makes both errors at once — the full total in the numerator and $h$ on the wrong side of the fraction bar.\n\n**Test Day Takeaway:** In a rate translation, anything that makes the job go faster belongs in the denominator. Test your expression with easy numbers before you bubble."
+ "explanation": "**SAT Pattern: Word-to-Expression Translation**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Days needed is the remaining work divided by the work done per day: $3{,}600 - 900 = 2{,}700$ posters remain, and the printers print $crh$ posters per day, so it needs $\\frac{2700}{crh}$ days.\n\n**The Full Solution:**\nStep 1: Find the work left: $3{,}600 - 900 = 2{,}700$ posters.\nStep 2: Find the daily output. One printer prints $r$ posters per hour for $h$ hours, or $rh$ posters per day, so $c$ printers print $crh$ posters per day.\nStep 3: If $d$ is the number of additional days, then $crh \\cdot d = 2{,}700$, so $d = \\frac{2700}{crh}$. Check with $c = 3$, $r = 25$, $h = 4$: the printers print $300$ posters per day, and $\\frac{2700}{300} = 9$ days, which matches $\\frac{2700}{3 \\cdot 25 \\cdot 4} = 9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{900}{crh}$): divides the number of posters already printed. The question asks how long the remaining $2{,}700$ posters will take.\n* Choice C ($\\frac{2700h}{cr}$): multiplies by $h$ instead of dividing by it. Running more hours each day should shorten the job, so $h$ belongs in the denominator.\n* Choice D ($\\frac{3600}{crh}$): uses the whole order, ignoring the $900$ posters that are already finished.\n\n**Test Day Takeaway:** For a \"how many more days\" expression, subtract what is done first, then divide by the total rate per day; plugging in easy numbers confirms which variables belong in the denominator."
 }

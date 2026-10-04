@@ -1,29 +1,29 @@
 {
  "id": 2,
- "question": "Three steel disks and two brass disks have a combined mass of $1{,}260$ grams, and three steel disks and five brass disks have a combined mass of $1{,}710$ grams. All steel disks have the same mass, and all brass disks have the same mass. What is the mass, in grams, of one brass disk?",
+ "question": "$2x + 3y = 23$\n$2x - y = 11$\nThe solution to the given system of equations is $(x, y)$. What is the value of $y$?",
  "choices": [
   {
    "id": "A",
-   "text": "$150$"
+   "text": "$3$"
   },
   {
    "id": "B",
-   "text": "$225$"
+   "text": "$6$"
   },
   {
    "id": "C",
-   "text": "$320$"
+   "text": "$7$"
   },
   {
    "id": "D",
-   "text": "$450$"
+   "text": "$12$"
   }
  ],
  "distractorNotes": {
-  "B": "divides the 450-gram difference by 2, the number of brass disks in the first weighing, instead of by the 3 brass disks the difference represents",
-  "C": "solves for the mass of one steel disk instead of one brass disk",
-  "D": "stops at 3b = 450 and never divides by 3"
+  "B": "subtracts the equations but treats 3y - (-y) as 2y, so 2y = 12 and y = 6",
+  "C": "reports the value of x instead of y",
+  "D": "finds 4y = 12 and stops before dividing by 4"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: System of Equations — Elimination**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Both weighings contain three steel disks, so subtracting them cancels the steel: $3$ extra brass disks account for $1{,}710 - 1{,}260 = 450$ grams, or $150$ grams each.\n\n**The Full Solution:**\nStep 1: Let $s$ be the mass of one steel disk and $b$ the mass of one brass disk: $3s + 2b = 1{,}260$ and $3s + 5b = 1{,}710$.\nStep 2: Subtract the first equation from the second. The $3s$ terms cancel, leaving $3b = 450$, so $b = 150$.\nStep 3: Back-substitute: $3s + 2(150) = 1{,}260$ gives $3s = 960$ and $s = 320$. Check the second weighing: $3(320) + 5(150) = 960 + 750 = 1{,}710$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($225$): divides the $450$-gram difference by $2$ instead of $3$; the difference between the weighings is three brass disks, not two.\n* Choice C ($320$): this is the mass of one steel disk — the value you get after back-substituting, not the value the question asks for.\n* Choice D ($450$): stops at $3b = 450$, reporting the mass of all three extra brass disks.\n\n**Test Day Takeaway:** When two equations share an identical term, subtract them on sight — elimination is faster than substitution, and the leftover coefficient tells you what to divide by."
+ "explanation": "**SAT Pattern: System of Equations — Elimination**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Subtracting the second equation from the first eliminates $x$: $4y = 12$, so $y = 3$.\n\n**The Full Solution:**\nStep 1: Both equations have $2x$, so subtract the second equation from the first: $(2x + 3y) - (2x - y) = 23 - 11$.\nStep 2: Simplify: $3y - (-y) = 4y$, so $4y = 12$.\nStep 3: Divide by $4$: $y = 3$. Then $2x - 3 = 11$ gives $x = 7$. Check in the first equation: $2(7) + 3(3) = 14 + 9 = 23$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($6$): subtracts $-y$ as though it were $+y$, getting $2y = 12$. Subtracting a negative adds it, so the $y$-terms combine to $4y$.\n* Choice C ($7$): this is the value of $x$ in the solution, not $y$.\n* Choice D ($12$): stops at $4y = 12$ without dividing by $4$.\n\n**Test Day Takeaway:** When the same $x$-term appears in both equations, subtract to eliminate it, and watch the signs: subtracting $-y$ adds $y$."
 }

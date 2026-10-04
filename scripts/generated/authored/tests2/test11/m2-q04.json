@@ -1,29 +1,29 @@
 {
  "id": 4,
- "question": "For a fabric mill, the daily profit, in dollars, from finishing $x$ bolts of upholstery cloth is modeled by $P(x) = -2x^2 + 114x - 1{,}080$ for $x \\ge 0$. Which inequality gives all values of $x$ for which the mill's daily profit is positive?",
+ "question": "The function $P$ gives a bakery's daily profit, in dollars, from selling $x$ cakes, where $P(x) = -3x^{2} + 165x - 1{,}800$. For which values of $x$ is the daily profit positive?",
  "choices": [
   {
    "id": "A",
-   "text": "$12 < x < 45$"
+   "text": "$15 < x < 40$"
   },
   {
    "id": "B",
-   "text": "$12 < x < 57$"
+   "text": "$-40 < x < -15$"
   },
   {
    "id": "C",
-   "text": "$x < 12$ or $x > 45$"
+   "text": "$x < 15$ or $x > 40$"
   },
   {
    "id": "D",
-   "text": "$x > 45$"
+   "text": "$x > 15$"
   }
  ],
- "distractorNotes": {
-  "B": "replaces the larger zero 45 with 57, the sum of the two zeros",
-  "C": "selects the outside intervals, where the downward parabola is below the x-axis and the profit is negative",
-  "D": "keeps only the branch beyond the larger zero, where P(x) is already negative"
- },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Factor: $P(x) = -2(x - 12)(x - 45)$. A downward parabola is above the $x$-axis strictly between its zeros, so the profit is positive for $12 < x < 45$.\n\n**The Full Solution:**\nStep 1: Find the zeros. Setting $-2x^2 + 114x - 1{,}080 = 0$ and dividing by $-2$ gives $x^2 - 57x + 540 = 0$. Since $12 \\cdot 45 = 540$ and $12 + 45 = 57$, the zeros are $x = 12$ and $x = 45$.\nStep 2: Decide which side is positive. The leading coefficient $-2$ is negative, so the parabola opens downward: it lies above the $x$-axis between the zeros and below it outside them.\nStep 3: Check an interior value and an exterior one. At $x = 30$, $P(30) = -1{,}800 + 3{,}420 - 1{,}080 = 540 > 0$; at $x = 50$, $P(50) = -5{,}000 + 5{,}700 - 1{,}080 = -380 < 0$. So the profit is positive exactly on $12 < x < 45$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($12 < x < 57$): $57$ is the *sum* of the zeros (it comes from $-\\frac{b}{a}$ after dividing), not a zero itself. At $x = 50$ the profit is already $-\\$380$.\n* Choice C ($x < 12$ or $x > 45$): this is the correct answer to the opposite question. Outside the zeros a downward parabola is negative, which here means the mill loses money.\n* Choice D ($x > 45$): finishing more than $45$ bolts pushes $P(x)$ below zero, so this interval is exactly where the mill should not operate.\n\n**Test Day Takeaway:** For a quadratic inequality, factor to the zeros, then let the sign of the leading coefficient decide which side is positive: downward parabolas are positive *between* their zeros, upward parabolas *outside* them."
+ "distractorNotes": {
+  "B": "reads the zeros from the factors (x - 15)(x - 40) with the wrong signs, giving -15 and -40",
+  "C": "chooses the intervals outside the zeros, where the downward-opening parabola is below the x-axis and the profit is negative",
+  "D": "keeps only the lower boundary and ignores that the profit becomes negative again after x = 40"
+ },
+ "explanation": "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** $P(x) = -3(x^{2} - 55x + 600) = -3(x - 15)(x - 40)$. The parabola opens downward, so $P(x) > 0$ between the zeros: $15 < x < 40$.\n\n**The Full Solution:**\nStep 1: Factor out $-3$: $P(x) = -3\\left(x^{2} - 55x + 600\\right)$. The numbers $15$ and $40$ have product $600$ and sum $55$, so $P(x) = -3(x - 15)(x - 40)$.\nStep 2: The zeros are $x = 15$ and $x = 40$. Because the leading coefficient $-3$ is negative, the graph opens downward and is above the x-axis only between its zeros.\nStep 3: So the daily profit is positive for $15 < x < 40$. Check $x = 20$: $P(20) = -3(400) + 165(20) - 1{,}800 = -1{,}200 + 3{,}300 - 1{,}800 = 300 > 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-40 < x < -15$): flips the signs when reading zeros from $(x - 15)(x - 40)$; the zeros are $15$ and $40$, not $-15$ and $-40$.\n* Choice C ($x < 15$ or $x > 40$): these are the values where a downward-opening parabola is below the x-axis, so the profit is negative there.\n* Choice D ($x > 15$): uses only the first zero; for example, $P(50) = -3(35)(10) = -1{,}050$, so the profit is negative again beyond $40$.\n\n**Test Day Takeaway:** For a quadratic inequality, find the zeros, then use the sign of the leading coefficient: a downward-opening parabola is positive between its zeros and negative outside them."
 }

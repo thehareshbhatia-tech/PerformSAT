@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 2,
- "passage": "Cork is harvested by stripping the cork oak's thick outer bark in sheets, a layer the living tree regrows over the following decade. Because the harvest removes no living wood beneath the bark, a skilled crew ______ the tree itself, and a single oak may yield a dozen harvests across a productive life of nearly two centuries.",
+ "passage": "Cork is harvested by stripping the cork oak's thick outer bark in sheets, a layer the living tree regrows over the following nine years or so. Because the harvest removes no living wood beneath the bark, a skilled crew ______ the tree itself, and a single oak may be stripped about fifteen times over a life that can exceed two centuries.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** \"Because the harvest removes no living wood\" sets up the consequence: the crew leaves the tree unharmed — \"spares\" it — which is why one oak can be harvested a dozen times over two centuries.\n\n**The Full Solution:**\n- The causal clue: nothing living is removed, so the tree survives the harvest intact.\n- The follow-on clause depends on that survival — repeated harvests across a productive life of nearly two centuries.\n- \"Spares\" means to refrain from harming, exactly the relationship between crew and tree.\n\n**Why the other choices are wrong:**\n- B: \"Examines\" would have the crew inspecting the tree, but the sentence is about the harvest's effect on it, not an inspection.\n- A: \"Prunes\" means cutting living branches away — precisely the kind of removal the sentence rules out.\n- C: \"Cultivates\" means to tend and raise a plant over time, a broader activity than the harvesting the clause describes."
+ "explanation": "**Choice D is correct.** \"Because the harvest removes no living wood\" sets up the consequence: the crew leaves the tree unharmed — \"spares\" it — which is why one oak can be stripped about fifteen times over its life.\n\n**The Full Solution:**\n- The causal clue: nothing living is removed, so the tree survives the harvest intact.\n- The follow-on clause depends on that survival — repeated harvests over a life that can exceed two centuries.\n- \"Spares\" means to refrain from harming, exactly the relationship between crew and tree.\n\n**Why the other choices are wrong:**\n- B: \"Examines\" would have the crew inspecting the tree, but the sentence is about the harvest's effect on it, not an inspection.\n- A: \"Prunes\" means cutting living branches away — precisely the kind of removal the sentence rules out.\n- C: \"Cultivates\" means to tend and raise a plant over time, a broader activity than the harvesting the clause describes."
 }

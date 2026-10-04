@@ -10,33 +10,32 @@
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
    "Maria Sibylla Merian (1647-1717) was a German-born naturalist and artist.",
-   "In her lifetime, many European scholars still believed that insects arose spontaneously from mud or rotting matter.",
-   "Merian raised insects from the egg through every stage of life, painting caterpillars, cocoons, and adults together with the plants each species fed on.",
-   "In 1699 she traveled to Suriname and later published a pioneering illustrated study of its insects based on direct observation.",
-   "For two centuries after her death she was remembered mostly as a flower painter, and some of her observations were dismissed as fanciful.",
-   "Historians of science who have re-examined her books now identify her as a founder of the study of insect life cycles."
+   "In her time, many Europeans believed that insects arose spontaneously from mud.",
+   "Merian raised insects and painted every stage of their lives, from egg to adult, together with the plants each species fed on.",
+   "In 1699 she traveled to Suriname, and in 1705 she published an illustrated study of its insects.",
+   "Her work showed that insects develop through a life cycle rather than arising from mud."
   ],
-  "goal": "The student wants to emphasize how renewed attention to Merian's work has changed her reputation."
+  "goal": "The student wants to emphasize how Merian's work challenged a common belief of her time."
  },
  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
  "choices": [
   {
    "id": "A",
-   "text": "Maria Sibylla Merian, a German-born naturalist and artist who lived from 1647 to 1717, patiently raised insects from the egg through every successive stage of their lives, painting them alongside the plants each species fed on."
+   "text": "Maria Sibylla Merian (1647-1717), a German-born naturalist and artist, raised insects and painted every stage of their lives alongside the plants they fed on."
   },
   {
    "id": "B",
-   "text": "In Merian's lifetime, many European scholars still believed that insects arose spontaneously from mud or from rotting matter."
+   "text": "In Merian's time, many Europeans believed that insects arose spontaneously from mud."
   },
   {
    "id": "C",
-   "text": "In 1699 Merian traveled to Suriname, where she gathered the direct observations behind her pioneering illustrated study of the region's insects."
+   "text": "In 1699 Merian traveled to Suriname, and in 1705 she published an illustrated study of the region's insects."
   },
   {
    "id": "D",
-   "text": "Long remembered mostly as a flower painter, Merian is now identified by historians who have re-examined her books as a founder of the study of insect life cycles."
+   "text": "Merian's paintings of insects at every stage from egg to adult revealed a life cycle, countering the common belief that insects arose from mud."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The goal is the change in Merian's reputation, and D is built on that change: the old standing (\"long remembered mostly as a flower painter\") set against the new one (\"now identified...as a founder of the study of insect life cycles\"), with the historians' re-examination as the cause.\n\n**The Full Solution:**\n- The goal requires a before, an after, and the renewed attention that connects them.\n- D supplies all three: the flower-painter reputation, the historians' re-examination of her books, and the founder status that resulted.\n- Its \"Long remembered...is now identified\" frame is the reputational turn itself.\n\n**Why the other choices are wrong:**\n- A: It details her methods and artistry but never mentions how she was regarded, then or now.\n- B: It describes her contemporaries' beliefs about insects, not anyone's view of Merian.\n- C: It reports the Suriname journey without touching either her long neglect or her modern reassessment."
+ "explanation": "**Choice D is correct.** The goal pairs Merian's work with the belief it challenged, and D does both: her paintings of every stage revealed a life cycle, set against \"the common belief that insects arose from mud.\"\n\n**The Full Solution:**\n- The goal requires two elements: the belief of her time and the way her work went against it.\n- D supplies both — the egg-to-adult paintings and the life cycle they revealed, contrasted with the common belief.\n- Its \"countering the common belief\" frame is the challenge itself.\n\n**Why the other choices are wrong:**\n- A: It details her methods and artistry but never mentions the belief her work contradicted.\n- B: It states the belief but leaves out Merian's work, so nothing challenges it.\n- C: It reports the Suriname journey and book without connecting them to any belief about insects."
 }

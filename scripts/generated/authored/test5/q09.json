@@ -6,12 +6,12 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 1,
- "passage": "Early in the fourth century CE, a mailbag was abandoned in a ruined watchtower west of Dunhuang, in what is now northwestern China. The letters inside, written in Sogdian by merchants from Central Asia, were never delivered — which is why they survive. Known as the Ancient Letters, they record prices, debts, consignments of musk and cloth, and anxious family news from a trading community scattered across a dozen towns. Historians prize the letters less for the goods they mention than for the workings they expose: credit extended across months of caravan travel, agents maintained in distant markets, and news relayed along the same routes that carried the merchandise.",
+ "passage": "In 1907, a mailbag was found in a ruined watchtower west of Dunhuang, in what is now northwestern China. The letters inside, written in Sogdian around 313 CE by merchants from Central Asia, never reached their recipients — which is why they survive. Known as the Ancient Letters, they record debts, shipments of musk and silk, and anxious family news from a trading community scattered across distant towns. Historians prize the letters less for the goods they mention than for the workings they expose: credit extended across long caravan journeys, agents kept in faraway markets, and news carried along the same routes as the merchandise.",
  "question": "Which choice best states the main idea of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "The Ancient Letters are valuable to historians chiefly because they record the prices that luxury goods such as musk commanded in the markets of the fourth century."
+   "text": "The Ancient Letters matter to historians chiefly because they show what luxury goods such as musk cost in fourth-century markets."
   },
   {
    "id": "B",
@@ -19,7 +19,7 @@
   },
   {
    "id": "C",
-   "text": "The abandonment of the mailbag near Dunhuang shows that long-distance trade in Central Asia had collapsed by the fourth century."
+   "text": "The discovery of the mailbag near Dunhuang shows that long-distance trade in Central Asia had collapsed by the fourth century."
   },
   {
    "id": "D",
@@ -27,7 +27,7 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The final sentence delivers the text's verdict: historians value the letters \"less for the goods they mention than for the workings they expose\" — credit, agents, and information moving through a scattered network.\n\n**The Full Solution:**\n- The first half of the text explains what the letters are and why they survive: an undelivered fourth-century mailbag.\n- The middle sentence inventories their contents: prices, debts, consignments, family news.\n- The last sentence establishes the main idea by ranking those contents: the letters' real value lies in what they show about how the network functioned — credit across months of travel, agents in distant markets, news moving with the goods. Choice B captures that hierarchy.\n\n**Why the other choices are wrong:**\n- A: It elevates the very detail the text explicitly subordinates; prices matter \"less\" than the network's workings.\n- C: It draws a collapse from a single lost mailbag, a conclusion nothing in the text supports.\n- D: It promotes family news to the letters' main function, though the text treats it as one item among commercial records.",
+ "explanation": "**Choice B is correct.** The final sentence delivers the text's verdict: historians value the letters \"less for the goods they mention than for the workings they expose\" — credit, agents, and information moving through a scattered network.\n\n**The Full Solution:**\n- The first half of the text explains what the letters are and why they survive: a fourth-century mailbag that was never delivered.\n- The middle sentence inventories their contents: debts, shipments of goods, family news.\n- The last sentence establishes the main idea by ranking those contents: the letters' real value lies in what they show about how the network functioned — credit across long journeys, agents in faraway markets, news moving with the goods. Choice B captures that hierarchy.\n\n**Why the other choices are wrong:**\n- A: It elevates the very detail the text explicitly subordinates; the goods matter \"less\" than the network's workings, and the text never mentions prices.\n- C: It draws a collapse from a single lost mailbag, a conclusion nothing in the text supports.\n- D: It promotes family news to the letters' main function, though the text treats it as one item among commercial records.",
  "_meta": {
   "anchor": "Sogdian Ancient Letters — undelivered mail revealing the workings of a trade network"
  }

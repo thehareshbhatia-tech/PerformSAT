@@ -6,7 +6,7 @@
   "band": 3,
   "domain": "information-and-ideas",
   "skill": "central-ideas-and-details",
-  "passage": "The cuttlefish is a master of disguise despite being colorblind. Its skin contains millions of pigment-filled sacs called chromatophores, each ringed by muscles that stretch the sac into a visible dot of color or let it shrink to near invisibility; beneath these lie reflective cells that return ambient light. To break up its outline on rough surfaces, the animal can also raise dozens of small bumps called papillae, changing the very texture of its skin from smooth to studded in under a second. Watching these systems work together, researchers can often tell what kind of background a cuttlefish is matching without seeing the background itself.",
+  "passage": "The cuttlefish is a master of disguise despite being colorblind. Its skin is packed with pigment-filled sacs called chromatophores, each ringed by muscles that stretch the sac into a visible dot of color or let it shrink to near invisibility; beneath these lie reflective cells that return ambient light. To break up its outline on rough surfaces, the animal can also raise small bumps called papillae, changing the texture of its skin from smooth to spiky in less than a second.",
   "question": "According to the text, how does a cuttlefish change the texture of its skin?",
   "choices": [
     {
@@ -27,5 +27,5 @@
     }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** The text ties texture change to one mechanism: the animal \"can also raise dozens of small bumps called papillae, changing the very texture of its skin from smooth to studded.\"\n\n**The Full Solution:**\n- The question asks specifically about texture, so the answer must come from the sentence about the skin's surface shape.\n- That sentence names the papillae as the feature raised to turn smooth skin studded — choice A restates it directly.\n\n**Why the other choices are wrong:**\n- B: The chromatophore muscles control color dots, not surface texture.\n- C: The pigment sacs are stretched or shrunk to show color; the text never says pigment is released, and color is not texture.\n- D: The reflective cells return ambient light; the text attributes no texture role to them and never mentions angling."
+  "explanation": "**Choice A is correct.** The text ties texture change to one mechanism: the animal \"can also raise small bumps called papillae, changing the texture of its skin from smooth to spiky.\"\n\n**The Full Solution:**\n- The question asks specifically about texture, so the answer must come from the sentence about the skin's surface shape.\n- That sentence names the papillae as the feature raised to turn smooth skin spiky — choice A restates it directly.\n\n**Why the other choices are wrong:**\n- B: The chromatophore muscles control dots of color, not surface texture.\n- C: The pigment sacs are stretched or shrunk to show color; the text never says pigment is released, and color is not texture.\n- D: The reflective cells return ambient light; the text attributes no texture role to them and never mentions angling."
 }

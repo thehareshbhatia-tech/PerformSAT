@@ -6,10 +6,10 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 1,
- "passage": "Removing salt from seawater always takes energy, but how much has fallen dramatically since the first large plants were built. Reviewing the typical energy budgets of seawater desalination plants by decade of construction, an engineer argues that the steepest gains came earliest and that each later generation of plants improved on its predecessor by a progressively smaller margin because ______",
+ "passage": "Removing salt from seawater always takes energy, but the amount that reverse-osmosis plants need has fallen dramatically since the first large ones were built. Reviewing the typical energy budgets of such plants by decade of construction, an engineer argues that the steepest gains came earliest and that each later generation of plants improved on its predecessor by a progressively smaller margin because ______",
  "questionTable": {
   "type": "table",
-  "caption": "Typical energy required by large seawater desalination plants, by decade of construction (kilowatt-hours per cubic meter of fresh water)",
+  "caption": "Typical energy required by large seawater reverse-osmosis desalination plants, by decade of construction (kilowatt-hours per cubic meter of fresh water)",
   "headers": [
    "Decade",
    "Energy (kWh per cubic meter)"

@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 1,
- "passage": "In the 1890s, New York City reorganized its street-cleaning force: sweepers received white uniforms, each crew was assigned a fixed route, and schedules were published so residents knew when carts would pass. Reformers praised the new arrangement as ______, since every block was now swept at a predictable hour by a crew whose duties were clearly defined.",
+ "passage": "In 1895, New York City's new street-cleaning commissioner reorganized his department along military lines: sweepers were issued white uniforms, and the removal of ash, rubbish, and garbage was split into separate, precisely defined systems. Admirers praised the new arrangement as ______, since each kind of refuse now had its own procedure and every worker's duties were clearly defined.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
@@ -27,7 +27,7 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The reforms described are all about order and regularity, and \"methodical\" means carried out according to a systematic plan.\n\n**The Full Solution:**\n- The text lists three changes: uniforms, fixed routes, and published schedules.\n- The clause after the blank restates the theme: predictable hours, clearly defined duties.\n- The word must capture systematic organization, which is precisely what \"methodical\" means.\n\n**Why the other choices are wrong:**\n- B: \"Inexpensive\" introduces cost, which the text never mentions.\n- C: \"Temporary\" contradicts the sense of an established routine with fixed routes and standing schedules.\n- D: \"Lenient\" describes mildness in enforcement, an idea with no basis in the text.",
+ "explanation": "**Choice A is correct.** The reforms described are all about order and regularity, and \"methodical\" means carried out according to a systematic plan.\n\n**The Full Solution:**\n- The text lists the changes: a military-style organization, uniforms, and separate, precisely defined systems for ash, rubbish, and garbage.\n- The clause after the blank restates the theme: a procedure for each kind of refuse, clearly defined duties.\n- The word must capture systematic organization, which is precisely what \"methodical\" means.\n\n**Why the other choices are wrong:**\n- B: \"Inexpensive\" introduces cost, which the text never mentions.\n- C: \"Temporary\" contradicts the sense of a reorganized department with standing, precisely defined systems.\n- D: \"Lenient\" describes mildness in enforcement, an idea with no basis in the text.",
  "_meta": {
   "anchor": "1890s New York street-cleaning reorganization — uniforms, fixed routes, published schedules"
  }

@@ -6,12 +6,12 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 1,
- "passage": "Star catalogs record the measured positions of stars on the sky, and their precision depends on the instruments behind them, from open-sighted quadrants to telescopes fitted with finely divided circles and, eventually, to an observatory in space. A student reviewing the history of positional astronomy claims that successive generations of instruments steadily sharpened astronomers' measurements and that the move from ground-based telescopes to a satellite produced by far the largest single improvement.",
+ "passage": "Star catalogs record the measured positions of stars, and their precision depends on the instruments behind them, from open-sighted quadrants to telescopes and, eventually, an observatory in space. A student reviewing the history of positional astronomy claims that each generation of instruments sharpened astronomers' measurements and that the move from ground-based telescopes to a satellite produced the largest single improvement.",
  "questionTable": {
   "type": "table",
-  "caption": "Typical positional uncertainty of star positions in selected catalogs",
+  "caption": "Typical uncertainty of star positions from selected sources",
   "headers": [
-   "Catalog (year)",
+   "Source (date)",
    "Typical uncertainty (arcseconds)"
   ],
   "rows": [
@@ -21,15 +21,15 @@
    ],
    [
     "Flamsteed's catalog (1725)",
-    "about 10"
+    "about 40"
    ],
    [
-    "Bradley's observations (1755)",
-    "about 2"
-   ],
-   [
-    "Bessel's catalog (1830)",
+    "Bradley's observations (1750s)",
     "about 1"
+   ],
+   [
+    "Ground-based catalogs (late 1980s)",
+    "about 0.1"
    ],
    [
     "Hipparcos satellite catalog (1997)",
@@ -41,11 +41,11 @@
  "choices": [
   {
    "id": "A",
-   "text": "Uncertainty shrank at every step listed, from about 60 arcseconds in 1598 to about 1 arcsecond by 1830, and then fell by a factor of about a thousand with the Hipparcos satellite catalog."
+   "text": "Uncertainty shrank at every step listed, from about 60 arcseconds in 1598 to about 0.1 arcsecond in the late 1980s, and then fell a hundredfold with the Hipparcos satellite catalog."
   },
   {
    "id": "B",
-   "text": "Flamsteed's 1725 catalog, with a typical uncertainty of about 10 arcseconds, was roughly six times as precise as Tycho Brahe's catalog of 1598."
+   "text": "Flamsteed's 1725 catalog, with a typical uncertainty of about 40 arcseconds, was more precise than Tycho Brahe's catalog of 1598."
   },
   {
    "id": "C",
@@ -53,11 +53,11 @@
   },
   {
    "id": "D",
-   "text": "Between 1598 and 1830, the typical uncertainty of ground-based catalogs improved from about 60 arcseconds to about 1 arcsecond."
+   "text": "Between 1598 and the late 1980s, the typical uncertainty of ground-based star positions improved from about 60 arcseconds to about 0.1 arcsecond."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The claim has two parts — steady improvement across generations and a largest single leap from the satellite — and A alone documents both: shrinking uncertainty at every listed step, then a thousandfold drop with Hipparcos.\n\n**The Full Solution:**\n- \"Steadily sharpened\" requires the whole sequence, not one pair: A covers the full run from 60 arcseconds to 1 arcsecond across the ground-based catalogs.\n- \"By far the largest single improvement\" requires comparing the satellite step with the earlier ones: A's factor of about a thousand dwarfs the factor-of-60 improvement accumulated over the previous 232 years.\n- Only a choice that cites the trend and the final leap together can support the two-part claim.\n\n**Why the other choices are wrong:**\n- B: It documents a single early improvement, which cannot establish a steady trend or say anything about the satellite.\n- C: It reports the endpoint alone; without earlier values, no improvement of any size is demonstrated.\n- D: It covers the ground-based era but stops at 1830, omitting the satellite leap the claim singles out.",
+ "explanation": "**Choice A is correct.** The claim has two parts — improvement with each generation and a largest single leap from the satellite — and A alone documents both: shrinking uncertainty at every listed step, then a hundredfold drop with Hipparcos.\n\n**The Full Solution:**\n- \"Each generation... sharpened\" requires the whole sequence, not one pair: A covers the full run from about 60 arcseconds in 1598 to about 0.1 arcsecond for ground-based catalogs of the late 1980s.\n- \"The largest single improvement\" requires comparing the satellite step with the earlier ones: the hundredfold drop from 0.1 to 0.001 arcsecond exceeds every earlier step in the table, the biggest of which (Flamsteed to Bradley) is about fortyfold.\n- Only a choice that cites the trend and the final leap together can support the two-part claim.\n\n**Why the other choices are wrong:**\n- B: It documents a single early improvement, which cannot establish the trend or say anything about the satellite.\n- C: It reports the endpoint alone; without earlier values, no improvement of any size is demonstrated.\n- D: It covers the ground-based era but stops before the satellite leap the claim singles out.",
  "_meta": {
   "anchor": "positional-astronomy catalogs — instrument generations shrinking measurement uncertainty"
  }

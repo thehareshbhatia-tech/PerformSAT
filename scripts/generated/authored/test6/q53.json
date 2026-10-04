@@ -10,9 +10,9 @@
     "intro": "While researching a topic, a student has taken the following notes:",
     "bullets": [
       "Most Amazonian soils are poor: heavy rains leach away nutrients, and cleared fields often become infertile within a few years.",
-      "Scattered along the Amazon and its tributaries are patches of deep black soil known as terra preta, some covering many hectares.",
-      "Terra preta is rich in charcoal, pottery fragments, and nutrients, and it remains fertile after centuries of cultivation.",
-      "The soil scientist Wim Sombroek helped show that terra preta was created by pre-Columbian communities, whose settlements enriched the ground with charcoal and organic refuse.",
+      "Scattered along the Amazon and its tributaries are patches of deep black soil known as terra preta.",
+      "Terra preta is rich in charcoal and nutrients, and it remains fertile after centuries of cultivation.",
+      "The soil scientist Wim Sombroek helped show that terra preta was created by pre-Columbian communities.",
       "Researchers study terra preta as evidence that large, settled populations once farmed the Amazon basin."
     ],
     "goal": "The student wants to introduce terra preta to an audience unfamiliar with it."
@@ -21,7 +21,7 @@
   "choices": [
     {
       "id": "A",
-      "text": "Wim Sombroek helped show that pre-Columbian communities enriched Amazonian ground with charcoal and organic refuse."
+      "text": "The soil scientist Wim Sombroek helped show that pre-Columbian communities created the soil."
     },
     {
       "id": "B",
@@ -37,5 +37,5 @@
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** An introduction for unfamiliar readers must name the thing, say what it is, and convey why it is notable — B does all three: the name, the definition (deep black soil in Amazonian patches), and the striking property (centuries of fertility where soils are otherwise quickly spent).\n\n**The Full Solution:**\n- The audience knows nothing, so the sentence must be self-contained: term plus identification plus significance.\n- B compresses the second and third notes into the identification and borrows the first note's contrast to make the significance legible at first read.\n\n**Why the other choices are wrong:**\n- A: It reports Sombroek's finding without ever naming or describing terra preta — an unfamiliar reader cannot tell what was enriched or why it matters.\n- C: It is all background: the region's poor soils are described, and terra preta never appears.\n- D: It states significance for researchers but assumes the reader already knows what terra preta is — the one thing this audience lacks."
+  "explanation": "**Choice B is correct.** An introduction for unfamiliar readers must name the thing, say what it is, and convey why it is notable — B does all three: the name, the definition (deep black soil in Amazonian patches), and the striking property (centuries of fertility where soils are otherwise quickly spent).\n\n**The Full Solution:**\n- The audience knows nothing, so the sentence must be self-contained: term plus identification plus significance.\n- B compresses the second and third notes into the identification and borrows the first note's contrast to make the significance legible at first read.\n\n**Why the other choices are wrong:**\n- A: It reports Sombroek's finding without ever naming or describing terra preta — an unfamiliar reader cannot tell what soil is meant or why it matters.\n- C: It is all background: the region's poor soils are described, and terra preta never appears.\n- D: It states significance for researchers but assumes the reader already knows what terra preta is — the one thing this audience lacks."
 }

@@ -1,29 +1,29 @@
 {
  "id": 20,
- "question": "A proportional enlargement of a triangular appliqué patch turns edges of $8$, $15$, and $17$ centimeters into a patch of perimeter $100$ centimeters. The enlarged patch's area is $k$ times the original patch's area. What is the value of $k$?",
+ "question": "Triangle $ABC$ has side lengths $8$, $15$, and $17$. Triangle $DEF$ is similar to triangle $ABC$ and has a perimeter of $100$. What is the area, in square units, of triangle $DEF$?",
  "choices": [
   {
    "id": "A",
-   "text": "$2.5$"
+   "text": "$150$"
   },
   {
    "id": "B",
-   "text": "$5$"
+   "text": "$300$"
   },
   {
    "id": "C",
-   "text": "$6.25$"
+   "text": "$375$"
   },
   {
    "id": "D",
-   "text": "$15.625$"
+   "text": "$750$"
   }
  ],
- "distractorNotes": {
-  "A": "reports the linear scale factor 100/40 = 2.5 itself, which scales lengths rather than areas",
-  "B": "doubles the linear scale factor, 2(2.5) = 5, instead of squaring it",
-  "D": "cubes the linear scale factor, 2.5^3 = 15.625, which is the rule for volumes of similar solids"
- },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Similar Triangles and Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The original perimeter is $8 + 15 + 17 = 40$ cm, so the scale factor is $\\frac{100}{40} = 2.5$. Areas of similar figures scale by the square of that factor: $2.5^2 = 6.25$.\n\n**The Full Solution:**\nStep 1: A perimeter is a sum of lengths, so it scales by the same factor every edge does. The original perimeter is $8 + 15 + 17 = 40$ cm and the enlarged perimeter is $100$ cm, so each length is multiplied by $\\frac{100}{40} = 2.5$.\nStep 2: Every length is multiplied by $2.5$, so both the base and the height of the triangle are multiplied by $2.5$, and the area — a product of two lengths — is multiplied by $2.5 \\times 2.5 = 6.25$. Hence $k = 6.25$.\nStep 3: Check with actual areas. Because $8^2 + 15^2 = 64 + 225 = 289 = 17^2$, the patch is a right triangle with area $\\frac{1}{2}(8)(15) = 60$ cm$^2$. The enlarged edges are $20$, $37.5$, and $42.5$ cm, which do sum to $100$ cm, and the enlarged area is $\\frac{1}{2}(20)(37.5) = 375$ cm$^2$, giving $\\frac{375}{60} = 6.25$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.5$): this is the ratio of the perimeters, which is the ratio of the lengths. It answers how many times longer the new edges are, not how many times larger the area is.\n* Choice B ($5$): doubling the scale factor. Area involves two perpendicular lengths, so the factor is squared, not doubled.\n* Choice D ($15.625$): cubing applies to volumes of similar solids. A flat patch has area, so the exponent is $2$.\n\n**Test Day Takeaway:** For similar figures, lengths scale by $r$, areas by $r^2$, and volumes by $r^3$. Perimeter scales like a length, so a pair of perimeters gives $r$ directly — then raise it to the power the question's dimension calls for."
+ "distractorNotes": {
+  "A": "multiplies the area of triangle ABC, 60, by the length scale factor 2.5 instead of its square",
+  "B": "multiplies the area 60 by twice the scale factor, 2(2.5) = 5, instead of squaring it",
+  "D": "uses 8 x 15 = 120 as the area of triangle ABC, forgetting the 1/2, and then multiplies by 6.25"
+ },
+ "explanation": "**SAT Pattern: Similar Triangles and Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Triangle $ABC$ is a right triangle with area $\\frac{1}{2}(8)(15) = 60$ and perimeter $40$. The scale factor is $\\frac{100}{40} = 2.5$, so the area of $DEF$ is $60(2.5)^{2} = 375$.\n\n**The Full Solution:**\nStep 1: Since $8^{2} + 15^{2} = 64 + 225 = 289 = 17^{2}$, triangle $ABC$ is a right triangle with legs $8$ and $15$, so its area is $\\frac{1}{2}(8)(15) = 60$.\nStep 2: The perimeter of triangle $ABC$ is $8 + 15 + 17 = 40$, so the scale factor from $ABC$ to $DEF$ is $\\frac{100}{40} = 2.5$.\nStep 3: Areas of similar figures scale by the square of the scale factor: $60(2.5)^{2} = 60(6.25) = 375$. Check: the sides of $DEF$ are $20$, $37.5$, and $42.5$, with perimeter $100$ and area $\\frac{1}{2}(20)(37.5) = 375$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($150$): scales the area by $2.5$, the factor for lengths, not areas.\n* Choice B ($300$): multiplies by $2 \\times 2.5 = 5$ instead of $2.5^{2} = 6.25$.\n* Choice D ($750$): uses $8 \\times 15 = 120$ for the original area, leaving out the $\\frac{1}{2}$.\n\n**Test Day Takeaway:** Perimeters of similar figures scale by the scale factor $k$, but areas scale by $k^{2}$; find $k$ from the lengths first."
 }

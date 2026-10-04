@@ -6,35 +6,35 @@
   "band": 4,
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-quantitative",
-  "passage": "Cochineal, a scarlet dye harvested from insects raised on cactus in southern Mexico, was colonial Spanish America's most valuable export after silver, and registered shipments were tallied at the port of Veracruz before the Atlantic crossing. Economic historians examining those tallies alongside European price records have argued that the dye trade's turbulence originated in Europe rather than in Mexico: production, they claim, held roughly steady across the late eighteenth century even as prices in Amsterdam swung sharply with war and peace on the shipping lanes.",
+  "passage": "Cocoa prices on world markets are notoriously volatile. A team of economists studying the records of one cocoa-growing cooperative has argued that the cooperative's financial turbulence originated in the market rather than in its fields: its harvests, they claim, held roughly steady across the years they examined even as the price buyers paid swung sharply.",
   "questionTable": {
     "type": "table",
-    "caption": "Registered cochineal exports from Veracruz and Amsterdam wholesale prices, five-year averages",
+    "caption": "Annual harvest and average price received by a cocoa-growing cooperative in selected years",
     "headers": [
-      "Period",
-      "Exports (thousands of pounds per year)",
-      "Amsterdam price (guilders per pound)"
+      "Year",
+      "Harvest (metric tons)",
+      "Average price received (dollars per kilogram)"
     ],
     "rows": [
       [
-        "1758-1762",
-        "720",
-        "21"
+        "2015",
+        "410",
+        "3.20"
       ],
       [
-        "1776-1780",
-        "690",
-        "34"
+        "2017",
+        "395",
+        "2.60"
       ],
       [
-        "1781-1785",
-        "710",
-        "19"
+        "2019",
+        "405",
+        "2.10"
       ],
       [
-        "1793-1797",
-        "730",
-        "30"
+        "2021",
+        "420",
+        "3.90"
       ]
     ]
   },
@@ -42,21 +42,21 @@
   "choices": [
     {
       "id": "A",
-      "text": "Exports stayed between 690 and 730 thousand pounds per year across every period shown, while the Amsterdam price swung between 19 and 34 guilders per pound."
+      "text": "The harvest stayed between 395 and 420 metric tons in every year shown, while the price swung between 2.10 and 3.90 dollars per kilogram."
     },
     {
       "id": "B",
-      "text": "The Amsterdam price reached its peak of 34 guilders per pound in the period from 1776 to 1780."
+      "text": "The price the cooperative received reached its peak of 3.90 dollars per kilogram in 2021."
     },
     {
       "id": "C",
-      "text": "Registered exports of cochineal were higher in the five-year period from 1793 to 1797 than in any of the three earlier periods for which the table reports shipment figures."
+      "text": "The cooperative's harvest was larger in 2021, at 420 metric tons, than in any of the three earlier years for which the table reports harvest figures."
     },
     {
       "id": "D",
-      "text": "The Amsterdam price rose whenever exports from Veracruz fell and fell whenever exports rose."
+      "text": "The price rose whenever the cooperative's harvest fell and fell whenever its harvest rose."
     }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** The claim has two coordinated parts — steady Mexican production, volatile European prices — and A documents both: exports confined to a narrow 690-730 band while prices ranged from 19 to 34 guilders.\n\n**The Full Solution:**\n- Steady production shows in the export column's tight spread (roughly six percent end to end).\n- European turbulence shows in the price column's swings (nearly doubling and falling back).\n- Placing the stable series beside the volatile one is what locates the turbulence in Europe — exactly the argument's structure.\n\n**Why the other choices are wrong:**\n- B: A single price peak shows neither sustained volatility nor anything about production.\n- C: Ranking the export periods works against the claim, which needs exports to be effectively flat, and it ignores prices altogether.\n- D: The table contradicts this tidy inverse rule — between 1781-1785 and 1793-1797, exports rose and the price rose too."
+  "explanation": "**Choice A is correct.** The claim has two coordinated parts — steady harvests, volatile prices — and A documents both: harvests confined to a narrow 395-420 band while prices ranged from 2.10 to 3.90 dollars per kilogram.\n\n**The Full Solution:**\n- Steady production shows in the harvest column's tight spread (about six percent from lowest to highest).\n- Market turbulence shows in the price column's swings (falling by a third, then nearly doubling).\n- Placing the stable series beside the volatile one is what locates the turbulence in the market — exactly the argument's structure.\n\n**Why the other choices are wrong:**\n- B: A single price peak shows neither sustained volatility nor anything about the harvests.\n- C: Ranking the harvest years works against the claim, which needs harvests to be effectively flat, and it ignores prices altogether.\n- D: The table contradicts this tidy inverse rule — between 2015 and 2017, the harvest fell and the price fell too."
 }

@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 1,
- "passage": "In the first years of the twentieth century, reformers in American cities campaigned for supervised playgrounds, arguing that children crowded into tenement districts needed protected places to play. Cities responded by carving hundreds of small parks out of dense neighborhoods, fitting them with swings and sandboxes and staffing them with trained play leaders. ______ many of those early playgrounds, their original equipment long since replaced, still occupy the very blocks the reformers secured for them.",
+ "passage": "In the early twentieth century, reformers in American cities campaigned for supervised playgrounds, arguing that children in crowded tenement districts needed safe places to play. Cities responded by carving small parks out of dense neighborhoods and staffing them with trained play leaders. ______ many of those playgrounds, their original equipment long since replaced, still occupy the blocks the reformers secured for them.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,7 +27,7 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The passage moves from the early twentieth century to the present, and \"Today\" is the transition that marks that shift in time.\n\n**The Full Solution:**\n- The first two sentences narrate a historical campaign and the cities' response, both set \"in the first years of the twentieth century.\"\n- The final sentence reports the situation now: the playgrounds \"still occupy\" their blocks, with equipment \"long since replaced.\"\n- A sentence that jumps from past events to their present survival needs a time-marking transition, and \"Today\" supplies exactly that.\n\n**Why the other choices are wrong:**\n- A: \"In contrast\" requires an opposition, but the final sentence confirms the campaign's legacy rather than opposing it.\n- B: \"Similarly\" introduces a parallel case, yet the sentence continues with the same playgrounds, not a comparable new example.\n- D: \"For instance\" promises an example of a general claim, but the preceding sentences state events, not a generalization to be illustrated.",
+ "explanation": "**Choice C is correct.** The passage moves from the early twentieth century to the present, and \"Today\" is the transition that marks that shift in time.\n\n**The Full Solution:**\n- The first two sentences narrate a historical campaign and the cities' response, both set \"in the early twentieth century.\"\n- The final sentence reports the situation now: the playgrounds \"still occupy\" their blocks, with equipment \"long since replaced.\"\n- A sentence that jumps from past events to their present survival needs a time-marking transition, and \"Today\" supplies exactly that.\n\n**Why the other choices are wrong:**\n- A: \"In contrast\" requires an opposition, but the final sentence confirms the campaign's legacy rather than opposing it.\n- B: \"Similarly\" introduces a parallel case, yet the sentence continues with the same playgrounds, not a comparable new example.\n- D: \"For instance\" promises an example of a general claim, but the preceding sentences state events, not a generalization to be illustrated.",
  "_meta": {
   "anchor": "Progressive-era playground movement; then-to-now time transition"
  }

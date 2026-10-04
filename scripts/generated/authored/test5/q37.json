@@ -6,7 +6,7 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 2,
- "passage": "Before drawing conclusions from a fossil deposit, paleontologists must ask how far its bones traveled before burial: an assemblage swept together by a river tells a different story than animals buried where they died. To calibrate the signs of transport, researchers have run controlled experiments, placing fresh bones in rotating drums with water and gravel to mimic the tumbling of river transport over distances equivalent to many kilometers. The outcomes were consistent: projecting edges and crests rounded off first, fine surface traces such as cut marks and gnaw marks wore away, and the smallest bones lost mass fastest. Matching the wear on excavated bones to these experimental stages lets researchers estimate how far a specimen moved before it came to rest.",
+ "passage": "Before drawing conclusions from a fossil deposit, paleontologists must ask how far its bones traveled before burial: bones swept together by a river tell a different story than animals buried where they died. To calibrate the signs of transport, researchers have tumbled fresh bones in rotating drums with water and gravel, mimicking the battering of river transport over long distances. Projecting edges and crests rounded off first, and fine surface traces such as cut marks and gnaw marks wore away. Matching the wear on excavated bones to these experimental stages lets researchers estimate how far a specimen moved.",
  "question": "Based on the text, what happened when researchers tumbled fresh bones with water and gravel?",
  "choices": [
   {
@@ -23,11 +23,11 @@
   },
   {
    "id": "D",
-   "text": "The bones showed no measurable change until the equivalent of many kilometers had passed."
+   "text": "The bones showed no measurable change until they had been tumbled for a very long time."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The text reports the experimental outcome directly: \"projecting edges and crests rounded off first, fine surface traces such as cut marks and gnaw marks wore away.\"\n\n**The Full Solution:**\n- The question asks for the result of the tumbling experiments, which the sentence beginning \"The outcomes were consistent\" itemizes.\n- Its first two items are precisely choice C's contents: rounding of projecting edges, loss of fine surface marks.\n- The third item, small bones losing mass fastest, is additional detail consistent with C rather than contrary to it.\n\n**Why the other choices are wrong:**\n- A: Fragmentation beyond identification is never reported; the bones wore progressively, which is what makes the stages usable for calibration.\n- B: Hardening reverses the finding — the marks wore away instead of being protected.\n- D: The text describes an ordered sequence of wear (\"rounded off first\"), not an absence of change followed by sudden damage.",
+ "explanation": "**Choice C is correct.** The text reports the experimental outcome directly: \"Projecting edges and crests rounded off first, and fine surface traces such as cut marks and gnaw marks wore away.\"\n\n**The Full Solution:**\n- The question asks for the result of the tumbling experiments, which the sentence after the description of the drums states.\n- That sentence names two changes, and they are precisely choice C's contents: rounding of projecting edges and loss of fine surface marks.\n- The final sentence confirms that these changes came in stages that researchers can match against excavated bones.\n\n**Why the other choices are wrong:**\n- A: Fragmentation beyond identification is never reported; the bones wore progressively, which is what makes the stages usable for calibration.\n- B: Hardening reverses the finding — the marks wore away instead of being protected.\n- D: The text describes an ordered sequence of wear (edges \"rounded off first\"), not an absence of change followed by sudden damage.",
  "_meta": {
   "anchor": "taphonomy tumbling experiments — calibrating bone wear to transport distance"
  }

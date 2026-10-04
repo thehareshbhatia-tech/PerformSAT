@@ -33,19 +33,19 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "A technician records three pairs of measurements in the table. Each recorded pair is a solution of both equations of a system of two linear equations in $x$ and $y$. How many solutions does the system have?",
-  questionTable: { headers: ["Trial", "$x$ (mL)", "$y$ (mL)"], rows: [["$1$", "$2$", "$9$"], ["$2$", "$4$", "$5$"], ["$3$", "$5$", "$3$"]] },
+  question: "Each ordered pair $(x, y)$ in the table is a solution to both equations in a system of two linear equations. How many solutions does the system have?",
+  questionTable: { headers: ["$x$", "$y$"], rows: [["$2$", "$9$"], ["$4$", "$5$"], ["$5$", "$3$"]] },
   choices: [
-    // distractor: treats a system whose graphs coincide as inconsistent (no solution)
-    { id: "A", text: "None" },
-    // distractor: assumes every system of two linear equations meets in exactly one point
+    // distractor: treats a system whose graphs coincide as having no solution
+    { id: "A", text: "Zero" },
+    // distractor: assumes every system of two linear equations has exactly one solution
     { id: "B", text: "Exactly one" },
-    // distractor: counts only the three recorded pairs as the solution set
+    // distractor: counts only the three ordered pairs shown in the table
     { id: "C", text: "Exactly three" },
     { id: "D", text: "Infinitely many" }
   ],
   correctAnswer: "D",
-  explanation: "**SAT Pattern: Same Line (Infinitely Many Solutions)**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Two distinct points already determine one line, so two linear graphs that share three points are the same line. Every point of that line solves both equations, so the system has infinitely many solutions.\n\n**The Full Solution:**\nStep 1: Each equation of the system is linear, so each graph is a line, and the table says all three pairs $(2, 9)$, $(4, 5)$, and $(5, 3)$ lie on both lines.\nStep 2: Exactly one line passes through two distinct points. Both lines contain $(2, 9)$ and $(4, 5)$, so the two lines are the same line. The recorded pairs are consistent with that: the slope from $(2, 9)$ to $(4, 5)$ is $-2$, and the slope from $(4, 5)$ to $(5, 3)$ is also $-2$.\nStep 3: Two coincident lines share every one of their points, so the system has infinitely many solutions. Check with the shared line $y = -2x + 13$: at $x = 4$ it gives $y = 5$, which is the recorded pair in trial $2$, and every other $x$ produces another solution. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (None): a system of two linear equations has no solution only when the lines are parallel and distinct; here the lines cannot be distinct, because they share three points.\n* Choice B (Exactly one): this is the usual case, but two distinct lines can cross at most once, and these graphs agree at three different points.\n* Choice C (Exactly three): this counts only the pairs the technician happened to record; every point on the shared line is also a solution.\n\n**Test Day Takeaway:** When two linear equations are satisfied by more than one common point, the equations describe the same line — answer infinitely many, not the number of points listed.",
+  explanation: "**SAT Pattern: Same Line (Infinitely Many Solutions)**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Exactly one line passes through two distinct points, so two lines that share the three points in the table are the same line. Every point on that line is a solution to both equations, so the system has infinitely many solutions.\n\n**The Full Solution:**\nStep 1: Each equation in the system is linear, so the graph of each equation is a line, and all three pairs $(2, 9)$, $(4, 5)$, and $(5, 3)$ lie on both lines.\nStep 2: Both lines contain the two distinct points $(2, 9)$ and $(4, 5)$, and only one line passes through two distinct points, so the two lines are the same line. The table agrees: the slope from $(2, 9)$ to $(4, 5)$ is $\\frac{5 - 9}{4 - 2} = -2$, and the slope from $(4, 5)$ to $(5, 3)$ is $\\frac{3 - 5}{5 - 4} = -2$.\nStep 3: Two equations whose graphs are the same line share every point of that line, so the system has infinitely many solutions. Check with the shared line $y = -2x + 13$: $-2(2) + 13 = 9$, $-2(4) + 13 = 5$, and $-2(5) + 13 = 3$, matching all three rows ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Zero): a system of two linear equations has no solution only when its lines are parallel and distinct, and these lines share three points.\n* Choice B (Exactly one): this is the usual case, but two distinct lines can intersect at most once, and these graphs share three different points.\n* Choice C (Exactly three): this counts only the pairs shown in the table; every other point on the shared line is also a solution.\n\n**Test Day Takeaway:** If two linear equations share two or more solutions, their graphs are the same line, so the system has infinitely many solutions, not just the ones listed.",
   skills: ["system-solution-types", "infinite-solutions-condition"]
 },
 {
@@ -53,18 +53,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "The masses, in milligrams, of nine crystals grown in a lab are $45$, $47$, $50$, $51$, $51$, $53$, $55$, $57$, and $212$. How do the mean and the median of these masses change if the crystal of mass $212$ milligrams is removed?",
+  question: "Data set A consists of the nine values $14$, $15$, $17$, $18$, $18$, $20$, $22$, $23$, and $91$. Data set B is created by removing $91$ from data set A. Which of the following correctly compares the means and the medians of the two data sets?",
   choices: [
-    { id: "A", text: "The mean decreases, and the median stays the same." },
+    { id: "A", text: "The mean of data set B is less than the mean of data set A, and the medians are equal." },
     // distractor: reverses the roles: says the outlier moves the median rather than the mean
-    { id: "B", text: "The mean stays the same, and the median decreases." },
+    { id: "B", text: "The mean of data set B is equal to the mean of data set A, and the median of data set B is less." },
     // distractor: assumes removing any value must move the median as well as the mean
-    { id: "C", text: "Both the mean and the median decrease." },
+    { id: "C", text: "The mean and the median of data set B are both less than those of data set A." },
     // distractor: assumes one value out of nine cannot change either measure
-    { id: "D", text: "Neither the mean nor the median changes." }
+    { id: "D", text: "The means of data sets A and B are equal, and the medians are equal." }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Outlier Effect**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The mean uses every value, so dropping the far-out $212$ pulls it down sharply. The median only depends on the middle of the ordered list, and the two central values are both $51$ either way.\n\n**The Full Solution:**\nStep 1: With all nine masses, the sum is $621$, so the mean is $\\frac{621}{9} = 69$ milligrams, and the fifth of the nine ordered values is the median, $51$ milligrams.\nStep 2: Without $212$, the sum is $409$ over eight values, so the mean is $\\frac{409}{8} = 51.125$ milligrams — a drop of almost $18$ milligrams.\nStep 3: The eight remaining values in order are $45$, $47$, $50$, $51$, $51$, $53$, $55$, $57$, so the median is the average of the fourth and fifth values, $\\frac{51 + 51}{2} = 51$ milligrams. Check: the median is $51$ before and $51$ after, while the mean falls from $69$ to $51.125$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (mean unchanged, median lower): this swaps the two measures. Removing a value from the sum must change the mean, while the median is protected by the repeated middle value $51$.\n* Choice C (both lower): the median is $51$ in both lists, so it does not decrease; only the mean does.\n* Choice D (neither changes): the mean is $69$ with the outlier and $51.125$ without it, so it clearly changes.\n\n**Test Day Takeaway:** An extreme value drags the mean toward itself and usually leaves the median alone — check the middle of the ordered list before claiming the median moved.",
+  explanation: "**SAT Pattern: Outlier Effect**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The mean uses every value, so removing the far-out value $91$ lowers it. The median depends only on the middle of the ordered list, and the middle values are $18$ in both data sets.\n\n**The Full Solution:**\nStep 1: Data set A has $9$ values with sum $238$, so its mean is $\\frac{238}{9} \\approx 26.4$; its median is the $5$th value, $18$.\nStep 2: Data set B has $8$ values with sum $238 - 91 = 147$, so its mean is $\\frac{147}{8} \\approx 18.4$, which is less than the mean of data set A.\nStep 3: The median of data set B is the average of its $4$th and $5$th values, $\\frac{18 + 18}{2} = 18$, the same as the median of data set A. Check: $18.4 < 26.4$ and $18 = 18$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: this reverses the roles of the two measures; an extreme value pulls the mean, not the median.\n* Choice C: this assumes removing a value must also shift the median, but the two middle values of data set B are both $18$.\n* Choice D: this assumes one value out of nine is too few to matter, but $91$ is far from the other values and pulls the mean up by about $8$.\n\n**Test Day Takeaway:** Removing an outlier moves the mean toward the rest of the data; the median moves little or not at all, so check the middle values directly.",
   skills: ["calculate-mean", "find-median"]
 },
 {
@@ -72,18 +72,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "Renting a scissor lift costs $\\$95$ for delivery plus $\\$40$ for each day it stays on site. Which equation gives the total cost $C$, in dollars, of renting the lift for $d$ days?",
+  question: "Renting a kayak costs \\$15 plus \\$9 per hour. The total cost of renting a kayak for $h$ hours is \\$69. Which equation represents this situation?",
   choices: [
-    // distractor: swaps the one-time delivery charge with the daily rate
-    { id: "A", text: "$C = 95d + 40$" },
-    // distractor: adds the delivery charge into the daily rate and charges it every day
-    { id: "B", text: "$C = 135d$" },
-    // distractor: subtracts the delivery charge instead of adding it
-    { id: "C", text: "$C = 40d - 95$" },
-    { id: "D", text: "$C = 40d + 95$" }
+    // distractor: swaps the one-time charge with the hourly rate
+    { id: "A", text: "$15h + 9 = 69$" },
+    // distractor: adds the one-time charge into the hourly rate and charges it every hour
+    { id: "B", text: "$24h = 69$" },
+    // distractor: subtracts the one-time charge instead of adding it
+    { id: "C", text: "$9h - 15 = 69$" },
+    { id: "D", text: "$9h + 15 = 69$" }
   ],
   correctAnswer: "D",
-  explanation: "**SAT Pattern: Linear Cost Setup**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The charge that repeats attaches to $d$ and the charge that happens once stands alone, so $C = 40d + 95$.\n\n**The Full Solution:**\nStep 1: The lift costs $\\$40$ for each day on site, so $d$ days of rental cost $40d$ dollars.\nStep 2: Delivery is charged one time no matter how long the lift stays, so it contributes the constant $95$ dollars.\nStep 3: The total is the sum of the two parts: $C = 40d + 95$. Check with $d = 3$: the equation gives $40(3) + 95 = 215$ dollars, which matches $\\$120$ for three days plus the $\\$95$ delivery. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($C = 95d + 40$): this attaches the one-time $\\$95$ to the number of days. At $d = 3$ it charges $\\$325$, which bills delivery three times.\n* Choice B ($C = 135d$): this rolls the delivery charge into the daily rate, giving $\\$405$ for three days instead of $\\$215$.\n* Choice C ($C = 40d - 95$): this subtracts delivery, giving only $\\$25$ for three days, less than the daily charges alone.\n\n**Test Day Takeaway:** Sort each amount into per-unit or one-time before writing the equation: per-unit amounts multiply the variable, one-time amounts are the constant.",
+  explanation: "**SAT Pattern: Linear Cost Setup**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The charge that repeats each hour multiplies $h$, and the one-time charge stands alone, so $9h + 15 = 69$.\n\n**The Full Solution:**\nStep 1: The kayak costs \\$9 for each hour, so $h$ hours cost $9h$ dollars.\nStep 2: The \\$15 charge is paid once, no matter how many hours, so the total cost is $9h + 15$ dollars.\nStep 3: The total cost is \\$69, so $9h + 15 = 69$. Check: this gives $9h = 54$, or $h = 6$, and $9(6) + 15 = 69$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($15h + 9 = 69$): swaps the two charges, multiplying the one-time \\$15 by the number of hours.\n* Choice B ($24h = 69$): adds the one-time charge to the hourly rate, which charges the \\$15 every hour.\n* Choice C ($9h - 15 = 69$): subtracts the one-time charge instead of adding it to the total.\n\n**Test Day Takeaway:** In a cost equation, the per-unit rate is the coefficient of the variable and the one-time charge is the constant term.",
   skills: ["word-problem-to-equation"]
 },
 {
@@ -91,18 +91,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "A distillation runs two identical passes of $x$ minutes each after $4$ minutes of heating, so the run lasts $2x + 4$ minutes. The two pass times for which the run differs from $50$ minutes by exactly $6$ satisfy $|2x - 46| = 6$. What is the greater of these two pass times?",
+  question: "$|2x - 7| = 11$\nWhat is the positive solution to the given equation?",
   choices: [
-    // distractor: reports the lesser solution, from the branch 2x - 46 = -6
-    { id: "A", text: "$20$" },
-    // distractor: solves 2x - 46 = 0, the pass time whose run is exactly 50 minutes
-    { id: "B", text: "$23$" },
-    { id: "C", text: "$26$" },
-    // distractor: stops at 2x = 52 and reports the doubled value instead of x
-    { id: "D", text: "$52$" }
+    // distractor: reports the negative solution, from the branch 2x - 7 = -11
+    { id: "A", text: "$-2$" },
+    // distractor: subtracts 7 instead of adding it, solving 2x = 11 - 7 = 4
+    { id: "B", text: "$2$" },
+    { id: "C", text: "$9$" },
+    // distractor: stops at 2x = 18 and reports 2x instead of x
+    { id: "D", text: "$18$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Absolute Value Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** An absolute value of $6$ means the inside equals $6$ or $-6$, so $2x = 52$ or $2x = 40$, giving $x = 26$ or $x = 20$. The greater pass time is $26$ minutes.\n\n**The Full Solution:**\nStep 1: The equation $|2x - 46| = 6$ splits into $2x - 46 = 6$ and $2x - 46 = -6$.\nStep 2: The first branch gives $2x = 52$, so $x = 26$. The second gives $2x = 40$, so $x = 20$.\nStep 3: The greater of the two pass times is $26$ minutes. Check: two $26$-minute passes after $4$ minutes of heating make a run of $2(26) + 4 = 56$ minutes, and $56$ differs from $50$ by exactly $6$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): this is the other solution, from the branch $2x - 46 = -6$. It is a valid pass time, but the question asks for the greater one.\n* Choice B ($23$): this comes from setting $2x - 46 = 0$, the pass time that makes the run exactly $50$ minutes, which ignores the required difference of $6$.\n* Choice D ($52$): this stops one step early at $2x = 52$ and reports the doubled quantity rather than the pass time $x$.\n\n**Test Day Takeaway:** Split an absolute-value equation into its two branches, solve both, and then reread which of the two solutions the question wants.",
+  explanation: "**SAT Pattern: Absolute Value Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The expression inside the absolute value equals $11$ or $-11$, so $2x = 18$ or $2x = -4$, giving $x = 9$ or $x = -2$. The positive solution is $9$.\n\n**The Full Solution:**\nStep 1: An absolute value equals $11$ when the expression inside equals $11$ or $-11$: $2x - 7 = 11$ or $2x - 7 = -11$.\nStep 2: Add $7$ to both sides of each equation: $2x = 18$ or $2x = -4$, so $x = 9$ or $x = -2$.\nStep 3: The positive solution is $9$. Check: $|2(9) - 7| = |11| = 11$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): this is the other solution of the equation, which is negative.\n* Choice B ($2$): subtracts $7$ instead of adding it, solving $2x = 11 - 7 = 4$.\n* Choice D ($18$): stops at $2x = 18$ and reports the value of $2x$ instead of $x$.\n\n**Test Day Takeaway:** Split an absolute value equation into two linear equations, solve both, and then pick the solution the question asks for.",
   skills: ["combining-like-terms"]
 },
 {
@@ -110,9 +110,9 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "On an elevation drawing, a diagonal brace lies along the line $5x - 2y = 18$. A second brace is parallel to the first and contains the point $(4, 5)$. At what $y$-coordinate does the second brace cross the $y$-axis?",
+  question: "In the $xy$-plane, line $k$ is parallel to the line $5x - 2y = 18$ and passes through the point $(4, 5)$. What is the $y$-coordinate of the $y$-intercept of line $k$?",
   choices: [
-    // distractor: keeps the first brace's constant 18 and reports that line's y-intercept
+    // distractor: keeps the given line's constant 18 and reports that line's y-intercept
     { id: "A", text: "$-9$" },
     { id: "B", text: "$-5$" },
     // distractor: divides 10 by -2 but keeps the result positive
@@ -121,7 +121,7 @@ export const practiceTest11 = {
     { id: "D", text: "$10$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Parallel lines in standard form differ only in the constant, so the second brace is $5x - 2y = c$ with $5(4) - 2(5) = 10$. Setting $x = 0$ gives $-2y = 10$, so $y = -5$.\n\n**The Full Solution:**\nStep 1: Two lines are parallel exactly when they have the same slope, and in standard form that happens when the $x$- and $y$-coefficients are the same. The second brace therefore has an equation of the form $5x - 2y = c$.\nStep 2: The point $(4, 5)$ lies on it, so $5(4) - 2(5) = 20 - 10 = 10$, which means $c = 10$ and the equation is $5x - 2y = 10$.\nStep 3: The line crosses the $y$-axis where $x = 0$: $-2y = 10$, so $y = -5$. Check: $(0, -5)$ satisfies $5(0) - 2(-5) = 10$, and both braces have slope $\\frac{5}{2}$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$): this uses the original constant, solving $-2y = 18$. That is the $y$-intercept of the first brace, not the parallel one through $(4, 5)$.\n* Choice C ($5$): this divides $10$ by $-2$ but drops the negative sign; substituting $(0, 5)$ gives $-10$, not $10$.\n* Choice D ($10$): this reports the constant $c$ from $5x - 2y = 10$ instead of solving for $y$ when $x = 0$.\n\n**Test Day Takeaway:** For a parallel line in standard form, keep both coefficients and recompute only the constant from the given point.",
+  explanation: "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** A line parallel to $5x - 2y = 18$ can be written as $5x - 2y = c$, and $(4, 5)$ gives $c = 5(4) - 2(5) = 10$. Setting $x = 0$ gives $-2y = 10$, so $y = -5$.\n\n**The Full Solution:**\nStep 1: Parallel lines have the same slope, so line $k$ has the same $x$- and $y$-coefficients as $5x - 2y = 18$ and differs only in the constant: $5x - 2y = c$.\nStep 2: Line $k$ passes through $(4, 5)$, so $c = 5(4) - 2(5) = 20 - 10 = 10$, and line $k$ is $5x - 2y = 10$.\nStep 3: The $y$-intercept has $x = 0$: $-2y = 10$, so $y = -5$. Check: in slope-intercept form, line $k$ is $y = \\frac{5}{2}x - 5$, which has slope $\\frac{5}{2}$ like the given line, and $\\frac{5}{2}(4) - 5 = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$): keeps the constant $18$ and gives the $y$-intercept of the given line, $-2y = 18$, instead of line $k$.\n* Choice C ($5$): divides $10$ by $-2$ but drops the negative sign.\n* Choice D ($10$): reports the constant $c$ in $5x - 2y = 10$ instead of solving for $y$ when $x = 0$.\n\n**Test Day Takeaway:** For a line parallel to $Ax + By = C$, keep $A$ and $B$, find the new constant from the given point, and then solve for the intercept you need.",
   skills: ["writing-parallel-equation"]
 },
 {
@@ -129,10 +129,10 @@ export const practiceTest11 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "The table gives the capacity, in terabytes, of each drive model a data center installs. One rack holds $12$ model A drives, $8$ model B drives, and $n$ model C drives, for a total capacity of $232$ terabytes. What is the value of $n$?",
-  questionTable: { headers: ["Drive model", "Capacity (TB)"], rows: [["A", "$4$"], ["B", "$10$"], ["C", "$8$"]] },
+  question: "The table shows the storage capacity, in terabytes, of each of three types of hard drives. A computer system has $12$ type A drives, $8$ type B drives, and $n$ type C drives, with a total capacity of $232$ terabytes. What is the value of $n$?",
+  questionTable: { headers: ["Type of drive", "Capacity (terabytes)"], rows: [["A", "$4$"], ["B", "$10$"], ["C", "$8$"]] },
   correctAnswer: "13",
-  explanation: "**SAT Pattern: Word-to-Expression Translation**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~30s):** The model A and model B drives supply $12(4) + 8(10) = 128$ terabytes, leaving $232 - 128 = 104$ terabytes for the model C drives at $8$ terabytes each, so $n = 13$.\n\n**The Full Solution:**\nStep 1: Read each capacity from the table: model A is $4$ TB, model B is $10$ TB, and model C is $8$ TB. The $12$ model A drives hold $12(4) = 48$ TB and the $8$ model B drives hold $8(10) = 80$ TB.\nStep 2: Translate the total into an equation: $48 + 80 + 8n = 232$, so $8n = 232 - 128 = 104$.\nStep 3: Divide: $n = \\frac{104}{8} = 13$. Check: $48 + 80 + 8(13) = 48 + 80 + 104 = 232$ terabytes, matching the rack total. ✓\n\n**Common Mistakes:**\n* Pairing the model C count with model A's capacity gives $\\frac{104}{4} = 26$, a rack of $46$ drives that would hold far more than $232$ TB.\n* Pairing it with model B's capacity gives $\\frac{104}{10} = 10.4$, which is not a whole number of drives — a signal that the wrong row was used.\n* Forgetting the model B drives entirely gives $\\frac{232 - 48}{8} = 23$, which double-counts their $80$ TB as model C capacity.\n\n**Test Day Takeaway:** Convert each row of a table into a product of count and unit value first; the unknown count is then a one-step division.",
+  explanation: "**SAT Pattern: Word-to-Expression Translation**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~30s):** The type A and type B drives hold $12(4) + 8(10) = 128$ terabytes, which leaves $232 - 128 = 104$ terabytes for the type C drives at $8$ terabytes each, so $n = \\frac{104}{8} = 13$.\n\n**The Full Solution:**\nStep 1: Read each capacity from the table: type A is $4$ terabytes, type B is $10$ terabytes, and type C is $8$ terabytes. The $12$ type A drives hold $12(4) = 48$ terabytes, and the $8$ type B drives hold $8(10) = 80$ terabytes.\nStep 2: The $n$ type C drives hold $8n$ terabytes, so $48 + 80 + 8n = 232$, which gives $8n = 104$.\nStep 3: Divide: $n = \\frac{104}{8} = 13$. Check: $48 + 80 + 8(13) = 48 + 80 + 104 = 232$ ✓\n\n**Common Mistakes:**\n* $26$: divides the remaining $104$ terabytes by type A's capacity, $4$, instead of type C's capacity, $8$.\n* $10.4$: divides the remaining $104$ terabytes by type B's capacity, $10$; a number of drives must be a whole number.\n* $23$: leaves out the type B drives, computing $\\frac{232 - 48}{8} = 23$.\n\n**Test Day Takeaway:** Turn each row of the table into count times capacity, subtract the known totals, and divide what is left by the unknown type's capacity.",
   skills: ["word-problem-to-equation"]
 },
 {
@@ -140,18 +140,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 4,
-  question: "A quality engineer triples every recorded latency in a set of $30$ network measurements to model performance under a heavier load. Which statement compares the mean and the standard deviation of the tripled measurements with those of the original measurements?",
+  question: "Data set B is created by multiplying each value in data set A by $3$. Which of the following correctly compares the means and the standard deviations of the two data sets?",
   choices: [
-    { id: "A", text: "Both the mean and the standard deviation are $3$ times as large." },
+    { id: "A", text: "The mean and the standard deviation of data set B are both $3$ times those of data set A." },
     // distractor: treats spread as unaffected by a multiplier (that is what adding a constant does)
-    { id: "B", text: "The mean is $3$ times as large, and the standard deviation is unchanged." },
+    { id: "B", text: "The mean of data set B is $3$ times the mean of data set A, and the standard deviations are equal." },
     // distractor: swaps the two measures, leaving the mean alone instead of the spread
-    { id: "C", text: "The mean is unchanged, and the standard deviation is $3$ times as large." },
-    // distractor: assumes a common factor cancels out of both summary measures
-    { id: "D", text: "Both the mean and the standard deviation are unchanged." }
+    { id: "C", text: "The standard deviation of data set B is $3$ times that of data set A, and the means are equal." },
+    // distractor: assumes a common factor has no effect on either summary measure
+    { id: "D", text: "The means of the two data sets are equal, and the standard deviations are equal." }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Multiplying every value by $3$ multiplies the average by $3$ and stretches every distance from the average by $3$, so the mean and the standard deviation are both $3$ times as large.\n\n**The Full Solution:**\nStep 1: The mean is the sum divided by the count. Tripling all $30$ latencies triples the sum while the count stays $30$, so the mean is $3$ times its original value.\nStep 2: The standard deviation measures typical distance from the mean. If a value was $d$ milliseconds above the mean, after tripling it is $3d$ above the tripled mean, so every deviation is $3$ times as large and so is their typical size.\nStep 3: Both measures scale by the same factor $3$. Check with the two-value set $20$ and $40$: the mean is $30$ and each value sits $10$ from it; tripled, the values $60$ and $120$ have mean $90 = 3(30)$ and each sits $30$ from that mean, so every deviation, and with it the standard deviation, is $3$ times as large. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (mean tripled, spread unchanged): that is what *adding* a constant does. In the check above it would keep the deviations at $10$, but $60$ and $120$ each sit $30$ from their mean.\n* Choice C (mean unchanged, spread tripled): the mean moves with the values — the tripled set of the check averages $90$, not $30$.\n* Choice D (neither changes): multiplying is not a relabeling — the tripled set has mean $90$ and deviations of $30$, three times the original mean $30$ and deviations of $10$.\n\n**Test Day Takeaway:** Multiplying every value by $k$ multiplies the mean, the median, the range, and the standard deviation by $k$; adding a constant moves the center but leaves the spread alone.",
+  explanation: "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Multiplying every value by $3$ multiplies the mean by $3$ and also multiplies every distance from the mean by $3$, so both the mean and the standard deviation are $3$ times as large.\n\n**The Full Solution:**\nStep 1: If data set A has values $a_{1}, a_{2}, \\ldots, a_{n}$ with mean $m$, then data set B has values $3a_{1}, 3a_{2}, \\ldots, 3a_{n}$, and its mean is $\\frac{3a_{1} + 3a_{2} + \\cdots + 3a_{n}}{n} = 3m$.\nStep 2: Each value of data set B is $3a_{i} - 3m = 3(a_{i} - m)$ from the mean of B, so every distance from the mean is $3$ times the corresponding distance in data set A. The standard deviation measures the typical distance from the mean, so it is also multiplied by $3$.\nStep 3: Both measures of data set B are $3$ times those of data set A. Check with the values $1$, $2$, $3$: the mean is $2$ and the distances from the mean are $1$, $0$, $1$; after multiplying by $3$, the values $3$, $6$, $9$ have mean $6$ and distances $3$, $0$, $3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: treats the standard deviation as unaffected, which is what happens when the same number is added to every value, not when every value is multiplied.\n* Choice C: switches the two effects, leaving the mean unchanged even though every value is $3$ times as large.\n* Choice D: assumes a common factor has no effect on either measure.\n\n**Test Day Takeaway:** Multiplying every value by $k$ multiplies both the mean and the standard deviation by $k$; adding $k$ to every value changes the mean but not the standard deviation.",
   skills: ["data-analysis"]
 },
 {
@@ -159,18 +159,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "A parabolic arch rises to a height of $-0.02x^2 + 1.2x$ meters at a horizontal distance of $x$ meters from one base. What is the least integer number of meters that is greater than every height on the arch?",
+  question: "$2x^{2} - 12x + c = 0$\nIn the given equation, $c$ is an integer. What is the least possible value of $c$ for which the equation has no real solutions?",
   choices: [
-    // distractor: gives the greatest height the arch actually reaches, which is not greater than every height
-    { id: "A", text: "$18$" },
-    { id: "B", text: "$19$" },
-    // distractor: reports the horizontal distance at which the arch peaks instead of a height
-    { id: "C", text: "$30$" },
-    // distractor: reports the distance between the two bases of the arch instead of a height
-    { id: "D", text: "$60$" }
+    // distractor: reverses the inequality and gives the greatest c with two real solutions
+    { id: "A", text: "$17$" },
+    // distractor: uses discriminant <= 0, allowing the one-solution case c = 18
+    { id: "B", text: "$18$" },
+    { id: "C", text: "$19$" },
+    // distractor: omits the leading coefficient a = 2, solving 144 - 4c < 0
+    { id: "D", text: "$37$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** A height $h$ occurs on the arch only if $-0.02x^2 + 1.2x = h$ has a real solution, which requires $1.44 - 0.08h \\ge 0$, or $h \\le 18$. The least integer above every reachable height is $19$.\n\n**The Full Solution:**\nStep 1: Set the height expression equal to $h$: $-0.02x^2 + 1.2x = h$, which rearranges to $0.02x^2 - 1.2x + h = 0$.\nStep 2: This quadratic has a real solution $x$ exactly when its discriminant is not negative: $(-1.2)^2 - 4(0.02)(h) = 1.44 - 0.08h \\ge 0$, so $h \\le 18$. Heights above $18$ meters never occur on the arch.\nStep 3: Every height on the arch is at most $18$, so the least integer greater than all of them is $19$. Check: at $h = 18$ the discriminant is $0$ and $x = 30$ is a real solution, so $18$ is attained and is not greater than every height, while $h = 19$ gives a discriminant of $-0.08$ and no real $x$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($18$): this is the maximum height itself, reached at $x = 30$ meters. The question asks for an integer strictly greater than every height, and $18$ is not greater than $18$.\n* Choice C ($30$): this is the horizontal distance from the base at which the peak occurs, not a height.\n* Choice D ($60$): the arch meets the ground at $x = 0$ and $x = 60$, so this is the span between the bases, again not a height.\n\n**Test Day Takeaway:** When a question asks which output values are impossible, set the expression equal to the output and let the discriminant decide when a real input exists.",
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** No real solutions means the discriminant is negative: $(-12)^{2} - 4(2)(c) < 0$, so $144 < 8c$ and $c > 18$. The least integer greater than $18$ is $19$.\n\n**The Full Solution:**\nStep 1: A quadratic equation $ax^{2} + bx + c = 0$ has no real solutions exactly when $b^{2} - 4ac < 0$. Here $a = 2$, $b = -12$, and the constant term is $c$.\nStep 2: Write the condition: $(-12)^{2} - 4(2)(c) < 0$, so $144 - 8c < 0$, or $c > 18$.\nStep 3: The least integer greater than $18$ is $19$. Check: $c = 19$ gives $144 - 152 = -8 < 0$, so there are no real solutions, while $c = 18$ gives $144 - 144 = 0$, which yields the solution $x = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($17$): reverses the inequality; $17$ is the greatest integer for which the equation has two distinct real solutions.\n* Choice B ($18$): allows the discriminant to equal $0$, but then the equation has one real solution, $x = 3$.\n* Choice D ($37$): leaves out the leading coefficient $2$, solving $144 - 4c < 0$ to get $c > 36$.\n\n**Test Day Takeaway:** Translate \"no real solutions\" into a strict inequality on the discriminant, and include the leading coefficient in $4ac$; the boundary value itself gives one solution, not zero.",
   skills: ["discriminant-analysis"]
 },
 {
@@ -178,9 +178,9 @@ export const practiceTest11 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "Of the $n$ processors in a computing cluster, $45\\%$ are installed in rack A. The probability that a randomly selected processor from rack A is idle is $0.2$, and $27$ processors in rack A are idle. What is the value of $n$?",
+  question: "Of the $n$ students at a school, $45\\%$ are in the band. If a band member is selected at random, the probability of selecting a student who plays a brass instrument is $0.2$. There are $27$ band members who play a brass instrument. What is the value of $n$?",
   correctAnswer: "300",
-  explanation: "**SAT Pattern: Conditional Probability with Percent**\n\n**The correct answer is $300$.**\n\n**The Fast Way (~35s):** Idle processors in rack A are $0.2$ of the $0.45n$ processors in that rack, so $0.09n = 27$ and $n = 300$.\n\n**The Full Solution:**\nStep 1: Rack A holds $45\\%$ of the cluster, which is $0.45n$ processors.\nStep 2: The probability that a processor chosen from rack A is idle is $0.2$, so the number of idle processors in rack A is $0.2(0.45n) = 0.09n$.\nStep 3: Setting $0.09n = 27$ gives $n = \\frac{27}{0.09} = 300$. Check: $45\\%$ of $300$ is $135$ processors in rack A, and $0.2(135) = 27$ idle processors, as given. ✓\n\n**Common Mistakes:**\n* Dividing by only the rack share gives $\\frac{27}{0.45} = 60$, which treats the $27$ idle processors as all of rack A and never uses the probability $0.2$.\n* Dividing by only the idle probability gives $\\frac{27}{0.2} = 135$, which is the size of rack A, not of the whole cluster.\n* Multiplying instead of dividing gives $27(0.09) = 2.43$, a count smaller than the $27$ idle processors already reported.\n\n**Test Day Takeaway:** A conditional probability applies to its subgroup, so chain the two factors — group share times conditional rate — and divide the count by the product.",
+  explanation: "**SAT Pattern: Conditional Probability with Percent**\n\n**The correct answer is $300$.**\n\n**The Fast Way (~35s):** The brass players are $0.2$ of the $0.45n$ band members, so $0.2(0.45n) = 0.09n = 27$ and $n = \\frac{27}{0.09} = 300$.\n\n**The Full Solution:**\nStep 1: Since $45\\%$ of the $n$ students are in the band, the band has $0.45n$ members.\nStep 2: The probability $0.2$ is taken among band members only, so the number of band members who play a brass instrument is $0.2(0.45n) = 0.09n$.\nStep 3: Set this equal to $27$: $0.09n = 27$, so $n = 300$. Check: the band has $0.45(300) = 135$ members, and $\\frac{27}{135} = 0.2$ ✓\n\n**Common Mistakes:**\n* $135$: stops at $\\frac{27}{0.2} = 135$, which is the number of band members, not the number of students at the school.\n* $60$: divides $27$ by $0.45$ and never uses the probability $0.2$.\n\n**Test Day Takeaway:** A conditional probability applies only to its group; find the group's size first, multiply by the probability, and then set the result equal to the given count.",
   skills: ["conditional-probability"]
 },
 {
@@ -188,9 +188,9 @@ export const practiceTest11 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "A rectangular window opening is $40$ inches wide. Making the opening taller without changing its width increases its area from $1{,}120$ square inches to $1{,}400$ square inches. By how many inches does the height of the opening increase?",
+  question: "A rectangle has a length of $40$ units. If its width is increased by $w$ units, its area increases from $1{,}120$ to $1{,}400$ square units. What is the value of $w$?",
   correctAnswer: "7",
-  explanation: "**SAT Pattern: Rectangle Area**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~25s):** The width is fixed, so height is area divided by $40$: the opening goes from $\\frac{1{,}120}{40} = 28$ inches tall to $\\frac{1{,}400}{40} = 35$ inches tall, an increase of $7$ inches.\n\n**The Full Solution:**\nStep 1: For a rectangle, area equals width times height, so height equals area divided by width.\nStep 2: The original height is $\\frac{1{,}120}{40} = 28$ inches and the new height is $\\frac{1{,}400}{40} = 35$ inches.\nStep 3: The increase is $35 - 28 = 7$ inches. Check: a $40$-inch by $35$-inch opening has area $1{,}400$ square inches, and $40(28) = 1{,}120$ square inches, so the height grew by exactly $7$ inches. ✓\n\n**Common Mistakes:**\n* Reporting the change in area, $1{,}400 - 1{,}120 = 280$, answers a different question — that is square inches of glass added, not inches of height.\n* Dividing only the new area gives $35$, the new height rather than the increase.\n* Dividing the areas gives $\\frac{1{,}400}{1{,}120} = 1.25$, the scale factor, which is a ratio and not a number of inches.\n\n**Test Day Takeaway:** When one dimension is held fixed, divide each area by it to turn an area comparison into a length comparison.",
+  explanation: "**SAT Pattern: Rectangle Area**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~25s):** The length stays $40$, so the extra area is $40w$: $40w = 1{,}400 - 1{,}120 = 280$, and $w = 7$.\n\n**The Full Solution:**\nStep 1: The area of a rectangle is length times width, so the original width is $\\frac{1{,}120}{40} = 28$ units.\nStep 2: The new width is $\\frac{1{,}400}{40} = 35$ units.\nStep 3: The width increased by $w = 35 - 28 = 7$ units. Check: $40(28 + 7) = 40(35) = 1{,}400$ ✓\n\n**Common Mistakes:**\n* $35$: reports the new width instead of the increase in width.\n* $280$: reports the increase in area, $1{,}400 - 1{,}120$, without dividing by the length.\n\n**Test Day Takeaway:** When one dimension of a rectangle is fixed, a change in area divided by that dimension gives the change in the other dimension.",
   skills: ["triangle-area"]
 },
 {
@@ -198,7 +198,7 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "A surveyor's plan shows property line $\\ell$. A fence will run along $6x + py = 21$, in which $p$ is a constant, so that it never crosses line $\\ell$. What is the value of $p$?",
+  question: "The graph of line $\\ell$ is shown. A system of two linear equations consists of the equation of line $\\ell$ and the equation $6x + py = 21$, where $p$ is a constant. If the system has no solution, what is the value of $p$?",
   diagram: { type: "linearGraph", params: { slope: -2, yIntercept: 3, xRange: [-2, 6], yRange: [-9, 7], xTickInterval: 2, yTickInterval: 2, gridInterval: 1, showPoints: [[0, 3], [2, -1]], label: "ℓ" } },
   choices: [
     // distractor: sets -6/p equal to positive 2, flipping the sign of the slope
@@ -210,7 +210,7 @@ export const practiceTest11 = {
     { id: "D", text: "$12$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Line $\\ell$ passes through $(0, 3)$ and $(2, -1)$, so its slope is $-2$. Two lines never meet only when their slopes match: $-\\frac{6}{p} = -2$ gives $p = 3$.\n\n**The Full Solution:**\nStep 1: Read two points off the plotted property line $\\ell$: $(0, 3)$ and $(2, -1)$. The slope is $\\frac{-1 - 3}{2 - 0} = -2$, so line $\\ell$ is $y = -2x + 3$, or $2x + y = 3$.\nStep 2: Solving $6x + py = 21$ for $y$ gives $y = -\\frac{6}{p}x + \\frac{21}{p}$, so its slope is $-\\frac{6}{p}$. Lines that never meet are parallel, so $-\\frac{6}{p} = -2$ and $p = 3$.\nStep 3: With $p = 3$ the second line is $6x + 3y = 21$, or $2x + y = 7$. Check that the fence and the property line really are distinct: $2x + y$ equals $3$ on line $\\ell$ and $7$ on the second line, so no point can satisfy both, and the lines never meet. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): this comes from matching $-\\frac{6}{p}$ to $+2$ instead of $-2$. That line, $6x - 3y = 21$, has slope $2$ and crosses line $\\ell$.\n* Choice B ($1$): this copies the coefficient of $y$ in $2x + y = 3$ without scaling it. The line $6x + y = 21$ has slope $-6$ and meets line $\\ell$.\n* Choice D ($12$): this multiplies $6$ by $2$ rather than dividing. The line $6x + 12y = 21$ has slope $-\\frac{1}{2}$, so it also crosses line $\\ell$.\n\n**Test Day Takeaway:** Lines with no point in common have equal slopes and different intercepts — match the slopes first, then confirm the constants differ.",
+  explanation: "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Line $\\ell$ passes through $(0, 3)$ and $(2, -1)$, so its slope is $-2$. No solution means the lines are parallel and distinct, so $-\\frac{6}{p} = -2$ and $p = 3$.\n\n**The Full Solution:**\nStep 1: Read two points on line $\\ell$: $(0, 3)$ and $(2, -1)$. The slope is $\\frac{-1 - 3}{2 - 0} = -2$, so line $\\ell$ is $y = -2x + 3$, or $2x + y = 3$.\nStep 2: Solving $6x + py = 21$ for $y$ gives $y = -\\frac{6}{p}x + \\frac{21}{p}$, so its slope is $-\\frac{6}{p}$. A system of two linear equations has no solution when the lines are parallel and distinct, so $-\\frac{6}{p} = -2$ and $p = 3$.\nStep 3: With $p = 3$, the second equation is $6x + 3y = 21$, or $2x + y = 7$. Check: $2x + y$ equals $3$ on line $\\ell$ and $7$ on the second line, so no point is on both lines, and the system has no solution ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): sets $-\\frac{6}{p}$ equal to $2$ instead of $-2$; the line $6x - 3y = 21$ has slope $2$ and intersects line $\\ell$.\n* Choice B ($1$): copies the $y$-coefficient of $2x + y = 3$ without scaling it; the line $6x + y = 21$ has slope $-6$ and intersects line $\\ell$.\n* Choice D ($12$): multiplies $6$ by $2$ instead of dividing; the line $6x + 12y = 21$ has slope $-\\frac{1}{2}$ and intersects line $\\ell$.\n\n**Test Day Takeaway:** No solution means equal slopes and different intercepts: match the slopes to find the constant, then confirm the lines are not the same line.",
   skills: ["system-solution-types"]
 },
 {
@@ -218,18 +218,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "The function $C$ models a building's monthly heating cost, in dollars, where $C(t)$ is the cost $t$ months after January. Next year the same seasonal pattern is expected $2$ months later, with each month's cost $\\$300$ greater. Which function models next year's cost?",
+  question: "$f(x) = (x + 3)^{2} - 5$\nThe graph of $y = g(x)$ is the graph of $y = f(x)$ translated right $4$ units and up $2$ units in the $xy$-plane. Which equation defines $g$?",
   choices: [
-    // distractor: uses t + 2 inside, which slides the pattern 2 months earlier instead of later
-    { id: "A", text: "$C(t + 2) + 300$" },
-    // distractor: slides the pattern 2 months earlier and lowers every cost
-    { id: "B", text: "$C(t + 2) - 300$" },
-    { id: "C", text: "$C(t - 2) + 300$" },
-    // distractor: shifts the timing correctly but subtracts the 300-dollar increase
-    { id: "D", text: "$C(t - 2) - 300$" }
+    // distractor: shifts right correctly but subtracts 2 instead of adding it
+    { id: "A", text: "$g(x) = (x - 1)^{2} - 7$" },
+    { id: "B", text: "$g(x) = (x - 1)^{2} - 3$" },
+    // distractor: moves the vertex to x = 4 instead of 4 units right of x = -3
+    { id: "C", text: "$g(x) = (x - 4)^{2} - 3$" },
+    // distractor: uses f(x + 4), translating left instead of right
+    { id: "D", text: "$g(x) = (x + 7)^{2} - 3$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Function Transformation**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** A pattern that happens later is fed a delayed input, so use $C(t - 2)$; costs that are higher get a constant added, so the model is $C(t - 2) + 300$.\n\n**The Full Solution:**\nStep 1: Next year's cost in month $t$ repeats what this year's pattern did $2$ months earlier, which is $C(t - 2)$. Subtracting inside the parentheses delays the pattern; adding inside would move it earlier.\nStep 2: Every month also costs $\\$300$ more, and that is an adjustment to the output, so add $300$ outside the function.\nStep 3: Combining the two gives $C(t - 2) + 300$. Check: if this year's peak cost of $\\$800$ occurs in January ($t = 0$), next year's peak should be $\\$1{,}100$ in March ($t = 2$), and $C(2 - 2) + 300 = C(0) + 300 = 800 + 300 = 1{,}100$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($C(t + 2) + 300$): the cost increase is right, but $C(t + 2)$ pulls the pattern $2$ months earlier — it would put next year's $\\$1{,}100$ peak in November of the previous year, not March.\n* Choice B ($C(t + 2) - 300$): this gets both directions wrong, moving the peak earlier and dropping it to $\\$500$.\n* Choice D ($C(t - 2) - 300$): the timing is right, but subtracting gives a March peak of $\\$500$ instead of the required $\\$1{,}100$.\n\n**Test Day Takeaway:** Changes inside the parentheses shift time in the opposite direction; changes outside move the output the way they read.",
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Translating right $4$ and up $2$ gives $g(x) = f(x - 4) + 2 = (x - 4 + 3)^{2} - 5 + 2 = (x - 1)^{2} - 3$.\n\n**The Full Solution:**\nStep 1: A translation right $4$ units replaces $x$ with $x - 4$, and a translation up $2$ units adds $2$ to the output, so $g(x) = f(x - 4) + 2$.\nStep 2: Substitute: $f(x - 4) = ((x - 4) + 3)^{2} - 5 = (x - 1)^{2} - 5$.\nStep 3: Add $2$: $g(x) = (x - 1)^{2} - 3$. Check with the vertex: the vertex of $f$ is $(-3, -5)$, and moving it right $4$ and up $2$ gives $(1, -3)$, the vertex of $g$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x - 1)^{2} - 7$): shifts the graph right correctly but subtracts $2$ instead of adding it, which moves the graph down.\n* Choice C ($(x - 4)^{2} - 3$): puts the vertex at $x = 4$ instead of moving it $4$ units right from $x = -3$.\n* Choice D ($(x + 7)^{2} - 3$): uses $f(x + 4)$, which translates the graph left $4$ units instead of right.\n\n**Test Day Takeaway:** For $f(x - h) + k$, a positive $h$ moves the graph right and a positive $k$ moves it up; track the vertex to check.",
   skills: ["function-transformations", "vertex-form"]
 },
 {
@@ -237,19 +237,19 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "The table classifies $180$ concrete test cylinders by curing method and by whether the cylinder passed a compression test. Which expression gives the probability that a cylinder chosen at random from those that failed was steam cured?",
-  questionTable: { headers: ["Curing method", "Passed", "Failed", "Total"], rows: [["Steam", "$72$", "$18$", "$90$"], ["Moist", "$54$", "$36$", "$90$"], ["Total", "$126$", "$54$", "$180$"]] },
+  question: "The table shows the results of planting $180$ seeds of two types. One of the seeds that did not sprout will be selected at random. What is the probability of selecting a type A seed?",
+  questionTable: { headers: ["Seed type", "Sprouted", "Did not sprout", "Total"], rows: [["Type A", "$72$", "$18$", "$90$"], ["Type B", "$54$", "$36$", "$90$"], ["Total", "$126$", "$54$", "$180$"]] },
   choices: [
-    // distractor: divides by the 180 cylinders in the whole study instead of the 54 that failed
+    // distractor: divides by all 180 seeds instead of the 54 that did not sprout
     { id: "A", text: "$\\frac{18}{180}$" },
-    // distractor: divides by the 90 steam-cured cylinders, which reverses the condition
+    // distractor: divides by the 90 type A seeds, which reverses the condition
     { id: "B", text: "$\\frac{18}{90}$" },
-    // distractor: gives the probability that a cylinder failed, ignoring the curing method
+    // distractor: gives the probability that a seed did not sprout, ignoring the seed type
     { id: "C", text: "$\\frac{54}{180}$" },
     { id: "D", text: "$\\frac{18}{54}$" }
   ],
   correctAnswer: "D",
-  explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The condition \"failed\" makes the $54$ failed cylinders the whole group, and $18$ of them were steam cured, so the probability is $\\frac{18}{54}$.\n\n**The Full Solution:**\nStep 1: The phrase \"chosen at random from those that failed\" restricts attention to the Failed column, whose total is $54$ cylinders.\nStep 2: Within that column, the steam-cured row contributes $18$ cylinders.\nStep 3: The probability is the part over the restricted whole: $\\frac{18}{54}$. Check the column: $18$ steam-cured failures plus $36$ moist-cured failures is $54$, so the two conditional probabilities $\\frac{18}{54}$ and $\\frac{36}{54}$ add to $1$, as they must. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{18}{180}$): this divides by every cylinder in the study, giving the probability that a randomly chosen cylinder is both steam cured and failed, which is $0.1$ rather than the required conditional probability of about $0.33$.\n* Choice B ($\\frac{18}{90}$): this divides by the steam-cured total, answering the reversed question — the probability that a steam-cured cylinder failed, which is $0.2$.\n* Choice C ($\\frac{54}{180}$): this is the overall failure rate, $0.3$, and never uses the curing method at all.\n\n**Test Day Takeaway:** In a conditional probability, the group named after \"given\" or \"from those that\" becomes the denominator — find that row or column total first.",
+  explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The selection is made only from the $54$ seeds that did not sprout, and $18$ of them are type A, so the probability is $\\frac{18}{54}$.\n\n**The Full Solution:**\nStep 1: The seed is selected from those that did not sprout, so the \"Did not sprout\" column total, $54$, is the denominator.\nStep 2: The type A row of that column shows $18$ seeds, so $18$ is the numerator.\nStep 3: The probability is $\\frac{18}{54}$, which equals $\\frac{1}{3}$. Check: the column entries $18$ and $36$ add to the column total $54$, and $\\frac{18}{54} + \\frac{36}{54} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{18}{180}$): divides by all $180$ seeds instead of only the $54$ that did not sprout.\n* Choice B ($\\frac{18}{90}$): divides by the $90$ type A seeds, which gives the probability that a type A seed did not sprout.\n* Choice C ($\\frac{54}{180}$): gives the probability that a seed did not sprout, ignoring the seed type.\n\n**Test Day Takeaway:** In a two-way table, the group the selection is made from supplies the denominator; find that row or column total first.",
   skills: ["conditional-probability", "two-way-table"]
 },
 {
@@ -257,18 +257,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "One supplier charges $\\$5$ per liter of ethanol and $\\$3$ per liter of acetone for a lab order totaling $\\$87$. A second supplier charges $\\$3$ per liter of ethanol and $\\$5$ per liter of acetone for the identical order, totaling $\\$73$. How many liters does the order contain in all?",
+  question: "$5x + 3y = 84$\n$3x + 5y = 76$\nThe solution to the given system of equations is $(x, y)$. What is the value of $x + y$?",
   choices: [
-    // distractor: subtracts the two equations, producing the difference in liters rather than the total
-    { id: "A", text: "$7$" },
+    // distractor: subtracts the equations, producing x - y instead of x + y
+    { id: "A", text: "$4$" },
     { id: "B", text: "$20$" },
     // distractor: divides the combined total 160 by 4 instead of by 8
     { id: "C", text: "$40$" },
-    // distractor: adds the two quoted totals and stops, reporting 8 times the number of liters
+    // distractor: adds the equations and stops, reporting 8(x + y) instead of x + y
     { id: "D", text: "$160$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Solve for a Combination**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** With $x$ liters of ethanol and $y$ liters of acetone, $5x + 3y = 87$ and $3x + 5y = 73$. Adding gives $8x + 8y = 160$, so $x + y = 20$ liters.\n\n**The Full Solution:**\nStep 1: Let $x$ be the liters of ethanol and $y$ the liters of acetone. The first quote is $5x + 3y = 87$ and the second is $3x + 5y = 73$.\nStep 2: The question asks only for $x + y$, and adding the two equations produces the symmetric combination $8x + 8y = 160$.\nStep 3: Dividing by $8$ gives $x + y = 20$ liters. Check by solving fully: subtracting the equations gives $2x - 2y = 14$, so $x - y = 7$; with $x + y = 20$ that gives $x = 13.5$ and $y = 6.5$, and $5(13.5) + 3(6.5) = 67.5 + 19.5 = 87$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): subtracting instead of adding gives $x - y = 7$, the difference between the two volumes, not the total order.\n* Choice C ($40$): this divides the combined total $160$ by $4$ rather than by the $8$ that actually multiplies $x + y$.\n* Choice D ($160$): this stops at $8x + 8y = 160$, which is eight times the number of liters, not the number of liters.\n\n**Test Day Takeaway:** When a system asks for a sum or difference rather than for each variable, add or subtract the equations and read the combination directly.",
+  explanation: "**SAT Pattern: Solve for a Combination**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Adding the equations gives $8x + 8y = 160$, so $x + y = \\frac{160}{8} = 20$.\n\n**The Full Solution:**\nStep 1: The coefficients of $x$ and $y$ trade places between the equations, so adding them makes the coefficients equal: $(5x + 3y) + (3x + 5y) = 84 + 76$.\nStep 2: Combine like terms: $8x + 8y = 160$.\nStep 3: Divide both sides by $8$: $x + y = 20$. Check: subtracting the equations gives $2x - 2y = 8$, so $x - y = 4$; then $x = 12$ and $y = 8$, and $5(12) + 3(8) = 84$ and $3(12) + 5(8) = 76$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): subtracts the equations, which gives $x - y$, not $x + y$.\n* Choice C ($40$): divides $160$ by $4$ instead of by $8$.\n* Choice D ($160$): adds the equations and stops at the sum of the constants, which equals $8(x + y)$.\n\n**Test Day Takeaway:** When a question asks for a combination like $x + y$, look for a way to add or subtract the equations that produces it directly.",
   skills: ["elimination-method"]
 },
 {
@@ -276,9 +276,9 @@ export const practiceTest11 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "A cylindrical concrete bridge pier is poured with a diameter equal to two-thirds of its height. The finished pier contains $192\\pi$ cubic feet of concrete. What is the height, in feet, of the pier?",
+  question: "A right circular cylinder has a diameter that is $\\frac{2}{3}$ of its height. The volume of the cylinder is $192\\pi$ cubic centimeters. What is the height, in centimeters, of the cylinder?",
   correctAnswer: "12",
-  explanation: "**SAT Pattern: Cylinder Volume**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~45s):** A diameter of $\\frac{2}{3}h$ makes the radius $\\frac{h}{3}$, so $V = \\pi\\left(\\frac{h}{3}\\right)^2 h = \\frac{\\pi h^3}{9} = 192\\pi$. Then $h^3 = 1{,}728$ and $h = 12$ feet.\n\n**The Full Solution:**\nStep 1: The diameter is $\\frac{2}{3}h$, so the radius is half of that: $r = \\frac{h}{3}$.\nStep 2: Substitute into $V = \\pi r^2 h$: $\\pi\\left(\\frac{h}{3}\\right)^2 h = \\frac{\\pi h^3}{9}$. Setting this equal to $192\\pi$ gives $h^3 = 9(192) = 1{,}728$.\nStep 3: Taking the cube root gives $h = 12$ feet. Check: a $12$-foot pier has radius $\\frac{12}{3} = 4$ feet and diameter $8$ feet, which is $\\frac{2}{3}$ of $12$, and $\\pi(4)^2(12) = 192\\pi$ cubic feet. ✓\n\n**Common Mistakes:**\n* Using the diameter as the radius gives $\\frac{4\\pi h^3}{9} = 192\\pi$ and $h^3 = 432$, so $h$ is about $7.6$ feet — not a whole number, which is the signal that the radius step was skipped.\n* Stopping at $h^3 = 1{,}728$ and gridding in $1728$ skips the cube root.\n* Reporting $4$ answers with the radius rather than the height the question asks for.\n\n**Test Day Takeaway:** Turn every given dimension into the radius before using $V = \\pi r^2 h$; a diameter must be halved first, and one variable then carries the whole formula.",
+  explanation: "**SAT Pattern: Cylinder Volume**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~45s):** A diameter of $\\frac{2}{3}h$ makes the radius $\\frac{h}{3}$, so $\\pi\\left(\\frac{h}{3}\\right)^{2}h = \\frac{\\pi h^{3}}{9} = 192\\pi$. Then $h^{3} = 1{,}728$, and $h = 12$.\n\n**The Full Solution:**\nStep 1: Let $h$ be the height. The diameter is $\\frac{2}{3}h$, so the radius is half of that, $\\frac{1}{3}h$.\nStep 2: The volume of a cylinder is $\\pi r^{2}h$, so $\\pi\\left(\\frac{h}{3}\\right)^{2}h = \\frac{\\pi h^{3}}{9} = 192\\pi$, which gives $h^{3} = 9(192) = 1{,}728$.\nStep 3: Take the cube root: $h = 12$. Check: the radius is $4$, and $\\pi(4)^{2}(12) = 192\\pi$ ✓\n\n**Common Mistakes:**\n* $1728$: stops at $h^{3} = 1{,}728$ without taking the cube root.\n* About $7.56$: uses the diameter $\\frac{2}{3}h$ as the radius, which gives $\\frac{4\\pi h^{3}}{9} = 192\\pi$ and $h^{3} = 432$.\n\n**Test Day Takeaway:** When one dimension is given as a multiple of another, write the radius in terms of the height before substituting into $V = \\pi r^{2}h$, and halve a diameter first.",
   skills: ["volume-prism"]
 },
 {
@@ -286,10 +286,10 @@ export const practiceTest11 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "The bar chart shows the storage, in gigabytes, used by each of four file categories on a server. After $40\\%$ of the storage used by video files is freed and the other categories are unchanged, image files use what percent of the storage still in use?",
-  diagram: { type: "barChart", params: { data: [{ label: "Video", value: 300 }, { label: "Images", value: 120 }, { label: "Logs", value: 60 }, { label: "Backups", value: 120 }], xAxisLabel: "File category", yAxisLabel: "Storage used (GB)", yMax: 360, yStep: 60 } },
+  question: "The bar graph shows the amount of storage, in gigabytes, used by four types of files on a computer. If $40\\%$ of the storage used by videos is deleted and nothing else changes, what percent of the remaining storage is used by photos?",
+  diagram: { type: "barChart", params: { data: [{ label: "Videos", value: 300 }, { label: "Photos", value: 120 }, { label: "Music", value: 60 }, { label: "Documents", value: 120 }], xAxisLabel: "Type of file", yAxisLabel: "Storage used (gigabytes)", yMax: 360, yStep: 60 } },
   correctAnswer: "25",
-  explanation: "**SAT Pattern: Percent of a Whole**\n\n**The correct answer is $25$.**\n\n**The Fast Way (~40s):** Freeing $40\\%$ of the $300$ GB of video removes $120$ GB, so the server holds $600 - 120 = 480$ GB. Images still occupy $120$ GB, and $\\frac{120}{480} = 25\\%$.\n\n**The Full Solution:**\nStep 1: Read the four bars: video $300$ GB, images $120$ GB, logs $60$ GB, and backups $120$ GB, for a total of $600$ GB in use at the start.\nStep 2: Freeing $40\\%$ of the video storage removes $0.40(300) = 120$ GB, leaving $180$ GB of video and a new total of $180 + 120 + 60 + 120 = 480$ GB.\nStep 3: Images are unchanged at $120$ GB, so they now occupy $\\frac{120}{480} = 0.25$, or $25\\%$, of the storage in use. Check: the four new shares are $\\frac{180}{480} = 37.5\\%$, $25\\%$, $12.5\\%$, and $25\\%$, and these add to $100\\%$. ✓\n\n**Common Mistakes:**\n* Using the original $600$ GB total gives $\\frac{120}{600} = 20\\%$ and ignores that the whole shrank.\n* Computing the video share of the new total gives $\\frac{180}{480} = 37.5\\%$, the wrong category.\n* Removing $40$ GB instead of $40\\%$ of $300$ GB leaves $560$ GB and gives about $21.4\\%$.\n\n**Test Day Takeaway:** When part of the whole is removed, rebuild the new total before taking any percent — the denominator changes even when the numerator does not.",
+  explanation: "**SAT Pattern: Percent of a Whole**\n\n**The correct answer is $25$.**\n\n**The Fast Way (~40s):** Deleting $40\\%$ of the $300$ gigabytes of videos removes $120$ gigabytes, so $600 - 120 = 480$ gigabytes remain. Photos still use $120$ gigabytes, and $\\frac{120}{480} = 25\\%$.\n\n**The Full Solution:**\nStep 1: Read the bars: videos $300$ gigabytes, photos $120$ gigabytes, music $60$ gigabytes, and documents $120$ gigabytes, for a total of $600$ gigabytes.\nStep 2: Deleting $40\\%$ of the videos removes $0.40(300) = 120$ gigabytes, leaving $180$ gigabytes of videos and a new total of $180 + 120 + 60 + 120 = 480$ gigabytes.\nStep 3: Photos are unchanged at $120$ gigabytes, so they use $\\frac{120}{480} = 0.25$, or $25\\%$, of the remaining storage. Check: the four new shares are $37.5\\%$, $25\\%$, $12.5\\%$, and $25\\%$, which add to $100\\%$ ✓\n\n**Common Mistakes:**\n* $20$: uses the original total, $\\frac{120}{600}$, and ignores that the total decreased.\n* $37.5$: computes the share used by videos, $\\frac{180}{480}$, instead of photos.\n* About $21.4$: deletes $40$ gigabytes instead of $40\\%$ of $300$ gigabytes, giving $\\frac{120}{560}$.\n\n**Test Day Takeaway:** When part of a whole is removed, find the new total before computing a percent; the denominator changes even when the part you want does not.",
   skills: ["percent-of-value"]
 },
 {
@@ -297,7 +297,7 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In a signal-processing model, the gain of a filter is $\\frac{4x^2 - 49}{2x^2 - x - 28}$ for every value of $x$ greater than $4$. Which expression gives the same gain?",
+  question: "$\\frac{4x^{2} - 49}{2x^{2} - x - 28}$\nWhich expression is equivalent to the given expression for $x > 4$?",
   choices: [
     { id: "A", text: "$\\frac{2x - 7}{x - 4}$" },
     // distractor: cancels the factor 2x - 7 instead of the shared factor 2x + 7
@@ -308,7 +308,7 @@ export const practiceTest11 = {
     { id: "D", text: "$\\frac{2x - 7}{2x - 8}$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** The numerator is a difference of squares, $(2x - 7)(2x + 7)$, and the denominator factors as $(2x + 7)(x - 4)$. Dividing out $2x + 7$ leaves $\\frac{2x - 7}{x - 4}$.\n\n**The Full Solution:**\nStep 1: Factor the numerator: $4x^2 - 49 = (2x)^2 - 7^2 = (2x - 7)(2x + 7)$.\nStep 2: Factor the denominator: $2x^2 - x - 28 = (2x + 7)(x - 4)$, since $(2x + 7)(x - 4) = 2x^2 - 8x + 7x - 28 = 2x^2 - x - 28$.\nStep 3: The common factor $2x + 7$ is not zero for $x > 4$, so it divides out and the gain equals $\\frac{2x - 7}{x - 4}$. Check at $x = 5$: the original is $\\frac{100 - 49}{50 - 5 - 28} = \\frac{51}{17} = 3$, and the simplified form gives $\\frac{10 - 7}{5 - 4} = 3$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{2x + 7}{x - 4}$): this divides out the wrong factor. At $x = 5$ it gives $\\frac{17}{1} = 17$, not $3$.\n* Choice C ($\\frac{2x - 7}{x + 4}$): this comes from factoring the denominator as $(2x + 7)(x + 4)$, which expands to $2x^2 + 15x + 28$, not the given denominator. At $x = 5$ it gives $\\frac{3}{9} = \\frac{1}{3}$.\n* Choice D ($\\frac{2x - 7}{2x - 8}$): this uses $(2x + 7)(2x - 8)$, a product equal to $4x^2 - 2x - 56$ — twice the denominator — so the value at $x = 5$ is $\\frac{3}{2}$, half of the correct gain.\n\n**Test Day Takeaway:** Factor both parts completely before cancelling, and confirm a factorization by expanding it back; only whole factors, never single terms, may be divided out.",
+  explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** The numerator is a difference of squares, $(2x - 7)(2x + 7)$, and the denominator factors as $(2x + 7)(x - 4)$. Dividing out the common factor $2x + 7$ leaves $\\frac{2x - 7}{x - 4}$.\n\n**The Full Solution:**\nStep 1: Factor the numerator as a difference of squares: $4x^{2} - 49 = (2x)^{2} - 7^{2} = (2x - 7)(2x + 7)$.\nStep 2: Factor the denominator: two numbers with product $2(-28) = -56$ and sum $-1$ are $-8$ and $7$, so $2x^{2} - x - 28 = 2x^{2} - 8x + 7x - 28 = (2x + 7)(x - 4)$.\nStep 3: For $x > 4$, the factor $2x + 7$ is not zero, so it divides out: $\\frac{(2x - 7)(2x + 7)}{(2x + 7)(x - 4)} = \\frac{2x - 7}{x - 4}$. Check with $x = 5$: the given expression is $\\frac{100 - 49}{50 - 5 - 28} = \\frac{51}{17} = 3$, and $\\frac{10 - 7}{5 - 4} = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{2x + 7}{x - 4}$): divides out $2x - 7$, which is not a factor of the denominator.\n* Choice C ($\\frac{2x - 7}{x + 4}$): factors the denominator as $(2x + 7)(x + 4)$, which expands to $2x^{2} + 15x + 28$.\n* Choice D ($\\frac{2x - 7}{2x - 8}$): factors the denominator as $(2x + 7)(2x - 8)$, which is twice the given denominator.\n\n**Test Day Takeaway:** Factor the numerator and denominator completely, divide out only a common factor, and test one value of $x$ to confirm.",
   skills: ["simplifying-rational-expressions", "difference-of-squares"]
 },
 {
@@ -316,18 +316,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The cost per pallet, in dollars, of producing $x$ pallets of paving stones in one day is modeled by $C(x) = 2x^2 - 28x + 117$. Which equivalent form of $C(x)$ displays the number of pallets that minimizes the cost per pallet as a constant or coefficient?",
+  question: "Which expression is equivalent to $2x^{2} - 28x + 117$?",
   choices: [
-    // distractor: uses half of 28 as the shift instead of half of 14, giving (x - 14)^2
-    { id: "A", text: "$2(x - 14)^2 + 19$" },
+    // distractor: takes half of 28 instead of half of 14 after factoring out 2, expanding to 2x^2 - 56x + 117
+    { id: "A", text: "$2(x - 14)^{2} - 275$" },
+    { id: "B", text: "$2(x - 7)^{2} + 19$" },
+    // distractor: subtracts 49 instead of 2(49) = 98, expanding to 2x^2 - 28x + 166
+    { id: "C", text: "$2(x - 7)^{2} + 68$" },
     // distractor: reverses the sign inside the square, expanding to 2x^2 + 28x + 117
-    { id: "B", text: "$2(x + 7)^2 + 19$" },
-    { id: "C", text: "$2(x - 7)^2 + 19$" },
-    // distractor: keeps the leading 2 inside the square, expanding to 4x^2 - 56x + 215
-    { id: "D", text: "$(2x - 14)^2 + 19$" }
+    { id: "D", text: "$2(x + 7)^{2} + 19$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Quadratic — Completing the Square**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Factor the $2$ out of the variable terms: $2(x^2 - 14x) + 117 = 2(x - 7)^2 - 98 + 117 = 2(x - 7)^2 + 19$, so the cost per pallet is least at $x = 7$ pallets.\n\n**The Full Solution:**\nStep 1: Group the variable terms and factor out the leading coefficient: $C(x) = 2(x^2 - 14x) + 117$.\nStep 2: Complete the square inside the parentheses. Half of $-14$ is $-7$, and $(x - 7)^2 = x^2 - 14x + 49$, so $x^2 - 14x = (x - 7)^2 - 49$. Then $C(x) = 2[(x - 7)^2 - 49] + 117 = 2(x - 7)^2 - 98 + 117$.\nStep 3: Simplify: $C(x) = 2(x - 7)^2 + 19$. Because $2(x - 7)^2$ is never negative and equals $0$ only at $x = 7$, the smallest cost per pallet is $\\$19$ at $7$ pallets, and that $7$ appears as a constant in the form. Check by expanding: $2(x^2 - 14x + 49) + 19 = 2x^2 - 28x + 98 + 19 = 2x^2 - 28x + 117$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2(x - 14)^2 + 19$): this uses the whole coefficient $-28$ divided by $2$ as the shift instead of halving $-14$. Expanding gives $2x^2 - 56x + 411$, which is not the cost model.\n* Choice B ($2(x + 7)^2 + 19$): the sign inside is reversed. Expanding gives $2x^2 + 28x + 117$, a model whose cost rises for every positive $x$.\n* Choice D ($(2x - 14)^2 + 19$): the leading $2$ was squared along with the binomial. Expanding gives $4x^2 - 56x + 215$, so at $x = 0$ it predicts $\\$215$ instead of the model's $\\$117$.\n\n**Test Day Takeaway:** Factor the leading coefficient out of the variable terms first, then complete the square — and expand the finished form once to confirm it is the same function.",
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Quadratic — Completing the Square**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Factor $2$ out of the $x$-terms and complete the square: $2(x^{2} - 14x) + 117 = 2(x - 7)^{2} - 98 + 117 = 2(x - 7)^{2} + 19$.\n\n**The Full Solution:**\nStep 1: Factor $2$ out of the first two terms: $2x^{2} - 28x + 117 = 2(x^{2} - 14x) + 117$.\nStep 2: Half of $-14$ is $-7$, and $(-7)^{2} = 49$, so $x^{2} - 14x = (x - 7)^{2} - 49$. Then $2(x^{2} - 14x) = 2(x - 7)^{2} - 98$.\nStep 3: Add the constant: $2(x - 7)^{2} - 98 + 117 = 2(x - 7)^{2} + 19$. Check by expanding: $2(x^{2} - 14x + 49) + 19 = 2x^{2} - 28x + 98 + 19 = 2x^{2} - 28x + 117$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2(x - 14)^{2} - 275$): halves $28$ before factoring out the $2$; this expands to $2x^{2} - 56x + 117$.\n* Choice C ($2(x - 7)^{2} + 68$): subtracts $49$ instead of $2(49) = 98$ to balance the square; this expands to $2x^{2} - 28x + 166$.\n* Choice D ($2(x + 7)^{2} + 19$): uses the wrong sign inside the square; this expands to $2x^{2} + 28x + 117$.\n\n**Test Day Takeaway:** When the leading coefficient is not $1$, factor it out of the $x$-terms first, and remember that the number you add inside the parentheses is multiplied by that coefficient.",
   skills: ["quadratics"]
 },
 {
@@ -335,9 +335,9 @@ export const practiceTest11 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "A circular reflecting pool is drawn on a landscape plan so that its rim satisfies $x^2 + y^2 - 14x - 6y + c = 0$ and just reaches, without crossing, a walkway that runs down the $x$-axis. What is the value of $c$?",
+  question: "$x^{2} + y^{2} - 14x - 6y + c = 0$\nIn the $xy$-plane, the graph of the given equation, where $c$ is a constant, is a circle that intersects the $x$-axis at exactly one point. What is the value of $c$?",
   correctAnswer: "49",
-  explanation: "**SAT Pattern: Circle in Standard Form**\n\n**The correct answer is $49$.**\n\n**The Fast Way (~45s):** Completing both squares gives center $(7, 3)$ and $r^2 = 58 - c$. Touching the $x$-axis once means the radius equals the center's distance to it, $3$, so $58 - c = 9$ and $c = 49$.\n\n**The Full Solution:**\nStep 1: Group and complete the square: $x^2 - 14x + y^2 - 6y = -c$ becomes $(x - 7)^2 - 49 + (y - 3)^2 - 9 = -c$, so $(x - 7)^2 + (y - 3)^2 = 58 - c$. The center is $(7, 3)$ and $r^2 = 58 - c$.\nStep 2: A rim that just reaches the walkway without crossing it touches the $x$-axis at exactly one point, so that line is tangent to the circle, which happens when the radius equals the distance from the center to the line. That distance from $(7, 3)$ to the $x$-axis is $3$, so $r = 3$ and $r^2 = 9$.\nStep 3: Solve $58 - c = 9$ to get $c = 49$. Check: with $c = 49$ the equation is $(x - 7)^2 + (y - 3)^2 = 9$; setting $y = 0$ gives $(x - 7)^2 = 0$, whose only solution is $x = 7$, so the rim touches the walkway at the single point $(7, 0)$. ✓\n\n**Common Mistakes:**\n* Setting $58 - c = 0$ gives $c = 58$, which shrinks the circle to the single point $(7, 3)$ — a figure that never reaches the walkway at all.\n* Reporting $9$ answers with $r^2$ instead of the constant $c$ the equation asks for.\n* Using the distance $3$ as $r^2$ instead of $r$ gives $58 - c = 3$ and $c = 55$, a circle of radius $\\sqrt{3}$ that misses the walkway entirely.\n\n**Test Day Takeaway:** Convert to standard form first; tangency to a horizontal or vertical line then just says the radius equals the center's distance to that line.",
+  explanation: "**SAT Pattern: Circle in Standard Form**\n\n**The correct answer is $49$.**\n\n**The Fast Way (~45s):** Completing both squares gives $(x - 7)^{2} + (y - 3)^{2} = 58 - c$, so the center is $(7, 3)$. A circle that meets the $x$-axis at exactly one point has radius equal to the center's distance from the $x$-axis, $3$, so $58 - c = 9$ and $c = 49$.\n\n**The Full Solution:**\nStep 1: Group the terms and complete each square: $(x^{2} - 14x + 49) + (y^{2} - 6y + 9) = -c + 49 + 9$, so $(x - 7)^{2} + (y - 3)^{2} = 58 - c$.\nStep 2: The center is $(7, 3)$, which is $3$ units above the $x$-axis. The circle intersects the $x$-axis at exactly one point when its radius equals that distance, so $r = 3$ and $r^{2} = 9$.\nStep 3: Set $58 - c = 9$, so $c = 49$. Check: substituting $y = 0$ and $c = 49$ gives $x^{2} - 14x + 49 = 0$, or $(x - 7)^{2} = 0$, which has exactly one solution, $x = 7$ ✓\n\n**Common Mistakes:**\n* $9$: uses the distance from the center to the $y$-axis, $7$, as the radius, solving $58 - c = 49$.\n* $55$: sets $58 - c$ equal to the radius, $3$, instead of the radius squared, $9$.\n* $58$: sets $58 - c = 0$, which gives a single point, not a circle.\n\n**Test Day Takeaway:** Complete the square to find the center and $r^{2}$; a circle touches a horizontal axis at exactly one point when its radius equals the center's vertical distance from that axis.",
   skills: ["circle-equation"]
 },
 {
@@ -345,18 +345,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "A rectangular scaffold platform measures $16$ feet by $12$ feet. A vertical post $21$ feet tall is fixed at one corner of the platform. What is the distance, in feet, from the top of the post to the corner of the platform diagonally opposite the post?",
+  question: "A right triangle has a hypotenuse of length $29$ units, and one leg is $1$ unit longer than the other leg. What is the area, in square units, of the triangle?",
   choices: [
-    // distractor: stops at the platform's diagonal and never brings in the post height
-    { id: "A", text: "$20$" },
-    { id: "B", text: "$29$" },
-    // distractor: adds the 20-foot diagonal and the 21-foot post instead of combining them as legs
-    { id: "C", text: "$41$" },
-    // distractor: adds the three given lengths, 16 + 12 + 21
-    { id: "D", text: "$49$" }
+    { id: "A", text: "$210$" },
+    // distractor: uses the hypotenuse 29 instead of the leg 21 as the height
+    { id: "B", text: "$290$" },
+    // distractor: omits the factor 1/2 in the triangle area formula
+    { id: "C", text: "$420$" },
+    // distractor: reports 29^2, the sum of the squared legs, instead of the area
+    { id: "D", text: "$841$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The platform's diagonal is $\\sqrt{16^2 + 12^2} = 20$ feet, and that diagonal is perpendicular to the post, so the distance is $\\sqrt{20^2 + 21^2} = \\sqrt{841} = 29$ feet.\n\n**The Full Solution:**\nStep 1: The platform is a rectangle, so its two sides and its diagonal form a right triangle: the diagonal is $\\sqrt{16^2 + 12^2} = \\sqrt{256 + 144} = \\sqrt{400} = 20$ feet.\nStep 2: The post is vertical, so it is perpendicular to the platform and therefore to that diagonal. The post, the diagonal, and the segment from the top of the post to the far corner form a second right triangle with legs $21$ feet and $20$ feet.\nStep 3: The required distance is $\\sqrt{21^2 + 20^2} = \\sqrt{441 + 400} = \\sqrt{841} = 29$ feet. Check: $29^2 = 841$ and $20^2 + 21^2 = 841$, so the triangle with sides $20$, $21$, and $29$ is right. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): this is the platform's own diagonal, the distance between the two corners along the deck, with the $21$-foot climb ignored.\n* Choice C ($41$): this adds $20$ and $21$. Adding the legs always overshoots a hypotenuse, which must be less than their sum.\n* Choice D ($49$): this adds all three given lengths, $16 + 12 + 21$, which measures a path along the edges rather than a straight-line distance.\n\n**Test Day Takeaway:** For a distance across a box-shaped setup, apply the Pythagorean theorem twice — once for the base diagonal, then with the vertical height.",
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** With legs $a$ and $a + 1$, $a^{2} + (a + 1)^{2} = 29^{2}$ gives $a = 20$, so the legs are $20$ and $21$ and the area is $\\frac{1}{2}(20)(21) = 210$.\n\n**The Full Solution:**\nStep 1: Let the shorter leg be $a$, so the longer leg is $a + 1$. By the Pythagorean theorem, $a^{2} + (a + 1)^{2} = 841$, so $2a^{2} + 2a + 1 = 841$, or $a^{2} + a - 420 = 0$.\nStep 2: Factor: $(a + 21)(a - 20) = 0$. A length is positive, so $a = 20$, and the legs are $20$ and $21$.\nStep 3: The legs of a right triangle are a base and its height, so the area is $\\frac{1}{2}(20)(21) = 210$ square units. Check: $20^{2} + 21^{2} = 400 + 441 = 841 = 29^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($290$): uses the hypotenuse as the height, computing $\\frac{1}{2}(20)(29)$; the height to a leg is the other leg, not the hypotenuse.\n* Choice C ($420$): leaves out the $\\frac{1}{2}$ in the area formula, computing $20(21)$.\n* Choice D ($841$): reports $29^{2}$, the sum of the squares of the legs, instead of finding the legs.\n\n**Test Day Takeaway:** When the legs are described in terms of each other, write them with one variable, solve the Pythagorean equation, and then use the two legs as base and height.",
   skills: ["pythagorean-theorem"]
 },
 {
@@ -364,19 +364,19 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "A kiln operator models the yield, in kilograms, at furnace setting $x$ with a quadratic function $f$. The table gives $f(x)$ at four settings. What is the greatest yield the model predicts, in kilograms?",
+  question: "For the quadratic function $f$, the table shows four values of $x$ and their corresponding values of $f(x)$. What is the maximum value of $f(x)$?",
   questionTable: { headers: ["$x$", "$f(x)$"], rows: [["$0$", "$5$"], ["$1$", "$20$"], ["$5$", "$20$"], ["$6$", "$5$"]] },
   choices: [
-    // distractor: reports the setting x = 3 at which the peak occurs instead of the yield there
+    // distractor: reports the x-value x = 3 at which the maximum occurs instead of f(3)
     { id: "A", text: "$3$" },
     // distractor: solves 5a = 15 instead of 5a = -15, getting a = 3 and k = 20 - 12 = 8
     { id: "B", text: "$8$" },
-    // distractor: reads the largest yield listed in the table as the model's maximum
+    // distractor: reads the largest value listed in the table as the maximum of f
     { id: "C", text: "$20$" },
     { id: "D", text: "$32$" }
   ],
   correctAnswer: "D",
-  explanation: "**SAT Pattern: Vertex Form Maximum**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** Equal yields at $x = 1$ and $x = 5$ put the vertex at $x = 3$, so $f(x) = a(x - 3)^2 + k$. From $4a + k = 20$ and $9a + k = 5$, $a = -3$ and $k = 32$ kilograms.\n\n**The Full Solution:**\nStep 1: A parabola takes equal values at inputs equally spaced from its axis of symmetry. Since $f(1) = f(5) = 20$, the axis is $x = \\frac{1 + 5}{2} = 3$, so $f(x) = a(x - 3)^2 + k$ and the maximum or minimum value is $k$.\nStep 2: Substitute two table rows: $f(1) = a(1 - 3)^2 + k = 4a + k = 20$, and $f(0) = a(0 - 3)^2 + k = 9a + k = 5$. Subtracting the first from the second gives $5a = -15$, so $a = -3$.\nStep 3: Then $k = 20 - 4(-3) = 32$. Because $a = -3$ is negative the parabola opens downward, so $32$ kilograms is the greatest yield, reached at setting $x = 3$. Check the remaining row: $f(6) = -3(6 - 3)^2 + 32 = -27 + 32 = 5$, which matches the table. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): this is the furnace setting at which the peak occurs, not the yield the model predicts there.\n* Choice B ($8$): this comes from solving $5a = 15$ instead of $5a = -15$; that gives $a = 3$ and $k = 20 - 12 = 8$, an upward-opening parabola with a minimum, which contradicts $f(0) = 5$ being lower than $f(1) = 20$.\n* Choice C ($20$): this is the largest value printed in the table, but the table skips the settings between $x = 1$ and $x = 5$, where the model runs higher.\n\n**Test Day Takeaway:** Two equal outputs locate the axis of symmetry halfway between them; from there two table rows are enough to pin down the vertex value.",
+  explanation: "**SAT Pattern: Vertex Form Maximum**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** Equal outputs at $x = 1$ and $x = 5$ put the vertex at $x = 3$, so $f(x) = a(x - 3)^{2} + k$. From $4a + k = 20$ and $9a + k = 5$, $a = -3$ and $k = 32$.\n\n**The Full Solution:**\nStep 1: A quadratic function has equal outputs at inputs the same distance from its axis of symmetry. Since $f(1) = f(5) = 20$, the axis is $x = \\frac{1 + 5}{2} = 3$, so $f(x) = a(x - 3)^{2} + k$, and the maximum or minimum value is $k$.\nStep 2: Substitute two rows: $f(1) = a(1 - 3)^{2} + k = 4a + k = 20$, and $f(0) = a(0 - 3)^{2} + k = 9a + k = 5$. Subtracting the first equation from the second gives $5a = -15$, so $a = -3$.\nStep 3: Then $k = 20 - 4(-3) = 32$. Since $a < 0$, the graph opens downward, so $32$ is the maximum value, at $x = 3$. Check the last row: $f(6) = -3(6 - 3)^{2} + 32 = -27 + 32 = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): this is the value of $x$ at which the maximum occurs, not the maximum value of $f(x)$.\n* Choice B ($8$): solves $5a = 15$ instead of $5a = -15$, which gives $a = 3$ and $k = 20 - 12 = 8$.\n* Choice C ($20$): this is the greatest value in the table, but the table does not include $x = 3$, where $f(x)$ is greater.\n\n**Test Day Takeaway:** Two equal outputs locate the axis of symmetry halfway between their inputs; two more rows then determine the vertex form.",
   skills: ["converting-quadratic-forms"]
 },
 {
@@ -384,18 +384,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In a data pipeline, stage one applies the rule $f(n) = 2n - 5$ to a number and stage two applies the rule $g(n) = n^2 + 3$. Which expression is equivalent to $g(f(n)) - f(g(n))$?",
+  question: "$f(x) = 2x - 5$\n$g(x) = x^{2} + 3$\nThe functions $f$ and $g$ are defined by the given equations. Which expression is equivalent to $g(f(x)) - f(g(x))$?",
   choices: [
-    { id: "A", text: "$2n^2 - 20n + 27$" },
-    // distractor: subtracts in the reverse order, computing f(g(n)) - g(f(n))
-    { id: "B", text: "$-2n^2 + 20n - 27$" },
-    // distractor: expands (2n - 5)^2 as 4n^2 + 25, dropping the -20n middle term
-    { id: "C", text: "$2n^2 + 27$" },
-    // distractor: stops after computing g(f(n)) and never subtracts f(g(n))
-    { id: "D", text: "$4n^2 - 20n + 28$" }
+    { id: "A", text: "$2x^{2} - 20x + 27$" },
+    // distractor: subtracts in the reverse order, computing f(g(x)) - g(f(x))
+    { id: "B", text: "$-2x^{2} + 20x - 27$" },
+    // distractor: expands (2x - 5)^2 as 4x^2 + 25, dropping the -20x middle term
+    { id: "C", text: "$2x^{2} + 27$" },
+    // distractor: stops after computing g(f(x)) and never subtracts f(g(x))
+    { id: "D", text: "$4x^{2} - 20x + 28$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Function Composition**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** $g(f(n)) = (2n - 5)^2 + 3 = 4n^2 - 20n + 28$ and $f(g(n)) = 2(n^2 + 3) - 5 = 2n^2 + 1$, so the difference is $2n^2 - 20n + 27$.\n\n**The Full Solution:**\nStep 1: Compute $g(f(n))$ by substituting $2n - 5$ for the input of $g$: $g(f(n)) = (2n - 5)^2 + 3 = 4n^2 - 20n + 25 + 3 = 4n^2 - 20n + 28$.\nStep 2: Compute $f(g(n))$ by substituting $n^2 + 3$ for the input of $f$: $f(g(n)) = 2(n^2 + 3) - 5 = 2n^2 + 6 - 5 = 2n^2 + 1$.\nStep 3: Subtract in the order asked: $(4n^2 - 20n + 28) - (2n^2 + 1) = 2n^2 - 20n + 27$. Check at $n = 3$: $g(f(3)) = g(1) = 4$ and $f(g(3)) = f(12) = 19$, so the difference is $-15$, and $2(9) - 20(3) + 27 = 18 - 60 + 27 = -15$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-2n^2 + 20n - 27$): this is the difference taken in the reverse order. At $n = 3$ it gives $+15$ instead of $-15$.\n* Choice C ($2n^2 + 27$): this expands $(2n - 5)^2$ as $4n^2 + 25$ and loses the $-20n$ middle term. At $n = 3$ it gives $45$.\n* Choice D ($4n^2 - 20n + 28$): this is $g(f(n))$ alone, with the subtraction never carried out. At $n = 3$ it gives $4$.\n\n**Test Day Takeaway:** Composition is not commutative — expand each order separately, keeping every middle term of the square, before combining.",
+  explanation: "**SAT Pattern: Function Composition**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** $g(f(x)) = (2x - 5)^{2} + 3 = 4x^{2} - 20x + 28$ and $f(g(x)) = 2(x^{2} + 3) - 5 = 2x^{2} + 1$, so the difference is $2x^{2} - 20x + 27$.\n\n**The Full Solution:**\nStep 1: Substitute $f(x)$ into $g$: $g(f(x)) = (2x - 5)^{2} + 3 = 4x^{2} - 20x + 25 + 3 = 4x^{2} - 20x + 28$.\nStep 2: Substitute $g(x)$ into $f$: $f(g(x)) = 2(x^{2} + 3) - 5 = 2x^{2} + 6 - 5 = 2x^{2} + 1$.\nStep 3: Subtract: $(4x^{2} - 20x + 28) - (2x^{2} + 1) = 2x^{2} - 20x + 27$. Check with $x = 1$: $f(1) = -3$ and $g(-3) = 12$; $g(1) = 4$ and $f(4) = 3$; $12 - 3 = 9$, and $2 - 20 + 27 = 9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-2x^{2} + 20x - 27$): subtracts in the reverse order, computing $f(g(x)) - g(f(x))$.\n* Choice C ($2x^{2} + 27$): expands $(2x - 5)^{2}$ as $4x^{2} + 25$, dropping the middle term $-20x$.\n* Choice D ($4x^{2} - 20x + 28$): stops after finding $g(f(x))$ and never subtracts $f(g(x))$.\n\n**Test Day Takeaway:** Work from the inside out for each composition, keep the two results separate, and subtract in the order written.",
   skills: ["function-composition"]
 }
       ]
@@ -422,19 +422,19 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 2,
-  question: "A restoration fund opened by a heritage-railway trust earns a fixed annual rate, and no money is added or removed. Three values of the fund are recorded in the table. Which equation models the fund's value $V$, in dollars, $t$ years after the fund was opened?",
-  questionTable: { headers: ["Years after opening", "Fund value (dollars)"], rows: [["$0$", "$2{,}500$"], ["$1$", "$2{,}600$"], ["$2$", "$2{,}704$"]] },
+  question: "The function $V$ gives the value, in dollars, of a savings account $t$ years after it was opened. The table shows three values of $t$ and their corresponding values of $V(t)$. Which equation defines $V$?",
+  questionTable: { headers: ["$t$", "$V(t)$"], rows: [["$0$", "$2{,}500$"], ["$1$", "$2{,}600$"], ["$2$", "$2{,}704$"]] },
   choices: [
     // distractor: treats the first year's 100-dollar rise as a fixed yearly amount, giving a linear model that predicts 2,700 at t = 2 instead of 2,704
-    { id: "A", text: "$V = 2{,}500 + 100t$" },
-    // distractor: uses the rate 0.04 as the growth factor instead of 1 + 0.04, predicting 100 dollars after one year
-    { id: "B", text: "$V = 2{,}500(0.04)^t$" },
-    { id: "C", text: "$V = 2{,}500(1.04)^t$" },
-    // distractor: misplaces the decimal in the growth factor, reading 1.04 as 1.4 and predicting 3,500 dollars after one year
-    { id: "D", text: "$V = 2{,}500(1.4)^t$" }
+    { id: "A", text: "$V(t) = 2{,}500 + 100t$" },
+    // distractor: uses the rate 0.04 as the growth factor instead of 1 + 0.04, predicting a value of 100 dollars at t = 1
+    { id: "B", text: "$V(t) = 2{,}500(0.04)^{t}$" },
+    { id: "C", text: "$V(t) = 2{,}500(1.04)^{t}$" },
+    // distractor: misplaces the decimal in the growth factor, writing 1.4 for 1.04 and predicting 3,500 dollars at t = 1
+    { id: "D", text: "$V(t) = 2{,}500(1.4)^{t}$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Compound Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Divide consecutive fund values: $2{,}600 \\div 2{,}500 = 1.04$. A constant multiplier each year means $V = 2{,}500(1.04)^t$.\n\n**The Full Solution:**\nStep 1: At $t = 0$ the fund is worth $\\$2{,}500$, so any exponential model $V = a \\cdot b^{\\,t}$ has $a = 2{,}500$.\nStep 2: Find the yearly factor $b$ from the table. From year $0$ to year $1$, $\\frac{2{,}600}{2{,}500} = 1.04$; from year $1$ to year $2$, $\\frac{2{,}704}{2{,}600} = 1.04$. The same factor applies each year, so $b = 1.04$.\nStep 3: Check the model against the last row: $2{,}500(1.04)^2 = 2{,}500(1.0816) = 2{,}704$, exactly the recorded value. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($V = 2{,}500 + 100t$): the first year does rise by $\\$100$, but a fixed yearly amount predicts $2{,}500 + 100(2) = \\$2{,}700$ at $t = 2$, while the table shows $\\$2{,}704$. The extra $\\$4$ is interest earned on interest.\n* Choice B ($V = 2{,}500(0.04)^t$): this uses the rate itself as the multiplier and predicts $2{,}500(0.04) = \\$100$ after one year, a fund that nearly vanishes.\n* Choice D ($V = 2{,}500(1.4)^t$): a decimal slip turns a $4\\%$ rate into a $40\\%$ rate and predicts $2{,}500(1.4) = \\$3{,}500$ after one year.\n\n**Test Day Takeaway:** When a table of values grows by a constant ratio rather than a constant amount, the model is exponential. Divide neighbouring values to get the factor, and remember that the factor is $1 + r$, never $r$ alone.",
+  explanation: "**SAT Pattern: Compound Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Divide consecutive values: $\\frac{2{,}600}{2{,}500} = 1.04$ and $\\frac{2{,}704}{2{,}600} = 1.04$. A constant ratio with starting value $2{,}500$ gives $V(t) = 2{,}500(1.04)^{t}$.\n\n**The Full Solution:**\nStep 1: The row $t = 0$ gives the starting value, so any exponential model $V(t) = a \\cdot b^{t}$ has $a = 2{,}500$.\nStep 2: Find the yearly factor. From $t = 0$ to $t = 1$, $\\frac{2{,}600}{2{,}500} = 1.04$; from $t = 1$ to $t = 2$, $\\frac{2{,}704}{2{,}600} = 1.04$. The same factor applies each year, so $b = 1.04$.\nStep 3: Check the last row: $2{,}500(1.04)^{2} = 2{,}500(1.0816) = 2{,}704$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($V(t) = 2{,}500 + 100t$): the value does rise by $\\$100$ in the first year, but a fixed yearly amount predicts $2{,}500 + 100(2) = 2{,}700$ at $t = 2$, not $2{,}704$.\n* Choice B ($V(t) = 2{,}500(0.04)^{t}$): uses the rate $0.04$ as the multiplier and predicts $2{,}500(0.04) = 100$ at $t = 1$.\n* Choice D ($V(t) = 2{,}500(1.4)^{t}$): a decimal slip turns a $4\\%$ increase into a $40\\%$ increase and predicts $2{,}500(1.4) = 3{,}500$ at $t = 1$.\n\n**Test Day Takeaway:** When a table grows by a constant ratio rather than a constant amount, the model is exponential; divide neighboring values to get the factor, which is $1 + r$, never $r$ alone.",
   skills: ["exponential-functions"]
 },
 {
@@ -442,18 +442,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "A denim gusset is cut so that its hypotenuse is $25$ centimeters and its shorter leg is $7$ centimeters. Let $w$ be the acute angle formed where those two edges meet. What is the value of $\\tan w$?",
+  question: "In right triangle $ABC$, angle $C$ is a right angle, $AB = 41$, and $BC = 9$. What is the value of $\\tan B$?",
   choices: [
-    // distractor: reports cos w = 7/25 instead of the tangent
-    { id: "A", text: "$\\dfrac{7}{25}$" },
-    // distractor: finds the tangent of the other acute angle, 7/24
-    { id: "B", text: "$\\dfrac{7}{24}$" },
-    // distractor: reports sin w = 24/25, using the hypotenuse where the adjacent leg belongs
-    { id: "C", text: "$\\dfrac{24}{25}$" },
-    { id: "D", text: "$\\dfrac{24}{7}$" }
+    // distractor: reports cos B = BC/AB = 9/41 instead of the tangent
+    { id: "A", text: "$\\dfrac{9}{41}$" },
+    // distractor: inverts the ratio, giving adjacent over opposite, which is tan A = 9/40
+    { id: "B", text: "$\\dfrac{9}{40}$" },
+    // distractor: reports sin B = AC/AB = 40/41, dividing by the hypotenuse instead of the adjacent leg
+    { id: "C", text: "$\\dfrac{40}{41}$" },
+    { id: "D", text: "$\\dfrac{40}{9}$" }
   ],
   correctAnswer: "D",
-  explanation: "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The missing leg is $24$, since $7$-$24$-$25$ is a Pythagorean triple. Angle $w$ has the $7$ cm leg adjacent and the $24$ cm leg opposite, so $\\tan w = \\frac{24}{7}$.\n\n**The Full Solution:**\nStep 1: The hypotenuse is $25$ and one leg is $7$, so the other leg $b$ satisfies $7^2 + b^2 = 25^2$. Then $b^2 = 625 - 49 = 576$, so $b = 24$, and $7$ is indeed the shorter leg.\nStep 2: Angle $w$ sits where the hypotenuse meets the $7$ cm leg. Measured from $w$, the $7$ cm leg is adjacent and the $24$ cm leg is opposite, so $\\tan w = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{24}{7}$.\nStep 3: Check against the other two ratios: $\\sin w = \\frac{24}{25}$ and $\\cos w = \\frac{7}{25}$, and $\\frac{24/25}{7/25} = \\frac{24}{7}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7}{25}$): this is adjacent over hypotenuse — that is $\\cos w$, not $\\tan w$.\n* Choice B ($\\frac{7}{24}$): this is the tangent of the *other* acute angle, the one where the $24$ cm leg meets the hypotenuse.\n* Choice C ($\\frac{24}{25}$): this is opposite over hypotenuse — that is $\\sin w$. Tangent never uses the hypotenuse.\n\n**Test Day Takeaway:** Label the sides from the angle named in the question before writing any ratio. The hypotenuse always lies opposite the right angle, and tangent is the one ratio that ignores it.",
+  explanation: "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The missing leg is $AC = \\sqrt{41^{2} - 9^{2}} = 40$. From angle $B$, $AC$ is opposite and $BC$ is adjacent, so $\\tan B = \\frac{40}{9}$.\n\n**The Full Solution:**\nStep 1: Since angle $C$ is the right angle, $AB = 41$ is the hypotenuse and $BC = 9$ and $AC$ are the legs.\nStep 2: Use the Pythagorean theorem: $AC^{2} = 41^{2} - 9^{2} = 1{,}681 - 81 = 1{,}600$, so $AC = 40$.\nStep 3: From angle $B$, the opposite leg is $AC = 40$ and the adjacent leg is $BC = 9$, so $\\tan B = \\frac{40}{9}$. Check: $9^{2} + 40^{2} = 81 + 1{,}600 = 1{,}681 = 41^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{9}{41}$): this is $\\cos B$, adjacent over hypotenuse.\n* Choice B ($\\frac{9}{40}$): this is adjacent over opposite, which is $\\tan A$, the tangent of the other acute angle.\n* Choice C ($\\frac{40}{41}$): this is $\\sin B$, opposite over hypotenuse; tangent does not use the hypotenuse.\n\n**Test Day Takeaway:** Find the missing side first, then label opposite and adjacent from the angle named in the question; tangent never involves the hypotenuse.",
   skills: ["soh-cah-toa", "pythagorean-theorem"]
 },
 {
@@ -461,18 +461,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "A patient's daily dose of a medication starts at $12$ milligrams and is increased by $4$ milligrams each day after the first. What is the least number of days after the start for which the daily dose is at least $75$ milligrams?",
+  question: "Ana has \\$120 in savings and adds \\$35 to her savings each week. What is the least number of weeks after which Ana's savings will be greater than \\$700?",
   choices: [
-    // distractor: truncates 15.75 to 15 instead of rounding up, and 12 + 4(15) = 72 is below 75
-    { id: "A", text: "$15$" },
-    { id: "B", text: "$16$" },
-    // distractor: ignores the 12 mg starting dose and solves 4d >= 75, giving d >= 18.75 and d = 19
-    { id: "C", text: "$19$" },
-    // distractor: adds the starting dose instead of subtracting it, solving 4d >= 87 and rounding 21.75 up to 22
-    { id: "D", text: "$22$" }
+    // distractor: rounds 16.57 down to 16, but after 16 weeks the savings are 120 + 35(16) = 680 dollars, which is less than 700
+    { id: "A", text: "$16$" },
+    { id: "B", text: "$17$" },
+    // distractor: ignores the 120 dollars already saved and solves 35w > 700, giving w > 20 and reporting 20
+    { id: "C", text: "$20$" },
+    // distractor: adds the 120 dollars instead of subtracting it, solving 35w > 820 and rounding 23.43 up to 24
+    { id: "D", text: "$24$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Smallest Integer in an Inequality**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The dose after $d$ days is $12 + 4d$. Solving $12 + 4d \\ge 75$ gives $d \\ge 15.75$, and the least whole number of days that clears that bar is $16$.\n\n**The Full Solution:**\nStep 1: Write the dose. Day $0$ is $12$ mg, and each later day adds $4$ mg, so after $d$ days the dose is $12 + 4d$ milligrams.\nStep 2: Set up and solve the inequality $12 + 4d \\ge 75$. Subtracting gives $4d \\ge 63$, so $d \\ge 15.75$. Days are whole numbers, and $d$ must be *at least* $15.75$, so the least value is $d = 16$.\nStep 3: Check both sides of the boundary: at $d = 16$ the dose is $12 + 64 = 76 \\ge 75$, and at $d = 15$ it is $12 + 60 = 72 < 75$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): dropping the decimal part of $15.75$ instead of rounding up. Day $15$ reaches only $72$ mg, short of the target.\n* Choice C ($19$): forgetting the $12$ mg the patient already receives and solving $4d \\ge 75$, which gives $d \\ge 18.75$.\n* Choice D ($22$): moving the $12$ to the wrong side, solving $4d \\ge 87$ and rounding $21.75$ up to $22$ — six days later than necessary.\n\n**Test Day Takeaway:** For a \"least number of\" question, solve the inequality first, then round in the direction the inequality demands: round **up** for \"at least,\" down for \"at most.\" Always test the integer on each side of the boundary.",
+  explanation: "**SAT Pattern: Smallest Integer in an Inequality**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Solve $120 + 35w > 700$: $35w > 580$, so $w > 16.57$. The least whole number of weeks is $17$.\n\n**The Full Solution:**\nStep 1: After $w$ weeks, Ana's savings are $120 + 35w$ dollars, so the condition is $120 + 35w > 700$.\nStep 2: Subtract $120$ from both sides and divide by $35$: $35w > 580$, so $w > \\frac{580}{35} \\approx 16.57$.\nStep 3: The number of weeks is a whole number, so the least value is $17$. Check: $120 + 35(17) = 715 > 700$, while $120 + 35(16) = 680 < 700$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($16$): rounds $16.57$ down. After $16$ weeks the savings are only $\\$680$.\n* Choice C ($20$): ignores the $\\$120$ Ana starts with and solves $35w > 700$, which gives $w > 20$; this also fails the strict inequality at $w = 20$.\n* Choice D ($24$): adds the $\\$120$ to the goal instead of subtracting it, solving $35w > 820$ and rounding $23.43$ up.\n\n**Test Day Takeaway:** For a \"least whole number\" question, solve the inequality, then round in the direction the inequality points, and test the integer on each side.",
   skills: ["inequalities"]
 },
 {
@@ -480,18 +480,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "For a fabric mill, the daily profit, in dollars, from finishing $x$ bolts of upholstery cloth is modeled by $P(x) = -2x^2 + 114x - 1{,}080$ for $x \\ge 0$. Which inequality gives all values of $x$ for which the mill's daily profit is positive?",
+  question: "The function $P$ gives a bakery's daily profit, in dollars, from selling $x$ cakes, where $P(x) = -3x^{2} + 165x - 1{,}800$. For which values of $x$ is the daily profit positive?",
   choices: [
-    { id: "A", text: "$12 < x < 45$" },
-    // distractor: replaces the larger zero 45 with 57, the sum of the two zeros
-    { id: "B", text: "$12 < x < 57$" },
-    // distractor: selects the outside intervals, where the downward parabola is below the x-axis and the profit is negative
-    { id: "C", text: "$x < 12$ or $x > 45$" },
-    // distractor: keeps only the branch beyond the larger zero, where P(x) is already negative
-    { id: "D", text: "$x > 45$" }
+    { id: "A", text: "$15 < x < 40$" },
+    // distractor: reads the zeros from the factors (x - 15)(x - 40) with the wrong signs, giving -15 and -40
+    { id: "B", text: "$-40 < x < -15$" },
+    // distractor: chooses the intervals outside the zeros, where the downward-opening parabola is below the x-axis and the profit is negative
+    { id: "C", text: "$x < 15$ or $x > 40$" },
+    // distractor: keeps only the lower boundary and ignores that the profit becomes negative again after x = 40
+    { id: "D", text: "$x > 15$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Factor: $P(x) = -2(x - 12)(x - 45)$. A downward parabola is above the $x$-axis strictly between its zeros, so the profit is positive for $12 < x < 45$.\n\n**The Full Solution:**\nStep 1: Find the zeros. Setting $-2x^2 + 114x - 1{,}080 = 0$ and dividing by $-2$ gives $x^2 - 57x + 540 = 0$. Since $12 \\cdot 45 = 540$ and $12 + 45 = 57$, the zeros are $x = 12$ and $x = 45$.\nStep 2: Decide which side is positive. The leading coefficient $-2$ is negative, so the parabola opens downward: it lies above the $x$-axis between the zeros and below it outside them.\nStep 3: Check an interior value and an exterior one. At $x = 30$, $P(30) = -1{,}800 + 3{,}420 - 1{,}080 = 540 > 0$; at $x = 50$, $P(50) = -5{,}000 + 5{,}700 - 1{,}080 = -380 < 0$. So the profit is positive exactly on $12 < x < 45$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($12 < x < 57$): $57$ is the *sum* of the zeros (it comes from $-\\frac{b}{a}$ after dividing), not a zero itself. At $x = 50$ the profit is already $-\\$380$.\n* Choice C ($x < 12$ or $x > 45$): this is the correct answer to the opposite question. Outside the zeros a downward parabola is negative, which here means the mill loses money.\n* Choice D ($x > 45$): finishing more than $45$ bolts pushes $P(x)$ below zero, so this interval is exactly where the mill should not operate.\n\n**Test Day Takeaway:** For a quadratic inequality, factor to the zeros, then let the sign of the leading coefficient decide which side is positive: downward parabolas are positive *between* their zeros, upward parabolas *outside* them.",
+  explanation: "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** $P(x) = -3(x^{2} - 55x + 600) = -3(x - 15)(x - 40)$. The parabola opens downward, so $P(x) > 0$ between the zeros: $15 < x < 40$.\n\n**The Full Solution:**\nStep 1: Factor out $-3$: $P(x) = -3\\left(x^{2} - 55x + 600\\right)$. The numbers $15$ and $40$ have product $600$ and sum $55$, so $P(x) = -3(x - 15)(x - 40)$.\nStep 2: The zeros are $x = 15$ and $x = 40$. Because the leading coefficient $-3$ is negative, the graph opens downward and is above the x-axis only between its zeros.\nStep 3: So the daily profit is positive for $15 < x < 40$. Check $x = 20$: $P(20) = -3(400) + 165(20) - 1{,}800 = -1{,}200 + 3{,}300 - 1{,}800 = 300 > 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-40 < x < -15$): flips the signs when reading zeros from $(x - 15)(x - 40)$; the zeros are $15$ and $40$, not $-15$ and $-40$.\n* Choice C ($x < 15$ or $x > 40$): these are the values where a downward-opening parabola is below the x-axis, so the profit is negative there.\n* Choice D ($x > 15$): uses only the first zero; for example, $P(50) = -3(35)(10) = -1{,}050$, so the profit is negative again beyond $40$.\n\n**Test Day Takeaway:** For a quadratic inequality, find the zeros, then use the sign of the leading coefficient: a downward-opening parabola is positive between its zeros and negative outside them.",
   skills: ["quadratics"]
 },
 {
@@ -499,18 +499,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "An infusion bag holds $f(t) = 750 - 12.5t$ milliliters of fluid $t$ minutes after an infusion begins, and the bag is empty at $t = 60$. At minute $a$ the bag holds twice as much fluid as it does at minute $a + 20$. What is the value of $a$?",
+  question: "The function $f$ is defined by $f(x) = 32 - \\frac{2}{5}x$. If $f(3a - 4) = 12$, what is the value of $a$?",
   choices: [
-    { id: "A", text: "$20$" },
-    // distractor: drops the 20-minute shift and solves f(a) = 2f(a), i.e. f(a) = 0, the minute the bag empties
-    { id: "B", text: "$60$" },
-    // distractor: applies the factor 2 to the wrong side, solving 2f(a) = f(a + 20) and getting 80
-    { id: "C", text: "$80$" },
-    // distractor: computes f(a + 20) as 1000 - 12.5a, adding the 250 mL change instead of subtracting it
-    { id: "D", text: "$100$" }
+    // distractor: solves (2/5)u = 20 by multiplying 20 by 2/5 instead of by 5/2, getting u = 8 and then 3a - 4 = 8, a = 4
+    { id: "A", text: "$4$" },
+    // distractor: finds 3a - 4 = 50 correctly but subtracts 4 instead of adding it, getting 3a = 46
+    { id: "B", text: "$\\dfrac{46}{3}$" },
+    { id: "C", text: "$18$" },
+    // distractor: finds the input 3a - 4 = 50 and reports it instead of solving for a
+    { id: "D", text: "$50$" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Solve $f(a) = c$**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Twenty minutes drains $12.5(20) = 250$ mL, so $f(a + 20) = f(a) - 250$. Then $f(a) = 2\\big(f(a) - 250\\big)$ gives $f(a) = 500$, and $750 - 12.5a = 500$ gives $a = 20$.\n\n**The Full Solution:**\nStep 1: Write both volumes in terms of $a$. $f(a) = 750 - 12.5a$, and $f(a + 20) = 750 - 12.5(a + 20) = 750 - 12.5a - 250 = 500 - 12.5a$.\nStep 2: Translate the condition. \"Twice as much at minute $a$ as at minute $a + 20$\" means $750 - 12.5a = 2(500 - 12.5a)$, so $750 - 12.5a = 1{,}000 - 25a$ and $12.5a = 250$, giving $a = 20$.\nStep 3: Check with the actual volumes: $f(20) = 750 - 250 = 500$ mL and $f(40) = 750 - 500 = 250$ mL, and $500 = 2(250)$. $\\checkmark$ Both minutes come before the bag empties at $t = 60$, so the answer is physically possible.\n\n**Why the wrong answers are tempting:**\n* Choice B ($60$): dropping the $+20$ turns the condition into $f(a) = 2f(a)$, which forces $f(a) = 0$ — the minute the bag runs dry, not the minute asked about.\n* Choice C ($80$): putting the $2$ on the wrong side gives $2(750 - 12.5a) = 500 - 12.5a$, so $1{,}000 = 12.5a$ and $a = 80$. That would also be after the bag is empty.\n* Choice D ($100$): treating the $20$-minute shift as $+250$ mL gives $750 - 12.5a = 2(1{,}000 - 12.5a)$, so $12.5a = 1{,}250$ and $a = 100$. A draining bag holds *less* later, not more.\n\n**Test Day Takeaway:** When a condition compares $f(a)$ with $f(a + h)$, substitute $a + h$ into the rule before writing the equation. For a linear rule the shift is a fixed amount — here $-250$ mL — and that single substitution removes every sign trap.",
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Solve $f(a) = c$**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** $32 - \\frac{2}{5}(3a - 4) = 12$ gives $\\frac{2}{5}(3a - 4) = 20$, so $3a - 4 = 50$ and $a = 18$.\n\n**The Full Solution:**\nStep 1: Substitute $3a - 4$ for $x$: $f(3a - 4) = 32 - \\frac{2}{5}(3a - 4)$, so $32 - \\frac{2}{5}(3a - 4) = 12$.\nStep 2: Subtract $32$ and multiply both sides by $-\\frac{5}{2}$: $\\frac{2}{5}(3a - 4) = 20$, so $3a - 4 = 50$.\nStep 3: Add $4$ and divide by $3$: $3a = 54$, so $a = 18$. Check: $3(18) - 4 = 50$ and $f(50) = 32 - \\frac{2}{5}(50) = 32 - 20 = 12$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): multiplies $20$ by $\\frac{2}{5}$ instead of by $\\frac{5}{2}$, getting $3a - 4 = 8$.\n* Choice B ($\\frac{46}{3}$): reaches $3a - 4 = 50$ but subtracts $4$ instead of adding it, getting $3a = 46$.\n* Choice D ($50$): this is the input $3a - 4$, not $a$.\n\n**Test Day Takeaway:** When the input is an expression, solve for the whole input first, then solve that expression for the variable the question asks about.",
   skills: ["function-notation"]
 },
 {
@@ -518,19 +518,19 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "For a clinical study, blood-glucose deviation from a target level, in milligrams per deciliter, is modeled by a quadratic function $f$ of the time $t$, in hours, after a meal. The table gives three of the modeled deviations. The deviation is zero at two times. How many hours apart are those two times?",
-  questionTable: { headers: ["Time $t$ (hours)", "Deviation $f(t)$ (mg/dL)"], rows: [["$0$", "$12$"], ["$2$", "$-8$"], ["$4$", "$-12$"]] },
+  question: "The table shows three values of $x$ and their corresponding values of $f(x)$, where $f$ is a quadratic function. The graph of $y = f(x)$ in the $xy$-plane has two $x$-intercepts. What is the distance between the $x$-intercepts?",
+  questionTable: { headers: ["$x$", "$f(x)$"], rows: [["$0$", "$-12$"], ["$2$", "$-24$"], ["$4$", "$-20$"]] },
   choices: [
-    // distractor: halves the gap, giving the distance 2.5 from the axis of symmetry to one zero rather than between the two zeros
-    { id: "A", text: "$2.5$" },
+    // distractor: divides the square root of the discriminant by 2a = 4, which gives the distance from the axis of symmetry to one intercept, not the distance between the intercepts
+    { id: "A", text: "$3.5$" },
+    // distractor: adds the intercepts, -1 + 6 = 5, instead of subtracting them
     { id: "B", text: "$5$" },
-    // distractor: adds the two times, 1 + 6 = 7, instead of subtracting them
     { id: "C", text: "$7$" },
-    // distractor: computes the square root of the discriminant, 10, and forgets to divide by the leading coefficient 2
-    { id: "D", text: "$10$" }
+    // distractor: takes the square root of the discriminant, 14, and forgets to divide by the leading coefficient 2
+    { id: "D", text: "$14$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The table forces $f(t) = 2t^2 - 14t + 12 = 2(t - 1)(t - 6)$. The deviation is zero at $t = 1$ and $t = 6$, which are $5$ hours apart.\n\n**The Full Solution:**\nStep 1: Write $f(t) = At^2 + Bt + C$. From $f(0) = 12$, $C = 12$. From $f(2) = -8$: $4A + 2B + 12 = -8$, so $2A + B = -10$. From $f(4) = -12$: $16A + 4B + 12 = -12$, so $4A + B = -6$.\nStep 2: Subtract the two relations: $(4A + B) - (2A + B) = -6 - (-10)$ gives $2A = 4$, so $A = 2$ and then $B = -14$. The model is $f(t) = 2t^2 - 14t + 12$.\nStep 3: Solve $2t^2 - 14t + 12 = 0$. Dividing by $2$ gives $t^2 - 7t + 6 = 0$, so $(t - 1)(t - 6) = 0$ and $t = 1$ or $t = 6$; the gap is $6 - 1 = 5$ hours. Check the true solution $t = 6$ in the original model: $2(36) - 14(6) + 12 = 72 - 84 + 12 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.5$): the axis of symmetry sits at $t = 3.5$, which is $2.5$ from each zero. That is half the gap, not the gap.\n* Choice C ($7$): $1 + 6 = 7$ is the *sum* of the two times (and equals $-\\frac{B}{A}$ after dividing). \"How far apart\" asks for the difference.\n* Choice D ($10$): $\\sqrt{B^2 - 4AC} = \\sqrt{196 - 96} = 10$ is the numerator of the gap formula; the gap is $\\frac{10}{A} = \\frac{10}{2} = 5$.\n\n**Test Day Takeaway:** Three points pin down a quadratic — build the coefficients with a small system, then read the zeros from the factored form. The gap between the zeros is $\\frac{\\sqrt{b^2 - 4ac}}{|a|}$, never the bare square root.",
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice C is correct.**\n\n**The Fast Way (~60s):** With $f(x) = ax^{2} + bx - 12$, the rows give $4a + 2b = -12$ and $16a + 4b = -8$, so $a = 2$ and $b = -10$. Then $f(x) = 2(x + 1)(x - 6)$, and the intercepts $-1$ and $6$ are $7$ apart.\n\n**The Full Solution:**\nStep 1: The row $x = 0$ gives the constant term, so $f(x) = ax^{2} + bx - 12$. The row $x = 2$ gives $4a + 2b - 12 = -24$, or $4a + 2b = -12$; the row $x = 4$ gives $16a + 4b - 12 = -20$, or $16a + 4b = -8$.\nStep 2: Double the first equation, $8a + 4b = -24$, and subtract it from the second: $8a = 16$, so $a = 2$ and $b = -10$. Then $f(x) = 2x^{2} - 10x - 12 = 2(x^{2} - 5x - 6) = 2(x + 1)(x - 6)$.\nStep 3: The $x$-intercepts are at $x = -1$ and $x = 6$, so the distance between them is $6 - (-1) = 7$. Check the row $x = 4$: $2(5)(-2) = -20$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3.5$): computes $\\frac{\\sqrt{196}}{2(2)} = 3.5$, the distance from the axis of symmetry $x = 2.5$ to one intercept.\n* Choice B ($5$): adds the intercepts, $-1 + 6 = 5$, instead of finding their difference.\n* Choice D ($14$): the discriminant is $(-10)^{2} - 4(2)(-12) = 196$, and $\\sqrt{196} = 14$; the distance between the roots is $\\frac{14}{2} = 7$, so this forgets to divide by $a$.\n\n**Test Day Takeaway:** Three points pin down a quadratic: use $f(0)$ for the constant, solve for $a$ and $b$, then factor; the distance between intercepts is the larger root minus the smaller.",
   skills: ["quadratics"]
 },
 {
@@ -538,18 +538,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "A vial-filling line rejects vials at a rate modeled by $r(h) = 3h^2 - 18h + 31$, in vials per hour, where $h$ is the number of hours after startup. For how many values of $h$ is the reject rate exactly $2$ vials per hour?",
+  question: "$3x^{2} + 29 = 18x$\nHow many distinct real solutions does the given equation have?",
   choices: [
-    { id: "A", text: "No values of $h$" },
-    // distractor: aims at the model's lowest rate, 4 vials per hour, instead of 2; r(h) = 4 is the equation with exactly one solution
-    { id: "B", text: "Exactly one value of $h$" },
-    // distractor: assumes a quadratic model must meet every horizontal line twice
-    { id: "C", text: "Exactly two values of $h$" },
-    // distractor: reads a negative discriminant as meaning every h works rather than none
-    { id: "D", text: "Infinitely many values of $h$" }
+    { id: "A", text: "Zero" },
+    // distractor: assumes that an equation in one variable has exactly one solution, without checking the discriminant
+    { id: "B", text: "Exactly one" },
+    // distractor: moves 29 to the other side with the wrong sign, writing 3x^2 - 18x - 29 = 0, whose discriminant 324 + 348 = 672 is positive
+    { id: "C", text: "Exactly two" },
+    // distractor: reads a negative discriminant as meaning every real number is a solution rather than none
+    { id: "D", text: "Infinitely many" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Discriminant Analysis**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Setting $r(h) = 2$ gives $3h^2 - 18h + 29 = 0$, whose discriminant is $(-18)^2 - 4(3)(29) = 324 - 348 = -24$. A negative discriminant means no real $h$ works.\n\n**The Full Solution:**\nStep 1: Translate the question into an equation: $3h^2 - 18h + 31 = 2$, which rearranges to $3h^2 - 18h + 29 = 0$.\nStep 2: Compute the discriminant of that equation: $b^2 - 4ac = (-18)^2 - 4(3)(29) = 324 - 348 = -24$. Because it is negative, the equation has no real solutions.\nStep 3: Check against the model itself. The lowest rate occurs at $h = -\\frac{-18}{2(3)} = 3$, where $r(3) = 27 - 54 + 31 = 4$. The line never drops below $4$ vials per hour, so a rate of $2$ is never reached. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (exactly one value of $h$): $r(h) = 4$ — the model's minimum — is the equation with a single solution, $h = 3$. The question asks about $2$, not $4$.\n* Choice C (exactly two values of $h$): true only when the horizontal line sits above the minimum. Here it sits below the whole curve, so it meets the curve nowhere.\n* Choice D (infinitely many values of $h$): \"no real solutions\" is the opposite of \"all real solutions.\" A quadratic equals a given constant for at most two values of the variable.\n\n**Test Day Takeaway:** Move everything to one side first, then read the discriminant: negative means none, zero means one, positive means two. A quick check of the vertex value confirms the verdict.",
+  explanation: "**SAT Pattern: Discriminant Analysis**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** In standard form, $3x^{2} - 18x + 29 = 0$, and $b^{2} - 4ac = 324 - 348 = -24 < 0$, so there are no real solutions.\n\n**The Full Solution:**\nStep 1: Subtract $18x$ from both sides to get standard form: $3x^{2} - 18x + 29 = 0$, so $a = 3$, $b = -18$, and $c = 29$.\nStep 2: Compute the discriminant: $b^{2} - 4ac = (-18)^{2} - 4(3)(29) = 324 - 348 = -24$.\nStep 3: A negative discriminant means the equation has no real solutions. Check by completing the square: $3x^{2} - 18x + 29 = 3(x - 3)^{2} + 2$, which is at least $2$ for every $x$, so it never equals $0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly one): a quadratic has exactly one real solution only when the discriminant is $0$; here it is $-24$.\n* Choice C (Exactly two): moving $29$ with the wrong sign gives $3x^{2} - 18x - 29 = 0$, whose discriminant $324 + 348 = 672$ is positive.\n* Choice D (Infinitely many): a negative discriminant means no real number works, not that every number works.\n\n**Test Day Takeaway:** Put the equation in $ax^{2} + bx + c = 0$ form before reading $a$, $b$, and $c$; then the sign of $b^{2} - 4ac$ gives the number of real solutions: positive, two; zero, one; negative, none.",
   skills: ["discriminant-analysis"]
 },
 {
@@ -557,18 +557,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "A quantity is written as $\\dfrac{9^{2x} \\cdot 3^{x-4}}{27^{x+1}}$ and also as $3^{k}$, and the two forms agree for every value of $x$. Which expression gives $k$ in terms of $x$?",
+  question: "$\\dfrac{9^{2x} \\cdot 3^{x - 4}}{27^{x + 1}}$\nWhich expression is equivalent to the given expression?",
   choices: [
-    { id: "A", text: "$2x - 7$" },
-    // distractor: rewrites 27^(x+1) as 3^(3x+1), multiplying only the x by 3 and leaving the +1 alone
-    { id: "B", text: "$2x - 5$" },
-    // distractor: rewrites 3^(x-4) as 3^(x+4), flipping the sign of the -4
-    { id: "C", text: "$2x + 1$" },
-    // distractor: adds the denominator's exponent instead of subtracting it, giving 4x + (x-4) + (3x+3)
-    { id: "D", text: "$8x - 1$" }
+    { id: "A", text: "$3^{2x - 7}$" },
+    // distractor: rewrites 27^(x + 1) as 3^(3x + 1), multiplying only the x by 3 and leaving the 1 alone
+    { id: "B", text: "$3^{2x - 5}$" },
+    // distractor: rewrites 3^(x - 4) as 3^(x + 4), flipping the sign of the -4
+    { id: "C", text: "$3^{2x + 1}$" },
+    // distractor: adds the exponent of the denominator instead of subtracting it: 4x + (x - 4) + (3x + 3) = 8x - 1
+    { id: "D", text: "$3^{8x - 1}$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Common-Base Exponent Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Rewrite everything base $3$: $3^{4x} \\cdot 3^{x-4} \\div 3^{3x+3}$. Combine exponents: $4x + (x - 4) - (3x + 3) = 2x - 7$.\n\n**The Full Solution:**\nStep 1: Convert each power to base $3$. Since $9 = 3^2$, $9^{2x} = 3^{4x}$; since $27 = 3^3$, $27^{x+1} = 3^{3(x+1)} = 3^{3x+3}$. The middle factor is already base $3$.\nStep 2: Multiply by adding exponents and divide by subtracting them: $k = 4x + (x - 4) - (3x + 3) = 5x - 4 - 3x - 3 = 2x - 7$.\nStep 3: Check with a convenient value, $x = 2$: the original is $\\frac{9^4 \\cdot 3^{-2}}{27^3} = \\frac{6{,}561 \\cdot \\frac{1}{9}}{19{,}683} = \\frac{729}{19{,}683} = \\frac{1}{27} = 3^{-3}$, and $2(2) - 7 = -3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($2x - 5$): distributing the $3$ over only part of $x + 1$ gives $27^{x+1} = 3^{3x+1}$, and $4x + (x - 4) - (3x + 1) = 2x - 5$. The exponent of a power of a power multiplies the *whole* exponent.\n* Choice C ($2x + 1$): reading $3^{x-4}$ as $3^{x+4}$ gives $4x + (x + 4) - (3x + 3) = 2x + 1$.\n* Choice D ($8x - 1$): adding the denominator's exponent gives $4x + (x - 4) + (3x + 3) = 8x - 1$. Division subtracts exponents.\n\n**Test Day Takeaway:** Force every base to match before touching the exponents, and distribute across the full exponent when rewriting $a^{m(x+n)}$. Then multiplication adds, division subtracts.",
+  explanation: "**SAT Pattern: Common-Base Exponent Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Write every base as a power of $3$: $\\frac{3^{4x} \\cdot 3^{x - 4}}{3^{3x + 3}} = 3^{4x + x - 4 - 3x - 3} = 3^{2x - 7}$.\n\n**The Full Solution:**\nStep 1: Rewrite each base as a power of $3$: $9^{2x} = (3^{2})^{2x} = 3^{4x}$ and $27^{x + 1} = (3^{3})^{x + 1} = 3^{3x + 3}$.\nStep 2: Multiply in the numerator by adding exponents: $3^{4x} \\cdot 3^{x - 4} = 3^{5x - 4}$.\nStep 3: Divide by subtracting exponents: $3^{(5x - 4) - (3x + 3)} = 3^{2x - 7}$. Check at $x = 4$: the original is $\\frac{9^{8} \\cdot 3^{0}}{27^{5}} = \\frac{3^{16}}{3^{15}} = 3$, and $3^{2(4) - 7} = 3^{1} = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3^{2x - 5}$): writes $27^{x + 1}$ as $3^{3x + 1}$; the factor $3$ multiplies the whole exponent $x + 1$.\n* Choice C ($3^{2x + 1}$): changes $3^{x - 4}$ to $3^{x + 4}$, a sign slip.\n* Choice D ($3^{8x - 1}$): adds the denominator's exponent instead of subtracting it.\n\n**Test Day Takeaway:** Convert to a common base first; a power of a power multiplies the entire exponent, and dividing powers subtracts the entire exponent, so keep parentheses around $x + 1$.",
   skills: ["exponent-laws"]
 },
 {
@@ -576,18 +576,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "In grading a jacket up one size, every measurement is multiplied by $\\left(32x^{15}\\right)^{\\frac{2}{5}}$, where $x > 0$. Which of the following is equivalent to that multiplier?",
+  question: "Which expression is equivalent to $\\left(\\sqrt[5]{32x^{15}}\\right)^{2}$?",
   choices: [
-    // distractor: takes the fifth root of 32 but never squares it, giving 2 instead of 4
+    // distractor: takes the fifth root, 2x^3, but squares only the variable part, leaving the coefficient 2
     { id: "A", text: "$2x^{6}$" },
     { id: "B", text: "$4x^{6}$" },
-    // distractor: multiplies the exponent 15 by 2 and never divides by 5, giving x^30
+    // distractor: squares x^15 to get x^30 and never applies the fifth root to the exponent
     { id: "C", text: "$4x^{30}$" },
-    // distractor: squares 32 first and never takes the fifth root, giving 1,024
+    // distractor: squares 32 to get 1,024 and never takes its fifth root
     { id: "D", text: "$1{,}024x^{6}$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $32 = 2^5$, so $32^{2/5} = 2^2 = 4$, and $\\left(x^{15}\\right)^{2/5} = x^{6}$. The multiplier is $4x^{6}$.\n\n**The Full Solution:**\nStep 1: Distribute the exponent across the product: $\\left(32x^{15}\\right)^{\\frac{2}{5}} = 32^{\\frac{2}{5}} \\cdot \\left(x^{15}\\right)^{\\frac{2}{5}}$.\nStep 2: Handle the number. A fractional exponent $\\frac{2}{5}$ means \"fifth root, then square\": $\\sqrt[5]{32} = 2$ and $2^2 = 4$.\nStep 3: Handle the variable by multiplying exponents: $15 \\cdot \\frac{2}{5} = 6$, so $\\left(x^{15}\\right)^{\\frac{2}{5}} = x^{6}$, and the multiplier is $4x^{6}$. Check at $x = 1$: $\\left(32\\right)^{\\frac{2}{5}} = 4$ and $4(1)^6 = 4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2x^{6}$): $\\sqrt[5]{32} = 2$ is only half the job; the numerator $2$ of the exponent still squares it to $4$.\n* Choice C ($4x^{30}$): multiplying $15$ by $2$ and forgetting to divide by $5$. A fractional exponent multiplies by the whole fraction, not just its numerator.\n* Choice D ($1{,}024x^{6}$): squaring $32$ to $1{,}024$ and stopping. The denominator $5$ still asks for a fifth root, and $\\sqrt[5]{1{,}024} = 4$.\n\n**Test Day Takeaway:** Read $a^{m/n}$ as \"$n$th root, then $m$th power,\" and apply the exponent to every factor inside the parentheses. Taking the root first keeps the arithmetic small.",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $\\sqrt[5]{32x^{15}} = 2x^{3}$, and $(2x^{3})^{2} = 4x^{6}$.\n\n**The Full Solution:**\nStep 1: Take the fifth root of each factor: $\\sqrt[5]{32} = 2$, because $2^{5} = 32$, and $\\sqrt[5]{x^{15}} = x^{\\frac{15}{5}} = x^{3}$.\nStep 2: So $\\sqrt[5]{32x^{15}} = 2x^{3}$.\nStep 3: Square the result: $(2x^{3})^{2} = 2^{2} \\cdot x^{6} = 4x^{6}$. Check at $x = 1$: $\\left(\\sqrt[5]{32}\\right)^{2} = 2^{2} = 4$, and $4(1)^{6} = 4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2x^{6}$): squares $x^{3}$ but not the coefficient $2$.\n* Choice C ($4x^{30}$): squares $x^{15}$ to get $x^{30}$ without dividing the exponent by $5$.\n* Choice D ($1{,}024x^{6}$): squares $32$ but never takes its fifth root.\n\n**Test Day Takeaway:** A root and a power both act on every factor inside: apply the fifth root to the coefficient and divide the exponent by $5$, then square both parts.",
   skills: ["exponent-rules", "radical-expressions"]
 },
 {
@@ -595,19 +595,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "Each dot in the plot stands for one of the $11$ guests who checked into a coastal hostel on one day, placed at the number of nights that guest booked. Which statement about these data is true?",
-  diagram: { type: "dotPlot", params: { data: [{ value: 2, count: 2 }, { value: 3, count: 3 }, { value: 4, count: 1 }, { value: 5, count: 2 }, { value: 7, count: 1 }, { value: 9, count: 1 }, { value: 12, count: 1 }], xMin: 1, xMax: 13, xLabel: "Nights booked" } },
+  question: "$5, 3, 12, 2, 3, 7, 4, 3, 9, 2, 5$\nThe list shows the number of nights each of $11$ guests stayed at a hotel. Which statement about these data is true?",
   choices: [
+    { id: "A", text: "The mode is $3$ and the median is $4$." },
     // distractor: swaps the two measures: 3 is the most frequent value and 4 is the middle value, not the reverse
-    { id: "A", text: "The mode is $4$ and the median is $3$." },
-    // distractor: reports the mean, 5, in place of the median
-    { id: "B", text: "The mode is $3$ and the median is $5$." },
-    { id: "C", text: "The mode is $3$ and the median is $4$." },
-    // distractor: counts the two dots at 5 as the tallest stack, overlooking the three dots at 3
-    { id: "D", text: "The mode is $5$ and the median is $4$." }
+    { id: "B", text: "The mode is $4$ and the median is $3$." },
+    // distractor: reports the mean, 55/11 = 5, as the median
+    { id: "C", text: "The mode is $3$ and the median is $5$." },
+    // distractor: takes the middle entry of the unsorted list, the 6th value 7, as the median
+    { id: "D", text: "The mode is $3$ and the median is $7$." }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Mode of a Data Set**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The tallest stack sits at $3$, so the mode is $3$. With $11$ values, the median is the $6$th from the left, which is $4$.\n\n**The Full Solution:**\nStep 1: Read the counts off the plot: $2$ appears twice, $3$ appears three times, $4$ once, $5$ twice, and $7$, $9$, and $12$ once each. That is $2 + 3 + 1 + 2 + 1 + 1 + 1 = 11$ guests, as stated.\nStep 2: The mode is the value that occurs most often. No value occurs more than three times, and only $3$ occurs three times, so the mode is $3$.\nStep 3: The median of $11$ ordered values is the $6$th. Counting from the left, positions $1$-$2$ are $2$, positions $3$-$5$ are $3$, and position $6$ is $4$, so the median is $4$. Check by counting from the right: positions $11$ down to $7$ are $12, 9, 7, 5, 5$, and position $6$ is again $4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (mode $4$, median $3$): the two statistics are switched. Only one dot sits at $4$, so $4$ cannot be the most frequent value.\n* Choice B (mode $3$, median $5$): $5$ is the *mean* here ($\\frac{55}{11} = 5$), pulled up by the guest who booked $12$ nights. The median ignores how far the outliers reach.\n* Choice D (mode $5$, median $4$): the median is right, but $5$ carries only two dots against three at $3$.\n\n**Test Day Takeaway:** On a dot plot the mode is the tallest stack and the median is found by counting dots, not by scanning the axis. With an odd count $n$, the median sits at position $\\frac{n+1}{2}$.",
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Mode of a Data Set**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Sorted, the list is $2, 2, 3, 3, 3, 4, 5, 5, 7, 9, 12$. The value $3$ appears most often, and the $6$th value is $4$.\n\n**The Full Solution:**\nStep 1: Order the $11$ values from least to greatest: $2, 2, 3, 3, 3, 4, 5, 5, 7, 9, 12$.\nStep 2: The mode is the most frequent value. The value $3$ appears $3$ times, more than any other value, so the mode is $3$.\nStep 3: With $11$ values, the median is the $6$th value in order, which is $4$. Check: there are $5$ values below it ($2, 2, 3, 3, 3$) and $5$ above it ($5, 5, 7, 9, 12$) ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: swaps the two measures; $4$ appears only once.\n* Choice C: $5$ is the mean, $\\frac{55}{11} = 5$, not the median.\n* Choice D: $7$ is the $6$th entry of the list as written, but the median must be found after the values are put in order.\n\n**Test Day Takeaway:** Sort the data before finding a median; the mode is the value that repeats most, and the mean is a separate measure.",
   skills: ["find-mode"]
 },
 {
@@ -615,10 +614,10 @@ export const practiceTest11 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "The polynomial function $p$ satisfies $p(x) = x^3 + ax^2 + bx + 30$ for constants $a$ and $b$, and $p$ has three distinct real zeros. The table gives the value of $p$ at four inputs, two of which are zeros of $p$. What is the value of the third zero?",
+  question: "$p(x) = x^{3} + ax^{2} + bx + 30$\nIn the given function, $a$ and $b$ are constants. The table shows four values of $x$ and their corresponding values of $p(x)$. What is the greatest zero of $p$?",
   questionTable: { headers: ["$x$", "$p(x)$"], rows: [["$-2$", "$0$"], ["$1$", "$24$"], ["$2$", "$12$"], ["$3$", "$0$"]] },
   correctAnswer: "5",
-  explanation: "**SAT Pattern: Polynomial Factoring with Given Factor**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~30s):** The table shows $p(-2) = 0$ and $p(3) = 0$, so $p(x) = (x + 2)(x - 3)(x - r)$. Its constant term is $(2)(-3)(-r) = 6r$, and that must equal $30$, so $r = 5$.\n\n**The Full Solution:**\nStep 1: Identify the known zeros. A zero is an input where the output is $0$, so the rows $p(-2) = 0$ and $p(3) = 0$ give the zeros $-2$ and $3$. The rows $p(1) = 24$ and $p(2) = 12$ are nonzero, so those inputs are not zeros.\nStep 2: Because $p$ is a cubic with leading coefficient $1$ and three distinct real zeros, it factors as $p(x) = (x + 2)(x - 3)(x - r)$, where $r$ is the third zero.\nStep 3: Match the constant terms. Setting $x = 0$ gives $p(0) = (2)(-3)(-r) = 6r$, and the rule gives $p(0) = 30$. So $6r = 30$ and $r = 5$. Check the whole polynomial: $(x + 2)(x - 3)(x - 5) = x^3 - 6x^2 - x + 30$, and $p(1) = 1 - 6 - 1 + 30 = 24$, matching the table. $\\checkmark$\n\n**Common Mistakes:** Entering $-5$ (writing the constant term as $-6r$ and solving $-6r = 30$, a sign slip in $(2)(-3)(-r)$); entering $15$ (dividing out only the factor $x + 2$ to get $x^2 - 8x + 15$ and reporting its constant term, which is the product of the two remaining zeros, not a zero itself); entering $30$ (reporting the constant term of the rule instead of the missing zero).\n\n**Test Day Takeaway:** A table row with output $0$ hands you a factor. Once every factor but one is known, the constant term of the product pins the last zero down in one step — no long division needed.",
+  explanation: "**SAT Pattern: Polynomial Factoring with Given Factor**\n\n**The correct answer is 5.**\n\n**The Fast Way (~45s):** The table shows $p(-2) = 0$ and $p(3) = 0$, so $p(x) = (x + 2)(x - 3)(x - r)$. The constant term is $(2)(-3)(-r) = 6r = 30$, so $r = 5$, which is greater than $3$.\n\n**The Full Solution:**\nStep 1: A zero of $p$ is an input with output $0$, so the table gives the zeros $-2$ and $3$. Since the leading coefficient is $1$, $p(x) = (x + 2)(x - 3)(x - r)$ for some third zero $r$.\nStep 2: Match constant terms: at $x = 0$, $(2)(-3)(-r) = 6r$, and $p(0) = 30$. So $6r = 30$ and $r = 5$.\nStep 3: The zeros are $-2$, $3$, and $5$, so the greatest zero is $5$. Check the row $x = 1$: $(3)(-2)(-4) = 24$ ✓\n\n**Common Mistakes:**\n* $3$: the greatest zero visible in the table; the third zero is not listed.\n* $-5$: writes the constant term as $-6r$ and solves $-6r = 30$, a sign slip in $(2)(-3)(-r)$.\n* $15$: divides out only the factor $x + 2$ and reports the constant term of the quotient, which is the product of the other two zeros, $3 \\cdot 5 = 15$.\n\n**Test Day Takeaway:** Each row with output $0$ gives a factor; once all but one factor is known, the constant term of the polynomial gives the last zero in one step.",
   skills: ["finding-roots-factoring"]
 },
 {
@@ -626,9 +625,9 @@ export const practiceTest11 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "A textile lab models the color intensity of a dyed swatch after $n$ industrial washes by $I(n) = 92(0.7)^{n/5}$. The intensity decreases by $p\\%$ every $5$ washes. What is the value of $p$?",
-  correctAnswer: "30",
-  explanation: "**SAT Pattern: Exponential Growth Interpretation**\n\n**The correct answer is $30$.**\n\n**The Fast Way (~20s):** Every $5$ washes the exponent $\\frac{n}{5}$ rises by $1$, so the intensity is multiplied by $0.7$. Keeping $70\\%$ means losing $30\\%$.\n\n**The Full Solution:**\nStep 1: Find the block of washes tied to one factor of $0.7$. Replacing $n$ with $n + 5$ raises the exponent from $\\frac{n}{5}$ to $\\frac{n}{5} + 1$, so $I(n + 5) = 0.7 \\cdot I(n)$.\nStep 2: Convert the multiplier to a percent change. A factor of $0.7$ means the new intensity is $70\\%$ of the old one, so the decrease is $100\\% - 70\\% = 30\\%$, giving $p = 30$.\nStep 3: Check with numbers: $I(0) = 92$ and $I(5) = 92(0.7)^1 = 64.4$. The drop is $92 - 64.4 = 27.6$, and $\\frac{27.6}{92} = 0.30$. $\\checkmark$\n\n**Common Mistakes:** Entering $70$ (reporting the fraction of intensity that remains rather than the percent lost); entering $7$ (finding the per-wash decrease, $1 - 0.7^{1/5} \\approx 0.069$, when the question asks about a $5$-wash block); entering $6$ (dividing the correct $30\\%$ by the $5$ washes, as if percent decreases add).\n\n**Test Day Takeaway:** In $a \\cdot b^{\\,n/c}$, the base $b$ describes one block of $c$ units, not one unit. Convert the base to a percent by comparing it with $1$: $b = 0.7$ is a $30\\%$ decrease, $b = 1.3$ a $30\\%$ increase.",
+  question: "The function $f(t) = 8{,}400(0.7)^{\\frac{t}{5}}$ gives the estimated number of fish in a lake $t$ years after $2020$. The estimated number of fish decreases by $p\\%$ every $10$ years. What is the value of $p$?",
+  correctAnswer: "51",
+  explanation: "**SAT Pattern: Exponential Growth Interpretation**\n\n**The correct answer is 51.**\n\n**The Fast Way (~35s):** Every $10$ years the exponent $\\frac{t}{5}$ grows by $2$, so the number of fish is multiplied by $0.7^{2} = 0.49$, a decrease of $51\\%$.\n\n**The Full Solution:**\nStep 1: When $t$ increases by $10$, the exponent $\\frac{t}{5}$ increases by $\\frac{10}{5} = 2$.\nStep 2: So $f(t + 10) = 8{,}400(0.7)^{\\frac{t}{5} + 2} = f(t) \\cdot (0.7)^{2} = 0.49f(t)$.\nStep 3: Keeping $49\\%$ of the fish means a decrease of $100\\% - 49\\% = 51\\%$, so $p = 51$. Check: $f(0) = 8{,}400$ and $f(10) = 8{,}400(0.49) = 4{,}116$, and $\\frac{8{,}400 - 4{,}116}{8{,}400} = 0.51$ ✓\n\n**Common Mistakes:**\n* $30$: the decrease for one $5$-year period, $1 - 0.7 = 0.30$.\n* $60$: doubles the $5$-year decrease, but percent decreases compound by multiplying, not adding.\n* $49$: the percent that remains after $10$ years, not the percent decrease.\n\n**Test Day Takeaway:** To find the change over a different time span, raise the growth factor to the number of periods in that span, then subtract from $1$ for a decrease.",
   skills: ["exponential-growth-decay"]
 },
 {
@@ -636,18 +635,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "For a chartered coach tour, the numbers of adult tickets $a$ and student tickets $s$ sold satisfy $18a + 12s = 540$. Every ordered pair $(a, s)$ that satisfies that equation also satisfies $ka + 8s = 360$, where $k$ is a constant. What is the value of $k$?",
+  question: "$21x + 15y = 90$\n$kx + 10y = 60$\nIn the given system of equations, $k$ is a constant. If the system has infinitely many solutions, what is the value of $k$?",
   choices: [
-    // distractor: copies the student-ticket coefficient 8 into k, as if the two coefficients in an equation must match
-    { id: "A", text: "$8$" },
-    { id: "B", text: "$12$" },
-    // distractor: assumes the adult-ticket coefficient 18 survives the rescaling unchanged
-    { id: "C", text: "$18$" },
-    // distractor: uses the reciprocal scale factor 3/2 instead of 2/3, giving 18(3/2) = 27
-    { id: "D", text: "$27$" }
+    // distractor: copies the y-coefficient 10 of the second equation into k
+    { id: "A", text: "$10$" },
+    { id: "B", text: "$14$" },
+    // distractor: assumes the x-coefficient 21 stays the same, even though the other coefficients are scaled by 2/3
+    { id: "C", text: "$21$" },
+    // distractor: uses the reciprocal scale factor 3/2 instead of 2/3, giving 21(3/2) = 31.5
+    { id: "D", text: "$31.5$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: System Equivalence Check**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** If every solution of the first equation solves the second, the two are the same equation rescaled. The student-ticket coefficient went from $12$ to $8$, a factor of $\\frac{2}{3}$, so $k = 18 \\cdot \\frac{2}{3} = 12$.\n\n**The Full Solution:**\nStep 1: Two linear equations in $a$ and $s$ share every solution only when one is a nonzero multiple of the other. Let that multiplier be $m$, so $18m = k$, $12m = 8$, and $540m = 360$.\nStep 2: Solve for $m$ two ways and confirm they agree: $12m = 8$ gives $m = \\frac{2}{3}$, and $540m = 360$ gives $m = \\frac{360}{540} = \\frac{2}{3}$ as well. The scaling is consistent, so such a $k$ exists.\nStep 3: Apply the multiplier to the first coefficient: $k = 18 \\cdot \\frac{2}{3} = 12$. Check a solution of the first equation, $(a, s) = (10, 30)$: $18(10) + 12(30) = 540$ $\\checkmark$, and $12(10) + 8(30) = 120 + 240 = 360$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): borrowing the $8$ from the student-ticket term. Then $8(10) + 8(30) = 320 \\ne 360$, so the pair $(10, 30)$ fails.\n* Choice C ($18$): leaving the adult coefficient alone while the rest of the equation shrinks. Then $18(10) + 8(30) = 420 \\ne 360$.\n* Choice D ($27$): scaling in the wrong direction with $\\frac{3}{2}$. The second equation is smaller than the first, so its coefficients must shrink, not grow.\n\n**Test Day Takeaway:** \"Every solution of one is a solution of the other\" means the equations are proportional. Find the multiplier from a term you can see, then confirm it on the constant before applying it to the unknown coefficient.",
+  explanation: "**SAT Pattern: System Equivalence Check**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The second equation must be a multiple of the first. Since $\\frac{10}{15} = \\frac{60}{90} = \\frac{2}{3}$, $k = \\frac{2}{3}(21) = 14$.\n\n**The Full Solution:**\nStep 1: A system of two linear equations has infinitely many solutions when one equation is a constant multiple of the other.\nStep 2: Compare the terms that are known: $\\frac{10}{15} = \\frac{2}{3}$ and $\\frac{60}{90} = \\frac{2}{3}$, so the second equation is $\\frac{2}{3}$ times the first.\nStep 3: Then $k = \\frac{2}{3}(21) = 14$. Check: $\\frac{2}{3}(21x + 15y) = \\frac{2}{3}(90)$ gives $14x + 10y = 60$, the second equation ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): copies the $y$-coefficient; the coefficients in one equation do not have to match each other.\n* Choice C ($21$): leaves the $x$-coefficient unscaled, which would make the lines intersect at one point.\n* Choice D ($31.5$): multiplies by $\\frac{3}{2}$, the factor that turns the second equation into the first, instead of $\\frac{2}{3}$.\n\n**Test Day Takeaway:** Infinitely many solutions means the two equations are the same line; find the scale factor from the terms you know and apply it to the unknown coefficient.",
   skills: ["system-solution-types", "infinite-solutions-condition"]
 },
 {
@@ -655,18 +654,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "Junctions $A$, $B$, and $C$ on a hiking trail network form a triangular loop, and the trail leaving $B$ passes through $C$ and continues straight to a lookout at $D$. Angle $ACD$ measures $(4x + 6)^\\circ$, angle $A$ measures $(x + 30)^\\circ$, and angle $B$ measures $(2x - 4)^\\circ$. What is the measure, in degrees, of angle $ACB$?",
+  question: "In triangle $ABC$, side $\\overline{BC}$ is extended through $C$ to point $D$. The measures of angles $A$, $B$, and $ACD$ are $(x + 30)^{\\circ}$, $(2x - 4)^{\\circ}$, and $(4x + 6)^{\\circ}$, respectively. What is the measure, in degrees, of angle $ACB$?",
   choices: [
-    // distractor: reports x = 20 instead of substituting it back into an angle expression
+    // distractor: reports x = 20 instead of substituting it into an angle measure
     { id: "A", text: "$20$" },
-    // distractor: reports angle A, (20) + 30 = 50 degrees, rather than the angle at C inside the loop
+    // distractor: reports the measure of angle A, 20 + 30 = 50 degrees
     { id: "B", text: "$50$" },
-    // distractor: reports angle ACD, 4(20) + 6 = 86 degrees, the angle outside the loop, instead of its supplement
+    // distractor: reports the measure of angle ACD, 4(20) + 6 = 86 degrees, instead of its supplement
     { id: "C", text: "$86$" },
     { id: "D", text: "$94$" }
   ],
   correctAnswer: "D",
-  explanation: "**SAT Pattern: Triangle Angle Sum**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** Angle $ACD$ is the exterior angle at $C$, so it equals the two remote interior angles: $4x + 6 = (x + 30) + (2x - 4)$, giving $x = 20$ and angle $ACD = 86^\\circ$. Then angle $ACB = 180^\\circ - 86^\\circ = 94^\\circ$.\n\n**The Full Solution:**\nStep 1: Because $B$, $C$, and $D$ lie on one straight trail, angle $ACB$ and angle $ACD$ are supplementary, and angle $ACD$ is an exterior angle of triangle $ABC$. An exterior angle equals the sum of the two interior angles not next to it, so $4x + 6 = (x + 30) + (2x - 4)$.\nStep 2: Solve: $4x + 6 = 3x + 26$, so $x = 20$. That makes angle $A = 50^\\circ$, angle $B = 36^\\circ$, and angle $ACD = 86^\\circ$.\nStep 3: Take the supplement: angle $ACB = 180^\\circ - 86^\\circ = 94^\\circ$. Check the interior angles of the loop: $50 + 36 + 94 = 180$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): $x = 20$ is only the intermediate value. Every angle in this problem still needs $x$ substituted into its expression.\n* Choice B ($50$): angle $A$, not the angle at junction $C$. Naming the vertex letters in order — $ACB$ has its vertex at $C$ — keeps the target straight.\n* Choice C ($86$): angle $ACD$ points away from the loop, toward the lookout. The angle inside the loop is its supplement.\n\n**Test Day Takeaway:** When a side is extended, the exterior angle equals the sum of the two remote interior angles — that single equation solves for the variable faster than the three-angle sum. Then check which angle the question actually names before answering.",
+  explanation: "**SAT Pattern: Triangle Angle Sum**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** An exterior angle equals the sum of the two remote interior angles: $4x + 6 = (x + 30) + (2x - 4)$, so $x = 20$. Then angle $ACD = 86^{\\circ}$ and angle $ACB = 180^{\\circ} - 86^{\\circ} = 94^{\\circ}$.\n\n**The Full Solution:**\nStep 1: Angle $ACD$ is an exterior angle of triangle $ABC$ at $C$, so its measure equals the sum of the measures of angles $A$ and $B$: $4x + 6 = (x + 30) + (2x - 4)$.\nStep 2: Simplify: $4x + 6 = 3x + 26$, so $x = 20$, and angle $ACD$ measures $4(20) + 6 = 86^{\\circ}$.\nStep 3: Angles $ACB$ and $ACD$ form a straight angle, so angle $ACB$ measures $180^{\\circ} - 86^{\\circ} = 94^{\\circ}$. Check: angles $A$ and $B$ measure $50^{\\circ}$ and $36^{\\circ}$, and $50 + 36 + 94 = 180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): this is the value of $x$, not an angle measure.\n* Choice B ($50$): this is the measure of angle $A$.\n* Choice C ($86$): this is the exterior angle $ACD$; the interior angle at $C$ is its supplement.\n\n**Test Day Takeaway:** An exterior angle equals the sum of the two interior angles that are not next to it, and it is supplementary to the interior angle that is.",
   skills: ["triangle-angle-sum"]
 },
 {
@@ -674,9 +673,9 @@ export const practiceTest11 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "A curved hem on a skirt panel is laid out along $y = x^2 - 8x + 21$, and a straight binding tape is laid along $y = 2x + b$ for some constant $b$. The tape touches the hem at one point and stays below it elsewhere. What is the value of $b$?",
+  question: "$y = x^{2} - 8x + 21$\n$y = 2x + b$\nIn the given system of equations, $b$ is a constant. For what value of $b$ does the system have exactly one distinct real solution?",
   correctAnswer: "-4",
-  explanation: "**SAT Pattern: Tangent Line and Discriminant**\n\n**The correct answer is $-4$.**\n\n**The Fast Way (~25s):** Setting the two rules equal gives $x^2 - 10x + (21 - b) = 0$. One touch point means one real solution, so $100 - 4(21 - b) = 0$ and $b = -4$.\n\n**The Full Solution:**\nStep 1: A point on both paths satisfies $x^2 - 8x + 21 = 2x + b$. Moving the line's terms across gives $x^2 - 10x + (21 - b) = 0$.\nStep 2: Touching at exactly one point means that quadratic has exactly one real solution, so its discriminant is zero: $(-10)^2 - 4(1)(21 - b) = 0$, which is $100 - 84 + 4b = 0$, so $4b = -16$ and $b = -4$.\nStep 3: Check the true value. With $b = -4$ the equation becomes $x^2 - 10x + 25 = 0$, that is $(x - 5)^2 = 0$, so the single contact point is at $x = 5$. There the hem is at $25 - 40 + 21 = 6$ and the tape is at $2(5) - 4 = 6$ — the same height. $\\checkmark$\n\n**Common Mistakes:** Entering $4$ (solving $4b = -16$ as $b = 4$, a sign slip); entering $12$ (adding $2x$ to the quadratic instead of subtracting it, which gives $x^2 - 6x + 21 - b = 0$ and then $4b - 48 = 0$); entering $46$ (using $B^2 + 4AC$ in place of $B^2 - 4AC$, which gives $100 + 84 - 4b = 0$).\n\n**Test Day Takeaway:** \"Touches at exactly one point\" is the discriminant condition in disguise. Subtract one equation from the other, set $b^2 - 4ac = 0$, and solve for the constant — then confirm the repeated root by factoring the perfect square.",
+  explanation: "**SAT Pattern: Tangent Line and Discriminant**\n\n**The correct answer is -4.**\n\n**The Fast Way (~40s):** Setting the equations equal gives $x^{2} - 10x + (21 - b) = 0$. One solution means $100 - 4(21 - b) = 0$, so $21 - b = 25$ and $b = -4$.\n\n**The Full Solution:**\nStep 1: Substitute $2x + b$ for $y$ in the first equation: $2x + b = x^{2} - 8x + 21$, which becomes $x^{2} - 10x + (21 - b) = 0$.\nStep 2: The system has exactly one solution when this quadratic has exactly one real root, so its discriminant is $0$: $(-10)^{2} - 4(1)(21 - b) = 0$.\nStep 3: Then $100 = 84 - 4b$, so $4b = -16$ and $b = -4$. Check: $x^{2} - 10x + 25 = (x - 5)^{2}$ has the single root $x = 5$, and both equations give $y = 6$ there ✓\n\n**Common Mistakes:**\n* $4$: a sign slip, solving $21 + b = 25$ instead of $21 - b = 25$.\n* $5$: forgets to subtract $2x$, using $x^{2} - 8x + (21 - b) = 0$, so $64 - 4(21 - b) = 0$ and $b = 5$.\n* $6$: reports the $y$-coordinate of the single solution, $(5, 6)$, instead of $b$.\n\n**Test Day Takeaway:** A line meets a parabola exactly once when the quadratic you get by setting them equal has discriminant $0$; collect every $x$-term before reading $a$, $b$, and $c$.",
   skills: ["tangent-lines", "discriminant-analysis"]
 },
 {
@@ -684,19 +683,19 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The drawn line contains the two marked points. For exactly one constant $n$, no ordered pair $(x, y)$ satisfies both $y = (n^2 - 2n)x + 4n - 4$ and the equation of that line. What is the value of $n$?",
+  question: "Line $\\ell$ is shown in the $xy$-plane. Line $m$ is the graph of $y = (n^{2} - 2n)x + 4n - 4$, where $n$ is a constant. If lines $\\ell$ and $m$ have no point of intersection, what is the value of $n$?",
   diagram: { type: "linearGraph", params: { slope: 3, yIntercept: 8, xRange: [-2, 6], yRange: [0, 26], xTickInterval: 2, yTickInterval: 4, gridInterval: 2, showPoints: [[0, 8], [4, 20]] } },
   choices: [
-    // distractor: reports the second line's y-intercept at n = -1, namely 4(-1) - 4 = -8, instead of n itself
+    // distractor: finds n = -1 but reports line m's y-intercept, 4(-1) - 4 = -8, instead of n
     { id: "A", text: "$-8$" },
     { id: "B", text: "$-1$" },
-    // distractor: the other root of n^2 - 2n = 3, which also makes 4n - 4 equal 8, so the two equations describe the same line and share every point
+    // distractor: uses the other root of n^2 - 2n = 3; at n = 3 the y-intercept 4n - 4 is 8, so line m is line l and the lines share every point
     { id: "C", text: "$3$" },
-    // distractor: matches n^2 - 2n to the drawn line's y-intercept 8 instead of its slope 3, solving n^2 - 2n = 8 and taking the positive root
+    // distractor: sets n^2 - 2n equal to line l's y-intercept 8 instead of its slope 3 and takes the positive root
     { id: "D", text: "$4$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The drawn line is $y = 3x + 8$. Equal slopes need $n^2 - 2n = 3$, so $n = 3$ or $n = -1$; $n = 3$ rebuilds the same line, so only $n = -1$ leaves no shared point.\n\n**The Full Solution:**\nStep 1: Read the drawn line from its two marked points, $(0, 8)$ and $(4, 20)$. Its slope is $\\frac{20 - 8}{4 - 0} = 3$ and its $y$-intercept is $8$, so the line is $y = 3x + 8$.\nStep 2: Two lines have no point in common exactly when their slopes are equal and their $y$-intercepts are not. Equal slopes require $n^2 - 2n = 3$, that is $n^2 - 2n - 3 = 0$, so $(n - 3)(n + 1) = 0$ and $n = 3$ or $n = -1$.\nStep 3: Test the intercepts of those two candidates. At $n = 3$ the constant is $4(3) - 4 = 8$, the drawn line's own intercept, so that equation *is* the drawn line and every point is shared. At $n = -1$ the constant is $4(-1) - 4 = -8$, and $3x + 8 = 3x - 8$ reduces to $8 = -8$, false for every $x$, so no ordered pair satisfies both. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): $-8$ is the second line's $y$-intercept once $n = -1$ is found, not the constant the question asks for.\n* Choice C ($3$): this value does make the slopes match, but it also makes $4n - 4$ equal $8$. The two equations then describe one line, which shares every point — infinitely many solutions, not none.\n* Choice D ($4$): matching $n^2 - 2n$ to the intercept $8$ instead of the slope $3$ gives $n = 4$. That line, $y = 8x + 12$, crosses the drawn line at $x = -\\frac{4}{5}$.\n\n**Test Day Takeaway:** \"No solution\" is two conditions, not one: equal slopes **and** unequal intercepts. When the slope condition is quadratic in the parameter, both roots must be tested — the root that also matches the intercept produces the same line, whose system has infinitely many solutions.",
+  explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** Line $\\ell$ is $y = 3x + 8$. Parallel lines need $n^{2} - 2n = 3$, so $n = 3$ or $n = -1$; $n = 3$ gives the same line, so $n = -1$.\n\n**The Full Solution:**\nStep 1: Line $\\ell$ passes through $(0, 8)$ and $(4, 20)$, so its slope is $\\frac{20 - 8}{4 - 0} = 3$ and its $y$-intercept is $8$: $y = 3x + 8$.\nStep 2: Two lines have no point of intersection when they have equal slopes and different $y$-intercepts. Equal slopes require $n^{2} - 2n = 3$, so $(n - 3)(n + 1) = 0$ and $n = 3$ or $n = -1$.\nStep 3: At $n = 3$, the $y$-intercept of line $m$ is $4(3) - 4 = 8$, so line $m$ is line $\\ell$. At $n = -1$, line $m$ is $y = 3x - 8$. Check: $3x + 8 = 3x - 8$ gives $8 = -8$, which is false for every $x$, so the lines never meet ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): this is line $m$'s $y$-intercept when $n = -1$, not the value of $n$.\n* Choice C ($3$): gives equal slopes but also the same $y$-intercept, $8$, so the lines coincide and share every point.\n* Choice D ($4$): sets $n^{2} - 2n$ equal to the $y$-intercept $8$ instead of the slope $3$; line $y = 8x + 12$ crosses line $\\ell$.\n\n**Test Day Takeaway:** No intersection means equal slopes and unequal intercepts; when the slope condition gives two values of the constant, test each one against the intercept.",
   skills: ["system-solution-types"]
 },
 {
@@ -704,18 +703,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "Consider the equation $\\sqrt{2x + 3} = x - 6$, where $x$ is a real number. Which statement correctly describes its solutions?",
+  question: "$\\sqrt{2x + 3} = x - 6$\nWhat is the sum of all real solutions to the given equation?",
   choices: [
-    { id: "A", text: "The equation has exactly one real solution, $x = 11$." },
-    // distractor: keeps the candidate 3, for which the right side is -3, and discards the candidate that actually works
-    { id: "B", text: "The equation has exactly one real solution, $x = 3$." },
-    // distractor: squares both sides and accepts both roots of x^2 - 14x + 33 = 0 without substituting them back
-    { id: "C", text: "The equation has two real solutions, $x = 3$ and $x = 11$." },
-    // distractor: sees one candidate fail the check and discards the other candidate along with it
-    { id: "D", text: "The equation has no real solutions." }
+    // distractor: squares x - 6 as x^2 - 36, getting x^2 - 2x - 39 = 0 and reporting the sum of its roots, 2
+    { id: "A", text: "$2$" },
+    // distractor: keeps the candidate 3, for which the right side is -3, and discards 11, the candidate that works
+    { id: "B", text: "$3$" },
+    { id: "C", text: "$11$" },
+    // distractor: squares both sides and adds both roots of x^2 - 14x + 33 = 0 without checking them in the original equation
+    { id: "D", text: "$14$" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Radical Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Squaring gives $x^2 - 14x + 33 = 0$, so $x = 3$ or $x = 11$. A square root is never negative, and $x - 6$ is negative at $x = 3$, so only $x = 11$ survives.\n\n**The Full Solution:**\nStep 1: Square both sides: $2x + 3 = (x - 6)^2 = x^2 - 12x + 36$, which rearranges to $x^2 - 14x + 33 = 0$.\nStep 2: Factor: $(x - 3)(x - 11) = 0$, so the candidates are $x = 3$ and $x = 11$. Squaring can create solutions the original equation does not have, so both must be tested.\nStep 3: Test them in the original equation. At $x = 11$: $\\sqrt{2(11) + 3} = \\sqrt{25} = 5$ and $11 - 6 = 5$, so $x = 11$ works. $\\checkmark$ At $x = 3$: $\\sqrt{2(3) + 3} = \\sqrt{9} = 3$, but $3 - 6 = -3$, and $3 \\ne -3$. So $x = 3$ is extraneous and the equation has exactly one real solution.\n\n**Why the wrong answers are tempting:**\n* Choice B ($x = 3$ only): the right candidate is thrown out and the extraneous one kept. The test is whether the right-hand side is non-negative; at $x = 3$ it equals $-3$.\n* Choice C (both $3$ and $11$): stopping after factoring. Every squaring step obliges you to substitute back.\n* Choice D (no real solutions): one failed candidate does not condemn the other. $x = 11$ satisfies the original equation exactly.\n\n**Test Day Takeaway:** Squaring a radical equation can invent roots. Solve, then substitute every candidate into the original: the side equal to the radical must come out non-negative.",
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Radical Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** Squaring gives $2x + 3 = x^{2} - 12x + 36$, so $(x - 3)(x - 11) = 0$. Only $x = 11$ checks ($\\sqrt{25} = 5$), so the sum is $11$.\n\n**The Full Solution:**\nStep 1: Square both sides: $2x + 3 = (x - 6)^{2} = x^{2} - 12x + 36$, so $x^{2} - 14x + 33 = 0$.\nStep 2: Factor: $(x - 3)(x - 11) = 0$, so the candidates are $x = 3$ and $x = 11$.\nStep 3: Check each in the original equation. At $x = 3$: $\\sqrt{9} = 3$, but $3 - 6 = -3$, so $3$ is not a solution. At $x = 11$: $\\sqrt{25} = 5$ and $11 - 6 = 5$ ✓. The only real solution is $11$, so the sum is $11$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): squares $x - 6$ as $x^{2} - 36$, dropping the middle term, and then uses the sum of the roots of $x^{2} - 2x - 39 = 0$.\n* Choice B ($3$): keeps the extraneous candidate; a square root cannot equal $-3$.\n* Choice D ($14$): adds both candidates without checking them; squaring can introduce a solution that does not satisfy the original equation.\n\n**Test Day Takeaway:** After squaring a radical equation, substitute every candidate into the original equation; a square root is never negative, so a candidate that makes the other side negative is extraneous.",
   skills: ["radical-equations"]
 },
 {
@@ -723,9 +722,9 @@ export const practiceTest11 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "A pharmacy stocks $10$-milligram and $25$-milligram tablets of one medication in the ratio $5$ to $3$, and it holds $8n$ tablets in all, where $n$ is a positive integer. If the pharmacy has $96$ more $10$-milligram tablets than $25$-milligram tablets, what is the value of $n$?",
-  correctAnswer: "48",
-  explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**The correct answer is $48$.**\n\n**The Fast Way (~20s):** The ratio parts $5$ and $3$ add to $8$, so with $8n$ tablets in total the counts are $5n$ and $3n$. Their difference is $2n = 96$, so $n = 48$.\n\n**The Full Solution:**\nStep 1: The parts of the ratio $5 : 3$ sum to $8$, and the total is $8n$ tablets. Each part is therefore worth $n$ tablets: there are $5n$ tablets of the $10$-milligram strength and $3n$ of the $25$-milligram strength.\nStep 2: Translate the comparison. \"$96$ more $10$-milligram tablets than $25$-milligram tablets\" gives $5n - 3n = 96$, so $2n = 96$ and $n = 48$.\nStep 3: Check both given facts with $n = 48$: there are $5(48) = 240$ and $3(48) = 144$ tablets, a difference of $240 - 144 = 96$ $\\checkmark$, and a total of $240 + 144 = 384 = 8(48)$. $\\checkmark$\n\n**Common Mistakes:** Entering $96$ (repeating the given difference instead of solving for $n$); entering $384$ (reporting the total number of tablets, $8n$, rather than $n$); entering $12$ (reading the $96$ as the total number of tablets and solving $8n = 96$).\n\n**Test Day Takeaway:** Write each part of a ratio as a multiple of one common unit, then translate \"how many more\" into a subtraction of those multiples. The parts-sum tells you what the unit is worth.",
+  question: "A box contains only black pens and blue pens in a ratio of $5$ to $3$. There are $96$ more black pens than blue pens in the box. How many pens are in the box?",
+  correctAnswer: "384",
+  explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**The correct answer is 384.**\n\n**The Fast Way (~30s):** The ratio $5 : 3$ means the difference is $2$ parts, so one part is $\\frac{96}{2} = 48$ pens, and the box holds $8(48) = 384$ pens.\n\n**The Full Solution:**\nStep 1: Let one part be $n$ pens, so there are $5n$ black pens, $3n$ blue pens, and $8n$ pens in all.\nStep 2: The difference is $5n - 3n = 2n = 96$, so $n = 48$.\nStep 3: The total is $8n = 8(48) = 384$. Check: $240$ black pens and $144$ blue pens give $240 - 144 = 96$ and $\\frac{240}{144} = \\frac{5}{3}$ ✓\n\n**Common Mistakes:**\n* $48$: the size of one part, not the total.\n* $240$: the number of black pens only.\n* $768$: treats $96$ as one part and multiplies by $8$, but $96$ is the difference of $2$ parts.\n\n**Test Day Takeaway:** In a ratio problem, a difference or a total corresponds to a number of parts; find the size of one part, then multiply by the parts the question asks for.",
   skills: ["word-problem-to-equation"]
 },
 {
@@ -733,18 +732,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The listed nightly rate for a lakeside cabin was raised by $20\\%$ for the peak season and then cut by $15\\%$ of the raised rate for a midweek promotion. If the promotional rate is $p$ dollars, which expression gives the listed rate, in dollars, before the raise?",
+  question: "A store increased the price of a jacket by $20\\%$. Later, the store decreased the new price by $15\\%$, to $p$ dollars. Which expression represents the original price of the jacket, in dollars?",
   choices: [
-    // distractor: reverses only the 15 percent cut and never undoes the 20 percent raise
+    // distractor: undoes only the 15 percent decrease and never undoes the 20 percent increase
     { id: "A", text: "$\\dfrac{p}{0.85}$" },
     { id: "B", text: "$\\dfrac{p}{1.02}$" },
-    // distractor: nets the two changes into a single 5 percent increase by subtracting 15 from 20
+    // distractor: combines the two changes into a single 5 percent increase by subtracting 15 from 20
     { id: "C", text: "$\\dfrac{p}{1.05}$" },
-    // distractor: adds the multipliers 1.20 and 0.15 instead of multiplying 1.20 by 0.85
-    { id: "D", text: "$\\dfrac{p}{1.35}$" }
+    // distractor: finds the combined multiplier 1.02 but multiplies p by it instead of dividing
+    { id: "D", text: "$1.02p$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Successive percent changes multiply: $1.20 \\times 0.85 = 1.02$. So $p = 1.02$ times the listed rate, and the listed rate is $\\dfrac{p}{1.02}$.\n\n**The Full Solution:**\nStep 1: Call the listed rate $L$. Raising it by $20\\%$ multiplies it by $1 + 0.20 = 1.20$, giving a peak rate of $1.20L$.\nStep 2: The promotion cuts $15\\%$ **of the raised rate**, which multiplies by $1 - 0.15 = 0.85$. The promotional rate is therefore $0.85(1.20L) = 1.02L$, and this equals $p$.\nStep 3: Solve for $L$: $L = \\dfrac{p}{1.02}$. Check with a concrete listed rate of $\\$100$: the peak rate is $\\$120$, the cut is $0.15(120) = \\$18$, and the promotional rate is $\\$102$; then $\\frac{102}{1.02} = 100$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{p}{0.85}$): this undoes the promotion only. Applied to $p = 102$ it returns $120$, the peak rate, not the original listed rate.\n* Choice C ($\\frac{p}{1.05}$): subtracting the percents treats a $15\\%$ cut on $\\$120$ as if it were a $15\\%$ cut on $\\$100$. The cut is larger than that, so the net rise is $2\\%$, not $5\\%$.\n* Choice D ($\\frac{p}{1.35}$): adding $1.20$ and $0.15$ mixes a multiplier with a rate. Chained percent changes are multiplied, never added.\n\n**Test Day Takeaway:** Turn each percent change into a multiplier ($+20\\% \\to 1.20$, $-15\\% \\to 0.85$), multiply them in order, then divide the final amount by the product to walk backwards to the original.",
+  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The original price times $1.20$ and then $0.85$ equals $p$, and $(1.20)(0.85) = 1.02$, so the original price is $\\frac{p}{1.02}$.\n\n**The Full Solution:**\nStep 1: Let $x$ be the original price. A $20\\%$ increase multiplies it by $1.20$, giving $1.20x$.\nStep 2: A $15\\%$ decrease of the new price multiplies by $0.85$: $p = 0.85(1.20x) = 1.02x$.\nStep 3: Solve for $x$: $x = \\frac{p}{1.02}$. Check with $x = 100$: $100 \\to 120 \\to 0.85(120) = 102$, and $\\frac{102}{1.02} = 100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{p}{0.85}$): reverses only the decrease, which gives the raised price, not the original price.\n* Choice C ($\\frac{p}{1.05}$): treats $+20\\%$ then $-15\\%$ as $+5\\%$; the $15\\%$ is taken of a larger price, so the changes do not simply add.\n* Choice D ($1.02p$): uses the correct multiplier but in the wrong direction; going back to the original price means dividing.\n\n**Test Day Takeaway:** Successive percent changes multiply: write each as a factor, multiply the factors, and divide by the product to work backward.",
   skills: ["percent-of-value", "percent-word-problems"]
 },
 {
@@ -752,18 +751,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "A proportional enlargement of a triangular appliqué patch turns edges of $8$, $15$, and $17$ centimeters into a patch of perimeter $100$ centimeters. The enlarged patch's area is $k$ times the original patch's area. What is the value of $k$?",
+  question: "Triangle $ABC$ has side lengths $8$, $15$, and $17$. Triangle $DEF$ is similar to triangle $ABC$ and has a perimeter of $100$. What is the area, in square units, of triangle $DEF$?",
   choices: [
-    // distractor: reports the linear scale factor 100/40 = 2.5 itself, which scales lengths rather than areas
-    { id: "A", text: "$2.5$" },
-    // distractor: doubles the linear scale factor, 2(2.5) = 5, instead of squaring it
-    { id: "B", text: "$5$" },
-    { id: "C", text: "$6.25$" },
-    // distractor: cubes the linear scale factor, 2.5^3 = 15.625, which is the rule for volumes of similar solids
-    { id: "D", text: "$15.625$" }
+    // distractor: multiplies the area of triangle ABC, 60, by the length scale factor 2.5 instead of its square
+    { id: "A", text: "$150$" },
+    // distractor: multiplies the area 60 by twice the scale factor, 2(2.5) = 5, instead of squaring it
+    { id: "B", text: "$300$" },
+    { id: "C", text: "$375$" },
+    // distractor: uses 8 x 15 = 120 as the area of triangle ABC, forgetting the 1/2, and then multiplies by 6.25
+    { id: "D", text: "$750$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Similar Triangles and Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The original perimeter is $8 + 15 + 17 = 40$ cm, so the scale factor is $\\frac{100}{40} = 2.5$. Areas of similar figures scale by the square of that factor: $2.5^2 = 6.25$.\n\n**The Full Solution:**\nStep 1: A perimeter is a sum of lengths, so it scales by the same factor every edge does. The original perimeter is $8 + 15 + 17 = 40$ cm and the enlarged perimeter is $100$ cm, so each length is multiplied by $\\frac{100}{40} = 2.5$.\nStep 2: Every length is multiplied by $2.5$, so both the base and the height of the triangle are multiplied by $2.5$, and the area — a product of two lengths — is multiplied by $2.5 \\times 2.5 = 6.25$. Hence $k = 6.25$.\nStep 3: Check with actual areas. Because $8^2 + 15^2 = 64 + 225 = 289 = 17^2$, the patch is a right triangle with area $\\frac{1}{2}(8)(15) = 60$ cm$^2$. The enlarged edges are $20$, $37.5$, and $42.5$ cm, which do sum to $100$ cm, and the enlarged area is $\\frac{1}{2}(20)(37.5) = 375$ cm$^2$, giving $\\frac{375}{60} = 6.25$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.5$): this is the ratio of the perimeters, which is the ratio of the lengths. It answers how many times longer the new edges are, not how many times larger the area is.\n* Choice B ($5$): doubling the scale factor. Area involves two perpendicular lengths, so the factor is squared, not doubled.\n* Choice D ($15.625$): cubing applies to volumes of similar solids. A flat patch has area, so the exponent is $2$.\n\n**Test Day Takeaway:** For similar figures, lengths scale by $r$, areas by $r^2$, and volumes by $r^3$. Perimeter scales like a length, so a pair of perimeters gives $r$ directly — then raise it to the power the question's dimension calls for.",
+  explanation: "**SAT Pattern: Similar Triangles and Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Triangle $ABC$ is a right triangle with area $\\frac{1}{2}(8)(15) = 60$ and perimeter $40$. The scale factor is $\\frac{100}{40} = 2.5$, so the area of $DEF$ is $60(2.5)^{2} = 375$.\n\n**The Full Solution:**\nStep 1: Since $8^{2} + 15^{2} = 64 + 225 = 289 = 17^{2}$, triangle $ABC$ is a right triangle with legs $8$ and $15$, so its area is $\\frac{1}{2}(8)(15) = 60$.\nStep 2: The perimeter of triangle $ABC$ is $8 + 15 + 17 = 40$, so the scale factor from $ABC$ to $DEF$ is $\\frac{100}{40} = 2.5$.\nStep 3: Areas of similar figures scale by the square of the scale factor: $60(2.5)^{2} = 60(6.25) = 375$. Check: the sides of $DEF$ are $20$, $37.5$, and $42.5$, with perimeter $100$ and area $\\frac{1}{2}(20)(37.5) = 375$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($150$): scales the area by $2.5$, the factor for lengths, not areas.\n* Choice B ($300$): multiplies by $2 \\times 2.5 = 5$ instead of $2.5^{2} = 6.25$.\n* Choice D ($750$): uses $8 \\times 15 = 120$ for the original area, leaving out the $\\frac{1}{2}$.\n\n**Test Day Takeaway:** Perimeters of similar figures scale by the scale factor $k$, but areas scale by $k^{2}$; find $k$ from the lengths first.",
   skills: ["similar-triangles"]
 },
 {
@@ -771,19 +770,19 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "A parabola is drawn in the $xy$-plane with its minimum point labeled, and it rises to height $22$ where it meets the vertical axis. If the parabola is the graph of $y = f(x)$, what is $f(8)$?",
+  question: "The graph of $y = f(x)$ is shown, where $f$ is a quadratic function. The graph passes through the point $(0, 22)$. What is the value of $f(8)$?",
   diagram: { type: "parabola", params: { vertex: { h: 3, k: 4 }, a: 2, xRange: [0, 6], yRange: [-2, 24], xTickInterval: 1, yTickInterval: 4, gridInterval: 2, showVertex: true } },
   choices: [
     // distractor: computes 2(8 - 3) + 4 = 14, forgetting to square the difference
     { id: "A", text: "$14$" },
-    // distractor: assumes a leading coefficient of 1, computing (8 - 3)^2 + 4 = 29 and never using the height 22
+    // distractor: assumes a leading coefficient of 1, computing (8 - 3)^2 + 4 = 29 and never using the point (0, 22)
     { id: "B", text: "$29$" },
-    // distractor: drops the +4 from the vertex form, computing 2(8 - 3)^2 = 50
+    // distractor: drops the + 4 from vertex form, computing 2(8 - 3)^2 = 50
     { id: "C", text: "$50$" },
     { id: "D", text: "$54$" }
   ],
   correctAnswer: "D",
-  explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The vertex $(3, 4)$ gives $f(x) = a(x - 3)^2 + 4$, and the point $(0, 22)$ gives $9a + 4 = 22$, so $a = 2$. Then $f(8) = 2(25) + 4 = 54$.\n\n**The Full Solution:**\nStep 1: The labeled minimum is the vertex, at $(3, 4)$, so the function can be written in vertex form as $f(x) = a(x - 3)^2 + 4$ for some constant $a$.\nStep 2: Use the second condition. The curve meets the vertical axis at $(0, 22)$, so $a(0 - 3)^2 + 4 = 22$, that is $9a = 18$ and $a = 2$. The rule is $f(x) = 2(x - 3)^2 + 4$.\nStep 3: Evaluate at $x = 8$: $f(8) = 2(8 - 3)^2 + 4 = 2(25) + 4 = 54$. Check the rule against the drawing: $f(6) = 2(6 - 3)^2 + 4 = 22$, and the curve does climb back to height $22$ at $x = 6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($14$): $2(8 - 3) + 4$ skips the square. Vertex form squares the horizontal distance from the vertex before scaling it.\n* Choice B ($29$): $(8 - 3)^2 + 4$ assumes $a = 1$. That parabola would meet the vertical axis at $13$, not $22$, so the second condition is what pins $a$ down.\n* Choice C ($50$): $2(8 - 3)^2$ leaves off the vertex height. The $+4$ lifts the whole curve.\n\n**Test Day Takeaway:** A labeled vertex plus one more point determines a parabola completely: write $a(x - h)^2 + k$ from the vertex, substitute the second point to find $a$, then evaluate. Verifying the rule at a point you can see on the graph catches sign and scale slips.",
+  explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** The vertex $(3, 4)$ gives $f(x) = a(x - 3)^{2} + 4$, and $(0, 22)$ gives $9a + 4 = 22$, so $a = 2$. Then $f(8) = 2(25) + 4 = 54$.\n\n**The Full Solution:**\nStep 1: The graph shows the vertex at $(3, 4)$, so $f(x) = a(x - 3)^{2} + 4$ for some constant $a$.\nStep 2: Substitute the point $(0, 22)$: $a(0 - 3)^{2} + 4 = 22$, so $9a = 18$ and $a = 2$. Thus $f(x) = 2(x - 3)^{2} + 4$.\nStep 3: Evaluate: $f(8) = 2(8 - 3)^{2} + 4 = 2(25) + 4 = 54$. Check against the graph: $f(6) = 2(9) + 4 = 22$, the same height as at $x = 0$, as symmetry about $x = 3$ requires ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($14$): computes $2(8 - 3) + 4$ without squaring.\n* Choice B ($29$): assumes $a = 1$; that parabola would pass through $(0, 13)$, not $(0, 22)$.\n* Choice C ($50$): leaves off the $+4$ from vertex form.\n\n**Test Day Takeaway:** A vertex and one more point determine a parabola: write $a(x - h)^{2} + k$, substitute the point to find $a$, then evaluate.",
   skills: ["vertex-form", "function-evaluation"]
 },
 {
@@ -791,9 +790,9 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "A triangular support bracket has a right angle, and the tangent of one of its acute angles is $\\frac{5}{12}$. The perimeter of the bracket is $k$ times the length of the side opposite that acute angle. What is the value of $k$?",
+  question: "In right triangle $ABC$, angle $C$ is a right angle and $\\tan A = \\frac{5}{12}$. The perimeter of triangle $ABC$ is $k$ times the length of $\\overline{BC}$. What is the value of $k$?",
   choices: [
-    // distractor: divides the perimeter by the adjacent leg, 30/12 = 2.5, instead of by the opposite leg
+    // distractor: divides the perimeter by the adjacent leg AC, 30/12 = 2.5, instead of by BC
     { id: "A", text: "$2.5$" },
     // distractor: leaves the hypotenuse out of the perimeter, computing (5 + 12)/5 = 3.4
     { id: "B", text: "$3.4$" },
@@ -802,7 +801,7 @@ export const practiceTest11 = {
     { id: "D", text: "$6.8$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Tangent $\\frac{5}{12}$ makes the legs $5t$ and $12t$, so the hypotenuse is $13t$ and the perimeter is $30t$. Dividing by the opposite leg $5t$ gives $k = 6$.\n\n**The Full Solution:**\nStep 1: For an acute angle of a right triangle, tangent is opposite over adjacent. So the leg opposite the angle is $5t$ and the leg adjacent to it is $12t$, for some positive $t$.\nStep 2: Find the hypotenuse: $\\sqrt{(5t)^2 + (12t)^2} = \\sqrt{25t^2 + 144t^2} = \\sqrt{169t^2} = 13t$. The perimeter is $5t + 12t + 13t = 30t$.\nStep 3: Form the requested ratio: $k = \\frac{30t}{5t} = 6$, and the $t$ cancels, so $k$ is the same for every such bracket. Check with $t = 2$: the sides are $10$, $24$, and $26$, the perimeter is $60$, and $\\frac{60}{10} = 6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.5$): $\\frac{30t}{12t}$ divides by the adjacent leg. Tangent's numerator, $5$, is the side opposite the angle.\n* Choice B ($3.4$): $\\frac{17t}{5t}$ adds only the two legs. Perimeter includes the hypotenuse.\n* Choice D ($6.8$): $\\frac{34t}{5t}$ uses $5t + 12t = 17t$ as the hypotenuse. The hypotenuse comes from the Pythagorean theorem, $13t$, and is always shorter than the sum of the legs.\n\n**Test Day Takeaway:** A trig ratio fixes the shape but not the size, so introduce a scale $t$, build every side from it, and let $t$ cancel in the final ratio. Recognizing $5$-$12$-$13$ saves the square roots.",
+  explanation: "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** With $BC = 5s$ and $AC = 12s$, the hypotenuse is $13s$, so the perimeter is $30s$ and $k = \\frac{30s}{5s} = 6$.\n\n**The Full Solution:**\nStep 1: From angle $A$, $\\overline{BC}$ is the opposite leg and $\\overline{AC}$ is the adjacent leg, so $\\tan A = \\frac{BC}{AC} = \\frac{5}{12}$. Let $BC = 5s$ and $AC = 12s$ for some $s > 0$.\nStep 2: By the Pythagorean theorem, $AB = \\sqrt{(5s)^{2} + (12s)^{2}} = \\sqrt{169s^{2}} = 13s$, so the perimeter is $5s + 12s + 13s = 30s$.\nStep 3: Then $k = \\frac{30s}{5s} = 6$. Check with $s = 1$: the sides are $5$, $12$, and $13$, the perimeter is $30$, and $30 = 6 \\times 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.5$): divides the perimeter by $AC$, the leg adjacent to angle $A$.\n* Choice B ($3.4$): adds only the two legs, $\\frac{5 + 12}{5} = 3.4$, leaving out the hypotenuse.\n* Choice D ($6.8$): uses $5 + 12 = 17$ as the hypotenuse; the hypotenuse is $\\sqrt{5^{2} + 12^{2}} = 13$.\n\n**Test Day Takeaway:** A trig ratio fixes the shape of a right triangle, not its size; scale the sides by $s$, find the third side, and the $s$ cancels in any ratio of lengths.",
   skills: ["soh-cah-toa"]
 }
       ]

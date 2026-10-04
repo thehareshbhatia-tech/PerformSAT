@@ -1,29 +1,29 @@
 {
  "id": 20,
- "question": "A rectangular scaffold platform measures $16$ feet by $12$ feet. A vertical post $21$ feet tall is fixed at one corner of the platform. What is the distance, in feet, from the top of the post to the corner of the platform diagonally opposite the post?",
+ "question": "A right triangle has a hypotenuse of length $29$ units, and one leg is $1$ unit longer than the other leg. What is the area, in square units, of the triangle?",
  "choices": [
   {
    "id": "A",
-   "text": "$20$"
+   "text": "$210$"
   },
   {
    "id": "B",
-   "text": "$29$"
+   "text": "$290$"
   },
   {
    "id": "C",
-   "text": "$41$"
+   "text": "$420$"
   },
   {
    "id": "D",
-   "text": "$49$"
+   "text": "$841$"
   }
  ],
  "distractorNotes": {
-  "A": "stops at the platform's diagonal and never brings in the post height",
-  "C": "adds the 20-foot diagonal and the 21-foot post instead of combining them as legs",
-  "D": "adds the three given lengths, 16 + 12 + 21"
+  "B": "uses the hypotenuse 29 instead of the leg 21 as the height",
+  "C": "omits the factor 1/2 in the triangle area formula",
+  "D": "reports 29^2, the sum of the squared legs, instead of the area"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The platform's diagonal is $\\sqrt{16^2 + 12^2} = 20$ feet, and that diagonal is perpendicular to the post, so the distance is $\\sqrt{20^2 + 21^2} = \\sqrt{841} = 29$ feet.\n\n**The Full Solution:**\nStep 1: The platform is a rectangle, so its two sides and its diagonal form a right triangle: the diagonal is $\\sqrt{16^2 + 12^2} = \\sqrt{256 + 144} = \\sqrt{400} = 20$ feet.\nStep 2: The post is vertical, so it is perpendicular to the platform and therefore to that diagonal. The post, the diagonal, and the segment from the top of the post to the far corner form a second right triangle with legs $21$ feet and $20$ feet.\nStep 3: The required distance is $\\sqrt{21^2 + 20^2} = \\sqrt{441 + 400} = \\sqrt{841} = 29$ feet. Check: $29^2 = 841$ and $20^2 + 21^2 = 841$, so the triangle with sides $20$, $21$, and $29$ is right. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): this is the platform's own diagonal, the distance between the two corners along the deck, with the $21$-foot climb ignored.\n* Choice C ($41$): this adds $20$ and $21$. Adding the legs always overshoots a hypotenuse, which must be less than their sum.\n* Choice D ($49$): this adds all three given lengths, $16 + 12 + 21$, which measures a path along the edges rather than a straight-line distance.\n\n**Test Day Takeaway:** For a distance across a box-shaped setup, apply the Pythagorean theorem twice — once for the base diagonal, then with the vertical height."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** With legs $a$ and $a + 1$, $a^{2} + (a + 1)^{2} = 29^{2}$ gives $a = 20$, so the legs are $20$ and $21$ and the area is $\\frac{1}{2}(20)(21) = 210$.\n\n**The Full Solution:**\nStep 1: Let the shorter leg be $a$, so the longer leg is $a + 1$. By the Pythagorean theorem, $a^{2} + (a + 1)^{2} = 841$, so $2a^{2} + 2a + 1 = 841$, or $a^{2} + a - 420 = 0$.\nStep 2: Factor: $(a + 21)(a - 20) = 0$. A length is positive, so $a = 20$, and the legs are $20$ and $21$.\nStep 3: The legs of a right triangle are a base and its height, so the area is $\\frac{1}{2}(20)(21) = 210$ square units. Check: $20^{2} + 21^{2} = 400 + 441 = 841 = 29^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($290$): uses the hypotenuse as the height, computing $\\frac{1}{2}(20)(29)$; the height to a leg is the other leg, not the hypotenuse.\n* Choice C ($420$): leaves out the $\\frac{1}{2}$ in the area formula, computing $20(21)$.\n* Choice D ($841$): reports $29^{2}$, the sum of the squares of the legs, instead of finding the legs.\n\n**Test Day Takeaway:** When the legs are described in terms of each other, write them with one variable, solve the Pythagorean equation, and then use the two legs as base and height."
 }

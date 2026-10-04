@@ -6,34 +6,34 @@
   "band": 3,
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-quantitative",
-  "passage": "Scheduled airline service reaches more than three thousand airports worldwide, from sprawling international hubs to single-runway regional fields. Analysts reviewing annual traffic statistics have argued that passenger travel is far more concentrated than the network's size suggests: a small group of hub airports, they claim, absorbs a share of total boardings wildly out of proportion to its numbers.",
+  "passage": "Scheduled airline service in one country reaches 140 airports, from international hubs to single-runway regional fields. Analysts reviewing the country's annual traffic statistics have argued that passenger travel is far more concentrated than the network's size suggests: a handful of hub airports, they claim, handles a share of total boardings wildly out of proportion to their number.",
   "questionTable": {
     "type": "table",
-    "caption": "Passenger boardings at airports with scheduled airline service in selected years",
+    "caption": "Passenger boardings at a country's airports with scheduled airline service in selected years",
     "headers": [
       "Year",
-      "Total boardings (billions)",
-      "Boardings at the 25 busiest airports (billions)",
-      "Share received by the 25 busiest airports"
+      "Total boardings (millions)",
+      "Boardings at the 5 busiest airports (millions)",
+      "Share received by the 5 busiest airports"
     ],
     "rows": [
       [
         "2015",
-        "3.5",
-        "1.1",
-        "31%"
+        "210",
+        "113",
+        "54%"
       ],
       [
         "2019",
-        "4.5",
-        "1.4",
-        "31%"
+        "260",
+        "143",
+        "55%"
       ],
       [
         "2023",
-        "4.4",
-        "1.5",
-        "34%"
+        "250",
+        "140",
+        "56%"
       ]
     ]
   },
@@ -41,15 +41,15 @@
   "choices": [
     {
       "id": "A",
-      "text": "Total passenger boardings across the world's airports rose from 3.5 billion in 2015 to 4.5 billion in 2019 before dipping slightly to 4.4 billion in 2023."
+      "text": "Total passenger boardings at the country's airports rose from 210 million in 2015 to 260 million in 2019 before dipping slightly to 250 million in 2023."
     },
     {
       "id": "B",
-      "text": "The 25 busiest airports received 1.5 billion boardings in 2023, more than they received in either 2015 or 2019."
+      "text": "The five busiest airports received 143 million boardings in 2019, more than they received in either 2015 or 2023."
     },
     {
       "id": "C",
-      "text": "In each year shown, the 25 busiest airports — a small fraction of the more than three thousand served — received about a third of all boardings."
+      "text": "In each year shown, the five busiest airports — a small fraction of the 140 served — received more than half of all boardings."
     },
     {
       "id": "D",
@@ -57,5 +57,5 @@
     }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The claim is about disproportion — a few hubs taking a share \"wildly out of proportion to its numbers\" — and C exhibits the disproportion directly: 25 airports out of more than three thousand drawing about a third of all boardings, in every year shown.\n\n**The Full Solution:**\n- Supporting a concentration claim requires relating the small group's size to its share.\n- C does both: it counts the group against the whole network and cites the 31-34% shares across all three years, showing the pattern is persistent rather than a one-year quirk.\n\n**Why the other choices are wrong:**\n- A: The trajectory of total boardings says nothing about how those boardings are distributed among airports.\n- B: The top airports' raw counts, without the network totals, cannot show a disproportionate share.\n- D: The table contains no counts of airports over time, so this statement cannot be drawn from it — and network growth is not the claim at issue."
+  "explanation": "**Choice C is correct.** The claim is about disproportion — a handful of hubs taking a share \"wildly out of proportion to their number\" — and C exhibits the disproportion directly: 5 airports out of 140 drawing more than half of all boardings, in every year shown.\n\n**The Full Solution:**\n- Supporting a concentration claim requires relating the small group's size to its share.\n- C does both: it counts the group against the whole network and cites the 54-56% shares across all three years, showing the pattern is persistent rather than a one-year quirk.\n\n**Why the other choices are wrong:**\n- A: The trajectory of total boardings says nothing about how those boardings are distributed among airports.\n- B: The top airports' raw counts, without the network totals, cannot show a disproportionate share.\n- D: The table contains no counts of airports over time, so this statement cannot be drawn from it — and network growth is not the claim at issue."
 }

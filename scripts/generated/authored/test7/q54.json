@@ -9,11 +9,11 @@
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "In 1086, England's Norman king ordered a survey of landholding across the kingdom; the record it produced became known as the Domesday Book.",
-   "Royal commissioners recorded each estate's plow teams, mills, livestock, tenants, and taxable value.",
-   "The survey said little about whatever it was not designed to tax: churches, towns, and entire northern regions are thinly covered or absent.",
-   "For centuries, readers nevertheless treated the book as a comprehensive portrait of eleventh-century England.",
-   "Historians studying the survey now conclude that any such record reflects the questions its makers asked rather than a neutral picture of the society it describes."
+   "In 1085, England's Norman king ordered a survey of landholding across his kingdom; the record, completed in 1086, became known as the Domesday Book.",
+   "Royal commissioners recorded each estate's plow teams, mills, livestock, tenants, and value.",
+   "The survey was designed to assess land and its value to the crown.",
+   "London, Winchester, and the far northern counties were left out of it.",
+   "Historians therefore caution that the book shows England as the king's assessors saw it, not a complete picture of eleventh-century society."
   ],
   "goal": "The student wants to emphasize the central insight historians draw from the Domesday survey."
  },
@@ -21,21 +21,21 @@
  "choices": [
   {
    "id": "A",
-   "text": "In 1086, England's Norman king ordered a survey of landholding across the whole kingdom, and the record that the survey produced became known as the Domesday Book."
+   "text": "In 1085, England's Norman king ordered a survey of landholding, and the record that it produced became known as the Domesday Book."
   },
   {
    "id": "B",
-   "text": "Royal commissioners compiling the Domesday Book recorded each estate's plow teams, mills, livestock, tenants, and taxable value for the crown."
+   "text": "Royal commissioners compiling the Domesday Book recorded each estate's plow teams, mills, livestock, tenants, and value."
   },
   {
    "id": "C",
-   "text": "Historians conclude from the Domesday survey — long read as a portrait of England yet shaped by what the crown meant to tax — that records reflect their makers' questions, not a neutral picture of society."
+   "text": "Because the Domesday survey recorded what the crown wished to assess, historians caution that it shows England as the assessors saw it, not a complete picture of society."
   },
   {
    "id": "D",
-   "text": "For centuries, readers treated the Domesday Book as a comprehensive and dependable portrait of eleventh-century England and its people, despite the survey's thin or entirely absent coverage of churches, of towns, and of entire northern regions."
+   "text": "The Domesday survey left out London, Winchester, and the far northern counties, even though it was meant to record landholding across the whole of the Norman king's realm."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The goal is the historians' central insight, and C states it — records reflect their makers' questions, not a neutral picture of society — while anchoring it in the case that yields it: a survey long read as a portrait but shaped by what the crown meant to tax.\n\n**The Full Solution:**\n- The insight lives in the final note: what a record shows is governed by the questions its makers asked.\n- C leads with the historians' conclusion and folds in the supporting facts — the book's tax-driven design and its long misreading as a comprehensive portrait.\n- Joining the general claim to the specific case is what makes the insight emphatic rather than merely implied.\n\n**Why the other choices are wrong:**\n- A: It recounts the survey's commissioning and naming, never arriving at any conclusion about records.\n- B: It lists what the commissioners recorded — raw material for the insight, but not the insight.\n- D: It documents the long misreading and the gaps, stopping one step short of the general lesson historians draw from them."
+ "explanation": "**Choice C is correct.** The goal is the historians' central insight, and C states it — the book shows England as the crown's assessors saw it, not a complete picture of society — while anchoring it in the reason behind it: the survey recorded what the crown wished to assess.\n\n**The Full Solution:**\n- The insight lives in the final note: what the record shows is governed by the purpose its makers had.\n- C leads with the cause (a survey built to assess land for the crown) and arrives at the historians' caution.\n- Joining the conclusion to its reason is what makes the insight emphatic rather than merely implied.\n\n**Why the other choices are wrong:**\n- A: It recounts the survey's commissioning and naming, never arriving at any conclusion historians draw.\n- B: It lists what the commissioners recorded — raw material for the insight, but not the insight.\n- D: It documents the survey's gaps, stopping one step short of the general lesson historians draw from them."
 }

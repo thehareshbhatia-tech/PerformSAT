@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 2,
- "passage": "On tropical reefs, certain damselfish defend small territories where a preferred species of alga grows. The fish do more than graze these patches: they actively ______ them, nipping out competing seaweeds, driving off intruding grazers, and carrying unwanted algal fragments beyond the territory's borders.",
+ "passage": "On tropical reefs, certain damselfish defend small territories where a preferred species of alga grows. The fish do more than graze these patches: they actively ______ them, weeding out less digestible algae that would otherwise overgrow the crop and driving off intruding grazers.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
@@ -27,7 +27,7 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The behaviors listed — weeding out competitors, excluding other grazers, hauling away debris — amount to tending a crop, and \"cultivate\" names exactly that active care.\n\n**The Full Solution:**\n- The sentence announces that the fish \"do more than graze,\" so the blank must go beyond feeding.\n- The colon then specifies gardening behaviors: removing competing seaweeds, defending the patch, disposing of unwanted fragments.\n- Taken together these describe managing the alga's growth, which is what \"cultivate\" means.\n\n**Why the other choices are wrong:**\n- A: \"Patrol\" covers only the defensive part of the list and misses the weeding and clearing that make the care agricultural.\n- C: \"Sample\" means to try small amounts, a feeding notion the sentence has already set aside.\n- D: \"Enlarge\" concerns the territory's size, which none of the listed behaviors addresses.",
+ "explanation": "**Choice B is correct.** The behaviors listed — weeding out competing algae and excluding other grazers — amount to tending a crop, and \"cultivate\" names exactly that active care.\n\n**The Full Solution:**\n- The sentence announces that the fish \"do more than graze,\" so the blank must go beyond feeding.\n- The details that follow specify gardening behaviors: removing the less digestible algae that would overgrow \"the crop\" and defending the patch from other grazers.\n- Taken together these describe managing the alga's growth, which is what \"cultivate\" means.\n\n**Why the other choices are wrong:**\n- A: \"Patrol\" covers only the defensive part of the list and misses the weeding that makes the care agricultural.\n- C: \"Sample\" means to try small amounts, a feeding notion the sentence has already set aside.\n- D: \"Enlarge\" concerns the territory's size, which none of the listed behaviors addresses.",
  "_meta": {
   "anchor": "farming damselfish — weeding and defending algal turf territories"
  }

@@ -6,7 +6,7 @@
   "band": 3,
   "domain": "information-and-ideas",
   "skill": "inferences",
-  "passage": "The small marshes called prairie potholes once dotted the upper Midwest by the millions before most were drained for farming. Restoring one would seem to demand heavy intervention, and some early projects did invest in engineered plantings of wetland species. Follow-up surveys, though, found that many of those plantings failed outright, while basins where crews did nothing more than break the buried drainage tiles refilled with the next season's rains — and wetland plants, sprouting from seeds that had lain dormant in the soil, returned on their own within a few years. The comparison suggests that ______",
+  "passage": "The small marshes called prairie potholes once dotted the upper Midwest by the millions before many were drained for farming, often by burying drainage tiles beneath them. Restoring one might seem to demand heavy intervention, including replanting wetland species by hand. Yet in many restorations, crews did little more than break the buried tiles: the basins refilled with the next season's rains, and wetland plants, sprouting from seeds that had lain dormant in the soil, began returning within a few years. These outcomes suggest that ______",
   "question": "Which choice most logically completes the text?",
   "choices": [
     {
@@ -15,7 +15,7 @@
     },
     {
       "id": "B",
-      "text": "restoring a drained pothole requires planting a wider variety of wetland species than early projects used."
+      "text": "restoring a drained pothole requires planting a wider variety of wetland species than restorers typically use."
     },
     {
       "id": "C",
@@ -27,5 +27,5 @@
     }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The comparison runs one way: engineered plantings often failed, while merely restoring the water brought plants back unaided — so the water, not the planting, is the decisive step.\n\n**The Full Solution:**\n- Line up the two outcomes: plantings without hydrological repair failed; tile-breaking without any planting produced refilled basins that revegetated from the dormant seed supply.\n- The conclusion the contrast licenses is modest and general: get the water back and the vegetation largely follows — which is choice C, and no more.\n\n**Why the other choices are wrong:**\n- A: It contradicts the evidence — plants did establish themselves in once-drained basins after refill.\n- B: The surveys undercut planting as the lever entirely; a wider plant list answers a problem the evidence does not identify.\n- D: The text says breaking the tiles sufficed — the basins refilled — so full removal is a requirement the evidence refutes rather than supports."
+  "explanation": "**Choice C is correct.** The outcomes run one way: merely restoring the water brought wetland plants back without any replanting — so the water, not the planting, is the decisive step.\n\n**The Full Solution:**\n- Line up the evidence: crews only broke the tiles; the basins refilled; plants returned on their own from the dormant seeds in the soil.\n- The conclusion this licenses is modest and general: get the water back and the vegetation largely follows — which is choice C, and no more.\n\n**Why the other choices are wrong:**\n- A: It contradicts the evidence — plants did establish themselves in once-drained basins after they refilled.\n- B: The outcomes show plants returning without planting at all, so a requirement to plant more species runs against the evidence.\n- D: The text says breaking the tiles sufficed — the basins refilled — so full removal is a requirement the evidence refutes rather than supports."
 }

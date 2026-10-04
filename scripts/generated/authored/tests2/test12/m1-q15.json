@@ -1,22 +1,22 @@
 {
   "id": 15,
-  "question": "At a climate station, the number of hours per year under a heat advisory was $250$ in 2015 and has increased by $8\\%$ every $5$ years since. Which function models the number of such hours $t$ years after 2015?",
+  "question": "A lake had $250$ turtles in 2015, and the number of turtles has increased by $8\\%$ every $5$ years since then. The function $p$ gives the estimated number of turtles in the lake $t$ years after 2015. Which equation defines $p$?",
   "choices": [
     {
       "id": "A",
-      "text": "$h(t) = 250(0.08)^{t/5}$"
+      "text": "$p(t) = 250(0.08)^{t/5}$"
     },
     {
       "id": "B",
-      "text": "$h(t) = 250(1.08)^{5t}$"
+      "text": "$p(t) = 250(1.08)^{5t}$"
     },
     {
       "id": "C",
-      "text": "$h(t) = 250(1.4)^{t}$"
+      "text": "$p(t) = 250(1.4)^{t}$"
     },
     {
       "id": "D",
-      "text": "$h(t) = 250(1.08)^{t/5}$"
+      "text": "$p(t) = 250(1.08)^{t/5}$"
     }
   ],
   "distractorNotes": {
@@ -25,5 +25,5 @@
     "C": "converts 8% per five years into 40% per year by multiplying, treating compound growth as linear"
   },
   "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Exponential Growth Model**\n\n**Choice D is correct.** An $8\\%$ increase multiplies by $1.08$, and one such increase occurs every $5$ years, so after $t$ years the number of increases is $\\frac{t}{5}$ and $h(t) = 250(1.08)^{t/5}$.\n\n**The Fast Way (~30s):** Growth factor $1.08$, one application per $5$ years, so the exponent is $\\frac{t}{5}$.\n\n**The Full Solution:**\nStep 1: Start with the 2015 value, $250$ hours, as the coefficient in front.\nStep 2: An increase of $8\\%$ multiplies the previous amount by $1 + 0.08 = 1.08$, so $1.08$ is the growth factor.\nStep 3: The factor applies once per $5$-year period, and $t$ years contain $\\frac{t}{5}$ periods, so $h(t) = 250(1.08)^{t/5}$. Check: at $t = 5$, $h(5) = 250(1.08)^1 = 270$ hours, which is $8\\%$ more than $250$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (base $0.08$): uses $0.08$ rather than $1.08$. At $t = 5$ that gives $250(0.08) = 20$ hours, a $92\\%$ collapse instead of an increase.\n* Choice B (exponent $5t$): writes the exponent as $5t$, applying the growth five times a year. At $t = 5$ it gives $250(1.08)^{25} \\approx 1712$ hours.\n* Choice C (base $1.4$): converts \"$8\\%$ every $5$ years\" into \"$40\\%$ every year\" by multiplying. Repeated percent growth compounds, so the yearly factor is $1.08^{1/5} \\approx 1.0155$, not $1.4$.\n\n**Test Day Takeaway:** Put the percent in the base and the timing in the exponent; if one increase covers $n$ years, the exponent is $\\frac{t}{n}$, never $nt$."
+  "explanation": "**SAT Pattern: Exponential Growth Model**\n\n**Choice D is correct.** An $8\\%$ increase multiplies the number of turtles by $1.08$, and one such increase happens every $5$ years. In $t$ years there are $\\frac{t}{5}$ increases, so $p(t) = 250(1.08)^{t/5}$.\n\n**The Fast Way (~30s):** Growth factor $1.08$, applied once per $5$ years, so the exponent is $\\frac{t}{5}$.\n\n**The Full Solution:**\nStep 1: The 2015 value, $250$ turtles, is the coefficient, since $t = 0$ in 2015.\nStep 2: An increase of $8\\%$ multiplies the previous amount by $1 + 0.08 = 1.08$, so $1.08$ is the growth factor.\nStep 3: The factor applies once per $5$-year period, and $t$ years contain $\\frac{t}{5}$ periods, so $p(t) = 250(1.08)^{t/5}$. Check: $p(5) = 250(1.08)^{1} = 270$, which is $8\\%$ more than $250$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (base $0.08$): uses $0.08$ rather than $1.08$. Then $p(5) = 250(0.08) = 20$, a $92\\%$ decrease instead of an $8\\%$ increase.\n* Choice B (exponent $5t$): applies the increase five times each year instead of once every five years. Then $p(5) = 250(1.08)^{25} \\approx 1{,}712$.\n* Choice C (base $1.4$): turns \"$8\\%$ every $5$ years\" into \"$40\\%$ every year\" by multiplying $8\\%$ by $5$. Even the yearly growth factor would be $1.08^{1/5} \\approx 1.0155$, not $1.4$.\n\n**Test Day Takeaway:** Put the percent in the base and the timing in the exponent; if one increase takes $n$ years, the exponent is $\\frac{t}{n}$, never $nt$."
 }

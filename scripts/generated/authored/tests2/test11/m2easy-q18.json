@@ -1,29 +1,29 @@
 {
  "id": 18,
- "question": "On a coating line, one applicator uses $0.6$ gram of primer per part plus $45$ grams for setup, and a second applicator uses $0.85$ gram per part with no setup. The two applicators use the same total mass of primer for a run of $n$ parts. What is that total mass, in grams?",
+ "question": "$\\frac{2}{3}(6x - 9) + 4 = \\frac{1}{2}(10x + 2) - 11$\nWhat is the solution to the given equation?",
  "choices": [
   {
    "id": "A",
-   "text": "$90$"
+   "text": "$-8$"
   },
   {
    "id": "B",
-   "text": "$108$"
+   "text": "$5$"
   },
   {
    "id": "C",
-   "text": "$153$"
+   "text": "$7$"
   },
   {
    "id": "D",
-   "text": "$180$"
+   "text": "$8$"
   }
  ],
  "distractorNotes": {
-  "A": "divides the 45-gram setup by 0.6 instead of by the 0.25-gram-per-part difference, getting 75 parts, then adds the setup",
-  "B": "multiplies the correct run of 180 parts by 0.6 but leaves out the 45-gram setup mass",
-  "D": "reports the number of parts in the run instead of the mass of primer"
+  "A": "reaches -x = -8 correctly but drops the negative sign on only one side when dividing by -1",
+  "B": "multiplies only the 6x by 2/3, getting 4x - 9 + 4 on the left",
+  "C": "multiplies only the 10x by 1/2, getting 5x + 2 - 11 on the right"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The second applicator gains $0.25$ gram per part on the first, so it needs $45 \\div 0.25 = 180$ parts to make up the setup; $0.85(180) = 153$ grams.\n\n**The Full Solution:**\nStep 1: Write both totals for a run of $n$ parts: $0.6n + 45$ grams and $0.85n$ grams.\nStep 2: Set them equal and solve: $0.6n + 45 = 0.85n$, so $45 = 0.25n$ and $n = 180$ parts.\nStep 3: The question asks for the mass, not the run: $0.6(180) + 45 = 108 + 45 = 153$ grams. Check the other applicator: $0.85(180) = 153$ grams ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($90$): divides $45$ by $0.6$ to get $75$ parts; the setup is made up at the RATE DIFFERENCE of $0.25$ gram per part, not at one applicator's rate.\n* Choice B ($108$): computes $0.6(180)$ and forgets the $45$ grams of setup that are part of the first applicator's total.\n* Choice D ($180$): the number of parts in the run — the value of $n$, which is the step before the answer.\n\n**Test Day Takeaway:** After solving an equal-cost equation, reread the question: the variable you solved for is usually not the quantity being asked for."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** Distributing gives $4x - 6 + 4 = 5x + 1 - 11$, or $4x - 2 = 5x - 10$, so $x = 8$.\n\n**The Full Solution:**\nStep 1: Distribute on each side: $\\frac{2}{3}(6x - 9) = 4x - 6$ and $\\frac{1}{2}(10x + 2) = 5x + 1$, so the equation becomes $4x - 6 + 4 = 5x + 1 - 11$.\nStep 2: Combine constants: $4x - 2 = 5x - 10$.\nStep 3: Subtract $4x$ and add $10$ to both sides: $8 = x$. Check: the left side is $\\frac{2}{3}(39) + 4 = 26 + 4 = 30$ and the right side is $\\frac{1}{2}(82) - 11 = 41 - 11 = 30$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): gets $-x = -8$ and then writes $x = -8$, changing the sign of only one side.\n* Choice B ($5$): multiplies only $6x$ by $\\frac{2}{3}$, leaving the $-9$ unchanged, so the left side becomes $4x - 5$.\n* Choice C ($7$): multiplies only $10x$ by $\\frac{1}{2}$, leaving the $+2$ unchanged, so the right side becomes $5x - 9$.\n\n**Test Day Takeaway:** Distribute a fraction to every term inside the parentheses, then combine constants before moving terms; check by substituting into the original equation."
 }

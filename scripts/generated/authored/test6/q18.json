@@ -6,7 +6,7 @@
   "band": 2,
   "domain": "standard-english-conventions",
   "skill": "form-structure-and-sense",
-  "passage": "The fields of raised domes set into pavement at street crossings, first standardized in Japan in the 1960s, give pedestrians who are blind or have low vision a signal they can read underfoot or through a cane. Guidelines that specify the size and spacing of the domes, rather than leaving such choices to individual builders, ______ now written into accessibility codes in dozens of countries.",
+  "passage": "The fields of raised domes set into pavement at street crossings, first installed in Japan in 1967, give pedestrians who are blind or have low vision a signal they can read underfoot. Guidelines that specify the size and spacing of the domes ______ now written into accessibility codes in many countries.",
   "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
   "choices": [
     {
@@ -27,5 +27,5 @@
     }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The subject of the verb is the plural noun \"Guidelines,\" so the verb must be the plural \"are.\"\n\n**The Full Solution:**\n- Strip the interrupters to find the core: \"Guidelines... ______ now written into accessibility codes.\"\n- The clause \"that specify the size and spacing of the domes\" and the phrase \"rather than leaving such choices to individual builders\" merely modify the subject; neither changes its number.\n- Plural subject, plural verb: \"Guidelines... are now written.\"\n\n**Why the other choices are wrong:**\n- A: \"Was\" is singular (and past tense besides, clashing with \"now\").\n- B: \"Is\" is singular, agreeing with nothing in the subject position.\n- D: \"Has been\" is likewise singular; the nearby singular nouns (\"spacing,\" \"size\") are inside a modifying clause, not the subject."
+  "explanation": "**Choice C is correct.** The subject of the verb is the plural noun \"Guidelines,\" so the verb must be the plural \"are.\"\n\n**The Full Solution:**\n- Strip the modifier to find the core: \"Guidelines... ______ now written into accessibility codes.\"\n- The clause \"that specify the size and spacing of the domes\" merely describes the subject; it doesn't change its number.\n- Plural subject, plural verb: \"Guidelines... are now written.\"\n\n**Why the other choices are wrong:**\n- A: \"Was\" is singular (and past tense besides, clashing with \"now\").\n- B: \"Is\" is singular, agreeing with nothing in the subject position.\n- D: \"Has been\" is likewise singular; the nearby nouns \"size\" and \"spacing\" sit inside a modifying clause, not in the subject position."
 }
