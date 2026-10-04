@@ -1,29 +1,29 @@
 {
   "id": "bank-am-243",
-  "question": "The function $q$ is defined by $q(x) = x^3 - 2x$. In the $xy$-plane, the graph of which function is the graph of $y = q(x)$ shifted down $8$ units?",
+  "question": "$q(x) = x^{3} - 2x$\nIn the $xy$-plane, the graph of $y = h(x)$ is the result of shifting the graph of $y = q(x)$ down $8$ units. Which equation defines $h$?",
   "choices": [
     {
       "id": "A",
-      "text": "$y = (x + 8)^3 - 2(x + 8)$"
+      "text": "$h(x) = (x + 8)^{3} - 2(x + 8)$"
     },
     {
       "id": "B",
-      "text": "$y = x^3 - 2x + 8$"
+      "text": "$h(x) = (x - 8)^{3} - 2(x - 8)$"
     },
     {
       "id": "C",
-      "text": "$y = x^3 - 2x - 8$"
+      "text": "$h(x) = x^{3} - 2x - 8$"
     },
     {
       "id": "D",
-      "text": "$y = (x - 8)^3 - 2(x - 8)$"
+      "text": "$h(x) = x^{3} - 2x + 8$"
     }
   ],
   "distractorNotes": {
-    "A": "replaces $x$ with $x + 8$, a shift left",
-    "B": "adds $8$, a shift up",
-    "D": "replaces $x$ with $x - 8$, a shift right"
+    "A": "shifts the graph 8 units left by replacing x with x + 8",
+    "B": "shifts the graph 8 units right by replacing x with x - 8",
+    "D": "adds 8 to the output, which shifts the graph up"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Vertical Shift**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Down $8$ means subtract $8$ from the whole output: $q(x) - 8 = x^3 - 2x - 8$.\n\n**The Full Solution:**\nStep 1: A shift down by $k$ units replaces $y = q(x)$ with $y = q(x) - k$. Here $k = 8$.\nStep 2: Substituting the rule for $q$ gives $y = (x^3 - 2x) - 8$, or $y = x^3 - 2x - 8$.\nStep 3: Check with a point. $q(0) = 0$, so $(0, 0)$ is on the original graph; the shifted graph should contain $(0, -8)$, and $0^3 - 2(0) - 8 = -8$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = (x + 8)^3 - 2(x + 8)$): changing the INPUT to $x + 8$ shifts the graph $8$ units left, not down.\n* Choice B ($y = x^3 - 2x + 8$): the sign is reversed; $+8$ raises the graph $8$ units.\n* Choice D ($y = (x - 8)^3 - 2(x - 8)$): changing the input to $x - 8$ shifts the graph $8$ units right.\n\n**Test Day Takeaway:** Outside the function means vertical; inside the function means horizontal. Down $8$ is the outside operation $-8$."
+  "explanation": "**SAT Pattern: Vertical Shift**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Shifting down $8$ units subtracts $8$ from every output: $h(x) = q(x) - 8 = x^{3} - 2x - 8$.\n\n**The Full Solution:**\nStep 1: A vertical shift changes outputs, not inputs, so $h(x) = q(x) + c$ for some constant $c$.\nStep 2: Moving the graph down $8$ units means $c = -8$, so $h(x) = q(x) - 8$.\nStep 3: Substitute $q(x)$: $h(x) = x^{3} - 2x - 8$. Check: $q(2) = 8 - 4 = 4$ and $h(2) = 8 - 4 - 8 = -4$, which is $8$ units lower ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: replaces $x$ with $x + 8$, which shifts the graph $8$ units to the left.\n* Choice B: replaces $x$ with $x - 8$, which shifts the graph $8$ units to the right.\n* Choice D: adds $8$ to the output, which shifts the graph up instead of down.\n\n**Test Day Takeaway:** A change outside the function moves the graph up or down; a change inside, next to $x$, moves it left or right."
 }

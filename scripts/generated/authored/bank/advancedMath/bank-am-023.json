@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-023",
-  "question": "The function $g$ is defined by $g(x) = -4(x + 7)^2 + 11$. In the $xy$-plane, what is the vertex of the graph of $y = g(x)$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$(-7, 11)$"
-    },
-    {
-      "id": "B",
-      "text": "$(-7, -11)$"
-    },
-    {
-      "id": "C",
-      "text": "$(7, 11)$"
-    },
-    {
-      "id": "D",
-      "text": "$(11, -7)$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "flips the sign of $k$",
-    "C": "reads $x + 7$ as $h = 7$ instead of $h = -7$",
-    "D": "reverses the two coordinates"
+ "id": "bank-am-023",
+ "question": "$g(x) = -3(x + 5)^{2} + 8$\nWhat is the vertex of the graph of $y = g(x)$ in the $xy$-plane?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$(-5, 8)$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Read Vertex Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Vertex form $a(x - h)^2 + k$ has vertex $(h, k)$. Here $x + 7 = x - (-7)$, so the vertex is $(-7, 11)$.\n\n**The Full Solution:**\nStep 1: Match $g(x) = -4(x + 7)^2 + 11$ to $a(x - h)^2 + k$. Rewrite $x + 7$ as $x - (-7)$, so $h = -7$ and $k = 11$.\nStep 2: The vertex is $(h, k) = (-7, 11)$.\nStep 3: Check: $g(-7) = -4(0)^2 + 11 = 11$, and since $a = -4 < 0$ every other input gives a smaller output, for example $g(-6) = -4 + 11 = 7$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($(-7, -11)$): negates $k$; the $+11$ is added, not subtracted.\n* Choice C ($(7, 11)$): reads the $7$ straight out of $(x + 7)$ without flipping its sign.\n* Choice D ($(11, -7)$): swaps the coordinates, reporting the output first.\n\n**Test Day Takeaway:** In $a(x - h)^2 + k$ the $h$ flips sign and the $k$ does not — $(x + 7)$ means the vertex sits at $x = -7$."
+  {
+   "id": "B",
+   "text": "$(-5, -8)$"
+  },
+  {
+   "id": "C",
+   "text": "$(5, 8)$"
+  },
+  {
+   "id": "D",
+   "text": "$(8, -5)$"
+  }
+ ],
+ "correctAnswer": "A",
+ "distractorNotes": {
+  "B": "changes the sign of k as well as h",
+  "C": "reads h as +5 from (x + 5) instead of -5",
+  "D": "reverses the coordinates of the vertex"
+ },
+ "explanation": "**SAT Pattern: Read Vertex Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Write $(x + 5)$ as $(x - (-5))$: in $a(x - h)^{2} + k$, $h = -5$ and $k = 8$, so the vertex is $(-5, 8)$.\n\n**The Full Solution:**\nStep 1: Vertex form is $y = a(x - h)^{2} + k$, with vertex $(h, k)$.\nStep 2: Since $x + 5 = x - (-5)$, $h = -5$; the constant outside the square gives $k = 8$.\nStep 3: The vertex is $(-5, 8)$. Check: $g(-5) = -3(0)^{2} + 8 = 8$, and every other $x$ makes $-3(x + 5)^{2}$ negative, so $8$ is the greatest value ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: only $h$ changes sign; $k$ is read exactly as written, $+8$.\n* Choice C: takes the $+5$ inside the parentheses as $h$.\n* Choice D: lists the coordinates in reverse order.\n\n**Test Day Takeaway:** In $a(x - h)^{2} + k$, flip the sign of the number inside the parentheses for $h$, and read $k$ as it stands."
 }

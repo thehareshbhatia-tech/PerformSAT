@@ -1,29 +1,29 @@
 {
- "id": "bank-am-405",
- "question": "In a lake-temperature model, the two depths, in meters, at which the modeled profile crosses a reference temperature are the two solutions of the equation $4x^2 - 28x + 33 = 0$. What is the product of the two depths?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$-8.25$"
+  "id": "bank-am-405",
+  "question": "$4x^{2} - 28x + 33 = 0$\nWhat is the product of the solutions to the given equation?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-\\dfrac{33}{4}$"
+    },
+    {
+      "id": "B",
+      "text": "$7$"
+    },
+    {
+      "id": "C",
+      "text": "$\\dfrac{33}{4}$"
+    },
+    {
+      "id": "D",
+      "text": "$33$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "attaches a negative sign to the product, as for the sum",
+    "B": "gives the sum of the solutions, $\\frac{28}{4}$",
+    "D": "uses the constant term without dividing by the leading coefficient $4$"
   },
-  {
-   "id": "B",
-   "text": "$7$"
-  },
-  {
-   "id": "C",
-   "text": "$8.25$"
-  },
-  {
-   "id": "D",
-   "text": "$33$"
-  }
- ],
- "distractorNotes": {
-  "A": "uses -c/a for the product instead of c/a",
-  "B": "reports the sum of the depths, 28/4",
-  "D": "uses the constant term 33 without dividing by the leading coefficient 4"
- },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Vieta Sum & Product of Roots**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The product of the solutions is $\\frac{c}{a} = \\frac{33}{4} = 8.25$.\n\n**The Full Solution:**\nStep 1: Identify $a = 4$, $b = -28$, and $c = 33$ in $4x^2 - 28x + 33 = 0$.\nStep 2: The product of the two solutions of a quadratic equation is $\\frac{c}{a}$, so the product of the depths is $\\frac{33}{4}$.\nStep 3: As a decimal, $\\frac{33}{4} = 8.25$. Check: the equation factors as $(2x - 3)(2x - 11) = 0$, giving depths $1.5$ and $5.5$ meters, and $1.5 \\times 5.5 = 8.25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8.25$): uses $-\\frac{c}{a}$; the minus belongs to the sum formula, not the product formula.\n* Choice B ($7$): reports the sum $\\frac{28}{4} = 7$ rather than the product.\n* Choice D ($33$): uses the constant term alone, skipping the division by the leading coefficient $4$.\n\n**Test Day Takeaway:** Product of the roots is $\\frac{c}{a}$ and sum is $-\\frac{b}{a}$ — only the sum carries the minus sign."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Vieta Sum & Product of Roots**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** For $ax^{2} + bx + c = 0$, the product of the solutions is $\\frac{c}{a} = \\frac{33}{4}$.\n\n**The Full Solution:**\nStep 1: Divide the equation by $4$: $x^{2} - 7x + \\frac{33}{4} = 0$.\nStep 2: When the leading coefficient is $1$, the product of the solutions is the constant term.\nStep 3: So the product is $\\frac{33}{4}$. Check: the solutions are $\\frac{11}{2}$ and $\\frac{3}{2}$, since $4x^{2} - 28x + 33 = (2x - 11)(2x - 3)$, and $\\frac{11}{2} \\cdot \\frac{3}{2} = \\frac{33}{4}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{33}{4}$): adds a negative sign; only the sum, $-\\frac{b}{a}$, involves a sign change.\n* Choice B ($7$): gives the sum of the solutions, $\\frac{28}{4}$, not the product.\n* Choice D ($33$): forgets to divide the constant term by the leading coefficient $4$.\n\n**Test Day Takeaway:** Product $= \\frac{c}{a}$ and sum $= -\\frac{b}{a}$; divide by the leading coefficient before reading either one."
 }

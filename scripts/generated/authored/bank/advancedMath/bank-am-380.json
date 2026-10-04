@@ -1,6 +1,6 @@
 {
  "id": "bank-am-380",
- "question": "The curve in the figure crosses the horizontal axis three times and is the graph of the function $f$. What are the $x$-intercepts of the graph of $y=f(x-4)$?",
+ "question": "The graph of $y = f(x)$ is shown. What are the $x$-intercepts of the graph of $y = f(x - 4)$?",
  "diagram": {
   "type": "cubicGraph",
   "params": {
@@ -24,7 +24,7 @@
  "choices": [
   {
    "id": "A",
-   "text": "$1$, $4$, and $6$"
+   "text": "$-12$, $0$, and $8$"
   },
   {
    "id": "B",
@@ -36,14 +36,14 @@
   },
   {
    "id": "D",
-   "text": "$-12$, $0$, and $8$"
+   "text": "$1$, $4$, and $6$"
   }
  ],
- "correctAnswer": "A",
+ "correctAnswer": "D",
  "distractorNotes": {
-  "B": "shifts left 4 instead of right 4, subtracting from each root",
-  "C": "leaves the intercepts unchanged, treating x - 4 as a vertical shift",
-  "D": "multiplies each root by 4 instead of adding 4"
+  "A": "multiplies each x-intercept by 4 instead of adding 4",
+  "B": "subtracts 4 from each x-intercept, shifting the graph left",
+  "C": "leaves the x-intercepts unchanged, treating the 4 as a vertical change"
  },
- "explanation": "**SAT Pattern: Function Transformation**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The drawn curve crosses at $-3$, $0$, and $2$; replacing $x$ with $x-4$ moves each crossing 4 units right, to $1$, $4$, and $6$.\n\n**The Full Solution:**\nStep 1: Read the three crossings from the figure: $x=-3$, $x=0$, and $x=2$.\nStep 2: The graph of $y=f(x-4)$ is zero when $x-4$ equals one of those values.\nStep 3: Solving $x-4=-3$, $x-4=0$, and $x-4=2$ gives $x=1$, $x=4$, and $x=6$. Check: the three new crossings keep the same spacing, 3 and 2 units apart ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-7$, $-4$, and $-2$): subtracts 4 from each root, shifting the curve left.\n* Choice C ($-3$, $0$, and $2$): leaves the crossings alone, as if $-4$ acted on the output.\n* Choice D ($-12$, $0$, and $8$): multiplies each root by 4 instead of translating.\n\n**Test Day Takeaway:** Replacing $x$ with $x-h$ adds $h$ to every $x$-intercept — set the inner expression equal to each original root."
+ "explanation": "**SAT Pattern: Function Transformation**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The graph crosses the $x$-axis at $-3$, $0$, and $2$; replacing $x$ with $x - 4$ moves each crossing $4$ units right, to $1$, $4$, and $6$.\n\n**The Full Solution:**\nStep 1: Read the $x$-intercepts of $y = f(x)$ from the graph: $x = -3$, $x = 0$, and $x = 2$.\nStep 2: The graph of $y = f(x - 4)$ meets the $x$-axis where $x - 4$ equals one of those values.\nStep 3: Solve $x - 4 = -3$, $x - 4 = 0$, and $x - 4 = 2$: $x = 1$, $x = 4$, and $x = 6$. Check: the gaps between the intercepts, $3$ and $2$, are unchanged by a shift ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$, $0$, and $8$): multiplies each intercept by $4$. A stretch would change the gaps; a shift keeps them.\n* Choice B ($-7$, $-4$, and $-2$): subtracts $4$, which moves the graph left. Subtracting inside the parentheses moves it right.\n* Choice C ($-3$, $0$, and $2$): keeps the original intercepts, as if the $4$ changed the output.\n\n**Test Day Takeaway:** For $f(x - h)$, set the inside expression equal to each original root; every $x$-intercept moves $h$ units right."
 }

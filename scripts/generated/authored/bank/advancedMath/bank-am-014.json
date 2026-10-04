@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-014",
-  "question": "In the $xy$-plane, the graph of $y = (x + 9)(x - 4)$ crosses the $x$-axis at two points. What are the $x$-coordinates of those two points?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-9$ and $-4$"
-    },
-    {
-      "id": "B",
-      "text": "$-9$ and $4$"
-    },
-    {
-      "id": "C",
-      "text": "$-4$ and $9$"
-    },
-    {
-      "id": "D",
-      "text": "$4$ and $9$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "keeps the sign of $-4$ instead of solving $x - 4 = 0$",
-    "C": "flips the sign of both numbers",
-    "D": "reads the numbers inside the parentheses as the roots"
+ "id": "bank-am-014",
+ "question": "$(x + 7)(x - 3) = 0$\nWhich of the following gives all the solutions to the given equation?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-7$ and $-3$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Zero Product Property**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The graph meets the $x$-axis where $y = 0$, so $(x + 9)(x - 4) = 0$ and $x = -9$ or $x = 4$.\n\n**The Full Solution:**\nStep 1: A point on the $x$-axis has $y = 0$, so set $(x + 9)(x - 4) = 0$.\nStep 2: A product is zero only when a factor is zero: $x + 9 = 0$ or $x - 4 = 0$.\nStep 3: Solving gives $x = -9$ and $x = 4$. Check $x = -9$: $(0)(-13) = 0$. Check $x = 4$: $(13)(0) = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$ and $-4$): solves the first factor correctly but copies the $-4$ straight out of the second.\n* Choice C ($-4$ and $9$): flips both signs, which would come from the factors $(x + 4)(x - 9)$.\n* Choice D ($4$ and $9$): reads $9$ and $4$ off the parentheses without changing signs.\n\n**Test Day Takeaway:** Each factor contributes one root, and that root is the value that makes the factor zero — so the sign always flips."
+  {
+   "id": "B",
+   "text": "$-7$ and $3$"
+  },
+  {
+   "id": "C",
+   "text": "$-3$ and $7$"
+  },
+  {
+   "id": "D",
+   "text": "$3$ and $7$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "changes the sign for x + 7 but not for x - 3, giving -3 instead of 3",
+  "C": "takes the numbers in the factors, 7 and -3, as the solutions without changing their signs",
+  "D": "drops both signs and uses the absolute values 3 and 7"
+ },
+ "explanation": "**SAT Pattern: Zero Product Property**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** A product is $0$ only when a factor is $0$: $x + 7 = 0$ gives $x = -7$, and $x - 3 = 0$ gives $x = 3$.\n\n**The Full Solution:**\nStep 1: By the zero-product property, $(x + 7)(x - 3) = 0$ means $x + 7 = 0$ or $x - 3 = 0$.\nStep 2: Solve each: $x = -7$ or $x = 3$.\nStep 3: Check: $(-7 + 7)(-7 - 3) = 0 \\cdot (-10) = 0$ and $(3 + 7)(3 - 3) = 10 \\cdot 0 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: gets $-7$ right but keeps the sign shown in $x - 3$, writing $-3$.\n* Choice C: copies the numbers in the factors, $7$ and $-3$, without changing their signs.\n* Choice D: ignores signs entirely.\n\n**Test Day Takeaway:** Each solution is the value that makes its factor zero, which is the OPPOSITE of the number added to $x$ inside the factor."
 }

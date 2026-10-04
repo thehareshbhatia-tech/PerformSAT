@@ -1,6 +1,6 @@
 {
  "id": "bank-am-097",
- "question": "An art supplier's price per acrylic paint tube, in cents above its wholesale rate, is modeled by $f(x)=a(x-4)^2+k$, where $a$ and $k$ are constants. If $f(4)=-7$ and $f(1)=11$, what is the value of $a$?",
+ "question": "$f(x) = a(x - 6)^{2} + k$\nIn the given function $f$, $a$ and $k$ are constants. If $f(6) = -5$ and $f(2) = 27$, what is the value of $a$?",
  "choices": [
   {
    "id": "A",
@@ -12,18 +12,18 @@
   },
   {
    "id": "C",
-   "text": "$6$"
+   "text": "$8$"
   },
   {
    "id": "D",
-   "text": "$18$"
+   "text": "$32$"
   }
  ],
  "distractorNotes": {
-  "A": "inverts the division, computing 9 divided by 18",
-  "C": "divides 18 by 3 instead of by (1-4)^2 = 9",
-  "D": "reports the difference f(1) - f(4) = 18 without dividing"
+  "A": "inverts the last division, computing 16/32",
+  "C": "divides 32 by |2 - 6| = 4 instead of by (2 - 6)^2 = 16",
+  "D": "reports f(2) - f(6) = 32 without dividing by 16"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f(4)=-7$ makes $k=-7$; then $f(1)=9a-7=11$ gives $9a=18$ and $a=2$.\n\n**The Full Solution:**\nStep 1: Substituting $x=4$ collapses the squared term: $f(4)=a(0)^2+k=k$, so $k=-7$.\nStep 2: Substituting $x=1$ gives $a(1-4)^2+(-7)=11$, that is $9a-7=11$.\nStep 3: So $9a=18$ and $a=2$. Check: $f(x)=2(x-4)^2-7$ gives $f(1)=2(9)-7=11$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.5$): inverts the last division, computing $\\frac{9}{18}$.\n* Choice C ($6$): divides $18$ by $|1-4|=3$ instead of by $(1-4)^2=9$.\n* Choice D ($18$): reports $f(1)-f(4)=18$ without dividing by $9$.\n\n**Test Day Takeaway:** Feeding the vertex's input into vertex form isolates the constant instantly — always use that condition first."
+ "explanation": "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f(6) = k$, so $k = -5$; then $f(2) = 16a - 5 = 27$ gives $16a = 32$ and $a = 2$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 6$: the squared term is $0$, so $f(6) = k$ and $k = -5$.\nStep 2: Substitute $x = 2$: $a(2 - 6)^{2} - 5 = 27$, which is $16a - 5 = 27$.\nStep 3: So $16a = 32$ and $a = 2$. Check: $f(x) = 2(x - 6)^{2} - 5$ gives $f(2) = 2(16) - 5 = 27$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.5$): inverts the division, computing $\\frac{16}{32}$.\n* Choice C ($8$): divides $32$ by $|2 - 6| = 4$, forgetting that the difference is squared.\n* Choice D ($32$): finds $f(2) - f(6) = 32$ but never divides by $(2 - 6)^{2} = 16$.\n\n**Test Day Takeaway:** Plugging the vertex's $x$-value into vertex form isolates $k$ at once; use that condition first, then the other point gives $a$."
 }

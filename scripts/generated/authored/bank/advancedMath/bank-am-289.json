@@ -1,6 +1,6 @@
 {
  "id": "bank-am-289",
- "question": "A burrow holds $9x^3 + 6x^2 + 12x + 8$ cubic meters of air when its entrance measures $x$ meters across, and a surveyor wants that volume expression written as a product of two binomials. Which binomial divides it evenly?",
+ "question": "Which of the following is a factor of $9x^{3}+6x^{2}+12x+8$?",
  "choices": [
   {
    "id": "A",

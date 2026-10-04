@@ -1,29 +1,29 @@
 {
  "id": "bank-am-107",
- "question": "The average handling cost, in dollars per kilogram, at an air-freight hub is modeled by $\\dfrac{x^{3}-4x}{x^{2}+4x+4}$, where $x>2$ is the load in tonnes. Which of the following gives the same cost for every such load?",
+ "question": "$\\dfrac{2x^{3} - 18x}{x^{2} + 6x + 9}$\nWhich of the following is equivalent to the given expression for $x > 0$?",
  "choices": [
   {
    "id": "A",
-   "text": "$\\dfrac{x(x+2)}{x-2}$"
+   "text": "$\\dfrac{2(x - 3)}{x + 3}$"
   },
   {
    "id": "B",
-   "text": "$\\dfrac{x^{2}-4}{x+2}$"
+   "text": "$\\dfrac{2x(x + 3)}{x - 3}$"
   },
   {
    "id": "C",
-   "text": "$\\dfrac{x(x-2)}{(x+2)^{2}}$"
+   "text": "$\\dfrac{2x(x - 3)}{(x + 3)^{2}}$"
   },
   {
    "id": "D",
-   "text": "$\\dfrac{x(x-2)}{x+2}$"
+   "text": "$\\dfrac{2x(x - 3)}{x + 3}$"
   }
  ],
  "distractorNotes": {
-  "A": "cancels the factor x - 2 instead of one copy of x + 2",
-  "B": "drops the factor x pulled out of the numerator",
-  "C": "cancels nothing from the squared denominator and leaves (x + 2) squared"
+  "A": "drops the factor x pulled out of the numerator along with the 2",
+  "B": "cancels the factor x - 3 instead of one copy of x + 3",
+  "C": "removes x + 3 from the numerator but keeps the full square in the denominator"
  },
  "correctAnswer": "D",
- "explanation": "**SAT Pattern: Rational Expression Simplification**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** $\\frac{x(x-2)(x+2)}{(x+2)^{2}}$ cancels one $x+2$, leaving $\\frac{x(x-2)}{x+2}$.\n\n**The Full Solution:**\n\nStep 1: Factor the numerator: $x^{3}-4x=x(x^{2}-4)=x(x-2)(x+2)$.\n\nStep 2: Factor the denominator as a perfect square: $x^{2}+4x+4=(x+2)^{2}$.\n\nStep 3: One factor of $x+2$ cancels, leaving $\\frac{x(x-2)}{x+2}$. Check at $x=3$: $\\frac{27-12}{9+12+4}=\\frac{15}{25}=0.6$, and $\\frac{3(1)}{5}=0.6$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A: cancels $x-2$, which the denominator does not contain.\n* Choice B: drops the factor $x$ taken out of the numerator.\n* Choice C: cancels nothing and keeps the full squared denominator.\n\n**Test Day Takeaway:** A squared factor in the denominator cancels only once — count the copies on each side before writing the answer."
+ "explanation": "**SAT Pattern: Rational Expression Simplification**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** $\\frac{2x(x - 3)(x + 3)}{(x + 3)^{2}}$; one factor of $x + 3$ cancels, leaving $\\frac{2x(x - 3)}{x + 3}$.\n\n**The Full Solution:**\nStep 1: Factor the numerator: $2x^{3} - 18x = 2x(x^{2} - 9) = 2x(x - 3)(x + 3)$.\nStep 2: Factor the denominator as a perfect square: $x^{2} + 6x + 9 = (x + 3)^{2}$.\nStep 3: One factor of $x + 3$ cancels, leaving $\\frac{2x(x - 3)}{x + 3}$. Check at $x = 1$: $\\frac{2 - 18}{1 + 6 + 9} = \\frac{-16}{16} = -1$ and $\\frac{2(1)(-2)}{4} = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2(x - 3)}{x + 3}$): pulls out $2x$ but keeps only the $2$.\n* Choice B ($\\frac{2x(x + 3)}{x - 3}$): cancels $x - 3$, which the denominator does not contain.\n* Choice C ($\\frac{2x(x - 3)}{(x + 3)^{2}}$): removes $x + 3$ from the numerator without removing a copy from the denominator.\n\n**Test Day Takeaway:** A squared factor in the denominator cancels only once; count the copies on each side before you write the answer."
 }

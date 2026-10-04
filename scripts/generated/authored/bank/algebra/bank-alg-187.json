@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-187",
- "question": "A bolt of linen contains $b$ meters of fabric before any is used. After 38 meters are cut from the bolt for a set of curtains, 145 meters remain. Which equation represents this situation?",
+ "question": "A roll contained $b$ meters of fabric. After $38$ meters were cut from the roll, $145$ meters of fabric remained. Which equation represents this situation?",
  "choices": [
   {
    "id": "A",
@@ -21,9 +21,9 @@
  ],
  "correctAnswer": "A",
  "distractorNotes": {
-  "B": "adds the length cut off instead of subtracting it",
-  "C": "reverses the order of subtraction, cutting the bolt from the piece",
-  "D": "multiplies the two given lengths instead of subtracting"
+  "B": "adds the 38 meters that were cut instead of subtracting them",
+  "C": "subtracts in the wrong order, taking the full roll away from the 38 meters cut",
+  "D": "multiplies the two quantities instead of subtracting the cut length"
  },
- "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Starting length minus the length cut off equals the length left: $b - 38 = 145$.\n\n**The Full Solution:**\n\nStep 1: The bolt starts with $b$ meters.\n\nStep 2: Cutting off $38$ meters removes that much from the bolt, leaving $b - 38$ meters.\n\nStep 3: The remaining amount is $145$ meters, so $b - 38 = 145$. Check: this gives $b = 183$, and $183 - 38 = 145$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($b + 38 = 145$): adds the cut length to the bolt, which would describe fabric being added rather than removed.\n* Choice C ($38 - b = 145$): reverses the subtraction, treating the $38$ meters as the starting amount.\n* Choice D ($38b = 145$): multiplies, which would describe $38$ bolts rather than one bolt with a piece removed.\n\n**Test Day Takeaway:** Translate in the order the sentence runs: the starting amount comes first, and removal is subtraction from it."
+ "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Starting amount minus the amount cut equals the amount left: $b - 38 = 145$.\n\n**The Full Solution:**\nStep 1: The roll starts with $b$ meters of fabric.\nStep 2: Cutting $38$ meters removes fabric, so the amount left is $b - 38$.\nStep 3: The amount left is $145$ meters, so $b - 38 = 145$. Check: solving gives $b = 183$, and $183 - 38 = 145$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($b + 38 = 145$): adds the cut length, which would describe fabric being added to the roll.\n* Choice C ($38 - b = 145$): reverses the subtraction; since $b$ is more than $38$, the left side would be negative.\n* Choice D ($38b = 145$): multiplies the quantities, which has no meaning for cutting a length from a roll.\n\n**Test Day Takeaway:** Translate the situation in the order it happens: start, change, result. Then test your equation with the solution it produces."
 }

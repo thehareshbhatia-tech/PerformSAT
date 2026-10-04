@@ -1,52 +1,49 @@
 {
-  "id": "bank-am-388",
-  "question": "A streaming service had $6{,}000$ active accounts at the end of year $0$, and the number of active accounts grows by $15\\%$ each year. The table gives the number of active accounts at the end of years $0$, $1$, and $2$. Which of the following functions models the number of active accounts at the end of year $t$?",
-  "diagram": {
-    "type": "dataTable",
-    "params": {
-      "headers": [
-        "Year, t",
-        "Active accounts"
-      ],
-      "rows": [
-        [
-          "0",
-          "6,000"
-        ],
-        [
-          "1",
-          "6,900"
-        ],
-        [
-          "2",
-          "7,935"
-        ]
-      ]
-    }
-  },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$A(t) = 6{,}000(0.15)^t$"
-    },
-    {
-      "id": "B",
-      "text": "$A(t) = 6{,}000(1.15)^t$"
-    },
-    {
-      "id": "C",
-      "text": "$A(t) = 6{,}000(15)^t$"
-    },
-    {
-      "id": "D",
-      "text": "$A(t) = 6{,}000 + 900t$"
-    }
+ "id": "bank-am-388",
+ "question": "The table shows the number of members in a library's reading program at the end of years $0$, $1$, and $2$. The number of members increased by the same percentage each year. The function $m$ gives the number of members at the end of year $t$. Which equation defines $m$?",
+ "questionTable": {
+  "headers": [
+   "Year, $t$",
+   "Members"
   ],
-  "distractorNotes": {
-    "A": "uses the growth rate itself as the base",
-    "C": "drops the percent sign, using 15 as the base",
-    "D": "models the change as a constant yearly amount"
+  "rows": [
+   [
+    "$0$",
+    "$800$"
+   ],
+   [
+    "$1$",
+    "$920$"
+   ],
+   [
+    "$2$",
+    "$1{,}058$"
+   ]
+  ]
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$m(t) = 800 + 120t$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Interpret Exponential Parameters**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Growth of $15\\%$ per year means multiply by $1.15$ each year: $A(t) = 6{,}000(1.15)^t$.\n\n**The Full Solution:**\nStep 1: A constant percent change each year is exponential, of the form $A(t) = a(b)^t$ with $a$ the starting amount, so $a = 6{,}000$.\nStep 2: Growing by $15\\%$ leaves $100\\% + 15\\% = 115\\%$ of the previous year, so $b = 1.15$.\nStep 3: $A(t) = 6{,}000(1.15)^t$. Check against the table: $A(1) = 6{,}900$ and $A(2) = 7{,}935$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: uses the rate $0.15$ as the base, which would shrink the count to $15\\%$ of its size each year.\n* Choice C: drops the percent sign entirely, multiplying by $15$ each year.\n* Choice D: adds the first year's increase of $900$ forever; the table shows the second increase is $1{,}035$, not $900$.\n\n**Test Day Takeaway:** A percent GROWTH rate becomes the base $1 + r$; only the amount above $1$ is the percent itself."
+  {
+   "id": "B",
+   "text": "$m(t) = 800(0.15)^{t}$"
+  },
+  {
+   "id": "C",
+   "text": "$m(t) = 800(1.15)^{t}$"
+  },
+  {
+   "id": "D",
+   "text": "$m(t) = 920(1.15)^{t}$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "uses the first-year increase of 120 as a constant yearly change, which gives 1,040 at year 2, not 1,058",
+  "B": "uses the growth rate 0.15 as the base instead of 1 + 0.15",
+  "D": "uses the year-1 count, 920, as the starting value"
+ },
+ "explanation": "**SAT Pattern: Interpret Exponential Parameters**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The starting value is $800$ and the ratio is $\\frac{920}{800} = 1.15$, so $m(t) = 800(1.15)^{t}$.\n\n**The Full Solution:**\nStep 1: The value at $t = 0$ is the coefficient: $800$.\nStep 2: The yearly growth factor is $\\frac{920}{800} = 1.15$, an increase of $15\\%$ per year.\nStep 3: So $m(t) = 800(1.15)^{t}$. Check: $m(2) = 800(1.15)^{2} = 800(1.3225) = 1{,}058$, matching the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($800 + 120t$): adds $120$ every year. That gives $1{,}040$ at year $2$, but the table shows $1{,}058$.\n* Choice B ($800(0.15)^{t}$): uses the rate as the base, which would make the number of members shrink.\n* Choice D ($920(1.15)^{t}$): starts at the year-$1$ count. Then $m(0)$ would be $920$, not $800$.\n\n**Test Day Takeaway:** For a constant percent increase $r$, the model is $a(1 + r)^{t}$, where $a$ is the value at $t = 0$."
 }

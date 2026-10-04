@@ -1,6 +1,6 @@
 {
- "id": "bank-alg-102",
- "question": "An airport's luggage model gives $a(w + 1) + 2w = 40$, where $w$ is the number of carts in service on a shift and $a$ is a constant. For what value of $a$ is $w = 6$ a solution?",
- "correctAnswer": "4",
- "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~25s):** At $w = 6$, $7a + 12 = 40$, so $7a = 28$ and $a = 4$.\n\n**The Full Solution:**\n\nStep 1: Substitute $w = 6$: $a(6 + 1) + 2(6) = 40$.\n\nStep 2: Simplify: $7a + 12 = 40$, so $7a = 28$.\n\nStep 3: Divide by $7$: $a = 4$. Check: $4(6 + 1) + 2(6) = 28 + 12 = 40$.\n\n**Common Mistakes:**\n\n* $28$ — stopping at $7a = 28$ and reporting the product instead of $a$.\n* $40$ — reporting the right-hand side of the equation instead of the constant.\n* $\\frac{14}{3}$ — dividing $28$ by $6$, using $w$ rather than $w + 1$ as the multiplier of $a$.\n\n**Test Day Takeaway:** Substituting the given solution turns a two-unknown equation into a one-step solve for the constant."
+  "id": "bank-alg-102",
+  "question": "$\\frac{2}{3}(x - 6) = \\frac{x}{2} + 1$\nWhat value of $x$ satisfies the given equation?",
+  "correctAnswer": "30",
+  "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $30$.**\n\n**The Fast Way (~25s):** Multiplying both sides by $6$ gives $4(x - 6) = 3x + 6$, so $4x - 24 = 3x + 6$ and $x = 30$.\n\n**The Full Solution:**\nStep 1: Multiply both sides by $6$, the least common denominator: $4(x - 6) = 3x + 6$.\nStep 2: Distribute: $4x - 24 = 3x + 6$.\nStep 3: Subtract $3x$ and add $24$: $x = 30$. Check: $\\frac{2}{3}(24) = 16$ and $\\frac{30}{2} + 1 = 16$ ✓\n\n**Common Mistakes:** Multiplying the fractions by $6$ but leaving the $1$ alone gives $4x - 24 = 3x + 1$ and $x = 25$; applying $\\frac{2}{3}$ only to the $x$ gives $\\frac{2}{3}x - 6$, which leads to $x = 42$; multiplying by $3$ instead of $6$ leaves a fraction behind and invites arithmetic slips.\n\n**Test Day Takeaway:** Multiply every term on both sides by the least common denominator, including the whole-number terms, before distributing."
 }

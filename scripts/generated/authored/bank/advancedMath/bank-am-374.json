@@ -1,29 +1,29 @@
 {
  "id": "bank-am-374",
- "question": "A highway model predicts an average speed of $s(x)=52-0.8x$ miles per hour when the flow is $x$ vehicles per lane per minute above 20. Which statement best interprets $s(-10)=60$?",
+ "question": "$f(x) = x^{2} + bx - 6$\nIn the given function $f$, $b$ is a constant. If $f(-4) = 18$, what is the value of $b$?",
  "choices": [
   {
    "id": "A",
-   "text": "At a flow 10 vehicles per lane per minute below 20, the predicted average speed is 60 miles per hour."
+   "text": "$-10$"
   },
   {
    "id": "B",
-   "text": "At a flow 10 vehicles per lane per minute above 20, the predicted average speed is 60 miles per hour."
+   "text": "$-2$"
   },
   {
    "id": "C",
-   "text": "At a flow of 20 vehicles per lane per minute, the predicted average speed is 10 miles per hour below 60."
+   "text": "$-\\frac{1}{2}$"
   },
   {
    "id": "D",
-   "text": "Each vehicle per lane per minute below 20 raises the predicted average speed by 10 miles per hour."
+   "text": "$2$"
   }
  ],
- "correctAnswer": "A",
+ "correctAnswer": "B",
  "distractorNotes": {
-  "B": "reads the negative input as a flow above 20, reversing the direction",
-  "C": "treats the input -10 as a change in speed rather than a change in flow",
-  "D": "reads the input -10 as a rate of change; the rate is the coefficient 0.8"
+  "A": "computes (-4)^2 as -16, solving -16 - 4b - 6 = 18",
+  "C": "drops the constant -6, solving 16 - 4b = 18",
+  "D": "writes b(-4) as +4b, solving 16 + 4b - 6 = 18"
  },
- "explanation": "**SAT Pattern: Function Evaluation with Negative Input**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The input counts vehicles above 20, so $x=-10$ is a flow 10 below 20, and the output 60 is a predicted speed.\n\n**The Full Solution:**\nStep 1: The variable $x$ measures how far the flow is above 20 vehicles per lane per minute, so $x=-10$ means 10 below 20.\nStep 2: The output of $s$ is an average speed in miles per hour, not a change in speed.\nStep 3: So $s(-10)=60$ says that at a flow 10 below 20 the model predicts 60 miles per hour. Check: $52-0.8(-10)=52+8=60$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: reads $-10$ as 10 above 20, which the model would send to $52-8=44$ miles per hour.\n* Choice C: converts the input into a speed difference; the actual gap from the flow of 20 is 8 miles per hour.\n* Choice D: reads the input as the rate of change; the rate is 0.8 mile per hour per vehicle.\n\n**Test Day Takeaway:** When an input is measured from a baseline, a negative value sits below that baseline — say so before checking the output."
+ "explanation": "**SAT Pattern: Function Evaluation with Negative Input**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f(-4) = 16 - 4b - 6 = 10 - 4b$, so $10 - 4b = 18$ and $b = -2$.\n\n**The Full Solution:**\nStep 1: Substitute $-4$ for $x$: $f(-4) = (-4)^{2} + b(-4) - 6 = 16 - 4b - 6$.\nStep 2: Simplify and set equal to $18$: $10 - 4b = 18$, so $-4b = 8$.\nStep 3: Divide by $-4$: $b = -2$. Check: $f(x) = x^{2} - 2x - 6$ gives $f(-4) = 16 + 8 - 6 = 18$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$): treats $(-4)^{2}$ as $-16$, which leads to $-22 - 4b = 18$.\n* Choice C ($-\\frac{1}{2}$): leaves out the $-6$, solving $16 - 4b = 18$.\n* Choice D ($2$): writes $b(-4)$ as $+4b$, solving $10 + 4b = 18$. The product of $b$ and $-4$ is $-4b$.\n\n**Test Day Takeaway:** With an unknown constant, substitute the given input, simplify to a linear equation in the constant, and check by evaluating again."
 }

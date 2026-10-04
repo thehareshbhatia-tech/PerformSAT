@@ -1,29 +1,29 @@
 {
  "id": "bank-am-106",
- "question": "In a solar-sail deployment model the expression $\\dfrac{2x^{2}+kx-30}{x^{2}-25}$, where $k$ is a constant and $x>5$ is the mast extension in meters, has the same value as $\\dfrac{2x+6}{x+5}$ at every such $x$. What is the value of $k$?",
+ "question": "The expression $\\dfrac{3x^{2} + kx - 28}{x^{2} - 16}$, where $k$ is a constant and $x > 4$, is equivalent to $\\dfrac{3x + 7}{x + 4}$. What is the value of $k$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-10$"
+   "text": "$-12$"
   },
   {
    "id": "B",
-   "text": "$-4$"
+   "text": "$-5$"
   },
   {
    "id": "C",
-   "text": "$4$"
+   "text": "$5$"
   },
   {
    "id": "D",
-   "text": "$6$"
+   "text": "$7$"
   }
  ],
  "distractorNotes": {
-  "A": "keeps only the -10x from 2x times -5 and ignores the +6x from 6 times x",
-  "C": "reports the size of the coefficient without its negative sign",
-  "D": "copies the constant 6 from the numerator of the simplified form"
+  "A": "keeps only the -12x from 3x times -4 and ignores the +7x from 7 times x",
+  "C": "reports the coefficient without its negative sign",
+  "D": "copies the constant 7 from the numerator of the simplified form"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Rational Expression Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** The numerator must be $(2x+6)(x-5)=2x^{2}-4x-30$, so $k=-4$.\n\n**The Full Solution:**\n\nStep 1: Factor the denominator: $x^{2}-25=(x+5)(x-5)$, so the simplified form comes from cancelling $x+5$.\n\nStep 2: Undo that cancellation: $\\frac{2x+6}{x+5}=\\frac{(2x+6)(x-5)}{(x+5)(x-5)}$, so the original numerator equals $(2x+6)(x-5)$.\n\nStep 3: Expand: $(2x+6)(x-5)=2x^{2}-10x+6x-30=2x^{2}-4x-30$. Matching gives $k=-4$, and the constant $-30$ matches as well. Check at $x=6$: $\\frac{2(36)-24-30}{36-25}=\\frac{18}{11}$, and the simplified form gives $\\frac{12+6}{11}=\\frac{18}{11}$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-10$): keeps only the $-10x$ term and drops the $+6x$.\n* Choice C ($4$): reports the magnitude and loses the negative sign.\n* Choice D ($6$): copies the constant from the simplified numerator.\n\n**Test Day Takeaway:** To recover a hidden coefficient, multiply the simplified form back by the cancelled factor and match terms."
+ "explanation": "**SAT Pattern: Rational Expression Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The numerator must be $(3x + 7)(x - 4) = 3x^{2} - 5x - 28$, so $k = -5$.\n\n**The Full Solution:**\nStep 1: Factor the denominator: $x^{2} - 16 = (x + 4)(x - 4)$, so the simplified form comes from cancelling a factor of $x - 4$.\nStep 2: Undo that cancellation: $\\frac{3x + 7}{x + 4} = \\frac{(3x + 7)(x - 4)}{(x + 4)(x - 4)}$, so the original numerator equals $(3x + 7)(x - 4)$.\nStep 3: Expand: $(3x + 7)(x - 4) = 3x^{2} - 12x + 7x - 28 = 3x^{2} - 5x - 28$. Matching coefficients gives $k = -5$, and the constant $-28$ matches too. Check at $x = 5$: $\\frac{75 - 25 - 28}{25 - 16} = \\frac{22}{9}$ and $\\frac{15 + 7}{5 + 4} = \\frac{22}{9}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): keeps only the $-12x$ term and drops the $+7x$.\n* Choice C ($5$): combines $-12x + 7x$ correctly in size but loses the negative sign.\n* Choice D ($7$): copies the constant from the simplified numerator.\n\n**Test Day Takeaway:** To recover a hidden coefficient, multiply the simplified form back by the cancelled factor and match terms."
 }

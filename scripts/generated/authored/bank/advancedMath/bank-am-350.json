@@ -1,29 +1,29 @@
 {
-  "question": "The equation $px^{2}+qx+r=0$, where $p$, $q$, and $r$ are nonzero constants, has exactly one real solution. Which of the following expressions is equal to that solution?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-\\dfrac{q}{p}$"
-    },
-    {
-      "id": "B",
-      "text": "$\\dfrac{q}{2p}$"
-    },
-    {
-      "id": "C",
-      "text": "$-\\dfrac{q}{2p}$"
-    },
-    {
-      "id": "D",
-      "text": "$\\dfrac{r}{p}$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "omitted the 2 in the denominator of -b/(2a)",
-    "B": "dropped the negative sign of -b/(2a)",
-    "D": "gave the product of the two solutions, r/p, instead of the solution itself"
+ "id": "bank-am-350",
+ "question": "$px^{2} + qx + r = 0$\nIn the given equation, $p$, $q$, and $r$ are nonzero constants, and the equation has exactly one real solution. Which of the following is the solution?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-\\dfrac{q}{p}$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** One real solution means the radical vanishes, leaving $x=-\\dfrac{q}{2p}$.\n\n**The Full Solution:**\nStep 1: The quadratic formula gives $x=\\dfrac{-q\\pm\\sqrt{q^{2}-4pr}}{2p}$.\nStep 2: Exactly one real solution means $q^{2}-4pr=0$, so the square root term is $0$.\nStep 3: The formula collapses to $x=\\dfrac{-q}{2p}$. Check with $x^{2}+6x+9=0$: $p=1$, $q=6$, and the only solution is $-3=-\\dfrac{6}{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\dfrac{q}{p}$): omits the $2$ in the denominator.\n* Choice B ($\\dfrac{q}{2p}$): drops the negative sign.\n* Choice D ($\\dfrac{r}{p}$): gives the product of the two solutions rather than the solution.\n\n**Test Day Takeaway:** A zero discriminant means the double root sits exactly at the vertex, $x=-\\dfrac{b}{2a}$.",
-  "id": "bank-am-350"
+  {
+   "id": "B",
+   "text": "$\\dfrac{q}{2p}$"
+  },
+  {
+   "id": "C",
+   "text": "$-\\dfrac{q}{2p}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\dfrac{r}{p}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "leaves out the 2 in the denominator of -b/(2a)",
+  "B": "drops the negative sign of -b/(2a)",
+  "D": "gives the product of the roots, c/a, instead of the root"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** With exactly one real solution, the square root in the quadratic formula is $0$, leaving $x = -\\dfrac{q}{2p}$.\n\n**The Full Solution:**\nStep 1: By the quadratic formula, $x = \\dfrac{-q \\pm \\sqrt{q^{2} - 4pr}}{2p}$.\nStep 2: The equation has exactly one real solution, so its discriminant is zero: $q^{2} - 4pr = 0$, and the $\\pm$ term is $0$.\nStep 3: The formula becomes $x = \\dfrac{-q}{2p} = -\\dfrac{q}{2p}$. Check with $x^{2} + 6x + 9 = 0$, where $p = 1$ and $q = 6$: its only solution is $x = -3 = -\\dfrac{6}{2(1)}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\dfrac{q}{p}$): leaves out the $2$ in the denominator; $-\\dfrac{q}{p}$ is the SUM of two roots.\n* Choice B ($\\dfrac{q}{2p}$): drops the negative sign.\n* Choice D ($\\dfrac{r}{p}$): is the product of the roots, not the root.\n\n**Test Day Takeaway:** When the discriminant is zero, the one solution is the $x$-coordinate of the vertex, $-\\dfrac{b}{2a}$."
 }

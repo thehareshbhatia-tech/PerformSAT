@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-217",
- "question": "A drawing places a hinge line along the graph of $y = \\frac{4}{9}x + 3$. Which of the following equations defines a line that meets the hinge line at a right angle?",
+ "question": "Line $k$ is defined by $y = \\frac{4}{9}x + 3$. Which equation defines a line that is perpendicular to line $k$ in the $xy$-plane?",
  "choices": [
   {
    "id": "A",
@@ -21,9 +21,9 @@
  ],
  "correctAnswer": "A",
  "distractorNotes": {
-  "B": "negates the slope without inverting it, so the product is $-\\frac{16}{81}$, not $-1$",
-  "C": "inverts the slope without negating it, so the product is $1$",
-  "D": "repeats the hinge line's slope, giving a parallel line"
+  "B": "negates the slope without inverting it",
+  "C": "inverts the slope without negating it",
+  "D": "keeps line $k$'s slope, which gives a parallel line"
  },
- "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The hinge line has slope $\\frac{4}{9}$, so a perpendicular line has slope $-\\frac{9}{4}$.\n\n**The Full Solution:**\nStep 1: The hinge line is written in slope-intercept form, so its slope is $\\frac{4}{9}$.\nStep 2: Two lines meet at a right angle when the product of their slopes is $-1$.\nStep 3: Since $\\frac{4}{9}\\left(-\\frac{9}{4}\\right) = -1$, the perpendicular line has slope $-\\frac{9}{4}$, as in $y = -\\frac{9}{4}x + 3$. Check: flipping $\\frac{4}{9}$ gives $\\frac{9}{4}$, and the negative sign completes the pair.\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = -\\frac{4}{9}x + 3$): negates the slope without inverting it, so the product is $-\\frac{16}{81}$, not $-1$\n* Choice C ($y = \\frac{9}{4}x + 3$): inverts the slope without negating it, so the product is $1$\n* Choice D ($y = \\frac{4}{9}x - 3$): repeats the hinge line's slope, giving a parallel line\n\n**Test Day Takeaway:** Perpendicular slopes need both moves: flip the fraction and change the sign."
+ "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The perpendicular slope is the negative reciprocal of $\\frac{4}{9}$, which is $-\\frac{9}{4}$; only choice A has it.\n\n**The Full Solution:**\nStep 1: Line $k$ is in slope-intercept form, so its slope is $\\frac{4}{9}$.\nStep 2: A perpendicular line has the negative reciprocal slope: $-\\frac{9}{4}$.\nStep 3: Choice A, $y = -\\frac{9}{4}x + 3$, is the only equation with slope $-\\frac{9}{4}$. Check: $\\frac{4}{9} \\cdot \\left(-\\frac{9}{4}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = -\\frac{4}{9}x + 3$): changes the sign but does not invert, so the product of the slopes is $-\\frac{16}{81}$, not $-1$.\n* Choice C ($y = \\frac{9}{4}x + 3$): inverts but does not change the sign, so the product of the slopes is $1$.\n* Choice D ($y = \\frac{4}{9}x - 3$): has the same slope as line $k$, so it is parallel to line $k$.\n\n**Test Day Takeaway:** For perpendicular lines, flip the slope and change its sign; the $y$-intercept does not matter."
 }

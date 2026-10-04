@@ -1,29 +1,29 @@
 {
  "id": "bank-am-371",
- "question": "A county health department reports the number of new cases per 100,000 residents with the model $c(w)=-8w+120$, where $w$ is the number of weeks after a district's peak. What is the value of $c(-5)$?",
+ "question": "The function $f$ is defined by $f(x) = x^{2} - 5x + 2$. What is the value of $f(-3)$?",
  "choices": [
   {
    "id": "A",
-   "text": "$40$"
+   "text": "$-22$"
   },
   {
    "id": "B",
-   "text": "$80$"
+   "text": "$-4$"
   },
   {
    "id": "C",
-   "text": "$120$"
+   "text": "$8$"
   },
   {
    "id": "D",
-   "text": "$160$"
+   "text": "$26$"
   }
  ],
  "correctAnswer": "D",
  "distractorNotes": {
-  "A": "keeps only -8(-5) = 40 and drops the constant 120",
-  "B": "substitutes w = 5 instead of w = -5: -40 + 120 = 80",
-  "C": "evaluates at w = 0, the peak itself"
+  "A": "computes (-3)^2 as -9 and -5(-3) as -15",
+  "B": "computes -5(-3) as -15 instead of 15",
+  "C": "computes (-3)^2 as -9 instead of 9"
  },
- "explanation": "**SAT Pattern: Function Evaluation with Negative Input**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** $-8(-5)=40$, and $40+120=160$ cases per 100,000 residents.\n\n**The Full Solution:**\nStep 1: Substitute $-5$ for $w$: $c(-5)=-8(-5)+120$.\nStep 2: A negative rate times a negative input is positive: $-8(-5)=40$.\nStep 3: Add the constant: $40+120=160$. Check: five weeks before the peak the model is above the peak value of 120, as a declining model going backwards should be ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($40$): reports only the product $-8(-5)$ and never adds 120.\n* Choice B ($80$): substitutes $w=5$, five weeks after the peak instead of before it.\n* Choice C ($120$): evaluates at $w=0$, the value at the peak itself.\n\n**Test Day Takeaway:** A negative time input runs the model backwards; two negatives in the rate term make the result larger, not smaller."
+ "explanation": "**SAT Pattern: Function Evaluation with Negative Input**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** $f(-3) = (-3)^{2} - 5(-3) + 2 = 9 + 15 + 2 = 26$.\n\n**The Full Solution:**\nStep 1: Substitute $-3$ for every $x$, keeping the parentheses: $f(-3) = (-3)^{2} - 5(-3) + 2$.\nStep 2: Evaluate each term: $(-3)^{2} = 9$ and $-5(-3) = 15$.\nStep 3: Add: $9 + 15 + 2 = 26$. Check: both $x^{2}$ and $-5x$ are positive when $x$ is negative, so the value must exceed $2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-22$): makes both sign errors, computing $-9 - 15 + 2$.\n* Choice B ($-4$): squares correctly but treats $-5(-3)$ as $-15$, computing $9 - 15 + 2$.\n* Choice C ($8$): treats $(-3)^{2}$ as $-9$, computing $-9 + 15 + 2$.\n\n**Test Day Takeaway:** Put a negative input in parentheses before you square it or multiply it; a negative number squared is positive, and a negative times a negative is positive."
 }

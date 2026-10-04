@@ -1,7 +1,6 @@
 {
- "question": "In the $xy$-plane, the two plotted points are the endpoints of a segment, and line $\\ell$ contains that segment. A second line has a slope three times the slope of line $\\ell$. What is the slope of the second line?",
- "correctAnswer": "-4.5",
- "explanation": "**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $-4.5$.**\n\n**The Fast Way (~25s):** The plotted points $(-3, 7)$ and $(5, -5)$ give slope $\\frac{-12}{8} = -1.5$, and three times that is $-4.5$.\n\n**The Full Solution:**\n\nStep 1: Read the two plotted points: $(-3, 7)$ and $(5, -5)$.\n\nStep 2: The slope of line $\\ell$ is $\\frac{-5 - 7}{5 - (-3)} = \\frac{-12}{8} = -\\frac{3}{2}$.\n\nStep 3: The second line's slope is $3\\left(-\\frac{3}{2}\\right) = -\\frac{9}{2} = -4.5$. Check: a line of slope $-4.5$ falls $9$ units over a run of $2$, three times as steeply as line $\\ell$.\n\n**Common Mistakes:** Reporting the slope of line $\\ell$ itself, $-1.5$; dropping the negative sign and reporting $4.5$; inverting rise and run before tripling and reporting $-2$.\n\n**Test Day Takeaway:** Compute the slope from the two points first, then apply the multiplier the question describes; the sign travels with it.",
+ "id": "bank-alg-165",
+ "question": "The two points shown lie on line $\\ell$ in the $xy$-plane. Line $k$ has a slope that is $3$ times the slope of line $\\ell$. What is the slope of line $k$?",
  "diagram": {
   "type": "coordinatePoints",
   "params": {
@@ -21,5 +20,6 @@
    "yMax": 10
   }
  },
- "id": "bank-alg-165"
+ "correctAnswer": "-4.5",
+ "explanation": "**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $-4.5$.**\n\n**The Fast Way (~25s):** The points $(-3, 7)$ and $(5, -5)$ give a slope of $\\frac{-12}{8} = -1.5$ for line $\\ell$, and $3(-1.5) = -4.5$.\n\n**The Full Solution:**\nStep 1: Read the two plotted points: $(-3, 7)$ and $(5, -5)$.\nStep 2: The slope of line $\\ell$ is $\\frac{-5 - 7}{5 - (-3)} = \\frac{-12}{8} = -\\frac{3}{2}$.\nStep 3: The slope of line $k$ is $3\\left(-\\frac{3}{2}\\right) = -\\frac{9}{2} = -4.5$. Check: $-4.5 \\div 3 = -1.5$, the slope of line $\\ell$ ✓ (The answer may also be entered as $-\\frac{9}{2}$.)\n\n**Common Mistakes:**\n* $-1.5$: reports the slope of line $\\ell$ and forgets to multiply by $3$.\n* $4.5$: drops the negative sign, even though line $\\ell$ falls from left to right.\n* $-2$: inverts rise and run, using $-\\frac{2}{3}$, before tripling.\n\n**Test Day Takeaway:** Compute the slope from the two points first, then apply the multiplier the question describes; the sign carries through."
 }

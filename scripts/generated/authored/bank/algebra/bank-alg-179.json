@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-179",
- "question": "The graph shows line $p$. A laser cutter's kerf crosses line $p$ at a right angle and runs through $(-3, 4)$. At what value of $x$ does the kerf's line reach the $x$-axis?",
+ "question": "Line $p$ is shown in the $xy$-plane. Line $q$ is perpendicular to line $p$, passes through the point $(-3, 4)$, and has an $x$-intercept of $(a, 0)$. What is the value of $a$?",
  "diagram": {
   "type": "linearGraph",
   "params": {
@@ -37,7 +37,7 @@
   },
   {
    "id": "B",
-   "text": "$1$"
+   "text": "$-1$"
   },
   {
    "id": "C",
@@ -48,11 +48,11 @@
    "text": "$10$"
   }
  ],
- "correctAnswer": "A",
  "distractorNotes": {
-  "B": "computes $b$ as $y + mx = 4 + 2(-3) = -2$, giving $0 = 2x - 2$ and $x = 1$",
-  "C": "keeps line $p$'s slope $-\\frac{1}{2}$, giving $y = -\\frac{1}{2}x + \\frac{5}{2}$ and $x = 5$",
-  "D": "reports the kerf line's $y$-intercept instead of its $x$-intercept"
+  "B": "uses slope -2 (reciprocal without the sign change), so -4 = -2(x + 3) gives x = -1",
+  "C": "uses line p's own slope -1/2, building a parallel line that meets the x-axis at x = 5",
+  "D": "reports the y-intercept 10 of line q instead of the x-intercept"
  },
- "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Line $p$ has slope $-\\frac{1}{2}$, so the kerf has slope $2$; $y = 2x + 10$ meets the $x$-axis at $x = -5$.\n\n**The Full Solution:**\nStep 1: Line $p$ passes through $(0, 3)$ and $(2, 2)$, so its slope is $\\frac{2 - 3}{2 - 0} = -\\frac{1}{2}$.\nStep 2: The kerf crosses at a right angle, so its slope is $2$; substituting $(-3, 4)$ gives $4 = -6 + b$ and $b = 10$.\nStep 3: Setting $y = 0$ in $y = 2x + 10$ gives $x = -5$. Check: $2(-5) + 10 = 0$, and $-\\frac{1}{2}(2) = -1$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($1$): computes $b$ as $y + mx = 4 + 2(-3) = -2$, giving $0 = 2x - 2$ and $x = 1$\n* Choice C ($5$): keeps line $p$'s slope $-\\frac{1}{2}$, giving $y = -\\frac{1}{2}x + \\frac{5}{2}$ and $x = 5$\n* Choice D ($10$): reports the kerf line's $y$-intercept instead of its $x$-intercept\n\n**Test Day Takeaway:** Build the perpendicular line first, then set $y = 0$; the two intercepts are easy to confuse under time pressure."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** Line $p$ has slope $-\\frac{1}{2}$, so line $q$ has slope $2$: $y = 2(x + 3) + 4 = 2x + 10$. Setting $y = 0$ gives $x = -5$.\n\n**The Full Solution:**\nStep 1: From the marked points $(0, 3)$ and $(2, 2)$, line $p$ has slope $\\frac{2 - 3}{2 - 0} = -\\frac{1}{2}$, so line $q$ has slope $2$, the negative reciprocal.\nStep 2: Through $(-3, 4)$ with slope $2$: $y - 4 = 2(x + 3)$, so $y = 2x + 10$.\nStep 3: At the $x$-intercept, $y = 0$: $0 = 2x + 10$, so $x = -5$ and $a = -5$. Check: the slope from $(-5, 0)$ to $(-3, 4)$ is $\\frac{4}{2} = 2$, and $2 \\cdot \\left(-\\frac{1}{2}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-1$): uses slope $-2$, taking the reciprocal without changing the sign, so $0 - 4 = -2(x + 3)$ gives $x = -1$.\n* Choice C ($5$): uses the slope of line $p$ itself, building a parallel line, so $0 - 4 = -\\frac{1}{2}(x + 3)$ gives $x = 5$.\n* Choice D ($10$): reports the $y$-intercept of line $q$ instead of its $x$-intercept.\n\n**Test Day Takeaway:** Read the slope from the graph, take its negative reciprocal, write the new line with point-slope form, and set $y = 0$ for the $x$-intercept."
 }

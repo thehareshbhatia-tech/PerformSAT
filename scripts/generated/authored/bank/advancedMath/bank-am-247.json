@@ -1,29 +1,29 @@
 {
- "id": "bank-am-247",
- "question": "A transit agency models weekday ridership with $f$, where $f(t)$ is the number of riders $t$ hours after midnight, and defines a second model by $g(t)=f(t-8)$. Which statement best compares $g$ with $f$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$g$ reaches each ridership level 8 hours later than $f$ does."
+  "id": "bank-am-247",
+  "question": "$f(x) = 2x^{2} + 3$\nIf $g(x) = f(x - 4)$, what is the value of $g(5)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$5$"
+    },
+    {
+      "id": "B",
+      "text": "$49$"
+    },
+    {
+      "id": "C",
+      "text": "$53$"
+    },
+    {
+      "id": "D",
+      "text": "$165$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "computes f(5) - 4, subtracting 4 from the output instead of the input",
+    "C": "computes f(5), ignoring the shift",
+    "D": "computes f(9), adding 4 to the input instead of subtracting"
   },
-  {
-   "id": "B",
-   "text": "$g$ reaches each ridership level 8 hours earlier than $f$ does."
-  },
-  {
-   "id": "C",
-   "text": "$g$ predicts 8 more riders than $f$ at every hour."
-  },
-  {
-   "id": "D",
-   "text": "$g$ predicts 8 fewer riders than $f$ at every hour."
-  }
- ],
- "correctAnswer": "A",
- "distractorNotes": {
-  "B": "reads the subtraction inside the function as a shift to the left, that is, earlier",
-  "C": "treats the 8 as added to the ridership rather than to the time",
-  "D": "treats the 8 as subtracted from the ridership rather than from the time"
- },
- "explanation": "**SAT Pattern: Horizontal Shift**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Subtracting inside the function moves the graph right, so every feature of $f$ appears in $g$ eight hours later.\n\n**The Full Solution:**\nStep 1: The rule $g(t)=f(t-8)$ evaluates $f$ at a time eight hours earlier than the time fed to $g$.\nStep 2: So the ridership $f$ shows at time $t$ is the ridership $g$ shows at time $t+8$.\nStep 3: Every ridership level therefore occurs eight hours later under $g$. Check: if $f$ peaks at 8 a.m., then $g(16)=f(8)$, a 4 p.m. peak ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: reads $t-8$ as a shift to the left, which would come from $f(t+8)$.\n* Choice C: attaches the 8 to the output, a vertical shift up.\n* Choice D: attaches the 8 to the output, a vertical shift down.\n\n**Test Day Takeaway:** A subtraction inside the parentheses delays the graph; the sign you see is the opposite of the direction you might expect."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Horizontal Shift**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $g(5) = f(5 - 4) = f(1) = 2(1)^{2} + 3 = 5$.\n\n**The Full Solution:**\nStep 1: By definition, $g(5) = f(5 - 4)$.\nStep 2: Simplify the input: $5 - 4 = 1$, so $g(5) = f(1)$.\nStep 3: Evaluate: $f(1) = 2(1)^{2} + 3 = 5$. Check: $g(x) = 2(x - 4)^{2} + 3$, and $2(5 - 4)^{2} + 3 = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($49$): computes $f(5) - 4 = 53 - 4$, subtracting $4$ from the output instead of the input.\n* Choice C ($53$): computes $f(5)$ and ignores the $-4$ inside the function.\n* Choice D ($165$): computes $f(9)$, adding $4$ to the input instead of subtracting it.\n\n**Test Day Takeaway:** To evaluate $f(x - h)$, do the arithmetic inside the parentheses first, then evaluate $f$ at that new input."
 }

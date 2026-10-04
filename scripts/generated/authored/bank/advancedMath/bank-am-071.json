@@ -1,14 +1,14 @@
 {
  "id": "bank-am-071",
- "question": "Drop-tower data give $y$ as a maple samara's descent speed in meters per second, and for exactly two constants $c$ the expression $9y^2 + cy + 64$ is the square of a binomial with integer coefficients. Which of the following lists both of those constants?",
+ "question": "$9y^{2} + cy + 64$\nIn the given expression, $c$ is a constant. If the expression is equivalent to $(ay + b)^{2}$, where $a$ and $b$ are constants, which of the following gives all possible values of $c$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-48$ and $48$"
+   "text": "$-24$ and $24$"
   },
   {
    "id": "B",
-   "text": "$-24$ and $24$"
+   "text": "$-48$ and $48$"
   },
   {
    "id": "C",
@@ -19,11 +19,11 @@
    "text": "$-576$ and $576$"
   }
  ],
- "correctAnswer": "A",
+ "correctAnswer": "B",
  "distractorNotes": {
-  "B": "uses $\\sqrt{9 \\cdot 64} = 24$, omitting the factor of $2$ in $2ab$",
-  "C": "keeps only the positive constant and misses the square $(3y - 8)^2$",
-  "D": "reports $9 \\cdot 64 = 576$ without taking a square root at all"
+  "A": "uses c = ab = 24, leaving out the factor of 2 in the middle term 2ab",
+  "C": "finds 48 but forgets that (3y - 8)^2 gives -48",
+  "D": "multiplies 9 and 64 instead of their square roots"
  },
- "explanation": "**SAT Pattern: Find k for Perfect Square Trinomial (Both Signs)**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The square roots of the outer terms are $3y$ and $8$, and the middle term must be $\\pm 2(3y)(8) = \\pm 48y$, so $c = \\pm 48$.\n\n**The Full Solution:**\nStep 1: For $(ay + b)^2 = a^2y^2 + 2aby + b^2$, match $a^2 = 9$ and $b^2 = 64$, so $a = 3$ and $b = \\pm 8$.\nStep 2: The middle coefficient is $2ab$, which is $2(3)(8) = 48$ when $b = 8$ and $2(3)(-8) = -48$ when $b = -8$.\nStep 3: So $c = 48$ or $c = -48$. Check: $(3y + 8)^2 = 9y^2 + 48y + 64$ and $(3y - 8)^2 = 9y^2 - 48y + 64$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\pm 24$): forgets that the middle term is TWICE the product of the two square roots.\n* Choice C ($48$ only): a negative constant term inside the binomial squares to $64$ just as well, so the negative case is equally valid.\n* Choice D ($\\pm 576$): multiplies the outer coefficients without square-rooting, so the size is off by a factor of $12$.\n\n**Test Day Takeaway:** Both signs of the square root of the constant work, so a middle-coefficient question of this type always has two answers."
+ "explanation": "**SAT Pattern: Find k for Perfect Square Trinomial (Both Signs)**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** $(ay + b)^{2} = a^{2}y^{2} + 2aby + b^{2}$, so $a = \\pm 3$, $b = \\pm 8$, and $c = 2ab = \\pm 48$.\n\n**The Full Solution:**\nStep 1: Expand: $(ay + b)^{2} = a^{2}y^{2} + 2aby + b^{2}$. Matching terms gives $a^{2} = 9$, $b^{2} = 64$, and $c = 2ab$.\nStep 2: So $a = 3$ or $a = -3$, and $b = 8$ or $b = -8$. The product $ab$ is $24$ when the signs agree and $-24$ when they differ.\nStep 3: Therefore $c = 2ab$ is $48$ or $-48$. Check: $(3y + 8)^{2} = 9y^{2} + 48y + 64$ and $(3y - 8)^{2} = 9y^{2} - 48y + 64$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-24$ and $24$): uses $ab = \\pm 24$ and leaves out the factor of $2$ in the middle term $2ab$.\n* Choice C ($48$ only): finds the positive value but forgets that $(3y - 8)^{2}$ also works.\n* Choice D ($-576$ and $576$): multiplies $9 \\cdot 64$ instead of the square roots $3$ and $8$.\n\n**Test Day Takeaway:** A perfect-square trinomial's middle coefficient is $\\pm 2\\sqrt{\\text{first}}\\sqrt{\\text{last}}$; both signs work unless the item rules one out."
 }

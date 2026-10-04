@@ -1,29 +1,29 @@
 {
  "id": "bank-am-100",
- "question": "A milling model gives the ratio $\\dfrac{x^{2}-49}{x+7}$, where $x>7$ is the roller gap in millimeters. Which expression is equivalent to this ratio?",
+ "question": "Which expression is equivalent to $\\dfrac{x^{2} - 64}{x + 8}$, where $x > 0$?",
  "choices": [
   {
    "id": "A",
-   "text": "$x-7$"
+   "text": "$x - 64$"
   },
   {
    "id": "B",
-   "text": "$x+7$"
+   "text": "$x - 8$"
   },
   {
    "id": "C",
-   "text": "$x-49$"
+   "text": "$x + 8$"
   },
   {
    "id": "D",
-   "text": "$x^{2}-7$"
+   "text": "$x^{2} - 8$"
   }
  ],
  "distractorNotes": {
-  "B": "cancels the factor x - 7 instead of the factor x + 7",
-  "C": "cancels x squared against x as if they were factors and subtracts 49 from x",
-  "D": "divides only the constant 49 by 7 and leaves x squared untouched"
+  "A": "cancels x squared against x term by term and leaves the 64 untouched",
+  "C": "cancels the factor x - 8 instead of the factor x + 8",
+  "D": "divides only the constant 64 by 8 and leaves x squared alone"
  },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Rational Expression Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $x^{2}-49=(x-7)(x+7)$, and the $x+7$ cancels, leaving $x-7$.\n\n**The Full Solution:**\n\nStep 1: Recognize the numerator as a difference of squares: $x^{2}-49=(x-7)(x+7)$.\n\nStep 2: The ratio becomes $\\frac{(x-7)(x+7)}{x+7}$.\n\nStep 3: Since $x>7$, the factor $x+7$ is nonzero and cancels, leaving $x-7$. Check with $x=10$: $\\frac{100-49}{17}=\\frac{51}{17}=3$, and $10-7=3$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($x+7$): cancels the wrong factor, keeping $x+7$ instead of $x-7$.\n* Choice C ($x-49$): treats $x^{2}$ and $x$ as cancelling terms rather than factoring first.\n* Choice D ($x^{2}-7$): divides only the constant by $7$ and leaves $x^{2}$ alone.\n\n**Test Day Takeaway:** Factor before cancelling; only whole factors cancel, never individual terms."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Rational Expression Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $x^{2} - 64 = (x - 8)(x + 8)$, and the factor $x + 8$ cancels, leaving $x - 8$.\n\n**The Full Solution:**\nStep 1: Factor the numerator as a difference of squares: $x^{2} - 64 = (x - 8)(x + 8)$.\nStep 2: The expression becomes $\\frac{(x - 8)(x + 8)}{x + 8}$.\nStep 3: For $x > 0$, the factor $x + 8$ is not zero, so it cancels and leaves $x - 8$. Check at $x = 2$: $\\frac{4 - 64}{10} = -6$ and $2 - 8 = -6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x - 64$): cancels $x^{2}$ against $x$ as if they were factors and keeps the $64$.\n* Choice C ($x + 8$): cancels $x - 8$, which is not in the denominator.\n* Choice D ($x^{2} - 8$): divides only the constant $64$ by $8$.\n\n**Test Day Takeaway:** Factor first; only a whole factor that appears in both the numerator and the denominator can cancel."
 }

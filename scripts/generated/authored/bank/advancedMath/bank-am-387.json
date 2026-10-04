@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-387",
-  "question": "A public-health laboratory models the bacterial colony count in a wastewater sample by $q(h)=72(3)^{h/4}$, where $q(h)$ is the number of colonies on a plate $h$ hours after the sample was collected. Which statement best interprets this model?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "The count triples every hour."
-    },
-    {
-      "id": "B",
-      "text": "The count increases by 3 colonies every 4 hours."
-    },
-    {
-      "id": "C",
-      "text": "The count triples every 4 hours."
-    },
-    {
-      "id": "D",
-      "text": "The count quadruples every 3 hours."
-    }
-  ],
-  "correctAnswer": "C",
-  "distractorNotes": {
-    "A": "ignores the divisor 4 in the exponent",
-    "B": "reads the base 3 as a number of colonies added",
-    "D": "swaps the base and the divisor in the exponent"
+ "id": "bank-am-387",
+ "question": "The value, in dollars, of a savings account $t$ years after it was opened is modeled by $A(t) = 1{,}500(1.03)^{t}$. Which statement is the best interpretation of $1{,}500$ in this context?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "The value of the account increases by \\$1,500 each year."
   },
-  "explanation": "**SAT Pattern: Interpret Exponential Parameters**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The exponent reaches 1 when $h=4$, so the factor 3 applies once every 4 hours.\n\n**The Full Solution:**\nStep 1: The base 3 multiplies the count each time the exponent $\\frac{h}{4}$ increases by 1.\nStep 2: The exponent increases by 1 when $h$ increases by 4 hours.\nStep 3: So the count is multiplied by 3 every 4 hours. Check: $q(0)=72$ and $q(4)=72(3)=216$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: drops the divisor, which would require the model $72(3)^{h}$.\n* Choice B: treats the base as an amount added rather than a multiplier.\n* Choice D: swaps 3 and 4, describing $72(4)^{h/3}$.\n\n**Test Day Takeaway:** A divided exponent stretches the doubling or tripling time — the divisor is the length of one period."
+  {
+   "id": "B",
+   "text": "The value of the account $1$ year after it was opened was \\$1,500."
+  },
+  {
+   "id": "C",
+   "text": "The value of the account when it was opened was \\$1,500."
+  },
+  {
+   "id": "D",
+   "text": "The greatest value the account will reach is \\$1,500."
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "treats the starting value as a fixed yearly increase, as in a linear model",
+  "B": "evaluates the model at t = 1 instead of t = 0",
+  "D": "treats the coefficient as an upper limit, but an exponential growth model keeps increasing"
+ },
+ "explanation": "**SAT Pattern: Interpret Exponential Parameters**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** At $t = 0$, $A(0) = 1{,}500(1.03)^{0} = 1{,}500$, so $1{,}500$ is the value when the account was opened.\n\n**The Full Solution:**\nStep 1: The account was opened at $t = 0$.\nStep 2: Substitute $t = 0$: $A(0) = 1{,}500(1.03)^{0} = 1{,}500(1) = 1{,}500$.\nStep 3: So the value of the account when it was opened was \\$1,500. Check: after $1$ year the model gives $1{,}500(1.03) = 1{,}545$, which is larger, as growth requires ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (increases by \\$1,500): a fixed yearly increase belongs to a linear model. Here the yearly change is $3\\%$ of the current value.\n* Choice B (value after $1$ year): $A(1) = 1{,}545$, not $1{,}500$.\n* Choice D (greatest value): the base $1.03$ is greater than $1$, so the value keeps increasing past $1{,}500$.\n\n**Test Day Takeaway:** In $a(b)^{t}$, the coefficient $a$ is the value at $t = 0$, the starting amount."
 }

@@ -1,6 +1,6 @@
 {
- "question": "A pond survey counts $x$ adult frogs and $y$ tadpoles, and the two counts satisfy $x + 3y = 26$ and $x - y = 6$. What is the value of $y$?",
- "correctAnswer": "5",
- "explanation": "**SAT Pattern: Solving a System by Elimination**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~20s):** Subtracting the second count from the first eliminates $x$: $4y = 20$, so $y = 5$.\n\n**The Full Solution:**\n\nStep 1: Both equations have a coefficient of $1$ on $x$, so subtracting removes it.\n\nStep 2: $(x + 3y) - (x - y) = 26 - 6$ gives $4y = 20$.\n\nStep 3: So $y = 5$. Check: with $y = 5$, the second equation gives $x = 11$, and $11 + 3(5) = 26$.\n\n**Common Mistakes:** Adding instead and reporting $y = 16$ from $2x + 2y = 32$; mishandling $3y - (-y)$ as $2y$ and reporting $y = 10$; solving for $x$ and reporting $11$.\n\n**Test Day Takeaway:** When one variable already has matching coefficients, subtract the equations and the variable disappears in one step.",
- "id": "bank-alg-055"
+  "question": "$x + 4y = 31$\n$x - y = 6$\nThe solution to the given system of equations is $(x, y)$. What is the value of $y$?",
+  "correctAnswer": "5",
+  "explanation": "**SAT Pattern: Solving a System by Elimination**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~15s):** Subtracting the second equation from the first eliminates $x$: $5y = 25$, so $y = 5$.\n\n**The Full Solution:**\nStep 1: Both equations have the term $x$, so subtracting the second equation from the first eliminates $x$.\nStep 2: $(x + 4y) - (x - y) = 31 - 6$, which gives $4y + y = 25$, or $5y = 25$.\nStep 3: Divide by $5$: $y = 5$. Check: $x = 6 + 5 = 11$, and $11 + 4(5) = 31$ ✓\n\n**Common Mistakes:**\n* $11$: the value of $x$, not $y$.\n* $\\frac{25}{3}$: subtracts $-y$ as if it were $+y$, getting $3y = 25$.\n* $\\frac{37}{3}$: adds the equations instead, getting $2x + 3y = 37$, and then drops the $x$-term.\n\n**Test Day Takeaway:** Subtracting an equation subtracts every term, so $4y - (-y)$ is $5y$; watch the sign on the variable you keep.",
+  "id": "bank-alg-055"
 }

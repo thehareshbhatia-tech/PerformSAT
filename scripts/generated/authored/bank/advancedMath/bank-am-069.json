@@ -1,14 +1,14 @@
 {
  "id": "bank-am-069",
- "question": "A roof's snow load, in kilopascals, is given by $49t^2 - 56t + 16$ at temperature index $t$, and an engineer needs that load rewritten as a squared binomial before checking it against a code limit. Which of the following is that form?",
+ "question": "Which expression is equivalent to $49t^{2} - 56t + 16$?",
  "choices": [
   {
    "id": "A",
-   "text": "$(7t - 16)^2$"
+   "text": "$(7t - 16)^{2}$"
   },
   {
    "id": "B",
-   "text": "$(7t + 4)^2$"
+   "text": "$(7t + 4)^{2}$"
   },
   {
    "id": "C",
@@ -16,14 +16,14 @@
   },
   {
    "id": "D",
-   "text": "$(7t - 4)^2$"
+   "text": "$(7t - 4)^{2}$"
   }
  ],
  "correctAnswer": "D",
  "distractorNotes": {
-  "A": "uses the constant term $16$ itself instead of its square root $4$",
-  "B": "gives a middle term of $+56t$, the wrong sign",
-  "C": "is a difference of squares, which has no middle term at all"
+  "A": "uses 16 instead of its square root 4 inside the binomial",
+  "B": "ignores the sign of the middle term -56t",
+  "C": "writes a difference of squares, which has no middle term"
  },
- "explanation": "**SAT Pattern: Factor Perfect Square Trinomial**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** $\\sqrt{49t^2} = 7t$, $\\sqrt{16} = 4$, and $2(7t)(4) = 56t$ matches the middle term, so the load is $(7t - 4)^2$.\n\n**The Full Solution:**\nStep 1: The first and last terms are perfect squares: $49t^2 = (7t)^2$ and $16 = 4^2$.\nStep 2: For a perfect square trinomial the middle term must be $2(7t)(4) = 56t$, and here it appears as $-56t$, so the binomial carries a minus sign.\nStep 3: The load is $(7t - 4)^2$. Check: $(7t - 4)^2 = 49t^2 - 56t + 16$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(7t - 16)^2$): squares to $49t^2 - 224t + 256$, since $16$ was never square-rooted.\n* Choice B ($(7t + 4)^2$): squares to $49t^2 + 56t + 16$, with the middle sign reversed.\n* Choice C ($(7t - 4)(7t + 4)$): expands to $49t^2 - 16$, losing the middle term entirely.\n\n**Test Day Takeaway:** Take the square roots of the outer terms, double their product, and compare with the middle term — the middle term's sign is the binomial's sign."
+ "explanation": "**SAT Pattern: Factor Perfect Square Trinomial**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** $49t^{2} = (7t)^{2}$, $16 = 4^{2}$, and $2(7t)(4) = 56t$ with a minus sign, so the expression is $(7t - 4)^{2}$.\n\n**The Full Solution:**\nStep 1: The first and last terms are perfect squares: $49t^{2} = (7t)^{2}$ and $16 = 4^{2}$.\nStep 2: The middle term is twice their product with a negative sign: $-2(7t)(4) = -56t$, which matches.\nStep 3: So the expression equals $(7t - 4)^{2}$. Check at $t = 1$: $49 - 56 + 16 = 9$, and $(7 - 4)^{2} = 9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(7t - 16)^{2}$): uses $16$ instead of its square root; this expands to $49t^{2} - 224t + 256$.\n* Choice B ($(7t + 4)^{2}$): ignores the negative middle term; this expands to $49t^{2} + 56t + 16$.\n* Choice C ($(7t - 4)(7t + 4)$): writes a difference of squares, $49t^{2} - 16$, which has no middle term.\n\n**Test Day Takeaway:** To spot a perfect-square trinomial, check that the middle term is $\\pm 2$ times the product of the square roots of the end terms; its sign is the sign inside the binomial."
 }

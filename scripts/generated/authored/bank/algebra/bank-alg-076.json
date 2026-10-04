@@ -1,29 +1,29 @@
 {
- "id": "bank-alg-076",
- "question": "A decay model uses $g(x) = \\frac{\\sqrt{x + 6}}{x - k}$, in which $k$ is a constant greater than $-6$ and $x$ is a pressure offset, in kilopascals. Which set gives every offset at which the model produces a real number?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$x \\ge -6$"
+  "id": "bank-alg-076",
+  "question": "$g(x) = \\frac{\\sqrt{x + 6}}{x - k}$\nIn the given function, $k$ is a constant greater than $-6$. Which of the following describes all values of $x$ for which $g(x)$ is a real number?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x \\ge -6$"
+    },
+    {
+      "id": "B",
+      "text": "$x > -6$ and $x \\ne k$"
+    },
+    {
+      "id": "C",
+      "text": "$x \\ge -6$ and $x \\ne k$"
+    },
+    {
+      "id": "D",
+      "text": "$x \\ne -6$ and $x \\ne k$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "handles the square root but forgets that the denominator cannot be zero",
+    "B": "excludes -6 even though the square root of 0 is a real number",
+    "D": "treats the square root like a denominator, excluding only x = -6 and allowing values below -6, where the square root is not real"
   },
-  {
-   "id": "B",
-   "text": "$x > -6$ and $x \\ne k$"
-  },
-  {
-   "id": "C",
-   "text": "$x \\ge -6$ and $x \\ne k$"
-  },
-  {
-   "id": "D",
-   "text": "$x \\ne -6$ and $x \\ne k$"
-  }
- ],
- "distractorNotes": {
-  "A": "applies only the radical condition and ignores the denominator",
-  "B": "excludes x = -6 even though the radicand is 0 there, which is allowed",
-  "D": "treats the radicand like a denominator, excluding only the value that makes it 0"
- },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Domain with Radical and Denominator**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** A square root needs $x + 6 \\ge 0$ and a denominator needs $x - k \\ne 0$, so $x \\ge -6$ with $x = k$ removed.\n\n**The Full Solution:**\nStep 1: The square root requires a non-negative radicand: $x + 6 \\ge 0$, which gives $x \\ge -6$.\nStep 2: The denominator cannot be zero: $x - k \\ne 0$, which removes $x = k$.\nStep 3: Because $k > -6$, the excluded value lies inside the interval, so the domain is $x \\ge -6$ with $x = k$ removed. Check: at $x = -6$ the model gives $\\frac{0}{-6 - k}$, which is defined because $k \\ne -6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x \\ge -6$): applies only the radical condition and ignores that the denominator can vanish.\n* Choice B ($x > -6$ and $x \\ne k$): excludes $x = -6$, but a radicand of $0$ is allowed — only negatives are not.\n* Choice D ($x \\ne -6$ and $x \\ne k$): treats the radicand like a denominator, removing one point instead of every value below $-6$.\n\n**Test Day Takeaway:** Radicals give an inequality and denominators give an exclusion — a function with both needs both conditions, not one."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Domain with Radical and Denominator**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The square root needs $x + 6 \\ge 0$, so $x \\ge -6$. The denominator needs $x \\ne k$. Both conditions apply.\n\n**The Full Solution:**\nStep 1: The square root of a negative number is not real, so $x + 6 \\ge 0$, which gives $x \\ge -6$. The value $x = -6$ is allowed, since $\\sqrt{0} = 0$.\nStep 2: The denominator cannot be $0$, so $x - k \\ne 0$, which gives $x \\ne k$. Since $k > -6$, this excludes a value inside the interval $x \\ge -6$.\nStep 3: Combine: $x \\ge -6$ and $x \\ne k$. Check: at $x = -6$, $g(-6) = \\frac{0}{-6 - k}$, and $-6 - k \\ne 0$ because $k > -6$, so $g(-6) = 0$ is real ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x \\ge -6$): gets the square root condition but forgets that $x = k$ makes the denominator $0$.\n* Choice B ($x > -6$ and $x \\ne k$): excludes $-6$, but $\\sqrt{0} = 0$, and the numerator may be $0$.\n* Choice D ($x \\ne -6$ and $x \\ne k$): treats the radicand like a denominator, allowing values such as $x = -10$, where $\\sqrt{-4}$ is not real.\n\n**Test Day Takeaway:** Collect one condition per restriction: radicands must be at least $0$ (equality allowed), and denominators must not equal $0$ (equality excluded). Then intersect them."
 }

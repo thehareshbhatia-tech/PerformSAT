@@ -1,29 +1,29 @@
 {
- "question": "In a model of reservoir evaporation, the expression $5m - 8$ gives the number of millimeters of water lost during a dry spell of $m$ days, and for one spell its value is $27$. What is the value of $5m + 6$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$33$"
+  "id": "bank-alg-093",
+  "question": "$5m - 8 = 27$\nWhat is the value of $10m + 3$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$38$"
+    },
+    {
+      "id": "B",
+      "text": "$41$"
+    },
+    {
+      "id": "C",
+      "text": "$57$"
+    },
+    {
+      "id": "D",
+      "text": "$73$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "finds 5m = 35 and adds 3 without doubling to get 10m",
+    "B": "subtracts 8 instead of adding it, so 5m = 19 and 10m + 3 = 41",
+    "C": "doubles the given value 27 and adds 3, treating 10m + 3 as 2(5m - 8) + 3"
   },
-  {
-   "id": "B",
-   "text": "$35$"
-  },
-  {
-   "id": "C",
-   "text": "$41$"
-  },
-  {
-   "id": "D",
-   "text": "$49$"
-  }
- ],
- "correctAnswer": "C",
- "distractorNotes": {
-  "A": "adds $6$ to the given value $27$ without first removing the $-8$",
-  "B": "reports the value of $5m$ and stops",
-  "D": "adds the constant $8$ to $27$ and then adds the shift $14$ as well"
- },
- "explanation": "**SAT Pattern: Shifted Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Going from $5m - 8$ to $5m + 6$ adds $14$, so the value rises from $27$ to $41$.\n\n**The Full Solution:**\n\nStep 1: The two expressions share the term $5m$, so find it: $5m - 8 = 27$ gives $5m = 35$.\n\nStep 2: Substitute: $5m + 6 = 35 + 6 = 41$.\n\nStep 3: Check with $m = 7$: $5(7) - 8 = 27$ and $5(7) + 6 = 41$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($33$): adds $6$ directly to $27$, forgetting that the $-8$ must be removed first.\n\n* Choice B ($35$): stops at the value of $5m$ without adding $6$.\n\n* Choice D ($49$): adds back the $8$ and then adds the full shift of $14$, applying the correction twice.\n\n**Test Day Takeaway:** When two expressions share the same variable term, solve for that term once and substitute; you never need the variable itself.",
- "id": "bank-alg-093"
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Shifted Output**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Adding $8$ gives $5m = 35$, so $10m = 70$ and $10m + 3 = 73$.\n\n**The Full Solution:**\nStep 1: Add $8$ to both sides of the given equation: $5m = 35$.\nStep 2: Multiply both sides by $2$: $10m = 70$.\nStep 3: Add $3$: $10m + 3 = 73$. Check: $m = 7$ gives $5(7) - 8 = 27$ and $10(7) + 3 = 73$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($38$): stops at $5m = 35$ and adds $3$, never doubling $5m$ to get $10m$.\n* Choice B ($41$): subtracts $8$ from $27$ instead of adding it, getting $5m = 19$, so $10m + 3 = 38 + 3 = 41$.\n* Choice C ($57$): doubles $27$ and adds $3$. But $2(5m - 8) = 10m - 16$, not $10m$, so $2(27) + 3 = 57$ is the value of $10m - 13$.\n\n**Test Day Takeaway:** To find a new expression in $m$, isolate the matching multiple of $m$ first ($5m = 35$), then scale and shift it to the target."
 }

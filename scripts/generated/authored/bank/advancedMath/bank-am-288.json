@@ -1,6 +1,6 @@
 {
  "id": "bank-am-288",
- "question": "A stadium-lighting model uses the polynomial $12x^3 + 8x^2 + 15x + k$, where $x$ is the mast height in meters and $k$ is a constant set by the number of fixtures on the mast. If $3x + 2$ divides that polynomial evenly, what number is $k$?",
+ "question": "$12x^{3}+8x^{2}+15x+k$\nIn the given expression, $k$ is a constant. If $3x+2$ is a factor of the expression, what is the value of $k$?",
  "choices": [
   {
    "id": "A",

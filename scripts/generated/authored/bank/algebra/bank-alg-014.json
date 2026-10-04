@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-014",
-  "question": "A community garden charges $\\$32$ per season for a plot plus $\\$4$ for each bag of compost a gardener buys. A gardener paid a total of $\\$68$ for one season. Which equation can be used to find $b$, the number of bags of compost the gardener bought?",
+  "question": "A gardener paid \\$68 for a garden plot that costs \\$32 and $b$ bags of compost that cost \\$4 each. Which equation represents this situation?",
   "choices": [
     {
       "id": "A",

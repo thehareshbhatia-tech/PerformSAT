@@ -1,6 +1,6 @@
 {
   "id": "bank-am-205",
-  "question": "The area of a pond's surface covered by duckweed doubles every $4$ days. Which type of function best models the covered area as a function of the number of days since the duckweed was first observed?",
+  "question": "The area of a pond covered by duckweed doubles every $4$ days. Which type of function best models the covered area as a function of time?",
   "choices": [
     {
       "id": "A",

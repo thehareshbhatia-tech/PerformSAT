@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-219",
- "question": "A truss diagram graphs line $r$ in the $xy$-plane. One member of the truss lies on a line that meets line $r$ at a right angle and includes the point $(-1, -2)$. Which equation defines the member's line?",
+ "question": "The graph of line $r$ is shown in the $xy$-plane. Line $s$ is perpendicular to line $r$ and passes through the point $(-1, -2)$. Which equation defines line $s$?",
  "diagram": {
   "type": "linearGraph",
   "params": {
@@ -50,9 +50,9 @@
  ],
  "correctAnswer": "D",
  "distractorNotes": {
-  "A": "copies line $r$'s slope, giving a parallel line rather than a perpendicular one",
-  "B": "computes $b$ as $y + mx = -2 + 3(-1) = -5$",
-  "C": "negates the perpendicular slope to $-3$, giving $-2 = 3 + b$ and $b = -5$"
+  "A": "keeps line $r$'s slope, which gives a line parallel to line $r$",
+  "B": "computes the $y$-intercept as $y + mx = -2 + 3(-1) = -5$",
+  "C": "uses slope $-3$, negating line $r$'s reciprocal twice, and gets $-2 = 3 + b$, so $b = -5$"
  },
- "explanation": "**SAT Pattern: Perpendicular Line Through a Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Line $r$ has slope $-\\frac{1}{3}$, so the member has slope $3$, and $-2 = 3(-1) + b$ gives $b = 1$.\n\n**The Full Solution:**\nStep 1: Line $r$ passes through $(0, 2)$ and $(3, 1)$, so its slope is $\\frac{1 - 2}{3 - 0} = -\\frac{1}{3}$.\nStep 2: A right angle requires the negative reciprocal, so the member's line has slope $3$.\nStep 3: Substituting $(-1, -2)$ into $y = 3x + b$ gives $-2 = -3 + b$, so $b = 1$ and the line is $y = 3x + 1$. Check: $3(-1) + 1 = -2$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{1}{3}x - \\frac{7}{3}$): copies line $r$'s slope, giving a parallel line rather than a perpendicular one\n* Choice B ($y = 3x - 5$): computes $b$ as $y + mx = -2 + 3(-1) = -5$\n* Choice C ($y = -3x - 5$): negates the perpendicular slope to $-3$, giving $-2 = 3 + b$ and $b = -5$\n\n**Test Day Takeaway:** Take the negative reciprocal of the graphed slope, then use the given point only to set $b$."
+ "explanation": "**SAT Pattern: Perpendicular Line Through a Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Line $r$ has slope $-\\frac{1}{3}$, so line $s$ has slope $3$, and $-2 = 3(-1) + b$ gives $b = 1$.\n\n**The Full Solution:**\nStep 1: Line $r$ passes through $(0, 2)$ and $(3, 1)$, so its slope is $\\frac{1 - 2}{3 - 0} = -\\frac{1}{3}$.\nStep 2: Line $s$ is perpendicular to line $r$, so its slope is the negative reciprocal, $3$.\nStep 3: Substituting $(-1, -2)$ into $y = 3x + b$ gives $-2 = -3 + b$, so $b = 1$ and line $s$ is $y = 3x + 1$. Check: $3(-1) + 1 = -2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{1}{3}x - \\frac{7}{3}$): keeps line $r$'s slope, so this line through $(-1, -2)$ is parallel to line $r$.\n* Choice B ($y = 3x - 5$): has the right slope but computes the intercept as $y + mx = -2 + 3(-1) = -5$ instead of $y - mx$.\n* Choice C ($y = -3x - 5$): uses slope $-3$, which is the reciprocal of line $r$'s slope without the sign change.\n\n**Test Day Takeaway:** Read the slope from two clear points on the graph, take the negative reciprocal, then solve for the intercept with $b = y - mx$."
 }

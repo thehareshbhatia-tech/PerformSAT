@@ -1,29 +1,29 @@
 {
  "id": "bank-am-284",
- "question": "A toll gantry's throughput ratio is modeled by $g(x)=\\dfrac{x+3}{2x-1}$, where $x>\\frac{1}{2}$ is the lane-count index. For what value of the index is the throughput ratio equal to $2$?",
+ "question": "$\\dfrac{x^{2}+2x}{x-3}=\\dfrac{15}{x-3}$\nWhat is the sum of the solutions to the given equation?",
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{4}{3}$"
+   "text": "$-15$"
   },
   {
    "id": "B",
-   "text": "$\\frac{3}{2}$"
+   "text": "$-5$"
   },
   {
    "id": "C",
-   "text": "$\\frac{5}{3}$"
+   "text": "$-2$"
   },
   {
    "id": "D",
-   "text": "$\\frac{7}{3}$"
+   "text": "$2$"
   }
  ],
  "distractorNotes": {
-  "A": "multiplies only the 2x term by 2, solving x + 3 = 4x - 1 to get 4/3",
-  "B": "sets the denominator equal to 2, solving 2x - 1 = 2 to get 3/2",
-  "D": "expands 2(2x - 1) as 4x - 4, solving x + 3 = 4x - 4 to get 7/3"
+  "A": "multiplies the two roots of x^2 + 2x - 15 = 0 instead of adding them",
+  "C": "adds both roots -5 and 3 of the cleared equation, keeping the excluded value 3",
+  "D": "factors x^2 + 2x - 15 as (x - 5)(x + 3), reversing the signs, and adds 5 and -3"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\frac{x+3}{2x-1}=2$ gives $x+3=4x-2$, so $3x=5$ and $x=\\frac{5}{3}$.\n\n**The Full Solution:**\n\nStep 1: Multiply both sides by $2x-1$, which is nonzero because $x>\\frac{1}{2}$: $x+3=2(2x-1)$.\n\nStep 2: Distribute on the right: $x+3=4x-2$.\n\nStep 3: Solve: $5=3x$, so $x=\\frac{5}{3}$, which is greater than $\\frac{1}{2}$. Check: $\\frac{\\frac{5}{3}+3}{2\\cdot\\frac{5}{3}-1}=\\frac{\\frac{14}{3}}{\\frac{7}{3}}=2$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($\\frac{4}{3}$): multiplies only the $2x$ term by $2$, solving $x+3=4x-1$.\n* Choice B ($\\frac{3}{2}$): sets the denominator itself equal to $2$.\n* Choice D ($\\frac{7}{3}$): expands $2(2x-1)$ as $4x-4$.\n\n**Test Day Takeaway:** Distribute across the whole denominator when you clear it; both terms get multiplied, not just the one with the variable."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Equal denominators give $x^{2}+2x-15=0$, or $(x+5)(x-3)=0$. The root $3$ is excluded, so the only solution is $-5$, and the sum is $-5$.\n\n**The Full Solution:**\nStep 1: Both sides are undefined at $x=3$. For every other $x$, multiplying by $x-3$ gives $x^{2}+2x=15$.\nStep 2: Rewrite as $x^{2}+2x-15=0$ and factor: $(x+5)(x-3)=0$, so the candidates are $-5$ and $3$.\nStep 3: Discard $3$. The only solution is $-5$, so the sum of the solutions is $-5$. Check: $\\dfrac{25-10}{-8}=-\\dfrac{15}{8}$ and $\\dfrac{15}{-8}=-\\dfrac{15}{8}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-15$): multiplies the roots, $(-5)(3)$, instead of adding them.\n* Choice C ($-2$): adds both roots of the quadratic, $-5+3$, keeping the excluded value $3$.\n* Choice D ($2$): factors with the signs reversed, $(x-5)(x+3)$, and adds $5$ and $-3$.\n\n**Test Day Takeaway:** The sum-of-roots shortcut counts every root of the cleared equation; remove extraneous roots before you add."
 }

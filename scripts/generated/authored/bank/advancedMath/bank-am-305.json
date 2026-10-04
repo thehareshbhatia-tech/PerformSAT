@@ -1,54 +1,50 @@
 {
- "id": "bank-am-305",
- "question": "The table gives four values of the polynomial function $f$, which models the thrust imbalance, in newtons, of a satellite thruster at calibration index $x$. Which of the following must be true?",
- "diagram": {
-  "type": "table",
-  "params": {
-   "xHeader": "x",
-   "yHeader": "f(x)",
-   "rows": [
-    [
-     "-6",
-     "30"
-    ],
-    [
-     "-1",
-     "8"
-    ],
-    [
-     "0",
-     "-6"
-    ],
-    [
-     "3",
-     "0"
-    ]
-   ]
-  }
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$x+1$ is a factor of $f(x)$."
+  "id": "bank-am-305",
+  "question": "Values of the polynomial function $f$ at three values of $x$ are shown in the table. Which of the following must be a factor of $f(x) - 5$?",
+  "diagram": {
+    "type": "table",
+    "params": {
+      "xHeader": "x",
+      "yHeader": "f(x)",
+      "rows": [
+        [
+          "-2",
+          "5"
+        ],
+        [
+          "1",
+          "-3"
+        ],
+        [
+          "4",
+          "5"
+        ]
+      ]
+    }
   },
-  {
-   "id": "B",
-   "text": "$x-3$ is a factor of $f(x)$."
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x + 4$"
+    },
+    {
+      "id": "B",
+      "text": "$x - 4$"
+    },
+    {
+      "id": "C",
+      "text": "$x - 5$"
+    },
+    {
+      "id": "D",
+      "text": "$x + 3$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "flips the sign: f(4) - 5 = 0 makes x - 4 a factor, and x + 4 would need f(-4) - 5 = 0",
+    "C": "treats the output 5 as an input, writing x - 5",
+    "D": "reads the output -3 at x = 1 as a zero, writing x + 3"
   },
-  {
-   "id": "C",
-   "text": "$x+6$ is a factor of $f(x)$."
-  },
-  {
-   "id": "D",
-   "text": "$x$ is a factor of $f(x)$."
-  }
- ],
- "distractorNotes": {
-  "A": "a factor x + 1 requires f(-1) = 0, but the table gives f(-1) = 8",
-  "C": "reads the value f(0) = -6 as the constant in a factor; x + 6 would require f(-6) = 0, and the table gives f(-6) = 30",
-  "D": "treats the input 0 in the table as a zero of f, but the table gives f(0) = -6"
- },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Polynomial Remainder Theorem**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** A linear expression $x-a$ divides $f(x)$ exactly when $f(a)=0$, and the only listed value of $f$ that is $0$ is $f(3)=0$.\n\n**The Full Solution:**\n\nStep 1: Dividing $f(x)$ by $x-a$ leaves the remainder $f(a)$, so $x-a$ is a factor precisely when $f(a)=0$.\n\nStep 2: Match each candidate to the input that makes it zero: $x+1$ needs $f(-1)$, $x-3$ needs $f(3)$, $x+6$ needs $f(-6)$, and $x$ needs $f(0)$.\n\nStep 3: Read the table: $f(-1)=8$, $f(3)=0$, $f(-6)=30$, $f(0)=-6$. Only $f(3)$ is zero, so $x-3$ is a factor. Check: writing $f(x)=(x-3)q(x)$ gives $f(3)=0\\cdot q(3)=0$, consistent with the table.\n\n**Why the wrong answers are tempting:**\n\n* Choice A: a factor $x+1$ would force $f(-1)=0$, but the table gives $f(-1)=8$.\n* Choice C: borrows the $6$ from $f(0)=-6$; a factor $x+6$ would force $f(-6)=0$, but the table gives $f(-6)=30$.\n* Choice D: treats the listed input $0$ as a zero of $f$, but the table gives $f(0)=-6$.\n\n**Test Day Takeaway:** Convert every factor claim into the single function value it predicts, then look that value up."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Polynomial Remainder Theorem**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Let $g(x) = f(x) - 5$. The table gives $g(-2) = 0$ and $g(4) = 0$, so $x + 2$ and $x - 4$ are factors of $g(x)$, and only $x - 4$ is a choice.\n\n**The Full Solution:**\nStep 1: $g(x) = f(x) - 5$ is a polynomial, and $x - a$ is a factor of $g(x)$ exactly when $g(a) = 0$.\nStep 2: From the table, $g(-2) = 5 - 5 = 0$, $g(1) = -3 - 5 = -8$, and $g(4) = 5 - 5 = 0$.\nStep 3: The zeros $x = -2$ and $x = 4$ give the factors $x + 2$ and $x - 4$; of the choices, only $x - 4$ appears. Check: $g(4) = f(4) - 5 = 5 - 5 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x + 4$): flips the sign. A factor $x + 4$ would need $g(-4) = 0$, and the table says nothing about $x = -4$.\n* Choice C ($x - 5$): treats the output $5$ as if it were an input that makes the expression zero.\n* Choice D ($x + 3$): reads the output $-3$ at $x = 1$ as a zero, but $g(1) = -8$, not $0$.\n\n**Test Day Takeaway:** For a factor of $f(x) - c$, look for the inputs where $f(x) = c$; each such input $a$ gives the factor $x - a$."
 }

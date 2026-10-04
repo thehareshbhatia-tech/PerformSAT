@@ -1,14 +1,14 @@
 {
  "id": "bank-am-367",
- "question": "A rehearsal-hall timer applies $v(x)=x-6$ to an entered value $x$ and then applies $u(x)=\\frac{x}{4}$ to that result. If the timer's output is $-3$, what value was entered?",
+ "question": "The functions $f$ and $g$ are defined by $f(x) = \\frac{x}{3}$ and $g(x) = x + 8$. If $f(g(k)) = -2$, what is the value of $k$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-18$"
+   "text": "$-30$"
   },
   {
    "id": "B",
-   "text": "$-12$"
+   "text": "$-14$"
   },
   {
    "id": "C",
@@ -16,14 +16,14 @@
   },
   {
    "id": "D",
-   "text": "$12$"
+   "text": "$2$"
   }
  ],
- "correctAnswer": "C",
+ "correctAnswer": "B",
  "distractorNotes": {
-  "A": "subtracts 6 instead of adding it when undoing the first step: 4(-3) - 6 = -18",
-  "B": "reports the value after the subtraction step, -12, rather than the entered value",
-  "D": "adds 6 before multiplying by 4, reversing the order of the undo steps: (-3 + 6)(4) = 12"
+  "A": "composes in the wrong order, solving g(f(k)) = k/3 + 8 = -2",
+  "C": "stops at g(k) = -6 and reports that value as k",
+  "D": "adds 8 to -6 instead of subtracting it when undoing g"
  },
- "explanation": "**SAT Pattern: Function Composition**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Undo the outer step first: $u$'s input was $4(-3)=-12$, so $x-6=-12$ and $x=-6$.\n\n**The Full Solution:**\nStep 1: The composition is $u(v(x))=\\frac{x-6}{4}$, and this equals $-3$.\nStep 2: Multiply both sides by 4: $x-6=-12$.\nStep 3: Add 6 to both sides: $x=-6$. Check: $v(-6)=-12$ and $u(-12)=\\frac{-12}{4}=-3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-18$): subtracts 6 instead of adding it, giving $4(-3)-6$.\n* Choice B ($-12$): stops at the intermediate value $x-6=-12$ instead of solving for $x$.\n* Choice D ($12$): adds 6 before multiplying by 4, undoing the two steps in the wrong order.\n\n**Test Day Takeaway:** To reverse a composition, undo the outermost operation first and work inward."
+ "explanation": "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f(g(k)) = \\frac{k + 8}{3} = -2$, so $k + 8 = -6$ and $k = -14$.\n\n**The Full Solution:**\nStep 1: Write the composition: $f(g(k)) = f(k + 8) = \\frac{k + 8}{3}$.\nStep 2: Set it equal to $-2$ and multiply both sides by $3$: $k + 8 = -6$.\nStep 3: Subtract $8$: $k = -14$. Check: $g(-14) = -6$ and $f(-6) = \\frac{-6}{3} = -2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-30$): divides by $3$ first and adds $8$ second, solving $\\frac{k}{3} + 8 = -2$. That is $g(f(k))$, the reverse order.\n* Choice C ($-6$): finds the value of $g(k)$ and stops; $k$ is the input that produces it.\n* Choice D ($2$): undoes the $+8$ by adding $8$, computing $-6 + 8 = 2$. Then $g(2) = 10$ and $f(10) = \\frac{10}{3}$, not $-2$.\n\n**Test Day Takeaway:** To solve $f(g(k)) = c$, write the composition as one expression and solve it; undo the outer function first, then the inner one."
 }

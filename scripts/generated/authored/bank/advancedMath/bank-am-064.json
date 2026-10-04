@@ -1,29 +1,29 @@
 {
-  "question": "A steel shim's face area, in square millimeters, is given by $9x^{2}-49$. Which of the following expressions is equivalent to that area?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$(3x-7)^{2}$"
-    },
-    {
-      "id": "B",
-      "text": "$(3x-49)(3x+49)$"
-    },
-    {
-      "id": "C",
-      "text": "$(3x-7)(3x+7)$"
-    },
-    {
-      "id": "D",
-      "text": "$(9x-7)(9x+7)$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "treated the expression as a perfect square trinomial instead of a difference of squares",
-    "B": "did not take the square root of 49, using 49 in place of 7",
-    "D": "did not take the square root of 9x squared, using 9x in place of 3x"
+ "id": "bank-am-064",
+ "question": "Which expression is equivalent to $9x^{2} - 49$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$(3x - 7)^{2}$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Difference of Squares**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $9x^{2}=(3x)^{2}$ and $49=7^{2}$, so the area factors as $(3x-7)(3x+7)$.\n\n**The Full Solution:**\nStep 1: Recognize the form $A^{2}-B^{2}$ with $A=3x$ and $B=7$.\nStep 2: The difference of squares factors as $(A-B)(A+B)$.\nStep 3: So $9x^{2}-49=(3x-7)(3x+7)$. Check by expanding: $9x^{2}+21x-21x-49=9x^{2}-49$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(3x-7)^{2}$): expands to $9x^{2}-42x+49$, a perfect square rather than a difference.\n* Choice B ($(3x-49)(3x+49)$): does not take the square root of $49$.\n* Choice D ($(9x-7)(9x+7)$): does not take the square root of $9x^{2}$.\n\n**Test Day Takeaway:** Factor a difference of squares by square-rooting each term — the middle terms cancel, which is why no $x$-term appears.",
-  "id": "bank-am-064"
+  {
+   "id": "B",
+   "text": "$(3x - 49)(3x + 49)$"
+  },
+  {
+   "id": "C",
+   "text": "$(3x - 7)(3x + 7)$"
+  },
+  {
+   "id": "D",
+   "text": "$(9x - 7)(9x + 7)$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "writes a squared binomial, which has a middle term -42x",
+  "B": "takes the square root of 9x^2 but not of 49",
+  "D": "takes the square root of 49 but not of 9x^2"
+ },
+ "explanation": "**SAT Pattern: Difference of Squares**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $9x^{2} = (3x)^{2}$ and $49 = 7^{2}$, so $9x^{2} - 49 = (3x - 7)(3x + 7)$.\n\n**The Full Solution:**\nStep 1: Write each term as a square: $9x^{2} = (3x)^{2}$ and $49 = 7^{2}$.\nStep 2: Apply $a^{2} - b^{2} = (a - b)(a + b)$ with $a = 3x$ and $b = 7$.\nStep 3: The result is $(3x - 7)(3x + 7)$. Check: $(3x - 7)(3x + 7) = 9x^{2} + 21x - 21x - 49 = 9x^{2} - 49$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(3x - 7)^{2}$): squares a binomial, which produces a middle term: $9x^{2} - 42x + 49$.\n* Choice B ($(3x - 49)(3x + 49)$): takes the square root of $9x^{2}$ but not of $49$; the product is $9x^{2} - 2{,}401$.\n* Choice D ($(9x - 7)(9x + 7)$): takes the square root of $49$ but not of $9x^{2}$; the product is $81x^{2} - 49$.\n\n**Test Day Takeaway:** A difference of two perfect squares factors as (difference of the roots)(sum of the roots); take the square root of both terms."
 }

@@ -1,29 +1,29 @@
 {
  "id": "bank-am-370",
- "question": "An audio chain sends every input $x$ first through the preamplifier stage $g$, defined by $g(x)=x+4$, and then through a second stage $f$, and the chain's overall output is $3x+2$. Which equation defines $f$?",
+ "question": "For the functions $f$ and $g$, $f(x) = 3x - 5$ and $f(g(x)) = 12x + 7$ for all values of $x$. Which equation defines $g$?",
  "choices": [
   {
    "id": "A",
-   "text": "$f(x)=3x-12$"
+   "text": "$g(x) = 4x + \\frac{2}{3}$"
   },
   {
    "id": "B",
-   "text": "$f(x)=3x-10$"
+   "text": "$g(x) = 4x + 12$"
   },
   {
    "id": "C",
-   "text": "$f(x)=3x-2$"
+   "text": "$g(x) = 36x + 16$"
   },
   {
    "id": "D",
-   "text": "$f(x)=3x+14$"
+   "text": "$g(x) = 4x + 4$"
   }
  ],
- "correctAnswer": "B",
+ "correctAnswer": "D",
  "distractorNotes": {
-  "A": "distributes the 3 over x - 4 but drops the constant +2: 3(x - 4) = 3x - 12",
-  "C": "subtracts 4 from the output instead of from the input: 3x + 2 - 4 = 3x - 2",
-  "D": "replaces x with x + 4 instead of x - 4: 3(x + 4) + 2 = 3x + 14"
+  "A": "subtracts 5 from both sides instead of adding it, solving 3g(x) = 12x + 2",
+  "B": "adds 5 correctly but divides only the x-term by 3, leaving the constant 12",
+  "C": "substitutes 12x + 7 into f instead of solving for the input of f"
  },
- "explanation": "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $f(x+4)=3x+2$; replacing $x$ with $x-4$ gives $f(x)=3(x-4)+2=3x-10$.\n\n**The Full Solution:**\nStep 1: The chain says $f(g(x))=f(x+4)=3x+2$ for every $x$.\nStep 2: Let $t=x+4$, so $x=t-4$ and $f(t)=3(t-4)+2$.\nStep 3: Simplify: $f(t)=3t-12+2=3t-10$, so $f(x)=3x-10$. Check: $f(g(1))=f(5)=15-10=5$, and $3(1)+2=5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(x)=3x-12$): distributes the 3 over $x-4$ but drops the $+2$.\n* Choice C ($f(x)=3x-2$): subtracts 4 from the output instead of from the input.\n* Choice D ($f(x)=3x+14$): substitutes $x+4$ where $x-4$ belongs, shifting the wrong way.\n\n**Test Day Takeaway:** To recover the outer function, rename the inner expression as a single variable and solve for the original input."
+ "explanation": "**SAT Pattern: Function Composition**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** $f(g(x)) = 3g(x) - 5 = 12x + 7$, so $3g(x) = 12x + 12$ and $g(x) = 4x + 4$.\n\n**The Full Solution:**\nStep 1: Since $f$ triples its input and subtracts $5$, $f(g(x)) = 3g(x) - 5$.\nStep 2: Set this equal to the given expression: $3g(x) - 5 = 12x + 7$. Add $5$ to both sides: $3g(x) = 12x + 12$.\nStep 3: Divide every term by $3$: $g(x) = 4x + 4$. Check: $f(4x + 4) = 3(4x + 4) - 5 = 12x + 12 - 5 = 12x + 7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($g(x) = 4x + \\frac{2}{3}$): subtracts $5$ instead of adding it, giving $3g(x) = 12x + 2$.\n* Choice B ($g(x) = 4x + 12$): divides $12x$ by $3$ but not $12$. Every term must be divided.\n* Choice C ($g(x) = 36x + 16$): puts $12x + 7$ into $f$, computing $3(12x + 7) - 5$. That treats the output of $f$ as its input.\n\n**Test Day Takeaway:** When the outer function is known, write $f(g(x))$ with $g(x)$ as a single unknown, then solve for it like a linear equation."
 }

@@ -1,29 +1,29 @@
 {
- "question": "A conduit layout satisfies the system $x=2y+3$ and $5x-y=24$. Which equation in $y$ alone results when the expression $2y+3$ is written in place of $x$ in the second equation of the system?",
+ "question": "$x = 2y + 5$\n$3x - y = 35$\nThe solution to the given system of equations is $(x, y)$. What is the value of $y$?",
  "choices": [
   {
    "id": "A",
-   "text": "$5(2y+3)=24$"
+   "text": "$4$"
   },
   {
    "id": "B",
-   "text": "$10y+3-y=24$"
+   "text": "$6$"
   },
   {
    "id": "C",
-   "text": "$5(2y+3)+y=24$"
+   "text": "$10$"
   },
   {
    "id": "D",
-   "text": "$5(2y+3)-y=24$"
+   "text": "$13$"
   }
  ],
- "correctAnswer": "D",
+ "correctAnswer": "A",
  "distractorNotes": {
-  "A": "drops the -y term from the second equation entirely",
-  "B": "multiplies only the 2y by 5 and leaves the 3 undistributed",
-  "C": "adds y instead of subtracting it"
+  "B": "distributes the 3 only to 2y, writing 6y + 5 - y = 35, so 5y = 30",
+  "C": "adds 15 to 35 instead of subtracting it, so 5y = 50",
+  "D": "solves correctly but reports x = 13 instead of y"
  },
- "explanation": "**SAT Pattern: Linear System by Substitution**\n\n**Choice D is correct.** Replacing $x$ with $2y+3$ in $5x-y=24$ gives $5(2y+3)-y=24$.\n\n**The Fast Way (~20s):** Substitution swaps $x$ for the whole expression $2y+3$, leaving the rest of the equation untouched: $5(2y+3)-y=24$.\n\n**The Full Solution:**\n\nStep 1: The first equation gives $x$ alone, so every $x$ in the second equation can be replaced by $2y+3$.\n\nStep 2: The second equation is $5x-y=24$; replacing $x$ gives $5(2y+3)-y=24$.\n\nStep 3: Simplifying confirms it is an equation in $y$ alone: $10y+15-y=24$, so $9y=9$ and $y=1$. Check: then $x=2(1)+3=5$, and $5(5)-1=24$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A: drops the $-y$ term, changing the second equation instead of only substituting into it.\n* Choice B: multiplies only the $2y$ by $5$ and leaves the $3$ undistributed, giving $10y+3$ instead of $10y+15$.\n* Choice C: adds $y$ where the original equation subtracts it.\n\n**Test Day Takeaway:** Substitution replaces the variable with the whole expression, parentheses included; every other term in the equation stays exactly as it was.",
+ "explanation": "**SAT Pattern: Linear System by Substitution**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Substitute $2y + 5$ for $x$: $3(2y + 5) - y = 35$, so $5y + 15 = 35$ and $y = 4$.\n\n**The Full Solution:**\nStep 1: The first equation gives $x$ in terms of $y$, so substitute $2y + 5$ for $x$ in the second equation: $3(2y + 5) - y = 35$.\nStep 2: Distribute and combine like terms: $6y + 15 - y = 35$, so $5y + 15 = 35$.\nStep 3: Subtract $15$ and divide by $5$: $y = 4$, and then $x = 2(4) + 5 = 13$. Check: $3(13) - 4 = 35$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($6$): distributes the $3$ only to $2y$, writing $6y + 5 - y = 35$, so $5y = 30$.\n* Choice C ($10$): adds $15$ to $35$ instead of subtracting it, so $5y = 50$.\n* Choice D ($13$): this is the value of $x$, not $y$.\n\n**Test Day Takeaway:** When one equation is already solved for a variable, substitute the whole expression in parentheses, distribute to every term, and answer the variable the question asks for.",
  "id": "bank-alg-193"
 }

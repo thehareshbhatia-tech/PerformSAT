@@ -1,6 +1,6 @@
 {
   "id": "bank-am-310",
-  "question": "A cable is suspended between two towers. Its height above the roadway, in meters, at a horizontal distance of $x$ meters from the left tower is modeled by $y = \\dfrac{1}{2}x^2 - 4x + 12$ for $0 \\le x \\le 8$. The graph of this model is shown. For which values of $x$ is the cable less than $6$ meters above the roadway?",
+  "question": "The graph shown models the height $y$, in meters, of a cable above a road, where $y = \\frac{1}{2}x^{2} - 4x + 12$ and $x$ is the distance, in meters, from the left end of the cable, for $0 \\le x \\le 8$. For which values of $x$ is the cable less than $6$ meters above the road?",
   "diagram": {
     "type": "parabola",
     "params": {

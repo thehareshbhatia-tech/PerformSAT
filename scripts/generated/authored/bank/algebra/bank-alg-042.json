@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-042",
-  "question": "A tolerance sheet writes the same line two ways, as $12x - 30y = 42$ and as $2x + cy = d$, where $c$ and $d$ are constants. The two forms have identical graphs. What is the value of $c + d$?",
+  "question": "$12x - 30y = 42$\n$2x + cy = d$\nIn the given system of equations, $c$ and $d$ are constants. The system has infinitely many solutions. What is the value of $c + d$?",
   "choices": [
     {
       "id": "A",
@@ -12,18 +12,18 @@
     },
     {
       "id": "C",
-      "text": "$6$"
+      "text": "$12$"
     },
     {
       "id": "D",
-      "text": "$12$"
+      "text": "$37$"
     }
   ],
   "correctAnswer": "B",
   "distractorNotes": {
-    "A": "divides the constant by $-6$ instead of $6$, keeping $c = -5$ but reading $d = -7$",
-    "C": "divides by $2$ instead of $6$, giving $6x - 15y = 21$, so $c = -15$ and $d = 21$",
-    "D": "drops the negative on $c$, using $c = 5$ and $d = 7$"
+    "A": "scales the constant by the wrong sign, keeping c = -5 but taking d = -7",
+    "C": "drops the negative on c, using c = 5 and d = 7",
+    "D": "divides the x- and y-coefficients by 6 but not the constant, using c = -5 and d = 42"
   },
-  "explanation": "**SAT Pattern: Parameter for Identical Equations**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Dividing $12x - 30y = 42$ by $6$ gives $2x - 5y = 7$, so $c = -5$, $d = 7$, and $c + d = 2$.\n\n**The Full Solution:**\nStep 1: Identical graphs mean one equation is a nonzero multiple of the other.\nStep 2: The second equation starts with $2x$, so divide the first by $6$: $12x - 30y = 42$ becomes $2x - 5y = 7$.\nStep 3: Matching term by term gives $c = -5$ and $d = 7$, so $c + d = 2$. Check: $6(2x - 5y) = 12x - 30y$ and $6(7) = 42$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): divides the constant by $-6$ instead of $6$, keeping $c = -5$ but reading $d = -7$\n* Choice C ($6$): divides by $2$ instead of $6$, giving $6x - 15y = 21$, so $c = -15$ and $d = 21$\n* Choice D ($12$): drops the negative on $c$, using $c = 5$ and $d = 7$\n\n**Test Day Takeaway:** Scale the whole equation by the factor that fixes the $x$-coefficient, then read the other two terms off directly."
+  "explanation": "**SAT Pattern: Parameter for Identical Equations**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Dividing $12x - 30y = 42$ by $6$ gives $2x - 5y = 7$, so $c = -5$, $d = 7$, and $c + d = 2$.\n\n**The Full Solution:**\nStep 1: A system of two linear equations has infinitely many solutions when one equation is a nonzero multiple of the other.\nStep 2: The second equation starts with $2x$, so divide the first equation by $6$: $12x - 30y = 42$ becomes $2x - 5y = 7$.\nStep 3: Matching term by term gives $c = -5$ and $d = 7$, so $c + d = 2$. Check: $6(2x - 5y) = 12x - 30y$ and $6(7) = 42$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): keeps $c = -5$ but gives the constant the wrong sign, $d = -7$, so $c + d = -12$.\n* Choice C ($12$): drops the negative sign on the $y$-coefficient, using $c = 5$ and $d = 7$.\n* Choice D ($37$): divides the $x$- and $y$-coefficients by $6$ but not the constant, using $c = -5$ and $d = 42$.\n\n**Test Day Takeaway:** Scale the whole equation by the factor that matches the $x$-coefficients, then read the other two terms off directly."
 }

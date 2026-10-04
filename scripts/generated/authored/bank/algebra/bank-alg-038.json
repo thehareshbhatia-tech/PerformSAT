@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-038",
-  "question": "Line $\\ell$ is defined by $4x + 10y = 15$. Line $m$ is perpendicular to line $\\ell$ in the $xy$-plane and passes through the point $(-2, 6)$. Which of the following equations defines line $m$?",
+  "question": "Line $\\ell$ is defined by $4x + 10y = 15$. Line $m$ is perpendicular to line $\\ell$ in the $xy$-plane and passes through the point $(-2, 6)$. Which equation defines line $m$?",
   "choices": [
     {
       "id": "A",

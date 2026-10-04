@@ -1,6 +1,8 @@
 {
   "id": "bank-am-250",
-  "question": "The figure graphs the floor elevation $f$, in centimeters above a benchmark, of a culvert at a distance $x$, in meters, from a reference marker. If $h(x)=f(x+3)$, what is the $x$-coordinate of the vertex of the graph of $y=h(x)$?",
+  "question": "The graph of $y = f(x)$ is shown. The function $h$ is defined by $h(x) = f(x + 3)$. The graph of $y = h(x)$ has its vertex at $(a, b)$. What is the value of $a$?",
+  "correctAnswer": "-7",
+  "explanation": "**SAT Pattern: Horizontal Shift**\n\n**The correct answer is -7.**\n\n**The Fast Way (~20s):** The vertex of the graph shown is $(-4, 1)$, and $f(x + 3)$ moves the graph $3$ units to the left, so $a = -4 - 3 = -7$.\n\n**The Full Solution:**\nStep 1: The graph shows the vertex of $y = f(x)$ at $(-4, 1)$.\nStep 2: Replacing $x$ with $x + 3$ shifts the graph $3$ units to the left, so the vertex moves to $(-4 - 3, 1) = (-7, 1)$.\nStep 3: Therefore $a = -7$. Check: $h(-7) = f(-7 + 3) = f(-4)$, the minimum value of $f$, so the vertex of the graph of $y = h(x)$ is at $x = -7$ ✓\n\n**Common Mistakes:**\n* $-1$: moves the vertex $3$ units to the right, reading $x + 3$ as a shift in the positive direction.\n* $-4$: reports the $x$-coordinate of the vertex of the graph of $y = f(x)$ without shifting it.\n* $1$: reports the $y$-coordinate of the vertex, which is $b$, not $a$.\n\n**Test Day Takeaway:** For $f(x + h)$ with $h > 0$, ask which input makes the inside equal the old vertex's $x$-coordinate: $x + 3 = -4$ gives $x = -7$.",
   "diagram": {
     "type": "parabola",
     "params": {
@@ -22,7 +24,5 @@
       "gridInterval": 1,
       "showVertex": false
     }
-  },
-  "correctAnswer": "-7",
-  "explanation": "**SAT Pattern: Horizontal Shift**\n\n**The correct answer is $-7$.**\n\n**The Fast Way (~20s):** The drawn low point is at $x=-4$; adding 3 inside shifts the graph 3 units left, to $x=-7$.\n\n**The Full Solution:**\nStep 1: The figure shows the turning point of $f$ at $x=-4$.\nStep 2: The vertex of $h$ occurs where the inner input equals $-4$, that is, where $x+3=-4$.\nStep 3: Solving gives $x=-7$ meters. Check: $h(-7)=f(-7+3)=f(-4)$, the low point ✓\n\n**Common Mistakes:** Adding 3 to the vertex gives $-1$, the shift in the wrong direction. Reporting the vertex's height, 1, answers a different question. Leaving the vertex at $-4$ ignores the shift entirely.\n\n**Test Day Takeaway:** Set the expression inside the function equal to the original input, then solve — that is where the transformed feature lands."
+  }
 }

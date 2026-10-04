@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-206",
-  "question": "The table gives the monthly cost $C$, in dollars, of a mobile data plan predicted by a linear model for three amounts of data used, $g$, in gigabytes. According to the model, by how many dollars does the predicted monthly cost increase for each additional gigabyte of data used?",
-  "diagram": {
-    "type": "dataTable",
-    "params": {
-      "headers": [
-        "g (gigabytes)",
-        "C (dollars)"
-      ],
-      "rows": [
-        [
-          "4",
-          "31"
-        ],
-        [
-          "10",
-          "52"
-        ],
-        [
-          "16",
-          "73"
-        ]
-      ]
-    }
-  },
-  "correctAnswer": "3.5",
-  "explanation": "**SAT Pattern: Slope as Rate of Change in Context**\n\n**The correct answer is $3.5$.**\n\n**The Fast Way (~15s):** From $4$ to $10$ gigabytes the cost rises $21$ dollars over $6$ gigabytes: $\\dfrac{21}{6} = 3.5$ dollars per gigabyte.\n\n**The Full Solution:**\nStep 1: The rate asked for is the slope of the linear model, $\\dfrac{\\text{change in } C}{\\text{change in } g}$.\nStep 2: Using the first two rows: $\\dfrac{52 - 31}{10 - 4} = \\dfrac{21}{6} = 3.5$.\nStep 3: Check with the last two rows: $\\dfrac{73 - 52}{16 - 10} = \\dfrac{21}{6} = 3.5$. The model is linear, so the rate is consistent. $\\checkmark$\n\n**Common Mistakes:** Entering $21$ (the change in cost without dividing by the change in data); entering $6$ (the change in data); dividing $31$ by $4$ to get $7.75$, which mixes in the fixed part of the cost.\n\n**Test Day Takeaway:** A per-unit rate from a table is the slope between two rows. Subtract outputs, subtract inputs, divide, and confirm with a second pair."
+ "id": "bank-alg-206",
+ "question": "The table shows three values of $g$ and their corresponding values of $C$, where $C$ is the monthly cost, in dollars, of a phone plan when $g$ gigabytes of data are used. The relationship between $g$ and $C$ is linear. By how many dollars does the monthly cost increase for each additional gigabyte of data used?",
+ "diagram": {
+  "type": "dataTable",
+  "params": {
+   "headers": [
+    "g (gigabytes)",
+    "C (dollars)"
+   ],
+   "rows": [
+    [
+     "4",
+     "31"
+    ],
+    [
+     "10",
+     "52"
+    ],
+    [
+     "16",
+     "73"
+    ]
+   ]
+  }
+ },
+ "correctAnswer": "3.5",
+ "explanation": "**SAT Pattern: Slope as Rate of Change in Context**\n\n**The correct answer is 3.5.**\n\n**The Fast Way (~20s):** From $g = 4$ to $g = 10$, the cost rises $52 - 31 = 21$ dollars over $6$ gigabytes: $\\frac{21}{6} = 3.5$ dollars per gigabyte.\n\n**The Full Solution:**\nStep 1: The cost per additional gigabyte is the slope, $\\frac{\\text{change in } C}{\\text{change in } g}$.\nStep 2: Using the first two rows: $\\frac{52 - 31}{10 - 4} = \\frac{21}{6} = 3.5$.\nStep 3: So the monthly cost increases by $3.5$ dollars per gigabyte. Check with the last two rows: $\\frac{73 - 52}{16 - 10} = \\frac{21}{6} = 3.5$ ✓\n\n**Common Mistakes:**\n* $21$: reports the change in cost between two rows without dividing by the $6$-gigabyte change.\n* $7.75$: divides a single cost by its data amount, $\\frac{31}{4}$, which includes the fixed part of the cost.\n* $17$: finds the monthly cost when $g = 0$, the intercept, instead of the rate.\n\n**Test Day Takeaway:** A rate from a table is a difference over a difference; dividing one row's output by its input mixes in the fixed starting amount."
 }

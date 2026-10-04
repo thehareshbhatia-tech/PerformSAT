@@ -1,6 +1,6 @@
 {
- "id": "bank-am-316",
- "question": "The settling time, in seconds, of a silo discharge gate is modeled by $\\sqrt{3x+4}$, where $x$ is the gate load in tonnes. For what load is the settling time $7$ seconds?",
- "correctAnswer": "15",
- "explanation": "**SAT Pattern: Radical Equation**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~20s):** From $\\sqrt{3x+4}=7$, square to get $3x+4=49$, so $3x=45$ and $x=15$.\n\n**The Full Solution:**\n\nStep 1: Set the model equal to the given time: $\\sqrt{3x+4}=7$.\n\nStep 2: Square both sides. The radical disappears and $3x+4=49$.\n\nStep 3: Solve the linear equation: $3x=45$, so $x=15$. Check: $3(15)+4=49$ and $\\sqrt{49}=7$, the stated settling time.\n\n**Common Mistakes:**\n\n* Solving $3x+4=7$ without squaring gives $x=1$.\n* Stopping at $3x=45$ and reporting $45$ instead of dividing by $3$.\n\n**Test Day Takeaway:** Isolate the radical, square once, and finish the linear equation — then substitute back to confirm the radical is nonnegative."
+  "id": "bank-am-316",
+  "question": "$\\sqrt{3x + 4} = 7$\nWhat value of $x$ is the solution to the given equation?",
+  "correctAnswer": "15",
+  "explanation": "**SAT Pattern: Radical Equation**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~20s):** Square both sides to get $3x + 4 = 49$, so $3x = 45$ and $x = 15$.\n\n**The Full Solution:**\nStep 1: The radical is already alone on the left side, so square both sides: $\\left(\\sqrt{3x + 4}\\right)^{2} = 7^{2}$.\nStep 2: The radical disappears, leaving $3x + 4 = 49$.\nStep 3: Subtract $4$ and divide by $3$: $3x = 45$, so $x = 15$. Check: $\\sqrt{3(15) + 4} = \\sqrt{49} = 7$ ✓\n\n**Common Mistakes:**\n* $1$ — solving $3x + 4 = 7$ without squaring the $7$.\n* $45$ — stopping at $3x = 45$ instead of dividing by $3$.\n\n**Test Day Takeaway:** Isolate the radical, square once, and finish the linear equation; then substitute back to confirm the square root comes out to the given value."
 }

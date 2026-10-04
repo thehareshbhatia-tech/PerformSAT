@@ -1,6 +1,6 @@
 {
  "id": "bank-am-229",
- "question": "An engineer translates the graph of $y=f(x)$ six units right; the translated curve reaches its minimum at $(10,-3)$. Before the translation, at what value of $x$ did the curve reach its minimum?",
+ "question": "$g(x) = f(x - 6)$\nThe graph of $y = g(x)$ has a minimum at $(10, -3)$. For what value of $x$ does the graph of $y = f(x)$ have a minimum?",
  "choices": [
   {
    "id": "A",
@@ -22,8 +22,8 @@
  "correctAnswer": "B",
  "distractorNotes": {
   "A": "reports the y-coordinate of the minimum instead of the x-coordinate",
-  "C": "reports the translated minimum's x-coordinate, ignoring the shift",
-  "D": "adds 6 instead of subtracting, translating right a second time"
+  "C": "reports where g has its minimum, ignoring the shift",
+  "D": "reads x - 6 as a shift left, adding 6 to 10 instead of subtracting"
  },
- "explanation": "**SAT Pattern: Function from Shifted Graph**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** A right shift of 6 moved the minimum to $x=10$, so before the shift it sat at $10-6=4$.\n\n**The Full Solution:**\nStep 1: Translating a graph six units right replaces each point $(p,q)$ with $(p+6,q)$.\nStep 2: The image of the minimum is $(10,-3)$, so its preimage satisfies $p+6=10$.\nStep 3: Therefore $p=4$. Check: shifting $(4,-3)$ six units right does land on $(10,-3)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): gives the minimum's $y$-coordinate, which a horizontal shift never changes.\n* Choice C ($10$): reports the position after the translation rather than before it.\n* Choice D ($16$): shifts right again instead of undoing the shift.\n\n**Test Day Takeaway:** To undo a horizontal translation, move the given point back by the same amount — vertical coordinates are untouched."
+ "explanation": "**SAT Pattern: Function from Shifted Graph**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $g(x) = f(x - 6)$ is the graph of $f$ shifted 6 units right, so the minimum of $f$ is 6 units left of $x = 10$: $10 - 6 = 4$.\n\n**The Full Solution:**\nStep 1: Since $g(x) = f(x - 6)$, the value of $g$ at any input equals the value of $f$ at an input 6 less.\nStep 2: The graph of $g$ has its minimum at $x = 10$, where $g(10) = f(10 - 6) = f(4) = -3$.\nStep 3: So the minimum of $f$ occurs at $x = 4$. Check: shifting $(4, -3)$ six units right lands on $(10, -3)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): gives the minimum value, the $y$-coordinate, instead of the $x$-coordinate.\n* Choice C ($10$): reports where $g$ has its minimum, ignoring the shift.\n* Choice D ($16$): reads $x - 6$ as a shift left, moving 6 units right of 10 instead of left.\n\n**Test Day Takeaway:** In $g(x) = f(x - h)$ the graph of $g$ sits $h$ units right of the graph of $f$ — to go from $g$ back to $f$, subtract $h$ from the $x$-coordinate."
 }

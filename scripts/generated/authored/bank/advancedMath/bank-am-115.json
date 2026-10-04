@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-115",
-  "question": "The function $f$ gives a magnetometer's drift, in millivolts, at a coil current of $x$ milliamps, and $f(x)=0$ for exactly one current, $x=6$. A technician sets the current to $2c+8$ milliamps and records zero drift. What is the value of $c$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-2$"
-    },
-    {
-      "id": "B",
-      "text": "$-1$"
-    },
-    {
-      "id": "C",
-      "text": "$7$"
-    },
-    {
-      "id": "D",
-      "text": "$20$"
-    }
-  ],
-  "correctAnswer": "B",
-  "distractorNotes": {
-    "A": "subtracts 8 but never divides by 2: 6 - 8 = -2",
-    "C": "adds 8 instead of subtracting before halving: (6 + 8)/2 = 7",
-    "D": "substitutes 6 into 2c + 8 instead of setting it equal to 6: 2(6) + 8 = 20"
+ "id": "bank-am-115",
+ "question": "In the $xy$-plane, the graph of $y = f(x)$ has exactly one $x$-intercept, $(11, 0)$. What is the $x$-coordinate of the $x$-intercept of the graph of $y = f(3x - 4)$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{7}{3}$"
   },
-  "explanation": "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The drift is zero only at a current of 6, so $2c+8=6$ and $c=-1$.\n\n**The Full Solution:**\nStep 1: The technician's reading is zero exactly when the current sent into $f$ equals the one current that makes $f$ zero.\nStep 2: Set $2c+8=6$, so $2c=-2$.\nStep 3: Divide by 2: $c=-1$. Check: $2(-1)+8=6$ milliamps, and $f(6)=0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): subtracts 8 from 6 but forgets to divide by the coefficient 2.\n* Choice C ($7$): adds 8 rather than subtracting it before halving.\n* Choice D ($20$): substitutes 6 into the expression $2c+8$ instead of setting that expression equal to 6.\n\n**Test Day Takeaway:** Inside a composition, set the whole inner expression equal to the known input and solve, coefficient included."
+  {
+   "id": "B",
+   "text": "$5$"
+  },
+  {
+   "id": "C",
+   "text": "$15$"
+  },
+  {
+   "id": "D",
+   "text": "$29$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "subtracts 4 instead of adding it before dividing: (11 - 4)/3",
+  "C": "adds 4 but never divides by 3: 11 + 4 = 15",
+  "D": "substitutes 11 into 3x - 4 instead of setting 3x - 4 equal to 11"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f$ is $0$ only when its input is $11$, so $3x - 4 = 11$ and $x = 5$.\n\n**The Full Solution:**\nStep 1: The graph of $y = f(x)$ meets the $x$-axis only at $(11, 0)$, so $f(t) = 0$ exactly when $t = 11$.\nStep 2: The graph of $y = f(3x - 4)$ meets the $x$-axis where $f(3x - 4) = 0$, which happens exactly when $3x - 4 = 11$.\nStep 3: Solve: $3x = 15$, so $x = 5$. Check: $3(5) - 4 = 11$, and $f(11) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7}{3}$): subtracts $4$ from $11$ instead of adding it before dividing by $3$.\n* Choice C ($15$): adds $4$ but forgets to divide by the coefficient $3$.\n* Choice D ($29$): substitutes $11$ into $3x - 4$ instead of setting $3x - 4$ equal to $11$.\n\n**Test Day Takeaway:** For a function of an expression, set the whole inner expression equal to the input you know and solve, coefficient included."
 }

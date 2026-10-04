@@ -1,29 +1,29 @@
 {
-  "question": "A scale factor used in a casting model is $(5x^{b})^{2}$, which is equivalent to $25x^{18}$ for every $x>0$. What is the value of the constant $b$?",
+  "question": "The expression $\\dfrac{(2x^{a})^{3}}{x^{4}}$ is equivalent to $8x^{11}$, where $a$ is a constant and $x > 0$. What is the value of $a$?",
   "choices": [
     {
       "id": "A",
-      "text": "$9$"
+      "text": "$\\frac{7}{3}$"
     },
     {
       "id": "B",
-      "text": "$16$"
+      "text": "$\\frac{11}{3}$"
     },
     {
       "id": "C",
-      "text": "$20$"
+      "text": "$5$"
     },
     {
       "id": "D",
-      "text": "$36$"
+      "text": "$15$"
     }
   ],
   "distractorNotes": {
-    "B": "subtracted 2 from 18 instead of dividing by 2",
-    "C": "added 2 to 18 instead of dividing by 2",
-    "D": "multiplied 18 by 2 instead of dividing by 2"
+    "A": "adds the 4 instead of subtracting it, solving 3a + 4 = 11",
+    "B": "ignores the division by x^4 and solves 3a = 11",
+    "D": "forgets to multiply the exponent a by 3, solving a - 4 = 11"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Common-Base Exponent Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Squaring multiplies the exponent by $2$, so $2b=18$ and $b=9$.\n\n**The Full Solution:**\nStep 1: Expand the left side: $(5x^{b})^{2}=5^{2}x^{2b}=25x^{2b}$.\nStep 2: The two expressions are equivalent for every $x>0$, so their exponents match: $2b=18$.\nStep 3: Divide: $b=9$. Check: $(5x^{9})^{2}=25x^{18}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($16$): subtracts $2$ from $18$ instead of dividing.\n* Choice C ($20$): adds $2$ to $18$ instead of dividing.\n* Choice D ($36$): multiplies $18$ by $2$ instead of dividing.\n\n**Test Day Takeaway:** A power raised to a power multiplies exponents, so working backwards divides.",
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Common-Base Exponent Simplification**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Cubing gives $8x^{3a}$ and dividing by $x^{4}$ gives $8x^{3a-4}$, so $3a - 4 = 11$ and $a = 5$.\n\n**The Full Solution:**\nStep 1: Raise the numerator to the third power: $(2x^{a})^{3} = 2^{3}x^{3a} = 8x^{3a}$.\nStep 2: Divide by subtracting exponents: $\\dfrac{8x^{3a}}{x^{4}} = 8x^{3a-4}$.\nStep 3: Match the exponent of $8x^{11}$: $3a - 4 = 11$, so $3a = 15$ and $a = 5$. Check: $\\dfrac{(2x^{5})^{3}}{x^{4}} = \\dfrac{8x^{15}}{x^{4}} = 8x^{11}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7}{3}$): adds the $4$ instead of subtracting it, solving $3a + 4 = 11$.\n* Choice B ($\\frac{11}{3}$): ignores the division by $x^{4}$ and solves $3a = 11$.\n* Choice D ($15$): forgets to multiply the exponent $a$ by $3$ when cubing, solving $a - 4 = 11$.\n\n**Test Day Takeaway:** A power of a power multiplies exponents and a quotient subtracts them; build one exponent first, then match it.",
   "id": "bank-am-121"
 }

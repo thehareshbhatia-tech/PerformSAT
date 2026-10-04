@@ -1,53 +1,53 @@
 {
-  "question": "A crystal grown in a furnace doubles in mass during each hour of growth. The table gives the mass of the crystal, in milligrams, after $t$ hours. What will the mass of the crystal be after $5$ hours?",
-  "questionTable": {
-    "headers": [
-      "Time, $t$ (hours)",
-      "Mass (milligrams)"
-    ],
-    "rows": [
-      [
-        "$0$",
-        "$6$"
-      ],
-      [
-        "$1$",
-        "$12$"
-      ],
-      [
-        "$2$",
-        "$24$"
-      ],
-      [
-        "$3$",
-        "$48$"
-      ]
-    ]
-  },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$96$ milligrams"
-    },
-    {
-      "id": "B",
-      "text": "$144$ milligrams"
-    },
-    {
-      "id": "C",
-      "text": "$192$ milligrams"
-    },
-    {
-      "id": "D",
-      "text": "$240$ milligrams"
-    }
+ "id": "bank-am-342",
+ "question": "The table shows the mass, in milligrams, of a crystal $t$ hours after it began to grow. The mass of the crystal increases exponentially. What is the mass, in milligrams, of the crystal $5$ hours after it began to grow?",
+ "questionTable": {
+  "headers": [
+   "$t$ (hours)",
+   "Mass (milligrams)"
   ],
-  "distractorNotes": {
-    "A": "stopped one hour early, giving the mass at t = 4",
-    "B": "added 48 milligrams for each remaining hour, treating the growth as linear",
-    "D": "multiplied the 3-hour mass 48 by 5 instead of doubling twice"
+  "rows": [
+   [
+    "$0$",
+    "$5$"
+   ],
+   [
+    "$1$",
+    "$10$"
+   ],
+   [
+    "$2$",
+    "$20$"
+   ],
+   [
+    "$3$",
+    "$40$"
+   ]
+  ]
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$80$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Build Exponential Model**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Double the $3$-hour mass twice: $48\\rightarrow 96\\rightarrow 192$ milligrams.\n\n**The Full Solution:**\nStep 1: The table confirms the doubling: $12/6=2$, $24/12=2$, $48/24=2$.\nStep 2: The model is mass $=6(2)^{t}$ milligrams.\nStep 3: At $t=5$, mass $=6(2)^{5}=6\\cdot 32=192$ milligrams. Check: $48\\cdot 2\\cdot 2=192$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($96$ milligrams): stops one hour early, at $t=4$.\n* Choice B ($144$ milligrams): adds $48$ milligrams for each of the two remaining hours, treating doubling as a constant increase.\n* Choice D ($240$ milligrams): multiplies the $3$-hour mass by $5$ instead of doubling twice.\n\n**Test Day Takeaway:** Doubling multiplies, so extend a table by multiplying — never by adding the last increase again.",
-  "id": "bank-am-342"
+  {
+   "id": "B",
+   "text": "$120$"
+  },
+  {
+   "id": "C",
+   "text": "$160$"
+  },
+  {
+   "id": "D",
+   "text": "$200$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "stops one hour early and gives the mass at t = 4",
+  "B": "adds 40 milligrams for each of the two remaining hours, treating the growth as linear",
+  "D": "multiplies the 3-hour mass, 40, by 5 instead of doubling it twice"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Build Exponential Model**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The mass doubles every hour, so double the $3$-hour mass twice: $40 \\to 80 \\to 160$ milligrams.\n\n**The Full Solution:**\nStep 1: The ratios of consecutive masses are $\\dfrac{10}{5} = \\dfrac{20}{10} = \\dfrac{40}{20} = 2$, so the mass doubles each hour.\nStep 2: Starting from $5$ milligrams, the mass is $5(2)^{t}$ milligrams after $t$ hours.\nStep 3: At $t = 5$, the mass is $5(2)^{5} = 5(32) = 160$ milligrams. Check: $40 \\cdot 2 \\cdot 2 = 160$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($80$): the mass at $t = 4$, one hour too early.\n* Choice B ($120$): adds $40$ milligrams for each of hours $4$ and $5$, treating the growth as a constant increase.\n* Choice D ($200$): multiplies the $3$-hour mass by $5$ instead of doubling it twice.\n\n**Test Day Takeaway:** Extend an exponential table by multiplying by the growth factor, never by adding the last increase again."
 }

@@ -1,29 +1,29 @@
 {
  "id": "bank-am-215",
- "question": "A signal-timing model gives throughput $T(x)=-3(x-24)^{2}+k$, in vehicles per hour, for a green interval of $x$ seconds, where $k$ is a constant, and the greatest throughput the model gives is $1{,}900$ vehicles per hour. What is the best interpretation of $k$?",
+ "question": "A bakery estimates its daily profit $P$, in dollars, from selling a cake at a price of $x$ dollars by the function $P(x) = -3(x - 24)^{2} + 1{,}900$. What is the best interpretation of $24$ in this context?",
  "choices": [
   {
    "id": "A",
-   "text": "$k$ is 24, the green interval, in seconds, that produces the greatest throughput."
+   "text": "The greatest estimated daily profit is \\$24."
   },
   {
    "id": "B",
-   "text": "$k$ is 1,900, the green interval, in seconds, that produces the greatest throughput."
+   "text": "The price that gives the greatest estimated daily profit is \\$24."
   },
   {
    "id": "C",
-   "text": "$k$ is 1,900, the greatest throughput, in vehicles per hour, the model gives."
+   "text": "The estimated daily profit increases by \\$24 for each \\$1 increase in price."
   },
   {
    "id": "D",
-   "text": "$k$ is 24, the greatest throughput, in vehicles per hour, the model gives."
+   "text": "The estimated daily profit is \\$24 when the price is \\$0."
   }
  ],
- "correctAnswer": "C",
+ "correctAnswer": "B",
  "distractorNotes": {
-  "A": "reports the vertex's x-coordinate, 24, as the constant k",
-  "B": "pairs the right number with the wrong quantity, calling 1,900 a time",
-  "D": "pairs the wrong number with the right quantity, calling 24 a throughput"
+  "A": "reads the vertex's x-coordinate as the maximum output; the greatest profit is 1,900",
+  "C": "treats 24 as a rate of change, as if the model were linear",
+  "D": "reads 24 as the value at x = 0; the model gives P(0) = 172"
  },
- "explanation": "**SAT Pattern: Interpret Vertex Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The squared term is never positive, so $T$ is largest when $x=24$, and there $T=k$; the greatest throughput is 1,900, so $k=1{,}900$.\n\n**The Full Solution:**\nStep 1: Because $-3(x-24)^{2}\\le 0$, the model's output never exceeds $k$.\nStep 2: The output equals $k$ exactly when $x=24$ seconds.\nStep 3: The greatest throughput is 1,900 vehicles per hour, so $k=1{,}900$ and it measures throughput. Check: $T(24)=0+1{,}900$, and $T(20)=-48+1{,}900=1{,}852$, which is smaller ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: names the green interval 24 as $k$; 24 sits inside the squared term.\n* Choice B: keeps 1,900 but calls it a time in seconds.\n* Choice D: keeps the throughput label but attaches the number 24.\n\n**Test Day Takeaway:** In $a(x-h)^{2}+k$ with $a<0$, $h$ is the input that maximizes and $k$ is the maximum output — check the units of each."
+ "explanation": "**SAT Pattern: Interpret Vertex Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** In vertex form the number subtracted from $x$ is the input of the vertex; with a negative leading coefficient that vertex is a maximum, so a price of \\$24 gives the greatest profit.\n\n**The Full Solution:**\nStep 1: $P(x) = -3(x - 24)^{2} + 1{,}900$ has vertex $(24, 1{,}900)$.\nStep 2: Because $-3 < 0$, the parabola opens downward and the vertex is the highest point of the graph.\nStep 3: The input $x$ is the price, so $24$ is the price, in dollars, that gives the greatest estimated profit, \\$1,900. Check: $P(20) = -48 + 1{,}900 = 1{,}852$ and $P(25) = -3 + 1{,}900 = 1{,}897$, both less than $P(24) = 1{,}900$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: names 24 as the greatest profit; the greatest profit is the other vertex coordinate, 1,900.\n* Choice C: treats 24 as a slope, but the model is quadratic and 24 sits inside the squared term.\n* Choice D: reads 24 as the profit at a price of \\$0; $P(0) = -3(576) + 1{,}900 = 172$.\n\n**Test Day Takeaway:** In $a(x - h)^{2} + k$, $h$ is an input value and $k$ is an output value — match each to its units before reading the choices."
 }

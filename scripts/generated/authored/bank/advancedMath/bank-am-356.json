@@ -1,29 +1,29 @@
 {
  "id": "bank-am-356",
- "question": "A forestry model gives $9m^2 + km + 16 = 0$, where $k$ is a negative constant and each solution $m$ is a sapling height, in meters, at which two canopy-cover estimates coincide. If exactly one such height exists, what is the value of $k$?",
+ "question": "$9x^{2} + kx + 16 = 0$\nIn the given equation, $k$ is an integer. For how many values of $k$ does the equation have no real solutions?",
  "choices": [
   {
    "id": "A",
-   "text": "$-576$"
+   "text": "$23$"
   },
   {
    "id": "B",
-   "text": "$-25$"
+   "text": "$24$"
   },
   {
    "id": "C",
-   "text": "$-24$"
+   "text": "$47$"
   },
   {
    "id": "D",
-   "text": "$-12$"
+   "text": "$49$"
   }
  ],
- "correctAnswer": "C",
  "distractorNotes": {
-  "A": "reports $-4ac = -576$ itself instead of taking its square root",
-  "B": "adds the outer coefficients, $-(9 + 16)$, instead of using the discriminant",
-  "D": "drops the factor of $4$ and computes $-\\sqrt{9 \\cdot 16} = -12$"
+  "A": "counts only the positive integers from 1 to 23 and forgets zero and the negative values",
+  "B": "reports the boundary value 24 as the number of values",
+  "D": "includes k = -24 and k = 24, where the discriminant is 0 and the equation has one solution"
  },
- "explanation": "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Exactly one solution means $k^2 = 4ac = 4(9)(16) = 576$, so $k = \\pm 24$; the negative value is $-24$.\n\n**The Full Solution:**\nStep 1: Here $a = 9$, $b = k$, and $c = 16$.\nStep 2: A quadratic has exactly one real solution when its discriminant is zero: $k^2 - 4(9)(16) = 0$, so $k^2 = 576$.\nStep 3: Then $k = 24$ or $k = -24$, and the problem states $k$ is negative, so $k = -24$. Check: $9m^2 - 24m + 16 = (3m - 4)^2$, which is zero only at the single height $m = \\frac{4}{3}$ meters ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-576$): stops at $4ac$ and attaches the minus sign without taking a square root.\n* Choice B ($-25$): adds $9$ and $16$, a sum that has nothing to do with the discriminant.\n* Choice D ($-12$): uses $\\sqrt{ac}$ rather than $\\sqrt{4ac}$, halving the correct magnitude.\n\n**Test Day Takeaway:** A one-solution condition sets the discriminant to zero, and solving for a middle coefficient always leaves two signs — read the stem to choose between them."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** No real solutions means $k^{2} - 4(9)(16) < 0$, so $k^{2} < 576$ and $-24 < k < 24$. The integers from $-23$ to $23$ number $47$.\n\n**The Full Solution:**\nStep 1: The discriminant is $k^{2} - 4(9)(16) = k^{2} - 576$.\nStep 2: The equation has no real solutions when $k^{2} - 576 < 0$, that is, $k^{2} < 576$, so $-24 < k < 24$.\nStep 3: The integers that satisfy this are $-23, -22, \\ldots, 22, 23$: that is $23$ negative values, $23$ positive values, and $0$, for $23 + 23 + 1 = 47$ values. Check: $k = 24$ gives $576 - 576 = 0$ and $9x^{2} + 24x + 16 = (3x + 4)^{2}$, which has one solution, so $24$ is correctly excluded ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($23$): counts only the positive integers.\n* Choice B ($24$): reports the boundary value instead of counting the integers.\n* Choice D ($49$): includes $k = \\pm 24$, where the equation has exactly one solution.\n\n**Test Day Takeaway:** \"No real solutions\" is a strict inequality; count the integers strictly between the two boundary values, remembering $0$."
 }

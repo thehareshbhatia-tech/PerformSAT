@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-031",
-  "question": "In the $xy$-plane, line $k$ is parallel to the line with equation $y = -\\frac{2}{3}x + 4$ and passes through the point $(6, -1)$. Which equation defines line $k$?",
+  "question": "In the $xy$-plane, line $k$ is parallel to the graph of $y = -\\frac{2}{3}x + 4$ and passes through the point $(6, -1)$. Which equation defines line $k$?",
   "choices": [
     {
       "id": "A",

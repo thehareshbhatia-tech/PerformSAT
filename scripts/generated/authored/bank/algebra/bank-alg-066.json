@@ -1,29 +1,29 @@
 {
- "id": "bank-alg-066",
- "question": "A recharge study reports the same aquifer balance twice. The first report reads $\\frac{1}{2}x + 3y = 9$ and the second reads $2x + cy = 36$, where $c$ is a constant, and the two reports agree for every pair $(x, y)$. What is the value of $c$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$3$"
+  "id": "bank-alg-066",
+  "question": "$\\frac{3}{4}x - \\frac{1}{2}y = 5$\n$9x + cy = 60$\nIn the given system of equations, $c$ is a constant. If the system has infinitely many solutions, what is the value of $c$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-6$"
+    },
+    {
+      "id": "B",
+      "text": "$-\\frac{9}{2}$"
+    },
+    {
+      "id": "C",
+      "text": "$-\\frac{1}{24}$"
+    },
+    {
+      "id": "D",
+      "text": "$6$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "multiplies -1/2 by the x-coefficient 9 instead of by the scale factor 12",
+    "C": "divides -1/2 by the scale factor 12 instead of multiplying",
+    "D": "drops the negative sign on the y-coefficient"
   },
-  {
-   "id": "B",
-   "text": "$6$"
-  },
-  {
-   "id": "C",
-   "text": "$12$"
-  },
-  {
-   "id": "D",
-   "text": "$36$"
-  }
- ],
- "distractorNotes": {
-  "A": "reports the y-coefficient of the first report unchanged",
-  "B": "scales by 2 instead of by the factor 4 that the x-terms require",
-  "D": "reports the second report's constant term"
- },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Find c for Infinite Solutions**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The $x$-terms scale by $2 \\div \\frac{1}{2} = 4$, so every term does: $c = 4(3) = 12$.\n\n**The Full Solution:**\nStep 1: Two equations agree for every pair $(x, y)$ only when one is a constant multiple of the other.\nStep 2: Compare the $x$-terms: $\\frac{2}{1/2} = 4$, so the second report is $4$ times the first.\nStep 3: Every term must scale by $4$, so $c = 4(3) = 12$. Check: $4\\left(\\frac{1}{2}x + 3y\\right) = 2x + 12y$ and $4(9) = 36$, which matches the second report exactly ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports the $y$-coefficient of the first report without scaling it.\n* Choice B ($6$): scales by $2$ rather than by the factor $4$ that the $x$-terms require.\n* Choice D ($36$): reports the constant term of the second report instead of the coefficient.\n\n**Test Day Takeaway:** Find the scale factor from a pair of terms you can compute, then confirm it on the constants before applying it to the unknown."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Find c for Infinite Solutions**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The second equation must be $12$ times the first, since $\\frac{9}{3/4} = 12$ and $\\frac{60}{5} = 12$. So $c = 12\\left(-\\frac{1}{2}\\right) = -6$.\n\n**The Full Solution:**\nStep 1: For infinitely many solutions, the second equation must be a constant multiple of the first.\nStep 2: Find the multiplier: $9 \\div \\frac{3}{4} = 12$, and the constants agree, since $5 \\cdot 12 = 60$.\nStep 3: Apply it to the $y$-coefficient: $c = 12\\left(-\\frac{1}{2}\\right) = -6$. Check: $12\\left(\\frac{3}{4}x - \\frac{1}{2}y\\right) = 9x - 6y$ and $12(5) = 60$, so the equations match ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{9}{2}$): multiplies $-\\frac{1}{2}$ by $9$, the $x$-coefficient, instead of by the multiplier $12$.\n* Choice C ($-\\frac{1}{24}$): divides $-\\frac{1}{2}$ by $12$ instead of multiplying, scaling in the wrong direction.\n* Choice D ($6$): finds the right size but drops the negative sign of $-\\frac{1}{2}y$.\n\n**Test Day Takeaway:** Fractions do not change the method: find the single multiplier that turns one equation into the other, check it on the constants, and carry every sign through."
 }

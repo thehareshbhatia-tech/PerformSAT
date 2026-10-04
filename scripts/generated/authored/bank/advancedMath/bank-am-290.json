@@ -1,29 +1,29 @@
 {
  "id": "bank-am-290",
- "question": "Wind load on a panel, in newtons, is modeled by $p(x) = 4x^3 - 6x^2 + 10x - 15$, where $x$ is the gust speed in meters per second, and engineers report that the load is zero at exactly one real value of $x$ in the tested range. What is that value?",
+ "question": "$6x^{3}+ax^{2}+14x+21$\nIn the given expression, $a$ is a constant. The expression is equivalent to $(3x^{2}+b)(2x+c)$, where $b$ and $c$ are constants. What is the value of $a$?",
  "choices": [
   {
    "id": "A",
-   "text": "$1.5$"
-  },
-  {
-   "id": "B",
-   "text": "$2.5$"
-  },
-  {
-   "id": "C",
    "text": "$3$"
   },
   {
+   "id": "B",
+   "text": "$7$"
+  },
+  {
+   "id": "C",
+   "text": "$9$"
+  },
+  {
    "id": "D",
-   "text": "$5$"
+   "text": "$21$"
   }
  ],
- "correctAnswer": "A",
+ "correctAnswer": "C",
  "distractorNotes": {
-  "B": "solves $2x - 5 = 0$, pairing the $5$ with the $2x$ of the wrong factor",
-  "C": "reads the constant inside $2x - 3$ as the solution instead of solving for $x$",
-  "D": "reads the $5$ from the factor $2x^2 + 5$, which has no real zero at all"
+  "A": "reports c = 3, the constant in the binomial, instead of a = 3c",
+  "B": "reports b = 7, the constant in the quadratic factor",
+  "D": "matches a to the constant term bc = 21"
  },
- "explanation": "**SAT Pattern: Factor by Grouping**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** $p(x) = 2x^2(2x - 3) + 5(2x - 3) = (2x^2 + 5)(2x - 3)$, and only $2x - 3 = 0$ has a real solution: $x = 1.5$.\n\n**The Full Solution:**\nStep 1: Group the terms: $(4x^3 - 6x^2) + (10x - 15)$, which factor as $2x^2(2x - 3)$ and $5(2x - 3)$.\nStep 2: So $p(x) = (2x^2 + 5)(2x - 3)$.\nStep 3: Setting $2x^2 + 5 = 0$ gives $x^2 = -2.5$, impossible for real $x$, so the only real zero comes from $2x - 3 = 0$, that is $x = 1.5$. Check: $p(1.5) = 13.5 - 13.5 + 15 - 15 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2.5$): builds the factor $2x - 5$, mixing the $2$ of one pair with the $5$ of the other.\n* Choice C ($3$): quotes the constant in $2x - 3$ without dividing by $2$.\n* Choice D ($5$): treats $2x^2 + 5$ as if it contributed a real zero, which it cannot since it is always positive.\n\n**Test Day Takeaway:** After grouping, test each factor separately — a quadratic factor with a positive constant and a positive leading coefficient contributes no real solutions."
+ "explanation": "**SAT Pattern: Factor by Grouping**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** $(3x^{2}+b)(2x+c)=6x^{3}+3cx^{2}+2bx+bc$. Then $2b=14$ gives $b=7$, $bc=21$ gives $c=3$, and $a=3c=9$.\n\n**The Full Solution:**\nStep 1: Expand the product: $(3x^{2}+b)(2x+c)=6x^{3}+3cx^{2}+2bx+bc$.\nStep 2: Match the $x$ terms and the constants: $2b=14$, so $b=7$; then $7c=21$, so $c=3$.\nStep 3: Match the $x^{2}$ terms: $a=3c=9$. Check: $(3x^{2}+7)(2x+3)=6x^{3}+9x^{2}+14x+21$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports $c$, the constant in $2x+c$, instead of the coefficient $3c$.\n* Choice B ($7$): reports $b$, the constant in the quadratic factor.\n* Choice D ($21$): matches $a$ to the constant term $bc$ instead of the $x^{2}$ coefficient.\n\n**Test Day Takeaway:** A grouping factorization has the form $(px^{2}+b)(qx+c)$; expand it once and match one coefficient at a time, starting with the ones you know."
 }

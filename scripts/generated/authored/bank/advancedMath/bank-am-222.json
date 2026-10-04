@@ -1,10 +1,10 @@
 {
  "id": "bank-am-222",
- "question": "The number of viable yeast cells in a starter culture, in millions, is modeled by $P(t)=k(2)^{t/5}$, where $t$ is the number of hours after mixing and $k$ is a constant. The table gives $P(t)$ at three times. What is the value of $k$?",
+ "question": "The table shows three values of $t$ and their corresponding values of $P(t)$, where $P(t) = k(2)^{t/5}$ and $k$ is a constant. What is the value of $k$?",
  "diagram": {
   "type": "table",
   "params": {
-   "xHeader": "t (hours)",
+   "xHeader": "t",
    "yHeader": "P(t)",
    "rows": [
     [
@@ -23,5 +23,5 @@
   }
  },
  "correctAnswer": "12",
- "explanation": "**SAT Pattern: Reverse Exponential Back in Time**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~30s):** $k=P(0)$, and the count doubles every $5$ hours, so stepping back from $P(5)=24$ gives $k=12$.\n\n**The Full Solution:**\n\nStep 1: Substituting $t=0$ gives $P(0)=k(2)^{0}=k$, so $k$ is the count at the moment of mixing.\n\nStep 2: The exponent $\\frac{t}{5}$ increases by $1$ every $5$ hours, so each $5$-hour step multiplies the count by $2$; the table confirms this with $24$, $48$, $96$.\n\nStep 3: Stepping back one $5$-hour interval from $P(5)=24$ halves the count: $k=\\frac{24}{2}=12$. Check: $P(15)=12(2)^{3}=12\\cdot8=96$, matching the last row.\n\n**Common Mistakes:**\n\n* Reading $k$ as the first tabulated value $24$, which is $P(5)$ and not $P(0)$.\n* Dividing $96$ by $3$ instead of by $2^{3}=8$ gives $32$.\n\n**Test Day Takeaway:** In $k\\cdot b^{t/n}$ the constant $k$ is the value at $t=0$; walk backwards one full period at a time rather than dividing by the number of periods."
+ "explanation": "**SAT Pattern: Reverse Exponential Back in Time**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~30s):** $k = P(0)$, and $P$ doubles every $5$ units of $t$, so stepping back from $P(5) = 24$ gives $k = 12$.\n\n**The Full Solution:**\n\nStep 1: Substituting $t = 0$ gives $P(0) = k(2)^{0} = k$, so $k$ is the value of $P$ at $t = 0$.\n\nStep 2: The exponent $\\frac{t}{5}$ increases by $1$ each time $t$ increases by $5$, so each step of $5$ multiplies $P$ by $2$; the table confirms this with $24$, $48$, $96$.\n\nStep 3: Stepping back from $t = 5$ to $t = 0$ halves the value: $k = \\frac{24}{2} = 12$. Check: $P(15) = 12(2)^{3} = 12 \\cdot 8 = 96$, matching the last row ✓\n\n**Common Mistakes:**\n\n* Reading $k$ as the first value in the table, $24$, which is $P(5)$ and not $P(0)$.\n* Dividing $96$ by $3$ instead of by $2^{3} = 8$ gives $32$.\n\n**Test Day Takeaway:** In $k \\cdot b^{t/n}$ the constant $k$ is the value at $t = 0$; walk backward one full period at a time rather than dividing by the number of periods."
 }

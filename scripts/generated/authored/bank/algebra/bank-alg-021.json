@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-021",
-  "question": "For the linear function $f$, the table shows $f(x)$ at three inputs. If $f(x) = ax + b$, where $a$ and $b$ are constants, what is the value of $b$?",
+  "question": "The table shows three values of $x$ and their corresponding values of $f(x)$ for the linear function $f$. The function is defined by $f(x) = ax + b$, where $a$ and $b$ are constants. What is the value of $b$?",
   "questionTable": {
     "headers": [
       "x",

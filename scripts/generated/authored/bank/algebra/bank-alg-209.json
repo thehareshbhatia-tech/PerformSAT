@@ -1,29 +1,29 @@
 {
  "id": "bank-alg-209",
- "question": "A mold plus the resin poured into it has total mass $M = 7.5p + 210$ grams after $p$ pours. By how many grams does the total mass grow with each additional pour?",
+ "question": "$y = 6 - \\frac{3}{4}x$\nWhat is the slope of the graph of the given equation in the $xy$-plane?",
  "choices": [
   {
    "id": "A",
-   "text": "$7.5$"
+   "text": "$-\\frac{3}{4}$"
   },
   {
    "id": "B",
-   "text": "$210$"
+   "text": "$\\frac{3}{4}$"
   },
   {
    "id": "C",
-   "text": "$217.5$"
+   "text": "$6$"
   },
   {
    "id": "D",
-   "text": "$1575$"
+   "text": "$8$"
   }
  ],
  "correctAnswer": "A",
  "distractorNotes": {
-  "B": "names the mass of the empty mold, the value at $p = 0$, rather than the rate",
-  "C": "gives the total mass after one pour, $7.5 + 210$",
-  "D": "multiplies the rate by the starting mass, $7.5 \\times 210$"
+  "B": "drops the negative sign in front of 3/4 x",
+  "C": "reads the constant term, which is the y-intercept, as the slope",
+  "D": "gives the x-coordinate of the x-intercept, 6 divided by 3/4"
  },
- "explanation": "**SAT Pattern: Reading Slope-Intercept Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** In $M = 7.5p + 210$ the coefficient of $p$ is the change per pour, so the answer is $7.5$.\n\n**The Full Solution:**\nStep 1: The model is linear in $p$, with $7.5$ multiplying $p$ and $210$ standing alone.\nStep 2: Increasing $p$ by $1$ increases $M$ by $7.5$, since $7.5(p + 1) + 210 = (7.5p + 210) + 7.5$.\nStep 3: So each additional pour adds $7.5$ grams. Check: at $p = 2$ the mass is $225$ grams and at $p = 3$ it is $232.5$ grams, a difference of $7.5$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($210$): names the mass of the empty mold, the value at $p = 0$, rather than the rate\n* Choice C ($217.5$): gives the total mass after one pour, $7.5 + 210$\n* Choice D ($1575$): multiplies the rate by the starting mass, $7.5 \\times 210$\n\n**Test Day Takeaway:** In $y = mx + b$, $m$ answers rate questions and $b$ answers starting-value questions."
+ "explanation": "**SAT Pattern: Reading Slope-Intercept Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Rewrite as $y = -\\frac{3}{4}x + 6$; the coefficient of $x$ is the slope, $-\\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: Reorder the terms into slope-intercept form, $y = mx + b$: $y = -\\frac{3}{4}x + 6$.\nStep 2: The slope $m$ is the coefficient of $x$, including its sign: $m = -\\frac{3}{4}$.\nStep 3: The constant $6$ is the $y$-intercept, not the slope. Check: the points $(0, 6)$ and $(4, 3)$ are on the graph, and $\\frac{3 - 6}{4 - 0} = -\\frac{3}{4}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{3}{4}$): drops the minus sign in front of $\\frac{3}{4}x$.\n* Choice C ($6$): is the first number written, but it is the $y$-intercept.\n* Choice D ($8$): is the $x$-coordinate of the $x$-intercept, where $6 - \\frac{3}{4}x = 0$.\n\n**Test Day Takeaway:** The slope is the coefficient of $x$ wherever the term appears; take the sign in front of it with the coefficient."
 }

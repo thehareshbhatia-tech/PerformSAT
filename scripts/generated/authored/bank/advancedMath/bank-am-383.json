@@ -1,29 +1,29 @@
 {
  "id": "bank-am-383",
- "question": "A regional health agency models new tuberculosis cases by $N(t)=4{,}800(0.86)^{t}$, where $t$ is the number of years after screening began. What does the base $0.86$ indicate about the yearly case count?",
+ "question": "The estimated value, in dollars, of a car $t$ years after it was purchased is given by $v(t) = 24{,}000(0.85)^{t}$. What is the best interpretation of $0.85$ in this context?",
  "choices": [
   {
    "id": "A",
-   "text": "It decreases by 86% each year."
+   "text": "The estimated value of the car decreases by $15\\%$ each year."
   },
   {
    "id": "B",
-   "text": "It decreases by 0.86 case each year."
+   "text": "The estimated value of the car decreases by $85\\%$ each year."
   },
   {
    "id": "C",
-   "text": "It increases by 86% each year."
+   "text": "The estimated value of the car increases by $15\\%$ each year."
   },
   {
    "id": "D",
-   "text": "It decreases by 14% each year."
+   "text": "The estimated value of the car decreases by \\$0.85 each year."
   }
  ],
- "correctAnswer": "D",
+ "correctAnswer": "A",
  "distractorNotes": {
-  "A": "reads the base itself as the percent removed each year",
-  "B": "reads the base as a number of cases rather than a multiplier",
-  "C": "reads a base below 1 as growth"
+  "B": "reads the base 0.85 as the percent lost rather than the percent kept",
+  "C": "notices the 15% difference from 1 but reads it as growth",
+  "D": "treats the base as an amount subtracted each year, as in a linear model"
  },
- "explanation": "**SAT Pattern: Interpret Exponential Parameters**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** A base of $0.86$ keeps 86% of the previous year's count, so 14% is lost each year.\n\n**The Full Solution:**\nStep 1: In $N(t)=N_{0}(b)^{t}$ the base $b$ multiplies the count once per year.\nStep 2: Multiplying by $0.86$ leaves 86% of the previous value, so the change is $0.86-1=-0.14$.\nStep 3: That is a 14% decrease each year. Check: $4{,}800(0.86)=4{,}128$, which is 672 fewer, and $\\frac{672}{4{,}800}=0.14$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: treats the base as the fraction removed rather than the fraction kept.\n* Choice B: reads $0.86$ as a count of cases instead of a multiplier.\n* Choice C: calls a base below 1 growth; only bases above 1 grow.\n\n**Test Day Takeaway:** Compare the base with 1 — the difference, as a percent, is the change per period."
+ "explanation": "**SAT Pattern: Interpret Exponential Parameters**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Each year the value is multiplied by $0.85$, so it keeps $85\\%$ and loses $15\\%$.\n\n**The Full Solution:**\nStep 1: In $v(t) = 24{,}000(0.85)^{t}$, increasing $t$ by $1$ multiplies the value by $0.85$.\nStep 2: Multiplying by $0.85 = 1 - 0.15$ keeps $85\\%$ of the value and removes $15\\%$.\nStep 3: So the estimated value decreases by $15\\%$ each year. Check: after $1$ year, $24{,}000(0.85) = 20{,}400$, which is $3{,}600$, or $15\\%$, less than $24{,}000$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($85\\%$ decrease): the base is the part that remains. A decrease of $85\\%$ would use a base of $0.15$.\n* Choice C ($15\\%$ increase): a base less than $1$ means decay, not growth.\n* Choice D (\\$0.85 decrease): a fixed amount subtracted each year describes a linear model, not an exponential one.\n\n**Test Day Takeaway:** In $a(b)^{t}$, a base below $1$ is the fraction kept each period; the percent decrease is $1 - b$."
 }

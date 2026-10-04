@@ -1,50 +1,50 @@
 {
- "id": "bank-alg-083",
- "question": "The parabola shown models a hopper's cross section by $y = f(x)$. Which ordered pair is the vertex of the graph of $y = f(x - 2) + 6$?",
- "diagram": {
-  "type": "quadraticVertex",
-  "params": {
-   "vertex": [
-    4,
-    -3
-   ],
-   "a": 1,
-   "showPoints": [
-    [
-     2,
-     1
-    ],
-    [
-     6,
-     1
-    ]
-   ],
-   "showVertex": true
-  }
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$(2, -9)$"
+  "id": "bank-alg-083",
+  "question": "The graph of $y = f(x)$ is shown in the $xy$-plane. What are the coordinates of the vertex of the graph of $y = f(x - 2) + 6$?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        4,
+        -3
+      ],
+      "a": 1,
+      "showPoints": [
+        [
+          2,
+          1
+        ],
+        [
+          6,
+          1
+        ]
+      ],
+      "showVertex": true
+    }
   },
-  {
-   "id": "B",
-   "text": "$(2, 3)$"
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(2, -9)$"
+    },
+    {
+      "id": "B",
+      "text": "$(2, 3)$"
+    },
+    {
+      "id": "C",
+      "text": "$(6, -9)$"
+    },
+    {
+      "id": "D",
+      "text": "$(6, 3)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "shifts left instead of right and down instead of up",
+    "B": "shifts left 2 instead of right 2",
+    "C": "shifts down 6 instead of up 6"
   },
-  {
-   "id": "C",
-   "text": "$(6, -9)$"
-  },
-  {
-   "id": "D",
-   "text": "$(6, 3)$"
-  }
- ],
- "distractorNotes": {
-  "A": "shifts left 2 and down 6, reversing both signs",
-  "B": "reads f(x-2) as a shift 2 units left",
-  "C": "subtracts 6 from the vertex height instead of adding it"
- },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Vertex from Transformations**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The vertex reads $(4, -3)$; $f(x - 2) + 6$ moves it $2$ right and $6$ up to $(6, 3)$.\n\n**The Full Solution:**\nStep 1: From the graph, the lowest point of $y = f(x)$ is $(4, -3)$.\nStep 2: Replacing $x$ with $x - 2$ shifts every point $2$ units right, sending the vertex to $x = 6$.\nStep 3: Adding $6$ raises every point $6$ units, so the vertex height becomes $-3 + 6 = 3$, giving $(6, 3)$. Check: the shifted curve is $y = (x - 6)^2 + 3$, whose lowest point is $(6, 3)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(2, -9)$): reverses both signs, moving the vertex left $2$ and down $6$.\n* Choice B ($(2, 3)$): reads $f(x - 2)$ as a shift to the left, giving $x = 2$.\n* Choice C ($(6, -9)$): shifts right correctly but subtracts $6$ from the height instead of adding it.\n\n**Test Day Takeaway:** Inside the function the shift is opposite in sign; outside it is exactly as written."
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Vertex from Transformations**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The vertex of $f$ is $(4, -3)$. The graph of $f(x - 2) + 6$ is that graph moved $2$ right and $6$ up, so the new vertex is $(6, 3)$.\n\n**The Full Solution:**\nStep 1: From the graph, the vertex of $y = f(x)$ is $(4, -3)$.\nStep 2: Replacing $x$ with $x - 2$ shifts the graph $2$ units right, and adding $6$ shifts it $6$ units up.\nStep 3: Apply both shifts to the vertex: $(4 + 2, -3 + 6) = (6, 3)$. Check: $f(x - 2) + 6$ at $x = 6$ is $f(4) + 6 = -3 + 6 = 3$, the lowest output, since $f(4)$ is the minimum of $f$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(2, -9)$): reverses both shifts, moving the vertex left $2$ and down $6$.\n* Choice B ($(2, 3)$): reads $x - 2$ as a shift to the left.\n* Choice C ($(6, -9)$): reads $+6$ as a shift down.\n\n**Test Day Takeaway:** Inside the parentheses, the shift goes opposite to the sign ($x - 2$ means right $2$); outside, it goes with the sign ($+6$ means up $6$). Move the vertex and you have moved the graph."
 }

@@ -1,58 +1,57 @@
 {
- "id": "bank-alg-131",
- "question": "The graph shown gives the salinity $f(x)$ recorded by a probe, in practical salinity units, at a depth of $x$ meters below the surface of an estuary. What salinity does the probe record at a depth of $6$ meters?",
- "diagram": {
-  "type": "linearGraph",
-  "params": {
-   "slope": 3,
-   "yIntercept": 2,
-   "xRange": [
-    0,
-    8
-   ],
-   "yRange": [
-    0,
-    28
-   ],
-   "xTickInterval": 2,
-   "yTickInterval": 4,
-   "gridInterval": 2,
-   "showPoints": [
-    [
-     0,
-     2
-    ],
-    [
-     2,
-     8
-    ]
-   ],
-   "label": "f"
-  }
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$2$"
+  "id": "bank-alg-131",
+  "question": "The graph shows the total cost $y$, in dollars, of renting a bike for $x$ hours. What is the total cost, in dollars, of renting a bike for $6$ hours?",
+  "diagram": {
+    "type": "linearGraph",
+    "params": {
+      "slope": 3,
+      "yIntercept": 2,
+      "xRange": [
+        0,
+        8
+      ],
+      "yRange": [
+        0,
+        28
+      ],
+      "xTickInterval": 2,
+      "yTickInterval": 4,
+      "gridInterval": 2,
+      "showPoints": [
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          8
+        ]
+      ]
+    }
   },
-  {
-   "id": "B",
-   "text": "$6$"
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$6$"
+    },
+    {
+      "id": "C",
+      "text": "$14$"
+    },
+    {
+      "id": "D",
+      "text": "$20$"
+    }
+  ],
+  "correctAnswer": "D",
+  "distractorNotes": {
+    "A": "reports the cost at x = 0 instead of the cost at x = 6",
+    "B": "reports the number of hours, 6, instead of the cost",
+    "C": "reads the cost at x = 4 instead of x = 6"
   },
-  {
-   "id": "C",
-   "text": "$14$"
-  },
-  {
-   "id": "D",
-   "text": "$20$"
-  }
- ],
- "distractorNotes": {
-  "A": "reports the surface reading f(0) instead of f(6)",
-  "B": "reports the input depth 6 rather than the salinity",
-  "C": "reads the value at a depth of 4 meters"
- },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Function Evaluation**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Follow $x = 6$ up to the line and across: the salinity is $20$.\n\n**The Full Solution:**\nStep 1: The graph passes through $(0, 2)$ and $(2, 8)$, so the salinity rises $6$ units over $2$ meters, a rate of $3$ per meter, and $f(x) = 3x + 2$.\nStep 2: Evaluate at the requested depth: $f(6) = 3(6) + 2$.\nStep 3: That gives $18 + 2 = 20$ practical salinity units. Check: reading the graph at $x = 6$ lands on $y = 20$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reports the surface reading $f(0)$ instead of the value at $6$ meters.\n* Choice B ($6$): reports the input depth rather than the salinity the graph gives for it.\n* Choice C ($14$): reads the graph at a depth of $4$ meters instead of $6$.\n\n**Test Day Takeaway:** Evaluating from a graph means going up from the input on the horizontal axis and across to the vertical axis — never reporting the input back."
+  "explanation": "**SAT Pattern: Function Evaluation**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The line passes through $(0, 2)$ and $(2, 8)$, so the cost rises $3$ dollars per hour; at $x = 6$ the cost is $2 + 3(6) = 20$.\n\n**The Full Solution:**\nStep 1: Read two points from the graph: $(0, 2)$ and $(2, 8)$. The slope is $\\frac{8 - 2}{2 - 0} = 3$.\nStep 2: So the line is $y = 3x + 2$.\nStep 3: At $x = 6$: $y = 3(6) + 2 = 20$. Check: on the graph, the point above $x = 6$ is level with $20$ on the $y$-axis ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reports the cost at $x = 0$, where the line starts, instead of the cost at $x = 6$.\n* Choice B ($6$): reports the number of hours given in the question rather than the cost.\n* Choice C ($14$): reads the line at $x = 4$ instead of $x = 6$.\n\n**Test Day Takeaway:** To evaluate from a graph, find the input on the $x$-axis and read the height of the line there; if the point is hard to read, write the line's equation from two clear points."
 }

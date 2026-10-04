@@ -1,56 +1,49 @@
 {
  "id": "bank-am-376",
- "question": "The table gives the height $L(t)$ of a stage lift, in centimeters relative to the deck, at four times $t$, in minutes, relative to a cue. The height changes at a constant rate. What is the value of $L(-9)$?",
- "diagram": {
-  "type": "dataTable",
-  "params": {
-   "headers": [
-    "Time t (min)",
-    "Height L(t) (cm)"
+ "question": "For the exponential function $f$, the table shows three values of $x$ and their corresponding values of $f(x)$. What is the value of $f(-1)$?",
+ "questionTable": {
+  "headers": [
+   "$x$",
+   "$f(x)$"
+  ],
+  "rows": [
+   [
+    "$0$",
+    "$12$"
    ],
-   "rows": [
-    [
-     "-5",
-     "22"
-    ],
-    [
-     "-1",
-     "10"
-    ],
-    [
-     "3",
-     "-2"
-    ],
-    [
-     "7",
-     "-14"
-    ]
+   [
+    "$1$",
+    "$36$"
+   ],
+   [
+    "$2$",
+    "$108$"
    ]
-  }
+  ]
  },
  "choices": [
   {
    "id": "A",
-   "text": "$10$"
+   "text": "$-36$"
   },
   {
    "id": "B",
-   "text": "$25$"
+   "text": "$-12$"
   },
   {
    "id": "C",
-   "text": "$34$"
+   "text": "$4$"
   },
   {
    "id": "D",
-   "text": "$46$"
+   "text": "$9$"
   }
  ],
  "correctAnswer": "C",
  "distractorNotes": {
-  "A": "steps in the wrong direction from t = -5, computing 22 - 12 = 10",
-  "B": "treats the rate as 3 cm per table row instead of 3 cm per minute: 22 + 3 = 25",
-  "D": "steps two rows back instead of one, computing 22 + 24 = 46"
+  "A": "treats 3^(-1) as -3, computing 12(-3)",
+  "B": "assumes the values change by a constant difference of 24, computing 12 - 24",
+  "D": "subtracts the growth factor 3 from 12 instead of dividing by it"
  },
- "explanation": "**SAT Pattern: Function Evaluation with Negative Input**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The height drops 12 cm every 4 minutes, so going 4 minutes earlier than $t=-5$ adds 12: $22+12=34$ centimeters.\n\n**The Full Solution:**\nStep 1: Consecutive rows are 4 minutes apart and drop 12 centimeters, so the rate is $-3$ centimeters per minute.\nStep 2: The time $-9$ is 4 minutes before $-5$, so the height there is $22-(-3)(4)$.\nStep 3: $22+12=34$ centimeters. Check: from $t=-9$ to $t=7$ is 16 minutes, and $34-3(16)=-14$, the last row ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): moves one row in the wrong direction, giving the height already listed at $t=-1$.\n* Choice B ($25$): applies 3 centimeters per row instead of 3 centimeters per minute.\n* Choice D ($46$): steps two rows back from $t=-5$ instead of one.\n\n**Test Day Takeaway:** Extrapolating to a negative input reverses the sign of the change — multiply the rate by the signed gap in the input."
+ "explanation": "**SAT Pattern: Function Evaluation with Negative Input**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Each step of $1$ in $x$ multiplies $f(x)$ by $3$, so going from $x = 0$ back to $x = -1$ divides by $3$: $\\frac{12}{3} = 4$.\n\n**The Full Solution:**\nStep 1: Find the growth factor: $\\frac{36}{12} = 3$ and $\\frac{108}{36} = 3$. With $f(0) = 12$, the function is $f(x) = 12(3)^{x}$.\nStep 2: Substitute $x = -1$: $f(-1) = 12(3)^{-1} = 12 \\cdot \\frac{1}{3}$.\nStep 3: Compute: $f(-1) = 4$. Check: multiplying $4$ by $3$ gives $12 = f(0)$, so the pattern continues backward ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-36$): treats $3^{-1}$ as $-3$. A negative exponent gives the reciprocal $\\frac{1}{3}$.\n* Choice B ($-12$): uses a constant difference of $24$, as if $f$ were linear. The table grows by a factor, not by a fixed amount.\n* Choice D ($9$): subtracts the factor $3$ from $12$ instead of dividing by it.\n\n**Test Day Takeaway:** For an exponential function, moving one step left in $x$ divides by the growth factor; a negative input never makes the output negative."
 }

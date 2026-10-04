@@ -1,6 +1,6 @@
 {
   "id": "bank-am-184",
-  "question": "For the exponential function $g$, the table lists the value of $g(x)$ at three values of $x$. Which equation defines $g$?",
+  "question": "For the exponential function $g$, the table shows three values of $x$ and their corresponding values of $g(x)$. Which equation defines $g$?",
   "diagram": {
     "type": "dataTable",
     "params": {

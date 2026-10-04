@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-221",
- "question": "A materials lab records a specimen's response as the graph of $7x - 3y = 24$. Any line drawn at a right angle to that response line has what slope?",
+ "question": "In the $xy$-plane, the graph of $7x - 3y = 24$ is perpendicular to line $q$. What is the slope of line $q$?",
  "choices": [
   {
    "id": "A",
@@ -21,9 +21,9 @@
  ],
  "correctAnswer": "B",
  "distractorNotes": {
-  "A": "negates the response line's slope without inverting it",
-  "C": "inverts the slope without negating it",
-  "D": "repeats the response line's own slope"
+  "A": "negates the given line's slope without inverting it",
+  "C": "inverts the given line's slope without negating it",
+  "D": "reports the slope of the given line"
  },
- "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The response line has slope $\\frac{7}{3}$, so a perpendicular line has slope $-\\frac{3}{7}$.\n\n**The Full Solution:**\nStep 1: Rewrite $7x - 3y = 24$ as $-3y = -7x + 24$, so $y = \\frac{7}{3}x - 8$.\nStep 2: The response line therefore has slope $\\frac{7}{3}$.\nStep 3: A right angle requires the negative reciprocal, which is $-\\frac{3}{7}$. Check: $\\frac{7}{3}\\left(-\\frac{3}{7}\\right) = -1$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{7}{3}$): negates the response line's slope without inverting it\n* Choice C ($\\frac{3}{7}$): inverts the slope without negating it\n* Choice D ($\\frac{7}{3}$): repeats the response line's own slope\n\n**Test Day Takeaway:** Dividing by a negative coefficient of $y$ flips the sign of both remaining terms; do that step on paper."
+ "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The given line has slope $\\frac{7}{3}$, so line $q$ has slope $-\\frac{3}{7}$.\n\n**The Full Solution:**\nStep 1: Solve for $y$: $-3y = -7x + 24$, so $y = \\frac{7}{3}x - 8$.\nStep 2: The graph of the given equation has slope $\\frac{7}{3}$.\nStep 3: Line $q$ has the negative reciprocal slope, $-\\frac{3}{7}$. Check: $\\frac{7}{3} \\cdot \\left(-\\frac{3}{7}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{7}{3}$): changes the sign of $\\frac{7}{3}$ but does not flip it.\n* Choice C ($\\frac{3}{7}$): flips $\\frac{7}{3}$ but does not change its sign.\n* Choice D ($\\frac{7}{3}$): is the slope of the given line itself, which would make the lines parallel.\n\n**Test Day Takeaway:** Rewrite a standard-form equation as $y = mx + b$ before reading the slope; a negative $y$-coefficient flips the sign."
 }

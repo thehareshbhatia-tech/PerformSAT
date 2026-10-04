@@ -1,61 +1,61 @@
 {
- "id": "bank-am-257",
- "question": "The table gives values of the functions $f$ and $g$ at four inputs, where $f$ records a heliostat's tilt error and $g$ records its mirrored counterpart. Which equation relates $g$ to $f$ at every input shown?",
- "diagram": {
-  "type": "dataTable",
-  "params": {
-   "headers": [
-    "x",
-    "f(x)",
-    "g(x)"
-   ],
-   "rows": [
-    [
-     "-1",
-     "1",
-     "-1"
-    ],
-    [
-     "0",
-     "-2",
-     "2"
-    ],
-    [
-     "1",
-     "-3",
-     "3"
-    ],
-    [
-     "2",
-     "4",
-     "-4"
-    ]
-   ]
+  "id": "bank-am-257",
+  "question": "The table shows values of the functions $f$ and $g$ for four values of $x$. Which of the following could be the equation that relates $g$ to $f$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$g(x) = f(-x)$"
+    },
+    {
+      "id": "B",
+      "text": "$g(x) = f(x) + 4$"
+    },
+    {
+      "id": "C",
+      "text": "$g(x) = -f(-x)$"
+    },
+    {
+      "id": "D",
+      "text": "$g(x) = -f(x)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reflects across the y-axis; f(0) = -2 but g(0) = 2",
+    "B": "adds a constant; at x = -1 it gives 5, not -1",
+    "C": "matches the row x = 0 only; at x = 1 it gives -f(-1) = -1, not 3"
+  },
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Reflection of Graph**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** In every row $g(x)$ is the opposite of $f(x)$: $1 \\to -1$, $-2 \\to 2$, $-3 \\to 3$, $4 \\to -4$, so $g(x) = -f(x)$.\n\n**The Full Solution:**\nStep 1: Compare the two columns row by row: $f(-1) = 1$ and $g(-1) = -1$; $f(0) = -2$ and $g(0) = 2$; $f(1) = -3$ and $g(1) = 3$; $f(2) = 4$ and $g(2) = -4$.\nStep 2: In each row, $g(x)$ is the opposite of $f(x)$ at the same input, so $g(x) = -f(x)$.\nStep 3: This is a reflection of the graph of $y = f(x)$ across the $x$-axis. Check against the other choices: $f(-x)$ fails at $x = 0$, since $f(0) = -2 \\ne 2$, and $-f(-x)$ fails at $x = 1$, since $-f(-1) = -1 \\ne 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(-x)$): reflects across the $y$-axis; at $x = 0$ it gives $f(0) = -2$, but $g(0) = 2$.\n* Choice B ($f(x) + 4$): adds a constant; at $x = -1$ it gives $5$, but $g(-1) = -1$.\n* Choice C ($-f(-x)$): works at $x = 0$, where $-f(0) = 2$, but at $x = 1$ it gives $-f(-1) = -1$, not $3$.\n\n**Test Day Takeaway:** Test a proposed rule against every row of the table; one matching row is not enough.",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "x",
+        "f(x)",
+        "g(x)"
+      ],
+      "rows": [
+        [
+          "-1",
+          "1",
+          "-1"
+        ],
+        [
+          "0",
+          "-2",
+          "2"
+        ],
+        [
+          "1",
+          "-3",
+          "3"
+        ],
+        [
+          "2",
+          "4",
+          "-4"
+        ]
+      ]
+    }
   }
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$g(x)=f(-x)$"
-  },
-  {
-   "id": "B",
-   "text": "$g(x)=f(x)+4$"
-  },
-  {
-   "id": "C",
-   "text": "$g(x)=-f(-x)$"
-  },
-  {
-   "id": "D",
-   "text": "$g(x)=-f(x)$"
-  }
- ],
- "distractorNotes": {
-  "A": "at x = 1 this predicts g(1) = f(-1) = 1, but the table shows g(1) = 3",
-  "B": "matches only the x = 0 row, where the values differ by 4; at x = 1 it predicts 1, not 3",
-  "C": "at x = 1 this predicts -f(-1) = -1, but the table shows g(1) = 3"
- },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Reflection of Graph**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** In every row the two outputs are opposites — $1$ and $-1$, $-2$ and $2$, $-3$ and $3$, $4$ and $-4$ — so $g(x)=-f(x)$.\n\n**The Full Solution:**\n\nStep 1: Compare the two output columns row by row: each pair sums to $0$.\n\nStep 2: Since the input is unchanged and only the sign of the output flips, the relationship is a reflection over the horizontal axis, $g(x)=-f(x)$.\n\nStep 3: Test the remaining candidates on one row. At $x=1$, $f(-1)=1$ and $-f(-1)=-1$, but $g(1)=3$, so neither input-reflection rule works. Check: $-f(2)=-4=g(2)$, and $-f(-1)=-1=g(-1)$, so choice D holds on every row.\n\n**Why the wrong answers are tempting:**\n\n* Choice A: predicts $g(1)=f(-1)=1$, but the table shows $3$.\n* Choice B: fits only the $x=0$ row, where the outputs happen to differ by $4$.\n* Choice C: predicts $g(1)=-f(-1)=-1$, again contradicting the table.\n\n**Test Day Takeaway:** Test a candidate rule against a row where the inputs $x$ and $-x$ both appear; that row separates the two kinds of reflection."
 }

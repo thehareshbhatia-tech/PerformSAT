@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-012",
-  "question": "The table gives the total number of downloads of an app on two days after its release. The total increased at a constant rate, and this rate is expected to continue. On which day will the total number of downloads first exceed $20{,}000$?",
+  "question": "The table shows the total number of downloads of an app on two days after its release. The total increased at a constant rate. If this rate continues, on which day will the total number of downloads first exceed $20{,}000$?",
   "questionTable": {
     "headers": [
       "Day",

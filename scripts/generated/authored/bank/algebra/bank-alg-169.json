@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-169",
-  "question": "A crew converts streetlights at a constant daily rate after a head start of $14$ lights, so its running total is $t = 14 + 9d$ after $d$ days of work. On which day does the total reach $122$ lights?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$9$"
-    },
-    {
-      "id": "B",
-      "text": "$12$"
-    },
-    {
-      "id": "C",
-      "text": "$14$"
-    },
-    {
-      "id": "D",
-      "text": "$108$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "reports the daily rate of 9 lights instead of the number of days",
-    "C": "reports the 14-light head start instead of the number of days",
-    "D": "stops at 9d = 108 without dividing by the rate of 9"
+ "id": "bank-alg-169",
+ "question": "$6x + 15 = 75$\nWhat value of $x$ is the solution to the given equation?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$10$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Subtract the head start and divide by the rate: $\\frac{122 - 14}{9} = \\frac{108}{9} = 12$.\n\n**The Full Solution:**\nStep 1: Set the model equal to the target total: $14 + 9d = 122$.\nStep 2: Undo the addition first by subtracting $14$ from both sides: $9d = 108$.\nStep 3: Undo the multiplication by dividing both sides by $9$: $d = 12$. Check: $14 + 9(12) = 14 + 108 = 122$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): reports the daily rate from the model instead of the number of days.\n* Choice C ($14$): reports the head start, the constant term, instead of the number of days.\n* Choice D ($108$): stops at $9d = 108$ and reports the lights converted rather than the days worked.\n\n**Test Day Takeaway:** Two-step equations unwind in reverse order — remove the constant term first, then divide by the coefficient."
+  {
+   "id": "B",
+   "text": "$15$"
+  },
+  {
+   "id": "C",
+   "text": "$60$"
+  },
+  {
+   "id": "D",
+   "text": "$90$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "adds 15 instead of subtracting, solving 6x = 90",
+  "C": "stops at 6x = 60 and reports 60",
+  "D": "computes 75 + 15 = 90 and does not divide by 6"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Subtract $15$ to get $6x = 60$, then divide by $6$: $x = 10$.\n\n**The Full Solution:**\nStep 1: Subtract $15$ from both sides: $6x = 75 - 15 = 60$.\nStep 2: Divide both sides by $6$: $x = \\frac{60}{6}$.\nStep 3: So $x = 10$. Check: $6(10) + 15 = 60 + 15 = 75$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($15$): adds $15$ instead of subtracting it, solving $6x = 90$.\n* Choice C ($60$): stops at $6x = 60$ and reports $6x$ instead of $x$.\n* Choice D ($90$): adds $15$ to $75$ and stops without dividing by $6$.\n\n**Test Day Takeaway:** Undo the addition first, then the multiplication, and plug the answer back in to check."
 }

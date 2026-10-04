@@ -20,10 +20,10 @@
     }
   ],
   "distractorNotes": {
-    "A": "ignores the denominator",
-    "B": "sign slip solving x - 9 = 0",
-    "C": "excludes the zero of the numerator"
+    "A": "overlooks the variable in the denominator",
+    "B": "solves x - 9 = 0 with the wrong sign",
+    "C": "excludes the value that makes the numerator zero; 0 divided by -9 is 0, which is defined"
   },
   "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Domain (Denominator Restriction)**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** A fraction is undefined only where its denominator is $0$: $x - 9 = 0$ at $x = 9$. Every other real number is allowed.\n\n**The Full Solution:**\nStep 1: The only operation in $g$ that can fail is division, which is undefined when the denominator equals $0$.\nStep 2: Solve $x - 9 = 0$: $x = 9$. At that input, $g(9) = \\frac{18}{0}$, undefined.\nStep 3: The numerator $2x$ never restricts the domain; for example, $g(0) = \\frac{0}{-9} = 0$ is a perfectly good output. So the domain is all real numbers except $9$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (all real numbers): ignores the denominator; $x = 9$ produces division by zero.\n* Choice B (except $-9$): a sign slip when solving $x - 9 = 0$; the zero of the denominator is $9$, not $-9$.\n* Choice C (except $0$): excludes the zero of the numerator, but a zero numerator just makes $g(x) = 0$, which is defined.\n\n**Test Day Takeaway:** Domain restrictions come from the denominator, not the numerator: set the denominator equal to zero, solve, and exclude exactly those inputs."
+  "explanation": "**SAT Pattern: Domain (Denominator Restriction)**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Division by zero is undefined, and $x - 9 = 0$ only when $x = 9$. Every other real number works.\n\n**The Full Solution:**\nStep 1: A fraction is undefined only when its denominator equals $0$; the numerator can be any value.\nStep 2: Set the denominator equal to $0$: $x - 9 = 0$, so $x = 9$.\nStep 3: So $g(x)$ is defined for all real numbers except $9$. Check: $g(0) = \\frac{0}{-9} = 0$ is defined, while $g(9) = \\frac{18}{0}$ is not ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (all real numbers): overlooks the variable in the denominator, which can equal $0$.\n* Choice B (except $-9$): solves $x - 9 = 0$ with the wrong sign. At $x = -9$ the denominator is $-18$, not $0$.\n* Choice C (except $0$): excludes the value that makes the numerator $0$, but $\\frac{0}{-9} = 0$ is a perfectly good output.\n\n**Test Day Takeaway:** For a rational function, exclude only the values that make the denominator $0$. A zero numerator gives an output of $0$, not an undefined value."
 }

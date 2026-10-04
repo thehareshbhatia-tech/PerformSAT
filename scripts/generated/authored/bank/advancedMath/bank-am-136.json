@@ -1,29 +1,29 @@
 {
-  "question": "A vibration study produces the equation $2x^{2}-12x+c=0$, and two different real values of $x$ satisfy it. Which of the following could be the value of the constant $c$?",
+  "question": "$3x^{2} - 12x + c = 0$\nIn the given equation, $c$ is a constant. If the equation has two distinct real solutions, which of the following could be the value of $c$?",
   "choices": [
     {
       "id": "A",
-      "text": "$12$"
+      "text": "$10$"
     },
     {
       "id": "B",
-      "text": "$18$"
+      "text": "$12$"
     },
     {
       "id": "C",
-      "text": "$36$"
+      "text": "$24$"
     },
     {
       "id": "D",
-      "text": "$72$"
+      "text": "$48$"
     }
   ],
   "distractorNotes": {
-    "B": "the boundary value, which makes the discriminant 0 and gives exactly one solution",
-    "C": "used c < b squared over 4 = 36, omitting the leading coefficient 2",
-    "D": "used c < b squared over 2 = 72"
+    "B": "uses the boundary value, where the discriminant is 0 and there is only one solution",
+    "C": "drops the leading coefficient 3, solving 144 - 4c > 0 to get c < 36",
+    "D": "reverses the inequality and solves c > 12"
   },
   "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Two distinct real solutions require $144-8c>0$, so $c<18$; only $12$ qualifies.\n\n**The Full Solution:**\nStep 1: With $a=2$, $b=-12$, and constant $c$, the discriminant is $144-8c$.\nStep 2: Two different real solutions require $144-8c>0$, so $8c<144$ and $c<18$.\nStep 3: Of the four values, only $12$ is less than $18$. Check: $2x^{2}-12x+12=0$ has discriminant $144-96=48>0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($18$): the boundary value, which makes the discriminant $0$ and gives exactly one solution.\n* Choice C ($36$): uses $c<\\dfrac{b^{2}}{4}$, omitting the leading coefficient.\n* Choice D ($72$): uses $c<\\dfrac{b^{2}}{2}$.\n\n**Test Day Takeaway:** Solve the discriminant inequality once, then test the choices — and remember the boundary value is excluded.",
+  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Two distinct solutions need $144 - 4(3)c > 0$, so $c < 12$; only $10$ qualifies.\n\n**The Full Solution:**\nStep 1: Two distinct real solutions require $b^{2} - 4ac > 0$: $(-12)^{2} - 4(3)(c) > 0$.\nStep 2: Simplify: $144 - 12c > 0$, so $c < 12$.\nStep 3: Among the choices, only $10$ is less than $12$. Check: $c = 10$ gives a discriminant of $144 - 120 = 24 > 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($12$): is the boundary value: the discriminant is $144 - 144 = 0$, so there is only one solution.\n* Choice C ($24$): drops the leading coefficient $3$, solving $144 - 4c > 0$ to get $c < 36$.\n* Choice D ($48$): reverses the inequality, solving $c > 12$.\n\n**Test Day Takeaway:** For \"two distinct solutions,\" the discriminant must be strictly positive, so the boundary value itself is excluded.",
   "id": "bank-am-136"
 }

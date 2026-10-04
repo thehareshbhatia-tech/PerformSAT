@@ -1,6 +1,6 @@
 {
  "id": "bank-am-109",
- "question": "For a mural, the function $w$ gives the width, in centimeters, of a stencil at height $x$, where $w(x)=0.5x+14$. An enlarged stencil has width $W(x)=3w(x)$. What is the value of $W(20)$?",
- "correctAnswer": "72",
- "explanation": "**SAT Pattern: Function Transformation**\n\n**The correct answer is $72$.**\n\n**The Fast Way (~15s):** $w(20)=24$ centimeters, and tripling gives $3(24)=72$ centimeters.\n\n**The Full Solution:**\nStep 1: Evaluate the original width: $w(20)=0.5(20)+14=10+14=24$.\nStep 2: The enlargement multiplies every width by 3: $W(20)=3w(20)$.\nStep 3: $3(24)=72$ centimeters. Check: $W(x)=1.5x+42$, and $1.5(20)+42=72$ ✓\n\n**Common Mistakes:** Tripling only the variable term gives $1.5(20)+14=44$. Tripling the input instead of the output gives $w(60)=44$. Adding 3 rather than multiplying gives 27.\n\n**Test Day Takeaway:** A vertical stretch multiplies the entire output, constant term included."
+ "question": "$f(x) = 3x + 8$\nThe function $g$ is defined by $g(x) = 4f(x)$. What is the value of $g(5)$?",
+ "correctAnswer": "92",
+ "explanation": "**SAT Pattern: Function Transformation**\n\n**The correct answer is $92$.**\n\n**The Fast Way (~15s):** $f(5) = 23$, and $g(5) = 4(23) = 92$.\n\n**The Full Solution:**\nStep 1: Evaluate $f$ at $5$: $f(5) = 3(5) + 8 = 23$.\nStep 2: The rule $g(x) = 4f(x)$ multiplies the whole output by $4$: $g(5) = 4f(5)$.\nStep 3: So $g(5) = 4(23) = 92$. Check: $g(x) = 4(3x + 8) = 12x + 32$, and $12(5) + 32 = 92$ ✓\n\n**Common Mistakes:**\n* $68$: multiplies only the $x$-term by $4$, computing $12(5) + 8$; multiplying the input instead, $f(20) = 68$, gives the same wrong value.\n* $27$: adds $4$ to $f(5)$ instead of multiplying.\n* $23$: reports $f(5)$ and never applies the factor $4$.\n\n**Test Day Takeaway:** A factor outside the function multiplies the entire output, constant term included."
 }

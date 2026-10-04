@@ -1,6 +1,6 @@
 {
- "id": "bank-am-175",
- "question": "A two-stage conversion first adds a constant $k$ to its input, using $g(x) = x + k$, and then applies $f(x) = 4x - 7$ to that result. The conversion turns an input of $3$ into an output of $21$. What is the value of $k$?",
- "correctAnswer": "4",
- "explanation": "**SAT Pattern: Function Composition**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~25s):** $f(g(3)) = 4(3 + k) - 7 = 21$, so $4(3 + k) = 28$, $3 + k = 7$, and $k = 4$.\n\n**The Full Solution:**\nStep 1: The inner value is $g(3) = 3 + k$.\nStep 2: Applying $f$ gives $4(3 + k) - 7 = 21$, so $4(3 + k) = 28$.\nStep 3: Dividing by $4$ gives $3 + k = 7$, so $k = 4$. Check: $g(3) = 7$ and $f(7) = 28 - 7 = 21$ ✓\n\n**Common Mistakes:**\n* $18$ — setting $3 + k = 21$, which applies only $g$ and never undoes $f$.\n* $0.5$ — subtracting the $7$ instead of adding it, which gives $4(3 + k) = 14$.\n\n**Test Day Takeaway:** Undo the OUTER function first — add back its constant, then divide — before touching the inner expression."
+  "id": "bank-am-175",
+  "question": "The functions $f$ and $g$ are defined by $f(x) = 5x - 8$ and $g(x) = x + k$, where $k$ is a constant. If $f(g(2)) = 27$, what is the value of $k$?",
+  "correctAnswer": "5",
+  "explanation": "**SAT Pattern: Function Composition**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~25s):** $f(g(2)) = 5(2 + k) - 8 = 27$, so $5(2 + k) = 35$, $2 + k = 7$, and $k = 5$.\n\n**The Full Solution:**\nStep 1: The inner value is $g(2) = 2 + k$.\nStep 2: Apply $f$: $f(2 + k) = 5(2 + k) - 8$. Set this equal to $27$: $5(2 + k) - 8 = 27$, so $5(2 + k) = 35$.\nStep 3: Divide by $5$: $2 + k = 7$, so $k = 5$. Check: $g(2) = 7$ and $f(7) = 35 - 8 = 27$ ✓\n\n**Common Mistakes:**\n* $7$: stops at $g(2) = 7$, reporting the inner value instead of $k$.\n* $25$: writes $5(2 + k)$ as $10 + k$, so $10 + k - 8 = 27$.\n\n**Test Day Takeaway:** Substitute the whole inner expression into the outer function with parentheses, so the $5$ multiplies both the $2$ and the $k$."
 }

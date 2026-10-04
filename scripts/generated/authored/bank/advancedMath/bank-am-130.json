@@ -1,29 +1,29 @@
 {
- "id": "bank-am-130",
- "question": "In the $xy$-plane, a transformer's cooling curve $y=x^2+10x+30$ and a load line $y=4x+t$ are graphed, where $t$ is a constant. The two graphs have no point in common. Which of the following describes every possible value of $t$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$t<21$"
+  "question": "$y = x^{2} - 6x + 14$\n$y = 2x + t$\nIn the given system of equations, $t$ is a constant. If the system has no real solutions, which of the following describes all possible values of $t$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$t > 2$"
+    },
+    {
+      "id": "B",
+      "text": "$t > -2$"
+    },
+    {
+      "id": "C",
+      "text": "$t < -2$"
+    },
+    {
+      "id": "D",
+      "text": "$t < 14$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "writes the constant term as 14 + t instead of 14 - t",
+    "B": "solves discriminant > 0, which is the condition for two solutions",
+    "D": "only requires the constant term 14 - t to be positive"
   },
-  {
-   "id": "B",
-   "text": "$t<84$"
-  },
-  {
-   "id": "C",
-   "text": "$t>21$"
-  },
-  {
-   "id": "D",
-   "text": "$t>84$"
-  }
- ],
- "distractorNotes": {
-  "B": "solves 4t - 84 < 0 without dividing the 84 by 4",
-  "C": "uses discriminant > 0, the condition for two shared points",
-  "D": "reverses the inequality and skips the division by 4"
- },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Tangent Line and Discriminant**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** Equating gives $x^2+6x+(30-t)=0$ with discriminant $4t-84$; no shared point means $4t-84<0$, so $t<21$.\n\n**The Full Solution:**\nStep 1: Set $x^2+10x+30=4x+t$, which rearranges to $x^2+6x+(30-t)=0$.\nStep 2: The discriminant is $6^2-4(1)(30-t)=36-120+4t=4t-84$.\nStep 3: No shared point means no real solution, so $4t-84<0$ and $t<21$. Check: at $t=21$ the equation is $x^2+6x+9=(x+3)^2=0$, a single touch, so values below $21$ give no contact at all ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($t<84$): solves $4t-84<0$ but never divides the $84$ by $4$.\n* Choice C ($t>21$): uses $b^2-4ac>0$, which is the condition for two shared points, not none.\n* Choice D ($t>84$): reverses the inequality and also skips dividing by $4$.\n\n**Test Day Takeaway:** Fewest solutions goes with the smallest discriminant: negative for no contact, zero for tangency, positive for two crossings."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Tangent Line and Discriminant**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Setting the expressions equal gives $x^{2} - 8x + (14 - t) = 0$; no real solutions means $64 - 4(14 - t) < 0$, so $8 + 4t < 0$ and $t < -2$.\n\n**The Full Solution:**\nStep 1: Set the expressions equal: $x^{2} - 6x + 14 = 2x + t$, so $x^{2} - 8x + (14 - t) = 0$.\nStep 2: No real solutions means the discriminant is negative: $(-8)^{2} - 4(1)(14 - t) < 0$, so $64 - 56 + 4t < 0$.\nStep 3: Then $8 + 4t < 0$, so $t < -2$. Check: $t = -3$ gives $x^{2} - 8x + 17 = 0$ with discriminant $-4 < 0$, and the boundary $t = -2$ gives $(x - 4)^{2} = 0$, one solution ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($t > 2$): writes the constant term as $14 + t$ instead of $14 - t$.\n* Choice B ($t > -2$): solves discriminant $> 0$, the condition for two solutions, not none.\n* Choice D ($t < 14$): only requires the constant term $14 - t$ to be positive, which does not rule out real solutions.\n\n**Test Day Takeaway:** No intersection means a negative discriminant; test one value on each side of the boundary to confirm the direction.",
+  "id": "bank-am-130"
 }

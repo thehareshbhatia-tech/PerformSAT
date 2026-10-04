@@ -1,6 +1,6 @@
 {
   "id": "bank-am-311",
-  "question": "A rectangular courtyard is enclosed by $48$ meters of fencing along its four sides. If the width of the courtyard is $w$ meters, for which values of $w$ is the enclosed area at least $140$ square meters?",
+  "question": "A rectangular garden is enclosed by $48$ meters of fencing. If the width of the garden is $w$ meters, for which values of $w$ is the area of the garden at least $140$ square meters?",
   "choices": [
     {
       "id": "A",

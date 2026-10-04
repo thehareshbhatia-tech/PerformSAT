@@ -1,29 +1,29 @@
 {
   "id": "bank-alg-097",
-  "question": "A print shop charges $\\$0.75$ per page plus a binding fee of $\\$6$ per booklet. Printing and binding one booklet with $n$ pages cost $\\$21$. What is the cost, in dollars, of printing and binding one booklet with $n + 12$ pages?",
+  "question": "Printing a booklet costs \\$0.60 per page plus a \\$5 binding fee. A booklet with $n$ pages costs \\$23 to print. What is the cost, in dollars, to print a booklet with $n + 15$ pages?",
   "choices": [
     {
       "id": "A",
-      "text": "$\\$30$"
+      "text": "$32$"
     },
     {
       "id": "B",
-      "text": "$\\$33$"
+      "text": "$37$"
     },
     {
       "id": "C",
-      "text": "$\\$36$"
+      "text": "$38$"
     },
     {
       "id": "D",
-      "text": "$\\$93$"
+      "text": "$98$"
     }
   ],
   "distractorNotes": {
-    "B": "adds the 12 pages as dollars",
-    "C": "adds a second binding fee",
-    "D": "uses the binding fee as the per-page price"
+    "B": "charges the 5-dollar binding fee a second time, 32 + 5 = 37",
+    "C": "adds the 15 extra pages as 15 dollars, 23 + 15 = 38",
+    "D": "uses the 5-dollar binding fee as the price per page, 23 + 15(5) = 98"
   },
   "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Shifted Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Twelve more pages add $12 \\cdot \\$0.75 = \\$9$. One booklet still means one binding fee, so the cost is $\\$21 + \\$9 = \\$30$.\n\n**The Full Solution:**\nStep 1: The cost equation is $0.75n + 6 = 21$, so $0.75n = 15$ and $n = 20$ pages.\nStep 2: For $n + 12 = 32$ pages: $0.75(32) + 6 = 24 + 6 = 30$.\nStep 3: Shortcut check: $12$ extra pages cost $12 \\cdot 0.75 = 9$, and $21 + 9 = 30$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\$33$): adds the $12$ pages as $12$ dollars instead of $12 \\cdot \\$0.75$.\n* Choice C ($\\$36$): adds a second binding fee on top of the page cost, though it is still one booklet.\n* Choice D ($\\$93$): uses the $\\$6$ binding fee as the per-page price, $21 + 12 \\cdot 6$.\n\n**Test Day Takeaway:** Identify which quantity is scaling (pages) and which is fixed (binding); the extra cost is the extra count times the per-unit rate only."
+  "explanation": "**SAT Pattern: Shifted Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Fifteen more pages add $15(0.60) = 9$ dollars, and the binding fee does not change, so the cost is $23 + 9 = 32$.\n\n**The Full Solution:**\nStep 1: The cost of an $n$-page booklet is $0.60n + 5$, so $0.60n + 5 = 23$. Then $0.60n = 18$ and $n = 30$ pages.\nStep 2: A booklet with $n + 15 = 45$ pages costs $0.60(45) + 5 = 27 + 5 = 32$ dollars.\nStep 3: Check without solving for $n$: $0.60(n + 15) + 5 = (0.60n + 5) + 9 = 23 + 9 = 32$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($37$): charges the $\\$5$ binding fee twice; the booklet is bound once, so the cost is $32$, not $32 + 5$.\n* Choice C ($38$): adds the $15$ pages as $15$ dollars instead of $15(0.60) = 9$ dollars.\n* Choice D ($98$): uses the $\\$5$ binding fee as the price of a page, computing $23 + 15(5) = 98$.\n\n**Test Day Takeaway:** Adding pages changes only the per-page part of the cost: multiply the extra pages by the price per page and add that to the old total."
 }

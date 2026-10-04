@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-043",
-  "question": "$ax + 4y = 7$\n$6x - 8y = c$\n\nIn the given system of equations, $a$ and $c$ are constants. For which of the following values of $a$ and $c$ does the system have no solution?",
+  "question": "$ax + 4y = 7$\n$6x - 8y = c$\nIn the given system of equations, $a$ and $c$ are constants. For which of the following values of $a$ and $c$ does the system have no solution?",
   "choices": [
     {
       "id": "A",

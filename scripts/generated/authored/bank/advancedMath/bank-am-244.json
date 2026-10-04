@@ -1,29 +1,29 @@
 {
- "id": "bank-am-244",
- "question": "The function $C$ gives the daily cost, in dollars, of running a district heating loop when the outdoor temperature is $x$ degrees Celsius, and the graph of $y=C(x)$ passes through $(12,95)$. The function $D$ is defined by $D(x)=C(x)-18$. Which point must lie on the graph of $y=D(x)$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$(-6,95)$"
+  "id": "bank-am-244",
+  "question": "The graph of $y = C(x)$ in the $xy$-plane passes through the point $(6, 41)$. The function $D$ is defined by $D(x) = C(x) - 15$. Which point lies on the graph of $y = D(x)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(-9, 41)$"
+    },
+    {
+      "id": "B",
+      "text": "$(6, 26)$"
+    },
+    {
+      "id": "C",
+      "text": "$(6, 56)$"
+    },
+    {
+      "id": "D",
+      "text": "$(21, 41)$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts 15 from the x-coordinate instead of the y-coordinate",
+    "C": "adds 15 to the y-coordinate, shifting the point up",
+    "D": "adds 15 to the x-coordinate, treating the change as a horizontal shift"
   },
-  {
-   "id": "B",
-   "text": "$(12,77)$"
-  },
-  {
-   "id": "C",
-   "text": "$(12,113)$"
-  },
-  {
-   "id": "D",
-   "text": "$(30,95)$"
-  }
- ],
- "distractorNotes": {
-  "A": "shifts the x-coordinate left by 18 instead of shifting the output down",
-  "C": "adds 18 to the output instead of subtracting it",
-  "D": "shifts the x-coordinate right by 18 instead of shifting the output down"
- },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Vertical Shift**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Subtracting $18$ outside the function lowers every output by $18$, so $(12,95)$ becomes $(12,77)$.\n\n**The Full Solution:**\nStep 1: $C(12)=95$ because $(12,95)$ is on the graph of $y=C(x)$.\nStep 2: The rule $D(x)=C(x)-18$ subtracts $18$ from each output while leaving the input unchanged.\nStep 3: So $D(12)=95-18=77$, and $(12,77)$ is on the graph of $y=D(x)$. Check: reversing the shift gives $D(12)+18=95=C(12)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-6,95)$): shifts the input left by $18$ instead of lowering the output.\n* Choice C ($(12,113)$): adds $18$ to the output instead of subtracting it.\n* Choice D ($(30,95)$): shifts the input right by $18$.\n\n**Test Day Takeaway:** A constant subtracted outside the function moves points straight down — the $x$-coordinate never changes."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Vertical Shift**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $D(6) = C(6) - 15 = 41 - 15 = 26$, so the point $(6, 26)$ lies on the graph of $y = D(x)$.\n\n**The Full Solution:**\nStep 1: Since $(6, 41)$ is on the graph of $y = C(x)$, $C(6) = 41$.\nStep 2: Evaluate $D$ at the same input: $D(6) = C(6) - 15 = 41 - 15 = 26$.\nStep 3: So the graph of $y = D(x)$ passes through $(6, 26)$. Check: subtracting $15$ from every output moves each point straight down $15$ units, and $(6, 41)$ moves to $(6, 26)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-9, 41)$): subtracts $15$ from the $x$-coordinate instead of the $y$-coordinate.\n* Choice C ($(6, 56)$): adds $15$ to the $y$-coordinate, which would be the graph of $y = C(x) + 15$.\n* Choice D ($(21, 41)$): moves the point horizontally, as if $D(x) = C(x - 15)$.\n\n**Test Day Takeaway:** Subtracting a constant from the output keeps the $x$-coordinate and lowers the $y$-coordinate by that constant."
 }

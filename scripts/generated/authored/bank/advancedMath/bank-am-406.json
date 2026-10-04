@@ -1,29 +1,29 @@
 {
- "id": "bank-am-406",
- "question": "A drill log meets a basalt contact at two depths, in meters, that are the solutions of $x^2 - 16x + k = 0$ for some constant $k$, and one of those depths is triple the other. What is the greater of the two depths, in meters?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$4$"
+  "id": "bank-am-406",
+  "question": "$x^{2} - 16x + k = 0$\nIn the given equation, $k$ is a constant. One solution to the equation is $3$ times the other solution. What is the greater solution to the equation?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$4$"
+    },
+    {
+      "id": "B",
+      "text": "$8$"
+    },
+    {
+      "id": "C",
+      "text": "$12$"
+    },
+    {
+      "id": "D",
+      "text": "$48$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the lesser solution",
+    "B": "splits the sum $16$ equally, as if both solutions were the same",
+    "D": "reports the product $k = 48$ instead of a solution"
   },
-  {
-   "id": "B",
-   "text": "$8$"
-  },
-  {
-   "id": "C",
-   "text": "$12$"
-  },
-  {
-   "id": "D",
-   "text": "$48$"
-  }
- ],
- "distractorNotes": {
-  "A": "reports the shallower depth",
-  "B": "halves the sum, treating the two depths as equal",
-  "D": "reports the constant k, which is the product of the depths"
- },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Vieta Sum & Product of Roots**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The depths sum to $16$, so writing them as $r$ and $3r$ gives $4r = 16$, $r = 4$, and the greater depth is $12$.\n\n**The Full Solution:**\nStep 1: For $x^2 - 16x + k = 0$, the two solutions add to $-\\frac{-16}{1} = 16$.\nStep 2: Name the shallower depth $r$; the other is $3r$, so $r + 3r = 16$, which gives $4r = 16$ and $r = 4$.\nStep 3: The greater depth is $3r = 12$ meters. Check: $4 + 12 = 16$ and $4 \\times 12 = 48$, so $k = 48$ and $x^2 - 16x + 48 = (x - 4)(x - 12)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): reports the shallower depth instead of the greater one.\n* Choice B ($8$): halves the sum, which would be right only if the two depths were equal.\n* Choice D ($48$): reports $k$, the product of the two depths, rather than a depth.\n\n**Test Day Takeaway:** When roots are in a stated ratio, name them $r$ and $mr$ and feed that into the sum $-\\frac{b}{a}$ before touching the product."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Vieta Sum & Product of Roots**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Let the solutions be $r$ and $3r$; their sum is $16$, so $4r = 16$, $r = 4$, and the greater solution is $12$.\n\n**The Full Solution:**\nStep 1: Call the solutions $r$ and $3r$. The sum of the solutions is the opposite of the $x$-coefficient: $r + 3r = 16$.\nStep 2: So $4r = 16$ and $r = 4$; the solutions are $4$ and $12$.\nStep 3: The greater solution is $12$. Check: $k = 4 \\cdot 12 = 48$, and $x^{2} - 16x + 48 = (x - 4)(x - 12)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): solves correctly but reports the lesser solution.\n* Choice B ($8$): divides $16$ by $2$, as if the two solutions were equal.\n* Choice D ($48$): gives $k$, the product of the solutions.\n\n**Test Day Takeaway:** When a relationship between the solutions is given, name them $r$ and $3r$ and use the sum, which you can read from the equation without knowing $k$."
 }

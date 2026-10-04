@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-062",
-  "question": "A reservoir's modeled water level, in centimeters, at hour $x$ is given by the function $f$, whose graph is shown in the $xy$-plane. A rival model gives the level as $g(x) = -2x + 13$. At which point do the graphs of the two models meet?",
+  "question": "The graph of the linear function $f$ is shown in the $xy$-plane. The function $g$ is defined by $g(x) = -2x + 13$. The graphs of $y = f(x)$ and $y = g(x)$ intersect at the point $(a, b)$. What is the value of $b$?",
   "diagram": {
     "type": "linearGraph",
     "params": {
@@ -33,26 +33,26 @@
   "choices": [
     {
       "id": "A",
-      "text": "$(-9, -5)$"
+      "text": "$-5$"
     },
     {
       "id": "B",
-      "text": "$(3, 7)$"
+      "text": "$3$"
     },
     {
       "id": "C",
-      "text": "$(7, 3)$"
+      "text": "$7$"
     },
     {
       "id": "D",
-      "text": "$(9, 13)$"
+      "text": "$13$"
     }
   ],
   "distractorNotes": {
-    "A": "uses +2x instead of -2x for g, solving x + 4 = 2x + 13",
-    "C": "reverses the coordinates of the correct point",
-    "D": "drops the -2x term and solves x + 4 = 13"
+    "A": "moves -2x to the left without changing its sign, solving -x = 9 to get x = -9 and y = -5",
+    "B": "reports the x-coordinate a = 3 instead of the y-coordinate",
+    "D": "forgets to divide by 3, taking x = 9 and then y = 9 + 4 = 13"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Find Intersection by Setting Equal**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The graph gives $f(x) = x + 4$; setting $x + 4 = -2x + 13$ yields $3x = 9$, so $x = 3$ and the height is $7$.\n\n**The Full Solution:**\nStep 1: Read $f$ from the graph: it passes through $(0, 4)$ and $(4, 8)$, so its slope is $1$ and $f(x) = x + 4$.\nStep 2: The graphs meet where the outputs agree: $x + 4 = -2x + 13$.\nStep 3: Collect terms: $3x = 9$, so $x = 3$, and $f(3) = 3 + 4 = 7$, giving the point $(3, 7)$. Check: $g(3) = -6 + 13 = 7$, the same height ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-9, -5)$): uses $+2x$ instead of $-2x$ for $g$, solving $x + 4 = 2x + 13$.\n* Choice C ($(7, 3)$): reverses the coordinates of the correct point.\n* Choice D ($(9, 13)$): drops the $-2x$ term and solves $x + 4 = 13$.\n\n**Test Day Takeaway:** Read the graphed function's rule off two lattice points first; only then set the two rules equal."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Find Intersection by Setting Equal**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The graph passes through $(0, 4)$ and $(4, 8)$, so $f(x) = x + 4$. Setting $x + 4 = -2x + 13$ gives $x = 3$, and then $b = 3 + 4 = 7$.\n\n**The Full Solution:**\nStep 1: Read $f$ from the graph: it crosses the $y$-axis at $4$ and rises $4$ units over $4$ units, so its slope is $1$ and $f(x) = x + 4$.\nStep 2: At an intersection point the two functions have the same output, so set them equal: $x + 4 = -2x + 13$, which gives $3x = 9$ and $x = 3$.\nStep 3: Substitute into either function: $b = f(3) = 3 + 4 = 7$. Check: $g(3) = -2(3) + 13 = 7$ as well ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): moves $-2x$ to the left side without changing its sign, getting $-x = 9$, so $x = -9$ and $y = -9 + 4 = -5$. That point is on $f$ but not on $g$.\n* Choice B ($3$): stops at the $x$-coordinate. The question asks for $b$, the $y$-coordinate.\n* Choice D ($13$): reaches $3x = 9$ but uses $x = 9$, then computes $9 + 4 = 13$.\n\n**Test Day Takeaway:** An intersection point is where the two outputs are equal: set the expressions equal, solve for $x$, then substitute back to get the $y$-coordinate the question asks for."
 }

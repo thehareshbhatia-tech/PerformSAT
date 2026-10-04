@@ -1,6 +1,6 @@
 {
  "id": "bank-am-228",
- "question": "The figure shows a parabola in the $xy$-plane whose equation has the form $y=(x-h)^{2}+k$, where $h$ and $k$ are constants and the curve opens upward. Which equation gives that parabola?",
+ "question": "The graph of $y = (x - h)^{2} + k$, where $h$ and $k$ are constants, is shown. Which of the following equations represents the graph?",
  "diagram": {
   "type": "quadraticVertex",
   "params": {
@@ -46,5 +46,5 @@
   "C": "reads the vertex's y-coordinate as +4 instead of -4",
   "D": "swaps h and k, placing the vertex at (4, -3)"
  },
- "explanation": "**SAT Pattern: Function from Shifted Graph**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The lowest point sits at $(3,-4)$, so $h=3$ and $k=-4$, giving $y=(x-3)^{2}+(-4)$.\n\n**The Full Solution:**\nStep 1: In $y=(x-h)^{2}+k$ the vertex is $(h,k)$, the point where the curve turns.\nStep 2: The drawn curve turns at $(3,-4)$, so $h=3$ and $k=-4$.\nStep 3: Substituting gives $y=(x-3)^{2}-4$. Check: at $x=1$ this gives $4-4=0$, matching the marked point $(1,0)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($y=(x+3)^{2}-4$): flips the sign inside the parentheses, moving the vertex to $x=-3$.\n* Choice C ($y=(x-3)^{2}+4$): flips the sign of the vertical shift, lifting the vertex above the horizontal axis.\n* Choice D ($y=(x-4)^{2}-3$): swaps the two constants, placing the vertex at $(4,-3)$.\n\n**Test Day Takeaway:** In vertex form the number subtracted from $x$ is the vertex's horizontal coordinate — the sign you see is the opposite of the shift."
+ "explanation": "**SAT Pattern: Function from Shifted Graph**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The vertex is at $(3, -4)$, so $h = 3$ and $k = -4$, giving $y = (x - 3)^{2} - 4$.\n\n**The Full Solution:**\nStep 1: In $y = (x - h)^{2} + k$ the vertex is $(h, k)$, the point where the curve turns.\nStep 2: The graph turns at $(3, -4)$, so $h = 3$ and $k = -4$.\nStep 3: Substituting gives $y = (x - 3)^{2} - 4$. Check: at $x = 1$ this gives $4 - 4 = 0$, matching the marked point $(1, 0)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = (x + 3)^{2} - 4$): flips the sign inside the parentheses, moving the vertex to $x = -3$.\n* Choice C ($y = (x - 3)^{2} + 4$): flips the sign of the vertical shift, putting the vertex above the $x$-axis.\n* Choice D ($y = (x - 4)^{2} - 3$): swaps the two constants, placing the vertex at $(4, -3)$.\n\n**Test Day Takeaway:** In vertex form the number subtracted from $x$ is the vertex's $x$-coordinate — the sign you see is the opposite of the shift."
 }

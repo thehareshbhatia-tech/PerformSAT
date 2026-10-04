@@ -6,7 +6,7 @@ export const algebraBank = [
     skills: ["slope-from-points"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The table gives the height, in centimeters, of a bamboo shoot on two days of a growth study. If the height increased at a constant rate, what was the rate of change, in centimeters per day, of the height?",
+    question: "The table shows the height, in centimeters, of a bamboo plant on two days. The height increased at a constant rate. What was the rate of change, in centimeters per day, of the height?",
     questionTable: { headers: ["Day", "Height (cm)"], rows: [["2", "24"], ["6", "48"]] },
     choices: [
       // distractor: divides the change in height by the sum of the day numbers (24/8)
@@ -31,19 +31,19 @@ export const algebraBank = [
     skills: ["slope-from-points"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The line shown in the $xy$-plane models the number of pine seedlings per plot, $y$, counted $x$ weeks after a controlled burn. What is the slope of the line?",
+    question: "What is the slope of the line shown in the $xy$-plane?",
     diagram: { type: "linearGraph", params: { slope: 3, yIntercept: 2, xRange: [0, 8], yRange: [0, 24], xTickInterval: 2, yTickInterval: 4, gridInterval: 2, showPoints: [[2, 8], [6, 20]] } },
     choices: [
-      // distractor: reads the $y$-intercept of the line as its slope
+      // distractor: reads the y-intercept of the line, 2, as its slope
       { id: "A", text: "$2$" },
       { id: "B", text: "$3$" },
-      // distractor: uses the run $6 - 2 = 4$ by itself as the slope
+      // distractor: uses the change in x, 6 - 2 = 4, by itself as the slope
       { id: "C", text: "$4$" },
-      // distractor: uses the rise $20 - 8 = 12$ without dividing by the run
+      // distractor: uses the change in y, 20 - 8 = 12, without dividing by the change in x
       { id: "D", text: "$12$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Slope from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The line passes through $(2, 8)$ and $(6, 20)$, so the slope is $\\frac{20 - 8}{6 - 2} = 3$.\n\n**The Full Solution:**\n\nStep 1: Read two grid points off the line: $(2, 8)$ and $(6, 20)$.\n\nStep 2: Slope is rise over run: $\\frac{20 - 8}{6 - 2} = \\frac{12}{4}$.\n\nStep 3: That is $3$ seedlings per week. Check the $y$-intercept: $8 - 3(2) = 2$, and the graph does cross the $y$-axis at $2$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($2$): reports the $y$-intercept, the value where the line meets the vertical axis.\n\n* Choice C ($4$): reports the run $6 - 2$ instead of the ratio.\n\n* Choice D ($12$): reports the rise $20 - 8$ without dividing by the run.\n\n**Test Day Takeaway:** Pick two points that sit exactly on grid intersections, then divide the vertical change by the horizontal change.",
+    explanation: "**SAT Pattern: Slope from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The line passes through the grid points $(2, 8)$ and $(6, 20)$, so the slope is $\\frac{20 - 8}{6 - 2} = 3$.\n\n**The Full Solution:**\nStep 1: Read two points that sit exactly on the line at grid intersections: $(2, 8)$ and $(6, 20)$.\nStep 2: Slope is the change in $y$ divided by the change in $x$: $\\frac{20 - 8}{6 - 2} = \\frac{12}{4}$.\nStep 3: So the slope is $3$. Check: the $y$-intercept would be $8 - 3(2) = 2$, and the line does cross the $y$-axis at $(0, 2)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reports the $y$-intercept, the $y$-value where the line crosses the $y$-axis, instead of the slope.\n* Choice C ($4$): reports the change in $x$, $6 - 2$, instead of the ratio.\n* Choice D ($12$): reports the change in $y$, $20 - 8$, without dividing by the change in $x$.\n\n**Test Day Takeaway:** Pick two points that sit exactly on grid intersections, then divide the change in $y$ by the change in $x$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "slope-rate-of-change",
@@ -56,7 +56,7 @@ export const algebraBank = [
     skills: ["slope-from-points"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A courier service charges a flat fee plus a constant amount for each kilogram of a package's mass. A $3$-kilogram package costs $\\$19.50$ to ship, and a $9$-kilogram package costs $\\$34.50$ to ship. What is the charge per kilogram, in dollars?",
+    question: "A shipping company charges a flat fee plus a fixed amount per kilogram. It costs \\$19.50 to ship a $3$-kilogram package and \\$34.50 to ship a $9$-kilogram package. What is the charge per kilogram, in dollars?",
     choices: [
       // distractor: divides the cost difference by the sum of the masses (15/12)
       { id: "A", text: "$1.25$" },
@@ -80,7 +80,7 @@ export const algebraBank = [
     skills: ["slope-from-points"],
     difficulty: "medium",
     type: "fill-in",
-    question: "The table gives the volume of propane, in gallons, in a heating tank on two days of a winter. If the volume decreased at a constant rate, at what rate, in gallons per day, did the volume decrease?",
+    question: "The table shows the volume of propane, in gallons, in a tank on two days. The volume decreased at a constant rate. At what rate, in gallons per day, did the volume decrease?",
     questionTable: { headers: ["Day", "Volume (gallons)"], rows: [["6", "210"], ["21", "150"]] },
     correctAnswer: "4",
     explanation: "**SAT Pattern: Rate from Two Points (Negative Slope)**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~15s):** The volume fell $210 - 150 = 60$ gallons over $21 - 6 = 15$ days, so it decreased at $\\frac{60}{15} = 4$ gallons per day.\n\n**The Full Solution:**\nStep 1: Treat the rows as points $(6, 210)$ and $(21, 150)$. The slope is $\\frac{150 - 210}{21 - 6} = \\frac{-60}{15} = -4$ gallons per day.\nStep 2: The negative sign means the volume is decreasing; the question asks for the rate of decrease, which is the size of the change, $4$ gallons per day.\nStep 3: Check: from $210$ gallons on day $6$, losing $4$ gallons per day for $15$ days gives $210 - 4(15) = 150$ gallons on day $21$. $\\checkmark$\n\n**Common Mistakes:** Entering $-4$ when the question asks for the rate of decrease as a positive quantity; dividing $60$ by $21$ (the day number) instead of by the $15$ elapsed days; dividing $210$ by $21$ to get $10$, which ignores the first reading entirely.\n\n**Test Day Takeaway:** Compute the slope with signs, then read the question's wording: \"rate of decrease\" wants the magnitude, while \"rate of change\" keeps the sign.",
@@ -96,7 +96,7 @@ export const algebraBank = [
     skills: ["slope-from-points"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The table gives the water level, in centimeters, at a river gauge at two times on the same day. Over this interval the water level changed at a constant rate. What was the rate of change, in centimeters per hour, of the water level?",
+    question: "The table shows the water level, in centimeters, of a river at two times on the same day. The water level changed at a constant rate. What was the rate of change, in centimeters per hour, of the water level?",
     questionTable: { headers: ["Time", "Water level (cm)"], rows: [["6:50 A.M.", "184"], ["9:20 A.M.", "154"]] },
     choices: [
       // distractor: the change in level, never divided by the elapsed time
@@ -123,18 +123,18 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A greenhouse heater raises the air temperature at a constant rate of $1.5$ degrees Fahrenheit per minute. The temperature was $48$ degrees Fahrenheit when the heater was turned on. Which equation gives the temperature $T$, in degrees Fahrenheit, $m$ minutes after the heater was turned on?",
+    question: "A tank contains $48$ liters of water. Water is added at a rate of $1.5$ liters per minute. Which equation gives the volume $V$, in liters, of water in the tank after $m$ minutes?",
     choices: [
-      // distractor: treats the temperature as decreasing
-      { id: "A", text: "$T = 48 - 1.5m$" },
-      // distractor: swaps the rate and the starting value
-      { id: "B", text: "$T = 48m + 1.5$" },
-      // distractor: subtracts the starting temperature instead of adding it
-      { id: "C", text: "$T = 1.5m - 48$" },
-      { id: "D", text: "$T = 1.5m + 48$" }
+      // distractor: treats the volume as decreasing by 1.5 liters per minute
+      { id: "A", text: "$V = 48 - 1.5m$" },
+      // distractor: swaps the rate and the starting volume
+      { id: "B", text: "$V = 48m + 1.5$" },
+      // distractor: subtracts the starting volume instead of adding it
+      { id: "C", text: "$V = 1.5m - 48$" },
+      { id: "D", text: "$V = 1.5m + 48$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Linear Model (Identify Slope and Intercept)**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Starting value $48$ plus $1.5$ for each of the $m$ minutes: $T = 1.5m + 48$.\n\n**The Full Solution:**\nStep 1: A quantity that starts at a fixed value and changes by a constant amount per unit of time is linear: $T = (\\text{rate})m + (\\text{starting value})$.\nStep 2: The rate is $1.5$ degrees per minute, and the starting value (at $m = 0$) is $48$ degrees, so $T = 1.5m + 48$.\nStep 3: Check with $m = 0$: $T = 48$, the temperature when the heater was turned on. After $10$ minutes, $T = 1.5(10) + 48 = 63$, which is $15$ degrees warmer, as expected. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($T = 48 - 1.5m$): models a temperature that falls $1.5$ degrees per minute, but the heater raises it.\n* Choice B ($T = 48m + 1.5$): swaps the roles of rate and starting value, making the temperature jump $48$ degrees every minute.\n* Choice C ($T = 1.5m - 48$): subtracts the starting temperature, giving $T = -48$ at $m = 0$, which contradicts the given start.\n\n**Test Day Takeaway:** In $y = mx + b$, the per-unit rate multiplies the variable and the starting amount stands alone; test $x = 0$ to confirm the intercept matches the story.",
+    explanation: "**SAT Pattern: Linear Model (Identify Slope and Intercept)**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Start with $48$ liters and add $1.5$ liters for each of the $m$ minutes: $V = 1.5m + 48$.\n\n**The Full Solution:**\nStep 1: A quantity that starts at a fixed value and changes by a constant amount each minute is linear: $V = (\\text{rate})m + (\\text{starting value})$.\nStep 2: The rate is $1.5$ liters per minute and the starting value (at $m = 0$) is $48$ liters, so $V = 1.5m + 48$.\nStep 3: Check: at $m = 0$, $V = 48$, the starting volume; after $10$ minutes, $V = 1.5(10) + 48 = 63$, which is $15$ liters more ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($V = 48 - 1.5m$): models a tank that loses $1.5$ liters each minute, but water is being added.\n* Choice B ($V = 48m + 1.5$): swaps the rate and the starting value, so the volume would grow by $48$ liters every minute.\n* Choice C ($V = 1.5m - 48$): subtracts the starting volume, giving $V = -48$ at $m = 0$.\n\n**Test Day Takeaway:** In $y = mx + b$, the per-unit rate multiplies the variable and the starting amount stands alone; test $x = 0$ to confirm the intercept matches the situation.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "linear-model",
@@ -147,7 +147,7 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A pottery studio charges a one-time kiln fee of $\\$45$ plus $\\$12$ for each session a member attends. Which equation gives the total cost $C$, in dollars, for a member who attends $s$ sessions?",
+    question: "A pottery studio charges a one-time fee of \\$45 plus \\$12 per session. Which equation gives the total cost $C$, in dollars, for $s$ sessions?",
     choices: [
       // distractor: subtracts the one-time fee
       { id: "A", text: "$C = 12s - 45$" },
@@ -158,7 +158,7 @@ export const algebraBank = [
       { id: "D", text: "$C = 57s$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Linear Cost Model**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** One-time fee $45$, plus $12$ per session for $s$ sessions: $C = 12s + 45$.\n\n**The Full Solution:**\nStep 1: A fixed fee plus a constant charge per session is a linear cost: $C = (\\text{cost per session})s + (\\text{fixed fee})$.\nStep 2: The cost per session is $12$ and the fixed fee is $45$, so $C = 12s + 45$.\nStep 3: Check: with $s = 0$, $C = 45$, the fee alone; with $s = 3$, $C = 36 + 45 = 81$, which is $45$ plus three sessions at $12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($C = 12s - 45$): subtracts the kiln fee, giving a negative cost for a member with no sessions.\n* Choice B ($C = 45s + 12$): swaps the two numbers, charging $45$ per session and a $12$ fee.\n* Choice D ($C = 57s$): adds $45 + 12$ and charges it every session, as if the kiln fee recurred.\n\n**Test Day Takeaway:** A one-time fee is the $y$-intercept and a per-unit charge is the slope; a fee that is paid once never multiplies the variable.",
+    explanation: "**SAT Pattern: Linear Cost Model**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** One-time fee $45$, plus $12$ per session for $s$ sessions: $C = 12s + 45$.\n\n**The Full Solution:**\nStep 1: A fixed fee plus a constant charge per session is a linear cost: $C = (\\text{cost per session})s + (\\text{fixed fee})$.\nStep 2: The cost per session is $12$ and the fixed fee is $45$, so $C = 12s + 45$.\nStep 3: Check: with $s = 0$, $C = 45$, the fee alone; with $s = 3$, $C = 36 + 45 = 81$, which is $45$ plus three sessions at $12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($C = 12s - 45$): subtracts the one-time fee, giving a negative cost for $0$ sessions.\n* Choice B ($C = 45s + 12$): swaps the two numbers, charging $45$ per session and a $12$ fee.\n* Choice D ($C = 57s$): adds $45 + 12$ and charges it every session, as if the one-time fee recurred.\n\n**Test Day Takeaway:** A one-time fee is the $y$-intercept and a per-unit charge is the slope; a fee that is paid once never multiplies the variable.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "linear-model",
@@ -171,7 +171,7 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A javelin thrower's release-angle model $f$ gives the release angle, in degrees, for a run-up index of $x$. The model is linear, giving $9$ degrees at a run-up index of $0$ and $33$ degrees at a run-up index of $6$. Which equation defines $f$?",
+    question: "For the linear function $f$, $f(0) = 9$ and $f(6) = 33$. Which equation defines $f$?",
     choices: [
       // distractor: flips the sign of the $y$-intercept, so the graph would cross the $y$-axis at $-9$
       { id: "A", text: "$f(x) = 4x - 9$" },
@@ -182,7 +182,7 @@ export const algebraBank = [
       { id: "D", text: "$f(x) = 9x + 4$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Slope-Intercept Form Identification**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The constant term is $9$, and the angle climbs from $9$ to $33$ degrees over a run of $6$, so the slope is $4$ and $f(x) = 4x + 9$.\n\n**The Full Solution:**\n\nStep 1: A run-up index of $0$ gives $f(0) = 9$, so the constant term is $9$ and $f(x) = mx + 9$ for some constant $m$.\n\nStep 2: Substitute the second point: $33 = m(6) + 9$, so $6m = 24$ and $m = 4$.\n\nStep 3: Therefore $f(x) = 4x + 9$. Check: $f(6) = 4(6) + 9 = 33$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($f(x) = 4x - 9$): keeps the correct slope but negates the intercept, so $f(0) = -9$.\n\n* Choice C ($f(x) = \\frac{11}{2}x + 9$): divides $33$ by $6$ as if the line passed through the origin, so the $+9$ is counted twice.\n\n* Choice D ($f(x) = 9x + 4$): reads $9$ as the slope and $4$ as the intercept, reversing their roles.\n\n**Test Day Takeaway:** Use the intercept to fix the constant first, then let one more point solve for the slope.",
+    explanation: "**SAT Pattern: Slope-Intercept Form Identification**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $f(0) = 9$ makes the $y$-intercept $9$, and the output rises $33 - 9 = 24$ over a run of $6$, so the slope is $4$ and $f(x) = 4x + 9$.\n\n**The Full Solution:**\nStep 1: A linear function has the form $f(x) = mx + b$. Since $f(0) = b$, the given value $f(0) = 9$ means $b = 9$.\nStep 2: Substitute the second value: $f(6) = 6m + 9 = 33$, so $6m = 24$ and $m = 4$.\nStep 3: Therefore $f(x) = 4x + 9$. Check: $f(0) = 9$ and $f(6) = 4(6) + 9 = 33$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(x) = 4x - 9$): has the correct slope but negates the intercept, so $f(0) = -9$.\n* Choice C ($f(x) = \\frac{11}{2}x + 9$): uses $\\frac{33}{6}$ as the slope, as if the graph passed through the origin, and then adds the $9$ anyway.\n* Choice D ($f(x) = 9x + 4$): reverses the roles of the slope and the $y$-intercept.\n\n**Test Day Takeaway:** $f(0)$ is the constant term with no work; spend the effort on the slope, then check the second given value.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "slope-intercept-identification",
@@ -195,18 +195,18 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The function $r$ is defined by $r(t) = 2{,}400 - 85t$, where $r(t)$ is the estimated volume of fuel, in liters, remaining in a generator's tank $t$ hours after the generator is started. Which of the following is the best interpretation of $85$ in this context?",
+    question: "$r(t) = 2{,}400 - 85t$\nThe function $r$ estimates the volume of fuel, in liters, remaining in a generator's tank $t$ hours after the generator is started. What is the best interpretation of $85$ in this context?",
     choices: [
-      // distractor: confuses the slope with the initial value 2,400
-      { id: "A", text: "The tank contains $85$ liters of fuel when the generator is started." },
-      // distractor: treats the slope as the time until the output is zero
-      { id: "B", text: "The generator can run for $85$ hours before the tank is empty." },
-      // distractor: swaps the roles of input and output
-      { id: "C", text: "After $85$ hours, $2{,}400$ liters of fuel remain in the tank." },
-      { id: "D", text: "The generator uses $85$ liters of fuel each hour." }
+      // distractor: confuses the rate 85 with the starting volume, which is 2,400
+      { id: "A", text: "The tank contains an estimated $85$ liters of fuel when the generator is started." },
+      // distractor: treats the rate as the time until the tank is empty, which is 2,400/85, about 28 hours
+      { id: "B", text: "The generator can run for an estimated $85$ hours before the tank is empty." },
+      // distractor: inverts the rate, reading liters per hour as hours per liter
+      { id: "C", text: "The estimated volume of fuel in the tank decreases by $1$ liter every $85$ hours." },
+      { id: "D", text: "The estimated volume of fuel in the tank decreases by $85$ liters each hour." }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** In $r(t) = 2{,}400 - 85t$, the coefficient of $t$ is the rate of change: each hour, $85$ liters are subtracted from the remaining volume.\n\n**The Full Solution:**\nStep 1: The function has the linear form $r(t) = b + mt$ with $b = 2{,}400$ and $m = -85$. The constant term is the value at $t = 0$, the starting volume.\nStep 2: The slope $m = -85$ is the change in $r(t)$ for each one-unit increase in $t$: the remaining fuel decreases by $85$ liters per hour, meaning the generator uses $85$ liters each hour.\nStep 3: Check: $r(1) = 2{,}400 - 85 = 2{,}315$ and $r(2) = 2{,}230$, a drop of $85$ liters for each additional hour. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: describes the $y$-intercept, but the starting volume is $2{,}400$ liters, not $85$.\n* Choice B: the running time until the tank is empty is the $t$-intercept, $\\frac{2{,}400}{85} \\approx 28$ hours, not $85$.\n* Choice C: substituting $t = 85$ gives $r(85) = 2{,}400 - 85(85)$, which is negative, so this statement is false and confuses the input with the output.\n\n**Test Day Takeaway:** In $y = b + mx$, the number multiplying the variable is always the change in the output per one unit of the input, with its sign telling the direction.",
+    explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** In $r(t) = 2{,}400 - 85t$, the coefficient of $t$ is the rate of change: each hour, the estimated volume of fuel drops by $85$ liters.\n\n**The Full Solution:**\nStep 1: The function has the linear form $r(t) = b + mt$ with $b = 2{,}400$ and $m = -85$. The constant term is the estimated volume at $t = 0$.\nStep 2: The slope $m = -85$ is the change in $r(t)$ for each increase of $1$ in $t$: the estimated volume decreases by $85$ liters for each hour the generator runs.\nStep 3: Check: $r(1) = 2{,}400 - 85 = 2{,}315$ and $r(2) = 2{,}230$, a drop of $85$ liters for each additional hour ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: describes the starting volume, but that is $r(0) = 2{,}400$ liters, not $85$.\n* Choice B: the time until the tank is empty is the solution of $r(t) = 0$, which is $\\frac{2{,}400}{85} \\approx 28$ hours, not $85$.\n* Choice C: inverts the rate; $85$ is liters per hour, not hours per liter.\n\n**Test Day Takeaway:** In $y = b + mx$, the number multiplying the variable is the change in the output for each one-unit increase in the input, and its sign gives the direction.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "interpret-slope",
@@ -219,7 +219,7 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A model relating weekly sunshine hours $x$ and a crop-stress index $y$ over a growing season is given by $6x - 15y = 45$. Which equation gives $y$ in terms of $x$?",
+    question: "$6x - 15y = 45$\nThe given equation relates the variables $x$ and $y$. Which equation correctly expresses $y$ in terms of $x$?",
     choices: [
       // distractor: divides $-6x$ by $15$ instead of by $-15$, leaving the slope negative
       { id: "A", text: "$y = -\\frac{2}{5}x - 3$" },
@@ -243,7 +243,7 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "At 10:30 A.M., a snowbank was $96$ centimeters tall. The snowbank melted at a constant rate, and at 1:00 P.M. the same day it was $66$ centimeters tall. If the snowbank continues to melt at this rate, at what time will its height reach $0$ centimeters?",
+    question: "A snowbank was $96$ centimeters tall at 10:30 A.M. and $66$ centimeters tall at 1:00 P.M. the same day. If its height decreases at a constant rate, at what time will its height be $0$ centimeters?",
     choices: [
       // distractor: adds the 5.5 remaining hours to 10:30 A.M. instead of to 1:00 P.M.
       { id: "A", text: "4:00 P.M." },
@@ -267,7 +267,7 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The table gives the total number of downloads of an app on two days after its release. The total increased at a constant rate, and this rate is expected to continue. On which day will the total number of downloads first exceed $20{,}000$?",
+    question: "The table shows the total number of downloads of an app on two days after its release. The total increased at a constant rate. If this rate continues, on which day will the total number of downloads first exceed $20{,}000$?",
     questionTable: { headers: ["Day", "Total downloads"], rows: [["0", "4,200"], ["12", "12,600"]] },
     choices: [
       // distractor: rounds 22.57 down; on day 22 the total is 19,600, still under 20,000
@@ -294,7 +294,7 @@ export const algebraBank = [
     skills: ["word-problem-to-equation"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A club printed a total of $140$ programs for an event. Each color program cost $\\$0.60$ to print and each black-and-white program cost $\\$0.25$ to print, for a total printing cost of $\\$56.00$. If $c$ is the number of color programs printed, which equation represents this situation?",
+    question: "A club spent \\$56 to print $140$ programs. Each color program cost \\$0.60, and each black-and-white program cost \\$0.25. The club printed $c$ color programs. Which equation represents this situation?",
     choices: [
       // distractor: uses c for both program types
       { id: "A", text: "$0.60c + 0.25c = 56$" },
@@ -318,7 +318,7 @@ export const algebraBank = [
     skills: ["word-problem-to-equation"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A community garden charges $\\$32$ per season for a plot plus $\\$4$ for each bag of compost a gardener buys. A gardener paid a total of $\\$68$ for one season. Which equation can be used to find $b$, the number of bags of compost the gardener bought?",
+    question: "A gardener paid \\$68 for a garden plot that costs \\$32 and $b$ bags of compost that cost \\$4 each. Which equation represents this situation?",
     choices: [
       // distractor: subtracts the plot fee instead of adding it
       { id: "A", text: "$4b - 32 = 68$" },
@@ -342,7 +342,7 @@ export const algebraBank = [
     skills: ["word-problem-to-equation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "At the start of a planting season, one orchard has $640$ trees and adds $40$ trees each week. A second orchard has $1{,}000$ trees and removes $20$ trees each week. If these rates continue, after how many weeks will the two orchards have the same number of trees?",
+    question: "Orchard A has $640$ trees and adds $40$ trees each week. Orchard B has $1{,}000$ trees and removes $20$ trees each week. After how many weeks will the two orchards have the same number of trees?",
     choices: [
       { id: "A", text: "$6$" },
       // distractor: ignores the removal rate (40w = 360)
@@ -353,7 +353,7 @@ export const algebraBank = [
       { id: "D", text: "$60$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Set Two Linear Models Equal**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The gap of $1{,}000 - 640 = 360$ trees closes at $40 + 20 = 60$ trees per week, so it closes in $\\frac{360}{60} = 6$ weeks.\n\n**The Full Solution:**\nStep 1: Let $w$ be the number of weeks. First orchard: $640 + 40w$. Second orchard: $1{,}000 - 20w$ (removing trees is a negative rate).\nStep 2: Set them equal: $640 + 40w = 1{,}000 - 20w$. Add $20w$ to both sides and subtract $640$: $60w = 360$, so $w = 6$.\nStep 3: Check: after $6$ weeks the first orchard has $640 + 240 = 880$ trees and the second has $1{,}000 - 120 = 880$ trees. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($9$): solves $640 + 40w = 1{,}000$, ignoring that the second orchard is shrinking.\n* Choice C ($18$): writes the second orchard as $1{,}000 + 20w$, a sign error, and gets $20w = 360$.\n* Choice D ($60$): reports the combined closing rate, $40 + 20$, instead of solving for the time.\n\n**Test Day Takeaway:** When one quantity grows and another shrinks, their gap closes at the sum of the two rates; the time is the initial gap divided by that sum.",
+    explanation: "**SAT Pattern: Set Two Linear Models Equal**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The gap of $1{,}000 - 640 = 360$ trees closes at $40 + 20 = 60$ trees per week, so it closes in $\\frac{360}{60} = 6$ weeks.\n\n**The Full Solution:**\nStep 1: Let $w$ be the number of weeks. Orchard A: $640 + 40w$. Orchard B: $1{,}000 - 20w$ (removing trees is a negative rate).\nStep 2: Set them equal: $640 + 40w = 1{,}000 - 20w$. Add $20w$ to both sides and subtract $640$: $60w = 360$, so $w = 6$.\nStep 3: Check: after $6$ weeks orchard A has $640 + 240 = 880$ trees and orchard B has $1{,}000 - 120 = 880$ trees. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($9$): solves $640 + 40w = 1{,}000$, ignoring that orchard B is shrinking.\n* Choice C ($18$): writes orchard B as $1{,}000 + 20w$, a sign error, and gets $20w = 360$.\n* Choice D ($60$): reports the combined closing rate, $40 + 20$, instead of solving for the time.\n\n**Test Day Takeaway:** When one quantity grows and another shrinks, their gap closes at the sum of the two rates; the time is the initial gap divided by that sum.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "word-problem-setup",
@@ -366,7 +366,7 @@ export const algebraBank = [
     skills: ["word-problem-to-equation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A road crew has already paved $850$ meters of a road and continues paving at a constant rate of $125$ meters per hour. How many more hours will the crew need to pave until the total paved length is $2{,}600$ meters?",
+    question: "A crew has paved $850$ meters of a road and paves $125$ more meters each hour. How many more hours will it take for the paved length to reach a total of $2{,}600$ meters?",
     choices: [
       // distractor: 850/125, the hours already worked rather than the hours remaining
       { id: "A", text: "$6.8$" },
@@ -390,7 +390,7 @@ export const algebraBank = [
     skills: ["word-problem-to-equation"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A rooftop deck can safely support a total load of at most $3{,}600$ kilograms. Each planter on the deck has a mass of $85$ kilograms, and each bench has a mass of $140$ kilograms. If $14$ planters are already on the deck, what is the maximum number of benches that can be added without exceeding the load limit?",
+    question: "A deck can hold at most $3{,}600$ kilograms. It holds $14$ planters of $85$ kilograms each. What is the maximum number of $140$-kilogram benches that can be added to the deck?",
     choices: [
       { id: "A", text: "$17$" },
       // distractor: rounds 17.2 up, which exceeds the limit (18 benches add 2,520 kg > 2,410 kg available)
@@ -414,18 +414,18 @@ export const algebraBank = [
     skills: ["word-problem-to-equation"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A coworking space charges a one-time deposit of $d$ dollars plus $\\$180$ per month. A second coworking space charges $\\$225$ per month with no deposit. The total cost of using the first space for $12$ months is the same as the total cost of using the second space for $10$ months. What is the value of $d$?",
+    question: "Plan A for renting an office costs $d$ dollars plus \\$180 per month. Plan B costs \\$225 per month. Renting for $12$ months under plan A costs the same as renting for $10$ months under plan B. What is the value of $d$?",
     choices: [
       { id: "A", text: "$90$" },
-      // distractor: uses 10 months for both spaces: 225(10) - 180(10)
+      // distractor: uses 10 months for both plans: 225(10) - 180(10)
       { id: "B", text: "$450$" },
-      // distractor: uses 12 months for both spaces: 225(12) - 180(12)
+      // distractor: uses 12 months for both plans: 225(12) - 180(12)
       { id: "C", text: "$540$" },
       // distractor: swaps the two durations: d + 180(10) = 225(12)
       { id: "D", text: "$900$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Break-Even Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The second space costs $225(10) = 2{,}250$ for $10$ months, and the first costs $d + 180(12) = d + 2{,}160$ for $12$ months. Setting the totals equal gives $d = 2{,}250 - 2{,}160 = 90$.\n\n**The Full Solution:**\nStep 1: Build each total with its own number of months. First space for $12$ months: $d + 180(12) = d + 2{,}160$. Second space for $10$ months: $225(10) = 2{,}250$.\nStep 2: The two totals are equal: $d + 2{,}160 = 2{,}250$. Subtract $2{,}160$ from both sides: $d = 90$.\nStep 3: Check: $90 + 180(12) = 90 + 2{,}160 = 2{,}250$, and $225(10) = 2{,}250$, so the two totals match. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($450$): uses $10$ months for both spaces, computing $225(10) - 180(10)$, and ignores that the first space is used for $12$ months.\n* Choice C ($540$): uses $12$ months for both spaces, computing $225(12) - 180(12)$.\n* Choice D ($900$): swaps the two durations, solving $d + 180(10) = 225(12)$ instead.\n\n**Test Day Takeaway:** A break-even with an unknown fixed charge is solved by equating the two totals, but each total must be built with ITS OWN duration; the deposit is whatever remains after the monthly charges are subtracted.",
+    explanation: "**SAT Pattern: Break-Even Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Plan B for $10$ months costs $225(10) = 2{,}250$ dollars, and plan A for $12$ months costs $d + 180(12) = d + 2{,}160$ dollars. Setting the totals equal gives $d = 2{,}250 - 2{,}160 = 90$.\n\n**The Full Solution:**\nStep 1: Build each total with its own number of months. Plan A for $12$ months: $d + 180(12) = d + 2{,}160$. Plan B for $10$ months: $225(10) = 2{,}250$.\nStep 2: The two totals are equal: $d + 2{,}160 = 2{,}250$. Subtract $2{,}160$ from both sides: $d = 90$.\nStep 3: Check: $90 + 180(12) = 90 + 2{,}160 = 2{,}250$, and $225(10) = 2{,}250$, so the two totals match ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($450$): uses $10$ months for both plans, computing $225(10) - 180(10)$, and ignores that plan A runs for $12$ months.\n* Choice C ($540$): uses $12$ months for both plans, computing $225(12) - 180(12)$.\n* Choice D ($900$): swaps the two durations, solving $d + 180(10) = 225(12)$ instead.\n\n**Test Day Takeaway:** To find an unknown fixed charge, set the two totals equal, but build each total with its own duration; the fixed charge is what remains after the monthly charges are subtracted.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "break-even-word-problem",
@@ -440,19 +440,19 @@ export const algebraBank = [
     skills: ["table-to-equation"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The table gives the total cost $C$, in dollars, of a catering order for $n$ guests for three values of $n$. The relationship between $n$ and $C$ is linear. Which equation represents this relationship?",
-    questionTable: { headers: ["Guests, n", "Total cost, C (dollars)"], rows: [["10", "260"], ["20", "460"], ["30", "660"]] },
+    question: "The table shows values of $x$ and $y$, where $y$ is a linear function of $x$. Which equation represents this relationship?",
+    questionTable: { headers: ["x", "y"], rows: [["10", "260"], ["20", "460"], ["30", "660"]] },
     choices: [
-      // distractor: uses the first cost, 260, as the intercept
-      { id: "A", text: "$C = 20n + 260$" },
+      // distractor: uses the first y-value in the table, 260, as the y-intercept
+      { id: "A", text: "$y = 20x + 260$" },
       // distractor: divides 260 by 10 and assumes a proportional relationship
-      { id: "B", text: "$C = 26n$" },
-      // distractor: swaps the slope and the intercept
-      { id: "C", text: "$C = 60n + 20$" },
-      { id: "D", text: "$C = 20n + 60$" }
+      { id: "B", text: "$y = 26x$" },
+      // distractor: swaps the slope and the y-intercept
+      { id: "C", text: "$y = 60x + 20$" },
+      { id: "D", text: "$y = 20x + 60$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Linear Equation from Table**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Each additional $10$ guests adds $200$ dollars, so the slope is $20$ per guest. Then $260 = 20(10) + b$ gives $b = 60$, and $C = 20n + 60$.\n\n**The Full Solution:**\nStep 1: Slope from two rows: $\\frac{460 - 260}{20 - 10} = \\frac{200}{10} = 20$ dollars per guest.\nStep 2: Find the intercept with $C = 20n + b$ and the row $(10, 260)$: $260 = 200 + b$, so $b = 60$.\nStep 3: The equation is $C = 20n + 60$. Check the third row: $20(30) + 60 = 660$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($C = 20n + 260$): has the right slope but takes the first table cost as the intercept, forgetting that it corresponds to $n = 10$, not $n = 0$.\n* Choice B ($C = 26n$): divides $260$ by $10$ and assumes cost is proportional to guests; it fails the second row ($26 \\cdot 20 = 520 \\neq 460$).\n* Choice C ($C = 60n + 20$): swaps the slope and the intercept.\n\n**Test Day Takeaway:** The intercept is the value at input $0$; when the table does not include $0$, back it out by substituting one row into $y = mx + b$, then confirm with another row.",
+    explanation: "**SAT Pattern: Linear Equation from Table**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Each increase of $10$ in $x$ adds $200$ to $y$, so the slope is $20$. Then $260 = 20(10) + b$ gives $b = 60$, and $y = 20x + 60$.\n\n**The Full Solution:**\nStep 1: Slope from two rows: $\\frac{460 - 260}{20 - 10} = \\frac{200}{10} = 20$.\nStep 2: Find the $y$-intercept with $y = 20x + b$ and the row $(10, 260)$: $260 = 200 + b$, so $b = 60$.\nStep 3: The equation is $y = 20x + 60$. Check the third row: $20(30) + 60 = 660$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = 20x + 260$): has the right slope but takes the first $y$-value as the $y$-intercept, even though it goes with $x = 10$, not $x = 0$.\n* Choice B ($y = 26x$): divides $260$ by $10$ and assumes a proportional relationship; it fails the second row, since $26(20) = 520$, not $460$.\n* Choice C ($y = 60x + 20$): swaps the slope and the $y$-intercept.\n\n**Test Day Takeaway:** The $y$-intercept is the value of $y$ when $x = 0$; when the table does not include $0$, back it out by substituting one row into $y = mx + b$, then confirm with another row.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "table-to-linear",
@@ -465,8 +465,8 @@ export const algebraBank = [
     skills: ["table-to-equation"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The table gives the balance $B$, in dollars, of a savings account after $w$ weekly deposits of equal size, for three values of $w$. Which function models the balance after $w$ deposits?",
-    questionTable: { headers: ["Deposits, w", "Balance, B (dollars)"], rows: [["0", "250"], ["1", "285"], ["2", "320"]] },
+    question: "The function $B$ gives the balance, in dollars, of a savings account after $w$ equal weekly deposits. The table shows three values of $w$ and their corresponding values of $B(w)$. Which equation defines $B$?",
+    questionTable: { headers: ["w", "B(w)"], rows: [["0", "250"], ["1", "285"], ["2", "320"]] },
     choices: [
       { id: "A", text: "$B(w) = 35w + 250$" },
       // distractor: uses the balance after one deposit as the intercept
@@ -490,7 +490,7 @@ export const algebraBank = [
     skills: ["table-to-equation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "For the linear function $f$, the table shows $f(x)$ at three inputs. If $f(x) = ax + b$, where $a$ and $b$ are constants, what is the value of $b$?",
+    question: "The table shows three values of $x$ and their corresponding values of $f(x)$ for the linear function $f$. The function is defined by $f(x) = ax + b$, where $a$ and $b$ are constants. What is the value of $b$?",
     questionTable: { headers: ["x", "f(x)"], rows: [["3", "22"], ["7", "42"], ["11", "62"]] },
     choices: [
       // distractor: pairs the output 22 with the input 7 from a different row (22 - 35)
@@ -515,19 +515,19 @@ export const algebraBank = [
     skills: ["table-to-equation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The table gives the remaining charge $p$, as a percent of capacity, of a drone's battery $t$ minutes after takeoff, for three values of $t$. Which linear function models $p$ in terms of $t$?",
+    question: "The table shows the percent $p$ of a phone's battery charge remaining $t$ minutes after the phone was unplugged. The relationship between $t$ and $p$ is linear. Which equation represents this relationship?",
     questionTable: { headers: ["t (minutes)", "p (percent)"], rows: [["2", "88"], ["6", "76"], ["10", "64"]] },
     choices: [
-      { id: "A", text: "$p = -3t + 94$" },
-      // distractor: uses the first row's charge as the intercept
-      { id: "B", text: "$p = -3t + 88$" },
-      // distractor: assumes 100 percent at takeoff without computing the intercept
+      // distractor: uses the first row's charge, 88, as the intercept
+      { id: "A", text: "$p = -3t + 88$" },
+      { id: "B", text: "$p = -3t + 94$" },
+      // distractor: assumes the battery was at 100 percent at t = 0 without computing the intercept
       { id: "C", text: "$p = -3t + 100$" },
       // distractor: drops the negative sign on the slope
       { id: "D", text: "$p = 3t + 94$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Linear Function from Table (Negative Slope)**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The charge drops $12$ points every $4$ minutes, a slope of $-3$. Then $88 = -3(2) + b$ gives $b = 94$, so $p = -3t + 94$.\n\n**The Full Solution:**\nStep 1: Slope: $\\frac{76 - 88}{6 - 2} = \\frac{-12}{4} = -3$ percent per minute. The negative sign reflects a falling charge.\nStep 2: Substitute $(2, 88)$ into $p = -3t + b$: $88 = -6 + b$, so $b = 94$.\nStep 3: The model is $p = -3t + 94$. Check $t = 10$: $-30 + 94 = 64$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($p = -3t + 88$): uses the charge at $t = 2$ as the intercept, but the intercept is the charge at $t = 0$.\n* Choice C ($p = -3t + 100$): assumes the battery was full at takeoff; the table implies it started at $94$ percent.\n* Choice D ($p = 3t + 94$): drops the negative sign, describing a charge that increases during flight.\n\n**Test Day Takeaway:** A decreasing table means a negative slope; carry that sign into the intercept calculation, because $b = y - mx$ changes when $m$ is negative.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Linear Function from Table (Negative Slope)**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The charge drops $12$ percentage points every $4$ minutes, a slope of $-3$. Then $88 = -3(2) + b$ gives $b = 94$, so $p = -3t + 94$.\n\n**The Full Solution:**\nStep 1: Slope: $\\frac{76 - 88}{6 - 2} = \\frac{-12}{4} = -3$ percent per minute. The negative sign reflects a falling charge.\nStep 2: Substitute $(2, 88)$ into $p = -3t + b$: $88 = -6 + b$, so $b = 94$.\nStep 3: The equation is $p = -3t + 94$. Check $t = 10$: $-3(10) + 94 = 64$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($p = -3t + 88$): uses the charge at $t = 2$ as the intercept, but the intercept is the charge at $t = 0$.\n* Choice C ($p = -3t + 100$): assumes the battery was full when the phone was unplugged; the table implies it was at $94$ percent.\n* Choice D ($p = 3t + 94$): drops the negative sign, describing a charge that increases.\n\n**Test Day Takeaway:** A decreasing table means a negative slope; carry that sign into the intercept calculation, because $b = y - mx$ changes when $m$ is negative.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "table-to-linear",
@@ -542,18 +542,18 @@ export const algebraBank = [
     skills: ["function-evaluation"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A speaker's power draw, in watts, at input level $x$ is given by the function $p$, where $p(x) = 12x^2 + 5$ for input levels between $0$ and $5$. How many watts does the speaker draw at an input level of $3$?",
+    question: "The function $f$ is defined by $f(x) = 12x^{2} + 5$. What is the value of $f(3)$?",
     choices: [
-      // distractor: multiplies before squaring, computing 12 times 3 plus 5
+      // distractor: never squares, computing 12(3) + 5
       { id: "A", text: "$41$" },
-      // distractor: squares and multiplies correctly but forgets to add 5
+      // distractor: evaluates 12x^2 correctly but forgets to add 5
       { id: "B", text: "$108$" },
       { id: "C", text: "$113$" },
-      // distractor: squares 12x instead of x, computing 36 squared plus 5
-      { id: "D", text: "$1301$" }
+      // distractor: squares 12x instead of x, computing 36^2 + 5
+      { id: "D", text: "$1{,}301$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Direct Function Evaluation**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Square first: $3^2 = 9$, then $12(9) + 5 = 113$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 3$ into $p(x) = 12x^2 + 5$.\nStep 2: The exponent applies to $x$ only, so $12(3)^2 = 12(9) = 108$.\nStep 3: Add the constant: $108 + 5 = 113$ watts. Check: doubling the input to $6$ would give $12(36) + 5 = 437$, about four times the variable part, as squaring predicts ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($41$): multiplies before squaring, computing $12(3) + 5$.\n* Choice B ($108$): evaluates $12x^2$ correctly but drops the constant $5$.\n* Choice D ($1301$): squares $12x$ instead of $x$, computing $36^2 + 5$.\n\n**Test Day Takeaway:** In $ax^2 + b$ the exponent binds only to $x$ — square the input before touching the coefficient.",
+    explanation: "**SAT Pattern: Direct Function Evaluation**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Square first: $3^{2} = 9$, then $12(9) + 5 = 113$.\n\n**The Full Solution:**\nStep 1: Substitute $3$ for $x$ in $f(x) = 12x^{2} + 5$: $f(3) = 12(3)^{2} + 5$.\nStep 2: The exponent applies to $x$ only, so $12(3)^{2} = 12(9) = 108$.\nStep 3: Add the constant: $108 + 5 = 113$. Check: $f(3) - f(0) = 113 - 5 = 108 = 12 \\cdot 9$, twelve times the square of the input ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($41$): never squares, computing $12(3) + 5$.\n* Choice B ($108$): evaluates $12x^{2}$ correctly but drops the constant $5$.\n* Choice D ($1{,}301$): squares $12x$ instead of $x$, computing $36^{2} + 5$.\n\n**Test Day Takeaway:** In $ax^{2} + b$ the exponent applies only to $x$, so square the input before multiplying by the coefficient.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "direct-evaluation",
@@ -566,9 +566,9 @@ export const algebraBank = [
     skills: ["function-evaluation"],
     difficulty: "easy",
     type: "fill-in",
-    question: "The temperature of a cooling bath, in degrees Celsius, is given by $g(t)=-5t+12$, where $t$ is the number of minutes since dry ice was added. What is the temperature of the bath $4$ minutes after the dry ice was added?",
-    correctAnswer: "-8",
-    explanation: "**SAT Pattern: Function Evaluation with Negatives**\n\n**The correct answer is $-8$.**\n\n**The Fast Way (~20s):** $g(4)=-5(4)+12=-20+12=-8$ degrees Celsius.\n\n**The Full Solution:**\n\nStep 1: The elapsed time is the input, so evaluate $g$ at $t=4$: $g(4)=-5(4)+12$.\n\nStep 2: Multiply, keeping the negative coefficient attached: $-5(4)=-20$.\n\nStep 3: Add the constant: $-20+12=-8$ degrees Celsius. Check: the bath starts at $g(0)=12$ degrees and falls $5$ degrees each minute, so after $4$ minutes it has fallen $20$ degrees, from $12$ to $-8$.\n\n**Common Mistakes:** Dropping the negative sign gives $20+12=32$ degrees, a warming bath. Subtracting the constant instead of adding it gives $-20-12=-32$ degrees.\n\n**Test Day Takeaway:** A negative coefficient stays negative through the multiplication; only then is the constant added.",
+    question: "$g(x) = -5x + 12$\nWhat is the value of $g(-4)$?",
+    correctAnswer: "32",
+    explanation: "**SAT Pattern: Function Evaluation with Negatives**\n\n**The correct answer is $32$.**\n\n**The Fast Way (~15s):** $g(-4) = -5(-4) + 12 = 20 + 12 = 32$.\n\n**The Full Solution:**\nStep 1: Substitute $-4$ for $x$, keeping it in parentheses: $g(-4) = -5(-4) + 12$.\nStep 2: Multiply the two negatives: $-5(-4) = 20$.\nStep 3: Add the constant: $20 + 12 = 32$. Check: $g(0) = 12$, and each step of $1$ to the left raises $g$ by $5$, so $4$ steps to the left gives $12 + 4(5) = 32$ ✓\n\n**Common Mistakes:** Treating $-5(-4)$ as $-20$ gives $-20 + 12 = -8$. Substituting $4$ instead of $-4$ gives the same wrong value, $-8$. Subtracting the constant gives $20 - 12 = 8$.\n\n**Test Day Takeaway:** Put a negative input in parentheses before substituting; a negative times a negative is positive.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "direct-evaluation",
@@ -581,7 +581,7 @@ export const algebraBank = [
     skills: ["function-evaluation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The function $C$ is defined by $C(n) = 10n + 11$, where $C(n)$ is the total cost, in dollars, of renting a kayak for $n$ hours. If the total cost of one rental was $\\$71$, for how many hours was the kayak rented?",
+    question: "$C(n) = 10n + 11$\nThe function $C$ gives the cost, in dollars, of renting a kayak for $n$ hours. If a kayak rental cost \\$71, for how many hours was the kayak rented?",
     choices: [
       { id: "A", text: "$6$" },
       // distractor: 71/10, ignoring the fixed 11 dollars
@@ -592,7 +592,7 @@ export const algebraBank = [
       { id: "D", text: "$60$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Solve for Function Input**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Set the output equal to $71$: $10n + 11 = 71$, so $10n = 60$ and $n = 6$.\n\n**The Full Solution:**\nStep 1: The total cost is the output of $C$, so the condition is $C(n) = 71$, or $10n + 11 = 71$.\nStep 2: Subtract $11$ from both sides: $10n = 60$. Divide by $10$: $n = 6$.\nStep 3: Check: $C(6) = 10(6) + 11 = 71$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($7.1$): divides $71$ by $10$ without first removing the fixed $11$ dollars.\n* Choice C ($8.2$): adds $11$ to $71$ instead of subtracting it, then divides by $10$.\n* Choice D ($60$): stops at $10n = 60$ and reports the right-hand side instead of $n$.\n\n**Test Day Takeaway:** \"The cost was 71\" fixes the OUTPUT; set the rule equal to it and undo the operations in reverse order (subtract the constant, then divide by the rate).",
+    explanation: "**SAT Pattern: Solve for Function Input**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Set the output equal to $71$: $10n + 11 = 71$, so $10n = 60$ and $n = 6$.\n\n**The Full Solution:**\nStep 1: The total cost is the output of $C$, so the condition is $C(n) = 71$, or $10n + 11 = 71$.\nStep 2: Subtract $11$ from both sides: $10n = 60$. Divide by $10$: $n = 6$.\nStep 3: Check: $C(6) = 10(6) + 11 = 71$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($7.1$): divides $71$ by $10$ without first removing the fixed $11$ dollars.\n* Choice C ($8.2$): adds $11$ to $71$ instead of subtracting it, then divides by $10$.\n* Choice D ($60$): stops at $10n = 60$ and reports the right-hand side instead of $n$.\n\n**Test Day Takeaway:** A cost of \\$71 fixes the OUTPUT; set the rule equal to it and undo the operations in reverse order (subtract the constant, then divide by the rate).",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-solve-for-input",
@@ -605,9 +605,9 @@ export const algebraBank = [
     skills: ["function-evaluation"],
     difficulty: "medium",
     type: "fill-in",
-    question: "The vertical clearance under a parabolic arch, in feet, at a horizontal distance of $x$ feet from one base is $h(x)=-0.05x^{2}+kx$, where $k$ is a constant. If the clearance is $24$ feet at $x=20$, what is the clearance, in feet, at $x=30$?",
+    question: "$h(x) = -0.05x^{2} + kx$\nIn the given function, $k$ is a constant. If $h(20) = 24$, what is the value of $h(30)$?",
     correctAnswer: "21",
-    explanation: "**SAT Pattern: Function Evaluation (Quadratic)**\n\n**The correct answer is $21$.**\n\n**The Fast Way (~45s):** $h(20)=-20+20k=24$ gives $k=2.2$, so $h(30)=-45+66=21$ feet.\n\n**The Full Solution:**\n\nStep 1: Evaluate the rule at $x=20$: $h(20)=-0.05(400)+20k=-20+20k$.\n\nStep 2: Set that equal to the measured clearance: $-20+20k=24$, so $20k=44$ and $k=2.2$.\n\nStep 3: Evaluate at $x=30$: $h(30)=-0.05(900)+2.2(30)=-45+66=21$ feet. Check: $h(0)=0$ and $h(44)=-96.8+96.8=0$, so the arch does meet the ground at both bases, as an arch must.\n\n**Common Mistakes:** Treating $-0.05x^{2}$ as positive gives $45+66=111$ feet, taller than the arch ever gets. Solving $20k=24$ instead of $-20+20k=24$ gives $k=1.2$ and the impossible clearance $-45+36=-9$ feet.\n\n**Test Day Takeaway:** Square the input before applying the coefficient, and keep the sign attached to the squared term when you solve for a missing constant.",
+    explanation: "**SAT Pattern: Function Evaluation (Quadratic)**\n\n**The correct answer is $21$.**\n\n**The Fast Way (~40s):** $h(20) = -20 + 20k = 24$ gives $k = 2.2$, so $h(30) = -45 + 66 = 21$.\n\n**The Full Solution:**\nStep 1: Evaluate the function at $x = 20$: $h(20) = -0.05(400) + 20k = -20 + 20k$.\nStep 2: Set that equal to $24$: $-20 + 20k = 24$, so $20k = 44$ and $k = 2.2$.\nStep 3: Evaluate at $x = 30$: $h(30) = -0.05(900) + 2.2(30) = -45 + 66 = 21$. Check $k$: $h(20) = -0.05(400) + 2.2(20) = -20 + 44 = 24$ ✓\n\n**Common Mistakes:** Treating $-0.05x^{2}$ as positive at $x = 30$ gives $45 + 66 = 111$. Solving $20k = 24$ (dropping the $-20$) gives $k = 1.2$ and $h(30) = -45 + 36 = -9$. Squaring after multiplying, $(-0.05 \\cdot 30)^{2}$, gives $2.25 + 66 = 68.25$.\n\n**Test Day Takeaway:** Use the given value to find the constant first, then evaluate; square the input before applying the coefficient, and keep the sign with the squared term.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "direct-evaluation",
@@ -620,18 +620,18 @@ export const algebraBank = [
     skills: ["function-evaluation", "function-notation"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A compaction rule assigns to each burial depth $x$, in meters, the porosity index $f(x) = 3x - 7$, and for some constant $a$ the rule assigns the same index to the depths $2a + 1$ and $a + 6$. What is the value of $a$?",
+    question: "$f(x) = 7x - 3$\nFor the given function $f$, $f(2a + 1) = f(a + 6)$, where $a$ is a constant. What is the value of $a$?",
     choices: [
-      { id: "A", text: "$5$" },
-      // distractor: reports f(a) at a = 5 instead of a itself
-      { id: "B", text: "$8$" },
-      // distractor: reports the input 2a + 1 rather than a
+      // distractor: adds a to both sides instead of subtracting it, solving 3a = 5
+      { id: "A", text: "$\\frac{5}{3}$" },
+      { id: "B", text: "$5$" },
+      // distractor: reports the common input 2a + 1 = a + 6 = 11 instead of a
       { id: "C", text: "$11$" },
-      // distractor: adds the two constants 7 and 6
-      { id: "D", text: "$13$" }
+      // distractor: reports the common output f(11) = 74 instead of a
+      { id: "D", text: "$74$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Function Equality (One-to-One Linear)**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** A rule with a nonzero constant rate never repeats an output, so the inputs must match: $2a + 1 = a + 6$, giving $a = 5$.\n\n**The Full Solution:**\nStep 1: Write out the two outputs: $f(2a + 1) = 3(2a + 1) - 7 = 6a - 4$ and $f(a + 6) = 3(a + 6) - 7 = 3a + 11$.\nStep 2: Set them equal: $6a - 4 = 3a + 11$, so $3a = 15$.\nStep 3: Then $a = 5$. Check: the inputs are $2(5) + 1 = 11$ and $5 + 6 = 11$, the same input, and $f(11) = 26$ either way ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($8$): reports $f(5) = 8$ instead of the constant $a$.\n* Choice C ($11$): reports the input $2a + 1 = 11$ rather than $a$.\n* Choice D ($13$): adds the two constants $7$ and $6$ that appear in the problem.\n\n**Test Day Takeaway:** A linear rule with nonzero slope hits each output once, so equal outputs force equal inputs — set the inputs equal and skip the expansion.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Function Equality (One-to-One Linear)**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** A linear function with a nonzero slope never gives the same output for two different inputs, so the inputs must be equal: $2a + 1 = a + 6$, giving $a = 5$.\n\n**The Full Solution:**\nStep 1: Write out the two outputs: $f(2a + 1) = 7(2a + 1) - 3 = 14a + 4$ and $f(a + 6) = 7(a + 6) - 3 = 7a + 39$.\nStep 2: Set them equal: $14a + 4 = 7a + 39$, so $7a = 35$.\nStep 3: Then $a = 5$. Check: the inputs are $2(5) + 1 = 11$ and $5 + 6 = 11$, and $f(11) = 7(11) - 3 = 74$ either way ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{5}{3}$): adds $a$ to both sides of $2a + 1 = a + 6$ instead of subtracting it, getting $3a = 5$.\n* Choice C ($11$): reports the common input, $2a + 1 = 11$, rather than $a$.\n* Choice D ($74$): reports the common output, $f(11) = 74$, rather than $a$.\n\n**Test Day Takeaway:** A linear function with a nonzero slope takes each output exactly once, so equal outputs force equal inputs; set the inputs equal and answer the question that was asked.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-equality",
@@ -646,7 +646,7 @@ export const algebraBank = [
     skills: ["parallel-line-slope"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The graph of line $p$ in the $xy$-plane is shown. Line $p$ passes through the points $(0, -3)$ and $(2, 1)$. Line $q$, not shown, is parallel to line $p$. What is the slope of line $q$?",
+    question: "The graph of line $p$ is shown in the $xy$-plane. Line $q$ is parallel to line $p$. What is the slope of line $q$?",
     diagram: { type: "linearGraph", params: { slope: 2, yIntercept: -3, xRange: [-6, 6], yRange: [-6, 6], xTickInterval: 2, yTickInterval: 2, gridInterval: 1, showPoints: [[0, -3], [2, 1]], label: "p" } },
     choices: [
       // distractor: flips the sign of the slope
@@ -658,7 +658,7 @@ export const algebraBank = [
       { id: "D", text: "$2$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Parallel Slope Identification**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** From $(0, -3)$ to $(2, 1)$ the line rises $4$ over a run of $2$, so line $p$ has slope $2$. Parallel lines have equal slopes, so line $q$ also has slope $2$.\n\n**The Full Solution:**\nStep 1: Slope of $p$: $\\frac{1 - (-3)}{2 - 0} = \\frac{4}{2} = 2$.\nStep 2: Two distinct lines in the $xy$-plane are parallel exactly when their slopes are equal, so the slope of $q$ equals the slope of $p$.\nStep 3: The slope of $q$ is $2$. Check on the graph: moving right $1$ unit from the $y$-intercept $(0, -3)$ raises the line $2$ units to $(1, -1)$, consistent with slope $2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): reverses the sign of the slope, which would describe a line falling from left to right, unlike $p$.\n* Choice B ($-\\frac{1}{2}$): gives the negative reciprocal, the slope of a line PERPENDICULAR to $p$, not parallel.\n* Choice C ($\\frac{1}{2}$): inverts the ratio, using run over rise.\n\n**Test Day Takeaway:** Parallel means the same slope, full stop; only perpendicular involves flipping and negating.",
+    explanation: "**SAT Pattern: Parallel Slope Identification**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** The graph passes through $(0, -3)$ and $(2, 1)$; between them the line rises $4$ over a run of $2$, so line $p$ has slope $2$. Parallel lines have equal slopes, so line $q$ also has slope $2$.\n\n**The Full Solution:**\nStep 1: Slope of $p$: $\\frac{1 - (-3)}{2 - 0} = \\frac{4}{2} = 2$.\nStep 2: Two distinct lines in the $xy$-plane are parallel exactly when their slopes are equal, so the slope of $q$ equals the slope of $p$.\nStep 3: The slope of $q$ is $2$. Check on the graph: moving right $1$ unit from the $y$-intercept $(0, -3)$ raises the line $2$ units to $(1, -1)$, consistent with slope $2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): reverses the sign of the slope, which would describe a line falling from left to right, unlike $p$.\n* Choice B ($-\\frac{1}{2}$): gives the negative reciprocal, the slope of a line PERPENDICULAR to $p$, not parallel.\n* Choice C ($\\frac{1}{2}$): inverts the ratio, using run over rise.\n\n**Test Day Takeaway:** Parallel means the same slope, full stop; only perpendicular involves flipping and negating.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "parallel-slope-id",
@@ -671,7 +671,7 @@ export const algebraBank = [
     skills: ["parallel-line-slope"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "Points $A(-4, 6)$ and $B(2, -3)$ are shown in the $xy$-plane. What is the slope of any line that is parallel to line $AB$?",
+    question: "Points $A(-4, 6)$ and $B(2, -3)$ are shown in the $xy$-plane. Line $\\ell$ is parallel to line $AB$. What is the slope of line $\\ell$?",
     diagram: { type: "coordinatePoints", params: { points: [[-4, 6], [2, -3]], xMin: -6, xMax: 6, yMin: -6, yMax: 8 } },
     choices: [
       { id: "A", text: "$-\\frac{3}{2}$" },
@@ -683,7 +683,7 @@ export const algebraBank = [
       { id: "D", text: "$\\frac{3}{2}$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Parallel Slope from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Slope of $AB = \\frac{-3 - 6}{2 - (-4)} = \\frac{-9}{6} = -\\frac{3}{2}$, and a parallel line shares that slope.\n\n**The Full Solution:**\nStep 1: Slope of $AB$: $\\frac{y_B - y_A}{x_B - x_A} = \\frac{-3 - 6}{2 - (-4)} = \\frac{-9}{6}$.\nStep 2: Simplify: $-\\frac{9}{6} = -\\frac{3}{2}$. The negative sign matches the plot: $B$ is lower and to the right of $A$.\nStep 3: Parallel lines have equal slopes, so any line parallel to $AB$ has slope $-\\frac{3}{2}$. Check: from $A(-4, 6)$, moving right $6$ and down $9$ lands on $(2, -3) = B$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{2}{3}$): inverts the ratio, dividing the run by the rise.\n* Choice C ($\\frac{2}{3}$): gives the negative reciprocal, which is the slope of a line perpendicular to $AB$.\n* Choice D ($\\frac{3}{2}$): drops the negative sign even though the line falls from left to right.\n\n**Test Day Takeaway:** Read the direction from the picture before computing: a line falling left-to-right must have a negative slope, which instantly eliminates half the choices.",
+    explanation: "**SAT Pattern: Parallel Slope from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Slope of $AB = \\frac{-3 - 6}{2 - (-4)} = \\frac{-9}{6} = -\\frac{3}{2}$, and line $\\ell$, which is parallel to $AB$, has that same slope.\n\n**The Full Solution:**\nStep 1: Slope of $AB$: $\\frac{y_B - y_A}{x_B - x_A} = \\frac{-3 - 6}{2 - (-4)} = \\frac{-9}{6}$.\nStep 2: Simplify: $-\\frac{9}{6} = -\\frac{3}{2}$. The negative sign matches the plot: $B$ is lower and to the right of $A$.\nStep 3: Parallel lines have equal slopes, so line $\\ell$ has slope $-\\frac{3}{2}$. Check: from $A(-4, 6)$, moving right $6$ and down $9$ lands on $(2, -3) = B$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{2}{3}$): inverts the ratio, dividing the run by the rise.\n* Choice C ($\\frac{2}{3}$): gives the negative reciprocal, which is the slope of a line perpendicular to $AB$.\n* Choice D ($\\frac{3}{2}$): drops the negative sign even though the line falls from left to right.\n\n**Test Day Takeaway:** Read the direction from the picture before computing: a line falling left-to-right must have a negative slope, which instantly eliminates half the choices.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "parallel-slope-id",
@@ -696,9 +696,9 @@ export const algebraBank = [
     skills: ["parallel-line-slope"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A daily solar-irradiance model is graphed in the $xy$-plane as the line $9x - ky = 45$, where $k$ is a nonzero constant. A second irradiance model is graphed as a line with slope $\\frac{3}{4}$, and the two lines are parallel. What is the value of $k$?",
+    question: "$9x - ky = 45$\nIn the given equation, $k$ is a constant. In the $xy$-plane, the graph of the given equation is a line parallel to the graph of $y = \\frac{3}{4}x - 1$. What is the value of $k$?",
     correctAnswer: "12",
-    explanation: "**SAT Pattern: Slope from Standard Form**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~25s):** Solving $9x - ky = 45$ for $y$ gives slope $\\frac{9}{k}$. Setting $\\frac{9}{k} = \\frac{3}{4}$ gives $k = 12$.\n\n**The Full Solution:**\n\nStep 1: Parallel lines have equal slopes, so the first line must also have slope $\\frac{3}{4}$.\n\nStep 2: Rearrange $9x - ky = 45$: $-ky = -9x + 45$, so $y = \\frac{9}{k}x - \\frac{45}{k}$ and the slope is $\\frac{9}{k}$.\n\nStep 3: Solve $\\frac{9}{k} = \\frac{3}{4}$ by cross multiplying: $3k = 36$, so $k = 12$. Check: $9x - 12y = 45$ becomes $y = \\frac{3}{4}x - \\frac{15}{4}$.\n\n**Common Mistakes:** Using the perpendicular slope $-\\frac{4}{3}$ in place of the parallel slope and reporting $k = -\\frac{27}{4}$; forgetting that the coefficient is $-k$ and reporting $k = -12$; setting $\\frac{9}{k}$ equal to $\\frac{4}{3}$ and reporting $k = \\frac{27}{4}$.\n\n**Test Day Takeaway:** For $Ax + By = C$ the slope is $-\\frac{A}{B}$; solve for $y$ once and the sign takes care of itself.",
+    explanation: "**SAT Pattern: Slope from Standard Form**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~25s):** Solving $9x - ky = 45$ for $y$ gives slope $\\frac{9}{k}$. Setting $\\frac{9}{k} = \\frac{3}{4}$ gives $k = 12$.\n\n**The Full Solution:**\n\nStep 1: The line $y = \\frac{3}{4}x - 1$ has slope $\\frac{3}{4}$, and parallel lines have equal slopes, so the graph of $9x - ky = 45$ must also have slope $\\frac{3}{4}$.\n\nStep 2: Rearrange $9x - ky = 45$: $-ky = -9x + 45$, so $y = \\frac{9}{k}x - \\frac{45}{k}$ and the slope is $\\frac{9}{k}$.\n\nStep 3: Solve $\\frac{9}{k} = \\frac{3}{4}$ by cross multiplying: $3k = 36$, so $k = 12$. Check: $9x - 12y = 45$ becomes $y = \\frac{3}{4}x - \\frac{15}{4}$, slope $\\frac{3}{4}$ and a different intercept, so the lines are parallel ✓\n\n**Common Mistakes:** Using the perpendicular slope $-\\frac{4}{3}$ in place of the parallel slope and reporting $k = -\\frac{27}{4}$; forgetting that the coefficient is $-k$ and reporting $k = -12$; setting $\\frac{9}{k}$ equal to $\\frac{4}{3}$ and reporting $k = \\frac{27}{4}$.\n\n**Test Day Takeaway:** For $Ax + By = C$ the slope is $-\\frac{A}{B}$; solve for $y$ once and the sign takes care of itself.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "standard-form-slope",
@@ -713,7 +713,7 @@ export const algebraBank = [
     skills: ["writing-parallel-equation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "In the $xy$-plane, line $k$ is parallel to the line with equation $y = -\\frac{2}{3}x + 4$ and passes through the point $(6, -1)$. Which equation defines line $k$?",
+    question: "In the $xy$-plane, line $k$ is parallel to the graph of $y = -\\frac{2}{3}x + 4$ and passes through the point $(6, -1)$. Which equation defines line $k$?",
     choices: [
       // distractor: uses the point's y-coordinate as the intercept
       { id: "A", text: "$y = -\\frac{2}{3}x - 1$" },
@@ -737,18 +737,18 @@ export const algebraBank = [
     skills: ["writing-parallel-equation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "Two roads on a surveyor's map are drawn as the graphs of $9x - 4y = 26$ and $kx + 6y = 5$, where $k$ is a constant. The roads run across the whole map without ever meeting. What is the value of $k$?",
+    question: "In the $xy$-plane, the graphs of $9x - 4y = 26$ and $kx + 6y = 5$, where $k$ is a constant, are parallel lines. What is the value of $k$?",
     choices: [
       { id: "A", text: "$-\\frac{27}{2}$" },
-      // distractor: uses $\frac{4}{9}$, the reciprocal of the first road's slope, giving $-\frac{k}{6} = \frac{4}{9}$ and $k = -\frac{8}{3}$
+      // distractor: uses $\frac{4}{9}$, the reciprocal of the first line's slope, giving $-\frac{k}{6} = \frac{4}{9}$ and $k = -\frac{8}{3}$
       { id: "B", text: "$-\\frac{8}{3}$" },
       // distractor: uses the negative reciprocal $-\frac{4}{9}$, which is the perpendicular slope, giving $k = \frac{8}{3}$
       { id: "C", text: "$\\frac{8}{3}$" },
-      // distractor: sets $-\frac{k}{6} = -\frac{9}{4}$, negating the first road's slope, giving $k = \frac{27}{2}$
+      // distractor: sets $-\frac{k}{6} = -\frac{9}{4}$, negating the first line's slope, giving $k = \frac{27}{2}$
       { id: "D", text: "$\\frac{27}{2}$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Parallel from Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Solving each equation for $y$ gives slopes $\\frac{9}{4}$ and $-\\frac{k}{6}$; setting them equal gives $k = -\\frac{27}{2}$.\n\n**The Full Solution:**\nStep 1: Rewrite $9x - 4y = 26$ as $y = \\frac{9}{4}x - \\frac{13}{2}$, so the first road has slope $\\frac{9}{4}$.\nStep 2: Rewrite $kx + 6y = 5$ as $y = -\\frac{k}{6}x + \\frac{5}{6}$, so the second road has slope $-\\frac{k}{6}$.\nStep 3: Roads that never meet have equal slopes, so $-\\frac{k}{6} = \\frac{9}{4}$ and $k = -\\frac{27}{2}$; the $y$-intercepts $\\frac{5}{6}$ and $-\\frac{13}{2}$ differ, so the roads really are distinct. Check: $-\\frac{1}{6}\\left(-\\frac{27}{2}\\right) = \\frac{27}{12} = \\frac{9}{4}$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{8}{3}$): uses $\\frac{4}{9}$, the reciprocal of the first road's slope, giving $-\\frac{k}{6} = \\frac{4}{9}$ and $k = -\\frac{8}{3}$\n* Choice C ($\\frac{8}{3}$): uses the negative reciprocal $-\\frac{4}{9}$, which is the perpendicular slope, giving $k = \\frac{8}{3}$\n* Choice D ($\\frac{27}{2}$): sets $-\\frac{k}{6} = -\\frac{9}{4}$, negating the first road's slope, giving $k = \\frac{27}{2}$\n\n**Test Day Takeaway:** Convert both standard-form equations to $y = mx + b$ first; the coefficient of $y$ carries a sign that is easy to lose.",
+    explanation: "**SAT Pattern: Parallel from Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Solving each equation for $y$ gives slopes $\\frac{9}{4}$ and $-\\frac{k}{6}$; parallel lines have equal slopes, so $-\\frac{k}{6} = \\frac{9}{4}$ and $k = -\\frac{27}{2}$.\n\n**The Full Solution:**\nStep 1: Rewrite $9x - 4y = 26$ as $y = \\frac{9}{4}x - \\frac{13}{2}$, so the first line has slope $\\frac{9}{4}$.\nStep 2: Rewrite $kx + 6y = 5$ as $y = -\\frac{k}{6}x + \\frac{5}{6}$, so the second line has slope $-\\frac{k}{6}$.\nStep 3: Parallel lines have equal slopes, so $-\\frac{k}{6} = \\frac{9}{4}$ and $k = -\\frac{27}{2}$; the $y$-intercepts $-\\frac{13}{2}$ and $\\frac{5}{6}$ differ, so the lines are distinct. Check: $-\\frac{1}{6}\\left(-\\frac{27}{2}\\right) = \\frac{27}{12} = \\frac{9}{4}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{8}{3}$): uses $\\frac{4}{9}$, the reciprocal of the first line's slope, so $-\\frac{k}{6} = \\frac{4}{9}$ and $k = -\\frac{8}{3}$.\n* Choice C ($\\frac{8}{3}$): uses the negative reciprocal $-\\frac{4}{9}$, which is the slope of a perpendicular line, giving $k = \\frac{8}{3}$.\n* Choice D ($\\frac{27}{2}$): sets $-\\frac{k}{6} = -\\frac{9}{4}$, negating the first line's slope, giving $k = \\frac{27}{2}$.\n\n**Test Day Takeaway:** Convert both standard-form equations to $y = mx + b$ first; the coefficient of $y$ carries a sign that is easy to lose.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "parallel-line-equation",
@@ -761,18 +761,18 @@ export const algebraBank = [
     skills: ["writing-parallel-equation", "parallel-line-slope"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "Account $A$ holds $y = 45x + 380$ dollars after $x$ weeks. Account $B$ gains dollars at the same weekly rate and held \\$125 at week zero. Which equation gives the dollars in account $B$ after $x$ weeks?",
+    question: "Line $\\ell$ in the $xy$-plane passes through the points $(2, 7)$ and $(-4, 10)$. Line $p$ is parallel to line $\\ell$, and the $y$-intercept of line $p$ is $(0, 3)$. Which equation defines line $p$?",
     choices: [
-      { id: "A", text: "$y = 45x + 125$" },
-      // distractor: adds the two starting balances, $380 + 125$, instead of replacing one with the other
-      { id: "B", text: "$y = 45x + 505$" },
-      // distractor: swaps the weekly rate and the starting balance
-      { id: "C", text: "$y = 125x + 45$" },
-      // distractor: treats account $A$'s starting balance as the weekly rate
-      { id: "D", text: "$y = 380x + 125$" }
+      // distractor: divides the change in x by the change in y, inverting the slope
+      { id: "A", text: "$y = -2x + 3$" },
+      { id: "B", text: "$y = -\\frac{1}{2}x + 3$" },
+      // distractor: is line $\ell$ itself, using the y-intercept of $\ell$ instead of the given one
+      { id: "C", text: "$y = -\\frac{1}{2}x + 8$" },
+      // distractor: drops the negative sign when computing the slope
+      { id: "D", text: "$y = \\frac{1}{2}x + 3$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Parallel with Specified Intercept**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Equal weekly rates keep the slope $45$; the new starting balance replaces $380$ with $125$.\n\n**The Full Solution:**\nStep 1: Account $A$ gains $45$ dollars per week, so account $B$ gains $45$ dollars per week as well.\nStep 2: Account $B$ held $125$ dollars at week zero, so its starting value is $125$.\nStep 3: Therefore account $B$ is $y = 45x + 125$. Check: at $x = 0$ the equation gives $125$ dollars.\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = 45x + 505$): adds the two starting balances, $380 + 125$, instead of replacing one with the other\n* Choice C ($y = 125x + 45$): swaps the weekly rate and the starting balance\n* Choice D ($y = 380x + 125$): treats account $A$'s starting balance as the weekly rate\n\n**Test Day Takeaway:** Same rate means the same coefficient of $x$; only the constant term changes.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Parallel with Specified Intercept**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Line $\\ell$ has slope $\\frac{10 - 7}{-4 - 2} = -\\frac{1}{2}$; line $p$ copies that slope and uses the intercept $3$, so $y = -\\frac{1}{2}x + 3$.\n\n**The Full Solution:**\nStep 1: Find the slope of line $\\ell$: $\\frac{10 - 7}{-4 - 2} = \\frac{3}{-6} = -\\frac{1}{2}$.\nStep 2: Parallel lines have equal slopes, so line $p$ also has slope $-\\frac{1}{2}$, and its $y$-intercept $(0, 3)$ gives $b = 3$.\nStep 3: Line $p$ is $y = -\\frac{1}{2}x + 3$. Check: line $\\ell$ is $y = -\\frac{1}{2}x + 8$ (since $7 = -1 + 8$), which has the same slope and a different intercept, so the lines are parallel and distinct ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -2x + 3$): divides the change in $x$ by the change in $y$, getting $\\frac{-6}{3} = -2$ instead of $-\\frac{1}{2}$.\n* Choice C ($y = -\\frac{1}{2}x + 8$): is line $\\ell$ itself: it has the right slope but the $y$-intercept of $\\ell$, not the required $3$.\n* Choice D ($y = \\frac{1}{2}x + 3$): drops the negative sign: $y$ rises from $7$ to $10$ while $x$ falls from $2$ to $-4$, so the slope must be negative.\n\n**Test Day Takeaway:** For a parallel line, compute the slope from the two points, keep it, and attach the new intercept; the original line's intercept is a ready-made trap.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "parallel-line-equation",
@@ -787,7 +787,7 @@ export const algebraBank = [
     skills: ["perpendicular-negative-reciprocal"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "In the $xy$-plane, line $r$ has a slope of $-6$. Line $s$ is perpendicular to line $r$. What is the slope of line $s$?",
+    question: "In the $xy$-plane, line $s$ is perpendicular to line $r$. The slope of line $r$ is $-6$. What is the slope of line $s$?",
     choices: [
       // distractor: keeps the same slope (parallel, not perpendicular)
       { id: "A", text: "$-6$" },
@@ -811,7 +811,7 @@ export const algebraBank = [
     skills: ["perpendicular-negative-reciprocal"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "In the graph, line $j$ joins the two plotted points. A flywheel's spoke lies on a line perpendicular to line $j$. What is the slope of the spoke's line?",
+    question: "The graph of line $j$ is shown. Line $k$ is perpendicular to line $j$. What is the slope of line $k$?",
     diagram: { type: "linearGraph", params: { slope: 1.3333333, yIntercept: 0, xRange: [-6, 6], yRange: [-6, 6], xTickInterval: 2, yTickInterval: 2, gridInterval: 1, showPoints: [[-3, -4], [3, 4]], label: "j" } },
     choices: [
       // distractor: negates line $j$'s slope without inverting it
@@ -823,7 +823,7 @@ export const algebraBank = [
       { id: "D", text: "$\\frac{4}{3}$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Perpendicular Slope from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Line $j$ has slope $\\frac{4}{3}$, so the spoke's line has slope $-\\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: The plotted points are $(-3, -4)$ and $(3, 4)$, so line $j$ has slope $\\frac{4 - (-4)}{3 - (-3)} = \\frac{8}{6} = \\frac{4}{3}$.\nStep 2: A perpendicular line has the negative reciprocal slope.\nStep 3: Flipping $\\frac{4}{3}$ gives $\\frac{3}{4}$, and negating gives $-\\frac{3}{4}$. Check: $\\frac{4}{3}\\left(-\\frac{3}{4}\\right) = -1$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{4}{3}$): negates line $j$'s slope without inverting it\n* Choice C ($\\frac{3}{4}$): inverts line $j$'s slope without negating it\n* Choice D ($\\frac{4}{3}$): repeats line $j$'s own slope\n\n**Test Day Takeaway:** Read both plotted points off the grid, reduce the slope, then flip and negate.",
+    explanation: "**SAT Pattern: Perpendicular Slope from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Line $j$ has slope $\\frac{4}{3}$, so line $k$ has slope $-\\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: The plotted points are $(-3, -4)$ and $(3, 4)$, so line $j$ has slope $\\frac{4 - (-4)}{3 - (-3)} = \\frac{8}{6} = \\frac{4}{3}$.\nStep 2: A perpendicular line has the negative reciprocal slope.\nStep 3: Flipping $\\frac{4}{3}$ gives $\\frac{3}{4}$, and negating gives $-\\frac{3}{4}$. Check: $\\frac{4}{3}\\left(-\\frac{3}{4}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{4}{3}$): negates line $j$'s slope without inverting it\n* Choice C ($\\frac{3}{4}$): inverts line $j$'s slope without negating it\n* Choice D ($\\frac{4}{3}$): repeats line $j$'s own slope\n\n**Test Day Takeaway:** Read both plotted points off the grid, reduce the slope, then flip and negate.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "perpendicular-slope-id",
@@ -836,9 +836,9 @@ export const algebraBank = [
     skills: ["perpendicular-negative-reciprocal"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A spectrometer's drift over one run is the line through $(6, 19)$ and $(14, 9)$. Written as a decimal, what is the slope of a line at a right angle to the drift line?",
+    question: "Line $p$ in the $xy$-plane passes through the points $(6, 19)$ and $(14, 9)$. Line $q$ is perpendicular to line $p$. What is the slope of line $q$?",
     correctAnswer: "0.8",
-    explanation: "**SAT Pattern: Perpendicular Slope as Decimal**\n\n**The correct answer is $0.8$.**\n\n**The Fast Way (~25s):** The drift line has slope $-1.25$, so the perpendicular slope is $0.8$.\n\n**The Full Solution:**\nStep 1: The drift line joins $(6, 19)$ and $(14, 9)$, so its slope is $\\frac{9 - 19}{14 - 6} = \\frac{-10}{8} = -1.25$.\nStep 2: A right angle requires the negative reciprocal, which is $\\frac{8}{10}$ with the sign made positive.\nStep 3: That value is $0.8$. Check: $-1.25 \\times 0.8 = -1$.\n\n**Common Mistakes:**\n* Reporting $-1.25$ gives the drift line's own slope rather than the perpendicular one.\n* Reporting $-0.8$ inverts the slope but leaves the sign negative.\n* Reversing rise and run makes the drift slope $-0.8$ and the answer $1.25$.\n\n**Test Day Takeaway:** Convert to a decimal only at the end; inverting $-\\frac{10}{8}$ is cleaner than inverting $-1.25$.",
+    explanation: "**SAT Pattern: Perpendicular Slope as Decimal**\n\n**The correct answer is $0.8$.**\n\n**The Fast Way (~25s):** Line $p$ has slope $\\frac{9 - 19}{14 - 6} = -\\frac{5}{4}$, so line $q$ has slope $\\frac{4}{5}$, which is $0.8$.\n\n**The Full Solution:**\nStep 1: Find the slope of line $p$: $\\frac{9 - 19}{14 - 6} = \\frac{-10}{8} = -\\frac{5}{4}$.\nStep 2: A perpendicular line has the negative reciprocal slope: flip $-\\frac{5}{4}$ to $-\\frac{4}{5}$ and change the sign to get $\\frac{4}{5}$.\nStep 3: As a decimal, $\\frac{4}{5} = 0.8$ (either form is accepted). Check: $-\\frac{5}{4} \\times \\frac{4}{5} = -1$ ✓\n\n**Common Mistakes:**\n* $-1.25$: the slope of line $p$ itself, not of the perpendicular line.\n* $-0.8$: inverts the slope but keeps the negative sign.\n* $1.25$: divides the change in $x$ by the change in $y$, getting $-0.8$ for line $p$ and then $1.25$ for line $q$.\n\n**Test Day Takeaway:** Find the slope as a fraction, take the negative reciprocal, and convert to a decimal only at the end.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "perpendicular-slope-id",
@@ -853,18 +853,18 @@ export const algebraBank = [
     skills: ["writing-perpendicular-equation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "On a gantry drawing, one track lies on the graph of $8x + qy = 20$ and a second track lies on the graph of $y = \\frac{2}{5}x - 6$. The two tracks cross at a right angle, where $q$ is a constant. What is the value of $q$?",
+    question: "$y = \\frac{2}{5}x - 6$\nIn the $xy$-plane, line $t$ is perpendicular to the graph of the given equation and passes through the point $(4, -3)$. Which equation defines line $t$?",
     choices: [
-      // distractor: uses the parallel slope $\frac{2}{5}$, solving $-\frac{8}{q} = \frac{2}{5}$
-      { id: "A", text: "$-20$" },
-      // distractor: uses $\frac{5}{2}$ without the negative sign
-      { id: "B", text: "$-\\frac{16}{5}$" },
-      { id: "C", text: "$\\frac{16}{5}$" },
-      // distractor: uses $-\frac{2}{5}$, negating the given slope instead of taking its negative reciprocal
-      { id: "D", text: "$20$" }
+      // distractor: uses the point's y-coordinate as the y-intercept
+      { id: "A", text: "$y = -\\frac{5}{2}x - 3$" },
+      { id: "B", text: "$y = -\\frac{5}{2}x + 7$" },
+      // distractor: keeps the given slope, which gives a parallel line through the point
+      { id: "C", text: "$y = \\frac{2}{5}x - \\frac{23}{5}$" },
+      // distractor: inverts the slope but does not change its sign
+      { id: "D", text: "$y = \\frac{5}{2}x - 13$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Perpendicular Line Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The second track has slope $\\frac{2}{5}$, so the first needs slope $-\\frac{5}{2}$: $-\\frac{8}{q} = -\\frac{5}{2}$ gives $q = \\frac{16}{5}$.\n\n**The Full Solution:**\nStep 1: Rewrite $8x + qy = 20$ as $y = -\\frac{8}{q}x + \\frac{20}{q}$, so its slope is $-\\frac{8}{q}$.\nStep 2: Tracks that cross at a right angle have slopes whose product is $-1$, and the second slope is $\\frac{2}{5}$, so the first must be $-\\frac{5}{2}$.\nStep 3: Solving $-\\frac{8}{q} = -\\frac{5}{2}$ gives $5q = 16$ and $q = \\frac{16}{5}$. Check: $\\frac{2}{5}\\left(-\\frac{5}{2}\\right) = -1$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-20$): uses the parallel slope $\\frac{2}{5}$, solving $-\\frac{8}{q} = \\frac{2}{5}$\n* Choice B ($-\\frac{16}{5}$): uses $\\frac{5}{2}$ without the negative sign\n* Choice D ($20$): uses $-\\frac{2}{5}$, negating the given slope instead of taking its negative reciprocal\n\n**Test Day Takeaway:** Perpendicular means flip and negate; write the standard-form slope as $-\\frac{A}{B}$ before setting up the equation.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Perpendicular Line Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Line $t$ has slope $-\\frac{5}{2}$; substituting $(4, -3)$ gives $-3 = -10 + b$, so $b = 7$.\n\n**The Full Solution:**\nStep 1: The given line has slope $\\frac{2}{5}$, so a perpendicular line has slope $-\\frac{5}{2}$.\nStep 2: Write line $t$ as $y = -\\frac{5}{2}x + b$ and substitute the point $(4, -3)$: $-3 = -\\frac{5}{2}(4) + b = -10 + b$, so $b = 7$.\nStep 3: Line $t$ is $y = -\\frac{5}{2}x + 7$. Check: at $x = 4$, $y = -10 + 7 = -3$, and $\\frac{2}{5}\\left(-\\frac{5}{2}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{5}{2}x - 3$): has the right slope but treats the point's $y$-coordinate, $-3$, as the $y$-intercept; the point has $x = 4$, not $x = 0$.\n* Choice C ($y = \\frac{2}{5}x - \\frac{23}{5}$): keeps the given slope $\\frac{2}{5}$, which produces the line through $(4, -3)$ that is parallel to the graph, not perpendicular.\n* Choice D ($y = \\frac{5}{2}x - 13$): flips the fraction but keeps the positive sign, so $\\frac{2}{5} \\cdot \\frac{5}{2} = 1$, not $-1$.\n\n**Test Day Takeaway:** Perpendicular means flip and negate the slope; then substitute the given point to find $b$ rather than reading it off the point.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "perpendicular-line-equation",
@@ -877,7 +877,7 @@ export const algebraBank = [
     skills: ["writing-perpendicular-equation"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "Line $\\ell$ is defined by $4x + 10y = 15$. Line $m$ is perpendicular to line $\\ell$ in the $xy$-plane and passes through the point $(-2, 6)$. Which of the following equations defines line $m$?",
+    question: "Line $\\ell$ is defined by $4x + 10y = 15$. Line $m$ is perpendicular to line $\\ell$ in the $xy$-plane and passes through the point $(-2, 6)$. Which equation defines line $m$?",
     choices: [
       // distractor: parallel to l (slope -2/5) through the point
       { id: "A", text: "$2x + 5y = 26$" },
@@ -901,9 +901,9 @@ export const algebraBank = [
     skills: ["writing-perpendicular-equation"],
     difficulty: "hard",
     type: "fill-in",
-    question: "A cable runs perpendicular to the graph of $2x + 5y = c$ for some constant $c$ and touches that graph at $(4, 9)$. At what value of $y$ does the cable cross the $y$-axis?",
+    question: "$2x + 5y = c$\nIn the given equation, $c$ is a constant. In the $xy$-plane, line $p$ is perpendicular to the graph of the given equation at the point $(4, 9)$. What is the $y$-coordinate of the $y$-intercept of line $p$?",
     correctAnswer: "-1",
-    explanation: "**SAT Pattern: y-Intercept of Perpendicular Line**\n\n**The correct answer is $-1$.**\n\n**The Fast Way (~35s):** The given line has slope $-\\dfrac{2}{5}$, so the cable has slope $\\dfrac{5}{2}$ and its intercept is $9 - \\dfrac{5}{2}(4) = -1$.\n\n**The Full Solution:**\nStep 1: Solve $2x + 5y = c$ for $y$: $y = -\\dfrac{2}{5}x + \\dfrac{c}{5}$, so its slope is $-\\dfrac{2}{5}$ no matter what $c$ is.\nStep 2: The cable is perpendicular, so its slope is the negative reciprocal $\\dfrac{5}{2}$, and it contains $(4, 9)$.\nStep 3: Use $y = \\dfrac{5}{2}x + b$ with $x = 4$ and $y = 9$: $9 = 10 + b$, so $b = -1$. Check: at $x = 0$ the cable is at $y = -1$, and $\\dfrac{5}{2} \\cdot \\left(-\\dfrac{2}{5}\\right) = -1$ confirms perpendicularity ✓\n\n**Common Mistakes:**\n* Reusing the slope $-\\dfrac{2}{5}$ instead of its negative reciprocal, which gives $9 + \\dfrac{8}{5} = 10.6$.\n* Taking the negative reciprocal as $-\\dfrac{5}{2}$ and getting $9 + 10 = 19$.\n* Reporting the slope $\\dfrac{5}{2}$ instead of the $y$-value asked for.\n\n**Test Day Takeaway:** An unknown constant term never changes a line's slope, so a perpendicular slope can be read straight from the coefficients.",
+    explanation: "**SAT Pattern: y-Intercept of Perpendicular Line**\n\n**The correct answer is $-1$.**\n\n**The Fast Way (~35s):** The given line has slope $-\\frac{2}{5}$, so line $p$ has slope $\\frac{5}{2}$, and its intercept is $9 - \\frac{5}{2}(4) = -1$.\n\n**The Full Solution:**\nStep 1: Solve $2x + 5y = c$ for $y$: $y = -\\frac{2}{5}x + \\frac{c}{5}$, so the slope is $-\\frac{2}{5}$ whatever the value of $c$.\nStep 2: Line $p$ is perpendicular, so its slope is the negative reciprocal, $\\frac{5}{2}$, and it contains the point $(4, 9)$.\nStep 3: Write $y = \\frac{5}{2}x + b$ and substitute: $9 = \\frac{5}{2}(4) + b = 10 + b$, so $b = -1$. Check: $\\frac{5}{2}\\left(-\\frac{2}{5}\\right) = -1$, and $\\frac{5}{2}(4) - 1 = 9$ ✓\n\n**Common Mistakes:**\n* $10.6$: reuses the slope $-\\frac{2}{5}$ instead of its negative reciprocal, giving $9 + \\frac{8}{5}$.\n* $19$: takes the perpendicular slope as $-\\frac{5}{2}$, giving $9 + 10$.\n* $2.5$: reports the slope of line $p$, $\\frac{5}{2}$, instead of the $y$-coordinate of its $y$-intercept.\n\n**Test Day Takeaway:** An unknown constant term never changes a line's slope, so the perpendicular slope comes straight from the coefficients; the given point does the rest.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "perpendicular-line-equation",
@@ -918,7 +918,7 @@ export const algebraBank = [
     skills: ["system-solution-types"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A coastal survey reports two shoreline positions, given by the linear functions $f$ and $g$, in meters, at each of three times $x$, as listed in the table. For how many values of $x$ does $f(x) = g(x)$?",
+    question: "The table shows three values of $x$ and their corresponding values of $f(x)$ and $g(x)$, where $f$ and $g$ are linear functions. For how many values of $x$ does $f(x) = g(x)$?",
     questionTable: { headers: ["$x$", "$f(x)$", "$g(x)$"], rows: [["$1$", "$7$", "$2$"], ["$3$", "$13$", "$8$"], ["$5$", "$19$", "$14$"]] },
     choices: [
       { id: "A", text: "None" },
@@ -926,11 +926,11 @@ export const algebraBank = [
       { id: "B", text: "Exactly one" },
       // distractor: treats two linear functions as able to agree at two separate inputs
       { id: "C", text: "Exactly two" },
-      // distractor: reads the equal rates of change as meaning the two models are identical
+      // distractor: reads the equal rates of change as meaning the two functions are identical
       { id: "D", text: "Infinitely many" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Classify System (Parallel Lines)**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Both functions rise $3$ meters per unit of $x$ but sit $5$ meters apart, so their graphs are parallel and never meet.\n\n**The Full Solution:**\nStep 1: Find each rate of change from the table: $f$ goes from $7$ to $13$ as $x$ goes from $1$ to $3$, a rate of $\\frac{6}{2} = 3$; $g$ goes from $2$ to $8$ over the same span, also $3$.\nStep 2: The two linear functions therefore have equal slopes, but at $x = 1$ they differ by $7 - 2 = 5$ meters.\nStep 3: Equal slopes with different values means parallel graphs, so $f(x) = g(x)$ has no solution. Check: $f(x) = 3x + 4$ and $g(x) = 3x - 1$, and $3x + 4 = 3x - 1$ reduces to $4 = -1$, which is never true ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly one): assumes any two distinct lines must cross somewhere, which fails for parallel lines.\n* Choice C (Exactly two): treats two linear functions as able to agree at two separate inputs.\n* Choice D (Infinitely many): reads the matching rates of change as meaning the two models are the same, but their values differ by $5$ at every $x$.\n\n**Test Day Takeaway:** Equal slopes plus one differing value is the signature of no solution; equal slopes plus one matching value is the signature of infinitely many.",
+    explanation: "**SAT Pattern: Classify System (Parallel Lines)**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Both functions increase by $3$ for each increase of $1$ in $x$ but differ by $5$, so their graphs are parallel lines that never meet.\n\n**The Full Solution:**\nStep 1: Find each rate of change from the table: $f$ goes from $7$ to $13$ as $x$ goes from $1$ to $3$, a rate of $\\frac{6}{2} = 3$; $g$ goes from $2$ to $8$ over the same interval, also a rate of $3$.\nStep 2: The two linear functions have equal slopes, but at $x = 1$ their values differ by $7 - 2 = 5$.\nStep 3: Equal slopes with different values means parallel graphs, so $f(x) = g(x)$ has no solution. Check: $f(x) = 3x + 4$ and $g(x) = 3x - 1$, and $3x + 4 = 3x - 1$ reduces to $4 = -1$, which is never true ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly one): assumes any two different lines must cross somewhere, which fails for parallel lines.\n* Choice C (Exactly two): treats two linear functions as able to agree at two separate values of $x$.\n* Choice D (Infinitely many): reads the matching rates of change as meaning the functions are the same, but their values differ by $5$ at every $x$.\n\n**Test Day Takeaway:** Equal slopes plus one differing value means no solution; equal slopes plus one matching value means infinitely many.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "system-type-classification",
@@ -943,7 +943,7 @@ export const algebraBank = [
     skills: ["system-solution-types"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The graph of line $n$ in the $xy$-plane is shown, where each grid unit represents one city block. Line $m$ is given by $2x + y = 9$. How many points lie on both lines?",
+    question: "The graph of line $n$ is shown in the $xy$-plane. Line $m$ is defined by $2x + y = 9$. At how many points do line $m$ and line $n$ intersect?",
     diagram: { type: "linearGraph", params: { slope: 3, yIntercept: -4, xRange: [-2, 6], yRange: [-10, 14], xTickInterval: 2, yTickInterval: 4, gridInterval: 2, showPoints: [[0, -4], [2, 2]], label: "n" } },
     choices: [
       // distractor: reads slopes of opposite sign as meaning the lines never meet
@@ -968,18 +968,18 @@ export const algebraBank = [
     skills: ["system-solution-types"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A tolerance sheet writes the same line two ways, as $12x - 30y = 42$ and as $2x + cy = d$, where $c$ and $d$ are constants. The two forms have identical graphs. What is the value of $c + d$?",
+    question: "$12x - 30y = 42$\n$2x + cy = d$\nIn the given system of equations, $c$ and $d$ are constants. The system has infinitely many solutions. What is the value of $c + d$?",
     choices: [
-      // distractor: divides the constant by $-6$ instead of $6$, keeping $c = -5$ but reading $d = -7$
+      // distractor: scales the constant by the wrong sign, keeping c = -5 but taking d = -7
       { id: "A", text: "$-12$" },
       { id: "B", text: "$2$" },
-      // distractor: divides by $2$ instead of $6$, giving $6x - 15y = 21$, so $c = -15$ and $d = 21$
-      { id: "C", text: "$6$" },
-      // distractor: drops the negative on $c$, using $c = 5$ and $d = 7$
-      { id: "D", text: "$12$" }
+      // distractor: drops the negative on c, using c = 5 and d = 7
+      { id: "C", text: "$12$" },
+      // distractor: divides the x- and y-coefficients by 6 but not the constant, using c = -5 and d = 42
+      { id: "D", text: "$37$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Parameter for Identical Equations**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Dividing $12x - 30y = 42$ by $6$ gives $2x - 5y = 7$, so $c = -5$, $d = 7$, and $c + d = 2$.\n\n**The Full Solution:**\nStep 1: Identical graphs mean one equation is a nonzero multiple of the other.\nStep 2: The second equation starts with $2x$, so divide the first by $6$: $12x - 30y = 42$ becomes $2x - 5y = 7$.\nStep 3: Matching term by term gives $c = -5$ and $d = 7$, so $c + d = 2$. Check: $6(2x - 5y) = 12x - 30y$ and $6(7) = 42$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): divides the constant by $-6$ instead of $6$, keeping $c = -5$ but reading $d = -7$\n* Choice C ($6$): divides by $2$ instead of $6$, giving $6x - 15y = 21$, so $c = -15$ and $d = 21$\n* Choice D ($12$): drops the negative on $c$, using $c = 5$ and $d = 7$\n\n**Test Day Takeaway:** Scale the whole equation by the factor that fixes the $x$-coefficient, then read the other two terms off directly.",
+    explanation: "**SAT Pattern: Parameter for Identical Equations**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Dividing $12x - 30y = 42$ by $6$ gives $2x - 5y = 7$, so $c = -5$, $d = 7$, and $c + d = 2$.\n\n**The Full Solution:**\nStep 1: A system of two linear equations has infinitely many solutions when one equation is a nonzero multiple of the other.\nStep 2: The second equation starts with $2x$, so divide the first equation by $6$: $12x - 30y = 42$ becomes $2x - 5y = 7$.\nStep 3: Matching term by term gives $c = -5$ and $d = 7$, so $c + d = 2$. Check: $6(2x - 5y) = 12x - 30y$ and $6(7) = 42$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): keeps $c = -5$ but gives the constant the wrong sign, $d = -7$, so $c + d = -12$.\n* Choice C ($12$): drops the negative sign on the $y$-coefficient, using $c = 5$ and $d = 7$.\n* Choice D ($37$): divides the $x$- and $y$-coefficients by $6$ but not the constant, using $c = -5$ and $d = 42$.\n\n**Test Day Takeaway:** Scale the whole equation by the factor that matches the $x$-coefficients, then read the other two terms off directly.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "system-type-classification",
@@ -992,7 +992,7 @@ export const algebraBank = [
     skills: ["system-solution-types"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "$ax + 4y = 7$\n$6x - 8y = c$\n\nIn the given system of equations, $a$ and $c$ are constants. For which of the following values of $a$ and $c$ does the system have no solution?",
+    question: "$ax + 4y = 7$\n$6x - 8y = c$\nIn the given system of equations, $a$ and $c$ are constants. For which of the following values of $a$ and $c$ does the system have no solution?",
     choices: [
       { id: "A", text: "$a = -3$ and $c \\neq -14$" },
       // distractor: this makes the equations the same line: infinitely many solutions, not none
@@ -1018,7 +1018,7 @@ export const algebraBank = [
     skills: ["setting-up-systems"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A school orchestra bought $v$ violin strings at $\\$9$ each and $c$ cello strings at $\\$14$ each. The orchestra bought $26$ strings in total and paid a total of $\\$289$. Which system of equations represents this situation?",
+    question: "A school orchestra bought $v$ violin strings for $\\$9$ each and $c$ cello strings for $\\$14$ each. It bought $26$ strings for a total of $\\$289$. Which system of equations represents this situation?",
     choices: [
       { id: "A", text: "$v + c = 26$ and $9v + 14c = 289$" },
       // distractor: swaps the count total and the cost total
@@ -1029,7 +1029,7 @@ export const algebraBank = [
       { id: "D", text: "$v - c = 26$ and $9v + 14c = 289$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: System Setup (Count + Cost)**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Count equation: $v + c = 26$. Cost equation: $9v + 14c = 289$.\n\n**The Full Solution:**\nStep 1: The number of strings is the sum of the two counts: $v + c = 26$.\nStep 2: The cost is price times count for each type, added: $9v + 14c = 289$.\nStep 3: Check that the system has a sensible solution: from $v = 26 - c$, $9(26 - c) + 14c = 289 \\Rightarrow 234 + 5c = 289 \\Rightarrow c = 11$ and $v = 15$; $15 + 11 = 26$ and $135 + 154 = 289$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($v + c = 289$ and $9v + 14c = 26$): swaps the two totals, putting the dollar amount with the counts.\n* Choice C ($v + c = 26$ and $14v + 9c = 289$): pairs each price with the wrong string type.\n* Choice D ($v - c = 26$ and $9v + 14c = 289$): subtracts the counts, but \"in total\" means the counts are added.\n\n**Test Day Takeaway:** Count-and-cost stories always produce one plain-sum equation for the counts and one price-weighted equation for the money; match each total to its own equation.",
+    explanation: "**SAT Pattern: System Setup (Count + Cost)**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Count equation: $v + c = 26$. Cost equation: $9v + 14c = 289$.\n\n**The Full Solution:**\nStep 1: The number of strings is the sum of the two counts: $v + c = 26$.\nStep 2: The cost is price times count for each type, added: $9v + 14c = 289$.\nStep 3: Check that the system has a sensible solution: from $v = 26 - c$, $9(26 - c) + 14c = 289 \\Rightarrow 234 + 5c = 289 \\Rightarrow c = 11$ and $v = 15$; $15 + 11 = 26$ and $135 + 154 = 289$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($v + c = 289$ and $9v + 14c = 26$): swaps the two totals, putting the dollar amount with the counts.\n* Choice C ($v + c = 26$ and $14v + 9c = 289$): pairs each price with the wrong string type.\n* Choice D ($v - c = 26$ and $9v + 14c = 289$): subtracts the counts, but the $26$ strings are all the strings together, so the counts are added.\n\n**Test Day Takeaway:** Count-and-cost stories always produce one plain-sum equation for the counts and one price-weighted equation for the money; match each total to its own equation.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "system-setup-word-problem",
@@ -1042,7 +1042,7 @@ export const algebraBank = [
     skills: ["setting-up-systems"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "For an evening event, an aquarium sold adult tickets for $\\$14$ each and child tickets for $\\$9$ each. The number of child tickets sold was $3$ times the number of adult tickets sold, and the total ticket revenue was $\\$2{,}460$. If $a$ adult tickets and $c$ child tickets were sold, which system of equations represents this situation?",
+    question: "An aquarium sold $a$ adult tickets for $\\$14$ each and $c$ child tickets for $\\$9$ each. It sold $3$ times as many child tickets as adult tickets, for a total of $\\$2{,}460$. Which system of equations represents this situation?",
     choices: [
       // distractor: reverses the ratio (makes adults 3 times children)
       { id: "A", text: "$a = 3c$ and $14a + 9c = 2{,}460$" },
@@ -1053,7 +1053,7 @@ export const algebraBank = [
       { id: "D", text: "$c = 3a$ and $14a + 9c = 2{,}460$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Ticket Sales System**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** \"Child tickets were $3$ times adult tickets\" is $c = 3a$. Revenue: $14a + 9c = 2{,}460$.\n\n**The Full Solution:**\nStep 1: Translate the comparison: the child count equals $3$ times the adult count, so $c = 3a$ (not $a = 3c$).\nStep 2: Revenue is price times count for each type: $14a + 9c = 2{,}460$.\nStep 3: Check by solving: substitute $c = 3a$ to get $14a + 27a = 41a = 2{,}460$, so $a = 60$ and $c = 180$; indeed $180 = 3(60)$ and $840 + 1{,}620 = 2{,}460$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($a = 3c$ and $14a + 9c = 2{,}460$): reverses the ratio, making adult tickets triple the child tickets.\n* Choice B ($c = 3a$ and $9a + 14c = 2{,}460$): attaches the child price to the adult count and vice versa.\n* Choice C ($a + c = 3$ and $14a + 9c = 2{,}460$): turns \"3 times\" into a total of $3$ tickets, which cannot produce $\\$2{,}460$.\n\n**Test Day Takeaway:** \"$X$ was $k$ times $Y$\" translates to $X = kY$: the multiplier attaches to the quantity being compared TO, and the larger quantity stands alone.",
+    explanation: "**SAT Pattern: Ticket Sales System**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** \"$3$ times as many child tickets as adult tickets\" is $c = 3a$. Revenue: $14a + 9c = 2{,}460$.\n\n**The Full Solution:**\nStep 1: Translate the comparison: the child count equals $3$ times the adult count, so $c = 3a$ (not $a = 3c$).\nStep 2: Revenue is price times count for each type: $14a + 9c = 2{,}460$.\nStep 3: Check by solving: substitute $c = 3a$ to get $14a + 27a = 41a = 2{,}460$, so $a = 60$ and $c = 180$; indeed $180 = 3(60)$ and $840 + 1{,}620 = 2{,}460$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($a = 3c$ and $14a + 9c = 2{,}460$): reverses the ratio, making adult tickets triple the child tickets.\n* Choice B ($c = 3a$ and $9a + 14c = 2{,}460$): attaches the child price to the adult count and vice versa.\n* Choice C ($a + c = 3$ and $14a + 9c = 2{,}460$): turns \"3 times\" into a total of $3$ tickets, which cannot produce $\\$2{,}460$.\n\n**Test Day Takeaway:** \"$X$ was $k$ times $Y$\" translates to $X = kY$: the multiplier attaches to the quantity being compared TO, and the larger quantity stands alone.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "system-setup-word-problem",
@@ -1066,7 +1066,7 @@ export const algebraBank = [
     skills: ["setting-up-systems"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A jeweler melts together an alloy that is $60\\%$ gold and an alloy that is $90\\%$ gold to produce $45$ grams of an alloy that is $80\\%$ gold. If $x$ is the number of grams of the $60\\%$ alloy and $y$ is the number of grams of the $90\\%$ alloy, which system of equations represents this situation?",
+    question: "A $60\\%$ gold alloy and a $90\\%$ gold alloy are melted together to make $45$ grams of an $80\\%$ gold alloy. If $x$ grams of the $60\\%$ alloy and $y$ grams of the $90\\%$ alloy are used, which system of equations represents this situation?",
     choices: [
       // distractor: sets the gold total equal to the percent 0.8 instead of 0.8 times 45 grams
       { id: "A", text: "$x + y = 45$ and $0.6x + 0.9y = 0.8$" },
@@ -1090,7 +1090,7 @@ export const algebraBank = [
     skills: ["setting-up-systems"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A café buys $x$ kilograms of Colombian coffee beans at $\\$18$ per kilogram and $y$ kilograms of Brazilian coffee beans at $\\$12$ per kilogram. The café buys $40$ kilograms of beans in total and spends $\\$630$. Which system of equations represents this situation?",
+    question: "A café bought $x$ kilograms of coffee beans that cost $\\$18$ per kilogram and $y$ kilograms of coffee beans that cost $\\$12$ per kilogram. It bought $40$ kilograms of beans for a total of $\\$630$. Which system of equations represents this situation?",
     choices: [
       // distractor: swaps the two prices
       { id: "A", text: "$x + y = 40$ and $12x + 18y = 630$" },
@@ -1101,7 +1101,7 @@ export const algebraBank = [
       { id: "D", text: "$x + y = 40$ and $18x + 12y = 630$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Two-Variable Word Problem (Weight + Cost)**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Mass: $x + y = 40$. Cost: $18x + 12y = 630$.\n\n**The Full Solution:**\nStep 1: The total mass is the sum of the two masses: $x + y = 40$.\nStep 2: Cost is price per kilogram times kilograms for each type, added: $18x + 12y = 630$.\nStep 3: Check by solving: $18x + 12(40 - x) = 630 \\Rightarrow 6x + 480 = 630 \\Rightarrow x = 25$, $y = 15$; $25 + 15 = 40$ and $450 + 180 = 630$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x + y = 40$ and $12x + 18y = 630$): pairs each price with the wrong bean.\n* Choice B ($x + y = 630$ and $18x + 12y = 40$): swaps the kilogram total with the dollar total.\n* Choice C ($x + y = 40$ and $\\frac{x}{18} + \\frac{y}{12} = 630$): divides mass by price; dollars are price TIMES mass.\n\n**Test Day Takeaway:** Units guide the setup: kilograms add to kilograms, and (dollars per kilogram) times kilograms adds to dollars.",
+    explanation: "**SAT Pattern: Two-Variable Word Problem (Weight + Cost)**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Mass: $x + y = 40$. Cost: $18x + 12y = 630$.\n\n**The Full Solution:**\nStep 1: The total mass is the sum of the two masses: $x + y = 40$.\nStep 2: Cost is price per kilogram times kilograms for each type, added: $18x + 12y = 630$.\nStep 3: Check by solving: $18x + 12(40 - x) = 630 \\Rightarrow 6x + 480 = 630 \\Rightarrow x = 25$, $y = 15$; $25 + 15 = 40$ and $450 + 180 = 630$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($x + y = 40$ and $12x + 18y = 630$): pairs each price with the wrong kind of bean.\n* Choice B ($x + y = 630$ and $18x + 12y = 40$): swaps the kilogram total with the dollar total.\n* Choice C ($x + y = 40$ and $\\frac{x}{18} + \\frac{y}{12} = 630$): divides mass by price; dollars are price TIMES mass.\n\n**Test Day Takeaway:** Units guide the setup: kilograms add to kilograms, and (dollars per kilogram) times kilograms adds to dollars.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "system-setup-word-problem",
@@ -1116,18 +1116,18 @@ export const algebraBank = [
     skills: ["substitution-method"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A heron-colony model uses $y = 3x - 8$ together with $5x + 2y = 28$, where $x$ counts breeding pairs and $y$ counts fledglings. Replacing $y$ in the second equation with its expression from the first gives which equation?",
+    question: "$y = 3x - 5$\n$4x + 2y = 40$\nThe solution to the given system of equations is $(x, y)$. What is the value of $x$?",
     choices: [
-      { id: "A", text: "$5x + 2(3x - 8) = 28$" },
-      // distractor: substitutes the expression in place of $x$ instead of $y$
-      { id: "B", text: "$5(3x - 8) + 2y = 28$" },
-      // distractor: replaces $5x$ with the expression for $y$
-      { id: "C", text: "$3x - 8 + 2y = 28$" },
-      // distractor: sets the two equations equal to each other instead of substituting
-      { id: "D", text: "$5x + 2y = 3x - 8$" }
+      // distractor: distributes the 2 with the wrong sign, writing 10x + 10 = 40
+      { id: "A", text: "$3$" },
+      // distractor: multiplies only 3x by 2, writing 4x + 6x - 5 = 40
+      { id: "B", text: "$4.5$" },
+      { id: "C", text: "$5$" },
+      // distractor: gives the value of y instead of x
+      { id: "D", text: "$10$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Substitution Method**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The first equation gives $y$, so put $3x - 8$ wherever $y$ appears: $5x + 2(3x - 8) = 28$.\n\n**The Full Solution:**\n\nStep 1: The first equation is already solved for $y$, so $y$ is the variable to replace.\n\nStep 2: In $5x + 2y = 28$, the only $y$ sits inside $2y$, which becomes $2(3x - 8)$.\n\nStep 3: The result is $5x + 2(3x - 8) = 28$. Check by solving: $11x = 44$, so $x = 4$ and $y = 4$, and $5(4) + 2(4) = 28$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($5(3x - 8) + 2y = 28$): puts the expression where $x$ appears, leaving $y$ still in the equation.\n\n* Choice C ($3x - 8 + 2y = 28$): replaces the term $5x$ with the expression for $y$, which changes both the coefficient and the variable.\n\n* Choice D ($5x + 2y = 3x - 8$): equates the two left sides, which is not what substitution does.\n\n**Test Day Takeaway:** Substitute for the variable the first equation is solved for, and keep the coefficient in front of the parenthesis.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Substitution Method**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Substitute $3x - 5$ for $y$: $4x + 2(3x - 5) = 40$, so $10x - 10 = 40$ and $x = 5$.\n\n**The Full Solution:**\nStep 1: The first equation gives $y$ in terms of $x$, so substitute $3x - 5$ for $y$ in the second equation: $4x + 2(3x - 5) = 40$.\nStep 2: Distribute the $2$ and combine like terms: $4x + 6x - 10 = 40$, so $10x - 10 = 40$.\nStep 3: Add $10$ and divide by $10$: $x = 5$. Check: $y = 3(5) - 5 = 10$, and $4(5) + 2(10) = 20 + 20 = 40$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): distributes the $2$ with the wrong sign, writing $10x + 10 = 40$, so $x = 3$.\n* Choice B ($4.5$): multiplies only $3x$ by $2$, writing $4x + 6x - 5 = 40$, so $10x = 45$.\n* Choice D ($10$): is the value of $y$, not $x$.\n\n**Test Day Takeaway:** When one equation is already solved for a variable, substitute the whole expression in parentheses and distribute to every term.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "substitution-solve",
@@ -1140,7 +1140,7 @@ export const algebraBank = [
     skills: ["substitution-method"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A pump station log records the depth of water, in centimeters, in two storage tanks; each depth changes at a constant rate. Based on the table, how many hours after 6 a.m. will the two depths be equal?",
+    question: "The table shows the depth of water, in centimeters, in two tanks. The depth in each tank changes at a constant rate. How many hours after 6 a.m. will the two tanks have the same depth?",
     questionTable: { headers: ["Hours after 6 a.m.", "Tank A depth (cm)", "Tank B depth (cm)"], rows: [["0", "6", "30"], ["1", "10", "28"], ["2", "14", "26"]] },
     choices: [
       // distractor: uses the hour-1 gap 28 - 10 = 18 instead of the 24 cm starting gap: 18 / 6 = 3
@@ -1165,9 +1165,9 @@ export const algebraBank = [
     skills: ["substitution-method"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A restoration plan satisfies $x = 4y - 3$ together with $2x + 5y = c$, where $x$ counts willow stakes planted per plot, $y$ counts alder stakes planted per plot, and $c$ is a constant. In the plan, $y$ equals $3$. What is the value of $c$?",
-    correctAnswer: "33",
-    explanation: "**SAT Pattern: Substitution (x in terms of y)**\n\n**The correct answer is $33$.**\n\n**The Fast Way (~30s):** Substituting gives $2(4y - 3) + 5y = 13y - 6 = c$; at $y = 3$ that is $33$.\n\n**The Full Solution:**\n\nStep 1: Replace $x$ in the second equation with $4y - 3$: $2(4y - 3) + 5y = c$.\n\nStep 2: Distribute and combine: $8y - 6 + 5y = 13y - 6 = c$.\n\nStep 3: With $y = 3$, $c = 13(3) - 6 = 33$. Check: $x = 4(3) - 3 = 9$, and $2(9) + 5(3) = 33$.\n\n**Common Mistakes:** Forgetting to distribute the $2$ and computing $4(3) - 3 + 15 = 24$; using $x = 3$ instead of $y = 3$ and reporting $c = 2(3) + 5(3) = 21$; reporting the value of $x$, which is $9$.\n\n**Test Day Takeaway:** Substitute the expression for $x$ into the whole equation, distribute, and only then plug in the known coordinate.",
+    question: "$x = 4y - 3$\n$2x + 5y = 33$\nThe solution to the given system of equations is $(x, y)$. What is the value of $y$?",
+    correctAnswer: "3",
+    explanation: "**SAT Pattern: Substitution (x in terms of y)**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~20s):** Substitute $4y - 3$ for $x$: $2(4y - 3) + 5y = 33$, so $13y = 39$ and $y = 3$.\n\n**The Full Solution:**\nStep 1: The first equation gives $x$ in terms of $y$, so substitute $4y - 3$ for $x$ in the second equation: $2(4y - 3) + 5y = 33$.\nStep 2: Distribute and combine like terms: $8y - 6 + 5y = 33$, so $13y - 6 = 33$ and $13y = 39$.\nStep 3: Divide by $13$: $y = 3$. Check: $x = 4(3) - 3 = 9$, and $2(9) + 5(3) = 18 + 15 = 33$ ✓\n\n**Common Mistakes:**\n* $9$: the value of $x$, not $y$.\n* $4$: substitutes without the factor $2$, solving $4y - 3 + 5y = 33$.\n* $\\frac{36}{13}$: multiplies only $4y$ by $2$, solving $8y - 3 + 5y = 33$.\n\n**Test Day Takeaway:** Substitute the whole expression in parentheses, distribute to both of its terms, and answer for the variable the question names.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "substitution-solve",
@@ -1180,7 +1180,7 @@ export const algebraBank = [
     skills: ["substitution-method"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A community pool sells adult day passes for $\\$6$ each and child day passes for $\\$4$ each. A group bought $11$ day passes for a total of $\\$54$. How many adult day passes did the group buy?",
+    question: "A pool sells adult passes for $\\$6$ each and child passes for $\\$4$ each. A group bought $11$ passes for a total of $\\$54$. How many adult passes did the group buy?",
     choices: [
       { id: "A", text: "$5$" },
       // distractor: the number of child passes
@@ -1204,18 +1204,18 @@ export const algebraBank = [
     skills: ["substitution-method"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A framing shop uses $y$ mats for $x$ photographs, where $y = \\dfrac{x + 3}{3}$, and its material cost in dollars satisfies $2x + ky = 42$, where $k$ is the cost of one mat. If the shop frames $5$ more photographs than mats, what is the value of $k$?",
+    question: "$y = \\frac{3}{4}x - 2$\n$5x - 8y = 4$\nThe solution to the given system of equations is $(x, y)$. What is the value of $x$?",
     choices: [
-      // distractor: back-substitutes without the denominator, taking y = x + 3 = 12 instead of 4, giving 18 + 12k = 42 and k = 2
-      { id: "A", text: "$2$" },
-      { id: "B", text: "$6$" },
-      // distractor: moves 18 across the equal sign without changing its sign, so 4k = 60 and k = 15
-      { id: "C", text: "$15$" },
-      // distractor: stops at 4k = 24 and reports 24 without dividing by the 4 mats
-      { id: "D", text: "$24$" }
+      // distractor: distributes -8 over -2 as -16 instead of +16
+      { id: "A", text: "$-20$" },
+      // distractor: distributes the -8 to the x-term only, writing -8(3/4 x - 2) as -6x - 2
+      { id: "B", text: "$-6$" },
+      // distractor: gives the value of y instead of x
+      { id: "C", text: "$7$" },
+      { id: "D", text: "$12$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Substitution with Fraction**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** \"Five more photographs than mats\" is $x - y = 5$; substituting $y = \\frac{x + 3}{3}$ gives $x = 9$ and $y = 4$, so $18 + 4k = 42$ and $k = 6$.\n\n**The Full Solution:**\nStep 1: Substitute the fraction into the count relationship. From $x - y = 5$ and $y = \\frac{x + 3}{3}$, $x - \\frac{x + 3}{3} = 5$. Multiplying every term by $3$ clears the denominator: $3x - (x + 3) = 15$, so $2x = 18$ and $x = 9$.\nStep 2: Back-substitute to get the second value: $y = \\frac{9 + 3}{3} = \\frac{12}{3} = 4$.\nStep 3: Put both values into the cost equation: $2(9) + k(4) = 42$, so $18 + 4k = 42$, $4k = 24$, and $k = 6$. Check: $9 - 4 = 5$ photographs more than mats, and $2(9) + 6(4) = 18 + 24 = 42$ dollars. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): back-substitutes without the denominator, taking $y = x + 3 = 12$ instead of $4$, which gives $18 + 12k = 42$ and $k = 2$.\n* Choice C ($15$): carries $18$ to the right side without changing its sign, giving $4k = 18 + 42 = 60$ and $k = 15$.\n* Choice D ($24$): stops one step early at $4k = 24$ and reports $24$ instead of dividing by the $4$ mats.\n\n**Test Day Takeaway:** Clear a fractional expression by multiplying the entire equation by its denominator before substituting, then carry BOTH solved values into the equation that holds the unknown constant.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Substitution with Fraction**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Substituting gives $5x - 8\\left(\\frac{3}{4}x - 2\\right) = 5x - 6x + 16 = 4$, so $-x = -12$ and $x = 12$.\n\n**The Full Solution:**\nStep 1: Substitute $\\frac{3}{4}x - 2$ for $y$ in the second equation: $5x - 8\\left(\\frac{3}{4}x - 2\\right) = 4$.\nStep 2: Distribute the $-8$ to both terms: $-8 \\cdot \\frac{3}{4}x = -6x$ and $-8 \\cdot (-2) = 16$, so $5x - 6x + 16 = 4$, or $-x + 16 = 4$.\nStep 3: Subtract $16$ and divide by $-1$: $x = 12$. Check: $y = \\frac{3}{4}(12) - 2 = 7$, and $5(12) - 8(7) = 60 - 56 = 4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-20$): multiplies $-8$ by $-2$ to get $-16$, solving $-x - 16 = 4$.\n* Choice B ($-6$): distributes the $-8$ to the $x$-term only, writing $-6x - 2$, and solves $5x - 6x - 2 = 4$.\n* Choice C ($7$): is the value of $y$, not $x$.\n\n**Test Day Takeaway:** The fraction cancels cleanly once it is multiplied by the coefficient in front of $y$; the sign of that coefficient must reach the constant term too.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "substitution-solve",
@@ -1228,9 +1228,9 @@ export const algebraBank = [
     skills: ["substitution-method"],
     difficulty: "hard",
     type: "fill-in",
-    question: "Over a twelve-week training block the counts satisfy $x = 5y - 8$ and $2x + 7y = 69$, where $x$ is the number of interval sessions and $y$ is the number of long runs completed in the block. What is the value of $x + y$?",
+    question: "$x = 5y - 8$\n$2x + 7y = 69$\nThe solution to the given system of equations is $(x, y)$. What is the value of $x + y$?",
     correctAnswer: "22",
-    explanation: "**SAT Pattern: Substitution then Sum**\n\n**The correct answer is $22$.**\n\n**The Fast Way (~40s):** Substituting gives $17y = 85$, so $y = 5$, $x = 17$, and $x + y = 22$.\n\n**The Full Solution:**\n\nStep 1: Replace $x$ in the second equation: $2(5y - 8) + 7y = 69$.\n\nStep 2: Distribute and combine: $10y - 16 + 7y = 69$, so $17y = 85$ and $y = 5$.\n\nStep 3: Back-substitute: $x = 5(5) - 8 = 17$, so $x + y = 22$. Check: $2(17) + 7(5) = 34 + 35 = 69$.\n\n**Common Mistakes:** Forgetting to distribute the $2$ and solving $5y - 8 + 7y = 69$ for $y \\approx 6.4$; stopping at $y = 5$; subtracting and reporting $x - y = 12$.\n\n**Test Day Takeaway:** Distribute across the substituted expression, solve for the one remaining variable, then go back for the other before answering the question asked.",
+    explanation: "**SAT Pattern: Substitution then Sum**\n\n**The correct answer is $22$.**\n\n**The Fast Way (~40s):** Substituting gives $17y = 85$, so $y = 5$, $x = 17$, and $x + y = 22$.\n\n**The Full Solution:**\nStep 1: Substitute $5y - 8$ for $x$ in the second equation: $2(5y - 8) + 7y = 69$.\nStep 2: Distribute and combine like terms: $10y - 16 + 7y = 69$, so $17y = 85$ and $y = 5$.\nStep 3: Back-substitute: $x = 5(5) - 8 = 17$, so $x + y = 17 + 5 = 22$. Check: $2(17) + 7(5) = 34 + 35 = 69$ ✓\n\n**Common Mistakes:**\n* $5$: stops at $y$ without finding $x$.\n* $17$: reports $x$ alone instead of the sum.\n* $12$: computes $x - y$ instead of $x + y$.\n\n**Test Day Takeaway:** Solve for one variable, go back for the other, and then reread the question: it asks for a combination, not a single value.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "substitution-solve",
@@ -1245,18 +1245,18 @@ export const algebraBank = [
     skills: ["elimination-method"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A field crew records two relationships between the quantities $x$ and $y$ as $4x - 3y = 17$ and $2x + 3y = 13$. Adding the left sides of the two equations and adding their right sides eliminates one variable. Which equation results?",
+    question: "$4x - 3y = 17$\n$2x + 3y = 13$\nThe solution to the given system of equations is $(x, y)$. What is the value of $x$?",
     choices: [
-      // distractor: subtracts the two equations instead of adding them
-      { id: "A", text: "$2x - 6y = 4$" },
-      // distractor: adds the x-terms and constants but subtracts the y-terms
-      { id: "B", text: "$6x - 6y = 30$" },
-      // distractor: adds the sizes of the y-coefficients, ignoring that -3y and 3y cancel
-      { id: "C", text: "$6x + 6y = 30$" },
-      { id: "D", text: "$6x = 30$" }
+      // distractor: adds the left sides but subtracts the right sides, getting 6x = 4
+      { id: "A", text: "$\\frac{2}{3}$" },
+      // distractor: gives the value of y instead of x
+      { id: "B", text: "$1$" },
+      { id: "C", text: "$5$" },
+      // distractor: reports the sum 6x = 30 without dividing by 6
+      { id: "D", text: "$30$" }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Elimination by Addition**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The $y$-terms are $-3y$ and $3y$, which cancel, leaving $6x = 30$.\n\n**The Full Solution:**\nStep 1: Add the left sides: $(4x - 3y) + (2x + 3y) = 6x + 0y = 6x$.\nStep 2: Add the right sides: $17 + 13 = 30$.\nStep 3: The result is $6x = 30$. Check: this gives $x = 5$, and substituting into $2x + 3y = 13$ gives $3y = 3$, so $y = 1$, which also satisfies $4(5) - 3(1) = 17$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2x - 6y = 4$): subtracts the two equations instead of adding them, which keeps $y$ in play.\n* Choice B ($6x - 6y = 30$): adds the $x$-terms and the constants but subtracts the $y$-terms.\n* Choice C ($6x + 6y = 30$): adds the sizes of the $y$-coefficients instead of letting $-3y$ and $3y$ cancel.\n\n**Test Day Takeaway:** Addition eliminates a variable only when its coefficients are exact opposites — check the signs before adding.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Elimination by Addition**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The $y$-terms are opposites, so adding the equations gives $6x = 30$ and $x = 5$.\n\n**The Full Solution:**\nStep 1: The $y$-coefficients, $-3$ and $3$, are opposites, so adding the two equations eliminates $y$.\nStep 2: Add the left sides and the right sides: $(4x - 3y) + (2x + 3y) = 17 + 13$, which gives $6x = 30$.\nStep 3: Divide by $6$: $x = 5$. Check: $2(5) + 3y = 13$ gives $y = 1$, and $4(5) - 3(1) = 20 - 3 = 17$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2}{3}$): adds the left sides but subtracts the right sides, writing $6x = 17 - 13 = 4$.\n* Choice B ($1$): is the value of $y$, not $x$.\n* Choice D ($30$): stops at $6x = 30$ and reports the right side without dividing by $6$.\n\n**Test Day Takeaway:** When a variable's coefficients are opposites, add the equations; whatever you do to the left sides, do the same to the right sides.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "elimination-solve",
@@ -1269,9 +1269,9 @@ export const algebraBank = [
     skills: ["elimination-method"],
     difficulty: "easy",
     type: "fill-in",
-    question: "A pond survey counts $x$ adult frogs and $y$ tadpoles, and the two counts satisfy $x + 3y = 26$ and $x - y = 6$. What is the value of $y$?",
+    question: "$x + 4y = 31$\n$x - y = 6$\nThe solution to the given system of equations is $(x, y)$. What is the value of $y$?",
     correctAnswer: "5",
-    explanation: "**SAT Pattern: Solving a System by Elimination**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~20s):** Subtracting the second count from the first eliminates $x$: $4y = 20$, so $y = 5$.\n\n**The Full Solution:**\n\nStep 1: Both equations have a coefficient of $1$ on $x$, so subtracting removes it.\n\nStep 2: $(x + 3y) - (x - y) = 26 - 6$ gives $4y = 20$.\n\nStep 3: So $y = 5$. Check: with $y = 5$, the second equation gives $x = 11$, and $11 + 3(5) = 26$.\n\n**Common Mistakes:** Adding instead and reporting $y = 16$ from $2x + 2y = 32$; mishandling $3y - (-y)$ as $2y$ and reporting $y = 10$; solving for $x$ and reporting $11$.\n\n**Test Day Takeaway:** When one variable already has matching coefficients, subtract the equations and the variable disappears in one step.",
+    explanation: "**SAT Pattern: Solving a System by Elimination**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~15s):** Subtracting the second equation from the first eliminates $x$: $5y = 25$, so $y = 5$.\n\n**The Full Solution:**\nStep 1: Both equations have the term $x$, so subtracting the second equation from the first eliminates $x$.\nStep 2: $(x + 4y) - (x - y) = 31 - 6$, which gives $4y + y = 25$, or $5y = 25$.\nStep 3: Divide by $5$: $y = 5$. Check: $x = 6 + 5 = 11$, and $11 + 4(5) = 31$ ✓\n\n**Common Mistakes:**\n* $11$: the value of $x$, not $y$.\n* $\\frac{25}{3}$: subtracts $-y$ as if it were $+y$, getting $3y = 25$.\n* $\\frac{37}{3}$: adds the equations instead, getting $2x + 3y = 37$, and then drops the $x$-term.\n\n**Test Day Takeaway:** Subtracting an equation subtracts every term, so $4y - (-y)$ is $5y$; watch the sign on the variable you keep.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "elimination-solve",
@@ -1284,19 +1284,19 @@ export const algebraBank = [
     skills: ["elimination-method"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The table gives the number of short cores and long cores in each of two shipments, along with the total mass of each shipment. Every short core has the same mass, and every long core has the same mass. What is the mass, in kilograms, of one long core?",
-    questionTable: { headers: ["Shipment", "Short cores", "Long cores", "Total mass (kg)"], rows: [["1", "4", "2", "44"], ["2", "4", "6", "92"]] },
+    question: "The table shows the number of small boxes and large boxes in two shipments and the total weight of each shipment. All small boxes have the same weight, and all large boxes have the same weight. What is the weight, in kilograms, of one large box?",
+    questionTable: { headers: ["Shipment", "Small boxes", "Large boxes", "Total weight (kg)"], rows: [["1", "4", "2", "44"], ["2", "4", "6", "92"]] },
     choices: [
-      // distractor: reports the mass of one short core
+      // distractor: reports the weight of one small box
       { id: "A", text: "$5$" },
-      // distractor: divides the 48-kilogram gap by the 6 long cores in shipment 2 rather than by the 4 extra ones
+      // distractor: divides the 48-kilogram gap by the 6 large boxes in shipment 2 rather than by the 4 extra ones
       { id: "B", text: "$8$" },
       { id: "C", text: "$12$" },
       // distractor: reports the difference between the two shipment totals without dividing
       { id: "D", text: "$48$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Elimination by Subtraction**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Both shipments hold $4$ short cores, so the $48$-kilogram gap comes from $4$ extra long cores: $48 \\div 4 = 12$.\n\n**The Full Solution:**\nStep 1: Let $s$ be the mass of a short core and $L$ the mass of a long core: $4s + 2L = 44$ and $4s + 6L = 92$.\nStep 2: The $4s$ terms match, so subtracting the first equation from the second gives $4L = 48$.\nStep 3: Then $L = 12$ kilograms. Check: $4s + 24 = 44$ gives $s = 5$, and $4(5) + 6(12) = 20 + 72 = 92$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): reports the mass of one short core.\n* Choice B ($8$): divides the $48$-kilogram gap by the $6$ long cores in shipment $2$ instead of by the $4$ extra ones.\n* Choice D ($48$): reports the difference between the two shipment totals without dividing.\n\n**Test Day Takeaway:** When one column of a table repeats, subtract those two rows — the repeated quantity disappears without any scaling.",
+    explanation: "**SAT Pattern: Elimination by Subtraction**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Both shipments have $4$ small boxes, so the $48$-kilogram difference comes from $4$ extra large boxes: $48 \\div 4 = 12$.\n\n**The Full Solution:**\nStep 1: Let $s$ be the weight of a small box and $L$ the weight of a large box, in kilograms: $4s + 2L = 44$ and $4s + 6L = 92$.\nStep 2: The $4s$ terms match, so subtracting the first equation from the second gives $4L = 48$.\nStep 3: Then $L = 12$. Check: $4s + 24 = 44$ gives $s = 5$, and $4(5) + 6(12) = 20 + 72 = 92$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): is the weight of one small box, not one large box.\n* Choice B ($8$): divides the $48$-kilogram difference by the $6$ large boxes in shipment $2$ instead of by the $4$ extra ones.\n* Choice D ($48$): is the difference between the two shipment totals, before dividing by $4$.\n\n**Test Day Takeaway:** When one column of a table repeats, subtract those two rows; the repeated quantity drops out without any scaling.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "elimination-solve",
@@ -1309,9 +1309,9 @@ export const algebraBank = [
     skills: ["elimination-method"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A seismic array records two totals, $41$ and $-8$, described by $3x + 5y = 41$ and $3x + ky = -8$ for a constant $k$, where $x$ and $y$ are the array's two calibration offsets. Both descriptions hold when $y = 7$. What is the value of $k$?",
+    question: "$3x + 5y = 41$\n$3x + ky = -8$\nIn the given system of equations, $k$ is a constant. If the solution to the system is $(x, 7)$, what is the value of $k$?",
     choices: [
-      // distractor: divides -14 by 2 instead of by the given y-value 7
+      // distractor: divides -14 by 2 instead of by 7
       { id: "A", text: "$-7$" },
       { id: "B", text: "$-2$" },
       // distractor: drops the negative sign after dividing
@@ -1320,7 +1320,7 @@ export const algebraBank = [
       { id: "D", text: "$7$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Elimination (Subtract to Cancel x)**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Both equations share $3x$; the first with $y = 7$ gives $3x = 6$, and then $6 + 7k = -8$ gives $k = -2$.\n\n**The Full Solution:**\nStep 1: Substitute $y = 7$ into the first equation: $3x + 35 = 41$, so $3x = 6$.\nStep 2: The second equation shares the same $3x$ term, so subtracting the two equations cancels $x$ directly; substituting $3x = 6$ gives $6 + 7k = -8$.\nStep 3: Then $7k = -14$ and $k = -2$. Check: $x = 2$, so $3(2) + (-2)(7) = 6 - 14 = -8$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): divides $-14$ by $2$ instead of by the given value $y = 7$.\n* Choice C ($2$): drops the negative sign after dividing $-14$ by $7$.\n* Choice D ($7$): reports the given value of $y$ rather than the constant $k$.\n\n**Test Day Takeaway:** Matching $x$-coefficients mean the two equations differ only in the $y$-term and the constant — subtract and the $x$ never has to be found separately.",
+    explanation: "**SAT Pattern: Elimination (Subtract to Cancel x)**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Subtracting the equations cancels $3x$: $(5 - k)(7) = 41 - (-8) = 49$, so $5 - k = 7$ and $k = -2$.\n\n**The Full Solution:**\nStep 1: Both equations contain $3x$, so subtracting the second equation from the first cancels $x$: $(5 - k)y = 41 - (-8) = 49$.\nStep 2: Substitute $y = 7$: $7(5 - k) = 49$, so $5 - k = 7$.\nStep 3: Then $k = -2$. Check: from the first equation $3x + 35 = 41$, so $x = 2$, and $3(2) + (-2)(7) = 6 - 14 = -8$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): finds $7k = -14$ but divides $-14$ by $2$ instead of by $7$.\n* Choice C ($2$): drops the negative sign after dividing $-14$ by $7$.\n* Choice D ($7$): reports the given value of $y$ rather than the constant $k$.\n\n**Test Day Takeaway:** Matching $x$-coefficients mean the two equations differ only in the $y$-term and the constant, so subtracting them removes $x$ without solving for it.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "elimination-solve",
@@ -1333,18 +1333,18 @@ export const algebraBank = [
     skills: ["elimination-method"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A console's left and right channel settings, $x$ and $y$, satisfy both of the equations $7x - 3y = 23$ and $5x + 6y = 49$, and the constant $m$ denotes the value of $2x + y$ at those settings. What is the value of $m$?",
+    question: "$7x - 3y = 23$\n$5x + 6y = 49$\nIf $(x, y)$ is the solution to the given system of equations, what is the value of $2x + y$?",
     choices: [
       // distractor: computes x + y instead of 2x + y
       { id: "A", text: "$9$" },
-      // distractor: computes x + 2y, swapping which variable is doubled
+      // distractor: computes x + 2y, doubling the wrong variable
       { id: "B", text: "$13$" },
       { id: "C", text: "$14$" },
-      // distractor: doubles both settings, computing 2x + 2y
+      // distractor: computes 2x + 2y
       { id: "D", text: "$18$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Elimination with Scaling**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** Doubling the first equation gives $14x - 6y = 46$; adding the second gives $19x = 95$, so $x = 5$, $y = 4$, and $2x + y = 14$.\n\n**The Full Solution:**\nStep 1: Scale the first equation by $2$ so the $y$-terms become opposites: $14x - 6y = 46$, alongside $5x + 6y = 49$.\nStep 2: Add them: $19x = 95$, so $x = 5$.\nStep 3: Substitute back: $7(5) - 3y = 23$ gives $3y = 12$ and $y = 4$, so $m = 2(5) + 4 = 14$. Check: $5(5) + 6(4) = 25 + 24 = 49$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): computes $x + y$ instead of $2x + y$.\n* Choice B ($13$): computes $x + 2y$, doubling the wrong variable.\n* Choice D ($18$): doubles both settings, computing $2x + 2y$.\n\n**Test Day Takeaway:** Scale one equation until a pair of coefficients are opposites, then read the question again — it often asks for a combination, not a single variable.",
+    explanation: "**SAT Pattern: Elimination with Scaling**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** Doubling the first equation gives $14x - 6y = 46$; adding the second gives $19x = 95$, so $x = 5$, $y = 4$, and $2x + y = 14$.\n\n**The Full Solution:**\nStep 1: Scale the first equation by $2$ so the $y$-terms become opposites: $14x - 6y = 46$, alongside $5x + 6y = 49$.\nStep 2: Add them: $19x = 95$, so $x = 5$.\nStep 3: Substitute back: $7(5) - 3y = 23$ gives $3y = 12$ and $y = 4$, so $2x + y = 2(5) + 4 = 14$. Check: $5(5) + 6(4) = 25 + 24 = 49$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): computes $x + y$ instead of $2x + y$.\n* Choice B ($13$): computes $x + 2y$, doubling the wrong variable.\n* Choice D ($18$): doubles both values, computing $2x + 2y$.\n\n**Test Day Takeaway:** Scale one equation until a pair of coefficients are opposites, then read the question again — it often asks for a combination, not a single variable.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "elimination-solve",
@@ -1357,7 +1357,7 @@ export const algebraBank = [
     skills: ["elimination-method", "setting-up-systems"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A library bought $50$ books for a reading program. Each paperback cost $\\$6$ and each hardcover cost $\\$11$, and the total cost of the books was $\\$370$. How many more paperbacks than hardcovers did the library buy?",
+    question: "A library bought $50$ books. Each paperback cost $\\$6$, each hardcover cost $\\$11$, and the books cost a total of $\\$370$. How many more paperbacks than hardcovers did the library buy?",
     choices: [
       // distractor: the number of hardcovers, not the difference
       { id: "A", text: "$14$" },
@@ -1368,7 +1368,7 @@ export const algebraBank = [
       { id: "D", text: "$50$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: System Word Problem (Mixed Prices)**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** If all $50$ were paperbacks the cost would be $300$; the extra $70$ comes from hardcovers at $5$ dollars more each, so there are $14$ hardcovers and $36$ paperbacks. The difference is $36 - 14 = 22$.\n\n**The Full Solution:**\nStep 1: Let $p$ and $h$ be the numbers of paperbacks and hardcovers: $p + h = 50$ and $6p + 11h = 370$.\nStep 2: Multiply the first equation by $6$ and subtract from the second: $(6p + 11h) - (6p + 6h) = 370 - 300$, so $5h = 70$ and $h = 14$. Then $p = 36$.\nStep 3: The question asks for the difference: $p - h = 36 - 14 = 22$. Check: $6(36) + 11(14) = 216 + 154 = 370$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($14$): is the number of hardcovers; the question asks how many MORE paperbacks there were.\n* Choice C ($36$): is the number of paperbacks, again not the difference.\n* Choice D ($50$): is the total, which was given.\n\n**Test Day Takeaway:** Solve the system, then reread the question: \"how many more\" is a difference of the two unknowns, and both individual counts appear as traps.",
+    explanation: "**SAT Pattern: System Word Problem (Mixed Prices)**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** If all $50$ were paperbacks the cost would be $\\$300$; the extra $\\$70$ comes from hardcovers at $\\$5$ more each, so there are $14$ hardcovers and $36$ paperbacks. The difference is $36 - 14 = 22$.\n\n**The Full Solution:**\nStep 1: Let $p$ and $h$ be the numbers of paperbacks and hardcovers: $p + h = 50$ and $6p + 11h = 370$.\nStep 2: Multiply the first equation by $6$ and subtract from the second: $(6p + 11h) - (6p + 6h) = 370 - 300$, so $5h = 70$ and $h = 14$. Then $p = 36$.\nStep 3: The question asks for the difference: $p - h = 36 - 14 = 22$. Check: $6(36) + 11(14) = 216 + 154 = 370$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($14$): is the number of hardcovers; the question asks how many MORE paperbacks there were.\n* Choice C ($36$): is the number of paperbacks, again not the difference.\n* Choice D ($50$): is the total, which was given.\n\n**Test Day Takeaway:** Solve the system, then reread the question: \"how many more\" is a difference of the two unknowns, and both individual counts appear as traps.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "system-word-problem",
@@ -1383,19 +1383,19 @@ export const algebraBank = [
     skills: ["graphing-systems"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A lab plots the mass, in grams, of crystals recovered from two batches against elapsed minutes, and both plots are straight lines. Which ordered pair gives the time and the mass at which the two batches have recovered equal amounts?",
+    question: "The graphs of two linear equations are shown in the $xy$-plane. What is the solution $(x, y)$ to the system of these two equations?",
     diagram: { type: "twoLineGraph", params: { intersection: { x: 4, y: 10 }, slope1: 0.5, slope2: 1.5, xRange: [-2, 10], yRange: [-2, 16], showIntersection: false, xTickInterval: 2, yTickInterval: 2, gridInterval: 1 } },
     choices: [
-      // distractor: names a point on the steeper line only, not a point both lines share
-      { id: "A", text: "$(2,7)$" },
-      { id: "B", text: "$(4,10)$" },
-      // distractor: names a point on the shallower line only, not a point both lines share
-      { id: "C", text: "$(8,12)$" },
-      // distractor: reverses the coordinates of the crossing point
-      { id: "D", text: "$(10,4)$" }
+      // distractor: names a point on the steeper line only, not a point on both lines
+      { id: "A", text: "$(2, 7)$" },
+      { id: "B", text: "$(4, 10)$" },
+      // distractor: names a point on the less steep line only, not a point on both lines
+      { id: "C", text: "$(8, 12)$" },
+      // distractor: reverses the coordinates of the intersection point
+      { id: "D", text: "$(10, 4)$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Intersection as Solution**\n\n**Choice B is correct.** The two lines cross at $(4,10)$, the only time at which both batches have recovered the same mass.\n\n**The Fast Way (~20s):** Equal masses means the same point on both graphs, which is the crossing point $(4,10)$.\n\n**The Full Solution:**\n\nStep 1: A point on a line gives a time and the mass recovered by that batch at that time. A time when the masses are equal must therefore lie on both lines.\n\nStep 2: The graphs cross once, at $4$ minutes and $10$ grams.\n\nStep 3: Check both readings at $x=4$: the shallower line rises $1$ gram every $2$ minutes from $(0,8)$, reaching $10$ grams; the steeper line rises $3$ grams every $2$ minutes from $(0,4)$, also reaching $10$ grams.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($(2,7)$): lies on the steeper line only; at $2$ minutes the other batch has $9$ grams.\n* Choice C ($(8,12)$): lies on the shallower line only; at $8$ minutes the other batch has $16$ grams.\n* Choice D ($(10,4)$): swaps the coordinates of the crossing point, reporting the mass as the time.\n\n**Test Day Takeaway:** A solution shared by two graphed relationships is the point that lies on both graphs, read as (input, output) in that order.",
+    explanation: "**SAT Pattern: Intersection as Solution**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The solution to a system is the point on both graphs, which is the intersection point $(4, 10)$.\n\n**The Full Solution:**\nStep 1: A solution $(x, y)$ must satisfy both equations, so it must lie on both lines.\nStep 2: The lines intersect at one point; reading the grid, it is at $x = 4$ and $y = 10$.\nStep 3: Check both lines at $x = 4$: the less steep line rises $1$ unit for every $2$ units from $(0, 8)$, reaching $8 + 2 = 10$; the steeper line rises $3$ units for every $2$ units from $(0, 4)$, reaching $4 + 6 = 10$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(2, 7)$): lies on the steeper line only; the less steep line has $y = 9$ at $x = 2$.\n* Choice C ($(8, 12)$): lies on the less steep line only; the steeper line has $y = 16$ at $x = 8$.\n* Choice D ($(10, 4)$): reverses the coordinates of the intersection point.\n\n**Test Day Takeaway:** The solution to a graphed system is the intersection point, written as $(x, y)$ in that order.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "graphing-intersection",
@@ -1408,18 +1408,18 @@ export const algebraBank = [
     skills: ["graphing-systems"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "In the $xy$-plane, the graphs of the equations $4x - 6y = 9$ and $-6x + 9y = 5$ are two lines. How many points do the two lines have in common?",
+    question: "$4x - 6y = 9$\n$-6x + 9y = 5$\nHow many solutions does the given system of equations have?",
     choices: [
       { id: "A", text: "Zero" },
-      // distractor: assumes opposite-sign coefficients mean different slopes
+      // distractor: assumes the opposite signs on the coefficients mean the slopes differ
       { id: "B", text: "Exactly one" },
-      // distractor: two distinct lines cannot meet twice
+      // distractor: forgets that two distinct lines can meet at most once
       { id: "C", text: "Exactly two" },
-      // distractor: sees proportional left sides but never checks the constants
+      // distractor: sees that the x- and y-coefficients are proportional but never compares the constants
       { id: "D", text: "Infinitely many" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Classify System (Parallel Lines)**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Both lines have slope $\\frac{2}{3}$, but multiplying the first equation by $-\\frac{3}{2}$ gives $-6x + 9y = -\\frac{27}{2}$, not $5$. Same slope, different intercept: the lines are parallel and share no point.\n\n**The Full Solution:**\nStep 1: Put each equation in slope-intercept form. $4x - 6y = 9 \\Rightarrow y = \\frac{2}{3}x - \\frac{3}{2}$, and $-6x + 9y = 5 \\Rightarrow y = \\frac{2}{3}x + \\frac{5}{9}$.\nStep 2: The slopes are equal, so the lines are either parallel or the same line.\nStep 3: The $y$-intercepts differ ($-\\frac{3}{2} \\ne \\frac{5}{9}$), so the lines are distinct and parallel. Check: scaling the first equation by $-\\frac{3}{2}$ reproduces the left side $-6x + 9y$ but gives $-\\frac{27}{2} \\ne 5$. $\\checkmark$ No point satisfies both equations.\n\n**Why the wrong answers are tempting:**\n* Choice B (exactly one): assumes the opposite signs on the coefficients mean the slopes differ; both slopes equal $\\frac{2}{3}$.\n* Choice C (exactly two): two distinct straight lines can meet at most once, never twice.\n* Choice D (infinitely many): notices the left sides are proportional but skips the constants, which are not in the same ratio.\n\n**Test Day Takeaway:** For $Ax + By = C$ and $Dx + Ey = F$, compare the ratios $\\frac{A}{D}$, $\\frac{B}{E}$, and $\\frac{C}{F}$: equal coefficient ratios with a different constant ratio means parallel lines and no solution.",
+    explanation: "**SAT Pattern: Classify System (Parallel Lines)**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Multiplying the first equation by $-\\frac{3}{2}$ gives $-6x + 9y = -\\frac{27}{2}$. The left side matches the second equation but the constant does not, so the lines are parallel and distinct: no solution.\n\n**The Full Solution:**\nStep 1: Write each equation in slope-intercept form: $4x - 6y = 9$ becomes $y = \\frac{2}{3}x - \\frac{3}{2}$, and $-6x + 9y = 5$ becomes $y = \\frac{2}{3}x + \\frac{5}{9}$.\nStep 2: Both lines have slope $\\frac{2}{3}$, so they are either the same line or parallel.\nStep 3: The $y$-intercepts differ, $-\\frac{3}{2} \\ne \\frac{5}{9}$, so the lines are parallel and never meet. Check: scaling the first equation by $-\\frac{3}{2}$ reproduces $-6x + 9y$ but gives the constant $-\\frac{27}{2}$, not $5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (exactly one): assumes the opposite signs on the coefficients make the slopes different; both slopes are $\\frac{2}{3}$.\n* Choice C (exactly two): two different lines can cross at most once, so a linear system never has exactly two solutions.\n* Choice D (infinitely many): notices that $-6$ and $9$ are $-\\frac{3}{2}$ times $4$ and $-6$ but skips the constants, which are not in that ratio.\n\n**Test Day Takeaway:** For $Ax + By = C$ and $Dx + Ey = F$, compare $\\frac{A}{D}$, $\\frac{B}{E}$, and $\\frac{C}{F}$: matching coefficient ratios with a different constant ratio means zero solutions.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "graphing-system-type",
@@ -1432,19 +1432,19 @@ export const algebraBank = [
     skills: ["graphing-systems"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A reservoir's modeled water level, in centimeters, at hour $x$ is given by the function $f$, whose graph is shown in the $xy$-plane. A rival model gives the level as $g(x) = -2x + 13$. At which point do the graphs of the two models meet?",
+    question: "The graph of the linear function $f$ is shown in the $xy$-plane. The function $g$ is defined by $g(x) = -2x + 13$. The graphs of $y = f(x)$ and $y = g(x)$ intersect at the point $(a, b)$. What is the value of $b$?",
     diagram: { type: "linearGraph", params: { slope: 1, yIntercept: 4, xRange: [0, 10], yRange: [0, 16], xTickInterval: 2, yTickInterval: 4, gridInterval: 2, showPoints: [[0, 4], [4, 8]], label: "f" } },
     choices: [
-      // distractor: uses +2x instead of -2x for g, solving x + 4 = 2x + 13
-      { id: "A", text: "$(-9, -5)$" },
-      { id: "B", text: "$(3, 7)$" },
-      // distractor: reverses the coordinates of the correct point
-      { id: "C", text: "$(7, 3)$" },
-      // distractor: drops the -2x term and solves x + 4 = 13
-      { id: "D", text: "$(9, 13)$" }
+      // distractor: moves -2x to the left without changing its sign, solving -x = 9 to get x = -9 and y = -5
+      { id: "A", text: "$-5$" },
+      // distractor: reports the x-coordinate a = 3 instead of the y-coordinate
+      { id: "B", text: "$3$" },
+      { id: "C", text: "$7$" },
+      // distractor: forgets to divide by 3, taking x = 9 and then y = 9 + 4 = 13
+      { id: "D", text: "$13$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Find Intersection by Setting Equal**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The graph gives $f(x) = x + 4$; setting $x + 4 = -2x + 13$ yields $3x = 9$, so $x = 3$ and the height is $7$.\n\n**The Full Solution:**\nStep 1: Read $f$ from the graph: it passes through $(0, 4)$ and $(4, 8)$, so its slope is $1$ and $f(x) = x + 4$.\nStep 2: The graphs meet where the outputs agree: $x + 4 = -2x + 13$.\nStep 3: Collect terms: $3x = 9$, so $x = 3$, and $f(3) = 3 + 4 = 7$, giving the point $(3, 7)$. Check: $g(3) = -6 + 13 = 7$, the same height ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-9, -5)$): uses $+2x$ instead of $-2x$ for $g$, solving $x + 4 = 2x + 13$.\n* Choice C ($(7, 3)$): reverses the coordinates of the correct point.\n* Choice D ($(9, 13)$): drops the $-2x$ term and solves $x + 4 = 13$.\n\n**Test Day Takeaway:** Read the graphed function's rule off two lattice points first; only then set the two rules equal.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Find Intersection by Setting Equal**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The graph passes through $(0, 4)$ and $(4, 8)$, so $f(x) = x + 4$. Setting $x + 4 = -2x + 13$ gives $x = 3$, and then $b = 3 + 4 = 7$.\n\n**The Full Solution:**\nStep 1: Read $f$ from the graph: it crosses the $y$-axis at $4$ and rises $4$ units over $4$ units, so its slope is $1$ and $f(x) = x + 4$.\nStep 2: At an intersection point the two functions have the same output, so set them equal: $x + 4 = -2x + 13$, which gives $3x = 9$ and $x = 3$.\nStep 3: Substitute into either function: $b = f(3) = 3 + 4 = 7$. Check: $g(3) = -2(3) + 13 = 7$ as well ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): moves $-2x$ to the left side without changing its sign, getting $-x = 9$, so $x = -9$ and $y = -9 + 4 = -5$. That point is on $f$ but not on $g$.\n* Choice B ($3$): stops at the $x$-coordinate. The question asks for $b$, the $y$-coordinate.\n* Choice D ($13$): reaches $3x = 9$ but uses $x = 9$, then computes $9 + 4 = 13$.\n\n**Test Day Takeaway:** An intersection point is where the two outputs are equal: set the expressions equal, solve for $x$, then substitute back to get the $y$-coordinate the question asks for.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "graphing-intersection",
@@ -1457,19 +1457,19 @@ export const algebraBank = [
     skills: ["graphing-systems"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The function $f$ is defined by $f(x) = 2|x + 1| - 5$, and the graph of $y = f(x)$ is shown in the $xy$-plane. At how many points does the graph of $y = 2x + 1$ intersect the graph of $y = f(x)$?",
+    question: "$y = 2|x + 1| - 5$\n$y = 2x + 1$\nThe graph of the first equation in the given system is shown in the $xy$-plane. How many solutions does the given system of equations have?",
     diagram: { type: "absoluteValue", params: { vertex: [-1, -5], slope: 2 } },
     choices: [
-      // distractor: treats the line as parallel to the whole graph, forgetting the left arm
+      // distractor: sees that the line is parallel to the right branch and concludes the graphs never meet, missing the left branch
       { id: "A", text: "Zero" },
       { id: "B", text: "Exactly one" },
-      // distractor: assumes every line crosses a V twice
+      // distractor: assumes a line always crosses both branches of an absolute value graph
       { id: "C", text: "Exactly two" },
-      // distractor: confuses parallel to an arm with lying on the arm
+      // distractor: treats the line as lying on the right branch because the slopes are both 2
       { id: "D", text: "Infinitely many" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Absolute Value Intersection**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The right arm of the V is $y = 2x - 3$, parallel to $y = 2x + 1$, so they never meet there. The left arm $y = -2x - 7$ has a different slope and meets the line once, at $x = -2$. Exactly one intersection.\n\n**The Full Solution:**\nStep 1: Split $f$ at its vertex $x = -1$. For $x \\ge -1$: $f(x) = 2(x + 1) - 5 = 2x - 3$. For $x < -1$: $f(x) = -2(x + 1) - 5 = -2x - 7$.\nStep 2: Right arm: $2x - 3 = 2x + 1$ gives $-3 = 1$, impossible. The line is parallel to this arm and never touches it.\nStep 3: Left arm: $-2x - 7 = 2x + 1 \\Rightarrow -8 = 4x \\Rightarrow x = -2$, which satisfies $x < -1$. Check: $f(-2) = 2|-1| - 5 = -3$ and $2(-2) + 1 = -3$. $\\checkmark$ One intersection, at $(-2, -3)$.\n\n**Why the wrong answers are tempting:**\n* Choice A (zero): sees that the line's slope matches an arm of the graph and concludes the line is parallel to the whole graph, forgetting the left arm has slope $-2$.\n* Choice C (exactly two): assumes any line crosses a V-shaped graph twice; here the line is parallel to the right arm and can only meet the left arm.\n* Choice D (infinitely many): would require the line to coincide with an arm, but $y = 2x + 1$ and $y = 2x - 3$ have different intercepts.\n\n**Test Day Takeaway:** Split an absolute value graph into its two linear arms, test the line against each arm separately, and keep only solutions that fall inside that arm's domain.",
+    explanation: "**SAT Pattern: Absolute Value Intersection**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The right branch is $y = 2x - 3$, parallel to $y = 2x + 1$, so no solution there. The left branch is $y = -2x - 7$; setting $-2x - 7 = 2x + 1$ gives $x = -2$, which is on the left branch. Exactly one solution.\n\n**The Full Solution:**\nStep 1: Split the absolute value at $x = -1$. For $x \\ge -1$, $y = 2(x + 1) - 5 = 2x - 3$. For $x < -1$, $y = -2(x + 1) - 5 = -2x - 7$.\nStep 2: Right branch: $2x - 3 = 2x + 1$ gives $-3 = 1$, which is false, so the line never meets this branch (the two are parallel).\nStep 3: Left branch: $-2x - 7 = 2x + 1$ gives $x = -2$, and $-2 < -1$, so this solution is valid. Check: at $x = -2$, $2|-2 + 1| - 5 = -3$ and $2(-2) + 1 = -3$ ✓ The system has exactly one solution, $(-2, -3)$.\n\n**Why the wrong answers are tempting:**\n* Choice A (zero): checks only the right branch, which is parallel to the line, and misses the crossing on the left branch.\n* Choice C (exactly two): assumes a line crosses both arms of a V, but a line with the same slope as one arm can meet only the other arm.\n* Choice D (infinitely many): sees the slope $2$ in both equations and assumes the line lies along the right branch, but the intercepts $-3$ and $1$ differ.\n\n**Test Day Takeaway:** For an absolute value graph, solve each branch as its own linear equation and keep only the solutions that fall on that branch's side of the vertex.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "graphing-intersection",
@@ -1484,19 +1484,19 @@ export const algebraBank = [
     skills: ["infinite-solutions-condition"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A network engineer records how transferred data $y$, in gigabytes, depends on elapsed time $x$, in minutes, using the equation graphed in the $xy$-plane. A colleague records the identical relationship with a different equation. Which could the colleague's equation be?",
-    diagram: { type: "linearGraph", params: { slope: 2, yIntercept: 4, xRange: [-2, 10], yRange: [-4, 24], xTickInterval: 2, yTickInterval: 4, gridInterval: 2 } },
+    question: "The graph of one equation in a system of two linear equations is shown in the $xy$-plane. The system has infinitely many solutions. Which equation could be the second equation in the system?",
+    diagram: { type: "linearGraph", params: { slope: 2, yIntercept: 4, xRange: [-2, 10], yRange: [-4, 24], xTickInterval: 2, yTickInterval: 4, gridInterval: 2, showPoints: [[0, 4], [4, 12]] } },
     choices: [
-      // distractor: reads the y-intercept as -4 instead of 4, reflecting the constant across the x-axis
-      { id: "A", text: "$y=2x-4$" },
-      // distractor: doubles the right side only, which doubles both the slope and the intercept
-      { id: "B", text: "$y=4x+8$" },
-      // distractor: scales the y-term and the x-term by 2 but leaves the constant 4 unchanged, giving a parallel line
-      { id: "C", text: "$2y=4x+4$" },
-      { id: "D", text: "$3y=6x+12$" }
+      // distractor: keeps the slope but uses the wrong y-intercept, which gives a parallel line and no solution
+      { id: "A", text: "$y = 2x - 4$" },
+      // distractor: doubles the slope and intercept on the right side without doubling y
+      { id: "B", text: "$y = 4x + 8$" },
+      // distractor: doubles y and the x-term but not the constant, so the line has y-intercept 2
+      { id: "C", text: "$2y = 4x + 4$" },
+      { id: "D", text: "$3y = 6x + 12$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Identify Identical-Lines System**\n\n**Choice D is correct.** The graphed line is $y=2x+4$, and multiplying every term of that equation by $3$ gives $3y=6x+12$, which has exactly the same solutions.\n\n**The Fast Way (~30s):** The line rises $2$ for every $1$ across and crosses the vertical axis at $4$, so it is $y=2x+4$. Only $3y=6x+12$ is a whole-equation multiple of it.\n\n**The Full Solution:**\n\nStep 1: Read the line. It passes through $(0,4)$ and $(2,8)$, so the slope is $\\frac{8-4}{2-0}=2$ and the equation is $y=2x+4$.\n\nStep 2: Two equations have the same solutions exactly when one is a nonzero multiple of the other, term for term.\n\nStep 3: Multiply $y=2x+4$ by $3$: $3y=6x+12$. Check: dividing $3y=6x+12$ by $3$ returns $y=2x+4$, so the two equations describe the same line.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($y=2x-4$): keeps the slope but flips the sign of the intercept, giving a parallel line through $(0,-4)$.\n* Choice B ($y=4x+8$): doubles the right side only, which changes the slope to $4$ and describes a steeper line.\n* Choice C ($2y=4x+4$): scales the $y$-term and the $x$-term but not the constant, giving $y=2x+2$, a parallel line.\n\n**Test Day Takeaway:** Two linear equations have identical solutions only when every term of one is the same multiple of the matching term of the other.",
+    explanation: "**SAT Pattern: Identify Identical-Lines System**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The graph passes through $(0, 4)$ and $(4, 12)$, so it is $y = 2x + 4$. Dividing choice D by $3$ gives $y = 2x + 4$, the same line.\n\n**The Full Solution:**\nStep 1: Read the line from the graph: its $y$-intercept is $4$ and it rises $8$ units over $4$ units, so its slope is $2$ and its equation is $y = 2x + 4$.\nStep 2: A system has infinitely many solutions when both equations describe the same line, so the second equation must simplify to $y = 2x + 4$.\nStep 3: Divide each side of $3y = 6x + 12$ by $3$: $y = 2x + 4$. Check: the point $(4, 12)$ satisfies it, since $3(12) = 36$ and $6(4) + 12 = 36$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = 2x - 4$): has the right slope but a different $y$-intercept, so it is parallel to the graphed line and the system would have no solution.\n* Choice B ($y = 4x + 8$): doubles the right side without doubling $y$, which changes the slope to $4$.\n* Choice C ($2y = 4x + 4$): doubles $y$ and $2x$ but not the constant; it simplifies to $y = 2x + 2$.\n\n**Test Day Takeaway:** Two equations name the same line only when one is a constant multiple of the other, every term included. Simplify each choice to slope-intercept form and compare.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "infinite-solutions-identification",
@@ -1509,18 +1509,18 @@ export const algebraBank = [
     skills: ["infinite-solutions-condition"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "In the system of equations $bx - 10y = 14$ and $9x - 15y = 21$, $b$ is a constant. If the system has infinitely many solutions, what is the value of $b$?",
+    question: "$bx - 10y = 14$\n$9x - 15y = 21$\nIn the given system of equations, $b$ is a constant. For what value of $b$ does the system have infinitely many solutions?",
     choices: [
-      // distractor: sign slip from the negative y-coefficients
+      // distractor: drops the negative sign when matching the y-coefficients, using a ratio of -2/3
       { id: "A", text: "$-6$" },
       { id: "B", text: "$6$" },
       // distractor: copies the x-coefficient of the second equation
       { id: "C", text: "$9$" },
-      // distractor: multiplies 9 by 3/2 instead of dividing
+      // distractor: inverts the scale factor, multiplying 9 by 15/10 instead of 10/15
       { id: "D", text: "$13.5$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Parameter for Proportional Equations**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The second equation must be a multiple of the first. From the $y$-terms and constants, $\\frac{-15}{-10} = \\frac{21}{14} = \\frac{3}{2}$, so $\\frac{9}{b} = \\frac{3}{2}$ and $b = 6$.\n\n**The Full Solution:**\nStep 1: Infinitely many solutions means the second equation equals $k$ times the first for some constant $k$.\nStep 2: Compare the $y$-coefficients: $-15 = k(-10)$, so $k = \\frac{3}{2}$. The constants agree: $\\frac{3}{2}(14) = 21$. $\\checkmark$\nStep 3: Compare the $x$-coefficients: $9 = \\frac{3}{2}b$, so $b = 6$. Check: $\\frac{3}{2}(6x - 10y = 14)$ gives $9x - 15y = 21$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): a sign slip from the negative $y$-coefficients; the ratio $\\frac{-15}{-10}$ is positive.\n* Choice C ($9$): copies the $x$-coefficient of the second equation, ignoring that the second equation is scaled by $\\frac{3}{2}$.\n* Choice D ($13.5$): multiplies $9$ by $\\frac{3}{2}$ instead of dividing by it.\n\n**Test Day Takeaway:** Find the scale factor from a pair of known coefficients (or the constants), confirm it on a second pair, then solve for the unknown coefficient with that same factor.",
+    explanation: "**SAT Pattern: Parameter for Proportional Equations**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The first equation's $y$-coefficient and constant are $\\frac{2}{3}$ of the second's ($-10 = \\frac{2}{3}(-15)$ and $14 = \\frac{2}{3}(21)$), so $b = \\frac{2}{3}(9) = 6$.\n\n**The Full Solution:**\nStep 1: The system has infinitely many solutions only when the first equation is a constant multiple of the second.\nStep 2: Find the multiplier from the terms that are known: $\\frac{-10}{-15} = \\frac{2}{3}$ and $\\frac{14}{21} = \\frac{2}{3}$, so the multiplier is $\\frac{2}{3}$.\nStep 3: Apply it to the $x$-coefficient: $b = \\frac{2}{3}(9) = 6$. Check: $\\frac{2}{3}(9x - 15y) = 6x - 10y$ and $\\frac{2}{3}(21) = 14$, so the two equations are the same line ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): loses the sign when comparing $-10$ with $-15$, using a multiplier of $-\\frac{2}{3}$.\n* Choice C ($9$): makes the $x$-coefficients equal, but the $y$-coefficients $-10$ and $-15$ are not equal, so the equations would not match.\n* Choice D ($13.5$): uses the multiplier upside down, computing $\\frac{15}{10}(9) = 13.5$.\n\n**Test Day Takeaway:** For infinitely many solutions, find the scale factor from two coefficients you know, confirm it on the constant, then apply it to the unknown coefficient.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "infinite-solutions-parameter",
@@ -1533,18 +1533,18 @@ export const algebraBank = [
     skills: ["infinite-solutions-condition"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A recharge study reports the same aquifer balance twice. The first report reads $\\frac{1}{2}x + 3y = 9$ and the second reads $2x + cy = 36$, where $c$ is a constant, and the two reports agree for every pair $(x, y)$. What is the value of $c$?",
+    question: "$\\frac{3}{4}x - \\frac{1}{2}y = 5$\n$9x + cy = 60$\nIn the given system of equations, $c$ is a constant. If the system has infinitely many solutions, what is the value of $c$?",
     choices: [
-      // distractor: reports the y-coefficient of the first report unchanged
-      { id: "A", text: "$3$" },
-      // distractor: scales by 2 instead of by the factor 4 that the x-terms require
-      { id: "B", text: "$6$" },
-      { id: "C", text: "$12$" },
-      // distractor: reports the second report's constant term
-      { id: "D", text: "$36$" }
+      { id: "A", text: "$-6$" },
+      // distractor: multiplies -1/2 by the x-coefficient 9 instead of by the scale factor 12
+      { id: "B", text: "$-\\frac{9}{2}$" },
+      // distractor: divides -1/2 by the scale factor 12 instead of multiplying
+      { id: "C", text: "$-\\frac{1}{24}$" },
+      // distractor: drops the negative sign on the y-coefficient
+      { id: "D", text: "$6$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Find c for Infinite Solutions**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The $x$-terms scale by $2 \\div \\frac{1}{2} = 4$, so every term does: $c = 4(3) = 12$.\n\n**The Full Solution:**\nStep 1: Two equations agree for every pair $(x, y)$ only when one is a constant multiple of the other.\nStep 2: Compare the $x$-terms: $\\frac{2}{1/2} = 4$, so the second report is $4$ times the first.\nStep 3: Every term must scale by $4$, so $c = 4(3) = 12$. Check: $4\\left(\\frac{1}{2}x + 3y\\right) = 2x + 12y$ and $4(9) = 36$, which matches the second report exactly ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports the $y$-coefficient of the first report without scaling it.\n* Choice B ($6$): scales by $2$ rather than by the factor $4$ that the $x$-terms require.\n* Choice D ($36$): reports the constant term of the second report instead of the coefficient.\n\n**Test Day Takeaway:** Find the scale factor from a pair of terms you can compute, then confirm it on the constants before applying it to the unknown.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Find c for Infinite Solutions**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The second equation must be $12$ times the first, since $\\frac{9}{3/4} = 12$ and $\\frac{60}{5} = 12$. So $c = 12\\left(-\\frac{1}{2}\\right) = -6$.\n\n**The Full Solution:**\nStep 1: For infinitely many solutions, the second equation must be a constant multiple of the first.\nStep 2: Find the multiplier: $9 \\div \\frac{3}{4} = 12$, and the constants agree, since $5 \\cdot 12 = 60$.\nStep 3: Apply it to the $y$-coefficient: $c = 12\\left(-\\frac{1}{2}\\right) = -6$. Check: $12\\left(\\frac{3}{4}x - \\frac{1}{2}y\\right) = 9x - 6y$ and $12(5) = 60$, so the equations match ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{9}{2}$): multiplies $-\\frac{1}{2}$ by $9$, the $x$-coefficient, instead of by the multiplier $12$.\n* Choice C ($-\\frac{1}{24}$): divides $-\\frac{1}{2}$ by $12$ instead of multiplying, scaling in the wrong direction.\n* Choice D ($6$): finds the right size but drops the negative sign of $-\\frac{1}{2}y$.\n\n**Test Day Takeaway:** Fractions do not change the method: find the single multiplier that turns one equation into the other, check it on the constants, and carry every sign through.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "infinite-solutions-parameter",
@@ -1557,9 +1557,9 @@ export const algebraBank = [
     skills: ["infinite-solutions-condition"],
     difficulty: "medium",
     type: "fill-in",
-    question: "On a subdivision plat, one parcel boundary is written twice, first as $4x - 10y = 26$ and then as $6x - 15y = k$, and the two written forms graph as a single line in the $xy$-plane. What is the value of the constant $k$?",
+    question: "$4x - 10y = 26$\n$6x - 15y = k$\nIn the given system of equations, $k$ is a constant. If the system has infinitely many solutions, what is the value of $k$?",
     correctAnswer: "39",
-    explanation: "**SAT Pattern: Find Constant for Identical Equations**\n\n**The correct answer is $39$.**\n\n**The Fast Way (~25s):** The second form is $\\frac{3}{2}$ times the first, so $k = \\frac{3}{2}(26) = 39$.\n\n**The Full Solution:**\nStep 1: Two equations graph as the same line only when one is a nonzero multiple of the other.\nStep 2: Compare the $x$-terms: $\\frac{6}{4} = \\frac{3}{2}$, and the $y$-terms agree with that factor since $\\frac{-15}{-10} = \\frac{3}{2}$.\nStep 3: So the constants must share the factor too: $k = \\frac{3}{2}(26) = 39$. Check: $\\frac{3}{2}(4x - 10y = 26)$ gives $6x - 15y = 39$ ✓\n\n**Common Mistakes:** Answering $26$ copies the first constant without scaling; answering $52$ doubles instead of using $\\frac{3}{2}$; answering $17\\frac{1}{3}$ applies the factor upside down, computing $\\frac{2}{3}(26)$.\n\n**Test Day Takeaway:** Confirm the scale factor on two coefficient pairs before using it on the constant — one pair alone can match by accident.",
+    explanation: "**SAT Pattern: Find Constant for Identical Equations**\n\n**The correct answer is $39$.**\n\n**The Fast Way (~15s):** The second equation's coefficients are $\\frac{3}{2}$ times the first's ($6 = \\frac{3}{2} \\cdot 4$ and $-15 = \\frac{3}{2} \\cdot (-10)$), so $k = \\frac{3}{2}(26) = 39$.\n\n**The Full Solution:**\nStep 1: The system has infinitely many solutions when the second equation is a constant multiple of the first.\nStep 2: Find the multiplier from the $x$- and $y$-coefficients: $\\frac{6}{4} = \\frac{3}{2}$ and $\\frac{-15}{-10} = \\frac{3}{2}$.\nStep 3: Apply it to the constant: $k = \\frac{3}{2}(26) = 39$. Check: $\\frac{3}{2}(4x - 10y) = 6x - 15y$ and $\\frac{3}{2}(26) = 39$, so both equations describe the same line ✓\n\n**Common Mistakes:**\n* $26$: copies the constant from the first equation without scaling it.\n* $\\frac{52}{3}$: uses the multiplier upside down, computing $\\frac{2}{3}(26)$.\n\n**Test Day Takeaway:** Infinitely many solutions means one equation is a multiple of the other, constant included. Get the multiplier from the coefficients and apply it to the constant.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "infinite-solutions-parameter",
@@ -1574,18 +1574,18 @@ export const algebraBank = [
     skills: ["function-notation"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The function $r$ gives the number of light-rail riders, in thousands, using a downtown line $t$ years after 2015, and $r(t) = 18 + 2.5t$ for whole-number values of $t$ from $0$ through $10$. What is the value of $r(6)$?",
+    question: "The function $f$ is defined by $f(x) = 5x - 9$. What is the value of $f(4)$?",
     choices: [
-      // distractor: drops the constant term and reports 2.5 times 6
-      { id: "A", text: "$15$" },
-      // distractor: substitutes t = 1 instead of t = 6
-      { id: "B", text: "$20.5$" },
-      { id: "C", text: "$33$" },
-      // distractor: adds 18 and 2.5 first and then multiplies the sum by 6
-      { id: "D", text: "$123$" }
+      // distractor: subtracts before multiplying, computing 5(4 - 9)
+      { id: "A", text: "$-25$" },
+      // distractor: treats 4 as the output and solves 5x - 9 = 4
+      { id: "B", text: "$\\frac{13}{5}$" },
+      { id: "C", text: "$11$" },
+      // distractor: adds 9 instead of subtracting it
+      { id: "D", text: "$29$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Basic Function Notation**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Substitute $t = 6$: $18 + 2.5(6) = 18 + 15 = 33$.\n\n**The Full Solution:**\nStep 1: The notation $r(6)$ means replace $t$ with $6$ in the rule $r(t) = 18 + 2.5t$.\nStep 2: Multiply first: $2.5(6) = 15$.\nStep 3: Then add: $18 + 15 = 33$, so $r(6) = 33$ thousand riders. Check: ridership starts at $18$ thousand and grows $2.5$ thousand per year, so after $6$ years it has grown $15$ thousand ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): reports only the growth term $2.5(6)$ and drops the starting value $18$.\n* Choice B ($20.5$): substitutes $t = 1$ instead of $t = 6$.\n* Choice D ($123$): adds $18$ and $2.5$ first and then multiplies the sum by $6$, ignoring the order of operations.\n\n**Test Day Takeaway:** Function notation is pure substitution: replace the input everywhere it appears, then follow the order of operations.",
+    explanation: "**SAT Pattern: Basic Function Notation**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Substitute $4$ for $x$: $f(4) = 5(4) - 9 = 20 - 9 = 11$.\n\n**The Full Solution:**\nStep 1: The notation $f(4)$ means the output of $f$ when the input $x$ is $4$.\nStep 2: Substitute: $f(4) = 5(4) - 9$.\nStep 3: Multiply, then subtract: $20 - 9 = 11$. Check: $11 + 9 = 20 = 5 \\cdot 4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-25$): subtracts first, computing $5(4 - 9) = 5(-5)$, which ignores the order of operations.\n* Choice B ($\\frac{13}{5}$): treats $4$ as the output, solving $5x - 9 = 4$. That answers \"for what $x$ is $f(x) = 4$?\", a different question.\n* Choice D ($29$): adds $9$ instead of subtracting it.\n\n**Test Day Takeaway:** $f(\\text{number})$ asks for an output: replace every $x$ with the number, then simplify. Solving $f(x) = \\text{number}$ is the reverse question.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-notation-basic",
@@ -1598,9 +1598,9 @@ export const algebraBank = [
     skills: ["function-notation"],
     difficulty: "easy",
     type: "fill-in",
-    question: "The function $c$ gives the remaining capacity, in cubic meters, of a stormwater basin $t$ hours after a storm begins, and $c(t) = 4{,}200 - 350t$. For what value of $t$ does $c(t) = 0$?",
+    question: "$h(t) = 168 - 14t$\nThe function $h$ is defined by the given equation. For what value of $t$ does $h(t) = 0$?",
     correctAnswer: "12",
-    explanation: "**SAT Pattern: Find x-intercept (Zero of Function)**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~15s):** Set $4{,}200 - 350t = 0$, so $350t = 4{,}200$ and $t = 12$.\n\n**The Full Solution:**\nStep 1: The basin is full when the remaining capacity reaches $0$, so set $4{,}200 - 350t = 0$.\nStep 2: Add $350t$ to both sides: $350t = 4{,}200$.\nStep 3: Divide: $t = \\frac{4{,}200}{350} = 12$ hours. Check: $4{,}200 - 350(12) = 4{,}200 - 4{,}200 = 0$ ✓\n\n**Common Mistakes:** Answering $-12$ solves $350t = -4{,}200$ by moving the constant the wrong way; answering $4{,}200$ stops before dividing; answering $350$ reports the rate rather than the time.\n\n**Test Day Takeaway:** A function's zero is where its output is $0$ — set the rule equal to zero and solve, whatever the context calls the variable.",
+    explanation: "**SAT Pattern: Find x-intercept (Zero of Function)**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~10s):** Set $168 - 14t = 0$, so $14t = 168$ and $t = 12$.\n\n**The Full Solution:**\nStep 1: Replace $h(t)$ with $0$: $168 - 14t = 0$.\nStep 2: Add $14t$ to both sides: $14t = 168$.\nStep 3: Divide by $14$: $t = 12$. Check: $h(12) = 168 - 14(12) = 168 - 168 = 0$ ✓\n\n**Common Mistakes:**\n* $-12$: moves $168$ across the equals sign without changing its sign, getting $14t = -168$.\n* $168$: reports $h(0)$, the output when $t = 0$, instead of the input that makes the output $0$.\n* $154$: subtracts $14$ from $168$ instead of dividing.\n\n**Test Day Takeaway:** \"For what value of $t$ does $h(t) = 0$?\" asks for an input. Set the expression equal to $0$ and solve; then substitute back to confirm.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-notation-zero",
@@ -1613,18 +1613,18 @@ export const algebraBank = [
     skills: ["function-notation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A bicycle repair shop's monthly profit, in dollars, is modeled by the function $P(r) = 42r - 3150$, where $r$ is the number of repairs completed that month. What is the minimum number of repairs the shop must complete in a month for its monthly profit to be at least $\\$0$?",
+    question: "A shop's monthly profit $P$, in dollars, from repairing bicycles is given by $P(r) = 42r - 3150$, where $r$ is the number of bicycles repaired. What is the least number of bicycles the shop must repair in a month to avoid a loss?",
     choices: [
-      // distractor: reports the per-repair rate
+      // distractor: reports the profit per bicycle instead of solving for r
       { id: "A", text: "$42$" },
       { id: "B", text: "$75$" },
-      // distractor: assumes profit must be strictly positive
+      // distractor: assumes the profit must be strictly positive, but a profit of exactly $0 is not a loss
       { id: "C", text: "$76$" },
       // distractor: subtracts 42 from 3150 instead of dividing
       { id: "D", text: "$3108$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Break-Even from Profit Function**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Profit is at least $0$ when $42r - 3150 \\ge 0$, so $r \\ge \\frac{3150}{42} = 75$. The minimum is $75$ repairs.\n\n**The Full Solution:**\nStep 1: \"At least $\\$0$\" translates to $P(r) \\ge 0$: $42r - 3150 \\ge 0$.\nStep 2: Add $3150$ and divide by $42$: $r \\ge 75$.\nStep 3: Since $75$ is a whole number of repairs, it is the minimum. Check: $P(75) = 42(75) - 3150 = 0$ and $P(74) = -42 < 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($42$): reports the per-repair rate instead of solving for $r$.\n* Choice C ($76$): assumes the profit must be strictly positive, but $P(75) = 0$ already satisfies \"at least $\\$0$.\"\n* Choice D ($3108$): subtracts $42$ from $3150$ instead of dividing.\n\n**Test Day Takeaway:** Break-even is where profit equals zero; solve $P(r) = 0$ and then read the inequality's direction to decide whether that boundary value itself counts.",
+    explanation: "**SAT Pattern: Break-Even from Profit Function**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Avoiding a loss means $P(r) \\ge 0$: $42r \\ge 3150$, so $r \\ge 75$. The least number is $75$.\n\n**The Full Solution:**\nStep 1: A loss is a negative profit, so the shop avoids a loss when $42r - 3150 \\ge 0$.\nStep 2: Add $3150$ and divide by $42$: $r \\ge \\frac{3150}{42} = 75$.\nStep 3: Since $75$ is a whole number, it is the least number of bicycles that works. Check: $P(75) = 42(75) - 3150 = 0$, and $P(74) = -42 < 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($42$): reports the profit from each bicycle, the coefficient of $r$, instead of solving for $r$.\n* Choice C ($76$): requires a strictly positive profit, but $P(75) = 0$ is not a loss, so $75$ already works.\n* Choice D ($3108$): subtracts $42$ from $3150$ instead of dividing.\n\n**Test Day Takeaway:** Break-even is where profit equals $0$. Solve $P(r) = 0$, then read the wording (\"avoid a loss\" versus \"make a profit\") to decide whether the boundary value counts.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-notation-application",
@@ -1637,18 +1637,18 @@ export const algebraBank = [
     skills: ["function-notation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A linear model of a kayaker's stroke count is $g(x) = 5x + k$ for some constant $k$, and the model gives $g(3) = 26$. For what value of $x$ does the model give $g(x) = 51$?",
+    question: "$g(x) = 5x + k$\nIn the given function, $k$ is a constant, and $g(3) = 26$. If $g(a) = 51$, what is the value of $a$?",
     choices: [
-      // distractor: reports the input $3$ given in the condition rather than the new input
+      // distractor: reuses the input 3 from g(3) = 26
       { id: "A", text: "$3$" },
       { id: "B", text: "$8$" },
-      // distractor: solves $5x = 51$, ignoring the constant $k$
+      // distractor: ignores k and solves 5a = 51
       { id: "C", text: "$10.2$" },
-      // distractor: reports the value of $k$ instead of the input
+      // distractor: stops after finding k = 11
       { id: "D", text: "$11$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Solve for Input from Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $g(3) = 26$ gives $k = 11$, and $5x + 11 = 51$ gives $x = 8$.\n\n**The Full Solution:**\n\nStep 1: Substitute the known point: $5(3) + k = 26$, so $15 + k = 26$ and $k = 11$.\n\nStep 2: The model is $g(x) = 5x + 11$. Set it equal to $51$: $5x + 11 = 51$.\n\nStep 3: Then $5x = 40$ and $x = 8$. Check: $g(8) = 5(8) + 11 = 51$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($3$): repeats the input from the given condition instead of solving the new equation.\n\n* Choice C ($10.2$): solves $5x = 51$, dropping the constant $k$ entirely.\n\n* Choice D ($11$): stops at $k$, the constant found in the first step.\n\n**Test Day Takeaway:** Pin down the unknown constant with the given point first; only then does the output equation have a single unknown.",
+    explanation: "**SAT Pattern: Solve for Input from Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** From $g(3) = 26$: $15 + k = 26$, so $k = 11$. Then $5a + 11 = 51$ gives $a = 8$.\n\n**The Full Solution:**\nStep 1: Use the known input-output pair to find $k$: $g(3) = 5(3) + k = 26$, so $k = 11$ and $g(x) = 5x + 11$.\nStep 2: Set the output equal to $51$: $5a + 11 = 51$.\nStep 3: Solve: $5a = 40$, so $a = 8$. Check: $g(8) = 5(8) + 11 = 51$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reuses the input from $g(3) = 26$, which gives the output $26$, not $51$.\n* Choice C ($10.2$): ignores the constant and solves $5a = 51$.\n* Choice D ($11$): finds $k = 11$ and stops before solving for $a$.\n\n**Test Day Takeaway:** When a function has an unknown constant, use the given input-output pair to pin the constant down first, then solve for the input the question asks about.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-notation-solve",
@@ -1661,18 +1661,18 @@ export const algebraBank = [
     skills: ["function-notation"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A cyclist's power output, in watts, is modeled by the linear function $P$, where $P(x)$ is the output $x$ minutes into a time trial. Given that $P(4) = 320$ and $P(16) = 284$, the function $g$ is defined by $g(x) = P(3x)$. In the $xy$-plane, what is the slope of the graph of $y = g(x)$?",
+    question: "For the linear function $f$, $f(4) - f(-2) = -18$. The function $g$ is defined by $g(x) = f(2x)$. What is the slope of the graph of $y = g(x)$ in the $xy$-plane?",
     choices: [
-      { id: "A", text: "$-9$" },
-      // distractor: reports the slope of $P$ without the factor of $3$ that $g(x) = P(3x)$ introduces
-      { id: "B", text: "$-3$" },
-      // distractor: divides the slope of $P$ by $3$ instead of multiplying by $3$
-      { id: "C", text: "$-1$" },
-      // distractor: multiplies by $3$ but subtracts in the wrong order, using $\frac{320 - 284}{16 - 4}$
-      { id: "D", text: "$9$" }
+      // distractor: takes the change in output, -18, as the slope without dividing by the change in input
+      { id: "A", text: "$-18$" },
+      { id: "B", text: "$-6$" },
+      // distractor: finds the slope of f but does not account for the 2x inside g
+      { id: "C", text: "$-3$" },
+      // distractor: divides the slope of f by 2 instead of multiplying
+      { id: "D", text: "$-\\frac{3}{2}$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Slope from Function Difference**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** $P$ has slope $\\frac{284 - 320}{16 - 4} = -3$, and replacing $x$ by $3x$ triples the rate, so $g$ has slope $-9$.\n\n**The Full Solution:**\n\nStep 1: Two outputs of the linear function $P$ give its slope: $\\frac{284 - 320}{16 - 4} = \\frac{-36}{12} = -3$.\n\nStep 2: Write $P(x) = -3x + p$ for a constant $p$. Then $g(x) = P(3x) = -3(3x) + p = -9x + p$.\n\nStep 3: The graph of $y = g(x)$ therefore has slope $-9$. Check: $g(4) = P(12)$ and $g(8) = P(24)$, values $36$ apart over an input gap of $4$, which is a slope of $-9$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($-3$): gives the slope of $P$, forgetting that $g$ advances through $P$ three times as fast.\n\n* Choice C ($-1$): divides $-3$ by $3$, treating the inner $3x$ as a horizontal stretch instead of a compression.\n\n* Choice D ($9$): triples correctly but reverses the subtraction, turning the decrease into an increase.\n\n**Test Day Takeaway:** Substituting $3x$ into a linear function multiplies its slope by $3$; write the function out rather than guessing the direction.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Slope from Function Difference**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The slope of $f$ is $\\frac{-18}{4 - (-2)} = -3$. Replacing $x$ with $2x$ doubles the slope, so $g$ has slope $-6$.\n\n**The Full Solution:**\nStep 1: The inputs $4$ and $-2$ differ by $6$, and the outputs differ by $-18$, so the slope of $f$ is $\\frac{-18}{6} = -3$. Then $f(x) = -3x + b$ for some constant $b$.\nStep 2: Substitute $2x$ for $x$: $g(x) = f(2x) = -3(2x) + b = -6x + b$.\nStep 3: The slope of $y = g(x)$ is the coefficient of $x$, which is $-6$. Check: $g(2) - g(-1) = f(4) - f(-2) = -18$, and the inputs $2$ and $-1$ differ by $3$, so the slope is $\\frac{-18}{3} = -6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-18$): treats the change in output as the slope without dividing by the change in input, $6$.\n* Choice C ($-3$): finds the slope of $f$ correctly but stops there; $g$ is not the same function as $f$.\n* Choice D ($-\\frac{3}{2}$): divides the slope of $f$ by $2$, as though $g(x) = f\\left(\\frac{x}{2}\\right)$.\n\n**Test Day Takeaway:** Slope is the change in output divided by the change in input. Replacing $x$ with $cx$ inside a linear function multiplies its slope by $c$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-slope-from-values",
@@ -1689,16 +1689,16 @@ export const algebraBank = [
     type: "multiple-choice",
     question: "The function $g$ is defined by $g(x) = \\frac{2x}{x - 9}$. Which of the following describes all values of $x$ for which $g(x)$ is defined?",
     choices: [
-      // distractor: ignores the denominator
+      // distractor: overlooks the variable in the denominator
       { id: "A", text: "All real numbers" },
-      // distractor: sign slip solving x - 9 = 0
+      // distractor: solves x - 9 = 0 with the wrong sign
       { id: "B", text: "All real numbers except $-9$" },
-      // distractor: excludes the zero of the numerator
+      // distractor: excludes the value that makes the numerator zero; 0 divided by -9 is 0, which is defined
       { id: "C", text: "All real numbers except $0$" },
       { id: "D", text: "All real numbers except $9$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Domain (Denominator Restriction)**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** A fraction is undefined only where its denominator is $0$: $x - 9 = 0$ at $x = 9$. Every other real number is allowed.\n\n**The Full Solution:**\nStep 1: The only operation in $g$ that can fail is division, which is undefined when the denominator equals $0$.\nStep 2: Solve $x - 9 = 0$: $x = 9$. At that input, $g(9) = \\frac{18}{0}$, undefined.\nStep 3: The numerator $2x$ never restricts the domain; for example, $g(0) = \\frac{0}{-9} = 0$ is a perfectly good output. So the domain is all real numbers except $9$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (all real numbers): ignores the denominator; $x = 9$ produces division by zero.\n* Choice B (except $-9$): a sign slip when solving $x - 9 = 0$; the zero of the denominator is $9$, not $-9$.\n* Choice C (except $0$): excludes the zero of the numerator, but a zero numerator just makes $g(x) = 0$, which is defined.\n\n**Test Day Takeaway:** Domain restrictions come from the denominator, not the numerator: set the denominator equal to zero, solve, and exclude exactly those inputs.",
+    explanation: "**SAT Pattern: Domain (Denominator Restriction)**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Division by zero is undefined, and $x - 9 = 0$ only when $x = 9$. Every other real number works.\n\n**The Full Solution:**\nStep 1: A fraction is undefined only when its denominator equals $0$; the numerator can be any value.\nStep 2: Set the denominator equal to $0$: $x - 9 = 0$, so $x = 9$.\nStep 3: So $g(x)$ is defined for all real numbers except $9$. Check: $g(0) = \\frac{0}{-9} = 0$ is defined, while $g(9) = \\frac{18}{0}$ is not ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (all real numbers): overlooks the variable in the denominator, which can equal $0$.\n* Choice B (except $-9$): solves $x - 9 = 0$ with the wrong sign. At $x = -9$ the denominator is $-18$, not $0$.\n* Choice C (except $0$): excludes the value that makes the numerator $0$, but $\\frac{0}{-9} = 0$ is a perfectly good output.\n\n**Test Day Takeaway:** For a rational function, exclude only the values that make the denominator $0$. A zero numerator gives an output of $0$, not an undefined value.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "domain-restriction",
@@ -1711,18 +1711,18 @@ export const algebraBank = [
     skills: ["domain-restrictions"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A tuning routine evaluates the function $v$, defined by $v(t) = \\frac{140}{3t - 24}$, at each fader position $t$ between $0$ and $20$. At which fader position does the routine fail to produce a value?",
+    question: "$v(t) = \\frac{140}{3t - 24}$\nFor what value of $t$ is the given function $v$ undefined?",
     choices: [
-      // distractor: solves 3t = -24 instead of 3t = 24
+      // distractor: moves -24 across the equals sign without changing its sign, solving 3t = -24
       { id: "A", text: "$-8$" },
-      // distractor: reports the coefficient of t rather than the position
+      // distractor: reports the coefficient of t
       { id: "B", text: "$3$" },
       { id: "C", text: "$8$" },
-      // distractor: stops at 3t = 24 and reports 24 without dividing
+      // distractor: reports the constant 24 without dividing by 3
       { id: "D", text: "$24$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Find Undefined Point (Denominator Zero)**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The routine fails when the denominator is zero: $3t - 24 = 0$, so $t = 8$.\n\n**The Full Solution:**\nStep 1: A quotient has no value when its denominator is zero, so set $3t - 24 = 0$.\nStep 2: Add $24$ to both sides: $3t = 24$.\nStep 3: Divide by $3$: $t = 8$. Check: at $t = 8$ the denominator is $3(8) - 24 = 0$, while at $t = 7$ it is $-3$ and the routine returns $-\\frac{140}{3}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): solves $3t = -24$, moving the constant the wrong way.\n* Choice B ($3$): reports the coefficient of $t$ instead of solving for $t$.\n* Choice D ($24$): stops at $3t = 24$ and never divides by $3$.\n\n**Test Day Takeaway:** Set only the denominator to zero — the numerator plays no part in where a quotient is undefined.",
+    explanation: "**SAT Pattern: Find Undefined Point (Denominator Zero)**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The function is undefined where the denominator is $0$: $3t - 24 = 0$, so $t = 8$.\n\n**The Full Solution:**\nStep 1: A fraction is undefined when its denominator equals $0$, so set $3t - 24 = 0$.\nStep 2: Add $24$ to both sides: $3t = 24$.\nStep 3: Divide by $3$: $t = 8$. Check: $3(8) - 24 = 0$, so $v(8) = \\frac{140}{0}$, which is undefined ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): moves $-24$ to the other side without changing its sign, solving $3t = -24$.\n* Choice B ($3$): reports the coefficient of $t$ instead of solving.\n* Choice D ($24$): stops at $3t = 24$ without dividing by $3$.\n\n**Test Day Takeaway:** \"Undefined\" for a fraction means a zero denominator. Set the denominator equal to $0$ and solve; the numerator does not matter.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "domain-restriction",
@@ -1735,18 +1735,18 @@ export const algebraBank = [
     skills: ["domain-restrictions"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A response model is defined by $h(x) = \\frac{x + 5}{x^2 - 7x + k}$, where $k$ is a constant, and the model is undefined at an input of $x = 3$. At which other input value is the model undefined?",
+    question: "$h(x) = \\frac{x + 5}{x^{2} - 7x + k}$\nIn the given function, $k$ is a constant. If $h$ is undefined when $x = 3$, for what other value of $x$ is $h$ undefined?",
     choices: [
-      // distractor: flips the sign of the second factor when factoring x^2 - 7x + 12
-      { id: "A", text: "$x = -4$" },
-      { id: "B", text: "$x = 4$" },
-      // distractor: reports the sum of the two undefined values
-      { id: "C", text: "$x = 7$" },
-      // distractor: reports the constant k
-      { id: "D", text: "$x = 12$" }
+      // distractor: factors x^2 - 7x + 12 with the wrong sign, as (x - 3)(x + 4)
+      { id: "A", text: "$-4$" },
+      { id: "B", text: "$4$" },
+      // distractor: reports the opposite of the x-coefficient, the sum of the two roots
+      { id: "C", text: "$7$" },
+      // distractor: reports k instead of the second root
+      { id: "D", text: "$12$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Domain with Quadratic Denominator**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $x = 3$ zeroes the denominator, so $9 - 21 + k = 0$ and $k = 12$; then $x^2 - 7x + 12 = (x - 3)(x - 4)$, so $x = 4$.\n\n**The Full Solution:**\nStep 1: A rational expression is undefined exactly where its denominator is zero, so $3^2 - 7(3) + k = 0$.\nStep 2: That gives $9 - 21 + k = 0$, so $k = 12$ and the denominator is $x^2 - 7x + 12$.\nStep 3: Factor: $x^2 - 7x + 12 = (x - 3)(x - 4)$, so the other zero is $x = 4$. Check: $4^2 - 7(4) + 12 = 16 - 28 + 12 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x = -4$): flips the sign of the second factor, reading $(x - 3)(x + 4)$.\n* Choice C ($x = 7$): reports the sum of the two zeros, $3 + 4$, instead of the second zero.\n* Choice D ($x = 12$): reports the constant $k$ rather than a value of $x$.\n\n**Test Day Takeaway:** Use the known undefined input to pin the missing constant, then factor the completed denominator to find the rest.",
+    explanation: "**SAT Pattern: Domain with Quadratic Denominator**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The denominator is $0$ at $x = 3$, so $9 - 21 + k = 0$ and $k = 12$. Then $x^{2} - 7x + 12 = (x - 3)(x - 4)$, which is also $0$ at $x = 4$.\n\n**The Full Solution:**\nStep 1: $h$ is undefined where its denominator is $0$, so $3^{2} - 7(3) + k = 0$, which gives $-12 + k = 0$ and $k = 12$.\nStep 2: Factor the denominator: $x^{2} - 7x + 12 = (x - 3)(x - 4)$.\nStep 3: The denominator is also $0$ when $x = 4$. Check: $4^{2} - 7(4) + 12 = 16 - 28 + 12 = 0$, while the numerator there is $9$, not $0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): factors with a sign error, writing $(x - 3)(x + 4)$, which expands to $x^{2} + x - 12$.\n* Choice C ($7$): reports the sum of the two roots, the opposite of the $x$-coefficient, instead of the second root.\n* Choice D ($12$): finds $k = 12$ and reports it instead of using it to factor.\n\n**Test Day Takeaway:** A known root of a quadratic denominator lets you solve for the missing constant. Then factor, or use the fact that the two roots add to $7$, to get the other one.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "domain-restriction",
@@ -1759,18 +1759,18 @@ export const algebraBank = [
     skills: ["domain-restrictions"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A decay model uses $g(x) = \\frac{\\sqrt{x + 6}}{x - k}$, in which $k$ is a constant greater than $-6$ and $x$ is a pressure offset, in kilopascals. Which set gives every offset at which the model produces a real number?",
+    question: "$g(x) = \\frac{\\sqrt{x + 6}}{x - k}$\nIn the given function, $k$ is a constant greater than $-6$. Which of the following describes all values of $x$ for which $g(x)$ is a real number?",
     choices: [
-      // distractor: applies only the radical condition and ignores the denominator
+      // distractor: handles the square root but forgets that the denominator cannot be zero
       { id: "A", text: "$x \\ge -6$" },
-      // distractor: excludes x = -6 even though the radicand is 0 there, which is allowed
+      // distractor: excludes -6 even though the square root of 0 is a real number
       { id: "B", text: "$x > -6$ and $x \\ne k$" },
       { id: "C", text: "$x \\ge -6$ and $x \\ne k$" },
-      // distractor: treats the radicand like a denominator, excluding only the value that makes it 0
+      // distractor: treats the square root like a denominator, excluding only x = -6 and allowing values below -6, where the square root is not real
       { id: "D", text: "$x \\ne -6$ and $x \\ne k$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Domain with Radical and Denominator**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** A square root needs $x + 6 \\ge 0$ and a denominator needs $x - k \\ne 0$, so $x \\ge -6$ with $x = k$ removed.\n\n**The Full Solution:**\nStep 1: The square root requires a non-negative radicand: $x + 6 \\ge 0$, which gives $x \\ge -6$.\nStep 2: The denominator cannot be zero: $x - k \\ne 0$, which removes $x = k$.\nStep 3: Because $k > -6$, the excluded value lies inside the interval, so the domain is $x \\ge -6$ with $x = k$ removed. Check: at $x = -6$ the model gives $\\frac{0}{-6 - k}$, which is defined because $k \\ne -6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x \\ge -6$): applies only the radical condition and ignores that the denominator can vanish.\n* Choice B ($x > -6$ and $x \\ne k$): excludes $x = -6$, but a radicand of $0$ is allowed — only negatives are not.\n* Choice D ($x \\ne -6$ and $x \\ne k$): treats the radicand like a denominator, removing one point instead of every value below $-6$.\n\n**Test Day Takeaway:** Radicals give an inequality and denominators give an exclusion — a function with both needs both conditions, not one.",
+    explanation: "**SAT Pattern: Domain with Radical and Denominator**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The square root needs $x + 6 \\ge 0$, so $x \\ge -6$. The denominator needs $x \\ne k$. Both conditions apply.\n\n**The Full Solution:**\nStep 1: The square root of a negative number is not real, so $x + 6 \\ge 0$, which gives $x \\ge -6$. The value $x = -6$ is allowed, since $\\sqrt{0} = 0$.\nStep 2: The denominator cannot be $0$, so $x - k \\ne 0$, which gives $x \\ne k$. Since $k > -6$, this excludes a value inside the interval $x \\ge -6$.\nStep 3: Combine: $x \\ge -6$ and $x \\ne k$. Check: at $x = -6$, $g(-6) = \\frac{0}{-6 - k}$, and $-6 - k \\ne 0$ because $k > -6$, so $g(-6) = 0$ is real ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x \\ge -6$): gets the square root condition but forgets that $x = k$ makes the denominator $0$.\n* Choice B ($x > -6$ and $x \\ne k$): excludes $-6$, but $\\sqrt{0} = 0$, and the numerator may be $0$.\n* Choice D ($x \\ne -6$ and $x \\ne k$): treats the radicand like a denominator, allowing values such as $x = -10$, where $\\sqrt{-4}$ is not real.\n\n**Test Day Takeaway:** Collect one condition per restriction: radicands must be at least $0$ (equality allowed), and denominators must not equal $0$ (equality excluded). Then intersect them.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "domain-restriction",
@@ -1785,19 +1785,19 @@ export const algebraBank = [
     skills: ["function-composition"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The table gives the values of the functions $f$ and $g$ at each integer value of $x$ from $1$ to $4$. What is the value of $f(g(4))$?",
+    question: "The table shows values of the functions $f$ and $g$ for selected values of $x$. What is the value of $f(g(4))$?",
     diagram: { type: "dataTable", params: { headers: ["x", "f(x)", "g(x)"], rows: [["1", "3", "2"], ["2", "1", "1"], ["3", "4", "4"], ["4", "2", "3"]] } },
     choices: [
       // distractor: composes in the reverse order, g(f(4)) = g(2) = 1
       { id: "A", text: "$1$" },
-      // distractor: stops after the inner step g(4) = 3
+      // distractor: stops after the inner step, g(4) = 3
       { id: "B", text: "$3$" },
       { id: "C", text: "$4$" },
-      // distractor: multiplies f(4) and g(4)
+      // distractor: multiplies f(4) = 2 and g(4) = 3
       { id: "D", text: "$6$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Function Composition (Inner First)**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Inner function first: from the table, $g(4) = 3$. Then $f(3) = 4$. So $f(g(4)) = 4$.\n\n**The Full Solution:**\nStep 1: In $f(g(4))$, the innermost expression is $g(4)$. Read the $g(x)$ column at $x = 4$: $g(4) = 3$.\nStep 2: Replace $g(4)$ with $3$: $f(g(4)) = f(3)$.\nStep 3: Read the $f(x)$ column at $x = 3$: $f(3) = 4$. Check the direction: the input to $f$ is the output of $g$, which is $3$, and the row $x = 3$ gives $f(3) = 4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): composes in the reverse order, $g(f(4)) = g(2) = 1$.\n* Choice B ($3$): stops after the inner step $g(4) = 3$ and never applies $f$.\n* Choice D ($6$): multiplies the two table entries in the $x = 4$ row, $f(4) \\cdot g(4) = 2 \\cdot 3$, treating $f(g(4))$ as a product.\n\n**Test Day Takeaway:** Work from the inside out: evaluate the inner function at the given input, then use that output as the input to the outer function, reading each value from its own column.",
+    explanation: "**SAT Pattern: Function Composition (Inner First)**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** From the table, $g(4) = 3$, and then $f(3) = 4$.\n\n**The Full Solution:**\nStep 1: Work from the inside out: first find $g(4)$. In the row where $x = 4$, the $g(x)$ column shows $3$.\nStep 2: Use that output as the new input for $f$: $f(g(4)) = f(3)$.\nStep 3: In the row where $x = 3$, the $f(x)$ column shows $4$, so $f(g(4)) = 4$. Check: the chain is $4 \\to 3$ under $g$, then $3 \\to 4$ under $f$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): composes in the reverse order, $g(f(4)) = g(2) = 1$.\n* Choice B ($3$): stops after the inner step, reporting $g(4)$.\n* Choice D ($6$): multiplies $f(4) = 2$ by $g(4) = 3$; composition feeds one output into the other function, it does not multiply.\n\n**Test Day Takeaway:** In $f(g(a))$, evaluate the inside function first, then use its output as the input to the outside function. With a table, that means looking up two different rows.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-composition",
@@ -1810,9 +1810,9 @@ export const algebraBank = [
     skills: ["function-composition"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A signal chain passes each input through $g$ and then through $f$, where $g(x) = x^2 - c$ for a constant $c$ and $f(x) = 2x + 9$. When the input is $5$, the chain's final output is $51$. What is the value of $c$?",
+    question: "$f(x) = 2x + 9$\n$g(x) = x^{2} - c$\nThe functions $f$ and $g$ are defined by the given equations, where $c$ is a constant. If $f(g(5)) = 51$, what is the value of $c$?",
     correctAnswer: "4",
-    explanation: "**SAT Pattern: Composition with Specific Input**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~30s):** $f(g(5)) = 2(25 - c) + 9 = 59 - 2c$, and setting that equal to $51$ gives $c = 4$.\n\n**The Full Solution:**\nStep 1: Apply the inner function first: $g(5) = 5^2 - c = 25 - c$.\nStep 2: Feed that into the outer function: $f(g(5)) = 2(25 - c) + 9 = 50 - 2c + 9 = 59 - 2c$.\nStep 3: Set $59 - 2c = 51$, so $2c = 8$ and $c = 4$. Check: $g(5) = 25 - 4 = 21$ and $f(21) = 42 + 9 = 51$ ✓\n\n**Common Mistakes:** Answering $8$ stops at $2c = 8$; answering $-4$ reverses the subtraction, solving $59 + 2c = 51$; answering $21$ reports the intermediate value $g(5)$ rather than the constant.\n\n**Test Day Takeaway:** Work a composition from the inside out, keeping the unknown constant symbolic until the final equation.",
+    explanation: "**SAT Pattern: Composition with Specific Input**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~25s):** $g(5) = 25 - c$, so $f(g(5)) = 2(25 - c) + 9 = 59 - 2c$. Setting $59 - 2c = 51$ gives $c = 4$.\n\n**The Full Solution:**\nStep 1: Evaluate the inner function at $5$: $g(5) = 5^{2} - c = 25 - c$.\nStep 2: Apply $f$ to that output: $f(25 - c) = 2(25 - c) + 9 = 59 - 2c$.\nStep 3: Set this equal to $51$: $59 - 2c = 51$, so $2c = 8$ and $c = 4$. Check: $g(5) = 25 - 4 = 21$ and $f(21) = 2(21) + 9 = 51$ ✓\n\n**Common Mistakes:**\n* $8$: solves $59 - 2c = 51$ as far as $2c = 8$ and stops before dividing by $2$.\n* $-4$: distributes as $2(25 - c) = 50 + 2c$, getting $59 + 2c = 51$.\n* $-26$: skips the outer function and sets $g(5) = 51$ directly, so $25 - c = 51$ and $c = -26$.\n\n**Test Day Takeaway:** For $f(g(a))$ with an unknown constant, build the composite one layer at a time, inside first, then set it equal to the given output and solve.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-composition",
@@ -1825,18 +1825,18 @@ export const algebraBank = [
     skills: ["function-composition"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A sonar unit converts each raw echo reading with the function $g$, defined by $g(x) = 4x + 1$, and then applies the function $f$, defined by $f(x) = x^2 - 3$, to that converted value. Which of the following expressions gives the unit's output for a raw echo reading of $x$?",
+    question: "The functions $f$ and $g$ are defined by $f(x) = x^{2} - 3$ and $g(x) = 4x + 1$. Which expression is equivalent to $f(g(x))$?",
     choices: [
-      // distractor: applies f first and then g, computing g(f(x))
-      { id: "A", text: "$4x^2 - 11$" },
-      // distractor: squares 4x and 1 separately and omits the middle term
-      { id: "B", text: "$16x^2 + 1$" },
-      { id: "C", text: "$16x^2 + 8x - 2$" },
-      // distractor: adds 3 instead of subtracting it
-      { id: "D", text: "$16x^2 + 8x + 4$" }
+      // distractor: composes in the reverse order, computing g(f(x)) = 4(x^2 - 3) + 1
+      { id: "A", text: "$4x^{2} - 11$" },
+      // distractor: squares each term of 4x + 1 separately, dropping the middle term 8x
+      { id: "B", text: "$16x^{2} - 2$" },
+      { id: "C", text: "$16x^{2} + 8x - 2$" },
+      // distractor: adds 3 instead of subtracting it after squaring
+      { id: "D", text: "$16x^{2} + 8x + 4$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Function Composition (Expression)**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The unit's output is $f(g(x)) = (4x + 1)^2 - 3 = 16x^2 + 8x + 1 - 3 = 16x^2 + 8x - 2$.\n\n**The Full Solution:**\nStep 1: The reading goes through $g$ first, so the converted value is $4x + 1$; that value is then the input to $f$.\nStep 2: So the output is $f(4x + 1) = (4x + 1)^2 - 3$.\nStep 3: Expand: $(4x + 1)^2 = 16x^2 + 8x + 1$, so the output is $16x^2 + 8x + 1 - 3 = 16x^2 + 8x - 2$. Check: an input of $1$ gives $g(1) = 5$ and $f(5) = 22$, while $16 + 8 - 2 = 22$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4x^2 - 11$): applies $f$ first and then $g$, computing $4(x^2 - 3) + 1$.\n* Choice B ($16x^2 + 1$): squares $4x$ and $1$ separately and omits the middle term $8x$.\n* Choice D ($16x^2 + 8x + 4$): expands the square correctly but adds $3$ instead of subtracting it.\n\n**Test Day Takeaway:** Substitute the whole inner expression into the outer rule and expand the square in full — the middle term is where compositions are lost.",
+    explanation: "**SAT Pattern: Function Composition (Expression)**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Substitute $4x + 1$ into $f$: $(4x + 1)^{2} - 3 = 16x^{2} + 8x + 1 - 3 = 16x^{2} + 8x - 2$.\n\n**The Full Solution:**\nStep 1: $f(g(x))$ means $f$ applied to $g(x)$, so replace the $x$ in $f(x) = x^{2} - 3$ with $4x + 1$: $f(g(x)) = (4x + 1)^{2} - 3$.\nStep 2: Expand the square: $(4x + 1)^{2} = 16x^{2} + 8x + 1$.\nStep 3: Subtract $3$: $16x^{2} + 8x - 2$. Check with $x = 1$: $g(1) = 5$ and $f(5) = 22$, and $16 + 8 - 2 = 22$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4x^{2} - 11$): composes in the reverse order, $g(f(x)) = 4(x^{2} - 3) + 1$.\n* Choice B ($16x^{2} - 2$): squares $4x$ and $1$ separately, losing the middle term $2(4x)(1) = 8x$.\n* Choice D ($16x^{2} + 8x + 4$): expands the square correctly but adds $3$ instead of subtracting it.\n\n**Test Day Takeaway:** Substitute the whole inner expression, in parentheses, for $x$ in the outer function, and expand a squared binomial with its middle term. Test $x = 1$ to confirm.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-composition",
@@ -1849,9 +1849,9 @@ export const algebraBank = [
     skills: ["function-composition"],
     difficulty: "hard",
     type: "fill-in",
-    question: "A depth converter is modeled by the function $f$, defined by $f(x) = \\frac{3x - 8}{5}$, and $f^{-1}$ denotes the inverse of $f$. For a constant $k$, the converter satisfies the equation $f^{-1}(f(k)) = 3k - 22$. What is the value of $k$?",
+    question: "The function $f$ is defined by $f(x) = \\frac{3x - 8}{5}$, and $f^{-1}$ is the inverse function of $f$. If $f^{-1}(f(k)) = 3k - 22$, what is the value of $k$?",
     correctAnswer: "11",
-    explanation: "**SAT Pattern: Composition of Inverse Functions**\n\n**The correct answer is $11$.**\n\n**The Fast Way (~20s):** $f^{-1}(f(k)) = k$ for every $k$, so $k = 3k - 22$, giving $k = 11$.\n\n**The Full Solution:**\nStep 1: A function and its inverse undo each other, so $f^{-1}(f(k)) = k$ for every input $k$ in the domain of $f$.\nStep 2: The given condition therefore becomes $k = 3k - 22$.\nStep 3: Subtracting $k$ gives $22 = 2k$, so $k = 11$. Check: $f(11) = \\frac{33 - 8}{5} = 5$, and $f^{-1}(5) = \\frac{5(5) + 8}{3} = 11$, while $3(11) - 22 = 11$ ✓\n\n**Common Mistakes:** Answering $5.5$ solves $k = 3k - 22$ as $4k = 22$ by adding instead of subtracting $k$; answering $22$ stops at $2k = 22$; building $f^{-1}(x) = \\frac{5x + 8}{3}$ and composing by hand also works but wastes a minute.\n\n**Test Day Takeaway:** Recognize $f^{-1}(f(x))$ as $x$ on sight — never build the inverse when the composition already collapses.",
+    explanation: "**SAT Pattern: Composition of Inverse Functions**\n\n**The correct answer is $11$.**\n\n**The Fast Way (~15s):** An inverse undoes its function, so $f^{-1}(f(k)) = k$. Then $k = 3k - 22$ gives $k = 11$.\n\n**The Full Solution:**\nStep 1: By definition of an inverse, $f^{-1}$ reverses whatever $f$ does, so $f^{-1}(f(k)) = k$ for every input $k$.\nStep 2: Replace the left side: $k = 3k - 22$.\nStep 3: Solve: $22 = 2k$, so $k = 11$. Check: $f(11) = \\frac{33 - 8}{5} = 5$, and $f^{-1}(x) = \\frac{5x + 8}{3}$ gives $f^{-1}(5) = \\frac{33}{3} = 11$, while $3(11) - 22 = 11$ ✓\n\n**Common Mistakes:**\n* $5$: computes $f(11) = 5$ and reports that output, stopping one step short of applying $f^{-1}$.\n* $-11$: sets up $k = 3k - 22$ but moves $22$ with the wrong sign, getting $2k = -22$.\n* $\\frac{11}{2}$: writes $k = 3k - 22$ as $22 = 4k$ by adding $k$ instead of subtracting it.\n\n**Test Day Takeaway:** A function and its inverse cancel: $f^{-1}(f(x)) = x$ and $f(f^{-1}(x)) = x$. Spot the cancellation before computing anything.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-composition-inverse",
@@ -1866,19 +1866,19 @@ export const algebraBank = [
     skills: ["function-transformations"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A drafting program plots the graph shown by sliding the graph of $y=|x|$ along the $x$-axis, leaving the shape of the graph unchanged. Which equation defines the plotted function $f$?",
+    question: "The graph of the function $f$, shown in the $xy$-plane, is a translation of the graph of $y = |x|$. Which equation defines $f$?",
     diagram: { type: "absoluteValue", params: { vertex: [3, 0], slope: 1 } },
     choices: [
-      // distractor: moves the graph 3 units down instead of 3 units right, putting the corner at (0, -3)
-      { id: "A", text: "$f(x)=|x|-3$" },
-      // distractor: moves the graph 3 units up, putting the corner at (0, 3)
-      { id: "B", text: "$f(x)=|x|+3$" },
-      { id: "C", text: "$f(x)=|x-3|$" },
-      // distractor: adds inside the bars, which slides the graph 3 units left to (-3, 0)
-      { id: "D", text: "$f(x)=|x+3|$" }
+      // distractor: treats the shift as vertical and moves the graph down 3
+      { id: "A", text: "$f(x) = |x| - 3$" },
+      // distractor: treats the shift as vertical and moves the graph up 3
+      { id: "B", text: "$f(x) = |x| + 3$" },
+      { id: "C", text: "$f(x) = |x - 3|$" },
+      // distractor: uses + 3 inside the absolute value, which shifts the graph left
+      { id: "D", text: "$f(x) = |x + 3|$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Horizontal Shift**\n\n**Choice C is correct.** The corner of the plotted graph sits at $(3,0)$, and replacing $x$ with $x-3$ moves the corner of $y=|x|$ from $(0,0)$ to $(3,0)$.\n\n**The Fast Way (~25s):** The graph moved right $3$ units and not up or down, so the change belongs inside the bars with the opposite sign: $f(x)=|x-3|$.\n\n**The Full Solution:**\n\nStep 1: Locate the corner of the plotted graph. It is at $(3,0)$, so the corner of $y=|x|$ has moved $3$ units in the positive $x$-direction and $0$ units vertically.\n\nStep 2: A horizontal shift is applied to the input. Replacing $x$ with $x-h$ moves the graph $h$ units right, so $h=3$ gives $f(x)=|x-3|$.\n\nStep 3: Confirm with a point. $f(3)=|3-3|=0$ and $f(5)=|5-3|=2$, and the plotted graph passes through $(3,0)$ and $(5,2)$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($f(x)=|x|-3$): subtracts outside the bars, which lowers the corner to $(0,-3)$ rather than moving it right.\n* Choice B ($f(x)=|x|+3$): raises the corner to $(0,3)$, a vertical shift.\n* Choice D ($f(x)=|x+3|$): adds inside the bars, which slides the corner to $(-3,0)$, the wrong direction.\n\n**Test Day Takeaway:** Changes inside the function move the graph horizontally and in the direction opposite the sign; changes outside move it vertically.",
+    explanation: "**SAT Pattern: Horizontal Shift**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The vertex moved from $(0, 0)$ to $(3, 0)$, a shift of $3$ units right, so $f(x) = |x - 3|$.\n\n**The Full Solution:**\nStep 1: The graph of $y = |x|$ has its vertex at $(0, 0)$. The graph shown has its vertex at $(3, 0)$ and the same V shape.\nStep 2: Moving a graph $3$ units right replaces $x$ with $x - 3$.\nStep 3: So $f(x) = |x - 3|$. Check: $f(3) = |0| = 0$, matching the vertex, and $f(5) = 2$, matching the slope of $1$ on the right arm ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($|x| - 3$): moves the graph down $3$, putting the vertex at $(0, -3)$.\n* Choice B ($|x| + 3$): moves the graph up $3$, putting the vertex at $(0, 3)$.\n* Choice D ($|x + 3|$): uses the wrong sign inside; this vertex is at $(-3, 0)$.\n\n**Test Day Takeaway:** A shift right by $h$ is $f(x - h)$: the sign inside is the opposite of the direction you might guess. Check the vertex by substituting it.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "transformation-identification",
@@ -1891,19 +1891,19 @@ export const algebraBank = [
     skills: ["function-transformations"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The figure gives the parabola $y = f(x)$. Its reflection across the $x$-axis is the parabola $y = g(x)$. Which equation below defines $g$?",
+    question: "The graph of $y = f(x)$ is shown in the $xy$-plane. The graph of $y = g(x)$ is the reflection of the graph of $y = f(x)$ across the $x$-axis. Which equation defines $g$?",
     diagram: { type: "quadraticVertex", params: { vertex: [3, -4], a: 1, showPoints: [[1, 0], [5, 0]], showVertex: true } },
     choices: [
-      // distractor: reflects across the $y$-axis, moving the vertex to $(-3, -4)$ instead of flipping the outputs
-      { id: "A", text: "$g(x) = (x + 3)^2 - 4$" },
-      // distractor: negates only the constant term, leaving the parabola opening upward
-      { id: "B", text: "$g(x) = (x - 3)^2 + 4$" },
-      { id: "C", text: "$g(x) = -(x - 3)^2 + 4$" },
-      // distractor: negates only the squared term, giving vertex $(3, -4)$ rather than $(3, 4)$
-      { id: "D", text: "$g(x) = -(x - 3)^2 - 4$" }
+      // distractor: reflects across the y-axis instead of the x-axis
+      { id: "A", text: "$g(x) = (x + 3)^{2} - 4$" },
+      // distractor: flips the vertex but keeps the parabola opening upward
+      { id: "B", text: "$g(x) = (x - 3)^{2} + 4$" },
+      { id: "C", text: "$g(x) = -(x - 3)^{2} + 4$" },
+      // distractor: negates the squared term but not the constant
+      { id: "D", text: "$g(x) = -(x - 3)^{2} - 4$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Reflection over Axis**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The parabola is $f(x) = (x - 3)^2 - 4$, and reflecting across the $x$-axis gives $g(x) = -(x - 3)^2 + 4$.\n\n**The Full Solution:**\nStep 1: The graph has vertex $(3, -4)$ and passes through $(1, 0)$ and $(5, 0)$, so $f(x) = (x - 3)^2 - 4$.\nStep 2: Reflecting across the $x$-axis replaces every output by its opposite, so $g(x) = -f(x)$.\nStep 3: Therefore $g(x) = -\\left[(x - 3)^2 - 4\\right] = -(x - 3)^2 + 4$. Check: $g(1) = -4 + 4 = 0$ and $g(3) = 4$, the mirror of $f(3) = -4$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($g(x) = (x + 3)^2 - 4$): reflects across the $y$-axis, moving the vertex to $(-3, -4)$ instead of flipping the outputs\n* Choice B ($g(x) = (x - 3)^2 + 4$): negates only the constant term, leaving the parabola opening upward\n* Choice D ($g(x) = -(x - 3)^2 - 4$): negates only the squared term, giving vertex $(3, -4)$ rather than $(3, 4)$\n\n**Test Day Takeaway:** A reflection across the $x$-axis negates the entire expression, constant term included.",
+    explanation: "**SAT Pattern: Reflection over Axis**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The graph has vertex $(3, -4)$ and passes through $(1, 0)$, so $f(x) = (x - 3)^{2} - 4$. Reflecting across the $x$-axis negates every output: $g(x) = -(x - 3)^{2} + 4$.\n\n**The Full Solution:**\nStep 1: From the graph, the vertex is $(3, -4)$ and the parabola passes through $(1, 0)$ and $(5, 0)$. With $f(x) = a(x - 3)^{2} - 4$, the point $(1, 0)$ gives $4a - 4 = 0$, so $a = 1$ and $f(x) = (x - 3)^{2} - 4$.\nStep 2: A reflection across the $x$-axis replaces each output $y$ with $-y$, so $g(x) = -f(x)$.\nStep 3: Negate the whole expression: $g(x) = -\\left[(x - 3)^{2} - 4\\right] = -(x - 3)^{2} + 4$. Check: the vertex of $g$ is $(3, 4)$, the mirror image of $(3, -4)$, and $g(1) = -4 + 4 = 0$, so the $x$-intercepts stay put ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x + 3)^{2} - 4$): replaces $x$ with $-x$, which reflects across the $y$-axis, not the $x$-axis.\n* Choice B ($(x - 3)^{2} + 4$): moves the vertex to $(3, 4)$ but keeps the parabola opening upward, so it is a translation, not a reflection.\n* Choice D ($-(x - 3)^{2} - 4$): negates the squared term but not the $-4$, so the vertex stays at $(3, -4)$.\n\n**Test Day Takeaway:** Reflecting across the $x$-axis negates the entire output, $g(x) = -f(x)$: every term changes sign, and points on the $x$-axis stay fixed.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "transformation-identification",
@@ -1916,19 +1916,19 @@ export const algebraBank = [
     skills: ["function-transformations"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The parabola shown models a hopper's cross section by $y = f(x)$. Which ordered pair is the vertex of the graph of $y = f(x - 2) + 6$?",
+    question: "The graph of $y = f(x)$ is shown in the $xy$-plane. What are the coordinates of the vertex of the graph of $y = f(x - 2) + 6$?",
     diagram: { type: "quadraticVertex", params: { vertex: [4, -3], a: 1, showPoints: [[2, 1], [6, 1]], showVertex: true } },
     choices: [
-      // distractor: shifts left 2 and down 6, reversing both signs
+      // distractor: shifts left instead of right and down instead of up
       { id: "A", text: "$(2, -9)$" },
-      // distractor: reads f(x-2) as a shift 2 units left
+      // distractor: shifts left 2 instead of right 2
       { id: "B", text: "$(2, 3)$" },
-      // distractor: subtracts 6 from the vertex height instead of adding it
+      // distractor: shifts down 6 instead of up 6
       { id: "C", text: "$(6, -9)$" },
       { id: "D", text: "$(6, 3)$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Vertex from Transformations**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The vertex reads $(4, -3)$; $f(x - 2) + 6$ moves it $2$ right and $6$ up to $(6, 3)$.\n\n**The Full Solution:**\nStep 1: From the graph, the lowest point of $y = f(x)$ is $(4, -3)$.\nStep 2: Replacing $x$ with $x - 2$ shifts every point $2$ units right, sending the vertex to $x = 6$.\nStep 3: Adding $6$ raises every point $6$ units, so the vertex height becomes $-3 + 6 = 3$, giving $(6, 3)$. Check: the shifted curve is $y = (x - 6)^2 + 3$, whose lowest point is $(6, 3)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(2, -9)$): reverses both signs, moving the vertex left $2$ and down $6$.\n* Choice B ($(2, 3)$): reads $f(x - 2)$ as a shift to the left, giving $x = 2$.\n* Choice C ($(6, -9)$): shifts right correctly but subtracts $6$ from the height instead of adding it.\n\n**Test Day Takeaway:** Inside the function the shift is opposite in sign; outside it is exactly as written.",
+    explanation: "**SAT Pattern: Vertex from Transformations**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The vertex of $f$ is $(4, -3)$. The graph of $f(x - 2) + 6$ is that graph moved $2$ right and $6$ up, so the new vertex is $(6, 3)$.\n\n**The Full Solution:**\nStep 1: From the graph, the vertex of $y = f(x)$ is $(4, -3)$.\nStep 2: Replacing $x$ with $x - 2$ shifts the graph $2$ units right, and adding $6$ shifts it $6$ units up.\nStep 3: Apply both shifts to the vertex: $(4 + 2, -3 + 6) = (6, 3)$. Check: $f(x - 2) + 6$ at $x = 6$ is $f(4) + 6 = -3 + 6 = 3$, the lowest output, since $f(4)$ is the minimum of $f$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(2, -9)$): reverses both shifts, moving the vertex left $2$ and down $6$.\n* Choice B ($(2, 3)$): reads $x - 2$ as a shift to the left.\n* Choice C ($(6, -9)$): reads $+6$ as a shift down.\n\n**Test Day Takeaway:** Inside the parentheses, the shift goes opposite to the sign ($x - 2$ means right $2$); outside, it goes with the sign ($+6$ means up $6$). Move the vertex and you have moved the graph.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "transformation-vertex",
@@ -1941,19 +1941,19 @@ export const algebraBank = [
     skills: ["function-transformations"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The graph of the linear function $f$ appears in the $xy$-plane. Translating that graph down $6$ units produces the graph of $g$. At what value of $y$ does the graph of $g$ meet the $y$-axis?",
+    question: "The graph of the linear function $f$ is shown in the $xy$-plane. The function $g$ is defined by $g(x) = f(x) - 6$. What is the $y$-coordinate of the $y$-intercept of the graph of $y = g(x)$?",
     diagram: { type: "linearGraph", params: { slope: -0.5, yIntercept: 4, xRange: [-6, 8], yRange: [-4, 8], xTickInterval: 2, yTickInterval: 2, gridInterval: 1, showPoints: [[0, 4], [4, 2], [8, 0]], label: "y = f(x)" } },
     choices: [
-      // distractor: reports the size of the translation instead of the new intercept
+      // distractor: reports the shift alone, ignoring the original y-intercept of 4
       { id: "A", text: "$-6$" },
       { id: "B", text: "$-2$" },
-      // distractor: subtracts 6 from the x-intercept 8 instead of from the y-intercept
+      // distractor: subtracts in the wrong order, computing 6 - 4 = 2
       { id: "C", text: "$2$" },
-      // distractor: adds 6 to 4 instead of subtracting
+      // distractor: shifts up 6 instead of down
       { id: "D", text: "$10$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: y-Intercept After Vertical Shift**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The graph of $f$ meets the $y$-axis at $4$, and $4 - 6 = -2$.\n\n**The Full Solution:**\nStep 1: Read the $y$-intercept of $f$ from the graph: the line crosses the $y$-axis at $(0, 4)$.\nStep 2: A translation down $6$ units means $g(x) = f(x) - 6$ for every $x$.\nStep 3: At $x = 0$, $g(0) = 4 - 6 = -2$, so the graph of $g$ meets the $y$-axis at $-2$. Check: $f(x) = -0.5x + 4$, so $g(x) = -0.5x - 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): reports the size of the translation rather than the new intercept.\n* Choice C ($2$): subtracts $6$ from the $x$-intercept $8$, answering about the wrong axis.\n* Choice D ($10$): adds $6$ to $4$ instead of subtracting, translating the graph upward.\n\n**Test Day Takeaway:** A vertical translation changes every $y$-value by the same amount, so the $y$-intercept moves by exactly that amount.",
+    explanation: "**SAT Pattern: y-Intercept After Vertical Shift**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The graph of $f$ crosses the $y$-axis at $4$, so $g(0) = f(0) - 6 = 4 - 6 = -2$.\n\n**The Full Solution:**\nStep 1: Read the $y$-intercept of $f$ from the graph: the line crosses the $y$-axis at $(0, 4)$, so $f(0) = 4$.\nStep 2: The $y$-intercept of $g$ is at $x = 0$: $g(0) = f(0) - 6$.\nStep 3: Substitute: $g(0) = 4 - 6 = -2$. Check: $f(x) = -\\frac{1}{2}x + 4$ from the points $(0, 4)$ and $(4, 2)$, so $g(x) = -\\frac{1}{2}x - 2$, whose $y$-intercept is $(0, -2)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): reports the shift by itself and ignores the starting $y$-intercept of $4$.\n* Choice C ($2$): subtracts in the wrong order, computing $6 - 4$ instead of $4 - 6$.\n* Choice D ($10$): adds $6$ instead of subtracting it.\n\n**Test Day Takeaway:** Subtracting a constant outside the function moves every point down by that constant, including the $y$-intercept: new intercept = old intercept minus the shift.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "transformation-application",
@@ -1966,18 +1966,18 @@ export const algebraBank = [
     skills: ["function-transformations"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A CAD file stores a curve as $y=f(x)$. Exporting it negates each height, moves the curve $c$ units left, and then lifts it $d$ units, where $c$ and $d$ are positive constants. Which equation defines the exported curve $y=g(x)$?",
+    question: "The graph of $y = g(x)$ is the result of reflecting the graph of $y = f(x)$ across the $x$-axis and then translating it $c$ units to the left and $d$ units up, where $c$ and $d$ are positive constants. Which equation defines $g$?",
     choices: [
-      { id: "A", text: "$g(x)=-f(x+c)+d$" },
-      // distractor: uses x - c for a left shift, but subtracting inside the function moves the curve c units right
-      { id: "B", text: "$g(x)=-f(x-c)+d$" },
-      // distractor: subtracts d, lowering the curve d units instead of lifting it
-      { id: "C", text: "$g(x)=-f(x+c)-d$" },
-      // distractor: omits the negation, so every height keeps its original sign
-      { id: "D", text: "$g(x)=f(x+c)+d$" }
+      { id: "A", text: "$g(x) = -f(x + c) + d$" },
+      // distractor: uses x - c for a shift to the left, which actually shifts the graph right
+      { id: "B", text: "$g(x) = -f(x - c) + d$" },
+      // distractor: translates up before reflecting, so the reflection turns + d into - d
+      { id: "C", text: "$g(x) = -f(x + c) - d$" },
+      // distractor: reflects across the y-axis, replacing x with -x, instead of across the x-axis
+      { id: "D", text: "$g(x) = f(-x - c) + d$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Identify Multiple Transformations**\n\n**Choice A is correct.** Negating heights gives $-f(x)$, the left shift replaces $x$ with $x+c$, and the lift adds $d$, so $g(x)=-f(x+c)+d$.\n\n**The Fast Way (~40s):** Outside changes act as written ($-$ then $+d$); the inside change acts in reverse, so a left shift of $c$ is $x+c$.\n\n**The Full Solution:**\n\nStep 1: Negating each height multiplies every output by $-1$, producing $-f(x)$.\n\nStep 2: Moving the curve $c$ units left replaces the input $x$ with $x+c$, producing $-f(x+c)$. A horizontal shift always uses the opposite sign of the direction of motion.\n\nStep 3: Lifting the curve $d$ units adds $d$ to every output, producing $g(x)=-f(x+c)+d$. Check: a point $(a,b)$ on $y=f(x)$ should export to $(a-c,\\,-b+d)$, and $g(a-c)=-f(a)+d=-b+d$, as required.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($g(x)=-f(x-c)+d$): reads \"left\" as a subtraction inside the function, which actually shifts the curve $c$ units right.\n* Choice C ($g(x)=-f(x+c)-d$): drops the curve $d$ units instead of lifting it.\n* Choice D ($g(x)=f(x+c)+d$): leaves out the negation, so the exported heights are never reflected.\n\n**Test Day Takeaway:** Inside the function, horizontal shifts use the opposite sign; outside the function, reflections and vertical shifts read exactly as written.",
+    explanation: "**SAT Pattern: Identify Multiple Transformations**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Reflect across the $x$-axis: $-f(x)$. Move left $c$: $-f(x + c)$. Move up $d$: $-f(x + c) + d$.\n\n**The Full Solution:**\nStep 1: A reflection across the $x$-axis negates the outputs: $y = -f(x)$.\nStep 2: A translation $c$ units left replaces $x$ with $x + c$: $y = -f(x + c)$.\nStep 3: A translation $d$ units up adds $d$ to the outputs: $g(x) = -f(x + c) + d$. Check: if $f$ has a point at $(p, q)$, then $g$ should have a point at $(p - c, -q + d)$, and $g(p - c) = -f(p) + d = -q + d$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-f(x - c) + d$): replacing $x$ with $x - c$ moves the graph $c$ units right, not left.\n* Choice C ($-f(x + c) - d$): applies the upward shift before the reflection, which turns $+d$ into $-d$; the stated order reflects first.\n* Choice D ($f(-x - c) + d$): negates the input, which reflects across the $y$-axis, not the $x$-axis.\n\n**Test Day Takeaway:** Track a single point $(p, q)$ through each step in the order given. An $x$-axis reflection changes the sign of the output; a $y$-axis reflection changes the sign of the input.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "transformation-identification",
@@ -1992,19 +1992,19 @@ export const algebraBank = [
     skills: ["finding-function-from-conditions"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The graph of line $k$ is shown in the $xy$-plane. Line $k$ passes through the origin and the point $(4, 6)$. Which of the following is an equation of line $k$?",
+    question: "Line $k$ is shown in the $xy$-plane. Which equation defines line $k$?",
     diagram: { type: "linearGraph", params: { slope: 1.5, yIntercept: 0, xRange: [-6, 8], yRange: [-6, 10], xTickInterval: 2, yTickInterval: 2, gridInterval: 1, showPoints: [[0, 0], [4, 6]], label: "k" } },
     choices: [
-      { id: "A", text: "$y = \\dfrac{3}{2}x$" },
-      // distractor: inverts the slope (run over rise)
-      { id: "B", text: "$y = \\dfrac{2}{3}x$" },
-      // distractor: adds the x-coordinate 4 as a y-intercept
-      { id: "C", text: "$y = \\dfrac{3}{2}x + 4$" },
-      // distractor: uses the y-coordinate 6 as the slope
+      { id: "A", text: "$y = \\frac{3}{2}x$" },
+      // distractor: divides run by rise, inverting the slope
+      { id: "B", text: "$y = \\frac{2}{3}x$" },
+      // distractor: adds the x-coordinate of the marked point as a y-intercept
+      { id: "C", text: "$y = \\frac{3}{2}x + 4$" },
+      // distractor: uses the y-coordinate of the marked point as the slope
       { id: "D", text: "$y = 6x$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Line Through Origin**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Through the origin, the $y$-intercept is $0$ and the slope is $\\frac{6 - 0}{4 - 0} = \\frac{3}{2}$, so $y = \\frac{3}{2}x$.\n\n**The Full Solution:**\nStep 1: A line through the origin has $y$-intercept $0$, so its equation has the form $y = mx$.\nStep 2: Slope from the two points: $m = \\frac{6 - 0}{4 - 0} = \\frac{6}{4} = \\frac{3}{2}$.\nStep 3: The equation is $y = \\frac{3}{2}x$. Check: at $x = 4$, $y = \\frac{3}{2}(4) = 6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = \\frac{2}{3}x$): inverts the slope, using run over rise; at $x = 4$ it gives $y = \\frac{8}{3}$, not $6$.\n* Choice C ($y = \\frac{3}{2}x + 4$): tacks on the $x$-coordinate $4$ as a $y$-intercept, but the line passes through the origin, so the intercept is $0$.\n* Choice D ($y = 6x$): uses the $y$-coordinate $6$ as the slope instead of dividing rise by run.\n\n**Test Day Takeaway:** Through the origin means $y = mx$ with no constant; compute $m$ as rise over run from the origin to the given point and verify by substitution.",
+    explanation: "**SAT Pattern: Line Through Origin**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The line passes through $(0, 0)$ and $(4, 6)$, so its slope is $\\frac{6}{4} = \\frac{3}{2}$ and its $y$-intercept is $0$: $y = \\frac{3}{2}x$.\n\n**The Full Solution:**\nStep 1: Read two points on the line from the graph: $(0, 0)$ and $(4, 6)$.\nStep 2: Slope $= \\frac{6 - 0}{4 - 0} = \\frac{3}{2}$, and since the line passes through the origin, the $y$-intercept is $0$.\nStep 3: So the line is $y = \\frac{3}{2}x$. Check: $\\frac{3}{2}(4) = 6$, so $(4, 6)$ is on the line ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = \\frac{2}{3}x$): divides the run by the rise, inverting the slope.\n* Choice C ($y = \\frac{3}{2}x + 4$): has the right slope but adds a $y$-intercept, though the line passes through the origin.\n* Choice D ($y = 6x$): uses the $y$-coordinate $6$ as the slope without dividing by the run of $4$.\n\n**Test Day Takeaway:** A line through the origin is $y = mx$. Read one other clear point $(a, b)$ from the graph and the slope is $\\frac{b}{a}$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-from-points",
@@ -2017,19 +2017,19 @@ export const algebraBank = [
     skills: ["finding-function-from-conditions"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The table gives three values of $x$ and the corresponding values of $f(x)$ for the linear function $f$. Which of the following defines $f$?",
+    question: "The table shows three values of $x$ and their corresponding values of $f(x)$ for the linear function $f$. Which equation defines $f$?",
     diagram: { type: "table", params: { xHeader: "x", yHeader: "f(x)", rows: [["0", "-3"], ["5", "7"], ["10", "17"]] } },
     choices: [
       { id: "A", text: "$f(x) = 2x - 3$" },
-      // distractor: inverts the slope, 5/10
-      { id: "B", text: "$f(x) = \\dfrac{1}{2}x - 3$" },
-      // distractor: uses f(5) = 7 as the intercept
+      // distractor: divides the change in x by the change in f(x), inverting the slope
+      { id: "B", text: "$f(x) = \\frac{1}{2}x - 3$" },
+      // distractor: uses the second row's output, 7, as the y-intercept
       { id: "C", text: "$f(x) = 2x + 7$" },
-      // distractor: swaps slope and intercept
+      // distractor: swaps the roles of the slope and the y-intercept
       { id: "D", text: "$f(x) = -3x + 2$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Linear Function from Two Points (y-Intercept Given)**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The row $x = 0$ gives the $y$-intercept, $-3$. The outputs rise $10$ for every $5$ in $x$, so the slope is $2$: $f(x) = 2x - 3$.\n\n**The Full Solution:**\nStep 1: For a linear function $f(x) = mx + b$, $b = f(0)$. The table gives $f(0) = -3$.\nStep 2: Slope from two rows: $m = \\frac{7 - (-3)}{5 - 0} = \\frac{10}{5} = 2$.\nStep 3: $f(x) = 2x - 3$. Check with the third row: $f(10) = 2(10) - 3 = 17$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($f(x) = \\frac{1}{2}x - 3$): inverts the slope, dividing the change in $x$ by the change in $f(x)$.\n* Choice C ($f(x) = 2x + 7$): uses $f(5) = 7$ as the intercept; the intercept is the output at $x = 0$.\n* Choice D ($f(x) = -3x + 2$): swaps the slope and the intercept.\n\n**Test Day Takeaway:** When a table includes $x = 0$, read the intercept directly from that row, compute the slope from any two rows, and verify the rule on a row you did not use.",
+    explanation: "**SAT Pattern: Linear Function from Two Points (y-Intercept Given)**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The row $x = 0$ gives the $y$-intercept, $-3$. From $x = 0$ to $x = 5$, $f(x)$ rises $10$, so the slope is $2$: $f(x) = 2x - 3$.\n\n**The Full Solution:**\nStep 1: The row with $x = 0$ shows $f(0) = -3$, so the $y$-intercept is $-3$.\nStep 2: Slope from the first two rows: $\\frac{7 - (-3)}{5 - 0} = \\frac{10}{5} = 2$.\nStep 3: So $f(x) = 2x - 3$. Check with the third row: $f(10) = 2(10) - 3 = 17$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{1}{2}x - 3$): divides the change in $x$ by the change in $f(x)$, which inverts the slope.\n* Choice C ($2x + 7$): has the right slope but uses $7$, the output at $x = 5$, as the $y$-intercept.\n* Choice D ($-3x + 2$): swaps the slope and the $y$-intercept.\n\n**Test Day Takeaway:** If a table includes $x = 0$, that row gives the $y$-intercept for free; get the slope from any two rows and use the third row as a check.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-from-points",
@@ -2042,10 +2042,10 @@ export const algebraBank = [
     skills: ["finding-function-from-conditions"],
     difficulty: "medium",
     type: "fill-in",
-    question: "The table gives the temperature $T$, in degrees Celsius, of a metal rod at two times $t$, in minutes, after the rod was removed from a furnace. If $T$ is a linear function of $t$, what is the temperature of the rod, in degrees Celsius, at $t = 16$?",
+    question: "The table shows the temperature, in degrees Celsius, of a metal rod $t$ minutes after it was removed from an oven, for two values of $t$. The temperature decreased at a constant rate. What was the temperature, in degrees Celsius, of the rod at $t = 16$?",
     diagram: { type: "dataTable", params: { headers: ["Time (minutes)", "Temperature (°C)"], rows: [["4", "62"], ["10", "47"]] } },
     correctAnswer: "32",
-    explanation: "**SAT Pattern: Linear Extrapolation**\n\n**The correct answer is $32$.**\n\n**The Fast Way (~15s):** The rod loses $62 - 47 = 15$ degrees over $6$ minutes, a rate of $-2.5$ degrees per minute. From $t = 10$ to $t = 16$ is another $6$ minutes, so $T = 47 - 15 = 32$.\n\n**The Full Solution:**\nStep 1: Rate of change from the two rows: $\\frac{47 - 62}{10 - 4} = \\frac{-15}{6} = -2.5$ degrees per minute.\nStep 2: Extend from the later row: $t = 16$ is $6$ minutes after $t = 10$, so the temperature changes by $-2.5 \\cdot 6 = -15$.\nStep 3: $T(16) = 47 - 15 = 32$. Check via the full model: $T(t) = 62 - 2.5(t - 4)$, so $T(16) = 62 - 2.5(12) = 62 - 30 = 32$. $\\checkmark$\n\n**Common Mistakes:** Treating $62$ as the temperature at $t = 0$ and computing $62 - 2.5(16) = 22$; adding instead of subtracting to get $47 + 15 = 62$; dividing $15$ by $16$ instead of by the $6$-minute gap.\n\n**Test Day Takeaway:** Find the rate from the two given points, then step from the nearest known point by the exact time gap, keeping the sign of the rate.",
+    explanation: "**SAT Pattern: Linear Extrapolation**\n\n**The correct answer is $32$.**\n\n**The Fast Way (~15s):** The temperature fell $62 - 47 = 15$ degrees in $6$ minutes. From $t = 10$ to $t = 16$ is another $6$ minutes, so it fell another $15$: $47 - 15 = 32$.\n\n**The Full Solution:**\nStep 1: Rate of change from the two rows: $\\frac{47 - 62}{10 - 4} = \\frac{-15}{6} = -2.5$ degrees per minute.\nStep 2: From $t = 10$ to $t = 16$ is $6$ minutes, so the temperature changes by $-2.5(6) = -15$ degrees.\nStep 3: Temperature at $t = 16$: $47 - 15 = 32$. Check with the full model $T = 62 - 2.5(t - 4)$: $62 - 2.5(12) = 32$ ✓\n\n**Common Mistakes:**\n* $22$: treats $62$ as the temperature at $t = 0$ and computes $62 - 2.5(16)$.\n* $62$: adds the change instead of subtracting it, getting $47 + 15$.\n* $7$: starts from $47$ but steps $16$ minutes instead of $6$, computing $47 - 2.5(16)$.\n\n**Test Day Takeaway:** Find the rate from the two given rows, then step from the nearest known row by the exact time gap, keeping the sign of the rate.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-from-conditions",
@@ -2058,19 +2058,19 @@ export const algebraBank = [
     skills: ["finding-function-from-conditions"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "On a site grid in which each unit represents one meter, a straight fiber-optic run is laid so that it contains the two plotted points. At what $y$-value does the run cross the $y$-axis?",
+    question: "The two points shown in the $xy$-plane lie on line $\\ell$. What is the $y$-coordinate of the $y$-intercept of line $\\ell$?",
     diagram: { type: "coordinatePoints", params: { points: [[-6, 13], [9, 3]], xMin: -8, xMax: 11, yMin: -4, yMax: 15 } },
     choices: [
-      // distractor: reports the y-coordinate of the right-hand point
+      // distractor: reports the y-coordinate of the right-hand point, (9, 3)
       { id: "A", text: "$3$" },
       { id: "B", text: "$9$" },
-      // distractor: reports the y-coordinate of the left-hand point
+      // distractor: reports the y-coordinate of the left-hand point, (-6, 13)
       { id: "C", text: "$13$" },
-      // distractor: uses a slope of +2/3, giving 13 + 4
+      // distractor: gets the slope's sign wrong, using +2/3, and moves up from (-6, 13)
       { id: "D", text: "$17$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Find y-Intercept from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** The slope is $\\frac{3 - 13}{9 + 6} = -\\frac{2}{3}$; walking $6$ meters right from $(-6, 13)$ drops the height by $4$, giving $9$.\n\n**The Full Solution:**\nStep 1: Read the two points: $(-6, 13)$ and $(9, 3)$. The slope is $\\frac{3 - 13}{9 - (-6)} = \\frac{-10}{15} = -\\frac{2}{3}$.\nStep 2: Use point-slope form from $(-6, 13)$: $y - 13 = -\\frac{2}{3}(x + 6)$.\nStep 3: Set $x = 0$: $y - 13 = -\\frac{2}{3}(6) = -4$, so $y = 9$. Check: from $(0, 9)$, moving $9$ to the right drops the height by $\\frac{2}{3}(9) = 6$, landing at $(9, 3)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports the $y$-coordinate of the right-hand point instead of the crossing height.\n* Choice C ($13$): reports the $y$-coordinate of the left-hand point, as if the run were level.\n* Choice D ($17$): uses a slope of $+\\frac{2}{3}$, adding $4$ to $13$ instead of subtracting it.\n\n**Test Day Takeaway:** Find the slope first, then travel from a known point to $x = 0$ — the sign of the slope decides whether the height rises or falls on the way.",
+    explanation: "**SAT Pattern: Find y-Intercept from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The points are $(-6, 13)$ and $(9, 3)$, so the slope is $\\frac{3 - 13}{9 - (-6)} = -\\frac{2}{3}$. Moving $6$ units right from $(-6, 13)$ lowers $y$ by $4$: the $y$-intercept is $9$.\n\n**The Full Solution:**\nStep 1: Read the points from the graph: $(-6, 13)$ and $(9, 3)$.\nStep 2: Slope: $\\frac{3 - 13}{9 - (-6)} = \\frac{-10}{15} = -\\frac{2}{3}$.\nStep 3: From $(-6, 13)$ to $x = 0$ is $6$ units right, so $y$ changes by $-\\frac{2}{3}(6) = -4$: $13 - 4 = 9$. Check from the other point: $x = 9$ to $x = 0$ is $9$ units left, so $y$ changes by $+6$: $3 + 6 = 9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports the $y$-coordinate of the point $(9, 3)$, which is not on the $y$-axis.\n* Choice C ($13$): reports the $y$-coordinate of the point $(-6, 13)$, which is also not on the $y$-axis.\n* Choice D ($17$): uses a slope of $+\\frac{2}{3}$, so moving right from $(-6, 13)$ adds $4$ instead of subtracting it.\n\n**Test Day Takeaway:** To find a $y$-intercept from two points, compute the slope, then walk from either point to $x = 0$. Doing it from both points is a built-in check.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-from-conditions",
@@ -2083,19 +2083,19 @@ export const algebraBank = [
     skills: ["finding-function-from-conditions", "slope-from-points"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A candle burns at a constant rate. The table gives the height $h$, in centimeters, of the candle $t$ hours after it was lit, for two values of $t$. What was the height of the candle, in centimeters, at the moment it was lit?",
+    question: "A candle burns at a constant rate. The table shows the height $h$, in centimeters, of the candle $t$ hours after it was lit, for two values of $t$. What was the height of the candle, in centimeters, when it was lit?",
     questionTable: { headers: ["Time (hours)", "Height (cm)"], rows: [["2", "21.5"], ["5", "17"]] },
     choices: [
-      // distractor: steps the wrong direction from t = 2
+      // distractor: steps forward from t = 2 instead of back, computing 21.5 - 2(1.5)
       { id: "A", text: "$18.5$" },
-      // distractor: adds only one hour of burn
+      // distractor: steps back only one hour from t = 2, computing 21.5 + 1.5
       { id: "B", text: "$23$" },
       { id: "C", text: "$24.5$" },
-      // distractor: uses 3 hours instead of 2
+      // distractor: steps back 3 hours from t = 2, using the gap between the rows as the distance to t = 0
       { id: "D", text: "$26$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Linear Extrapolation Back to t = 0**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The candle loses $21.5 - 17 = 4.5$ cm over $3$ hours, so $1.5$ cm per hour. Two hours before $t = 2$ it was $2(1.5) = 3$ cm taller: $21.5 + 3 = 24.5$.\n\n**The Full Solution:**\nStep 1: Rate from the two rows: $\\frac{17 - 21.5}{5 - 2} = \\frac{-4.5}{3} = -1.5$ cm per hour.\nStep 2: The height when lit is $h(0)$. Going back from $t = 2$ to $t = 0$ undoes $2$ hours of burning, so add $1.5 \\cdot 2 = 3$: $h(0) = 21.5 + 3 = 24.5$.\nStep 3: Check with the model $h(t) = 24.5 - 1.5t$: $h(5) = 24.5 - 7.5 = 17$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($18.5$): steps in the wrong direction from $t = 2$, subtracting $3$ instead of adding it.\n* Choice B ($23$): adds only one hour of burn, $1.5$, instead of two hours.\n* Choice D ($26$): uses the $3$-hour gap between the rows, $21.5 + 4.5$, instead of the $2$ hours back to $t = 0$.\n\n**Test Day Takeaway:** Find the rate, then move from the nearest data point to $t = 0$ by exactly that many hours, reversing the direction of change because you are going backward in time.",
+    explanation: "**SAT Pattern: Linear Extrapolation Back to t = 0**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The height drops $4.5$ cm in $3$ hours, or $1.5$ cm per hour. Going back $2$ hours from $t = 2$ adds $3$ cm: $21.5 + 3 = 24.5$.\n\n**The Full Solution:**\nStep 1: Rate from the two rows: $\\frac{17 - 21.5}{5 - 2} = \\frac{-4.5}{3} = -1.5$ centimeters per hour.\nStep 2: The candle was lit at $t = 0$, which is $2$ hours before $t = 2$, so the height then was $1.5(2) = 3$ centimeters greater.\nStep 3: Height when lit: $21.5 + 3 = 24.5$ centimeters. Check with the model $h = 24.5 - 1.5t$: at $t = 5$, $24.5 - 7.5 = 17$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($18.5$): steps forward from $t = 2$ instead of back, subtracting $3$ instead of adding it.\n* Choice B ($23$): steps back only $1$ hour from $t = 2$.\n* Choice D ($26$): steps back $3$ hours, the gap between the two rows, instead of the $2$ hours from $t = 2$ to $t = 0$.\n\n**Test Day Takeaway:** The starting value of a linear model is its value at $t = 0$. Find the rate, then walk back from the nearest known row by exactly the right number of time units.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "linear-extrapolation",
@@ -2113,18 +2113,18 @@ export const algebraBank = [
     skills: ["word-problem-to-equation"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A ferry charges $\\$7$ per passenger plus a fixed fee of $\\$12$ per vehicle. A group traveling with one vehicle and $p$ passengers paid a total of $\\$61$. What would the total have been, in dollars, for the same vehicle with $p + 3$ passengers?",
+    question: "A bakery charges \\$3 per cupcake plus a \\$5 box fee for each order. An order of $c$ cupcakes costs \\$41. What is the cost, in dollars, of an order of $c + 4$ cupcakes?",
     choices: [
-      // distractor: adds the count 3 as dollars
-      { id: "A", text: "$\\$64$" },
-      { id: "B", text: "$\\$82$" },
-      // distractor: adds a second vehicle fee
-      { id: "C", text: "$\\$94$" },
-      // distractor: uses the vehicle fee as the per-passenger price
-      { id: "D", text: "$\\$97$" }
+      // distractor: adds the 4 extra cupcakes as 4 dollars, 41 + 4 = 45
+      { id: "A", text: "$45$" },
+      { id: "B", text: "$53$" },
+      // distractor: charges the 5-dollar box fee a second time, 53 + 5 = 58
+      { id: "C", text: "$58$" },
+      // distractor: uses the 5-dollar box fee as the price per cupcake, 41 + 4(5) = 61
+      { id: "D", text: "$61$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Shifted Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Three more passengers add $3 \\cdot \\$7 = \\$21$. The vehicle fee does not change, so the new total is $\\$61 + \\$21 = \\$82$.\n\n**The Full Solution:**\nStep 1: The cost equation is $7p + 12 = 61$, so $7p = 49$ and $p = 7$ passengers.\nStep 2: With $p + 3 = 10$ passengers and one vehicle: $7(10) + 12 = 70 + 12 = 82$.\nStep 3: Shortcut check without solving for $p$: adding $3$ passengers adds $3 \\cdot 7 = 21$, and $61 + 21 = 82$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\$64$): adds the count $3$ as dollars instead of $3 \\cdot \\$7 = \\$21$.\n* Choice C ($\\$94$): adds a second vehicle fee, $82 + 12$, though the group still has one vehicle.\n* Choice D ($\\$97$): uses the vehicle fee $\\$12$ as the per-passenger price, $61 + 3 \\cdot 12$.\n\n**Test Day Takeaway:** In a rate-plus-fixed-fee model, changing the count changes only the rate part; multiply the extra count by the rate and leave the fixed fee alone.",
+    explanation: "**SAT Pattern: Shifted Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Four more cupcakes add $4 \\cdot 3 = 12$ dollars, and the box fee does not change, so the cost is $41 + 12 = 53$.\n\n**The Full Solution:**\nStep 1: The cost of $c$ cupcakes is $3c + 5$, so $3c + 5 = 41$. Then $3c = 36$ and $c = 12$.\nStep 2: An order of $c + 4 = 16$ cupcakes costs $3(16) + 5 = 48 + 5 = 53$ dollars.\nStep 3: Check without solving for $c$: $3(c + 4) + 5 = (3c + 5) + 12 = 41 + 12 = 53$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($45$): adds the $4$ extra cupcakes as $4$ dollars instead of $4 \\cdot 3 = 12$ dollars.\n* Choice C ($58$): charges the $\\$5$ box fee a second time; the order still has one box fee, so the cost is $53$, not $53 + 5$.\n* Choice D ($61$): uses the $\\$5$ box fee as the price of a cupcake, computing $41 + 4(5) = 61$.\n\n**Test Day Takeaway:** When a cost is a rate times a count plus a fixed fee, a change in the count changes only the rate part; multiply the change by the rate and leave the fee alone.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "shifted-output",
@@ -2137,18 +2137,18 @@ export const algebraBank = [
     skills: ["word-problem-to-equation"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A climbing gym charges $\\$4$ per visit plus a monthly membership fee of $\\$15$. Last month, a member who made $v$ visits was charged a total of $\\$47$. What would the member have been charged, in dollars, for $v - 3$ visits that month?",
+    question: "Jordan bought $n$ notebooks for \\$4 each and one backpack for \\$15, spending a total of \\$47. How much would Jordan have spent, in dollars, if he had bought $3$ fewer notebooks?",
     choices: [
-      // distractor: subtracts both the 12 and the membership fee
-      { id: "A", text: "$\\$20$" },
-      // distractor: subtracts the membership fee instead of 3 visits
-      { id: "B", text: "$\\$32$" },
-      { id: "C", text: "$\\$35$" },
-      // distractor: subtracts the count 3 as dollars
-      { id: "D", text: "$\\$44$" }
+      // distractor: removes the 15-dollar backpack instead of three notebooks, 47 - 15 = 32
+      { id: "A", text: "$32$" },
+      { id: "B", text: "$35$" },
+      // distractor: subtracts the count 3 as 3 dollars, 47 - 3 = 44
+      { id: "C", text: "$44$" },
+      // distractor: adds the cost of 3 notebooks instead of subtracting it, 47 + 12 = 59
+      { id: "D", text: "$59$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Shifted Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Three fewer visits remove $3 \\cdot \\$4 = \\$12$. The membership fee stays, so the charge is $\\$47 - \\$12 = \\$35$.\n\n**The Full Solution:**\nStep 1: The charge equation is $4v + 15 = 47$, so $4v = 32$ and $v = 8$ visits.\nStep 2: For $v - 3 = 5$ visits: $4(5) + 15 = 20 + 15 = 35$.\nStep 3: Shortcut check: removing $3$ visits removes $3 \\cdot 4 = 12$, and $47 - 12 = 35$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\$20$): subtracts the $\\$12$ for the visits and also drops the $\\$15$ membership fee, which is still owed.\n* Choice B ($\\$32$): subtracts the membership fee $\\$15$ instead of the cost of $3$ visits.\n* Choice D ($\\$44$): subtracts the count $3$ as dollars instead of $3 \\cdot \\$4 = \\$12$.\n\n**Test Day Takeaway:** A change in the count moves the total by (change) $\\times$ (rate) in the same direction; the fixed fee is unaffected whether the count goes up or down.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Shifted Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Three fewer notebooks cost $3 \\cdot 4 = 12$ dollars less, so Jordan would have spent $47 - 12 = 35$ dollars.\n\n**The Full Solution:**\nStep 1: The total is $4n + 15 = 47$, so $4n = 32$ and $n = 8$ notebooks.\nStep 2: With $3$ fewer notebooks, Jordan buys $n - 3 = 5$ notebooks and spends $4(5) + 15 = 20 + 15 = 35$ dollars.\nStep 3: Check without solving for $n$: $4(n - 3) + 15 = (4n + 15) - 12 = 47 - 12 = 35$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($32$): takes away the $\\$15$ backpack instead of the $3$ notebooks, computing $47 - 15 = 32$.\n* Choice C ($44$): subtracts the $3$ notebooks as $3$ dollars instead of $3 \\cdot 4 = 12$ dollars.\n* Choice D ($59$): adds the cost of $3$ notebooks, $47 + 12 = 59$, although Jordan buys fewer notebooks, not more.\n\n**Test Day Takeaway:** Fewer items means the total drops by the number of items removed times the price of each; the one-time cost stays in the total.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "shifted-output",
@@ -2161,18 +2161,18 @@ export const algebraBank = [
     skills: ["combining-like-terms"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "In a model of reservoir evaporation, the expression $5m - 8$ gives the number of millimeters of water lost during a dry spell of $m$ days, and for one spell its value is $27$. What is the value of $5m + 6$?",
+    question: "$5m - 8 = 27$\nWhat is the value of $10m + 3$?",
     choices: [
-      // distractor: adds $6$ to the given value $27$ without first removing the $-8$
-      { id: "A", text: "$33$" },
-      // distractor: reports the value of $5m$ and stops
-      { id: "B", text: "$35$" },
-      { id: "C", text: "$41$" },
-      // distractor: adds the constant $8$ to $27$ and then adds the shift $14$ as well
-      { id: "D", text: "$49$" }
+      // distractor: finds 5m = 35 and adds 3 without doubling to get 10m
+      { id: "A", text: "$38$" },
+      // distractor: subtracts 8 instead of adding it, so 5m = 19 and 10m + 3 = 41
+      { id: "B", text: "$41$" },
+      // distractor: doubles the given value 27 and adds 3, treating 10m + 3 as 2(5m - 8) + 3
+      { id: "C", text: "$57$" },
+      { id: "D", text: "$73$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Shifted Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Going from $5m - 8$ to $5m + 6$ adds $14$, so the value rises from $27$ to $41$.\n\n**The Full Solution:**\n\nStep 1: The two expressions share the term $5m$, so find it: $5m - 8 = 27$ gives $5m = 35$.\n\nStep 2: Substitute: $5m + 6 = 35 + 6 = 41$.\n\nStep 3: Check with $m = 7$: $5(7) - 8 = 27$ and $5(7) + 6 = 41$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($33$): adds $6$ directly to $27$, forgetting that the $-8$ must be removed first.\n\n* Choice B ($35$): stops at the value of $5m$ without adding $6$.\n\n* Choice D ($49$): adds back the $8$ and then adds the full shift of $14$, applying the correction twice.\n\n**Test Day Takeaway:** When two expressions share the same variable term, solve for that term once and substitute; you never need the variable itself.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Shifted Output**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Adding $8$ gives $5m = 35$, so $10m = 70$ and $10m + 3 = 73$.\n\n**The Full Solution:**\nStep 1: Add $8$ to both sides of the given equation: $5m = 35$.\nStep 2: Multiply both sides by $2$: $10m = 70$.\nStep 3: Add $3$: $10m + 3 = 73$. Check: $m = 7$ gives $5(7) - 8 = 27$ and $10(7) + 3 = 73$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($38$): stops at $5m = 35$ and adds $3$, never doubling $5m$ to get $10m$.\n* Choice B ($41$): subtracts $8$ from $27$ instead of adding it, getting $5m = 19$, so $10m + 3 = 38 + 3 = 41$.\n* Choice C ($57$): doubles $27$ and adds $3$. But $2(5m - 8) = 10m - 16$, not $10m$, so $2(27) + 3 = 57$ is the value of $10m - 13$.\n\n**Test Day Takeaway:** To find a new expression in $m$, isolate the matching multiple of $m$ first ($5m = 35$), then scale and shift it to the target.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "shifted-output",
@@ -2185,18 +2185,18 @@ export const algebraBank = [
     skills: ["combining-like-terms"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A count of bats leaving a roost satisfies $9r - 5 = 22$, where $r$ is the number of minutes after sunset at which counting begins. If $9r + c = 40$ for some constant $c$, what is the value of $c$?",
+    question: "If $\\frac{4x}{9} = \\frac{8}{3}$, what is the value of $x + 7$?",
     choices: [
-      // distractor: reports the constant $5$ from the first equation
-      { id: "A", text: "$5$" },
-      { id: "B", text: "$13$" },
-      // distractor: computes $40 - 22$, subtracting the two right-hand sides
-      { id: "C", text: "$18$" },
-      // distractor: reports the value of $9r$ instead of $c$
-      { id: "D", text: "$27$" }
+      // distractor: solves for x and stops, reporting x = 6 instead of x + 7
+      { id: "A", text: "$6$" },
+      // distractor: drops both denominators, solving 4x = 8 to get x = 2, so x + 7 = 9
+      { id: "B", text: "$9$" },
+      { id: "C", text: "$13$" },
+      // distractor: multiplies by 9 to get 4x = 24 but never divides by 4, using x = 24
+      { id: "D", text: "$31$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Shifted Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $9r = 27$, so $c = 40 - 27 = 13$.\n\n**The Full Solution:**\n\nStep 1: Solve the first equation for the shared term: $9r - 5 = 22$ gives $9r = 27$.\n\nStep 2: Substitute into the second equation: $27 + c = 40$.\n\nStep 3: So $c = 13$. Check with $r = 3$: $9(3) - 5 = 22$ and $9(3) + 13 = 40$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($5$): copies the constant from the first equation instead of solving for the new one.\n\n* Choice C ($18$): subtracts the right-hand sides, $40 - 22$, which ignores the $-5$.\n\n* Choice D ($27$): reports $9r$, the shared term, rather than the constant added to it.\n\n**Test Day Takeaway:** Isolate the repeated variable term first; the second equation then becomes one subtraction.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Shifted Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Multiplying both sides by $9$ gives $4x = 24$, so $x = 6$ and $x + 7 = 13$.\n\n**The Full Solution:**\nStep 1: Multiply both sides by $9$: $4x = \\frac{8}{3} \\cdot 9 = 24$.\nStep 2: Divide both sides by $4$: $x = 6$.\nStep 3: Add $7$: $x + 7 = 13$. Check: $\\frac{4(6)}{9} = \\frac{24}{9} = \\frac{8}{3}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): solves for $x$ correctly but reports $x = 6$; the question asks for $x + 7$.\n* Choice B ($9$): ignores both denominators and solves $4x = 8$, which gives $x = 2$ and $x + 7 = 9$.\n* Choice D ($31$): clears the $9$ to get $4x = 24$ but then treats $24$ as the value of $x$, giving $24 + 7 = 31$.\n\n**Test Day Takeaway:** Clear fractions by multiplying both sides by a denominator, finish isolating the variable, and then build the expression the question actually asks for.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "shifted-output",
@@ -2209,18 +2209,18 @@ export const algebraBank = [
     skills: ["function-evaluation"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "Under the old rules a gymnast's routine scores $3n + 4$ points, and under the new rules the same routine scores $3n - 6$ points, where $n$ is the number of clean elements. A routine scores $19$ points under the old rules. What does that routine score under the new rules?",
+    question: "The function $f$ is defined by $f(x) = 5x + 2$. If $f(n) = 27$, what is the value of $5n - 8$?",
     choices: [
-      // distractor: solves $3n = 15$ for $n = 5$ and reports the count of clean elements
+      // distractor: solves for n and reports n = 5 instead of 5n - 8
       { id: "A", text: "$5$" },
-      { id: "B", text: "$9$" },
-      // distractor: subtracts $6$ from $19$ without first removing the $+4$
-      { id: "C", text: "$13$" },
-      // distractor: reports the value of $3n$ without subtracting $6$
-      { id: "D", text: "$15$" }
+      { id: "B", text: "$17$" },
+      // distractor: subtracts 8 from f(n) = 27 without first removing the +2, 27 - 8 = 19
+      { id: "C", text: "$19$" },
+      // distractor: finds 5n = 25 and stops before subtracting 8
+      { id: "D", text: "$25$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Shifted Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The new score is $10$ less than the old one, so it is $19 - 10 = 9$.\n\n**The Full Solution:**\n\nStep 1: From the old rules, $3n + 4 = 19$, so $3n = 15$.\n\nStep 2: The new score is $3n - 6 = 15 - 6 = 9$.\n\nStep 3: Check with $n = 5$: $3(5) + 4 = 19$ and $3(5) - 6 = 9$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($5$): reports $n$, the number of clean elements, instead of the new score.\n\n* Choice C ($13$): subtracts $6$ from $19$, leaving the old $+4$ in place.\n\n* Choice D ($15$): stops at $3n$ and never subtracts $6$.\n\n**Test Day Takeaway:** The gap between two expressions with the same variable term is a fixed number; find it once and apply it to the given value.",
+    explanation: "**SAT Pattern: Shifted Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** From $5n + 2 = 27$, $5n = 25$, so $5n - 8 = 25 - 8 = 17$.\n\n**The Full Solution:**\nStep 1: Since $f(n) = 5n + 2$, the condition $f(n) = 27$ means $5n + 2 = 27$.\nStep 2: Subtract $2$: $5n = 25$.\nStep 3: Subtract $8$: $5n - 8 = 17$. Check: $n = 5$, and $5(5) - 8 = 17$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): solves for $n$ and reports $n = 5$; the question asks for $5n - 8$.\n* Choice C ($19$): subtracts $8$ from $27$ directly. That treats $f(n)$ as $5n$, but $f(n) = 5n + 2$, so $27 - 8$ is the value of $5n - 6$.\n* Choice D ($25$): finds $5n = 25$ and stops before subtracting $8$.\n\n**Test Day Takeaway:** When the target expression shares the term $5n$ with the function, solve for $5n$ and adjust; finding $n$ itself is optional.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "shifted-output",
@@ -2233,18 +2233,18 @@ export const algebraBank = [
     skills: ["combining-like-terms"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A hive survey at an orchard satisfies $5(b - 3) + 2b = 26$, where $b$ is the mean number of bees counted per frame during a ten-minute observation. The survey also reports a colony-strength score of $14b - 9$. What is the value of that score?",
+    question: "$4(k + 2) + 3k = 30$\nWhat is the value of $14k + 5$?",
     choices: [
-      // distractor: doubles $26$ and subtracts $9$, never accounting for the $-15$ inside the equation
-      { id: "A", text: "$43$" },
-      // distractor: distributes $5(b-3)$ as $5b - 3$, giving $7b = 29$ and $14b - 9 = 49$
+      // distractor: finds 7k = 22 and adds 5 without doubling to 14k
+      { id: "A", text: "$27$" },
       { id: "B", text: "$49$" },
-      { id: "C", text: "$73$" },
-      // distractor: reports $14b = 82$ without subtracting $9$
-      { id: "D", text: "$82$" }
+      // distractor: distributes 4(k + 2) as 4k + 2, so 7k = 28 and 14k + 5 = 61
+      { id: "C", text: "$61$" },
+      // distractor: doubles the right side and adds 5, treating 14k + 5 as 2(30) + 5 without removing the constant 8
+      { id: "D", text: "$65$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Shifted Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The left side collapses to $7b - 15$, so $7b = 41$. Then $14b - 9 = 2(41) - 9 = 73$.\n\n**The Full Solution:**\n\nStep 1: Distribute and combine: $5(b - 3) + 2b = 5b - 15 + 2b = 7b - 15$.\n\nStep 2: So $7b - 15 = 26$, giving $7b = 41$. There is no need to isolate $b$ itself.\n\nStep 3: Since $14b = 2(7b) = 82$, the requested value is $82 - 9 = 73$. Check with $b = \\frac{41}{7}$: $5\\left(\\frac{41}{7} - 3\\right) + 2\\left(\\frac{41}{7}\\right) = 26$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($43$): doubles the right side to $52$ and subtracts $9$, ignoring the $-15$ that must be undone first.\n\n* Choice B ($49$): distributes $5(b-3)$ as $5b - 3$, so $7b = 29$ and $14b - 9 = 49$.\n\n* Choice D ($82$): finds $14b = 82$ correctly but forgets the $-9$.\n\n**Test Day Takeaway:** Combine like terms first, then read the target expression as a multiple of the block you already solved for.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Shifted Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The left side simplifies to $7k + 8$, so $7k = 22$, $14k = 44$, and $14k + 5 = 49$.\n\n**The Full Solution:**\nStep 1: Distribute and combine like terms: $4k + 8 + 3k = 30$, so $7k + 8 = 30$.\nStep 2: Subtract $8$: $7k = 22$. Multiply by $2$: $14k = 44$.\nStep 3: Add $5$: $14k + 5 = 49$. Check: $k = \\frac{22}{7}$ gives $4\\left(\\frac{22}{7} + 2\\right) + 3\\left(\\frac{22}{7}\\right) = \\frac{144}{7} + \\frac{66}{7} = 30$ and $14\\left(\\frac{22}{7}\\right) + 5 = 44 + 5 = 49$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($27$): stops at $7k = 22$ and adds $5$, never doubling $7k$ to get $14k$.\n* Choice C ($61$): distributes $4(k + 2)$ as $4k + 2$, so $7k + 2 = 30$, $7k = 28$, and $14k + 5 = 61$.\n* Choice D ($65$): doubles $30$ and adds $5$, but $2(7k + 8) = 14k + 16$, so $65$ is the value of $14k + 21$, not $14k + 5$.\n\n**Test Day Takeaway:** Simplify first, then solve for the multiple of $k$ you need ($7k = 22$, so $14k = 44$); you never have to work with the fraction $k = \\frac{22}{7}$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "shifted-output",
@@ -2257,18 +2257,18 @@ export const algebraBank = [
     skills: ["word-problem-to-equation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A print shop charges $\\$0.75$ per page plus a binding fee of $\\$6$ per booklet. Printing and binding one booklet with $n$ pages cost $\\$21$. What is the cost, in dollars, of printing and binding one booklet with $n + 12$ pages?",
+    question: "Printing a booklet costs \\$0.60 per page plus a \\$5 binding fee. A booklet with $n$ pages costs \\$23 to print. What is the cost, in dollars, to print a booklet with $n + 15$ pages?",
     choices: [
-      { id: "A", text: "$\\$30$" },
-      // distractor: adds the 12 pages as dollars
-      { id: "B", text: "$\\$33$" },
-      // distractor: adds a second binding fee
-      { id: "C", text: "$\\$36$" },
-      // distractor: uses the binding fee as the per-page price
-      { id: "D", text: "$\\$93$" }
+      { id: "A", text: "$32$" },
+      // distractor: charges the 5-dollar binding fee a second time, 32 + 5 = 37
+      { id: "B", text: "$37$" },
+      // distractor: adds the 15 extra pages as 15 dollars, 23 + 15 = 38
+      { id: "C", text: "$38$" },
+      // distractor: uses the 5-dollar binding fee as the price per page, 23 + 15(5) = 98
+      { id: "D", text: "$98$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Shifted Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Twelve more pages add $12 \\cdot \\$0.75 = \\$9$. One booklet still means one binding fee, so the cost is $\\$21 + \\$9 = \\$30$.\n\n**The Full Solution:**\nStep 1: The cost equation is $0.75n + 6 = 21$, so $0.75n = 15$ and $n = 20$ pages.\nStep 2: For $n + 12 = 32$ pages: $0.75(32) + 6 = 24 + 6 = 30$.\nStep 3: Shortcut check: $12$ extra pages cost $12 \\cdot 0.75 = 9$, and $21 + 9 = 30$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\$33$): adds the $12$ pages as $12$ dollars instead of $12 \\cdot \\$0.75$.\n* Choice C ($\\$36$): adds a second binding fee on top of the page cost, though it is still one booklet.\n* Choice D ($\\$93$): uses the $\\$6$ binding fee as the per-page price, $21 + 12 \\cdot 6$.\n\n**Test Day Takeaway:** Identify which quantity is scaling (pages) and which is fixed (binding); the extra cost is the extra count times the per-unit rate only.",
+    explanation: "**SAT Pattern: Shifted Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Fifteen more pages add $15(0.60) = 9$ dollars, and the binding fee does not change, so the cost is $23 + 9 = 32$.\n\n**The Full Solution:**\nStep 1: The cost of an $n$-page booklet is $0.60n + 5$, so $0.60n + 5 = 23$. Then $0.60n = 18$ and $n = 30$ pages.\nStep 2: A booklet with $n + 15 = 45$ pages costs $0.60(45) + 5 = 27 + 5 = 32$ dollars.\nStep 3: Check without solving for $n$: $0.60(n + 15) + 5 = (0.60n + 5) + 9 = 23 + 9 = 32$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($37$): charges the $\\$5$ binding fee twice; the booklet is bound once, so the cost is $32$, not $32 + 5$.\n* Choice C ($38$): adds the $15$ pages as $15$ dollars instead of $15(0.60) = 9$ dollars.\n* Choice D ($98$): uses the $\\$5$ binding fee as the price of a page, computing $23 + 15(5) = 98$.\n\n**Test Day Takeaway:** Adding pages changes only the per-page part of the cost: multiply the extra pages by the price per page and add that to the old total.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "shifted-output",
@@ -2281,18 +2281,18 @@ export const algebraBank = [
     skills: ["combining-like-terms"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "For a speed-skating lap, the index $\\frac{3s + 8}{4}$ equals $11$, where $s$ is the number of hundredths of a second the skater saves on the final turn. A second index for the same lap is $9s + 24$. What is the value of the second index?",
+    question: "$\\frac{5 - 2x}{3} = -7$\nWhat is the value of $6x - 15$?",
     choices: [
-      // distractor: reports the value of $3s + 8$ and stops
-      { id: "A", text: "$44$" },
-      // distractor: computes $9s = 108$ but drops the $+24$
-      { id: "B", text: "$108$" },
-      { id: "C", text: "$132$" },
-      // distractor: multiplies $3s + 8 = 44$ by the denominator $4$ instead of by $3$
-      { id: "D", text: "$176$" }
+      // distractor: treats 6x - 15 as 3(5 - 2x) instead of -3(5 - 2x), getting 3(-21) = -63
+      { id: "A", text: "$-63$" },
+      // distractor: drops the denominator, using 5 - 2x = -7, so x = 6 and 6x - 15 = 21
+      { id: "B", text: "$21$" },
+      // distractor: gets 5 - 2x = -21 but subtracts 5 from 21 instead of adding, so 2x = 16 and x = 8
+      { id: "C", text: "$33$" },
+      { id: "D", text: "$63$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Shifted Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** $3s + 8 = 44$, and $9s + 24$ is exactly $3(3s + 8)$, so the value is $3(44) = 132$.\n\n**The Full Solution:**\n\nStep 1: Multiply both sides of $\\frac{3s + 8}{4} = 11$ by $4$: $3s + 8 = 44$.\n\nStep 2: Notice that $9s + 24 = 3(3s + 8)$, so no value of $s$ is needed.\n\nStep 3: Therefore $9s + 24 = 3(44) = 132$. Check with $s = 12$: $\\frac{3(12) + 8}{4} = 11$ and $9(12) + 24 = 132$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($44$): stops at $3s + 8$, the value cleared of the denominator.\n\n* Choice B ($108$): computes $9s = 108$ but never adds the $24$.\n\n* Choice D ($176$): multiplies $44$ by the denominator $4$ instead of by the factor $3$ that links the two expressions.\n\n**Test Day Takeaway:** Before solving for the variable, check whether the target expression is a constant multiple of the one you already have.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Shifted Output**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Notice $6x - 15 = -3(5 - 2x)$. Since $5 - 2x = 3(-7) = -21$, the value is $-3(-21) = 63$.\n\n**The Full Solution:**\nStep 1: Multiply both sides by $3$: $5 - 2x = -21$.\nStep 2: Rewrite the target: $6x - 15 = -3(5 - 2x)$.\nStep 3: Substitute: $-3(-21) = 63$. Check by solving: $2x = 26$, so $x = 13$, $\\frac{5 - 26}{3} = -7$, and $6(13) - 15 = 63$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-63$): uses $3(5 - 2x)$ in place of $6x - 15$; the factor is $-3$, because $-3(5 - 2x) = 6x - 15$.\n* Choice B ($21$): forgets to multiply $-7$ by $3$, using $5 - 2x = -7$, which gives $x = 6$ and $6(6) - 15 = 21$.\n* Choice C ($33$): reaches $5 - 2x = -21$ but slips on the sign, getting $2x = 16$ and $x = 8$, so $6(8) - 15 = 33$.\n\n**Test Day Takeaway:** Look for the target expression as a multiple of the given one; when the signs are flipped, the multiplier is negative.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "shifted-output",
@@ -2309,9 +2309,9 @@ export const algebraBank = [
     skills: ["distributive-property", "combining-like-terms"],
     difficulty: "easy",
     type: "fill-in",
-    question: "A vaccine shipment holds $5(v + 3)$ doses, where $v$ is the number of full trays it contains. If the shipment holds a total of $65$ doses, what is the value of $v$?",
+    question: "$3(x - 4) + 7 = 25$\nWhat value of $x$ is the solution to the given equation?",
     correctAnswer: "10",
-    explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~15s):** Divide by $5$ to get $v + 3 = 13$, so $v = 10$.\n\n**The Full Solution:**\n\nStep 1: Set the expression equal to the given total: $5(v + 3) = 65$.\n\nStep 2: Divide both sides by $5$: $v + 3 = 13$.\n\nStep 3: Subtract $3$ from both sides: $v = 10$. Check: $5(10 + 3) = 5(13) = 65$.\n\n**Common Mistakes:**\n\n* $13$ — dividing by $5$ and stopping, without subtracting the $3$.\n* $62$ — subtracting $3$ from $65$ before dividing by $5$, which undoes the operations in the wrong order.\n* $16$ — dividing by $5$ correctly but adding the $3$ instead of subtracting it.\n\n**Test Day Takeaway:** When a sum is wrapped in parentheses and multiplied, undoing the multiplication first is fewer steps than distributing.",
+    explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~15s):** Distributing gives $3x - 12 + 7 = 25$, so $3x - 5 = 25$, $3x = 30$, and $x = 10$.\n\n**The Full Solution:**\nStep 1: Distribute the $3$: $3x - 12 + 7 = 25$.\nStep 2: Combine the constants: $3x - 5 = 25$, so $3x = 30$.\nStep 3: Divide by $3$: $x = 10$. Check: $3(10 - 4) + 7 = 18 + 7 = 25$ ✓\n\n**Common Mistakes:** Multiplying only the $x$ by $3$ gives $3x - 4 + 7 = 25$ and $x = \\frac{22}{3}$; adding $7$ to $25$ instead of subtracting it gives $3x = 44$; stopping at $3x = 30$ and entering $30$.\n\n**Test Day Takeaway:** Distribute to every term inside the parentheses, combine the constants, and only then isolate $x$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "multi-step-linear-equation",
@@ -2324,9 +2324,9 @@ export const algebraBank = [
     skills: ["distributive-property", "combining-like-terms"],
     difficulty: "easy",
     type: "fill-in",
-    question: "A tour desk prints $4b + 7b$ meal vouchers over a weekend, where $b$ is the number of coach groups scheduled. If $88$ vouchers are printed, what is the value of $b$?",
-    correctAnswer: "8",
-    explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~10s):** $4b + 7b = 11b$, so $11b = 88$ and $b = 8$.\n\n**The Full Solution:**\n\nStep 1: Combine the like terms: $4b + 7b = 11b$.\n\nStep 2: Set the combined expression equal to the total number of vouchers: $11b = 88$.\n\nStep 3: Divide both sides by $11$: $b = 8$. Check: $4(8) + 7(8) = 32 + 56 = 88$.\n\n**Common Mistakes:**\n\n* $22$ — dividing $88$ by $4$ and ignoring the $7b$ term entirely.\n* $56$ — solving correctly but reporting $7b = 56$ instead of $b$.\n* $11$ — reporting the combined coefficient $4 + 7$ instead of solving for $b$.\n\n**Test Day Takeaway:** Combine like terms before doing anything else; two terms in the same variable are always one term in disguise.",
+    question: "$5x + 2(x - 3) = 29$\nWhat is the solution to the given equation?",
+    correctAnswer: "5",
+    explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~15s):** The left side is $7x - 6$, so $7x = 35$ and $x = 5$.\n\n**The Full Solution:**\nStep 1: Distribute the $2$: $5x + 2x - 6 = 29$.\nStep 2: Combine like terms: $7x - 6 = 29$, so $7x = 35$.\nStep 3: Divide by $7$: $x = 5$. Check: $5(5) + 2(5 - 3) = 25 + 4 = 29$ ✓\n\n**Common Mistakes:** Writing $2(x - 3)$ as $2x - 3$ gives $7x = 32$ and a non-integer answer; subtracting $6$ from $29$ instead of adding it gives $7x = 23$; adding $5x$ and $2$ before distributing, as $7(x - 3) = 29$.\n\n**Test Day Takeaway:** Clear the parentheses first, then combine every $x$-term into one before solving.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "multi-step-linear-equation",
@@ -2339,18 +2339,18 @@ export const algebraBank = [
     skills: ["distributive-property", "combining-like-terms"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A quality check on a spinning frame passes when $3(s + c) = 5s - 4$, where $s$ is the number of spools inspected and $c$ is a constant. The check passes when $s = 8$. What is the value of $c$?",
+    question: "$2(x + k) = 7x - 9$\nIn the given equation, $k$ is a constant. The solution to the equation is $x = 5$. What is the value of $k$?",
     choices: [
-      // distractor: solves 3(8 - c) = 36, subtracting c instead of adding it
-      { id: "A", text: "$-4$" },
-      { id: "B", text: "$4$" },
-      // distractor: distributes the 3 to s only, solving 24 + c = 36
-      { id: "C", text: "$12$" },
-      // distractor: forgets to divide by 3 and solves 8 + c = 36
-      { id: "D", text: "$28$" }
+      { id: "A", text: "$8$" },
+      // distractor: finds 5 + k = 13 and reports 13 as k
+      { id: "B", text: "$13$" },
+      // distractor: multiplies only the x by 2, solving 10 + k = 26
+      { id: "C", text: "$16$" },
+      // distractor: evaluates the right side as 35 + 9 = 44, so 10 + 2k = 44
+      { id: "D", text: "$17$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** At $s = 8$ the right side is $36$, so $3(8 + c) = 36$, $8 + c = 12$, and $c = 4$.\n\n**The Full Solution:**\n\nStep 1: Substitute $s = 8$ into both sides: $3(8 + c) = 5(8) - 4$.\n\nStep 2: Evaluate the right side: $5(8) - 4 = 40 - 4 = 36$, so $3(8 + c) = 36$.\n\nStep 3: Divide by $3$ to get $8 + c = 12$, so $c = 4$. Check: $3(8 + 4) = 36$ and $5(8) - 4 = 36$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-4$): solves $3(8 - c) = 36$, subtracting $c$ inside the parentheses instead of adding it.\n* Choice C ($12$): distributes the $3$ to $s$ only, solving $24 + c = 36$ and leaving $c$ undistributed.\n* Choice D ($28$): forgets to divide by $3$ and solves $8 + c = 36$.\n\n**Test Day Takeaway:** When a solution is handed to you, substitute it first; the equation then has only one unknown left.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Substituting $x = 5$ gives $2(5 + k) = 26$, so $5 + k = 13$ and $k = 8$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 5$ into both sides: $2(5 + k) = 7(5) - 9 = 26$.\nStep 2: Divide both sides by $2$: $5 + k = 13$.\nStep 3: Subtract $5$: $k = 8$. Check: $2(5 + 8) = 26$ and $7(5) - 9 = 26$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($13$): reaches $5 + k = 13$ and reports $13$, which is the value of $x + k$, not $k$.\n* Choice C ($16$): multiplies only the $x$ by $2$, writing $10 + k = 26$ and getting $k = 16$.\n* Choice D ($17$): evaluates $7(5) - 9$ as $44$ instead of $26$, so $10 + 2k = 44$ and $k = 17$.\n\n**Test Day Takeaway:** When a solution is given, substitute it first; the equation then has only the constant left to solve for.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "multi-step-linear-equation",
@@ -2363,9 +2363,9 @@ export const algebraBank = [
     skills: ["distributive-property", "combining-like-terms"],
     difficulty: "medium",
     type: "fill-in",
-    question: "An airport's luggage model gives $a(w + 1) + 2w = 40$, where $w$ is the number of carts in service on a shift and $a$ is a constant. For what value of $a$ is $w = 6$ a solution?",
-    correctAnswer: "4",
-    explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~25s):** At $w = 6$, $7a + 12 = 40$, so $7a = 28$ and $a = 4$.\n\n**The Full Solution:**\n\nStep 1: Substitute $w = 6$: $a(6 + 1) + 2(6) = 40$.\n\nStep 2: Simplify: $7a + 12 = 40$, so $7a = 28$.\n\nStep 3: Divide by $7$: $a = 4$. Check: $4(6 + 1) + 2(6) = 28 + 12 = 40$.\n\n**Common Mistakes:**\n\n* $28$ — stopping at $7a = 28$ and reporting the product instead of $a$.\n* $40$ — reporting the right-hand side of the equation instead of the constant.\n* $\\frac{14}{3}$ — dividing $28$ by $6$, using $w$ rather than $w + 1$ as the multiplier of $a$.\n\n**Test Day Takeaway:** Substituting the given solution turns a two-unknown equation into a one-step solve for the constant.",
+    question: "$\\frac{2}{3}(x - 6) = \\frac{x}{2} + 1$\nWhat value of $x$ satisfies the given equation?",
+    correctAnswer: "30",
+    explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $30$.**\n\n**The Fast Way (~25s):** Multiplying both sides by $6$ gives $4(x - 6) = 3x + 6$, so $4x - 24 = 3x + 6$ and $x = 30$.\n\n**The Full Solution:**\nStep 1: Multiply both sides by $6$, the least common denominator: $4(x - 6) = 3x + 6$.\nStep 2: Distribute: $4x - 24 = 3x + 6$.\nStep 3: Subtract $3x$ and add $24$: $x = 30$. Check: $\\frac{2}{3}(24) = 16$ and $\\frac{30}{2} + 1 = 16$ ✓\n\n**Common Mistakes:** Multiplying the fractions by $6$ but leaving the $1$ alone gives $4x - 24 = 3x + 1$ and $x = 25$; applying $\\frac{2}{3}$ only to the $x$ gives $\\frac{2}{3}x - 6$, which leads to $x = 42$; multiplying by $3$ instead of $6$ leaves a fraction behind and invites arithmetic slips.\n\n**Test Day Takeaway:** Multiply every term on both sides by the least common denominator, including the whole-number terms, before distributing.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "multi-step-linear-equation",
@@ -2378,9 +2378,9 @@ export const algebraBank = [
     skills: ["combining-like-terms", "simplifying-rational-expressions"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A dosing chart is consistent when $\\frac{4n + b}{3} = 2n - 4$, where $n$ is the number of daily nebulizer treatments and $b$ is a constant. For what value of $b$ is the chart consistent at $n = 9$?",
-    correctAnswer: "6",
-    explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~30s):** At $n = 9$ the right side is $14$, so $36 + b = 42$ and $b = 6$.\n\n**The Full Solution:**\n\nStep 1: Substitute $n = 9$: $\\frac{4(9) + b}{3} = 2(9) - 4$, which is $\\frac{36 + b}{3} = 14$.\n\nStep 2: Multiply both sides by $3$ to clear the denominator: $36 + b = 42$.\n\nStep 3: Subtract $36$: $b = 6$. Check: $\\frac{36 + 6}{3} = \\frac{42}{3} = 14$ and $2(9) - 4 = 14$.\n\n**Common Mistakes:**\n\n* $42$ — clearing the denominator but reporting the whole numerator instead of $b$.\n* $-22$ — subtracting $36$ from $14$ without first multiplying both sides by $3$.\n* $2$ — dividing $6$ by $3$ a second time, as though the denominator applied to $b$ alone.\n\n**Test Day Takeaway:** Clear the fraction before isolating anything; multiplying both sides by the denominator removes the most common source of error.",
+    question: "$\\frac{x + 4}{3} + \\frac{x - 2}{6} = 7$\nWhat is the solution to the given equation?",
+    correctAnswer: "12",
+    explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~20s):** Multiplying by $6$ gives $2(x + 4) + (x - 2) = 42$, so $3x + 6 = 42$ and $x = 12$.\n\n**The Full Solution:**\nStep 1: Multiply both sides by $6$: $2(x + 4) + (x - 2) = 42$.\nStep 2: Distribute and combine like terms: $2x + 8 + x - 2 = 42$, so $3x + 6 = 42$.\nStep 3: Subtract $6$ and divide by $3$: $x = 12$. Check: $\\frac{16}{3} + \\frac{10}{6} = \\frac{16}{3} + \\frac{5}{3} = \\frac{21}{3} = 7$ ✓\n\n**Common Mistakes:** Leaving the right side as $7$ after multiplying the left side by $6$ gives $3x + 6 = 7$; writing $2(x + 4)$ as $2x + 4$ gives $3x + 2 = 42$ and $x = \\frac{40}{3}$; adding the fractions by adding the denominators, $\\frac{2x + 2}{9} = 7$, gives $x = 30.5$.\n\n**Test Day Takeaway:** Clear every denominator at once by multiplying both sides by the least common denominator, and multiply each whole numerator, not just its first term.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "multi-step-linear-equation",
@@ -2393,18 +2393,18 @@ export const algebraBank = [
     skills: ["combining-like-terms"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A jacquard head is balanced when $7t - 2(t - k) = 3t + 18$, where $t$ is the number of tapestry rows woven and $k$ is a constant. For what value of $k$ is the head balanced at $t = 4$?",
+    question: "$7x - 2(x - 9) = 3x + 30$\nWhat value of $x$ is the solution to the given equation?",
     choices: [
-      // distractor: distributes the -2 to t only, solving 20 - k = 30
-      { id: "A", text: "$-10$" },
-      // distractor: keeps the sign of the -2 on k, solving 20 - 2k = 30
-      { id: "B", text: "$-5$" },
-      { id: "C", text: "$5$" },
-      // distractor: forgets to double k and solves 20 + k = 30
-      { id: "D", text: "$10$" }
+      // distractor: adds 3x to the left side instead of subtracting it, so 8x + 18 = 30
+      { id: "A", text: "$1.5$" },
+      { id: "B", text: "$6$" },
+      // distractor: multiplies only the x by -2, writing 5x - 9 = 3x + 30
+      { id: "C", text: "$19.5$" },
+      // distractor: distributes -2(x - 9) as -2x - 18, so 5x - 18 = 3x + 30
+      { id: "D", text: "$24$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** At $t = 4$: $28 - 2(4 - k) = 30$, so $20 + 2k = 30$ and $k = 5$.\n\n**The Full Solution:**\n\nStep 1: Substitute $t = 4$: $7(4) - 2(4 - k) = 3(4) + 18$.\n\nStep 2: Distribute the $-2$ across both terms: $28 - 8 + 2k = 12 + 18$, which simplifies to $20 + 2k = 30$.\n\nStep 3: Subtract $20$ and divide by $2$: $2k = 10$, so $k = 5$. Check: $28 - 2(4 - 5) = 28 + 2 = 30$ and $3(4) + 18 = 30$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-10$): distributes the $-2$ to the $t$ only, solving $20 - k = 30$.\n* Choice B ($-5$): keeps the minus sign on the $k$ term, solving $20 - 2k = 30$.\n* Choice D ($10$): forgets that the $-2$ doubles $k$ as well, solving $20 + k = 30$.\n\n**Test Day Takeaway:** A negative multiplier in front of parentheses changes the sign of every term inside, including the one carrying the unknown constant.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The left side is $7x - 2x + 18 = 5x + 18$, so $5x + 18 = 3x + 30$, $2x = 12$, and $x = 6$.\n\n**The Full Solution:**\nStep 1: Distribute the $-2$: $7x - 2x + 18 = 3x + 30$, since $(-2)(-9) = 18$.\nStep 2: Combine like terms: $5x + 18 = 3x + 30$. Subtract $3x$ and $18$ from both sides: $2x = 12$.\nStep 3: Divide by $2$: $x = 6$. Check: $7(6) - 2(6 - 9) = 42 + 6 = 48$ and $3(6) + 30 = 48$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.5$): moves $3x$ to the left by adding it, getting $8x + 18 = 30$ and $x = 1.5$.\n* Choice C ($19.5$): multiplies only the $x$ by $-2$, writing $7x - 2x - 9 = 3x + 30$, so $2x = 39$ and $x = 19.5$.\n* Choice D ($24$): distributes $-2(x - 9)$ as $-2x - 18$, missing that a negative times a negative is positive, so $2x = 48$ and $x = 24$.\n\n**Test Day Takeaway:** When a negative number multiplies a difference, distribute the sign to both terms: $-2(x - 9) = -2x + 18$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "multi-step-linear-equation",
@@ -2417,18 +2417,18 @@ export const algebraBank = [
     skills: ["word-problem-to-equation", "combining-like-terms"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A landscaping crew planted oak, maple, and birch trees in a park. The number of maple trees planted was $4$ times the number of oak trees, and the number of birch trees planted was $9$ fewer than twice the number of oak trees. The crew planted $103$ trees in total. How many maple trees did the crew plant?",
+    question: "A park has $120$ trees, and each tree is an oak, a maple, or a birch. There are $3$ times as many maples as oaks, and the number of birches is $6$ less than twice the number of oaks. How many maples are in the park?",
     choices: [
-      // distractor: reports the oak count
-      { id: "A", text: "$16$" },
-      // distractor: reports the birch count
-      { id: "B", text: "$23$" },
-      // distractor: adds oak and birch counts
-      { id: "C", text: "$39$" },
-      { id: "D", text: "$64$" }
+      // distractor: solves for the number of oaks and reports 21
+      { id: "A", text: "$21$" },
+      // distractor: reports the number of birches, 2(21) - 6 = 36
+      { id: "B", text: "$36$" },
+      // distractor: reads "6 less than" as 6 more, so 6x + 6 = 120 and x = 19
+      { id: "C", text: "$57$" },
+      { id: "D", text: "$63$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Let $k$ be the number of oak trees: maples $= 4k$, birches $= 2k - 9$. Then $k + 4k + (2k - 9) = 103 \\Rightarrow 7k = 112 \\Rightarrow k = 16$, so there are $4(16) = 64$ maples.\n\n**The Full Solution:**\nStep 1: Define the variable as the quantity everything else is compared to: $k$ oak trees. Then maple $= 4k$ and birch $= 2k - 9$.\nStep 2: Total: $k + 4k + 2k - 9 = 103$, so $7k - 9 = 103$ and $7k = 112$, giving $k = 16$.\nStep 3: The question asks for maples: $4k = 64$. Check: $16 + 64 + (32 - 9) = 16 + 64 + 23 = 103$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($16$): reports the number of oak trees, the variable solved for, instead of the maples.\n* Choice B ($23$): reports the number of birch trees.\n* Choice C ($39$): adds the oak and birch counts, the two quantities not asked for.\n\n**Test Day Takeaway:** Let the variable be the base quantity the others are described from, write each count in terms of it, solve, and then reread the question to report the quantity actually requested.",
+    explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** With $x$ oaks, the total is $x + 3x + (2x - 6) = 6x - 6 = 120$, so $x = 21$ and there are $3(21) = 63$ maples.\n\n**The Full Solution:**\nStep 1: Let $x$ be the number of oaks. Then there are $3x$ maples and $2x - 6$ birches.\nStep 2: The total is $x + 3x + (2x - 6) = 120$, so $6x - 6 = 120$, $6x = 126$, and $x = 21$.\nStep 3: The number of maples is $3x = 63$. Check: $21 + 63 + 36 = 120$, and $36 = 2(21) - 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($21$): solves the equation and reports $x = 21$, the number of oaks, not maples.\n* Choice B ($36$): reports the number of birches, $2(21) - 6 = 36$.\n* Choice C ($57$): writes the birches as $2x + 6$, so $6x + 6 = 120$, $x = 19$, and $3(19) = 57$.\n\n**Test Day Takeaway:** Write every group in terms of one variable, solve for that variable, and then compute the group the question asks for.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "multi-step-linear-equation",
@@ -2441,9 +2441,9 @@ export const algebraBank = [
     skills: ["combining-like-terms", "simplifying-rational-expressions"],
     difficulty: "hard",
     type: "fill-in",
-    question: "A ferry operator prices crossings with the relationship $\\frac{c(f - 3)}{2} + 4f = 5c + 13$, where $f$ counts the crossings completed in one day and $c$ is a constant fare adjustment, in dollars. The relationship holds when $f = 7$. What is the value of $c$?",
-    correctAnswer: "5",
-    explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~40s):** At $f = 7$ the left side is $2c + 28$, so $2c + 28 = 5c + 13$ and $c = 5$.\n\n**The Full Solution:**\n\nStep 1: Substitute $f = 7$: $\\frac{c(7 - 3)}{2} + 4(7) = 5c + 13$.\n\nStep 2: Simplify the left side: $\\frac{4c}{2} + 28 = 2c + 28$, so the equation is $2c + 28 = 5c + 13$.\n\nStep 3: Subtract $2c$ from both sides and subtract $13$: $15 = 3c$, so $c = 5$. Check: $\\frac{5(4)}{2} + 28 = 10 + 28 = 38$ and $5(5) + 13 = 38$.\n\n**Common Mistakes:**\n\n* $15$ — stopping at $3c = 15$ and reporting the product instead of $c$.\n* $\\frac{41}{3}$ — adding the constants as $28 + 13$ instead of subtracting, giving $3c = 41$.\n* $9$ — reading the numerator $c(7 - 3)$ as $7c - 3$, distributing the $c$ to the first term only.\n\n**Test Day Takeaway:** Substitute the given value into the parentheses before touching the fraction; the numerator often collapses to a clean multiple of the unknown.",
+    question: "$\\frac{k(x + 1)}{3} - 2x = 4k - 22$\nIn the given equation, $k$ is a constant. If $x = 8$ is a solution to the equation, what is the value of $k$?",
+    correctAnswer: "6",
+    explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~30s):** Substituting $x = 8$ gives $\\frac{9k}{3} - 16 = 4k - 22$, so $3k - 16 = 4k - 22$ and $k = 6$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 8$: $\\frac{k(8 + 1)}{3} - 2(8) = 4k - 22$, which is $\\frac{9k}{3} - 16 = 4k - 22$.\nStep 2: Simplify: $3k - 16 = 4k - 22$.\nStep 3: Subtract $3k$ and add $22$: $6 = k$. Check: $\\frac{6(9)}{3} - 16 = 18 - 16 = 2$ and $4(6) - 22 = 2$ ✓\n\n**Common Mistakes:** Writing $k(x + 1)$ as $kx + 1$ gives $\\frac{8k + 1}{3} - 16 = 4k - 22$ and a non-integer $k$; moving $-22$ across with the wrong sign gives $k = -38$; solving $3k - 16 = 4k - 22$ as $-k = 6$ and reporting $-6$.\n\n**Test Day Takeaway:** With a given solution, substitute it first; the equation becomes a linear equation in the constant, which you solve the usual way.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "multi-step-linear-equation",
@@ -2462,9 +2462,9 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "easy",
     type: "fill-in",
-    question: "The total rise of a stairwell, in inches, is $63$ after $9$ treads and $105$ after $15$ treads, and the rise increases linearly with the number of treads. What is the rise, in inches, per tread?",
-    correctAnswer: "7",
-    explanation: "**SAT Pattern: Line from Two Points**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~20s):** The rise per tread is the slope through $(9,63)$ and $(15,105)$: $\\frac{105-63}{15-9}=\\frac{42}{6}=7$ inches.\n\n**The Full Solution:**\n\nStep 1: Write the two measurements as points, with treads as the input: $(9,63)$ and $(15,105)$.\n\nStep 2: The rise per tread is the change in total rise divided by the change in tread count: $\\frac{105-63}{15-9}$.\n\nStep 3: That is $\\frac{42}{6}=7$ inches per tread. Check: $9$ treads at $7$ inches gives $63$ inches, and $15$ treads gives $105$ inches, both matching.\n\n**Common Mistakes:** Reporting $42$ gives the change in total rise over six treads, not the rise of a single tread. Dividing $42$ by $15$ instead of by the gap $15-9$ gives about $2.8$ inches, far below a usable riser height.\n\n**Test Day Takeaway:** A per-unit rate from two measurements is always the difference in outputs divided by the difference in inputs, never by one input alone.",
+    question: "A line in the $xy$-plane has a slope of $3$ and passes through the point $(2, 11)$. The $y$-intercept of the line is $(0, b)$. What is the value of $b$?",
+    correctAnswer: "5",
+    explanation: "**SAT Pattern: Line from Two Points**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~15s):** Moving from $x = 2$ back to $x = 0$ lowers $y$ by $2 \\cdot 3 = 6$, so $b = 11 - 6 = 5$.\n\n**The Full Solution:**\nStep 1: The line can be written as $y = 3x + b$.\nStep 2: Substitute the point $(2, 11)$: $11 = 3(2) + b = 6 + b$.\nStep 3: Subtract $6$: $b = 5$. Check: $y = 3x + 5$ gives $3(2) + 5 = 11$ at $x = 2$ ✓\n\n**Common Mistakes:** Subtracting the slope from the $y$-coordinate, $11 - 3 = 8$, forgets to multiply the slope by $x = 2$; adding instead of subtracting gives $11 + 6 = 17$.\n\n**Test Day Takeaway:** Plug the known point into $y = mx + b$ and solve for $b$; the $y$-intercept is where $x = 0$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "line-from-two-points",
@@ -2477,10 +2477,10 @@ export const algebraBank = [
     skills: ["slope-from-points"],
     difficulty: "easy",
     type: "fill-in",
-    question: "The line drawn in the $xy$-plane joins the two plotted survey stakes of a boundary run, with both coordinates measured in meters. By how much does $y$ change for each increase of $1$ in $x$?",
+    question: "What is the slope of the line shown in the $xy$-plane?",
     diagram: { type: "linearLine", params: { points: [[-3, -4], [3, 8]], xRange: [-6, 6], yRange: [-8, 10] } },
     correctAnswer: "2",
-    explanation: "**SAT Pattern: Line from Two Points**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~20s):** From $(-3,-4)$ to $(3,8)$ the graph rises $12$ over a run of $6$, so $y$ changes by $\\frac{12}{6}=2$.\n\n**The Full Solution:**\n\nStep 1: Read the two plotted points: $(-3,-4)$ and $(3,8)$.\n\nStep 2: The change in $y$ for each unit change in $x$ is the slope, $\\frac{8-(-4)}{3-(-3)}=\\frac{12}{6}$.\n\nStep 3: That is $2$. Check: moving from $x=-3$ to $x=0$ is $3$ units right, and the line rises from $-4$ to $2$, a rise of $6$, which is $3$ steps of $2$.\n\n**Common Mistakes:** Dividing the run by the rise gives $\\frac{6}{12}=0.5$, the reciprocal of the slope. Subtracting the coordinates in opposite orders, as in $\\frac{8-(-4)}{-3-3}$, gives $-2$ and reverses the direction of the line.\n\n**Test Day Takeaway:** Subtract the coordinates of the two points in the same order top and bottom, and remember that subtracting a negative adds.",
+    explanation: "**SAT Pattern: Line from Two Points**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~20s):** The line passes through the marked points $(-3, -4)$ and $(3, 8)$; it rises $12$ over a run of $6$, so the slope is $\\frac{12}{6} = 2$.\n\n**The Full Solution:**\nStep 1: Read two points on the line from the grid: the marked points $(-3, -4)$ and $(3, 8)$.\nStep 2: Slope is the change in $y$ divided by the change in $x$: $\\frac{8 - (-4)}{3 - (-3)} = \\frac{12}{6}$.\nStep 3: That is $2$. Check: from $x = -3$ to $x = 0$ the line rises from $-4$ to $2$, a rise of $6$ over a run of $3$, which is also $2$ ✓\n\n**Common Mistakes:** Dividing the run by the rise gives $\\frac{6}{12} = 0.5$, the reciprocal of the slope. Subtracting the coordinates in opposite orders, as in $\\frac{8 - (-4)}{-3 - 3}$, gives $-2$, the wrong sign for a line that rises from left to right.\n\n**Test Day Takeaway:** Pick two points where the line crosses grid intersections exactly, subtract coordinates in the same order on top and bottom, and confirm the sign against the direction of the line.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "line-from-two-points",
@@ -2493,9 +2493,9 @@ export const algebraBank = [
     skills: ["slope-from-points", "slope-intercept-form"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A fiber-optic span loses $2.9$ decibels of signal over a length of $8$ kilometers and $6.5$ decibels over a length of $20$ kilometers, and the loss increases linearly with distance. How many decibels are lost over $30$ kilometers?",
-    correctAnswer: "9.5",
-    explanation: "**SAT Pattern: Line from Two Points**\n\n**The correct answer is $9.5$.**\n\n**The Fast Way (~40s):** The loss rises $3.6$ decibels over $12$ kilometers, so $0.3$ decibel per kilometer; $30$ kilometers is $10$ kilometers past $20$, giving $6.5+3=9.5$ decibels.\n\n**The Full Solution:**\n\nStep 1: Write the measurements as points, distance first: $(8,2.9)$ and $(20,6.5)$.\n\nStep 2: The rate is $\\frac{6.5-2.9}{20-8}=\\frac{3.6}{12}=0.3$ decibel per kilometer, and the fixed part is $2.9-0.3(8)=0.5$ decibel, so the loss is $0.3d+0.5$.\n\nStep 3: At $d=30$, the loss is $0.3(30)+0.5=9+0.5=9.5$ decibels. Check: $0.3(20)+0.5=6.5$, matching the second measurement.\n\n**Common Mistakes:** Treating the loss as proportional to distance and scaling $\\frac{2.9}{8}$ up to $30$ kilometers gives about $10.9$ decibels, because it absorbs the fixed $0.5$ decibel into the per-kilometer rate. Dropping the fixed $0.5$ decibel entirely gives $9$.\n\n**Test Day Takeaway:** Two measurements give a rate and a starting value; a model is proportional only when the starting value is zero.",
+    question: "Water is drained from a tank at a constant rate. After $2$ minutes, the tank holds $210$ gallons of water, and after $5$ minutes, it holds $150$ gallons. How many gallons of water does the tank hold after $8$ minutes?",
+    correctAnswer: "90",
+    explanation: "**SAT Pattern: Line from Two Points**\n\n**The correct answer is $90$.**\n\n**The Fast Way (~20s):** The tank loses $210 - 150 = 60$ gallons in $3$ minutes, or $20$ gallons per minute, so $3$ minutes later it holds $150 - 60 = 90$ gallons.\n\n**The Full Solution:**\nStep 1: Treat the data as two points $(2, 210)$ and $(5, 150)$, with $x$ in minutes and $y$ in gallons. The slope is $\\frac{150 - 210}{5 - 2} = \\frac{-60}{3} = -20$.\nStep 2: Write the line: $y = -20x + b$ with $210 = -20(2) + b$, so $b = 250$ and $y = -20x + 250$.\nStep 3: Evaluate at $x = 8$: $y = -160 + 250 = 90$. Check: at $x = 5$, $-100 + 250 = 150$ ✓\n\n**Common Mistakes:** Dividing the $60$-gallon drop by $2$ minutes instead of $3$ gives a rate of $30$ per minute and $150 - 90 = 60$; reporting the starting amount, $250$, which is the $y$-intercept; using the full $8$ minutes from the $150$-gallon reading gives $150 - 160 = -10$.\n\n**Test Day Takeaway:** For a constant rate, find the change per unit from two data points, then step from the nearest known point to the one you need.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "line-from-two-points",
@@ -2508,10 +2508,10 @@ export const algebraBank = [
     skills: ["slope-from-points", "function-evaluation"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A flow controller's output, in liters per minute, is a linear function $f$ of the dial setting $x$, and the table lists three settings with their outputs. What is the value of $f(12)$?",
+    question: "For the linear function $f$, the table shows three values of $x$ and their corresponding values of $f(x)$. What is the value of $f(12)$?",
     diagram: { type: "table", params: { xHeader: "x", yHeader: "f(x)", rows: [[2, 11], [5, 20], [9, 32]] } },
     correctAnswer: "41",
-    explanation: "**SAT Pattern: Line from Two Points**\n\n**The correct answer is $41$.**\n\n**The Fast Way (~35s):** From $(2,11)$ to $(5,20)$ the output rises $9$ over $3$ settings, so the rate is $3$; from setting $9$ to setting $12$ is $3$ more settings, giving $32+3(3)=41$.\n\n**The Full Solution:**\n\nStep 1: Use two rows as points: $(2,11)$ and $(5,20)$. The rate of change is $\\frac{20-11}{5-2}=\\frac{9}{3}=3$ liters per minute per setting.\n\nStep 2: Find the constant: $f(x)=3x+b$ with $f(2)=11$ gives $6+b=11$, so $b=5$ and $f(x)=3x+5$.\n\nStep 3: Evaluate at $x=12$: $f(12)=3(12)+5=41$. Check: $f(9)=27+5=32$, matching the third row.\n\n**Common Mistakes:** Using $32-11=21$ as the rate ignores that the settings differ by $7$, not $1$. Adding a single step of $3$ to $f(9)$ gives $35$, which is $f(10)$, because $12$ is three settings past $9$, not one.\n\n**Test Day Takeaway:** Get the rate from any two rows, then use one row to pin the constant before evaluating anywhere else.",
+    explanation: "**SAT Pattern: Line from Two Points**\n\n**The correct answer is $41$.**\n\n**The Fast Way (~30s):** From $(2, 11)$ to $(5, 20)$, $f(x)$ rises $9$ as $x$ rises $3$, so the slope is $3$; from $x = 9$ to $x = 12$ is $3$ more units, giving $32 + 3(3) = 41$.\n\n**The Full Solution:**\nStep 1: Use two rows as points: $(2, 11)$ and $(5, 20)$. The slope is $\\frac{20 - 11}{5 - 2} = \\frac{9}{3} = 3$.\nStep 2: Find the constant: $f(x) = 3x + b$ with $f(2) = 11$ gives $6 + b = 11$, so $b = 5$ and $f(x) = 3x + 5$.\nStep 3: Evaluate: $f(12) = 3(12) + 5 = 41$. Check: $f(9) = 27 + 5 = 32$, matching the third row ✓\n\n**Common Mistakes:** Using $32 - 11 = 21$ as the slope ignores that the $x$-values differ by $7$, not $1$. Adding a single step of $3$ to $f(9)$ gives $35$, which is $f(10)$, because $12$ is three units past $9$, not one.\n\n**Test Day Takeaway:** Get the slope from any two rows, then use one row to pin the constant before evaluating anywhere else.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "line-from-two-points",
@@ -2524,18 +2524,18 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A document archive occupies $19$ gigabytes for $600$ scanned pages and $31$ gigabytes for $1{,}000$ scanned pages, and it grows linearly with the page count. How many gigabytes does it occupy for $1{,}500$ scanned pages?",
+    question: "Line $k$ in the $xy$-plane has a slope of $-3$ and passes through the point $(2, 9)$. The $x$-intercept of line $k$ is $(a, 0)$. What is the value of $a$?",
     choices: [
-      // distractor: adds one more 12-gigabyte step past 1,000 pages, as if the jump to 1,500 were another 400 pages
-      { id: "A", text: "$43$" },
-      // distractor: drops the 1-gigabyte fixed part and reports 0.03(1,500) = 45
-      { id: "B", text: "$45$" },
-      { id: "C", text: "$46$" },
-      // distractor: adds the two given sizes, 19 + 31, instead of extending the model
-      { id: "D", text: "$50$" }
+      // distractor: makes a sign error solving 0 = -3a + 15, getting a = -5
+      { id: "A", text: "$-5$" },
+      // distractor: finds the y-intercept as 9 - 6 = 3 instead of 9 + 6, so the line is y = -3x + 3
+      { id: "B", text: "$1$" },
+      { id: "C", text: "$5$" },
+      // distractor: reports the y-intercept, 15, instead of the x-intercept
+      { id: "D", text: "$15$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Line from Two Points**\n\n**Choice C is correct.** The archive grows $0.03$ gigabyte per page on top of a fixed $1$ gigabyte, so $1{,}500$ pages occupy $0.03(1{,}500)+1=46$ gigabytes.\n\n**The Fast Way (~40s):** $\\frac{31-19}{1{,}000-600}=0.03$ gigabyte per page, and $500$ more pages past $1{,}000$ add $15$: $31+15=46$.\n\n**The Full Solution:**\n\nStep 1: Write the measurements as points, pages first: $(600,19)$ and $(1{,}000,31)$.\n\nStep 2: The rate is $\\frac{31-19}{1{,}000-600}=\\frac{12}{400}=0.03$ gigabyte per page. The fixed part is $19-0.03(600)=19-18=1$ gigabyte.\n\nStep 3: At $1{,}500$ pages the size is $0.03(1{,}500)+1=45+1=46$ gigabytes. Check: $0.03(600)+1=19$, matching the first measurement.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($43$): repeats the $12$-gigabyte jump once more, but $1{,}500$ is $500$ pages past $1{,}000$, not $400$.\n* Choice B ($45$): applies the rate to all $1{,}500$ pages but leaves out the $1$-gigabyte fixed part.\n* Choice D ($50$): adds the two reported sizes instead of extending the linear model.\n\n**Test Day Takeaway:** Two data points give a rate and a fixed part; check the fixed part by testing the model against one of the original points.",
+    explanation: "**SAT Pattern: Line from Two Points**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The line is $y = -3x + 15$, so setting $y = 0$ gives $3a = 15$ and $a = 5$.\n\n**The Full Solution:**\nStep 1: Find the $y$-intercept: $9 = -3(2) + b$, so $b = 15$ and line $k$ is $y = -3x + 15$.\nStep 2: At the $x$-intercept, $y = 0$: $0 = -3a + 15$.\nStep 3: Solve: $3a = 15$, so $a = 5$. Check: the slope from $(2, 9)$ to $(5, 0)$ is $\\frac{0 - 9}{5 - 2} = -3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): moves $-3a$ across without changing its sign, getting $-3a = 15$ and $a = -5$.\n* Choice B ($1$): computes $b$ as $9 - 6 = 3$, missing that $9 = -6 + b$ means $b = 15$; the line $y = -3x + 3$ then crosses the $x$-axis at $1$.\n* Choice D ($15$): reports $15$, the $y$-intercept of line $k$, instead of the $x$-intercept.\n\n**Test Day Takeaway:** Build $y = mx + b$ from the slope and the point, then set $y = 0$ for the $x$-intercept; set $x = 0$ only for the $y$-intercept.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "line-from-two-points",
@@ -2548,18 +2548,18 @@ export const algebraBank = [
     skills: ["writing-parallel-equation", "slope-intercept-form"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "Two control points at $(1,3)$ and $(4,9)$ define a property line, and a fence is run through the point $(-2,5)$ so that it is parallel to that property line. Which of the following points also lies on the fence?",
+    question: "Line $p$ in the $xy$-plane passes through the point $(3, -2)$ and is parallel to the line $y = 4x + 7$. Which equation defines line $p$?",
     choices: [
-      // distractor: uses slope -2 instead of 2, flipping the sign of the rise
-      { id: "A", text: "$(6,-11)$" },
-      // distractor: uses the reciprocal 1/2 as the slope, dividing run by rise
-      { id: "B", text: "$(6,9)$" },
-      // distractor: stays on the property line itself instead of the parallel fence through (-2, 5)
-      { id: "C", text: "$(6,13)$" },
-      { id: "D", text: "$(6,21)$" }
+      { id: "A", text: "$y = 4x - 14$" },
+      // distractor: forgets to multiply the slope by x = 3, computing b = -2 - 3
+      { id: "B", text: "$y = 4x - 5$" },
+      // distractor: uses the y-coordinate of the given point, -2, as the y-intercept
+      { id: "C", text: "$y = 4x - 2$" },
+      // distractor: adds 12 to -2 instead of subtracting, getting b = 10
+      { id: "D", text: "$y = 4x + 10$" }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Line from Two Points**\n\n**Choice D is correct.** The property line has slope $2$, so the fence is $y=2x+9$, and at $x=6$ that gives $y=21$.\n\n**The Fast Way (~40s):** Slope $=\\frac{9-3}{4-1}=2$. From $(-2,5)$, moving $8$ right raises $y$ by $16$, so $(6,21)$ is on the fence.\n\n**The Full Solution:**\n\nStep 1: Find the slope of the property line: $\\frac{9-3}{4-1}=\\frac{6}{3}=2$. Parallel lines share this slope.\n\nStep 2: Write the fence through $(-2,5)$ with slope $2$: $y-5=2(x+2)$, so $y=2x+9$.\n\nStep 3: Evaluate at $x=6$: $y=2(6)+9=21$, so $(6,21)$ lies on the fence. Check: $(-2,5)$ satisfies $y=2x+9$ since $2(-2)+9=5$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($(6,-11)$): uses slope $-2$, reversing the direction of the rise.\n* Choice B ($(6,9)$): uses $\\frac{1}{2}$, the run divided by the rise, as the slope.\n* Choice C ($(6,13)$): lies on the property line $y=2x+1$ rather than on the parallel fence.\n\n**Test Day Takeaway:** Parallel lines copy the slope but never the intercept — always re-anchor the equation at the new point.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Line from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Line $p$ has slope $4$, and $-2 = 4(3) + b$ gives $b = -14$, so $y = 4x - 14$.\n\n**The Full Solution:**\nStep 1: Parallel lines have equal slopes, so line $p$ has slope $4$ and can be written $y = 4x + b$.\nStep 2: Substitute the point $(3, -2)$: $-2 = 4(3) + b = 12 + b$.\nStep 3: Subtract $12$: $b = -14$, so line $p$ is $y = 4x - 14$. Check: $4(3) - 14 = -2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = 4x - 5$): subtracts $3$ instead of $4 \\cdot 3 = 12$ from $-2$, getting $b = -5$.\n* Choice C ($y = 4x - 2$): uses the $y$-coordinate of the point, $-2$, as the $y$-intercept; but the point has $x = 3$, not $x = 0$.\n* Choice D ($y = 4x + 10$): adds $12$ to $-2$ instead of subtracting, getting $b = 10$; then $4(3) + 10 = 22$, not $-2$.\n\n**Test Day Takeaway:** A parallel line keeps the slope and changes only the intercept; find the new intercept by substituting the given point.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "line-from-two-points",
@@ -2572,9 +2572,9 @@ export const algebraBank = [
     skills: ["writing-perpendicular-equation", "function-evaluation"],
     difficulty: "hard",
     type: "fill-in",
-    question: "On a site plan, a drainage swale meets the grade line through $(-4,7)$ and $(2,-5)$ at a right angle and passes through the point $(6,1)$, with all coordinates measured in meters. What is the swale's $y$-coordinate at the location where $x=16$?",
-    correctAnswer: "6",
-    explanation: "**SAT Pattern: Line from Two Points**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~50s):** The grade line has slope $-2$, so the swale has slope $\\frac{1}{2}$; from $(6,1)$, moving $10$ right raises $y$ by $5$, giving $y=6$.\n\n**The Full Solution:**\n\nStep 1: Find the grade line's slope: $\\frac{-5-7}{2-(-4)}=\\frac{-12}{6}=-2$.\n\nStep 2: Perpendicular slopes are negative reciprocals, so the swale has slope $-\\frac{1}{-2}=\\frac{1}{2}$. Through $(6,1)$: $y-1=\\frac{1}{2}(x-6)$, or $y=\\frac{1}{2}x-2$.\n\nStep 3: At $x=16$, $y=\\frac{1}{2}(16)-2=8-2=6$. Check: $(6,1)$ satisfies $y=\\frac{1}{2}x-2$ since $3-2=1$.\n\n**Common Mistakes:** Reusing the grade line's slope $-2$ gives $y=-2(16)+13=-19$, the answer to a parallel-line question. Taking the reciprocal without the sign change gives slope $-\\frac{1}{2}$ and $y=-8+4=-4$.\n\n**Test Day Takeaway:** Perpendicular means flip the fraction and change the sign; check the new line against its given point before evaluating.",
+    question: "In the $xy$-plane, line $j$ passes through the points $(-3, 8)$ and $(1, -4)$. Line $k$ is perpendicular to line $j$ and passes through the point $(2, 5)$. If the point $(14, b)$ lies on line $k$, what is the value of $b$?",
+    correctAnswer: "9",
+    explanation: "**SAT Pattern: Line from Two Points**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~35s):** Line $j$ has slope $\\frac{-12}{4} = -3$, so line $k$ has slope $\\frac{1}{3}$; moving $12$ units right from $(2, 5)$ raises $y$ by $4$, so $b = 9$.\n\n**The Full Solution:**\nStep 1: Slope of line $j$: $\\frac{-4 - 8}{1 - (-3)} = \\frac{-12}{4} = -3$.\nStep 2: Perpendicular slopes are negative reciprocals, so line $k$ has slope $\\frac{1}{3}$.\nStep 3: From $(2, 5)$ to $x = 14$ is a run of $12$, so the rise is $\\frac{1}{3}(12) = 4$ and $b = 5 + 4 = 9$. Check: $(-3)\\left(\\frac{1}{3}\\right) = -1$, and $\\frac{9 - 5}{14 - 2} = \\frac{1}{3}$ ✓\n\n**Common Mistakes:** Using line $j$'s slope $-3$ for line $k$ gives $5 - 36 = -31$; taking only the opposite, $3$, gives $5 + 36 = 41$; taking only the reciprocal, $-\\frac{1}{3}$, gives $5 - 4 = 1$.\n\n**Test Day Takeaway:** A perpendicular slope needs both changes: flip the fraction and change the sign. Then step from the known point with rise equals slope times run.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "line-from-two-points",
@@ -2587,15 +2587,15 @@ export const algebraBank = [
     skills: ["slope-from-points", "function-evaluation"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The linear function $h$ is defined for all real numbers $x$. The table shows the value of $h(x)$ for two values of $x$. What is the value of $h(12) - h(1)$?",
+    question: "For the linear function $h$, the table shows two values of $x$ and their corresponding values of $h(x)$. What is the value of $h(12) - h(1)$?",
     diagram: { type: "dataTable", params: { headers: ["x", "h(x)"], rows: [["-3", "14"], ["5", "-2"]] } },
     choices: [
-      // distractor: uses 12 + 1 = 13 as the run
+      // distractor: uses 12 + 1 = 13 as the change in x instead of 12 - 1 = 11, computing -2(13)
       { id: "A", text: "$-26$" },
       { id: "B", text: "$-22$" },
-      // distractor: subtracts the inputs without applying the slope
+      // distractor: reports the change in x, 12 - 1 = 11, without multiplying by the slope
       { id: "C", text: "$11$" },
-      // distractor: slope sign error, +2
+      // distractor: drops the negative sign on the slope, computing 2(11)
       { id: "D", text: "$22$" }
     ],
     correctAnswer: "B",
@@ -2617,9 +2617,9 @@ export const algebraBank = [
     skills: ["elimination-method", "setting-up-systems"],
     difficulty: "easy",
     type: "fill-in",
-    question: "At a regional blood drive, the number of whole-blood units $w$ and plasma units $p$ collected satisfy $w + p = 48$ and $w - p = 12$. How many plasma units were collected?",
-    correctAnswer: "18",
-    explanation: "**SAT Pattern: System of Equations — Elimination**\n\n**The correct answer is $18$.**\n\n**The Fast Way (~15s):** Subtracting the second equation from the first eliminates $w$: $2p = 36$, so $p = 18$.\n\n**The Full Solution:**\nStep 1: Line the equations up: $w + p = 48$ and $w - p = 12$. The $w$-terms are identical, so subtracting removes them.\nStep 2: Subtract the second from the first: $(w + p) - (w - p) = 48 - 12$, which gives $2p = 36$.\nStep 3: Divide by $2$: $p = 18$. Check by back-substituting: $w = 48 - 18 = 30$, and $30 - 18 = 12$. $\\checkmark$\n\n**Common Mistakes:** Adding the equations instead, which gives $2w = 60$ and the whole-blood count $30$ rather than the plasma count; subtracting in the reverse order and reporting $-18$; halving $48$ to get $24$ and ignoring the $12$-unit difference entirely.\n\n**Test Day Takeaway:** When a variable appears with the same coefficient in both equations, subtract to eliminate it, then confirm which variable the question actually asks for.",
+    question: "$x + y = 41$\n$x - y = 9$\nThe solution to the given system of equations is $(x, y)$. What is the value of $y$?",
+    correctAnswer: "16",
+    explanation: "**SAT Pattern: System of Equations — Elimination**\n\n**The correct answer is $16$.**\n\n**The Fast Way (~15s):** Subtracting the second equation from the first eliminates $x$: $2y = 32$, so $y = 16$.\n\n**The Full Solution:**\nStep 1: The $x$-terms have the same coefficient, so subtracting the equations removes $x$.\nStep 2: Subtract the second equation from the first: $(x + y) - (x - y) = 41 - 9$, which gives $2y = 32$.\nStep 3: Divide by $2$: $y = 16$. Check: $x = 41 - 16 = 25$, and $25 - 16 = 9$ ✓\n\n**Common Mistakes:** Adding the equations gives $2x = 50$ and the value of $x$, $25$, not $y$; subtracting in the other order gives $-2y = -32$, and dropping a sign there leads to $-16$; stopping at $2y = 32$ and entering $32$.\n\n**Test Day Takeaway:** Add the equations when a variable's coefficients are opposites, subtract when they match, and then answer for the variable the question names.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "system-of-equations-elimination",
@@ -2632,9 +2632,9 @@ export const algebraBank = [
     skills: ["elimination-method", "setting-up-systems"],
     difficulty: "easy",
     type: "fill-in",
-    question: "A scene shop pays \\$64 for $2$ gallons of primer and $5$ gallons of topcoat, and \\$48 for $2$ gallons of primer and $3$ gallons of topcoat. What is the cost, in dollars, of one gallon of topcoat?",
-    correctAnswer: "8",
-    explanation: "**SAT Pattern: System of Equations — Elimination**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~20s):** Both orders contain the same $2$ gallons of primer, so the \\$16 price difference buys the extra $2$ gallons of topcoat: $16 \\div 2 = 8$ dollars per gallon.\n\n**The Full Solution:**\nStep 1: Let $r$ be the cost of one gallon of primer and $t$ the cost of one gallon of topcoat. The two orders give $2r + 5t = 64$ and $2r + 3t = 48$.\nStep 2: The $r$-terms match, so subtract the second equation from the first: $(2r + 5t) - (2r + 3t) = 64 - 48$, which gives $2t = 16$.\nStep 3: Divide by $2$: $t = 8$. Check by finding $r$: $2r + 3(8) = 48$ gives $2r = 24$ and $r = 12$, and $2(12) + 5(8) = 24 + 40 = 64$. $\\checkmark$\n\n**Common Mistakes:** Reporting $16$, the price difference, without dividing by the $2$ extra gallons; reporting $12$, the primer price, instead of the topcoat price; dividing $64$ by the $7$ total gallons to get about $9.14$ as if both paints cost the same.\n\n**Test Day Takeaway:** When two purchases share an identical quantity of one item, subtracting the two totals eliminates that item in a single step.",
+    question: "$5x + 2y = 32$\n$5x - 2y = 8$\nThe values of $x$ and $y$ satisfy the given system of equations. What is the value of $x$?",
+    correctAnswer: "4",
+    explanation: "**SAT Pattern: System of Equations — Elimination**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~15s):** Adding the equations cancels $y$: $10x = 40$, so $x = 4$.\n\n**The Full Solution:**\nStep 1: The $y$-terms are $2y$ and $-2y$, which are opposites, so adding the equations removes $y$.\nStep 2: Add: $(5x + 2y) + (5x - 2y) = 32 + 8$, which gives $10x = 40$.\nStep 3: Divide by $10$: $x = 4$. Check: $5(4) + 2y = 32$ gives $y = 6$, and $5(4) - 2(6) = 8$ ✓\n\n**Common Mistakes:** Subtracting the equations eliminates $x$ instead and gives $4y = 24$, so $y = 6$, the wrong variable; dividing $40$ by $5$ instead of $10$ gives $8$; stopping at $10x = 40$ and entering $40$.\n\n**Test Day Takeaway:** Opposite coefficients cancel when you add; check which variable is left before you divide.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "system-of-equations-elimination",
@@ -2647,15 +2647,15 @@ export const algebraBank = [
     skills: ["elimination-method", "setting-up-systems"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The table shows two deliveries to a reservoir, each made up of truck loads and tanker loads that are uniform within their type. What is the volume, in kiloliters, of one truck load?",
-    questionTable: { headers: ["Delivery", "Truck loads", "Tanker loads", "Total volume (kL)"], rows: [["March", "4", "3", "121"], ["April", "6", "5", "191"]] },
+    question: "The table shows the number of truck loads and tanker loads of water delivered to a farm's storage tanks in March and April, and the total volume delivered each month. Each truck load has the same volume, and each tanker load has the same volume. What is the volume, in kiloliters, of one truck load?",
+    questionTable: { headers: ["Month", "Truck loads", "Tanker loads", "Total volume (kL)"], rows: [["March", "4", "3", "121"], ["April", "6", "5", "191"]] },
     choices: [
       { id: "A", text: "$16$" },
       // distractor: reports the tanker-load volume 19 instead of the truck-load volume
       { id: "B", text: "$19$" },
       // distractor: adds the two load volumes, 16 + 19 = 35
       { id: "C", text: "$35$" },
-      // distractor: stops at 4x = 64 without dividing by the 4 truck loads
+      // distractor: solves for the tanker-load volume first, then stops at 4x = 64 (x = truck-load volume) without dividing by the 4 truck loads
       { id: "D", text: "$64$" }
     ],
     correctAnswer: "A",
@@ -2672,9 +2672,9 @@ export const algebraBank = [
     skills: ["elimination-method", "setting-up-systems"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A sentinel surveillance network reports that $5$ clinics and $2$ labs together processed $61$ specimens in one week, while $3$ clinics and $4$ labs processed $59$. Each clinic processes the same number of specimens, as does each lab. How many specimens does one clinic process?",
-    correctAnswer: "9",
-    explanation: "**SAT Pattern: System of Equations — Elimination**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~40s):** Doubling $5c + 2\\ell = 61$ gives $10c + 4\\ell = 122$; subtracting $3c + 4\\ell = 59$ leaves $7c = 63$, so $c = 9$.\n\n**The Full Solution:**\nStep 1: Let $c$ be the specimens processed by one clinic and $\\ell$ the specimens processed by one lab. The two weeks give $5c + 2\\ell = 61$ and $3c + 4\\ell = 59$.\nStep 2: Match the $\\ell$-coefficients by multiplying the first equation by $2$: $10c + 4\\ell = 122$.\nStep 3: Subtract the second equation: $(10c - 3c) + (4\\ell - 4\\ell) = 122 - 59$, so $7c = 63$ and $c = 9$. Check: $\\ell = \\frac{61 - 45}{2} = 8$, and $3(9) + 4(8) = 27 + 32 = 59$. $\\checkmark$\n\n**Common Mistakes:** Reporting $8$, the per-lab count, instead of the per-clinic count; adding the two totals and dividing by the $14$ facilities to get about $8.6$; doubling the left side of the first equation but leaving the constant at $61$, which gives $7c = 2$.\n\n**Test Day Takeaway:** Scale one equation so a variable's coefficients match, subtract to remove it, and then check which of the two rates the question names.",
+    question: "At a school play, $3$ adult tickets and $4$ student tickets cost \\$38, and $5$ adult tickets and $2$ student tickets cost \\$40. What is the price, in dollars, of one student ticket?",
+    correctAnswer: "5",
+    explanation: "**SAT Pattern: System of Equations — Elimination**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~30s):** Doubling the second purchase gives $10a + 4s = 80$; subtracting $3a + 4s = 38$ leaves $7a = 42$, so $a = 6$ and $4s = 38 - 18 = 20$, making $s = 5$.\n\n**The Full Solution:**\nStep 1: Let $a$ be the price of an adult ticket and $s$ the price of a student ticket, in dollars: $3a + 4s = 38$ and $5a + 2s = 40$.\nStep 2: Multiply the second equation by $2$: $10a + 4s = 80$. Subtract the first equation: $7a = 42$, so $a = 6$.\nStep 3: Substitute into $3a + 4s = 38$: $18 + 4s = 38$, so $4s = 20$ and $s = 5$. Check: $5(6) + 2(5) = 30 + 10 = 40$ ✓\n\n**Common Mistakes:** Reporting $6$, the adult price, instead of the student price; stopping at $4s = 20$ and entering $20$; doubling only the left side of $5a + 2s = 40$, which gives $10a + 4s = 40$ and a negative price.\n\n**Test Day Takeaway:** Scale one equation so a variable's coefficients match, subtract, and then substitute back to get the variable the question asks for.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "system-of-equations-elimination",
@@ -2687,7 +2687,7 @@ export const algebraBank = [
     skills: ["elimination-method", "setting-up-systems"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The table shows two riser setups for a choir, built from wide risers of one width and narrow risers of another. What is the width, in inches, of one narrow riser?",
+    question: "The table shows the number of wide risers and narrow risers in two setups for a choir, and the total width of each setup. All wide risers have the same width, and all narrow risers have the same width. What is the width, in inches, of one narrow riser?",
     questionTable: { headers: ["Setup", "Wide risers", "Narrow risers", "Total width (in.)"], rows: [["Concert", "3", "4", "246"], ["Recital", "5", "2", "270"]] },
     choices: [
       { id: "A", text: "$30$" },
@@ -2699,7 +2699,7 @@ export const algebraBank = [
       { id: "D", text: "$72$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: System of Equations — Elimination**\n\n**Choice A is correct.**\n\n**The Fast Way (~50s):** Doubling the recital row gives $10w + 4n = 540$; subtracting the concert row leaves $7w = 294$, so $w = 42$ and $2n = 270 - 210 = 60$, making $n = 30$.\n\n**The Full Solution:**\nStep 1: Let $w$ be the width of one wide riser and $n$ the width of one narrow riser. The table gives $3w + 4n = 246$ and $5w + 2n = 270$.\nStep 2: Match the $n$-coefficients by doubling the recital equation: $10w + 4n = 540$. Subtracting the concert equation gives $7w = 294$, so $w = 42$.\nStep 3: Substitute back into $5w + 2n = 270$: $210 + 2n = 270$, so $2n = 60$ and $n = 30$. Check the concert row: $3(42) + 4(30) = 126 + 120 = 246$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($42$): solves the system correctly but reports the wide-riser width instead of the narrow one.\n* Choice C ($60$): stops at $2n = 60$ and reports the combined width of the two narrow risers.\n* Choice D ($72$): adds the two solved widths, $42 + 30 = 72$, instead of reporting just the narrow one.\n\n**Test Day Takeaway:** Scale one equation to match a coefficient, subtract, then substitute back — and read the last line of the question before choosing between the two values you now have.",
+    explanation: "**SAT Pattern: System of Equations — Elimination**\n\n**Choice A is correct.**\n\n**The Fast Way (~50s):** Doubling the recital row gives $10w + 4n = 540$; subtracting the concert row leaves $7w = 294$, so $w = 42$ and $2n = 270 - 210 = 60$, making $n = 30$.\n\n**The Full Solution:**\nStep 1: Let $w$ be the width of one wide riser and $n$ the width of one narrow riser. The table gives $3w + 4n = 246$ and $5w + 2n = 270$.\nStep 2: Match the $n$-coefficients by doubling the recital equation: $10w + 4n = 540$. Subtracting the concert equation gives $7w = 294$, so $w = 42$.\nStep 3: Substitute back into $5w + 2n = 270$: $210 + 2n = 270$, so $2n = 60$ and $n = 30$. Check the concert row: $3(42) + 4(30) = 126 + 120 = 246$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($42$): solves the system correctly but reports the wide-riser width instead of the narrow one.\n* Choice C ($60$): stops at $2n = 60$ and reports the combined width of the two narrow risers.\n* Choice D ($72$): adds the two solved widths, $42 + 30 = 72$, instead of reporting just the narrow one.\n\n**Test Day Takeaway:** Scale one equation to match a coefficient, subtract, then substitute back, and read the last line of the question before choosing between the two values you now have.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "system-of-equations-elimination",
@@ -2712,7 +2712,7 @@ export const algebraBank = [
     skills: ["elimination-method"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The table shows two weeks of pothole repair by day crews and night crews, with every crew of a given type patching the same number. How many potholes does one day crew patch in a week?",
+    question: "The table shows the number of day crews and night crews a town used to patch potholes in each of two weeks, and the total number of potholes patched. Crews of the same type each patched the same number of potholes per week. How many potholes did one day crew patch per week?",
     questionTable: { headers: ["Week", "Day crews", "Night crews", "Potholes patched"], rows: [["Week 1", "6", "2", "196"], ["Week 2", "4", "5", "259"]] },
     choices: [
       { id: "A", text: "$21$" },
@@ -2737,9 +2737,9 @@ export const algebraBank = [
     skills: ["elimination-method", "setting-up-systems"],
     difficulty: "hard",
     type: "fill-in",
-    question: "A laboratory technician combines $x$ milliliters of a $20\\%$ acid solution with $y$ milliliters of a $50\\%$ acid solution to make $600$ milliliters of a $30\\%$ acid solution. What is the value of $y$?",
-    correctAnswer: "200",
-    explanation: "**SAT Pattern: System of Equations — Elimination**\n\n**The correct answer is $200$.**\n\n**The Fast Way (~20s):** Total volume gives $x + y = 600$; total acid gives $0.2x + 0.5y = 0.3(600) = 180$. Multiply the first equation by $0.2$ and subtract: $0.3y = 60$, so $y = 200$.\n\n**The Full Solution:**\nStep 1: Write the two equations. Volume: $x + y = 600$. Acid content: $0.20x + 0.50y = 0.30(600)$, which simplifies to $0.2x + 0.5y = 180$.\nStep 2: Eliminate $x$. Multiply the volume equation by $0.2$: $0.2x + 0.2y = 120$. Subtract this from the acid equation: $0.3y = 60$, so $y = 200$.\nStep 3: Check. Then $x = 400$, and $0.2(400) + 0.5(200) = 80 + 100 = 180$, which is $30\\%$ of $600$. $\\checkmark$\n\n**Common Mistakes:** Reporting $x = 400$ instead of $y$; setting the acid equation equal to $30$ (a percent) instead of $180$ milliliters; adding the equations instead of subtracting after scaling, which does not eliminate a variable.\n\n**Test Day Takeaway:** A mixture problem is always two equations: one for total amount, one for total \"stuff\" (acid, money, weight). Scale one equation so a coefficient matches, then subtract.",
+    question: "$9x + 4y = 20$\n$5x + 8y = 6$\nThe solution to the given system of equations is $(x, y)$. What is the value of $x - y$?",
+    correctAnswer: "7/2",
+    explanation: "**SAT Pattern: System of Equations — Elimination**\n\n**The correct answer is $\\frac{7}{2}$.** Note that 7/2 and 3.5 are examples of ways to enter a correct answer.\n\n**The Fast Way (~30s):** Subtracting the second equation from the first gives $4x - 4y = 14$, so $x - y = \\frac{14}{4} = \\frac{7}{2}$.\n\n**The Full Solution:**\nStep 1: The question asks for $x - y$, not for $x$ and $y$ separately. The $x$-coefficients differ by $9 - 5 = 4$ and the $y$-coefficients differ by $4 - 8 = -4$, so subtracting the equations produces a multiple of $x - y$.\nStep 2: Subtract the second equation from the first: $(9x + 4y) - (5x + 8y) = 20 - 6$, which gives $4x - 4y = 14$.\nStep 3: Divide both sides by $4$: $x - y = \\frac{7}{2}$. Check: solving the system fully gives $x = \\frac{34}{13}$ and $y = -\\frac{23}{26}$, and $\\frac{68}{26} + \\frac{23}{26} = \\frac{91}{26} = \\frac{7}{2}$ ✓\n\n**Common Mistakes:**\n* $14$: stops at $4x - 4y = 14$ without dividing by $4$.\n* $\\frac{13}{2}$: subtracts the left sides but adds the constants, getting $4x - 4y = 26$.\n* $\\frac{34}{13}$: solves the whole system and reports $x$ alone instead of $x - y$.\n\n**Test Day Takeaway:** When a system asks for a combination such as $x - y$, try adding or subtracting the equations as given before solving; the combination often appears in one step while $x$ and $y$ themselves are messy fractions.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "system-of-equations-elimination",
@@ -2752,18 +2752,18 @@ export const algebraBank = [
     skills: ["elimination-method", "combining-like-terms"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A dispatch model for ambulance crews pairs $6p + 5q = 3$ with $4p + kq = 24$. In the pair $(p, q)$ that meets both conditions, $p$ exceeds $q$ by $6$. What is the value of the constant $k$?",
+    question: "$3x + 4y = 2$\n$5x + ky = 16$\nIn the given system of equations, $k$ is a constant. The solution to the system is $(x, y)$, where $x - y = 3$. What is the value of $k$?",
     choices: [
-      // distractor: stops at -3k = 12 and reports -12 without dividing by q = -3
-      { id: "A", text: "$-12$" },
-      { id: "B", text: "$-4$" },
-      // distractor: reports p = 3, the other coordinate of the solution, instead of k
-      { id: "C", text: "$3$" },
-      // distractor: drops the sign of q = -3 and solves 3k = 12
-      { id: "D", text: "$4$" }
+      { id: "A", text: "$-6$" },
+      // distractor: reports y = -1, the second coordinate of the solution, instead of k
+      { id: "B", text: "$-1$" },
+      // distractor: reports x = 2, the first coordinate of the solution, instead of k
+      { id: "C", text: "$2$" },
+      // distractor: substitutes y = 1 instead of y = -1, solving 10 + k = 16 to get k = 6
+      { id: "D", text: "$6$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: System of Equations — Elimination**\n\n**Choice B is correct.**\n\n**The Fast Way (~55s):** From $p - q = 6$ and $6p + 5q = 3$, eliminating $p$ gives $11q = -33$, so $q = -3$ and $p = 3$; then $12 - 3k = 24$ and $k = -4$.\n\n**The Full Solution:**\nStep 1: The extra condition is $p - q = 6$. Multiply it by $6$ to match the first equation's $p$-term: $6p - 6q = 36$.\nStep 2: Subtract that from $6p + 5q = 3$: $11q = 3 - 36 = -33$, so $q = -3$, and $p = q + 6 = 3$.\nStep 3: Put both values into the second condition: $4(3) + k(-3) = 24$, so $12 - 3k = 24$, $-3k = 12$, and $k = -4$. Check: $6(3) + 5(-3) = 18 - 15 = 3$, $4(3) + (-4)(-3) = 12 + 12 = 24$, and $3 - (-3) = 6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): stops at $-3k = 12$ and reports $-12$ without dividing by the $-3$.\n* Choice C ($3$): reports $p = 3$, the other coordinate of the solution, rather than the constant $k$.\n* Choice D ($4$): drops the sign of $q = -3$ and solves $3k = 12$, which reverses the sign of the answer.\n\n**Test Day Takeaway:** When a third condition is given, use it to eliminate a variable first; only after both coordinates are pinned down should the unknown coefficient be solved for.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: System of Equations — Elimination**\n\n**Choice A is correct.**\n\n**The Fast Way (~50s):** Multiplying $x - y = 3$ by $4$ and adding it to $3x + 4y = 2$ gives $7x = 14$, so $x = 2$ and $y = -1$; then $5(2) + k(-1) = 16$ gives $k = -6$.\n\n**The Full Solution:**\nStep 1: The first equation and the condition $x - y = 3$ contain no unknown constant, so use them to find the solution. Multiply the condition by $4$: $4x - 4y = 12$.\nStep 2: Add this to $3x + 4y = 2$ to eliminate $y$: $7x = 14$, so $x = 2$, and $y = x - 3 = -1$.\nStep 3: Substitute into the second equation: $5(2) + k(-1) = 16$, so $10 - k = 16$ and $k = -6$. Check: $3(2) + 4(-1) = 2$, $5(2) + (-6)(-1) = 16$, and $2 - (-1) = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-1$): reports $y$, the second coordinate of the solution, instead of the constant $k$.\n* Choice C ($2$): reports $x$, the first coordinate of the solution, instead of $k$.\n* Choice D ($6$): substitutes $y = 1$ instead of $y = -1$, solving $10 + k = 16$; the sign of $y$ flips the sign of the answer.\n\n**Test Day Takeaway:** When one equation holds an unknown constant, find $x$ and $y$ from the equations that do not contain it, then substitute that solution into the equation with the constant.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "system-of-equations-elimination",
@@ -2782,19 +2782,19 @@ export const algebraBank = [
     skills: ["system-solution-types", "infinite-solutions-condition"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A dispensary's log lists three pairs of values, shown in the table, that all satisfy one linear equation relating sessions held, $x$, to unused doses, $y$. How many solutions does the system of that equation and $6x + 4y = 36$ have?",
-    questionTable: { headers: ["Sessions held, $x$", "Unused doses, $y$"], rows: [["0", "9"], ["2", "6"], ["4", "3"]] },
+    question: "The table shows three values of $x$ and their corresponding values of $y$ for line $\\ell$. How many solutions does the system of equations consisting of the equation of line $\\ell$ and $6x + 4y = 36$ have?",
+    questionTable: { headers: ["$x$", "$y$"], rows: [["$0$", "$9$"], ["$2$", "$6$"], ["$4$", "$3$"]] },
     choices: [
-      // distractor: assumes two equations that look different must cross exactly once
+      // distractor: assumes two equations that look different must have graphs that cross exactly once
       { id: "A", text: "Exactly one" },
-      // distractor: two lines can meet at most once, so a linear system never has exactly two solutions
+      // distractor: two distinct lines meet at most once, so a linear system never has exactly two solutions
       { id: "B", text: "Exactly two" },
       { id: "C", text: "Infinitely many" },
-      // distractor: sees the larger coefficients and calls the lines parallel without checking that 18 also doubles to 36
+      // distractor: sees the larger coefficients and calls the lines parallel without checking that the constant 18 also doubles to 36
       { id: "D", text: "Zero" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: System Equivalence Check**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The table gives $3x + 2y = 18$, and $6x + 4y = 36$ is exactly $2$ times that equation, so the two equations describe the same line.\n\n**The Full Solution:**\nStep 1: Find the equation behind the table. As $x$ rises by $2$, $y$ falls by $3$, so the slope is $-\\frac{3}{2}$, and $y = 9$ when $x = 0$. That gives $y = -\\frac{3}{2}x + 9$, or $3x + 2y = 18$.\nStep 2: Compare the two equations term by term. Multiplying $3x + 2y = 18$ by $2$ gives $6x + 4y = 36$, which is the second equation exactly.\nStep 3: Because every coefficient AND the constant scale by the same factor of $2$, the two equations have identical graphs, so every point on the line solves both: infinitely many solutions. Check with a table row: $(2, 6)$ gives $6(2) + 4(6) = 36$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (Exactly one): assumes two equations written with different numbers must be different lines that cross once.\n* Choice B (Exactly two): two distinct lines meet at most once, so a system of two linear equations can never have exactly two solutions.\n* Choice D (Zero): notices that the coefficients differ and calls the lines parallel and distinct, without checking that the constant $18$ also doubles to $36$.\n\n**Test Day Takeaway:** Scale one equation to match the other's $x$-coefficient; if the $y$-coefficient AND the constant match too, the system has infinitely many solutions, and if only the constant fails to match, it has none.",
+    explanation: "**SAT Pattern: System Equivalence Check**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The table's points lie on $3x + 2y = 18$, and $6x + 4y = 36$ is that equation multiplied by $2$, so both equations describe the same line.\n\n**The Full Solution:**\nStep 1: From $(0, 9)$ to $(2, 6)$, $y$ falls by $3$ while $x$ rises by $2$, so the slope is $-\\frac{3}{2}$ and the $y$-intercept is $9$: $y = -\\frac{3}{2}x + 9$.\nStep 2: Multiply by $2$ and collect the terms: $2y = -3x + 18$, or $3x + 2y = 18$.\nStep 3: Multiplying $3x + 2y = 18$ by $2$ gives $6x + 4y = 36$, so the two equations have the same graph and every point on it is a solution: infinitely many. Check with $(4, 3)$: $6(4) + 4(3) = 24 + 12 = 36$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: two equations can look different and still be multiples of each other; here every coefficient and the constant are doubled.\n* Choice B: two lines meet in zero points, one point, or every point, so a linear system never has exactly two solutions.\n* Choice D: parallel lines need different constants after scaling, but $18$ doubles to exactly $36$, so the lines coincide.\n\n**Test Day Takeaway:** Two linear equations have infinitely many solutions when one is a constant multiple of the other, constant term included; check all three numbers before deciding.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "system-equivalence-check",
@@ -2807,9 +2807,9 @@ export const algebraBank = [
     skills: ["system-solution-types", "infinite-solutions-condition"],
     difficulty: "easy",
     type: "fill-in",
-    question: "A dispatcher's retiming sheet lists two constraints on the green phases $p$ and the turn arrows $q$ at one intersection: $4p + 6q = 22$ and $10p + 15q = c$, where $c$ is a constant. Every pair $(p, q)$ allowed by the first constraint is also allowed by the second. What is the value of $c$?",
-    correctAnswer: "55",
-    explanation: "**SAT Pattern: System Equivalence Check**\n\n**The correct answer is $55$.**\n\n**The Fast Way (~20s):** The second constraint is $2.5$ times the first ($10 = 2.5 \\cdot 4$ and $15 = 2.5 \\cdot 6$), so $c = 2.5 \\cdot 22 = 55$.\n\n**The Full Solution:**\nStep 1: Two linear equations are satisfied by exactly the same pairs only when one is a nonzero multiple of the other. Find the multiplier from the $p$-terms: $10 \\div 4 = 2.5$.\nStep 2: Confirm the same multiplier works on the $q$-terms: $6 \\cdot 2.5 = 15$, which matches. So the whole first equation is scaled by $2.5$.\nStep 3: The constant must scale by that same factor: $c = 22 \\cdot 2.5 = 55$. Check: dividing $10p + 15q = 55$ by $2.5$ returns $4p + 6q = 22$. $\\checkmark$\n\n**Common Mistakes:** Reporting $22$ on the belief that equivalent equations must share the same constant; pairing mismatched coefficients as $\\frac{6}{4} = 1.5$ and computing $22 \\cdot 1.5 = 33$; dividing by the multiplier instead of multiplying, $22 \\div 2.5 = 8.8$.\n\n**Test Day Takeaway:** Equivalent equations scale by ONE factor across every term, so read the factor off the $x$-terms, verify it on the $y$-terms, and then apply it to the constant.",
+    question: "$5x + 3y = 14$\n$15x + 9y = c$\nIn the given system of equations, $c$ is a constant. If the system has infinitely many solutions, what is the value of $c$?",
+    correctAnswer: "42",
+    explanation: "**SAT Pattern: System Equivalence Check**\n\n**The correct answer is $42$.**\n\n**The Fast Way (~15s):** $15x + 9y$ is $3$ times $5x + 3y$, so $c = 3(14) = 42$.\n\n**The Full Solution:**\nStep 1: A system of two linear equations has infinitely many solutions when one equation is a multiple of the other, constant included.\nStep 2: Compare the coefficients: $15 = 3(5)$ and $9 = 3(3)$, so the second equation must be the first multiplied by $3$.\nStep 3: Then $c = 3(14) = 42$. Check: dividing $15x + 9y = 42$ by $3$ gives $5x + 3y = 14$ ✓\n\n**Common Mistakes:**\n* $14$: assumes equivalent equations keep the same constant.\n* $\\frac{14}{3}$: divides the constant by $3$ instead of multiplying it.\n* $70$: multiplies the constant by $5$, the $x$-coefficient, instead of by the factor $3$.\n\n**Test Day Takeaway:** Infinitely many solutions means one equation is the other times a single factor; read the factor from the coefficients and apply it to the constant.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "system-equivalence-check",
@@ -2822,19 +2822,19 @@ export const algebraBank = [
     skills: ["system-solution-types", "infinite-solutions-condition"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "Three ordered pairs from a levee inspection log are shown; each satisfies the same linear equation in $x$ and $y$. For what value of the constant $k$ does the system consisting of that equation and $kx - 4y = 20$ have no solution?",
-    questionTable: { headers: ["Hours worked, $x$", "Segments cleared, $y$"], rows: [["1", "7"], ["3", "13"], ["5", "19"]] },
+    question: "The table shows three values of $x$ and their corresponding values of $y$ for line $\\ell$. The system of equations consisting of the equation of line $\\ell$ and $kx - 4y = 20$, where $k$ is a constant, has no solution. What is the value of $k$?",
+    questionTable: { headers: ["$x$", "$y$"], rows: [["$1$", "$7$"], ["$3$", "$13$"], ["$5$", "$19$"]] },
     choices: [
-      // distractor: attaches the minus sign of -4y to k, solving k / (-4) = 3 to get -12
+      // distractor: keeps the minus sign of -4y with the slope, solving k / (-4) = 3 to get -12
       { id: "A", text: "$-12$" },
-      // distractor: reports the slope 3 itself instead of the coefficient k that produces it
+      // distractor: reports the slope 3 of line l instead of the coefficient k that produces it
       { id: "B", text: "$3$" },
-      // distractor: matches the constants, 20 / 4 = 5, instead of matching the slopes
-      { id: "C", text: "$5$" },
+      // distractor: reports the y-intercept 4 of line l instead of k
+      { id: "C", text: "$4$" },
       { id: "D", text: "$12$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: System Equivalence Check**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** The table's line has slope $3$; $kx - 4y = 20$ has slope $\\frac{k}{4}$, so parallel lines need $\\frac{k}{4} = 3$, giving $k = 12$ (and the constants differ, so the lines are distinct).\n\n**The Full Solution:**\nStep 1: Build the equation behind the table. From $(1, 7)$ to $(3, 13)$ the slope is $\\frac{13 - 7}{3 - 1} = 3$, and $y = 3x + 4$ fits all three rows, so the equation is $3x - y = -4$.\nStep 2: A system has no solution when the two lines are parallel but distinct. Solving $kx - 4y = 20$ for $y$ gives $y = \\frac{k}{4}x - 5$, so its slope is $\\frac{k}{4}$. Setting $\\frac{k}{4} = 3$ gives $k = 12$.\nStep 3: Verify the lines are distinct: with $k = 12$, $12x - 4y = 20$ reduces to $3x - y = 5$, and $5 \\neq -4$, so the lines never meet. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): attaches the minus sign from $-4y$ to $k$ and solves $\\frac{k}{-4} = 3$, producing $-12$, which gives slope $-3$ and one intersection.\n* Choice B ($3$): reports the slope $3$ itself instead of the coefficient $k$ that produces that slope.\n* Choice C ($5$): matches the constants, $\\frac{20}{4} = 5$, instead of matching the slopes.\n\n**Test Day Takeaway:** For \"no solution,\" force the slopes to match and then CONFIRM the constants do not; solving for $y$ first keeps the sign of the $y$-coefficient from being lost.",
+    explanation: "**SAT Pattern: System Equivalence Check**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** Line $\\ell$ has slope $\\frac{13 - 7}{3 - 1} = 3$, and $kx - 4y = 20$ has slope $\\frac{k}{4}$; parallel lines need $\\frac{k}{4} = 3$, so $k = 12$.\n\n**The Full Solution:**\nStep 1: From the table, $y$ rises by $6$ each time $x$ rises by $2$, so line $\\ell$ has slope $3$. Since $(1, 7)$ is on the line, $7 = 3(1) + b$ gives $b = 4$, so line $\\ell$ is $y = 3x + 4$.\nStep 2: Solve $kx - 4y = 20$ for $y$: $y = \\frac{k}{4}x - 5$, so its slope is $\\frac{k}{4}$ and its $y$-intercept is $-5$.\nStep 3: No solution means the lines are parallel and distinct: $\\frac{k}{4} = 3$ gives $k = 12$, and the $y$-intercepts $4$ and $-5$ differ. Check: $12x - 4y = 20$ is $y = 3x - 5$, which never meets $y = 3x + 4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): keeps the minus sign of $-4y$ when finding the slope; solving for $y$ divides by $-4$, which makes the slope $\\frac{k}{4}$, not $-\\frac{k}{4}$.\n* Choice B ($3$): reports the slope of line $\\ell$ rather than the coefficient $k$ that gives the second line that slope.\n* Choice C ($4$): reports the $y$-intercept of line $\\ell$, which plays no role in making the lines parallel.\n\n**Test Day Takeaway:** For no solution, write both lines in slope-intercept form, set the slopes equal, and confirm the intercepts differ.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "system-equivalence-check",
@@ -2847,9 +2847,9 @@ export const algebraBank = [
     skills: ["system-solution-types", "infinite-solutions-condition"],
     difficulty: "medium",
     type: "fill-in",
-    question: "Airflow through a rail tunnel must satisfy $6u - 9v = 15$, while a second design rule requires $au + 12v = 7$, where $a$ is a constant. No pair $(u, v)$ meets both requirements at once. What is the value of $a$?",
-    correctAnswer: "-8",
-    explanation: "**SAT Pattern: System Equivalence Check**\n\n**The correct answer is $-8$.**\n\n**The Fast Way (~30s):** No solution means equal slopes, so $\\frac{a}{6} = \\frac{12}{-9}$, giving $a = 6 \\cdot \\left(-\\frac{4}{3}\\right) = -8$.\n\n**The Full Solution:**\nStep 1: Two linear equations have no common solution when their graphs are parallel and distinct, which happens when the coefficient pairs are proportional but the constants are not.\nStep 2: Set the coefficient ratios equal: $\\frac{a}{6} = \\frac{12}{-9}$. Since $\\frac{12}{-9} = -\\frac{4}{3}$, $a = 6 \\cdot \\left(-\\frac{4}{3}\\right) = -8$.\nStep 3: Confirm the constants break the pattern. With $a = -8$, dividing $-8u + 12v = 7$ by $-4$ gives $2u - 3v = -1.75$, while dividing $6u - 9v = 15$ by $3$ gives $2u - 3v = 5$. Same left side, different right side, so the lines are parallel and distinct. $\\checkmark$\n\n**Common Mistakes:** Dropping the minus sign on $-9v$ and solving $\\frac{a}{6} = \\frac{12}{9}$ to get $8$; inverting the ratio as $\\frac{6}{a} = \\frac{12}{-9}$ to get $-4.5$; assuming that \"no solution\" also forces the constants $15$ and $7$ to be proportional.\n\n**Test Day Takeaway:** Proportional coefficients decide whether the lines are parallel; the constants then decide between no solution and infinitely many.",
+    question: "$4x - 10y = 9$\n$ax + 15y = 2$\nIn the given system of equations, $a$ is a constant. For what value of $a$ does the system have no solution?",
+    correctAnswer: "-6",
+    explanation: "**SAT Pattern: System Equivalence Check**\n\n**The correct answer is $-6$.**\n\n**The Fast Way (~30s):** No solution requires proportional $x$- and $y$-coefficients: $\\frac{a}{4} = \\frac{15}{-10}$, so $a = -6$.\n\n**The Full Solution:**\nStep 1: The system has no solution when the two lines are parallel and distinct, which happens when the $x$- and $y$-coefficients are in the same ratio but the constants are not.\nStep 2: The $y$-coefficients have ratio $\\frac{15}{-10} = -\\frac{3}{2}$, so $\\frac{a}{4} = -\\frac{3}{2}$ and $a = -6$.\nStep 3: Check the constants: multiplying the first equation by $-\\frac{3}{2}$ gives $-6x + 15y = -\\frac{27}{2}$, and $-\\frac{27}{2} \\ne 2$, so the lines are parallel and distinct ✓\n\n**Common Mistakes:**\n* $6$: drops the negative sign of $-10y$, solving $\\frac{a}{4} = \\frac{15}{10}$.\n* $-\\frac{8}{3}$: pairs the coefficients the wrong way, solving $\\frac{a}{4} = \\frac{-10}{15}$.\n* $\\frac{8}{9}$: matches the constants, solving $\\frac{a}{4} = \\frac{2}{9}$, instead of matching the $y$-coefficients.\n\n**Test Day Takeaway:** No solution means equal coefficient ratios with a different constant ratio; find the constant from the $y$-coefficients, then confirm the constants do not follow the same ratio.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "system-equivalence-check",
@@ -2862,8 +2862,8 @@ export const algebraBank = [
     skills: ["system-solution-types", "infinite-solutions-condition"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "An assay-scheduling model graphs its first equation in the $xy$-plane as shown, with $x$ sites sampled and $y$ assays run. Which of the following, used as the model's second equation, would leave the system with no solution?",
-    diagram: { type: "linearGraph", params: { slope: -0.6666667, yIntercept: 6, xRange: [-3, 9], yRange: [-2, 10], xTickInterval: 2, yTickInterval: 2, gridInterval: 1, showPoints: [[0, 6], [3, 4]], label: "first equation" } },
+    question: "The graph of one equation in a system of two linear equations is shown. The system has no solution. Which equation could be the second equation in this system?",
+    diagram: { type: "linearGraph", params: { slope: -0.6666667, yIntercept: 6, xRange: [-3, 9], yRange: [-2, 10], xTickInterval: 2, yTickInterval: 2, gridInterval: 1, showPoints: [[0, 6], [3, 4]] } },
     choices: [
       // distractor: doubles the graphed equation exactly, so the two graphs coincide and the system has infinitely many solutions
       { id: "A", text: "$4x + 6y = 36$" },
@@ -2874,7 +2874,7 @@ export const algebraBank = [
       { id: "D", text: "$6x + 4y = 30$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: System Equivalence Check**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The graph passes through $(0, 6)$ and $(3, 4)$, so it is $2x + 3y = 18$; doubling the left side but not the constant gives $4x + 6y = 30$, a parallel and distinct line.\n\n**The Full Solution:**\nStep 1: Read the graphed line. It crosses the $y$-axis at $6$ and drops $2$ units for every $3$ units right, so $y = -\\frac{2}{3}x + 6$, or $2x + 3y = 18$.\nStep 2: A system has no solution exactly when the two lines are parallel and distinct: the $x$- and $y$-coefficients scale by the same factor, but the constant does not.\nStep 3: Test choice B. Dividing $4x + 6y = 30$ by $2$ gives $2x + 3y = 15$. The left side matches the graphed equation, but $15 \\neq 18$, so the lines are parallel and never meet. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4x + 6y = 36$): scales EVERY term of $2x + 3y = 18$ by $2$, so the two equations graph the same line and the system has infinitely many solutions, not none.\n* Choice C ($4x - 6y = 30$): flips the sign of the $y$-term, producing slope $\\frac{2}{3}$ instead of $-\\frac{2}{3}$, so the lines cross exactly once.\n* Choice D ($6x + 4y = 30$): swaps the coefficients of $x$ and $y$, producing slope $-\\frac{3}{2}$, so the lines cross exactly once.\n\n**Test Day Takeaway:** Convert the picture to standard form first, then scale the candidate equation down; parallel-and-distinct means the left sides match while the constants disagree.",
+    explanation: "**SAT Pattern: System Equivalence Check**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The line passes through $(0, 6)$ and $(3, 4)$, so it is $2x + 3y = 18$; the second line must keep the coefficients in the ratio $2 : 3$ with a different constant, and $4x + 6y = 30$ does.\n\n**The Full Solution:**\nStep 1: The graph passes through $(0, 6)$ and $(3, 4)$, so its slope is $\\frac{4 - 6}{3 - 0} = -\\frac{2}{3}$ and its $y$-intercept is $6$: $y = -\\frac{2}{3}x + 6$, or $2x + 3y = 18$.\nStep 2: No solution means the second line is parallel to this one, with slope $-\\frac{2}{3}$, and has a different $y$-intercept. Choice B, $4x + 6y = 30$, is $y = -\\frac{2}{3}x + 5$.\nStep 3: Same slope, different intercept, so the lines never meet. Check: dividing $4x + 6y = 30$ by $2$ gives $2x + 3y = 15$, which has the same left side as $2x + 3y = 18$ but a different constant ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4x + 6y = 36$): is $2x + 3y = 18$ multiplied by $2$, so it is the same line and the system has infinitely many solutions.\n* Choice C ($4x - 6y = 30$): has slope $\\frac{2}{3}$, so its graph crosses the graphed line once.\n* Choice D ($6x + 4y = 30$): has slope $-\\frac{3}{2}$, so its graph also crosses the graphed line once.\n\n**Test Day Takeaway:** Read the line's equation from two clear points, then look for a choice with the same coefficient ratio and a constant that is not the same multiple.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "system-equivalence-check",
@@ -2887,9 +2887,9 @@ export const algebraBank = [
     skills: ["system-solution-types", "infinite-solutions-condition"],
     difficulty: "medium",
     type: "fill-in",
-    question: "Two pages of an orchestra's rehearsal budget describe one constraint. Page one reads $mh + 7c = n$ and page two reads $6h + 21c = 45$, where $m$ and $n$ are constants, and both pages accept exactly the same pairs $(h, c)$. What is the value of $m + n$?",
+    question: "$mx + 7y = n$\n$6x + 21y = 45$\nIn the given system of equations, $m$ and $n$ are constants. The system has infinitely many solutions. What is the value of $m + n$?",
     correctAnswer: "17",
-    explanation: "**SAT Pattern: System Equivalence Check**\n\n**The correct answer is $17$.**\n\n**The Fast Way (~30s):** The $c$-terms give the multiplier: $7 = \\frac{1}{3}(21)$, so page one is page two divided by $3$. Then $m = \\frac{6}{3} = 2$ and $n = \\frac{45}{3} = 15$, so $m + n = 17$.\n\n**The Full Solution:**\nStep 1: Two linear equations accept exactly the same pairs only when one is a nonzero multiple of the other. The only pair of matching terms with both numbers known is the $c$-terms, $7$ and $21$, so the multiplier from page two to page one is $\\frac{7}{21} = \\frac{1}{3}$.\nStep 2: Apply that multiplier to the $h$-term: $m = \\frac{1}{3}(6) = 2$.\nStep 3: Apply it to the constant: $n = \\frac{1}{3}(45) = 15$, so $m + n = 2 + 15 = 17$. Check: multiplying $2h + 7c = 15$ by $3$ returns $6h + 21c = 45$. $\\checkmark$\n\n**Common Mistakes:** Scaling in the wrong direction to get $m = 18$ and $n = 135$, a sum of $153$; answering $2$ because only $m$ was found; assuming the constants must match, taking $n = 45$ for a sum of $47$.\n\n**Test Day Takeaway:** Find the multiplier from the ONE term whose numbers are both given, then apply that single factor to every remaining term, constant included.",
+    explanation: "**SAT Pattern: System Equivalence Check**\n\n**The correct answer is $17$.**\n\n**The Fast Way (~30s):** $21 = 3(7)$, so the second equation is $3$ times the first: $3m = 6$ and $3n = 45$, giving $m = 2$, $n = 15$, and $m + n = 17$.\n\n**The Full Solution:**\nStep 1: Infinitely many solutions means the two equations are multiples of each other, so every coefficient and the constant scale by one factor.\nStep 2: The $y$-coefficients give the factor: $21 \\div 7 = 3$. So $3m = 6$ and $3n = 45$.\nStep 3: Then $m = 2$ and $n = 15$, so $m + n = 17$. Check: multiplying $2x + 7y = 15$ by $3$ gives $6x + 21y = 45$ ✓\n\n**Common Mistakes:**\n* $153$: multiplies by $3$ instead of dividing, taking $m = 18$ and $n = 135$.\n* $47$: finds $m = 2$ but keeps $n = 45$, as if the constant did not scale.\n* $2$: finds $m = 2$ and stops, reporting $m$ instead of $m + n$.\n\n**Test Day Takeaway:** In a system with infinitely many solutions, find the scale factor from the one pair of matching coefficients you know, then divide or multiply every other term by it.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "system-equivalence-check",
@@ -2902,19 +2902,18 @@ export const algebraBank = [
     skills: ["system-solution-types", "infinite-solutions-condition"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The table shows, for each of the two equations in a linear system, the number multiplying $x$, the number multiplying $y$, and the number on the right-hand side. The constants $a$ and $b$ make the two graphs the same line. What is the value of $b - a$?",
-    questionTable: { headers: ["Equation", "Multiplies $x$", "Multiplies $y$", "Right-hand side"], rows: [["First", "$a$", "$-6$", "$14$"], ["Second", "$15$", "$b$", "$42$"]] },
+    question: "$\\frac{3}{4}x - \\frac{1}{2}y = 2$\n$ax + by = 16$\nIn the given system of equations, $a$ and $b$ are constants. If the system has infinitely many solutions, what is the value of $a + b$?",
     choices: [
-      // distractor: applies the factor 3 backwards, taking a = 15*3 = 45 and b = -6/3 = -2, so b - a = -47
-      { id: "A", text: "$-47$" },
-      { id: "B", text: "$-23$" },
-      // distractor: finds a = 5 but drops the minus sign on b, giving 18 - 5 = 13
-      { id: "C", text: "$13$" },
-      // distractor: subtracts in the wrong order, reporting a - b = 5 - (-18) = 23
-      { id: "D", text: "$23$" }
+      // distractor: computes b - a = -4 - 6 = -10 instead of a + b
+      { id: "A", text: "$-10$" },
+      // distractor: clears the fractions by multiplying by 4, taking a = 3 and b = -2 without matching the constant 16
+      { id: "B", text: "$1$" },
+      { id: "C", text: "$2$" },
+      // distractor: drops the minus sign on b, adding 6 + 4
+      { id: "D", text: "$10$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: System Equivalence Check**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The right-hand sides give the factor $\\frac{42}{14} = 3$, so $15 = 3a$ makes $a = 5$ and $b = 3(-6) = -18$; then $b - a = -18 - 5 = -23$.\n\n**The Full Solution:**\nStep 1: The two graphs are the same line only when the second equation is a fixed multiple of the first. The right-hand sides are the only column with both numbers known, so the factor is $\\frac{42}{14} = 3$: second $= 3 \\times$ first.\nStep 2: Apply the factor to the $x$-column: $15 = 3a$, so $a = 5$.\nStep 3: Apply it to the $y$-column: $b = 3(-6) = -18$. Therefore $b - a = -18 - 5 = -23$. Check: the first equation is $5x - 6y = 14$, and tripling it gives $15x - 18y = 42$, matching the second row. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-47$): applies the factor of $3$ in the reverse direction, taking $a = 15 \\cdot 3 = 45$ and $b = -6 \\div 3 = -2$, so $b - a = -47$.\n* Choice C ($13$): gets $a = 5$ correctly but drops the minus sign on the $y$-column, computing $18 - 5 = 13$.\n* Choice D ($23$): subtracts in the wrong order, reporting $a - b = 5 - (-18) = 23$.\n\n**Test Day Takeaway:** Read the scale factor from the one column where BOTH entries are numbers, then multiply the other columns by that factor in the same direction, keeping negative signs attached.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: System Equivalence Check**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** The constants fix the multiplier: $16 \\div 2 = 8$, so $a = 8 \\cdot \\frac{3}{4} = 6$, $b = 8 \\cdot \\left(-\\frac{1}{2}\\right) = -4$, and $a + b = 2$.\n\n**The Full Solution:**\nStep 1: Infinitely many solutions means the second equation is the first multiplied by a single number, constant included.\nStep 2: The constants are $2$ and $16$, so that number is $16 \\div 2 = 8$.\nStep 3: Then $a = 8 \\cdot \\frac{3}{4} = 6$ and $b = 8 \\cdot \\left(-\\frac{1}{2}\\right) = -4$, so $a + b = 2$. Check: dividing $6x - 4y = 16$ by $8$ gives $\\frac{3}{4}x - \\frac{1}{2}y = 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$): computes $b - a = -4 - 6$ instead of $a + b$.\n* Choice B ($1$): clears the fractions by multiplying by $4$, giving $3x - 2y = 8$, and takes $a = 3$ and $b = -2$; the constant $8$ does not match $16$, so that factor is wrong.\n* Choice D ($10$): drops the minus sign on $b$ and adds $6 + 4$.\n\n**Test Day Takeaway:** When the unknowns are coefficients, use the term you can compare, here the constants, to find the scale factor; clearing fractions is not the same as matching the other equation.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "system-equivalence-check",
@@ -2927,9 +2926,9 @@ export const algebraBank = [
     skills: ["system-solution-types", "infinite-solutions-condition"],
     difficulty: "hard",
     type: "fill-in",
-    question: "Two supply rules for a school sealant program, $\\frac{2}{3}x + ky = 7$ and $10x + 24y = 21$, are written with the constant $k$ chosen so that the rules can never both hold. What is the value of $k$?",
-    correctAnswer: "1.6",
-    explanation: "**SAT Pattern: System Equivalence Check**\n\n**The correct answer is $1.6$.**\n\n**The Fast Way (~35s):** Matching the $x$-terms gives the factor $\\frac{2/3}{10} = \\frac{1}{15}$, so $k = \\frac{24}{15} = 1.6$, and the constants $\\frac{7}{21}$ do not match that factor, so the rules never both hold.\n\n**The Full Solution:**\nStep 1: Two linear equations can never both hold exactly when their graphs are parallel and distinct, which requires the coefficient pairs to be proportional.\nStep 2: Use the $x$-terms to find the proportionality factor: $\\frac{2/3}{10} = \\frac{2}{30} = \\frac{1}{15}$. The $y$-terms must share it: $\\frac{k}{24} = \\frac{1}{15}$, so $k = \\frac{24}{15} = 1.6$.\nStep 3: Confirm the constants break the pattern. Multiplying $\\frac{2}{3}x + 1.6y = 7$ by $15$ gives $10x + 24y = 105$, and $105 \\neq 21$, so the two lines are parallel and distinct. $\\checkmark$\n\n**Common Mistakes:** Using the constants' ratio $\\frac{21}{7} = 3$ as the multiplier and reporting $k = 24 \\div 3 = 8$; inverting the ratio to $\\frac{k}{24} = \\frac{10}{2/3} = 15$ and reporting $360$; setting $k = 24$ because both numbers sit on the $y$-term.\n\n**Test Day Takeaway:** A fractional coefficient is still just a number in the ratio; build the factor from the pair you can compute, apply it to the unknown, then check the constants to confirm that the rules never both hold.",
+    question: "$3x - ay = 6$\n$ax - 12y = 12$\nIn the given system of equations, $a$ is a constant. If the system has no solution, what is the value of $a$?",
+    correctAnswer: "-6",
+    explanation: "**SAT Pattern: System Equivalence Check**\n\n**The correct answer is $-6$.**\n\n**The Fast Way (~60s):** Proportional coefficients need $\\frac{3}{a} = \\frac{-a}{-12}$, so $a^{2} = 36$; $a = 6$ makes the second equation exactly twice the first, so the no-solution value is $a = -6$.\n\n**The Full Solution:**\nStep 1: No solution requires the $x$- and $y$-coefficients to be proportional while the constants are not. Setting $\\frac{3}{a} = \\frac{-a}{-12}$ gives $a^{2} = 36$, so $a = 6$ or $a = -6$.\nStep 2: Test $a = 6$: the equations are $3x - 6y = 6$ and $6x - 12y = 12$. The second is exactly twice the first, so the system has infinitely many solutions, not zero.\nStep 3: Test $a = -6$: the equations are $3x + 6y = 6$ and $-6x - 12y = 12$. Multiplying the first by $-2$ gives $-6x - 12y = -12$, the same left side with constant $-12 \\ne 12$, so the lines are parallel and distinct ✓\n\n**Common Mistakes:**\n* $6$: takes the positive root of $a^{2} = 36$ without testing it; that value makes the equations equivalent, giving infinitely many solutions.\n* $36$: reports $a^{2}$ instead of $a$.\n* $2$: matches the constants, $\\frac{6}{12} = \\frac{1}{2}$, and solves $\\frac{3}{a} = \\frac{1}{2}$ as if constants decided the slope.\n\n**Test Day Takeaway:** When the constant appears in two coefficients, the ratio condition can have two roots; test each one, because one root may give the same line instead of parallel lines.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "system-equivalence-check",
@@ -2947,19 +2946,19 @@ export const algebraBank = [
     skills: ["function-evaluation"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The graph shown gives the salinity $f(x)$ recorded by a probe, in practical salinity units, at a depth of $x$ meters below the surface of an estuary. What salinity does the probe record at a depth of $6$ meters?",
-    diagram: { type: "linearGraph", params: { slope: 3, yIntercept: 2, xRange: [0, 8], yRange: [0, 28], xTickInterval: 2, yTickInterval: 4, gridInterval: 2, showPoints: [[0, 2], [2, 8]], label: "f" } },
+    question: "The graph shows the total cost $y$, in dollars, of renting a bike for $x$ hours. What is the total cost, in dollars, of renting a bike for $6$ hours?",
+    diagram: { type: "linearGraph", params: { slope: 3, yIntercept: 2, xRange: [0, 8], yRange: [0, 28], xTickInterval: 2, yTickInterval: 4, gridInterval: 2, showPoints: [[0, 2], [2, 8]] } },
     choices: [
-      // distractor: reports the surface reading f(0) instead of f(6)
+      // distractor: reports the cost at x = 0 instead of the cost at x = 6
       { id: "A", text: "$2$" },
-      // distractor: reports the input depth 6 rather than the salinity
+      // distractor: reports the number of hours, 6, instead of the cost
       { id: "B", text: "$6$" },
-      // distractor: reads the value at a depth of 4 meters
+      // distractor: reads the cost at x = 4 instead of x = 6
       { id: "C", text: "$14$" },
       { id: "D", text: "$20$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Function Evaluation**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Follow $x = 6$ up to the line and across: the salinity is $20$.\n\n**The Full Solution:**\nStep 1: The graph passes through $(0, 2)$ and $(2, 8)$, so the salinity rises $6$ units over $2$ meters, a rate of $3$ per meter, and $f(x) = 3x + 2$.\nStep 2: Evaluate at the requested depth: $f(6) = 3(6) + 2$.\nStep 3: That gives $18 + 2 = 20$ practical salinity units. Check: reading the graph at $x = 6$ lands on $y = 20$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reports the surface reading $f(0)$ instead of the value at $6$ meters.\n* Choice B ($6$): reports the input depth rather than the salinity the graph gives for it.\n* Choice C ($14$): reads the graph at a depth of $4$ meters instead of $6$.\n\n**Test Day Takeaway:** Evaluating from a graph means going up from the input on the horizontal axis and across to the vertical axis — never reporting the input back.",
+    explanation: "**SAT Pattern: Function Evaluation**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The line passes through $(0, 2)$ and $(2, 8)$, so the cost rises $3$ dollars per hour; at $x = 6$ the cost is $2 + 3(6) = 20$.\n\n**The Full Solution:**\nStep 1: Read two points from the graph: $(0, 2)$ and $(2, 8)$. The slope is $\\frac{8 - 2}{2 - 0} = 3$.\nStep 2: So the line is $y = 3x + 2$.\nStep 3: At $x = 6$: $y = 3(6) + 2 = 20$. Check: on the graph, the point above $x = 6$ is level with $20$ on the $y$-axis ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reports the cost at $x = 0$, where the line starts, instead of the cost at $x = 6$.\n* Choice B ($6$): reports the number of hours given in the question rather than the cost.\n* Choice C ($14$): reads the line at $x = 4$ instead of $x = 6$.\n\n**Test Day Takeaway:** To evaluate from a graph, find the input on the $x$-axis and read the height of the line there; if the point is hard to read, write the line's equation from two clear points.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "function-evaluation",
@@ -2972,7 +2971,7 @@ export const algebraBank = [
     skills: ["function-evaluation"],
     difficulty: "easy",
     type: "fill-in",
-    question: "The graph of $y = h(x)$ is shown in the $xy$-plane, where $h$ is a linear function. What is the value of $h(4)$?",
+    question: "In the $xy$-plane, the graph of $y = h(x)$ is shown, where $h$ is a linear function. What is the value of $h(4)$?",
     diagram: { type: "linearGraph", params: { slope: 2, yIntercept: -3, xRange: [-4, 6], yRange: [-6, 8], xTickInterval: 2, yTickInterval: 2, gridInterval: 1, showPoints: [[0, -3], [3, 3]], label: "y = h(x)" } },
     correctAnswer: "5",
     explanation: "**SAT Pattern: Function Evaluation**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~8s):** $h(4)$ is the $y$-value on the line where $x = 4$. From the marked points $(0, -3)$ and $(3, 3)$ the line rises $2$ for each $1$ to the right, so at $x = 4$ it reaches $3 + 2 = 5$.\n\n**The Full Solution:**\nStep 1: Read two points off the graph: $(0, -3)$ and $(3, 3)$. Slope $= \\frac{3 - (-3)}{3 - 0} = \\frac{6}{3} = 2$, and the $y$-intercept is $-3$, so $h(x) = 2x - 3$.\nStep 2: Evaluate: $h(4) = 2(4) - 3 = 8 - 3 = 5$.\nStep 3: Check on the graph: one unit to the right of $(3, 3)$, the line is at height $5$. $\\checkmark$\n\n**Common Mistakes:** Entering $-3$ (the $y$-intercept, the value at $x = 0$); entering $3.5$ (solving $h(x) = 4$ instead of finding $h(4)$); entering $8$ (using the slope times $4$ without the intercept).\n\n**Test Day Takeaway:** $h(4)$ asks for the height of the graph at $x = 4$. Either read it directly or write the rule from two clean points and substitute.",
@@ -2988,19 +2987,19 @@ export const algebraBank = [
     skills: ["function-evaluation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A river sediment program models sediment load $f(x)$, in tonnes per day, as a linear function of the day number $x$; four recorded pairs appear in the table. What load does the model give for day $12$?",
-    diagram: { type: "dataTable", params: { headers: ["Day, x", "Sediment load (tonnes per day)"], rows: [["0", "9"], ["2", "21"], ["4", "33"], ["6", "45"]] } },
+    question: "The table shows four values of $x$ and their corresponding values of $f(x)$ for the linear function $f$. What is the value of $f(12)$?",
+    diagram: { type: "dataTable", params: { headers: ["x", "f(x)"], rows: [["0", "9"], ["2", "21"], ["4", "33"], ["6", "45"]] } },
     choices: [
-      // distractor: adds 9 to the day-6 value, extending by one table row instead of six days
+      // distractor: adds 9 to f(6), extending the table by one row instead of six units of x
       { id: "A", text: "$54$" },
-      // distractor: multiplies the rate by 12 and drops the starting load of 9
+      // distractor: multiplies the rate 6 by 12 and drops the starting value 9
       { id: "B", text: "$72$" },
       { id: "C", text: "$81$" },
-      // distractor: doubles the day-6 value, treating the model as proportional
+      // distractor: doubles f(6), treating f as proportional
       { id: "D", text: "$90$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Function Evaluation**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The load rises $12$ tonnes every $2$ days, a rate of $6$ per day from a start of $9$, so $f(12) = 9 + 6(12) = 81$.\n\n**The Full Solution:**\nStep 1: From the table, the load rises from $9$ to $21$ as the day number rises from $0$ to $2$, a rate of $\\frac{12}{2} = 6$ tonnes per day; the same rate holds for the later rows.\nStep 2: At day $0$ the load is $9$, so the model is $f(x) = 9 + 6x$.\nStep 3: Evaluate at day $12$: $f(12) = 9 + 72 = 81$ tonnes per day. Check: $f(6) = 9 + 36 = 45$, which matches the last table row ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($54$): adds $9$ to the day-$6$ value, extending by one table row instead of by six days.\n* Choice B ($72$): multiplies the rate by $12$ and drops the starting load of $9$.\n* Choice D ($90$): doubles the day-$6$ value, which would be right only if the load were proportional to the day number.\n\n**Test Day Takeaway:** Build the rule from the table — rate first, then the value at $x = 0$ — before evaluating at an input the table does not list.",
+    explanation: "**SAT Pattern: Function Evaluation**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $f(x)$ rises $12$ for every $2$ in $x$, so $f(x) = 6x + 9$ and $f(12) = 6(12) + 9 = 81$.\n\n**The Full Solution:**\nStep 1: From the table, each increase of $2$ in $x$ raises $f(x)$ by $12$, so the slope is $6$. Since $f(0) = 9$, the $y$-intercept is $9$.\nStep 2: So $f(x) = 6x + 9$.\nStep 3: Evaluate: $f(12) = 6(12) + 9 = 72 + 9 = 81$. Check: $f(6) = 45$, and six more units of $x$ add $6(6) = 36$, giving $45 + 36 = 81$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($54$): adds $9$ to $f(6) = 45$, as if going from $x = 6$ to $x = 12$ were one step of the table.\n* Choice B ($72$): computes $6(12)$ and leaves out the starting value $9$.\n* Choice D ($90$): doubles $f(6) = 45$; a linear function with a nonzero intercept is not proportional, so doubling $x$ does not double $f(x)$.\n\n**Test Day Takeaway:** From a table, find the slope from any two rows and the intercept from the $x = 0$ row, then evaluate the rule; do not double or extend the table by eye.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "function-evaluation",
@@ -3013,9 +3012,9 @@ export const algebraBank = [
     skills: ["function-evaluation"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A frontage formula computes the allowed lot depth $f(x)$, in meters, from a frontage width of $x$ meters, where $f(x) = \\frac{5x + 7}{3}$. The formula returns a depth of $19$ meters for a frontage width of $a$ meters. What is the value of $a$?",
+    question: "The function $f$ is defined by $f(x) = \\frac{5x + 7}{3}$. If $f(a) = 19$, what is the value of $a$?",
     correctAnswer: "10",
-    explanation: "**SAT Pattern: Function Evaluation**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~20s):** Set $\\frac{5a + 7}{3} = 19$; multiplying by $3$ gives $5a + 7 = 57$, so $a = 10$.\n\n**The Full Solution:**\nStep 1: The formula returns $19$ at the input $a$, so $\\frac{5a + 7}{3} = 19$.\nStep 2: Multiply both sides by $3$: $5a + 7 = 57$.\nStep 3: Subtract and divide: $5a = 50$, so $a = 10$. Check: $\\frac{5(10) + 7}{3} = \\frac{57}{3} = 19$ ✓\n\n**Common Mistakes:** Answering $2.4$ subtracts $7$ before multiplying by $3$; answering $57$ stops at $5a + 7 = 57$; answering $11.4$ divides $57$ by $5$ without first subtracting the $7$.\n\n**Test Day Takeaway:** Clear the denominator before undoing anything else — dividing the output by $3$ instead of multiplying reverses the rule.",
+    explanation: "**SAT Pattern: Function Evaluation**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~25s):** Set $\\frac{5a + 7}{3} = 19$: then $5a + 7 = 57$, $5a = 50$, and $a = 10$.\n\n**The Full Solution:**\nStep 1: $f(a) = 19$ means the output is $19$ when the input is $a$: $\\frac{5a + 7}{3} = 19$.\nStep 2: Multiply both sides by $3$: $5a + 7 = 57$, so $5a = 50$.\nStep 3: Divide by $5$: $a = 10$. Check: $f(10) = \\frac{5(10) + 7}{3} = \\frac{57}{3} = 19$ ✓\n\n**Common Mistakes:**\n* $34$: computes $f(19) = \\frac{102}{3}$ instead of solving $f(a) = 19$.\n* $\\frac{12}{5}$: sets $5a + 7 = 19$, forgetting to multiply by the denominator $3$.\n* $\\frac{64}{5}$: multiplies by $3$ but adds $7$ instead of subtracting it, getting $5a = 64$.\n\n**Test Day Takeaway:** When the output is given and the input is unknown, set the rule equal to the output and solve; evaluating the function at the given number answers a different question.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "function-evaluation",
@@ -3028,7 +3027,7 @@ export const algebraBank = [
     skills: ["function-evaluation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A parking garage posts its number of available spaces as $N(t) = 62 - 4t$, where $t$ is the number of hours after 7 a.m. on a weekday. Which of the following is the best interpretation of the equation $N(9) = 26$?",
+    question: "The function $N(t) = 62 - 4t$ gives the number of available spaces in a parking garage $t$ hours after 7 a.m. on a weekday. Which of the following is the best interpretation of $N(9) = 26$?",
     choices: [
       // distractor: swaps the input and the output
       { id: "A", text: "$26$ hours after 7 a.m., $9$ parking spaces are available." },
@@ -3052,9 +3051,10 @@ export const algebraBank = [
     skills: ["function-evaluation"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A spectrophotometer reports the absorbance $A(c)=0.042c+0.11$ for a sample whose solute concentration is $c$ micromoles per liter. At what concentration, in micromoles per liter, does the instrument report an absorbance of exactly $0.53$?",
-    correctAnswer: "10",
-    explanation: "**SAT Pattern: Function Evaluation**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~30s):** Running a linear function backward undoes its two operations in reverse order: strip the constant, then divide by the coefficient. $(0.53-0.11)\\div 0.042=10$.\n\n**The Full Solution:**\n\nStep 1: The reported absorbance is the output, so set $A(c)=0.53$, which gives $0.042c+0.11=0.53$.\n\nStep 2: Subtract $0.11$ from both sides to isolate the variable term: $0.042c=0.42$.\n\nStep 3: Divide both sides by $0.042$, giving $c=10$. Check: $0.042(10)+0.11=0.42+0.11=0.53$, the given absorbance.\n\n**Common Mistakes:** Dividing $0.53$ by $0.042$ without first removing the $0.11$ offset gives about $12.62$. Stopping after Step 2 reports $0.42$, which is the value of $0.042c$, not of $c$.\n\n**Test Day Takeaway:** When the output of a linear function is given and the input is wanted, undo the operations in reverse order: constant first, coefficient second.",
+    question: "For the linear function $g$, the table shows three values of $x$ and their corresponding values of $g(x)$. For what value of $x$ is $g(x) = 62$?",
+    questionTable: { headers: ["$x$", "$g(x)$"], rows: [["$2$", "$11$"], ["$5$", "$20$"], ["$8$", "$29$"]] },
+    correctAnswer: "19",
+    explanation: "**SAT Pattern: Function Evaluation**\n\n**The correct answer is $19$.**\n\n**The Fast Way (~35s):** $g$ rises $9$ for every $3$ in $x$, so $g(x) = 3x + 5$; then $3x + 5 = 62$ gives $x = 19$.\n\n**The Full Solution:**\nStep 1: From the table, an increase of $3$ in $x$ raises $g(x)$ by $9$, so the slope is $3$. Using $(2, 11)$: $11 = 3(2) + b$, so $b = 5$ and $g(x) = 3x + 5$.\nStep 2: Set the output equal to $62$: $3x + 5 = 62$, so $3x = 57$.\nStep 3: Divide by $3$: $x = 19$. Check: $g(19) = 3(19) + 5 = 57 + 5 = 62$ ✓\n\n**Common Mistakes:**\n* $191$: evaluates $g(62) = 3(62) + 5$ instead of solving $g(x) = 62$.\n* $57$: stops at $3x = 57$ without dividing by $3$.\n* $\\frac{62}{3}$: leaves out the intercept and solves $3x = 62$.\n\n**Test Day Takeaway:** A table of a linear function gives the slope from any two rows; write the rule, then decide whether the question gives the input or the output.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-evaluation",
@@ -3067,18 +3067,18 @@ export const algebraBank = [
     skills: ["function-evaluation"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "For a raw count of $x$ packets received in one interval, a telemetry gateway reports the corrected count $f(x)=\\frac{x}{3}+k$, where the offset $k$ is a constant fixed when the gateway is installed. If $f(k)=8$, what is the value of $f(3k)$?",
+    question: "The function $f$ is defined by $f(x) = \\frac{x}{3} + k$, where $k$ is a constant. If $f(k) = 8$, what is the value of $f(3k)$?",
     choices: [
-      // distractor: reports the constant k itself instead of evaluating f at 3k
+      // distractor: reports the constant k = 6 instead of evaluating f at 3k
       { id: "A", text: "$6$" },
       { id: "B", text: "$12$" },
       // distractor: triples the output, treating f(3k) as 3f(k) = 3(8) = 24
       { id: "C", text: "$24$" },
-      // distractor: drops the +k when solving f(k) = 8, getting k = 24, then f(72) = 24 + 24 = 48
+      // distractor: drops the +k when solving f(k) = 8, getting k = 24, then computes f(72) = 24 + 24 = 48
       { id: "D", text: "$48$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Function Evaluation**\n\n**Choice B is correct.** Substituting $k$ for $x$ turns $f(k)=8$ into an equation in $k$ alone; solving it and then evaluating $f$ at $3k$ gives $12$.\n\n**The Fast Way (~35s):** $f(k)=\\frac{k}{3}+k=\\frac{4k}{3}=8$, so $k=6$, and $f(18)=6+6=12$.\n\n**The Full Solution:**\n\nStep 1: Substitute $k$ for $x$ in the definition: $f(k)=\\frac{k}{3}+k$. Combining like terms gives $\\frac{4k}{3}$.\n\nStep 2: Set $\\frac{4k}{3}=8$ and multiply both sides by $3$: $4k=24$, so $k=6$.\n\nStep 3: With $k=6$, the input $3k$ is $18$, so $f(18)=\\frac{18}{3}+6=6+6=12$. Check: $f(6)=2+6=8$, which matches the given $f(k)=8$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($6$): reports $k$ itself instead of evaluating $f$ at $3k$.\n* Choice C ($24$): triples the output rather than the input, computing $3f(k)=3(8)=24$.\n* Choice D ($48$): drops the $+k$ term, so $\\frac{k}{3}=8$ gives $k=24$ and $f(72)=24+24=48$.\n\n**Test Day Takeaway:** When a function is evaluated at its own constant, substitute the letter for the variable and collect like terms before solving.",
+    explanation: "**SAT Pattern: Function Evaluation**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** $f(k) = \\frac{k}{3} + k = \\frac{4k}{3} = 8$, so $k = 6$; then $f(18) = 6 + 6 = 12$.\n\n**The Full Solution:**\nStep 1: Substitute $k$ for $x$: $f(k) = \\frac{k}{3} + k = \\frac{4k}{3}$, and this equals $8$.\nStep 2: Solve: $4k = 24$, so $k = 6$, and $f(x) = \\frac{x}{3} + 6$.\nStep 3: Evaluate at $3k = 18$: $f(18) = \\frac{18}{3} + 6 = 12$. Check: $f(6) = 2 + 6 = 8$, matching $f(k) = 8$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): stops after finding $k$ and never evaluates $f(3k)$.\n* Choice C ($24$): treats $f(3k)$ as $3f(k)$; tripling the input of a function with a constant term does not triple the output.\n* Choice D ($48$): drops the $+k$ when solving $f(k) = 8$, getting $\\frac{k}{3} = 8$ and $k = 24$, then evaluates $f(72) = 24 + 24$.\n\n**Test Day Takeaway:** When a constant appears both in the rule and in the input, substitute it everywhere $x$ appears, solve for the constant, and only then evaluate the requested input.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "function-evaluation",
@@ -3091,9 +3091,9 @@ export const algebraBank = [
     skills: ["function-evaluation"],
     difficulty: "hard",
     type: "fill-in",
-    question: "A spoil stockpile at a building site holds $S(t)$ cubic yards of material $t$ hours after excavation begins, where $S(t)=qt+40$ and $q$ is the constant hourly rate at which spoil is added. If $S(9)-S(4)=35$, what is the value of $S(20)$?",
+    question: "For the linear function $f$, $f(0) = 40$ and $f(9) - f(4) = 35$. What is the value of $f(20)$?",
     correctAnswer: "180",
-    explanation: "**SAT Pattern: Function Evaluation**\n\n**The correct answer is $180$.**\n\n**The Fast Way (~40s):** In $S(t)=qt+40$ the constant $40$ cancels in any difference, so $S(9)-S(4)=5q=35$, giving $q=7$ and $S(20)=7(20)+40=180$.\n\n**The Full Solution:**\n\nStep 1: Write both outputs: $S(9)=9q+40$ and $S(4)=4q+40$.\n\nStep 2: Subtract. The $40$ terms cancel, leaving $S(9)-S(4)=5q$. Setting $5q=35$ gives $q=7$ cubic yards per hour.\n\nStep 3: Evaluate at $t=20$: $S(20)=7(20)+40=140+40=180$. Check: $S(9)-S(4)=103-68=35$, as required.\n\n**Common Mistakes:** Dividing $35$ by $9$ instead of by the gap $9-4=5$ gives $q\\approx 3.9$ and an answer near $118$. Reporting only $7(20)=140$ leaves out the $40$ cubic yards already stockpiled at $t=0$.\n\n**Test Day Takeaway:** A difference of two outputs of a linear function erases the constant term, so it isolates the rate in one step.",
+    explanation: "**SAT Pattern: Function Evaluation**\n\n**The correct answer is $180$.**\n\n**The Fast Way (~40s):** Five units of $x$ change $f$ by $35$, so the slope is $7$; then $f(20) = 40 + 7(20) = 180$.\n\n**The Full Solution:**\nStep 1: Write $f(x) = mx + 40$, since $f(0) = 40$ is the $y$-intercept.\nStep 2: Then $f(9) - f(4) = (9m + 40) - (4m + 40) = 5m$, so $5m = 35$ and $m = 7$.\nStep 3: Evaluate: $f(20) = 7(20) + 40 = 180$. Check: $f(9) = 103$ and $f(4) = 68$, and $103 - 68 = 35$ ✓\n\n**Common Mistakes:**\n* $140$: finds the slope $7$ but leaves out the intercept, computing $7(20)$.\n* $740$: treats $35$ as the slope, computing $35(20) + 40$.\n* $\\frac{1060}{9}$: divides $35$ by $9$ instead of by $9 - 4 = 5$, using a slope of $\\frac{35}{9}$.\n\n**Test Day Takeaway:** A difference of two outputs of a linear function equals the slope times the difference of the inputs; divide by the gap in $x$, not by either input alone.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-evaluation",
@@ -3113,19 +3113,19 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The graph shows the linear relationship between the number of minutes $x$ since a bathtub began draining and the depth $y$, in inches, of the water in the tub. Which of the following is the best interpretation of the slope of the graph?",
+    question: "The graph shows the depth $y$, in inches, of the water in a bathtub $x$ minutes after the tub began draining. What is the best interpretation of the slope of the graph in this context?",
     diagram: { type: "linearGraph", params: { slope: -2, yIntercept: 12, xRange: [0, 7], yRange: [0, 14], xTickInterval: 1, yTickInterval: 2, gridInterval: 1, showPoints: [[0, 12], [6, 0]] } },
     choices: [
       // distractor: uses the y-intercept (12) as the rate
       { id: "A", text: "The depth of the water decreases by $12$ inches each minute." },
       { id: "B", text: "The depth of the water decreases by $2$ inches each minute." },
-      // distractor: reads the slope as the starting value
+      // distractor: reads the slope as the starting depth
       { id: "C", text: "The depth of the water was $2$ inches when the tub began draining." },
-      // distractor: describes the x-intercept, not the slope
-      { id: "D", text: "The tub is empty $6$ minutes after it began draining." }
+      // distractor: uses the x-intercept (6 minutes) as the rate
+      { id: "D", text: "The depth of the water decreases by $6$ inches each minute." }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~8s):** The line drops from $(0, 12)$ to $(6, 0)$: a fall of $12$ inches over $6$ minutes, so the slope is $-2$ inches per minute. Slope is the change in $y$ for each $1$-unit change in $x$.\n\n**The Full Solution:**\nStep 1: Slope $= \\frac{\\text{change in } y}{\\text{change in } x} = \\frac{0 - 12}{6 - 0} = -2$.\nStep 2: The units of the slope are the units of $y$ per unit of $x$: inches per minute. The negative sign means the depth is decreasing.\nStep 3: So each minute, the depth of the water decreases by $2$ inches. Check on the graph: moving right $1$ unit moves down $2$ units. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: uses $12$, the starting depth (the $y$-intercept), as if it were the rate.\n* Choice C: describes the slope's number $2$ as a starting depth; the starting depth is $12$.\n* Choice D: correctly reads the $x$-intercept, but that describes when the tub is empty, not the slope.\n\n**Test Day Takeaway:** Slope is always \"change in $y$ per one unit of $x$.\" Name the units of each axis, then say the sentence: \"$y$ changes by [slope] for each one [x-unit].\"",
+    explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The line drops from $(0, 12)$ to $(6, 0)$: a fall of $12$ inches over $6$ minutes, so the slope is $-2$, a decrease of $2$ inches each minute.\n\n**The Full Solution:**\nStep 1: Slope $= \\frac{\\text{change in } y}{\\text{change in } x} = \\frac{0 - 12}{6 - 0} = -2$.\nStep 2: The slope's units are the units of $y$ per unit of $x$: inches per minute. The negative sign means the depth is decreasing.\nStep 3: So each minute, the depth of the water decreases by $2$ inches. Check on the graph: moving right $1$ unit moves the line down $2$ units ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: uses $12$, the starting depth (the $y$-intercept), as if it were the rate.\n* Choice C: describes the slope's number $2$ as a starting depth; the starting depth is $12$ inches.\n* Choice D: uses $6$, the number of minutes until the tub is empty (the $x$-intercept), as the rate.\n\n**Test Day Takeaway:** Slope is the change in $y$ for each one-unit increase in $x$; name the units of each axis and then describe the slope as that many $y$-units for each one unit of $x$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "interpret-slope-in-context",
@@ -3138,7 +3138,7 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The function $C(k) = 0.12k + 18$ gives the monthly cost $C(k)$, in dollars, of electricity for an apartment that uses $k$ kilowatt-hours of electricity in a month. What is the best interpretation of the number $0.12$ in this context?",
+    question: "The function $C(k) = 0.12k + 18$ gives the monthly cost, in dollars, of electricity for an apartment that uses $k$ kilowatt-hours of electricity in a month. What is the best interpretation of $0.12$ in this context?",
     choices: [
       // distractor: describes the constant 18, not the coefficient
       { id: "A", text: "The fixed monthly charge, in dollars, before any electricity is used." },
@@ -3162,7 +3162,7 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "medium",
     type: "fill-in",
-    question: "The table gives the estimated volume $V$, in cubic meters, of water in a reservoir $d$ days after a spillway was opened. The relationship between $d$ and $V$ is linear. By how many cubic meters does the volume of water decrease each day?",
+    question: "The table shows the volume $V$, in cubic meters, of water in a reservoir $d$ days after a gate was opened. There is a linear relationship between $d$ and $V$. By how many cubic meters does the volume of water decrease each day?",
     diagram: { type: "dataTable", params: { headers: ["d", "V"], rows: [["0", "9,000"], ["2", "8,300"], ["4", "7,600"], ["6", "6,900"]] } },
     correctAnswer: "350",
     explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**The correct answer is $350$.**\n\n**The Fast Way (~8s):** Between consecutive rows, $d$ increases by $2$ and $V$ drops by $700$. Per day, that is $\\frac{700}{2} = 350$ cubic meters.\n\n**The Full Solution:**\nStep 1: Compute the slope from two rows: $\\frac{8{,}300 - 9{,}000}{2 - 0} = \\frac{-700}{2} = -350$ cubic meters per day.\nStep 2: Confirm with another pair: $\\frac{6{,}900 - 7{,}600}{6 - 4} = -350$, consistent with a linear relationship.\nStep 3: The slope's magnitude, $350$, is the daily decrease. Check: $9{,}000 - 350(6) = 6{,}900$, matching the last row. $\\checkmark$\n\n**Common Mistakes:** Entering $700$ (the drop between rows, which spans $2$ days, not $1$); entering $-350$ (the question asks by how much the volume decreases, a positive amount); entering $2{,}100$ (the total drop over $6$ days).\n\n**Test Day Takeaway:** Rate per day means slope with $\\Delta d = 1$. When a table's rows are spaced by more than one unit, divide the change in the output by the actual spacing.",
@@ -3178,19 +3178,19 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The graph shows the estimated cost of a curtain-wall installation, in thousands of dollars, for a facade with $x$ glazing panels. Which statement best describes the rate at which the estimated cost changes as panels are added?",
-    diagram: { type: "linearGraph", params: { slope: 2, yIntercept: 6, xRange: [-2, 12], yRange: [-4, 32], xTickInterval: 2, yTickInterval: 4, gridInterval: 2 } },
+    question: "The graph shows the total cost $y$, in hundreds of dollars, of renting a hall for $x$ hours. By how many dollars does the total cost increase for each additional hour?",
+    diagram: { type: "linearGraph", params: { slope: 2, yIntercept: 6, xRange: [0, 12], yRange: [0, 32], xTickInterval: 2, yTickInterval: 4, gridInterval: 2, showPoints: [[0, 6], [4, 14]] } },
     choices: [
-      { id: "A", text: "The estimated cost increases by $\\$2{,}000$ for each additional glazing panel." },
-      // distractor: uses the vertical intercept 6 as the rate of change
-      { id: "B", text: "The estimated cost increases by $\\$6{,}000$ for each additional glazing panel." },
-      // distractor: reports the slope 2 as the value of the graph when x = 0
-      { id: "C", text: "The estimated cost is $\\$2{,}000$ when no glazing panels are installed." },
-      // distractor: inverts the rate, reading panels per thousand dollars instead of thousands of dollars per panel
-      { id: "D", text: "Each additional $\\$1{,}000$ of estimated cost adds $2$ glazing panels." }
+      // distractor: reads the slope 2 from the graph but ignores that y is in hundreds of dollars
+      { id: "A", text: "$2$" },
+      { id: "B", text: "$200$" },
+      // distractor: uses the y-intercept, a 600-dollar starting cost, as the hourly rate
+      { id: "C", text: "$600$" },
+      // distractor: reports the total cost for 1 hour, 6 + 2 = 8 hundred dollars, instead of the increase per hour
+      { id: "D", text: "$800$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**Choice A is correct.** The graph rises $2$ vertical units for each $1$ unit to the right, and the vertical axis is measured in thousands of dollars, so each added panel raises the estimate by $\\$2{,}000$.\n\n**The Fast Way (~20s):** Slope $=2$ thousand dollars per panel, so $\\$2{,}000$ per panel.\n\n**The Full Solution:**\n\nStep 1: Read two points on the line. It passes through $(0,6)$ and $(4,14)$.\n\nStep 2: The slope is $\\frac{14-6}{4-0}=2$. In a linear model the slope is the change in the output for each one-unit increase in the input.\n\nStep 3: The output is measured in thousands of dollars and the input in panels, so the estimated cost rises by $2$ thousand dollars, or $\\$2{,}000$, per panel. Check: at $x=2$ the graph reads $10$, and $6+2(2)=10$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B: uses $6$, the value where the line meets the vertical axis, as though it were the rate.\n* Choice C: attaches the slope to the wrong feature; the estimate with no panels is $\\$6{,}000$, not $\\$2{,}000$.\n* Choice D: inverts the rate, describing panels per dollar rather than dollars per panel.\n\n**Test Day Takeaway:** The slope carries the units of the vertical axis divided by the units of the horizontal axis; the intercept carries only the vertical units.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The line rises $2$ units of $y$ for each hour, and each unit of $y$ is $\\$100$, so the cost increases by $2(100) = 200$ dollars per hour.\n\n**The Full Solution:**\nStep 1: Read two points from the graph: $(0, 6)$ and $(4, 14)$. The slope is $\\frac{14 - 6}{4 - 0} = 2$.\nStep 2: The slope means $y$ increases by $2$ for each additional hour, and $y$ is measured in hundreds of dollars.\nStep 3: Convert: $2$ hundred dollars is $200$ dollars per hour. Check: from $x = 0$ to $x = 10$ the graph rises from $6$ to $26$, or from $\\$600$ to $\\$2{,}600$, which is $\\$2{,}000$ over $10$ hours ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reads the slope correctly but forgets that $y$ is measured in hundreds of dollars.\n* Choice C ($600$): uses the $y$-intercept, the cost at $0$ hours, as the hourly rate.\n* Choice D ($800$): reports the total cost of renting for $1$ hour, $6 + 2 = 8$ hundred dollars, rather than the increase per hour.\n\n**Test Day Takeaway:** Before answering a slope question, check the axis units; a slope of $2$ on an axis measured in hundreds means $200$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "interpret-slope-in-context",
@@ -3203,18 +3203,18 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A biologist models the mass $M(d)$, in grams, of a young rat $d$ days after birth by $M(d) = 6 + 4.5d$ for $0 \\le d \\le 30$. Which of the following is the best interpretation of the number $4.5$ in this model?",
+    question: "The function $M(w) = 6 + 31.5w$ gives the estimated mass, in grams, of a young rat $w$ weeks after birth. According to the model, by how many grams does the estimated mass increase each day?",
     choices: [
-      // distractor: assigns the slope to the intercept role (birth mass is 6)
-      { id: "A", text: "The mass of the rat at birth, in grams." },
-      // distractor: reads a linear model as exponential
-      { id: "B", text: "The number of days it takes the mass of the rat to double." },
-      { id: "C", text: "The increase in the mass of the rat, in grams, each day after birth." },
-      // distractor: swaps the roles of 6 and 4.5
-      { id: "D", text: "The increase in the mass of the rat, in grams, every $6$ days." }
+      { id: "A", text: "$4.5$" },
+      // distractor: uses the constant 6, the estimated mass at birth, as the rate
+      { id: "B", text: "$6$" },
+      // distractor: reports the weekly increase 31.5 without converting weeks to days
+      { id: "C", text: "$31.5$" },
+      // distractor: computes M(1) = 37.5, the estimated mass after one week, instead of a rate
+      { id: "D", text: "$37.5$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** $4.5$ multiplies $d$, so it is the rate: for each additional day, the mass increases by $4.5$ grams.\n\n**The Full Solution:**\nStep 1: The model has the form $M(d) = b + md$ with $b = 6$ and $m = 4.5$. The constant $6$ is the mass at $d = 0$, birth.\nStep 2: The coefficient $4.5$ is the slope: the change in $M$ when $d$ increases by $1$. Its units are grams per day.\nStep 3: Check: $M(1) - M(0) = 10.5 - 6 = 4.5$ grams. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: describes the constant $6$, the mass at birth, not the coefficient $4.5$.\n* Choice B: treats the model as exponential growth; a linear model adds a fixed amount, it does not double on a schedule.\n* Choice D: swaps the two numbers, treating $6$ as the time unit and $4.5$ as the change over that period.\n\n**Test Day Takeaway:** In $b + md$, the constant is the starting value and the coefficient is the per-unit change. Doubling language belongs to exponential models, never to a linear one.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The slope $31.5$ is grams per week, and a week has $7$ days, so the mass increases by $\\frac{31.5}{7} = 4.5$ grams each day.\n\n**The Full Solution:**\nStep 1: In $M(w) = 6 + 31.5w$, the coefficient of $w$ is the slope: the estimated mass increases by $31.5$ grams for each week.\nStep 2: The question asks for the increase each day, and $1$ week $= 7$ days.\nStep 3: Divide: $\\frac{31.5}{7} = 4.5$ grams per day. Check: $7(4.5) = 31.5$ grams per week ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($6$): uses the constant term, the estimated mass at birth, as if it were the rate.\n* Choice C ($31.5$): reports the increase per week without converting to days.\n* Choice D ($37.5$): computes $M(1) = 6 + 31.5$, the estimated mass after one week, which is an amount, not a rate.\n\n**Test Day Takeaway:** The slope carries the units of the input; when the question asks about a different unit of time, convert the slope before answering.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "interpret-slope-in-context",
@@ -3227,7 +3227,7 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The graph shows the estimated population $y$, in thousands, of a town $x$ years after 2010, based on a linear model. Which of the following is the best interpretation of the slope of the graph?",
+    question: "The graph shows a linear model of the population $y$, in thousands, of a town $x$ years after 2010. Which of the following is the best interpretation of the slope of the graph?",
     diagram: { type: "linearGraph", params: { slope: 2, yIntercept: 24, xRange: [0, 10], yRange: [0, 50], xTickInterval: 2, yTickInterval: 10, gridInterval: 2, showPoints: [[0, 24], [5, 34]] } },
     choices: [
       // distractor: ignores that y is in thousands
@@ -3239,7 +3239,7 @@ export const algebraBank = [
       { id: "D", text: "The population of the town increases by $24{,}000$ people each year." }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** From $(0, 24)$ to $(5, 34)$ the line rises $10$ over $5$ years: slope $2$. But $y$ is in thousands, so the population grows by $2 \\times 1{,}000 = 2{,}000$ people per year.\n\n**The Full Solution:**\nStep 1: Slope $= \\frac{34 - 24}{5 - 0} = 2$, in units of \"thousands of people per year.\"\nStep 2: Convert the units: $2$ thousand people per year is $2{,}000$ people per year.\nStep 3: Check: over $10$ years the model predicts $24 + 2(10) = 44$ thousand, an increase of $20{,}000$ people, which is $2{,}000$ per year. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: reads the slope as $2$ people, ignoring that the vertical axis is measured in thousands.\n* Choice C: uses the slope's number as a starting population; the 2010 population is the intercept, $24{,}000$.\n* Choice D: uses the intercept, $24$ thousand, as though it were the yearly change.\n\n**Test Day Takeaway:** Read the axis label before interpreting a slope. \"In thousands\" multiplies every $y$-value, including the slope, by $1{,}000$.",
+    explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** From $(0, 24)$ to $(5, 34)$ the line rises $10$ over $5$ years: slope $2$. But $y$ is in thousands, so the population grows by $2 \\times 1{,}000 = 2{,}000$ people per year.\n\n**The Full Solution:**\nStep 1: Slope $= \\frac{34 - 24}{5 - 0} = 2$, in units of \"thousands of people per year.\"\nStep 2: Convert the units: $2$ thousand people per year is $2{,}000$ people per year.\nStep 3: Check: over $10$ years the model predicts $24 + 2(10) = 44$ thousand, an increase of $20{,}000$ people, which is $2{,}000$ per year. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: reads the slope as $2$ people, ignoring that the $y$-axis is measured in thousands.\n* Choice C: uses the slope's number as a starting population; the 2010 population is the intercept, $24{,}000$.\n* Choice D: uses the intercept, $24$ thousand, as though it were the yearly change.\n\n**Test Day Takeaway:** Read the axis label before interpreting a slope. \"In thousands\" multiplies every $y$-value, including the slope, by $1{,}000$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "interpret-slope-in-context",
@@ -3252,7 +3252,7 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "hard",
     type: "fill-in",
-    question: "The estimated value $V(t)$, in dollars, of a printing press $t$ years after it was purchased is given by $V(t) = 68{,}000 - 4{,}250t$. According to the model, the value of the press decreases each year by $p\\%$ of its purchase price. What is the value of $p$?",
+    question: "The function $V(t) = 68{,}000 - 4{,}250t$ gives the estimated value, in dollars, of a machine $t$ years after it was purchased. Each year, the estimated value decreases by $p\\%$ of the purchase price. What is the value of $p$?",
     correctAnswer: "6.25",
     explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**The correct answer is $6.25$.**\n\n**The Fast Way (~10s):** The yearly decrease is the slope's magnitude, $4{,}250$; the purchase price is the intercept, $68{,}000$. So $p = \\frac{4{,}250}{68{,}000} \\times 100 = 6.25$.\n\n**The Full Solution:**\nStep 1: Identify the two numbers. The purchase price is $V(0) = 68{,}000$ dollars. The slope $-4{,}250$ means the value drops $4{,}250$ dollars each year.\nStep 2: Express the yearly drop as a fraction of the purchase price: $\\frac{4{,}250}{68{,}000} = \\frac{1}{16} = 0.0625$.\nStep 3: Convert to a percent: $0.0625 \\times 100 = 6.25$. Check: $6.25\\%$ of $68{,}000$ is $0.0625 \\times 68{,}000 = 4{,}250$. $\\checkmark$\n\n**Common Mistakes:** Entering $4250$ (the dollar decrease, not the percent); entering $0.0625$ (the decimal fraction, not $p$ as a percent); entering $16$ (the reciprocal, from $68{,}000 \\div 4{,}250$).\n\n**Test Day Takeaway:** Slope divided by intercept turns a dollars-per-year rate into a percent-of-starting-value rate. Read whether the answer is wanted as a decimal or as the number $p$ in \"$p\\%$.\"",
     calculatorAllowed: true,
@@ -3273,19 +3273,19 @@ export const algebraBank = [
     skills: ["substitution-method"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A designer plots truss heights on the axes shown using $y = 2x - 1$ and $y = -x + 8$. At the ordered pair satisfying both, what is the value of $2y - x$?",
+    question: "The graphs of $y = 2x - 1$ and $y = -x + 8$ are shown in the $xy$-plane. If $(x, y)$ is the solution to the system of these two equations, what is the value of $y$?",
     diagram: { type: "twoLineGraph", params: { intersection: { x: 3, y: 5 }, slope1: 2, slope2: -1, xRange: [-1, 6], yRange: [-4, 12], showIntersection: false, xTickInterval: 2, yTickInterval: 2, gridInterval: 1 } },
     choices: [
-      // distractor: reports the x-coordinate 3 of the shared point instead of evaluating 2y - x
+      // distractor: reports the x-coordinate 3 of the intersection point instead of y
       { id: "A", text: "$3$" },
-      // distractor: reports the y-coordinate 5 of the shared point instead of evaluating 2y - x
       { id: "B", text: "$5$" },
-      { id: "C", text: "$7$" },
-      // distractor: computes 2y + x = 10 + 3 = 13, adding x instead of subtracting it
-      { id: "D", text: "$13$" }
+      // distractor: reports the y-intercept 8 of the second line
+      { id: "C", text: "$8$" },
+      // distractor: moves -x to the left side without changing its sign, solving x = 9, then y = 2(9) - 1 = 17
+      { id: "D", text: "$17$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Substituting gives $2x - 1 = -x + 8$, so $x = 3$ and $y = 5$; then $2y - x = 10 - 3 = 7$.\n\n**The Full Solution:**\nStep 1: Both equations are already solved for $y$, so set the right sides equal: $2x - 1 = -x + 8$.\nStep 2: Add $x$ to both sides and add $1$: $3x = 9$, so $x = 3$. Substituting into $y = 2x - 1$ gives $y = 5$, which matches the point where the graphed lines meet.\nStep 3: Evaluate the requested expression: $2y - x = 2(5) - 3 = 7$. Check the second equation: $-3 + 8 = 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports the $x$-coordinate of the shared point and never evaluates $2y - x$.\n* Choice B ($5$): reports the $y$-coordinate of the shared point for the same reason.\n* Choice D ($13$): computes $2y + x = 10 + 3 = 13$, adding $x$ instead of subtracting it.\n\n**Test Day Takeaway:** Solve the system first, then read the question again — an expression such as $2y - x$ needs BOTH coordinates, not the point itself.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Set $2x - 1 = -x + 8$: $3x = 9$, so $x = 3$ and $y = 2(3) - 1 = 5$.\n\n**The Full Solution:**\nStep 1: Both equations give $y$, so substitute the first into the second: $2x - 1 = -x + 8$.\nStep 2: Add $x$ and $1$ to both sides: $3x = 9$, so $x = 3$.\nStep 3: Substitute back: $y = 2(3) - 1 = 5$. Check: $-3 + 8 = 5$, and the graphs cross at $(3, 5)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports $x$, the first coordinate of the solution, instead of $y$.\n* Choice C ($8$): reports the $y$-intercept of $y = -x + 8$, where that line meets the $y$-axis, not the other line.\n* Choice D ($17$): moves $-x$ to the left side without changing its sign, getting $2x - x = 8 + 1$, so $x = 9$ and $y = 2(9) - 1 = 17$.\n\n**Test Day Takeaway:** The solution of a system is the intersection point; answer with the coordinate the question asks for, and confirm it on the graph.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "system-of-equations-substitution",
@@ -3298,9 +3298,9 @@ export const algebraBank = [
     skills: ["substitution-method"],
     difficulty: "easy",
     type: "fill-in",
-    question: "A sidewalk project builds $r$ curb ramps and $s$ concrete slabs, where $s = 3r$ and $r + s = 48$. How many concrete slabs are built?",
-    correctAnswer: "36",
-    explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**The correct answer is $36$.**\n\n**The Fast Way (~15s):** Replacing $s$ with $3r$ gives $4r = 48$, so $r = 12$ and $s = 3(12) = 36$.\n\n**The Full Solution:**\nStep 1: The first equation already isolates $s$, so substitute $3r$ for $s$ in the second equation: $r + 3r = 48$.\nStep 2: Combine like terms and divide: $4r = 48$, so $r = 12$.\nStep 3: Return to $s = 3r$ to get the requested count: $s = 3(12) = 36$. Check: $12 + 36 = 48$ and $36 = 3(12)$. $\\checkmark$\n\n**Common Mistakes:** Reporting $12$, the ramp count, instead of the slab count; solving $3r = 48$ and reporting $16$; splitting $48$ evenly into $24$ and $24$ as if the two counts were equal.\n\n**Test Day Takeaway:** Substitute the isolated variable, solve for the other one, and then take the extra step back to whichever quantity the question names.",
+    question: "If $y = 5x$ and $x + y = 42$, what is the value of $y$?",
+    correctAnswer: "35",
+    explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**The correct answer is $35$.**\n\n**The Fast Way (~15s):** Substitute $5x$ for $y$: $x + 5x = 42$, so $6x = 42$, $x = 7$, and $y = 35$.\n\n**The Full Solution:**\nStep 1: Replace $y$ in the second equation with $5x$: $x + 5x = 42$.\nStep 2: Combine like terms: $6x = 42$, so $x = 7$.\nStep 3: Then $y = 5(7) = 35$. Check: $7 + 35 = 42$ ✓\n\n**Common Mistakes:**\n* $7$: reports $x$ instead of $y$.\n* $8.4$: solves $5x = 42$, leaving out the $x$ term, and reports that value.\n* $210$: multiplies $42$ by $5$ instead of solving the system.\n\n**Test Day Takeaway:** After solving for one variable, reread the question and substitute back if it asks for the other.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "system-of-equations-substitution",
@@ -3313,18 +3313,18 @@ export const algebraBank = [
     skills: ["substitution-method"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A tuberculosis screening program models its counts with the system $x = 3y - 7$ and $2x + 5y = 30$, where $x$ is the number of confirmed referrals and $y$ the number of screening sites. Which equation results from substituting the first equation into the second?",
+    question: "$x = 3y - 7$\n$2x + 5y = 30$\nThe solution to the given system of equations is $(x, y)$. What is the value of $y$?",
     choices: [
-      { id: "A", text: "$2(3y - 7) + 5y = 30$" },
-      // distractor: puts the expression for x into the y-term, so x is still present and nothing is eliminated
-      { id: "B", text: "$2x + 5(3y - 7) = 30$" },
-      // distractor: multiplies only the first term of 3y - 7 by 2, leaving the -7 undistributed
-      { id: "C", text: "$2(3y) - 7 + 5y = 30$" },
-      // distractor: copies the expression but keeps x inside it, so the substitution removes nothing
-      { id: "D", text: "$2(3x - 7) + 5y = 30$" }
+      // distractor: changes the sign of the 7 when substituting, writing 2(3y + 7) + 5y = 30 and getting 11y = 16
+      { id: "A", text: "$\\frac{16}{11}$" },
+      // distractor: multiplies only 3y by 2, writing 6y - 7 + 5y = 30 and getting 11y = 37
+      { id: "B", text: "$\\frac{37}{11}$" },
+      { id: "C", text: "$4$" },
+      // distractor: reports x = 5, the other coordinate of the solution, instead of y
+      { id: "D", text: "$5$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The first equation gives $x$, so every $x$ in $2x + 5y = 30$ becomes $3y - 7$, wrapped in parentheses: $2(3y - 7) + 5y = 30$.\n\n**The Full Solution:**\nStep 1: Identify which variable is already isolated. The first equation reads $x = 3y - 7$, so the expression $3y - 7$ stands for $x$.\nStep 2: Replace $x$ — and only $x$ — in the second equation. The $x$-term is $2x$, so it becomes $2(3y - 7)$; the $5y$ term is untouched. The result is $2(3y - 7) + 5y = 30$.\nStep 3: Confirm the substitution is usable by solving it: $6y - 14 + 5y = 30$, so $11y = 44$ and $y = 4$; then $x = 3(4) - 7 = 5$. Check the original: $2(5) + 5(4) = 10 + 20 = 30$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: substitutes the expression into the $5y$ term instead of the $2x$ term, so $x$ remains in the equation and nothing is eliminated.\n* Choice C: drops the parentheses and multiplies only $3y$ by $2$, so the $-7$ never gets doubled.\n* Choice D: keeps the variable $x$ inside the substituted expression, producing an equation in two variables again.\n\n**Test Day Takeaway:** Substitute the isolated expression in parentheses, into the term holding THAT variable — the parentheses are what keep every term of the expression multiplied.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Substitute $3y - 7$ for $x$: $2(3y - 7) + 5y = 30$, so $11y - 14 = 30$ and $y = 4$.\n\n**The Full Solution:**\nStep 1: Replace $x$ in the second equation with $3y - 7$: $2(3y - 7) + 5y = 30$.\nStep 2: Distribute and combine: $6y - 14 + 5y = 30$, so $11y = 44$.\nStep 3: Divide: $y = 4$, and then $x = 3(4) - 7 = 5$. Check: $2(5) + 5(4) = 10 + 20 = 30$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{16}{11}$): changes the sign of the $7$ during substitution, writing $2(3y + 7) + 5y = 30$, which gives $11y = 16$.\n* Choice B ($\\frac{37}{11}$): distributes the $2$ to $3y$ only, writing $6y - 7 + 5y = 30$, which gives $11y = 37$.\n* Choice D ($5$): finds $x = 5$ and reports it instead of $y$.\n\n**Test Day Takeaway:** Put the substituted expression in parentheses so the coefficient multiplies every term, then answer for the variable the question names.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "system-of-equations-substitution",
@@ -3337,7 +3337,7 @@ export const algebraBank = [
     skills: ["substitution-method"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A ferry charges $\\$9$ per adult and $\\$5$ per child. A group of $14$ people paid a total of $\\$102$ for ferry tickets. How many children were in the group?",
+    question: "A ferry charges $\\$9$ for each adult ticket and $\\$5$ for each child ticket. A group of $14$ people paid a total of $\\$102$ for tickets. How many children were in the group?",
     correctAnswer: "6",
     explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~15s):** If all $14$ were adults the cost would be $126$. Each child instead of an adult saves $4$, and $126 - 102 = 24$, so there are $24 \\div 4 = 6$ children.\n\n**The Full Solution:**\nStep 1: Let $a$ be the number of adults and $c$ the number of children. Count: $a + c = 14$. Cost: $9a + 5c = 102$.\nStep 2: Substitute $a = 14 - c$ into the cost equation: $9(14 - c) + 5c = 102$, so $126 - 4c = 102$, giving $4c = 24$ and $c = 6$.\nStep 3: Then $a = 8$. Check: $9(8) + 5(6) = 72 + 30 = 102$. $\\checkmark$\n\n**Common Mistakes:** Entering $8$ (the number of adults); setting up $9a + 5c = 14$ by mixing the count and the cost; forgetting to distribute the $9$ over $(14 - c)$.\n\n**Test Day Takeaway:** Two totals (how many, how much) give two equations. Solve the count equation for one variable and substitute it into the cost equation.",
     calculatorAllowed: true,
@@ -3352,18 +3352,18 @@ export const algebraBank = [
     skills: ["substitution-method"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A ceramics studio models the kilograms of glaze in two mixing vats by $g = 90 - 4d$ and $g = 6d + 20$, where $d$ is the number of days since mixing began. Which statement best interprets the solution of this system?",
+    question: "The equations $w = 90 - 4t$ and $w = 6t + 20$ give the number of gallons of water in tank A and in tank B, respectively, $t$ minutes after noon. Which statement is the best interpretation of the solution to this system?",
     choices: [
-      { id: "A", text: "After $7$ days, each vat holds $62$ kilograms of glaze." },
-      // distractor: adds the constants instead of subtracting them, solving 10d = 110 to get d = 11 and g = 86
-      { id: "B", text: "After $11$ days, each vat holds $86$ kilograms of glaze." },
-      // distractor: reads the shared value 62 as a combined total rather than the amount in each vat
-      { id: "C", text: "After $7$ days, the two vats together hold $62$ kilograms of glaze." },
-      // distractor: swaps the coordinates, reporting the glaze amount as the number of days
-      { id: "D", text: "After $62$ days, each vat holds $7$ kilograms of glaze." }
+      { id: "A", text: "After $7$ minutes, each tank holds $62$ gallons of water." },
+      // distractor: adds the constants instead of subtracting them, solving 10t = 110 to get t = 11, and then w = 6(11) + 20 = 86
+      { id: "B", text: "After $11$ minutes, each tank holds $86$ gallons of water." },
+      // distractor: reads the shared value 62 as a combined total rather than the amount in each tank
+      { id: "C", text: "After $7$ minutes, the two tanks together hold $62$ gallons of water." },
+      // distractor: swaps the coordinates, reading the amount of water as the number of minutes
+      { id: "D", text: "After $62$ minutes, each tank holds $7$ gallons of water." }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Setting $90 - 4d = 6d + 20$ gives $10d = 70$, so $d = 7$ and $g = 62$: on day $7$ both vats hold $62$ kilograms.\n\n**The Full Solution:**\nStep 1: Both equations are solved for $g$, so the solution is the value of $d$ that makes the two expressions equal: $90 - 4d = 6d + 20$.\nStep 2: Add $4d$ to both sides and subtract $20$: $70 = 10d$, so $d = 7$.\nStep 3: Evaluate either expression at $d = 7$: $g = 90 - 4(7) = 62$, and $g = 6(7) + 20 = 62$ as well. The solution $(7, 62)$ means each vat holds $62$ kilograms on day $7$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: collects the constants with the wrong sign, solving $10d = 90 + 20 = 110$ to get $d = 11$ and $g = 86$.\n* Choice C: treats the common value $62$ as the two vats' combined glaze rather than the amount each vat holds when the models agree.\n* Choice D: swaps the coordinates of the solution, reporting the glaze amount as a number of days.\n\n**Test Day Takeaway:** The solution of a system of two models is the moment the models AGREE — the shared output value belongs to each model, not to their sum.",
+    explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** Setting $90 - 4t = 6t + 20$ gives $t = 7$ and $w = 62$: after $7$ minutes, the two tanks hold the same amount, $62$ gallons each.\n\n**The Full Solution:**\nStep 1: Both equations give $w$, so set them equal: $90 - 4t = 6t + 20$.\nStep 2: Solve: $70 = 10t$, so $t = 7$, and $w = 90 - 4(7) = 62$.\nStep 3: The solution $(7, 62)$ is the time at which both equations give the same amount of water: after $7$ minutes, each tank holds $62$ gallons. Check: $6(7) + 20 = 62$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: adds $20$ to $90$ instead of subtracting, solving $10t = 110$ to get $t = 11$, and then $w = 6(11) + 20 = 86$.\n* Choice C: finds the correct numbers but reads $62$ as the two tanks' combined amount; each equation gives the amount in one tank.\n* Choice D: swaps the coordinates, treating $62$ as the time and $7$ as the amount.\n\n**Test Day Takeaway:** The solution of a system built from two models is the input at which both models give the same output; state it with the units of each variable.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "system-of-equations-substitution",
@@ -3376,9 +3376,9 @@ export const algebraBank = [
     skills: ["substitution-method"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A guardrail crew's two posting rules are $y = 2x + c$ and $5x - y = 13$, and they are met together only when $x$ is $6$. What is the value of the constant $c$?",
-    correctAnswer: "5",
-    explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~25s):** At $x = 6$ the second rule gives $30 - y = 13$, so $y = 17$; then $17 = 2(6) + c$ makes $c = 5$.\n\n**The Full Solution:**\nStep 1: The second rule contains no unknown constant, so use it first. Substituting $x = 6$ into $5x - y = 13$ gives $30 - y = 13$.\nStep 2: Solve for $y$: $-y = 13 - 30 = -17$, so $y = 17$.\nStep 3: Put both coordinates into the first rule: $17 = 2(6) + c$, so $17 = 12 + c$ and $c = 5$. Check: $y = 2(6) + 5 = 17$ and $5(6) - 17 = 13$. $\\checkmark$\n\n**Common Mistakes:** Reading $y = 13$ straight off $5x - y = 13$ and computing $13 - 12 = 1$; mishandling the sign as $y = 13 - 30 = -17$ and reporting $-29$; reporting $17$, the $y$-coordinate, instead of the constant $c$.\n\n**Test Day Takeaway:** Start with the equation that has no unknown constant; it pins the missing coordinate, and only then does the constant fall out in one step.",
+    question: "$y = 3x - 4$\n$2x + 5y = 48$\nThe solution to the given system of equations is $(x, y)$. What is the value of $y$?",
+    correctAnswer: "8",
+    explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~30s):** Substitute $3x - 4$ for $y$: $2x + 5(3x - 4) = 48$, so $17x = 68$ and $x = 4$. Then $y = 3(4) - 4 = 8$.\n\n**The Full Solution:**\nStep 1: The first equation already gives $y$ in terms of $x$, so substitute $3x - 4$ for $y$ in the second equation: $2x + 5(3x - 4) = 48$.\nStep 2: Distribute and combine like terms: $2x + 15x - 20 = 48$, so $17x = 68$ and $x = 4$.\nStep 3: Substitute $x = 4$ into the first equation: $y = 3(4) - 4 = 8$. Check: $2(4) + 5(8) = 8 + 40 = 48$ ✓\n\n**Common Mistakes:**\n* $4$: stops after finding $x$ and enters it, but the question asks for $y$.\n* $12$: finds both values and enters their sum, $x + y$.\n* Distributing $5(3x - 4)$ as $15x - 4$ gives $17x = 52$, which has no whole-number solution and fails the check in the second equation.\n\n**Test Day Takeaway:** When one equation is already solved for a variable, substitute it whole, distribute carefully, and finish by answering for the variable the question names.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "system-of-equations-substitution",
@@ -3391,7 +3391,7 @@ export const algebraBank = [
     skills: ["substitution-method"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A dialysis center schedules morning slots $s$ and evening slots $t$ using $t = as - 10$ and $2s + 3t = 25$, where $a$ is a constant. The solution to this system has two equal coordinates. What is the value of $a$?",
+    question: "$y = ax - 10$\n$2x + 3y = 25$\nIn the given system of equations, $a$ is a constant. The system has a solution $(x, y)$ such that $x = y$. What is the value of $a$?",
     choices: [
       // distractor: solves 5 = 5a - 10 as 5a = 5 - 10 = -5, moving the -10 with the wrong sign
       { id: "A", text: "$-1$" },
@@ -3402,7 +3402,7 @@ export const algebraBank = [
       { id: "D", text: "$15$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** Equal coordinates means $t = s$, so $2s + 3s = 25$ gives $s = t = 5$; then $5 = 5a - 10$ and $a = 3$.\n\n**The Full Solution:**\nStep 1: \"Two equal coordinates\" means $t = s$. Substitute $s$ for $t$ in the second equation: $2s + 3s = 25$.\nStep 2: Combine like terms and divide: $5s = 25$, so $s = 5$, and therefore $t = 5$ as well.\nStep 3: Substitute both values into the first equation: $5 = a(5) - 10$, so $5a = 15$ and $a = 3$. Check: $t = 3(5) - 10 = 5$, and $2(5) + 3(5) = 25$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-1$): moves the $-10$ across with the wrong sign, solving $5a = 5 - 10 = -5$.\n* Choice C ($5$): reports the shared coordinate $s = t = 5$ instead of the constant $a$.\n* Choice D ($15$): stops at $5a = 15$ and reports that product without dividing by $5$.\n\n**Test Day Takeaway:** A condition such as \"the coordinates are equal\" is itself an equation — substitute it into the equation with no unknown constant first, then finish with the equation that carries the constant.",
+    explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Since $x = y$, the second equation becomes $2x + 3x = 25$, so $x = y = 5$; then $5 = 5a - 10$ gives $a = 3$.\n\n**The Full Solution:**\nStep 1: Substitute $x$ for $y$ in the equation with no unknown constant: $2x + 3x = 25$.\nStep 2: Combine like terms and divide: $5x = 25$, so $x = 5$, and therefore $y = 5$.\nStep 3: Substitute $(5, 5)$ into the first equation: $5 = a(5) - 10$, so $5a = 15$ and $a = 3$. Check: $y = 3(5) - 10 = 5$ and $2(5) + 3(5) = 25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-1$): moves the $-10$ across with the wrong sign, solving $5a = 5 - 10 = -5$.\n* Choice C ($5$): reports the shared coordinate $x = y = 5$ instead of the constant $a$.\n* Choice D ($15$): stops at $5a = 15$ and reports that product without dividing by $5$.\n\n**Test Day Takeaway:** A condition such as $x = y$ is itself an equation. Use it in the equation that has no unknown constant first, then let the constant fall out of the other equation.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "system-of-equations-substitution",
@@ -3415,9 +3415,9 @@ export const algebraBank = [
     skills: ["substitution-method"],
     difficulty: "hard",
     type: "fill-in",
-    question: "A post house logs $m$ minutes of dailies and $c$ minutes of color-corrected footage in a week, where the dailies run $20$ minutes short of $3$ times the corrected footage and $m + 2c = 480$. How many more minutes of dailies than corrected footage are logged?",
-    correctAnswer: "180",
-    explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**The correct answer is $180$.**\n\n**The Fast Way (~45s):** \"Twenty short of three times\" is $m = 3c - 20$; substituting gives $5c - 20 = 480$, so $c = 100$, $m = 280$, and $m - c = 180$.\n\n**The Full Solution:**\nStep 1: Translate the first sentence. Three times the corrected footage is $3c$, and $20$ minutes short of that is $3c - 20$, so $m = 3c - 20$.\nStep 2: Substitute into the total: $(3c - 20) + 2c = 480$, which becomes $5c - 20 = 480$, so $5c = 500$ and $c = 100$.\nStep 3: Back-substitute and answer the question asked: $m = 3(100) - 20 = 280$, so the dailies exceed the corrected footage by $280 - 100 = 180$ minutes. Check: $280 + 2(100) = 480$. $\\checkmark$\n\n**Common Mistakes:** Reporting $100$, the corrected-footage total, or $280$, the dailies total, instead of the difference; reading \"$20$ minutes short of $3$ times\" as $m = 3c + 20$, which gives $c = 92$, $m = 296$, and a difference of $204$.\n\n**Test Day Takeaway:** Translate \"short of\" as subtraction attached to the whole product, and finish by computing the exact quantity the final sentence names.",
+    question: "On Saturday, a bakery sold a total of $327$ muffins and scones. The number of muffins sold was $18$ fewer than $4$ times the number of scones sold. How many muffins did the bakery sell on Saturday?",
+    correctAnswer: "258",
+    explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**The correct answer is $258$.**\n\n**The Fast Way (~40s):** With $s$ scones, the muffins are $4s - 18$, so $s + (4s - 18) = 327$, giving $5s = 345$, $s = 69$, and $4(69) - 18 = 258$ muffins.\n\n**The Full Solution:**\nStep 1: Let $m$ be the number of muffins and $s$ the number of scones. \"$18$ fewer than $4$ times the number of scones\" gives $m = 4s - 18$, and the total gives $m + s = 327$.\nStep 2: Substitute $4s - 18$ for $m$ in the second equation: $4s - 18 + s = 327$, so $5s = 345$ and $s = 69$.\nStep 3: Substitute back: $m = 4(69) - 18 = 276 - 18 = 258$. Check: $258 + 69 = 327$, and $258$ is $18$ fewer than $4(69) = 276$ ✓\n\n**Common Mistakes:**\n* $69$: solves for the number of scones and stops, but the question asks for muffins.\n* Writing \"$18$ fewer\" as $4s + 18$ gives $5s = 309$, which has no whole-number solution, a sign the translation is wrong.\n* $276$: finds $4s = 276$ and forgets to subtract the $18$.\n\n**Test Day Takeaway:** Translate \"$18$ fewer than $4$ times\" as $4s - 18$, substitute it into the total, and answer for the quantity the question actually names.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "system-of-equations-substitution",
@@ -3436,19 +3436,19 @@ export const algebraBank = [
     skills: ["system-solution-types"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The table gives the total cost $C$, in dollars, of a city-pass card valid for $d$ days. A second card is priced by $C = kd + 7$, and no number of days makes the two cards cost the same. What is the value of $k$?",
-    questionTable: { headers: ["Days, $d$", "Total cost, $C$"], rows: [["$1$", "$9$"], ["$3$", "$27$"], ["$5$", "$45$"]] },
+    question: "The table shows three values of $x$ and their corresponding values of $y$ for line $p$ in the $xy$-plane. The equation of line $p$ and the equation $y = kx + 7$, where $k$ is a constant, form a system of equations that has no solution. What is the value of $k$?",
+    questionTable: { headers: ["$x$", "$y$"], rows: [["$1$", "$9$"], ["$3$", "$27$"], ["$5$", "$45$"]] },
     choices: [
-      // distractor: reports the change in d from one row to the next
+      // distractor: uses the change in x between rows (2) as the slope
       { id: "A", text: "$2$" },
-      // distractor: reports the constant 7 from the second card's price
+      // distractor: copies the y-intercept 7 of the second equation
       { id: "B", text: "$7$" },
       { id: "C", text: "$9$" },
-      // distractor: reports the change in C between rows without dividing by the change in d
+      // distractor: uses the change in y between rows (18) without dividing by the change in x (2)
       { id: "D", text: "$18$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The table's rate is $\\frac{27 - 9}{3 - 1} = 9$ dollars per day, and two prices never agree only when the rates match, so $k = 9$.\n\n**The Full Solution:**\n\nStep 1: Find the first card's rate from the table: $\\frac{27 - 9}{3 - 1} = \\frac{18}{2} = 9$ dollars per day, so $C = 9d$.\n\nStep 2: The two prices are equal for some $d$ unless the equations $C = 9d$ and $C = kd + 7$ describe parallel lines, which requires $k = 9$.\n\nStep 3: Verify that no value of $d$ works when $k = 9$: setting $9d = 9d + 7$ gives $0 = 7$, which is never true. So $k = 9$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($2$): reports $3 - 1$, the change in $d$ between rows, rather than the rate.\n* Choice B ($7$): copies the constant from the second card's price.\n* Choice D ($18$): reports $27 - 9$, the change in cost between rows, without dividing by the $2$-day change.\n\n**Test Day Takeaway:** Two linear models never agree exactly when their rates match and their starting values do not.",
+    explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** From the table, $y$ rises by $18$ each time $x$ rises by $2$, so line $p$ has slope $9$. No solution means parallel lines, so $k = 9$.\n\n**The Full Solution:**\nStep 1: Find the slope of line $p$ from two rows: $\\frac{27 - 9}{3 - 1} = \\frac{18}{2} = 9$. Since $9 = 9(1) + b$ gives $b = 0$, line $p$ is $y = 9x$.\nStep 2: A system of two linear equations has no solution when the lines are parallel and distinct: the same slope with different $y$-intercepts.\nStep 3: The intercepts $0$ and $7$ already differ, so the slopes must match: $k = 9$. Check: $9x = 9x + 7$ reduces to $0 = 7$, which is false, so the system has no solution ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): uses the change in $x$ between rows instead of the slope.\n* Choice B ($7$): copies the $y$-intercept of the second equation.\n* Choice D ($18$): uses the change in $y$ between rows without dividing by the change in $x$.\n\n**Test Day Takeaway:** For a line given by a table, slope is the change in $y$ divided by the change in $x$; then no solution simply means matching that slope.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "no-solution-condition",
@@ -3461,10 +3461,10 @@ export const algebraBank = [
     skills: ["system-solution-types"],
     difficulty: "easy",
     type: "fill-in",
-    question: "The graph of line $j$ is shown in the $xy$-plane. A system of two linear equations consists of the equation of line $j$ and the equation $y = kx - 5$, where $k$ is a constant. If the system has no solution, what is the value of $k$?",
+    question: "The graph of line $j$ is shown. A system of two linear equations consists of the equation of line $j$ and the equation $y = kx - 5$, where $k$ is a constant. If the system has no solution, what is the value of $k$?",
     diagram: { type: "linearGraph", params: { slope: 3, yIntercept: 1, xRange: [-4, 4], yRange: [-6, 10], xTickInterval: 1, yTickInterval: 2, gridInterval: 1, showPoints: [[0, 1], [2, 7]], label: "j" } },
     correctAnswer: "3",
-    explanation: "**SAT Pattern: No-Solution Condition**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~8s):** No solution means the second line is parallel to line $j$. From the marked points $(0, 1)$ and $(2, 7)$, line $j$ has slope $\\frac{7 - 1}{2 - 0} = 3$, so $k = 3$.\n\n**The Full Solution:**\nStep 1: Read the slope of line $j$ from two points on the graph: $\\frac{7 - 1}{2 - 0} = 3$. Its $y$-intercept is $1$, so line $j$ is $y = 3x + 1$.\nStep 2: A system of two lines has no solution exactly when the lines are parallel with different $y$-intercepts. The intercepts $1$ and $-5$ differ, so the condition is $k = 3$.\nStep 3: Check: $y = 3x - 5$ and $y = 3x + 1$ never intersect because $3x - 5 = 3x + 1$ has no solution. $\\checkmark$\n\n**Common Mistakes:** Entering $1$ (the $y$-intercept of line $j$); entering $-\\frac{1}{3}$ (the perpendicular slope, confusing \"no solution\" with \"perpendicular\"); entering $-5$ (copying the intercept of the second equation).\n\n**Test Day Takeaway:** Read the slope from two lattice points on the graph. Parallel with a different intercept is the whole condition for no solution.",
+    explanation: "**SAT Pattern: No-Solution Condition**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~10s):** No solution means the second line is parallel to line $j$. From the marked points $(0, 1)$ and $(2, 7)$, line $j$ has slope $\\frac{7 - 1}{2 - 0} = 3$, so $k = 3$.\n\n**The Full Solution:**\nStep 1: Read the slope of line $j$ from two marked points: $\\frac{7 - 1}{2 - 0} = 3$. Its $y$-intercept is $1$, so line $j$ is $y = 3x + 1$.\nStep 2: Two lines give a system with no solution exactly when they are parallel with different $y$-intercepts. The intercepts $1$ and $-5$ differ, so only the slopes must match.\nStep 3: Therefore $k = 3$. Check: $3x - 5 = 3x + 1$ reduces to $-5 = 1$, which is false, so the lines never meet ✓\n\n**Common Mistakes:**\n* $1$: enters the $y$-intercept of line $j$ instead of its slope.\n* $-\\frac{1}{3}$: uses the perpendicular slope, confusing \"no solution\" with \"perpendicular.\"\n* $-5$: copies the $y$-intercept of the second equation.\n\n**Test Day Takeaway:** Read the slope from two lattice points on the graph; for a system with no solution, the second line must have that same slope and a different intercept.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "no-solution-condition",
@@ -3477,19 +3477,19 @@ export const algebraBank = [
     skills: ["system-solution-types"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A finishing plant plots two bleaching schedules in the $xy$-plane. One schedule is line $\\ell$, shown, and the other has equation $2x + by = 7$. No ordered pair $(x, y)$ meets both schedules. What is the value of the constant $b$?",
-    diagram: { type: "linearGraph", params: { slope: -0.5, yIntercept: 4, xRange: [-4, 10], yRange: [-2, 8], gridInterval: 1, xTickInterval: 2, yTickInterval: 2, label: "l" } },
+    question: "Line $\\ell$ is shown in the $xy$-plane. The equation of line $\\ell$ and the equation $2x + by = 7$, where $b$ is a constant, form a system of two linear equations. For what value of $b$ does the system have no solution?",
+    diagram: { type: "linearGraph", params: { slope: -0.5, yIntercept: 4, xRange: [-4, 10], yRange: [-2, 8], gridInterval: 1, xTickInterval: 2, yTickInterval: 2, label: "ℓ" } },
     choices: [
-      // distractor: reads the slope of l as -2 by swapping rise and run, then solves -2/b = -2
-      { id: "A", text: "$1$" },
-      // distractor: copies the coefficient of x from the second equation
-      { id: "B", text: "$2$" },
-      { id: "C", text: "$4$" },
-      // distractor: uses the x-intercept of l instead of its slope
-      { id: "D", text: "$8$" }
+      // distractor: drops the negative sign, solving 2/b = -1/2 to get b = -4
+      { id: "A", text: "$-4$" },
+      // distractor: uses the reciprocal slope, setting -2/b = -2 to get b = 1
+      { id: "B", text: "$1$" },
+      // distractor: copies the y-coefficient 2 of x + 2y = 8 without scaling by 2
+      { id: "C", text: "$2$" },
+      { id: "D", text: "$4$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Line $\\ell$ has slope $-\\frac{1}{2}$, and $2x + by = 7$ has slope $-\\frac{2}{b}$; setting $-\\frac{2}{b} = -\\frac{1}{2}$ gives $b = 4$.\n\n**The Full Solution:**\n\nStep 1: From the graph, line $\\ell$ passes through $(0, 4)$ and $(8, 0)$, so its slope is $\\frac{0 - 4}{8 - 0} = -\\frac{1}{2}$.\n\nStep 2: Solve the second equation for $y$: $by = -2x + 7$, so $y = -\\frac{2}{b}x + \\frac{7}{b}$, and its slope is $-\\frac{2}{b}$.\n\nStep 3: A system of two lines has no solution exactly when the lines are parallel and distinct, so $-\\frac{2}{b} = -\\frac{1}{2}$ and $b = 4$. Check: $2x + 4y = 7$ and $\\ell$ written as $2x + 4y = 16$ differ only in the constant, so no pair satisfies both.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($1$): reads the slope as $-2$ by swapping rise and run, then solves $-\\frac{2}{b} = -2$.\n* Choice B ($2$): copies the coefficient of $x$ instead of solving for the coefficient of $y$.\n* Choice D ($8$): uses the $x$-intercept of line $\\ell$ rather than its slope.\n\n**Test Day Takeaway:** Put the unknown-coefficient equation into slope-intercept form; the slope $-\\frac{A}{B}$ is what has to match.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Line $\\ell$ has slope $-\\frac{1}{2}$. The line $2x + by = 7$ has slope $-\\frac{2}{b}$, and $-\\frac{2}{b} = -\\frac{1}{2}$ gives $b = 4$.\n\n**The Full Solution:**\nStep 1: From the graph, line $\\ell$ crosses the $y$-axis at $(0, 4)$ and falls $1$ unit for every $2$ units to the right, so its slope is $-\\frac{1}{2}$ and its equation is $y = -\\frac{1}{2}x + 4$, or $x + 2y = 8$.\nStep 2: Solve $2x + by = 7$ for $y$: $y = -\\frac{2}{b}x + \\frac{7}{b}$. No solution requires equal slopes, so $-\\frac{2}{b} = -\\frac{1}{2}$, which gives $b = 4$.\nStep 3: Check the intercepts: with $b = 4$ the second line is $y = -\\frac{1}{2}x + \\frac{7}{4}$, whose $y$-intercept $\\frac{7}{4}$ is not $4$, so the lines are parallel and distinct ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): drops the negative sign when setting the slopes equal, solving $\\frac{2}{b} = -\\frac{1}{2}$.\n* Choice B ($1$): uses the reciprocal slope, setting $-\\frac{2}{b} = -2$.\n* Choice C ($2$): copies the $y$-coefficient of $x + 2y = 8$ without scaling it to match the $x$-coefficient $2$.\n\n**Test Day Takeaway:** Put both lines in slope form before comparing; matching coefficients only works after the $x$-coefficients have been scaled to agree.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "no-solution-condition",
@@ -3502,9 +3502,9 @@ export const algebraBank = [
     skills: ["system-solution-types"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A pharmacy draws $x$ liters from one saline stock and $y$ liters from another. The requirements $3x + 5y = 24$ and $9x + ky = 40$ cannot both be met by any pair $(x, y)$. What is the value of $k$?",
+    question: "$3x + 5y = 24$\n$9x + ky = 40$\nIn the given system of equations, $k$ is a constant. If the system has no solution, what is the value of $k$?",
     correctAnswer: "15",
-    explanation: "**SAT Pattern: No-Solution Condition**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~30s):** The $x$-coefficients scale by $3$, so the $y$-coefficients must too: $k = 3(5) = 15$.\n\n**The Full Solution:**\n\nStep 1: A system of two linear equations has no solution when one equation is a multiple of the other on the left side but not on the right.\n\nStep 2: Compare the $x$-coefficients: $9 = 3 \\cdot 3$, so the scale factor is $3$. For the left sides to be proportional, $k = 3 \\cdot 5 = 15$.\n\nStep 3: Check the constants: tripling $3x + 5y = 24$ gives $9x + 15y = 72$, and $72 \\ne 40$, so no pair $(x, y)$ satisfies both requirements. Thus $k = 15$.\n\n**Common Mistakes:**\n\n* $5$ — copying the coefficient of $y$ from the first requirement without scaling it.\n* $45$ — multiplying $5$ by $9$, the coefficient itself, rather than by the ratio $3$.\n* $\\frac{5}{3}$ — dividing $5$ by the scale factor instead of multiplying by it.\n\n**Test Day Takeaway:** Find the scale factor from a pair of matching coefficients, apply it to the other variable, then confirm the constants do not scale the same way.",
+    explanation: "**SAT Pattern: No-Solution Condition**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~20s):** The $x$-coefficient of the second equation is $3$ times the first, so no solution needs $k = 3(5) = 15$.\n\n**The Full Solution:**\nStep 1: A system of two linear equations has no solution when the coefficients of $x$ and $y$ are proportional but the constants are not.\nStep 2: The $x$-coefficients are $3$ and $9$, a ratio of $3$. For the $y$-coefficients to have the same ratio, $k = 3(5) = 15$.\nStep 3: Check the constants: $3(24) = 72$, not $40$, so the lines $9x + 15y = 72$ and $9x + 15y = 40$ are parallel and distinct ✓\n\n**Common Mistakes:**\n* $5$: makes the $y$-coefficients equal without scaling, even though the $x$-coefficients $3$ and $9$ differ.\n* $\\frac{25}{3}$: scales by the ratio of the constants, $\\frac{40}{24} = \\frac{5}{3}$, instead of the ratio of the $x$-coefficients.\n* $\\frac{5}{3}$: divides $5$ by $3$ instead of multiplying.\n\n**Test Day Takeaway:** For no solution, scale the whole left side of one equation to match the other; the constants must then disagree.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "no-solution-condition",
@@ -3517,19 +3517,19 @@ export const algebraBank = [
     skills: ["system-solution-types"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "An embroidery shop records three points of line $h$ in the table below, where line $h$ models its stitching rate in the $xy$-plane. In the same plane, the graph of $kx - 3y = 8$ shares no point with line $h$. What is the value of the constant $k$?",
+    question: "The table shows three values of $x$ and their corresponding values of $y$ for line $h$ in the $xy$-plane. Line $h$ and the graph of $kx - 3y = 8$, where $k$ is a constant, have no points in common. What is the value of $k$?",
     questionTable: { headers: ["$x$", "$y$"], rows: [["$-2$", "$-5$"], ["$1$", "$4$"], ["$4$", "$13$"]] },
     choices: [
-      // distractor: solves -k/3 = 3, mishandling the sign when isolating y
+      // distractor: sign error dividing by -3, taking the slope as -k/3 and solving -k/3 = 3
       { id: "A", text: "$-9$" },
-      // distractor: reports the y-intercept of line h
+      // distractor: uses line h's y-intercept 1 instead of its slope
       { id: "B", text: "$1$" },
-      // distractor: reports the slope of line h itself instead of k
+      // distractor: sets k equal to the slope 3 without dividing by the y-coefficient -3
       { id: "C", text: "$3$" },
       { id: "D", text: "$9$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The table gives slope $\\frac{4 - (-5)}{1 - (-2)} = 3$, and $kx - 3y = 8$ has slope $\\frac{k}{3}$, so $k = 9$.\n\n**The Full Solution:**\n\nStep 1: Use two rows of the table: $\\frac{4 - (-5)}{1 - (-2)} = \\frac{9}{3} = 3$, so line $h$ has slope $3$ and equation $y = 3x + 1$.\n\nStep 2: Solve $kx - 3y = 8$ for $y$: $-3y = -kx + 8$, so $y = \\frac{k}{3}x - \\frac{8}{3}$.\n\nStep 3: Two lines share no point exactly when they are parallel and distinct, so $\\frac{k}{3} = 3$ and $k = 9$. Check: $9x - 3y = 8$ against $h$ written as $9x - 3y = -3$; the constants differ, so the lines never meet.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-9$): solves $-\\frac{k}{3} = 3$, keeping the minus sign that was already used to divide.\n* Choice B ($1$): reports the $y$-intercept of line $h$ rather than the constant $k$.\n* Choice C ($3$): reports the slope of line $h$ itself, forgetting that $k$ is three times that slope.\n\n**Test Day Takeaway:** Convert the standard-form equation to $y = mx + b$ before matching slopes; the sign of the $y$-coefficient decides the sign of the answer.",
+    explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Line $h$ has slope $\\frac{4 - (-5)}{1 - (-2)} = 3$. The graph of $kx - 3y = 8$ has slope $\\frac{k}{3}$, so $\\frac{k}{3} = 3$ and $k = 9$.\n\n**The Full Solution:**\nStep 1: From the table, $y$ increases by $9$ each time $x$ increases by $3$, so the slope of line $h$ is $3$; with $(1, 4)$, the equation is $y = 3x + 1$.\nStep 2: Solve $kx - 3y = 8$ for $y$: $-3y = -kx + 8$, so $y = \\frac{k}{3}x - \\frac{8}{3}$. Lines with no points in common are parallel, so $\\frac{k}{3} = 3$ and $k = 9$.\nStep 3: Check: with $k = 9$ the line is $y = 3x - \\frac{8}{3}$, whose $y$-intercept differs from $1$, so the lines are parallel and distinct ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$): makes a sign error when dividing by $-3$, writing the slope as $-\\frac{k}{3}$.\n* Choice B ($1$): uses the $y$-intercept of line $h$ instead of its slope.\n* Choice C ($3$): sets $k$ equal to the slope $3$ without accounting for the $-3$ coefficient of $y$.\n\n**Test Day Takeaway:** Rewrite a standard-form equation as $y = mx + b$ before matching slopes; the coefficient on $y$ changes the slope.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "no-solution-condition",
@@ -3542,9 +3542,9 @@ export const algebraBank = [
     skills: ["system-solution-types"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A canal-boat operator sets two scheduling requirements: $ax - 6y = 5$ for morning departures and $2x - 3y = 11$ for afternoon departures. The requirements conflict, so no pair $(x, y)$ satisfies both. What is the value of the constant $a$?",
+    question: "$ax - 6y = 5$\n$2x - 3y = 11$\nIn the given system of equations, $a$ is a constant. For what value of $a$ does the system have no solution?",
     correctAnswer: "4",
-    explanation: "**SAT Pattern: No-Solution Condition**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~30s):** The $y$-coefficients scale by $2$, so $a = 2(2) = 4$.\n\n**The Full Solution:**\n\nStep 1: For no pair to satisfy both requirements, the two left sides must be proportional while the constants are not.\n\nStep 2: Compare the $y$-coefficients: $-6 = 2(-3)$, so the scale factor is $2$. Applying it to the $x$-coefficient gives $a = 2(2) = 4$.\n\nStep 3: Check the constants: doubling $2x - 3y = 11$ gives $4x - 6y = 22$, and $22 \\ne 5$, so the requirements conflict. Thus $a = 4$.\n\n**Common Mistakes:**\n\n* $2$ — copying the coefficient of $x$ from the second requirement without applying the scale factor.\n* $-4$ — attaching the minus sign from the $y$-terms to the $x$-coefficient as well.\n* $1$ — halving instead of doubling, applying the scale factor in the wrong direction.\n\n**Test Day Takeaway:** The scale factor comes from whichever pair of coefficients is fully known; apply it to the unknown coefficient, never to the constants.",
+    explanation: "**SAT Pattern: No-Solution Condition**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~20s):** The $y$-coefficient $-6$ is $2$ times $-3$, so no solution needs $a = 2(2) = 4$.\n\n**The Full Solution:**\nStep 1: A system of two linear equations has no solution when the $x$- and $y$-coefficients are in the same ratio but the constants are not.\nStep 2: Compare the $y$-coefficients: $\\frac{-6}{-3} = 2$. The $x$-coefficients must have the same ratio, so $\\frac{a}{2} = 2$ and $a = 4$.\nStep 3: Check the constants: $2(11) = 22$, not $5$, so $4x - 6y = 5$ and $4x - 6y = 22$ are parallel and distinct ✓\n\n**Common Mistakes:**\n* $2$: makes the $x$-coefficients equal without scaling by $2$.\n* $1$: inverts the ratio, solving $\\frac{a}{2} = \\frac{-3}{-6}$.\n* $-4$: drops a negative sign when comparing $-6$ and $-3$.\n\n**Test Day Takeaway:** Find the scale factor from the coefficients you know, apply it to the unknown coefficient, and then confirm the constants do not follow the same scale.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "no-solution-condition",
@@ -3557,19 +3557,19 @@ export const algebraBank = [
     skills: ["system-solution-types"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The graph of line $r$ is shown in the $xy$-plane. Which of the following equations, together with the equation of line $r$, forms a system of equations with no solution?",
+    question: "Line $r$ is shown in the $xy$-plane. The graph of which of the following equations never intersects line $r$?",
     diagram: { type: "linearGraph", params: { slope: 2, yIntercept: -1, xRange: [-4, 4], yRange: [-6, 8], xTickInterval: 1, yTickInterval: 2, gridInterval: 1, showPoints: [[0, -1], [2, 3]], label: "r" } },
     choices: [
-      // distractor: negates the slope; the lines intersect
-      { id: "A", text: "$y = -2x - 1$" },
-      // distractor: is line r itself, giving infinitely many solutions
-      { id: "B", text: "$y = 2x - 1$" },
-      { id: "C", text: "$y = 2x + 4$" },
-      // distractor: uses the reciprocal slope; the lines intersect
-      { id: "D", text: "$y = \\frac{1}{2}x - 1$" }
+      // distractor: has slope -2, flipping the sign of line r's slope, so the lines intersect
+      { id: "A", text: "$2x + y = 4$" },
+      // distractor: is a multiple of line r's own equation y = 2x - 1, so it is the same line and intersects r everywhere
+      { id: "B", text: "$4x - 2y = 2$" },
+      { id: "C", text: "$6x - 3y = -12$" },
+      // distractor: has slope 1/2, the reciprocal of 2, so the lines intersect
+      { id: "D", text: "$x - 2y = 4$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~12s):** From $(0, -1)$ and $(2, 3)$, line $r$ has slope $2$ and $y$-intercept $-1$: $y = 2x - 1$. No solution needs the same slope with a different intercept, which is $y = 2x + 4$.\n\n**The Full Solution:**\nStep 1: Find the equation of line $r$: slope $= \\frac{3 - (-1)}{2 - 0} = 2$, intercept $-1$, so $y = 2x - 1$.\nStep 2: A system of two lines has no solution only if the lines are parallel and distinct: equal slopes, different $y$-intercepts.\nStep 3: Only $y = 2x + 4$ has slope $2$ with an intercept other than $-1$. Check: $2x - 1 = 2x + 4$ reduces to $-1 = 4$, impossible. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -2x - 1$): shares the intercept but negates the slope, so the lines cross at $(0, -1)$.\n* Choice B ($y = 2x - 1$): is line $r$ itself; that system has infinitely many solutions, not none.\n* Choice D ($y = \\frac{1}{2}x - 1$): uses the reciprocal slope, so the lines are not parallel and intersect.\n\n**Test Day Takeaway:** Write the graphed line's equation first. Then the trap is the identical line: same slope and same intercept means infinitely many solutions, which is the opposite of no solution.",
+    explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Line $r$ is $y = 2x - 1$. Choice C rewrites as $y = 2x + 4$: the same slope with a different intercept, so the lines never meet.\n\n**The Full Solution:**\nStep 1: From the marked points $(0, -1)$ and $(2, 3)$, line $r$ has slope $\\frac{3 - (-1)}{2 - 0} = 2$ and $y$-intercept $-1$, so its equation is $y = 2x - 1$.\nStep 2: Rewrite each choice as $y = mx + b$: A gives $y = -2x + 4$; B gives $y = 2x - 1$; C gives $-3y = -6x - 12$, so $y = 2x + 4$; D gives $y = \\frac{1}{2}x - 2$.\nStep 3: Two lines never intersect only if they are parallel and distinct: the same slope with a different $y$-intercept, which only Choice C has. Check: $2x - 1 = 2x + 4$ reduces to $-1 = 4$, which is false ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2x + y = 4$): has slope $-2$; the sign of the slope is flipped, so the lines intersect.\n* Choice B ($4x - 2y = 2$): is line $r$ itself, so its graph meets line $r$ at every point.\n* Choice D ($x - 2y = 4$): has slope $\\frac{1}{2}$, the reciprocal of the correct slope, so the lines intersect.\n\n**Test Day Takeaway:** Convert standard-form choices to slope-intercept form before comparing; a choice that is a multiple of the graphed line's equation is the same line, which intersects it everywhere rather than never.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "no-solution-condition",
@@ -3582,9 +3582,9 @@ export const algebraBank = [
     skills: ["system-solution-types"],
     difficulty: "hard",
     type: "fill-in",
-    question: "A rehydration study compares two drip charts, $2y = mx + 3$ and $4x - 10y = 25$, where $x$ is the elapsed hour and $y$ is the net change in reservoir volume, in milliliters. The charts never agree on a pair $(x, y)$. What is the value of the constant $m$?",
+    question: "$2y = mx + 3$\n$4x - 10y = 25$\nIn the given system of equations, $m$ is a constant. The system has no solution. What is the value of $m$?",
     correctAnswer: "4/5",
-    explanation: "**SAT Pattern: No-Solution Condition**\n\n**The correct answer is $\\frac{4}{5}$.**\n\n**The Fast Way (~40s):** The second chart has slope $\\frac{2}{5}$, and the first has slope $\\frac{m}{2}$, so $m = \\frac{4}{5}$.\n\n**The Full Solution:**\n\nStep 1: Write the first chart in slope-intercept form: $2y = mx + 3$ gives $y = \\frac{m}{2}x + \\frac{3}{2}$.\n\nStep 2: Write the second chart the same way: $4x - 10y = 25$ gives $-10y = -4x + 25$, so $y = \\frac{2}{5}x - \\frac{5}{2}$.\n\nStep 3: Charts that never agree are parallel and distinct, so $\\frac{m}{2} = \\frac{2}{5}$ and $m = \\frac{4}{5}$. The intercepts $\\frac{3}{2}$ and $-\\frac{5}{2}$ differ, confirming there is no common pair.\n\n**Common Mistakes:**\n\n* $\\frac{2}{5}$ — reporting the slope of the second chart without undoing the factor of $2$ on the left side of the first.\n* $\\frac{1}{5}$ — dividing the slope by $2$ instead of multiplying by $2$ when solving $\\frac{m}{2} = \\frac{2}{5}$.\n* $-\\frac{4}{5}$ — keeping the minus sign from $-10y$ after it has already been used to divide.\n\n**Test Day Takeaway:** A coefficient in front of $y$ hides the slope; divide it out on both charts before comparing.",
+    explanation: "**SAT Pattern: No-Solution Condition**\n\n**The correct answer is $\\frac{4}{5}$.**\n\n**The Fast Way (~45s):** The second line has slope $\\frac{4}{10} = \\frac{2}{5}$; the first has slope $\\frac{m}{2}$. Setting $\\frac{m}{2} = \\frac{2}{5}$ gives $m = \\frac{4}{5}$.\n\n**The Full Solution:**\nStep 1: Write both equations in slope-intercept form. The first is $y = \\frac{m}{2}x + \\frac{3}{2}$. The second gives $-10y = -4x + 25$, so $y = \\frac{2}{5}x - \\frac{5}{2}$.\nStep 2: A system with no solution has parallel, distinct lines, so the slopes are equal: $\\frac{m}{2} = \\frac{2}{5}$, which gives $m = \\frac{4}{5}$.\nStep 3: Check the intercepts: $\\frac{3}{2} \\ne -\\frac{5}{2}$, so the lines are distinct and never meet ✓ (The answer may also be entered as $0.8$.)\n\n**Common Mistakes:**\n* $\\frac{2}{5}$: sets $m$ equal to the slope without dividing the first equation by $2$.\n* $-\\frac{4}{5}$: makes a sign error when dividing $-4x$ by $-10$.\n* $5$: inverts the slope of the second line, using $\\frac{10}{4}$, and then doubles it.\n\n**Test Day Takeaway:** When the $y$-term has a coefficient, divide it out before reading the slope; the constant you solve for is usually the coefficient, not the slope itself.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "no-solution-condition",
@@ -3603,19 +3603,19 @@ export const algebraBank = [
     skills: ["slope-from-points"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The line shown in the $xy$-plane models the depth of frost in the ground, in centimeters, $x$ days after the first thaw. According to the model, what is the change in frost depth, in centimeters, for each additional day?",
-    diagram: { type: "linearGraph", params: { slope: -2, yIntercept: 30, xRange: [0, 12], yRange: [0, 32], xTickInterval: 2, yTickInterval: 4, gridInterval: 2, showPoints: [[2, 26], [10, 10]] } },
+    question: "Line $\\ell$ is shown in the $xy$-plane. What is the slope of line $\\ell$?",
+    diagram: { type: "linearGraph", params: { slope: -2, yIntercept: 30, xRange: [0, 12], yRange: [0, 32], xTickInterval: 2, yTickInterval: 4, gridInterval: 2, showPoints: [[2, 26], [10, 10]], label: "ℓ" } },
     choices: [
       { id: "A", text: "$-2$" },
-      // distractor: inverts rise and run, computing $\frac{2 - 10}{26 - 10}$
-      { id: "B", text: "$-0.5$" },
-      // distractor: drops the negative sign even though the depth is falling
+      // distractor: divides the run by the rise, giving 8/(-16) = -1/2
+      { id: "B", text: "$-\\frac{1}{2}$" },
+      // distractor: drops the negative sign although the line falls
       { id: "C", text: "$2$" },
-      // distractor: uses the run $10 - 2 = 8$ by itself as the rate
-      { id: "D", text: "$8$" }
+      // distractor: reports the y-intercept 30 instead of the slope
+      { id: "D", text: "$30$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Slope from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The line passes through $(2, 26)$ and $(10, 10)$, so the change per day is $\\frac{10 - 26}{10 - 2} = -2$.\n\n**The Full Solution:**\n\nStep 1: Read two grid points off the line: $(2, 26)$ and $(10, 10)$.\n\nStep 2: Compute rise over run: $\\frac{10 - 26}{10 - 2} = \\frac{-16}{8}$.\n\nStep 3: That is $-2$ centimeters per day, and the line does fall from left to right. Check: at $x = 6$ the line sits at $18$, halfway between $26$ and $10$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($-0.5$): divides the run by the rise instead of the rise by the run.\n\n* Choice C ($2$): gives the right size but the wrong sign for a quantity that is decreasing.\n\n* Choice D ($8$): reports the horizontal change alone.\n\n**Test Day Takeaway:** Check the sign against the picture before you finish: a falling line must give a negative change per unit.",
+    explanation: "**SAT Pattern: Slope from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The line passes through $(2, 26)$ and $(10, 10)$, so the slope is $\\frac{10 - 26}{10 - 2} = -2$.\n\n**The Full Solution:**\nStep 1: Read two marked points on the line: $(2, 26)$ and $(10, 10)$.\nStep 2: Compute rise over run: $\\frac{10 - 26}{10 - 2} = \\frac{-16}{8}$.\nStep 3: The slope is $-2$, and the line falls from left to right, so a negative slope fits. Check: from $(10, 10)$ back to the $y$-axis is $10$ units, and $10 + 2(10) = 30$, where the line meets the $y$-axis ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{1}{2}$): divides the run by the rise instead of the rise by the run.\n* Choice C ($2$): has the right size but the wrong sign for a line that falls.\n* Choice D ($30$): reports the $y$-intercept instead of the slope.\n\n**Test Day Takeaway:** Check the sign against the picture before you finish: a falling line must have a negative slope.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "slope-from-two-points",
@@ -3628,9 +3628,9 @@ export const algebraBank = [
     skills: ["slope-from-points"],
     difficulty: "easy",
     type: "fill-in",
-    question: "A tide gauge recorded a water level of $3.2$ meters $2$ hours after low tide and a water level of $5.6$ meters $8$ hours after low tide. Over that interval, what was the average rate of change of the water level, in meters per hour?",
-    correctAnswer: "0.4",
-    explanation: "**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $0.4$.**\n\n**The Fast Way (~15s):** The level rises $2.4$ meters over $6$ hours, so the rate is $\\frac{2.4}{6} = 0.4$ meter per hour.\n\n**The Full Solution:**\n\nStep 1: Write the two readings as ordered pairs $(2, 3.2)$ and $(8, 5.6)$, with hours first.\n\nStep 2: The average rate of change is $\\frac{5.6 - 3.2}{8 - 2} = \\frac{2.4}{6}$.\n\nStep 3: That equals $0.4$ meter per hour. Check: starting at $3.2$ and adding $0.4$ for each of six hours gives $5.6$.\n\n**Common Mistakes:** Dividing by the later hour and reporting $0.3$; inverting the ratio and reporting $2.5$; reporting the change $2.4$ instead of a rate.\n\n**Test Day Takeaway:** Average rate of change is the change in the measured quantity divided by the change in time, never by the ending time.",
+    question: "A line in the $xy$-plane passes through the points $(2, 7)$ and $(8, -11)$. What is the slope of the line?",
+    correctAnswer: "-3",
+    explanation: "**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $-3$.**\n\n**The Fast Way (~15s):** Slope $= \\frac{-11 - 7}{8 - 2} = \\frac{-18}{6} = -3$.\n\n**The Full Solution:**\nStep 1: Use the slope formula $m = \\frac{y_2 - y_1}{x_2 - x_1}$ with $(2, 7)$ and $(8, -11)$.\nStep 2: The change in $y$ is $-11 - 7 = -18$, and the change in $x$ is $8 - 2 = 6$.\nStep 3: Divide: $m = \\frac{-18}{6} = -3$. Check: starting at $(2, 7)$ and moving $6$ units right at slope $-3$ gives $7 - 18 = -11$ ✓\n\n**Common Mistakes:**\n* $-\\frac{1}{3}$: divides the change in $x$ by the change in $y$.\n* $3$: computes $-11 - 7$ as $18$ and loses the negative sign.\n* $-\\frac{2}{3}$: computes the change in $y$ as $-11 + 7 = -4$ instead of $-11 - 7 = -18$.\n\n**Test Day Takeaway:** Subtract the coordinates in the same order on the top and bottom of the slope formula, and expect a negative slope when $y$ falls as $x$ rises.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "slope-from-two-points",
@@ -3643,18 +3643,18 @@ export const algebraBank = [
     skills: ["slope-from-points"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "Between hour $3$ and hour $11$ of a snowmelt surge, a stream's discharge rose steadily from $40$ cubic meters per second to $58$ cubic meters per second. Which expression gives the average rate of change of the discharge, in cubic meters per second per hour?",
+    question: "For the linear function $f$, $f(3) = 40$ and $f(11) = 58$. What is the slope of the graph of $y = f(x)$ in the $xy$-plane?",
     choices: [
-      // distractor: inverts the ratio, dividing the elapsed hours by the change in discharge, which gives $0.44$
-      { id: "A", text: "$\\frac{11 - 3}{58 - 40}$" },
-      // distractor: divides by the ending hour $11$ rather than the elapsed $8$ hours, which gives $1.64$
-      { id: "B", text: "$\\frac{58 - 40}{11}$" },
-      { id: "C", text: "$\\frac{58 - 40}{11 - 3}$" },
-      // distractor: adds the two discharges instead of subtracting them, which gives $12.25$
-      { id: "D", text: "$\\frac{58 + 40}{11 - 3}$" }
+      // distractor: inverts the slope, computing (11 - 3)/(58 - 40) = 4/9
+      { id: "A", text: "$\\frac{4}{9}$" },
+      // distractor: divides the change in y by 11 instead of by the change in x, 11 - 3
+      { id: "B", text: "$\\frac{18}{11}$" },
+      { id: "C", text: "$\\frac{9}{4}$" },
+      // distractor: adds the outputs, computing (58 + 40)/8 = 49/4
+      { id: "D", text: "$\\frac{49}{4}$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Slope from Two Points**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Average rate of change is the change in discharge over the change in time: $\\frac{58 - 40}{11 - 3}$.\n\n**The Full Solution:**\n\nStep 1: Write the two readings as ordered pairs $(3, 40)$ and $(11, 58)$, with the hour first.\n\nStep 2: The rate of change of a linear relationship is $\\frac{y_2 - y_1}{x_2 - x_1}$, so the numerator is $58 - 40$ and the denominator is $11 - 3$.\n\nStep 3: That expression equals $\\frac{18}{8} = 2.25$ cubic meters per second per hour. Check: eight hours at $2.25$ raises $40$ to $58$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($0.44$): puts the elapsed time on top, giving hours per unit of discharge.\n\n* Choice B ($1.64$): divides by $11$, the ending hour, instead of by the $8$ hours that actually elapsed.\n\n* Choice D ($12.25$): adds the two discharge values, which measures nothing about the change.\n\n**Test Day Takeaway:** Both parts of a rate are differences; if the denominator is a single reading rather than a gap, the expression is wrong.",
+    explanation: "**SAT Pattern: Slope from Two Points**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The graph contains $(3, 40)$ and $(11, 58)$, so the slope is $\\frac{58 - 40}{11 - 3} = \\frac{18}{8} = \\frac{9}{4}$.\n\n**The Full Solution:**\nStep 1: Each function value gives a point on the graph: $f(3) = 40$ means $(3, 40)$, and $f(11) = 58$ means $(11, 58)$.\nStep 2: Apply the slope formula: $\\frac{58 - 40}{11 - 3} = \\frac{18}{8}$.\nStep 3: Simplify: $\\frac{18}{8} = \\frac{9}{4}$. Check: $40 + \\frac{9}{4}(8) = 40 + 18 = 58$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{4}{9}$): divides the change in $x$ by the change in $y$.\n* Choice B ($\\frac{18}{11}$): divides the change in $y$ by $11$, the second $x$-value, instead of the change in $x$.\n* Choice D ($\\frac{49}{4}$): adds the two outputs, $\\frac{58 + 40}{8}$, instead of subtracting them.\n\n**Test Day Takeaway:** Translate function notation into points first: $f(a) = b$ is the point $(a, b)$, and the slope comes from the differences of those points.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "slope-from-two-points",
@@ -3667,10 +3667,10 @@ export const algebraBank = [
     skills: ["slope-from-points"],
     difficulty: "medium",
     type: "fill-in",
-    question: "In the $xy$-plane, the two plotted points are the endpoints of a segment, and line $\\ell$ contains that segment. A second line has a slope three times the slope of line $\\ell$. What is the slope of the second line?",
+    question: "The two points shown lie on line $\\ell$ in the $xy$-plane. Line $k$ has a slope that is $3$ times the slope of line $\\ell$. What is the slope of line $k$?",
     diagram: { type: "coordinatePoints", params: { points: [[-3, 7], [5, -5]], xMin: -6, xMax: 8, yMin: -8, yMax: 10 } },
     correctAnswer: "-4.5",
-    explanation: "**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $-4.5$.**\n\n**The Fast Way (~25s):** The plotted points $(-3, 7)$ and $(5, -5)$ give slope $\\frac{-12}{8} = -1.5$, and three times that is $-4.5$.\n\n**The Full Solution:**\n\nStep 1: Read the two plotted points: $(-3, 7)$ and $(5, -5)$.\n\nStep 2: The slope of line $\\ell$ is $\\frac{-5 - 7}{5 - (-3)} = \\frac{-12}{8} = -\\frac{3}{2}$.\n\nStep 3: The second line's slope is $3\\left(-\\frac{3}{2}\\right) = -\\frac{9}{2} = -4.5$. Check: a line of slope $-4.5$ falls $9$ units over a run of $2$, three times as steeply as line $\\ell$.\n\n**Common Mistakes:** Reporting the slope of line $\\ell$ itself, $-1.5$; dropping the negative sign and reporting $4.5$; inverting rise and run before tripling and reporting $-2$.\n\n**Test Day Takeaway:** Compute the slope from the two points first, then apply the multiplier the question describes; the sign travels with it.",
+    explanation: "**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $-4.5$.**\n\n**The Fast Way (~25s):** The points $(-3, 7)$ and $(5, -5)$ give a slope of $\\frac{-12}{8} = -1.5$ for line $\\ell$, and $3(-1.5) = -4.5$.\n\n**The Full Solution:**\nStep 1: Read the two plotted points: $(-3, 7)$ and $(5, -5)$.\nStep 2: The slope of line $\\ell$ is $\\frac{-5 - 7}{5 - (-3)} = \\frac{-12}{8} = -\\frac{3}{2}$.\nStep 3: The slope of line $k$ is $3\\left(-\\frac{3}{2}\\right) = -\\frac{9}{2} = -4.5$. Check: $-4.5 \\div 3 = -1.5$, the slope of line $\\ell$ ✓ (The answer may also be entered as $-\\frac{9}{2}$.)\n\n**Common Mistakes:**\n* $-1.5$: reports the slope of line $\\ell$ and forgets to multiply by $3$.\n* $4.5$: drops the negative sign, even though line $\\ell$ falls from left to right.\n* $-2$: inverts rise and run, using $-\\frac{2}{3}$, before tripling.\n\n**Test Day Takeaway:** Compute the slope from the two points first, then apply the multiplier the question describes; the sign carries through.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "slope-from-two-points",
@@ -3683,19 +3683,19 @@ export const algebraBank = [
     skills: ["slope-from-points"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The line shown in the $xy$-plane models the number of grasshoppers per sweep-net sample, $y$, on day $x$ after a field is mowed. Which of the following ordered pairs gives the coordinates of a point on the line?",
+    question: "Line $\\ell$ is shown in the $xy$-plane. Which of the following could be the coordinates of a point on line $\\ell$?",
     diagram: { type: "linearGraph", params: { slope: 0.6666667, yIntercept: 1, xRange: [0, 14], yRange: [0, 12], xTickInterval: 2, yTickInterval: 2, gridInterval: 1, showPoints: [[0, 1], [6, 5]] } },
     choices: [
       { id: "A", text: "$(12, 9)$" },
-      // distractor: uses the slope $\frac{2}{3}$ but omits the $y$-intercept of $1$
+      // distractor: uses the slope 2/3 but omits the y-intercept of 1
       { id: "B", text: "$(12, 8)$" },
-      // distractor: inverts the slope to $\frac{3}{2}$, giving $\frac{3}{2}(12) + 1 = 19$
+      // distractor: inverts the slope to 3/2, giving (3/2)(12) + 1 = 19
       { id: "C", text: "$(12, 19)$" },
       // distractor: reverses the coordinates of the correct point
       { id: "D", text: "$(8, 12)$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Slope from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The line runs through $(0, 1)$ and $(6, 5)$, so $y = \\frac{2}{3}x + 1$. At $x = 12$, $y = 9$.\n\n**The Full Solution:**\n\nStep 1: Read two grid points off the line: $(0, 1)$ and $(6, 5)$.\n\nStep 2: The slope is $\\frac{5 - 1}{6 - 0} = \\frac{2}{3}$, and the $y$-intercept is $1$, so $y = \\frac{2}{3}x + 1$.\n\nStep 3: Test $x = 12$: $\\frac{2}{3}(12) + 1 = 8 + 1 = 9$, so $(12, 9)$ lies on the line. Check $(3, 3)$ as well: $\\frac{2}{3}(3) + 1 = 3$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($(12, 8)$): applies the slope to $x = 12$ but forgets to add the $y$-intercept of $1$.\n\n* Choice C ($(12, 19)$): uses $\\frac{3}{2}$ for the slope, dividing the run by the rise.\n\n* Choice D ($(8, 12)$): swaps the two coordinates of the correct point.\n\n**Test Day Takeaway:** Build the equation from the graph once, then test each candidate point rather than eyeballing the line.",
+    explanation: "**SAT Pattern: Slope from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The line passes through $(0, 1)$ and $(6, 5)$, so $y = \\frac{2}{3}x + 1$. At $x = 12$, $y = 9$.\n\n**The Full Solution:**\nStep 1: Read two marked points on the line: $(0, 1)$ and $(6, 5)$.\nStep 2: The slope is $\\frac{5 - 1}{6 - 0} = \\frac{2}{3}$, and the $y$-intercept is $1$, so line $\\ell$ is $y = \\frac{2}{3}x + 1$.\nStep 3: Test $x = 12$: $\\frac{2}{3}(12) + 1 = 8 + 1 = 9$, so $(12, 9)$ lies on line $\\ell$. Check with the slope: from $(6, 5)$, moving $6$ right raises $y$ by $4$, to $(12, 9)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($(12, 8)$): applies the slope to $x = 12$ but forgets to add the $y$-intercept of $1$.\n* Choice C ($(12, 19)$): uses $\\frac{3}{2}$ for the slope, dividing the run by the rise.\n* Choice D ($(8, 12)$): swaps the two coordinates of the correct point.\n\n**Test Day Takeaway:** Build the line's equation from two clear points on the graph, then test each choice in it rather than estimating from the picture.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "slope-from-two-points",
@@ -3708,9 +3708,9 @@ export const algebraBank = [
     skills: ["slope-from-points"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A glacier's terminus was $1{,}420$ meters from a fixed marker in year $6$ of a study and $1{,}180$ meters from that same marker in year $14$. What was the average rate of change, in meters per year, of that distance?",
-    correctAnswer: "-30",
-    explanation: "**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $-30$.**\n\n**The Fast Way (~25s):** The distance drops $240$ meters over $8$ years, so the rate is $\\frac{-240}{8} = -30$ meters per year.\n\n**The Full Solution:**\n\nStep 1: Write the two readings as ordered pairs $(6, 1{,}420)$ and $(14, 1{,}180)$, with the year first.\n\nStep 2: The average rate of change is $\\frac{1{,}180 - 1{,}420}{14 - 6} = \\frac{-240}{8}$.\n\nStep 3: That equals $-30$ meters per year. Check: eight years at $-30$ takes $1{,}420$ down to $1{,}180$.\n\n**Common Mistakes:** Reporting $30$ and losing the sign of a shrinking distance; dividing by $14$ instead of by the $8$ elapsed years and reporting about $-17$; reporting the total change $-240$ rather than a yearly rate.\n\n**Test Day Takeaway:** Subtract in the same order top and bottom, and keep the sign that describes the direction of the change.",
+    question: "A linear model estimates that the population of a town was $14{,}200$ in $2006$ and $11{,}800$ in $2014$. According to the model, by how many people does the town's population decrease each year?",
+    correctAnswer: "300",
+    explanation: "**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $300$.**\n\n**The Fast Way (~20s):** The population fell by $14{,}200 - 11{,}800 = 2{,}400$ over $2014 - 2006 = 8$ years, which is $\\frac{2{,}400}{8} = 300$ people per year.\n\n**The Full Solution:**\nStep 1: Treat the two estimates as points $(2006, 14{,}200)$ and $(2014, 11{,}800)$ on the line.\nStep 2: The slope is $\\frac{11{,}800 - 14{,}200}{2014 - 2006} = \\frac{-2{,}400}{8} = -300$ people per year.\nStep 3: A slope of $-300$ means the population decreases by $300$ people each year. Check: $14{,}200 - 8(300) = 11{,}800$ ✓\n\n**Common Mistakes:**\n* $-300$: enters the slope itself, but the question asks by how many people the population decreases, a positive amount.\n* $2400$: reports the total decrease over the $8$ years instead of the decrease per year.\n* $266.7$: divides by $9$, counting the years from $2006$ to $2014$ inclusively.\n\n**Test Day Takeaway:** The rate of a linear model is the slope between two data points; match the sign to the wording of the question.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "slope-from-two-points",
@@ -3723,9 +3723,9 @@ export const algebraBank = [
     skills: ["slope-from-points"],
     difficulty: "hard",
     type: "fill-in",
-    question: "A cooling model $g$ is linear and drops $4$ degrees Celsius whenever the elapsed time rises by $3$ minutes. The model records $g(4) = 11$ and $g(t) = -5$ for a constant $t$, with both outputs in degrees Celsius. What is the value of $t$?",
+    question: "For the linear function $g$, $g(4) = 11$, and the value of $g(x)$ decreases by $4$ for every increase of $3$ in the value of $x$. If $g(t) = -5$, what is the value of $t$?",
     correctAnswer: "16",
-    explanation: "**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $16$.**\n\n**The Fast Way (~35s):** The slope is $-\\frac{4}{3}$ and the output falls $16$, so the input rises $16 \\cdot \\frac{3}{4} = 12$: $t = 4 + 12 = 16$.\n\n**The Full Solution:**\n\nStep 1: A decrease of $4$ for every increase of $3$ means the slope is $\\frac{-4}{3}$.\n\nStep 2: Set up the slope between the two known points: $\\frac{-5 - 11}{t - 4} = -\\frac{4}{3}$, so $\\frac{-16}{t - 4} = -\\frac{4}{3}$.\n\nStep 3: Cross multiply: $-48 = -4(t - 4)$, so $t - 4 = 12$ and $t = 16$. Check: from $x = 4$ to $x = 16$ is four steps of $3$, and four drops of $4$ take $11$ down to $-5$.\n\n**Common Mistakes:** Treating the slope as $-\\frac{3}{4}$ and reporting $t = 25.3$; forgetting to add the starting input and reporting $t = 12$; using $\\frac{11 - (-5)}{t - 4}$ and reporting $t = -8$.\n\n**Test Day Takeaway:** When the slope is given and one endpoint is unknown, set the slope formula equal to the given rate and solve for the missing coordinate.",
+    explanation: "**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $16$.**\n\n**The Fast Way (~35s):** The output must fall $11 - (-5) = 16$, which is $4$ steps of $4$; each step adds $3$ to $x$, so $t = 4 + 4(3) = 16$.\n\n**The Full Solution:**\nStep 1: The slope of $g$ is $-\\frac{4}{3}$, and $g(4) = 11$ gives the point $(4, 11)$.\nStep 2: Use the slope between $(4, 11)$ and $(t, -5)$: $\\frac{-5 - 11}{t - 4} = -\\frac{4}{3}$, so $\\frac{-16}{t - 4} = -\\frac{4}{3}$.\nStep 3: Cross-multiply: $-4(t - 4) = -48$, so $t - 4 = 12$ and $t = 16$. Check: $g(16) = 11 - \\frac{4}{3}(12) = 11 - 16 = -5$ ✓\n\n**Common Mistakes:**\n* $12$: finds the change in $x$, $12$, and forgets to add it to the starting input $4$.\n* $-8$: moves the input in the wrong direction, computing $4 - 12$, as if a decreasing function needed a smaller input to decrease.\n* $\\frac{76}{3}$: uses the slope $-\\frac{3}{4}$, swapping the change in $x$ and the change in $y$.\n\n**Test Day Takeaway:** Turn \"decreases by $4$ for every increase of $3$\" into the slope $-\\frac{4}{3}$, then use the slope between the known point and the unknown one.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "slope-from-two-points",
@@ -3742,18 +3742,18 @@ export const algebraBank = [
     skills: ["combining-like-terms"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A crew converts streetlights at a constant daily rate after a head start of $14$ lights, so its running total is $t = 14 + 9d$ after $d$ days of work. On which day does the total reach $122$ lights?",
+    question: "$6x + 15 = 75$\nWhat value of $x$ is the solution to the given equation?",
     choices: [
-      // distractor: reports the daily rate of 9 lights instead of the number of days
-      { id: "A", text: "$9$" },
-      { id: "B", text: "$12$" },
-      // distractor: reports the 14-light head start instead of the number of days
-      { id: "C", text: "$14$" },
-      // distractor: stops at 9d = 108 without dividing by the rate of 9
-      { id: "D", text: "$108$" }
+      { id: "A", text: "$10$" },
+      // distractor: adds 15 instead of subtracting, solving 6x = 90
+      { id: "B", text: "$15$" },
+      // distractor: stops at 6x = 60 and reports 60
+      { id: "C", text: "$60$" },
+      // distractor: computes 75 + 15 = 90 and does not divide by 6
+      { id: "D", text: "$90$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Subtract the head start and divide by the rate: $\\frac{122 - 14}{9} = \\frac{108}{9} = 12$.\n\n**The Full Solution:**\nStep 1: Set the model equal to the target total: $14 + 9d = 122$.\nStep 2: Undo the addition first by subtracting $14$ from both sides: $9d = 108$.\nStep 3: Undo the multiplication by dividing both sides by $9$: $d = 12$. Check: $14 + 9(12) = 14 + 108 = 122$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): reports the daily rate from the model instead of the number of days.\n* Choice C ($14$): reports the head start, the constant term, instead of the number of days.\n* Choice D ($108$): stops at $9d = 108$ and reports the lights converted rather than the days worked.\n\n**Test Day Takeaway:** Two-step equations unwind in reverse order — remove the constant term first, then divide by the coefficient.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Subtract $15$ to get $6x = 60$, then divide by $6$: $x = 10$.\n\n**The Full Solution:**\nStep 1: Subtract $15$ from both sides: $6x = 75 - 15 = 60$.\nStep 2: Divide both sides by $6$: $x = \\frac{60}{6}$.\nStep 3: So $x = 10$. Check: $6(10) + 15 = 60 + 15 = 75$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($15$): adds $15$ instead of subtracting it, solving $6x = 90$.\n* Choice C ($60$): stops at $6x = 60$ and reports $6x$ instead of $x$.\n* Choice D ($90$): adds $15$ to $75$ and stops without dividing by $6$.\n\n**Test Day Takeaway:** Undo the addition first, then the multiplication, and plug the answer back in to check.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "two-step-linear-equation",
@@ -3766,9 +3766,9 @@ export const algebraBank = [
     skills: ["combining-like-terms"],
     difficulty: "easy",
     type: "fill-in",
-    question: "A puppet shop's build time for a marionette is modeled by $h = 7 + 4j$, where $h$ is hours and $j$ is the number of jointed limbs. How many jointed limbs correspond to a build time of $39$ hours?",
+    question: "If $4x + 7 = 39$, what is the value of $x$?",
     correctAnswer: "8",
-    explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~15s):** Remove the $7$-hour setup, then divide by the $4$ hours per limb: $\\frac{39 - 7}{4} = \\frac{32}{4} = 8$.\n\n**The Full Solution:**\nStep 1: Set the model equal to the given build time: $7 + 4j = 39$.\nStep 2: Subtract the constant setup time from both sides: $4j = 32$.\nStep 3: Divide both sides by the per-limb rate: $j = 8$. Check: $7 + 4(8) = 7 + 32 = 39$ hours. $\\checkmark$\n\n**Common Mistakes:** Dividing $39$ by $4$ first and reporting about $9.75$ limbs, which skips the setup time; reporting $32$, the value of $4j$, instead of $j$; subtracting the rate rather than the setup and computing $\\frac{39 - 4}{7} = 5$.\n\n**Test Day Takeaway:** Undo a two-step model in the reverse of the order it was built: strip the constant term first, and only then divide by the coefficient.",
+    explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~10s):** $4x = 39 - 7 = 32$, so $x = 8$.\n\n**The Full Solution:**\nStep 1: Subtract $7$ from both sides: $4x = 32$.\nStep 2: Divide both sides by $4$: $x = \\frac{32}{4}$.\nStep 3: So $x = 8$. Check: $4(8) + 7 = 32 + 7 = 39$ ✓\n\n**Common Mistakes:**\n* $32$: stops at $4x = 32$ and enters the value of $4x$.\n* $11.5$: adds $7$ instead of subtracting, solving $4x = 46$.\n* $2.75$: divides first and forgets to divide the $7$, solving $x + 7 = 9.75$.\n\n**Test Day Takeaway:** In a two-step equation, undo the constant before the coefficient, and make sure the value you enter is $x$ itself.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "two-step-linear-equation",
@@ -3781,18 +3781,18 @@ export const algebraBank = [
     skills: ["combining-like-terms"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A staffing model gives a unit's weekly hours as $H = 30 + rn$, where $n$ is the number of extra nurses and $r$ is a constant. Adding $6$ extra nurses brings the weekly total to $132$ hours. What is the value of $r$?",
+    question: "$\\frac{x}{5} - 7 = 2$\nWhat is the solution to the given equation?",
     choices: [
-      { id: "A", text: "$17$" },
-      // distractor: divides 132 by 6 without first removing the 30-hour base
-      { id: "B", text: "$22$" },
-      // distractor: adds the base instead of subtracting it, computing (132 + 30) / 6 = 27
-      { id: "C", text: "$27$" },
-      // distractor: stops at 6r = 102 without dividing by the 6 nurses
-      { id: "D", text: "$102$" }
+      // distractor: subtracts 7 instead of adding it, so x/5 = -5 and x = -25
+      { id: "A", text: "$-25$" },
+      // distractor: divides 9 by 5 instead of multiplying
+      { id: "B", text: "$\\frac{9}{5}$" },
+      // distractor: stops at x/5 = 9 and reports 9
+      { id: "C", text: "$9$" },
+      { id: "D", text: "$45$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Strip the $30$-hour base and divide by the $6$ nurses: $\\frac{132 - 30}{6} = \\frac{102}{6} = 17$.\n\n**The Full Solution:**\nStep 1: Substitute the known values into the model: $30 + r(6) = 132$, or $30 + 6r = 132$.\nStep 2: Subtract the constant base from both sides: $6r = 102$.\nStep 3: Divide by $6$: $r = 17$. Check: $30 + 17(6) = 30 + 102 = 132$ hours. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($22$): divides $132$ by $6$ without first removing the $30$-hour base.\n* Choice C ($27$): moves the base to the other side with the wrong sign, computing $\\frac{132 + 30}{6} = 27$.\n* Choice D ($102$): stops at $6r = 102$, which is the hours the six extra nurses add, not the hours per nurse.\n\n**Test Day Takeaway:** A constant term must come off BEFORE any division; dividing the whole total first buries the base in every share.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Add $7$: $\\frac{x}{5} = 9$. Multiply by $5$: $x = 45$.\n\n**The Full Solution:**\nStep 1: Add $7$ to both sides: $\\frac{x}{5} = 2 + 7 = 9$.\nStep 2: Multiply both sides by $5$: $x = 9(5)$.\nStep 3: So $x = 45$. Check: $\\frac{45}{5} - 7 = 9 - 7 = 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-25$): subtracts $7$ instead of adding it, getting $\\frac{x}{5} = -5$.\n* Choice B ($\\frac{9}{5}$): divides $9$ by $5$ instead of multiplying, undoing the division with another division.\n* Choice C ($9$): stops at $\\frac{x}{5} = 9$ and reports the value of $\\frac{x}{5}$.\n\n**Test Day Takeaway:** Undo each operation with its inverse: subtraction with addition, division with multiplication.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "two-step-linear-equation",
@@ -3805,9 +3805,9 @@ export const algebraBank = [
     skills: ["combining-like-terms"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A bridge-joint model is written as $7g - 4 = 2g + k$, where $g$ is the gap width in millimeters and $k$ is a constant. The width $g = 9$ makes the model true. What is the value of $k$?",
+    question: "$7x - 4 = 2x + k$\nIn the given equation, $k$ is a constant. If $x = 9$ is a solution to the equation, what is the value of $k$?",
     correctAnswer: "41",
-    explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**The correct answer is $41$.**\n\n**The Fast Way (~25s):** At $g = 9$ the left side is $63 - 4 = 59$, so $18 + k = 59$ and $k = 41$.\n\n**The Full Solution:**\nStep 1: Substitute $g = 9$ into both sides of the model: $7(9) - 4 = 2(9) + k$.\nStep 2: Evaluate each side: the left side is $63 - 4 = 59$, and the right side is $18 + k$.\nStep 3: Solve $18 + k = 59$ by subtracting $18$: $k = 41$. Check: $7(9) - 4 = 59$ and $2(9) + 41 = 18 + 41 = 59$. $\\checkmark$\n\n**Common Mistakes:** Substituting on the right side only and setting $18 + k = 9$, which gives $-9$; reporting $59$, the common value of the two sides, instead of the constant; adding the two evaluated pieces to get $59 + 18 = 77$.\n\n**Test Day Takeaway:** When a value is said to satisfy an equation, put it into BOTH sides, evaluate each side to a single number, and let the constant fall out of the resulting one-step equation.",
+    explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**The correct answer is $41$.**\n\n**The Fast Way (~15s):** Substitute $x = 9$: $63 - 4 = 18 + k$, so $59 = 18 + k$ and $k = 41$.\n\n**The Full Solution:**\nStep 1: A solution makes the equation true, so substitute $9$ for $x$: $7(9) - 4 = 2(9) + k$.\nStep 2: Simplify each side: $59 = 18 + k$.\nStep 3: Subtract $18$: $k = 41$. Check: with $k = 41$, $7x - 4 = 2x + 41$ gives $5x = 45$, so $x = 9$ ✓\n\n**Common Mistakes:**\n* $59$: evaluates the left side and forgets to subtract $2(9)$.\n* $45$: drops the $-4$, computing $63 - 18$.\n* $77$: adds $18$ instead of subtracting it.\n\n**Test Day Takeaway:** When a value of $x$ is given as a solution, substitute it first; the equation then has only the constant left to solve for.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "two-step-linear-equation",
@@ -3820,18 +3820,18 @@ export const algebraBank = [
     skills: ["combining-like-terms"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "An instrument library charges an \\$18 annual membership plus \\$7 for each week an instrument is kept out. One member's yearly bill is \\$130. If that member keeps an instrument out for $4$ more weeks next year at the same rates, what will the yearly bill be, in dollars?",
+    question: "Maya paid \\$130 to rent a guitar from a store that charges a one-time fee of \\$25 plus \\$7 per week. How much, in dollars, would she have paid if she had rented the guitar for $4$ more weeks?",
     choices: [
-      // distractor: reports this year's bill and never applies the 4 extra weeks
-      { id: "A", text: "$130$" },
-      // distractor: adds 4 dollars to the bill instead of 4 weeks at 7 dollars each
+      // distractor: computes 7(19) = 133 for the weekly charges and omits the 25-dollar fee
+      { id: "A", text: "$133$" },
+      // distractor: adds 4 dollars for 4 weeks instead of 7 dollars per week
       { id: "B", text: "$134$" },
-      // distractor: computes 7 times 20 weeks and omits the 18 dollar membership
-      { id: "C", text: "$140$" },
-      { id: "D", text: "$158$" }
+      { id: "C", text: "$158$" },
+      // distractor: adds the 25-dollar fee a second time, 158 + 25 = 183
+      { id: "D", text: "$183$" }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** This year's weeks come from $\\frac{130 - 18}{7} = 16$; next year is $20$ weeks, so the bill is $18 + 7(20) = 158$ dollars.\n\n**The Full Solution:**\nStep 1: Model this year's bill: $18 + 7w = 130$, where $w$ is the number of weeks the instrument is kept out.\nStep 2: Subtract the membership and divide by the weekly rate: $7w = 112$, so $w = 16$ weeks.\nStep 3: Next year the member keeps it $16 + 4 = 20$ weeks, so the bill is $18 + 7(20) = 18 + 140 = 158$ dollars. Check: the four extra weeks add $7(4) = 28$ dollars, and $130 + 28 = 158$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($130$): reports this year's bill without applying the four extra weeks at all.\n* Choice B ($134$): adds $4$ dollars rather than four weeks at $7$ dollars each.\n* Choice C ($140$): computes $7(20)$ for the weekly charges but drops the $18$-dollar membership.\n\n**Test Day Takeaway:** Solve for the hidden count first, adjust that count, and then rebuild the total with the fixed fee still attached.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The fee is paid once, so $4$ more weeks adds only $4(7) = 28$ dollars: $130 + 28 = 158$.\n\n**The Full Solution:**\nStep 1: Let $w$ be the number of weeks Maya rented the guitar. Then $25 + 7w = 130$.\nStep 2: Subtract $25$ and divide by $7$: $7w = 105$, so $w = 15$ weeks.\nStep 3: With $4$ more weeks, she would have paid $25 + 7(19) = 25 + 133 = 158$ dollars. Check: $158 - 130 = 28 = 4(7)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($133$): finds the weekly charges for $19$ weeks but leaves out the \\$25 fee.\n* Choice B ($134$): adds \\$4 for the $4$ weeks instead of \\$7 per week.\n* Choice D ($183$): adds the \\$25 fee a second time to the correct total.\n\n**Test Day Takeaway:** In a \"fixed fee plus rate\" situation, a change in the number of units changes only the rate part of the total.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "two-step-linear-equation",
@@ -3844,9 +3844,9 @@ export const algebraBank = [
     skills: ["combining-like-terms"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A stock model gives the sachets remaining in a cholera kit as $S = 960 - cw$ after $w$ weeks, where $c$ is a constant. After $15$ weeks, $285$ sachets remain. What is the value of $c$?",
-    correctAnswer: "45",
-    explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**The correct answer is $45$.**\n\n**The Fast Way (~25s):** In $15$ weeks the stock fell by $960 - 285 = 675$ sachets, so the weekly rate is $\\frac{675}{15} = 45$.\n\n**The Full Solution:**\nStep 1: Substitute the known week and remaining count into the model: $960 - c(15) = 285$.\nStep 2: Isolate the term holding the constant: subtract $960$ from both sides to get $-15c = -675$, or $15c = 675$.\nStep 3: Divide by $15$: $c = 45$. Check: $960 - 45(15) = 960 - 675 = 285$ sachets. $\\checkmark$\n\n**Common Mistakes:** Dividing the remaining $285$ by $15$ and reporting $19$, which measures what is left rather than what was used; reporting $675$, the total sachets used, instead of the weekly rate; adding rather than subtracting and computing $\\frac{960 + 285}{15} = 83$.\n\n**Test Day Takeaway:** In a decreasing model the coefficient is the DROP per unit — subtract the ending amount from the starting amount before dividing by the elapsed time.",
+    question: "$\\frac{3x - 4}{5} = 7$\nWhat value of $x$ is the solution to the given equation?",
+    correctAnswer: "13",
+    explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~15s):** Multiply by $5$: $3x - 4 = 35$. Then $3x = 39$ and $x = 13$.\n\n**The Full Solution:**\nStep 1: Multiply both sides by $5$ to clear the fraction: $3x - 4 = 35$.\nStep 2: Add $4$ to both sides: $3x = 39$.\nStep 3: Divide by $3$: $x = 13$. Check: $\\frac{3(13) - 4}{5} = \\frac{35}{5} = 7$ ✓\n\n**Common Mistakes:**\n* $\\frac{11}{3}$: forgets to multiply by $5$, solving $3x - 4 = 7$.\n* $\\frac{31}{3}$: subtracts $4$ instead of adding it, solving $3x = 31$.\n* $39$: stops at $3x = 39$ and enters the value of $3x$.\n\n**Test Day Takeaway:** Clear the fraction by multiplying the whole equation by the denominator, then finish as a two-step equation.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "two-step-linear-equation",
@@ -3859,18 +3859,18 @@ export const algebraBank = [
     skills: ["combining-like-terms"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A booster pump on a pipeline is placed where $12(d - 3) + 5d = 7d + 90$, with $d$ the distance in kilometers from the intake. Which statement about the placement described by this equation is true?",
+    question: "$\\frac{2}{3}x - 7 = 9$\nWhat is the value of $2x - 21$?",
     choices: [
-      // distractor: fails to distribute the 12 over the -3, solving 17d - 3 = 7d + 90 to get d = 9.3
-      { id: "A", text: "The pump is placed less than $10$ kilometers from the intake." },
-      // distractor: sees d on both sides and concludes the variable cancels, without collecting 17d against 7d
-      { id: "B", text: "The equation has no solution, so no placement satisfies it." },
-      // distractor: assumes the two sides are equivalent expressions, which would require the d-terms to match
-      { id: "C", text: "The equation is true for every value of $d$, so any placement satisfies it." },
-      { id: "D", text: "The pump is placed between $12$ and $13$ kilometers from the intake." }
+      // distractor: subtracts 7 instead of adding, so (2/3)x = 2, x = 3, and 2(3) - 21 = -15
+      { id: "A", text: "$-15$" },
+      // distractor: stops at (2/3)x = 16 and reports 16
+      { id: "B", text: "$16$" },
+      // distractor: reports x = 24 instead of the value of 2x - 21
+      { id: "C", text: "$24$" },
+      { id: "D", text: "$27$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** Distributing gives $17d - 36 = 7d + 90$, so $10d = 126$ and $d = 12.6$, which lies between $12$ and $13$.\n\n**The Full Solution:**\nStep 1: Distribute the $12$ across BOTH terms in the parentheses: $12(d - 3) = 12d - 36$. The left side becomes $12d - 36 + 5d = 17d - 36$.\nStep 2: Collect the variable terms on one side and the constants on the other: subtracting $7d$ gives $10d - 36 = 90$, and adding $36$ gives $10d = 126$.\nStep 3: Divide: $d = 12.6$ kilometers, which is between $12$ and $13$. Check: $12(12.6 - 3) + 5(12.6) = 12(9.6) + 63 = 115.2 + 63 = 178.2$, and $7(12.6) + 90 = 88.2 + 90 = 178.2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: multiplies only $d$ by $12$ and leaves the $-3$ alone, solving $17d - 3 = 7d + 90$ for $d = 9.3$.\n* Choice B: notices $d$ on both sides and assumes it cancels; it does not, because $17d$ and $7d$ differ.\n* Choice C: treats the two sides as equivalent expressions, which would require identical $d$-terms as well as identical constants.\n\n**Test Day Takeaway:** Distribute across every term inside the parentheses first; only after the variable terms are combined can you tell whether the equation has one solution, none, or infinitely many.",
+    explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Multiply the whole equation by $3$: $2x - 21 = 27$. That is exactly the expression asked for.\n\n**The Full Solution:**\nStep 1: Multiply both sides of $\\frac{2}{3}x - 7 = 9$ by $3$: $2x - 21 = 27$.\nStep 2: The left side is exactly $2x - 21$, so its value is $27$.\nStep 3: Check by solving: $\\frac{2}{3}x = 16$, so $x = 24$, and $2(24) - 21 = 48 - 21 = 27$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-15$): subtracts $7$ instead of adding it, getting $\\frac{2}{3}x = 2$, $x = 3$, and $2(3) - 21 = -15$.\n* Choice B ($16$): stops at $\\frac{2}{3}x = 16$ and reports that value.\n* Choice C ($24$): solves for $x$ correctly but reports $x$ instead of $2x - 21$.\n\n**Test Day Takeaway:** When the question asks for an expression, look for a single multiplication that turns the given equation into that expression before solving for $x$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "two-step-linear-equation",
@@ -3883,9 +3883,9 @@ export const algebraBank = [
     skills: ["combining-like-terms"],
     difficulty: "hard",
     type: "fill-in",
-    question: "An animation studio's scanning rule reads $4(3x - c) + 9 = 12x - 15$, in which $x$ is the number of cels per pass. The rule holds true no matter how many cels are scanned. What is the constant $c$?",
+    question: "$4(3x - c) + 9 = 12x - 15$\nIn the given equation, $c$ is a constant. If the equation has infinitely many solutions, what is the value of $c$?",
     correctAnswer: "6",
-    explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~40s):** Expanding gives $12x - 4c + 9 = 12x - 15$; the $12x$ terms match, so the constants must too: $-4c + 9 = -15$ and $c = 6$.\n\n**The Full Solution:**\nStep 1: Distribute the $4$ across both terms in the parentheses: $4(3x - c) = 12x - 4c$, so the left side is $12x - 4c + 9$.\nStep 2: An equation holds for EVERY value of $x$ only when the two sides are the same expression. The $x$-terms already agree at $12x$, so the constant terms must agree as well: $-4c + 9 = -15$.\nStep 3: Solve: $-4c = -24$, so $c = 6$. Check: with $c = 6$ the left side is $12x - 24 + 9 = 12x - 15$, which is exactly the right side for any $x$. $\\checkmark$\n\n**Common Mistakes:** Distributing the $4$ over $3x$ only, which gives $12x - c + 9 = 12x - 15$ and $c = 24$; solving $-4c = -24$ as $c = -6$; concluding that no value of $c$ can work because $x$ disappears from the equation.\n\n**Test Day Takeaway:** \"True for every value\" means the two sides are identical expressions — match the variable terms first, then force the constant terms to match.",
+    explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~25s):** Distribute: $12x - 4c + 9 = 12x - 15$. The $x$-terms already match, so the constants must too: $-4c + 9 = -15$, giving $c = 6$.\n\n**The Full Solution:**\nStep 1: Distribute the $4$: $12x - 4c + 9 = 12x - 15$.\nStep 2: The equation has infinitely many solutions only if both sides are identical. The $x$-coefficients are both $12$, so set the constant terms equal: $-4c + 9 = -15$.\nStep 3: Solve: $-4c = -24$, so $c = 6$. Check: $4(3x - 6) + 9 = 12x - 24 + 9 = 12x - 15$, identical to the right side ✓\n\n**Common Mistakes:**\n* $24$: distributes the $4$ only to $3x$, writing $12x - c + 9$, so $-c + 9 = -15$.\n* $-6$: makes a sign error, solving $-4c = 24$.\n* $1.5$: moves the $9$ to the right side without changing its sign, getting $-4c = -6$.\n\n**Test Day Takeaway:** Infinitely many solutions means the two sides are the same expression; once the $x$-terms match, set the constants equal.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "two-step-linear-equation",
@@ -3905,18 +3905,18 @@ export const algebraBank = [
     skills: ["perpendicular-negative-reciprocal"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "On a bridge drawing, a tie rod lies along $y = -4x + 9$, and a strut meets the tie rod at a right angle at $(8, 3)$. The strut's line has $y$-intercept $(0, b)$. What is the value of $b$?",
+    question: "Line $j$ passes through the point $(0, 4)$ and is perpendicular to the line $y = 2x - 3$ in the $xy$-plane. Which equation defines line $j$?",
     choices: [
-      // distractor: negates the tie rod's slope to $4$ instead of inverting it, giving $3 = 32 + b$
-      { id: "A", text: "$-29$" },
-      { id: "B", text: "$1$" },
-      // distractor: computes $b$ as $y + mx = 3 + \frac{1}{4}(8)$
-      { id: "C", text: "$5$" },
-      // distractor: keeps the tie rod's slope $-4$, giving $3 = -32 + b$
-      { id: "D", text: "$35$" }
+      // distractor: negates the slope 2 without taking the reciprocal
+      { id: "A", text: "$y = -2x + 4$" },
+      { id: "B", text: "$y = -\\frac{1}{2}x + 4$" },
+      // distractor: takes the reciprocal 1/2 without changing the sign
+      { id: "C", text: "$y = \\frac{1}{2}x + 4$" },
+      // distractor: keeps the slope 2, which gives a parallel line
+      { id: "D", text: "$y = 2x + 4$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The strut has slope $\\frac{1}{4}$, and $3 = \\frac{1}{4}(8) + b$ gives $b = 1$.\n\n**The Full Solution:**\nStep 1: The tie rod has slope $-4$, so the strut has slope $\\frac{1}{4}$.\nStep 2: Substituting $(8, 3)$ into $y = \\frac{1}{4}x + b$ gives $3 = 2 + b$.\nStep 3: Therefore $b = 1$. Check: $\\frac{1}{4}(8) + 1 = 3$, and $-4 \\cdot \\frac{1}{4} = -1$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-29$): negates the tie rod's slope to $4$ instead of inverting it, giving $3 = 32 + b$\n* Choice C ($5$): computes $b$ as $y + mx = 3 + \\frac{1}{4}(8)$\n* Choice D ($35$): keeps the tie rod's slope $-4$, giving $3 = -32 + b$\n\n**Test Day Takeaway:** Flip and negate the slope, then substitute the given point once; the intercept falls out in one step.",
+    explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The perpendicular slope is the negative reciprocal of $2$, which is $-\\frac{1}{2}$, and the $y$-intercept is $4$: $y = -\\frac{1}{2}x + 4$.\n\n**The Full Solution:**\nStep 1: The line $y = 2x - 3$ has slope $2$. Perpendicular slopes multiply to $-1$, so line $j$ has slope $-\\frac{1}{2}$.\nStep 2: Line $j$ passes through $(0, 4)$, a point on the $y$-axis, so its $y$-intercept is $4$.\nStep 3: In slope-intercept form, line $j$ is $y = -\\frac{1}{2}x + 4$. Check: $2 \\cdot \\left(-\\frac{1}{2}\\right) = -1$, and at $x = 0$, $y = 4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -2x + 4$): negates the slope but does not take the reciprocal.\n* Choice C ($y = \\frac{1}{2}x + 4$): takes the reciprocal but does not change the sign.\n* Choice D ($y = 2x + 4$): uses the same slope, which makes the lines parallel, not perpendicular.\n\n**Test Day Takeaway:** A perpendicular slope needs both moves: flip the fraction and change the sign.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "perpendicular-line-through-point",
@@ -3929,9 +3929,9 @@ export const algebraBank = [
     skills: ["perpendicular-negative-reciprocal"],
     difficulty: "easy",
     type: "fill-in",
-    question: "A machinist's layout puts edge $E$ on the line $y = \\frac{2}{3}x + 5$ and cuts a slot perpendicular to edge $E$ through $(4, 9)$. At what $y$-value does the slot's line cross the $y$-axis?",
-    correctAnswer: "15",
-    explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~20s):** The slot has slope $-\\frac{3}{2}$, and $9 = -\\frac{3}{2}(4) + b$ gives $b = 15$.\n\n**The Full Solution:**\nStep 1: Edge $E$ has slope $\\frac{2}{3}$, so the slot's line has slope $-\\frac{3}{2}$.\nStep 2: Substituting $(4, 9)$ into $y = -\\frac{3}{2}x + b$ gives $9 = -6 + b$.\nStep 3: Therefore $b = 15$. Check: $-\\frac{3}{2}(4) + 15 = 9$, and $\\frac{2}{3}\\left(-\\frac{3}{2}\\right) = -1$.\n\n**Common Mistakes:**\n* Computing $b$ as $y + mx = 9 + \\left(-\\frac{3}{2}\\right)(4) = 3$ adds the term that should be subtracted.\n* Keeping edge $E$'s slope $\\frac{2}{3}$ gives $9 = \\frac{8}{3} + b$ and $b = \\frac{19}{3}$.\n* Using $-\\frac{2}{3}$, negating without inverting, gives $9 = -\\frac{8}{3} + b$ and $b = \\frac{35}{3}$.\n\n**Test Day Takeaway:** The $y$-intercept is $y - mx$ at the given point; subtracting is the whole step.",
+    question: "$y = \\frac{2}{3}x + 5$\nIn the $xy$-plane, line $\\ell$ is perpendicular to the graph of the given equation. What is the slope of line $\\ell$?",
+    correctAnswer: "-3/2",
+    explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**The correct answer is $-\\frac{3}{2}$.**\n\n**The Fast Way (~10s):** The given line has slope $\\frac{2}{3}$; the negative reciprocal is $-\\frac{3}{2}$.\n\n**The Full Solution:**\nStep 1: The equation is in slope-intercept form, so the slope of the graph is $\\frac{2}{3}$.\nStep 2: Perpendicular lines have slopes whose product is $-1$, so the slope of line $\\ell$ is the negative reciprocal of $\\frac{2}{3}$.\nStep 3: That slope is $-\\frac{3}{2}$. Check: $\\frac{2}{3} \\cdot \\left(-\\frac{3}{2}\\right) = -1$ ✓ (The answer may also be entered as $-1.5$.)\n\n**Common Mistakes:**\n* $\\frac{3}{2}$: takes the reciprocal but forgets to change the sign.\n* $-\\frac{2}{3}$: changes the sign but forgets to take the reciprocal.\n* $\\frac{2}{3}$: gives the slope of the given line, which would be parallel.\n\n**Test Day Takeaway:** For a perpendicular slope, flip the fraction and change its sign; check that the two slopes multiply to $-1$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "perpendicular-line-through-point",
@@ -3944,19 +3944,19 @@ export const algebraBank = [
     skills: ["writing-perpendicular-equation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The graph shows line $p$. A laser cutter's kerf crosses line $p$ at a right angle and runs through $(-3, 4)$. At what value of $x$ does the kerf's line reach the $x$-axis?",
+    question: "Line $p$ is shown in the $xy$-plane. Line $q$ is perpendicular to line $p$, passes through the point $(-3, 4)$, and has an $x$-intercept of $(a, 0)$. What is the value of $a$?",
     diagram: { type: "linearGraph", params: { slope: -0.5, yIntercept: 3, xRange: [-6, 6], yRange: [-4, 6], xTickInterval: 2, yTickInterval: 2, gridInterval: 1, showPoints: [[0, 3], [2, 2]], label: "p" } },
     choices: [
       { id: "A", text: "$-5$" },
-      // distractor: computes $b$ as $y + mx = 4 + 2(-3) = -2$, giving $0 = 2x - 2$ and $x = 1$
-      { id: "B", text: "$1$" },
-      // distractor: keeps line $p$'s slope $-\frac{1}{2}$, giving $y = -\frac{1}{2}x + \frac{5}{2}$ and $x = 5$
+      // distractor: uses slope -2 (reciprocal without the sign change), so -4 = -2(x + 3) gives x = -1
+      { id: "B", text: "$-1$" },
+      // distractor: uses line p's own slope -1/2, building a parallel line that meets the x-axis at x = 5
       { id: "C", text: "$5$" },
-      // distractor: reports the kerf line's $y$-intercept instead of its $x$-intercept
+      // distractor: reports the y-intercept 10 of line q instead of the x-intercept
       { id: "D", text: "$10$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Line $p$ has slope $-\\frac{1}{2}$, so the kerf has slope $2$; $y = 2x + 10$ meets the $x$-axis at $x = -5$.\n\n**The Full Solution:**\nStep 1: Line $p$ passes through $(0, 3)$ and $(2, 2)$, so its slope is $\\frac{2 - 3}{2 - 0} = -\\frac{1}{2}$.\nStep 2: The kerf crosses at a right angle, so its slope is $2$; substituting $(-3, 4)$ gives $4 = -6 + b$ and $b = 10$.\nStep 3: Setting $y = 0$ in $y = 2x + 10$ gives $x = -5$. Check: $2(-5) + 10 = 0$, and $-\\frac{1}{2}(2) = -1$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($1$): computes $b$ as $y + mx = 4 + 2(-3) = -2$, giving $0 = 2x - 2$ and $x = 1$\n* Choice C ($5$): keeps line $p$'s slope $-\\frac{1}{2}$, giving $y = -\\frac{1}{2}x + \\frac{5}{2}$ and $x = 5$\n* Choice D ($10$): reports the kerf line's $y$-intercept instead of its $x$-intercept\n\n**Test Day Takeaway:** Build the perpendicular line first, then set $y = 0$; the two intercepts are easy to confuse under time pressure.",
+    explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** Line $p$ has slope $-\\frac{1}{2}$, so line $q$ has slope $2$: $y = 2(x + 3) + 4 = 2x + 10$. Setting $y = 0$ gives $x = -5$.\n\n**The Full Solution:**\nStep 1: From the marked points $(0, 3)$ and $(2, 2)$, line $p$ has slope $\\frac{2 - 3}{2 - 0} = -\\frac{1}{2}$, so line $q$ has slope $2$, the negative reciprocal.\nStep 2: Through $(-3, 4)$ with slope $2$: $y - 4 = 2(x + 3)$, so $y = 2x + 10$.\nStep 3: At the $x$-intercept, $y = 0$: $0 = 2x + 10$, so $x = -5$ and $a = -5$. Check: the slope from $(-5, 0)$ to $(-3, 4)$ is $\\frac{4}{2} = 2$, and $2 \\cdot \\left(-\\frac{1}{2}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-1$): uses slope $-2$, taking the reciprocal without changing the sign, so $0 - 4 = -2(x + 3)$ gives $x = -1$.\n* Choice C ($5$): uses the slope of line $p$ itself, building a parallel line, so $0 - 4 = -\\frac{1}{2}(x + 3)$ gives $x = 5$.\n* Choice D ($10$): reports the $y$-intercept of line $q$ instead of its $x$-intercept.\n\n**Test Day Takeaway:** Read the slope from the graph, take its negative reciprocal, write the new line with point-slope form, and set $y = 0$ for the $x$-intercept.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "perpendicular-line-through-point",
@@ -3969,9 +3969,9 @@ export const algebraBank = [
     skills: ["perpendicular-negative-reciprocal"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A CNC program cuts a toolpath along the graph of $3x + 5y = 45$ and then a finishing pass perpendicular to that toolpath through the point $(9, 4)$. What is the $y$-value of the finishing pass when $x$ equals $15$?",
+    question: "Line $k$ is defined by $3x + 5y = 45$. Line $j$ is perpendicular to line $k$ and passes through the points $(9, 4)$ and $(15, b)$. What is the value of $b$?",
     correctAnswer: "14",
-    explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**The correct answer is $14$.**\n\n**The Fast Way (~30s):** The finishing pass is $y = \\frac{5}{3}x - 11$, and at $x = 15$ that gives $25 - 11 = 14$.\n\n**The Full Solution:**\nStep 1: Rewrite $3x + 5y = 45$ as $y = -\\frac{3}{5}x + 9$, so the toolpath has slope $-\\frac{3}{5}$.\nStep 2: The finishing pass is perpendicular, so its slope is $\\frac{5}{3}$; substituting $(9, 4)$ gives $4 = 15 + b$ and $b = -11$.\nStep 3: At $x = 15$, $y = \\frac{5}{3}(15) - 11 = 25 - 11 = 14$. Check: $-\\frac{3}{5} \\cdot \\frac{5}{3} = -1$, and the line through $(9, 4)$ and $(15, 14)$ has slope $\\frac{10}{6} = \\frac{5}{3}$.\n\n**Common Mistakes:**\n* Computing $b$ as $y + mx = 4 + 15 = 19$ gives $y = 25 + 19 = 44$ at $x = 15$.\n* Keeping the toolpath's slope $-\\frac{3}{5}$ gives $b = \\frac{47}{5}$ and $y = 0.4$ at $x = 15$.\n* Reporting $-11$ stops at the $y$-intercept instead of evaluating at $x = 15$.\n\n**Test Day Takeaway:** Finish the job the question asks for: build the line, then substitute the requested input.",
+    explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**The correct answer is $14$.**\n\n**The Fast Way (~30s):** Line $k$ has slope $-\\frac{3}{5}$, so line $j$ has slope $\\frac{5}{3}$. From $x = 9$ to $x = 15$ is a run of $6$, so $b = 4 + \\frac{5}{3}(6) = 14$.\n\n**The Full Solution:**\nStep 1: Solve $3x + 5y = 45$ for $y$: $y = -\\frac{3}{5}x + 9$, so line $k$ has slope $-\\frac{3}{5}$.\nStep 2: The slope of line $j$ is the negative reciprocal, $\\frac{5}{3}$.\nStep 3: Use the slope between $(9, 4)$ and $(15, b)$: $\\frac{b - 4}{15 - 9} = \\frac{5}{3}$, so $b - 4 = 10$ and $b = 14$. Check: $\\frac{14 - 4}{6} = \\frac{5}{3}$, and $\\left(-\\frac{3}{5}\\right)\\left(\\frac{5}{3}\\right) = -1$ ✓\n\n**Common Mistakes:**\n* $0.4$: uses the slope of line $k$, $-\\frac{3}{5}$, which gives $4 - 3.6$.\n* $7.6$: uses $\\frac{3}{5}$, changing the sign but not taking the reciprocal.\n* $-6$: uses $-\\frac{5}{3}$, taking the reciprocal but not changing the sign.\n\n**Test Day Takeaway:** Rewrite a standard-form line in slope-intercept form to read its slope, then use the negative reciprocal with the run between the two given $x$-values.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "perpendicular-line-through-point",
@@ -3984,19 +3984,19 @@ export const algebraBank = [
     skills: ["writing-perpendicular-equation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "Line $d$ is graphed in the $xy$-plane. A telescope mount's arm crosses line $d$ at a right angle, and both $(3, 1)$ and $(12, w)$ lie on the arm's line. What is the value of the constant $w$?",
+    question: "The graph of line $d$ is shown. Line $p$ is perpendicular to line $d$ and passes through the points $(3, 1)$ and $(12, w)$. What is the value of $w$?",
     diagram: { type: "linearGraph", params: { slope: 3, yIntercept: -2, xRange: [-4, 6], yRange: [-6, 8], xTickInterval: 2, yTickInterval: 2, gridInterval: 1, showPoints: [[0, -2], [2, 4]], label: "d" } },
     choices: [
-      // distractor: computes $b$ as $y + mx = 1 + \left(-\frac{1}{3}\right)(3) = 0$, giving $w = -4$
-      { id: "A", text: "$-4$" },
+      // distractor: changes the sign of the slope but skips the reciprocal, using -3: 1 + (-3)(9) = -26
+      { id: "A", text: "$-26$" },
       { id: "B", text: "$-2$" },
-      // distractor: uses $\frac{1}{3}$ without the negative sign, giving $b = 0$ and $w = 4$
+      // distractor: takes the reciprocal but keeps it positive, using 1/3: 1 + (1/3)(9) = 4
       { id: "C", text: "$4$" },
-      // distractor: keeps line $d$'s slope $3$, giving $b = -8$ and $w = 28$
+      // distractor: uses line d's own slope 3, a parallel line: 1 + 3(9) = 28
       { id: "D", text: "$28$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Line $d$ has slope $3$, so the arm has slope $-\\frac{1}{3}$; $y = -\\frac{1}{3}x + 2$ gives $w = -2$ at $x = 12$.\n\n**The Full Solution:**\nStep 1: Line $d$ passes through $(0, -2)$ and $(2, 4)$, so its slope is $\\frac{4 - (-2)}{2 - 0} = 3$.\nStep 2: The arm crosses at a right angle, so its slope is $-\\frac{1}{3}$; substituting $(3, 1)$ gives $1 = -1 + b$ and $b = 2$.\nStep 3: At $x = 12$, $w = -\\frac{1}{3}(12) + 2 = -2$. Check: the slope from $(3, 1)$ to $(12, -2)$ is $\\frac{-3}{9} = -\\frac{1}{3}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): computes $b$ as $y + mx = 1 + \\left(-\\frac{1}{3}\\right)(3) = 0$, giving $w = -4$\n* Choice C ($4$): uses $\\frac{1}{3}$ without the negative sign, giving $b = 0$ and $w = 4$\n* Choice D ($28$): keeps line $d$'s slope $3$, giving $b = -8$ and $w = 28$\n\n**Test Day Takeaway:** Two points on the same line let you check the perpendicular slope after you find the missing coordinate.",
+    explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Line $d$ has slope $3$, so line $p$ has slope $-\\frac{1}{3}$; moving $9$ units right from $(3, 1)$ changes $y$ by $-\\frac{1}{3}(9) = -3$, so $w = 1 - 3 = -2$.\n\n**The Full Solution:**\nStep 1: Line $d$ passes through $(0, -2)$ and $(2, 4)$, so its slope is $\\frac{4 - (-2)}{2 - 0} = 3$.\nStep 2: Perpendicular lines have slopes that are negative reciprocals, so line $p$ has slope $-\\frac{1}{3}$.\nStep 3: Use the two points on line $p$: $\\frac{w - 1}{12 - 3} = -\\frac{1}{3}$, so $w - 1 = -3$ and $w = -2$. Check: the slope from $(3, 1)$ to $(12, -2)$ is $\\frac{-3}{9} = -\\frac{1}{3}$, and $3 \\cdot \\left(-\\frac{1}{3}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-26$): changes the sign of the slope but skips the reciprocal, using $-3$: $1 + (-3)(9) = -26$.\n* Choice C ($4$): takes the reciprocal but keeps it positive, using $\\frac{1}{3}$: $1 + \\frac{1}{3}(9) = 4$.\n* Choice D ($28$): uses line $d$'s own slope, $3$, which gives a line parallel to $d$: $1 + 3(9) = 28$.\n\n**Test Day Takeaway:** Read the slope of the graphed line from two lattice points, then flip and negate it; the product of perpendicular slopes must be $-1$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "perpendicular-line-through-point",
@@ -4009,9 +4009,9 @@ export const algebraBank = [
     skills: ["writing-perpendicular-equation"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A solar array's support rail lies on $y = \\frac{4}{5}x + 6$, and a brace perpendicular to the rail passes through $(8, 5)$. At what $x$-value does the brace's line cross the $x$-axis?",
+    question: "$y = \\frac{4}{5}x + 6$\nIn the $xy$-plane, line $k$ is perpendicular to the graph of the given equation and passes through the point $(8, 5)$. What is the $x$-coordinate of the $x$-intercept of line $k$?",
     correctAnswer: "12",
-    explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~30s):** The brace is $y = -\\frac{5}{4}x + 15$, which meets the $x$-axis at $x = 12$.\n\n**The Full Solution:**\nStep 1: The rail has slope $\\frac{4}{5}$, so the brace has slope $-\\frac{5}{4}$.\nStep 2: Substituting $(8, 5)$ into $y = -\\frac{5}{4}x + b$ gives $5 = -10 + b$, so $b = 15$.\nStep 3: Setting $y = 0$ gives $\\frac{5}{4}x = 15$ and $x = 12$. Check: $-\\frac{5}{4}(12) + 15 = 0$.\n\n**Common Mistakes:**\n* Reporting $15$ gives the brace's $y$-intercept instead of its $x$-intercept.\n* Computing $b$ as $y + mx = 5 - 10 = -5$ produces an $x$-intercept of $-4$.\n* Keeping the rail's slope $\\frac{4}{5}$ gives $b = -\\frac{7}{5}$ and an $x$-intercept of $\\frac{7}{4}$.\n\n**Test Day Takeaway:** An $x$-intercept costs one extra line of work after the equation is built; do not stop at $b$.",
+    explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**The correct answer is 12.**\n\n**The Fast Way (~30s):** Line $k$ has slope $-\\frac{5}{4}$, so dropping $5$ units from $(8, 5)$ to reach $y = 0$ means moving $4$ units right: $x = 12$.\n\n**The Full Solution:**\nStep 1: The given line has slope $\\frac{4}{5}$, so line $k$ has slope $-\\frac{5}{4}$.\nStep 2: In point-slope form through $(8, 5)$, line $k$ is $y - 5 = -\\frac{5}{4}(x - 8)$.\nStep 3: At the $x$-intercept, $y = 0$: $-5 = -\\frac{5}{4}(x - 8)$, so $x - 8 = 4$ and $x = 12$. Check: the slope from $(8, 5)$ to $(12, 0)$ is $\\frac{0 - 5}{12 - 8} = -\\frac{5}{4}$, and $\\frac{4}{5} \\cdot \\left(-\\frac{5}{4}\\right) = -1$ ✓\n\n**Common Mistakes:**\n* $4$: uses slope $\\frac{5}{4}$ without the negative sign, solving $-5 = \\frac{5}{4}(x - 8)$.\n* $\\frac{7}{4}$: keeps the slope $\\frac{4}{5}$, which describes a parallel line, solving $-5 = \\frac{4}{5}(x - 8)$.\n* $15$: finds the $y$-intercept of line $k$, $-\\frac{5}{4}(-8) + 5 = 15$, instead of the $x$-intercept.\n\n**Test Day Takeaway:** Write the perpendicular line in point-slope form, then set $y = 0$ for an $x$-intercept; there is no need to find the $y$-intercept first.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "perpendicular-line-through-point",
@@ -4024,18 +4024,18 @@ export const algebraBank = [
     skills: ["writing-perpendicular-equation"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A weld seam, line $v$, meets the graph of $4x - 9y = 36$ at a right angle and includes the point $(-6, 5)$. Which of the following is an equation of line $v$ written in the form $Ax + By = C$?",
+    question: "$4x - 9y = 36$\nIn the $xy$-plane, line $v$ is perpendicular to the graph of the given equation and passes through the point $(-6, 5)$. Which equation defines line $v$?",
     choices: [
-      // distractor: keeps the slope $\frac{4}{9}$, producing a line parallel to the given one instead of perpendicular
+      // distractor: keeps the slope 4/9 of the given line, producing a parallel line through (-6, 5)
       { id: "A", text: "$4x - 9y = -69$" },
-      // distractor: uses $\frac{9}{4}$, the reciprocal without the negative sign
+      // distractor: takes the reciprocal slope 9/4 without changing its sign
       { id: "B", text: "$9x - 4y = -74$" },
       { id: "C", text: "$9x + 4y = -34$" },
-      // distractor: uses the point $(5, -6)$, swapping the coordinates of $(-6, 5)$
+      // distractor: uses the correct slope but substitutes the point with its coordinates swapped, as (5, -6)
       { id: "D", text: "$9x + 4y = 21$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** The seam has slope $-\\frac{9}{4}$; from $(-6, 5)$ that clears to $9x + 4y = -34$.\n\n**The Full Solution:**\nStep 1: Rewrite $4x - 9y = 36$ as $y = \\frac{4}{9}x - 4$, so its slope is $\\frac{4}{9}$ and the seam's slope is $-\\frac{9}{4}$.\nStep 2: Point-slope form gives $y - 5 = -\\frac{9}{4}(x + 6)$, so $4y - 20 = -9x - 54$.\nStep 3: Rearranging gives $9x + 4y = -34$. Check: $9(-6) + 4(5) = -54 + 20 = -34$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4x - 9y = -69$): keeps the slope $\\frac{4}{9}$, producing a line parallel to the given one instead of perpendicular\n* Choice B ($9x - 4y = -74$): uses $\\frac{9}{4}$, the reciprocal without the negative sign\n* Choice D ($9x + 4y = 21$): uses the point $(5, -6)$, swapping the coordinates of $(-6, 5)$\n\n**Test Day Takeaway:** Clear the fractions from point-slope form before rearranging, and test the given point in the final equation.",
+    explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** Swapping the coefficients and changing one sign gives a perpendicular line, $9x + 4y = C$; substituting $(-6, 5)$ gives $C = -54 + 20 = -34$.\n\n**The Full Solution:**\nStep 1: Solve the given equation for $y$: $y = \\frac{4}{9}x - 4$, so its slope is $\\frac{4}{9}$ and line $v$ has slope $-\\frac{9}{4}$.\nStep 2: Through $(-6, 5)$: $y - 5 = -\\frac{9}{4}(x + 6)$. Multiply by $4$: $4y - 20 = -9x - 54$.\nStep 3: Rearrange: $9x + 4y = -34$. Check: $9(-6) + 4(5) = -34$, and the slope of $9x + 4y = -34$ is $-\\frac{9}{4}$, with $\\frac{4}{9} \\cdot \\left(-\\frac{9}{4}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4x - 9y = -69$): keeps the slope $\\frac{4}{9}$, so this line is parallel to the given line, not perpendicular.\n* Choice B ($9x - 4y = -74$): has slope $\\frac{9}{4}$, the reciprocal without the sign change; the product of the slopes is $1$.\n* Choice D ($9x + 4y = 21$): has the right slope but uses the point as $(5, -6)$: $9(5) + 4(-6) = 21$.\n\n**Test Day Takeaway:** For $Ax + By = C$, a perpendicular line is $Bx - Ay = C'$ (swap the coefficients, change one sign); find $C'$ by substituting the given point.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "perpendicular-line-through-point",
@@ -4048,9 +4048,9 @@ export const algebraBank = [
     skills: ["perpendicular-negative-reciprocal"],
     difficulty: "hard",
     type: "fill-in",
-    question: "In the $xy$-plane, line $a$ passes through the points $(2, c)$ and $(5, c + 9)$, where $c$ is a constant. Line $b$ is perpendicular to line $a$ and passes through the point $(0, c)$. What is the slope of line $b$?",
-    correctAnswer: "-1/3",
-    explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**The correct answer is $-\\dfrac{1}{3}$.**\n\n**The Fast Way (~20s):** The $c$ cancels in the rise: line $a$ rises $9$ over a run of $3$, so its slope is $3$. The perpendicular slope is $-\\dfrac{1}{3}$.\n\n**The Full Solution:**\nStep 1: Slope of line $a$: $\\dfrac{(c + 9) - c}{5 - 2} = \\dfrac{9}{3} = 3$. The unknown constant subtracts away.\nStep 2: Perpendicular lines have slopes whose product is $-1$, so line $b$ has slope $-\\dfrac{1}{3}$.\nStep 3: The point $(0, c)$ fixes where line $b$ sits but has no effect on its slope. Check: $3 \\cdot \\left(-\\dfrac{1}{3}\\right) = -1$. $\\checkmark$\n\n**Common Mistakes:** Entering $3$ (the slope of line $a$); entering $\\dfrac{1}{3}$ (reciprocal without the sign change); deciding the slope cannot be found because $c$ is unknown; entering $-3$ (sign change without the reciprocal).\n\n**Test Day Takeaway:** A parameter that appears in both $y$-coordinates cancels out of the slope. Compute the slope symbolically, then apply the negative reciprocal.",
+    question: "In the $xy$-plane, line $a$ passes through the points $(2, c)$ and $(5, c + 9)$, where $c$ is a constant. Line $b$ is perpendicular to line $a$ and passes through the points $(2, c)$ and $(14, 7)$. What is the value of $c$?",
+    correctAnswer: "11",
+    explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**The correct answer is 11.**\n\n**The Fast Way (~45s):** Line $a$ rises $9$ over a run of $3$, so its slope is $3$ and line $b$ has slope $-\\frac{1}{3}$; over a run of $12$, line $b$ drops $4$, so $c - 4 = 7$ and $c = 11$.\n\n**The Full Solution:**\nStep 1: The slope of line $a$ is $\\frac{(c + 9) - c}{5 - 2} = \\frac{9}{3} = 3$, whatever the value of $c$.\nStep 2: Line $b$ is perpendicular to line $a$, so its slope is $-\\frac{1}{3}$.\nStep 3: Using the two points on line $b$: $\\frac{7 - c}{14 - 2} = -\\frac{1}{3}$, so $7 - c = -4$ and $c = 11$. Check: line $b$ through $(2, 11)$ and $(14, 7)$ has slope $\\frac{-4}{12} = -\\frac{1}{3}$, and $3 \\cdot \\left(-\\frac{1}{3}\\right) = -1$ ✓\n\n**Common Mistakes:**\n* $-29$: gives line $b$ the slope of line $a$, solving $\\frac{7 - c}{12} = 3$.\n* $3$: uses $\\frac{1}{3}$ without the negative sign, solving $\\frac{7 - c}{12} = \\frac{1}{3}$.\n* $43$: uses $-3$, changing the sign without taking the reciprocal, solving $\\frac{7 - c}{12} = -3$.\n\n**Test Day Takeaway:** When a constant appears in both coordinates, it often cancels out of one slope; find that slope first, then use the perpendicular slope to solve for the constant.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "perpendicular-line-through-point",
@@ -4066,18 +4066,18 @@ export const algebraBank = [
     skills: ["combining-like-terms"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A hostel charges the same amount for each of the $n$ nights of a stay, and the equation $47n = 611$ gives the total charge in dollars. What is the value of $n$?",
+    question: "$47n = 611$\nWhat value of $n$ is the solution to the given equation?",
     choices: [
       { id: "A", text: "$13$" },
-      // distractor: reports the nightly rate that was already given
-      { id: "B", text: "$47$" },
       // distractor: subtracts 47 from 611 instead of dividing
-      { id: "C", text: "$564$" },
+      { id: "B", text: "$564$" },
       // distractor: adds 47 to 611 instead of dividing
-      { id: "D", text: "$658$" }
+      { id: "C", text: "$658$" },
+      // distractor: multiplies 611 by 47 instead of dividing
+      { id: "D", text: "$28{,}717$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Divide both sides by $47$: $n = \\frac{611}{47} = 13$.\n\n**The Full Solution:**\n\nStep 1: The equation is $47n = 611$, so $n$ is multiplied by $47$.\n\nStep 2: Undo the multiplication by dividing both sides by $47$: $n = \\frac{611}{47}$.\n\nStep 3: $\\frac{611}{47} = 13$. Check: $47(13) = 611$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($47$): reports the nightly rate, which the equation already supplies.\n* Choice C ($564$): computes $611 - 47$, subtracting where the equation calls for division.\n* Choice D ($658$): computes $611 + 47$, adding where the equation calls for division.\n\n**Test Day Takeaway:** Undo the operation attached to the variable: a coefficient calls for division, never for addition or subtraction.",
+    explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Divide both sides by $47$: $n = \\frac{611}{47} = 13$.\n\n**The Full Solution:**\nStep 1: The variable $n$ is multiplied by $47$, so undo the multiplication by dividing.\nStep 2: Divide each side of $47n = 611$ by $47$: $n = \\frac{611}{47}$.\nStep 3: Simplify: $n = 13$. Check: $47(13) = 611$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($564$): subtracts $47$ from $611$, treating $47n$ as $n + 47$.\n* Choice C ($658$): adds $47$ to $611$, undoing an operation the equation does not contain.\n* Choice D ($28{,}717$): multiplies $611$ by $47$ instead of dividing.\n\n**Test Day Takeaway:** A number written next to a variable means multiplication; undo it by dividing both sides by that number, and check by multiplying back.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "one-step-linear-equation",
@@ -4090,9 +4090,9 @@ export const algebraBank = [
     skills: ["combining-like-terms"],
     difficulty: "easy",
     type: "fill-in",
-    question: "A pharmacist divides a stock bottle holding $m$ milliliters of suspension evenly into 6 identical vials, and each vial receives 21 milliliters with none left over. What is the value of $m$?",
+    question: "$\\frac{m}{6} = 21$\nWhat is the solution to the given equation?",
     correctAnswer: "126",
-    explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**The correct answer is $126$.**\n\n**The Fast Way (~10s):** $\\frac{m}{6} = 21$, so $m = 6(21) = 126$.\n\n**The Full Solution:**\n\nStep 1: Dividing $m$ milliliters evenly into $6$ vials gives $\\frac{m}{6}$ milliliters per vial, so $\\frac{m}{6} = 21$.\n\nStep 2: Undo the division by multiplying both sides by $6$: $m = 6(21)$.\n\nStep 3: $m = 126$. Check: $\\frac{126}{6} = 21$ milliliters per vial.\n\n**Common Mistakes:**\n\n* $27$ — adding $6$ and $21$ instead of multiplying them.\n* $15$ — subtracting $6$ from $21$.\n* $3.5$ — dividing $21$ by $6$, undoing the division a second time instead of reversing it.\n\n**Test Day Takeaway:** A quantity split evenly gives a division equation; multiply by the number of parts to recover the whole.",
+    explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**The correct answer is 126.**\n\n**The Fast Way (~10s):** Multiply both sides by $6$: $m = 6(21) = 126$.\n\n**The Full Solution:**\nStep 1: The variable $m$ is divided by $6$, so undo the division by multiplying.\nStep 2: Multiply each side of $\\frac{m}{6} = 21$ by $6$: $m = 21 \\cdot 6$.\nStep 3: Simplify: $m = 126$. Check: $\\frac{126}{6} = 21$ ✓\n\n**Common Mistakes:**\n* $3.5$: divides $21$ by $6$ instead of multiplying.\n* $27$: adds $6$ to $21$.\n* $15$: subtracts $6$ from $21$.\n\n**Test Day Takeaway:** Undo division by multiplying both sides by the divisor; the solution of $\\frac{m}{a} = b$ is always larger than $b$ when $a > 1$ and $b > 0$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "one-step-linear-equation",
@@ -4105,18 +4105,18 @@ export const algebraBank = [
     skills: ["combining-like-terms"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A bolt of linen contains $b$ meters of fabric before any is used. After 38 meters are cut from the bolt for a set of curtains, 145 meters remain. Which equation represents this situation?",
+    question: "A roll contained $b$ meters of fabric. After $38$ meters were cut from the roll, $145$ meters of fabric remained. Which equation represents this situation?",
     choices: [
       { id: "A", text: "$b - 38 = 145$" },
-      // distractor: adds the length cut off instead of subtracting it
+      // distractor: adds the 38 meters that were cut instead of subtracting them
       { id: "B", text: "$b + 38 = 145$" },
-      // distractor: reverses the order of subtraction, cutting the bolt from the piece
+      // distractor: subtracts in the wrong order, taking the full roll away from the 38 meters cut
       { id: "C", text: "$38 - b = 145$" },
-      // distractor: multiplies the two given lengths instead of subtracting
+      // distractor: multiplies the two quantities instead of subtracting the cut length
       { id: "D", text: "$38b = 145$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Starting length minus the length cut off equals the length left: $b - 38 = 145$.\n\n**The Full Solution:**\n\nStep 1: The bolt starts with $b$ meters.\n\nStep 2: Cutting off $38$ meters removes that much from the bolt, leaving $b - 38$ meters.\n\nStep 3: The remaining amount is $145$ meters, so $b - 38 = 145$. Check: this gives $b = 183$, and $183 - 38 = 145$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($b + 38 = 145$): adds the cut length to the bolt, which would describe fabric being added rather than removed.\n* Choice C ($38 - b = 145$): reverses the subtraction, treating the $38$ meters as the starting amount.\n* Choice D ($38b = 145$): multiplies, which would describe $38$ bolts rather than one bolt with a piece removed.\n\n**Test Day Takeaway:** Translate in the order the sentence runs: the starting amount comes first, and removal is subtraction from it.",
+    explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Starting amount minus the amount cut equals the amount left: $b - 38 = 145$.\n\n**The Full Solution:**\nStep 1: The roll starts with $b$ meters of fabric.\nStep 2: Cutting $38$ meters removes fabric, so the amount left is $b - 38$.\nStep 3: The amount left is $145$ meters, so $b - 38 = 145$. Check: solving gives $b = 183$, and $183 - 38 = 145$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($b + 38 = 145$): adds the cut length, which would describe fabric being added to the roll.\n* Choice C ($38 - b = 145$): reverses the subtraction; since $b$ is more than $38$, the left side would be negative.\n* Choice D ($38b = 145$): multiplies the quantities, which has no meaning for cutting a length from a roll.\n\n**Test Day Takeaway:** Translate the situation in the order it happens: start, change, result. Then test your equation with the solution it produces.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "one-step-linear-equation",
@@ -4129,9 +4129,9 @@ export const algebraBank = [
     skills: ["combining-like-terms"],
     difficulty: "easy",
     type: "fill-in",
-    question: "A gondola begins a run with $p$ passengers aboard. After 47 passengers step off at the midstation and no one boards, 168 passengers remain. What is the value of $p$?",
-    correctAnswer: "215",
-    explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**The correct answer is $215$.**\n\n**The Fast Way (~10s):** $p - 47 = 168$, so $p = 168 + 47 = 215$.\n\n**The Full Solution:**\n\nStep 1: Starting with $p$ passengers and losing $47$ leaves $p - 47$ passengers, so $p - 47 = 168$.\n\nStep 2: Add $47$ to both sides to undo the subtraction: $p = 168 + 47$.\n\nStep 3: $p = 215$. Check: $215 - 47 = 168$.\n\n**Common Mistakes:**\n\n* $121$ — subtracting $47$ from $168$, repeating the operation instead of reversing it.\n* $47$ — reporting the number who stepped off rather than the starting number.\n* $168$ — reporting the number remaining, which the problem already states.\n\n**Test Day Takeaway:** To recover a starting amount after a decrease, add back what was removed.",
+    question: "$y + 59 = 23$\nWhat is the value of $y$?",
+    correctAnswer: "-36",
+    explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**The correct answer is -36.**\n\n**The Fast Way (~10s):** Subtract $59$ from both sides: $y = 23 - 59 = -36$.\n\n**The Full Solution:**\nStep 1: The variable $y$ has $59$ added to it, so undo the addition by subtracting $59$.\nStep 2: Subtract $59$ from each side: $y = 23 - 59$.\nStep 3: Since $59$ is greater than $23$, the result is negative: $y = -36$. Check: $-36 + 59 = 23$ ✓\n\n**Common Mistakes:**\n* $36$: subtracts the smaller number from the larger one and drops the negative sign.\n* $82$: adds $59$ to $23$ instead of subtracting.\n\n**Test Day Takeaway:** When the number subtracted is larger than the number it is subtracted from, the answer is negative; check the sign by substituting back.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "one-step-linear-equation",
@@ -4144,18 +4144,18 @@ export const algebraBank = [
     skills: ["combining-like-terms"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A dispensary's dilution rule uses the equation $\\frac{n}{k} = 24$, where $n$ is the total number of milligrams dispensed and $k$ is a constant. Substituting $n = 84$ makes the equation true. What is the value of $k$?",
+    question: "$\\frac{n}{k} = 24$\nIn the given equation, $k$ is a constant. If $n = 84$, what is the value of $k$?",
     choices: [
-      { id: "A", text: "$3.5$" },
-      // distractor: reports the right-hand side of the equation instead of solving for k
-      { id: "B", text: "$24$" },
+      // distractor: divides 24 by 84 instead of 84 by 24, inverting the value of k
+      { id: "A", text: "$\\frac{2}{7}$" },
+      { id: "B", text: "$\\frac{7}{2}$" },
       // distractor: subtracts 24 from 84 instead of dividing
       { id: "C", text: "$60$" },
-      // distractor: multiplies 84 by 24 instead of dividing
+      // distractor: multiplies 84 by 24, which would solve k/84 = 24 instead of 84/k = 24
       { id: "D", text: "$2{,}016$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Substituting gives $\\frac{84}{k} = 24$, so $k = \\frac{84}{24} = 3.5$.\n\n**The Full Solution:**\n\nStep 1: Substitute $n = 84$ into the rule: $\\frac{84}{k} = 24$.\n\nStep 2: Multiply both sides by $k$: $84 = 24k$.\n\nStep 3: Divide both sides by $24$: $k = \\frac{84}{24} = 3.5$. Check: $\\frac{84}{3.5} = 24$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($24$): reports the right-hand side, as though the constant and the quotient were the same number.\n* Choice C ($60$): computes $84 - 24$, subtracting where division is required.\n* Choice D ($2{,}016$): computes $84 \\times 24$, multiplying instead of dividing.\n\n**Test Day Takeaway:** When the unknown sits in a denominator, multiply it up first; the equation then becomes a single division.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Substitute $n = 84$: $\\frac{84}{k} = 24$, so $k = \\frac{84}{24} = \\frac{7}{2}$.\n\n**The Full Solution:**\nStep 1: Substitute $84$ for $n$: $\\frac{84}{k} = 24$.\nStep 2: Multiply each side by $k$: $84 = 24k$.\nStep 3: Divide each side by $24$: $k = \\frac{84}{24} = \\frac{7}{2}$. Check: $84 \\div \\frac{7}{2} = 84 \\cdot \\frac{2}{7} = 24$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2}{7}$): divides $24$ by $84$, inverting the quotient; $\\frac{84}{2/7} = 294$, not $24$.\n* Choice C ($60$): subtracts $24$ from $84$ instead of dividing.\n* Choice D ($2{,}016$): multiplies $84$ by $24$, which would solve $\\frac{k}{84} = 24$, not $\\frac{84}{k} = 24$.\n\n**Test Day Takeaway:** When the unknown is in the denominator, multiply it across first ($84 = 24k$); then the equation is a one-step multiplication.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "one-step-linear-equation",
@@ -4168,9 +4168,9 @@ export const algebraBank = [
     skills: ["combining-like-terms"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A weaver holds $s$ skeins of yarn and uses two-thirds of them for a wall hanging, so that $\\frac{2}{3}s = 54$ skeins are used. What is the value of $s$?",
+    question: "For a concert, $\\frac{2}{3}$ of the seats in a theater were filled. If $54$ seats were filled, how many seats does the theater have?",
     correctAnswer: "81",
-    explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**The correct answer is $81$.**\n\n**The Fast Way (~15s):** Multiply both sides by $\\frac{3}{2}$: $s = 54 \\cdot \\frac{3}{2} = 81$.\n\n**The Full Solution:**\n\nStep 1: The equation is $\\frac{2}{3}s = 54$.\n\nStep 2: Undo the multiplication by $\\frac{2}{3}$ by multiplying both sides by its reciprocal, $\\frac{3}{2}$.\n\nStep 3: $s = 54 \\cdot \\frac{3}{2} = 81$. Check: $\\frac{2}{3}(81) = 54$ skeins used.\n\n**Common Mistakes:**\n\n* $36$ — multiplying by $\\frac{2}{3}$ again instead of by the reciprocal.\n* $108$ — multiplying by $2$ and forgetting to divide by $3$.\n* $27$ — dividing by $2$ and forgetting to multiply by $3$.\n\n**Test Day Takeaway:** A fractional coefficient is undone by its reciprocal; multiply by the flipped fraction in one move.",
+    explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**The correct answer is 81.**\n\n**The Fast Way (~20s):** If $s$ is the number of seats, $\\frac{2}{3}s = 54$, so $s = 54 \\cdot \\frac{3}{2} = 81$.\n\n**The Full Solution:**\nStep 1: Let $s$ be the total number of seats. Two-thirds of them were filled, so $\\frac{2}{3}s = 54$.\nStep 2: Multiply each side by $\\frac{3}{2}$, the reciprocal of $\\frac{2}{3}$: $s = 54 \\cdot \\frac{3}{2}$.\nStep 3: Simplify: $s = 81$. Check: $\\frac{2}{3}(81) = 54$ ✓\n\n**Common Mistakes:**\n* $36$: multiplies $54$ by $\\frac{2}{3}$ instead of dividing by it.\n* $27$: finds one-third of the theater, $\\frac{54}{2}$, and stops before multiplying by $3$.\n* $162$: multiplies $54$ by $3$ but forgets to divide by $2$.\n\n**Test Day Takeaway:** A fraction of an unknown total gives $\\frac{a}{b}x = N$; multiply by the reciprocal, and the total must be larger than the part.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "one-step-linear-equation",
@@ -4183,18 +4183,18 @@ export const algebraBank = [
     skills: ["combining-like-terms"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A specimen fridge's log satisfies $w + 26 = c$, where $w$ is the recorded temperature in degrees Celsius and $c$ is a constant. The log is satisfied when $w = -9$. What is the value of $c$?",
+    question: "$w + 26 = c$\nIn the given equation, $c$ is a constant. If $w = -9$ is the solution to the given equation, what is the value of $c$?",
     choices: [
-      // distractor: computes -9 - 26, subtracting instead of adding
+      // distractor: subtracts 26 from -9 instead of adding
       { id: "A", text: "$-35$" },
       { id: "B", text: "$17$" },
-      // distractor: adds the absolute values and ignores the negative sign on w
+      // distractor: drops the negative sign on w and adds 9 + 26
       { id: "C", text: "$35$" },
-      // distractor: multiplies -9 by -26 instead of adding 26
+      // distractor: multiplies -9 by -26
       { id: "D", text: "$234$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Substitute $w = -9$: $c = -9 + 26 = 17$.\n\n**The Full Solution:**\n\nStep 1: The log is $w + 26 = c$, and the value $w = -9$ satisfies it.\n\nStep 2: Substitute: $-9 + 26 = c$.\n\nStep 3: Adding a positive number to $-9$ moves right on the number line, giving $c = 17$. Check: $-9 + 26 = 17$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-35$): computes $-9 - 26$, subtracting the $26$ instead of adding it.\n* Choice C ($35$): adds $9$ and $26$, dropping the negative sign on the recorded temperature.\n* Choice D ($234$): multiplies $-9$ by $-26$ instead of adding.\n\n**Test Day Takeaway:** Substituting a negative value is safest done on a number line: adding a positive number always moves toward zero and past it.",
+    explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Substitute $w = -9$: $c = -9 + 26 = 17$.\n\n**The Full Solution:**\nStep 1: A solution makes the equation true, so substitute $-9$ for $w$.\nStep 2: $c = -9 + 26$.\nStep 3: $c = 17$. Check: the equation $w + 26 = 17$ has solution $w = 17 - 26 = -9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-35$): subtracts $26$ instead of adding it, computing $-9 - 26$.\n* Choice C ($35$): treats $w$ as $9$ instead of $-9$, computing $9 + 26$.\n* Choice D ($234$): multiplies $-9$ by $-26$ instead of adding.\n\n**Test Day Takeaway:** When a solution is given and a constant is unknown, substitute the solution and evaluate; keep the sign of a negative input in parentheses.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "one-step-linear-equation",
@@ -4207,9 +4207,9 @@ export const algebraBank = [
     skills: ["combining-like-terms"],
     difficulty: "hard",
     type: "fill-in",
-    question: "In a tram-timing study, the arrival offset $p$ is the solution to $-3x = a$ and the departure offset $q$ is the solution to $-3x = a + 12$, where $a$ is a constant. What is the value of $p - q$?",
+    question: "In the equations $-3x = a$ and $-3x = a + 12$, $a$ is a constant. If $x = p$ is the solution to the first equation and $x = q$ is the solution to the second equation, what is the value of $p - q$?",
     correctAnswer: "4",
-    explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~40s):** $p = -\\frac{a}{3}$ and $q = -\\frac{a + 12}{3}$, so $p - q = \\frac{12}{3} = 4$.\n\n**The Full Solution:**\n\nStep 1: Solve the first equation: $-3p = a$, so $p = -\\frac{a}{3}$.\n\nStep 2: Solve the second: $-3q = a + 12$, so $q = -\\frac{a + 12}{3} = -\\frac{a}{3} - 4$.\n\nStep 3: Subtract: $p - q = \\left(-\\frac{a}{3}\\right) - \\left(-\\frac{a}{3} - 4\\right) = 4$, so the constant $a$ cancels. Check with $a = 6$: $p = -2$, $q = -6$, and $p - q = 4$.\n\n**Common Mistakes:**\n\n* $-4$ — computing $q - p$ instead of $p - q$.\n* $-12$ — subtracting the right-hand sides, $a - (a + 12)$, without dividing by $-3$.\n* $36$ — multiplying the difference by $3$ instead of dividing by it.\n\n**Test Day Takeaway:** When two equations differ only in a constant, solve both symbolically; the unknown parameter cancels in the difference.",
+    explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**The correct answer is 4.**\n\n**The Fast Way (~30s):** $p = -\\frac{a}{3}$ and $q = -\\frac{a + 12}{3}$, so $p - q = \\frac{-a + a + 12}{3} = 4$.\n\n**The Full Solution:**\nStep 1: Divide each side of $-3x = a$ by $-3$: $p = -\\frac{a}{3}$.\nStep 2: Divide each side of $-3x = a + 12$ by $-3$: $q = -\\frac{a + 12}{3} = -\\frac{a}{3} - 4$.\nStep 3: Subtract: $p - q = -\\frac{a}{3} - \\left(-\\frac{a}{3} - 4\\right) = 4$. Check with $a = 6$: $p = -2$ and $q = \\frac{18}{-3} = -6$, so $p - q = 4$ ✓\n\n**Common Mistakes:**\n* $-4$: divides by $3$ instead of $-3$, or computes $q - p$ instead of $p - q$.\n* $12$: subtracts the right sides, $a$ and $a + 12$, without dividing by $-3$.\n* $-12$: subtracts the right sides in the wrong order and never divides.\n\n**Test Day Takeaway:** Solve each equation in terms of the constant, then combine; when a constant cancels, the answer is the same for every value of it, so a quick test value confirms it.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "one-step-linear-equation",
@@ -4228,18 +4228,18 @@ export const algebraBank = [
     skills: ["substitution-method"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A conduit layout satisfies the system $x=2y+3$ and $5x-y=24$. Which equation in $y$ alone results when the expression $2y+3$ is written in place of $x$ in the second equation of the system?",
+    question: "$x = 2y + 5$\n$3x - y = 35$\nThe solution to the given system of equations is $(x, y)$. What is the value of $y$?",
     choices: [
-      // distractor: drops the -y term from the second equation entirely
-      { id: "A", text: "$5(2y+3)=24$" },
-      // distractor: multiplies only the 2y by 5 and leaves the 3 undistributed
-      { id: "B", text: "$10y+3-y=24$" },
-      // distractor: adds y instead of subtracting it
-      { id: "C", text: "$5(2y+3)+y=24$" },
-      { id: "D", text: "$5(2y+3)-y=24$" }
+      { id: "A", text: "$4$" },
+      // distractor: distributes the 3 only to 2y, writing 6y + 5 - y = 35, so 5y = 30
+      { id: "B", text: "$6$" },
+      // distractor: adds 15 to 35 instead of subtracting it, so 5y = 50
+      { id: "C", text: "$10$" },
+      // distractor: solves correctly but reports x = 13 instead of y
+      { id: "D", text: "$13$" }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Linear System by Substitution**\n\n**Choice D is correct.** Replacing $x$ with $2y+3$ in $5x-y=24$ gives $5(2y+3)-y=24$.\n\n**The Fast Way (~20s):** Substitution swaps $x$ for the whole expression $2y+3$, leaving the rest of the equation untouched: $5(2y+3)-y=24$.\n\n**The Full Solution:**\n\nStep 1: The first equation gives $x$ alone, so every $x$ in the second equation can be replaced by $2y+3$.\n\nStep 2: The second equation is $5x-y=24$; replacing $x$ gives $5(2y+3)-y=24$.\n\nStep 3: Simplifying confirms it is an equation in $y$ alone: $10y+15-y=24$, so $9y=9$ and $y=1$. Check: then $x=2(1)+3=5$, and $5(5)-1=24$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A: drops the $-y$ term, changing the second equation instead of only substituting into it.\n* Choice B: multiplies only the $2y$ by $5$ and leaves the $3$ undistributed, giving $10y+3$ instead of $10y+15$.\n* Choice C: adds $y$ where the original equation subtracts it.\n\n**Test Day Takeaway:** Substitution replaces the variable with the whole expression, parentheses included; every other term in the equation stays exactly as it was.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Linear System by Substitution**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Substitute $2y + 5$ for $x$: $3(2y + 5) - y = 35$, so $5y + 15 = 35$ and $y = 4$.\n\n**The Full Solution:**\nStep 1: The first equation gives $x$ in terms of $y$, so substitute $2y + 5$ for $x$ in the second equation: $3(2y + 5) - y = 35$.\nStep 2: Distribute and combine like terms: $6y + 15 - y = 35$, so $5y + 15 = 35$.\nStep 3: Subtract $15$ and divide by $5$: $y = 4$, and then $x = 2(4) + 5 = 13$. Check: $3(13) - 4 = 35$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($6$): distributes the $3$ only to $2y$, writing $6y + 5 - y = 35$, so $5y = 30$.\n* Choice C ($10$): adds $15$ to $35$ instead of subtracting it, so $5y = 50$.\n* Choice D ($13$): this is the value of $x$, not $y$.\n\n**Test Day Takeaway:** When one equation is already solved for a variable, substitute the whole expression in parentheses, distribute to every term, and answer the variable the question asks for.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "linear-system-by-substitution",
@@ -4252,9 +4252,9 @@ export const algebraBank = [
     skills: ["substitution-method"],
     difficulty: "easy",
     type: "fill-in",
-    question: "A chemist prepares $x$ milliliters of buffer and $y$ milliliters of diluent for a single assay, using $27$ milliliters in total, and the diluent volume $y$ is twice the buffer volume $x$. What is the value of $y$?",
+    question: "$y = 2x$\n$x + y = 27$\nThe solution to the given system of equations is $(x, y)$. What is the value of $y$?",
     correctAnswer: "18",
-    explanation: "**SAT Pattern: Linear System by Substitution**\n\n**The correct answer is $18$.**\n\n**The Fast Way (~20s):** Replacing $y$ with $2x$ gives $3x=27$, so $x=9$ and $y=2(9)=18$.\n\n**The Full Solution:**\n\nStep 1: Substitute $y=2x$ into $x+y=27$: $x+2x=27$.\n\nStep 2: Combine like terms and solve: $3x=27$, so $x=9$ milliliters of buffer.\n\nStep 3: Return to $y=2x$: $y=2(9)=18$ milliliters of diluent. Check: $9+18=27$, and $18$ is twice $9$.\n\n**Common Mistakes:** Reporting $9$ answers for $x$, the buffer volume, rather than the diluent volume asked for. Dividing $27$ by $2$ gives $13.5$ and ignores that the total is three equal parts, not two.\n\n**Test Day Takeaway:** After substituting, always return to the substitution equation to get the second variable, and reread which one the question wants.",
+    explanation: "**SAT Pattern: Linear System by Substitution**\n\n**The correct answer is 18.**\n\n**The Fast Way (~15s):** Substitute $2x$ for $y$: $3x = 27$, so $x = 9$ and $y = 18$.\n\n**The Full Solution:**\nStep 1: Substitute $2x$ for $y$ in the second equation: $x + 2x = 27$.\nStep 2: Combine like terms: $3x = 27$, so $x = 9$.\nStep 3: Then $y = 2(9) = 18$. Check: $9 + 18 = 27$ and $18 = 2(9)$ ✓\n\n**Common Mistakes:**\n* $9$: reports the value of $x$ instead of $y$.\n* $13.5$: divides $27$ by $2$, treating the two values as equal halves.\n* $54$: substitutes $27$ for $x$ in $y = 2x$.\n\n**Test Day Takeaway:** Substitute, solve for the first variable, then plug back in; finish by checking which variable the question asks for.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "linear-system-by-substitution",
@@ -4267,18 +4267,18 @@ export const algebraBank = [
     skills: ["substitution-method"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A sensor pair satisfies the equations $y=4x-7$ and $3x+cy=59$, where $c$ is a constant, and the two readings meet at the point $(3,5)$ in the $xy$-plane, where $x$ and $y$ are the readings. What is the value of $c$?",
+    question: "$y = 4x - 7$\n$3x + cy = 59$\nIn the given system of equations, $c$ is a constant. If the system has the solution $(3, y)$, what is the value of $c$?",
     choices: [
-      // distractor: reports the x-coordinate of the meeting point instead of the constant
+      // distractor: reports the x-coordinate of the solution, 3, as c
       { id: "A", text: "$3$" },
-      // distractor: reports the y-coordinate of the meeting point instead of the constant
+      // distractor: stops after finding y = 5 and reports it as c
       { id: "B", text: "$5$" },
       { id: "C", text: "$10$" },
-      // distractor: stops at 5c = 50 without dividing by 5
+      // distractor: finds cy = 59 - 9 = 50 but does not divide by y = 5
       { id: "D", text: "$50$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Linear System by Substitution**\n\n**Choice C is correct.** Substituting $(3,5)$ into $3x+cy=59$ gives $9+5c=59$, so $c=10$.\n\n**The Fast Way (~30s):** $3(3)+c(5)=59\\Rightarrow 5c=50\\Rightarrow c=10$.\n\n**The Full Solution:**\n\nStep 1: The point $(3,5)$ satisfies both equations. Confirm it fits the first: $4(3)-7=5$.\n\nStep 2: Substitute $x=3$ and $y=5$ into the second equation: $3(3)+c(5)=59$, so $9+5c=59$.\n\nStep 3: Subtract $9$ and divide by $5$: $5c=50$, so $c=10$. Check: $3(3)+10(5)=9+50=59$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($3$): reports the $x$-coordinate of the meeting point rather than the constant.\n* Choice B ($5$): reports the $y$-coordinate.\n* Choice D ($50$): stops at $5c=50$ and never divides by $5$.\n\n**Test Day Takeaway:** A given solution can be substituted into either equation; pick the one containing the unknown constant.",
+    explanation: "**SAT Pattern: Linear System by Substitution**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** With $x = 3$, the first equation gives $y = 5$; then $9 + 5c = 59$, so $c = 10$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 3$ into the first equation: $y = 4(3) - 7 = 5$, so the solution is $(3, 5)$.\nStep 2: Substitute $(3, 5)$ into the second equation: $3(3) + c(5) = 59$, so $9 + 5c = 59$.\nStep 3: Subtract $9$ and divide by $5$: $c = 10$. Check: $3(3) + 10(5) = 59$ and $4(3) - 7 = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports the $x$-coordinate of the solution.\n* Choice B ($5$): stops after finding $y = 5$.\n* Choice D ($50$): finds $5c = 50$ but does not divide by $5$.\n\n**Test Day Takeaway:** A solution point satisfies both equations; use the equation without the constant to finish the point, then substitute the point into the other equation.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "linear-system-by-substitution",
@@ -4291,9 +4291,9 @@ export const algebraBank = [
     skills: ["substitution-method"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A storage cabinet holds $x$ four-terabyte drives and $y$ eight-terabyte drives, $86$ drives in all, and the number of eight-terabyte drives is $14$ more than the number of four-terabyte drives. How many four-terabyte drives are in the cabinet?",
+    question: "A shelf holds $86$ books, each of which is either a hardcover or a paperback. There are $14$ more paperbacks than hardcovers on the shelf. How many hardcovers are on the shelf?",
     correctAnswer: "36",
-    explanation: "**SAT Pattern: Linear System by Substitution**\n\n**The correct answer is $36$.**\n\n**The Fast Way (~30s):** Replacing $y$ with $x+14$ gives $2x+14=86$, so $2x=72$ and $x=36$.\n\n**The Full Solution:**\n\nStep 1: Substitute $y=x+14$ into $x+y=86$: $x+(x+14)=86$.\n\nStep 2: Combine like terms: $2x+14=86$, so $2x=72$.\n\nStep 3: Divide by $2$: $x=36$ four-terabyte drives. Check: $y=36+14=50$, and $36+50=86$.\n\n**Common Mistakes:** Reporting $50$ gives the number of eight-terabyte drives, the other variable. Dividing $86$ by $2$ without first removing the $14$ gives $43$, which would require the two counts to be equal.\n\n**Test Day Takeaway:** Subtract the constant introduced by the substitution before dividing, and check which of the two counts the question asks for.",
+    explanation: "**SAT Pattern: Linear System by Substitution**\n\n**The correct answer is 36.**\n\n**The Fast Way (~25s):** With $h$ hardcovers there are $h + 14$ paperbacks, so $2h + 14 = 86$ and $h = 36$.\n\n**The Full Solution:**\nStep 1: Let $h$ be the number of hardcovers and $p$ the number of paperbacks: $h + p = 86$ and $p = h + 14$.\nStep 2: Substitute $h + 14$ for $p$: $h + (h + 14) = 86$, so $2h + 14 = 86$.\nStep 3: Subtract $14$ and divide by $2$: $h = 36$. Check: $p = 50$, $36 + 50 = 86$, and $50 - 36 = 14$ ✓\n\n**Common Mistakes:**\n* $50$: reports the number of paperbacks instead of hardcovers.\n* $43$: splits $86$ evenly and ignores the difference of $14$.\n* $72$: subtracts $14$ from $86$ but does not divide by $2$.\n\n**Test Day Takeaway:** Write the \"more than\" statement as one variable plus the difference, substitute it into the total, and answer for the variable the question names.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "linear-system-by-substitution",
@@ -4306,18 +4306,18 @@ export const algebraBank = [
     skills: ["substitution-method"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "In a viscosity model the reading $y$ obeys $y=kx-4$ and at the same time satisfies $3x+y=41$, and both relations hold when the input $x$ equals $5$. What is the value of the constant $k$?",
+    question: "$y = \\frac{1}{2}x + 4$\n$y = 2x - 2$\nThe solution to the given system of equations is $(x, y)$. What is the value of $x + y$?",
     choices: [
-      // distractor: reports the given input x = 5 instead of the constant k
-      { id: "A", text: "$5$" },
+      // distractor: finds x = 4 and stops without adding y
+      { id: "A", text: "$4$" },
+      // distractor: finds y = 6 and stops without adding x
       { id: "B", text: "$6$" },
-      // distractor: reports the value of y at x = 5 instead of k
-      { id: "C", text: "$26$" },
-      // distractor: stops at 5k = 30 without dividing by 5
-      { id: "D", text: "$30$" }
+      { id: "C", text: "$10$" },
+      // distractor: multiplies x and y instead of adding them
+      { id: "D", text: "$24$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Linear System by Substitution**\n\n**Choice B is correct.** At $x=5$ the second equation gives $y=26$, and $26=5k-4$ leads to $k=6$.\n\n**The Fast Way (~35s):** $y=41-15=26$, so $5k-4=26$, $5k=30$, and $k=6$.\n\n**The Full Solution:**\n\nStep 1: Substitute $x=5$ into $3x+y=41$: $15+y=41$, so $y=26$.\n\nStep 2: The same pair $(5,26)$ satisfies $y=kx-4$: $26=k(5)-4$.\n\nStep 3: Add $4$ and divide by $5$: $5k=30$, so $k=6$. Check: $y=6(5)-4=26$, and $3(5)+26=41$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($5$): reports the given input rather than the constant.\n* Choice C ($26$): reports the output $y$ found along the way.\n* Choice D ($30$): stops at $5k=30$ without dividing.\n\n**Test Day Takeaway:** Use the equation without the unknown constant to pin down the missing coordinate, then substitute the full pair into the other equation.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Linear System by Substitution**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Set the right sides equal: $\\frac{1}{2}x + 4 = 2x - 2$, so $\\frac{3}{2}x = 6$, $x = 4$, $y = 6$, and $x + y = 10$.\n\n**The Full Solution:**\nStep 1: Both equations give $y$, so substitute: $\\frac{1}{2}x + 4 = 2x - 2$.\nStep 2: Subtract $\\frac{1}{2}x$ and add $2$ to each side: $6 = \\frac{3}{2}x$, so $x = 4$.\nStep 3: Then $y = 2(4) - 2 = 6$, and $x + y = 10$. Check: $\\frac{1}{2}(4) + 4 = 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): is the value of $x$ alone.\n* Choice B ($6$): is the value of $y$ alone.\n* Choice D ($24$): multiplies $x$ and $y$ instead of adding them.\n\n**Test Day Takeaway:** When two equations both start with $y =$, set the right sides equal; then reread the question, since it may ask for a combination of $x$ and $y$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "linear-system-by-substitution",
@@ -4330,9 +4330,9 @@ export const algebraBank = [
     skills: ["substitution-method"],
     difficulty: "medium",
     type: "fill-in",
-    question: "In a curing test the strength $y$, in hundreds of pounds per square inch, satisfies both $y=3x+2$ and $4x-y=6$, where $x$ is the number of days since the pour. What is the value of $y$?",
+    question: "$y = 3x + 2$\n$4x - y = 6$\nIf $(x, y)$ is the solution to the given system of equations, what is the value of $y$?",
     correctAnswer: "26",
-    explanation: "**SAT Pattern: Linear System by Substitution**\n\n**The correct answer is $26$.**\n\n**The Fast Way (~30s):** Substituting gives $4x-(3x+2)=6$, so $x-2=6$, $x=8$, and $y=3(8)+2=26$.\n\n**The Full Solution:**\n\nStep 1: Replace $y$ in the second equation with $3x+2$: $4x-(3x+2)=6$.\n\nStep 2: Distribute the subtraction to both terms: $4x-3x-2=6$, so $x-2=6$ and $x=8$.\n\nStep 3: Return to the first equation: $y=3(8)+2=26$. Check: $4(8)-26=32-26=6$.\n\n**Common Mistakes:** Reporting $8$ gives the day number rather than the strength. Distributing the subtraction to only the first term, as in $4x-3x+2=6$, gives $x=4$ and the wrong strength $14$.\n\n**Test Day Takeaway:** When a substituted expression follows a minus sign, the minus applies to every term inside it.",
+    explanation: "**SAT Pattern: Linear System by Substitution**\n\n**The correct answer is 26.**\n\n**The Fast Way (~25s):** Substitute: $4x - (3x + 2) = 6$, so $x - 2 = 6$, $x = 8$, and $y = 3(8) + 2 = 26$.\n\n**The Full Solution:**\nStep 1: Substitute $3x + 2$ for $y$ in the second equation: $4x - (3x + 2) = 6$.\nStep 2: Distribute the negative sign: $4x - 3x - 2 = 6$, so $x = 8$.\nStep 3: Substitute back: $y = 3(8) + 2 = 26$. Check: $4(8) - 26 = 6$ ✓\n\n**Common Mistakes:**\n* $8$: reports the value of $x$ instead of $y$.\n* $14$: subtracts only the $3x$, writing $4x - 3x + 2 = 6$, so $x = 4$ and $y = 14$.\n* $34$: adds $x$ and $y$.\n\n**Test Day Takeaway:** Put the substituted expression in parentheses so a minus sign in front of it reaches every term.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "linear-system-by-substitution",
@@ -4345,18 +4345,18 @@ export const algebraBank = [
     skills: ["substitution-method"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A truss analysis pairs the equation $y=-2x+c$ with the equation $4x-y=10$, where $c$ is a constant, and both equations are satisfied at a single point whose two coordinates have a sum of $10$. What is the value of $c$?",
+    question: "$y = -2x + c$\n$4x - y = 10$\nIn the given system of equations, $c$ is a constant. The solution $(x, y)$ to the system satisfies $x + y = 10$. What is the value of $c$?",
     choices: [
-      // distractor: computes y - 2x instead of y + 2x when solving for c
+      // distractor: finds the point (4, 6) but computes c = y - 2x = -2 instead of c = y + 2x
       { id: "A", text: "$-2$" },
-      // distractor: reports the x-coordinate of the point instead of the constant
+      // distractor: stops after finding x = 4
       { id: "B", text: "$4$" },
-      // distractor: reports the y-coordinate of the point instead of the constant
+      // distractor: stops after finding y = 6
       { id: "C", text: "$6$" },
       { id: "D", text: "$14$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Linear System by Substitution**\n\n**Choice D is correct.** The conditions $x+y=10$ and $4x-y=10$ give the point $(4,6)$, and $6=-2(4)+c$ makes $c=14$.\n\n**The Fast Way (~50s):** Adding $x+y=10$ and $4x-y=10$ gives $5x=20$, so $x=4$ and $y=6$; then $c=y+2x=6+8=14$.\n\n**The Full Solution:**\n\nStep 1: The coordinates sum to $10$, so $y=10-x$. Substitute that into $4x-y=10$: $4x-(10-x)=10$.\n\nStep 2: Simplify: $4x-10+x=10$, so $5x=20$ and $x=4$, which gives $y=10-4=6$.\n\nStep 3: Substitute $(4,6)$ into $y=-2x+c$: $6=-8+c$, so $c=14$. Check: $y=-2(4)+14=6$ and $4(4)-6=10$, and $4+6=10$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-2$): computes $y-2x=6-8$ instead of $y+2x$ when isolating $c$.\n* Choice B ($4$): reports the $x$-coordinate of the point.\n* Choice C ($6$): reports the $y$-coordinate of the point.\n\n**Test Day Takeaway:** An extra condition on the solution is itself an equation; pair it with the equation that has no unknown constant to locate the point first.",
+    explanation: "**SAT Pattern: Linear System by Substitution**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** From $4x - y = 10$, $y = 4x - 10$; with $x + y = 10$, $5x - 10 = 10$, so $(x, y) = (4, 6)$ and $c = y + 2x = 14$.\n\n**The Full Solution:**\nStep 1: The second equation does not involve $c$, so rewrite it as $y = 4x - 10$ and substitute into $x + y = 10$: $x + 4x - 10 = 10$.\nStep 2: Solve: $5x = 20$, so $x = 4$ and $y = 4(4) - 10 = 6$.\nStep 3: Substitute $(4, 6)$ into the first equation: $6 = -2(4) + c$, so $c = 14$. Check: $4(4) - 6 = 10$, $-2(4) + 14 = 6$, and $4 + 6 = 10$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): finds the point $(4, 6)$ but solves $6 = -2(4) + c$ as $c = 6 - 8$.\n* Choice B ($4$): is the value of $x$, not $c$.\n* Choice C ($6$): is the value of $y$, not $c$.\n\n**Test Day Takeaway:** Pair the extra condition with the equation that has no unknown constant to find the point, then substitute the point to get the constant.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "linear-system-by-substitution",
@@ -4369,9 +4369,9 @@ export const algebraBank = [
     skills: ["substitution-method"],
     difficulty: "hard",
     type: "fill-in",
-    question: "A dispatcher applies two rules to each shift: $y=3x-k$ and $2x+y=k+22$, where $k$ is a constant that is the same in both rules. If the single pair $(x,y)$ satisfying both rules has $x=6$, what is the value of $k$?",
+    question: "$y = 3x - k$\n$2x + y = k + 22$\nIn the given system of equations, $k$ is a constant. If the system has a solution $(6, y)$, what is the value of $k$?",
     correctAnswer: "4",
-    explanation: "**SAT Pattern: Linear System by Substitution**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~50s):** At $x=6$, $y=18-k$, so $12+18-k=k+22$ gives $30-k=k+22$, $2k=8$, and $k=4$.\n\n**The Full Solution:**\n\nStep 1: Substitute $x=6$ into the first equation: $y=3(6)-k=18-k$.\n\nStep 2: Put both $x=6$ and $y=18-k$ into the second equation: $2(6)+(18-k)=k+22$, so $30-k=k+22$.\n\nStep 3: Add $k$ to both sides and subtract $22$: $8=2k$, so $k=4$. Check: $y=18-4=14$, and $2(6)+14=26=4+22$.\n\n**Common Mistakes:** Solving $30-k=k+22$ as $30-22=k$ gives $8$ and forgets that $k$ appears on both sides. Reading $3x-k$ as $3x+k$ turns the equation into $30+k=k+22$, an impossible statement that suggests no value works.\n\n**Test Day Takeaway:** When an unknown constant sits on both sides after substitution, collect it on one side before dividing — the coefficient will not be $1$.",
+    explanation: "**SAT Pattern: Linear System by Substitution**\n\n**The correct answer is 4.**\n\n**The Fast Way (~40s):** With $x = 6$, $y = 18 - k$; then $12 + 18 - k = k + 22$, so $8 = 2k$ and $k = 4$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 6$ into the first equation: $y = 18 - k$.\nStep 2: Substitute $x = 6$ and $y = 18 - k$ into the second equation: $12 + 18 - k = k + 22$, so $30 - k = k + 22$.\nStep 3: Add $k$ and subtract $22$ from each side: $8 = 2k$, so $k = 4$. Check: $y = 18 - 4 = 14$, and $2(6) + 14 = 26 = 4 + 22$ ✓\n\n**Common Mistakes:**\n* $8$: stops at $2k = 8$ without dividing by $2$.\n* $14$: reports the value of $y$ instead of $k$.\n* $-4$: moves $k$ to the wrong side, writing $30 - 22 = -2k$.\n\n**Test Day Takeaway:** When a constant appears in both equations, substitute the known coordinate everywhere, keep the constant as a letter, and solve the one equation that remains.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "linear-system-by-substitution",
@@ -4386,7 +4386,7 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The graph shows the amount $y$, in gallons, of fuel in a generator's tank $x$ hours after the generator is started. Which of the following is the best interpretation of the slope of the graph in this context?",
+    question: "The graph shows the amount of fuel $y$, in gallons, in a generator's tank $x$ hours after the generator is started. What is the best interpretation of the slope of the graph in this context?",
     diagram: { type: "linearGraph", params: { slope: -2, yIntercept: 24, xRange: [0, 14], yRange: [0, 28], gridInterval: 2, xTickInterval: 2, yTickInterval: 4, highlightPoints: [[0, 24], [12, 0]] } },
     choices: [
       { id: "A", text: "The generator uses $2$ gallons of fuel per hour." },
@@ -4411,9 +4411,9 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "easy",
     type: "fill-in",
-    question: "A technician models the temperature $T$, in degrees Celsius, of a kiln $m$ minutes after it is switched on using the equation $T = 9.5m + 20$. According to the model, by how many degrees Celsius does the temperature of the kiln increase each minute?",
+    question: "$T = 9.5m + 20$\nThe given equation models the temperature $T$, in degrees Celsius, of an oven $m$ minutes after it is turned on. By how many degrees Celsius does the temperature increase each minute?",
     correctAnswer: "9.5",
-    explanation: "**SAT Pattern: Slope as Rate of Change in Context**\n\n**The correct answer is $9.5$.**\n\n**The Fast Way (~10s):** In $T = 9.5m + 20$, the coefficient of $m$ is the change in $T$ per one minute: $9.5$ degrees Celsius per minute.\n\n**The Full Solution:**\nStep 1: The equation is in slope-intercept form, $T = (\\text{slope}) \\cdot m + (\\text{intercept})$.\nStep 2: The slope, $9.5$, is the change in temperature for each additional minute; the intercept, $20$, is the temperature at $m = 0$.\nStep 3: Check with two consecutive minutes: at $m = 1$, $T = 29.5$; at $m = 2$, $T = 39$. The difference is $9.5$. $\\checkmark$\n\n**Common Mistakes:** Entering $20$ (the starting temperature, not the rate); entering $29.5$ (the temperature after one minute, which includes the intercept); rounding $9.5$ to $10$.\n\n**Test Day Takeaway:** \"By how much per unit\" is always the slope. The intercept is where the model starts, not how fast it moves.",
+    explanation: "**SAT Pattern: Slope as Rate of Change in Context**\n\n**The correct answer is 9.5.**\n\n**The Fast Way (~10s):** The coefficient of $m$ is the change in $T$ per minute: $9.5$ degrees Celsius.\n\n**The Full Solution:**\nStep 1: The equation $T = 9.5m + 20$ is linear in $m$, so its slope is the rate of change of $T$ per minute.\nStep 2: The slope is the coefficient of $m$, which is $9.5$.\nStep 3: So the temperature increases by $9.5$ degrees Celsius each minute. Check: at $m = 2$, $T = 39$, and at $m = 3$, $T = 48.5$, an increase of $9.5$ ✓\n\n**Common Mistakes:**\n* $20$: gives the temperature at $m = 0$, the constant term, instead of the rate.\n* $29.5$: gives the temperature after $1$ minute, $9.5 + 20$, instead of the change.\n\n**Test Day Takeaway:** In a linear model $y = mx + b$, the coefficient of the input is the change per one unit of input, and the constant is the starting value.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "slope-as-rate-of-change-in-context",
@@ -4426,7 +4426,7 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "For each of $10$ prairie sites, the scatterplot pairs the number of milkweed patches with the number of monarch butterflies counted there. A line modeling the data is given by $y = 4.5x + 12$. In this model, what does the number $4.5$ represent?",
+    question: "The scatterplot shows the number of milkweed patches, $x$, and the number of monarch butterflies counted, $y$, at each of $10$ sites. A line of best fit for the data is $y = 4.5x + 12$. What is the best interpretation of $4.5$ in this context?",
     diagram: { type: "scatterplot", params: { points: [[1, 18], [2, 19], [3, 27], [4, 28], [5, 36], [6, 37], [7, 45], [8, 46], [10, 58], [12, 66]], xMin: 0, xMax: 12, yMin: 0, yMax: 70, xGridStep: 1, yGridStep: 5, xLabelStep: 2, yLabelStep: 10, xLabel: "Milkweed patches", yLabel: "Monarch butterflies counted", bestFitLine: { slope: 4.5, intercept: 12 } } },
     choices: [
       { id: "A", text: "The estimated number of monarch butterflies increases by $4.5$ for each additional milkweed patch." },
@@ -4438,7 +4438,7 @@ export const algebraBank = [
       { id: "D", text: "The estimated number of monarch butterflies at a site with no milkweed patches is $4.5$." }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Slope as Rate of Change in Context**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** In $y = 4.5x + 12$, the coefficient $4.5$ is the change in $y$ per one-unit change in $x$: monarchs per additional milkweed patch.\n\n**The Full Solution:**\n\nStep 1: Identify the variables from the scatterplot: $x$ is the number of milkweed patches and $y$ is the number of monarch butterflies counted.\n\nStep 2: In slope-intercept form, the slope is the rate of change of $y$ with respect to $x$, so $4.5$ counts butterflies per patch.\n\nStep 3: Check the direction: at $x = 4$ the model gives $30$ and at $x = 5$ it gives $34.5$, an increase of $4.5$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B: uses $12$, the model's value at $x = 0$, as if it were the rate.\n\n* Choice C: states the rate with the variables swapped, which would be patches per butterfly.\n\n* Choice D: treats the slope as the value of $y$ when $x = 0$, which is $12$, not $4.5$.\n\n**Test Day Takeaway:** The slope answers the question how much does $y$ change per one unit of $x$, and the units of the answer must be $y$-units per $x$-unit.",
+    explanation: "**SAT Pattern: Slope as Rate of Change in Context**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** In $y = 4.5x + 12$, the coefficient $4.5$ is the change in $y$ per one-unit change in $x$: monarchs per additional milkweed patch.\n\n**The Full Solution:**\n\nStep 1: Identify the variables from the scatterplot: $x$ is the number of milkweed patches and $y$ is the number of monarch butterflies counted.\n\nStep 2: In slope-intercept form, the slope is the rate of change of $y$ with respect to $x$, so $4.5$ counts butterflies per patch.\n\nStep 3: Check the direction: at $x = 4$ the model gives $30$ and at $x = 5$ it gives $34.5$, an increase of $4.5$ ✓\n\n**Why the wrong answers are tempting:**\n\n* Choice B: uses $12$, the model's value at $x = 0$, as if it were the rate.\n\n* Choice C: states the rate with the variables swapped, which would be patches per butterfly.\n\n* Choice D: treats the slope as the value of $y$ when $x = 0$, which is $12$, not $4.5$.\n\n**Test Day Takeaway:** The slope answers the question how much does $y$ change per one unit of $x$, and the units of the answer must be $y$-units per $x$-unit.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "slope-as-rate-of-change-in-context",
@@ -4451,10 +4451,10 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "medium",
     type: "fill-in",
-    question: "The scatterplot shows the fuel efficiency $y$, in miles per gallon, of a delivery van for several trips, plotted against the cargo load $x$, in hundreds of pounds, carried on each trip. The line of best fit is $\\hat{y} = -0.6x + 24$. According to the line of best fit, by how many miles per gallon is the fuel efficiency predicted to decrease for each additional hundred pounds of cargo?",
+    question: "The scatterplot shows the fuel efficiency $y$, in miles per gallon, of a van and the cargo load $x$, in hundreds of pounds, for $10$ trips. A line of best fit is $y = -0.6x + 24$. According to the line of best fit, by how many miles per gallon does the predicted fuel efficiency decrease for each increase of $500$ pounds in cargo load?",
     diagram: { type: "scatterplot", params: { points: [[1, 23.9], [2, 22.4], [3, 22.6], [4, 21.1], [5, 22], [6, 20.3], [7, 20.6], [8, 18.9], [9, 19.5], [10, 17.6]], xMin: 0, xMax: 10, yMin: 16, yMax: 26, xGridStep: 1, yGridStep: 1, xLabelStep: 2, yLabelStep: 2, xLabel: "Cargo load (hundreds of pounds)", yLabel: "Fuel efficiency (mpg)", bestFitLine: { slope: -0.6, intercept: 24 } } },
-    correctAnswer: "0.6",
-    explanation: "**SAT Pattern: Slope as Rate of Change in Context**\n\n**The correct answer is $0.6$.**\n\n**The Fast Way (~10s):** The slope of $\\hat{y} = -0.6x + 24$ is $-0.6$ miles per gallon per hundred pounds. The question asks for the size of the decrease, so the answer is $0.6$.\n\n**The Full Solution:**\nStep 1: The slope of the line of best fit is the predicted change in $y$ (miles per gallon) for each one-unit increase in $x$ (one hundred pounds of cargo).\nStep 2: The slope is $-0.6$; the negative sign means fuel efficiency goes down as cargo goes up.\nStep 3: A decrease of $0.6$ miles per gallon per hundred pounds. Check: the predicted value at $x = 5$ is $21$ and at $x = 6$ is $20.4$, a drop of $0.6$. $\\checkmark$\n\n**Common Mistakes:** Entering $24$ (the intercept, the predicted efficiency with no cargo); entering $-0.6$ when the question asks \"by how many\" (a decrease of $0.6$, entered as a positive amount); entering $6$ by misplacing the decimal.\n\n**Test Day Takeaway:** The slope carries the rate; its sign tells you the direction. When a question says \"decrease by how many,\" report the magnitude.",
+    correctAnswer: "3",
+    explanation: "**SAT Pattern: Slope as Rate of Change in Context**\n\n**The correct answer is 3.**\n\n**The Fast Way (~25s):** $500$ pounds is $5$ units of $x$, and each unit lowers the prediction by $0.6$: $5(0.6) = 3$ miles per gallon.\n\n**The Full Solution:**\nStep 1: The slope $-0.6$ means the predicted fuel efficiency falls $0.6$ mile per gallon for each increase of $1$ in $x$, that is, each $100$ pounds.\nStep 2: An increase of $500$ pounds is an increase of $5$ in $x$.\nStep 3: The predicted decrease is $5(0.6) = 3$ miles per gallon. Check: at $x = 2$ the line gives $22.8$ and at $x = 7$ it gives $19.8$, a decrease of $3$ ✓\n\n**Common Mistakes:**\n* $0.6$: gives the decrease for $100$ pounds, one unit of $x$, instead of $500$ pounds.\n* $300$: multiplies $0.6$ by $500$, treating $x$ as pounds rather than hundreds of pounds.\n* $21$: gives the predicted fuel efficiency at $x = 5$, $24 - 3$, instead of the change.\n\n**Test Day Takeaway:** Check the units of $x$ before using a slope; when $x$ is in hundreds, convert the change in the input to those units first.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "slope-as-rate-of-change-in-context",
@@ -4467,7 +4467,7 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The table shows the height $h$, in centimeters, of a bamboo shoot $d$ days after it was planted. The relationship between $d$ and $h$ is linear. Which of the following is the best interpretation of the slope of the graph of this relationship in the $dh$-plane?",
+    question: "The table shows the height $h$, in centimeters, of a bamboo shoot $d$ days after it was first measured. The relationship between $d$ and $h$ is linear. What is the best interpretation of the slope of the graph of this relationship in the $dh$-plane?",
     diagram: { type: "dataTable", params: { headers: ["d (days)", "h (cm)"], rows: [["2", "41"], ["5", "62"], ["9", "90"]] } },
     choices: [
       // distractor: inverts the slope (run over rise)
@@ -4492,10 +4492,10 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "medium",
     type: "fill-in",
-    question: "The table gives the monthly cost $C$, in dollars, of a mobile data plan predicted by a linear model for three amounts of data used, $g$, in gigabytes. According to the model, by how many dollars does the predicted monthly cost increase for each additional gigabyte of data used?",
+    question: "The table shows three values of $g$ and their corresponding values of $C$, where $C$ is the monthly cost, in dollars, of a phone plan when $g$ gigabytes of data are used. The relationship between $g$ and $C$ is linear. By how many dollars does the monthly cost increase for each additional gigabyte of data used?",
     diagram: { type: "dataTable", params: { headers: ["g (gigabytes)", "C (dollars)"], rows: [["4", "31"], ["10", "52"], ["16", "73"]] } },
     correctAnswer: "3.5",
-    explanation: "**SAT Pattern: Slope as Rate of Change in Context**\n\n**The correct answer is $3.5$.**\n\n**The Fast Way (~15s):** From $4$ to $10$ gigabytes the cost rises $21$ dollars over $6$ gigabytes: $\\dfrac{21}{6} = 3.5$ dollars per gigabyte.\n\n**The Full Solution:**\nStep 1: The rate asked for is the slope of the linear model, $\\dfrac{\\text{change in } C}{\\text{change in } g}$.\nStep 2: Using the first two rows: $\\dfrac{52 - 31}{10 - 4} = \\dfrac{21}{6} = 3.5$.\nStep 3: Check with the last two rows: $\\dfrac{73 - 52}{16 - 10} = \\dfrac{21}{6} = 3.5$. The model is linear, so the rate is consistent. $\\checkmark$\n\n**Common Mistakes:** Entering $21$ (the change in cost without dividing by the change in data); entering $6$ (the change in data); dividing $31$ by $4$ to get $7.75$, which mixes in the fixed part of the cost.\n\n**Test Day Takeaway:** A per-unit rate from a table is the slope between two rows. Subtract outputs, subtract inputs, divide, and confirm with a second pair.",
+    explanation: "**SAT Pattern: Slope as Rate of Change in Context**\n\n**The correct answer is 3.5.**\n\n**The Fast Way (~20s):** From $g = 4$ to $g = 10$, the cost rises $52 - 31 = 21$ dollars over $6$ gigabytes: $\\frac{21}{6} = 3.5$ dollars per gigabyte.\n\n**The Full Solution:**\nStep 1: The cost per additional gigabyte is the slope, $\\frac{\\text{change in } C}{\\text{change in } g}$.\nStep 2: Using the first two rows: $\\frac{52 - 31}{10 - 4} = \\frac{21}{6} = 3.5$.\nStep 3: So the monthly cost increases by $3.5$ dollars per gigabyte. Check with the last two rows: $\\frac{73 - 52}{16 - 10} = \\frac{21}{6} = 3.5$ ✓\n\n**Common Mistakes:**\n* $21$: reports the change in cost between two rows without dividing by the $6$-gigabyte change.\n* $7.75$: divides a single cost by its data amount, $\\frac{31}{4}$, which includes the fixed part of the cost.\n* $17$: finds the monthly cost when $g = 0$, the intercept, instead of the rate.\n\n**Test Day Takeaway:** A rate from a table is a difference over a difference; dividing one row's output by its input mixes in the fixed starting amount.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "slope-as-rate-of-change-in-context",
@@ -4508,7 +4508,7 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The scatterplot shows the average April snowpack depth, in centimeters, at a mountain station for $11$ decades, where $x$ is the number of decades since $1900$. The line of best fit is given by $y = -2.4x + 78$. Which statement is the best interpretation of the slope of this line?",
+    question: "The scatterplot shows the average April snowpack depth $y$, in centimeters, at a mountain station, where $x$ is the number of decades since $1900$. A line of best fit for the data is $y = -2.4x + 78$. What is the best interpretation of the slope of this line?",
     diagram: { type: "scatterplot", params: { points: [[0, 80], [1, 74], [2, 74], [3, 71], [4, 69], [5, 65], [6, 64], [7, 62], [8, 58], [9, 57], [10, 55]], xMin: 0, xMax: 11, yMin: 40, yMax: 85, xGridStep: 1, yGridStep: 5, xLabelStep: 2, yLabelStep: 10, xLabel: "Decades since 1900", yLabel: "April snowpack depth (cm)", bestFitLine: { slope: -2.4, intercept: 78 } } },
     choices: [
       // distractor: reads the rate as per year even though one unit of $x$ is a decade
@@ -4533,10 +4533,10 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "hard",
     type: "fill-in",
-    question: "The graph shows the temperature $y$, in degrees Celsius, of a solution $x$ minutes after it was placed in a cooling bath. If the temperature continues to change at the same rate, by how many degrees Celsius will the temperature of the solution decrease per hour?",
-    diagram: { type: "linearGraph", params: { slope: -1.5, yIntercept: 22, xRange: [0, 10], yRange: [0, 26], gridInterval: 2, xTickInterval: 2, yTickInterval: 2, highlightPoints: [[0, 22], [8, 10]] } },
-    correctAnswer: "90",
-    explanation: "**SAT Pattern: Slope as Rate of Change in Context**\n\n**The correct answer is $90$.**\n\n**The Fast Way (~20s):** From $(0, 22)$ to $(8, 10)$ the temperature drops $12$ degrees in $8$ minutes: $1.5$ degrees per minute. Per hour that is $1.5 \\times 60 = 90$ degrees.\n\n**The Full Solution:**\nStep 1: The slope of the graph is $\\dfrac{10 - 22}{8 - 0} = \\dfrac{-12}{8} = -1.5$ degrees Celsius per minute.\nStep 2: The question asks for the rate per hour, and one hour is $60$ minutes, so multiply: $1.5 \\times 60 = 90$ degrees Celsius per hour.\nStep 3: Check the units: $\\dfrac{1.5 \\text{ degrees}}{1 \\text{ minute}} \\times \\dfrac{60 \\text{ minutes}}{1 \\text{ hour}} = 90$ degrees per hour. $\\checkmark$\n\n**Common Mistakes:** Entering $1.5$ (the rate per minute, ignoring the unit change); entering $12$ (the total drop shown, not a rate); dividing by $60$ instead of multiplying to get $0.025$; entering $-90$ when the question asks for the size of the decrease.\n\n**Test Day Takeaway:** Compute the slope in the graph's units first, then convert to the units the question names. A rate per minute becomes a rate per hour by multiplying by $60$.",
+    question: "The graph shows the temperature $y$, in degrees Celsius, of a liquid $x$ minutes after it was placed in a cooling bath. If the temperature continues to decrease at the same rate, by how many degrees Celsius will it decrease in one hour?",
+    diagram: { type: "linearGraph", params: { slope: -0.25, yIntercept: 22, xRange: [0, 40], yRange: [0, 24], gridInterval: 2, xTickInterval: 4, yTickInterval: 2, highlightPoints: [[0, 22], [16, 18]] } },
+    correctAnswer: "15",
+    explanation: "**SAT Pattern: Slope as Rate of Change in Context**\n\n**The correct answer is 15.**\n\n**The Fast Way (~30s):** From $(0, 22)$ to $(16, 18)$ the temperature drops $4$ degrees in $16$ minutes, which is $0.25$ degree per minute. In $60$ minutes that is $0.25(60) = 15$ degrees.\n\n**The Full Solution:**\nStep 1: The slope of the graph is $\\dfrac{18 - 22}{16 - 0} = \\dfrac{-4}{16} = -0.25$ degree Celsius per minute.\nStep 2: One hour is $60$ minutes, so the decrease in one hour is $0.25 \\times 60 = 15$ degrees Celsius.\nStep 3: Check with the line: at $x = 0$ the temperature is $22$, and at $x = 60$ it would be $22 - 0.25(60) = 7$, a decrease of $22 - 7 = 15$ ✓\n\n**Common Mistakes:**\n* $0.25$: gives the rate per minute and ignores the change to hours.\n* $4$: gives the drop between the two marked points, which span only $16$ minutes.\n* $7$: gives the temperature after one hour instead of the decrease.\n\n**Test Day Takeaway:** Compute the slope in the graph's units first, then convert to the units the question names. A rate per minute becomes a change per hour by multiplying by $60$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "slope-as-rate-of-change-in-context",
@@ -4551,18 +4551,18 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A mold plus the resin poured into it has total mass $M = 7.5p + 210$ grams after $p$ pours. By how many grams does the total mass grow with each additional pour?",
+    question: "$y = 6 - \\frac{3}{4}x$\nWhat is the slope of the graph of the given equation in the $xy$-plane?",
     choices: [
-      { id: "A", text: "$7.5$" },
-      // distractor: names the mass of the empty mold, the value at $p = 0$, rather than the rate
-      { id: "B", text: "$210$" },
-      // distractor: gives the total mass after one pour, $7.5 + 210$
-      { id: "C", text: "$217.5$" },
-      // distractor: multiplies the rate by the starting mass, $7.5 \times 210$
-      { id: "D", text: "$1575$" }
+      { id: "A", text: "$-\\frac{3}{4}$" },
+      // distractor: drops the negative sign in front of 3/4 x
+      { id: "B", text: "$\\frac{3}{4}$" },
+      // distractor: reads the constant term, which is the y-intercept, as the slope
+      { id: "C", text: "$6$" },
+      // distractor: gives the x-coordinate of the x-intercept, 6 divided by 3/4
+      { id: "D", text: "$8$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Reading Slope-Intercept Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** In $M = 7.5p + 210$ the coefficient of $p$ is the change per pour, so the answer is $7.5$.\n\n**The Full Solution:**\nStep 1: The model is linear in $p$, with $7.5$ multiplying $p$ and $210$ standing alone.\nStep 2: Increasing $p$ by $1$ increases $M$ by $7.5$, since $7.5(p + 1) + 210 = (7.5p + 210) + 7.5$.\nStep 3: So each additional pour adds $7.5$ grams. Check: at $p = 2$ the mass is $225$ grams and at $p = 3$ it is $232.5$ grams, a difference of $7.5$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($210$): names the mass of the empty mold, the value at $p = 0$, rather than the rate\n* Choice C ($217.5$): gives the total mass after one pour, $7.5 + 210$\n* Choice D ($1575$): multiplies the rate by the starting mass, $7.5 \\times 210$\n\n**Test Day Takeaway:** In $y = mx + b$, $m$ answers rate questions and $b$ answers starting-value questions.",
+    explanation: "**SAT Pattern: Reading Slope-Intercept Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Rewrite as $y = -\\frac{3}{4}x + 6$; the coefficient of $x$ is the slope, $-\\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: Reorder the terms into slope-intercept form, $y = mx + b$: $y = -\\frac{3}{4}x + 6$.\nStep 2: The slope $m$ is the coefficient of $x$, including its sign: $m = -\\frac{3}{4}$.\nStep 3: The constant $6$ is the $y$-intercept, not the slope. Check: the points $(0, 6)$ and $(4, 3)$ are on the graph, and $\\frac{3 - 6}{4 - 0} = -\\frac{3}{4}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{3}{4}$): drops the minus sign in front of $\\frac{3}{4}x$.\n* Choice C ($6$): is the first number written, but it is the $y$-intercept.\n* Choice D ($8$): is the $x$-coordinate of the $x$-intercept, where $6 - \\frac{3}{4}x = 0$.\n\n**Test Day Takeaway:** The slope is the coefficient of $x$ wherever the term appears; take the sign in front of it with the coefficient.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "reading-slope-intercept-form",
@@ -4575,9 +4575,9 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "easy",
     type: "fill-in",
-    question: "The graph of the linear function $g$ in the $xy$-plane has equation $y = \\dfrac{5}{2}x - 14$. What is the $y$-coordinate of the $y$-intercept of the graph?",
+    question: "$g(x) = \\frac{5}{2}x - 14$\nThe graph of $y = g(x)$ in the $xy$-plane has a $y$-intercept at $(0, b)$. What is the value of $b$?",
     correctAnswer: "-14",
-    explanation: "**SAT Pattern: Reading Slope-Intercept Form**\n\n**The correct answer is $-14$.**\n\n**The Fast Way (~5s):** In $y = mx + b$, the $y$-intercept is $b$. Here $b = -14$.\n\n**The Full Solution:**\nStep 1: The equation is already in slope-intercept form $y = mx + b$, with $m = \\dfrac{5}{2}$ and $b = -14$.\nStep 2: The $y$-intercept is the point where $x = 0$: $y = \\dfrac{5}{2}(0) - 14 = -14$.\nStep 3: So the $y$-intercept is $(0, -14)$ and its $y$-coordinate is $-14$. $\\checkmark$\n\n**Common Mistakes:** Entering $14$ (dropping the negative sign); entering $\\dfrac{5}{2}$ or $2.5$ (the slope); entering $\\dfrac{28}{5}$ (the $x$-intercept, found by setting $y = 0$).\n\n**Test Day Takeaway:** In $y = mx + b$, the constant term is the $y$-intercept, sign included. Confirm by substituting $x = 0$.",
+    explanation: "**SAT Pattern: Reading Slope-Intercept Form**\n\n**The correct answer is -14.**\n\n**The Fast Way (~10s):** In slope-intercept form, the constant term is the $y$-coordinate of the $y$-intercept: $b = -14$.\n\n**The Full Solution:**\nStep 1: The $y$-intercept is the point where $x = 0$.\nStep 2: Evaluate $g(0) = \\frac{5}{2}(0) - 14 = -14$.\nStep 3: So the $y$-intercept is $(0, -14)$ and $b = -14$. Check: in $y = mx + b$ form, $g(x) = \\frac{5}{2}x + (-14)$, so the constant is $-14$ ✓\n\n**Common Mistakes:**\n* $14$: drops the minus sign in front of $14$.\n* $\\frac{5}{2}$: gives the slope instead of the $y$-intercept.\n* $\\frac{28}{5}$: finds the $x$-intercept, where $\\frac{5}{2}x - 14 = 0$, instead of the $y$-intercept.\n\n**Test Day Takeaway:** The $y$-intercept is the value of the function at $x = 0$; in $y = mx + b$ it is the constant term, sign included.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "reading-slope-intercept-form",
@@ -4590,10 +4590,10 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A cryostat's chamber temperature, in degrees Celsius, is modeled by $f(x) = kx + 9$, where $x$ is the elapsed hour and $k$ is a constant. The temperature at hour $4$ is $1$ degree. What is the temperature at hour $10$?",
+    question: "The function $f$ is defined by $f(x) = kx + 9$, where $k$ is a constant. If $f(4) = 1$, what is the value of $f(10)$?",
     choices: [
       { id: "A", text: "$-11$" },
-      // distractor: reports $k$ instead of the temperature at hour $10$
+      // distractor: reports $k$ instead of $f(10)$
       { id: "B", text: "$-2$" },
       // distractor: solves $9 - 4k = 1$, getting $k = 2$, then evaluates $2(10) + 9$
       { id: "C", text: "$29$" },
@@ -4601,7 +4601,7 @@ export const algebraBank = [
       { id: "D", text: "$34$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Reading Slope-Intercept Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** From $4k + 9 = 1$ we get $k = -2$, so $f(10) = -20 + 9 = -11$.\n\n**The Full Solution:**\nStep 1: Substituting $x = 4$ gives $f(4) = 4k + 9$, and this equals $1$.\nStep 2: Solving $4k + 9 = 1$ gives $4k = -8$ and $k = -2$.\nStep 3: Then $f(10) = -2(10) + 9 = -11$ degrees Celsius. Check: $f(4) = -8 + 9 = 1$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($-2$): reports $k$ instead of the temperature at hour $10$\n* Choice C ($29$): solves $9 - 4k = 1$, getting $k = 2$, then evaluates $2(10) + 9$\n* Choice D ($34$): solves $4k = 1 + 9$, getting $k = 2.5$, then evaluates $2.5(10) + 9$\n\n**Test Day Takeaway:** Find the parameter, then go back and answer the question actually asked.",
+    explanation: "**SAT Pattern: Reading Slope-Intercept Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** From $4k + 9 = 1$, $k = -2$, so $f(10) = -2(10) + 9 = -11$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 4$: $f(4) = 4k + 9$, and this equals $1$.\nStep 2: Solve $4k + 9 = 1$: $4k = -8$, so $k = -2$ and $f(x) = -2x + 9$.\nStep 3: Evaluate $f(10) = -2(10) + 9 = -11$. Check: $f(4) = -8 + 9 = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-2$): this is the value of $k$, the slope, not the value of $f(10)$.\n* Choice C ($29$): writes $9 - 4k = 1$, getting $k = 2$, then evaluates $2(10) + 9 = 29$.\n* Choice D ($34$): adds $9$ to the wrong side, solving $4k = 1 + 9$ to get $k = 2.5$, then evaluates $2.5(10) + 9 = 34$.\n\n**Test Day Takeaway:** Use the given point to find the constant, then answer the question actually asked; the constant itself is a common trap choice.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "reading-slope-intercept-form",
@@ -4614,9 +4614,9 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A car-loan balance, in thousands of dollars, after $x$ months of payments is given by $g(x) = -\\frac{3}{4}x + 17$. After how many months does the balance reach $5$ thousand dollars?",
+    question: "The function $g$ is defined by $g(x) = -\\frac{3}{4}x + 17$. For what value of $x$ is $g(x) = 5$?",
     correctAnswer: "16",
-    explanation: "**SAT Pattern: Reading Slope-Intercept Form**\n\n**The correct answer is $16$.**\n\n**The Fast Way (~25s):** Solving $-\\frac{3}{4}x + 17 = 5$ gives $\\frac{3}{4}x = 12$, so $x = 16$.\n\n**The Full Solution:**\nStep 1: Set the balance equal to $5$: $-\\frac{3}{4}x + 17 = 5$.\nStep 2: Subtracting $17$ from both sides gives $-\\frac{3}{4}x = -12$.\nStep 3: Multiplying both sides by $-\\frac{4}{3}$ gives $x = 16$ months. Check: $-\\frac{3}{4}(16) + 17 = -12 + 17 = 5$.\n\n**Common Mistakes:**\n* Using $+\\frac{3}{4}$ gives $x = -16$, a negative number of months.\n* Adding $17$ instead of subtracting gives $\\frac{3}{4}x = 22$ and $x \\approx 29.3$.\n* Reporting $5$ repeats the balance instead of the number of months.\n\n**Test Day Takeaway:** When a linear model is set equal to an output, the unknown is the input; isolate it rather than reading a coefficient.",
+    explanation: "**SAT Pattern: Reading Slope-Intercept Form**\n\n**The correct answer is 16.**\n\n**The Fast Way (~20s):** Set $-\\frac{3}{4}x + 17 = 5$, so $-\\frac{3}{4}x = -12$ and $x = 16$.\n\n**The Full Solution:**\nStep 1: Set the function equal to $5$: $-\\frac{3}{4}x + 17 = 5$.\nStep 2: Subtract $17$ from both sides: $-\\frac{3}{4}x = -12$.\nStep 3: Multiply both sides by $-\\frac{4}{3}$: $x = 16$. Check: $g(16) = -12 + 17 = 5$ ✓\n\n**Common Mistakes:**\n* $-16$: drops the negative sign on the slope, solving $\\frac{3}{4}x = -12$.\n* $-29.33$: adds $17$ to $5$ instead of subtracting it, solving $-\\frac{3}{4}x = 22$.\n* $5$: repeats the output value instead of finding the input $x$.\n\n**Test Day Takeaway:** \"For what value of $x$\" asks for an input: set the function equal to the output and solve.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "reading-slope-intercept-form",
@@ -4632,16 +4632,16 @@ export const algebraBank = [
     question: "The graph of the linear function $f$ is shown in the $xy$-plane. Which equation defines $f$?",
     diagram: { type: "linearGraph", params: { slope: -2, yIntercept: 4, xRange: [-4, 6], yRange: [-6, 8], gridInterval: 1, xTickInterval: 2, yTickInterval: 2, highlightPoints: [[0, 4], [3, -2]] } },
     choices: [
-      // distractor: inverts the slope (run over rise)
+      // distractor: inverts the slope, dividing run by rise
       { id: "A", text: "$f(x) = -\\dfrac{1}{2}x + 4$" },
       { id: "B", text: "$f(x) = -2x + 4$" },
-      // distractor: drops the sign on a decreasing line
+      // distractor: drops the sign on a line that falls from left to right
       { id: "C", text: "$f(x) = 2x + 4$" },
       // distractor: swaps the slope and the y-intercept
       { id: "D", text: "$f(x) = 4x - 2$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Reading Slope-Intercept Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The line crosses the $y$-axis at $4$ and passes through $(3, -2)$: down $6$ over $3$, so the slope is $-2$. That gives $f(x) = -2x + 4$.\n\n**The Full Solution:**\nStep 1: The $y$-intercept is where the line meets the $y$-axis: $(0, 4)$, so $b = 4$.\nStep 2: Use a second marked point, $(3, -2)$: slope $= \\dfrac{-2 - 4}{3 - 0} = \\dfrac{-6}{3} = -2$.\nStep 3: In slope-intercept form, $f(x) = -2x + 4$. Check: $f(3) = -6 + 4 = -2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\dfrac{1}{2}x + 4$): divides run by rise, inverting the slope.\n* Choice C ($2x + 4$): keeps the steepness but drops the sign; the graph falls from left to right, so the slope must be negative.\n* Choice D ($4x - 2$): swaps the roles of the two numbers, using the intercept as the slope.\n\n**Test Day Takeaway:** Read $b$ off the $y$-axis, then compute $m$ from two lattice points. A line that falls left to right has a negative $m$.",
+    explanation: "**SAT Pattern: Reading Slope-Intercept Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The line crosses the $y$-axis at $(0, 4)$ and falls $6$ units over $3$ units to $(3, -2)$, so $f(x) = -2x + 4$.\n\n**The Full Solution:**\nStep 1: The graph crosses the $y$-axis at $(0, 4)$, so the $y$-intercept is $4$.\nStep 2: Using the marked points $(0, 4)$ and $(3, -2)$, the slope is $\\frac{-2 - 4}{3 - 0} = -2$.\nStep 3: In slope-intercept form, $f(x) = -2x + 4$. Check: $f(3) = -6 + 4 = -2$, which matches the second marked point ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(x) = -\\dfrac{1}{2}x + 4$): divides the run by the rise, inverting the slope.\n* Choice C ($f(x) = 2x + 4$): keeps the steepness but drops the sign, even though the graph falls from left to right.\n* Choice D ($f(x) = 4x - 2$): swaps the two numbers, using the $y$-intercept as the slope.\n\n**Test Day Takeaway:** Read the $y$-intercept where the graph crosses the $y$-axis, then use a second clear point for the slope; a falling line needs a negative slope.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "reading-slope-intercept-form",
@@ -4654,9 +4654,9 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A strain-gauge model has the form $y = mx + 3$, in which $m$ is a constant. The model returns an output of $21$ when the input is $-6$. What is the value of $m$?",
+    question: "$y = mx + 3$\nIn the given equation, $m$ is a constant. If $y = 21$ when $x = -6$, what is the value of $m$?",
     correctAnswer: "-3",
-    explanation: "**SAT Pattern: Reading Slope-Intercept Form**\n\n**The correct answer is $-3$.**\n\n**The Fast Way (~20s):** Substituting gives $21 = -6m + 3$, so $-6m = 18$ and $m = -3$.\n\n**The Full Solution:**\nStep 1: Substitute the input and output into $y = mx + 3$: $21 = m(-6) + 3$.\nStep 2: Subtracting $3$ from both sides gives $18 = -6m$.\nStep 3: Dividing by $-6$ gives $m = -3$. Check: $-3(-6) + 3 = 18 + 3 = 21$.\n\n**Common Mistakes:**\n* Dropping a sign gives $m = 3$, which would return $-15$ at an input of $-6$.\n* Ignoring the $+3$ gives $m = \\frac{21}{-6} = -3.5$.\n* Dividing in the wrong order gives $\\frac{-6}{18} = -\\frac{1}{3}$.\n\n**Test Day Takeaway:** Substitute both numbers first, then isolate the parameter; the constant term must be cleared before dividing.",
+    explanation: "**SAT Pattern: Reading Slope-Intercept Form**\n\n**The correct answer is -3.**\n\n**The Fast Way (~15s):** Substitute: $21 = -6m + 3$, so $-6m = 18$ and $m = -3$.\n\n**The Full Solution:**\nStep 1: Substitute $x = -6$ and $y = 21$ into the equation: $21 = m(-6) + 3$.\nStep 2: Subtract $3$ from both sides: $18 = -6m$.\nStep 3: Divide by $-6$: $m = -3$. Check: $-3(-6) + 3 = 18 + 3 = 21$ ✓\n\n**Common Mistakes:**\n* $3$: drops the negative sign when dividing $18$ by $-6$.\n* $-3.5$: ignores the $+3$ and divides $21$ by $-6$.\n* $-\\frac{1}{3}$: divides in the wrong order, computing $\\frac{-6}{18}$.\n\n**Test Day Takeaway:** Substitute the given pair, isolate the term with the constant, and divide; check the result in the original equation.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "reading-slope-intercept-form",
@@ -4669,19 +4669,19 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The graph in the $xy$-plane shows line $t$. A mirror image of line $t$ in the $x$-axis is labeled line $u$, and line $v$ meets line $u$ at a right angle. What is the slope of line $v$?",
-    diagram: { type: "linearGraph", params: { slope: -2.5, yIntercept: 5, xRange: [-4, 6], yRange: [-6, 10], xTickInterval: 2, yTickInterval: 2, gridInterval: 2, showPoints: [[0, 5], [2, 0]], label: "t" } },
+    question: "The graph of line $t$ is shown in the $xy$-plane. Line $u$ is the reflection of line $t$ across the $x$-axis, and line $v$ is perpendicular to line $u$. What is the slope of line $v$?",
+    diagram: { type: "linearGraph", params: { slope: -2.5, yIntercept: 5, xRange: [-4, 6], yRange: [-6, 10], xTickInterval: 2, yTickInterval: 2, gridInterval: 1, showPoints: [[0, 5], [2, 0]], label: "t" } },
     choices: [
       // distractor: reports the slope of line $t$ itself, skipping both the reflection and the perpendicular step
       { id: "A", text: "$-2.5$" },
       { id: "B", text: "$-0.4$" },
-      // distractor: takes the negative reciprocal but drops the minus sign
+      // distractor: takes the reciprocal of line $u$'s slope but drops the minus sign
       { id: "C", text: "$0.4$" },
       // distractor: reports the slope of line $u$ without taking the perpendicular
       { id: "D", text: "$2.5$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Slope of a Reflected Line**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Line $t$ has slope $-2.5$; reflecting across the $x$-axis makes it $2.5$; the perpendicular slope is $-\\frac{1}{2.5} = -0.4$.\n\n**The Full Solution:**\n\nStep 1: Line $t$ passes through $(0, 5)$ and $(2, 0)$, so its slope is $\\frac{0 - 5}{2 - 0} = -\\frac{5}{2}$.\n\nStep 2: Reflecting across the $x$-axis replaces every $y$ with $-y$, which negates the slope, so line $u$ has slope $\\frac{5}{2}$.\n\nStep 3: Perpendicular slopes are negative reciprocals, so line $v$ has slope $-\\frac{2}{5} = -0.4$. Check: $\\frac{5}{2} \\cdot \\left(-\\frac{2}{5}\\right) = -1$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-2.5$): reports the slope read straight off the graph, as if neither transformation happened.\n\n* Choice C ($0.4$): takes the reciprocal of $\\frac{5}{2}$ but forgets that perpendicular means the negative reciprocal.\n\n* Choice D ($2.5$): stops after the reflection.\n\n**Test Day Takeaway:** Handle transformations one at a time, and confirm a perpendicular pair by checking that the two slopes multiply to $-1$.",
+    explanation: "**SAT Pattern: Slope of a Reflected Line**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Line $t$ has slope $-2.5$, its reflection across the $x$-axis has slope $2.5$, and the perpendicular slope is $-\\frac{1}{2.5} = -0.4$.\n\n**The Full Solution:**\nStep 1: Line $t$ passes through $(0, 5)$ and $(2, 0)$, so its slope is $\\frac{0 - 5}{2 - 0} = -2.5$.\nStep 2: Reflecting across the $x$-axis replaces each $y$-coordinate with its opposite, which negates the slope, so line $u$ has slope $2.5$.\nStep 3: Perpendicular slopes are negative reciprocals, so line $v$ has slope $-\\frac{1}{2.5} = -0.4$. Check: $(2.5)(-0.4) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2.5$): reports the slope of line $t$ read off the graph, as if neither the reflection nor the perpendicular step happened.\n* Choice C ($0.4$): takes the reciprocal of $2.5$ but leaves out the sign change that perpendicular lines require.\n* Choice D ($2.5$): stops at line $u$, the reflection, and never takes the perpendicular slope.\n\n**Test Day Takeaway:** Chain the moves one at a time: a reflection across the $x$-axis negates the slope, and a perpendicular line takes the negative reciprocal.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "slope-from-rearranged-form",
@@ -4694,18 +4694,18 @@ export const algebraBank = [
     skills: ["slope-intercept-form"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A calibration worksheet uses two perpendicular lines. Line $u$ is the graph of $y = \\frac{1}{2}x + 3$, and the point $(6, 1)$ lies on line $v$. At the point where lines $u$ and $v$ meet, what is the value of $x + y$?",
+    question: "In the $xy$-plane, line $u$ is defined by $y = \\frac{1}{2}x + 3$. Line $v$ is perpendicular to line $u$ and passes through the point $(6, 1)$. If lines $u$ and $v$ intersect at the point $(a, b)$, what is the value of $a + b$?",
     choices: [
-      // distractor: uses slope $-\frac{1}{2}$ for line $v$, negating without inverting, which puts the crossing at $(1, 3.5)$
+      // distractor: uses slope $-\frac{1}{2}$ for line $v$, negating without inverting, which puts the intersection at $(1, 3.5)$
       { id: "A", text: "$4.5$" },
-      // distractor: reports only the $y$-coordinate of the crossing point
+      // distractor: reports only $b$, the $y$-coordinate of the intersection point
       { id: "B", text: "$5$" },
       { id: "C", text: "$9$" },
-      // distractor: uses slope $2$ for line $v$, inverting without negating, which puts the crossing at $\left(\frac{28}{3}, \frac{23}{3}\right)$
+      // distractor: uses slope $2$ for line $v$, inverting without negating, which puts the intersection at $\left(\frac{28}{3}, \frac{23}{3}\right)$
       { id: "D", text: "$17$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Perpendicular Line + Intersection**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** Line $v$ is $y = -2x + 13$; solving with $y = \\frac{1}{2}x + 3$ gives $(4, 5)$, so $x + y = 9$.\n\n**The Full Solution:**\nStep 1: Line $u$ has slope $\\frac{1}{2}$, so line $v$ has slope $-2$; with $(6, 1)$, $1 = -12 + b$ gives $b = 13$ and $y = -2x + 13$.\nStep 2: Set the expressions equal: $\\frac{1}{2}x + 3 = -2x + 13$, so $x + 6 = -4x + 26$ and $5x = 20$, giving $x = 4$.\nStep 3: Then $y = \\frac{1}{2}(4) + 3 = 5$, so $x + y = 4 + 5 = 9$. Check: $-2(4) + 13 = 5$, so $(4, 5)$ lies on both lines.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4.5$): uses slope $-\\frac{1}{2}$ for line $v$, negating without inverting, which puts the crossing at $(1, 3.5)$\n* Choice B ($5$): reports only the $y$-coordinate of the crossing point\n* Choice D ($17$): uses slope $2$ for line $v$, inverting without negating, which puts the crossing at $\\left(\\frac{28}{3}, \\frac{23}{3}\\right)$\n\n**Test Day Takeaway:** A perpendicular slope needs both moves, flip and negate; then read exactly the quantity the question names.",
+    explanation: "**SAT Pattern: Perpendicular Line + Intersection**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** Line $v$ has slope $-2$, so it is $y = -2x + 13$; setting $\\frac{1}{2}x + 3 = -2x + 13$ gives $x = 4$ and $y = 5$, so $a + b = 9$.\n\n**The Full Solution:**\nStep 1: Line $u$ has slope $\\frac{1}{2}$, so line $v$ has slope $-2$. Substituting $(6, 1)$ into $y = -2x + c$ gives $1 = -12 + c$, so line $v$ is $y = -2x + 13$.\nStep 2: At the intersection, $\\frac{1}{2}x + 3 = -2x + 13$, so $\\frac{5}{2}x = 10$ and $x = 4$. Then $y = \\frac{1}{2}(4) + 3 = 5$.\nStep 3: The intersection point is $(4, 5)$, so $a + b = 4 + 5 = 9$. Check: $-2(4) + 13 = 5$, so $(4, 5)$ is also on line $v$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4.5$): uses slope $-\\frac{1}{2}$ for line $v$, negating without inverting; the lines would then meet at $(1, 3.5)$.\n* Choice B ($5$): finds the intersection correctly but reports only $b$.\n* Choice D ($17$): uses slope $2$ for line $v$, inverting without negating; the lines would then meet at $\\left(\\frac{28}{3}, \\frac{23}{3}\\right)$.\n\n**Test Day Takeaway:** Build the second line from its slope and point, solve the system, and then reread what the question wants: here, the sum of the coordinates.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "slope-from-rearranged-form",
@@ -4718,18 +4718,18 @@ export const algebraBank = [
     skills: ["perpendicular-negative-reciprocal"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A drawing places a hinge line along the graph of $y = \\frac{4}{9}x + 3$. Which of the following equations defines a line that meets the hinge line at a right angle?",
+    question: "Line $k$ is defined by $y = \\frac{4}{9}x + 3$. Which equation defines a line that is perpendicular to line $k$ in the $xy$-plane?",
     choices: [
       { id: "A", text: "$y = -\\frac{9}{4}x + 3$" },
-      // distractor: negates the slope without inverting it, so the product is $-\frac{16}{81}$, not $-1$
+      // distractor: negates the slope without inverting it
       { id: "B", text: "$y = -\\frac{4}{9}x + 3$" },
-      // distractor: inverts the slope without negating it, so the product is $1$
+      // distractor: inverts the slope without negating it
       { id: "C", text: "$y = \\frac{9}{4}x + 3$" },
-      // distractor: repeats the hinge line's slope, giving a parallel line
+      // distractor: keeps line $k$'s slope, which gives a parallel line
       { id: "D", text: "$y = \\frac{4}{9}x - 3$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Perpendicular Slope**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The hinge line has slope $\\frac{4}{9}$, so a perpendicular line has slope $-\\frac{9}{4}$.\n\n**The Full Solution:**\nStep 1: The hinge line is written in slope-intercept form, so its slope is $\\frac{4}{9}$.\nStep 2: Two lines meet at a right angle when the product of their slopes is $-1$.\nStep 3: Since $\\frac{4}{9}\\left(-\\frac{9}{4}\\right) = -1$, the perpendicular line has slope $-\\frac{9}{4}$, as in $y = -\\frac{9}{4}x + 3$. Check: flipping $\\frac{4}{9}$ gives $\\frac{9}{4}$, and the negative sign completes the pair.\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = -\\frac{4}{9}x + 3$): negates the slope without inverting it, so the product is $-\\frac{16}{81}$, not $-1$\n* Choice C ($y = \\frac{9}{4}x + 3$): inverts the slope without negating it, so the product is $1$\n* Choice D ($y = \\frac{4}{9}x - 3$): repeats the hinge line's slope, giving a parallel line\n\n**Test Day Takeaway:** Perpendicular slopes need both moves: flip the fraction and change the sign.",
+    explanation: "**SAT Pattern: Perpendicular Slope**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The perpendicular slope is the negative reciprocal of $\\frac{4}{9}$, which is $-\\frac{9}{4}$; only choice A has it.\n\n**The Full Solution:**\nStep 1: Line $k$ is in slope-intercept form, so its slope is $\\frac{4}{9}$.\nStep 2: A perpendicular line has the negative reciprocal slope: $-\\frac{9}{4}$.\nStep 3: Choice A, $y = -\\frac{9}{4}x + 3$, is the only equation with slope $-\\frac{9}{4}$. Check: $\\frac{4}{9} \\cdot \\left(-\\frac{9}{4}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = -\\frac{4}{9}x + 3$): changes the sign but does not invert, so the product of the slopes is $-\\frac{16}{81}$, not $-1$.\n* Choice C ($y = \\frac{9}{4}x + 3$): inverts but does not change the sign, so the product of the slopes is $1$.\n* Choice D ($y = \\frac{4}{9}x - 3$): has the same slope as line $k$, so it is parallel to line $k$.\n\n**Test Day Takeaway:** For perpendicular lines, flip the slope and change its sign; the $y$-intercept does not matter.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "perpendicular-slope",
@@ -4742,9 +4742,9 @@ export const algebraBank = [
     skills: ["perpendicular-negative-reciprocal"],
     difficulty: "easy",
     type: "fill-in",
-    question: "A grading plan for a site draws a swale of slope $-\\frac{5}{6}$ and a curb that meets the swale at a right angle. What is the slope of the curb?",
+    question: "Line $p$ has a slope of $-\\frac{5}{6}$. Line $r$ is perpendicular to line $p$. What is the slope of line $r$?",
     correctAnswer: "6/5",
-    explanation: "**SAT Pattern: Perpendicular Slope**\n\n**The correct answer is $\\frac{6}{5}$.**\n\n**The Fast Way (~15s):** Flipping $-\\frac{5}{6}$ and changing its sign gives $\\frac{6}{5}$.\n\n**The Full Solution:**\nStep 1: The swale has slope $-\\frac{5}{6}$.\nStep 2: A line meeting it at a right angle has the negative reciprocal slope.\nStep 3: Flipping gives $-\\frac{6}{5}$, and negating gives $\\frac{6}{5}$. Check: $-\\frac{5}{6} \\cdot \\frac{6}{5} = -1$.\n\n**Common Mistakes:**\n* Reporting $-\\frac{6}{5}$ flips the fraction but leaves the sign negative.\n* Reporting $\\frac{5}{6}$ changes the sign but never inverts the fraction.\n* Reporting $-\\frac{5}{6}$ copies the swale's slope unchanged.\n\n**Test Day Takeaway:** Test any candidate by multiplying: a correct perpendicular slope makes the product exactly $-1$.",
+    explanation: "**SAT Pattern: Perpendicular Slope**\n\n**The correct answer is $\\frac{6}{5}$.**\n\n**The Fast Way (~10s):** Flip $-\\frac{5}{6}$ and change its sign: $\\frac{6}{5}$.\n\n**The Full Solution:**\nStep 1: Line $p$ has slope $-\\frac{5}{6}$.\nStep 2: A line perpendicular to it has the negative reciprocal slope.\nStep 3: Flipping gives $-\\frac{6}{5}$, and changing the sign gives $\\frac{6}{5}$. Check: $-\\frac{5}{6} \\cdot \\frac{6}{5} = -1$ ✓\n\n**Common Mistakes:**\n* $-\\frac{6}{5}$: flips the fraction but keeps the negative sign.\n* $\\frac{5}{6}$: changes the sign but does not flip the fraction.\n* $-\\frac{5}{6}$: copies line $p$'s slope, which describes a parallel line.\n\n**Test Day Takeaway:** Check a perpendicular slope by multiplying: the product of the two slopes must be exactly $-1$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "perpendicular-slope",
@@ -4757,19 +4757,19 @@ export const algebraBank = [
     skills: ["perpendicular-negative-reciprocal"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A truss diagram graphs line $r$ in the $xy$-plane. One member of the truss lies on a line that meets line $r$ at a right angle and includes the point $(-1, -2)$. Which equation defines the member's line?",
+    question: "The graph of line $r$ is shown in the $xy$-plane. Line $s$ is perpendicular to line $r$ and passes through the point $(-1, -2)$. Which equation defines line $s$?",
     diagram: { type: "linearGraph", params: { slope: -0.3333333, yIntercept: 2, xRange: [-6, 6], yRange: [-4, 6], xTickInterval: 2, yTickInterval: 2, gridInterval: 1, showPoints: [[0, 2], [3, 1]], label: "r" } },
     choices: [
-      // distractor: copies line $r$'s slope, giving a parallel line rather than a perpendicular one
+      // distractor: keeps line $r$'s slope, which gives a line parallel to line $r$
       { id: "A", text: "$y = -\\frac{1}{3}x - \\frac{7}{3}$" },
-      // distractor: computes $b$ as $y + mx = -2 + 3(-1) = -5$
+      // distractor: computes the $y$-intercept as $y + mx = -2 + 3(-1) = -5$
       { id: "B", text: "$y = 3x - 5$" },
-      // distractor: negates the perpendicular slope to $-3$, giving $-2 = 3 + b$ and $b = -5$
+      // distractor: uses slope $-3$, negating line $r$'s reciprocal twice, and gets $-2 = 3 + b$, so $b = -5$
       { id: "C", text: "$y = -3x - 5$" },
       { id: "D", text: "$y = 3x + 1$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Perpendicular Line Through a Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Line $r$ has slope $-\\frac{1}{3}$, so the member has slope $3$, and $-2 = 3(-1) + b$ gives $b = 1$.\n\n**The Full Solution:**\nStep 1: Line $r$ passes through $(0, 2)$ and $(3, 1)$, so its slope is $\\frac{1 - 2}{3 - 0} = -\\frac{1}{3}$.\nStep 2: A right angle requires the negative reciprocal, so the member's line has slope $3$.\nStep 3: Substituting $(-1, -2)$ into $y = 3x + b$ gives $-2 = -3 + b$, so $b = 1$ and the line is $y = 3x + 1$. Check: $3(-1) + 1 = -2$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{1}{3}x - \\frac{7}{3}$): copies line $r$'s slope, giving a parallel line rather than a perpendicular one\n* Choice B ($y = 3x - 5$): computes $b$ as $y + mx = -2 + 3(-1) = -5$\n* Choice C ($y = -3x - 5$): negates the perpendicular slope to $-3$, giving $-2 = 3 + b$ and $b = -5$\n\n**Test Day Takeaway:** Take the negative reciprocal of the graphed slope, then use the given point only to set $b$.",
+    explanation: "**SAT Pattern: Perpendicular Line Through a Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Line $r$ has slope $-\\frac{1}{3}$, so line $s$ has slope $3$, and $-2 = 3(-1) + b$ gives $b = 1$.\n\n**The Full Solution:**\nStep 1: Line $r$ passes through $(0, 2)$ and $(3, 1)$, so its slope is $\\frac{1 - 2}{3 - 0} = -\\frac{1}{3}$.\nStep 2: Line $s$ is perpendicular to line $r$, so its slope is the negative reciprocal, $3$.\nStep 3: Substituting $(-1, -2)$ into $y = 3x + b$ gives $-2 = -3 + b$, so $b = 1$ and line $s$ is $y = 3x + 1$. Check: $3(-1) + 1 = -2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{1}{3}x - \\frac{7}{3}$): keeps line $r$'s slope, so this line through $(-1, -2)$ is parallel to line $r$.\n* Choice B ($y = 3x - 5$): has the right slope but computes the intercept as $y + mx = -2 + 3(-1) = -5$ instead of $y - mx$.\n* Choice C ($y = -3x - 5$): uses slope $-3$, which is the reciprocal of line $r$'s slope without the sign change.\n\n**Test Day Takeaway:** Read the slope from two clear points on the graph, take the negative reciprocal, then solve for the intercept with $b = y - mx$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "perpendicular-slope",
@@ -4782,9 +4782,9 @@ export const algebraBank = [
     skills: ["perpendicular-negative-reciprocal"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A packaging line's floor plan places the guide bar along $8x + 6y = 45$ and installs a crossbar perpendicular to the guide bar. What is the slope of the crossbar?",
+    question: "$8x + 6y = 45$\nLine $k$ is perpendicular to the graph of the given equation in the $xy$-plane. What is the slope of line $k$?",
     correctAnswer: "3/4",
-    explanation: "**SAT Pattern: Perpendicular Slope**\n\n**The correct answer is $\\frac{3}{4}$.**\n\n**The Fast Way (~25s):** The guide bar has slope $-\\frac{4}{3}$, so the crossbar has slope $\\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: Rewrite $8x + 6y = 45$ as $y = -\\frac{4}{3}x + \\frac{15}{2}$, so the guide bar has slope $-\\frac{4}{3}$.\nStep 2: The crossbar is perpendicular, so its slope is the negative reciprocal.\nStep 3: Flipping and negating $-\\frac{4}{3}$ gives $\\frac{3}{4}$. Check: $-\\frac{4}{3} \\cdot \\frac{3}{4} = -1$.\n\n**Common Mistakes:**\n* Reporting $-\\frac{3}{4}$ inverts the slope but keeps the negative sign.\n* Reporting $\\frac{4}{3}$ changes the sign without inverting.\n* Reporting $-\\frac{4}{3}$ gives the guide bar's own slope rather than the crossbar's.\n\n**Test Day Takeaway:** Reduce $-\\frac{A}{B}$ before inverting; $-\\frac{8}{6}$ and $-\\frac{4}{3}$ are the same slope, but the reduced form is faster to flip.",
+    explanation: "**SAT Pattern: Perpendicular Slope**\n\n**The correct answer is $\\frac{3}{4}$.**\n\n**The Fast Way (~20s):** The given line has slope $-\\frac{8}{6} = -\\frac{4}{3}$, so line $k$ has slope $\\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: Solve for $y$: $6y = -8x + 45$, so $y = -\\frac{4}{3}x + \\frac{15}{2}$.\nStep 2: The graph of the given equation has slope $-\\frac{4}{3}$.\nStep 3: Line $k$ has the negative reciprocal slope, $\\frac{3}{4}$. Check: $-\\frac{4}{3} \\cdot \\frac{3}{4} = -1$ ✓\n\n**Common Mistakes:**\n* $-\\frac{3}{4}$: flips the slope but keeps the negative sign.\n* $\\frac{4}{3}$: changes the sign but does not flip the fraction.\n* $-\\frac{4}{3}$: reports the slope of the given line instead of line $k$.\n\n**Test Day Takeaway:** For $Ax + By = C$, the slope is $-\\frac{A}{B}$; take that first, then the negative reciprocal.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "perpendicular-slope",
@@ -4797,18 +4797,18 @@ export const algebraBank = [
     skills: ["perpendicular-negative-reciprocal"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A materials lab records a specimen's response as the graph of $7x - 3y = 24$. Any line drawn at a right angle to that response line has what slope?",
+    question: "In the $xy$-plane, the graph of $7x - 3y = 24$ is perpendicular to line $q$. What is the slope of line $q$?",
     choices: [
-      // distractor: negates the response line's slope without inverting it
+      // distractor: negates the given line's slope without inverting it
       { id: "A", text: "$-\\frac{7}{3}$" },
       { id: "B", text: "$-\\frac{3}{7}$" },
-      // distractor: inverts the slope without negating it
+      // distractor: inverts the given line's slope without negating it
       { id: "C", text: "$\\frac{3}{7}$" },
-      // distractor: repeats the response line's own slope
+      // distractor: reports the slope of the given line
       { id: "D", text: "$\\frac{7}{3}$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Perpendicular Slope**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The response line has slope $\\frac{7}{3}$, so a perpendicular line has slope $-\\frac{3}{7}$.\n\n**The Full Solution:**\nStep 1: Rewrite $7x - 3y = 24$ as $-3y = -7x + 24$, so $y = \\frac{7}{3}x - 8$.\nStep 2: The response line therefore has slope $\\frac{7}{3}$.\nStep 3: A right angle requires the negative reciprocal, which is $-\\frac{3}{7}$. Check: $\\frac{7}{3}\\left(-\\frac{3}{7}\\right) = -1$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{7}{3}$): negates the response line's slope without inverting it\n* Choice C ($\\frac{3}{7}$): inverts the slope without negating it\n* Choice D ($\\frac{7}{3}$): repeats the response line's own slope\n\n**Test Day Takeaway:** Dividing by a negative coefficient of $y$ flips the sign of both remaining terms; do that step on paper.",
+    explanation: "**SAT Pattern: Perpendicular Slope**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The given line has slope $\\frac{7}{3}$, so line $q$ has slope $-\\frac{3}{7}$.\n\n**The Full Solution:**\nStep 1: Solve for $y$: $-3y = -7x + 24$, so $y = \\frac{7}{3}x - 8$.\nStep 2: The graph of the given equation has slope $\\frac{7}{3}$.\nStep 3: Line $q$ has the negative reciprocal slope, $-\\frac{3}{7}$. Check: $\\frac{7}{3} \\cdot \\left(-\\frac{3}{7}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{7}{3}$): changes the sign of $\\frac{7}{3}$ but does not flip it.\n* Choice C ($\\frac{3}{7}$): flips $\\frac{7}{3}$ but does not change its sign.\n* Choice D ($\\frac{7}{3}$): is the slope of the given line itself, which would make the lines parallel.\n\n**Test Day Takeaway:** Rewrite a standard-form equation as $y = mx + b$ before reading the slope; a negative $y$-coefficient flips the sign.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "perpendicular-slope",
@@ -4821,9 +4821,9 @@ export const algebraBank = [
     skills: ["perpendicular-negative-reciprocal"],
     difficulty: "medium",
     type: "fill-in",
-    question: "Lines $u$ and $v$ are perpendicular in the $xy$-plane. Line $u$ has equation $y = -\\dfrac{4}{9}x + 2$, and line $v$ passes through the origin. For what value of $y$ does the point $(8, y)$ lie on line $v$?",
+    question: "In the $xy$-plane, line $v$ passes through the origin and is perpendicular to the line $y = -\\frac{4}{9}x + 2$. If the point $(8, b)$ lies on line $v$, what is the value of $b$?",
     correctAnswer: "18",
-    explanation: "**SAT Pattern: Perpendicular Slope**\n\n**The correct answer is $18$.**\n\n**The Fast Way (~15s):** The slope of $v$ is the negative reciprocal of $-\\dfrac{4}{9}$, which is $\\dfrac{9}{4}$. Through the origin, $v$ is $y = \\dfrac{9}{4}x$, so at $x = 8$, $y = 18$.\n\n**The Full Solution:**\nStep 1: The slope of $u$ is $-\\dfrac{4}{9}$, so the slope of $v$ is $\\dfrac{9}{4}$.\nStep 2: Line $v$ passes through $(0, 0)$, so its $y$-intercept is $0$ and its equation is $y = \\dfrac{9}{4}x$.\nStep 3: Substitute $x = 8$: $y = \\dfrac{9}{4}(8) = 18$. Check: the slope from $(0, 0)$ to $(8, 18)$ is $\\dfrac{18}{8} = \\dfrac{9}{4}$. $\\checkmark$\n\n**Common Mistakes:** Using slope $-\\dfrac{9}{4}$ and entering $-18$; using slope $\\dfrac{4}{9}$ and entering $\\dfrac{32}{9}$; adding the intercept $2$ of line $u$ to get $20$, though $v$ has its own intercept, $0$.\n\n**Test Day Takeaway:** The perpendicular slope comes from $u$; the intercept comes from the point $v$ passes through. Keep the two lines' intercepts separate.",
+    explanation: "**SAT Pattern: Perpendicular Slope**\n\n**The correct answer is 18.**\n\n**The Fast Way (~20s):** Line $v$ has slope $\\frac{9}{4}$ and passes through the origin, so $b = \\frac{9}{4}(8) = 18$.\n\n**The Full Solution:**\nStep 1: The given line has slope $-\\frac{4}{9}$, so line $v$ has slope $\\frac{9}{4}$.\nStep 2: Line $v$ passes through the origin, so its equation is $y = \\frac{9}{4}x$.\nStep 3: Substitute $x = 8$: $b = \\frac{9}{4}(8) = 18$. Check: the slope from $(0, 0)$ to $(8, 18)$ is $\\frac{18}{8} = \\frac{9}{4}$, and $-\\frac{4}{9} \\cdot \\frac{9}{4} = -1$ ✓\n\n**Common Mistakes:**\n* $-18$: uses slope $-\\frac{9}{4}$, flipping the slope without changing its sign.\n* $\\frac{32}{9}$: uses slope $\\frac{4}{9}$, changing the sign without flipping.\n* $20$: adds the $y$-intercept $2$ of the given line, but line $v$ passes through the origin, so its intercept is $0$.\n\n**Test Day Takeaway:** A line through the origin is $y = mx$; once you have the perpendicular slope, plug in the $x$-value.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "perpendicular-slope",
@@ -4836,18 +4836,18 @@ export const algebraBank = [
     skills: ["perpendicular-negative-reciprocal"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "In a wind-tunnel test rig, a boom lies on a line of slope $\\frac{k - 3}{4}$ and a tether lies on a line of slope $\\frac{8}{k}$, where $k$ is a nonzero constant. The boom and the tether cross at a right angle. What is the value of $k$?",
+    question: "In the $xy$-plane, line $m$ has a slope of $\\frac{k - 3}{4}$ and line $n$ has a slope of $\\frac{8}{k}$, where $k$ is a nonzero constant. If lines $m$ and $n$ are perpendicular, what is the value of $k$?",
     choices: [
-      // distractor: distributes only to $k$, solving $8k - 3 = -4k$ and then $12k = 3$
+      // distractor: multiplies only the $k$ by $8$, solving $8k - 3 = -4k$, so $12k = 3$
       { id: "A", text: "$\\frac{1}{4}$" },
-      // distractor: divides in the wrong order at the last step, reporting $\frac{12}{24}$ rather than $\frac{24}{12}$
+      // distractor: divides in the wrong order at the last step, reporting $\frac{12}{24}$ instead of $\frac{24}{12}$
       { id: "B", text: "$\\frac{1}{2}$" },
       { id: "C", text: "$2$" },
-      // distractor: sets the product of the slopes to $1$ instead of $-1$, giving $8k - 24 = 4k$ and $4k = 24$
+      // distractor: sets the product of the slopes equal to $1$ instead of $-1$, solving $8k - 24 = 4k$
       { id: "D", text: "$6$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Perpendicular Slope**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Setting $\\frac{k - 3}{4} \\cdot \\frac{8}{k} = -1$ gives $8k - 24 = -4k$, so $k = 2$.\n\n**The Full Solution:**\nStep 1: Perpendicular lines have slopes whose product is $-1$, so $\\frac{k - 3}{4} \\cdot \\frac{8}{k} = -1$.\nStep 2: Multiplying both sides by $4k$ gives $8(k - 3) = -4k$, so $8k - 24 = -4k$.\nStep 3: Then $12k = 24$ and $k = 2$. Check: the slopes are $\\frac{2 - 3}{4} = -\\frac{1}{4}$ and $\\frac{8}{2} = 4$, whose product is $-1$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{4}$): distributes only to $k$, solving $8k - 3 = -4k$ and then $12k = 3$\n* Choice B ($\\frac{1}{2}$): divides in the wrong order at the last step, reporting $\\frac{12}{24}$ rather than $\\frac{24}{12}$\n* Choice D ($6$): sets the product of the slopes to $1$ instead of $-1$, giving $8k - 24 = 4k$ and $4k = 24$\n\n**Test Day Takeaway:** Multiply the two slope expressions, clear the denominator, and only then distribute.",
+    explanation: "**SAT Pattern: Perpendicular Slope**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Perpendicular slopes multiply to $-1$: $\\frac{8(k - 3)}{4k} = -1$, so $8k - 24 = -4k$ and $k = 2$.\n\n**The Full Solution:**\nStep 1: Set the product of the slopes equal to $-1$: $\\frac{k - 3}{4} \\cdot \\frac{8}{k} = -1$.\nStep 2: Multiply both sides by $4k$: $8(k - 3) = -4k$, so $8k - 24 = -4k$.\nStep 3: Then $12k = 24$ and $k = 2$. Check: the slopes are $\\frac{2 - 3}{4} = -\\frac{1}{4}$ and $\\frac{8}{2} = 4$, and $\\left(-\\frac{1}{4}\\right)(4) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{4}$): distributes the $8$ to $k$ only, writing $8k - 3 = -4k$, so $12k = 3$.\n* Choice B ($\\frac{1}{2}$): reaches $12k = 24$ but divides in the wrong order, reporting $\\frac{12}{24}$.\n* Choice D ($6$): sets the product of the slopes equal to $1$ instead of $-1$, giving $8k - 24 = 4k$.\n\n**Test Day Takeaway:** When slopes contain a constant, write the perpendicular condition as a product equal to $-1$, clear the fractions, and check the final slopes.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "perpendicular-slope",
@@ -4860,9 +4860,9 @@ export const algebraBank = [
     skills: ["perpendicular-negative-reciprocal"],
     difficulty: "hard",
     type: "fill-in",
-    question: "On a press layout, the axis of a hydraulic ram joins the points $(-3, 4)$ and $(7, -2)$. For what value of the constant $a$ does this axis meet the graph of $ax + 15y = 40$ at a right angle?",
+    question: "$ax + 15y = 40$\nIn the given equation, $a$ is a constant. The graph of the equation in the $xy$-plane is perpendicular to the line that passes through the points $(-3, 4)$ and $(7, -2)$. What is the value of $a$?",
     correctAnswer: "-25",
-    explanation: "**SAT Pattern: Perpendicular Slope**\n\n**The correct answer is $-25$.**\n\n**The Fast Way (~40s):** The axis has slope $-\\frac{3}{5}$, so the graph needs slope $\\frac{5}{3}$: $-\\frac{a}{15} = \\frac{5}{3}$ gives $a = -25$.\n\n**The Full Solution:**\nStep 1: The axis joins $(-3, 4)$ and $(7, -2)$, so its slope is $\\frac{-2 - 4}{7 - (-3)} = \\frac{-6}{10} = -\\frac{3}{5}$.\nStep 2: A right angle requires the graph of $ax + 15y = 40$ to have slope $\\frac{5}{3}$, and that graph's slope is $-\\frac{a}{15}$.\nStep 3: Solving $-\\frac{a}{15} = \\frac{5}{3}$ gives $-3a = 75$ and $a = -25$. Check: $-\\frac{-25}{15} = \\frac{5}{3}$ and $-\\frac{3}{5} \\cdot \\frac{5}{3} = -1$.\n\n**Common Mistakes:**\n* Dropping the negative gives $a = 25$, whose graph has slope $-\\frac{5}{3}$ and meets the axis at no right angle.\n* Using the parallel slope $-\\frac{3}{5}$ instead of the negative reciprocal gives $a = 9$.\n* Reporting $\\frac{5}{3}$ stops at the required slope instead of solving for $a$.\n\n**Test Day Takeaway:** Three moves in order: two-point slope, negative reciprocal, then the standard-form slope $-\\frac{A}{B}$.",
+    explanation: "**SAT Pattern: Perpendicular Slope**\n\n**The correct answer is -25.**\n\n**The Fast Way (~40s):** The line through the points has slope $-\\frac{3}{5}$, so the graph needs slope $\\frac{5}{3}$; setting $-\\frac{a}{15} = \\frac{5}{3}$ gives $a = -25$.\n\n**The Full Solution:**\nStep 1: The slope through $(-3, 4)$ and $(7, -2)$ is $\\frac{-2 - 4}{7 - (-3)} = \\frac{-6}{10} = -\\frac{3}{5}$.\nStep 2: A perpendicular line has slope $\\frac{5}{3}$. Solving the given equation for $y$ gives $y = -\\frac{a}{15}x + \\frac{8}{3}$, so its slope is $-\\frac{a}{15}$.\nStep 3: Set $-\\frac{a}{15} = \\frac{5}{3}$: $a = -25$. Check: $-25x + 15y = 40$ has slope $\\frac{25}{15} = \\frac{5}{3}$, and $\\frac{5}{3} \\cdot \\left(-\\frac{3}{5}\\right) = -1$ ✓\n\n**Common Mistakes:**\n* $25$: drops the negative sign, giving a slope of $-\\frac{5}{3}$.\n* $9$: matches the slope $-\\frac{3}{5}$ instead of the negative reciprocal, which would make the lines parallel.\n* $\\frac{5}{3}$: stops at the required slope instead of solving for $a$.\n\n**Test Day Takeaway:** Find the target slope first, then express the slope of $ax + by = c$ as $-\\frac{a}{b}$ and solve for the constant.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "perpendicular-slope",
@@ -4877,19 +4877,19 @@ export const algebraBank = [
     skills: ["writing-parallel-equation"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The figure shows the graph of line $t$. Another line has the same slope as line $t$, and the point $(3, -5)$ lies on it. Which of the following equations defines that line?",
+    question: "The graph of line $t$ is shown in the $xy$-plane. Line $w$ is parallel to line $t$ and passes through the point $(3, -5)$. Which equation defines line $w$?",
     diagram: { type: "linearGraph", params: { slope: -2, yIntercept: 4, xRange: [-4, 6], yRange: [-6, 8], xTickInterval: 2, yTickInterval: 2, gridInterval: 1, showPoints: [[0, 4], [3, -2]], label: "t" } },
     choices: [
-      // distractor: computes $b$ as $y + mx = -5 + (-2)(3) = -11$
+      // distractor: computes the $y$-intercept as $y + mx = -5 + (-2)(3) = -11$
       { id: "A", text: "$y = -2x - 11$" },
       // distractor: uses the negative reciprocal $\frac{1}{2}$, which gives a perpendicular line
       { id: "B", text: "$y = \\frac{1}{2}x - \\frac{13}{2}$" },
-      // distractor: keeps line $t$'s own $y$-intercept, so the line never reaches $(3, -5)$
+      // distractor: keeps line $t$'s own $y$-intercept, so this is line $t$ itself
       { id: "C", text: "$y = -2x + 4$" },
       { id: "D", text: "$y = -2x + 1$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Line $t$ has slope $-2$, and $-5 = -2(3) + b$ gives $b = 1$.\n\n**The Full Solution:**\nStep 1: Line $t$ passes through $(0, 4)$ and $(3, -2)$, so its slope is $\\frac{-2 - 4}{3 - 0} = -2$.\nStep 2: The new line has the same slope, so $y = -2x + b$; substituting $(3, -5)$ gives $-5 = -6 + b$.\nStep 3: Therefore $b = 1$ and the line is $y = -2x + 1$. Check: $-2(3) + 1 = -5$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -2x - 11$): computes $b$ as $y + mx = -5 + (-2)(3) = -11$\n* Choice B ($y = \\frac{1}{2}x - \\frac{13}{2}$): uses the negative reciprocal $\\frac{1}{2}$, which gives a perpendicular line\n* Choice C ($y = -2x + 4$): keeps line $t$'s own $y$-intercept, so the line never reaches $(3, -5)$\n\n**Test Day Takeaway:** Same slope, new intercept: the point in the stem exists only to reset $b$.",
+    explanation: "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Line $t$ has slope $-2$, and $-5 = -2(3) + b$ gives $b = 1$.\n\n**The Full Solution:**\nStep 1: Line $t$ passes through $(0, 4)$ and $(3, -2)$, so its slope is $\\frac{-2 - 4}{3 - 0} = -2$.\nStep 2: Parallel lines have equal slopes, so line $w$ is $y = -2x + b$. Substituting $(3, -5)$ gives $-5 = -6 + b$.\nStep 3: So $b = 1$, and line $w$ is $y = -2x + 1$. Check: $-2(3) + 1 = -5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -2x - 11$): has the right slope but computes the intercept as $y + mx = -5 + (-2)(3) = -11$.\n* Choice B ($y = \\frac{1}{2}x - \\frac{13}{2}$): uses the negative reciprocal slope, which gives a line perpendicular to line $t$.\n* Choice C ($y = -2x + 4$): keeps line $t$'s $y$-intercept, so it is line $t$ itself and does not pass through $(3, -5)$.\n\n**Test Day Takeaway:** A parallel line keeps the slope and gets a new intercept; find it with $b = y - mx$ using the given point.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "parallel-line-through-a-point",
@@ -4902,9 +4902,9 @@ export const algebraBank = [
     skills: ["writing-parallel-equation"],
     difficulty: "easy",
     type: "fill-in",
-    question: "In a plating bath, the coating on panel $A$ reaches $y = 5x + 40$ micrometers after $x$ minutes. Panel $B$ gains thickness at the same rate and measured $75$ micrometers at $3$ minutes. How many micrometers thick was panel $B$'s coating at time zero?",
-    correctAnswer: "60",
-    explanation: "**SAT Pattern: Parallel Line Through a Point**\n\n**The correct answer is $60$.**\n\n**The Fast Way (~20s):** Panel $B$ also gains $5$ micrometers per minute, so its starting thickness is $75 - 5(3) = 60$.\n\n**The Full Solution:**\nStep 1: Equal rates mean panel $B$'s thickness is $y = 5x + b$ for some starting thickness $b$.\nStep 2: At $x = 3$ the thickness is $75$, so $75 = 5(3) + b$.\nStep 3: Then $b = 75 - 15 = 60$ micrometers. Check: $5(3) + 60 = 75$.\n\n**Common Mistakes:**\n* Adding instead of subtracting gives $75 + 15 = 90$, which is the thickness at $6$ minutes, not at time zero.\n* Reporting $40$ copies panel $A$'s starting thickness, which the problem never claims panel $B$ shares.\n* Reporting $75$ gives the thickness at $3$ minutes rather than at $x = 0$.\n\n**Test Day Takeaway:** Two quantities changing at the same rate share a slope but almost never share a starting value.",
+    question: "In the $xy$-plane, line $j$ is parallel to the line $y = 6x - 1$ and passes through the point $(2, 9)$. What is the $y$-coordinate of the $y$-intercept of line $j$?",
+    correctAnswer: "-3",
+    explanation: "**SAT Pattern: Parallel Line Through a Point**\n\n**The correct answer is -3.**\n\n**The Fast Way (~15s):** Line $j$ has slope $6$, so $9 = 6(2) + b$ and $b = -3$.\n\n**The Full Solution:**\nStep 1: Parallel lines have equal slopes, so line $j$ has slope $6$ and can be written $y = 6x + b$.\nStep 2: Substitute the point $(2, 9)$: $9 = 6(2) + b = 12 + b$.\nStep 3: Solve: $b = 9 - 12 = -3$. Check: $6(2) - 3 = 9$, so $(2, 9)$ is on $y = 6x - 3$ ✓\n\n**Common Mistakes:**\n* $21$: adds $12$ to $9$ instead of subtracting it.\n* $-1$: copies the $y$-intercept of the given line, but a parallel line through a different point has its own intercept.\n* $6$: reports the slope instead of the $y$-intercept.\n\n**Test Day Takeaway:** For a parallel line, keep the slope and solve $b = y - mx$ with the given point.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "parallel-line-through-a-point",
@@ -4917,18 +4917,19 @@ export const algebraBank = [
     skills: ["writing-parallel-equation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A surveying baseline, line $w$, includes the point $(-2, 5)$ and shares no point with the graph of $y = 3x - 7$. Which of the points below also lies on the baseline?",
+    question: "Line $k$ is shown in the $xy$-plane. Line $w$ passes through the point $(-2, 5)$ and does not intersect line $k$. Which of the following points lies on line $w$?",
+    diagram: { type: "linearGraph", params: { slope: 3, yIntercept: -7, xRange: [-4, 6], yRange: [-8, 8], xTickInterval: 2, yTickInterval: 2, gridInterval: 1, showPoints: [[2, -1], [4, 5]], label: "k" } },
     choices: [
       // distractor: uses the negative reciprocal $-\frac{1}{3}$, giving $y = -\frac{1}{3}x + \frac{13}{3}$ and $y = 3$ at $x = 4$
       { id: "A", text: "$(4, 3)$" },
-      // distractor: tests the given line $y = 3x - 7$ itself, which gives $3(4) - 7 = 5$
+      // distractor: reads the marked point $(4, 5)$, which lies on line $k$, not on line $w$
       { id: "B", text: "$(4, 5)$" },
-      // distractor: computes $b$ as $y + mx = 5 + 3(-2) = -1$, giving $y = 3(4) - 1 = 11$
+      // distractor: computes the $y$-intercept as $y + mx = 5 + 3(-2) = -1$, giving $y = 3(4) - 1 = 11$
       { id: "C", text: "$(4, 11)$" },
       { id: "D", text: "$(4, 23)$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The baseline is $y = 3x + 11$, and $3(4) + 11 = 23$.\n\n**The Full Solution:**\nStep 1: Sharing no point with $y = 3x - 7$ means the baseline has slope $3$ and a different intercept.\nStep 2: Substituting $(-2, 5)$ into $y = 3x + b$ gives $5 = -6 + b$, so $b = 11$ and the baseline is $y = 3x + 11$.\nStep 3: At $x = 4$ the baseline gives $y = 12 + 11 = 23$, so $(4, 23)$ lies on it. Check: $11 \\neq -7$, so the two lines really are distinct.\n\n**Why the wrong answers are tempting:**\n* Choice A ($(4, 3)$): uses the negative reciprocal $-\\frac{1}{3}$, giving $y = -\\frac{1}{3}x + \\frac{13}{3}$ and $y = 3$ at $x = 4$\n* Choice B ($(4, 5)$): tests the given line $y = 3x - 7$ itself, which gives $3(4) - 7 = 5$\n* Choice C ($(4, 11)$): computes $b$ as $y + mx = 5 + 3(-2) = -1$, giving $y = 3(4) - 1 = 11$\n\n**Test Day Takeaway:** Two lines that share no point have the same slope and different intercepts; find the intercept before testing any point.",
+    explanation: "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Line $k$ has slope $3$, so line $w$ is $y = 3x + 11$, and at $x = 4$, $y = 23$.\n\n**The Full Solution:**\nStep 1: Line $k$ passes through $(2, -1)$ and $(4, 5)$, so its slope is $\\frac{5 - (-1)}{4 - 2} = 3$. Two distinct lines that do not intersect are parallel, so line $w$ also has slope $3$.\nStep 2: Substitute $(-2, 5)$ into $y = 3x + b$: $5 = -6 + b$, so $b = 11$ and line $w$ is $y = 3x + 11$.\nStep 3: At $x = 4$, $y = 3(4) + 11 = 23$, so $(4, 23)$ lies on line $w$. Check: the slope from $(-2, 5)$ to $(4, 23)$ is $\\frac{18}{6} = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(4, 3)$): uses the negative reciprocal slope $-\\frac{1}{3}$, which gives a line that does intersect line $k$.\n* Choice B ($(4, 5)$): is the marked point on line $k$, not a point on line $w$.\n* Choice C ($(4, 11)$): has the right slope but computes the intercept as $y + mx = 5 + 3(-2) = -1$.\n\n**Test Day Takeaway:** \"Does not intersect\" means parallel: same slope, different intercept.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "parallel-line-through-a-point",
@@ -4941,9 +4942,9 @@ export const algebraBank = [
     skills: ["writing-parallel-equation"],
     difficulty: "medium",
     type: "fill-in",
-    question: "Line $w$ is parallel to the line $6x + 3y = 15$ in the $xy$-plane and contains the point $(2, 5)$. Line $w$ intersects the $y$-axis at the point $(0, c)$. What is the value of $c$?",
+    question: "$6x + 3y = 15$\nIn the $xy$-plane, line $w$ is parallel to the graph of the given equation and passes through the points $(2, 5)$ and $(0, c)$. What is the value of $c$?",
     correctAnswer: "9",
-    explanation: "**SAT Pattern: Parallel Line Through a Point**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~15s):** $6x + 3y = 15$ becomes $y = -2x + 5$, so the slope is $-2$. Through $(2, 5)$: $5 = -2(2) + c$, so $c = 9$.\n\n**The Full Solution:**\nStep 1: Solve the given equation for $y$: $3y = -6x + 15$, so $y = -2x + 5$. Its slope is $-2$.\nStep 2: Line $w$ is parallel, so it has slope $-2$: $y = -2x + c$, where $c$ is the $y$-intercept.\nStep 3: Substitute $(2, 5)$: $5 = -4 + c$, so $c = 9$. Check: $-2(2) + 9 = 5$. $\\checkmark$\n\n**Common Mistakes:** Entering $5$ (the intercept of the given line); entering $1$ (using slope $+2$: $5 = 4 + c$); using slope $-6$ from the unconverted equation and entering $17$.\n\n**Test Day Takeaway:** Convert standard form to $y = mx + b$ before borrowing the slope. The parallel line gets that slope and its own intercept from the given point.",
+    explanation: "**SAT Pattern: Parallel Line Through a Point**\n\n**The correct answer is 9.**\n\n**The Fast Way (~25s):** The given line has slope $-2$, so $5 = -2(2) + c$ and $c = 9$.\n\n**The Full Solution:**\nStep 1: Solve the given equation for $y$: $3y = -6x + 15$, so $y = -2x + 5$ and the slope is $-2$.\nStep 2: Line $w$ is parallel, so it has slope $-2$, and $(0, c)$ is its $y$-intercept: $y = -2x + c$.\nStep 3: Substitute $(2, 5)$: $5 = -4 + c$, so $c = 9$. Check: the slope from $(0, 9)$ to $(2, 5)$ is $\\frac{5 - 9}{2 - 0} = -2$ ✓\n\n**Common Mistakes:**\n* $5$: copies the $y$-intercept of the given line.\n* $1$: uses slope $2$ instead of $-2$, solving $5 = 4 + c$.\n* $17$: uses $-6$, the coefficient of $x$ before dividing by $3$, as the slope, solving $5 = -12 + c$.\n\n**Test Day Takeaway:** Convert to $y = mx + b$ before reading the slope; a point of the form $(0, c)$ is the $y$-intercept.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "parallel-line-through-a-point",
@@ -4956,19 +4957,19 @@ export const algebraBank = [
     skills: ["writing-parallel-equation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "In the graph, line $g$ models the edge of a runway. A second line, parallel to line $g$, models the centerline and contains the point $(-1, -4)$. At what $x$-value does the centerline cross the $x$-axis?",
+    question: "The graph of line $g$ is shown in the $xy$-plane. Line $h$ is parallel to line $g$ and passes through the point $(-1, -4)$. What is the $x$-coordinate of the $x$-intercept of line $h$?",
     diagram: { type: "linearGraph", params: { slope: 2, yIntercept: -3, xRange: [-5, 5], yRange: [-8, 6], xTickInterval: 2, yTickInterval: 2, gridInterval: 1, showPoints: [[0, -3], [2, 1]], label: "g" } },
     choices: [
       // distractor: uses the negative reciprocal $-\frac{1}{2}$, giving $y = -\frac{1}{2}x - \frac{9}{2}$ and $x = -9$
       { id: "A", text: "$-9$" },
-      // distractor: reports the centerline's $y$-intercept instead of its $x$-intercept
+      // distractor: reports the $y$-intercept of line $h$ instead of its $x$-intercept
       { id: "B", text: "$-2$" },
       { id: "C", text: "$1$" },
-      // distractor: computes $b$ as $y + mx = -4 + 2(-1) = -6$, giving $0 = 2x - 6$ and $x = 3$
+      // distractor: computes the $y$-intercept as $y + mx = -4 + 2(-1) = -6$, giving $0 = 2x - 6$ and $x = 3$
       { id: "D", text: "$3$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Line $g$ has slope $2$, so the centerline is $y = 2x - 2$, which meets the $x$-axis at $x = 1$.\n\n**The Full Solution:**\nStep 1: Line $g$ passes through $(0, -3)$ and $(2, 1)$, so its slope is $\\frac{1 - (-3)}{2 - 0} = 2$.\nStep 2: The centerline has slope $2$ and contains $(-1, -4)$, so $-4 = 2(-1) + b$ and $b = -2$.\nStep 3: Setting $y = 0$ in $y = 2x - 2$ gives $x = 1$. Check: $2(1) - 2 = 0$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$): uses the negative reciprocal $-\\frac{1}{2}$, giving $y = -\\frac{1}{2}x - \\frac{9}{2}$ and $x = -9$\n* Choice B ($-2$): reports the centerline's $y$-intercept instead of its $x$-intercept\n* Choice D ($3$): computes $b$ as $y + mx = -4 + 2(-1) = -6$, giving $0 = 2x - 6$ and $x = 3$\n\n**Test Day Takeaway:** An $x$-intercept question needs two steps: build the line first, then set $y = 0$.",
+    explanation: "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Line $g$ has slope $2$, so line $h$ is $y = 2x - 2$, which crosses the $x$-axis at $x = 1$.\n\n**The Full Solution:**\nStep 1: Line $g$ passes through $(0, -3)$ and $(2, 1)$, so its slope is $\\frac{1 - (-3)}{2 - 0} = 2$.\nStep 2: Line $h$ has slope $2$ and passes through $(-1, -4)$, so $-4 = 2(-1) + b$ and $b = -2$: line $h$ is $y = 2x - 2$.\nStep 3: Set $y = 0$: $0 = 2x - 2$, so $x = 1$. Check: $2(1) - 2 = 0$, and $2(-1) - 2 = -4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$): uses the negative reciprocal slope $-\\frac{1}{2}$, giving $y = -\\frac{1}{2}x - \\frac{9}{2}$, whose $x$-intercept is $-9$.\n* Choice B ($-2$): stops at the $y$-intercept of line $h$ instead of finding the $x$-intercept.\n* Choice D ($3$): computes the intercept as $y + mx = -4 + 2(-1) = -6$, giving $y = 2x - 6$.\n\n**Test Day Takeaway:** An $x$-intercept question takes two steps: write the line, then set $y = 0$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "parallel-line-through-a-point",
@@ -4981,9 +4982,9 @@ export const algebraBank = [
     skills: ["writing-parallel-equation"],
     difficulty: "medium",
     type: "fill-in",
-    question: "For what value of the constant $c$ is a loading ramp that joins $(2, -5)$ to $(6, 1)$ on an elevation drawing parallel to the graph of $y = \\frac{c}{4}x + 9$?",
+    question: "In the $xy$-plane, the line passing through the points $(2, -5)$ and $(6, 1)$ is parallel to the graph of $y = \\frac{c}{4}x + 9$, where $c$ is a constant. What is the value of $c$?",
     correctAnswer: "6",
-    explanation: "**SAT Pattern: Parallel Line Through a Point**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~20s):** The ramp's slope is $\\frac{1 - (-5)}{6 - 2} = \\frac{3}{2}$, and $\\frac{c}{4} = \\frac{3}{2}$ gives $c = 6$.\n\n**The Full Solution:**\nStep 1: The ramp joins $(2, -5)$ and $(6, 1)$, so its slope is $\\frac{1 - (-5)}{6 - 2} = \\frac{6}{4} = \\frac{3}{2}$.\nStep 2: Parallel graphs have equal slopes, and the model's slope is $\\frac{c}{4}$.\nStep 3: So $\\frac{c}{4} = \\frac{3}{2}$ and $c = 6$. Check: $\\frac{6}{4} = \\frac{3}{2}$.\n\n**Common Mistakes:**\n* Reporting $\\frac{3}{2}$ stops at the ramp's slope instead of solving $\\frac{c}{4} = \\frac{3}{2}$ for $c$.\n* Reversing rise and run gives $\\frac{6 - 2}{1 - (-5)} = \\frac{2}{3}$ and the wrong value $c = \\frac{8}{3}$.\n* Subtracting the coordinates in mixed order gives $\\frac{1 - (-5)}{2 - 6} = -\\frac{3}{2}$ and $c = -6$.\n\n**Test Day Takeaway:** When the slope is written as a fraction with a known denominator, solve for the numerator instead of reporting the slope.",
+    explanation: "**SAT Pattern: Parallel Line Through a Point**\n\n**The correct answer is 6.**\n\n**The Fast Way (~20s):** The slope through the points is $\\frac{6}{4} = \\frac{3}{2}$, so $\\frac{c}{4} = \\frac{3}{2}$ and $c = 6$.\n\n**The Full Solution:**\nStep 1: The slope through $(2, -5)$ and $(6, 1)$ is $\\frac{1 - (-5)}{6 - 2} = \\frac{6}{4} = \\frac{3}{2}$.\nStep 2: Parallel lines have equal slopes, so $\\frac{c}{4} = \\frac{3}{2}$.\nStep 3: Multiply both sides by $4$: $c = 6$. Check: $\\frac{6}{4} = \\frac{3}{2}$ ✓\n\n**Common Mistakes:**\n* $\\frac{3}{2}$: stops at the slope instead of solving $\\frac{c}{4} = \\frac{3}{2}$ for $c$.\n* $\\frac{8}{3}$: divides the run by the rise, getting a slope of $\\frac{2}{3}$.\n* $-6$: subtracts the coordinates in mixed order, $\\frac{1 - (-5)}{2 - 6} = -\\frac{3}{2}$.\n\n**Test Day Takeaway:** Compute the slope from the two points, set it equal to the slope expression, and solve for the constant.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "parallel-line-through-a-point",
@@ -4996,9 +4997,9 @@ export const algebraBank = [
     skills: ["writing-parallel-equation"],
     difficulty: "hard",
     type: "fill-in",
-    question: "The points $(t, 4)$ and $(t + 14, s)$ both lie on a line that does not intersect the graph of $3x + 7y = 21$, where $t$ and $s$ are constants. What is the value of $s$?",
+    question: "In the $xy$-plane, a line that does not intersect the graph of $3x + 7y = 21$ passes through the points $(t, 4)$ and $(t + 14, s)$, where $t$ and $s$ are constants. What is the value of $s$?",
     correctAnswer: "-2",
-    explanation: "**SAT Pattern: Parallel Line Through a Point**\n\n**The correct answer is $-2$.**\n\n**The Fast Way (~30s):** The slope is $-\\frac{3}{7}$, and a run of $14$ produces a rise of $-6$, so $s = 4 - 6 = -2$.\n\n**The Full Solution:**\nStep 1: Rewrite $3x + 7y = 21$ as $y = -\\frac{3}{7}x + 3$, so its slope is $-\\frac{3}{7}$.\nStep 2: A line that never intersects it has the same slope, so $\\frac{s - 4}{(t + 14) - t} = \\frac{s - 4}{14} = -\\frac{3}{7}$.\nStep 3: Then $s - 4 = -6$ and $s = -2$. Check: $\\frac{-2 - 4}{14} = -\\frac{6}{14} = -\\frac{3}{7}$.\n\n**Common Mistakes:**\n* Using $\\frac{3}{7}$ instead of $-\\frac{3}{7}$ gives $s = 4 + 6 = 10$.\n* Reporting $-6$ stops at the change in $y$ instead of adding it to the starting value $4$.\n* Trying to find $t$ first wastes time: $t$ cancels in the run, so its value is never needed.\n\n**Test Day Takeaway:** When both points share the same unknown, the run is a plain number and the unknown never has to be found.",
+    explanation: "**SAT Pattern: Parallel Line Through a Point**\n\n**The correct answer is -2.**\n\n**The Fast Way (~35s):** The line is parallel to $3x + 7y = 21$, so its slope is $-\\frac{3}{7}$; over a run of $14$, $y$ changes by $-6$, so $s = 4 - 6 = -2$.\n\n**The Full Solution:**\nStep 1: The given equation has slope $-\\frac{3}{7}$, and a line that does not intersect it is parallel, so it also has slope $-\\frac{3}{7}$.\nStep 2: The run between the points is $(t + 14) - t = 14$, so the rise is $-\\frac{3}{7}(14) = -6$.\nStep 3: Then $s = 4 + (-6) = -2$. Check: $\\frac{-2 - 4}{14} = -\\frac{6}{14} = -\\frac{3}{7}$ ✓\n\n**Common Mistakes:**\n* $10$: uses slope $\\frac{3}{7}$ instead of $-\\frac{3}{7}$, so $s = 4 + 6$.\n* $-6$: stops at the change in $y$ instead of adding it to the starting value $4$.\n* No answer: trying to find $t$ first, but $t$ cancels in the run, so its value is never needed.\n\n**Test Day Takeaway:** When a point's coordinate is an unknown constant, work with the run and the rise; the unknown often cancels.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "parallel-line-through-a-point",
@@ -5012,18 +5013,18 @@ export const algebraBank = [
     skills: ["distributive-property"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A dye vat contains $7(3m + 8)$ liters of solution after $m$ minutes of filling, and this amount is equal to $21m + c$ liters for every value of $m$. What is the value of $c$?",
+    question: "$7(3m + 8) = 21m + c$\nIn the given equation, $c$ is a constant. If the equation has infinitely many solutions, what is the value of $c$?",
     choices: [
-      // distractor: adds 7 and 8 instead of multiplying them
+      // distractor: adds $7$ and $8$ instead of multiplying them
       { id: "A", text: "$15$" },
-      // distractor: multiplies the two numbers inside the parentheses (3 times 8)
+      // distractor: multiplies the two numbers inside the parentheses, $3 \cdot 8$
       { id: "B", text: "$24$" },
       { id: "C", text: "$56$" },
-      // distractor: multiplies 8 by the already-distributed coefficient 21
+      // distractor: multiplies $8$ by the distributed coefficient $21$ instead of by $7$
       { id: "D", text: "$168$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Matching Coefficients**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Distributing gives $21m + 56$, so the constant term is $7 \\times 8 = 56$.\n\n**The Full Solution:**\n\nStep 1: Distribute the $7$ across both terms: $7(3m + 8) = 7 \\cdot 3m + 7 \\cdot 8 = 21m + 56$.\n\nStep 2: The problem states that $21m + 56 = 21m + c$ for every value of $m$. Two expressions that agree for every $m$ must have matching coefficients and matching constants.\n\nStep 3: The $m$-terms already match ($21m$ on both sides), so $c = 56$. Check with $m = 2$: $7(6 + 8) = 98$ and $21(2) + 56 = 98$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($15$): adds $7$ and $8$ instead of multiplying them.\n* Choice B ($24$): multiplies the two numbers inside the parentheses, $3 \\times 8$, and never uses the $7$.\n* Choice D ($168$): multiplies $8$ by $21$, the coefficient that has already absorbed the $7$.\n\n**Test Day Takeaway:** When two expressions are equal for every value of the variable, distribute first and then match the constant to the constant and the coefficient to the coefficient.",
+    explanation: "**SAT Pattern: Matching Coefficients**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Distributing gives $21m + 56$, so the two sides match exactly when $c = 56$.\n\n**The Full Solution:**\nStep 1: Distribute the left side: $7(3m + 8) = 21m + 56$.\nStep 2: An equation in one variable has infinitely many solutions when both sides are the same expression, so $21m + 56$ must equal $21m + c$.\nStep 3: The $m$-terms already match, so the constants must match: $c = 56$. Check: with $c = 56$, both sides are $21m + 56$, true for every $m$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): adds $7$ and $8$ instead of multiplying them.\n* Choice B ($24$): multiplies the two numbers inside the parentheses, $3 \\cdot 8$.\n* Choice D ($168$): multiplies $8$ by $21$, the distributed coefficient, instead of by $7$.\n\n**Test Day Takeaway:** Infinitely many solutions means the two sides are identical: distribute, then match the constant terms.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "matching-coefficients",
@@ -5036,9 +5037,9 @@ export const algebraBank = [
     skills: ["distributive-property"],
     difficulty: "easy",
     type: "fill-in",
-    question: "A coating machine applies $8(6t - 5)$ milligrams of film to a tablet in $t$ seconds, which equals $pt - 40$ milligrams for every value of $t$. What is the value of $p$?",
+    question: "$8(6t - 5) = pt - 40$\nThe given equation is true for all values of $t$, where $p$ is a constant. What is the value of $p$?",
     correctAnswer: "48",
-    explanation: "**SAT Pattern: Matching Coefficients**\n\n**The correct answer is $48$.**\n\n**The Fast Way (~15s):** Distributing gives $48t - 40$, so $p = 48$.\n\n**The Full Solution:**\n\nStep 1: Distribute: $8(6t - 5) = 8 \\cdot 6t - 8 \\cdot 5 = 48t - 40$.\n\nStep 2: The two expressions $48t - 40$ and $pt - 40$ are equal for every value of $t$, so their $t$-coefficients must be equal: $p = 48$.\n\nStep 3: Check with $t = 3$: $8(18 - 5) = 104$ and $48(3) - 40 = 104$.\n\n**Common Mistakes:**\n\n* $6$ — copying the coefficient inside the parentheses without multiplying it by $8$.\n* $14$ — adding $8$ and $6$ instead of multiplying them.\n* $-40$ — reporting the constant term, which was already given, instead of the coefficient of $t$.\n\n**Test Day Takeaway:** Matching coefficients works term by term: the coefficient of $t$ on one side must equal the coefficient of $t$ on the other.",
+    explanation: "**SAT Pattern: Matching Coefficients**\n\n**The correct answer is 48.**\n\n**The Fast Way (~10s):** Distributing gives $48t - 40$, so $p = 48$.\n\n**The Full Solution:**\nStep 1: Distribute the left side: $8(6t - 5) = 48t - 40$.\nStep 2: The equation is true for all $t$, so $48t - 40$ and $pt - 40$ must be the same expression.\nStep 3: Match the coefficients of $t$: $p = 48$. Check: $48t - 40 = 48t - 40$ for every $t$ ✓\n\n**Common Mistakes:**\n* $6$: copies the coefficient inside the parentheses without multiplying it by $8$.\n* $14$: adds $8$ and $6$ instead of multiplying them.\n* $-40$: reports the constant term, which already matches, instead of the coefficient of $t$.\n\n**Test Day Takeaway:** \"True for all values\" means the two sides are identical; distribute and match coefficients term by term.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "matching-coefficients",
@@ -5051,18 +5052,18 @@ export const algebraBank = [
     skills: ["distributive-property"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A weaving shed's daily output, in meters of canvas, is $n(9w + 4)$, where $w$ is the number of looms running. If $63w + 28$ gives the same output for every value of $w$, what is the value of $n$?",
+    question: "The expression $n(4w + 3) - 2w$ is equivalent to $30w + 24$, where $n$ is a constant. What is the value of $n$?",
     choices: [
-      // distractor: copies the constant 4 from inside the parentheses
-      { id: "A", text: "$4$" },
-      { id: "B", text: "$7$" },
-      // distractor: subtracts 4 from 28 instead of dividing
-      { id: "C", text: "$24$" },
-      // distractor: adds 4 to 28 instead of dividing
-      { id: "D", text: "$32$" }
+      // distractor: adds $2w$ instead of subtracting it, solving $4n + 2 = 30$
+      { id: "A", text: "$7$" },
+      // distractor: ignores the $-2w$ term, solving $4n = 30$
+      { id: "B", text: "$7.5$" },
+      { id: "C", text: "$8$" },
+      // distractor: subtracts $3$ from $24$ instead of dividing $24$ by $3$
+      { id: "D", text: "$21$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Matching Coefficients**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Distributing gives $9nw + 4n$, so $9n = 63$ and $n = 7$.\n\n**The Full Solution:**\n\nStep 1: Distribute: $n(9w + 4) = 9nw + 4n$.\n\nStep 2: This equals $63w + 28$ for every value of $w$, so the coefficients of $w$ match: $9n = 63$, giving $n = 7$.\n\nStep 3: The constants must match too: $4n = 4(7) = 28$, which agrees with the given constant. Check with $w = 2$: $7(18 + 4) = 154$ and $63(2) + 28 = 154$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($4$): copies the $4$ from inside the parentheses instead of solving $9n = 63$.\n* Choice C ($24$): computes $28 - 4$, subtracting when the relationship $4n = 28$ calls for division.\n* Choice D ($32$): computes $28 + 4$, adding when the relationship $4n = 28$ calls for division.\n\n**Test Day Takeaway:** Reading a factored form backward from its expanded form is one division, and the second pair of terms is a free check on the answer.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Matching Coefficients**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The constant terms give $3n = 24$, so $n = 8$; the $w$-terms confirm it, since $4(8) - 2 = 30$.\n\n**The Full Solution:**\nStep 1: Distribute: $n(4w + 3) - 2w = 4nw + 3n - 2w = (4n - 2)w + 3n$.\nStep 2: Equivalent expressions have equal coefficients, so $4n - 2 = 30$ and $3n = 24$.\nStep 3: From $3n = 24$, $n = 8$. Check: $4(8) - 2 = 30$, so $8(4w + 3) - 2w = 32w + 24 - 2w = 30w + 24$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): adds the $2w$ instead of subtracting it, solving $4n + 2 = 30$.\n* Choice B ($7.5$): ignores the $-2w$ term and solves $4n = 30$; then the constant term would be $22.5$, not $24$.\n* Choice D ($21$): subtracts $3$ from $24$ instead of dividing $24$ by $3$.\n\n**Test Day Takeaway:** Match the cleanest pair of coefficients first, often the constants, and use the other pair as a check.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "matching-coefficients",
@@ -5075,9 +5076,9 @@ export const algebraBank = [
     skills: ["distributive-property"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A rental fleet's monthly cost, in dollars, is $4(3v + 7) + 5v$, where $v$ is the number of vans in operation. This cost equals $av + 28$ dollars for every value of $v$. What is the value of $a$?",
+    question: "$4(3v + 7) + 5v = av + 28$\nIn the given equation, $a$ is a constant. If the equation has infinitely many solutions, what is the value of $a$?",
     correctAnswer: "17",
-    explanation: "**SAT Pattern: Matching Coefficients**\n\n**The correct answer is $17$.**\n\n**The Fast Way (~20s):** $4(3v + 7) = 12v + 28$, and $12v + 5v = 17v$, so $a = 17$.\n\n**The Full Solution:**\n\nStep 1: Distribute the $4$: $4(3v + 7) = 12v + 28$.\n\nStep 2: Add the remaining $5v$ and combine like terms: $12v + 28 + 5v = 17v + 28$.\n\nStep 3: Since $17v + 28 = av + 28$ for every value of $v$, the coefficients of $v$ must match, so $a = 17$. Check with $v = 4$: $4(12 + 7) + 20 = 96$ and $17(4) + 28 = 96$.\n\n**Common Mistakes:**\n\n* $12$ — distributing correctly but forgetting to add the $5v$ that sits outside the parentheses.\n* $9$ — adding $4$ and $5$ and treating $3v$ as a single $v$.\n* $28$ — reporting the constant term instead of the coefficient of $v$.\n\n**Test Day Takeaway:** Distribute, then combine every like term on that side before matching coefficients; a stray term outside the parentheses is the usual trap.",
+    explanation: "**SAT Pattern: Matching Coefficients**\n\n**The correct answer is 17.**\n\n**The Fast Way (~15s):** The left side simplifies to $17v + 28$, so $a = 17$.\n\n**The Full Solution:**\nStep 1: Distribute: $4(3v + 7) + 5v = 12v + 28 + 5v$.\nStep 2: Combine like terms: $17v + 28$.\nStep 3: Infinitely many solutions means $17v + 28$ and $av + 28$ are the same expression, so $a = 17$. Check: $4(3v + 7) + 5v = 17v + 28$ for every $v$; at $v = 1$, both sides equal $45$ ✓\n\n**Common Mistakes:**\n* $12$: distributes correctly but forgets the $5v$ outside the parentheses.\n* $9$: adds $4$ and $5$ and treats $3v$ as a single $v$.\n* $28$: reports the constant term instead of the coefficient of $v$.\n\n**Test Day Takeaway:** Simplify the side with parentheses completely, including terms outside them, before matching coefficients.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "matching-coefficients",
@@ -5090,18 +5091,18 @@ export const algebraBank = [
     skills: ["distributive-property"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "At setting $r$, an infusion pump delivers $k(2r + 9)$ milliliters, and the same pump delivers $14r + c$ milliliters at every setting $r$, where $k$ and $c$ are constants. What is the value of $c$?",
+    question: "$k(2r + 9) = 14r + c$\nIn the given equation, $k$ and $c$ are constants. The equation has infinitely many solutions. What is the value of $c$?",
     choices: [
-      // distractor: copies the 9 from inside the parentheses without multiplying by k
+      // distractor: copies the $9$ inside the parentheses without multiplying by $k$
       { id: "A", text: "$9$" },
-      // distractor: multiplies the two numbers inside the parentheses (2 times 9)
+      // distractor: multiplies the two numbers inside the parentheses, $2 \cdot 9$
       { id: "B", text: "$18$" },
       { id: "C", text: "$63$" },
-      // distractor: multiplies 9 by 14, the already-distributed coefficient, instead of by k
+      // distractor: multiplies $9$ by $14$, the distributed coefficient, instead of by $k$
       { id: "D", text: "$126$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Matching Coefficients**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $2k = 14$ gives $k = 7$, so $c = 9k = 63$.\n\n**The Full Solution:**\n\nStep 1: Distribute: $k(2r + 9) = 2kr + 9k$.\n\nStep 2: This equals $14r + c$ for every value of $r$, so the coefficients of $r$ match: $2k = 14$, giving $k = 7$.\n\nStep 3: The constants match as well: $c = 9k = 9(7) = 63$. Check with $r = 1$: $7(2 + 9) = 77$ and $14(1) + 63 = 77$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($9$): copies the $9$ from inside the parentheses, skipping the multiplication by $k$.\n* Choice B ($18$): multiplies the two numbers inside the parentheses, $2 \\times 9$, which never appears in the expansion.\n* Choice D ($126$): multiplies $9$ by $14$ instead of by $k = 7$; the $14$ already contains the factor $k$.\n\n**Test Day Takeaway:** With two unknown constants, solve for the multiplier from the variable terms first, then use it on the constant term.",
+    explanation: "**SAT Pattern: Matching Coefficients**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Matching the $r$-terms gives $2k = 14$, so $k = 7$, and then $c = 9k = 63$.\n\n**The Full Solution:**\nStep 1: Distribute the left side: $2kr + 9k$.\nStep 2: Infinitely many solutions means the two sides are identical, so $2k = 14$ and $9k = c$. From $2k = 14$, $k = 7$.\nStep 3: Then $c = 9(7) = 63$. Check: $7(2r + 9) = 14r + 63$ for every $r$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): copies the $9$ inside the parentheses without multiplying by $k$.\n* Choice B ($18$): multiplies the two numbers inside the parentheses, $2 \\cdot 9$.\n* Choice D ($126$): multiplies $9$ by $14$, the coefficient on the right side, instead of by $k = 7$.\n\n**Test Day Takeaway:** When two constants are unknown, use the matched pair you can solve directly, then substitute into the other pair.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "matching-coefficients",
@@ -5114,9 +5115,9 @@ export const algebraBank = [
     skills: ["distributive-property"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A garment press finishes $a(s + 6) + 3s$ shirts during a shift that includes $s$ setup cycles, and this expression equals $11s + 48$ shirts for every value of $s$. What is the value of $a$?",
+    question: "$a(s + 6) + 3s = 11s + 48$\nIn the given equation, $a$ is a constant. If the equation is true for all values of $s$, what is the value of $a$?",
     correctAnswer: "8",
-    explanation: "**SAT Pattern: Matching Coefficients**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~20s):** The $s$-terms give $a + 3 = 11$, so $a = 8$.\n\n**The Full Solution:**\n\nStep 1: Distribute and combine: $a(s + 6) + 3s = as + 6a + 3s = (a + 3)s + 6a$.\n\nStep 2: This equals $11s + 48$ for every value of $s$, so $a + 3 = 11$ and therefore $a = 8$.\n\nStep 3: Confirm with the constants: $6a = 6(8) = 48$, matching the given constant. Check with $s = 2$: $8(8) + 6 = 70$ and $11(2) + 48 = 70$.\n\n**Common Mistakes:**\n\n* $11$ — reading the coefficient $11$ straight off the right side and ignoring the $3s$ that also carries an $s$.\n* $14$ — adding $3$ to $11$ instead of subtracting it.\n* $6$ — reporting the number inside the parentheses rather than the multiplier.\n\n**Test Day Takeaway:** Collect every term containing the variable into a single coefficient before matching; the term outside the parentheses belongs in that coefficient.",
+    explanation: "**SAT Pattern: Matching Coefficients**\n\n**The correct answer is 8.**\n\n**The Fast Way (~15s):** The constants give $6a = 48$, so $a = 8$; the $s$-terms agree, since $8 + 3 = 11$.\n\n**The Full Solution:**\nStep 1: Distribute: $a(s + 6) + 3s = as + 6a + 3s = (a + 3)s + 6a$.\nStep 2: For the equation to hold for all $s$, the coefficients must match: $a + 3 = 11$ and $6a = 48$.\nStep 3: Both give $a = 8$. Check: $8(s + 6) + 3s = 11s + 48$ ✓\n\n**Common Mistakes:**\n* $11$: reads the coefficient $11$ off the right side and ignores the $3s$ on the left.\n* $14$: adds $3$ to $11$ instead of subtracting it.\n* $6$: reports the number inside the parentheses rather than the multiplier $a$.\n\n**Test Day Takeaway:** Collect every term with the variable before matching; a term outside the parentheses changes the coefficient.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "matching-coefficients",
@@ -5129,18 +5130,18 @@ export const algebraBank = [
     skills: ["distributive-property"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "From $p$ fabric plies a cutting table yields $a(3p - 8) + b$ usable panels, where $a$ and $b$ are integers, and the same count is given by $21p - 19$ for every value of $p$. What is the value of $a + b$?",
+    question: "$(4x + a)(x + b) = 4x^{2} + 23x + 15$\nThe given equation is true for all values of $x$, where $a$ and $b$ are positive integers. What is the value of $a$?",
     choices: [
-      // distractor: takes b to be -19 and adds it to a, ignoring that a multiplies the -8
-      { id: "A", text: "$-12$" },
-      // distractor: solves -8 + b = -19 without the factor a = 7
-      { id: "B", text: "$-4$" },
-      // distractor: finds b correctly but reports b instead of a + b
-      { id: "C", text: "$37$" },
-      { id: "D", text: "$44$" }
+      // distractor: uses only $ab = 15$ and picks $a = 1$, $b = 15$ without checking the $x$-coefficient
+      { id: "A", text: "$1$" },
+      { id: "B", text: "$3$" },
+      // distractor: multiplies the wrong pair for the middle term, solving $4a + b = 23$, which gives $a = 5$ and $b = 3$
+      { id: "C", text: "$5$" },
+      // distractor: uses only $ab = 15$ and picks $a = 15$, $b = 1$ without checking the $x$-coefficient
+      { id: "D", text: "$15$" }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Matching Coefficients with Integer Constraints**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** $3a = 21$ gives $a = 7$; then $-56 + b = -19$ gives $b = 37$, so $a + b = 44$.\n\n**The Full Solution:**\n\nStep 1: Expand: $a(3p - 8) + b = 3ap - 8a + b$.\n\nStep 2: Match the coefficients of $p$: $3a = 21$, so $a = 7$, an integer as required.\n\nStep 3: Match the constants: $-8(7) + b = -19$, so $-56 + b = -19$ and $b = 37$. Then $a + b = 7 + 37 = 44$. Check with $p = 2$: $7(6 - 8) + 37 = 23$ and $21(2) - 19 = 23$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-12$): sets $b = -19$ outright, forgetting that the constant on the left is $-8a + b$, not $b$ alone; then $7 + (-19) = -12$.\n* Choice B ($-4$): solves $-8 + b = -19$, dropping the factor $a = 7$ from the $-8$; then $7 + (-11) = -4$.\n* Choice C ($37$): finds $b = 37$ correctly but reports $b$ rather than the requested sum $a + b$.\n\n**Test Day Takeaway:** The constant term of a distributed expression collects everything the multiplier touches; isolate the coefficient first, then feed it into the constant equation.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Matching Coefficients with Integer Constraints**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** Expanding gives $4x^{2} + (4b + a)x + ab$, so $ab = 15$ and $4b + a = 23$; of the positive integer pairs, only $a = 3$, $b = 5$ works.\n\n**The Full Solution:**\nStep 1: Expand the left side: $(4x + a)(x + b) = 4x^{2} + 4bx + ax + ab = 4x^{2} + (4b + a)x + ab$.\nStep 2: Match coefficients: $4b + a = 23$ and $ab = 15$. The positive integer pairs with $ab = 15$ are $(a, b) = (1, 15), (3, 5), (5, 3), (15, 1)$, giving $4b + a = 61, 23, 17, 19$.\nStep 3: Only $(a, b) = (3, 5)$ gives $23$, so $a = 3$. Check: $(4x + 3)(x + 5) = 4x^{2} + 20x + 3x + 15 = 4x^{2} + 23x + 15$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): uses only $ab = 15$ with $a = 1$ and $b = 15$; the middle coefficient would be $61$.\n* Choice C ($5$): pairs the $4$ with $a$ instead of $b$, solving $4a + b = 23$; but $(4x + 5)(x + 3) = 4x^{2} + 17x + 15$.\n* Choice D ($15$): uses only $ab = 15$ with $a = 15$ and $b = 1$; the middle coefficient would be $19$.\n\n**Test Day Takeaway:** With integer constraints, list the factor pairs of the constant term and test each one against the middle coefficient.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "matching-coefficients",
@@ -5153,9 +5154,9 @@ export const algebraBank = [
     skills: ["distributive-property"],
     difficulty: "hard",
     type: "fill-in",
-    question: "The number of passes a visitor center issues on day $t$ of a summer season is given both by $4(ct - 3) - 5t$ and by $19t + d$, where $c$ and $d$ are constants. What is the value of $c + d$?",
+    question: "$4(ct - 3) - 5t = 19t + d$\nIn the given equation, $c$ and $d$ are constants. If the equation has infinitely many solutions, what is the value of $c + d$?",
     correctAnswer: "-6",
-    explanation: "**SAT Pattern: Matching Coefficients**\n\n**The correct answer is $-6$.**\n\n**The Fast Way (~30s):** $4c - 5 = 19$ gives $c = 6$, and the constant is $d = -12$, so $c + d = -6$.\n\n**The Full Solution:**\n\nStep 1: Distribute and combine: $4(ct - 3) - 5t = 4ct - 12 - 5t = (4c - 5)t - 12$.\n\nStep 2: Match the coefficients of $t$: $4c - 5 = 19$, so $4c = 24$ and $c = 6$.\n\nStep 3: Match the constants: $d = -12$. Therefore $c + d = 6 + (-12) = -6$. Check with $t = 1$: $4(6 - 3) - 5 = 7$ and $19(1) - 12 = 7$.\n\n**Common Mistakes:**\n\n* $6$ — stopping at $c$ and never reporting the sum the question asks for.\n* $18$ — adding $c = 6$ to $12$ instead of to $-12$, losing the sign of the constant.\n* $-3$ — treating the $-3$ inside the parentheses as $d$ without distributing the $4$.\n\n**Test Day Takeaway:** After matching coefficients, reread the question: it often asks for a combination of the constants, not for one of them.",
+    explanation: "**SAT Pattern: Matching Coefficients**\n\n**The correct answer is -6.**\n\n**The Fast Way (~30s):** The left side is $(4c - 5)t - 12$, so $4c - 5 = 19$ gives $c = 6$, $d = -12$, and $c + d = -6$.\n\n**The Full Solution:**\nStep 1: Distribute and collect: $4(ct - 3) - 5t = 4ct - 12 - 5t = (4c - 5)t - 12$.\nStep 2: Infinitely many solutions means the sides are identical: $4c - 5 = 19$ and $d = -12$. So $4c = 24$ and $c = 6$.\nStep 3: Then $c + d = 6 + (-12) = -6$. Check: $4(6t - 3) - 5t = 24t - 12 - 5t = 19t - 12$ ✓\n\n**Common Mistakes:**\n* $6$: stops at $c$ and never adds $d$.\n* $18$: adds $c = 6$ to $12$ instead of to $-12$, losing the sign of the constant.\n* $3$: treats the $-3$ inside the parentheses as $d$ without distributing the $4$, then adds it to $c = 6$.\n\n**Test Day Takeaway:** Distribute every factor before matching; a constant inside parentheses gets multiplied too.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "matching-coefficients",
@@ -5170,18 +5171,18 @@ export const algebraBank = [
     skills: ["system-solution-types"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The system of equations $y = -5x + 8$ and $y = cx - 3$, where $c$ is a constant, has no solution. What is the value of $c$?",
+    question: "$y = -5x + 8$\n$y = cx - 3$\nIn the given system of equations, $c$ is a constant. If the system has no solution, what is the value of $c$?",
     choices: [
       { id: "A", text: "$-5$" },
       // distractor: reads the constant term of the second equation
       { id: "B", text: "$-3$" },
-      // distractor: drops the sign on the slope
+      // distractor: drops the sign on the slope of the first equation
       { id: "C", text: "$5$" },
-      // distractor: reports the y-intercept of the first equation
+      // distractor: reports the $y$-intercept of the first equation
       { id: "D", text: "$8$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** No solution means parallel lines: equal slopes, different intercepts. The intercepts $8$ and $-3$ already differ, so set the slopes equal: $c = -5$.\n\n**The Full Solution:**\nStep 1: Two lines in slope-intercept form have no common point exactly when they are parallel and distinct.\nStep 2: Parallel requires equal slopes, so $c = -5$.\nStep 3: Distinct requires different $y$-intercepts: $8 \\neq -3$. $\\checkmark$ With $c = -5$, the equation $-5x + 8 = -5x - 3$ reduces to $8 = -3$, which is never true, confirming no solution.\n\n**Why the wrong answers are tempting:**\n* Choice B ($-3$): confuses the constant term of the second equation with the slope.\n* Choice C ($5$): drops the sign; lines with slopes $-5$ and $5$ cross exactly once.\n* Choice D ($8$): reports the $y$-intercept of the first equation.\n\n**Test Day Takeaway:** \"No solution\" for two lines means same slope, different intercept. Match the coefficient of $x$ and confirm the constants differ.",
+    explanation: "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** No solution means parallel, distinct lines: the slopes must match, so $c = -5$.\n\n**The Full Solution:**\nStep 1: Both equations are in slope-intercept form, with slopes $-5$ and $c$ and $y$-intercepts $8$ and $-3$.\nStep 2: A system of two linear equations has no solution when the lines are parallel and distinct: equal slopes, different intercepts.\nStep 3: Set $c = -5$; the intercepts $8$ and $-3$ already differ. Check: $-5x + 8 = -5x - 3$ simplifies to $8 = -3$, which is never true ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-3$): reads the constant term of the second equation, which is an intercept, not a slope.\n* Choice C ($5$): drops the sign on the slope $-5$; slopes $-5$ and $5$ give lines that intersect.\n* Choice D ($8$): reports the $y$-intercept of the first equation.\n\n**Test Day Takeaway:** No solution means same slope and different intercepts; in slope-intercept form, match the $x$-coefficients.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "parallel-lines-no-solution",

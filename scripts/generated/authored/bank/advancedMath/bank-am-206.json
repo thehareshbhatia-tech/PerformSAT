@@ -1,6 +1,6 @@
 {
   "id": "bank-am-206",
-  "question": "A worker unloads boxes from a pallet at a steady rate. The table gives the number of boxes remaining on the pallet after $0$, $2$, and $4$ hours of work. Which type of function best models the number of boxes remaining as a function of the number of hours worked?",
+  "question": "A worker unloads boxes from a pallet. The table shows the number of boxes remaining on the pallet $h$ hours after the worker started. Which type of function best models the number of boxes remaining as a function of $h$?",
   "diagram": {
     "type": "dataTable",
     "params": {

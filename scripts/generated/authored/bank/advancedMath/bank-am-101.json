@@ -1,29 +1,29 @@
 {
- "id": "bank-am-101",
- "question": "A meteor camera's duty-cycle formula $\\dfrac{x^{2}-x-6}{x^{2}-9}$ was rewritten as $\\dfrac{x+2}{x+3}$. Which values of $x$ are excluded from the domain of the original formula?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$x=-3$ and $x=3$"
+  "id": "bank-am-101",
+  "question": "$\\dfrac{x^{2} + x - 12}{x^{2} - 16}$\nFor which values of $x$ is the given expression undefined?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$x = -4$ and $x = 4$"
+    },
+    {
+      "id": "B",
+      "text": "$x = -4$ and $x = 3$"
+    },
+    {
+      "id": "C",
+      "text": "$x = 4$ only"
+    },
+    {
+      "id": "D",
+      "text": "$x = 3$ and $x = 4$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "uses the zeros of the numerator, (x + 4)(x - 3), instead of the zeros of the denominator",
+    "C": "simplifies to (x - 3)/(x - 4) first and uses only that denominator",
+    "D": "takes 3, a zero of the numerator, as an excluded value"
   },
-  {
-   "id": "B",
-   "text": "$x=-3$ only"
-  },
-  {
-   "id": "C",
-   "text": "$x=3$ only"
-  },
-  {
-   "id": "D",
-   "text": "$x=-2$ and $x=3$"
-  }
- ],
- "distractorNotes": {
-  "B": "keeps only the zero of the simplified denominator and forgets the cancelled factor x - 3",
-  "C": "keeps only the cancelled factor's zero and forgets that x + 3 is also a denominator factor",
-  "D": "uses the numerator's zero -2 in place of the denominator's zero -3"
- },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Rational Expression Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The original denominator is $x^{2}-9=(x-3)(x+3)$, which is zero at $x=3$ and $x=-3$.\n\n**The Full Solution:**\n\nStep 1: Factor both parts: $x^{2}-x-6=(x-3)(x+2)$ and $x^{2}-9=(x-3)(x+3)$.\n\nStep 2: The original formula is undefined wherever its denominator is zero, and $(x-3)(x+3)=0$ at $x=3$ and $x=-3$.\n\nStep 3: Cancelling $x-3$ produces $\\frac{x+2}{x+3}$, which is defined at $x=3$, so the exclusion at $x=3$ belongs to the original only. Check: at $x=3$ the original is $\\frac{0}{0}$, undefined, while the rewritten form gives $\\frac{5}{6}$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B: keeps only the zero of the simplified denominator and drops the cancelled factor.\n* Choice C: keeps only the cancelled factor's zero and drops $x=-3$.\n* Choice D: reads $-2$, a zero of the numerator, as an exclusion.\n\n**Test Day Takeaway:** Domain exclusions come from the denominator you started with, including any factor you later cancel."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Rational Expression Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The denominator $x^{2} - 16 = (x - 4)(x + 4)$ is $0$ at $x = 4$ and $x = -4$, so the expression is undefined at both.\n\n**The Full Solution:**\nStep 1: Factor both parts: $x^{2} + x - 12 = (x + 4)(x - 3)$ and $x^{2} - 16 = (x - 4)(x + 4)$.\nStep 2: A fraction is undefined where its denominator is $0$, and $(x - 4)(x + 4) = 0$ at $x = 4$ and $x = -4$.\nStep 3: Cancelling $x + 4$ gives $\\frac{x - 3}{x - 4}$, but that rewrite does not remove the exclusion at $x = -4$ from the given expression. Check: at $x = -4$ the given expression is $\\frac{16 - 4 - 12}{16 - 16} = \\frac{0}{0}$, undefined ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($x = -4$ and $x = 3$): uses the zeros of the numerator, $(x + 4)(x - 3)$, instead of the zeros of the denominator.\n* Choice C ($x = 4$ only): simplifies first and uses only the simplified denominator $x - 4$.\n* Choice D ($x = 3$ and $x = 4$): treats $3$, a zero of the numerator, as an excluded value.\n\n**Test Day Takeaway:** Excluded values come from the denominator you are given, including any factor that later cancels."
 }

@@ -1,29 +1,29 @@
 {
- "id": "bank-am-413",
- "question": "The deviation of a lithium battery pack's temperature from its target, in degrees Celsius, is a quadratic function $T$ of $t$, the number of hours after 9 a.m. The deviation reaches its greatest value, $12$, at $t=3$, and $T(7)=-4$. What is the value of $T(-1)$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$-12$"
+  "id": "bank-am-413",
+  "question": "$y = ax^{2} + bx + c$\nIn the given equation, $a$, $b$, and $c$ are constants. The graph of the equation in the $xy$-plane is a parabola with vertex $(-5, 12)$ that intersects the $x$-axis at two points. Which of the following must be true?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$a < 0$ and $b < 0$"
+    },
+    {
+      "id": "B",
+      "text": "$a < 0$ and $b > 0$"
+    },
+    {
+      "id": "C",
+      "text": "$a > 0$ and $b < 0$"
+    },
+    {
+      "id": "D",
+      "text": "$a > 0$ and $b > 0$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "uses $b = 2ah$ instead of $b = -2ah$, getting the sign of $b$ wrong",
+    "C": "assumes the parabola opens upward and also gets the sign of $b$ backward",
+    "D": "assumes the parabola opens upward; with $b = 10a$, that makes $b$ positive"
   },
-  {
-   "id": "B",
-   "text": "$-4$"
-  },
-  {
-   "id": "C",
-   "text": "$4$"
-  },
-  {
-   "id": "D",
-   "text": "$12$"
-  }
- ],
- "distractorNotes": {
-  "A": "negates the maximum value instead of using symmetry",
-  "C": "drops the negative sign from the given value T(7) = -4",
-  "D": "reports the maximum value, which occurs at t = 3 rather than t = -1"
- },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Vertex + Sign-of-Coefficient Reasoning**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The maximum at $t=3$ puts the axis of symmetry there, and $-1$ and $7$ are both $4$ units from $3$, so $T(-1)=T(7)=-4$.\n\n**The Full Solution:**\nStep 1: A quadratic with a greatest value opens downward, and its axis of symmetry passes through the maximum, so the axis is $t=3$.\nStep 2: Inputs equally far from the axis give equal outputs: $7-3=4$ and $3-(-1)=4$.\nStep 3: Therefore $T(-1)=T(7)=-4$. Check: $T(t)=-(t-3)^2+12$ fits both facts, and $T(-1)=-16+12=-4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): negates the maximum value instead of using symmetry.\n* Choice C ($4$): drops the negative sign from the given output $T(7)=-4$.\n* Choice D ($12$): reports the maximum value, which occurs at $t=3$, not at $t=-1$.\n\n**Test Day Takeaway:** A stated maximum hands you the axis of symmetry for free — pair inputs across it instead of solving for the coefficients."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Vertex + Sign-of-Coefficient Reasoning**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** The vertex is above the $x$-axis and the graph crosses it twice, so it opens downward ($a < 0$); the axis $x = -\\frac{b}{2a} = -5$ gives $b = 10a < 0$.\n\n**The Full Solution:**\nStep 1: The vertex $(-5, 12)$ is above the $x$-axis. For the parabola to reach the $x$-axis, it must open downward, so $a < 0$.\nStep 2: The $x$-coordinate of the vertex is $-\\frac{b}{2a}$, so $-\\frac{b}{2a} = -5$, which gives $b = 10a$.\nStep 3: Since $a < 0$, $b = 10a < 0$. So $a < 0$ and $b < 0$. Check with $a = -1$: $y = -(x + 5)^{2} + 12 = -x^{2} - 10x - 13$ has $b = -10 < 0$, and $-(x + 5)^{2} + 12 = 0$ at $x = -5 \\pm 2\\sqrt{3}$, two points ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: uses $b = 2ah = 2a(-5) = -10a$, a sign error that makes $b$ positive.\n* Choice C: assumes the parabola opens upward, which is impossible with the vertex above the $x$-axis, and also reverses the sign of $b$.\n* Choice D: assumes the parabola opens upward; then $b = 10a$ would be positive, but an upward parabola with its vertex above the $x$-axis never reaches the axis.\n\n**Test Day Takeaway:** The vertex's position relative to the $x$-axis plus the number of $x$-intercepts gives the sign of $a$; then $h = -\\frac{b}{2a}$ links the sign of $b$ to $a$."
 }

@@ -1,52 +1,52 @@
 {
- "id": "bank-am-411",
- "question": "Nesting pairs on a seabird island were counted every two years, giving the three totals in the table, and the counts follow the same pattern in the years between counts. Which function models the number of nesting pairs on the island $t$ years after the first count?",
- "diagram": {
-  "type": "dataTable",
-  "params": {
-   "headers": [
-    "Years after first count",
-    "Nesting pairs"
-   ],
-   "rows": [
-    [
-     "0",
-     "1,250"
-    ],
-    [
-     "2",
-     "800"
-    ],
-    [
-     "4",
-     "512"
-    ]
-   ]
-  }
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$f(t) = 1{,}250(0.36)^{t/2}$"
+  "id": "bank-am-411",
+  "question": "The table shows the number of birds, $f(t)$, nesting on an island $t$ years after a count began. The number of birds decreases by the same percentage each year. Which equation defines $f$?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "t",
+        "f(t)"
+      ],
+      "rows": [
+        [
+          "0",
+          "1,250"
+        ],
+        [
+          "2",
+          "800"
+        ],
+        [
+          "4",
+          "512"
+        ]
+      ]
+    }
   },
-  {
-   "id": "B",
-   "text": "$f(t) = 1{,}250(0.64)^{t}$"
+  "choices": [
+    {
+      "id": "A",
+      "text": "$f(t) = 1{,}250(0.36)^{\\frac{t}{2}}$"
+    },
+    {
+      "id": "B",
+      "text": "$f(t) = 1{,}250(0.64)^{t}$"
+    },
+    {
+      "id": "C",
+      "text": "$f(t) = 1{,}250(0.8)^{2t}$"
+    },
+    {
+      "id": "D",
+      "text": "$f(t) = 1{,}250(0.8)^{t}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses $1 - 0.64 = 0.36$, the fraction lost every $2$ years, as the factor",
+    "B": "applies the $2$-year factor $0.64$ every year",
+    "C": "doubles the exponent instead of taking a square root of the $2$-year factor"
   },
-  {
-   "id": "C",
-   "text": "$f(t) = 1{,}250(0.8)^{2t}$"
-  },
-  {
-   "id": "D",
-   "text": "$f(t) = 1{,}250(0.8)^{t}$"
-  }
- ],
- "correctAnswer": "D",
- "distractorNotes": {
-  "A": "subtracts the two-year ratio from $1$ and uses $0.36$ as the multiplier",
-  "B": "uses the two-year multiplier $0.64$ as if it applied every single year",
-  "C": "doubles the exponent instead of taking the square root of the two-year multiplier"
- },
- "explanation": "**SAT Pattern: Exponential Decay — Standard Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** Every two years the count is multiplied by $\\frac{800}{1{,}250} = 0.64$, and $\\sqrt{0.64} = 0.8$ is the annual multiplier, so $f(t) = 1{,}250(0.8)^{t}$.\n\n**The Full Solution:**\nStep 1: The counts fall from $1{,}250$ to $800$ to $512$, and $\\frac{800}{1{,}250} = \\frac{512}{800} = 0.64$, so the data are exponential with a two-year multiplier of $0.64$.\nStep 2: If the annual multiplier is $b$, then two years give $b^{2} = 0.64$, so $b = 0.8$.\nStep 3: With $f(0) = 1{,}250$, the model is $f(t) = 1{,}250(0.8)^{t}$. Check: $f(2) = 1{,}250(0.64) = 800$ and $f(4) = 1{,}250(0.4096) = 512$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1{,}250(0.36)^{t/2}$): reads the $36\\%$ drop over two years as the multiplier itself; at $t = 2$ it gives $450$, not $800$.\n* Choice B ($1{,}250(0.64)^{t}$): applies the two-year multiplier once per year; at $t = 2$ it gives $512$, the four-year value.\n* Choice C ($1{,}250(0.8)^{2t}$): squares the exponent's rate instead of halving it, giving $512$ at $t = 2$.\n\n**Test Day Takeaway:** When a table steps by two units, the listed ratio is a SQUARED multiplier — take its square root before writing a per-unit model."
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Exponential Decay — Standard Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** Every $2$ years the number is multiplied by $\\frac{800}{1{,}250} = 0.64$, so each year it is multiplied by $\\sqrt{0.64} = 0.8$: $f(t) = 1{,}250(0.8)^{t}$.\n\n**The Full Solution:**\nStep 1: At $t = 0$, $f(0) = 1{,}250$, the initial value.\nStep 2: Across each $2$-year gap the factor is $\\frac{800}{1{,}250} = \\frac{512}{800} = 0.64$. The yearly factor $r$ satisfies $r^{2} = 0.64$, so $r = 0.8$.\nStep 3: So $f(t) = 1{,}250(0.8)^{t}$. Check: $f(4) = 1{,}250(0.8)^{4} = 1{,}250(0.4096) = 512$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: uses $0.36$, the fraction lost every $2$ years, as the factor; it gives $f(2) = 450$, not $800$.\n* Choice B: applies the $2$-year factor every year; it gives $f(2) = 512$, not $800$.\n* Choice C: doubles the exponent; it gives $f(2) = 1{,}250(0.8)^{4} = 512$, not $800$.\n\n**Test Day Takeaway:** When rows are $2$ units apart, the per-unit factor is the square root of the factor between rows."
 }

@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-003",
-  "question": "A courier service charges a flat fee plus a constant amount for each kilogram of a package's mass. A $3$-kilogram package costs $\\$19.50$ to ship, and a $9$-kilogram package costs $\\$34.50$ to ship. What is the charge per kilogram, in dollars?",
+  "question": "A shipping company charges a flat fee plus a fixed amount per kilogram. It costs \\$19.50 to ship a $3$-kilogram package and \\$34.50 to ship a $9$-kilogram package. What is the charge per kilogram, in dollars?",
   "choices": [
     {
       "id": "A",

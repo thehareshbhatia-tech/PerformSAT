@@ -1,29 +1,29 @@
 {
  "id": "bank-am-365",
- "question": "A dimmer board converts a fader setting $s$ to an output voltage $v(s)=3s+20$, and the lamp it drives produces a brightness, in lumens, of $L(v)=8v$. What is the value of $L(v(10))$?",
+ "question": "The functions $f$ and $g$ are defined by $f(x) = 4x - 7$ and $g(x) = x + 6$. What is the value of $f(g(2))$?",
  "choices": [
   {
    "id": "A",
-   "text": "$80$"
+   "text": "$7$"
   },
   {
    "id": "B",
-   "text": "$240$"
+   "text": "$9$"
   },
   {
    "id": "C",
-   "text": "$260$"
+   "text": "$25$"
   },
   {
    "id": "D",
-   "text": "$400$"
+   "text": "$32$"
   }
  ],
- "correctAnswer": "D",
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "applies only L to the setting 10, skipping the voltage step: 8(10) = 80",
-  "B": "drops the constant 20 from the voltage: 8(3 x 10) = 240",
-  "C": "composes in the reverse order: v(L(10)) = 3(80) + 20 = 260"
+  "A": "applies the functions in the wrong order, computing g(f(2)) = 1 + 6 = 7",
+  "B": "adds f(2) and g(2), computing 1 + 8 = 9",
+  "D": "multiplies g(2) = 8 by 4 but forgets to subtract 7"
  },
- "explanation": "**SAT Pattern: Function Composition**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** $v(10)=50$ volts, and $L(50)=8(50)=400$ lumens.\n\n**The Full Solution:**\nStep 1: The inner function converts the fader setting: $v(10)=3(10)+20=50$.\nStep 2: That voltage is the input of $L$: $L(50)=8(50)$.\nStep 3: $8(50)=400$ lumens. Check: doubling the fader's contribution $3(10)=30$ to $50$ volts and scaling by 8 gives 400 ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($80$): applies $L$ to the fader setting itself, $8(10)$, skipping the voltage conversion.\n* Choice B ($240$): drops the constant $20$, computing $8(30)$ instead of $8(50)$.\n* Choice C ($260$): composes in the reverse order, $v(L(10))=3(80)+20$.\n\n**Test Day Takeaway:** Read $L(v(10))$ right to left: the fader setting enters $v$, and only $v$'s output enters $L$."
+ "explanation": "**SAT Pattern: Function Composition**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $g(2) = 8$, so $f(g(2)) = f(8) = 4(8) - 7 = 25$.\n\n**The Full Solution:**\nStep 1: Work from the inside out. First find $g(2) = 2 + 6 = 8$.\nStep 2: Use that output as the input of $f$: $f(8) = 4(8) - 7$.\nStep 3: Compute: $32 - 7 = 25$. Check: $g$ adds $6$ to $2$, then $f$ multiplies by $4$ and subtracts $7$, giving $25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): applies $f$ first. That computes $g(f(2)) = g(1) = 7$, which is a different composition.\n* Choice B ($9$): adds $f(2) = 1$ and $g(2) = 8$. Composition feeds one output into the other function; it does not add them.\n* Choice D ($32$): multiplies $8$ by $4$ and stops before subtracting $7$.\n\n**Test Day Takeaway:** In $f(g(a))$, the inner function acts first; evaluate $g(a)$, then put that number into $f$."
 }

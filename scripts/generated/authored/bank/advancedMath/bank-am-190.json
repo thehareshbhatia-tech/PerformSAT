@@ -1,6 +1,6 @@
 {
   "id": "bank-am-190",
-  "question": "A microfilm scanner's cost per reel matches its budgeted rate at the two distinct settings that satisfy $7x^2+cx+63=0$, where $c$ is a nonzero constant. Which expression is equal to the sum of the two settings?",
+  "question": "$7x^{2} + cx + 63 = 0$\nIn the given equation, $c$ is a constant. The equation has two distinct real solutions. Which expression represents the sum of the solutions?",
   "choices": [
     {
       "id": "A",

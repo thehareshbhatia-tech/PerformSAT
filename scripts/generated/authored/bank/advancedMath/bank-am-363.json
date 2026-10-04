@@ -1,29 +1,29 @@
 {
  "id": "bank-am-363",
- "question": "The mass of a soil core, in grams, is $14y^3 + 21y^2 + 6y + 9$ for a core of radius $y$ centimeters, and that mass factors as a product of two binomials with integer coefficients. Which product is it?",
+ "question": "Which expression is equivalent to $6pq - 8p + 9q - 12$?",
  "choices": [
   {
    "id": "A",
-   "text": "$(7y + 3)(2y^2 + 3)$"
+   "text": "$(2p - 3)(3q + 4)$"
   },
   {
    "id": "B",
-   "text": "$(7y^2 + 9)(2y + 1)$"
+   "text": "$(2p - 3)(3q - 4)$"
   },
   {
    "id": "C",
-   "text": "$(7y^2 + 3)(2y - 3)$"
+   "text": "$(2p + 4)(3q - 3)$"
   },
   {
    "id": "D",
-   "text": "$(7y^2 + 3)(2y + 3)$"
+   "text": "$(2p + 3)(3q - 4)$"
   }
  ],
  "correctAnswer": "D",
  "distractorNotes": {
-  "A": "puts the square in the wrong factor, giving $14y^3 + 21y + 6y^2 + 9$",
-  "B": "regroups the constants as $9$ and $1$, which expands to $14y^3 + 7y^2 + 18y + 9$",
-  "C": "flips the sign inside the binomial, turning $+21y^2$ into $-21y^2$"
+  "A": "reverses both signs, giving a product that expands to 6pq + 8p - 9q - 12",
+  "B": "factors -3 instead of +3 out of 9q - 12, giving a product that expands to 6pq - 8p - 9q + 12",
+  "C": "swaps the constants 3 and 4 between the two factors, giving 6pq - 6p + 12q - 12"
  },
- "explanation": "**SAT Pattern: Factor by Grouping**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** $7y^2(2y + 3) + 3(2y + 3) = (7y^2 + 3)(2y + 3)$.\n\n**The Full Solution:**\nStep 1: Pair the terms: $(14y^3 + 21y^2) + (6y + 9)$.\nStep 2: Factor each pair: $7y^2(2y + 3)$ and $3(2y + 3)$.\nStep 3: Both share $2y + 3$, so the mass is $(7y^2 + 3)(2y + 3)$. Check: expanding gives $14y^3 + 21y^2 + 6y + 9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(7y + 3)(2y^2 + 3)$): the square sits in the wrong factor, so the expansion is $14y^3 + 21y + 6y^2 + 9$, which puts $21$ on the $y$ term.\n* Choice B ($(7y^2 + 9)(2y + 1)$): a mis-split of the constants; the middle term becomes $7y^2$.\n* Choice C ($(7y^2 + 3)(2y - 3)$): one sign flip reverses the $21y^2$ term.\n\n**Test Day Takeaway:** Check a factored answer by multiplying the two OUTER terms and the two INNER constants — those reproduce the cubic and constant terms instantly."
+ "explanation": "**SAT Pattern: Factor by Grouping**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Group in pairs: $2p(3q - 4) + 3(3q - 4) = (2p + 3)(3q - 4)$.\n\n**The Full Solution:**\nStep 1: Split the terms into two pairs: $(6pq - 8p) + (9q - 12)$.\nStep 2: Factor each pair: $6pq - 8p = 2p(3q - 4)$ and $9q - 12 = 3(3q - 4)$. Both pairs share $3q - 4$.\nStep 3: Factor out the shared binomial: $(2p + 3)(3q - 4)$. Check by expanding: $6pq - 8p + 9q - 12$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(2p - 3)(3q + 4)$): reverses both signs. It expands to $6pq + 8p - 9q - 12$.\n* Choice B ($(2p - 3)(3q - 4)$): takes $-3$ out of $9q - 12$. It expands to $6pq - 8p - 9q + 12$.\n* Choice C ($(2p + 4)(3q - 3)$): swaps the $3$ and the $4$ between the factors. It expands to $6pq - 6p + 12q - 12$.\n\n**Test Day Takeaway:** Two variables do not change the method: pull the greatest common factor from each pair, then factor out the binomial they share."
 }

@@ -1,52 +1,53 @@
 {
-  "id": "bank-am-384",
-  "question": "A chemist models the mass of a sample, in grams, by $M(d) = 240(0.75)^d$, where $d$ is the number of days since the sample was prepared. The table shows the mass for the first three days. Which of the following is the best interpretation of $0.75$ in this model?",
-  "diagram": {
-    "type": "dataTable",
-    "params": {
-      "headers": [
-        "Days, d",
-        "Mass (grams)"
-      ],
-      "rows": [
-        [
-          "0",
-          "240"
-        ],
-        [
-          "1",
-          "180"
-        ],
-        [
-          "2",
-          "135"
-        ]
-      ]
-    }
-  },
-  "choices": [
-    {
-      "id": "A",
-      "text": "Each day, the mass of the sample is $75\\%$ less than the mass on the previous day."
-    },
-    {
-      "id": "B",
-      "text": "Each day, the mass of the sample decreases by $0.75$ gram."
-    },
-    {
-      "id": "C",
-      "text": "Each day, the mass of the sample is $75\\%$ of the mass on the previous day."
-    },
-    {
-      "id": "D",
-      "text": "Each day, the mass of the sample decreases by $25$ grams."
-    }
+ "id": "bank-am-384",
+ "question": "The table shows the mass, in grams, of a sample $d$ days after it was prepared. The mass can be modeled by $M(d) = a(b)^{d}$, where $a$ and $b$ are constants. What is the value of $b$?",
+ "questionTable": {
+  "headers": [
+   "$d$",
+   "$M(d)$"
   ],
-  "distractorNotes": {
-    "A": "reads the decay factor as the percent lost",
-    "B": "reads a multiplier as a constant amount",
-    "D": "turns the percent lost into a fixed amount"
+  "rows": [
+   [
+    "$0$",
+    "$320$"
+   ],
+   [
+    "$1$",
+    "$240$"
+   ],
+   [
+    "$2$",
+    "$180$"
+   ],
+   [
+    "$3$",
+    "$135$"
+   ]
+  ]
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$0.25$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Interpret Exponential Parameters**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** A base of $0.75$ means each day's mass is $0.75$ times, or $75\\%$ of, the previous day's mass.\n\n**The Full Solution:**\nStep 1: The model is $M(d) = a(b)^d$ with $a = 240$ grams and $b = 0.75$.\nStep 2: Increasing $d$ by $1$ multiplies the mass by $0.75$. The table shows this: $240 \\to 180 \\to 135$, and $\\frac{180}{240} = 0.75$.\nStep 3: So each day's mass is $75\\%$ of the day before, which is a $25\\%$ decrease. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: reads $0.75$ as the fraction LOST; losing $75\\%$ would leave a base of $0.25$.\n* Choice B: reads the multiplier as an amount in grams, which would describe a linear model.\n* Choice D: converts the $25\\%$ loss into a fixed $25$ grams; the actual drops are $60$ grams and then $45$ grams.\n\n**Test Day Takeaway:** For $0 < b < 1$, the base is the fraction that REMAINS; the percent lost is $(1 - b) \\times 100\\%$."
+  {
+   "id": "B",
+   "text": "$0.75$"
+  },
+  {
+   "id": "C",
+   "text": "$\\frac{4}{3}$"
+  },
+  {
+   "id": "D",
+   "text": "$80$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "gives the fraction of the mass lost each day, 80/320, instead of the fraction kept",
+  "C": "divides each mass by the next one, 320/240, instead of the next by the previous",
+  "D": "gives the drop in mass from day 0 to day 1, 320 - 240"
+ },
+ "explanation": "**SAT Pattern: Interpret Exponential Parameters**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $b$ is the ratio of consecutive masses: $\\frac{240}{320} = 0.75$.\n\n**The Full Solution:**\nStep 1: In $M(d) = a(b)^{d}$, each increase of $1$ in $d$ multiplies the mass by $b$, so $b = \\frac{M(1)}{M(0)}$.\nStep 2: From the table, $\\frac{240}{320} = 0.75$.\nStep 3: So $b = 0.75$, and $a = M(0) = 320$. Check the other rows: $240(0.75) = 180$ and $180(0.75) = 135$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.25$): gives the fraction lost each day, $\\frac{80}{320}$. The base is the fraction kept.\n* Choice C ($\\frac{4}{3}$): divides the earlier mass by the later one. That ratio would describe growth.\n* Choice D ($80$): gives the first-day drop, $320 - 240$, which is a difference, not a growth factor.\n\n**Test Day Takeaway:** The base of an exponential model is a ratio of consecutive outputs, later over earlier; a difference of outputs is a linear rate."
 }

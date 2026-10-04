@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-001",
-  "question": "A quadratic equation in one variable can be written in the form $ax^2 + bx + c = 0$, where $a$, $b$, and $c$ are constants and $a \\neq 0$. Which of the following is a quadratic equation in $x$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$13x - 26 = 0$"
-    },
-    {
-      "id": "B",
-      "text": "$\\dfrac{6}{x} + 4 = 0$"
-    },
-    {
-      "id": "C",
-      "text": "$2x^2 - 5x + 3 = 0$"
-    },
-    {
-      "id": "D",
-      "text": "$x^3 - 8x = 0$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "degree 1 — a linear equation",
-    "B": "variable in a denominator — not a polynomial equation at all",
-    "D": "degree 3 — a cubic equation"
+ "id": "bank-am-001",
+ "question": "Which of the following is a quadratic equation?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$7x - 21 = 0$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Identify Quadratic Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Look for a highest power of exactly $2$ with the variable in the numerator. Only $2x^2 - 5x + 3 = 0$ qualifies.\n\n**The Full Solution:**\nStep 1: A quadratic equation in $x$ has a term with $x^2$ and no higher power of $x$, and every power of $x$ must be a whole number in the numerator.\nStep 2: Test each equation. $13x - 26 = 0$ has highest power $1$. $\\dfrac{6}{x} + 4 = 0$ has $x$ in a denominator, which is the power $x^{-1}$. $x^3 - 8x = 0$ has highest power $3$.\nStep 3: $2x^2 - 5x + 3 = 0$ matches $ax^2 + bx + c = 0$ with $a = 2$, $b = -5$, $c = 3$, and $a \\neq 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($13x - 26 = 0$): the largest power of $x$ is $1$, so this is linear, not quadratic.\n* Choice B ($\\dfrac{6}{x} + 4 = 0$): the variable sits in a denominator, so the equation is rational, not polynomial.\n* Choice D ($x^3 - 8x = 0$): the largest power of $x$ is $3$, so this is cubic.\n\n**Test Day Takeaway:** Classify by the HIGHEST power of the variable, and check that the variable never appears in a denominator or under a radical."
+  {
+   "id": "B",
+   "text": "$\\dfrac{5}{x} + 2 = 0$"
+  },
+  {
+   "id": "C",
+   "text": "$3x^{2} - 4x + 1 = 0$"
+  },
+  {
+   "id": "D",
+   "text": "$x^{3} - 9x = 0$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "the highest power of x is 1, so the equation is linear",
+  "B": "x is in a denominator, so the equation is not a polynomial equation",
+  "D": "the highest power of x is 3, so the equation is cubic"
+ },
+ "explanation": "**SAT Pattern: Identify Quadratic Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Look for the equation whose highest power of $x$ is exactly $2$, with $x$ never in a denominator. Only $3x^{2} - 4x + 1 = 0$ qualifies.\n\n**The Full Solution:**\nStep 1: A quadratic equation in $x$ can be written as $ax^{2} + bx + c = 0$ with $a \\neq 0$: its highest power of $x$ is $2$, and every power of $x$ is a whole number.\nStep 2: Check the other choices. In $7x - 21 = 0$ the highest power is $1$. In $\\dfrac{5}{x} + 2 = 0$, $x$ is in a denominator, which is the power $x^{-1}$. In $x^{3} - 9x = 0$ the highest power is $3$.\nStep 3: $3x^{2} - 4x + 1 = 0$ has the form $ax^{2} + bx + c = 0$ with $a = 3$, $b = -4$, and $c = 1$, and $a \\neq 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7x - 21 = 0$): the highest power of $x$ is $1$, so this equation is linear.\n* Choice B ($\\dfrac{5}{x} + 2 = 0$): the variable is in a denominator, so this is a rational equation, not a polynomial one.\n* Choice D ($x^{3} - 9x = 0$): the highest power of $x$ is $3$, so this equation is cubic.\n\n**Test Day Takeaway:** Classify an equation by the HIGHEST power of the variable, and make sure the variable never sits in a denominator."
 }

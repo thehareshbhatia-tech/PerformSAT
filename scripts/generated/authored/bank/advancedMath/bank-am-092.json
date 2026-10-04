@@ -1,23 +1,23 @@
 {
  "id": "bank-am-092",
- "question": "An engineer models a fuel cell stack's heat loss with the quadratic function $f$ whose graph is shown, and the point $(3,10)$ lies on that graph. If $f(x)=a(x+1)^2+2$ for a constant $a$, what is the value of $a$?",
- "correctAnswer": "0.5",
- "explanation": "**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $0.5$.**\n\n**The Fast Way (~20s):** Substituting $(3,10)$ gives $10=a(4)^2+2$, so $16a=8$ and $a=0.5$.\n\n**The Full Solution:**\nStep 1: Put $x=3$ and $f(x)=10$ into $f(x)=a(x+1)^2+2$: $10=a(3+1)^2+2$.\nStep 2: Simplify the square and subtract: $16a=8$.\nStep 3: Divide: $a=0.5$. Check: $f(3)=0.5(16)+2=10$, and the vertex $(-1,2)$ matches the graph ✓\n\n**Common Mistakes:**\n* $2$: divides the wrong way, computing $\\frac{16}{8}$.\n* $8$: reports $10-2=8$ and never divides by $16$.\n* $0.625$: divides $10$ by $16$ without first subtracting the $2$.\n\n**Test Day Takeaway:** With the vertex already in the formula, one extra point is one equation in one unknown — subtract the vertex output before dividing.",
+ "question": "$f(x) = a(x + 2)^{2} + 1$\nThe graph of the given function $f$ is shown, where $a$ is a constant. If the graph passes through the point $(2, 9)$, what is the value of $a$?",
  "diagram": {
   "type": "quadraticVertex",
   "params": {
    "vertex": [
-    -1,
-    2
+    -2,
+    1
    ],
    "a": 0.5,
    "showVertex": true,
    "showPoints": [
     [
-     3,
-     10
+     2,
+     9
     ]
    ]
   }
- }
+ },
+ "correctAnswer": "0.5",
+ "explanation": "**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $0.5$.**\n\n**The Fast Way (~20s):** Substituting $(2, 9)$ gives $9 = a(4)^{2} + 1$, so $16a = 8$ and $a = 0.5$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 2$ and $f(x) = 9$ into the equation: $9 = a(2 + 2)^{2} + 1$.\nStep 2: Square and subtract $1$ from both sides: $16a = 8$.\nStep 3: Divide by $16$: $a = 0.5$. Check: $f(2) = 0.5(16) + 1 = 9$, and the lowest point of the graph is $(-2, 1)$, the vertex the equation names ✓\n\n**Common Mistakes:**\n* $2$: divides the wrong way, computing $\\frac{16}{8}$.\n* $8$: stops at $16a = 8$ and reports $8$.\n* $0.5625$: divides $9$ by $16$ without first subtracting the $1$.\n\n**Test Day Takeaway:** When the vertex is already in the equation, one more point is one equation in one unknown; subtract $k$ before dividing."
 }

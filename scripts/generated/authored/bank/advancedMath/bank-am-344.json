@@ -1,52 +1,52 @@
 {
-  "id": "bank-am-344",
-  "question": "A sample of a radioactive isotope has a mass of $96$ milligrams, and the isotope has a half-life of $8$ days. The table gives the mass remaining at the time of measurement and at two later times. Which function $m$ gives the mass, in milligrams, remaining $t$ days after the sample was measured?",
-  "diagram": {
-    "type": "dataTable",
-    "params": {
-      "headers": [
-        "Time (days)",
-        "Mass remaining (milligrams)"
-      ],
-      "rows": [
-        [
-          "0",
-          "96"
-        ],
-        [
-          "8",
-          "48"
-        ],
-        [
-          "16",
-          "24"
-        ]
-      ]
-    }
+ "id": "bank-am-344",
+ "question": "The function $m$ gives the mass, in milligrams, of a radioactive substance remaining $t$ days after the mass was first measured. The table shows three values of $t$ and their corresponding values of $m(t)$. Which equation defines $m$?",
+ "diagram": {
+  "type": "dataTable",
+  "params": {
+   "headers": [
+    "t (days)",
+    "m(t) (milligrams)"
+   ],
+   "rows": [
+    [
+     "0",
+     "96"
+    ],
+    [
+     "8",
+     "48"
+    ],
+    [
+     "16",
+     "24"
+    ]
+   ]
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$m(t) = 96\\left(\\dfrac{1}{2}\\right)^{8t}$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$m(t) = 96\\left(\\dfrac{1}{2}\\right)^{8t}$"
-    },
-    {
-      "id": "B",
-      "text": "$m(t) = 96\\left(\\dfrac{1}{2}\\right)^{t/8}$"
-    },
-    {
-      "id": "C",
-      "text": "$m(t) = 96\\left(\\dfrac{1}{2}\\right)^{t}$"
-    },
-    {
-      "id": "D",
-      "text": "$m(t) = 96 - 6t$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "multiplies by the half-life instead of dividing",
-    "C": "treats the half-life as one day",
-    "D": "models a constant loss per day"
+  {
+   "id": "B",
+   "text": "$m(t) = 96\\left(\\dfrac{1}{2}\\right)^{\\frac{t}{8}}$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Build Exponential Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The mass halves once per $8$ days, so the number of halvings is $\\dfrac{t}{8}$ and $m(t) = 96\\left(\\dfrac{1}{2}\\right)^{t/8}$.\n\n**The Full Solution:**\nStep 1: Half-life decay has the form $m(t) = m_0\\left(\\dfrac{1}{2}\\right)^{t/H}$, where $H$ is the half-life and $m_0$ is the starting mass.\nStep 2: Here $m_0 = 96$ and $H = 8$, so the exponent is $\\dfrac{t}{8}$.\nStep 3: $m(t) = 96\\left(\\dfrac{1}{2}\\right)^{t/8}$. Check: at $t = 8$ the exponent is $1$, giving $48$; at $t = 16$ it is $2$, giving $24$ — the last two table rows. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($m(t) = 96\\left(\\dfrac{1}{2}\\right)^{8t}$): multiplies by the half-life instead of dividing, which would leave far less than $48$ milligrams at $t = 8$.\n* Choice C ($m(t) = 96\\left(\\dfrac{1}{2}\\right)^{t}$): treats the half-life as one day, halving the mass every day.\n* Choice D ($m(t) = 96 - 6t$): treats the first $48$-milligram drop as a constant $6$ milligrams per day, which would reach $0$ at $t = 16$.\n\n**Test Day Takeaway:** The exponent counts how many half-lives have passed, so divide the elapsed time by the half-life."
+  {
+   "id": "C",
+   "text": "$m(t) = 96\\left(\\dfrac{1}{2}\\right)^{t}$"
+  },
+  {
+   "id": "D",
+   "text": "$m(t) = 96 - 6t$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "multiplies t by the 8-day halving period instead of dividing by it",
+  "C": "treats the mass as halving every day instead of every 8 days",
+  "D": "treats the first drop of 48 milligrams over 8 days as a constant loss of 6 milligrams per day, which gives 0 instead of 24 at t = 16"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Build Exponential Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The mass halves every $8$ days ($96 \\to 48 \\to 24$), so after $t$ days it has halved $\\dfrac{t}{8}$ times: $m(t) = 96\\left(\\dfrac{1}{2}\\right)^{\\frac{t}{8}}$.\n\n**The Full Solution:**\nStep 1: When $t = 0$, $m(t) = 96$, so the initial mass is $96$ milligrams.\nStep 2: The mass is $48$ at $t = 8$ and $24$ at $t = 16$, so it is multiplied by $\\dfrac{1}{2}$ once every $8$ days. In $t$ days that happens $\\dfrac{t}{8}$ times.\nStep 3: So $m(t) = 96\\left(\\dfrac{1}{2}\\right)^{\\frac{t}{8}}$. Check: at $t = 16$ the exponent is $2$, and $96\\left(\\dfrac{1}{4}\\right) = 24$, which matches the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($m(t) = 96\\left(\\dfrac{1}{2}\\right)^{8t}$): multiplies $t$ by $8$ instead of dividing, so the mass would halve $64$ times by $t = 8$.\n* Choice C ($m(t) = 96\\left(\\dfrac{1}{2}\\right)^{t}$): halves the mass every day, giving $m(8) = 0.375$ instead of $48$.\n* Choice D ($m(t) = 96 - 6t$): spreads the first drop of $48$ milligrams evenly over $8$ days, which gives $m(16) = 0$ instead of $24$.\n\n**Test Day Takeaway:** The exponent counts how many times the factor has been applied, so divide the elapsed time by the length of one period."
 }

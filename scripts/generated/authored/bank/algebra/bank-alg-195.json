@@ -1,5 +1,5 @@
 {
- "question": "A sensor pair satisfies the equations $y=4x-7$ and $3x+cy=59$, where $c$ is a constant, and the two readings meet at the point $(3,5)$ in the $xy$-plane, where $x$ and $y$ are the readings. What is the value of $c$?",
+ "question": "$y = 4x - 7$\n$3x + cy = 59$\nIn the given system of equations, $c$ is a constant. If the system has the solution $(3, y)$, what is the value of $c$?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
  ],
  "correctAnswer": "C",
  "distractorNotes": {
-  "A": "reports the x-coordinate of the meeting point instead of the constant",
-  "B": "reports the y-coordinate of the meeting point instead of the constant",
-  "D": "stops at 5c = 50 without dividing by 5"
+  "A": "reports the x-coordinate of the solution, 3, as c",
+  "B": "stops after finding y = 5 and reports it as c",
+  "D": "finds cy = 59 - 9 = 50 but does not divide by y = 5"
  },
- "explanation": "**SAT Pattern: Linear System by Substitution**\n\n**Choice C is correct.** Substituting $(3,5)$ into $3x+cy=59$ gives $9+5c=59$, so $c=10$.\n\n**The Fast Way (~30s):** $3(3)+c(5)=59\\Rightarrow 5c=50\\Rightarrow c=10$.\n\n**The Full Solution:**\n\nStep 1: The point $(3,5)$ satisfies both equations. Confirm it fits the first: $4(3)-7=5$.\n\nStep 2: Substitute $x=3$ and $y=5$ into the second equation: $3(3)+c(5)=59$, so $9+5c=59$.\n\nStep 3: Subtract $9$ and divide by $5$: $5c=50$, so $c=10$. Check: $3(3)+10(5)=9+50=59$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($3$): reports the $x$-coordinate of the meeting point rather than the constant.\n* Choice B ($5$): reports the $y$-coordinate.\n* Choice D ($50$): stops at $5c=50$ and never divides by $5$.\n\n**Test Day Takeaway:** A given solution can be substituted into either equation; pick the one containing the unknown constant.",
+ "explanation": "**SAT Pattern: Linear System by Substitution**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** With $x = 3$, the first equation gives $y = 5$; then $9 + 5c = 59$, so $c = 10$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 3$ into the first equation: $y = 4(3) - 7 = 5$, so the solution is $(3, 5)$.\nStep 2: Substitute $(3, 5)$ into the second equation: $3(3) + c(5) = 59$, so $9 + 5c = 59$.\nStep 3: Subtract $9$ and divide by $5$: $c = 10$. Check: $3(3) + 10(5) = 59$ and $4(3) - 7 = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports the $x$-coordinate of the solution.\n* Choice B ($5$): stops after finding $y = 5$.\n* Choice D ($50$): finds $5c = 50$ but does not divide by $5$.\n\n**Test Day Takeaway:** A solution point satisfies both equations; use the equation without the constant to finish the point, then substitute the point into the other equation.",
  "id": "bank-alg-195"
 }

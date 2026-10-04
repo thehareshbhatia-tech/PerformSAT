@@ -1,6 +1,26 @@
 {
- "question": "A spectrophotometer reports the absorbance $A(c)=0.042c+0.11$ for a sample whose solute concentration is $c$ micromoles per liter. At what concentration, in micromoles per liter, does the instrument report an absorbance of exactly $0.53$?",
- "correctAnswer": "10",
- "explanation": "**SAT Pattern: Function Evaluation**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~30s):** Running a linear function backward undoes its two operations in reverse order: strip the constant, then divide by the coefficient. $(0.53-0.11)\\div 0.042=10$.\n\n**The Full Solution:**\n\nStep 1: The reported absorbance is the output, so set $A(c)=0.53$, which gives $0.042c+0.11=0.53$.\n\nStep 2: Subtract $0.11$ from both sides to isolate the variable term: $0.042c=0.42$.\n\nStep 3: Divide both sides by $0.042$, giving $c=10$. Check: $0.042(10)+0.11=0.42+0.11=0.53$, the given absorbance.\n\n**Common Mistakes:** Dividing $0.53$ by $0.042$ without first removing the $0.11$ offset gives about $12.62$. Stopping after Step 2 reports $0.42$, which is the value of $0.042c$, not of $c$.\n\n**Test Day Takeaway:** When the output of a linear function is given and the input is wanted, undo the operations in reverse order: constant first, coefficient second.",
- "id": "bank-alg-136"
+  "id": "bank-alg-136",
+  "question": "For the linear function $g$, the table shows three values of $x$ and their corresponding values of $g(x)$. For what value of $x$ is $g(x) = 62$?",
+  "questionTable": {
+    "headers": [
+      "$x$",
+      "$g(x)$"
+    ],
+    "rows": [
+      [
+        "$2$",
+        "$11$"
+      ],
+      [
+        "$5$",
+        "$20$"
+      ],
+      [
+        "$8$",
+        "$29$"
+      ]
+    ]
+  },
+  "correctAnswer": "19",
+  "explanation": "**SAT Pattern: Function Evaluation**\n\n**The correct answer is $19$.**\n\n**The Fast Way (~35s):** $g$ rises $9$ for every $3$ in $x$, so $g(x) = 3x + 5$; then $3x + 5 = 62$ gives $x = 19$.\n\n**The Full Solution:**\nStep 1: From the table, an increase of $3$ in $x$ raises $g(x)$ by $9$, so the slope is $3$. Using $(2, 11)$: $11 = 3(2) + b$, so $b = 5$ and $g(x) = 3x + 5$.\nStep 2: Set the output equal to $62$: $3x + 5 = 62$, so $3x = 57$.\nStep 3: Divide by $3$: $x = 19$. Check: $g(19) = 3(19) + 5 = 57 + 5 = 62$ ✓\n\n**Common Mistakes:**\n* $191$: evaluates $g(62) = 3(62) + 5$ instead of solving $g(x) = 62$.\n* $57$: stops at $3x = 57$ without dividing by $3$.\n* $\\frac{62}{3}$: leaves out the intercept and solves $3x = 62$.\n\n**Test Day Takeaway:** A table of a linear function gives the slope from any two rows; write the rule, then decide whether the question gives the input or the output."
 }

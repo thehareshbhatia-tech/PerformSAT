@@ -1,56 +1,56 @@
 {
- "id": "bank-alg-133",
- "question": "A river sediment program models sediment load $f(x)$, in tonnes per day, as a linear function of the day number $x$; four recorded pairs appear in the table. What load does the model give for day $12$?",
- "diagram": {
-  "type": "dataTable",
-  "params": {
-   "headers": [
-    "Day, x",
-    "Sediment load (tonnes per day)"
-   ],
-   "rows": [
-    [
-     "0",
-     "9"
-    ],
-    [
-     "2",
-     "21"
-    ],
-    [
-     "4",
-     "33"
-    ],
-    [
-     "6",
-     "45"
-    ]
-   ]
-  }
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$54$"
+  "id": "bank-alg-133",
+  "question": "The table shows four values of $x$ and their corresponding values of $f(x)$ for the linear function $f$. What is the value of $f(12)$?",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "x",
+        "f(x)"
+      ],
+      "rows": [
+        [
+          "0",
+          "9"
+        ],
+        [
+          "2",
+          "21"
+        ],
+        [
+          "4",
+          "33"
+        ],
+        [
+          "6",
+          "45"
+        ]
+      ]
+    }
   },
-  {
-   "id": "B",
-   "text": "$72$"
+  "choices": [
+    {
+      "id": "A",
+      "text": "$54$"
+    },
+    {
+      "id": "B",
+      "text": "$72$"
+    },
+    {
+      "id": "C",
+      "text": "$81$"
+    },
+    {
+      "id": "D",
+      "text": "$90$"
+    }
+  ],
+  "correctAnswer": "C",
+  "distractorNotes": {
+    "A": "adds 9 to f(6), extending the table by one row instead of six units of x",
+    "B": "multiplies the rate 6 by 12 and drops the starting value 9",
+    "D": "doubles f(6), treating f as proportional"
   },
-  {
-   "id": "C",
-   "text": "$81$"
-  },
-  {
-   "id": "D",
-   "text": "$90$"
-  }
- ],
- "distractorNotes": {
-  "A": "adds 9 to the day-6 value, extending by one table row instead of six days",
-  "B": "multiplies the rate by 12 and drops the starting load of 9",
-  "D": "doubles the day-6 value, treating the model as proportional"
- },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Function Evaluation**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The load rises $12$ tonnes every $2$ days, a rate of $6$ per day from a start of $9$, so $f(12) = 9 + 6(12) = 81$.\n\n**The Full Solution:**\nStep 1: From the table, the load rises from $9$ to $21$ as the day number rises from $0$ to $2$, a rate of $\\frac{12}{2} = 6$ tonnes per day; the same rate holds for the later rows.\nStep 2: At day $0$ the load is $9$, so the model is $f(x) = 9 + 6x$.\nStep 3: Evaluate at day $12$: $f(12) = 9 + 72 = 81$ tonnes per day. Check: $f(6) = 9 + 36 = 45$, which matches the last table row ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($54$): adds $9$ to the day-$6$ value, extending by one table row instead of by six days.\n* Choice B ($72$): multiplies the rate by $12$ and drops the starting load of $9$.\n* Choice D ($90$): doubles the day-$6$ value, which would be right only if the load were proportional to the day number.\n\n**Test Day Takeaway:** Build the rule from the table — rate first, then the value at $x = 0$ — before evaluating at an input the table does not list."
+  "explanation": "**SAT Pattern: Function Evaluation**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $f(x)$ rises $12$ for every $2$ in $x$, so $f(x) = 6x + 9$ and $f(12) = 6(12) + 9 = 81$.\n\n**The Full Solution:**\nStep 1: From the table, each increase of $2$ in $x$ raises $f(x)$ by $12$, so the slope is $6$. Since $f(0) = 9$, the $y$-intercept is $9$.\nStep 2: So $f(x) = 6x + 9$.\nStep 3: Evaluate: $f(12) = 6(12) + 9 = 72 + 9 = 81$. Check: $f(6) = 45$, and six more units of $x$ add $6(6) = 36$, giving $45 + 36 = 81$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($54$): adds $9$ to $f(6) = 45$, as if going from $x = 6$ to $x = 12$ were one step of the table.\n* Choice B ($72$): computes $6(12)$ and leaves out the starting value $9$.\n* Choice D ($90$): doubles $f(6) = 45$; a linear function with a nonzero intercept is not proportional, so doubling $x$ does not double $f(x)$.\n\n**Test Day Takeaway:** From a table, find the slope from any two rows and the intercept from the $x = 0$ row, then evaluate the rule; do not double or extend the table by eye."
 }

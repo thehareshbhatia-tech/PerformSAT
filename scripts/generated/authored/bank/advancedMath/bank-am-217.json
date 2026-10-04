@@ -1,6 +1,6 @@
 {
  "id": "bank-am-217",
- "question": "A cable is strung between two poles. The height of the cable above the ground, in feet, at a horizontal distance $x$ feet from the first pole is modeled by $y = 0.05(x - 30)^2 + 14$, and the graph of this model is shown. Which of the following is the best interpretation of the vertex of the graph in this context?",
+ "question": "A cable hangs between two poles. The height of the cable above the ground, in feet, at a distance of $x$ feet from the first pole is modeled by $y = 0.05(x - 30)^{2} + 14$, and the graph of this model is shown. Which of the following is the best interpretation of the vertex of the graph in this context?",
  "diagram": {
   "type": "parabola",
   "params": {
@@ -20,7 +20,7 @@
    "xTickInterval": 10,
    "yTickInterval": 10,
    "gridInterval": 10,
-   "showVertex": true
+   "showVertex": false
   }
  },
  "choices": [

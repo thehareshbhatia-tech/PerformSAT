@@ -1,29 +1,6 @@
 {
-  "id": "bank-am-053",
-  "question": "The table shows the value of the exponential function $f$ at three values of $x$. In the $xy$-plane, the graph of $y = f(x)$ intersects the $y$-axis at the point $(0, k)$. What is the value of $k$?",
-  "diagram": {
-    "type": "dataTable",
-    "params": {
-      "headers": [
-        "x",
-        "f(x)"
-      ],
-      "rows": [
-        [
-          "0",
-          "400"
-        ],
-        [
-          "1",
-          "600"
-        ],
-        [
-          "2",
-          "900"
-        ]
-      ]
-    }
-  },
-  "correctAnswer": "400",
-  "explanation": "**SAT Pattern: y-intercept of Exponential**\n\n**The correct answer is $400$.**\n\n**The Fast Way (~10s):** The $y$-intercept is the output at $x = 0$, and the table gives $f(0) = 400$.\n\n**The Full Solution:**\nStep 1: A graph crosses the $y$-axis where $x = 0$, so $k = f(0)$.\nStep 2: The first row of the table gives $f(0) = 400$.\nStep 3: So the graph passes through $(0, 400)$ and $k = 400$. Check that the table really is exponential: $\\dfrac{600}{400} = 1.5$ and $\\dfrac{900}{600} = 1.5$, a constant ratio, so $f(x) = 400(1.5)^{x}$ and $f(0) = 400$. $\\checkmark$\n\n**Common Mistakes:** Reporting $600$, the value at $x = 1$ rather than at $x = 0$. Reporting $1.5$, the growth factor, which is the base rather than the initial value.\n\n**Test Day Takeaway:** For $f(x) = ab^{x}$ the $y$-intercept is always $a$, the value at $x = 0$ — the growth factor never appears in it."
+ "id": "bank-am-053",
+ "question": "$f(x) = 640(0.75)^{x}$\nThe $y$-intercept of the graph of the given function in the $xy$-plane is $(0, b)$. What is the value of $b$?",
+ "correctAnswer": "640",
+ "explanation": "**SAT Pattern: y-intercept of Exponential**\n\n**The correct answer is $640$.**\n\n**The Fast Way (~10s):** The graph crosses the $y$-axis where $x = 0$, and $f(0) = 640(0.75)^{0} = 640$.\n\n**The Full Solution:**\nStep 1: Every point on the $y$-axis has $x$-coordinate $0$, so $b = f(0)$.\nStep 2: Substitute $x = 0$: $f(0) = 640(0.75)^{0}$.\nStep 3: Any nonzero number to the power $0$ is $1$, so $f(0) = 640(1) = 640$ and $b = 640$. Check: $f(1) = 640(0.75) = 480$, smaller than $640$, as a decreasing exponential should be ✓\n\n**Common Mistakes:** Reporting $480$, the value at $x = 1$ instead of $x = 0$. Reporting $0.75$, the base, which sets the rate of decay rather than the starting value.\n\n**Test Day Takeaway:** For $f(x) = ab^{x}$, the $y$-intercept is always $(0, a)$; the base never affects it."
 }

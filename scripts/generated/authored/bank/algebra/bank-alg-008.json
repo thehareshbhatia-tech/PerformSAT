@@ -1,5 +1,5 @@
 {
-  "question": "A javelin thrower's release-angle model $f$ gives the release angle, in degrees, for a run-up index of $x$. The model is linear, giving $9$ degrees at a run-up index of $0$ and $33$ degrees at a run-up index of $6$. Which equation defines $f$?",
+  "question": "For the linear function $f$, $f(0) = 9$ and $f(6) = 33$. Which equation defines $f$?",
   "choices": [
     {
       "id": "A",
@@ -24,6 +24,6 @@
     "C": "uses $\\frac{33}{6}$ as the slope, ignoring that the line starts at $9$ rather than at $0$",
     "D": "swaps the slope and the $y$-intercept"
   },
-  "explanation": "**SAT Pattern: Slope-Intercept Form Identification**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The constant term is $9$, and the angle climbs from $9$ to $33$ degrees over a run of $6$, so the slope is $4$ and $f(x) = 4x + 9$.\n\n**The Full Solution:**\n\nStep 1: A run-up index of $0$ gives $f(0) = 9$, so the constant term is $9$ and $f(x) = mx + 9$ for some constant $m$.\n\nStep 2: Substitute the second point: $33 = m(6) + 9$, so $6m = 24$ and $m = 4$.\n\nStep 3: Therefore $f(x) = 4x + 9$. Check: $f(6) = 4(6) + 9 = 33$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($f(x) = 4x - 9$): keeps the correct slope but negates the intercept, so $f(0) = -9$.\n\n* Choice C ($f(x) = \\frac{11}{2}x + 9$): divides $33$ by $6$ as if the line passed through the origin, so the $+9$ is counted twice.\n\n* Choice D ($f(x) = 9x + 4$): reads $9$ as the slope and $4$ as the intercept, reversing their roles.\n\n**Test Day Takeaway:** Use the intercept to fix the constant first, then let one more point solve for the slope.",
+  "explanation": "**SAT Pattern: Slope-Intercept Form Identification**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $f(0) = 9$ makes the $y$-intercept $9$, and the output rises $33 - 9 = 24$ over a run of $6$, so the slope is $4$ and $f(x) = 4x + 9$.\n\n**The Full Solution:**\nStep 1: A linear function has the form $f(x) = mx + b$. Since $f(0) = b$, the given value $f(0) = 9$ means $b = 9$.\nStep 2: Substitute the second value: $f(6) = 6m + 9 = 33$, so $6m = 24$ and $m = 4$.\nStep 3: Therefore $f(x) = 4x + 9$. Check: $f(0) = 9$ and $f(6) = 4(6) + 9 = 33$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(x) = 4x - 9$): has the correct slope but negates the intercept, so $f(0) = -9$.\n* Choice C ($f(x) = \\frac{11}{2}x + 9$): uses $\\frac{33}{6}$ as the slope, as if the graph passed through the origin, and then adds the $9$ anyway.\n* Choice D ($f(x) = 9x + 4$): reverses the roles of the slope and the $y$-intercept.\n\n**Test Day Takeaway:** $f(0)$ is the constant term with no work; spend the effort on the slope, then check the second given value.",
   "id": "bank-alg-008"
 }

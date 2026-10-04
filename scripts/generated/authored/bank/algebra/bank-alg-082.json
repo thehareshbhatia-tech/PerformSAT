@@ -1,50 +1,50 @@
 {
- "id": "bank-alg-082",
- "question": "The figure gives the parabola $y = f(x)$. Its reflection across the $x$-axis is the parabola $y = g(x)$. Which equation below defines $g$?",
- "diagram": {
-  "type": "quadraticVertex",
-  "params": {
-   "vertex": [
-    3,
-    -4
-   ],
-   "a": 1,
-   "showPoints": [
-    [
-     1,
-     0
-    ],
-    [
-     5,
-     0
-    ]
-   ],
-   "showVertex": true
-  }
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$g(x) = (x + 3)^2 - 4$"
+  "id": "bank-alg-082",
+  "question": "The graph of $y = f(x)$ is shown in the $xy$-plane. The graph of $y = g(x)$ is the reflection of the graph of $y = f(x)$ across the $x$-axis. Which equation defines $g$?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        3,
+        -4
+      ],
+      "a": 1,
+      "showPoints": [
+        [
+          1,
+          0
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "showVertex": true
+    }
   },
-  {
-   "id": "B",
-   "text": "$g(x) = (x - 3)^2 + 4$"
+  "choices": [
+    {
+      "id": "A",
+      "text": "$g(x) = (x + 3)^{2} - 4$"
+    },
+    {
+      "id": "B",
+      "text": "$g(x) = (x - 3)^{2} + 4$"
+    },
+    {
+      "id": "C",
+      "text": "$g(x) = -(x - 3)^{2} + 4$"
+    },
+    {
+      "id": "D",
+      "text": "$g(x) = -(x - 3)^{2} - 4$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reflects across the y-axis instead of the x-axis",
+    "B": "flips the vertex but keeps the parabola opening upward",
+    "D": "negates the squared term but not the constant"
   },
-  {
-   "id": "C",
-   "text": "$g(x) = -(x - 3)^2 + 4$"
-  },
-  {
-   "id": "D",
-   "text": "$g(x) = -(x - 3)^2 - 4$"
-  }
- ],
- "correctAnswer": "C",
- "distractorNotes": {
-  "A": "reflects across the $y$-axis, moving the vertex to $(-3, -4)$ instead of flipping the outputs",
-  "B": "negates only the constant term, leaving the parabola opening upward",
-  "D": "negates only the squared term, giving vertex $(3, -4)$ rather than $(3, 4)$"
- },
- "explanation": "**SAT Pattern: Reflection over Axis**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The parabola is $f(x) = (x - 3)^2 - 4$, and reflecting across the $x$-axis gives $g(x) = -(x - 3)^2 + 4$.\n\n**The Full Solution:**\nStep 1: The graph has vertex $(3, -4)$ and passes through $(1, 0)$ and $(5, 0)$, so $f(x) = (x - 3)^2 - 4$.\nStep 2: Reflecting across the $x$-axis replaces every output by its opposite, so $g(x) = -f(x)$.\nStep 3: Therefore $g(x) = -\\left[(x - 3)^2 - 4\\right] = -(x - 3)^2 + 4$. Check: $g(1) = -4 + 4 = 0$ and $g(3) = 4$, the mirror of $f(3) = -4$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($g(x) = (x + 3)^2 - 4$): reflects across the $y$-axis, moving the vertex to $(-3, -4)$ instead of flipping the outputs\n* Choice B ($g(x) = (x - 3)^2 + 4$): negates only the constant term, leaving the parabola opening upward\n* Choice D ($g(x) = -(x - 3)^2 - 4$): negates only the squared term, giving vertex $(3, -4)$ rather than $(3, 4)$\n\n**Test Day Takeaway:** A reflection across the $x$-axis negates the entire expression, constant term included."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Reflection over Axis**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The graph has vertex $(3, -4)$ and passes through $(1, 0)$, so $f(x) = (x - 3)^{2} - 4$. Reflecting across the $x$-axis negates every output: $g(x) = -(x - 3)^{2} + 4$.\n\n**The Full Solution:**\nStep 1: From the graph, the vertex is $(3, -4)$ and the parabola passes through $(1, 0)$ and $(5, 0)$. With $f(x) = a(x - 3)^{2} - 4$, the point $(1, 0)$ gives $4a - 4 = 0$, so $a = 1$ and $f(x) = (x - 3)^{2} - 4$.\nStep 2: A reflection across the $x$-axis replaces each output $y$ with $-y$, so $g(x) = -f(x)$.\nStep 3: Negate the whole expression: $g(x) = -\\left[(x - 3)^{2} - 4\\right] = -(x - 3)^{2} + 4$. Check: the vertex of $g$ is $(3, 4)$, the mirror image of $(3, -4)$, and $g(1) = -4 + 4 = 0$, so the $x$-intercepts stay put ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x + 3)^{2} - 4$): replaces $x$ with $-x$, which reflects across the $y$-axis, not the $x$-axis.\n* Choice B ($(x - 3)^{2} + 4$): moves the vertex to $(3, 4)$ but keeps the parabola opening upward, so it is a translation, not a reflection.\n* Choice D ($-(x - 3)^{2} - 4$): negates the squared term but not the $-4$, so the vertex stays at $(3, -4)$.\n\n**Test Day Takeaway:** Reflecting across the $x$-axis negates the entire output, $g(x) = -f(x)$: every term changes sign, and points on the $x$-axis stay fixed."
 }

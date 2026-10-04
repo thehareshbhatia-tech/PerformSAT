@@ -1,50 +1,50 @@
 {
- "id": "bank-am-258",
- "question": "A launch tower elevator's sway is modeled by the quadratic function $f$, whose parabola appears in the $xy$-plane. Turning that parabola upside down about the horizontal axis gives the graph of $g$. Which equation defines $g$?",
- "diagram": {
-  "type": "quadraticVertex",
-  "params": {
-   "vertex": [
-    -1,
-    -4
-   ],
-   "a": 1,
-   "showPoints": [
-    [
-     -3,
-     0
-    ],
-    [
-     1,
-     0
-    ]
-   ],
-   "showVertex": true
+  "id": "bank-am-258",
+  "question": "The graph of $y = f(x)$ is shown. The graph of $y = g(x)$ is the reflection of the graph of $y = f(x)$ across the $x$-axis. Which equation defines $g$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$g(x) = (x - 1)^{2} - 4$"
+    },
+    {
+      "id": "B",
+      "text": "$g(x) = -(x + 1)^{2} - 4$"
+    },
+    {
+      "id": "C",
+      "text": "$g(x) = -(x + 1)^{2} + 4$"
+    },
+    {
+      "id": "D",
+      "text": "$g(x) = (x + 1)^{2} + 4$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reflects across the y-axis, replacing x with -x",
+    "B": "negates only the squared term and keeps -4",
+    "D": "negates only the constant term"
+  },
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Reflection of Graph**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The graph has vertex $(-1, -4)$ and passes through $(1, 0)$, so $f(x) = (x + 1)^{2} - 4$ and $g(x) = -f(x) = -(x + 1)^{2} + 4$.\n\n**The Full Solution:**\nStep 1: The graph shows the vertex $(-1, -4)$ and the $x$-intercept $(1, 0)$. In vertex form $f(x) = a(x + 1)^{2} - 4$, and $0 = a(2)^{2} - 4$ gives $a = 1$, so $f(x) = (x + 1)^{2} - 4$.\nStep 2: Reflecting across the $x$-axis negates every output: $g(x) = -f(x)$.\nStep 3: Distribute the negative sign: $g(x) = -(x + 1)^{2} + 4$. Check: the vertex $(-1, -4)$ reflects to $(-1, 4)$, and $g(-1) = -0 + 4 = 4$; the $x$-intercept $(1, 0)$ stays put, and $g(1) = -4 + 4 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x - 1)^{2} - 4$): replaces $x$ with $-x$, which reflects the graph across the $y$-axis.\n* Choice B ($-(x + 1)^{2} - 4$): negates the squared term but not the constant, so the vertex stays at $(-1, -4)$.\n* Choice D ($(x + 1)^{2} + 4$): negates the constant but not the squared term, so the parabola still opens upward.\n\n**Test Day Takeaway:** To reflect across the $x$-axis, negate the whole function, every term; the vertex's $y$-coordinate changes sign and its $x$-coordinate stays the same.",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        -1,
+        -4
+      ],
+      "a": 1,
+      "showPoints": [
+        [
+          -3,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "showVertex": true
+    }
   }
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$g(x)=(x-1)^{2}-4$"
-  },
-  {
-   "id": "B",
-   "text": "$g(x)=-(x+1)^{2}-4$"
-  },
-  {
-   "id": "C",
-   "text": "$g(x)=(x+1)^{2}+4$"
-  },
-  {
-   "id": "D",
-   "text": "$g(x)=-(x+1)^{2}+4$"
-  }
- ],
- "distractorNotes": {
-  "A": "reflects over the vertical axis instead, moving the turning point from x = -1 to x = 1",
-  "B": "negates the squared term but leaves the constant at -4, putting the turning point at (-1, -4) again",
-  "C": "negates only the constant and leaves the parabola opening upward"
- },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Reflection of Graph**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** The graph has its turning point at $(-1,-4)$, so $f(x)=(x+1)^{2}-4$; flipping over the horizontal axis gives $g(x)=-f(x)=-(x+1)^{2}+4$.\n\n**The Full Solution:**\n\nStep 1: Read the turning point $(-1,-4)$ and the intercepts $(-3,0)$ and $(1,0)$ from the graph, so $f(x)=(x+1)^{2}-4$.\n\nStep 2: Flipping over the horizontal axis negates every output: $g(x)=-f(x)$.\n\nStep 3: Distribute the negative across the whole expression: $g(x)=-\\left[(x+1)^{2}-4\\right]=-(x+1)^{2}+4$. Check: $g(-3)=-(4)+4=0$ and $g(-1)=4$, so the intercepts stay put while the turning point moves from $-4$ to $4$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A: reflects over the vertical axis, moving the turning point to $x=1$.\n* Choice B: negates the squared term but forgets the constant, leaving the turning point at $-4$.\n* Choice C: negates only the constant and keeps the parabola opening upward.\n\n**Test Day Takeaway:** Negating a function negates every term, so distribute the minus sign across the constant as well as the squared term."
 }

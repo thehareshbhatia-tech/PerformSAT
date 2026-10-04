@@ -1,6 +1,6 @@
 {
  "id": "bank-am-077",
- "question": "A honeybee hive holds $3{,}500$ workers today, and a beekeeper's model raises the count by $8\\%$ each week for the rest of the season. Which function gives the number of workers in the hive $w$ weeks from now?",
+ "question": "A beehive has $3{,}500$ worker bees, and the number is predicted to increase by $8\\%$ each week. Which of the following functions best models the number of worker bees $w$ weeks from now?",
  "choices": [
   {
    "id": "A",
@@ -21,9 +21,9 @@
  ],
  "correctAnswer": "C",
  "distractorNotes": {
-  "A": "uses the growth rate $0.08$ alone as the multiplier, which would shrink the hive by $92\\%$ a week",
-  "B": "models an $8\\%$ decrease instead of an increase",
-  "D": "misplaces the decimal in $1 + 0.08$, producing an $80\\%$ weekly rise"
+  "A": "uses the rate 0.08 alone as the growth factor",
+  "B": "uses 1 - 0.08, which models a decrease",
+  "D": "writes 8% as 0.8, giving a factor of 1.8"
  },
- "explanation": "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Growth of $8\\%$ per week multiplies by $1 + 0.08 = 1.08$ each week, so $h(w) = 3{,}500(1.08)^{w}$.\n\n**The Full Solution:**\nStep 1: The starting count is $3{,}500$, so that is the value at $w = 0$.\nStep 2: An $8\\%$ weekly increase means each week's count is $108\\%$ of the previous week's, a multiplier of $1.08$.\nStep 3: Repeating that multiplier $w$ times gives $h(w) = 3{,}500(1.08)^{w}$. Check: $h(1) = 3{,}780$, which is $280$ more than $3{,}500$, and $280$ is $8\\%$ of $3{,}500$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.08$): uses the rate as the whole multiplier, so the hive would lose almost all its workers each week.\n* Choice B ($0.92$): the multiplier for an $8\\%$ decrease, not an increase.\n* Choice D ($1.8$): reads $8\\%$ as $0.8$ rather than $0.08$.\n\n**Test Day Takeaway:** A percent increase always becomes $1 + r$ with $r$ written as a decimal — count the decimal places before you commit."
+ "explanation": "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** An $8\\%$ weekly increase multiplies the count by $1 + 0.08 = 1.08$ each week, so $h(w) = 3{,}500(1.08)^{w}$.\n\n**The Full Solution:**\nStep 1: A quantity that increases by the same percent each period is modeled by $h(w) = a(1 + r)^{w}$, where $a$ is the starting amount and $r$ is the rate as a decimal.\nStep 2: Here $a = 3{,}500$ and $r = 0.08$, so the weekly growth factor is $1.08$.\nStep 3: So $h(w) = 3{,}500(1.08)^{w}$. Check: after $1$ week, $3{,}500(1.08) = 3{,}780$, which is $280$ more bees, and $280$ is $8\\%$ of $3{,}500$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($h(w) = 3{,}500(0.08)^{w}$): uses the rate alone as the factor, which would leave only $8\\%$ of the bees each week.\n* Choice B ($h(w) = 3{,}500(0.92)^{w}$): models an $8\\%$ decrease instead of an increase.\n* Choice D ($h(w) = 3{,}500(1.8)^{w}$): writes $8\\%$ as $0.8$, which is an $80\\%$ weekly increase.\n\n**Test Day Takeaway:** For a percent increase, the growth factor is $1 +$ the rate as a decimal; for a decrease, it is $1 -$ the rate."
 }

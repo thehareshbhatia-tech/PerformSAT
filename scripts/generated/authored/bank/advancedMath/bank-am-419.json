@@ -1,29 +1,29 @@
 {
   "id": "bank-am-419",
-  "question": "When a video was first posted, it had $125$ saves. An exponential model estimates that at the end of each hour after it was posted, the number of saves was $120\\%$ more than the number at the end of the previous hour. Which equation gives the estimated number of saves, $S$, $h$ hours after the video was posted?",
+  "question": "A website had $125$ subscribers on January 1. At the end of each month after that, the number of subscribers was $120\\%$ more than the number at the end of the previous month. Which equation gives the number of subscribers, $S$, $m$ months after January 1?",
   "choices": [
     {
       "id": "A",
-      "text": "$S = 125(0.2)^h$"
+      "text": "$S = 125(0.2)^{m}$"
     },
     {
       "id": "B",
-      "text": "$S = 125(1.2)^h$"
+      "text": "$S = 125(1.2)^{m}$"
     },
     {
       "id": "C",
-      "text": "$S = 125(2.2)^h$"
+      "text": "$S = 125(2.2)^{m}$"
     },
     {
       "id": "D",
-      "text": "$S = 125 + 150h$"
+      "text": "$S = 125 + 150m$"
     }
   ],
   "distractorNotes": {
-    "A": "uses only the decimal part of the percent",
-    "B": "reads \"120% more\" as a factor of 1.2",
-    "D": "adds the first hour's increase forever"
+    "A": "uses $1.2 - 1 = 0.2$ as the factor, which would shrink the number each month",
+    "B": "reads $120\\%$ more as $120\\%$ of, using the factor $1.2$",
+    "D": "adds the same amount, $125(1.2) = 150$, each month instead of multiplying"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Build Exponential Growth — \"$p\\%$ More\" Trap**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** \"$120\\%$ more\" makes each hour $220\\%$ of the hour before, a factor of $2.2$, so $S = 125(2.2)^h$.\n\n**The Full Solution:**\nStep 1: The starting count is $125$ at $h = 0$, so the model has the form $S = 125(b)^h$.\nStep 2: Being $120\\%$ MORE than the previous hour means the new count is $100\\% + 120\\% = 220\\%$ of the old one, so $b = 2.2$.\nStep 3: $S = 125(2.2)^h$. Check: after one hour, $125(2.2) = 275$, and $275 - 125 = 150$, which is $120\\%$ of $125$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: uses $0.2$, the decimal left after discarding the $100\\%$, which would shrink the count each hour.\n* Choice B: reads \"$120\\%$ more\" as a factor of $1.2$; that factor describes a $20\\%$ increase, not a $120\\%$ one.\n* Choice D: adds the first hour's increase of $150$ every hour, which is linear rather than exponential.\n\n**Test Day Takeaway:** \"$p\\%$ MORE than\" always gives the factor $1 + \\dfrac{p}{100}$ — when $p$ exceeds $100$, that factor is greater than $2$."
+  "explanation": "**SAT Pattern: Build Exponential Growth — \"$p\\%$ More\" Trap**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $120\\%$ more than a number is $100\\% + 120\\% = 220\\%$ of it, so the monthly factor is $2.2$ and $S = 125(2.2)^{m}$.\n\n**The Full Solution:**\nStep 1: The starting value, at $m = 0$, is $125$.\nStep 2: Each month the number is the previous number plus $120\\%$ of it: $1 + 1.2 = 2.2$ times the previous number.\nStep 3: So $S = 125(2.2)^{m}$. Check: after $1$ month, $125 + 1.2(125) = 125 + 150 = 275$, and $125(2.2)^{1} = 275$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: uses $0.2$ as the factor, which would make the number fall each month.\n* Choice B: uses $1.2$, which is $120\\%$ of the previous number, a $20\\%$ increase rather than $120\\%$ more.\n* Choice D: adds a fixed $150$ each month, which is linear growth, not growth by the same percent.\n\n**Test Day Takeaway:** \"$p\\%$ more than\" means multiply by $1 + \\frac{p}{100}$; \"$p\\%$ of\" means multiply by $\\frac{p}{100}$."
 }

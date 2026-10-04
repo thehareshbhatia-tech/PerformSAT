@@ -1,29 +1,29 @@
 {
  "id": "bank-am-375",
- "question": "An archivist models a film vault's relative humidity by $H(d)=38-1.5d$, in percent, where $d$ is the number of days after a dehumidifier was switched on. What is the value of $H(-8)$?",
+ "question": "For the function $f$ defined by $f(x) = 6 - x^{2}$, what is the value of $f(-4)$?",
  "choices": [
   {
    "id": "A",
-   "text": "$12$"
+   "text": "$-10$"
   },
   {
    "id": "B",
-   "text": "$26$"
+   "text": "$-2$"
   },
   {
    "id": "C",
-   "text": "$38$"
+   "text": "$14$"
   },
   {
    "id": "D",
-   "text": "$50$"
+   "text": "$22$"
   }
  ],
- "correctAnswer": "D",
+ "correctAnswer": "A",
  "distractorNotes": {
-  "A": "reports only -1.5(-8) = 12 and drops the constant 38",
-  "B": "substitutes d = 8 instead of d = -8: 38 - 12 = 26",
-  "C": "evaluates at d = 0, the day the dehumidifier was switched on"
+  "B": "doubles -4 instead of squaring it, using 8 for the square and getting 6 - 8",
+  "C": "uses -8 for the square (multiplying by 2 instead of squaring), getting 6 + 8",
+  "D": "treats (-4)^2 as -16, getting 6 + 16"
  },
- "explanation": "**SAT Pattern: Function Evaluation with Negative Input**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** $-1.5(-8)=12$, and $38+12=50$ percent.\n\n**The Full Solution:**\nStep 1: Substitute $-8$ for $d$: $H(-8)=38-1.5(-8)$.\nStep 2: Subtracting a negative adds: $-1.5(-8)=12$.\nStep 3: $38+12=50$ percent. Check: eight days before the dehumidifier ran, the vault was more humid than the 38 percent at start-up ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): reports only the product $-1.5(-8)$ without the constant.\n* Choice B ($26$): substitutes $d=8$, eight days after start-up rather than before.\n* Choice C ($38$): evaluates at $d=0$, the start-up reading.\n\n**Test Day Takeaway:** Running a decreasing model backwards raises its value — the double negative is the whole question."
+ "explanation": "**SAT Pattern: Function Evaluation with Negative Input**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $(-4)^{2} = 16$, so $f(-4) = 6 - 16 = -10$.\n\n**The Full Solution:**\nStep 1: Substitute $-4$ for $x$: $f(-4) = 6 - (-4)^{2}$.\nStep 2: Square first: $(-4)^{2} = 16$.\nStep 3: Subtract: $6 - 16 = -10$. Check: $x^{2}$ is the same for $4$ and $-4$, and $f(4) = 6 - 16 = -10$ as well ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-2$): doubles $4$ to get $8$ instead of squaring it.\n* Choice C ($14$): multiplies $-4$ by $2$ to get $-8$ and subtracts that, computing $6 + 8$.\n* Choice D ($22$): treats $(-4)^{2}$ as $-16$. The square of a negative number is positive, so $6 - 16$ is subtracted, not added.\n\n**Test Day Takeaway:** In $6 - x^{2}$, square the input first; the minus sign in front of $x^{2}$ then subtracts that positive square."
 }

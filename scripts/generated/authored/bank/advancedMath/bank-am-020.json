@@ -1,56 +1,56 @@
 {
-  "id": "bank-am-020",
-  "question": "The height, in feet, of a model rocket $t$ seconds after launch is $h(t) = -16t^2 + 96t + 5$. The table gives the rocket's height at four times. At what time, in seconds, does the rocket reach its greatest height?",
-  "diagram": {
-    "type": "dataTable",
-    "params": {
-      "headers": [
-        "Time t (seconds)",
-        "Height h(t) (feet)"
-      ],
-      "rows": [
-        [
-          "1",
-          "85"
-        ],
-        [
-          "2",
-          "133"
-        ],
-        [
-          "4",
-          "133"
-        ],
-        [
-          "5",
-          "85"
-        ]
-      ]
-    }
+ "id": "bank-am-020",
+ "question": "The function $h(t) = -16t^{2} + 96t + 5$ gives the height, in feet, of a ball $t$ seconds after it is thrown upward. The table shows four values of $t$ and their corresponding values of $h(t)$. How many seconds after the ball is thrown does it reach its maximum height?",
+ "diagram": {
+  "type": "dataTable",
+  "params": {
+   "headers": [
+    "Time t (seconds)",
+    "Height h(t) (feet)"
+   ],
+   "rows": [
+    [
+     "0",
+     "5"
+    ],
+    [
+     "1",
+     "85"
+    ],
+    [
+     "2",
+     "133"
+    ],
+    [
+     "4.5",
+     "113"
+    ]
+   ]
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$2$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$2$"
-    },
-    {
-      "id": "B",
-      "text": "$3$"
-    },
-    {
-      "id": "C",
-      "text": "$4$"
-    },
-    {
-      "id": "D",
-      "text": "$6$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "picks the earlier of the two tied rows instead of the midpoint",
-    "C": "picks the later of the two tied rows instead of the midpoint",
-    "D": "computes $-\\frac{b}{a} = \\frac{96}{16}$, dropping the $2$"
+  {
+   "id": "B",
+   "text": "$3$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Vertex Time for Projectile Motion**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $t = -\\dfrac{b}{2a} = -\\dfrac{96}{2(-16)} = 3$ seconds — also the midpoint of the tied heights at $t = 2$ and $t = 4$.\n\n**The Full Solution:**\nStep 1: The model is quadratic with $a = -16 < 0$, so the graph is a downward parabola and the greatest height occurs at the vertex.\nStep 2: The vertex time is $t = -\\dfrac{b}{2a} = -\\dfrac{96}{-32} = 3$ seconds.\nStep 3: The table confirms it: $h(2) = h(4) = 133$ feet, and equal heights sit at equal distances from the axis of symmetry, so the axis is at $t = \\dfrac{2 + 4}{2} = 3$. Check: $h(3) = -144 + 288 + 5 = 149 > 133$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): the greatest height IN THE TABLE is tied at $t = 2$ and $t = 4$; picking the first of them misses the true peak between them.\n* Choice C ($4$): same trap from the other end of the tie.\n* Choice D ($6$): uses $\\dfrac{96}{16}$, forgetting the $2$ in $-\\dfrac{b}{2a}$ — that is when the rocket returns near its launch height, not its peak.\n\n**Test Day Takeaway:** Two equal outputs bracket the vertex; the vertex time is their average, which must agree with $-\\dfrac{b}{2a}$."
+  {
+   "id": "C",
+   "text": "$6$"
+  },
+  {
+   "id": "D",
+   "text": "$149$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "picks the time with the greatest height in the table, 133 feet at t = 2",
+  "C": "computes -b/a = 96/16 = 6, forgetting the 2 in -b/(2a)",
+  "D": "gives the maximum height h(3) = 149 instead of the time"
+ },
+ "explanation": "**SAT Pattern: Vertex Time for Projectile Motion**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The maximum of $h$ is at the vertex, $t = -\\dfrac{96}{2(-16)} = 3$ seconds.\n\n**The Full Solution:**\nStep 1: The coefficient of $t^{2}$ is $-16 < 0$, so the graph opens downward and the vertex is the maximum.\nStep 2: The vertex is at $t = -\\dfrac{b}{2a} = -\\dfrac{96}{2(-16)} = \\dfrac{96}{32} = 3$.\nStep 3: So the ball reaches its maximum height $3$ seconds after it is thrown. Check: $h(3) = -144 + 288 + 5 = 149$, which is more than the table's values $h(2) = 133$ and $h(4.5) = 113$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): $133$ is the greatest height in the table, but the table does not include the vertex.\n* Choice C ($6$): $\\dfrac{96}{16} = 6$ forgets the $2$ in $-\\dfrac{b}{2a}$; $6$ is when the ball is back at its starting height of $5$ feet.\n* Choice D ($149$): $149$ feet is the maximum height, not the time at which it occurs.\n\n**Test Day Takeaway:** For a projectile model, the time of the maximum is $-\\dfrac{b}{2a}$. A table only samples the function, so do not assume it contains the peak."
 }

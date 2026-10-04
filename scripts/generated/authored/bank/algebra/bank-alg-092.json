@@ -1,29 +1,29 @@
 {
   "id": "bank-alg-092",
-  "question": "A climbing gym charges $\\$4$ per visit plus a monthly membership fee of $\\$15$. Last month, a member who made $v$ visits was charged a total of $\\$47$. What would the member have been charged, in dollars, for $v - 3$ visits that month?",
+  "question": "Jordan bought $n$ notebooks for \\$4 each and one backpack for \\$15, spending a total of \\$47. How much would Jordan have spent, in dollars, if he had bought $3$ fewer notebooks?",
   "choices": [
     {
       "id": "A",
-      "text": "$\\$20$"
+      "text": "$32$"
     },
     {
       "id": "B",
-      "text": "$\\$32$"
+      "text": "$35$"
     },
     {
       "id": "C",
-      "text": "$\\$35$"
+      "text": "$44$"
     },
     {
       "id": "D",
-      "text": "$\\$44$"
+      "text": "$59$"
     }
   ],
   "distractorNotes": {
-    "A": "subtracts both the 12 and the membership fee",
-    "B": "subtracts the membership fee instead of 3 visits",
-    "D": "subtracts the count 3 as dollars"
+    "A": "removes the 15-dollar backpack instead of three notebooks, 47 - 15 = 32",
+    "C": "subtracts the count 3 as 3 dollars, 47 - 3 = 44",
+    "D": "adds the cost of 3 notebooks instead of subtracting it, 47 + 12 = 59"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Shifted Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Three fewer visits remove $3 \\cdot \\$4 = \\$12$. The membership fee stays, so the charge is $\\$47 - \\$12 = \\$35$.\n\n**The Full Solution:**\nStep 1: The charge equation is $4v + 15 = 47$, so $4v = 32$ and $v = 8$ visits.\nStep 2: For $v - 3 = 5$ visits: $4(5) + 15 = 20 + 15 = 35$.\nStep 3: Shortcut check: removing $3$ visits removes $3 \\cdot 4 = 12$, and $47 - 12 = 35$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\$20$): subtracts the $\\$12$ for the visits and also drops the $\\$15$ membership fee, which is still owed.\n* Choice B ($\\$32$): subtracts the membership fee $\\$15$ instead of the cost of $3$ visits.\n* Choice D ($\\$44$): subtracts the count $3$ as dollars instead of $3 \\cdot \\$4 = \\$12$.\n\n**Test Day Takeaway:** A change in the count moves the total by (change) $\\times$ (rate) in the same direction; the fixed fee is unaffected whether the count goes up or down."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Shifted Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Three fewer notebooks cost $3 \\cdot 4 = 12$ dollars less, so Jordan would have spent $47 - 12 = 35$ dollars.\n\n**The Full Solution:**\nStep 1: The total is $4n + 15 = 47$, so $4n = 32$ and $n = 8$ notebooks.\nStep 2: With $3$ fewer notebooks, Jordan buys $n - 3 = 5$ notebooks and spends $4(5) + 15 = 20 + 15 = 35$ dollars.\nStep 3: Check without solving for $n$: $4(n - 3) + 15 = (4n + 15) - 12 = 47 - 12 = 35$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($32$): takes away the $\\$15$ backpack instead of the $3$ notebooks, computing $47 - 15 = 32$.\n* Choice C ($44$): subtracts the $3$ notebooks as $3$ dollars instead of $3 \\cdot 4 = 12$ dollars.\n* Choice D ($59$): adds the cost of $3$ notebooks, $47 + 12 = 59$, although Jordan buys fewer notebooks, not more.\n\n**Test Day Takeaway:** Fewer items means the total drops by the number of items removed times the price of each; the one-time cost stays in the total."
 }

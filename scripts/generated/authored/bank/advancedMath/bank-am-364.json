@@ -1,29 +1,29 @@
 {
  "id": "bank-am-364",
- "question": "A dune-profile study uses the expression $x^3 + 3x^2 + nx + 3n$, where $x$ is a horizontal distance in meters and $n$ is a constant that changes from dune to dune along the coast. Which of the following must be true for every value of $n$?",
+ "question": "$2x^{3} - 6x^{2} + kx - 3k$\nIn the given expression, $k$ is a positive constant. Which of the following must be a factor of the expression?",
  "choices": [
   {
    "id": "A",
-   "text": "$x + 3$ is a factor for every value of $n$."
+   "text": "$x - 3$"
   },
   {
    "id": "B",
-   "text": "$x + 3$ is a factor only when $n$ is a perfect square."
+   "text": "$x + 3$"
   },
   {
    "id": "C",
-   "text": "$x + n$ is a factor for every value of $n$."
+   "text": "$x^{2} + k$"
   },
   {
    "id": "D",
-   "text": "$x^2 + 3$ is a factor for every value of $n$."
+   "text": "$2x^{2} - k$"
   }
  ],
  "correctAnswer": "A",
  "distractorNotes": {
-  "B": "assumes the leftover factor $x^2 + n$ must itself factor, which the question never requires",
-  "C": "reads the pulled-out constant $n$ as part of the shared binomial",
-  "D": "pairs the $3$ with $x^2$; the quadratic factor is $x^2 + n$, not $x^2 + 3$"
+  "B": "reverses the sign in the shared binomial, writing x + 3 instead of x - 3",
+  "C": "drops the factor of 2 from 2x^2 when writing the second factor",
+  "D": "uses the wrong sign for the common factor of kx - 3k, writing -k instead of +k"
  },
- "explanation": "**SAT Pattern: Factor by Grouping**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** $x^2(x + 3) + n(x + 3) = (x^2 + n)(x + 3)$, and that grouping never used the value of $n$.\n\n**The Full Solution:**\nStep 1: Pair the terms: $(x^3 + 3x^2) + (nx + 3n)$.\nStep 2: Factor each pair: $x^2(x + 3)$ and $n(x + 3)$.\nStep 3: Both pairs carry $x + 3$, so the expression equals $(x^2 + n)(x + 3)$ for every $n$. Check: with $n = 7$, $(x^2 + 7)(x + 3) = x^3 + 3x^2 + 7x + 21$, matching the given form ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (only when $n$ is a perfect square): the grouping works regardless of $n$; whether $x^2 + n$ factors further is a separate question.\n* Choice C ($x + n$): $n$ is the constant left behind by the second pair, not part of the shared binomial.\n* Choice D ($x^2 + 3$): swaps the two constants; the quadratic factor is $x^2 + n$.\n\n**Test Day Takeaway:** When a parameter appears in exactly two terms, group those two together — the parameter then factors out and the shared binomial is parameter-free."
+ "explanation": "**SAT Pattern: Factor by Grouping**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** Group in pairs: $2x^{2}(x - 3) + k(x - 3) = (x - 3)(2x^{2} + k)$, so $x - 3$ is a factor no matter what $k$ is.\n\n**The Full Solution:**\nStep 1: Split the terms into two pairs: $(2x^{3} - 6x^{2}) + (kx - 3k)$.\nStep 2: Factor each pair: $2x^{3} - 6x^{2} = 2x^{2}(x - 3)$ and $kx - 3k = k(x - 3)$. The binomial $x - 3$ appears in both, whatever the value of $k$.\nStep 3: Factor out the shared binomial: $(x - 3)(2x^{2} + k)$. So $x - 3$ is a factor for every value of $k$. Check with $k = 4$: at $x = 3$ the expression is $54 - 54 + 12 - 12 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($x + 3$): reverses the sign in the binomial. At $x = -3$ the expression is $-108 - 6k$, which is never $0$ for positive $k$.\n* Choice C ($x^{2} + k$): drops the $2$ from $2x^{2}$. The second factor is $2x^{2} + k$, and $x^{2} + k$ is not a factor of it.\n* Choice D ($2x^{2} - k$): uses the wrong sign for $k$. The pair $kx - 3k$ is $k(x - 3)$, so the second factor is $2x^{2} + k$.\n\n**Test Day Takeaway:** A letter in the coefficients does not block grouping; factor it out of its pair like any number, and the shared binomial is the factor that must hold for every value."
 }

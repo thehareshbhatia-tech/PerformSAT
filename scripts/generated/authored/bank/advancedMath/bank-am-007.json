@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-007",
-  "question": "In the $xy$-plane, the graph of $y = (5 - k)x^2 + 8x + 3$ opens downward, where $k$ is a constant. Which of the following describes all possible values of $k$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$k < 5$"
-    },
-    {
-      "id": "B",
-      "text": "$k > 5$"
-    },
-    {
-      "id": "C",
-      "text": "$k < -5$"
-    },
-    {
-      "id": "D",
-      "text": "$k \\neq 5$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "solves the condition for opening UPWARD",
-    "C": "moves $k$ across the inequality without changing its sign correctly",
-    "D": "only rules out the case where the graph stops being a parabola"
+ "id": "bank-am-007",
+ "question": "$y = (7 - k)x^{2} + 6x - 2$\nIn the given equation, $k$ is a constant. The graph of the equation in the $xy$-plane is a parabola that opens downward. Which of the following must be true?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$k < -7$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Parameter Constraint on Leading Coefficient**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Downward means the leading coefficient is negative: $5 - k < 0$, so $k > 5$.\n\n**The Full Solution:**\nStep 1: The leading coefficient of $y = (5 - k)x^2 + 8x + 3$ is $5 - k$.\nStep 2: A parabola opens downward exactly when its leading coefficient is negative, so $5 - k < 0$.\nStep 3: Add $k$ to both sides: $5 < k$, that is, $k > 5$. Check with $k = 9$: the coefficient is $5 - 9 = -4 < 0$, and the graph opens downward. Check with $k = 1$: the coefficient is $4 > 0$, and it opens upward. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($k < 5$): this makes $5 - k > 0$, which is the upward-opening case.\n* Choice C ($k < -5$): this comes from solving $5 - k < 0$ as $-k < -5$ and then dropping the sign flip.\n* Choice D ($k \\neq 5$): $k = 5$ does have to be excluded — at $k = 5$ the graph is a line, not a parabola — but that alone allows values like $k = 1$, which open upward.\n\n**Test Day Takeaway:** When a parameter sits in the leading coefficient, translate the picture into one inequality about that whole coefficient, then solve it like any linear inequality."
+  {
+   "id": "B",
+   "text": "$k < 7$"
+  },
+  {
+   "id": "C",
+   "text": "$k > 7$"
+  },
+  {
+   "id": "D",
+   "text": "$k \\neq 7$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "sets k + 7 < 0, misreading the coefficient 7 - k as 7 + k",
+  "B": "solves 7 - k > 0, the condition for opening upward",
+  "D": "keeps only the condition that the equation is quadratic, without the sign"
+ },
+ "explanation": "**SAT Pattern: Parameter Constraint on Leading Coefficient**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** A parabola opens downward when its $x^{2}$ coefficient is negative, so $7 - k < 0$, which gives $k > 7$.\n\n**The Full Solution:**\nStep 1: The coefficient of $x^{2}$ is $7 - k$.\nStep 2: The parabola opens downward exactly when this coefficient is negative: $7 - k < 0$.\nStep 3: Adding $k$ to both sides gives $7 < k$, or $k > 7$. Check with $k = 8$: the equation becomes $y = -x^{2} + 6x - 2$, which opens downward; with $k = 6$ it becomes $y = x^{2} + 6x - 2$, which opens upward ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($k < -7$): treats the coefficient as $7 + k$ and solves $7 + k < 0$.\n* Choice B ($k < 7$): solves $7 - k > 0$, which is the condition for opening upward.\n* Choice D ($k \\neq 7$): only guarantees that the graph is a parabola; it allows upward-opening parabolas such as $k = 0$.\n\n**Test Day Takeaway:** Translate the direction into an inequality on the leading coefficient (negative for down, positive for up), then solve for the constant."
 }

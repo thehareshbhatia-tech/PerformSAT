@@ -1,29 +1,29 @@
 {
- "id": "bank-alg-033",
- "question": "Account $A$ holds $y = 45x + 380$ dollars after $x$ weeks. Account $B$ gains dollars at the same weekly rate and held \\$125 at week zero. Which equation gives the dollars in account $B$ after $x$ weeks?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$y = 45x + 125$"
+  "id": "bank-alg-033",
+  "question": "Line $\\ell$ in the $xy$-plane passes through the points $(2, 7)$ and $(-4, 10)$. Line $p$ is parallel to line $\\ell$, and the $y$-intercept of line $p$ is $(0, 3)$. Which equation defines line $p$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$y = -2x + 3$"
+    },
+    {
+      "id": "B",
+      "text": "$y = -\\frac{1}{2}x + 3$"
+    },
+    {
+      "id": "C",
+      "text": "$y = -\\frac{1}{2}x + 8$"
+    },
+    {
+      "id": "D",
+      "text": "$y = \\frac{1}{2}x + 3$"
+    }
+  ],
+  "correctAnswer": "B",
+  "distractorNotes": {
+    "A": "divides the change in x by the change in y, inverting the slope",
+    "C": "is line $\\ell$ itself, using the y-intercept of $\\ell$ instead of the given one",
+    "D": "drops the negative sign when computing the slope"
   },
-  {
-   "id": "B",
-   "text": "$y = 45x + 505$"
-  },
-  {
-   "id": "C",
-   "text": "$y = 125x + 45$"
-  },
-  {
-   "id": "D",
-   "text": "$y = 380x + 125$"
-  }
- ],
- "correctAnswer": "A",
- "distractorNotes": {
-  "B": "adds the two starting balances, $380 + 125$, instead of replacing one with the other",
-  "C": "swaps the weekly rate and the starting balance",
-  "D": "treats account $A$'s starting balance as the weekly rate"
- },
- "explanation": "**SAT Pattern: Parallel with Specified Intercept**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Equal weekly rates keep the slope $45$; the new starting balance replaces $380$ with $125$.\n\n**The Full Solution:**\nStep 1: Account $A$ gains $45$ dollars per week, so account $B$ gains $45$ dollars per week as well.\nStep 2: Account $B$ held $125$ dollars at week zero, so its starting value is $125$.\nStep 3: Therefore account $B$ is $y = 45x + 125$. Check: at $x = 0$ the equation gives $125$ dollars.\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = 45x + 505$): adds the two starting balances, $380 + 125$, instead of replacing one with the other\n* Choice C ($y = 125x + 45$): swaps the weekly rate and the starting balance\n* Choice D ($y = 380x + 125$): treats account $A$'s starting balance as the weekly rate\n\n**Test Day Takeaway:** Same rate means the same coefficient of $x$; only the constant term changes."
+  "explanation": "**SAT Pattern: Parallel with Specified Intercept**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Line $\\ell$ has slope $\\frac{10 - 7}{-4 - 2} = -\\frac{1}{2}$; line $p$ copies that slope and uses the intercept $3$, so $y = -\\frac{1}{2}x + 3$.\n\n**The Full Solution:**\nStep 1: Find the slope of line $\\ell$: $\\frac{10 - 7}{-4 - 2} = \\frac{3}{-6} = -\\frac{1}{2}$.\nStep 2: Parallel lines have equal slopes, so line $p$ also has slope $-\\frac{1}{2}$, and its $y$-intercept $(0, 3)$ gives $b = 3$.\nStep 3: Line $p$ is $y = -\\frac{1}{2}x + 3$. Check: line $\\ell$ is $y = -\\frac{1}{2}x + 8$ (since $7 = -1 + 8$), which has the same slope and a different intercept, so the lines are parallel and distinct ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -2x + 3$): divides the change in $x$ by the change in $y$, getting $\\frac{-6}{3} = -2$ instead of $-\\frac{1}{2}$.\n* Choice C ($y = -\\frac{1}{2}x + 8$): is line $\\ell$ itself: it has the right slope but the $y$-intercept of $\\ell$, not the required $3$.\n* Choice D ($y = \\frac{1}{2}x + 3$): drops the negative sign: $y$ rises from $7$ to $10$ while $x$ falls from $2$ to $-4$, so the slope must be negative.\n\n**Test Day Takeaway:** For a parallel line, compute the slope from the two points, keep it, and attach the new intercept; the original line's intercept is a ready-made trap."
 }

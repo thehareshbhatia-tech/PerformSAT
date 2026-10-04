@@ -1,29 +1,29 @@
 {
   "id": "bank-am-265",
-  "question": "The function $f$ is defined by $f(x) = \\sqrt{x} + 2$. The graph of which function is the graph of $y = f(x)$ stretched vertically by a factor of $4$?",
+  "question": "$f(x) = \\sqrt{x} + 2$\nThe graph of $y = g(x)$ is the graph of $y = f(x)$ stretched vertically by a factor of $4$. Which equation defines $g$?",
   "choices": [
     {
       "id": "A",
-      "text": "$y = 4\\sqrt{x} + 2$"
+      "text": "$g(x) = 4\\sqrt{x} + 2$"
     },
     {
       "id": "B",
-      "text": "$y = 4\\sqrt{x} + 8$"
+      "text": "$g(x) = 4\\sqrt{x} + 8$"
     },
     {
       "id": "C",
-      "text": "$y = \\sqrt{4x} + 2$"
+      "text": "$g(x) = \\sqrt{4x} + 2$"
     },
     {
       "id": "D",
-      "text": "$y = \\sqrt{x} + 8$"
+      "text": "$g(x) = \\sqrt{x} + 8$"
     }
   ],
   "distractorNotes": {
-    "A": "multiplies only the radical term and leaves the constant alone",
-    "C": "multiplies the input, which compresses the graph horizontally",
+    "A": "multiplies only the square root term and leaves the +2 unscaled",
+    "C": "multiplies the input by 4 instead of the output",
     "D": "multiplies only the constant term"
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Vertical Stretch**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Multiply the WHOLE output by $4$: $4(\\sqrt{x} + 2) = 4\\sqrt{x} + 8$.\n\n**The Full Solution:**\nStep 1: A vertical stretch by a factor of $4$ replaces $y = f(x)$ with $y = 4f(x)$.\nStep 2: Distribute: $4f(x) = 4(\\sqrt{x} + 2) = 4\\sqrt{x} + 8$.\nStep 3: Check one point. $f(9) = 3 + 2 = 5$, so the stretched graph should contain $(9, 20)$, and $4\\sqrt{9} + 8 = 12 + 8 = 20$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = 4\\sqrt{x} + 2$): the $4$ was applied to only one term; at $x = 9$ this gives $14$, not $20$.\n* Choice C ($y = \\sqrt{4x} + 2$): the $4$ went inside the radical, which is a horizontal change; at $x = 9$ this gives $8$.\n* Choice D ($y = \\sqrt{x} + 8$): only the constant was multiplied; at $x = 9$ this gives $11$.\n\n**Test Day Takeaway:** A vertical stretch multiplies the entire function rule — distribute the factor over every term before comparing choices."
+  "explanation": "**SAT Pattern: Vertical Stretch**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** A vertical stretch by $4$ multiplies the whole output: $g(x) = 4(\\sqrt{x} + 2) = 4\\sqrt{x} + 8$.\n\n**The Full Solution:**\nStep 1: A vertical stretch by a factor of $4$ multiplies every output by $4$, so $g(x) = 4f(x)$.\nStep 2: Substitute: $g(x) = 4(\\sqrt{x} + 2)$.\nStep 3: Distribute: $g(x) = 4\\sqrt{x} + 8$. Check: $f(9) = 3 + 2 = 5$ and $g(9) = 4(3) + 8 = 20 = 4(5)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4\\sqrt{x} + 2$): multiplies the square root term but not the constant, so outputs are not all multiplied by $4$.\n* Choice C ($\\sqrt{4x} + 2$): multiplies the input by $4$, which changes the graph horizontally.\n* Choice D ($\\sqrt{x} + 8$): multiplies only the constant, which shifts the graph up $6$ units.\n\n**Test Day Takeaway:** A vertical stretch multiplies the entire function, so distribute the factor to every term."
 }

@@ -1,6 +1,6 @@
 {
- "question": "The temperature of a cooling bath, in degrees Celsius, is given by $g(t)=-5t+12$, where $t$ is the number of minutes since dry ice was added. What is the temperature of the bath $4$ minutes after the dry ice was added?",
- "correctAnswer": "-8",
- "explanation": "**SAT Pattern: Function Evaluation with Negatives**\n\n**The correct answer is $-8$.**\n\n**The Fast Way (~20s):** $g(4)=-5(4)+12=-20+12=-8$ degrees Celsius.\n\n**The Full Solution:**\n\nStep 1: The elapsed time is the input, so evaluate $g$ at $t=4$: $g(4)=-5(4)+12$.\n\nStep 2: Multiply, keeping the negative coefficient attached: $-5(4)=-20$.\n\nStep 3: Add the constant: $-20+12=-8$ degrees Celsius. Check: the bath starts at $g(0)=12$ degrees and falls $5$ degrees each minute, so after $4$ minutes it has fallen $20$ degrees, from $12$ to $-8$.\n\n**Common Mistakes:** Dropping the negative sign gives $20+12=32$ degrees, a warming bath. Subtracting the constant instead of adding it gives $-20-12=-32$ degrees.\n\n**Test Day Takeaway:** A negative coefficient stays negative through the multiplication; only then is the constant added.",
- "id": "bank-alg-024"
+  "question": "$g(x) = -5x + 12$\nWhat is the value of $g(-4)$?",
+  "correctAnswer": "32",
+  "explanation": "**SAT Pattern: Function Evaluation with Negatives**\n\n**The correct answer is $32$.**\n\n**The Fast Way (~15s):** $g(-4) = -5(-4) + 12 = 20 + 12 = 32$.\n\n**The Full Solution:**\nStep 1: Substitute $-4$ for $x$, keeping it in parentheses: $g(-4) = -5(-4) + 12$.\nStep 2: Multiply the two negatives: $-5(-4) = 20$.\nStep 3: Add the constant: $20 + 12 = 32$. Check: $g(0) = 12$, and each step of $1$ to the left raises $g$ by $5$, so $4$ steps to the left gives $12 + 4(5) = 32$ ✓\n\n**Common Mistakes:** Treating $-5(-4)$ as $-20$ gives $-20 + 12 = -8$. Substituting $4$ instead of $-4$ gives the same wrong value, $-8$. Subtracting the constant gives $20 - 12 = 8$.\n\n**Test Day Takeaway:** Put a negative input in parentheses before substituting; a negative times a negative is positive.",
+  "id": "bank-alg-024"
 }

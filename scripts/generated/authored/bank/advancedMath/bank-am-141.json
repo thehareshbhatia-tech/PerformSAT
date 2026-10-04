@@ -1,6 +1,6 @@
 {
-  "id": "bank-am-141",
-  "question": "The equation $(x + 7)(x - 3) = 0$ has two solutions, one positive and one negative. What is the value of the negative solution?",
-  "correctAnswer": "-7",
-  "explanation": "**SAT Pattern: Quadratic via Factoring**\n\n**The correct answer is $-7$.**\n\n**The Fast Way (~15s):** A product is zero when a factor is zero, so $x = -7$ or $x = 3$; the negative one is $-7$.\n\n**The Full Solution:**\nStep 1: The zero-product property says that if a product of two factors is $0$, at least one factor is $0$. So $x + 7 = 0$ or $x - 3 = 0$.\nStep 2: Solving each gives $x = -7$ and $x = 3$.\nStep 3: The negative solution is $-7$. Check: $(-7 + 7)(-7 - 3) = (0)(-10) = 0$. $\\checkmark$\n\n**Common Mistakes:**\n* Picking the factor that already contains a minus sign, $(x - 3)$, and answering $-3$; that factor's solution is $+3$.\n* Expanding to $x^2 + 4x - 21 = 0$ and then re-factoring, which wastes time on an equation that is already factored.\n* Reporting $3$, the positive solution, when the question asks for the negative one.\n\n**Test Day Takeaway:** A factored equation is already solved: set each factor to zero and flip the sign of the constant inside it."
+  "question": "$(x + 9)(x - 4) = 0$\nWhat is the negative solution to the given equation?",
+  "correctAnswer": "-9",
+  "explanation": "**SAT Pattern: Quadratic via Factoring**\n\n**The correct answer is $-9$.**\n\n**The Fast Way (~10s):** Set each factor equal to $0$: $x = -9$ or $x = 4$; the negative solution is $-9$.\n\n**The Full Solution:**\nStep 1: A product is $0$ only when a factor is $0$.\nStep 2: $x + 9 = 0$ gives $x = -9$, and $x - 4 = 0$ gives $x = 4$.\nStep 3: The negative solution is $-9$. Check: $(-9 + 9)(-9 - 4) = 0\\cdot(-13) = 0$ ✓\n\n**Common Mistakes:**\n* $-4$: flips the sign of the second factor instead of the first.\n* $9$: reads the number in the factor $(x + 9)$ without changing its sign.\n\n**Test Day Takeaway:** Solve each factor separately, and the solution has the opposite sign of the number in the factor.",
+  "id": "bank-am-141"
 }

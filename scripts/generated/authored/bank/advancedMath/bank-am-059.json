@@ -1,29 +1,29 @@
 {
-  "question": "A design constant $k$ satisfies the following condition: when the product $(x^{2}+kx-4)(2x-5)$ is expanded, the sum of its coefficients of even powers of $x$ minus the sum of its coefficients of odd powers of $x$ equals $63$. What is the value of $k$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-18$"
-    },
-    {
-      "id": "B",
-      "text": "$-12$"
-    },
-    {
-      "id": "C",
-      "text": "$-6$"
-    },
-    {
-      "id": "D",
-      "text": "$6$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "used f(1), the plain sum of all coefficients, solving -3k+9=63",
-    "B": "reversed the two sums, solving -(7k+21)=63",
-    "C": "substituted x=-1 but wrote k(-1) as +k, solving -7k+21=63"
+ "id": "bank-am-059",
+ "question": "$(x^{2} + kx + 3)(3x - 2) = ax^{3} + bx^{2} + cx + d$\nThe given equation is true for all values of $x$, where $a$, $b$, $c$, $d$, and $k$ are constants. If $a - b + c - d = 35$, what is the value of $k$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-3$"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Alternating-Sign Coefficient Sum via $f(-1)$**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The even-power coefficients minus the odd-power coefficients is exactly $f(-1)$. Substituting $x=-1$ gives $(1-k-4)(-2-5)=7k+21$, so $7k+21=63$ and $k=6$.\n\n**The Full Solution:**\nStep 1: Expand the product: $(x^{2}+kx-4)(2x-5)=2x^{3}+(2k-5)x^{2}+(-5k-8)x+20$.\nStep 2: The even-power coefficients are $2k-5$ and $20$; the odd-power coefficients are $2$ and $-5k-8$. Their difference is $(2k-5+20)-(2-5k-8)=7k+21$.\nStep 3: Solve $7k+21=63$, so $7k=42$ and $k=6$. Check: with $k=6$ the expansion is $2x^{3}+7x^{2}-38x+20$, and $(7+20)-(2-38)=27+36=63$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-18$): used $f(1)$, the plain sum of all coefficients, solving $-3k+9=63$.\n* Choice B ($-12$): reversed the two sums, solving $-(7k+21)=63$.\n* Choice C ($-6$): substituted $x=-1$ but wrote $k(-1)$ as $+k$, solving $-7k+21=63$.\n\n**Test Day Takeaway:** An alternating sum of coefficients is the polynomial evaluated at $x=-1$; substitute rather than expand.",
-  "id": "bank-am-059"
+  {
+   "id": "B",
+   "text": "$3$"
+  },
+  {
+   "id": "C",
+   "text": "$11$"
+  },
+  {
+   "id": "D",
+   "text": "$31$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "reaches $20 - 5k = 35$ but solves it as $5k = 15$, dropping the sign",
+  "C": "sets the left side at $x = -1$ equal to $35$, but that value is $-a + b - c + d$, the opposite of $a - b + c - d$",
+  "D": "substitutes $x = 1$, which gives $a + b + c + d$, and solves $k + 4 = 35$"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Alternating-Sign Coefficient Sum via $f(-1)$**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Substituting $x = -1$ into the right side gives $-a + b - c + d$, the opposite of $a - b + c - d$. The left side at $x = -1$ is $(1 - k + 3)(-5) = -5(4 - k)$, so $a - b + c - d = 5(4 - k) = 20 - 5k$. Then $20 - 5k = 35$ and $k = -3$.\n\n**The Full Solution:**\nStep 1: Expand the left side: $(x^{2} + kx + 3)(3x - 2) = 3x^{3} + (3k - 2)x^{2} + (9 - 2k)x - 6$, so $a = 3$, $b = 3k - 2$, $c = 9 - 2k$, and $d = -6$.\nStep 2: Form the alternating sum: $a - b + c - d = 3 - (3k - 2) + (9 - 2k) - (-6) = 20 - 5k$.\nStep 3: Solve $20 - 5k = 35$: $-5k = 15$, so $k = -3$. Check: with $k = -3$ the expansion is $3x^{3} - 11x^{2} + 15x - 6$, and $3 - (-11) + 15 - (-6) = 35$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3$): reaches $20 - 5k = 35$ but drops the negative sign when solving.\n* Choice C ($11$): sets the value at $x = -1$, which is $-a + b - c + d = 5k - 20$, equal to $35$; that is the opposite of the sum asked for.\n* Choice D ($31$): substitutes $x = 1$, which gives the plain sum $a + b + c + d = (4 + k)(1)$, and solves $4 + k = 35$.\n\n**Test Day Takeaway:** Substituting $x = -1$ alternates the signs of the coefficients and $x = 1$ adds them all; decide which sign pattern the question wants before you set anything equal."
 }

@@ -1,29 +1,29 @@
 {
   "id": "bank-alg-052",
-  "question": "A framing shop uses $y$ mats for $x$ photographs, where $y = \\dfrac{x + 3}{3}$, and its material cost in dollars satisfies $2x + ky = 42$, where $k$ is the cost of one mat. If the shop frames $5$ more photographs than mats, what is the value of $k$?",
+  "question": "$y = \\frac{3}{4}x - 2$\n$5x - 8y = 4$\nThe solution to the given system of equations is $(x, y)$. What is the value of $x$?",
   "choices": [
     {
       "id": "A",
-      "text": "$2$"
+      "text": "$-20$"
     },
     {
       "id": "B",
-      "text": "$6$"
+      "text": "$-6$"
     },
     {
       "id": "C",
-      "text": "$15$"
+      "text": "$7$"
     },
     {
       "id": "D",
-      "text": "$24$"
+      "text": "$12$"
     }
   ],
   "distractorNotes": {
-    "A": "back-substitutes without the denominator, taking y = x + 3 = 12 instead of 4, giving 18 + 12k = 42 and k = 2",
-    "C": "moves 18 across the equal sign without changing its sign, so 4k = 60 and k = 15",
-    "D": "stops at 4k = 24 and reports 24 without dividing by the 4 mats"
+    "A": "distributes -8 over -2 as -16 instead of +16",
+    "B": "distributes the -8 to the x-term only, writing -8(3/4 x - 2) as -6x - 2",
+    "C": "gives the value of y instead of x"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Substitution with Fraction**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** \"Five more photographs than mats\" is $x - y = 5$; substituting $y = \\frac{x + 3}{3}$ gives $x = 9$ and $y = 4$, so $18 + 4k = 42$ and $k = 6$.\n\n**The Full Solution:**\nStep 1: Substitute the fraction into the count relationship. From $x - y = 5$ and $y = \\frac{x + 3}{3}$, $x - \\frac{x + 3}{3} = 5$. Multiplying every term by $3$ clears the denominator: $3x - (x + 3) = 15$, so $2x = 18$ and $x = 9$.\nStep 2: Back-substitute to get the second value: $y = \\frac{9 + 3}{3} = \\frac{12}{3} = 4$.\nStep 3: Put both values into the cost equation: $2(9) + k(4) = 42$, so $18 + 4k = 42$, $4k = 24$, and $k = 6$. Check: $9 - 4 = 5$ photographs more than mats, and $2(9) + 6(4) = 18 + 24 = 42$ dollars. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): back-substitutes without the denominator, taking $y = x + 3 = 12$ instead of $4$, which gives $18 + 12k = 42$ and $k = 2$.\n* Choice C ($15$): carries $18$ to the right side without changing its sign, giving $4k = 18 + 42 = 60$ and $k = 15$.\n* Choice D ($24$): stops one step early at $4k = 24$ and reports $24$ instead of dividing by the $4$ mats.\n\n**Test Day Takeaway:** Clear a fractional expression by multiplying the entire equation by its denominator before substituting, then carry BOTH solved values into the equation that holds the unknown constant."
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Substitution with Fraction**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Substituting gives $5x - 8\\left(\\frac{3}{4}x - 2\\right) = 5x - 6x + 16 = 4$, so $-x = -12$ and $x = 12$.\n\n**The Full Solution:**\nStep 1: Substitute $\\frac{3}{4}x - 2$ for $y$ in the second equation: $5x - 8\\left(\\frac{3}{4}x - 2\\right) = 4$.\nStep 2: Distribute the $-8$ to both terms: $-8 \\cdot \\frac{3}{4}x = -6x$ and $-8 \\cdot (-2) = 16$, so $5x - 6x + 16 = 4$, or $-x + 16 = 4$.\nStep 3: Subtract $16$ and divide by $-1$: $x = 12$. Check: $y = \\frac{3}{4}(12) - 2 = 7$, and $5(12) - 8(7) = 60 - 56 = 4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-20$): multiplies $-8$ by $-2$ to get $-16$, solving $-x - 16 = 4$.\n* Choice B ($-6$): distributes the $-8$ to the $x$-term only, writing $-6x - 2$, and solves $5x - 6x - 2 = 4$.\n* Choice C ($7$): is the value of $y$, not $x$.\n\n**Test Day Takeaway:** The fraction cancels cleanly once it is multiplied by the coefficient in front of $y$; the sign of that coefficient must reach the constant term too."
 }

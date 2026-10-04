@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-013",
-  "question": "A club printed a total of $140$ programs for an event. Each color program cost $\\$0.60$ to print and each black-and-white program cost $\\$0.25$ to print, for a total printing cost of $\\$56.00$. If $c$ is the number of color programs printed, which equation represents this situation?",
+  "question": "A club spent \\$56 to print $140$ programs. Each color program cost \\$0.60, and each black-and-white program cost \\$0.25. The club printed $c$ color programs. Which equation represents this situation?",
   "choices": [
     {
       "id": "A",

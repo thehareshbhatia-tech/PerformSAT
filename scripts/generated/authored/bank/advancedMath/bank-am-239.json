@@ -1,6 +1,6 @@
 {
  "id": "bank-am-239",
- "question": "A media services office recorded $f(x)$, the number of lecture-capture video views above a course average, on four class days. Adding a caption track raised every one of these counts by $6$, giving $g(x)=f(x)+6$. What is the value of $g(2)$?",
+ "question": "The table shows four values of $x$ and their corresponding values of $f(x)$. The function $g$ is defined by $g(x) = f(x) + 6$. What is the value of $g(2)$?",
  "choices": [
   {
    "id": "A",
@@ -30,7 +30,7 @@
   "type": "dataTable",
   "params": {
    "headers": [
-    "Class day (x)",
+    "x",
     "f(x)"
    ],
    "rows": [

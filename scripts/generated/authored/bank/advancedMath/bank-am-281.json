@@ -1,29 +1,29 @@
 {
  "id": "bank-am-281",
- "question": "A tram catenary's tension index is modeled by $f(x)=\\dfrac{12}{x-2}$, where $x>2$ is the span in hundreds of meters. For what span is the tension index $\\dfrac{3}{2}$?",
+ "question": "$\\dfrac{x}{x-2}+\\dfrac{4}{x+2}=\\dfrac{8}{x^{2}-4}$\nWhat value of $x$ is the solution to the given equation?",
  "choices": [
   {
    "id": "A",
-   "text": "$6$"
+   "text": "$-8$"
   },
   {
    "id": "B",
-   "text": "$8$"
+   "text": "$-2$"
   },
   {
    "id": "C",
-   "text": "$10$"
+   "text": "$2$"
   },
   {
    "id": "D",
-   "text": "$18$"
+   "text": "$8$"
   }
  ],
  "distractorNotes": {
-  "A": "divides 12 by the numerator 3 only, getting x - 2 = 4 and x = 6",
-  "B": "stops at x - 2 = 8 and reports 8 instead of x",
-  "D": "multiplies 12 by 3/2 instead of dividing, reporting 18"
+  "B": "sets the common denominator x^2 - 4 equal to zero and takes the negative root",
+  "C": "keeps the root x = 2 of x^2 + 6x - 16 = 0, which makes the denominators zero",
+  "D": "factors x^2 + 6x - 16 with the signs reversed, as (x - 8)(x + 2), and keeps 8"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\frac{12}{x-2}=\\frac{3}{2}$ gives $x-2=12\\div\\frac{3}{2}=8$, so $x=10$.\n\n**The Full Solution:**\n\nStep 1: Set the model equal to the target: $\\frac{12}{x-2}=\\frac{3}{2}$.\n\nStep 2: Cross multiply: $2\\cdot12=3(x-2)$, so $24=3x-6$.\n\nStep 3: Solve: $3x=30$ and $x=10$, which satisfies $x>2$. Check: $\\frac{12}{10-2}=\\frac{12}{8}=\\frac{3}{2}$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($6$): divides $12$ by the numerator $3$ alone, getting $x-2=4$.\n* Choice B ($8$): stops at $x-2=8$ and reports that value as the span.\n* Choice D ($18$): multiplies $12$ by $\\frac{3}{2}$ instead of dividing by it.\n\n**Test Day Takeaway:** Cross multiplying turns a rational equation into a linear one in a single step — then finish solving for $x$, not for the denominator."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** Multiplying by $x^{2}-4$ gives $x^{2}+6x-16=0$, or $(x+8)(x-2)=0$. The root $2$ is excluded, so $x=-8$.\n\n**The Full Solution:**\nStep 1: Since $x^{2}-4=(x-2)(x+2)$, the values $2$ and $-2$ are excluded. Multiply both sides by $(x-2)(x+2)$: $x(x+2)+4(x-2)=8$.\nStep 2: Expand and collect: $x^{2}+2x+4x-8-8=0$, so $x^{2}+6x-16=0$, which factors as $(x+8)(x-2)=0$.\nStep 3: The candidates are $-8$ and $2$; $2$ is excluded, so $x=-8$. Check: $\\dfrac{-8}{-10}+\\dfrac{4}{-6}=\\dfrac{4}{5}-\\dfrac{2}{3}=\\dfrac{2}{15}$ and $\\dfrac{8}{60}=\\dfrac{2}{15}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-2$): solves $x^{2}-4=0$, the denominator, instead of the equation.\n* Choice C ($2$): keeps the second root of $x^{2}+6x-16=0$, but $x=2$ makes two denominators zero.\n* Choice D ($8$): factors $x^{2}+6x-16$ as $(x-8)(x+2)$, reversing the signs.\n\n**Test Day Takeaway:** After clearing denominators, test every root against the excluded values before choosing."
 }

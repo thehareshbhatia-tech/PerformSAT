@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-183",
- "question": "A weld seam, line $v$, meets the graph of $4x - 9y = 36$ at a right angle and includes the point $(-6, 5)$. Which of the following is an equation of line $v$ written in the form $Ax + By = C$?",
+ "question": "$4x - 9y = 36$\nIn the $xy$-plane, line $v$ is perpendicular to the graph of the given equation and passes through the point $(-6, 5)$. Which equation defines line $v$?",
  "choices": [
   {
    "id": "A",
@@ -21,9 +21,9 @@
  ],
  "correctAnswer": "C",
  "distractorNotes": {
-  "A": "keeps the slope $\\frac{4}{9}$, producing a line parallel to the given one instead of perpendicular",
-  "B": "uses $\\frac{9}{4}$, the reciprocal without the negative sign",
-  "D": "uses the point $(5, -6)$, swapping the coordinates of $(-6, 5)$"
+  "A": "keeps the slope 4/9 of the given line, producing a parallel line through (-6, 5)",
+  "B": "takes the reciprocal slope 9/4 without changing its sign",
+  "D": "uses the correct slope but substitutes the point with its coordinates swapped, as (5, -6)"
  },
- "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** The seam has slope $-\\frac{9}{4}$; from $(-6, 5)$ that clears to $9x + 4y = -34$.\n\n**The Full Solution:**\nStep 1: Rewrite $4x - 9y = 36$ as $y = \\frac{4}{9}x - 4$, so its slope is $\\frac{4}{9}$ and the seam's slope is $-\\frac{9}{4}$.\nStep 2: Point-slope form gives $y - 5 = -\\frac{9}{4}(x + 6)$, so $4y - 20 = -9x - 54$.\nStep 3: Rearranging gives $9x + 4y = -34$. Check: $9(-6) + 4(5) = -54 + 20 = -34$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4x - 9y = -69$): keeps the slope $\\frac{4}{9}$, producing a line parallel to the given one instead of perpendicular\n* Choice B ($9x - 4y = -74$): uses $\\frac{9}{4}$, the reciprocal without the negative sign\n* Choice D ($9x + 4y = 21$): uses the point $(5, -6)$, swapping the coordinates of $(-6, 5)$\n\n**Test Day Takeaway:** Clear the fractions from point-slope form before rearranging, and test the given point in the final equation."
+ "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** Swapping the coefficients and changing one sign gives a perpendicular line, $9x + 4y = C$; substituting $(-6, 5)$ gives $C = -54 + 20 = -34$.\n\n**The Full Solution:**\nStep 1: Solve the given equation for $y$: $y = \\frac{4}{9}x - 4$, so its slope is $\\frac{4}{9}$ and line $v$ has slope $-\\frac{9}{4}$.\nStep 2: Through $(-6, 5)$: $y - 5 = -\\frac{9}{4}(x + 6)$. Multiply by $4$: $4y - 20 = -9x - 54$.\nStep 3: Rearrange: $9x + 4y = -34$. Check: $9(-6) + 4(5) = -34$, and the slope of $9x + 4y = -34$ is $-\\frac{9}{4}$, with $\\frac{4}{9} \\cdot \\left(-\\frac{9}{4}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4x - 9y = -69$): keeps the slope $\\frac{4}{9}$, so this line is parallel to the given line, not perpendicular.\n* Choice B ($9x - 4y = -74$): has slope $\\frac{9}{4}$, the reciprocal without the sign change; the product of the slopes is $1$.\n* Choice D ($9x + 4y = 21$): has the right slope but uses the point as $(5, -6)$: $9(5) + 4(-6) = 21$.\n\n**Test Day Takeaway:** For $Ax + By = C$, a perpendicular line is $Bx - Ay = C'$ (swap the coefficients, change one sign); find $C'$ by substituting the given point."
 }

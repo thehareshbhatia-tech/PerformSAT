@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-005",
-  "question": "The table gives the water level, in centimeters, at a river gauge at two times on the same day. Over this interval the water level changed at a constant rate. What was the rate of change, in centimeters per hour, of the water level?",
+  "question": "The table shows the water level, in centimeters, of a river at two times on the same day. The water level changed at a constant rate. What was the rate of change, in centimeters per hour, of the water level?",
   "questionTable": {
     "headers": [
       "Time",

@@ -1,10 +1,10 @@
 {
  "id": "bank-alg-154",
- "question": "The table gives the total cost $C$, in dollars, of a city-pass card valid for $d$ days. A second card is priced by $C = kd + 7$, and no number of days makes the two cards cost the same. What is the value of $k$?",
+ "question": "The table shows three values of $x$ and their corresponding values of $y$ for line $p$ in the $xy$-plane. The equation of line $p$ and the equation $y = kx + 7$, where $k$ is a constant, form a system of equations that has no solution. What is the value of $k$?",
  "questionTable": {
   "headers": [
-   "Days, $d$",
-   "Total cost, $C$"
+   "$x$",
+   "$y$"
   ],
   "rows": [
    [
@@ -39,11 +39,11 @@
    "text": "$18$"
   }
  ],
- "correctAnswer": "C",
  "distractorNotes": {
-  "A": "reports the change in d from one row to the next",
-  "B": "reports the constant 7 from the second card's price",
-  "D": "reports the change in C between rows without dividing by the change in d"
+  "A": "uses the change in x between rows (2) as the slope",
+  "B": "copies the y-intercept 7 of the second equation",
+  "D": "uses the change in y between rows (18) without dividing by the change in x (2)"
  },
- "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The table's rate is $\\frac{27 - 9}{3 - 1} = 9$ dollars per day, and two prices never agree only when the rates match, so $k = 9$.\n\n**The Full Solution:**\n\nStep 1: Find the first card's rate from the table: $\\frac{27 - 9}{3 - 1} = \\frac{18}{2} = 9$ dollars per day, so $C = 9d$.\n\nStep 2: The two prices are equal for some $d$ unless the equations $C = 9d$ and $C = kd + 7$ describe parallel lines, which requires $k = 9$.\n\nStep 3: Verify that no value of $d$ works when $k = 9$: setting $9d = 9d + 7$ gives $0 = 7$, which is never true. So $k = 9$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($2$): reports $3 - 1$, the change in $d$ between rows, rather than the rate.\n* Choice B ($7$): copies the constant from the second card's price.\n* Choice D ($18$): reports $27 - 9$, the change in cost between rows, without dividing by the $2$-day change.\n\n**Test Day Takeaway:** Two linear models never agree exactly when their rates match and their starting values do not."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** From the table, $y$ rises by $18$ each time $x$ rises by $2$, so line $p$ has slope $9$. No solution means parallel lines, so $k = 9$.\n\n**The Full Solution:**\nStep 1: Find the slope of line $p$ from two rows: $\\frac{27 - 9}{3 - 1} = \\frac{18}{2} = 9$. Since $9 = 9(1) + b$ gives $b = 0$, line $p$ is $y = 9x$.\nStep 2: A system of two linear equations has no solution when the lines are parallel and distinct: the same slope with different $y$-intercepts.\nStep 3: The intercepts $0$ and $7$ already differ, so the slopes must match: $k = 9$. Check: $9x = 9x + 7$ reduces to $0 = 7$, which is false, so the system has no solution ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): uses the change in $x$ between rows instead of the slope.\n* Choice B ($7$): copies the $y$-intercept of the second equation.\n* Choice D ($18$): uses the change in $y$ between rows without dividing by the change in $x$.\n\n**Test Day Takeaway:** For a line given by a table, slope is the change in $y$ divided by the change in $x$; then no solution simply means matching that slope."
 }

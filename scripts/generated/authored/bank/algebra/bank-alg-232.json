@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-232",
- "question": "A dye vat contains $7(3m + 8)$ liters of solution after $m$ minutes of filling, and this amount is equal to $21m + c$ liters for every value of $m$. What is the value of $c$?",
+ "question": "$7(3m + 8) = 21m + c$\nIn the given equation, $c$ is a constant. If the equation has infinitely many solutions, what is the value of $c$?",
  "choices": [
   {
    "id": "A",
@@ -21,9 +21,9 @@
  ],
  "correctAnswer": "C",
  "distractorNotes": {
-  "A": "adds 7 and 8 instead of multiplying them",
-  "B": "multiplies the two numbers inside the parentheses (3 times 8)",
-  "D": "multiplies 8 by the already-distributed coefficient 21"
+  "A": "adds $7$ and $8$ instead of multiplying them",
+  "B": "multiplies the two numbers inside the parentheses, $3 \\cdot 8$",
+  "D": "multiplies $8$ by the distributed coefficient $21$ instead of by $7$"
  },
- "explanation": "**SAT Pattern: Matching Coefficients**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Distributing gives $21m + 56$, so the constant term is $7 \\times 8 = 56$.\n\n**The Full Solution:**\n\nStep 1: Distribute the $7$ across both terms: $7(3m + 8) = 7 \\cdot 3m + 7 \\cdot 8 = 21m + 56$.\n\nStep 2: The problem states that $21m + 56 = 21m + c$ for every value of $m$. Two expressions that agree for every $m$ must have matching coefficients and matching constants.\n\nStep 3: The $m$-terms already match ($21m$ on both sides), so $c = 56$. Check with $m = 2$: $7(6 + 8) = 98$ and $21(2) + 56 = 98$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($15$): adds $7$ and $8$ instead of multiplying them.\n* Choice B ($24$): multiplies the two numbers inside the parentheses, $3 \\times 8$, and never uses the $7$.\n* Choice D ($168$): multiplies $8$ by $21$, the coefficient that has already absorbed the $7$.\n\n**Test Day Takeaway:** When two expressions are equal for every value of the variable, distribute first and then match the constant to the constant and the coefficient to the coefficient."
+ "explanation": "**SAT Pattern: Matching Coefficients**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Distributing gives $21m + 56$, so the two sides match exactly when $c = 56$.\n\n**The Full Solution:**\nStep 1: Distribute the left side: $7(3m + 8) = 21m + 56$.\nStep 2: An equation in one variable has infinitely many solutions when both sides are the same expression, so $21m + 56$ must equal $21m + c$.\nStep 3: The $m$-terms already match, so the constants must match: $c = 56$. Check: with $c = 56$, both sides are $21m + 56$, true for every $m$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): adds $7$ and $8$ instead of multiplying them.\n* Choice B ($24$): multiplies the two numbers inside the parentheses, $3 \\cdot 8$.\n* Choice D ($168$): multiplies $8$ by $21$, the distributed coefficient, instead of by $7$.\n\n**Test Day Takeaway:** Infinitely many solutions means the two sides are identical: distribute, then match the constant terms."
 }

@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-017",
-  "question": "The expression $10x^2 + 11x - 6$ can be written as the product of two binomials, one of which is $(5x - 2)$. What is the other binomial factor, and what is the sum of the solutions to $10x^2 + 11x - 6 = 0$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$(2x + 3)$ and $-\\dfrac{11}{10}$"
-    },
-    {
-      "id": "B",
-      "text": "$(2x - 3)$ and $-\\dfrac{11}{10}$"
-    },
-    {
-      "id": "C",
-      "text": "$(2x + 3)$ and $\\dfrac{11}{10}$"
-    },
-    {
-      "id": "D",
-      "text": "$(2x + 3)$ and $-\\dfrac{3}{5}$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "flips the sign inside the second factor, which changes the constant term to $+6$",
-    "C": "drops the negative sign in $-\\frac{b}{a}$",
-    "D": "reports $\\frac{c}{a}$, the product of the roots, instead of the sum"
+ "id": "bank-am-017",
+ "question": "$10x^{2} + kx - 6 = 0$\nIn the given equation, $k$ is a constant, and $5x - 2$ is a factor of $10x^{2} + kx - 6$. What is the sum of the solutions to the given equation?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-\\dfrac{13}{5}$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Factor Division + Vieta's**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** The leading terms force $5x \\cdot 2x = 10x^2$ and the constants force $(-2)(3) = -6$, so the other factor is $(2x + 3)$. The sum of the roots is $-\\dfrac{b}{a} = -\\dfrac{11}{10}$.\n\n**The Full Solution:**\nStep 1: Write $10x^2 + 11x - 6 = (5x - 2)(px + q)$. Matching the $x^2$ terms gives $5p = 10$, so $p = 2$; matching the constants gives $-2q = -6$, so $q = 3$.\nStep 2: Check the middle term: $(5x - 2)(2x + 3) = 10x^2 + 15x - 4x - 6 = 10x^2 + 11x - 6$. $\\checkmark$\nStep 3: The roots are $x = \\dfrac{2}{5}$ and $x = -\\dfrac{3}{2}$, and their sum is $\\dfrac{4}{10} - \\dfrac{15}{10} = -\\dfrac{11}{10}$, which matches $-\\dfrac{b}{a} = -\\dfrac{11}{10}$.\n\n**Why the wrong answers are tempting:**\n* Choice B: with $(2x - 3)$ the constant term would be $(-2)(-3) = +6$, not $-6$.\n* Choice C: the factor is right, but the sum of the roots is $-\\dfrac{b}{a}$, and $b = 11$ is positive, so the sum is negative.\n* Choice D ($-\\dfrac{3}{5}$): this is $\\dfrac{c}{a} = \\dfrac{-6}{10}$, the product of the roots, not the sum.\n\n**Test Day Takeaway:** Recover a missing factor by matching the leading and constant terms, then verify with the middle term. For the sum of the roots, $-\\dfrac{b}{a}$ beats solving."
+  {
+   "id": "B",
+   "text": "$-\\dfrac{11}{10}$"
+  },
+  {
+   "id": "C",
+   "text": "$-\\dfrac{3}{5}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\dfrac{11}{10}$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "finds the other factor 2x + 3 but takes its solution as -3 instead of -3/2, so 2/5 + (-3) = -13/5",
+  "C": "gives the product of the solutions, (2/5)(-3/2) = -3/5",
+  "D": "uses -k/a with the sign reversed, giving 11/10"
+ },
+ "explanation": "**SAT Pattern: Factor Division + Vieta's**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Since $5x \\cdot 2x = 10x^{2}$ and $(-2)(3) = -6$, the other factor is $2x + 3$. The solutions are $\\frac{2}{5}$ and $-\\frac{3}{2}$, whose sum is $-\\frac{11}{10}$.\n\n**The Full Solution:**\nStep 1: Write $10x^{2} + kx - 6 = (5x - 2)(ax + b)$. Matching the $x^{2}$ terms gives $5a = 10$, so $a = 2$; matching the constants gives $-2b = -6$, so $b = 3$. The other factor is $2x + 3$.\nStep 2: Expanding $(5x - 2)(2x + 3) = 10x^{2} + 15x - 4x - 6 = 10x^{2} + 11x - 6$ shows $k = 11$. The solutions are $x = \\frac{2}{5}$ and $x = -\\frac{3}{2}$.\nStep 3: The sum is $\\frac{2}{5} - \\frac{3}{2} = \\frac{4}{10} - \\frac{15}{10} = -\\frac{11}{10}$. Check: $-\\frac{k}{a} = -\\frac{11}{10}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{13}{5}$): solves $2x + 3 = 0$ as $x = -3$, forgetting to divide by $2$.\n* Choice C ($-\\frac{3}{5}$): this is the product of the solutions, $\\frac{c}{a} = -\\frac{6}{10}$, not the sum.\n* Choice D ($\\frac{11}{10}$): uses $\\frac{k}{a}$ instead of $-\\frac{k}{a}$.\n\n**Test Day Takeaway:** A known factor pins down the other factor by matching the first and last terms. Then the sum of the solutions is $-\\frac{b}{a}$."
 }

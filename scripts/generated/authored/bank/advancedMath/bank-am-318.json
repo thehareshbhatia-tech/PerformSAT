@@ -1,29 +1,29 @@
 {
- "id": "bank-am-318",
- "question": "A pipeline-inspection routine must replace the radical equation $\\sqrt{x+5}=x-1$ with a polynomial equation whose solutions include every solution of the original. Which of the following equations has that property?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$x+5=x^{2}-2x+1$"
+  "id": "bank-am-318",
+  "question": "$\\sqrt{x - 3} = 2\\sqrt{x - 9}$\nWhat is the solution to the given equation?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$11$"
+    },
+    {
+      "id": "C",
+      "text": "$15$"
+    },
+    {
+      "id": "D",
+      "text": "$33$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "squares the 2 but multiplies only the x by 4, solving x - 3 = 4x - 9",
+    "C": "forgets to square the coefficient 2, solving x - 3 = 2(x - 9)",
+    "D": "stops at 3x = 33 without dividing by 3"
   },
-  {
-   "id": "B",
-   "text": "$x+5=x^{2}-1$"
-  },
-  {
-   "id": "C",
-   "text": "$x+5=x^{2}+1$"
-  },
-  {
-   "id": "D",
-   "text": "$x^{2}+5=x^{2}-2x+1$"
-  }
- ],
- "distractorNotes": {
-  "B": "expands (x - 1) squared as a difference of squares, giving x squared minus 1",
-  "C": "squares x and -1 separately, giving x squared plus 1 and dropping the -2x term",
-  "D": "squares only the x inside the radical, leaving x squared plus 5 on the left"
- },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Radical Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Squaring both sides replaces the left side by $x+5$ and the right side by $(x-1)^{2}=x^{2}-2x+1$.\n\n**The Full Solution:**\n\nStep 1: If a number satisfies $\\sqrt{x+5}=x-1$, then the squares of the two sides are equal as well.\n\nStep 2: The left side squares to $x+5$, because $\\left(\\sqrt{x+5}\\right)^{2}=x+5$ whenever the radicand is nonnegative.\n\nStep 3: The right side squares to $(x-1)^{2}=x^{2}-2x+1$, so every solution satisfies $x+5=x^{2}-2x+1$. Check: that equation is $x^{2}-3x-4=0$, with solutions $4$ and $-1$; $x=4$ satisfies the original equation, and the polynomial equation does contain it.\n\n**Why the wrong answers are tempting:**\n\n* Choice B: expands $(x-1)^{2}$ as $x^{2}-1$, a difference-of-squares pattern that does not apply.\n* Choice C: squares $x$ and $-1$ separately and loses the $-2x$ cross term.\n* Choice D: squares only the $x$ inside the radical instead of the whole radicand.\n\n**Test Day Takeaway:** Squaring acts on each entire side, so a binomial side must be expanded with the cross term intact."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Radical Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Squaring gives $x - 3 = 4(x - 9) = 4x - 36$, so $3x = 33$ and $x = 11$.\n\n**The Full Solution:**\nStep 1: Square both sides. The coefficient $2$ is squared too: $x - 3 = 4(x - 9)$.\nStep 2: Distribute: $x - 3 = 4x - 36$, so $33 = 3x$.\nStep 3: Divide by $3$: $x = 11$. Check: $\\sqrt{11 - 3} = \\sqrt{8} = 2\\sqrt{2}$ and $2\\sqrt{11 - 9} = 2\\sqrt{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): squares the $2$ but multiplies only the $x$ by $4$, solving $x - 3 = 4x - 9$. At $x = 2$ both radicands are negative.\n* Choice C ($15$): forgets to square the coefficient, solving $x - 3 = 2(x - 9)$.\n* Choice D ($33$): stops at $3x = 33$ without dividing by $3$.\n\n**Test Day Takeaway:** Squaring $a\\sqrt{u}$ gives $a^{2}u$: the coefficient is squared, and it multiplies the entire radicand."
 }

@@ -1,51 +1,51 @@
 {
-  "id": "bank-am-333",
-  "question": "The graph of the quadratic function $g$, where $g(x) = x^2 + 4x - 21$, is shown in the $xy$-plane. The graph intersects the $x$-axis at two points. What is the distance between those two points?",
-  "diagram": {
-    "type": "parabola",
-    "params": {
-      "vertex": {
-        "h": -2,
-        "k": -25
-      },
-      "a": 1,
-      "xRange": [
-        -9,
-        5
-      ],
-      "yRange": [
-        -28,
-        8
-      ],
-      "xTickInterval": 2,
-      "yTickInterval": 4,
-      "gridInterval": 2,
-      "showVertex": true
-    }
+ "id": "bank-am-333",
+ "question": "The graph of the quadratic function $f$ is shown. The function $g$ is defined by $g(x) = f(x - 3)$. What is the distance between the two $x$-intercepts of the graph of $y = g(x)$?",
+ "diagram": {
+  "type": "parabola",
+  "params": {
+   "vertex": {
+    "h": -2,
+    "k": -16
+   },
+   "a": 1,
+   "xRange": [
+    -8,
+    4
+   ],
+   "yRange": [
+    -18,
+    8
+   ],
+   "xTickInterval": 2,
+   "yTickInterval": 4,
+   "gridInterval": 1,
+   "showVertex": false
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$4$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$4$"
-    },
-    {
-      "id": "B",
-      "text": "$5$"
-    },
-    {
-      "id": "C",
-      "text": "$10$"
-    },
-    {
-      "id": "D",
-      "text": "$21$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "uses the sum of the zeros",
-    "B": "reports half the distance",
-    "D": "uses the constant term"
+  {
+   "id": "B",
+   "text": "$5$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $x^2 + 4x - 21 = (x + 7)(x - 3)$, so the zeros are $-7$ and $3$ and the distance is $3 - (-7) = 10$.\n\n**The Full Solution:**\nStep 1: The intercepts satisfy $g(x) = 0$, so factor: $x^2 + 4x - 21 = (x + 7)(x - 3)$.\nStep 2: The zeros are $x = -7$ and $x = 3$, the two crossings visible on the graph.\nStep 3: The distance between $(-7, 0)$ and $(3, 0)$ is $|3 - (-7)| = 10$. Check: the vertex sits at $x = -2$, which is $5$ units from each intercept. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): uses $|-7 + 3| = 4$, adding the zeros instead of subtracting them.\n* Choice B ($5$): reports the distance from the axis of symmetry to one intercept, which is half the answer.\n* Choice D ($21$): reads the constant term as a length.\n\n**Test Day Takeaway:** Factor, list the zeros, subtract — and remember the vertex is the midpoint, so half-distances are a common trap."
+  {
+   "id": "C",
+   "text": "$8$"
+  },
+  {
+   "id": "D",
+   "text": "$11$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "reports the distance from the axis of symmetry to one intercept, half of the correct distance",
+  "B": "subtracts the shift of 3 from the distance 8, as if moving the graph right narrowed it",
+  "D": "adds the shift of 3 to the distance 8, as if moving the graph right widened it"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The graph of $f$ crosses the $x$-axis at $x = -6$ and $x = 2$, and $g(x) = f(x - 3)$ moves both intercepts $3$ units right, to $x = -3$ and $x = 5$, so the distance stays $5 - (-3) = 8$.\n\n**The Full Solution:**\nStep 1: From the graph, the $x$-intercepts of $f$ are $(-6, 0)$ and $(2, 0)$.\nStep 2: $g(x) = 0$ exactly when $f(x - 3) = 0$, that is, when $x - 3 = -6$ or $x - 3 = 2$. So the $x$-intercepts of the graph of $g$ are at $x = -3$ and $x = 5$.\nStep 3: The distance between them is $5 - (-3) = 8$. Check: replacing $x$ with $x - 3$ slides the whole graph $3$ units to the right without changing its shape, so the gap between the intercepts must equal the gap for $f$, $2 - (-6) = 8$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): the distance from the axis of symmetry to one intercept, which is half of the correct distance.\n* Choice B ($5$): subtracts the shift from the distance, $8 - 3$, but a horizontal shift moves both intercepts the same amount.\n* Choice D ($11$): adds the shift to the distance, $8 + 3$, for the same reason.\n\n**Test Day Takeaway:** A horizontal shift moves every point of a graph the same distance, so it never changes the distance between two $x$-intercepts."
 }

@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-034",
-  "question": "In the $xy$-plane, line $r$ has a slope of $-6$. Line $s$ is perpendicular to line $r$. What is the slope of line $s$?",
+  "question": "In the $xy$-plane, line $s$ is perpendicular to line $r$. The slope of line $r$ is $-6$. What is the slope of line $s$?",
   "choices": [
     {
       "id": "A",

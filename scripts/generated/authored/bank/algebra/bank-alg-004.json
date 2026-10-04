@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-004",
-  "question": "The table gives the volume of propane, in gallons, in a heating tank on two days of a winter. If the volume decreased at a constant rate, at what rate, in gallons per day, did the volume decrease?",
+  "question": "The table shows the volume of propane, in gallons, in a tank on two days. The volume decreased at a constant rate. At what rate, in gallons per day, did the volume decrease?",
   "questionTable": {
     "headers": [
       "Day",

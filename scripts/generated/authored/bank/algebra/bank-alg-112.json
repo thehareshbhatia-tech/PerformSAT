@@ -1,29 +1,29 @@
 {
- "question": "Two control points at $(1,3)$ and $(4,9)$ define a property line, and a fence is run through the point $(-2,5)$ so that it is parallel to that property line. Which of the following points also lies on the fence?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$(6,-11)$"
+  "id": "bank-alg-112",
+  "question": "Line $p$ in the $xy$-plane passes through the point $(3, -2)$ and is parallel to the line $y = 4x + 7$. Which equation defines line $p$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$y = 4x - 14$"
+    },
+    {
+      "id": "B",
+      "text": "$y = 4x - 5$"
+    },
+    {
+      "id": "C",
+      "text": "$y = 4x - 2$"
+    },
+    {
+      "id": "D",
+      "text": "$y = 4x + 10$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "forgets to multiply the slope by x = 3, computing b = -2 - 3",
+    "C": "uses the y-coordinate of the given point, -2, as the y-intercept",
+    "D": "adds 12 to -2 instead of subtracting, getting b = 10"
   },
-  {
-   "id": "B",
-   "text": "$(6,9)$"
-  },
-  {
-   "id": "C",
-   "text": "$(6,13)$"
-  },
-  {
-   "id": "D",
-   "text": "$(6,21)$"
-  }
- ],
- "correctAnswer": "D",
- "distractorNotes": {
-  "A": "uses slope -2 instead of 2, flipping the sign of the rise",
-  "B": "uses the reciprocal 1/2 as the slope, dividing run by rise",
-  "C": "stays on the property line itself instead of the parallel fence through (-2, 5)"
- },
- "explanation": "**SAT Pattern: Line from Two Points**\n\n**Choice D is correct.** The property line has slope $2$, so the fence is $y=2x+9$, and at $x=6$ that gives $y=21$.\n\n**The Fast Way (~40s):** Slope $=\\frac{9-3}{4-1}=2$. From $(-2,5)$, moving $8$ right raises $y$ by $16$, so $(6,21)$ is on the fence.\n\n**The Full Solution:**\n\nStep 1: Find the slope of the property line: $\\frac{9-3}{4-1}=\\frac{6}{3}=2$. Parallel lines share this slope.\n\nStep 2: Write the fence through $(-2,5)$ with slope $2$: $y-5=2(x+2)$, so $y=2x+9$.\n\nStep 3: Evaluate at $x=6$: $y=2(6)+9=21$, so $(6,21)$ lies on the fence. Check: $(-2,5)$ satisfies $y=2x+9$ since $2(-2)+9=5$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($(6,-11)$): uses slope $-2$, reversing the direction of the rise.\n* Choice B ($(6,9)$): uses $\\frac{1}{2}$, the run divided by the rise, as the slope.\n* Choice C ($(6,13)$): lies on the property line $y=2x+1$ rather than on the parallel fence.\n\n**Test Day Takeaway:** Parallel lines copy the slope but never the intercept — always re-anchor the equation at the new point.",
- "id": "bank-alg-112"
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Line from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Line $p$ has slope $4$, and $-2 = 4(3) + b$ gives $b = -14$, so $y = 4x - 14$.\n\n**The Full Solution:**\nStep 1: Parallel lines have equal slopes, so line $p$ has slope $4$ and can be written $y = 4x + b$.\nStep 2: Substitute the point $(3, -2)$: $-2 = 4(3) + b = 12 + b$.\nStep 3: Subtract $12$: $b = -14$, so line $p$ is $y = 4x - 14$. Check: $4(3) - 14 = -2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = 4x - 5$): subtracts $3$ instead of $4 \\cdot 3 = 12$ from $-2$, getting $b = -5$.\n* Choice C ($y = 4x - 2$): uses the $y$-coordinate of the point, $-2$, as the $y$-intercept; but the point has $x = 3$, not $x = 0$.\n* Choice D ($y = 4x + 10$): adds $12$ to $-2$ instead of subtracting, getting $b = 10$; then $4(3) + 10 = 22$, not $-2$.\n\n**Test Day Takeaway:** A parallel line keeps the slope and changes only the intercept; find the new intercept by substituting the given point."
 }

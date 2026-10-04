@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-140",
-  "question": "The function $C(k) = 0.12k + 18$ gives the monthly cost $C(k)$, in dollars, of electricity for an apartment that uses $k$ kilowatt-hours of electricity in a month. What is the best interpretation of the number $0.12$ in this context?",
+  "question": "The function $C(k) = 0.12k + 18$ gives the monthly cost, in dollars, of electricity for an apartment that uses $k$ kilowatt-hours of electricity in a month. What is the best interpretation of $0.12$ in this context?",
   "choices": [
     {
       "id": "A",

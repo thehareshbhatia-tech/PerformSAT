@@ -1,5 +1,6 @@
 {
-  "question": "The parabola shown is the graph of $y=2x^{2}+bx+5$ in the $xy$-plane, where $b$ is a constant. Which of the following must be true about $b^{2}-40$?",
+  "id": "bank-am-349",
+  "question": "The graph of $y = 2x^{2} + bx + 5$, where $b$ is a constant, is shown in the $xy$-plane. Which of the following must be true?",
   "diagram": {
     "type": "parabola",
     "params": {
@@ -26,27 +27,26 @@
   "choices": [
     {
       "id": "A",
-      "text": "$b^{2}-40<0$"
+      "text": "$b^{2} - 40 < 0$"
     },
     {
       "id": "B",
-      "text": "$b^{2}-40=0$"
+      "text": "$b^{2} - 40 = 0$"
     },
     {
       "id": "C",
-      "text": "$b^{2}-40>0$"
+      "text": "$b^{2} - 40 > 0$"
     },
     {
       "id": "D",
-      "text": "$b^{2}-20<0$"
+      "text": "$b^{2} - 10 < 0$"
     }
   ],
   "distractorNotes": {
-    "B": "would mean the parabola touches the x-axis at exactly one point",
-    "C": "would mean the parabola crosses the x-axis twice",
-    "D": "used 4ac = 4 times 5 = 20, omitting the leading coefficient 2"
+    "B": "would mean the graph touches the x-axis at exactly one point",
+    "C": "would mean the graph crosses the x-axis at two points",
+    "D": "uses ac = 10 in place of 4ac = 40, leaving out the 4"
   },
   "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The parabola never meets the $x$-axis, so its discriminant $b^{2}-4(2)(5)=b^{2}-40$ must be negative.\n\n**The Full Solution:**\nStep 1: The $x$-intercepts of the graph are the real solutions of $2x^{2}+bx+5=0$.\nStep 2: The graph lies entirely above the $x$-axis, so that equation has no real solutions.\nStep 3: No real solutions means a negative discriminant, and here $b^{2}-4ac=b^{2}-40$, so $b^{2}-40<0$. Check: the drawn parabola is $y=2x^{2}+4x+5$, and $16-40=-24<0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($b^{2}-40=0$): would mean the parabola touches the $x$-axis at exactly one point.\n* Choice C ($b^{2}-40>0$): would mean the parabola crosses the $x$-axis twice.\n* Choice D ($b^{2}-20<0$): uses $4c=20$ for $4ac$, omitting the leading coefficient $2$.\n\n**Test Day Takeaway:** Read the number of $x$-intercepts off the picture, then translate it straight into the sign of $b^{2}-4ac$.",
-  "id": "bank-am-349"
+  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The graph never meets the $x$-axis, so $2x^{2} + bx + 5 = 0$ has no real solutions and its discriminant, $b^{2} - 4(2)(5) = b^{2} - 40$, is negative.\n\n**The Full Solution:**\nStep 1: The $x$-intercepts of the graph are the real solutions of $2x^{2} + bx + 5 = 0$.\nStep 2: The graph lies entirely above the $x$-axis, so the equation has no real solutions, which means its discriminant is negative.\nStep 3: With $a = 2$ and $c = 5$, the discriminant is $b^{2} - 4(2)(5) = b^{2} - 40$, so $b^{2} - 40 < 0$. Check: the graph passes through $(0, 5)$ and $(-2, 5)$, so its axis of symmetry is $x = -1 = -\\dfrac{b}{2(2)}$, which gives $b = 4$, and $4^{2} - 40 = -24 < 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($b^{2} - 40 = 0$): would mean the graph touches the $x$-axis at exactly one point.\n* Choice C ($b^{2} - 40 > 0$): would mean the graph crosses the $x$-axis twice.\n* Choice D ($b^{2} - 10 < 0$): uses $ac = 10$ in place of $4ac = 40$; with $b = 4$, $b^{2} - 10 = 6$, which is not negative.\n\n**Test Day Takeaway:** Count the $x$-intercepts on the graph, then translate: none means $b^{2} - 4ac < 0$, one means $= 0$, two means $> 0$."
 }

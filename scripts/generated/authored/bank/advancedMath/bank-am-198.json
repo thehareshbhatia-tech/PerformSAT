@@ -1,6 +1,6 @@
 {
   "id": "bank-am-198",
-  "question": "The function $N$ defined by $N(t) = 4{,}500(0.6)^{t/8}$ models the number of harbor seals counted at a monitoring site $t$ years after $2000$. Which statement best describes how the estimated number of seals changes over time?",
+  "question": "The function $N$ defined by $N(t) = 4{,}500(0.6)^{\\frac{t}{8}}$ gives the estimated number of seals in a bay $t$ years after $2000$. Which of the following best describes how the estimated number of seals changes over time?",
   "choices": [
     {
       "id": "A",

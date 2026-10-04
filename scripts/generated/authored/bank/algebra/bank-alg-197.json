@@ -1,9 +1,9 @@
 {
- "question": "In a viscosity model the reading $y$ obeys $y=kx-4$ and at the same time satisfies $3x+y=41$, and both relations hold when the input $x$ equals $5$. What is the value of the constant $k$?",
+ "question": "$y = \\frac{1}{2}x + 4$\n$y = 2x - 2$\nThe solution to the given system of equations is $(x, y)$. What is the value of $x + y$?",
  "choices": [
   {
    "id": "A",
-   "text": "$5$"
+   "text": "$4$"
   },
   {
    "id": "B",
@@ -11,19 +11,19 @@
   },
   {
    "id": "C",
-   "text": "$26$"
+   "text": "$10$"
   },
   {
    "id": "D",
-   "text": "$30$"
+   "text": "$24$"
   }
  ],
- "correctAnswer": "B",
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "reports the given input x = 5 instead of the constant k",
-  "C": "reports the value of y at x = 5 instead of k",
-  "D": "stops at 5k = 30 without dividing by 5"
+  "A": "finds x = 4 and stops without adding y",
+  "B": "finds y = 6 and stops without adding x",
+  "D": "multiplies x and y instead of adding them"
  },
- "explanation": "**SAT Pattern: Linear System by Substitution**\n\n**Choice B is correct.** At $x=5$ the second equation gives $y=26$, and $26=5k-4$ leads to $k=6$.\n\n**The Fast Way (~35s):** $y=41-15=26$, so $5k-4=26$, $5k=30$, and $k=6$.\n\n**The Full Solution:**\n\nStep 1: Substitute $x=5$ into $3x+y=41$: $15+y=41$, so $y=26$.\n\nStep 2: The same pair $(5,26)$ satisfies $y=kx-4$: $26=k(5)-4$.\n\nStep 3: Add $4$ and divide by $5$: $5k=30$, so $k=6$. Check: $y=6(5)-4=26$, and $3(5)+26=41$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($5$): reports the given input rather than the constant.\n* Choice C ($26$): reports the output $y$ found along the way.\n* Choice D ($30$): stops at $5k=30$ without dividing.\n\n**Test Day Takeaway:** Use the equation without the unknown constant to pin down the missing coordinate, then substitute the full pair into the other equation.",
+ "explanation": "**SAT Pattern: Linear System by Substitution**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Set the right sides equal: $\\frac{1}{2}x + 4 = 2x - 2$, so $\\frac{3}{2}x = 6$, $x = 4$, $y = 6$, and $x + y = 10$.\n\n**The Full Solution:**\nStep 1: Both equations give $y$, so substitute: $\\frac{1}{2}x + 4 = 2x - 2$.\nStep 2: Subtract $\\frac{1}{2}x$ and add $2$ to each side: $6 = \\frac{3}{2}x$, so $x = 4$.\nStep 3: Then $y = 2(4) - 2 = 6$, and $x + y = 10$. Check: $\\frac{1}{2}(4) + 4 = 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): is the value of $x$ alone.\n* Choice B ($6$): is the value of $y$ alone.\n* Choice D ($24$): multiplies $x$ and $y$ instead of adding them.\n\n**Test Day Takeaway:** When two equations both start with $y =$, set the right sides equal; then reread the question, since it may ask for a combination of $x$ and $y$.",
  "id": "bank-alg-197"
 }

@@ -1,6 +1,6 @@
 {
   "id": "bank-am-301",
-  "question": "The polynomial function $p$ is defined by $p(x) = 2x^3 - 7x^2 + cx - 9$, where $c$ is a constant. If $x - 3$ is a factor of $p(x)$, what is the value of $c$?",
+  "question": "$p(x) = 2x^{3} - 7x^{2} + cx - 9$\nIn the given equation, $c$ is a constant, and $x - 3$ is a factor of $p(x)$. What is the value of $c$?",
   "choices": [
     {
       "id": "A",

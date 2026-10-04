@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-177",
-  "question": "On a bridge drawing, a tie rod lies along $y = -4x + 9$, and a strut meets the tie rod at a right angle at $(8, 3)$. The strut's line has $y$-intercept $(0, b)$. What is the value of $b$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-29$"
-    },
-    {
-      "id": "B",
-      "text": "$1$"
-    },
-    {
-      "id": "C",
-      "text": "$5$"
-    },
-    {
-      "id": "D",
-      "text": "$35$"
-    }
-  ],
-  "correctAnswer": "B",
-  "distractorNotes": {
-    "A": "negates the tie rod's slope to $4$ instead of inverting it, giving $3 = 32 + b$",
-    "C": "computes $b$ as $y + mx = 3 + \\frac{1}{4}(8)$",
-    "D": "keeps the tie rod's slope $-4$, giving $3 = -32 + b$"
+ "id": "bank-alg-177",
+ "question": "Line $j$ passes through the point $(0, 4)$ and is perpendicular to the line $y = 2x - 3$ in the $xy$-plane. Which equation defines line $j$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$y = -2x + 4$"
   },
-  "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The strut has slope $\\frac{1}{4}$, and $3 = \\frac{1}{4}(8) + b$ gives $b = 1$.\n\n**The Full Solution:**\nStep 1: The tie rod has slope $-4$, so the strut has slope $\\frac{1}{4}$.\nStep 2: Substituting $(8, 3)$ into $y = \\frac{1}{4}x + b$ gives $3 = 2 + b$.\nStep 3: Therefore $b = 1$. Check: $\\frac{1}{4}(8) + 1 = 3$, and $-4 \\cdot \\frac{1}{4} = -1$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-29$): negates the tie rod's slope to $4$ instead of inverting it, giving $3 = 32 + b$\n* Choice C ($5$): computes $b$ as $y + mx = 3 + \\frac{1}{4}(8)$\n* Choice D ($35$): keeps the tie rod's slope $-4$, giving $3 = -32 + b$\n\n**Test Day Takeaway:** Flip and negate the slope, then substitute the given point once; the intercept falls out in one step."
+  {
+   "id": "B",
+   "text": "$y = -\\frac{1}{2}x + 4$"
+  },
+  {
+   "id": "C",
+   "text": "$y = \\frac{1}{2}x + 4$"
+  },
+  {
+   "id": "D",
+   "text": "$y = 2x + 4$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "negates the slope 2 without taking the reciprocal",
+  "C": "takes the reciprocal 1/2 without changing the sign",
+  "D": "keeps the slope 2, which gives a parallel line"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The perpendicular slope is the negative reciprocal of $2$, which is $-\\frac{1}{2}$, and the $y$-intercept is $4$: $y = -\\frac{1}{2}x + 4$.\n\n**The Full Solution:**\nStep 1: The line $y = 2x - 3$ has slope $2$. Perpendicular slopes multiply to $-1$, so line $j$ has slope $-\\frac{1}{2}$.\nStep 2: Line $j$ passes through $(0, 4)$, a point on the $y$-axis, so its $y$-intercept is $4$.\nStep 3: In slope-intercept form, line $j$ is $y = -\\frac{1}{2}x + 4$. Check: $2 \\cdot \\left(-\\frac{1}{2}\\right) = -1$, and at $x = 0$, $y = 4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -2x + 4$): negates the slope but does not take the reciprocal.\n* Choice C ($y = \\frac{1}{2}x + 4$): takes the reciprocal but does not change the sign.\n* Choice D ($y = 2x + 4$): uses the same slope, which makes the lines parallel, not perpendicular.\n\n**Test Day Takeaway:** A perpendicular slope needs both moves: flip the fraction and change the sign."
 }

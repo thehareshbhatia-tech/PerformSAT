@@ -1,29 +1,29 @@
 {
  "id": "bank-am-090",
- "question": "Aquifer-pressure readings involve the quantity $\\dfrac{\\sqrt[3]{m^{7}p^{2}}}{m\\sqrt{p}}$, taken at positive values of the mass $m$ and the pressure $p$, and a technician wants that quantity rewritten with a single power of each variable before entering it in a log. Which of the following is an equivalent form?",
+ "question": "$\\dfrac{\\sqrt[3]{m^{7}p^{2}}}{m\\sqrt{p}}$\nIf $m > 0$ and $p > 0$, which of the following is equivalent to the given expression?",
  "choices": [
   {
    "id": "A",
-   "text": "$m^{4/3}p^{1/6}$"
+   "text": "$m^{\\frac{4}{3}}p^{\\frac{1}{6}}$"
   },
   {
    "id": "B",
-   "text": "$m^{4/3}p^{7/6}$"
+   "text": "$m^{\\frac{4}{3}}p^{\\frac{7}{6}}$"
   },
   {
    "id": "C",
-   "text": "$m^{7/3}p^{1/6}$"
+   "text": "$m^{\\frac{7}{3}}p^{\\frac{1}{6}}$"
   },
   {
    "id": "D",
-   "text": "$m^{10/3}p^{1/6}$"
+   "text": "$m^{\\frac{10}{3}}p^{\\frac{1}{6}}$"
   }
  ],
  "correctAnswer": "A",
  "distractorNotes": {
-  "B": "adds the $p$ exponents, $\\frac{2}{3} + \\frac{1}{2} = \\frac{7}{6}$, instead of subtracting them",
-  "C": "never divides by the $m$ in the denominator, leaving the exponent at $\\frac{7}{3}$",
-  "D": "adds the $m$ exponents, $\\frac{7}{3} + 1 = \\frac{10}{3}$, instead of subtracting them"
+  "B": "adds the p exponents, 2/3 + 1/2 = 7/6, instead of subtracting",
+  "C": "forgets to divide by the m in the denominator",
+  "D": "adds the m exponents, 7/3 + 1 = 10/3, instead of subtracting"
  },
- "explanation": "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** The numerator is $m^{7/3}p^{2/3}$ and the denominator is $m^{1}p^{1/2}$, so subtract: $m^{7/3 - 1}p^{2/3 - 1/2} = m^{4/3}p^{1/6}$.\n\n**The Full Solution:**\nStep 1: A cube root gives each exponent a factor of $\\frac{1}{3}$, so $\\sqrt[3]{m^{7}p^{2}} = m^{7/3}p^{2/3}$.\nStep 2: The denominator is $m^{1}p^{1/2}$, so dividing subtracts exponents on each base separately.\nStep 3: For $m$: $\\frac{7}{3} - 1 = \\frac{4}{3}$. For $p$: $\\frac{2}{3} - \\frac{1}{2} = \\frac{4}{6} - \\frac{3}{6} = \\frac{1}{6}$. The quantity is $m^{4/3}p^{1/6}$. Check: at $m = 1$ and $p = 64$ the original is $\\dfrac{\\sqrt[3]{4096}}{8} = \\dfrac{16}{8} = 2$, and $1^{4/3} \\cdot 64^{1/6} = 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($m^{4/3}p^{7/6}$): adds $\\frac{2}{3}$ and $\\frac{1}{2}$, the error of treating a quotient as a product on the $p$ factor.\n* Choice C ($m^{7/3}p^{1/6}$): handles $p$ correctly but forgets the lone $m$ in the denominator.\n* Choice D ($m^{10/3}p^{1/6}$): adds the $m$ exponents, $\\frac{7}{3} + 1 = \\frac{10}{3}$.\n\n**Test Day Takeaway:** Convert every root to a fractional exponent, then handle one base at a time — mixing the bases is what produces all three wrong forms."
+ "explanation": "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** $m^{\\frac{7}{3} - 1} = m^{\\frac{4}{3}}$ and $p^{\\frac{2}{3} - \\frac{1}{2}} = p^{\\frac{1}{6}}$.\n\n**The Full Solution:**\nStep 1: Rewrite with fractional exponents: the numerator is $m^{\\frac{7}{3}}p^{\\frac{2}{3}}$ and the denominator is $m^{1}p^{\\frac{1}{2}}$.\nStep 2: Subtract exponents for each variable: $m^{\\frac{7}{3} - 1} = m^{\\frac{4}{3}}$ and $p^{\\frac{2}{3} - \\frac{1}{2}} = p^{\\frac{4}{6} - \\frac{3}{6}} = p^{\\frac{1}{6}}$.\nStep 3: So the expression is $m^{\\frac{4}{3}}p^{\\frac{1}{6}}$. Check with $m = 8$ and $p = 64$: $\\frac{\\sqrt[3]{8^{7} \\cdot 64^{2}}}{8 \\cdot 8} = \\frac{\\sqrt[3]{2^{33}}}{64} = \\frac{2^{11}}{64} = 32$, and $8^{\\frac{4}{3}} \\cdot 64^{\\frac{1}{6}} = 16 \\cdot 2 = 32$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($m^{\\frac{4}{3}}p^{\\frac{7}{6}}$): adds the $p$ exponents, $\\frac{2}{3} + \\frac{1}{2} = \\frac{7}{6}$, instead of subtracting.\n* Choice C ($m^{\\frac{7}{3}}p^{\\frac{1}{6}}$): forgets to divide by the $m$ in the denominator.\n* Choice D ($m^{\\frac{10}{3}}p^{\\frac{1}{6}}$): adds the $m$ exponents, $\\frac{7}{3} + 1$, instead of subtracting.\n\n**Test Day Takeaway:** Handle one variable at a time: convert each root to a fractional exponent, then subtract denominator exponents from numerator exponents."
 }

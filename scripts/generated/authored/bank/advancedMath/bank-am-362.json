@@ -1,29 +1,29 @@
 {
  "id": "bank-am-362",
- "question": "Expanding the seed-dispersal product $(4x^2 + 7)(5x - 3)$, in which $x$ is the release height in meters, produces the polynomial $20x^3 + ax^2 + 35x - 21$, where $a$ is a constant the modelers record separately for each field. What number is $a$?",
+ "question": "$x^{3} - 4x^{2} + 3x - 12$\nWhich of the following is a factor of the given expression?",
  "choices": [
   {
    "id": "A",
-   "text": "$-12$"
+   "text": "$x^{2} - 3$"
   },
   {
    "id": "B",
-   "text": "$7$"
+   "text": "$x^{2} + 4$"
   },
   {
    "id": "C",
-   "text": "$12$"
+   "text": "$x + 4$"
   },
   {
    "id": "D",
-   "text": "$35$"
+   "text": "$x - 4$"
   }
  ],
- "correctAnswer": "A",
+ "correctAnswer": "D",
  "distractorNotes": {
-  "B": "quotes the $7$ from the first factor instead of forming a product",
-  "C": "drops the negative sign from $4x^2 \\cdot (-3)$",
-  "D": "reports the coefficient of $x$, which comes from $7 \\cdot 5x$"
+  "A": "factors -3 instead of 3 out of 3x - 12, which gives -3(-x + 4) and leads to x^2 - 3",
+  "B": "pairs x^2 with the 4 from the first pair instead of with the 3 from the second pair",
+  "C": "reverses the sign in the shared binomial, writing x + 4 instead of x - 4"
  },
- "explanation": "**SAT Pattern: Factor by Grouping**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The only $x^2$ term comes from $4x^2 \\cdot (-3) = -12x^2$, so $a = -12$.\n\n**The Full Solution:**\nStep 1: Distribute: $4x^2(5x) = 20x^3$ and $4x^2(-3) = -12x^2$.\nStep 2: Then $7(5x) = 35x$ and $7(-3) = -21$.\nStep 3: Collecting terms gives $20x^3 - 12x^2 + 35x - 21$, so $a = -12$. Check: at $x = 1$ the product is $(11)(2) = 22$, and $20 - 12 + 35 - 21 = 22$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($7$): copies a constant out of a factor instead of multiplying.\n* Choice C ($12$): correct in size but wrong in sign, since one factor contributes $-3$.\n* Choice D ($35$): the coefficient one degree lower, from $7 \\cdot 5x$.\n\n**Test Day Takeaway:** To get one coefficient, find only the products that land in that degree — here just $4x^2$ times $-3$."
+ "explanation": "**SAT Pattern: Factor by Grouping**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Group in pairs: $x^{2}(x - 4) + 3(x - 4) = (x - 4)(x^{2} + 3)$, so $x - 4$ is a factor.\n\n**The Full Solution:**\nStep 1: Split the terms into two pairs: $(x^{3} - 4x^{2}) + (3x - 12)$.\nStep 2: Factor each pair: $x^{3} - 4x^{2} = x^{2}(x - 4)$ and $3x - 12 = 3(x - 4)$.\nStep 3: Factor out the shared binomial: $(x - 4)(x^{2} + 3)$. The factors are $x - 4$ and $x^{2} + 3$, and only $x - 4$ is a choice. Check at $x = 4$: $64 - 64 + 12 - 12 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{2} - 3$): uses the wrong sign for the common factor of $3x - 12$. That pair is $3(x - 4)$, so the other factor is $x^{2} + 3$.\n* Choice B ($x^{2} + 4$): pairs $x^{2}$ with the $4$ from the first pair. The $4$ belongs inside the binomial $x - 4$.\n* Choice C ($x + 4$): reverses the sign in the binomial. At $x = -4$ the expression equals $-64 - 64 - 12 - 12 = -152$, not $0$.\n\n**Test Day Takeaway:** A cubic with four terms usually factors by grouping; the shared binomial that appears in both pairs is a factor of the whole expression."
 }

@@ -1,29 +1,29 @@
 {
   "id": "bank-alg-105",
-  "question": "A landscaping crew planted oak, maple, and birch trees in a park. The number of maple trees planted was $4$ times the number of oak trees, and the number of birch trees planted was $9$ fewer than twice the number of oak trees. The crew planted $103$ trees in total. How many maple trees did the crew plant?",
+  "question": "A park has $120$ trees, and each tree is an oak, a maple, or a birch. There are $3$ times as many maples as oaks, and the number of birches is $6$ less than twice the number of oaks. How many maples are in the park?",
   "choices": [
     {
       "id": "A",
-      "text": "$16$"
+      "text": "$21$"
     },
     {
       "id": "B",
-      "text": "$23$"
+      "text": "$36$"
     },
     {
       "id": "C",
-      "text": "$39$"
+      "text": "$57$"
     },
     {
       "id": "D",
-      "text": "$64$"
+      "text": "$63$"
     }
   ],
   "distractorNotes": {
-    "A": "reports the oak count",
-    "B": "reports the birch count",
-    "C": "adds oak and birch counts"
+    "A": "solves for the number of oaks and reports 21",
+    "B": "reports the number of birches, 2(21) - 6 = 36",
+    "C": "reads \"6 less than\" as 6 more, so 6x + 6 = 120 and x = 19"
   },
   "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Let $k$ be the number of oak trees: maples $= 4k$, birches $= 2k - 9$. Then $k + 4k + (2k - 9) = 103 \\Rightarrow 7k = 112 \\Rightarrow k = 16$, so there are $4(16) = 64$ maples.\n\n**The Full Solution:**\nStep 1: Define the variable as the quantity everything else is compared to: $k$ oak trees. Then maple $= 4k$ and birch $= 2k - 9$.\nStep 2: Total: $k + 4k + 2k - 9 = 103$, so $7k - 9 = 103$ and $7k = 112$, giving $k = 16$.\nStep 3: The question asks for maples: $4k = 64$. Check: $16 + 64 + (32 - 9) = 16 + 64 + 23 = 103$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($16$): reports the number of oak trees, the variable solved for, instead of the maples.\n* Choice B ($23$): reports the number of birch trees.\n* Choice C ($39$): adds the oak and birch counts, the two quantities not asked for.\n\n**Test Day Takeaway:** Let the variable be the base quantity the others are described from, write each count in terms of it, solve, and then reread the question to report the quantity actually requested."
+  "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** With $x$ oaks, the total is $x + 3x + (2x - 6) = 6x - 6 = 120$, so $x = 21$ and there are $3(21) = 63$ maples.\n\n**The Full Solution:**\nStep 1: Let $x$ be the number of oaks. Then there are $3x$ maples and $2x - 6$ birches.\nStep 2: The total is $x + 3x + (2x - 6) = 120$, so $6x - 6 = 120$, $6x = 126$, and $x = 21$.\nStep 3: The number of maples is $3x = 63$. Check: $21 + 63 + 36 = 120$, and $36 = 2(21) - 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($21$): solves the equation and reports $x = 21$, the number of oaks, not maples.\n* Choice B ($36$): reports the number of birches, $2(21) - 6 = 36$.\n* Choice C ($57$): writes the birches as $2x + 6$, so $6x + 6 = 120$, $x = 19$, and $3(19) = 57$.\n\n**Test Day Takeaway:** Write every group in terms of one variable, solve for that variable, and then compute the group the question asks for."
 }

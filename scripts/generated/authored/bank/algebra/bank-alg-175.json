@@ -1,29 +1,29 @@
 {
  "id": "bank-alg-175",
- "question": "A booster pump on a pipeline is placed where $12(d - 3) + 5d = 7d + 90$, with $d$ the distance in kilometers from the intake. Which statement about the placement described by this equation is true?",
+ "question": "$\\frac{2}{3}x - 7 = 9$\nWhat is the value of $2x - 21$?",
  "choices": [
   {
    "id": "A",
-   "text": "The pump is placed less than $10$ kilometers from the intake."
+   "text": "$-15$"
   },
   {
    "id": "B",
-   "text": "The equation has no solution, so no placement satisfies it."
+   "text": "$16$"
   },
   {
    "id": "C",
-   "text": "The equation is true for every value of $d$, so any placement satisfies it."
+   "text": "$24$"
   },
   {
    "id": "D",
-   "text": "The pump is placed between $12$ and $13$ kilometers from the intake."
+   "text": "$27$"
   }
  ],
  "distractorNotes": {
-  "A": "fails to distribute the 12 over the -3, solving 17d - 3 = 7d + 90 to get d = 9.3",
-  "B": "sees d on both sides and concludes the variable cancels, without collecting 17d against 7d",
-  "C": "assumes the two sides are equivalent expressions, which would require the d-terms to match"
+  "A": "subtracts 7 instead of adding, so (2/3)x = 2, x = 3, and 2(3) - 21 = -15",
+  "B": "stops at (2/3)x = 16 and reports 16",
+  "C": "reports x = 24 instead of the value of 2x - 21"
  },
  "correctAnswer": "D",
- "explanation": "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** Distributing gives $17d - 36 = 7d + 90$, so $10d = 126$ and $d = 12.6$, which lies between $12$ and $13$.\n\n**The Full Solution:**\nStep 1: Distribute the $12$ across BOTH terms in the parentheses: $12(d - 3) = 12d - 36$. The left side becomes $12d - 36 + 5d = 17d - 36$.\nStep 2: Collect the variable terms on one side and the constants on the other: subtracting $7d$ gives $10d - 36 = 90$, and adding $36$ gives $10d = 126$.\nStep 3: Divide: $d = 12.6$ kilometers, which is between $12$ and $13$. Check: $12(12.6 - 3) + 5(12.6) = 12(9.6) + 63 = 115.2 + 63 = 178.2$, and $7(12.6) + 90 = 88.2 + 90 = 178.2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: multiplies only $d$ by $12$ and leaves the $-3$ alone, solving $17d - 3 = 7d + 90$ for $d = 9.3$.\n* Choice B: notices $d$ on both sides and assumes it cancels; it does not, because $17d$ and $7d$ differ.\n* Choice C: treats the two sides as equivalent expressions, which would require identical $d$-terms as well as identical constants.\n\n**Test Day Takeaway:** Distribute across every term inside the parentheses first; only after the variable terms are combined can you tell whether the equation has one solution, none, or infinitely many."
+ "explanation": "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Multiply the whole equation by $3$: $2x - 21 = 27$. That is exactly the expression asked for.\n\n**The Full Solution:**\nStep 1: Multiply both sides of $\\frac{2}{3}x - 7 = 9$ by $3$: $2x - 21 = 27$.\nStep 2: The left side is exactly $2x - 21$, so its value is $27$.\nStep 3: Check by solving: $\\frac{2}{3}x = 16$, so $x = 24$, and $2(24) - 21 = 48 - 21 = 27$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-15$): subtracts $7$ instead of adding it, getting $\\frac{2}{3}x = 2$, $x = 3$, and $2(3) - 21 = -15$.\n* Choice B ($16$): stops at $\\frac{2}{3}x = 16$ and reports that value.\n* Choice C ($24$): solves for $x$ correctly but reports $x$ instead of $2x - 21$.\n\n**Test Day Takeaway:** When the question asks for an expression, look for a single multiplication that turns the given equation into that expression before solving for $x$."
 }

@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-017",
-  "question": "A rooftop deck can safely support a total load of at most $3{,}600$ kilograms. Each planter on the deck has a mass of $85$ kilograms, and each bench has a mass of $140$ kilograms. If $14$ planters are already on the deck, what is the maximum number of benches that can be added without exceeding the load limit?",
+  "question": "A deck can hold at most $3{,}600$ kilograms. It holds $14$ planters of $85$ kilograms each. What is the maximum number of $140$-kilogram benches that can be added to the deck?",
   "choices": [
     {
       "id": "A",

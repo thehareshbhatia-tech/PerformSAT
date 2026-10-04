@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-011",
-  "question": "At 10:30 A.M., a snowbank was $96$ centimeters tall. The snowbank melted at a constant rate, and at 1:00 P.M. the same day it was $66$ centimeters tall. If the snowbank continues to melt at this rate, at what time will its height reach $0$ centimeters?",
+  "question": "A snowbank was $96$ centimeters tall at 10:30 A.M. and $66$ centimeters tall at 1:00 P.M. the same day. If its height decreases at a constant rate, at what time will its height be $0$ centimeters?",
   "choices": [
     {
       "id": "A",

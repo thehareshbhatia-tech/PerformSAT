@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-087",
-  "question": "The table gives three values of $x$ and the corresponding values of $f(x)$ for the linear function $f$. Which of the following defines $f$?",
+  "question": "The table shows three values of $x$ and their corresponding values of $f(x)$ for the linear function $f$. Which equation defines $f$?",
   "diagram": {
     "type": "table",
     "params": {
@@ -29,7 +29,7 @@
     },
     {
       "id": "B",
-      "text": "$f(x) = \\dfrac{1}{2}x - 3$"
+      "text": "$f(x) = \\frac{1}{2}x - 3$"
     },
     {
       "id": "C",
@@ -41,10 +41,10 @@
     }
   ],
   "distractorNotes": {
-    "B": "inverts the slope, 5/10",
-    "C": "uses f(5) = 7 as the intercept",
-    "D": "swaps slope and intercept"
+    "B": "divides the change in x by the change in f(x), inverting the slope",
+    "C": "uses the second row's output, 7, as the y-intercept",
+    "D": "swaps the roles of the slope and the y-intercept"
   },
   "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Linear Function from Two Points (y-Intercept Given)**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The row $x = 0$ gives the $y$-intercept, $-3$. The outputs rise $10$ for every $5$ in $x$, so the slope is $2$: $f(x) = 2x - 3$.\n\n**The Full Solution:**\nStep 1: For a linear function $f(x) = mx + b$, $b = f(0)$. The table gives $f(0) = -3$.\nStep 2: Slope from two rows: $m = \\frac{7 - (-3)}{5 - 0} = \\frac{10}{5} = 2$.\nStep 3: $f(x) = 2x - 3$. Check with the third row: $f(10) = 2(10) - 3 = 17$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($f(x) = \\frac{1}{2}x - 3$): inverts the slope, dividing the change in $x$ by the change in $f(x)$.\n* Choice C ($f(x) = 2x + 7$): uses $f(5) = 7$ as the intercept; the intercept is the output at $x = 0$.\n* Choice D ($f(x) = -3x + 2$): swaps the slope and the intercept.\n\n**Test Day Takeaway:** When a table includes $x = 0$, read the intercept directly from that row, compute the slope from any two rows, and verify the rule on a row you did not use."
+  "explanation": "**SAT Pattern: Linear Function from Two Points (y-Intercept Given)**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The row $x = 0$ gives the $y$-intercept, $-3$. From $x = 0$ to $x = 5$, $f(x)$ rises $10$, so the slope is $2$: $f(x) = 2x - 3$.\n\n**The Full Solution:**\nStep 1: The row with $x = 0$ shows $f(0) = -3$, so the $y$-intercept is $-3$.\nStep 2: Slope from the first two rows: $\\frac{7 - (-3)}{5 - 0} = \\frac{10}{5} = 2$.\nStep 3: So $f(x) = 2x - 3$. Check with the third row: $f(10) = 2(10) - 3 = 17$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{1}{2}x - 3$): divides the change in $x$ by the change in $f(x)$, which inverts the slope.\n* Choice C ($2x + 7$): has the right slope but uses $7$, the output at $x = 5$, as the $y$-intercept.\n* Choice D ($-3x + 2$): swaps the slope and the $y$-intercept.\n\n**Test Day Takeaway:** If a table includes $x = 0$, that row gives the $y$-intercept for free; get the slope from any two rows and use the third row as a check."
 }

@@ -1,48 +1,48 @@
 {
- "id": "bank-alg-156",
- "question": "A finishing plant plots two bleaching schedules in the $xy$-plane. One schedule is line $\\ell$, shown, and the other has equation $2x + by = 7$. No ordered pair $(x, y)$ meets both schedules. What is the value of the constant $b$?",
- "diagram": {
-  "type": "linearGraph",
-  "params": {
-   "slope": -0.5,
-   "yIntercept": 4,
-   "xRange": [
-    -4,
-    10
-   ],
-   "yRange": [
-    -2,
-    8
-   ],
-   "gridInterval": 1,
-   "xTickInterval": 2,
-   "yTickInterval": 2,
-   "label": "l"
-  }
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$1$"
+  "id": "bank-alg-156",
+  "question": "Line $\\ell$ is shown in the $xy$-plane. The equation of line $\\ell$ and the equation $2x + by = 7$, where $b$ is a constant, form a system of two linear equations. For what value of $b$ does the system have no solution?",
+  "diagram": {
+    "type": "linearGraph",
+    "params": {
+      "slope": -0.5,
+      "yIntercept": 4,
+      "xRange": [
+        -4,
+        10
+      ],
+      "yRange": [
+        -2,
+        8
+      ],
+      "gridInterval": 1,
+      "xTickInterval": 2,
+      "yTickInterval": 2,
+      "label": "ℓ"
+    }
   },
-  {
-   "id": "B",
-   "text": "$2$"
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-4$"
+    },
+    {
+      "id": "B",
+      "text": "$1$"
+    },
+    {
+      "id": "C",
+      "text": "$2$"
+    },
+    {
+      "id": "D",
+      "text": "$4$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "drops the negative sign, solving 2/b = -1/2 to get b = -4",
+    "B": "uses the reciprocal slope, setting -2/b = -2 to get b = 1",
+    "C": "copies the y-coefficient 2 of x + 2y = 8 without scaling by 2"
   },
-  {
-   "id": "C",
-   "text": "$4$"
-  },
-  {
-   "id": "D",
-   "text": "$8$"
-  }
- ],
- "correctAnswer": "C",
- "distractorNotes": {
-  "A": "reads the slope of l as -2 by swapping rise and run, then solves -2/b = -2",
-  "B": "copies the coefficient of x from the second equation",
-  "D": "uses the x-intercept of l instead of its slope"
- },
- "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Line $\\ell$ has slope $-\\frac{1}{2}$, and $2x + by = 7$ has slope $-\\frac{2}{b}$; setting $-\\frac{2}{b} = -\\frac{1}{2}$ gives $b = 4$.\n\n**The Full Solution:**\n\nStep 1: From the graph, line $\\ell$ passes through $(0, 4)$ and $(8, 0)$, so its slope is $\\frac{0 - 4}{8 - 0} = -\\frac{1}{2}$.\n\nStep 2: Solve the second equation for $y$: $by = -2x + 7$, so $y = -\\frac{2}{b}x + \\frac{7}{b}$, and its slope is $-\\frac{2}{b}$.\n\nStep 3: A system of two lines has no solution exactly when the lines are parallel and distinct, so $-\\frac{2}{b} = -\\frac{1}{2}$ and $b = 4$. Check: $2x + 4y = 7$ and $\\ell$ written as $2x + 4y = 16$ differ only in the constant, so no pair satisfies both.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($1$): reads the slope as $-2$ by swapping rise and run, then solves $-\\frac{2}{b} = -2$.\n* Choice B ($2$): copies the coefficient of $x$ instead of solving for the coefficient of $y$.\n* Choice D ($8$): uses the $x$-intercept of line $\\ell$ rather than its slope.\n\n**Test Day Takeaway:** Put the unknown-coefficient equation into slope-intercept form; the slope $-\\frac{A}{B}$ is what has to match."
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Line $\\ell$ has slope $-\\frac{1}{2}$. The line $2x + by = 7$ has slope $-\\frac{2}{b}$, and $-\\frac{2}{b} = -\\frac{1}{2}$ gives $b = 4$.\n\n**The Full Solution:**\nStep 1: From the graph, line $\\ell$ crosses the $y$-axis at $(0, 4)$ and falls $1$ unit for every $2$ units to the right, so its slope is $-\\frac{1}{2}$ and its equation is $y = -\\frac{1}{2}x + 4$, or $x + 2y = 8$.\nStep 2: Solve $2x + by = 7$ for $y$: $y = -\\frac{2}{b}x + \\frac{7}{b}$. No solution requires equal slopes, so $-\\frac{2}{b} = -\\frac{1}{2}$, which gives $b = 4$.\nStep 3: Check the intercepts: with $b = 4$ the second line is $y = -\\frac{1}{2}x + \\frac{7}{4}$, whose $y$-intercept $\\frac{7}{4}$ is not $4$, so the lines are parallel and distinct ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): drops the negative sign when setting the slopes equal, solving $\\frac{2}{b} = -\\frac{1}{2}$.\n* Choice B ($1$): uses the reciprocal slope, setting $-\\frac{2}{b} = -2$.\n* Choice C ($2$): copies the $y$-coefficient of $x + 2y = 8$ without scaling it to match the $x$-coefficient $2$.\n\n**Test Day Takeaway:** Put both lines in slope form before comparing; matching coefficients only works after the $x$-coefficients have been scaled to agree."
 }

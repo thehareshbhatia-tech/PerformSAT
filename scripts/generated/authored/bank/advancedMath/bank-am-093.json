@@ -1,31 +1,6 @@
 {
  "id": "bank-am-093",
- "question": "A charging network's sessions above its daily average are given by the quadratic function $f$; on the graph shown, the curve's lowest point and the point $(8,5)$ are both marked. What is the value of $f(-2)$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$-3$"
-  },
-  {
-   "id": "B",
-   "text": "$5$"
-  },
-  {
-   "id": "C",
-   "text": "$15$"
-  },
-  {
-   "id": "D",
-   "text": "$21$"
-  }
- ],
- "distractorNotes": {
-  "A": "reports the minimum value of f instead of f(-2)",
-  "B": "pairs -2 with 8 by symmetry, though -2 pairs with 10",
-  "D": "adds 3 instead of subtracting it, giving 18 + 3"
- },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The vertex is $(4,-3)$ and $(8,5)$ gives $a=0.5$, so $f(-2)=0.5(36)-3=15$.\n\n**The Full Solution:**\nStep 1: Read the vertex $(4,-3)$ from the graph, so $f(x)=a(x-4)^2-3$.\nStep 2: Use the marked point: $5=a(8-4)^2-3$, so $16a=8$ and $a=0.5$.\nStep 3: Evaluate: $f(-2)=0.5(-2-4)^2-3=0.5(36)-3=15$. Check: $-2$ is $6$ units left of the axis $x=4$, and so is $x=10$; $f(10)=0.5(36)-3=15$ as well ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): reports the minimum value of $f$ rather than $f(-2)$.\n* Choice B ($5$): pairs $-2$ with $8$ by symmetry, but the partner of $-2$ about $x=4$ is $10$.\n* Choice D ($21$): computes $0.5(36)=18$ and then adds $3$ instead of subtracting it.\n\n**Test Day Takeaway:** Two conditions — the vertex and one point — pin the whole function; find $a$ first, then evaluate anywhere.",
+ "question": "The graph of the quadratic function $f$ is shown. Which equation defines $f$?",
  "diagram": {
   "type": "quadraticVertex",
   "params": {
@@ -42,5 +17,30 @@
     ]
    ]
   }
- }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$f(x) = \\frac{1}{2}(x + 4)^{2} - 3$"
+  },
+  {
+   "id": "B",
+   "text": "$f(x) = \\frac{1}{2}(x - 4)^{2} - 3$"
+  },
+  {
+   "id": "C",
+   "text": "$f(x) = \\frac{1}{2}(x - 4)^{2} + 3$"
+  },
+  {
+   "id": "D",
+   "text": "$f(x) = 2(x - 4)^{2} - 3$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "flips the sign of h, writing (x + 4) for a vertex at x = 4",
+  "C": "flips the sign of k, writing + 3 for a vertex at y = -3",
+  "D": "solves 16a = 8 upside down, getting a = 16/8 = 2"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The vertex is $(4, -3)$, so $f(x) = a(x - 4)^{2} - 3$; the marked point $(8, 5)$ gives $16a - 3 = 5$, so $a = \\frac{1}{2}$.\n\n**The Full Solution:**\nStep 1: Read the vertex from the graph: the lowest point is $(4, -3)$, so $f(x) = a(x - 4)^{2} - 3$ for some constant $a$.\nStep 2: Use the other marked point, $(8, 5)$: $5 = a(8 - 4)^{2} - 3$, so $16a = 8$.\nStep 3: Divide: $a = \\frac{1}{2}$, so $f(x) = \\frac{1}{2}(x - 4)^{2} - 3$. Check: $f(8) = \\frac{1}{2}(16) - 3 = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(x) = \\frac{1}{2}(x + 4)^{2} - 3$): uses $x + 4$, which puts the vertex at $x = -4$, not $x = 4$.\n* Choice C ($f(x) = \\frac{1}{2}(x - 4)^{2} + 3$): uses $+3$, which puts the vertex above the $x$-axis at $y = 3$.\n* Choice D ($f(x) = 2(x - 4)^{2} - 3$): solves $16a = 8$ as $a = \\frac{16}{8}$; this graph would pass through $(8, 29)$, not $(8, 5)$.\n\n**Test Day Takeaway:** Vertex form needs two facts: the vertex gives $h$ and $k$, and any second point gives $a$. Test the point in your final equation."
 }

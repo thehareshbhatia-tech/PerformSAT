@@ -1,17 +1,6 @@
 {
   "id": "bank-am-253",
-  "question": "The graph of $y = g(x)$ is shown in the $xy$-plane, where $g(x) = f(x + 5)$ for some function $f$. At what value of $x$ does $f$ attain its minimum value?",
-  "diagram": {
-    "type": "quadraticVertex",
-    "params": {
-      "vertex": [
-        -1,
-        -7
-      ],
-      "a": 0.6,
-      "showVertex": true
-    }
-  },
+  "question": "The graph of $y = g(x)$ is shown, where $g(x) = f(x + 5)$ for all values of $x$. For what value of $x$ does $f(x)$ reach its minimum value?",
   "choices": [
     {
       "id": "A",
@@ -31,10 +20,21 @@
     }
   ],
   "distractorNotes": {
-    "A": "reports the minimum value instead of where it occurs",
-    "B": "shifts the wrong way, computing $-1 - 5$",
-    "C": "reports where $g$ is smallest without undoing the shift"
+    "A": "reports the minimum value of g instead of an x-value",
+    "B": "subtracts 5 from the vertex x-coordinate, moving the wrong way",
+    "C": "reports where g, not f, reaches its minimum"
   },
   "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Horizontal Shift**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** $g$ bottoms out at $x = -1$, and $g(-1) = f(-1 + 5) = f(4)$, so $f$ bottoms out at $x = 4$.\n\n**The Full Solution:**\nStep 1: From the graph, the lowest point of $y = g(x)$ is $(-1, -7)$, so the smallest output of $g$ is $-7$, produced at $x = -1$.\nStep 2: Since $g(x) = f(x + 5)$, that smallest output is $g(-1) = f(-1 + 5) = f(4)$. The functions $f$ and $g$ take exactly the same set of outputs, so $-7$ is also the smallest output of $f$.\nStep 3: $f$ attains it at the input $4$. Check: $g(-1) = f(4) = -7$, and the graph of $g$ is the graph of $f$ slid $5$ units LEFT, so $f$'s low point sits $5$ units right of $-1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): that is the minimum VALUE read off the graph, not the input that produces it.\n* Choice B ($-6$): this shifts left again ($-1 - 5$); going from $g$ back to $f$ reverses the direction.\n* Choice C ($-1$): this is where $g$ is smallest; the question asks about $f$.\n\n**Test Day Takeaway:** When the shifted function is the one you can see, run the substitution backwards: set the inside expression equal to the unknown input and solve."
+  "explanation": "**SAT Pattern: Horizontal Shift**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** $g$ reaches its minimum at $x = -1$, where its input to $f$ is $-1 + 5 = 4$; so $f$ reaches its minimum at $x = 4$.\n\n**The Full Solution:**\nStep 1: The graph shows the vertex of $y = g(x)$ at $(-1, -7)$, so $g$ reaches its minimum value, $-7$, at $x = -1$.\nStep 2: Since $g(x) = f(x + 5)$, the minimum of $g$ at $x = -1$ is the value $f(-1 + 5) = f(4)$.\nStep 3: Every output of $g$ is an output of $f$, so $f(4) = -7$ is also the minimum of $f$, reached at $x = 4$. Check: the graph of $y = f(x + 5)$ is the graph of $y = f(x)$ shifted $5$ units left, and $4 - 5 = -1$ matches the vertex shown ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): reports the minimum value, a $y$-coordinate, instead of the $x$-value where it occurs.\n* Choice B ($-6$): subtracts $5$ from $-1$, moving the vertex the wrong way.\n* Choice C ($-1$): reports where $g$ reaches its minimum, not where $f$ does.\n\n**Test Day Takeaway:** When you know the shifted graph and need the original, reverse the shift: $g(x) = f(x + 5)$ is $5$ units left of $f$, so $f$ is $5$ units right of $g$.",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        -1,
+        -7
+      ],
+      "a": 0.6,
+      "showVertex": true
+    }
+  }
 }

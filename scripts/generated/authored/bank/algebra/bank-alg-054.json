@@ -1,29 +1,29 @@
 {
- "id": "bank-alg-054",
- "question": "A field crew records two relationships between the quantities $x$ and $y$ as $4x - 3y = 17$ and $2x + 3y = 13$. Adding the left sides of the two equations and adding their right sides eliminates one variable. Which equation results?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$2x - 6y = 4$"
+  "id": "bank-alg-054",
+  "question": "$4x - 3y = 17$\n$2x + 3y = 13$\nThe solution to the given system of equations is $(x, y)$. What is the value of $x$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\frac{2}{3}$"
+    },
+    {
+      "id": "B",
+      "text": "$1$"
+    },
+    {
+      "id": "C",
+      "text": "$5$"
+    },
+    {
+      "id": "D",
+      "text": "$30$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "adds the left sides but subtracts the right sides, getting 6x = 4",
+    "B": "gives the value of y instead of x",
+    "D": "reports the sum 6x = 30 without dividing by 6"
   },
-  {
-   "id": "B",
-   "text": "$6x - 6y = 30$"
-  },
-  {
-   "id": "C",
-   "text": "$6x + 6y = 30$"
-  },
-  {
-   "id": "D",
-   "text": "$6x = 30$"
-  }
- ],
- "distractorNotes": {
-  "A": "subtracts the two equations instead of adding them",
-  "B": "adds the x-terms and constants but subtracts the y-terms",
-  "C": "adds the sizes of the y-coefficients, ignoring that -3y and 3y cancel"
- },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Elimination by Addition**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The $y$-terms are $-3y$ and $3y$, which cancel, leaving $6x = 30$.\n\n**The Full Solution:**\nStep 1: Add the left sides: $(4x - 3y) + (2x + 3y) = 6x + 0y = 6x$.\nStep 2: Add the right sides: $17 + 13 = 30$.\nStep 3: The result is $6x = 30$. Check: this gives $x = 5$, and substituting into $2x + 3y = 13$ gives $3y = 3$, so $y = 1$, which also satisfies $4(5) - 3(1) = 17$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2x - 6y = 4$): subtracts the two equations instead of adding them, which keeps $y$ in play.\n* Choice B ($6x - 6y = 30$): adds the $x$-terms and the constants but subtracts the $y$-terms.\n* Choice C ($6x + 6y = 30$): adds the sizes of the $y$-coefficients instead of letting $-3y$ and $3y$ cancel.\n\n**Test Day Takeaway:** Addition eliminates a variable only when its coefficients are exact opposites — check the signs before adding."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Elimination by Addition**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The $y$-terms are opposites, so adding the equations gives $6x = 30$ and $x = 5$.\n\n**The Full Solution:**\nStep 1: The $y$-coefficients, $-3$ and $3$, are opposites, so adding the two equations eliminates $y$.\nStep 2: Add the left sides and the right sides: $(4x - 3y) + (2x + 3y) = 17 + 13$, which gives $6x = 30$.\nStep 3: Divide by $6$: $x = 5$. Check: $2(5) + 3y = 13$ gives $y = 1$, and $4(5) - 3(1) = 20 - 3 = 17$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2}{3}$): adds the left sides but subtracts the right sides, writing $6x = 17 - 13 = 4$.\n* Choice B ($1$): is the value of $y$, not $x$.\n* Choice D ($30$): stops at $6x = 30$ and reports the right side without dividing by $6$.\n\n**Test Day Takeaway:** When a variable's coefficients are opposites, add the equations; whatever you do to the left sides, do the same to the right sides."
 }

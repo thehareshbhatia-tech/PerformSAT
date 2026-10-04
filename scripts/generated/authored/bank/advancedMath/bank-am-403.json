@@ -1,6 +1,6 @@
 {
   "id": "bank-am-403",
-  "question": "The graph of $y = g(x)$ is shown in the $xy$-plane, where $g$ is a quadratic function whose two zeros are marked. The function is defined by $g(x) = ax^2 + bx + c$, where $a$, $b$, and $c$ are nonzero constants. What is the value of $\\dfrac{b}{a}$?",
+  "question": "The graph of $y = ax^{2} + bx + c$ is shown in the $xy$-plane, where $a$, $b$, and $c$ are constants. What is the value of $\\dfrac{b}{a}$?",
   "diagram": {
     "type": "quadraticIntercepts",
     "params": {
@@ -29,10 +29,10 @@
     }
   ],
   "distractorNotes": {
-    "A": "reports $\\frac{c}{a}$, the product of the zeros",
-    "B": "reports the sum of the zeros without the sign change",
-    "D": "reports the product of the zeros with the sign dropped"
+    "A": "computes the product of the zeros, $(-7)(3)$, which equals $\\frac{c}{a}$",
+    "B": "uses the sum of the zeros, $-4$, without changing its sign",
+    "D": "takes the opposite of the product of the zeros"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Vieta Sum & Product of Roots**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The zeros are $-7$ and $3$, so $-\\dfrac{b}{a} = -7 + 3 = -4$ and $\\dfrac{b}{a} = 4$.\n\n**The Full Solution:**\nStep 1: The marked points show the zeros of $g$ are $x = -7$ and $x = 3$.\nStep 2: For $ax^2 + bx + c = 0$ the sum of the solutions is $-\\dfrac{b}{a}$. Here that sum is $-7 + 3 = -4$.\nStep 3: So $-\\dfrac{b}{a} = -4$, giving $\\dfrac{b}{a} = 4$. Check with a concrete case: $a = 1$ gives $g(x) = (x + 7)(x - 3) = x^2 + 4x - 21$, and $\\dfrac{4}{1} = 4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-21$): reports $\\dfrac{c}{a}$, the PRODUCT of the zeros, instead of the ratio asked for.\n* Choice B ($-4$): reports the sum of the zeros itself, forgetting that the sum equals $-\\dfrac{b}{a}$, not $\\dfrac{b}{a}$.\n* Choice D ($21$): takes the product of the zeros and drops its negative sign.\n\n**Test Day Takeaway:** The sum and product rules work for any leading coefficient once you divide by it: sum $= -\\dfrac{b}{a}$ and product $= \\dfrac{c}{a}$."
+  "explanation": "**SAT Pattern: Vieta Sum & Product of Roots**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The zeros are $-7$ and $3$, whose sum is $-4$; since the sum of the zeros equals $-\\frac{b}{a}$, $\\frac{b}{a} = 4$.\n\n**The Full Solution:**\nStep 1: The graph crosses the $x$-axis at $x = -7$ and $x = 3$, so $y = a(x + 7)(x - 3)$.\nStep 2: Expand: $a(x^{2} + 4x - 21) = ax^{2} + 4ax - 21a$, so $b = 4a$ and $c = -21a$.\nStep 3: $\\frac{b}{a} = \\frac{4a}{a} = 4$. Check: the sum of the zeros, $-7 + 3 = -4$, equals $-\\frac{b}{a} = -4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-21$): computes the product of the zeros, which equals $\\frac{c}{a}$, not $\\frac{b}{a}$.\n* Choice B ($-4$): gives the sum of the zeros, which is $-\\frac{b}{a}$, and forgets the sign change.\n* Choice D ($21$): uses the product of the zeros with its sign flipped.\n\n**Test Day Takeaway:** From the zeros $r$ and $s$: $r + s = -\\frac{b}{a}$ and $rs = \\frac{c}{a}$, whatever the value of $a$."
 }

@@ -1,29 +1,29 @@
 {
- "id": "bank-alg-101",
- "question": "A quality check on a spinning frame passes when $3(s + c) = 5s - 4$, where $s$ is the number of spools inspected and $c$ is a constant. The check passes when $s = 8$. What is the value of $c$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$-4$"
+  "id": "bank-alg-101",
+  "question": "$2(x + k) = 7x - 9$\nIn the given equation, $k$ is a constant. The solution to the equation is $x = 5$. What is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$8$"
+    },
+    {
+      "id": "B",
+      "text": "$13$"
+    },
+    {
+      "id": "C",
+      "text": "$16$"
+    },
+    {
+      "id": "D",
+      "text": "$17$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "finds 5 + k = 13 and reports 13 as k",
+    "C": "multiplies only the x by 2, solving 10 + k = 26",
+    "D": "evaluates the right side as 35 + 9 = 44, so 10 + 2k = 44"
   },
-  {
-   "id": "B",
-   "text": "$4$"
-  },
-  {
-   "id": "C",
-   "text": "$12$"
-  },
-  {
-   "id": "D",
-   "text": "$28$"
-  }
- ],
- "correctAnswer": "B",
- "distractorNotes": {
-  "A": "solves 3(8 - c) = 36, subtracting c instead of adding it",
-  "C": "distributes the 3 to s only, solving 24 + c = 36",
-  "D": "forgets to divide by 3 and solves 8 + c = 36"
- },
- "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** At $s = 8$ the right side is $36$, so $3(8 + c) = 36$, $8 + c = 12$, and $c = 4$.\n\n**The Full Solution:**\n\nStep 1: Substitute $s = 8$ into both sides: $3(8 + c) = 5(8) - 4$.\n\nStep 2: Evaluate the right side: $5(8) - 4 = 40 - 4 = 36$, so $3(8 + c) = 36$.\n\nStep 3: Divide by $3$ to get $8 + c = 12$, so $c = 4$. Check: $3(8 + 4) = 36$ and $5(8) - 4 = 36$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-4$): solves $3(8 - c) = 36$, subtracting $c$ inside the parentheses instead of adding it.\n* Choice C ($12$): distributes the $3$ to $s$ only, solving $24 + c = 36$ and leaving $c$ undistributed.\n* Choice D ($28$): forgets to divide by $3$ and solves $8 + c = 36$.\n\n**Test Day Takeaway:** When a solution is handed to you, substitute it first; the equation then has only one unknown left."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Substituting $x = 5$ gives $2(5 + k) = 26$, so $5 + k = 13$ and $k = 8$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 5$ into both sides: $2(5 + k) = 7(5) - 9 = 26$.\nStep 2: Divide both sides by $2$: $5 + k = 13$.\nStep 3: Subtract $5$: $k = 8$. Check: $2(5 + 8) = 26$ and $7(5) - 9 = 26$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($13$): reaches $5 + k = 13$ and reports $13$, which is the value of $x + k$, not $k$.\n* Choice C ($16$): multiplies only the $x$ by $2$, writing $10 + k = 26$ and getting $k = 16$.\n* Choice D ($17$): evaluates $7(5) - 9$ as $44$ instead of $26$, so $10 + 2k = 44$ and $k = 17$.\n\n**Test Day Takeaway:** When a solution is given, substitute it first; the equation then has only the constant left to solve for."
 }

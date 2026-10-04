@@ -1,29 +1,29 @@
 {
- "id": "bank-alg-104",
- "question": "A jacquard head is balanced when $7t - 2(t - k) = 3t + 18$, where $t$ is the number of tapestry rows woven and $k$ is a constant. For what value of $k$ is the head balanced at $t = 4$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$-10$"
+  "id": "bank-alg-104",
+  "question": "$7x - 2(x - 9) = 3x + 30$\nWhat value of $x$ is the solution to the given equation?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$1.5$"
+    },
+    {
+      "id": "B",
+      "text": "$6$"
+    },
+    {
+      "id": "C",
+      "text": "$19.5$"
+    },
+    {
+      "id": "D",
+      "text": "$24$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "adds 3x to the left side instead of subtracting it, so 8x + 18 = 30",
+    "C": "multiplies only the x by -2, writing 5x - 9 = 3x + 30",
+    "D": "distributes -2(x - 9) as -2x - 18, so 5x - 18 = 3x + 30"
   },
-  {
-   "id": "B",
-   "text": "$-5$"
-  },
-  {
-   "id": "C",
-   "text": "$5$"
-  },
-  {
-   "id": "D",
-   "text": "$10$"
-  }
- ],
- "correctAnswer": "C",
- "distractorNotes": {
-  "A": "distributes the -2 to t only, solving 20 - k = 30",
-  "B": "keeps the sign of the -2 on k, solving 20 - 2k = 30",
-  "D": "forgets to double k and solves 20 + k = 30"
- },
- "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** At $t = 4$: $28 - 2(4 - k) = 30$, so $20 + 2k = 30$ and $k = 5$.\n\n**The Full Solution:**\n\nStep 1: Substitute $t = 4$: $7(4) - 2(4 - k) = 3(4) + 18$.\n\nStep 2: Distribute the $-2$ across both terms: $28 - 8 + 2k = 12 + 18$, which simplifies to $20 + 2k = 30$.\n\nStep 3: Subtract $20$ and divide by $2$: $2k = 10$, so $k = 5$. Check: $28 - 2(4 - 5) = 28 + 2 = 30$ and $3(4) + 18 = 30$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-10$): distributes the $-2$ to the $t$ only, solving $20 - k = 30$.\n* Choice B ($-5$): keeps the minus sign on the $k$ term, solving $20 - 2k = 30$.\n* Choice D ($10$): forgets that the $-2$ doubles $k$ as well, solving $20 + k = 30$.\n\n**Test Day Takeaway:** A negative multiplier in front of parentheses changes the sign of every term inside, including the one carrying the unknown constant."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The left side is $7x - 2x + 18 = 5x + 18$, so $5x + 18 = 3x + 30$, $2x = 12$, and $x = 6$.\n\n**The Full Solution:**\nStep 1: Distribute the $-2$: $7x - 2x + 18 = 3x + 30$, since $(-2)(-9) = 18$.\nStep 2: Combine like terms: $5x + 18 = 3x + 30$. Subtract $3x$ and $18$ from both sides: $2x = 12$.\nStep 3: Divide by $2$: $x = 6$. Check: $7(6) - 2(6 - 9) = 42 + 6 = 48$ and $3(6) + 30 = 48$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.5$): moves $3x$ to the left by adding it, getting $8x + 18 = 30$ and $x = 1.5$.\n* Choice C ($19.5$): multiplies only the $x$ by $-2$, writing $7x - 2x - 9 = 3x + 30$, so $2x = 39$ and $x = 19.5$.\n* Choice D ($24$): distributes $-2(x - 9)$ as $-2x - 18$, missing that a negative times a negative is positive, so $2x = 48$ and $x = 24$.\n\n**Test Day Takeaway:** When a negative number multiplies a difference, distribute the sign to both terms: $-2(x - 9) = -2x + 18$."
 }

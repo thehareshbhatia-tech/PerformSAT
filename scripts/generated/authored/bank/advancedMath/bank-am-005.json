@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-005",
-  "question": "In the $xy$-plane, the graph of $y = -\\dfrac{1}{4}x^2 + 6x - 11$ is a parabola. Which of the following correctly describes the direction in which the parabola opens, and why?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "Upward, because the coefficient of $x$ is positive."
-    },
-    {
-      "id": "B",
-      "text": "Upward, because the constant term is negative."
-    },
-    {
-      "id": "C",
-      "text": "Downward, because the coefficient of $x^2$ is negative."
-    },
-    {
-      "id": "D",
-      "text": "Downward, because the constant term is negative."
-    }
-  ],
-  "distractorNotes": {
-    "A": "reads the coefficient of $x$ instead of the coefficient of $x^2$",
-    "B": "reads the constant term instead of the leading coefficient",
-    "D": "reaches the right direction from the wrong coefficient"
+ "id": "bank-am-005",
+ "question": "$y = -\\dfrac{1}{3}x^{2} + 5x - 8$\nThe graph of the given equation in the $xy$-plane is a parabola. Which of the following correctly describes the parabola?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "It opens upward, because the coefficient of $x$ is positive."
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Parabola Direction**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Only the coefficient of $x^2$ controls direction. Here it is $-\\dfrac{1}{4} < 0$, so the parabola opens downward.\n\n**The Full Solution:**\nStep 1: Write the equation as $y = ax^2 + bx + c$ with $a = -\\dfrac{1}{4}$, $b = 6$, and $c = -11$.\nStep 2: A parabola opens upward when $a > 0$ and downward when $a < 0$. Neither $b$ nor $c$ affects the direction.\nStep 3: Since $a = -\\dfrac{1}{4} < 0$, the parabola opens downward. Check with two far-out inputs: $y(100) = -2500 + 600 - 11 < 0$ and $y(-100) = -2500 - 600 - 11 < 0$, so both arms fall. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: $b = 6$ is positive, but $b$ shifts the vertex sideways; it never flips the parabola.\n* Choice B: $c = -11$ is the $y$-intercept, not the leading coefficient.\n* Choice D: the direction is right but the reason is wrong — the constant term does not determine which way a parabola opens.\n\n**Test Day Takeaway:** Direction is decided by one number: the sign of the coefficient on $x^2$. Ignore everything else."
+  {
+   "id": "B",
+   "text": "It opens upward, because the constant term is negative."
+  },
+  {
+   "id": "C",
+   "text": "It opens downward, because the coefficient of $x^{2}$ is negative."
+  },
+  {
+   "id": "D",
+   "text": "It opens downward, because the constant term is negative."
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "uses the sign of the x-coefficient, which shifts the parabola but does not set its direction",
+  "B": "uses the constant term, which is the y-intercept, not the direction",
+  "D": "reaches the right direction for the wrong reason: the constant term only gives the y-intercept"
+ },
+ "explanation": "**SAT Pattern: Parabola Direction**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Only the sign of the $x^{2}$ coefficient decides the direction. Here it is $-\\dfrac{1}{3}$, which is negative, so the parabola opens downward.\n\n**The Full Solution:**\nStep 1: For $y = ax^{2} + bx + c$, the parabola opens upward when $a > 0$ and downward when $a < 0$.\nStep 2: In the given equation, $a = -\\dfrac{1}{3}$, $b = 5$, and $c = -8$.\nStep 3: Since $a = -\\dfrac{1}{3} < 0$, the parabola opens downward. Check: for large $|x|$ the $-\\dfrac{1}{3}x^{2}$ term dominates, for example $x = 30$ gives $y = -300 + 150 - 8 = -158$, far below the vertex ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: $b = 5$ affects where the vertex sits, not which way the parabola opens.\n* Choice B: the constant term $-8$ is the $y$-intercept; it says nothing about direction.\n* Choice D: the direction is right, but the reason is wrong. A negative constant term only places the $y$-intercept below the $x$-axis.\n\n**Test Day Takeaway:** Direction is decided by the sign of the $x^{2}$ coefficient alone: positive opens up, negative opens down."
 }

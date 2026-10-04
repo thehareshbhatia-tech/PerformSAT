@@ -1,52 +1,52 @@
 {
-  "id": "bank-am-343",
-  "question": "A tractor purchased for $\\$36{,}000$ loses $15\\%$ of its value each year. The table gives the tractor's value at purchase and at the end of each of the first two years. Which function $V$ gives the tractor's value, in dollars, $t$ years after it was purchased?",
-  "diagram": {
-    "type": "dataTable",
-    "params": {
-      "headers": [
-        "Years after purchase",
-        "Value (dollars)"
-      ],
-      "rows": [
-        [
-          "0",
-          "36,000"
-        ],
-        [
-          "1",
-          "30,600"
-        ],
-        [
-          "2",
-          "26,010"
-        ]
-      ]
-    }
+ "id": "bank-am-343",
+ "question": "The function $V$ gives the value, in dollars, of a car $t$ years after it was purchased. The table shows three values of $t$ and their corresponding values of $V(t)$. If $V$ is an exponential function, which equation defines $V$?",
+ "diagram": {
+  "type": "dataTable",
+  "params": {
+   "headers": [
+    "t (years)",
+    "V(t) (dollars)"
+   ],
+   "rows": [
+    [
+     "0",
+     "36,000"
+    ],
+    [
+     "1",
+     "30,600"
+    ],
+    [
+     "2",
+     "26,010"
+    ]
+   ]
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$V(t) = 36{,}000(0.15)^{t}$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$V(t) = 36{,}000(0.85)^t$"
-    },
-    {
-      "id": "B",
-      "text": "$V(t) = 36{,}000(0.15)^t$"
-    },
-    {
-      "id": "C",
-      "text": "$V(t) = 36{,}000(1.15)^t$"
-    },
-    {
-      "id": "D",
-      "text": "$V(t) = 36{,}000 - 5{,}400t$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "uses the percent lost as the factor",
-    "C": "adds the rate instead of subtracting",
-    "D": "subtracts a constant each year"
+  {
+   "id": "B",
+   "text": "$V(t) = 36{,}000(0.85)^{t}$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Build Exponential Model**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Losing $15\\%$ leaves $85\\%$, so the factor is $0.85$ and $V(t) = 36{,}000(0.85)^t$.\n\n**The Full Solution:**\nStep 1: The model is $V(t) = V_0(b)^t$ with $V_0 = 36{,}000$, the purchase price.\nStep 2: A $15\\%$ loss leaves $100\\% - 15\\% = 85\\%$ of the previous value, so $b = 0.85$.\nStep 3: $V(t) = 36{,}000(0.85)^t$. Check: $36{,}000(0.85) = 30{,}600$ and $30{,}600(0.85) = 26{,}010$, matching the last two table rows. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($V(t) = 36{,}000(0.15)^t$): uses the percent lost as the factor, which would leave only $\\$5{,}400$ after one year.\n* Choice C ($V(t) = 36{,}000(1.15)^t$): adds the rate instead of subtracting it, modeling growth rather than depreciation.\n* Choice D ($V(t) = 36{,}000 - 5{,}400t$): subtracts a fixed $\\$5{,}400$ each year, which would give $\\$25{,}200$ at $t = 2$ instead of $\\$26{,}010$.\n\n**Test Day Takeaway:** A percent DECREASE gives the factor $1 - r$; the table's second row is the fastest way to confirm you chose it correctly."
+  {
+   "id": "C",
+   "text": "$V(t) = 36{,}000(1.15)^{t}$"
+  },
+  {
+   "id": "D",
+   "text": "$V(t) = 36{,}000 - 5{,}400t$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses the 15% lost each year as the factor instead of the 85% kept",
+  "C": "adds the 15% rate instead of subtracting it, modeling growth instead of a decrease",
+  "D": "subtracts the first-year loss of 5,400 dollars every year, which gives 25,200 instead of 26,010 at t = 2"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Build Exponential Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $\\dfrac{30{,}600}{36{,}000} = 0.85$, so the value is multiplied by $0.85$ each year and $V(t) = 36{,}000(0.85)^{t}$.\n\n**The Full Solution:**\nStep 1: When $t = 0$, $V(t) = 36{,}000$, so the purchase price is $\\$36{,}000$.\nStep 2: The ratios of consecutive values are $\\dfrac{30{,}600}{36{,}000} = 0.85$ and $\\dfrac{26{,}010}{30{,}600} = 0.85$, so each year the car keeps $85\\%$ of its value from the year before.\nStep 3: The function is $V(t) = 36{,}000(0.85)^{t}$. Check: $36{,}000(0.85)^{2} = 36{,}000(0.7225) = 26{,}010$, which matches the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($V(t) = 36{,}000(0.15)^{t}$): uses the $15\\%$ lost as the factor, which would leave only $\\$5{,}400$ after one year.\n* Choice C ($V(t) = 36{,}000(1.15)^{t}$): increases the value by $15\\%$ each year instead of decreasing it.\n* Choice D ($V(t) = 36{,}000 - 5{,}400t$): subtracts the first year's loss every year, giving $\\$25{,}200$ at $t = 2$ instead of $\\$26{,}010$.\n\n**Test Day Takeaway:** For a decreasing exponential, the factor is the fraction KEPT each period, $1 - r$; confirm it with a ratio of two table values."
 }

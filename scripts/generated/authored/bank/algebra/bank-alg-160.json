@@ -1,58 +1,58 @@
 {
-  "id": "bank-alg-160",
-  "question": "The graph of line $r$ is shown in the $xy$-plane. Which of the following equations, together with the equation of line $r$, forms a system of equations with no solution?",
-  "diagram": {
-    "type": "linearGraph",
-    "params": {
-      "slope": 2,
-      "yIntercept": -1,
-      "xRange": [
-        -4,
-        4
-      ],
-      "yRange": [
-        -6,
-        8
-      ],
-      "xTickInterval": 1,
-      "yTickInterval": 2,
-      "gridInterval": 1,
-      "showPoints": [
-        [
-          0,
-          -1
-        ],
-        [
-          2,
-          3
-        ]
-      ],
-      "label": "r"
-    }
+ "id": "bank-alg-160",
+ "question": "Line $r$ is shown in the $xy$-plane. The graph of which of the following equations never intersects line $r$?",
+ "diagram": {
+  "type": "linearGraph",
+  "params": {
+   "slope": 2,
+   "yIntercept": -1,
+   "xRange": [
+    -4,
+    4
+   ],
+   "yRange": [
+    -6,
+    8
+   ],
+   "xTickInterval": 1,
+   "yTickInterval": 2,
+   "gridInterval": 1,
+   "showPoints": [
+    [
+     0,
+     -1
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "label": "r"
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$2x + y = 4$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$y = -2x - 1$"
-    },
-    {
-      "id": "B",
-      "text": "$y = 2x - 1$"
-    },
-    {
-      "id": "C",
-      "text": "$y = 2x + 4$"
-    },
-    {
-      "id": "D",
-      "text": "$y = \\frac{1}{2}x - 1$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "negates the slope; the lines intersect",
-    "B": "is line r itself, giving infinitely many solutions",
-    "D": "uses the reciprocal slope; the lines intersect"
+  {
+   "id": "B",
+   "text": "$4x - 2y = 2$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~12s):** From $(0, -1)$ and $(2, 3)$, line $r$ has slope $2$ and $y$-intercept $-1$: $y = 2x - 1$. No solution needs the same slope with a different intercept, which is $y = 2x + 4$.\n\n**The Full Solution:**\nStep 1: Find the equation of line $r$: slope $= \\frac{3 - (-1)}{2 - 0} = 2$, intercept $-1$, so $y = 2x - 1$.\nStep 2: A system of two lines has no solution only if the lines are parallel and distinct: equal slopes, different $y$-intercepts.\nStep 3: Only $y = 2x + 4$ has slope $2$ with an intercept other than $-1$. Check: $2x - 1 = 2x + 4$ reduces to $-1 = 4$, impossible. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -2x - 1$): shares the intercept but negates the slope, so the lines cross at $(0, -1)$.\n* Choice B ($y = 2x - 1$): is line $r$ itself; that system has infinitely many solutions, not none.\n* Choice D ($y = \\frac{1}{2}x - 1$): uses the reciprocal slope, so the lines are not parallel and intersect.\n\n**Test Day Takeaway:** Write the graphed line's equation first. Then the trap is the identical line: same slope and same intercept means infinitely many solutions, which is the opposite of no solution."
+  {
+   "id": "C",
+   "text": "$6x - 3y = -12$"
+  },
+  {
+   "id": "D",
+   "text": "$x - 2y = 4$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "has slope -2, flipping the sign of line r's slope, so the lines intersect",
+  "B": "is a multiple of line r's own equation y = 2x - 1, so it is the same line and intersects r everywhere",
+  "D": "has slope 1/2, the reciprocal of 2, so the lines intersect"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Line $r$ is $y = 2x - 1$. Choice C rewrites as $y = 2x + 4$: the same slope with a different intercept, so the lines never meet.\n\n**The Full Solution:**\nStep 1: From the marked points $(0, -1)$ and $(2, 3)$, line $r$ has slope $\\frac{3 - (-1)}{2 - 0} = 2$ and $y$-intercept $-1$, so its equation is $y = 2x - 1$.\nStep 2: Rewrite each choice as $y = mx + b$: A gives $y = -2x + 4$; B gives $y = 2x - 1$; C gives $-3y = -6x - 12$, so $y = 2x + 4$; D gives $y = \\frac{1}{2}x - 2$.\nStep 3: Two lines never intersect only if they are parallel and distinct: the same slope with a different $y$-intercept, which only Choice C has. Check: $2x - 1 = 2x + 4$ reduces to $-1 = 4$, which is false ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2x + y = 4$): has slope $-2$; the sign of the slope is flipped, so the lines intersect.\n* Choice B ($4x - 2y = 2$): is line $r$ itself, so its graph meets line $r$ at every point.\n* Choice D ($x - 2y = 4$): has slope $\\frac{1}{2}$, the reciprocal of the correct slope, so the lines intersect.\n\n**Test Day Takeaway:** Convert standard-form choices to slope-intercept form before comparing; a choice that is a multiple of the graphed line's equation is the same line, which intersects it everywhere rather than never."
 }

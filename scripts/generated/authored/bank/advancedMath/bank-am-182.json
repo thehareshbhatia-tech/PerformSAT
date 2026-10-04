@@ -1,6 +1,6 @@
 {
   "id": "bank-am-182",
-  "question": "In $2015$, a coastal ferry carried $4{,}800$ riders each week. The weekly ridership decreased by $6\\%$ each year after $2015$. Which function $R$ models the weekly ridership $t$ years after $2015$?",
+  "question": "A ferry carried $4{,}800$ riders per week in $2015$, and this number decreased by $6\\%$ each year after $2015$. The function $R$ gives the number of riders per week $t$ years after $2015$. Which equation defines $R$?",
   "choices": [
     {
       "id": "A",

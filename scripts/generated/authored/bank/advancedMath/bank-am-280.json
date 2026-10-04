@@ -1,29 +1,29 @@
 {
  "id": "bank-am-280",
- "question": "An apiary scale's calibration note claims that $\\dfrac{x^{2}-16}{x-4}$ and $x+4$ give the same value for every input $x$. For which values of $x$ is that claim correct?",
+ "question": "$\\dfrac{x^{2}-49}{x+7}=2$\nWhat is the solution to the given equation?",
  "choices": [
   {
    "id": "A",
-   "text": "All real numbers"
+   "text": "$-7$"
   },
   {
    "id": "B",
-   "text": "All real numbers except $x=4$"
+   "text": "$-5$"
   },
   {
    "id": "C",
-   "text": "All real numbers except $x=-4$"
+   "text": "$5$"
   },
   {
    "id": "D",
-   "text": "Only $x=4$"
+   "text": "$9$"
   }
  ],
  "distractorNotes": {
-  "A": "cancels the common factor without excluding x = 4, where the original denominator is 0",
-  "C": "excludes -4, the zero of the factor x + 4, instead of the zero of the denominator",
-  "D": "treats the excluded input 4 as the only place the two expressions agree"
+  "A": "multiplies by x + 7 to get x^2 - 2x - 63 = 0, factors as (x - 9)(x + 7), and keeps the excluded root -7",
+  "B": "cancels the wrong factor, solving x + 7 = 2",
+  "C": "moves the 7 with the wrong sign, computing x = 7 - 2"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $\\frac{x^{2}-16}{x-4}=\\frac{(x-4)(x+4)}{x-4}=x+4$ for every $x$ except $x=4$, where the left side is undefined.\n\n**The Full Solution:**\n\nStep 1: Factor the numerator as a difference of squares: $x^{2}-16=(x-4)(x+4)$.\n\nStep 2: Cancel the common factor $x-4$, which is legitimate only when $x-4\\neq0$.\n\nStep 3: So the two expressions agree for every real $x$ except $x=4$, where the first expression has no value at all. Check: at $x=5$ both give $9$; at $x=4$ the first is $\\frac{0}{0}$, which is undefined, while the second is $8$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A: cancels the factor without noticing that $x=4$ makes the original denominator $0$.\n* Choice C: excludes $-4$, the zero of the other factor, rather than the zero of the denominator.\n* Choice D: reverses the exclusion and keeps only the one input that must be removed.\n\n**Test Day Takeaway:** Cancelling a factor changes the domain; the excluded input comes from the original denominator, not from the simplified form."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** For $x\\neq -7$, $\\dfrac{x^{2}-49}{x+7}=x-7$, so $x-7=2$ and $x=9$.\n\n**The Full Solution:**\nStep 1: The expression is undefined at $x=-7$, so $-7$ is excluded.\nStep 2: Factor the numerator: $\\dfrac{(x+7)(x-7)}{x+7}=x-7$ for $x\\neq -7$.\nStep 3: Solve $x-7=2$: $x=9$, which is not excluded. Check: $\\dfrac{81-49}{9+7}=\\dfrac{32}{16}=2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): multiplies both sides by $x+7$ to get $x^{2}-2x-63=0$, or $(x-9)(x+7)=0$, and keeps the root $-7$, which makes the denominator zero.\n* Choice B ($-5$): cancels the wrong factor and solves $x+7=2$.\n* Choice C ($5$): solves $x-7=2$ with a sign slip, computing $7-2$.\n\n**Test Day Takeaway:** When a factor cancels, the value that zeroes it is still off-limits; any root equal to that value is extraneous."
 }

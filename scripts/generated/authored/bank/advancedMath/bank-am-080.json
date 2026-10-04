@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-080",
-  "question": "The number of subscribers to a streaming service increases by $8\\%$ every $6$ months. The service had $45{,}000$ subscribers on January 1, 2022. Which expression gives the number of subscribers $y$ years after January 1, 2022?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$45{,}000(1.08)^{2y}$"
-    },
-    {
-      "id": "B",
-      "text": "$45{,}000(1.08)^{\\frac{y}{2}}$"
-    },
-    {
-      "id": "C",
-      "text": "$45{,}000(1.08)^{6y}$"
-    },
-    {
-      "id": "D",
-      "text": "$45{,}000(1.16)^{y}$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "divides by $2$ instead of multiplying, giving one increase every two years",
-    "C": "uses the $6$ from \"6 months\" as the number of periods per year",
-    "D": "doubles the rate instead of doubling the number of periods"
+ "id": "bank-am-080",
+ "question": "On January 1, 2022, a streaming service had $45{,}000$ subscribers. The number of subscribers increased by $8\\%$ every $6$ months. The function $f$ gives the number of subscribers $y$ years after January 1, 2022. Which equation defines $f$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$f(y) = 45{,}000(1.08)^{2y}$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** There are $2$ six-month periods per year, so the factor $1.08$ is applied $2y$ times: $45{,}000(1.08)^{2y}$.\n\n**The Full Solution:**\nStep 1: An $8\\%$ increase multiplies the count by $1 + 0.08 = 1.08$ once per six-month period.\nStep 2: In $y$ years there are $2y$ six-month periods, so the factor $1.08$ is applied $2y$ times.\nStep 3: The expression is $45{,}000(1.08)^{2y}$. Check at $y = 1$: $45{,}000(1.08)^2 = 52{,}488$, which is $45{,}000$ increased by $8\\%$ twice. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($45{,}000(1.08)^{\\frac{y}{2}}$): divides instead of multiplying, modeling one $8\\%$ increase every two years.\n* Choice C ($45{,}000(1.08)^{6y}$): reads \"$6$ months\" as six periods per year, applying the increase six times a year.\n* Choice D ($45{,}000(1.16)^y$): doubles the rate to $16\\%$ per year; compounding twice gives $16.64\\%$, not $16\\%$.\n\n**Test Day Takeaway:** When the period is shorter than the time unit, multiply the exponent by how many periods fit in one unit. Two half-years per year means an exponent of $2y$."
+  {
+   "id": "B",
+   "text": "$f(y) = 45{,}000(1.08)^{\\frac{y}{2}}$"
+  },
+  {
+   "id": "C",
+   "text": "$f(y) = 45{,}000(1.08)^{6y}$"
+  },
+  {
+   "id": "D",
+   "text": "$f(y) = 45{,}000(1.16)^{y}$"
+  }
+ ],
+ "correctAnswer": "A",
+ "distractorNotes": {
+  "B": "divides by 2 instead of multiplying, one increase every 2 years",
+  "C": "multiplies by 6, the months in a period, instead of 2 periods per year",
+  "D": "adds 8% + 8% = 16% per year, ignoring compounding"
+ },
+ "explanation": "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** There are $2$ six-month periods in a year, so $y$ years contain $2y$ increases of $8\\%$: $f(y) = 45{,}000(1.08)^{2y}$.\n\n**The Full Solution:**\nStep 1: Each $6$-month increase of $8\\%$ multiplies the count by $1.08$.\nStep 2: In $y$ years there are $2y$ six-month periods, so the factor $1.08$ is applied $2y$ times.\nStep 3: So $f(y) = 45{,}000(1.08)^{2y}$. Check: after $1$ year, $f(1) = 45{,}000(1.08)^{2} = 52{,}488$, the same as applying $8\\%$ twice: $45{,}000 \\to 48{,}600 \\to 52{,}488$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($f(y) = 45{,}000(1.08)^{\\frac{y}{2}}$): divides by $2$ instead of multiplying, which gives one increase every $2$ years.\n* Choice C ($f(y) = 45{,}000(1.08)^{6y}$): multiplies by the number of months in a period instead of the number of periods in a year.\n* Choice D ($f(y) = 45{,}000(1.16)^{y}$): adds the two $8\\%$ increases to get $16\\%$ a year, ignoring compounding; the true yearly factor is $1.08^{2} = 1.1664$.\n\n**Test Day Takeaway:** When the growth period differs from the unit of the input, the exponent counts how many periods fit in the input."
 }

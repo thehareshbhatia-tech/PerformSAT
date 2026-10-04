@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-141",
-  "question": "The table gives the estimated volume $V$, in cubic meters, of water in a reservoir $d$ days after a spillway was opened. The relationship between $d$ and $V$ is linear. By how many cubic meters does the volume of water decrease each day?",
+  "question": "The table shows the volume $V$, in cubic meters, of water in a reservoir $d$ days after a gate was opened. There is a linear relationship between $d$ and $V$. By how many cubic meters does the volume of water decrease each day?",
   "diagram": {
     "type": "dataTable",
     "params": {

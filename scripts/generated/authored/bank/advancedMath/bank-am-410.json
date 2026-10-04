@@ -1,6 +1,6 @@
 {
   "id": "bank-am-410",
-  "question": "The function $f$ is defined by $f(x) = (x + 9)(x - 2)(x + 4)$. In the $xy$-plane, the graph of $y = f(x) - 6$ passes through the points $(-9, y_1)$, $(-4, y_2)$, and $(2, y_3)$. Which of the following must be true?",
+  "question": "$f(x) = (x + 7)(x + 1)(x - 3)$\nThe graph of $y = f(x) - 5$ in the $xy$-plane passes through the points $(-7, y_1)$, $(-1, y_2)$, and $(3, y_3)$. Which of the following must be true?",
   "choices": [
     {
       "id": "A",
@@ -8,22 +8,22 @@
     },
     {
       "id": "B",
-      "text": "$y_1 = y_2 = y_3 = -6$"
+      "text": "$y_1 = y_2 = y_3 = -5$"
     },
     {
       "id": "C",
-      "text": "$y_1 = y_2 = y_3 = 6$"
+      "text": "$y_1 = y_2 = y_3 = 5$"
     },
     {
       "id": "D",
-      "text": "$y_1$, $y_2$, and $y_3$ are three distinct negative numbers"
+      "text": "$y_1$, $y_2$, and $y_3$ are three different negative numbers"
     }
   ],
   "distractorNotes": {
-    "A": "forgets the vertical shift",
-    "C": "shifts up instead of down",
-    "D": "assumes the three outputs must differ"
+    "A": "uses the zeros of $f$ but forgets the $-5$",
+    "C": "shifts the graph up $5$ units instead of down",
+    "D": "assumes three different inputs must give three different outputs"
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Vertical Shift of a Polynomial**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Each listed input is a zero of $f$, so $f(x) = 0$ there and $y = 0 - 6 = -6$ at all three.\n\n**The Full Solution:**\nStep 1: $f$ is written in factored form, so it is zero exactly where one factor is zero: $x = -9$, $x = 2$, and $x = -4$.\nStep 2: The three given inputs are precisely those zeros, so $f(-9) = f(-4) = f(2) = 0$.\nStep 3: Subtracting $6$ lowers every output by $6$: $y_1 = y_2 = y_3 = 0 - 6 = -6$. Check one directly: $f(-4) = (5)(-6)(0) = 0$, so the shifted value is $-6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: evaluates $f$ at its zeros but forgets that the graph is $y = f(x) - 6$, not $y = f(x)$.\n* Choice C: shifts the graph up instead of down, treating $-6$ as $+6$.\n* Choice D: assumes three different inputs must give three different outputs; here all three are zeros, so the shifted values coincide.\n\n**Test Day Takeaway:** A vertical shift moves every point by the same amount, so inputs that shared an output before still share one after."
+  "explanation": "**SAT Pattern: Vertical Shift of a Polynomial**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $-7$, $-1$, and $3$ are the zeros of $f$, so at each of them $f(x) - 5 = 0 - 5 = -5$.\n\n**The Full Solution:**\nStep 1: $f(x) = 0$ when $x + 7 = 0$, $x + 1 = 0$, or $x - 3 = 0$, so the zeros of $f$ are $-7$, $-1$, and $3$.\nStep 2: At each zero, $y = f(x) - 5 = 0 - 5 = -5$.\nStep 3: So $y_1 = y_2 = y_3 = -5$. Check: $f(-1) = (6)(0)(-4) = 0$, so $y_2 = 0 - 5 = -5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: these are the outputs of $f$ at its zeros; the graph of $y = f(x) - 5$ is $5$ units lower.\n* Choice C: shifts up instead of down; subtracting $5$ lowers every output.\n* Choice D: the three inputs are all zeros of $f$, so the outputs are equal, not different.\n\n**Test Day Takeaway:** Subtracting a constant from $f(x)$ moves every point of the graph down by that amount, so the zeros of $f$ all land at the same height."
 }

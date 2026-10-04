@@ -1,6 +1,6 @@
 {
   "id": "bank-am-186",
-  "question": "The function $f$ is defined by $f(x) = ab^x$, where $a$ and $b$ are positive constants. The table gives the value of $f$ at two values of $x$. What is the value of $f(2)$?",
+  "question": "The function $f$ is defined by $f(x) = ab^{x}$, where $a$ and $b$ are positive constants. The table shows two values of $x$ and their corresponding values of $f(x)$. What is the value of $f(2)$?",
   "diagram": {
     "type": "dataTable",
     "params": {

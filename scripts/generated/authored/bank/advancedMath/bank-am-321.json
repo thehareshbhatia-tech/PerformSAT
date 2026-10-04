@@ -1,29 +1,29 @@
 {
- "id": "bank-am-321",
- "question": "A coffee roaster's drum-charge model gives $\\sqrt{x+5}+\\sqrt{x}=5$, where $x$ is the charge mass in kilograms and $x+5$ is the mass after a top-up. Exactly one value of $x$ satisfies this equation. What is that value?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$2$"
+  "id": "bank-am-321",
+  "question": "$\\sqrt{x + 10} = x - 2$\nHow many distinct real solutions does the given equation have?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Zero"
+    },
+    {
+      "id": "B",
+      "text": "Exactly one"
+    },
+    {
+      "id": "C",
+      "text": "Exactly two"
+    },
+    {
+      "id": "D",
+      "text": "Infinitely many"
+    }
+  ],
+  "distractorNotes": {
+    "A": "squares only the radical, getting x + 10 = x - 2, which has no solution",
+    "C": "keeps the extraneous solution x = -1 from the squared equation",
+    "D": "treats the equation as true for every x once it has been squared"
   },
-  {
-   "id": "B",
-   "text": "$4$"
-  },
-  {
-   "id": "C",
-   "text": "$10$"
-  },
-  {
-   "id": "D",
-   "text": "$20$"
-  }
- ],
- "distractorNotes": {
-  "A": "reports the square root of x, which is 2, instead of x itself",
-  "C": "squares each term separately, solving x + 5 + x = 25, which gives 10",
-  "D": "drops the second radical and solves the square root of x + 5 equal to 5, which gives 20"
- },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Radical Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** Moving $\\sqrt{x}$ across and squaring gives $x+5=25-10\\sqrt{x}+x$, so $10\\sqrt{x}=20$, $\\sqrt{x}=2$, and $x=4$.\n\n**The Full Solution:**\n\nStep 1: Isolate one radical: $\\sqrt{x+5}=5-\\sqrt{x}$.\n\nStep 2: Square both sides, keeping the cross term: $x+5=25-10\\sqrt{x}+x$, which reduces to $10\\sqrt{x}=20$.\n\nStep 3: So $\\sqrt{x}=2$ and $x=4$. Check: $\\sqrt{4+5}+\\sqrt{4}=3+2=5$, matching the model.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($2$): stops at $\\sqrt{x}=2$ and reports the root rather than $x$.\n* Choice C ($10$): squares each term on its own, solving $x+5+x=25$.\n* Choice D ($20$): ignores $\\sqrt{x}$ and solves $\\sqrt{x+5}=5$.\n\n**Test Day Takeaway:** Two radicals means separating them before squaring, and the square of a binomial always keeps its middle term."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Radical Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** Squaring gives $x^{2} - 5x - 6 = 0$, so $x = 6$ or $x = -1$. At $x = -1$ the right side is $-3$, which a square root can never equal, so only $x = 6$ works.\n\n**The Full Solution:**\nStep 1: Square both sides: $x + 10 = (x - 2)^{2} = x^{2} - 4x + 4$, so $x^{2} - 5x - 6 = 0$.\nStep 2: Factor: $(x - 6)(x + 1) = 0$, so the squared equation has the solutions $x = 6$ and $x = -1$.\nStep 3: Test each in the original equation. At $x = 6$: $\\sqrt{16} = 4$ and $6 - 2 = 4$ ✓. At $x = -1$: $\\sqrt{9} = 3$ but $-1 - 2 = -3$, so $x = -1$ is extraneous. The equation has exactly one solution. Check: $\\sqrt{6 + 10} = 4 = 6 - 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Zero): squares only the left side, writing $x + 10 = x - 2$, which has no solution.\n* Choice C (Exactly two): counts both solutions of the squared equation without testing them in the original.\n* Choice D (Infinitely many): assumes that squaring makes the two sides the same expression for every $x$.\n\n**Test Day Takeaway:** Squaring can add a solution that makes the radical equal a negative number; a principal square root is never negative, so test every candidate in the original equation before counting."
 }

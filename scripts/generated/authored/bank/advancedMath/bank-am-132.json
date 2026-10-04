@@ -1,29 +1,29 @@
 {
-  "question": "The discriminant of the quadratic equation $ax^{2}+bx+c=0$ is negative. Which of the following must be true about the graph of $y=ax^{2}+bx+c$ in the $xy$-plane?",
+  "question": "$x^{2} - 6x + 11 = 0$\nHow many distinct real solutions does the given equation have?",
   "choices": [
     {
       "id": "A",
-      "text": "The graph has exactly one $x$-intercept."
+      "text": "Exactly one"
     },
     {
       "id": "B",
-      "text": "The graph has exactly two $x$-intercepts."
+      "text": "Exactly two"
     },
     {
       "id": "C",
-      "text": "The graph has no $y$-intercept."
+      "text": "Infinitely many"
     },
     {
       "id": "D",
-      "text": "The graph has no $x$-intercepts."
+      "text": "Zero"
     }
   ],
   "distractorNotes": {
-    "A": "describes a discriminant equal to 0, not a negative one",
-    "B": "describes a positive discriminant",
-    "C": "confuses x-intercepts with the y-intercept, which every such graph has at (0, c)"
+    "A": "completes the square to (x - 3)^2 = -2 and reads x = 3 as one solution",
+    "B": "computes the discriminant as 36 + 44 or assumes every quadratic has two solutions",
+    "C": "treats the equation as an identity that every x satisfies"
   },
   "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** A negative discriminant means no real solutions of $ax^{2}+bx+c=0$, so the graph never meets the $x$-axis.\n\n**The Full Solution:**\nStep 1: The $x$-intercepts of $y=ax^{2}+bx+c$ are the real solutions of $ax^{2}+bx+c=0$.\nStep 2: The number of real solutions is determined by the discriminant: positive gives two, zero gives one, negative gives none.\nStep 3: Since the discriminant is negative, the graph has no $x$-intercepts. Check with $y=x^{2}+x+1$, whose discriminant is $-3$ and whose graph stays above the $x$-axis ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: describes a discriminant equal to $0$.\n* Choice B: describes a positive discriminant.\n* Choice C: confuses the $x$-intercepts with the $y$-intercept, which is always at $(0,c)$.\n\n**Test Day Takeaway:** Discriminant sign and $x$-intercept count are the same fact told two ways.",
+  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** The discriminant is $(-6)^{2} - 4(1)(11) = 36 - 44 = -8$, which is negative, so there are no real solutions.\n\n**The Full Solution:**\nStep 1: Identify $a = 1$, $b = -6$ and $c = 11$.\nStep 2: Compute the discriminant: $b^{2} - 4ac = 36 - 44 = -8$.\nStep 3: A negative discriminant means zero real solutions. Check: the equation is $(x - 3)^{2} + 2 = 0$, so $(x - 3)^{2} = -2$, which no real number satisfies ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Exactly one): completes the square to $(x - 3)^{2} = -2$ and reads $x = 3$ as a solution, but a square cannot equal $-2$.\n* Choice B (Exactly two): computes the discriminant as $36 + 44$, or assumes every quadratic equation has two solutions.\n* Choice C (Infinitely many): treats the equation as true for every $x$, but $x = 0$ gives $11 = 0$.\n\n**Test Day Takeaway:** The sign of $b^{2} - 4ac$ counts the real solutions: positive gives two, zero gives one, negative gives none.",
   "id": "bank-am-132"
 }

@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-016",
-  "question": "A road crew has already paved $850$ meters of a road and continues paving at a constant rate of $125$ meters per hour. How many more hours will the crew need to pave until the total paved length is $2{,}600$ meters?",
+  "question": "A crew has paved $850$ meters of a road and paves $125$ more meters each hour. How many more hours will it take for the paved length to reach a total of $2{,}600$ meters?",
   "choices": [
     {
       "id": "A",

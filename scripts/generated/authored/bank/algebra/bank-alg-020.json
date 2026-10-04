@@ -1,10 +1,10 @@
 {
   "id": "bank-alg-020",
-  "question": "The table gives the balance $B$, in dollars, of a savings account after $w$ weekly deposits of equal size, for three values of $w$. Which function models the balance after $w$ deposits?",
+  "question": "The function $B$ gives the balance, in dollars, of a savings account after $w$ equal weekly deposits. The table shows three values of $w$ and their corresponding values of $B(w)$. Which equation defines $B$?",
   "questionTable": {
     "headers": [
-      "Deposits, w",
-      "Balance, B (dollars)"
+      "w",
+      "B(w)"
     ],
     "rows": [
       [

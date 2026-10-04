@@ -1,29 +1,29 @@
 {
- "id": "bank-am-249",
- "question": "An acoustic panel's profile curve is shifted 6 units to the left, and the shifted curve is the graph of $y=(x+2)^{2}$. Which equation defines the profile before the shift?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$y=(x-4)^{2}$"
+  "id": "bank-am-249",
+  "question": "In the $xy$-plane, the graph of $y = f(x)$ is shifted $6$ units to the left. The resulting graph is defined by $y = (x + 2)^{2}$. Which equation defines $f$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$f(x) = (x - 6)^{2}$"
+    },
+    {
+      "id": "B",
+      "text": "$f(x) = (x + 2)^{2} - 6$"
+    },
+    {
+      "id": "C",
+      "text": "$f(x) = (x - 4)^{2}$"
+    },
+    {
+      "id": "D",
+      "text": "$f(x) = (x + 8)^{2}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses the shift of 6 as the whole horizontal position and ignores the +2",
+    "B": "undoes the shift vertically instead of horizontally",
+    "D": "shifts the given graph 6 more units to the left instead of undoing the shift"
   },
-  {
-   "id": "B",
-   "text": "$y=(x+8)^{2}$"
-  },
-  {
-   "id": "C",
-   "text": "$y=(x-6)^{2}$"
-  },
-  {
-   "id": "D",
-   "text": "$y=(x+2)^{2}-6$"
-  }
- ],
- "correctAnswer": "A",
- "distractorNotes": {
-  "B": "shifts left again instead of undoing the shift, giving (x + 6 + 2)^2",
-  "C": "ignores the +2 in the shifted equation and uses the shift alone",
-  "D": "undoes the shift vertically instead of horizontally"
- },
- "explanation": "**SAT Pattern: Horizontal Shift**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Undo a left shift by moving right: replace $x$ with $x-6$ in $(x+2)^{2}$ to get $(x-4)^{2}$.\n\n**The Full Solution:**\nStep 1: Shifting a graph 6 units left replaces $x$ with $x+6$, so the shifted curve is $f(x+6)=(x+2)^{2}$.\nStep 2: Substitute $x-6$ for $x$ on both sides: $f(x)=((x-6)+2)^{2}$.\nStep 3: Simplify: $f(x)=(x-4)^{2}$. Check: shifting $(x-4)^{2}$ left 6 gives $(x+6-4)^{2}=(x+2)^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($y=(x+8)^{2}$): shifts left a second time instead of reversing the shift.\n* Choice C ($y=(x-6)^{2}$): uses the shift amount as the vertex and drops the $+2$.\n* Choice D ($y=(x+2)^{2}-6$): moves the curve down 6 rather than right 6.\n\n**Test Day Takeaway:** To undo a horizontal shift, substitute the opposite shift into the given equation and simplify."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Horizontal Shift**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The vertex of $y = (x + 2)^{2}$ is $(-2, 0)$; before the shift to the left, it was $6$ units to the right, at $(4, 0)$, so $f(x) = (x - 4)^{2}$.\n\n**The Full Solution:**\nStep 1: The resulting graph $y = (x + 2)^{2}$ has its vertex at $(-2, 0)$.\nStep 2: That graph is the graph of $y = f(x)$ moved $6$ units to the left, so the vertex of the graph of $y = f(x)$ is $6$ units to the right of $(-2, 0)$, at $(4, 0)$.\nStep 3: A parabola congruent to $y = x^{2}$ with vertex $(4, 0)$ is $f(x) = (x - 4)^{2}$. Check: $f(x + 6) = (x + 6 - 4)^{2} = (x + 2)^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x - 6)^{2}$): puts the vertex at $(6, 0)$, using only the size of the shift and ignoring where the shifted graph is.\n* Choice B ($(x + 2)^{2} - 6$): undoes the shift vertically, which moves the graph down instead of to the right.\n* Choice D ($(x + 8)^{2}$): moves the given graph another $6$ units to the left instead of moving it back to the right.\n\n**Test Day Takeaway:** To recover the original graph, undo the shift: a graph that was moved left must be moved back to the right."
 }

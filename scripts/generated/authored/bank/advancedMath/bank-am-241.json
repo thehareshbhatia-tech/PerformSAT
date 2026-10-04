@@ -1,6 +1,6 @@
 {
   "id": "bank-am-241",
-  "question": "The table gives $f(x)$, the number of laboratory notebook pages filed above a lab's weekly quota, for four weeks $x$. The function $h$ is defined by $h(x)=f(x)+k$ for a constant $k$, and $h(2)=-6$. What is the value of $h(4)$?",
+  "question": "The table shows four values of $x$ and their corresponding values of $f(x)$. The function $h$ is defined by $h(x) = f(x) + k$, where $k$ is a constant. If $h(2) = -6$, what is the value of $h(4)$?",
   "choices": [
     {
       "id": "A",
@@ -20,17 +20,17 @@
     }
   ],
   "distractorNotes": {
-    "A": "applies k to f(3) = -3 instead of f(4) = 5",
-    "C": "uses k = -6 straight from h(2) = -6 without subtracting f(2)",
-    "D": "reports f(4) without applying k"
+    "A": "applies the shift to f(3) = -3 instead of f(4) = 5",
+    "C": "takes k = -6 straight from h(2) = -6 without subtracting f(2) = 1",
+    "D": "reports f(4) without applying the shift"
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Vertical Shift**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $h(2)=f(2)+k=1+k=-6$ gives $k=-7$, so $h(4)=5-7=-2$.\n\n**The Full Solution:**\nStep 1: The table gives $f(2)=1$, and $h(2)=f(2)+k$, so $1+k=-6$.\nStep 2: Solve: $k=-7$.\nStep 3: Then $h(4)=f(4)+k=5+(-7)=-2$. Check: the same shift sends $f(1)=9$ to $h(1)=2$ and $f(3)=-3$ to $h(3)=-10$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$): applies the shift to $f(3)=-3$ instead of $f(4)=5$.\n* Choice C ($-1$): takes $k=-6$ straight from $h(2)=-6$ without subtracting $f(2)=1$.\n* Choice D ($5$): reports $f(4)$ without applying the shift at all.\n\n**Test Day Takeaway:** One known output pins the shift constant; after that every other output moves by the same amount.",
+  "explanation": "**SAT Pattern: Vertical Shift**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** From the table $f(2) = 1$, so $1 + k = -6$ and $k = -7$; then $h(4) = f(4) - 7 = 5 - 7 = -2$.\n\n**The Full Solution:**\nStep 1: The table shows $f(2) = 1$. Since $h(2) = f(2) + k$, the given value gives $1 + k = -6$.\nStep 2: Subtract $1$ from both sides: $k = -7$.\nStep 3: The table shows $f(4) = 5$, so $h(4) = f(4) + k = 5 + (-7) = -2$. Check: $h(2) = 1 + (-7) = -6$, which matches the given value ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$): applies the shift to $f(3) = -3$ instead of $f(4) = 5$, giving $-3 - 7 = -10$.\n* Choice C ($-1$): takes $k = -6$ directly from $h(2) = -6$ without subtracting $f(2) = 1$, giving $5 - 6 = -1$.\n* Choice D ($5$): reports $f(4)$ from the table without adding $k$.\n\n**Test Day Takeaway:** One known output of $h$ pins down the constant $k$; after that, every output of $h$ is the matching output of $f$ moved by the same $k$.",
   "diagram": {
     "type": "dataTable",
     "params": {
       "headers": [
-        "Week (x)",
+        "x",
         "f(x)"
       ],
       "rows": [

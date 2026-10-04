@@ -1,29 +1,29 @@
 {
   "id": "bank-am-202",
-  "question": "The population of a town is modeled by $P(t) = a(1.02)^t$, where $a$ is a constant and $t$ is the number of years after $2010$. According to the model, the population in $2015$ was $k$. Which expression represents the population the model predicts for $2020$?",
+  "question": "$P(t) = a(1.02)^{t}$\nThe function $P$ models the population of a town $t$ years after $2010$, where $a$ is a constant. The model predicts a population of $k$ in $2016$. Which expression represents the population the model predicts for $2022$?",
   "choices": [
     {
       "id": "A",
-      "text": "$\\dfrac{k}{(1.02)^5}$"
+      "text": "$\\dfrac{k}{(1.02)^{6}}$"
     },
     {
       "id": "B",
-      "text": "$k(1.02)^5$"
+      "text": "$k(1.02)^{6}$"
     },
     {
       "id": "C",
-      "text": "$k(1.02)^{10}$"
+      "text": "$k(1.02)^{12}$"
     },
     {
       "id": "D",
-      "text": "$k(1.10)$"
+      "text": "$k(1.12)$"
     }
   ],
   "distractorNotes": {
-    "A": "moves 5 years backward instead of forward",
-    "C": "counts the years from 2010 rather than from 2015",
-    "D": "adds the 2% rate five times into a single 10% increase"
+    "A": "moves 6 years backward instead of forward, giving the population in 2010",
+    "C": "counts 12 years from 2010 instead of 6 years from 2016",
+    "D": "adds the 2% rate six times into a single 12% increase instead of compounding"
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Exponential Growth Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** From $2015$ to $2020$ is $5$ years, and each year multiplies by $1.02$, so the population is $k(1.02)^5$.\n\n**The Full Solution:**\nStep 1: The year $2015$ is $t = 5$, so $P(5) = a(1.02)^5 = k$.\nStep 2: The year $2020$ is $t = 10$, so $P(10) = a(1.02)^{10} = a(1.02)^5 \\cdot (1.02)^5$.\nStep 3: Replacing $a(1.02)^5$ with $k$ gives $P(10) = k(1.02)^5$. Check with $a = 100$: $k = 100(1.02)^5 \\approx 110.41$, and $100(1.02)^{10} \\approx 121.90 = k(1.02)^5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{k}{(1.02)^5}$): this is the population in $2010$ — dividing runs the model backward.\n* Choice C ($k(1.02)^{10}$): applies ten years of growth to a population that is already five years in.\n* Choice D ($k(1.10)$): treats five years of $2\\%$ growth as a flat $10\\%$; compounding makes the true factor slightly larger.\n\n**Test Day Takeaway:** When a model's value at one time is named, measure the exponent from THAT time — the constant $a$ never has to be found."
+  "explanation": "**SAT Pattern: Exponential Growth Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** From $2016$ to $2022$ is $6$ years, and each year multiplies the population by $1.02$, so the prediction is $k(1.02)^{6}$.\n\n**The Full Solution:**\nStep 1: The year $2016$ is $t = 6$, so $P(6) = a(1.02)^{6} = k$.\nStep 2: The year $2022$ is $t = 12$, so $P(12) = a(1.02)^{12} = a(1.02)^{6} \\cdot (1.02)^{6}$.\nStep 3: Replacing $a(1.02)^{6}$ with $k$ gives $P(12) = k(1.02)^{6}$. Check with $a = 100$: $k = 100(1.02)^{6} \\approx 112.62$, and $100(1.02)^{12} \\approx 126.82$, which equals $112.62(1.02)^{6}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{k}{(1.02)^{6}}$): this is the population in $2010$; dividing runs the model backward $6$ years.\n* Choice C ($k(1.02)^{12}$): applies $12$ years of growth, counting from $2010$, to a population that is already the $2016$ value.\n* Choice D ($k(1.12)$): treats six years of $2\\%$ growth as a flat $12\\%$ increase; compounding makes the true factor, about $1.126$, slightly larger.\n\n**Test Day Takeaway:** When the model's value at one time is named, measure the exponent from THAT time; the constant $a$ never has to be found."
 }

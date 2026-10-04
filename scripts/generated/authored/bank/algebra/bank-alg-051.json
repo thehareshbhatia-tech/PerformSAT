@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-051",
-  "question": "A community pool sells adult day passes for $\\$6$ each and child day passes for $\\$4$ each. A group bought $11$ day passes for a total of $\\$54$. How many adult day passes did the group buy?",
+  "question": "A pool sells adult passes for $\\$6$ each and child passes for $\\$4$ each. A group bought $11$ passes for a total of $\\$54$. How many adult passes did the group buy?",
   "choices": [
     {
       "id": "A",
