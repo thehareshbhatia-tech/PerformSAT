@@ -100,7 +100,7 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "The flash lock, a removable section of weir that released a rush of water to carry boats downstream, is often called a crude forerunner of the pound lock. Yet flash locks remained in use beside pound locks on the River Thames for three centuries, until 1937, suggesting that boatmen saw the older device not as an obsolete relic but as a ____ one.",
+          "passage": "Celestial navigation, fixing a ship's position from the angles of the sun and stars, is often treated as obsolete in the satellite age. Yet in 2015 the US Naval Academy, which had dropped the subject in 1998, restored it amid concerns that satellite systems could be hacked, suggesting that officials saw the method not as a relic but as a ____ one.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -109,7 +109,7 @@ export const practiceTest8RW = {
             },
             {
               "id": "B",
-              "text": "temporary"
+              "text": "decorative"
             },
             {
               "id": "C",
@@ -121,7 +121,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The sentence contrasts \"an obsolete relic\" with what the flash lock's long survival suggests, so the blank must credit the older device as workable, and \"serviceable\" does precisely that.\n\n**The Full Solution:**\n- The passage sets up an expectation: the flash lock is \"often called a crude forerunner\" of the pound lock.\n- The evidence cuts against that expectation: flash locks stayed in use beside pound locks on the Thames for three centuries.\n- The blank therefore needs a word affirming the older device's continued usefulness: \"serviceable.\"\n\n**Why the other choices are wrong:**\n- A: \"Flawless\" overshoots; the passage presents the flash lock as workable, not perfect.\n- B: \"Temporary\" contradicts three centuries of side-by-side use.\n- C: \"Complicated\" clashes with the passage's picture of a simple device, and the sentence is crediting its usefulness, not its complexity."
+          "explanation": "**Choice D is correct.** The sentence contrasts \"a relic\" with what the Naval Academy's decision suggests, so the blank must credit the old method as still useful, and \"serviceable\" does precisely that.\n\n**The Full Solution:**\n- The passage sets up an expectation: celestial navigation is \"often treated as obsolete in the satellite age.\"\n- The evidence cuts against that expectation: the Academy restored the subject amid concerns that satellite systems could be hacked, which makes a method that needs no satellites worth keeping.\n- The blank therefore needs a word affirming the method's continued usefulness: \"serviceable.\"\n\n**Why the other choices are wrong:**\n- A: \"Flawless\" overshoots; the passage presents the method as useful, not perfect.\n- B: \"Decorative\" describes something kept for show, which is close to the \"relic\" the sentence is rejecting.\n- C: \"Complicated\" says nothing about usefulness, and the sentence is crediting the method's practical value, not its difficulty."
         },
         {
           "id": 802,
@@ -1165,28 +1165,28 @@ export const practiceTest8RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "Visitors to Rapa Nui have long wondered how the island's people moved the moai, multi-ton stone statues, from the quarry where they were carved to platforms kilometers away. An early answer held that the statues were laid on wooden sledges or rollers and dragged. Archaeologists Terry Hunt and Carl Lipo pointed instead to statues abandoned along ancient roads: their bases are wide and curved along the front edge, and they lean forward, features suited to rocking an upright statue forward with ropes. The moai, Hunt and Lipo concluded, were \"walked\" upright rather than dragged.",
+          "passage": "Long trails etched into the dry lakebed of Racetrack Playa in Death Valley show that rocks there move, yet for decades no one had seen them do so. Early researchers proposed that rain wet the lakebed's clay and that exceptionally strong winds then shoved the rocks across the slick surface. In 2013 and 2014, however, a research team fitted rocks with GPS units and watched the playa with time-lapse cameras. The rocks moved when sheets of ice only a few millimeters thick broke apart and were pushed along by light winds of about 4 to 5 meters per second.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "It surveys several ancient monuments and ranks them by how difficult each one was to build and transport."
+              "text": "It surveys several unexplained features of Death Valley and ranks them by how difficult each one has been to study."
             },
             {
               "id": "B",
-              "text": "It contrasts the methods used to carve the moai with the methods used to raise them onto their platforms."
+              "text": "It contrasts the methods used to measure winds on the playa with the methods used to track the rocks themselves."
             },
             {
               "id": "C",
-              "text": "It poses a question about how the statues were moved, presents an early answer, then reports evidence pointing toward a different method."
+              "text": "It notes a puzzle about the rocks, describes an early explanation, then reports observations pointing to a different cause."
             },
             {
               "id": "D",
-              "text": "It argues that the statues of Rapa Nui were moved far shorter distances than later historians and archaeologists have generally been willing to acknowledge."
+              "text": "It argues that the rocks of Racetrack Playa have traveled shorter distances than their long trails would seem to suggest."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The text moves from a long-standing question (how the moai were moved) to an early answer (dragging on sledges or rollers) to physical evidence that points toward a different method (walking the statues upright).\n\n**The Full Solution:**\n- First movement: the question of how multi-ton statues traveled kilometers from the quarry.\n- Second movement: the early answer that they were dragged on sledges or rollers.\n- Third movement: features of statues abandoned along ancient roads (wide, curved bases and a forward lean) that suit \"walking\" an upright statue, exactly the progression choice C describes.\n\n**Why the other choices are wrong:**\n- A: The text discusses only the moai; it does not survey or rank several monuments.\n- B: The text is about moving the statues, not about carving them or raising them onto platforms.\n- D: The text never questions how far the statues traveled; it concerns how they were moved."
+          "explanation": "**Choice C is correct.** The text moves from a puzzle (the rocks leave trails, but no one had seen them move) to an early explanation (strong winds pushing rocks across rain-wet clay) to observations that point to a different cause (thin ice sheets pushed by light winds).\n\n**The Full Solution:**\n- First movement: the trails show the rocks move, yet the movement had never been seen.\n- Second movement: the early explanation that exceptionally strong winds shoved the rocks across a wet, slick lakebed.\n- Third movement: GPS units and time-lapse cameras recorded rocks moving when ice only millimeters thick broke up and light winds pushed it, exactly the progression choice C describes.\n\n**Why the other choices are wrong:**\n- A: The text discusses only the moving rocks; it does not survey or rank several features of Death Valley.\n- B: The text mentions GPS units and cameras only as the means of observation; it does not contrast two sets of methods.\n- D: The text never questions how far the rocks traveled; it concerns what makes them move."
         },
         {
           "id": 837,

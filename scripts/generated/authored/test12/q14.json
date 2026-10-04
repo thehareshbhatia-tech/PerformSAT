@@ -6,35 +6,35 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 1,
- "passage": "Manoomin, the wild rice of shallow lakes in the Great Lakes region, is traditionally harvested from canoes by knocking ripe seed into the boat with wooden flails, a method that lets much of the seed fall into the water and sow the next year's stand. This reseeding cannot be treated as a fixed rate, however. Data from a single harvest season show that the share of seed returned to the water can differ enormously by method on the same lake: ______",
+ "passage": "Among mammals, larger species tend to live longer than smaller ones, a pattern that holds broadly across many groups. Biologists who study aging caution, however, that body size alone is a poor guide to how long a particular species can live. Records of maximum lifespan in captivity show that even species of similar size can differ enormously in how long they live: ______",
  "questionTable": {
   "type": "table",
-  "caption": "Share of wild rice seed returned to the water during harvest, by lake and method (single season)",
+  "caption": "Adult body mass and maximum recorded lifespan (in captivity) of four rodent species",
   "headers": [
-   "Lake",
-   "Harvest method",
-   "Seed returned (%)"
+   "Species",
+   "Adult body mass (grams)",
+   "Maximum recorded lifespan (years)"
   ],
   "rows": [
    [
-    "Lake A",
-    "hand flail, from canoe",
-    "38"
+    "house mouse",
+    "20.5",
+    "4.0"
    ],
    [
-    "Lake B",
-    "hand flail, from canoe",
-    "42"
+    "naked mole-rat",
+    "35",
+    "31.0"
    ],
    [
-    "Lake B",
-    "airboat harvester",
-    "6"
+    "Norway rat",
+    "300",
+    "3.8"
    ],
    [
-    "Lake C",
-    "hand flail, from canoe",
-    "35"
+    "American beaver",
+    "20,250",
+    "23.4"
    ]
   ]
  },
@@ -42,21 +42,21 @@
  "choices": [
   {
    "id": "A",
-   "text": "across all four plots in the table, at least some seed returned to the water, with shares ranging from 6 percent to 42 percent."
+   "text": "across the four species in the table, maximum recorded lifespans range from as little as 3.8 years to as much as 31 years."
   },
   {
    "id": "B",
-   "text": "at Lake B, hand flailing returned 42 percent of the seed to the water, while the airboat harvester returned only 6 percent."
+   "text": "the naked mole-rat weighs 35 grams and the house mouse 20.5 grams, yet the mole-rat has lived 31 years, the mouse only 4."
   },
   {
    "id": "C",
-   "text": "hand flailing returned 42 percent of the seed at Lake B, 38 percent at Lake A, and 35 percent at Lake C."
+   "text": "the American beaver, at more than 20,000 grams, has lived 23.4 years, while the far smaller Norway rat has lived only 3.8 years."
   },
   {
    "id": "D",
-   "text": "at Lake B, the airboat harvester returned only 6 percent of the seed, showing that it is the most efficient way to gather wild rice."
+   "text": "the naked mole-rat has lived 31 years in captivity, showing that it ages more slowly than any other mammal on Earth."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The claim is about variation BY METHOD on the same lake, so the supporting data must come from the single lake where two methods were used. Lake B is that lake, and its two methods returned 42 percent and 6 percent of the seed — an enormous difference in one place, in one season.\n\n**The Full Solution:**\n- Reread what the blank must support: the share of seed returned to the water \"can differ enormously by method on the same lake.\"\n- Only Lake B appears with two methods, so the evidence must stay inside its two rows.\n- Those rows show 42 percent (hand flail) against 6 percent (airboat harvester) — the within-lake difference the sentence asserts, which is exactly what B reports.\n\n**Why the other choices are wrong:**\n- A: It pools all four plots into one overall range, mixing lakes together and losing the within-lake, method-by-method comparison.\n- C: It compares one method across three different lakes — evidence that the method is consistent, nearly the opposite of the claim about methods differing.\n- D: It uses only one of Lake B's two rows and then adds a conclusion about efficiency the table cannot support, since seed returned to the water is not a measure of how efficient a harvest is."
+ "explanation": "**Choice B is correct.** The claim is that species of SIMILAR SIZE can differ enormously in lifespan, so the supporting data must compare two species close in body mass. The naked mole-rat (35 grams) and the house mouse (20.5 grams) are the only such pair in the table, and their maximum recorded lifespans are 31 years and 4 years.\n\n**The Full Solution:**\n- Reread what the blank must support: \"even species of similar size can differ enormously in how long they live.\"\n- Find the rows close in body mass: only the house mouse and the naked mole-rat, which differ by less than 15 grams.\n- Compare their lifespans: 31 years against 4 years, the enormous difference the sentence asserts, which is exactly what B reports.\n\n**Why the other choices are wrong:**\n- A: It pools all four species into one overall range without comparing species of similar size, so it does not show what the claim requires.\n- C: It compares a very large rodent with a much smaller one, and the larger one lives longer; that fits the general size pattern rather than the exception the claim describes.\n- D: It uses only one row and adds a conclusion about all mammals that a table of four rodents cannot support."
 }
