@@ -1,29 +1,29 @@
 {
-  "id": 4,
-  "question": "A library district's e-book loans increased by $20\\%$ from last year to this year, and this year the district recorded a total of $46{,}800$ loans. How many e-book loans did the district record last year?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$37{,}440$"
-    },
-    {
-      "id": "B",
-      "text": "$39{,}000$"
-    },
-    {
-      "id": "C",
-      "text": "$56{,}160$"
-    },
-    {
-      "id": "D",
-      "text": "$58{,}500$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "takes 20% off this year's 46,800 instead of reversing a 20% increase: 46,800(0.8) = 37,440",
-    "C": "applies the 20% increase a second time to this year's figure: 46,800(1.2) = 56,160",
-    "D": "divides by 0.8 instead of 1.2, reversing a 20% decrease rather than a 20% increase"
+ "id": 4,
+ "question": "The population of a town increased by $25\\%$ from $2010$ to $2020$. If the population of the town in $2020$ was $46{,}800$, what was the population of the town in $2010$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$35{,}100$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Reverse-Percent**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** This year is $1.2$ times last year, so last year $=46{,}800\\div1.2=39{,}000$.\n\n**The Full Solution:**\nStep 1: Let $L$ be last year's number of loans. A $20\\%$ increase multiplies $L$ by $1+0.20=1.20$, so $1.20L=46{,}800$.\nStep 2: Divide both sides by $1.20$: $L=\\dfrac{46{,}800}{1.20}=39{,}000$.\nStep 3: Check by going forward: $20\\%$ of $39{,}000$ is $7{,}800$, and $39{,}000+7{,}800=46{,}800$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($37{,}440$): subtracts $20\\%$ of this year's total instead of undoing the increase: $46{,}800(0.80)=37{,}440$. The percent was taken of the wrong base.\n* Choice C ($56{,}160$): increases this year's total by another $20\\%$: $46{,}800(1.20)=56{,}160$, running the change forward rather than backward.\n* Choice D ($58{,}500$): divides by $0.80$ instead of $1.20$, which would undo a $20\\%$ decrease.\n\n**Test Day Takeaway:** To undo a percent change, divide by the multiplier that caused it — $1.20$ for a $20\\%$ increase — never multiply by the same percent again."
+  {
+   "id": "B",
+   "text": "$37{,}440$"
+  },
+  {
+   "id": "C",
+   "text": "$58{,}500$"
+  },
+  {
+   "id": "D",
+   "text": "$62{,}400$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "takes 25% off the 2020 population, computing 0.75(46,800) = 35,100, instead of dividing by 1.25",
+  "C": "applies the 25% increase again, computing 1.25(46,800) = 58,500",
+  "D": "divides by 0.75 instead of 1.25, computing 46,800/0.75 = 62,400"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Reverse-Percent**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The $2020$ population is $1.25$ times the $2010$ population, so the $2010$ population is $\\frac{46{,}800}{1.25} = 37{,}440$.\n\n**The Full Solution:**\nStep 1: Let $p$ be the population in $2010$. An increase of $25\\%$ means the $2020$ population is $p + 0.25p = 1.25p$.\nStep 2: Set this equal to the given value: $1.25p = 46{,}800$.\nStep 3: Divide: $p = \\frac{46{,}800}{1.25} = 37{,}440$. Check: $25\\%$ of $37{,}440$ is $9{,}360$, and $37{,}440 + 9{,}360 = 46{,}800$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($35{,}100$): subtracts $25\\%$ of the $2020$ population, computing $0.75(46{,}800)$. The $25\\%$ was taken of the smaller $2010$ population, so this undoes too much.\n* Choice C ($58{,}500$): applies the increase a second time, computing $1.25(46{,}800)$, which moves in the wrong direction.\n* Choice D ($62{,}400$): divides by $0.75$, which would undo a $25\\%$ decrease, not a $25\\%$ increase.\n\n**Test Day Takeaway:** To reverse a percent increase, divide by the multiplier $1 + r$; subtracting the same percent from the larger value never returns the original amount."
 }

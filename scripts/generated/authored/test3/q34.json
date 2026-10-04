@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "text-structure-and-purpose",
  "type": "multiple-choice",
- "passage": "Around 1100 CE, Cahokia, near present-day St. Louis, ranked among the largest settlements north of Mexico, its earthen mounds rising above plazas that could hold tens of thousands of people. Many early observers refused to credit the site's builders: they attributed the mounds to vanished foreign colonists rather than to the ancestors of the Native peoples living in the region. Excavation has since dismantled that fiction. Tools, refuse layers, and construction stages show the mounds rising basket-load by basket-load through generations of organized local labor — the work not of mysterious outsiders but of an Indigenous metropolis whose builders' descendants the early observers had dismissed.",
+ "passage": "Around 1100 CE, Cahokia, near present-day St. Louis, was among the largest settlements north of Mexico, its earthen mounds rising above broad plazas. Many early observers refused to credit the site's builders, attributing the mounds to vanished foreign colonists rather than to the ancestors of the region's Native peoples. Excavation has since dismantled that fiction. Tools, refuse layers, and construction stages show the mounds rising basket-load by basket-load through generations of organized local labor — the work not of mysterious outsiders but of an Indigenous city.",
  "question": "Which choice best describes the overall structure of the text?",
  "choices": [
   {
@@ -19,7 +19,7 @@
   },
   {
    "id": "C",
-   "text": "It describes an ancient city, presents a mistaken account of the city's origins that early observers promoted, and then details the archaeological evidence that overturned that account"
+   "text": "It describes an ancient city, presents a mistaken account of the city's origins, and then details the evidence that overturned that account"
   },
   {
    "id": "D",
@@ -27,7 +27,7 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The text makes three moves in order: it establishes Cahokia's scale, reports the early observers' false attribution of the mounds to foreign colonists, and then presents the excavated evidence — tools, refuse, construction stages — that overturned the false account.\n\n**The Full Solution:**\n- Sentence one describes the city. Sentence two states the mistaken origin story and who promoted it.\n- \"Excavation has since dismantled that fiction\" pivots explicitly, and the final sentence itemizes the evidence and the corrected conclusion. C tracks the sequence exactly.\n\n**Why the other choices are wrong:**\n- A: No question is posed, and only one wrong account is discussed — nothing is \"evaluated\" among competing answers; the fiction is simply refuted.\n- B: The text is organized around an argument about the builders' identity, not a chronological biography of the city, and abandonment never comes up.\n- D: The text ends in resolution, not stalemate — the evidence settles who built the mounds, and the population figure is scene-setting, not the debate's subject.",
+ "explanation": "**Choice C is correct.** The text makes three moves in order: it establishes Cahokia's scale, reports the early observers' false attribution of the mounds to foreign colonists, and then presents the excavated evidence — tools, refuse, construction stages — that overturned the false account.\n\n**The Full Solution:**\n- Sentence one describes the city. Sentence two states the mistaken origin story and who promoted it.\n- \"Excavation has since dismantled that fiction\" pivots explicitly, and the final sentence itemizes the evidence and the corrected conclusion. C tracks the sequence exactly.\n\n**Why the other choices are wrong:**\n- A: No question is posed, and only one wrong account is discussed — nothing is \"evaluated\" among competing answers; the fiction is simply refuted.\n- B: The text is organized around an argument about the builders' identity, not a chronological biography of the city, and abandonment never comes up.\n- D: The text ends in resolution, not stalemate — the evidence settles who built the mounds, and the city's size is scene-setting, not the subject of any debate.",
  "_meta": {
   "anchor": "Cahokia — refutation of the foreign-builder myth by excavation evidence"
  }

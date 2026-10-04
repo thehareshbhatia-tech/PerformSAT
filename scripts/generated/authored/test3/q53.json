@@ -9,12 +9,12 @@
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "Archaeologists have traditionally mapped ancient Maya sites on foot, cutting survey lines through dense forest.",
-   "Lidar is an airborne laser-scanning technology that fires millions of pulses per second, letting researchers digitally strip away vegetation and expose the ground surface beneath.",
-   "In 2018, a lidar survey covered more than 2,100 square kilometers of northern Guatemala.",
-   "The survey revealed tens of thousands of previously unmapped structures, along with raised causeways, defensive earthworks, and extensive agricultural terracing.",
-   "Population estimates for the region's Classic period have been revised sharply upward as a result.",
-   "Ground crews must still excavate to confirm what the laser images show and to determine the ages of the structures."
+   "Archaeologists traditionally mapped Maya sites on foot, cutting paths through dense forest.",
+   "Lidar is an airborne laser-scanning technology that can reveal the ground surface beneath vegetation.",
+   "In 2018, researchers published a lidar survey of about 2,100 square kilometers of northern Guatemala.",
+   "It revealed more than 60,000 previously unmapped structures, as well as causeways and fortifications.",
+   "Population estimates for the region's Classic period were revised sharply upward as a result.",
+   "Ground crews must still excavate to confirm what the laser images show."
   ],
   "goal": "The student wants to emphasize how lidar has changed archaeologists' understanding of the scale of ancient Maya settlement."
  },
@@ -22,24 +22,24 @@
  "choices": [
   {
    "id": "A",
-   "text": "Lidar is an airborne laser-scanning technology that fires millions of pulses per second from above the forest."
+   "text": "Lidar is an airborne laser-scanning technology that can reveal the ground beneath dense vegetation."
   },
   {
    "id": "B",
-   "text": "Because dense forest covers many ancient Maya sites, archaeologists have traditionally mapped them on foot, cutting survey lines through the vegetation as they go."
+   "text": "Archaeologists traditionally mapped Maya sites on foot, cutting paths through the dense forest that covers them."
   },
   {
    "id": "C",
-   "text": "A 2018 lidar survey of northern Guatemala revealed tens of thousands of previously unmapped structures, forcing archaeologists to revise the region's ancient population estimates sharply upward."
+   "text": "A lidar survey of northern Guatemala revealed more than 60,000 unmapped structures, leading archaeologists to sharply raise population estimates."
   },
   {
    "id": "D",
-   "text": "Although lidar images reveal structures, causeways, earthworks, and agricultural terracing beneath the forest canopy, ground crews must still excavate each site to confirm what the laser images show and to determine when the structures were built."
+   "text": "Although lidar reveals structures beneath the forest, ground crews must still excavate to confirm what the laser images show."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The goal is about changed understanding of settlement scale, and C connects the instrument to exactly that change: the survey exposed tens of thousands of unmapped structures, and population estimates were revised sharply upward as a consequence.\n\n**The Full Solution:**\n- \"Changed understanding of scale\" requires two elements: what lidar found (structures by the tens of thousands) and what the finding did to prior belief (forced estimates upward).\n- C draws both from the notes and binds them causally with \"forcing,\" which is the emphasis the goal demands.\n\n**Why the other choices are wrong:**\n- A: It explains how the technology works and stops there — no discovery, no revision, no Maya settlement at all.\n- B: It describes the old method's difficulty without mentioning lidar's findings or any change in understanding.\n- D: It leads with a concession about lidar's limits and gives its emphasis to what excavation must still do, muting the transformation the student wants front and center.",
+ "explanation": "**Choice C is correct.** The goal is about changed understanding of settlement scale, and C connects the instrument to exactly that change: the survey exposed more than 60,000 unmapped structures, and population estimates were raised sharply as a consequence.\n\n**The Full Solution:**\n- \"Changed understanding of scale\" requires two elements: what lidar found (tens of thousands of structures) and what the finding did to prior belief (estimates revised upward).\n- C draws both from the notes and binds them causally with \"leading archaeologists to,\" which is the emphasis the goal demands.\n\n**Why the other choices are wrong:**\n- A: It explains what the technology does and stops there — no discovery, no revision, no Maya settlement at all.\n- B: It describes the old method's difficulty without mentioning lidar's findings or any change in understanding.\n- D: It leads with a concession about lidar's limits and gives its emphasis to what excavation must still do, muting the transformation the student wants front and center.",
  "_meta": {
-  "anchor": "2018 Guatemala lidar survey — Maya settlement scale revised upward"
+  "anchor": "PACUNAM Lidar Initiative — 2,144 km² of northern Guatemala (flown 2016, published in Science 2018): 61,480 structures, Classic-period population estimates raised"
  }
 }

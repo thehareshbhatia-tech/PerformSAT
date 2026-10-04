@@ -20,19 +20,19 @@ export const practiceTest5M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 2,
-      question: "A glazing crew charges a one-time setup fee plus a fixed amount for each panel it installs. The table gives the crew's total charge for three different panel counts. Which equation gives the total charge $C$, in dollars, for $p$ panels?",
-      questionTable: { headers: ["Panels installed", "Total charge (dollars)"], rows: [["$4$", "$440$"], ["$7$", "$635$"], ["$12$", "$960$"]] },
+      question: "A repair service charges a one-time fee plus a fixed amount for each hour of work. The table shows the total charge, in dollars, for three jobs. The function $C$ gives the total charge, in dollars, for a job that takes $h$ hours. Which equation defines $C$?",
+      questionTable: { headers: ["Hours of work", "Total charge (dollars)"], rows: [["$4$", "$440$"], ["$7$", "$635$"], ["$12$", "$960$"]] },
       choices: [
-        // distractor: finds the per-panel rate but drops the one-time setup fee
-        { id: "A", text: "$C = 65p$" },
-        // distractor: divides one total by its panel count (440/4 = 110) and treats the whole charge as per-panel
-        { id: "B", text: "$C = 110p$" },
-        { id: "C", text: "$C = 65p + 180$" },
-        // distractor: swaps the two constants, charging 180 dollars per panel and 65 dollars once
-        { id: "D", text: "$C = 180p + 65$" }
+        // distractor: finds the hourly rate of 65 but drops the one-time fee
+        { id: "A", text: "$C(h) = 65h$" },
+        // distractor: divides one total by its hours (440/4 = 110) and treats the whole charge as hourly
+        { id: "B", text: "$C(h) = 110h$" },
+        { id: "C", text: "$C(h) = 65h + 180$" },
+        // distractor: swaps the two constants, charging 180 dollars per hour and 65 dollars once
+        { id: "D", text: "$C(h) = 180h + 65$" }
       ],
       correctAnswer: "C",
-      explanation: "**SAT Pattern: Linear Cost Setup**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Three more panels raise the charge by $\\$195$, so the rate is $\\$65$ per panel, and $440 - 4(65) = 180$ is the setup fee.\n\n**The Full Solution:**\nStep 1: A setup fee plus a per-panel amount is linear: $C = rp + f$, where $r$ is the rate per panel and $f$ is the fee charged once.\nStep 2: The first two rows give $r = \\frac{635 - 440}{7 - 4} = \\frac{195}{3} = 65$ dollars per panel.\nStep 3: Substituting the first row, $440 = 65(4) + f$, so $f = 180$; check the third row: $65(12) + 180 = 780 + 180 = 960$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($C = 65p$): reads the rate correctly but forgets the fee, predicting $65(4) = 260$ dollars for $4$ panels instead of $440$.\n* Choice B ($C = 110p$): divides a single total by its panel count, $440 \\div 4 = 110$, folding the one-time fee into the rate; at $7$ panels it predicts $770$ dollars, not $635$.\n* Choice D ($C = 180p + 65$): swaps the roles of the two constants and predicts $180(4) + 65 = 785$ dollars for $4$ panels.\n\n**Test Day Takeaway:** In a linear cost table the per-unit rate is the change in cost divided by the change in units; the fixed fee is whatever is left after the rate is paid for.",
+      explanation: "**SAT Pattern: Linear Cost Setup**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Three more hours raise the charge by $635 - 440 = 195$ dollars, so the rate is $65$ dollars per hour, and the fee is $440 - 4(65) = 180$ dollars.\n\n**The Full Solution:**\nStep 1: A one-time fee plus a fixed amount per hour is linear: $C(h) = rh + f$, where $r$ is the hourly rate and $f$ is the fee.\nStep 2: Use the first two rows to find the rate: $r = \\frac{635 - 440}{7 - 4} = \\frac{195}{3} = 65$.\nStep 3: Substitute the first row to find the fee: $440 = 65(4) + f$, so $f = 440 - 260 = 180$, and $C(h) = 65h + 180$. Check the third row: $65(12) + 180 = 780 + 180 = 960$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($C(h) = 65h$): uses the correct hourly rate but leaves out the one-time fee; it gives $C(4) = 260$, not $440$.\n* Choice B ($C(h) = 110h$): divides $440$ by $4$ and treats the whole charge as an hourly rate; it gives $C(7) = 770$, not $635$.\n* Choice D ($C(h) = 180h + 65$): swaps the rate and the fee, giving $C(4) = 785$.\n\n**Test Day Takeaway:** For a fee-plus-rate situation, the change in the total divided by the change in the input is the rate; whatever is left over at any row is the one-time fee.",
       skills: ["word-problem-to-equation"]
     },
     {
@@ -40,9 +40,9 @@ export const practiceTest5M2Easy = {
       type: "fill-in",
       difficulty: "easy",
       band: 2,
-      question: "A chemistry stockroom stores acetone in cylindrical drums. Each drum is $4$ decimeters across the base, and the acetone stands $9$ decimeters deep. Each drum holds $k\\pi$ cubic decimeters of acetone. What is the value of $k$?",
+      question: "A right circular cylinder has a diameter of $4$ centimeters and a height of $9$ centimeters. The volume of the cylinder is $k\\pi$ cubic centimeters. What is the value of $k$?",
       correctAnswer: "36",
-      explanation: "**SAT Pattern: Cylinder Volume**\n\n**The correct answer is $36$.**\n\n**The Fast Way (~15s):** Half of $4$ is a radius of $2$, and $V = \\pi r^2 h = \\pi(2)^2(9) = 36\\pi$.\n\n**The Full Solution:**\nStep 1: \"Across the base\" is the diameter, so the radius is $r = \\frac{4}{2} = 2$ decimeters, and the depth of the liquid is the height, $h = 9$ decimeters.\nStep 2: The volume of a cylinder is $V = \\pi r^2 h = \\pi (2)^2 (9)$.\nStep 3: $(2)^2 (9) = 4 \\cdot 9 = 36$, so $V = 36\\pi$ and $k = 36$; check by units: a squared length times a length gives cubic decimeters ✓\n\n**Common Mistakes:**\n* Using the given $4$ as the radius gives $4^2 \\cdot 9 = 144$, four times too large, because doubling a radius quadruples the volume.\n* Stopping at the base area gives $2^2 = 4$ and forgets the $9$-decimeter depth entirely.\n* Multiplying the radius by the height without squaring gives $2 \\cdot 9 = 18$, exactly half the correct value.\n\n**Test Day Takeaway:** Read the given length before you use it — \"across\" is a diameter, and the radius that goes into $\\pi r^2 h$ is half of it.",
+      explanation: "**SAT Pattern: Cylinder Volume**\n\n**The correct answer is $36$.**\n\n**The Fast Way (~15s):** The radius is half the diameter, $2$, so $V = \\pi(2)^{2}(9) = 36\\pi$ and $k = 36$.\n\n**The Full Solution:**\nStep 1: The volume of a right circular cylinder is $V = \\pi r^{2}h$, and the radius is half the diameter: $r = \\frac{4}{2} = 2$ centimeters.\nStep 2: Substitute $r = 2$ and $h = 9$: $V = \\pi(2)^{2}(9) = \\pi(4)(9) = 36\\pi$ cubic centimeters.\nStep 3: Match this with $k\\pi$: $k = 36$. Check: $36\\pi \\div 9 = 4\\pi$, the area of a circular base of radius $2$ ✓\n\n**Common Mistakes:**\n* $144$: uses the diameter $4$ as the radius, computing $\\pi(4)^{2}(9) = 144\\pi$.\n* $18$: forgets to square the radius, computing $\\pi(2)(9) = 18\\pi$.\n* $113$: rounds the whole volume, $36\\pi \\approx 113.1$, instead of reporting the coefficient of $\\pi$.\n\n**Test Day Takeaway:** Halve a diameter before it goes into $\\pi r^{2}h$, and when the answer is written as $k\\pi$, report only the number in front of $\\pi$.",
       skills: ["volume-prism"]
     },
     {
@@ -50,18 +50,18 @@ export const practiceTest5M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 3,
-      question: "A lab technician models the temperature deviation, in degrees Celsius, of a heated bath by $d(t) = 2(t - 4)^2 - 7$, where $t$ is the time in minutes since heating began. Which expression is equivalent to $d(t)$?",
+      question: "$2(x - 4)^{2} - 7$\nWhich expression is equivalent to the given expression?",
       choices: [
-        { id: "A", text: "$2t^2 - 16t + 25$" },
-        // distractor: distributes the 2 across the t-terms but not across the 16, leaving 16 - 7 = 9
-        { id: "B", text: "$2t^2 - 16t + 9$" },
-        // distractor: doubles the squared term but copies the cross term -8t without doubling it
-        { id: "C", text: "$2t^2 - 8t + 25$" },
-        // distractor: expands (t - 4)^2 as t^2 + 8t + 16, flipping the sign of the middle term
-        { id: "D", text: "$2t^2 + 16t + 25$" }
+        { id: "A", text: "$2x^{2} - 16x + 25$" },
+        // distractor: multiplies the x-terms by 2 but not the 16, leaving 16 - 7 = 9
+        { id: "B", text: "$2x^{2} - 16x + 9$" },
+        // distractor: doubles the squared term but copies the middle term -8x without doubling it
+        { id: "C", text: "$2x^{2} - 8x + 25$" },
+        // distractor: expands (x - 4)^2 as x^2 + 8x + 16, flipping the sign of the middle term
+        { id: "D", text: "$2x^{2} + 16x + 25$" }
       ],
       correctAnswer: "A",
-      explanation: "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $(t-4)^2 = t^2 - 8t + 16$; doubling gives $2t^2 - 16t + 32$, and $32 - 7 = 25$.\n\n**The Full Solution:**\nStep 1: Square the binomial first: $(t - 4)^2 = t^2 - 8t + 16$.\nStep 2: Multiply every term by $2$: $2(t^2 - 8t + 16) = 2t^2 - 16t + 32$.\nStep 3: Subtract $7$: $2t^2 - 16t + 32 - 7 = 2t^2 - 16t + 25$; check at $t = 0$, where the original gives $2(16) - 7 = 25$ and the answer gives $25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2t^2 - 16t + 9$): distributes the $2$ to $t^2$ and to $-8t$ but not to the $16$, so the constant comes out $16 - 7 = 9$; at $t = 0$ that is $9$, not $25$.\n* Choice C ($2t^2 - 8t + 25$): doubles the squared term and the constant but carries the cross term $-8t$ over unchanged, when it must become $-16t$.\n* Choice D ($2t^2 + 16t + 25$): expands $(t - 4)^2$ as $t^2 + 8t + 16$; squaring a difference makes the middle term negative, so the sign is wrong.\n\n**Test Day Takeaway:** Convert vertex form in the fixed order — square the binomial, distribute the leading coefficient to all three terms, then combine the constants.",
+      explanation: "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $(x - 4)^{2} = x^{2} - 8x + 16$; doubling gives $2x^{2} - 16x + 32$, and $32 - 7 = 25$.\n\n**The Full Solution:**\nStep 1: Square the binomial first: $(x - 4)^{2} = x^{2} - 8x + 16$.\nStep 2: Multiply every term by $2$: $2(x^{2} - 8x + 16) = 2x^{2} - 16x + 32$.\nStep 3: Subtract $7$: $2x^{2} - 16x + 32 - 7 = 2x^{2} - 16x + 25$. Check at $x = 0$: the given expression is $2(16) - 7 = 25$, and $2(0)^{2} - 16(0) + 25 = 25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2x^{2} - 16x + 9$): multiplies the $x$-terms by $2$ but not the $16$, so it computes $16 - 7 = 9$ for the constant.\n* Choice C ($2x^{2} - 8x + 25$): doubles the squared term and the constant but leaves the middle term as $-8x$.\n* Choice D ($2x^{2} + 16x + 25$): expands $(x - 4)^{2}$ with $+8x$, flipping the sign of the middle term.\n\n**Test Day Takeaway:** Expand the square completely before multiplying by the outside coefficient, and make sure that coefficient reaches every term; a quick check at $x = 0$ catches a missed constant.",
       skills: ["distributive-property", "converting-quadratic-forms"]
     },
     {
@@ -69,9 +69,9 @@ export const practiceTest5M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 4,
-      question: "A concrete mix combines cement, sand, and gravel in the ratio $2 : 3 : k$ by volume. A batch that contains $18$ cubic feet of cement has a total volume of $99$ cubic feet. What is the value of $k$?",
+      question: "Cement, sand, and gravel are mixed in the ratio $2 : 3 : k$ by volume. A batch with $18$ cubic feet of cement has a total volume of $99$ cubic feet. What is the value of $k$?",
       choices: [
-        // distractor: confuses the scale factor 9 with the number of parts, solving 2 + 3 + k = 9
+        // distractor: confuses the size of one part, 9, with the total number of parts, solving 2 + 3 + k = 9
         { id: "A", text: "$4$" },
         { id: "B", text: "$6$" },
         // distractor: treats the remaining 99 - 18 = 81 cubic feet as gravel alone, giving 81/9 = 9 parts
@@ -80,7 +80,7 @@ export const practiceTest5M2Easy = {
         { id: "D", text: "$11$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Cement is $2$ parts $= 18$, so one part is $9$ cubic feet; $99 \\div 9 = 11$ parts total, and $11 - 2 - 3 = 6$.\n\n**The Full Solution:**\nStep 1: The three quantities are $2x$, $3x$, and $kx$ cubic feet for one common part size $x$. Cement gives $2x = 18$, so $x = 9$ cubic feet per part.\nStep 2: The batch total is $(2 + 3 + k)x = 99$, so $2 + 3 + k = \\frac{99}{9} = 11$.\nStep 3: Therefore $k = 11 - 5 = 6$; check: $2(9) + 3(9) + 6(9) = 18 + 27 + 54 = 99$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): uses the part size $9$ as though it were the number of parts and solves $2 + 3 + k = 9$, which gives $4$ but produces a batch of only $81$ cubic feet.\n* Choice C ($9$): subtracts the cement, $99 - 18 = 81$, and assigns all of it to gravel, giving $81 \\div 9 = 9$ parts and leaving no sand in the mix.\n* Choice D ($11$): stops one step early and reports the total number of parts, $99 \\div 9 = 11$, rather than the gravel part $k$.\n\n**Test Day Takeaway:** In a sum-of-parts ratio, first convert one known amount into the size of a single part, then divide the total by that size to get the total number of parts.",
+      explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Cement is $2$ parts and $18$ cubic feet, so one part is $9$ cubic feet; the batch is $\\frac{99}{9} = 11$ parts, and $k = 11 - 2 - 3 = 6$.\n\n**The Full Solution:**\nStep 1: Write the three volumes as $2x$, $3x$, and $kx$ cubic feet, where $x$ is the volume of one part. Cement gives $2x = 18$, so $x = 9$.\nStep 2: The total volume is $(2 + 3 + k)x = 99$, so $2 + 3 + k = \\frac{99}{9} = 11$.\nStep 3: Solve: $k = 11 - 5 = 6$. Check: $2(9) + 3(9) + 6(9) = 18 + 27 + 54 = 99$ cubic feet ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): treats the part size, $9$, as the total number of parts, solving $2 + 3 + k = 9$.\n* Choice C ($9$): subtracts only the cement, treating the remaining $99 - 18 = 81$ cubic feet as gravel, which gives $\\frac{81}{9} = 9$ parts and ignores the sand.\n* Choice D ($11$): reports the total number of parts rather than the gravel's share of them.\n\n**Test Day Takeaway:** In a part-to-part ratio, use the known amount to find the size of one part, then count parts; the unknown ratio term is the total parts minus the known ones.",
       skills: ["word-problem-to-equation"]
     },
     {
@@ -88,18 +88,18 @@ export const practiceTest5M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 4,
-      question: "On a campus fiber map, a switch sits at the point $(-6, 10)$ and a splice enclosure sits at $(4, 4)$, the midpoint of the cable run joining that switch to a second switch. What are the coordinates of the second switch?",
+      question: "In the $xy$-plane, the midpoint of segment $AB$ is $(4, 4)$. Point $A$ has coordinates $(-6, 10)$. What are the coordinates of point $B$?",
       choices: [
-        // distractor: steps from the first switch away from the enclosure, computing 2A - M instead of 2M - A
+        // distractor: steps from the midpoint away from B, computing 2A - M instead of 2M - A
         { id: "A", text: "$(-16, 16)$" },
-        // distractor: averages the two given points, which returns the midpoint of the switch and the enclosure
+        // distractor: averages the two given points, which gives the midpoint of A and the midpoint of AB
         { id: "B", text: "$(-1, 7)$" },
-        // distractor: reports the change from the switch to the enclosure, (10, -6), instead of the endpoint
+        // distractor: reports the change from A to the midpoint, (10, -6), instead of the endpoint
         { id: "C", text: "$(10, -6)$" },
         { id: "D", text: "$(14, -2)$" }
       ],
       correctAnswer: "D",
-      explanation: "**SAT Pattern: Midpoint Formula**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The run goes $+10$ in $x$ and $-6$ in $y$ to reach the midpoint, so repeat that step: $(4 + 10,\\ 4 - 6) = (14, -2)$.\n\n**The Full Solution:**\nStep 1: If the second switch is $(x, y)$, the midpoint formula gives $\\frac{-6 + x}{2} = 4$ and $\\frac{10 + y}{2} = 4$.\nStep 2: Multiply each equation by $2$: $-6 + x = 8$ and $10 + y = 8$.\nStep 3: So $x = 14$ and $y = -2$; check the midpoint of $(-6, 10)$ and $(14, -2)$: $\\left(\\frac{-6 + 14}{2}, \\frac{10 - 2}{2}\\right) = (4, 4)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-16, 16)$): steps the same distance from the switch in the wrong direction, computing $2(-6) - 4 = -16$ and $2(10) - 4 = 16$; that puts the enclosure at an end of the run, not its middle.\n* Choice B ($(-1, 7)$): averages the two points that were given, $\\left(\\frac{-6 + 4}{2}, \\frac{10 + 4}{2}\\right)$, which finds a new midpoint rather than the missing endpoint.\n* Choice C ($(10, -6)$): reports the displacement from the switch to the enclosure, $4 - (-6) = 10$ and $4 - 10 = -6$, which is a change in position, not a position.\n\n**Test Day Takeaway:** When one endpoint and the midpoint are given, double the midpoint and subtract the known endpoint: $B = 2M - A$.",
+      explanation: "**SAT Pattern: Midpoint Formula**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Going from $A$ to the midpoint is $+10$ in $x$ and $-6$ in $y$, so repeat that step from the midpoint: $(4 + 10, 4 - 6) = (14, -2)$.\n\n**The Full Solution:**\nStep 1: Let $B = (x, y)$. The midpoint formula gives $\\frac{-6 + x}{2} = 4$ and $\\frac{10 + y}{2} = 4$.\nStep 2: Solve the first equation: $-6 + x = 8$, so $x = 14$.\nStep 3: Solve the second equation: $10 + y = 8$, so $y = -2$, and $B = (14, -2)$. Check: $\\left(\\frac{-6 + 14}{2}, \\frac{10 + (-2)}{2}\\right) = (4, 4)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-16, 16)$): steps from the midpoint through $A$ and beyond, computing $(2(-6) - 4, 2(10) - 4)$, which lands on the wrong side of $A$.\n* Choice B ($(-1, 7)$): averages $A$ and the midpoint, which gives a point halfway between them, not the other endpoint.\n* Choice C ($(10, -6)$): reports the change from $A$ to the midpoint instead of adding that change to the midpoint.\n\n**Test Day Takeaway:** The missing endpoint is the midpoint plus the same step it took to get from the known endpoint to the midpoint: $B = 2M - A$.",
       skills: ["coordinate-geometry"]
     },
     {
@@ -107,10 +107,10 @@ export const practiceTest5M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 4,
-      question: "Triangular gable truss $PQR$ is similar to truss $STU$, with side $PQ$ corresponding to side $ST$. Truss $PQR$ has $PQ = 6$ feet and encloses $24$ square feet of wall, and $ST = 15$ feet. How many square feet of wall does truss $STU$ enclose?",
+      question: "In the figure shown, triangle $PQR$ is similar to triangle $STU$, where $P$, $Q$, and $R$ correspond to $S$, $T$, and $U$, respectively. The area of triangle $PQR$ is $24$ square units. What is the area, in square units, of triangle $STU$?",
       diagram: { type: "similarTriangles", params: { triangle1: { labels: ["P", "Q", "R"], sideLabels: ["6", "", ""] }, triangle2: { labels: ["S", "T", "U"], sideLabels: ["15", "", ""] }, figureNote: true } },
       correctAnswer: "150",
-      explanation: "**SAT Pattern: Similar Triangles and Area Ratio**\n\n**The correct answer is $150$.**\n\n**The Fast Way (~20s):** The sides scale by $\\frac{15}{6} = 2.5$, so the areas scale by $2.5^2 = 6.25$, and $24(6.25) = 150$.\n\n**The Full Solution:**\nStep 1: Corresponding sides give the scale factor $\\frac{ST}{PQ} = \\frac{15}{6} = \\frac{5}{2}$.\nStep 2: In similar figures every length is multiplied by $\\frac{5}{2}$, so every area is multiplied by $\\left(\\frac{5}{2}\\right)^2 = \\frac{25}{4}$.\nStep 3: The larger truss encloses $24 \\cdot \\frac{25}{4} = 150$ square feet; check the ratio: $\\frac{150}{24} = 6.25 = 2.5^2$ ✓\n\n**Common Mistakes:**\n* Scaling the area by the side ratio alone gives $24 \\cdot \\frac{5}{2} = 60$, which would be right for a length, not an area.\n* Cubing the ratio gives $24 \\cdot \\frac{125}{8} = 375$; the cube of a scale factor governs volume, not area.\n* Inverting the ratio gives $24 \\cdot \\frac{4}{25} = 3.84$, shrinking the larger truss instead of enlarging it.\n\n**Test Day Takeaway:** Lengths scale by $k$, areas by $k^2$, volumes by $k^3$ — decide which one the question asks for before you multiply.",
+      explanation: "**SAT Pattern: Similar Triangles and Area Ratio**\n\n**The correct answer is $150$.**\n\n**The Fast Way (~20s):** The sides scale by $\\frac{15}{6} = 2.5$, so the areas scale by $2.5^{2} = 6.25$, and $24(6.25) = 150$.\n\n**The Full Solution:**\nStep 1: Corresponding sides $PQ$ and $ST$ give the scale factor: $\\frac{ST}{PQ} = \\frac{15}{6} = 2.5$.\nStep 2: Areas of similar figures scale by the square of the scale factor: $(2.5)^{2} = 6.25$.\nStep 3: Multiply: the area of triangle $STU$ is $24(6.25) = 150$ square units. Check: $\\frac{150}{24} = 6.25 = \\left(\\frac{15}{6}\\right)^{2}$ ✓\n\n**Common Mistakes:**\n* $60$: scales the area by $2.5$ instead of $2.5^{2}$, computing $24(2.5) = 60$.\n* $33$: adds the difference in side lengths to the area, computing $24 + (15 - 6) = 33$.\n* $3.84$: inverts the scale factor, computing $24(0.4)^{2} = 3.84$, which shrinks the larger triangle.\n\n**Test Day Takeaway:** Lengths of similar figures scale by $k$, but areas scale by $k^{2}$; square the side ratio before applying it to an area.",
       skills: ["similar-triangles"]
     },
     {
@@ -118,18 +118,18 @@ export const practiceTest5M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "A chemistry lab's quality log shows that $60\\%$ of the recorded samples came from batch $X$ and that $42\\%$ of all recorded samples came from batch $X$ and met the purity standard. Which expression gives the probability that a randomly selected batch $X$ sample met the standard?",
+      question: "At a school, $60\\%$ of students take a science elective and $42\\%$ of students take a science elective and play a sport. What is the probability that a randomly selected student who takes a science elective plays a sport?",
       choices: [
-        // distractor: inverts the conditional probability, dividing the condition by the joint percent
-        { id: "A", text: "$\\frac{0.60}{0.42}$" },
-        // distractor: multiplies the two percents as if the events were independent
-        { id: "B", text: "$0.60 \\times 0.42$" },
-        { id: "C", text: "$\\frac{0.42}{0.60}$" },
-        // distractor: subtracts to find the batch X samples that failed, 18% of all samples
-        { id: "D", text: "$0.60 - 0.42$" }
+        // distractor: subtracts the two percents, 0.60 - 0.42 = 0.18, which is the share taking an elective but not playing a sport
+        { id: "A", text: "$0.18$" },
+        // distractor: multiplies the two percents, 0.60(0.42) = 0.252, as if they were independent probabilities
+        { id: "B", text: "$0.252$" },
+        // distractor: reports the joint probability 0.42 without restricting to students who take an elective
+        { id: "C", text: "$0.42$" },
+        { id: "D", text: "$0.70$" }
       ],
-      correctAnswer: "C",
-      explanation: "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** A conditional probability is the overlap divided by the condition: $\\frac{0.42}{0.60}$.\n\n**The Full Solution:**\nStep 1: Let $X$ be the event that a sample came from batch $X$ and $M$ the event that it met the standard. The log gives $P(X) = 0.60$ and $P(X \\text{ and } M) = 0.42$.\nStep 2: The question restricts attention to batch $X$ samples, so the probability wanted is $P(M \\mid X) = \\frac{P(X \\text{ and } M)}{P(X)}$.\nStep 3: That is $\\frac{0.42}{0.60}$; check with counts for $1{,}000$ samples: $600$ came from batch $X$ and $420$ of them met the standard, and $\\frac{420}{600} = \\frac{0.42}{0.60} = 0.7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{0.60}{0.42}$): flips the conditional and gives about $1.43$, which cannot be a probability.\n* Choice B ($0.60 \\times 0.42$): multiplies as if the two percents were independent pieces; that produces $0.252$, the share of all samples that would satisfy both conditions only if $0.42$ were already a within-batch rate.\n* Choice D ($0.60 - 0.42$): subtracts to get $0.18$, the share of all samples that came from batch $X$ and failed the standard.\n\n**Test Day Takeaway:** \"Given that\" resets the denominator — divide the overlap by the group you are told the item came from, never by the whole.",
+      correctAnswer: "D",
+      explanation: "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Restrict to the $60\\%$ who take an elective; $42\\%$ of all students are in that group and play a sport, so the probability is $\\frac{0.42}{0.60} = 0.70$.\n\n**The Full Solution:**\nStep 1: The condition is that the student takes a science elective, so the group being chosen from is the $60\\%$ of students who do.\nStep 2: The students in that group who also play a sport make up $42\\%$ of all students.\nStep 3: Divide the part by the group: $\\frac{0.42}{0.60} = 0.70$. Check with $100$ students: $60$ take an elective, $42$ of them play a sport, and $\\frac{42}{60} = 0.70$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.18$): subtracts, $0.60-0.42=0.18$, which is the share of all students who take an elective but do not play a sport.\n* Choice B ($0.252$): multiplies, $(0.60)(0.42) = 0.252$, which treats the $42\\%$ as a share of the elective group instead of a share of all students.\n* Choice C ($0.42$): reports the share of all students who do both, without restricting to students who take an elective.\n\n**Test Day Takeaway:** The phrase \"a randomly selected student who takes a science elective\" names the group to divide by; a conditional probability is the overlap divided by the size of that group.",
       skills: ["conditional-probability"]
     },
     {
@@ -137,18 +137,18 @@ export const practiceTest5M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "The replacement cost of a building's roofing system rises by $4.5\\%$ each year, and the cost is $\\$26{,}000$ this year. Which expression gives the replacement cost, in dollars, $t$ years from now?",
+      question: "A savings account has a balance of \\$2,600, and the balance increases by $4.5\\%$ each year. The function $f$ gives the balance, in dollars, of the account $t$ years from now. Which equation defines $f$?",
       choices: [
         // distractor: uses the growth rate alone as the base instead of 1 plus the rate
-        { id: "A", text: "$26{,}000(0.045)^t$" },
-        // distractor: models the increase as simple, adding 4.5% of the original cost each year
-        { id: "B", text: "$26{,}000(1 + 0.045t)$" },
+        { id: "A", text: "$f(t) = 2{,}600(0.045)^{t}$" },
+        // distractor: models the increase as simple growth, adding 4.5% of the original balance each year
+        { id: "B", text: "$f(t) = 2{,}600(1 + 0.045t)$" },
+        { id: "C", text: "$f(t) = 2{,}600(1.045)^{t}$" },
         // distractor: misplaces the decimal, treating 4.5% as 0.45 and growing 45% per year
-        { id: "C", text: "$26{,}000(1.45)^t$" },
-        { id: "D", text: "$26{,}000(1.045)^t$" }
+        { id: "D", text: "$f(t) = 2{,}600(1.45)^{t}$" }
       ],
-      correctAnswer: "D",
-      explanation: "**SAT Pattern: Compound Interest**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Repeated percent growth multiplies by $1 + 0.045 = 1.045$ once per year, so the cost is $26{,}000(1.045)^t$.\n\n**The Full Solution:**\nStep 1: A $4.5\\%$ increase multiplies a cost by $1 + 0.045 = 1.045$.\nStep 2: The increase happens once per year and applies to the new cost each time, so after $t$ years the original cost has been multiplied by $1.045$ a total of $t$ times.\nStep 3: The cost is $26{,}000(1.045)^t$; check $t = 2$: $26{,}000(1.045)^2 = 28{,}392.65$, which is $27{,}170$ raised by another $4.5\\%$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($26{,}000(0.045)^t$): uses the rate itself as the multiplier, so after one year the cost would fall to $26{,}000(0.045) = 1{,}170$ dollars.\n* Choice B ($26{,}000(1 + 0.045t)$): adds a flat $4.5\\%$ of the original cost every year; at $t = 2$ it gives $28{,}340$ dollars instead of $28{,}392.65$, because it never charges growth on growth.\n* Choice C ($26{,}000(1.45)^t$): reads $4.5\\%$ as $0.45$, producing $45\\%$ growth and a first-year cost of $37{,}700$ dollars.\n\n**Test Day Takeaway:** Percent growth compounds through the base $(1 + r)$ raised to the number of periods; a rate multiplied by time is simple growth, a different model.",
+      correctAnswer: "C",
+      explanation: "**SAT Pattern: Compound Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** A $4.5\\%$ increase each year multiplies the balance by $1 + 0.045 = 1.045$ once per year, so $f(t) = 2{,}600(1.045)^{t}$.\n\n**The Full Solution:**\nStep 1: Increasing an amount by $4.5\\%$ multiplies it by $1 + 0.045 = 1.045$.\nStep 2: Each year multiplies the previous year's balance by $1.045$, so after $t$ years the starting balance has been multiplied by $(1.045)^{t}$.\nStep 3: Start from $2{,}600$: $f(t) = 2{,}600(1.045)^{t}$. Check: $f(1) = 2{,}600(1.045) = 2{,}717$, and $4.5\\%$ of $2{,}600$ is $117$, with $2{,}600 + 117 = 2{,}717$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(t) = 2{,}600(0.045)^{t}$): uses the rate as the base; it gives $f(1) = 117$, which is only the first year's increase.\n* Choice B ($f(t) = 2{,}600(1 + 0.045t)$): adds the same $117$ dollars every year, which is linear growth, not a percent of the current balance.\n* Choice D ($f(t) = 2{,}600(1.45)^{t}$): writes $4.5\\%$ as $0.45$, which is a $45\\%$ increase each year.\n\n**Test Day Takeaway:** For growth by $r\\%$ each period, the base is $1 + \\frac{r}{100}$ and the exponent counts periods; the rate alone is never the base.",
       skills: ["exponential-functions"]
     },
     {
@@ -156,10 +156,10 @@ export const practiceTest5M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "A network team sorted last quarter's logged incidents by category and by whether an on-site visit was required. If one hardware incident is selected at random, what is the probability that it required an on-site visit?",
-      questionTable: { headers: ["Category", "On-site visit", "No on-site visit", "Total"], rows: [["Hardware", "$27$", "$63$", "$90$"], ["Software", "$18$", "$72$", "$90$"], ["Total", "$45$", "$135$", "$180$"]] },
+      question: "The table shows the numbers of students in grades $9$ and $10$ at a school who do and do not walk to school. If a student in grade $9$ is selected at random, what is the probability that the student walks to school? (Express your answer as a decimal or fraction, not as a percent.)",
+      questionTable: { headers: ["Grade", "Walks to school", "Does not walk to school", "Total"], rows: [["$9$", "$27$", "$63$", "$90$"], ["$10$", "$18$", "$72$", "$90$"], ["Total", "$45$", "$135$", "$180$"]] },
       correctAnswer: "0.3",
-      explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**The correct answer is $0.3$.**\n\n**The Fast Way (~15s):** Stay in the hardware row: $\\frac{27}{90} = 0.3$.\n\n**The Full Solution:**\nStep 1: The selection is made from hardware incidents only, so the denominator is the hardware row total, $90$.\nStep 2: Of those $90$ incidents, $27$ required an on-site visit, so the probability is $\\frac{27}{90}$.\nStep 3: $\\frac{27}{90} = \\frac{3}{10} = 0.3$; check: the other $63$ hardware incidents give $\\frac{63}{90} = 0.7$, and $0.3 + 0.7 = 1$ ✓\n\n**Common Mistakes:**\n* Dividing by the on-site column total gives $\\frac{27}{45} = 0.6$, which answers a different question: the probability that an on-site visit was for a hardware incident.\n* Dividing by the grand total gives $\\frac{27}{180} = 0.15$, the probability that an incident is both hardware and on-site, with no condition applied.\n* Using the column total over the grand total gives $\\frac{45}{180} = 0.25$, the overall on-site rate, which ignores the hardware restriction.\n\n**Test Day Takeaway:** The phrase that names the group you are choosing from sets the denominator — here \"one hardware incident,\" so the row total $90$.",
+      explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**The correct answer is $0.3$.**\n\n**The Fast Way (~20s):** The student is chosen from grade $9$, so divide that row's walkers by that row's total: $\\frac{27}{90} = 0.3$.\n\n**The Full Solution:**\nStep 1: The condition \"a student in grade $9$\" restricts the choice to the grade $9$ row, which has $90$ students.\nStep 2: Of those $90$ students, $27$ walk to school, so the probability is $\\frac{27}{90}$.\nStep 3: Simplify: $\\frac{27}{90} = \\frac{3}{10} = 0.3$. Check: the other $63$ grade $9$ students give $\\frac{63}{90} = 0.7$, and $0.3 + 0.7 = 1$ ✓\n\n**Common Mistakes:**\n* $0.6$: divides by the walkers' column total, $\\frac{27}{45} = 0.6$, which is the probability that a student who walks is in grade $9$.\n* $0.15$: divides by the grand total, $\\frac{27}{180} = 0.15$, the probability that a student is in grade $9$ and walks, with no condition applied.\n* $0.25$: uses the walkers' total over the grand total, $\\frac{45}{180} = 0.25$, which ignores the grade $9$ restriction.\n\n**Test Day Takeaway:** The group named after \"If a student in …\" sets the denominator; here it is the grade $9$ row total, $90$.",
       skills: ["conditional-probability", "two-way-table"]
     },
     {
@@ -167,18 +167,18 @@ export const practiceTest5M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "A capacity planner writes two equations relating the bandwidth $x$, in gigabits per second, reserved for streaming and the bandwidth $y$ reserved for backups on a shared link: $4x + 10y = 76$ and $6x + 15y = 114$. Which statement about this system is true?",
+      question: "$4x + 10y = 76$\n$6x + 15y = 114$\nHow many solutions does the given system of equations have?",
       choices: [
-        // distractor: sees different coefficients and calls the lines parallel without comparing 4/6, 10/15, and 76/114
-        { id: "A", text: "There is no solution, because the two lines are parallel and distinct." },
-        // distractor: sets y = 0, verifies the pair (19, 0) in both equations, and calls it the only solution
-        { id: "B", text: "There is exactly one solution, $(19, 0)$." },
-        { id: "C", text: "There are infinitely many solutions, because each equation is a multiple of the other." },
-        // distractor: verifies the pair (4, 6) in both equations and calls it the only solution
-        { id: "D", text: "There is exactly one solution, $(4, 6)$." }
+        // distractor: sees the different constants 76 and 114 and calls the lines parallel without checking that 76/114 matches 4/6 and 10/15
+        { id: "A", text: "Zero" },
+        // distractor: assumes that two equations with different coefficients must intersect at a single point
+        { id: "B", text: "Exactly one" },
+        // distractor: counts one solution per equation, as if each equation contributed its own solution
+        { id: "C", text: "Exactly two" },
+        { id: "D", text: "Infinitely many" }
       ],
-      correctAnswer: "C",
-      explanation: "**SAT Pattern: System Equivalence Check**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $\\frac{6}{4} = \\frac{15}{10} = \\frac{114}{76} = 1.5$, so the second equation is $1.5$ times the first — one line, infinitely many solutions.\n\n**The Full Solution:**\nStep 1: Compare the two equations term by term: $\\frac{6}{4} = 1.5$ and $\\frac{15}{10} = 1.5$, so the left sides are proportional.\nStep 2: Check the constants with the same factor: $1.5 \\times 76 = 114$, which matches the second equation exactly.\nStep 3: Multiplying the first equation by $1.5$ reproduces the second, so the two equations describe the same line and every point on it is a solution; check two of them: $(4, 6)$ gives $16 + 60 = 76$ and $24 + 90 = 114$, and $(19, 0)$ gives $76$ and $114$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: notices that the coefficients differ and jumps to \"parallel,\" but parallel and distinct requires the coefficient ratios to match while the constant ratio does not — here all three ratios equal $1.5$.\n* Choice B ($(19, 0)$): setting $y = 0$ gives $4x = 76$, so $x = 19$, and the pair does satisfy both equations — but so do infinitely many others, so it is not the only solution.\n* Choice D ($(4, 6)$): substitution lands on this pair, which also checks out in both equations; finding one solution never proves the solution is unique.\n\n**Test Day Takeaway:** Before solving a two-equation system, compare all three ratios — coefficients and constants. All equal means one line; coefficients equal but constants not means no solution.",
+      correctAnswer: "D",
+      explanation: "**SAT Pattern: System Equivalence Check**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Dividing the first equation by $2$ and the second by $3$ gives $2x + 5y = 38$ both times, so the two equations describe the same line.\n\n**The Full Solution:**\nStep 1: Divide each term of the first equation by $2$: $2x + 5y = 38$.\nStep 2: Divide each term of the second equation by $3$: $2x + 5y = 38$.\nStep 3: The equations are equivalent, so every point on the line $2x + 5y = 38$ satisfies both, and the system has infinitely many solutions. Check with two points: $(19, 0)$ gives $4(19) = 76$ and $6(19) = 114$, and $(4, 6)$ gives $16 + 60 = 76$ and $24 + 90 = 114$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Zero): the constants $76$ and $114$ differ, but they are in the same ratio, $\\frac{2}{3}$, as the coefficients, so the lines are the same, not parallel and distinct.\n* Choice B (Exactly one): different-looking coefficients do not guarantee one intersection; $\\frac{4}{6} = \\frac{10}{15}$, so the lines have the same slope.\n* Choice C (Exactly two): two distinct lines meet at most once, so a linear system never has exactly two solutions.\n\n**Test Day Takeaway:** Compare the ratios of the $x$-coefficients, the $y$-coefficients, and the constants: all three equal means infinitely many solutions, only the first two equal means no solution.",
       skills: ["system-solution-types", "infinite-solutions-condition"]
     },
     {
@@ -186,19 +186,19 @@ export const practiceTest5M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "The mass of dissolved salt in a saline stock solution is proportional to the volume of solution drawn. The table gives the mass measured for three sample volumes. How many grams of dissolved salt are in $250$ milliliters of the stock solution?",
-      diagram: { type: "dataTable", params: { headers: ["Sample volume (mL)", "Dissolved salt (mg)"], rows: [["20", "34"], ["50", "85"], ["80", "136"]] } },
+      question: "The mass of salt in a saltwater solution is proportional to the volume of the solution. The table shows the mass of salt in three samples of the solution. What is the mass, in grams, of salt in $250$ milliliters of the solution?",
+      diagram: { type: "dataTable", params: { headers: ["Volume (milliliters)", "Mass of salt (milligrams)"], rows: [["20", "34"], ["50", "85"], ["80", "136"]] } },
       choices: [
-        // distractor: divides the 425 mg by 10,000 instead of by 1,000
+        // distractor: divides the 425 milligrams by 10,000 instead of by 1,000
         { id: "A", text: "$0.0425$" },
         { id: "B", text: "$0.425$" },
-        // distractor: divides the 425 mg by 100 instead of by 1,000
+        // distractor: divides the 425 milligrams by 100 instead of by 1,000
         { id: "C", text: "$4.25$" },
         // distractor: reports the mass in milligrams without converting to grams
         { id: "D", text: "$425$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Proportion Solving**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $\\frac{34}{20} = 1.7$ mg per mL, so $250$ mL holds $425$ mg, and $425 \\div 1000 = 0.425$ gram.\n\n**The Full Solution:**\nStep 1: The relationship is proportional, so the mass per milliliter is constant: $\\frac{34}{20} = \\frac{85}{50} = \\frac{136}{80} = 1.7$ milligrams per milliliter.\nStep 2: For $250$ milliliters the mass is $1.7 \\times 250 = 425$ milligrams.\nStep 3: Since $1$ gram is $1{,}000$ milligrams, $425$ milligrams $= \\frac{425}{1000} = 0.425$ gram; check by scaling the third row: $250$ mL is $3.125$ times $80$ mL, and $136 \\times 3.125 = 425$ mg ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.0425$): divides by $10{,}000$, shifting the decimal one place too far; that would make a gram equal to $10{,}000$ milligrams.\n* Choice C ($4.25$): divides by $100$, the centi- conversion, instead of the $1{,}000$ that separates milligrams from grams.\n* Choice D ($425$): computes the mass correctly but leaves it in milligrams, ignoring the \"grams\" the question asks for.\n\n**Test Day Takeaway:** Find the unit rate from any row, scale it, and convert only at the end — then reread the question to confirm which unit the answer must be in.",
+      explanation: "**SAT Pattern: Proportion Solving**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Each milliliter holds $\\frac{34}{20} = 1.7$ milligrams of salt, so $250$ milliliters hold $425$ milligrams, which is $0.425$ gram.\n\n**The Full Solution:**\nStep 1: Find the constant of proportionality from any row: $\\frac{34}{20} = 1.7$ milligrams per milliliter (and $\\frac{85}{50} = \\frac{136}{80} = 1.7$ as well).\nStep 2: Multiply by the new volume: $1.7(250) = 425$ milligrams.\nStep 3: Convert to grams, using $1{,}000$ milligrams per gram: $\\frac{425}{1{,}000} = 0.425$ gram. Check: $\\frac{425}{250} = 1.7$, the same rate as the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.0425$): divides $425$ by $10{,}000$, moving the decimal point one place too far.\n* Choice C ($4.25$): divides $425$ by $100$, as if there were $100$ milligrams in a gram.\n* Choice D ($425$): is the mass in milligrams; the question asks for grams.\n\n**Test Day Takeaway:** Find the rate from the table first, then convert units only at the end; there are $1{,}000$ milligrams in a gram.",
       skills: ["unit-conversion"]
     },
     {
@@ -206,9 +206,9 @@ export const practiceTest5M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "An architect's floor plan places three anchor holes of a triangular bracket at $(1, 4)$, $(1, 14)$, and $(c, 4)$, with $c > 1$ and one unit representing one inch. The bracket encloses $45$ square inches. What is the value of $c$?",
+      question: "In the $xy$-plane, a triangle has vertices at $(1, 4)$, $(1, 14)$, and $(c, 4)$, where $c > 1$. The area of the triangle is $45$ square units. What is the value of $c$?",
       correctAnswer: "10",
-      explanation: "**SAT Pattern: Area of Triangle from Coordinates**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~25s):** The legs are $10$ and $c - 1$, so $\\frac{1}{2}(10)(c - 1) = 45$ gives $c - 1 = 9$ and $c = 10$.\n\n**The Full Solution:**\nStep 1: The corners $(1, 4)$ and $(1, 14)$ share the $x$-value $1$, so that side is vertical with length $14 - 4 = 10$ inches. The corners $(1, 4)$ and $(c, 4)$ share the $y$-value $4$, so that side is horizontal with length $c - 1$ inches.\nStep 2: The two sides meet at $(1, 4)$ at a right angle, so the area is $\\frac{1}{2}(10)(c - 1) = 45$.\nStep 3: Then $5(c - 1) = 45$, so $c - 1 = 9$ and $c = 10$; check: $\\frac{1}{2}(10)(9) = 45$ square inches ✓\n\n**Common Mistakes:**\n* Solving for the horizontal leg and stopping gives $9$, the length of the side, not the $x$-coordinate of the corner, which sits $1$ unit farther right.\n* Omitting the factor $\\frac{1}{2}$ gives $10(c - 1) = 45$, so $c - 1 = 4.5$ and $c = 5.5$, half the area's worth of width.\n* Using the $y$-coordinate $14$ as the height instead of the distance $14 - 4 = 10$ gives $\\frac{1}{2}(14)(c - 1) = 45$ and $c \\approx 7.4$.\n\n**Test Day Takeaway:** With two sides parallel to the axes, the legs are coordinate differences — subtract, then remember that a leg length and a coordinate are not the same number.",
+      explanation: "**SAT Pattern: Area of Triangle from Coordinates**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~25s):** The legs are $14 - 4 = 10$ and $c - 1$, so $\\frac{1}{2}(10)(c - 1) = 45$, which gives $c - 1 = 9$ and $c = 10$.\n\n**The Full Solution:**\nStep 1: The points $(1, 4)$ and $(1, 14)$ share an $x$-coordinate, so that side is vertical with length $14 - 4 = 10$. The points $(1, 4)$ and $(c, 4)$ share a $y$-coordinate, so that side is horizontal with length $c - 1$.\nStep 2: A vertical side and a horizontal side meet at a right angle at $(1, 4)$, so they are the base and height: $\\frac{1}{2}(10)(c - 1) = 45$.\nStep 3: Simplify: $5(c - 1) = 45$, so $c - 1 = 9$ and $c = 10$. Check: the legs are $10$ and $9$, and $\\frac{1}{2}(10)(9) = 45$ ✓\n\n**Common Mistakes:**\n* $9$: reports the horizontal leg, $c - 1 = 9$, instead of the coordinate $c$.\n* $5.5$: forgets the $\\frac{1}{2}$ in the area formula, solving $10(c - 1) = 45$.\n* $-8$: takes the horizontal leg to the left of $x = 1$, ignoring the condition $c > 1$.\n\n**Test Day Takeaway:** On the coordinate plane, a side between points with the same $x$- or $y$-coordinate has length equal to the difference of the other coordinate; once you have a leg, remember to convert it back to the coordinate the question asks for.",
       skills: ["triangle-area"]
     },
     {
@@ -216,18 +216,18 @@ export const practiceTest5M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "A storage rack holds $34$ drives, each with a capacity of either $4$ terabytes or $12$ terabytes, and the drives have a combined capacity of $264$ terabytes. How many of the drives have a capacity of $12$ terabytes?",
+      question: "A store sold $34$ packs of batteries. Each pack contained either $4$ batteries or $12$ batteries, and the store sold a total of $264$ batteries. How many packs of $12$ batteries did the store sell?",
       choices: [
         { id: "A", text: "$16$" },
-        // distractor: solves the system correctly but reports the number of 4-terabyte drives
+        // distractor: solves the system correctly but reports the number of 4-battery packs
         { id: "B", text: "$18$" },
-        // distractor: divides the total capacity by 12, assuming every drive is a 12-terabyte drive
+        // distractor: divides the total number of batteries by 12, as if every pack held 12 batteries
         { id: "C", text: "$22$" },
-        // distractor: divides the extra capacity 128 by 4 instead of by the 8-terabyte difference
+        // distractor: divides the extra 128 batteries by 4 instead of by the difference of 8 batteries per pack
         { id: "D", text: "$32$" }
       ],
       correctAnswer: "A",
-      explanation: "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** If all $34$ drives held $4$ TB the rack would hold $136$ TB; each swap to a $12$ TB drive adds $8$ TB, and $\\frac{264 - 136}{8} = 16$.\n\n**The Full Solution:**\nStep 1: Let $s$ be the number of $4$-terabyte drives and $\\ell$ the number of $12$-terabyte drives. The count gives $s + \\ell = 34$ and the capacity gives $4s + 12\\ell = 264$.\nStep 2: Substitute $s = 34 - \\ell$ into the capacity equation: $4(34 - \\ell) + 12\\ell = 264$, so $136 + 8\\ell = 264$.\nStep 3: Then $8\\ell = 128$ and $\\ell = 16$; check: $s = 18$, and $4(18) + 12(16) = 72 + 192 = 264$ terabytes ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($18$): this is $s$, the number of $4$-terabyte drives, found correctly and then reported for the wrong variable.\n* Choice C ($22$): computes $264 \\div 12 = 22$, which would be the count only if every drive were a $12$-terabyte drive — but then the rack would hold $22$ drives, not $34$.\n* Choice D ($32$): divides the extra capacity $264 - 136 = 128$ by $4$ rather than by the $8$-terabyte gap between the two drive sizes; $32$ large drives and $2$ small ones would give $4(2) + 12(32) = 392$ terabytes, far past the $264$ stated.\n\n**Test Day Takeaway:** Name both unknowns, write the count equation and the total equation, and check at the end which unknown the question actually asked for.",
+      explanation: "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** If all $34$ packs held $4$ batteries, the store would have sold $136$ batteries; the extra $264 - 136 = 128$ batteries come $8$ at a time from the larger packs, so there are $\\frac{128}{8} = 16$ packs of $12$.\n\n**The Full Solution:**\nStep 1: Let $a$ be the number of $4$-battery packs and $b$ the number of $12$-battery packs: $a + b = 34$ and $4a + 12b = 264$.\nStep 2: Substitute $a = 34 - b$ into the second equation: $4(34 - b) + 12b = 264$, so $136 + 8b = 264$.\nStep 3: Solve: $8b = 128$, so $b = 16$. Check: $a = 18$, and $4(18) + 12(16) = 72 + 192 = 264$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($18$): is the number of $4$-battery packs, the other variable in the system.\n* Choice C ($22$): divides $264$ by $12$, which assumes every pack holds $12$ batteries and ignores the total of $34$ packs.\n* Choice D ($32$): divides the extra $128$ batteries by $4$ instead of by $8$, the number of extra batteries in each larger pack.\n\n**Test Day Takeaway:** For a count-and-total problem, write one equation for the number of items and one for the total amount, then check that your answer is the variable the question names.",
       skills: ["word-problem-to-equation", "setting-up-systems"]
     },
     {
@@ -235,18 +235,18 @@ export const practiceTest5M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "A reaction model gives the impurity level $p(x) = x^2 - 14x + 58$, where $x$ is the reagent concentration in millimoles per liter. Which expression is equivalent to $p(x)$ and shows the concentration at which the impurity level is least?",
+      question: "$x^{2} - 14x + 58$\nThe given expression is equivalent to $(x - h)^{2} + k$, where $h$ and $k$ are constants. What is the value of $k$?",
       choices: [
         // distractor: computes 49 - 58 = -9 instead of 58 - 49 = 9
-        { id: "A", text: "$(x - 7)^2 - 9$" },
-        { id: "B", text: "$(x - 7)^2 + 9$" },
+        { id: "A", text: "$-9$" },
+        // distractor: reports h, the number inside the square, instead of k
+        { id: "B", text: "$7$" },
+        { id: "C", text: "$9$" },
         // distractor: forgets to subtract the 49 that completing the square introduces
-        { id: "C", text: "$(x - 7)^2 + 58$" },
-        // distractor: uses +7 inside the square, which reproduces +14x rather than -14x
-        { id: "D", text: "$(x + 7)^2 + 9$" }
+        { id: "D", text: "$58$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: Quadratic — Completing the Square**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Half of $-14$ is $-7$, and $(x - 7)^2$ carries an extra $+49$, so $p(x) = (x - 7)^2 + 58 - 49 = (x - 7)^2 + 9$.\n\n**The Full Solution:**\nStep 1: Take half the coefficient of $x$: $\\frac{-14}{2} = -7$, so the square to build is $(x - 7)^2 = x^2 - 14x + 49$.\nStep 2: That square supplies $49$, but the model has only $58$; write $p(x) = (x^2 - 14x + 49) + (58 - 49)$.\nStep 3: So $p(x) = (x - 7)^2 + 9$, least when the square is $0$, at $x = 7$; check at $x = 7$: the original gives $49 - 98 + 58 = 9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x - 7)^2 - 9$): subtracts in the wrong order, $49 - 58 = -9$, and would make the least impurity level $-9$, which the original never reaches.\n* Choice C ($(x - 7)^2 + 58$): keeps the original constant and never removes the $49$ the square introduces; at $x = 7$ it gives $58$, not $9$.\n* Choice D ($(x + 7)^2 + 9$): expands to $x^2 + 14x + 58$, which has the wrong sign on the middle term and is least at $x = -7$.\n\n**Test Day Takeaway:** Completing the square adds the square of half the linear coefficient — subtract that same amount back so the expression stays equal to the original.",
+      correctAnswer: "C",
+      explanation: "**SAT Pattern: Quadratic — Completing the Square**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Half of $-14$ is $-7$, and $(x - 7)^{2} = x^{2} - 14x + 49$, so the expression is $(x - 7)^{2} + 9$ and $k = 9$.\n\n**The Full Solution:**\nStep 1: Take half of the $x$-coefficient and square it: half of $-14$ is $-7$, and $(-7)^{2} = 49$.\nStep 2: Add and subtract $49$: $x^{2} - 14x + 49 - 49 + 58 = (x - 7)^{2} + 9$.\nStep 3: Match the form $(x - h)^{2} + k$: $h = 7$ and $k = 9$. Check at $x = 0$: the given expression is $58$, and $(0 - 7)^{2} + 9 = 49 + 9 = 58$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$): subtracts in the wrong order, computing $49 - 58$ instead of $58 - 49$.\n* Choice B ($7$): is the value of $h$, not $k$.\n* Choice D ($58$): keeps the original constant, forgetting that the $49$ added to complete the square must be subtracted.\n\n**Test Day Takeaway:** Completing the square adds $\\left(\\frac{b}{2}\\right)^{2}$, so the same amount must come back out of the constant; checking at $x = 0$ catches a sign slip.",
       skills: ["quadratics"]
     },
     {
@@ -254,18 +254,18 @@ export const practiceTest5M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "A vertical post $4$ feet tall stands beneath a straight roof rafter that rises from the wall plate. The rafter reaches a height of $10$ feet at a horizontal distance of $35$ feet from the wall plate. How far, in feet, from the wall plate does the post meet the rafter?",
+      question: "Triangle $ABC$ is similar to triangle $DEF$, where $A$, $B$, and $C$ correspond to $D$, $E$, and $F$, respectively. The lengths of $\\overline{AB}$, $\\overline{DE}$, and $\\overline{EF}$ are $4$, $10$, and $35$, respectively. What is the length of $\\overline{BC}$?",
       choices: [
-        // distractor: copies the post height as the horizontal distance
-        { id: "A", text: "$4$" },
-        { id: "B", text: "$14$" },
-        // distractor: measures 35 - 14 = 21 back from the far end of the rafter instead of from the wall plate
-        { id: "C", text: "$21$" },
-        // distractor: inverts the proportion, computing 35 times 10/4
+        { id: "A", text: "$14$" },
+        // distractor: subtracts the difference DE - AB = 6 from EF, treating similar triangles as differing by a constant amount
+        { id: "B", text: "$29$" },
+        // distractor: assumes corresponding sides are equal, as in congruent triangles
+        { id: "C", text: "$35$" },
+        // distractor: inverts the scale factor, computing 35 times 10/4
         { id: "D", text: "$87.5$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The post is $\\frac{4}{10}$ of the rafter's full rise, so it stands $\\frac{4}{10}(35) = 14$ feet from the wall plate.\n\n**The Full Solution:**\nStep 1: The rafter, the ground, and any vertical post form two right triangles that share the angle at the wall plate, so the triangles are similar.\nStep 2: Corresponding sides are proportional: $\\frac{\\text{post height}}{\\text{full rise}} = \\frac{\\text{distance to post}}{\\text{full run}}$, that is $\\frac{4}{10} = \\frac{d}{35}$.\nStep 3: Cross multiplying gives $10d = 140$, so $d = 14$ feet; check the rafter's slope: $\\frac{10}{35} = \\frac{2}{7}$, and $\\frac{2}{7}(14) = 4$ feet of height at $d = 14$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): reuses the post's height as its distance, which would only be right if the rafter rose at exactly $45^\\circ$.\n* Choice C ($21$): computes $35 - 14 = 21$, measuring back from the tall end of the rafter rather than from the wall plate the question names.\n* Choice D ($87.5$): sets up the proportion upside down as $\\frac{10}{4} = \\frac{d}{35}$, placing the post more than twice as far out as the rafter's whole $35$-foot run.\n\n**Test Day Takeaway:** Write the proportion with matching parts on matching sides — heights over heights, distances over distances — before you cross multiply.",
+      correctAnswer: "A",
+      explanation: "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Triangle $ABC$ is $\\frac{4}{10} = 0.4$ times the size of triangle $DEF$, so $BC = 0.4(35) = 14$.\n\n**The Full Solution:**\nStep 1: Corresponding sides of similar triangles are proportional, and $\\overline{BC}$ corresponds to $\\overline{EF}$, so $\\frac{BC}{EF} = \\frac{AB}{DE}$.\nStep 2: Substitute: $\\frac{BC}{35} = \\frac{4}{10}$.\nStep 3: Multiply both sides by $35$: $BC = \\frac{4(35)}{10} = 14$. Check: $\\frac{14}{35} = 0.4 = \\frac{4}{10}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($29$): subtracts the difference $10 - 4 = 6$ from $35$; similar triangles differ by a scale factor, not by a fixed amount.\n* Choice C ($35$): treats the triangles as congruent, so that $BC$ equals $EF$.\n* Choice D ($87.5$): multiplies $35$ by $\\frac{10}{4}$, which enlarges instead of shrinking.\n\n**Test Day Takeaway:** Pair each side with its corresponding side, set the ratios equal, and check that the smaller triangle gets the smaller length.",
       skills: ["similar-triangles"]
     },
     {
@@ -273,10 +273,10 @@ export const practiceTest5M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "The bar chart gives the total data transferred, in terabytes, by a data center in each of four quarters of one year. What was the percent decrease in data transferred from quarter 2 to quarter 3?",
-      diagram: { type: "barChart", params: { data: [{ label: "Q1", value: 240 }, { label: "Q2", value: 300 }, { label: "Q3", value: 180 }, { label: "Q4", value: 210 }], xAxisLabel: "Quarter", yAxisLabel: "Data transferred (TB)", yMax: 330, yStep: 30 } },
+      question: "The bar graph shows the number of books a bookstore sold in each of four months. The number of books sold in March was $p\\%$ less than the number of books sold in February. What is the value of $p$?",
+      diagram: { type: "barChart", params: { data: [{ label: "Jan", value: 240 }, { label: "Feb", value: 300 }, { label: "Mar", value: 180 }, { label: "Apr", value: 210 }], xAxisLabel: "Month", yAxisLabel: "Books sold", yMax: 330, yStep: 30 } },
       correctAnswer: "40",
-      explanation: "**SAT Pattern: Percent Decrease**\n\n**The correct answer is $40$.**\n\n**The Fast Way (~20s):** The drop is $300 - 180 = 120$, and $\\frac{120}{300} = 0.4$, or $40\\%$.\n\n**The Full Solution:**\nStep 1: Read the two bars: quarter 2 is $300$ terabytes and quarter 3 is $180$ terabytes.\nStep 2: The decrease is $300 - 180 = 120$ terabytes.\nStep 3: Percent decrease divides the change by the original amount: $\\frac{120}{300} = 0.4 = 40\\%$; check: $300$ reduced by $40\\%$ is $300 - 0.4(300) = 180$ ✓\n\n**Common Mistakes:**\n* Dividing by the new value gives $\\frac{120}{180} \\approx 66.7$, which answers how much quarter 3 would have to grow to reach quarter 2.\n* Reporting the share that remains gives $\\frac{180}{300} = 60$, the percent kept rather than the percent lost.\n* Reporting the raw drop gives $120$, a count of terabytes rather than a percent.\n\n**Test Day Takeaway:** Percent change always divides by the starting value — the quantity you are moving away from, never the one you land on.",
+      explanation: "**SAT Pattern: Percent Decrease**\n\n**The correct answer is $40$.**\n\n**The Fast Way (~20s):** Sales fell by $300 - 180 = 120$ books, and $\\frac{120}{300} = 0.4$, or $40\\%$.\n\n**The Full Solution:**\nStep 1: Read the two bars: the bookstore sold $300$ books in February and $180$ books in March.\nStep 2: The decrease is $300 - 180 = 120$ books.\nStep 3: Percent decrease divides the change by the starting amount: $\\frac{120}{300} = 0.4$, or $40\\%$, so $p = 40$. Check: $300$ decreased by $40\\%$ is $300 - 0.4(300) = 180$ ✓\n\n**Common Mistakes:**\n* $66.7$: divides by the March value, $\\frac{120}{180} \\approx 0.667$, which is the percent increase needed to get back from March to February.\n* $60$: reports $\\frac{180}{300} = 0.6$, the percent of February's sales that remained, not the percent lost.\n* $120$: reports the drop in books, which is a count, not a percent.\n\n**Test Day Takeaway:** Percent change always divides by the starting value, the amount you move away from, never the amount you end at.",
       skills: ["percent-change"]
     },
     {
@@ -284,18 +284,18 @@ export const practiceTest5M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 6,
-      question: "A chemist starts with $m$ milliliters of stock solution, transfers $\\frac{2}{5}$ of it to flask A, then transfers $30$ milliliters of what remains to flask B, and finally discards half of what is still in the original container. Which expression gives the number of milliliters left in the original container?",
+      question: "Ana had $m$ dollars. She spent $\\frac{2}{5}$ of the money on a jacket and then spent \\$30 on shoes. She saved half of the money she had left. Which expression represents the amount of money, in dollars, that Ana saved?",
       choices: [
         { id: "A", text: "$\\frac{3}{10}m - 15$" },
-        // distractor: halves only the m term and carries the 30 through unhalved
+        // distractor: halves only the m term and keeps the full 30 instead of halving it
         { id: "B", text: "$\\frac{3}{10}m - 30$" },
-        // distractor: halves the 2/5 that went to flask A instead of the 3/5 that stayed behind
+        // distractor: halves the 2/5 spent on the jacket instead of the 3/5 that remained
         { id: "C", text: "$\\frac{1}{5}m - 15$" },
-        // distractor: stops after the transfer to flask B and never discards half
+        // distractor: stops after the shoes and never takes half of what was left
         { id: "D", text: "$\\frac{3}{5}m - 30$" }
       ],
       correctAnswer: "A",
-      explanation: "**SAT Pattern: Word-to-Expression Translation**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** After flask A, $\\frac{3}{5}m$ remains; after flask B, $\\frac{3}{5}m - 30$; halving that gives $\\frac{3}{10}m - 15$.\n\n**The Full Solution:**\nStep 1: Transferring $\\frac{2}{5}$ of the stock leaves $1 - \\frac{2}{5} = \\frac{3}{5}$ of it, so $\\frac{3}{5}m$ milliliters stay in the container.\nStep 2: Removing $30$ milliliters more leaves $\\frac{3}{5}m - 30$.\nStep 3: Discarding half leaves half of that: $\\frac{1}{2}\\left(\\frac{3}{5}m - 30\\right) = \\frac{3}{10}m - 15$; check with $m = 100$: $60$ remain, then $30$, then $15$, and $\\frac{3}{10}(100) - 15 = 15$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{3}{10}m - 30$): halves the fraction but forgets that the $30$ milliliters already removed is inside the parentheses too; at $m = 100$ it gives $0$ instead of $15$.\n* Choice C ($\\frac{1}{5}m - 15$): halves $\\frac{2}{5}m$, the amount that left for flask A, rather than the $\\frac{3}{5}m$ that stayed; at $m = 100$ it gives $5$.\n* Choice D ($\\frac{3}{5}m - 30$): tracks the first two transfers correctly and then stops, ignoring the final instruction to discard half; at $m = 100$ it gives $30$.\n\n**Test Day Takeaway:** Translate one clause at a time, keeping a running expression for what is left — and when a fraction acts on everything so far, put the whole expression in parentheses first.",
+      explanation: "**SAT Pattern: Word-to-Expression Translation**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** After the jacket Ana has $\\frac{3}{5}m$; after the shoes, $\\frac{3}{5}m - 30$; half of that is $\\frac{3}{10}m - 15$.\n\n**The Full Solution:**\nStep 1: Spending $\\frac{2}{5}$ of the money leaves $m - \\frac{2}{5}m = \\frac{3}{5}m$ dollars.\nStep 2: Spending $30$ more dollars leaves $\\frac{3}{5}m - 30$ dollars.\nStep 3: Half of that is saved: $\\frac{1}{2}\\left(\\frac{3}{5}m - 30\\right) = \\frac{3}{10}m - 15$. Check with $m = 100$: $100 - 40 = 60$, then $60 - 30 = 30$, then half is $15$, and $\\frac{3}{10}(100) - 15 = 15$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{3}{10}m - 30$): halves the $\\frac{3}{5}m$ but not the $30$; the half applies to the whole amount left.\n* Choice C ($\\frac{1}{5}m - 15$): halves the $\\frac{2}{5}$ that was spent instead of the $\\frac{3}{5}$ that remained.\n* Choice D ($\\frac{3}{5}m - 30$): is the amount Ana had left after buying the shoes, before she saved half of it.\n\n**Test Day Takeaway:** Translate one step at a time and keep each result in parentheses; when a later step takes a fraction of what is left, it applies to every term, including the constant.",
       skills: ["word-problem-to-equation"]
     },
     {
@@ -303,9 +303,9 @@ export const practiceTest5M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 6,
-      question: "In an office floor plan, the points within range of a wireless access point satisfy $2x^2 + 2y^2 - 24x + 16y - 24 = 0$, where each unit is one meter. What is the greatest distance, in meters, from the access point at which a device stays in range?",
+      question: "$2x^{2} + 2y^{2} - 24x + 16y - 24 = 0$\nThe graph of the given equation in the $xy$-plane is a circle. What is the length of the circle's radius?",
       correctAnswer: "8",
-      explanation: "**SAT Pattern: Circle in General Form**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~40s):** Divide by $2$ to get $x^2 + y^2 - 12x + 8y - 12 = 0$; completing both squares gives $(x - 6)^2 + (y + 4)^2 = 64$, so the radius is $8$.\n\n**The Full Solution:**\nStep 1: The $x^2$ and $y^2$ terms must have coefficient $1$ before the squares can be completed, so divide every term by $2$: $x^2 + y^2 - 12x + 8y - 12 = 0$.\nStep 2: Group and complete: $x^2 - 12x$ needs $36$, and $y^2 + 8y$ needs $16$. Adding both to each side gives $(x - 6)^2 + (y + 4)^2 = 12 + 36 + 16 = 64$.\nStep 3: The equation is now in the form $(x - h)^2 + (y - k)^2 = r^2$, so $r^2 = 64$ and $r = 8$ meters; check the point $(14, -4)$, which is $8$ meters from the centre $(6, -4)$: $2(196) + 2(16) - 24(14) + 16(-4) - 24 = 392 + 32 - 336 - 64 - 24 = 0$ ✓\n\n**Common Mistakes:**\n* Completing the square without dividing by $2$ first gives $(x - 12)^2 + (y + 8)^2 = 232$ and a radius of about $15.2$ meters, because the halves of $-24$ and $16$ were taken from the wrong equation.\n* Reporting $r^2$ instead of $r$ gives $64$, the squared radius rather than the distance.\n* Leaving the $-12$ on the left when moving the constant gives $(x - 6)^2 + (y + 4)^2 = 40$ and a radius of about $6.3$ meters.\n\n**Test Day Takeaway:** General form only becomes a circle after the squared terms have coefficient $1$ — divide first, complete both squares second, and take the square root last.",
+      explanation: "**SAT Pattern: Circle in General Form**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~40s):** Dividing by $2$ gives $x^{2} - 12x + y^{2} + 8y = 12$; completing both squares adds $36 + 16$, so $(x - 6)^{2} + (y + 4)^{2} = 64$ and the radius is $8$.\n\n**The Full Solution:**\nStep 1: Divide every term by $2$ and move the constant: $x^{2} - 12x + y^{2} + 8y = 12$.\nStep 2: Complete each square. Half of $-12$ is $-6$, and $(-6)^{2} = 36$; half of $8$ is $4$, and $4^{2} = 16$. Add both to each side: $(x - 6)^{2} + (y + 4)^{2} = 12 + 36 + 16 = 64$.\nStep 3: The equation has the form $(x - h)^{2} + (y - k)^{2} = r^{2}$ with $r^{2} = 64$, so $r = 8$. Check: the point $(14, -4)$ is $8$ units from the center $(6, -4)$, and $2(196) + 2(16) - 24(14) + 16(-4) - 24 = 392 + 32 - 336 - 64 - 24 = 0$ ✓\n\n**Common Mistakes:**\n* $64$: reports $r^{2}$ instead of taking its square root.\n* $16$: reports the diameter, $2r$, instead of the radius.\n* $6.32$: moves the constant with the wrong sign, getting $r^{2} = -12 + 36 + 16 = 40$ and $r = \\sqrt{40} \\approx 6.32$.\n\n**Test Day Takeaway:** Divide out a common leading coefficient first, then complete the square in both $x$ and $y$, adding the same amounts to the other side; the number on the right is $r^{2}$, not $r$.",
       skills: ["circle-equation", "completing-square-circles"]
     },
     {
@@ -313,18 +313,18 @@ export const practiceTest5M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 6,
-      question: "A titration controller reports a target reading $k$ for each delivered volume $v$, in milliliters, and over the controller's working range the two satisfy the equation $7v - 4 = k$. In terms of $k$, which expression is equal to $21v + 5$?",
+      question: "$7x - 4 = k$\nIn the given equation, $k$ is a constant. Which expression is equal to $21x + 5$?",
       choices: [
-        // distractor: adds 12 and 5 correctly but never triples k, treating 21v as k + 12
+        // distractor: adds 12 and 5 correctly but never triples k, treating 21x as k + 12
         { id: "A", text: "$k + 17$" },
-        // distractor: triples k but not the 4, writing 21v as 3k + 4 before adding 5
+        // distractor: triples k but not the 4, writing 21x as 3k + 4 before adding 5
         { id: "B", text: "$3k + 9$" },
-        // distractor: stops at 21v = 3k + 12 and forgets to add the 5
+        // distractor: stops at 21x = 3k + 12 and forgets to add the 5
         { id: "C", text: "$3k + 12$" },
         { id: "D", text: "$3k + 17$" }
       ],
       correctAnswer: "D",
-      explanation: "**SAT Pattern: Shifted Output**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** $7v = k + 4$, so $21v = 3k + 12$ and $21v + 5 = 3k + 17$.\n\n**The Full Solution:**\nStep 1: Solve the given equation for the whole quantity $7v$ rather than for $v$: adding $4$ to both sides gives $7v = k + 4$.\nStep 2: The target expression contains $21v = 3(7v)$, so multiply both sides by $3$: $21v = 3(k + 4) = 3k + 12$.\nStep 3: Add $5$: $21v + 5 = 3k + 17$; check with $v = 2$, where $k = 7(2) - 4 = 10$: $21(2) + 5 = 47$ and $3(10) + 17 = 47$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($k + 17$): adds $12$ and $5$ but leaves $k$ untripled; at $v = 2$, $k = 10$, this gives $27$ instead of $47$.\n* Choice B ($3k + 9$): distributes the $3$ to $k$ only, writing $21v = 3k + 4$, then adds $5$; at $v = 2$ it gives $39$.\n* Choice C ($3k + 12$): scales correctly to $21v$ but never adds the $+5$ the expression carries; at $v = 2$ it gives $42$.\n\n**Test Day Takeaway:** Do not solve for the variable — solve for the block the question needs, then scale and shift the whole equation in one move.",
+      explanation: "**SAT Pattern: Shifted Output**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Tripling the given equation gives $21x - 12 = 3k$, so $21x = 3k + 12$ and $21x + 5 = 3k + 17$.\n\n**The Full Solution:**\nStep 1: Since $21x = 3(7x)$, multiply both sides of the given equation by $3$: $21x - 12 = 3k$.\nStep 2: Add $12$ to both sides: $21x = 3k + 12$.\nStep 3: Add $5$ to both sides: $21x + 5 = 3k + 17$. Check with $x = 1$: $k = 7(1) - 4 = 3$, and $21(1) + 5 = 26$, while $3(3) + 17 = 26$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($k + 17$): adds the constants correctly but never multiplies $k$ by $3$, even though $21x$ is $3$ times $7x$.\n* Choice B ($3k + 9$): multiplies $k$ by $3$ but not the $4$, so it uses $21x = 3k + 4$ before adding $5$.\n* Choice C ($3k + 12$): finds $21x$ correctly but forgets to add the $5$.\n\n**Test Day Takeaway:** Look for the multiple that turns the given expression into the target one, apply it to both sides of the equation, and only then adjust the constant.",
       skills: ["solving-equations", "ratios"]
     },
     {
@@ -332,18 +332,18 @@ export const practiceTest5M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 6,
-      question: "An engineer models a server room's cooling load $L$, in kilowatts, as $L(n) = 145 + 0.8n$, where $n$ is the number of thousands of requests per second the room's servers process during a monitoring window. Which statement best describes the meaning of $0.8$ in this model?",
+      question: "A bakery's daily cost, in dollars, is estimated by $C(n) = 145 + 0.8n$, where $n$ is the number of dozens of muffins the bakery bakes that day. What is the best interpretation of $0.8$ in this context?",
       choices: [
         // distractor: reads 0.8 as the starting value, which is the constant 145
-        { id: "A", text: "The cooling load is $0.8$ kilowatt when the servers process no requests." },
-        // distractor: ignores that n counts thousands of requests, so the rate is 0.8 kW per thousand, not per request
-        { id: "B", text: "The cooling load increases by $0.8$ kilowatt for each additional request per second." },
-        // distractor: inverts the rate, describing requests per kilowatt instead of kilowatts per thousand requests
-        { id: "C", text: "The servers process $0.8$ thousand additional requests per second for each additional kilowatt of cooling load." },
-        { id: "D", text: "The cooling load increases by $0.8$ kilowatt for each additional thousand requests per second." }
+        { id: "A", text: "The daily cost is \\$0.80 when the bakery bakes no muffins." },
+        // distractor: ignores that n counts dozens of muffins, so the rate is per dozen, not per muffin
+        { id: "B", text: "The daily cost increases by \\$0.80 for each additional muffin baked." },
+        { id: "C", text: "The daily cost increases by \\$0.80 for each additional dozen muffins baked." },
+        // distractor: inverts the rate, describing dozens per dollar instead of dollars per dozen
+        { id: "D", text: "The bakery bakes $0.8$ additional dozen muffins for each additional dollar of daily cost." }
       ],
-      correctAnswer: "D",
-      explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The slope is kilowatts per unit of $n$, and one unit of $n$ is one thousand requests per second.\n\n**The Full Solution:**\nStep 1: In $L(n) = 145 + 0.8n$ the number $0.8$ multiplies $n$, so it is the slope: the change in $L$ per one-unit change in $n$.\nStep 2: The units follow the variables. $L$ is measured in kilowatts and $n$ in thousands of requests per second, so $0.8$ is $0.8$ kilowatt per thousand requests per second.\nStep 3: Test it: $L(10) = 145 + 8 = 153$ and $L(11) = 145 + 8.8 = 153.8$, a rise of $0.8$ kilowatt when $n$ goes up by $1$, that is, by one thousand requests per second ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: describes a starting value, but the load when $n = 0$ is $L(0) = 145$ kilowatts, not $0.8$.\n* Choice B: attaches the rate to a single request; since $n$ counts thousands, the per-request rate is $0.8 \\div 1000 = 0.0008$ kilowatt.\n* Choice C: reverses the ratio and would make the rate $\\frac{1}{0.8} = 1.25$ thousand requests per second per kilowatt.\n\n**Test Day Takeaway:** Read the slope's units straight off the variable definitions — output unit per input unit — and check whether the input is counted in singles, thousands, or some other block.",
+      correctAnswer: "C",
+      explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $0.8$ is the coefficient of $n$, so it is the change in cost, in dollars, for each increase of $1$ in $n$, and $n$ counts dozens of muffins.\n\n**The Full Solution:**\nStep 1: The model is linear, $C(n) = 145 + 0.8n$, with slope $0.8$ and constant $145$.\nStep 2: The slope is the change in $C$ for each increase of $1$ in $n$; $C$ is in dollars, so the cost rises by $0.8$ dollars, or $80$ cents.\nStep 3: An increase of $1$ in $n$ means one more dozen muffins, so the daily cost increases by $80$ cents for each additional dozen muffins baked. Check: $C(11) - C(10) = 153.8 - 153 = 0.8$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: describes the cost when $n = 0$, which is the constant $145$, not $0.8$.\n* Choice B: treats $n$ as a number of muffins; since $n$ counts dozens, the $80$ cents is for $12$ muffins, not $1$.\n* Choice D: inverts the rate, describing dozens of muffins per dollar instead of dollars per dozen.\n\n**Test Day Takeaway:** The slope is the change in the output's units for one unit of the input; read the definition of the input carefully, because one unit may be a dozen, a hundred, or a thousand of something.",
       skills: ["slope-intercept-form"]
     },
     {
@@ -351,10 +351,10 @@ export const practiceTest5M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 7,
-      question: "A research group's document archive grows at a constant rate as files are ingested. The table gives the archive's stored volume, in gigabytes, on three days of its first month of operation. What was the stored volume, in gigabytes, on day $0$, when ingestion began?",
-      diagram: { type: "dataTable", params: { headers: ["Day", "Stored volume (GB)"], rows: [["6", "214"], ["14", "302"], ["22", "390"]] } },
+      question: "Water is pumped into a tank at a constant rate. The table shows the volume of water in the tank at three times after the pump was turned on. How many gallons of water were in the tank when the pump was turned on?",
+      diagram: { type: "dataTable", params: { headers: ["Time (minutes)", "Volume (gallons)"], rows: [["6", "214"], ["14", "302"], ["22", "390"]] } },
       correctAnswer: "148",
-      explanation: "**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $148$.**\n\n**The Fast Way (~35s):** The rate is $\\frac{302 - 214}{14 - 6} = 11$ GB per day, so day $0$ holds $214 - 6(11) = 148$ GB.\n\n**The Full Solution:**\nStep 1: Constant growth means the volume is a linear function of the day. Use two rows to find the rate: $\\frac{302 - 214}{14 - 6} = \\frac{88}{8} = 11$ gigabytes per day.\nStep 2: Day $0$ is $6$ days before the first row, so subtract $6$ days of growth from that row: $214 - 6(11) = 214 - 66 = 148$.\nStep 3: Check the third row from this start: $148 + 22(11) = 148 + 242 = 390$ gigabytes ✓\n\n**Common Mistakes:**\n* Subtracting a single day's growth gives $214 - 11 = 203$, which is the volume on day $5$, not day $0$.\n* Reporting the first listed value gives $214$, treating day $6$ as though it were the start of the record.\n* Dividing the $88$-gigabyte rise by $4$ instead of by the $8$ days between the rows gives a rate of $22$ and a start of $214 - 132 = 82$.\n\n**Test Day Takeaway:** With a constant rate, find the change per single unit first, then count how many units separate the row you have from the one you want.",
+      explanation: "**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $148$.**\n\n**The Fast Way (~35s):** The rate is $\\frac{302 - 214}{14 - 6} = 11$ gallons per minute, so at time $0$ the tank held $214 - 6(11) = 148$ gallons.\n\n**The Full Solution:**\nStep 1: A constant rate means the volume is a linear function of time. Use two rows to find the rate: $\\frac{302 - 214}{14 - 6} = \\frac{88}{8} = 11$ gallons per minute.\nStep 2: The pump was turned on $6$ minutes before the first row, so subtract $6$ minutes of pumping from that row: $214 - 6(11) = 214 - 66 = 148$.\nStep 3: Check the third row from this start: $148 + 22(11) = 148 + 242 = 390$ gallons ✓\n\n**Common Mistakes:**\n* $203$: subtracts only one minute of pumping, $214 - 11$, which is the volume at $5$ minutes, not $0$ minutes.\n* $214$: reports the first value in the table, treating $6$ minutes as the moment the pump was turned on.\n* $82$: divides the $88$-gallon rise by $4$ instead of by the $8$ minutes between the rows, getting a rate of $22$ and $214 - 6(22) = 82$.\n\n**Test Day Takeaway:** With a constant rate, find the change per single unit of time first, then count how many units separate the row you have from the time you want.",
       skills: ["slope-from-points"]
     },
     {
@@ -362,18 +362,18 @@ export const practiceTest5M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 7,
-      question: "A chemistry lab models the mass of precipitate, in grams, by $\\hat{y} = 1.8x + 22.5$, where $x$ is the reagent volume in milliliters. At $x = 25$, three trials produced masses of $62.7$, $64.5$, and $64.5$ grams. Which statement best compares the model's prediction at $x = 25$ with the mean measured mass?",
+      question: "The equation $y = 1.8x + 22.5$ models the height $y$, in centimeters, of a plant $x$ days after it sprouts. On day $25$, three plants had heights of $62.7$, $64.5$, and $64.5$ centimeters. Which of the following correctly compares the model's prediction for day $25$ with the mean of these heights?",
       choices: [
-        // distractor: uses the middle trial value 64.5 as the centre instead of the mean 63.9
-        { id: "A", text: "The model overestimates the mean measured mass by $3.0$ grams." },
-        { id: "B", text: "The model overestimates the mean measured mass by $3.6$ grams." },
-        // distractor: compares the prediction with the smallest trial, 62.7, instead of the mean
-        { id: "C", text: "The model overestimates the mean measured mass by $4.8$ grams." },
-        // distractor: reverses the comparison, subtracting the prediction from the measurement
-        { id: "D", text: "The model underestimates the mean measured mass by $3.6$ grams." }
+        // distractor: compares the prediction with the most common height, 64.5, instead of the mean 63.9
+        { id: "A", text: "The model overestimates the mean height by $3.0$ centimeters." },
+        { id: "B", text: "The model overestimates the mean height by $3.6$ centimeters." },
+        // distractor: compares the prediction with the smallest height, 62.7, instead of the mean
+        { id: "C", text: "The model overestimates the mean height by $4.8$ centimeters." },
+        // distractor: reverses the comparison, treating a measured mean below the prediction as an underestimate
+        { id: "D", text: "The model underestimates the mean height by $3.6$ centimeters." }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The model predicts $1.8(25) + 22.5 = 67.5$ grams; the trials average $63.9$ grams, and $67.5 - 63.9 = 3.6$ above.\n\n**The Full Solution:**\nStep 1: Evaluate the model at $x = 25$: $\\hat{y} = 1.8(25) + 22.5 = 45 + 22.5 = 67.5$ grams.\nStep 2: Average the three trials: $\\frac{62.7 + 64.5 + 64.5}{3} = \\frac{191.7}{3} = 63.9$ grams.\nStep 3: The prediction exceeds the measured mean by $67.5 - 63.9 = 3.6$ grams, so the model overestimates; check the direction: $63.9 + 3.6 = 67.5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3.0$ grams): uses $64.5$, the value two of the three trials share, as the centre, giving $67.5 - 64.5 = 3.0$; the question asks for the mean, which the low trial pulls down to $63.9$.\n* Choice C ($4.8$ grams): compares the prediction with the smallest trial alone, $67.5 - 62.7 = 4.8$, instead of with the average of all three.\n* Choice D (underestimates by $3.6$ grams): gets the size right but the direction backwards; the prediction $67.5$ is larger than the measured $63.9$, so the model runs high.\n\n**Test Day Takeaway:** Compare prediction with measurement in that order — predicted minus measured positive means the model runs high — and average every trial the question lists before comparing.",
+      explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The model predicts $1.8(25) + 22.5 = 67.5$ centimeters, the mean height is $\\frac{62.7 + 64.5 + 64.5}{3} = 63.9$ centimeters, and $67.5 - 63.9 = 3.6$, so the model is $3.6$ centimeters too high.\n\n**The Full Solution:**\nStep 1: Substitute $x = 25$: $y = 1.8(25) + 22.5 = 45 + 22.5 = 67.5$ centimeters.\nStep 2: Find the mean of the three heights: $\\frac{62.7 + 64.5 + 64.5}{3} = \\frac{191.7}{3} = 63.9$ centimeters.\nStep 3: The residual is actual minus predicted: $63.9 - 67.5 = -3.6$. A negative residual means the prediction is higher than the actual value, so the model overestimates by $3.6$ centimeters. Check: $63.9 + 3.6 = 67.5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3.0$): compares $67.5$ with $64.5$, the height that appears twice, instead of the mean.\n* Choice C ($4.8$): compares $67.5$ with the smallest height, $62.7$, instead of the mean.\n* Choice D: gets the size right but the direction wrong; the mean, $63.9$, is below the prediction, $67.5$, so the model overestimates.\n\n**Test Day Takeaway:** Average the measured values first, then subtract the prediction from the actual value; a negative residual means the model overestimates.",
       skills: ["calculate-mean", "slope-intercept-form"]
     }
   ]

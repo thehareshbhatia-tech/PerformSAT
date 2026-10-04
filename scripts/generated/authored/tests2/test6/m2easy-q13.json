@@ -1,6 +1,6 @@
 {
   "id": 13,
-  "question": "The function $C(w) = 3.5w - 14$ models the mass of honey, in kilograms, a hive holds above its winter reserve after $w$ weeks of a nectar flow. For what value of $w$ does the model give $56$ kilograms above the reserve?",
+  "question": "The function $f$ is defined by $f(x) = 3.5x - 14$. If $f(a) = 56$, what is the value of $a$?",
   "choices": [
     {
       "id": "A",
@@ -21,9 +21,9 @@
   ],
   "distractorNotes": {
     "A": "subtracts 14 instead of adding it: (56 - 14)/3.5 = 12",
-    "B": "divides 56 by 3.5 and ignores the -14 entirely",
-    "D": "substitutes 56 for w instead of for C(w): 3.5(56) - 14 = 182"
+    "B": "divides 56 by 3.5 and ignores the -14",
+    "D": "substitutes 56 for x instead of setting f(a) equal to 56: 3.5(56) - 14 = 182"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Solve $f(a) = c$**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Set $3.5w - 14 = 56$. Adding $14$ gives $3.5w = 70$, so $w = 20$.\n\n**The Full Solution:**\nStep 1: The question gives the output, so substitute it for $C(w)$: $3.5w - 14 = 56$.\nStep 2: Undo the subtraction first. Adding $14$ to both sides gives $3.5w = 70$.\nStep 3: Divide by the coefficient: $w = \\frac{70}{3.5} = 20$ weeks. Check forward: $3.5(20) - 14 = 70 - 14 = 56$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): subtracts the $14$ instead of adding it, computing $\\frac{56 - 14}{3.5} = 12$. Substituting $12$ gives $3.5(12) - 14 = 28$, not $56$.\n* Choice B ($16$): divides $56$ by $3.5$ and never undoes the $-14$. Substituting $16$ gives $56 - 14 = 42$.\n* Choice D ($182$): substitutes $56$ for $w$ instead of for $C(w)$, evaluating the function rather than solving it.\n\n**Test Day Takeaway:** $f(a) = c$ means the output is known and the input is not. Put the number where the function value goes, then undo the operations in reverse order."
+  "explanation": "**SAT Pattern: Solve $f(a) = c$**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Set $3.5a - 14 = 56$. Adding $14$ gives $3.5a = 70$, so $a = 20$.\n\n**The Full Solution:**\nStep 1: $f(a) = 56$ means the output is $56$, so substitute $a$ for $x$ and set the expression equal to $56$: $3.5a - 14 = 56$.\nStep 2: Add $14$ to both sides: $3.5a = 70$.\nStep 3: Divide by $3.5$: $a = \\frac{70}{3.5} = 20$. Check: $f(20) = 3.5(20) - 14 = 70 - 14 = 56$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): subtracts $14$ instead of adding it, computing $\\frac{56 - 14}{3.5} = 12$. But $f(12) = 28$, not $56$.\n* Choice B ($16$): divides $56$ by $3.5$ and never accounts for the $-14$. But $f(16) = 42$.\n* Choice D ($182$): computes $f(56)$, putting $56$ in for the input instead of the output.\n\n**Test Day Takeaway:** In $f(a) = c$, the output $c$ is known and the input $a$ is not. Set the expression equal to $c$ and undo the operations in reverse order."
 }

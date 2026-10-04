@@ -1,29 +1,29 @@
 {
-  "id": 19,
-  "question": "A site plan shows a drainage line that is perpendicular to the segment joining $(0, 8)$ and $(15, 2)$, and the point $(-2, 7)$ lies on the drainage line. Which of the following equations represents the drainage line, where $x$ and $y$ are measured in meters from a survey marker?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$y = -\\frac{5}{2}x + 2$"
-    },
-    {
-      "id": "B",
-      "text": "$y = -\\frac{2}{5}x + \\frac{31}{5}$"
-    },
-    {
-      "id": "C",
-      "text": "$y = \\frac{2}{5}x + \\frac{39}{5}$"
-    },
-    {
-      "id": "D",
-      "text": "$y = \\frac{5}{2}x + 12$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "takes the reciprocal of the segment's slope but keeps it negative, using -5/2 instead of 5/2",
-    "B": "reuses the segment's own slope of -2/5, giving a parallel line rather than a perpendicular one",
-    "C": "flips the sign of the segment's slope to 2/5 without taking the reciprocal"
+ "id": 19,
+ "question": "In the $xy$-plane, line $\\ell$ passes through the point $(-2, 7)$ and is perpendicular to the line that passes through the points $(0, 8)$ and $(15, 2)$. Which equation defines line $\\ell$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$y = -\\frac{5}{2}x + 2$"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** The segment's slope is $\\frac{2-8}{15-0}=-\\frac{2}{5}$, so the drainage line's slope is $\\frac{5}{2}$; through $(-2,7)$ that gives $y=\\frac{5}{2}x+12$.\n\n**The Full Solution:**\nStep 1: Slope of the segment: $\\dfrac{2-8}{15-0}=\\dfrac{-6}{15}=-\\dfrac{2}{5}$. Reducing the fraction matters here — the unreduced $-\\frac{6}{15}$ hides the clean reciprocal.\nStep 2: Perpendicular slopes are negative reciprocals, so the drainage line has slope $\\dfrac{5}{2}$. Both the sign and the flip are required.\nStep 3: Use $(-2,7)$: $7=\\dfrac{5}{2}(-2)+b=-5+b$, so $b=12$ and the line is $y=\\dfrac{5}{2}x+12$. Check: $\\left(-\\frac{2}{5}\\right)\\left(\\frac{5}{2}\\right)=-1$, and substituting $x=-2$ gives $y=7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y=-\\frac{5}{2}x+2$): flips the fraction but keeps the negative sign, so the slope is $-\\frac{5}{2}$ instead of $\\frac{5}{2}$.\n* Choice B ($y=-\\frac{2}{5}x+\\frac{31}{5}$): keeps the segment's own slope, producing a line parallel to the segment rather than perpendicular to it.\n* Choice C ($y=\\frac{2}{5}x+\\frac{39}{5}$): changes the sign but never takes the reciprocal, so the slope is $\\frac{2}{5}$.\n\n**Test Day Takeaway:** Perpendicular means negative AND reciprocal — do both moves, then confirm by multiplying the two slopes and looking for $-1$."
+  {
+   "id": "B",
+   "text": "$y = -\\frac{2}{5}x + \\frac{31}{5}$"
+  },
+  {
+   "id": "C",
+   "text": "$y = \\frac{2}{5}x + \\frac{39}{5}$"
+  },
+  {
+   "id": "D",
+   "text": "$y = \\frac{5}{2}x + 12$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "takes the reciprocal of -2/5 but keeps the negative sign, using slope -5/2",
+  "B": "uses the slope -2/5 of the given line itself, which gives a parallel line",
+  "C": "changes the sign of -2/5 but does not take the reciprocal, using slope 2/5"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** The given line has slope $\\frac{2 - 8}{15 - 0} = -\\frac{2}{5}$, so line $\\ell$ has slope $\\frac{5}{2}$. Then $7 = \\frac{5}{2}(-2) + b$ gives $b = 12$.\n\n**The Full Solution:**\nStep 1: Find the slope of the line through $(0, 8)$ and $(15, 2)$: $\\frac{2 - 8}{15 - 0} = \\frac{-6}{15} = -\\frac{2}{5}$.\nStep 2: Perpendicular slopes are negative reciprocals, so line $\\ell$ has slope $\\frac{5}{2}$ and equation $y = \\frac{5}{2}x + b$.\nStep 3: Substitute $(-2, 7)$: $7 = \\frac{5}{2}(-2) + b = -5 + b$, so $b = 12$ and $y = \\frac{5}{2}x + 12$. Check: $\\frac{5}{2} \\cdot \\left(-\\frac{2}{5}\\right) = -1$, and $\\frac{5}{2}(-2) + 12 = 7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{5}{2}x + 2$): takes the reciprocal but keeps the negative sign, so the slopes multiply to $1$, not $-1$.\n* Choice B ($y = -\\frac{2}{5}x + \\frac{31}{5}$): uses the slope of the given line itself, which makes line $\\ell$ parallel to it.\n* Choice C ($y = \\frac{2}{5}x + \\frac{39}{5}$): changes the sign but does not take the reciprocal.\n\n**Test Day Takeaway:** A perpendicular slope needs two changes, flip and negate; check that the two slopes multiply to $-1$, then use the given point to find the $y$-intercept."
 }

@@ -1,6 +1,6 @@
 {
  "id": 16,
- "question": "Twelve daily wave heights, in decimeters, recorded at a buoy appear in the dot plot. A thirteenth reading of $4$ decimeters is then added. Which statement correctly describes how the mean and the median of the enlarged set differ from the original ones?",
+ "question": "The dot plot shows the number of books each of $12$ students read during the summer. A $13$th student, who read $4$ books, is added to the data. Which statement describes how the mean and the median of the $13$ values compare with those of the original $12$ values?",
  "diagram": {
   "type": "dotPlot",
   "params": {
@@ -36,7 +36,7 @@
    ],
    "xMin": 16,
    "xMax": 26,
-   "xLabel": "Wave height (decimeters)"
+   "xLabel": "Number of books"
   }
  },
  "choices": [
@@ -63,5 +63,5 @@
   "D": "reverses which measure resists an outlier, treating the median as the sensitive one and the mean as the stable one"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Outlier Effect**\n\n**Choice A is correct.**\n\n**The Fast Way (~50s):** The new reading sits far below every other, so it pulls the mean down hard (from $20.75$ to about $19.46$) while the median slides only one position (from $20.5$ to $20$).\n\n**The Full Solution:**\nStep 1: Read the original $12$ readings off the dot plot: $18$, $19$, $19$, $20$, $20$, $20$, $21$, $21$, $22$, $22$, $23$, $24$. Their sum is $249$, so the mean is $\\dfrac{249}{12}=20.75$, and the median is the average of the sixth and seventh values, $\\dfrac{20+21}{2}=20.5$.\nStep 2: Add the reading of $4$. The new sum is $253$ over $13$ readings, so the new mean is $\\dfrac{253}{13}\\approx 19.46$ — a drop of about $1.29$.\nStep 3: With $13$ values the median is the seventh in order. Sorted, the list starts $4$, $18$, $19$, $19$, $20$, $20$, $20$, so the new median is $20$ — a drop of exactly $0.5$. Since $1.29>0.5$, both measures fall and the mean falls by more ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: assumes the far-away value drags the median as hard as it drags the mean. The median only counts positions, so it moved a single step, from $20.5$ to $20$.\n* Choice C: assumes an outlier below the whole data set cannot touch the median. Adding a thirteenth value changes the middle from a two-value average to a single value, which moved it.\n* Choice D: has the roles backwards. The mean uses every value's size, so it is the one an extreme reading distorts.\n\n**Test Day Takeaway:** An extreme value moves the mean by its full distance spread over the count, but moves the median only as far as the next value in line. When a question compares them, compute both — the ordering of the two drops is the whole question."
+ "explanation": "**SAT Pattern: Outlier Effect**\n\n**Choice A is correct.**\n\n**The Fast Way (~50s):** The new value is far below all the others, so it pulls the mean down from $20.75$ to about $19.46$, while the median moves only from $20.5$ to $20$.\n\n**The Full Solution:**\nStep 1: From the dot plot, the $12$ values are $18$, $19$, $19$, $20$, $20$, $20$, $21$, $21$, $22$, $22$, $23$, $24$. Their sum is $249$, so the mean is $\\frac{249}{12}=20.75$. The median is the average of the sixth and seventh values, $\\frac{20+21}{2}=20.5$.\nStep 2: With the value $4$ added, the sum is $253$ and there are $13$ values, so the new mean is $\\frac{253}{13}\\approx 19.46$, a decrease of about $1.29$.\nStep 3: With $13$ values, the median is the seventh value. In order, the list begins $4$, $18$, $19$, $19$, $20$, $20$, $20$, so the new median is $20$, a decrease of $0.5$. Since $1.29>0.5$, both measures decrease and the mean decreases by more ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: assumes the median moves as much as the mean. The median depends only on position, so it moves just from $20.5$ to $20$.\n* Choice C: assumes a value below all the others cannot change the median. Adding a value changes which position is the middle, and here that lowers the median.\n* Choice D: reverses the roles. The mean uses the size of every value, so it is the measure an extreme value changes most.\n\n**Test Day Takeaway:** An extreme value shifts the mean by its distance from the mean divided by the new count, but shifts the median by at most one position. When choices compare the two changes, compute both."
 }

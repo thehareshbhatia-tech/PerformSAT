@@ -1,29 +1,29 @@
 {
  "id": 20,
- "question": "In the equation $7(x-2c)+3x=6x+2c$, the constant $c$ is a transit planner's base block length in meters, and $x$ is the length of a redesigned block. Which expression gives the solution for $x$ in terms of $c$?",
+ "question": "$\\frac{3x+2c}{4}=\\frac{4x-c}{6}$\nIn the given equation, $c$ is a constant. Which of the following is the solution to the given equation?",
  "choices": [
   {
    "id": "A",
-   "text": "$-3c$"
+   "text": "$-8c$"
   },
   {
    "id": "B",
-   "text": "$c$"
+   "text": "$-4c$"
   },
   {
    "id": "C",
-   "text": "$4c$"
+   "text": "$-3c$"
   },
   {
    "id": "D",
-   "text": "$16c$"
+   "text": "$3c$"
   }
  ],
  "distractorNotes": {
-  "A": "carries -14c across the equal sign with the wrong sign, solving 10x + 14c = 6x + 2c to get 4x = -12c",
-  "B": "distributes the 7 only to the x, using 7x - 2c instead of 7x - 14c, which leaves 4x = 4c",
-  "D": "never combines 7x with 3x, solving 7x - 14c = 6x + 2c and getting x = 16c"
+  "B": "multiplies both sides by 12 but distributes the 2 over 4x - c as 8x + 2c, getting 9x + 6c = 8x + 2c and x = -4c",
+  "C": "multiplies both sides by 12 but applies the factors 3 and 2 only to the x-terms, getting 9x + 2c = 8x - c and x = -3c",
+  "D": "drops both denominators instead of multiplying by their least common multiple, solving 3x + 2c = 4x - c to get x = 3c"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Distribute and gather like terms: $10x-14c=6x+2c$ becomes $4x=16c$, so $x=4c$.\n\n**The Full Solution:**\nStep 1: Distribute the $7$ across both terms in the parentheses: $7(x-2c)=7x-14c$. The left side is now $7x-14c+3x$.\nStep 2: Combine the like terms on the left: $7x+3x=10x$, so the equation reads $10x-14c=6x+2c$. Move the $x$-terms to one side and the $c$-terms to the other: subtracting $6x$ and adding $14c$ to both sides gives $4x=16c$.\nStep 3: Divide both sides by $4$: $x=4c$. Check with $c=5$: the left side is $7(20-10)+3(20)=70+60=130$ and the right side is $6(20)+2(5)=120+10=130$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3c$): moves $-14c$ across the equal sign without changing its sign, producing $4x=-12c$. At $c=5$ that would make a block length negative.\n* Choice B ($c$): distributes the $7$ to the $x$ only, using $7x-2c$. That drops $12c$ from the equation and leaves $4x=4c$.\n* Choice D ($16c$): never combines $7x$ with the $3x$, solving $7x-14c=6x+2c$ instead. One like term left behind changes the coefficient of $x$ from $4$ to $1$.\n\n**Test Day Takeaway:** With a constant in the equation, distribute to every term inside the parentheses and sweep up all like terms before moving anything. The answer is an expression in that constant, so substitute a convenient value at the end to verify both sides agree."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** Multiply both sides by $12$: $3(3x+2c)=2(4x-c)$, so $9x+6c=8x-2c$ and $x=-8c$.\n\n**The Full Solution:**\nStep 1: The least common multiple of $4$ and $6$ is $12$. Multiplying both sides by $12$ gives $3(3x+2c)=2(4x-c)$.\nStep 2: Distribute to every term: $9x+6c=8x-2c$.\nStep 3: Subtract $8x$ and $6c$ from both sides: $x=-8c$. Check with $c=1$, so $x=-8$: the left side is $\\frac{3(-8)+2}{4}=\\frac{-22}{4}=-5.5$, and the right side is $\\frac{4(-8)-1}{6}=\\frac{-33}{6}=-5.5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-4c$): distributes the $2$ over $4x-c$ as $8x+2c$, losing the negative sign, and solves $9x+6c=8x+2c$.\n* Choice C ($-3c$): multiplies only the $x$-terms by $3$ and $2$, solving $9x+2c=8x-c$.\n* Choice D ($3c$): drops both denominators, solving $3x+2c=4x-c$, which changes the equation.\n\n**Test Day Takeaway:** When an equation contains a constant such as $c$, solve it exactly as you would with numbers: clear the fractions with the least common multiple, distribute to every term, then isolate $x$. Substitute a convenient value of $c$ to check."
 }

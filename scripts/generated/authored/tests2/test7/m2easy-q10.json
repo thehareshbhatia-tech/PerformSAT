@@ -1,29 +1,29 @@
 {
-  "id": 10,
-  "question": "A stationery wholesaler charges $C = 4.5n + k$ dollars for an order of $n$ notebooks, where $k$ is a fixed handling fee. An order of $60$ notebooks costs $\\$312$. What is the cost, in dollars, of an order of $100$ notebooks?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$450$"
-    },
-    {
-      "id": "B",
-      "text": "$492$"
-    },
-    {
-      "id": "C",
-      "text": "$520$"
-    },
-    {
-      "id": "D",
-      "text": "$534$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "computes 4.5(100) and omits the \\$42 handling fee entirely",
-    "C": "scales the \\$312 total proportionally, 312(100/60) = 520, treating the cost as directly proportional to n",
-    "D": "adds the \\$42 handling fee twice: 450 + 2(42) = 534"
+ "id": 10,
+ "question": "The total cost, in dollars, of $n$ notebooks is $4.5n + k$, where $k$ is a constant. If $60$ notebooks cost a total of $\\$312$, what is the total cost, in dollars, of $100$ notebooks?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$450$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Linear Cost Setup**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $312-4.5(60)=42$ is the handling fee, so $100$ notebooks cost $4.5(100)+42=\\$492$.\n\n**The Full Solution:**\nStep 1: Substitute the known order into $C=4.5n+k$: $312=4.5(60)+k$, so $312=270+k$.\nStep 2: Solve for the fee: $k=312-270=42$ dollars. The fee is charged once per order, not once per notebook.\nStep 3: Now evaluate at $n=100$: $C=4.5(100)+42=450+42=492$ dollars. Check: the extra $40$ notebooks add $4.5(40)=\\$180$, and $312+180=492$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($450$): computes $4.5(100)$ and forgets the $\\$42$ handling fee.\n* Choice C ($520$): scales the $\\$312$ by $\\frac{100}{60}$. That would be right only if the cost were directly proportional to $n$, but the fixed fee breaks proportionality.\n* Choice D ($534$): adds the $\\$42$ fee a second time on top of the fee already inside the $\\$312$ order.\n\n**Test Day Takeaway:** A fixed fee makes cost linear but NOT proportional — solve for the fee first, then rebuild the total; never scale one total to another."
+  {
+   "id": "B",
+   "text": "$492$"
+  },
+  {
+   "id": "C",
+   "text": "$520$"
+  },
+  {
+   "id": "D",
+   "text": "$534$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "computes 4.5(100) and leaves out the constant k = 42",
+  "C": "scales the \\$312 total proportionally, 312(100/60) = 520, treating the cost as directly proportional to n",
+  "D": "adds the constant k = 42 twice: 450 + 2(42) = 534"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Linear Cost Setup**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** From $4.5(60) + k = 312$, $k = 312 - 270 = 42$. Then $4.5(100) + 42 = 492$.\n\n**The Full Solution:**\nStep 1: Substitute $n = 60$ and a total of $312$: $4.5(60) + k = 312$, so $270 + k = 312$.\nStep 2: Solve for the constant: $k = 42$, so the total cost is $4.5n + 42$.\nStep 3: Substitute $n = 100$: $4.5(100) + 42 = 450 + 42 = 492$. Check: $4.5(60) + 42 = 270 + 42 = 312$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($450$): computes $4.5(100)$ and leaves out the constant $42$.\n* Choice C ($520$): scales $\\$312$ by $\\frac{100}{60}$, which would be correct only if the cost had no constant term.\n* Choice D ($534$): adds $42$ twice, computing $450 + 2(42)$.\n\n**Test Day Takeaway:** When an expression has an unknown constant, use the given pair of values to find the constant first, then evaluate at the new input."
 }

@@ -11,15 +11,15 @@
  "choices": [
   {
    "id": "A",
-   "text": "Genetic analysis shows that dormouse populations in woodlands linked by hedgerows are more closely related to one another than are populations in similar woodlands that lack such connections."
+   "text": "Genetic analysis shows that dormouse populations in hedgerow-linked woodlands are more closely related to one another than are populations in similar unlinked woodlands."
   },
   {
    "id": "B",
-   "text": "Dormice living in hedgerows build nests that are similar in size and structure to the nests that dormice build in woodlands, according to surveys conducted across several regions, regardless of the season in which the nests are built."
+   "text": "Dormice living in hedgerows build nests that are similar in size and structure to the nests that dormice build in woodlands."
   },
   {
    "id": "C",
-   "text": "Woodland patches that are connected by hedgerows tend to be somewhat larger on average than woodland patches that stand alone."
+   "text": "Woodland patches that are connected by hedgerows tend to be somewhat larger on average than woodland patches that stand alone in open farmland."
   },
   {
    "id": "D",

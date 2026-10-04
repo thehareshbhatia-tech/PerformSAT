@@ -1,28 +1,28 @@
 {
  "id": 1,
- "question": "A hardware supplier posted clearance prices for four items, as listed in the table. The clearance price of the brass hinge is $60\\%$ of that item's original price. What was the original price, in dollars, of the brass hinge?",
+ "question": "The table shows the sale prices of four items at a store. The sale price of the lamp is $60\\%$ of its original price. What was the original price, in dollars, of the lamp?",
  "diagram": {
   "type": "dataTable",
   "params": {
    "headers": [
     "Item",
-    "Clearance price (dollars)"
+    "Sale price (dollars)"
    ],
    "rows": [
     [
-     "Brass hinge",
+     "Lamp",
      "27.00"
     ],
     [
-     "Copper elbow",
+     "Rug",
      "18.00"
     ],
     [
-     "Steel bracket",
+     "Chair",
      "32.50"
     ],
     [
-     "Nylon washer",
+     "Mug",
      "4.75"
     ]
    ]
@@ -47,10 +47,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "takes 60% OF the clearance price (0.60 x 27 = 16.20) instead of treating 27 as the 60%",
-  "B": "adds 60% of the clearance price to the clearance price (27 + 16.20 = 43.20)",
+  "A": "takes 60% of the sale price (0.60 x 27 = 16.20) instead of treating 27 as 60% of the original price",
+  "B": "adds 60% of the sale price to the sale price (27 + 16.20 = 43.20)",
   "D": "divides by the complement 0.40 instead of 0.60 (27 / 0.40 = 67.50)"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The clearance price is the part, not the whole. Divide: $27 \\div 0.60 = 45$.\n\n**The Full Solution:**\nStep 1: Let $p$ be the original price of the brass hinge. The table gives its clearance price as $27$ dollars, and the clearance price is $60\\%$ of the original price, so $0.60p = 27$.\nStep 2: Divide both sides by $0.60$: $p = \\frac{27}{0.60} = 45$.\nStep 3: Check by running the percent forward: $60\\%$ of $45$ is $0.60(45) = 27$, which matches the table entry.\n\n**Why the wrong answers are tempting:**\n* Choice A ($16.20$): takes $60\\%$ of the clearance price, $0.60(27) = 16.20$. That treats $27$ as the original price instead of as the reduced one, so the answer comes out smaller than the price you started with.\n* Choice B ($43.20$): adds $60\\%$ of $27$ back onto $27$, giving $27 + 16.20 = 43.20$. Adding a percent of the SMALLER number never undoes taking a percent of the LARGER one.\n* Choice D ($67.50$): divides by $0.40$ instead of $0.60$, giving $27 \\div 0.40 = 67.50$. The $40\\%$ is the part that was taken OFF; the $60\\%$ is the part that remains and is the one the $27$ represents.\n\n**Test Day Takeaway:** When a price is stated as a percent OF an unknown original, the given number is the product, so you divide by the percent. Multiplying is only correct when the whole is the number you already have."
+ "explanation": "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The table shows that the lamp's sale price is $27$ dollars, which is $60\\%$ of the original price, so the original price is $27 \\div 0.60 = 45$ dollars.\n\n**The Full Solution:**\nStep 1: Let $p$ be the original price, in dollars, of the lamp. The table shows that the sale price of the lamp is $27.00$ dollars.\nStep 2: The sale price is $60\\%$ of the original price, so $0.60p = 27$.\nStep 3: Divide both sides by $0.60$: $p = \\frac{27}{0.60} = 45$. Check: $0.60(45) = 27$, the lamp's sale price in the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($16.20$): takes $60\\%$ of the sale price, $0.60(27) = 16.20$. The $27$ dollars is already the $60\\%$; the original price is the whole.\n* Choice B ($43.20$): adds $60\\%$ of the sale price back onto the sale price, $27 + 0.60(27) = 43.20$. That increases $27$ by $60\\%$, which is not the same as undoing \"is $60\\%$ of.\"\n* Choice D ($67.50$): divides by $0.40$ instead of $0.60$, $\\frac{27}{0.40} = 67.50$, treating $60\\%$ as the discount rather than the part of the price that remains.\n\n**Test Day Takeaway:** When a known amount is a given percent of an unknown original, write $(\\text{percent})(\\text{original}) = \\text{known}$ and divide; never multiply the known amount by the percent."
 }

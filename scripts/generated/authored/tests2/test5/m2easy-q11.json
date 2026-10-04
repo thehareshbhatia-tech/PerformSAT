@@ -1,12 +1,12 @@
 {
  "id": 11,
- "question": "The mass of dissolved salt in a saline stock solution is proportional to the volume of solution drawn. The table gives the mass measured for three sample volumes. How many grams of dissolved salt are in $250$ milliliters of the stock solution?",
+ "question": "The mass of salt in a saltwater solution is proportional to the volume of the solution. The table shows the mass of salt in three samples of the solution. What is the mass, in grams, of salt in $250$ milliliters of the solution?",
  "diagram": {
   "type": "dataTable",
   "params": {
    "headers": [
-    "Sample volume (mL)",
-    "Dissolved salt (mg)"
+    "Volume (milliliters)",
+    "Mass of salt (milligrams)"
    ],
    "rows": [
     [
@@ -43,10 +43,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "divides the 425 mg by 10,000 instead of by 1,000",
-  "C": "divides the 425 mg by 100 instead of by 1,000",
+  "A": "divides the 425 milligrams by 10,000 instead of by 1,000",
+  "C": "divides the 425 milligrams by 100 instead of by 1,000",
   "D": "reports the mass in milligrams without converting to grams"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Proportion Solving**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $\\frac{34}{20} = 1.7$ mg per mL, so $250$ mL holds $425$ mg, and $425 \\div 1000 = 0.425$ gram.\n\n**The Full Solution:**\nStep 1: The relationship is proportional, so the mass per milliliter is constant: $\\frac{34}{20} = \\frac{85}{50} = \\frac{136}{80} = 1.7$ milligrams per milliliter.\nStep 2: For $250$ milliliters the mass is $1.7 \\times 250 = 425$ milligrams.\nStep 3: Since $1$ gram is $1{,}000$ milligrams, $425$ milligrams $= \\frac{425}{1000} = 0.425$ gram; check by scaling the third row: $250$ mL is $3.125$ times $80$ mL, and $136 \\times 3.125 = 425$ mg ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.0425$): divides by $10{,}000$, shifting the decimal one place too far; that would make a gram equal to $10{,}000$ milligrams.\n* Choice C ($4.25$): divides by $100$, the centi- conversion, instead of the $1{,}000$ that separates milligrams from grams.\n* Choice D ($425$): computes the mass correctly but leaves it in milligrams, ignoring the \"grams\" the question asks for.\n\n**Test Day Takeaway:** Find the unit rate from any row, scale it, and convert only at the end — then reread the question to confirm which unit the answer must be in."
+ "explanation": "**SAT Pattern: Proportion Solving**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Each milliliter holds $\\frac{34}{20} = 1.7$ milligrams of salt, so $250$ milliliters hold $425$ milligrams, which is $0.425$ gram.\n\n**The Full Solution:**\nStep 1: Find the constant of proportionality from any row: $\\frac{34}{20} = 1.7$ milligrams per milliliter (and $\\frac{85}{50} = \\frac{136}{80} = 1.7$ as well).\nStep 2: Multiply by the new volume: $1.7(250) = 425$ milligrams.\nStep 3: Convert to grams, using $1{,}000$ milligrams per gram: $\\frac{425}{1{,}000} = 0.425$ gram. Check: $\\frac{425}{250} = 1.7$, the same rate as the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.0425$): divides $425$ by $10{,}000$, moving the decimal point one place too far.\n* Choice C ($4.25$): divides $425$ by $100$, as if there were $100$ milligrams in a gram.\n* Choice D ($425$): is the mass in milligrams; the question asks for grams.\n\n**Test Day Takeaway:** Find the rate from the table first, then convert units only at the end; there are $1{,}000$ milligrams in a gram."
 }

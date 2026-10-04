@@ -1,29 +1,29 @@
 {
  "id": 2,
- "question": "A school district ordered $x$ hardcover copies and $y$ paperback copies of a novel, and the order satisfies both $4x + 9y = 140$ and $9x + 4y = 120$. Which equation must also be true?",
+ "question": "$4x + 9y = 140$\n$9x + 4y = 120$\nThe solution to the given system of equations is $(x, y)$. What is the value of $x + y$?",
  "choices": [
   {
    "id": "A",
-   "text": "$x + y = 10$"
+   "text": "$10$"
   },
   {
    "id": "B",
-   "text": "$x + y = 20$"
+   "text": "$20$"
   },
   {
    "id": "C",
-   "text": "$x + y = 130$"
+   "text": "$130$"
   },
   {
    "id": "D",
-   "text": "$x + y = 260$"
+   "text": "$260$"
   }
  ],
  "distractorNotes": {
-  "A": "divides the summed equation by 26 instead of 13 (260/26 = 10), doubling the coefficient",
-  "C": "divides the summed right side by 2, the number of equations (260/2 = 130)",
-  "D": "adds the two equations but never divides by 13, leaving 13x + 13y = 260"
+  "A": "adds the coefficients 13 + 13 = 26 and divides 260 by 26, treating 13x + 13y as 26(x + y)",
+  "C": "divides the summed right side by 2, the number of equations (260 / 2 = 130)",
+  "D": "adds the two equations but never divides by 13, reporting the right side of 13x + 13y = 260"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Adding the two equations gives $13x + 13y = 260$. Divide by $13$: $x + y = 20$.\n\n**The Full Solution:**\nStep 1: Add the equations term by term. The $x$-terms give $4x + 9x = 13x$, the $y$-terms give $9y + 4y = 13y$, and the constants give $140 + 120 = 260$. So $13x + 13y = 260$.\nStep 2: Factor the left side as $13(x + y) = 260$, then divide both sides by $13$ to get $x + y = 20$.\nStep 3: Check with the actual solution. Solving the system gives $x = 8$ and $y = 12$: $4(8) + 9(12) = 32 + 108 = 140$ and $9(8) + 4(12) = 72 + 48 = 120$, and $8 + 12 = 20$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($x + y = 10$): divides $260$ by $26$ rather than $13$. Adding the coefficients $4$ and $9$ gives $13$, not $26$ — the $13$ appears once in front of $x$ and once in front of $y$, but it is factored out only once.\n* Choice C ($x + y = 130$): divides $260$ by $2$ because two equations were added. The number of equations is never the divisor; the common coefficient is.\n* Choice D ($x + y = 260$): stops at $13x + 13y = 260$ and drops the $13$ without dividing. The sum $x + y$ is thirteen times smaller than $260$.\n\n**Test Day Takeaway:** When a question asks for $x + y$ rather than for $x$ and $y$ separately, add or subtract the equations and look for a common factor. Solving the whole system first is legal but costs far more time."
+ "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Adding the two equations gives $13x + 13y = 260$, and dividing both sides by $13$ gives $x + y = 20$.\n\n**The Full Solution:**\nStep 1: Add the left sides and the right sides of the two equations: $(4x + 9y) + (9x + 4y) = 140 + 120$, so $13x + 13y = 260$.\nStep 2: Every term on the left side has a factor of $13$, so divide both sides by $13$: $x + y = 20$.\nStep 3: Check by solving the system. Subtracting the first equation from the second gives $5x - 5y = -20$, so $x - y = -4$. With $x + y = 20$, this gives $x = 8$ and $y = 12$, and $4(8) + 9(12) = 140$ and $9(8) + 4(12) = 120$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): treats $13x + 13y$ as $26(x + y)$ by adding the two coefficients, then divides $260$ by $26$.\n* Choice C ($130$): divides $260$ by $2$, the number of equations, instead of by the common coefficient $13$.\n* Choice D ($260$): adds the equations correctly but stops at $13x + 13y = 260$, reporting the right side without dividing by $13$.\n\n**Test Day Takeaway:** When a question asks for a combination such as $x + y$, look for a way to add or subtract the equations so the coefficients match; you may never need $x$ and $y$ separately."
 }

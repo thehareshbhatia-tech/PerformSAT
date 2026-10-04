@@ -1,6 +1,6 @@
 {
  "id": 4,
- "question": "A quality inspector examines a rack of $30$ shirts, $6$ of which have a stitching flaw. One shirt with a flaw is removed from the rack. Which expression gives the probability that a shirt then chosen at random from the rack has a flaw?",
+ "question": "A bag has $30$ marbles, and $6$ are red. After one red marble is removed, one of the remaining marbles will be selected at random. What is the probability of selecting a red marble?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "reduces the flawed count to 5 but leaves the total at 30, forgetting the removed shirt leaves the rack",
+  "A": "reduces the red count to 5 but leaves the total at 30, forgetting the removed marble leaves the bag",
   "C": "ignores the removal entirely and uses the original 6 out of 30",
-  "D": "reduces the total to 29 but leaves the flawed count at 6, forgetting the shirt removed was itself flawed"
+  "D": "reduces the total to 29 but leaves the red count at 6, forgetting the removed marble was red"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Probability Without Replacement**\n\n**Choice B is correct.** Removing one flawed shirt lowers both counts: $5$ flawed shirts remain among $29$ shirts, so the probability is $\\frac{5}{29}$.\n\n**The Fast Way (~15s):** Subtract $1$ from the flawed count and $1$ from the total, since the removed shirt was flawed: $\\frac{6-1}{30-1} = \\frac{5}{29}$.\n\n**The Full Solution:**\nStep 1: At the start the rack holds $30$ shirts, of which $6$ have a flaw.\nStep 2: One flawed shirt is removed. The rack now holds $30 - 1 = 29$ shirts, of which $6 - 1 = 5$ have a flaw.\nStep 3: Probability is favorable outcomes over total outcomes, so the answer is $\\frac{5}{29}$. Check the complement: $\\frac{24}{29}$ shirts are flawless, and $\\frac{5}{29} + \\frac{24}{29} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{5}{30}$): the numerator is updated but the denominator is not; the shirt removed is no longer available to be chosen.\n* Choice C ($\\frac{6}{30}$): this is the probability before the removal, which is what \"with replacement\" would give.\n* Choice D ($\\frac{6}{29}$): the denominator is updated but the numerator is not; the shirt removed was one of the flawed ones, so the flawed count also drops.\n\n**Test Day Takeaway:** Without replacement, update every count the removed item belonged to — the total always, and the favorable count whenever the removed item was favorable."
+ "explanation": "**SAT Pattern: Probability Without Replacement**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** After one red marble is removed, $5$ red marbles remain out of $29$ marbles, so the probability is $\\frac{5}{29}$.\n\n**The Full Solution:**\nStep 1: Removing one red marble lowers the number of red marbles from $6$ to $5$.\nStep 2: The same removal lowers the total number of marbles from $30$ to $29$.\nStep 3: The probability of selecting a red marble is $\\frac{\\text{red marbles}}{\\text{total marbles}} = \\frac{5}{29}$. Check: the $29$ remaining marbles are $5$ red and $24$ not red, and $5 + 24 = 29$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{5}{30}$): updates the number of red marbles but not the total, even though the removed marble is no longer in the bag.\n* Choice C ($\\frac{6}{30}$): ignores the removal and gives the probability before any marble was taken out.\n* Choice D ($\\frac{6}{29}$): updates the total but not the number of red marbles, even though the marble removed was red.\n\n**Test Day Takeaway:** When an item is removed before a selection, change both the count of the outcome you want and the total."
 }

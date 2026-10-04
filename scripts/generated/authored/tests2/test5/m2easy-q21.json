@@ -1,12 +1,12 @@
 {
  "id": 21,
- "question": "A research group's document archive grows at a constant rate as files are ingested. The table gives the archive's stored volume, in gigabytes, on three days of its first month of operation. What was the stored volume, in gigabytes, on day $0$, when ingestion began?",
+ "question": "Water is pumped into a tank at a constant rate. The table shows the volume of water in the tank at three times after the pump was turned on. How many gallons of water were in the tank when the pump was turned on?",
  "diagram": {
   "type": "dataTable",
   "params": {
    "headers": [
-    "Day",
-    "Stored volume (GB)"
+    "Time (minutes)",
+    "Volume (gallons)"
    ],
    "rows": [
     [
@@ -25,5 +25,5 @@
   }
  },
  "correctAnswer": "148",
- "explanation": "**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $148$.**\n\n**The Fast Way (~35s):** The rate is $\\frac{302 - 214}{14 - 6} = 11$ GB per day, so day $0$ holds $214 - 6(11) = 148$ GB.\n\n**The Full Solution:**\nStep 1: Constant growth means the volume is a linear function of the day. Use two rows to find the rate: $\\frac{302 - 214}{14 - 6} = \\frac{88}{8} = 11$ gigabytes per day.\nStep 2: Day $0$ is $6$ days before the first row, so subtract $6$ days of growth from that row: $214 - 6(11) = 214 - 66 = 148$.\nStep 3: Check the third row from this start: $148 + 22(11) = 148 + 242 = 390$ gigabytes ✓\n\n**Common Mistakes:**\n* Subtracting a single day's growth gives $214 - 11 = 203$, which is the volume on day $5$, not day $0$.\n* Reporting the first listed value gives $214$, treating day $6$ as though it were the start of the record.\n* Dividing the $88$-gigabyte rise by $4$ instead of by the $8$ days between the rows gives a rate of $22$ and a start of $214 - 132 = 82$.\n\n**Test Day Takeaway:** With a constant rate, find the change per single unit first, then count how many units separate the row you have from the one you want."
+ "explanation": "**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $148$.**\n\n**The Fast Way (~35s):** The rate is $\\frac{302 - 214}{14 - 6} = 11$ gallons per minute, so at time $0$ the tank held $214 - 6(11) = 148$ gallons.\n\n**The Full Solution:**\nStep 1: A constant rate means the volume is a linear function of time. Use two rows to find the rate: $\\frac{302 - 214}{14 - 6} = \\frac{88}{8} = 11$ gallons per minute.\nStep 2: The pump was turned on $6$ minutes before the first row, so subtract $6$ minutes of pumping from that row: $214 - 6(11) = 214 - 66 = 148$.\nStep 3: Check the third row from this start: $148 + 22(11) = 148 + 242 = 390$ gallons ✓\n\n**Common Mistakes:**\n* $203$: subtracts only one minute of pumping, $214 - 11$, which is the volume at $5$ minutes, not $0$ minutes.\n* $214$: reports the first value in the table, treating $6$ minutes as the moment the pump was turned on.\n* $82$: divides the $88$-gallon rise by $4$ instead of by the $8$ minutes between the rows, getting a rate of $22$ and $214 - 6(22) = 82$.\n\n**Test Day Takeaway:** With a constant rate, find the change per single unit of time first, then count how many units separate the row you have from the time you want."
 }

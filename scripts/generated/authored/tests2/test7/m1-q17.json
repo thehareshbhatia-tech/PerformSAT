@@ -1,6 +1,6 @@
 {
  "id": 17,
- "question": "During a scene change a scrim slides toward a stage wall and back again, and its distance from that wall, in centimeters, after $x$ seconds is $f(x) = x^2 - 12x + c$ for a constant $c$. The scrim never touches the wall. What is the least integer value of $c$?",
+ "question": "$x^{2} - 12x + c = 0$\nIn the given equation, $c$ is an integer. If the equation has no real solutions, what is the least possible value of $c$?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "completes the square but subtracts 12 rather than 6 squared, giving c greater than 12",
-  "B": "uses the discriminant equal to zero, the case where the scrim just touches the wall instead of staying clear of it",
+  "A": "completes the square by subtracting 12 rather than 6 squared, concluding c > 12",
+  "B": "sets the discriminant equal to zero, the case with exactly one real solution",
   "D": "stops at b squared equals 144 and never divides by 4a"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** A distance that is never $0$ means $f(x) = 0$ has no real solution, so the discriminant is negative: $144 - 4c < 0$, giving $c > 36$ and a least integer of $37$.\n\n**The Full Solution:**\nStep 1: The scrim reaches the wall exactly when $f(x) = 0$, so $x^2 - 12x + c = 0$ must have no real solution, which requires $b^2 - 4ac < 0$.\nStep 2: With $a = 1$ and $b = -12$: $144 - 4c < 0$, so $4c > 144$ and $c > 36$.\nStep 3: The least integer greater than $36$ is $37$. Check by completing the square: $f(x) = (x - 6)^2 + (c - 36)$, so the closest approach is $c - 36 = 1$ centimeter at $x = 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($13$): this comes from completing the square with $12$ instead of $6^2 = 36$, giving $c > 12$. Half of $12$ is squared, so the constant removed is $36$.\n* Choice B ($36$): at $c = 36$ the discriminant is exactly $0$ and $f(6) = 0$, so the scrim touches the wall at $6$ seconds. \"Never reaches\" excludes touching, so $c = 36$ fails.\n* Choice D ($144$): this is $b^2$ alone. The discriminant subtracts $4ac$ from it, and the inequality is then solved for $c$.\n\n**Test Day Takeaway:** \"Never equals zero\" is the discriminant test $b^2 - 4ac < 0$. Solve the inequality, then check whether the boundary value itself is allowed — a strict inequality pushes the answer one integer past it."
+ "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** No real solutions means the discriminant is negative: $(-12)^{2} - 4(1)(c) < 0$, so $144 - 4c < 0$ and $c > 36$. The least integer greater than $36$ is $37$.\n\n**The Full Solution:**\nStep 1: A quadratic equation has no real solutions exactly when $b^{2} - 4ac < 0$. Here $a = 1$, $b = -12$, and the constant term is $c$.\nStep 2: Substitute: $144 - 4c < 0$, so $4c > 144$ and $c > 36$.\nStep 3: The least integer greater than $36$ is $37$. Check by completing the square: $x^{2} - 12x + 37 = (x - 6)^{2} + 1$, which is at least $1$ for every $x$, so it never equals $0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($13$): this comes from writing $x^{2} - 12x + c = (x - 6)^{2} + (c - 12)$. Half of $12$ is $6$, and $6^{2} = 36$ is the amount subtracted, not $12$.\n* Choice B ($36$): when $c = 36$, the discriminant is exactly $0$ and the equation $(x - 6)^{2} = 0$ has one real solution, $x = 6$.\n* Choice D ($144$): this is $b^{2}$ alone. The discriminant is $b^{2} - 4ac$, and the inequality must then be solved for $c$.\n\n**Test Day Takeaway:** \"No real solutions\" means $b^{2} - 4ac < 0$. Solve the inequality, then check whether the boundary value itself is allowed; a strict inequality pushes the answer past it."
 }

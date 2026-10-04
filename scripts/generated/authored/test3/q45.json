@@ -6,7 +6,7 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "type": "multiple-choice",
- "passage": "For decades, archaeologists could arrange the Ancestral Puebloan sites of the Southwest only in relative order, guessing at ages from styles of pottery and masonry. By matching the ring patterns of living trees to those in successively older wooden beams, the astronomer A. E. Douglass ______ an unbroken tree-ring sequence reaching back more than a thousand years, and by 1929 he could assign construction dates to hundreds of sites, sometimes to the very year a roof beam was cut.",
+ "passage": "Archaeologists once could only guess at the ages of Ancestral Puebloan sites in the Southwest. By 1929, the astronomer A. E. Douglass ______ an unbroken tree-ring sequence reaching back more than a thousand years, built by matching ring patterns in living trees with those in older beams. That year, he used it to assign calendar dates to dozens of the sites.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
@@ -27,9 +27,9 @@
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The sentence measures Douglass's work against a past reference point — \"by 1929 he could assign construction dates\" — and the past perfect \"had assembled\" is the form for an action completed before another past moment.\n\n**The Full Solution:**\n- The controlling clause is in the past (\"he could assign\"), and the assembling of the sequence is what made that past ability possible, so the assembling must be located earlier still.\n- English marks earlier-than-past with the past perfect; \"by 1929\" is the classic trigger for it.\n\n**Why the other choices are wrong:**\n- A: \"Assembles\" puts the work in the present, clashing with the past-tense frame of the sentence and the 1929 reference point.\n- B: \"Will assemble\" projects the work into the future, after the very date by which its results were already in use.\n- C: \"Has assembled\" ties the action to the present moment, but the sentence's timeline is anchored in the past; the present perfect cannot sit before \"by 1929 he could.\"",
+ "explanation": "**Choice D is correct.** The sentence measures Douglass's work against a past reference point — \"By 1929\" — and the past perfect \"had assembled\" is the form for an action completed before another past moment.\n\n**The Full Solution:**\n- The phrase \"By 1929\" fixes a moment in the past, and the next sentence reports what Douglass did with the finished sequence that same year, so the assembling must be located earlier still.\n- English marks earlier-than-past with the past perfect; \"by\" plus a past date is the classic trigger for it.\n\n**Why the other choices are wrong:**\n- A: \"Assembles\" puts the work in the present, clashing with the past-tense frame of the text and the 1929 reference point.\n- B: \"Will assemble\" projects the work into the future, after the very date by which its results were already in use.\n- C: \"Has assembled\" ties the action to the present moment, but the text's timeline is anchored in the past; the present perfect cannot be paired with \"By 1929.\"",
  "_meta": {
-  "anchor": "A. E. Douglass — tree-ring sequence dating Puebloan sites; past perfect",
+  "anchor": "A. E. Douglass — continuous tree-ring chronology completed 1929 (HH-39), used to date about 40 Southwestern sites; past perfect",
   "rule": "past perfect for action completed before a past reference point"
  }
 }

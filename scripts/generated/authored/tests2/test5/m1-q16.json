@@ -1,10 +1,10 @@
 {
  "id": 16,
- "question": "The table gives three values of $t$ and their corresponding values of $p(t)$, where $p$ is a quadratic function that models the power drawn, in kilowatts, by a well pump $t$ minutes after it starts. What is the minimum power, in kilowatts, given by this model?",
+ "question": "For the quadratic function $f$, the table shows three values of $x$ and their corresponding values of $f(x)$. What is the minimum value of $f(x)$?",
  "questionTable": {
   "headers": [
-   "$t$",
-   "$p(t)$"
+   "$x$",
+   "$f(x)$"
   ],
   "rows": [
    [
@@ -22,5 +22,5 @@
   ]
  },
  "correctAnswer": "12",
- "explanation": "**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~50s):** $p(3) = p(13)$ puts the vertex at $t = 8$; writing $p(t) = a(t - 8)^2 + k$ and using the two remaining values gives $16a = 32$, so $a = 2$ and $k = 12$.\n\n**The Full Solution:**\nStep 1: The table shows $p(3) = p(13) = 62$. A quadratic takes equal values at inputs equally distant from its axis of symmetry, so the axis is at $t = \\frac{3 + 13}{2} = 8$ and the model is $p(t) = a(t - 8)^2 + k$.\nStep 2: Substitute the two distinct data points. From $t = 3$: $a(3 - 8)^2 + k = 25a + k = 62$. From $t = 5$: $a(5 - 8)^2 + k = 9a + k = 30$. Subtracting gives $16a = 32$, so $a = 2$.\nStep 3: Back-substitute: $9(2) + k = 30$, so $k = 12$. Because $a = 2 > 0$ the parabola opens upward and $k$ is the minimum value. Check the third point: $p(13) = 2(13 - 8)^2 + 12 = 2(25) + 12 = 62$.\n\n**Common Mistakes:**\n* $8$: grids the $t$-value of the vertex instead of the power there. The axis of symmetry answers when, while the question asks how much.\n* $30$: assumes the smallest number in the table is the minimum. The table lists only three instants; the model's low point sits at $t = 8$, which is not tabulated.\n* $2$: reports the leading coefficient $a$. That number controls how steeply the power rises away from the low point, not the low point itself.\n\n**Test Day Takeaway:** Two equal outputs hand you the axis of symmetry for free — average their inputs. From there, one more point turns vertex form into two quick equations for $a$ and $k$."
+ "explanation": "**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~45s):** Since $f(3) = f(13)$, the vertex is at $x = 8$. Writing $f(x) = a(x - 8)^{2} + k$ and using the points $(3, 62)$ and $(5, 30)$ gives $16a = 32$, so $a = 2$ and $k = 12$.\n\n**The Full Solution:**\nStep 1: The table shows $f(3) = f(13) = 62$. A quadratic has equal outputs at inputs the same distance from its axis of symmetry, so the axis is $x = \\frac{3 + 13}{2} = 8$, and $f(x) = a(x - 8)^{2} + k$.\nStep 2: Substitute two points. From $(3, 62)$: $25a + k = 62$. From $(5, 30)$: $9a + k = 30$. Subtracting gives $16a = 32$, so $a = 2$.\nStep 3: Then $9(2) + k = 30$, so $k = 12$. Since $a > 0$, the parabola opens upward and $k = 12$ is the minimum value. Check: $f(13) = 2(13 - 8)^{2} + 12 = 50 + 12 = 62$ ✓\n\n**Common Mistakes:**\n* $8$: reports the $x$-coordinate of the vertex instead of the minimum value of $f(x)$.\n* $30$: takes the least output in the table as the minimum. The vertex is at $x = 8$, which is not in the table.\n* $2$: reports the leading coefficient $a$ instead of $k$.\n\n**Test Day Takeaway:** Two equal outputs give the axis of symmetry: average their inputs. Then one more point turns vertex form into two equations for $a$ and $k$."
 }

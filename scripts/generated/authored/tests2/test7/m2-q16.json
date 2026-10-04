@@ -1,12 +1,12 @@
 {
  "id": 16,
- "question": "Every crane at a container port unloads cargo at the same constant rate, and the table shows three completed unloadings from last week. At that same rate, how many hours do 9 cranes working together need to unload $1{,}620$ tonnes?",
+ "question": "The table shows the number of identical printers used, the number of pages printed, and the time taken for three print jobs. All of the printers print at the same constant rate. How many minutes would it take $9$ of these printers to print $1{,}620$ pages?",
  "questionTable": {
   "headers": [
-   "Unloading",
-   "Cranes used",
-   "Cargo unloaded (tonnes)",
-   "Time (hours)"
+   "Job",
+   "Printers used",
+   "Pages printed",
+   "Time (minutes)"
   ],
   "rows": [
    [
@@ -48,10 +48,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "treats 720 / 6 = 120 as tonnes per crane per hour, ignoring that unloading 2 ran for 4 hours",
-  "C": "uses unloading 2's whole-crew rate of 180 tonnes per hour and never adjusts from 6 cranes to 9",
-  "D": "uses unloading 1's whole-crew rate of 120 tonnes per hour and never adjusts from 4 cranes to 9"
+  "A": "treats 720 / 6 = 120 as pages per printer per minute, ignoring that job 2 took 4 minutes",
+  "C": "uses job 2's combined rate of 180 pages per minute without adjusting from 6 printers to 9",
+  "D": "uses job 1's combined rate of 120 pages per minute without adjusting from 4 printers to 9"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Proportion Solving**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** Each crane moves $\\frac{480}{4 \\cdot 4}=30$ tonnes per hour, so $9$ cranes move $270$ tonnes per hour and $\\frac{1{,}620}{270}=6$ hours.\n\n**The Full Solution:**\nStep 1: Reduce every row to one rate. Unloading 1 gives $\\frac{480}{(4)(4)}=30$, unloading 2 gives $\\frac{720}{(6)(4)}=30$, and unloading 3 gives $\\frac{900}{(5)(6)}=30$ tonnes per crane per hour — the table is consistent.\nStep 2: Scale up to the new crew. Nine cranes move $9 \\times 30 = 270$ tonnes each hour.\nStep 3: Divide. $\\frac{1{,}620}{270}=6$ hours. Check: $9$ cranes $\\times$ $6$ hours $\\times$ $30$ tonnes $= 1{,}620$ tonnes ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.5$): computes $\\frac{720}{6}=120$ and calls it tonnes per crane per hour, dropping the $4$ hours unloading 2 took; that inflates the rate fourfold and gives $\\frac{1{,}620}{9(120)}=1.5$.\n* Choice C ($9$): uses unloading 2's crew rate of $\\frac{720}{4}=180$ tonnes per hour without noticing the new crew has $9$ cranes, not $6$.\n* Choice D ($13.5$): uses unloading 1's crew rate of $\\frac{480}{4}=120$ tonnes per hour, again skipping the crane adjustment.\n\n**Test Day Takeaway:** When a table carries two varying inputs, collapse it to a rate per unit of BOTH — here tonnes per crane per hour. Any rate that mentions only one of the two inputs cannot transfer to a crew of a different size.\n"
+ "explanation": "**SAT Pattern: Proportion Solving**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** Each printer prints $\\frac{480}{4 \\cdot 4} = 30$ pages per minute, so $9$ printers print $270$ pages per minute, and $\\frac{1{,}620}{270} = 6$ minutes.\n\n**The Full Solution:**\nStep 1: Reduce each job to pages per printer per minute: job 1 gives $\\frac{480}{(4)(4)} = 30$, job 2 gives $\\frac{720}{(6)(4)} = 30$, and job 3 gives $\\frac{900}{(5)(6)} = 30$.\nStep 2: Nine printers print $9 \\times 30 = 270$ pages per minute.\nStep 3: Divide: $\\frac{1{,}620}{270} = 6$ minutes. Check: $9$ printers $\\times$ $6$ minutes $\\times$ $30$ pages $= 1{,}620$ pages ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.5$): computes $\\frac{720}{6} = 120$ and treats it as pages per printer per minute, ignoring the $4$ minutes job 2 took; that rate is four times too large and gives $\\frac{1{,}620}{9(120)} = 1.5$.\n* Choice C ($9$): uses job 2's combined rate, $\\frac{720}{4} = 180$ pages per minute, without adjusting from $6$ printers to $9$.\n* Choice D ($13.5$): uses job 1's combined rate, $\\frac{480}{4} = 120$ pages per minute, again without adjusting the number of printers.\n\n**Test Day Takeaway:** When two quantities vary in a table, reduce it to a rate per unit of both, here pages per printer per minute. A rate that accounts for only one of them cannot be applied to a different number of printers."
 }

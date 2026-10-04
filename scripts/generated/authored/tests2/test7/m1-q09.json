@@ -1,29 +1,29 @@
 {
  "id": 9,
- "question": "A water-treatment operator measured a chlorine concentration of 3.4 milligrams per liter 2 hours after dosing and 2.2 milligrams per liter 6 hours after dosing, and the concentration falls linearly with time. Which equation gives the concentration $c$, in milligrams per liter, $t$ hours after dosing?",
+ "question": "For the linear function $f$, $f(2) = 17$ and $f(6) = 5$. Which equation defines $f$?",
  "choices": [
   {
    "id": "A",
-   "text": "$c = 0.4 - 0.3t$"
+   "text": "$f(x) = -3x - 13$"
   },
   {
    "id": "B",
-   "text": "$c = 3.4 - 0.3t$"
+   "text": "$f(x) = -3x + 17$"
   },
   {
    "id": "C",
-   "text": "$c = 4.0 - 0.3t$"
+   "text": "$f(x) = -3x + 23$"
   },
   {
    "id": "D",
-   "text": "$c = 5.8 - 1.2t$"
+   "text": "$f(x) = -12x + 41$"
   }
  ],
  "distractorNotes": {
-  "A": "back-solves the intercept with the wrong sign, computing 2.2 - 0.3(6) = 0.4 instead of 2.2 + 0.3(6)",
-  "B": "uses the first measured concentration, 3.4, as the value at t = 0",
-  "D": "uses the total drop of 1.2 as the hourly rate instead of dividing it by the 4-hour gap, so the intercept becomes 3.4 + 1.2(2) = 5.8"
+  "A": "back-solves the y-intercept with the wrong sign, computing 5 - 3(6) = -13 instead of 5 + 3(6) = 23",
+  "B": "uses f(2) = 17 as the y-intercept, as if 17 were the value at x = 0",
+  "D": "uses the total drop of 12 as the slope instead of dividing it by the change in x, 4, so the intercept becomes 17 + 12(2) = 41"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Slope-Intercept Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The concentration drops $1.2$ mg/L over $4$ hours, so the slope is $-0.3$. Running back the $2$ hours from $(2, 3.4)$ adds $0.6$, giving an intercept of $4.0$ and $c = 4.0 - 0.3t$.\n\n**The Full Solution:**\nStep 1: The two measurements are the points $(2, 3.4)$ and $(6, 2.2)$. The slope is $\\frac{2.2 - 3.4}{6 - 2} = \\frac{-1.2}{4} = -0.3$.\nStep 2: Use $c = mt + b$ with $(2, 3.4)$: $3.4 = -0.3(2) + b$, so $b = 3.4 + 0.6 = 4.0$.\nStep 3: The model is $c = 4.0 - 0.3t$. Check the second point: $4.0 - 0.3(6) = 4.0 - 1.8 = 2.2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: this uses $2.2 - 0.3(6) = 0.4$ for the intercept. Going backward in time on a falling line raises the value, so the $1.8$ must be added, not subtracted.\n* Choice B: this takes $3.4$ as the starting concentration, but $3.4$ was measured at $t = 2$, not at $t = 0$. Only a reading at $t = 0$ can be dropped straight into $b$.\n* Choice D: this uses the total drop $1.2$ as the rate, which also inflates the intercept to $3.4 + 1.2(2) = 5.8$. A rate is a change divided by the elapsed time, so $1.2$ must first be divided by the $4$ hours between the readings.\n\n**Test Day Takeaway:** Two measured points give the slope first, then the intercept. Never assume the earliest reading is the intercept — substitute a point and solve for $b$."
+ "explanation": "**SAT Pattern: Slope-Intercept Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The output drops $12$ while $x$ increases by $4$, so the slope is $-3$. Going back $2$ units from $(2, 17)$ adds $6$, so the $y$-intercept is $23$ and $f(x) = -3x + 23$.\n\n**The Full Solution:**\nStep 1: The points $(2, 17)$ and $(6, 5)$ are on the graph of $f$. The slope is $\\frac{5 - 17}{6 - 2} = \\frac{-12}{4} = -3$.\nStep 2: Write $f(x) = -3x + b$ and substitute $(2, 17)$: $17 = -3(2) + b$, so $b = 17 + 6 = 23$.\nStep 3: The function is $f(x) = -3x + 23$. Check the other point: $f(6) = -18 + 23 = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(x) = -3x - 13$): this uses $5 - 3(6) = -13$ for the intercept. Since $f(6) = -3(6) + b$, the $18$ must be added to $5$, not subtracted.\n* Choice B ($f(x) = -3x + 17$): this treats $17$ as the $y$-intercept, but $17$ is the value at $x = 2$, not at $x = 0$. Then $f(6) = -1$, not $5$.\n* Choice D ($f(x) = -12x + 41$): this uses the total change, $-12$, as the slope without dividing by the change in $x$, $4$.\n\n**Test Day Takeaway:** Two points give the slope first, then the intercept. Never assume a given value is the $y$-intercept unless it is the value at $x = 0$; substitute a point and solve for $b$."
 }

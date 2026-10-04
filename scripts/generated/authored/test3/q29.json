@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "type": "multiple-choice",
- "passage": "The choreographer Pearl Primus, who trained as an anthropologist, traveled through West Africa in the late 1940s to study dances in the communities where they were made. She objected to staging African dances as exotic spectacle; her aim was to present them with the ______ they carried in their home settings — as expressions of worship, work, and communal memory.",
+ "passage": "The choreographer Pearl Primus, who studied anthropology, traveled through West and Central Africa in 1948 and 1949 to study dances in the communities where they were made. She objected to staging African dances as exotic spectacle; her aim was to present them with the ______ they carried in their home settings — as expressions of worship, work, and communal memory.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
@@ -29,6 +29,6 @@
  "correctAnswer": "C",
  "explanation": "**Choice C is correct.** The sentence opposes \"exotic spectacle\" to what the dances carried at home — status as worship, work, and communal memory. The word for that seriousness of standing is \"dignity.\"\n\n**The Full Solution:**\n- The semicolon sets up a correction: not spectacle, but something the dances possess in their home settings.\n- The dash then specifies that something: the dances' roles in worship, labor, and memory — weighty communal functions. \"Dignity\" names the respect such roles confer.\n\n**Why the other choices are wrong:**\n- A: \"Novelty\" sits on the wrong side of the contrast — newness for its own sake is exactly what exotic staging traded on.\n- B: \"Caution\" describes a manner of handling something, not a quality the dances themselves carried in their home settings.\n- D: \"Simplicity\" is unsupported — the text says nothing about the dances being simple, and reducing them to simplicity would slight the roles the dash enumerates.",
  "_meta": {
-  "anchor": "Pearl Primus — presenting West African dances with their home dignity, against exotic spectacle"
+  "anchor": "Pearl Primus — 1948-49 Rosenwald-funded study tour of West and Central Africa; African dance as dignified expression (Wikipedia/Rosenwald exhibit)"
  }
 }

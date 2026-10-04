@@ -1,29 +1,29 @@
 {
  "id": 10,
- "question": "A theater's average cost per printed program is modeled by $C = \\frac{450 + 3n}{n}$ dollars, where $n$ is the number of programs printed. How many values of $n$ give an average cost of exactly 3 dollars per program?",
+ "question": "$\\frac{6x + 42}{x} = 6$\nHow many solutions does the given equation have?",
  "choices": [
   {
    "id": "A",
-   "text": "Zero"
-  },
-  {
-   "id": "B",
    "text": "Exactly one"
   },
   {
-   "id": "C",
+   "id": "B",
    "text": "Exactly two"
   },
   {
-   "id": "D",
+   "id": "C",
    "text": "Infinitely many"
+  },
+  {
+   "id": "D",
+   "text": "Zero"
   }
  ],
  "distractorNotes": {
-  "B": "drops the 3n term and solves 450/n = 3, reporting n = 150",
-  "C": "multiplies the right side by n twice, turning the equation into 450 + 3n = 3n^2 and counting the two roots of that quadratic",
-  "D": "cancels the 3n against the 3 and concludes the equation is an identity satisfied by every n"
+  "A": "drops the 6x term and solves 42/x = 6, getting x = 7",
+  "B": "multiplies the right side by x twice, turning the equation into 6x + 42 = 6x^2 and counting its two roots",
+  "C": "cancels the 6x against the 6 and concludes the equation is true for every x"
  },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Rational Equation with No Solution**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Split the model: $C = \\frac{450}{n} + 3$. The fixed \\$450 always adds something positive, so $C$ is greater than $3$ for every $n$ and never equals $3$.\n\n**The Full Solution:**\nStep 1: Set the model equal to $3$: $\\frac{450 + 3n}{n} = 3$.\nStep 2: Multiply both sides by $n$ (allowed, since $n \\neq 0$ for a printing run): $450 + 3n = 3n$.\nStep 3: Subtract $3n$ from both sides: $450 = 0$, which is false, so no value of $n$ works. Check the structure: $\\frac{450 + 3n}{n} = \\frac{450}{n} + 3 > 3$ for every positive $n$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: dropping the $3n$ leaves $\\frac{450}{n} = 3$ and the tidy answer $n = 150$. At $n = 150$ the true average is $\\frac{450 + 450}{150} = 6$ dollars, not $3$.\n* Choice C: multiplying the right side by $n$ a second time produces $450 + 3n = 3n^2$, a quadratic with two roots — but that equation is not the one the model gives.\n* Choice D: cancelling the $3n$ with the $3$ would make both sides identical for every $n$. Terms may only be cancelled as whole factors, and $450 + 3n$ does not factor as $3n$ times anything.\n\n**Test Day Takeaway:** When every variable term cancels and a false numeric statement is left, the equation has no solution. Splitting a rational expression into a constant plus a fraction shows why in one line."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Rational Equation with No Solution**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Split the left side: $\\frac{6x + 42}{x} = 6 + \\frac{42}{x}$. Since $\\frac{42}{x}$ is never $0$, the left side never equals $6$.\n\n**The Full Solution:**\nStep 1: Multiply both sides by $x$ (which cannot be $0$): $6x + 42 = 6x$.\nStep 2: Subtract $6x$ from both sides: $42 = 0$.\nStep 3: This statement is false, so no value of $x$ satisfies the equation, and the equation has zero solutions. Check the structure: $6 + \\frac{42}{x} = 6$ would require $\\frac{42}{x} = 0$, which is impossible ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Exactly one): dropping the $6x$ leaves $\\frac{42}{x} = 6$ and $x = 7$. Substituting $x = 7$ into the original equation gives $\\frac{84}{7} = 12$, not $6$.\n* Choice B (Exactly two): multiplying the right side by $x$ a second time gives $6x + 42 = 6x^{2}$, a quadratic with two roots, but that is not the given equation.\n* Choice C (Infinitely many): the $6x$ in the numerator cannot cancel with the $6$ on the right; only common factors of the whole numerator and denominator cancel.\n\n**Test Day Takeaway:** When every variable term cancels and a false statement such as $42 = 0$ is left, the equation has no solution. If a true statement such as $0 = 0$ is left, it has infinitely many."
 }

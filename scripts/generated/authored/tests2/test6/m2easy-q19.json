@@ -1,14 +1,14 @@
 {
   "id": 19,
-  "question": "A polar station recorded the sea-ice edge at $1{,}482$ meters from a fixed marker in year $3$ and at $1{,}218$ meters in year $9$, and the retreat is modeled as linear in the year number. In which year does the model place the ice edge $998$ meters from the marker?",
+  "question": "The graph of the linear function $f$ in the $xy$-plane passes through the points $(2, 71)$ and $(8, 47)$. For what value of $x$ does $f(x) = 23$?",
   "choices": [
     {
       "id": "A",
-      "text": "$5$"
+      "text": "$6$"
     },
     {
       "id": "B",
-      "text": "$11$"
+      "text": "$12$"
     },
     {
       "id": "C",
@@ -20,10 +20,10 @@
     }
   ],
   "distractorNotes": {
-    "A": "measures the drop from the year-9 reading, (1218 - 998)/44 = 5, and reports the elapsed years as the year",
-    "B": "measures the drop from the year-3 reading, (1482 - 998)/44 = 11, and forgets to add the starting year 3",
-    "D": "measures the drop from the year-3 reading but adds the 11 elapsed years to year 9 instead of year 3"
+    "A": "measures the change from the point (8, 47): (47 - 23)/4 = 6, and reports that horizontal distance as x",
+    "B": "measures the change from the point (2, 71): (71 - 23)/4 = 12, and forgets to add the starting x-value 2",
+    "D": "finds the horizontal distance 12 from the point (2, 71) but adds it to 8 instead of 2"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Line from Two Points**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** The ice edge moves $\\frac{1218 - 1482}{9 - 3} = -44$ meters per year. From year $3$ it must fall another $1482 - 998 = 484$ meters, which takes $484 \\div 44 = 11$ years, landing in year $3 + 11 = 14$.\n\n**The Full Solution:**\nStep 1: Find the slope from the two recorded points $(3, 1482)$ and $(9, 1218)$: $m = \\frac{1218 - 1482}{9 - 3} = \\frac{-264}{6} = -44$ meters per year.\nStep 2: Write the model using the year-$3$ point: $d = 1482 - 44(y - 3)$, which expands to $d = 1614 - 44y$.\nStep 3: Set $d = 998$ and solve: $1614 - 44y = 998$, so $44y = 616$ and $y = 14$. Check with the other data point: $1614 - 44(9) = 1614 - 396 = 1218$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): computes $\\frac{1218 - 998}{44} = 5$ from the year-$9$ reading and reports that elapsed count as the year; the actual year would be $9 + 5 = 14$.\n* Choice B ($11$): computes $\\frac{1482 - 998}{44} = 11$ from the year-$3$ reading, which is the number of years that pass, not the year number — the starting year $3$ still has to be added.\n* Choice D ($20$): finds the same $11$ elapsed years from the year-$3$ reading but adds them to year $9$, double-counting the six years already used to find the slope.\n\n**Test Day Takeaway:** Two points give you a rate, not a model. Anchor the rate at one of the given points and keep track of whether the question wants elapsed time or the labeled input value."
+  "explanation": "**SAT Pattern: Line from Two Points**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The slope is $\\frac{47 - 71}{8 - 2} = -4$. From $(2, 71)$, the value must drop $71 - 23 = 48$, which takes $48 \\div 4 = 12$ units, so $x = 2 + 12 = 14$.\n\n**The Full Solution:**\nStep 1: Find the slope: $m = \\frac{47 - 71}{8 - 2} = \\frac{-24}{6} = -4$.\nStep 2: Use the point $(2, 71)$ to write the function: $f(x) = 71 - 4(x - 2)$, which simplifies to $f(x) = -4x + 79$.\nStep 3: Set $f(x) = 23$ and solve: $-4x + 79 = 23$, so $-4x = -56$ and $x = 14$. Check with the other point: $f(8) = -32 + 79 = 47$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): computes $\\frac{47 - 23}{4} = 6$ from the point $(8, 47)$, which is the horizontal distance from $x = 8$, not the value of $x$; $8 + 6 = 14$.\n* Choice B ($12$): computes $\\frac{71 - 23}{4} = 12$ from the point $(2, 71)$ but forgets to add the starting value $x = 2$.\n* Choice D ($20$): finds the same distance of $12$ from $(2, 71)$ but adds it to $8$ instead of $2$.\n\n**Test Day Takeaway:** Two points give the slope; anchor it at one of the points to write the function. A distance along the $x$-axis is not an $x$-value until it is added to the starting point."
 }

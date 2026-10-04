@@ -1,29 +1,29 @@
 {
  "id": 22,
- "question": "A circular scan region in the xy-plane is described by the equation $x^2 + y^2 - 14x + 8y = c$, where $c$ is a constant and both coordinates are measured in degrees. The region has a radius of $9$ degrees. What is the value of $c$?",
+ "question": "$x^{2} + y^{2} - 10x + 12y = c$\nIn the xy-plane, the graph of the given equation is a circle with radius $8$, where $c$ is a constant. What is the value of $c$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-56$"
+   "text": "$-53$"
   },
   {
    "id": "B",
-   "text": "$16$"
+   "text": "$3$"
   },
   {
    "id": "C",
-   "text": "$48$"
+   "text": "$75$"
   },
   {
    "id": "D",
-   "text": "$146$"
+   "text": "$125$"
   }
  ],
  "distractorNotes": {
-  "A": "treats the given 9 as r^2 rather than r, computing c = 9 - 65",
-  "C": "subtracts 16 instead of adding it when completing the square on the y-terms, giving c = 81 - 49 + 16",
-  "D": "adds 65 to 81 instead of subtracting, giving c = 81 + 65"
+  "A": "uses the radius 8 where r^2 belongs, solving c + 61 = 8",
+  "C": "subtracts 36 instead of adding it when completing the square on the y-terms, solving c + 25 - 36 = 64",
+  "D": "adds 61 to 64 instead of subtracting, giving c = 64 + 61"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** Completing both squares adds $49$ and $16$ to each side, so $c+65=9^2=81$ and $c=16$.\n\n**The Full Solution:**\nStep 1: Complete the square in $x$. Half of $-14$ is $-7$, and $(-7)^2=49$, so $x^2-14x$ becomes $(x-7)^2-49$.\nStep 2: Complete the square in $y$. Half of $8$ is $4$, and $4^2=16$, so $y^2+8y$ becomes $(y+4)^2-16$.\nStep 3: Set the right side equal to $r^2$. The equation becomes $(x-7)^2+(y+4)^2 = c+49+16 = c+65$. Since the radius is $9$, $c+65=81$, so $c=16$. Check: $(x-7)^2+(y+4)^2=81$ expands to $x^2+y^2-14x+8y+65=81$, or $x^2+y^2-14x+8y=16$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-56$): uses the radius itself where $r^2$ belongs, solving $c+65=9$ to get $-56$.\n* Choice C ($48$): completes the square on the $y$-terms but carries the correction as $-16$ on the wrong side, solving $c+49-16=81$.\n* Choice D ($146$): moves the $65$ the wrong way, computing $c=81+65$ instead of $c=81-65$.\n\n**Test Day Takeaway:** Completing the square always ADDS $\\left(\\frac{b}{2}\\right)^2$ to both sides, so the general-form constant is $r^2$ minus the total of those additions. Square the radius before you compare — the un-squared radius is the most common trap in this family.\n"
+ "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** Completing both squares adds $25$ and $36$ to each side, so $c + 61 = 8^{2} = 64$ and $c = 3$.\n\n**The Full Solution:**\nStep 1: Complete the square in $x$: half of $-10$ is $-5$, and $(-5)^{2} = 25$, so $x^{2} - 10x = (x - 5)^{2} - 25$.\nStep 2: Complete the square in $y$: half of $12$ is $6$, and $6^{2} = 36$, so $y^{2} + 12y = (y + 6)^{2} - 36$.\nStep 3: The equation becomes $(x - 5)^{2} + (y + 6)^{2} = c + 25 + 36 = c + 61$. The right side equals $r^{2} = 64$, so $c = 64 - 61 = 3$. Check: $(x - 5)^{2} + (y + 6)^{2} = 64$ expands to $x^{2} + y^{2} - 10x + 12y + 61 = 64$, or $x^{2} + y^{2} - 10x + 12y = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-53$): uses the radius itself where $r^{2}$ belongs, solving $c + 61 = 8$.\n* Choice C ($75$): subtracts $36$ instead of adding it for the $y$-terms, solving $c + 25 - 36 = 64$.\n* Choice D ($125$): moves the $61$ the wrong way, computing $64 + 61$ instead of $64 - 61$.\n\n**Test Day Takeaway:** Completing the square adds $\\left(\\frac{b}{2}\\right)^{2}$ for each variable to both sides, so the constant in the general form equals $r^{2}$ minus those additions. Square the radius before you compare."
 }

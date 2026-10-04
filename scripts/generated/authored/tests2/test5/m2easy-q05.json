@@ -1,6 +1,6 @@
 {
  "id": 5,
- "question": "On a campus fiber map, a switch sits at the point $(-6, 10)$ and a splice enclosure sits at $(4, 4)$, the midpoint of the cable run joining that switch to a second switch. What are the coordinates of the second switch?",
+ "question": "In the $xy$-plane, the midpoint of segment $AB$ is $(4, 4)$. Point $A$ has coordinates $(-6, 10)$. What are the coordinates of point $B$?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "steps from the first switch away from the enclosure, computing 2A - M instead of 2M - A",
-  "B": "averages the two given points, which returns the midpoint of the switch and the enclosure",
-  "C": "reports the change from the switch to the enclosure, (10, -6), instead of the endpoint"
+  "A": "steps from the midpoint away from B, computing 2A - M instead of 2M - A",
+  "B": "averages the two given points, which gives the midpoint of A and the midpoint of AB",
+  "C": "reports the change from A to the midpoint, (10, -6), instead of the endpoint"
  },
  "correctAnswer": "D",
- "explanation": "**SAT Pattern: Midpoint Formula**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The run goes $+10$ in $x$ and $-6$ in $y$ to reach the midpoint, so repeat that step: $(4 + 10,\\ 4 - 6) = (14, -2)$.\n\n**The Full Solution:**\nStep 1: If the second switch is $(x, y)$, the midpoint formula gives $\\frac{-6 + x}{2} = 4$ and $\\frac{10 + y}{2} = 4$.\nStep 2: Multiply each equation by $2$: $-6 + x = 8$ and $10 + y = 8$.\nStep 3: So $x = 14$ and $y = -2$; check the midpoint of $(-6, 10)$ and $(14, -2)$: $\\left(\\frac{-6 + 14}{2}, \\frac{10 - 2}{2}\\right) = (4, 4)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-16, 16)$): steps the same distance from the switch in the wrong direction, computing $2(-6) - 4 = -16$ and $2(10) - 4 = 16$; that puts the enclosure at an end of the run, not its middle.\n* Choice B ($(-1, 7)$): averages the two points that were given, $\\left(\\frac{-6 + 4}{2}, \\frac{10 + 4}{2}\\right)$, which finds a new midpoint rather than the missing endpoint.\n* Choice C ($(10, -6)$): reports the displacement from the switch to the enclosure, $4 - (-6) = 10$ and $4 - 10 = -6$, which is a change in position, not a position.\n\n**Test Day Takeaway:** When one endpoint and the midpoint are given, double the midpoint and subtract the known endpoint: $B = 2M - A$."
+ "explanation": "**SAT Pattern: Midpoint Formula**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Going from $A$ to the midpoint is $+10$ in $x$ and $-6$ in $y$, so repeat that step from the midpoint: $(4 + 10, 4 - 6) = (14, -2)$.\n\n**The Full Solution:**\nStep 1: Let $B = (x, y)$. The midpoint formula gives $\\frac{-6 + x}{2} = 4$ and $\\frac{10 + y}{2} = 4$.\nStep 2: Solve the first equation: $-6 + x = 8$, so $x = 14$.\nStep 3: Solve the second equation: $10 + y = 8$, so $y = -2$, and $B = (14, -2)$. Check: $\\left(\\frac{-6 + 14}{2}, \\frac{10 + (-2)}{2}\\right) = (4, 4)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-16, 16)$): steps from the midpoint through $A$ and beyond, computing $(2(-6) - 4, 2(10) - 4)$, which lands on the wrong side of $A$.\n* Choice B ($(-1, 7)$): averages $A$ and the midpoint, which gives a point halfway between them, not the other endpoint.\n* Choice C ($(10, -6)$): reports the change from $A$ to the midpoint instead of adding that change to the midpoint.\n\n**Test Day Takeaway:** The missing endpoint is the midpoint plus the same step it took to get from the known endpoint to the midpoint: $B = 2M - A$."
 }

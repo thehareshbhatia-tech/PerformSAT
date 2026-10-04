@@ -9,7 +9,7 @@
  "passages": [
   {
    "label": "Text 1",
-   "text": "In the 1930s, geneticist George Beadle crossed maize with teosinte, a wild Mexican grass whose hard, few-kerneled spikes look nothing like an ear of corn. The hybrids were fertile, and the traits separating the two plants appeared to be governed by a small number of genes. Beadle concluded that teosinte was maize's direct wild ancestor and that ancient farmers in Mexico, by selecting favorable variants generation after generation, could have gradually transformed so unpromising a grass into a productive crop."
+   "text": "In the 1930s, geneticist George Beadle crossed maize with teosinte, a wild Mexican grass whose hard, few-kerneled spikes look nothing like an ear of corn. The hybrids were fully fertile, and the chromosomes of the two plants paired normally, a sign of close kinship. Beadle concluded that teosinte was maize's direct wild ancestor and that ancient farmers in Mexico, by selecting a handful of favorable mutations, could have gradually transformed so unpromising a grass into a productive crop."
   },
   {
    "label": "Text 2",
@@ -28,7 +28,7 @@
   },
   {
    "id": "C",
-   "text": "He would accept that teosinte was maize's ancestor while arguing that the transformation must have involved many more genes than Beadle's crosses indicated."
+   "text": "He would accept that teosinte was maize's ancestor while arguing that the transformation must have required far more mutations than Beadle supposed."
   },
   {
    "id": "D",
@@ -38,6 +38,6 @@
  "correctAnswer": "B",
  "explanation": "**Choice B is correct.** Text 2 states Mangelsdorf's objection directly: the plants' seed-bearing structures \"differ so radically\" that early farmers \"would have seen nothing in teosinte worth cultivating.\" That is precisely the response B attributes to him.\n\n**The Full Solution:**\n- Beadle's conclusion has two parts: teosinte was the ancestor, and ancient farmers transformed it through selection.\n- Mangelsdorf attacks the scenario at its starting point — no farmer would have bothered with so unpromising a plant — and offers an alternative ancestry (an extinct wild maize) on which teosinte is an offshoot, not a parent.\n\n**Why the other choices are wrong:**\n- A: It has him denying a result his own proposal depends on — his offshoot account requires that maize and wild grasses cross; he disputed Beadle's interpretation, not the crosses.\n- C: It concedes the very claim he rejects — that teosinte was the ancestor.\n- D: It swaps his actual objection for one he never makes: his target was teosinte's role as ancestor, not the involvement of human selection in maize's history.",
  "_meta": {
-  "anchor": "Cross-text pair: George Beadle (teosinte hypothesis) vs. Paul Mangelsdorf (extinct wild maize) — maize domestication debate"
+  "anchor": "Cross-text pair: George Beadle (teosinte hypothesis; fertile hybrids, normal chromosome pairing — J. Heredity 1939) vs. Paul Mangelsdorf (extinct wild maize; teosinte as maize x Tripsacum offshoot)"
  }
 }

@@ -1,29 +1,29 @@
 {
-  "id": 17,
-  "question": "On a supermarket floor plan, one aisle marking is graphed as $ax + 8y = b$ and a second is graphed as $3x - 2y = 7$, where $a$ and $b$ are constants. The two markings never meet, and $(4, -1)$ lies on the first marking. What is the value of $b$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-56$"
-    },
-    {
-      "id": "B",
-      "text": "$-48$"
-    },
-    {
-      "id": "C",
-      "text": "$40$"
-    },
-    {
-      "id": "D",
-      "text": "$44$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "substitutes only the x-term, dropping 8y: -12(4) = -48",
-    "C": "solves -a/8 = 3/2 as a = 12, losing the negative sign: 12(4) + 8(-1) = 40",
-    "D": "swaps the coordinates of the point, computing -12(-1) + 8(4) = 44"
+ "id": 17,
+ "question": "$ax + 8y = b$\nIn the given equation, $a$ and $b$ are constants. In the $xy$-plane, the graph of the equation is parallel to the graph of $3x - 2y = 7$ and passes through the point $(4, -1)$. What is the value of $b$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-56$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** Never meeting means equal slopes: $-\\frac{a}{8}=\\frac{3}{2}$ gives $a=-12$, and $-12(4)+8(-1)=-56$.\n\n**The Full Solution:**\nStep 1: Two distinct lines never meet exactly when they are parallel, so the two graphs have the same slope. Solving $3x-2y=7$ for $y$ gives $y=\\frac{3}{2}x-\\frac{7}{2}$, a slope of $\\frac{3}{2}$.\nStep 2: Solving $ax+8y=b$ for $y$ gives $y=-\\frac{a}{8}x+\\frac{b}{8}$, so $-\\frac{a}{8}=\\frac{3}{2}$. Multiplying by $-8$ gives $a=-12$.\nStep 3: The point $(4,-1)$ satisfies the equation: $-12(4)+8(-1)=-48-8=-56$, so $b=-56$. Check: $-12x+8y=-56$ simplifies to $y=\\frac{3}{2}x-7$, whose slope is $\\frac{3}{2}$ and which contains $(4,-1)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-48$): substitutes the point into $ax$ only and forgets the $8y$ term: $-12(4)=-48$.\n* Choice C ($40$): drops the negative when solving $-\\frac{a}{8}=\\frac{3}{2}$, taking $a=12$, which gives $12(4)+8(-1)=40$ and a line that is not parallel.\n* Choice D ($44$): swaps the coordinates of the point, computing $-12(-1)+8(4)=44$.\n\n**Test Day Takeaway:** In $Ax+By=C$ the slope is $-\\frac{A}{B}$; match that to the other line's slope first, then let the given point supply the constant."
+  {
+   "id": "B",
+   "text": "$-48$"
+  },
+  {
+   "id": "C",
+   "text": "$40$"
+  },
+  {
+   "id": "D",
+   "text": "$44$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "finds a = -12 but drops the 8y term when substituting, computing b = -12(4) = -48",
+  "C": "takes a = 12 by losing the sign of the slope, then computes 12(4) + 8(-1) = 40",
+  "D": "finds a = -12 but swaps the coordinates, substituting x = -1 and y = 4: -12(-1) + 8(4) = 44"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** Parallel lines have proportional $x$- and $y$-coefficients: $\\frac{a}{3} = \\frac{8}{-2}$, so $a = -12$. Then $b = -12(4) + 8(-1) = -56$.\n\n**The Full Solution:**\nStep 1: The line $3x - 2y = 7$ has slope $\\frac{3}{2}$, and $ax + 8y = b$ has slope $-\\frac{a}{8}$. Parallel lines have equal slopes, so $-\\frac{a}{8} = \\frac{3}{2}$ and $a = -12$.\nStep 2: The point $(4, -1)$ is on the line, so substitute $x = 4$ and $y = -1$ into $-12x + 8y = b$: $b = -12(4) + 8(-1)$.\nStep 3: $b = -48 - 8 = -56$. Check: $-12x + 8y = -56$ is $-4$ times $3x - 2y = 14$, which has the same slope as $3x - 2y = 7$ but a different constant, so the lines are parallel and distinct, and $-12(4) + 8(-1) = -56$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-48$): finds $a = -12$ but leaves out the $8y$ term, computing only $-12(4)$.\n* Choice C ($40$): loses the negative sign and uses $a = 12$, which gives a line with slope $-\\frac{3}{2}$, not parallel to the given line.\n* Choice D ($44$): swaps the coordinates, substituting $x = -1$ and $y = 4$.\n\n**Test Day Takeaway:** For lines in standard form, parallel means the $x$- and $y$-coefficients are in the same ratio; find the missing coefficient first, then use the point to find the constant."
 }

@@ -1,29 +1,29 @@
 {
-  "id": 3,
-  "question": "A battery cell is at a tolerance limit when its voltage $v$, in volts, differs from $3.70$ by exactly $0.15$. Which equation represents the two tolerance limits for $v$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$|v - 3.70| = 0.15$"
-    },
-    {
-      "id": "B",
-      "text": "$|v - 0.15| = 3.70$"
-    },
-    {
-      "id": "C",
-      "text": "$|v + 3.70| = 0.15$"
-    },
-    {
-      "id": "D",
-      "text": "$|v - 3.70| = 3.85$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "swaps the reference value and the tolerance, so it measures distance from 0.15 rather than from 3.70",
-    "C": "adds 3.70 instead of subtracting it, describing voltages 0.15 away from -3.70",
-    "D": "uses the sum 3.70 + 0.15 = 3.85 as the distance instead of the tolerance 0.15"
+ "id": 3,
+ "question": "$|2x - 3| = 13$\nWhat are the solutions to the given equation?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-10$ and $16$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** “Differs from $3.70$ by exactly $0.15$” is the distance between $v$ and $3.70$, so $|v-3.70|=0.15$.\n\n**The Full Solution:**\nStep 1: The distance between $v$ and a reference value $r$ on a number line is written $|v-r|$. Here the reference value is $3.70$, so the distance is $|v-3.70|$.\nStep 2: That distance is stated to be exactly $0.15$, giving $|v-3.70|=0.15$.\nStep 3: Solving confirms the two limits: $v-3.70=0.15$ gives $v=3.85$, and $v-3.70=-0.15$ gives $v=3.55$. Check: both $3.85$ and $3.55$ sit $0.15$ from $3.70$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($|v - 0.15| = 3.70$): swaps the roles of the two numbers, so it measures distance from $0.15$ and its solutions are $3.85$ and $-3.55$.\n* Choice C ($|v + 3.70| = 0.15$): adds the reference value instead of subtracting it, which describes voltages near $-3.70$.\n* Choice D ($|v - 3.70| = 3.85$): uses $3.70+0.15=3.85$ as the distance, which produces limits of $7.55$ and $-0.15$.\n\n**Test Day Takeaway:** Inside the bars goes the variable minus the center; outside the bars goes the allowed distance. Center in, distance out."
+  {
+   "id": "B",
+   "text": "$-8$ and $5$"
+  },
+  {
+   "id": "C",
+   "text": "$-8$ and $8$"
+  },
+  {
+   "id": "D",
+   "text": "$-5$ and $8$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "solves 2x - 3 = 13 and 2x - 3 = -13 but stops at 2x = 16 and 2x = -10 without dividing by 2",
+  "B": "solves |2x + 3| = 13 instead, changing the sign of the 3, which gives x = 5 and x = -8",
+  "C": "solves 2x - 3 = -13 by subtracting 3 from both sides, getting 2x = -16 and x = -8"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The expression inside the bars is $13$ or $-13$: $2x - 3 = 13$ gives $x = 8$, and $2x - 3 = -13$ gives $x = -5$.\n\n**The Full Solution:**\nStep 1: An absolute value equals $13$ when the expression inside equals $13$ or $-13$, so $2x - 3 = 13$ or $2x - 3 = -13$.\nStep 2: First case: $2x = 16$, so $x = 8$. Second case: $2x = -10$, so $x = -5$.\nStep 3: The solutions are $-5$ and $8$. Check: $|2(8) - 3| = |13| = 13$ and $|2(-5) - 3| = |-13| = 13$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$ and $16$): stops at $2x = -10$ and $2x = 16$ without dividing by $2$.\n* Choice B ($-8$ and $5$): solves $|2x + 3| = 13$, with the sign of the $3$ changed. Testing $x = 5$: $|2(5) - 3| = 7$, not $13$.\n* Choice C ($-8$ and $8$): solves the second case by subtracting $3$ from both sides instead of adding $3$, getting $2x = -16$.\n\n**Test Day Takeaway:** Split an absolute value equation into the positive case and the negative case, solve each completely, and test both answers in the original equation."
 }

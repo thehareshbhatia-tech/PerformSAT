@@ -1,6 +1,6 @@
 {
  "id": 11,
- "question": "An automated sky camera counted meteors on each of 9 consecutive nights, as shown. Adding the count from a 10th night raises the mean to 8 meteors per night. What was the count on the 10th night?",
+ "question": "The dot plot shows the number of books each of $9$ students read over the summer. When the number of books read by a $10$th student is included, the mean number of books read increases by $1$. How many books did the $10$th student read?",
  "diagram": {
   "type": "dotPlot",
   "params": {
@@ -36,9 +36,9 @@
    ],
    "xMin": 2,
    "xMax": 12,
-   "xLabel": "Meteors counted per night"
+   "xLabel": "Number of books read"
   }
  },
  "correctAnswer": "17",
- "explanation": "**SAT Pattern: Mean from List**\n\n**The correct answer is 17.**\n\n**The Fast Way (~40s):** The 9 nights total $63$; ten nights averaging $8$ total $80$, so the 10th night contributed $80-63=17$.\n\n**The Full Solution:**\nStep 1: Total the dot plot. The counts are $3, 5, 6, 7, 7, 8, 8, 9, 10$, and their sum is $63$ meteors over $9$ nights.\nStep 2: Find the new total. A mean of $8$ across $10$ nights means the ten counts sum to $8 \\times 10 = 80$.\nStep 3: Subtract. The 10th night contributed $80-63=17$ meteors. Check: $\\frac{63+17}{10}=\\frac{80}{10}=8$ ✓\n\n**Common Mistakes:**\n* $8$: assumes the new value must equal the new mean; a single value only equals the mean when it leaves the mean unchanged, and here the mean rose from $7$ to $8$.\n* $9$: multiplies the new mean by the OLD count, computing $8 \\times 9 = 72$ and then $72-63=9$. The new mean applies to all ten nights.\n* $80$: reports the ten-night total instead of the single missing value.\n\n**Test Day Takeaway:** Every mean question is really a question about totals. Convert each mean to a sum (mean $\\times$ count) before comparing, and be careful that the new mean multiplies the NEW number of values.\n"
+ "explanation": "**SAT Pattern: Mean from List**\n\n**The correct answer is 17.**\n\n**The Fast Way (~40s):** The $9$ students read $63$ books, a mean of $7$. The new mean is $8$, so the $10$ students read $80$ books in all, and the $10$th student read $80 - 63 = 17$.\n\n**The Full Solution:**\nStep 1: Total the dot plot. The values are $3, 5, 6, 7, 7, 8, 8, 9, 10$; their sum is $63$, so the mean for the $9$ students is $\\frac{63}{9} = 7$.\nStep 2: The mean increases by $1$, to $8$, so the $10$ values sum to $8 \\times 10 = 80$.\nStep 3: Subtract: the $10$th student read $80 - 63 = 17$ books. Check: $\\frac{63 + 17}{10} = \\frac{80}{10} = 8$, which is $1$ more than $7$ ✓\n\n**Common Mistakes:**\n* $8$: assumes the new value equals the new mean. A value equal to the mean of the other values leaves that mean unchanged; to raise the mean of $10$ values by $1$, the new value must be $10$ more than the old mean.\n* $9$: multiplies the new mean by the old count, computing $8 \\times 9 = 72$ and $72 - 63 = 9$. The new mean applies to all $10$ students.\n* $80$: reports the total for the $10$ students instead of the one missing value.\n\n**Test Day Takeaway:** Mean questions are questions about totals. Convert each mean to a sum (mean times count), and make sure the new mean is multiplied by the new number of values."
 }

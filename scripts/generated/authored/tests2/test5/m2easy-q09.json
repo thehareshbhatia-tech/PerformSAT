@@ -1,22 +1,22 @@
 {
  "id": 9,
- "question": "A network team sorted last quarter's logged incidents by category and by whether an on-site visit was required. If one hardware incident is selected at random, what is the probability that it required an on-site visit?",
+ "question": "The table shows the numbers of students in grades $9$ and $10$ at a school who do and do not walk to school. If a student in grade $9$ is selected at random, what is the probability that the student walks to school? (Express your answer as a decimal or fraction, not as a percent.)",
  "questionTable": {
   "headers": [
-   "Category",
-   "On-site visit",
-   "No on-site visit",
+   "Grade",
+   "Walks to school",
+   "Does not walk to school",
    "Total"
   ],
   "rows": [
    [
-    "Hardware",
+    "$9$",
     "$27$",
     "$63$",
     "$90$"
    ],
    [
-    "Software",
+    "$10$",
     "$18$",
     "$72$",
     "$90$"
@@ -30,5 +30,5 @@
   ]
  },
  "correctAnswer": "0.3",
- "explanation": "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**The correct answer is $0.3$.**\n\n**The Fast Way (~15s):** Stay in the hardware row: $\\frac{27}{90} = 0.3$.\n\n**The Full Solution:**\nStep 1: The selection is made from hardware incidents only, so the denominator is the hardware row total, $90$.\nStep 2: Of those $90$ incidents, $27$ required an on-site visit, so the probability is $\\frac{27}{90}$.\nStep 3: $\\frac{27}{90} = \\frac{3}{10} = 0.3$; check: the other $63$ hardware incidents give $\\frac{63}{90} = 0.7$, and $0.3 + 0.7 = 1$ ✓\n\n**Common Mistakes:**\n* Dividing by the on-site column total gives $\\frac{27}{45} = 0.6$, which answers a different question: the probability that an on-site visit was for a hardware incident.\n* Dividing by the grand total gives $\\frac{27}{180} = 0.15$, the probability that an incident is both hardware and on-site, with no condition applied.\n* Using the column total over the grand total gives $\\frac{45}{180} = 0.25$, the overall on-site rate, which ignores the hardware restriction.\n\n**Test Day Takeaway:** The phrase that names the group you are choosing from sets the denominator — here \"one hardware incident,\" so the row total $90$."
+ "explanation": "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**The correct answer is $0.3$.**\n\n**The Fast Way (~20s):** The student is chosen from grade $9$, so divide that row's walkers by that row's total: $\\frac{27}{90} = 0.3$.\n\n**The Full Solution:**\nStep 1: The condition \"a student in grade $9$\" restricts the choice to the grade $9$ row, which has $90$ students.\nStep 2: Of those $90$ students, $27$ walk to school, so the probability is $\\frac{27}{90}$.\nStep 3: Simplify: $\\frac{27}{90} = \\frac{3}{10} = 0.3$. Check: the other $63$ grade $9$ students give $\\frac{63}{90} = 0.7$, and $0.3 + 0.7 = 1$ ✓\n\n**Common Mistakes:**\n* $0.6$: divides by the walkers' column total, $\\frac{27}{45} = 0.6$, which is the probability that a student who walks is in grade $9$.\n* $0.15$: divides by the grand total, $\\frac{27}{180} = 0.15$, the probability that a student is in grade $9$ and walks, with no condition applied.\n* $0.25$: uses the walkers' total over the grand total, $\\frac{45}{180} = 0.25$, which ignores the grade $9$ restriction.\n\n**Test Day Takeaway:** The group named after \"If a student in …\" sets the denominator; here it is the grade $9$ row total, $90$."
 }

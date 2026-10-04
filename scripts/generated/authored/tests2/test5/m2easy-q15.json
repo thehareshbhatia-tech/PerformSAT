@@ -1,18 +1,18 @@
 {
  "id": 15,
- "question": "A vertical post $4$ feet tall stands beneath a straight roof rafter that rises from the wall plate. The rafter reaches a height of $10$ feet at a horizontal distance of $35$ feet from the wall plate. How far, in feet, from the wall plate does the post meet the rafter?",
+ "question": "Triangle $ABC$ is similar to triangle $DEF$, where $A$, $B$, and $C$ correspond to $D$, $E$, and $F$, respectively. The lengths of $\\overline{AB}$, $\\overline{DE}$, and $\\overline{EF}$ are $4$, $10$, and $35$, respectively. What is the length of $\\overline{BC}$?",
  "choices": [
   {
    "id": "A",
-   "text": "$4$"
-  },
-  {
-   "id": "B",
    "text": "$14$"
   },
   {
+   "id": "B",
+   "text": "$29$"
+  },
+  {
    "id": "C",
-   "text": "$21$"
+   "text": "$35$"
   },
   {
    "id": "D",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "copies the post height as the horizontal distance",
-  "C": "measures 35 - 14 = 21 back from the far end of the rafter instead of from the wall plate",
-  "D": "inverts the proportion, computing 35 times 10/4"
+  "B": "subtracts the difference DE - AB = 6 from EF, treating similar triangles as differing by a constant amount",
+  "C": "assumes corresponding sides are equal, as in congruent triangles",
+  "D": "inverts the scale factor, computing 35 times 10/4"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The post is $\\frac{4}{10}$ of the rafter's full rise, so it stands $\\frac{4}{10}(35) = 14$ feet from the wall plate.\n\n**The Full Solution:**\nStep 1: The rafter, the ground, and any vertical post form two right triangles that share the angle at the wall plate, so the triangles are similar.\nStep 2: Corresponding sides are proportional: $\\frac{\\text{post height}}{\\text{full rise}} = \\frac{\\text{distance to post}}{\\text{full run}}$, that is $\\frac{4}{10} = \\frac{d}{35}$.\nStep 3: Cross multiplying gives $10d = 140$, so $d = 14$ feet; check the rafter's slope: $\\frac{10}{35} = \\frac{2}{7}$, and $\\frac{2}{7}(14) = 4$ feet of height at $d = 14$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): reuses the post's height as its distance, which would only be right if the rafter rose at exactly $45^\\circ$.\n* Choice C ($21$): computes $35 - 14 = 21$, measuring back from the tall end of the rafter rather than from the wall plate the question names.\n* Choice D ($87.5$): sets up the proportion upside down as $\\frac{10}{4} = \\frac{d}{35}$, placing the post more than twice as far out as the rafter's whole $35$-foot run.\n\n**Test Day Takeaway:** Write the proportion with matching parts on matching sides — heights over heights, distances over distances — before you cross multiply."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Triangle $ABC$ is $\\frac{4}{10} = 0.4$ times the size of triangle $DEF$, so $BC = 0.4(35) = 14$.\n\n**The Full Solution:**\nStep 1: Corresponding sides of similar triangles are proportional, and $\\overline{BC}$ corresponds to $\\overline{EF}$, so $\\frac{BC}{EF} = \\frac{AB}{DE}$.\nStep 2: Substitute: $\\frac{BC}{35} = \\frac{4}{10}$.\nStep 3: Multiply both sides by $35$: $BC = \\frac{4(35)}{10} = 14$. Check: $\\frac{14}{35} = 0.4 = \\frac{4}{10}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($29$): subtracts the difference $10 - 4 = 6$ from $35$; similar triangles differ by a scale factor, not by a fixed amount.\n* Choice C ($35$): treats the triangles as congruent, so that $BC$ equals $EF$.\n* Choice D ($87.5$): multiplies $35$ by $\\frac{10}{4}$, which enlarges instead of shrinking.\n\n**Test Day Takeaway:** Pair each side with its corresponding side, set the ratios equal, and check that the smaller triangle gets the smaller length."
 }

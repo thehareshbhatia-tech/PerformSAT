@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "type": "multiple-choice",
- "passage": "Languages carve the color spectrum into vocabulary in strikingly different ways: some supply their speakers with a dozen basic color words, others with as few as three. Surveys of vocabulary across hundreds of unrelated languages, however, find that the variation is far from arbitrary. ______ the inventories form an orderly sequence: if a language has only three basic color terms, they will name black, white, and red, and terms for green, yellow, and blue enter the vocabulary in a small number of predictable orders.",
+ "passage": "Languages divide the color spectrum in strikingly different ways: some have a dozen basic color words, others as few as two. Surveys of hundreds of languages, however, find that the variation is far from arbitrary. ______ the inventories follow an orderly sequence: a language with only three basic color terms, for example, names black, white, and red.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,7 +27,7 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The previous sentence rejects one characterization — the variation \"is far from arbitrary\" — and the blank sentence supplies the correct characterization in its place: the inventories follow an orderly, predictable sequence. \"Instead\" is the transition for substituting the right account after negating the wrong one.\n\n**The Full Solution:**\n- Track the negation: not arbitrary. What then? The next sentence answers with the positive finding (black, white, red first; green, yellow, blue in predictable orders).\n- Replacement after denial is precisely the \"not X; instead, Y\" frame.\n\n**Why the other choices are wrong:**\n- A: \"Likewise\" would add a parallel point, but the sentence replaces a rejected description rather than echoing an accepted one.\n- B: \"In any case\" waves the previous sentence aside as if it did not matter, when the blank sentence depends on it directly.\n- D: \"Accordingly\" treats the orderly sequence as a consequence of non-arbitrariness, but the sequence is not caused by the survey finding — it is the content of that finding, stated positively.",
+ "explanation": "**Choice C is correct.** The previous sentence rejects one characterization — the variation \"is far from arbitrary\" — and the blank sentence supplies the correct characterization in its place: the inventories follow an orderly, predictable sequence. \"Instead\" is the transition for substituting the right account after negating the wrong one.\n\n**The Full Solution:**\n- Track the negation: not arbitrary. What then? The next sentence answers with the positive finding (a three-term language names black, white, and red).\n- Replacement after denial is precisely the \"not X; instead, Y\" frame.\n\n**Why the other choices are wrong:**\n- A: \"Likewise\" would add a parallel point, but the sentence replaces a rejected description rather than echoing an accepted one.\n- B: \"In any case\" waves the previous sentence aside as if it did not matter, when the blank sentence depends on it directly.\n- D: \"Accordingly\" treats the orderly sequence as a consequence of non-arbitrariness, but the sequence is not caused by the survey finding — it is the content of that finding, stated positively.",
  "_meta": {
   "anchor": "Basic color-term hierarchies across languages — replacement transition"
  }

@@ -1,6 +1,6 @@
 {
  "id": 4,
- "question": "The two times, in seconds, at which a launched probe passes an altitude of $40$ meters are the solutions of $5t^2 + 12 = 34t$. Which expression gives the sum of those two times?",
+ "question": "$5x^{2} + 12 = 34x$\nWhat is the sum of the solutions to the given equation?",
  "choices": [
   {
    "id": "A",
@@ -25,5 +25,5 @@
   "C": "gives the product of the solutions, c/a = 12/5, instead of the sum"
  },
  "correctAnswer": "D",
- "explanation": "**SAT Pattern: Quadratic — Vieta's Sum/Product**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Rearranged, the equation is $5t^2 - 34t + 12 = 0$, so the sum of the solutions is $-\\frac{b}{a} = \\frac{34}{5}$.\n\n**The Full Solution:**\nStep 1: Standard form comes first. Subtract $34t$ from both sides: $5t^2 - 34t + 12 = 0$, so $a = 5$, $b = -34$, and $c = 12$.\nStep 2: For any quadratic with two solutions, their sum is $-\\frac{b}{a}$. Here that is $-\\frac{-34}{5} = \\frac{34}{5}$.\nStep 3: Confirm the solutions are real before trusting the shortcut: $b^2 - 4ac = 1156 - 240 = 916 > 0$, so the probe really does pass $40$ meters twice, once rising and once falling ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{34}{5}$): uses $-\\frac{b}{a}$ with $b$ read as $+34$ from the unrearranged equation, so the sign comes out negative — impossible for two positive times.\n* Choice B ($\\frac{5}{34}$): inverts the ratio and reports $\\frac{a}{b}$.\n* Choice C ($\\frac{12}{5}$): gives $\\frac{c}{a}$, which is the product of the two times, not their sum.\n\n**Test Day Takeaway:** The sum and product shortcuts only read off standard form — move every term to one side before you name $a$, $b$, and $c$."
+ "explanation": "**SAT Pattern: Quadratic — Vieta's Sum/Product**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** In standard form the equation is $5x^{2} - 34x + 12 = 0$, so the sum of the solutions is $-\\frac{b}{a} = \\frac{34}{5}$.\n\n**The Full Solution:**\nStep 1: Move every term to one side first. Subtract $34x$ from both sides: $5x^{2} - 34x + 12 = 0$, so $a = 5$, $b = -34$, and $c = 12$.\nStep 2: For a quadratic $ax^{2} + bx + c = 0$ with two solutions, their sum is $-\\frac{b}{a}$. Here that is $-\\frac{-34}{5} = \\frac{34}{5}$.\nStep 3: Confirm there are two real solutions: $b^{2} - 4ac = 1156 - 240 = 916 > 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{34}{5}$): uses $-\\frac{b}{a}$ with $b$ read as $+34$ from the unrearranged equation, so the sign comes out wrong.\n* Choice B ($\\frac{5}{34}$): inverts the ratio and reports $\\frac{a}{b}$ without the sign.\n* Choice C ($\\frac{12}{5}$): gives $\\frac{c}{a}$, which is the product of the solutions, not their sum.\n\n**Test Day Takeaway:** The sum and product shortcuts read off standard form only, so move every term to one side before you name $a$, $b$, and $c$."
 }

@@ -106,7 +106,7 @@ export const practiceTest3RW = {
           "domain": "craft-and-structure",
           "skill": "words-in-context",
           "type": "multiple-choice",
-          "passage": "Many oak species do not bear steady annual crops of acorns; instead, whole populations across a region produce almost nothing for several years and then release an enormous crop all at once. Ecologists argue that the value of these mast years lies precisely in their ______: seed-eating animals, unable to build up their numbers during the lean years in between, are overwhelmed when the crop finally arrives, and a large fraction of the acorns escapes them.",
+          "passage": "Many oak species do not bear steady annual crops of acorns; instead, the oaks across a region produce almost nothing for several years and then release an enormous crop all at once. Ecologists argue that the value of these mast years lies in their ______: seed-eating animals, unable to build up their numbers during the lean years in between, are overwhelmed when the crop arrives, and many acorns escape them.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -127,7 +127,7 @@ export const practiceTest3RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The mechanism the colon describes depends on the lean years as much as on the flood: because crops come only at intervals, predator populations stay small and are swamped when a crop arrives. That on-and-off rhythm is intermittency.\n\n**The Full Solution:**\n- The blank must name the feature of mast years in which their \"value... lies precisely.\"\n- The explanation that follows credits the gap between crops — predators \"unable to build up their numbers during the lean years\" — so the valuable feature is the alternation itself, not any single year's size.\n\n**Why the other choices are wrong:**\n- A: \"Abundance\" is the surface trap: the crop is enormous, but a crop that was abundant every year would let predator populations grow to match it, defeating the strategy the text describes.\n- B: \"Duration\" points to how long a mast year lasts, which the text never discusses.\n- C: \"Regularity\" is closer to the opposite of the boom-and-bust pattern being described.",
+          "explanation": "**Choice D is correct.** The mechanism the colon describes depends on the lean years as much as on the flood: because crops come only at intervals, predator populations stay small and are swamped when a crop arrives. That on-and-off rhythm is intermittency.\n\n**The Full Solution:**\n- The blank must name the feature of mast years in which their \"value... lies.\"\n- The explanation that follows credits the gap between crops — predators \"unable to build up their numbers during the lean years\" — so the valuable feature is the alternation itself, not any single year's size.\n\n**Why the other choices are wrong:**\n- A: \"Abundance\" is the surface trap: the crop is enormous, but a crop that was abundant every year would let predator populations grow to match it, defeating the strategy the text describes.\n- B: \"Duration\" points to how long a mast year lasts, which the text never discusses.\n- C: \"Regularity\" is closer to the opposite of the boom-and-bust pattern being described.",
           "_meta": {
             "anchor": "Mast seeding in oaks — predator satiation via intermittent acorn crops (unnamed ecologists)"
           }
@@ -172,7 +172,7 @@ export const practiceTest3RW = {
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
           "type": "multiple-choice",
-          "passage": "During the influenza pandemic of 1918, American cities differed sharply in how quickly they acted. Philadelphia allowed a large public parade to proceed in late September; within weeks its hospitals were overwhelmed, and its death rate became one of the highest of any major city. __St. Louis, by contrast, closed schools, theaters, and other gathering places within days of its first cases, and its death rate remained well below Philadelphia's.__ Historians of public health caution that the two cities differed in more ways than their policies, but the comparison remains a touchstone in debates over how governments should act in an epidemic's earliest days.",
+          "passage": "In the 1918 influenza pandemic, American cities differed sharply in how quickly they acted. Philadelphia allowed a large public parade to proceed in late September; within weeks its hospitals were overwhelmed, and its death rate became one of the highest of any major city. __St. Louis, by contrast, closed schools, theaters, and other gathering places within days of its first cases, and its death rate remained well below Philadelphia's.__ Historians of public health caution that the two cities differed in more ways than their policies, but the comparison remains a touchstone in debates over how governments should act in an epidemic's earliest days.",
           "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
           "choices": [
             {
@@ -189,7 +189,7 @@ export const practiceTest3RW = {
             },
             {
               "id": "D",
-              "text": "It supplies the contrasting case that gives the comparison between the two cities its force, setting up both the historians' caution and the ongoing debate described in the final sentence"
+              "text": "It supplies the contrasting case on which the comparison between the two cities, and the rest of the text, depends"
             }
           ],
           "correctAnswer": "D",
@@ -208,7 +208,7 @@ export const practiceTest3RW = {
           "passages": [
             {
               "label": "Text 1",
-              "text": "In the 1930s, geneticist George Beadle crossed maize with teosinte, a wild Mexican grass whose hard, few-kerneled spikes look nothing like an ear of corn. The hybrids were fertile, and the traits separating the two plants appeared to be governed by a small number of genes. Beadle concluded that teosinte was maize's direct wild ancestor and that ancient farmers in Mexico, by selecting favorable variants generation after generation, could have gradually transformed so unpromising a grass into a productive crop."
+              "text": "In the 1930s, geneticist George Beadle crossed maize with teosinte, a wild Mexican grass whose hard, few-kerneled spikes look nothing like an ear of corn. The hybrids were fully fertile, and the chromosomes of the two plants paired normally, a sign of close kinship. Beadle concluded that teosinte was maize's direct wild ancestor and that ancient farmers in Mexico, by selecting a handful of favorable mutations, could have gradually transformed so unpromising a grass into a productive crop."
             },
             {
               "label": "Text 2",
@@ -227,7 +227,7 @@ export const practiceTest3RW = {
             },
             {
               "id": "C",
-              "text": "He would accept that teosinte was maize's ancestor while arguing that the transformation must have involved many more genes than Beadle's crosses indicated."
+              "text": "He would accept that teosinte was maize's ancestor while arguing that the transformation must have required far more mutations than Beadle supposed."
             },
             {
               "id": "D",
@@ -237,7 +237,7 @@ export const practiceTest3RW = {
           "correctAnswer": "B",
           "explanation": "**Choice B is correct.** Text 2 states Mangelsdorf's objection directly: the plants' seed-bearing structures \"differ so radically\" that early farmers \"would have seen nothing in teosinte worth cultivating.\" That is precisely the response B attributes to him.\n\n**The Full Solution:**\n- Beadle's conclusion has two parts: teosinte was the ancestor, and ancient farmers transformed it through selection.\n- Mangelsdorf attacks the scenario at its starting point — no farmer would have bothered with so unpromising a plant — and offers an alternative ancestry (an extinct wild maize) on which teosinte is an offshoot, not a parent.\n\n**Why the other choices are wrong:**\n- A: It has him denying a result his own proposal depends on — his offshoot account requires that maize and wild grasses cross; he disputed Beadle's interpretation, not the crosses.\n- C: It concedes the very claim he rejects — that teosinte was the ancestor.\n- D: It swaps his actual objection for one he never makes: his target was teosinte's role as ancestor, not the involvement of human selection in maize's history.",
           "_meta": {
-            "anchor": "Cross-text pair: George Beadle (teosinte hypothesis) vs. Paul Mangelsdorf (extinct wild maize) — maize domestication debate"
+            "anchor": "Cross-text pair: George Beadle (teosinte hypothesis; fertile hybrids, normal chromosome pairing — J. Heredity 1939) vs. Paul Mangelsdorf (extinct wild maize; teosinte as maize x Tripsacum offshoot)"
           }
         },
         {
@@ -280,12 +280,12 @@ export const practiceTest3RW = {
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
           "type": "multiple-choice",
-          "passage": "Periodical cicadas spend thirteen or seventeen years underground and then emerge by the billions within a few weeks. Why surface all at once? A single cicada is nearly defenseless — slow, conspicuous, and edible — and a lone insect appearing in an ordinary summer would almost certainly be eaten. When an entire brood emerges together, however, predators eat their fill long before they make a dent in the swarm, and the vast majority of cicadas survive to reproduce. The staggering density that makes an emergence so overwhelming is, in other words, the species' principal defense.",
+          "passage": "Periodical cicadas spend thirteen or seventeen years underground and then emerge by the billions within a few weeks. Why surface all at once? A lone cicada is slow, conspicuous, and edible, and one appearing in an ordinary summer would almost certainly be eaten. When an entire brood emerges together, however, predators eat their fill long before they make a dent in the swarm, and most cicadas survive to reproduce. The density that makes an emergence so overwhelming is, in other words, the species' principal defense.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "It presents a widely accepted explanation of an insect behavior, then describes an observation that has led researchers to doubt that explanation and to begin searching for a new one"
+              "text": "It presents a widely accepted explanation of an insect behavior, then describes an observation that has led researchers to doubt that explanation"
             },
             {
               "id": "B",
@@ -417,15 +417,15 @@ export const practiceTest3RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Genetic analysis shows that dormouse populations in woodlands linked by hedgerows are more closely related to one another than are populations in similar woodlands that lack such connections."
+              "text": "Genetic analysis shows that dormouse populations in hedgerow-linked woodlands are more closely related to one another than are populations in similar unlinked woodlands."
             },
             {
               "id": "B",
-              "text": "Dormice living in hedgerows build nests that are similar in size and structure to the nests that dormice build in woodlands, according to surveys conducted across several regions, regardless of the season in which the nests are built."
+              "text": "Dormice living in hedgerows build nests that are similar in size and structure to the nests that dormice build in woodlands."
             },
             {
               "id": "C",
-              "text": "Woodland patches that are connected by hedgerows tend to be somewhat larger on average than woodland patches that stand alone."
+              "text": "Woodland patches that are connected by hedgerows tend to be somewhat larger on average than woodland patches that stand alone in open farmland."
             },
             {
               "id": "D",
@@ -456,7 +456,7 @@ export const practiceTest3RW = {
             "rows": [
               [
                 "1950",
-                "33,300"
+                "33,303"
               ],
               [
                 "1952",
@@ -496,11 +496,11 @@ export const practiceTest3RW = {
             },
             {
               "id": "D",
-              "text": "reported cases rose from 33,300 in 1950 to 57,879 in 1952 before falling in each subsequent year shown."
+              "text": "reported cases rose from 33,303 in 1950 to 57,879 in 1952 before falling in each subsequent year shown."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The claim is comparative: the postvaccine decline was too steep to be ordinary fluctuation. A supplies both halves of the comparison — an 85 percent collapse across 1954-1958 and the observation that no two prevaccine years show anything like it.\n\n**The Full Solution:**\n- From 38,476 (1954) to 5,787 (1958) is a drop of about 85 percent.\n- The prevaccine rows swing up and down — 33,300 to 57,879 to 38,476 — but never fall anywhere near that far. Citing the absence of a prevaccine parallel is what turns the number into evidence against the fluctuation explanation.\n\n**Why the other choices are wrong:**\n- B: It cites the one prevaccine dip — exactly the fluctuation the student wants to distinguish the later decline from — and so undercuts the claim rather than supporting it.\n- C: The 1960 endpoint shows cases ended low but makes no comparison to prevaccine variation, which the claim requires.\n- D: It narrates the whole trajectory without quantifying the postvaccine decline's steepness or contrasting it with the earlier swings.",
+          "explanation": "**Choice A is correct.** The claim is comparative: the postvaccine decline was too steep to be ordinary fluctuation. A supplies both halves of the comparison — an 85 percent collapse across 1954-1958 and the observation that no two prevaccine years show anything like it.\n\n**The Full Solution:**\n- From 38,476 (1954) to 5,787 (1958) is a drop of about 85 percent.\n- The prevaccine rows swing up and down — 33,303 to 57,879 to 38,476 — but never fall anywhere near that far. Citing the absence of a prevaccine parallel is what turns the number into evidence against the fluctuation explanation.\n\n**Why the other choices are wrong:**\n- B: It cites the one prevaccine dip — exactly the fluctuation the student wants to distinguish the later decline from — and so undercuts the claim rather than supporting it.\n- C: The 1960 endpoint shows cases ended low but makes no comparison to prevaccine variation, which the claim requires.\n- D: It narrates the whole trajectory without quantifying the postvaccine decline's steepness or contrasting it with the earlier swings.",
           "_meta": {
             "anchor": "U.S. reported polio cases before and after the 1955 vaccine — decline vs. ordinary fluctuation"
           }
@@ -523,27 +523,27 @@ export const practiceTest3RW = {
             ],
             "rows": [
               [
-                "Point Azul",
+                "Reserve A",
                 "6",
                 "1.4"
               ],
               [
-                "Gray Harbor",
+                "Reserve B",
                 "9",
                 "1.7"
               ],
               [
-                "Cedar Cove",
+                "Reserve C",
                 "14",
                 "2.1"
               ],
               [
-                "Osprey Bank",
+                "Reserve D",
                 "21",
                 "2.6"
               ],
               [
-                "Halfmoon Shoal",
+                "Reserve E",
                 "26",
                 "3.2"
               ]
@@ -553,11 +553,11 @@ export const practiceTest3RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Halfmoon Shoal, protected for 26 years, has the highest biomass ratio of the five reserves, at 3.2."
+              "text": "Reserve E, protected for 26 years, has the highest biomass ratio of the five reserves, at 3.2."
             },
             {
               "id": "B",
-              "text": "rockfish biomass at Point Azul is 1.4 times as high inside the reserve as in the nearby fished waters."
+              "text": "rockfish biomass in Reserve A is 1.4 times as high inside the reserve as in the nearby fished waters."
             },
             {
               "id": "C",
@@ -581,12 +581,12 @@ export const practiceTest3RW = {
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
           "type": "multiple-choice",
-          "passage": "Cholera kills by draining the body of fluid faster than plain drinking water can replace it, because the inflamed intestine cannot absorb water on its own. In refugee camps during the 1971 Bangladesh war, physician Dilip Mahalanabis faced thousands of cholera patients with almost no intravenous fluid, then the standard treatment. His team instead distributed a simple drinking solution of water, salt, and glucose — the sugar carries the salt across the intestinal wall, and water follows. Deaths in the camps fell from roughly thirty percent of patients to under four, and oral rehydration therapy went on to save tens of millions of lives worldwide.",
+          "passage": "Cholera kills by draining the body of fluid faster than plain water can replace it, because the inflamed intestine cannot absorb water on its own. In refugee camps during the 1971 Bangladesh war, physician Dilip Mahalanabis faced thousands of cholera patients with almost no intravenous fluid, then the standard treatment. His team instead gave patients a drink of water, salt, and glucose; the sugar carries the salt across the intestinal wall, and water follows. Deaths fell from roughly thirty percent of patients to under four, and oral rehydration therapy went on to save tens of millions of lives worldwide.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "A simple oral solution, adopted when the standard cholera treatment was unavailable, proved dramatically effective and became a lifesaving therapy used around the world."
+              "text": "A simple oral solution, used when the standard treatment was unavailable, proved highly effective and became a lifesaving therapy worldwide."
             },
             {
               "id": "B",
@@ -602,7 +602,7 @@ export const practiceTest3RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The text's arc runs from crisis to solution to legacy: with intravenous fluid unavailable, a salt-and-glucose drink cut deaths from thirty percent to under four and became a worldwide therapy — which is A, point for point.\n\n**The Full Solution:**\n- The first sentence sets up the problem (fluid loss the gut cannot repair on its own); the second establishes the emergency (no standard treatment available).\n- The third explains the improvised remedy and why it works; the fourth measures its success and extends it to \"tens of millions of lives worldwide.\"\n\n**Why the other choices are wrong:**\n- B: The scarcity of intravenous fluid is the story's starting condition, not its point — and the text limits that scarcity to the camps, not \"most countries.\"\n- C: This is a supporting detail explaining why plain water fails; it is background for the main idea, not the idea itself.\n- D: The text attributes the lack of intravenous treatment to supply, never to the physicians' training.",
+          "explanation": "**Choice A is correct.** The text's arc runs from crisis to solution to legacy: with intravenous fluid unavailable, a salt-and-glucose drink cut deaths from thirty percent to under four and became a worldwide therapy — which is A, point for point.\n\n**The Full Solution:**\n- The first sentence sets up the problem (fluid loss the gut cannot repair on its own); the second establishes the emergency (no standard treatment available).\n- The third explains the improvised remedy and why it works; the fourth measures its success and extends it to \"tens of millions of lives worldwide.\"\n\n**Why the other choices are wrong:**\n- B: The scarcity of intravenous fluid is the story's starting condition, not its point — and the text describes that scarcity only in the camps, not in \"most countries.\"\n- C: This is a supporting detail explaining why plain water fails; it is background for the main idea, not the idea itself.\n- D: The text attributes the lack of intravenous treatment to supply, never to the physicians' training.",
           "_meta": {
             "anchor": "Dilip Mahalanabis — oral rehydration therapy in the 1971 Bangladesh refugee camps"
           }
@@ -623,7 +623,7 @@ export const practiceTest3RW = {
             },
             {
               "id": "B",
-              "text": "is best understood as an adaptation to seed dispersers that no longer exist — a strategy aimed at animals that vanished from the continent thousands of years ago."
+              "text": "is best understood as an adaptation to seed dispersers that vanished from the continent thousands of years ago."
             },
             {
               "id": "C",
@@ -817,7 +817,7 @@ export const practiceTest3RW = {
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
           "type": "multiple-choice",
-          "passage": "The California condor, one of the largest flying birds in North America, nearly vanished in the 1980s, when the wild population fell to just twenty-two individuals. Today, thanks to captive breeding and careful monitoring, hundreds of condors ______ over the canyons of California, Arizona, and Baja California.",
+          "passage": "The California condor, one of the largest flying birds in North America, nearly vanished in the 1980s, when the entire population fell to just twenty-two birds. Today, thanks to captive breeding and careful monitoring, hundreds of condors ______ over the canyons of California, Arizona, Utah, and Baja California.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -851,7 +851,7 @@ export const practiceTest3RW = {
           "domain": "expression-of-ideas",
           "skill": "transitions",
           "type": "multiple-choice",
-          "passage": "The gopher tortoise digs burrows up to twelve meters long in the sandy soils of the southeastern United States, and the tortoise itself is only one of the burrows' beneficiaries. More than three hundred other species — burrowing owls, indigo snakes, rabbits, frogs, and countless insects — take refuge in the tunnels during wildfires and winter cold. ______ conservationists rank the tortoise among the region's most important animals: protecting it protects the many species that depend on its engineering.",
+          "passage": "The gopher tortoise digs burrows up to twelve meters long in the sandy soils of the southeastern United States. More than three hundred other species, including indigo snakes, gopher frogs, and many insects, take refuge in these tunnels during wildfires and winter cold. ______ conservationists rank the tortoise among the region's most important animals: protecting it protects the many species that depend on its burrows.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -917,7 +917,7 @@ export const practiceTest3RW = {
           "domain": "expression-of-ideas",
           "skill": "transitions",
           "type": "multiple-choice",
-          "passage": "A pidgin arises when adults who share no common language improvise a stripped-down code for trade or work — a small vocabulary, little grammar, no native speakers. The children who grow up hearing that improvised code, however, do something their parents never did: they acquire it as a first language, and in acquiring it they expand it into a creole with fixed word order, verb marking, and the full expressive range of any human language. ______ the regularities of creole grammar are supplied by the children themselves, not inherited from the makeshift code their parents devised.",
+          "passage": "A pidgin arises when adults who share no language improvise a code for trade, with few words and little grammar. On one influential account, children who grow up hearing a pidgin acquire it as a first language and expand it into a creole, with fixed word order and markers for tense. ______ a creole's grammar is largely the children's invention, not an inheritance from their parents' makeshift code.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -938,7 +938,7 @@ export const practiceTest3RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The final sentence does not add a new fact; it restates the significance of the previous one — if children expand a nearly grammarless code into a full language, then the grammar must come from them. \"In other words\" is the transition that signals a restatement.\n\n**The Full Solution:**\n- The second sentence reports what happens: children acquire the pidgin and, in doing so, give it fixed word order and verb marking it never had.\n- The blank sentence says the same thing from the other direction — the grammar's source is the children, not the parents' code. Same content, sharpened phrasing: a restatement.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" promises a concession-then-reversal, but the final sentence agrees entirely with what precedes it.\n- B: \"By comparison\" needs two things being measured against each other; the final sentence draws out one process's meaning rather than comparing two.\n- C: \"For example\" would require a specific instance of the general claim, but the final sentence is more general than the sentence before it, not more specific.",
+          "explanation": "**Choice D is correct.** The final sentence does not add a new fact; it restates the significance of the previous one — if children expand a nearly grammarless code into a full language, then the grammar must come from them. \"In other words\" is the transition that signals a restatement.\n\n**The Full Solution:**\n- The second sentence reports the account: children acquire the pidgin and, in doing so, give it fixed word order and tense markers it never had.\n- The blank sentence says the same thing from the other direction — the grammar is the children's invention, not the parents' code. Same content, sharpened phrasing: a restatement.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" promises a concession-then-reversal, but the final sentence agrees entirely with what precedes it.\n- B: \"By comparison\" needs two things being measured against each other; the final sentence draws out one process's meaning rather than comparing two.\n- C: \"For example\" would require a specific instance of the general claim, but the final sentence is more general than the sentence before it, not more specific.",
           "_meta": {
             "anchor": "Pidgin-to-creole nativization — children as the source of grammar; restatement transition"
           }
@@ -953,11 +953,11 @@ export const practiceTest3RW = {
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "Alice Hamilton (1869-1970) was an American physician who studied diseases of the workplace.",
-              "In the early 1900s, she visited factories, mines, and mills to trace illnesses among workers to the lead, mercury, and other toxins they handled.",
-              "Her reports persuaded several states to pass the first laws compensating workers sickened on the job.",
+              "Alice Hamilton (1869-1970) was an American physician who studied workplace diseases.",
+              "In the early 1900s, she visited factories and mills to trace workers' illnesses to the lead and other toxins they handled.",
+              "Her 1911 report on Illinois industries led the state to pass a law requiring employers to protect workers from toxic exposure.",
               "In 1919 she became the first woman appointed to the faculty of Harvard Medical School.",
-              "Her 1925 book on industrial poisons became a standard text in the new field of industrial medicine."
+              "Her 1925 book on industrial poisons became a standard text."
             ],
             "goal": "The student wants to introduce Alice Hamilton's main contribution to an audience unfamiliar with her work."
           },
@@ -965,25 +965,25 @@ export const practiceTest3RW = {
           "choices": [
             {
               "id": "A",
-              "text": "In 1919, Alice Hamilton became the first woman ever to be appointed to the faculty of Harvard Medical School."
+              "text": "In 1919, Alice Hamilton became the first woman appointed to the faculty of Harvard Medical School."
             },
             {
               "id": "B",
-              "text": "Physician Alice Hamilton traced illnesses among early twentieth-century workers to the toxins they handled on the job, work that persuaded states to pass the first laws compensating sickened workers."
+              "text": "Physician Alice Hamilton traced workers' illnesses to the toxins they handled on the job, work that led to laws protecting workers."
             },
             {
               "id": "C",
-              "text": "Alice Hamilton visited factories, mines, and mills in the early 1900s, and she also published a book in 1925."
+              "text": "Alice Hamilton visited factories and mills in the early 1900s, and she also published a book in 1925."
             },
             {
               "id": "D",
-              "text": "Because workers in the early 1900s handled lead, mercury, and other toxins on the job, many of them fell ill, and several states eventually responded by passing the first laws that compensated workers for illnesses they developed at work."
+              "text": "Because workers in the early 1900s handled lead and other toxins, many fell ill, and Illinois eventually required employers to protect them."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The goal has two requirements — identify Hamilton for readers who do not know her and present her main contribution — and B satisfies both: it names her profession, states what she did (traced workers' illnesses to workplace toxins), and gives the contribution's consequence (the first compensation laws).\n\n**The Full Solution:**\n- An introduction for an unfamiliar audience must say who she was; \"Physician Alice Hamilton\" does that economically.\n- Her main contribution, per the notes, is the tracing of illness to toxins and the reforms it produced; B links the two in one sentence.\n\n**Why the other choices are wrong:**\n- A: It leads with an academic honor and never mentions the work the honor recognized.\n- C: It strings together activities (visits, a book) without saying what Hamilton discovered or why it mattered.\n- D: It narrates the era's industrial illness and reform while omitting Hamilton entirely — the one thing the goal requires the sentence to introduce.",
+          "explanation": "**Choice B is correct.** The goal has two requirements — identify Hamilton for readers who do not know her and present her main contribution — and B satisfies both: it names her profession, states what she did (traced workers' illnesses to workplace toxins), and gives the contribution's consequence (laws protecting workers).\n\n**The Full Solution:**\n- An introduction for an unfamiliar audience must say who she was; \"Physician Alice Hamilton\" does that economically.\n- Her main contribution, per the notes, is the tracing of illness to toxins and the protective law it produced; B links the two in one sentence.\n\n**Why the other choices are wrong:**\n- A: It leads with an academic honor and never mentions the work the honor recognized.\n- C: It strings together activities (visits, a book) without saying what Hamilton discovered or why it mattered.\n- D: It narrates the era's industrial illness and reform while omitting Hamilton entirely — the one thing the goal requires the sentence to introduce.",
           "_meta": {
-            "anchor": "Alice Hamilton — industrial toxicology and the first workplace-compensation laws"
+            "anchor": "Alice Hamilton — industrial toxicology; 1911 Illinois survey led to the state's occupational disease law (CDC/NIOSH)"
           }
         },
         {
@@ -996,12 +996,12 @@ export const practiceTest3RW = {
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "Camera traps are motion-triggered cameras that photograph animals without a human observer present.",
-              "Traditional wildlife surveys require field teams to walk transect lines, which is costly and disturbs the animals being counted.",
-              "A camera trap operates continuously for months on one set of batteries, through darkness and weather that would halt a field team.",
-              "Networks of hundreds of camera traps now generate millions of images revealing where rare species live and when they are active.",
-              "Shy species such as snow leopards, seldom seen in person even by researchers, appear regularly in camera-trap images.",
-              "Standard survey methods remain necessary for data that images cannot supply, such as an animal's age, weight, or health."
+              "Camera traps are motion-triggered cameras that photograph passing animals.",
+              "Traditional surveys send field teams on foot, which is costly and disturbs the animals being counted.",
+              "A camera trap can run unattended for months, day and night.",
+              "Camera-trap networks produce millions of images showing where rare species live.",
+              "Shy species such as snow leopards, rarely seen even by researchers, appear often in camera-trap images.",
+              "Field surveys are still needed for data such as an animal's weight or health."
             ],
             "goal": "The student wants to emphasize the advantage of camera traps over traditional survey methods for studying elusive animals."
           },
@@ -1009,23 +1009,23 @@ export const practiceTest3RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Camera traps, which are triggered by motion, photograph passing animals without requiring a human observer to be present at the site."
+              "text": "Camera traps, which are triggered by motion, photograph the animals that pass in front of them."
             },
             {
               "id": "B",
-              "text": "Standard survey methods can supply data that camera-trap images cannot, such as an animal's age, weight, or health."
+              "text": "Field surveys are still needed for some kinds of data, such as an animal's weight or health."
             },
             {
               "id": "C",
-              "text": "Networks of hundreds of camera traps generate millions of images revealing where rare species live and when they are most active."
+              "text": "Networks of camera traps produce millions of images showing where rare species live."
             },
             {
               "id": "D",
-              "text": "Unlike traditional surveys, whose costly field teams disturb the very animals they count, motion-triggered camera traps operate unattended for months and regularly record shy species, such as snow leopards, that researchers almost never see in person."
+              "text": "Unlike costly field surveys that disturb animals, camera traps run unattended for months and often record shy species such as snow leopards."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The goal demands a comparison — camera traps versus traditional methods — aimed specifically at elusive animals, and D is the only choice that draws it: traditional teams disturb their subjects, while unattended cameras run for months and routinely capture species like snow leopards that observers never encounter.\n\n**The Full Solution:**\n- \"Advantage over\" requires both sides of the comparison to appear; D opens with the traditional method's weaknesses and pivots to the camera trap's strengths.\n- \"Elusive animals\" requires the snow-leopard note, the notes' one direct illustration of shy species on camera.\n\n**Why the other choices are wrong:**\n- A: It defines camera traps accurately but mentions neither traditional surveys nor elusive species, so no advantage is asserted.\n- B: It argues the reverse of the goal, emphasizing what traditional methods do better.\n- C: It conveys scale — many cameras, many images — but never compares that capability with traditional surveys or connects it to hard-to-see animals.",
+          "explanation": "**Choice D is correct.** The goal demands a comparison — camera traps versus traditional methods — aimed specifically at elusive animals, and D is the only choice that draws it: field teams are costly and disturb their subjects, while unattended cameras run for months and often capture shy species such as snow leopards.\n\n**The Full Solution:**\n- \"Advantage over\" requires both sides of the comparison to appear; D opens with the traditional method's weaknesses and pivots to the camera trap's strengths.\n- \"Elusive animals\" requires the snow-leopard note, the notes' one direct illustration of shy species on camera.\n\n**Why the other choices are wrong:**\n- A: It defines camera traps accurately but mentions neither traditional surveys nor elusive species, so no advantage is asserted.\n- B: It argues the reverse of the goal, emphasizing what traditional methods still do better.\n- C: It conveys scale — many cameras, many images — but never compares that capability with traditional surveys or connects it to hard-to-see animals.",
           "_meta": {
             "anchor": "Camera-trap networks vs. transect surveys for elusive species (snow leopards)"
           }
@@ -1044,7 +1044,7 @@ export const practiceTest3RW = {
           "domain": "craft-and-structure",
           "skill": "words-in-context",
           "type": "multiple-choice",
-          "passage": "The psychologist Adriaan de Groot found that chess masters could reproduce a briefly glimpsed board position almost perfectly, while novices could not — yet when the pieces were scattered at random, the masters' advantage nearly vanished. Their extraordinary recall, de Groot concluded, was not a general gift of memory but a ______ one: it operated only on positions that made chess sense, where familiar configurations could be grasped as wholes.",
+          "passage": "Cognitive scientists William Chase and Herbert Simon found that chess masters could reconstruct far more of a briefly glimpsed board position than novices could, yet when the pieces were placed at random, the masters' advantage nearly vanished. Their superior recall, Chase and Simon concluded, was not a general gift of memory but a ______ one: it worked only on positions that made chess sense, where familiar patterns could be grasped as wholes.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -1065,9 +1065,9 @@ export const practiceTest3RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The colon defines the blank: the masters' recall \"operated only on positions that made chess sense.\" A capacity confined to a limited domain is a circumscribed one — the precise contrast with \"a general gift of memory.\"\n\n**The Full Solution:**\n- The sentence is built on a not-X-but-Y frame: not general, but ______. The blank must be an antonym-in-context of \"general.\"\n- The random-board result supplies the evidence — outside meaningful chess positions, the advantage nearly vanished — so the ability's boundary, not its strength, is the point.\n\n**Why the other choices are wrong:**\n- A: \"Cultivated\" is the tempting half-truth — the skill was surely trained — but training is not the contrast being drawn with \"general,\" and the colon explains a limit of scope, not an origin.\n- B: \"Fleeting\" describes duration; the masters' recall was reliable within its domain, not short-lived.\n- C: \"Deliberate\" describes intention, but grasping configurations \"as wholes\" suggests rapid recognition rather than effortful intent — and intention is not what the colon goes on to explain.",
+          "explanation": "**Choice D is correct.** The colon defines the blank: the masters' recall \"worked only on positions that made chess sense.\" A capacity confined to a limited domain is a circumscribed one — the precise contrast with \"a general gift of memory.\"\n\n**The Full Solution:**\n- The sentence is built on a not-X-but-Y frame: not general, but ______. The blank must be an antonym-in-context of \"general.\"\n- The random-board result supplies the evidence — outside meaningful chess positions, the advantage nearly vanished — so the ability's boundary, not its strength, is the point.\n\n**Why the other choices are wrong:**\n- A: \"Cultivated\" is the tempting half-truth — the skill was surely trained — but training is not the contrast being drawn with \"general,\" and the colon explains a limit of scope, not an origin.\n- B: \"Fleeting\" describes duration; the masters' recall was reliable within its domain, not short-lived.\n- C: \"Deliberate\" describes intention, but grasping configurations \"as wholes\" suggests rapid recognition rather than effortful intent — and intention is not what the colon goes on to explain.",
           "_meta": {
-            "anchor": "Adriaan de Groot — chess masters' recall as domain-limited (random-board control)"
+            "anchor": "Chase & Simon (1973) 'Perception in Chess' — masters' recall advantage nearly vanishes for random positions (built on de Groot's earlier recall studies)"
           }
         },
         {
@@ -1110,7 +1110,7 @@ export const practiceTest3RW = {
           "domain": "craft-and-structure",
           "skill": "words-in-context",
           "type": "multiple-choice",
-          "passage": "By the early 1990s, the few dozen Florida panthers that remained were so inbred that kinked tails and heart defects had become widespread. Wildlife managers made a controversial decision: they released eight female pumas from Texas, the panther's closest living relative, into South Florida to ______ the population's depleted store of genetic variation. Within a decade the defects had grown rarer, and panther numbers had roughly tripled.",
+          "passage": "By the early 1990s, only twenty to thirty Florida panthers remained, so inbred that kinked tails and heart defects were widespread. In 1995, wildlife managers took a controversial step: they released eight female pumas from a related population in Texas into South Florida to ______ the population's depleted store of genetic variation. Within about a decade the defects had grown rarer, and panther numbers had roughly tripled.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -1143,7 +1143,7 @@ export const practiceTest3RW = {
           "domain": "craft-and-structure",
           "skill": "words-in-context",
           "type": "multiple-choice",
-          "passage": "The choreographer Pearl Primus, who trained as an anthropologist, traveled through West Africa in the late 1940s to study dances in the communities where they were made. She objected to staging African dances as exotic spectacle; her aim was to present them with the ______ they carried in their home settings — as expressions of worship, work, and communal memory.",
+          "passage": "The choreographer Pearl Primus, who studied anthropology, traveled through West and Central Africa in 1948 and 1949 to study dances in the communities where they were made. She objected to staging African dances as exotic spectacle; her aim was to present them with the ______ they carried in their home settings — as expressions of worship, work, and communal memory.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -1166,7 +1166,7 @@ export const practiceTest3RW = {
           "correctAnswer": "C",
           "explanation": "**Choice C is correct.** The sentence opposes \"exotic spectacle\" to what the dances carried at home — status as worship, work, and communal memory. The word for that seriousness of standing is \"dignity.\"\n\n**The Full Solution:**\n- The semicolon sets up a correction: not spectacle, but something the dances possess in their home settings.\n- The dash then specifies that something: the dances' roles in worship, labor, and memory — weighty communal functions. \"Dignity\" names the respect such roles confer.\n\n**Why the other choices are wrong:**\n- A: \"Novelty\" sits on the wrong side of the contrast — newness for its own sake is exactly what exotic staging traded on.\n- B: \"Caution\" describes a manner of handling something, not a quality the dances themselves carried in their home settings.\n- D: \"Simplicity\" is unsupported — the text says nothing about the dances being simple, and reducing them to simplicity would slight the roles the dash enumerates.",
           "_meta": {
-            "anchor": "Pearl Primus — presenting West African dances with their home dignity, against exotic spectacle"
+            "anchor": "Pearl Primus — 1948-49 Rosenwald-funded study tour of West and Central Africa; African dance as dignified expression (Wikipedia/Rosenwald exhibit)"
           }
         },
         {
@@ -1176,7 +1176,7 @@ export const practiceTest3RW = {
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
           "type": "multiple-choice",
-          "passage": "In 1861, the photographer Carleton Watkins hauled a mammoth-plate camera — an instrument that exposed glass negatives the size of a serving tray — into California's Yosemite Valley. The prints he carried out showed granite walls and giant sequoias in astonishing detail, and they circulated among editors, scientists, and members of Congress, most of whom would never see the valley themselves. Three years later, when Congress passed the first federal law setting Yosemite aside for public protection, several lawmakers cited Watkins's photographs as evidence of what deserved saving.",
+          "passage": "In 1861, the photographer Carleton Watkins hauled a mammoth-plate camera — an instrument that exposed glass negatives the size of a serving tray — into California's Yosemite Valley. The prints he carried out showed granite walls and giant sequoias in astonishing detail. Senator John Conness of California circulated Watkins's photographs among fellow lawmakers, most of whom would never see the valley themselves, and in 1864 Congress passed the first federal law setting Yosemite aside for public protection.",
           "question": "Which choice best states the main purpose of the text?",
           "choices": [
             {
@@ -1197,9 +1197,9 @@ export const practiceTest3RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The text follows a single thread from camera to law: Watkins made extraordinarily detailed prints, the prints reached decision-makers who could never visit the valley, and lawmakers cited them when Yosemite won federal protection. Its purpose is to describe that chain of influence.\n\n**The Full Solution:**\n- Each sentence advances the same story — making the images, circulating the images, and the images' role in the 1864 protection.\n- The closing sentence is the payoff, and D states the through-line that the whole text serves.\n\n**Why the other choices are wrong:**\n- A: The camera's unwieldiness appears in one aside; no technical challenges are actually explained.\n- B: The text says lawmakers cited the photographs — it nowhere weighs what Congress would have done without other kinds of testimony.\n- C: No written descriptions of Yosemite, exaggerated or otherwise, are mentioned, so no such contrast is drawn.",
+          "explanation": "**Choice D is correct.** The text follows a single thread from camera to law: Watkins made extraordinarily detailed prints, a senator circulated the prints among lawmakers who would never visit the valley, and Congress then voted to protect Yosemite. Its purpose is to describe that chain of influence.\n\n**The Full Solution:**\n- Each sentence advances the same story — making the images, circulating the images, and the images' role in the 1864 protection.\n- The closing sentence is the payoff, and D states the through-line that the whole text serves.\n\n**Why the other choices are wrong:**\n- A: The camera's unwieldiness appears in one aside; no technical challenges are actually explained.\n- B: The text says a senator circulated the photographs — it nowhere weighs what Congress would have done without other kinds of testimony.\n- C: No written descriptions of Yosemite, exaggerated or otherwise, are mentioned, so no such contrast is drawn.",
           "_meta": {
-            "anchor": "Carleton Watkins — Yosemite mammoth-plate photographs and the 1864 protection"
+            "anchor": "Carleton Watkins — 1861 Yosemite mammoth-plate photographs circulated in Congress by Sen. John Conness before the 1864 Yosemite Grant (Smithsonian)"
           }
         },
         {
@@ -1209,7 +1209,7 @@ export const practiceTest3RW = {
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
           "type": "multiple-choice",
-          "passage": "In the late 1980s, oceanographer John Martin proposed that vast stretches of the ocean remain poor in phytoplankton not for lack of light or major nutrients but for lack of iron, a scarce trace element. Field experiments seeded patches of open water with dissolved iron, and the patches bloomed within days, turning visibly green with growth. __Yet the blooms proved short-lived, and only a small fraction of the carbon they absorbed sank into the deep ocean rather than returning quickly to the atmosphere.__ Accordingly, most researchers who accept Martin's account of what limits phytoplankton growth nonetheless doubt that fertilizing the ocean with iron could meaningfully slow climate change.",
+          "passage": "In the late 1980s, oceanographer John Martin proposed that vast stretches of the ocean are poor in phytoplankton not for lack of light or major nutrients but for lack of iron. Field experiments later seeded patches of open water with dissolved iron, and the patches bloomed within days. __Yet the blooms were short-lived, and only a small fraction of the carbon they absorbed sank into the deep ocean.__ Accordingly, most researchers who accept Martin's account of what limits phytoplankton growth nonetheless doubt that fertilizing the ocean with iron could meaningfully slow climate change.",
           "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
           "choices": [
             {
@@ -1284,7 +1284,7 @@ export const practiceTest3RW = {
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
           "type": "multiple-choice",
-          "passage": "Around 1100 CE, Cahokia, near present-day St. Louis, ranked among the largest settlements north of Mexico, its earthen mounds rising above plazas that could hold tens of thousands of people. Many early observers refused to credit the site's builders: they attributed the mounds to vanished foreign colonists rather than to the ancestors of the Native peoples living in the region. Excavation has since dismantled that fiction. Tools, refuse layers, and construction stages show the mounds rising basket-load by basket-load through generations of organized local labor — the work not of mysterious outsiders but of an Indigenous metropolis whose builders' descendants the early observers had dismissed.",
+          "passage": "Around 1100 CE, Cahokia, near present-day St. Louis, was among the largest settlements north of Mexico, its earthen mounds rising above broad plazas. Many early observers refused to credit the site's builders, attributing the mounds to vanished foreign colonists rather than to the ancestors of the region's Native peoples. Excavation has since dismantled that fiction. Tools, refuse layers, and construction stages show the mounds rising basket-load by basket-load through generations of organized local labor — the work not of mysterious outsiders but of an Indigenous city.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
@@ -1297,7 +1297,7 @@ export const practiceTest3RW = {
             },
             {
               "id": "C",
-              "text": "It describes an ancient city, presents a mistaken account of the city's origins that early observers promoted, and then details the archaeological evidence that overturned that account"
+              "text": "It describes an ancient city, presents a mistaken account of the city's origins, and then details the evidence that overturned that account"
             },
             {
               "id": "D",
@@ -1305,7 +1305,7 @@ export const practiceTest3RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The text makes three moves in order: it establishes Cahokia's scale, reports the early observers' false attribution of the mounds to foreign colonists, and then presents the excavated evidence — tools, refuse, construction stages — that overturned the false account.\n\n**The Full Solution:**\n- Sentence one describes the city. Sentence two states the mistaken origin story and who promoted it.\n- \"Excavation has since dismantled that fiction\" pivots explicitly, and the final sentence itemizes the evidence and the corrected conclusion. C tracks the sequence exactly.\n\n**Why the other choices are wrong:**\n- A: No question is posed, and only one wrong account is discussed — nothing is \"evaluated\" among competing answers; the fiction is simply refuted.\n- B: The text is organized around an argument about the builders' identity, not a chronological biography of the city, and abandonment never comes up.\n- D: The text ends in resolution, not stalemate — the evidence settles who built the mounds, and the population figure is scene-setting, not the debate's subject.",
+          "explanation": "**Choice C is correct.** The text makes three moves in order: it establishes Cahokia's scale, reports the early observers' false attribution of the mounds to foreign colonists, and then presents the excavated evidence — tools, refuse, construction stages — that overturned the false account.\n\n**The Full Solution:**\n- Sentence one describes the city. Sentence two states the mistaken origin story and who promoted it.\n- \"Excavation has since dismantled that fiction\" pivots explicitly, and the final sentence itemizes the evidence and the corrected conclusion. C tracks the sequence exactly.\n\n**Why the other choices are wrong:**\n- A: No question is posed, and only one wrong account is discussed — nothing is \"evaluated\" among competing answers; the fiction is simply refuted.\n- B: The text is organized around an argument about the builders' identity, not a chronological biography of the city, and abandonment never comes up.\n- D: The text ends in resolution, not stalemate — the evidence settles who built the mounds, and the city's size is scene-setting, not the subject of any debate.",
           "_meta": {
             "anchor": "Cahokia — refutation of the foreign-builder myth by excavation evidence"
           }
@@ -1317,7 +1317,7 @@ export const practiceTest3RW = {
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
           "type": "multiple-choice",
-          "passage": "When the Framingham Heart Study began in 1948, heart disease was the leading cause of death in the United States, yet physicians could say little about why some people developed it and others did not. The study's designers enrolled more than five thousand residents of one Massachusetts town and examined them every two years, recording blood pressure, cholesterol, smoking habits, and weight — and then waited to see who fell ill. Over the following decades, the accumulating records let researchers identify what they called risk factors: measurable traits that predict a person's chances of developing disease, a concept that now organizes preventive medicine well beyond cardiology.",
+          "passage": "When the Framingham Heart Study began in 1948, heart disease was the leading cause of death in the United States, yet physicians could say little about why some people developed it and others did not. The study enrolled more than five thousand residents of one Massachusetts town and examined them every two years, recording blood pressure, cholesterol, smoking, and weight. Over the following decades, the records let researchers identify what they called risk factors: measurable traits that predict a person's chances of developing disease, a concept that now organizes preventive medicine well beyond cardiology.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
@@ -1350,7 +1350,7 @@ export const practiceTest3RW = {
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-textual",
           "type": "multiple-choice",
-          "passage": "Historian of medicine Thomas McKeown argued that the steep decline in deaths from infectious disease in England between 1850 and 1950 owed little to doctors. Effective drugs against the era's great killers arrived only in the 1930s and 1940s, he observed, by which time mortality from those diseases had already fallen most of the way to modern levels. McKeown attributed the decline instead to rising standards of living — above all to better nutrition, which strengthened resistance to infection.",
+          "passage": "Historian of medicine Thomas McKeown argued that the steep decline in deaths from infectious disease in England and Wales from the mid-1800s to the mid-1900s owed little to doctors. Effective drugs against the era's great killers arrived only in the 1930s and 1940s, he observed, by which time mortality from those diseases had already fallen most of the way to modern levels. McKeown attributed the decline instead to rising standards of living — above all to better nutrition, which strengthened resistance to infection.",
           "question": "Which finding, if true, would most directly weaken McKeown's argument?",
           "choices": [
             {
@@ -1400,7 +1400,7 @@ export const practiceTest3RW = {
             },
             {
               "id": "D",
-              "text": "Grammatical elements that appear arbitrary frequently originate as ordinary words whose sounds and meanings gradually wore away as they took on abstract functions."
+              "text": "Grammatical markers that seem arbitrary often began as ordinary words that gradually lost their sounds and meanings."
             }
           ],
           "correctAnswer": "D",
@@ -1433,7 +1433,7 @@ export const practiceTest3RW = {
             },
             {
               "id": "D",
-              "text": "is less a recovery of the original work than an informed interpretation of it, shaped by the gaps and disagreements within the surviving evidence."
+              "text": "is less a recovery of the original work than an interpretation shaped by gaps and disagreements in the evidence."
             }
           ],
           "correctAnswer": "D",
@@ -1513,7 +1513,7 @@ export const practiceTest3RW = {
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
           "type": "multiple-choice",
-          "passage": "Until 1994, the Wollemi pine was known only from fossils, the youngest of which are about two million years old, and botanists reasonably assumed that the lineage was extinct. That year, a parks officer exploring a remote canyon northwest of Sydney, Australia, noticed a stand of unfamiliar trees with bubbly, chocolate-brown bark and fern-like foliage. Fewer than one hundred adult trees survive in the wild, all in a handful of neighboring gorges, and their exact location is kept secret to protect the trees from disease and trampling. Botanic gardens around the world now cultivate the species as insurance against the loss of the wild population.",
+          "passage": "Until 1994, the Wollemi pine was known only from fossils, and botanists assumed the lineage was extinct. That year, a parks officer exploring a remote canyon northwest of Sydney, Australia, noticed a stand of unfamiliar trees with bubbly, chocolate-brown bark. Fewer than one hundred adult trees survive in the wild, all in a few neighboring gorges, and their exact location is kept secret to protect the trees from disease and trampling. Botanic gardens around the world now cultivate the species as insurance against the loss of the wild population.",
           "question": "According to the text, why is the location of the wild Wollemi pines kept secret?",
           "choices": [
             {
@@ -1584,7 +1584,7 @@ export const practiceTest3RW = {
             },
             {
               "id": "D",
-              "text": "the blank slowed detection of both kinds of change, but far more for marginal changes (1.4 to 17.8 cycles) than for central ones (1.2 to 4.1) — the gap expected if attention, once deprived of motion signals, goes first to what a scene is about."
+              "text": "the blank slowed detection of both kinds of change, but far more for marginal changes (1.4 to 17.8 cycles) than for central ones (1.2 to 4.1)."
             }
           ],
           "correctAnswer": "D",
@@ -1701,7 +1701,7 @@ export const practiceTest3RW = {
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
           "type": "multiple-choice",
-          "passage": "For decades, archaeologists could arrange the Ancestral Puebloan sites of the Southwest only in relative order, guessing at ages from styles of pottery and masonry. By matching the ring patterns of living trees to those in successively older wooden beams, the astronomer A. E. Douglass ______ an unbroken tree-ring sequence reaching back more than a thousand years, and by 1929 he could assign construction dates to hundreds of sites, sometimes to the very year a roof beam was cut.",
+          "passage": "Archaeologists once could only guess at the ages of Ancestral Puebloan sites in the Southwest. By 1929, the astronomer A. E. Douglass ______ an unbroken tree-ring sequence reaching back more than a thousand years, built by matching ring patterns in living trees with those in older beams. That year, he used it to assign calendar dates to dozens of the sites.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1722,9 +1722,9 @@ export const practiceTest3RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The sentence measures Douglass's work against a past reference point — \"by 1929 he could assign construction dates\" — and the past perfect \"had assembled\" is the form for an action completed before another past moment.\n\n**The Full Solution:**\n- The controlling clause is in the past (\"he could assign\"), and the assembling of the sequence is what made that past ability possible, so the assembling must be located earlier still.\n- English marks earlier-than-past with the past perfect; \"by 1929\" is the classic trigger for it.\n\n**Why the other choices are wrong:**\n- A: \"Assembles\" puts the work in the present, clashing with the past-tense frame of the sentence and the 1929 reference point.\n- B: \"Will assemble\" projects the work into the future, after the very date by which its results were already in use.\n- C: \"Has assembled\" ties the action to the present moment, but the sentence's timeline is anchored in the past; the present perfect cannot sit before \"by 1929 he could.\"",
+          "explanation": "**Choice D is correct.** The sentence measures Douglass's work against a past reference point — \"By 1929\" — and the past perfect \"had assembled\" is the form for an action completed before another past moment.\n\n**The Full Solution:**\n- The phrase \"By 1929\" fixes a moment in the past, and the next sentence reports what Douglass did with the finished sequence that same year, so the assembling must be located earlier still.\n- English marks earlier-than-past with the past perfect; \"by\" plus a past date is the classic trigger for it.\n\n**Why the other choices are wrong:**\n- A: \"Assembles\" puts the work in the present, clashing with the past-tense frame of the text and the 1929 reference point.\n- B: \"Will assemble\" projects the work into the future, after the very date by which its results were already in use.\n- C: \"Has assembled\" ties the action to the present moment, but the text's timeline is anchored in the past; the present perfect cannot be paired with \"By 1929.\"",
           "_meta": {
-            "anchor": "A. E. Douglass — tree-ring sequence dating Puebloan sites; past perfect",
+            "anchor": "A. E. Douglass — continuous tree-ring chronology completed 1929 (HH-39), used to date about 40 Southwestern sites; past perfect",
             "rule": "past perfect for action completed before a past reference point"
           }
         },
@@ -1837,7 +1837,7 @@ export const practiceTest3RW = {
           "domain": "expression-of-ideas",
           "skill": "transitions",
           "type": "multiple-choice",
-          "passage": "Languages carve the color spectrum into vocabulary in strikingly different ways: some supply their speakers with a dozen basic color words, others with as few as three. Surveys of vocabulary across hundreds of unrelated languages, however, find that the variation is far from arbitrary. ______ the inventories form an orderly sequence: if a language has only three basic color terms, they will name black, white, and red, and terms for green, yellow, and blue enter the vocabulary in a small number of predictable orders.",
+          "passage": "Languages divide the color spectrum in strikingly different ways: some have a dozen basic color words, others as few as two. Surveys of hundreds of languages, however, find that the variation is far from arbitrary. ______ the inventories follow an orderly sequence: a language with only three basic color terms, for example, names black, white, and red.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1858,7 +1858,7 @@ export const practiceTest3RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The previous sentence rejects one characterization — the variation \"is far from arbitrary\" — and the blank sentence supplies the correct characterization in its place: the inventories follow an orderly, predictable sequence. \"Instead\" is the transition for substituting the right account after negating the wrong one.\n\n**The Full Solution:**\n- Track the negation: not arbitrary. What then? The next sentence answers with the positive finding (black, white, red first; green, yellow, blue in predictable orders).\n- Replacement after denial is precisely the \"not X; instead, Y\" frame.\n\n**Why the other choices are wrong:**\n- A: \"Likewise\" would add a parallel point, but the sentence replaces a rejected description rather than echoing an accepted one.\n- B: \"In any case\" waves the previous sentence aside as if it did not matter, when the blank sentence depends on it directly.\n- D: \"Accordingly\" treats the orderly sequence as a consequence of non-arbitrariness, but the sequence is not caused by the survey finding — it is the content of that finding, stated positively.",
+          "explanation": "**Choice C is correct.** The previous sentence rejects one characterization — the variation \"is far from arbitrary\" — and the blank sentence supplies the correct characterization in its place: the inventories follow an orderly, predictable sequence. \"Instead\" is the transition for substituting the right account after negating the wrong one.\n\n**The Full Solution:**\n- Track the negation: not arbitrary. What then? The next sentence answers with the positive finding (a three-term language names black, white, and red).\n- Replacement after denial is precisely the \"not X; instead, Y\" frame.\n\n**Why the other choices are wrong:**\n- A: \"Likewise\" would add a parallel point, but the sentence replaces a rejected description rather than echoing an accepted one.\n- B: \"In any case\" waves the previous sentence aside as if it did not matter, when the blank sentence depends on it directly.\n- D: \"Accordingly\" treats the orderly sequence as a consequence of non-arbitrariness, but the sequence is not caused by the survey finding — it is the content of that finding, stated positively.",
           "_meta": {
             "anchor": "Basic color-term hierarchies across languages — replacement transition"
           }
@@ -1870,7 +1870,7 @@ export const practiceTest3RW = {
           "domain": "expression-of-ideas",
           "skill": "transitions",
           "type": "multiple-choice",
-          "passage": "On the high plain around Lake Titicaca, Indigenous farmers of the pre-Columbian Andes built waru waru: raised planting beds separated by water-filled canals. The canal water absorbs the day's heat and releases it through the freezing highland night, keeping the air above the beds a few degrees warmer than the surrounding plain. ______ crops growing on the raised beds can survive frosts that destroy fields planted on open ground nearby — an effect agronomists confirmed when they rebuilt sections of the ancient beds and measured the difference.",
+          "passage": "On the high plain around Lake Titicaca, pre-Columbian farmers built waru waru: raised planting beds separated by water-filled canals. The canal water absorbs heat during the day and releases it through the freezing night, keeping the air above the beds a few degrees warmer than the surrounding plain. ______ crops on the raised beds can survive frosts that kill crops planted on open ground nearby.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1891,7 +1891,7 @@ export const practiceTest3RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The passage lays out a mechanism — canal water banking daytime heat and releasing it at night — and the blank sentence states that mechanism's payoff: crops on the beds survive frosts that kill neighboring fields. Effect follows cause, so \"As a result\" is the logical connector.\n\n**The Full Solution:**\n- Sentence two explains the physics (a few degrees of nighttime warmth over the beds).\n- Sentence three reports the agricultural consequence of exactly those few degrees. The confirming experiment at the end reinforces that the relationship is causal, not merely associated.\n\n**Why the other choices are wrong:**\n- B: \"Nevertheless\" would make frost survival happen despite the warming, inverting the causal link the passage establishes.\n- C: \"For instance\" would offer the frost outcome as one example of the warming, but it is the warming's consequence — the passage gives no list of effects to exemplify.\n- D: \"In comparison\" signals a measured likeness between two items; though the sentence mentions nearby fields, its work is to state an outcome of the mechanism, and the comparison is internal to that outcome.",
+          "explanation": "**Choice A is correct.** The passage lays out a mechanism — canal water banking daytime heat and releasing it at night — and the blank sentence states that mechanism's payoff: crops on the beds survive frosts that kill neighboring fields. Effect follows cause, so \"As a result\" is the logical connector.\n\n**The Full Solution:**\n- Sentence two explains the physics (a few degrees of nighttime warmth over the beds).\n- Sentence three reports the agricultural consequence of exactly those few degrees.\n\n**Why the other choices are wrong:**\n- B: \"Nevertheless\" would make frost survival happen despite the warming, inverting the causal link the passage establishes.\n- C: \"For instance\" would offer the frost outcome as one example of the warming, but it is the warming's consequence — the passage gives no list of effects to exemplify.\n- D: \"In comparison\" signals a measured likeness between two items; though the sentence mentions nearby fields, its work is to state an outcome of the mechanism, and the comparison is internal to that outcome.",
           "_meta": {
             "anchor": "Waru waru raised-field frost protection on the Titicaca altiplano — cause-effect transition"
           }
@@ -1903,7 +1903,7 @@ export const practiceTest3RW = {
           "domain": "expression-of-ideas",
           "skill": "transitions",
           "type": "multiple-choice",
-          "passage": "The spring phytoplankton bloom in cold northern seas was long explained by sunlight: as the days lengthen, the upper ocean warms and settles into layers, trapping drifting cells near the bright surface, where growth outruns loss. Satellite records complicate that story, revealing blooms that begin in the dead of winter, weeks before the surface warms or forms layers at all. ______ some oceanographers now argue that winter storms themselves set the stage — by churning phytoplankton through so deep a layer of water that the tiny grazers that normally hold them in check can no longer find them.",
+          "passage": "The spring phytoplankton bloom in northern seas was long explained by sunlight: as days lengthen, the surface water warms and settles into layers, holding the cells near the light. Satellite records, however, show some blooms beginning in midwinter, before the surface warms at all. ______ some oceanographers now argue that winter storms set the stage, mixing phytoplankton so deep that the grazers that eat them rarely find them.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1939,12 +1939,11 @@ export const practiceTest3RW = {
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "Wangari Maathai (1940-2011) was a Kenyan biologist and the first woman in East and Central Africa to earn a doctorate.",
-              "In 1977 she founded the Green Belt Movement, which paid rural Kenyan women small stipends to plant and tend trees.",
-              "The movement's nurseries raised seedlings to counter deforestation, which had stripped hillsides, dried up streams, and degraded farmland.",
-              "Women who participated earned income and gained standing in their communities while restoring the land they farmed.",
-              "The movement has planted tens of millions of trees across Kenya.",
-              "In 2004 Maathai received the Nobel Peace Prize, the first environmentalist so honored."
+              "Wangari Maathai (1940-2011) was a Kenyan scientist and the first woman in East and Central Africa to earn a doctorate.",
+              "In 1977 she founded the Green Belt Movement, which paid rural Kenyan women small sums to plant and tend trees.",
+              "The trees countered deforestation, which had dried up streams and degraded farmland.",
+              "Participating women earned income and gained standing in their communities.",
+              "In 2004 Maathai received the Nobel Peace Prize."
             ],
             "goal": "The student wants to emphasize how the Green Belt Movement joined environmental restoration to the economic empowerment of rural women."
           },
@@ -1952,23 +1951,23 @@ export const practiceTest3RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Wangari Maathai, a Kenyan biologist and the first woman in East and Central Africa to earn a doctorate, received the Nobel Peace Prize in 2004 for her environmental work."
+              "text": "Kenyan scientist Wangari Maathai, the first woman in East and Central Africa to earn a doctorate, won the 2004 Nobel Peace Prize."
             },
             {
               "id": "B",
-              "text": "The Green Belt Movement's nurseries raised seedlings to counter deforestation, which had stripped Kenyan hillsides, dried up streams, and degraded farmland."
+              "text": "The Green Belt Movement planted trees to counter deforestation, which had dried up Kenyan streams and degraded farmland."
             },
             {
               "id": "C",
-              "text": "Deforestation in Kenya was so severe by 1977 that Wangari Maathai founded an organization dedicated to planting tens of millions of trees."
+              "text": "Deforestation in Kenya was so severe by 1977 that Wangari Maathai founded an organization devoted to planting trees."
             },
             {
               "id": "D",
-              "text": "Through the Green Belt Movement, Wangari Maathai turned tree planting into paid work for rural Kenyan women, so that the campaign against deforestation simultaneously restored degraded land and brought the women who carried it out income and standing in their communities."
+              "text": "Maathai's Green Belt Movement paid rural Kenyan women to plant trees, restoring degraded land while giving the women income and standing."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The goal names a junction — restoration joined to women's economic empowerment — and D is the only choice that makes the junction itself the sentence's point: paid tree-planting work restored land and delivered income and standing at once (\"simultaneously\").\n\n**The Full Solution:**\n- Both halves must appear and be linked: the environmental campaign (countering deforestation, restoring degraded land) and the empowerment (stipends, income, standing for rural women).\n- D fuses the notes' second, third, and fourth bullets into that single both-at-once claim, which is precisely the emphasis requested.\n\n**Why the other choices are wrong:**\n- A: It lists Maathai's credentials and prize but never mentions the movement's women or its restoration work.\n- B: It covers only the environmental half — seedlings against deforestation — with no women, wages, or standing.\n- C: It frames the movement purely as a tree-planting response to deforestation, again omitting the economic-empowerment half of the pairing.",
+          "explanation": "**Choice D is correct.** The goal names a junction — restoration joined to women's economic empowerment — and D is the only choice that makes the junction itself the sentence's point: paid tree-planting work restored land while giving the women income and standing.\n\n**The Full Solution:**\n- Both halves must appear and be linked: the environmental campaign (countering deforestation, restoring degraded land) and the empowerment (pay, income, standing for rural women).\n- D fuses the notes' second, third, and fourth bullets into that single both-at-once claim, with \"while\" binding the two halves, which is precisely the emphasis requested.\n\n**Why the other choices are wrong:**\n- A: It lists Maathai's credentials and prize but never mentions the movement's women or its restoration work.\n- B: It covers only the environmental half — trees against deforestation — with no women, wages, or standing.\n- C: It frames the movement purely as a tree-planting response to deforestation, again omitting the economic-empowerment half of the pairing.",
           "_meta": {
             "anchor": "Wangari Maathai — Green Belt Movement pairing restoration with women's livelihoods"
           }
@@ -1983,12 +1982,12 @@ export const practiceTest3RW = {
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "Archaeologists have traditionally mapped ancient Maya sites on foot, cutting survey lines through dense forest.",
-              "Lidar is an airborne laser-scanning technology that fires millions of pulses per second, letting researchers digitally strip away vegetation and expose the ground surface beneath.",
-              "In 2018, a lidar survey covered more than 2,100 square kilometers of northern Guatemala.",
-              "The survey revealed tens of thousands of previously unmapped structures, along with raised causeways, defensive earthworks, and extensive agricultural terracing.",
-              "Population estimates for the region's Classic period have been revised sharply upward as a result.",
-              "Ground crews must still excavate to confirm what the laser images show and to determine the ages of the structures."
+              "Archaeologists traditionally mapped Maya sites on foot, cutting paths through dense forest.",
+              "Lidar is an airborne laser-scanning technology that can reveal the ground surface beneath vegetation.",
+              "In 2018, researchers published a lidar survey of about 2,100 square kilometers of northern Guatemala.",
+              "It revealed more than 60,000 previously unmapped structures, as well as causeways and fortifications.",
+              "Population estimates for the region's Classic period were revised sharply upward as a result.",
+              "Ground crews must still excavate to confirm what the laser images show."
             ],
             "goal": "The student wants to emphasize how lidar has changed archaeologists' understanding of the scale of ancient Maya settlement."
           },
@@ -1996,25 +1995,25 @@ export const practiceTest3RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Lidar is an airborne laser-scanning technology that fires millions of pulses per second from above the forest."
+              "text": "Lidar is an airborne laser-scanning technology that can reveal the ground beneath dense vegetation."
             },
             {
               "id": "B",
-              "text": "Because dense forest covers many ancient Maya sites, archaeologists have traditionally mapped them on foot, cutting survey lines through the vegetation as they go."
+              "text": "Archaeologists traditionally mapped Maya sites on foot, cutting paths through the dense forest that covers them."
             },
             {
               "id": "C",
-              "text": "A 2018 lidar survey of northern Guatemala revealed tens of thousands of previously unmapped structures, forcing archaeologists to revise the region's ancient population estimates sharply upward."
+              "text": "A lidar survey of northern Guatemala revealed more than 60,000 unmapped structures, leading archaeologists to sharply raise population estimates."
             },
             {
               "id": "D",
-              "text": "Although lidar images reveal structures, causeways, earthworks, and agricultural terracing beneath the forest canopy, ground crews must still excavate each site to confirm what the laser images show and to determine when the structures were built."
+              "text": "Although lidar reveals structures beneath the forest, ground crews must still excavate to confirm what the laser images show."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The goal is about changed understanding of settlement scale, and C connects the instrument to exactly that change: the survey exposed tens of thousands of unmapped structures, and population estimates were revised sharply upward as a consequence.\n\n**The Full Solution:**\n- \"Changed understanding of scale\" requires two elements: what lidar found (structures by the tens of thousands) and what the finding did to prior belief (forced estimates upward).\n- C draws both from the notes and binds them causally with \"forcing,\" which is the emphasis the goal demands.\n\n**Why the other choices are wrong:**\n- A: It explains how the technology works and stops there — no discovery, no revision, no Maya settlement at all.\n- B: It describes the old method's difficulty without mentioning lidar's findings or any change in understanding.\n- D: It leads with a concession about lidar's limits and gives its emphasis to what excavation must still do, muting the transformation the student wants front and center.",
+          "explanation": "**Choice C is correct.** The goal is about changed understanding of settlement scale, and C connects the instrument to exactly that change: the survey exposed more than 60,000 unmapped structures, and population estimates were raised sharply as a consequence.\n\n**The Full Solution:**\n- \"Changed understanding of scale\" requires two elements: what lidar found (tens of thousands of structures) and what the finding did to prior belief (estimates revised upward).\n- C draws both from the notes and binds them causally with \"leading archaeologists to,\" which is the emphasis the goal demands.\n\n**Why the other choices are wrong:**\n- A: It explains what the technology does and stops there — no discovery, no revision, no Maya settlement at all.\n- B: It describes the old method's difficulty without mentioning lidar's findings or any change in understanding.\n- D: It leads with a concession about lidar's limits and gives its emphasis to what excavation must still do, muting the transformation the student wants front and center.",
           "_meta": {
-            "anchor": "2018 Guatemala lidar survey — Maya settlement scale revised upward"
+            "anchor": "PACUNAM Lidar Initiative — 2,144 km² of northern Guatemala (flown 2016, published in Science 2018): 61,480 structures, Classic-period population estimates raised"
           }
         }
       ]

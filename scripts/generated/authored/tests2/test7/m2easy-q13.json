@@ -1,29 +1,29 @@
 {
-  "id": 13,
-  "question": "A library's summer reading log grows at a constant rate of $15$ items per week. The log recorded $120$ items in week $4$ and $300$ items in week $t$, where $t$ is a constant. What is the value of $t$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$8$"
-    },
-    {
-      "id": "B",
-      "text": "$12$"
-    },
-    {
-      "id": "C",
-      "text": "$16$"
-    },
-    {
-      "id": "D",
-      "text": "$20$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "finds the 12-week gap correctly but subtracts it from week 4 instead of adding: 12 - 4 = 8",
-    "B": "uses t rather than t - 4 in the denominator, solving 180/t = 15",
-    "D": "divides 300 by 15, ignoring the 120 items already recorded in week 4"
+ "id": 13,
+ "question": "In the $xy$-plane, line $k$ passes through the points $(4, 120)$ and $(16, 300)$. What is the slope of line $k$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{1}{15}$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Slope from Two Points**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The log gains $300-120=180$ items at $15$ per week, which takes $12$ weeks, so $t=4+12=16$.\n\n**The Full Solution:**\nStep 1: The two readings are the points $(4,120)$ and $(t,300)$, and a constant rate of change is a slope: $\\dfrac{300-120}{t-4}=15$.\nStep 2: Simplify the numerator and clear the fraction: $\\dfrac{180}{t-4}=15$, so $180=15(t-4)$ and $t-4=12$.\nStep 3: Therefore $t=16$. Check: from week $4$ to week $16$ is $12$ weeks, and $120+15(12)=300$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): finds the $12$-week gap but subtracts it from the starting week, computing $12-4=8$ instead of $4+12$.\n* Choice B ($12$): drops the $-4$ from the denominator and solves $\\dfrac{180}{t}=15$, which finds the elapsed weeks, not the week number.\n* Choice D ($20$): divides $300$ by $15$, treating the log as starting from $0$ items at week $0$ and ignoring the week-$4$ reading.\n\n**Test Day Takeaway:** A constant rate is a slope between two points — put the value difference over the time difference, and remember the denominator is a difference of week numbers, not a week number."
+  {
+   "id": "B",
+   "text": "$9$"
+  },
+  {
+   "id": "C",
+   "text": "$15$"
+  },
+  {
+   "id": "D",
+   "text": "$35$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "divides the change in x by the change in y, 12/180 = 1/15",
+  "B": "adds the x-values instead of subtracting them, 180/(16 + 4) = 9",
+  "D": "adds the y-values instead of subtracting them, (300 + 120)/12 = 35"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Slope from Two Points**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The slope is the change in $y$ divided by the change in $x$: $\\frac{300 - 120}{16 - 4} = \\frac{180}{12} = 15$.\n\n**The Full Solution:**\nStep 1: Line $k$ contains $(4, 120)$ and $(16, 300)$. The change in $y$ is $300 - 120 = 180$.\nStep 2: The change in $x$, in the same order, is $16 - 4 = 12$.\nStep 3: The slope is $\\frac{180}{12} = 15$. Check: starting at $(4, 120)$ and moving $12$ units right at a slope of $15$ gives $120 + 15(12) = 300$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{15}$): divides the change in $x$ by the change in $y$, which flips the slope.\n* Choice B ($9$): adds the $x$-values, $16 + 4 = 20$, instead of subtracting them.\n* Choice D ($35$): adds the $y$-values, $300 + 120 = 420$, instead of subtracting them.\n\n**Test Day Takeaway:** Slope is rise over run: subtract the $y$-coordinates and the $x$-coordinates in the same order, with the change in $y$ on top."
 }

@@ -1,29 +1,29 @@
 {
-  "id": 4,
-  "question": "An automated rain gauge at a coastal station records precipitation falling at a constant rate of $18$ millimeters per hour. At that rate, how many centimeters of precipitation fall over one full day of steady rain?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$0.75$"
-    },
-    {
-      "id": "B",
-      "text": "$1.8$"
-    },
-    {
-      "id": "C",
-      "text": "$43.2$"
-    },
-    {
-      "id": "D",
-      "text": "$432$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "divides by 24 instead of multiplying by it (18/24 = 0.75)",
-    "B": "converts millimeters to centimeters but reports the hourly rate, not the daily total",
-    "D": "leaves the daily total in millimeters without converting to centimeters"
+ "id": 4,
+ "question": "Rain fell at a constant rate of $3$ millimeters per hour for one full day. How many centimeters of rain fell during the day? ($1$ centimeter $= 10$ millimeters)",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$0.125$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Unit Conversion**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** A day is $24$ hours, so $18 \\times 24 = 432$ millimeters, and $432 \\div 10 = 43.2$ centimeters.\n\n**The Full Solution:**\nStep 1: Convert the time. One full day is $24$ hours, so the total fall is $18 \\, \\frac{\\text{mm}}{\\text{hr}} \\times 24 \\, \\text{hr} = 432$ millimeters.\nStep 2: Convert the length. There are $10$ millimeters in $1$ centimeter, so $432 \\div 10 = 43.2$ centimeters.\nStep 3: Confirm the chain cancels correctly: $\\frac{18 \\text{ mm}}{1 \\text{ hr}} \\times \\frac{24 \\text{ hr}}{1 \\text{ day}} \\times \\frac{1 \\text{ cm}}{10 \\text{ mm}} = 43.2$ centimeters per day ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.75$): divides by $24$ instead of multiplying by it, giving $18 \\div 24 = 0.75$. Dividing would answer how much falls per hour if $18$ were a daily total.\n* Choice B ($1.8$): converts millimeters to centimeters correctly but reports the hourly rate $18 \\div 10 = 1.8$ and never multiplies by $24$.\n* Choice D ($432$): stops after the time conversion and reports $432$ millimeters as though it were centimeters.\n\n**Test Day Takeaway:** Write the conversion as a chain of fractions and cancel units. If the units that survive are not the ones the question asks for, a factor is upside down."
+  {
+   "id": "B",
+   "text": "$0.3$"
+  },
+  {
+   "id": "C",
+   "text": "$7.2$"
+  },
+  {
+   "id": "D",
+   "text": "$72$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "divides by 24 instead of multiplying by it (3/24 = 0.125)",
+  "B": "converts millimeters to centimeters but reports the hourly amount, not the daily total",
+  "D": "finds the daily total in millimeters and does not convert it to centimeters"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Unit Conversion**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** A day is $24$ hours, so $3 \\times 24 = 72$ millimeters fell, and $72 \\div 10 = 7.2$ centimeters.\n\n**The Full Solution:**\nStep 1: Convert the time. One full day is $24$ hours, so the total is $3 \\, \\frac{\\text{mm}}{\\text{hr}} \\times 24 \\, \\text{hr} = 72$ millimeters.\nStep 2: Convert the length. Since $1$ centimeter $= 10$ millimeters, $72 \\div 10 = 7.2$ centimeters.\nStep 3: Confirm that the units cancel: $\\frac{3 \\text{ mm}}{1 \\text{ hr}} \\times \\frac{24 \\text{ hr}}{1 \\text{ day}} \\times \\frac{1 \\text{ cm}}{10 \\text{ mm}} = 7.2$ centimeters per day ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.125$): divides by $24$ instead of multiplying, giving $3 \\div 24 = 0.125$.\n* Choice B ($0.3$): converts correctly to $3 \\div 10 = 0.3$ centimeters but reports the amount for one hour, not for the day.\n* Choice D ($72$): finds the daily total in millimeters and never converts it to centimeters.\n\n**Test Day Takeaway:** Write the conversion as a chain of fractions and cancel units. If the units that remain are not the ones the question asks for, a factor is upside down or missing."
 }

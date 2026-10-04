@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "text-structure-and-purpose",
  "type": "multiple-choice",
- "passage": "In 1861, the photographer Carleton Watkins hauled a mammoth-plate camera — an instrument that exposed glass negatives the size of a serving tray — into California's Yosemite Valley. The prints he carried out showed granite walls and giant sequoias in astonishing detail, and they circulated among editors, scientists, and members of Congress, most of whom would never see the valley themselves. Three years later, when Congress passed the first federal law setting Yosemite aside for public protection, several lawmakers cited Watkins's photographs as evidence of what deserved saving.",
+ "passage": "In 1861, the photographer Carleton Watkins hauled a mammoth-plate camera — an instrument that exposed glass negatives the size of a serving tray — into California's Yosemite Valley. The prints he carried out showed granite walls and giant sequoias in astonishing detail. Senator John Conness of California circulated Watkins's photographs among fellow lawmakers, most of whom would never see the valley themselves, and in 1864 Congress passed the first federal law setting Yosemite aside for public protection.",
  "question": "Which choice best states the main purpose of the text?",
  "choices": [
   {
@@ -27,8 +27,8 @@
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The text follows a single thread from camera to law: Watkins made extraordinarily detailed prints, the prints reached decision-makers who could never visit the valley, and lawmakers cited them when Yosemite won federal protection. Its purpose is to describe that chain of influence.\n\n**The Full Solution:**\n- Each sentence advances the same story — making the images, circulating the images, and the images' role in the 1864 protection.\n- The closing sentence is the payoff, and D states the through-line that the whole text serves.\n\n**Why the other choices are wrong:**\n- A: The camera's unwieldiness appears in one aside; no technical challenges are actually explained.\n- B: The text says lawmakers cited the photographs — it nowhere weighs what Congress would have done without other kinds of testimony.\n- C: No written descriptions of Yosemite, exaggerated or otherwise, are mentioned, so no such contrast is drawn.",
+ "explanation": "**Choice D is correct.** The text follows a single thread from camera to law: Watkins made extraordinarily detailed prints, a senator circulated the prints among lawmakers who would never visit the valley, and Congress then voted to protect Yosemite. Its purpose is to describe that chain of influence.\n\n**The Full Solution:**\n- Each sentence advances the same story — making the images, circulating the images, and the images' role in the 1864 protection.\n- The closing sentence is the payoff, and D states the through-line that the whole text serves.\n\n**Why the other choices are wrong:**\n- A: The camera's unwieldiness appears in one aside; no technical challenges are actually explained.\n- B: The text says a senator circulated the photographs — it nowhere weighs what Congress would have done without other kinds of testimony.\n- C: No written descriptions of Yosemite, exaggerated or otherwise, are mentioned, so no such contrast is drawn.",
  "_meta": {
-  "anchor": "Carleton Watkins — Yosemite mammoth-plate photographs and the 1864 protection"
+  "anchor": "Carleton Watkins — 1861 Yosemite mammoth-plate photographs circulated in Congress by Sen. John Conness before the 1864 Yosemite Grant (Smithsonian)"
  }
 }

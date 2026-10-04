@@ -1,22 +1,22 @@
 {
  "id": 18,
- "question": "On a cutting table's coordinate grid, a pattern grader stores the outline of a circular fabric die as $x^2 + y^2 - 14x + 8y + 40 = 0$, graphed in the $xy$-plane. Written in standard form, that outline has which equation?",
+ "question": "$x^{2} + y^{2} - 14x + 8y + 40 = 0$\nThe graph of the given equation in the $xy$-plane is a circle. Which equation is equivalent to the given equation?",
  "choices": [
   {
    "id": "A",
-   "text": "$(x - 7)^2 + (y + 4)^2 = 25$"
+   "text": "$(x - 7)^{2} + (y + 4)^{2} = 25$"
   },
   {
    "id": "B",
-   "text": "$(x - 7)^2 + (y + 4)^2 = 65$"
+   "text": "$(x - 7)^{2} + (y + 4)^{2} = 65$"
   },
   {
    "id": "C",
-   "text": "$(x - 7)^2 + (y + 4)^2 = 105$"
+   "text": "$(x - 7)^{2} + (y + 4)^{2} = 105$"
   },
   {
    "id": "D",
-   "text": "$(x + 7)^2 + (y - 4)^2 = 25$"
+   "text": "$(x + 7)^{2} + (y - 4)^{2} = 25$"
   }
  ],
  "distractorNotes": {
@@ -26,5 +26,5 @@
  },
  "correctAnswer": "A",
  "choiceOrderNote": "Choices are equations rather than numeric values; the three sharing a left side are ordered by constant, followed by the sign variant.",
- "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice A is correct.** Completing the square in $x$ and in $y$ gives $(x - 7)^2 + (y + 4)^2 = 25$.\n\n**The Fast Way (~40s):** Half of $-14$ is $-7$ and half of $8$ is $4$, so the center is $(7, -4)$; then $r^2 = 49 + 16 - 40 = 25$.\n\n**The Full Solution:**\nStep 1: Group the variables: $(x^2 - 14x) + (y^2 + 8y) = -40$.\nStep 2: Complete each square. Add $49$ for $x$ and $16$ for $y$ to both sides: $(x - 7)^2 + (y + 4)^2 = -40 + 49 + 16 = 25$.\nStep 3: The circle has center $(7, -4)$ and radius $5$. Check a point on it: $(12, -4)$ gives $144 + 16 - 168 - 32 + 40 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($= 65$): the two completing terms $49$ and $16$ are added, but the original constant $40$ is never moved to the right side.\n* Choice C ($= 105$): the constant $40$ is added instead of subtracted; it starts on the left, so moving it makes it $-40$.\n* Choice D (center $(-7, 4)$): the signs inside the parentheses are copied from the equation rather than reversed. In standard form, $(x - h)$ with $h = 7$ produces the $-14x$ term.\n\n**Test Day Takeaway:** Completing the square adds to both sides — track the constant you started with, because forgetting to carry it is what turns a radius of $5$ into a radius of $\\sqrt{65}$."
+ "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** Half of $-14$ is $-7$ and half of $8$ is $4$, so add $49 + 16 = 65$ to both sides of $x^{2} - 14x + y^{2} + 8y = -40$: $(x - 7)^{2} + (y + 4)^{2} = 25$.\n\n**The Full Solution:**\nStep 1: Group the $x$-terms and $y$-terms and move the constant: $x^{2} - 14x + y^{2} + 8y = -40$.\nStep 2: Complete each square. Half of $-14$ is $-7$, and $(-7)^{2} = 49$; half of $8$ is $4$, and $4^{2} = 16$. Adding $49$ and $16$ to both sides gives $(x - 7)^{2} + (y + 4)^{2} = -40 + 49 + 16$.\nStep 3: Simplify the right side: $(x - 7)^{2} + (y + 4)^{2} = 25$, a circle with center $(7, -4)$ and radius $5$. Check by expanding: $x^{2} - 14x + 49 + y^{2} + 8y + 16 = 25$ becomes $x^{2} + y^{2} - 14x + 8y + 40 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($= 65$): adds $49$ and $16$ but leaves the $40$ on the left side instead of moving it, so the right side is $65$ rather than $65 - 40$.\n* Choice C ($= 105$): moves the $40$ with the wrong sign, computing $49 + 16 + 40$.\n* Choice D: reverses the signs inside the parentheses; $(x + 7)^{2}$ expands to $x^{2} + 14x + 49$, which does not match the $-14x$ in the given equation.\n\n**Test Day Takeaway:** After completing the square, the right side is the sum of the added squares minus the constant that started on the left; expand your answer once to confirm the signs."
 }

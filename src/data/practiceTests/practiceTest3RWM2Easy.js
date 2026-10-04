@@ -44,7 +44,7 @@ export const practiceTest3RWM2Easy = {
       "band": 2,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "Official weather stations are often many miles apart, yet a single thunderstorm can soak one neighborhood and leave the next one dry. To capture that local detail, thousands of volunteers read identical rain gauges in their backyards each morning and report the totals to a shared map. The volunteers' reports ______ the official record, filling the gaps between distant stations with measurements taken street by street.",
+      "passage": "Official weather stations are often many miles apart, yet one thunderstorm can soak a neighborhood and leave the next one dry. So thousands of volunteers read rain gauges in their backyards each morning and report the totals to a shared map. The volunteers' reports ______ the official record, filling the gaps between distant stations.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "replace" },
@@ -53,7 +53,7 @@ export const practiceTest3RWM2Easy = {
         { "id": "D", "text": "summarize" }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The reports add detail to the official record without pushing it aside, and \"supplement\" means to add to something in order to complete it.\n\n**The Full Solution:**\n- How to spot it: the phrase after the comma — \"filling the gaps between distant stations\" — restates what the blank must mean.\n- Filling gaps in a record is adding to it, not overturning it. The official stations still anchor the map; the backyard gauges supply what falls between them.\n- \"Supplement\" captures precisely that add-to relationship, so the sentence and its final phrase say the same thing twice, as they should.\n\n**Why the other choices are wrong:**\n- A: \"Replace\" would mean the official record is discarded, but the volunteers are filling its gaps, which only makes sense if it remains in use.\n- C: \"Dispute\" would mean the volunteers are challenging the official numbers, and nothing in the passage describes a disagreement.\n- D: \"Summarize\" would mean condensing the record into less detail, but the reports add street-by-street detail — the opposite of condensing."
+      "explanation": "**Choice B is correct.** The reports add detail to the official record without pushing it aside, and \"supplement\" means to add to something in order to complete it.\n\n**The Full Solution:**\n- How to spot it: the phrase after the comma — \"filling the gaps between distant stations\" — restates what the blank must mean.\n- Filling gaps in a record is adding to it, not overturning it. The official stations still anchor the map; the backyard gauges supply what falls between them.\n- \"Supplement\" captures precisely that add-to relationship, so the sentence and its final phrase say the same thing twice, as they should.\n\n**Why the other choices are wrong:**\n- A: \"Replace\" would mean the official record is discarded, but the volunteers are filling its gaps, which only makes sense if it remains in use.\n- C: \"Dispute\" would mean the volunteers are challenging the official numbers, and nothing in the passage describes a disagreement.\n- D: \"Summarize\" would mean condensing the record into less detail, but the reports add neighborhood-level detail — the opposite of condensing."
     },
     {
       "id": 358,
@@ -62,7 +62,7 @@ export const practiceTest3RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "Before repainting a historic room, conservators often remove a paint chip no larger than a grain of rice and examine its edge under a microscope. The chip carries every layer the wall has ever worn, stacked in order like layers of rock. By counting the layers and noting their colors, a conservator can ______ the exact shade the room displayed at any point in the building's history.",
+      "passage": "Before repainting a historic room, conservators often remove a paint chip no larger than a grain of rice and examine its edge under a microscope. The chip holds every layer the wall has worn, stacked in order. By counting the layers and noting their colors, a conservator can ______ the exact shade the room displayed at any point in its history.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "imagine" },
@@ -80,7 +80,7 @@ export const practiceTest3RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "Scattered across the plains of the upper Midwest sit granite boulders that match no local bedrock; the nearest source of such rock lies hundreds of miles to the north. Geologists treat these out-of-place boulders, called erratics, as records of a vanished journey. By matching each boulder to the distant outcrop it was torn from, researchers can ______ the routes that ice sheets followed as they dragged rock southward during the last glaciation.",
+      "passage": "Granite boulders scattered across the plains of the upper Midwest match no local bedrock; the nearest such rock lies hundreds of miles to the north. Geologists treat these boulders, called erratics, as records of a vanished journey. By matching each boulder to the outcrop it was torn from, researchers can ______ the routes that ice sheets followed as they dragged rock southward.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "predict" },
@@ -280,10 +280,10 @@ export const practiceTest3RWM2Easy = {
       },
       "question": "Which choice most effectively uses data from the table to complete the statement?",
       "choices": [
-        { "id": "A", "text": "mowing hours fell from 4,200 in 2019, when no meadow had yet been planted, to 2,300 in 2023, when meadows covered 68 acres." },
+        { "id": "A", "text": "mowing hours fell from 4,200 in 2019, before any meadow was planted, to 2,300 in 2023, when meadows covered 68 acres." },
         { "id": "B", "text": "mowing hours rose along with meadow acreage in every year of the program." },
         { "id": "C", "text": "the department mowed 2,900 hours in 2021, more than the 3,400 hours it mowed in 2022." },
-        { "id": "D", "text": "meadow acreage nearly doubled between 2021 and 2023, growing from 32 acres to 68." }
+        { "id": "D", "text": "meadow acreage more than doubled between 2021 and 2023, growing from 32 acres to 68." }
       ],
       "correctAnswer": "A",
       "explanation": "**Choice A is correct.** The claim ties rising meadow acreage to falling mowing hours, and choice A pairs the table's two endpoints on both columns: 0 acres and 4,200 hours in 2019 versus 68 acres and 2,300 hours in 2023.\n\n**The Full Solution:**\n- Break the report's claim into parts: the program (meadow conversion) has steadily reduced the workload (mowing hours). Support needs both columns — acreage up, hours down.\n- Check choice A against the table: 2019 shows 0 acres and 4,200 hours; 2023 shows 68 acres and 2,300 hours. Both numbers are read correctly, and the drop in hours arrives alongside the growth in meadow.\n- Every intermediate year falls in line (3,900, 3,400, 2,900), so \"steadily reduced\" holds too.\n\n**Why the other choices are wrong:**\n- B: The table shows mowing hours falling every year, not rising.\n- C: The numbers are swapped — 2021 was 3,400 hours and 2022 was 2,900 — so the comparison as stated is false.\n- D: The acreage figures are right, but this choice never mentions mowing hours, which is the workload the claim is about."
@@ -295,13 +295,13 @@ export const practiceTest3RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "central-ideas-and-details",
-      "passage": "In a brick wall, the mortar between bricks is meant to be the weaker partner. Old walls were laid with soft lime mortar, which absorbs the wall's small seasonal movements and lets moisture escape through the joints; when the mortar slowly wears away, it is scraped out and renewed at little cost. Repairs made with modern cement reverse the roles: the hard joints hold fast, so movement and trapped moisture attack the bricks instead, and the part of the wall meant to last begins to crumble first. Preservation masons therefore match the original soft mortar, sacrificing the joints again and again to save the brick.",
+      "passage": "In a brick wall, the mortar between bricks is meant to be the weaker partner. Old walls were laid with soft lime mortar, which absorbs the wall's small movements and lets moisture escape; when it wears away, it is scraped out and renewed at little cost. Repairs made with hard modern cement reverse the roles: the joints hold fast, so movement and trapped moisture attack the bricks instead, and the part of the wall meant to last crumbles first. Preservation masons therefore match the original soft mortar, sacrificing the joints to save the brick.",
       "question": "Which choice best states the main idea of the text?",
       "choices": [
         { "id": "A", "text": "Modern cement is a poor building material because it cannot absorb moisture in any kind of wall." },
-        { "id": "B", "text": "Because mortar is meant to be the sacrificial part of a brick wall, repairing old joints with harder modern cement shifts the damage onto the bricks themselves." },
+        { "id": "B", "text": "Mortar is meant to wear away in place of brick, so repairing old joints with hard cement shifts the damage onto the bricks." },
         { "id": "C", "text": "Old brick walls crumble mainly because their original lime mortar was mixed too soft to bear the weight above it." },
-        { "id": "D", "text": "Preservation masons save money on the upkeep of historic brick walls by scraping out and renewing worn lime mortar joints instead of replacing damaged or crumbling bricks one at a time." }
+        { "id": "D", "text": "Preservation masons save money by renewing worn lime mortar joints instead of replacing damaged bricks one at a time." }
       ],
       "correctAnswer": "B",
       "explanation": "**Choice B is correct.** Every part of the text serves one idea: mortar is supposed to take the damage, and hard cement repairs push that damage onto the bricks.\n\n**The Full Solution:**\n- The first sentence states the principle outright — mortar \"is meant to be the weaker partner.\"\n- The middle sentences show the principle working (soft lime absorbs movement, wears, gets cheaply renewed) and then failing when reversed (cement holds fast, bricks crumble first).\n- The last sentence gives the practical consequence: masons deliberately match the soft mortar. Choice B covers this whole arc — the sacrificial role and what happens when a repair reverses it.\n\n**Why the other choices are wrong:**\n- A: The text criticizes cement only in repairs to old brick walls; it makes no claim about \"any kind of wall.\"\n- C: The softness of lime mortar is presented as the design working, not as the cause of failure — the crumbling comes from cement repairs.\n- D: Cheap renewal is one supporting detail, but the passage's point is about where damage goes, not about saving money."
@@ -313,7 +313,7 @@ export const practiceTest3RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "central-ideas-and-details",
-      "passage": "Loggerhead sea turtles hatch on a beach, swim out to sea, and return years later to nest on the same stretch of coast. The turtles appear to find their way home magnetically: each length of coastline has a subtly different magnetic signature, which hatchlings seem to record before they leave. Earth's magnetic field also drifts slightly from year to year, and nesting records reflect that drift. In years when the magnetic signatures of two distant beaches grow more alike, more turtles nest on the wrong one; when the signatures grow more distinct, such mistakes become rare.",
+      "passage": "Loggerhead sea turtles hatch on a beach, swim out to sea, and return years later to nest on the same stretch of coast. One hypothesis holds that hatchlings record the magnetic signature of their home beach and later seek it out. Because Earth's magnetic field drifts, those signatures shift over time. Nineteen years of Florida nesting records show nests growing denser where the signatures of neighboring beaches drifted closer together and sparser where they drifted apart, the pattern expected if turtles are searching for a magnetic match.",
       "question": "Which choice best states the main idea of the text?",
       "choices": [
         { "id": "A", "text": "Loggerhead turtles nest on whichever nearby beach has the strongest magnetic field in a given nesting season." },
@@ -322,7 +322,7 @@ export const practiceTest3RWM2Easy = {
         { "id": "D", "text": "Loggerhead hatchlings memorize the appearance of their home beach and recognize it by sight when they return to nest years later." }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The text presents a claim (turtles home in on magnetic signatures) and then its best evidence (nesting mistakes rise and fall exactly as the field drifts), and the main idea must join the two.\n\n**The Full Solution:**\n- The second sentence states the hypothesis: hatchlings record their beach's magnetic signature and use it to return.\n- The last two sentences supply the test: the field drifts year to year, and nesting errors track the drift — more mistakes when two beaches' signatures converge, fewer when they separate.\n- Evidence that moves in step with the field is exactly what the magnetic explanation predicts. Choice C states that relationship — the shifting patterns support the magnetic-signature idea.\n\n**Why the other choices are wrong:**\n- A: The text is about each beach's distinctive signature, not about which beach's field is strongest — strength rankings never appear.\n- B: The text says mistakes become rare in some years, so the trend is not steadily worsening.\n- D: Recognition by sight contradicts the text, which attributes the homing to magnetic signatures recorded before the hatchlings leave."
+      "explanation": "**Choice C is correct.** The text presents a claim (turtles home in on their beach's magnetic signature) and then its evidence (nesting patterns that shift as the field drifts), and the main idea must join the two.\n\n**The Full Solution:**\n- The second sentence states the hypothesis: hatchlings record their beach's magnetic signature and later seek it out.\n- The last two sentences supply the test: the field drifts, and nesting density tracks the drift — denser where neighboring beaches' signatures converge (turtles from several beaches are drawn to a shorter stretch of coast), sparser where they separate.\n- Evidence that moves in step with the field is exactly what the magnetic explanation predicts. Choice C states that relationship — the shifting patterns support the magnetic-signature idea.\n\n**Why the other choices are wrong:**\n- A: The text is about each beach's distinctive signature, not about which beach's field is strongest — strength rankings never appear.\n- B: The text reports nests shifting along the coast, not turtles failing to find any beach or a problem that worsens every year.\n- D: Recognition by sight contradicts the text, which attributes the homing to a recorded magnetic signature."
     },
     {
       "id": 369,
@@ -352,7 +352,7 @@ export const practiceTest3RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "Homing pigeons carry a magnetic sense that could, in principle, point them straight home across open country. Birds tracked by satellite often do something less direct: a pigeon released near familiar ground picks up a highway and follows it for ______ but it abandons the road near home and flies the last stretch straight to its loft.",
+      "passage": "Homing pigeons can navigate by the sun and by Earth's magnetic field, yet GPS tracking near Rome revealed a more familiar strategy. Experienced pigeons often picked up a highway running toward home and followed it for ______ but they left the road at particular junctions, much as a driver takes a familiar exit.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
         { "id": "A", "text": "miles" },
@@ -361,7 +361,7 @@ export const practiceTest3RWM2Easy = {
         { "id": "D", "text": "miles:" }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The blank sits where two complete sentences are joined by the word \"but,\" and Standard English places a comma before a joining word that links two complete sentences.\n\n**The Full Solution:**\n- Check each side of the boundary. \"A pigeon released near familiar ground picks up a highway and follows it for miles\" is a complete sentence. \"It abandons the road near home and flies the last stretch straight to its loft\" is also complete.\n- The word \"but\" is doing the joining. When \"and,\" \"but,\" \"or,\" or \"so\" links two complete sentences, a comma belongs immediately before it.\n- Choice B supplies that comma: \"...follows it for miles, but it abandons the road near home.\"\n\n**Why the other choices are wrong:**\n- A: Omitting the comma runs two full sentences together across the conjunction.\n- C: A semicolon joins two complete sentences on its own; pairing it with \"but\" doubles up the connection.\n- D: A colon promises an explanation or list ahead, but what follows \"but\" is a contrasting statement, not an explanation."
+      "explanation": "**Choice B is correct.** The blank sits where two complete sentences are joined by the word \"but,\" and Standard English places a comma before a joining word that links two complete sentences.\n\n**The Full Solution:**\n- Check each side of the boundary. \"Experienced pigeons often picked up a highway running toward home and followed it for miles\" is a complete sentence. \"They left the road at particular junctions\" is also complete.\n- The word \"but\" is doing the joining. When \"and,\" \"but,\" \"or,\" or \"so\" links two complete sentences, a comma belongs immediately before it.\n- Choice B supplies that comma: \"...followed it for miles, but they left the road at particular junctions.\"\n\n**Why the other choices are wrong:**\n- A: Omitting the comma runs two full sentences together across the conjunction.\n- C: A semicolon joins two complete sentences on its own; pairing it with \"but\" doubles up the connection.\n- D: A colon promises an explanation or list ahead, but what follows \"but\" is a contrasting statement, not an explanation."
     },
     {
       "id": 374,
@@ -388,7 +388,7 @@ export const practiceTest3RWM2Easy = {
       "band": 2,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "Dung beetles roll balls of dung away from a food pile in remarkably straight lines, and researchers long wondered what the insects steer by. Under the dome of a planetarium, the answer emerged: with only the faint band of the Milky Way projected overhead, the beetles held their ______ the projectors went dark, the same beetles wandered in circles.",
+      "passage": "Dung beetles roll balls of dung away from a food pile in remarkably straight lines. In a planetarium, researchers learned what the beetles steer by: with only the faint band of the Milky Way projected overhead, the beetles held their ______ the projectors went dark, the same beetles wandered along winding paths.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
         { "id": "A", "text": "course when" },
@@ -397,7 +397,7 @@ export const practiceTest3RWM2Easy = {
         { "id": "D", "text": "course and, when" }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** Two complete sentences meet at the blank, and a period is a correct way to separate them.\n\n**The Full Solution:**\n- Test what stands on each side. Before the blank: \"with only the faint band of the Milky Way projected overhead, the beetles held their course\" — a complete sentence. After: \"When the projectors went dark, the same beetles wandered in circles\" — also complete.\n- Two independent statements need a real boundary: a period, a semicolon, or a comma plus a joining word such as \"and\" or \"but.\"\n- Choice C supplies the period, and reading the result aloud gives two clean sentences describing the two halves of the experiment.\n\n**Why the other choices are wrong:**\n- A: With no punctuation, \"held their course when the projectors went dark\" says the beetles stayed on course in the dark — the opposite of the experiment's result — and the rest of the sentence collapses.\n- B: A comma alone leaves the \"when\" clause dangling between two statements it cannot join — the second sentence still has no proper boundary.\n- D: \"And\" could join the clauses only with a comma before it; splitting \"and, when\" puts the comma on the wrong side of the conjunction."
+      "explanation": "**Choice C is correct.** Two complete sentences meet at the blank, and a period is a correct way to separate them.\n\n**The Full Solution:**\n- Test what stands on each side. Before the blank: \"with only the faint band of the Milky Way projected overhead, the beetles held their course\" — a complete sentence. After: \"When the projectors went dark, the same beetles wandered along winding paths\" — also complete.\n- Two independent statements need a real boundary: a period, a semicolon, or a comma plus a joining word such as \"and\" or \"but.\"\n- Choice C supplies the period, and reading the result aloud gives two clean sentences describing the two halves of the experiment.\n\n**Why the other choices are wrong:**\n- A: With no punctuation, \"held their course when the projectors went dark\" says the beetles stayed on course in the dark — the opposite of the experiment's result — and the rest of the sentence collapses.\n- B: A comma alone leaves the \"when\" clause dangling between two statements it cannot join — the second sentence still has no proper boundary.\n- D: \"And\" could join the clauses only with a comma before it; splitting \"and, when\" puts the comma on the wrong side of the conjunction."
     },
     {
       "id": 373,
@@ -424,7 +424,7 @@ export const practiceTest3RWM2Easy = {
       "band": 4,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "By the time government weather services began wiring storm warnings to coastal towns in the 1870s, farmers and sailors ______ the sky for generations, reading tomorrow's weather in halos around the moon, in how low the birds flew, and in sayings polished by long use. The telegraph did not so much replace that lore as outrun it, moving news of a storm faster than the storm itself.",
+      "passage": "By the time government weather services began telegraphing storm warnings to coastal towns in the 1870s, farmers and sailors ______ the sky for generations, reading tomorrow's weather in halos around the moon and in how low the birds flew. The telegraph did not so much replace that lore as outrun it.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
         { "id": "A", "text": "are reading" },
@@ -442,7 +442,7 @@ export const practiceTest3RWM2Easy = {
       "band": 2,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "Before the age of machine printing, globes were built by hand from flat paper. A mapmaker printed the world onto twelve pointed segments called gores, shaped like the peel of an orange sliced from pole to pole. Each of the printed ______ trimmed by hand and pasted onto a plaster sphere, its tips meeting exactly at the poles.",
+      "passage": "Before globes were mass-produced, each one was built by hand from flat paper. A mapmaker printed the world onto twelve pointed segments called gores, shaped like the peel of an orange sliced from pole to pole. Each of the printed ______ trimmed by hand and pasted onto a sphere, its tips meeting at the poles.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
         { "id": "A", "text": "segments was" },
@@ -451,7 +451,7 @@ export const practiceTest3RWM2Easy = {
         { "id": "D", "text": "segments have been" }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The subject is \"Each,\" which is singular, and the passage describes the past, so the verb must be the singular past-tense \"was.\"\n\n**The Full Solution:**\n- Find the true subject. It is \"Each\" — the phrase \"of the printed segments\" only describes which each, and a noun inside a prepositional phrase never controls the verb.\n- \"Each\" is grammatically singular: each one was trimmed.\n- Now match the tense. The passage is set \"before the age of machine printing,\" and its other verbs are past (\"were built,\" \"printed\"), so the singular PAST form \"was\" completes the sentence.\n\n**Why the other choices are wrong:**\n- B: \"Were\" wrongly agrees with the nearby plural \"segments\" instead of the singular subject \"Each.\"\n- C: \"Are\" is present tense in a passage told entirely in the past — and it also clashes with the singular \"Each.\"\n- D: \"Have been\" is both plural and anchored to the present, two mismatches at once."
+      "explanation": "**Choice A is correct.** The subject is \"Each,\" which is singular, and the passage describes the past, so the verb must be the singular past-tense \"was.\"\n\n**The Full Solution:**\n- Find the true subject. It is \"Each\" — the phrase \"of the printed segments\" only describes which each, and a noun inside a prepositional phrase never controls the verb.\n- \"Each\" is grammatically singular: each one was trimmed.\n- Now match the tense. The passage is set before globes were mass-produced, and its other verbs are past (\"was built,\" \"printed\"), so the singular PAST form \"was\" completes the sentence.\n\n**Why the other choices are wrong:**\n- B: \"Were\" wrongly agrees with the nearby plural \"segments\" instead of the singular subject \"Each.\"\n- C: \"Are\" is present tense in a passage told entirely in the past — and it also clashes with the singular \"Each.\"\n- D: \"Have been\" is both plural and anchored to the present, two mismatches at once."
     },
     // ============================================================
     // Q23-Q27: Expression of Ideas
@@ -481,7 +481,7 @@ export const practiceTest3RWM2Easy = {
       "band": 3,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "Potters usually treat a web of fine cracks in a glaze as a defect, and most adjust their recipes so that glaze and clay shrink at the same rate as the kiln cools, leaving a smooth, unbroken surface. ______ some ceramic traditions deliberately mismatch the two shrink rates, prizing the resulting net of hairline cracks and even rubbing ink into the lines so the pattern stands out.",
+      "passage": "Potters usually treat a web of fine cracks in a glaze as a defect, adjusting their recipes so that glaze and clay shrink at the same rate as the kiln cools. ______ some ceramic traditions deliberately mismatch the two rates, prizing the resulting net of hairline cracks and even rubbing ink into the lines so the pattern stands out.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "For instance," },
@@ -499,7 +499,7 @@ export const practiceTest3RWM2Easy = {
       "band": 4,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "Some young songbirds learn a star compass in the nest. What they inherit is not a map of the stars but a rule: watch the night sky turn, find the point it turns around, and treat that still point as north. Researchers once raised nestlings under a planetarium sky that rotated not around Polaris but around a different, arbitrarily chosen star. ______ when the grown birds were tested under a natural autumn sky, they oriented as though the substitute star marked north.",
+      "passage": "Some songbirds learn a star compass early in life. What they inherit is a rule: watch the night sky turn, find the point it turns around, and treat that point as north. Researchers raised young birds under a planetarium sky rotating around a star other than Polaris. ______ when the grown birds were tested under a stationary planetarium sky, they oriented as though the substitute star marked north.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "In other words," },
@@ -508,7 +508,7 @@ export const practiceTest3RWM2Easy = {
         { "id": "D", "text": "For example," }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The birds' odd orientation is the direct outcome of being raised under the altered sky, so the final sentence needs a consequence transition.\n\n**The Full Solution:**\n- Track the logic chain. The rule the birds inherit: treat the sky's still point as north. The manipulation: researchers made an arbitrary star the still point. The final sentence: the grown birds treated that star as north.\n- The last sentence is not a new observation dropped in beside the experiment — it is what the experiment produced. Rear birds under a sky that turns around the wrong star, and the rule they inherit faithfully misfires.\n- A sentence reporting the outcome of a manipulation takes \"As a result.\"\n\n**Why the other choices are wrong:**\n- A: \"In other words\" claims the sentence restates what came before, but the test under the natural sky is new information — the outcome, not a rephrasing.\n- B: \"Nevertheless\" would signal that the birds' behavior defied the setup, when in fact it followed from the setup exactly.\n- D: \"For example\" would make the test result one instance of the planetarium rearing, but it is the consequence of that rearing, not an illustration of it."
+      "explanation": "**Choice C is correct.** The birds' odd orientation is the direct outcome of being raised under the altered sky, so the final sentence needs a consequence transition.\n\n**The Full Solution:**\n- Track the logic chain. The rule the birds inherit: treat the sky's still point as north. The manipulation: researchers made an arbitrary star the still point. The final sentence: the grown birds treated that star as north.\n- The last sentence is not a new observation dropped in beside the experiment — it is what the experiment produced. Rear birds under a sky that turns around the wrong star, and the rule they inherit faithfully misfires.\n- A sentence reporting the outcome of a manipulation takes \"As a result.\"\n\n**Why the other choices are wrong:**\n- A: \"In other words\" claims the sentence restates what came before, but the test under the stationary sky is new information — the outcome, not a rephrasing.\n- B: \"Nevertheless\" would signal that the birds' behavior defied the setup, when in fact it followed from the setup exactly.\n- D: \"For example\" would make the test result one instance of the planetarium rearing, but it is the consequence of that rearing, not an illustration of it."
     },
     {
       "id": 380,
@@ -520,23 +520,23 @@ export const practiceTest3RWM2Easy = {
       "studentNotes": {
         "intro": "While researching a topic, a student has taken the following notes:",
         "bullets": [
-          "Before printed textbooks were common, American students learning arithmetic compiled ciphering books: handwritten notebooks of rules, worked problems, and exercises.",
-          "Students copied model problems from a teacher's book or an older student's book, then entered their own solutions in careful penmanship.",
-          "Ciphering books were often kept for life and passed down in families; thousands survive in libraries and private collections.",
-          "Because each book records what one student actually studied, surviving books show which topics were commonly taught in a given era.",
-          "Historians have used collections of ciphering books to trace how far most students' arithmetic went — often ending with the mathematics of trade, such as currency conversion."
+          "Before printed textbooks were common, American students compiled ciphering books: handwritten notebooks of arithmetic rules and worked problems.",
+          "Students copied model problems from a teacher's book, then entered their own solutions.",
+          "Many ciphering books were kept for life; thousands survive in libraries and private collections.",
+          "Each book records what one student actually studied.",
+          "Historians use collections of ciphering books to trace which topics were commonly taught in a given era."
         ],
         "goal": "The student wants to explain how ciphering books help historians understand early American mathematics teaching."
       },
       "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       "choices": [
-        { "id": "A", "text": "Ciphering books were handwritten notebooks of rules, worked problems, and exercises that American students compiled before printed textbooks were common." },
-        { "id": "B", "text": "Students copied model problems from a teacher's book or an older student's book and then entered their own solutions in careful penmanship." },
-        { "id": "C", "text": "Ciphering books were often kept for life and passed down within families, and thousands of them survive today." },
-        { "id": "D", "text": "Because each surviving ciphering book records what one student actually studied, historians can use collections of them to trace which arithmetic topics were commonly taught in a given era." }
+        { "id": "A", "text": "Ciphering books were handwritten notebooks of arithmetic rules and worked problems compiled by American students." },
+        { "id": "B", "text": "Students copied model problems from a teacher's book and then entered their own solutions." },
+        { "id": "C", "text": "Many ciphering books were kept for life, and thousands of them survive today." },
+        { "id": "D", "text": "Because each ciphering book records one student's studies, historians can use collections of them to trace which topics were commonly taught." }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The goal asks HOW the books help historians, and choice D supplies the mechanism: each book records one student's actual studies, so collections of them reveal what was commonly taught.\n\n**The Full Solution:**\n- Start from the goal's key word: \"how.\" The right sentence must connect a feature of the books to what historians learn from them — a because-therefore link.\n- Choice D builds exactly that link: because each book records what one student actually studied (the feature), historians can trace commonly taught topics era by era (the use).\n- Both halves come straight from the notes — the fourth and fifth bullets — with nothing invented and nothing off-goal.\n\n**Why the other choices are wrong:**\n- A: It defines what ciphering books were but never mentions historians or what the books reveal.\n- B: The copying-and-solving routine describes how students made the books, not how historians use them.\n- C: Survival in large numbers explains why the evidence exists, but the sentence stops before saying what historians do with it."
+      "explanation": "**Choice D is correct.** The goal asks HOW the books help historians, and choice D supplies the mechanism: each book records one student's actual studies, so collections of them reveal what was commonly taught.\n\n**The Full Solution:**\n- Start from the goal's key word: \"how.\" The right sentence must connect a feature of the books to what historians learn from them — a because-therefore link.\n- Choice D builds exactly that link: because each book records one student's studies (the feature), historians can trace commonly taught topics (the use).\n- Both halves come straight from the notes — the fourth and fifth bullets — with nothing invented and nothing off-goal.\n\n**Why the other choices are wrong:**\n- A: It defines what ciphering books were but never mentions historians or what the books reveal.\n- B: The copying-and-solving routine describes how students made the books, not how historians use them.\n- C: Survival in large numbers explains why the evidence exists, but the sentence stops before saying what historians do with it."
     },
     {
       "id": 381,
@@ -548,23 +548,23 @@ export const practiceTest3RWM2Easy = {
       "studentNotes": {
         "intro": "While researching a topic, a student has taken the following notes:",
         "bullets": [
-          "Faded advertisements painted directly on brick walls between the 1890s and the 1950s are known as ghost signs.",
-          "They were painted by traveling sign painters using paint mixed with white lead, which bonded tightly to brick.",
-          "The lead-based paint outlasted ordinary paints by decades, which is why much of the lettering is still readable after a century.",
-          "Some ghost signs survived by accident: a newer building went up against the painted wall and shielded the sign from sunlight for decades.",
-          "Several cities now catalog their ghost signs and map their locations before further fading occurs."
+          "Ghost signs are faded advertisements painted directly on brick walls between the 1890s and the 1950s.",
+          "They were painted by traveling sign painters, often with paint containing white lead, which bonded tightly to brick.",
+          "Lead-based paint outlasted ordinary paints by decades.",
+          "Some signs were shielded from sunlight for decades by newer buildings constructed against the painted wall.",
+          "Several cities now catalog and map their ghost signs before further fading occurs."
         ],
         "goal": "The student wants to explain why many ghost signs are still visible after roughly a century."
       },
       "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       "choices": [
         { "id": "A", "text": "Ghost signs are faded advertisements that were painted directly on brick walls between the 1890s and the 1950s." },
-        { "id": "B", "text": "Several cities now catalog their ghost signs and map their locations before the painted lettering can fade any further." },
+        { "id": "B", "text": "Several cities now catalog their ghost signs and map their locations before the lettering fades further." },
         { "id": "C", "text": "Traveling sign painters produced ghost signs for businesses that wanted advertisements on brick walls." },
-        { "id": "D", "text": "Many ghost signs remain readable because their lead-based paint bonded tightly to brick and, in some cases, because newer buildings shielded the painted walls from sunlight for decades." }
+        { "id": "D", "text": "Many ghost signs remain readable because their lead-based paint bonded tightly to brick and some were shielded from sunlight by newer buildings." }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The goal asks WHY the signs are still visible, and choice D gives the two causes the notes supply: durable lead-based paint bonded to brick, and accidental shielding by neighboring buildings.\n\n**The Full Solution:**\n- The goal is an explanation of survival, so the right sentence must state causes, not descriptions or current projects.\n- The notes offer two causes: the second and third bullets (lead paint bonded tightly and outlasted ordinary paints) and the fourth (newer buildings blocked sunlight for decades).\n- Choice D combines both causes in one sentence, explicitly tied to the effect — \"remain readable because...\" — and every fact in it comes from the notes.\n\n**Why the other choices are wrong:**\n- A: It defines ghost signs and dates them but gives no reason for their survival.\n- B: Cataloging and mapping are responses to fading, not explanations of why the signs lasted a century.\n- C: Who painted the signs and for whom says nothing about why the paint is still visible."
+      "explanation": "**Choice D is correct.** The goal asks WHY the signs are still visible, and choice D gives the two causes the notes supply: durable lead-based paint bonded to brick, and accidental shielding by neighboring buildings.\n\n**The Full Solution:**\n- The goal is an explanation of survival, so the right sentence must state causes, not descriptions or current projects.\n- The notes offer two causes: the second and third bullets (lead paint bonded tightly and outlasted ordinary paints) and the fourth (newer buildings shielded some signs from sunlight for decades).\n- Choice D combines both causes in one sentence, explicitly tied to the effect — \"remain readable because...\" — and every fact in it comes from the notes.\n\n**Why the other choices are wrong:**\n- A: It defines ghost signs and dates them but gives no reason for their survival.\n- B: Cataloging and mapping are responses to fading, not explanations of why the signs lasted a century.\n- C: Who painted the signs and for whom says nothing about why the paint is still visible."
     }
   ]
 };

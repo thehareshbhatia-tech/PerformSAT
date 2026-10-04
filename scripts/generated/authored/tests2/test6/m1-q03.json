@@ -1,6 +1,6 @@
 {
  "id": 3,
- "question": "A hospital pharmacy divides a $92$-milligram supply of a medication into $4$ doses of equal mass. What is the mass, in milligrams, of each dose?",
+ "question": "$7x = 161$\nWhat is the solution to the given equation?",
  "choices": [
   {
    "id": "A",
@@ -8,22 +8,22 @@
   },
   {
    "id": "B",
-   "text": "$46$"
+   "text": "$154$"
   },
   {
    "id": "C",
-   "text": "$88$"
+   "text": "$168$"
   },
   {
    "id": "D",
-   "text": "$368$"
+   "text": "$1{,}127$"
   }
  ],
  "distractorNotes": {
-  "B": "divides by 2 instead of by 4, giving 92/2 = 46",
-  "C": "subtracts 4 from 92 instead of dividing, giving 88",
-  "D": "multiplies by 4 instead of dividing, giving 368"
+  "B": "subtracts 7 from 161 instead of dividing, giving 154",
+  "C": "adds 7 to 161 instead of dividing, giving 168",
+  "D": "multiplies 161 by 7 instead of dividing, giving 1,127"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice A is correct.** If $d$ is the mass of one dose, then $4d = 92$, so $d = 23$ milligrams.\n\n**The Fast Way (~10s):** Equal doses means divide: $92 \\div 4 = 23$.\n\n**The Full Solution:**\nStep 1: Let $d$ be the mass, in milligrams, of each dose. Four equal doses account for the whole supply, so $4d = 92$.\nStep 2: Divide each side by $4$: $d = \\frac{92}{4} = 23$.\nStep 3: Check by rebuilding the supply: $4(23) = 92$ milligrams ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($46$): this divides by $2$ rather than by $4$, the answer for two doses, not four.\n* Choice C ($88$): this subtracts $4$ from $92$. The phrase \"divides into $4$ doses\" signals division, not subtraction.\n* Choice D ($368$): this multiplies $92$ by $4$. Multiplying makes each dose larger than the whole supply, which cannot happen.\n\n**Test Day Takeaway:** Before computing, ask whether the answer must be smaller or larger than the given total — splitting a supply always makes each piece smaller."
+ "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Divide both sides by $7$: $x = \\frac{161}{7} = 23$.\n\n**The Full Solution:**\nStep 1: The variable $x$ is multiplied by $7$, so undo the multiplication by dividing.\nStep 2: Divide each side of $7x = 161$ by $7$: $x = \\frac{161}{7}$.\nStep 3: Simplify: $x = 23$. Check: $7(23) = 161$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($154$): subtracts $7$ from $161$, which would solve $x + 7 = 161$, not $7x = 161$.\n* Choice C ($168$): adds $7$ to $161$, which would solve $x - 7 = 161$.\n* Choice D ($1{,}127$): multiplies by $7$ instead of dividing, which would solve $\\frac{x}{7} = 161$.\n\n**Test Day Takeaway:** Undo the operation applied to the variable: multiplication is undone by division, and plugging the answer back in takes only a few seconds."
 }

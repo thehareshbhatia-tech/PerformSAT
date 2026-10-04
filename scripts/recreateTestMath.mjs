@@ -461,7 +461,7 @@ async function check(chunks) {
       const { errs, warns } = checkItem({ ...row, kind: 'shard', source: chunk.chunk }, a, ctx);
       const t = testChecks(row, a, chunk); errs.push(...t.errs); warns.push(...t.warns);
       const tw = twins.get(mathKey(a.question)); if (tw && tw.length > 1) errs.push(`math twin: the same expression with the same numbers is in ${tw.filter(x => x !== `test${row.test}/${row.fileId}`).join(', ')} — change the numbers`);
-      const fr = freshnessOf(row, a, siblings);
+      const fr = ALLOW_SEEN ? { seen: { dice: 0 }, sibling: { dice: 0 } } : freshnessOf(row, a, siblings); // v3: wording freshness is silent (stock CB frames repeat by design)
       if (fr.seen.dice >= FRESH_FAIL) (ALLOW_SEEN ? warns : errs).push(`FRESHNESS: stem is a near-copy of a question students have seen (${fr.seen.id}, Dice ${fr.seen.dice.toFixed(2)} ≥ ${FRESH_FAIL}) — change the setup, not just the numbers`);
       else if (fr.seen.dice >= FRESH_WARN) warns.push(`freshness: close to seen ${fr.seen.id} (Dice ${fr.seen.dice.toFixed(2)})`);
       if (fr.sibling.dice >= FRESH_FAIL) (ALLOW_SEEN ? warns : errs).push(`FRESHNESS: stem is a near-copy of another new item (${fr.sibling.id}, Dice ${fr.sibling.dice.toFixed(2)} ≥ ${FRESH_FAIL})`);

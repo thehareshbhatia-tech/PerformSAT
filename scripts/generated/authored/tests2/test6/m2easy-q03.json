@@ -1,6 +1,6 @@
 {
   "id": 3,
-  "question": "In a soil lab the nitrogen dose $a$ and the potassium dose $b$, both in grams, must satisfy $2a + 5b = 9$. A second requirement, $8a + 20b = c$, is met by exactly the same dose pairs $(a, b)$. What is the value of $c$?",
+  "question": "$2x + 5y = 9$\n$8x + 20y = c$\nIn the given system of equations, $c$ is a constant. For what value of $c$ does the system have infinitely many solutions?",
   "choices": [
     {
       "id": "A",
@@ -22,8 +22,8 @@
   "distractorNotes": {
     "A": "divides 9 by the scale factor 4 instead of multiplying (9/4 = 2.25)",
     "B": "reports the scale factor 4 itself instead of applying it to the constant",
-    "C": "copies the constant unchanged, scaling only the coefficients"
+    "C": "copies the constant 9 unchanged, scaling only the coefficients"
   },
   "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Same Line (Infinitely Many Solutions)**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The coefficients quadruple, $2 \\to 8$ and $5 \\to 20$, so the constant must quadruple too: $c = 4(9) = 36$.\n\n**The Full Solution:**\nStep 1: Two equations are satisfied by exactly the same pairs only when one is a constant multiple of the other.\nStep 2: Compare matching coefficients: $\\frac{8}{2} = 4$ and $\\frac{20}{5} = 4$, so the multiplier is $4$.\nStep 3: Apply that multiplier to the constant: $c = 4 \\times 9 = 36$. Check by scaling the first equation outright: $4(2a + 5b) = 4(9)$ gives $8a + 20b = 36$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.25$): divides the constant by the scale factor instead of multiplying, giving $9 \\div 4 = 2.25$ — the constant would shrink while the coefficients grow.\n* Choice B ($4$): reports the scale factor itself and never applies it to $9$.\n* Choice C ($9$): copies the constant unchanged. Then $8a + 20b = 9$ is a parallel line with no shared pairs at all, not the same set of pairs.\n\n**Test Day Takeaway:** Identical solution sets means one equation is the other times a single number. Read that number off the coefficients, then multiply the constant by it."
+  "explanation": "**SAT Pattern: Same Line (Infinitely Many Solutions)**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The coefficients are multiplied by $4$ ($2 \\to 8$ and $5 \\to 20$), so the constant must be multiplied by $4$ too: $c = 4(9) = 36$.\n\n**The Full Solution:**\nStep 1: A system of two linear equations has infinitely many solutions when one equation is a constant multiple of the other, so both equations describe the same line.\nStep 2: Compare the coefficients: $\\frac{8}{2} = 4$ and $\\frac{20}{5} = 4$, so the second equation must be $4$ times the first.\nStep 3: Multiply the constant by the same factor: $c = 4 \\times 9 = 36$. Check: $4(2x + 5y) = 4(9)$ gives $8x + 20y = 36$, the second equation exactly ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.25$): divides the constant by the factor instead of multiplying, giving $9 \\div 4 = 2.25$.\n* Choice B ($4$): reports the factor itself and never applies it to $9$.\n* Choice C ($9$): copies the constant unchanged. Then $8x + 20y = 9$ is parallel to the first line, and the system has no solution.\n\n**Test Day Takeaway:** Infinitely many solutions means one equation is the other times a single number. Find that number from the coefficients, then multiply the constant by it."
 }

@@ -1,29 +1,29 @@
 {
  "id": 7,
- "question": "A chemistry lab's quality log shows that $60\\%$ of the recorded samples came from batch $X$ and that $42\\%$ of all recorded samples came from batch $X$ and met the purity standard. Which expression gives the probability that a randomly selected batch $X$ sample met the standard?",
+ "question": "At a school, $60\\%$ of students take a science elective and $42\\%$ of students take a science elective and play a sport. What is the probability that a randomly selected student who takes a science elective plays a sport?",
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{0.60}{0.42}$"
+   "text": "$0.18$"
   },
   {
    "id": "B",
-   "text": "$0.60 \\times 0.42$"
+   "text": "$0.252$"
   },
   {
    "id": "C",
-   "text": "$\\frac{0.42}{0.60}$"
+   "text": "$0.42$"
   },
   {
    "id": "D",
-   "text": "$0.60 - 0.42$"
+   "text": "$0.70$"
   }
  ],
  "distractorNotes": {
-  "A": "inverts the conditional probability, dividing the condition by the joint percent",
-  "B": "multiplies the two percents as if the events were independent",
-  "D": "subtracts to find the batch X samples that failed, 18% of all samples"
+  "A": "subtracts the two percents, 0.60 - 0.42 = 0.18, which is the share taking an elective but not playing a sport",
+  "B": "multiplies the two percents, 0.60(0.42) = 0.252, as if they were independent probabilities",
+  "C": "reports the joint probability 0.42 without restricting to students who take an elective"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** A conditional probability is the overlap divided by the condition: $\\frac{0.42}{0.60}$.\n\n**The Full Solution:**\nStep 1: Let $X$ be the event that a sample came from batch $X$ and $M$ the event that it met the standard. The log gives $P(X) = 0.60$ and $P(X \\text{ and } M) = 0.42$.\nStep 2: The question restricts attention to batch $X$ samples, so the probability wanted is $P(M \\mid X) = \\frac{P(X \\text{ and } M)}{P(X)}$.\nStep 3: That is $\\frac{0.42}{0.60}$; check with counts for $1{,}000$ samples: $600$ came from batch $X$ and $420$ of them met the standard, and $\\frac{420}{600} = \\frac{0.42}{0.60} = 0.7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{0.60}{0.42}$): flips the conditional and gives about $1.43$, which cannot be a probability.\n* Choice B ($0.60 \\times 0.42$): multiplies as if the two percents were independent pieces; that produces $0.252$, the share of all samples that would satisfy both conditions only if $0.42$ were already a within-batch rate.\n* Choice D ($0.60 - 0.42$): subtracts to get $0.18$, the share of all samples that came from batch $X$ and failed the standard.\n\n**Test Day Takeaway:** \"Given that\" resets the denominator — divide the overlap by the group you are told the item came from, never by the whole."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Restrict to the $60\\%$ who take an elective; $42\\%$ of all students are in that group and play a sport, so the probability is $\\frac{0.42}{0.60} = 0.70$.\n\n**The Full Solution:**\nStep 1: The condition is that the student takes a science elective, so the group being chosen from is the $60\\%$ of students who do.\nStep 2: The students in that group who also play a sport make up $42\\%$ of all students.\nStep 3: Divide the part by the group: $\\frac{0.42}{0.60} = 0.70$. Check with $100$ students: $60$ take an elective, $42$ of them play a sport, and $\\frac{42}{60} = 0.70$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.18$): subtracts, $0.60-0.42=0.18$, which is the share of all students who take an elective but do not play a sport.\n* Choice B ($0.252$): multiplies, $(0.60)(0.42) = 0.252$, which treats the $42\\%$ as a share of the elective group instead of a share of all students.\n* Choice C ($0.42$): reports the share of all students who do both, without restricting to students who take an elective.\n\n**Test Day Takeaway:** The phrase \"a randomly selected student who takes a science elective\" names the group to divide by; a conditional probability is the overlap divided by the size of that group."
 }

@@ -1,29 +1,29 @@
 {
  "id": 3,
- "question": "A lab technician models the temperature deviation, in degrees Celsius, of a heated bath by $d(t) = 2(t - 4)^2 - 7$, where $t$ is the time in minutes since heating began. Which expression is equivalent to $d(t)$?",
+ "question": "$2(x - 4)^{2} - 7$\nWhich expression is equivalent to the given expression?",
  "choices": [
   {
    "id": "A",
-   "text": "$2t^2 - 16t + 25$"
+   "text": "$2x^{2} - 16x + 25$"
   },
   {
    "id": "B",
-   "text": "$2t^2 - 16t + 9$"
+   "text": "$2x^{2} - 16x + 9$"
   },
   {
    "id": "C",
-   "text": "$2t^2 - 8t + 25$"
+   "text": "$2x^{2} - 8x + 25$"
   },
   {
    "id": "D",
-   "text": "$2t^2 + 16t + 25$"
+   "text": "$2x^{2} + 16x + 25$"
   }
  ],
  "distractorNotes": {
-  "B": "distributes the 2 across the t-terms but not across the 16, leaving 16 - 7 = 9",
-  "C": "doubles the squared term but copies the cross term -8t without doubling it",
-  "D": "expands (t - 4)^2 as t^2 + 8t + 16, flipping the sign of the middle term"
+  "B": "multiplies the x-terms by 2 but not the 16, leaving 16 - 7 = 9",
+  "C": "doubles the squared term but copies the middle term -8x without doubling it",
+  "D": "expands (x - 4)^2 as x^2 + 8x + 16, flipping the sign of the middle term"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $(t-4)^2 = t^2 - 8t + 16$; doubling gives $2t^2 - 16t + 32$, and $32 - 7 = 25$.\n\n**The Full Solution:**\nStep 1: Square the binomial first: $(t - 4)^2 = t^2 - 8t + 16$.\nStep 2: Multiply every term by $2$: $2(t^2 - 8t + 16) = 2t^2 - 16t + 32$.\nStep 3: Subtract $7$: $2t^2 - 16t + 32 - 7 = 2t^2 - 16t + 25$; check at $t = 0$, where the original gives $2(16) - 7 = 25$ and the answer gives $25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2t^2 - 16t + 9$): distributes the $2$ to $t^2$ and to $-8t$ but not to the $16$, so the constant comes out $16 - 7 = 9$; at $t = 0$ that is $9$, not $25$.\n* Choice C ($2t^2 - 8t + 25$): doubles the squared term and the constant but carries the cross term $-8t$ over unchanged, when it must become $-16t$.\n* Choice D ($2t^2 + 16t + 25$): expands $(t - 4)^2$ as $t^2 + 8t + 16$; squaring a difference makes the middle term negative, so the sign is wrong.\n\n**Test Day Takeaway:** Convert vertex form in the fixed order — square the binomial, distribute the leading coefficient to all three terms, then combine the constants."
+ "explanation": "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $(x - 4)^{2} = x^{2} - 8x + 16$; doubling gives $2x^{2} - 16x + 32$, and $32 - 7 = 25$.\n\n**The Full Solution:**\nStep 1: Square the binomial first: $(x - 4)^{2} = x^{2} - 8x + 16$.\nStep 2: Multiply every term by $2$: $2(x^{2} - 8x + 16) = 2x^{2} - 16x + 32$.\nStep 3: Subtract $7$: $2x^{2} - 16x + 32 - 7 = 2x^{2} - 16x + 25$. Check at $x = 0$: the given expression is $2(16) - 7 = 25$, and $2(0)^{2} - 16(0) + 25 = 25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2x^{2} - 16x + 9$): multiplies the $x$-terms by $2$ but not the $16$, so it computes $16 - 7 = 9$ for the constant.\n* Choice C ($2x^{2} - 8x + 25$): doubles the squared term and the constant but leaves the middle term as $-8x$.\n* Choice D ($2x^{2} + 16x + 25$): expands $(x - 4)^{2}$ with $+8x$, flipping the sign of the middle term.\n\n**Test Day Takeaway:** Expand the square completely before multiplying by the outside coefficient, and make sure that coefficient reaches every term; a quick check at $x = 0$ catches a missed constant."
 }

@@ -1,6 +1,6 @@
 {
  "id": 11,
- "question": "The figure shows a guy wire from a ground anchor at $A$ to the point $C$ on a utility pole that stands perpendicular to the ground at $B$. The wire is $58$ feet long, and $\\tan A = \\frac{20}{21}$. How many feet above the ground is point $C$?",
+ "question": "In the right triangle shown, $AC = 58$ and $\\tan A = \\frac{20}{21}$. What is the length of $\\overline{BC}$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -26,11 +26,11 @@
    "sideLabels": [
     "",
     "",
-    "58 ft"
+    "58"
    ],
    "rightAngleVertex": 1
   }
  },
  "correctAnswer": "40",
- "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**The correct answer is $40$.**\n\n**The Fast Way (~30s):** $\\tan A = \\frac{20}{21}$ makes this a $20$-$21$-$29$ triangle; the wire, $58$, is $2 \\times 29$, so the height is $2 \\times 20 = 40$.\n\n**The Full Solution:**\nStep 1: In right triangle $ABC$ with the right angle at $B$, $\\tan A = \\frac{BC}{AB} = \\frac{20}{21}$, so the legs are in the ratio $20 : 21$. Write $BC = 20k$ and $AB = 21k$.\nStep 2: Apply the Pythagorean theorem: $(20k)^2 + (21k)^2 = 58^2$, so $400k^2 + 441k^2 = 3{,}364$ and $841k^2 = 3{,}364$. Then $k^2 = 4$ and $k = 2$.\nStep 3: Point $C$ sits $BC = 20(2) = 40$ feet above the ground. Check: $AB = 21(2) = 42$, and $40^2 + 42^2 = 1{,}600 + 1{,}764 = 3{,}364 = 58^2$.\n\n**Common Mistakes:**\n* $42$: computes $21k = 42$, the ground distance $\\overline{AB}$ from the anchor to the base of the pole. That is the side ADJACENT to angle $A$; the tangent's numerator names the opposite side, which is the vertical one.\n* $20$: reads the tangent's numerator as a length and never scales. The ratio $\\frac{20}{21}$ fixes only the shape of the triangle; the $58$-foot wire fixes its size, and here it doubles every side.\n* About $55.2$: computes $58 \\cdot \\frac{20}{21} \\approx 55.2$ by applying the tangent ratio to the hypotenuse. Tangent relates the two LEGS; a hypotenuse calls for sine or cosine, or for the Pythagorean theorem.\n\n**Test Day Takeaway:** A tangent value plus one length is a scaled Pythagorean triple. Name the legs $20k$ and $21k$, solve for $k$ once, and every side falls out."
+ "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**The correct answer is $40$.**\n\n**The Fast Way (~30s):** $\\tan A = \\frac{20}{21}$ makes the sides a multiple of the $20$-$21$-$29$ triangle, and $58 = 2(29)$, so $BC = 2(20) = 40$.\n\n**The Full Solution:**\nStep 1: The right angle is at $B$, so the hypotenuse is $\\overline{AC}$. For angle $A$, the opposite side is $\\overline{BC}$ and the adjacent side is $\\overline{AB}$, so $\\frac{BC}{AB} = \\frac{20}{21}$. Let $BC = 20k$ and $AB = 21k$.\nStep 2: By the Pythagorean theorem, $AC = \\sqrt{(20k)^{2} + (21k)^{2}} = \\sqrt{841k^{2}} = 29k$. Since $AC = 58$, $k = 2$.\nStep 3: So $BC = 20(2) = 40$. Check: $AB = 42$, $\\frac{40}{42} = \\frac{20}{21}$, and $40^{2} + 42^{2} = 1{,}600 + 1{,}764 = 3{,}364 = 58^{2}$ ✓\n\n**Common Mistakes:**\n* $42$: finds $AB$, the side adjacent to angle $A$, instead of the side opposite it.\n* $20$: uses the numerator of $\\tan A$ as the length without scaling by $k = 2$.\n* $29$: reports the hypotenuse of the basic $20$-$21$-$29$ triangle instead of using it to find the scale factor.\n\n**Test Day Takeaway:** A trig ratio gives the shape of a right triangle, not its size; find the third side of the ratio triangle, then scale to match the given length."
 }

@@ -9,12 +9,11 @@
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "Wangari Maathai (1940-2011) was a Kenyan biologist and the first woman in East and Central Africa to earn a doctorate.",
-   "In 1977 she founded the Green Belt Movement, which paid rural Kenyan women small stipends to plant and tend trees.",
-   "The movement's nurseries raised seedlings to counter deforestation, which had stripped hillsides, dried up streams, and degraded farmland.",
-   "Women who participated earned income and gained standing in their communities while restoring the land they farmed.",
-   "The movement has planted tens of millions of trees across Kenya.",
-   "In 2004 Maathai received the Nobel Peace Prize, the first environmentalist so honored."
+   "Wangari Maathai (1940-2011) was a Kenyan scientist and the first woman in East and Central Africa to earn a doctorate.",
+   "In 1977 she founded the Green Belt Movement, which paid rural Kenyan women small sums to plant and tend trees.",
+   "The trees countered deforestation, which had dried up streams and degraded farmland.",
+   "Participating women earned income and gained standing in their communities.",
+   "In 2004 Maathai received the Nobel Peace Prize."
   ],
   "goal": "The student wants to emphasize how the Green Belt Movement joined environmental restoration to the economic empowerment of rural women."
  },
@@ -22,23 +21,23 @@
  "choices": [
   {
    "id": "A",
-   "text": "Wangari Maathai, a Kenyan biologist and the first woman in East and Central Africa to earn a doctorate, received the Nobel Peace Prize in 2004 for her environmental work."
+   "text": "Kenyan scientist Wangari Maathai, the first woman in East and Central Africa to earn a doctorate, won the 2004 Nobel Peace Prize."
   },
   {
    "id": "B",
-   "text": "The Green Belt Movement's nurseries raised seedlings to counter deforestation, which had stripped Kenyan hillsides, dried up streams, and degraded farmland."
+   "text": "The Green Belt Movement planted trees to counter deforestation, which had dried up Kenyan streams and degraded farmland."
   },
   {
    "id": "C",
-   "text": "Deforestation in Kenya was so severe by 1977 that Wangari Maathai founded an organization dedicated to planting tens of millions of trees."
+   "text": "Deforestation in Kenya was so severe by 1977 that Wangari Maathai founded an organization devoted to planting trees."
   },
   {
    "id": "D",
-   "text": "Through the Green Belt Movement, Wangari Maathai turned tree planting into paid work for rural Kenyan women, so that the campaign against deforestation simultaneously restored degraded land and brought the women who carried it out income and standing in their communities."
+   "text": "Maathai's Green Belt Movement paid rural Kenyan women to plant trees, restoring degraded land while giving the women income and standing."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The goal names a junction — restoration joined to women's economic empowerment — and D is the only choice that makes the junction itself the sentence's point: paid tree-planting work restored land and delivered income and standing at once (\"simultaneously\").\n\n**The Full Solution:**\n- Both halves must appear and be linked: the environmental campaign (countering deforestation, restoring degraded land) and the empowerment (stipends, income, standing for rural women).\n- D fuses the notes' second, third, and fourth bullets into that single both-at-once claim, which is precisely the emphasis requested.\n\n**Why the other choices are wrong:**\n- A: It lists Maathai's credentials and prize but never mentions the movement's women or its restoration work.\n- B: It covers only the environmental half — seedlings against deforestation — with no women, wages, or standing.\n- C: It frames the movement purely as a tree-planting response to deforestation, again omitting the economic-empowerment half of the pairing.",
+ "explanation": "**Choice D is correct.** The goal names a junction — restoration joined to women's economic empowerment — and D is the only choice that makes the junction itself the sentence's point: paid tree-planting work restored land while giving the women income and standing.\n\n**The Full Solution:**\n- Both halves must appear and be linked: the environmental campaign (countering deforestation, restoring degraded land) and the empowerment (pay, income, standing for rural women).\n- D fuses the notes' second, third, and fourth bullets into that single both-at-once claim, with \"while\" binding the two halves, which is precisely the emphasis requested.\n\n**Why the other choices are wrong:**\n- A: It lists Maathai's credentials and prize but never mentions the movement's women or its restoration work.\n- B: It covers only the environmental half — trees against deforestation — with no women, wages, or standing.\n- C: It frames the movement purely as a tree-planting response to deforestation, again omitting the economic-empowerment half of the pairing.",
  "_meta": {
   "anchor": "Wangari Maathai — Green Belt Movement pairing restoration with women's livelihoods"
  }

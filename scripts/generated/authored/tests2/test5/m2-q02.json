@@ -1,29 +1,29 @@
 {
  "id": 2,
- "question": "The function $f$ gives the water temperature, in degrees Celsius, at a depth of $x$ meters below the surface at an ocean monitoring station. Which statement best interprets $f(250)=9$?",
+ "question": "The function $f$ is defined by $f(x)=\\frac{7}{2}x-12$. For what value of $x$ does $f(x)=30$?",
  "choices": [
   {
    "id": "A",
-   "text": "The water temperature is $250$ degrees Celsius at a depth of $9$ meters."
+   "text": "$6$"
   },
   {
    "id": "B",
-   "text": "The water temperature is $9$ degrees Celsius at a depth of $250$ meters."
+   "text": "$12$"
   },
   {
    "id": "C",
-   "text": "The water temperature decreases by $9$ degrees Celsius for each $250$ meters of depth."
+   "text": "$42$"
   },
   {
    "id": "D",
-   "text": "The water temperature is $9$ degrees Celsius at every depth greater than $250$ meters."
+   "text": "$93$"
   }
  ],
  "distractorNotes": {
-  "A": "swaps input and output, reading 250 as the temperature and 9 as the depth",
-  "C": "reads the single output value as a rate of change instead of one temperature reading",
-  "D": "reads one ordered pair as a statement about an entire interval of depths"
+  "A": "reaches (7/2)x = 42 but divides 42 by 7 instead of by 7/2",
+  "C": "stops at (7/2)x = 42 and reports 42 without solving for x",
+  "D": "evaluates f(30) = (7/2)(30) - 12 = 93 instead of solving f(x) = 30"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Function Evaluation**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The number inside the parentheses is the depth and the number after the equals sign is the temperature, so $250$ meters down the water is $9$ degrees Celsius.\n\n**The Full Solution:**\nStep 1: Identify the roles. It is given that $f$ takes a depth $x$, in meters, as its input and returns a water temperature, in degrees Celsius, as its output.\nStep 2: In $f(250)=9$, the input is $250$ and the output is $9$. So the depth is $250$ meters and the temperature there is $9$ degrees Celsius.\nStep 3: Match that to the choices. Choice B states exactly this pairing. Check: written as an ordered pair the statement is $(250,\\ 9)$ — depth first, temperature second — which is the order the definition of $f$ requires ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: swaps the input and the output, reporting a temperature of $250$ degrees at a depth of $9$ meters. Nothing in the definition allows the two numbers to trade places.\n* Choice C: turns the single output into a rate of change. One equation $f(250)=9$ reports one reading, not how fast temperature falls with depth.\n* Choice D: stretches one ordered pair into a claim about every depth past $250$ meters. A function value describes one input only.\n\n**Test Day Takeaway:** In an interpretation question, name the input and the output before reading the choices. The number in the parentheses always carries the input units, and the number across the equals sign always carries the output units."
+ "explanation": "**SAT Pattern: Function Evaluation**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Set $\\frac{7}{2}x-12=30$: then $\\frac{7}{2}x=42$, and $x=42\\cdot\\frac{2}{7}=12$.\n\n**The Full Solution:**\nStep 1: The statement $f(x)=30$ says the output is $30$, so replace $f(x)$ with $30$: $\\frac{7}{2}x-12=30$.\nStep 2: Add $12$ to both sides: $\\frac{7}{2}x=42$.\nStep 3: Multiply both sides by $\\frac{2}{7}$: $x=12$. Check: $f(12)=\\frac{7}{2}(12)-12=42-12=30$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): reaches $\\frac{7}{2}x=42$ but divides $42$ by $7$ instead of by $\\frac{7}{2}$.\n* Choice C ($42$): reaches $\\frac{7}{2}x=42$ and reports $42$ without solving for $x$.\n* Choice D ($93$): evaluates $f(30)$, treating $30$ as the input. Here $30$ is the output, so the task is to solve for the input.\n\n**Test Day Takeaway:** Decide whether a given number is the input or the output before computing. When the output is given, set the expression equal to it and solve; to undo a coefficient of $\\frac{7}{2}$, multiply by $\\frac{2}{7}$."
 }

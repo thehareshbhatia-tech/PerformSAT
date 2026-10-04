@@ -1,6 +1,6 @@
 {
  "id": 6,
- "question": "Triangular gable truss $PQR$ is similar to truss $STU$, with side $PQ$ corresponding to side $ST$. Truss $PQR$ has $PQ = 6$ feet and encloses $24$ square feet of wall, and $ST = 15$ feet. How many square feet of wall does truss $STU$ enclose?",
+ "question": "In the figure shown, triangle $PQR$ is similar to triangle $STU$, where $P$, $Q$, and $R$ correspond to $S$, $T$, and $U$, respectively. The area of triangle $PQR$ is $24$ square units. What is the area, in square units, of triangle $STU$?",
  "diagram": {
   "type": "similarTriangles",
   "params": {
@@ -32,5 +32,5 @@
   }
  },
  "correctAnswer": "150",
- "explanation": "**SAT Pattern: Similar Triangles and Area Ratio**\n\n**The correct answer is $150$.**\n\n**The Fast Way (~20s):** The sides scale by $\\frac{15}{6} = 2.5$, so the areas scale by $2.5^2 = 6.25$, and $24(6.25) = 150$.\n\n**The Full Solution:**\nStep 1: Corresponding sides give the scale factor $\\frac{ST}{PQ} = \\frac{15}{6} = \\frac{5}{2}$.\nStep 2: In similar figures every length is multiplied by $\\frac{5}{2}$, so every area is multiplied by $\\left(\\frac{5}{2}\\right)^2 = \\frac{25}{4}$.\nStep 3: The larger truss encloses $24 \\cdot \\frac{25}{4} = 150$ square feet; check the ratio: $\\frac{150}{24} = 6.25 = 2.5^2$ ✓\n\n**Common Mistakes:**\n* Scaling the area by the side ratio alone gives $24 \\cdot \\frac{5}{2} = 60$, which would be right for a length, not an area.\n* Cubing the ratio gives $24 \\cdot \\frac{125}{8} = 375$; the cube of a scale factor governs volume, not area.\n* Inverting the ratio gives $24 \\cdot \\frac{4}{25} = 3.84$, shrinking the larger truss instead of enlarging it.\n\n**Test Day Takeaway:** Lengths scale by $k$, areas by $k^2$, volumes by $k^3$ — decide which one the question asks for before you multiply."
+ "explanation": "**SAT Pattern: Similar Triangles and Area Ratio**\n\n**The correct answer is $150$.**\n\n**The Fast Way (~20s):** The sides scale by $\\frac{15}{6} = 2.5$, so the areas scale by $2.5^{2} = 6.25$, and $24(6.25) = 150$.\n\n**The Full Solution:**\nStep 1: Corresponding sides $PQ$ and $ST$ give the scale factor: $\\frac{ST}{PQ} = \\frac{15}{6} = 2.5$.\nStep 2: Areas of similar figures scale by the square of the scale factor: $(2.5)^{2} = 6.25$.\nStep 3: Multiply: the area of triangle $STU$ is $24(6.25) = 150$ square units. Check: $\\frac{150}{24} = 6.25 = \\left(\\frac{15}{6}\\right)^{2}$ ✓\n\n**Common Mistakes:**\n* $60$: scales the area by $2.5$ instead of $2.5^{2}$, computing $24(2.5) = 60$.\n* $33$: adds the difference in side lengths to the area, computing $24 + (15 - 6) = 33$.\n* $3.84$: inverts the scale factor, computing $24(0.4)^{2} = 3.84$, which shrinks the larger triangle.\n\n**Test Day Takeaway:** Lengths of similar figures scale by $k$, but areas scale by $k^{2}$; square the side ratio before applying it to an area."
 }

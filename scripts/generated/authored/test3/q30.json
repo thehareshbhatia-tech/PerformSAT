@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "type": "multiple-choice",
- "passage": "The psychologist Adriaan de Groot found that chess masters could reproduce a briefly glimpsed board position almost perfectly, while novices could not — yet when the pieces were scattered at random, the masters' advantage nearly vanished. Their extraordinary recall, de Groot concluded, was not a general gift of memory but a ______ one: it operated only on positions that made chess sense, where familiar configurations could be grasped as wholes.",
+ "passage": "Cognitive scientists William Chase and Herbert Simon found that chess masters could reconstruct far more of a briefly glimpsed board position than novices could, yet when the pieces were placed at random, the masters' advantage nearly vanished. Their superior recall, Chase and Simon concluded, was not a general gift of memory but a ______ one: it worked only on positions that made chess sense, where familiar patterns could be grasped as wholes.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
@@ -27,8 +27,8 @@
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The colon defines the blank: the masters' recall \"operated only on positions that made chess sense.\" A capacity confined to a limited domain is a circumscribed one — the precise contrast with \"a general gift of memory.\"\n\n**The Full Solution:**\n- The sentence is built on a not-X-but-Y frame: not general, but ______. The blank must be an antonym-in-context of \"general.\"\n- The random-board result supplies the evidence — outside meaningful chess positions, the advantage nearly vanished — so the ability's boundary, not its strength, is the point.\n\n**Why the other choices are wrong:**\n- A: \"Cultivated\" is the tempting half-truth — the skill was surely trained — but training is not the contrast being drawn with \"general,\" and the colon explains a limit of scope, not an origin.\n- B: \"Fleeting\" describes duration; the masters' recall was reliable within its domain, not short-lived.\n- C: \"Deliberate\" describes intention, but grasping configurations \"as wholes\" suggests rapid recognition rather than effortful intent — and intention is not what the colon goes on to explain.",
+ "explanation": "**Choice D is correct.** The colon defines the blank: the masters' recall \"worked only on positions that made chess sense.\" A capacity confined to a limited domain is a circumscribed one — the precise contrast with \"a general gift of memory.\"\n\n**The Full Solution:**\n- The sentence is built on a not-X-but-Y frame: not general, but ______. The blank must be an antonym-in-context of \"general.\"\n- The random-board result supplies the evidence — outside meaningful chess positions, the advantage nearly vanished — so the ability's boundary, not its strength, is the point.\n\n**Why the other choices are wrong:**\n- A: \"Cultivated\" is the tempting half-truth — the skill was surely trained — but training is not the contrast being drawn with \"general,\" and the colon explains a limit of scope, not an origin.\n- B: \"Fleeting\" describes duration; the masters' recall was reliable within its domain, not short-lived.\n- C: \"Deliberate\" describes intention, but grasping configurations \"as wholes\" suggests rapid recognition rather than effortful intent — and intention is not what the colon goes on to explain.",
  "_meta": {
-  "anchor": "Adriaan de Groot — chess masters' recall as domain-limited (random-board control)"
+  "anchor": "Chase & Simon (1973) 'Perception in Chess' — masters' recall advantage nearly vanishes for random positions (built on de Groot's earlier recall studies)"
  }
 }

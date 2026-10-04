@@ -1,29 +1,29 @@
 {
  "id": 9,
- "question": "A knitting workshop's daily yarn cost, in dollars, is given by $4(3x + c)$, and the same cost is also given by $12x + 76$, where $x$ is the number of garments knitted and $c$ is a constant. What is the value of $c$?",
+ "question": "$\\frac{3}{4}(8x + c) = 6x - 15$\nIn the given equation, $c$ is a constant. If the equation has infinitely many solutions, what is the value of $c$?",
  "choices": [
   {
    "id": "A",
-   "text": "$3$"
+   "text": "$-20$"
   },
   {
    "id": "B",
-   "text": "$19$"
+   "text": "$-15$"
   },
   {
    "id": "C",
-   "text": "$76$"
+   "text": "$-\\frac{45}{4}$"
   },
   {
    "id": "D",
-   "text": "$304$"
+   "text": "$20$"
   }
  ],
  "distractorNotes": {
-  "A": "matches the wrong pair of terms, dividing the coefficient 12 by 4 instead of the constant 76",
-  "C": "reads the constant 76 straight off the second expression without dividing by the factor 4",
-  "D": "multiplies 76 by 4 instead of dividing, reversing the distribution"
+  "B": "reads the constant -15 off the right side without undoing the factor 3/4",
+  "C": "multiplies -15 by 3/4 instead of dividing by it, reversing the distribution",
+  "D": "solves (3/4)c = 15, dropping the negative sign on the constant"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Matching Coefficients**\n\n**Choice B is correct.** Distributing gives $12x + 4c$, so matching constant terms yields $4c = 76$ and $c = 19$.\n\n**The Fast Way (~20s):** Expand: $4(3x + c) = 12x + 4c$. The $x$-terms already agree, so $4c = 76$ and $c = 19$.\n\n**The Full Solution:**\nStep 1: Because the two expressions give the same cost for every value of $x$, they are equivalent: $4(3x + c) = 12x + 76$.\nStep 2: Distribute on the left: $12x + 4c = 12x + 76$. Subtracting $12x$ from each side leaves $4c = 76$.\nStep 3: Divide by $4$: $c = 19$. Check by substituting: $4(3x + 19) = 12x + 76$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): this divides the coefficient $12$ by $4$, matching the $x$-terms instead of the constants. The $x$-terms match automatically here and carry no information about $c$.\n* Choice C ($76$): this copies the constant from the right side. Inside the parentheses, $c$ is multiplied by $4$ before it reaches the constant term.\n* Choice D ($304$): this multiplies by $4$ rather than dividing, undoing the distribution in the wrong direction.\n\n**Test Day Takeaway:** When two expressions are equal for every value of the variable, distribute first and then set matching coefficients equal — constants with constants, $x$-terms with $x$-terms."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Matching Coefficients**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Distributing gives $6x + \\frac{3}{4}c = 6x - 15$; for infinitely many solutions the constants must match, so $\\frac{3}{4}c = -15$ and $c = -20$.\n\n**The Full Solution:**\nStep 1: Distribute on the left side: $\\frac{3}{4}(8x + c) = 6x + \\frac{3}{4}c$.\nStep 2: The equation $6x + \\frac{3}{4}c = 6x - 15$ is true for every value of $x$ exactly when the two sides are identical. The $x$-terms already match, so the constants must match: $\\frac{3}{4}c = -15$.\nStep 3: Multiply both sides by $\\frac{4}{3}$: $c = -20$. Check: $\\frac{3}{4}(8x - 20) = 6x - 15$, the same expression as the right side ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-15$): matches $c$ to $-15$ directly, forgetting that $c$ is multiplied by $\\frac{3}{4}$ when the left side is distributed.\n* Choice C ($-\\frac{45}{4}$): multiplies $-15$ by $\\frac{3}{4}$ instead of dividing by $\\frac{3}{4}$.\n* Choice D ($20$): drops the negative sign, solving $\\frac{3}{4}c = 15$.\n\n**Test Day Takeaway:** A linear equation has infinitely many solutions when both sides are the same expression; distribute first, then match the $x$-coefficients and the constants."
 }

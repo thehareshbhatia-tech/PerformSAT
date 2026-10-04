@@ -1,29 +1,29 @@
 {
-  "id": 8,
-  "question": "A storage battery holds $8{,}000$ watt-hours of usable capacity when new, and its usable capacity decreases by $5\\%$ of its current value each year. To the nearest watt-hour, what is the usable capacity after $4$ years?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$6{,}400$"
-    },
-    {
-      "id": "B",
-      "text": "$6{,}516$"
-    },
-    {
-      "id": "C",
-      "text": "$6{,}859$"
-    },
-    {
-      "id": "D",
-      "text": "$7{,}600$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "treats the decay as linear, subtracting 5% of the ORIGINAL 8,000 four times: 8,000 - 4(400) = 6,400",
-    "C": "uses an exponent of 3 instead of 4: 8,000(0.95)^3 = 6,859",
-    "D": "applies the 5% decrease only once: 8,000(0.95) = 7,600"
+ "id": 8,
+ "question": "$f(x) = 8{,}000(0.95)^{x}$\nThe function $f$ gives the estimated number of fish in a lake $x$ years after the start of a study. What is the best interpretation of $0.95$ in this context?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Each year, the estimated number of fish decreases by $95\\%$."
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Losing $5\\%$ of the current value leaves $95\\%$, so the capacity is $8{,}000(0.95)^4\\approx6{,}516$ watt-hours.\n\n**The Full Solution:**\nStep 1: “Decreases by $5\\%$ of its current value” means each year multiplies the capacity by $1-0.05=0.95$, which is exponential decay, not a fixed subtraction.\nStep 2: After $t$ years the capacity is $C(t)=8{,}000(0.95)^t$, so after $4$ years it is $8{,}000(0.95)^4$.\nStep 3: $(0.95)^4=0.81450625$, so $C(4)=8{,}000(0.81450625)=6{,}516.05$, or $6{,}516$ watt-hours. Check: stepping down year by year gives $7{,}600$, $7{,}220$, $6{,}859$, $6{,}516$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6{,}400$): treats the loss as a fixed $400$ watt-hours per year: $8{,}000-4(400)=6{,}400$. That is linear decay, and it always undershoots true decay.\n* Choice C ($6{,}859$): uses an exponent of $3$, the capacity after only three years.\n* Choice D ($7{,}600$): applies the $5\\%$ decrease a single time and stops.\n\n**Test Day Takeaway:** “By $r\\%$ of its current value” is the exponential signal — build the multiplier $1-r$ once and raise it to the number of periods."
+  {
+   "id": "B",
+   "text": "Each year, the estimated number of fish decreases by $5\\%$."
+  },
+  {
+   "id": "C",
+   "text": "Each year, the estimated number of fish increases by $5\\%$."
+  },
+  {
+   "id": "D",
+   "text": "Each year, the estimated number of fish decreases by $0.95$."
+  }
+ ],
+ "distractorNotes": {
+  "A": "reads the factor 0.95 as the rate of decrease instead of the fraction that remains",
+  "C": "finds the 5% difference from 1 but treats a factor less than 1 as growth",
+  "D": "treats the model as linear, reading 0.95 as an amount subtracted each year"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Each year the number of fish is multiplied by $0.95$, so $95\\%$ remains and the estimate decreases by $1 - 0.95 = 0.05$, or $5\\%$, each year.\n\n**The Full Solution:**\nStep 1: In a model of the form $a(b)^{x}$, the base $b$ is the factor the quantity is multiplied by each time $x$ increases by $1$.\nStep 2: Here $b = 0.95$. Multiplying by $0.95$ keeps $95\\%$ of the previous year's estimate, so the estimate falls by $100\\% - 95\\% = 5\\%$ each year.\nStep 3: So $0.95$ means the estimated number of fish decreases by $5\\%$ each year. Check: $f(0) = 8{,}000$ and $f(1) = 7{,}600$, and $7{,}600$ is $5\\%$ less than $8{,}000$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: reads $0.95$ as the rate of decrease. A $95\\%$ decrease would leave only $5\\%$ of the fish each year, a factor of $0.05$.\n* Choice C: gets the $5\\%$ but the wrong direction. A factor less than $1$ makes the quantity smaller, so the model shows decay, not growth.\n* Choice D: treats the model as linear. An exponential model changes by a fixed percent each year, not by a fixed amount.\n\n**Test Day Takeaway:** In $a(b)^{x}$, a base below $1$ means a decrease of $(1 - b)$ as a percent; a base above $1$ means an increase of $(b - 1)$ as a percent."
 }

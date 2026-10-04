@@ -17,27 +17,27 @@
   ],
   "rows": [
    [
-    "Point Azul",
+    "Reserve A",
     "6",
     "1.4"
    ],
    [
-    "Gray Harbor",
+    "Reserve B",
     "9",
     "1.7"
    ],
    [
-    "Cedar Cove",
+    "Reserve C",
     "14",
     "2.1"
    ],
    [
-    "Osprey Bank",
+    "Reserve D",
     "21",
     "2.6"
    ],
    [
-    "Halfmoon Shoal",
+    "Reserve E",
     "26",
     "3.2"
    ]
@@ -47,11 +47,11 @@
  "choices": [
   {
    "id": "A",
-   "text": "Halfmoon Shoal, protected for 26 years, has the highest biomass ratio of the five reserves, at 3.2."
+   "text": "Reserve E, protected for 26 years, has the highest biomass ratio of the five reserves, at 3.2."
   },
   {
    "id": "B",
-   "text": "rockfish biomass at Point Azul is 1.4 times as high inside the reserve as in the nearby fished waters."
+   "text": "rockfish biomass in Reserve A is 1.4 times as high inside the reserve as in the nearby fished waters."
   },
   {
    "id": "C",
