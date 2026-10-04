@@ -1,18 +1,18 @@
 {
   "id": 20,
-  "question": "A lab protocol models the setting time $t$, in minutes, of a gel layer as $t = \\sqrt{9d + b}$, where $d$ is the thickness of the layer in millimeters and $b$ is a constant. A layer $12$ millimeters thick sets in $14$ minutes. What is the value of $b$?",
+  "question": "$\\sqrt{9x + b} = x + 2$\nIn the given equation, $b$ is a constant, and $x = 12$ is a solution. What is the value of $b$?",
   "choices": [
     {
       "id": "A",
-      "text": "$88$"
+      "text": "$-94$"
     },
     {
       "id": "B",
-      "text": "$108$"
+      "text": "$40$"
     },
     {
       "id": "C",
-      "text": "$196$"
+      "text": "$88$"
     },
     {
       "id": "D",
@@ -20,10 +20,10 @@
     }
   ],
   "distractorNotes": {
-    "B": "reports 9 times 12, the quantity that must be subtracted, rather than b itself",
-    "C": "squares 14 but never subtracts the 108 contributed by the thickness term",
+    "A": "forgets to square the right side, solving 108 + b = 14",
+    "B": "squares x + 2 as x^2 + 4, solving 108 + b = 148",
     "D": "adds 108 to 196 instead of subtracting it"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Radical Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Squaring gives $9(12) + b = 14^2$, so $108 + b = 196$ and $b = 88$.\n\n**The Full Solution:**\nStep 1: Substitute the measured pair into the model: $14 = \\sqrt{9(12) + b} = \\sqrt{108 + b}$.\nStep 2: Square both sides to remove the radical: $196 = 108 + b$.\nStep 3: Subtract $108$ to get $b = 88$. Check by substituting back: $\\sqrt{9(12) + 88} = \\sqrt{196} = 14$ minutes, and $14$ is positive, so this root is not extraneous ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($108$): reports $9(12)$, the thickness term inside the radical, instead of the constant $b$.\n* Choice C ($196$): squares the $14$ correctly but then stops, never subtracting the $108$ that the thickness already contributes.\n* Choice D ($304$): adds $108$ to $196$, treating the isolated radical as though the constant were on the other side.\n\n**Test Day Takeaway:** Square once to clear a lone radical, then finish the ordinary linear step and substitute back — the check also confirms no extraneous root slipped in."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Radical Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** At $x = 12$ the right side is $14$, so $9(12) + b = 14^2 = 196$, which gives $b = 196 - 108 = 88$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 12$: $\\sqrt{108 + b} = 12 + 2 = 14$.\nStep 2: Square both sides: $108 + b = 196$.\nStep 3: Subtract $108$: $b = 88$. Check: $\\sqrt{9(12) + 88} = \\sqrt{196} = 14$, and $12 + 2 = 14$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-94$): skips the squaring step and solves $108 + b = 14$.\n* Choice B ($40$): squares $x + 2$ as $x^2 + 4$, getting $148$ instead of $196$, so $b = 148 - 108 = 40$.\n* Choice D ($304$): adds $108$ to $196$ instead of subtracting it.\n\n**Test Day Takeaway:** When a solution is given, substitute it first; then remove the square root by squaring the whole other side, $(x + 2)^2$, not each term."
 }

@@ -6,7 +6,7 @@
   "domain": "standard-english-conventions",
   "skill": "boundaries",
   "module": 1,
-  "passage": "From its stations along the northern plains of India, the Great Trigonometrical Survey sighted and computed the heights of some of the world's highest ______ Kangchenjunga, for a time believed the tallest of all; Dhaulagiri, whose height had been argued over for decades; and the distant summit the survey's computers listed simply as Peak XV.",
+  "passage": "From its stations on the northern plains of India, the Great Trigonometrical Survey sighted and computed the heights of some of the world's highest ______ Dhaulagiri, once thought the tallest of all; Kangchenjunga, which replaced it in that role for more than a decade; and the distant summit the survey's computers listed simply as Peak XV.",
   "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
   "choices": [
     {
@@ -27,8 +27,8 @@
     }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** \"Including Kangchenjunga ... Dhaulagiri ... and ... Peak XV\" is a modifying phrase attached to \"peaks,\" and a comma is the conventional way to attach it.\n\n**The Full Solution:**\n- The main clause ends at \"some of the world's highest peaks.\"\n- What follows is not a new clause but an including-phrase that lists examples of those peaks (the items separated by semicolons because they carry internal commas).\n- A phrase of this kind is joined to its noun with a comma: \"peaks, including ...\"\n\n**Why the other choices are wrong:**\n- B: A period strands the including-phrase as a fragment with no subject or verb.\n- C: A semicolon must join two independent clauses; \"including ...\" is not a clause.\n- D: A colon could introduce the list directly (\"peaks: Kangchenjunga ...\"), but placing one before \"including\" makes the word redundant and is not conventional.",
+  "explanation": "**Choice A is correct.** \"Including Dhaulagiri ... Kangchenjunga ... and ... Peak XV\" is a modifying phrase attached to \"peaks,\" and a comma is the conventional way to attach it.\n\n**The Full Solution:**\n- The main clause ends at \"some of the world's highest peaks.\"\n- What follows is not a new clause but an including-phrase that lists examples of those peaks (the items separated by semicolons because they carry internal commas).\n- A phrase of this kind is joined to its noun with a comma: \"peaks, including ...\"\n\n**Why the other choices are wrong:**\n- B: A period strands the including-phrase as a fragment with no subject or verb.\n- C: A semicolon must join two independent clauses; \"including ...\" is not a clause.\n- D: A colon could introduce the list directly (\"peaks: Dhaulagiri ...\"), but placing one before \"including\" makes the word redundant and is not conventional.",
   "_meta": {
-    "anchor": "Great Trigonometrical Survey of India; comma before an including-phrase"
+    "anchor": "Great Trigonometrical Survey: Dhaulagiri thought highest 1808-1838, Kangchenjunga 1838-1852, Peak XV (Everest)"
   }
 }

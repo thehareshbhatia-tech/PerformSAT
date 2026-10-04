@@ -19,11 +19,11 @@
   },
   {
    "id": "C",
-   "text": "A few storms with unusually weak updrafts producced no hailstones of any measurable size at all."
+   "text": "A few storms with unusually weak updrafts produced no hailstones of any measurable size at all."
   },
   {
    "id": "D",
-   "text": "Hailstones collected from a single storm often contained different numbers of ice layers, indicating that individual stones had traveled along different paths through the storm before falling, riding updrafts through the cloud repeatedly."
+   "text": "Hailstones from a single storm often contained different numbers of ice layers, indicating that individual stones had followed different paths through the storm."
   }
  ],
  "correctAnswer": "B",

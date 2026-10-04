@@ -9,11 +9,11 @@
   "passages": [
     {
       "label": "Text 1",
-      "text": "Between late 2019 and early 2020, the red supergiant star Betelgeuse dimmed to roughly a third of its usual brightness, prompting popular speculation that a supernova was imminent. Some astronomers proposed a calmer explanation rooted in the star's own churning. Red supergiants boil with convection cells of enormous size, and an unusually large upwelling followed by cooling could have left a vast, temporarily dark patch on the surface. On this view, the Great Dimming required nothing more than the star's ordinary turbulence operating at an extraordinary scale."
+      "text": "Between late 2019 and early 2020, the red supergiant Betelgeuse dimmed to roughly a third of its usual brightness, prompting speculation that it was about to explode. Some astronomers proposed a calmer explanation. Red supergiants churn with enormous convection cells, and an unusually large upwelling followed by cooling could have left a vast, temporarily dark patch on the star's surface. On this view, the dimming required only the star's ordinary turbulence operating at an extraordinary scale."
     },
     {
       "label": "Text 2",
-      "text": "Astronomer Miguel Montargès and colleagues imaged Betelgeuse before, during, and after the dimming. Their images show the star's southern region darkening dramatically, and their analysis favors a veil of dust: gas ejected from the star drifted outward, cooled, and condensed into grains that blocked part of the light. Crucially, the team proposes that a cool patch on the surface is what chilled the ejected gas enough for dust to condense — in their reconstruction, neither the dust nor the surface cooling alone reproduces what was observed."
+      "text": "Astronomer Miguel Montargès and colleagues imaged Betelgeuse before, during, and after the dimming. Their images show the star's southern region darkening, and their analysis favors a veil of dust: gas ejected from the star drifted outward, cooled, and condensed into grains that blocked part of the light. The team proposes that a cool patch on the surface is what chilled the gas enough for dust to form; in their account, the patch and the dust together produced the dimming."
     }
   ],
   "question": "Based on the texts, how would Montargès and colleagues (Text 2) most likely respond to the explanation presented in Text 1?",
@@ -24,17 +24,17 @@
     },
     {
       "id": "B",
-      "text": "They would argue that because the dimming was concentrated in the star's southern region, a cooling patch produced by convection would have had to darken the entire surface of the star uniformly instead."
+      "text": "They would argue that a cooling patch produced by convection would have darkened the entire star rather than only its southern region."
     },
     {
       "id": "C",
-      "text": "They would agree that the star's ordinary turbulence fully explains the dimming without any contribution from material ejected off the surface."
+      "text": "They would agree that the star's ordinary turbulence fully explains the dimming without any contribution from material ejected by the star."
     },
     {
       "id": "D",
-      "text": "They would grant that a cool surface patch likely formed but deny that it acted alone, since in their analysis the patch mattered chiefly by chilling ejected gas until light-blocking dust condensed."
+      "text": "They would grant that a cool surface patch likely formed but argue that it dimmed the star mainly by chilling ejected gas until dust condensed."
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** Text 2 builds the cool patch into its own account — but only as one ingredient: the patch chills the ejected gas so that dust can condense, and \"neither the dust nor the surface cooling alone reproduces what was observed.\" That is precisely a yes-but response to Text 1's cooling-only explanation.\n\n**The Full Solution:**\n- Text 1's proposal: a huge convective upwelling cooled, leaving a dark patch — turbulence alone suffices.\n- Text 2's reconstruction incorporates that patch (\"a cool patch on the surface is what chilled the ejected gas\") but assigns the light-blocking to dust condensed from ejected material.\n- The explicit disclaimer that neither mechanism alone reproduces the observations commits the team to rejecting Text 1's sufficiency claim while accepting its ingredient — the position choice D states.\n\n**Why the other choices are wrong:**\n- A: It has the team denying that large convection cells exist, contradicting the cool patch their own reconstruction requires.\n- B: It invents a physical necessity no text asserts — nothing says convective cooling must darken the whole surface uniformly — and the team's own patch is regional.\n- C: It converts their yes-but into full agreement, erasing the dust veil that their analysis says the observations demand."
+  "explanation": "**Choice D is correct.** Text 2 builds a cool patch into its own account — but only as one ingredient: the patch chills the ejected gas so that dust can form, and \"the patch and the dust together produced the dimming.\" That is precisely a yes-but response to Text 1's cooling-only explanation.\n\n**The Full Solution:**\n- Text 1's proposal: a huge convective upwelling cooled, leaving a dark patch — the star's ordinary turbulence suffices.\n- Text 2's account incorporates such a patch (\"a cool patch on the surface is what chilled the gas enough for dust to form\") but assigns the light-blocking to dust condensed from ejected material.\n- Crediting the dimming to the patch and the dust together commits the team to rejecting Text 1's claim that turbulence alone explains the event while accepting its ingredient — the position choice D states.\n\n**Why the other choices are wrong:**\n- A: It has the team denying that large convection cells exist, contradicting the cool patch their own account requires.\n- B: It invents a physical necessity no text asserts — nothing says convective cooling must darken the whole star — and the team's own patch is regional.\n- C: It converts their yes-but into full agreement, erasing the dust veil that their analysis says the observations demand."
 }

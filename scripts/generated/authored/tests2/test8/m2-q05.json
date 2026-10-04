@@ -1,6 +1,6 @@
 {
   "id": 5,
-  "question": "For nine trials, a chemist recorded the reaction rate, in millimoles per liter per minute, at temperature $T$, in degrees Celsius; the scatterplot and its line of best fit $\\hat{r} = 0.5T - 4$ are shown. A tenth trial, not plotted, had a residual of $1.5$ and a measured rate of $15.5$. At what temperature was the tenth trial run?",
+  "question": "The scatterplot shows the relationship between two variables, $x$ and $y$, and the line of best fit $y = 0.5x - 4$. The point $(a, 15.5)$, which is not shown, has a residual of $1.5$ with respect to this line. What is the value of $a$?",
   "diagram": {
     "type": "scatterplot",
     "params": {
@@ -50,8 +50,8 @@
       "yGridStep": 5,
       "xLabelStep": 10,
       "yLabelStep": 10,
-      "xLabel": "Temperature (degrees Celsius)",
-      "yLabel": "Rate (mmol per L per min)",
+      "xLabel": "x",
+      "yLabel": "y",
       "bestFitLine": {
         "slope": 0.5,
         "intercept": -4
@@ -59,5 +59,5 @@
     }
   },
   "correctAnswer": "36",
-  "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is $36$.**\n\n**The Fast Way (~25s):** A residual of $1.5$ means the measurement sits $1.5$ above the line, so the predicted rate was $15.5 - 1.5 = 14$; solving $0.5T - 4 = 14$ gives $T = 36$.\n\n**The Full Solution:**\nStep 1: Residual equals measured value minus predicted value, so $1.5 = 15.5 - \\hat{r}$ and the predicted rate for that trial is $\\hat{r} = 14$.\nStep 2: The prediction comes from the line of best fit, so set $0.5T - 4 = 14$.\nStep 3: Add $4$ to both sides to get $0.5T = 18$, then divide by $0.5$ to get $T = 36$. Check: at $T = 36$ the line predicts $0.5(36) - 4 = 14$, and $15.5 - 14 = 1.5$, the stated residual ✓\n\n**Common Mistakes:**\n* $42$: adds the residual to the measured rate, using $\\hat{r} = 17$ and solving $0.5T - 4 = 17$.\n* $39$: skips the residual entirely and sets the line equal to the measured rate, $0.5T - 4 = 15.5$.\n* $28$: solves $0.5T = 14$ without first undoing the $-4$ in the model.\n\n**Test Day Takeaway:** Residual = actual $-$ predicted, so a positive residual means the point sits above the line and the prediction is the smaller number."
+  "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is 36.**\n\n**The Fast Way (~25s):** A residual of $1.5$ means the point is $1.5$ above the line, so the line predicts $15.5 - 1.5 = 14$ at $x = a$; solving $0.5a - 4 = 14$ gives $a = 36$.\n\n**The Full Solution:**\nStep 1: A residual is the actual $y$-value minus the $y$-value predicted by the line: $15.5 - \\text{predicted} = 1.5$, so the predicted value is $14$.\nStep 2: The line predicts $0.5a - 4$ at $x = a$, so $0.5a - 4 = 14$.\nStep 3: Add $4$ and divide by $0.5$: $0.5a = 18$, so $a = 36$. Check: the line predicts $0.5(36) - 4 = 14$ at $x = 36$, and $15.5 - 14 = 1.5$ ✓\n\n**Common Mistakes:**\n* $42$: adds the residual instead of subtracting it, using a predicted value of $15.5 + 1.5 = 17$ and solving $0.5a - 4 = 17$.\n* $39$: ignores the residual and solves $0.5a - 4 = 15.5$, which treats the point as lying on the line.\n* $11$: uses the residual $1.5$ as the predicted $y$-value, solving $0.5a - 4 = 1.5$.\n\n**Test Day Takeaway:** Residual means actual minus predicted. A positive residual puts the point above the line, so subtract the residual from the actual value to get what the line predicts."
 }

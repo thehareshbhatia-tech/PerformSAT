@@ -6,29 +6,28 @@
   "domain": "craft-and-structure",
   "skill": "text-structure-and-purpose",
   "module": 1,
-  "passage": "The following text is from Kate Chopin's 1899 novel The Awakening.\n\nA green and yellow parrot, which hung in a cage outside the door, kept repeating over and over: \"Allez vous-en! Allez vous-en! Sapristi! That's all right!\" He could speak a little Spanish, and also a language which nobody understood, unless it was the mocking-bird that hung on the other side of the door, whistling his fluty notes out upon the breeze with maddening persistence. Mr. Pontellier, unable to read his newspaper with any degree of comfort, arose with an expression and an exclamation of disgust. He walked down the gallery and across the narrow \"bridges\" which connected the Lebrun cottages one with the other. He had been seated before the door of the main house. The parrot and the mocking-bird were the property of Madame Lebrun, and they had the right to make all the noise they wished.",
+  "passage": "The following text is from Kate Chopin's 1899 novel The Awakening.\n\nA green and yellow parrot, which hung in a cage outside the door, kept repeating over and over: \"Allez vous-en! Allez vous-en! Sapristi! That's all right!\" He could speak a little Spanish, and also a language which nobody understood, unless it was the mocking-bird that hung on the other side of the door, whistling his fluty notes out upon the breeze with maddening persistence. Mr. Pontellier, unable to read his newspaper with any degree of comfort, arose with an expression and an exclamation of disgust. He walked down the gallery and across the narrow \"bridges\" which connected the Lebrun cottages one with the other.",
   "question": "Which choice best describes the overall structure of the text?",
   "choices": [
     {
       "id": "A",
-      "text": "The narrator recounts the history of a cluster of summer cottages and then describes the daily routine of the woman who owns them."
+      "text": "The narrator recounts the history of a cluster of summer cottages and then describes the woman who owns them."
     },
     {
       "id": "B",
-      "text": "The narrator presents a quarrel between two characters over who is responsible for a disturbance and then traces how the disagreement between them is finally resolved."
+      "text": "The narrator presents a quarrel between two characters and then shows how the quarrel is resolved."
     },
     {
       "id": "C",
-      "text": "The narrator introduces a character's peaceful morning, describes an interruption to it, and reveals that the interruption had been deliberately arranged."
+      "text": "The narrator introduces a character's peaceful morning and then reveals who deliberately interrupted it."
     },
     {
       "id": "D",
-      "text": "The narrator describes a noisy scene, follows one character's irritated retreat from it, and closes by wryly noting the birds' standing to make that noise."
+      "text": "The narrator describes a noisy scene and then follows one character's irritated retreat from it."
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The text moves from the birds' racket, to Mr. Pontellier's exasperated departure, to the dry closing observation that the birds — as Madame Lebrun's property — \"had the right\" to their noise.\n\n**The Full Solution:**\n- The opening paragraphs establish the disturbance: the parrot's repeated cries and the mocking-bird's \"maddening persistence.\"\n- The middle follows the human response — Mr. Pontellier, unable to read in comfort, rises \"with an expression and an exclamation of disgust\" and walks away across the bridges.\n- The final sentence steps back with gentle irony: the birds belong to Madame Lebrun and so are entitled to make \"all the noise they wished.\" That three-part movement is exactly what choice D describes.\n\n**Why the other choices are wrong:**\n- A: No history of the cottages is given, and Madame Lebrun's routine never appears — she is mentioned only as the birds' owner.\n- B: No quarrel occurs; Mr. Pontellier leaves without confronting anyone, and nothing is resolved.\n- C: The morning is never peaceful — the noise is under way from the first sentence — and no one is said to have arranged it."
-  ,
+  "explanation": "**Choice D is correct.** The text moves from the birds' racket to Mr. Pontellier's exasperated departure from it.\n\n**The Full Solution:**\n- The first two sentences establish the disturbance: the parrot's repeated cries and the mocking-bird's whistling \"with maddening persistence.\"\n- The final two sentences follow the human response — Mr. Pontellier, unable to read \"with any degree of comfort,\" rises \"with an expression and an exclamation of disgust\" and walks away across the bridges.\n- A noisy scene followed by one character's irritated retreat from it is exactly the movement choice D describes.\n\n**Why the other choices are wrong:**\n- A: No history of the cottages is given, and no owner of the cottages is described; the cottages are mentioned only as the place Mr. Pontellier walks through.\n- B: No quarrel occurs; Mr. Pontellier leaves without confronting anyone, and nothing is resolved.\n- C: The morning is never peaceful — the noise is under way from the first sentence — and no one is said to have caused the interruption deliberately.",
   "_meta": {
     "quoteVerify": true,
     "source": "Kate Chopin, The Awakening (1899), Chapter I, opening lines; text verbatim per the Project Gutenberg edition, typography normalized"

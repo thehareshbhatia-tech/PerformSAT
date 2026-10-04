@@ -6,12 +6,12 @@
   "domain": "craft-and-structure",
   "skill": "text-structure-and-purpose",
   "module": 1,
-  "passage": "In the early 1890s, most geographers held that a rigid ship caught in Arctic pack ice was doomed. The Norwegian explorer Fridtjof Nansen noted that wreckage from a vessel crushed near Siberia had later surfaced off Greenland, and reasoned that a slow current must carry sea ice across the polar basin. He had a ship, the Fram, built with a rounded hull that ice pressure would lift rather than crush, sailed it into the pack, and let it freeze in deliberately. Three years later the Fram emerged, intact, on the far side of the Arctic — very nearly where Nansen's proposed current, and no other explanation, said it should be.",
+  "passage": "In 1884, wreckage from the Jeannette, an American ship crushed by ice off Siberia three years earlier, was found on an ice floe near southern Greenland. The Norwegian explorer Fridtjof Nansen reasoned that a current must carry sea ice across the polar basin. To test the idea, he had a ship, the Fram, built with a rounded hull that ice pressure would lift rather than crush. In 1893 he sailed it into the pack ice north of Siberia and let it freeze in. Three years later the Fram broke free near Spitsbergen, intact, having drifted across the Arctic much as Nansen had predicted.",
   "question": "Which choice best states the main purpose of the text?",
   "choices": [
     {
       "id": "A",
-      "text": "To argue that the geographers who warned against entering the polar pack ice were relying on dramatic accounts whose details returning crews had greatly embellished over the years."
+      "text": "To argue that the Jeannette was lost because its crew ignored repeated warnings about the dangers of the Arctic pack ice."
     },
     {
       "id": "B",
@@ -23,12 +23,12 @@
     },
     {
       "id": "D",
-      "text": "To describe how an explorer turned a conjecture about a polar current into a test by letting a purpose-built ship freeze into the ice and drift."
+      "text": "To describe how an explorer tested a theory about a polar current by letting a specially built ship freeze into the ice."
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The text moves from Nansen's inference (drifting wreckage implies a current) to his experimental design (a hull the ice would lift) to the result (the ship crossed the Arctic as predicted) — a conjecture turned into a test.\n\n**The Full Solution:**\n- The inference: wreckage crushed near Siberia surfacing off Greenland points to a trans-polar current.\n- The test: the Fram is built to survive freezing in, then deliberately frozen in.\n- The verdict: three years later it emerges where the proposed current — and nothing else — predicted. Choice D captures this arc.\n\n**Why the other choices are wrong:**\n- A: The geographers' caution is background; the text never questions their sources.\n- B: The text explains how one ship was designed to survive the ice, not why others could not.\n- C: The freezing-in was the goal, not an accident, and no aims were abandoned.",
+  "explanation": "**Choice D is correct.** The text moves from Nansen's inference (wreckage that drifted from Siberia to Greenland implies a current) to his test (a ship built to survive the ice, deliberately frozen in) to the result (the ship drifted across the Arctic as predicted).\n\n**The Full Solution:**\n- The inference: wreckage from a ship crushed off Siberia turned up near Greenland, so a current must carry ice across the polar basin.\n- The test: the Fram is built with a hull the ice would lift, then frozen into the pack on purpose.\n- The result: three years later it breaks free near Spitsbergen, having drifted as Nansen predicted. Choice D captures this arc from theory to test.\n\n**Why the other choices are wrong:**\n- A: The Jeannette's wreckage serves only as evidence of the current; the text never discusses why the ship was lost or mentions any warnings.\n- B: The text explains how one ship was designed to survive the ice, not why other ships could not.\n- C: Freezing the Fram into the ice was the plan, not an accident, and no goals were abandoned.",
   "_meta": {
-    "anchor": "Fridtjof Nansen — the Fram drift as a test of the trans-polar current"
+    "anchor": "Nansen's Fram drift (1893-96) testing the transpolar current inferred from Jeannette wreckage (found near Greenland 1884)"
   }
 }

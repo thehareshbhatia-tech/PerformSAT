@@ -6,7 +6,7 @@
   "domain": "information-and-ideas",
   "skill": "central-ideas-and-details",
   "module": 2,
-  "passage": "The court theater at Drottningholm, outside Stockholm, still possesses its eighteenth-century stage machinery in working order, and performances there still use it. Scene changes depend on a system of shafts, ropes, and rolling carriages installed beneath the stage. When stagehands turn the great capstan below the floor, every carriage moves at once: each painted flat in view slides away into concealment as a fresh one slides out to replace it, and the whole scene is transformed in a few seconds, in full sight of the audience. Eighteenth-century stagecraft treated such visible transformation not as a failure of illusion but as a spectacle in its own right.",
+  "passage": "The court theater at Drottningholm, outside Stockholm, still has its eighteenth-century stage machinery in working order, and performances there still use it. Scene changes depend on ropes and rolling carriages beneath the stage. When stagehands turn the great capstan below the floor, every carriage moves at once: each painted flat in view slides away as a fresh one slides out to replace it, and the whole scene is transformed in seconds, in full sight of the audience. Eighteenth-century stagecraft treated such visible transformation as a spectacle in its own right.",
   "question": "According to the text, what happens when stagehands turn the capstan beneath the theater's stage?",
   "choices": [
     {
@@ -27,7 +27,7 @@
     }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The text says that when the capstan turns, \"every carriage moves at once,\" each visible flat slides away as a fresh one replaces it, and \"the whole scene is transformed in a few seconds.\"\n\n**The Full Solution:**\n- The capstan drives all the carriages simultaneously.\n- Each flat in view is exchanged for a replacement.\n- The transformation takes seconds — exactly what choice C reports.\n\n**Why the other choices are wrong:**\n- A: The machinery stays beneath the stage; nothing in the text has the floor rise or the works become visible.\n- B: The text says the change happens \"in full sight of the audience,\" with no curtain and no carrying.\n- D: \"Every carriage moves at once\" rules out one-at-a-time replacement.",
+  "explanation": "**Choice C is correct.** The text says that when the capstan turns, \"every carriage moves at once,\" each visible flat slides away as a fresh one replaces it, and \"the whole scene is transformed in seconds.\"\n\n**The Full Solution:**\n- The capstan drives all the carriages simultaneously.\n- Each flat in view is exchanged for a replacement.\n- The transformation takes seconds — exactly what choice C reports.\n\n**Why the other choices are wrong:**\n- A: The machinery stays beneath the stage; nothing in the text has the floor rise or the works become visible.\n- B: The text says the change happens \"in full sight of the audience,\" with no curtain and no carrying.\n- D: \"Every carriage moves at once\" rules out one-at-a-time replacement.",
   "_meta": {
     "anchor": "Drottningholm court theater — simultaneous scene change by capstan; detail stem"
   }

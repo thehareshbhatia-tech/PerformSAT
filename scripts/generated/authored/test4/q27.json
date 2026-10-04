@@ -9,11 +9,11 @@
   "studentNotes": {
     "intro": "While researching a topic, a student has taken the following notes:",
     "bullets": [
-      "Batting average and on-base percentage are statistics used to evaluate hitters in baseball.",
+      "Batting average and on-base percentage are both used to evaluate baseball hitters.",
       "Batting average is the share of a hitter's official at-bats that end in hits.",
-      "A walk does not count as an official at-bat, so walks have no effect on a hitter's batting average.",
-      "On-base percentage is the share of all plate appearances in which a hitter reaches base, whether by a hit, a walk, or being hit by a pitch.",
-      "Two hitters with equal batting averages can have very different on-base percentages if one draws many more walks."
+      "Walks do not count as official at-bats, so they do not affect batting average.",
+      "On-base percentage is the share of plate appearances in which a hitter reaches base by a hit, a walk, or being hit by a pitch.",
+      "Two hitters with equal batting averages can differ widely in on-base percentage."
     ],
     "goal": "The student wants to emphasize a difference between batting average and on-base percentage."
   },
@@ -21,11 +21,11 @@
   "choices": [
     {
       "id": "A",
-      "text": "Batting average and on-base percentage are both statistics that analysts use to evaluate the performance of hitters in baseball."
+      "text": "Batting average and on-base percentage are both statistics that analysts use to evaluate the performance of baseball hitters."
     },
     {
       "id": "B",
-      "text": "Unlike batting average, which ignores walks entirely, on-base percentage credits a hitter for every plate appearance that ends with the hitter reaching base, walks included."
+      "text": "Unlike batting average, which ignores walks, on-base percentage counts every time a hitter reaches base, walks included."
     },
     {
       "id": "C",
@@ -33,7 +33,7 @@
     },
     {
       "id": "D",
-      "text": "Because two hitters with equal batting averages can sometimes differ widely in on-base percentage, teams should rely on neither statistic alone when evaluating the performance of hitters."
+      "text": "Because hitters with equal batting averages can differ in on-base percentage, teams should never rely on either statistic alone."
     }
   ],
   "correctAnswer": "B",

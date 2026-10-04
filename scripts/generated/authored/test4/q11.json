@@ -6,7 +6,7 @@
   "domain": "information-and-ideas",
   "skill": "central-ideas-and-details",
   "module": 1,
-  "passage": "Working in Heidelberg in the late 1850s, the chemist Robert Bunsen and the physicist Gustav Kirchhoff directed the light of colored flames through a prism instrument of their own design. They found that each chemical element, heated until it glows, emits light at its own fixed set of wavelengths, which their spectroscope displayed as a pattern of bright lines. The pattern proved to be a signature: it did not change with the compound in which an element arrived or the mineral from which it came. Within a year of publishing the method, the two had used unfamiliar line patterns to announce two previously unknown elements, cesium and rubidium.",
+  "passage": "Working in Heidelberg in the late 1850s, the chemist Robert Bunsen and the physicist Gustav Kirchhoff passed the light of colored flames through a prism instrument of their own design. They found that each chemical element, heated until it glows, emits light at its own fixed set of wavelengths, which their spectroscope displayed as a pattern of bright lines. The pattern did not change with the compound or mineral in which an element was found. Within a year of publishing the method, the two had used unfamiliar line patterns to identify two new elements, cesium and rubidium.",
   "question": "According to the text, why could a glowing element be identified with the spectroscope?",
   "choices": [
     {
@@ -27,7 +27,7 @@
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** The text states that each element's line pattern is fixed and \"did not change with the compound in which an element arrived or the mineral from which it came\" — a signature, and therefore an identifier.\n\n**The Full Solution:**\n- The instrument displays a glowing element's light as a pattern of bright lines.\n- The pattern belongs to the element itself: it is unaffected by compound or mineral of origin.\n- A property unique to each element and stable across sources is exactly what permits identification.\n\n**Why the other choices are wrong:**\n- A: The spectroscope was needed precisely because it resolves flame light into lines; the text never says overall color sufficed.\n- C: The text ties identity to the pattern's position, not to brightness or quantity.\n- D: Cesium and rubidium were discovered by the method; the text says every element emits its own pattern.",
+  "explanation": "**Choice B is correct.** The text states that each element's line pattern is fixed and \"did not change with the compound or mineral in which an element was found,\" which makes it a signature, and therefore an identifier.\n\n**The Full Solution:**\n- The instrument displays a glowing element's light as a pattern of bright lines.\n- The pattern belongs to the element itself: it is unaffected by compound or mineral of origin.\n- A property unique to each element and stable across sources is exactly what permits identification.\n\n**Why the other choices are wrong:**\n- A: The spectroscope was needed precisely because it resolves flame light into lines; the text never says overall color sufficed.\n- C: The text ties identity to the pattern's position, not to brightness or quantity.\n- D: Cesium and rubidium were discovered by the method; the text says every element emits its own pattern.",
   "_meta": {
     "anchor": "Bunsen and Kirchhoff — flame spectroscopy; element line signatures; detail stem"
   }

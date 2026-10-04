@@ -32,11 +32,13 @@ export const opensWithMath = (s) => /^\s*\$/.test(String(s || ''));
 const normQ = (s) => String(s).replace(/\\\$/g, 'S').replace(/\*\{[^}]*\}/g, '').replace(/\[[^\]]*\]/g, 'M').replace(/\$[^$]*\$/g, 'M').replace(/\s+/g, ' ').replace(/ ([?,.])/g, '$1').replace(/ -(?=[a-z])/g, '-').trim();
 const lastSentence = (s) => { const ss = normQ(s).split(/(?<=[.?])\s+(?=[A-Z])/); return ss[ss.length - 1] || ''; };
 export const frameOf = (s) => lastSentence(s).replace(/\b\d+(\.\d+)?\b/g, 'N').split(' ').slice(0, 6).join(' ');
+/** the frame, plus the frame with leading math tokens dropped (an equation-first stem's question sentence) */
+export const frameVariants = (s) => { const f = frameOf(s); const w = lastSentence(s).replace(/\b\d+(\.\d+)?\b/g, 'N').split(' '); let i = 0; while (i < w.length && /^M[,.]?$/.test(w[i])) i++; return [...new Set([f, w.slice(i, i + 6).join(' ')])]; };
 let _frames = null;
 export function stockFrames() {
   if (_frames) return _frames;
   const items = Object.values(JSON.parse(fs.readFileSync(path.join(GEN, 'cbEducatorQBank.json'), 'utf8')).items);
-  const m = new Map(); for (const v of items) { const f = frameOf(v.stemPlain || ''); m.set(f, (m.get(f) || 0) + 1); }
+  const m = new Map(); for (const v of items) for (const f of frameVariants(v.stemPlain || '')) m.set(f, (m.get(f) || 0) + 1);
   _frames = new Set([...m].filter(([, c]) => c >= 3).map(([f]) => f));
   return _frames;
 }
@@ -79,7 +81,7 @@ export function registerItem(q, meta = {}) {
   else if (!fig && words > cap.soft) warns.push(`register: ${words} prose words (soft cap ${cap.soft}) — fine for a real word problem, otherwise trim`);
   if (meta.cbSkillLabel && PURE_SKILLS.has(meta.cbSkillLabel) && STORY_RE.test(stem) && !fig) warns.push(`register: a story ("${stem.match(STORY_RE)[0]}") on a pure-math skill (${meta.cbSkillLabel}) — College Board usually states these bare`);
   for (const c of q.choices || []) if (proseWords(c.text) > 30) warns.push(`register: choice ${c.id} is ${proseWords(c.text)} words`);
-  return { errs, warns, words, eqFirst: opensWithMath(stem), stock: stockFrames().has(frameOf(stem)), fig };
+  return { errs, warns, words, eqFirst: opensWithMath(stem), stock: frameVariants(stem).some(f => stockFrames().has(f)), fig };
 }
 
 /**

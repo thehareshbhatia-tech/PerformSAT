@@ -1,29 +1,29 @@
 {
   "id": 7,
-  "question": "Each hour, a $240$-microgram sample of a radioactive tracer loses $15\\%$ of the mass it still has. Which equation gives the mass $A$, in micrograms, that remains after $t$ hours?",
+  "question": "A pond contains $240$ fish. The number of fish in the pond decreases by $15\\%$ each year. Which equation represents this situation, where $n$ is the number of fish in the pond $t$ years from now?",
   "choices": [
     {
       "id": "A",
-      "text": "$A = 240(0.15)^t$"
+      "text": "$n = 240(0.15)^{t}$"
     },
     {
       "id": "B",
-      "text": "$A = 240(0.85)^t$"
+      "text": "$n = 240(0.85)^{t}$"
     },
     {
       "id": "C",
-      "text": "$A = 240(1.15)^t$"
+      "text": "$n = 240(1.15)^{t}$"
     },
     {
       "id": "D",
-      "text": "$A = 240(1.85)^t$"
+      "text": "$n = 240(1.85)^{t}$"
     }
   ],
   "distractorNotes": {
-    "A": "uses the 15% lost as the hourly multiplier instead of the 85% retained",
-    "C": "models a 15% hourly gain rather than a 15% hourly loss",
+    "A": "uses the 15% lost each year as the multiplier instead of the 85% that remains",
+    "C": "models a 15% yearly increase rather than a 15% yearly decrease",
     "D": "adds 0.85 to 1 instead of subtracting 0.15 from 1"
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Losing $15\\%$ each hour keeps $85\\%$ each hour, so the multiplier is $0.85$ and $A = 240(0.85)^t$.\n\n**The Full Solution:**\nStep 1: Exponential decay has the form $A = A_0 b^t$, where $A_0$ is the starting mass and $b$ is the fraction that survives one hour.\nStep 2: Here $A_0 = 240$ micrograms, and a $15\\%$ hourly loss leaves $100\\% - 15\\% = 85\\%$, so $b = 0.85$.\nStep 3: The model is $A = 240(0.85)^t$. Check one hour by hand: the sample loses $0.15(240) = 36$ micrograms and keeps $204$, and $240(0.85)^1 = 204$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($A = 240(0.15)^t$): uses the percent lost as the multiplier, so after one hour it predicts $36$ micrograms rather than $204$.\n* Choice C ($A = 240(1.15)^t$): a base above $1$ makes the sample grow, which contradicts a tracer that is decaying.\n* Choice D ($A = 240(1.85)^t$): starts from the correct $0.85$ but adds it to $1$, again producing growth instead of decay.\n\n**Test Day Takeaway:** For repeated percent loss the base is $1$ minus the rate; a base greater than $1$ can only describe growth."
+  "explanation": "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Losing $15\\%$ each year keeps $85\\%$ each year, so the yearly multiplier is $0.85$ and $n = 240(0.85)^{t}$.\n\n**The Full Solution:**\nStep 1: A quantity that changes by the same percent each year is modeled by $n = n_0 b^{t}$, where $n_0$ is the starting amount and $b$ is the yearly multiplier.\nStep 2: The starting amount is $240$ fish. A $15\\%$ decrease leaves $100\\% - 15\\% = 85\\%$, so $b = 0.85$.\nStep 3: So $n = 240(0.85)^{t}$. Check after one year: $240(0.85) = 204$, and $240 - 0.15(240) = 240 - 36 = 204$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($n = 240(0.15)^{t}$): uses the $15\\%$ that is lost as the multiplier, which would leave only $36$ fish after one year.\n* Choice C ($n = 240(1.15)^{t}$): models a $15\\%$ increase each year.\n* Choice D ($n = 240(1.85)^{t}$): adds $0.85$ to $1$; any base greater than $1$ makes the number of fish grow.\n\n**Test Day Takeaway:** For a decrease of $r\\%$ per period, the base is $1 - \\frac{r}{100}$, which is less than $1$; for an increase, it is $1 + \\frac{r}{100}$."
 }

@@ -6,7 +6,7 @@
   "domain": "information-and-ideas",
   "skill": "central-ideas-and-details",
   "module": 1,
-  "passage": "Nineteenth-century European expeditions often fared badly in conditions Arctic peoples had lived with for centuries. Crews that ignored local practice hauled heavy sledges by hand, wore woolens that soaked through and froze, and subsisted on tinned rations. Expeditions that learned from Inuit communities did far better: dog teams pulled loads at many times a walker's pace, fur clothing shed moisture before it froze, and fresh meat warded off the deficiency diseases that crippled other parties. Again and again, the polar record shows that success depended less on new equipment shipped from Europe than on a crew's willingness to adopt techniques refined over generations in the Arctic itself.",
+  "passage": "Nineteenth-century European expeditions often fared badly in conditions Arctic peoples had lived with for centuries. Crews that ignored local practice hauled heavy sledges by hand, wore woolens that soaked through and froze, and lived on tinned rations. Expeditions that learned from Inuit communities did far better: dog teams pulled their loads, fur clothing shed moisture before it froze, and fresh meat kept scurvy away. Again and again, success depended less on equipment shipped from Europe than on a crew's willingness to adopt techniques refined over generations in the Arctic itself.",
   "question": "Which choice best states the main idea of the text?",
   "choices": [
     {
@@ -23,11 +23,11 @@
     },
     {
       "id": "D",
-      "text": "Arctic peoples developed clothing and travel methods over generations that European manufacturers of the nineteenth century repeatedly tried and failed to copy."
+      "text": "Arctic peoples developed clothing and travel methods over generations that European manufacturers of the nineteenth century tried and failed to copy."
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** The text's contrast runs from start to finish: crews that ignored Arctic practice suffered; crews that adopted it thrived; and the closing sentence generalizes the pattern.\n\n**The Full Solution:**\n- The first half catalogs the failures of European methods: hand-hauling, freezing woolens, tinned rations.\n- The second half catalogs the successes of adopted techniques: dog teams, fur clothing, fresh meat.\n- The final sentence states the lesson — success turned on willingness to adopt local techniques — which choice B restates.\n\n**Why the other choices are wrong:**\n- A: The text attributes failure to methods, not to the crews' endurance.\n- C: Machines are never discussed; the dog teams are compared to walkers hauling sledges.\n- D: Copying by European manufacturers appears nowhere in the text.",
+  "explanation": "**Choice B is correct.** The text's contrast runs from start to finish: crews that ignored Arctic practice suffered; crews that adopted it thrived; and the closing sentence generalizes the pattern.\n\n**The Full Solution:**\n- The first half catalogs the failures of European methods: hand-hauling, freezing woolens, tinned rations.\n- The second half catalogs the successes of adopted techniques: dog teams, fur clothing, fresh meat.\n- The final sentence states the lesson — success turned on willingness to adopt local techniques — which choice B restates.\n\n**Why the other choices are wrong:**\n- A: The text attributes failure to methods, not to the crews' endurance.\n- C: Machines are never discussed; the dog teams are contrasted only with crews hauling sledges by hand.\n- D: Copying by European manufacturers appears nowhere in the text.",
   "_meta": {
     "anchor": "polar expeditions — adoption of Inuit equipment and techniques"
   }

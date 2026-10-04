@@ -9,35 +9,35 @@
   "passages": [
     {
       "label": "Text 1",
-      "text": "In an influential 1985 study, psychologist Thomas Gilovich and his colleagues analyzed shooting records from professional basketball. Players, coaches, and fans overwhelmingly believed that a player who has just made several shots in a row is more likely to make the next one. The records showed otherwise: a player's chance of hitting the next shot was no higher after a string of makes than after a string of misses. The researchers concluded that the \"hot hand\" is a cognitive illusion — an instance of the human tendency to see meaningful streaks in chance sequences."
+      "text": "In an influential 1985 study, psychologist Thomas Gilovich and his colleagues tested a belief shared by players, coaches, and fans: that a basketball player who has just made several shots in a row is more likely to make the next one. Analyzing game records and a controlled shooting experiment with college players, the researchers found that a player's chance of hitting the next shot was no higher after a string of makes than after a string of misses. The \"hot hand,\" they concluded, is a cognitive illusion."
     },
     {
       "label": "Text 2",
-      "text": "Economists Joshua Miller and Adam Sanjurjo have identified a subtle bias in how early studies measured streak shooting. Selecting from a finite record only the shots that immediately follow several makes skews the expected success rate on those shots downward: even a shooter with no streakiness at all would score below his overall average on that selected subset. Judged against the corrected benchmark, the very records once used to dismiss the hot hand show a modest but consistent streak effect."
+      "text": "Economists Joshua Miller and Adam Sanjurjo have identified a subtle bias in how early studies measured streak shooting. Selecting from a finite record only the shots that immediately follow several makes skews the expected success rate on those shots downward: even a shooter with no streakiness at all would score below his overall average on that subset. Judged against the corrected benchmark, the 1985 study's own data show significant streak shooting."
     }
   ],
   "question": "Based on the texts, how would Miller and Sanjurjo (Text 2) most likely respond to the conclusion presented in Text 1?",
   "choices": [
     {
       "id": "A",
-      "text": "Fans and players were wrong to perceive streaks in shooting records, but the tendency to see patterns in chance sequences is too deeply rooted to correct."
+      "text": "Fans and players were wrong to perceive streaks, but the tendency to see patterns in chance sequences is too deeply rooted to correct."
     },
     {
       "id": "B",
-      "text": "The 1985 study relied on records too incomplete to reveal how often professional players actually attempted shots immediately after a string of makes."
+      "text": "The 1985 study relied on records too incomplete to show how often players attempted shots right after a string of makes."
     },
     {
       "id": "C",
-      "text": "The records Gilovich and his colleagues analyzed do not establish that the hot hand is an illusion, because the method used to evaluate those records was itself biased against finding a streak effect."
+      "text": "The data Gilovich and his colleagues analyzed do not show that the hot hand is an illusion, because their method was biased against detecting streaks."
     },
     {
       "id": "D",
-      "text": "The hot hand is indeed a cognitive illusion, and the statistical bias they identified makes the illusion even more persuasive than Gilovich and his colleagues claimed."
+      "text": "The hot hand is indeed an illusion, and the bias they identified makes that illusion even more convincing than Gilovich and his colleagues claimed."
     }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** Miller and Sanjurjo's objection is methodological: the selection procedure itself pushes measured success rates down, so records analyzed that way cannot show that streak shooting is illusory — and, corrected, the same records show a modest effect.\n\n**The Full Solution:**\n- Text 1's conclusion rests on a comparison: success after makes looked no better than after misses.\n- Text 2 shows the comparison's benchmark was wrong — a streak-free shooter would score below average on the selected shots — so \"no better\" actually conceals a positive effect.\n- Choice C states exactly that response: the data do not establish the illusion, because the method was biased against finding the effect.\n\n**Why the other choices are wrong:**\n- A: It sides with Text 1's conclusion, which Text 2's correction overturns.\n- B: Text 2 faults the analysis of the records, not the records' completeness.\n- D: It reverses Text 2's position — Miller and Sanjurjo find evidence for the hot hand, not a stronger case against it.",
+  "explanation": "**Choice C is correct.** Miller and Sanjurjo's objection is about method: the way the shots were selected pushes the expected success rate down, so data analyzed that way cannot show that streak shooting is an illusion. Corrected, the 1985 study's own data show streak shooting.\n\n**The Full Solution:**\n- Text 1's conclusion rests on a comparison: success after makes looked no better than success after misses.\n- Text 2 shows the comparison's benchmark was wrong. A streak-free shooter would score below average on the selected shots, so \"no better\" actually hides a positive effect.\n- Choice C states exactly that response: the data do not establish the illusion, because the method was biased against finding streaks.\n\n**Why the other choices are wrong:**\n- A: It sides with Text 1's conclusion, which Text 2's correction overturns.\n- B: Text 2 faults the analysis of the records, not their completeness.\n- D: It reverses Text 2's position: Miller and Sanjurjo find evidence for the hot hand, not a stronger case against it.",
   "_meta": {
-    "anchor": "cross-text — Gilovich et al. (hot hand as illusion) vs. Miller and Sanjurjo (selection-bias correction); sports analytics"
+    "anchor": "hot hand: Gilovich, Vallone & Tversky 1985 vs. Miller & Sanjurjo streak-selection bias (Econometrica 2018: correcting the bias reverses the canonical study's conclusion)"
   }
 }

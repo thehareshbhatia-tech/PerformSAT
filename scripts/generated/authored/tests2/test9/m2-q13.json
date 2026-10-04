@@ -1,6 +1,6 @@
 {
  "id": 13,
- "question": "A meet-scoring model sets a team's points per event $p$ by $4(p - a) + 7p = 3(p + 12)$, with $a$ constant, and the model returns $p = 5$. What is the value of $a$?",
+ "question": "$4(x - a) + 7x = 3(x + 12)$\nIn the given equation, $a$ is a constant. The solution to the given equation is $x = 5$. What is the value of $a$?",
  "choices": [
   {
    "id": "A",
@@ -22,8 +22,8 @@
  "correctAnswer": "B",
  "distractorNotes": {
   "A": "moves 4a across with the wrong sign, solving 55 + 4a = 51",
-  "C": "distributes the 4 only to p, solving 20 + 35 - a = 51",
-  "D": "distributes the 3 only to p, solving 55 - 4a = 15 + 12 = 27"
+  "C": "distributes the 4 only to x, solving 20 - a + 35 = 51",
+  "D": "distributes the 3 only to x, solving 55 - 4a = 15 + 12 = 27"
  },
- "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.** Substituting $p = 5$ gives $4(5 - a) + 35 = 51$, so $55 - 4a = 51$ and $a = 1$.\n\n**The Fast Way (~25s):** At $p = 5$ the left side is $20 - 4a + 35$ and the right side is $51$, so $4a = 4$ and $a = 1$.\n\n**The Full Solution:**\nStep 1: Substitute $p = 5$: $4(5 - a) + 7(5) = 3(5 + 12)$.\nStep 2: Expand both sides: $20 - 4a + 35 = 51$, which is $55 - 4a = 51$.\nStep 3: Check with the true value: $4a = 4$ gives $a = 1$, and then $4(5 - 1) + 35 = 16 + 35 = 51$, matching $3(17) = 51$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-1$): moves the $-4a$ term across the equal sign without changing its sign, solving $55 + 4a = 51$.\n* Choice C ($4$): distributes the $4$ to $p$ but not to $a$, turning the left side into $4p - a + 7p = 55 - a$ and solving $55 - a = 51$.\n* Choice D ($7$): distributes the $3$ to $p$ but not to $12$, so the right side becomes $15 + 12 = 27$ and the equation reads $55 - 4a = 27$.\n\n**Test Day Takeaway:** When a solution is handed to you, substitute it first. The equation collapses to one unknown, and the only remaining risk is distributing a factor across every term inside its parentheses."
+ "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Substituting $x = 5$ gives $4(5 - a) + 35 = 51$, so $55 - 4a = 51$ and $a = 1$.\n\n**The Full Solution:**\nStep 1: Substitute $5$ for $x$: $4(5 - a) + 7(5) = 3(5 + 12)$.\nStep 2: Simplify each side: $20 - 4a + 35 = 51$, so $55 - 4a = 51$.\nStep 3: Solve: $4a = 4$, so $a = 1$. Check: $4(x - 1) + 7x = 3x + 36$ gives $11x - 4 = 3x + 36$, so $8x = 40$ and $x = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-1$): moves $4a$ across with the wrong sign, solving $55 + 4a = 51$.\n* Choice C ($4$): distributes the $4$ only to $x$, solving $20 - a + 35 = 51$.\n* Choice D ($7$): distributes the $3$ only to $x$, solving $55 - 4a = 15 + 12$.\n\n**Test Day Takeaway:** When the solution is given, substitute it immediately; the equation becomes a one-variable equation in the constant."
 }

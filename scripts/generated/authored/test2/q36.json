@@ -6,7 +6,7 @@
   "domain": "information-and-ideas",
   "skill": "central-ideas-and-details",
   "module": 2,
-  "passage": "Teotihuacan, the largest city in the Americas in the first centuries CE, housed most of its residents in walled apartment compounds. The archaeologist Linda Manzanilla has analyzed human remains and household goods from several of these compounds. Oxygen and strontium isotope ratios in the teeth of the people buried there indicate that many had grown up far from the valley, and a single compound often holds pottery and burial customs belonging to more than one region. Manzanilla concludes that the compounds housed migrants from across Mesoamerica rather than single local lineages.",
+  "passage": "Teotihuacan, one of the largest cities in the Americas in the first centuries CE, housed most of its residents in walled apartment compounds. The archaeologist Linda Manzanilla excavated Teopancazco, a compound at the center of one of the city's neighborhoods. Strontium isotope ratios in the bones and teeth of people buried there show that many had grown up outside the valley, some as far away as the Gulf Coast, and the compound's pottery and burial practices come from several regions. Manzanilla concludes that Teopancazco's population was multiethnic rather than a single local lineage.",
   "question": "Which choice best states the main idea of the text?",
   "choices": [
     {
@@ -15,7 +15,7 @@
     },
     {
       "id": "B",
-      "text": "Evidence from Teotihuacan's apartment compounds indicates that they housed people drawn from several regions rather than from one local group."
+      "text": "Evidence from a Teotihuacan compound indicates that its residents came from several regions rather than from one local group."
     },
     {
       "id": "C",
@@ -23,9 +23,9 @@
     },
     {
       "id": "D",
-      "text": "The pottery recovered from Teotihuacan's apartment compounds was produced for trade rather than for use in the households that kept it."
+      "text": "The pottery recovered from the compound was produced for trade rather than for use by the households that kept it."
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** Two kinds of evidence — the isotope ratios in the teeth and the mixed regional styles inside one compound — support the conclusion the text ends on: the compounds held people from many places.\n\n**The Full Solution:**\n- The text establishes where most residents of Teotihuacan lived: in walled apartment compounds.\n- It then reports what Manzanilla found in them — isotope ratios pointing to childhoods outside the valley, and pottery and burial customs from more than one region in a single compound.\n- The closing sentence draws those findings together: the compounds housed migrants rather than single local lineages. Choice B states that.\n\n**Why the other choices are wrong:**\n- A: The text says nothing about the compounds' plan being copied anywhere else.\n- C: The isotope ratios are used here to indicate where people grew up, and diet is never mentioned.\n- D: The pottery is evidence of the residents' regional origins; the text makes no claim about what it was produced for."
+  "explanation": "**Choice B is correct.** Two kinds of evidence — the isotope ratios in the bones and teeth and the pottery and burial practices from several regions — support the conclusion the text ends on: Teopancazco's population was multiethnic.\n\n**The Full Solution:**\n- The text establishes where most residents of Teotihuacan lived: in walled apartment compounds.\n- It then reports what Manzanilla found at one of them, Teopancazco — isotope ratios pointing to childhoods outside the valley, some as far away as the Gulf Coast, and pottery and burial practices from several regions.\n- The closing sentence draws those findings together: the compound's population was multiethnic rather than a single local lineage. Choice B states that.\n\n**Why the other choices are wrong:**\n- A: The text says nothing about the compounds' plan being copied anywhere else.\n- C: The isotope ratios are used here to indicate where people grew up, and diet is never mentioned.\n- D: The pottery is evidence of the residents' regional origins; the text makes no claim about what it was produced for."
 }

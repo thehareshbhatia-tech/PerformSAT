@@ -9,11 +9,11 @@
   "studentNotes": {
     "intro": "While researching a topic, a student has taken the following notes:",
     "bullets": [
-      "The first transatlantic telegraph cable was completed in 1858 between Ireland and Newfoundland.",
-      "Its signals were faint, and after operators drove the line with ever-higher voltages, the cable's insulation failed permanently within about a month.",
-      "A second cable, laid in 1866, used a much heavier copper core and thicker insulation.",
-      "For the 1866 cable, physicist William Thomson supplied a mirror galvanometer that could read minute currents, so high voltages were unnecessary.",
-      "The 1866 cable operated reliably for years and carried messages many times faster than the 1858 cable had."
+      "The first transatlantic telegraph cable, laid between Ireland and Newfoundland, began carrying signals in August 1858.",
+      "It failed within weeks after operators applied high voltages that damaged its insulation.",
+      "A second cable, laid in 1866, had a much heavier copper core and thicker insulation.",
+      "The 1866 cable could transmit about 8 words per minute, 80 times faster than the 1858 cable.",
+      "The 1866 cable proved durable, and the two continents have been linked by cable ever since."
     ],
     "goal": "The student wants to emphasize a difference between the 1858 cable and the 1866 cable."
   },
@@ -21,15 +21,15 @@
   "choices": [
     {
       "id": "A",
-      "text": "The first transatlantic telegraph cable, which was completed in 1858, stretched beneath the ocean between the coasts of Ireland and Newfoundland."
+      "text": "The first transatlantic telegraph cable was laid between Ireland and Newfoundland and began carrying signals in August 1858."
     },
     {
       "id": "B",
-      "text": "Whereas the 1858 cable failed within about a month as operators drove its faint signals with damaging voltages, the 1866 cable — heavier, better insulated, and read by Thomson's sensitive galvanometer — carried messages reliably for years."
+      "text": "Whereas the 1858 cable failed within weeks, the 1866 cable, more heavily built, proved durable and sent messages 80 times faster."
     },
     {
       "id": "C",
-      "text": "In 1866, a cable with a much heavier copper core and thicker insulation was laid across the Atlantic, and William Thomson supplied a mirror galvanometer that could read minute currents."
+      "text": "The 1866 cable had a much heavier copper core and thicker insulation, and it could transmit about 8 words per minute."
     },
     {
       "id": "D",
@@ -37,8 +37,8 @@
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** An emphasize-a-difference goal wants the two cables set against each other, and B does it in one contrastive frame: quick failure under high voltages versus years of reliable service under a gentler design.\n\n**The Full Solution:**\n- The notes supply the contrast's two sides: the 1858 cable's month-long life and voltage-driven death (bullet 2); the 1866 cable's heavier build, sensitive receiver, and years of service (bullets 3-5).\n- B binds them with \"Whereas,\" naming both cables and the fate of each.\n- Explicit contrast of both terms is what the goal demands.\n\n**Why the other choices are wrong:**\n- A: It describes the 1858 cable alone; one cable cannot exhibit a difference.\n- C: It describes the 1866 cable alone, leaving the 1858 side of the contrast unstated.\n- D: It emphasizes what the cables jointly proved — a similarity, the opposite of the goal.",
+  "explanation": "**Choice B is correct.** An emphasize-a-difference goal wants the two cables set against each other, and B does it in one contrastive frame: quick failure for the 1858 cable versus durability and far greater speed for the more heavily built 1866 cable.\n\n**The Full Solution:**\n- The notes supply both sides of the contrast: the 1858 cable failed within weeks (bullet 2); the 1866 cable was more heavily built, faster, and durable (bullets 3-5).\n- B binds them with \"Whereas,\" naming both cables and the fate of each.\n- Setting both cables side by side is what the goal requires.\n\n**Why the other choices are wrong:**\n- A: It describes the 1858 cable alone; one cable cannot show a difference.\n- C: It describes the 1866 cable alone, leaving the 1858 side of the contrast unstated.\n- D: It emphasizes what the cables jointly showed, a similarity, the opposite of the goal.",
   "_meta": {
-    "anchor": "1858 versus 1866 Atlantic telegraph cables; difference goal"
+    "anchor": "1858 vs 1866 transatlantic cables (1858 failed within weeks after high voltages; 1866 heavier core and insulation, 8 wpm = 80x faster)"
   }
 }

@@ -6,7 +6,7 @@
   "domain": "information-and-ideas",
   "skill": "central-ideas-and-details",
   "module": 2,
-  "passage": "A terminal lake has no outlet to the sea; its level is set wholly by the balance between the water flowing in and the water evaporating from its surface. When one large terminal lake in the arid West fell to record lows, drought led most public discussion of the decline. Hydrologists who reconstructed a century of the basin's water budget reached a different accounting. Precipitation over the period swings widely but shows no sustained decline. What has changed steadily is the share of the rivers' flow withdrawn for irrigation and cities before it ever reaches the lake. In wet years the withdrawals are masked; in dry years they are laid bare. On the hydrologists' ledger, the lake is shrinking chiefly because its inflow is being spent upstream.",
+  "passage": "A terminal lake has no outlet to the sea; its level is set by the balance between the water flowing in and the water evaporating from its surface. When one large terminal lake in the arid West fell to record lows, public discussion blamed drought. Hydrologists who reconstructed a century of the basin's water budget reached a different conclusion. Precipitation over the period swings widely but shows no sustained decline. What has grown steadily is the share of river flow withdrawn for farms and cities before it reaches the lake. The lake is shrinking chiefly because its inflow is being used upstream.",
   "question": "Which choice best states the main idea of the text?",
   "choices": [
     {
@@ -19,7 +19,7 @@
     },
     {
       "id": "C",
-      "text": "Although drought dominates public discussion, the basin's water budget indicates that the lake is shrinking mainly because so much of its inflow is diverted before reaching it."
+      "text": "Although public discussion blames drought, the water budget shows the lake is shrinking mainly because its inflow is diverted upstream."
     },
     {
       "id": "D",
@@ -27,7 +27,7 @@
     }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The text sets the popular explanation (drought) against the hydrologists' accounting (steadily growing upstream withdrawals) and sides with the accounting — which is what C states.\n\n**The Full Solution:**\n- The public story: drought \"led most public discussion of the decline.\"\n- The evidence: precipitation swings but does not decline; withdrawals for irrigation and cities have grown steadily.\n- The verdict: \"the lake is shrinking chiefly because its inflow is being spent upstream.\" C compresses the contrast and the conclusion.\n\n**Why the other choices are wrong:**\n- A: It contradicts the text, which says precipitation \"shows no sustained decline.\"\n- B: A general fact about terminal lakes from the opening sentence — background, not the point.\n- D: The text identifies a chief cause; it does not throw up its hands at variability.",
+  "explanation": "**Choice C is correct.** The text sets the popular explanation (drought) against the hydrologists' accounting (steadily growing upstream withdrawals) and sides with the accounting — which is what C states.\n\n**The Full Solution:**\n- The public story: public discussion \"blamed drought.\"\n- The evidence: precipitation swings but does not decline; withdrawals for farms and cities have grown steadily.\n- The verdict: \"The lake is shrinking chiefly because its inflow is being used upstream.\" C compresses the contrast and the conclusion.\n\n**Why the other choices are wrong:**\n- A: It contradicts the text, which says precipitation \"shows no sustained decline.\"\n- B: A general fact about terminal lakes from the opening sentence — background, not the point.\n- D: The text identifies a chief cause; it does not throw up its hands at variability.",
   "_meta": {
     "anchor": "terminal-lake water budget — upstream diversion versus drought"
   }

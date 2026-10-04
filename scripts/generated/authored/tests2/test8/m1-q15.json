@@ -1,29 +1,29 @@
 {
-  "id": 15,
-  "question": "The function $u$ gives the number of housing units approved in a district $t$ years after 2010, and $u(t) = mt + b$, where $m$ and $b$ are constants. From 2014 to 2020 the number approved decreased by 27 units, and 96 units were approved in 2018. What is the value of $b$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$60$"
-    },
-    {
-      "id": "B",
-      "text": "$96$"
-    },
-    {
-      "id": "C",
-      "text": "$123$"
-    },
-    {
-      "id": "D",
-      "text": "$132$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "subtracts the 36-unit change instead of adding it back, giving 96 - 36 = 60",
-    "B": "reports the 2018 count as b, but b is the value at t = 0, which is 2010",
-    "C": "walks the rate back over 6 years instead of the 8 years from 2010 to 2018, giving 96 + 27 = 123"
+ "id": 15,
+ "question": "$f(x) = mx + b$\nThe function $f$ is defined by the given equation, where $m$ and $b$ are constants. If $f(8) = 96$ and $f(4) - f(10) = 27$, what is the value of $b$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$60$"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Slope-Intercept Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** The rate is $m = \\frac{-27}{6} = -4.5$ units per year, so walking back the $8$ years from 2018 to 2010 gives $b = 96 + 4.5(8) = 132$.\n\n**The Full Solution:**\nStep 1: Convert the years to $t$-values. 2014 is $t = 4$, 2018 is $t = 8$, and 2020 is $t = 10$.\nStep 2: Find $m$. Between $t = 4$ and $t = 10$ the output falls by $27$ over $6$ years, so $m = \\frac{-27}{10 - 4} = -4.5$.\nStep 3: Use the known point $u(8) = 96$: $-4.5(8) + b = 96$, so $-36 + b = 96$ and $b = 132$. Check: $u(4) = -4.5(4) + 132 = 114$ and $u(10) = -4.5(10) + 132 = 87$, and $114 - 87 = 27$, exactly the stated decrease. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($60$): computes $96 - 36$. Because the function is decreasing, earlier years have LARGER outputs, so the $36$ must be added back.\n* Choice B ($96$): treats the 2018 value as the constant $b$. In $u(t) = mt + b$, $b$ is the output at $t = 0$, which is the year 2010.\n* Choice C ($123$): applies the rate over $6$ years rather than $8$, adding $4.5(6) = 27$ instead of $4.5(8) = 36$.\n\n**Test Day Takeaway:** Translate the years to $t$ first, get $m$ from the change over the matching span, then substitute one known point. Going backward in $t$ on a decreasing line means going UP in value."
+  {
+   "id": "B",
+   "text": "$96$"
+  },
+  {
+   "id": "C",
+   "text": "$123$"
+  },
+  {
+   "id": "D",
+   "text": "$132$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "finds m = -4.5 but subtracts 4.5(8) = 36 from 96 instead of adding it, giving 60",
+  "B": "reports f(8) = 96 as b, but b is the value of f at x = 0",
+  "C": "multiplies the rate by 6, the length of the interval from 4 to 10, instead of by 8, giving 96 + 27 = 123"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Slope-Intercept Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** $f$ falls by $27$ as $x$ goes from $4$ to $10$, so $m = -\\frac{27}{6} = -4.5$; then $b = f(8) - 8m = 96 + 36 = 132$.\n\n**The Full Solution:**\nStep 1: Find $m$. Since $f(4) - f(10) = 27$, the value of $f$ decreases by $27$ as $x$ increases by $10 - 4 = 6$, so $m = \\frac{f(10) - f(4)}{10 - 4} = \\frac{-27}{6} = -4.5$.\nStep 2: Substitute $f(8) = 96$: $-4.5(8) + b = 96$, so $-36 + b = 96$.\nStep 3: Solve: $b = 132$. Check: $f(4) = -4.5(4) + 132 = 114$ and $f(10) = -4.5(10) + 132 = 87$, and $114 - 87 = 27$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($60$): computes $96 - 36$. The function is decreasing, so its value at $x = 0$ is greater than its value at $x = 8$.\n* Choice B ($96$): treats $f(8)$ as $b$. In $f(x) = mx + b$, $b$ is the value of $f(0)$.\n* Choice C ($123$): moves back $6$ units instead of $8$, adding $4.5(6) = 27$ instead of $4.5(8) = 36$.\n\n**Test Day Takeaway:** Find the slope from the change over the matching interval, watching the order of subtraction, then substitute one known point to solve for $b$."
 }

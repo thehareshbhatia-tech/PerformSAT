@@ -6,12 +6,12 @@
   "domain": "craft-and-structure",
   "skill": "text-structure-and-purpose",
   "module": 1,
-  "passage": "In 1856 the eighteen-year-old chemist William Perkin set out to synthesize quinine, then the only effective malaria treatment, from coal-tar compounds. The attempt failed. __One flask, instead of yielding the colorless drug, produced a deep purple residue that dyed silk a brilliant, wash-fast mauve.__ Perkin patented the substance, left his studies, and opened a factory; within two decades, chemists across Europe were coaxing a whole spectrum of synthetic colors from coal tar, and the firms they founded were branching into pharmaceuticals and photographic chemicals. A failed medicine had become the founding accident of industrial organic chemistry.",
+  "passage": "In 1856 the eighteen-year-old chemist William Perkin set out to make quinine, then the chief treatment for malaria, from compounds derived from coal tar. The attempt failed. __One flask, instead of yielding the colorless drug, produced a dark residue from which Perkin extracted a substance that dyed silk a brilliant mauve.__ Perkin patented the dye, left his studies, and opened a factory. Within a few decades, chemists across Europe were drawing a whole spectrum of synthetic colors from coal tar, and some of the firms they founded later branched into pharmaceuticals. A failed medicine had launched an industry.",
   "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
   "choices": [
     {
       "id": "A",
-      "text": "It reports the unexpected result of the failed synthesis just described, the accidental discovery on which the industry discussed in the rest of the text was built."
+      "text": "It reports the surprising outcome of the failed attempt, the accident from which the industry described later in the text grew."
     },
     {
       "id": "B",
@@ -27,7 +27,7 @@
     }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** The underlined sentence is the hinge of the passage: the failed experiment's surprise product, from which everything after — patent, factory, industry — follows.\n\n**The Full Solution:**\n- Before the underline: Perkin attempts quinine and fails.\n- The underlined sentence reports what the failure actually produced — a brilliant, wash-fast purple dye.\n- After the underline: Perkin commercializes that dye, and the passage closes by calling it \"the founding accident\" of an industry. The sentence supplies the accident.\n\n**Why the other choices are wrong:**\n- B: The sentence describes what the flask produced, not why the synthesis was chemically doomed.\n- C: Nothing in the sentence weighs Perkin's ambitions against his scientific aims; his commercial turn comes later.\n- D: The sentence narrates an event; it defines no term.",
+  "explanation": "**Choice A is correct.** The underlined sentence is the hinge of the passage: the failed experiment's surprise product, from which everything after (patent, factory, industry) follows.\n\n**The Full Solution:**\n- Before the underline: Perkin attempts quinine and fails.\n- The underlined sentence reports what the failure actually produced — a substance that dyed silk a brilliant mauve.\n- After the underline: Perkin commercializes that dye, and the passage closes by saying that \"a failed medicine had launched an industry.\" The sentence supplies the accident that did the launching.\n\n**Why the other choices are wrong:**\n- B: The sentence describes what the flask produced, not why the synthesis was chemically doomed.\n- C: Nothing in the sentence weighs Perkin's ambitions against his scientific aims; his commercial turn comes later.\n- D: The sentence narrates an event; it defines no term.",
   "_meta": {
     "anchor": "William Perkin — mauveine, the accidental founding of synthetic dye chemistry"
   }

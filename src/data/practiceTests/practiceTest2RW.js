@@ -40,7 +40,7 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "The \"Hawthorne effect\" — the idea that people change their behavior simply because they know they are being observed — rests largely on productivity studies conducted at a single factory in the 1920s. When two economists located the original records and ______ the famous experiments, they found the evidence far weaker than the textbook story suggests: output rose on Mondays whether or not the factory's lighting had been changed, a pattern the classic account overlooked.",
+          "passage": "The \"Hawthorne effect,\" the idea that people change their behavior simply because they know they are being observed, is named for studies of worker productivity conducted at an Illinois factory in the 1920s. When two economists located long-lost data from the first of those studies and ______ them, they found that the dramatic patterns described in textbooks did not appear in the records.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -61,7 +61,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The economists worked with the original records of experiments run decades earlier, so what they did to those experiments was examine them afresh — \"reanalyzed.\"\n\n**The Full Solution:**\n- The sentence's setup is specific: the economists \"located the original records\" of studies from the 1920s. Whatever the blank names, it must be something one can do to old experiments using their surviving data.\n- Their finding — a Monday pattern \"the classic account overlooked\" — is the product of scrutinizing existing data, not of gathering new data. \"Reanalyzed\" captures exactly that: subjecting the old evidence to fresh analysis.\n\n**Why the other choices are wrong:**\n- B: \"replicated\" means running the experiments again from scratch; the economists worked from the original records, not from a rerun, so nothing was replicated.\n- C: \"commissioned\" means ordering work to be done — impossible here, since the experiments had been conducted decades before the economists took any interest in them.\n- D: \"anticipated\" would have the economists foreseeing experiments that predated them by decades, reversing the sentence's chronology."
+          "explanation": "**Choice A is correct.** The economists worked with the surviving data of experiments run decades earlier, so what they did to those data was examine them afresh — \"reanalyzed.\"\n\n**The Full Solution:**\n- The sentence's setup is specific: the economists \"located long-lost data\" from studies conducted in the 1920s. Whatever the blank names, it must be something one can do to old data.\n- Their finding — that the textbook patterns \"did not appear in the records\" — is the product of scrutinizing existing data, not of gathering new data. \"Reanalyzed\" captures exactly that: subjecting the old evidence to fresh analysis.\n\n**Why the other choices are wrong:**\n- B: \"replicated\" means running the experiments again from scratch; the economists worked from the original records, not from a rerun, so nothing was replicated.\n- C: \"commissioned\" means ordering work to be done — impossible here, since the data had been gathered decades before the economists took any interest in them.\n- D: \"anticipated\" would have the economists foreseeing data that predated them by decades, reversing the sentence's chronology."
         },
         {
           "id": 202,
@@ -130,7 +130,7 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Roman aqueduct channels carried water rich in dissolved calcium carbonate, which settled onto the channel walls in thin annual layers of limescale known as sinter. Because each layer's thickness and chemistry reflect the flow and temperature of the water that deposited it, the accumulated crust ______ the operating history of an aqueduct: researchers can read periods of heavy use, neglect, and repair in the bands, much as climate scientists read past temperatures in an ice core.",
+          "passage": "For generations, officers aboard Royal Navy ships recorded the wind, air pressure, and temperature in their logbooks several times a day, with military regularity. Because thousands of these volumes survive, the logbooks ______ a long record of weather over the world's oceans: climate scientists now use them to reconstruct conditions at sea from decades before satellites existed.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -151,7 +151,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The crust preserves a readable, layer-by-layer record of the aqueduct's past — which is what \"archives\" means: to store a record for later consultation.\n\n**The Full Solution:**\n- The sentence's logic runs from cause to consequence: each layer registers the conditions of its year, so the accumulated layers together hold \"the operating history\" of the channel.\n- The clause after the colon confirms the reading — researchers \"read\" use, neglect, and repair in the bands, and the ice-core comparison casts the crust as a natural record.\n- \"Archives,\" used as a verb, means exactly that: the crust stores the history in retrievable form.\n\n**Why the other choices are wrong:**\n- A: \"obscures\" inverts the relationship — the crust makes the history legible, not hidden; if it obscured the history, nothing could be read in the bands.\n- B: \"predicts\" points the wrong way in time; the layers record what has already happened to the channel, not what will happen.\n- D: \"interrupts\" trades on the physical image of scale clogging a channel, but the sentence is about what the crust does to the historical record, not to the water flow."
+          "explanation": "**Choice C is correct.** The surviving logbooks hold a stored, consultable record of past ocean weather — which is what \"archives\" means as a verb: to keep a record for later use.\n\n**The Full Solution:**\n- The first sentence explains how the record was made: officers wrote down wind, pressure, and temperature several times a day.\n- The blank describes what the surviving volumes do with that record, and the clause after the colon confirms the reading: scientists \"use them to reconstruct conditions at sea\" from long ago.\n- A collection that preserves past observations so that later readers can retrieve them \"archives\" those observations.\n\n**Why the other choices are wrong:**\n- A: \"obscures\" inverts the relationship — the logbooks make the old weather knowable, not hidden; if they obscured it, nothing could be reconstructed.\n- B: \"predicts\" points the wrong way in time; the logbooks record weather that has already happened, not weather to come.\n- D: \"interrupts\" makes no sense with \"a long record\"; the logbooks create and preserve the record rather than breaking it off."
         },
         {
           "id": 206,
@@ -160,7 +160,7 @@ export const practiceTest2RW = {
           "band": 2,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "In the early 1970s, malaria parasites were becoming resistant to the drugs then in use. The pharmacologist Tu Youyou and her team screened hundreds of remedies described in classical Chinese medical texts, looking for plants with antimalarial activity. Extracts of sweet wormwood killed the parasites in some trials and failed in others. A fourth-century Chinese manual advised soaking the plant in cold water rather than boiling it; when the team switched to a low-temperature extraction, the results became consistent. The compound they isolated, artemisinin, is now a standard treatment for malaria.",
+          "passage": "In the late 1960s, malaria parasites were becoming resistant to the drugs then in use. The pharmacologist Tu Youyou and her team screened more than 2,000 remedies described in classical Chinese medical texts. Extracts of sweet wormwood killed the parasites in some trials and failed in others. A fourth-century manual told readers to soak the plant in water and drink the juice, with no mention of heating it; when the team switched to a low-temperature extraction, the results became consistent. The compound they isolated, artemisinin, is now a standard treatment for malaria.",
           "question": "Which choice best states the main purpose of the text?",
           "choices": [
             {
@@ -181,7 +181,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The text follows one line of work from the problem that prompted it to the compound it produced.\n\n**The Full Solution:**\n- The opening sentence states the problem: the drugs in use were losing their effect against malaria.\n- The middle sentences describe the search — hundreds of remedies screened, sweet wormwood working only sometimes, and a fourth-century instruction pointing toward a cooler extraction.\n- The final sentence names the result, artemisinin, and its present use. Recounting that search and its outcome is the text's purpose.\n\n**Why the other choices are wrong:**\n- B: Resistance is mentioned once, as the reason the search began; the text never explains how resistance developed.\n- C: The two ways of extracting the plant appear as a step in the team's work, and no modern method is described alongside them.\n- D: The text reports what one team did and makes no recommendation about how drug research should be conducted."
+          "explanation": "**Choice A is correct.** The text follows one line of work from the problem that prompted it to the compound it produced.\n\n**The Full Solution:**\n- The opening sentence states the problem: the drugs in use were losing their effect against malaria.\n- The middle sentences describe the search — more than 2,000 remedies screened, sweet wormwood working only sometimes, and a fourth-century instruction that never mentions heating the plant.\n- The final sentence names the result, artemisinin, and its present use. Recounting that search and its outcome is the text's purpose.\n\n**Why the other choices are wrong:**\n- B: Resistance is mentioned once, as the reason the search began; the text never explains how resistance developed.\n- C: The two ways of extracting the plant appear as a step in the team's work, and no modern method is described alongside them.\n- D: The text reports what one team did and makes no recommendation about how drug research should be conducted."
         },
         {
           "id": 207,
@@ -190,28 +190,28 @@ export const practiceTest2RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "More than a hundred small bronze objects of the same curious design — hollow twelve-sided shells, each face pierced by a round hole and each corner topped with a knob — have been unearthed across the Roman Empire's northern provinces. Proposed functions have not been in short supply: candlestick holder, surveying instrument, gauge for calibrating pipes, tool for knitting glove fingers. Yet every proposal stumbles on the same awkward facts. The holes vary in diameter from face to face with no consistent progression, the objects appear in no surviving Roman text or image, and several were found carefully deposited alongside coins, as if treasured rather than used. Until an example surfaces in a context that betrays its purpose, the dodecahedra will stand as a reminder that an abundance of artifacts is not the same as an understanding of them.",
+          "passage": "More than a hundred small bronze objects of the same curious design — hollow twelve-sided shells, each face pierced by a round hole and each corner topped with a knob — have been found in the Roman Empire's northwestern provinces. Proposed functions abound: candlestick holder, surveying instrument, tool for knitting gloves. Yet every proposal stumbles on the same facts. The holes vary in size with no consistent pattern, the objects appear in no surviving Roman text or image, and several were buried with hoards of coins, as if treasured rather than used. Until an example surfaces in a context that reveals its purpose, the dodecahedra will remain a reminder that possessing artifacts is not the same as understanding them.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "It presents a scholarly consensus about a class of artifacts, describes a recent discovery that unsettled that consensus, and predicts which rival account will replace it."
+              "text": "It presents a scholarly consensus about a class of artifacts, describes a discovery that unsettled it, and predicts which account will replace it."
             },
             {
               "id": "B",
-              "text": "It describes a puzzling class of artifacts, surveys proposed explanations of their function, identifies evidence that frustrates every proposal, and closes by drawing a general lesson from the impasse."
+              "text": "It describes puzzling artifacts, surveys proposed explanations of their function, identifies evidence that undercuts every proposal, and draws a general lesson."
             },
             {
               "id": "C",
-              "text": "It recounts the excavation of a single unusual artifact, compares it with similar finds from other regions, and endorses the interpretation its excavators favored."
+              "text": "It recounts the excavation of a single unusual artifact, compares it with similar finds, and endorses its excavators' interpretation."
             },
             {
               "id": "D",
-              "text": "It argues that a class of artifacts served a ceremonial purpose, concedes that the supporting evidence is thin, and calls for more systematic excavation of the relevant sites."
+              "text": "It argues that a class of artifacts served a ceremonial purpose, concedes that the evidence is thin, and calls for further excavation."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The text introduces the enigmatic dodecahedra, lists candidate functions, shows why the same facts defeat each candidate, and ends with a general moral about artifacts and understanding.\n\n**The Full Solution:**\n- Opening: the puzzling class is described in physical detail — twelve-sided bronze shells with holes and knobs, found across the northern provinces.\n- Survey: four proposed functions are listed, from candlestick holder to knitting tool.\n- Frustration: \"every proposal stumbles on the same awkward facts\" — inconsistent hole sizes, silence in texts and images, deposition with coins.\n- Close: the final sentence generalizes — abundant artifacts do not guarantee understanding. Choice B tracks all four moves in order.\n\n**Why the other choices are wrong:**\n- A: There is no consensus to unsettle — the text presents ongoing uncertainty — and no recent discovery or predicted winner appears.\n- C: The text concerns more than a hundred objects, not a single excavation, and endorses no interpretation.\n- D: The text argues for no function at all, ceremonial or otherwise; the deposition with coins is presented as an awkward fact, not a thesis, and no call for excavation is made."
+          "explanation": "**Choice B is correct.** The text introduces the puzzling dodecahedra, lists candidate functions, shows why the same facts defeat each candidate, and ends with a general lesson about artifacts and understanding.\n\n**The Full Solution:**\n- Opening: the puzzling objects are described in physical detail — twelve-sided bronze shells with holes and knobs, found across the northwestern provinces.\n- Survey: three proposed functions are listed, from candlestick holder to knitting tool.\n- Frustration: \"every proposal stumbles on the same facts\" — inconsistent hole sizes, silence in texts and images, burial with coin hoards.\n- Close: the final sentence generalizes — possessing artifacts does not guarantee understanding them. Choice B tracks all four moves in order.\n\n**Why the other choices are wrong:**\n- A: There is no consensus to unsettle — the text presents ongoing uncertainty — and no recent discovery or predicted winner appears.\n- C: The text concerns more than a hundred objects, not a single excavation, and endorses no interpretation.\n- D: The text argues for no function at all, ceremonial or otherwise; the burial with coins is presented as an awkward fact, not a thesis, and no call for excavation is made."
         },
         {
           "id": 205,
@@ -220,28 +220,28 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "The following text is from Kate Chopin's 1899 novel The Awakening.\n\nA green and yellow parrot, which hung in a cage outside the door, kept repeating over and over: \"Allez vous-en! Allez vous-en! Sapristi! That's all right!\" He could speak a little Spanish, and also a language which nobody understood, unless it was the mocking-bird that hung on the other side of the door, whistling his fluty notes out upon the breeze with maddening persistence. Mr. Pontellier, unable to read his newspaper with any degree of comfort, arose with an expression and an exclamation of disgust. He walked down the gallery and across the narrow \"bridges\" which connected the Lebrun cottages one with the other. He had been seated before the door of the main house. The parrot and the mocking-bird were the property of Madame Lebrun, and they had the right to make all the noise they wished.",
+          "passage": "The following text is from Kate Chopin's 1899 novel The Awakening.\n\nA green and yellow parrot, which hung in a cage outside the door, kept repeating over and over: \"Allez vous-en! Allez vous-en! Sapristi! That's all right!\" He could speak a little Spanish, and also a language which nobody understood, unless it was the mocking-bird that hung on the other side of the door, whistling his fluty notes out upon the breeze with maddening persistence. Mr. Pontellier, unable to read his newspaper with any degree of comfort, arose with an expression and an exclamation of disgust. He walked down the gallery and across the narrow \"bridges\" which connected the Lebrun cottages one with the other.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "The narrator recounts the history of a cluster of summer cottages and then describes the daily routine of the woman who owns them."
+              "text": "The narrator recounts the history of a cluster of summer cottages and then describes the woman who owns them."
             },
             {
               "id": "B",
-              "text": "The narrator presents a quarrel between two characters over who is responsible for a disturbance and then traces how the disagreement between them is finally resolved."
+              "text": "The narrator presents a quarrel between two characters and then shows how the quarrel is resolved."
             },
             {
               "id": "C",
-              "text": "The narrator introduces a character's peaceful morning, describes an interruption to it, and reveals that the interruption had been deliberately arranged."
+              "text": "The narrator introduces a character's peaceful morning and then reveals who deliberately interrupted it."
             },
             {
               "id": "D",
-              "text": "The narrator describes a noisy scene, follows one character's irritated retreat from it, and closes by wryly noting the birds' standing to make that noise."
+              "text": "The narrator describes a noisy scene and then follows one character's irritated retreat from it."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The text moves from the birds' racket, to Mr. Pontellier's exasperated departure, to the dry closing observation that the birds — as Madame Lebrun's property — \"had the right\" to their noise.\n\n**The Full Solution:**\n- The opening paragraphs establish the disturbance: the parrot's repeated cries and the mocking-bird's \"maddening persistence.\"\n- The middle follows the human response — Mr. Pontellier, unable to read in comfort, rises \"with an expression and an exclamation of disgust\" and walks away across the bridges.\n- The final sentence steps back with gentle irony: the birds belong to Madame Lebrun and so are entitled to make \"all the noise they wished.\" That three-part movement is exactly what choice D describes.\n\n**Why the other choices are wrong:**\n- A: No history of the cottages is given, and Madame Lebrun's routine never appears — she is mentioned only as the birds' owner.\n- B: No quarrel occurs; Mr. Pontellier leaves without confronting anyone, and nothing is resolved.\n- C: The morning is never peaceful — the noise is under way from the first sentence — and no one is said to have arranged it.",
+          "explanation": "**Choice D is correct.** The text moves from the birds' racket to Mr. Pontellier's exasperated departure from it.\n\n**The Full Solution:**\n- The first two sentences establish the disturbance: the parrot's repeated cries and the mocking-bird's whistling \"with maddening persistence.\"\n- The final two sentences follow the human response — Mr. Pontellier, unable to read \"with any degree of comfort,\" rises \"with an expression and an exclamation of disgust\" and walks away across the bridges.\n- A noisy scene followed by one character's irritated retreat from it is exactly the movement choice D describes.\n\n**Why the other choices are wrong:**\n- A: No history of the cottages is given, and no owner of the cottages is described; the cottages are mentioned only as the place Mr. Pontellier walks through.\n- B: No quarrel occurs; Mr. Pontellier leaves without confronting anyone, and nothing is resolved.\n- C: The morning is never peaceful — the noise is under way from the first sentence — and no one is said to have caused the interruption deliberately.",
           "_meta": {
             "quoteVerify": true,
             "source": "Kate Chopin, The Awakening (1899), Chapter I, opening lines; text verbatim per the Project Gutenberg edition, typography normalized"
@@ -257,11 +257,11 @@ export const practiceTest2RW = {
           "passages": [
             {
               "label": "Text 1",
-              "text": "Economic historian Robert Allen argues that the Industrial Revolution began in eighteenth-century Britain for bluntly material reasons. British workers earned unusually high wages, while coal from the country's abundant mines was exceptionally cheap. Machines such as the spinning jenny and the steam engine paid for themselves in Britain — and, at first, almost nowhere else — because they replaced expensive labor with cheap fuel and capital. On Allen's account, Britain industrialized first not because its people were uniquely inventive but because its prices made mechanization profitable."
+              "text": "Economic historian Robert Allen argues that the Industrial Revolution began in eighteenth-century Britain for material reasons. British workers earned unusually high wages, while coal from the country's mines was exceptionally cheap. Machines such as the spinning jenny and the steam engine paid for themselves in Britain, and at first almost nowhere else, because they replaced expensive labor with cheap fuel and capital. Britain industrialized first, on Allen's account, because its prices made mechanization profitable."
             },
             {
               "label": "Text 2",
-              "text": "Economic historian Joel Mokyr contends that favorable prices cannot explain the Industrial Revolution's most striking feature: it kept going. Other societies had faced incentives to save labor, and their bursts of invention petered out. What distinguished eighteenth-century Britain, Mokyr argues, was a culture connecting scientists, engineers, and artisans — a community committed to testing ideas, publishing results, and applying useful knowledge to production. Without that culture, he suggests, a handful of profitable machines would have remained isolated tricks rather than the start of sustained technological progress."
+              "text": "Economic historian Joel Mokyr contends that favorable prices cannot explain the Industrial Revolution's most striking feature: it kept going. Other societies had faced incentives to save labor, and their bursts of invention petered out. What distinguished eighteenth-century Britain, Mokyr argues, was a culture linking scientists, engineers, and artisans, committed to testing ideas, sharing results, and applying useful knowledge to production. Without that culture, a few profitable machines would have remained isolated tricks."
             }
           ],
           "question": "Based on the texts, how would Mokyr (Text 2) most likely respond to the argument presented in Text 1?",
@@ -272,19 +272,19 @@ export const practiceTest2RW = {
             },
             {
               "id": "B",
-              "text": "He would agree that prices fully explain the onset of industrialization but insist that culture determined which specific machines British inventors chose to build first."
+              "text": "He would agree that prices fully explain the onset of industrialization but insist that culture determined which machines inventors built first."
             },
             {
               "id": "C",
-              "text": "He would maintain that wages and energy prices might explain why certain machines were first adopted in Britain, but not why innovation there continued instead of stalling as it had elsewhere."
+              "text": "He would grant that prices might explain why certain machines were first adopted in Britain, but not why innovation there continued rather than stalling."
             },
             {
               "id": "D",
-              "text": "He would argue that the community of scientists, engineers, and artisans that Text 2 describes emerged only after profitable machines had already transformed British manufacturing, so that culture played little role at the outset."
+              "text": "He would argue that the culture described in Text 2 emerged only after profitable machines had transformed British manufacturing, so it mattered little at first."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** Mokyr's stated target is the staying power of British innovation — prices \"cannot explain\" why it \"kept going\" — so he would grant Allen's mechanism a role in adoption while denying it can account for the sustained progress that followed.\n\n**The Full Solution:**\n- Text 1's argument: Britain's high wages and cheap coal made mechanization profitable, which is why industrialization started there.\n- Text 2 does not dispute those prices. Its objection is aimed at sufficiency: other societies had labor-saving incentives too, and their inventive bursts \"petered out.\"\n- Mokyr's positive claim — a knowledge-sharing culture turned profitable machines into \"the start of sustained technological progress\" — is a response about continuation, exactly as choice C frames it.\n\n**Why the other choices are wrong:**\n- A: It attacks a premise Mokyr never questions; Text 2 accepts the price story as far as it goes and objects only to what it leaves unexplained.\n- B: It concedes too much (\"fully explain\") and then assigns culture a role — selecting which machines came first — that appears nowhere in Text 2.\n- D: It reverses Mokyr's causal order: in Text 2 the culture is what allowed the machines to matter, not a byproduct that arose after they had already transformed manufacturing."
+          "explanation": "**Choice C is correct.** Mokyr's stated target is the staying power of British innovation — prices \"cannot explain\" why it \"kept going\" — so he would grant Allen's mechanism a role in adoption while denying it can account for the sustained progress that followed.\n\n**The Full Solution:**\n- Text 1's argument: Britain's high wages and cheap coal made mechanization profitable, which is why industrialization started there.\n- Text 2 does not dispute those prices. Its objection is aimed at sufficiency: other societies had labor-saving incentives too, and their inventive bursts \"petered out.\"\n- Mokyr's positive claim — without a knowledge-sharing culture, profitable machines \"would have remained isolated tricks\" — is a claim about continuation, exactly as choice C frames it.\n\n**Why the other choices are wrong:**\n- A: It attacks a premise Mokyr never questions; Text 2 accepts the price story as far as it goes and objects only to what it leaves unexplained.\n- B: It concedes too much (\"fully explain\") and then assigns culture a role — selecting which machines came first — that appears nowhere in Text 2.\n- D: It reverses Mokyr's causal order: in Text 2 the culture is what allowed the machines to matter, not a byproduct that arose after they had already transformed manufacturing."
         },
         {
           "id": 211,
@@ -328,7 +328,7 @@ export const practiceTest2RW = {
           "choices": [
             {
               "id": "A",
-              "text": "the standard had to be imposed by an authority outside the orchestras rather than emerging from the ensembles' own rivalry, which rewarded each of them for tuning ever higher."
+              "text": "the standard had to be imposed by an outside authority rather than emerging from the orchestras' rivalry, which rewarded each for tuning ever higher."
             },
             {
               "id": "B",
@@ -419,10 +419,10 @@ export const practiceTest2RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "Track-forecast error — the distance between a hurricane's predicted and actual positions — has fallen steadily for decades as observations and models have improved. A student examining average errors for Atlantic-basin forecasts claims that the improvement between 1990 and 2020 was proportionally greatest at the longest lead times, so that forecasters gained the most ground exactly where their forecasts had once been least reliable. The claim is supported by the data because ______",
+          "passage": "Track-forecast error — the distance between a hurricane's predicted and actual positions — has fallen steadily for decades as observations and models have improved. A student examining the National Hurricane Center's average errors for Atlantic forecasts claims that the improvement between 1990 and 2020 was proportionally greatest at the longest lead time, so that forecasters gained the most ground exactly where their forecasts had once been least reliable. The claim is supported by the data because ______",
           "questionTable": {
             "type": "table",
-            "caption": "Average Atlantic-basin hurricane track-forecast error by lead time, 1990 and 2020",
+            "caption": "Average error of National Hurricane Center track forecasts for Atlantic tropical cyclones, by lead time, 1990 and 2020",
             "headers": [
               "Lead time",
               "Error, 1990 (km)",
@@ -431,18 +431,18 @@ export const practiceTest2RW = {
             "rows": [
               [
                 "24 hours",
-                "185",
-                "75"
+                "199",
+                "66"
               ],
               [
                 "48 hours",
-                "370",
+                "379",
                 "120"
               ],
               [
                 "72 hours",
-                "555",
-                "160"
+                "578",
+                "148"
               ]
             ]
           },
@@ -450,11 +450,11 @@ export const practiceTest2RW = {
           "choices": [
             {
               "id": "A",
-              "text": "the 24-hour forecast error in 2020, at 75 kilometers, was the smallest error shown anywhere in the table."
+              "text": "the 24-hour forecast error in 2020, at 66 kilometers, was the smallest error shown anywhere in the table."
             },
             {
               "id": "B",
-              "text": "the 72-hour error fell by 395 kilometers between 1990 and 2020, a larger absolute drop than at either shorter lead time."
+              "text": "the 72-hour error fell by 430 kilometers between 1990 and 2020, a larger absolute drop than at either shorter lead time."
             },
             {
               "id": "C",
@@ -462,11 +462,11 @@ export const practiceTest2RW = {
             },
             {
               "id": "D",
-              "text": "the 72-hour error fell by roughly 71 percent between 1990 and 2020, a proportionally larger decline than the roughly 68 percent at 48 hours or 59 percent at 24 hours."
+              "text": "the 72-hour error fell by roughly 74 percent between 1990 and 2020, a proportionally larger decline than the roughly 68 percent at 48 hours or 67 percent at 24 hours."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The claim is about proportional improvement ranked by lead time, and D performs exactly that computation: the percentage decline grows as the lead time lengthens, peaking at 72 hours.\n\n**The Full Solution:**\n- Convert each row to a percentage decline: 24 hours, (185 − 75)/185 ≈ 59%; 48 hours, (370 − 120)/370 ≈ 68%; 72 hours, (555 − 160)/555 ≈ 71%.\n- The declines increase with lead time, so the improvement was proportionally greatest at 72 hours — the lead time where 1990 errors were largest and forecasts least reliable.\n- Choice D reports precisely this ordering, matching the claim's proportional framing.\n\n**Why the other choices are wrong:**\n- A: The 24-hour error is the smallest in any year simply because shorter forecasts are easier; that ranking exists in both columns and says nothing about how much any lead time improved.\n- B: It substitutes absolute change for proportional change — the very confusion the claim's wording (\"proportionally greatest\") rules out; a large starting error can shrink by many kilometers while improving less in percentage terms.\n- C: Universal improvement supports only the weaker point that forecasts got better everywhere; it cannot establish which lead time improved most."
+          "explanation": "**Choice D is correct.** The claim is about proportional improvement ranked by lead time, and D performs exactly that computation: the percentage decline is largest at 72 hours.\n\n**The Full Solution:**\n- Convert each row to a percentage decline: 24 hours, (199 − 66)/199 ≈ 67%; 48 hours, (379 − 120)/379 ≈ 68%; 72 hours, (578 − 148)/578 ≈ 74%.\n- The improvement was proportionally greatest at 72 hours — the lead time where 1990 errors were largest and forecasts least reliable.\n- Choice D reports precisely this comparison, matching the claim's proportional framing.\n\n**Why the other choices are wrong:**\n- A: The 24-hour error is the smallest in either year simply because shorter forecasts are easier; that ranking exists in both columns and says nothing about how much any lead time improved.\n- B: It substitutes absolute change for proportional change — the very confusion the claim's wording (\"proportionally greatest\") rules out; a large starting error can shrink by many kilometers while improving less in percentage terms.\n- C: Universal improvement supports only the weaker point that forecasts got better everywhere; it cannot establish which lead time improved most."
         },
         {
           "id": 212,
@@ -574,7 +574,7 @@ export const practiceTest2RW = {
             },
             {
               "id": "B",
-              "text": "suggests that soldiers at frontier forts like Vindolanda wrote far more often than residents of Roman towns elsewhere, whose casual letters were less likely to be preserved in the ground beneath them."
+              "text": "suggests that soldiers at frontier forts wrote far more often than residents of Roman towns elsewhere."
             },
             {
               "id": "C",
@@ -595,7 +595,7 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "In 1637, the French mathematician Pierre de Fermat jotted a now-famous note in the margin of his copy of an ancient arithmetic text, claiming that he ______ a marvelous proof of the theorem he had just stated — a proof, he added, that the margin was too narrow to contain. Mathematicians hunted for it for more than three centuries; most now doubt that it ever existed.",
+          "passage": "Around 1637, the French mathematician Pierre de Fermat wrote a note in the margin of his copy of an ancient arithmetic text, claiming that he ______ a marvelous proof of the theorem he had just stated, one that the margin was too narrow to contain. Most mathematicians now doubt that such a proof ever existed.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -616,7 +616,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** Fermat's claim, reported in the past tense (\"jotted... claiming\"), concerns a discovery made before the moment of writing — a past within the past — which English marks with the past perfect \"had discovered.\"\n\n**The Full Solution:**\n- Establish the timeline: the note-writing happened in 1637 (past), and the discovery Fermat claimed had to precede the note — one cannot report possessing a proof one has not yet found.\n- Reported speech in a past-tense frame pushes the earlier event back one step: \"he claimed that he had discovered.\"\n- The past perfect \"had discovered\" is the only choice that places the discovery before the past-tense claiming.\n\n**Why the other choices are wrong:**\n- A: The present tense \"discovers\" clashes with the past-tense frame of \"jotted\" and \"claiming,\" producing an ungrammatical tense shift.\n- B: \"will discover\" makes Fermat promise a future discovery, contradicting the sentence's logic — the note asserts a proof already in hand that the margin cannot contain.\n- D: \"would have discovered\" is a conditional perfect, implying the discovery never happened under some unmet condition; the sentence reports what Fermat claimed did happen, not a hypothetical."
+          "explanation": "**Choice C is correct.** Fermat's claim, reported in the past tense (\"wrote... claiming\"), concerns a discovery made before the moment of writing — a past within the past — which English marks with the past perfect \"had discovered.\"\n\n**The Full Solution:**\n- Establish the timeline: the note-writing happened around 1637 (past), and the discovery Fermat claimed had to precede the note — one cannot report possessing a proof one has not yet found.\n- Reported speech in a past-tense frame pushes the earlier event back one step: \"he claimed that he had discovered.\"\n- The past perfect \"had discovered\" is the only choice that places the discovery before the past-tense claiming.\n\n**Why the other choices are wrong:**\n- A: The present tense \"discovers\" clashes with the past-tense frame of \"wrote\" and \"claiming,\" producing an ungrammatical tense shift.\n- B: \"will discover\" makes Fermat promise a future discovery, contradicting the sentence's logic — the note asserts a proof already in hand that the margin cannot contain.\n- D: \"would have discovered\" is a conditional perfect, implying the discovery never happened under some unmet condition; the sentence reports what Fermat claimed did happen, not a hypothetical."
         },
         {
           "id": 222,
@@ -625,7 +625,7 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "Lined on every surface with deep foam wedges that swallow reflections, ______ In such a room, the ear begins to notice sounds it normally ignores: the rush of blood, the faint whine of the nervous system itself.",
+          "passage": "Lined on every surface with deep foam wedges that swallow reflections, ______ In such a room, the ear begins to notice sounds it normally ignores: the rush of blood, the beating of one's own heart.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -715,28 +715,28 @@ export const practiceTest2RW = {
           "band": 2,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "Twice a day, at hundreds of stations around the world, meteorologists release balloons carrying instrument packages called radiosondes. As it rises through the atmosphere, each package ______ temperature, humidity, and pressure readings back to the station below, giving forecast models a three-dimensional snapshot of the air above.",
+          "passage": "Lighthouses along the same stretch of coast can look identical from a ship at night. To tell them apart, each lighthouse ______ its own pattern of flashes, known as its characteristic, which sailors can look up on their charts.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "have radioed"
+              "text": "have displayed"
             },
             {
               "id": "B",
-              "text": "radio"
+              "text": "display"
             },
             {
               "id": "C",
-              "text": "are radioing"
+              "text": "are displaying"
             },
             {
               "id": "D",
-              "text": "radios"
+              "text": "displays"
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The subject of the blank is the singular \"each package,\" so the verb must take the singular form \"radios.\"\n\n**The Full Solution:**\n- Find the subject: the clause is \"each package ______ temperature, humidity, and pressure readings.\" The subject is \"each package.\"\n- \"Each\" is grammatically singular even when many packages exist in the world; a singular subject requires a singular present-tense verb.\n- \"Radios\" is the third-person singular form, agreeing with \"each package\" and matching the present-tense frame of the surrounding sentences (\"meteorologists release,\" \"As it rises\").\n\n**Why the other choices are wrong:**\n- A: \"have radioed\" is a plural verb form and shifts into the perfect tense, breaking both agreement with the singular \"each package\" and the passage's present-tense narration.\n- B: \"radio\" is the plural present form; it would suit \"the packages radio\" but not the singular \"each package.\"\n- C: \"are radioing\" is plural; the singular counterpart (\"is radioing\") is not offered, and the plural form cannot pair with \"each package.\""
+          "explanation": "**Choice D is correct.** The subject of the verb is \"each lighthouse,\" which is singular, so the verb must be the singular \"displays.\"\n\n**The Full Solution:**\n- Find the subject: in \"each lighthouse ______ its own pattern of flashes,\" the word \"each\" marks a single lighthouse taken one at a time.\n- A singular subject takes a singular verb, and the passage describes a general, ongoing practice in the present tense (\"can look,\" \"can look up\").\n- \"Displays\" is singular and present tense, so it agrees with \"each lighthouse\" and fits the passage.\n\n**Why the other choices are wrong:**\n- A: \"Have displayed\" is a plural verb form; it does not agree with the singular subject \"each lighthouse.\"\n- B: \"Display\" is the plural present-tense form, so it also fails to agree with \"each lighthouse.\"\n- C: \"Are displaying\" is plural as well, and its progressive form suggests a single ongoing action rather than a lighthouse's permanent pattern."
         },
         {
           "id": 221,
@@ -775,7 +775,7 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Glass in the Roman world was too valuable to discard. Broken vessels were gathered and sold back to workshops, where they were melted down and blown into new forms; ancient writers even mention peddlers who traded sulfur matches for glass shards. Chemical analyses bear the practice out, finding that many Roman vessels contain glass mixed from several original sources. ______ the recycled fraction rises in samples from inland sites far from the coastal furnaces where raw glass was made, suggesting that communities remote from primary production leaned hardest on the secondhand supply.",
+          "passage": "An octopus can change the color of its skin in a fraction of a second, using thousands of tiny pigment sacs called chromatophores that muscles stretch open or let close. ______ it can change its skin's texture, raising small bumps called papillae so that it resembles the coral or seaweed around it.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -796,7 +796,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The final sentence adds a second, further finding from the chemical analyses — a geographic pattern on top of the mixing evidence — and \"Moreover\" is the transition that stacks additional support onto a point already made.\n\n**The Full Solution:**\n- The third sentence gives the first analytical finding: many vessels contain glass mixed from several sources, confirming recycling.\n- The blank sentence supplies a further finding in the same direction: recycling intensifies with distance from the raw-glass furnaces.\n- Adding a reinforcing piece of evidence to an established point is the job of \"Moreover.\"\n\n**Why the other choices are wrong:**\n- A: \"By contrast\" needs an opposition between the findings; the geographic pattern extends the recycling evidence rather than cutting against it.\n- B: \"In the meantime\" marks simultaneous but separate happenings; nothing in the passage involves events unfolding in parallel time.\n- D: \"Therefore\" would make the inland pattern a logical conclusion drawn from the mixing evidence, but it is an independent additional observation — the analyses found both facts; one does not follow from the other."
+          "explanation": "**Choice C is correct.** The final sentence adds a second camouflage ability to the first — changing texture as well as color — and \"Moreover\" is the transition that adds a further point in the same direction.\n\n**The Full Solution:**\n- The first sentence describes one ability: the octopus changes its skin color rapidly by means of chromatophores.\n- The blank sentence describes another ability of the same kind: the octopus changes its skin texture by raising papillae.\n- Two abilities that build the same picture call for an additive transition, and \"Moreover\" signals exactly that.\n\n**Why the other choices are wrong:**\n- A: \"By contrast\" would set the two abilities against each other, but texture change complements color change rather than opposing it.\n- B: \"In the meantime\" marks something happening during the same period; the passage is listing abilities, not ordering events in time.\n- D: \"Therefore\" would make texture change a consequence of color change, but the passage presents the two as separate abilities, neither caused by the other."
         },
         {
           "id": 224,
@@ -805,7 +805,7 @@ export const practiceTest2RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "In a second-price auction, the winner pays not her own bid but the second-highest one — a design that, in theory, makes bidding one's true maximum the best strategy no matter what other bidders do. Online auction sites implement precisely this design through automated proxy bidding, and the strategic advice follows directly: enter your maximum once and walk away. ______ a large share of bidders keep returning to nudge their bids upward in small increments, responding to rivals as though the auction rewarded haggling.",
+          "passage": "In a second-price auction, the winner pays not her own bid but the second-highest one, a design that makes bidding one's true maximum the best strategy. Many online auction sites use a version of this design, so the standard advice is simple: enter your maximum once and walk away. ______ many bidders keep returning to raise their bids in small steps, as though the auction rewarded haggling.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -826,7 +826,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The passage builds an expectation — theory and site design both say bid once and walk away — and the final sentence reports behavior that defies it. \"Nevertheless\" concedes the force of what came before while introducing the contrary fact.\n\n**The Full Solution:**\n- Sentences one and two converge on a clear prediction: rational bidders should enter their maximum a single time.\n- The blank sentence describes what bidders actually do: return repeatedly, raising bids in small increments as though haggling paid.\n- Actual behavior contradicting a well-grounded expectation is exactly the relationship \"Nevertheless\" signals — despite all that, the opposite happens.\n\n**Why the other choices are wrong:**\n- B: \"Consequently\" would present the haggling as the outcome of the strategic advice, inverting the logic — the behavior flouts the advice rather than following from it.\n- C: \"For example\" would make incremental bidding an illustration of the bid-once strategy, but it is a violation of that strategy, not an instance of it.\n- D: \"Likewise\" marks similarity with what precedes; the final sentence introduces a divergence between prediction and behavior, not a parallel case."
+          "explanation": "**Choice A is correct.** The passage builds an expectation — theory and the standard advice both say bid once and walk away — and the final sentence reports behavior that defies it. \"Nevertheless\" concedes the force of what came before while introducing the contrary fact.\n\n**The Full Solution:**\n- Sentences one and two converge on a clear prediction: rational bidders should enter their maximum a single time.\n- The blank sentence describes what bidders actually do: return repeatedly, raising bids in small steps as though haggling paid.\n- Actual behavior contradicting a well-grounded expectation is exactly the relationship \"Nevertheless\" signals — despite all that, the opposite happens.\n\n**Why the other choices are wrong:**\n- B: \"Consequently\" would present the haggling as the outcome of the strategic advice, inverting the logic — the behavior flouts the advice rather than following from it.\n- C: \"For example\" would make incremental bidding an illustration of the bid-once strategy, but it is a violation of that strategy, not an instance of it.\n- D: \"Likewise\" marks similarity with what precedes; the final sentence introduces a divergence between prediction and behavior, not a parallel case."
         },
         {
           "id": 223,
@@ -835,7 +835,7 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "The earthy scent that rises when rain falls on dry ground has a chemical source: geosmin, a compound produced by soil bacteria, to which human noses are astonishingly sensitive. Raindrops striking parched soil fling geosmin-laden droplets into the air, and a storm's outflow winds carry those droplets well ahead of the rain itself. ______ people often smell a storm coming minutes before the first drops arrive.",
+          "passage": "A firefly's glow comes from a chemical reaction inside its abdomen: an enzyme called luciferase helps a compound called luciferin combine with oxygen. Unlike a candle flame or an incandescent bulb, the reaction releases very little of its energy as heat. ______ a firefly's light organ stays cool even while it glows brightly.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -856,7 +856,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The final sentence states the consequence of the mechanism just described — scent-carrying droplets travel ahead of the rain, so people smell the storm before it arrives — and \"As a result\" is the transition that marks a consequence.\n\n**The Full Solution:**\n- The second sentence supplies a two-step cause: raindrops loft geosmin into the air, and outflow winds carry it ahead of the storm.\n- The blank sentence reports the effect of that cause: the smell reaches people minutes before the rain does.\n- A cause-to-effect join calls for a consequence transition, and \"As a result\" is exactly that.\n\n**Why the other choices are wrong:**\n- A: \"However\" signals a contrast or reversal, but the final sentence follows from the previous one rather than opposing it.\n- B: \"For instance\" introduces an example of a general claim; the final sentence is not an instance of the wind mechanism but its outcome.\n- C: \"Similarly\" requires a second, parallel phenomenon; there is only one continuous causal chain here, not two alike things being compared."
+          "explanation": "**Choice D is correct.** The final sentence states the consequence of the fact just described — the reaction gives off very little heat, so the light organ stays cool — and \"As a result\" is the transition that marks a consequence.\n\n**The Full Solution:**\n- The second sentence supplies the cause: unlike a flame or a bulb, the firefly's reaction releases very little of its energy as heat.\n- The blank sentence reports the effect of that cause: the light organ stays cool even while glowing brightly.\n- A cause-to-effect join calls for a consequence transition, and \"As a result\" is exactly that.\n\n**Why the other choices are wrong:**\n- A: \"However\" signals a contrast or reversal, but the final sentence follows from the previous one rather than opposing it.\n- B: \"For instance\" introduces an example of a general claim; a cool light organ is not an example of the reaction's chemistry but its outcome.\n- C: \"Similarly\" requires a second, parallel phenomenon; the final sentence describes the result of the same reaction, not a comparable one."
         },
         {
           "id": 227,
@@ -868,36 +868,35 @@ export const practiceTest2RW = {
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "Faith Ringgold is an American artist who began making story quilts in the 1980s.",
-              "A story quilt combines a painted central image, a border of pieced fabric, and handwritten text.",
-              "Ringgold learned to sew from her mother, a fashion designer in Harlem.",
+              "Faith Ringgold (1930-2024) was an American artist.",
+              "In the early 1980s, Ringgold was trying to publish her autobiography, but publishers turned it down.",
+              "She began writing her stories directly onto her quilts so that people could read them whenever the quilts were displayed.",
               "Her 1988 story quilt Tar Beach shows a girl imagining that she can fly over her Harlem neighborhood.",
-              "In her 1995 memoir We Flew Over the Bridge, Ringgold wrote that quilting let her tell stories in a form museums had long dismissed as craft.",
-              "Tar Beach was adapted into a children's picture book in 1991."
+              "Ringgold's memoir, We Flew Over the Bridge, was finally published in 1995."
             ],
-            "goal": "The student wants to explain why Ringgold chose the story-quilt form."
+            "goal": "The student wants to explain why Ringgold began making story quilts."
           },
           "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
           "choices": [
             {
               "id": "A",
-              "text": "Ringgold's story quilts combine a painted central image, a border of pieced fabric, and handwritten text."
+              "text": "Faith Ringgold, an American artist, published her memoir, We Flew Over the Bridge, in 1995."
             },
             {
               "id": "B",
-              "text": "Ringgold chose the story quilt, a form museums had long dismissed as craft, because quilting let her tell stories."
+              "text": "After publishers turned down her autobiography, Ringgold began writing her stories onto quilts so that people could read them."
             },
             {
               "id": "C",
-              "text": "Tar Beach, a 1988 story quilt by Faith Ringgold, shows a girl imagining that she can fly over her Harlem neighborhood."
+              "text": "Tar Beach, a 1988 story quilt by Faith Ringgold, shows a girl imagining that she can fly over Harlem."
             },
             {
               "id": "D",
-              "text": "Faith Ringgold began making story quilts in the 1980s, and her quilt Tar Beach was adapted into a children's picture book in 1991."
+              "text": "In the early 1980s, Faith Ringgold was trying to publish her autobiography."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The goal is to explain why Ringgold chose the form, and only choice B gives a reason: quilting let her tell stories, even though museums had dismissed the form as craft. That reason comes directly from the note about her memoir.\n\n**The Full Solution:**\n- The goal word is \"why,\" so the sentence must state a motive, not describe the quilts or list events.\n- The memoir note is the only note that gives Ringgold's own reason for working in quilts.\n- Choice B builds its sentence around that reason and names the form it explains.\n\n**Why the other choices are wrong:**\n- A: It describes what a story quilt is made of, not why Ringgold chose the form.\n- C: It describes one quilt's subject, which does not explain the choice of form.\n- D: It gives a timeline of events without stating any reason."
+          "explanation": "**Choice B is correct.** The goal asks why Ringgold began making story quilts, and B gives the reason the notes supply: publishers had turned down her autobiography, so she put her stories on quilts where people could read them.\n\n**The Full Solution:**\n- An explanation of \"why\" needs a cause linked to the result. The notes provide both: the rejected autobiography (cause) and the decision to write stories onto quilts so they could be read (result).\n- Choice B joins the two with \"After... so that,\" presenting the rejection as the occasion and readability as the purpose.\n\n**Why the other choices are wrong:**\n- A: It reports when her memoir appeared but says nothing about why she turned to quilts.\n- C: It describes one famous story quilt rather than explaining why she began making them.\n- D: It states only the first half of the explanation — her attempt to publish — without connecting it to the quilts at all."
         },
         {
           "id": 226,
@@ -910,10 +909,10 @@ export const practiceTest2RW = {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
               "Emmy Noether (1882-1935) was a German mathematician.",
-              "In 1915, physicists were troubled because Einstein's new general theory of relativity seemed to conflict with the conservation of energy.",
-              "In 1918, Noether proved a theorem showing that every continuous symmetry in the laws of physics corresponds to a conserved quantity.",
+              "In 1915, Einstein's new general theory of relativity seemed to conflict with the conservation of energy.",
+              "In 1918, Noether published a theorem showing that every continuous symmetry in the laws of physics corresponds to a conserved quantity.",
               "For example, because the laws of physics are the same at all times, energy must be conserved.",
-              "Physicists today still use Noether's theorem to identify conserved quantities whenever they propose new theories."
+              "Physicists today still use Noether's theorem to identify conserved quantities when they propose new theories."
             ],
             "goal": "The student wants to emphasize the lasting usefulness of Noether's theorem to physicists."
           },
@@ -921,23 +920,23 @@ export const practiceTest2RW = {
           "choices": [
             {
               "id": "A",
-              "text": "In 1918, Emmy Noether proved a theorem showing that every continuous symmetry in the laws of physics corresponds to a conserved quantity — for example, energy is conserved because the laws of physics are the same at all times."
+              "text": "In 1918, Emmy Noether published a theorem linking every continuous symmetry in the laws of physics to a conserved quantity, such as energy."
             },
             {
               "id": "B",
-              "text": "More than a century after Emmy Noether proved it, physicists still turn to her 1918 theorem to identify conserved quantities whenever they propose new theories."
+              "text": "More than a century after Emmy Noether published it in 1918, physicists still use her theorem to identify conserved quantities in new theories."
             },
             {
               "id": "C",
-              "text": "Emmy Noether, a German mathematician who lived from 1882 to 1935, proved an important theorem in the year 1918."
+              "text": "Emmy Noether, a German mathematician who lived from 1882 to 1935, published an important theorem in 1918."
             },
             {
               "id": "D",
-              "text": "In 1915, physicists were troubled because Einstein's new general theory of relativity seemed to conflict with the conservation of energy."
+              "text": "In 1915, Einstein's new general theory of relativity seemed to conflict with the conservation of energy."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The goal is lasting usefulness, and B is built around exactly that: \"more than a century after\" she proved it, physicists \"still turn to\" the theorem for a working purpose.\n\n**The Full Solution:**\n- The goal has two parts to convey: the theorem endures, and physicists find it useful.\n- Choice B delivers both — the time span establishes endurance, and \"to identify conserved quantities whenever they propose new theories\" establishes ongoing, practical use.\n\n**Why the other choices are wrong:**\n- A: It states the theorem's content and an example accurately but stops in 1918 — nothing conveys that physicists still rely on it.\n- C: It reduces Noether to biography and calls the theorem \"important\" without evidence of use, present or past.\n- D: It describes the 1915 problem that preceded the theorem and never mentions the theorem's later usefulness at all."
+          "explanation": "**Choice B is correct.** The goal is lasting usefulness, and B is built around exactly that: \"more than a century after\" she published it, physicists \"still use\" the theorem for a working purpose.\n\n**The Full Solution:**\n- The goal has two parts to convey: the theorem endures, and physicists find it useful.\n- Choice B delivers both — the time span establishes endurance, and \"to identify conserved quantities in new theories\" establishes ongoing, practical use.\n\n**Why the other choices are wrong:**\n- A: It states the theorem's content accurately but stops in 1918 — nothing conveys that physicists still rely on it.\n- C: It reduces Noether to biography and calls the theorem \"important\" without evidence of use, present or past.\n- D: It describes the 1915 problem that preceded the theorem and never mentions the theorem's later usefulness at all."
         }
       ]
     },
@@ -953,7 +952,7 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Before anyone had made one, the physicist Mildred Dresselhaus and her colleagues calculated how electrons would move through a carbon nanotube, predicting that a tube would conduct electricity like a metal or like a semiconductor depending only on the angle at which its sheet of carbon was rolled. Measurements on the first tubes synthesized in the 1990s ______ the prediction.",
+          "passage": "Soon after carbon nanotubes were discovered in 1991, the physicist Mildred Dresselhaus and her colleagues calculated how electrons would move through them, predicting that a tube would conduct electricity like a metal or like a semiconductor depending on its diameter and the angle at which its sheet of carbon was rolled. Measurements on individual tubes in 1998 ______ the prediction.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -974,7 +973,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The calculations came first and the measurements came later, so the blank names what measurement does to a prediction it agrees with: it confirms it.\n\n**The Full Solution:**\n- The first sentence makes the order of events explicit — the calculations were done \"before anyone had made one.\"\n- The second sentence reports what happened when tubes finally existed and could be measured.\n- A measurement that arrives after a prediction and bears it out confirms it.\n\n**Why the other choices are wrong:**\n- A: To \"anticipate\" a prediction is to come before it, and the measurements came years after.\n- B: \"Complicated\" would mean the results made the prediction harder to maintain, which reverses the relationship the passage sets up.\n- D: \"Revised\" would mean the prediction had to be changed, again the opposite of agreement."
+          "explanation": "**Choice C is correct.** The calculations came first and the measurements came later, so the blank names what measurement does to a prediction it agrees with: it confirms it.\n\n**The Full Solution:**\n- The first sentence makes the order of events explicit — the calculations were done \"soon after carbon nanotubes were discovered in 1991.\"\n- The second sentence reports what happened when individual tubes were measured in 1998.\n- A measurement that arrives after a prediction and bears it out confirms it.\n\n**Why the other choices are wrong:**\n- A: To \"anticipate\" a prediction is to come before it, and the measurements came years after.\n- B: \"Complicated\" would mean the results made the prediction harder to maintain, which reverses the relationship the passage sets up.\n- D: \"Revised\" would mean the prediction had to be changed, again the opposite of agreement."
         },
         {
           "id": 230,
@@ -983,7 +982,7 @@ export const practiceTest2RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "The ease with which a listener follows a single voice across a crowded room belies the difficulty of the underlying feat. The sound arriving at the ear is one merged waveform; nothing in the physics labels which frequencies belong to which speaker. To follow a conversation, the auditory system must ______ that mixture — grouping harmonics that rise and fall together, tracking continuities of pitch and timbre, and assigning each strand to its probable source — and it must do so continuously, revising its solution as speakers pause, overlap, and interrupt one another.",
+          "passage": "Following a single voice across a crowded room is harder than it seems. The sound reaching the ear is one merged waveform; nothing in the physics labels which frequencies belong to which speaker. To follow a conversation, the auditory system must ______ that mixture, grouping sounds that rise and fall together and assigning each strand to its probable source, and it must keep revising as speakers pause and interrupt one another.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -1004,7 +1003,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The operations listed after the dash — grouping, tracking, assigning strands to sources — describe breaking a merged whole into its meaningful parts, which is precisely what \"parse\" means.\n\n**The Full Solution:**\n- The problem is stated first: the ear receives \"one merged waveform\" with no labels attaching frequencies to speakers.\n- The material between the dashes defines the blank operationally: separate the mixture into components and assign each to its likely source.\n- \"Parse\" — to analyze something into its constituent parts and their relations — is the verb that covers exactly those operations.\n\n**Why the other choices are wrong:**\n- A: \"amplify\" only makes the mixture louder; a louder merged waveform is just as unlabeled and unseparated as before.\n- C: \"suppress\" describes discarding sound, but the task is to sort every strand, including the one the listener wants to keep — suppressing the mixture would silence the target voice along with the rest.\n- D: \"replicate\" means to copy; duplicating the merged waveform brings the listener no closer to knowing which frequencies belong to which speaker."
+          "explanation": "**Choice B is correct.** The operations listed after the blank — grouping sounds and assigning each strand to its source — describe breaking a merged whole into its meaningful parts, which is precisely what \"parse\" means.\n\n**The Full Solution:**\n- The problem is stated first: the ear receives \"one merged waveform\" with no labels attaching frequencies to speakers.\n- The phrase after the blank defines it operationally: separate the mixture into components and assign each to its likely source.\n- \"Parse\" — to analyze something into its constituent parts and their relations — is the verb that covers exactly those operations.\n\n**Why the other choices are wrong:**\n- A: \"amplify\" only makes the mixture louder; a louder merged waveform is just as unlabeled and unseparated as before.\n- C: \"suppress\" describes discarding sound, but the task is to sort every strand, including the one the listener wants to keep — suppressing the mixture would silence the target voice along with the rest.\n- D: \"replicate\" means to copy; duplicating the merged waveform brings the listener no closer to knowing which frequencies belong to which speaker."
         },
         {
           "id": 229,
@@ -1013,7 +1012,7 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "The Nebra sky disk, a bronze plate inlaid with gold symbols and buried around 1600 BCE in central Europe, is no casual picture of the heavens. Its cluster of seven dots, its crescent, and its full circle are placed with evident care, and two gold arcs along the rim span exactly the angle between the sun's summer and winter rising points at the site where the disk was found. Many researchers therefore read the object as a device that ______ astronomical knowledge — a worked summary of observations its makers needed for tracking the seasons.",
+          "passage": "The Nebra sky disk, a bronze plate inlaid with gold symbols and buried around 1600 BCE in what is now Germany, is no casual picture of the heavens. Two gold arcs along its rim span the angle between the sun's summer and winter rising points at the site where the disk was found. Many researchers therefore read the object as a device that ______ astronomical knowledge its makers needed for tracking the seasons.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -1034,7 +1033,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The disk's markings capture real observations in symbolic form — dots, arcs, and circles standing for celestial facts — and \"encodes\" means exactly that: to represent information in a system of symbols.\n\n**The Full Solution:**\n- The passage's evidence is representational: the arcs \"span exactly the angle\" between solstice sunrise points, so the design stores a measured fact about the sky.\n- The appositive after the dash defines the blank — \"a worked summary of observations\" — that is, knowledge fixed into the object's design.\n- \"Encodes\" is the verb for storing knowledge in symbolic form, matching both the evidence and the appositive.\n\n**Why the other choices are wrong:**\n- A: \"acquires\" would have the object gathering knowledge itself; the makers observed the sky, and the disk merely holds what they learned.\n- B: \"embellishes\" treats the gold symbols as decoration, but the passage insists the opposite — this is \"no casual picture,\" and the placements are exact.\n- D: \"disputes\" would make the disk argue against astronomical knowledge, a reading nothing in the passage supports."
+          "explanation": "**Choice C is correct.** The disk's markings capture real observations in symbolic form — dots, arcs, and circles standing for celestial facts — and \"encodes\" means exactly that: to represent information in a system of symbols.\n\n**The Full Solution:**\n- The passage's evidence is representational: the arcs \"span the angle\" between the sun's summer and winter rising points, so the design stores a measured fact about the sky.\n- The object of the blank — \"astronomical knowledge its makers needed for tracking the seasons\" — is knowledge fixed into the object's design.\n- \"Encodes\" is the verb for storing knowledge in symbolic form, matching both the evidence and the appositive.\n\n**Why the other choices are wrong:**\n- A: \"acquires\" would have the object gathering knowledge itself; the makers observed the sky, and the disk merely holds what they learned.\n- B: \"embellishes\" treats the gold symbols as decoration, but the passage insists the opposite — this is \"no casual picture,\" and the arcs record a measured angle.\n- D: \"disputes\" would make the disk argue against astronomical knowledge, a reading nothing in the passage supports."
         },
         {
           "id": 231,
@@ -1043,7 +1042,7 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "A ferrofluid is a liquid that answers to magnets: nanoscale iron particles suspended in oil let the fluid be pulled and held by magnetic fields while it continues to flow like a liquid. Bring a strong magnet near and the surface erupts into a regular landscape of spikes, each one tracing the local field lines. Because the fluid ______ whatever field is applied to it, engineers can steer it into configurations no solid magnet could adopt — a liquid seal around a spinning shaft, for instance.",
+          "passage": "A ferrofluid is a liquid that responds to magnets: tiny magnetic particles suspended in oil let a magnetic field pull and hold the fluid while it still flows. Near a strong magnet, its surface rises into spikes that follow the field lines. Because the fluid ______ whatever field is applied, engineers can use it in ways no solid allows, such as a liquid seal around a spinning shaft.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -1064,7 +1063,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The passage shows the fluid taking the shape the field dictates — spikes \"tracing the local field lines\" — so the fluid \"conforms to\" whatever field is applied.\n\n**The Full Solution:**\n- The spike demonstration establishes the relationship: the fluid's surface reorganizes itself to match the magnetic field's geometry.\n- The final sentence draws the engineering consequence: because the fluid takes on the field's shape, engineers can steer it into otherwise impossible configurations.\n- \"Conforms to\" — takes the shape or pattern of — names that relationship exactly and explains why steering works.\n\n**Why the other choices are wrong:**\n- A: \"dispenses with\" means to do without; a fluid that ignored the applied field could not be steered by it at all, gutting the sentence's logic.\n- B: \"presides over\" reverses the hierarchy — the field commands the fluid, not the other way around.\n- D: \"detracts from\" means to diminish; the fluid does not weaken the field, it obeys it, and diminishment would give engineers nothing to steer with."
+          "explanation": "**Choice C is correct.** The passage shows the fluid taking the shape the field dictates — spikes \"that follow the field lines\" — so the fluid \"conforms to\" whatever field is applied.\n\n**The Full Solution:**\n- The spike demonstration establishes the relationship: the fluid's surface reorganizes itself to match the magnetic field's geometry.\n- The final sentence draws the engineering consequence: because the fluid takes on the field's shape, engineers can use it in ways no solid allows.\n- \"Conforms to\" — takes the shape or pattern of — names that relationship exactly and explains why engineers can control it.\n\n**Why the other choices are wrong:**\n- A: \"dispenses with\" means to do without; a fluid that ignored the applied field could not be controlled by it at all, gutting the sentence's logic.\n- B: \"presides over\" reverses the hierarchy — the field commands the fluid, not the other way around.\n- D: \"detracts from\" means to diminish; the fluid does not weaken the field, it obeys it, and diminishment would give engineers nothing to work with."
         },
         {
           "id": 234,
@@ -1073,20 +1072,20 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "Does health insurance make people healthier? Simply comparing the insured with the uninsured cannot answer the question, because the two groups differ in many ways besides coverage. In 2008, the state of Oregon supplied a rare opening: with funds to extend Medicaid to only a fraction of eligible adults, it allocated the slots by lottery, creating by pure chance the treatment and control groups that a deliberate experiment would have assembled. Researchers tracking the two groups found that coverage increased use of care and virtually eliminated catastrophic medical costs, yet produced no detectable improvement, after two years, in blood pressure or cholesterol — a mixed result that both sides of the insurance debate promptly claimed as vindication.",
+          "passage": "Does health insurance make people healthier? Simply comparing insured and uninsured people cannot answer the question, because the two groups differ in many ways besides coverage. In 2008, Oregon offered a rare opening: able to extend Medicaid to only some eligible adults, the state chose recipients by lottery, creating by chance the groups a deliberate experiment would have assembled. Researchers found that coverage increased use of care and nearly eliminated catastrophic medical costs but produced no detectable improvement in blood pressure or cholesterol after two years, a mixed result that both sides of the insurance debate claimed as support.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "It presents a policy question, reviews the history of a government program, and ultimately endorses one side of a long-running dispute."
+              "text": "It presents a policy question, reviews the history of a government program, and endorses one side of a long-running dispute."
             },
             {
               "id": "B",
-              "text": "It describes an experiment that researchers deliberately designed, details the obstacles they overcame in recruiting and retaining participants, and summarizes results that settled a long-running scholarly controversy."
+              "text": "It describes an experiment researchers deliberately designed, details obstacles in recruiting participants, and summarizes results that settled a controversy."
             },
             {
               "id": "C",
-              "text": "It poses a question, explains why straightforward comparisons cannot answer it, describes a chance event that enabled a rigorous test, and reports findings that each side of a debate read as support."
+              "text": "It poses a question, explains why simple comparisons fail to answer it, describes a chance event enabling a test, and reports findings both sides claimed."
             },
             {
               "id": "D",
@@ -1094,7 +1093,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The text moves through exactly four steps: the opening question, the methodological obstacle, the lottery that solved it, and the mixed findings each camp claimed — the sequence choice C lays out in order.\n\n**The Full Solution:**\n- Step one: the question — \"Does health insurance make people healthier?\"\n- Step two: why comparison fails — insured and uninsured people \"differ in many ways besides coverage.\"\n- Step three: the chance event — Oregon's lottery allocation, which built experiment-quality groups \"by pure chance.\"\n- Step four: the findings — more care and fewer catastrophic costs, but no detectable change in blood pressure or cholesterol — with both sides claiming vindication.\n\n**Why the other choices are wrong:**\n- A: No program history is reviewed, and the text endorses neither side — it pointedly notes that both claimed the result.\n- B: The lottery was Oregon's budget mechanism, not a design by researchers, and no recruiting obstacles appear; far from settling the controversy, the result fed both sides.\n- D: The text presents one study's findings, not two competing answers, and it never concludes that the evidence cannot discriminate — it reports what the evidence showed and how partisans received it."
+          "explanation": "**Choice C is correct.** The text moves through exactly four steps: the opening question, the methodological obstacle, the lottery that solved it, and the mixed findings each camp claimed — the sequence choice C lays out in order.\n\n**The Full Solution:**\n- Step one: the question — \"Does health insurance make people healthier?\"\n- Step two: why comparison fails — insured and uninsured people \"differ in many ways besides coverage.\"\n- Step three: the chance event — Oregon's lottery allocation, which created experiment-quality groups \"by chance.\"\n- Step four: the findings — more care and fewer catastrophic costs, but no detectable change in blood pressure or cholesterol — with both sides claiming support.\n\n**Why the other choices are wrong:**\n- A: No program history is reviewed, and the text endorses neither side — it pointedly notes that both claimed the result.\n- B: The lottery was Oregon's budget mechanism, not a design by researchers, and no recruiting obstacles appear; far from settling the controversy, the result fed both sides.\n- D: The text presents one study's findings, not two competing answers, and it never concludes that the evidence cannot discriminate — it reports what the evidence showed and how partisans received it."
         },
         {
           "id": 232,
@@ -1103,12 +1102,12 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "The following text is from Robert Louis Stevenson's 1886 novel Kidnapped. The narrator, a young man named David, is leaving the village where he grew up.\n\nI will begin the story of my adventures with a certain morning early in the month of June, the year of grace 1751, when I took the key for the last time out of the door of my father's house. The sun began to shine upon the summit of the hills as I went down the road; and by the time I had come as far as the manse, the blackbirds were whistling in the garden lilacs, and the mist that hung around the valley in the time of the dawn was beginning to arise and die away. Mr. Campbell, the minister of Essendean, was waiting for me by the garden gate, good man!",
+          "passage": "The following text is from Robert Louis Stevenson's 1886 novel Kidnapped. The narrator, David, is leaving the village where he grew up.\n\nI will begin the story of my adventures with a certain morning early in the month of June, the year of grace 1751, when I took the key for the last time out of the door of my father's house. The sun began to shine upon the summit of the hills as I went down the road; and by the time I had come as far as the manse, the blackbirds were whistling in the garden lilacs, and the mist that hung around the valley in the time of the dawn was beginning to arise and die away.",
           "question": "Which choice best states the main purpose of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "To contrast the tranquility of the countryside the narrator walks through with the dangerous events that he already knows are waiting for him at his journey's end"
+              "text": "To contrast the peaceful countryside with the dangers the narrator already knows await him at his journey's end"
             },
             {
               "id": "B",
@@ -1120,11 +1119,11 @@ export const practiceTest2RW = {
             },
             {
               "id": "D",
-              "text": "To mark the narrator's departure from his childhood home as the beginning of the adventures he is about to relate"
+              "text": "To mark the narrator's departure from his childhood home as the start of the adventures he will relate"
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The narrator announces his design in the first clause — \"I will begin the story of my adventures with a certain morning\" — and the text then renders that morning of departure: the key turned for the last time, the walk down the road, the minister waiting at the gate.\n\n**The Full Solution:**\n- The opening sentence frames everything that follows as the starting point of a story of adventures.\n- The chosen starting point is the departure itself: taking the key \"for the last time\" out of his father's door.\n- The morning scenery and Mr. Campbell's presence at the gate elaborate that moment of setting out — the function of the whole text is to inaugurate the journey, as choice D states.\n\n**Why the other choices are wrong:**\n- A: The countryside is indeed tranquil, but the narrator voices no knowledge of dangers ahead; the contrast choice A describes exists outside this text.\n- B: No reasons for leaving are given anywhere in the passage — the departure is presented, not explained.\n- C: The narrator registers no grief; the tone of the morning is bright, with sun, blackbirds, and a warmly greeted \"good man\" at the gate.",
+          "explanation": "**Choice D is correct.** The narrator announces his design in the first clause — \"I will begin the story of my adventures with a certain morning\" — and the text then renders that morning of departure: the key taken from the door for the last time and the walk down the road at dawn.\n\n**The Full Solution:**\n- The opening sentence frames everything that follows as the starting point of a story of adventures.\n- The chosen starting point is the departure itself: taking the key \"for the last time out of the door of my father's house.\"\n- The morning scenery — the sun on the hills, the blackbirds in the lilacs, the lifting mist — elaborates that moment of setting out. The function of the whole text is to inaugurate the journey, as choice D states.\n\n**Why the other choices are wrong:**\n- A: The countryside is indeed peaceful, but the narrator voices no knowledge of dangers ahead; the contrast choice A describes exists outside this text.\n- B: No reasons for leaving are given anywhere in the passage — the departure is presented, not explained.\n- C: The narrator registers no grief; the tone of the morning is bright, with sunshine, whistling blackbirds, and mist lifting from the valley.",
           "_meta": {
             "quoteVerify": true,
             "source": "Robert Louis Stevenson, Kidnapped (1886), Chapter I, opening lines; text verbatim per the Project Gutenberg edition, typography normalized"
@@ -1137,7 +1136,7 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "In the courts of late medieval Europe, tapestries were far more than wall decoration. Woven of wool, silk, and often gold thread, a full set could cost more than a warship and occupy a workshop for years. Yet unlike frescoes or carved paneling, tapestries could be rolled, packed, and carried: a ruler traveling from castle to castle brought the hangings along, converting each bare stone hall into a furnished declaration of rank. Court inventories confirm the priority — clerks recorded tapestries alongside jewels and plate among the treasures of the realm, and the hangings changed hands as diplomatic gifts, dowries, and spoils of war.",
+          "passage": "In the courts of late medieval and Renaissance Europe, tapestries were far more than wall decoration. Woven of wool, silk, and often gold thread, a full set could cost as much as a warship and occupy a workshop for years. Yet unlike frescoes or carved paneling, tapestries could be rolled, packed, and carried: a ruler traveling from castle to castle brought the hangings along, converting each bare stone hall into a furnished declaration of rank. Court inventories confirm the priority — clerks recorded tapestries alongside jewels and plate among the treasures of the realm, and the hangings changed hands as diplomatic gifts, dowries, and spoils of war.",
           "question": "Which choice best states the main purpose of the text?",
           "choices": [
             {
@@ -1170,11 +1169,11 @@ export const practiceTest2RW = {
           "passages": [
             {
               "label": "Text 1",
-              "text": "Between late 2019 and early 2020, the red supergiant star Betelgeuse dimmed to roughly a third of its usual brightness, prompting popular speculation that a supernova was imminent. Some astronomers proposed a calmer explanation rooted in the star's own churning. Red supergiants boil with convection cells of enormous size, and an unusually large upwelling followed by cooling could have left a vast, temporarily dark patch on the surface. On this view, the Great Dimming required nothing more than the star's ordinary turbulence operating at an extraordinary scale."
+              "text": "Between late 2019 and early 2020, the red supergiant Betelgeuse dimmed to roughly a third of its usual brightness, prompting speculation that it was about to explode. Some astronomers proposed a calmer explanation. Red supergiants churn with enormous convection cells, and an unusually large upwelling followed by cooling could have left a vast, temporarily dark patch on the star's surface. On this view, the dimming required only the star's ordinary turbulence operating at an extraordinary scale."
             },
             {
               "label": "Text 2",
-              "text": "Astronomer Miguel Montargès and colleagues imaged Betelgeuse before, during, and after the dimming. Their images show the star's southern region darkening dramatically, and their analysis favors a veil of dust: gas ejected from the star drifted outward, cooled, and condensed into grains that blocked part of the light. Crucially, the team proposes that a cool patch on the surface is what chilled the ejected gas enough for dust to condense — in their reconstruction, neither the dust nor the surface cooling alone reproduces what was observed."
+              "text": "Astronomer Miguel Montargès and colleagues imaged Betelgeuse before, during, and after the dimming. Their images show the star's southern region darkening, and their analysis favors a veil of dust: gas ejected from the star drifted outward, cooled, and condensed into grains that blocked part of the light. The team proposes that a cool patch on the surface is what chilled the gas enough for dust to form; in their account, the patch and the dust together produced the dimming."
             }
           ],
           "question": "Based on the texts, how would Montargès and colleagues (Text 2) most likely respond to the explanation presented in Text 1?",
@@ -1185,19 +1184,19 @@ export const practiceTest2RW = {
             },
             {
               "id": "B",
-              "text": "They would argue that because the dimming was concentrated in the star's southern region, a cooling patch produced by convection would have had to darken the entire surface of the star uniformly instead."
+              "text": "They would argue that a cooling patch produced by convection would have darkened the entire star rather than only its southern region."
             },
             {
               "id": "C",
-              "text": "They would agree that the star's ordinary turbulence fully explains the dimming without any contribution from material ejected off the surface."
+              "text": "They would agree that the star's ordinary turbulence fully explains the dimming without any contribution from material ejected by the star."
             },
             {
               "id": "D",
-              "text": "They would grant that a cool surface patch likely formed but deny that it acted alone, since in their analysis the patch mattered chiefly by chilling ejected gas until light-blocking dust condensed."
+              "text": "They would grant that a cool surface patch likely formed but argue that it dimmed the star mainly by chilling ejected gas until dust condensed."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** Text 2 builds the cool patch into its own account — but only as one ingredient: the patch chills the ejected gas so that dust can condense, and \"neither the dust nor the surface cooling alone reproduces what was observed.\" That is precisely a yes-but response to Text 1's cooling-only explanation.\n\n**The Full Solution:**\n- Text 1's proposal: a huge convective upwelling cooled, leaving a dark patch — turbulence alone suffices.\n- Text 2's reconstruction incorporates that patch (\"a cool patch on the surface is what chilled the ejected gas\") but assigns the light-blocking to dust condensed from ejected material.\n- The explicit disclaimer that neither mechanism alone reproduces the observations commits the team to rejecting Text 1's sufficiency claim while accepting its ingredient — the position choice D states.\n\n**Why the other choices are wrong:**\n- A: It has the team denying that large convection cells exist, contradicting the cool patch their own reconstruction requires.\n- B: It invents a physical necessity no text asserts — nothing says convective cooling must darken the whole surface uniformly — and the team's own patch is regional.\n- C: It converts their yes-but into full agreement, erasing the dust veil that their analysis says the observations demand."
+          "explanation": "**Choice D is correct.** Text 2 builds a cool patch into its own account — but only as one ingredient: the patch chills the ejected gas so that dust can form, and \"the patch and the dust together produced the dimming.\" That is precisely a yes-but response to Text 1's cooling-only explanation.\n\n**The Full Solution:**\n- Text 1's proposal: a huge convective upwelling cooled, leaving a dark patch — the star's ordinary turbulence suffices.\n- Text 2's account incorporates such a patch (\"a cool patch on the surface is what chilled the gas enough for dust to form\") but assigns the light-blocking to dust condensed from ejected material.\n- Crediting the dimming to the patch and the dust together commits the team to rejecting Text 1's claim that turbulence alone explains the event while accepting its ingredient — the position choice D states.\n\n**Why the other choices are wrong:**\n- A: It has the team denying that large convection cells exist, contradicting the cool patch their own account requires.\n- B: It invents a physical necessity no text asserts — nothing says convective cooling must darken the whole star — and the team's own patch is regional.\n- C: It converts their yes-but into full agreement, erasing the dust veil that their analysis says the observations demand."
         },
         {
           "id": 236,
@@ -1206,7 +1205,7 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "Teotihuacan, the largest city in the Americas in the first centuries CE, housed most of its residents in walled apartment compounds. The archaeologist Linda Manzanilla has analyzed human remains and household goods from several of these compounds. Oxygen and strontium isotope ratios in the teeth of the people buried there indicate that many had grown up far from the valley, and a single compound often holds pottery and burial customs belonging to more than one region. Manzanilla concludes that the compounds housed migrants from across Mesoamerica rather than single local lineages.",
+          "passage": "Teotihuacan, one of the largest cities in the Americas in the first centuries CE, housed most of its residents in walled apartment compounds. The archaeologist Linda Manzanilla excavated Teopancazco, a compound at the center of one of the city's neighborhoods. Strontium isotope ratios in the bones and teeth of people buried there show that many had grown up outside the valley, some as far away as the Gulf Coast, and the compound's pottery and burial practices come from several regions. Manzanilla concludes that Teopancazco's population was multiethnic rather than a single local lineage.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
@@ -1215,7 +1214,7 @@ export const practiceTest2RW = {
             },
             {
               "id": "B",
-              "text": "Evidence from Teotihuacan's apartment compounds indicates that they housed people drawn from several regions rather than from one local group."
+              "text": "Evidence from a Teotihuacan compound indicates that its residents came from several regions rather than from one local group."
             },
             {
               "id": "C",
@@ -1223,11 +1222,11 @@ export const practiceTest2RW = {
             },
             {
               "id": "D",
-              "text": "The pottery recovered from Teotihuacan's apartment compounds was produced for trade rather than for use in the households that kept it."
+              "text": "The pottery recovered from the compound was produced for trade rather than for use by the households that kept it."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** Two kinds of evidence — the isotope ratios in the teeth and the mixed regional styles inside one compound — support the conclusion the text ends on: the compounds held people from many places.\n\n**The Full Solution:**\n- The text establishes where most residents of Teotihuacan lived: in walled apartment compounds.\n- It then reports what Manzanilla found in them — isotope ratios pointing to childhoods outside the valley, and pottery and burial customs from more than one region in a single compound.\n- The closing sentence draws those findings together: the compounds housed migrants rather than single local lineages. Choice B states that.\n\n**Why the other choices are wrong:**\n- A: The text says nothing about the compounds' plan being copied anywhere else.\n- C: The isotope ratios are used here to indicate where people grew up, and diet is never mentioned.\n- D: The pottery is evidence of the residents' regional origins; the text makes no claim about what it was produced for."
+          "explanation": "**Choice B is correct.** Two kinds of evidence — the isotope ratios in the bones and teeth and the pottery and burial practices from several regions — support the conclusion the text ends on: Teopancazco's population was multiethnic.\n\n**The Full Solution:**\n- The text establishes where most residents of Teotihuacan lived: in walled apartment compounds.\n- It then reports what Manzanilla found at one of them, Teopancazco — isotope ratios pointing to childhoods outside the valley, some as far away as the Gulf Coast, and pottery and burial practices from several regions.\n- The closing sentence draws those findings together: the compound's population was multiethnic rather than a single local lineage. Choice B states that.\n\n**Why the other choices are wrong:**\n- A: The text says nothing about the compounds' plan being copied anywhere else.\n- C: The isotope ratios are used here to indicate where people grew up, and diet is never mentioned.\n- D: The pottery is evidence of the residents' regional origins; the text makes no claim about what it was produced for."
         },
         {
           "id": 239,
@@ -1249,11 +1248,11 @@ export const practiceTest2RW = {
             },
             {
               "id": "C",
-              "text": "A few storms with unusually weak updrafts producced no hailstones of any measurable size at all."
+              "text": "A few storms with unusually weak updrafts produced no hailstones of any measurable size at all."
             },
             {
               "id": "D",
-              "text": "Hailstones collected from a single storm often contained different numbers of ice layers, indicating that individual stones had traveled along different paths through the storm before falling, riding updrafts through the cloud repeatedly."
+              "text": "Hailstones from a single storm often contained different numbers of ice layers, indicating that individual stones had followed different paths through the storm."
             }
           ],
           "correctAnswer": "B",
@@ -1266,7 +1265,7 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "Most lightning concentrates over warm continental land in summer, where strong updrafts build electrical charge inside towering storms. In a study drawing on years of data from a global lightning-detection network, atmospheric scientist Robert Holzworth and colleagues examined \"superbolts\" — rare strokes that release at least a thousand times more electrical energy than an average lightning flash. The team found that superbolts follow nearly the opposite pattern from ordinary lightning: they strike most often over oceans rather than land, they cluster in regions such as the North Atlantic and the Mediterranean, and their frequency peaks in the months around the Northern Hemisphere's winter rather than its summer.",
+          "passage": "Most lightning concentrates over warm continental land in summer, where strong updrafts build electrical charge inside towering storms. In a study drawing on years of data from a global lightning-detection network, atmospheric scientist Robert Holzworth and colleagues examined \"superbolts\" — rare strokes that release at least a thousand times more electrical energy than an average lightning stroke. The team found that superbolts follow nearly the opposite pattern from ordinary lightning: they strike most often over oceans rather than land, they cluster in regions such as the North Atlantic and the Mediterranean, and their frequency peaks in the months around the Northern Hemisphere's winter rather than its summer.",
           "question": "According to the text, how does the occurrence of superbolts differ from that of most lightning?",
           "choices": [
             {
@@ -1287,7 +1286,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The text states the contrast explicitly: ordinary lightning favors warm land in summer, while superbolts \"follow nearly the opposite pattern\" — oceans rather than land, winter rather than summer.\n\n**The Full Solution:**\n- The baseline comes first: most lightning concentrates \"over warm continental land in summer.\"\n- The findings then invert each element for superbolts: over oceans rather than land; clustered in the North Atlantic and Mediterranean; peaking around winter rather than summer.\n- Choice C pairs the two patterns exactly as the text does.\n\n**Why the other choices are wrong:**\n- A: It reverses the energy relationship — superbolts release at least a thousand times more energy than average flashes, not less.\n- B: It contradicts the study's outcome; the team identified clear geographic and seasonal patterns, which is the finding the text reports.\n- D: It assigns superbolts the distribution of ordinary lightning — warm continental interiors — which is precisely the pattern the text says superbolts do not follow."
+          "explanation": "**Choice C is correct.** The text states the contrast explicitly: ordinary lightning favors warm land in summer, while superbolts \"follow nearly the opposite pattern\" — oceans rather than land, winter rather than summer.\n\n**The Full Solution:**\n- The baseline comes first: most lightning concentrates \"over warm continental land in summer.\"\n- The findings then invert each element for superbolts: over oceans rather than land; clustered in the North Atlantic and Mediterranean; peaking around winter rather than summer.\n- Choice C pairs the two patterns exactly as the text does.\n\n**Why the other choices are wrong:**\n- A: It reverses the energy relationship — superbolts release at least a thousand times more energy than average strokes, not less.\n- B: It contradicts the study's outcome; the team identified clear geographic and seasonal patterns, which is the finding the text reports.\n- D: It assigns superbolts the distribution of ordinary lightning — warm continental interiors — which is precisely the pattern the text says superbolts do not follow."
         },
         {
           "id": 240,
@@ -1369,7 +1368,7 @@ export const practiceTest2RW = {
             },
             {
               "id": "C",
-              "text": "Historians have concluded that the Kerala school's derivations of infinite series, though preserved in generations of commentaries, ultimately fell short of the standards of rigor that European mathematicians would later establish."
+              "text": "Historians have concluded that the Kerala school's derivations, though carefully preserved, fell short of the standards of rigor later set in Europe."
             },
             {
               "id": "D",
@@ -1386,7 +1385,7 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "inferences",
-          "passage": "The giant tube worms that grow in clusters around deep-sea vents have no mouth and no gut. Biologists had long assumed that animals at such depths live on scraps of food drifting down from sunlit water near the surface. The fluid venting around the worms carries hydrogen sulfide, a compound poisonous to most animals, and the worms' tissues are packed with bacteria that draw energy from it. Examining the worms' internal anatomy in 1981, the biologist Colleen Cavanaugh found that this bacteria-filled tissue accounts for much of an adult worm's body mass. Cavanaugh therefore proposed that ______",
+          "passage": "The giant tube worms that grow in clusters around deep-sea vents have no mouth and no gut. Biologists had assumed that animals at such depths live on scraps of food drifting down from sunlit waters above. The fluid venting around the worms carries hydrogen sulfide, a compound that certain bacteria can use as a source of energy. In 1981, Colleen Cavanaugh, then a graduate student, and her colleagues reported that the trophosome, a large organ inside the worm known to contain sulfur crystals, is packed with bacterial cells. Cavanaugh therefore proposed that ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
@@ -1407,7 +1406,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** An animal with no mouth and no gut cannot take food in, yet much of its body is tissue full of bacteria that make energy from the vent fluid — so the bacteria are the likely source of its nourishment.\n\n**The Full Solution:**\n- The worms lack the anatomy for feeding, which rules out the drifting food that biologists had assumed sustains deep-sea animals.\n- The surrounding fluid supplies hydrogen sulfide, and the bacteria inside the worms draw energy from it.\n- The bacteria-filled tissue makes up much of the animal's mass, which is what one would expect if that tissue were feeding the worm.\n\n**Why the other choices are wrong:**\n- B: The text gives no rate of consumption and no measure of supply, so no comparison between them follows.\n- C: The order in which the worms lost their guts and acquired the bacteria is never addressed.\n- D: The text says the bacteria draw energy from the hydrogen sulfide, not that they need protection from it."
+          "explanation": "**Choice A is correct.** An animal with no mouth and no gut cannot take food in, yet a large organ inside it is packed with bacteria of a kind that can draw energy from the vent fluid — so the bacteria are the likely source of its nourishment.\n\n**The Full Solution:**\n- The worms lack the anatomy for feeding, which rules out the drifting food that biologists had assumed sustains deep-sea animals.\n- The surrounding fluid supplies hydrogen sulfide, which certain bacteria can use as an energy source.\n- Cavanaugh's team found the trophosome, a large organ already known to hold sulfur crystals, packed with bacterial cells — exactly what one would expect if bacteria living on the sulfide were feeding the worm.\n\n**Why the other choices are wrong:**\n- B: The text gives no rate of consumption and no measure of supply, so no comparison between them follows.\n- C: The order in which the worms lost their guts and acquired the bacteria is never addressed.\n- D: The text presents hydrogen sulfide as a source of energy for such bacteria, not as something they need protection from."
         },
         {
           "id": 241,
@@ -1537,7 +1536,7 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "By the height of the Ming dynasty, the kiln city of Jingdezhen was producing porcelain on an industrial scale, with each piece passing through dozens of specialized hands — one artisan shaped the clay, another trimmed it, still others painted and glazed. According to a seventeenth-century account, this painstaking division of labor among so many separate workers ______ what allowed a single cup to pass through as many as seventy stages of production without flaw.",
+          "passage": "By the seventeenth century, the kiln city of Jingdezhen was producing porcelain on an industrial scale. According to a Chinese technical encyclopedia published in 1637, the division of labor among the city's many specialized workers ______ so complete that a single piece passed through seventy-two hands before it was finished.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1558,7 +1557,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The subject of the blank is the singular \"division,\" and the sentence reports a past account — so the verb must be the singular past form \"was.\"\n\n**The Full Solution:**\n- Strip away the modifiers to find the subject: \"this painstaking division [of labor] [among so many separate workers] ______.\" The head noun is \"division\" — singular.\n- The phrases \"of labor\" and \"among so many separate workers\" are prepositional modifiers; the plural \"workers\" sits closest to the blank but is not the subject.\n- The frame is past tense (\"was producing,\" \"a seventeenth-century account\"), so the singular past \"was\" completes the sentence: \"this... division... was what allowed a single cup to pass...\"\n\n**Why the other choices are wrong:**\n- A: \"were\" is plural, agreeing with the nearby \"workers\" rather than with the true subject \"division\" — the classic attraction error the intervening phrase invites.\n- B: \"are\" is both plural and present tense, failing agreement and clashing with the passage's historical frame.\n- D: \"have been\" is plural and shifts into the present perfect, breaking agreement with \"division\" and the past-tense narration alike."
+          "explanation": "**Choice C is correct.** The subject of the blank is the singular \"division,\" and the sentence reports a past state of affairs — so the verb must be the singular past form \"was.\"\n\n**The Full Solution:**\n- Strip away the modifiers to find the subject: \"the division [of labor] [among the city's many specialized workers] ______.\" The head noun is \"division\" — singular.\n- The phrases \"of labor\" and \"among the city's many specialized workers\" are prepositional modifiers; the plural \"workers\" sits closest to the blank but is not the subject.\n- The frame is past tense (\"was producing,\" \"published in 1637,\" \"passed\"), so the singular past \"was\" completes the sentence: \"the division of labor... was so complete that a single piece passed through seventy-two hands.\"\n\n**Why the other choices are wrong:**\n- A: \"were\" is plural, agreeing with the nearby \"workers\" rather than with the true subject \"division\" — the classic attraction error the intervening phrase invites.\n- B: \"are\" is both plural and present tense, failing agreement and clashing with the passage's historical frame.\n- D: \"have been\" is plural and shifts into the present perfect, breaking agreement with \"division\" and the past-tense narration alike."
         },
         {
           "id": 248,
@@ -1627,7 +1626,7 @@ export const practiceTest2RW = {
           "band": 4,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "The Scottish mathematician John Napier spent two decades computing the logarithm tables he published in 1614 — an invention that let astronomers replace hours of multiplication with simple addition. Contemporaries prized logarithms for three things above all: shortening calculations that had once consumed days, reducing the errors that crept into long chains of arithmetic, and ______ results that any colleague with the same tables could verify independently.",
+          "passage": "The Scottish mathematician John Napier spent some twenty years computing the logarithm tables he published in 1614. Astronomers prized logarithms for three things above all: shortening calculations that had once taken days, reducing the errors that crept into long chains of arithmetic, and ______ results that any colleague with the same tables could check.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1648,7 +1647,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The blank is the third item in a list whose first two items are gerund phrases — \"shortening calculations...\" and \"reducing the errors...\" — so parallel structure requires a third gerund: \"producing.\"\n\n**The Full Solution:**\n- Identify the series introduced by the colon: item one, \"shortening calculations that had once consumed days\"; item two, \"reducing the errors that crept into long chains of arithmetic.\"\n- Items in a series must share grammatical form. Both established items are gerund phrases, so the third must be as well.\n- \"Producing results that any colleague... could verify\" matches the pattern exactly: gerund plus object plus modifying clause, mirroring its two predecessors.\n\n**Why the other choices are wrong:**\n- A: \"the production of\" swaps the gerund pattern for a noun-plus-preposition construction, breaking the -ing rhythm the first two items establish.\n- C: \"to produce\" is an infinitive; mixing an infinitive into a gerund series is precisely the faulty parallelism the convention forbids.\n- D: \"they produced\" introduces a subject and finite verb, turning the third list item into an independent clause that cannot sit in a series of phrases."
+          "explanation": "**Choice B is correct.** The blank is the third item in a list whose first two items are gerund phrases — \"shortening calculations...\" and \"reducing the errors...\" — so parallel structure requires a third gerund: \"producing.\"\n\n**The Full Solution:**\n- Identify the series introduced by the colon: item one, \"shortening calculations that had once taken days\"; item two, \"reducing the errors that crept into long chains of arithmetic.\"\n- Items in a series must share grammatical form. Both established items are gerund phrases, so the third must be as well.\n- \"Producing results that any colleague... could check\" matches the pattern exactly: gerund plus object plus modifying clause, mirroring its two predecessors.\n\n**Why the other choices are wrong:**\n- A: \"the production of\" swaps the gerund pattern for a noun-plus-preposition construction, breaking the -ing rhythm the first two items establish.\n- C: \"to produce\" is an infinitive; mixing an infinitive into a gerund series is precisely the faulty parallelism the convention forbids.\n- D: \"they produced\" introduces a subject and finite verb, turning the third list item into an independent clause that cannot sit in a series of phrases."
         },
         {
           "id": 247,
@@ -1687,7 +1686,7 @@ export const practiceTest2RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "When Singapore began charging drivers to enter its downtown in 1975, the scheme was widely dismissed as an experiment no other government would dare repeat. The results were difficult to argue with: traffic entering the priced zone fell by nearly half, bus ridership climbed, and average travel speeds roughly doubled, all within months of the launch. ______ decades passed before another major city adopted a comparable charge — a delay that says less about the policy's effectiveness than about the politics of asking voters to pay for road space they had long treated as free.",
+          "passage": "When Singapore began charging drivers to enter its downtown in 1975, many observers doubted that any other government would try the idea. The results were hard to dispute: peak-hour traffic into the zone fell by nearly half, and many more commuters switched to buses. ______ decades passed before another major city adopted a comparable charge.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1708,7 +1707,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The passage grants the scheme's compelling results, then reports the surprise: decades passed before anyone copied it. \"Still\" concedes the force of the preceding evidence while introducing the fact that runs against what that evidence would lead one to expect.\n\n**The Full Solution:**\n- The second sentence stacks up persuasive outcomes — traffic halved, ridership up, speeds doubled — creating the expectation of swift imitation.\n- The blank sentence defeats that expectation: no major city followed for decades.\n- A concessive contrast — despite the strong results, adoption lagged — is precisely the relation \"Still\" expresses, and the sentence's own diagnosis (politics, not effectiveness) confirms the tension.\n\n**Why the other choices are wrong:**\n- B: \"Accordingly\" would present the decades of non-adoption as the natural consequence of the impressive results — the reverse of the passage's logic.\n- C: \"In other words\" introduces a restatement, but the delayed adoption is new information, not the results paraphrased.\n- D: \"Granted\" concedes a point that qualifies the writer's own claim; here the concession has already happened in the second sentence, and the blank sentence delivers the counterweight, not the concession."
+          "explanation": "**Choice A is correct.** The passage grants the scheme's compelling results, then reports the surprise: decades passed before anyone copied it. \"Still\" concedes the force of the preceding evidence while introducing the fact that runs against what that evidence would lead one to expect.\n\n**The Full Solution:**\n- The second sentence stacks up persuasive outcomes — peak-hour traffic nearly halved and a shift to buses — creating the expectation of swift imitation.\n- The blank sentence defeats that expectation: no major city followed for decades.\n- A concessive contrast — despite the strong results, adoption lagged — is precisely the relation \"Still\" expresses.\n\n**Why the other choices are wrong:**\n- B: \"Accordingly\" would present the decades of non-adoption as the natural consequence of the impressive results — the reverse of the passage's logic.\n- C: \"In other words\" introduces a restatement, but the delayed adoption is new information, not the results paraphrased.\n- D: \"Granted\" concedes a point that qualifies the writer's own claim; here the concession has already happened in the second sentence, and the blank sentence delivers the counterweight, not the concession."
         },
         {
           "id": 250,
@@ -1717,7 +1716,7 @@ export const practiceTest2RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "The Taj Mahal is usually pictured as a domed tomb at the end of a garden. The architectural historian Ebba Koch surveyed the complex and found one module repeated throughout its plan: in the tomb, the garden beds, and the river terrace. ______ the tomb is not an object placed in a garden but one figure in a pattern that orders the whole site.",
+          "passage": "The Taj Mahal is usually pictured as a domed tomb at the end of a garden. The architectural historian Ebba Koch surveyed the complex and found that one grid of repeated units governs the plan of the riverfront terrace, the tomb, and the garden. ______ the tomb is not an object placed in a garden but part of a pattern that orders the whole site.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1738,7 +1737,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The last sentence adds no new information; it restates what Koch's survey found in more general terms, and \"In other words\" is the transition that marks a restatement.\n\n**The Full Solution:**\n- The first sentence gives the familiar picture of the building: a domed tomb at the end of a garden.\n- The second reports the finding: one module repeated in the tomb, the garden beds, and the river terrace.\n- The third says the same thing differently — the tomb is one figure in a pattern that governs the site — so the transition must signal restatement.\n\n**Why the other choices are wrong:**\n- A: \"For instance\" would introduce an example, but the examples were already given in the preceding sentence.\n- B: \"Nevertheless\" signals a concession, and the final sentence concedes nothing; it agrees with the sentence before it.\n- C: \"Meanwhile\" marks two things happening at the same time, and the text describes a single finding rather than simultaneous events."
+          "explanation": "**Choice D is correct.** The last sentence adds no new information; it restates what Koch's survey found in more general terms, and \"In other words\" is the transition that marks a restatement.\n\n**The Full Solution:**\n- The first sentence gives the familiar picture of the building: a domed tomb at the end of a garden.\n- The second reports the finding: one grid of repeated units governs the riverfront terrace, the tomb, and the garden.\n- The third says the same thing differently — the tomb is part of a pattern that orders the whole site — so the transition must signal restatement.\n\n**Why the other choices are wrong:**\n- A: \"For instance\" would introduce an example, but the examples were already given in the preceding sentence.\n- B: \"Nevertheless\" signals a concession, and the final sentence concedes nothing; it agrees with the sentence before it.\n- C: \"Meanwhile\" marks two things happening at the same time, and the text describes a single finding rather than simultaneous events."
         },
         {
           "id": 251,
@@ -1747,7 +1746,7 @@ export const practiceTest2RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Cesium atomic clocks, which define the world's official second, are commonly described as gaining or losing no more than a second over a hundred million years. It would be natural to conclude that timekeeping has reached the end of useful improvement. ______ a newer generation of optical clocks, ticking at the frequencies of visible light rather than of microwaves, has already surpassed cesium's precision a hundredfold — enough that raising one of these clocks a few centimeters measurably alters its rate, turning timekeeping into an instrument for mapping gravity itself.",
+          "passage": "Cesium atomic clocks, which define the official second, are often described as gaining or losing less than a second over a hundred million years. It would be natural to conclude that timekeeping can improve no further. ______ newer optical clocks, which tick at the frequencies of visible light, are already about a hundred times more precise, enough that raising one a few centimeters measurably changes its rate.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1768,7 +1767,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The second sentence voices a natural but mistaken conclusion; the third corrects it with the stronger reality — optical clocks have already blown past cesium. \"In fact\" is the transition that sets the actual state of affairs against a stated assumption.\n\n**The Full Solution:**\n- The passage deliberately frames the middle sentence as an inference a reader might draw: \"It would be natural to conclude...\"\n- The final sentence shows that inference to be false, and false in an emphatic direction: not merely more improvement, but a hundredfold leap with startling consequences.\n- Correcting an assumption by asserting what is actually true is the defining use of \"In fact.\"\n\n**Why the other choices are wrong:**\n- A: \"Otherwise\" introduces the consequence of a condition going unmet; no condition precedes the blank, so the transition has nothing to operate on.\n- C: \"By comparison\" would set two items side by side for measurement, but the sentence's work is to overturn the previous sentence's conclusion, not to compare neutrally with it.\n- D: \"Subsequently\" merely orders events in time; it concedes the false conclusion instead of correcting it, and the optical-clock advance is presented as a refutation, not a next chapter."
+          "explanation": "**Choice B is correct.** The second sentence voices a natural but mistaken conclusion; the third corrects it with the stronger reality — optical clocks have already blown past cesium. \"In fact\" is the transition that sets the actual state of affairs against a stated assumption.\n\n**The Full Solution:**\n- The passage deliberately frames the middle sentence as an inference a reader might draw: \"It would be natural to conclude...\"\n- The final sentence shows that inference to be false, and false in an emphatic direction: not merely more improvement, but a hundredfold leap, enough to detect a change of a few centimeters in height.\n- Correcting an assumption by asserting what is actually true is the defining use of \"In fact.\"\n\n**Why the other choices are wrong:**\n- A: \"Otherwise\" introduces the consequence of a condition going unmet; no condition precedes the blank, so the transition has nothing to operate on.\n- C: \"By comparison\" would set two items side by side for measurement, but the sentence's work is to overturn the previous sentence's conclusion, not to compare neutrally with it.\n- D: \"Subsequently\" merely orders events in time; it concedes the false conclusion instead of correcting it, and the optical-clock advance is presented as a refutation, not a next chapter."
         },
         {
           "id": 253,
@@ -1780,12 +1779,12 @@ export const practiceTest2RW = {
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "The Paracas culture flourished on Peru's southern coast between roughly 800 and 100 BCE.",
-              "Paracas embroiderers produced elaborate burial mantles stitched with hundreds of colorful figures.",
-              "In 1927, archaeologists excavated hundreds of mummy bundles wrapped in layered textiles on the Paracas peninsula.",
-              "The mantles survived for two millennia largely because of the desert's extreme dryness.",
-              "Conservators have found that the mantles' dyed fibers are highly sensitive to light, and every exposure causes cumulative, irreversible fading.",
-              "Museums therefore display Paracas textiles only for brief periods at low light, storing them flat in darkness the rest of the time."
+              "The Paracas culture flourished on Peru's southern coast from roughly 800 to 100 BCE.",
+              "Paracas embroiderers produced burial mantles stitched with hundreds of colorful figures.",
+              "In 1927, archaeologists began excavating hundreds of textile-wrapped mummy bundles on the Paracas peninsula.",
+              "The desert's extreme dryness preserved the mantles for two thousand years.",
+              "The mantles' dyed fibers are highly sensitive to light, and each exposure causes permanent fading.",
+              "Museums therefore display Paracas textiles only briefly and in dim light, storing them in darkness the rest of the time."
             ],
             "goal": "The student wants to explain to museum visitors why a Paracas mantle they hope to see may not be on display."
           },
@@ -1793,23 +1792,23 @@ export const practiceTest2RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Paracas embroiderers of Peru's southern coast, working between roughly 800 and 100 BCE, stitched elaborate burial mantles with hundreds of colorful figures, and the coastal desert's extreme dryness preserved many of the buried mantles for two millennia."
+              "text": "Paracas embroiderers, working on Peru's southern coast between 800 and 100 BCE, made mantles that the desert's dryness preserved for two thousand years."
             },
             {
               "id": "B",
-              "text": "In 1927, archaeologists excavated hundreds of mummy bundles wrapped in layered textiles on the Paracas peninsula of Peru's southern coast."
+              "text": "In 1927, archaeologists began excavating hundreds of textile-wrapped mummy bundles on the Paracas peninsula."
             },
             {
               "id": "C",
-              "text": "Museums that hold Paracas textiles store the ancient mantles flat in darkness whenever the textiles are not out on public display."
+              "text": "Museums that hold Paracas textiles store the mantles in darkness whenever they are not on display."
             },
             {
               "id": "D",
-              "text": "Because every exposure to light causes cumulative, irreversible fading of their dyed fibers, Paracas mantles are displayed only briefly at low light and otherwise rest in darkness — so the mantle a visitor hopes to see may well be off view."
+              "text": "Because light permanently fades their dyed fibers, Paracas mantles are displayed only briefly, so the one a visitor hopes to see may be in storage."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The goal is to explain an absence to visitors, and D delivers the full explanation: the cause (cumulative, irreversible light damage), the resulting policy (brief, low-light display), and the consequence the visitor actually experiences (the mantle may be off view).\n\n**The Full Solution:**\n- The goal's key demand is the \"why\": a visitor must understand the reason a mantle is absent, not merely that absences occur.\n- Choice D chains the notes' logic — light sensitivity causes fading, fading dictates rotation and dark storage, rotation means the mantle may be resting — landing exactly on the visitor's situation.\n\n**Why the other choices are wrong:**\n- A: It offers history and preservation background but never touches display practices, so the visitor's question — why isn't it out? — goes unanswered.\n- B: The 1927 excavation explains where the mantles came from, not why museums withhold them from view.\n- C: It states the storage practice without the reason for it; a visitor learns what museums do but not the light-damage rationale the goal requires."
+          "explanation": "**Choice D is correct.** The goal is to explain an absence to visitors, and D delivers the full explanation: the cause (light permanently fades the dyed fibers), the resulting policy (only brief display), and the consequence the visitor actually experiences (the mantle may be in storage).\n\n**The Full Solution:**\n- The goal's key demand is the \"why\": a visitor must understand the reason a mantle is absent, not merely that absences occur.\n- Choice D chains the notes' logic — light damage dictates brief display, and brief display means the mantle may be resting in storage — landing exactly on the visitor's situation.\n\n**Why the other choices are wrong:**\n- A: It offers history and preservation background but never touches display practices, so the visitor's question — why isn't it out? — goes unanswered.\n- B: The 1927 excavation explains where the mantles came from, not why museums keep them from view.\n- C: It states the storage practice without the reason for it; a visitor learns what museums do but not the light-damage rationale the goal requires."
         },
         {
           "id": 254,
@@ -1821,11 +1820,11 @@ export const practiceTest2RW = {
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "The octobass is a giant bowed string instrument, roughly 3.5 meters tall, built by the French instrument maker Jean-Baptiste Vuillaume around 1850.",
-              "Its three strings sound pitches at and below the bottom of the double bass's range, some near the lower limit of human hearing.",
-              "The strings are far too long and thick for a player's fingers to press down directly.",
-              "The player instead operates a system of levers and foot pedals that close padded clamps onto the strings at set positions.",
-              "Only a handful of octobasses exist today, and few orchestras have ever included one."
+              "The octobass is a bowed string instrument about 3.5 meters tall, built by the French instrument maker Jean-Baptiste Vuillaume around 1850.",
+              "Its three strings sound some of the lowest pitches of any orchestral instrument, near the lower limit of human hearing.",
+              "The strings are too long and thick for a player's fingers to press down.",
+              "Instead, the player works levers and foot pedals that clamp the strings at set positions.",
+              "Only a handful of octobasses exist today."
             ],
             "goal": "The student wants to explain how an octobass player produces different notes despite the instrument's enormous size."
           },
@@ -1833,23 +1832,23 @@ export const practiceTest2RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The octobass, a giant bowed string instrument built by the French instrument maker Jean-Baptiste Vuillaume around 1850, stands roughly 3.5 meters tall."
+              "text": "The octobass, a bowed string instrument built by Jean-Baptiste Vuillaume around 1850, stands about 3.5 meters tall."
             },
             {
               "id": "B",
-              "text": "Because the octobass's strings are far too long and thick for fingers to press down directly, the player changes notes by working levers and foot pedals that close padded clamps onto the strings at set positions."
+              "text": "Because its strings are too thick for fingers to press, an octobass player changes notes with levers and pedals that clamp the strings."
             },
             {
               "id": "C",
-              "text": "The octobass's three strings sound pitches at and below the bottom of the double bass's range — some near the lower limit of human hearing — which helps explain why so few orchestras have ever found a place for the instrument."
+              "text": "The octobass's three strings sound pitches near the lower limit of human hearing, which may explain why so few octobasses exist."
             },
             {
               "id": "D",
-              "text": "Only a handful of octobasses exist today, and few orchestras in the instrument's history since 1850 have ever included one in performance."
+              "text": "Only a handful of octobasses exist today, more than a century and a half after Vuillaume built the first one."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The goal asks for the how — note production despite enormous size — and B explains the complete mechanism: fingers cannot press the huge strings, so levers and pedals close clamps at set positions instead.\n\n**The Full Solution:**\n- The goal joins a problem (the instrument's size defeats ordinary fingering) to a solution (some other way of stopping the strings).\n- Choice B renders both halves from the notes: the size problem (\"far too long and thick for fingers to press down directly\") and the mechanical answer (levers, pedals, padded clamps at set positions) that produces different notes.\n\n**Why the other choices are wrong:**\n- A: It conveys the instrument's size and maker but says nothing about how anyone plays it.\n- C: It describes the pitches the strings produce and speculates about orchestras, never explaining the mechanism a player uses to change notes.\n- D: Rarity is the notes' least relevant fact for this goal; a count of surviving instruments explains nothing about playing technique."
+          "explanation": "**Choice B is correct.** The goal asks for the how — producing notes despite enormous size — and B explains the complete mechanism: fingers cannot press the huge strings, so levers and pedals clamp the strings instead.\n\n**The Full Solution:**\n- The goal joins a problem (the instrument's size defeats ordinary fingering) to a solution (some other way of stopping the strings).\n- Choice B renders both halves from the notes: the size problem (strings \"too long and thick for a player's fingers to press down\") and the mechanical answer (levers and foot pedals that clamp the strings at set positions) that produces different notes.\n\n**Why the other choices are wrong:**\n- A: It conveys the instrument's size and maker but says nothing about how anyone plays it.\n- C: It describes the pitches the strings produce and speculates about rarity, never explaining the mechanism a player uses to change notes.\n- D: Rarity is the notes' least relevant fact for this goal; a count of surviving instruments explains nothing about playing technique."
         }
       ]
     }

@@ -1,6 +1,6 @@
 {
  "id": 6,
- "question": "A two-stage converter accepts only the five inputs listed in the table, which also gives the output of each of its two conversion functions, $f$ and $g$, at those inputs. What is the value of $f(g(2))$?",
+ "question": "The table shows some values of the functions $f$ and $g$. What is the value of $f(g(2))$?",
  "questionTable": {
   "headers": [
    "$x$",
@@ -59,5 +59,5 @@
   "C": "stops at the inner value g(2) = 5 without applying f"
  },
  "correctAnswer": "D",
- "explanation": "**SAT Pattern: Function Composition**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Inside first: $g(2)=5$, then $f(5)=9$.\n\n**The Full Solution:**\nStep 1: $f(g(2))$ means evaluate $g$ at $2$ first, then feed that OUTPUT into $f$ — the parentheses fix the order.\nStep 2: In the row $x=2$, the $g(x)$ column gives $g(2)=5$.\nStep 3: Now evaluate $f$ at $5$: in the row $x=5$, the $f(x)$ column gives $f(5)=9$, so $f(g(2))=9$. Check the order the other way: $g(f(2))=g(3)=1$, a different value, so the order genuinely matters ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): composes backwards, computing $g(f(2))=g(3)=1$.\n* Choice B ($3$): reads $f(2)=3$ from the table and stops, skipping stage $g$ entirely.\n* Choice C ($5$): stops at the inner value $g(2)=5$ without sending it through $f$.\n\n**Test Day Takeaway:** Work composition from the inside out and label the intermediate value before you look anything else up: $g(2)=5$ first, and $5$ becomes the new input."
+ "explanation": "**SAT Pattern: Function Composition**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Work from the inside out: $g(2) = 5$, and then $f(5) = 9$.\n\n**The Full Solution:**\nStep 1: $f(g(2))$ means evaluate $g$ at $2$ first, then use that output as the input of $f$.\nStep 2: In the row $x = 2$, the $g(x)$ column shows $g(2) = 5$.\nStep 3: In the row $x = 5$, the $f(x)$ column shows $f(5) = 9$, so $f(g(2)) = 9$. Check: the order is $2 \\to g \\to 5 \\to f \\to 9$, inner function first ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): applies $f$ first, $f(2) = 3$, then $g(3) = 1$. That is $g(f(2))$, the reverse composition.\n* Choice B ($3$): reads $f(2) = 3$ directly and skips $g$ entirely.\n* Choice C ($5$): finds $g(2) = 5$ correctly but stops before applying $f$.\n\n**Test Day Takeaway:** In $f(g(x))$ the inner function acts first; read one row of the table for $g$, then a second row for $f$ at that output."
 }

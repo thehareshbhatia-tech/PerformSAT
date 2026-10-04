@@ -1,6 +1,6 @@
 {
  "id": 11,
- "question": "The graph shows a cyclist's power output, in watts, as a linear function $P$ of pedaling cadence $c$, in revolutions per minute. What is the value of $P(95)$?",
+ "question": "The graph of the linear function $f$ is shown, where $y = f(x)$. What is the value of $f(95)$?",
  "diagram": {
   "type": "linearGraph",
   "params": {
@@ -27,9 +27,9 @@
      200
     ]
    ],
-   "label": "P"
+   "label": "y = f(x)"
   }
  },
  "correctAnswer": "230",
- "explanation": "**SAT Pattern: Function Evaluation**\n\n**The correct answer is $230$.** The plotted points $(60, 160)$ and $(80, 200)$ give a rate of $\\frac{200 - 160}{80 - 60} = 2$ watts per revolution per minute, so $P(c) = 2c + 40$ and $P(95) = 230$.\n\n**The Fast Way (~25s):** From $(80, 200)$, going up $15$ rpm adds $2(15) = 30$ watts: $200 + 30 = 230$.\n\n**The Full Solution:**\nStep 1: Slope $= \\frac{200 - 160}{80 - 60} = \\frac{40}{20} = 2$ watts per revolution per minute.\nStep 2: Using $(60, 160)$: $160 = 2(60) + b$, so $b = 40$ and $P(c) = 2c + 40$.\nStep 3: Check with the true rule: $P(95) = 2(95) + 40 = 190 + 40 = 230$, and $P(80) = 160 + 40 = 200$, matching the second plotted point.\n\n**Common Mistakes:**\n* $190$: applies the correct rate of $2$ to the $15$-rpm gap but starts from $160$, the power at the first plotted point rather than the second.\n* $240$: adds a full $40$-watt block, the rise across a $20$-rpm span, for a gap of only $15$ rpm.\n* $270$: finds the rate correctly but pairs the first cadence with the second power when solving for the constant, getting $b = 200 - 2(60) = 80$.\n\n**Test Day Takeaway:** Read two clean lattice points off the line, turn them into a rate, and extend from the nearer point. The rate applies to the actual gap, not to a whole grid block."
+ "explanation": "**SAT Pattern: Function Evaluation**\n\n**The correct answer is 230.**\n\n**The Fast Way (~30s):** The points $(60, 160)$ and $(80, 200)$ give a slope of $\\frac{40}{20} = 2$. From $(80, 200)$, $15$ more units of $x$ add $30$, so $f(95) = 230$.\n\n**The Full Solution:**\nStep 1: Read two points on the line: $(60, 160)$ and $(80, 200)$. The slope is $\\frac{200 - 160}{80 - 60} = 2$.\nStep 2: Find the $y$-intercept: $160 = 2(60) + b$, so $b = 40$ and $f(x) = 2x + 40$.\nStep 3: Evaluate: $f(95) = 2(95) + 40 = 230$. Check: $f(80) = 2(80) + 40 = 200$, which matches the graph ✓\n\n**Common Mistakes:**\n* $190$: applies the rate $2$ to the $15$-unit gap but starts from $160$, the value at the first point, instead of $200$.\n* $240$: adds a full $40$, the rise across $20$ units, for a gap of only $15$ units.\n* $270$: pairs $x = 60$ with $f(x) = 200$ when solving for the intercept, getting $b = 80$.\n\n**Test Day Takeaway:** Read two clear points off the line, turn them into a slope, and extend from the nearest point; the graph only needs to supply the rule, not the answer."
 }

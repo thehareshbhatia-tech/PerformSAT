@@ -1,6 +1,6 @@
 {
  "id": 18,
- "question": "On a hiking trail map with coordinates given in kilometers, three markers are at $(0, 0)$, $(p, 0)$, and $(q, r)$, where $p$, $q$, and $r$ are positive constants. Which expression gives the area, in square kilometers, of the triangle formed by the three markers?",
+ "question": "In the $xy$-plane, a triangle has vertices at $(0, 0)$, $(p, 0)$, and $(q, r)$, where $p$, $q$, and $r$ are positive constants. Which expression represents the area of the triangle?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "uses q, the third marker's horizontal coordinate, as the height instead of its vertical coordinate r",
-  "B": "uses q as the base instead of p, the length of the side lying on the horizontal axis",
-  "D": "adds the two horizontal coordinates to form the base, as if the figure were a trapezoid"
+  "A": "uses q, the x-coordinate of the third vertex, as the height instead of its y-coordinate r",
+  "B": "uses q as the base instead of p, the length of the side on the x-axis",
+  "D": "adds the x-coordinates p and q to form the base, as if the figure were a trapezoid"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The side from $(0, 0)$ to $(p, 0)$ lies along the horizontal axis, so the base is $p$ and the height is the third marker's vertical distance from that axis, $r$: area $= \\frac{1}{2}pr$.\n\n**The Full Solution:**\nStep 1: Choose the side that is easiest to measure. The markers $(0, 0)$ and $(p, 0)$ both have vertical coordinate $0$, so the segment joining them is horizontal with length $p$. Take that as the base.\nStep 2: The height is the perpendicular distance from the third marker to the line containing the base. That line is the horizontal axis, so the distance is the third marker's vertical coordinate, $r$. Its horizontal coordinate $q$ only slides the marker along, which does not change the height.\nStep 3: Area $= \\frac{1}{2}(\\text{base})(\\text{height}) = \\frac{1}{2}pr$. Check with numbers: for $p = 6$, $q = 5$, $r = 4$ the triangle has vertices $(0,0)$, $(6,0)$, $(5,4)$ and area $\\frac{1}{2}(6)(4) = 12$, which does not depend on $q$ at all. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{2}pq$): keeps the correct base but uses $q$ as the height. $q$ measures sideways motion, and sliding the top marker sideways leaves the area unchanged.\n* Choice B ($\\frac{1}{2}qr$): pairs the correct height with the wrong base, using the third marker's horizontal coordinate instead of the length $p$ of the side on the axis.\n* Choice D ($\\frac{1}{2}(p + q)r$): adds the two horizontal coordinates, which is the trapezoid rule $\\frac{1}{2}(b_1 + b_2)h$ applied to a triangle.\n\n**Test Day Takeaway:** With one side on an axis, the area needs only two numbers: the length of that side and the perpendicular coordinate of the opposite vertex. Any coordinate that slides a vertex parallel to the base is irrelevant."
+ "explanation": "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The side from $(0, 0)$ to $(p, 0)$ lies on the x-axis and has length $p$. The height is the distance from $(q, r)$ to the x-axis, which is $r$, so the area is $\\frac{1}{2}pr$.\n\n**The Full Solution:**\nStep 1: The vertices $(0, 0)$ and $(p, 0)$ both lie on the x-axis, so the side joining them has length $p$. Use it as the base.\nStep 2: The height is the perpendicular distance from the third vertex, $(q, r)$, to the x-axis, which is its y-coordinate, $r$. The x-coordinate $q$ does not affect the height.\nStep 3: Area $= \\frac{1}{2}(\\text{base})(\\text{height}) = \\frac{1}{2}pr$. Check with $p = 6$, $q = 5$, and $r = 4$: the triangle with vertices $(0, 0)$, $(6, 0)$, and $(5, 4)$ has base $6$ and height $4$, so its area is $12 = \\frac{1}{2}(6)(4)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{2}pq$): uses the x-coordinate $q$ as the height. Moving the third vertex left or right does not change the height.\n* Choice B ($\\frac{1}{2}qr$): uses the correct height but takes $q$ as the base instead of $p$, the length of the side on the x-axis.\n* Choice D ($\\frac{1}{2}(p + q)r$): uses the trapezoid formula $\\frac{1}{2}(b_1 + b_2)h$ for a triangle.\n\n**Test Day Takeaway:** When one side of a triangle lies on an axis, the base is that side's length and the height is the other coordinate of the opposite vertex."
 }

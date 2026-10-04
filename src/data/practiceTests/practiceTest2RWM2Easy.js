@@ -62,16 +62,28 @@ export const practiceTest2RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "Each fall, a mountain chickadee hides tens of thousands of pine seeds, tucking each one into a different crevice in bark or beneath a tuft of moss across its territory. The bird does not mark these spots in any visible way; it remembers them. In laboratory tests, chickadees ______ hidden seeds far more accurately than related species that do not store food, and their memory performance peaks in winter — exactly when the stored seeds matter most.",
+      "passage": "Each fall, a mountain chickadee may hide tens of thousands of seeds, tucking each one into a separate crevice in bark or beneath a tuft of moss. The bird does not mark these spots; it remembers them. In laboratory tests, chickadees from high, snowy elevations ______ hidden food more accurately than chickadees from milder sites lower on the same mountains.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
-        { "id": "A", "text": "locate" },
-        { "id": "B", "text": "conceal" },
-        { "id": "C", "text": "consume" },
-        { "id": "D", "text": "observe" }
+        {
+          "id": "A",
+          "text": "locate"
+        },
+        {
+          "id": "B",
+          "text": "conceal"
+        },
+        {
+          "id": "C",
+          "text": "consume"
+        },
+        {
+          "id": "D",
+          "text": "observe"
+        }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The sentence is about memory tests, so the verb must describe finding the hidden seeds again — \"locate.\"\n\n**The Full Solution:**\n- Track what the passage has established: the bird hides seeds, leaves no visible markers, and \"remembers\" the spots.\n- The blank sits inside a claim about laboratory memory tests, and the comparison is with species \"that do not store food.\"\n- A memory test on hidden seeds measures whether the bird can find them again, and doing so \"far more accurately\" describes successful searching. \"Locate\" completes that idea precisely.\n\n**Why the other choices are wrong:**\n- B: \"Conceal\" describes the hiding step, which already happened in the fall; the tests measure the finding step.\n- C: \"Consume\" is about eating, and eating \"accurately\" makes no sense.\n- D: \"Observe\" means to watch — but the seeds are hidden, so there is nothing to watch until the bird finds them."
+      "explanation": "**Choice A is correct.** The sentence is about memory tests, so the verb must describe finding the hidden food again — \"locate.\"\n\n**The Full Solution:**\n- Track what the passage has established: the bird hides seeds, leaves no visible markers, and \"remembers\" the spots.\n- The blank sits inside a claim about laboratory tests comparing chickadees from high, snowy elevations with chickadees from milder sites.\n- A memory test on hidden food measures whether the bird can find it again, and doing so \"more accurately\" describes successful searching. \"Locate\" completes that idea precisely.\n\n**Why the other choices are wrong:**\n- B: \"Conceal\" describes the hiding step, which comes first; the tests measure the finding step, which depends on memory.\n- C: \"Consume\" is about eating, and eating \"accurately\" makes no sense.\n- D: \"Observe\" means to watch — but the food is hidden, so there is nothing to watch until the bird finds it."
     },
     {
       "id": 255,
@@ -267,10 +279,22 @@ export const practiceTest2RWM2Easy = {
       "passage": "Many nineteenth-century children's books carry no printed date, so bibliographers date them using the publisher's catalog often bound into the back pages — a list of other titles offered for sale. Such a catalog cannot advertise a book that did not yet exist, so its contents set a firm limit on one side of the dating question. The other side is murkier: printers frequently bound leftover catalogs, sometimes years old, into freshly printed books. Bibliographers who date these books therefore reason that ______",
       "question": "Which choice most logically completes the text?",
       "choices": [
-        { "id": "A", "text": "the most reliable way to date an undated book is to average the publication years of every title its catalog advertises." },
-        { "id": "B", "text": "a book containing an old catalog must itself have been printed around the time the catalog was first issued." },
-        { "id": "C", "text": "catalogs are so unreliable that bibliographers should ignore them and date books by their bindings and paper instead." },
-        { "id": "D", "text": "the newest title advertised in a catalog fixes the earliest year the book can have been printed, while the catalog's age proves little about how much later the printing occurred." }
+        {
+          "id": "A",
+          "text": "the most reliable way to date an undated book is to average the publication years of every title its catalog advertises."
+        },
+        {
+          "id": "B",
+          "text": "a book containing an old catalog must itself have been printed around the time the catalog was first issued."
+        },
+        {
+          "id": "C",
+          "text": "catalogs are so unreliable that bibliographers should ignore them and date books by their bindings and paper instead."
+        },
+        {
+          "id": "D",
+          "text": "the newest title in a catalog sets the earliest possible printing year, while the catalog's age says little about how much later the book was printed."
+        }
       ],
       "correctAnswer": "D",
       "explanation": "**Choice D is correct.** The catalog's newest advertised title bounds the printing date in one direction only — the book cannot predate that title — while leftover catalogs mean the printing could be considerably later.\n\n**The Full Solution:**\n- The passage plants two premises and tells you they pull unevenly. First: a catalog \"cannot advertise a book that did not yet exist,\" so every advertised title already existed when the book was bound — the newest one sets a floor on the date.\n- Second: printers bound in \"leftover catalogs, sometimes years old,\" so a catalog's contents can lag far behind the actual printing — nothing about the catalog caps how late the book might be.\n- A floor without a ceiling is exactly the one-sided conclusion choice D draws: the newest advertised title fixes the earliest possible year, and the catalog says little beyond that.\n\n**Why the other choices are wrong:**\n- A: Averaging treats every advertised title as equally informative, but only the newest one constrains the date — the old titles were simply still for sale.\n- B: Backwards — the leftover-catalog premise exists precisely to show the printing can be years later than the catalog.\n- C: The passage describes bibliographers refining the method's logic, not abandoning it; \"ignore them\" contradicts the constructive final sentence."
@@ -349,16 +373,28 @@ export const practiceTest2RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "How do songbirds that migrate at night hold a steady course with no landmarks in view? Henrik ______ found part of the answer in an unlikely place: weak radio-frequency noise, of the kind that leaks from ordinary electronic equipment, disrupted caged robins' ability to orient — evidence that the birds steer by an internal magnetic compass of remarkable sensitivity.",
+      "passage": "How do songbirds that migrate at night keep their course? Partly by sensing Earth's magnetic field. Henrik ______ found that weak electromagnetic noise, of the kind produced by ordinary electronic equipment, can disrupt this magnetic compass in European robins.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "Mouritsen, a behavioral ecologist" },
-        { "id": "B", "text": "Mouritsen, a behavioral ecologist," },
-        { "id": "C", "text": "Mouritsen a behavioral ecologist," },
-        { "id": "D", "text": "Mouritsen a behavioral ecologist" }
+        {
+          "id": "A",
+          "text": "Mouritsen, a biologist"
+        },
+        {
+          "id": "B",
+          "text": "Mouritsen, a biologist,"
+        },
+        {
+          "id": "C",
+          "text": "Mouritsen a biologist,"
+        },
+        {
+          "id": "D",
+          "text": "Mouritsen a biologist"
+        }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The description \"a behavioral ecologist\" is a nonessential appositive dropped into the middle of the sentence, so it needs a comma on BOTH sides.\n\n**The Full Solution:**\n- Strip the descriptive phrase out and the sentence still works: \"Henrik Mouritsen found part of the answer in an unlikely place.\" That test proves the phrase is nonessential.\n- A nonessential phrase in mid-sentence must be fenced off by a matching pair of commas — one after \"Mouritsen,\" one after \"ecologist.\"\n- Choice B supplies both commas, and the appositive lifts cleanly out of the sentence.\n\n**Why the other choices are wrong:**\n- A: Only the opening comma appears; without the closing comma, the appositive crashes into the verb \"found.\"\n- C: Only the closing comma appears; the appositive needs its opening boundary too.\n- D: With no commas at all, the description fuses with the name and the sentence loses the boundary the appositive requires."
+      "explanation": "**Choice B is correct.** The description \"a biologist\" is a nonessential appositive dropped into the middle of the sentence, so it needs a comma on BOTH sides.\n\n**The Full Solution:**\n- Strip the descriptive phrase out and the sentence still works: \"Henrik Mouritsen found that weak electromagnetic noise... can disrupt this magnetic compass.\" That test proves the phrase is nonessential.\n- A nonessential phrase in mid-sentence must be fenced off by a matching pair of commas — one after \"Mouritsen,\" one after \"biologist.\"\n- Choice B supplies both commas, and the appositive lifts cleanly out of the sentence.\n\n**Why the other choices are wrong:**\n- A: Only the opening comma appears; without the closing comma, the appositive crashes into the verb \"found.\"\n- C: Only the closing comma appears; the appositive needs its opening boundary too.\n- D: With no commas at all, the description fuses with the name and the sentence loses the boundary the appositive requires."
     },
     {
       "id": 272,
@@ -403,13 +439,25 @@ export const practiceTest2RWM2Easy = {
       "band": 4,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "A herbarium is a library of plants rather than of books. Filed in the climate-controlled cabinets of a large university herbarium ______ hundreds of thousands of pressed specimens, each mounted on a stiff archival sheet and labeled with the date and place of its collection. Botanists consult the sheets to trace how a species' geographic range has shifted since the specimens were gathered.",
+      "passage": "A herbarium is a library of plants rather than of books. Filed in the climate-controlled cabinets of a large university herbarium ______ hundreds of thousands of pressed specimens, each labeled with the date and place of its collection. Botanists consult the specimens to trace how a species' range has shifted over time.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "is" },
-        { "id": "B", "text": "are" },
-        { "id": "C", "text": "was" },
-        { "id": "D", "text": "has been" }
+        {
+          "id": "A",
+          "text": "is"
+        },
+        {
+          "id": "B",
+          "text": "are"
+        },
+        {
+          "id": "C",
+          "text": "was"
+        },
+        {
+          "id": "D",
+          "text": "has been"
+        }
       ],
       "correctAnswer": "B",
       "explanation": "**Choice B is correct.** The sentence is inverted: its subject, the plural \"hundreds of thousands of pressed specimens,\" comes AFTER the verb, so the verb must be the plural \"are.\"\n\n**The Full Solution:**\n- Untangle the inversion by restoring normal order: \"Hundreds of thousands of pressed specimens ... are filed in the climate-controlled cabinets.\" The opening phrase \"Filed in the ... herbarium\" is a description moved to the front, not the subject.\n- The subject is what is doing the being-filed: the specimens — plural. Nearby singular nouns (\"herbarium,\" \"university\") sit inside prepositional phrases and cannot control the verb.\n- The passage runs in the present tense (\"is a library,\" \"consult\"), so present-tense plural \"are\" completes it.\n\n**Why the other choices are wrong:**\n- A: \"Is\" wrongly agrees with the singular \"herbarium\" at the end of the fronted phrase instead of with the true subject, \"specimens.\"\n- C: \"Was\" is both singular and past tense in a present-tense description.\n- D: \"Has been\" repeats the singular error and adds a perfect tense nothing in the sentence calls for."
@@ -460,16 +508,28 @@ export const practiceTest2RWM2Easy = {
       "band": 2,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "Many public libraries now lend far more than books and movies. ______ branches in several cities check out cake pans, telescopes, and hand tools to anyone with a library card, on the theory that rarely used items are better shared than bought.",
+      "passage": "Tool use was once thought to be unique to humans, but many animals use objects to get food. ______ sea otters float on their backs and crack open clams and sea urchins by striking them against stones balanced on their chests.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
-        { "id": "A", "text": "However," },
-        { "id": "B", "text": "In contrast," },
-        { "id": "C", "text": "For example," },
-        { "id": "D", "text": "Meanwhile," }
+        {
+          "id": "A",
+          "text": "However,"
+        },
+        {
+          "id": "B",
+          "text": "In contrast,"
+        },
+        {
+          "id": "C",
+          "text": "For example,"
+        },
+        {
+          "id": "D",
+          "text": "Meanwhile,"
+        }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The first sentence makes a general claim — libraries lend more than books — and the second gives specific instances of that lending.\n\n**The Full Solution:**\n- Read the two sentences the transition must connect. First: libraries \"lend far more than books and movies.\" Second: branches check out cake pans, telescopes, and hand tools.\n- The second sentence is a set of concrete cases of the first sentence's general statement — the relationship is illustration.\n- \"For example\" is the transition that announces an illustration, so it fits exactly.\n\n**Why the other choices are wrong:**\n- A: \"However\" signals a reversal, but the cake pans and telescopes confirm the previous claim rather than pushing against it.\n- B: \"In contrast\" needs two things set against each other, and the sentences agree completely.\n- D: \"Meanwhile\" signals two things happening at the same time in different places, but the second sentence specifies the first, it doesn't run parallel to it."
+      "explanation": "**Choice C is correct.** The second sentence gives a specific case of the general claim in the first — sea otters are one of the \"many animals\" that use objects to get food — so \"For example\" is the logical transition.\n\n**The Full Solution:**\n- The first sentence makes a general claim: many animals use objects to obtain food.\n- The second sentence describes one particular animal doing exactly that: sea otters use stones to crack open shellfish.\n- When a sentence supplies an instance of the preceding general statement, \"For example\" introduces it.\n\n**Why the other choices are wrong:**\n- A: \"However\" signals a contrast, but the otters support the first sentence's claim rather than contradicting it.\n- B: \"In contrast\" sets up an opposing case; the otters illustrate the claim instead of opposing it.\n- D: \"Meanwhile\" indicates something happening at the same time, but the passage moves from a general claim to an example, not between simultaneous events."
     },
     {
       "id": 279,
@@ -478,16 +538,28 @@ export const practiceTest2RWM2Easy = {
       "band": 4,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "Fans often assume that marathon records fall to a furious sprint over the final miles. The split times tell another story: in most record-setting runs, the last five kilometers are covered at nearly the same pace as the first five, and the decisive move is often no move at all — merely a pace that never wavers while other runners fade. Record marathons, ______, are won by relentless evenness rather than by a dramatic finish.",
+      "passage": "Ask people to picture a desert, and most will imagine rolling dunes. Geologists report, however, that sand covers only about 20 percent of the world's deserts; nearly half of desert surfaces are plains of loose gravel, and much of the rest is mountains and bare rock. The typical desert, ______, looks more like a stony plain than a sea of sand.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
-        { "id": "A", "text": "for example" },
-        { "id": "B", "text": "in other words" },
-        { "id": "C", "text": "in addition" },
-        { "id": "D", "text": "as a result" }
+        {
+          "id": "A",
+          "text": "for example"
+        },
+        {
+          "id": "B",
+          "text": "in other words"
+        },
+        {
+          "id": "C",
+          "text": "in addition"
+        },
+        {
+          "id": "D",
+          "text": "as a result"
+        }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The final sentence adds no new evidence — it restates the middle sentence's finding in a sharper form: evenness, not a finishing burst.\n\n**The Full Solution:**\n- Track what each sentence contributes. First: the popular assumption (records fall to a late sprint). Second: the data — even splits, no decisive move, a pace that never wavers. Third: \"won by relentless evenness rather than by a dramatic finish.\"\n- The third sentence introduces nothing the second has not already shown; it repackages the split-time evidence as a single crisp conclusion.\n- A sentence that recasts what came before takes a restatement transition: \"in other words.\"\n\n**Why the other choices are wrong:**\n- A: \"For example\" would make the final sentence one instance of the data, but it is a summary of all of it, not a case.\n- C: \"In addition\" promises a new point, and the sentence supplies a restatement instead — nothing new is stacked on.\n- D: \"As a result\" is tempting because the data do support the conclusion, but the final sentence states what the records ARE, not something that happened because of the split times; the relationship is interpretation, not consequence."
+      "explanation": "**Choice B is correct.** The final sentence restates the evidence of the preceding sentence as a plain summary — if sand covers only a fifth of deserts and gravel and rock cover most of the rest, then the typical desert is stony rather than sandy — so \"in other words\" is the logical transition.\n\n**The Full Solution:**\n- The second sentence gives the facts: sand covers only about 20 percent of deserts, while gravel plains, mountains, and bare rock make up most of the rest.\n- The final sentence does not add new information; it recasts those figures as a single image — a stony plain rather than a sea of sand.\n- A sentence that rephrases what came before in simpler terms calls for \"in other words.\"\n\n**Why the other choices are wrong:**\n- A: \"For example\" would introduce a specific instance, but the final sentence is a general summary, not one particular desert.\n- C: \"In addition\" would introduce a new, separate point; the final sentence repeats the previous point in different words.\n- D: \"As a result\" would make the desert's stony appearance a consequence of the statistics, but the statistics describe that appearance rather than cause it."
     },
     {
       "id": 278,
@@ -496,16 +568,28 @@ export const practiceTest2RWM2Easy = {
       "band": 3,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "For much of the twentieth century, art museums forbade photography in their galleries, posting guards to enforce the ban. ______ many of the same institutions now permit photography in most rooms, and some even mark the spots from which visitors are encouraged to take and share pictures.",
+      "passage": "For decades, many biologists placed the giant panda in the raccoon family, pointing to features it shares with raccoons. ______ genetic studies in the 1980s showed that the giant panda is a true bear, only distantly related to raccoons.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
-        { "id": "A", "text": "However," },
-        { "id": "B", "text": "Similarly," },
-        { "id": "C", "text": "For instance," },
-        { "id": "D", "text": "As a result," }
+        {
+          "id": "A",
+          "text": "However,"
+        },
+        {
+          "id": "B",
+          "text": "Similarly,"
+        },
+        {
+          "id": "C",
+          "text": "For instance,"
+        },
+        {
+          "id": "D",
+          "text": "As a result,"
+        }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The two sentences describe opposite policies at the same institutions — a ban then, encouragement now — and \"However\" marks exactly that reversal.\n\n**The Full Solution:**\n- Identify what each sentence says. First: for decades, museums forbade photography and posted guards to enforce the ban. Second: the same museums now permit it and even invite picture-taking at marked spots.\n- Prohibition and encouragement are opposites, so the transition must signal contrast.\n- \"However\" is the standard contrast marker; it tells the reader the second sentence upends the first.\n\n**Why the other choices are wrong:**\n- B: \"Similarly\" requires the second sentence to resemble the first, but the new policy is the ban's reverse, not its echo.\n- C: \"For instance\" would make the open-photography policy an example of the ban — a contradiction.\n- D: \"As a result\" claims the ban caused today's permissiveness, but the text describes no such cause; the policies simply changed over time."
+      "explanation": "**Choice A is correct.** The second sentence overturns the classification described in the first — the panda was long grouped with raccoons, but genetic studies showed it is a bear — so the contrasting transition \"However\" is needed.\n\n**The Full Solution:**\n- The first sentence reports an older view: biologists placed the giant panda in the raccoon family.\n- The second sentence reports a finding that contradicts that view: the panda is a true bear, only distantly related to raccoons.\n- A shift from one view to its reversal calls for a contrast transition, and \"However\" signals exactly that.\n\n**Why the other choices are wrong:**\n- B: \"Similarly\" would present the genetic finding as matching the older view, but it contradicts it.\n- C: \"For instance\" introduces an example of the previous point; the genetic finding refutes that point rather than illustrating it.\n- D: \"As a result\" would make the genetic finding a consequence of the raccoon classification, but the studies overturned that classification rather than following from it."
     },
     {
       "id": 280,
@@ -545,23 +629,35 @@ export const practiceTest2RWM2Easy = {
       "studentNotes": {
         "intro": "While researching a topic, a student has taken the following notes:",
         "bullets": [
-          "A tool library lends tools the way a public library lends books.",
-          "The Millbrook Tool Library opened in 2019 inside the town's community center.",
-          "Members can borrow drills, ladders, pressure washers, and garden tools at no charge.",
-          "Most household tools are used for only a few hours over their entire lifetimes.",
-          "In a member survey, most borrowers said they had completed home repairs they would otherwise have postponed or paid a professional to do."
+          "A green roof is a roof covered with a layer of soil and growing plants.",
+          "The plants and soil insulate the building beneath, lowering the energy needed to cool it in summer.",
+          "Chicago's City Hall has had a green roof since 2001.",
+          "Green roofs cost more to build than conventional roofs.",
+          "Most green roofs need some watering and weeding, especially in their first years."
         ],
-        "goal": "The student wants to emphasize a benefit that the tool library offers its members."
+        "goal": "The student wants to emphasize a benefit that a green roof offers the building it covers."
       },
       "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       "choices": [
-        { "id": "A", "text": "The Millbrook Tool Library, which opened in 2019 inside the town's community center, is organized much like a public library." },
-        { "id": "B", "text": "According to one estimate, most household tools are used for only a few hours over their entire lifetimes." },
-        { "id": "C", "text": "By borrowing drills, ladders, and other tools at no charge, Millbrook Tool Library members have completed home repairs they might otherwise have postponed or paid a professional to do." },
-        { "id": "D", "text": "Among the items that members of the Millbrook Tool Library can borrow are drills, ladders, pressure washers, and a variety of garden tools." }
+        {
+          "id": "A",
+          "text": "A green roof, such as the one on Chicago's City Hall, is a roof covered with a layer of soil and growing plants."
+        },
+        {
+          "id": "B",
+          "text": "Green roofs cost more to build than conventional roofs, and most need some watering and weeding."
+        },
+        {
+          "id": "C",
+          "text": "By insulating the building beneath it, a green roof's layer of plants and soil lowers the energy needed to cool the building in summer."
+        },
+        {
+          "id": "D",
+          "text": "Chicago's City Hall has been topped since 2001 by a green roof, a layer of soil and growing plants."
+        }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** It states what members actually gain — free access to tools that let them finish repairs they would otherwise have put off or paid for — which is precisely the benefit the goal asks the sentence to emphasize.\n\n**The Full Solution:**\n- The goal word is \"emphasize\": a benefit to members must be the sentence's main event, not a side detail.\n- Choice C is built around that benefit: the no-charge borrowing (from the third note) enables the completed repairs and avoided costs (from the survey note).\n- It draws on two notes, joins them into one cause-and-effect sentence, and keeps the members' gain at the center.\n\n**Why the other choices are wrong:**\n- A: Founding date, location, and organizational model describe the library without naming anything a member gains.\n- B: The unused-tools statistic explains why tool libraries make sense in general, but no member, library, or benefit appears in the sentence.\n- D: An inventory list shows what is available without saying what borrowing it does for anyone — availability is a feature, not the emphasized benefit."
+      "explanation": "**Choice C is correct.** The goal is to emphasize a benefit to the building, and C states one directly: the green roof insulates the building and lowers the energy needed to cool it.\n\n**The Full Solution:**\n- Of the notes, only the second describes an advantage for the building itself: insulation that reduces summer cooling energy.\n- Choice C builds its sentence around that advantage, leading with \"By insulating the building beneath it\" and ending with the result — lower cooling energy.\n\n**Why the other choices are wrong:**\n- A: It defines a green roof and names an example but mentions no benefit at all.\n- B: It reports costs and upkeep — drawbacks, not benefits.\n- D: It names a building with a green roof without saying what the roof does for that building."
     }
   ]
 };

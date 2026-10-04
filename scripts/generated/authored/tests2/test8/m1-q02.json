@@ -1,29 +1,29 @@
 {
-  "id": 2,
-  "question": "Of the 180 hand samples logged from one outcrop, 63 contain visible quartz. One of the logged samples is chosen at random. Which expression gives the probability that the chosen sample contains visible quartz?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$\\frac{63}{180}$"
-    },
-    {
-      "id": "B",
-      "text": "$\\frac{63}{117}$"
-    },
-    {
-      "id": "C",
-      "text": "$\\frac{117}{180}$"
-    },
-    {
-      "id": "D",
-      "text": "$\\frac{180}{63}$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "uses the 117 samples WITHOUT quartz as the denominator instead of all 180",
-    "C": "gives the probability that the sample does NOT contain quartz, 117/180",
-    "D": "inverts the ratio, putting the total over the favorable count"
+ "id": 2,
+ "question": "A school club has $180$ members, and $63$ of the members are seniors. One member of the club will be selected at random. What is the probability of selecting a senior?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$\\frac{7}{20}$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Probability is favorable outcomes over total outcomes: $63$ quartz-bearing samples out of $180$ logged samples, or $\\frac{63}{180}$.\n\n**The Full Solution:**\nStep 1: Identify the total. Every one of the $180$ logged samples is equally likely to be chosen, so the denominator is $180$.\nStep 2: Identify the favorable outcomes. Exactly $63$ of those samples contain visible quartz, so the numerator is $63$.\nStep 3: The probability is $\\frac{63}{180}$. Check: the remaining $180 - 63 = 117$ samples have no visible quartz, and $\\frac{63}{180} + \\frac{117}{180} = \\frac{180}{180} = 1$, exactly as the two outcomes of a single draw must. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{63}{117}$): puts the quartz count over the non-quartz count. That is an odds ratio, not a probability, and $\\frac{63}{117} \\approx 0.54$ overstates the chance.\n* Choice C ($\\frac{117}{180}$): counts the samples that do not contain quartz, answering the opposite question.\n* Choice D ($\\frac{180}{63}$): puts the total on top. A probability can never exceed $1$, and $\\frac{180}{63} \\approx 2.86$.\n\n**Test Day Takeaway:** The denominator of a simple probability is the size of the whole group you are drawing from — not the leftover group."
+  {
+   "id": "B",
+   "text": "$\\frac{7}{13}$"
+  },
+  {
+   "id": "C",
+   "text": "$\\frac{13}{20}$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{20}{7}$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "divides the 63 seniors by the 117 members who are not seniors instead of by all 180 members: 63/117 = 7/13",
+  "C": "gives the probability of selecting a member who is not a senior: 117/180 = 13/20",
+  "D": "inverts the ratio, putting all 180 members over the 63 seniors: 180/63 = 20/7"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Probability is favorable outcomes over total outcomes: $\\frac{63}{180} = \\frac{7}{20}$.\n\n**The Full Solution:**\nStep 1: Identify the total. Each of the $180$ members is equally likely to be selected, so the denominator is $180$.\nStep 2: Identify the favorable outcomes. There are $63$ seniors, so the numerator is $63$.\nStep 3: Simplify: $\\frac{63}{180} = \\frac{7}{20}$, since both numbers are divisible by $9$. Check: the other $180 - 63 = 117$ members are not seniors, and $\\frac{63}{180} + \\frac{117}{180} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{7}{13}$): divides the $63$ seniors by the $117$ members who are not seniors, $\\frac{63}{117} = \\frac{7}{13}$. The denominator must be the whole club.\n* Choice C ($\\frac{13}{20}$): gives the probability of selecting a member who is not a senior, $\\frac{117}{180} = \\frac{13}{20}$.\n* Choice D ($\\frac{20}{7}$): puts the total on top. A probability can never be greater than $1$.\n\n**Test Day Takeaway:** The denominator of a simple probability is the whole group being selected from, not the leftover group."
 }

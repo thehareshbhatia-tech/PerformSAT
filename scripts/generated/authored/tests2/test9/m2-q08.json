@@ -1,6 +1,6 @@
 {
  "id": 8,
- "question": "The quotient $\\frac{12x^2 + kx - 35}{2x + 5}$ reduces to a linear polynomial for every $x$ except $-\\frac{5}{2}$, where $k$ is a constant. What must the value of $k$ be?",
+ "question": "$\\frac{12x^{2} + kx - 35}{2x + 5} = ax + b$\nThe given equation is true for all $x > 0$, where $a$, $b$, and $k$ are constants. What is the value of $k$?",
  "choices": [
   {
    "id": "A",
@@ -23,7 +23,7 @@
  "distractorNotes": {
   "A": "computes 2(-7) - 5(6) = -44, subtracting the outer product instead of adding it",
   "B": "factors as (2x - 5)(6x + 7), flipping both signs inside the factors, which gives 14 - 30 = -16",
-  "C": "keeps only the inner product 2(-7) = -14 and drops the 5(6) term"
+  "C": "keeps only the product 2(-7) = -14 and drops the 5(6) term"
  },
- "explanation": "**SAT Pattern: Rational Expression Simplification**\n\n**Choice D is correct.** The quotient is linear only when $2x + 5$ divides the numerator, so $12x^2 + kx - 35 = (2x + 5)(6x - 7)$. Expanding gives $k = 2(-7) + 5(6) = 16$.\n\n**The Fast Way (~30s):** The other factor must be $6x - 7$ since $2x \\cdot 6x = 12x^2$ and $5(-7) = -35$; the middle term is then $-14x + 30x = 16x$.\n\n**The Full Solution:**\nStep 1: For the quotient to be a polynomial, $2x + 5$ must be a factor of $12x^2 + kx - 35$, so write $12x^2 + kx - 35 = (2x + 5)(ax + b)$.\nStep 2: Matching the ends, $2a = 12$ gives $a = 6$, and $5b = -35$ gives $b = -7$.\nStep 3: Check with the true value: $(2x + 5)(6x - 7) = 12x^2 - 14x + 30x - 35 = 12x^2 + 16x - 35$, so $k = 16$ and the quotient is $6x - 7$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-44$): builds the middle term as $2(-7) - 5(6) = -44$, subtracting one cross product instead of adding both.\n* Choice B ($-16$): writes the factorization as $(2x - 5)(6x + 7)$, flipping the signs even though the given factor is $2x + 5$; that pairing gives $14 - 30 = -16$.\n* Choice C ($-14$): stops after the first cross product, $2 \\cdot (-7) = -14$, and never adds $5 \\cdot 6 = 30$.\n\n**Test Day Takeaway:** When a rational expression is said to reduce, the denominator is a factor of the numerator. Build the missing factor from the leading and constant terms, then read the middle coefficient off both cross products."
+ "explanation": "**SAT Pattern: Rational Expression Simplification**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** The numerator must equal $(2x + 5)(ax + b)$, so $a = 6$ and $b = -7$ from the first and last terms. The middle term is $2(-7)x + 5(6)x = 16x$, so $k = 16$.\n\n**The Full Solution:**\nStep 1: Multiply both sides by $2x + 5$: $12x^{2} + kx - 35 = (2x + 5)(ax + b)$ for all $x > 0$, so the two polynomials have equal coefficients.\nStep 2: Match the outer terms: $2a = 12$, so $a = 6$, and $5b = -35$, so $b = -7$.\nStep 3: Expand: $(2x + 5)(6x - 7) = 12x^{2} - 14x + 30x - 35 = 12x^{2} + 16x - 35$, so $k = 16$. Check at $x = 1$: $\\frac{12 + 16 - 35}{7} = -1$, and $6(1) - 7 = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-44$): subtracts the product $5(6)$ from $2(-7)$ instead of adding it.\n* Choice B ($-16$): uses the factors $(2x - 5)(6x + 7)$, flipping both signs, which gives $14 - 30 = -16$.\n* Choice C ($-14$): keeps only the product $2(-7)$ and drops the $5(6)$ term.\n\n**Test Day Takeaway:** If a quotient is a polynomial, the denominator is a factor of the numerator. Match the leading and constant terms first, then the middle coefficient follows from expanding."
 }

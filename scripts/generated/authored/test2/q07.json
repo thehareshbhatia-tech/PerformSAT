@@ -6,26 +6,26 @@
   "domain": "craft-and-structure",
   "skill": "text-structure-and-purpose",
   "module": 1,
-  "passage": "More than a hundred small bronze objects of the same curious design — hollow twelve-sided shells, each face pierced by a round hole and each corner topped with a knob — have been unearthed across the Roman Empire's northern provinces. Proposed functions have not been in short supply: candlestick holder, surveying instrument, gauge for calibrating pipes, tool for knitting glove fingers. Yet every proposal stumbles on the same awkward facts. The holes vary in diameter from face to face with no consistent progression, the objects appear in no surviving Roman text or image, and several were found carefully deposited alongside coins, as if treasured rather than used. Until an example surfaces in a context that betrays its purpose, the dodecahedra will stand as a reminder that an abundance of artifacts is not the same as an understanding of them.",
+  "passage": "More than a hundred small bronze objects of the same curious design — hollow twelve-sided shells, each face pierced by a round hole and each corner topped with a knob — have been found in the Roman Empire's northwestern provinces. Proposed functions abound: candlestick holder, surveying instrument, tool for knitting gloves. Yet every proposal stumbles on the same facts. The holes vary in size with no consistent pattern, the objects appear in no surviving Roman text or image, and several were buried with hoards of coins, as if treasured rather than used. Until an example surfaces in a context that reveals its purpose, the dodecahedra will remain a reminder that possessing artifacts is not the same as understanding them.",
   "question": "Which choice best describes the overall structure of the text?",
   "choices": [
     {
       "id": "A",
-      "text": "It presents a scholarly consensus about a class of artifacts, describes a recent discovery that unsettled that consensus, and predicts which rival account will replace it."
+      "text": "It presents a scholarly consensus about a class of artifacts, describes a discovery that unsettled it, and predicts which account will replace it."
     },
     {
       "id": "B",
-      "text": "It describes a puzzling class of artifacts, surveys proposed explanations of their function, identifies evidence that frustrates every proposal, and closes by drawing a general lesson from the impasse."
+      "text": "It describes puzzling artifacts, surveys proposed explanations of their function, identifies evidence that undercuts every proposal, and draws a general lesson."
     },
     {
       "id": "C",
-      "text": "It recounts the excavation of a single unusual artifact, compares it with similar finds from other regions, and endorses the interpretation its excavators favored."
+      "text": "It recounts the excavation of a single unusual artifact, compares it with similar finds, and endorses its excavators' interpretation."
     },
     {
       "id": "D",
-      "text": "It argues that a class of artifacts served a ceremonial purpose, concedes that the supporting evidence is thin, and calls for more systematic excavation of the relevant sites."
+      "text": "It argues that a class of artifacts served a ceremonial purpose, concedes that the evidence is thin, and calls for further excavation."
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** The text introduces the enigmatic dodecahedra, lists candidate functions, shows why the same facts defeat each candidate, and ends with a general moral about artifacts and understanding.\n\n**The Full Solution:**\n- Opening: the puzzling class is described in physical detail — twelve-sided bronze shells with holes and knobs, found across the northern provinces.\n- Survey: four proposed functions are listed, from candlestick holder to knitting tool.\n- Frustration: \"every proposal stumbles on the same awkward facts\" — inconsistent hole sizes, silence in texts and images, deposition with coins.\n- Close: the final sentence generalizes — abundant artifacts do not guarantee understanding. Choice B tracks all four moves in order.\n\n**Why the other choices are wrong:**\n- A: There is no consensus to unsettle — the text presents ongoing uncertainty — and no recent discovery or predicted winner appears.\n- C: The text concerns more than a hundred objects, not a single excavation, and endorses no interpretation.\n- D: The text argues for no function at all, ceremonial or otherwise; the deposition with coins is presented as an awkward fact, not a thesis, and no call for excavation is made."
+  "explanation": "**Choice B is correct.** The text introduces the puzzling dodecahedra, lists candidate functions, shows why the same facts defeat each candidate, and ends with a general lesson about artifacts and understanding.\n\n**The Full Solution:**\n- Opening: the puzzling objects are described in physical detail — twelve-sided bronze shells with holes and knobs, found across the northwestern provinces.\n- Survey: three proposed functions are listed, from candlestick holder to knitting tool.\n- Frustration: \"every proposal stumbles on the same facts\" — inconsistent hole sizes, silence in texts and images, burial with coin hoards.\n- Close: the final sentence generalizes — possessing artifacts does not guarantee understanding them. Choice B tracks all four moves in order.\n\n**Why the other choices are wrong:**\n- A: There is no consensus to unsettle — the text presents ongoing uncertainty — and no recent discovery or predicted winner appears.\n- C: The text concerns more than a hundred objects, not a single excavation, and endorses no interpretation.\n- D: The text argues for no function at all, ceremonial or otherwise; the burial with coins is presented as an awkward fact, not a thesis, and no call for excavation is made."
 }

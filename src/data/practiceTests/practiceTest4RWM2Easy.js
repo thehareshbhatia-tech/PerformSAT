@@ -116,16 +116,16 @@ export const practiceTest4RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "text-structure-and-purpose",
-      "passage": "For centuries, changing a theater set meant stopping the show: stagehands hauled scenery into the wings in near darkness while the audience sat waiting. __In the 1890s, theaters began installing stages built as enormous turntables, with one scene assembled on the front half while the next stood ready on the back.__ A change that had taken ten minutes now took seconds — the floor simply rotated — and playwrights began writing scripts that leapt freely between settings, confident the scenery could keep up.",
+      "passage": "By the late nineteenth century, theaters favored solid, realistic sets that took many minutes to dismantle and replace, so changing scenes often meant a long pause while the audience waited. __In 1896, a Munich theater introduced a stage built as an enormous turntable, with one scene assembled on its front half while the next stood ready on the back.__ A change that had taken minutes now took seconds, since the floor simply rotated, and revolving stages soon spread to theaters across Europe.",
       "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
       "choices": [
         { "id": "A", "text": "It introduces the innovation that resolved the problem described in the preceding sentence and made possible the developments described after it." },
-        { "id": "B", "text": "It explains why audiences of earlier centuries were willing to sit through long pauses between scenes." },
-        { "id": "C", "text": "It qualifies the earlier claim that set changes once stopped performances by describing theaters in which scenery never needed to move at all." },
+        { "id": "B", "text": "It explains why audiences of the period were willing to sit through long pauses between scenes." },
+        { "id": "C", "text": "It qualifies the earlier claim that scene changes caused long pauses by describing older theaters in which the scenery never needed to move at all." },
         { "id": "D", "text": "It offers a technical account of how turntable stages were braced and powered beneath the floor." }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The sentence before the underline states a problem — set changes stopped the show — and the sentence after reports the payoff: seconds-long changes and freer scripts. The underlined sentence supplies the turntable stage, the change that connects the two.\n\n**The Full Solution:**\n- For a function question, look at what surrounds the sentence. Before: the problem (shows halted while stagehands hauled scenery).\n- The underlined sentence: theaters installed revolving stages with the next scene already assembled on the hidden half.\n- After: the results — ten-minute waits became seconds, and playwrights wrote scene-hopping scripts \"confident the scenery could keep up.\"\n- How to spot it: a sentence wedged between a problem and its benefits is almost always there to name the change that links them, which is what choice A describes.\n\n**Why the other choices are wrong:**\n- B: The text never discusses audiences' willingness to wait — only that they had to.\n- C: Nothing is qualified; the underlined sentence describes scenery that moves faster, not theaters where scenery never moved.\n- D: No bracing or power machinery is described anywhere in the text."
+      "explanation": "**Choice A is correct.** The sentence before the underline states a problem (scene changes caused long pauses), and the sentence after reports the payoff: changes that took seconds and a device that spread across Europe. The underlined sentence supplies the turntable stage, the change that connects the two.\n\n**The Full Solution:**\n- For a function question, look at what surrounds the sentence. Before: the problem (heavy, realistic sets took many minutes to change while the audience waited).\n- The underlined sentence: a Munich theater introduced a revolving stage with the next scene already assembled on the back half.\n- After: the results. Changes that had taken minutes took seconds, and revolving stages \"soon spread to theaters across Europe.\"\n- How to spot it: a sentence wedged between a problem and its benefits is almost always there to name the change that links them, which is what choice A describes.\n\n**Why the other choices are wrong:**\n- B: The text never discusses audiences' willingness to wait, only that they had to.\n- C: Nothing is qualified; the underlined sentence describes scenery that moves faster, not theaters where scenery never moved.\n- D: No bracing or power machinery is described anywhere in the text."
     },
     {
       "id": 462,
@@ -137,7 +137,7 @@ export const practiceTest4RWM2Easy = {
       "passages": [
         {
           "label": "Text 1",
-          "text": "Playground safety standards adopted since the 1980s — impact-absorbing surfacing, lower platforms, guardrails, wider spacing — have been a plain success. Emergency-room visits for the most serious playground injuries fell as the standards spread, and the towering equipment that produced the worst falls of earlier decades has disappeared. On this record, designers should keep tightening the rules: each revision has removed another hazard, and there is no reason to think the process has reached its limit."
+          "text": "Playground safety standards adopted since the 1980s — impact-absorbing surfacing, lower platforms, guardrails, wider spacing — have a measurable record. When Toronto's public schools replaced equipment that failed the standards, injury rates at those schools fell by roughly a third. On this record, designers should keep tightening the rules: each revision has removed another hazard, and there is no reason to think the process has reached its limit."
         },
         {
           "label": "Text 2",
@@ -185,10 +185,10 @@ export const practiceTest4RWM2Easy = {
       "passage": "The roofs on old covered bridges were not built to shelter travelers. A bridge's wooden trusses — the crisscrossed frame that carries its weight — rot quickly when rain soaks into their joints, and an exposed wooden bridge might need rebuilding within a decade or two. A roof and side walls keep the frame beneath them dry. The covering itself was cheap to renew: shingles could be replaced every generation while the trusses under them went on working, and many covered bridges have now carried traffic for more than a century.",
       "question": "Which choice best states the main idea of the text?",
       "choices": [
-        { "id": "A", "text": "Covered bridges required their shingles to be replaced roughly once in every generation." },
-        { "id": "B", "text": "The covering on a covered bridge exists to keep the wooden frame dry, which is why many such bridges have lasted more than a century." },
+        { "id": "A", "text": "The shingles on a covered bridge's roof had to be replaced roughly once every generation, while the trusses beneath them kept working." },
+        { "id": "B", "text": "A covered bridge's roof protects its wooden frame from rot, which is why many such bridges have lasted over a century." },
         { "id": "C", "text": "Wooden bridges were largely abandoned once builders learned to span rivers with iron and steel." },
-        { "id": "D", "text": "The roofs of covered bridges offered travelers welcome shelter during sudden storms." }
+        { "id": "D", "text": "The roofs of covered bridges were built mainly to give travelers shelter during sudden storms." }
       ],
       "correctAnswer": "B",
       "explanation": "**Choice B is correct.** Every sentence serves one point: the roof protects the trusses from rot, and that protection is why covered bridges have lasted so long.\n\n**The Full Solution:**\n- The first sentence rules out the obvious guess — the roof is not for travelers.\n- The middle sentences give the real reason: wet joints rot, exposed bridges fail within decades, and a roof keeps the frame dry.\n- The last sentence delivers the payoff: cheap, renewable shingles guarded the trusses, and many bridges have carried traffic for over a century.\n- Choice B ties the purpose (keeping the frame dry) to the result (century-long service), covering the whole text.\n- How to spot it: a main idea must need every part of the passage; if a choice matches only one sentence, it is a detail.\n\n**Why the other choices are wrong:**\n- A: True but only a supporting detail about upkeep, not the point the passage builds.\n- C: Iron and steel are never mentioned anywhere in the text.\n- D: The opening sentence says the opposite — shelter for travelers is not why the roofs were built."
@@ -252,7 +252,7 @@ export const practiceTest4RWM2Easy = {
       "choices": [
         { "id": "A", "text": "Editors of rural weeklies heavily rewrote the columns their correspondents mailed in before allowing them into print." },
         { "id": "B", "text": "The correspondents who wrote for rural weeklies were drawn almost entirely from the ranks of a county's schoolteachers." },
-        { "id": "C", "text": "Rural weeklies were filled largely by their own readers' reporting, making the papers less a report on their communities than an exchange within them." },
+        { "id": "C", "text": "Rural weeklies were written largely by their own readers, which made each paper a conversation within its community." },
         { "id": "D", "text": "Rural weekly newspapers lost their readers once daily papers from nearby cities began reaching farm households." }
       ],
       "correctAnswer": "C",
@@ -480,7 +480,7 @@ export const practiceTest4RWM2Easy = {
       "band": 4,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "Inspecting a large bridge once meant closing lanes while engineers climbed through the trusswork with flashlights and notebooks. Today, hundreds of small strain gauges bonded to a bridge's members can report continuously, to a desk miles away, how each part flexes under every passing load. ______ the climbers have not been retired: a gauge can flag that a member's behavior has changed, but finding the corroded plate or cracked weld responsible still takes a person on the steel.",
+      "passage": "Bridge inspection once meant closing lanes while engineers climbed through the steelwork. Today, strain gauges bonded to a bridge's members can report continuously, to a desk miles away, how each part flexes under traffic. ______ the climbers have not been retired: a gauge can show that a member's behavior has changed, but finding the cracked weld responsible still takes a person on the steel.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "Therefore," },
@@ -489,7 +489,7 @@ export const practiceTest4RWM2Easy = {
         { "id": "D", "text": "Similarly," }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The middle sentence celebrates what the sensors can do; the final sentence takes some of it back — climbers are still needed. A sentence that concedes a limit after good news takes a concession word like \"Even so.\"\n\n**The Full Solution:**\n- Track the argument's direction. The second sentence is the advance: gauges report continuously, from a desk, on every member.\n- The third sentence pushes against the expectation that raises: despite all that reporting, \"the climbers have not been retired.\"\n- The colon then explains the limit — a gauge can say THAT something changed, but only a person on the steel can find WHAT and WHY.\n- A limit conceded after a reassurance is the signature of \"even so\" — the good news stands, and yet the old need remains.\n- How to spot it: when the previous sentence would lead a reader to expect one thing (no more climbing) and the new sentence reports the opposite is still true, choose a concession word, not a result word.\n\n**Why the other choices are wrong:**\n- A: \"Therefore\" would make keeping the climbers a consequence of the sensors' powers, when it follows from what the sensors CANNOT do.\n- C: \"For example\" would make the climbers' survival an illustration of continuous sensor reporting, which it is not.\n- D: \"Similarly\" needs the two sentences to run in parallel, but they pull in opposite directions."
+      "explanation": "**Choice B is correct.** The middle sentence celebrates what the sensors can do; the final sentence takes some of it back — climbers are still needed. A sentence that concedes a limit after good news takes a concession word like \"Even so.\"\n\n**The Full Solution:**\n- Track the argument's direction. The second sentence is the advance: gauges report continuously, to a distant desk, on how each part flexes.\n- The third sentence pushes against the expectation that raises: despite all that reporting, \"the climbers have not been retired.\"\n- The colon then explains the limit — a gauge can say THAT something changed, but only a person on the steel can find WHAT and WHY.\n- A limit conceded after a reassurance is the signature of \"even so\" — the good news stands, and yet the old need remains.\n- How to spot it: when the previous sentence would lead a reader to expect one thing (no more climbing) and the new sentence reports the opposite is still true, choose a concession word, not a result word.\n\n**Why the other choices are wrong:**\n- A: \"Therefore\" would make keeping the climbers a consequence of the sensors' powers, when it follows from what the sensors CANNOT do.\n- C: \"For example\" would make the climbers' survival an illustration of continuous sensor reporting, which it is not.\n- D: \"Similarly\" needs the two sentences to run in parallel, but they pull in opposite directions."
     },
     {
       "id": 477,
@@ -529,7 +529,7 @@ export const practiceTest4RWM2Easy = {
       },
       "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       "choices": [
-        { "id": "A", "text": "Whereas poured rubber surfacing cushions the falls that cause most serious playground injuries, shade sails address a different hazard, keeping equipment surfaces from growing hot enough to burn skin." },
+        { "id": "A", "text": "Whereas poured rubber surfacing cushions falls, the leading cause of serious playground injuries, shade sails address a different hazard: burning-hot surfaces." },
         { "id": "B", "text": "Poured rubber surfacing compresses under an impact, cushioning a child who falls onto it from playground equipment." },
         { "id": "C", "text": "Both poured rubber surfacing and shade sails have become common features of newly built playgrounds because each one makes equipment measurably safer for children." },
         { "id": "D", "text": "Playground equipment surfaces under shade sails measure tens of degrees cooler than identical surfaces left in full sun." }

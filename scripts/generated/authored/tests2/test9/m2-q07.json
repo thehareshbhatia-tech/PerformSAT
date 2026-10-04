@@ -1,6 +1,6 @@
 {
  "id": 7,
- "question": "A tide pool's water temperature $t$ hours after 8 a.m. is $-0.75t^2 + 6t + c$ degrees Fahrenheit, where $c$ is a constant. No temperature this model gives exceeds $79$ degrees Fahrenheit. What is the value of $c$?",
+ "question": "$f(x) = -0.75x^{2} + 6x + c$\nIn the given function, $c$ is a constant. The maximum value of $f(x)$ is $79$. What is the value of $c$?",
  "choices": [
   {
    "id": "A",
@@ -22,8 +22,8 @@
  "correctAnswer": "B",
  "distractorNotes": {
   "A": "reports -0.75(4)^2 + 6(4) = 12, the non-constant part at the vertex, instead of solving 12 + c = 79",
-  "C": "uses t = -b/a = 8, where the squared and linear terms cancel, so the maximum is read as c itself",
+  "C": "treats the constant term as the maximum value, which holds only if the vertex is on the y-axis",
   "D": "adds 12 to 79 instead of subtracting it"
  },
- "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**Choice B is correct.** The maximum occurs at $t = -\\frac{6}{2(-0.75)} = 4$, where the model gives $-0.75(16) + 6(4) + c = 12 + c$. Setting $12 + c = 79$ gives $c = 67$.\n\n**The Fast Way (~25s):** The vertex is at $t = 4$, the non-constant part contributes $12$ there, so $c = 79 - 12 = 67$.\n\n**The Full Solution:**\nStep 1: The parabola opens downward, so its greatest value sits at $t = -\\frac{b}{2a} = -\\frac{6}{2(-0.75)} = 4$.\nStep 2: Evaluate: $-0.75(4)^2 + 6(4) + c = -12 + 24 + c = 12 + c$.\nStep 3: Check with the true value: $12 + c = 79$ gives $c = 67$, and the model $-0.75t^2 + 6t + 67$ returns $67$ degrees at 8 a.m. and $79$ degrees at noon, its highest value.\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): computes the vertex value of the non-constant part, $-0.75(4)^2 + 6(4) = 12$, and reports it as $c$ instead of subtracting it from $79$.\n* Choice C ($79$): uses $t = -\\frac{b}{a} = 8$ rather than $-\\frac{b}{2a}$. At $t = 8$ the squared and linear terms cancel, so the model returns $c$, and the maximum is mistaken for $c$.\n* Choice D ($91$): isolates $c$ with the wrong sign, computing $79 + 12$ instead of $79 - 12$.\n\n**Test Day Takeaway:** For $at^2 + bt + c$ the extreme value sits at $t = -\\frac{b}{2a}$, and the constant $c$ is what remains after the rest of the expression is evaluated there."
+ "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The maximum occurs at $x = -\\frac{6}{2(-0.75)} = 4$, where $f(4) = -12 + 24 + c = 12 + c$. Setting $12 + c = 79$ gives $c = 67$.\n\n**The Full Solution:**\nStep 1: The parabola opens downward, so its maximum is at the vertex, $x = -\\frac{b}{2a} = -\\frac{6}{2(-0.75)} = 4$.\nStep 2: Evaluate at the vertex: $f(4) = -0.75(16) + 6(4) + c = -12 + 24 + c = 12 + c$.\nStep 3: Set the maximum equal to $79$: $12 + c = 79$, so $c = 67$. Check: $f(x) = -0.75(x - 4)^{2} + 79$ expands to $-0.75x^{2} + 6x - 12 + 79 = -0.75x^{2} + 6x + 67$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): reports the value of $-0.75x^{2} + 6x$ at the vertex instead of solving $12 + c = 79$.\n* Choice C ($79$): treats the constant term as the maximum, which is true only when the vertex is on the $y$-axis.\n* Choice D ($91$): adds $12$ to $79$ instead of subtracting it.\n\n**Test Day Takeaway:** The constant term is the $y$-intercept, not the maximum. Locate the vertex with $-\\frac{b}{2a}$, evaluate there, and set that value equal to the given maximum."
 }

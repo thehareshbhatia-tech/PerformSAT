@@ -1,26 +1,26 @@
 {
-  "id": 6,
-  "question": "A rack in a recording studio holds the microphones listed in the table. One ribbon microphone is taken from the rack and is not returned. If a second microphone is then taken at random, what is the probability that it is also a ribbon microphone?",
-  "questionTable": {
-    "headers": [
-      "Microphone type",
-      "Number in rack"
-    ],
-    "rows": [
-      [
-        "Ribbon",
-        "18"
-      ],
-      [
-        "Condenser",
-        "14"
-      ],
-      [
-        "Dynamic",
-        "8"
-      ]
-    ]
-  },
-  "correctAnswer": "17/39",
-  "explanation": "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $\\frac{17}{39}$.**\n\n**The Fast Way (~20s):** Removing one ribbon microphone leaves $17$ ribbons in a rack of $39$, so the second draw is a ribbon with probability $\\frac{17}{39}$.\n\n**The Full Solution:**\nStep 1: Total the rack before anything is removed: $18 + 14 + 8 = 40$ microphones.\nStep 2: One ribbon microphone leaves and does not come back, so both counts drop by one: $18 - 1 = 17$ ribbons remain out of $40 - 1 = 39$ microphones.\nStep 3: The second draw is made from those $39$, so the probability is $\\frac{17}{39}$. Check: the $22$ non-ribbon microphones are untouched, and $\\frac{17}{39} + \\frac{22}{39} = \\frac{39}{39} = 1$. ✓\n\n**Common Mistakes:**\n* $\\frac{18}{40}$ ($= 0.45$): ignores the removal entirely and treats the second draw as if the rack were still full.\n* $\\frac{18}{39}$ ($\\approx 0.46$): shrinks the total to $39$ but forgets that the microphone removed was itself a ribbon, so the numerator must drop too.\n* $\\frac{17}{40}$ ($= 0.425$): shrinks the ribbon count but leaves the total at $40$, double-counting a microphone that is no longer in the rack.\n\n**Test Day Takeaway:** \"Not returned\" changes BOTH numbers. Subtract one from the total and, when the item removed matches the category asked about, subtract one from that category as well."
+ "id": 6,
+ "question": "The table shows the number of pens of each color in a box. One blue pen is removed from the box and is not replaced. Then one of the remaining pens will be selected at random. What is the probability of selecting a blue pen? (Express your answer as a decimal or fraction, not as a percent.)",
+ "questionTable": {
+  "headers": [
+   "Color",
+   "Number of pens"
+  ],
+  "rows": [
+   [
+    "Blue",
+    "18"
+   ],
+   [
+    "Black",
+    "14"
+   ],
+   [
+    "Red",
+    "8"
+   ]
+  ]
+ },
+ "correctAnswer": "17/39",
+ "explanation": "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $\\frac{17}{39}$.**\n\n**The Fast Way (~20s):** Removing one blue pen leaves $17$ blue pens among $39$ pens, so the probability is $\\frac{17}{39}$.\n\n**The Full Solution:**\nStep 1: Total the pens before any are removed: $18 + 14 + 8 = 40$ pens.\nStep 2: One blue pen is removed and not replaced, so both counts drop by one: $18 - 1 = 17$ blue pens remain out of $40 - 1 = 39$ pens.\nStep 3: The selection is made from those $39$ pens, so the probability is $\\frac{17}{39}$. Check: the $22$ pens that are not blue are unchanged, and $\\frac{17}{39} + \\frac{22}{39} = 1$ ✓\n\n**Common Mistakes:**\n* $\\frac{18}{40}$ ($= 0.45$): ignores the removal and uses the original counts.\n* $\\frac{18}{39}$ ($\\approx 0.46$): lowers the total to $39$ but forgets that the removed pen was blue, so the blue count must drop too.\n* $\\frac{17}{40}$ ($= 0.425$): lowers the blue count but leaves the total at $40$, counting a pen that is no longer in the box.\n\n**Test Day Takeaway:** \"Not replaced\" changes BOTH numbers. Subtract one from the total, and when the removed item is in the category asked about, subtract one from that category too."
 }

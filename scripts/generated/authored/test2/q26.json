@@ -10,10 +10,10 @@
     "intro": "While researching a topic, a student has taken the following notes:",
     "bullets": [
       "Emmy Noether (1882-1935) was a German mathematician.",
-      "In 1915, physicists were troubled because Einstein's new general theory of relativity seemed to conflict with the conservation of energy.",
-      "In 1918, Noether proved a theorem showing that every continuous symmetry in the laws of physics corresponds to a conserved quantity.",
+      "In 1915, Einstein's new general theory of relativity seemed to conflict with the conservation of energy.",
+      "In 1918, Noether published a theorem showing that every continuous symmetry in the laws of physics corresponds to a conserved quantity.",
       "For example, because the laws of physics are the same at all times, energy must be conserved.",
-      "Physicists today still use Noether's theorem to identify conserved quantities whenever they propose new theories."
+      "Physicists today still use Noether's theorem to identify conserved quantities when they propose new theories."
     ],
     "goal": "The student wants to emphasize the lasting usefulness of Noether's theorem to physicists."
   },
@@ -21,21 +21,21 @@
   "choices": [
     {
       "id": "A",
-      "text": "In 1918, Emmy Noether proved a theorem showing that every continuous symmetry in the laws of physics corresponds to a conserved quantity — for example, energy is conserved because the laws of physics are the same at all times."
+      "text": "In 1918, Emmy Noether published a theorem linking every continuous symmetry in the laws of physics to a conserved quantity, such as energy."
     },
     {
       "id": "B",
-      "text": "More than a century after Emmy Noether proved it, physicists still turn to her 1918 theorem to identify conserved quantities whenever they propose new theories."
+      "text": "More than a century after Emmy Noether published it in 1918, physicists still use her theorem to identify conserved quantities in new theories."
     },
     {
       "id": "C",
-      "text": "Emmy Noether, a German mathematician who lived from 1882 to 1935, proved an important theorem in the year 1918."
+      "text": "Emmy Noether, a German mathematician who lived from 1882 to 1935, published an important theorem in 1918."
     },
     {
       "id": "D",
-      "text": "In 1915, physicists were troubled because Einstein's new general theory of relativity seemed to conflict with the conservation of energy."
+      "text": "In 1915, Einstein's new general theory of relativity seemed to conflict with the conservation of energy."
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** The goal is lasting usefulness, and B is built around exactly that: \"more than a century after\" she proved it, physicists \"still turn to\" the theorem for a working purpose.\n\n**The Full Solution:**\n- The goal has two parts to convey: the theorem endures, and physicists find it useful.\n- Choice B delivers both — the time span establishes endurance, and \"to identify conserved quantities whenever they propose new theories\" establishes ongoing, practical use.\n\n**Why the other choices are wrong:**\n- A: It states the theorem's content and an example accurately but stops in 1918 — nothing conveys that physicists still rely on it.\n- C: It reduces Noether to biography and calls the theorem \"important\" without evidence of use, present or past.\n- D: It describes the 1915 problem that preceded the theorem and never mentions the theorem's later usefulness at all."
+  "explanation": "**Choice B is correct.** The goal is lasting usefulness, and B is built around exactly that: \"more than a century after\" she published it, physicists \"still use\" the theorem for a working purpose.\n\n**The Full Solution:**\n- The goal has two parts to convey: the theorem endures, and physicists find it useful.\n- Choice B delivers both — the time span establishes endurance, and \"to identify conserved quantities in new theories\" establishes ongoing, practical use.\n\n**Why the other choices are wrong:**\n- A: It states the theorem's content accurately but stops in 1918 — nothing conveys that physicists still rely on it.\n- C: It reduces Noether to biography and calls the theorem \"important\" without evidence of use, present or past.\n- D: It describes the 1915 problem that preceded the theorem and never mentions the theorem's later usefulness at all."
 }

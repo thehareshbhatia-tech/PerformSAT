@@ -6,40 +6,40 @@
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-quantitative",
   "module": 2,
-  "passage": "A media historian claims that the American broadcasting boom of the 1920s had two distinct phases: the number of licensed stations exploded within a single year and then stopped growing, while the audience kept expanding steadily, with the share of households owning a radio rising throughout the decade.",
+  "passage": "A media historian claims that the American radio boom of the 1920s had two phases. After a burst of growth, the number of broadcasting stations leveled off after 1923, but the audience did not stall with it: the number of households owning a radio kept climbing year after year.",
   "questionTable": {
     "type": "table",
-    "caption": "Licensed broadcast stations and household radio ownership in the United States, 1921-1930",
+    "caption": "Broadcasting stations (as of June 30) and households with a radio in the United States, 1922-1926",
     "headers": [
       "Year",
-      "Licensed stations",
-      "Households with a radio (%)"
+      "Broadcasting stations",
+      "Households with a radio (millions)"
     ],
     "rows": [
       [
-        "1921",
-        "28",
-        "0.5"
+        "1922",
+        "378",
+        "0.06"
       ],
       [
-        "1922",
-        "570",
-        "6"
+        "1923",
+        "558",
+        "0.4"
       ],
       [
         "1924",
+        "545",
+        "1.25"
+      ],
+      [
+        "1925",
+        "585",
+        "2.75"
+      ],
+      [
+        "1926",
         "535",
-        "16"
-      ],
-      [
-        "1927",
-        "681",
-        "26"
-      ],
-      [
-        "1930",
-        "618",
-        "46"
+        "4.5"
       ]
     ]
   },
@@ -47,24 +47,24 @@
   "choices": [
     {
       "id": "A",
-      "text": "The number of licensed stations reached its highest level in 1927, when 681 stations held licenses, and it had fallen back somewhat by 1930."
+      "text": "The number of broadcasting stations reached its highest level in 1925, at 585, and then fell to 535 in 1926."
     },
     {
       "id": "B",
-      "text": "The share of households with a radio grew from 0.5% in 1921 to 46% by 1930, rising in every interval shown in the table."
+      "text": "Households with a radio grew from 0.06 million in 1922 to 4.5 million in 1926, rising in every year shown in the table."
     },
     {
       "id": "C",
-      "text": "In 1922 there were 570 licensed stations on the air, but only 6% of the nation's households owned a radio in that year."
+      "text": "In 1922 there were 378 broadcasting stations, but only 0.06 million households owned a radio that year."
     },
     {
       "id": "D",
-      "text": "After leaping from 28 in 1921 to 570 in 1922, the number of licensed stations never rose above 681, while the share of households with a radio climbed in every interval shown, from 0.5% to 46%."
+      "text": "After rising from 378 in 1922 to 558 in 1923, the number of stations stayed between 535 and 585, while households with a radio rose every year, from 0.06 million to 4.5 million."
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The claim describes two phases moving differently — stations exploding then plateauing, audience rising throughout — and D documents both: the one-year leap, the ceiling near 681, and the uninterrupted climb in ownership.\n\n**The Full Solution:**\n- Phase one: stations jump from 28 to 570 within a single year, then oscillate without exceeding 681 — explosion followed by plateau.\n- Phase two: household ownership rises in every interval, 0.5% to 46% — the steady audience growth.\n- Only a choice tracing both series across the decade can support the two-phase claim.\n\n**Why the other choices are wrong:**\n- A: It covers only the station plateau's peak and dip, saying nothing about the audience.\n- B: It covers only the audience and says nothing about the stations' explosive-then-flat pattern.\n- C: A single year's mismatch between stations and ownership illustrates neither trend.",
+  "explanation": "**Choice D is correct.** The claim describes two series moving differently: stations rising and then leveling off by 1923, households with a radio climbing every year. D documents both: the rise to 558, the later range of 535 to 585, and the uninterrupted climb in ownership.\n\n**The Full Solution:**\n- Phase one: stations rise from 378 to 558 between 1922 and 1923, then stay between 535 and 585, so the number has leveled off.\n- The audience: households with a radio rise in every year shown, from 0.06 million to 4.5 million.\n- Only a choice that traces both series can support a claim that contrasts them.\n\n**Why the other choices are wrong:**\n- A: It covers only the stations' peak and dip, saying nothing about the audience.\n- B: It covers only the audience and says nothing about the stations leveling off.\n- C: A single year's figures illustrate neither trend.",
   "_meta": {
-    "anchor": "1920s broadcasting boom — station plateau versus rising household ownership; original compiled table"
+    "anchor": "US radio 1922-26: Dept. of Commerce station lists (June 30 counts: 378, 558, 545, 585, 535) and households with radio (Historical Statistics of the US: 60k, 400k, 1.25M, 2.75M, 4.5M)"
   }
 }

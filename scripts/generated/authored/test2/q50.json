@@ -6,7 +6,7 @@
   "domain": "expression-of-ideas",
   "skill": "transitions",
   "module": 2,
-  "passage": "The Taj Mahal is usually pictured as a domed tomb at the end of a garden. The architectural historian Ebba Koch surveyed the complex and found one module repeated throughout its plan: in the tomb, the garden beds, and the river terrace. ______ the tomb is not an object placed in a garden but one figure in a pattern that orders the whole site.",
+  "passage": "The Taj Mahal is usually pictured as a domed tomb at the end of a garden. The architectural historian Ebba Koch surveyed the complex and found that one grid of repeated units governs the plan of the riverfront terrace, the tomb, and the garden. ______ the tomb is not an object placed in a garden but part of a pattern that orders the whole site.",
   "question": "Which choice completes the text with the most logical transition?",
   "choices": [
     {
@@ -27,5 +27,5 @@
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The last sentence adds no new information; it restates what Koch's survey found in more general terms, and \"In other words\" is the transition that marks a restatement.\n\n**The Full Solution:**\n- The first sentence gives the familiar picture of the building: a domed tomb at the end of a garden.\n- The second reports the finding: one module repeated in the tomb, the garden beds, and the river terrace.\n- The third says the same thing differently — the tomb is one figure in a pattern that governs the site — so the transition must signal restatement.\n\n**Why the other choices are wrong:**\n- A: \"For instance\" would introduce an example, but the examples were already given in the preceding sentence.\n- B: \"Nevertheless\" signals a concession, and the final sentence concedes nothing; it agrees with the sentence before it.\n- C: \"Meanwhile\" marks two things happening at the same time, and the text describes a single finding rather than simultaneous events."
+  "explanation": "**Choice D is correct.** The last sentence adds no new information; it restates what Koch's survey found in more general terms, and \"In other words\" is the transition that marks a restatement.\n\n**The Full Solution:**\n- The first sentence gives the familiar picture of the building: a domed tomb at the end of a garden.\n- The second reports the finding: one grid of repeated units governs the riverfront terrace, the tomb, and the garden.\n- The third says the same thing differently — the tomb is part of a pattern that orders the whole site — so the transition must signal restatement.\n\n**Why the other choices are wrong:**\n- A: \"For instance\" would introduce an example, but the examples were already given in the preceding sentence.\n- B: \"Nevertheless\" signals a concession, and the final sentence concedes nothing; it agrees with the sentence before it.\n- C: \"Meanwhile\" marks two things happening at the same time, and the text describes a single finding rather than simultaneous events."
 }

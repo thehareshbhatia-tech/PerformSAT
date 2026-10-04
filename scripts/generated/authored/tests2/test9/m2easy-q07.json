@@ -1,29 +1,29 @@
 {
  "id": 7,
- "question": "A storage protocol requires a vaccine vial to be discarded when its recorded temperature $T$, in degrees Fahrenheit, differs from the target of $46$ by exactly $8$ degrees. Which equation gives the temperatures at which a vial is discarded?",
+ "question": "The water temperature $T$, in degrees Fahrenheit, of a swimming pool differs from $82$ by exactly $4$ degrees. Which equation represents this situation?",
  "choices": [
   {
    "id": "A",
-   "text": "$|T + 8| = 46$"
+   "text": "$|T + 4| = 82$"
   },
   {
    "id": "B",
-   "text": "$|T - 46| = 8$"
+   "text": "$|T - 82| = 4$"
   },
   {
    "id": "C",
-   "text": "$|T + 46| = 8$"
+   "text": "$|T + 82| = 4$"
   },
   {
    "id": "D",
-   "text": "$|T - 8| = 46$"
+   "text": "$|T - 4| = 82$"
   }
  ],
  "distractorNotes": {
-  "A": "adds 8 to T and compares to 46; its solutions are T = 38 and T = -54",
-  "C": "adds the target instead of subtracting it; its solutions are T = -38 and T = -54",
-  "D": "swaps the target and the allowed difference; its solutions are T = 54 and T = -38"
+  "A": "adds 4 to T and compares to 82; its solutions are T = 78 and T = -86",
+  "C": "adds 82 instead of subtracting it; its solutions are T = -78 and T = -86",
+  "D": "swaps the target and the allowed difference; its solutions are T = 86 and T = -78"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice B is correct.** The distance between the recorded temperature and the target is $|T - 46|$, and the protocol sets that distance equal to $8$.\n\n**The Fast Way (~15s):** \"Differs from $46$ by exactly $8$\" is the distance from $T$ to $46$, written $|T - 46|$, set equal to $8$.\n\n**The Full Solution:**\nStep 1: An absolute value measures distance on the number line, and the distance between $T$ and the target $46$ is $|T - 46|$.\nStep 2: The protocol discards the vial when that distance equals $8$, so $|T - 46| = 8$.\nStep 3: Solving gives $T - 46 = 8$ or $T - 46 = -8$, so $T = 54$ or $T = 38$. Check: $54$ and $38$ each sit exactly $8$ degrees from $46$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($|T + 8| = 46$): adds the $8$ to $T$ and compares to the target, giving $T = 38$ or $T = -54$. It happens to catch $38$, but it also admits $-54^\\circ$F, which is nowhere near the target.\n* Choice C ($|T + 46| = 8$): adds the target instead of subtracting it, giving $T = -38$ or $T = -54$ — neither is $8$ degrees from $46$.\n* Choice D ($|T - 8| = 46$): swaps the roles of the target and the allowed difference, giving $T = 54$ or $T = -38$.\n\n**Test Day Takeaway:** \"Differs from $c$ by $d$\" always becomes $|x - c| = d$: the center of the interval is subtracted inside the bars, and the allowed gap sits alone on the right."
+ "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** \"Differs from $82$ by exactly $4$\" means the distance between $T$ and $82$ is $4$, which is $|T - 82| = 4$.\n\n**The Full Solution:**\nStep 1: The difference between $T$ and $82$ is $T - 82$, which can be positive or negative.\nStep 2: The size of that difference, regardless of sign, is $|T - 82|$, and it must equal $4$: $|T - 82| = 4$.\nStep 3: Solve to confirm: $T - 82 = 4$ or $T - 82 = -4$, so $T = 86$ or $T = 78$, the two temperatures $4$ degrees from $82$. Check: $|86 - 82| = 4$ and $|78 - 82| = 4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($|T + 4| = 82$): adds the difference to $T$ and sets the result equal to $82$; its solutions are $T = 78$ and $T = -86$, and $-86$ is not $4$ degrees from $82$.\n* Choice C ($|T + 82| = 4$): adds $82$ instead of subtracting it; its solutions are $T = -78$ and $T = -86$.\n* Choice D ($|T - 4| = 82$): swaps the roles of $82$ and $4$; its solutions are $T = 86$ and $T = -78$.\n\n**Test Day Takeaway:** \"$x$ differs from $a$ by exactly $d$\" translates to $|x - a| = d$: the target goes inside the absolute value with a minus sign, and the allowed difference goes outside."
 }

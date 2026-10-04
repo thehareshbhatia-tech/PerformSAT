@@ -6,12 +6,12 @@
   "domain": "information-and-ideas",
   "skill": "central-ideas-and-details",
   "module": 1,
-  "passage": "At the universities of thirteenth-century Europe, demand for accurate copies of required texts outran what any bookshop could produce by copying volumes one at a time. Stationers answered with the pecia system. A shop kept an approved exemplar of each text, divided into numbered sections — peciae — that students and professional scribes rented individually for a fixed fee. Dozens of copyists could then be at work on different sections of the same book at once. And because every rented section was copied directly from a single vetted exemplar, mistakes did not compound from copy to copy, as they inevitably did when each new manuscript served as the model for the next.",
+  "passage": "At the universities of thirteenth-century Europe, demand for accurate copies of required texts outran what bookshops could produce by copying whole volumes one at a time. Stationers answered with the pecia system. A shop kept an approved exemplar of each text, divided into numbered sections, or peciae, that students and scribes rented individually for a fixed fee. Dozens of copyists could then work on different sections of the same book at once. And because every section was copied directly from one vetted exemplar, mistakes did not compound from copy to copy.",
   "question": "Which choice best states the main idea of the text?",
   "choices": [
     {
       "id": "A",
-      "text": "By renting out sections of one vetted master copy to many copyists at once, the pecia system produced needed texts quickly while keeping errors from compounding across copies."
+      "text": "By renting sections of one vetted master copy to many copyists at once, the pecia system made texts quickly without compounding errors."
     },
     {
       "id": "B",

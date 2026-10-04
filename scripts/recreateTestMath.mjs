@@ -412,6 +412,8 @@ function testChecks(row, a, chunk) {
     if (T === 'table') req((Array.isArray(P.headers) && Array.isArray(P.rows)) || (P.xHeader && P.yHeader), 'must have headers/rows or xHeader/yHeader');
     if (T === 'scatterplot') req(Array.isArray(P.points) && P.points.every(pt => (Array.isArray(pt) && pt.length === 2 && pt.every(Number.isFinite)) || (pt && Number.isFinite(pt.x) && Number.isFinite(pt.y))), 'every point must be [x, y] or {x, y} with finite numbers');
   }
+  // mirror of auditMissingDiagrams --strict (CI): these words REQUIRE a scatterplot figure — a questionTable does not satisfy it
+  if (/\bline of best fit\b|\bresiduals?\b/i.test(a.question || '') && a.diagram?.type !== 'scatterplot') errs.push('stem says "line of best fit"/"residual" without a scatterplot — CI\'s diagram audit requires one; use "linear model" / compare recorded vs predicted instead');
   // SATIntersectingLines draws the lines 60° apart unless told otherwise — the figure must agree with its labels
   if (a.diagram?.type === 'intersectingLines' && !(a.diagram.params && Number.isFinite(a.diagram.params.angle0Measure))) errs.push('intersectingLines: set params.angle0Measure to the true measure (degrees) of angles[0] so the drawn angles match the labels');
   // SATLinearGraph applies ONE gridInterval to both axes (SATGraphCore.renderGrid) — a tall yRange with a small

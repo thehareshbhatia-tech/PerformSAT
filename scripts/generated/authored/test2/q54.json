@@ -9,11 +9,11 @@
   "studentNotes": {
     "intro": "While researching a topic, a student has taken the following notes:",
     "bullets": [
-      "The octobass is a giant bowed string instrument, roughly 3.5 meters tall, built by the French instrument maker Jean-Baptiste Vuillaume around 1850.",
-      "Its three strings sound pitches at and below the bottom of the double bass's range, some near the lower limit of human hearing.",
-      "The strings are far too long and thick for a player's fingers to press down directly.",
-      "The player instead operates a system of levers and foot pedals that close padded clamps onto the strings at set positions.",
-      "Only a handful of octobasses exist today, and few orchestras have ever included one."
+      "The octobass is a bowed string instrument about 3.5 meters tall, built by the French instrument maker Jean-Baptiste Vuillaume around 1850.",
+      "Its three strings sound some of the lowest pitches of any orchestral instrument, near the lower limit of human hearing.",
+      "The strings are too long and thick for a player's fingers to press down.",
+      "Instead, the player works levers and foot pedals that clamp the strings at set positions.",
+      "Only a handful of octobasses exist today."
     ],
     "goal": "The student wants to explain how an octobass player produces different notes despite the instrument's enormous size."
   },
@@ -21,21 +21,21 @@
   "choices": [
     {
       "id": "A",
-      "text": "The octobass, a giant bowed string instrument built by the French instrument maker Jean-Baptiste Vuillaume around 1850, stands roughly 3.5 meters tall."
+      "text": "The octobass, a bowed string instrument built by Jean-Baptiste Vuillaume around 1850, stands about 3.5 meters tall."
     },
     {
       "id": "B",
-      "text": "Because the octobass's strings are far too long and thick for fingers to press down directly, the player changes notes by working levers and foot pedals that close padded clamps onto the strings at set positions."
+      "text": "Because its strings are too thick for fingers to press, an octobass player changes notes with levers and pedals that clamp the strings."
     },
     {
       "id": "C",
-      "text": "The octobass's three strings sound pitches at and below the bottom of the double bass's range — some near the lower limit of human hearing — which helps explain why so few orchestras have ever found a place for the instrument."
+      "text": "The octobass's three strings sound pitches near the lower limit of human hearing, which may explain why so few octobasses exist."
     },
     {
       "id": "D",
-      "text": "Only a handful of octobasses exist today, and few orchestras in the instrument's history since 1850 have ever included one in performance."
+      "text": "Only a handful of octobasses exist today, more than a century and a half after Vuillaume built the first one."
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** The goal asks for the how — note production despite enormous size — and B explains the complete mechanism: fingers cannot press the huge strings, so levers and pedals close clamps at set positions instead.\n\n**The Full Solution:**\n- The goal joins a problem (the instrument's size defeats ordinary fingering) to a solution (some other way of stopping the strings).\n- Choice B renders both halves from the notes: the size problem (\"far too long and thick for fingers to press down directly\") and the mechanical answer (levers, pedals, padded clamps at set positions) that produces different notes.\n\n**Why the other choices are wrong:**\n- A: It conveys the instrument's size and maker but says nothing about how anyone plays it.\n- C: It describes the pitches the strings produce and speculates about orchestras, never explaining the mechanism a player uses to change notes.\n- D: Rarity is the notes' least relevant fact for this goal; a count of surviving instruments explains nothing about playing technique."
+  "explanation": "**Choice B is correct.** The goal asks for the how — producing notes despite enormous size — and B explains the complete mechanism: fingers cannot press the huge strings, so levers and pedals clamp the strings instead.\n\n**The Full Solution:**\n- The goal joins a problem (the instrument's size defeats ordinary fingering) to a solution (some other way of stopping the strings).\n- Choice B renders both halves from the notes: the size problem (strings \"too long and thick for a player's fingers to press down\") and the mechanical answer (levers and foot pedals that clamp the strings at set positions) that produces different notes.\n\n**Why the other choices are wrong:**\n- A: It conveys the instrument's size and maker but says nothing about how anyone plays it.\n- C: It describes the pitches the strings produce and speculates about rarity, never explaining the mechanism a player uses to change notes.\n- D: Rarity is the notes' least relevant fact for this goal; a count of surviving instruments explains nothing about playing technique."
 }

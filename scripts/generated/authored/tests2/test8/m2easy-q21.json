@@ -1,6 +1,6 @@
 {
  "id": 21,
- "question": "A single dose gives a plasma concentration, in milligrams per liter, of $c(t) = -3t^2 + 30t$ at $t$ hours, as graphed. The dose treats an infection only while that concentration stays at or above $48$ milligrams per liter. For how many minutes does it treat the infection?",
+ "question": "The graph shows the height $h(t)$, in feet, of a kite $t$ minutes after it was launched, where $h(t) = -3t^{2} + 30t$. For how many minutes was the kite at a height of at least $48$ feet?",
  "diagram": {
   "type": "parabola",
   "params": {
@@ -26,26 +26,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$120$"
+   "text": "$2$"
   },
   {
    "id": "B",
-   "text": "$360$"
+   "text": "$6$"
   },
   {
    "id": "C",
-   "text": "$480$"
+   "text": "$8$"
   },
   {
    "id": "D",
-   "text": "$600$"
+   "text": "$10$"
   }
  ],
  "distractorNotes": {
-  "A": "converts only t = 2, the time the concentration first reaches 48, giving 120 minutes",
-  "C": "converts t = 8, the later time the concentration equals 48, instead of the length of the interval",
-  "D": "uses the full 10 hours during which the concentration is positive, giving 600 minutes"
+  "A": "gives t = 2, the time when the kite first reaches 48 feet, instead of the length of the interval",
+  "C": "gives t = 8, the time when the kite falls back to 48 feet, instead of the length of the interval",
+  "D": "uses all 10 minutes during which the height is positive, ignoring the 48-foot level"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** Solve $-3t^2 + 30t \\ge 48$: dividing by $-3$ flips it to $t^2 - 10t + 16 \\le 0$, or $(t - 2)(t - 8) \\le 0$, so $2 \\le t \\le 8$ — six hours, or $360$ minutes.\n\n**The Full Solution:**\nStep 1: The condition is $-3t^2 + 30t \\ge 48$. Move everything to one side: $-3t^2 + 30t - 48 \\ge 0$, and divide by $-3$, reversing the inequality: $t^2 - 10t + 16 \\le 0$.\nStep 2: Factor: $(t - 2)(t - 8) \\le 0$. A product of two factors is negative or zero only between the roots, so $2 \\le t \\le 8$ — exactly the stretch where the graph sits at or above the $48$ level.\nStep 3: The interval lasts $8 - 2 = 6$ hours, which is $6(60) = 360$ minutes. Check the endpoints and the middle: $c(2) = -12 + 60 = 48$, $c(8) = -192 + 240 = 48$, and $c(5) = -75 + 150 = 75 \\ge 48$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($120$): converts $t = 2$, the moment the drug first becomes effective. That is when the window opens, not how long it lasts.\n* Choice C ($480$): converts $t = 8$, the moment the window closes. Subtracting the two crossing times is the step that turns endpoints into a duration.\n* Choice D ($600$): uses all $10$ hours the concentration is above zero, ignoring the $48$ milligrams-per-liter threshold entirely.\n\n**Test Day Takeaway:** A \"how long\" question wants the DIFFERENCE of the two crossing times, not either crossing time — and when you divide an inequality by a negative number, the sign flips."
+ "explanation": "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Solve $-3t^{2} + 30t \\ge 48$: dividing by $-3$ gives $t^{2} - 10t + 16 \\le 0$, or $(t - 2)(t - 8) \\le 0$, so $2 \\le t \\le 8$, which is $6$ minutes.\n\n**The Full Solution:**\nStep 1: The condition is $-3t^{2} + 30t \\ge 48$. Subtract $48$: $-3t^{2} + 30t - 48 \\ge 0$. Divide by $-3$ and reverse the inequality: $t^{2} - 10t + 16 \\le 0$.\nStep 2: Factor: $(t - 2)(t - 8) \\le 0$. The product is less than or equal to $0$ only between the zeros, so $2 \\le t \\le 8$; on the graph, this is where the curve is at or above a height of $48$.\nStep 3: The kite is at or above $48$ feet for $8 - 2 = 6$ minutes. Check: $h(2) = -12 + 60 = 48$, $h(8) = -192 + 240 = 48$, and $h(5) = -75 + 150 = 75 \\ge 48$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): the time when the kite first reaches $48$ feet, not how long it stays at or above that height.\n* Choice C ($8$): the time when the kite comes back down to $48$ feet. The length of the interval is $8 - 2$.\n* Choice D ($10$): the whole time the kite is above the ground, ignoring the $48$-foot level.\n\n**Test Day Takeaway:** A \"for how long\" question asks for the difference between the two times, not either time; dividing an inequality by a negative number reverses it."
 }

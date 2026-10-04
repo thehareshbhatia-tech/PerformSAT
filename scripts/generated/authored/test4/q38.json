@@ -6,7 +6,7 @@
   "domain": "information-and-ideas",
   "skill": "central-ideas-and-details",
   "module": 2,
-  "passage": "Smallpox inoculation reached England not through its medical colleges but through an ambassador's household. In Constantinople in 1717, Lady Mary Wortley Montagu, who had survived smallpox herself, watched Ottoman practitioners protect children by engrafting: introducing a trace of matter from a mild case into a scratch on the arm, producing a brief illness that left lasting protection. She had the procedure performed on her own son, and after returning to London she promoted it among physicians and at court, arranging for her young daughter to be inoculated before witnesses during the epidemic of 1721. The practice took hold in England decades before vaccination was introduced.",
+  "passage": "Smallpox inoculation reached England not through its medical colleges but through an ambassador's household. In Constantinople in 1717, Lady Mary Wortley Montagu, who had survived smallpox herself, observed the Ottoman practice of engrafting: placing a trace of matter from a mild case into a scratch on the skin, producing a brief illness and lasting protection. She had her son inoculated there, and after returning to London she promoted the procedure, arranging for her daughter to be inoculated before physicians during the epidemic of 1721. The practice took hold in England decades before vaccination was introduced.",
   "question": "Which choice best states the main idea of the text?",
   "choices": [
     {
@@ -19,15 +19,15 @@
     },
     {
       "id": "C",
-      "text": "Inoculation as practiced in Constantinople produced a brief illness followed by lasting protection, whereas the vaccination introduced decades later carried no risk of any illness at all."
+      "text": "Inoculation as practiced in Constantinople caused a brief illness, whereas the vaccination introduced decades later carried no risk of any illness at all."
     },
     {
       "id": "D",
-      "text": "Montagu encountered inoculation in Constantinople and, by personal example and public advocacy, helped establish the practice in England long before vaccination existed."
+      "text": "Montagu learned of inoculation in Constantinople and, through personal example and advocacy, helped establish it in England long before vaccination."
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The text's through-line is transmission: Montagu sees engrafting in Constantinople, applies it in her own family, promotes it in London, and the practice takes hold in England decades before vaccination. D traces exactly that arc.\n\n**The Full Solution:**\n- The opening sentence frames the point: inoculation reached England through an ambassador's household, not the medical colleges.\n- The middle supplies the means: her son's inoculation, then her daughter's before witnesses — personal example turned public advocacy.\n- The final sentence gives the outcome D restates: the practice established well before vaccination.\n\n**Why the other choices are wrong:**\n- A: The practitioners let Montagu watch; no secrecy is described.\n- B: The text never says physicians resisted her or mentions her training.\n- C: It elevates a detail into a comparison the text never makes — nothing is said about vaccination's risks.",
+  "explanation": "**Choice D is correct.** The text's through-line is transmission: Montagu sees engrafting in Constantinople, applies it in her own family, promotes it in London, and the practice takes hold in England decades before vaccination. D traces exactly that arc.\n\n**The Full Solution:**\n- The opening sentence frames the point: inoculation reached England through an ambassador's household, not the medical colleges.\n- The middle supplies the means: her son's inoculation, then her daughter's before physicians — personal example turned public advocacy.\n- The final sentence gives the outcome D restates: the practice established well before vaccination.\n\n**Why the other choices are wrong:**\n- A: Montagu observed the practice openly; no secrecy is described.\n- B: The text never says physicians resisted her or mentions her training.\n- C: It elevates a detail into a comparison the text never makes — nothing is said about vaccination's risks.",
   "_meta": {
     "anchor": "Lady Mary Wortley Montagu — inoculation's route from Constantinople to England"
   }

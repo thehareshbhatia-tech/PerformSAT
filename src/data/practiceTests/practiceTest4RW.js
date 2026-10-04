@@ -106,7 +106,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Rather than judging a soccer team by its goals alone, analysts now rate the quality of every scoring chance it creates. By comparing each shot's distance, angle, and buildup with thousands of similar attempts from past matches, they can ______ how often a chance of that kind ends in a goal — and thus whether a team's results reflect its play or merely its luck.",
+          "passage": "Analysts no longer judge a soccer team by its goals alone; they rate the quality of every scoring chance it creates. By comparing each shot's distance, angle, and buildup with thousands of similar past attempts, they can ______ how often a chance of that kind ends in a goal, and thus whether a team's results reflect its play or merely its luck.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -172,7 +172,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "The towering mounds built by some African termites were long described as chimneys: metabolic heat from the colony below was thought to drive a steady upward draft that vented stale air. Researchers who measured airflow inside occupied mounds have proposed a different picture, in which the mound works less like a chimney than like a lung. __When the researchers injected a tracer gas into nest chambers and followed its movement, they found air sloshing slowly back and forth through the mound's porous walls, driven by daily swings in outside temperature, rather than streaming steadily upward.__ On this account, the colony's air is exchanged by the rhythm of the surrounding day, not by the heat of the colony itself.",
+          "passage": "The towering mounds built by some fungus-farming termites were long described as chimneys: heat from the colony below was thought to drive a steady upward draft that vented stale air. Researchers who measured airflow inside occupied mounds in India propose a different picture: the mound works less like a chimney than like a lung. __Using probes that recorded air speed and temperature around the clock, they found that the airflow reverses direction between day and night, driven by daily swings in outside temperature.__ On this account, the colony breathes with the rhythm of the day.",
           "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
           "choices": [
             {
@@ -193,9 +193,9 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The preceding sentence proposes the lung picture; the underlined sentence delivers the tracer-gas evidence — air sloshing back and forth, not streaming upward — that backs it.\n\n**The Full Solution:**\n- Sentence 2 introduces the revision: mound as lung, not chimney.\n- The underlined sentence reports the experiment behind it: tracer gas moving in slow oscillations driven by daily temperature swings.\n- The final sentence draws the conclusion the measurements license. The underline is the evidentiary middle step.\n\n**Why the other choices are wrong:**\n- A: The chimney model appears in the first sentence, and the passage undermines it rather than defending it.\n- C: The sentence strengthens the lung comparison; it concedes nothing.\n- D: Breach detection and repair are never mentioned; the porous walls figure only as the route the air takes.",
+          "explanation": "**Choice B is correct.** The preceding sentence proposes the lung picture; the underlined sentence delivers the measurements that back it: airflow that reverses between day and night instead of streaming steadily upward.\n\n**The Full Solution:**\n- Sentence 2 introduces the revision: the mound as a lung, not a chimney.\n- The underlined sentence reports the evidence behind it: round-the-clock probe readings showing airflow that reverses direction with daily temperature swings, the in-and-out pattern of breathing.\n- The final sentence draws the conclusion the measurements support. The underline is the evidence in the middle.\n\n**Why the other choices are wrong:**\n- A: The chimney model appears in the first sentence, and the passage undermines it rather than defending it.\n- C: The sentence strengthens the lung comparison; it concedes nothing.\n- D: Breach detection and repair are never mentioned; the passage is about how air moves through the mound.",
           "_meta": {
-            "anchor": "termite mound ventilation — lung model supported by tracer-gas measurements"
+            "anchor": "termite mound ventilation driven by daily temperature swings (King, Ocko & Mahadevan, PNAS 2015, mounds in India)"
           }
         },
         {
@@ -205,12 +205,12 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "In 1856 the eighteen-year-old chemist William Perkin set out to synthesize quinine, then the only effective malaria treatment, from coal-tar compounds. The attempt failed. __One flask, instead of yielding the colorless drug, produced a deep purple residue that dyed silk a brilliant, wash-fast mauve.__ Perkin patented the substance, left his studies, and opened a factory; within two decades, chemists across Europe were coaxing a whole spectrum of synthetic colors from coal tar, and the firms they founded were branching into pharmaceuticals and photographic chemicals. A failed medicine had become the founding accident of industrial organic chemistry.",
+          "passage": "In 1856 the eighteen-year-old chemist William Perkin set out to make quinine, then the chief treatment for malaria, from compounds derived from coal tar. The attempt failed. __One flask, instead of yielding the colorless drug, produced a dark residue from which Perkin extracted a substance that dyed silk a brilliant mauve.__ Perkin patented the dye, left his studies, and opened a factory. Within a few decades, chemists across Europe were drawing a whole spectrum of synthetic colors from coal tar, and some of the firms they founded later branched into pharmaceuticals. A failed medicine had launched an industry.",
           "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
           "choices": [
             {
               "id": "A",
-              "text": "It reports the unexpected result of the failed synthesis just described, the accidental discovery on which the industry discussed in the rest of the text was built."
+              "text": "It reports the surprising outcome of the failed attempt, the accident from which the industry described later in the text grew."
             },
             {
               "id": "B",
@@ -226,7 +226,7 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The underlined sentence is the hinge of the passage: the failed experiment's surprise product, from which everything after — patent, factory, industry — follows.\n\n**The Full Solution:**\n- Before the underline: Perkin attempts quinine and fails.\n- The underlined sentence reports what the failure actually produced — a brilliant, wash-fast purple dye.\n- After the underline: Perkin commercializes that dye, and the passage closes by calling it \"the founding accident\" of an industry. The sentence supplies the accident.\n\n**Why the other choices are wrong:**\n- B: The sentence describes what the flask produced, not why the synthesis was chemically doomed.\n- C: Nothing in the sentence weighs Perkin's ambitions against his scientific aims; his commercial turn comes later.\n- D: The sentence narrates an event; it defines no term.",
+          "explanation": "**Choice A is correct.** The underlined sentence is the hinge of the passage: the failed experiment's surprise product, from which everything after (patent, factory, industry) follows.\n\n**The Full Solution:**\n- Before the underline: Perkin attempts quinine and fails.\n- The underlined sentence reports what the failure actually produced — a substance that dyed silk a brilliant mauve.\n- After the underline: Perkin commercializes that dye, and the passage closes by saying that \"a failed medicine had launched an industry.\" The sentence supplies the accident that did the launching.\n\n**Why the other choices are wrong:**\n- B: The sentence describes what the flask produced, not why the synthesis was chemically doomed.\n- C: Nothing in the sentence weighs Perkin's ambitions against his scientific aims; his commercial turn comes later.\n- D: The sentence narrates an event; it defines no term.",
           "_meta": {
             "anchor": "William Perkin — mauveine, the accidental founding of synthetic dye chemistry"
           }
@@ -241,36 +241,36 @@ export const practiceTest4RW = {
           "passages": [
             {
               "label": "Text 1",
-              "text": "In an influential 1985 study, psychologist Thomas Gilovich and his colleagues analyzed shooting records from professional basketball. Players, coaches, and fans overwhelmingly believed that a player who has just made several shots in a row is more likely to make the next one. The records showed otherwise: a player's chance of hitting the next shot was no higher after a string of makes than after a string of misses. The researchers concluded that the \"hot hand\" is a cognitive illusion — an instance of the human tendency to see meaningful streaks in chance sequences."
+              "text": "In an influential 1985 study, psychologist Thomas Gilovich and his colleagues tested a belief shared by players, coaches, and fans: that a basketball player who has just made several shots in a row is more likely to make the next one. Analyzing game records and a controlled shooting experiment with college players, the researchers found that a player's chance of hitting the next shot was no higher after a string of makes than after a string of misses. The \"hot hand,\" they concluded, is a cognitive illusion."
             },
             {
               "label": "Text 2",
-              "text": "Economists Joshua Miller and Adam Sanjurjo have identified a subtle bias in how early studies measured streak shooting. Selecting from a finite record only the shots that immediately follow several makes skews the expected success rate on those shots downward: even a shooter with no streakiness at all would score below his overall average on that selected subset. Judged against the corrected benchmark, the very records once used to dismiss the hot hand show a modest but consistent streak effect."
+              "text": "Economists Joshua Miller and Adam Sanjurjo have identified a subtle bias in how early studies measured streak shooting. Selecting from a finite record only the shots that immediately follow several makes skews the expected success rate on those shots downward: even a shooter with no streakiness at all would score below his overall average on that subset. Judged against the corrected benchmark, the 1985 study's own data show significant streak shooting."
             }
           ],
           "question": "Based on the texts, how would Miller and Sanjurjo (Text 2) most likely respond to the conclusion presented in Text 1?",
           "choices": [
             {
               "id": "A",
-              "text": "Fans and players were wrong to perceive streaks in shooting records, but the tendency to see patterns in chance sequences is too deeply rooted to correct."
+              "text": "Fans and players were wrong to perceive streaks, but the tendency to see patterns in chance sequences is too deeply rooted to correct."
             },
             {
               "id": "B",
-              "text": "The 1985 study relied on records too incomplete to reveal how often professional players actually attempted shots immediately after a string of makes."
+              "text": "The 1985 study relied on records too incomplete to show how often players attempted shots right after a string of makes."
             },
             {
               "id": "C",
-              "text": "The records Gilovich and his colleagues analyzed do not establish that the hot hand is an illusion, because the method used to evaluate those records was itself biased against finding a streak effect."
+              "text": "The data Gilovich and his colleagues analyzed do not show that the hot hand is an illusion, because their method was biased against detecting streaks."
             },
             {
               "id": "D",
-              "text": "The hot hand is indeed a cognitive illusion, and the statistical bias they identified makes the illusion even more persuasive than Gilovich and his colleagues claimed."
+              "text": "The hot hand is indeed an illusion, and the bias they identified makes that illusion even more convincing than Gilovich and his colleagues claimed."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** Miller and Sanjurjo's objection is methodological: the selection procedure itself pushes measured success rates down, so records analyzed that way cannot show that streak shooting is illusory — and, corrected, the same records show a modest effect.\n\n**The Full Solution:**\n- Text 1's conclusion rests on a comparison: success after makes looked no better than after misses.\n- Text 2 shows the comparison's benchmark was wrong — a streak-free shooter would score below average on the selected shots — so \"no better\" actually conceals a positive effect.\n- Choice C states exactly that response: the data do not establish the illusion, because the method was biased against finding the effect.\n\n**Why the other choices are wrong:**\n- A: It sides with Text 1's conclusion, which Text 2's correction overturns.\n- B: Text 2 faults the analysis of the records, not the records' completeness.\n- D: It reverses Text 2's position — Miller and Sanjurjo find evidence for the hot hand, not a stronger case against it.",
+          "explanation": "**Choice C is correct.** Miller and Sanjurjo's objection is about method: the way the shots were selected pushes the expected success rate down, so data analyzed that way cannot show that streak shooting is an illusion. Corrected, the 1985 study's own data show streak shooting.\n\n**The Full Solution:**\n- Text 1's conclusion rests on a comparison: success after makes looked no better than success after misses.\n- Text 2 shows the comparison's benchmark was wrong. A streak-free shooter would score below average on the selected shots, so \"no better\" actually hides a positive effect.\n- Choice C states exactly that response: the data do not establish the illusion, because the method was biased against finding streaks.\n\n**Why the other choices are wrong:**\n- A: It sides with Text 1's conclusion, which Text 2's correction overturns.\n- B: Text 2 faults the analysis of the records, not their completeness.\n- D: It reverses Text 2's position: Miller and Sanjurjo find evidence for the hot hand, not a stronger case against it.",
           "_meta": {
-            "anchor": "cross-text — Gilovich et al. (hot hand as illusion) vs. Miller and Sanjurjo (selection-bias correction); sports analytics"
+            "anchor": "hot hand: Gilovich, Vallone & Tversky 1985 vs. Miller & Sanjurjo streak-selection bias (Econometrica 2018: correcting the bias reverses the canonical study's conclusion)"
           }
         },
         {
@@ -280,12 +280,12 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "In the early 1890s, most geographers held that a rigid ship caught in Arctic pack ice was doomed. The Norwegian explorer Fridtjof Nansen noted that wreckage from a vessel crushed near Siberia had later surfaced off Greenland, and reasoned that a slow current must carry sea ice across the polar basin. He had a ship, the Fram, built with a rounded hull that ice pressure would lift rather than crush, sailed it into the pack, and let it freeze in deliberately. Three years later the Fram emerged, intact, on the far side of the Arctic — very nearly where Nansen's proposed current, and no other explanation, said it should be.",
+          "passage": "In 1884, wreckage from the Jeannette, an American ship crushed by ice off Siberia three years earlier, was found on an ice floe near southern Greenland. The Norwegian explorer Fridtjof Nansen reasoned that a current must carry sea ice across the polar basin. To test the idea, he had a ship, the Fram, built with a rounded hull that ice pressure would lift rather than crush. In 1893 he sailed it into the pack ice north of Siberia and let it freeze in. Three years later the Fram broke free near Spitsbergen, intact, having drifted across the Arctic much as Nansen had predicted.",
           "question": "Which choice best states the main purpose of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "To argue that the geographers who warned against entering the polar pack ice were relying on dramatic accounts whose details returning crews had greatly embellished over the years."
+              "text": "To argue that the Jeannette was lost because its crew ignored repeated warnings about the dangers of the Arctic pack ice."
             },
             {
               "id": "B",
@@ -297,13 +297,13 @@ export const practiceTest4RW = {
             },
             {
               "id": "D",
-              "text": "To describe how an explorer turned a conjecture about a polar current into a test by letting a purpose-built ship freeze into the ice and drift."
+              "text": "To describe how an explorer tested a theory about a polar current by letting a specially built ship freeze into the ice."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The text moves from Nansen's inference (drifting wreckage implies a current) to his experimental design (a hull the ice would lift) to the result (the ship crossed the Arctic as predicted) — a conjecture turned into a test.\n\n**The Full Solution:**\n- The inference: wreckage crushed near Siberia surfacing off Greenland points to a trans-polar current.\n- The test: the Fram is built to survive freezing in, then deliberately frozen in.\n- The verdict: three years later it emerges where the proposed current — and nothing else — predicted. Choice D captures this arc.\n\n**Why the other choices are wrong:**\n- A: The geographers' caution is background; the text never questions their sources.\n- B: The text explains how one ship was designed to survive the ice, not why others could not.\n- C: The freezing-in was the goal, not an accident, and no aims were abandoned.",
+          "explanation": "**Choice D is correct.** The text moves from Nansen's inference (wreckage that drifted from Siberia to Greenland implies a current) to his test (a ship built to survive the ice, deliberately frozen in) to the result (the ship drifted across the Arctic as predicted).\n\n**The Full Solution:**\n- The inference: wreckage from a ship crushed off Siberia turned up near Greenland, so a current must carry ice across the polar basin.\n- The test: the Fram is built with a hull the ice would lift, then frozen into the pack on purpose.\n- The result: three years later it breaks free near Spitsbergen, having drifted as Nansen predicted. Choice D captures this arc from theory to test.\n\n**Why the other choices are wrong:**\n- A: The Jeannette's wreckage serves only as evidence of the current; the text never discusses why the ship was lost or mentions any warnings.\n- B: The text explains how one ship was designed to survive the ice, not why other ships could not.\n- C: Freezing the Fram into the ice was the plan, not an accident, and no goals were abandoned.",
           "_meta": {
-            "anchor": "Fridtjof Nansen — the Fram drift as a test of the trans-polar current"
+            "anchor": "Nansen's Fram drift (1893-96) testing the transpolar current inferred from Jeannette wreckage (found near Greenland 1884)"
           }
         },
         {
@@ -313,7 +313,7 @@ export const practiceTest4RW = {
           "band": 2,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "Nineteenth-century European expeditions often fared badly in conditions Arctic peoples had lived with for centuries. Crews that ignored local practice hauled heavy sledges by hand, wore woolens that soaked through and froze, and subsisted on tinned rations. Expeditions that learned from Inuit communities did far better: dog teams pulled loads at many times a walker's pace, fur clothing shed moisture before it froze, and fresh meat warded off the deficiency diseases that crippled other parties. Again and again, the polar record shows that success depended less on new equipment shipped from Europe than on a crew's willingness to adopt techniques refined over generations in the Arctic itself.",
+          "passage": "Nineteenth-century European expeditions often fared badly in conditions Arctic peoples had lived with for centuries. Crews that ignored local practice hauled heavy sledges by hand, wore woolens that soaked through and froze, and lived on tinned rations. Expeditions that learned from Inuit communities did far better: dog teams pulled their loads, fur clothing shed moisture before it froze, and fresh meat kept scurvy away. Again and again, success depended less on equipment shipped from Europe than on a crew's willingness to adopt techniques refined over generations in the Arctic itself.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
@@ -330,11 +330,11 @@ export const practiceTest4RW = {
             },
             {
               "id": "D",
-              "text": "Arctic peoples developed clothing and travel methods over generations that European manufacturers of the nineteenth century repeatedly tried and failed to copy."
+              "text": "Arctic peoples developed clothing and travel methods over generations that European manufacturers of the nineteenth century tried and failed to copy."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The text's contrast runs from start to finish: crews that ignored Arctic practice suffered; crews that adopted it thrived; and the closing sentence generalizes the pattern.\n\n**The Full Solution:**\n- The first half catalogs the failures of European methods: hand-hauling, freezing woolens, tinned rations.\n- The second half catalogs the successes of adopted techniques: dog teams, fur clothing, fresh meat.\n- The final sentence states the lesson — success turned on willingness to adopt local techniques — which choice B restates.\n\n**Why the other choices are wrong:**\n- A: The text attributes failure to methods, not to the crews' endurance.\n- C: Machines are never discussed; the dog teams are compared to walkers hauling sledges.\n- D: Copying by European manufacturers appears nowhere in the text.",
+          "explanation": "**Choice B is correct.** The text's contrast runs from start to finish: crews that ignored Arctic practice suffered; crews that adopted it thrived; and the closing sentence generalizes the pattern.\n\n**The Full Solution:**\n- The first half catalogs the failures of European methods: hand-hauling, freezing woolens, tinned rations.\n- The second half catalogs the successes of adopted techniques: dog teams, fur clothing, fresh meat.\n- The final sentence states the lesson — success turned on willingness to adopt local techniques — which choice B restates.\n\n**Why the other choices are wrong:**\n- A: The text attributes failure to methods, not to the crews' endurance.\n- C: Machines are never discussed; the dog teams are contrasted only with crews hauling sledges by hand.\n- D: Copying by European manufacturers appears nowhere in the text.",
           "_meta": {
             "anchor": "polar expeditions — adoption of Inuit equipment and techniques"
           }
@@ -379,12 +379,12 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "At the universities of thirteenth-century Europe, demand for accurate copies of required texts outran what any bookshop could produce by copying volumes one at a time. Stationers answered with the pecia system. A shop kept an approved exemplar of each text, divided into numbered sections — peciae — that students and professional scribes rented individually for a fixed fee. Dozens of copyists could then be at work on different sections of the same book at once. And because every rented section was copied directly from a single vetted exemplar, mistakes did not compound from copy to copy, as they inevitably did when each new manuscript served as the model for the next.",
+          "passage": "At the universities of thirteenth-century Europe, demand for accurate copies of required texts outran what bookshops could produce by copying whole volumes one at a time. Stationers answered with the pecia system. A shop kept an approved exemplar of each text, divided into numbered sections, or peciae, that students and scribes rented individually for a fixed fee. Dozens of copyists could then work on different sections of the same book at once. And because every section was copied directly from one vetted exemplar, mistakes did not compound from copy to copy.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "By renting out sections of one vetted master copy to many copyists at once, the pecia system produced needed texts quickly while keeping errors from compounding across copies."
+              "text": "By renting sections of one vetted master copy to many copyists at once, the pecia system made texts quickly without compounding errors."
             },
             {
               "id": "B",
@@ -445,7 +445,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "Working in Heidelberg in the late 1850s, the chemist Robert Bunsen and the physicist Gustav Kirchhoff directed the light of colored flames through a prism instrument of their own design. They found that each chemical element, heated until it glows, emits light at its own fixed set of wavelengths, which their spectroscope displayed as a pattern of bright lines. The pattern proved to be a signature: it did not change with the compound in which an element arrived or the mineral from which it came. Within a year of publishing the method, the two had used unfamiliar line patterns to announce two previously unknown elements, cesium and rubidium.",
+          "passage": "Working in Heidelberg in the late 1850s, the chemist Robert Bunsen and the physicist Gustav Kirchhoff passed the light of colored flames through a prism instrument of their own design. They found that each chemical element, heated until it glows, emits light at its own fixed set of wavelengths, which their spectroscope displayed as a pattern of bright lines. The pattern did not change with the compound or mineral in which an element was found. Within a year of publishing the method, the two had used unfamiliar line patterns to identify two new elements, cesium and rubidium.",
           "question": "According to the text, why could a glowing element be identified with the spectroscope?",
           "choices": [
             {
@@ -466,7 +466,7 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The text states that each element's line pattern is fixed and \"did not change with the compound in which an element arrived or the mineral from which it came\" — a signature, and therefore an identifier.\n\n**The Full Solution:**\n- The instrument displays a glowing element's light as a pattern of bright lines.\n- The pattern belongs to the element itself: it is unaffected by compound or mineral of origin.\n- A property unique to each element and stable across sources is exactly what permits identification.\n\n**Why the other choices are wrong:**\n- A: The spectroscope was needed precisely because it resolves flame light into lines; the text never says overall color sufficed.\n- C: The text ties identity to the pattern's position, not to brightness or quantity.\n- D: Cesium and rubidium were discovered by the method; the text says every element emits its own pattern.",
+          "explanation": "**Choice B is correct.** The text states that each element's line pattern is fixed and \"did not change with the compound or mineral in which an element was found,\" which makes it a signature, and therefore an identifier.\n\n**The Full Solution:**\n- The instrument displays a glowing element's light as a pattern of bright lines.\n- The pattern belongs to the element itself: it is unaffected by compound or mineral of origin.\n- A property unique to each element and stable across sources is exactly what permits identification.\n\n**Why the other choices are wrong:**\n- A: The spectroscope was needed precisely because it resolves flame light into lines; the text never says overall color sufficed.\n- C: The text ties identity to the pattern's position, not to brightness or quantity.\n- D: Cesium and rubidium were discovered by the method; the text says every element emits its own pattern.",
           "_meta": {
             "anchor": "Bunsen and Kirchhoff — flame spectroscopy; element line signatures; detail stem"
           }
@@ -644,7 +644,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "By the time an electrolytic process made aluminum abundant in the late 1880s, the metal ______ already served for decades as a showpiece more precious than silver, reserved for jewelry, medals, and banquet cutlery.",
+          "passage": "By the time an electrolytic process made aluminum cheap in the late 1880s, the metal ______ already served for decades as a costly showpiece, displayed at exhibitions and made into jewelry and banquet cutlery.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -809,7 +809,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "From its stations along the northern plains of India, the Great Trigonometrical Survey sighted and computed the heights of some of the world's highest ______ Kangchenjunga, for a time believed the tallest of all; Dhaulagiri, whose height had been argued over for decades; and the distant summit the survey's computers listed simply as Peak XV.",
+          "passage": "From its stations on the northern plains of India, the Great Trigonometrical Survey sighted and computed the heights of some of the world's highest ______ Dhaulagiri, once thought the tallest of all; Kangchenjunga, which replaced it in that role for more than a decade; and the distant summit the survey's computers listed simply as Peak XV.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -830,9 +830,9 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** \"Including Kangchenjunga ... Dhaulagiri ... and ... Peak XV\" is a modifying phrase attached to \"peaks,\" and a comma is the conventional way to attach it.\n\n**The Full Solution:**\n- The main clause ends at \"some of the world's highest peaks.\"\n- What follows is not a new clause but an including-phrase that lists examples of those peaks (the items separated by semicolons because they carry internal commas).\n- A phrase of this kind is joined to its noun with a comma: \"peaks, including ...\"\n\n**Why the other choices are wrong:**\n- B: A period strands the including-phrase as a fragment with no subject or verb.\n- C: A semicolon must join two independent clauses; \"including ...\" is not a clause.\n- D: A colon could introduce the list directly (\"peaks: Kangchenjunga ...\"), but placing one before \"including\" makes the word redundant and is not conventional.",
+          "explanation": "**Choice A is correct.** \"Including Dhaulagiri ... Kangchenjunga ... and ... Peak XV\" is a modifying phrase attached to \"peaks,\" and a comma is the conventional way to attach it.\n\n**The Full Solution:**\n- The main clause ends at \"some of the world's highest peaks.\"\n- What follows is not a new clause but an including-phrase that lists examples of those peaks (the items separated by semicolons because they carry internal commas).\n- A phrase of this kind is joined to its noun with a comma: \"peaks, including ...\"\n\n**Why the other choices are wrong:**\n- B: A period strands the including-phrase as a fragment with no subject or verb.\n- C: A semicolon must join two independent clauses; \"including ...\" is not a clause.\n- D: A colon could introduce the list directly (\"peaks: Dhaulagiri ...\"), but placing one before \"including\" makes the word redundant and is not conventional.",
           "_meta": {
-            "anchor": "Great Trigonometrical Survey of India; comma before an including-phrase"
+            "anchor": "Great Trigonometrical Survey: Dhaulagiri thought highest 1808-1838, Kangchenjunga 1838-1852, Peak XV (Everest)"
           }
         },
         {
@@ -842,7 +842,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Before anyone had traveled far inland, many geographers pictured the Antarctic interior as a single featureless sheet of ice, level from coast to coast. ______ the first sledging parties to push toward the pole found themselves climbing: glaciers riven by crevasses led up to a high polar plateau, and whole mountain ranges emerged where the maps showed nothing at all.",
+          "passage": "For the first sledging parties bound for the South Pole, the journey began on the Ross Ice Shelf, a floating sheet of ice nearly the size of France that stays level for hundreds of miles. ______ the route beyond the shelf climbed steeply: crevassed glaciers led through the Transantarctic Mountains to a polar plateau nearly 3,000 meters high.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -863,9 +863,9 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The first sentence states an expectation — a level, featureless interior — and the second reports discoveries that contradict it, so a contrast transition is needed.\n\n**The Full Solution:**\n- Sentence one: geographers pictured a flat sheet of ice from coast to coast.\n- Sentence two: sledging parties found climbing, crevassed glaciers, a high plateau, and uncharted mountain ranges.\n- Reality overturning expectation is the classic site for \"However.\"\n\n**Why the other choices are wrong:**\n- A: \"In addition\" would stack the discoveries on top of the expectation as if they agreed; they conflict.\n- B: \"For example\" would make the mountainous interior an illustration of the featureless one — a contradiction.\n- D: \"Therefore\" would present the discoveries as a consequence of the geographers' picture, but the picture predicted the opposite.",
+          "explanation": "**Choice C is correct.** The first sentence describes the level opening stage of the journey, and the second describes a steep climb beyond it, so a contrast transition is needed.\n\n**The Full Solution:**\n- Sentence one: the journey began on the Ross Ice Shelf, level for hundreds of miles.\n- Sentence two: beyond the shelf, the route climbed steeply up crevassed glaciers to a high plateau.\n- Level ground set against a steep climb calls for \"However.\"\n\n**Why the other choices are wrong:**\n- A: \"In addition\" would simply add the climb to the description of level ground as if the two agreed; they contrast.\n- B: \"For example\" would make the steep climb an illustration of the level shelf, which makes no sense.\n- D: \"Therefore\" would present the climb as a consequence of the shelf being level, but one does not cause the other.",
           "_meta": {
-            "anchor": "Antarctic interior — expectation versus sledging discoveries; contrast transition"
+            "anchor": "Ross Ice Shelf (nearly the size of France, level) vs. the climb through the Transantarctic Mountains to the polar plateau"
           }
         },
         {
@@ -875,7 +875,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Medieval scribes had more than one way to repair a slip of the pen. A copyist who caught an error early could scrape the dried ink from the parchment with a knife and write the passage afresh. ______ a corrector could leave the faulty word in place and set a row of dots beneath its letters, a signal to readers that the word should be passed over.",
+          "passage": "Medieval scribes had more than one way to fix a slip of the pen. A copyist could scrape the dried ink from the parchment with a knife and write the word afresh. ______ a corrector could leave the faulty word in place and set a row of dots beneath it, a signal that readers should skip it.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -908,7 +908,7 @@ export const practiceTest4RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "In the 1840s, Matthew Fontaine Maury of the United States Naval Observatory began extracting wind and current observations from thousands of old ships' logbooks and charting the averages by season and route. Captains who followed the tracks his charts recommended cut days, sometimes weeks, from long passages. ______ shipmasters by the hundreds accepted Maury's price for the charts: they agreed to keep standardized logs of their own voyages and send them to the observatory, feeding the next edition.",
+          "passage": "In the 1840s, Matthew Fontaine Maury of the US Naval Observatory began charting winds and currents from thousands of old ships' logbooks. Captains who followed his recommended routes cut days, sometimes weeks, from long voyages. ______ hundreds of shipmasters accepted Maury's price for the charts: they kept standardized logs of their own voyages and sent them to the observatory.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -945,9 +945,9 @@ export const practiceTest4RW = {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
               "Alice Ball (1892-1916) was an American chemist at the College of Hawaii.",
-              "In her era, the standard treatment for Hansen's disease (leprosy) was oil from the chaulmoogra tree.",
-              "The oil was too thick to inject, and swallowing it caused nausea so severe that many patients could not continue treatment.",
-              "In 1915 Ball developed a method for converting the oil's active compounds into a water-soluble, injectable form.",
+              "In her era, oil from the chaulmoogra tree was the standard treatment for Hansen's disease (leprosy).",
+              "Injected, the thick oil clumped under the skin; swallowed, it often caused vomiting.",
+              "Ball developed a method for converting the oil's active compounds into a water-soluble, injectable form.",
               "Injections prepared by her method remained the leading treatment for the disease until the 1940s."
             ],
             "goal": "The student wants to introduce Ball's main scientific contribution to an audience unfamiliar with her work."
@@ -960,19 +960,19 @@ export const practiceTest4RW = {
             },
             {
               "id": "B",
-              "text": "Before Ball's method existed, chaulmoogra oil was too thick to inject and so nauseating that many patients could not keep taking it."
+              "text": "Chaulmoogra oil, then the standard treatment for Hansen's disease, clumped under the skin when it was injected and often caused vomiting when it was swallowed."
             },
             {
               "id": "C",
-              "text": "In 1915, a method was developed for converting the active compounds of chaulmoogra oil into a water-soluble, injectable form, and the resulting injections remained the leading treatment for Hansen's disease until the 1940s."
+              "text": "A method was developed for converting chaulmoogra oil into an injectable form that remained the leading treatment for Hansen's disease until the 1940s."
             },
             {
               "id": "D",
-              "text": "The American chemist Alice Ball developed a method that converted chaulmoogra oil, then the standard treatment for Hansen's disease, into an injectable form that remained the leading therapy for decades."
+              "text": "The American chemist Alice Ball developed an injectable form of chaulmoogra oil, the standard treatment for Hansen's disease, that was used until the 1940s."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The goal demands two things at once — identify Ball for unfamiliar readers and state her main contribution — and D alone does both.\n\n**The Full Solution:**\n- Identification: \"The American chemist Alice Ball\" tells a newcomer who she was.\n- Contribution: converting the era's standard treatment into an injectable form, with its significance (\"the leading therapy for decades\").\n- One sentence, both requirements met.\n\n**Why the other choices are wrong:**\n- A: It identifies Ball but never says what she contributed.\n- B: It describes the problem her method solved without saying that she solved it or how.\n- C: It reports the achievement but strips out Ball herself, failing to introduce her to readers who do not know her.",
+          "explanation": "**Choice D is correct.** The goal demands two things at once — identify Ball for unfamiliar readers and state her main contribution — and D alone does both.\n\n**The Full Solution:**\n- Identification: \"The American chemist Alice Ball\" tells a newcomer who she was.\n- Contribution: developing an injectable form of the era's standard treatment, with its significance (\"used until the 1940s\").\n- One sentence, both requirements met.\n\n**Why the other choices are wrong:**\n- A: It identifies Ball but never says what she contributed.\n- B: It describes the problem her method solved without saying that she solved it or how.\n- C: It reports the achievement but strips out Ball herself, failing to introduce her to readers who do not know her.",
           "_meta": {
             "anchor": "Alice Ball — injectable chaulmoogra treatment; introduce-contribution goal"
           }
@@ -987,11 +987,11 @@ export const practiceTest4RW = {
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "Batting average and on-base percentage are statistics used to evaluate hitters in baseball.",
+              "Batting average and on-base percentage are both used to evaluate baseball hitters.",
               "Batting average is the share of a hitter's official at-bats that end in hits.",
-              "A walk does not count as an official at-bat, so walks have no effect on a hitter's batting average.",
-              "On-base percentage is the share of all plate appearances in which a hitter reaches base, whether by a hit, a walk, or being hit by a pitch.",
-              "Two hitters with equal batting averages can have very different on-base percentages if one draws many more walks."
+              "Walks do not count as official at-bats, so they do not affect batting average.",
+              "On-base percentage is the share of plate appearances in which a hitter reaches base by a hit, a walk, or being hit by a pitch.",
+              "Two hitters with equal batting averages can differ widely in on-base percentage."
             ],
             "goal": "The student wants to emphasize a difference between batting average and on-base percentage."
           },
@@ -999,11 +999,11 @@ export const practiceTest4RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Batting average and on-base percentage are both statistics that analysts use to evaluate the performance of hitters in baseball."
+              "text": "Batting average and on-base percentage are both statistics that analysts use to evaluate the performance of baseball hitters."
             },
             {
               "id": "B",
-              "text": "Unlike batting average, which ignores walks entirely, on-base percentage credits a hitter for every plate appearance that ends with the hitter reaching base, walks included."
+              "text": "Unlike batting average, which ignores walks, on-base percentage counts every time a hitter reaches base, walks included."
             },
             {
               "id": "C",
@@ -1011,7 +1011,7 @@ export const practiceTest4RW = {
             },
             {
               "id": "D",
-              "text": "Because two hitters with equal batting averages can sometimes differ widely in on-base percentage, teams should rely on neither statistic alone when evaluating the performance of hitters."
+              "text": "Because hitters with equal batting averages can differ in on-base percentage, teams should never rely on either statistic alone."
             }
           ],
           "correctAnswer": "B",
@@ -1067,7 +1067,7 @@ export const practiceTest4RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Along one stretch of a desert river, gauges record substantially less water flowing out at the downstream end than enters upstream, with no visible channel carrying the difference away. Hydrologists do not treat the gap as evidence of waste or error but as a quantity to ______ with the rest of the basin's water budget: the missing flow, seeping down through the streambed, reappears in the ledger as recharge to the aquifer below.",
+          "passage": "Along one stretch of a desert river, less water flows past the downstream gauge than enters upstream, though no channel carries the difference away. Hydrologists treat the gap not as an error but as a quantity to ______ with the basin's water budget: the missing flow, seeping through the streambed, reappears in the ledger as recharge to the aquifer below.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -1100,7 +1100,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "When opera companies in the 1980s began projecting translations of the libretto onto a screen above the stage, several prominent directors objected. A strip of glowing text, they argued, would ______ the audience's attention, pulling eyes upward at exactly the moments when a singer's face and body carried the drama.",
+          "passage": "When opera companies in the 1980s began projecting translations of the libretto onto a screen above the stage, some critics and conductors objected. A strip of glowing text, they argued, would ______ the audience's attention, pulling eyes upward at exactly the moments when a singer's face and body carried the drama.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -1121,7 +1121,7 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The directors' fear is attention pulled away from the stage — \"pulling eyes upward\" — and \"divert\" means precisely to draw something off its intended course.\n\n**The Full Solution:**\n- The screen sits above the stage; the drama lives in the singer's face and body below.\n- The objection is that the glowing text competes for the audience's gaze at the crucial moments.\n- \"Divert the audience's attention\" names that redirection exactly.\n\n**Why the other choices are wrong:**\n- A: \"Reward\" would make the text a benefit to attention, not a threat to it.\n- C: \"Sharpen\" means to focus attention more keenly — the opposite of the directors' worry.\n- D: \"Sustain\" means to keep attention going, but the objection is about where attention goes, not whether it lasts.",
+          "explanation": "**Choice B is correct.** The objectors' fear is attention pulled away from the stage — \"pulling eyes upward\" — and \"divert\" means precisely to draw something off its intended course.\n\n**The Full Solution:**\n- The screen sits above the stage; the drama lives in the singer's face and body below.\n- The objection is that the glowing text competes for the audience's gaze at the crucial moments.\n- \"Divert the audience's attention\" names that redirection exactly.\n\n**Why the other choices are wrong:**\n- A: \"Reward\" would make the text a benefit to attention, not a threat to it.\n- C: \"Sharpen\" means to focus attention more keenly — the opposite of the objectors' worry.\n- D: \"Sustain\" means to keep attention going, but the objection is about where attention goes, not whether it lasts.",
           "_meta": {
             "anchor": "opera supertitles controversy — attention drawn from the stage"
           }
@@ -1166,7 +1166,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "When governments organized radio licensing in the early 1920s, commercial and military services claimed the long wavelengths, which were universally thought best for covering distance. Amateur operators were shunted onto wavelengths shorter than 200 meters, a band regarded as nearly worthless. Transmitting from attics and garden sheds, the amateurs then discovered what the experts had missed: short waves, rebounding between the upper atmosphere and the ground, could leap oceans on a few watts of power. Within a few years, transatlantic amateur contacts had become routine, and the services that had dismissed the short waves were scrambling to reclaim them.",
+          "passage": "When the United States began licensing radio stations in 1912, the long wavelengths, thought best for covering distance, went to commercial and military services. Amateur operators were confined to wavelengths shorter than 200 meters, a band regarded as nearly worthless. Over the next decade, transmitting from attics and garden sheds, the amateurs discovered what the experts had missed: short waves, reflected between the upper atmosphere and the ground, could cross oceans on little power. In 1923 two amateurs exchanged messages across the Atlantic, and soon the services that had dismissed short waves were eager to use them.",
           "question": "Which choice best states the main purpose of the text?",
           "choices": [
             {
@@ -1175,7 +1175,7 @@ export const practiceTest4RW = {
             },
             {
               "id": "B",
-              "text": "To argue that the governments organizing radio licensing in the 1920s should have reserved the long wavelengths for amateur operators rather than for commercial and military services."
+              "text": "To argue that the long wavelengths should have been reserved for amateur operators rather than for the commercial and military services that received them."
             },
             {
               "id": "C",
@@ -1187,9 +1187,9 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The text is a narrative of reversal: amateurs pushed onto a dismissed band, the discovery that the band could span oceans, and the experts scrambling back. Choice D names that arc.\n\n**The Full Solution:**\n- Setup: the valued long wavelengths go to established services; amateurs get the \"nearly worthless\" short waves.\n- Turn: the amateurs find that short waves leap oceans on little power.\n- Consequence: expert opinion is overturned and the services want the band back. The purpose is to recount that story.\n\n**Why the other choices are wrong:**\n- A: The rebounding mechanism gets one clause; it serves the story rather than being the point.\n- B: The text passes no judgment on how licensing should have been arranged.\n- C: Attics and sheds set a scene; no equipment is described.",
+          "explanation": "**Choice D is correct.** The text is a narrative of reversal: amateurs pushed onto a dismissed band, the discovery that the band could span oceans, and the experts' change of heart. Choice D names that arc.\n\n**The Full Solution:**\n- Setup: the valued long wavelengths go to established services; amateurs get the \"nearly worthless\" short waves.\n- Turn: the amateurs find that short waves cross oceans on little power.\n- Consequence: expert opinion is overturned, and the services that dismissed the band become eager to use it. The purpose is to recount that story.\n\n**Why the other choices are wrong:**\n- A: The rebounding mechanism gets one clause; it serves the story rather than being the point.\n- B: The text passes no judgment on how licensing should have been arranged.\n- C: Attics and sheds set a scene; no equipment is described.",
           "_meta": {
-            "anchor": "amateur radio and the discovery of shortwave propagation"
+            "anchor": "US Radio Act of 1912 confined amateurs below 200 m; first two-way transatlantic amateur contact Nov. 1923"
           }
         },
         {
@@ -1234,7 +1234,7 @@ export const practiceTest4RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "Maize farmers in East Africa contend with two entwined pests: stemborer moths, whose larvae hollow out the growing stalks, and striga, a parasitic weed that fastens onto maize roots. The entomologist Zeyaur Khan and his colleagues developed a counterintuitive remedy called push-pull: the fodder legume desmodium is sown between the maize rows, and napier grass is planted as a border around the field. __Desmodium releases volatile compounds that repel egg-laying stemborer moths, while the napier grass at the field's edge emits odors that attract them, drawing the infestation away from the crop.__ Desmodium's roots, meanwhile, induce striga seeds to germinate before they can attach, so the parasite exhausts itself in the soil. What looks like folk gardening is, in mechanism, applied chemical ecology.",
+          "passage": "Maize farmers in East Africa face two pests: stemborer moths, whose larvae bore into the stalks, and striga, a parasitic weed. Entomologist Zeyaur Khan and his colleagues developed a remedy called push-pull: desmodium, a legume, is sown between the maize rows, and napier grass is planted around the field. __Desmodium releases volatile compounds that repel egg-laying stemborer moths, while the napier grass at the field's edge emits odors that attract them, drawing the infestation away from the crop.__ Desmodium's roots also release compounds that make striga seeds germinate but keep the seedlings from attaching to maize roots. What looks like folk gardening is applied chemical ecology.",
           "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
           "choices": [
             {
@@ -1255,7 +1255,7 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The underlined sentence explains why the planting arrangement works — repellent volatiles inside the field, attractant odors at its edge — and that mechanism is what licenses the final sentence's verdict: applied chemical ecology, not folk gardening.\n\n**The Full Solution:**\n- Before the underline: the arrangement is described but unexplained, and called \"counterintuitive.\"\n- The underlined sentence converts arrangement into mechanism: push (desmodium repels) and pull (napier grass attracts).\n- The closing sentence generalizes from exactly this — the method's scientific character — so the underline is its foundation.\n\n**Why the other choices are wrong:**\n- B: The sentence shows the method working against stemborers; the striga mechanism follows in the next sentence. Nothing is conceded.\n- C: It gives the passage's own explanation, not a rival one, and the final sentence embraces it.\n- D: No trial, plots, or yields appear anywhere in the passage.",
+          "explanation": "**Choice A is correct.** The underlined sentence explains why the planting arrangement works — repellent volatiles inside the field, attractant odors at its edge — and that mechanism is what licenses the final sentence's verdict: applied chemical ecology, not folk gardening.\n\n**The Full Solution:**\n- Before the underline: the arrangement is described but not yet explained.\n- The underlined sentence converts arrangement into mechanism: push (desmodium repels) and pull (napier grass attracts).\n- The closing sentence generalizes from exactly this — the method's scientific character — so the underline is its foundation.\n\n**Why the other choices are wrong:**\n- B: The sentence shows the method working against stemborers; the striga mechanism follows in the next sentence. Nothing is conceded.\n- C: It gives the passage's own explanation, not a rival one, and the final sentence embraces it.\n- D: No trial, plots, or yields appear anywhere in the passage.",
           "_meta": {
             "anchor": "Zeyaur Khan — push-pull intercropping; mechanism sentence grounding the closing claim"
           }
@@ -1309,7 +1309,7 @@ export const practiceTest4RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "A terminal lake has no outlet to the sea; its level is set wholly by the balance between the water flowing in and the water evaporating from its surface. When one large terminal lake in the arid West fell to record lows, drought led most public discussion of the decline. Hydrologists who reconstructed a century of the basin's water budget reached a different accounting. Precipitation over the period swings widely but shows no sustained decline. What has changed steadily is the share of the rivers' flow withdrawn for irrigation and cities before it ever reaches the lake. In wet years the withdrawals are masked; in dry years they are laid bare. On the hydrologists' ledger, the lake is shrinking chiefly because its inflow is being spent upstream.",
+          "passage": "A terminal lake has no outlet to the sea; its level is set by the balance between the water flowing in and the water evaporating from its surface. When one large terminal lake in the arid West fell to record lows, public discussion blamed drought. Hydrologists who reconstructed a century of the basin's water budget reached a different conclusion. Precipitation over the period swings widely but shows no sustained decline. What has grown steadily is the share of river flow withdrawn for farms and cities before it reaches the lake. The lake is shrinking chiefly because its inflow is being used upstream.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
@@ -1322,7 +1322,7 @@ export const practiceTest4RW = {
             },
             {
               "id": "C",
-              "text": "Although drought dominates public discussion, the basin's water budget indicates that the lake is shrinking mainly because so much of its inflow is diverted before reaching it."
+              "text": "Although public discussion blames drought, the water budget shows the lake is shrinking mainly because its inflow is diverted upstream."
             },
             {
               "id": "D",
@@ -1330,7 +1330,7 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The text sets the popular explanation (drought) against the hydrologists' accounting (steadily growing upstream withdrawals) and sides with the accounting — which is what C states.\n\n**The Full Solution:**\n- The public story: drought \"led most public discussion of the decline.\"\n- The evidence: precipitation swings but does not decline; withdrawals for irrigation and cities have grown steadily.\n- The verdict: \"the lake is shrinking chiefly because its inflow is being spent upstream.\" C compresses the contrast and the conclusion.\n\n**Why the other choices are wrong:**\n- A: It contradicts the text, which says precipitation \"shows no sustained decline.\"\n- B: A general fact about terminal lakes from the opening sentence — background, not the point.\n- D: The text identifies a chief cause; it does not throw up its hands at variability.",
+          "explanation": "**Choice C is correct.** The text sets the popular explanation (drought) against the hydrologists' accounting (steadily growing upstream withdrawals) and sides with the accounting — which is what C states.\n\n**The Full Solution:**\n- The public story: public discussion \"blamed drought.\"\n- The evidence: precipitation swings but does not decline; withdrawals for farms and cities have grown steadily.\n- The verdict: \"The lake is shrinking chiefly because its inflow is being used upstream.\" C compresses the contrast and the conclusion.\n\n**Why the other choices are wrong:**\n- A: It contradicts the text, which says precipitation \"shows no sustained decline.\"\n- B: A general fact about terminal lakes from the opening sentence — background, not the point.\n- D: The text identifies a chief cause; it does not throw up its hands at variability.",
           "_meta": {
             "anchor": "terminal-lake water budget — upstream diversion versus drought"
           }
@@ -1342,12 +1342,12 @@ export const practiceTest4RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "inferences",
-          "passage": "In the 1920s the Russian botanist Nikolai Vavilov led collecting expeditions on five continents, gathering seeds of wheat, barley, and dozens of other crops. He found their variation strikingly uneven: for each crop, a few regions held an extravagant profusion of distinct local forms, while whole continents elsewhere grew only a handful. Two principles, Vavilov reasoned, lay behind the pattern. Varieties accumulate where a crop is grown longest, as centuries of cultivation, mutation, and selection add form after form; and when farmers carry a crop into new territory, they take only a narrow sample of what exists. If both principles hold, then for any crop, the region showing the greatest concentration of distinct varieties is likely to be ______",
+          "passage": "In the 1920s the Russian botanist Nikolai Vavilov led collecting expeditions on five continents, gathering seeds of wheat, barley, and dozens of other crops. He found their variation strikingly uneven: for each crop, a few regions held a profusion of distinct local forms, while other regions grew only a handful. Two principles, Vavilov reasoned, explained the pattern. Varieties accumulate where a crop has been grown longest, as centuries of cultivation and selection add form after form; and farmers who carry a crop into new territory take only a narrow sample of what exists. If both principles hold, then for any crop, the region with the greatest concentration of distinct varieties is likely to be ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
               "id": "A",
-              "text": "the region where the crop has been cultivated longest, and so the strongest candidate for the place where it was first domesticated."
+              "text": "the region where the crop has been grown longest, and thus where it was most likely first domesticated."
             },
             {
               "id": "B",
@@ -1375,7 +1375,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "The court theater at Drottningholm, outside Stockholm, still possesses its eighteenth-century stage machinery in working order, and performances there still use it. Scene changes depend on a system of shafts, ropes, and rolling carriages installed beneath the stage. When stagehands turn the great capstan below the floor, every carriage moves at once: each painted flat in view slides away into concealment as a fresh one slides out to replace it, and the whole scene is transformed in a few seconds, in full sight of the audience. Eighteenth-century stagecraft treated such visible transformation not as a failure of illusion but as a spectacle in its own right.",
+          "passage": "The court theater at Drottningholm, outside Stockholm, still has its eighteenth-century stage machinery in working order, and performances there still use it. Scene changes depend on ropes and rolling carriages beneath the stage. When stagehands turn the great capstan below the floor, every carriage moves at once: each painted flat in view slides away as a fresh one slides out to replace it, and the whole scene is transformed in seconds, in full sight of the audience. Eighteenth-century stagecraft treated such visible transformation as a spectacle in its own right.",
           "question": "According to the text, what happens when stagehands turn the capstan beneath the theater's stage?",
           "choices": [
             {
@@ -1396,7 +1396,7 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The text says that when the capstan turns, \"every carriage moves at once,\" each visible flat slides away as a fresh one replaces it, and \"the whole scene is transformed in a few seconds.\"\n\n**The Full Solution:**\n- The capstan drives all the carriages simultaneously.\n- Each flat in view is exchanged for a replacement.\n- The transformation takes seconds — exactly what choice C reports.\n\n**Why the other choices are wrong:**\n- A: The machinery stays beneath the stage; nothing in the text has the floor rise or the works become visible.\n- B: The text says the change happens \"in full sight of the audience,\" with no curtain and no carrying.\n- D: \"Every carriage moves at once\" rules out one-at-a-time replacement.",
+          "explanation": "**Choice C is correct.** The text says that when the capstan turns, \"every carriage moves at once,\" each visible flat slides away as a fresh one replaces it, and \"the whole scene is transformed in seconds.\"\n\n**The Full Solution:**\n- The capstan drives all the carriages simultaneously.\n- Each flat in view is exchanged for a replacement.\n- The transformation takes seconds — exactly what choice C reports.\n\n**Why the other choices are wrong:**\n- A: The machinery stays beneath the stage; nothing in the text has the floor rise or the works become visible.\n- B: The text says the change happens \"in full sight of the audience,\" with no curtain and no carrying.\n- D: \"Every carriage moves at once\" rules out one-at-a-time replacement.",
           "_meta": {
             "anchor": "Drottningholm court theater — simultaneous scene change by capstan; detail stem"
           }
@@ -1441,7 +1441,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "Smallpox inoculation reached England not through its medical colleges but through an ambassador's household. In Constantinople in 1717, Lady Mary Wortley Montagu, who had survived smallpox herself, watched Ottoman practitioners protect children by engrafting: introducing a trace of matter from a mild case into a scratch on the arm, producing a brief illness that left lasting protection. She had the procedure performed on her own son, and after returning to London she promoted it among physicians and at court, arranging for her young daughter to be inoculated before witnesses during the epidemic of 1721. The practice took hold in England decades before vaccination was introduced.",
+          "passage": "Smallpox inoculation reached England not through its medical colleges but through an ambassador's household. In Constantinople in 1717, Lady Mary Wortley Montagu, who had survived smallpox herself, observed the Ottoman practice of engrafting: placing a trace of matter from a mild case into a scratch on the skin, producing a brief illness and lasting protection. She had her son inoculated there, and after returning to London she promoted the procedure, arranging for her daughter to be inoculated before physicians during the epidemic of 1721. The practice took hold in England decades before vaccination was introduced.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
@@ -1454,15 +1454,15 @@ export const practiceTest4RW = {
             },
             {
               "id": "C",
-              "text": "Inoculation as practiced in Constantinople produced a brief illness followed by lasting protection, whereas the vaccination introduced decades later carried no risk of any illness at all."
+              "text": "Inoculation as practiced in Constantinople caused a brief illness, whereas the vaccination introduced decades later carried no risk of any illness at all."
             },
             {
               "id": "D",
-              "text": "Montagu encountered inoculation in Constantinople and, by personal example and public advocacy, helped establish the practice in England long before vaccination existed."
+              "text": "Montagu learned of inoculation in Constantinople and, through personal example and advocacy, helped establish it in England long before vaccination."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The text's through-line is transmission: Montagu sees engrafting in Constantinople, applies it in her own family, promotes it in London, and the practice takes hold in England decades before vaccination. D traces exactly that arc.\n\n**The Full Solution:**\n- The opening sentence frames the point: inoculation reached England through an ambassador's household, not the medical colleges.\n- The middle supplies the means: her son's inoculation, then her daughter's before witnesses — personal example turned public advocacy.\n- The final sentence gives the outcome D restates: the practice established well before vaccination.\n\n**Why the other choices are wrong:**\n- A: The practitioners let Montagu watch; no secrecy is described.\n- B: The text never says physicians resisted her or mentions her training.\n- C: It elevates a detail into a comparison the text never makes — nothing is said about vaccination's risks.",
+          "explanation": "**Choice D is correct.** The text's through-line is transmission: Montagu sees engrafting in Constantinople, applies it in her own family, promotes it in London, and the practice takes hold in England decades before vaccination. D traces exactly that arc.\n\n**The Full Solution:**\n- The opening sentence frames the point: inoculation reached England through an ambassador's household, not the medical colleges.\n- The middle supplies the means: her son's inoculation, then her daughter's before physicians — personal example turned public advocacy.\n- The final sentence gives the outcome D restates: the practice established well before vaccination.\n\n**Why the other choices are wrong:**\n- A: Montagu observed the practice openly; no secrecy is described.\n- B: The text never says physicians resisted her or mentions her training.\n- C: It elevates a detail into a comparison the text never makes — nothing is said about vaccination's risks.",
           "_meta": {
             "anchor": "Lady Mary Wortley Montagu — inoculation's route from Constantinople to England"
           }
@@ -1474,40 +1474,40 @@ export const practiceTest4RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "A media historian claims that the American broadcasting boom of the 1920s had two distinct phases: the number of licensed stations exploded within a single year and then stopped growing, while the audience kept expanding steadily, with the share of households owning a radio rising throughout the decade.",
+          "passage": "A media historian claims that the American radio boom of the 1920s had two phases. After a burst of growth, the number of broadcasting stations leveled off after 1923, but the audience did not stall with it: the number of households owning a radio kept climbing year after year.",
           "questionTable": {
             "type": "table",
-            "caption": "Licensed broadcast stations and household radio ownership in the United States, 1921-1930",
+            "caption": "Broadcasting stations (as of June 30) and households with a radio in the United States, 1922-1926",
             "headers": [
               "Year",
-              "Licensed stations",
-              "Households with a radio (%)"
+              "Broadcasting stations",
+              "Households with a radio (millions)"
             ],
             "rows": [
               [
-                "1921",
-                "28",
-                "0.5"
+                "1922",
+                "378",
+                "0.06"
               ],
               [
-                "1922",
-                "570",
-                "6"
+                "1923",
+                "558",
+                "0.4"
               ],
               [
                 "1924",
+                "545",
+                "1.25"
+              ],
+              [
+                "1925",
+                "585",
+                "2.75"
+              ],
+              [
+                "1926",
                 "535",
-                "16"
-              ],
-              [
-                "1927",
-                "681",
-                "26"
-              ],
-              [
-                "1930",
-                "618",
-                "46"
+                "4.5"
               ]
             ]
           },
@@ -1515,25 +1515,25 @@ export const practiceTest4RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The number of licensed stations reached its highest level in 1927, when 681 stations held licenses, and it had fallen back somewhat by 1930."
+              "text": "The number of broadcasting stations reached its highest level in 1925, at 585, and then fell to 535 in 1926."
             },
             {
               "id": "B",
-              "text": "The share of households with a radio grew from 0.5% in 1921 to 46% by 1930, rising in every interval shown in the table."
+              "text": "Households with a radio grew from 0.06 million in 1922 to 4.5 million in 1926, rising in every year shown in the table."
             },
             {
               "id": "C",
-              "text": "In 1922 there were 570 licensed stations on the air, but only 6% of the nation's households owned a radio in that year."
+              "text": "In 1922 there were 378 broadcasting stations, but only 0.06 million households owned a radio that year."
             },
             {
               "id": "D",
-              "text": "After leaping from 28 in 1921 to 570 in 1922, the number of licensed stations never rose above 681, while the share of households with a radio climbed in every interval shown, from 0.5% to 46%."
+              "text": "After rising from 378 in 1922 to 558 in 1923, the number of stations stayed between 535 and 585, while households with a radio rose every year, from 0.06 million to 4.5 million."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The claim describes two phases moving differently — stations exploding then plateauing, audience rising throughout — and D documents both: the one-year leap, the ceiling near 681, and the uninterrupted climb in ownership.\n\n**The Full Solution:**\n- Phase one: stations jump from 28 to 570 within a single year, then oscillate without exceeding 681 — explosion followed by plateau.\n- Phase two: household ownership rises in every interval, 0.5% to 46% — the steady audience growth.\n- Only a choice tracing both series across the decade can support the two-phase claim.\n\n**Why the other choices are wrong:**\n- A: It covers only the station plateau's peak and dip, saying nothing about the audience.\n- B: It covers only the audience and says nothing about the stations' explosive-then-flat pattern.\n- C: A single year's mismatch between stations and ownership illustrates neither trend.",
+          "explanation": "**Choice D is correct.** The claim describes two series moving differently: stations rising and then leveling off by 1923, households with a radio climbing every year. D documents both: the rise to 558, the later range of 535 to 585, and the uninterrupted climb in ownership.\n\n**The Full Solution:**\n- Phase one: stations rise from 378 to 558 between 1922 and 1923, then stay between 535 and 585, so the number has leveled off.\n- The audience: households with a radio rise in every year shown, from 0.06 million to 4.5 million.\n- Only a choice that traces both series can support a claim that contrasts them.\n\n**Why the other choices are wrong:**\n- A: It covers only the stations' peak and dip, saying nothing about the audience.\n- B: It covers only the audience and says nothing about the stations leveling off.\n- C: A single year's figures illustrate neither trend.",
           "_meta": {
-            "anchor": "1920s broadcasting boom — station plateau versus rising household ownership; original compiled table"
+            "anchor": "US radio 1922-26: Dept. of Commerce station lists (June 30 counts: 378, 558, 545, 585, 535) and households with radio (Historical Statistics of the US: 60k, 400k, 1.25M, 2.75M, 4.5M)"
           }
         },
         {
@@ -1592,7 +1592,7 @@ export const practiceTest4RW = {
             },
             {
               "id": "C",
-              "text": "The two thinnest snowpacks, 55% and 71% of average in 2022 and 2020, were followed by the two lowest summer flows, 48% and 63%, while the deepest snowpack, 142% in 2018, was followed by the highest flow, 128%."
+              "text": "The two thinnest snowpacks, 55% and 71% of average, were followed by the two lowest flows, 48% and 63%, and the deepest, 142%, by the highest flow, 128%."
             },
             {
               "id": "D",
@@ -1645,7 +1645,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "After winning Florence's 1401 competition for a set of bronze doors, the young goldsmith Lorenzo Ghiberti ______ a workshop that became the city's training ground in bronze casting; the two pairs of doors he produced there occupied him, by his own account, for nearly half a century.",
+          "passage": "After winning Florence's 1401 competition for a set of bronze doors, the young goldsmith Lorenzo Ghiberti ______ a workshop in which a generation of Florentine artists trained; the two pairs of doors he produced there occupied him for nearly half a century.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1666,7 +1666,7 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The sentence narrates completed events in the past — a competition won in 1401, doors produced over the following decades — so the simple past \"ran\" is required.\n\n**The Full Solution:**\n- The time frame is fixed by \"After winning Florence's 1401 competition\" and by the half-century of work that followed.\n- The surrounding verbs are past: \"became,\" \"produced,\" \"occupied.\"\n- A completed action in a finished past period takes the simple past: \"Ghiberti ran a workshop.\"\n\n**Why the other choices are wrong:**\n- A: The present \"runs\" clashes with the fifteenth-century time frame and the past verbs around it.\n- B: \"Is running\" describes an action in progress now, centuries too late.\n- C: \"Has run\" links a past action to the present moment, but Ghiberti's workshop belongs entirely to the past.",
+          "explanation": "**Choice D is correct.** The sentence narrates completed events in the past — a competition won in 1401, doors produced over the following decades — so the simple past \"ran\" is required.\n\n**The Full Solution:**\n- The time frame is fixed by \"After winning Florence's 1401 competition\" and by the half-century of work that followed.\n- The surrounding verbs are past: \"trained,\" \"produced,\" \"occupied.\"\n- A completed action in a finished past period takes the simple past: \"Ghiberti ran a workshop.\"\n\n**Why the other choices are wrong:**\n- A: The present \"runs\" clashes with the fifteenth-century time frame and the past verbs around it.\n- B: \"Is running\" describes an action in progress now, centuries too late.\n- C: \"Has run\" links a past action to the present moment, but Ghiberti's workshop belongs entirely to the past.",
           "_meta": {
             "anchor": "Lorenzo Ghiberti — Baptistery doors workshop; simple past"
           }
@@ -1843,7 +1843,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "In wireless telegraphy's first years, ships' operators used a jumble of company-specific distress calls, and a call sent in one firm's code might mean nothing to the nearest vessel. International agreement eventually fixed a single distress signal for use at sea worldwide. ______ an operator hearing it, whatever line he worked for, knew at once that a ship nearby was in danger and that its position would follow.",
+          "passage": "In wireless telegraphy's first years, ships used a jumble of company-specific distress calls, and a call sent in one firm's code might mean nothing to the nearest vessel. An international agreement then fixed a single distress signal for all ships. ______ any operator who heard it, whatever line he worked for, knew at once that a ship nearby was in danger.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1945,11 +1945,11 @@ export const practiceTest4RW = {
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "The first transatlantic telegraph cable was completed in 1858 between Ireland and Newfoundland.",
-              "Its signals were faint, and after operators drove the line with ever-higher voltages, the cable's insulation failed permanently within about a month.",
-              "A second cable, laid in 1866, used a much heavier copper core and thicker insulation.",
-              "For the 1866 cable, physicist William Thomson supplied a mirror galvanometer that could read minute currents, so high voltages were unnecessary.",
-              "The 1866 cable operated reliably for years and carried messages many times faster than the 1858 cable had."
+              "The first transatlantic telegraph cable, laid between Ireland and Newfoundland, began carrying signals in August 1858.",
+              "It failed within weeks after operators applied high voltages that damaged its insulation.",
+              "A second cable, laid in 1866, had a much heavier copper core and thicker insulation.",
+              "The 1866 cable could transmit about 8 words per minute, 80 times faster than the 1858 cable.",
+              "The 1866 cable proved durable, and the two continents have been linked by cable ever since."
             ],
             "goal": "The student wants to emphasize a difference between the 1858 cable and the 1866 cable."
           },
@@ -1957,15 +1957,15 @@ export const practiceTest4RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The first transatlantic telegraph cable, which was completed in 1858, stretched beneath the ocean between the coasts of Ireland and Newfoundland."
+              "text": "The first transatlantic telegraph cable was laid between Ireland and Newfoundland and began carrying signals in August 1858."
             },
             {
               "id": "B",
-              "text": "Whereas the 1858 cable failed within about a month as operators drove its faint signals with damaging voltages, the 1866 cable — heavier, better insulated, and read by Thomson's sensitive galvanometer — carried messages reliably for years."
+              "text": "Whereas the 1858 cable failed within weeks, the 1866 cable, more heavily built, proved durable and sent messages 80 times faster."
             },
             {
               "id": "C",
-              "text": "In 1866, a cable with a much heavier copper core and thicker insulation was laid across the Atlantic, and William Thomson supplied a mirror galvanometer that could read minute currents."
+              "text": "The 1866 cable had a much heavier copper core and thicker insulation, and it could transmit about 8 words per minute."
             },
             {
               "id": "D",
@@ -1973,9 +1973,9 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** An emphasize-a-difference goal wants the two cables set against each other, and B does it in one contrastive frame: quick failure under high voltages versus years of reliable service under a gentler design.\n\n**The Full Solution:**\n- The notes supply the contrast's two sides: the 1858 cable's month-long life and voltage-driven death (bullet 2); the 1866 cable's heavier build, sensitive receiver, and years of service (bullets 3-5).\n- B binds them with \"Whereas,\" naming both cables and the fate of each.\n- Explicit contrast of both terms is what the goal demands.\n\n**Why the other choices are wrong:**\n- A: It describes the 1858 cable alone; one cable cannot exhibit a difference.\n- C: It describes the 1866 cable alone, leaving the 1858 side of the contrast unstated.\n- D: It emphasizes what the cables jointly proved — a similarity, the opposite of the goal.",
+          "explanation": "**Choice B is correct.** An emphasize-a-difference goal wants the two cables set against each other, and B does it in one contrastive frame: quick failure for the 1858 cable versus durability and far greater speed for the more heavily built 1866 cable.\n\n**The Full Solution:**\n- The notes supply both sides of the contrast: the 1858 cable failed within weeks (bullet 2); the 1866 cable was more heavily built, faster, and durable (bullets 3-5).\n- B binds them with \"Whereas,\" naming both cables and the fate of each.\n- Setting both cables side by side is what the goal requires.\n\n**Why the other choices are wrong:**\n- A: It describes the 1858 cable alone; one cable cannot show a difference.\n- C: It describes the 1866 cable alone, leaving the 1858 side of the contrast unstated.\n- D: It emphasizes what the cables jointly showed, a similarity, the opposite of the goal.",
           "_meta": {
-            "anchor": "1858 versus 1866 Atlantic telegraph cables; difference goal"
+            "anchor": "1858 vs 1866 transatlantic cables (1858 failed within weeks after high voltages; 1866 heavier core and insulation, 8 wpm = 80x faster)"
           }
         },
         {
@@ -2008,15 +2008,15 @@ export const practiceTest4RW = {
             },
             {
               "id": "C",
-              "text": "First performed in 1607, Monteverdi's L'Orfeo is considered the earliest opera still regularly staged; where its predecessors vanished from the repertoire, it endured."
+              "text": "First performed in 1607, Monteverdi's L'Orfeo is considered the earliest opera still regularly staged, outlasting all its predecessors."
             },
             {
               "id": "D",
-              "text": "Claudio Monteverdi, an Italian composer who lived from 1567 to 1643, spent much of his long and productive musical career employed as a court musician by the ruling family of Mantua in northern Italy."
+              "text": "Claudio Monteverdi, an Italian composer who lived from 1567 to 1643, spent much of his career employed at the court of Mantua."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** Historical significance is a claim about a work's place in history, and C makes it: the earliest opera still regularly staged, surviving where its predecessors vanished.\n\n**The Full Solution:**\n- The notes locate the significance in two facts: earlier sung dramas left the repertoire (bullet 4), and L'Orfeo is the earliest opera still staged (bullet 5).\n- C joins them into a single claim of endurance and priority, anchored by the 1607 date.\n- That is emphasis on significance, not mere description.\n\n**Why the other choices are wrong:**\n- A: Date, place, and plot describe the premiere without asserting the work's importance to history.\n- B: A list of musical ingredients carries no claim of significance at all.\n- D: A biography of Monteverdi never mentions L'Orfeo, the subject the goal names.",
+          "explanation": "**Choice C is correct.** Historical significance is a claim about a work's place in history, and C makes it: the earliest opera still regularly staged, surviving where its predecessors vanished.\n\n**The Full Solution:**\n- The notes locate the significance in two facts: earlier sung dramas left the repertoire (bullet 4), and L'Orfeo is the earliest opera still staged (bullet 5).\n- C joins them into a single claim of priority and endurance (\"outlasting all its predecessors\"), anchored by the 1607 date.\n- That is emphasis on significance, not mere description.\n\n**Why the other choices are wrong:**\n- A: Date, place, and plot describe the premiere without asserting the work's importance to history.\n- B: A list of musical ingredients carries no claim of significance at all.\n- D: A biography of Monteverdi never mentions L'Orfeo, the subject the goal names.",
           "_meta": {
             "anchor": "Claudio Monteverdi — L'Orfeo; historical-significance goal"
           }

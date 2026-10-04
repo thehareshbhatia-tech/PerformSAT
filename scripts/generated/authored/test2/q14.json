@@ -6,10 +6,10 @@
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-quantitative",
   "module": 1,
-  "passage": "Track-forecast error — the distance between a hurricane's predicted and actual positions — has fallen steadily for decades as observations and models have improved. A student examining average errors for Atlantic-basin forecasts claims that the improvement between 1990 and 2020 was proportionally greatest at the longest lead times, so that forecasters gained the most ground exactly where their forecasts had once been least reliable. The claim is supported by the data because ______",
+  "passage": "Track-forecast error — the distance between a hurricane's predicted and actual positions — has fallen steadily for decades as observations and models have improved. A student examining the National Hurricane Center's average errors for Atlantic forecasts claims that the improvement between 1990 and 2020 was proportionally greatest at the longest lead time, so that forecasters gained the most ground exactly where their forecasts had once been least reliable. The claim is supported by the data because ______",
   "questionTable": {
     "type": "table",
-    "caption": "Average Atlantic-basin hurricane track-forecast error by lead time, 1990 and 2020",
+    "caption": "Average error of National Hurricane Center track forecasts for Atlantic tropical cyclones, by lead time, 1990 and 2020",
     "headers": [
       "Lead time",
       "Error, 1990 (km)",
@@ -18,18 +18,18 @@
     "rows": [
       [
         "24 hours",
-        "185",
-        "75"
+        "199",
+        "66"
       ],
       [
         "48 hours",
-        "370",
+        "379",
         "120"
       ],
       [
         "72 hours",
-        "555",
-        "160"
+        "578",
+        "148"
       ]
     ]
   },
@@ -37,11 +37,11 @@
   "choices": [
     {
       "id": "A",
-      "text": "the 24-hour forecast error in 2020, at 75 kilometers, was the smallest error shown anywhere in the table."
+      "text": "the 24-hour forecast error in 2020, at 66 kilometers, was the smallest error shown anywhere in the table."
     },
     {
       "id": "B",
-      "text": "the 72-hour error fell by 395 kilometers between 1990 and 2020, a larger absolute drop than at either shorter lead time."
+      "text": "the 72-hour error fell by 430 kilometers between 1990 and 2020, a larger absolute drop than at either shorter lead time."
     },
     {
       "id": "C",
@@ -49,9 +49,9 @@
     },
     {
       "id": "D",
-      "text": "the 72-hour error fell by roughly 71 percent between 1990 and 2020, a proportionally larger decline than the roughly 68 percent at 48 hours or 59 percent at 24 hours."
+      "text": "the 72-hour error fell by roughly 74 percent between 1990 and 2020, a proportionally larger decline than the roughly 68 percent at 48 hours or 67 percent at 24 hours."
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The claim is about proportional improvement ranked by lead time, and D performs exactly that computation: the percentage decline grows as the lead time lengthens, peaking at 72 hours.\n\n**The Full Solution:**\n- Convert each row to a percentage decline: 24 hours, (185 − 75)/185 ≈ 59%; 48 hours, (370 − 120)/370 ≈ 68%; 72 hours, (555 − 160)/555 ≈ 71%.\n- The declines increase with lead time, so the improvement was proportionally greatest at 72 hours — the lead time where 1990 errors were largest and forecasts least reliable.\n- Choice D reports precisely this ordering, matching the claim's proportional framing.\n\n**Why the other choices are wrong:**\n- A: The 24-hour error is the smallest in any year simply because shorter forecasts are easier; that ranking exists in both columns and says nothing about how much any lead time improved.\n- B: It substitutes absolute change for proportional change — the very confusion the claim's wording (\"proportionally greatest\") rules out; a large starting error can shrink by many kilometers while improving less in percentage terms.\n- C: Universal improvement supports only the weaker point that forecasts got better everywhere; it cannot establish which lead time improved most."
+  "explanation": "**Choice D is correct.** The claim is about proportional improvement ranked by lead time, and D performs exactly that computation: the percentage decline is largest at 72 hours.\n\n**The Full Solution:**\n- Convert each row to a percentage decline: 24 hours, (199 − 66)/199 ≈ 67%; 48 hours, (379 − 120)/379 ≈ 68%; 72 hours, (578 − 148)/578 ≈ 74%.\n- The improvement was proportionally greatest at 72 hours — the lead time where 1990 errors were largest and forecasts least reliable.\n- Choice D reports precisely this comparison, matching the claim's proportional framing.\n\n**Why the other choices are wrong:**\n- A: The 24-hour error is the smallest in either year simply because shorter forecasts are easier; that ranking exists in both columns and says nothing about how much any lead time improved.\n- B: It substitutes absolute change for proportional change — the very confusion the claim's wording (\"proportionally greatest\") rules out; a large starting error can shrink by many kilometers while improving less in percentage terms.\n- C: Universal improvement supports only the weaker point that forecasts got better everywhere; it cannot establish which lead time improved most."
 }

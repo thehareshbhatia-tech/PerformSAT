@@ -6,7 +6,7 @@
   "domain": "craft-and-structure",
   "skill": "text-structure-and-purpose",
   "module": 1,
-  "passage": "The towering mounds built by some African termites were long described as chimneys: metabolic heat from the colony below was thought to drive a steady upward draft that vented stale air. Researchers who measured airflow inside occupied mounds have proposed a different picture, in which the mound works less like a chimney than like a lung. __When the researchers injected a tracer gas into nest chambers and followed its movement, they found air sloshing slowly back and forth through the mound's porous walls, driven by daily swings in outside temperature, rather than streaming steadily upward.__ On this account, the colony's air is exchanged by the rhythm of the surrounding day, not by the heat of the colony itself.",
+  "passage": "The towering mounds built by some fungus-farming termites were long described as chimneys: heat from the colony below was thought to drive a steady upward draft that vented stale air. Researchers who measured airflow inside occupied mounds in India propose a different picture: the mound works less like a chimney than like a lung. __Using probes that recorded air speed and temperature around the clock, they found that the airflow reverses direction between day and night, driven by daily swings in outside temperature.__ On this account, the colony breathes with the rhythm of the day.",
   "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
   "choices": [
     {
@@ -27,8 +27,8 @@
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** The preceding sentence proposes the lung picture; the underlined sentence delivers the tracer-gas evidence — air sloshing back and forth, not streaming upward — that backs it.\n\n**The Full Solution:**\n- Sentence 2 introduces the revision: mound as lung, not chimney.\n- The underlined sentence reports the experiment behind it: tracer gas moving in slow oscillations driven by daily temperature swings.\n- The final sentence draws the conclusion the measurements license. The underline is the evidentiary middle step.\n\n**Why the other choices are wrong:**\n- A: The chimney model appears in the first sentence, and the passage undermines it rather than defending it.\n- C: The sentence strengthens the lung comparison; it concedes nothing.\n- D: Breach detection and repair are never mentioned; the porous walls figure only as the route the air takes.",
+  "explanation": "**Choice B is correct.** The preceding sentence proposes the lung picture; the underlined sentence delivers the measurements that back it: airflow that reverses between day and night instead of streaming steadily upward.\n\n**The Full Solution:**\n- Sentence 2 introduces the revision: the mound as a lung, not a chimney.\n- The underlined sentence reports the evidence behind it: round-the-clock probe readings showing airflow that reverses direction with daily temperature swings, the in-and-out pattern of breathing.\n- The final sentence draws the conclusion the measurements support. The underline is the evidence in the middle.\n\n**Why the other choices are wrong:**\n- A: The chimney model appears in the first sentence, and the passage undermines it rather than defending it.\n- C: The sentence strengthens the lung comparison; it concedes nothing.\n- D: Breach detection and repair are never mentioned; the passage is about how air moves through the mound.",
   "_meta": {
-    "anchor": "termite mound ventilation — lung model supported by tracer-gas measurements"
+    "anchor": "termite mound ventilation driven by daily temperature swings (King, Ocko & Mahadevan, PNAS 2015, mounds in India)"
   }
 }

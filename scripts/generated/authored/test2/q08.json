@@ -9,11 +9,11 @@
   "passages": [
     {
       "label": "Text 1",
-      "text": "Economic historian Robert Allen argues that the Industrial Revolution began in eighteenth-century Britain for bluntly material reasons. British workers earned unusually high wages, while coal from the country's abundant mines was exceptionally cheap. Machines such as the spinning jenny and the steam engine paid for themselves in Britain — and, at first, almost nowhere else — because they replaced expensive labor with cheap fuel and capital. On Allen's account, Britain industrialized first not because its people were uniquely inventive but because its prices made mechanization profitable."
+      "text": "Economic historian Robert Allen argues that the Industrial Revolution began in eighteenth-century Britain for material reasons. British workers earned unusually high wages, while coal from the country's mines was exceptionally cheap. Machines such as the spinning jenny and the steam engine paid for themselves in Britain, and at first almost nowhere else, because they replaced expensive labor with cheap fuel and capital. Britain industrialized first, on Allen's account, because its prices made mechanization profitable."
     },
     {
       "label": "Text 2",
-      "text": "Economic historian Joel Mokyr contends that favorable prices cannot explain the Industrial Revolution's most striking feature: it kept going. Other societies had faced incentives to save labor, and their bursts of invention petered out. What distinguished eighteenth-century Britain, Mokyr argues, was a culture connecting scientists, engineers, and artisans — a community committed to testing ideas, publishing results, and applying useful knowledge to production. Without that culture, he suggests, a handful of profitable machines would have remained isolated tricks rather than the start of sustained technological progress."
+      "text": "Economic historian Joel Mokyr contends that favorable prices cannot explain the Industrial Revolution's most striking feature: it kept going. Other societies had faced incentives to save labor, and their bursts of invention petered out. What distinguished eighteenth-century Britain, Mokyr argues, was a culture linking scientists, engineers, and artisans, committed to testing ideas, sharing results, and applying useful knowledge to production. Without that culture, a few profitable machines would have remained isolated tricks."
     }
   ],
   "question": "Based on the texts, how would Mokyr (Text 2) most likely respond to the argument presented in Text 1?",
@@ -24,17 +24,17 @@
     },
     {
       "id": "B",
-      "text": "He would agree that prices fully explain the onset of industrialization but insist that culture determined which specific machines British inventors chose to build first."
+      "text": "He would agree that prices fully explain the onset of industrialization but insist that culture determined which machines inventors built first."
     },
     {
       "id": "C",
-      "text": "He would maintain that wages and energy prices might explain why certain machines were first adopted in Britain, but not why innovation there continued instead of stalling as it had elsewhere."
+      "text": "He would grant that prices might explain why certain machines were first adopted in Britain, but not why innovation there continued rather than stalling."
     },
     {
       "id": "D",
-      "text": "He would argue that the community of scientists, engineers, and artisans that Text 2 describes emerged only after profitable machines had already transformed British manufacturing, so that culture played little role at the outset."
+      "text": "He would argue that the culture described in Text 2 emerged only after profitable machines had transformed British manufacturing, so it mattered little at first."
     }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** Mokyr's stated target is the staying power of British innovation — prices \"cannot explain\" why it \"kept going\" — so he would grant Allen's mechanism a role in adoption while denying it can account for the sustained progress that followed.\n\n**The Full Solution:**\n- Text 1's argument: Britain's high wages and cheap coal made mechanization profitable, which is why industrialization started there.\n- Text 2 does not dispute those prices. Its objection is aimed at sufficiency: other societies had labor-saving incentives too, and their inventive bursts \"petered out.\"\n- Mokyr's positive claim — a knowledge-sharing culture turned profitable machines into \"the start of sustained technological progress\" — is a response about continuation, exactly as choice C frames it.\n\n**Why the other choices are wrong:**\n- A: It attacks a premise Mokyr never questions; Text 2 accepts the price story as far as it goes and objects only to what it leaves unexplained.\n- B: It concedes too much (\"fully explain\") and then assigns culture a role — selecting which machines came first — that appears nowhere in Text 2.\n- D: It reverses Mokyr's causal order: in Text 2 the culture is what allowed the machines to matter, not a byproduct that arose after they had already transformed manufacturing."
+  "explanation": "**Choice C is correct.** Mokyr's stated target is the staying power of British innovation — prices \"cannot explain\" why it \"kept going\" — so he would grant Allen's mechanism a role in adoption while denying it can account for the sustained progress that followed.\n\n**The Full Solution:**\n- Text 1's argument: Britain's high wages and cheap coal made mechanization profitable, which is why industrialization started there.\n- Text 2 does not dispute those prices. Its objection is aimed at sufficiency: other societies had labor-saving incentives too, and their inventive bursts \"petered out.\"\n- Mokyr's positive claim — without a knowledge-sharing culture, profitable machines \"would have remained isolated tricks\" — is a claim about continuation, exactly as choice C frames it.\n\n**Why the other choices are wrong:**\n- A: It attacks a premise Mokyr never questions; Text 2 accepts the price story as far as it goes and objects only to what it leaves unexplained.\n- B: It concedes too much (\"fully explain\") and then assigns culture a role — selecting which machines came first — that appears nowhere in Text 2.\n- D: It reverses Mokyr's causal order: in Text 2 the culture is what allowed the machines to matter, not a byproduct that arose after they had already transformed manufacturing."
 }

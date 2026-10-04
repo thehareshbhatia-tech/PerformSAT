@@ -1,29 +1,29 @@
 {
  "id": 14,
- "question": "A workshop membership costs $\\$338$ for the month plus $\\$26$ for each hour of shop time used. A member was billed $\\$1{,}378$ for the month. How many hours of shop time did the member use?",
+ "question": "Renting a bike costs \\$36 plus \\$12 for each hour the bike is rented. Mia paid \\$228 to rent a bike. For how many hours did Mia rent the bike?",
  "choices": [
   {
    "id": "A",
-   "text": "$4$"
+   "text": "$6$"
   },
   {
    "id": "B",
-   "text": "$40$"
+   "text": "$16$"
   },
   {
    "id": "C",
-   "text": "$53$"
+   "text": "$19$"
   },
   {
    "id": "D",
-   "text": "$66$"
+   "text": "$22$"
   }
  ],
  "distractorNotes": {
-  "A": "swaps the roles of the two given amounts, computing (1,378 - 26)/338",
-  "C": "ignores the 338-dollar monthly charge and divides 1,378 by 26",
-  "D": "adds the monthly charge instead of subtracting it, computing (1,378 + 338)/26"
+  "A": "swaps the roles of the fixed charge and the hourly rate, computing (228 - 12)/36",
+  "C": "ignores the 36-dollar fixed charge and divides 228 by 12",
+  "D": "adds the fixed charge instead of subtracting it, computing (228 + 36)/12"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Word-to-Expression Translation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Strip the fixed charge first: $1{,}378-338=1{,}040$, and $\\frac{1{,}040}{26}=40$ hours.\n\n**The Full Solution:**\nStep 1: Let $h$ be the number of hours of shop time. The bill is a fixed charge plus a per-hour charge, so $338+26h=1{,}378$.\nStep 2: Subtract the fixed charge from both sides: $26h=1{,}378-338=1{,}040$.\nStep 3: Divide by the hourly rate: $h=\\frac{1{,}040}{26}=40$ hours. Check: $338+26(40)=338+1{,}040=1{,}378$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): treats $\\$26$ as the fixed charge and $\\$338$ as the hourly rate, computing $\\frac{1{,}378-26}{338}=4$.\n* Choice C ($53$): divides the whole bill by the hourly rate, $\\frac{1{,}378}{26}=53$, charging the member for the $\\$338$ at the hourly rate too.\n* Choice D ($66$): adds the monthly charge instead of removing it, $\\frac{1{,}378+338}{26}=66$.\n\n**Test Day Takeaway:** A one-time amount and a per-unit amount play different roles: subtract the one-time charge FIRST, then divide by the rate. Ask which number is attached to the word “each.”"
+ "explanation": "**SAT Pattern: Word-to-Expression Translation**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Remove the fixed charge first: $228 - 36 = 192$, and $\\frac{192}{12} = 16$ hours.\n\n**The Full Solution:**\nStep 1: Let $h$ be the number of hours. The total cost is the fixed charge plus $12$ dollars per hour: $36 + 12h = 228$.\nStep 2: Subtract the fixed charge from both sides: $12h = 192$.\nStep 3: Divide by $12$: $h = 16$. Check: $36 + 12(16) = 36 + 192 = 228$ dollars ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): uses $12$ as the fixed charge and $36$ as the hourly rate, computing $\\frac{228 - 12}{36} = 6$.\n* Choice C ($19$): divides the whole total by the hourly rate, $\\frac{228}{12} = 19$, as if there were no fixed charge.\n* Choice D ($22$): adds the fixed charge, $\\frac{228 + 36}{12} = 22$. The fixed charge is part of the $228$ dollars, so it must be subtracted.\n\n**Test Day Takeaway:** For a fixed charge plus a per-unit rate, subtract the fixed charge from the total before dividing by the rate."
 }

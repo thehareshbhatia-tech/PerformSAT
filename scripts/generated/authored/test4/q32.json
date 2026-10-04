@@ -6,7 +6,7 @@
   "domain": "craft-and-structure",
   "skill": "text-structure-and-purpose",
   "module": 2,
-  "passage": "When governments organized radio licensing in the early 1920s, commercial and military services claimed the long wavelengths, which were universally thought best for covering distance. Amateur operators were shunted onto wavelengths shorter than 200 meters, a band regarded as nearly worthless. Transmitting from attics and garden sheds, the amateurs then discovered what the experts had missed: short waves, rebounding between the upper atmosphere and the ground, could leap oceans on a few watts of power. Within a few years, transatlantic amateur contacts had become routine, and the services that had dismissed the short waves were scrambling to reclaim them.",
+  "passage": "When the United States began licensing radio stations in 1912, the long wavelengths, thought best for covering distance, went to commercial and military services. Amateur operators were confined to wavelengths shorter than 200 meters, a band regarded as nearly worthless. Over the next decade, transmitting from attics and garden sheds, the amateurs discovered what the experts had missed: short waves, reflected between the upper atmosphere and the ground, could cross oceans on little power. In 1923 two amateurs exchanged messages across the Atlantic, and soon the services that had dismissed short waves were eager to use them.",
   "question": "Which choice best states the main purpose of the text?",
   "choices": [
     {
@@ -15,7 +15,7 @@
     },
     {
       "id": "B",
-      "text": "To argue that the governments organizing radio licensing in the 1920s should have reserved the long wavelengths for amateur operators rather than for commercial and military services."
+      "text": "To argue that the long wavelengths should have been reserved for amateur operators rather than for the commercial and military services that received them."
     },
     {
       "id": "C",
@@ -27,8 +27,8 @@
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The text is a narrative of reversal: amateurs pushed onto a dismissed band, the discovery that the band could span oceans, and the experts scrambling back. Choice D names that arc.\n\n**The Full Solution:**\n- Setup: the valued long wavelengths go to established services; amateurs get the \"nearly worthless\" short waves.\n- Turn: the amateurs find that short waves leap oceans on little power.\n- Consequence: expert opinion is overturned and the services want the band back. The purpose is to recount that story.\n\n**Why the other choices are wrong:**\n- A: The rebounding mechanism gets one clause; it serves the story rather than being the point.\n- B: The text passes no judgment on how licensing should have been arranged.\n- C: Attics and sheds set a scene; no equipment is described.",
+  "explanation": "**Choice D is correct.** The text is a narrative of reversal: amateurs pushed onto a dismissed band, the discovery that the band could span oceans, and the experts' change of heart. Choice D names that arc.\n\n**The Full Solution:**\n- Setup: the valued long wavelengths go to established services; amateurs get the \"nearly worthless\" short waves.\n- Turn: the amateurs find that short waves cross oceans on little power.\n- Consequence: expert opinion is overturned, and the services that dismissed the band become eager to use it. The purpose is to recount that story.\n\n**Why the other choices are wrong:**\n- A: The rebounding mechanism gets one clause; it serves the story rather than being the point.\n- B: The text passes no judgment on how licensing should have been arranged.\n- C: Attics and sheds set a scene; no equipment is described.",
   "_meta": {
-    "anchor": "amateur radio and the discovery of shortwave propagation"
+    "anchor": "US Radio Act of 1912 confined amateurs below 200 m; first two-way transatlantic amateur contact Nov. 1923"
   }
 }
