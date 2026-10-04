@@ -1,29 +1,29 @@
 {
  "id": 2,
- "question": "An observatory books $x$ hours of imaging time and $y$ hours of spectroscopy time, and its two scheduling rules give $5x + 3y = 7k$ and $3x + 5y = 9k$ for a positive constant $k$. Which expression gives the total booked hours $x + y$?",
+ "question": "$5x + 3y = 28$\n$3x + 5y = 36$\nThe solution to the given system of equations is $(x, y)$. What is the value of $x + y$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-k$"
+   "text": "$-4$"
   },
   {
    "id": "B",
-   "text": "$k$"
+   "text": "$2$"
   },
   {
    "id": "C",
-   "text": "$2k$"
+   "text": "$6$"
   },
   {
    "id": "D",
-   "text": "$8k$"
+   "text": "$8$"
   }
  ],
  "distractorNotes": {
-  "A": "subtracts the two equations instead of adding, which gives x - y = -k",
-  "B": "adds correctly to 8x + 8y = 16k but divides 16k by 16 instead of by 8",
-  "D": "adds correctly to 8x + 8y = 16k but divides by 2 instead of by 8"
+  "A": "subtracts the equations instead of adding, finding x - y = -4",
+  "B": "solves the system and gives the value of x instead of x + y",
+  "C": "solves the system and gives the value of y instead of x + y"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice C is correct.** Adding the two equations collapses them into a single statement about $x + y$, with no need to find $x$ and $y$ separately.\n\n**The Fast Way (~15s):** Add: $8x + 8y = 16k$. Divide by $8$: $x + y = 2k$.\n\n**The Full Solution:**\nStep 1: Line the equations up and add them: $(5x + 3y) + (3x + 5y) = 7k + 9k$, so $8x + 8y = 16k$.\nStep 2: Factor the left side: $8(x + y) = 16k$.\nStep 3: Divide both sides by $8$ to get $x + y = 2k$. Check: solving the system gives $x = 0.5k$ and $y = 1.5k$; then $5(0.5k) + 3(1.5k) = 7k$ ✓ and $0.5k + 1.5k = 2k$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-k$): subtracts the equations instead of adding, producing $2x - 2y = -2k$, that is, $x - y = -k$ — the difference, not the sum.\n* Choice B ($k$): reaches $8x + 8y = 16k$ but divides $16k$ by $16$ rather than by the coefficient $8$.\n* Choice D ($8k$): reaches $8x + 8y = 16k$ and divides by $2$, leaving $8k$ instead of dividing by $8$.\n\n**Test Day Takeaway:** When a question asks for a combination such as $x + y$, add or subtract the equations first — solving for each variable is almost always the slow road."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Adding the equations gives $8x + 8y = 64$, so $x + y = \\frac{64}{8} = 8$.\n\n**The Full Solution:**\nStep 1: Add the two equations: $(5x + 3x) + (3y + 5y) = 28 + 36$, which gives $8x + 8y = 64$.\nStep 2: Factor out $8$: $8(x + y) = 64$.\nStep 3: Divide both sides by $8$: $x + y = 8$. Check: subtracting the equations gives $2x - 2y = -8$, so $x - y = -4$; then $x = 2$ and $y = 6$, and $5(2) + 3(6) = 28$ and $3(2) + 5(6) = 36$, with $2 + 6 = 8$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): subtracts the second equation from the first instead of adding them, getting $2x - 2y = -8$, which gives $x - y = -4$, not $x + y$.\n* Choice B ($2$): this is the value of $x$ alone, not $x + y$.\n* Choice C ($6$): this is the value of $y$ alone, not $x + y$.\n\n**Test Day Takeaway:** When the question asks for a combination such as $x + y$, look for a way to add or subtract the equations that produces it directly, instead of solving for each variable."
 }

@@ -1,10 +1,10 @@
 {
  "id": 11,
- "question": "For a freight train, the table pairs the time since departure with the distance still to be covered. What is the slope, in miles per hour, of the linear relationship between those two quantities?",
+ "question": "The table shows the distance $d$, in miles, that a train has left to travel $t$ hours after leaving a station. The relationship between $t$ and $d$ is linear. What is the slope of the line that represents this relationship in the $td$-plane?",
  "questionTable": {
   "headers": [
-   "Time since departure (hours)",
-   "Distance remaining (miles)"
+   "$t$ (hours)",
+   "$d$ (miles)"
   ],
   "rows": [
    [
@@ -40,10 +40,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "subtracts the distances but never divides by the change in time",
-  "C": "divides the change in distance by 7 + 2 = 9 instead of 7 - 2 = 5",
-  "D": "subtracts the distances in one order and the times in the other, flipping the sign"
+  "A": "finds the change in d from t = 2 to t = 7, 138 - 318, but does not divide by the change in t",
+  "C": "divides the change in d, -180, by 7 + 2 = 9 instead of 7 - 2 = 5",
+  "D": "subtracts the d-values in one order and the t-values in the other, which flips the sign"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Slope from Two Points**\n\n**Choice B is correct.** Using the first and last rows, $(2, 318)$ and $(7, 138)$, the slope is $\\frac{138 - 318}{7 - 2} = \\frac{-180}{5} = -36$ miles per hour.\n\n**The Fast Way (~20s):** From hour $2$ to hour $7$ the distance drops $180$ miles in $5$ hours, so the slope is $-36$.\n\n**The Full Solution:**\nStep 1: Choose two rows as ordered pairs: $(2, 318)$ and $(7, 138)$.\nStep 2: Apply $\\frac{y_2 - y_1}{x_2 - x_1} = \\frac{138 - 318}{7 - 2} = \\frac{-180}{5}$.\nStep 3: Simplify to $-36$ miles per hour. Check with the middle row: $(4, 246)$ and $(2, 318)$ give $\\frac{246 - 318}{4 - 2} = \\frac{-72}{2} = -36$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-180$): stops at the change in distance, $138 - 318$, and never divides by the $5$-hour change in time.\n* Choice C ($-20$): divides $-180$ by $7 + 2 = 9$. Slope uses the DIFFERENCE of the times, not their sum.\n* Choice D ($36$): subtracts the distances as $318 - 138$ while subtracting the times as $7 - 2$, mixing orders and flipping the sign. Distance remaining falls, so the slope must be negative.\n\n**Test Day Takeaway:** Subtract in the same order top and bottom. A quantity that decreases over time always has a negative slope — use that as a sign check."
+ "explanation": "**SAT Pattern: Slope from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Using the first two rows, the slope is $\\frac{246 - 318}{4 - 2} = \\frac{-72}{2} = -36$.\n\n**The Full Solution:**\nStep 1: The slope of a line is the change in $d$ divided by the change in $t$.\nStep 2: Use the rows $(2, 318)$ and $(4, 246)$: $\\frac{246 - 318}{4 - 2} = \\frac{-72}{2} = -36$.\nStep 3: The slope is $-36$; the distance left to travel decreases by $36$ miles each hour. Check with the rows $(2, 318)$ and $(7, 138)$: $\\frac{138 - 318}{7 - 2} = \\frac{-180}{5} = -36$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-180$): finds the change in $d$ from $t = 2$ to $t = 7$ but does not divide by the change in $t$, which is $5$.\n* Choice C ($-20$): divides $-180$ by $7 + 2 = 9$ instead of by $7 - 2 = 5$.\n* Choice D ($36$): subtracts the $d$-values in one order and the $t$-values in the other. The distance left to travel decreases over time, so the slope must be negative.\n\n**Test Day Takeaway:** Slope is change in output over change in input, with both differences taken in the same order. A quantity that decreases over time has a negative slope."
 }

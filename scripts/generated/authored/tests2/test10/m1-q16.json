@@ -1,10 +1,10 @@
 {
  "id": 16,
- "question": "A radio antenna receives power $P(t) = -3t^2 + 24t + c$ microwatts when tilted $t$ degrees above a reference position, where $c$ is a constant. The table gives three tilts and the power measured at each. What is the greatest power, in microwatts, this model predicts?",
+ "question": "The function $f$ is defined by $f(x) = -3x^{2} + bx + c$, where $b$ and $c$ are constants. The table shows three values of $x$ and their corresponding values of $f(x)$. What is the maximum value of $f(x)$?",
  "questionTable": {
   "headers": [
-   "Tilt (degrees)",
-   "Power (microwatts)"
+   "$x$",
+   "$f(x)$"
   ],
   "rows": [
    [
@@ -40,10 +40,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "reports the tilt at which the maximum occurs, 4 degrees, rather than the power there",
-  "B": "reports the constant c = 13, which is the power at a tilt of 0 degrees",
-  "C": "reads the largest power listed in the table instead of the model's peak"
+  "A": "gives the x-value at which the maximum occurs, 4, instead of the maximum value",
+  "B": "gives c = 13, which is f(0), instead of the maximum value",
+  "C": "picks the greatest value in the table instead of the function's maximum"
  },
  "correctAnswer": "D",
- "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**Choice D is correct.** Any row pins down $c$: from $t = 2$, $-3(4) + 24(2) + c = 49$, so $c = 13$. The parabola opens downward with vertex at $t = \\frac{-24}{2(-3)} = 4$, and $P(4) = -48 + 96 + 13 = 61$ microwatts.\n\n**The Fast Way (~35s):** The table's equal powers at $t = 2$ and $t = 6$ put the peak halfway between, at $t = 4$; with $c = 13$, $P(4) = 61$.\n\n**The Full Solution:**\nStep 1: Substitute a table row to find $c$: $P(2) = -3(2)^2 + 24(2) + c = -12 + 48 + c = 49$, so $c = 13$.\nStep 2: Locate the vertex. For $P(t) = -3t^2 + 24t + 13$, the axis of symmetry is $t = \\frac{-24}{2(-3)} = 4$ degrees; the leading coefficient is negative, so this is a maximum.\nStep 3: Evaluate there: $P(4) = -3(16) + 24(4) + 13 = -48 + 96 + 13 = 61$ microwatts. Check the third row: $P(8) = -3(64) + 24(8) + 13 = -192 + 192 + 13 = 13$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): this is the tilt at which the peak occurs, not the power at that tilt.\n* Choice B ($13$): this is $c$, the power at a tilt of $0$ degrees — the model's value at the reference position, not its maximum.\n* Choice C ($49$): the biggest number printed in the table. The table samples the model; the true peak sits between $t = 2$ and $t = 6$.\n\n**Test Day Takeaway:** A maximum has two coordinates. Find the input with $t = \\frac{-b}{2a}$ or by symmetry, then substitute to get the output the question asked for."
+ "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** Since $f(2) = f(6)$, the vertex is at $x = 4$, so $b = -2(-3)(4) = 24$. Then $f(2) = -12 + 48 + c = 49$ gives $c = 13$, and $f(4) = -48 + 96 + 13 = 61$.\n\n**The Full Solution:**\nStep 1: A parabola is symmetric about its vertex. Because $f(2) = f(6) = 49$, the vertex lies halfway between, at $x = \\frac{2 + 6}{2} = 4$.\nStep 2: The vertex of $f(x) = ax^{2} + bx + c$ is at $x = -\\frac{b}{2a}$, so $-\\frac{b}{2(-3)} = 4$ and $b = 24$. Then $f(2) = -3(4) + 24(2) + c = 36 + c = 49$, so $c = 13$.\nStep 3: The leading coefficient is negative, so the vertex gives the maximum: $f(4) = -3(16) + 24(4) + 13 = 61$. Check with the third row: $f(8) = -192 + 192 + 13 = 13$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): this is the $x$-value where the maximum occurs, not the maximum value of $f(x)$.\n* Choice B ($13$): this is the constant $c$, the value of $f(0)$.\n* Choice C ($49$): this is the greatest value in the table, but the vertex at $x = 4$ lies between the listed $x$-values and is higher.\n\n**Test Day Takeaway:** Two inputs with the same output sit symmetrically around the vertex, so the vertex's $x$-value is their average. Find the constants, then evaluate the function at the vertex."
 }

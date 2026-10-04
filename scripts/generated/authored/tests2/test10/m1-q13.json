@@ -1,29 +1,29 @@
 {
  "id": 13,
- "question": "At a farm weigh-in, 8 pumpkins average 34 kilograms each. Weighing one more pumpkin brings the average of all 9 to 39 kilograms. How many kilograms does the added pumpkin weigh?",
+ "question": "$22$, $25$, $27$, $30$, $30$, $31$, $33$, $35$, $79$\nThe value $79$ is removed from the data set shown. Which statement best describes how the mean and the median change?",
  "choices": [
   {
    "id": "A",
-   "text": "$5$"
+   "text": "The mean and the median both decrease."
   },
   {
    "id": "B",
-   "text": "$39$"
+   "text": "The mean does not change, and the median decreases."
   },
   {
    "id": "C",
-   "text": "$40$"
+   "text": "The mean decreases, and the median does not change."
   },
   {
    "id": "D",
-   "text": "$79$"
+   "text": "Neither the mean nor the median changes."
   }
  ],
  "distractorNotes": {
-  "A": "reports the 5-kilogram rise in the average rather than the pumpkin's mass",
-  "B": "assumes the added pumpkin weighs the new average, 39 kilograms",
-  "C": "multiplies the new average by 8 instead of 9, computing 312 - 272"
+  "A": "assumes removing the greatest value lowers the median too, overlooking that the two middle values of the remaining eight are both 30",
+  "B": "reverses the two effects, treating the mean as resistant to the extreme value and the median as sensitive to it",
+  "D": "assumes removing one value from nine changes neither measure, but the mean drops from about 34.7 to about 29.1"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Outlier Effect**\n\n**Choice D is correct.** Averages come from totals. The first $8$ pumpkins total $8(34) = 272$ kilograms; all $9$ total $9(39) = 351$ kilograms. The added pumpkin is $351 - 272 = 79$ kilograms.\n\n**The Fast Way (~25s):** The new pumpkin must supply its own $39$ plus $5$ extra kilograms for each of the other $8$: $39 + 8(5) = 79$.\n\n**The Full Solution:**\nStep 1: Convert the first average to a total: $8 \\times 34 = 272$ kilograms.\nStep 2: Convert the new average to a total: $9 \\times 39 = 351$ kilograms.\nStep 3: The difference is the added pumpkin: $351 - 272 = 79$ kilograms. Check: $\\frac{272 + 79}{9} = \\frac{351}{9} = 39$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): this is how much the average moved, $39 - 34$, not how heavy the new pumpkin is.\n* Choice B ($39$): assumes the new value equals the new average. A value equal to the mean would leave the mean unchanged at $34$.\n* Choice C ($40$): computes $8(39) - 272 = 40$, using $8$ for the new count when the group now holds $9$ pumpkins.\n\n**Test Day Takeaway:** Turn every average into a total before comparing. One unusually large value has to carry the shortfall for every other member of the set."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Outlier Effect**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The value $79$ is far above the rest, so removing it lowers the mean. The median stays $30$, because the two middle values of the remaining eight numbers are both $30$.\n\n**The Full Solution:**\nStep 1: The nine values add to $312$, so the mean is $\\frac{312}{9} \\approx 34.7$, and the median is the $5$th value, $30$.\nStep 2: Without $79$, the eight values add to $312 - 79 = 233$, so the new mean is $\\frac{233}{8} \\approx 29.1$, which is less than $34.7$.\nStep 3: The new median is the mean of the $4$th and $5$th of the eight values: $\\frac{30 + 30}{2} = 30$, the same as before. So the mean decreases and the median does not change. Check: $29.1 < 34.7$ and $30 = 30$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: assumes removing the greatest value pulls the median down too. The $4$th and $5$th of the remaining values are both $30$, so the median stays $30$.\n* Choice B: reverses the two effects. The mean uses every value, so an extreme value like $79$ moves it; the median depends only on the middle of the ordered list.\n* Choice D: assumes one value out of nine is too few to matter, but the mean drops from about $34.7$ to about $29.1$.\n\n**Test Day Takeaway:** An extreme value pulls the mean toward it, while the median depends only on the middle of the ordered list. Removing an outlier changes the mean much more than the median."
 }

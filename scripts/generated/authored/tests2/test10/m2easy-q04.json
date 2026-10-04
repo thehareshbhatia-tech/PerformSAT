@@ -1,6 +1,6 @@
 {
  "id": 4,
- "question": "A land-use plan pairs the acreage constraints $12x + 8y = 60$ and $9x + 6y = 54$, where $x$ and $y$ are the acres given to two permitted uses. How many ordered pairs $(x, y)$ satisfy both constraints at once?",
+ "question": "$12x + 8y = 60$\n$9x + 6y = 54$\nHow many solutions does the given system of equations have?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "B": "assumes two different linear equations always cross at one point",
+  "B": "assumes two different linear equations always intersect at one point",
   "C": "counts one solution per equation rather than solving the system",
   "D": "notices the left sides are proportional but never compares the constants"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice A is correct.** Reduced, the constraints read $3x + 2y = 15$ and $3x + 2y = 18$, and no pair makes $3x + 2y$ equal two different numbers.\n\n**The Fast Way (~20s):** Divide the first constraint by $4$ and the second by $3$. Identical left sides with different right sides means the lines are parallel and never meet.\n\n**The Full Solution:**\nStep 1: Divide every term of $12x + 8y = 60$ by $4$: $3x + 2y = 15$.\nStep 2: Divide every term of $9x + 6y = 54$ by $3$: $3x + 2y = 18$.\nStep 3: The same expression $3x + 2y$ cannot equal $15$ and $18$ at the same time, so no ordered pair satisfies both. Check with a pair that satisfies the first, $(1, 6)$: it gives $3(1) + 2(6) = 15$ for the first constraint but only $15$, not $18$, for the second. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly one): true for most systems, but only when the two lines have different slopes. Here both reduce to slope $-\\frac{3}{2}$, so they never cross.\n* Choice C (Exactly two): counts the two equations rather than the solutions. Two straight lines can meet at most once, so two intersection points is impossible.\n* Choice D (Infinitely many): the right answer if the constants had matched after reducing. They do not: $15 \\ne 18$, so the lines are parallel and distinct, not the same line.\n\n**Test Day Takeaway:** Reduce both equations until the variable sides look alike. Same variable side and same constant means infinitely many; same variable side and different constant means none."
+ "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Dividing the first equation by $4$ and the second by $3$ gives $3x + 2y = 15$ and $3x + 2y = 18$; the same left side cannot equal two different numbers, so there are no solutions.\n\n**The Full Solution:**\nStep 1: Divide each side of the first equation by $4$: $3x + 2y = 15$.\nStep 2: Divide each side of the second equation by $3$: $3x + 2y = 18$.\nStep 3: The expression $3x + 2y$ cannot equal both $15$ and $18$, so no pair $(x, y)$ satisfies both equations. Check with slopes: both lines have slope $-\\frac{3}{2}$, but their $y$-intercepts are $7.5$ and $9$, so the lines are parallel and distinct ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly one): assumes that two different linear equations always cross. Lines with the same slope never cross unless they are the same line.\n* Choice C (Exactly two): counts one solution for each equation. Two lines can meet at zero points, one point, or infinitely many points, never exactly two.\n* Choice D (Infinitely many): notices that the $x$- and $y$-coefficients are in the ratio $4:3$ but does not check the constants; $60$ and $54$ are not in that ratio.\n\n**Test Day Takeaway:** Scale both equations to the same left side. Different constants mean no solution; the same constants mean infinitely many solutions."
 }

@@ -1,18 +1,18 @@
 {
  "id": 7,
- "question": "A pottery studio breaks even on ceramic planters at exactly two order sizes, and those two order sizes differ by $10$. Daily profit, in dollars, from $x$ planters is $-x^2 + 26x - k$, where $k$ is a positive constant. What is $k$?",
+ "question": "$y = -x^{2} + 26x - k$\nIn the given equation, $k$ is a positive constant. The graph of the equation in the $xy$-plane has two $x$-intercepts that are $10$ units apart. What is the value of $k$?",
  "choices": [
   {
    "id": "A",
-   "text": "$144$"
+   "text": "$69$"
   },
   {
    "id": "B",
-   "text": "$169$"
+   "text": "$144$"
   },
   {
    "id": "C",
-   "text": "$260$"
+   "text": "$169$"
   },
   {
    "id": "D",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "B": "uses 13^2 = 169 as the product of the roots and never subtracts 5^2",
-  "C": "multiplies the sum-related value 26 by the gap 10, giving 260",
-  "D": "squares 26, giving 676"
+  "A": "places each x-intercept 10 units from x = 13 instead of 5 units, giving (13 - 10)(13 + 10) = 69",
+  "C": "uses 13^2 = 169 as the product of the x-intercepts and never subtracts 5^2",
+  "D": "squares the sum of the x-intercepts, 26^2 = 676, instead of multiplying the x-intercepts"
  },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** The break-even values are symmetric about $x = \\frac{26}{2} = 13$ and are $10$ apart, so they are $8$ and $18$; their product is $k = 144$.\n\n**The Full Solution:**\nStep 1: Break-even means profit $0$, so the two order sizes are the solutions of $-x^2 + 26x - k = 0$, or equivalently $x^2 - 26x + k = 0$. The two solutions sum to $26$ and multiply to $k$.\nStep 2: Two numbers that sum to $26$ are symmetric about $13$, so write them as $13 - d$ and $13 + d$. They differ by $2d = 10$, so $d = 5$ and the order sizes are $8$ and $18$.\nStep 3: The product of the solutions is $k = 8 \\times 18 = 144$. Check: $-x^2 + 26x - 144 = -(x - 8)(x - 18)$, which is $0$ at $x = 8$ and $x = 18$, and $18 - 8 = 10$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($169$): uses $13^2 = 169$, the product you would get if the two order sizes were both $13$. That happens only when the gap is $0$; here you must subtract $5^2$, since $(13 - 5)(13 + 5) = 169 - 25 = 144$.\n* Choice C ($260$): multiplies $26$ by the gap $10$. The gap controls how far the roots sit from $13$, not a factor of $k$.\n* Choice D ($676$): squares $26$. That is the square of the sum of the roots, not their product.\n\n**Test Day Takeaway:** Two roots a fixed distance apart are $\\frac{-b}{2a} \\pm \\frac{d}{2}$; multiply them with the difference-of-squares shortcut instead of running the quadratic formula."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The $x$-intercepts are symmetric about $x = \\frac{26}{2} = 13$ and are $10$ units apart, so they are $8$ and $18$, and $k = 8 \\times 18 = 144$.\n\n**The Full Solution:**\nStep 1: The $x$-intercepts are the solutions of $-x^{2} + 26x - k = 0$, or $x^{2} - 26x + k = 0$. The two solutions have a sum of $26$ and a product of $k$.\nStep 2: Two numbers with a sum of $26$ can be written as $13 - d$ and $13 + d$. They are $2d = 10$ units apart, so $d = 5$, and the $x$-intercepts are at $x = 8$ and $x = 18$.\nStep 3: The product of the solutions is $k = 8 \\times 18 = 144$. Check: $-x^{2} + 26x - 144 = -(x - 8)(x - 18)$, which is $0$ at $x = 8$ and $x = 18$, and $18 - 8 = 10$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($69$): places each intercept $10$ units from $x = 13$, giving $x = 3$ and $x = 23$ and a product of $69$. Those intercepts are $20$ units apart; each one is half of $10$, or $5$ units, from $13$.\n* Choice C ($169$): uses $13^{2} = 169$, which would be the product only if both intercepts were at $13$. Here $(13 - 5)(13 + 5) = 169 - 25 = 144$.\n* Choice D ($676$): squares $26$, which is the sum of the intercepts, not their product.\n\n**Test Day Takeaway:** Two $x$-intercepts a fixed distance apart sit half that distance on either side of the axis of symmetry; multiply them with the difference-of-squares shortcut."
 }

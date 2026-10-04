@@ -1,6 +1,6 @@
 {
  "id": 11,
- "question": "The coordinate plane shows the moorings of two ocean buoys, where each unit represents one kilometer. A cable runs straight from one mooring to the other. How many kilometers long is the cable?",
+ "question": "What is the distance between the two points shown in the $xy$-plane?",
  "diagram": {
   "type": "coordinatePoints",
   "params": {
@@ -21,5 +21,5 @@
   }
  },
  "correctAnswer": "10",
- "explanation": "**SAT Pattern: Distance Formula**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~15s):** The moorings are $8$ units apart horizontally and $6$ vertically, and $6$-$8$-$10$ is a right-triangle triple, so the cable is $10$ kilometers.\n\n**The Full Solution:**\nStep 1: Read the plotted points: $(2, 2)$ and $(10, 8)$.\nStep 2: The distance formula gives $d = \\sqrt{(10 - 2)^2 + (8 - 2)^2} = \\sqrt{8^2 + 6^2}$.\nStep 3: $\\sqrt{64 + 36} = \\sqrt{100} = 10$ kilometers. Check on the grid: going $8$ units right and $6$ units up from $(2, 2)$ lands exactly on $(10, 8)$, and those legs make a $6$-$8$-$10$ right triangle. $\\checkmark$\n\n**Common Mistakes:** Entering $8$ (using only the horizontal separation); entering $6$ (using only the vertical separation); entering $14$ (adding the two separations instead of using the Pythagorean relationship); entering $100$ (stopping at the sum of the squares and forgetting the square root).\n\n**Test Day Takeaway:** Two plotted points make the legs of a right triangle. Count the horizontal and vertical gaps, then take the square root of the sum of their squares — and watch for the familiar $3$-$4$-$5$ family."
+ "explanation": "**SAT Pattern: Distance Formula**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~20s):** The points are $(2, 2)$ and $(10, 8)$, which are $8$ units apart horizontally and $6$ units apart vertically, so the distance is $\\sqrt{8^{2} + 6^{2}} = 10$.\n\n**The Full Solution:**\nStep 1: Read the points from the grid: $(2, 2)$ and $(10, 8)$.\nStep 2: The horizontal change is $10 - 2 = 8$ and the vertical change is $8 - 2 = 6$.\nStep 3: By the distance formula, $d = \\sqrt{8^{2} + 6^{2}} = \\sqrt{64 + 36} = \\sqrt{100} = 10$. Check: $6$, $8$, $10$ is a multiple of the right triangle $3$, $4$, $5$, and $2(5) = 10$ ✓\n\n**Common Mistakes:**\n* $14$: adds the horizontal and vertical changes, $8 + 6$, instead of using the Pythagorean theorem.\n* $100$: stops at $d^{2}$ and forgets to take the square root.\n* $2$: subtracts the changes, $8 - 6$, instead of combining their squares.\n\n**Test Day Takeaway:** The distance between two points is the hypotenuse of a right triangle whose legs are the horizontal and vertical changes; square, add, then take the square root."
 }

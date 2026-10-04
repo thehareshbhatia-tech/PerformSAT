@@ -1,29 +1,29 @@
 {
  "id": 17,
- "question": "A city street-improvement budget, in dollars, satisfies $4{,}000c + 2{,}500s = 960{,}000$, where $c$ is the number of crosswalks repainted and $s$ is the number of streetlights installed. Which statement is the best interpretation of the relationship between $c$ and $s$?",
+ "question": "A store spent \\$600 on $p$ boxes of pens and $b$ boxes of markers. The equation $15p + 10b = 600$ represents this situation. Which of the following is the best interpretation of the relationship between $p$ and $b$?",
  "choices": [
   {
    "id": "A",
-   "text": "For each additional crosswalk repainted, the number of streetlights installed decreases by $0.625$."
+   "text": "For each additional box of pens, the number of boxes of markers decreases by $\\frac{2}{3}$."
   },
   {
    "id": "B",
-   "text": "For each additional crosswalk repainted, the number of streetlights installed decreases by $1.6$."
+   "text": "For each additional box of pens, the number of boxes of markers decreases by $\\frac{3}{2}$."
   },
   {
    "id": "C",
-   "text": "For each additional crosswalk repainted, the number of streetlights installed increases by $1.6$."
+   "text": "For each additional box of pens, the number of boxes of markers increases by $\\frac{3}{2}$."
   },
   {
    "id": "D",
-   "text": "For each additional streetlight installed, the number of crosswalks repainted decreases by $1.6$."
+   "text": "For each additional box of markers, the number of boxes of pens decreases by $\\frac{3}{2}$."
   }
  ],
  "distractorNotes": {
-  "A": "inverts the ratio, dividing 2500 by 4000 instead of 4000 by 2500",
-  "C": "keeps the size of the rate but drops the negative sign built into the budget",
-  "D": "swaps the two variables, applying the crosswalk rate to a streetlight"
+  "A": "inverts the ratio, dividing 10 by 15 instead of 15 by 10",
+  "C": "keeps the size of the rate but drops the negative sign built into the fixed total",
+  "D": "swaps the two variables, applying the pen rate to a box of markers"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Interpret Slope in Context**\n\n**Choice B is correct.** Solving for $s$ gives $s = 384 - 1.6c$, so each extra crosswalk costs the city $1.6$ streetlights.\n\n**The Fast Way (~25s):** A fixed budget makes the rate the ratio of the prices: $\\frac{4{,}000}{2{,}500} = 1.6$ streetlights given up per crosswalk added.\n\n**The Full Solution:**\nStep 1: Isolate the streetlight count: $2{,}500s = 960{,}000 - 4{,}000c$.\nStep 2: Divide by $2{,}500$: $s = 384 - 1.6c$. The coefficient of $c$ is $-1.6$.\nStep 3: A slope of $-1.6$ means $s$ falls by $1.6$ each time $c$ rises by $1$. Check two budget-filling pairs: $c = 0$ gives $s = 384$, and $c = 10$ gives $s = 384 - 16 = 368$, since $4{,}000(10) + 2{,}500(368) = 40{,}000 + 920{,}000 = 960{,}000$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.625$): divides $2{,}500$ by $4{,}000$. That number is the rate in the other direction — how many crosswalks one streetlight costs.\n* Choice C (increases by $1.6$): reads the size of the rate but ignores the sign. The budget is fixed, so spending more on crosswalks must leave less for streetlights.\n* Choice D (per streetlight): applies the crosswalk rate to the wrong variable. Adding one streetlight frees only $\\$2{,}500$, which is $0.625$ of a crosswalk, not $1.6$.\n\n**Test Day Takeaway:** With an equation in standard form, solve for the variable the statement is about before reading a rate. The sign of the resulting coefficient carries the direction."
+ "explanation": "**SAT Pattern: Interpret Slope in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Solving for $b$ gives $b = 60 - \\frac{3}{2}p$, so each additional box of pens means $\\frac{3}{2}$ fewer boxes of markers.\n\n**The Full Solution:**\nStep 1: Solve the equation for $b$: $10b = 600 - 15p$, so $b = 60 - \\frac{3}{2}p$.\nStep 2: The slope, $-\\frac{3}{2}$, is the change in $b$ for each increase of $1$ in $p$.\nStep 3: So for each additional box of pens, the number of boxes of markers decreases by $\\frac{3}{2}$. Check with values: $p = 20$ gives $b = 30$, and $p = 22$ gives $b = 27$; two more boxes of pens means $3$ fewer boxes of markers, or $\\frac{3}{2}$ per box ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2}{3}$): divides $10$ by $15$. The \\$15 spent on one more box of pens is what must be taken from markers at \\$10 each, so the rate is $\\frac{15}{10}$.\n* Choice C (increases by $\\frac{3}{2}$): drops the negative sign. With a fixed total of \\$600, buying more of one item leaves less money for the other.\n* Choice D: swaps the roles of the variables. Each additional box of markers would reduce the boxes of pens by $\\frac{10}{15} = \\frac{2}{3}$, not $\\frac{3}{2}$.\n\n**Test Day Takeaway:** To interpret the relationship in $Ax + By = C$, solve for one variable; the coefficient of the other variable is the change per unit, and its sign shows the direction."
 }

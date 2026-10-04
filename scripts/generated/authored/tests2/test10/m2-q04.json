@@ -1,6 +1,6 @@
 {
  "id": 4,
- "question": "A registrar's office projects transcript requests with $\\hat{y} = 34x + 96$, where $x$ is the number of years since $2016$. The office received $312$ requests in $2022$. By how much did the actual count exceed the projected count?",
+ "question": "The equation $y = 34x + 96$ estimates the number of students, $y$, enrolled in a school's coding course $x$ years after $2016$. In $2022$, $312$ students were enrolled in the course. How many more students were enrolled in $2022$ than the equation estimates?",
  "choices": [
   {
    "id": "A",
@@ -8,22 +8,22 @@
   },
   {
    "id": "B",
-   "text": "$22$"
-  },
-  {
-   "id": "C",
    "text": "$34$"
   },
   {
-   "id": "D",
+   "id": "C",
    "text": "$108$"
+  },
+  {
+   "id": "D",
+   "text": "$300$"
   }
  ],
  "distractorNotes": {
-  "B": "uses x = 7 instead of x = 6, projecting 34(7) + 96 = 334 and reporting the gap of 22",
-  "C": "reports the model's yearly increase, 34, instead of the gap between actual and projected",
-  "D": "drops the constant 96, projecting 34(6) = 204 and reporting 312 - 204 = 108"
+  "B": "reports the slope, 34, the estimated increase per year, instead of the difference between actual and estimated",
+  "C": "drops the constant 96, estimating 34(6) = 204 and reporting 312 - 204 = 108",
+  "D": "reports the estimate for 2022, 34(6) + 96 = 300, instead of the difference"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Residual**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $2022$ is $6$ years after $2016$, so the projection is $34(6) + 96 = 300$, and $312 - 300 = 12$.\n\n**The Full Solution:**\nStep 1: Convert the year to the model's input. Since $x$ counts years since $2016$, the year $2022$ gives $x = 2022 - 2016 = 6$.\nStep 2: Evaluate the model at $x = 6$: $\\hat{y} = 34(6) + 96 = 204 + 96 = 300$ projected requests.\nStep 3: The actual count exceeds the projection by $312 - 300 = 12$. Check: adding the gap back to the projection returns the actual count, $300 + 12 = 312$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($22$): counts $2016$ itself as year $1$ and uses $x = 7$, projecting $34(7) + 96 = 334$ and reporting a gap of $22$. \"Years since $2016$\" makes $2016$ itself $x = 0$.\n* Choice C ($34$): reports the slope, which is how much the projection rises per year, not how far the actual count sits from the projection.\n* Choice D ($108$): uses only $34(6) = 204$ and forgets the constant $96$, giving $312 - 204 = 108$.\n\n**Test Day Takeaway:** With a \"years since\" model, first translate the calendar year into $x$, then subtract predicted from actual in the order the question names them."
+ "explanation": "**SAT Pattern: Residual**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $2022$ is $6$ years after $2016$, so the estimate is $34(6) + 96 = 300$, and $312 - 300 = 12$.\n\n**The Full Solution:**\nStep 1: Since $x$ is the number of years after $2016$, the year $2022$ corresponds to $x = 2022 - 2016 = 6$.\nStep 2: Evaluate the equation at $x = 6$: $y = 34(6) + 96 = 204 + 96 = 300$ students.\nStep 3: The actual enrollment exceeds the estimate by $312 - 300 = 12$ students. Check: $300 + 12 = 312$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($34$): reports the slope, which is the estimated increase in enrollment each year, not the gap between the actual and estimated enrollment.\n* Choice C ($108$): uses only $34(6) = 204$ and forgets the constant $96$, giving $312 - 204 = 108$.\n* Choice D ($300$): stops at the estimate for $2022$ and never subtracts it from the actual enrollment.\n\n**Test Day Takeaway:** With a \"years after\" model, first turn the calendar year into $x$, then subtract the estimated value from the actual value."
 }

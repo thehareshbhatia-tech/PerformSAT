@@ -1,6 +1,6 @@
 {
  "id": 8,
- "question": "A drawer holds $18$ ammonite fossils and an unknown number of trilobite fossils. If one fossil is selected at random, the probability of selecting an ammonite is $0.4$. How many trilobite fossils are in the drawer?",
+ "question": "A box contains $18$ red pencils and some blue pencils. If one of these pencils is selected at random, the probability of selecting a red pencil is $0.4$. How many blue pencils are in the box?",
  "choices": [
   {
    "id": "A",
@@ -22,8 +22,8 @@
  "distractorNotes": {
   "A": "multiplies 18 by 0.4 instead of dividing",
   "B": "divides 18 by 0.6 to get a total of 30, then subtracts 18",
-  "D": "reports the total number of fossils instead of the trilobite count"
+  "D": "reports the total number of pencils instead of the number of blue pencils"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice C is correct.** Since $\\frac{18}{\\text{total}} = 0.4$, the drawer holds $45$ fossils, so $45 - 18 = 27$ are trilobites.\n\n**The Fast Way (~20s):** $18 \\div 0.4 = 45$ fossils in all; the trilobite count is what is left, $45 - 18 = 27$.\n\n**The Full Solution:**\nStep 1: Probability is the count of ammonites over the total count, so $\\frac{18}{T} = 0.4$, where $T$ is the total.\nStep 2: Multiply both sides by $T$ and divide by $0.4$: $T = \\frac{18}{0.4} = 45$ fossils.\nStep 3: Everything that is not an ammonite is a trilobite: $45 - 18 = 27$. Check: with $27$ trilobites the drawer holds $45$, and $\\frac{18}{45} = 0.4$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($7.2$): multiplies $18$ by $0.4$ instead of dividing. The probability is already a part over a whole, so the whole is reached by dividing, and a count cannot be a decimal anyway.\n* Choice B ($12$): divides by $0.6$, the probability of a trilobite, giving a total of $30$, then subtracts $18$. The $18$ counted fossils are ammonites, so they pair with $0.4$, not with $0.6$.\n* Choice D ($45$): stops at the total number of fossils. The question asks only for the trilobites.\n\n**Test Day Takeaway:** Match each count to its own probability before dividing, and reread the last line of the stem — the part you solved for is often one subtraction short of the answer."
+ "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Red pencils are $0.4$ of the total, so the total is $\\frac{18}{0.4} = 45$, and $45 - 18 = 27$ pencils are blue.\n\n**The Full Solution:**\nStep 1: Let $t$ be the total number of pencils. The probability of selecting a red pencil is $\\frac{18}{t}$, so $\\frac{18}{t} = 0.4$.\nStep 2: Solve for $t$: $t = \\frac{18}{0.4} = 45$.\nStep 3: The blue pencils are the rest: $45 - 18 = 27$. Check: $\\frac{18}{18 + 27} = \\frac{18}{45} = 0.4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7.2$): multiplies $18$ by $0.4$. A number of pencils must be a whole number, which is a sign of the error.\n* Choice B ($12$): divides $18$ by $0.6$, the probability of a blue pencil, giving $30$, then subtracts $18$. The $18$ red pencils go with the red probability, $0.4$.\n* Choice D ($45$): finds the total number of pencils and stops, but the question asks for the blue pencils only.\n\n**Test Day Takeaway:** In a reverse probability question, use the known count and its probability to find the total, then subtract to find the count that was asked for."
 }

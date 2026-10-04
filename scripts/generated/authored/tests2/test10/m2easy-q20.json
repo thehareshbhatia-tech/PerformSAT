@@ -1,6 +1,6 @@
 {
  "id": 20,
- "question": "Two water-quality readings satisfy $6x + 10y = 34$ and $9x - 4y = 32$ at the same time, where $x$ is a dissolved-oxygen level and $y$ is a turbidity index. Which equation is also satisfied by that pair of values?",
+ "question": "$6x + 10y = 34$\n$9x - 4y = 32$\nIf $(x, y)$ is the solution to the given system of equations, which of the following equations is also true?",
  "choices": [
   {
    "id": "A",
@@ -8,22 +8,22 @@
   },
   {
    "id": "B",
-   "text": "$22y = 166$"
+   "text": "$22y = 38$"
   },
   {
    "id": "C",
-   "text": "$57x = 228$"
+   "text": "$57x = 66$"
   },
   {
    "id": "D",
-   "text": "$57x = 66$"
+   "text": "$57x = 228$"
   }
  ],
  "distractorNotes": {
   "A": "adds the two equations as written and treats 10y - 4y as canceling",
-  "B": "scales to 18x on both equations, then adds instead of subtracting so the x terms do not cancel",
-  "D": "scales the left sides by 2 and 5 but adds the original constants 34 and 32"
+  "B": "scales the equations to 18x and subtracts, but subtracts -8y as if it were +8y",
+  "C": "scales the left sides by 2 and 5 but adds the original constants 34 and 32"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: System of Equations — Elimination**\n\n**Choice C is correct.** Doubling the first equation and multiplying the second by $5$ makes the $y$-terms opposites, and adding gives $57x = 228$.\n\n**The Fast Way (~35s):** $10y$ and $-4y$ share $20y$: take $2$ times the first equation and $5$ times the second, then add. The result is $57x = 228$, and $x = 4$ fits both equations.\n\n**The Full Solution:**\nStep 1: Multiply the first equation by $2$: $12x + 20y = 68$. Multiply the second by $5$: $45x - 20y = 160$. Both constants scale along with the left sides.\nStep 2: Add the two scaled equations. The $y$-terms cancel: $(12x + 45x) = 68 + 160$, so $57x = 228$.\nStep 3: That equation gives $x = 4$, and substituting into $6x + 10y = 34$ gives $10y = 10$, so $y = 1$. Check the second reading: $9(4) - 4(1) = 36 - 4 = 32$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($15x = 66$): adds the equations untouched and assumes $10y - 4y$ vanishes. It leaves $6y$ behind and gives $x = 4.4$, which fails both readings.\n* Choice B ($22y = 166$): scales to $18x$ in each equation, then adds instead of subtracting, so the $x$-terms survive rather than cancel. It gives $y \\approx 7.5$, far from $y = 1$.\n* Choice D ($57x = 66$): scales the left sides correctly but carries the original constants, adding $34 + 32$. Every term of an equation must be multiplied, constants included.\n\n**Test Day Takeaway:** To eliminate a variable, scale both equations to the least common multiple of its coefficients, multiply the constants too, and add only when the signs are opposite."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: System of Equations — Elimination**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Multiply the first equation by $2$ and the second by $5$ so the $y$-terms are $20y$ and $-20y$; adding gives $57x = 68 + 160 = 228$.\n\n**The Full Solution:**\nStep 1: Multiply the first equation by $2$: $12x + 20y = 68$. Multiply the second equation by $5$: $45x - 20y = 160$.\nStep 2: Add the two new equations. The $y$-terms cancel: $57x = 228$.\nStep 3: So $57x = 228$ is true for the solution. Check: $x = \\frac{228}{57} = 4$, then $6(4) + 10y = 34$ gives $y = 1$, and $9(4) - 4(1) = 32$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($15x = 66$): adds the original equations, which gives $15x + 6y = 66$; the $y$-terms do not cancel, because $10y$ and $-4y$ are not opposites.\n* Choice B ($22y = 38$): eliminates $x$ correctly by scaling to $18x + 30y = 102$ and $18x - 8y = 64$, but subtracts $-8y$ as if it were $+8y$. The correct difference is $38y = 38$.\n* Choice C ($57x = 66$): multiplies the left sides by $2$ and $5$ but adds the original constants, $34 + 32$, instead of the scaled constants $68 + 160$.\n\n**Test Day Takeaway:** Multiply every term of an equation, including the constant, and choose multipliers that make one variable's coefficients opposites before you add."
 }

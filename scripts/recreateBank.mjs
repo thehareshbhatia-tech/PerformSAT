@@ -499,6 +499,8 @@ async function check(selection) {
       const reg = registerItem(got.data, { difficulty: row.difficulty, cbSkillLabel: row.cbSkillLabel }); errs.push(...reg.errs); warns.push(...reg.warns);
       const cr = checkMath(got.data); errs.push(...cr.fails.map(f => `COPYRIGHT ${f}`)); warns.push(...cr.warns.map(w => `copyright ${w}`));
       regRows.push({ q: got.data, difficulty: row.difficulty });
+      if (/\bline of best fit\b|\bresiduals?\b/i.test(got.data.question || '') && got.data.diagram?.type !== 'scatterplot') errs.push('stem says "line of best fit"/"residual" without a scatterplot — CI\'s diagram audit requires one; use "linear model" / compare recorded vs predicted instead');
+      if (got.data.diagram?.type === 'intersectingLines' && !Number.isFinite(got.data.diagram.params?.angle0Measure)) errs.push('intersectingLines: set params.angle0Measure to the true measure of angles[0]');
     }
     if (row.fresh) {
       const fr = freshnessErrors(got.data.question, `${row.source}/${row.fileId}`, freshSibs);

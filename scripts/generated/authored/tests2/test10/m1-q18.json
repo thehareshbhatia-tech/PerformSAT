@@ -1,6 +1,6 @@
 {
  "id": 18,
- "question": "Shifting the parabola $y = f(x)$ left 6 units and down 4 units gives a parabola with vertex $(-4, -9)$. The vertex of $y = f(x)$ is $(a, b)$. What is the value of $a - b$?",
+ "question": "In the $xy$-plane, the graph of $y = f(x)$ is a parabola with vertex $(a, b)$. The graph of $y = f(x + 6) - 4$ is a parabola with vertex $(-4, -9)$. What is the value of $a - b$?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "undoes the vertical shift but moves the x-coordinate the same way as the shift, using the vertex (-10, -5)",
-  "B": "reverses neither shift, using the vertex (-10, -13)",
-  "D": "undoes the horizontal shift but applies the vertical shift a second time, using the vertex (2, -13)"
+  "A": "undoes the vertical shift correctly but moves the x-coordinate 6 more units left, using the vertex (-10, -5)",
+  "B": "moves both coordinates the wrong way, using the vertex (-10, -13)",
+  "D": "undoes the horizontal shift correctly but subtracts 4 again instead of adding it, using the vertex (2, -13)"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Function Transformation**\n\n**Choice C is correct.** The shifted parabola's vertex is $(-4, -9)$. To recover the original vertex, undo the moves: go right $6$ and up $4$, landing at $(2, -5)$. Then $a - b = 2 - (-5) = 7$.\n\n**The Fast Way (~30s):** Undo the shift: $(-4 + 6,\\ -9 + 4) = (2, -5)$, so $a - b = 2 + 5 = 7$.\n\n**The Full Solution:**\nStep 1: The shifted parabola is $y = f(x + 6) - 4$; its vertex is given as $(-4, -9)$.\nStep 2: A left shift of $6$ subtracts $6$ from the $x$-coordinate, so the original $x$-coordinate is $-4 + 6 = 2$. A down shift of $4$ subtracts $4$ from the $y$-coordinate, so the original $y$-coordinate is $-9 + 4 = -5$. Thus $(a, b) = (2, -5)$.\nStep 3: Compute $a - b = 2 - (-5) = 7$. Check by shifting forward: $(2 - 6,\\ -5 - 4) = (-4, -9)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): undoes the vertical shift correctly but moves the $x$-coordinate left again, using $(-10, -5)$ and getting $-10 - (-5)$.\n* Choice B ($3$): reverses neither shift, treating $(-10, -13)$ as the original vertex.\n* Choice D ($15$): undoes the horizontal shift but applies the vertical one a second time, using $(2, -13)$.\n\n**Test Day Takeaway:** Going backward through a transformation reverses every move. Confirm by pushing your answer forward through the stated shifts and landing on the given point."
+ "explanation": "**SAT Pattern: Function Transformation**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The graph of $y = f(x + 6) - 4$ is the graph of $f$ moved $6$ units left and $4$ units down, so the vertex of $f$ is $(-4 + 6, -9 + 4) = (2, -5)$ and $a - b = 2 - (-5) = 7$.\n\n**The Full Solution:**\nStep 1: Replacing $x$ with $x + 6$ moves a graph $6$ units left, and subtracting $4$ moves it $4$ units down. So the vertex $(a, b)$ of $f$ moves to $(a - 6, b - 4)$.\nStep 2: Set this equal to the given vertex: $a - 6 = -4$ and $b - 4 = -9$, so $a = 2$ and $b = -5$.\nStep 3: Compute: $a - b = 2 - (-5) = 7$. Check: at $x = -4$, $f(x + 6) - 4 = f(2) - 4 = -5 - 4 = -9$, which matches the vertex $(-4, -9)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): finds $b = -5$ correctly but subtracts $6$ from $-4$, using the vertex $(-10, -5)$; $-10 - (-5) = -5$.\n* Choice B ($3$): moves both coordinates the wrong way, using the vertex $(-10, -13)$; $-10 - (-13) = 3$.\n* Choice D ($15$): finds $a = 2$ correctly but subtracts $4$ from $-9$, using the vertex $(2, -13)$; $2 - (-13) = 15$.\n\n**Test Day Takeaway:** $f(x + h)$ moves a graph left by $h$ and $f(x) - k$ moves it down by $k$. To recover the original vertex, reverse both moves."
 }

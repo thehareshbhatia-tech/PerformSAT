@@ -1,29 +1,29 @@
 {
  "id": 3,
- "question": "A packing charge, in dollars, for $x$ crates equals $4(3x - 5)$. Rewriting that charge without parentheses gives the form $ax + b$. Which of the following gives $a$ and $b$?",
+ "question": "$3(4x - 7) = ax + b$\nIn the given equation, $a$ and $b$ are constants. If the equation has infinitely many solutions, what is the value of $b$?",
  "choices": [
   {
    "id": "A",
-   "text": "$a = -20$ and $b = 12$"
+   "text": "$-21$"
   },
   {
    "id": "B",
-   "text": "$a = 3$ and $b = -5$"
+   "text": "$-7$"
   },
   {
    "id": "C",
-   "text": "$a = 12$ and $b = -5$"
+   "text": "$12$"
   },
   {
    "id": "D",
-   "text": "$a = 12$ and $b = -20$"
+   "text": "$21$"
   }
  ],
  "distractorNotes": {
-  "A": "swaps the coefficient and the constant, reporting a = -20 and b = 12",
-  "B": "copies 3 and -5 straight out of the parentheses without multiplying by 4",
-  "C": "multiplies 4 by 3x but leaves the -5 untouched, giving b = -5"
+  "B": "copies -7 from inside the parentheses without multiplying it by 3",
+  "C": "gives the value of a, the coefficient of x, instead of b",
+  "D": "multiplies 3 by 7 but drops the negative sign"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Matching Coefficients**\n\n**Choice D is correct.** The $4$ multiplies both terms inside the parentheses, so $4(3x - 5) = 12x - 20$. Matching this to $ax + b$ gives $a = 12$ and $b = -20$.\n\n**The Fast Way (~10s):** $4 \\cdot 3 = 12$ and $4 \\cdot (-5) = -20$, so $a = 12$ and $b = -20$.\n\n**The Full Solution:**\nStep 1: Distribute the $4$ across the first term: $4 \\cdot 3x = 12x$.\nStep 2: Distribute the $4$ across the second term: $4 \\cdot (-5) = -20$, so the charge is $12x - 20$ dollars.\nStep 3: Compare $12x - 20$ with $ax + b$ term by term: $a = 12$ and $b = -20$. Check with $x = 3$: $4(9 - 5) = 16$ and $12(3) - 20 = 16$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($a = -20$ and $b = 12$): distributes correctly but reports the numbers in the wrong roles — $-20$ is the constant, not the coefficient of $x$.\n* Choice B ($a = 3$ and $b = -5$): reads $3$ and $-5$ straight out of the parentheses and never multiplies by $4$.\n* Choice C ($a = 12$ and $b = -5$): multiplies the $3x$ by $4$ but leaves the $-5$ alone, so the constant is off by a factor of $4$.\n\n**Test Day Takeaway:** Distribution touches every term inside the parentheses. Multiply the constant too, then match term by term."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Matching Coefficients**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Distribute: $3(4x - 7) = 12x - 21$. Infinitely many solutions means both sides are the same expression, so $b = -21$.\n\n**The Full Solution:**\nStep 1: Distribute the $3$ on the left side: $3(4x) - 3(7) = 12x - 21$.\nStep 2: A linear equation has infinitely many solutions only when both sides are identical, so $12x - 21$ must equal $ax + b$ term by term.\nStep 3: Match the terms: $a = 12$ and $b = -21$. Check: with these values the equation reads $12x - 21 = 12x - 21$, which is true for every $x$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-7$): copies the $-7$ from inside the parentheses without multiplying it by $3$.\n* Choice C ($12$): this is the value of $a$, the coefficient of $x$, not the constant $b$.\n* Choice D ($21$): multiplies $3$ by $7$ but loses the negative sign.\n\n**Test Day Takeaway:** Infinitely many solutions means the two sides are the same expression. Simplify each side fully, then match the $x$-coefficients and the constants."
 }

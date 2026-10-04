@@ -1,6 +1,6 @@
 {
  "id": 17,
- "question": "Exactly two numbers satisfy $\\sqrt{3x + a} = x - 5$ for a particular constant $a$, and one of them is 7. What is the other number that satisfies the equation?",
+ "question": "$\\sqrt{3x + a} = x - 5$\nIn the given equation, $a$ is a constant. The equation has two solutions, and one of them is $x = 7$. What is the other solution?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "reports the constant a = -17 instead of the second solution",
-  "C": "reports 13, the sum of the two solutions of the squared equation",
-  "D": "reports 42, the product of the two solutions of the squared equation"
+  "A": "gives the value of the constant a instead of the other solution",
+  "C": "gives 13, the sum of the two solutions of the squared equation, x^2 - 13x + 42 = 0",
+  "D": "gives 42, the product of the two solutions of the squared equation"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Radical Equation**\n\n**Choice B is correct.** Substituting $x = 7$ gives $\\sqrt{21 + a} = 2$, so $a = -17$. The equation $\\sqrt{3x - 17} = x - 5$ squares to $x^2 - 13x + 42 = 0$, whose solutions are $6$ and $7$.\n\n**The Fast Way (~40s):** $a = -17$ from $x = 7$; the squared equation $x^2 - 13x + 42 = 0$ factors as $(x - 6)(x - 7)$, so the partner root is $6$.\n\n**The Full Solution:**\nStep 1: Put $x = 7$ into the equation: $\\sqrt{3(7) + a} = 7 - 5$, so $\\sqrt{21 + a} = 2$ and $21 + a = 4$, giving $a = -17$.\nStep 2: With $a = -17$, square both sides: $3x - 17 = (x - 5)^2 = x^2 - 10x + 25$, which rearranges to $x^2 - 13x + 42 = 0$.\nStep 3: Factor: $(x - 6)(x - 7) = 0$, so $x = 6$ or $x = 7$. Since $7$ is the given solution, the other is $6$. Check: $\\sqrt{3(6) - 17} = \\sqrt{1} = 1$ and $6 - 5 = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-17$): this is the constant $a$, found on the way to the answer but not itself a solution of the equation.\n* Choice C ($13$): this is the sum of the two solutions, $6 + 7$, read off the middle coefficient of $x^2 - 13x + 42$.\n* Choice D ($42$): this is the product of the two solutions, $6 \\cdot 7$, read off the constant term.\n\n**Test Day Takeaway:** A given solution pins down the unknown constant. Once the equation is fully specified, square it, factor, and always substitute each root back — a root that fails the sign test is extraneous."
+ "explanation": "**SAT Pattern: Radical Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** Substituting $x = 7$ gives $\\sqrt{21 + a} = 2$, so $a = -17$. Squaring $\\sqrt{3x - 17} = x - 5$ gives $x^{2} - 13x + 42 = 0$, or $(x - 6)(x - 7) = 0$, so the other solution is $6$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 7$: $\\sqrt{3(7) + a} = 7 - 5 = 2$, so $21 + a = 4$ and $a = -17$.\nStep 2: Square both sides of $\\sqrt{3x - 17} = x - 5$: $3x - 17 = x^{2} - 10x + 25$, which rearranges to $x^{2} - 13x + 42 = 0$, or $(x - 6)(x - 7) = 0$.\nStep 3: The candidates are $x = 6$ and $x = 7$. Check $x = 6$ in the original equation: $\\sqrt{18 - 17} = 1$ and $6 - 5 = 1$, so $6$ is a solution, not an extraneous one ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-17$): this is the value of the constant $a$, not a solution.\n* Choice C ($13$): this is the sum of the two solutions of $x^{2} - 13x + 42 = 0$.\n* Choice D ($42$): this is the product of the two solutions of $x^{2} - 13x + 42 = 0$.\n\n**Test Day Takeaway:** Use the known solution to find the constant, square to clear the radical, and then check every candidate in the original equation, since squaring can introduce extraneous solutions."
 }

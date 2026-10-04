@@ -1,29 +1,29 @@
 {
-  "id": 3,
-  "question": "A survey team budgets $\\$29{,}450$ for one drilling season: a single rig-mobilization charge of $\\$650$ plus $\\$2{,}400$ for each borehole drilled. Which equation gives the number of boreholes, $n$, that the budget covers?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$650n + 2{,}400 = 29{,}450$"
-    },
-    {
-      "id": "B",
-      "text": "$2{,}400(n + 650) = 29{,}450$"
-    },
-    {
-      "id": "C",
-      "text": "$2{,}400n - 650 = 29{,}450$"
-    },
-    {
-      "id": "D",
-      "text": "$2{,}400n + 650 = 29{,}450$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "swaps the per-borehole cost with the one-time mobilization charge",
-    "B": "adds the mobilization charge to n before multiplying, billing the charge once per borehole",
-    "C": "subtracts the mobilization charge instead of adding it"
+ "id": 3,
+ "question": "A gym charges a one-time fee of \\$45 plus \\$30 per month. Lena paid \\$315 in total for $m$ months of membership. Which equation represents this situation?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$45m + 30 = 315$"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Word-to-Expression Translation**\n\n**Choice D is correct.** The cost is $2{,}400$ per borehole plus a single $650$ charge, so $2{,}400n + 650 = 29{,}450$.\n\n**The Fast Way (~15s):** The per-item price multiplies the count; the one-time charge is added once. That is $2{,}400n + 650$, set equal to the season's budget.\n\n**The Full Solution:**\nStep 1: Name the repeating cost. Each borehole costs $\\$2{,}400$, and there are $n$ of them, so drilling costs $2{,}400n$ dollars.\nStep 2: The mobilization charge is paid once, no matter how many boreholes are drilled, so it is added on its own: $2{,}400n + 650$.\nStep 3: Total spending equals the budget: $2{,}400n + 650 = 29{,}450$. Check: $n = 12$ gives $2{,}400(12) + 650 = 28{,}800 + 650 = 29{,}450$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($650n + 2{,}400 = 29{,}450$): swaps the two dollar amounts, charging $\\$650$ per borehole and $\\$2{,}400$ once. It solves to $n = 41.6$, not a whole number of boreholes.\n* Choice B ($2{,}400(n + 650) = 29{,}450$): puts the charge inside the parentheses, which bills $\\$650$ for every borehole. The left side is already over a million dollars at $n = 1$.\n* Choice C ($2{,}400n - 650 = 29{,}450$): subtracts the mobilization charge, as if the team were refunded it instead of paying it.\n\n**Test Day Takeaway:** A per-unit rate multiplies the unknown; a one-time charge is added outside any parentheses. Test your equation with a whole number before you move on."
+  {
+   "id": "B",
+   "text": "$30(m + 45) = 315$"
+  },
+  {
+   "id": "C",
+   "text": "$30m - 45 = 315$"
+  },
+  {
+   "id": "D",
+   "text": "$30m + 45 = 315$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "swaps the monthly charge with the one-time fee",
+  "B": "adds the one-time fee to m before multiplying, charging the fee once per month",
+  "C": "subtracts the one-time fee instead of adding it"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Word-to-Expression Translation**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The monthly charge multiplies the number of months, and the one-time fee is added once: $30m + 45 = 315$.\n\n**The Full Solution:**\nStep 1: Lena pays \\$30 for each of $m$ months, which is $30m$ dollars.\nStep 2: The one-time fee of \\$45 is added once, so her total cost is $30m + 45$ dollars.\nStep 3: Her total was \\$315, so $30m + 45 = 315$. Check: this gives $30m = 270$, so $m = 9$ months, and $30(9) + 45 = 315$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($45m + 30 = 315$): swaps the two dollar amounts, multiplying the number of months by the one-time fee.\n* Choice B ($30(m + 45) = 315$): adds the fee to $m$ before multiplying, which charges \\$30 for each of $45$ extra months instead of charging \\$45 once.\n* Choice C ($30m - 45 = 315$): subtracts the fee, as if it were a discount rather than a charge.\n\n**Test Day Takeaway:** In a \"fee plus rate\" situation, the rate multiplies the variable and the one-time fee stands alone as a constant that is added."
 }

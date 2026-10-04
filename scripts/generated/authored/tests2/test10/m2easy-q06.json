@@ -1,6 +1,6 @@
 {
  "id": 6,
- "question": "The figure shows a right-triangular lot whose two labeled sides are in meters. A fence of length $90$ meters encloses the lot. What is the value of $\\cos X$?",
+ "question": "In right triangle $XYZ$ shown, the perimeter of the triangle is $40$. What is the value of $\\sin X$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -10,23 +10,23 @@
      0
     ],
     [
-     40,
+     15,
      0
     ],
     [
      0,
-     9
+     8
     ]
    ],
    "labels": [
-    "",
+    "Z",
     "X",
-    ""
+    "Y"
    ],
    "sideLabels": [
-    "40",
+    "15",
     "",
-    "9"
+    ""
    ],
    "rightAngleVertex": 0
   }
@@ -34,26 +34,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{9}{41}$"
+   "text": "$\\frac{8}{17}$"
   },
   {
    "id": "B",
-   "text": "$\\frac{9}{40}$"
+   "text": "$\\frac{8}{15}$"
   },
   {
    "id": "C",
-   "text": "$\\frac{40}{41}$"
+   "text": "$\\frac{15}{17}$"
   },
   {
    "id": "D",
-   "text": "$\\frac{40}{9}$"
+   "text": "$\\frac{15}{8}$"
   }
  ],
  "distractorNotes": {
-  "A": "uses the side opposite X over the hypotenuse, which is sin X",
-  "B": "divides the two legs, which is tan X",
-  "D": "inverts tan X, putting the adjacent leg over the opposite leg"
+  "B": "divides the leg opposite X by the leg adjacent to X, which is tan X",
+  "C": "divides the leg adjacent to X by the hypotenuse, which is cos X",
+  "D": "divides the adjacent leg by the opposite leg, the reciprocal of tan X"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice C is correct.** The fence gives the missing side: $90 - 40 - 9 = 41$ meters is the hypotenuse, and $\\cos X = \\frac{40}{41}$.\n\n**The Fast Way (~20s):** Subtract the two labeled sides from the perimeter to get the hypotenuse $41$, then take adjacent over hypotenuse for the angle $X$.\n\n**The Full Solution:**\nStep 1: The perimeter is the sum of all three sides, so the unlabeled side measures $90 - (40 + 9) = 41$ meters. It is opposite the right angle, so it is the hypotenuse.\nStep 2: Angle $X$ sits between the side of length $40$ and the hypotenuse, so $40$ is the adjacent leg and $9$ is the opposite leg.\nStep 3: Cosine is adjacent over hypotenuse: $\\cos X = \\frac{40}{41}$. Check with the Pythagorean theorem: $40^2 + 9^2 = 1600 + 81 = 1681 = 41^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{9}{41}$): uses the leg opposite $X$ over the hypotenuse. That ratio is $\\sin X$, about $0.22$, not the cosine.\n* Choice B ($\\frac{9}{40}$): divides one leg by the other and never uses the hypotenuse. That ratio is $\\tan X$.\n* Choice D ($\\frac{40}{9}$): flips $\\tan X$, putting the adjacent leg over the opposite leg. Any cosine must be less than $1$, and this value is greater than $4$.\n\n**Test Day Takeaway:** When a right-triangle figure gives a perimeter, the perimeter is usually the fastest route to the missing side. Label the sides as opposite, adjacent, and hypotenuse relative to the named angle before choosing the ratio."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** The other two sides add to $40 - 15 = 25$, and their squares differ by $15^{2} = 225$, so they differ by $\\frac{225}{25} = 9$: $XY = 17$ and $YZ = 8$, giving $\\sin X = \\frac{8}{17}$.\n\n**The Full Solution:**\nStep 1: Let $YZ = a$ and $XY = h$, the hypotenuse. The perimeter gives $15 + a + h = 40$, so $h + a = 25$.\nStep 2: The Pythagorean theorem gives $h^{2} - a^{2} = 15^{2} = 225$. Since $h^{2} - a^{2} = (h + a)(h - a)$, it follows that $25(h - a) = 225$, so $h - a = 9$. Adding $h + a = 25$ and $h - a = 9$ gives $h = 17$ and $a = 8$.\nStep 3: The side opposite angle $X$ is $YZ = 8$, so $\\sin X = \\frac{8}{17}$. Check: $8^{2} + 15^{2} = 64 + 225 = 289 = 17^{2}$, and $8 + 15 + 17 = 40$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{8}{15}$): divides the opposite leg by the adjacent leg, which is $\\tan X$.\n* Choice C ($\\frac{15}{17}$): divides the adjacent leg by the hypotenuse, which is $\\cos X$.\n* Choice D ($\\frac{15}{8}$): divides the adjacent leg by the opposite leg, the reciprocal of $\\tan X$.\n\n**Test Day Takeaway:** When the perimeter is given with one leg, write the sum of the other two sides and use the difference of squares to find each side; then match sine to opposite over hypotenuse."
 }
