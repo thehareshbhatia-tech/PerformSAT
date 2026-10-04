@@ -40,7 +40,7 @@ export const practiceTest10RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Roman road surveyors laid out new routes with the groma, an instrument whose hanging plumb lines allowed its user to sight a perfectly straight course toward a distant marker. Because even a small error would compound over many miles, crews checked their line repeatedly, resighting from one high point to the next so that the intended alignment was ______ across valleys and broken ground rather than gradually lost in them.",
+          "passage": "Roman road surveyors laid out routes with the groma, an instrument whose hanging plumb lines let its user sight a straight line toward a distant marker. Because small errors compound over many miles, crews resighted from one high point to the next, so that the intended alignment was ______ across valleys and broken ground rather than gradually lost in them.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -163,34 +163,34 @@ export const practiceTest10RW = {
           "passages": [
             {
               "label": "Text 1",
-              "text": "In the 1850s, whale oil lit homes and lighthouses across the United States, and whaling employed tens of thousands of Americans. Within a generation the industry had nearly disappeared. The usual explanation is straightforward: kerosene, refined from petroleum after 1859, was cheaper and brighter, and it simply replaced whale oil in the nation's lamps. On this account, the discovery of petroleum doomed whaling at a stroke."
+              "text": "In the 1850s, whale oil lit homes and lighthouses across the United States, and whaling was one of the nation's major industries. Within a generation the industry had nearly disappeared. The usual explanation is straightforward: kerosene, refined from petroleum after 1859, was cheaper and brighter, and it simply replaced whale oil in the nation's lamps. On this account, the discovery of petroleum doomed whaling at a stroke."
             },
             {
               "label": "Text 2",
-              "text": "Examining thousands of voyage records, the economic historians Lance Davis and Robert Gallman found that American whaling was under strain before kerosene mattered: whales had grown scarcer and harder to catch, voyages had lengthened, and rising wages ashore made crews costly to recruit. Petroleum, they conclude, accelerated a decline that these pressures had already set in motion rather than causing it single-handedly."
+              "text": "Fleet records complicate that account. The number of American whaling vessels peaked in 1846, more than a decade before the first commercial oil well was drilled in Pennsylvania. As whales near New England grew scarce, ships had to hunt ever farther away, into the Pacific and eventually the Arctic. Petroleum, on this view, accelerated a decline that was already under way rather than causing it single-handedly."
             }
           ],
-          "question": "Based on the texts, how would Davis and Gallman (Text 2) most likely respond to the explanation presented in Text 1?",
+          "question": "Based on the texts, how would the author of Text 2 most likely respond to the explanation presented in Text 1?",
           "choices": [
             {
               "id": "A",
-              "text": "They would deny that kerosene ever competed directly with whale oil as a fuel for household lamps."
+              "text": "The author would deny that kerosene ever competed directly with whale oil as a fuel for household lamps."
             },
             {
               "id": "B",
-              "text": "They would grant that kerosene hastened the decline while insisting that whaling's difficulties began earlier and independently."
+              "text": "The author would grant that kerosene hastened the decline while insisting that whaling's difficulties began earlier and independently."
             },
             {
               "id": "C",
-              "text": "They would argue that whaling collapsed chiefly because lighthouses stopped buying whale oil."
+              "text": "The author would argue that whaling collapsed chiefly because lighthouses stopped buying whale oil."
             },
             {
               "id": "D",
-              "text": "They would accept that petroleum alone doomed the industry but insist that its decisive effects arrived only decades after kerosene first reached the market."
+              "text": "The author would accept that petroleum alone doomed the industry but insist that its decisive effects arrived only decades after kerosene first reached the market."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** Davis and Gallman accept petroleum's role, they say it \"accelerated\" the decline, but their central finding is that scarcer whales, longer voyages, and rising wages had strained the industry before kerosene mattered.\n\n**The Full Solution:**\n- Text 1's explanation makes petroleum the sole cause: kerosene \"simply replaced whale oil,\" dooming whaling \"at a stroke.\"\n- Text 2's voyage records point to pressures that were independent of petroleum and earlier than it, and its conclusion assigns kerosene an accelerating role, not a sufficient one.\n- Choice B captures both halves of that response: concede the acceleration, reject the single cause.\n\n**Why the other choices are wrong:**\n- A: They never dispute that kerosene competed with whale oil; their point concerns what else was already going wrong.\n- C: Lighthouses appear only in Text 1's scene-setting; neither text ties the collapse to lighthouse purchases.\n- D: It concedes exactly what they deny, that petroleum acted alone, and adds a timing claim they never make."
+          "explanation": "**Choice B is correct.** The author of Text 2 accepts petroleum's role, saying it \"accelerated\" the decline, but points out that the fleet peaked in 1846, more than a decade before the first commercial oil well, as whales near New England grew scarce.\n\n**The Full Solution:**\n- Text 1's explanation makes petroleum the sole cause: kerosene \"simply replaced whale oil,\" dooming whaling \"at a stroke.\"\n- Text 2's fleet records point to a decline that started before petroleum and had its own cause, the scarcity of whales near home, and its conclusion assigns petroleum an accelerating role, not a sufficient one.\n- Choice B captures both halves of that response: concede the acceleration, reject the single cause.\n\n**Why the other choices are wrong:**\n- A: Text 2 never disputes that kerosene competed with whale oil; its point concerns what was already going wrong.\n- C: Lighthouses appear only in Text 1's scene-setting; neither text ties the collapse to lighthouse purchases.\n- D: It concedes exactly what Text 2 denies, that petroleum acted alone, and adds a timing claim the text never makes."
         },
         {
           "id": 1005,
@@ -199,7 +199,7 @@ export const practiceTest10RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "The following text is from Henry Wadsworth Longfellow's poem \"The Tide Rises, the Tide Falls,\" written in 1879.\n\nThe tide rises, the tide falls, / The twilight darkens, the curlew calls; / Along the sea-sands damp and brown / The traveller hastens toward the town, / And the tide rises, the tide falls. / Darkness settles on roofs and walls, / But the sea in the darkness calls and calls; / The little waves, with their soft, white hands, / Efface the footprints in the sands, / And the tide rises, the tide falls. / The morning breaks; the steeds in their stalls / Stamp and neigh, as the hostler calls; / The day returns, but nevermore / Returns the traveller to the shore, / And the tide rises, the tide falls.",
+          "passage": "The following text is from Henry Wadsworth Longfellow's poem \"The Tide Rises, the Tide Falls,\" published in 1880.\n\nThe tide rises, the tide falls, / The twilight darkens, the curlew calls; / Along the sea-sands damp and brown / The traveller hastens toward the town, / And the tide rises, the tide falls. / Darkness settles on roofs and walls, / But the sea in the darkness calls and calls; / The little waves, with their soft, white hands, / Efface the footprints in the sands, / And the tide rises, the tide falls. / The morning breaks; the steeds in their stalls / Stamp and neigh, as the hostler calls; / The day returns, but nevermore / Returns the traveller to the shore, / And the tide rises, the tide falls.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
@@ -233,7 +233,7 @@ export const practiceTest10RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "For much of the twentieth century, the mechanical calculator was standard office equipment. Machines built from hundreds of precisely cut gears and levers totaled payrolls, checked invoices, and balanced ledgers, and the firms that made them employed thousands of skilled machinists. Then, between roughly 1965 and 1972, inexpensive electronic calculators reached the market, performing the same arithmetic faster, silently, and at a price that fell every year. Factories that had spent decades refining mechanical calculation closed within a few years of one another.",
+          "passage": "For much of the twentieth century, the mechanical calculator was standard office equipment. Machines built from hundreds of precisely cut gears and levers totaled payrolls, checked invoices, and balanced ledgers, and the firms that made them employed thousands of skilled machinists. Then, in the 1960s and early 1970s, electronic calculators reached the market, performing the same arithmetic faster, silently, and at a price that fell every year. Makers that had spent decades refining mechanical calculation abandoned it within a few years.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
@@ -254,7 +254,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The text has two movements: the first two sentences establish the mechanical calculator's dominance of office work, and the last two recount how quickly electronic machines swept it away.\n\n**The Full Solution:**\n- Sentences one and two build the picture of dominance: standard equipment, core office tasks, thousands employed in manufacture.\n- \"Then\" pivots the text: sentences three and four compress the displacement into a seven-year window and end with the factories' near-simultaneous closures, emphasizing speed exactly as choice D says.\n\n**Why the other choices are wrong:**\n- A: Gears and levers are mentioned once as a mark of craftsmanship; no component-by-component evaluation occurs.\n- B: The text offers one account of the collapse, displacement by electronics, and never weighs alternatives.\n- C: The outcome is reported as history, not predicted; the rivalry was already settled.\n"
+          "explanation": "**Choice D is correct.** The text has two movements: the first two sentences establish the mechanical calculator's dominance of office work, and the last two recount how quickly electronic machines swept it away.\n\n**The Full Solution:**\n- Sentences one and two build the picture of dominance: standard equipment, core office tasks, thousands employed in manufacture.\n- \"Then\" pivots the text: sentences three and four compress the displacement into roughly a decade and end with the makers abandoning mechanical calculation \"within a few years,\" emphasizing speed exactly as choice D says.\n\n**Why the other choices are wrong:**\n- A: Gears and levers are mentioned once as a mark of craftsmanship; no component-by-component evaluation occurs.\n- B: The text offers one account of the collapse, displacement by electronics, and never weighs alternatives.\n- C: The outcome is reported as history, not predicted; the rivalry was already settled.\n"
         },
         {
           "id": 1006,
@@ -263,7 +263,7 @@ export const practiceTest10RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "Commercial sponges regenerate: a sponge cut cleanly above its base regrows from the tissue left behind, while one torn free by a hook rarely leaves anything capable of regrowth. Divers in the Aegean understood this long before biologists described it, harvesting by knife and leaving each sponge's base attached to the rock. The practice was not sentimentality. It kept the same beds productive season after season, and fleets returned to grounds their grandfathers had worked.",
+          "passage": "Commercial bath sponges can regenerate: a sponge cut cleanly above its base regrows from the tissue left behind, while one torn free whole leaves nothing capable of regrowth. Divers who harvest by knife therefore leave each sponge's base attached to the rock. The practice is not sentimentality. It keeps the same beds productive season after season, so a fishery can return to grounds it has worked for years.",
           "question": "Which choice best states the main purpose of the text?",
           "choices": [
             {
@@ -272,7 +272,7 @@ export const practiceTest10RW = {
             },
             {
               "id": "B",
-              "text": "To explain how a traditional harvesting method sustained the resource on which the harvesters depended."
+              "text": "To explain how a harvesting method sustains the resource on which the harvesters depend."
             },
             {
               "id": "C",
@@ -284,7 +284,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** Every element of the text serves one explanatory arc: cutting rather than tearing lets sponges regrow, so the divers' knife-harvesting kept their beds productive across generations.\n\n**The Full Solution:**\n- The first sentence supplies the biological mechanism (regrowth from an intact base); the second connects it to the divers' actual method; the last two spell out the payoff, beds that stayed productive.\n- That is a purpose of explanation: showing how a traditional method sustained the resource it exploited.\n\n**Why the other choices are wrong:**\n- A: The text notes the divers' knowledge preceded the biologists' but never argues about who deserves credit.\n- C: The regrowth process occupies one sentence and is never described in detail; it serves the larger point about the harvesting method.\n- D: Only one tool and one region are discussed; no contrast between regions appears."
+          "explanation": "**Choice B is correct.** Every element of the text serves one explanatory arc: cutting rather than tearing lets sponges regrow, so knife-harvesting keeps the beds productive year after year.\n\n**The Full Solution:**\n- The first sentence supplies the biological mechanism (regrowth from an intact base); the second connects it to the divers' actual method; the last two spell out the payoff, beds that stay productive.\n- That is a purpose of explanation: showing how a harvesting method sustains the resource it exploits.\n\n**Why the other choices are wrong:**\n- A: Biologists are never mentioned, and the text makes no argument about who deserves credit for any discovery.\n- C: The regrowth process occupies one sentence and is never described in detail; it serves the larger point about the harvesting method.\n- D: Only one tool is discussed and no regions are compared, so no contrast between regions appears."
         },
         {
           "id": 1010,
@@ -384,7 +384,7 @@ export const practiceTest10RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "On the grasslands of nineteenth-century North America, enclosing land meant hauling timber for fence rails from distant woodlands, and the farther the timber traveled, the more a fence cost. A historian of agriculture argues that barbed wire, patented in 1874, did more than lower fencing costs generally: its advantage over wooden fencing was greatest precisely where timber had to travel farthest because ______",
+          "passage": "On the grasslands of nineteenth-century North America, enclosing land meant hauling timber for fence rails from distant woodlands, and the farther the timber traveled, the more a fence cost. A historian of agriculture argues that barbed wire, mass-produced from the mid-1870s, did more than lower fencing costs generally: its advantage over wooden fencing was greatest precisely where timber had to travel farthest because ______",
           "questionTable": {
             "type": "table",
             "caption": "Estimated cost of fencing a 160-acre farm in the 1870s, by region (dollars)",
@@ -560,7 +560,7 @@ export const practiceTest10RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "inferences",
-          "passage": "The war crimes trials held at Nuremberg after the Second World War were conducted in four languages at once: English, French, Russian, and German. Under the consecutive method then standard in courtrooms, each statement would have been delivered and then rendered into the other three languages in turn, with the court idle through every rendering. The tribunal instead adopted a largely untested arrangement in which interpreters, seated in glass booths, spoke their translations while the original speech was still under way, and the proceedings ran only slightly slower than a trial in a single language. Given the length of the sessions and the number of languages involved, it is reasonable to conclude that the consecutive method ______",
+          "passage": "The war crimes trials held at Nuremberg after the Second World War were conducted in four languages at once: English, French, Russian, and German. Under the consecutive method then standard in courtrooms, each statement would have been delivered and then rendered into the other three languages in turn, with the court idle through every rendering. The tribunal instead adopted a largely untested arrangement in which interpreters, seated in glass booths, spoke their translations while the original speech was still under way. Given the length of the sessions and the number of languages involved, it is reasonable to conclude that the consecutive method ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
@@ -581,7 +581,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The passage supplies the arithmetic and asks for its consequence: with four languages, every statement would be followed by three renderings during which the court waited, so a consecutive trial would have run several times longer.\n\n**The Full Solution:**\n- The key premises: each statement gets rendered \"into the other three languages in turn,\" the court is \"idle through every rendering,\" and the simultaneous system ran \"only slightly slower than a trial in a single language.\"\n- If simultaneity is what kept the trial near single-language speed, then its absence, three waits per statement across long sessions, must have threatened a large multiplication of time. That is C.\n\n**Why the other choices are wrong:**\n- A: The passage compares the methods' speed, never their accuracy, so no conclusion about better renderings follows.\n- B: The text says the tribunal \"instead adopted\" the booth system, indicating replacement, not selective retention.\n- D: The consecutive method is described as \"then standard,\" which is incompatible with its having been already abandoned."
+          "explanation": "**Choice C is correct.** The passage supplies the arithmetic and asks for its consequence: with four languages, every statement would be followed by three renderings during which the court waited, so a consecutive trial would have run several times longer.\n\n**The Full Solution:**\n- The key premises: each statement would be rendered \"into the other three languages in turn,\" with the court \"idle through every rendering,\" and the sessions were long.\n- Three waits per statement, repeated across long sessions, would have multiplied the time the proceedings required, which is why the tribunal turned to interpreters speaking during the original speech. That is C.\n\n**Why the other choices are wrong:**\n- A: The passage discusses how the methods affect time, never their accuracy, so no conclusion about better renderings follows.\n- B: The text says the tribunal \"instead adopted\" the booth system, indicating replacement, not selective retention.\n- D: The consecutive method is described as \"then standard,\" which is incompatible with its having been already abandoned."
         },
         {
           "id": 1022,
@@ -666,7 +666,7 @@ export const practiceTest10RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "Before diving suits reached the Aegean, sponge divers worked unassisted, riding a flat marble stone down through the water. Angling the stone let a diver steer the descent and reach the beds in seconds rather than ______ second saved on the way down could be spent gathering sponges on the bottom.",
+          "passage": "Before diving suits reached the Aegean, sponge divers worked on a single breath, riding a flat marble stone down through the water. A breath might last only a few ______ second the stone saved on the way down could be spent gathering sponges on the bottom.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -687,7 +687,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** Two independent clauses meet at the blank, and a semicolon joins them correctly: \"...reach the beds in seconds rather than minutes; every second saved on the way down could be spent gathering sponges on the bottom.\"\n\n**The Full Solution:**\n- Clause one is complete: \"Angling the stone let a diver steer the descent and reach the beds in seconds rather than minutes.\"\n- Clause two is also complete: \"Every second saved on the way down could be spent gathering sponges on the bottom.\"\n- Because the second clause explains the payoff of the first, a semicolon, which links two closely related independent clauses, is the conventional boundary.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses creates a comma splice.\n- C: No punctuation at all fuses the clauses into a run-on.\n- D: The comma is on the wrong side of \"and\"; a coordinating conjunction takes a comma before it, not after it.",
+          "explanation": "**Choice B is correct.** Two independent clauses meet at the blank, and a semicolon joins them correctly: \"A breath might last only a few minutes; every second the stone saved on the way down could be spent gathering sponges on the bottom.\"\n\n**The Full Solution:**\n- Clause one is complete: \"A breath might last only a few minutes.\"\n- Clause two is also complete: \"Every second the stone saved on the way down could be spent gathering sponges on the bottom.\"\n- Because the second clause explains why the short breath made speed matter, a semicolon, which links two closely related independent clauses, is the conventional boundary.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses creates a comma splice.\n- C: No punctuation at all fuses the clauses into a run-on.\n- D: The comma is on the wrong side of \"and\"; a coordinating conjunction takes a comma before it, not after it.",
           "_meta": {
             "rule": "semicolon between independent clauses",
             "distractors": {
@@ -742,7 +742,7 @@ export const practiceTest10RW = {
           "band": 2,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "In 1874 the Illinois farmer Joseph Glidden patented a fence wire with sharp barbs held in place by a second strand twisted around the first. Its success was immediate. By 1876 his factory was turning out nearly three million pounds of wire a ______ from the treeless plains, where timber for fence rails was scarce, showed no sign of slackening.",
+          "passage": "In 1874 the Illinois farmer Joseph Glidden patented a fence wire with barbs held in place by a second strand twisted around the first. Sales soared. By 1876 American makers were selling nearly three million pounds of barbed wire a ______ from the treeless plains, where timber for fence rails was scarce, showed no sign of slackening.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -763,7 +763,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** Two independent clauses meet at the blank, and a period is a conventional way to separate them: \"By 1876 his factory was turning out nearly three million pounds of wire a year. Demand from the treeless plains... showed no sign of slackening.\"\n\n**The Full Solution:**\n- Clause one is complete: \"By 1876 his factory was turning out nearly three million pounds of wire a year.\"\n- Clause two is also complete: \"Demand from the treeless plains, where timber for fence rails was scarce, showed no sign of slackening.\"\n- Two independent clauses need a full boundary, a period, a semicolon, or a comma plus a coordinating conjunction. Only the period is on offer.\n\n**Why the other choices are wrong:**\n- A: It garbles the coordination: \"and\" would need a comma before it, not after it.\n- B: A comma alone between two independent clauses is a comma splice.\n- D: With no punctuation at all, the two clauses fuse into a run-on.",
+          "explanation": "**Choice C is correct.** Two independent clauses meet at the blank, and a period is a conventional way to separate them: \"By 1876 American makers were selling nearly three million pounds of barbed wire a year. Demand from the treeless plains... showed no sign of slackening.\"\n\n**The Full Solution:**\n- Clause one is complete: \"By 1876 American makers were selling nearly three million pounds of barbed wire a year.\"\n- Clause two is also complete: \"Demand from the treeless plains, where timber for fence rails was scarce, showed no sign of slackening.\"\n- Two independent clauses need a full boundary, a period, a semicolon, or a comma plus a coordinating conjunction. Only the period is on offer.\n\n**Why the other choices are wrong:**\n- A: It garbles the coordination: \"and\" would need a comma before it, not after it.\n- B: A comma alone between two independent clauses is a comma splice.\n- D: With no punctuation at all, the two clauses fuse into a run-on.",
           "_meta": {
             "rule": "period between independent clauses",
             "distractors": {
@@ -780,7 +780,7 @@ export const practiceTest10RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "For most of the twentieth century, United States federal courts had no uniform standard for interpreters; judges simply appointed bilingual bystanders as the need arose. That changed in 1978, when Congress ______ the Court Interpreters Act, requiring certified interpreters in federal proceedings conducted in languages other than English. The first certification examination, offered two years later, proved so demanding that fewer than one candidate in twenty passed it.",
+          "passage": "For most of the twentieth century, US federal courts had no uniform standard for interpreters; judges simply appointed whatever bilingual person was available. That changed in 1978, when Congress ______ the Court Interpreters Act, which directed the courts' administrative office to certify interpreters for federal proceedings.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -801,7 +801,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The sentence reports a completed event at a stated past moment, \"in 1978,\" so the verb belongs in the simple past: Congress passed the Court Interpreters Act.\n\n**The Full Solution:**\n- The surrounding narrative is anchored in the past: courts \"had\" no standard, judges \"appointed\" bystanders, the examination later \"proved\" demanding.\n- \"That changed in 1978, when...\" fixes a single, finished past action, and the simple past \"passed\" is the conventional form for it.\n\n**Why the other choices are wrong:**\n- A: The present tense \"passes\" conflicts with the past time marker \"in 1978\" and with the passage's past-tense narration.\n- C: The future \"will pass\" is impossible for an event the text dates to 1978 and treats as already done.\n- D: The past perfect progressive \"had been passing\" describes an ongoing action before another past moment, but enacting a single statute is a one-time completed act.",
+          "explanation": "**Choice B is correct.** The sentence reports a completed event at a stated past moment, \"in 1978,\" so the verb belongs in the simple past: Congress passed the Court Interpreters Act.\n\n**The Full Solution:**\n- The surrounding narrative is anchored in the past: courts \"had\" no standard, judges \"appointed\" whoever was available, and the act \"directed\" the courts to certify interpreters.\n- \"That changed in 1978, when...\" fixes a single, finished past action, and the simple past \"passed\" is the conventional form for it.\n\n**Why the other choices are wrong:**\n- A: The present tense \"passes\" conflicts with the past time marker \"in 1978\" and with the passage's past-tense narration.\n- C: The future \"will pass\" is impossible for an event the text dates to 1978 and treats as already done.\n- D: The past perfect progressive \"had been passing\" describes an ongoing action before another past moment, but enacting a single statute is a one-time completed act.",
           "_meta": {
             "rule": "simple past for a dated, completed past action",
             "distractors": {
@@ -1026,7 +1026,7 @@ export const practiceTest10RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Roman engineering treatises describe an ideal road in cross-section, its layered courses of stone laid in a fixed sequence, and older histories assumed the legions built to this template wherever they marched. Excavation tells a different story. Crews raised roadbeds from whatever lay near at hand, spreading gravel over log corduroy in wetlands and cutting straight into rock on hillsides; it is now clear that builders ______ their methods to local ground rather than imposing a uniform design upon it.",
+          "passage": "Roman engineering treatises describe an ideal road built in layered courses of stone, and older histories assumed the legions followed this template wherever they marched. Excavation tells a different story. Crews spread gravel over log corduroy in wetlands and cut straight into rock on hillsides; it is now clear that builders ______ their methods to local ground rather than imposing a uniform design upon it.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -1047,7 +1047,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The blank must restate what the excavation evidence just showed, gravel over logs in wetlands, cuts into hillside rock, and \"fitted their methods to local ground\" names that practice of matching technique to terrain.\n\n**The Full Solution:**\n- The passage's contrast runs from template to terrain: the treatises' fixed sequence versus what crews actually did with \"whatever lay near at hand.\"\n- The closing frame \"______ their methods to local ground rather than imposing a uniform design upon it\" demands a verb of adjustment-to-circumstance, and \"fitted... to\" is the idiom that supplies it.\n\n**Why the other choices are wrong:**\n- A: \"Surrendered their methods to local ground\" would mean giving methods up, but the crews kept building, adapting rather than abandoning.\n- B: \"Confined their methods to local ground\" would mean restricting where methods were used, not adjusting what the methods were.\n- C: \"Elevated\" imports a judgment of raising in status that makes no sense with \"to local ground.\""
+          "explanation": "**Choice D is correct.** The blank must restate what the excavation evidence just showed, gravel over logs in wetlands, cuts into hillside rock, and \"fitted their methods to local ground\" names that practice of matching technique to terrain.\n\n**The Full Solution:**\n- The passage's contrast runs from template to terrain: the treatises' layered ideal versus what crews actually did in wetlands and on hillsides.\n- The closing frame \"______ their methods to local ground rather than imposing a uniform design upon it\" demands a verb of adjustment-to-circumstance, and \"fitted... to\" is the idiom that supplies it.\n\n**Why the other choices are wrong:**\n- A: \"Surrendered their methods to local ground\" would mean giving methods up, but the crews kept building, adapting rather than abandoning.\n- B: \"Confined their methods to local ground\" would mean restricting where methods were used, not adjusting what the methods were.\n- C: \"Elevated\" imports a judgment of raising in status that makes no sense with \"to local ground.\""
         },
         {
           "id": 1029,
@@ -1056,7 +1056,7 @@ export const practiceTest10RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Oil rendered from whale blubber served well enough in household lamps, though it burned with some smoke and a persistent odor. Candles pressed from spermaceti, the waxy substance found in the head of the sperm whale, were another article altogether: they gave a bright, steady, odorless flame, and buyers who could afford them came to regard ordinary tallow candles as a ______ to be tolerated only until something better could be had.",
+          "passage": "Whale oil served well enough in household lamps, though it burned with smoke and a persistent odor. Candles made from spermaceti, a waxy substance from the head of the sperm whale, were another article altogether: they gave a bright, steady, odorless flame, and buyers who could afford them came to regard ordinary tallow candles as a ______ to be tolerated only until something better could be had.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -1086,7 +1086,7 @@ export const practiceTest10RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "The natural sponge trade had weathered overharvesting and the loss of whole fleets, but two blows in close succession proved harder to absorb. A blight that swept the Caribbean and Mediterranean beds in the late 1930s destroyed much of the supply, and the inexpensive cellulose sponges introduced in the following decade captured much of the demand. With substitutes on every shelf by the time the beds recovered, that recovery ______ little of the trade it would once have restored.",
+          "passage": "The Bahamian sponge trade had survived overharvesting and hurricanes, but late in 1938 a blight destroyed nearly all of its sponges within two months. When the trade restarted in 1946, inexpensive synthetic sponges had captured much of the demand, and the partial recovery of the beds ______ little of the business it would once have restored.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -1107,7 +1107,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The sentence contrasts what the beds' recovery accomplished with what it \"would once have restored\"; the verb that pairs with \"restored\" and fits reviving a trade is \"revived.\"\n\n**The Full Solution:**\n- The causal setup: the blight removed supply, and cellulose substitutes then absorbed demand, so healthy beds no longer translated into customers.\n- The final sentence measures the recovery's effect on the trade. Since demand had moved on, the recovery brought back, revived, little of the old trade, though in earlier times it would have restored it.\n\n**Why the other choices are wrong:**\n- A: \"Foretold\" makes the recovery a predictor of the trade rather than a potential cause of its return, which breaks the sentence's contrast with \"restored.\"\n- C: \"Displaced\" would mean the recovery pushed the trade aside, but the substitutes, not the recovering beds, did the displacing.\n- D: \"Endangered\" reverses the recovery's role; healthy beds threatened nothing about the trade, they simply could no longer rescue it."
+          "explanation": "**Choice B is correct.** The sentence contrasts what the beds' recovery accomplished with what it \"would once have restored\"; the verb that pairs with \"restored\" and fits bringing back a trade is \"revived.\"\n\n**The Full Solution:**\n- The causal setup: the blight removed supply, and synthetic substitutes then absorbed demand, so recovering beds no longer translated into customers.\n- The final clause measures the recovery's effect on the trade. Since demand had moved on, the recovery brought back, revived, little of the old business, though in earlier times it would have restored it.\n\n**Why the other choices are wrong:**\n- A: \"Foretold\" makes the recovery a predictor of the trade rather than a potential cause of its return, which breaks the sentence's contrast with \"restored.\"\n- C: \"Displaced\" would mean the recovery pushed the business aside, but the synthetic sponges, not the recovering beds, did the displacing.\n- D: \"Endangered\" reverses the recovery's role; recovering beds threatened nothing about the trade, they simply could no longer rescue it."
         },
         {
           "id": 1032,
@@ -1116,7 +1116,7 @@ export const practiceTest10RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "The following text is from Sara Teasdale's poem \"There Will Come Soft Rains,\" first published in 1918.\n\nThere will come soft rains and the smell of the ground, / And swallows circling with their shimmering sound; / And frogs in the pools singing at night, / And wild plum-trees in tremulous white; / Robins will wear their feathery fire / Whistling their whims on a low fence-wire; / And not one will know of the war, not one / Will care at last when it is done. / Not one would mind, neither bird nor tree / If mankind perished utterly; / And Spring herself, when she woke at dawn, / Would scarcely know that we were gone.",
+          "passage": "The following text is from Sara Teasdale's poem \"There Will Come Soft Rains,\" in the revised version she published in 1920.\n\nThere will come soft rains and the smell of the ground, / And swallows circling with their shimmering sound; / And frogs in the pools singing at night, / And wild plum-trees in tremulous white; / Robins will wear their feathery fire / Whistling their whims on a low fence-wire; / And not one will know of the war, not one / Will care at last when it is done. / Not one would mind, neither bird nor tree / If mankind perished utterly; / And Spring herself, when she woke at dawn, / Would scarcely know that we were gone.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
@@ -1180,7 +1180,7 @@ export const practiceTest10RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "A bare boulder face looks like the last place anything could live: no soil, no shade, no standing water. In *Gathering Moss*, the ethnobotanist Robin Wall Kimmerer examines how mosses make such surfaces habitable, and not merely for themselves. A moss cushion traps windblown dust that becomes a first soil, holds rainwater like a sponge, and shelters within its leaves rotifers, mites, and insect larvae that could not endure the exposed rock an inch away. What appears to be a simple green film, Kimmerer argues, is better understood as a functioning ecological community at a miniature scale.",
+          "passage": "A bare boulder face looks like the last place anything could live: no soil, no shade, no standing water. Ecologists who study mosses on rock describe how these plants make such surfaces habitable, and not merely for themselves. A moss cushion traps windblown dust that becomes a first soil, holds rainwater like a sponge, and shelters rotifers, mites, and insect larvae that could not endure the exposed rock an inch away. What appears to be a simple green film, these researchers argue, is better understood as a functioning ecological community at a miniature scale.",
           "question": "Which choice best states the main purpose of the text?",
           "choices": [
             {
@@ -1193,7 +1193,7 @@ export const practiceTest10RW = {
             },
             {
               "id": "C",
-              "text": "To trace how Kimmerer's early fieldwork on mosses led her to question established methods in ecology."
+              "text": "To trace how early fieldwork on mosses led ecologists to question established methods in their discipline."
             },
             {
               "id": "D",
@@ -1201,7 +1201,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The text moves from the apparent lifelessness of bare rock to the argument, attributed to Kimmerer, that a moss cushion is \"a functioning ecological community at a miniature scale,\" with the middle sentences supplying the supporting mechanisms.\n\n**The Full Solution:**\n- The opening establishes the puzzle: rock offers no soil, shade, or water.\n- The middle shows moss solving each lack, trapping dust that becomes soil, holding rainwater, sheltering small animals, which is habitability created for others.\n- The final sentence states the thesis the whole text serves: not a simple film but a small ecosystem. That is A's claim exactly.\n\n**Why the other choices are wrong:**\n- B: The harsh conditions occupy only the first sentence and exist to set up the moss's achievement, not as the text's subject.\n- C: The text presents Kimmerer's argument, not her biography; no development of her methods or doubts appears.\n- D: Rotifers, mites, and larvae are cited as evidence of the cushion's role, not cataloged for their own sake."
+          "explanation": "**Choice A is correct.** The text moves from the apparent lifelessness of bare rock to the researchers' argument that a moss cushion is \"a functioning ecological community at a miniature scale,\" with the middle sentences supplying the supporting mechanisms.\n\n**The Full Solution:**\n- The opening establishes the puzzle: rock offers no soil, shade, or water.\n- The middle shows moss solving each lack, trapping dust that becomes soil, holding rainwater, sheltering small animals, which is habitability created for others.\n- The final sentence states the thesis the whole text serves: not a simple film but a small ecosystem. That is A's claim exactly.\n\n**Why the other choices are wrong:**\n- B: The harsh conditions occupy only the first sentence and exist to set up the moss's achievement, not as the text's subject.\n- C: The text presents the researchers' conclusion, not the history of their field; no account of methods being questioned appears.\n- D: Rotifers, mites, and larvae are cited as evidence of the cushion's role, not cataloged for their own sake."
         },
         {
           "id": 1035,
@@ -1481,7 +1481,7 @@ export const practiceTest10RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "By the early twentieth century, the builders who had supplied birch-bark canoes to the fur trade were nearly gone, and the craft's particulars, how a hull was shaped without molds, how ribs were bent to set its lines, how forms differed from one river system to the next, survived mostly in scattered memory. The artist and journalist Edwin Tappan Adney spent decades interviewing elderly builders, measuring surviving canoes, and constructing precise scale models of more than a hundred regional types. His notes and models, later assembled into a standard reference, preserved distinctions among building traditions that no museum's handful of full-sized canoes could document on its own.",
+          "passage": "By the early twentieth century, the builders who had supplied birch-bark canoes to the fur trade were nearly gone, and the craft's particulars, such as how a hull was shaped without molds and how forms differed from one river system to the next, survived mostly in scattered memory. The artist and journalist Edwin Tappan Adney spent decades corresponding with fur-trade veterans, interviewing builders, and constructing scale models of each regional type, eventually more than a hundred in all. His notes and models, later assembled into a standard reference, preserved distinctions among building traditions that no museum's handful of full-sized canoes could document on its own.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
@@ -1502,7 +1502,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The text's arc runs from knowledge at the point of vanishing, builders nearly gone, particulars surviving \"in scattered memory\", to Adney's decades of documentation, to the payoff: distinctions preserved that would otherwise have been lost. D states that arc.\n\n**The Full Solution:**\n- Sentence one establishes the stakes: the craft's specifics were about to disappear with the last builders.\n- Sentences two and three describe the rescue: interviews, measurements, over a hundred scale models, gathered into a standard reference that documents what surviving artifacts alone could not.\n\n**Why the other choices are wrong:**\n- A: The text never compares canoes with the boats that replaced them.\n- B: The text says the models documented regional distinctions; it never attributes them to the fragility of full-sized canoes.\n- C: The text describes the builders' disappearance as following the trade's era, not as a cause of the trade's decline."
+          "explanation": "**Choice D is correct.** The text's arc runs from knowledge at the point of vanishing, builders nearly gone, particulars surviving \"in scattered memory\", to Adney's decades of documentation, to the payoff: distinctions preserved that would otherwise have been lost. D states that arc.\n\n**The Full Solution:**\n- Sentence one establishes the stakes: the craft's specifics were about to disappear with the last builders.\n- Sentences two and three describe the rescue: correspondence, interviews, over a hundred scale models, gathered into a standard reference that documents what surviving artifacts alone could not.\n\n**Why the other choices are wrong:**\n- A: The text never compares canoes with the boats that replaced them.\n- B: The text says the models documented regional distinctions; it never attributes them to the fragility of full-sized canoes.\n- C: The text describes the builders' disappearance as following the trade's era, not as a cause of the trade's decline."
         },
         {
           "id": 1043,
@@ -1511,7 +1511,7 @@ export const practiceTest10RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "inferences",
-          "passage": "The woodland historian Oliver Rackham observed that the oldest living things in many English woods are not the tall standard trees but the broad, squat stools of long-coppiced ash and lime. The pattern has a mechanism. A tree left to grow tall carries an ever-heavier crown that wind can bring down, and its aging trunk becomes a column of slowly spreading decay. A coppiced tree is cut to the ground every decade or two: each felling removes the aging trunk before decay can claim it, and the stool answers with a flush of vigorous young shoots. If this mechanism is general, it implies that ______",
+          "passage": "Some of the oldest living things in English woods are not tall standard trees but the broad, squat stools of long-coppiced ash and lime. The pattern has a mechanism. A tree left to grow tall carries an ever-heavier crown that wind can bring down, and its aging trunk becomes a column of slowly spreading decay. A coppiced tree is cut to the ground every decade or two: each felling removes the aging trunk before decay can claim it, and the stool answers with a flush of vigorous young shoots. If this mechanism is general, it implies that ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
@@ -1532,7 +1532,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The mechanism removes the two causes of death the passage names, toppling crowns and decaying trunks, every time the tree is cut, so the cutting itself is what confers the extraordinary lifespan. C draws precisely that conclusion.\n\n**The Full Solution:**\n- Premise: tall trees die by heavy crown and aging trunk.\n- Premise: felling on rotation removes the trunk \"before decay can claim it\" and provokes vigorous regrowth.\n- Generalized, harvesting is not a drain the stool endures but the intervention that resets its risks, letting it outlive uncut trees, as Rackham's oldest-stools observation already suggests.\n\n**Why the other choices are wrong:**\n- A: The mechanism turns on removing the aging trunk entirely, so mere crown-thinning is not shown to deliver the same result.\n- B: Ring-counting a young shoot would date the shoot, not the ancient stool, and the passage says nothing about measuring age.\n- D: The passage allows uncoppiced woods their old standard trees; the claim is that stools grow older still, not that old trees exist nowhere else."
+          "explanation": "**Choice C is correct.** The mechanism removes the two causes of death the passage names, toppling crowns and decaying trunks, every time the tree is cut, so the cutting itself is what confers the extraordinary lifespan. C draws precisely that conclusion.\n\n**The Full Solution:**\n- Premise: tall trees die by heavy crown and aging trunk.\n- Premise: felling on rotation removes the trunk \"before decay can claim it\" and provokes vigorous regrowth.\n- Generalized, harvesting is not a drain the stool endures but the intervention that resets its risks, letting it outlive uncut trees, as the opening observation about ancient stools already suggests.\n\n**Why the other choices are wrong:**\n- A: The mechanism turns on removing the aging trunk entirely, so mere crown-thinning is not shown to deliver the same result.\n- B: Ring-counting a young shoot would date the shoot, not the ancient stool, and the passage says nothing about measuring age.\n- D: The passage allows uncoppiced woods their old standard trees; the claim is that stools grow older still, not that old trees exist nowhere else."
         },
         {
           "id": 1049,
@@ -1541,7 +1541,7 @@ export const practiceTest10RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "Along a finished road, Roman crews set milestones recording the distance to the nearest town and the emperor under whom the work was completed. By the time antiquarians began mapping the surviving stones systematically in the eighteenth century, farmers ______ many of them into gateposts and door lintels, and the survey of what remained became a race against further reuse.",
+          "passage": "Along a finished road, Roman crews set milestones recording the distance to the nearest town and the emperor under whom the work was done. By the time scholars began cataloging the surviving stones systematically in the nineteenth century, farmers ______ many of them into gateposts and door lintels.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1562,7 +1562,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The sentence describes an action completed before another past event: the farmers' reuse of the stones preceded the antiquarians' eighteenth-century mapping. The past perfect \"had turned\" marks exactly that earlier-past relationship.\n\n**The Full Solution:**\n- The time anchor is \"By the time antiquarians began mapping,\" a past reference point.\n- What the farmers did was finished before that point, so the verb takes the past perfect: by then, they \"had turned\" many stones into gateposts and lintels.\n\n**Why the other choices are wrong:**\n- A: The simple present \"turn\" clashes with the past-time frame the sentence establishes.\n- B: The present perfect \"have turned\" connects a past action to the present moment, not to another moment in the past, which is what \"By the time... began\" requires.\n- D: The future perfect \"will have turned\" points forward from now, contradicting the eighteenth-century setting.",
+          "explanation": "**Choice C is correct.** The sentence describes an action completed before another past event: the farmers' reuse of the stones preceded the scholars' nineteenth-century cataloging. The past perfect \"had turned\" marks exactly that earlier-past relationship.\n\n**The Full Solution:**\n- The time anchor is \"By the time scholars began cataloging,\" a past reference point.\n- What the farmers did was finished before that point, so the verb takes the past perfect: by then, they \"had turned\" many stones into gateposts and lintels.\n\n**Why the other choices are wrong:**\n- A: The simple present \"turn\" clashes with the past-time frame the sentence establishes.\n- B: The present perfect \"have turned\" connects a past action to the present moment, not to another moment in the past, which is what \"By the time... began\" requires.\n- D: The future perfect \"will have turned\" points forward from now, contradicting the nineteenth-century setting.",
           "_meta": {
             "rule": "past perfect for action completed before a past reference point",
             "distractors": {
@@ -1579,28 +1579,28 @@ export const practiceTest10RW = {
           "band": 4,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "Rail operators retired most of Europe's sleeping cars in the early 2000s, when cheap short-haul flights seemed to have made overnight trains obsolete. Two decades later, travelers looking for alternatives to flying have returned in numbers across ______ the specialized cars needed to carry them take years to order and build, and several relaunched routes have had to begin service with borrowed, decades-old stock.",
+          "passage": "When Germany's national railway ended its night trains in 2016, Austria's railway took over several of the routes, and ridership soon grew. New sleeping cars could not be built fast ______ the Austrian railway leased older cars so that it could add services in the meantime.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "Europe, however,"
+              "text": "enough, however,"
             },
             {
               "id": "B",
-              "text": "Europe however,"
+              "text": "enough however,"
             },
             {
               "id": "C",
-              "text": "Europe, however;"
+              "text": "enough, however;"
             },
             {
               "id": "D",
-              "text": "Europe; however,"
+              "text": "enough; however,"
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** Two independent clauses meet at the blank, and the second opens with the conjunctive adverb \"however.\" The standard pattern is a semicolon before the conjunctive adverb and a comma after it: \"...have returned in numbers across Europe; however, the specialized cars... take years to order and build...\"\n\n**The Full Solution:**\n- Clause one is complete: travelers \"have returned in numbers across Europe.\"\n- Clause two is complete: \"the specialized cars needed to carry them take years to order and build...\"\n- \"However\" is not a coordinating conjunction, so it cannot join clauses with a comma alone; it needs the semicolon boundary before it.\n\n**Why the other choices are wrong:**\n- A: A comma before \"however\" leaves two independent clauses joined by a comma, a splice that the adverb cannot repair.\n- B: With no boundary before \"however,\" the clauses fuse outright.\n- C: It reverses the marks: the semicolon must precede \"however\" at the clause boundary, and the comma must follow it.",
+          "explanation": "**Choice D is correct.** Two independent clauses meet at the blank, and the second opens with the conjunctive adverb \"however.\" The standard pattern is a semicolon before the conjunctive adverb and a comma after it: \"New sleeping cars could not be built fast enough; however, the Austrian railway leased older cars...\"\n\n**The Full Solution:**\n- Clause one is complete: \"New sleeping cars could not be built fast enough.\"\n- Clause two is complete: \"the Austrian railway leased older cars so that it could add services in the meantime.\"\n- \"However\" is not a coordinating conjunction, so it cannot join clauses with a comma alone; it needs the semicolon boundary before it.\n\n**Why the other choices are wrong:**\n- A: A comma before \"however\" leaves two independent clauses joined by a comma, a splice that the adverb cannot repair.\n- B: With no boundary before \"however,\" the clauses fuse outright.\n- C: It reverses the marks: the semicolon must precede \"however\" at the clause boundary, and the comma must follow it.",
           "_meta": {
             "rule": "semicolon before conjunctive adverb joining independent clauses",
             "distractors": {
@@ -1617,7 +1617,7 @@ export const practiceTest10RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "In 1883, drought concentrated Texas cattle on shrinking ranges, and masked bands began riding out at night to cut the new barbed wire fences. The fences themselves were only the nearest target: the anger behind the cutting was directed at ______ owners, the distant syndicates that had strung wire across range the cutters regarded as open to all.",
+          "passage": "In 1883, drought left Texas cattle short of water and grass, and bands calling themselves names such as the Owls and the Blue Devils began cutting the new barbed wire fences. The fences were only the nearest target: the cutters' anger was directed at ______ owners, the large cattlemen who had fenced off roads, water, and public land.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1655,7 +1655,7 @@ export const practiceTest10RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "The great birch-bark freight canoes of the fur trade earned their place through a combination no other vessel offered: carrying several tons of cargo on open water, riding out waves that swamped smaller boats, and ______ light enough for a pair of voyageurs to carry past rapids.",
+          "passage": "The great birch-bark freight canoes of the fur trade combined abilities no other vessel offered: carrying three tons of cargo, crossing the open water of the Great Lakes, and ______ light enough for four voyageurs to carry over a portage.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1676,7 +1676,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The blank is the third item in a coordinated series whose first two items are the gerund phrases \"carrying several tons...\" and \"riding out waves...\"; parallel structure requires a third gerund, \"remaining light enough...\"\n\n**The Full Solution:**\n- Identify the series after the colon: item one begins \"carrying,\" item two begins \"riding,\" and \"and\" announces the final item.\n- Items in a series must share grammatical form. Only \"remaining\" matches the -ing pattern of its partners.\n\n**Why the other choices are wrong:**\n- A: \"They remained\" switches the item into a full clause, breaking the gerund series (and \"they\" would splice a clause into a list).\n- B: \"To remain\" swaps in an infinitive where its coordinated partners are gerunds.\n- D: \"It remained\" has the same clause problem as A, with a singular pronoun besides.",
+          "explanation": "**Choice C is correct.** The blank is the third item in a coordinated series whose first two items are the gerund phrases \"carrying three tons...\" and \"crossing the open water...\"; parallel structure requires a third gerund, \"remaining light enough...\"\n\n**The Full Solution:**\n- Identify the series after the colon: item one begins \"carrying,\" item two begins \"crossing,\" and \"and\" announces the final item.\n- Items in a series must share grammatical form. Only \"remaining\" matches the -ing pattern of its partners.\n\n**Why the other choices are wrong:**\n- A: \"They remained\" switches the item into a full clause, breaking the gerund series (and \"they\" would splice a clause into a list).\n- B: \"To remain\" swaps in an infinitive where its coordinated partners are gerunds.\n- D: \"It remained\" has the same clause problem as A, with a singular pronoun besides.",
           "_meta": {
             "rule": "parallel gerunds in a coordinated series",
             "distractors": {
@@ -1693,7 +1693,7 @@ export const practiceTest10RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "Dictionary editors once waited for volunteer readers to mail in slips of paper showing words in use, and an expression could circulate for a generation before enough evidence accumulated. Now that editors can search enormous electronic collections of newspapers, transcripts, and ______ they are able to watch a new word's rise in something close to real time and decide much sooner whether it has earned an entry.",
+          "passage": "Dictionary editors once waited years for volunteers to mail in slips showing new words in use. Now that editors can search vast electronic collections of newspapers, transcripts, and ______ they can watch a new word's rise almost as it happens and decide much sooner whether it has earned an entry.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1714,7 +1714,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The sentence opens with the long dependent clause \"Now that editors can search enormous electronic collections of newspapers, transcripts, and fiction,\" and an introductory dependent clause is joined to its main clause with a comma.\n\n**The Full Solution:**\n- \"Now that... fiction\" cannot stand alone; it is a subordinate clause setting up the main clause \"they are able to watch a new word's rise...\"\n- The conventional boundary between an introductory subordinate clause and the main clause is a comma, placed after \"fiction,\" the last item in the clause's internal list.\n\n**Why the other choices are wrong:**\n- A: Omitting the comma runs the subordinate clause straight into the main clause with no boundary at all.\n- C: A semicolon must have an independent clause on each side, but everything before the blank is a fragment on its own.\n- D: A colon likewise requires a complete clause before it, which the \"Now that...\" clause is not.",
+          "explanation": "**Choice B is correct.** The sentence opens with the long dependent clause \"Now that editors can search vast electronic collections of newspapers, transcripts, and fiction,\" and an introductory dependent clause is joined to its main clause with a comma.\n\n**The Full Solution:**\n- \"Now that... fiction\" cannot stand alone; it is a subordinate clause setting up the main clause \"they can watch a new word's rise...\"\n- The conventional boundary between an introductory subordinate clause and the main clause is a comma, placed after \"fiction,\" the last item in the clause's internal list.\n\n**Why the other choices are wrong:**\n- A: Omitting the comma runs the subordinate clause straight into the main clause with no boundary at all.\n- C: A semicolon must have an independent clause on each side, but everything before the blank is a fragment on its own.\n- D: A colon likewise requires a complete clause before it, which the \"Now that...\" clause is not.",
           "_meta": {
             "rule": "comma after introductory dependent clause",
             "distractors": {
@@ -1731,7 +1731,7 @@ export const practiceTest10RW = {
           "band": 4,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "Crews in the American whale fishery were paid by an arrangement found almost nowhere else at sea. A whaleman shipped not for monthly wages but for a lay — a fixed share of the voyage's ______ and the share was set by rank before the ship left port, from perhaps a thirtieth for an experienced mate to a two-hundredth for a green hand. A short, oily voyage could pay a crew handsomely; a long, empty one could leave them in debt to the ship.",
+          "passage": "American whalemen were not paid monthly wages. Each shipped instead for a lay — a fixed share of the voyage's ______ and the share was set by rank before the ship left port. A long, unsuccessful voyage could leave a whaleman owing money to the ship's owners.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1752,7 +1752,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The definition of \"a lay\" is set off by a dash before it, and an interruption opened with a dash must be closed with a matching dash: \"...not for monthly wages but for a lay — a fixed share of the voyage's proceeds — and the share was set by rank...\"\n\n**The Full Solution:**\n- The phrase \"a fixed share of the voyage's proceeds\" is an appositive explaining \"a lay,\" and the text opens it with a dash.\n- Paired punctuation must match: what a dash opens, a dash closes, letting the main clause resume at \"and the share was set by rank.\"\n\n**Why the other choices are wrong:**\n- A: With nothing at the blank, the appositive never closes, and the dash construction is left dangling into the rest of the sentence.\n- B: A comma cannot close an interruption that a dash opened; the pair must match.\n- C: A semicolon requires an independent clause on each side, but the appositive before the blank is not a clause at all.",
+          "explanation": "**Choice D is correct.** The definition of \"a lay\" is set off by a dash before it, and an interruption opened with a dash must be closed with a matching dash: \"Each shipped instead for a lay — a fixed share of the voyage's proceeds — and the share was set by rank...\"\n\n**The Full Solution:**\n- The phrase \"a fixed share of the voyage's proceeds\" is an appositive explaining \"a lay,\" and the text opens it with a dash.\n- Paired punctuation must match: what a dash opens, a dash closes, letting the main clause resume at \"and the share was set by rank.\"\n\n**Why the other choices are wrong:**\n- A: With nothing at the blank, the appositive never closes, and the dash construction is left dangling into the rest of the sentence.\n- B: A comma cannot close an interruption that a dash opened; the pair must match.\n- C: A semicolon requires an independent clause on each side, but the appositive before the blank is not a clause at all.",
           "_meta": {
             "rule": "matching dash closes a dash-opened appositive",
             "distractors": {
@@ -1769,7 +1769,7 @@ export const practiceTest10RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "For centuries, moving cattle up to the high alpine pastures meant a slow procession on foot, families and animals climbing together over several days as the snow line retreated. ______ many herds ride at least part of the way in trucks, and the June ascent that once took most of a week can be finished in a morning, though in some valleys the autumn descent is still kept as a village festival, the returning animals garlanded with flowers.",
+          "passage": "For centuries, moving cattle up to the high alpine pastures meant a slow procession on foot, families and animals climbing together over several days. ______ many herds ride at least part of the way in trucks, though in many valleys the autumn descent is still celebrated as a village festival.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1790,7 +1790,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The passage pivots from the practice's long past, marked by \"For centuries,\" to its present form, trucks, a morning's ascent, and \"Today\" is the transition that signals that shift in time.\n\n**The Full Solution:**\n- Sentence one describes the traditional pattern over centuries.\n- Sentence two describes current practice: partial trucking, a compressed ascent, a surviving festival.\n- The relationship between the sentences is then-versus-now, so a time marker fits the blank best.\n\n**Why the other choices are wrong:**\n- A: \"However\" flags pure contradiction, but the second sentence updates the practice across time rather than disputing anything; the temporal signal is the one the paragraph is built on.\n- B: \"Consequently\" would make modern trucking a result of the old processions, a causal link the text never draws.\n- C: \"Similarly\" announces a parallel case, but the second sentence describes the same custom changed, not a comparable one."
+          "explanation": "**Choice D is correct.** The passage pivots from the practice's long past, marked by \"For centuries,\" to its present form, trucks and a surviving festival, and \"Today\" is the transition that signals that shift in time.\n\n**The Full Solution:**\n- Sentence one describes the traditional pattern over centuries.\n- Sentence two describes current practice: partial trucking and a surviving autumn festival.\n- The relationship between the sentences is then-versus-now, so a time marker fits the blank best.\n\n**Why the other choices are wrong:**\n- A: \"However\" flags pure contradiction, but the second sentence updates the practice across time rather than disputing anything; the temporal signal is the one the paragraph is built on.\n- B: \"Consequently\" would make modern trucking a result of the old processions, a causal link the text never draws.\n- C: \"Similarly\" announces a parallel case, but the second sentence describes the same custom changed, not a comparable one."
         },
         {
           "id": 1051,
@@ -1799,7 +1799,7 @@ export const practiceTest10RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Nineteenth-century meteor observing was a scattered pursuit until its coordinators began asking volunteers to work to common standards. The English observer William Denning, who charted thousands of meteor paths from his own garden, pressed his correspondents to record their sightings in ways that could be compared. ______ he asked each observer to note a meteor's starting and ending points against named stars, so that paths plotted in different towns could be laid over one another on a single chart.",
+          "passage": "Meteor sightings reported by scattered observers were once nearly impossible to combine. To make reports comparable, organizers asked volunteers to follow common rules. ______ each observer was to note where a meteor began and ended against named stars, so that paths seen from different towns could be plotted on a single chart.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1820,7 +1820,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The second sentence makes a general claim, Denning pressed correspondents to record sightings comparably, and the third sentence supplies a specific illustration of that practice: noting start and end points against named stars. \"For instance\" is the transition that introduces an example.\n\n**The Full Solution:**\n- General statement: recordings should be made \"in ways that could be compared.\"\n- Particular case: fixing each path's endpoints against named stars so charts from different towns align.\n- The particular instantiates the general, which is exactly the example relationship.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" concedes something working against the previous sentence, but the example works entirely in its support.\n- B: \"Meanwhile\" sets two events side by side in time, yet the sentences are related by illustration, not simultaneity.\n- D: \"Therefore\" would present the star-referencing request as a conclusion derived from the previous sentence, but it is a concrete example of the standardizing already described."
+          "explanation": "**Choice C is correct.** The second sentence makes a general claim, organizers asked volunteers to follow common rules, and the third sentence supplies a specific illustration of such a rule: noting start and end points against named stars. \"For instance\" is the transition that introduces an example.\n\n**The Full Solution:**\n- General statement: volunteers should follow common rules so that reports are \"comparable.\"\n- Particular case: fixing each path's endpoints against named stars so charts from different towns align.\n- The particular instantiates the general, which is exactly the example relationship.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" concedes something working against the previous sentence, but the example works entirely in its support.\n- B: \"Meanwhile\" sets two events side by side in time, yet the sentences are related by illustration, not simultaneity.\n- D: \"Therefore\" would present the star-referencing rule as a conclusion derived from the previous sentence, but it is a concrete example of the common rules already described."
         },
         {
           "id": 1052,
@@ -1829,7 +1829,7 @@ export const practiceTest10RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Ordinary soda-lime glass expands markedly as it warms, so a vessel heated unevenly, hot at the base while still cool at the rim, can tear itself apart from within. Borosilicate glass, developed in the late nineteenth century, expands only about a third as much for each degree of warming. ______ vessels blown from it shrug off abrupt changes in temperature, and borosilicate soon became the standard glass of the laboratory bench.",
+          "passage": "Ordinary soda-lime glass expands markedly as it warms, so a vessel heated unevenly can crack from internal stress. Borosilicate glass, developed in the late nineteenth century, expands only about a third as much for each degree of warming. ______ vessels made from it withstand abrupt temperature changes, and borosilicate became the standard glass of the laboratory.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1850,7 +1850,7 @@ export const practiceTest10RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The final sentence states the consequence of the property just described: because borosilicate expands far less per degree, vessels made from it tolerate abrupt temperature changes. \"As a result\" marks that cause-effect step.\n\n**The Full Solution:**\n- The causal setup spans two sentences: high expansion makes ordinary glass tear itself apart; borosilicate expands only a third as much.\n- The blank introduces what follows from the low expansion, resistance to thermal shock and adoption in laboratories, so a consequence transition is required.\n\n**Why the other choices are wrong:**\n- A: \"For example\" would make the vessels' durability an illustration of the expansion figure rather than its effect.\n- B: \"Instead\" substitutes one course for a rejected alternative, but nothing in the previous sentence is being rejected.\n- D: \"Eventually\" is purely temporal; it drops the causal link between low expansion and shock resistance that the paragraph is built to deliver."
+          "explanation": "**Choice C is correct.** The final sentence states the consequence of the property just described: because borosilicate expands far less per degree, vessels made from it tolerate abrupt temperature changes. \"As a result\" marks that cause-effect step.\n\n**The Full Solution:**\n- The causal setup spans two sentences: high expansion makes unevenly heated ordinary glass crack; borosilicate expands only a third as much.\n- The blank introduces what follows from the low expansion, resistance to thermal shock and adoption in laboratories, so a consequence transition is required.\n\n**Why the other choices are wrong:**\n- A: \"For example\" would make the vessels' durability an illustration of the expansion figure rather than its effect.\n- B: \"Instead\" substitutes one course for a rejected alternative, but nothing in the previous sentence is being rejected.\n- D: \"Eventually\" is purely temporal; it drops the causal link between low expansion and shock resistance that the paragraph is built to deliver."
         },
         {
           "id": 1053,
@@ -1862,11 +1862,11 @@ export const practiceTest10RW = {
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "Spices reaching medieval Europe from the Indian Ocean passed through a chain of intermediate ports rather than traveling in a single ship.",
-              "Some ports functioned as entrepôts: places where goods were unloaded, stored, and resold rather than consumed.",
-              "At an entrepôt, cargoes changed hands between ships suited to different seas, such as ocean-going vessels and Mediterranean galleys.",
-              "Merchants at an entrepôt could buy in bulk when fleets arrived and sell gradually as demand justified.",
-              "Because fleets sailed only when the seasonal winds allowed, storage at entrepôts smoothed the trade's rhythm between arrivals."
+              "Spices reaching medieval Europe from the Indian Ocean passed through a chain of ports rather than traveling in a single ship.",
+              "Some ports served as entrepôts, where goods were unloaded, stored, and resold.",
+              "At an entrepôt, cargoes moved between ships suited to different seas, such as ocean-going vessels and Mediterranean galleys.",
+              "Merchants there could buy in bulk when fleets arrived and sell gradually as demand allowed.",
+              "Because fleets sailed only when seasonal winds allowed, storage at entrepôts smoothed the trade between arrivals."
             ],
             "goal": "The student wants to emphasize the significance of entrepôts to the spice trade."
           },
@@ -1902,11 +1902,11 @@ export const practiceTest10RW = {
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "For most of the twentieth century, buyers judged wool by handling sample fleeces at auction, a skill acquired over years.",
-              "Appraisals of the same wool by experienced buyers could differ by a full quality grade.",
-              "In the 1960s, laboratories introduced instruments that measure a wool sample's mean fiber diameter in microns.",
-              "Australia, the largest wool exporter, began testing lots before sale and printing the measurements in auction catalogs.",
-              "Buyers could then bid on wool they had never handled, and mills could order fiber to precise specifications."
+              "For much of the twentieth century, wool buyers judged fineness by eye and touch, handling sample fleeces at auction.",
+              "Buyers judging the same wool by hand could reach different conclusions about its quality.",
+              "Laboratory instruments can measure a wool sample's mean fiber diameter in microns.",
+              "In 1969, Australia's wool-testing authority launched a long-range plan to introduce scientific measurement and testing before auction.",
+              "With measured results in hand, buyers could bid on wool they had never handled, and mills could order fiber to precise specifications."
             ],
             "goal": "The student wants to emphasize the significance of instrument testing for the wool trade."
           },
@@ -1914,23 +1914,23 @@ export const practiceTest10RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Instrument testing replaced fallible judgments of touch with printed measurements, letting buyers bid confidently on wool they had never handled."
+              "text": "Instrument testing replaced fallible judgments of touch with measurements, letting buyers bid confidently on wool they had never handled."
             },
             {
               "id": "B",
-              "text": "Experienced buyers appraising the same wool at auction could arrive at judgments that differed from one another by a full quality grade."
+              "text": "Experienced buyers judging the same wool by hand at auction could reach quite different conclusions about its quality."
             },
             {
               "id": "C",
-              "text": "In the 1960s, laboratories introduced precision instruments capable of measuring the mean fiber diameter of a wool sample in microns."
+              "text": "Laboratory instruments are capable of measuring the mean fiber diameter of a wool sample in microns."
             },
             {
               "id": "D",
-              "text": "Australia, which exported more wool during the twentieth century than any other country, began testing its wool lots before they were offered for sale at auction."
+              "text": "In 1969, Australia's wool-testing authority launched a long-range plan to introduce the testing of wool lots before they were offered at auction."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The goal asks what instrument testing changed for the trade, and A answers with the before-and-after in one sentence: inconsistent judgments of touch gave way to printed measurements, and buyers could bid on wool sight unseen.\n\n**The Full Solution:**\n- The notes' significance lies in the transformation: appraisal by handling (which varied by a full grade) versus catalog measurements that made unhandled wool biddable.\n- A compresses that transformation, method replaced and new capability gained, which is what emphasizing significance requires.\n\n**Why the other choices are wrong:**\n- B: It documents the problem, inconsistent appraisals, without mentioning instrument testing at all.\n- C: It announces the instruments' arrival but stops before any effect on the trade.\n- D: It records Australia's adoption of testing yet never says what the testing changed for buyers or mills."
+          "explanation": "**Choice A is correct.** The goal asks what instrument testing changed for the trade, and A answers with the before-and-after in one sentence: inconsistent judgments of touch gave way to measurements, and buyers could bid on wool they had never handled.\n\n**The Full Solution:**\n- The notes' significance lies in the transformation: appraisal by handling (which varied from buyer to buyer) versus measured results that made unhandled wool biddable.\n- A compresses that transformation, method replaced and new capability gained, which is what emphasizing significance requires.\n\n**Why the other choices are wrong:**\n- B: It documents the problem, inconsistent appraisals, without mentioning instrument testing at all.\n- C: It describes what the instruments measure but says nothing about any effect on the trade.\n- D: It records Australia's plan to adopt testing yet never says what the testing changed for buyers or mills."
         }
       ]
     }

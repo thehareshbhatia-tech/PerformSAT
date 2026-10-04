@@ -6,14 +6,29 @@
   "domain": "expression-of-ideas",
   "skill": "transitions",
   "module": 2,
-  "passage": "Visitors to Chavín de Huántar in the first millennium BCE did not merely look at the temple; ceremonies there were engineered for the ear as much as for the eye, archaeologists argue, with sound at the center of the experience. ______ a single gallery within the temple has yielded twenty conch-shell trumpets, their mouthpieces polished smooth by generations of players.",
+  "passage": "Visitors to Chavín de Huántar in the first millennium BCE did not merely look at the temple; ceremonies there were engineered for the ear as much as for the eye, archaeologists argue, with sound at the center of the experience. ______ excavations at the temple have recovered more than twenty conch-shell trumpets, each with a carefully cut mouthpiece and a surface polished by use.",
   "question": "Which choice completes the text with the most logical transition?",
   "choices": [
-    { "id": "A", "text": "Nonetheless," },
-    { "id": "B", "text": "Meanwhile," },
-    { "id": "C", "text": "By contrast," },
-    { "id": "D", "text": "In fact," }
+    {
+      "id": "A",
+      "text": "Nonetheless,"
+    },
+    {
+      "id": "B",
+      "text": "Meanwhile,"
+    },
+    {
+      "id": "C",
+      "text": "By contrast,"
+    },
+    {
+      "id": "D",
+      "text": "In fact,"
+    }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The second sentence delivers striking confirmation of the first — twenty trumpets from one gallery, worn by long use — and \"In fact\" is the transition that presents evidence as emphatic support for a claim just made.\n\n**The Full Solution:**\n- Sentence one advances the archaeologists' claim: sound was central to the temple's ceremonies.\n- Sentence two does not merely continue the thought; it intensifies it with hard evidence — instruments in quantity, polished by generations.\n- A claim followed by its most arresting piece of support takes an emphasizing transition.\n\n**Why the other choices are wrong:**\n- A: \"Nonetheless\" concedes an obstacle, but the trumpet find supports rather than resists the claim.\n- B: \"Meanwhile\" implies a second, parallel scene; both sentences concern the same site and argument.\n- C: \"By contrast\" needs two things set against each other, and the discovery agrees with the claim instead of opposing it."
+  "explanation": "**Choice D is correct.** The second sentence delivers striking confirmation of the first — more than twenty trumpets, polished by use — and \"In fact\" is the transition that presents evidence as emphatic support for a claim just made.\n\n**The Full Solution:**\n- Sentence one advances the archaeologists' claim: sound was central to the temple's ceremonies.\n- Sentence two does not merely continue the thought; it intensifies it with hard evidence — instruments in quantity, worn by playing.\n- A claim followed by its most arresting piece of support takes an emphasizing transition.\n\n**Why the other choices are wrong:**\n- A: \"Nonetheless\" concedes an obstacle, but the trumpet find supports rather than resists the claim.\n- B: \"Meanwhile\" implies a second, parallel scene; both sentences concern the same site and argument.\n- C: \"By contrast\" needs two things set against each other, and the discovery agrees with the claim instead of opposing it.",
+  "_meta": {
+    "anchor": "Stanford CCRMA Chavín project (Pututus page): 21 intact pututus excavated (2001, 2018), with mouthpieces cut at the spire and use-polished surfaces."
+  }
 }

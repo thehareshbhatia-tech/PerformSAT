@@ -6,14 +6,27 @@
   "domain": "craft-and-structure",
   "skill": "words-in-context",
   "module": 1,
-  "passage": "A peat bog is a difficult place for the microbes of decay. Sphagnum moss soaks up the nutrients that bacteria need and releases compounds that ______ bacterial growth, and the cold, oxygen-poor water does the rest: leather, wood, and even human skin can rest in a bog for centuries with surprisingly little change.",
+  "passage": "A peat bog is a difficult place for the microbes of decay. Sphagnum moss acidifies the water around it and contains compounds that ______ bacterial growth, and the cold, oxygen-poor water does the rest: leather, wood, and even human skin can rest in a bog for centuries with surprisingly little change.",
   "question": "Which choice completes the text with the most logical and precise word or phrase?",
   "choices": [
-    { "id": "A", "text": "encourage" },
-    { "id": "B", "text": "suppress" },
-    { "id": "C", "text": "conceal" },
-    { "id": "D", "text": "imitate" }
+    {
+      "id": "A",
+      "text": "encourage"
+    },
+    {
+      "id": "B",
+      "text": "suppress"
+    },
+    {
+      "id": "C",
+      "text": "conceal"
+    },
+    {
+      "id": "D",
+      "text": "imitate"
+    }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** The passage explains why decay stalls in a bog, so the moss's compounds must hold bacterial growth back — they \"suppress\" it.\n\n**The Full Solution:**\n- The opening states the effect to be explained: a bog is \"a difficult place for the microbes of decay.\"\n- Everything that follows is a cause of that difficulty — nutrients absorbed, cold oxygen-poor water — and the result is centuries of preservation.\n- The blank must continue the causal chain: compounds that hold bacteria down, which is what \"suppress\" means.\n\n**Why the other choices are wrong:**\n- A: \"Encourage\" reverses the logic — helped bacteria would mean faster decay, not preservation.\n- C: \"Conceal\" means to hide from view; bacteria are not being hidden, they are being stopped.\n- D: \"Imitate\" would have the compounds mimicking bacterial growth, an idea nothing in the passage supports."
+  "explanation": "**Choice B is correct.** The passage explains why decay stalls in a bog, so the moss's compounds must hold bacterial growth back — they \"suppress\" it.\n\n**The Full Solution:**\n- The opening states the effect to be explained: a bog is \"a difficult place for the microbes of decay.\"\n- Everything that follows is a cause of that difficulty — acidified water, cold oxygen-poor water — and the result is centuries of preservation.\n- The blank must continue the causal chain: compounds that hold bacteria down, which is what \"suppress\" means.\n\n**Why the other choices are wrong:**\n- A: \"Encourage\" reverses the logic — helped bacteria would mean faster decay, not preservation.\n- C: \"Conceal\" means to hide from view; bacteria are not being hidden, they are being stopped.\n- D: \"Imitate\" would have the compounds mimicking bacterial growth, an idea nothing in the passage supports.",
+  "_meta": {}
 }

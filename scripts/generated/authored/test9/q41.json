@@ -10,19 +10,49 @@
   "questionTable": {
     "type": "table",
     "caption": "Breeding pairs counted in fixed study plots at two guillemot colonies",
-    "headers": ["Colony", "Pairs, 1985", "Pairs, 2005", "Pairs, 2025"],
+    "headers": [
+      "Colony",
+      "Pairs, 1985",
+      "Pairs, 2005",
+      "Pairs, 2025"
+    ],
     "rows": [
-      ["Skarvholm", "1,240", "980", "610"],
-      ["Fuglenes", "410", "520", "640"]
+      [
+        "Colony 1",
+        "1,240",
+        "980",
+        "610"
+      ],
+      [
+        "Colony 2",
+        "410",
+        "520",
+        "640"
+      ]
     ]
   },
   "question": "Which choice most effectively uses data from the table to complete the statement?",
   "choices": [
-    { "id": "A", "text": "counts at both colonies changed by hundreds of pairs over the four decades of monitoring." },
-    { "id": "B", "text": "Skarvholm supported more breeding pairs than Fuglenes in 1985 and in 2005." },
-    { "id": "C", "text": "the combined total of breeding pairs counted at the two colonies taken together was lower in 2025 than the corresponding combined total had been in 1985." },
-    { "id": "D", "text": "plot counts at Skarvholm fell by roughly half between 1985 and 2025 while counts at Fuglenes rose by more than half over the same years." }
+    {
+      "id": "A",
+      "text": "counts at both colonies changed by hundreds of pairs over the four decades of monitoring."
+    },
+    {
+      "id": "B",
+      "text": "Colony 1 supported more breeding pairs than Colony 2 did in both 1985 and 2005."
+    },
+    {
+      "id": "C",
+      "text": "the combined total of breeding pairs counted at the two colonies taken together was lower in 2025 than the corresponding combined total had been in 1985."
+    },
+    {
+      "id": "D",
+      "text": "plot counts at Colony 1 fell by roughly half between 1985 and 2025 while counts at Colony 2 rose by more than half over the same years."
+    }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The caution is about divergence — one site declining while another thrives — and D exhibits precisely that: Skarvholm down from 1,240 to 610 as Fuglenes climbed from 410 to 640.\n\n**The Full Solution:**\n- To \"bear out\" the caution, the data must show two colonies moving in opposite directions, so that either one alone would mislead.\n- D reads both rows across the full period and reports the opposing trends in comparable terms (down by half, up by more than half).\n\n**Why the other choices are wrong:**\n- A: \"Changed by hundreds of pairs\" hides direction — the crux of the caution is that the changes ran opposite ways.\n- B: Which colony is larger is irrelevant to whether single-site trends mislead.\n- C: The combined total is exactly the kind of aggregate the caution warns against; a summed decline conceals that one colony was thriving."
+  "explanation": "**Choice D is correct.** The caution is about divergence — one site declining while another thrives — and D exhibits precisely that: Colony 1 down from 1,240 to 610 as Colony 2 climbed from 410 to 640.\n\n**The Full Solution:**\n- To \"bear out\" the caution, the data must show two colonies moving in opposite directions, so that either one alone would mislead.\n- D reads both rows across the full period and reports the opposing trends in comparable terms (down by half, up by more than half).\n\n**Why the other choices are wrong:**\n- A: \"Changed by hundreds of pairs\" hides direction — the crux of the caution is that the changes ran opposite ways.\n- B: Which colony is larger is irrelevant to whether single-site trends mislead.\n- C: The combined total is exactly the kind of aggregate the caution warns against; a summed decline conceals that one colony was thriving.",
+  "_meta": {
+    "anchor": "Unattributed, illustrative plot counts (2026-10-04 review replaced the real Norwegian place names Skarvholm and Fuglenes, which had invented data attached)."
+  }
 }

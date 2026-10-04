@@ -9,32 +9,32 @@
  "passages": [
   {
    "label": "Text 1",
-   "text": "In the 1850s, whale oil lit homes and lighthouses across the United States, and whaling employed tens of thousands of Americans. Within a generation the industry had nearly disappeared. The usual explanation is straightforward: kerosene, refined from petroleum after 1859, was cheaper and brighter, and it simply replaced whale oil in the nation's lamps. On this account, the discovery of petroleum doomed whaling at a stroke."
+   "text": "In the 1850s, whale oil lit homes and lighthouses across the United States, and whaling was one of the nation's major industries. Within a generation the industry had nearly disappeared. The usual explanation is straightforward: kerosene, refined from petroleum after 1859, was cheaper and brighter, and it simply replaced whale oil in the nation's lamps. On this account, the discovery of petroleum doomed whaling at a stroke."
   },
   {
    "label": "Text 2",
-   "text": "Examining thousands of voyage records, the economic historians Lance Davis and Robert Gallman found that American whaling was under strain before kerosene mattered: whales had grown scarcer and harder to catch, voyages had lengthened, and rising wages ashore made crews costly to recruit. Petroleum, they conclude, accelerated a decline that these pressures had already set in motion rather than causing it single-handedly."
+   "text": "Fleet records complicate that account. The number of American whaling vessels peaked in 1846, more than a decade before the first commercial oil well was drilled in Pennsylvania. As whales near New England grew scarce, ships had to hunt ever farther away, into the Pacific and eventually the Arctic. Petroleum, on this view, accelerated a decline that was already under way rather than causing it single-handedly."
   }
  ],
- "question": "Based on the texts, how would Davis and Gallman (Text 2) most likely respond to the explanation presented in Text 1?",
+ "question": "Based on the texts, how would the author of Text 2 most likely respond to the explanation presented in Text 1?",
  "choices": [
   {
    "id": "A",
-   "text": "They would deny that kerosene ever competed directly with whale oil as a fuel for household lamps."
+   "text": "The author would deny that kerosene ever competed directly with whale oil as a fuel for household lamps."
   },
   {
    "id": "B",
-   "text": "They would grant that kerosene hastened the decline while insisting that whaling's difficulties began earlier and independently."
+   "text": "The author would grant that kerosene hastened the decline while insisting that whaling's difficulties began earlier and independently."
   },
   {
    "id": "C",
-   "text": "They would argue that whaling collapsed chiefly because lighthouses stopped buying whale oil."
+   "text": "The author would argue that whaling collapsed chiefly because lighthouses stopped buying whale oil."
   },
   {
    "id": "D",
-   "text": "They would accept that petroleum alone doomed the industry but insist that its decisive effects arrived only decades after kerosene first reached the market."
+   "text": "The author would accept that petroleum alone doomed the industry but insist that its decisive effects arrived only decades after kerosene first reached the market."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** Davis and Gallman accept petroleum's role, they say it \"accelerated\" the decline, but their central finding is that scarcer whales, longer voyages, and rising wages had strained the industry before kerosene mattered.\n\n**The Full Solution:**\n- Text 1's explanation makes petroleum the sole cause: kerosene \"simply replaced whale oil,\" dooming whaling \"at a stroke.\"\n- Text 2's voyage records point to pressures that were independent of petroleum and earlier than it, and its conclusion assigns kerosene an accelerating role, not a sufficient one.\n- Choice B captures both halves of that response: concede the acceleration, reject the single cause.\n\n**Why the other choices are wrong:**\n- A: They never dispute that kerosene competed with whale oil; their point concerns what else was already going wrong.\n- C: Lighthouses appear only in Text 1's scene-setting; neither text ties the collapse to lighthouse purchases.\n- D: It concedes exactly what they deny, that petroleum acted alone, and adds a timing claim they never make."
+ "explanation": "**Choice B is correct.** The author of Text 2 accepts petroleum's role, saying it \"accelerated\" the decline, but points out that the fleet peaked in 1846, more than a decade before the first commercial oil well, as whales near New England grew scarce.\n\n**The Full Solution:**\n- Text 1's explanation makes petroleum the sole cause: kerosene \"simply replaced whale oil,\" dooming whaling \"at a stroke.\"\n- Text 2's fleet records point to a decline that started before petroleum and had its own cause, the scarcity of whales near home, and its conclusion assigns petroleum an accelerating role, not a sufficient one.\n- Choice B captures both halves of that response: concede the acceleration, reject the single cause.\n\n**Why the other choices are wrong:**\n- A: Text 2 never disputes that kerosene competed with whale oil; its point concerns what was already going wrong.\n- C: Lighthouses appear only in Text 1's scene-setting; neither text ties the collapse to lighthouse purchases.\n- D: It concedes exactly what Text 2 denies, that petroleum acted alone, and adds a timing claim the text never makes."
 }

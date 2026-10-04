@@ -6,14 +6,29 @@
   "domain": "information-and-ideas",
   "skill": "central-ideas-and-details",
   "module": 2,
-  "passage": "The free reed is an ancient Asian idea with a comparatively brief European history. Mouth organs built on the principle — among them the Chinese sheng and the Lao khaen — have been played for well over two thousand years. European makers took up the free reed only around the turn of the nineteenth century, after traveling instruments and written descriptions reached Western workshops; within a few decades the borrowed principle powered a wave of new inventions, from the harmonica and the accordion to the parlor harmonium. A single acoustic idea, long established in one tradition, thus seeded an entire family of instruments in another.",
+  "passage": "The free reed is an ancient Asian idea with a comparatively brief European history. Mouth organs built on the principle, such as the Chinese sheng, have been played for well over two thousand years. European builders took up the free reed only in the late eighteenth century, after instruments and written descriptions reached Western workshops; within a few decades the borrowed principle powered a wave of new inventions, from the harmonica and the accordion to the parlor harmonium. A single acoustic idea, long established in one tradition, thus seeded an entire family of instruments in another.",
   "question": "Which choice best states the main idea of the text?",
   "choices": [
-    { "id": "A", "text": "European instrument makers refined the free reed far beyond the designs found in the Asian instruments that inspired them." },
-    { "id": "B", "text": "The harmonica and the accordion owe their popularity to the portability that free reeds made possible." },
-    { "id": "C", "text": "The free reed, played in Asian instruments for millennia, was adopted in Europe only around 1800, where it rapidly generated a new family of instruments." },
-    { "id": "D", "text": "The sheng and the khaen remained essentially unknown to European musicians until instrument makers in Europe had already developed free-reed instruments of their own, working independently." }
+    {
+      "id": "A",
+      "text": "European instrument makers refined the free reed far beyond the designs found in the Asian instruments that inspired them."
+    },
+    {
+      "id": "B",
+      "text": "The harmonica and the accordion owe their popularity to the portability that free reeds made possible."
+    },
+    {
+      "id": "C",
+      "text": "The free reed, played in Asian instruments for millennia, was adopted in Europe only in the late 1700s and there rapidly generated a new family of instruments."
+    },
+    {
+      "id": "D",
+      "text": "The sheng and the khaen remained essentially unknown to European musicians until instrument makers in Europe had already developed free-reed instruments of their own, working independently."
+    }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The text's spine is a transfer story: millennia of Asian use, adoption in Europe around 1800, and a burst of new instruments there — the arc C compresses into one sentence.\n\n**The Full Solution:**\n- Sentence one announces the asymmetry: ancient in Asia, brief in Europe.\n- The middle sentences supply the dates and mechanism of transfer — traveling instruments and descriptions reaching Western workshops.\n- The final sentence generalizes exactly as C does: one established idea seeding a family of instruments in a new tradition.\n\n**Why the other choices are wrong:**\n- A: The text says Europeans built new instruments from the principle, not that they surpassed the Asian designs.\n- B: Portability is never mentioned; it imports a plausible-sounding cause the text does not give.\n- D: It reverses the stated direction of influence — European adoption followed the arrival of Asian instruments and descriptions."
+  "explanation": "**Choice C is correct.** The text's spine is a transfer story: millennia of Asian use, adoption in Europe in the late 1700s, and a burst of new instruments there — the arc C compresses into one sentence.\n\n**The Full Solution:**\n- Sentence one announces the asymmetry: ancient in Asia, brief in Europe.\n- The middle sentences supply the dates and mechanism of transfer — traveling instruments and descriptions reaching Western workshops.\n- The final sentence generalizes exactly as C does: one established idea seeding a family of instruments in a new tradition.\n\n**Why the other choices are wrong:**\n- A: The text says Europeans built new instruments from the principle, not that they surpassed the Asian designs.\n- B: Portability is never mentioned; it imports a plausible-sounding cause the text does not give.\n- D: It reverses the stated direction of influence — European adoption followed the arrival of Asian instruments and descriptions.",
+  "_meta": {
+    "anchor": "Sheng first mentioned in 14th-12th c. BCE oracle-bone writings (Wikipedia: Sheng); European free-reed organ pipes from c. 1780 (Kirsnick, Vogler), accordion patented 1829 (Wikipedia: Free reed aerophone). 2026-10-04 review: dropped the khaen (age unverified) and corrected \"around the turn of the nineteenth century\"."
+  }
 }

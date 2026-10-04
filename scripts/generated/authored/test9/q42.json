@@ -6,14 +6,29 @@
   "domain": "information-and-ideas",
   "skill": "inferences",
   "module": 2,
-  "passage": "Ogham inscriptions and the Latin memorial stones of early medieval Ireland and Britain differ in more than script. Latin stones often carry formulas — \"here lies\" — that address a reader standing at a grave, and some add phrases about the dead person's faith or office. Ogham stones typically record only a name and the name of a father or wider kin group, in a possessive form: \"of Dalagnos, son of Dallos.\" And many ogham stones stand not in cemeteries but on hillsides and at the edges of townlands mentioned in early property records. Some scholars therefore argue that, compared with the Latin memorials, ogham stones ______",
+  "passage": "Ogham inscriptions and the Latin memorial stones of early medieval Ireland and Britain differ in more than script. Latin stones often carry formulas — \"here lies\" — that address a reader standing at a grave, and some add phrases about the dead person's faith or office. Ogham stones typically record only a name and the name of a father or wider kin group, in a possessive form meaning \"[the stone] of X, son of Y.\" And some ogham stones stand not in burial grounds but at the edges of early landholdings. Some scholars therefore argue that, compared with the Latin memorials, ogham stones ______",
   "question": "Which choice most logically completes the text?",
   "choices": [
-    { "id": "A", "text": "were carved by rural artisans who had little or no contact with the users and conventions of the Latin alphabet." },
-    { "id": "B", "text": "preserved fuller and more personal accounts of the people they commemorated." },
-    { "id": "C", "text": "were intended to be read aloud during burial ceremonies at gravesides." },
-    { "id": "D", "text": "may have served less as gravestones than as durable markers of a kin group's claim to land." }
+    {
+      "id": "A",
+      "text": "were carved by rural artisans who had little or no contact with the users and conventions of the Latin alphabet."
+    },
+    {
+      "id": "B",
+      "text": "preserved fuller and more personal accounts of the people they commemorated."
+    },
+    {
+      "id": "C",
+      "text": "were intended to be read aloud during burial ceremonies at gravesides."
+    },
+    {
+      "id": "D",
+      "text": "may have served less as gravestones than as durable markers of a kin group's claim to land."
+    }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** Both premises push the same comparative conclusion: the inscriptions assert possession (\"of Dalagnos\") rather than address mourners, and the stones stand at townland edges rather than in cemeteries. A possessive formula on a boundary is the language of claim, not of burial — which is just what D infers, at the properly cautious strength of \"may have served.\"\n\n**The Full Solution:**\n- The Latin stones supply the contrast case: graveside address, personal detail, cemetery setting — the equipment of memorial.\n- The ogham stones lack each element and add one the Latin stones lack: placement at recorded property boundaries.\n- The inference that fits is functional: identity plus kin plus boundary equals a claim to land, as D concludes.\n\n**Why the other choices are wrong:**\n- A: The script difference is the text's starting point, not evidence about who the carvers knew.\n- B: It runs backward — the ogham texts are the sparser ones, recording names alone.\n- C: Reading aloud at gravesides fits the Latin stones' addressed formulas; the ogham stones often stand nowhere near a grave."
+  "explanation": "**Choice D is correct.** Both premises push the same comparative conclusion: the inscriptions assert possession (\"[the stone] of X\") rather than address mourners, and some stones stand at the edges of landholdings rather than in burial grounds. A possessive formula on a boundary is the language of claim, not of burial — which is just what D infers, at the properly cautious strength of \"may have served.\"\n\n**The Full Solution:**\n- The Latin stones supply the contrast case: graveside address, personal detail, cemetery setting — the equipment of memorial.\n- The ogham stones lack each element and add one the Latin stones lack: placement at the edges of landholdings.\n- The inference that fits is functional: identity plus kin plus boundary equals a claim to land, as D concludes.\n\n**Why the other choices are wrong:**\n- A: The script difference is the text's starting point, not evidence about who the carvers knew.\n- B: It runs backward — the ogham texts are the sparser ones, recording names alone.\n- C: Reading aloud at gravesides fits the Latin stones' addressed formulas; the ogham stones often stand nowhere near a grave.",
+  "_meta": {
+    "anchor": "Ogham (Wikipedia): ~400 orthodox inscriptions, \"usually consist of personal names written in a set formula\"; stones \"mainly employed as territorial markers and memorials\"; \"marks possibly indicating land ownership\". 2026-10-04 review removed an unverified sample inscription."
+  }
 }

@@ -6,28 +6,28 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 2,
- "passage": "Rail operators retired most of Europe's sleeping cars in the early 2000s, when cheap short-haul flights seemed to have made overnight trains obsolete. Two decades later, travelers looking for alternatives to flying have returned in numbers across ______ the specialized cars needed to carry them take years to order and build, and several relaunched routes have had to begin service with borrowed, decades-old stock.",
+ "passage": "When Germany's national railway ended its night trains in 2016, Austria's railway took over several of the routes, and ridership soon grew. New sleeping cars could not be built fast ______ the Austrian railway leased older cars so that it could add services in the meantime.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "Europe, however,"
+   "text": "enough, however,"
   },
   {
    "id": "B",
-   "text": "Europe however,"
+   "text": "enough however,"
   },
   {
    "id": "C",
-   "text": "Europe, however;"
+   "text": "enough, however;"
   },
   {
    "id": "D",
-   "text": "Europe; however,"
+   "text": "enough; however,"
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** Two independent clauses meet at the blank, and the second opens with the conjunctive adverb \"however.\" The standard pattern is a semicolon before the conjunctive adverb and a comma after it: \"...have returned in numbers across Europe; however, the specialized cars... take years to order and build...\"\n\n**The Full Solution:**\n- Clause one is complete: travelers \"have returned in numbers across Europe.\"\n- Clause two is complete: \"the specialized cars needed to carry them take years to order and build...\"\n- \"However\" is not a coordinating conjunction, so it cannot join clauses with a comma alone; it needs the semicolon boundary before it.\n\n**Why the other choices are wrong:**\n- A: A comma before \"however\" leaves two independent clauses joined by a comma, a splice that the adverb cannot repair.\n- B: With no boundary before \"however,\" the clauses fuse outright.\n- C: It reverses the marks: the semicolon must precede \"however\" at the clause boundary, and the comma must follow it.",
+ "explanation": "**Choice D is correct.** Two independent clauses meet at the blank, and the second opens with the conjunctive adverb \"however.\" The standard pattern is a semicolon before the conjunctive adverb and a comma after it: \"New sleeping cars could not be built fast enough; however, the Austrian railway leased older cars...\"\n\n**The Full Solution:**\n- Clause one is complete: \"New sleeping cars could not be built fast enough.\"\n- Clause two is complete: \"the Austrian railway leased older cars so that it could add services in the meantime.\"\n- \"However\" is not a coordinating conjunction, so it cannot join clauses with a comma alone; it needs the semicolon boundary before it.\n\n**Why the other choices are wrong:**\n- A: A comma before \"however\" leaves two independent clauses joined by a comma, a splice that the adverb cannot repair.\n- B: With no boundary before \"however,\" the clauses fuse outright.\n- C: It reverses the marks: the semicolon must precede \"however\" at the clause boundary, and the comma must follow it.",
  "_meta": {
   "rule": "semicolon before conjunctive adverb joining independent clauses",
   "distractors": {

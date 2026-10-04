@@ -40,7 +40,7 @@ export const practiceTest9RW = {
           "band": 2,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "A peat bog is a difficult place for the microbes of decay. Sphagnum moss soaks up the nutrients that bacteria need and releases compounds that ______ bacterial growth, and the cold, oxygen-poor water does the rest: leather, wood, and even human skin can rest in a bog for centuries with surprisingly little change.",
+          "passage": "A peat bog is a difficult place for the microbes of decay. Sphagnum moss acidifies the water around it and contains compounds that ______ bacterial growth, and the cold, oxygen-poor water does the rest: leather, wood, and even human skin can rest in a bog for centuries with surprisingly little change.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -61,7 +61,8 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The passage explains why decay stalls in a bog, so the moss's compounds must hold bacterial growth back — they \"suppress\" it.\n\n**The Full Solution:**\n- The opening states the effect to be explained: a bog is \"a difficult place for the microbes of decay.\"\n- Everything that follows is a cause of that difficulty — nutrients absorbed, cold oxygen-poor water — and the result is centuries of preservation.\n- The blank must continue the causal chain: compounds that hold bacteria down, which is what \"suppress\" means.\n\n**Why the other choices are wrong:**\n- A: \"Encourage\" reverses the logic — helped bacteria would mean faster decay, not preservation.\n- C: \"Conceal\" means to hide from view; bacteria are not being hidden, they are being stopped.\n- D: \"Imitate\" would have the compounds mimicking bacterial growth, an idea nothing in the passage supports."
+          "explanation": "**Choice B is correct.** The passage explains why decay stalls in a bog, so the moss's compounds must hold bacterial growth back — they \"suppress\" it.\n\n**The Full Solution:**\n- The opening states the effect to be explained: a bog is \"a difficult place for the microbes of decay.\"\n- Everything that follows is a cause of that difficulty — acidified water, cold oxygen-poor water — and the result is centuries of preservation.\n- The blank must continue the causal chain: compounds that hold bacteria down, which is what \"suppress\" means.\n\n**Why the other choices are wrong:**\n- A: \"Encourage\" reverses the logic — helped bacteria would mean faster decay, not preservation.\n- C: \"Conceal\" means to hide from view; bacteria are not being hidden, they are being stopped.\n- D: \"Imitate\" would have the compounds mimicking bacterial growth, an idea nothing in the passage supports.",
+          "_meta": {}
         },
         {
           "id": 904,
@@ -70,7 +71,7 @@ export const practiceTest9RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "The following text is adapted from William Hazlitt's 1821 essay \"On Going a Journey.\"\n\nOne of the pleasantest things in the world is going a journey; but I like to go by myself. I can enjoy society in a room; but out of doors, nature is ______ enough for me. I am then never less alone than when alone. The soul of a journey is liberty, perfect liberty, to think, feel, do just as one pleases.",
+          "passage": "The following text is adapted from William Hazlitt's 1822 essay \"On Going a Journey.\"\n\nOne of the pleasantest things in the world is going a journey; but I like to go by myself. I can enjoy society in a room; but out of doors, nature is ______ enough for me. I am then never less alone than when alone. The soul of a journey is liberty, perfect liberty, to think, feel, do, just as one pleases.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -93,9 +94,9 @@ export const practiceTest9RW = {
           "correctAnswer": "A",
           "explanation": "**Choice A is correct.** The sentence balances two settings against each other — \"society in a room\" indoors, and something nature supplies outdoors — so the blank needs the outdoor counterpart of society: \"company.\"\n\n**The Full Solution:**\n- The structure is a contrast hinged on \"but\": indoors the speaker enjoys society; outdoors, nature takes over that role.\n- The next sentence confirms the reading — \"never less alone than when alone\" — nature keeps him company so completely that solitude does not feel solitary.\n- \"Company\" is the one word that answers \"society\" directly.\n\n**Why the other choices are wrong:**\n- B: \"Entertainment\" is not the counterpart of \"society,\" and the following sentence is about aloneness, not amusement.\n- C: Nothing in the text presents nature as a teacher; \"instruction\" breaks the society-versus-solitude contrast.\n- D: \"Shelter\" is a physical protection, which reverses the scene — the speaker is happily out of doors, not seeking cover.",
           "_meta": {
-            "anchor": "William Hazlitt — \"On Going a Journey\" (Table-Talk, 1821); genuine public-domain excerpt with one word blanked",
+            "anchor": "William Hazlitt — \"On Going a Journey\" (Table-Talk, vol. 2, 1822); genuine public-domain excerpt with one word blanked (two non-adjacent passages joined, hence \"adapted\")",
             "quoteVerify": true,
-            "source": "William Hazlitt, Table-Talk: Essays on Men and Manners (1821), essay \"On Going a Journey\"; blanked word is \"company\""
+            "source": "William Hazlitt, Table-Talk: Essays on Men and Manners, vol. 2 (1822), essay \"On Going a Journey\" — verified against Wikisource Table-Talk/Volume 2/Essay 3; blanked word is \"company\""
           }
         },
         {
@@ -135,7 +136,7 @@ export const practiceTest9RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "The vicuña, a wild Andean relative of the alpaca, yields its prized fleece only ______: in the traditional roundups known as chaccu, herders gather the free-ranging animals no more than once every two to three years, shear a few ounces of fiber from each one, and release the herd unharmed.",
+          "passage": "The vicuña, a wild Andean relative of the alpaca, yields its prized fleece only ______: in the traditional roundups known as chaccu, herders gather the free-ranging animals no more than once every two to three years, shear each one, and release the herd unharmed.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -156,7 +157,8 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The clause after the colon restates the blank in concrete terms — shearing once every two to three years, a few ounces at a time — and \"sparingly\" is the word that sums up such small, infrequent yields.\n\n**The Full Solution:**\n- The colon signals that what follows spells out the blank's meaning.\n- The details are all about smallness and infrequency: gatherings years apart, mere ounces per animal.\n- \"Sparingly\" — in small amounts, with restraint — is the precise one-word restatement of that pattern.\n\n**Why the other choices are wrong:**\n- A: \"Reluctantly\" attributes unwillingness to an animal; the text describes quantity and frequency, not attitude.\n- B: \"Seasonally\" implies a yearly rhythm, but the roundups happen only once every two to three years.\n- D: \"Profitably\" concerns money, which the sentence never mentions; the colon's details describe scarcity, not earnings."
+          "explanation": "**Choice C is correct.** The clause after the colon restates the blank in concrete terms — gatherings no more than once every two to three years — and \"sparingly\" is the word that sums up such restrained, infrequent harvests.\n\n**The Full Solution:**\n- The colon signals that what follows spells out the blank's meaning.\n- The details are all about restraint and infrequency: gatherings years apart, each animal shorn and released unharmed.\n- \"Sparingly\" — in small amounts, with restraint — is the precise one-word restatement of that pattern.\n\n**Why the other choices are wrong:**\n- A: \"Reluctantly\" attributes unwillingness to an animal; the text describes quantity and frequency, not attitude.\n- B: \"Seasonally\" implies a yearly rhythm, but the roundups happen only once every two to three years.\n- D: \"Profitably\" concerns money, which the sentence never mentions; the colon's details describe scarcity, not earnings.",
+          "_meta": {}
         },
         {
           "id": 906,
@@ -235,7 +237,7 @@ export const practiceTest9RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "In the 1790s, the French engineer Claude Chappe built a chain of signal towers between Paris and Lille, each topped with a pair of jointed wooden arms. An operator set the arms to a coded position; the next tower, watching through a telescope, copied the position, and the signal leapt from hilltop to hilltop. A short message could cross the 230-kilometer line in about half an hour — a journey of more than a day on horseback. The system had a fatal dependence, however: it needed daylight and clear weather, and the electric telegraph, which needed neither, made Chappe's towers obsolete within half a century.",
+          "passage": "In the 1790s, the French inventor Claude Chappe built a chain of signal towers between Paris and Lille, each topped with a movable beam carrying two pivoting arms. An operator set the arms to a coded position; the next tower, watching through a telescope, copied the position, and the signal leapt from hilltop to hilltop. A short message could cross the 230-kilometer line in well under an hour — a journey of more than a day on horseback. The system had a fatal dependence, however: it needed daylight and clear weather, and by the 1850s the electric telegraph, which needed neither, had made Chappe's towers obsolete.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
@@ -256,7 +258,8 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The text moves through three stages: mechanism (arms, telescopes, tower-to-tower relay), a measure of the system's power (half an hour versus a day on horseback), and finally the limitation — dependence on daylight and weather — that let the electric telegraph displace it.\n\n**The Full Solution:**\n- Sentences one through three explain how the system worked.\n- Sentence four quantifies the achievement with the horseback comparison.\n- The closing sentence pivots on \"however\" to the fatal weakness and the replacement it invited, completing the arc that choice B describes.\n\n**Why the other choices are wrong:**\n- A: No single message is followed; the tower-to-tower description is general, not a narrated journey.\n- C: The text evaluates nothing — it reports the system's strengths and weakness without pleading for its reputation.\n- D: Only one system from the 1790s appears; the electric telegraph arrives later as a successor, not a contemporary rival."
+          "explanation": "**Choice B is correct.** The text moves through three stages: mechanism (beam and arms, telescopes, tower-to-tower relay), a measure of the system's power (well under an hour versus more than a day on horseback), and finally the limitation — dependence on daylight and weather — that let the electric telegraph displace it.\n\n**The Full Solution:**\n- Sentences one through three explain how the system worked.\n- Sentence four quantifies the achievement with the horseback comparison.\n- The closing sentence pivots on \"however\" to the fatal weakness and the replacement it invited, completing the arc that choice B describes.\n\n**Why the other choices are wrong:**\n- A: No single message is followed; the tower-to-tower description is general, not a narrated journey.\n- C: The text evaluates nothing — it reports the system's strengths and weakness without pleading for its reputation.\n- D: Only one system from the 1790s appears; the electric telegraph arrives later as a successor, not a contemporary rival.",
+          "_meta": {}
         },
         {
           "id": 908,
@@ -268,36 +271,36 @@ export const practiceTest9RW = {
           "passages": [
             {
               "label": "Text 1",
-              "text": "Excavating at Chavín de Huántar, a 3,000-year-old temple complex in the Peruvian Andes, the archaeologist John Rick has documented narrow stone galleries that channel and distort sound. Conch-shell trumpets recovered at the site produce roaring tones that, when played in the galleries, seem to issue from the walls themselves. Rick interprets these effects as instruments of authority: by staging overwhelming sensory experiences that only they could control, the temple's priests demonstrated seemingly supernatural power to visiting pilgrims."
+              "text": "Excavating at Chavín de Huántar, a 3,000-year-old temple complex in the Peruvian Andes, the archaeologist John Rick has explored narrow stone galleries that channel and distort sound. Conch-shell trumpets recovered at the site produce loud, roaring tones, and the galleries carry and reshape that sound as it travels. Rick interprets these effects as instruments of authority: by staging overwhelming sensory experiences that only they could control, the temple's priests demonstrated seemingly supernatural power to visiting pilgrims."
             },
             {
               "label": "Text 2",
-              "text": "Acoustics researcher Miriam Kolar has measured how Chavín de Huántar's galleries transmit and transform the sound of conch-shell trumpets, confirming that the disorienting effects reported by visitors can be reproduced and quantified today. Kolar notes, however, that demonstrating an effect is not the same as demonstrating a plan. Any building alters sound whether or not its makers intend it to, so tying the galleries' acoustics to deliberate design requires independent evidence about how the builders used and modified these spaces over time."
+              "text": "Acoustic measurements at Chavín de Huántar have confirmed that the galleries transmit and transform the sound of conch-shell trumpets, producing disorienting effects that can be reproduced and quantified today. But demonstrating an effect is not the same as demonstrating a plan. Any building alters sound whether or not its makers intend it to, so tying the galleries' acoustics to deliberate design requires independent evidence about how the builders used and modified these spaces over time."
             }
           ],
-          "question": "Based on the texts, how would Kolar (Text 2) most likely respond to the interpretation presented in Text 1?",
+          "question": "Based on the texts, how would the author of Text 2 most likely respond to the interpretation presented in Text 1?",
           "choices": [
             {
               "id": "A",
-              "text": "She would caution that the acoustic effects, though real and measurable, do not by themselves show that the galleries were built to produce them."
+              "text": "The author would caution that the acoustic effects, though real and measurable, do not by themselves show that the galleries were built to produce them."
             },
             {
               "id": "B",
-              "text": "She would deny that the galleries at Chavín de Huántar meaningfully alter the sound of trumpets played inside them."
+              "text": "The author would deny that the galleries at Chavín de Huántar meaningfully alter the sound of the trumpets played inside them."
             },
             {
               "id": "C",
-              "text": "She would argue that the conch-shell trumpets were most likely played in the open plaza rather than within the temple's galleries."
+              "text": "The author would argue that the conch-shell trumpets were most likely played in the open plaza rather than within the temple's galleries."
             },
             {
               "id": "D",
-              "text": "She would agree that the priests deliberately engineered the galleries' acoustics but would question whether pilgrims actually found the resulting effects disorienting."
+              "text": "The author would agree that the priests deliberately engineered the galleries' acoustics but would doubt that pilgrims found the resulting effects disorienting."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** Kolar confirms the effects but qualifies the inference drawn from them: \"demonstrating an effect is not the same as demonstrating a plan.\" Rick's interpretation treats the acoustics as engineered for authority; Kolar would answer that intent needs independent evidence.\n\n**The Full Solution:**\n- Text 1's claim has two layers: the galleries produce striking effects, and the builders designed them to do so.\n- Text 2 accepts the first layer outright — the effects \"can be reproduced and quantified today.\"\n- Her reservation targets the second layer only: buildings alter sound regardless of intent, so design must be established separately. That is precisely the caution choice A states.\n\n**Why the other choices are wrong:**\n- B: It reverses her position — she confirms, and has measured, the galleries' effects on sound.\n- C: Neither text raises the question of where the trumpets were played; Kolar's measurements concern the galleries themselves.\n- D: It grants the very point she declines to grant — deliberate engineering — and invents a doubt about pilgrims' reactions she never expresses.",
+          "explanation": "**Choice A is correct.** The author of Text 2 confirms the effects but qualifies the inference drawn from them: \"demonstrating an effect is not the same as demonstrating a plan.\" Rick's interpretation treats the acoustics as engineered for authority; the author of Text 2 would answer that intent needs independent evidence.\n\n**The Full Solution:**\n- Text 1's claim has two layers: the galleries produce striking effects, and the builders designed them to do so.\n- Text 2 accepts the first layer outright — the effects \"can be reproduced and quantified today.\"\n- Its reservation targets the second layer only: buildings alter sound regardless of intent, so design must be established separately. That is precisely the caution choice A states.\n\n**Why the other choices are wrong:**\n- B: It reverses Text 2's position — the author reports measurements confirming the galleries' effects on sound.\n- C: Neither text raises the question of where the trumpets were played; Text 2 concerns the galleries themselves.\n- D: It grants the very point Text 2 declines to grant — deliberate engineering — and invents a doubt about pilgrims' reactions that the author never expresses.",
           "_meta": {
-            "anchor": "John Rick (Stanford, Chavín excavations) and Miriam Kolar (archaeoacoustics at Chavín) — both real, registered in researchers.json"
+            "anchor": "John Rick (Stanford) directs excavations at Chavín de Huántar and interprets its galleries and sensory effects as instruments of priestly authority (Wikipedia: Chavín de Huántar). Text 2 is an unattributed methodological caution; the 2026-10-04 fact review removed a skeptical position previously attributed to Miriam Kolar, whose published stance it did not match."
           }
         },
         {
@@ -307,16 +310,16 @@ export const practiceTest9RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "Histories of the Pacific Coast salmon-canning industry long dwelt on fleets and machinery, treating the workforce as interchangeable hands. The canneries' own records tell another story. Labor contractors assembled experienced crews — largely Chinese, and later Japanese and Filipino, immigrants — whose members held distinct skilled positions, from butchers who could clean a fish in seconds to solderers whose seams determined whether a can spoiled. The quality of a season's pack varied with the crew, and cannery owners competed to engage the most practiced ones. The industry's output, in short, rested on expertise its own chroniclers rarely acknowledged.",
+          "passage": "Histories of the Pacific Coast salmon-canning industry long dwelt on fleets and machinery, treating the workforce as interchangeable hands. The canneries' own records tell another story. Labor contractors assembled experienced crews — many of them Chinese, and later Japanese and Filipino, immigrants — whose members held distinct skilled positions, from butchers who could clean a fish in seconds to solderers whose seams determined whether a can spoiled. The quality of a season's pack varied with the crew, and cannery owners competed to engage the most practiced ones. The industry's output, in short, rested on expertise its own chroniclers rarely acknowledged.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "Salmon canneries on the Pacific Coast succeeded largely because new machinery eliminated the industry's need for experienced and specialized workers at every station."
+              "text": "Pacific Coast salmon canneries succeeded mainly because new machinery soon removed any need for experienced or specialized workers."
             },
             {
               "id": "B",
-              "text": "Labor contractors weakened the canning industry by forcing owners to compete for a limited number of crews."
+              "text": "Labor contractors weakened the canning industry by forcing cannery owners to compete with one another for a limited number of crews."
             },
             {
               "id": "C",
@@ -324,11 +327,12 @@ export const practiceTest9RW = {
             },
             {
               "id": "D",
-              "text": "Cannery records show that the salmon-packing workforce, far from being interchangeable, was organized around specialized skills on which the industry's output depended."
+              "text": "Cannery records reveal a skilled, specialized workforce on which the industry's output depended, contrary to older histories."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The text corrects an old picture: histories treated cannery workers as \"interchangeable hands,\" but the records reveal skilled, differentiated crews whose expertise determined the pack. Choice D states that corrected view.\n\n**The Full Solution:**\n- The first sentence gives the received account; the second announces the correction (\"tell another story\").\n- The evidence follows: distinct skilled positions, pack quality varying with the crew, owners competing for the best ones.\n- The final sentence draws the conclusion D paraphrases — output rested on unacknowledged expertise.\n\n**Why the other choices are wrong:**\n- A: It repeats the machinery-centered account the text is written to correct, and the passage says skill, not automation, drove output.\n- B: Owners' competition for crews is presented as proof of the crews' value, not as a weakness of the industry.\n- C: The records are the text's best evidence — they are revealing, not careless."
+          "explanation": "**Choice D is correct.** The text corrects an old picture: histories treated cannery workers as \"interchangeable hands,\" but the records reveal skilled, differentiated crews whose expertise determined the pack. Choice D states that corrected view.\n\n**The Full Solution:**\n- The first sentence gives the received account; the second announces the correction (\"tell another story\").\n- The evidence follows: distinct skilled positions, pack quality varying with the crew, owners competing for the best ones.\n- The final sentence draws the conclusion D paraphrases — output rested on unacknowledged expertise.\n\n**Why the other choices are wrong:**\n- A: It repeats the machinery-centered account the text is written to correct, and the passage says skill, not automation, drove output.\n- B: Owners' competition for crews is presented as proof of the crews' value, not as a weakness of the industry.\n- C: The records are the text's best evidence — they are revealing, not careless.",
+          "_meta": {}
         },
         {
           "id": 916,
@@ -337,28 +341,31 @@ export const practiceTest9RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "inferences",
-          "passage": "A nocturnal is a small instrument, usually of brass or boxwood, that tells time at night from the rotation of the stars around the celestial pole. Surviving examples range from richly engraved presentation pieces to plain instruments worn smooth by years of handling, and household and shipboard inventories of the sixteenth and seventeenth centuries list nocturnals among the effects of pilots, surveyors, and estate stewards alike. The period's instruction manuals, meanwhile, explain the nocturnal's use in everyday vernacular languages rather than in scholarly Latin. Taken together, these details suggest that ______",
+          "passage": "A nocturnal is a small instrument, usually of brass or wood, that tells time at night from the rotation of the stars around the North Star. Some surviving nocturnals are engraved with tide tables for important ports, information of use mainly to someone bringing a ship into harbor. The instrument was also explained in practical navigation manuals of the sixteenth century, written in Spanish, English, and other everyday languages rather than in scholarly Latin. Taken together, these details suggest that ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
               "id": "A",
-              "text": "most nocturnals were commissioned as ornamental gifts and were rarely used to tell time at all."
+              "text": "most nocturnals were made as ornamental gifts for wealthy patrons and were rarely, if ever, used to tell time."
             },
             {
               "id": "B",
-              "text": "the nocturnal was a practical tool in reasonably wide working use, not merely a curiosity for wealthy collectors."
+              "text": "the nocturnal served as a working tool for navigators rather than as a curiosity for collectors."
             },
             {
               "id": "C",
-              "text": "reading a nocturnal demanded formal astronomical training that few laypeople of the period possessed."
+              "text": "reading a nocturnal demanded formal training in astronomy that few sailors of the period possessed."
             },
             {
               "id": "D",
-              "text": "nocturnals had displaced sundials as the most common timekeeping instruments of the era."
+              "text": "nocturnals had displaced sundials as the most common timekeeping instruments of the sixteenth century."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** Each detail points the same way — toward ordinary, working use by a range of people — and B draws exactly that general conclusion, without going beyond it.\n\n**The Full Solution:**\n- Instruments \"worn smooth by years of handling\" were used, not displayed.\n- Inventories place them with pilots, surveyors, and stewards — working occupations, not just collectors.\n- Vernacular manuals imply an audience of ordinary readers rather than Latin-trained scholars.\n- The generalization these premises support is practical, fairly widespread use — precisely B.\n\n**Why the other choices are wrong:**\n- A: The worn, plain examples and the working owners contradict a picture of unused ornaments.\n- C: Vernacular instructions argue the opposite — the device was explained for readers without scholarly training.\n- D: The text never mentions sundials or compares the instruments' popularity; \"most common\" outruns the evidence entirely."
+          "explanation": "**Choice B is correct.** Each detail points the same way — toward practical use at sea — and B draws exactly that general conclusion, without going beyond it.\n\n**The Full Solution:**\n- Tide tables for ports matter to someone piloting a ship into harbor, not to someone displaying an ornament.\n- The instrument was explained in practical navigation manuals, the handbooks of working seamen.\n- Those manuals were written in everyday languages rather than scholarly Latin, implying an audience of ordinary practitioners.\n- The generalization these premises support is working use by navigators — precisely B.\n\n**Why the other choices are wrong:**\n- A: Tide tables and navigation manuals point to use, contradicting a picture of unused ornaments.\n- C: Manuals in everyday languages argue the opposite — the device was explained for readers without scholarly training.\n- D: The text never mentions sundials or compares the instruments' popularity; \"most common\" outruns the evidence entirely.",
+          "_meta": {
+            "anchor": "Nocturnal (instrument), Wikipedia: brass or wood; important in piloting for tides, some carry tide charts for ports; popularized by Martín Cortés de Albacar's Spanish Arte de Navegar (1551), translated into English (1561)."
+          }
         },
         {
           "id": 914,
@@ -367,26 +374,26 @@ export const practiceTest9RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "When deep artesian wells were first bored into the confined aquifer beneath Paris in the nineteenth century, water rose to the surface under natural pressure alone. Hydrologists note that each new borehole drew on the same body of pressurized groundwater, and they conclude that the aquifer's pressure was falling steadily through the second half of the century because ______",
+          "passage": "When deep artesian wells were first bored into a confined aquifer beneath a growing city, water rose to the surface under natural pressure alone. Hydrologists note that each new borehole drew on the same body of pressurized groundwater, and they conclude that the aquifer's pressure fell steadily as more wells tapped it because ______",
           "questionTable": {
             "type": "table",
-            "caption": "Flow of two artesian wells in Paris",
+            "caption": "Flow of two artesian wells tapping the same confined aquifer",
             "headers": [
               "Well",
               "Year completed",
               "Initial flow (cubic meters per day)",
-              "Flow in 1900 (cubic meters per day)"
+              "Flow 40 years later (cubic meters per day)"
             ],
             "rows": [
               [
-                "Grenelle",
-                "1841",
+                "Well 1",
+                "1880",
                 "3,600",
                 "800"
               ],
               [
-                "Passy",
-                "1861",
+                "Well 2",
+                "1900",
                 "17,000",
                 "5,900"
               ]
@@ -396,23 +403,26 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "the Passy well's initial flow, at 17,000 cubic meters per day, was nearly five times the Grenelle well's initial flow."
+              "text": "Well 2's initial flow, at 17,000 cubic meters per day, was nearly five times Well 1's initial flow, and Well 2 was completed two decades after Well 1."
             },
             {
               "id": "B",
-              "text": "the Grenelle well was completed twenty years before drilling of the Passy well finished."
+              "text": "Well 1 was completed in 1880, twenty years before the drilling of Well 2 was finished."
             },
             {
               "id": "C",
-              "text": "by 1900 the Grenelle well's flow had fallen from 3,600 cubic meters per day to 800, and the Passy well's had fallen from 17,000 to 5,900 in barely four decades."
+              "text": "forty years after completion, Well 1's flow had fallen from 3,600 cubic meters per day to 800, and Well 2's from 17,000 to 5,900."
             },
             {
               "id": "D",
-              "text": "the Passy well still delivered more water in 1900 than the Grenelle well had delivered when it was first completed."
+              "text": "Well 2 still delivered more water forty years after its completion than Well 1 had delivered when it was first completed in 1880."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** A claim about steadily falling pressure needs evidence of decline over time at the wells drawing on the aquifer, and C alone provides it: both wells' flows collapsed to a fraction of their initial rates by 1900.\n\n**The Full Solution:**\n- Flow from an artesian well is driven by aquifer pressure, so falling flow is the table's proxy for falling pressure.\n- C reads the decline out of both rows — Grenelle down almost 80 percent, Passy down two-thirds within four decades — matching the claim's scope (the aquifer, not one well).\n\n**Why the other choices are wrong:**\n- A: A comparison of the two wells' starting flows describes their size, not any change in pressure over time.\n- B: The completion dates alone contain no information about flow or pressure.\n- D: True in the table, but it invites the wrong inference — highlighting how much the Passy well still produced obscures the fact that both wells' flows were falling sharply."
+          "explanation": "**Choice C is correct.** A claim about steadily falling pressure needs evidence of decline over time at the wells drawing on the aquifer, and C alone provides it: both wells' flows fell to a fraction of their initial rates.\n\n**The Full Solution:**\n- Flow from an artesian well is driven by aquifer pressure, so falling flow is the table's proxy for falling pressure.\n- C reads the decline out of both rows — Well 1 down almost 80 percent, Well 2 down about two-thirds — matching the claim's scope (the aquifer, not one well).\n\n**Why the other choices are wrong:**\n- A: A comparison of the two wells' starting flows and completion dates describes their size and age, not any change in pressure over time.\n- B: The completion dates alone contain no information about flow or pressure.\n- D: True in the table, but it invites the wrong inference — highlighting how much Well 2 still produced obscures the fact that both wells' flows were falling sharply.",
+          "_meta": {
+            "anchor": "Unattributed, illustrative well data (2026-10-04 fact review: the earlier version attached invented flow figures to the real Grenelle and Passy wells in Paris; Grenelle's documented flow c. 1900 was about 430 m3/day, not 800)."
+          }
         },
         {
           "id": 909,
@@ -421,7 +431,7 @@ export const practiceTest9RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "The Hanseatic League, an association of trading towns around the Baltic and North Seas, dominated northern European commerce for three centuries without possessing a treasury, a standing army, or a written constitution. Its power operated through privileges: member merchants secured exclusive trading rights, exemptions from tolls, and their own walled compounds — known as kontors — in foreign ports from London to Novgorod. A town that flouted the League's decisions risked exclusion from this web of privileges, a penalty severe enough to hold hundreds of fiercely independent towns in loose but durable alignment.",
+          "passage": "The Hanseatic League, an association of trading towns around the Baltic and North Seas, dominated northern European commerce for three centuries without possessing a treasury, a standing army, or a permanent administrative body. Its power operated through privileges: member merchants secured exclusive trading rights, exemptions from tolls, and their own self-governing compounds — known as kontors — in foreign ports from London to Novgorod. A town that flouted the League's decisions risked exclusion from this web of privileges, a penalty severe enough to hold hundreds of fiercely independent towns in loose but durable alignment.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
@@ -442,7 +452,8 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The text's arc runs from a puzzle — three centuries of dominance with no treasury, army, or constitution — to its resolution: power \"operated through privileges,\" enforced by the threat of exclusion. Choice D restates exactly that.\n\n**The Full Solution:**\n- Sentence one sets up the paradox: dominance without the standard equipment of a state.\n- Sentences two and three resolve it — exclusive rights, toll exemptions, and kontors bound members together, and losing them was \"a penalty severe enough\" to keep towns aligned.\n- D captures both halves: not state machinery, but indispensable privileges.\n\n**Why the other choices are wrong:**\n- A: The text describes the League's lasting power, not its decline, and never presents the missing institutions as a cause of failure.\n- B: The kontors are one item in a list of privileges; the text never ranks them above the others.\n- C: It inverts the final sentence — the threat of exclusion kept towns in alignment precisely despite the absence of formal machinery."
+          "explanation": "**Choice D is correct.** The text's arc runs from a puzzle — three centuries of dominance with no treasury, army, or permanent administration — to its resolution: power \"operated through privileges,\" enforced by the threat of exclusion. Choice D restates exactly that.\n\n**The Full Solution:**\n- Sentence one sets up the paradox: dominance without the standard equipment of a state.\n- Sentences two and three resolve it — exclusive rights, toll exemptions, and kontors bound members together, and losing them was \"a penalty severe enough\" to keep towns aligned.\n- D captures both halves: not state machinery, but indispensable privileges.\n\n**Why the other choices are wrong:**\n- A: The text describes the League's lasting power, not its decline, and never presents the missing institutions as a cause of failure.\n- B: The kontors are one item in a list of privileges; the text never ranks them above the others.\n- C: It inverts the final sentence — the threat of exclusion kept towns in alignment precisely despite the absence of formal machinery.",
+          "_meta": {}
         },
         {
           "id": 910,
@@ -494,9 +505,9 @@ export const practiceTest9RW = {
             "rows": [
               [
                 "Vicuña",
-                "12.5",
+                "12.0",
                 "0.2",
-                "2"
+                "3"
               ],
               [
                 "Cashmere goat",
@@ -522,23 +533,26 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "the alpaca's mean fiber diameter, at 26.0 microns, is the largest of the four animals listed."
+              "text": "the alpaca has the largest mean fiber diameter of the four animals, at 26.0 microns, and is shorn every year, as are the cashmere goat and the merino sheep."
             },
             {
               "id": "B",
-              "text": "the merino sheep yields more fleece per shearing than the other three animals combined."
+              "text": "the merino sheep, which is shorn every year, yields more fleece per shearing than the other three animals in the table combined."
             },
             {
               "id": "C",
-              "text": "the vicuña has both the finest fiber listed, at 12.5 microns, and the smallest, least frequent yield — 0.2 kilograms every two years, against the alpaca's 2.7 kilograms every year."
+              "text": "the vicuña has both the finest fiber listed, at 12.0 microns, and the smallest, least frequent yield: 0.2 kilograms every three years."
             },
             {
               "id": "D",
-              "text": "the cashmere goat's fiber is finer than the alpaca's even though both animals are shorn every year."
+              "text": "the cashmere goat's fiber is finer than the alpaca's even though both animals are shorn every year and the goat yields far less fleece per shearing."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The economists' account rests on two factors together — fineness and scarcity — so the completing evidence must document both, and only C does: the finest fiber in the table and by far the smallest, least frequent yield.\n\n**The Full Solution:**\n- Fineness: the vicuña's 12.5 microns is the lowest diameter listed.\n- Scarcity: 0.2 kilograms per shearing, and only every two years — roughly a twenty-fifth of the alpaca's annual output.\n- C cites both columns in one comparison, matching the claim's two-factor structure.\n\n**Why the other choices are wrong:**\n- A: A fact about the alpaca's coarseness alone touches one factor for the wrong animal and says nothing about scarcity.\n- B: The merino's large yield is true in the table but irrelevant to why vicuña fiber commands a premium.\n- D: A comparison between cashmere and alpaca never engages the vicuña, the animal the claim is about."
+          "explanation": "**Choice C is correct.** The economists' account rests on two factors together — fineness and scarcity — so the completing evidence must document both, and only C does: the finest fiber in the table and by far the smallest, least frequent yield.\n\n**The Full Solution:**\n- Fineness: the vicuña's 12.0 microns is the lowest diameter listed.\n- Scarcity: 0.2 kilograms per shearing, and only every three years — a tiny fraction of the alpaca's 2.7 kilograms every year.\n- C cites both columns in one statement, matching the claim's two-factor structure.\n\n**Why the other choices are wrong:**\n- A: A fact about the alpaca's coarseness touches one factor for the wrong animals and says nothing about scarcity.\n- B: The merino's large yield is true in the table but irrelevant to why vicuña fiber commands a premium.\n- D: A comparison between cashmere and alpaca never engages the vicuña, the animal the claim is about.",
+          "_meta": {
+            "anchor": "Unattributed fiber table; values plausible. Vicuña ~12 microns and shorn only every three years per Wikipedia (Vicuña); cashmere 14-19 microns."
+          }
         },
         {
           "id": 912,
@@ -582,23 +596,23 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "the sea cow population had already been shrinking for centuries before Steller first described the animals."
+              "text": "the sea cows had been common along coasts throughout the North Pacific when Steller first described them in 1741."
             },
             {
               "id": "B",
-              "text": "the fur-trading crews valued the sea cows chiefly for their hides rather than as a source of food."
+              "text": "the fur-trading crews valued the sea cows chiefly for their hides rather than as a source of food for their voyages."
             },
             {
               "id": "C",
-              "text": "the species would have disappeared just as quickly even if the expedition's route had never become known."
+              "text": "the species would have disappeared just as quickly even if the expedition's route had never become known to fur traders."
             },
             {
               "id": "D",
-              "text": "the species' extreme vulnerability and the steady hunting that followed the expedition together drove it to extinction within three decades."
+              "text": "the animals' vulnerability, combined with steady hunting after the expedition, drove the species to extinction."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The passage assembles a cause on each side — defenseless, concentrated animals; regular provisioning stops that began once the route was known — and the twenty-seven-year collapse is the effect those causes jointly explain.\n\n**The Full Solution:**\n- Vulnerability alone had not eliminated the species before 1741; the animals were there for Steller to study.\n- What changed afterward was sustained hunting pressure, arriving precisely when the islands entered the traders' routes.\n- The inference that fits both premises is the conjunction D states: vulnerability plus new, steady hunting produced extinction within three decades.\n\n**Why the other choices are wrong:**\n- A: The passage dates the collapse to the years after 1741 and offers no evidence of an earlier decline.\n- B: The text says the crews killed the animals \"to provision their ships\" — for food, not hides.\n- C: It severs the causal link the passage builds — without the route's discovery, the hunting that followed it has no explanation.",
+          "explanation": "**Choice D is correct.** The passage assembles a cause on each side — defenseless, concentrated animals; regular provisioning stops that began once the route was known — and the twenty-seven-year collapse is the effect those causes jointly explain.\n\n**The Full Solution:**\n- Vulnerability alone had not eliminated the species before 1741; the animals were there for Steller to study.\n- What changed afterward was sustained hunting pressure, arriving precisely when the islands entered the traders' routes.\n- The inference that fits both premises is the conjunction D states: vulnerability plus new, steady hunting produced extinction by 1768.\n\n**Why the other choices are wrong:**\n- A: The passage says the entire population \"was confined to a single small archipelago\" — the opposite of a species common across the North Pacific.\n- B: The text says the crews killed the animals \"to provision their ships\" — for food, not hides.\n- C: It severs the causal link the passage builds — without the route's discovery, the hunting that followed it has no explanation.",
           "_meta": {
             "anchor": "Georg Wilhelm Steller — naturalist on the 1741 Bering expedition; registered in researchers.json"
           }
@@ -610,28 +624,31 @@ export const practiceTest9RW = {
           "band": 2,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "At Chavín de Huántar, a ceremonial center built high in the Peruvian Andes, stone-lined galleries wind through the temple mound. Researchers played the recorded tones of a conch-shell trumpet inside ______ however, listeners standing in the plaza outside could not agree on where the sound was coming from.",
+          "passage": "When the Statue of Liberty was dedicated in 1886, its copper skin was reddish-brown and ______ however, within a few decades, the copper had reacted with air and rainwater to form the green patina that visitors see today.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "them,"
+              "text": "shiny,"
             },
             {
               "id": "B",
-              "text": "them"
+              "text": "shiny"
             },
             {
               "id": "C",
-              "text": "them;"
+              "text": "shiny;"
             },
             {
               "id": "D",
-              "text": "them, and"
+              "text": "shiny, and"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** Two independent clauses meet at the blank, and the second begins with the conjunctive adverb \"however\" — the conventional join is a semicolon before \"however\" and a comma after it.\n\n**The Full Solution:**\n- Left of the blank is a complete sentence: \"Researchers played the recorded tones of a conch-shell trumpet inside them.\"\n- Right of the blank is another: \"listeners standing in the plaza outside could not agree...\"\n- \"However\" belongs to the second clause, so the boundary must be strong enough to separate full sentences: \"them; however, listeners...\"\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses is a comma splice; \"however\" cannot carry the join.\n- B: With no punctuation at all, the two sentences fuse into a run-on.\n- D: \"And\" plus \"however\" stacks two connectors on one boundary, garbling the sentence (\"them, and however, listeners...\")."
+          "explanation": "**Choice C is correct.** Two independent clauses meet at the blank, and the second begins with the conjunctive adverb \"however\" — the conventional join is a semicolon before \"however\" and a comma after it.\n\n**The Full Solution:**\n- Left of the blank is a complete sentence: \"When the Statue of Liberty was dedicated in 1886, its copper skin was reddish-brown and shiny.\"\n- Right of the blank is another: \"within a few decades, the copper had reacted with air and rainwater...\"\n- \"However\" belongs to the second clause, so the boundary must be strong enough to separate full sentences: \"shiny; however, within a few decades...\"\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses is a comma splice; \"however\" cannot carry the join.\n- B: With no punctuation at all, the two sentences fuse into a run-on.\n- D: \"And\" plus \"however\" stacks two connectors on one boundary, garbling the sentence (\"shiny, and however, within...\").",
+          "_meta": {
+            "anchor": "Statue of Liberty (Wikipedia): dedicated 1886; \"When built, the statue was reddish-brown and shiny, but within twenty years it had oxidized to its current green color\"; re-authored 2026-10-04 (previous item restated an unverified listener experiment at Chavín, a subject already used in q08/q50)."
+          }
         },
         {
           "id": 918,
@@ -670,7 +687,7 @@ export const practiceTest9RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "The emperor Frederick II began assembling his treatise on falconry around 1240, near the end of his reign. By the time the first copies circulated among European courts, he ______ more than thirty years training and observing hawks — experience he trusted above the claims of ancient authorities.",
+          "passage": "The emperor Frederick II wrote his treatise on falconry in the 1240s, near the end of his reign. By the time he began writing, he ______ years flying hawks and keeping as many as fifty falconers at his court — experience he trusted above the claims of ancient authorities.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -691,7 +708,8 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The sentence describes one past event completed before another past event — the years of training came before the copies circulated — and that sequence takes the past perfect, \"had spent.\"\n\n**The Full Solution:**\n- The time frame is anchored in the past: \"By the time the first copies circulated...\"\n- The training preceded that past moment, so the verb must reach further back than simple past: \"he had spent more than thirty years.\"\n\n**Why the other choices are wrong:**\n- A: The present tense breaks the passage's past narrative frame.\n- C: The present perfect connects a past action to the present moment, but the reference point here (\"circulated\") is itself in the past.\n- D: The future perfect points forward from now, which contradicts events set in the thirteenth century."
+          "explanation": "**Choice B is correct.** The sentence describes one past action completed before another past moment — the years with hawks came before he began writing — and that sequence takes the past perfect, \"had spent.\"\n\n**The Full Solution:**\n- The time frame is anchored in the past: \"By the time he began writing...\"\n- The years of falconry preceded that past moment, so the verb must reach further back than the simple past: \"he had spent years flying hawks.\"\n\n**Why the other choices are wrong:**\n- A: The present tense breaks the passage's past narrative frame.\n- C: The present perfect connects a past action to the present moment, but the reference point here (\"began\") is itself in the past.\n- D: The future perfect points forward from now, which contradicts events set in the thirteenth century.",
+          "_meta": {}
         },
         {
           "id": 922,
@@ -700,28 +718,31 @@ export const practiceTest9RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "Neither of the two brass nocturnals recovered from the shipwreck ______ its sighting arm, but the toothed hour rings on both instruments remain crisp enough to read.",
+          "passage": "Neither of the two small moons of Mars ______ enough mass to pull itself into a sphere, so Phobos and Deimos remain irregular, lumpy bodies, each far smaller than Earth's Moon.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "retain"
+              "text": "possess"
             },
             {
               "id": "B",
-              "text": "are retaining"
+              "text": "are possessing"
             },
             {
               "id": "C",
-              "text": "retains"
+              "text": "possesses"
             },
             {
               "id": "D",
-              "text": "have retained"
+              "text": "have possessed"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The subject is the singular pronoun \"Neither,\" which takes a singular verb: \"retains.\"\n\n**The Full Solution:**\n- \"Of the two brass nocturnals recovered from the shipwreck\" is a prepositional phrase; the plural \"nocturnals\" inside it is not the subject.\n- \"Neither\" is grammatically singular — it means \"not one of the two\" — so the verb must be singular, as the singular pronoun \"its\" later in the clause confirms.\n\n**Why the other choices are wrong:**\n- A: A plural verb drawn to the nearby \"nocturnals\" rather than to the singular subject \"Neither.\"\n- B: Plural again, and the progressive misdescribes a settled state as an ongoing action.\n- D: \"Have retained\" is plural; the singular subject would require \"has retained.\""
+          "explanation": "**Choice C is correct.** The subject is the singular pronoun \"Neither,\" which takes a singular verb: \"possesses.\"\n\n**The Full Solution:**\n- \"Of the two small moons of Mars\" is a prepositional phrase; the plural \"moons\" inside it is not the subject.\n- \"Neither\" is grammatically singular — it means \"not one of the two\" — so the verb must be singular, as the singular pronoun \"itself\" later in the clause confirms.\n\n**Why the other choices are wrong:**\n- A: A plural verb drawn to the nearby \"moons\" rather than to the singular subject \"Neither.\"\n- B: Plural again, and the progressive misdescribes a permanent condition as an ongoing action.\n- D: \"Have possessed\" is plural; the singular subject would require \"has possessed.\"",
+          "_meta": {
+            "anchor": "Phobos and Deimos — the two small, irregularly shaped moons of Mars; re-authored 2026-10-04 (previous item described an unverified shipwreck find of two nocturnals, a subject already used in q16/q29)."
+          }
         },
         {
           "id": 919,
@@ -760,7 +781,7 @@ export const practiceTest9RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "Inside a nineteenth-century salmon cannery, the contract system divided the season's work into a fixed sequence of ______ butchering, cleaning, filling, cooking, and labeling. Each crew was paid by the finished case, not by the hour, so speed at every station mattered.",
+          "passage": "Inside a nineteenth-century salmon cannery, the contract system divided the season's work into a fixed sequence of ______ butchering, cleaning, filling, cooking, and labeling. The labor contractor was paid by the finished case, not by the hour, so speed at every station mattered.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -781,7 +802,8 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** A complete statement introduces a list of the operations, and the conventional mark before such a list is a colon.\n\n**The Full Solution:**\n- \"The contract system divided the season's work into a fixed sequence of operations\" is a full independent clause.\n- What follows — \"butchering, cleaning, filling, cooking, and labeling\" — itemizes the operations just announced.\n- A colon after a complete statement is the mark that formally introduces that itemization.\n\n**Why the other choices are wrong:**\n- A: A comma leaves the list dangling as if it were one more item in the sentence's own grammar, blurring where the announcement ends and the list begins.\n- B: A semicolon must join two independent clauses; the list of gerunds is not a clause.\n- C: With no mark at all, \"operations butchering\" collides — the list needs a boundary to introduce it."
+          "explanation": "**Choice D is correct.** A complete statement introduces a list of the operations, and the conventional mark before such a list is a colon.\n\n**The Full Solution:**\n- \"The contract system divided the season's work into a fixed sequence of operations\" is a full independent clause.\n- What follows — \"butchering, cleaning, filling, cooking, and labeling\" — itemizes the operations just announced.\n- A colon after a complete statement is the mark that formally introduces that itemization.\n\n**Why the other choices are wrong:**\n- A: A comma leaves the list dangling as if it were one more item in the sentence's own grammar, blurring where the announcement ends and the list begins.\n- B: A semicolon must join two independent clauses; the list of gerunds is not a clause.\n- C: With no mark at all, \"operations butchering\" collides — the list needs a boundary to introduce it.",
+          "_meta": {}
         },
         {
           "id": 924,
@@ -790,7 +812,7 @@ export const practiceTest9RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Frederick II insisted that claims about birds be tested against direct observation, and his falconry treatise corrected several assertions that ancient authorities had repeated for a thousand years. His demanding empirical method found few imitators among medieval writers. ______ the treatise itself remained a touchstone, copied, translated, and annotated by generations of European falconers.",
+          "passage": "Frederick II insisted that claims about birds be tested against direct observation, and his falconry treatise corrected several assertions that ancient authorities such as Aristotle had made. His demanding empirical method found few imitators among medieval writers. ______ the treatise itself remained a touchstone, copied, translated, and annotated by generations of European falconers.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -811,7 +833,8 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The final sentence runs against the expectation set by the one before it: the method attracted few imitators, yet the book itself stayed influential for generations. \"Nevertheless\" marks exactly that concession-and-reversal.\n\n**The Full Solution:**\n- Sentence three sets up a limitation — the empirical method was not widely adopted.\n- Sentence four reports a fact that survives despite that limitation: the treatise remained a touchstone.\n- \"Few imitators\" followed by \"remained a touchstone\" is a contrast between neglect of the method and endurance of the work.\n\n**Why the other choices are wrong:**\n- A: \"In addition\" treats the treatise's endurance as more of the same, ignoring the tension with \"few imitators.\"\n- B: \"Therefore\" claims the endurance followed from the lack of imitators, reversing the logic.\n- C: \"For instance\" would make the last sentence an example of the method finding few imitators, which it is not."
+          "explanation": "**Choice D is correct.** The final sentence runs against the expectation set by the one before it: the method attracted few imitators, yet the book itself stayed influential for generations. \"Nevertheless\" marks exactly that concession-and-reversal.\n\n**The Full Solution:**\n- Sentence three sets up a limitation — the empirical method was not widely adopted.\n- Sentence four reports a fact that survives despite that limitation: the treatise remained a touchstone.\n- \"Few imitators\" followed by \"remained a touchstone\" is a contrast between neglect of the method and endurance of the work.\n\n**Why the other choices are wrong:**\n- A: \"In addition\" treats the treatise's endurance as more of the same, ignoring the tension with \"few imitators.\"\n- B: \"Therefore\" claims the endurance followed from the lack of imitators, reversing the logic.\n- C: \"For instance\" would make the last sentence an example of the method finding few imitators, which it is not.",
+          "_meta": {}
         },
         {
           "id": 925,
@@ -884,10 +907,10 @@ export const practiceTest9RW = {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
               "An artesian well taps groundwater trapped under pressure between layers of impermeable rock, so the water rises on its own, without pumping.",
-              "The Grenelle well in Paris was drilled between 1833 and 1841 under the direction of the engineer Louis-Georges Mulot.",
-              "The borehole finally struck pressurized water at a depth of 548 meters.",
-              "When the drill broke through in 1841, water surged up the shaft and jetted above street level.",
-              "The well went on to supply Parisian fountains and public water needs for decades."
+              "The Grenelle well was the first artesian well drilled in Paris.",
+              "The engineer Louis-Georges Mulot directed its drilling from 1833 to 1841.",
+              "The borehole finally reached pressurized water at a depth of 548 meters.",
+              "When the drill broke through in 1841, water shot up above the wooden drilling tower."
             ],
             "goal": "The student wants to introduce the Grenelle well to an audience unfamiliar with it."
           },
@@ -895,11 +918,11 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Completed in Paris in 1841 after eight years of drilling, the Grenelle well tapped water so deeply pressurized that it rose 548 meters to the surface without pumping."
+              "text": "Completed in 1841, the Grenelle well was Paris's first artesian well, tapping water so pressurized at 548 meters down that it rose without pumping."
             },
             {
               "id": "B",
-              "text": "The engineer Louis-Georges Mulot directed one of the most difficult and celebrated drilling projects undertaken in Europe in the nineteenth century."
+              "text": "The engineer Louis-Georges Mulot directed one of the longest and most difficult drilling projects undertaken in nineteenth-century Paris."
             },
             {
               "id": "C",
@@ -907,11 +930,12 @@ export const practiceTest9RW = {
             },
             {
               "id": "D",
-              "text": "In 1841, water from the Grenelle well jetted above street level, and the well went on to supply the fountains and public water needs of Paris for several decades afterward."
+              "text": "In 1841, after eight years of drilling directed by Louis-Georges Mulot, water from the Grenelle well shot up above the wooden tower that housed the drill."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** An introduction for unfamiliar readers must say what the Grenelle well is, where and when it was made, and what made it remarkable — and A folds all three into one sentence: a Paris well finished in 1841 after eight years of drilling, drawing on water pressurized enough to rise 548 meters unaided.\n\n**The Full Solution:**\n- The goal has two demands: identify the well and make it intelligible to readers who have never heard of it.\n- A names it, places it, dates it, and explains the defining fact — water rising 548 meters to the surface with no pumping.\n\n**Why the other choices are wrong:**\n- B: It introduces the engineer, not the well — the well itself is never even named.\n- C: It defines artesian wells in general and never mentions the Grenelle well at all.\n- D: It assumes the reader already knows what the Grenelle well is, recounting its debut and its later service without ever identifying what kind of thing it was or why the water rose at all."
+          "explanation": "**Choice A is correct.** An introduction for unfamiliar readers must say what the Grenelle well is, where and when it was made, and what made it remarkable — and A folds all three into one sentence: Paris's first artesian well, finished in 1841, tapping water so pressurized at 548 meters down that it rose without pumping.\n\n**The Full Solution:**\n- The goal has two demands: identify the well and make it intelligible to readers who have never heard of it.\n- A names it, places it, dates it, and explains the defining fact — water pressurized enough to rise from 548 meters with no pumping.\n\n**Why the other choices are wrong:**\n- B: It introduces the engineer, not the well — the well itself is never even named.\n- C: It defines artesian wells in general and never mentions the Grenelle well at all.\n- D: It assumes the reader already knows what the Grenelle well is, recounting its drilling and dramatic breakthrough without ever identifying what kind of well it was or why the water rose at all.",
+          "_meta": {}
         },
         {
           "id": 927,
@@ -925,9 +949,9 @@ export const practiceTest9RW = {
             "bullets": [
               "Sea silk is a rare textile fiber spun from the byssus, the tuft of filaments a Mediterranean pen shell uses to anchor itself to the seabed.",
               "Divers gathered the shells by hand from shallow coastal waters.",
-              "Each shell yielded only about a gram of usable fiber after cleaning and combing.",
+              "The intact beards of fifty pen shells yield only about 30 grams of byssus.",
               "Finished sea-silk cloth has a natural golden sheen that was highly prized.",
-              "A single pair of knitted sea-silk gloves could require months of gathering and spinning."
+              "A single pair of knitted sea-silk gloves probably required the byssus of about 150 shells."
             ],
             "goal": "The student wants to emphasize how much labor and raw material a single sea-silk object represented."
           },
@@ -935,7 +959,7 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Sea silk is a rare textile fiber spun from the byssus, the tuft of strong, silky filaments that a Mediterranean pen shell produces to anchor itself to the seabed."
+              "text": "Sea silk is a rare textile fiber spun from the byssus, the tuft of filaments that a Mediterranean pen shell uses to anchor itself to the seabed."
             },
             {
               "id": "B",
@@ -943,7 +967,7 @@ export const practiceTest9RW = {
             },
             {
               "id": "C",
-              "text": "Because every hand-gathered shell yielded only about a gram of usable fiber, a single pair of sea-silk gloves could represent months of gathering and spinning."
+              "text": "Because fifty pen shells yield only about 30 grams of byssus, one pair of knitted gloves probably took the byssus of some 150 shells."
             },
             {
               "id": "D",
@@ -951,7 +975,10 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The goal is to convey cost in labor and material, and C compresses the two decisive quantities into one causal sentence: a gram per hand-gathered shell, and months of work behind a single pair of gloves.\n\n**The Full Solution:**\n- Emphasizing labor and material means pairing the input side (one gram per shell, gathered by hand) with the output side (months for one small object).\n- C's \"Because... could represent\" makes the scarcity the explicit cause of the labor, which is precisely the emphasis sought.\n\n**Why the other choices are wrong:**\n- A: It defines the fiber's source but conveys nothing about quantity or effort.\n- B: The golden sheen speaks to the cloth's appeal, not to the work behind it.\n- D: The gathering method alone, without the yield or the time, does not establish scale — a reader cannot tell whether diving produced pounds of fiber or grams."
+          "explanation": "**Choice C is correct.** The goal is to convey cost in labor and raw material, and C compresses the two decisive quantities into one causal sentence: a tiny yield of byssus per shell, and about 150 hand-gathered shells behind a single pair of gloves.\n\n**The Full Solution:**\n- Emphasizing labor and material means pairing the input side (about 30 grams from fifty shells, each gathered by hand) with the output side (some 150 shells for one small object).\n- C's \"Because... probably took\" makes the meager yield the explicit cause of the cost, which is precisely the emphasis sought.\n\n**Why the other choices are wrong:**\n- A: It defines the fiber's source but conveys nothing about quantity or effort.\n- B: The golden sheen speaks to the cloth's appeal, not to the work behind it.\n- D: The gathering method alone, without the yield or the number of shells, does not establish scale — a reader cannot tell whether diving produced pounds of fiber or grams.",
+          "_meta": {
+            "anchor": "Sea silk (Wikipedia): Pinna nobilis byssus; \"the intact beards of fifty shells produce 30 grams\"; \"a knitted pair of gloves probably took the byssus from around 150 shells\"; natural golden color highly valued. 2026-10-04 fact review replaced the unsupported \"about a gram of usable fiber per shell\" and \"months of gathering\" claims."
+          }
         }
       ]
     },
@@ -997,7 +1024,7 @@ export const practiceTest9RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "When the Chinese sheng — a mouth organ of seventeen bamboo pipes bundled upright in a wind chest — first reached European courts in the eighteenth century, listeners who judged instruments by appearance expected the crowded pipes to sound ______; instead, the free reeds spoke together in a blend so even that observers compared the instrument to a small organ.",
+          "passage": "A traditional Chinese sheng bundles seventeen bamboo pipes upright in a single wind chest. Seeing so many pipes crowded together, a newcomer might expect them to sound ______ when played at once; instead, the free reeds blend so evenly that the instrument is commonly described as a mouth organ.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -1018,7 +1045,10 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** \"Instead\" reverses the expectation, and what actually happened was \"a blend so even\" it recalled an organ. The expectation must therefore have been the opposite of an even blend — a harsh jumble of sounds, which is what \"cacophonous\" means.\n\n**The Full Solution:**\n- The listeners reasoned from looks: seventeen pipes crowded together suggest seventeen competing voices.\n- \"Instead\" tells us the actual sound contradicted that expectation; the actual sound was smooth and unified.\n- The blank must name the contradicted expectation: discordant noise — \"cacophonous.\"\n\n**Why the other choices are wrong:**\n- A: \"Resonant\" is a virtue, not the opposite of an even, organ-like blend — no contradiction for \"instead\" to signal.\n- C: \"Muted\" concerns volume; the surprise in the text is about blend and evenness, not loudness or softness.\n- D: \"Overwhelming\" concerns force rather than order; the reversal in the text is from expected disorder to an even blend, not from loudness to restraint."
+          "explanation": "**Choice B is correct.** \"Instead\" reverses the expectation, and what actually happens is a blend so even that the instrument is called a mouth organ. The expectation must therefore have been the opposite of an even blend — a harsh jumble of sounds, which is what \"cacophonous\" means.\n\n**The Full Solution:**\n- The newcomer reasons from looks: seventeen pipes crowded together suggest seventeen competing voices.\n- \"Instead\" tells us the actual sound contradicted that expectation; the actual sound was smooth and unified.\n- The blank must name the contradicted expectation: discordant noise — \"cacophonous.\"\n\n**Why the other choices are wrong:**\n- A: \"Resonant\" is a virtue, not the opposite of an even, organ-like blend — no contradiction for \"instead\" to signal.\n- C: \"Muted\" concerns volume; the surprise in the text is about blend and evenness, not loudness or softness.\n- D: \"Overwhelming\" concerns force rather than order; the reversal in the text is from expected disorder to an even blend, not from loudness to restraint.",
+          "_meta": {
+            "anchor": "Sheng (Wikipedia): traditional sheng generally has 17 pipes; a mouth-blown polyphonic free-reed instrument, commonly called the Chinese mouth organ. 2026-10-04 review removed an unverified anecdote about 18th-century European court listeners."
+          }
         },
         {
           "id": 928,
@@ -1057,7 +1087,7 @@ export const practiceTest9RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Medieval and early modern writers described sea silk in extravagant terms: cloth spun from the beard of a shellfish, finer than anything woven on land, fit for kings. The objects that actually survive are considerably more ______ — a scattering of gloves, caps, and small knitted panels, treasured less for their size or splendor than for their soft golden shimmer.",
+          "passage": "Writers once claimed that a pair of gloves made of sea silk was so fine it could be folded into half a walnut shell. The objects that actually survive are considerably more ______ — mostly knitted gloves and caps about as thick as ordinary silk, treasured less for any marvelous fineness than for their natural golden sheen.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -1078,7 +1108,10 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The sentence pivots from the writers' extravagant descriptions to what \"actually\" survives — small, everyday objects — so the blank must run opposite to \"extravagant\": the surviving pieces are \"modest.\"\n\n**The Full Solution:**\n- The first sentence inflates: cloth for kings, finer than anything on land.\n- The second deflates: gloves, caps, small panels, prized for shimmer rather than splendor.\n- \"Considerably more ______\" must carry the deflation, and \"modest\" — unassuming in scale and pretension — does.\n\n**Why the other choices are wrong:**\n- A: \"Elaborate\" would extend the extravagance, erasing the contrast the word \"actually\" sets up.\n- B: Survival might suggest durability, but the list that follows describes the objects' smallness and plainness, not their toughness.\n- C: \"Valuable\" clashes with the concession that the objects are treasured for shimmer rather than \"size or splendor\" — their worth is not what the blank measures against the legends."
+          "explanation": "**Choice D is correct.** The text pivots from an extravagant claim about sea silk to what \"actually\" survives — ordinary-looking knitted objects — so the blank must run opposite to that extravagance: the surviving pieces are \"modest.\"\n\n**The Full Solution:**\n- The first sentence inflates: gloves fine enough to fit inside half a walnut shell.\n- The second deflates: gloves and caps about as thick as ordinary silk, prized for their sheen rather than any marvelous fineness.\n- \"Considerably more ______\" must carry the deflation, and \"modest\" — unassuming in scale and pretension — does.\n\n**Why the other choices are wrong:**\n- A: \"Elaborate\" would extend the extravagance, erasing the contrast the word \"actually\" sets up.\n- B: Survival might suggest durability, but the description that follows concerns the objects' ordinary thickness, not their toughness.\n- C: \"Valuable\" does not answer the claim about fineness; the contrast the text draws is between a marvelous legend and plain, ordinary-looking objects.",
+          "_meta": {
+            "anchor": "Sea silk (Wikipedia): \"said to be so fine that a pair of women's gloves made from the fabric could fit into half a walnut shell\"; \"similar in thickness to other fibers such as silk\"; most surviving objects knitted, many gloves; oldest surviving object a 14th-century knit hat; natural color highly valued."
+          }
         },
         {
           "id": 934,
@@ -1087,7 +1120,7 @@ export const practiceTest9RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "For most of the nineteenth century, federal engineers held that confining the Mississippi between continuous levees would force the river to scour its own bed deeper, so that levees alone could contain any flood. The great flood of 1927 — when the river broke through in more than a hundred places and drove hundreds of thousands of people from their homes — ended the doctrine. Within a year, Congress had authorized a plan built on the opposite premise: the river would sometimes exceed any channel human beings could build for it, and engineered floodways would give the excess water somewhere safe to go.",
+          "passage": "From the late nineteenth century until 1927, federal engineers held that confining the Mississippi between continuous levees would force the river to scour its own bed deeper, so that levees alone could contain any flood. The great flood of 1927 — when the river broke through in more than a hundred places and drove hundreds of thousands of people from their homes — ended the doctrine. In 1928, Congress authorized a plan built on the opposite premise: the river would sometimes exceed any channel human beings could build for it, and engineered floodways would give the excess water somewhere safe to go.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
@@ -1108,7 +1141,8 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The three sentences perform exactly the three moves D names: the levees-only doctrine with its scouring rationale; the 1927 flood that \"ended the doctrine\"; and the replacement plan \"built on the opposite premise.\"\n\n**The Full Solution:**\n- Sentence one is doctrine plus rationale — confinement would deepen the bed, so levees alone would suffice.\n- Sentence two is the discrediting event, with its scale spelled out in the dash-set interruption.\n- Sentence three is the reversal: floodways that concede what the old doctrine denied.\n\n**Why the other choices are wrong:**\n- A: Only one plan follows the flood; no competing proposals are weighed against each other.\n- B: The text records the older doctrine's failure without defending it — no argument for rehabilitation appears.\n- C: The change described is abrupt, not gradual — a single flood reverses policy \"within a year\" — and it is the doctrine, not the river's behavior, that changes."
+          "explanation": "**Choice D is correct.** The three sentences perform exactly the three moves D names: the levees-only doctrine with its scouring rationale; the 1927 flood that \"ended the doctrine\"; and the replacement plan \"built on the opposite premise.\"\n\n**The Full Solution:**\n- Sentence one is doctrine plus rationale — confinement would deepen the bed, so levees alone would suffice.\n- Sentence two is the discrediting event, with its scale spelled out in the dash-set interruption.\n- Sentence three is the reversal: floodways that concede what the old doctrine denied.\n\n**Why the other choices are wrong:**\n- A: Only one plan follows the flood; no competing proposals are weighed against each other.\n- B: The text records the older doctrine's failure without defending it — no argument for rehabilitation appears.\n- C: The change described is abrupt, not gradual — a single flood reverses policy by the following year — and it is the doctrine, not the river's behavior, that changes.",
+          "_meta": {}
         },
         {
           "id": 932,
@@ -1117,7 +1151,7 @@ export const practiceTest9RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "The following text is from Walt Whitman's poem \"I Hear America Singing,\" first published in 1860.\n\nI hear America singing, the varied carols I hear, / Those of mechanics, each one singing his as it should be blithe and strong, / The carpenter singing his as he measures his plank or beam, / The mason singing his as he makes ready for work, or leaves off work, / The boatman singing what belongs to him in his boat, the deckhand singing on the steamboat deck, / The shoemaker singing as he sits on his bench, the hatter singing as he stands.",
+          "passage": "The following text is from Walt Whitman's poem \"I Hear America Singing,\" as it appeared in the 1881 edition of Leaves of Grass.\n\nI hear America singing, the varied carols I hear, / Those of mechanics, each one singing his as it should be blithe and strong, / The carpenter singing his as he measures his plank or beam, / The mason singing his as he makes ready for work, or leaves off work, / The boatman singing what belongs to him in his boat, the deckhand singing on the steamboat deck, / The shoemaker singing as he sits on his bench, the hatter singing as he stands.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
@@ -1140,9 +1174,9 @@ export const practiceTest9RW = {
           "correctAnswer": "B",
           "explanation": "**Choice B is correct.** The first line makes the sweeping claim — \"I hear America singing, the varied carols I hear\" — and every subsequent line particularizes it: carpenter, mason, boatman, deckhand, shoemaker, hatter, each attached to a task.\n\n**The Full Solution:**\n- The opening line is general: a nation heard as many songs.\n- The remaining lines are structurally parallel entries in a list, each naming one worker and the work during which he sings.\n- General declaration elaborated by an accumulating catalog is precisely the structure B describes.\n\n**Why the other choices are wrong:**\n- A: No single figure is followed; the poem moves across many workers, giving each a single line, not a day's arc.\n- C: No silent figures appear anywhere — everyone named is singing.\n- D: The poem opens with a declaration, not a question; nothing in the text is interrogative.",
           "_meta": {
-            "anchor": "Walt Whitman — \"I Hear America Singing\" (1860); genuine public-domain excerpt, opening lines verbatim",
+            "anchor": "Walt Whitman — \"I Hear America Singing\" (first published 1860 in a different form; text here is the 1881-82 Leaves of Grass version); genuine public-domain excerpt, opening lines verbatim",
             "quoteVerify": true,
-            "source": "Walt Whitman, \"I Hear America Singing,\" Leaves of Grass (1860 edition)"
+            "source": "Walt Whitman, \"I Hear America Singing,\" Leaves of Grass (1881-82 edition), verified against Wikisource Leaves of Grass (1882)/Inscriptions/I Hear America Singing"
           }
         },
         {
@@ -1221,12 +1255,12 @@ export const practiceTest9RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "The emperor Frederick II devoted some three decades to De arte venandi cum avibus (The Art of Hunting with Birds), a falconry treatise completed around 1245. What set the work apart from earlier bird lore was its method. Frederick repeated received claims only after testing them: he had the legend that barnacle geese hatch from driftwood investigated and dismissed it for want of evidence, covered the eyes of vultures to learn whether they found food by sight or by smell, and corrected Aristotle wherever his own evidence disagreed. The treatise's accounts of plumage, flight, and training rest on the watching of living birds rather than on the authority of older books.",
+          "passage": "The emperor Frederick II wrote De arte venandi cum avibus (The Art of Hunting with Birds), a falconry treatise, in the 1240s. What set the work apart from earlier bird lore was its method. Frederick accepted received claims only after testing them: he sent envoys north for the driftwood from which barnacle geese were said to hatch and, finding no birds on it, doubted the legend; he covered the eyes of vultures to learn whether they found food by sight or by smell; and he corrected Aristotle wherever his own observations disagreed.",
           "question": "According to the text, what distinguished Frederick II's treatise from earlier writing about birds?",
           "choices": [
             {
               "id": "A",
-              "text": "It was the first written work to take falconry as its principal subject."
+              "text": "It was written for a general audience of readers rather than for practicing falconers."
             },
             {
               "id": "B",
@@ -1238,13 +1272,13 @@ export const practiceTest9RW = {
             },
             {
               "id": "D",
-              "text": "It grounded its claims in observation and testing rather than in the authority of established sources."
+              "text": "It based its claims on observation and testing rather than on older authorities."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The text names the distinction explicitly — \"What set the work apart from earlier bird lore was its method\" — and then defines that method as testing claims and trusting observation over \"the authority of older books.\"\n\n**The Full Solution:**\n- The question asks what the text says, and the second sentence answers it directly: the method.\n- The examples specify the method — the barnacle-goose legend investigated, the vulture experiment, Aristotle corrected against evidence.\n- The final sentence restates it as D does: observation of living birds over inherited authority.\n\n**Why the other choices are wrong:**\n- A: The text never claims priority for the treatise as the first on falconry.\n- B: Frederick's rank is mentioned, but the text attributes the work's distinction to its method, not its author's throne.\n- C: Breadth of coverage is never compared; the comparison drawn is about how claims were justified.",
+          "explanation": "**Choice D is correct.** The text names the distinction explicitly — \"What set the work apart from earlier bird lore was its method\" — and then defines that method as accepting claims only after testing them against observation.\n\n**The Full Solution:**\n- The question asks what the text says, and the second sentence answers it directly: the method.\n- The examples specify the method — the barnacle-goose legend checked against driftwood brought from the north, the vulture experiment, Aristotle corrected against Frederick's own observations.\n- D restates that method: observation and testing over inherited authority.\n\n**Why the other choices are wrong:**\n- A: The text says nothing about the treatise's intended readers; its distinction lies in how claims were justified.\n- B: Frederick's rank is mentioned, but the text attributes the work's distinction to its method, not its author's throne.\n- C: Breadth of coverage is never compared; the comparison drawn is about how claims were justified.",
           "_meta": {
-            "anchor": "Frederick II — De arte venandi cum avibus (c. 1245); work registered in literaryWorks.json; barnacle-goose and vulture tests are historically attested"
+            "anchor": "Frederick II — De arte venandi cum avibus, written in the 1240s (Wikipedia); envoys sent north for barnacle-goose timbers (Barnacle goose myth, quoting the treatise); vultures' eyes covered to test smell; contradicts Aristotle. 2026-10-04 review removed unverified \"three decades\" / \"completed around 1245\" claims."
           }
         },
         {
@@ -1266,13 +1300,13 @@ export const practiceTest9RW = {
             ],
             "rows": [
               [
-                "Skarvholm",
+                "Colony 1",
                 "1,240",
                 "980",
                 "610"
               ],
               [
-                "Fuglenes",
+                "Colony 2",
                 "410",
                 "520",
                 "640"
@@ -1287,7 +1321,7 @@ export const practiceTest9RW = {
             },
             {
               "id": "B",
-              "text": "Skarvholm supported more breeding pairs than Fuglenes in 1985 and in 2005."
+              "text": "Colony 1 supported more breeding pairs than Colony 2 did in both 1985 and 2005."
             },
             {
               "id": "C",
@@ -1295,11 +1329,14 @@ export const practiceTest9RW = {
             },
             {
               "id": "D",
-              "text": "plot counts at Skarvholm fell by roughly half between 1985 and 2025 while counts at Fuglenes rose by more than half over the same years."
+              "text": "plot counts at Colony 1 fell by roughly half between 1985 and 2025 while counts at Colony 2 rose by more than half over the same years."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The caution is about divergence — one site declining while another thrives — and D exhibits precisely that: Skarvholm down from 1,240 to 610 as Fuglenes climbed from 410 to 640.\n\n**The Full Solution:**\n- To \"bear out\" the caution, the data must show two colonies moving in opposite directions, so that either one alone would mislead.\n- D reads both rows across the full period and reports the opposing trends in comparable terms (down by half, up by more than half).\n\n**Why the other choices are wrong:**\n- A: \"Changed by hundreds of pairs\" hides direction — the crux of the caution is that the changes ran opposite ways.\n- B: Which colony is larger is irrelevant to whether single-site trends mislead.\n- C: The combined total is exactly the kind of aggregate the caution warns against; a summed decline conceals that one colony was thriving."
+          "explanation": "**Choice D is correct.** The caution is about divergence — one site declining while another thrives — and D exhibits precisely that: Colony 1 down from 1,240 to 610 as Colony 2 climbed from 410 to 640.\n\n**The Full Solution:**\n- To \"bear out\" the caution, the data must show two colonies moving in opposite directions, so that either one alone would mislead.\n- D reads both rows across the full period and reports the opposing trends in comparable terms (down by half, up by more than half).\n\n**Why the other choices are wrong:**\n- A: \"Changed by hundreds of pairs\" hides direction — the crux of the caution is that the changes ran opposite ways.\n- B: Which colony is larger is irrelevant to whether single-site trends mislead.\n- C: The combined total is exactly the kind of aggregate the caution warns against; a summed decline conceals that one colony was thriving.",
+          "_meta": {
+            "anchor": "Unattributed, illustrative plot counts (2026-10-04 review replaced the real Norwegian place names Skarvholm and Fuglenes, which had invented data attached)."
+          }
         },
         {
           "id": 942,
@@ -1308,7 +1345,7 @@ export const practiceTest9RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "inferences",
-          "passage": "Ogham inscriptions and the Latin memorial stones of early medieval Ireland and Britain differ in more than script. Latin stones often carry formulas — \"here lies\" — that address a reader standing at a grave, and some add phrases about the dead person's faith or office. Ogham stones typically record only a name and the name of a father or wider kin group, in a possessive form: \"of Dalagnos, son of Dallos.\" And many ogham stones stand not in cemeteries but on hillsides and at the edges of townlands mentioned in early property records. Some scholars therefore argue that, compared with the Latin memorials, ogham stones ______",
+          "passage": "Ogham inscriptions and the Latin memorial stones of early medieval Ireland and Britain differ in more than script. Latin stones often carry formulas — \"here lies\" — that address a reader standing at a grave, and some add phrases about the dead person's faith or office. Ogham stones typically record only a name and the name of a father or wider kin group, in a possessive form meaning \"[the stone] of X, son of Y.\" And some ogham stones stand not in burial grounds but at the edges of early landholdings. Some scholars therefore argue that, compared with the Latin memorials, ogham stones ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
@@ -1329,7 +1366,10 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** Both premises push the same comparative conclusion: the inscriptions assert possession (\"of Dalagnos\") rather than address mourners, and the stones stand at townland edges rather than in cemeteries. A possessive formula on a boundary is the language of claim, not of burial — which is just what D infers, at the properly cautious strength of \"may have served.\"\n\n**The Full Solution:**\n- The Latin stones supply the contrast case: graveside address, personal detail, cemetery setting — the equipment of memorial.\n- The ogham stones lack each element and add one the Latin stones lack: placement at recorded property boundaries.\n- The inference that fits is functional: identity plus kin plus boundary equals a claim to land, as D concludes.\n\n**Why the other choices are wrong:**\n- A: The script difference is the text's starting point, not evidence about who the carvers knew.\n- B: It runs backward — the ogham texts are the sparser ones, recording names alone.\n- C: Reading aloud at gravesides fits the Latin stones' addressed formulas; the ogham stones often stand nowhere near a grave."
+          "explanation": "**Choice D is correct.** Both premises push the same comparative conclusion: the inscriptions assert possession (\"[the stone] of X\") rather than address mourners, and some stones stand at the edges of landholdings rather than in burial grounds. A possessive formula on a boundary is the language of claim, not of burial — which is just what D infers, at the properly cautious strength of \"may have served.\"\n\n**The Full Solution:**\n- The Latin stones supply the contrast case: graveside address, personal detail, cemetery setting — the equipment of memorial.\n- The ogham stones lack each element and add one the Latin stones lack: placement at the edges of landholdings.\n- The inference that fits is functional: identity plus kin plus boundary equals a claim to land, as D concludes.\n\n**Why the other choices are wrong:**\n- A: The script difference is the text's starting point, not evidence about who the carvers knew.\n- B: It runs backward — the ogham texts are the sparser ones, recording names alone.\n- C: Reading aloud at gravesides fits the Latin stones' addressed formulas; the ogham stones often stand nowhere near a grave.",
+          "_meta": {
+            "anchor": "Ogham (Wikipedia): ~400 orthodox inscriptions, \"usually consist of personal names written in a set formula\"; stones \"mainly employed as territorial markers and memorials\"; \"marks possibly indicating land ownership\". 2026-10-04 review removed an unverified sample inscription."
+          }
         },
         {
           "id": 939,
@@ -1338,7 +1378,7 @@ export const practiceTest9RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-textual",
-          "passage": "Bog bodies — human remains preserved for centuries in northern European peatlands — retain skin, hair, and even clothing in remarkable condition, and the acidity of bog water was long assumed to be the preservative. A research team instead hypothesizes that the crucial agent is sphagnan, a carbohydrate released as sphagnum moss decays, which binds the calcium that decay bacteria require and chemically tans skin much as oak bark tans leather.",
+          "passage": "Bog bodies — human remains preserved for centuries in northern European peatlands — retain skin, hair, and even clothing in remarkable condition, and the acidity of bog water was long assumed to be the preservative. A research team instead hypothesizes that the crucial agent is sphagnan, a reactive carbohydrate in the cell walls of sphagnum moss that both tans skin, much as oak bark tans leather, and inhibits the growth of decay bacteria.",
           "question": "Which finding, if true, would most directly support the team's hypothesis?",
           "choices": [
             {
@@ -1359,7 +1399,10 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The hypothesis makes sphagnan, not acidity, the crucial agent. A's experiment isolates exactly that variable — sphagnan without acidity preserves; acidity without sphagnan does not — which is the most direct support a finding could give.\n\n**The Full Solution:**\n- Supporting \"sphagnan is the crucial agent\" requires showing preservation tracks sphagnan when acidity is removed from the picture.\n- A's neutral-solution condition does that, and its acid-only condition simultaneously undermines the rival explanation the team is arguing against.\n\n**Why the other choices are wrong:**\n- B: It counts against the acidity hypothesis but says nothing about sphagnan — it removes a rival without supporting the team's own agent.\n- C: Slower moss growth near preserved bodies is a correlation running in an uninformative direction; it neither isolates sphagnan nor links it to preservation.\n- D: A relationship between moss and acidity levels describes the bogs themselves, not the preservation of tissue, and so tests neither hypothesis."
+          "explanation": "**Choice A is correct.** The hypothesis makes sphagnan, not acidity, the crucial agent. A's experiment isolates exactly that variable — sphagnan without acidity preserves; acidity without sphagnan does not — which is the most direct support a finding could give.\n\n**The Full Solution:**\n- Supporting \"sphagnan is the crucial agent\" requires showing preservation tracks sphagnan when acidity is removed from the picture.\n- A's neutral-solution condition does that, and its acid-only condition simultaneously undermines the rival explanation the team is arguing against.\n\n**Why the other choices are wrong:**\n- B: It counts against the acidity hypothesis but says nothing about sphagnan — it removes a rival without supporting the team's own agent.\n- C: Slower moss growth near preserved bodies is a correlation running in an uninformative direction; it neither isolates sphagnan nor links it to preservation.\n- D: A relationship between moss and acidity levels describes the bogs themselves, not the preservation of tissue, and so tests neither hypothesis.",
+          "_meta": {
+            "anchor": "Sphagnan hypothesis: T. J. Painter, \"Lindow man, Tollund man and other peat-bog bodies: the preservative and antimicrobial action of Sphagnan, a reactive glycuronoglycan with tanning and sequestering properties,\" Carbohydrate Polymers (1991). 2026-10-04 review removed the unverified \"binds the calcium that decay bacteria require\" mechanism."
+          }
         },
         {
           "id": 938,
@@ -1368,7 +1411,7 @@ export const practiceTest9RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "The free reed is an ancient Asian idea with a comparatively brief European history. Mouth organs built on the principle — among them the Chinese sheng and the Lao khaen — have been played for well over two thousand years. European makers took up the free reed only around the turn of the nineteenth century, after traveling instruments and written descriptions reached Western workshops; within a few decades the borrowed principle powered a wave of new inventions, from the harmonica and the accordion to the parlor harmonium. A single acoustic idea, long established in one tradition, thus seeded an entire family of instruments in another.",
+          "passage": "The free reed is an ancient Asian idea with a comparatively brief European history. Mouth organs built on the principle, such as the Chinese sheng, have been played for well over two thousand years. European builders took up the free reed only in the late eighteenth century, after instruments and written descriptions reached Western workshops; within a few decades the borrowed principle powered a wave of new inventions, from the harmonica and the accordion to the parlor harmonium. A single acoustic idea, long established in one tradition, thus seeded an entire family of instruments in another.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
@@ -1381,7 +1424,7 @@ export const practiceTest9RW = {
             },
             {
               "id": "C",
-              "text": "The free reed, played in Asian instruments for millennia, was adopted in Europe only around 1800, where it rapidly generated a new family of instruments."
+              "text": "The free reed, played in Asian instruments for millennia, was adopted in Europe only in the late 1700s and there rapidly generated a new family of instruments."
             },
             {
               "id": "D",
@@ -1389,7 +1432,10 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The text's spine is a transfer story: millennia of Asian use, adoption in Europe around 1800, and a burst of new instruments there — the arc C compresses into one sentence.\n\n**The Full Solution:**\n- Sentence one announces the asymmetry: ancient in Asia, brief in Europe.\n- The middle sentences supply the dates and mechanism of transfer — traveling instruments and descriptions reaching Western workshops.\n- The final sentence generalizes exactly as C does: one established idea seeding a family of instruments in a new tradition.\n\n**Why the other choices are wrong:**\n- A: The text says Europeans built new instruments from the principle, not that they surpassed the Asian designs.\n- B: Portability is never mentioned; it imports a plausible-sounding cause the text does not give.\n- D: It reverses the stated direction of influence — European adoption followed the arrival of Asian instruments and descriptions."
+          "explanation": "**Choice C is correct.** The text's spine is a transfer story: millennia of Asian use, adoption in Europe in the late 1700s, and a burst of new instruments there — the arc C compresses into one sentence.\n\n**The Full Solution:**\n- Sentence one announces the asymmetry: ancient in Asia, brief in Europe.\n- The middle sentences supply the dates and mechanism of transfer — traveling instruments and descriptions reaching Western workshops.\n- The final sentence generalizes exactly as C does: one established idea seeding a family of instruments in a new tradition.\n\n**Why the other choices are wrong:**\n- A: The text says Europeans built new instruments from the principle, not that they surpassed the Asian designs.\n- B: Portability is never mentioned; it imports a plausible-sounding cause the text does not give.\n- D: It reverses the stated direction of influence — European adoption followed the arrival of Asian instruments and descriptions.",
+          "_meta": {
+            "anchor": "Sheng first mentioned in 14th-12th c. BCE oracle-bone writings (Wikipedia: Sheng); European free-reed organ pipes from c. 1780 (Kirsnick, Vogler), accordion patented 1829 (Wikipedia: Free reed aerophone). 2026-10-04 review: dropped the khaen (age unverified) and corrected \"around the turn of the nineteenth century\"."
+          }
         },
         {
           "id": 940,
@@ -1468,19 +1514,20 @@ export const practiceTest9RW = {
             },
             {
               "id": "B",
-              "text": "In Yazd's traditional houses, windcatchers operate as one element of a larger cooling system, and the comfort that system created shaped how the houses were used."
+              "text": "In Yazd's traditional houses, windcatchers work within a larger cooling system whose cool rooms shaped how households lived."
             },
             {
               "id": "C",
-              "text": "The tallest windcatchers in Yazd's historic quarter belonged to the households wealthy enough to build them."
+              "text": "The tallest windcatchers in Yazd's historic quarter belonged to the households that were wealthy enough to pay for their construction."
             },
             {
               "id": "D",
-              "text": "Mechanical air-conditioning has now made the windcatchers of Yazd's historic quarter obsolete as cooling devices."
+              "text": "Mechanical air-conditioning has now made the windcatchers of Yazd's historic quarter obsolete as a means of cooling the city's houses."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The text's two halves are the system and its consequences: the tower works with pools, cellars, and courtyard as \"an integrated cooling system,\" and the resulting cool rooms reorganized summer life. B joins both halves.\n\n**The Full Solution:**\n- The opening sentence announces the thesis — the towers \"do more than move air.\"\n- The middle sentence details the integration: shaft, evaporation, courtyard current.\n- The final sentence gives the human consequence, which B folds in: households arranged their days around the cooled rooms.\n\n**Why the other choices are wrong:**\n- A: It inverts the mechanism — the water cools the air by evaporation; the text never says the system exists to chill the water.\n- C: Tower height and household wealth are never discussed.\n- D: Modern air-conditioning appears nowhere in the text."
+          "explanation": "**Choice B is correct.** The text's two halves are the system and its consequences: the tower works with pools, cellars, and courtyard as \"an integrated cooling system,\" and the resulting cool rooms reorganized summer life. B joins both halves.\n\n**The Full Solution:**\n- The opening sentence announces the thesis — the towers \"do more than move air.\"\n- The middle sentence details the integration: shaft, evaporation, courtyard current.\n- The final sentence gives the human consequence, which B folds in: households arranged their days around the cooled rooms.\n\n**Why the other choices are wrong:**\n- A: It inverts the mechanism — the water cools the air by evaporation; the text never says the system exists to chill the water.\n- C: Tower height and household wealth are never discussed.\n- D: Modern air-conditioning appears nowhere in the text.",
+          "_meta": {}
         },
         {
           "id": 943,
@@ -1494,11 +1541,11 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "reduce the total volume of water that the river carries during periods of high water."
+              "text": "reduce the total volume of water that the river carries downstream during its periods of high water."
             },
             {
               "id": "B",
-              "text": "raise the very flood heights they are meant to protect against, by denying the river its room to spread."
+              "text": "raise the very flood heights they were built to guard against."
             },
             {
               "id": "C",
@@ -1506,11 +1553,12 @@ export const practiceTest9RW = {
             },
             {
               "id": "D",
-              "text": "protect the communities behind them without altering the river's behavior in any detectable way."
+              "text": "protect the communities behind them without altering the river's behavior in any way that gauges can detect."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The premises hand over both links of the causal chain: confinement narrows the flood's path, and equivalent volumes now crest higher. The conclusion that completes \"appear to\" is the ironic one B states — the structures raise the heights they exist to guard against.\n\n**The Full Solution:**\n- Premise one is mechanism: the same water squeezed through a channel \"a fraction as wide.\"\n- Premise two is measurement: equal volumes, greater crest heights, after levee construction.\n- Mechanism plus measurement yields B's cause-and-effect conclusion, and the sentence's \"then\" demands exactly that drawn consequence.\n\n**Why the other choices are wrong:**\n- A: The comparison holds volume constant — the records concern floods of equivalent volume, so nothing supports a change in volume.\n- C: It contradicts the stated finding of \"measurably greater heights.\"\n- D: Same contradiction — the record shows detectable alteration, whatever protection the levees also provide."
+          "explanation": "**Choice B is correct.** The premises hand over both links of the causal chain: confinement narrows the flood's path, and equivalent volumes now crest higher. The conclusion that completes \"appear to\" is the ironic one B states — the structures raise the heights they exist to guard against.\n\n**The Full Solution:**\n- Premise one is mechanism: the same water squeezed through a channel \"a fraction as wide.\"\n- Premise two is measurement: equal volumes, greater crest heights, after levee construction.\n- Mechanism plus measurement yields B's cause-and-effect conclusion, and the sentence's \"then\" demands exactly that drawn consequence.\n\n**Why the other choices are wrong:**\n- A: The comparison holds volume constant — the records concern floods of equivalent volume, so nothing supports a change in volume.\n- C: It contradicts the stated finding of \"measurably greater heights.\"\n- D: Same contradiction — the record shows detectable alteration, whatever protection the levees also provide.",
+          "_meta": {}
         },
         {
           "id": 945,
@@ -1519,7 +1567,7 @@ export const practiceTest9RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "Stored in the herders' cooperative archive ______ the shearing records of every chaccu held in the district since 1994, each one listing the animals gathered, the grams of fleece taken, and the herd's condition at release.",
+          "passage": "Stored in the herders' cooperative archive ______ the shearing records of every chaccu held in the district, each one listing the animals gathered, the grams of fleece taken, and the herd's condition at release.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1540,7 +1588,8 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The sentence is inverted: the subject follows the verb. That subject is the plural \"records,\" so the verb must be the plural \"are.\"\n\n**The Full Solution:**\n- \"Stored in the herders' cooperative archive\" is an opening participial phrase, not a subject.\n- Restore normal order and the agreement is plain: \"The shearing records... are stored in the archive.\"\n- The plural is confirmed by \"each one listing,\" which distributes over multiple records.\n\n**Why the other choices are wrong:**\n- A: A singular verb drawn to the singular \"archive\" beside the blank — but \"archive\" sits inside the opening phrase and cannot be the subject.\n- C: Singular again, and the perfect adds an unneeded time frame to a simple statement of where the records are.\n- D: Singular, and the past tense contradicts \"since 1994,\" which carries the records up to the present."
+          "explanation": "**Choice B is correct.** The sentence is inverted: the subject follows the verb. That subject is the plural \"records,\" so the verb must be the plural \"are.\"\n\n**The Full Solution:**\n- \"Stored in the herders' cooperative archive\" is an opening participial phrase, not a subject.\n- Restore normal order and the agreement is plain: \"The shearing records... are stored in the archive.\"\n- The plural is confirmed by \"each one listing,\" which distributes over multiple records.\n\n**Why the other choices are wrong:**\n- A: A singular verb drawn to the singular \"archive\" beside the blank — but \"archive\" sits inside the opening phrase and cannot be the subject.\n- C: Singular again, and the perfect adds an unneeded time frame to a simple statement of where the records are.\n- D: Singular, and the past tense contradicts \"since 1994,\" which carries the records up to the present.",
+          "_meta": {}
         },
         {
           "id": 949,
@@ -1579,7 +1628,7 @@ export const practiceTest9RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "Because the pen shells that yield the raw filaments were gathered one by one by free divers, and because each shell furnished only a wisp of usable ______ a single finished glove of sea silk could represent weeks of gathering, cleaning, and spinning.",
+          "passage": "Because the pen shells that yield the raw filaments were gathered one by one by free divers, and because each shell furnished only a wisp of usable ______ a single pair of knitted sea-silk gloves could require the byssus of some 150 shells.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1600,7 +1649,8 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The sentence opens with a pair of dependent \"Because\" clauses, and the boundary between an introductory dependent structure and the main clause is a comma.\n\n**The Full Solution:**\n- Everything before the blank hangs on \"Because... and because...\" — neither clause can stand alone.\n- The main clause follows: \"a single finished glove of sea silk could represent weeks of gathering, cleaning, and spinning.\"\n- A comma is the conventional mark that closes the introductory subordination and opens the main assertion.\n\n**Why the other choices are wrong:**\n- B: Without the comma, the long double introduction collides with the main clause, leaving the sentence's turning point unmarked.\n- C: A semicolon requires an independent clause on each side; the \"Because\" clauses are not independent.\n- D: A colon must follow a complete introducing statement, and the subordinate clauses do not form one."
+          "explanation": "**Choice A is correct.** The sentence opens with a pair of dependent \"Because\" clauses, and the boundary between an introductory dependent structure and the main clause is a comma.\n\n**The Full Solution:**\n- Everything before the blank hangs on \"Because... and because...\" — neither clause can stand alone.\n- The main clause follows: \"a single pair of knitted sea-silk gloves could require the byssus of some 150 shells.\"\n- A comma is the conventional mark that closes the introductory subordination and opens the main assertion.\n\n**Why the other choices are wrong:**\n- B: Without the comma, the long double introduction collides with the main clause, leaving the sentence's turning point unmarked.\n- C: A semicolon requires an independent clause on each side; the \"Because\" clauses are not independent.\n- D: A colon must follow a complete introducing statement, and the subordinate clauses do not form one.",
+          "_meta": {}
         },
         {
           "id": 946,
@@ -1609,7 +1659,7 @@ export const practiceTest9RW = {
           "band": 4,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "By the 1980s, chemists studying peat-preserved remains had identified the agent behind a paradox that had long puzzled ______ the same waterlogged conditions that keep skin, hair, and fingernails intact for millennia slowly dissolve the skeleton itself.",
+          "passage": "Chemists studying bog bodies have explained a paradox that long puzzled ______ the same acidic water that keeps skin, hair, and fingernails intact for millennia slowly dissolves the skeleton itself.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1630,7 +1680,10 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The first clause is a complete statement that announces a paradox; the clause after the blank states what that paradox is. A colon after a complete statement is the mark that delivers on such an announcement.\n\n**The Full Solution:**\n- Left of the blank is independent: \"chemists... had identified the agent behind a paradox that had long puzzled excavators.\"\n- Right of the blank spells the paradox out — preservation and destruction from the same conditions.\n- Announcement followed by its content is the colon's defining use.\n\n**Why the other choices are wrong:**\n- A: A comma alone splices two independent clauses together.\n- B: With nothing at the boundary, the two sentences fuse into a run-on.\n- D: \"But\" is grammatical at the joint but wrecks the logic — the second clause is the paradox the first clause promised, not a turn against it."
+          "explanation": "**Choice C is correct.** The first clause is a complete statement that announces a paradox; the clause after the blank states what that paradox is. A colon after a complete statement is the mark that delivers on such an announcement.\n\n**The Full Solution:**\n- Left of the blank is independent: \"Chemists studying bog bodies have explained a paradox that long puzzled excavators.\"\n- Right of the blank spells the paradox out — preservation and destruction from the same conditions.\n- Announcement followed by its content is the colon's defining use.\n\n**Why the other choices are wrong:**\n- A: A comma alone splices two independent clauses together.\n- B: With nothing at the boundary, the two sentences fuse into a run-on.\n- D: \"But\" is grammatical at the joint but wrecks the logic — the second clause is the paradox the first clause promised, not a turn against it.",
+          "_meta": {
+            "anchor": "Bog body (Wikipedia): \"The high levels of acidity can tan their skin and preserve internal organs, but inversely dissolve the calcium phosphate of bone.\" 2026-10-04 review removed the unverified \"By the 1980s\" date."
+          }
         },
         {
           "id": 947,
@@ -1639,7 +1692,7 @@ export const practiceTest9RW = {
           "band": 4,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "The free reed entered European workshops as a curiosity, but it did not remain one. Since the first mouth-blown prototypes appeared in the 1820s, instrument makers ______ the mechanism to an astonishing range of forms, from parlor harmoniums to the concertinas that sailors carried to sea.",
+          "passage": "The free reed reached European workshops in the late eighteenth century. Since then, instrument makers ______ the mechanism to an astonishing range of forms, from the pocket-sized harmonica to the accordion and the parlor harmonium.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1652,7 +1705,7 @@ export const practiceTest9RW = {
             },
             {
               "id": "C",
-              "text": "would adapt"
+              "text": "were adapting"
             },
             {
               "id": "D",
@@ -1660,7 +1713,10 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** A \"Since\" phrase marking the start of a period that runs to the present takes the present perfect: makers \"have adapted\" the mechanism from the 1820s onward.\n\n**The Full Solution:**\n- \"Since the first mouth-blown prototypes appeared in the 1820s\" defines a span beginning in the past and continuing now.\n- Action distributed across such a span, still open at the present end, is expressed by the present perfect.\n\n**Why the other choices are wrong:**\n- A: The simple present states a general habit and cannot pair with a \"Since\" phrase anchored to a past starting point.\n- B: The simple past seals the action inside a finished period, contradicting the open span that \"Since\" establishes.\n- C: \"Would adapt\" casts the action as habitual within a closed past frame or as conditional — either reading breaks the from-then-until-now sense."
+          "explanation": "**Choice D is correct.** A \"Since\" phrase marking the start of a period that runs to the present takes the present perfect: makers \"have adapted\" the mechanism from the late eighteenth century onward.\n\n**The Full Solution:**\n- \"Since then\" points back to the late eighteenth century and defines a span beginning in the past and continuing now.\n- Action distributed across such a span, still open at the present end, is expressed by the present perfect.\n\n**Why the other choices are wrong:**\n- A: The simple present states a general habit and cannot pair with a \"Since\" phrase anchored to a past starting point.\n- B: The simple past seals the action inside a finished period, contradicting the open span that \"Since\" establishes.\n- C: The past progressive \"were adapting\" describes an action in progress at some past moment, which breaks the from-then-until-now sense of \"Since then.\"",
+          "_meta": {
+            "anchor": "Free reed aerophone (Wikipedia): free-reed organ pipes in Europe from c. 1780; accordion patented 1829. 2026-10-04 review removed unverified \"first mouth-blown prototypes in the 1820s\" and \"concertinas sailors carried\"."
+          }
         },
         {
           "id": 944,
@@ -1716,11 +1772,12 @@ export const practiceTest9RW = {
             },
             {
               "id": "D",
-              "text": "Likewise,"
+              "text": "In the same way,"
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The final sentence is the downstream result of the chain the first two build — levees stop the flooding, so the sediment bypasses the delta, so the delta sinks. \"Consequently\" marks that cause-and-effect relation.\n\n**The Full Solution:**\n- Sentence one states the intervention; sentence two states its side effect (sediment carried past the delta).\n- Sentence three reports what follows from that side effect: land \"cut off from the deposits\" subsides.\n- The sentence even restates the cause inside itself (\"cut off from the deposits\"), confirming that the blank must signal consequence.\n\n**Why the other choices are wrong:**\n- A: The sinking delta is not an example of sediment riding the current; it is the outcome of it.\n- C: \"Still\" would concede a countercurrent, but the third sentence extends the chain rather than resisting it.\n- D: \"Likewise\" announces a parallel case, and no second, similar situation has been introduced."
+          "explanation": "**Choice B is correct.** The final sentence is the downstream result of the chain the first two build — levees stop the flooding, so the sediment bypasses the delta, so the delta sinks. \"Consequently\" marks that cause-and-effect relation.\n\n**The Full Solution:**\n- Sentence one states the intervention; sentence two states its side effect (sediment carried past the delta).\n- Sentence three reports what follows from that side effect: land \"cut off from the deposits\" subsides.\n- The sentence even restates the cause inside itself (\"cut off from the deposits\"), confirming that the blank must signal consequence.\n\n**Why the other choices are wrong:**\n- A: The sinking delta is not an example of sediment riding the current; it is the outcome of it.\n- C: \"Still\" would concede a countercurrent, but the third sentence extends the chain rather than resisting it.\n- D: \"In the same way\" announces a parallel case, and no second, similar situation has been introduced.",
+          "_meta": {}
         },
         {
           "id": 950,
@@ -1729,7 +1786,7 @@ export const practiceTest9RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Visitors to Chavín de Huántar in the first millennium BCE did not merely look at the temple; ceremonies there were engineered for the ear as much as for the eye, archaeologists argue, with sound at the center of the experience. ______ a single gallery within the temple has yielded twenty conch-shell trumpets, their mouthpieces polished smooth by generations of players.",
+          "passage": "Visitors to Chavín de Huántar in the first millennium BCE did not merely look at the temple; ceremonies there were engineered for the ear as much as for the eye, archaeologists argue, with sound at the center of the experience. ______ excavations at the temple have recovered more than twenty conch-shell trumpets, each with a carefully cut mouthpiece and a surface polished by use.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1750,7 +1807,10 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The second sentence delivers striking confirmation of the first — twenty trumpets from one gallery, worn by long use — and \"In fact\" is the transition that presents evidence as emphatic support for a claim just made.\n\n**The Full Solution:**\n- Sentence one advances the archaeologists' claim: sound was central to the temple's ceremonies.\n- Sentence two does not merely continue the thought; it intensifies it with hard evidence — instruments in quantity, polished by generations.\n- A claim followed by its most arresting piece of support takes an emphasizing transition.\n\n**Why the other choices are wrong:**\n- A: \"Nonetheless\" concedes an obstacle, but the trumpet find supports rather than resists the claim.\n- B: \"Meanwhile\" implies a second, parallel scene; both sentences concern the same site and argument.\n- C: \"By contrast\" needs two things set against each other, and the discovery agrees with the claim instead of opposing it."
+          "explanation": "**Choice D is correct.** The second sentence delivers striking confirmation of the first — more than twenty trumpets, polished by use — and \"In fact\" is the transition that presents evidence as emphatic support for a claim just made.\n\n**The Full Solution:**\n- Sentence one advances the archaeologists' claim: sound was central to the temple's ceremonies.\n- Sentence two does not merely continue the thought; it intensifies it with hard evidence — instruments in quantity, worn by playing.\n- A claim followed by its most arresting piece of support takes an emphasizing transition.\n\n**Why the other choices are wrong:**\n- A: \"Nonetheless\" concedes an obstacle, but the trumpet find supports rather than resists the claim.\n- B: \"Meanwhile\" implies a second, parallel scene; both sentences concern the same site and argument.\n- C: \"By contrast\" needs two things set against each other, and the discovery agrees with the claim instead of opposing it.",
+          "_meta": {
+            "anchor": "Stanford CCRMA Chavín project (Pututus page): 21 intact pututus excavated (2001, 2018), with mouthpieces cut at the spire and use-polished surfaces."
+          }
         },
         {
           "id": 952,
@@ -1759,7 +1819,7 @@ export const practiceTest9RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "In the 1870s, salmon canneries on the Pacific Coast packed nearly everything by hand, and even a practiced crew could clean and fill only a few thousand cans in a day. Machines then claimed the line one task at a time: mechanical soldering arrived in the 1880s, and automated filling followed within a decade. ______ a cannery floor that had employed dozens of skilled workers could be run by a handful of machine tenders.",
+          "passage": "Pacific Coast salmon canneries once relied on crews of skilled hand butchers, and an experienced crew set the pace for the entire line. In the early 1900s, inventors introduced a machine that could butcher salmon mechanically. ______ the machine spread from cannery to cannery, and the large butchering crews it replaced dwindled.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1780,7 +1840,10 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The passage is a timeline — the 1870s, then the 1880s, then \"within a decade\" — and the final sentence is the endpoint that timeline was building toward. \"Eventually\" places it there.\n\n**The Full Solution:**\n- The mechanization proceeds stepwise, \"one task at a time,\" with dates marking each stage.\n- The last sentence describes the situation after those steps accumulated: a floor of dozens reduced to a handful.\n- A closing state reached at the end of a dated sequence is introduced by a transition of time.\n\n**Why the other choices are wrong:**\n- B: \"However\" would set the shrunken workforce against the mechanization, but it is mechanization's direct culmination, not a reversal of it.\n- C: \"In other words\" restates; the final sentence adds a new development rather than rephrasing the 1880s ones.\n- D: \"In addition\" flattens the sequence into a list, losing the temporal arc from hand work to machine tending that the dates establish."
+          "explanation": "**Choice A is correct.** The passage is a sequence in time — skilled hand crews, then the machine's introduction in the early 1900s — and the final sentence is the endpoint that sequence was building toward. \"Eventually\" places it there.\n\n**The Full Solution:**\n- The text moves from the era of hand butchering to the arrival of a machine in the early 1900s.\n- The last sentence describes what happened over the following years: the machine spread and the crews dwindled.\n- A closing state reached at the end of a sequence is introduced by a transition of time.\n\n**Why the other choices are wrong:**\n- B: \"However\" would set the machine's spread against its introduction, but the spread is that introduction's direct result, not a reversal of it.\n- C: \"In other words\" restates; the final sentence adds a new development rather than rephrasing the previous one.\n- D: \"In addition\" flattens the sequence into a list, losing the temporal arc from hand work to machine that the passage establishes.",
+          "_meta": {
+            "anchor": "Mechanical salmon butchering machine invented c. 1903 by Edmund A. Smith (patented 1905), replacing hand-butchering crews in Pacific Coast canneries. 2026-10-04 review removed unverified 1880s soldering / filling-machine dates."
+          }
         },
         {
           "id": 953,
@@ -1804,7 +1867,7 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Whereas the camera obscura casts a real, traceable image inside a darkened space, the camera lucida projects nothing — the artist merely sees scene and paper superimposed in the eye."
+              "text": "Whereas the camera obscura casts a real, traceable image in a darkened space, the camera lucida projects no image onto the paper at all."
             },
             {
               "id": "B",
@@ -1820,7 +1883,8 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** Emphasizing a difference requires putting both devices in one frame and stating what divides them. A does exactly that with the sharpest divide the notes contain: a real projected image versus no projection at all.\n\n**The Full Solution:**\n- The goal names two devices, so the sentence must mention both — and in contrastive relation, which A's \"Whereas\" supplies.\n- A draws its two halves straight from the notes: the obscura's traceable projection in a dark chamber; the lucida's superimposition \"in the eye\" with \"no image... cast on the paper.\"\n\n**Why the other choices are wrong:**\n- B: It describes the camera lucida alone; with one device on stage, no difference can be emphasized.\n- C: It emphasizes a similarity — the precise opposite of the stated goal.\n- D: Like B, it presents a single device; the camera lucida never appears for the comparison."
+          "explanation": "**Choice A is correct.** Emphasizing a difference requires putting both devices in one frame and stating what divides them. A does exactly that with the sharpest divide the notes contain: a real projected image versus no projection at all.\n\n**The Full Solution:**\n- The goal names two devices, so the sentence must mention both — and in contrastive relation, which A's \"Whereas\" supplies.\n- A draws its two halves straight from the notes: the obscura's traceable projection in a dark chamber; the lucida's superimposition, with \"no image... actually cast on the paper.\"\n\n**Why the other choices are wrong:**\n- B: It describes the camera lucida alone; with one device on stage, no difference can be emphasized.\n- C: It emphasizes a similarity — the precise opposite of the stated goal.\n- D: Like B, it presents a single device; the camera lucida never appears for the comparison.",
+          "_meta": {}
         },
         {
           "id": 954,
@@ -1844,7 +1908,7 @@ export const practiceTest9RW = {
           "choices": [
             {
               "id": "A",
-              "text": "A long-running seabird monitoring program has counted the breeding pairs nesting in the same small cliff plots every summer since the late 1950s, following a written protocol that fixes the date range and time of day for each count."
+              "text": "A seabird monitoring program has counted breeding pairs in the same cliff plots every summer since the late 1950s, following a fixed written protocol."
             },
             {
               "id": "B",
@@ -1852,7 +1916,7 @@ export const practiceTest9RW = {
             },
             {
               "id": "C",
-              "text": "Counted by an unchanged protocol for over sixty years, the census offers a rare record in which trends reflect the birds themselves, long enough to tie breeding numbers to shifts in the fish they depend on."
+              "text": "Unchanged for over sixty years, the census records true trends in the birds, over a span long enough to link breeding numbers to shifts in fish."
             },
             {
               "id": "D",
@@ -1860,7 +1924,8 @@ export const practiceTest9RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The value to be emphasized has two ingredients — length and unbrokenness — and C converts both into scientific payoff: trends that reflect the birds rather than the method, and a span long enough to reveal links to fish populations.\n\n**The Full Solution:**\n- \"Unchanged protocol for more than sixty years\" compresses the notes on constancy and duration.\n- \"Every trend reflects the birds themselves\" states why constancy matters scientifically.\n- The closing clause shows the record in use — the demonstrated payoff that makes the case for its value.\n\n**Why the other choices are wrong:**\n- A: It reports the counting arrangement without a word about why the record is scientifically valuable.\n- B: It drops the census entirely, mentioning only the fish.\n- D: The protocol detail alone establishes procedure, not the significance of six decades of consistent data."
+          "explanation": "**Choice C is correct.** The value to be emphasized has two ingredients — length and unbrokenness — and C converts both into scientific payoff: trends that reflect the birds rather than the method, and a span long enough to reveal links to fish populations.\n\n**The Full Solution:**\n- \"Unchanged for over sixty years\" compresses the notes on constancy and duration.\n- \"Records true trends in the birds\" states why constancy matters scientifically.\n- The closing clause shows the record in use — the demonstrated payoff that makes the case for its value.\n\n**Why the other choices are wrong:**\n- A: It reports the counting arrangement without a word about why the record is scientifically valuable.\n- B: It drops the census entirely, mentioning only the fish.\n- D: The protocol detail alone establishes procedure, not the significance of six decades of consistent data.",
+          "_meta": {}
         }
       ]
     }

@@ -6,14 +6,29 @@
   "domain": "standard-english-conventions",
   "skill": "form-structure-and-sense",
   "module": 1,
-  "passage": "Neither of the two brass nocturnals recovered from the shipwreck ______ its sighting arm, but the toothed hour rings on both instruments remain crisp enough to read.",
+  "passage": "Neither of the two small moons of Mars ______ enough mass to pull itself into a sphere, so Phobos and Deimos remain irregular, lumpy bodies, each far smaller than Earth's Moon.",
   "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
   "choices": [
-    { "id": "A", "text": "retain" },
-    { "id": "B", "text": "are retaining" },
-    { "id": "C", "text": "retains" },
-    { "id": "D", "text": "have retained" }
+    {
+      "id": "A",
+      "text": "possess"
+    },
+    {
+      "id": "B",
+      "text": "are possessing"
+    },
+    {
+      "id": "C",
+      "text": "possesses"
+    },
+    {
+      "id": "D",
+      "text": "have possessed"
+    }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The subject is the singular pronoun \"Neither,\" which takes a singular verb: \"retains.\"\n\n**The Full Solution:**\n- \"Of the two brass nocturnals recovered from the shipwreck\" is a prepositional phrase; the plural \"nocturnals\" inside it is not the subject.\n- \"Neither\" is grammatically singular — it means \"not one of the two\" — so the verb must be singular, as the singular pronoun \"its\" later in the clause confirms.\n\n**Why the other choices are wrong:**\n- A: A plural verb drawn to the nearby \"nocturnals\" rather than to the singular subject \"Neither.\"\n- B: Plural again, and the progressive misdescribes a settled state as an ongoing action.\n- D: \"Have retained\" is plural; the singular subject would require \"has retained.\""
+  "explanation": "**Choice C is correct.** The subject is the singular pronoun \"Neither,\" which takes a singular verb: \"possesses.\"\n\n**The Full Solution:**\n- \"Of the two small moons of Mars\" is a prepositional phrase; the plural \"moons\" inside it is not the subject.\n- \"Neither\" is grammatically singular — it means \"not one of the two\" — so the verb must be singular, as the singular pronoun \"itself\" later in the clause confirms.\n\n**Why the other choices are wrong:**\n- A: A plural verb drawn to the nearby \"moons\" rather than to the singular subject \"Neither.\"\n- B: Plural again, and the progressive misdescribes a permanent condition as an ongoing action.\n- D: \"Have possessed\" is plural; the singular subject would require \"has possessed.\"",
+  "_meta": {
+    "anchor": "Phobos and Deimos — the two small, irregularly shaped moons of Mars; re-authored 2026-10-04 (previous item described an unverified shipwreck find of two nocturnals, a subject already used in q16/q29)."
+  }
 }

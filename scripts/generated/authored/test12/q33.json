@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "text-structure-and-purpose",
  "module": 2,
- "passage": "Coastal towns plagued by mosquitoes once saw an obvious remedy in their salt marshes: drain the shallow pools where the insects breed. Through the early twentieth century, work crews cut long grids of parallel ditches across marsh after marsh to carry the standing water away. Ecologists who later compared ditched and unditched marshes argue that the remedy fed the very problem it targeted. The drained pools had been home to small fish that eat mosquito larvae by the thousands; when the pools went, the fish went with them, and larvae hatching in the wet patches that remained faced fewer predators than before. From this record, marsh managers draw a conclusion that would have startled the ditching crews: reopening pools on a drained marsh — deliberately giving the water back — can suppress mosquitoes more effectively than drainage ever did.",
+ "passage": "Coastal towns plagued by mosquitoes once saw an obvious remedy in their salt marshes: drain the shallow pools where the insects breed. Through the early twentieth century, crews cut grids of parallel ditches across marsh after marsh to carry the standing water away. Ecologists who later compared ditched and unditched marshes argue that the remedy worked against itself. The drained pools had been home to small fish that eat mosquito larvae; when the pools went, so did the fish, and larvae hatching in the wet patches that remained faced fewer predators. Marsh managers now draw a conclusion that would have startled the ditching crews: reopening pools on a drained marsh can suppress mosquitoes more effectively than drainage did.",
  "question": "Which choice best describes the overall structure of the text?",
  "choices": [
   {
@@ -15,7 +15,7 @@
   },
   {
    "id": "B",
-   "text": "It describes an intuitive remedy for a problem, explains how the remedy removed a natural check on that very problem, and ends with the reversed approach now drawn from that history."
+   "text": "It describes an intuitive remedy for a problem, explains how the remedy removed a natural check on the problem, and presents the reversed approach now favored."
   },
   {
    "id": "C",
@@ -23,9 +23,9 @@
   },
   {
    "id": "D",
-   "text": "It traces the life cycle of the salt-marsh mosquito in close detail, then argues that no deliberate alteration of the marsh habitat can meaningfully reduce the insect's numbers for long."
+   "text": "It traces the life cycle of the salt-marsh mosquito in close detail, then argues that no change to the marsh habitat can reduce the insect's numbers for very long."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The passage moves in three labeled steps: the obvious fix (drain the breeding pools), the backfire (the pools also held the larvae-eating fish, so draining removed the mosquitoes' predators), and the reversed lesson now drawn (put the pools back).\n\n**The Full Solution:**\n- Step one is the intuitive remedy: mosquitoes breed in marsh pools, so crews ditched the marshes to drain them.\n- Step two is the mechanism that undid it: the same pools sustained small fish that ate mosquito larvae \"by the thousands\"; without pools there were no fish, and surviving larvae \"faced fewer predators than before.\" The remedy removed a natural check on the problem.\n- Step three is the counterintuitive conclusion: managers now reopen pools — \"deliberately giving the water back\" — because restoring the predators controls mosquitoes better than drainage did. That remedy-backfire-reversal order is choice B.\n\n**Why the other choices are wrong:**\n- A: The passage criticizes the ditching campaign's logic rather than praising its engineering, and no modern excavation techniques are listed.\n- C: No regions are compared and nothing is ranked by expense.\n- D: The mosquito's life cycle is never traced, and the passage concludes that altering the habitat DOES work — in the direction nobody expected."
+ "explanation": "**Choice B is correct.** The passage moves in three labeled steps: the obvious fix (drain the breeding pools), the backfire (the pools also held the larvae-eating fish, so draining removed the mosquitoes' predators), and the reversed lesson now drawn (put the pools back).\n\n**The Full Solution:**\n- Step one is the intuitive remedy: mosquitoes breed in marsh pools, so crews ditched the marshes to drain them.\n- Step two is the mechanism that undid it: the same pools sustained small fish that ate mosquito larvae; without pools there were no fish, and surviving larvae \"faced fewer predators.\" The remedy removed a natural check on the problem.\n- Step three is the counterintuitive conclusion: managers now reopen pools on drained marshes, because restoring the predators can control mosquitoes better than drainage did. That remedy-backfire-reversal order is choice B.\n\n**Why the other choices are wrong:**\n- A: The passage criticizes the ditching campaign's logic rather than praising its engineering, and no modern excavation techniques are listed.\n- C: No regions are compared and nothing is ranked by expense.\n- D: The mosquito's life cycle is never traced, and the passage concludes that altering the habitat DOES work — in the direction nobody expected."
 }

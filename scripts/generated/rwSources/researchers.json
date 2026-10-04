@@ -5847,13 +5847,21 @@
     "title": "Catalogue of Ancient Earthquakes in the Mediterranean Area up to the 10th Century",
     "year": 1994,
     "claim": "historical earthquake catalogs must be built by tracing every report to its earliest source, since copied chronicles duplicate and misdate events"
+   },
+   {
+    "title": "Earthquakes in medieval Sicily. A historical revision (7th-13th century) (Annals of Geophysics, with A. Traina)",
+    "year": 1996,
+    "claim": "drawing on Byzantine, Latin and Arab sources beyond the local ones, the revision deleted six spurious events from the Italian catalogues, corrected one date, and identified five previously unknown earthquakes"
    }
   ],
   "suitableForSkills": [
    "rhetorical-synthesis",
    "inferences"
   ],
-  "passagePromptHint": "Italian historical seismologist who rebuilt earthquake catalogs from primary documents, removing fake or duplicated events that earlier compilers had tallied at face value."
+  "passagePromptHint": "Italian historical seismologist; her 1996 revision of medieval Sicilian earthquakes (with A. Traina) used Byzantine, Latin and Arab sources to delete six spurious events and add five unknown ones.",
+  "notes": "Verification: doi 10.4401/ag-4048 (abstract); https://en.wikipedia.org/wiki/Emanuela_Guidoboni",
+  "reviewer": "seva-rw-review-v3",
+  "verifiedAt": "2026-10-04"
  },
  {
   "id": "res-t8-003",
@@ -5888,14 +5896,17 @@
   "real": true,
   "verifiable": true,
   "knownFor": [
-   "first deliberate truffle cultivation by sowing acorns from truffle-bearing oaks (early 1800s)"
+   "early deliberate truffle cultivation (c. 1808-1810, Apt, Vaucluse): transplanting oak seedlings from beneath truffle-bearing oaks"
   ],
   "publications": [],
   "suitableForSkills": [
    "rhetorical-synthesis",
    "central-ideas-and-details"
   ],
-  "passagePromptHint": "Provençal peasant credited with founding trufficulture: he sowed acorns gathered under truffle-producing oaks and harvested truffles beneath the resulting trees."
+  "passagePromptHint": "Farmer near Apt (Vaucluse, Provence) who transplanted seedlings collected at the foot of truffle-bearing oaks; truffles later appeared beneath the young trees.",
+  "notes": "Verification: https://en.wikipedia.org/wiki/Truffle (history of cultivation)",
+  "reviewer": "seva-rw-review-v3",
+  "verifiedAt": "2026-10-04"
  },
  {
   "id": "res-t8-005",
@@ -5914,12 +5925,20 @@
     "title": "Resource polymorphisms in vertebrates",
     "year": 1995,
     "claim": "discrete morphs within a species can arise from both genetic divergence and diet-driven developmental plasticity"
+   },
+   {
+    "title": "Phenotypic plasticity, heterochrony and ontogenetic repatterning during juvenile development of divergent Arctic charr (J Evol Biol, with Parsons, Sheets, Ferguson)",
+    "year": 2011,
+    "claim": "offspring of Icelandic charr were reared on diets mimicking benthic and pelagic prey and showed diet-induced (plastic) differences in shape"
    }
   ],
   "suitableForSkills": [
    "cross-text-connections"
   ],
-  "passagePromptHint": "Icelandic biologist whose rearing experiments showed that diet shifts young Arctic char toward another morph's body form, complicating purely genetic accounts of lake morphs."
+  "passagePromptHint": "Icelandic biologist whose rearing experiments (Parsons, Sheets, Skúlason & Ferguson 2011) showed that diets mimicking benthic vs. pelagic prey alter young Arctic charr's head shape, so part of morph differences can be plastic.",
+  "notes": "Verification: PubMed 21599773; Thingvallavatn's four morphs per PubMed 15557021",
+  "reviewer": "seva-rw-review-v3",
+  "verifiedAt": "2026-10-04"
  },
  {
   "id": "res-t8-006",
@@ -6507,7 +6526,7 @@
    {
     "title": "Verzeichniss beobachteter Polarlichter",
     "year": 1873,
-    "claim": "compilation of aurora sightings spanning more than a millennium"
+    "claim": "catalog of reported aurora sightings listed by date and place"
    },
    {
     "title": "Das Polarlicht",
@@ -6518,7 +6537,7 @@
   "suitableForSkills": [
    "rhetorical-synthesis"
   ],
-  "notes": "https://en.wikipedia.org/wiki/Hermann_Fritz",
+  "notes": "https://de.wikipedia.org/wiki/Hermann_Fritz_(Polarlichtforscher) — 1830-1893, born Bingen am Rhein, professor at ETH Zurich (re-verified 2026-10-04)",
   "reviewer": "hareshbhatia",
   "verifiedAt": "2026-09-01"
  },
@@ -6573,7 +6592,7 @@
   "suitableForSkills": [
    "rhetorical-synthesis"
   ],
-  "notes": "https://en.wikipedia.org/wiki/Hardy_Webster_Campbell",
+  "notes": "http://plainshumanities.unl.edu/encyclopedia/doc/egp.ag.016 — Encyclopedia of the Great Plains: 1850-1937, homesteaded Dakota Territory 1879, Soil Culture Manual first published 1902 (re-verified 2026-10-04)",
   "reviewer": "hareshbhatia",
   "verifiedAt": "2026-09-01"
  },
@@ -6764,5 +6783,80 @@
   "reviewer": "seva-rw-review-v3",
   "verifiedAt": "2026-10-04",
   "passagePromptHint": "Atwood and colleagues link the loss of large marine predators to overgrazing that destroys carbon-storing coastal vegetation."
+ },
+ {
+  "id": "res-t12-005",
+  "name": "Oppian",
+  "field": "classical Greek poetry",
+  "affiliation": "Cilicia, Roman Empire (2nd century CE)",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "the Halieutica, a five-book Greek didactic poem on fishing, dedicated to Marcus Aurelius and Commodus"
+  ],
+  "publications": [
+   {
+    "title": "Halieutica",
+    "year": 177,
+    "claim": "five-book didactic epic on fishing composed during the joint reign of Marcus Aurelius and Commodus (176-180 CE); describes fishing methods including nets cast from boats"
+   }
+  ],
+  "suitableForSkills": [
+   "form-structure-and-sense"
+  ],
+  "notes": "Verification: https://en.wikipedia.org/wiki/Oppian ; https://en.wikipedia.org/wiki/Cast_net (History section). Year is approximate (176-180 CE).",
+  "reviewer": "seva-rw-review-v3",
+  "verifiedAt": "2026-10-04"
+ },
+ {
+  "id": "res-t12-006",
+  "name": "Abraham Ortelius",
+  "field": "cartography",
+  "affiliation": "Antwerp; Guild of Saint Luke (illuminator of maps, 1547)",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "Theatrum Orbis Terrarum (1570), often called the first modern atlas",
+   "listing his source mapmakers in the atlas (87 in the first edition, 183 by the 1601 Latin edition)"
+  ],
+  "publications": [
+   {
+    "title": "Theatrum Orbis Terrarum",
+    "year": 1570,
+    "claim": "atlas of 53 uniformly sized maps, issued in Antwerp on 20 May 1570; most maps were reproductions of other cartographers' work, credited in a printed list of authors"
+   }
+  ],
+  "suitableForSkills": [
+   "central-ideas-and-details"
+  ],
+  "notes": "Verification: https://en.wikipedia.org/wiki/Abraham_Ortelius",
+  "reviewer": "seva-rw-review-v3",
+  "verifiedAt": "2026-10-04"
+ },
+ {
+  "id": "res-t8-008",
+  "name": "Auguste Rodin",
+  "field": "sculpture",
+  "affiliation": "French sculptor (1840-1917)",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "The Thinker",
+   "The Gates of Hell",
+   "conversations on art recorded by Paul Gsell"
+  ],
+  "publications": [
+   {
+    "title": "L'Art (conversations collected by Paul Gsell; English translation Art, 1912)",
+    "year": 1911,
+    "claim": "defending Gericault's flying-gallop horses at Epsom, Rodin argued that a painting should convey movement unfolding over several moments, whereas an instantaneous photograph freezes time: 'it is the artist who is truthful and it is photography which lies'"
+   }
+  ],
+  "suitableForSkills": [
+   "cross-text-connections"
+  ],
+  "notes": "Verification: Project Gutenberg eBook #59799 (Art, 1912 English translation of the 1911 French edition), chapter on movement in art; https://en.wikipedia.org/wiki/Auguste_Rodin",
+  "reviewer": "seva-rw-review-v3",
+  "verifiedAt": "2026-10-04"
  }
 ]

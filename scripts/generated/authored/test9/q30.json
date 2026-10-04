@@ -6,14 +6,29 @@
   "domain": "craft-and-structure",
   "skill": "words-in-context",
   "module": 2,
-  "passage": "Medieval and early modern writers described sea silk in extravagant terms: cloth spun from the beard of a shellfish, finer than anything woven on land, fit for kings. The objects that actually survive are considerably more ______ — a scattering of gloves, caps, and small knitted panels, treasured less for their size or splendor than for their soft golden shimmer.",
+  "passage": "Writers once claimed that a pair of gloves made of sea silk was so fine it could be folded into half a walnut shell. The objects that actually survive are considerably more ______ — mostly knitted gloves and caps about as thick as ordinary silk, treasured less for any marvelous fineness than for their natural golden sheen.",
   "question": "Which choice completes the text with the most logical and precise word or phrase?",
   "choices": [
-    { "id": "A", "text": "elaborate" },
-    { "id": "B", "text": "durable" },
-    { "id": "C", "text": "valuable" },
-    { "id": "D", "text": "modest" }
+    {
+      "id": "A",
+      "text": "elaborate"
+    },
+    {
+      "id": "B",
+      "text": "durable"
+    },
+    {
+      "id": "C",
+      "text": "valuable"
+    },
+    {
+      "id": "D",
+      "text": "modest"
+    }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The sentence pivots from the writers' extravagant descriptions to what \"actually\" survives — small, everyday objects — so the blank must run opposite to \"extravagant\": the surviving pieces are \"modest.\"\n\n**The Full Solution:**\n- The first sentence inflates: cloth for kings, finer than anything on land.\n- The second deflates: gloves, caps, small panels, prized for shimmer rather than splendor.\n- \"Considerably more ______\" must carry the deflation, and \"modest\" — unassuming in scale and pretension — does.\n\n**Why the other choices are wrong:**\n- A: \"Elaborate\" would extend the extravagance, erasing the contrast the word \"actually\" sets up.\n- B: Survival might suggest durability, but the list that follows describes the objects' smallness and plainness, not their toughness.\n- C: \"Valuable\" clashes with the concession that the objects are treasured for shimmer rather than \"size or splendor\" — their worth is not what the blank measures against the legends."
+  "explanation": "**Choice D is correct.** The text pivots from an extravagant claim about sea silk to what \"actually\" survives — ordinary-looking knitted objects — so the blank must run opposite to that extravagance: the surviving pieces are \"modest.\"\n\n**The Full Solution:**\n- The first sentence inflates: gloves fine enough to fit inside half a walnut shell.\n- The second deflates: gloves and caps about as thick as ordinary silk, prized for their sheen rather than any marvelous fineness.\n- \"Considerably more ______\" must carry the deflation, and \"modest\" — unassuming in scale and pretension — does.\n\n**Why the other choices are wrong:**\n- A: \"Elaborate\" would extend the extravagance, erasing the contrast the word \"actually\" sets up.\n- B: Survival might suggest durability, but the description that follows concerns the objects' ordinary thickness, not their toughness.\n- C: \"Valuable\" does not answer the claim about fineness; the contrast the text draws is between a marvelous legend and plain, ordinary-looking objects.",
+  "_meta": {
+    "anchor": "Sea silk (Wikipedia): \"said to be so fine that a pair of women's gloves made from the fabric could fit into half a walnut shell\"; \"similar in thickness to other fibers such as silk\"; most surviving objects knitted, many gloves; oldest surviving object a 14th-century knit hat; natural color highly valued."
+  }
 }

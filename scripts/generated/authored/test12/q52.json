@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 2,
- "passage": "Mariners' reports kept confusing two lighthouses that stood twelve miles apart on one low, featureless stretch of coast. The district board might have fixed the problem in the obvious way, by rebuilding one of the towers to a plainly different height. The board chose not to. ______ it had one tower painted in broad red and white bands and the other in a single dark spiral, giving each light a daytime identity at a fraction of what any rebuilding would have cost.",
+ "passage": "Several tall brick lighthouses on North Carolina's Outer Banks were built to similar designs, so from the sea one tower could be hard to tell from another. Telling them apart did not require rebuilding any of them. ______ the towers were painted in distinct patterns: spiral stripes at Cape Hatteras, horizontal bands at Bodie Island, and a checkered diamond pattern at Cape Lookout.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -23,9 +23,9 @@
   },
   {
    "id": "D",
-   "text": "Today,"
+   "text": "Additionally,"
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The passage says what the board did not do — rebuild a tower — and the final sentence gives the substitute action it took: painting the towers with distinct patterns. One action replacing a rejected one calls for \"Instead.\"\n\n**The Full Solution:**\n- The obvious remedy is named: rebuild one tower to a different height.\n- It is explicitly declined: \"The board chose not to.\"\n- The last sentence supplies what the board did in its place — bands on one tower, a spiral on the other. A substitution after a refusal is exactly the relation \"Instead\" marks.\n\n**Why the other choices are wrong:**\n- A: \"Therefore\" would present the painting as a conclusion following logically from the refusal, but the refusal only clears the way; the painting is the alternative, not the consequence.\n- C: \"Similarly\" would liken the painting to the rebuilding, yet the two remedies are opposed, one chosen over the other.\n- D: \"Today\" shifts to the present, but the sentence continues the same past episode in the same past tense."
+ "explanation": "**Choice B is correct.** The passage says what was not needed — rebuilding the towers — and the final sentence gives what was done in its place: painting each tower in a distinct pattern. One action replacing a rejected one calls for \"Instead.\"\n\n**The Full Solution:**\n- The problem: towers built to similar designs were hard to tell apart from the sea.\n- The obvious remedy is set aside: telling them apart \"did not require rebuilding any of them.\"\n- The last sentence supplies what was done in place of rebuilding — spiral stripes, horizontal bands, a checkered pattern. A substitution after a rejected option is exactly the relation \"Instead\" marks.\n\n**Why the other choices are wrong:**\n- A: \"Therefore\" would present the painting as a conclusion following logically from the fact that rebuilding was unnecessary, but that fact only clears the way; the painting is the alternative, not the consequence.\n- C: \"Similarly\" would liken the painting to rebuilding, yet the passage sets the two remedies against each other.\n- D: \"Additionally\" would add the painting as one more point alongside the previous sentence, but the painting replaces the rejected remedy rather than adding to it."
 }

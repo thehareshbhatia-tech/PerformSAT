@@ -9,11 +9,11 @@
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "For most of the twentieth century, buyers judged wool by handling sample fleeces at auction, a skill acquired over years.",
-   "Appraisals of the same wool by experienced buyers could differ by a full quality grade.",
-   "In the 1960s, laboratories introduced instruments that measure a wool sample's mean fiber diameter in microns.",
-   "Australia, the largest wool exporter, began testing lots before sale and printing the measurements in auction catalogs.",
-   "Buyers could then bid on wool they had never handled, and mills could order fiber to precise specifications."
+   "For much of the twentieth century, wool buyers judged fineness by eye and touch, handling sample fleeces at auction.",
+   "Buyers judging the same wool by hand could reach different conclusions about its quality.",
+   "Laboratory instruments can measure a wool sample's mean fiber diameter in microns.",
+   "In 1969, Australia's wool-testing authority launched a long-range plan to introduce scientific measurement and testing before auction.",
+   "With measured results in hand, buyers could bid on wool they had never handled, and mills could order fiber to precise specifications."
   ],
   "goal": "The student wants to emphasize the significance of instrument testing for the wool trade."
  },
@@ -21,21 +21,21 @@
  "choices": [
   {
    "id": "A",
-   "text": "Instrument testing replaced fallible judgments of touch with printed measurements, letting buyers bid confidently on wool they had never handled."
+   "text": "Instrument testing replaced fallible judgments of touch with measurements, letting buyers bid confidently on wool they had never handled."
   },
   {
    "id": "B",
-   "text": "Experienced buyers appraising the same wool at auction could arrive at judgments that differed from one another by a full quality grade."
+   "text": "Experienced buyers judging the same wool by hand at auction could reach quite different conclusions about its quality."
   },
   {
    "id": "C",
-   "text": "In the 1960s, laboratories introduced precision instruments capable of measuring the mean fiber diameter of a wool sample in microns."
+   "text": "Laboratory instruments are capable of measuring the mean fiber diameter of a wool sample in microns."
   },
   {
    "id": "D",
-   "text": "Australia, which exported more wool during the twentieth century than any other country, began testing its wool lots before they were offered for sale at auction."
+   "text": "In 1969, Australia's wool-testing authority launched a long-range plan to introduce the testing of wool lots before they were offered at auction."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The goal asks what instrument testing changed for the trade, and A answers with the before-and-after in one sentence: inconsistent judgments of touch gave way to printed measurements, and buyers could bid on wool sight unseen.\n\n**The Full Solution:**\n- The notes' significance lies in the transformation: appraisal by handling (which varied by a full grade) versus catalog measurements that made unhandled wool biddable.\n- A compresses that transformation, method replaced and new capability gained, which is what emphasizing significance requires.\n\n**Why the other choices are wrong:**\n- B: It documents the problem, inconsistent appraisals, without mentioning instrument testing at all.\n- C: It announces the instruments' arrival but stops before any effect on the trade.\n- D: It records Australia's adoption of testing yet never says what the testing changed for buyers or mills."
+ "explanation": "**Choice A is correct.** The goal asks what instrument testing changed for the trade, and A answers with the before-and-after in one sentence: inconsistent judgments of touch gave way to measurements, and buyers could bid on wool they had never handled.\n\n**The Full Solution:**\n- The notes' significance lies in the transformation: appraisal by handling (which varied from buyer to buyer) versus measured results that made unhandled wool biddable.\n- A compresses that transformation, method replaced and new capability gained, which is what emphasizing significance requires.\n\n**Why the other choices are wrong:**\n- B: It documents the problem, inconsistent appraisals, without mentioning instrument testing at all.\n- C: It describes what the instruments measure but says nothing about any effect on the trade.\n- D: It records Australia's plan to adopt testing yet never says what the testing changed for buyers or mills."
 }

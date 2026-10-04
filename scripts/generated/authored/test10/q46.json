@@ -6,7 +6,7 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 2,
- "passage": "Dictionary editors once waited for volunteer readers to mail in slips of paper showing words in use, and an expression could circulate for a generation before enough evidence accumulated. Now that editors can search enormous electronic collections of newspapers, transcripts, and ______ they are able to watch a new word's rise in something close to real time and decide much sooner whether it has earned an entry.",
+ "passage": "Dictionary editors once waited years for volunteers to mail in slips showing new words in use. Now that editors can search vast electronic collections of newspapers, transcripts, and ______ they can watch a new word's rise almost as it happens and decide much sooner whether it has earned an entry.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
@@ -27,7 +27,7 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The sentence opens with the long dependent clause \"Now that editors can search enormous electronic collections of newspapers, transcripts, and fiction,\" and an introductory dependent clause is joined to its main clause with a comma.\n\n**The Full Solution:**\n- \"Now that... fiction\" cannot stand alone; it is a subordinate clause setting up the main clause \"they are able to watch a new word's rise...\"\n- The conventional boundary between an introductory subordinate clause and the main clause is a comma, placed after \"fiction,\" the last item in the clause's internal list.\n\n**Why the other choices are wrong:**\n- A: Omitting the comma runs the subordinate clause straight into the main clause with no boundary at all.\n- C: A semicolon must have an independent clause on each side, but everything before the blank is a fragment on its own.\n- D: A colon likewise requires a complete clause before it, which the \"Now that...\" clause is not.",
+ "explanation": "**Choice B is correct.** The sentence opens with the long dependent clause \"Now that editors can search vast electronic collections of newspapers, transcripts, and fiction,\" and an introductory dependent clause is joined to its main clause with a comma.\n\n**The Full Solution:**\n- \"Now that... fiction\" cannot stand alone; it is a subordinate clause setting up the main clause \"they can watch a new word's rise...\"\n- The conventional boundary between an introductory subordinate clause and the main clause is a comma, placed after \"fiction,\" the last item in the clause's internal list.\n\n**Why the other choices are wrong:**\n- A: Omitting the comma runs the subordinate clause straight into the main clause with no boundary at all.\n- C: A semicolon must have an independent clause on each side, but everything before the blank is a fragment on its own.\n- D: A colon likewise requires a complete clause before it, which the \"Now that...\" clause is not.",
  "_meta": {
   "rule": "comma after introductory dependent clause",
   "distractors": {

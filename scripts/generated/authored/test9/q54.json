@@ -19,11 +19,24 @@
   },
   "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
   "choices": [
-    { "id": "A", "text": "A long-running seabird monitoring program has counted the breeding pairs nesting in the same small cliff plots every summer since the late 1950s, following a written protocol that fixes the date range and time of day for each count." },
-    { "id": "B", "text": "Ecologists who use the census data are interested primarily in the populations of the small fish that cliff-nesting seabirds depend on for food." },
-    { "id": "C", "text": "Counted by an unchanged protocol for over sixty years, the census offers a rare record in which trends reflect the birds themselves, long enough to tie breeding numbers to shifts in the fish they depend on." },
-    { "id": "D", "text": "A written protocol fixes the date range, the time of day, and the plot boundaries to be used in each year's counts of breeding seabirds." }
+    {
+      "id": "A",
+      "text": "A seabird monitoring program has counted breeding pairs in the same cliff plots every summer since the late 1950s, following a fixed written protocol."
+    },
+    {
+      "id": "B",
+      "text": "Ecologists who use the census data are interested primarily in the populations of the small fish that cliff-nesting seabirds depend on for food."
+    },
+    {
+      "id": "C",
+      "text": "Unchanged for over sixty years, the census records true trends in the birds, over a span long enough to link breeding numbers to shifts in fish."
+    },
+    {
+      "id": "D",
+      "text": "A written protocol fixes the date range, the time of day, and the plot boundaries to be used in each year's counts of breeding seabirds."
+    }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The value to be emphasized has two ingredients — length and unbrokenness — and C converts both into scientific payoff: trends that reflect the birds rather than the method, and a span long enough to reveal links to fish populations.\n\n**The Full Solution:**\n- \"Unchanged protocol for more than sixty years\" compresses the notes on constancy and duration.\n- \"Every trend reflects the birds themselves\" states why constancy matters scientifically.\n- The closing clause shows the record in use — the demonstrated payoff that makes the case for its value.\n\n**Why the other choices are wrong:**\n- A: It reports the counting arrangement without a word about why the record is scientifically valuable.\n- B: It drops the census entirely, mentioning only the fish.\n- D: The protocol detail alone establishes procedure, not the significance of six decades of consistent data."
+  "explanation": "**Choice C is correct.** The value to be emphasized has two ingredients — length and unbrokenness — and C converts both into scientific payoff: trends that reflect the birds rather than the method, and a span long enough to reveal links to fish populations.\n\n**The Full Solution:**\n- \"Unchanged for over sixty years\" compresses the notes on constancy and duration.\n- \"Records true trends in the birds\" states why constancy matters scientifically.\n- The closing clause shows the record in use — the demonstrated payoff that makes the case for its value.\n\n**Why the other choices are wrong:**\n- A: It reports the counting arrangement without a word about why the record is scientifically valuable.\n- B: It drops the census entirely, mentioning only the fish.\n- D: The protocol detail alone establishes procedure, not the significance of six decades of consistent data.",
+  "_meta": {}
 }

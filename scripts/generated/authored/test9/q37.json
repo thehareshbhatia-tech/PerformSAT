@@ -6,17 +6,29 @@
   "domain": "information-and-ideas",
   "skill": "central-ideas-and-details",
   "module": 2,
-  "passage": "The emperor Frederick II devoted some three decades to De arte venandi cum avibus (The Art of Hunting with Birds), a falconry treatise completed around 1245. What set the work apart from earlier bird lore was its method. Frederick repeated received claims only after testing them: he had the legend that barnacle geese hatch from driftwood investigated and dismissed it for want of evidence, covered the eyes of vultures to learn whether they found food by sight or by smell, and corrected Aristotle wherever his own evidence disagreed. The treatise's accounts of plumage, flight, and training rest on the watching of living birds rather than on the authority of older books.",
+  "passage": "The emperor Frederick II wrote De arte venandi cum avibus (The Art of Hunting with Birds), a falconry treatise, in the 1240s. What set the work apart from earlier bird lore was its method. Frederick accepted received claims only after testing them: he sent envoys north for the driftwood from which barnacle geese were said to hatch and, finding no birds on it, doubted the legend; he covered the eyes of vultures to learn whether they found food by sight or by smell; and he corrected Aristotle wherever his own observations disagreed.",
   "question": "According to the text, what distinguished Frederick II's treatise from earlier writing about birds?",
   "choices": [
-    { "id": "A", "text": "It was the first written work to take falconry as its principal subject." },
-    { "id": "B", "text": "It was composed by a reigning monarch rather than by a scholar." },
-    { "id": "C", "text": "It described more species of birds than any earlier treatise had attempted to cover." },
-    { "id": "D", "text": "It grounded its claims in observation and testing rather than in the authority of established sources." }
+    {
+      "id": "A",
+      "text": "It was written for a general audience of readers rather than for practicing falconers."
+    },
+    {
+      "id": "B",
+      "text": "It was composed by a reigning monarch rather than by a scholar."
+    },
+    {
+      "id": "C",
+      "text": "It described more species of birds than any earlier treatise had attempted to cover."
+    },
+    {
+      "id": "D",
+      "text": "It based its claims on observation and testing rather than on older authorities."
+    }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The text names the distinction explicitly — \"What set the work apart from earlier bird lore was its method\" — and then defines that method as testing claims and trusting observation over \"the authority of older books.\"\n\n**The Full Solution:**\n- The question asks what the text says, and the second sentence answers it directly: the method.\n- The examples specify the method — the barnacle-goose legend investigated, the vulture experiment, Aristotle corrected against evidence.\n- The final sentence restates it as D does: observation of living birds over inherited authority.\n\n**Why the other choices are wrong:**\n- A: The text never claims priority for the treatise as the first on falconry.\n- B: Frederick's rank is mentioned, but the text attributes the work's distinction to its method, not its author's throne.\n- C: Breadth of coverage is never compared; the comparison drawn is about how claims were justified.",
+  "explanation": "**Choice D is correct.** The text names the distinction explicitly — \"What set the work apart from earlier bird lore was its method\" — and then defines that method as accepting claims only after testing them against observation.\n\n**The Full Solution:**\n- The question asks what the text says, and the second sentence answers it directly: the method.\n- The examples specify the method — the barnacle-goose legend checked against driftwood brought from the north, the vulture experiment, Aristotle corrected against Frederick's own observations.\n- D restates that method: observation and testing over inherited authority.\n\n**Why the other choices are wrong:**\n- A: The text says nothing about the treatise's intended readers; its distinction lies in how claims were justified.\n- B: Frederick's rank is mentioned, but the text attributes the work's distinction to its method, not its author's throne.\n- C: Breadth of coverage is never compared; the comparison drawn is about how claims were justified.",
   "_meta": {
-    "anchor": "Frederick II — De arte venandi cum avibus (c. 1245); work registered in literaryWorks.json; barnacle-goose and vulture tests are historically attested"
+    "anchor": "Frederick II — De arte venandi cum avibus, written in the 1240s (Wikipedia); envoys sent north for barnacle-goose timbers (Barnacle goose myth, quoting the treatise); vultures' eyes covered to test smell; contradicts Aristotle. 2026-10-04 review removed unverified \"three decades\" / \"completed around 1245\" claims."
   }
 }

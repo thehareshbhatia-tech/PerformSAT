@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "text-structure-and-purpose",
  "module": 1,
- "passage": "Commercial sponges regenerate: a sponge cut cleanly above its base regrows from the tissue left behind, while one torn free by a hook rarely leaves anything capable of regrowth. Divers in the Aegean understood this long before biologists described it, harvesting by knife and leaving each sponge's base attached to the rock. The practice was not sentimentality. It kept the same beds productive season after season, and fleets returned to grounds their grandfathers had worked.",
+ "passage": "Commercial bath sponges can regenerate: a sponge cut cleanly above its base regrows from the tissue left behind, while one torn free whole leaves nothing capable of regrowth. Divers who harvest by knife therefore leave each sponge's base attached to the rock. The practice is not sentimentality. It keeps the same beds productive season after season, so a fishery can return to grounds it has worked for years.",
  "question": "Which choice best states the main purpose of the text?",
  "choices": [
   {
@@ -15,7 +15,7 @@
   },
   {
    "id": "B",
-   "text": "To explain how a traditional harvesting method sustained the resource on which the harvesters depended."
+   "text": "To explain how a harvesting method sustains the resource on which the harvesters depend."
   },
   {
    "id": "C",
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** Every element of the text serves one explanatory arc: cutting rather than tearing lets sponges regrow, so the divers' knife-harvesting kept their beds productive across generations.\n\n**The Full Solution:**\n- The first sentence supplies the biological mechanism (regrowth from an intact base); the second connects it to the divers' actual method; the last two spell out the payoff, beds that stayed productive.\n- That is a purpose of explanation: showing how a traditional method sustained the resource it exploited.\n\n**Why the other choices are wrong:**\n- A: The text notes the divers' knowledge preceded the biologists' but never argues about who deserves credit.\n- C: The regrowth process occupies one sentence and is never described in detail; it serves the larger point about the harvesting method.\n- D: Only one tool and one region are discussed; no contrast between regions appears."
+ "explanation": "**Choice B is correct.** Every element of the text serves one explanatory arc: cutting rather than tearing lets sponges regrow, so knife-harvesting keeps the beds productive year after year.\n\n**The Full Solution:**\n- The first sentence supplies the biological mechanism (regrowth from an intact base); the second connects it to the divers' actual method; the last two spell out the payoff, beds that stay productive.\n- That is a purpose of explanation: showing how a harvesting method sustains the resource it exploits.\n\n**Why the other choices are wrong:**\n- A: Biologists are never mentioned, and the text makes no argument about who deserves credit for any discovery.\n- C: The regrowth process occupies one sentence and is never described in detail; it serves the larger point about the harvesting method.\n- D: Only one tool is discussed and no regions are compared, so no contrast between regions appears."
 }

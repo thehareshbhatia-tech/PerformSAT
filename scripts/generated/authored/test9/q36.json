@@ -9,11 +9,24 @@
   "passage": "The windcatchers of Yazd do more than move air. In the courtyard houses of the city's historic quarter, each tall tower works as one part of an integrated cooling system: air drawn down the shaft passes over a pool or through a cellar, shedding heat by evaporation before it reaches the living quarters, while warmed air escapes through the courtyard, pulling a steady current through the house. Rooms at a tower's base stay usable through the hottest afternoons, and households traditionally reorganized daily life around those rooms each summer.",
   "question": "Which choice best states the main idea of the text?",
   "choices": [
-    { "id": "A", "text": "Windcatchers cool the houses of Yazd primarily by chilling the water that is stored in the pools and cellars that sit beneath the bases of the towers." },
-    { "id": "B", "text": "In Yazd's traditional houses, windcatchers operate as one element of a larger cooling system, and the comfort that system created shaped how the houses were used." },
-    { "id": "C", "text": "The tallest windcatchers in Yazd's historic quarter belonged to the households wealthy enough to build them." },
-    { "id": "D", "text": "Mechanical air-conditioning has now made the windcatchers of Yazd's historic quarter obsolete as cooling devices." }
+    {
+      "id": "A",
+      "text": "Windcatchers cool the houses of Yazd primarily by chilling the water that is stored in the pools and cellars that sit beneath the bases of the towers."
+    },
+    {
+      "id": "B",
+      "text": "In Yazd's traditional houses, windcatchers work within a larger cooling system whose cool rooms shaped how households lived."
+    },
+    {
+      "id": "C",
+      "text": "The tallest windcatchers in Yazd's historic quarter belonged to the households that were wealthy enough to pay for their construction."
+    },
+    {
+      "id": "D",
+      "text": "Mechanical air-conditioning has now made the windcatchers of Yazd's historic quarter obsolete as a means of cooling the city's houses."
+    }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** The text's two halves are the system and its consequences: the tower works with pools, cellars, and courtyard as \"an integrated cooling system,\" and the resulting cool rooms reorganized summer life. B joins both halves.\n\n**The Full Solution:**\n- The opening sentence announces the thesis — the towers \"do more than move air.\"\n- The middle sentence details the integration: shaft, evaporation, courtyard current.\n- The final sentence gives the human consequence, which B folds in: households arranged their days around the cooled rooms.\n\n**Why the other choices are wrong:**\n- A: It inverts the mechanism — the water cools the air by evaporation; the text never says the system exists to chill the water.\n- C: Tower height and household wealth are never discussed.\n- D: Modern air-conditioning appears nowhere in the text."
+  "explanation": "**Choice B is correct.** The text's two halves are the system and its consequences: the tower works with pools, cellars, and courtyard as \"an integrated cooling system,\" and the resulting cool rooms reorganized summer life. B joins both halves.\n\n**The Full Solution:**\n- The opening sentence announces the thesis — the towers \"do more than move air.\"\n- The middle sentence details the integration: shaft, evaporation, courtyard current.\n- The final sentence gives the human consequence, which B folds in: households arranged their days around the cooled rooms.\n\n**Why the other choices are wrong:**\n- A: It inverts the mechanism — the water cools the air by evaporation; the text never says the system exists to chill the water.\n- C: Tower height and household wealth are never discussed.\n- D: Modern air-conditioning appears nowhere in the text.",
+  "_meta": {}
 }

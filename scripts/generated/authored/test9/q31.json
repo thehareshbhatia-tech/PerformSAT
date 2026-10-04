@@ -6,14 +6,29 @@
   "domain": "craft-and-structure",
   "skill": "words-in-context",
   "module": 2,
-  "passage": "When the Chinese sheng — a mouth organ of seventeen bamboo pipes bundled upright in a wind chest — first reached European courts in the eighteenth century, listeners who judged instruments by appearance expected the crowded pipes to sound ______; instead, the free reeds spoke together in a blend so even that observers compared the instrument to a small organ.",
+  "passage": "A traditional Chinese sheng bundles seventeen bamboo pipes upright in a single wind chest. Seeing so many pipes crowded together, a newcomer might expect them to sound ______ when played at once; instead, the free reeds blend so evenly that the instrument is commonly described as a mouth organ.",
   "question": "Which choice completes the text with the most logical and precise word or phrase?",
   "choices": [
-    { "id": "A", "text": "resonant" },
-    { "id": "B", "text": "cacophonous" },
-    { "id": "C", "text": "muted" },
-    { "id": "D", "text": "overwhelming" }
+    {
+      "id": "A",
+      "text": "resonant"
+    },
+    {
+      "id": "B",
+      "text": "cacophonous"
+    },
+    {
+      "id": "C",
+      "text": "muted"
+    },
+    {
+      "id": "D",
+      "text": "overwhelming"
+    }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** \"Instead\" reverses the expectation, and what actually happened was \"a blend so even\" it recalled an organ. The expectation must therefore have been the opposite of an even blend — a harsh jumble of sounds, which is what \"cacophonous\" means.\n\n**The Full Solution:**\n- The listeners reasoned from looks: seventeen pipes crowded together suggest seventeen competing voices.\n- \"Instead\" tells us the actual sound contradicted that expectation; the actual sound was smooth and unified.\n- The blank must name the contradicted expectation: discordant noise — \"cacophonous.\"\n\n**Why the other choices are wrong:**\n- A: \"Resonant\" is a virtue, not the opposite of an even, organ-like blend — no contradiction for \"instead\" to signal.\n- C: \"Muted\" concerns volume; the surprise in the text is about blend and evenness, not loudness or softness.\n- D: \"Overwhelming\" concerns force rather than order; the reversal in the text is from expected disorder to an even blend, not from loudness to restraint."
+  "explanation": "**Choice B is correct.** \"Instead\" reverses the expectation, and what actually happens is a blend so even that the instrument is called a mouth organ. The expectation must therefore have been the opposite of an even blend — a harsh jumble of sounds, which is what \"cacophonous\" means.\n\n**The Full Solution:**\n- The newcomer reasons from looks: seventeen pipes crowded together suggest seventeen competing voices.\n- \"Instead\" tells us the actual sound contradicted that expectation; the actual sound was smooth and unified.\n- The blank must name the contradicted expectation: discordant noise — \"cacophonous.\"\n\n**Why the other choices are wrong:**\n- A: \"Resonant\" is a virtue, not the opposite of an even, organ-like blend — no contradiction for \"instead\" to signal.\n- C: \"Muted\" concerns volume; the surprise in the text is about blend and evenness, not loudness or softness.\n- D: \"Overwhelming\" concerns force rather than order; the reversal in the text is from expected disorder to an even blend, not from loudness to restraint.",
+  "_meta": {
+    "anchor": "Sheng (Wikipedia): traditional sheng generally has 17 pipes; a mouth-blown polyphonic free-reed instrument, commonly called the Chinese mouth organ. 2026-10-04 review removed an unverified anecdote about 18th-century European court listeners."
+  }
 }

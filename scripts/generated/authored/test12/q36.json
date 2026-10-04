@@ -6,16 +6,16 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 2,
- "passage": "Wild rice, called manoomin by the Ojibwe people who have gathered it for centuries, grows untended in shallow lakes and rivers, and no one plants it in fields. It would be wrong, though, to call the plant unmanaged. Ojibwe families historically returned to the same stands year after year, timed the harvest so that ripe seed showered back into the water as the canoes moved through, cleared competing vegetation from the beds, and established new stands by scattering seed in bays where none had grown. Ethnobotanists who study these practices describe manoomin as a tended landscape rather than a found one: a food never domesticated, in the sense of being genetically transformed, yet deliberately sustained and extended by the people who depended on it.",
+ "passage": "Wild rice, called manoomin by the Ojibwe people who have gathered it for centuries, grows untended in shallow lakes and rivers, and no one plants it in fields. It would be wrong, though, to call the plant unmanaged. Ojibwe families historically returned to the same stands year after year, tied standing stalks into bundles to protect the ripening grain, harvested in a way that let ripe seed fall back into the water, and started new stands by scattering seed where none had grown. Manoomin is better described as a tended landscape than a found one: a food never domesticated, in the sense of being genetically transformed, yet deliberately sustained and extended by the people who depended on it.",
  "question": "Which choice best states the main idea of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "Ojibwe families historically cleared competing vegetation from wild rice beds and scattered seed in bays where the plant had not grown before."
+   "text": "Ojibwe families historically tied standing wild rice stalks into bundles and scattered seed in places where the plant had not grown before."
   },
   {
    "id": "B",
-   "text": "Although manoomin was never planted in fields or domesticated, Ojibwe harvesting practices deliberately sustained and extended the stands, making the plant far from unmanaged."
+   "text": "Though never planted in fields or domesticated, manoomin was far from unmanaged, since Ojibwe practices deliberately sustained and extended its stands."
   },
   {
    "id": "C",
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The passage's pivot is the second sentence — \"It would be wrong, though, to call the plant unmanaged\" — and everything after it supports that correction: the harvest reseeded the stands, beds were cleared, new bays were sown. B states the correction with its qualifier intact (no fields, no domestication, yet real management).\n\n**The Full Solution:**\n- The opening concedes the surface facts: manoomin grows untended and is not planted in fields.\n- The turn rejects the inference those facts invite — that the plant was unmanaged.\n- The evidence lists deliberate practices: returning to stands, timing the harvest so seed showered back, clearing competitors, seeding new bays.\n- The close names the resulting idea: a \"tended landscape,\" sustained and extended without domestication. B compresses exactly this.\n\n**Why the other choices are wrong:**\n- A: It lists two of the practices — supporting evidence, not the idea they support.\n- C: It restates only the opening concession, the very impression the passage goes on to correct.\n- D: It contradicts the text, which says manoomin was never domesticated \"in the sense of being genetically transformed.\""
+ "explanation": "**Choice B is correct.** The passage's pivot is the second sentence — \"It would be wrong, though, to call the plant unmanaged\" — and everything after it supports that correction: stalks were tied to protect the grain, the harvest reseeded the stands, new stands were sown. B states the correction with its qualifier intact (no fields, no domestication, yet real management).\n\n**The Full Solution:**\n- The opening concedes the surface facts: manoomin grows untended and is not planted in fields.\n- The turn rejects the inference those facts invite — that the plant was unmanaged.\n- The evidence lists deliberate practices: returning to stands, tying stalks to protect the ripening grain, harvesting so seed fell back into the water, seeding new stands.\n- The close names the resulting idea: a \"tended landscape,\" sustained and extended without domestication. B compresses exactly this.\n\n**Why the other choices are wrong:**\n- A: It lists two of the practices — supporting evidence, not the idea they support.\n- C: It restates only the opening concession, the very impression the passage goes on to correct.\n- D: It contradicts the text, which says manoomin was never domesticated \"in the sense of being genetically transformed.\""
 }

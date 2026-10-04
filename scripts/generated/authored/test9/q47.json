@@ -6,14 +6,29 @@
   "domain": "standard-english-conventions",
   "skill": "form-structure-and-sense",
   "module": 2,
-  "passage": "The free reed entered European workshops as a curiosity, but it did not remain one. Since the first mouth-blown prototypes appeared in the 1820s, instrument makers ______ the mechanism to an astonishing range of forms, from parlor harmoniums to the concertinas that sailors carried to sea.",
+  "passage": "The free reed reached European workshops in the late eighteenth century. Since then, instrument makers ______ the mechanism to an astonishing range of forms, from the pocket-sized harmonica to the accordion and the parlor harmonium.",
   "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
   "choices": [
-    { "id": "A", "text": "adapt" },
-    { "id": "B", "text": "adapted" },
-    { "id": "C", "text": "would adapt" },
-    { "id": "D", "text": "have adapted" }
+    {
+      "id": "A",
+      "text": "adapt"
+    },
+    {
+      "id": "B",
+      "text": "adapted"
+    },
+    {
+      "id": "C",
+      "text": "were adapting"
+    },
+    {
+      "id": "D",
+      "text": "have adapted"
+    }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** A \"Since\" phrase marking the start of a period that runs to the present takes the present perfect: makers \"have adapted\" the mechanism from the 1820s onward.\n\n**The Full Solution:**\n- \"Since the first mouth-blown prototypes appeared in the 1820s\" defines a span beginning in the past and continuing now.\n- Action distributed across such a span, still open at the present end, is expressed by the present perfect.\n\n**Why the other choices are wrong:**\n- A: The simple present states a general habit and cannot pair with a \"Since\" phrase anchored to a past starting point.\n- B: The simple past seals the action inside a finished period, contradicting the open span that \"Since\" establishes.\n- C: \"Would adapt\" casts the action as habitual within a closed past frame or as conditional — either reading breaks the from-then-until-now sense."
+  "explanation": "**Choice D is correct.** A \"Since\" phrase marking the start of a period that runs to the present takes the present perfect: makers \"have adapted\" the mechanism from the late eighteenth century onward.\n\n**The Full Solution:**\n- \"Since then\" points back to the late eighteenth century and defines a span beginning in the past and continuing now.\n- Action distributed across such a span, still open at the present end, is expressed by the present perfect.\n\n**Why the other choices are wrong:**\n- A: The simple present states a general habit and cannot pair with a \"Since\" phrase anchored to a past starting point.\n- B: The simple past seals the action inside a finished period, contradicting the open span that \"Since\" establishes.\n- C: The past progressive \"were adapting\" describes an action in progress at some past moment, which breaks the from-then-until-now sense of \"Since then.\"",
+  "_meta": {
+    "anchor": "Free reed aerophone (Wikipedia): free-reed organ pipes in Europe from c. 1780; accordion patented 1829. 2026-10-04 review removed unverified \"first mouth-blown prototypes in the 1820s\" and \"concertinas sailors carried\"."
+  }
 }

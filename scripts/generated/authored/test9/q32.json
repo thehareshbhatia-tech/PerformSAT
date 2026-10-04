@@ -6,19 +6,31 @@
   "domain": "craft-and-structure",
   "skill": "text-structure-and-purpose",
   "module": 2,
-  "passage": "The following text is from Walt Whitman's poem \"I Hear America Singing,\" first published in 1860.\n\nI hear America singing, the varied carols I hear, / Those of mechanics, each one singing his as it should be blithe and strong, / The carpenter singing his as he measures his plank or beam, / The mason singing his as he makes ready for work, or leaves off work, / The boatman singing what belongs to him in his boat, the deckhand singing on the steamboat deck, / The shoemaker singing as he sits on his bench, the hatter singing as he stands.",
+  "passage": "The following text is from Walt Whitman's poem \"I Hear America Singing,\" as it appeared in the 1881 edition of Leaves of Grass.\n\nI hear America singing, the varied carols I hear, / Those of mechanics, each one singing his as it should be blithe and strong, / The carpenter singing his as he measures his plank or beam, / The mason singing his as he makes ready for work, or leaves off work, / The boatman singing what belongs to him in his boat, the deckhand singing on the steamboat deck, / The shoemaker singing as he sits on his bench, the hatter singing as he stands.",
   "question": "Which choice best describes the overall structure of the text?",
   "choices": [
-    { "id": "A", "text": "The speaker narrates a single worker's day from the start of a task to its completion." },
-    { "id": "B", "text": "The speaker opens with a sweeping declaration and then develops it through a catalog of individual workers, each singing at a characteristic task." },
-    { "id": "C", "text": "The speaker contrasts the songs of skilled tradespeople with the silence of those who perform no labor." },
-    { "id": "D", "text": "The speaker poses a series of questions about the nature and dignity of labor and then answers each one with a concrete example drawn from a different trade." }
+    {
+      "id": "A",
+      "text": "The speaker narrates a single worker's day from the start of a task to its completion."
+    },
+    {
+      "id": "B",
+      "text": "The speaker opens with a sweeping declaration and then develops it through a catalog of individual workers, each singing at a characteristic task."
+    },
+    {
+      "id": "C",
+      "text": "The speaker contrasts the songs of skilled tradespeople with the silence of those who perform no labor."
+    },
+    {
+      "id": "D",
+      "text": "The speaker poses a series of questions about the nature and dignity of labor and then answers each one with a concrete example drawn from a different trade."
+    }
   ],
   "correctAnswer": "B",
   "explanation": "**Choice B is correct.** The first line makes the sweeping claim — \"I hear America singing, the varied carols I hear\" — and every subsequent line particularizes it: carpenter, mason, boatman, deckhand, shoemaker, hatter, each attached to a task.\n\n**The Full Solution:**\n- The opening line is general: a nation heard as many songs.\n- The remaining lines are structurally parallel entries in a list, each naming one worker and the work during which he sings.\n- General declaration elaborated by an accumulating catalog is precisely the structure B describes.\n\n**Why the other choices are wrong:**\n- A: No single figure is followed; the poem moves across many workers, giving each a single line, not a day's arc.\n- C: No silent figures appear anywhere — everyone named is singing.\n- D: The poem opens with a declaration, not a question; nothing in the text is interrogative.",
   "_meta": {
-    "anchor": "Walt Whitman — \"I Hear America Singing\" (1860); genuine public-domain excerpt, opening lines verbatim",
+    "anchor": "Walt Whitman — \"I Hear America Singing\" (first published 1860 in a different form; text here is the 1881-82 Leaves of Grass version); genuine public-domain excerpt, opening lines verbatim",
     "quoteVerify": true,
-    "source": "Walt Whitman, \"I Hear America Singing,\" Leaves of Grass (1860 edition)"
+    "source": "Walt Whitman, \"I Hear America Singing,\" Leaves of Grass (1881-82 edition), verified against Wikisource Leaves of Grass (1882)/Inscriptions/I Hear America Singing"
   }
 }

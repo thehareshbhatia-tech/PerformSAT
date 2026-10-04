@@ -9,12 +9,12 @@
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "In the mid-1700s, European performers gave concerts on sets of wine glasses tuned by filling each glass with a different amount of water.",
-   "The glasses had to be refilled and retuned before every performance, and a player could reach only a few glasses at a time.",
-   "Benjamin Franklin heard such a concert in England and set out to improve on the instrument.",
-   "In 1761 he introduced the glass armonica, mounting glass bowls of graduated sizes on a single rotating spindle.",
-   "Because each bowl was ground to its pitch, no water tuning was needed, and the nested bowls placed dozens of notes within reach of the player's ten fingers.",
-   "Composers including Mozart went on to write music for Franklin's instrument."
+   "In the mid-1700s, performers played music on wine glasses fixed to a table and tuned by adding or removing water.",
+   "Benjamin Franklin heard such a performance in Cambridge, England, in 1761.",
+   "That year he designed the glass armonica: glass bowls of graduated sizes mounted on one spindle turned by a treadle.",
+   "Each bowl's pitch came from its size, so no water tuning was needed.",
+   "A player could sound chords of as many notes as the fingers could reach.",
+   "Mozart later wrote music for the instrument."
   ],
   "goal": "The student wants to emphasize how Franklin's design overcame the limitations of the tuned wine glasses."
  },
@@ -22,21 +22,21 @@
  "choices": [
   {
    "id": "A",
-   "text": "In the mid-1700s, European performers gave concerts on sets of ordinary wine glasses, each of which had to be tuned before every performance by being filled with a precisely measured amount of water."
+   "text": "In the mid-1700s, performers played music on wine glasses that were fixed to a table and tuned by adding or removing water."
   },
   {
    "id": "B",
-   "text": "Benjamin Franklin heard a concert played on tuned wine glasses while he was in England and became convinced that he could improve on the instrument."
+   "text": "Benjamin Franklin heard a performance on tuned wine glasses in Cambridge, England, in 1761, and he designed his own instrument that same year."
   },
   {
    "id": "C",
-   "text": "By grinding each bowl to its pitch and nesting the bowls on one spindle, Franklin's armonica did away with water tuning and put dozens of notes within reach of the player's fingers."
+   "text": "Because each bowl's pitch came from its size, Franklin's armonica needed no water tuning, unlike the wine glasses that inspired it."
   },
   {
    "id": "D",
-   "text": "Composers as celebrated as Mozart went on to write music expressly for the glass armonica that Franklin introduced in 1761."
+   "text": "Composers as celebrated as Mozart later wrote music for the glass armonica, which Franklin designed in 1761."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The goal is to show HOW the design beat the glasses' limitations, and C pairs each design feature with the limitation it removed: bowls ground to pitch ended the refilling and retuning, and the nested bowls on one spindle put dozens of notes under ten fingers where the glasses had offered only a few.\n\n**The Full Solution:**\n- The notes name two limitations of the wine glasses: constant water tuning, and only a few glasses within reach.\n- They also name the design answers: pitch ground into each bowl, and graduated bowls nested on a rotating spindle.\n- C is the only choice that connects the answers to the limitations — design, then payoff — which is exactly the emphasis the goal requests.\n\n**Why the other choices are wrong:**\n- A: It describes only the old instrument and its tuning burden, never Franklin or his design.\n- B: It sets up Franklin's ambition but stops before saying what he built or what it fixed.\n- D: It attests to the instrument's later success without mentioning a single feature of the design or the limitations it overcame."
+ "explanation": "**Choice C is correct.** The goal is to show HOW the design overcame the glasses' limitations, and C pairs a design feature with the limitation it removed: because each bowl's pitch came from its size, the water tuning the wine glasses required was no longer needed.\n\n**The Full Solution:**\n- The notes name the old instrument's burden: each glass had to be tuned by adding or removing water.\n- They also name Franklin's answer: bowls of graduated sizes, each sounding its pitch by its size alone.\n- C is the only choice that connects the design to the limitation it overcame — feature, then payoff — which is exactly the emphasis the goal requests.\n\n**Why the other choices are wrong:**\n- A: It describes only the old instrument and its tuning, never Franklin or his design.\n- B: It tells when Franklin encountered the glasses and designed his instrument but never says what the design changed.\n- D: It attests to the instrument's later success without mentioning a single feature of the design or the limitation it overcame."
 }

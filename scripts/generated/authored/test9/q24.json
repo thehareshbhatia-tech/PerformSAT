@@ -6,14 +6,27 @@
   "domain": "expression-of-ideas",
   "skill": "transitions",
   "module": 1,
-  "passage": "Frederick II insisted that claims about birds be tested against direct observation, and his falconry treatise corrected several assertions that ancient authorities had repeated for a thousand years. His demanding empirical method found few imitators among medieval writers. ______ the treatise itself remained a touchstone, copied, translated, and annotated by generations of European falconers.",
+  "passage": "Frederick II insisted that claims about birds be tested against direct observation, and his falconry treatise corrected several assertions that ancient authorities such as Aristotle had made. His demanding empirical method found few imitators among medieval writers. ______ the treatise itself remained a touchstone, copied, translated, and annotated by generations of European falconers.",
   "question": "Which choice completes the text with the most logical transition?",
   "choices": [
-    { "id": "A", "text": "In addition," },
-    { "id": "B", "text": "Therefore," },
-    { "id": "C", "text": "For instance," },
-    { "id": "D", "text": "Nevertheless," }
+    {
+      "id": "A",
+      "text": "In addition,"
+    },
+    {
+      "id": "B",
+      "text": "Therefore,"
+    },
+    {
+      "id": "C",
+      "text": "For instance,"
+    },
+    {
+      "id": "D",
+      "text": "Nevertheless,"
+    }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The final sentence runs against the expectation set by the one before it: the method attracted few imitators, yet the book itself stayed influential for generations. \"Nevertheless\" marks exactly that concession-and-reversal.\n\n**The Full Solution:**\n- Sentence three sets up a limitation — the empirical method was not widely adopted.\n- Sentence four reports a fact that survives despite that limitation: the treatise remained a touchstone.\n- \"Few imitators\" followed by \"remained a touchstone\" is a contrast between neglect of the method and endurance of the work.\n\n**Why the other choices are wrong:**\n- A: \"In addition\" treats the treatise's endurance as more of the same, ignoring the tension with \"few imitators.\"\n- B: \"Therefore\" claims the endurance followed from the lack of imitators, reversing the logic.\n- C: \"For instance\" would make the last sentence an example of the method finding few imitators, which it is not."
+  "explanation": "**Choice D is correct.** The final sentence runs against the expectation set by the one before it: the method attracted few imitators, yet the book itself stayed influential for generations. \"Nevertheless\" marks exactly that concession-and-reversal.\n\n**The Full Solution:**\n- Sentence three sets up a limitation — the empirical method was not widely adopted.\n- Sentence four reports a fact that survives despite that limitation: the treatise remained a touchstone.\n- \"Few imitators\" followed by \"remained a touchstone\" is a contrast between neglect of the method and endurance of the work.\n\n**Why the other choices are wrong:**\n- A: \"In addition\" treats the treatise's endurance as more of the same, ignoring the tension with \"few imitators.\"\n- B: \"Therefore\" claims the endurance followed from the lack of imitators, reversing the logic.\n- C: \"For instance\" would make the last sentence an example of the method finding few imitators, which it is not.",
+  "_meta": {}
 }

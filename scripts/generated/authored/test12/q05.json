@@ -6,12 +6,12 @@
  "domain": "craft-and-structure",
  "skill": "text-structure-and-purpose",
  "module": 1,
- "passage": "The following text is from Alfred, Lord Tennyson's poem \"The Kraken,\" first published in Poems, Chiefly Lyrical (1830).\n\nBelow the thunders of the upper deep;\nFar, far beneath in the abysmal sea,\nHis antient, dreamless, uninvaded sleep\nThe Kraken sleepeth: faintest sunlights flee\nAbout his shadowy sides: above him swell\nHuge sponges of millennial growth and height;\nAnd far away into the sickly light,\nFrom many a wondrous grot and secret cell\nUnnumber'd and enormous polypi\nWinnow with giant arms the slumbering green.\nThere hath he lain for ages and will lie\nBattening upon huge seaworms in his sleep,\nUntil the latter fire shall heat the deep;\nThen once by man and angels to be seen,\nIn roaring he shall rise and on the surface die.",
+ "passage": "The following text is Alfred, Lord Tennyson's poem \"The Kraken,\" first published in 1830.\n\nBelow the thunders of the upper deep;\nFar, far beneath in the abysmal sea,\nHis ancient, dreamless, uninvaded sleep\nThe Kraken sleepeth: faintest sunlights flee\nAbout his shadowy sides: above him swell\nHuge sponges of millennial growth and height;\nAnd far away into the sickly light,\nFrom many a wondrous grot and secret cell\nUnnumber'd and enormous polypi\nWinnow with giant arms the slumbering green.\nThere hath he lain for ages and will lie\nBattening upon huge seaworms in his sleep,\nUntil the latter fire shall heat the deep;\nThen once by man and angels to be seen,\nIn roaring he shall rise and on the surface die.",
  "question": "Which choice best describes the overall structure of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "The speaker describes a creature's undisturbed sleep far beneath the sea, then foretells the single violent event that will end both the sleep and the creature itself."
+   "text": "The speaker describes a creature's undisturbed sleep deep beneath the sea, then foretells the single event that will end both its sleep and its life."
   },
   {
    "id": "B",
@@ -23,11 +23,11 @@
   },
   {
    "id": "D",
-   "text": "The speaker pictures a creature rising briefly from the depths to the surface of the sea, then follows it back down to the seafloor where its long, undisturbed rest quietly resumes."
+   "text": "The speaker pictures a creature rising briefly from the depths to the surface, then follows it back down to the seafloor, where its long rest resumes."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** Most of the poem dwells on the Kraken's ancient, unbroken sleep in the deep; the closing lines then leap forward to the one event that will end it — \"In roaring he shall rise and on the surface die.\"\n\n**The Full Solution:**\n- The opening lines fix the setting and the state: \"Far, far beneath in the abysmal sea,\" the Kraken's \"antient, dreamless, uninvaded sleep.\"\n- The middle lines fill in the sleeping world around him — millennial sponges, giant polypi winnowing the slumbering green — all continuing the stillness.\n- The turn comes with \"Until the latter fire shall heat the deep\": the poem ends by foretelling the creature's rise and immediate death at the surface, the single event that closes both the sleep and the life.\n\n**Why the other choices are wrong:**\n- B: It invents a search and a searcher; no one in the poem is looking for the Kraken, and its future rising is when it will be seen.\n- C: It imposes a question-and-evidence debate on a poem that asserts its scene without ever doubting it.\n- D: It reverses the poem's motion — the rise to the surface comes at the end, and nothing follows it but death, not a resumed rest.",
+ "explanation": "**Choice A is correct.** Most of the poem dwells on the Kraken's ancient, unbroken sleep in the deep; the closing lines then leap forward to the one event that will end it — \"In roaring he shall rise and on the surface die.\"\n\n**The Full Solution:**\n- The opening lines fix the setting and the state: \"Far, far beneath in the abysmal sea,\" the Kraken's \"ancient, dreamless, uninvaded sleep.\"\n- The middle lines fill in the sleeping world around him — millennial sponges, giant polypi winnowing the slumbering green — all continuing the stillness.\n- The turn comes with \"Until the latter fire shall heat the deep\": the poem ends by foretelling the creature's rise and immediate death at the surface, the single event that closes both the sleep and the life.\n\n**Why the other choices are wrong:**\n- B: It invents a search and a searcher; no one in the poem is looking for the Kraken, and its future rising is when it will be seen.\n- C: It imposes a question-and-evidence debate on a poem that asserts its scene without ever doubting it.\n- D: It reverses the poem's motion — the rise to the surface comes at the end, and nothing follows it but death, not a resumed rest.",
  "_meta": {
   "anchor": "Alfred, Lord Tennyson, \"The Kraken\" (1830) — genuine public-domain text, complete poem verbatim",
   "quoteVerify": true,

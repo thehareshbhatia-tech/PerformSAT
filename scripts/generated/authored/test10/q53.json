@@ -9,11 +9,11 @@
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "Spices reaching medieval Europe from the Indian Ocean passed through a chain of intermediate ports rather than traveling in a single ship.",
-   "Some ports functioned as entrepôts: places where goods were unloaded, stored, and resold rather than consumed.",
-   "At an entrepôt, cargoes changed hands between ships suited to different seas, such as ocean-going vessels and Mediterranean galleys.",
-   "Merchants at an entrepôt could buy in bulk when fleets arrived and sell gradually as demand justified.",
-   "Because fleets sailed only when the seasonal winds allowed, storage at entrepôts smoothed the trade's rhythm between arrivals."
+   "Spices reaching medieval Europe from the Indian Ocean passed through a chain of ports rather than traveling in a single ship.",
+   "Some ports served as entrepôts, where goods were unloaded, stored, and resold.",
+   "At an entrepôt, cargoes moved between ships suited to different seas, such as ocean-going vessels and Mediterranean galleys.",
+   "Merchants there could buy in bulk when fleets arrived and sell gradually as demand allowed.",
+   "Because fleets sailed only when seasonal winds allowed, storage at entrepôts smoothed the trade between arrivals."
   ],
   "goal": "The student wants to emphasize the significance of entrepôts to the spice trade."
  },

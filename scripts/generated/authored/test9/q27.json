@@ -11,19 +11,34 @@
     "bullets": [
       "Sea silk is a rare textile fiber spun from the byssus, the tuft of filaments a Mediterranean pen shell uses to anchor itself to the seabed.",
       "Divers gathered the shells by hand from shallow coastal waters.",
-      "Each shell yielded only about a gram of usable fiber after cleaning and combing.",
+      "The intact beards of fifty pen shells yield only about 30 grams of byssus.",
       "Finished sea-silk cloth has a natural golden sheen that was highly prized.",
-      "A single pair of knitted sea-silk gloves could require months of gathering and spinning."
+      "A single pair of knitted sea-silk gloves probably required the byssus of about 150 shells."
     ],
     "goal": "The student wants to emphasize how much labor and raw material a single sea-silk object represented."
   },
   "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
   "choices": [
-    { "id": "A", "text": "Sea silk is a rare textile fiber spun from the byssus, the tuft of strong, silky filaments that a Mediterranean pen shell produces to anchor itself to the seabed." },
-    { "id": "B", "text": "Finished sea-silk cloth has a natural golden sheen that made the fabric highly prized." },
-    { "id": "C", "text": "Because every hand-gathered shell yielded only about a gram of usable fiber, a single pair of sea-silk gloves could represent months of gathering and spinning." },
-    { "id": "D", "text": "Divers gathered pen shells by hand from shallow coastal waters around the Mediterranean." }
+    {
+      "id": "A",
+      "text": "Sea silk is a rare textile fiber spun from the byssus, the tuft of filaments that a Mediterranean pen shell uses to anchor itself to the seabed."
+    },
+    {
+      "id": "B",
+      "text": "Finished sea-silk cloth has a natural golden sheen that made the fabric highly prized."
+    },
+    {
+      "id": "C",
+      "text": "Because fifty pen shells yield only about 30 grams of byssus, one pair of knitted gloves probably took the byssus of some 150 shells."
+    },
+    {
+      "id": "D",
+      "text": "Divers gathered pen shells by hand from shallow coastal waters around the Mediterranean."
+    }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The goal is to convey cost in labor and material, and C compresses the two decisive quantities into one causal sentence: a gram per hand-gathered shell, and months of work behind a single pair of gloves.\n\n**The Full Solution:**\n- Emphasizing labor and material means pairing the input side (one gram per shell, gathered by hand) with the output side (months for one small object).\n- C's \"Because... could represent\" makes the scarcity the explicit cause of the labor, which is precisely the emphasis sought.\n\n**Why the other choices are wrong:**\n- A: It defines the fiber's source but conveys nothing about quantity or effort.\n- B: The golden sheen speaks to the cloth's appeal, not to the work behind it.\n- D: The gathering method alone, without the yield or the time, does not establish scale — a reader cannot tell whether diving produced pounds of fiber or grams."
+  "explanation": "**Choice C is correct.** The goal is to convey cost in labor and raw material, and C compresses the two decisive quantities into one causal sentence: a tiny yield of byssus per shell, and about 150 hand-gathered shells behind a single pair of gloves.\n\n**The Full Solution:**\n- Emphasizing labor and material means pairing the input side (about 30 grams from fifty shells, each gathered by hand) with the output side (some 150 shells for one small object).\n- C's \"Because... probably took\" makes the meager yield the explicit cause of the cost, which is precisely the emphasis sought.\n\n**Why the other choices are wrong:**\n- A: It defines the fiber's source but conveys nothing about quantity or effort.\n- B: The golden sheen speaks to the cloth's appeal, not to the work behind it.\n- D: The gathering method alone, without the yield or the number of shells, does not establish scale — a reader cannot tell whether diving produced pounds of fiber or grams.",
+  "_meta": {
+    "anchor": "Sea silk (Wikipedia): Pinna nobilis byssus; \"the intact beards of fifty shells produce 30 grams\"; \"a knitted pair of gloves probably took the byssus from around 150 shells\"; natural golden color highly valued. 2026-10-04 fact review replaced the unsupported \"about a gram of usable fiber per shell\" and \"months of gathering\" claims."
+  }
 }

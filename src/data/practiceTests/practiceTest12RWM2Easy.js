@@ -102,7 +102,7 @@ export const practiceTest12RWM2Easy = {
       "passage": "Scenery for a school play was long built as a single painted backdrop stretching across the stage. The approach had a cost: with only one picture behind them, every scene had to happen in the same place, or the audience had to wait in the dark while stagehands wrestled a new drop into position. Many drama programs now build scenery instead as a set of hinged plywood flats on casters. A castle wall rolls off, a forest rolls on, and the play continues almost without pause — which is why teachers who stage several productions a year have largely given up the single painted backdrop.",
       "question": "Which choice best describes the overall structure of the text?",
       "choices": [
-        { "id": "A", "text": "It compares the cost of painting a full backdrop with the cost of building a set of plywood flats, then recommends whichever of the two methods is cheaper." },
+        { "id": "A", "text": "It compares the cost of painting a full backdrop with the cost of building a set of plywood flats, then recommends whichever of the two methods is cheaper overall." },
         { "id": "B", "text": "It describes a traditional way of building scenery, identifies a problem that the practice created, and explains how a different construction has addressed it." },
         { "id": "C", "text": "It presents a disagreement between drama teachers about how scenery should be built and leaves the disagreement unresolved." },
         { "id": "D", "text": "It traces the history of a single school's drama program from its first production to its most recent one." }
@@ -233,7 +233,7 @@ export const practiceTest12RWM2Easy = {
       "question": "Which choice most effectively uses data from the table to complete the statement?",
       "choices": [
         { "id": "A", "text": "the double-layer hull traveled 23 meters before swamping, only 2 meters farther than the 21 meters the single-layer hull managed with half the cartons." },
-        { "id": "B", "text": "the raft-style hull traveled only 15 meters before swamping, by a clear margin the shortest distance recorded for any of the three designs." },
+        { "id": "B", "text": "the raft-style hull traveled only 15 meters before swamping, by a clear margin the shortest distance recorded for any of the three hull designs in the regatta." },
         { "id": "C", "text": "the double-layer hull traveled 23 meters before swamping, farther than either of the other two designs managed." },
         { "id": "D", "text": "the single-layer hull traveled 21 meters before swamping while the raft-style hull traveled 15, a difference of 6 meters." }
       ],
@@ -265,7 +265,7 @@ export const practiceTest12RWM2Easy = {
         { "id": "A", "text": "the Orchard route, at 0.4 miles the shortest of the five, is scheduled for just 9 minutes of walking." },
         { "id": "B", "text": "the Depot route is scheduled for 15 minutes of walking, two minutes longer than the Willow route's 13." },
         { "id": "C", "text": "the Hillcrest route, the longest at 1.6 miles, is scheduled for 38 minutes, more than twice the walking time of any other route." },
-        { "id": "D", "text": "the Fairview route, at 0.8 miles, is scheduled for 17 minutes, the longest walking time of any route in the program." }
+        { "id": "D", "text": "the Fairview route, at 0.8 miles, is scheduled for 17 minutes of walking, the longest walking time of any route in the whole program." }
       ],
       "correctAnswer": "C",
       "explanation": "**Choice C is correct.** The sentence needs the one route that takes far longer than the rest, and the table shows Hillcrest at 38 minutes while every other route is scheduled for 9 to 17 minutes.\n\n**The Full Solution:**\n- How to spot it: for a table question, reread the exact phrase the blank must support — \"one route takes far longer to walk than any of the others\" — then look for the value that stands apart.\n- Four routes cluster between 9 and 17 minutes.\n- Hillcrest is scheduled for 38 minutes, more than double the next-longest time.\n- Hillcrest is also the longest route at 1.6 miles, which fits the passage's point that the coordinator publishes length alongside time.\n\n**Why the other choices are wrong:**\n- A: It names the shortest, quickest route, not the one that takes far longer.\n- B: A two-minute gap between two middle routes is not one route standing far apart from the rest.\n- D: It misreads the table — 17 minutes is not the longest time; Hillcrest's 38 minutes is."
@@ -331,16 +331,16 @@ export const practiceTest12RWM2Easy = {
       "band": 4,
       "domain": "information-and-ideas",
       "skill": "inferences",
-      "passage": "The coin-operated scales that once stood outside drugstores printed a customer's weight for a penny, and many still work today. Whether they still weigh truly is another matter. A scale's springs stretch and its pivots wear, and a worn mechanism drifts — yet it goes on printing figures as crisply as it did when new, and it will repeat the same figure for the same load all day. Nothing in the printed number itself shows whether the mechanism behind it has drifted; only setting a known standard weight on the platform settles that. Collectors who restore the machines observe that ______",
+      "passage": "The coin-operated scales that once stood outside drugstores showed a customer's weight for a penny, and many still work today. Whether they still weigh truly is another matter. A scale's springs stretch and its pivots wear, and a worn mechanism drifts — yet its needle still comes to rest as steadily as it did when new, and it will give the same reading for the same load all day. Nothing in the reading itself shows whether the mechanism has drifted; only setting a known standard weight on the platform settles that. Collectors who restore the machines observe that ______",
       "question": "Which choice most logically completes the text?",
       "choices": [
         { "id": "A", "text": "an old scale is of little use to anyone, since a worn mechanism almost never comes within several pounds of a true reading." },
-        { "id": "B", "text": "the surest way to judge a restored scale is to weigh the same object on it repeatedly, since a machine that returns one steady figure must be weighing truly." },
-        { "id": "C", "text": "a scale whose printed figures look as crisp as they did when the machine was new can safely be assumed to weigh as truly as it did then." },
-        { "id": "D", "text": "a restored scale that prints steady, crisp figures has not yet been shown to weigh truly, since only a test against a standard weight can reveal whether its mechanism has drifted." }
+        { "id": "B", "text": "the surest way to judge a restored scale is to weigh one object on it repeatedly, since a scale that gives one steady reading must be weighing truly." },
+        { "id": "C", "text": "a scale whose needle comes to rest as steadily as it did when the machine was new can safely be assumed to weigh as truly as it did then." },
+        { "id": "D", "text": "a restored scale that gives steady readings has not yet been shown to weigh truly, since only a standard weight can reveal whether it has drifted." }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The passage says a drifted scale still prints crisply and repeats its figure all day, and that only a standard weight settles the question — so steady, crisp output proves nothing by itself.\n\n**The Full Solution:**\n- How to spot it: when a passage says a signal \"shows nothing\" about the key question, the conclusion almost always limits what that signal can prove.\n- A worn mechanism drifts, yet its printed figures stay as crisp as ever.\n- It also repeats the same figure for the same load, so consistency survives the drift too.\n- The passage names the only decisive test: a known standard weight on the platform.\n- A restored machine that merely looks and behaves steadily therefore remains unproven until that test is run.\n\n**Why the other choices are wrong:**\n- A: It overshoots in the other direction; the passage never says how far worn scales drift, only that the number alone cannot tell you.\n- B: Repetition is exactly the false comfort the passage warns about — a drifted scale repeats the same wrong figure all day.\n- C: This reverses the passage's point: crisp printing is what a drifted mechanism keeps doing."
+      "explanation": "**Choice D is correct.** The passage says a drifted scale still comes to rest steadily and repeats its reading all day, and that only a standard weight settles the question — so steady output proves nothing by itself.\n\n**The Full Solution:**\n- How to spot it: when a passage says a signal shows nothing about the key question, the conclusion almost always limits what that signal can prove.\n- A worn mechanism drifts, yet its needle still comes to rest as steadily as ever.\n- It also gives the same reading for the same load, so consistency survives the drift too.\n- The passage names the only decisive test: a known standard weight on the platform.\n- A restored machine that merely behaves steadily therefore remains unproven until that test is run.\n\n**Why the other choices are wrong:**\n- A: It overshoots in the other direction; the passage never says how far worn scales drift, only that the reading alone cannot tell you.\n- B: Repetition is exactly the false comfort the passage warns about — a drifted scale repeats the same wrong reading all day.\n- C: This reverses the passage's point: a steady needle is what a drifted mechanism keeps showing."
     },
     // ============================================================
     // Q17-Q22: Standard English Conventions
@@ -352,16 +352,16 @@ export const practiceTest12RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "The triangular fold used for ceremonial flags has been taught from printed instructions for the better part of a century. In a manual issued to color guards in 1929, one veterans' organization ______ that the final tuck should leave only the blue field visible on the finished bundle.",
+      "passage": "Rules for handling the United States flag began as a private effort rather than a law. On Flag Day in 1923, representatives of dozens of organizations, meeting at a conference organized by the American Legion, ______ a national flag code, which Congress adopted into law in 1942.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "specifies" },
-        { "id": "B", "text": "has specified" },
-        { "id": "C", "text": "had specified" },
-        { "id": "D", "text": "specified" }
+        { "id": "A", "text": "drafts" },
+        { "id": "B", "text": "has drafted" },
+        { "id": "C", "text": "had drafted" },
+        { "id": "D", "text": "drafted" }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The action happened at one finished moment in the past — \"In a manual issued to color guards in 1929\" — so the plain past-tense \"specified\" is right.\n\n**The Full Solution:**\n- The rule: the verb's time has to match the time the sentence sets up.\n- How to spot it: look for a date or time clue. \"In a manual issued to color guards in 1929\" pins this to a single finished moment in the past, so use the simple past.\n- \"Specified\" fits that done-and-dated event.\n\n**Why the other choices are wrong:**\n- A: \"Specifies\" is present tense, which clashes with the 1929 date.\n- B: \"Has specified\" describes something still going on or still in force now, which a dated 1929 manual does not call for.\n- C: \"Had specified\" is for an action completed BEFORE another past event, but the sentence gives no second past moment for it to come before."
+      "explanation": "**Choice D is correct.** The action happened at one finished moment in the past — \"On Flag Day in 1923\" — so the plain past-tense \"drafted\" is right.\n\n**The Full Solution:**\n- The rule: the verb's time has to match the time the sentence sets up.\n- How to spot it: look for a date or time clue. \"On Flag Day in 1923\" pins this to a single finished moment in the past, so use the simple past.\n- \"Drafted\" fits that done-and-dated event; the 1942 adoption simply follows it in time order.\n\n**Why the other choices are wrong:**\n- A: \"Drafts\" is present tense, which clashes with the 1923 date.\n- B: \"Has drafted\" describes something connected to the present, which a dated 1923 conference does not call for.\n- C: \"Had drafted\" is for an action completed BEFORE another past moment already in view, but the drafting is the first event in the sentence, not something that came before a later moment being described."
     },
     {
       "id": 1271,
@@ -481,7 +481,7 @@ export const practiceTest12RWM2Easy = {
       "band": 4,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "By the usual measures of retail, a coin-operated scale was a poor tenant for a drugstore's front step. It earned one cent per customer, it needed cleaning and calibration on a regular schedule, and it occupied floor space at the busiest spot in the store. ______ druggists kept the machines out front for decades, and the stores that removed one often heard about it from customers for months afterward.",
+      "passage": "By the usual measures of retail, a coin-operated scale was a poor tenant for a drugstore's front step. It earned one cent per customer, it needed cleaning and calibration on a regular schedule, and it occupied floor space at the busiest spot in the store. ______ many druggists kept the machines out front for decades.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "As a result," },
@@ -490,7 +490,7 @@ export const practiceTest12RWM2Easy = {
         { "id": "D", "text": "In other words," }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The first sentences pile up reasons to get rid of the scales, and the last reports that druggists kept them anyway, so a concession word like \"Even so\" is needed.\n\n**The Full Solution:**\n- How to spot it: notice that everything before the blank is a drawback. If the next sentence reports the opposite of what those drawbacks would predict, you need a word meaning \"despite that.\"\n- The drawbacks are small earnings (a cent per customer), regular upkeep, and lost floor space at the store's busiest spot.\n- The final sentence runs against all three: the machines stayed out front for decades, and customers complained for months when one was removed.\n- An outcome that defies the drawbacks calls for \"Even so.\"\n\n**Why the other choices are wrong:**\n- A: \"As a result\" would make keeping the scales a consequence of their being unprofitable, which makes no sense.\n- C: \"Likewise\" claims the two ideas match, but the outcome runs against the drawbacks.\n- D: \"In other words\" would restate the drawbacks, while the last sentence introduces a surprising new fact instead."
+      "explanation": "**Choice B is correct.** The first sentences pile up reasons to get rid of the scales, and the last reports that druggists kept them anyway, so a concession word like \"Even so\" is needed.\n\n**The Full Solution:**\n- How to spot it: notice that everything before the blank is a drawback. If the next sentence reports the opposite of what those drawbacks would predict, you need a word meaning \"despite that.\"\n- The drawbacks are small earnings (a cent per customer), regular upkeep, and lost floor space at the store's busiest spot.\n- The final sentence runs against all three: many druggists kept the machines out front for decades.\n- An outcome that defies the drawbacks calls for \"Even so.\"\n\n**Why the other choices are wrong:**\n- A: \"As a result\" would make keeping the scales a consequence of their being unprofitable, which makes no sense.\n- C: \"Likewise\" claims the two ideas match, but the outcome runs against the drawbacks.\n- D: \"In other words\" would restate the drawbacks, while the last sentence introduces a surprising new fact instead."
     },
     {
       "id": 1278,
@@ -499,7 +499,7 @@ export const practiceTest12RWM2Easy = {
       "band": 3,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "Strips of pasted newspaper go onto a papier-mâché project limp and dripping, and for the first hour the work looks hopeless. As the flour paste dries, though, it binds the layered strips into a single rigid shell, far stiffer than a stack of dry paper of the same thickness. ______ a form built up from enough layers can be lifted off its mold and will hold its shape on its own, ready for sanding and paint.",
+      "passage": "Strips of pasted newspaper go onto a papier-mâché project limp and dripping. As the flour paste dries, though, it binds the layered strips into a single rigid shell, far stiffer than a stack of dry paper of the same thickness. ______ a form built up from enough layers can be lifted off its mold and will hold its shape on its own.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "Nevertheless," },
@@ -520,20 +520,20 @@ export const practiceTest12RWM2Easy = {
       "studentNotes": {
         "intro": "While researching a topic, a student has taken the following notes:",
         "bullets": [
-          "A party piñata is a hollow shell of pasted paper, built up one layer at a time and filled with treats.",
-          "Each added layer of paper makes the shell harder to break open.",
+          "A party piñata is a hollow shell of pasted paper, filled with treats.",
+          "Each added layer of paper makes the shell harder to break.",
           "A shell with too few layers can split on the first swing, ending the game at once.",
-          "A shell with too many layers may never break at all, leaving players frustrated.",
+          "A shell with too many layers may never break, leaving players frustrated.",
           "Experienced builders match the layer count to the players, using fewer layers for younger children.",
-          "A well-matched shell stands up to several swings before it finally gives way."
+          "A well-matched shell stands up to several swings before it gives way."
         ],
         "goal": "The student wants to explain how builders keep a piñata game going for more than a swing or two."
       },
       "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       "choices": [
-        { "id": "A", "text": "A party piñata is a hollow shell of pasted paper that is built up one layer at a time and then filled with treats." },
+        { "id": "A", "text": "A party piñata is a hollow shell of pasted paper that is filled with treats before the game begins." },
         { "id": "B", "text": "Some piñata shells split on the very first swing of the game, while other shells never break at all." },
-        { "id": "C", "text": "By matching the number of paper layers to the players — enough that the shell survives several swings, but not so many that it never breaks — builders keep the game going." },
+        { "id": "C", "text": "By matching the number of layers to the players, builders make a shell that survives several swings but still breaks, keeping the game going." },
         { "id": "D", "text": "Experienced piñata builders, who work with pasted paper rather than with any other material, generally prefer making shells for older players." }
       ],
       "correctAnswer": "C",
@@ -550,23 +550,23 @@ export const practiceTest12RWM2Easy = {
         "intro": "While researching a topic, a student has taken the following notes:",
         "bullets": [
           "A middle school posts student hall monitors at stairways and corridor crossings during class changes.",
-          "A monitor is expected to stay at the assigned post for the entire passing period.",
-          "Problems a monitor cannot handle alone, such as a blocked stairway, must be reported to the main office in person.",
-          "When monitors served alone, a post stood empty whenever its monitor walked to the office.",
+          "Monitors must stay at their posts for the entire passing period.",
+          "Problems a monitor cannot handle, such as a blocked stairway, must be reported to the main office in person.",
+          "When monitors served alone, a post stood empty whenever its monitor went to the office.",
           "The school now assigns two monitors to every post.",
-          "With two monitors, one can carry a report to the office while the other stays at the post."
+          "One can carry a report to the office while the other stays at the post."
         ],
         "goal": "The student wants to explain why the school assigns two monitors to each post instead of one."
       },
       "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       "choices": [
-        { "id": "A", "text": "Because a lone monitor had to leave the post empty in order to report any problem, the school now assigns two monitors to each post, one to stay and one to carry the report." },
+        { "id": "A", "text": "Because a lone monitor had to leave the post empty to report a problem, the school now assigns two monitors to each post." },
         { "id": "B", "text": "A middle school posts student hall monitors at its stairways and corridor crossings during every class change of the day." },
-        { "id": "C", "text": "A hall monitor is expected to remain at the assigned post for the entire passing period rather than wandering the corridor." },
-        { "id": "D", "text": "Problems that a hall monitor cannot handle alone, such as a blocked stairway, must be reported to the school's main office in person." }
+        { "id": "C", "text": "A hall monitor must remain at the assigned post for the entire passing period rather than wandering the corridor." },
+        { "id": "D", "text": "Problems that a hall monitor cannot handle, such as a blocked stairway, must be reported to the school's main office in person." }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The goal is to explain why posts are staffed in pairs, and A gives the reason (a lone monitor left the post empty to make reports) and the fix (two monitors, one to stay and one to go).\n\n**The Full Solution:**\n- How to spot it: reread the GOAL, then keep the choice that answers WHY rather than the ones that only supply facts.\n- A states the underlying rule: problems have to be reported to the office in person.\n- It states the failure that rule produced: a solo monitor's post stood empty during every report.\n- It closes with the response the goal asks about: pairs, split so one monitor stays while the other carries the report.\n\n**Why the other choices are wrong:**\n- B: It says where monitors stand without touching the school's decision to pair them.\n- C: It gives the stay-at-post rule but never connects it to why two monitors are needed.\n- D: It reports the reporting requirement but stops short of the empty-post problem and of what the school did about it."
+      "explanation": "**Choice A is correct.** The goal is to explain why posts are staffed in pairs, and A gives the reason (a lone monitor left the post empty to make reports) and the fix (two monitors at every post).\n\n**The Full Solution:**\n- How to spot it: reread the GOAL, then keep the choice that answers WHY rather than the ones that only supply facts.\n- A states the underlying constraint: reporting a problem meant leaving the post.\n- It states the failure that rule produced: a solo monitor's post stood empty during every report.\n- It closes with the response the goal asks about: two monitors assigned to each post.\n\n**Why the other choices are wrong:**\n- B: It says where monitors stand without touching the school's decision to pair them.\n- C: It gives the stay-at-post rule but never connects it to why two monitors are needed.\n- D: It reports the reporting requirement but stops short of the empty-post problem and of what the school did about it."
     }
   ]
 };

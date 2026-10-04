@@ -65,7 +65,7 @@ export const practiceTest9RWM2Easy = {
       "band": 2,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "A seesaw is a long plank balanced on a support at its middle. Which end sinks depends not only on how heavy each rider is but on how far from the support each one sits, so a rider who scoots forward a few inches can send the other end downward without anyone's weight changing at all. Because the balance is so ______, riders keep shifting in their seats until the plank floats level.",
+      "passage": "Which end of a seesaw sinks depends not only on how heavy each rider is but on how far from the support each one sits, so a rider who scoots forward a few inches can send the other end downward without anyone's weight changing at all. Because the balance is so ______, riders keep shifting in their seats until the plank floats level.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "sturdy" },
@@ -84,7 +84,7 @@ export const practiceTest9RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "Crows are quick studies, and a figure that never moves soon stops worrying them. A new scarecrow may keep a garden clear while its novelty ______, but a flock that has watched the same still shape through a few calm mornings will land and feed at its feet. Gardeners who shift the figure every several days, or who tie on strips of cloth that stir in the wind, keep the birds guessing far longer.",
+      "passage": "A new scarecrow may keep a garden clear while its novelty ______, but a flock that has watched the same still shape through a few calm mornings will land and feed at its feet. Gardeners who shift the figure every several days, or who tie on strips of cloth that stir in the wind, keep the birds guessing far longer.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "fails" },
@@ -453,7 +453,7 @@ export const practiceTest9RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "Wooden puzzles cut one at a time remained expensive luxuries. In the early 1930s, the larger puzzle publishers ______ die-cut cardboard, and today a puzzle of a thousand pieces costs less than the wooden ones of a century ago.",
+      "passage": "Wooden puzzles cut one at a time remained expensive luxuries. In the early 1930s, the larger puzzle publishers ______ die-cut cardboard, and a cardboard puzzle sold for a fraction of the price of a hand-cut wooden one.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
         { "id": "A", "text": "are adopting" },
@@ -462,7 +462,7 @@ export const practiceTest9RWM2Easy = {
         { "id": "D", "text": "has adopted" }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The sentence pins the change to \"in the early 1930s\" - a finished stretch of past time - so the plain past \"adopted\" fits.\n\n**The Full Solution:**\n- How to spot it: let the time words choose the tense. \"In the early 1930s\" points to something that happened and finished long ago, which calls for the simple past.\n- The switch to die-cut cardboard is dated to that closed window, not to the present.\n- The second half, \"today a puzzle of a thousand pieces costs less,\" describes a separate present-day situation, so the two halves sit in different times and plain past \"adopted\" correctly marks the finished event.\n\n**Why the other choices are wrong:**\n- A: \"Are adopting\" describes something in progress now, which clashes with the past time window.\n- C: \"Will adopt\" is future and contradicts a change that happened decades ago.\n- D: \"Has adopted\" is singular and does not match the plural \"publishers.\"",
+      "explanation": "**Choice B is correct.** The sentence pins the change to \"in the early 1930s\" - a finished stretch of past time - so the plain past \"adopted\" fits.\n\n**The Full Solution:**\n- How to spot it: let the time words choose the tense. \"In the early 1930s\" points to something that happened and finished long ago, which calls for the simple past.\n- The switch to die-cut cardboard is dated to that closed window, not to the present.\n- The second half, \"a cardboard puzzle sold for a fraction of the price,\" stays in the same finished past, and plain past \"adopted\" correctly marks that event.\n\n**Why the other choices are wrong:**\n- A: \"Are adopting\" describes something in progress now, which clashes with the past time window.\n- C: \"Will adopt\" is future and contradicts a change that happened decades ago.\n- D: \"Has adopted\" is singular and does not match the plural \"publishers.\"",
       "_meta": { "anchor": "puzzle publishers' switch to die-cut cardboard" }
     },
     {
@@ -494,7 +494,7 @@ export const practiceTest9RWM2Easy = {
       "band": 3,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "For the youngest customers of a general store, the penny was the coin that mattered: it was the one a child was given, found, or earned, and a sweet priced at two cents might as well have been priced at ten. ______ candy makers designed to the coin rather than to the recipe, trimming a caramel's size or a licorice whip's length until the piece could sell for exactly one cent.",
+      "passage": "For the youngest customers of a general store, the penny was the coin that mattered, and a sweet priced at two cents might as well have been priced at ten. ______ candy makers designed to the coin rather than to the recipe, trimming a caramel's size or a licorice whip's length until the piece could sell for exactly one cent.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "Nevertheless," },
@@ -503,7 +503,7 @@ export const practiceTest9RWM2Easy = {
         { "id": "D", "text": "By comparison," }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** Designing candy to hit the one-cent price is the behavior that follows from the incentives just described, so the cause-and-effect phrase \"As a result\" fits.\n\n**The Full Solution:**\n- How to spot it: if the second idea HAPPENS BECAUSE of the first, you need a cause-and-effect transition like \"as a result\" or \"so.\"\n- Before the blank, the penny is the only coin children reliably hold, and anything priced above one cent \"might as well have been priced at ten\" - a plain business reason to hit that price.\n- After the blank comes the behavior that reason produces: makers trimmed a caramel's size or a whip's length \"until the piece could sell for exactly one cent.\" That is an outcome, so \"As a result\" is correct.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals opposition, but the makers' design habit follows naturally from the incentive rather than clashing with it.\n- B: \"For example\" would make the trimming an instance of something already stated, not the behavior the incentive causes.\n- D: \"By comparison\" would weigh one pricing approach against another, but the sentence reports an outcome, not a comparison.",
+      "explanation": "**Choice C is correct.** Designing candy to hit the one-cent price is the behavior that follows from the incentives just described, so the cause-and-effect phrase \"As a result\" fits.\n\n**The Full Solution:**\n- How to spot it: if the second idea HAPPENS BECAUSE of the first, you need a cause-and-effect transition like \"as a result\" or \"so.\"\n- Before the blank, the penny is the coin that matters to young customers, and anything priced above one cent \"might as well have been priced at ten\" - a plain business reason to hit that price.\n- After the blank comes the behavior that reason produces: makers trimmed a caramel's size or a whip's length \"until the piece could sell for exactly one cent.\" That is an outcome, so \"As a result\" is correct.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals opposition, but the makers' design habit follows naturally from the incentive rather than clashing with it.\n- B: \"For example\" would make the trimming an instance of something already stated, not the behavior the incentive causes.\n- D: \"By comparison\" would weigh one pricing approach against another, but the sentence reports an outcome, not a comparison.",
       "_meta": { "anchor": "designing candy to the one-cent coin" }
     },
     {
@@ -513,7 +513,7 @@ export const practiceTest9RWM2Easy = {
       "band": 4,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "The horse-drawn milk float had a virtue no early truck could match: the horse knew the route. While the carrier ran bottles to the doorsteps, the animal walked itself to the next stop and waited, so the round moved along without a driver climbing in and out at every house. A horse, however, had to be fed, shod, and stabled every day of the year, working or idle. ______ many dairies kept their horses for decades after trucks became available, judging the cost of a delivered quart lower behind an animal that drove itself.",
+      "passage": "The horse that pulled a dairy's milk float knew the route: while the carrier ran bottles to the doorsteps, the animal walked itself to the next stop and waited. A horse, however, had to be fed, shod, and stabled every day of the year, working or idle. ______ many dairies kept their horses for years after trucks became available.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "Consequently," },
@@ -522,7 +522,7 @@ export const practiceTest9RWM2Easy = {
         { "id": "D", "text": "Granted," }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The passage names a real cost of the horse and then keeps the horse anyway, so it needs a concession word - \"Even so.\"\n\n**The Full Solution:**\n- How to spot it: when a passage admits a drawback and then holds on to the thing anyway, you need a yes-but transition like \"even so\" or \"nevertheless.\"\n- The sentence before the blank is the drawback: a horse \"had to be fed, shod, and stabled every day of the year, working or idle.\"\n- After the blank, dairies kept their horses \"for decades after trucks became available,\" because a self-driving animal made the round cheaper. Holding on in spite of a burden calls for \"Even so.\"\n\n**Why the other choices are wrong:**\n- A: \"Consequently\" would make keeping the horses a result of their year-round expense, which is backward.\n- C: \"In turn\" would present the sentence as the next step in a causal chain, but the sentence pushes back against the drawback rather than following from it.\n- D: \"Granted\" introduces the admission of a weakness, but the weakness was already admitted in the previous sentence; the blank sentence answers it instead.",
+      "explanation": "**Choice B is correct.** The passage names a real cost of the horse and then keeps the horse anyway, so it needs a concession word - \"Even so.\"\n\n**The Full Solution:**\n- How to spot it: when a passage admits a drawback and then holds on to the thing anyway, you need a yes-but transition like \"even so\" or \"nevertheless.\"\n- The sentence before the blank is the drawback: a horse \"had to be fed, shod, and stabled every day of the year, working or idle.\"\n- After the blank, dairies kept their horses \"for years after trucks became available,\" valuing an animal that walked the route by itself. Holding on in spite of a burden calls for \"Even so.\"\n\n**Why the other choices are wrong:**\n- A: \"Consequently\" would make keeping the horses a result of their year-round expense, which is backward.\n- C: \"In turn\" would present the sentence as the next step in a causal chain, but the sentence pushes back against the drawback rather than following from it.\n- D: \"Granted\" introduces the admission of a weakness, but the weakness was already admitted in the previous sentence; the blank sentence answers it instead.",
       "_meta": { "anchor": "why dairies kept delivery horses" }
     },
     {
@@ -557,7 +557,7 @@ export const practiceTest9RWM2Easy = {
           "In the late 1800s, many young collectors in the United States kept \"charm strings.\"",
           "A charm string is a single long cord threaded with hundreds of buttons, with no two buttons alike.",
           "Custom held that each button should come as a gift or a trade from a different person, not as a purchase.",
-          "Friends, schoolmates, and visiting relatives were all expected to contribute a button to a growing string.",
+          "Friends, schoolmates, and visiting relatives were all expected to contribute a button.",
           "Popular lore said a finished string should hold one thousand buttons.",
           "Several museums now display surviving charm strings in their costume collections."
         ],
@@ -565,10 +565,10 @@ export const practiceTest9RWM2Easy = {
       },
       "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       "choices": [
-        { "id": "A", "text": "Friends, schoolmates, and visiting relatives were all expected to contribute a button to a young collector's growing string, so a long charm string came to record a wide circle of family and acquaintance." },
+        { "id": "A", "text": "Friends, schoolmates, and visiting relatives were all expected to add a button to a young collector's string, so a long string recorded a wide circle of acquaintance." },
         { "id": "B", "text": "Popular lore in the late 1800s said that a finished string should hold exactly one thousand buttons." },
         { "id": "C", "text": "Several museums now display surviving charm strings from the late 1800s in their costume collections." },
-        { "id": "D", "text": "A charm string is a single long cord threaded with hundreds of buttons, no two alike, each meant to come as a gift or a trade from a different person." }
+        { "id": "D", "text": "A charm string is a long cord threaded with hundreds of buttons, no two alike, each meant to come as a gift or trade from a different person." }
       ],
       "correctAnswer": "D",
       "explanation": "**Choice D is correct.** The goal is to explain what a charm string is, and Choice D defines the object and adds the custom that made it distinctive.\n\n**The Full Solution:**\n- How to spot it: when the goal is to explain what something IS, the right answer has to define it. Look for the option built around the term itself.\n- Choice D gives the definition straight from the notes: a single long cord threaded with hundreds of buttons, no two alike.\n- It then adds the one detail a newcomer needs to understand the tradition - each button was meant to arrive as a gift or a trade from a different person, not as a purchase.\n\n**Why the other choices are wrong:**\n- A: It describes who contributed buttons and what a string came to record, but it never says what a charm string is.\n- B: It reports a piece of lore about finished strings without defining the term the goal asks about.\n- C: It tells where charm strings can be seen today, which does not explain the object to a newcomer.",
@@ -585,23 +585,23 @@ export const practiceTest9RWM2Easy = {
         "intro": "While researching a topic, a student has taken the following notes:",
         "bullets": [
           "Before electric refrigeration, many households kept food in an icebox cooled by a block of delivered ice.",
-          "Ice wagons followed fixed routes, and a customer set a printed card in the window to show how many pounds to leave.",
-          "A block riding an open wagon shrinks steadily as it melts, and it melts fastest in the heat of the day.",
-          "Ice dealers commonly began their rounds before dawn, in the coolest hours.",
-          "Between stops, drivers kept the load covered with canvas and a layer of sawdust.",
-          "A block that lost too much of its weight before arriving was of little use to the customer."
+          "Customers set a printed card in the window to show how many pounds to leave.",
+          "A block on an open wagon melts fastest in the heat of the day.",
+          "Ice dealers commonly began their rounds before dawn.",
+          "Drivers covered the load with canvas and sawdust between stops.",
+          "A block that lost too much weight before arriving was of little use to the customer."
         ],
         "goal": "The student wants to explain to an audience unfamiliar with ice delivery why the wagons began their rounds before dawn."
       },
       "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       "choices": [
-        { "id": "A", "text": "Because a block of ice on an open wagon melts fastest in the heat of the day, dealers began their rounds before dawn, so that the blocks still held most of their weight when they reached the last customers." },
+        { "id": "A", "text": "Because ice on an open wagon melts fastest in the day's heat, dealers started their rounds before dawn so blocks reached customers nearly whole." },
         { "id": "B", "text": "Before electric refrigeration, many households kept their food in an icebox that was cooled by a block of delivered ice." },
-        { "id": "C", "text": "A customer along an ice wagon's route set a printed card in the window to show the driver how many pounds of ice to leave that day." },
+        { "id": "C", "text": "Along an ice wagon's fixed route, each customer set a printed card in the front window to show the driver how many pounds of ice to leave that day." },
         { "id": "D", "text": "Between stops, drivers kept their loads covered with canvas and a layer of sawdust to slow the melting of the blocks." }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The goal is to explain why the rounds began before dawn, and Choice A gives the reason: blocks melt fastest in daytime heat, so early starts got them to customers still nearly whole.\n\n**The Full Solution:**\n- How to spot it: in a notes question, the goal sentence is the whole assignment. This one asks specifically WHY the wagons started before dawn, so the answer must connect the early start to its cause.\n- Choice A links three notes: the block melts fastest in the heat of the day, dealers began before dawn in the coolest hours, and a block that lost too much weight was of little use.\n- That gives a newcomer both the practice and the reason for it in one sentence.\n\n**Why the other choices are wrong:**\n- B: It explains what an icebox was, background that never mentions the timing of the rounds.\n- C: It describes how customers placed orders, which says nothing about why deliveries came early.\n- D: It reports a different precaution against melting but does not explain the pre-dawn start the goal asks about.",
+      "explanation": "**Choice A is correct.** The goal is to explain why the rounds began before dawn, and Choice A gives the reason: blocks melt fastest in daytime heat, so early starts got them to customers still nearly whole.\n\n**The Full Solution:**\n- How to spot it: in a notes question, the goal sentence is the whole assignment. This one asks specifically WHY the wagons started before dawn, so the answer must connect the early start to its cause.\n- Choice A links three notes: the block melts fastest in the heat of the day, dealers began before dawn, and a block that lost too much weight was of little use.\n- That gives a newcomer both the practice and the reason for it in one sentence.\n\n**Why the other choices are wrong:**\n- B: It explains what an icebox was, background that never mentions the timing of the rounds.\n- C: It describes how customers placed orders, which says nothing about why deliveries came early.\n- D: It reports a different precaution against melting but does not explain the pre-dawn start the goal asks about.",
       "_meta": { "anchor": "pre-dawn ice delivery rounds" }
     }
   ]

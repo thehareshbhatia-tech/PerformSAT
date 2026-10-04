@@ -27,7 +27,7 @@ export const practiceTest10RWM2Easy = {
       "band": 2,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "The cork bulletin board outside a town grocery store is useful only to people who keep looking at it. Notices for yard sales, tutoring, and lost pets go up and come down within days, so a reader who walks by without stopping can miss an announcement entirely. Regulars therefore ______ the board nearly every time they pass, scanning for cards that were not there the day before.",
+      "passage": "The cork bulletin board outside a town grocery store is useful only to people who keep looking at it. Notices go up and come down within days, so a reader who walks by without stopping can miss an announcement entirely. Regulars therefore ______ the board nearly every time they pass, scanning for cards that were not there the day before.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "avoid" },
@@ -45,7 +45,7 @@ export const practiceTest10RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "A set of wind chimes is not a random bundle of tubes. The length of each aluminum tube determines the note it sounds when struck, and shaving away even a few millimeters raises the pitch noticeably. Before assembling a set, careful makers ______ each tube against a reference pitch, trimming a little at a time until the note matches the one intended for that tube's place in the chord.",
+      "passage": "A wind chime is not a random bundle of tubes. The length of each tube determines the note it sounds, and shaving away even a few millimeters raises the pitch noticeably. Careful makers therefore ______ each tube against a reference pitch, trimming a little at a time until the note matches the one intended for that tube's place in the chord.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "tune" },
@@ -63,7 +63,7 @@ export const practiceTest10RWM2Easy = {
       "band": 2,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "Foam kickboards are standard equipment in beginning swim lessons. A board weighs only a few ounces, yet in the water it can easily hold up a swimmer's head and shoulders. A beginner who grips one can keep breathing comfortably at the surface while the legs practice a flutter kick, which is why instructors rely on the boards to ______ new swimmers through their first lessons.",
+      "passage": "Foam kickboards are standard equipment in beginning swim lessons. A board weighs only a few ounces, yet in the water it can hold up a swimmer's head and shoulders. A beginner who grips one can breathe comfortably at the surface while the legs practice a flutter kick, which is why instructors rely on the boards to ______ new swimmers through their first lessons.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "evaluate" },
@@ -388,7 +388,7 @@ export const practiceTest10RWM2Easy = {
       "band": 2,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "By the 1840s, quarried slate had become the standard writing surface in American schoolrooms. A wall-sized slate board was not a movable piece of ______ was part of the building itself, screwed to the wall framing in sections and often left in place for the life of the schoolhouse.",
+      "passage": "Slate blackboards were being manufactured for American schoolrooms by the 1840s. A wall-sized slate board was not a movable piece of ______ was part of the building itself, fastened to the wall in sections and often left in place for the life of the schoolhouse.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
         { "id": "A", "text": "furniture, it" },
@@ -406,7 +406,7 @@ export const practiceTest10RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "Shoe sizing was standardized late. By the time an industry association published the first official American size chart in the 1880s, most large factories ______ the one-third-inch step between whole sizes already, and the chart largely wrote settled practice into print.",
+      "passage": "Shoe sizes in Britain and the United States are older than the factories that now make shoes. Long before shoes were mass-produced, shoemakers ______ the barleycorn, a third of an inch, as the step between whole sizes, and the factories simply kept that step.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
         { "id": "A", "text": "adopt" },
@@ -415,7 +415,7 @@ export const practiceTest10RWM2Easy = {
         { "id": "D", "text": "had adopted" }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The sentence holds two past moments: the chart's publication in the 1880s, and the factories' adoption of the step before it. The \"had\" form (\"had adopted\") marks the earlier of the two.\n\n**The Full Solution:**\nThe rule: when one past action happens before another past action, use \"had\" + verb for the earlier one.\n- How to spot it: look for a phrase that fixes a later past moment — here \"By the time an industry association published ... in the 1880s\" — plus a clue like \"already\" showing something came first.\n- The publication sets the later point in the past; the factories had finished adopting the step before that point.\n- \"Had adopted\" places the adoption correctly before the publication.\n\n**Why the other choices are wrong:**\n- A: Plain \"adopt\" is present tense and clashes with the passage's clearly past time frame.\n- B: \"Are adopting\" also points to the present, which the 1880s marker rules out.\n- C: \"Have adopted\" reaches up to the present rather than marking an action completed before the 1880s."
+      "explanation": "**Choice D is correct.** The sentence holds two past moments: the rise of mass production, and the shoemakers' adoption of the barleycorn step before it. The \"had\" form (\"had adopted\") marks the earlier of the two.\n\n**The Full Solution:**\nThe rule: when one past action happens before another past action, use \"had\" + verb for the earlier one.\n- How to spot it: look for a phrase that fixes a later past moment — here \"Long before shoes were mass-produced\" — and ask what was already finished by then.\n- Mass production sets the later point in the past; the shoemakers had settled on the barleycorn step before that point.\n- \"Had adopted\" places the adoption correctly before mass production, which then \"simply kept that step.\"\n\n**Why the other choices are wrong:**\n- A: Plain \"adopt\" is present tense and clashes with the sentence's past time frame.\n- B: \"Are adopting\" also points to the present, which \"Long before shoes were mass-produced\" rules out.\n- C: \"Have adopted\" reaches up to the present rather than marking an action completed before mass production began."
     },
     {
       "id": 1072,
@@ -424,7 +424,7 @@ export const practiceTest10RWM2Easy = {
       "band": 2,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "Foil stamping presses a thin metallic film into a greeting card's lettering, and the film needs time to set. In a commercial card plant, the stack of stamped sheets that comes off the press ______ on open racks for a full day before the sheets move on to be cut, folded, and boxed.",
+      "passage": "Printed card sheets need time for their ink to dry. In a commercial card plant, the stack of printed sheets that comes off the press ______ on open racks for several hours before the sheets move on to be cut, folded, and boxed.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
         { "id": "A", "text": "rests" },
@@ -433,7 +433,7 @@ export const practiceTest10RWM2Easy = {
         { "id": "D", "text": "are resting" }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The verb's true subject is the singular \"stack\" (\"the stack of stamped sheets that comes off the press\"), so it takes the singular verb \"rests.\"\n\n**The Full Solution:**\nThe rule: a verb must agree with the main noun of its subject, not with the nearest noun.\n- How to spot it: strip away the words between the subject and the blank. Remove \"of stamped sheets that comes off the press\" and what remains is \"the stack ... rests\" — singular.\n- The plural \"sheets\" sits inside a describing phrase and does not control the verb.\n- Subject-verb agreement therefore calls for the singular verb \"rests.\"\n\n**Why the other choices are wrong:**\n- B: \"Rest\" is the plural form and does not match the singular \"stack.\"\n- C: \"Have rested\" is plural and shifts the time frame for no reason.\n- D: \"Are resting\" is plural and clashes with the singular \"stack.\""
+      "explanation": "**Choice A is correct.** The verb's true subject is the singular \"stack\" (\"the stack of printed sheets that comes off the press\"), so it takes the singular verb \"rests.\"\n\n**The Full Solution:**\nThe rule: a verb must agree with the main noun of its subject, not with the nearest noun.\n- How to spot it: strip away the words between the subject and the blank. Remove \"of printed sheets that comes off the press\" and what remains is \"the stack ... rests\" — singular.\n- The plural \"sheets\" sits inside a describing phrase and does not control the verb.\n- Subject-verb agreement therefore calls for the singular verb \"rests.\"\n\n**Why the other choices are wrong:**\n- B: \"Rest\" is the plural form and does not match the singular \"stack.\"\n- C: \"Have rested\" is plural and shifts the time frame for no reason.\n- D: \"Are resting\" is plural and clashes with the singular \"stack.\""
     },
     {
       "id": 1073,
@@ -463,7 +463,7 @@ export const practiceTest10RWM2Easy = {
       "band": 2,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "Before vegetable seeds may be sold in packets, a sample from each lot is spread between sheets of damp paper, kept warm for a set number of days, and checked sprout by sprout. Lots whose samples sprout below a legal minimum rate cannot be sold for planting at all. ______ the germination rate printed on a seed packet is not an estimate but the record of a test the lot has already passed.",
+      "passage": "Before vegetable seeds are packed for sale, a sample from each lot is spread on damp paper, kept warm for several days, and checked sprout by sprout. Lots that sprout poorly are not packed. ______ the seeds in a packet come from a lot that has already passed a test.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "For instance," },
@@ -472,7 +472,7 @@ export const practiceTest10RWM2Easy = {
         { "id": "D", "text": "Similarly," }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The first sentences give a cause — every lot is sprout-tested, and lots that fail cannot be sold — and the sentence with the blank states what follows: the printed rate reflects a test the lot passed. \"As a result\" is the transition for cause and effect.\n\n**The Full Solution:**\n- How to spot it: set the two parts side by side and ask how they relate. The first part explains WHAT HAPPENS to every lot before sale; the second states WHAT FOLLOWS about the number on the packet.\n- Cause: samples are tested, and lots below the minimum never reach the shelf.\n- Effect: the printed germination rate records a test already passed.\n- \"As a result\" links the cause to its consequence.\n\n**Why the other choices are wrong:**\n- A: \"For instance\" would introduce an example of a general claim, but the sentence draws a conclusion instead.\n- C: \"Nevertheless\" signals a contrast, but the sentence follows from what came before rather than opposing it.\n- D: \"Similarly\" would introduce a parallel case, not a consequence of the testing just described."
+      "explanation": "**Choice B is correct.** The first sentences give a cause — every lot is sprout-tested, and lots that sprout poorly are not packed — and the sentence with the blank states what follows: the seeds in a packet come from a lot that passed. \"As a result\" is the transition for cause and effect.\n\n**The Full Solution:**\n- How to spot it: set the two parts side by side and ask how they relate. The first part explains WHAT HAPPENS to every lot before packing; the second states WHAT FOLLOWS about the seeds in a packet.\n- Cause: samples are tested, and poor lots never reach a packet.\n- Effect: any packet's seeds come from a lot that already passed the test.\n- \"As a result\" links the cause to its consequence.\n\n**Why the other choices are wrong:**\n- A: \"For instance\" would introduce an example of a general claim, but the sentence draws a conclusion instead.\n- C: \"Nevertheless\" signals a contrast, but the sentence follows from what came before rather than opposing it.\n- D: \"Similarly\" would introduce a parallel case, not a consequence of the testing just described."
     },
     {
       "id": 1079,
@@ -481,7 +481,7 @@ export const practiceTest10RWM2Easy = {
       "band": 4,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "A school's book fair outgrew its library years ago, and the librarian now stages it in the gymnasium, where there is room for twice the tables and three classes of browsers at once. ______ the gym has none of the library's shelving, so every book must ride over on carts and be arranged on folding tables, a setup that swallows a full school day. But a fair that turns browsers away for lack of floor space loses more than a day of setup ever could, and sales have risen with each year in the larger room.",
+      "passage": "A school's book fair outgrew its library years ago, so the librarian now stages it in the gymnasium, where three classes can browse at once. ______ the gym has no shelving, so every book must be carted over and set out on folding tables, a job that takes a full school day. But sales have risen every year in the larger room.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "Granted," },
@@ -490,7 +490,7 @@ export const practiceTest10RWM2Easy = {
         { "id": "D", "text": "Even so," }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The sentence at the blank admits a real cost of the gymnasium — no shelving, carts, a lost day — before the next sentence pushes past the admission with \"But.\" \"Granted,\" is the word that makes such a concession.\n\n**The Full Solution:**\n- How to spot it: watch where the concession sits. The sentence at the blank yields a point against the writer's own position, and the following sentence answers it (\"But a fair that turns browsers away...\"). A sentence that concedes on the way to a comeback opens with a concession word like \"Granted.\"\n- Before the blank: the move to the gym is presented as a success.\n- At the blank: the passage admits the move's price — a full day of setup.\n- After the blank: \"But\" answers the concession, and the argument recovers. \"Granted\" fits that concede-then-answer shape exactly.\n\n**Why the other choices are wrong:**\n- B: \"In turn\" advances a chain of consequences, but this sentence steps back to admit a drawback rather than advancing.\n- C: \"In other words\" signals a restatement, but the sentence does not rephrase the success — it cuts against it.\n- D: \"Even so\" pushes past a concession, but this sentence IS the concession; the pushing-past arrives only in the next sentence, with \"But.\" Placing \"Even so\" at the blank would leave that \"But\" answering a rebuttal that had already happened."
+      "explanation": "**Choice A is correct.** The sentence at the blank admits a real cost of the gymnasium — no shelving, carts, a lost day — before the next sentence pushes past the admission with \"But.\" \"Granted,\" is the word that makes such a concession.\n\n**The Full Solution:**\n- How to spot it: watch where the concession sits. The sentence at the blank yields a point against the writer's own position, and the following sentence answers it (\"But sales have risen every year...\"). A sentence that concedes on the way to a comeback opens with a concession word like \"Granted.\"\n- Before the blank: the move to the gym is presented as a success.\n- At the blank: the passage admits the move's price — a full day of setup.\n- After the blank: \"But\" answers the concession, and the argument recovers. \"Granted\" fits that concede-then-answer shape exactly.\n\n**Why the other choices are wrong:**\n- B: \"In turn\" advances a chain of consequences, but this sentence steps back to admit a drawback rather than advancing.\n- C: \"In other words\" signals a restatement, but the sentence does not rephrase the success — it cuts against it.\n- D: \"Even so\" pushes past a concession, but this sentence IS the concession; the pushing-past arrives only in the next sentence, with \"But.\" Placing \"Even so\" at the blank would leave that \"But\" answering a rebuttal that had already happened."
     },
     {
       "id": 1078,
@@ -499,7 +499,7 @@ export const practiceTest10RWM2Easy = {
       "band": 3,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "In gym classes, rope climbing is taught legs-first: the climber traps the rope between the feet, stands up in that grip, and then moves the hands higher, resting a little at every step. The technique lets even a beginner reach the ceiling without exhausting the arms. ______ competitive speed climbers skip the foot grip entirely and go up hand over hand, because setting and resetting the feet costs seconds that a short race cannot spare.",
+      "passage": "In gym classes, rope climbing is taught legs-first: the climber grips the rope between the feet, stands up, and then moves the hands higher, resting a little at every step. ______ competitive speed climbers skip the foot grip entirely and go up hand over hand, because resetting the feet costs seconds a race cannot spare.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "Therefore," },
@@ -508,7 +508,7 @@ export const practiceTest10RWM2Easy = {
         { "id": "D", "text": "Likewise," }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The first sentences praise the legs-first technique for beginners, and the sentence with the blank turns to the climbers who reject it — speed racers going hand over hand. \"However\" is the transition that marks that reversal.\n\n**The Full Solution:**\n- How to spot it: watch for the moment the passage flips from one group's practice to the opposite practice. Beginners rely on the foot grip; racers skip it. A flip needs a contrast word.\n- The setup: the foot grip lets a beginner rest at every step and spare the arms.\n- The turn: speed climbers abandon the grip because resetting the feet costs racing seconds.\n- \"However\" sets the racers' choice against the beginners' technique.\n\n**Why the other choices are wrong:**\n- A: \"Therefore\" would make the racers' habit a consequence of the beginners' technique, but it is a departure from it.\n- B: \"For instance\" would offer the racers as an example of the technique's users, which they are not.\n- D: \"Likewise\" signals a similar case, but the racers do the opposite of what was just described."
+      "explanation": "**Choice C is correct.** The first sentences praise the legs-first technique for beginners, and the sentence with the blank turns to the climbers who reject it — speed racers going hand over hand. \"However\" is the transition that marks that reversal.\n\n**The Full Solution:**\n- How to spot it: watch for the moment the passage flips from one group's practice to the opposite practice. Beginners rely on the foot grip; racers skip it. A flip needs a contrast word.\n- The setup: the foot grip lets a climber rest a little at every step.\n- The turn: speed climbers abandon the grip because resetting the feet costs racing seconds.\n- \"However\" sets the racers' choice against the beginners' technique.\n\n**Why the other choices are wrong:**\n- A: \"Therefore\" would make the racers' habit a consequence of the beginners' technique, but it is a departure from it.\n- B: \"For instance\" would offer the racers as an example of the technique's users, which they are not.\n- D: \"Likewise\" signals a similar case, but the racers do the opposite of what was just described."
     },
     {
       "id": 1080,
@@ -520,12 +520,12 @@ export const practiceTest10RWM2Easy = {
       "studentNotes": {
         "intro": "While researching a topic, a student has taken the following notes:",
         "bullets": [
-          "A pencil mark is a layer of tiny graphite particles clinging loosely to the fibers of the paper.",
-          "At a microscopic level the surface of rubber is slightly sticky, and graphite clings to rubber more strongly than it clings to paper.",
-          "As an eraser rubs across a mark, its surface picks graphite particles up and off the paper's fibers.",
-          "Steady rubbing wears away the eraser's dirtied outer layer, exposing fresh rubber underneath.",
-          "The crumbs an eraser sheds are worn-off rubber carrying the captured graphite away from the page.",
-          "Erasers are made in a range of hardnesses suited to different drawing tasks."
+          "A pencil mark is a layer of tiny graphite particles clinging loosely to paper fibers.",
+          "Graphite clings to rubber more strongly than it clings to paper.",
+          "As an eraser rubs across a mark, it picks graphite particles up off the fibers.",
+          "Rubbing wears away the eraser's dirtied surface, exposing fresh rubber.",
+          "The crumbs an eraser sheds carry the captured graphite away from the page.",
+          "Erasers are made in a range of hardnesses."
         ],
         "goal": "The student wants to explain why rubbing an eraser across a pencil mark removes the mark."
       },

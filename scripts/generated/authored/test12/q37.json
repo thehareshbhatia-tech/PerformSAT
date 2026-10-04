@@ -6,26 +6,26 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 2,
- "passage": "In the seventeenth-century map trade, coloring was a specialized craft carried on in workshops, often by several colorists working under a master. Because a large atlas passed through many hands, workshops faced a problem of consistency: the purchaser of a two-volume atlas expected the provinces of a region to be washed in the same greens and yellows from the first plate to the last. The solution was the pattern sheet — a printed copy of each map, colored once by the master and kept in the shop. Colorists laid their work beside it and matched their washes to its choices, so that an atlas colored by six hands left the workshop looking like the work of one. Surviving pattern sheets, worn and paint-spotted, are now prized by historians as rare direct evidence of how such workshops actually operated.",
- "question": "Based on the text, what was notable about the pattern sheets kept in map-coloring workshops?",
+ "passage": "Abraham Ortelius joined the Antwerp painters' guild in 1547 as an illuminator of maps, but his fame rests on a single publication. His Theatrum Orbis Terrarum, issued in Antwerp in 1570, is often called the first modern atlas: 53 maps of uniform size, systematically arranged and bound with descriptive text. Most of those maps were not Ortelius's own work. They reproduced maps by other cartographers, and Ortelius printed a list of his sources in the atlas itself, naming 87 mapmakers in the first edition, a list that grew to 183 names by the Latin edition of 1601.",
+ "question": "Based on the text, what was notable about the maps in Abraham Ortelius's Theatrum Orbis Terrarum?",
  "choices": [
   {
    "id": "A",
-   "text": "They were colored by the workshop's newest members as practice before those members were trusted with maps intended for sale."
+   "text": "They were colored by Ortelius himself, drawing on his early training as an illuminator of maps."
   },
   {
    "id": "B",
-   "text": "They recorded the prices that a workshop charged for coloring atlases of different sizes and for work in different pigments."
+   "text": "They were based on new surveys of Europe that Ortelius carried out himself in the years before his atlas first appeared."
   },
   {
    "id": "C",
-   "text": "They were printed in larger numbers than the maps they reproduced, so that every colorist in a workshop could keep a personal copy."
+   "text": "They were printed in several different sizes so that buyers could choose the scale that best suited them."
   },
   {
    "id": "D",
-   "text": "They let many colorists produce uniform work, and the surviving examples now give historians direct evidence of workshop practice."
+   "text": "Most reproduced other cartographers' work, and the atlas itself named those mapmakers in a list that grew over time."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The passage assigns the pattern sheets two distinctions, and D captures both: in their own time they solved the consistency problem (six hands producing work \"like the work of one\"), and today the survivors serve historians as \"rare direct evidence of how such workshops actually operated.\"\n\n**The Full Solution:**\n- The problem: an atlas colored by many people had to look uniform to its purchaser.\n- The solution: a master-colored reference copy of each map, kept in the shop, that every colorist matched washes against.\n- The afterlife: worn, paint-spotted survivors are prized as direct evidence of workshop practice. A detail question wants what the text actually says was notable, and D restates both halves.\n\n**Why the other choices are wrong:**\n- A: The text says the master colored the pattern sheets, not novices practicing — it reverses the hierarchy.\n- B: Nothing in the passage connects the sheets to prices; they recorded color choices.\n- C: It contradicts the text, which describes a single reference copy \"kept in the shop,\" not personal copies for every colorist."
+ "explanation": "**Choice D is correct.** The passage says that most of the atlas's maps \"were not Ortelius's own work\" — they reproduced maps by other cartographers — and that Ortelius printed a list of his sources in the atlas itself, a list that grew from 87 names to 183. D states both points.\n\n**The Full Solution:**\n- The question asks what was notable about the maps themselves, so look for what the passage says about where they came from and how they were credited.\n- The passage first describes the atlas's format: 53 maps of uniform size, systematically arranged and bound with descriptive text.\n- It then turns to the maps' sources: they reproduced other cartographers' maps, and the atlas named those mapmakers, 87 in the first edition and 183 by the Latin edition of 1601.\n- D combines the borrowing and the published, growing list of sources, which is exactly what the passage reports.\n\n**Why the other choices are wrong:**\n- A: The passage mentions Ortelius's early work as an illuminator of maps but never says he colored the maps in his atlas.\n- B: The passage says the maps reproduced other cartographers' work, not that they came from surveys Ortelius made himself.\n- C: It contradicts the passage, which says the maps were of uniform size."
 }

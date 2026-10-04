@@ -6,14 +6,29 @@
   "domain": "standard-english-conventions",
   "skill": "boundaries",
   "module": 2,
-  "passage": "By the 1980s, chemists studying peat-preserved remains had identified the agent behind a paradox that had long puzzled ______ the same waterlogged conditions that keep skin, hair, and fingernails intact for millennia slowly dissolve the skeleton itself.",
+  "passage": "Chemists studying bog bodies have explained a paradox that long puzzled ______ the same acidic water that keeps skin, hair, and fingernails intact for millennia slowly dissolves the skeleton itself.",
   "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
   "choices": [
-    { "id": "A", "text": "excavators," },
-    { "id": "B", "text": "excavators" },
-    { "id": "C", "text": "excavators:" },
-    { "id": "D", "text": "excavators, but" }
+    {
+      "id": "A",
+      "text": "excavators,"
+    },
+    {
+      "id": "B",
+      "text": "excavators"
+    },
+    {
+      "id": "C",
+      "text": "excavators:"
+    },
+    {
+      "id": "D",
+      "text": "excavators, but"
+    }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The first clause is a complete statement that announces a paradox; the clause after the blank states what that paradox is. A colon after a complete statement is the mark that delivers on such an announcement.\n\n**The Full Solution:**\n- Left of the blank is independent: \"chemists... had identified the agent behind a paradox that had long puzzled excavators.\"\n- Right of the blank spells the paradox out — preservation and destruction from the same conditions.\n- Announcement followed by its content is the colon's defining use.\n\n**Why the other choices are wrong:**\n- A: A comma alone splices two independent clauses together.\n- B: With nothing at the boundary, the two sentences fuse into a run-on.\n- D: \"But\" is grammatical at the joint but wrecks the logic — the second clause is the paradox the first clause promised, not a turn against it."
+  "explanation": "**Choice C is correct.** The first clause is a complete statement that announces a paradox; the clause after the blank states what that paradox is. A colon after a complete statement is the mark that delivers on such an announcement.\n\n**The Full Solution:**\n- Left of the blank is independent: \"Chemists studying bog bodies have explained a paradox that long puzzled excavators.\"\n- Right of the blank spells the paradox out — preservation and destruction from the same conditions.\n- Announcement followed by its content is the colon's defining use.\n\n**Why the other choices are wrong:**\n- A: A comma alone splices two independent clauses together.\n- B: With nothing at the boundary, the two sentences fuse into a run-on.\n- D: \"But\" is grammatical at the joint but wrecks the logic — the second clause is the paradox the first clause promised, not a turn against it.",
+  "_meta": {
+    "anchor": "Bog body (Wikipedia): \"The high levels of acidity can tan their skin and preserve internal organs, but inversely dissolve the calcium phosphate of bone.\" 2026-10-04 review removed the unverified \"By the 1980s\" date."
+  }
 }

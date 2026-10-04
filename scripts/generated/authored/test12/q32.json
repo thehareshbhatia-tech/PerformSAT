@@ -6,24 +6,24 @@
  "domain": "craft-and-structure",
  "skill": "text-structure-and-purpose",
  "module": 2,
- "passage": "The following text is Emily Brontë's poem \"Spellbound,\" written in 1837.\n\nThe night is darkening round me,\nThe wild winds coldly blow;\nBut a tyrant spell has bound me\nAnd I cannot, cannot go.\n\nThe giant trees are bending\nTheir bare boughs weighed with snow.\nAnd the storm is fast descending,\nAnd yet I cannot go.\n\nClouds beyond clouds above me,\nWastes beyond wastes below;\nBut nothing drear can move me;\nI will not, cannot go.",
+ "passage": "The following text is a poem by Emily Brontë, dated November 1837.\n\nThe night is darkening round me,\nThe wild winds coldly blow;\nBut a tyrant spell has bound me\nAnd I cannot, cannot go.\n\nThe giant trees are bending\nTheir bare boughs weighed with snow,\nAnd the storm is fast descending,\nAnd yet I cannot go.\n\nClouds beyond clouds above me,\nWastes beyond wastes below;\nBut nothing drear can move me—\nI will not, cannot go.",
  "question": "Which choice best describes the overall structure of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "The speaker describes a storm gathering force in each stanza while repeating that she cannot leave — a refusal that, in the final line, becomes her own choice."
+   "text": "The speaker describes a storm growing stronger around her while repeating that she cannot leave, a refusal that finally becomes her own choice."
   },
   {
    "id": "B",
-   "text": "The speaker recalls being caught outdoors by a sudden storm, then describes the shelter in which she finally waited for the wind and snow to pass."
+   "text": "The speaker recalls being caught outdoors by a sudden storm, then describes the shelter where she waited for the storm to pass."
   },
   {
    "id": "C",
-   "text": "The speaker pleads with an unseen companion to depart before the storm arrives, then concedes that the two of them have delayed too long to travel."
+   "text": "The speaker pleads with an unseen companion to leave before the storm arrives, then admits that the two have delayed too long."
   },
   {
    "id": "D",
-   "text": "The speaker surveys a wintry landscape from a safe distance, then recounts in order the storm that swept across it during the night and the destruction that it left behind."
+   "text": "The speaker surveys a wintry landscape from a safe distance, then recounts the storm that swept across it overnight and the damage it left behind."
   }
  ],
  "correctAnswer": "A",

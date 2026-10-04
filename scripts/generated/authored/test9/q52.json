@@ -6,14 +6,29 @@
   "domain": "expression-of-ideas",
   "skill": "transitions",
   "module": 2,
-  "passage": "In the 1870s, salmon canneries on the Pacific Coast packed nearly everything by hand, and even a practiced crew could clean and fill only a few thousand cans in a day. Machines then claimed the line one task at a time: mechanical soldering arrived in the 1880s, and automated filling followed within a decade. ______ a cannery floor that had employed dozens of skilled workers could be run by a handful of machine tenders.",
+  "passage": "Pacific Coast salmon canneries once relied on crews of skilled hand butchers, and an experienced crew set the pace for the entire line. In the early 1900s, inventors introduced a machine that could butcher salmon mechanically. ______ the machine spread from cannery to cannery, and the large butchering crews it replaced dwindled.",
   "question": "Which choice completes the text with the most logical transition?",
   "choices": [
-    { "id": "A", "text": "Eventually," },
-    { "id": "B", "text": "However," },
-    { "id": "C", "text": "In other words," },
-    { "id": "D", "text": "In addition," }
+    {
+      "id": "A",
+      "text": "Eventually,"
+    },
+    {
+      "id": "B",
+      "text": "However,"
+    },
+    {
+      "id": "C",
+      "text": "In other words,"
+    },
+    {
+      "id": "D",
+      "text": "In addition,"
+    }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** The passage is a timeline — the 1870s, then the 1880s, then \"within a decade\" — and the final sentence is the endpoint that timeline was building toward. \"Eventually\" places it there.\n\n**The Full Solution:**\n- The mechanization proceeds stepwise, \"one task at a time,\" with dates marking each stage.\n- The last sentence describes the situation after those steps accumulated: a floor of dozens reduced to a handful.\n- A closing state reached at the end of a dated sequence is introduced by a transition of time.\n\n**Why the other choices are wrong:**\n- B: \"However\" would set the shrunken workforce against the mechanization, but it is mechanization's direct culmination, not a reversal of it.\n- C: \"In other words\" restates; the final sentence adds a new development rather than rephrasing the 1880s ones.\n- D: \"In addition\" flattens the sequence into a list, losing the temporal arc from hand work to machine tending that the dates establish."
+  "explanation": "**Choice A is correct.** The passage is a sequence in time — skilled hand crews, then the machine's introduction in the early 1900s — and the final sentence is the endpoint that sequence was building toward. \"Eventually\" places it there.\n\n**The Full Solution:**\n- The text moves from the era of hand butchering to the arrival of a machine in the early 1900s.\n- The last sentence describes what happened over the following years: the machine spread and the crews dwindled.\n- A closing state reached at the end of a sequence is introduced by a transition of time.\n\n**Why the other choices are wrong:**\n- B: \"However\" would set the machine's spread against its introduction, but the spread is that introduction's direct result, not a reversal of it.\n- C: \"In other words\" restates; the final sentence adds a new development rather than rephrasing the previous one.\n- D: \"In addition\" flattens the sequence into a list, losing the temporal arc from hand work to machine that the passage establishes.",
+  "_meta": {
+    "anchor": "Mechanical salmon butchering machine invented c. 1903 by Edmund A. Smith (patented 1905), replacing hand-butchering crews in Pacific Coast canneries. 2026-10-04 review removed unverified 1880s soldering / filling-machine dates."
+  }
 }

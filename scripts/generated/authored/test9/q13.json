@@ -10,21 +10,61 @@
   "questionTable": {
     "type": "table",
     "caption": "Fiber characteristics of four fleece-bearing animals",
-    "headers": ["Animal", "Mean fiber diameter (microns)", "Fleece yield per shearing (kg)", "Typical shearing interval (years)"],
+    "headers": [
+      "Animal",
+      "Mean fiber diameter (microns)",
+      "Fleece yield per shearing (kg)",
+      "Typical shearing interval (years)"
+    ],
     "rows": [
-      ["Vicuña", "12.5", "0.2", "2"],
-      ["Cashmere goat", "17.0", "0.4", "1"],
-      ["Merino sheep", "19.5", "4.3", "1"],
-      ["Alpaca (huacaya)", "26.0", "2.7", "1"]
+      [
+        "Vicuña",
+        "12.0",
+        "0.2",
+        "3"
+      ],
+      [
+        "Cashmere goat",
+        "17.0",
+        "0.4",
+        "1"
+      ],
+      [
+        "Merino sheep",
+        "19.5",
+        "4.3",
+        "1"
+      ],
+      [
+        "Alpaca (huacaya)",
+        "26.0",
+        "2.7",
+        "1"
+      ]
     ]
   },
   "question": "Which choice most effectively uses data from the table to complete the statement?",
   "choices": [
-    { "id": "A", "text": "the alpaca's mean fiber diameter, at 26.0 microns, is the largest of the four animals listed." },
-    { "id": "B", "text": "the merino sheep yields more fleece per shearing than the other three animals combined." },
-    { "id": "C", "text": "the vicuña has both the finest fiber listed, at 12.5 microns, and the smallest, least frequent yield — 0.2 kilograms every two years, against the alpaca's 2.7 kilograms every year." },
-    { "id": "D", "text": "the cashmere goat's fiber is finer than the alpaca's even though both animals are shorn every year." }
+    {
+      "id": "A",
+      "text": "the alpaca has the largest mean fiber diameter of the four animals, at 26.0 microns, and is shorn every year, as are the cashmere goat and the merino sheep."
+    },
+    {
+      "id": "B",
+      "text": "the merino sheep, which is shorn every year, yields more fleece per shearing than the other three animals in the table combined."
+    },
+    {
+      "id": "C",
+      "text": "the vicuña has both the finest fiber listed, at 12.0 microns, and the smallest, least frequent yield: 0.2 kilograms every three years."
+    },
+    {
+      "id": "D",
+      "text": "the cashmere goat's fiber is finer than the alpaca's even though both animals are shorn every year and the goat yields far less fleece per shearing."
+    }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The economists' account rests on two factors together — fineness and scarcity — so the completing evidence must document both, and only C does: the finest fiber in the table and by far the smallest, least frequent yield.\n\n**The Full Solution:**\n- Fineness: the vicuña's 12.5 microns is the lowest diameter listed.\n- Scarcity: 0.2 kilograms per shearing, and only every two years — roughly a twenty-fifth of the alpaca's annual output.\n- C cites both columns in one comparison, matching the claim's two-factor structure.\n\n**Why the other choices are wrong:**\n- A: A fact about the alpaca's coarseness alone touches one factor for the wrong animal and says nothing about scarcity.\n- B: The merino's large yield is true in the table but irrelevant to why vicuña fiber commands a premium.\n- D: A comparison between cashmere and alpaca never engages the vicuña, the animal the claim is about."
+  "explanation": "**Choice C is correct.** The economists' account rests on two factors together — fineness and scarcity — so the completing evidence must document both, and only C does: the finest fiber in the table and by far the smallest, least frequent yield.\n\n**The Full Solution:**\n- Fineness: the vicuña's 12.0 microns is the lowest diameter listed.\n- Scarcity: 0.2 kilograms per shearing, and only every three years — a tiny fraction of the alpaca's 2.7 kilograms every year.\n- C cites both columns in one statement, matching the claim's two-factor structure.\n\n**Why the other choices are wrong:**\n- A: A fact about the alpaca's coarseness touches one factor for the wrong animals and says nothing about scarcity.\n- B: The merino's large yield is true in the table but irrelevant to why vicuña fiber commands a premium.\n- D: A comparison between cashmere and alpaca never engages the vicuña, the animal the claim is about.",
+  "_meta": {
+    "anchor": "Unattributed fiber table; values plausible. Vicuña ~12 microns and shorn only every three years per Wikipedia (Vicuña); cashmere 14-19 microns."
+  }
 }

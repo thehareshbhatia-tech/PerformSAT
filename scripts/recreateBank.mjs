@@ -27,7 +27,7 @@ import { indexCorpus, checkUniquenessSliding, tokenize } from './calibrateModule
 import { CB_MATH_SKILLS, PATTERN_TO_CB_SKILL } from '../src/data/questions/cbSkillTaxonomy.js';
 import { extractSatPattern } from '../src/data/questions/extractSatPattern.js';
 import { registerItem, registerModule } from './registerGate.mjs';
-import { checkMath } from './copyrightGate.mjs';
+import { checkMath, latexToTokens } from './copyrightGate.mjs';
 
 const CB_LABEL = new Map(CB_MATH_SKILLS.map(s => [s.slug, s.label]));
 function cbSkillOf(q) {
@@ -481,6 +481,20 @@ export function uniquenessErrors(stemsById, { skipTests = false } = {}) {
   return errs;
 }
 
+
+// v3: a drill may not reuse a practice-test item's exact math (same expression, same numbers)
+const mathKeyOf = (q) => { const toks = [...String(q || '').replace(/\\\$/g, ' ').matchAll(/\$([^$]+)\$/g)].flatMap(m => latexToTokens(m[1])); return toks.length >= 5 && toks.filter(t => /^-?\d*\.?\d+$/.test(t)).length >= 2 ? toks.join(' ') : ''; };
+let _testMath = null;
+function testMathKeys() {
+  if (_testMath) return _testMath;
+  _testMath = new Map(); const dir = path.join(GEN, 'authored', 'tests2');
+  if (fs.existsSync(dir)) for (const t of fs.readdirSync(dir)) for (const f of fs.readdirSync(path.join(dir, t))) {
+    if (!f.endsWith('.json')) continue;
+    try { const k = mathKeyOf(JSON.parse(fs.readFileSync(path.join(dir, t, f), 'utf8')).question); if (k) _testMath.set(k, `${t}/${f.replace('.json', '')}`); } catch { /* skip */ }
+  }
+  return _testMath;
+}
+
 async function check(selection) {
   const rows = await selectRows(selection);
   const freshSibs = rows.some(r => r.fresh) ? freshSiblings(null) : null;
@@ -499,6 +513,7 @@ async function check(selection) {
       const reg = registerItem(got.data, { difficulty: row.difficulty, cbSkillLabel: row.cbSkillLabel }); errs.push(...reg.errs); warns.push(...reg.warns);
       const cr = checkMath(got.data); errs.push(...cr.fails.map(f => `COPYRIGHT ${f}`)); warns.push(...cr.warns.map(w => `copyright ${w}`));
       regRows.push({ q: got.data, difficulty: row.difficulty });
+      { const mk = mathKeyOf(got.data.question); const hit = mk && testMathKeys().get(mk); if (hit) errs.push(`math twin of practice-test item ${hit} (same expression and numbers) — change the numbers`); }
       if (/\bline of best fit\b|\bresiduals?\b/i.test(got.data.question || '') && got.data.diagram?.type !== 'scatterplot') errs.push('stem says "line of best fit"/"residual" without a scatterplot — CI\'s diagram audit requires one; use "linear model" / compare recorded vs predicted instead');
       if (got.data.diagram?.type === 'intersectingLines' && !Number.isFinite(got.data.diagram.params?.angle0Measure)) errs.push('intersectingLines: set params.angle0Measure to the true measure of angles[0]');
     }
@@ -521,7 +536,8 @@ async function check(selection) {
     const rm = registerModule(regRows, { label: selection.chunk }); rm.errs.forEach(e => { errors++; console.error(`FAIL ${e}`); });
     console.log(`${selection.chunk}: register short ${Math.round(rm.info.short * 100)}% · eqFirst ${Math.round(rm.info.eqFirst * 100)}% · stock ${Math.round(rm.info.stock * 100)}% · medians E${rm.info.median.easy}/M${rm.info.median.medium}/H${rm.info.median.hard}`);
   }
-  const uerrs = args['no-uniq'] ? [] : uniquenessErrors(ctx.stems);
+  // v3: drill-vs-test WORDING similarity is off (stock College Board sentences repeat by design); intra-bank near-duplicates and the official-corpus gate still run
+  const uerrs = args['no-uniq'] ? [] : uniquenessErrors(ctx.stems, { skipTests: !V2_GATES });
   uerrs.forEach(e => console.error(`FAIL ${e}`)); errors += uerrs.length;
   console.log(`\nchecked ${checked}/${rows.length} (missing ${missing}) · figures ${ctx.figures} (${(100 * ctx.figures / Math.max(1, checked)).toFixed(0)}%) · numeric ascending ${ctx.ascending}/${ctx.numeric} · stem medians E${median(lens.easy)}/M${median(lens.medium)}/H${median(lens.hard)}`);
   if (errors) { console.error(`${errors} error(s)`); process.exit(1); }

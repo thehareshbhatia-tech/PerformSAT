@@ -6,10 +6,10 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 1,
- "passage": "Manoomin, the wild rice native to shallow lakes across the north-central United States, is traditionally gathered from canoes by knocking ripe seed into the boat with wooden flails, a method that lets much of the seed fall into the water and sow the following year's stand. Resource managers reviewing harvest studies caution that this reseeding cannot be treated as a single fixed rate, since at one closely monitored lake where three harvesting methods were used on separate plots in the same season, the share of seed returned to the water differed enormously by method, suggesting that ______",
+ "passage": "Manoomin, the wild rice of shallow lakes in the Great Lakes region, is traditionally harvested from canoes by knocking ripe seed into the boat with wooden flails, a method that lets much of the seed fall into the water and sow the next year's stand. This reseeding cannot be treated as a fixed rate, however. Data from a single harvest season show that the share of seed returned to the water can differ enormously by method on the same lake: ______",
  "questionTable": {
   "type": "table",
-  "caption": "Share of seed returned to the water during wild rice harvest, by lake and method (single season)",
+  "caption": "Share of wild rice seed returned to the water during harvest, by lake and method (single season)",
   "headers": [
    "Lake",
    "Harvest method",
@@ -17,27 +17,22 @@
   ],
   "rows": [
    [
-    "Bearskin Lake",
+    "Lake A",
     "hand flail, from canoe",
     "38"
    ],
    [
-    "Rice Lake",
+    "Lake B",
     "hand flail, from canoe",
     "42"
    ],
    [
-    "Rice Lake",
-    "push-pole skimmer",
-    "19"
+    "Lake B",
+    "airboat harvester",
+    "6"
    ],
    [
-    "Rice Lake",
-    "mechanical harvester",
-    "3"
-   ],
-   [
-    "Little Elk Lake",
+    "Lake C",
     "hand flail, from canoe",
     "35"
    ]
@@ -47,21 +42,21 @@
  "choices": [
   {
    "id": "A",
-   "text": "across all five plots shown in the table, at least some seed was returned to the water during harvest, with shares ranging from 3 percent to 42 percent."
+   "text": "across all four plots in the table, at least some seed returned to the water, with shares ranging from 6 percent to 42 percent."
   },
   {
    "id": "B",
-   "text": "at Rice Lake, hand flailing returned 42 percent of seed to the water while the push-pole skimmer returned 19 percent and the mechanical harvester only 3 percent — a fourteenfold spread among methods used on one lake."
+   "text": "at Lake B, hand flailing returned 42 percent of the seed to the water, while the airboat harvester returned only 6 percent."
   },
   {
    "id": "C",
-   "text": "hand flailing returned 42 percent of seed at Rice Lake, 38 percent at Bearskin Lake, and 35 percent at Little Elk Lake, a narrow spread across the three lakes where the method was used."
+   "text": "hand flailing returned 42 percent of the seed at Lake B, 38 percent at Lake A, and 35 percent at Lake C."
   },
   {
    "id": "D",
-   "text": "at Rice Lake, hand flailing returned 42 percent of seed to the water while the mechanical harvester returned only 3 percent, a gap showing that mechanical harvesting is by far the most efficient method of gathering wild rice."
+   "text": "at Lake B, the airboat harvester returned only 6 percent of the seed, showing that it is the most efficient way to gather wild rice."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The claim is about variation BY METHOD at one lake, so the supporting data must come from the single lake where multiple methods were used. Rice Lake is that lake, and its three methods span 42, 19, and 3 percent — a fourteenfold spread in one place, in one season.\n\n**The Full Solution:**\n- Reread what the blank must support: at \"one closely monitored lake,\" the seed returned \"differed enormously by method.\"\n- Only Rice Lake appears with three methods, so the evidence must stay inside its three rows.\n- Those rows run 42 percent (hand flail), 19 percent (skimmer), and 3 percent (mechanical) — the enormous within-lake spread the sentence asserts, which is exactly what B reports.\n\n**Why the other choices are wrong:**\n- A: It pools all five plots into one overall range, mixing lakes together and losing the within-lake, method-by-method comparison.\n- C: It compares one method across three different lakes — evidence that the method is consistent, nearly the opposite of the claim about methods differing.\n- D: It uses only two of Rice Lake's three methods and then smuggles in a conclusion about efficiency the table cannot support, since seed returned is not a measure of harvest efficiency."
+ "explanation": "**Choice B is correct.** The claim is about variation BY METHOD on the same lake, so the supporting data must come from the single lake where two methods were used. Lake B is that lake, and its two methods returned 42 percent and 6 percent of the seed — an enormous difference in one place, in one season.\n\n**The Full Solution:**\n- Reread what the blank must support: the share of seed returned to the water \"can differ enormously by method on the same lake.\"\n- Only Lake B appears with two methods, so the evidence must stay inside its two rows.\n- Those rows show 42 percent (hand flail) against 6 percent (airboat harvester) — the within-lake difference the sentence asserts, which is exactly what B reports.\n\n**Why the other choices are wrong:**\n- A: It pools all four plots into one overall range, mixing lakes together and losing the within-lake, method-by-method comparison.\n- C: It compares one method across three different lakes — evidence that the method is consistent, nearly the opposite of the claim about methods differing.\n- D: It uses only one of Lake B's two rows and then adds a conclusion about efficiency the table cannot support, since seed returned to the water is not a measure of how efficient a harvest is."
 }

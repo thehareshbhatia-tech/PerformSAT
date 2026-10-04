@@ -6,7 +6,7 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 2,
- "passage": "Crews in the American whale fishery were paid by an arrangement found almost nowhere else at sea. A whaleman shipped not for monthly wages but for a lay — a fixed share of the voyage's ______ and the share was set by rank before the ship left port, from perhaps a thirtieth for an experienced mate to a two-hundredth for a green hand. A short, oily voyage could pay a crew handsomely; a long, empty one could leave them in debt to the ship.",
+ "passage": "American whalemen were not paid monthly wages. Each shipped instead for a lay — a fixed share of the voyage's ______ and the share was set by rank before the ship left port. A long, unsuccessful voyage could leave a whaleman owing money to the ship's owners.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
@@ -27,7 +27,7 @@
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The definition of \"a lay\" is set off by a dash before it, and an interruption opened with a dash must be closed with a matching dash: \"...not for monthly wages but for a lay — a fixed share of the voyage's proceeds — and the share was set by rank...\"\n\n**The Full Solution:**\n- The phrase \"a fixed share of the voyage's proceeds\" is an appositive explaining \"a lay,\" and the text opens it with a dash.\n- Paired punctuation must match: what a dash opens, a dash closes, letting the main clause resume at \"and the share was set by rank.\"\n\n**Why the other choices are wrong:**\n- A: With nothing at the blank, the appositive never closes, and the dash construction is left dangling into the rest of the sentence.\n- B: A comma cannot close an interruption that a dash opened; the pair must match.\n- C: A semicolon requires an independent clause on each side, but the appositive before the blank is not a clause at all.",
+ "explanation": "**Choice D is correct.** The definition of \"a lay\" is set off by a dash before it, and an interruption opened with a dash must be closed with a matching dash: \"Each shipped instead for a lay — a fixed share of the voyage's proceeds — and the share was set by rank...\"\n\n**The Full Solution:**\n- The phrase \"a fixed share of the voyage's proceeds\" is an appositive explaining \"a lay,\" and the text opens it with a dash.\n- Paired punctuation must match: what a dash opens, a dash closes, letting the main clause resume at \"and the share was set by rank.\"\n\n**Why the other choices are wrong:**\n- A: With nothing at the blank, the appositive never closes, and the dash construction is left dangling into the rest of the sentence.\n- B: A comma cannot close an interruption that a dash opened; the pair must match.\n- C: A semicolon requires an independent clause on each side, but the appositive before the blank is not a clause at all.",
  "_meta": {
   "rule": "matching dash closes a dash-opened appositive",
   "distractors": {

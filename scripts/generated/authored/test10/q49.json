@@ -6,7 +6,7 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 2,
- "passage": "Along a finished road, Roman crews set milestones recording the distance to the nearest town and the emperor under whom the work was completed. By the time antiquarians began mapping the surviving stones systematically in the eighteenth century, farmers ______ many of them into gateposts and door lintels, and the survey of what remained became a race against further reuse.",
+ "passage": "Along a finished road, Roman crews set milestones recording the distance to the nearest town and the emperor under whom the work was done. By the time scholars began cataloging the surviving stones systematically in the nineteenth century, farmers ______ many of them into gateposts and door lintels.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
@@ -27,7 +27,7 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The sentence describes an action completed before another past event: the farmers' reuse of the stones preceded the antiquarians' eighteenth-century mapping. The past perfect \"had turned\" marks exactly that earlier-past relationship.\n\n**The Full Solution:**\n- The time anchor is \"By the time antiquarians began mapping,\" a past reference point.\n- What the farmers did was finished before that point, so the verb takes the past perfect: by then, they \"had turned\" many stones into gateposts and lintels.\n\n**Why the other choices are wrong:**\n- A: The simple present \"turn\" clashes with the past-time frame the sentence establishes.\n- B: The present perfect \"have turned\" connects a past action to the present moment, not to another moment in the past, which is what \"By the time... began\" requires.\n- D: The future perfect \"will have turned\" points forward from now, contradicting the eighteenth-century setting.",
+ "explanation": "**Choice C is correct.** The sentence describes an action completed before another past event: the farmers' reuse of the stones preceded the scholars' nineteenth-century cataloging. The past perfect \"had turned\" marks exactly that earlier-past relationship.\n\n**The Full Solution:**\n- The time anchor is \"By the time scholars began cataloging,\" a past reference point.\n- What the farmers did was finished before that point, so the verb takes the past perfect: by then, they \"had turned\" many stones into gateposts and lintels.\n\n**Why the other choices are wrong:**\n- A: The simple present \"turn\" clashes with the past-time frame the sentence establishes.\n- B: The present perfect \"have turned\" connects a past action to the present moment, not to another moment in the past, which is what \"By the time... began\" requires.\n- D: The future perfect \"will have turned\" points forward from now, contradicting the nineteenth-century setting.",
  "_meta": {
   "rule": "past perfect for action completed before a past reference point",
   "distractors": {

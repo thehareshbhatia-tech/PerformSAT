@@ -6,14 +6,27 @@
   "domain": "standard-english-conventions",
   "skill": "boundaries",
   "module": 2,
-  "passage": "Because the pen shells that yield the raw filaments were gathered one by one by free divers, and because each shell furnished only a wisp of usable ______ a single finished glove of sea silk could represent weeks of gathering, cleaning, and spinning.",
+  "passage": "Because the pen shells that yield the raw filaments were gathered one by one by free divers, and because each shell furnished only a wisp of usable ______ a single pair of knitted sea-silk gloves could require the byssus of some 150 shells.",
   "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
   "choices": [
-    { "id": "A", "text": "fiber," },
-    { "id": "B", "text": "fiber" },
-    { "id": "C", "text": "fiber;" },
-    { "id": "D", "text": "fiber:" }
+    {
+      "id": "A",
+      "text": "fiber,"
+    },
+    {
+      "id": "B",
+      "text": "fiber"
+    },
+    {
+      "id": "C",
+      "text": "fiber;"
+    },
+    {
+      "id": "D",
+      "text": "fiber:"
+    }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** The sentence opens with a pair of dependent \"Because\" clauses, and the boundary between an introductory dependent structure and the main clause is a comma.\n\n**The Full Solution:**\n- Everything before the blank hangs on \"Because... and because...\" — neither clause can stand alone.\n- The main clause follows: \"a single finished glove of sea silk could represent weeks of gathering, cleaning, and spinning.\"\n- A comma is the conventional mark that closes the introductory subordination and opens the main assertion.\n\n**Why the other choices are wrong:**\n- B: Without the comma, the long double introduction collides with the main clause, leaving the sentence's turning point unmarked.\n- C: A semicolon requires an independent clause on each side; the \"Because\" clauses are not independent.\n- D: A colon must follow a complete introducing statement, and the subordinate clauses do not form one."
+  "explanation": "**Choice A is correct.** The sentence opens with a pair of dependent \"Because\" clauses, and the boundary between an introductory dependent structure and the main clause is a comma.\n\n**The Full Solution:**\n- Everything before the blank hangs on \"Because... and because...\" — neither clause can stand alone.\n- The main clause follows: \"a single pair of knitted sea-silk gloves could require the byssus of some 150 shells.\"\n- A comma is the conventional mark that closes the introductory subordination and opens the main assertion.\n\n**Why the other choices are wrong:**\n- B: Without the comma, the long double introduction collides with the main clause, leaving the sentence's turning point unmarked.\n- C: A semicolon requires an independent clause on each side; the \"Because\" clauses are not independent.\n- D: A colon must follow a complete introducing statement, and the subordinate clauses do not form one.",
+  "_meta": {}
 }

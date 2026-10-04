@@ -6,26 +6,26 @@
  "domain": "information-and-ideas",
  "skill": "inferences",
  "module": 1,
- "passage": "The Shaker communities of nineteenth-century America furnished their own dwellings with plain, carefully joined furniture and also produced chairs by the thousand for sale to the outside world. The two streams of work came out of the same shops: the same members, using the same patterns and the same standards of workmanship, built for the meetinghouse and for the market alike, and few pieces of either kind carry a maker's name. Curators asked to determine whether a surviving chair was made for community use or for sale have found that the chair itself rarely settles the question. Their experience suggests that ______",
+ "passage": "Shaker furniture is admired for its plain, carefully joined construction, but the people who built it are harder to see. Shaker communities discouraged displays of individual pride, and most craftsmen left their work unsigned; within a community, many members followed the same patterns and the same standards of workmanship. Curators asked to attribute a surviving cupboard or chest to a particular maker have found that the piece itself rarely settles the question. Their experience suggests that ______",
  "question": "Which choice most logically completes the text?",
  "choices": [
   {
    "id": "A",
-   "text": "sorting the two kinds of work depends on evidence beyond the furniture itself, such as sales ledgers and community records."
+   "text": "identifying a piece's maker usually depends on evidence beyond the furniture itself, such as community journals and account books."
   },
   {
    "id": "B",
-   "text": "chairs made for sale can usually be identified by their inferior workmanship, since pieces intended for outsiders were finished with less care."
+   "text": "unsigned pieces can usually be assigned to their makers by differences in workmanship, since each craftsman finished his work in a recognizable way."
   },
   {
    "id": "C",
-   "text": "most surviving Shaker chairs must have been made for community use, since furniture sold to outsiders would rarely have been preserved."
+   "text": "most surviving Shaker furniture must have been built by only a few craftsmen, since the unsigned pieces are so alike in their workmanship."
   },
   {
    "id": "D",
-   "text": "the question of a chair's original purpose should be abandoned, because the two streams of work cannot be told apart by any means."
+   "text": "the question of who made a particular piece should be abandoned, because no kind of evidence can ever connect furniture to its maker."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** If identical hands, patterns, and standards produced both streams of work, and the pieces are unsigned, then the object alone cannot reveal its intended destination — so the answer must come from somewhere other than the object.\n\n**The Full Solution:**\n- The key facts: community furniture and sale furniture came from the same shops, by the same makers, to the same standards, and few pieces are marked.\n- The curators' experience confirms the consequence: \"the chair itself rarely settles the question.\"\n- What follows is that settling it requires outside evidence — documents like ledgers and community records — which is precisely choice A.\n\n**Why the other choices are wrong:**\n- B: It contradicts the passage, which says both streams were built to the same standards of workmanship.\n- C: Nothing in the text supports a claim about which chairs survived; preservation is never discussed.\n- D: It overshoots — the passage says the chair itself rarely answers the question, not that the question can never be answered at all."
+ "explanation": "**Choice A is correct.** If many craftsmen followed the same patterns and standards and most left their work unsigned, then the piece alone cannot reveal who made it — so the answer must come from somewhere other than the furniture.\n\n**The Full Solution:**\n- The key facts: Shaker craftsmen mostly left their work unsigned, and members of a community followed the same patterns and standards of workmanship.\n- The curators' experience confirms the consequence: \"the piece itself rarely settles the question.\"\n- What follows is that attribution requires outside evidence — documents like community journals and account books — which is precisely choice A.\n\n**Why the other choices are wrong:**\n- B: It contradicts the passage, which says members worked to the same patterns and standards, so workmanship is not a reliable signature.\n- C: Nothing in the text says how many craftsmen made the surviving furniture; the passage concerns how to identify makers, not how many there were.\n- D: It overshoots — the passage says the piece itself rarely answers the question, not that no evidence of any kind can."
 }

@@ -6,14 +6,29 @@
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-textual",
   "module": 2,
-  "passage": "Bog bodies — human remains preserved for centuries in northern European peatlands — retain skin, hair, and even clothing in remarkable condition, and the acidity of bog water was long assumed to be the preservative. A research team instead hypothesizes that the crucial agent is sphagnan, a carbohydrate released as sphagnum moss decays, which binds the calcium that decay bacteria require and chemically tans skin much as oak bark tans leather.",
+  "passage": "Bog bodies — human remains preserved for centuries in northern European peatlands — retain skin, hair, and even clothing in remarkable condition, and the acidity of bog water was long assumed to be the preservative. A research team instead hypothesizes that the crucial agent is sphagnan, a reactive carbohydrate in the cell walls of sphagnum moss that both tans skin, much as oak bark tans leather, and inhibits the growth of decay bacteria.",
   "question": "Which finding, if true, would most directly support the team's hypothesis?",
   "choices": [
-    { "id": "A", "text": "Tissue samples in neutral solutions containing extracted sphagnan resist bacterial decay nearly as well as samples in bog water, while samples in equally acidic solutions without sphagnan decay quickly." },
-    { "id": "B", "text": "Bog bodies recovered from the most strongly acidic peatlands are on average no better preserved than bodies recovered from peatlands whose waters are only mildly acidic, according to surveys of dozens of recovered bodies." },
-    { "id": "C", "text": "Sphagnum moss grows more slowly in peatlands from which well-preserved bodies have been recovered than in peatlands containing no bodies." },
-    { "id": "D", "text": "Peatlands where sphagnum moss is absent tend to be more acidic, on average, than peatlands where the moss is abundant." }
+    {
+      "id": "A",
+      "text": "Tissue samples in neutral solutions containing extracted sphagnan resist bacterial decay nearly as well as samples in bog water, while samples in equally acidic solutions without sphagnan decay quickly."
+    },
+    {
+      "id": "B",
+      "text": "Bog bodies recovered from the most strongly acidic peatlands are on average no better preserved than bodies recovered from peatlands whose waters are only mildly acidic, according to surveys of dozens of recovered bodies."
+    },
+    {
+      "id": "C",
+      "text": "Sphagnum moss grows more slowly in peatlands from which well-preserved bodies have been recovered than in peatlands containing no bodies."
+    },
+    {
+      "id": "D",
+      "text": "Peatlands where sphagnum moss is absent tend to be more acidic, on average, than peatlands where the moss is abundant."
+    }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** The hypothesis makes sphagnan, not acidity, the crucial agent. A's experiment isolates exactly that variable — sphagnan without acidity preserves; acidity without sphagnan does not — which is the most direct support a finding could give.\n\n**The Full Solution:**\n- Supporting \"sphagnan is the crucial agent\" requires showing preservation tracks sphagnan when acidity is removed from the picture.\n- A's neutral-solution condition does that, and its acid-only condition simultaneously undermines the rival explanation the team is arguing against.\n\n**Why the other choices are wrong:**\n- B: It counts against the acidity hypothesis but says nothing about sphagnan — it removes a rival without supporting the team's own agent.\n- C: Slower moss growth near preserved bodies is a correlation running in an uninformative direction; it neither isolates sphagnan nor links it to preservation.\n- D: A relationship between moss and acidity levels describes the bogs themselves, not the preservation of tissue, and so tests neither hypothesis."
+  "explanation": "**Choice A is correct.** The hypothesis makes sphagnan, not acidity, the crucial agent. A's experiment isolates exactly that variable — sphagnan without acidity preserves; acidity without sphagnan does not — which is the most direct support a finding could give.\n\n**The Full Solution:**\n- Supporting \"sphagnan is the crucial agent\" requires showing preservation tracks sphagnan when acidity is removed from the picture.\n- A's neutral-solution condition does that, and its acid-only condition simultaneously undermines the rival explanation the team is arguing against.\n\n**Why the other choices are wrong:**\n- B: It counts against the acidity hypothesis but says nothing about sphagnan — it removes a rival without supporting the team's own agent.\n- C: Slower moss growth near preserved bodies is a correlation running in an uninformative direction; it neither isolates sphagnan nor links it to preservation.\n- D: A relationship between moss and acidity levels describes the bogs themselves, not the preservation of tissue, and so tests neither hypothesis.",
+  "_meta": {
+    "anchor": "Sphagnan hypothesis: T. J. Painter, \"Lindow man, Tollund man and other peat-bog bodies: the preservative and antimicrobial action of Sphagnan, a reactive glycuronoglycan with tanning and sequestering properties,\" Carbohydrate Polymers (1991). 2026-10-04 review removed the unverified \"binds the calcium that decay bacteria require\" mechanism."
+  }
 }

@@ -6,23 +6,53 @@
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-quantitative",
   "module": 1,
-  "passage": "When deep artesian wells were first bored into the confined aquifer beneath Paris in the nineteenth century, water rose to the surface under natural pressure alone. Hydrologists note that each new borehole drew on the same body of pressurized groundwater, and they conclude that the aquifer's pressure was falling steadily through the second half of the century because ______",
+  "passage": "When deep artesian wells were first bored into a confined aquifer beneath a growing city, water rose to the surface under natural pressure alone. Hydrologists note that each new borehole drew on the same body of pressurized groundwater, and they conclude that the aquifer's pressure fell steadily as more wells tapped it because ______",
   "questionTable": {
     "type": "table",
-    "caption": "Flow of two artesian wells in Paris",
-    "headers": ["Well", "Year completed", "Initial flow (cubic meters per day)", "Flow in 1900 (cubic meters per day)"],
+    "caption": "Flow of two artesian wells tapping the same confined aquifer",
+    "headers": [
+      "Well",
+      "Year completed",
+      "Initial flow (cubic meters per day)",
+      "Flow 40 years later (cubic meters per day)"
+    ],
     "rows": [
-      ["Grenelle", "1841", "3,600", "800"],
-      ["Passy", "1861", "17,000", "5,900"]
+      [
+        "Well 1",
+        "1880",
+        "3,600",
+        "800"
+      ],
+      [
+        "Well 2",
+        "1900",
+        "17,000",
+        "5,900"
+      ]
     ]
   },
   "question": "Which choice most effectively uses data from the table to complete the statement?",
   "choices": [
-    { "id": "A", "text": "the Passy well's initial flow, at 17,000 cubic meters per day, was nearly five times the Grenelle well's initial flow." },
-    { "id": "B", "text": "the Grenelle well was completed twenty years before drilling of the Passy well finished." },
-    { "id": "C", "text": "by 1900 the Grenelle well's flow had fallen from 3,600 cubic meters per day to 800, and the Passy well's had fallen from 17,000 to 5,900 in barely four decades." },
-    { "id": "D", "text": "the Passy well still delivered more water in 1900 than the Grenelle well had delivered when it was first completed." }
+    {
+      "id": "A",
+      "text": "Well 2's initial flow, at 17,000 cubic meters per day, was nearly five times Well 1's initial flow, and Well 2 was completed two decades after Well 1."
+    },
+    {
+      "id": "B",
+      "text": "Well 1 was completed in 1880, twenty years before the drilling of Well 2 was finished."
+    },
+    {
+      "id": "C",
+      "text": "forty years after completion, Well 1's flow had fallen from 3,600 cubic meters per day to 800, and Well 2's from 17,000 to 5,900."
+    },
+    {
+      "id": "D",
+      "text": "Well 2 still delivered more water forty years after its completion than Well 1 had delivered when it was first completed in 1880."
+    }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** A claim about steadily falling pressure needs evidence of decline over time at the wells drawing on the aquifer, and C alone provides it: both wells' flows collapsed to a fraction of their initial rates by 1900.\n\n**The Full Solution:**\n- Flow from an artesian well is driven by aquifer pressure, so falling flow is the table's proxy for falling pressure.\n- C reads the decline out of both rows — Grenelle down almost 80 percent, Passy down two-thirds within four decades — matching the claim's scope (the aquifer, not one well).\n\n**Why the other choices are wrong:**\n- A: A comparison of the two wells' starting flows describes their size, not any change in pressure over time.\n- B: The completion dates alone contain no information about flow or pressure.\n- D: True in the table, but it invites the wrong inference — highlighting how much the Passy well still produced obscures the fact that both wells' flows were falling sharply."
+  "explanation": "**Choice C is correct.** A claim about steadily falling pressure needs evidence of decline over time at the wells drawing on the aquifer, and C alone provides it: both wells' flows fell to a fraction of their initial rates.\n\n**The Full Solution:**\n- Flow from an artesian well is driven by aquifer pressure, so falling flow is the table's proxy for falling pressure.\n- C reads the decline out of both rows — Well 1 down almost 80 percent, Well 2 down about two-thirds — matching the claim's scope (the aquifer, not one well).\n\n**Why the other choices are wrong:**\n- A: A comparison of the two wells' starting flows and completion dates describes their size and age, not any change in pressure over time.\n- B: The completion dates alone contain no information about flow or pressure.\n- D: True in the table, but it invites the wrong inference — highlighting how much Well 2 still produced obscures the fact that both wells' flows were falling sharply.",
+  "_meta": {
+    "anchor": "Unattributed, illustrative well data (2026-10-04 fact review: the earlier version attached invented flow figures to the real Grenelle and Passy wells in Paris; Grenelle's documented flow c. 1900 was about 430 m3/day, not 800)."
+  }
 }

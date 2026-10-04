@@ -19,11 +19,24 @@
   },
   "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
   "choices": [
-    { "id": "A", "text": "Whereas the camera obscura casts a real, traceable image inside a darkened space, the camera lucida projects nothing — the artist merely sees scene and paper superimposed in the eye." },
-    { "id": "B", "text": "The camera lucida, patented in 1806, is a small prism mounted on a stem and used in ordinary daylight." },
-    { "id": "C", "text": "Both the camera obscura and the camera lucida helped artists set down the proportions of a scene accurately." },
-    { "id": "D", "text": "The camera obscura, an instrument known since antiquity, projects a real image of a scene into a darkened chamber or box, where an artist can trace the projected image directly." }
+    {
+      "id": "A",
+      "text": "Whereas the camera obscura casts a real, traceable image in a darkened space, the camera lucida projects no image onto the paper at all."
+    },
+    {
+      "id": "B",
+      "text": "The camera lucida, patented in 1806, is a small prism mounted on a stem and used in ordinary daylight."
+    },
+    {
+      "id": "C",
+      "text": "Both the camera obscura and the camera lucida helped artists set down the proportions of a scene accurately."
+    },
+    {
+      "id": "D",
+      "text": "The camera obscura, an instrument known since antiquity, projects a real image of a scene into a darkened chamber or box, where an artist can trace the projected image directly."
+    }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** Emphasizing a difference requires putting both devices in one frame and stating what divides them. A does exactly that with the sharpest divide the notes contain: a real projected image versus no projection at all.\n\n**The Full Solution:**\n- The goal names two devices, so the sentence must mention both — and in contrastive relation, which A's \"Whereas\" supplies.\n- A draws its two halves straight from the notes: the obscura's traceable projection in a dark chamber; the lucida's superimposition \"in the eye\" with \"no image... cast on the paper.\"\n\n**Why the other choices are wrong:**\n- B: It describes the camera lucida alone; with one device on stage, no difference can be emphasized.\n- C: It emphasizes a similarity — the precise opposite of the stated goal.\n- D: Like B, it presents a single device; the camera lucida never appears for the comparison."
+  "explanation": "**Choice A is correct.** Emphasizing a difference requires putting both devices in one frame and stating what divides them. A does exactly that with the sharpest divide the notes contain: a real projected image versus no projection at all.\n\n**The Full Solution:**\n- The goal names two devices, so the sentence must mention both — and in contrastive relation, which A's \"Whereas\" supplies.\n- A draws its two halves straight from the notes: the obscura's traceable projection in a dark chamber; the lucida's superimposition, with \"no image... actually cast on the paper.\"\n\n**Why the other choices are wrong:**\n- B: It describes the camera lucida alone; with one device on stage, no difference can be emphasized.\n- C: It emphasizes a similarity — the precise opposite of the stated goal.\n- D: Like B, it presents a single device; the camera lucida never appears for the comparison.",
+  "_meta": {}
 }

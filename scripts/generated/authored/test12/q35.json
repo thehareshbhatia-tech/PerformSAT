@@ -9,18 +9,18 @@
  "passages": [
   {
    "label": "Text 1",
-   "text": "Pianists who perform music of the 1780s today usually play instruments those composers never heard: the modern concert grand, with its iron frame and thick, powerful sound. Some performers argue that this music belongs on the fortepiano, the light wooden instrument of the composers' own day. Its quick, shallow action and fast-fading notes were the conditions under which the music was composed; rapid passagework that blurs on a modern grand stays articulate, and inner voices the big instrument buries remain audible. If we want to hear these works as their composers conceived them, the argument runs, we should hear them on the instrument the composers wrote at."
+   "text": "Pianists who perform music of the late eighteenth century usually play an instrument its composers never heard: the modern concert grand, with its iron frame and powerful sound. Some performers argue that this music belongs on the fortepiano, the lighter, wooden-framed instrument of the composers' own day. On its quick action and fast-fading notes, rapid passagework that blurs on a modern grand stays articulate, and inner voices remain audible. To hear these works as their composers conceived them, the argument runs, we should hear them on the instrument they wrote for."
   },
   {
    "label": "Text 2",
-   "text": "The fortepiano undeniably clarifies certain textures, and performers have learned much from it. But the composers' instrument was a constraint as well as a choice: the same musicians eagerly acquired louder, larger pianos as fast as builders could supply them, which suggests the old instruments marked a stage in the piano's development rather than an ideal the composers wished to preserve. What the music requires is not a particular machine but transparency and balance, and a pianist who has absorbed the fortepiano's lessons can realize those qualities on a modern grand through touch, pacing, and restraint."
+   "text": "The fortepiano undeniably clarifies certain textures, and performers have learned much from it. But the composers' instrument was a constraint as well as a choice: composers of the period welcomed larger, louder pianos as builders produced them. What the music requires is not a particular machine but transparency and balance, and a pianist who has absorbed the fortepiano's lessons can achieve those qualities on a modern grand through touch, pacing, and restraint."
   }
  ],
  "question": "Based on the texts, how would the author of Text 2 most likely respond to the argument presented in Text 1?",
  "choices": [
   {
    "id": "A",
-   "text": "The author would agree that this repertoire should be performed only on instruments of the composers' own period, adding that most of today's pianists would first need years of retraining before they could play such instruments well."
+   "text": "The author would agree that this music should be played only on period instruments, adding that most pianists would need retraining to play them well."
   },
   {
    "id": "B",
@@ -32,9 +32,9 @@
   },
   {
    "id": "D",
-   "text": "The author would grant that the fortepiano reveals textures a modern grand can obscure but deny that this settles the choice of instrument, since a player who understands those textures can achieve them by other means."
+   "text": "The author would grant that the fortepiano reveals textures a modern grand can obscure but deny that this settles which instrument should be used."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** Text 2 concedes the fortepiano's revelations — it \"undeniably clarifies certain textures\" — but rejects the conclusion that the music therefore belongs on it, arguing that transparency and balance can be achieved \"on a modern grand through touch, pacing, and restraint.\" D preserves both the concession and the refusal.\n\n**The Full Solution:**\n- Text 1's argument moves from evidence (clearer passagework, audible inner voices on the fortepiano) to a prescription (perform these works on the composers' instrument).\n- Text 2 accepts the evidence but attacks the inference twice: historically, the composers treated their instruments as a stage to be outgrown, eagerly adopting bigger pianos; practically, what the music needs is qualities, not a machine, and those qualities transfer.\n- So the response grants what the fortepiano shows while denying that it dictates the instrument — exactly choice D.\n\n**Why the other choices are wrong:**\n- A: It signs the author onto the period-instrument prescription that Text 2 exists to resist.\n- B: It overshoots the author's respect for the fortepiano, from which performers \"have learned much.\"\n- C: It invents audience preferences neither text mentions and concedes the whole argument besides."
+ "explanation": "**Choice D is correct.** Text 2 concedes the fortepiano's revelations — it \"undeniably clarifies certain textures\" — but rejects the conclusion that the music therefore belongs on it, arguing that transparency and balance can be achieved \"on a modern grand through touch, pacing, and restraint.\" D preserves both the concession and the refusal.\n\n**The Full Solution:**\n- Text 1's argument moves from evidence (clearer passagework, audible inner voices on the fortepiano) to a prescription (perform these works on the composers' instrument).\n- Text 2 accepts the evidence but attacks the inference twice: historically, composers of the period welcomed larger, louder pianos as builders produced them; practically, what the music needs is qualities, not a machine, and those qualities transfer.\n- So the response grants what the fortepiano shows while denying that it dictates the instrument — exactly choice D.\n\n**Why the other choices are wrong:**\n- A: It signs the author onto the period-instrument prescription that Text 2 exists to resist.\n- B: It overshoots the author's respect for the fortepiano, from which performers \"have learned much.\"\n- C: It invents audience preferences neither text mentions and concedes the whole argument besides."
 }

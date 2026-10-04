@@ -6,14 +6,29 @@
   "domain": "information-and-ideas",
   "skill": "inferences",
   "module": 1,
-  "passage": "A nocturnal is a small instrument, usually of brass or boxwood, that tells time at night from the rotation of the stars around the celestial pole. Surviving examples range from richly engraved presentation pieces to plain instruments worn smooth by years of handling, and household and shipboard inventories of the sixteenth and seventeenth centuries list nocturnals among the effects of pilots, surveyors, and estate stewards alike. The period's instruction manuals, meanwhile, explain the nocturnal's use in everyday vernacular languages rather than in scholarly Latin. Taken together, these details suggest that ______",
+  "passage": "A nocturnal is a small instrument, usually of brass or wood, that tells time at night from the rotation of the stars around the North Star. Some surviving nocturnals are engraved with tide tables for important ports, information of use mainly to someone bringing a ship into harbor. The instrument was also explained in practical navigation manuals of the sixteenth century, written in Spanish, English, and other everyday languages rather than in scholarly Latin. Taken together, these details suggest that ______",
   "question": "Which choice most logically completes the text?",
   "choices": [
-    { "id": "A", "text": "most nocturnals were commissioned as ornamental gifts and were rarely used to tell time at all." },
-    { "id": "B", "text": "the nocturnal was a practical tool in reasonably wide working use, not merely a curiosity for wealthy collectors." },
-    { "id": "C", "text": "reading a nocturnal demanded formal astronomical training that few laypeople of the period possessed." },
-    { "id": "D", "text": "nocturnals had displaced sundials as the most common timekeeping instruments of the era." }
+    {
+      "id": "A",
+      "text": "most nocturnals were made as ornamental gifts for wealthy patrons and were rarely, if ever, used to tell time."
+    },
+    {
+      "id": "B",
+      "text": "the nocturnal served as a working tool for navigators rather than as a curiosity for collectors."
+    },
+    {
+      "id": "C",
+      "text": "reading a nocturnal demanded formal training in astronomy that few sailors of the period possessed."
+    },
+    {
+      "id": "D",
+      "text": "nocturnals had displaced sundials as the most common timekeeping instruments of the sixteenth century."
+    }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** Each detail points the same way — toward ordinary, working use by a range of people — and B draws exactly that general conclusion, without going beyond it.\n\n**The Full Solution:**\n- Instruments \"worn smooth by years of handling\" were used, not displayed.\n- Inventories place them with pilots, surveyors, and stewards — working occupations, not just collectors.\n- Vernacular manuals imply an audience of ordinary readers rather than Latin-trained scholars.\n- The generalization these premises support is practical, fairly widespread use — precisely B.\n\n**Why the other choices are wrong:**\n- A: The worn, plain examples and the working owners contradict a picture of unused ornaments.\n- C: Vernacular instructions argue the opposite — the device was explained for readers without scholarly training.\n- D: The text never mentions sundials or compares the instruments' popularity; \"most common\" outruns the evidence entirely."
+  "explanation": "**Choice B is correct.** Each detail points the same way — toward practical use at sea — and B draws exactly that general conclusion, without going beyond it.\n\n**The Full Solution:**\n- Tide tables for ports matter to someone piloting a ship into harbor, not to someone displaying an ornament.\n- The instrument was explained in practical navigation manuals, the handbooks of working seamen.\n- Those manuals were written in everyday languages rather than scholarly Latin, implying an audience of ordinary practitioners.\n- The generalization these premises support is working use by navigators — precisely B.\n\n**Why the other choices are wrong:**\n- A: Tide tables and navigation manuals point to use, contradicting a picture of unused ornaments.\n- C: Manuals in everyday languages argue the opposite — the device was explained for readers without scholarly training.\n- D: The text never mentions sundials or compares the instruments' popularity; \"most common\" outruns the evidence entirely.",
+  "_meta": {
+    "anchor": "Nocturnal (instrument), Wikipedia: brass or wood; important in piloting for tides, some carry tide charts for ports; popularized by Martín Cortés de Albacar's Spanish Arte de Navegar (1551), translated into English (1561)."
+  }
 }
