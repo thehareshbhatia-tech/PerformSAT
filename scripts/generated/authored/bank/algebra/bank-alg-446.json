@@ -1,29 +1,29 @@
 {
- "question": "A survey of an oyster reef models the relationship between water depth $x$ and larval settlement $y$ with the equation $6x - 9y = 21$. A second model of the same relationship has the same graph in the $xy$-plane. Which equation could be the second model?",
+ "question": "$6x - 9y = 21$\nWhich equation, together with the given equation, forms a system of linear equations that has infinitely many solutions?",
  "choices": [
   {
    "id": "A",
-   "text": "$2x - 3y = 7$"
-  },
-  {
-   "id": "B",
    "text": "$2x - 3y = 21$"
   },
   {
+   "id": "B",
+   "text": "$-4x + 6y = 14$"
+  },
+  {
    "id": "C",
-   "text": "$2x + 3y = 7$"
+   "text": "$4x - 6y = -14$"
   },
   {
    "id": "D",
-   "text": "$6x - 9y = 7$"
+   "text": "$-4x + 6y = -14$"
   }
  ],
- "correctAnswer": "A",
+ "correctAnswer": "D",
  "distractorNotes": {
-  "B": "divides the coefficients by $3$ but leaves the constant at $21$",
-  "C": "divides correctly but flips the sign of the $y$-term",
-  "D": "divides the constant by $3$ but leaves the coefficients unchanged"
+  "A": "divides the coefficients by 3 but not the constant",
+  "B": "multiplies the coefficients by -2/3 but the constant by 2/3",
+  "C": "multiplies the coefficients by 2/3 but the constant by -2/3"
  },
- "explanation": "**SAT Pattern: Same Line Infinitely Many Solutions**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Divide $6x - 9y = 21$ by $3$: every term shrinks, giving $2x - 3y = 7$.\n\n**The Full Solution:**\n\nStep 1: Two equations have the same graph exactly when one is a nonzero multiple of the other, so look for a common factor.\n\nStep 2: Each of $6$, $-9$, and $21$ is divisible by $3$.\n\nStep 3: Dividing gives $2x - 3y = 7$. Check $(5, 1)$: it satisfies $6(5) - 9(1) = 21$ and $2(5) - 3(1) = 7$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($2x - 3y = 21$): divides the coefficients by $3$ but leaves the constant, so the line shifts away from the original.\n\n* Choice C ($2x + 3y = 7$): divides correctly but changes $-3y$ to $+3y$, reversing the slope.\n\n* Choice D ($6x - 9y = 7$): divides only the constant, again moving the line.\n\n**Test Day Takeaway:** Divide the whole equation by the common factor; a term left behind produces a parallel line, not the same one.",
+ "explanation": "**SAT Pattern: Same Line Infinitely Many Solutions**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Multiplying every term of $6x - 9y = 21$ by $-\\frac{2}{3}$ gives $-4x + 6y = -14$, the same line.\n\n**The Full Solution:**\nStep 1: A system has infinitely many solutions when both equations describe the same line, so one equation must be a nonzero multiple of the other, constant included.\nStep 2: The choices have $x$-coefficient $\\pm 4$ or $2$. Multiplying $6x - 9y = 21$ by $-\\frac{2}{3}$ gives $-4x + 6y = -14$.\nStep 3: Only choice D matches every term. Check: multiplying $-4x + 6y = -14$ by $-\\frac{3}{2}$ returns $6x - 9y = 21$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2x - 3y = 21$): divides the coefficients by $3$ but leaves the constant, giving a parallel line.\n* Choice B ($-4x + 6y = 14$): scales the coefficients by $-\\frac{2}{3}$ but the constant by $\\frac{2}{3}$, giving a parallel line.\n* Choice C ($4x - 6y = -14$): scales the coefficients by $\\frac{2}{3}$ but the constant by $-\\frac{2}{3}$, giving a parallel line.\n\n**Test Day Takeaway:** Check the constant with the same multiplier as the coefficients; a mismatch there turns infinitely many solutions into none.",
  "id": "bank-alg-446"
 }

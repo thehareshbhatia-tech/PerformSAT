@@ -154,3 +154,38 @@ if (isMain && process.argv[2] === 'rwcensus') {
   for (const [k, ws] of Object.entries(by)) console.log(`${k.padEnd(34)} n=${String(ws.length).padStart(3)} median ${med(ws)} (official ${RW_LEN[k]?.[0]}) · over p90: ${ws.filter(w => RW_LEN[k] && w > Math.round(RW_LEN[k][1] * 1.05)).length}`);
   console.log(`\n${over} of ${n} R&W items over the official p90 for their skill`);
 }
+
+// ─── skill-aware targets for single-domain drill chunks (2026-10-04) ───────
+// A geometry chunk cannot hit a mixed-module "18% equation-first" floor: the official bank opens 0% of its
+// geometry stems with an equation. Drill chunks therefore get targets from the official per-skill shares of
+// the skills actually in the chunk (70% of the weighted expectation), never from the module constants.
+let _skillNorms = null;
+export function skillNorms() {
+  if (_skillNorms) return _skillNorms;
+  const items = Object.values(JSON.parse(fs.readFileSync(path.join(GEN, 'cbEducatorQBank.json'), 'utf8')).items);
+  const fig = (v) => /stroke-linecap|<svg|<figure|<table/.test((v.stemHtml || '') + (v.stimulusHtml || ''));
+  const pw = (s) => String(s || '').replace(/\*\{[^}]*\}/g, '').replace(/\[[^\]]*\]/g, ' M ').split(/\s+/).filter(w => /[a-zA-Z]/.test(w) && w !== 'M').length;
+  const by = new Map();
+  for (const v of items) {
+    const k = String(v.skill || '').toLowerCase(); if (!by.has(k)) by.set(k, { n: 0, nf: 0, short: 0, eq: 0, stock: 0 });
+    const b = by.get(k); b.n++;
+    if (frameVariants(v.stemPlain || '').some(f => stockFrames().has(f))) b.stock++;
+    if (!fig(v)) { b.nf++; if (pw(`${v.stimulusPlain || ''} ${v.stemPlain || ''}`) <= 20) b.short++; }
+    if (/^\s*\[/.test(v.stimulusPlain || v.stemPlain || '')) b.eq++;
+  }
+  _skillNorms = new Map([...by].map(([k, b]) => [k, { short: b.nf ? b.short / b.nf : 0, eqFirst: b.eq / b.n, stock: b.stock / b.n }]));
+  return _skillNorms;
+}
+/** registerModule with targets = 70% of the official shares for the chunk's own skill mix (rows carry cbSkillLabel). */
+export function registerChunkSkillAware(rows, { label = 'chunk' } = {}) {
+  const N = skillNorms(); const known = rows.map(r => N.get(String(r.cbSkillLabel || '').toLowerCase())).filter(Boolean);
+  if (known.length < rows.length / 2) return registerModule(rows, { label });
+  const avg = (k) => known.reduce((s, x) => s + x[k], 0) / known.length;
+  const saved = { ...MODULE_TARGETS };
+  try {
+    MODULE_TARGETS.short = Math.min(saved.short, 0.7 * avg('short'));
+    MODULE_TARGETS.eqFirst = Math.min(saved.eqFirst, 0.7 * avg('eqFirst'));
+    MODULE_TARGETS.stock = Math.min(saved.stock, 0.7 * avg('stock'));
+    return registerModule(rows, { label });
+  } finally { Object.assign(MODULE_TARGETS, saved); }
+}

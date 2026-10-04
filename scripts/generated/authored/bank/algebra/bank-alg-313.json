@@ -1,6 +1,6 @@
 {
- "id": "bank-alg-313",
- "question": "A block face is divided into three curb runs whose lengths, in meters, are $7x + 12$, $5x - 3$, and $2x + 6$. Their total is $14x + b$ meters, where $b$ is a constant. What is the value of $b$?",
- "correctAnswer": "15",
- "explanation": "**SAT Pattern: Combining Like Terms**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~15s):** Only the constants matter for $b$: $12 - 3 + 6 = 15$.\n\n**The Full Solution:**\nStep 1: Add the three lengths: $(7x + 12) + (5x - 3) + (2x + 6)$.\nStep 2: Group like terms: the $x$-terms give $7x + 5x + 2x = 14x$, matching the stated $14x$.\nStep 3: The constants give $12 - 3 + 6 = 15$, so $b = 15$. Check: at $x = 1$ the runs measure $19$, $2$, and $8$ meters, totaling $29$, and $14(1) + 15 = 29$ ✓\n\n**Common Mistakes:** Answering $21$ adds $12 + 3 + 6$, treating the $-3$ as positive; answering $9$ computes $12 - 3$ and forgets the third run; answering $14$ reports the coefficient of $x$ instead of the constant.\n\n**Test Day Takeaway:** Combine like terms in two separate columns — variable terms and constants — so a subtraction sign in one column never leaks into the other."
+ "question": "$(8x + 13) + (3x - 5)$\nThe given expression is equivalent to $11x + b$, where $b$ is a constant. What is the value of $b$?",
+ "correctAnswer": "8",
+ "explanation": "**SAT Pattern: Combining Like Terms**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~10s):** The constants combine to $13 - 5 = 8$, so $b = 8$.\n\n**The Full Solution:**\nStep 1: Group the $x$ terms and the constants: $(8x + 3x) + (13 - 5)$.\nStep 2: Combine: $11x + 8$.\nStep 3: Match with $11x + b$: $b = 8$. Check with $x = 1$: $(8 + 13) + (3 - 5) = 19$ and $11 + 8 = 19$ ✓\n\n**Common Mistakes:** Adding $5$ instead of subtracting it gives $18$. Reporting the coefficient $11$ answers for the $x$ term, not the constant.\n\n**Test Day Takeaway:** Combine like terms in two groups, variable terms and constants, and carry each sign with its number.",
+ "id": "bank-alg-313"
 }

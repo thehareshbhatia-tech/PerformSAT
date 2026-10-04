@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-367",
- "question": "The shaded region shows every ordered pair that satisfies a paving crew's system of inequalities, where $x$ is the tons of base course placed and $y$ the tons of surface course placed. Which ordered pair lies in that region?",
+ "question": "The shaded region shown represents the solutions to which of the following systems of inequalities?",
  "diagram": {
   "type": "twoLineGraph",
   "params": {
@@ -28,26 +28,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$(0, 0)$"
+   "text": "$y \\leq 2x - 3$ and $y \\leq -x + 6$"
   },
   {
    "id": "B",
-   "text": "$(4, 1)$"
+   "text": "$y \\geq 2x - 3$ and $y \\leq -x + 6$"
   },
   {
    "id": "C",
-   "text": "$(2, 3)$"
+   "text": "$y \\leq 2x - 3$ and $y \\geq -x + 6$"
   },
   {
    "id": "D",
-   "text": "$(6, 4)$"
+   "text": "$y \\leq -2x - 3$ and $y \\leq x + 6$"
   }
  ],
+ "correctAnswer": "A",
  "distractorNotes": {
-  "A": "sits below the falling boundary but above the rising one, since 2(0) - 3 = -3 is less than 0",
-  "C": "sits above the rising boundary, since 2(2) - 3 = 1 is less than 3",
-  "D": "sits above the falling boundary, since -6 + 6 = 0 is less than 4"
+  "B": "uses the wrong side of the rising line; the shading is below it, not above it",
+  "C": "uses the wrong side of the falling line; the shading is below it, not above it",
+  "D": "reads both slopes with the wrong sign, swapping the rising and falling lines"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: System of Linear Inequalities**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The shaded region lies below both boundaries, $y = 2x - 3$ and $y = -x + 6$; at $(4, 1)$, $1 \\leq 2(4) - 3 = 5$ and $1 \\leq -4 + 6 = 2$, so it qualifies.\n\n**The Full Solution:**\nStep 1: Read the boundaries from the figure. One rises $2$ units per unit right and crosses the $y$-axis at $-3$, giving $y = 2x - 3$; the other falls $1$ unit per unit right and crosses at $6$, giving $y = -x + 6$. The two meet at $(3, 3)$.\nStep 2: The shading lies below both lines, so the system is $y \\leq 2x - 3$ and $y \\leq -x + 6$. A point qualifies only when BOTH inequalities hold.\nStep 3: Test $(4, 1)$. The first boundary gives $2(4) - 3 = 5$, and $1 \\leq 5$; the second gives $-4 + 6 = 2$, and $1 \\leq 2$. Both hold, so $(4, 1)$ lies in the shaded region. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(0, 0)$): clears the falling boundary but sits above the rising one, since $2(0) - 3 = -3$ and $0 > -3$.\n* Choice C ($(2, 3)$): sits above the rising boundary, since $2(2) - 3 = 1$ and $3 > 1$.\n* Choice D ($(6, 4)$): clears the rising boundary but sits above the falling one, since $-6 + 6 = 0$ and $4 > 0$.\n\n**Test Day Takeaway:** A solution of a system of inequalities must satisfy EVERY inequality — test a candidate against both boundaries before accepting it."
+ "explanation": "**SAT Pattern: System of Linear Inequalities**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** The boundaries are $y = 2x - 3$ (rising) and $y = -x + 6$ (falling), and the shading lies below both, so both symbols are $\\leq$.\n\n**The Full Solution:**\nStep 1: Read the rising line: it crosses the $y$-axis at $-3$ and passes through $(3, 3)$, so its slope is $\\frac{3 - (-3)}{3 - 0} = 2$ and its equation is $y = 2x - 3$.\nStep 2: Read the falling line: it crosses the $y$-axis at $6$ and passes through $(3, 3)$, so its slope is $\\frac{3 - 6}{3 - 0} = -1$ and its equation is $y = -x + 6$.\nStep 3: The shaded region lies below both lines, so the system is $y \\leq 2x - 3$ and $y \\leq -x + 6$. Check with the shaded point $(4, 1)$: $1 \\leq 5$ and $1 \\leq 2$ are both true ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: describes points above the rising line, but the shading is below it; $(4, 1)$ fails $1 \\geq 5$.\n* Choice C: describes points above the falling line, but the shading is below it; $(4, 1)$ fails $1 \\geq 2$.\n* Choice D: gives the rising line a negative slope and the falling line a positive slope.\n\n**Test Day Takeaway:** Match a graph to a system in two passes: first write each boundary line from its intercept and slope, then decide each symbol from which side is shaded."
 }

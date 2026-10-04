@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-425",
- "question": "The table gives the number of visitors a museum recorded before noon and after noon on one day, together with the total for that day. What is the value of $a$?",
+ "question": "The table shows the number of visitors to a museum on one day. What is the value of $a$?",
  "questionTable": {
   "headers": [
    "Part of day",
@@ -41,9 +41,9 @@
  ],
  "correctAnswer": "B",
  "distractorNotes": {
-  "A": "reports the afternoon count that the table already gives",
-  "C": "reports the day's total rather than the morning count",
-  "D": "adds 258 to 741 instead of subtracting"
+  "A": "reports the number of visitors after noon",
+  "C": "reports the total for the day",
+  "D": "adds 258 and 741 instead of subtracting"
  },
- "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $a + 258 = 741$, so $a = 741 - 258 = 483$.\n\n**The Full Solution:**\n\nStep 1: The two parts of the day account for the whole day, so $a + 258 = 741$.\n\nStep 2: Subtract $258$ from both sides: $a = 741 - 258$.\n\nStep 3: $a = 483$. Check: $483 + 258 = 741$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($258$): reports the afternoon count, which the table already supplies.\n* Choice C ($741$): reports the day's total instead of the morning portion of it.\n* Choice D ($999$): adds $258$ to $741$, which would make the parts exceed the whole.\n\n**Test Day Takeaway:** When two parts make a total, the missing part is the total minus the known part, and it must be smaller than the total."
+ "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The two parts add to the total, so $a + 258 = 741$ and $a = 741 - 258 = 483$.\n\n**The Full Solution:**\nStep 1: The visitors before noon and after noon make up the day's total, so $a + 258 = 741$.\nStep 2: Subtract $258$ from each side: $a = 741 - 258$.\nStep 3: Compute: $a = 483$. Check: $483 + 258 = 741$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($258$): is the number of visitors after noon, not before noon.\n* Choice C ($741$): is the total for the day, not the part before noon.\n* Choice D ($999$): adds $258$ to $741$ instead of subtracting it.\n\n**Test Day Takeaway:** When a table gives parts and a total, write part + part = total and undo the addition with one subtraction."
 }

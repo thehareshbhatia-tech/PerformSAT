@@ -1,58 +1,58 @@
 {
-  "id": "bank-alg-435",
-  "question": "Line $t$ is shown in the $xy$-plane. Line $u$ is parallel to line $t$ and passes through the point $(2, -3)$. What is the $y$-coordinate of the point on line $u$ whose $x$-coordinate is $6$?",
-  "diagram": {
-    "type": "linearGraph",
-    "params": {
-      "slope": 0.75,
-      "yIntercept": 1,
-      "xRange": [
-        -4,
-        8
-      ],
-      "yRange": [
-        -4,
-        8
-      ],
-      "xTickInterval": 2,
-      "yTickInterval": 2,
-      "gridInterval": 1,
-      "showPoints": [
-        [
-          0,
-          1
-        ],
-        [
-          4,
-          4
-        ]
-      ],
-      "label": "t"
-    }
+ "id": "bank-alg-435",
+ "question": "Line $t$ is shown in the $xy$-plane. Line $u$ is parallel to line $t$ and passes through the point $(2, -3)$. If the point $(6, c)$ lies on line $u$, what is the value of $c$?",
+ "diagram": {
+  "type": "linearGraph",
+  "params": {
+   "slope": 0.75,
+   "yIntercept": 1,
+   "xRange": [
+    -4,
+    8
+   ],
+   "yRange": [
+    -4,
+    8
+   ],
+   "xTickInterval": 2,
+   "yTickInterval": 2,
+   "gridInterval": 1,
+   "showPoints": [
+    [
+     0,
+     1
+    ],
+    [
+     4,
+     4
+    ]
+   ],
+   "label": "t"
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-6$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-6$"
-    },
-    {
-      "id": "B",
-      "text": "$0$"
-    },
-    {
-      "id": "C",
-      "text": "$3$"
-    },
-    {
-      "id": "D",
-      "text": "$\\frac{11}{2}$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "applies slope -\\frac{3}{4} after a sign error: -3 - 3 = -6.",
-    "C": "adds the rise 3 but forgets to start from y = -3.",
-    "D": "evaluates line t at x = 6 (\\frac{3}{4} \\cdot 6 + 1 = \\frac{11}{2}) instead of line u."
+  {
+   "id": "B",
+   "text": "$0$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Parallel Line through a Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Line $t$ has slope $\\frac{3}{4}$. From $(2, -3)$, a run of $4$ gives a rise of $3$: $y = -3 + 3 = 0$.\n\n**The Full Solution:**\nStep 1: From the graph, line $t$ passes through $(0, 1)$ and $(4, 4)$, so its slope is $\\frac{4 - 1}{4 - 0} = \\frac{3}{4}$. Line $u$ has the same slope.\nStep 2: Write line $u$ in point-slope form: $y + 3 = \\frac{3}{4}(x - 2)$. At $x = 6$: $y + 3 = \\frac{3}{4}(4) = 3$, so $y = 0$.\nStep 3: Check: line $u$ is $y = \\frac{3}{4}x - \\frac{9}{2}$; at $x = 6$, $y = \\frac{9}{2} - \\frac{9}{2} = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): applies slope $-\\frac{3}{4}$ after a sign error: $-3 - 3 = -6$.\n* Choice C ($3$): adds the rise $3$ but forgets to start from $y = -3$.\n* Choice D ($\\frac{11}{2}$): evaluates line $t$ at $x = 6$ ($\\frac{3}{4} \\cdot 6 + 1 = \\frac{11}{2}$) instead of line $u$.\n\n**Test Day Takeaway:** With a slope and one point, point-slope form answers \"what is $y$ at this $x$\" in one line; parallel just means reuse the slope."
+  {
+   "id": "C",
+   "text": "$3$"
+  },
+  {
+   "id": "D",
+   "text": "$\\frac{11}{2}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "subtracts the rise of 3 from -3 instead of adding it",
+  "C": "reports the rise of 3 over the run from x = 2 to x = 6, forgetting to start from y = -3",
+  "D": "finds the y-value on line t at x = 6 instead of on line u"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Parallel Line through a Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Line $t$ has slope $\\frac{3}{4}$. Going from $x = 2$ to $x = 6$ on line $u$ raises $y$ by $\\frac{3}{4}(4) = 3$, so $c = -3 + 3 = 0$.\n\n**The Full Solution:**\nStep 1: Line $t$ passes through $(0, 1)$ and $(4, 4)$, so its slope is $\\frac{4 - 1}{4 - 0} = \\frac{3}{4}$.\nStep 2: Line $u$ is parallel, so it also has slope $\\frac{3}{4}$. From $x = 2$ to $x = 6$ is a run of $4$, which gives a rise of $\\frac{3}{4}(4) = 3$.\nStep 3: So $c = -3 + 3 = 0$. Check: the slope from $(2, -3)$ to $(6, 0)$ is $\\frac{0 - (-3)}{6 - 2} = \\frac{3}{4}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): subtracts the rise of $3$ from $-3$ instead of adding it.\n* Choice C ($3$): is the rise itself, without starting from $y = -3$.\n* Choice D ($\\frac{11}{2}$): is the $y$-value on line $t$ at $x = 6$, $\\frac{3}{4}(6) + 1$, not on line $u$.\n\n**Test Day Takeaway:** On parallel lines, the same run gives the same rise; start from the given point on the new line."
 }

@@ -1,29 +1,29 @@
 {
  "id": "bank-alg-406",
- "question": "The height, in centimeters, of a stack of $d$ identical tiles on a base is $h(d) = 1.4d + 26$. Which of the following best describes the meaning of $1.4$ in this model?",
+ "question": "The equation $h = 2.5w + 18$ gives the height $h$, in centimeters, of a plant $w$ weeks after it was first measured. What is the best interpretation of $2.5$ in this context?",
  "choices": [
   {
    "id": "A",
-   "text": "The height, in centimeters, of the base when no tiles rest on it."
+   "text": "The plant was $2.5$ centimeters tall when it was first measured."
   },
   {
    "id": "B",
-   "text": "The number of tiles in a stack that is $26$ centimeters tall."
+   "text": "The plant was $18$ centimeters tall after $2.5$ weeks."
   },
   {
    "id": "C",
-   "text": "The total height, in centimeters, of $26$ tiles."
+   "text": "The plant's height increased by $2.5$ centimeters each week."
   },
   {
    "id": "D",
-   "text": "The increase in the stack's height, in centimeters, for each additional tile."
+   "text": "The plant's height increased by $2.5$ centimeters every $18$ weeks."
   }
  ],
- "correctAnswer": "D",
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "describes $h(0) = 26$, the constant term, not the coefficient",
-  "B": "describes a count of tiles, but $1.4$ is measured in centimeters per tile",
-  "C": "multiplies rather than interpreting; $26$ tiles would add $36.4$ centimeters"
+  "A": "treats the slope as the starting height, which is the role of 18",
+  "B": "treats 2.5 as an input value of w and 18 as the matching output",
+  "D": "attaches the constant 18 to the rate as a number of weeks"
  },
- "explanation": "**SAT Pattern: Reading Slope-Intercept Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** In $h(d) = 1.4d + 26$, the coefficient $1.4$ is the height added by each tile.\n\n**The Full Solution:**\nStep 1: The model gives height in centimeters for $d$ tiles, so $26$ is the height with no tiles and $1.4$ multiplies the count.\nStep 2: Replacing $d$ by $d + 1$ gives $1.4(d + 1) + 26 = h(d) + 1.4$.\nStep 3: So each additional tile raises the stack by $1.4$ centimeters. Check: $h(0) = 26$ and $h(1) = 27.4$.\n\n**Why the wrong answers are tempting:**\n* Choice A (The height, in centimeters, of the base when no tiles rest on it.): describes $h(0) = 26$, the constant term, not the coefficient\n* Choice B (The number of tiles in a stack that is $26$ centimeters tall.): describes a count of tiles, but $1.4$ is measured in centimeters per tile\n* Choice C (The total height, in centimeters, of $26$ tiles.): multiplies rather than interpreting; $26$ tiles would add $36.4$ centimeters\n\n**Test Day Takeaway:** In a linear model the coefficient is a rate with the units output per input, and the constant is the output at zero."
+ "explanation": "**SAT Pattern: Reading Slope-Intercept Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $2.5$ is the coefficient of $w$, so it is the change in height for each additional week.\n\n**The Full Solution:**\nStep 1: In $h = 2.5w + 18$, the coefficient $2.5$ multiplies the number of weeks $w$.\nStep 2: Each time $w$ increases by $1$, $h$ increases by $2.5$, so $2.5$ is the growth, in centimeters, per week.\nStep 3: The constant $18$ is the height when $w = 0$, the height when the plant was first measured. Check: $h(1) - h(0) = 20.5 - 18 = 2.5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (The plant was $2.5$ centimeters tall…): the starting height is the value of $h$ when $w = 0$, which is $18$, not $2.5$.\n* Choice B (The plant was $18$ centimeters tall after $2.5$ weeks.): after $2.5$ weeks the height is $2.5(2.5) + 18 = 24.25$ centimeters; $18$ is the starting height.\n* Choice D (…every $18$ weeks.): the growth of $2.5$ centimeters happens each week; $18$ is a height, not a number of weeks.\n\n**Test Day Takeaway:** In a linear model, the coefficient of the input is the change per one unit of the input; the constant is the value when the input is $0$."
 }

@@ -1,29 +1,29 @@
 {
  "id": "bank-alg-407",
- "question": "A technician records the result of a seismometer calibration check as the equation $|5x - 12| + 9 = 4$, where $x$ is the measured offset, in millimeters, of the instrument's rest position. How many measured offsets make this statement true?",
+ "question": "$|x + 4| = 9$\nWhat are the solutions to the given equation?",
  "choices": [
   {
    "id": "A",
-   "text": "None"
+   "text": "$-13$ and $5$"
   },
   {
    "id": "B",
-   "text": "Exactly one"
+   "text": "$-9$ and $9$"
   },
   {
    "id": "C",
-   "text": "Exactly two"
+   "text": "$-5$ and $13$"
   },
   {
    "id": "D",
-   "text": "Infinitely many"
+   "text": "$5$ only"
   }
  ],
  "distractorNotes": {
-  "B": "solves 5x - 12 = -5 and counts its single value",
-  "C": "drops the negative sign and solves |5x - 12| = 5, which yields two values",
-  "D": "treats the statement as true for every offset"
+  "B": "solves |x| = 9 and ignores the + 4 inside the bars",
+  "C": "subtracts 4 from -9 and 9 with the sign reversed, solving x - 4 = 9 and x - 4 = -9",
+  "D": "solves only x + 4 = 9 and drops the negative case"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Isolating gives $|5x - 12| = -5$, and an absolute value is never negative, so no offset works.\n\n**The Full Solution:**\nStep 1: Isolate the absolute value by subtracting $9$ from both sides: $|5x - 12| = 4 - 9 = -5$.\nStep 2: The absolute value of any real number is at least $0$, so $|5x - 12|$ can never equal $-5$.\nStep 3: No measured offset satisfies the statement. Check: the smallest possible left-hand side is $0 + 9 = 9$, which already exceeds $4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly one): solves $5x - 12 = -5$ and counts the single value it produces, ignoring that the bars were never isolated correctly.\n* Choice C (Exactly two): drops the negative sign and solves $|5x - 12| = 5$, which does have two solutions.\n* Choice D (Infinitely many): treats the statement as an identity rather than a condition on $x$.\n\n**Test Day Takeaway:** Isolate the bars before counting: a negative right-hand side means zero solutions, and a right-hand side of $0$ means exactly one."
+ "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $x + 4 = 9$ gives $x = 5$, and $x + 4 = -9$ gives $x = -13$.\n\n**The Full Solution:**\nStep 1: An absolute value equals $9$ when the expression inside is $9$ or $-9$.\nStep 2: Case 1: $x + 4 = 9$, so $x = 5$. Case 2: $x + 4 = -9$, so $x = -13$.\nStep 3: The solutions are $-13$ and $5$. Check: $|5 + 4| = 9$ and $|-13 + 4| = |-9| = 9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-9$ and $9$): these solve $|x| = 9$; the $+4$ inside the bars shifts both solutions.\n* Choice C ($-5$ and $13$): these solve $|x - 4| = 9$, which has the opposite shift.\n* Choice D ($5$ only): solves only the positive case and misses $x + 4 = -9$.\n\n**Test Day Takeaway:** Split an absolute value equation into two cases, positive and negative, and solve both."
 }

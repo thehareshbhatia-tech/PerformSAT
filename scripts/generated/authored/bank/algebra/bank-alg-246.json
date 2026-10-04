@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-246",
- "question": "The figure shows line $\\ell$. A second linear equation is chosen so that the pair consisting of it and the equation of line $\\ell$ is satisfied by no ordered pair $(x, y)$. Which of the choices below could be that second equation?",
+ "question": "Line $\\ell$ is shown in the $xy$-plane. One equation in a system of two linear equations is the equation of line $\\ell$. The system has no solution. Which equation could be the second equation in this system?",
  "diagram": {
   "type": "linearGraph",
   "params": {
@@ -51,8 +51,8 @@
  "correctAnswer": "C",
  "distractorNotes": {
   "A": "swaps the coefficients, giving slope $\\frac{3}{4}$, so this line crosses line $\\ell$ once",
-  "B": "reproduces line $\\ell$ exactly, so the pair has infinitely many common solutions instead of none",
+  "B": "is line $\\ell$ itself, so the system has infinitely many solutions instead of none",
   "D": "flips the sign of the $y$-coefficient, giving slope $-\\frac{4}{3}$, so this line crosses line $\\ell$ once"
  },
- "explanation": "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Line $\\ell$ is $8x - 6y = 12$; only $8x - 6y = 30$ keeps the same slope with a different constant.\n\n**The Full Solution:**\nStep 1: Line $\\ell$ passes through $(0, -2)$ and $(3, 2)$, so its slope is $\\frac{4}{3}$ and its equation is $y = \\frac{4}{3}x - 2$, or $8x - 6y = 12$.\nStep 2: A pair satisfied by no ordered pair needs a second line with the same slope but a different intercept.\nStep 3: Choice C, $8x - 6y = 30$, gives $y = \\frac{4}{3}x - 5$, matching the slope while shifting the intercept from $-2$ to $-5$. Check: subtracting the two equations leaves $0 = -18$, which is never true.\n\n**Why the wrong answers are tempting:**\n* Choice A ($6x - 8y = 30$): swaps the coefficients, giving slope $\\frac{3}{4}$, so this line crosses line $\\ell$ once\n* Choice B ($8x - 6y = 12$): reproduces line $\\ell$ exactly, so the pair has infinitely many common solutions instead of none\n* Choice D ($8x + 6y = 30$): flips the sign of the $y$-coefficient, giving slope $-\\frac{4}{3}$, so this line crosses line $\\ell$ once\n\n**Test Day Takeaway:** For no common solution, match the coefficients and then make sure the constant does not match; matching all three gives infinitely many solutions."
+ "explanation": "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Line $\\ell$ is $8x - 6y = 12$; only $8x - 6y = 30$ keeps the same coefficients with a different constant.\n\n**The Full Solution:**\nStep 1: Line $\\ell$ passes through $(0, -2)$ and $(3, 2)$, so its slope is $\\frac{4}{3}$ and its equation is $y = \\frac{4}{3}x - 2$, or $4x - 3y = 6$. Doubled, this is $8x - 6y = 12$.\nStep 2: A system of two linear equations has no solution when the second line has the same slope as line $\\ell$ but a different $y$-intercept.\nStep 3: Choice C, $8x - 6y = 30$, gives $y = \\frac{4}{3}x - 5$: same slope, $y$-intercept $-5$ instead of $-2$. Check: subtracting $8x - 6y = 12$ from $8x - 6y = 30$ leaves $0 = 18$, which is never true ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6x - 8y = 30$): swaps the coefficients, giving slope $\\frac{3}{4}$, so this line crosses line $\\ell$ once\n* Choice B ($8x - 6y = 12$): is line $\\ell$ itself, so the system has infinitely many solutions instead of none\n* Choice D ($8x + 6y = 30$): flips the sign of the $y$-coefficient, giving slope $-\\frac{4}{3}$, so this line crosses line $\\ell$ once\n\n**Test Day Takeaway:** For no solution, match the coefficients and then make sure the constant does not match; matching all three gives infinitely many solutions."
 }

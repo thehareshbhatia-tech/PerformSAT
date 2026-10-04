@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-338",
-  "question": "A film archive stores reels, cassettes, and discs. The number of cassettes is one-fourth the number $r$ of reels, and the number of discs is $60$ more than the number of cassettes. If the archive stores $900$ items of these three types, how many discs does it store?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$60$"
-    },
-    {
-      "id": "B",
-      "text": "$140$"
-    },
-    {
-      "id": "C",
-      "text": "$200$"
-    },
-    {
-      "id": "D",
-      "text": "$560$"
-    }
-  ],
-  "correctAnswer": "C",
-  "distractorNotes": {
-    "A": "reported the \"60 more\" difference as the disc count",
-    "B": "reported the cassette count r/4",
-    "D": "reported r, the number of reels"
+ "id": "bank-alg-338",
+ "question": "A library has $900$ books, magazines, and DVDs. The number of magazines is one-fourth the number of books, and there are $60$ more DVDs than magazines. How many DVDs does the library have?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$140$"
   },
-  "explanation": "**SAT Pattern: Word-Problem to Multi-Step Linear**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $r + \\dfrac{r}{4} + \\left(\\dfrac{r}{4} + 60\\right) = 1.5r + 60 = 900$, so $r = 560$. Discs $= \\dfrac{560}{4} + 60 = 200$.\n\n**The Full Solution:**\nStep 1: In terms of $r$: reels $= r$, cassettes $= \\dfrac{r}{4}$, discs $= \\dfrac{r}{4} + 60$.\nStep 2: Total: $r + \\dfrac{r}{4} + \\dfrac{r}{4} + 60 = \\dfrac{3r}{2} + 60 = 900$, so $\\dfrac{3r}{2} = 840$ and $r = 560$.\nStep 3: Discs $= \\dfrac{560}{4} + 60 = 140 + 60 = 200$.\nCheck: $560 + 140 + 200 = 900$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($60$): reports the \"$60$ more\" as if it were the whole disc count.\n* Choice B ($140$): reports the cassette count and forgets to add the $60$.\n* Choice D ($560$): stops at $r$, the number of reels.\n\n**Test Day Takeaway:** When one quantity is defined relative to ANOTHER derived quantity (discs relative to cassettes, not reels), build the chain step by step before totaling."
+  {
+   "id": "B",
+   "text": "$150$"
+  },
+  {
+   "id": "C",
+   "text": "$200$"
+  },
+  {
+   "id": "D",
+   "text": "$560$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "reports the number of magazines, 560/4 = 140",
+  "B": "drops the 60 extra DVDs: 1.5b = 900 gives b = 600 and 150 DVDs",
+  "D": "reports the number of books, b = 560"
+ },
+ "explanation": "**SAT Pattern: Word-Problem to Multi-Step Linear**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** With $b$ books, there are $\\frac{b}{4}$ magazines and $\\frac{b}{4} + 60$ DVDs, so $\\frac{3b}{2} + 60 = 900$, $b = 560$, and the library has $140 + 60 = 200$ DVDs.\n\n**The Full Solution:**\nStep 1: Let $b$ be the number of books. Then there are $\\frac{b}{4}$ magazines and $\\frac{b}{4} + 60$ DVDs.\nStep 2: The total is $900$: $b + \\frac{b}{4} + \\frac{b}{4} + 60 = 900$, so $\\frac{3}{2}b = 840$ and $b = 560$.\nStep 3: There are $\\frac{560}{4} = 140$ magazines, so there are $140 + 60 = 200$ DVDs. Check: $560 + 140 + 200 = 900$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($140$): reports the number of magazines.\n* Choice B ($150$): leaves out the $60$, solving $\\frac{3}{2}b = 900$ to get $b = 600$ and $150$ DVDs.\n* Choice D ($560$): reports the number of books, the variable solved for.\n\n**Test Day Takeaway:** When one group is defined through another (\"$60$ more than the magazines\"), build it from that group's expression, not from the variable directly."
 }

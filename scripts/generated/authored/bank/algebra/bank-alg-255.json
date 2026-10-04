@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-255",
- "question": "The table gives the volume, in liters, of each of two sizes of storage container. A shelf holds $x$ small containers and $y$ large containers with a combined volume of $138$ liters. The shelf holds $2$ more large containers than small containers. What is the total number of containers on the shelf?",
+ "question": "The table shows the volume of each of two sizes of container. A shelf holds $2$ more large containers than small containers, and the total volume of these containers is $138$ liters. How many containers are on the shelf?",
  "diagram": {
   "type": "dataTable",
   "params": {
@@ -21,5 +21,5 @@
   }
  },
  "correctAnswer": "14",
- "explanation": "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**The correct answer is $14$.**\n\n**The Fast Way (~25s):** Write $y = x + 2$ and substitute into $7x + 12y = 138$: $19x + 24 = 138$, so $x = 6$, $y = 8$, and the total is $14$.\n\n**The Full Solution:**\nStep 1: The volume condition is $7x + 12y = 138$; the count condition is $y = x + 2$.\nStep 2: Substitute: $7x + 12(x + 2) = 138$, so $19x + 24 = 138$, $19x = 114$, and $x = 6$.\nStep 3: Then $y = 8$, and $x + y = 14$. Check: $7(6) + 12(8) = 42 + 96 = 138$. $\\checkmark$\n\n**Common Mistakes:** Stopping at $x = 6$ or $y = 8$ instead of adding them, or writing $x = y + 2$ (reversing \"2 more large than small\"), which gives $19y + 14 = 138$ and a non-integer $y$.\n\n**Test Day Takeaway:** When the second condition compares the two counts, substitute it directly, then read the question again for the quantity it wants."
+ "explanation": "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**The correct answer is 14.**\n\n**The Fast Way (~30s):** With $x$ small containers there are $x + 2$ large ones, so $7x + 12(x + 2) = 138$, $19x = 114$, $x = 6$, and the total is $6 + 8 = 14$.\n\n**The Full Solution:**\nStep 1: Let $x$ be the number of small containers and $y$ the number of large containers. Then $y = x + 2$ and $7x + 12y = 138$.\nStep 2: Substitute: $7x + 12(x + 2) = 138$, so $19x + 24 = 138$, $19x = 114$, and $x = 6$; then $y = 8$.\nStep 3: The shelf holds $x + y = 6 + 8 = 14$ containers. Check: $7(6) + 12(8) = 42 + 96 = 138$ ✓\n\n**Common Mistakes:**\n* $6$ or $8$: stops after finding one of the two counts instead of adding them.\n* Reversing the comparison: writing $x = y + 2$ gives $19y + 14 = 138$, so $y = \\frac{124}{19}$, which is not a whole number of containers.\n\n**Test Day Takeaway:** When one condition compares the two counts, substitute it directly, then reread the question for the quantity it asks for."
 }

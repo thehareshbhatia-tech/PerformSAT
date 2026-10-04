@@ -1,29 +1,29 @@
 {
  "id": "bank-alg-405",
- "question": "A commuter card holds $B = 48 - 2.75r$ dollars after $r$ rides have been taken. How many dollars are on the card before any ride is taken?",
+ "question": "$y = 9 - \\frac{2}{3}x$\nWhat is the $y$-coordinate of the $y$-intercept of the graph of the given equation in the $xy$-plane?",
  "choices": [
   {
    "id": "A",
-   "text": "$2.75$"
+   "text": "$-9$"
   },
   {
    "id": "B",
-   "text": "$45.25$"
+   "text": "$-\\frac{2}{3}$"
   },
   {
    "id": "C",
-   "text": "$48$"
+   "text": "$9$"
   },
   {
    "id": "D",
-   "text": "$132$"
+   "text": "$\\frac{27}{2}$"
   }
  ],
  "correctAnswer": "C",
  "distractorNotes": {
-  "A": "names the cost of one ride, the rate of change rather than the starting balance",
-  "B": "gives the balance after one ride, $48 - 2.75$",
-  "D": "multiplies the starting balance by the per-ride cost, $48 \\times 2.75$"
+  "A": "gives the constant the sign of the x-term when rewriting the equation",
+  "B": "reports the slope, the coefficient of x, instead of the y-intercept",
+  "D": "finds the x-intercept, where y = 0, instead of the y-intercept"
  },
- "explanation": "**SAT Pattern: Reading Slope-Intercept Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Before any ride, $r = 0$, so $B = 48$ dollars.\n\n**The Full Solution:**\nStep 1: The model is $B = 48 - 2.75r$, where $r$ counts rides taken.\nStep 2: Before any ride is taken, $r = 0$.\nStep 3: Then $B = 48 - 2.75(0) = 48$ dollars. Check: after one ride the balance is $45.25$ dollars, which is $2.75$ less.\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.75$): names the cost of one ride, the rate of change rather than the starting balance\n* Choice B ($45.25$): gives the balance after one ride, $48 - 2.75$\n* Choice D ($132$): multiplies the starting balance by the per-ride cost, $48 \\times 2.75$\n\n**Test Day Takeaway:** A starting value is the output when the input is zero; substitute $0$ rather than guessing which number to report."
+ "explanation": "**SAT Pattern: Reading Slope-Intercept Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** At $x = 0$ the equation gives $y = 9$.\n\n**The Full Solution:**\nStep 1: The $y$-intercept is where the graph crosses the $y$-axis, which is where $x = 0$.\nStep 2: Substitute $x = 0$: $y = 9 - \\frac{2}{3}(0) = 9$.\nStep 3: So the $y$-intercept is $(0, 9)$, and its $y$-coordinate is $9$. Check: rewriting the equation as $y = -\\frac{2}{3}x + 9$ shows $b = 9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$): rewrites the equation as $y = -\\frac{2}{3}x - 9$, giving the constant the sign of the $x$-term.\n* Choice B ($-\\frac{2}{3}$): this is the slope, the coefficient of $x$.\n* Choice D ($\\frac{27}{2}$): this is the $x$-intercept, found by setting $y = 0$.\n\n**Test Day Takeaway:** The terms of $y = mx + b$ can appear in either order; the $y$-intercept is always the value of $y$ when $x = 0$."
 }

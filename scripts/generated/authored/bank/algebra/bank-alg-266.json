@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-266",
- "question": "Line $n$ is graphed in the $xy$-plane. A printing plate's edge is described by $9x + 6y = d$, and its graph is line $n$ itself. What is the value of the constant $d$?",
+ "question": "Line $n$ is shown in the $xy$-plane. A system of two linear equations consists of the equation of line $n$ and $9x + 6y = d$, where $d$ is a constant. If the system has infinitely many solutions, what is the value of $d$?",
  "diagram": {
   "type": "linearGraph",
   "params": {
@@ -50,9 +50,9 @@
  ],
  "correctAnswer": "C",
  "distractorNotes": {
-  "A": "reports line $n$'s $y$-intercept without multiplying by the coefficient $6$",
+  "A": "reports the $y$-intercept of line $n$ without multiplying by the coefficient $6$",
   "B": "copies the coefficient of $y$ in the equation",
-  "D": "multiplies the intercept by $9$, the coefficient of $x$, instead of by $6$"
+  "D": "multiplies the $y$-intercept by $9$, the coefficient of $x$, instead of by $6$"
  },
- "explanation": "**SAT Pattern: Same Line (Infinitely Many Solutions)**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Line $n$ has slope $-\\frac{3}{2}$ and intercept $4$, and $9x + 6y = d$ gives intercept $\\frac{d}{6}$, so $d = 24$.\n\n**The Full Solution:**\nStep 1: Line $n$ passes through $(0, 4)$ and $(2, 1)$, so its slope is $-\\frac{3}{2}$ and its equation is $y = -\\frac{3}{2}x + 4$.\nStep 2: Rewrite $9x + 6y = d$ as $y = -\\frac{3}{2}x + \\frac{d}{6}$, so the slopes already agree.\nStep 3: Matching intercepts gives $\\frac{d}{6} = 4$, so $d = 24$. Check: $9(0) + 6(4) = 24$, and $9(2) + 6(1) = 24$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): reports line $n$'s $y$-intercept without multiplying by the coefficient $6$\n* Choice B ($6$): copies the coefficient of $y$ in the equation\n* Choice D ($36$): multiplies the intercept by $9$, the coefficient of $x$, instead of by $6$\n\n**Test Day Takeaway:** When two forms must describe the same line, substitute a point you can read from the graph directly into the standard form."
+ "explanation": "**SAT Pattern: Same Line (Infinitely Many Solutions)**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Line $n$ passes through $(0, 4)$, so $9(0) + 6(4) = d$ and $d = 24$.\n\n**The Full Solution:**\nStep 1: Infinitely many solutions means the graph of $9x + 6y = d$ is line $n$ itself, so every point on line $n$ satisfies $9x + 6y = d$.\nStep 2: The point $(0, 4)$ is on line $n$: $9(0) + 6(4) = d$, so $d = 24$.\nStep 3: Confirm with a second point. Check: $(2, 1)$ is on line $n$, and $9(2) + 6(1) = 18 + 6 = 24$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): reports the $y$-intercept of line $n$ without multiplying by the coefficient $6$\n* Choice B ($6$): copies the coefficient of $y$ in the equation\n* Choice D ($36$): multiplies the $y$-intercept by $9$, the coefficient of $x$, instead of by $6$\n\n**Test Day Takeaway:** When a system has infinitely many solutions, both equations describe the same line; substitute a point you can read exactly from the graph."
 }

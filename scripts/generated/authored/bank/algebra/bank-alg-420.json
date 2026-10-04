@@ -1,49 +1,49 @@
 {
  "id": "bank-alg-420",
- "question": "A sewing machine attaches snaps at a constant rate, and the table gives the number attached, $y$, after $x$ minutes. Which of the following equations, paired with the machine's model, gives a system with no solution?",
- "questionTable": {
-  "headers": [
-   "$x$ (minutes)",
-   "$y$ (snaps)"
-  ],
-  "rows": [
-   [
-    "$0$",
-    "$5$"
-   ],
-   [
-    "$3$",
-    "$17$"
-   ],
-   [
-    "$6$",
-    "$29$"
-   ]
-  ]
- },
+ "question": "The table shows three values of $x$ and their corresponding values of $y$ for one equation in a system of two linear equations. The system has no solution. Which equation could be the second equation in the system?",
  "choices": [
   {
    "id": "A",
-   "text": "$y = -4x + 5$"
+   "text": "$y = -3x - 3$"
   },
   {
    "id": "B",
-   "text": "$y = 4x + 5$"
+   "text": "$y = 3x - 3$"
   },
   {
    "id": "C",
-   "text": "$y = 4x + 9$"
+   "text": "$y = 3x + 7$"
   },
   {
    "id": "D",
-   "text": "$y = 5x + 5$"
+   "text": "$y = 7x - 3$"
   }
  ],
  "correctAnswer": "C",
  "distractorNotes": {
-  "A": "flips the sign of the rate, so the two lines have different slopes and cross once",
-  "B": "repeats the machine's own model, which every point satisfies, giving infinitely many solutions",
-  "D": "changes the rate instead of the starting value, so the two lines cross once"
+  "A": "changes the sign of the slope, which gives a line that crosses the first one",
+  "B": "gives the same line as the table, so the system would have infinitely many solutions",
+  "D": "keeps the y-intercept but changes the slope, so the lines intersect at (0, -3)"
  },
- "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The table gives $y = 4x + 5$, and only $y = 4x + 9$ has that same rate with a different starting value.\n\n**The Full Solution:**\n\nStep 1: Read the rate from the table: $\\frac{17 - 5}{3 - 0} = 4$ snaps per minute, and $y = 5$ when $x = 0$, so the machine's model is $y = 4x + 5$.\n\nStep 2: A system of two linear equations has no solution exactly when the lines are parallel and distinct, which means equal slopes and different $y$-intercepts.\n\nStep 3: Among the choices, only $y = 4x + 9$ has slope $4$ and an intercept other than $5$. Check: $4x + 5 = 4x + 9$ gives $5 = 9$, which is never true.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($y = -4x + 5$): flips the sign of the rate, so the slopes differ and the lines cross at exactly one point.\n* Choice B ($y = 4x + 5$): repeats the machine's own model; every point on the line satisfies both equations, so the system has infinitely many solutions rather than none.\n* Choice D ($y = 5x + 5$): changes the rate instead of the starting value, so the lines cross once, at $(0, 5)$.\n\n**Test Day Takeaway:** No solution takes both halves of the test: the slopes have to match and the $y$-intercepts have to differ."
+ "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The table's line is $y = 3x - 3$; a parallel line with a different $y$-intercept, such as $y = 3x + 7$, gives no solution.\n\n**The Full Solution:**\nStep 1: From the table, $y$ increases by $6$ when $x$ increases by $2$, so the slope is $3$, and $y = -3$ when $x = 0$. The first equation is $y = 3x - 3$.\nStep 2: A system has no solution when the lines have the same slope and different $y$-intercepts.\nStep 3: Only $y = 3x + 7$ has slope $3$ and a $y$-intercept other than $-3$. Check: $3x - 3 = 3x + 7$ reduces to $-3 = 7$, which is false ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -3x - 3$): has the opposite slope, so it crosses the first line at $(0, -3)$.\n* Choice B ($y = 3x - 3$): is the same line as the table's, which gives infinitely many solutions.\n* Choice D ($y = 7x - 3$): has a different slope, so the lines intersect at $(0, -3)$.\n\n**Test Day Takeaway:** For no solution, match the slope and change the $y$-intercept; matching both gives infinitely many solutions.",
+ "questionTable": {
+  "headers": [
+   "$x$",
+   "$y$"
+  ],
+  "rows": [
+   [
+    "$0$",
+    "$-3$"
+   ],
+   [
+    "$2$",
+    "$3$"
+   ],
+   [
+    "$5$",
+    "$12$"
+   ]
+  ]
+ }
 }

@@ -1,5 +1,6 @@
 {
- "question": "At a regatta, two scoring formulas give $4x + 7y = c$ and $6x + 3y = 24$, where $x$ is the number of heats a crew won, $y$ is the number of heats it placed second, and $c$ is a constant. If $10x + 10y = 60$, what is the value of $c$?",
+ "id": "bank-alg-258",
+ "question": "$4x + 7y = c$\n$6x + 3y = 24$\nIn the given system of equations, $c$ is a constant. If $x + y = 6$, what is the value of $c$?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +21,9 @@
  ],
  "correctAnswer": "B",
  "distractorNotes": {
-  "A": "copies the second formula's total of $24$",
-  "C": "reports the value of $10x + 10y$ instead of $c$",
-  "D": "adds $60$ and $24$ instead of subtracting"
+  "A": "copies the constant of the second equation",
+  "C": "finds $10(x + y) = 60$ but does not subtract the $24$ from the second equation",
+  "D": "adds $24$ to $60$ instead of subtracting it"
  },
- "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Adding the two formulas gives $10x + 10y = c + 24$, and that sum is $60$, so $c = 36$.\n\n**The Full Solution:**\n\nStep 1: Add the two equations: $(4x + 7y) + (6x + 3y) = c + 24$.\n\nStep 2: The left side combines to $10x + 10y$, which the stem says equals $60$.\n\nStep 3: So $c + 24 = 60$ and $c = 36$. Check with $x = 2$ and $y = 4$: $6(2) + 3(4) = 24$ and $4(2) + 7(4) = 36$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($24$): copies the constant already given in the second formula.\n\n* Choice C ($60$): reports the combined value rather than the unknown constant inside it.\n\n* Choice D ($84$): adds $24$ to $60$ instead of removing it.\n\n**Test Day Takeaway:** When a combination of the two equations is handed to you, add the equations symbolically first and solve the resulting one-variable equation.",
- "id": "bank-alg-258"
+ "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Adding the equations gives $10x + 10y = c + 24$, and $10(6) = 60$, so $c = 36$.\n\n**The Full Solution:**\nStep 1: Add the two equations: $(4x + 7y) + (6x + 3y) = c + 24$, so $10x + 10y = c + 24$.\nStep 2: Since $x + y = 6$, the left side is $10(6) = 60$, so $60 = c + 24$.\nStep 3: Subtract $24$: $c = 36$. Check: $6x + 3y = 24$ and $x + y = 6$ give $x = 2$ and $y = 4$, and $4(2) + 7(4) = 8 + 28 = 36$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($24$): copies the constant of the second equation\n* Choice C ($60$): finds $10(x + y) = 60$ but does not subtract the $24$ from the second equation\n* Choice D ($84$): adds $24$ to $60$ instead of subtracting it\n\n**Test Day Takeaway:** If the question gives $x + y$, look for a sum of the equations whose coefficients are all equal."
 }

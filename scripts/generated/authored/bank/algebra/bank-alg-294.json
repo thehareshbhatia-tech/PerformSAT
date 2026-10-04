@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-294",
- "question": "A mastering limiter clips at every input level $x$ that satisfies the equation $|ax + b| = 20$, where $a$ and $b$ are constants and $a > 0$. Clipping occurs at an input level of $-7$ and at an input level of $3$. What is the value of $ab$?",
+ "question": "$|ax + b| = 20$\nIn the given equation, $a$ and $b$ are constants, and $a > 0$. The solutions to the equation are $-7$ and $3$. What is the value of $ab$?",
  "choices": [
   {
    "id": "A",
@@ -19,11 +19,11 @@
    "text": "$32$"
   }
  ],
- "distractorNotes": {
-  "A": "reports a rather than the product ab",
-  "B": "reports b rather than the product ab",
-  "C": "reports a + b instead of the product ab"
- },
  "correctAnswer": "D",
- "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** With $a > 0$, the smaller level hits $-20$ and the larger hits $20$: $-7a + b = -20$ and $3a + b = 20$ give $a = 4$, $b = 8$, so $ab = 32$.\n\n**The Full Solution:**\nStep 1: Because $a > 0$, the expression $ax + b$ increases with $x$, so at $x = -7$ it equals $-20$ and at $x = 3$ it equals $20$.\nStep 2: Subtract the equations $-7a + b = -20$ and $3a + b = 20$: subtracting the first from the second gives $10a = 40$, so $a = 4$.\nStep 3: Then $3(4) + b = 20$ gives $b = 8$, so $ab = 4 \\times 8 = 32$. Check: $|4(-7) + 8| = |-20| = 20$ and $|4(3) + 8| = |20| = 20$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): reports $a$ instead of the product $ab$.\n* Choice B ($8$): reports $b$ instead of the product $ab$.\n* Choice C ($12$): reports $a + b = 12$ instead of the product.\n\n**Test Day Takeaway:** Two given solutions of $|ax + b| = d$ give two linear equations — one branch each — and the sign of $a$ tells you which solution goes with which branch."
+ "distractorNotes": {
+  "A": "stops after finding a = 4",
+  "B": "stops after finding b = 8",
+  "C": "adds a and b instead of multiplying them"
+ },
+ "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** Since $a > 0$, $ax + b$ is $20$ at $x = 3$ and $-20$ at $x = -7$. A change of $40$ over $10$ units gives $a = 4$, then $b = 20 - 12 = 8$, and $ab = 32$.\n\n**The Full Solution:**\nStep 1: With $a > 0$, $ax + b$ increases with $x$, so the larger solution gives $+20$ and the smaller gives $-20$: $3a + b = 20$ and $-7a + b = -20$.\nStep 2: Subtract the second equation from the first: $10a = 40$, so $a = 4$.\nStep 3: Substitute: $12 + b = 20$, so $b = 8$ and $ab = 32$. Check: $|4(3) + 8| = 20$ and $|4(-7) + 8| = |-20| = 20$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): this is $a$, found in Step 2, not the product.\n* Choice B ($8$): this is $b$, found in Step 3, not the product.\n* Choice C ($12$): adds $a + b$ instead of multiplying.\n\n**Test Day Takeaway:** Each solution of $|ax + b| = d$ makes the inside equal $d$ or $-d$; the sign of $a$ tells which solution gets which."
 }

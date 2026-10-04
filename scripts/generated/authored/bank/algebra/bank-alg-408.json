@@ -1,29 +1,29 @@
 {
  "id": "bank-alg-408",
- "question": "In a street-grid plan, the distance $d$, in meters, between two hydrants on the same block face must satisfy the equation $|d - 145| = 38$. What is the sum of the two possible values of $d$?",
+ "question": "$|3x - 12| = 15$\nWhat is the sum of the solutions to the given equation?",
  "choices": [
   {
    "id": "A",
-   "text": "$76$"
+   "text": "$4$"
   },
   {
    "id": "B",
-   "text": "$107$"
+   "text": "$8$"
   },
   {
    "id": "C",
-   "text": "$183$"
+   "text": "$9$"
   },
   {
    "id": "D",
-   "text": "$290$"
+   "text": "$10$"
   }
  ],
  "distractorNotes": {
-  "A": "doubles 38 instead of 145",
-  "B": "reports only the smaller distance, 145 - 38",
-  "C": "reports only the larger distance, 145 + 38"
+  "A": "finds the x-value where 3x - 12 = 0 instead of adding the two solutions",
+  "C": "solves only 3x - 12 = 15 and reports that single solution",
+  "D": "writes the negative case as 3x + 12 = 15, getting 9 and 1"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The two distances are $145 \\pm 38$, and the shifts cancel when they are added: $107 + 183 = 290$.\n\n**The Full Solution:**\nStep 1: Split the equation: $d - 145 = 38$ gives $d = 183$, and $d - 145 = -38$ gives $d = 107$.\nStep 2: Add the two possible distances: $183 + 107 = 290$.\nStep 3: The sum is $290$ meters. Check: the two values sit symmetrically about $145$, so their sum is $2(145) = 290$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($76$): doubles the gap $38$ instead of the center $145$.\n* Choice B ($107$): reports only the smaller distance and never adds the second one.\n* Choice C ($183$): reports only the larger distance and never adds the second one.\n\n**Test Day Takeaway:** The solutions of $|d - c| = k$ average to $c$, so their sum is $2c$ no matter what $k$ is."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The solutions are $9$ and $-1$, so their sum is $8$.\n\n**The Full Solution:**\nStep 1: Case 1: $3x - 12 = 15$, so $3x = 27$ and $x = 9$.\nStep 2: Case 2: $3x - 12 = -15$, so $3x = -3$ and $x = -1$.\nStep 3: The sum is $9 + (-1) = 8$. Check: $|27 - 12| = 15$ and $|-3 - 12| = 15$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): this is where $3x - 12 = 0$, the midpoint of the two solutions, not their sum.\n* Choice C ($9$): this is only the solution from the positive case.\n* Choice D ($10$): rewrites the negative case as $3x + 12 = 15$ instead of $3x - 12 = -15$, getting $x = 1$.\n\n**Test Day Takeaway:** The two solutions of $|ax - b| = c$ sit symmetrically around $\\frac{b}{a}$, so their sum is $\\frac{2b}{a}$; solve both cases to be sure."
 }

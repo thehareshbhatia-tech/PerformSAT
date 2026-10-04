@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-292",
- "question": "The graph of $y = |x - 3| + 2$ in the $xy$-plane is shown. How many solutions does the equation $|x - 3| + 2 = 2$ have?",
+ "question": "$f(x) = |x - 3| + 2$\nThe graph of $y = f(x)$ is shown. How many solutions does the equation $f(x) = 2$ have?",
  "diagram": {
   "type": "absoluteValue",
   "params": {
@@ -29,11 +29,11 @@
    "text": "Infinitely many"
   }
  ],
- "distractorNotes": {
-  "A": "assumes the horizontal line y = 2 misses the graph",
-  "C": "default two-case count without noticing |x - 3| = 0",
-  "D": "confuses a single touching point with overlap"
- },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Subtract $2$: $|x - 3| = 0$, which holds only when $x = 3$. One solution.\n\n**The Full Solution:**\nStep 1: Isolate the absolute value: $|x - 3| + 2 = 2$ gives $|x - 3| = 0$.\nStep 2: An absolute value equals $0$ only when the inside is $0$: $x - 3 = 0$, so $x = 3$.\nStep 3: Graphically, the horizontal line $y = 2$ touches the graph only at the vertex $(3, 2)$, confirming exactly one solution. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (Zero): would be right if the right side were below the vertex, such as $|x - 3| + 2 = 1$; here the line meets the vertex.\n* Choice C (Exactly two): the usual two-case split, but the two cases $x - 3 = 0$ and $x - 3 = -0$ are the same equation.\n* Choice D (Infinitely many): the line $y = 2$ shares one point with the graph, not a whole segment.\n\n**Test Day Takeaway:** After isolating, compare the right side to $0$: negative means no solutions, zero means one, positive means two."
+ "distractorNotes": {
+  "A": "assumes the line y = 2 misses the graph, though it touches the vertex (3, 2)",
+  "C": "applies the usual two-case split without noticing that |x - 3| = 0 has a single case",
+  "D": "confuses one touching point with the line overlapping the graph"
+ },
+ "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $|x - 3| + 2 = 2$ gives $|x - 3| = 0$, which holds only at $x = 3$.\n\n**The Full Solution:**\nStep 1: Isolate the absolute value: $|x - 3| + 2 = 2$ gives $|x - 3| = 0$.\nStep 2: An absolute value is $0$ only when the inside is $0$: $x - 3 = 0$, so $x = 3$.\nStep 3: So the equation has exactly one solution. Check on the graph: the line $y = 2$ touches the graph only at its vertex, $(3, 2)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Zero): would be right if the value were below the vertex, such as $f(x) = 1$; here $y = 2$ meets the vertex.\n* Choice C (Exactly two): the usual two-case split, but $x - 3 = 0$ and $x - 3 = -0$ are the same equation.\n* Choice D (Infinitely many): the line $y = 2$ shares one point with the graph, not a segment.\n\n**Test Day Takeaway:** After isolating the absolute value, compare the other side with $0$: negative means no solutions, zero means one, positive means two."
 }

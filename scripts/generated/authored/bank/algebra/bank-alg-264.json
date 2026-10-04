@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-264",
- "question": "In the $xy$-plane, each of the equations $2x + 5y = 14$ and $6x + 15y = 42$ has a line for its graph. How many ordered pairs $(x, y)$ satisfy both equations?",
+ "question": "$2x + 5y = 14$\n$6x + 15y = 42$\nHow many solutions does the given system of equations have?",
  "choices": [
   {
    "id": "A",
@@ -21,9 +21,9 @@
  ],
  "correctAnswer": "D",
  "distractorNotes": {
-  "A": "treats the unequal-looking coefficients as proof that the lines never meet",
-  "B": "assumes two equations that look different must cross at a single point",
-  "C": "counts intersections as if the graphs were curves; two distinct lines meet at most once"
+  "A": "treats the different-looking equations as parallel lines that never meet",
+  "B": "assumes two different-looking equations must cross at a single point",
+  "C": "counts intersections as if the graphs were curves; two lines that are not the same meet at most once"
  },
- "explanation": "**SAT Pattern: Same Line (Infinitely Many Solutions)**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Multiplying the first equation by $3$ produces the second exactly, so every solution of one solves the other.\n\n**The Full Solution:**\nStep 1: Multiply $2x + 5y = 14$ by $3$ to get $6x + 15y = 42$.\nStep 2: That is precisely the second equation, so the two graphs are the same line.\nStep 3: Every point on that line satisfies both equations, so there are infinitely many ordered pairs. Check: $(2, 2)$ and $(7, 0)$ both satisfy the two equations.\n\n**Why the wrong answers are tempting:**\n* Choice A (Zero): treats the unequal-looking coefficients as proof that the lines never meet\n* Choice B (Exactly one): assumes two equations that look different must cross at a single point\n* Choice C (Exactly two): counts intersections as if the graphs were curves; two distinct lines meet at most once\n\n**Test Day Takeaway:** Before solving a linear system, test whether one equation is a multiple of the other."
+ "explanation": "**SAT Pattern: Same Line (Infinitely Many Solutions)**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** The second equation is $3$ times the first, so both equations have the same graph and every point on it is a solution.\n\n**The Full Solution:**\nStep 1: Compare the coefficients: $\\frac{6}{2} = 3$, $\\frac{15}{5} = 3$, and $\\frac{42}{14} = 3$.\nStep 2: Since every term of the second equation is $3$ times the matching term of the first, the two equations describe the same line.\nStep 3: Every point on that line satisfies both equations, so the system has infinitely many solutions. Check: $(7, 0)$ gives $2(7) + 5(0) = 14$ and $6(7) + 15(0) = 42$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Zero): treats the different-looking equations as parallel lines that never meet\n* Choice B (Exactly one): assumes two different-looking equations must cross at a single point\n* Choice C (Exactly two): counts intersections as if the graphs were curves; two lines that are not the same meet at most once\n\n**Test Day Takeaway:** Before solving a linear system, test whether one equation is a multiple of the other, constant included."
 }

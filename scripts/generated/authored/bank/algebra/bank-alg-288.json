@@ -1,29 +1,29 @@
 {
  "id": "bank-alg-288",
- "question": "A tide gauge at a river mouth flags a water-level reading $r$, in centimeters, whenever the reading satisfies $|r - 214| = 26$. Which of the following gives the two readings that the gauge flags?",
+ "question": "$|x - 14| = 9$\nWhat are the solutions to the given equation?",
  "choices": [
   {
    "id": "A",
-   "text": "$-26$ and $26$"
+   "text": "$-9$ and $9$"
   },
   {
    "id": "B",
-   "text": "$188$ and $214$"
+   "text": "$5$ and $14$"
   },
   {
    "id": "C",
-   "text": "$188$ and $240$"
+   "text": "$5$ and $23$"
   },
   {
    "id": "D",
-   "text": "$214$ and $240$"
+   "text": "$14$ and $23$"
   }
  ],
- "distractorNotes": {
-  "A": "solves |r| = 26, ignoring the 214 inside the bars",
-  "B": "subtracts 26 but pairs the result with 214 instead of adding 26",
-  "D": "adds 26 but pairs the result with 214 instead of subtracting 26"
- },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The bars say $r$ sits $26$ from $214$, so $r = 214 - 26 = 188$ or $r = 214 + 26 = 240$.\n\n**The Full Solution:**\nStep 1: An absolute value equals $26$ when the expression inside is $26$ or $-26$, so $r - 214 = 26$ or $r - 214 = -26$.\nStep 2: Solving the first gives $r = 240$; solving the second gives $r = 188$.\nStep 3: The gauge flags $188$ and $240$ centimeters. Check: $|188 - 214| = |-26| = 26$ and $|240 - 214| = |26| = 26$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-26$ and $26$): solves $|r| = 26$ and never accounts for the $214$ inside the bars.\n* Choice B ($188$ and $214$): subtracts $26$ once and then reports the center $214$ as the second reading.\n* Choice D ($214$ and $240$): adds $26$ once and then reports the center $214$ as the second reading.\n\n**Test Day Takeaway:** $|X - c| = d$ says $X$ is $d$ away from $c$ in both directions: $c - d$ and $c + d$."
+ "distractorNotes": {
+  "A": "solves |x| = 9, ignoring the 14 inside the bars",
+  "B": "finds 14 - 9 = 5 but pairs it with 14 instead of 14 + 9",
+  "D": "finds 14 + 9 = 23 but pairs it with 14 instead of 14 - 9"
+ },
+ "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The solutions are the two numbers $9$ away from $14$: $5$ and $23$.\n\n**The Full Solution:**\nStep 1: $|x - 14| = 9$ means $x - 14 = 9$ or $x - 14 = -9$.\nStep 2: The first case gives $x = 23$.\nStep 3: The second case gives $x = 5$. Check: $|23 - 14| = 9$ and $|5 - 14| = |-9| = 9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$ and $9$): solves $|x| = 9$, ignoring the $14$ inside the bars.\n* Choice B ($5$ and $14$): finds $14 - 9$ but keeps $14$ itself as the second solution; $|14 - 14| = 0$, not $9$.\n* Choice D ($14$ and $23$): finds $14 + 9$ but keeps $14$ as the other solution.\n\n**Test Day Takeaway:** $|x - c| = d$ has the two solutions $c - d$ and $c + d$, equally spaced on either side of $c$."
 }

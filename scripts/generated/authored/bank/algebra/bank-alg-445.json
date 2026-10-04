@@ -1,5 +1,5 @@
 {
- "question": "Each pressure sensor carried by a weather balloon has mass $2$ kilograms and each humidity sensor has mass $3$ kilograms; the line shown gives every pair of $x$ pressure sensors and $y$ humidity sensors with total mass $12$ kilograms. If $kx + 9y = 36$ has the same graph, what is the value of $k$?",
+ "question": "$kx + 9y = 36$\nIn the given equation, $k$ is a constant. The system consisting of the given equation and the equation of the line shown has infinitely many solutions. What is the value of $k$?",
  "choices": [
   {
    "id": "A",
@@ -20,11 +20,11 @@
  ],
  "correctAnswer": "D",
  "distractorNotes": {
-  "A": "copies the $x$-coefficient of $2x + 3y = 12$ without scaling by $3$",
-  "B": "reports the scale factor $3$ itself instead of $2(3)$",
-  "C": "matches the constant to the $y$-coefficient, computing $36 \\div 9$"
+  "A": "writes the line as 2x + 3y = 12 and copies the x-coefficient without scaling by 3",
+  "B": "reports the scale factor 3 instead of the scaled coefficient",
+  "C": "reports the y-intercept of the line"
  },
- "explanation": "**SAT Pattern: Same Line Infinitely Many Solutions**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The mass budget is $2x + 3y = 12$. Tripling it gives $6x + 9y = 36$, so $k = 6$.\n\n**The Full Solution:**\n\nStep 1: Each pressure sensor adds $2$ kilograms and each humidity sensor adds $3$, so the $12$-kilogram combinations satisfy $2x + 3y = 12$, matching the intercepts $(6, 0)$ and $(0, 4)$.\n\nStep 2: For $kx + 9y = 36$ to have the same graph, it must be a multiple of $2x + 3y = 12$. The $y$-coefficient goes from $3$ to $9$, a factor of $3$.\n\nStep 3: Apply that factor everywhere: $k = 2(3) = 6$, and $12(3) = 36$ confirms the constant.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($2$): copies the $x$-coefficient of $2x + 3y = 12$ and never scales it.\n\n* Choice B ($3$): reports the scale factor rather than the scaled coefficient.\n\n* Choice C ($4$): divides the constant $36$ by the $y$-coefficient $9$, a ratio that has nothing to do with $k$.\n\n**Test Day Takeaway:** Get the scale factor from one matched pair of terms, then use it on the term the question asks for.",
+ "explanation": "**SAT Pattern: Same Line Infinitely Many Solutions**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The given equation must describe the line shown, so it contains $(6, 0)$: $6k = 36$ and $k = 6$.\n\n**The Full Solution:**\nStep 1: The line passes through $(0, 4)$ and $(6, 0)$, so its equation is $2x + 3y = 12$.\nStep 2: Infinitely many solutions means $kx + 9y = 36$ is the same line. Since $9 = 3 \\cdot 3$ and $36 = 3 \\cdot 12$, the equation must be $3(2x + 3y = 12)$, or $6x + 9y = 36$.\nStep 3: So $k = 6$. Check: $(6, 0)$ gives $6(6) + 9(0) = 36$ and $(0, 4)$ gives $9(4) = 36$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): copies the $x$-coefficient of $2x + 3y = 12$ without multiplying by $3$.\n* Choice B ($3$): is the scale factor between the equations, not the coefficient $k$.\n* Choice C ($4$): is the $y$-intercept of the line.\n\n**Test Day Takeaway:** For infinitely many solutions, every term of one equation is the same multiple of the other; an intercept read from the graph gives the constant fastest.",
  "diagram": {
   "type": "linearGraph",
   "params": {

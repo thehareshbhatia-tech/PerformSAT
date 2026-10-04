@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-334",
-  "question": "In a greenhouse, the number of pepper seedlings is twice the number $t$ of tomato seedlings, and the number of cucumber seedlings is $12$ more than the number of tomato seedlings. If the greenhouse holds $132$ seedlings of these three types, how many pepper seedlings does it hold?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$30$"
-    },
-    {
-      "id": "B",
-      "text": "$42$"
-    },
-    {
-      "id": "C",
-      "text": "$60$"
-    },
-    {
-      "id": "D",
-      "text": "$66$"
-    }
-  ],
-  "correctAnswer": "C",
-  "distractorNotes": {
-    "A": "reported t, the number of tomato seedlings",
-    "B": "reported the cucumber count t + 12",
-    "D": "took half the total, assuming peppers are half of all seedlings"
+ "id": "bank-alg-334",
+ "question": "A greenhouse has $132$ seedlings: tomato, pepper, and cucumber. There are twice as many pepper seedlings as tomato seedlings and $12$ more cucumber seedlings than tomato seedlings. How many pepper seedlings are there?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$30$"
   },
-  "explanation": "**SAT Pattern: Word-Problem to Multi-Step Linear**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Total $= t + 2t + (t + 12) = 4t + 12 = 132$, so $t = 30$ and peppers $= 2(30) = 60$.\n\n**The Full Solution:**\nStep 1: Express each count in terms of $t$: tomato $= t$, pepper $= 2t$, cucumber $= t + 12$.\nStep 2: Sum them and set equal to $132$: $t + 2t + t + 12 = 4t + 12 = 132$, so $4t = 120$ and $t = 30$.\nStep 3: The question asks for peppers: $2t = 60$.\nCheck: $30 + 60 + 42 = 132$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($30$): stops at $t = 30$, the number of TOMATO seedlings, without converting to peppers.\n* Choice B ($42$): reports $t + 12$, the cucumber count.\n* Choice D ($66$): halves the total, assuming \"twice\" means peppers make up half of everything.\n\n**Test Day Takeaway:** Solve for the base variable, then reread the question and convert to the quantity actually asked for."
+  {
+   "id": "B",
+   "text": "$42$"
+  },
+  {
+   "id": "C",
+   "text": "$60$"
+  },
+  {
+   "id": "D",
+   "text": "$66$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "reports the number of tomato seedlings, t = 30",
+  "B": "reports the number of cucumber seedlings, 30 + 12 = 42",
+  "D": "drops the 12 extra cucumber seedlings: 4t = 132 gives t = 33 and 2t = 66"
+ },
+ "explanation": "**SAT Pattern: Word-Problem to Multi-Step Linear**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** With $t$ tomato seedlings, the total is $t + 2t + (t + 12) = 132$, so $4t = 120$, $t = 30$, and there are $2(30) = 60$ pepper seedlings.\n\n**The Full Solution:**\nStep 1: Let $t$ be the number of tomato seedlings. Then there are $2t$ pepper seedlings and $t + 12$ cucumber seedlings.\nStep 2: The three counts add to $132$: $t + 2t + t + 12 = 132$, so $4t + 12 = 132$ and $4t = 120$.\nStep 3: $t = 30$, so there are $2t = 60$ pepper seedlings. Check: $30 + 60 + 42 = 132$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($30$): solves for $t$ correctly but reports the tomato seedlings.\n* Choice B ($42$): reports the cucumber seedlings, $30 + 12$.\n* Choice D ($66$): leaves out the $12$, solving $4t = 132$ to get $t = 33$ and then doubling.\n\n**Test Day Takeaway:** Write every group in terms of one variable, solve, and then reread the question; the variable is often not the quantity asked for."
 }

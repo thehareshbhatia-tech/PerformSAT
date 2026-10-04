@@ -1,29 +1,29 @@
 {
- "question": "In a study of stride mechanics, the constants $a$ and $b$ satisfy $2x - 3y = a$ and $4x + y = b$, where $x$ is a stride-length measure and $y$ is a ground-contact measure recorded for the same runner. Which expression is equal to $6x - 2y$?",
+ "id": "bank-alg-262",
+ "question": "$2x - 3y = a$\n$4x + y = b$\nIn the given system of equations, $a$ and $b$ are constants. Which expression is equal to $10y - 2x$?",
  "choices": [
   {
    "id": "A",
-   "text": "$a - b$"
+   "text": "$3a - b$"
   },
   {
    "id": "B",
-   "text": "$2a + b$"
+   "text": "$b - 3a$"
   },
   {
    "id": "C",
-   "text": "$a + b$"
+   "text": "$b - a$"
   },
   {
    "id": "D",
-   "text": "$b - a$"
+   "text": "$a + b$"
   }
  ],
- "correctAnswer": "C",
+ "correctAnswer": "B",
  "distractorNotes": {
-  "A": "subtracts the equations, which produces $-2x - 4y$ rather than $6x - 2y$",
-  "B": "doubles the first equation before adding, producing $8x - 5y$",
-  "D": "subtracts in the other order, producing $2x + 4y$"
+  "A": "subtracts in the wrong order, which gives $2x - 10y$",
+  "C": "subtracts without scaling the first equation, which gives $2x + 4y$",
+  "D": "adds the equations, which gives $6x - 2y$"
  },
- "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Adding the two equations gives $(2x + 4x) + (-3y + y) = 6x - 2y$, so $6x - 2y = a + b$.\n\n**The Full Solution:**\n\nStep 1: Compare coefficients. The target $6x - 2y$ has $x$-coefficient $6 = 2 + 4$ and $y$-coefficient $-2 = -3 + 1$.\n\nStep 2: Both match a plain sum of the two equations, each used once.\n\nStep 3: Adding the right sides gives $a + b$, so $6x - 2y = a + b$. Check with $x = 1$ and $y = 1$: $a = -1$, $b = 5$, and $6 - 2 = 4 = -1 + 5$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($a - b$): equals $(2x - 3y) - (4x + y) = -2x - 4y$, not the requested combination.\n\n* Choice B ($2a + b$): equals $8x - 5y$, since doubling the first equation overshoots the $x$-coefficient.\n\n* Choice D ($b - a$): equals $2x + 4y$, the negative of choice A.\n\n**Test Day Takeaway:** Read the target's coefficients as an addition problem on the two equations' coefficients; the multipliers you need are visible before any arithmetic.",
- "id": "bank-alg-262"
+ "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Multiply the first equation by $-3$ and add the second: $-6x + 9y + 4x + y = -2x + 10y$, so $10y - 2x = b - 3a$.\n\n**The Full Solution:**\nStep 1: Look for numbers $p$ and $q$ with $p(2x - 3y) + q(4x + y) = -2x + 10y$: this needs $2p + 4q = -2$ and $-3p + q = 10$.\nStep 2: From the second condition $q = 10 + 3p$; then $2p + 40 + 12p = -2$, so $p = -3$ and $q = 1$.\nStep 3: So $10y - 2x = -3a + b = b - 3a$. Check: $(4x + y) - 3(2x - 3y) = 4x + y - 6x + 9y = -2x + 10y$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3a - b$): subtracts in the wrong order, which gives $2x - 10y$\n* Choice C ($b - a$): subtracts without scaling the first equation, which gives $2x + 4y$\n* Choice D ($a + b$): adds the equations, which gives $6x - 2y$\n\n**Test Day Takeaway:** When no single sum or difference matches, find the multiplier for one equation that makes the coefficients line up, and check by expanding."
 }

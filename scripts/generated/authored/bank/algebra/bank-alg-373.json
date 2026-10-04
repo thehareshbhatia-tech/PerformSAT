@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-373",
- "question": "Two survey monuments on a construction site sit at the points shown in the $xy$-plane, where each unit represents one meter of ground distance. How many meters apart are the two monuments?",
+ "question": "The two points shown in the $xy$-plane are the endpoints of a line segment. What is the length of the segment?",
  "diagram": {
   "type": "coordinatePoints",
   "params": {
@@ -23,26 +23,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$2$"
+   "text": "$2\\sqrt{2}$"
   },
   {
    "id": "B",
-   "text": "$7$"
-  },
-  {
-   "id": "C",
    "text": "$10$"
   },
   {
-   "id": "D",
+   "id": "C",
    "text": "$14$"
+  },
+  {
+   "id": "D",
+   "text": "$100$"
   }
  ],
+ "correctAnswer": "B",
  "distractorNotes": {
-  "A": "subtracts the vertical separation from the horizontal one",
-  "B": "averages the horizontal and vertical separations",
-  "D": "adds the horizontal and vertical separations"
+  "A": "drops the negative signs, using differences of 5 - 3 = 2 and 4 - 2 = 2",
+  "C": "adds the horizontal and vertical changes, 8 + 6, instead of using the Pythagorean theorem",
+  "D": "computes 8 squared plus 6 squared but forgets to take the square root"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Distance Formula**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The monuments sit $8$ meters apart horizontally and $6$ vertically, and $\\sqrt{8^2 + 6^2} = 10$.\n\n**The Full Solution:**\nStep 1: Read the two points from the graph: $(-3, -2)$ and $(5, 4)$.\nStep 2: The horizontal separation is $5 - (-3) = 8$ and the vertical separation is $4 - (-2) = 6$.\nStep 3: Apply the distance formula: $\\sqrt{8^2 + 6^2} = \\sqrt{64 + 36} = \\sqrt{100} = 10$ meters. Check: $8$, $6$, $10$ is a $3$-$4$-$5$ triangle scaled by $2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): subtracts the vertical separation from the horizontal one instead of combining them.\n* Choice B ($7$): averages the two separations.\n* Choice D ($14$): adds the two separations, which is the path along the grid rather than the straight-line distance.\n\n**Test Day Takeaway:** The straight-line distance is the hypotenuse of the horizontal and vertical separations — always square, add, then take the root."
+ "explanation": "**SAT Pattern: Distance Formula**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The points are $(-3, -2)$ and $(5, 4)$, so the changes are $8$ and $6$, and the length is $\\sqrt{64 + 36} = 10$.\n\n**The Full Solution:**\nStep 1: Read the endpoints from the graph: $(-3, -2)$ and $(5, 4)$.\nStep 2: Find the changes: horizontal $5 - (-3) = 8$ and vertical $4 - (-2) = 6$.\nStep 3: Length $= \\sqrt{8^{2} + 6^{2}} = \\sqrt{64 + 36} = \\sqrt{100} = 10$. Check: $6$, $8$, $10$ is a multiple of the $3$-$4$-$5$ right triangle ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2\\sqrt{2}$): subtracts as if both points had positive coordinates, getting changes of $2$ and $2$.\n* Choice C ($14$): adds the changes, $8 + 6$, which is the path along the grid lines, not the straight-line length.\n* Choice D ($100$): stops at $8^{2} + 6^{2}$ without taking the square root.\n\n**Test Day Takeaway:** The distance between two points is the hypotenuse of a right triangle whose legs are the horizontal and vertical changes; subtracting a negative coordinate adds."
 }

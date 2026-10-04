@@ -1,29 +1,29 @@
 {
  "id": "bank-alg-403",
- "question": "A schematic draws a turbine blade guide along the graph of $y = 6x - 11$. A line perpendicular to the blade guide has slope $m$. What is the value of $m$?",
+ "question": "In the $xy$-plane, line $k$ has the equation $y = -\\frac{4}{7}x + 3$. Line $j$ is perpendicular to line $k$. What is the slope of line $j$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-6$"
+   "text": "$-\\frac{7}{4}$"
   },
   {
    "id": "B",
-   "text": "$-\\frac{1}{6}$"
+   "text": "$-\\frac{4}{7}$"
   },
   {
    "id": "C",
-   "text": "$\\frac{1}{6}$"
+   "text": "$\\frac{4}{7}$"
   },
   {
    "id": "D",
-   "text": "$6$"
+   "text": "$\\frac{7}{4}$"
   }
  ],
- "correctAnswer": "B",
+ "correctAnswer": "D",
  "distractorNotes": {
-  "A": "negates the blade guide's slope without inverting it",
-  "C": "inverts the slope without negating it",
-  "D": "repeats the blade guide's own slope"
+  "A": "takes the reciprocal but keeps the negative sign",
+  "B": "gives the slope of line k, which is the slope of a parallel line",
+  "C": "changes the sign but does not take the reciprocal"
  },
- "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The blade guide has slope $6$, so a perpendicular line has slope $-\\frac{1}{6}$.\n\n**The Full Solution:**\nStep 1: The blade guide is written as $y = 6x - 11$, so its slope is $6$.\nStep 2: A perpendicular line has the negative reciprocal slope.\nStep 3: The reciprocal of $6$ is $\\frac{1}{6}$, and negating gives $m = -\\frac{1}{6}$. Check: $6\\left(-\\frac{1}{6}\\right) = -1$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): negates the blade guide's slope without inverting it\n* Choice C ($\\frac{1}{6}$): inverts the slope without negating it\n* Choice D ($6$): repeats the blade guide's own slope\n\n**Test Day Takeaway:** An integer slope $n$ has perpendicular slope $-\\frac{1}{n}$; both the flip and the sign are required."
+ "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The slope of line $k$ is $-\\frac{4}{7}$; its negative reciprocal is $\\frac{7}{4}$.\n\n**The Full Solution:**\nStep 1: Line $k$ is in slope-intercept form, so its slope is $-\\frac{4}{7}$.\nStep 2: Perpendicular lines have slopes whose product is $-1$, so the slope of line $j$ is the negative reciprocal of $-\\frac{4}{7}$.\nStep 3: Flip the fraction and change the sign: $\\frac{7}{4}$. Check: $-\\frac{4}{7} \\cdot \\frac{7}{4} = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{7}{4}$): takes the reciprocal but keeps the negative sign; the product with $-\\frac{4}{7}$ is $1$, not $-1$.\n* Choice B ($-\\frac{4}{7}$): this is the slope of line $k$ itself, so a line with this slope would be parallel.\n* Choice C ($\\frac{4}{7}$): changes the sign without taking the reciprocal.\n\n**Test Day Takeaway:** A perpendicular slope needs both moves: flip the fraction and change the sign."
 }

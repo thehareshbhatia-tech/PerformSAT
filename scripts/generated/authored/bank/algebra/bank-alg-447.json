@@ -1,5 +1,5 @@
 {
- "question": "The table gives the soil moisture, as a percent, at a test plot on four days after irrigation, and the four readings lie on a line. The equation $ax + 12y = 180$ has that same graph in the $xy$-plane, where $a$ is a constant. What is the value of $a$?",
+ "question": "The table shows four values of $x$ and their corresponding values of $y$ for a linear relationship. A system of two linear equations consists of $ax + 12y = 180$, where $a$ is a constant, and the equation of this relationship. If the system has infinitely many solutions, what is the value of $a$?",
  "choices": [
   {
    "id": "A",
@@ -20,17 +20,17 @@
  ],
  "correctAnswer": "C",
  "distractorNotes": {
-  "A": "reports the magnitude of the slope $\\frac{3}{4}$ instead of a coefficient",
-  "B": "copies the $x$-coefficient of $3x + 4y = 60$ without scaling by $3$",
-  "D": "multiplies the $x$-coefficient $3$ by the target's $y$-coefficient $12$"
+  "A": "reports the absolute value of the slope, 3/4, instead of the coefficient a",
+  "B": "reports the drop in y between consecutive rows",
+  "D": "substitutes (4, 12) and stops at 4a = 36 without dividing by 4"
  },
- "explanation": "**SAT Pattern: Same Line Infinitely Many Solutions**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The readings drop $3$ percent every $4$ days from $15$, so $3x + 4y = 60$. Tripling gives $9x + 12y = 180$, and $a = 9$.\n\n**The Full Solution:**\n\nStep 1: From the table the moisture falls from $15$ to $6$ as the day count rises from $0$ to $12$, a slope of $-\\frac{9}{12} = -\\frac{3}{4}$, so $y = 15 - \\frac{3}{4}x$.\n\nStep 2: Clear the fraction by multiplying by $4$: $4y = 60 - 3x$, or $3x + 4y = 60$.\n\nStep 3: For $ax + 12y = 180$ to be the same line, scale by $\\frac{12}{4} = 3$: $9x + 12y = 180$, so $a = 9$. Check $(4, 12)$: $9(4) + 12(12) = 180$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($0.75$): reports the size of the slope $\\frac{3}{4}$, not the coefficient of $x$ in standard form.\n\n* Choice B ($3$): copies the $x$-coefficient of $3x + 4y = 60$ and skips the scaling.\n\n* Choice D ($36$): multiplies $3$ by $12$, the target's $y$-coefficient, instead of by the scale factor $3$.\n\n**Test Day Takeaway:** Turn table data into standard form first, then read the scale factor off the coefficient you can match.",
+ "explanation": "**SAT Pattern: Same Line Infinitely Many Solutions**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The relationship is $y = -\\frac{3}{4}x + 15$. Multiplying by $12$ gives $9x + 12y = 180$, so $a = 9$.\n\n**The Full Solution:**\nStep 1: From the table, $y$ decreases by $3$ each time $x$ increases by $4$, so the slope is $-\\frac{3}{4}$ and the $y$-intercept is $15$: $y = -\\frac{3}{4}x + 15$.\nStep 2: Infinitely many solutions means $ax + 12y = 180$ is the same line. Multiply $y = -\\frac{3}{4}x + 15$ by $12$: $12y = -9x + 180$, or $9x + 12y = 180$.\nStep 3: So $a = 9$. Check: $(8, 9)$ gives $9(8) + 12(9) = 72 + 108 = 180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.75$): is the absolute value of the slope, not the coefficient $a$.\n* Choice B ($3$): is the drop in $y$ between consecutive rows.\n* Choice D ($36$): substitutes $(4, 12)$ to get $4a + 144 = 180$, then stops at $4a = 36$.\n\n**Test Day Takeaway:** Infinitely many solutions means the same line: every point in the table must satisfy the equation, so substituting one point gives the constant.",
  "diagram": {
   "type": "dataTable",
   "params": {
    "headers": [
-    "Days after irrigation",
-    "Soil moisture (percent)"
+    "x",
+    "y"
    ],
    "rows": [
     [

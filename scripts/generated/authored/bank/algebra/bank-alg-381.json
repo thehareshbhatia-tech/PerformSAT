@@ -1,48 +1,48 @@
 {
-  "id": "bank-alg-381",
-  "question": "The points $(-6, 3)$ and $(4, 9)$ are shown in the $xy$-plane. What is the midpoint of the line segment that has these two points as its endpoints?",
-  "diagram": {
-    "type": "coordinatePoints",
-    "params": {
-      "points": [
-        [
-          -6,
-          3
-        ],
-        [
-          4,
-          9
-        ]
-      ],
-      "xMin": -8,
-      "xMax": 6,
-      "yMin": -2,
-      "yMax": 10
-    }
+ "id": "bank-alg-381",
+ "question": "The two points shown in the $xy$-plane are the endpoints of a line segment. What are the coordinates of the midpoint of the segment?",
+ "diagram": {
+  "type": "coordinatePoints",
+  "params": {
+   "points": [
+    [
+     -6,
+     3
+    ],
+    [
+     4,
+     9
+    ]
+   ],
+   "xMin": -8,
+   "xMax": 6,
+   "yMin": -2,
+   "yMax": 10
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$(-5, -3)$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$(-5, -3)$"
-    },
-    {
-      "id": "B",
-      "text": "$(-2, 12)$"
-    },
-    {
-      "id": "C",
-      "text": "$(5, 3)$"
-    },
-    {
-      "id": "D",
-      "text": "$(-1, 6)$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "halves the differences of the coordinates instead of the sums",
-    "B": "adds the coordinates but never divides by 2",
-    "C": "halves the differences taken in the other order"
+  {
+   "id": "B",
+   "text": "$(-2, 12)$"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Midpoint Formula**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Average the $x$-coordinates and average the $y$-coordinates: $\\dfrac{-6 + 4}{2} = -1$ and $\\dfrac{3 + 9}{2} = 6$, so the midpoint is $(-1, 6)$.\n\n**The Full Solution:**\nStep 1: The midpoint of the segment from $(x_1, y_1)$ to $(x_2, y_2)$ is $\\left(\\dfrac{x_1 + x_2}{2}, \\dfrac{y_1 + y_2}{2}\\right)$, the point halfway along in each direction.\nStep 2: $x$-coordinate: $\\dfrac{-6 + 4}{2} = \\dfrac{-2}{2} = -1$. $y$-coordinate: $\\dfrac{3 + 9}{2} = \\dfrac{12}{2} = 6$.\nStep 3: The midpoint is $(-1, 6)$. Check: from $(-6, 3)$, moving $5$ right and $3$ up reaches $(-1, 6)$, and another $5$ right and $3$ up reaches $(4, 9)$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-5, -3)$): halves the differences $-6 - 4$ and $3 - 9$; the midpoint uses sums, not differences.\n* Choice B ($(-2, 12)$): adds the coordinates correctly but skips the division by $2$.\n* Choice C ($(5, 3)$): halves the differences $4 - (-6)$ and $9 - 3$, which gives half the displacement rather than a location.\n\n**Test Day Takeaway:** A midpoint is an average in each coordinate: add the two values and divide by $2$; a difference gives a displacement, never a point."
+  {
+   "id": "C",
+   "text": "$(-1, 6)$"
+  },
+  {
+   "id": "D",
+   "text": "$(5, 3)$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "subtracts the coordinates in the order first minus second and halves, (-6 - 4)/2 and (3 - 9)/2",
+  "B": "adds the coordinates but does not divide by 2",
+  "D": "halves the differences, (4 - (-6))/2 and (9 - 3)/2, instead of averaging the coordinates"
+ },
+ "explanation": "**SAT Pattern: Midpoint Formula**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The endpoints are $(-6, 3)$ and $(4, 9)$, so the midpoint is $\\left(\\frac{-6 + 4}{2}, \\frac{3 + 9}{2}\\right) = (-1, 6)$.\n\n**The Full Solution:**\nStep 1: Read the endpoints from the graph: $(-6, 3)$ and $(4, 9)$.\nStep 2: Average the $x$-coordinates: $\\frac{-6 + 4}{2} = -1$. Average the $y$-coordinates: $\\frac{3 + 9}{2} = 6$.\nStep 3: The midpoint is $(-1, 6)$. Check: $-1$ is $5$ units from both $-6$ and $4$, and $6$ is $3$ units from both $3$ and $9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-5, -3)$): halves the differences $-6 - 4$ and $3 - 9$ instead of averaging.\n* Choice B ($(-2, 12)$): adds the coordinates but forgets to divide by $2$.\n* Choice D ($(5, 3)$): halves the differences $4 - (-6)$ and $9 - 3$; that is half the change, not the midpoint.\n\n**Test Day Takeaway:** The midpoint averages the coordinates: add, then divide by $2$. Half the difference tells how far the midpoint is from each end, not where it is."
 }

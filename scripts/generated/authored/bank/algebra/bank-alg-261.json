@@ -1,6 +1,6 @@
 {
- "question": "Two divers score a reef quadrat, one using $8x + 5y$ and the other using $4x + 7y$, where $x$ is the number of branching coral colonies and $y$ is the number of massive coral colonies. Their scores are $62$ and $58$. What is the value of $2x + 2y$?",
- "correctAnswer": "20",
- "explanation": "**SAT Pattern: Solve for a Combination**\n\n**The correct answer is $20$.**\n\n**The Fast Way (~30s):** Adding the two scores gives $12x + 12y = 120$, so $x + y = 10$ and $2x + 2y = 20$.\n\n**The Full Solution:**\n\nStep 1: Add the equations: $(8x + 5y) + (4x + 7y) = 62 + 58$.\n\nStep 2: Combine like terms: $12x + 12y = 120$, so $x + y = 10$.\n\nStep 3: Double that: $2x + 2y = 20$. Check with $x = 4$ and $y = 6$: $8(4) + 5(6) = 62$ and $4(4) + 7(6) = 58$.\n\n**Common Mistakes:** Reporting $120$ without dividing by $12$; reporting $x + y = 10$ instead of twice that; subtracting the equations and reporting $4x - 2y = 4$.\n\n**Test Day Takeaway:** Reduce the sum to $x + y$ first, then scale it to whatever multiple the question names.",
- "id": "bank-alg-261"
+ "id": "bank-alg-261",
+ "question": "$8x + 5y = 62$\n$4x + 7y = 58$\nThe ordered pair $(x, y)$ is a solution to the given system of equations. What is the value of $2x - y$?",
+ "correctAnswer": "2",
+ "explanation": "**SAT Pattern: Solve for a Combination**\n\n**The correct answer is 2.**\n\n**The Fast Way (~15s):** Subtracting the second equation from the first gives $4x - 2y = 4$, so $2x - y = 2$.\n\n**The Full Solution:**\nStep 1: Subtract the second equation from the first: $(8x + 5y) - (4x + 7y) = 62 - 58$.\nStep 2: This gives $4x - 2y = 4$.\nStep 3: Divide both sides by $2$: $2x - y = 2$. Check: solving gives $x = 4$ and $y = 6$, and $2(4) - 6 = 2$ ✓\n\n**Common Mistakes:**\n* $4$: stops at $4x - 2y = 4$ without dividing by $2$.\n* $-2$: subtracts in the other order and keeps the sign, finding $-2x + y$.\n* $10$: adds the equations, which gives $12x + 12y = 120$, and reports $x + y$.\n\n**Test Day Takeaway:** When the target's coefficients are a fraction of a sum or difference of the equations, form that combination and then divide."
 }

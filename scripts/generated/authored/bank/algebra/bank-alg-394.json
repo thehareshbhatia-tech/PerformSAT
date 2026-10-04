@@ -1,49 +1,29 @@
 {
- "question": "A concrete estimator computes $5(2x+3)-4$ cubic yards for a footing of depth $x$ feet, and three of its outputs appear in the table. For what constant $d$ does $5(2x+3)-4=10x+d$ hold at every depth?",
- "questionTable": {
-  "headers": [
-   "Depth $x$ (feet)",
-   "Estimate (cubic yards)"
-  ],
-  "rows": [
-   [
-    "$1$",
-    "$21$"
-   ],
-   [
-    "$3$",
-    "$41$"
-   ],
-   [
-    "$6$",
-    "$71$"
-   ]
-  ]
- },
+ "question": "$4(3x - 2) + 9 = 12x + c$\nIn the given equation, $c$ is a constant. If the equation has infinitely many solutions, what is the value of $c$?",
  "choices": [
   {
    "id": "A",
-   "text": "$3$"
+   "text": "$-17$"
   },
   {
    "id": "B",
-   "text": "$11$"
+   "text": "$1$"
   },
   {
    "id": "C",
-   "text": "$15$"
+   "text": "$7$"
   },
   {
    "id": "D",
-   "text": "$19$"
+   "text": "$17$"
   }
  ],
  "correctAnswer": "B",
  "distractorNotes": {
-  "A": "copies the 3 from inside the parentheses without multiplying it by 5",
-  "C": "computes 5(3) = 15 but forgets to subtract the 4",
-  "D": "adds the 4 instead of subtracting it, giving 15 + 4 = 19"
+  "A": "treats +9 as -9 when combining the constants, computing -8 - 9 = -17",
+  "C": "multiplies only 3x by 4, computing -2 + 9 = 7",
+  "D": "drops the negative sign on -8, computing 8 + 9 = 17"
  },
- "explanation": "**SAT Pattern: Identifying Identity / Contradiction Equations**\n\n**Choice B is correct.** Expanding gives $5(2x+3)-4=10x+15-4=10x+11$, so $d=11$.\n\n**The Fast Way (~30s):** Distribute and combine the constants: $15-4=11$.\n\n**The Full Solution:**\n\nStep 1: Distribute the $5$: $5(2x+3)=10x+15$.\n\nStep 2: Subtract the $4$: $10x+15-4=10x+11$.\n\nStep 3: For $10x+11=10x+d$ to hold at every depth, the constants must match, so $d=11$. Check against the table: at $x=1$, $10(1)+11=21$; at $x=3$, $41$; at $x=6$, $71$ — all three rows agree.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($3$): copies the $3$ from inside the parentheses without multiplying it by $5$.\n* Choice C ($15$): stops after distributing and never subtracts the $4$.\n* Choice D ($19$): adds the $4$ instead of subtracting it, giving $15+4$.\n\n**Test Day Takeaway:** An equation that must hold for every input forces the constant terms to match once both sides are fully simplified.",
+ "explanation": "**SAT Pattern: Identifying Identity / Contradiction Equations**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The left side simplifies to $12x - 8 + 9 = 12x + 1$, so the sides are identical when $c = 1$.\n\n**The Full Solution:**\nStep 1: Distribute the $4$: $4(3x - 2) = 12x - 8$.\nStep 2: Combine the constants on the left: $12x - 8 + 9 = 12x + 1$.\nStep 3: The equation $12x + 1 = 12x + c$ is true for every $x$ exactly when $c = 1$. Check: at $x = 2$ the left side is $4(4) + 9 = 25$ and the right side is $24 + 1 = 25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-17$): combines the constants as $-8 - 9$, losing the plus sign on $9$.\n* Choice C ($7$): multiplies only $3x$ by $4$, so the constant becomes $-2 + 9 = 7$.\n* Choice D ($17$): drops the negative sign on $-8$ and adds $8 + 9$.\n\n**Test Day Takeaway:** An equation has infinitely many solutions only when both sides simplify to exactly the same expression.",
  "id": "bank-alg-394"
 }

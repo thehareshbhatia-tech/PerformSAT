@@ -1,29 +1,29 @@
 {
- "id": "bank-alg-302",
- "question": "For every value of $x$ other than $4$ and $-2$, the sum $\\frac{r}{x - 4} + \\frac{3}{x + 2}$ is equal to $\\frac{5x - 8}{(x - 4)(x + 2)}$, where $r$ is a constant. What is the value of $r$?",
+ "question": "$\\frac{r}{x - 5} + \\frac{4}{x + 3} = \\frac{7x - 11}{(x - 5)(x + 3)}$\nThe given equation is true for all values of $x$ greater than $5$, where $r$ is a constant. What is the value of $r$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-10$"
+   "text": "$-\\frac{11}{3}$"
   },
   {
    "id": "B",
-   "text": "$2$"
+   "text": "$3$"
   },
   {
    "id": "C",
-   "text": "$5$"
+   "text": "$7$"
   },
   {
    "id": "D",
-   "text": "$8$"
+   "text": "$11$"
   }
  ],
  "correctAnswer": "B",
  "distractorNotes": {
-  "A": "solves $2r - 12 = -8$ as $2r = -20$, moving the $-12$ with the wrong sign",
-  "C": "copies the coefficient of $x$ in the numerator without subtracting the $3$ contributed by the second fraction",
-  "D": "solves $r + 3 = 5$ as $r = 5 + 3$"
+  "A": "matches the constant terms but drops the -20 that comes from 4(x - 5), solving 3r = -11",
+  "C": "sets r equal to the coefficient 7, forgetting the 4x contributed by the second fraction",
+  "D": "subtracts the second fraction instead of adding it, solving r - 4 = 7"
  },
- "explanation": "**SAT Pattern: Polynomial Identity with Rational Expressions**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Clearing denominators gives $(r + 3)x + (2r - 12) = 5x - 8$, so $r = 2$.\n\n**The Full Solution:**\nStep 1: Multiply both sides by $(x - 4)(x + 2)$: $r(x + 2) + 3(x - 4) = 5x - 8$.\nStep 2: Expanding the left side gives $rx + 2r + 3x - 12 = (r + 3)x + (2r - 12)$.\nStep 3: Matching coefficients of $x$ gives $r + 3 = 5$, so $r = 2$; the constants agree because $2(2) - 12 = -8$. Check: $\\frac{2}{x - 4} + \\frac{3}{x + 2} = \\frac{2(x + 2) + 3(x - 4)}{(x - 4)(x + 2)} = \\frac{5x - 8}{(x - 4)(x + 2)}$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$): solves $2r - 12 = -8$ as $2r = -20$, moving the $-12$ with the wrong sign\n* Choice C ($5$): copies the coefficient of $x$ in the numerator without subtracting the $3$ contributed by the second fraction\n* Choice D ($8$): solves $r + 3 = 5$ as $r = 5 + 3$\n\n**Test Day Takeaway:** Clear the denominators once, then match the coefficient of $x$ and the constant separately; both must agree."
+ "explanation": "**SAT Pattern: Polynomial Identity with Rational Expressions**\n\n**Choice B is correct.**\n\n**The Fast Way (~60s):** Over the common denominator the left side's numerator is $r(x + 3) + 4(x - 5) = (r + 4)x + (3r - 20)$. Matching the $x$-coefficients with $7x - 11$ gives $r + 4 = 7$, so $r = 3$.\n\n**The Full Solution:**\nStep 1: Rewrite the left side over the common denominator $(x - 5)(x + 3)$: its numerator is $r(x + 3) + 4(x - 5)$.\nStep 2: Expand and group: $rx + 3r + 4x - 20 = (r + 4)x + (3r - 20)$. Since the denominators agree, this must equal $7x - 11$ for every $x$ greater than $5$.\nStep 3: Match the $x$-coefficients: $r + 4 = 7$, so $r = 3$. Check the constants: $3(3) - 20 = -11$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: ($-\\frac{11}{3}$): matches the constant terms but drops the $-20$ that comes from $4(x - 5)$, solving $3r = -11$.\n* Choice C: ($7$): sets $r$ equal to the coefficient $7$, forgetting the $4x$ that the second fraction contributes.\n* Choice D: ($11$): subtracts the second fraction instead of adding it, which gives $r - 4 = 7$.\n\n**Test Day Takeaway:** For an identity with fractions, combine over the common denominator, match one pair of coefficients, and use the other pair as a check.",
+ "id": "bank-alg-302"
 }

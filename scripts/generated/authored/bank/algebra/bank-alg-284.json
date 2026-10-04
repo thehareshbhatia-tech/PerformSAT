@@ -1,9 +1,10 @@
 {
- "question": "Two scripts compute the net change in free space, in gigabytes, after $x$ tape cartridges are retired: one returns $6(2x+k)$ and the other returns $12x-30$, where $k$ is a constant. If the two agree for every $x$, what is the value of $k$?",
+ "id": "bank-alg-284",
+ "question": "For the linear function $g$, the table shows three values of $x$ and their corresponding values of $g(x)$. In the equation $6(2x + k) = g(x)$, $k$ is a constant. If the equation has infinitely many solutions, what is the value of $k$?",
  "questionTable": {
   "headers": [
-   "Cartridges $x$",
-   "Second script (GB)"
+   "$x$",
+   "$g(x)$"
   ],
   "rows": [
    [
@@ -40,10 +41,9 @@
  ],
  "correctAnswer": "C",
  "distractorNotes": {
-  "A": "subtracts 6 from -30 instead of dividing, giving -36",
-  "B": "matches the constants without dividing by the 6 that multiplies k",
-  "D": "drops the negative sign when dividing -30 by 6"
+  "A": "subtracts 6 from -30 instead of dividing by 6, giving -36",
+  "B": "sets k equal to the constant -30 of g without dividing by the 6 that multiplies k",
+  "D": "divides -30 by 6 but drops the negative sign"
  },
- "explanation": "**SAT Pattern: Identity / Contradiction — Match Coefficients**\n\n**Choice C is correct.** Distributing gives $12x+6k$, so matching constants requires $6k=-30$ and $k=-5$.\n\n**The Fast Way (~30s):** $6(2x+k)=12x+6k$. The $x$ terms already match, so $6k=-30$ and $k=-5$.\n\n**The Full Solution:**\n\nStep 1: Expand the first script's expression: $6(2x+k)=12x+6k$.\n\nStep 2: For the two expressions to agree at every $x$, the coefficients of $x$ must match (they already do, both $12$) and the constants must match: $6k=-30$.\n\nStep 3: Divide both sides by $6$: $k=-5$. Check: with $k=-5$ the first script returns $6(2x-5)=12x-30$, matching the table entries $-18$, $6$, and $42$ at $x=1$, $3$, and $6$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-36$): subtracts the $6$ from $-30$ instead of dividing by it.\n* Choice B ($-30$): sets $k$ equal to the constant on the right without undoing the multiplication by $6$.\n* Choice D ($5$): divides correctly but drops the negative sign.\n\n**Test Day Takeaway:** Distribute first, then match coefficients and constants separately; the constant inside parentheses is still multiplied by the factor outside.",
- "id": "bank-alg-284"
+ "explanation": "**SAT Pattern: Identity / Contradiction — Match Coefficients**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The table gives $g(x) = 12x - 30$. Since $6(2x + k) = 12x + 6k$, matching constants gives $6k = -30$, so $k = -5$.\n\n**The Full Solution:**\nStep 1: From the table, $g$ rises $24$ as $x$ rises $2$, so its slope is $12$; then $g(1) = 12 + b = -18$ gives $b = -30$, and $g(x) = 12x - 30$.\nStep 2: Expand the left side: $6(2x + k) = 12x + 6k$. For infinitely many solutions both sides must be the same expression; the $x$-coefficients already match ($12$), so the constants must too: $6k = -30$.\nStep 3: Divide by $6$: $k = -5$. Check: $6(2x - 5) = 12x - 30$, and at $x = 6$ this gives $72 - 30 = 42$, matching the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-36$): subtracts the $6$ from $-30$ instead of dividing by it.\n* Choice B ($-30$): sets $k$ equal to the constant of $g$ without undoing the multiplication by $6$.\n* Choice D ($5$): divides correctly but drops the negative sign.\n\n**Test Day Takeaway:** Distribute first, then match coefficients and constants separately; a constant inside parentheses is still multiplied by the factor outside."
 }

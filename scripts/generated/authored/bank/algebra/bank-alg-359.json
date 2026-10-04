@@ -1,29 +1,29 @@
 {
  "id": "bank-alg-359",
- "question": "A serger passes inspection only when $5(x - 3) \\le 2x + 9$, where $x$ is the number of dropped stitches counted in a sample. Which inequality gives all values of $x$ for which the serger passes?",
+ "question": "$4(x - 5) < x + 13$\nWhich of the following describes all solutions to the given inequality?",
  "choices": [
   {
    "id": "A",
-   "text": "$x \\le 4$"
+   "text": "$x < 6$"
   },
   {
    "id": "B",
-   "text": "$x \\le 8$"
+   "text": "$x < 11$"
   },
   {
    "id": "C",
-   "text": "$x \\le 24$"
+   "text": "$x > 11$"
   },
   {
    "id": "D",
-   "text": "$x \\ge 8$"
+   "text": "$x < 33$"
   }
  ],
  "correctAnswer": "B",
  "distractorNotes": {
-  "A": "distributes the 5 to x only and not to the -3",
-  "C": "isolates 3x but never divides both sides by 3",
-  "D": "reverses the direction of the inequality even though no negative divisor appears"
+  "A": "distributes only to x, writing 4x - 5 < x + 13, so 3x < 18",
+  "C": "reverses the inequality sign after dividing by the positive number 3",
+  "D": "reaches 3x < 33 but never divides by 3"
  },
- "explanation": "**SAT Pattern: One-Variable Linear Inequality**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Expanding gives $5x - 15 \\le 2x + 9$, so $3x \\le 24$ and $x \\le 8$.\n\n**The Full Solution:**\n\nStep 1: Distribute the $5$ across both terms: $5x - 15 \\le 2x + 9$.\n\nStep 2: Subtract $2x$ from both sides and add $15$: $3x \\le 24$.\n\nStep 3: Divide by the positive number $3$, which leaves the direction unchanged: $x \\le 8$. Check: $x = 8$ gives $5(5) = 25$ and $2(8) + 9 = 25$, so the two sides are equal at the boundary.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($x \\le 4$): distributes the $5$ to the $x$ only, solving $5x - 3 \\le 2x + 9$.\n* Choice C ($x \\le 24$): isolates $3x \\le 24$ but reports the right-hand side without dividing by $3$.\n* Choice D ($x \\ge 8$): reverses the symbol even though every divisor used was positive.\n\n**Test Day Takeaway:** Solve an inequality exactly like an equation, and change the symbol only when you multiply or divide by a negative number."
+ "explanation": "**SAT Pattern: One-Variable Linear Inequality**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Distribute: $4x - 20 < x + 13$. Collect terms: $3x < 33$, so $x < 11$.\n\n**The Full Solution:**\nStep 1: Distribute the $4$: $4x - 20 < x + 13$.\nStep 2: Subtract $x$ from each side and add $20$ to each side: $3x < 33$.\nStep 3: Divide by the positive number $3$: $x < 11$. Check: $x = 10$ gives $4(5) = 20 < 23$, and $x = 11$ gives $24 < 24$, which is false ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x < 6$): multiplies only the $x$ by $4$, writing $4x - 5 < x + 13$ and $3x < 18$.\n* Choice C ($x > 11$): reverses the sign even though $3$ is positive.\n* Choice D ($x < 33$): stops at $3x < 33$ without dividing by $3$.\n\n**Test Day Takeaway:** Distribute to every term in the parentheses, then solve; the sign reverses only for a negative multiplier or divisor."
 }

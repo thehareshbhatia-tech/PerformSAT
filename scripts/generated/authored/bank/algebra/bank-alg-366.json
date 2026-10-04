@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-366",
-  "question": "A dance studio orders $p$ practice barres and $m$ mirror sections. The order must contain at least $30$ items in all, and the number of mirror sections must be no more than $12$. Which system of inequalities represents these requirements?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$p + m \\geq 30$ and $m \\leq 12$"
-    },
-    {
-      "id": "B",
-      "text": "$p + m \\leq 30$ and $m \\leq 12$"
-    },
-    {
-      "id": "C",
-      "text": "$p + m \\geq 30$ and $m \\geq 12$"
-    },
-    {
-      "id": "D",
-      "text": "$p + m \\leq 30$ and $m \\geq 12$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "reads at least 30 as an upper bound, reversing the first inequality",
-    "C": "reads no more than 12 as a lower bound, reversing the second inequality",
-    "D": "reverses both requirements at once"
+ "id": "bank-alg-366",
+ "question": "A school's supply order contains $p$ pencils and $e$ erasers. It has at least $30$ items in all and no more than $12$ erasers. Which of the following systems of inequalities represents this situation?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$p + e \\geq 30$ and $e \\leq 12$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: System of Linear Inequalities**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** \"At least $30$\" is $p + m \\geq 30$ and \"no more than $12$\" is $m \\leq 12$.\n\n**The Full Solution:**\nStep 1: Name the total. The order holds $p$ practice barres and $m$ mirror sections, so the number of items in all is $p + m$.\nStep 2: Translate the first requirement. \"At least $30$\" sets a minimum, so the total can equal $30$ or exceed it: $p + m \\geq 30$.\nStep 3: Translate the second requirement. \"No more than $12$\" sets a maximum on the mirror sections alone: $m \\leq 12$. Check a sample order: $p = 25$ and $m = 8$ gives $33 \\geq 30$ and $8 \\leq 12$, so it meets both. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: turns \"at least $30$\" into a ceiling, so an order of $40$ items would be excluded even though it clearly satisfies the requirement.\n* Choice C: turns \"no more than $12$\" into a floor, so an order with $20$ mirror sections would count as acceptable.\n* Choice D: reverses both phrases, allowing only orders with at most $30$ items and at least $12$ mirror sections.\n\n**Test Day Takeaway:** \"At least\" and \"no less than\" open upward ($\\geq$); \"at most\" and \"no more than\" close downward ($\\leq$) — and attach each phrase to the exact quantity it modifies."
+  {
+   "id": "B",
+   "text": "$p + e \\leq 30$ and $e \\leq 12$"
+  },
+  {
+   "id": "C",
+   "text": "$p + e \\geq 30$ and $e \\geq 12$"
+  },
+  {
+   "id": "D",
+   "text": "$p + e \\leq 30$ and $e \\geq 12$"
+  }
+ ],
+ "correctAnswer": "A",
+ "distractorNotes": {
+  "B": "reads at least 30 as an upper bound, reversing the first inequality",
+  "C": "reads no more than 12 as a lower bound, reversing the second inequality",
+  "D": "reverses both inequalities"
+ },
+ "explanation": "**SAT Pattern: System of Linear Inequalities**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** \"At least $30$\" items in all is $p + e \\geq 30$, and \"no more than $12$\" erasers is $e \\leq 12$.\n\n**The Full Solution:**\nStep 1: The total number of items in the order is $p + e$.\nStep 2: \"At least $30$\" means the total can be $30$ or more: $p + e \\geq 30$.\nStep 3: \"No more than $12$\" applies to the erasers alone and means $12$ or fewer: $e \\leq 12$. Check: an order of $25$ pencils and $8$ erasers has $33 \\geq 30$ items and $8 \\leq 12$ erasers, so it fits the situation and satisfies both inequalities ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: treats \"at least $30$\" as a ceiling, which would reject an order of $40$ items.\n* Choice C: treats \"no more than $12$\" as a floor, which would accept an order with $20$ erasers.\n* Choice D: reverses both phrases at once.\n\n**Test Day Takeaway:** \"At least\" means $\\geq$ and \"no more than\" means $\\leq$; attach each phrase to the exact quantity it describes."
 }

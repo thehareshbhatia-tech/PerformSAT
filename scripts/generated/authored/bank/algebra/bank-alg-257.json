@@ -1,6 +1,6 @@
 {
- "question": "A trail-camera study estimates $x$, the number of deer, and $y$, the number of elk, using a valley. Two independent counts give $3x + 2y = 31$ and $2x + 3y = 24$. What is the value of $x + y$?",
+ "id": "bank-alg-257",
+ "question": "$3x + 2y = 31$\n$2x + 3y = 24$\nThe solution to the given system of equations is $(x, y)$. What is the value of $x + y$?",
  "correctAnswer": "11",
- "explanation": "**SAT Pattern: Solve for a Combination**\n\n**The correct answer is $11$.**\n\n**The Fast Way (~20s):** Adding the two counts gives $5x + 5y = 55$, so $x + y = 11$.\n\n**The Full Solution:**\n\nStep 1: Add the equations: $(3x + 2y) + (2x + 3y) = 31 + 24$.\n\nStep 2: Combine like terms: $5x + 5y = 55$.\n\nStep 3: Divide by $5$: $x + y = 11$. Check with $x = 9$ and $y = 2$: $3(9) + 2(2) = 31$ and $2(9) + 3(2) = 24$.\n\n**Common Mistakes:** Reporting $55$ without dividing by $5$; subtracting instead and reporting $x - y = 7$; solving for $x$ alone and reporting $9$.\n\n**Test Day Takeaway:** When the coefficients of $x$ and $y$ swap between the two equations, adding produces a multiple of $x + y$ in one step.",
- "id": "bank-alg-257"
+ "explanation": "**SAT Pattern: Solve for a Combination**\n\n**The correct answer is 11.**\n\n**The Fast Way (~15s):** Adding the equations gives $5x + 5y = 55$, so $x + y = 11$.\n\n**The Full Solution:**\nStep 1: Add the two equations: $(3x + 2y) + (2x + 3y) = 31 + 24$.\nStep 2: This gives $5x + 5y = 55$.\nStep 3: Divide both sides by $5$: $x + y = 11$. Check: solving gives $x = 9$ and $y = 2$, and $9 + 2 = 11$ ✓\n\n**Common Mistakes:**\n* $55$: stops at $5x + 5y = 55$ without dividing by $5$.\n* $7$: subtracts the equations, which gives $x - y = 7$.\n* $9$: solves for $x$ and reports it instead of $x + y$.\n\n**Test Day Takeaway:** When the coefficients are swapped between the two equations, adding them gives a multiple of $x + y$."
 }

@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-453",
-  "question": "The temperature $T$, in degrees Celsius, of a liquid $m$ minutes after it is removed from a heat source is modeled by $T(m) = 92 - 1.5m$. Which of the following is the best interpretation of $1.5$ in this model?",
+  "question": "The function $T(m) = 92 - 1.5m$ gives the temperature, in degrees Celsius, of a liquid $m$ minutes after it is removed from a heat source. What is the best interpretation of $1.5$ in this context?",
   "choices": [
     {
       "id": "A",

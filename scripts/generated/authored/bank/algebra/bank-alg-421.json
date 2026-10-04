@@ -1,10 +1,23 @@
 {
  "id": "bank-alg-421",
- "question": "A fabric lab plots two shrinkage tests in the $xy$-plane, where the two points shown lie on line $j$. The second test, $6x + ky = 15$, has no point in common with line $j$. What is the value of the constant $k$?",
+ "question": "$6x + ky = 15$\nIn the given equation, $k$ is a constant. In the $xy$-plane, the graph of the given equation has no points in common with line $j$, shown. What is the value of $k$?",
  "diagram": {
-  "type": "coordinatePoints",
+  "type": "linearGraph",
   "params": {
-   "points": [
+   "slope": -2,
+   "yIntercept": 1,
+   "xRange": [
+    -6,
+    6
+   ],
+   "yRange": [
+    -8,
+    10
+   ],
+   "xTickInterval": 2,
+   "yTickInterval": 2,
+   "gridInterval": 1,
+   "showPoints": [
     [
      -3,
      7
@@ -14,10 +27,7 @@
      -5
     ]
    ],
-   "xMin": -6,
-   "xMax": 6,
-   "yMin": -8,
-   "yMax": 10
+   "label": "j"
   }
  },
  "choices": [
@@ -40,9 +50,9 @@
  ],
  "correctAnswer": "C",
  "distractorNotes": {
-  "A": "solves 6/k = -2, losing the minus sign that comes from moving 6x across",
-  "B": "reports the y-intercept of line j",
-  "D": "multiplies 6 by 2 instead of dividing"
+  "A": "solves 6/k = -2, losing the minus sign that comes from moving 6x to the other side",
+  "B": "reports the y-intercept of line j instead of the constant k",
+  "D": "multiplies 6 by 2 instead of dividing 6 by 2"
  },
- "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Line $j$ has slope $-2$, and $6x + ky = 15$ has slope $-\\frac{6}{k}$, so $k = 3$.\n\n**The Full Solution:**\n\nStep 1: The plotted points are $(-3, 7)$ and $(3, -5)$, so line $j$ has slope $\\frac{-5 - 7}{3 - (-3)} = \\frac{-12}{6} = -2$ and equation $y = -2x + 1$.\n\nStep 2: Solve the second test for $y$: $ky = -6x + 15$, so $y = -\\frac{6}{k}x + \\frac{15}{k}$.\n\nStep 3: Having no point in common means parallel and distinct, so $-\\frac{6}{k} = -2$ and $k = 3$. Check: $6x + 3y = 15$ reduces to $2x + y = 5$, while line $j$ is $2x + y = 1$, so the two never meet.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-3$): solves $\\frac{6}{k} = -2$, dropping the minus sign produced by moving $6x$ to the other side.\n* Choice B ($1$): reports the $y$-intercept of line $j$ rather than the constant $k$.\n* Choice D ($12$): multiplies $6$ by $2$ instead of dividing $6$ by $2$.\n\n**Test Day Takeaway:** Read the slope from the two plotted points first; then the standard-form slope $-\\frac{A}{B}$ turns the matching condition into one division."
+ "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Line $j$ has slope $\\frac{-5 - 7}{3 - (-3)} = -2$, and the given line has slope $-\\frac{6}{k}$, so $-\\frac{6}{k} = -2$ and $k = 3$.\n\n**The Full Solution:**\nStep 1: Line $j$ passes through $(-3, 7)$ and $(3, -5)$, so it has slope $\\frac{-5 - 7}{3 - (-3)} = \\frac{-12}{6} = -2$ and equation $y = -2x + 1$.\nStep 2: Solve the given equation for $y$: $ky = -6x + 15$, so $y = -\\frac{6}{k}x + \\frac{15}{k}$.\nStep 3: Lines with no points in common are parallel and distinct, so $-\\frac{6}{k} = -2$, which gives $k = 3$. Check: $6x + 3y = 15$ becomes $y = -2x + 5$, which has slope $-2$ and $y$-intercept $5 \\neq 1$, so it never meets line $j$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): solves $\\frac{6}{k} = -2$, dropping the minus sign produced by moving $6x$ to the other side.\n* Choice B ($1$): is the $y$-intercept of line $j$, not the constant $k$.\n* Choice D ($12$): multiplies $6$ by $2$ instead of dividing $6$ by $2$.\n\n**Test Day Takeaway:** Two lines with no points in common have equal slopes and different intercepts; read the slope from the graph, then match it to $-\\frac{A}{B}$ for the equation in standard form."
 }

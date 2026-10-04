@@ -1,29 +1,29 @@
 {
  "id": "bank-alg-428",
- "question": "A clinic receives a delivery of $p$ packs of examination gloves and uses 34 of the packs during one week, leaving 158 packs in storage. Which of the following gives the value of $p$?",
+ "question": "$p - 36 = 144$\nWhat is the solution to the given equation?",
  "choices": [
   {
    "id": "A",
-   "text": "$158 - 34$"
+   "text": "$4$"
   },
   {
    "id": "B",
-   "text": "$158 + 34$"
+   "text": "$108$"
   },
   {
    "id": "C",
-   "text": "$158 \\times 34$"
+   "text": "$180$"
   },
   {
    "id": "D",
-   "text": "$\\frac{158}{34}$"
+   "text": "$5{,}184$"
   }
  ],
- "correctAnswer": "B",
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "subtracts again instead of undoing the subtraction",
-  "C": "multiplies the two counts instead of adding them",
-  "D": "divides the two counts instead of adding them"
+  "A": "divides 144 by 36 instead of adding",
+  "B": "subtracts 36 from 144 instead of adding",
+  "D": "multiplies 144 by 36 instead of adding"
  },
- "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $p - 34 = 158$, so $p = 158 + 34$.\n\n**The Full Solution:**\n\nStep 1: Using $34$ packs from a supply of $p$ leaves $p - 34$ packs, so $p - 34 = 158$.\n\nStep 2: To isolate $p$, add $34$ to both sides.\n\nStep 3: The value of $p$ is $158 + 34$, which is $192$. Check: $192 - 34 = 158$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($158 - 34$): subtracts a second time instead of reversing the subtraction.\n* Choice C ($158 \\times 34$): multiplies the two counts, which no part of the situation calls for.\n* Choice D ($\\frac{158}{34}$): divides the two counts, which would describe splitting the storage into groups.\n\n**Test Day Takeaway:** An amount removed is recovered by adding it back; the starting supply is always larger than what remains."
+ "explanation": "**SAT Pattern: One-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Add $36$ to each side: $p = 144 + 36 = 180$.\n\n**The Full Solution:**\nStep 1: The equation subtracts $36$ from $p$, so undo it by adding $36$ to each side.\nStep 2: This gives $p = 144 + 36$.\nStep 3: Compute: $p = 180$. Check: $180 - 36 = 144$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): divides $144$ by $36$, using the wrong inverse operation.\n* Choice B ($108$): subtracts $36$ again instead of adding it back.\n* Choice D ($5{,}184$): multiplies $144$ by $36$, using the wrong inverse operation.\n\n**Test Day Takeaway:** Subtraction is undone by addition; a quick substitution check catches a reversed operation."
 }

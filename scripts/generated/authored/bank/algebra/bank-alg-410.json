@@ -1,29 +1,29 @@
 {
  "id": "bank-alg-410",
- "question": "A bridge inspection flags a deflection reading $x$, in millimeters, whenever the reading satisfies the equation $|px - 9| = 24$, where $p$ is a positive constant. One flagged reading is $11$ millimeters. What is the other flagged reading, in millimeters?",
+ "question": "$2|x + 3| - 5 = 13$\nWhat is the positive solution to the given equation?",
  "choices": [
   {
    "id": "A",
-   "text": "$-11$"
+   "text": "$1$"
   },
   {
    "id": "B",
-   "text": "$-5$"
+   "text": "$6$"
   },
   {
    "id": "C",
-   "text": "$3$"
+   "text": "$12$"
   },
   {
    "id": "D",
-   "text": "$5$"
+   "text": "$15$"
   }
  ],
  "distractorNotes": {
-  "A": "negates the given reading instead of solving the second branch",
-  "C": "reports the constant p rather than a reading",
-  "D": "drops the negative sign when solving 3x = -15"
+  "A": "subtracts 5 instead of adding it, getting 2|x + 3| = 8",
+  "C": "reports the absolute value of the negative solution, -12",
+  "D": "forgets to divide by 2, solving |x + 3| = 18"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** $x = 11$ forces $11p - 9 = 24$, so $p = 3$; the other branch $3x - 9 = -24$ gives $x = -5$.\n\n**The Full Solution:**\nStep 1: Substitute the flagged reading: $|11p - 9| = 24$, so $11p - 9 = 24$ or $11p - 9 = -24$.\nStep 2: The second case gives $11p = -15$, a negative $p$, which the problem rules out; the first gives $11p = 33$, so $p = 3$.\nStep 3: Now solve $|3x - 9| = 24$: the branch $3x - 9 = -24$ gives $3x = -15$ and $x = -5$ millimeters. Check: $|3(-5) - 9| = |-24| = 24$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-11$): negates the given reading instead of solving the remaining branch.\n* Choice C ($3$): reports the constant $p$ rather than a reading.\n* Choice D ($5$): solves $3x = -15$ but drops the negative sign on the result.\n\n**Test Day Takeaway:** Use the given solution to pin the unknown coefficient first; the sign restriction on that coefficient decides which branch produced it."
+ "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $2|x + 3| = 18$, so $|x + 3| = 9$; then $x = 6$ or $x = -12$, and the positive solution is $6$.\n\n**The Full Solution:**\nStep 1: Add $5$ to each side: $2|x + 3| = 18$. Divide by $2$: $|x + 3| = 9$.\nStep 2: Then $x + 3 = 9$ or $x + 3 = -9$, so $x = 6$ or $x = -12$.\nStep 3: The positive solution is $6$. Check: $2|6 + 3| - 5 = 2(9) - 5 = 13$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): subtracts $5$ from $13$ instead of adding, getting $|x + 3| = 4$ and $x = 1$.\n* Choice C ($12$): drops the negative sign from the other solution, $-12$, which is not positive.\n* Choice D ($15$): skips dividing by $2$, solving $|x + 3| = 18$.\n\n**Test Day Takeaway:** Isolate the absolute value completely, undoing the constant and then the coefficient, before splitting into cases."
 }

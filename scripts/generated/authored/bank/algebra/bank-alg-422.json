@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-422",
- "question": "A bike-share depot charts two rebalancing plans in the $xy$-plane, the first of which is line $g$, shown. The second plan is the graph of $ax - 6y = 30$, which runs alongside line $g$ and never touches it. What is the value of $a$?",
+ "question": "$ax - 6y = 30$\nIn the given equation, $a$ is a constant. A system of two linear equations consists of the given equation and the equation of line $g$, shown. If the system has no solution, what is the value of $a$?",
  "diagram": {
   "type": "linearGraph",
   "params": {
@@ -23,26 +23,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{1}{3}$"
+   "text": "$-2$"
   },
   {
    "id": "B",
-   "text": "$2$"
+   "text": "$\\frac{1}{3}$"
   },
   {
    "id": "C",
-   "text": "$6$"
+   "text": "$2$"
   },
   {
    "id": "D",
    "text": "$18$"
   }
  ],
- "correctAnswer": "B",
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "reports the slope of line g instead of solving for a",
-  "C": "copies the coefficient of y from the second equation",
-  "D": "reads the slope as 3 by swapping rise and run, then solves a/6 = 3"
+  "A": "solves -6y = -ax + 30 as y = -(a/6)x - 5, losing a sign, so -(a/6) = 1/3",
+  "B": "sets a equal to the slope of line g without accounting for the coefficient -6 on y",
+  "D": "uses the reciprocal of the slope, solving a/6 = 3"
  },
- "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Line $g$ has slope $\\frac{1}{3}$, and $ax - 6y = 30$ has slope $\\frac{a}{6}$, so $\\frac{a}{6} = \\frac{1}{3}$ and $a = 2$.\n\n**The Full Solution:**\n\nStep 1: From the graph, line $g$ passes through $(0, -2)$ and $(6, 0)$, so its slope is $\\frac{0 - (-2)}{6 - 0} = \\frac{1}{3}$.\n\nStep 2: Solve the second equation for $y$: $-6y = -ax + 30$, so $y = \\frac{a}{6}x - 5$.\n\nStep 3: Plans that run alongside each other never meet, so the slopes are equal: $\\frac{a}{6} = \\frac{1}{3}$ and $a = 2$. Check: the two plans are $y = \\frac{1}{3}x - 2$ and $y = \\frac{1}{3}x - 5$, which differ only in the intercept.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($\\frac{1}{3}$): reports the slope of line $g$ itself instead of the constant $a$.\n* Choice C ($6$): copies the coefficient of $y$ from the second equation.\n* Choice D ($18$): reads the slope as $3$ by swapping rise and run, then solves $\\frac{a}{6} = 3$.\n\n**Test Day Takeaway:** In $Ax + By = C$ the slope is $-\\frac{A}{B}$, so a negative coefficient on $y$ cancels the minus sign and leaves a plain division."
+ "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Line $g$ has slope $\\frac{1}{3}$, and the given line has slope $\\frac{a}{6}$, so $\\frac{a}{6} = \\frac{1}{3}$ and $a = 2$.\n\n**The Full Solution:**\nStep 1: Line $g$ passes through $(0, -2)$ and $(6, 0)$, so its slope is $\\frac{0 - (-2)}{6 - 0} = \\frac{1}{3}$ and its $y$-intercept is $(0, -2)$.\nStep 2: Solve the given equation for $y$: $-6y = -ax + 30$, so $y = \\frac{a}{6}x - 5$.\nStep 3: No solution means the lines are parallel and distinct, so $\\frac{a}{6} = \\frac{1}{3}$ and $a = 2$. Check: $2x - 6y = 30$ becomes $y = \\frac{1}{3}x - 5$, the same slope as line $g$ with a different $y$-intercept ($-5 \\neq -2$) ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): loses a sign when dividing by $-6$, writing the slope as $-\\frac{a}{6}$.\n* Choice B ($\\frac{1}{3}$): sets $a$ equal to the slope of line $g$, ignoring the coefficient $-6$ on $y$.\n* Choice D ($18$): uses the reciprocal of the slope, solving $\\frac{a}{6} = 3$.\n\n**Test Day Takeaway:** For no solution, rewrite each line in slope-intercept form, set the slopes equal, and confirm the intercepts differ."
 }

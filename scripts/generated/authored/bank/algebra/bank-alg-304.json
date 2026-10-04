@@ -1,29 +1,29 @@
 {
- "question": "A pollen station reports a raw index of $2p + 3$ and an adjusted index of $2(p + 5)$ for the same particle count $p$, in grains per cubic meter. The adjusted index is $24$. What is the raw index?",
+ "question": "If $6x + 18 = 54$, what is the value of $x + 3$?",
  "choices": [
   {
    "id": "A",
-   "text": "$7$"
+   "text": "$6$"
   },
   {
    "id": "B",
-   "text": "$17$"
+   "text": "$9$"
   },
   {
    "id": "C",
-   "text": "$22$"
+   "text": "$12$"
   },
   {
    "id": "D",
-   "text": "$27$"
+   "text": "$36$"
   }
  ],
  "correctAnswer": "B",
  "distractorNotes": {
-  "A": "solves $2p = 14$ for $p = 7$ and reports the particle count instead of the raw index",
-  "C": "distributes $2(p + 5)$ as $2p + 5$, giving $2p = 19$ and a raw index of $22$",
-  "D": "adds $3$ to the adjusted index of $24$"
+  "A": "gives the value of x, 6, instead of x + 3",
+  "C": "divides 54 by 6 to get 9, treats 9 as the value of x, and adds 3",
+  "D": "gives the value of 6x, 54 - 18 = 36"
  },
- "explanation": "**SAT Pattern: Shifted-Output Linear**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $2(p+5) = 24$ gives $2p = 14$, so the raw index is $14 + 3 = 17$.\n\n**The Full Solution:**\n\nStep 1: Distribute the adjusted index: $2(p + 5) = 2p + 10$.\n\nStep 2: Set it equal to $24$: $2p + 10 = 24$, so $2p = 14$.\n\nStep 3: The raw index is $2p + 3 = 14 + 3 = 17$. Check with $p = 7$: the adjusted index is $2(12) = 24$ and the raw index is $17$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($7$): reports the particle count $p$ rather than the raw index.\n\n* Choice C ($22$): distributes only to the first term, so $2p = 19$ and the raw index comes out $22$.\n\n* Choice D ($27$): adds $3$ to the adjusted index instead of rebuilding the raw one from $2p$.\n\n**Test Day Takeaway:** Distribute across the whole parenthesis, then solve for the shared block rather than for the variable.",
+ "explanation": "**SAT Pattern: Shifted-Output Linear**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $6x + 18 = 6(x + 3)$, so $6(x + 3) = 54$ and $x + 3 = 9$.\n\n**The Full Solution:**\nStep 1: Factor $6$ out of the left side: $6x + 18 = 6(x + 3)$.\nStep 2: The equation becomes $6(x + 3) = 54$.\nStep 3: Divide both sides by $6$: $x + 3 = 9$. Check: $x = 6$, and $6(6) + 18 = 54$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: ($6$): this is the value of $x$; the question asks for $x + 3$.\n* Choice C: ($12$): divides $54$ by $6$, treats the $9$ as $x$, and then adds $3$.\n* Choice D: ($36$): this is the value of $6x$, since $54 - 18 = 36$.\n\n**Test Day Takeaway:** When a question asks for an expression, look for that expression inside the equation before solving for $x$.",
  "id": "bank-alg-304"
 }

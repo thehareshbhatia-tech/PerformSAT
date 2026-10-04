@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-454",
-  "question": "A hot-air balloon's altitude is a linear function of the time since launch. The balloon's altitude was $950$ feet $3$ minutes after launch and $1{,}250$ feet $8$ minutes after launch. Which of the following is the best interpretation of the slope of the graph of this function?",
+  "question": "The altitude of a hot-air balloon is a linear function of the time since launch. The altitude was $950$ feet after $3$ minutes and $1{,}250$ feet after $8$ minutes. What is the best interpretation of the slope of the graph of this function?",
   "choices": [
     {
       "id": "A",

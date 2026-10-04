@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-343",
- "question": "A courier charges a $\\$6$ pickup fee plus $\\$1.20$ per pound to deliver a package. For deliveries to a rural address, an additional $\\$0.30$ per pound is charged. Which function $f$ gives the total charge, in dollars, for delivering a $p$-pound package to a rural address?",
+ "question": "A courier charges a $\\$6$ pickup fee plus $\\$1.20$ per pound for a package, and an extra $\\$0.30$ per pound for rural delivery. The function $f$ gives the charge, in dollars, for the rural delivery of a $p$-pound package. Which equation defines $f$?",
  "choices": [
   {
    "id": "A",

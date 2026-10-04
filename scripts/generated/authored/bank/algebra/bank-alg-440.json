@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-440",
- "question": "A supplier's charge for $x$ crates is linear in $x$ and is recorded in the table. A second supplier charges $mx + 240$ dollars for $x$ crates and never matches the first supplier's charge. What is the value of $m$?",
+ "question": "The table shows the charge, in dollars, at one supplier for an order of $x$ crates, where the charge is a linear function of $x$. A second supplier charges $mx + 240$ dollars for $x$ crates, where $m$ is a constant. If the two charges are never equal, what is the value of $m$?",
  "diagram": {
   "type": "dataTable",
   "params": {
@@ -31,7 +31,7 @@
   },
   {
    "id": "B",
-   "text": "$40$"
+   "text": "$65$"
   },
   {
    "id": "C",
@@ -44,9 +44,9 @@
  ],
  "correctAnswer": "A",
  "distractorNotes": {
-  "B": "divides the $120$-dollar change by the three table rows instead of by the $4$-crate change",
-  "C": "uses the change in charge itself as the rate, skipping the division by $4$",
-  "D": "reports the first supplier's charge for zero crates rather than the per-crate rate"
+  "B": "divides the charge for 4 crates by 4, ignoring the fixed part of the charge",
+  "C": "uses the change in charge between rows, 120, without dividing by the change of 4 crates",
+  "D": "uses the fixed charge of the first supplier instead of its rate"
  },
- "explanation": "**SAT Pattern: Parallel Lines No Solution**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The table rises $120$ dollars per $4$ crates, so the first charge is $30x + 140$ and $m = 30$.\n\n**The Full Solution:**\nStep 1: From $4$ crates to $8$ crates the charge rises from $260$ to $380$ dollars, a change of $120$ dollars over $4$ crates, so the rate is $\\frac{120}{4} = 30$ dollars per crate.\nStep 2: Then $260 = 30(4) + b$ gives $b = 140$, so the first supplier charges $30x + 140$ dollars.\nStep 3: Charges that are never equal require the same rate, so $m = 30$; the fixed parts $240$ and $140$ differ, so the charges never match. Check: $30(12) + 140 = 500$, matching the table.\n\n**Why the wrong answers are tempting:**\n* Choice B ($40$): divides the $120$-dollar change by the three table rows instead of by the $4$-crate change\n* Choice C ($120$): uses the change in charge itself as the rate, skipping the division by $4$\n* Choice D ($140$): reports the first supplier's charge for zero crates rather than the per-crate rate\n\n**Test Day Takeaway:** A rate from a table is a change in output divided by the matching change in input, never a raw difference."
+ "explanation": "**SAT Pattern: Parallel Lines No Solution**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The first supplier's charge rises $120$ dollars for every $4$ crates, so its rate is $30$ dollars per crate. Charges that are never equal must rise at the same rate, so $m = 30$.\n\n**The Full Solution:**\nStep 1: From the table, each increase of $4$ crates adds $380 - 260 = 120$ dollars, so the rate is $\\frac{120}{4} = 30$ dollars per crate.\nStep 2: The first supplier's charge is $30x + b$ with $260 = 30(4) + b$, so $b = 140$ and the charge is $30x + 140$.\nStep 3: Setting $30x + 140 = mx + 240$ has no solution only when the rates are equal and the fixed amounts differ, so $m = 30$. Check: $30x + 140 = 30x + 240$ gives $140 = 240$, which is false ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($65$): divides $260$ by $4$, which ignores the fixed $140$-dollar part of the first supplier's charge.\n* Choice C ($120$): is the change in charge for $4$ more crates, not the change per crate.\n* Choice D ($140$): is the first supplier's fixed charge, not its rate per crate.\n\n**Test Day Takeaway:** Two linear models are never equal when they have the same rate of change and different starting values."
 }

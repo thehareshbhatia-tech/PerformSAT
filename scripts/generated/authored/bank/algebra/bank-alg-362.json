@@ -1,29 +1,29 @@
 {
  "id": "bank-alg-362",
- "question": "A fabric-softener protocol requires that $x + k \\ge 5k - 12$, where $k$ is a positive constant and $x$ is the number of grams of softener added. Which inequality gives all possible values of $x$?",
+ "question": "$3x + 2k \\geq 5k - 12$\nIn the given inequality, $k$ is a constant. Which inequality is equivalent to the given inequality?",
  "choices": [
   {
    "id": "A",
-   "text": "$x \\ge 4k - 12$"
+   "text": "$x \\geq k - 12$"
   },
   {
    "id": "B",
-   "text": "$x \\le 4k - 12$"
+   "text": "$x \\geq k - 4$"
   },
   {
    "id": "C",
-   "text": "$x \\ge 6k - 12$"
+   "text": "$x \\leq k - 4$"
   },
   {
    "id": "D",
-   "text": "$x \\ge 4k + 12$"
+   "text": "$x \\geq 3k - 12$"
   }
  ],
- "correctAnswer": "A",
+ "correctAnswer": "B",
  "distractorNotes": {
-  "B": "reverses the direction of the inequality although no negative divisor is used",
-  "C": "adds k to both sides instead of subtracting it, giving 6k",
-  "D": "moves the -12 by adding 12 to the same side it already sits on"
+  "A": "divides only the k-term by 3 and leaves the -12 undivided",
+  "C": "reverses the inequality symbol even though it divides by positive 3",
+  "D": "subtracts 2k correctly but never divides both sides by 3"
  },
- "explanation": "**SAT Pattern: One-Variable Linear Inequality**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Subtracting $k$ from both sides leaves $x \\ge 4k - 12$.\n\n**The Full Solution:**\n\nStep 1: The protocol is $x + k \\ge 5k - 12$, and $x$ is already isolated except for the $+k$.\n\nStep 2: Subtract $k$ from both sides: $x \\ge 5k - k - 12$.\n\nStep 3: Combine the like terms in $k$: $x \\ge 4k - 12$. Check with $k = 5$: the protocol reads $x + 5 \\ge 13$, or $x \\ge 8$, and $4(5) - 12 = 8$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($x \\le 4k - 12$): reverses the symbol even though only a subtraction was performed.\n* Choice C ($x \\ge 6k - 12$): adds $k$ to the right side instead of subtracting it, producing $5k + k$.\n* Choice D ($x \\ge 4k + 12$): changes the sign of the $-12$ even though it never crossed the inequality symbol.\n\n**Test Day Takeaway:** Adding or subtracting the same expression never changes an inequality's direction, and only the terms you actually move change sign."
+ "explanation": "**SAT Pattern: One-Variable Linear Inequality**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Subtracting $2k$ gives $3x \\geq 3k - 12$, and dividing every term by $3$ gives $x \\geq k - 4$.\n\n**The Full Solution:**\nStep 1: Subtract $2k$ from both sides: $3x \\geq 5k - 2k - 12$, or $3x \\geq 3k - 12$.\nStep 2: Divide both sides by $3$. The divisor is positive, so the symbol stays $\\geq$, and both terms on the right are divided: $x \\geq \\frac{3k}{3} - \\frac{12}{3}$.\nStep 3: Simplify: $x \\geq k - 4$. Check with $k = 5$: the given inequality becomes $3x + 10 \\geq 13$, so $x \\geq 1$, and $k - 4 = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x \\geq k - 12$): divides $3k$ by $3$ but leaves $-12$ alone; every term on the right must be divided.\n* Choice C ($x \\leq k - 4$): reverses the symbol, which happens only when dividing or multiplying by a negative number.\n* Choice D ($x \\geq 3k - 12$): stops at $3x \\geq 3k - 12$ and treats it as a statement about $x$.\n\n**Test Day Takeaway:** With a constant in the inequality, solve exactly as you would with numbers: move the $k$-terms together, then divide every term by the coefficient of $x$."
 }

@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-452",
-  "question": "The table gives the volume $V$, in liters, of fuel remaining in a generator's tank at several times $t$, in hours, after the generator was started. The relationship between $t$ and $V$ is linear. Which of the following is the best interpretation of the slope of the line that models this relationship?",
+  "question": "The table shows the volume $V$, in liters, of fuel in a generator's tank $t$ hours after the generator was started. The relationship between $t$ and $V$ is linear. What is the best interpretation of the slope of the line that models this relationship?",
   "diagram": {
     "type": "dataTable",
     "params": {

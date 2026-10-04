@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-346",
-  "question": "A restaurant buys a commercial freezer for $\\$6{,}300$. The freezer reduces the restaurant's spoilage losses by $\\$525$ each month. Which function $f$ gives the portion of the purchase price, in dollars, not yet recovered by these savings after $m$ months?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$f(m) = 525m - 6{,}300$"
-    },
-    {
-      "id": "B",
-      "text": "$f(m) = 6{,}300 + 525m$"
-    },
-    {
-      "id": "C",
-      "text": "$f(m) = 6{,}300 - 525(m - 1)$"
-    },
-    {
-      "id": "D",
-      "text": "$f(m) = 6{,}300 - 525m$"
-    }
-  ],
-  "correctAnswer": "D",
-  "distractorNotes": {
-    "A": "sign reversed: gives savings minus price",
-    "B": "added the savings to the price instead of subtracting",
-    "C": "skipped the first month of savings"
+ "id": "bank-alg-346",
+ "question": "A restaurant paid $\\$6{,}300$ for a freezer and $\\$420$ to install it. The freezer saves the restaurant $\\$525$ per month. Which equation represents this situation, where $f(m)$ is the amount, in dollars, of the total cost not yet recovered after $m$ months?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$f(m) = 525m - 6{,}720$"
   },
-  "explanation": "**SAT Pattern: Linear Cost Model**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Start at $6{,}300$ and subtract $525$ for each month: $f(m) = 6{,}300 - 525m$.\n\n**The Full Solution:**\nStep 1: At $m = 0$ nothing has been recovered, so $f(0)$ must equal the full price $6{,}300$; the constant is $6{,}300$.\nStep 2: Each month recovers $525$, which REDUCES the unrecovered amount, so the rate is $-525$ per month.\nStep 3: Combine: $f(m) = 6{,}300 - 525m$.\nCheck: after $12$ months, $6{,}300 - 525(12) = 6{,}300 - 6{,}300 = 0$; the freezer has paid for itself in exactly one year. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(m) = 525m - 6{,}300$): reverses the sign; it would give $-6{,}300$ at $m = 0$ and grow instead of shrink.\n* Choice B ($f(m) = 6{,}300 + 525m$): adds the savings to the price, as if each month made the freezer more expensive.\n* Choice C ($f(m) = 6{,}300 - 525(m - 1)$): delays the savings by a month; $f(0)$ would be $6{,}825$, more than the purchase price.\n\n**Test Day Takeaway:** Anchor a cost model with its value at zero, then decide whether the per-unit amount increases or decreases it; a quick $m = 0$ test kills most wrong choices."
+  {
+   "id": "B",
+   "text": "$f(m) = 5{,}880 - 525m$"
+  },
+  {
+   "id": "C",
+   "text": "$f(m) = 6{,}300 - 525m$"
+  },
+  {
+   "id": "D",
+   "text": "$f(m) = 6{,}720 - 525m$"
+  }
+ ],
+ "correctAnswer": "D",
+ "distractorNotes": {
+  "A": "subtracts in the wrong order, giving savings minus cost (negative until the cost is recovered)",
+  "B": "subtracts the installation fee from the price instead of adding it: 6,300 - 420 = 5,880",
+  "C": "leaves out the 420-dollar installation fee"
+ },
+ "explanation": "**SAT Pattern: Linear Cost Model**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The total cost is $6{,}300 + 420 = 6{,}720$ dollars, and each month recovers $525$ of it, so $f(m) = 6{,}720 - 525m$.\n\n**The Full Solution:**\nStep 1: The amount to recover at $m = 0$ is the price plus the installation fee: $6{,}300 + 420 = 6{,}720$.\nStep 2: Each month the savings recover $\\$525$, so after $m$ months $525m$ has been recovered.\nStep 3: The amount not yet recovered is $f(m) = 6{,}720 - 525m$. Check: after $12$ months, $6{,}720 - 6{,}300 = 420$, the installation fee still to recover ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(m) = 525m - 6{,}720$): reverses the subtraction, so the amount still owed would be negative at the start.\n* Choice B ($f(m) = 5{,}880 - 525m$): subtracts the $\\$420$ fee from the price instead of adding it.\n* Choice C ($f(m) = 6{,}300 - 525m$): leaves out the installation fee, which is also part of the cost.\n\n**Test Day Takeaway:** The starting value is everything paid up front; the rate is what each month takes away from it."
 }

@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-378",
- "question": "A square building pad has two of its adjacent corners at the plotted points in the $xy$-plane, where one grid unit stands for ten meters of ground distance. What is the perimeter, in meters, of the pad?",
+ "question": "The two points shown in the $xy$-plane are adjacent vertices of a square. What is the perimeter of the square?",
  "diagram": {
   "type": "coordinatePoints",
   "params": {
@@ -23,26 +23,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$50$"
+   "text": "$5$"
   },
   {
    "id": "B",
-   "text": "$70$"
+   "text": "$20$"
   },
   {
    "id": "C",
-   "text": "$140$"
+   "text": "$25$"
   },
   {
    "id": "D",
-   "text": "$200$"
+   "text": "$28$"
   }
  ],
+ "correctAnswer": "B",
  "distractorNotes": {
-  "A": "reports one side length instead of the perimeter",
-  "B": "adds the horizontal and vertical separations in meters",
-  "C": "gives the perimeter of the rectangle formed by the separations"
+  "A": "finds the side length, 5, and stops before multiplying by 4",
+  "C": "computes the area of the square, 5 squared, instead of its perimeter",
+  "D": "adds the changes, 4 + 3 = 7, as the side length and multiplies by 4"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Distance Formula**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** The corners are $4$ and $3$ units apart, so the side is $5$ units, or $50$ meters, and the perimeter is $4(50) = 200$ meters.\n\n**The Full Solution:**\nStep 1: Read the corners: $(1, 2)$ and $(5, 5)$. The horizontal separation is $4$ units and the vertical separation is $3$ units.\nStep 2: The side length is $\\sqrt{4^2 + 3^2} = \\sqrt{25} = 5$ units, and each unit is ten meters, so the side measures $50$ meters.\nStep 3: A square has four equal sides, so the perimeter is $4(50) = 200$ meters. Check: $4$-$3$-$5$ satisfies $16 + 9 = 25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($50$): reports the length of one side rather than the perimeter.\n* Choice B ($70$): adds the horizontal and vertical separations, $40 + 30$, instead of using them as legs.\n* Choice C ($140$): gives $2(40 + 30)$, the perimeter of the rectangle formed by the separations rather than of the square pad.\n\n**Test Day Takeaway:** Convert grid units to real units once, right after the distance step, then finish the geometry in real units."
+ "explanation": "**SAT Pattern: Distance Formula**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The points $(1, 2)$ and $(5, 5)$ are $\\sqrt{16 + 9} = 5$ apart, so each side is $5$ and the perimeter is $4(5) = 20$.\n\n**The Full Solution:**\nStep 1: Read the points: $(1, 2)$ and $(5, 5)$. Adjacent vertices are joined by a side of the square.\nStep 2: Side length $= \\sqrt{(5 - 1)^{2} + (5 - 2)^{2}} = \\sqrt{16 + 9} = \\sqrt{25} = 5$.\nStep 3: Perimeter $= 4(5) = 20$. Check: $3$, $4$, $5$ is a right triangle, so the side really is $5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): finds one side and stops.\n* Choice C ($25$): squares the side, which gives the area, not the perimeter.\n* Choice D ($28$): adds the changes, $4 + 3 = 7$, instead of using the Pythagorean theorem, then multiplies by $4$.\n\n**Test Day Takeaway:** Adjacent vertices give a side; use the distance formula for the side, then reread whether the question wants perimeter or area."
 }

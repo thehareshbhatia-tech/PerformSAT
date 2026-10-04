@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-363",
- "question": "A permit office issues $x$ additional wristbands each morning for a canyon overlook, where $x$ is an integer that must satisfy $7 - 2x \\ge 4x - 29$. The office then posts the value of $2x + 5$. What is the greatest value it can post?",
+ "question": "$7 - 2x > 4x - 30$\nIf $x$ is an integer that satisfies the given inequality, what is the greatest possible value of $2x + 5$?",
  "choices": [
   {
    "id": "A",
@@ -16,14 +16,14 @@
   },
   {
    "id": "D",
-   "text": "$77$"
+   "text": "$19$"
   }
  ],
  "correctAnswer": "C",
  "distractorNotes": {
-  "A": "reports the greatest value of x instead of the value of 2x + 5",
-  "B": "computes 2x at x = 6 but omits the +5",
-  "D": "reads 36 >= 6x as x <= 36 and evaluates 2x + 5 there"
+  "A": "reports the greatest integer value of x instead of the value of 2x + 5",
+  "B": "evaluates 2x at x = 6 but leaves off the + 5",
+  "D": "rounds 37/6 up to 7 and evaluates 2(7) + 5, but x = 7 does not satisfy the strict inequality"
  },
- "explanation": "**SAT Pattern: One-Variable Linear Inequality**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** $36 \\ge 6x$ gives $x \\le 6$, so the greatest integer is $x = 6$ and $2(6) + 5 = 17$.\n\n**The Full Solution:**\n\nStep 1: Add $2x$ to both sides and add $29$: $7 + 29 \\ge 4x + 2x$, which is $36 \\ge 6x$.\n\nStep 2: Divide by the positive number $6$: $6 \\ge x$, so $x \\le 6$ and the greatest integer value is $x = 6$.\n\nStep 3: The question asks for $2x + 5$, which increases as $x$ increases, so its greatest value is $2(6) + 5 = 17$. Check at $x = 6$: $7 - 12 = -5$ and $4(6) - 29 = -5$, so the inequality holds with equality.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($6$): reports the greatest value of $x$ rather than the expression the question asks about.\n* Choice B ($12$): evaluates $2x$ at $x = 6$ but omits the $+5$.\n* Choice D ($77$): reads $36 \\ge 6x$ as $x \\le 36$ and evaluates $2(36) + 5$.\n\n**Test Day Takeaway:** Solve for the variable, then reread the question: the bound you found is rarely the quantity being asked for."
+ "explanation": "**SAT Pattern: One-Variable Linear Inequality**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Collecting terms gives $37 > 6x$, so $x < \\frac{37}{6} \\approx 6.17$; the greatest integer is $6$, and $2(6) + 5 = 17$.\n\n**The Full Solution:**\nStep 1: Add $2x$ and $30$ to both sides: $7 + 30 > 4x + 2x$, or $37 > 6x$.\nStep 2: Divide by $6$: $x < \\frac{37}{6} \\approx 6.17$. The greatest integer less than $6.17$ is $6$.\nStep 3: The expression $2x + 5$ increases as $x$ increases, so its greatest value comes at $x = 6$: $2(6) + 5 = 17$. Check: at $x = 6$, $7 - 12 = -5$ and $24 - 30 = -6$, and $-5 > -6$ is true; at $x = 7$, $-7 > -2$ is false ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): finds the greatest value of $x$ and stops before evaluating $2x + 5$.\n* Choice B ($12$): computes $2x$ at $x = 6$ but omits the $+ 5$.\n* Choice D ($19$): rounds $\\frac{37}{6}$ up to $7$. The inequality requires $x < 6.17$, so $x = 7$ is not allowed.\n\n**Test Day Takeaway:** After solving, round in the direction the inequality allows, then reread the question: the bound on $x$ is not always the quantity being asked for."
 }

@@ -1,6 +1,6 @@
 {
- "question": "A masonry crew lays $6(c-4)+9$ blocks in a single shift when $c$ courses are planned for that shift, and on one recorded shift the crew laid exactly $57$ blocks. What is the value of $c$?",
- "correctAnswer": "12",
- "explanation": "**SAT Pattern: Linear Equation with Distribution**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~30s):** $6(c-4)=57-9=48$, so $c-4=8$ and $c=12$.\n\n**The Full Solution:**\n\nStep 1: Set the expression equal to the count: $6(c-4)+9=57$.\n\nStep 2: Subtract $9$ from both sides: $6(c-4)=48$, then divide by $6$: $c-4=8$.\n\nStep 3: Add $4$ to both sides: $c=12$. Check: $6(12-4)+9=6(8)+9=48+9=57$ blocks.\n\n**Common Mistakes:** Reporting $8$ stops at the value of $c-4$ instead of $c$. Distributing the $6$ to $c$ only, as in $6c-4+9=57$, gives $6c=52$ and a non-whole number of courses.\n\n**Test Day Takeaway:** Peel the outermost operations off first — undo the added constant, then the multiplier, then what is left inside the parentheses.",
+ "question": "If $\\frac{3}{4}(8x - 12) = 2x + 15$, what is the value of $x$?",
+ "correctAnswer": "6",
+ "explanation": "**SAT Pattern: Linear Equation with Distribution**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~25s):** $\\frac{3}{4}(8x - 12) = 6x - 9$, so $6x - 9 = 2x + 15$, $4x = 24$, and $x = 6$.\n\n**The Full Solution:**\nStep 1: Distribute $\\frac{3}{4}$: $\\frac{3}{4}(8x) = 6x$ and $\\frac{3}{4}(12) = 9$, so the left side is $6x - 9$.\nStep 2: Subtract $2x$ and add $9$: $4x = 24$.\nStep 3: Divide by $4$: $x = 6$. Check: $\\frac{3}{4}(48 - 12) = 27$ and $2(6) + 15 = 27$ ✓\n\n**Common Mistakes:** Multiplying only the $8x$ by $\\frac{3}{4}$ gives $6x - 12 = 2x + 15$ and $x = \\frac{27}{4}$. Moving the $-9$ without changing its sign gives $4x = 6$ and $x = 1.5$.\n\n**Test Day Takeaway:** A fraction outside the parentheses multiplies every term inside; distribute it to both terms before collecting like terms.",
  "id": "bank-alg-309"
 }

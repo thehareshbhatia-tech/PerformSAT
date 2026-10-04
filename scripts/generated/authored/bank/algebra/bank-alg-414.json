@@ -1,29 +1,29 @@
 {
- "question": "A plant models the output of two streams as $y=6x+1$ and $y=6x-4$, where $x$ is the hour of operation and $y$ is the number of liters produced. How many ordered pairs $(x,y)$ satisfy both equations?",
+ "question": "$y = 4x + 3$\n$y = 7x - 9$\nIf $(x, y)$ is the solution to the given system of equations, what is the value of $y$?",
  "choices": [
   {
    "id": "A",
-   "text": "No ordered pairs"
+   "text": "$-13$"
   },
   {
    "id": "B",
-   "text": "Exactly one ordered pair"
+   "text": "$4$"
   },
   {
    "id": "C",
-   "text": "Exactly two ordered pairs"
+   "text": "$19$"
   },
   {
    "id": "D",
-   "text": "Infinitely many ordered pairs"
+   "text": "$28$"
   }
  ],
- "correctAnswer": "A",
+ "correctAnswer": "C",
  "distractorNotes": {
-  "B": "assumes every pair of linear equations meets at exactly one point",
-  "C": "expects two crossings, which two lines of equal slope can never have",
-  "D": "reads the matching 6x terms as making the two equations identical"
+  "A": "makes a sign error, getting -3x = 12 and x = -4",
+  "B": "reports the value of x instead of y",
+  "D": "substitutes x = 4 into 7x and drops the -9"
  },
- "explanation": "**SAT Pattern: Linear System by Substitution**\n\n**Choice A is correct.** Setting the two expressions for $y$ equal gives $6x+1=6x-4$, which reduces to $1=-4$, so no pair satisfies both.\n\n**The Fast Way (~20s):** Both equations give $y$ in terms of $6x$, so $6x+1=6x-4$ leaves $1=-4$, a false statement.\n\n**The Full Solution:**\n\nStep 1: Substitute the first expression for $y$ into the second: $6x+1=6x-4$.\n\nStep 2: Subtract $6x$ from both sides. The variable disappears, leaving $1=-4$.\n\nStep 3: That statement is false for every $x$, so there is no ordered pair satisfying both equations. Check: at any hour the first stream is exactly $5$ units above the second, since $(6x+1)-(6x-4)=5$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B: applies the usual expectation of a single intersection, which fails when the two slopes are equal.\n* Choice C: two straight lines cannot cross twice.\n* Choice D: infinitely many solutions would require the constants to match as well, but $1\\ne -4$.\n\n**Test Day Takeaway:** Equal slopes with different constants mean parallel lines and no solution; equal slopes with equal constants mean one line and infinitely many.",
+ "explanation": "**SAT Pattern: Linear System by Substitution**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Set $4x + 3 = 7x - 9$: $12 = 3x$, so $x = 4$ and $y = 4(4) + 3 = 19$.\n\n**The Full Solution:**\nStep 1: Both equations give $y$, so set them equal: $4x + 3 = 7x - 9$.\nStep 2: Subtract $4x$ and add $9$: $12 = 3x$, so $x = 4$.\nStep 3: Then $y = 4(4) + 3 = 19$. Check: $7(4) - 9 = 19$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-13$): writes $-3x = 12$ instead of $-3x = -12$, getting $x = -4$ and $y = -13$.\n* Choice B ($4$): this is the value of $x$, not $y$.\n* Choice D ($28$): computes $7(4)$ and leaves off the $-9$.\n\n**Test Day Takeaway:** When both equations are solved for $y$, set the right sides equal, then substitute back to get $y$.",
  "id": "bank-alg-414"
 }

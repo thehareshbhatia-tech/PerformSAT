@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-383",
- "question": "On a sleep-lab sensor grid modeled by the $xy$-plane, the two points shown are the electrode positions $P$ and $Q$. The midpoint of $\\overline{PQ}$ lies on the line $y = kx$. What is the value of $k$?",
+ "question": "The midpoint of the line segment joining the two points shown in the $xy$-plane lies on the line $y = kx$, where $k$ is a constant. What is the value of $k$?",
  "diagram": {
   "type": "coordinatePoints",
   "params": {
@@ -40,9 +40,9 @@
  ],
  "correctAnswer": "A",
  "distractorNotes": {
-  "B": "computes x divided by y at the midpoint instead of y divided by x",
-  "C": "reports the slope of segment PQ instead of the ratio at the midpoint",
-  "D": "drops the negative sign when dividing 4 by -2"
+  "B": "divides the x-coordinate of the midpoint by its y-coordinate instead of y by x",
+  "C": "finds the slope of the segment joining the two points instead of using the midpoint",
+  "D": "drops the negative sign on the midpoint's x-coordinate"
  },
- "explanation": "**SAT Pattern: Midpoint Formula**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The midpoint of $(-8, -2)$ and $(4, 10)$ is $(-2, 4)$, and $4 = k(-2)$ gives $k = -2$.\n\n**The Full Solution:**\n\nStep 1: Read the electrodes: $P$ is at $(-8, -2)$ and $Q$ is at $(4, 10)$.\n\nStep 2: The midpoint is $\\left(\\frac{-8 + 4}{2}, \\frac{-2 + 10}{2}\\right) = (-2, 4)$.\n\nStep 3: A point lies on $y = kx$ when its coordinates satisfy the equation, so $4 = k(-2)$ and $k = -2$. Check: $-2(-2) = 4$.\n\n**Why the wrong answers are tempting:**\n\n* Choice B ($-\\frac{1}{2}$): divides the midpoint's $x$-coordinate by its $y$-coordinate, $\\frac{-2}{4}$, reversing the ratio.\n* Choice C ($1$): computes the slope of $\\overline{PQ}$, $\\frac{10 - (-2)}{4 - (-8)}$, which is the slope of the segment, not of the line through the origin and the midpoint.\n* Choice D ($2$): divides $4$ by $-2$ but drops the negative sign.\n\n**Test Day Takeaway:** A point on $y = kx$ forces $k = \\frac{y}{x}$ at that point; find the point first, then substitute."
+ "explanation": "**SAT Pattern: Midpoint Formula**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The points are $(-8, -2)$ and $(4, 10)$, so the midpoint is $(-2, 4)$, and $4 = k(-2)$ gives $k = -2$.\n\n**The Full Solution:**\nStep 1: Read the points: $(-8, -2)$ and $(4, 10)$.\nStep 2: Midpoint $= \\left(\\frac{-8 + 4}{2}, \\frac{-2 + 10}{2}\\right) = (-2, 4)$.\nStep 3: Substitute into $y = kx$: $4 = k(-2)$, so $k = -2$. Check: the line $y = -2x$ passes through $(-2, 4)$ because $-2(-2) = 4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{1}{2}$): computes $\\frac{x}{y} = \\frac{-2}{4}$, the reciprocal of $k$.\n* Choice C ($1$): finds the slope of the segment, $\\frac{10 - (-2)}{4 - (-8)} = 1$, which is not the line $y = kx$.\n* Choice D ($2$): loses the negative sign on the midpoint's $x$-coordinate.\n\n**Test Day Takeaway:** A line $y = kx$ passes through the origin, so $k$ is just $\\frac{y}{x}$ for any point on it other than the origin."
 }

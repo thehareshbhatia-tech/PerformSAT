@@ -1,25 +1,25 @@
 {
  "id": "bank-alg-251",
- "question": "The table gives the price per flask, in dollars, for each of two capacities of laboratory flask. A laboratory ordered a total of $20$ flasks of these two capacities for a total price of $\\$252$. How many $500$-milliliter flasks did the laboratory order?",
+ "question": "The table shows the price of each of two sizes of flask. A laboratory paid a total of \\$252 for $20$ of these flasks. How many $500$-milliliter flasks did the laboratory buy?",
  "diagram": {
   "type": "dataTable",
   "params": {
    "headers": [
-    "Flask capacity",
+    "Flask size",
     "Price per flask (dollars)"
    ],
    "rows": [
     [
-     "250 mL",
+     "250 milliliters",
      "9"
     ],
     [
-     "500 mL",
+     "500 milliliters",
      "15"
     ]
    ]
   }
  },
  "correctAnswer": "12",
- "explanation": "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~20s):** If all $20$ flasks were the $250$-mL size the order would cost $\\$180$. The extra $\\$72$ comes from upgrades that each add $\\$6$, so $72 \\div 6 = 12$ flasks are the $500$-mL size.\n\n**The Full Solution:**\nStep 1: Let $a$ be the number of $250$-mL flasks and $b$ the number of $500$-mL flasks. Then $a + b = 20$ and $9a + 15b = 252$.\nStep 2: Substitute $a = 20 - b$: $9(20 - b) + 15b = 252$, so $180 + 6b = 252$ and $b = 12$.\nStep 3: Then $a = 8$. Check: $9(8) + 15(12) = 72 + 180 = 252$. $\\checkmark$\n\n**Common Mistakes:** Reporting $8$, the number of $250$-mL flasks, or dividing $252$ by $15$ and rounding, which assumes every flask is the larger size.\n\n**Test Day Takeaway:** Read the prices from the table into a value equation, pair it with the count equation, and substitute."
+ "explanation": "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**The correct answer is 12.**\n\n**The Fast Way (~20s):** Twenty flasks at \\$9 would cost \\$180; each larger flask adds \\$6, and $(252 - 180) \\div 6 = 12$.\n\n**The Full Solution:**\nStep 1: Let $s$ be the number of $250$-milliliter flasks and $\\ell$ the number of $500$-milliliter flasks. Then $s + \\ell = 20$ and $9s + 15\\ell = 252$.\nStep 2: Substitute $s = 20 - \\ell$: $9(20 - \\ell) + 15\\ell = 252$, so $180 + 6\\ell = 252$ and $\\ell = 12$.\nStep 3: Then $s = 8$. Check: $9(8) + 15(12) = 72 + 180 = 252$ ✓\n\n**Common Mistakes:**\n* $8$: the number of $250$-milliliter flasks, not $500$-milliliter flasks.\n* $10$: splits the $20$ flasks evenly and never uses the total price.\n* $16.8$: divides $252$ by $15$, as if every flask were the larger size.\n\n**Test Day Takeaway:** Read the two prices from the table into a cost equation, pair it with the count equation, and substitute."
 }

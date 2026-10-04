@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-369",
-  "question": "A garden plot has $120$ square feet of planting space. Each tomato plant requires $4$ square feet, and each pepper plant requires $2$ square feet. A gardener will plant $t$ tomato plants and $p$ pepper plants and wants at least $40$ plants in total. Which of the following systems of inequalities represents this situation?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$4t + 2p \\geq 120$ and $t + p \\leq 40$"
-    },
-    {
-      "id": "B",
-      "text": "$2t + 4p \\leq 120$ and $t + p \\geq 40$"
-    },
-    {
-      "id": "C",
-      "text": "$4t + 2p \\leq 120$ and $t + p \\leq 40$"
-    },
-    {
-      "id": "D",
-      "text": "$4t + 2p \\leq 120$ and $t + p \\geq 40$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "reverses both inequality directions",
-    "B": "swaps the space requirements of the two plant types",
-    "C": "translates \"at least 40 plants\" as an upper bound"
+ "id": "bank-alg-369",
+ "question": "A gardener has $120$ square feet of space for $t$ tomato plants and $p$ pepper plants. Each tomato plant needs $4$ square feet, and each pepper plant needs $2$ square feet. The gardener wants to plant at least $40$ plants. Which of the following systems of inequalities represents this situation?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$4t + 2p \\geq 120$ and $t + p \\leq 40$"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: System of Linear Inequalities**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Space used is $4t + 2p$, which cannot exceed $120$: $4t + 2p \\leq 120$. \"At least $40$ plants\" is $t + p \\geq 40$.\n\n**The Full Solution:**\nStep 1: Build the space constraint. Tomato plants use $4$ square feet each, so $t$ of them use $4t$; pepper plants use $2p$. The total planted space cannot exceed what is available: $4t + 2p \\leq 120$.\nStep 2: Build the count constraint. The total number of plants is $t + p$, and \"at least $40$\" means greater than or equal to $40$: $t + p \\geq 40$.\nStep 3: The system is $4t + 2p \\leq 120$ and $t + p \\geq 40$. Check with a plausible plan, $t = 10$ and $p = 35$: space $40 + 70 = 110 \\leq 120$ and count $45 \\geq 40$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4t + 2p \\geq 120$ and $t + p \\leq 40$): flips both directions, requiring the garden to be overfilled and capping the plant count.\n* Choice B ($2t + 4p \\leq 120$ and $t + p \\geq 40$): attaches $2$ square feet to tomatoes and $4$ to peppers, the reverse of the given requirements.\n* Choice C ($4t + 2p \\leq 120$ and $t + p \\leq 40$): reads \"at least $40$\" as \"at most $40$.\"\n\n**Test Day Takeaway:** Match each phrase to a sign: \"available\" or \"cannot exceed\" means $\\leq$, \"at least\" means $\\geq$, and each coefficient must sit with the variable it describes."
+  {
+   "id": "B",
+   "text": "$2t + 4p \\leq 120$ and $t + p \\geq 40$"
+  },
+  {
+   "id": "C",
+   "text": "$4t + 2p \\leq 120$ and $t + p \\leq 40$"
+  },
+  {
+   "id": "D",
+   "text": "$4t + 2p \\leq 120$ and $t + p \\geq 40$"
+  }
+ ],
+ "correctAnswer": "D",
+ "distractorNotes": {
+  "A": "reverses both inequalities, treating the space as a minimum and the plant count as a maximum",
+  "B": "attaches 2 square feet to the tomato plants and 4 square feet to the pepper plants",
+  "C": "reads at least 40 plants as at most 40 plants"
+ },
+ "explanation": "**SAT Pattern: System of Linear Inequalities**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Space used, $4t + 2p$, can be at most $120$, and the number of plants, $t + p$, must be at least $40$.\n\n**The Full Solution:**\nStep 1: The tomato plants use $4t$ square feet and the pepper plants use $2p$ square feet, so the space used is $4t + 2p$. Only $120$ square feet are available: $4t + 2p \\leq 120$.\nStep 2: The number of plants is $t + p$, and the gardener wants at least $40$: $t + p \\geq 40$.\nStep 3: The system is $4t + 2p \\leq 120$ and $t + p \\geq 40$, which is choice D. Check: $t = 10$ and $p = 35$ uses $40 + 70 = 110 \\leq 120$ square feet for $45 \\geq 40$ plants ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: reverses both symbols, so it would require at least $120$ square feet of planting and at most $40$ plants.\n* Choice B: swaps the space needs, giving each tomato plant $2$ square feet and each pepper plant $4$.\n* Choice C: gets the space correct but turns \"at least $40$ plants\" into a maximum.\n\n**Test Day Takeaway:** Build each inequality from units: square feet per plant times plants gives square feet, which is compared with the space available; the plant count is compared with the plant goal."
 }

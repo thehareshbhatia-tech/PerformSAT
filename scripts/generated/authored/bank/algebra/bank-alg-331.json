@@ -1,11 +1,11 @@
 {
  "id": "bank-alg-331",
- "question": "The table shows the fare, in dollars, for an airport shuttle ride of $2$, $5$, and $8$ miles. The fare consists of a fixed charge plus a constant charge per mile. Which equation gives the fare $F$, in dollars, for a ride of $n$ miles?",
+ "question": "The table shows the fare $F$, in dollars, for a shuttle ride of $n$ miles. The fare is a fixed charge plus a constant charge per mile. Which equation represents this relationship?",
  "diagram": {
   "type": "dataTable",
   "params": {
    "headers": [
-    "Miles",
+    "Distance (miles)",
     "Fare (dollars)"
    ],
    "rows": [

@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-451",
-  "question": "The function $A(t) = 12.5 - 0.4t$ models the area $A$, in thousands of square kilometers, of an ice sheet $t$ years after 2000. Which of the following is the best interpretation of $0.4$ in this context?",
+  "question": "The function $A(t) = 12.5 - 0.4t$ gives the estimated area, in thousands of square kilometers, of an ice sheet $t$ years after 2000. Which of the following is the best interpretation of $0.4$ in this context?",
   "choices": [
     {
       "id": "A",

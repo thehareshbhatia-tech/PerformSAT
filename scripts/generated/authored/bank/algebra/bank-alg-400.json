@@ -1,29 +1,29 @@
 {
  "id": "bank-alg-400",
- "question": "A compounding formula calls for $8(2p + 5)$ grams of base, and a second formula calls for $4(4p + n)$ grams, where $p$ is the number of prescriptions filled. The two formulas agree for every value of $p$. What is the value of $n$?",
+ "question": "$(x + a)(x - 5) = x^{2} + 3x + c$\nIn the given equation, $a$ and $c$ are constants. The equation is true for all values of $x$. What is the value of $c$?",
  "choices": [
   {
    "id": "A",
-   "text": "$5$"
+   "text": "$-40$"
   },
   {
    "id": "B",
-   "text": "$10$"
+   "text": "$-15$"
   },
   {
    "id": "C",
-   "text": "$20$"
+   "text": "$8$"
   },
   {
    "id": "D",
    "text": "$40$"
   }
  ],
- "correctAnswer": "B",
+ "correctAnswer": "A",
  "distractorNotes": {
-  "A": "copies the constant 5 from the first formula's parentheses",
-  "C": "divides 40 by 2 instead of by 4",
-  "D": "expands the left side but never divides the constant by 4"
+  "B": "multiplies the x-coefficient 3 by -5 instead of finding a first",
+  "C": "stops at a = 8 and reports a instead of c",
+  "D": "loses the negative sign, computing (8)(5) = 40"
  },
- "explanation": "**SAT Pattern: Matching Coefficients**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Both sides expand to $16p$ plus a constant, and $40 = 4n$ gives $n = 10$.\n\n**The Full Solution:**\n\nStep 1: Expand the first formula: $8(2p + 5) = 16p + 40$.\n\nStep 2: Expand the second: $4(4p + n) = 16p + 4n$. The coefficients of $p$ already agree.\n\nStep 3: The constants must agree for every value of $p$, so $4n = 40$ and $n = 10$. Check with $p = 3$: $8(6 + 5) = 88$ and $4(12 + 10) = 88$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($5$): copies the $5$ from the first formula's parentheses, as though the two constants inside the parentheses had to match.\n* Choice C ($20$): divides $40$ by $2$ rather than by the factor $4$ that multiplies $n$.\n* Choice D ($40$): expands the left side correctly but forgets that $n$ is still multiplied by $4$.\n\n**Test Day Takeaway:** When both sides are factored, expand both before matching; the constant you want is usually still buried under a factor."
+ "explanation": "**SAT Pattern: Matching Coefficients**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The $x$-coefficient gives $a - 5 = 3$, so $a = 8$, and the constant is $c = 8(-5) = -40$.\n\n**The Full Solution:**\nStep 1: Expand the left side: $(x + a)(x - 5) = x^{2} + (a - 5)x - 5a$.\nStep 2: Match the $x$-coefficients: $a - 5 = 3$, so $a = 8$.\nStep 3: Match the constants: $c = -5a = -5(8) = -40$. Check: $(x + 8)(x - 5) = x^{2} + 3x - 40$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-15$): multiplies the $x$-coefficient $3$ by $-5$ instead of using it to find $a$.\n* Choice C ($8$): this is the value of $a$, not $c$.\n* Choice D ($40$): multiplies $8$ by $5$ instead of by $-5$.\n\n**Test Day Takeaway:** Expand once, then match coefficients one degree at a time; the $x$-term usually unlocks the unknown inside the parentheses."
 }

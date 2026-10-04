@@ -1,29 +1,29 @@
 {
- "id": "bank-alg-316",
- "question": "A load cell reports the same output for every time $t$, in seconds, whether the output is written as $7(2t + 9) - c$ or as $14t + 23$ millivolts. What is the value of the constant $c$?",
+ "question": "$6(3x + 8) - c = 18x + 13$\nIn the given equation, $c$ is a constant. If the equation has infinitely many solutions, what is the value of $c$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-40$"
+   "text": "$-35$"
   },
   {
    "id": "B",
-   "text": "$-14$"
+   "text": "$-5$"
   },
   {
    "id": "C",
-   "text": "$40$"
+   "text": "$35$"
   },
   {
    "id": "D",
-   "text": "$86$"
+   "text": "$61$"
   }
  ],
  "correctAnswer": "C",
  "distractorNotes": {
-  "A": "solves $63 + c = 23$, keeping $c$ positive after the subtraction sign",
-  "B": "distributes the $7$ only to $2t$, then solves $9 - c = 23$",
-  "D": "adds the constants, $63 + 23$, instead of subtracting"
+  "A": "solves 48 - c = 13 as c = 13 - 48",
+  "B": "multiplies only the 3x by 6, solving 8 - c = 13",
+  "D": "adds 13 to 48 instead of subtracting"
  },
- "explanation": "**SAT Pattern: Parameter Inference (Identity)**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Expanding gives $14t + 63 - c$, so $63 - c = 23$ and $c = 40$.\n\n**The Full Solution:**\nStep 1: Distribute the $7$: $7(2t + 9) - c = 14t + 63 - c$.\nStep 2: The two forms agree for every $t$, so the constant terms must agree: $63 - c = 23$.\nStep 3: Solving gives $c = 40$. Check: $7(2t + 9) - 40 = 14t + 63 - 40 = 14t + 23$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-40$): solves $63 + c = 23$, keeping $c$ positive after the subtraction sign\n* Choice B ($-14$): distributes the $7$ only to $2t$, then solves $9 - c = 23$\n* Choice D ($86$): adds the constants, $63 + 23$, instead of subtracting\n\n**Test Day Takeaway:** Distribute first, then match constant terms; the $t$-terms already agree and carry no information."
+ "explanation": "**SAT Pattern: Parameter Inference (Identity)**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The left side is $18x + (48 - c)$, so $48 - c = 13$ and $c = 35$.\n\n**The Full Solution:**\nStep 1: Distribute: $18x + 48 - c = 18x + 13$.\nStep 2: The $x$-coefficients already match, so the equation has infinitely many solutions exactly when the constants match: $48 - c = 13$.\nStep 3: Solve: $c = 35$. Check: $18x + 48 - 35 = 18x + 13$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: ($-35$): solves $48 - c = 13$ as $c = 13 - 48$.\n* Choice B: ($-5$): multiplies only the $3x$ by $6$, so the constants give $8 - c = 13$.\n* Choice D: ($61$): adds $13$ to $48$ instead of subtracting.\n\n**Test Day Takeaway:** Infinitely many solutions means both sides are the same expression; match the constants once the $x$ terms agree.",
+ "id": "bank-alg-316"
 }

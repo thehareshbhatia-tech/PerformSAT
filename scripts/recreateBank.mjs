@@ -26,7 +26,7 @@ import { fileURLToPath, pathToFileURL } from 'url';
 import { indexCorpus, checkUniquenessSliding, tokenize } from './calibrateModule.mjs';
 import { CB_MATH_SKILLS, PATTERN_TO_CB_SKILL } from '../src/data/questions/cbSkillTaxonomy.js';
 import { extractSatPattern } from '../src/data/questions/extractSatPattern.js';
-import { registerItem, registerModule } from './registerGate.mjs';
+import { registerItem, registerModule, registerChunkSkillAware } from './registerGate.mjs';
 import { checkMath, latexToTokens } from './copyrightGate.mjs';
 
 const CB_LABEL = new Map(CB_MATH_SKILLS.map(s => [s.slug, s.label]));
@@ -392,6 +392,7 @@ export function checkItem(row, authored, ctx) {
     if (rendered && !dollarBalanced(v)) errs.push(`${k}: unbalanced $`);
     if (/\\["']/.test(v)) errs.push(`${k}: backslash-escaped quote (\\" or \\') renders as a literal backslash — use a plain " or '`);
     if (/[\x00-\x08\x0b\x0c\x0e-\x1f]/.test(v)) errs.push(`${k}: control character in text (a bad JSON escape such as \\f for \\frac or \\t for \\theta?)`);
+    if (rendered) { const outside = String(v).replace(/\\\$/g, '').replace(/\$[^$]*\$/g, ''); const cmd = outside.match(/\\(frac|dfrac|sqrt|pi|cdot|times|le|ge|leq|geq|neq|theta|circ|overline|text|left|right)\b/); if (cmd) errs.push(`${k}: LaTeX \\${cmd[1]} outside $…$ renders as raw text — wrap the math in $…$`); }
     if (rendered) for (const m of String(v).matchAll(/\$([^$]*)\$/g)) { const b = m[1].match(/(^|[^\\a-zA-Z])(pi|sqrt|frac|dfrac|theta|cdot|circ)(?![a-zA-Z])/); if (b) { warns.push(`${k}: bare "${b[2]}" inside math — missing backslash (\\${b[2]})? (single-quoted JS strings eat backslashes; author with String.raw)`); break; } }
   };
   (Array.isArray(a.choices) ? a.choices : []).forEach(c => textGate(`choice ${c?.id}`, c?.text));
@@ -512,7 +513,7 @@ async function check(selection) {
     if (!V2_GATES) {
       const reg = registerItem(got.data, { difficulty: row.difficulty, cbSkillLabel: row.cbSkillLabel }); errs.push(...reg.errs); warns.push(...reg.warns);
       const cr = checkMath(got.data); errs.push(...cr.fails.map(f => `COPYRIGHT ${f}`)); warns.push(...cr.warns.map(w => `copyright ${w}`));
-      regRows.push({ q: got.data, difficulty: row.difficulty });
+      regRows.push({ q: got.data, difficulty: row.difficulty, cbSkillLabel: row.cbSkillLabel });
       { const mk = mathKeyOf(got.data.question); const hit = mk && testMathKeys().get(mk); if (hit) errs.push(`math twin of practice-test item ${hit} (same expression and numbers) — change the numbers`); }
       if (/\bline of best fit\b|\bresiduals?\b/i.test(got.data.question || '') && got.data.diagram?.type !== 'scatterplot') errs.push('stem says "line of best fit"/"residual" without a scatterplot — CI\'s diagram audit requires one; use "linear model" / compare recorded vs predicted instead');
       if (got.data.diagram?.type === 'intersectingLines' && !Number.isFinite(got.data.diagram.params?.angle0Measure)) errs.push('intersectingLines: set params.angle0Measure to the true measure of angles[0]');
@@ -533,7 +534,7 @@ async function check(selection) {
     if (lens[row.difficulty]) lens[row.difficulty].push(wordCount(got.data.question));
   }
   if (!V2_GATES && selection.chunk && regRows.length === rows.length) {
-    const rm = registerModule(regRows, { label: selection.chunk }); rm.errs.forEach(e => { errors++; console.error(`FAIL ${e}`); });
+    const rm = registerChunkSkillAware(regRows, { label: selection.chunk }); rm.errs.forEach(e => { errors++; console.error(`FAIL ${e}`); });
     console.log(`${selection.chunk}: register short ${Math.round(rm.info.short * 100)}% · eqFirst ${Math.round(rm.info.eqFirst * 100)}% · stock ${Math.round(rm.info.stock * 100)}% · medians E${rm.info.median.easy}/M${rm.info.median.medium}/H${rm.info.median.hard}`);
   }
   // v3: drill-vs-test WORDING similarity is off (stock College Board sentences repeat by design); intra-bank near-duplicates and the official-corpus gate still run

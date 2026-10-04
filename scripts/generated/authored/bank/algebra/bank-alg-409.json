@@ -1,10 +1,10 @@
 {
  "id": "bank-alg-409",
- "question": "A noise gate opens at exactly those threshold settings $x$ that satisfy the equation $|x + 7| = k - 3$, where $k$ is a constant. For which value of $k$ does the gate open at exactly one threshold setting?",
+ "question": "$|2x - 5| + 6 = k$\nIn the given equation, $k$ is a constant. For what value of $k$ does the equation have exactly one solution?",
  "choices": [
   {
    "id": "A",
-   "text": "$-7$"
+   "text": "$-6$"
   },
   {
    "id": "B",
@@ -12,18 +12,18 @@
   },
   {
    "id": "C",
-   "text": "$3$"
+   "text": "$\\frac{5}{2}$"
   },
   {
    "id": "D",
-   "text": "$7$"
+   "text": "$6$"
   }
  ],
  "distractorNotes": {
-  "A": "solves x + 7 = 0 and reports the setting instead of k",
-  "B": "sets the constant k to zero rather than the whole right-hand side",
-  "D": "solves x + 7 = 0 and drops the sign of the result"
+  "A": "subtracts 6 from the wrong side, setting k + 6 = 0",
+  "B": "sets k = 0 without isolating the absolute value first",
+  "C": "reports the single solution x = 5/2 instead of k"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** An absolute value equation has one solution only when the right side is $0$, so $k - 3 = 0$ and $k = 3$.\n\n**The Full Solution:**\nStep 1: The equation $|x + 7| = k - 3$ has two solutions when $k - 3 > 0$ and none when $k - 3 < 0$.\nStep 2: It has exactly one solution only when the right-hand side is $0$, since $|x + 7| = 0$ forces $x + 7 = 0$.\nStep 3: Setting $k - 3 = 0$ gives $k = 3$. Check: with $k = 3$ the equation is $|x + 7| = 0$, whose only solution is $x = -7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): solves $x + 7 = 0$ and reports the setting $x$ rather than the constant $k$.\n* Choice B ($0$): sets $k$ itself to zero instead of the whole right-hand side $k - 3$.\n* Choice D ($7$): solves $x + 7 = 0$ and then drops the negative sign on the result.\n\n**Test Day Takeaway:** Count solutions by the sign of the isolated right-hand side: positive gives two, zero gives one, negative gives none."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Isolate the bars: $|2x - 5| = k - 6$. There is exactly one solution when $k - 6 = 0$, so $k = 6$.\n\n**The Full Solution:**\nStep 1: Subtract $6$ from each side: $|2x - 5| = k - 6$.\nStep 2: An absolute value equation has exactly one solution when the value it equals is $0$, because only $2x - 5 = 0$ works.\nStep 3: So $k - 6 = 0$ and $k = 6$. Check: $|2x - 5| + 6 = 6$ means $|2x - 5| = 0$, whose only solution is $x = \\frac{5}{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): moves the $6$ the wrong way, setting $k + 6 = 0$.\n* Choice B ($0$): sets $k = 0$ before isolating the absolute value; then $|2x - 5| = -6$ has no solution.\n* Choice C ($\\frac{5}{2}$): this is the single solution $x$, not the value of $k$.\n\n**Test Day Takeaway:** Isolate the absolute value first: equal to a positive number gives two solutions, equal to $0$ gives one, and equal to a negative number gives none."
 }

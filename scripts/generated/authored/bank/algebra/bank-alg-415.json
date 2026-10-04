@@ -1,29 +1,29 @@
 {
- "question": "Substituting $y=2x-5$ into the equation $3x-2y=4$ produces an equation in the variable $x$ alone. After the left side of that new equation is expanded and its like terms are combined, which expression results?",
+ "question": "$y = 3x - 7$\n$5x - 2y = 9$\nThe solution to the given system of equations is $(x, y)$. What is the value of $x + y$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-x-10$"
+   "text": "$5$"
   },
   {
    "id": "B",
-   "text": "$-x-5$"
+   "text": "$8$"
   },
   {
    "id": "C",
-   "text": "$7x+10$"
+   "text": "$13$"
   },
   {
    "id": "D",
-   "text": "$-x+10$"
+   "text": "$40$"
   }
  ],
- "correctAnswer": "D",
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "multiplies -2 by -5 and records -10 instead of +10",
-  "B": "multiplies only the 2x by -2 and copies the -5 unchanged",
-  "C": "adds 4x instead of subtracting it, giving 3x + 4x + 10"
+  "A": "reports the value of x instead of x + y",
+  "B": "reports the value of y instead of x + y",
+  "D": "multiplies x and y instead of adding them"
  },
- "explanation": "**SAT Pattern: Linear System by Substitution**\n\n**Choice D is correct.** $3x-2(2x-5)=3x-4x+10=-x+10$.\n\n**The Fast Way (~30s):** Distribute the $-2$ to both terms: $-4x$ and $+10$; combining with $3x$ gives $-x+10$.\n\n**The Full Solution:**\n\nStep 1: Replace $y$ with $2x-5$: the left side becomes $3x-2(2x-5)$.\n\nStep 2: Distribute the $-2$ to each term inside: $-2(2x)=-4x$ and $-2(-5)=+10$.\n\nStep 3: Combine like terms: $3x-4x+10=-x+10$. Check: the full equation $-x+10=4$ gives $x=6$, and then $y=2(6)-5=7$, with $3(6)-2(7)=18-14=4$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-x-10$): distributes correctly to the $2x$ but records $-2(-5)$ as $-10$.\n* Choice B ($-x-5$): multiplies only the first term inside the parentheses and copies the $-5$.\n* Choice C ($7x+10$): adds $4x$ instead of subtracting it.\n\n**Test Day Takeaway:** A negative coefficient in front of parentheses multiplies every term inside, and two negatives give a positive.",
+ "explanation": "**SAT Pattern: Linear System by Substitution**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Substitute: $5x - 2(3x - 7) = 9$ gives $-x + 14 = 9$, so $x = 5$, $y = 8$, and $x + y = 13$.\n\n**The Full Solution:**\nStep 1: Substitute $3x - 7$ for $y$: $5x - 2(3x - 7) = 9$, which is $5x - 6x + 14 = 9$.\nStep 2: Then $-x + 14 = 9$, so $x = 5$, and $y = 3(5) - 7 = 8$.\nStep 3: So $x + y = 5 + 8 = 13$. Check: $5(5) - 2(8) = 25 - 16 = 9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): this is the value of $x$ alone.\n* Choice B ($8$): this is the value of $y$ alone.\n* Choice D ($40$): this is $xy$, not $x + y$.\n\n**Test Day Takeaway:** Distribute a negative coefficient to every term of the substituted expression, and answer the quantity the question asks for.",
  "id": "bank-alg-415"
 }

@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-332",
-  "question": "A climbing gym charges a $\\$100$ enrollment fee plus $\\$50$ for each class attended. A member received a one-time $\\$50$ referral credit toward these charges. If the member's total charge was $\\$650$, how many classes did the member attend?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$10$"
-    },
-    {
-      "id": "B",
-      "text": "$11$"
-    },
-    {
-      "id": "C",
-      "text": "$12$"
-    },
-    {
-      "id": "D",
-      "text": "$14$"
-    }
-  ],
-  "correctAnswer": "C",
-  "distractorNotes": {
-    "A": "treated the credit as an extra $50 fee: (650 - 150)/50",
-    "B": "ignored the credit: (650 - 100)/50",
-    "D": "ignored the enrollment fee: (650 + 50)/50"
+ "id": "bank-alg-332",
+ "question": "A climbing gym charges a one-time $\\$100$ fee plus $\\$50$ per class. A member attended $n$ classes, used a $\\$50$ credit toward these charges, and paid $\\$650$ in all. What is the value of $n$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$10$"
   },
-  "explanation": "**SAT Pattern: Linear Cost Equation Setup**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Charges before the credit: $650 + 50 = 700$. Remove the fee: $700 - 100 = 600$. Classes: $600 \\div 50 = 12$.\n\n**The Full Solution:**\nStep 1: Let $c$ be the number of classes. Fee plus classes minus credit equals the total: $100 + 50c - 50 = 650$.\nStep 2: Combine the constants: $50c + 50 = 650$, so $50c = 600$.\nStep 3: Divide by $50$: $c = 12$.\nCheck: $100 + 50(12) - 50 = 100 + 600 - 50 = 650$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): adds the credit to the fee instead of subtracting it, solving $150 + 50c = 650$.\n* Choice B ($11$): leaves the credit out entirely, solving $100 + 50c = 650$.\n* Choice D ($14$): applies the credit but forgets the enrollment fee, solving $50c - 50 = 650$.\n\n**Test Day Takeaway:** A credit is a negative constant in the cost equation; list every one-time amount with its sign before solving for the count."
+  {
+   "id": "B",
+   "text": "$11$"
+  },
+  {
+   "id": "C",
+   "text": "$12$"
+  },
+  {
+   "id": "D",
+   "text": "$14$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "treats the 50-dollar credit as an extra charge: 100 + 50n + 50 = 650 gives n = 10",
+  "B": "ignores the credit: 100 + 50n = 650 gives n = 11",
+  "D": "adds the credit back to the total but forgets the one-time fee: 50n = 700 gives n = 14"
+ },
+ "explanation": "**SAT Pattern: Linear Cost Equation Setup**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The charges were $100 + 50n$ and the credit took $50$ off, so $100 + 50n - 50 = 650$. Then $50n = 600$ and $n = 12$.\n\n**The Full Solution:**\nStep 1: Before the credit, the charges for $n$ classes are $100 + 50n$ dollars.\nStep 2: The $\\$50$ credit lowers the amount paid, so $100 + 50n - 50 = 650$, which simplifies to $50n + 50 = 650$.\nStep 3: Subtract $50$ from each side and divide by $50$: $50n = 600$, so $n = 12$. Check: $100 + 50(12) - 50 = 100 + 600 - 50 = 650$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): treats the credit as one more charge, writing $100 + 50n + 50 = 650$, so $50n = 500$.\n* Choice B ($11$): leaves the credit out: $100 + 50n = 650$ gives $50n = 550$.\n* Choice D ($14$): adds the credit back to the total but forgets the one-time fee: $50n = 650 + 50 = 700$.\n\n**Test Day Takeaway:** A credit is subtracted from the charges, so the member could afford more classes, not fewer; write the whole equation before dividing."
 }

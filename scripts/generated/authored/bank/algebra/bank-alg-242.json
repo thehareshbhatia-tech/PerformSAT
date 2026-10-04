@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-242",
- "question": "The graph shows line $c$ in the $xy$-plane. For what value of the constant $k$ does the graph of the equation $\\frac{k}{2}x + y = 9$ never meet line $c$ anywhere?",
+ "question": "Line $c$ is shown in the $xy$-plane. The graph of $kx + 2y = 18$, where $k$ is a constant, has no point in common with line $c$. What is the value of $k$?",
  "diagram": {
   "type": "linearGraph",
   "params": {
@@ -37,22 +37,22 @@
   },
   {
    "id": "B",
-   "text": "$\\frac{5}{2}$"
+   "text": "$-\\frac{5}{4}$"
   },
   {
    "id": "C",
-   "text": "$5$"
+   "text": "$\\frac{5}{2}$"
   },
   {
    "id": "D",
-   "text": "$9$"
+   "text": "$5$"
   }
  ],
  "correctAnswer": "A",
  "distractorNotes": {
-  "B": "reports line $c$'s slope instead of solving for $k$",
-  "C": "drops the negative sign when solving $-\\frac{k}{2} = \\frac{5}{2}$",
-  "D": "copies the constant term of $\\frac{k}{2}x + y = 9$"
+  "B": "divides the slope by $2$ instead of multiplying, solving $-\\frac{k}{2} = \\frac{5}{2}$ as $k = -\\frac{5}{2} \\div 2$",
+  "C": "reports the slope of line $c$ instead of solving for $k$",
+  "D": "drops the negative sign when solving $-\\frac{k}{2} = \\frac{5}{2}$"
  },
- "explanation": "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Line $c$ has slope $\\frac{5}{2}$, and $-\\frac{k}{2} = \\frac{5}{2}$ gives $k = -5$.\n\n**The Full Solution:**\nStep 1: Line $c$ passes through $(0, -1)$ and $(2, 4)$, so its slope is $\\frac{4 - (-1)}{2 - 0} = \\frac{5}{2}$.\nStep 2: Rewrite $\\frac{k}{2}x + y = 9$ as $y = -\\frac{k}{2}x + 9$, so its slope is $-\\frac{k}{2}$.\nStep 3: Graphs that never meet have equal slopes, so $-\\frac{k}{2} = \\frac{5}{2}$ and $k = -5$; the intercepts $9$ and $-1$ differ, so the lines are distinct. Check: $-\\frac{-5}{2} = \\frac{5}{2}$.\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{5}{2}$): reports line $c$'s slope instead of solving for $k$\n* Choice C ($5$): drops the negative sign when solving $-\\frac{k}{2} = \\frac{5}{2}$\n* Choice D ($9$): copies the constant term of $\\frac{k}{2}x + y = 9$\n\n**Test Day Takeaway:** Solve the given equation for $y$ before comparing slopes; the sign in front of $k$ is where these are lost."
+ "explanation": "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Line $c$ has slope $\\frac{5}{2}$, and $kx + 2y = 18$ has slope $-\\frac{k}{2}$, so $-\\frac{k}{2} = \\frac{5}{2}$ and $k = -5$.\n\n**The Full Solution:**\nStep 1: Line $c$ passes through $(0, -1)$ and $(2, 4)$, so its slope is $\\frac{4 - (-1)}{2 - 0} = \\frac{5}{2}$.\nStep 2: Solve $kx + 2y = 18$ for $y$: $y = -\\frac{k}{2}x + 9$, so its slope is $-\\frac{k}{2}$ and its $y$-intercept is $9$.\nStep 3: Lines with no point in common are parallel and distinct, so $-\\frac{k}{2} = \\frac{5}{2}$, which gives $k = -5$; the $y$-intercepts $9$ and $-1$ differ, so the lines are distinct. Check: $-\\frac{-5}{2} = \\frac{5}{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{5}{4}$): divides the slope by $2$ instead of multiplying, solving $-\\frac{k}{2} = \\frac{5}{2}$ as $k = -\\frac{5}{2} \\div 2$\n* Choice C ($\\frac{5}{2}$): reports the slope of line $c$ instead of solving for $k$\n* Choice D ($5$): drops the negative sign when solving $-\\frac{k}{2} = \\frac{5}{2}$\n\n**Test Day Takeaway:** Solve the given equation for $y$ before comparing slopes; the sign in front of $k$ is where most errors happen."
 }

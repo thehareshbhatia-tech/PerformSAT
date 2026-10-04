@@ -1,29 +1,29 @@
 {
  "id": "bank-alg-272",
- "question": "The daily handling cost, in thousands of dollars, at a freight terminal is modeled by $C(x) = 4(x - 6)^2 + 15$, where $x$ is the number of loading bays in service. Which expression is equivalent to $C(x)$?",
+ "question": "$f(x) = (x - 7)^{2} + 4$\nWhich expression is equivalent to $f(x)$?",
  "choices": [
   {
    "id": "A",
-   "text": "$4x^2 - 48x + 51$"
+   "text": "$x^{2} + 53$"
   },
   {
    "id": "B",
-   "text": "$4x^2 - 48x + 159$"
+   "text": "$x^{2} - 7x + 53$"
   },
   {
    "id": "C",
-   "text": "$4x^2 - 12x + 159$"
+   "text": "$x^{2} - 14x + 53$"
   },
   {
    "id": "D",
-   "text": "$4x^2 + 48x + 159$"
+   "text": "$x^{2} + 14x + 53$"
   }
  ],
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "adds 36 + 15 before multiplying by 4, giving the constant 51",
-  "C": "forgets to multiply the middle term by 4, leaving -12x while the constant is handled correctly",
-  "D": "squares (x - 6) as x^2 + 12x + 36, flipping the sign of the middle term"
+  "A": "squares each term separately, writing (x - 7)^2 as x^2 + 49 and losing the middle term",
+  "B": "forgets to double the cross term, writing -7x instead of -14x",
+  "D": "flips the sign of the middle term, expanding (x - 7)^2 as x^2 + 14x + 49"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Square the binomial, multiply every term by $4$, then add $15$: $4x^2 - 48x + 144 + 15$.\n\n**The Full Solution:**\nStep 1: Expand the square: $(x - 6)^2 = x^2 - 12x + 36$.\nStep 2: Distribute the $4$ across all three terms: $4x^2 - 48x + 144$.\nStep 3: Add the outside constant: $4x^2 - 48x + 159$. Check at $x = 6$: the model gives $15$, and $4(36) - 48(6) + 159 = 144 - 288 + 159 = 15$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4x^2 - 48x + 51$): adds $36 + 15$ first and multiplies only the $x$-terms by $4$, producing the constant $51$ instead of $159$.\n* Choice C ($4x^2 - 12x + 159$): multiplies the $x^2$ term and the constant by $4$ but forgets the middle term, leaving $-12x$.\n* Choice D ($4x^2 + 48x + 159$): expands $(x - 6)^2$ as $x^2 + 12x + 36$, flipping the sign of the middle term.\n\n**Test Day Takeaway:** The $4$ in front of a squared binomial multiplies all three terms of the expansion, and the outside constant is added only at the end."
+ "explanation": "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $(x - 7)^{2} = x^{2} - 14x + 49$, and $49 + 4 = 53$, so $f(x) = x^{2} - 14x + 53$.\n\n**The Full Solution:**\nStep 1: Expand the square: $(x - 7)^{2} = x^{2} - 2(7)x + 7^{2} = x^{2} - 14x + 49$.\nStep 2: Add the $4$: $x^{2} - 14x + 49 + 4$.\nStep 3: Combine the constants: $f(x) = x^{2} - 14x + 53$. Check at $x = 1$: $(1 - 7)^{2} + 4 = 40$ and $1 - 14 + 53 = 40$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{2} + 53$): squares each term separately, as if $(x - 7)^{2}$ were $x^{2} + 49$; the middle term $-14x$ disappears.\n* Choice B ($x^{2} - 7x + 53$): writes the cross term once instead of twice, giving $-7x$ instead of $-14x$.\n* Choice D ($x^{2} + 14x + 53$): drops the minus sign, expanding $(x - 7)^{2}$ as though it were $(x + 7)^{2}$.\n\n**Test Day Takeaway:** $(x - h)^{2} = x^{2} - 2hx + h^{2}$: the middle term is twice $h$ and carries the sign inside the parentheses."
 }
