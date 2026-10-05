@@ -1,30 +1,30 @@
 {
-  "id": 1,
-  "question": "The inside of a library's overnight drop box measures $24$ inches by $18$ inches by $30$ inches. How many cubic inches of space does the drop box enclose when its door is closed?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$72$"
-    },
-    {
-      "id": "B",
-      "text": "$432$"
-    },
-    {
-      "id": "C",
-      "text": "$3{,}384$"
-    },
-    {
-      "id": "D",
-      "text": "$12{,}960$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "adds the three dimensions instead of multiplying them: 24 + 18 + 30 = 72",
-    "B": "multiplies only 24 by 18, leaving out the third dimension",
-    "C": "computes the surface area 2(24 times 18 + 24 times 30 + 18 times 30) = 3384 square inches"
+ "id": 1,
+ "question": "What is the volume, in cubic inches, of a box that is $20$ inches long, $15$ inches wide, and $12$ inches tall?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$47$"
   },
-  "correctAnswer": "D",
-  "hint": "Three perpendicular measurements of a box multiply together, whatever order they are listed in.",
-  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~15s):** The interior is a rectangular solid, so multiply all three measurements: $24 \\cdot 18 \\cdot 30 = 12{,}960$ cubic inches.\n\n**The Full Solution:**\nStep 1: The volume of a rectangular solid is $V = \\ell w h$, the product of its three perpendicular measurements.\nStep 2: Substituting the given measurements, $V = (24)(18)(30)$.\nStep 3: $24 \\cdot 18 = 432$, and $432 \\cdot 30 = 12{,}960$ cubic inches. Check: $12{,}960 \\div 30 = 432$, the area of the $24$-by-$18$ face ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($72$): adds the three measurements, $24 + 18 + 30 = 72$, instead of multiplying them.\n* Choice B ($432$): multiplies only $24$ by $18$ and stops, leaving out the third measurement.\n* Choice C ($3{,}384$): computes the surface area $2(24 \\cdot 18 + 24 \\cdot 30 + 18 \\cdot 30) = 3{,}384$ square inches.\n\n**Test Day Takeaway:** \"Cubic\" units signal a product of three lengths; \"square\" units signal a product of two — let the unit in the question tell you how many factors to use."
+  {
+   "id": "B",
+   "text": "$300$"
+  },
+  {
+   "id": "C",
+   "text": "$1{,}800$"
+  },
+  {
+   "id": "D",
+   "text": "$3{,}600$"
+  }
+ ],
+ "correctAnswer": "D",
+ "distractorNotes": {
+  "A": "adds the three dimensions instead of multiplying",
+  "B": "finds the area of the base only",
+  "C": "takes half of the product, as for a triangular prism"
+ },
+ "hint": "Multiply the length, the width, and the height.",
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~10s):** Multiply the three dimensions: $20(15)(12) = 3{,}600$.\n\n**The Full Solution:**\nStep 1: The volume of a rectangular prism is $V = \\ell wh$.\nStep 2: Substitute the dimensions: $V = 20(15)(12)$.\nStep 3: $20(15) = 300$ and $300(12) = 3{,}600$ cubic inches. Check: $3{,}600 \\div 12 = 300$, the area of the bottom, $20(15)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($47$): adds the three dimensions, $20 + 15 + 12 = 47$, instead of multiplying them.\n* Choice B ($300$): multiplies only the length and width, $20(15) = 300$, which is the area of the bottom.\n* Choice C ($1{,}800$): takes half of the product, as if the box were a triangular prism.\n\n**Test Day Takeaway:** The volume of a rectangular box is length times width times height; adding the dimensions or stopping after two of them are the usual slips."
 }

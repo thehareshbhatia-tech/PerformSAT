@@ -351,37 +351,37 @@ export const trianglesQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "Triangle $ABC$ is similar to triangle $DEF$, and each side length of triangle $DEF$ is $\\frac{2}{3}$ times the corresponding side length of triangle $ABC$. If the area of triangle $ABC$ is $90$ square units, what is the area, in square units, of triangle $DEF$?",
+      question: "Triangle $PQR$ is similar to triangle $STU$, where $P$, $Q$, and $R$ correspond to $S$, $T$, and $U$, respectively. The length of $\\overline{PQ}$ is $12$, the length of $\\overline{ST}$ is $8$, and the area of triangle $PQR$ is $81$. What is the area of triangle $STU$?",
       choices: [
-        { id: "A", text: "$40$" },
-        // distractor: multiplies by $\frac{2}{3}$ once instead of squaring the scale factor
-        { id: "B", text: "$60$" },
-        // distractor: inverts the ratio and uses $\frac{3}{2}$ once
-        { id: "C", text: "$135$" },
-        // distractor: inverts the ratio and squares it, using $\frac{9}{4}$
-        { id: "D", text: "$202.5$" }
+        { id: "A", text: "$36$" },
+        // distractor: multiplies by the side ratio 2/3 once instead of squaring it
+        { id: "B", text: "$54$" },
+        // distractor: inverts the ratio and uses 3/2 once
+        { id: "C", text: "$121.5$" },
+        // distractor: inverts the ratio and squares it, using 9/4
+        { id: "D", text: "$182.25$" }
       ],
       correctAnswer: "A",
-      hint: "The factor that applies to area is not the same as the one that applies to length.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~30s):** Area scales by $\\left(\\frac{2}{3}\\right)^2 = \\frac{4}{9}$, so the area is $90 \\cdot \\frac{4}{9} = 40$.\n\n**The Full Solution:**\nStep 1: Corresponding lengths scale by $\\frac{2}{3}$, so areas scale by $\\left(\\frac{2}{3}\\right)^2$.\nStep 2: $\\left(\\frac{2}{3}\\right)^2 = \\frac{4}{9}$.\nStep 3: The area of triangle $DEF$ is $90 \\cdot \\frac{4}{9} = 40$ square units.\n\nVerification: $\\frac{40}{90} = \\frac{4}{9} = \\left(\\frac{2}{3}\\right)^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($60$): multiplies by $\\frac{2}{3}$ once instead of squaring the scale factor.\n* Choice C ($135$): inverts the ratio and uses $\\frac{3}{2}$ once.\n* Choice D ($202.5$): inverts the ratio and squares it, using $\\frac{9}{4}$.\n\n**Test Day Takeaway:** Shrink every length by a factor and the area shrinks by that factor squared.",
+      hint: "Lengths and areas of similar triangles do not scale by the same factor.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~25s):** The scale factor from $PQR$ to $STU$ is $\\frac{8}{12} = \\frac{2}{3}$, so areas scale by $\\left(\\frac{2}{3}\\right)^{2} = \\frac{4}{9}$: $81 \\cdot \\frac{4}{9} = 36$.\n\n**The Full Solution:**\nStep 1: $\\overline{PQ}$ and $\\overline{ST}$ are corresponding sides, so each length in triangle $STU$ is $\\frac{8}{12} = \\frac{2}{3}$ of the corresponding length in triangle $PQR$.\nStep 2: Area depends on two lengths (a base and a height), so the area is multiplied by $\\left(\\frac{2}{3}\\right)^{2} = \\frac{4}{9}$.\nStep 3: The area of triangle $STU$ is $81 \\cdot \\frac{4}{9} = 36$. Check: the ratio of areas, $\\frac{36}{81} = \\frac{4}{9}$, is the square of the side ratio $\\frac{2}{3}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($54$): multiplies the area by the side ratio $\\frac{2}{3}$ once instead of by its square.\n* Choice C ($121.5$): uses the side ratio upside down, $\\frac{3}{2}$, and applies it only once.\n* Choice D ($182.25$): squares the ratio but uses it upside down, multiplying by $\\frac{9}{4}$.\n\n**Test Day Takeaway:** If similar figures have side lengths in the ratio $k$, their areas are in the ratio $k^{2}$.",
       skills: ["similar-triangles"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "In triangle $ABC$, point $D$ lies on $\\overline{AB}$ and point $E$ lies on $\\overline{AC}$ so that $\\overline{DE}$ is parallel to $\\overline{BC}$. If $AD = 6$, $DB = 4$, and $BC = 20$, what is the length of $\\overline{DE}$?",
+      question: "In triangle $ABC$, point $D$ lies on $\\overline{AB}$, point $E$ lies on $\\overline{AC}$, and $\\overline{DE}$ is parallel to $\\overline{BC}$. If $AD = 4$, $DB = 6$, $DE = x$, and $BC = x + 9$, what is the value of $x$?",
       choices: [
-        // distractor: uses $\frac{DB}{AB} = \frac{4}{10}$ instead of $\frac{AD}{AB}$
-        { id: "A", text: "$8$" },
-        { id: "B", text: "$12$" },
-        // distractor: subtracts $AD$ from $BC$ rather than scaling
-        { id: "C", text: "$14$" },
-        // distractor: uses $\frac{AD}{DB} = \frac{6}{4}$, comparing the two pieces of $\overline{AB}$ instead of a piece to the whole
-        { id: "D", text: "$30$" }
+        { id: "A", text: "$6$" },
+        // distractor: compares DB with AB, solving x/(x + 9) = 6/10
+        { id: "B", text: "$13.5$" },
+        // distractor: reports the length of BC instead of x
+        { id: "C", text: "$15$" },
+        // distractor: compares the two pieces of AB, solving x/(x + 9) = 4/6
+        { id: "D", text: "$18$" }
       ],
-      correctAnswer: "B",
-      hint: "The whole side $\\overline{AB}$, not the piece $\\overline{DB}$, is what $\\overline{AD}$ should be compared with.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~50s):** $AB = 6 + 4 = 10$, so $DE = 20 \\cdot \\frac{6}{10} = 12$.\n\n**The Full Solution:**\nStep 1: Because $\\overline{DE}$ is parallel to $\\overline{BC}$, triangles $ADE$ and $ABC$ have congruent corresponding angles and are similar.\nStep 2: The scale factor compares a side of $ADE$ to the whole corresponding side: $\\frac{AD}{AB} = \\frac{6}{6 + 4} = \\frac{3}{5}$.\nStep 3: So $DE = \\frac{3}{5}(20) = 12$.\n\nVerification: $\\frac{12}{20} = \\frac{3}{5} = \\frac{6}{10}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): uses $\\frac{DB}{AB} = \\frac{4}{10}$ instead of $\\frac{AD}{AB}$.\n* Choice C ($14$): subtracts $AD$ from $BC$ rather than scaling.\n* Choice D ($30$): uses $\\frac{AD}{DB} = \\frac{6}{4}$, comparing the two pieces of $\\overline{AB}$ instead of a piece to the whole.\n\n**Test Day Takeaway:** When a parallel segment cuts a triangle, compare a piece to the whole side, never a piece to the other piece.",
+      correctAnswer: "A",
+      hint: "Compare $\\overline{AD}$ with the whole side $\\overline{AB}$, not with the piece $\\overline{DB}$.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~40s):** Triangle $ADE$ is similar to triangle $ABC$ with ratio $\\frac{AD}{AB} = \\frac{4}{10}$, so $\\frac{x}{x + 9} = \\frac{2}{5}$, which gives $5x = 2x + 18$ and $x = 6$.\n\n**The Full Solution:**\nStep 1: Since $\\overline{DE}$ is parallel to $\\overline{BC}$, corresponding angles are congruent, so triangle $ADE$ is similar to triangle $ABC$. The side of the small triangle along $\\overline{AB}$ is $AD = 4$, and the matching side of the large triangle is $AB = AD + DB = 10$.\nStep 2: Corresponding sides are proportional: $\\frac{DE}{BC} = \\frac{AD}{AB}$, so $\\frac{x}{x + 9} = \\frac{4}{10}$.\nStep 3: Cross-multiply: $10x = 4x + 36$, so $6x = 36$ and $x = 6$. Check: $DE = 6$ and $BC = 15$, and $\\frac{6}{15} = \\frac{2}{5} = \\frac{4}{10}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($13.5$): compares $DB$ with $AB$, solving $\\frac{x}{x + 9} = \\frac{6}{10}$.\n* Choice C ($15$): this is the length of $\\overline{BC}$, not the value of $x$.\n* Choice D ($18$): compares the two pieces of $\\overline{AB}$, solving $\\frac{x}{x + 9} = \\frac{4}{6}$.\n\n**Test Day Takeaway:** When a segment parallel to one side cuts a triangle, compare a piece of a side with the whole side, never with the other piece.",
       skills: ["similar-triangles"]
     }
   ],
@@ -391,7 +391,7 @@ export const trianglesQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "The diagonal brace of a barge loading ramp forms the right triangle shown, with two side lengths given in feet. What is the length, in feet, of the brace?",
+      question: "What is the length of the hypotenuse of the right triangle shown?",
       diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [21, 0], [21, 20]], sideLabels: ["21", "20", ""], rightAngleVertex: 1 } },
       choices: [
         // distractor: subtracts the squares, 441 - 400 = 41
@@ -403,83 +403,83 @@ export const trianglesQuestions = {
         { id: "D", text: "$841$" }
       ],
       correctAnswer: "B",
-      hint: "The brace is the side opposite the right angle.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** $21^2 + 20^2 = 441 + 400 = 841$, and $\\sqrt{841} = 29$ feet.\n\n**The Full Solution:**\nStep 1: The brace is the hypotenuse, so $21^2 + 20^2 = c^2$.\nStep 2: That gives $441 + 400 = 841$.\nStep 3: Taking the square root, $c = 29$ feet. Check: $29^2 = 841 = 441 + 400$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\sqrt{41}$): subtracting the squares, $441 - 400$, which finds a leg rather than the hypotenuse.\n* Choice C ($41$): adding the two legs directly; the theorem adds their squares.\n* Choice D ($841$): stopping at $c^2$ and never taking the square root.\n\n**Test Day Takeaway:** Add the squares of the legs to get the square of the hypotenuse, then take the root.",
+      hint: "Square the two legs before adding.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** $21^{2} + 20^{2} = 441 + 400 = 841$, and $\\sqrt{841} = 29$.\n\n**The Full Solution:**\nStep 1: The legs of the right triangle have lengths $21$ and $20$; let $c$ be the length of the hypotenuse.\nStep 2: By the Pythagorean theorem, $c^{2} = 21^{2} + 20^{2} = 441 + 400 = 841$.\nStep 3: Take the positive square root: $c = 29$. Check: $29^{2} = 841 = 441 + 400$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\sqrt{41}$): subtracts the squares, $441 - 400 = 41$, which is the method for a missing leg.\n* Choice C ($41$): adds the two legs instead of their squares.\n* Choice D ($841$): stops at $c^{2}$ and never takes the square root.\n\n**Test Day Takeaway:** For the hypotenuse, add the squares of the legs and then take the square root.",
       skills: ["pythagorean-theorem"]
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "A hop trellis pole rises from level ground, and an anchor cable ties its top to a point on the ground, as the figure shows with lengths in feet. How tall, in feet, is the pole?",
-      diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [7, 0], [7, 24]], sideLabels: ["7", "", "25"], rightAngleVertex: 1 } },
+      question: "In the triangle shown, what is the value of $x$?",
+      diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [7, 0], [7, 24]], sideLabels: ["7", "x", "25"], rightAngleVertex: 1 } },
       choices: [
         // distractor: subtracts the lengths, 25 - 7, instead of their squares
         { id: "A", text: "$18$" },
         { id: "B", text: "$24$" },
-        // distractor: adds the squares instead of subtracting them
+        // distractor: adds the squares, treating 25 as a leg, and rounds sqrt(674) to 26
         { id: "C", text: "$26$" },
         // distractor: adds the two given lengths
         { id: "D", text: "$32$" }
       ],
       correctAnswer: "B",
-      hint: "The longest side of this triangle is already known.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** $25^2 - 7^2 = 625 - 49 = 576$, and $\\sqrt{576} = 24$ feet.\n\n**The Full Solution:**\nStep 1: The $25$-foot cable is the hypotenuse and the $7$-foot ground distance is one leg, so the pole's height $h$ satisfies $7^2 + h^2 = 25^2$.\nStep 2: That gives $h^2 = 625 - 49 = 576$.\nStep 3: Taking the square root, $h = 24$ feet. Check: $7^2 + 24^2 = 49 + 576 = 625 = 25^2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($18$): subtracting the lengths, $25 - 7$, instead of subtracting their squares.\n* Choice C ($26$): adding the squares, $\\sqrt{625 + 49} \\approx 26$, which would make the pole longer than the cable.\n* Choice D ($32$): adding the two given lengths.\n\n**Test Day Takeaway:** When the hypotenuse is known, subtract the squares; when it is not, add them.",
+      hint: "Decide which side is the hypotenuse before using the Pythagorean theorem.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** $x^{2} = 25^{2} - 7^{2} = 625 - 49 = 576$, so $x = 24$.\n\n**The Full Solution:**\nStep 1: The side of length $25$ is opposite the right angle, so it is the hypotenuse; $7$ and $x$ are the legs.\nStep 2: By the Pythagorean theorem, $7^{2} + x^{2} = 25^{2}$, so $x^{2} = 625 - 49 = 576$.\nStep 3: Take the positive square root: $x = 24$. Check: $7^{2} + 24^{2} = 49 + 576 = 625 = 25^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($18$): subtracts the lengths, $25 - 7$, instead of their squares.\n* Choice C ($26$): adds the squares, treating $25$ as a leg: $\\sqrt{625 + 49} \\approx 26$.\n* Choice D ($32$): adds the two given lengths.\n\n**Test Day Takeaway:** When the hypotenuse is known, subtract the square of the known leg from the square of the hypotenuse.",
       skills: ["pythagorean-theorem"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "The triangular platform brace of a launch tower is shown, with two of its side lengths in meters. Steel bar for the brace costs \\$14 per meter. What is the total cost, in dollars, of the bar needed for all three sides?",
+      question: "What is the perimeter of the right triangle shown?",
       diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [24, 0], [24, 10]], sideLabels: ["", "10", "26"], rightAngleVertex: 1 } },
       choices: [
-        // distractor: uses 10 + 24 = 34 meters and leaves out the hypotenuse
-        { id: "A", text: "$476$" },
-        // distractor: uses only the two given sides, 10 + 26 = 36 meters
-        { id: "B", text: "$504$" },
-        { id: "C", text: "$840$" },
-        // distractor: doubles the perimeter before multiplying
-        { id: "D", text: "$1{,}680$" }
+        // distractor: adds only the two labeled sides
+        { id: "A", text: "$36$" },
+        // distractor: finds the missing leg as 26 - 10 = 16 instead of using squares
+        { id: "B", text: "$52$" },
+        { id: "C", text: "$60$" },
+        // distractor: computes the area, (1/2)(10)(24), instead of the perimeter
+        { id: "D", text: "$120$" }
       ],
       correctAnswer: "C",
-      hint: "The figure prints only two of the three lengths the price applies to.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~40s):** The missing leg is $24$ meters, so the perimeter is $60$ meters and the bar costs $60(14) = 840$ dollars.\n\n**The Full Solution:**\nStep 1: The $26$-meter side is the hypotenuse, so the missing leg satisfies $10^2 + b^2 = 26^2$, giving $b^2 = 676 - 100 = 576$ and $b = 24$ meters.\nStep 2: The perimeter is $10 + 24 + 26 = 60$ meters.\nStep 3: At $14$ dollars per meter the cost is $60(14) = 840$ dollars. Check: $10^2 + 24^2 = 100 + 576 = 676 = 26^2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($476$): using $10 + 24 = 34$ meters and leaving the hypotenuse out of the perimeter.\n* Choice B ($504$): using only the two side lengths printed in the figure, $10 + 26 = 36$ meters.\n* Choice D ($1{,}680$): doubling the perimeter to $120$ meters before multiplying by the price.\n\n**Test Day Takeaway:** Recover the missing side first, then add all three lengths before applying any rate.",
+      hint: "The figure labels only two of the three sides.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** The missing leg is $\\sqrt{26^{2} - 10^{2}} = \\sqrt{576} = 24$, so the perimeter is $10 + 24 + 26 = 60$.\n\n**The Full Solution:**\nStep 1: The side of length $26$ is the hypotenuse, and $10$ is one leg. Let $b$ be the unlabeled leg.\nStep 2: By the Pythagorean theorem, $10^{2} + b^{2} = 26^{2}$, so $b^{2} = 676 - 100 = 576$ and $b = 24$.\nStep 3: Add all three sides: $10 + 24 + 26 = 60$. Check: $10^{2} + 24^{2} = 100 + 576 = 676 = 26^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($36$): adds only the two labeled sides and leaves out the unlabeled leg.\n* Choice B ($52$): finds the missing leg as $26 - 10 = 16$ instead of using the squares.\n* Choice D ($120$): computes the area, $\\frac{1}{2}(10)(24)$, instead of the perimeter.\n\n**Test Day Takeaway:** A perimeter needs every side; use the Pythagorean theorem to find any side the figure leaves unlabeled.",
       skills: ["pythagorean-theorem"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "In right triangle $XYZ$, angle $Y$ is a right angle, the hypotenuse $\\overline{XZ}$ has length $26$, and leg $\\overline{XY}$ has length $24$. What is the length of $\\overline{YZ}$?",
-      diagram: { type: "rightTriangle", params: { labels: ["X", "Y", "Z"], sideLabels: ["24", "", "26"], rightAngleVertex: 1, figureNote: true } },
+      question: "Right triangle $XYZ$ is shown. What is the length of $\\overline{YZ}$?",
+      diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [8, 0], [8, 8.944]], labels: ["X", "Y", "Z"], sideLabels: ["8", "", "12"], rightAngleVertex: 1 } },
       choices: [
-        // distractor: subtracts the two given lengths instead of their squares
-        { id: "A", text: "$2$" },
-        { id: "B", text: "$10$" },
-        // distractor: averages the hypotenuse and the given leg
-        { id: "C", text: "$25$" },
+        // distractor: subtracts the lengths, 12 - 8, instead of their squares
+        { id: "A", text: "$4$" },
+        { id: "B", text: "$4\\sqrt{5}$" },
+        // distractor: adds the squares, treating the hypotenuse as a leg: sqrt(208)
+        { id: "C", text: "$4\\sqrt{13}$" },
         // distractor: adds the two given lengths
-        { id: "D", text: "$50$" }
+        { id: "D", text: "$20$" }
       ],
       correctAnswer: "B",
-      hint: "The hypotenuse is the one given, so the missing side comes out of a subtraction.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** $YZ = \\sqrt{26^2 - 24^2} = \\sqrt{100} = 10$.\n\n**The Full Solution:**\nStep 1: Angle $Y$ is the right angle, so $\\overline{XZ}$ is the hypotenuse and $\\overline{XY}$ and $\\overline{YZ}$ are the legs.\nStep 2: $24^2 + YZ^2 = 26^2$, so $YZ^2 = 676 - 576 = 100$.\nStep 3: $YZ = \\sqrt{100} = 10$.\n\nVerification: $24^2 + 10^2 = 576 + 100 = 676 = 26^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): subtracts the two given lengths instead of their squares.\n* Choice C ($25$): averages the hypotenuse and the given leg.\n* Choice D ($50$): adds the two given lengths.\n\n**Test Day Takeaway:** Solving for a leg subtracts squares, not lengths: square first, subtract, then take the root.",
+      hint: "Identify the hypotenuse from the right-angle mark, then simplify the square root.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~30s):** $YZ^{2} = 12^{2} - 8^{2} = 80$, and $\\sqrt{80} = \\sqrt{16 \\cdot 5} = 4\\sqrt{5}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $Y$, so $\\overline{XZ}$, of length $12$, is the hypotenuse and $\\overline{XY}$, of length $8$, is a leg.\nStep 2: By the Pythagorean theorem, $8^{2} + YZ^{2} = 12^{2}$, so $YZ^{2} = 144 - 64 = 80$.\nStep 3: Simplify: $YZ = \\sqrt{80} = \\sqrt{16 \\cdot 5} = 4\\sqrt{5}$. Check: $8^{2} + \\left(4\\sqrt{5}\\right)^{2} = 64 + 80 = 144 = 12^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): subtracts the lengths, $12 - 8$, instead of their squares.\n* Choice C ($4\\sqrt{13}$): adds the squares, $\\sqrt{144 + 64} = \\sqrt{208}$, treating $12$ as a leg.\n* Choice D ($20$): adds the two given lengths.\n\n**Test Day Takeaway:** Subtract squares when the hypotenuse is given, then simplify the radical by pulling out the largest perfect-square factor.",
       skills: ["pythagorean-theorem"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "In right triangle $ABC$, angle $C$ is a right angle. The legs have lengths $AC = x$ and $BC = x + 7$, and the hypotenuse has length $AB = 17$. What is the value of $x$?",
+      question: "A right triangle has legs of lengths $x$ and $x + 7$ and a hypotenuse of length $x + 9$. What is the value of $x$?",
       choices: [
-        // distractor: solves $x + (x + 7) = 17$, adding the legs to reach the hypotenuse
-        { id: "A", text: "$5$" },
+        // distractor: factors as (x + 8)(x - 4), reversing the signs of the roots
+        { id: "A", text: "$4$" },
         { id: "B", text: "$8$" },
-        // distractor: subtracts $7$ from the hypotenuse
-        { id: "C", text: "$10$" },
-        // distractor: gives $BC = x + 7$ instead of $x$ itself
-        { id: "D", text: "$15$" }
+        // distractor: reports the longer leg, x + 7 = 15
+        { id: "C", text: "$15$" },
+        // distractor: reports the hypotenuse, x + 9 = 17
+        { id: "D", text: "$17$" }
       ],
       correctAnswer: "B",
       hint: "Write the theorem with the expressions in place, then expand before solving.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~60s):** $x^2 + (x + 7)^2 = 289$ reduces to $x^2 + 7x - 120 = 0$, so $x = 8$.\n\n**The Full Solution:**\nStep 1: The legs are $x$ and $x + 7$ and the hypotenuse is $17$, so $x^2 + (x + 7)^2 = 17^2$.\nStep 2: Expand: $x^2 + x^2 + 14x + 49 = 289$, so $2x^2 + 14x - 240 = 0$, or $x^2 + 7x - 120 = 0$.\nStep 3: Factor: $(x + 15)(x - 8) = 0$. A length must be positive, so $x = 8$.\n\nVerification: The legs are $8$ and $15$, and $8^2 + 15^2 = 64 + 225 = 289 = 17^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): solves $x + (x + 7) = 17$, adding the legs to reach the hypotenuse.\n* Choice C ($10$): subtracts $7$ from the hypotenuse.\n* Choice D ($15$): gives $BC = x + 7$ instead of $x$ itself.\n\n**Test Day Takeaway:** When the legs are expressions, square them into a quadratic and throw out the negative root.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~45s):** $x^{2} + (x + 7)^{2} = (x + 9)^{2}$ simplifies to $x^{2} - 4x - 32 = 0$, or $(x - 8)(x + 4) = 0$; a length is positive, so $x = 8$.\n\n**The Full Solution:**\nStep 1: By the Pythagorean theorem, $x^{2} + (x + 7)^{2} = (x + 9)^{2}$.\nStep 2: Expand: $x^{2} + x^{2} + 14x + 49 = x^{2} + 18x + 81$, which simplifies to $x^{2} - 4x - 32 = 0$.\nStep 3: Factor: $(x - 8)(x + 4) = 0$, so $x = 8$ or $x = -4$. A side length must be positive, so $x = 8$. Check: the sides are $8$, $15$, and $17$, and $8^{2} + 15^{2} = 64 + 225 = 289 = 17^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): factors as $(x + 8)(x - 4)$, reversing the signs of the roots.\n* Choice C ($15$): this is the length $x + 7$ of the longer leg, not $x$.\n* Choice D ($17$): this is the length $x + 9$ of the hypotenuse, not $x$.\n\n**Test Day Takeaway:** When sides are given as expressions, write the Pythagorean theorem with the expressions, expand each square fully, and reject any root that makes a length negative.",
       skills: ["pythagorean-theorem"]
     }
   ],
@@ -489,8 +489,8 @@ export const trianglesQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "In right triangle $KLM$, angle $L$ is a right angle, $KL = 24$, $LM = 7$, and $KM = 25$. What is the value of $\\sin K$?",
-      diagram: { type: "rightTriangle", params: { labels: ["K", "L", "M"], sideLabels: ["24", "7", "25"], rightAngleVertex: 1, figureNote: true } },
+      question: "In the right triangle shown, what is the value of $\\sin K$?",
+      diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [24, 0], [24, 7]], labels: ["K", "L", "M"], sideLabels: ["24", "7", "25"], rightAngleVertex: 1 } },
       choices: [
         { id: "A", text: "$\\frac{7}{25}$" },
         // distractor: the value of $\tan K$, using the adjacent leg in the denominator instead of the hypotenuse
@@ -502,13 +502,13 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "A",
       hint: "Sine pairs the side across from the angle with the longest side of the triangle.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** $\\sin K$ is opposite over hypotenuse: $\\frac{LM}{KM} = \\frac{7}{25}$.\n\n**The Full Solution:**\nStep 1: Angle $L$ is the right angle, so $\\overline{KM}$ is the hypotenuse.\nStep 2: The leg opposite angle $K$ is $\\overline{LM}$, of length $7$.\nStep 3: Therefore $\\sin K = \\frac{7}{25}$.\n\nVerification: $\\left(\\frac{7}{25}\\right)^2 + \\left(\\frac{24}{25}\\right)^2 = \\frac{49 + 576}{625} = 1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{7}{24}$): the value of $\\tan K$, using the adjacent leg in the denominator instead of the hypotenuse.\n* Choice C ($\\frac{24}{25}$): the value of $\\cos K$, using the adjacent leg in the numerator.\n* Choice D ($\\frac{24}{7}$): the reciprocal of $\\tan K$, swapping the opposite and adjacent legs.\n\n**Test Day Takeaway:** Locate the hypotenuse first, then read opposite and adjacent from the angle actually named in the ratio.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** $\\sin K$ is opposite over hypotenuse: $\\frac{LM}{KM} = \\frac{7}{25}$.\n\n**The Full Solution:**\nStep 1: Angle $L$ is the right angle, so $\\overline{KM}$ is the hypotenuse.\nStep 2: The leg opposite angle $K$ is $\\overline{LM}$, of length $7$.\nStep 3: Therefore $\\sin K = \\frac{7}{25}$. Check: $7^{2} + 24^{2} = 49 + 576 = 625 = 25^{2}$, so $\\overline{KM}$ is the hypotenuse ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{7}{24}$): the value of $\\tan K$, using the adjacent leg in the denominator instead of the hypotenuse.\n* Choice C ($\\frac{24}{25}$): the value of $\\cos K$, using the adjacent leg in the numerator.\n* Choice D ($\\frac{24}{7}$): the reciprocal of $\\tan K$, swapping the opposite and adjacent legs.\n\n**Test Day Takeaway:** Locate the hypotenuse first, then read opposite and adjacent from the angle actually named in the ratio.",
       skills: ["soh-cah-toa"]
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "A milking-parlor rail bracket forms right triangle $LMN$, with its right angle at $M$, $LM = 9$ centimeters, and $MN = 40$ centimeters. Which expression is equal to $\\tan L$?",
+      question: "In triangle $LMN$, angle $M$ is a right angle, $LM = 9$, and $MN = 40$. What is the value of $\\tan L$?",
       choices: [
         // distractor: gives cosine of L, adjacent over hypotenuse
         { id: "A", text: "$\\frac{9}{41}$" },
@@ -520,13 +520,13 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "D",
       hint: "Only two of the three sides are given, and this question does not need the third.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~15s):** From angle $L$, the opposite leg is $MN = 40$ and the adjacent leg is $LM = 9$, so $\\tan L = \\frac{40}{9}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $M$, so the two legs are $LM$ and $MN$ and the hypotenuse is $LN$.\nStep 2: Viewed from angle $L$, the leg $MN = 40$ is opposite and the leg $LM = 9$ is adjacent.\nStep 3: Tangent is opposite over adjacent, so $\\tan L = \\frac{40}{9}$. Check: $LN = \\sqrt{9^2 + 40^2} = \\sqrt{1681} = 41$, and $\\frac{\\sin L}{\\cos L} = \\frac{40/41}{9/41} = \\frac{40}{9}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{9}{41}$): this is $\\cos L$, adjacent over hypotenuse.\n* Choice B ($\\frac{9}{40}$): this inverts the tangent, giving adjacent over opposite.\n* Choice C ($\\frac{40}{41}$): this is $\\sin L$, opposite over hypotenuse.\n\n**Test Day Takeaway:** Tangent never uses the hypotenuse; name the opposite and adjacent legs from the angle in question first.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~20s):** $\\tan L$ is the opposite leg over the adjacent leg: $\\frac{MN}{LM} = \\frac{40}{9}$.\n\n**The Full Solution:**\nStep 1: Angle $M$ is the right angle, so $\\overline{LM}$ and $\\overline{MN}$ are the legs.\nStep 2: From angle $L$, the opposite leg is $\\overline{MN}$ (length $40$) and the adjacent leg is $\\overline{LM}$ (length $9$).\nStep 3: So $\\tan L = \\frac{40}{9}$. Check: the hypotenuse is $\\sqrt{9^{2} + 40^{2}} = 41$, and $\\frac{\\sin L}{\\cos L} = \\frac{40/41}{9/41} = \\frac{40}{9}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{9}{41}$): this is $\\cos L$, adjacent over hypotenuse.\n* Choice B ($\\frac{9}{40}$): inverts the tangent, using adjacent over opposite.\n* Choice C ($\\frac{40}{41}$): this is $\\sin L$, opposite over hypotenuse.\n\n**Test Day Takeaway:** Tangent needs only the two legs; name the leg opposite the given angle first.",
       skills: ["soh-cah-toa"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "An almond huller's grading chute forms right triangle $PQR$, with its right angle at $Q$. If $\\sin R = \\frac{5}{13}$ and $PR = 39$ centimeters, what is the length, in centimeters, of $PQ$?",
+      question: "In triangle $PQR$, angle $Q$ is a right angle, $\\sin R = \\frac{5}{13}$, and $PR = 39$. What is the length of $\\overline{PQ}$?",
       choices: [
         // distractor: reports the numerator of the ratio as a length
         { id: "A", text: "$5$" },
@@ -537,44 +537,44 @@ export const trianglesQuestions = {
         { id: "D", text: "$36$" }
       ],
       correctAnswer: "C",
-      hint: "A ratio of $\\frac{5}{13}$ does not make any side $5$ or $13$ centimeters long.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\sin R = \\frac{PQ}{PR}$, so $\\frac{PQ}{39} = \\frac{5}{13}$ and $PQ = 15$ centimeters.\n\n**The Full Solution:**\nStep 1: With the right angle at $Q$, the hypotenuse is $PR$ and the leg opposite angle $R$ is $PQ$.\nStep 2: So $\\sin R = \\frac{PQ}{PR} = \\frac{PQ}{39} = \\frac{5}{13}$.\nStep 3: Multiplying gives $PQ = \\frac{5}{13}(39) = 15$ centimeters. Check: $QR = \\sqrt{39^2 - 15^2} = \\sqrt{1296} = 36$, and $\\frac{15}{39} = \\frac{5}{13}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): reporting the numerator of the ratio as though it were the length itself.\n* Choice B ($13$): reporting the denominator of the ratio as though it were the length itself.\n* Choice D ($36$): computing $QR$, the leg adjacent to angle $R$, instead of the requested $PQ$.\n\n**Test Day Takeaway:** A ratio scales: multiply the hypotenuse by the sine to get the opposite leg, and name the sides before substituting.",
+      hint: "A ratio of $\\frac{5}{13}$ does not make any side $5$ or $13$ units long.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\sin R = \\frac{PQ}{PR}$, so $PQ = 39 \\cdot \\frac{5}{13} = 15$.\n\n**The Full Solution:**\nStep 1: Angle $Q$ is the right angle, so $\\overline{PR}$ is the hypotenuse, and the leg opposite angle $R$ is $\\overline{PQ}$.\nStep 2: Sine is opposite over hypotenuse: $\\frac{PQ}{39} = \\frac{5}{13}$.\nStep 3: Multiply: $PQ = \\frac{5 \\cdot 39}{13} = 15$. Check: $\\frac{15}{39} = \\frac{5}{13}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): treats the numerator of the ratio as a length; the ratio only fixes the proportion of the sides.\n* Choice B ($13$): treats the denominator of the ratio as a length.\n* Choice D ($36$): finds the other leg, $QR = \\sqrt{39^{2} - 15^{2}} = 36$, instead of $PQ$.\n\n**Test Day Takeaway:** A trigonometric ratio gives a proportion, not the lengths themselves; scale it to the side you know.",
       skills: ["soh-cah-toa"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "In a dockside crane, the jib $ST$, the mast $TU$, and the tie $SU$ meet so that the right angle falls at $U$. The tie is $42$ meters long and $\\tan S = \\frac{20}{21}$. How long, in meters, is the jib?",
+      question: "In triangle $STU$, angle $U$ is a right angle, $SU = 42$, and $\\tan S = \\frac{20}{21}$. What is the length of $\\overline{ST}$?",
       choices: [
-        // distractor: reports the mast TU instead of the jib
+        // distractor: reports TU, the leg opposite angle S, instead of ST
         { id: "A", text: "$40$" },
         { id: "B", text: "$58$" },
         // distractor: adds the two legs, 42 + 40
         { id: "C", text: "$82$" },
-        // distractor: doubles the tie, as though the hypotenuse were twice the adjacent leg
-        { id: "D", text: "$84$" }
+        // distractor: finds the perimeter, 42 + 40 + 58
+        { id: "D", text: "$140$" }
       ],
       correctAnswer: "B",
-      hint: "The jib is the one side that the tangent of $S$ never touches.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~40s):** $\\tan S = \\frac{TU}{42} = \\frac{20}{21}$ gives $TU = 40$, and $\\sqrt{42^2 + 40^2} = 58$ meters.\n\n**The Full Solution:**\nStep 1: The right angle is at $U$, so from angle $S$ the mast $TU$ is opposite and the tie $SU$ is adjacent: $\\tan S = \\frac{TU}{42} = \\frac{20}{21}$.\nStep 2: Solving gives $TU = \\frac{20}{21}(42) = 40$ meters.\nStep 3: The jib $ST$ is the hypotenuse: $ST = \\sqrt{42^2 + 40^2} = \\sqrt{1764 + 1600} = \\sqrt{3364} = 58$ meters. Check: $\\frac{40}{42} = \\frac{20}{21}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($40$): reporting the mast $TU$, the leg the tangent produces, instead of the jib.\n* Choice C ($82$): adding the two legs, $42 + 40$, instead of using the Pythagorean theorem.\n* Choice D ($84$): doubling the tie, which assumes a $30$-$60$-$90$ relationship that does not hold here.\n\n**Test Day Takeaway:** Tangent hands you the second leg; the hypotenuse still needs the Pythagorean theorem.",
+      hint: "The hypotenuse is the one side that $\\tan S$ does not use.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~35s):** $\\tan S = \\frac{TU}{SU}$, so $TU = 42 \\cdot \\frac{20}{21} = 40$, and $ST = \\sqrt{42^{2} + 40^{2}} = 58$.\n\n**The Full Solution:**\nStep 1: Angle $U$ is the right angle, so $\\overline{ST}$ is the hypotenuse. From angle $S$, the opposite leg is $\\overline{TU}$ and the adjacent leg is $\\overline{SU}$.\nStep 2: Tangent is opposite over adjacent: $\\frac{TU}{42} = \\frac{20}{21}$, so $TU = 40$.\nStep 3: By the Pythagorean theorem, $ST = \\sqrt{42^{2} + 40^{2}} = \\sqrt{1764 + 1600} = \\sqrt{3364} = 58$. Check: $58^{2} = 3364$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($40$): stops at $TU$, the leg opposite angle $S$.\n* Choice C ($82$): adds the two legs, $42 + 40$, instead of using the Pythagorean theorem.\n* Choice D ($140$): finds the perimeter, $42 + 40 + 58$, instead of the length of one side.\n\n**Test Day Takeaway:** Tangent gives the second leg; the hypotenuse then comes from the Pythagorean theorem.",
       skills: ["soh-cah-toa"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "A taxiway wind-fence panel is a right triangle whose two acute angles measure $x^\\circ$ and $y^\\circ$. If $\\sin(x^\\circ) = \\frac{20}{29}$, what is the value of $\\cos(y^\\circ)$?",
+      question: "$JK = 36$\n$KL = 15$\n$LJ = 39$\nTriangle $JKL$ has the given side lengths. Triangle $PQR$ is similar to triangle $JKL$, where $J$, $K$, and $L$ correspond to $P$, $Q$, and $R$, respectively. What is the value of $\\cos R$?",
       choices: [
-        { id: "A", text: "$\\frac{20}{29}$" },
-        // distractor: computes the cosine of x using the third side 21
-        { id: "B", text: "$\\frac{21}{29}$" },
-        // distractor: computes the tangent of x
-        { id: "C", text: "$\\frac{20}{21}$" },
-        // distractor: inverts the ratio
-        { id: "D", text: "$\\frac{29}{20}$" }
+        { id: "A", text: "$\\frac{5}{13}$" },
+        // distractor: computes tan J, using the two legs
+        { id: "B", text: "$\\frac{5}{12}$" },
+        // distractor: computes sin L (equivalently cos J), using the opposite leg
+        { id: "C", text: "$\\frac{12}{13}$" },
+        // distractor: computes tan L, opposite over adjacent
+        { id: "D", text: "$\\frac{12}{5}$" }
       ],
       correctAnswer: "A",
-      hint: "No side length is needed to answer this.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** The two acute angles are complementary, and the cosine of an angle equals the sine of its complement, so $\\cos(y^\\circ) = \\frac{20}{29}$.\n\n**The Full Solution:**\nStep 1: In a right triangle the two acute angles satisfy $x + y = 90$, so they are complementary.\nStep 2: The side opposite $x^\\circ$ is the side adjacent to $y^\\circ$, and both ratios are taken over the same hypotenuse.\nStep 3: Therefore $\\cos(y^\\circ) = \\sin(x^\\circ) = \\frac{20}{29}$. Check: with legs $20$ and $21$ and hypotenuse $29$, $\\cos(y^\\circ) = \\frac{20}{29}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{21}{29}$): computing $\\cos(x^\\circ)$ with the third side $21$; the complement swaps which leg is adjacent.\n* Choice C ($\\frac{20}{21}$): computing $\\tan(x^\\circ)$, a ratio of the two legs rather than a leg over the hypotenuse.\n* Choice D ($\\frac{29}{20}$): inverting the ratio, which no sine or cosine of an acute angle can exceed $1$.\n\n**Test Day Takeaway:** Complementary angles trade sine for cosine — no side lengths are needed at all.",
+      hint: "First decide whether the triangle has a right angle, and where.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~45s):** $15^{2} + 36^{2} = 39^{2}$, so the right angle is at $K$. Angle $R$ corresponds to angle $L$, and $\\cos L = \\frac{KL}{LJ} = \\frac{15}{39} = \\frac{5}{13}$.\n\n**The Full Solution:**\nStep 1: Check for a right angle: $JK^{2} + KL^{2} = 1296 + 225 = 1521 = 39^{2} = LJ^{2}$. So triangle $JKL$ is a right triangle with its right angle at $K$, the vertex between the two shorter sides, and $\\overline{LJ}$ is the hypotenuse.\nStep 2: Corresponding angles of similar triangles are congruent, so $\\cos R = \\cos L$.\nStep 3: From angle $L$, the adjacent leg is $\\overline{KL}$, so $\\cos L = \\frac{15}{39} = \\frac{5}{13}$. Check: $\\sin L = \\frac{36}{39} = \\frac{12}{13}$, and $\\left(\\frac{5}{13}\\right)^{2} + \\left(\\frac{12}{13}\\right)^{2} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{5}{12}$): this is $\\tan J$, using the two legs.\n* Choice C ($\\frac{12}{13}$): this is $\\sin L$ (equivalently $\\cos J$), using the leg opposite angle $L$.\n* Choice D ($\\frac{12}{5}$): this is $\\tan L$, opposite over adjacent.\n\n**Test Day Takeaway:** Similar triangles have equal corresponding angles, so a trigonometric ratio in one triangle can be computed from the matching angle in the other.",
       skills: ["soh-cah-toa"]
     }
   ],
@@ -584,93 +584,93 @@ export const trianglesQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "A $45°$-$45°$-$90°$ triangle has legs of length $11$ centimeters. What is the length, in centimeters, of its hypotenuse?",
-      diagram: { type: "rightTriangle", params: { labels: ["45°", "", "45°"], sideLabels: ["11", "11", ""], rightAngleVertex: 1, figureNote: true } },
+      question: "What is the length of the longest side of the triangle shown?",
+      diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [11, 0], [11, 11]], labels: ["45°", "", "45°"], sideLabels: ["11", "11", ""], rightAngleVertex: 1 } },
       choices: [
         // distractor: adds the legs and then takes a square root, instead of adding their squares
         { id: "A", text: "$\\sqrt{22}$" },
         { id: "B", text: "$11\\sqrt{2}$" },
-        // distractor: uses $\sqrt{3}$, which belongs to the $30°$-$60°$-$90°$ ratios
+        // distractor: uses sqrt(3), which belongs to the 30-60-90 ratios
         { id: "C", text: "$11\\sqrt{3}$" },
-        // distractor: doubles a leg, which is the $30°$-$60°$-$90°$ hypotenuse rule
+        // distractor: doubles a leg, which is the 30-60-90 rule
         { id: "D", text: "$22$" }
       ],
       correctAnswer: "B",
       hint: "The two legs are equal, so the Pythagorean theorem gives twice one square.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** In a $45°$-$45°$-$90°$ triangle the hypotenuse is $\\sqrt{2}$ times a leg, so it is $11\\sqrt{2}$.\n\n**The Full Solution:**\nStep 1: The two legs are equal, so the sides are in the ratio $1 : 1 : \\sqrt{2}$.\nStep 2: With each leg $11$, the hypotenuse is $11\\sqrt{2}$ centimeters.\nStep 3: Check with the Pythagorean theorem: $11^2 + 11^2 = 242$ and $(11\\sqrt{2})^2 = 121(2) = 242$.\n\nVerification: $11\\sqrt{2} \\approx 15.6$, longer than either leg and shorter than their sum of $22$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\sqrt{22}$): adds the legs and then takes a square root, instead of adding their squares.\n* Choice C ($11\\sqrt{3}$): uses $\\sqrt{3}$, which belongs to the $30°$-$60°$-$90°$ ratios.\n* Choice D ($22$): doubles a leg, which is the $30°$-$60°$-$90°$ hypotenuse rule.\n\n**Test Day Takeaway:** Leg to hypotenuse in a $45°$-$45°$-$90°$ triangle multiplies by $\\sqrt{2}$; going the other way divides.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** In a $45^{\\circ}$-$45^{\\circ}$-$90^{\\circ}$ triangle, the hypotenuse is $\\sqrt{2}$ times a leg: $11\\sqrt{2}$.\n\n**The Full Solution:**\nStep 1: The triangle has two $45^{\\circ}$ angles and legs of length $11$; the longest side is the hypotenuse, opposite the right angle.\nStep 2: By the Pythagorean theorem, $c^{2} = 11^{2} + 11^{2} = 242$.\nStep 3: So $c = \\sqrt{242} = \\sqrt{121 \\cdot 2} = 11\\sqrt{2}$. Check: $\\left(11\\sqrt{2}\\right)^{2} = 242 = 121 + 121$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\sqrt{22}$): adds the legs and then takes a square root, instead of adding their squares.\n* Choice C ($11\\sqrt{3}$): uses $\\sqrt{3}$, which belongs to the $30^{\\circ}$-$60^{\\circ}$-$90^{\\circ}$ ratios.\n* Choice D ($22$): doubles a leg, which is the $30^{\\circ}$-$60^{\\circ}$-$90^{\\circ}$ rule for the shortest side.\n\n**Test Day Takeaway:** The sides of a $45^{\\circ}$-$45^{\\circ}$-$90^{\\circ}$ triangle are in the ratio $1 : 1 : \\sqrt{2}$.",
       skills: ["special-right-triangles"]
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "In a $30°$-$60°$-$90°$ triangle, the side opposite the $30°$ angle has length $9$. What is the length of the side opposite the $90°$ angle?",
-      diagram: { type: "rightTriangle", params: { labels: ["30°", "", "60°"], sideLabels: ["", "9", ""], rightAngleVertex: 1, figureNote: true } },
+      question: "In the triangle shown, what is the length of the hypotenuse?",
+      diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [15.588, 0], [15.588, 9]], labels: ["30°", "", "60°"], sideLabels: ["", "9", ""], rightAngleVertex: 1 } },
       choices: [
-        // distractor: uses $\sqrt{2}$, which belongs to the $45°$-$45°$-$90°$ ratios
+        // distractor: uses sqrt(2), which belongs to the 45-45-90 ratios
         { id: "A", text: "$9\\sqrt{2}$" },
-        // distractor: gives the side opposite the $60°$ angle
+        // distractor: gives the side opposite the 60 degree angle
         { id: "B", text: "$9\\sqrt{3}$" },
         { id: "C", text: "$18$" },
-        // distractor: triples the shorter leg instead of doubling it
+        // distractor: triples the shortest side instead of doubling it
         { id: "D", text: "$27$" }
       ],
       correctAnswer: "C",
-      hint: "The side opposite the largest angle is the hypotenuse — compare it with the shortest side.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** The hypotenuse is twice the side opposite the $30°$ angle: $2(9) = 18$.\n\n**The Full Solution:**\nStep 1: The side opposite the $90°$ angle is the hypotenuse.\nStep 2: In a $30°$-$60°$-$90°$ triangle the sides are in the ratio $1 : \\sqrt{3} : 2$, shortest to longest.\nStep 3: The shorter leg is $9$, so the hypotenuse is $2(9) = 18$.\n\nVerification: $9^2 + (9\\sqrt{3})^2 = 81 + 243 = 324 = 18^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($9\\sqrt{2}$): uses $\\sqrt{2}$, which belongs to the $45°$-$45°$-$90°$ ratios.\n* Choice B ($9\\sqrt{3}$): gives the side opposite the $60°$ angle.\n* Choice D ($27$): triples the shorter leg instead of doubling it.\n\n**Test Day Takeaway:** The shorter leg of a $30°$-$60°$-$90°$ triangle is exactly half the hypotenuse.",
+      hint: "Find which angle the side of length $9$ is opposite.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** The side of length $9$ is opposite the $30^{\\circ}$ angle, and in a $30^{\\circ}$-$60^{\\circ}$-$90^{\\circ}$ triangle the hypotenuse is twice that side: $18$.\n\n**The Full Solution:**\nStep 1: The angles are $30^{\\circ}$, $60^{\\circ}$, and $90^{\\circ}$, and the side of length $9$ is opposite the $30^{\\circ}$ angle, so it is the shortest side.\nStep 2: The sides of a $30^{\\circ}$-$60^{\\circ}$-$90^{\\circ}$ triangle are in the ratio $1 : \\sqrt{3} : 2$.\nStep 3: So the hypotenuse is $2(9) = 18$. Check: the other leg is $9\\sqrt{3}$, and $9^{2} + \\left(9\\sqrt{3}\\right)^{2} = 81 + 243 = 324 = 18^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9\\sqrt{2}$): uses $\\sqrt{2}$, which belongs to the $45^{\\circ}$-$45^{\\circ}$-$90^{\\circ}$ ratios.\n* Choice B ($9\\sqrt{3}$): gives the side opposite the $60^{\\circ}$ angle.\n* Choice D ($27$): triples the shortest side instead of doubling it.\n\n**Test Day Takeaway:** In a $30^{\\circ}$-$60^{\\circ}$-$90^{\\circ}$ triangle, the hypotenuse is twice the side opposite the $30^{\\circ}$ angle.",
       skills: ["special-right-triangles"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "A dome shutter's diagonal stay makes a $45^\\circ$ angle with the horizontal rail beneath it. If the stay spans $9$ meters horizontally, how long is the stay, in meters?",
+      question: "The hypotenuse of an isosceles right triangle has length $14$. What is the length of one leg of this triangle?",
       choices: [
-        // distractor: divides by the square root of 2 instead of multiplying
-        { id: "A", text: "$\\frac{9\\sqrt{2}}{2}$" },
-        { id: "B", text: "$9\\sqrt{2}$" },
-        // distractor: uses the 30-60-90 ratio of the square root of 3
-        { id: "C", text: "$9\\sqrt{3}$" },
-        // distractor: doubles the run, as though the hypotenuse were twice a leg
-        { id: "D", text: "$18$" }
+        // distractor: halves the hypotenuse
+        { id: "A", text: "$7$" },
+        { id: "B", text: "$7\\sqrt{2}$" },
+        // distractor: uses the 30-60-90 ratio for the longer leg
+        { id: "C", text: "$7\\sqrt{3}$" },
+        // distractor: multiplies by sqrt(2) instead of dividing
+        { id: "D", text: "$14\\sqrt{2}$" }
       ],
       correctAnswer: "B",
-      hint: "A $45^\\circ$ angle with the rail settles the third angle as well.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** A $45^\\circ$ stay makes a $45$-$45$-$90$ triangle, whose hypotenuse is $\\sqrt{2}$ times a leg: $9\\sqrt{2}$.\n\n**The Full Solution:**\nStep 1: The stay, the horizontal run, and the vertical rise form a right triangle with a $45^\\circ$ angle, so the third angle is also $45^\\circ$.\nStep 2: In a $45$-$45$-$90$ triangle the two legs are equal and the hypotenuse is $\\sqrt{2}$ times a leg.\nStep 3: The stay is the hypotenuse, so it measures $9\\sqrt{2}$ meters. Check: $9^2 + 9^2 = 162 = (9\\sqrt{2})^2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{9\\sqrt{2}}{2}$): dividing the leg by $\\sqrt{2}$ instead of multiplying, which makes the hypotenuse shorter than a leg.\n* Choice C ($9\\sqrt{3}$): using the $30$-$60$-$90$ ratio $\\sqrt{3}$, which belongs to a different special triangle.\n* Choice D ($18$): doubling the run; only in a $30$-$60$-$90$ triangle is the hypotenuse twice a side, and then twice the shorter leg.\n\n**Test Day Takeaway:** Identify which special triangle the given angle creates before reaching for a ratio.",
+      hint: "The two legs are equal, so set up the Pythagorean theorem with one unknown.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** The hypotenuse is $\\sqrt{2}$ times a leg, so a leg is $\\frac{14}{\\sqrt{2}} = 7\\sqrt{2}$.\n\n**The Full Solution:**\nStep 1: An isosceles right triangle has two equal legs; call each one $s$.\nStep 2: By the Pythagorean theorem, $s^{2} + s^{2} = 14^{2}$, so $2s^{2} = 196$ and $s^{2} = 98$.\nStep 3: Then $s = \\sqrt{98} = \\sqrt{49 \\cdot 2} = 7\\sqrt{2}$. Check: $\\left(7\\sqrt{2}\\right)^{2} + \\left(7\\sqrt{2}\\right)^{2} = 98 + 98 = 196 = 14^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): halves the hypotenuse, as if the legs added up to it.\n* Choice C ($7\\sqrt{3}$): uses the $30^{\\circ}$-$60^{\\circ}$-$90^{\\circ}$ ratio for the longer leg.\n* Choice D ($14\\sqrt{2}$): multiplies by $\\sqrt{2}$ instead of dividing, which gives a side longer than the hypotenuse.\n\n**Test Day Takeaway:** In a $45^{\\circ}$-$45^{\\circ}$-$90^{\\circ}$ triangle, go from leg to hypotenuse by multiplying by $\\sqrt{2}$ and back by dividing by $\\sqrt{2}$.",
       skills: ["special-right-triangles"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "In right triangle $ABC$, the measure of angle $A$ is $30°$, the measure of angle $B$ is $60°$, and $AB = 22$. What is the length of $\\overline{AC}$?",
+      question: "In triangle $ABC$, the measure of angle $A$ is $30^{\\circ}$, the measure of angle $B$ is $60^{\\circ}$, and $AB = 26$. What is the length of $\\overline{AC}$?",
       choices: [
-        // distractor: gives $BC$, the side opposite the $30°$ angle
-        { id: "A", text: "$11$" },
-        // distractor: uses the $45°$-$45°$-$90°$ ratio
-        { id: "B", text: "$11\\sqrt{2}$" },
-        { id: "C", text: "$11\\sqrt{3}$" },
-        // distractor: multiplies the hypotenuse by $\sqrt{3}$ without halving it first
-        { id: "D", text: "$22\\sqrt{3}$" }
+        // distractor: gives BC, the side opposite the 30 degree angle
+        { id: "A", text: "$13$" },
+        // distractor: uses the 45-45-90 ratio
+        { id: "B", text: "$13\\sqrt{2}$" },
+        { id: "C", text: "$13\\sqrt{3}$" },
+        // distractor: multiplies the hypotenuse by sqrt(3) without halving it first
+        { id: "D", text: "$26\\sqrt{3}$" }
       ],
       correctAnswer: "C",
       hint: "Work through the shortest side before reaching for $\\sqrt{3}$.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\overline{AB}$ is the hypotenuse, so $BC = 11$ and $AC = 11\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: Angle $C$ measures $180 - 30 - 60 = 90°$, so $\\overline{AB}$ is the hypotenuse.\nStep 2: The side opposite the $30°$ angle is $\\overline{BC}$, half the hypotenuse: $BC = 11$.\nStep 3: The side opposite the $60°$ angle is $\\overline{AC}$, which is $\\sqrt{3}$ times the shorter leg: $AC = 11\\sqrt{3}$.\n\nVerification: $11^2 + (11\\sqrt{3})^2 = 121 + 363 = 484 = 22^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($11$): gives $BC$, the side opposite the $30°$ angle.\n* Choice B ($11\\sqrt{2}$): uses the $45°$-$45°$-$90°$ ratio.\n* Choice D ($22\\sqrt{3}$): multiplies the hypotenuse by $\\sqrt{3}$ without halving it first.\n\n**Test Day Takeaway:** Build a $30°$-$60°$-$90°$ triangle from its shortest side: halve the hypotenuse, then multiply by $\\sqrt{3}$.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** Angle $C$ is $90^{\\circ}$, so $\\overline{AB}$ is the hypotenuse. $\\overline{AC}$ is opposite the $60^{\\circ}$ angle, so $AC = \\frac{26}{2}\\sqrt{3} = 13\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: The angle measures sum to $180^{\\circ}$, so angle $C$ measures $180^{\\circ} - 30^{\\circ} - 60^{\\circ} = 90^{\\circ}$, and $\\overline{AB}$, opposite angle $C$, is the hypotenuse.\nStep 2: The side opposite the $30^{\\circ}$ angle is half the hypotenuse: $BC = 13$.\nStep 3: The side opposite the $60^{\\circ}$ angle is $\\sqrt{3}$ times the shortest side: $AC = 13\\sqrt{3}$. Check: $13^{2} + \\left(13\\sqrt{3}\\right)^{2} = 169 + 507 = 676 = 26^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($13$): gives $BC$, the side opposite the $30^{\\circ}$ angle.\n* Choice B ($13\\sqrt{2}$): uses the $45^{\\circ}$-$45^{\\circ}$-$90^{\\circ}$ ratio.\n* Choice D ($26\\sqrt{3}$): multiplies the hypotenuse by $\\sqrt{3}$ without halving it first.\n\n**Test Day Takeaway:** Find the right angle first; in a $30^{\\circ}$-$60^{\\circ}$-$90^{\\circ}$ triangle, halve the hypotenuse to get the shortest side, then multiply by $\\sqrt{3}$ for the other leg.",
       skills: ["special-right-triangles"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "A beet-loading conveyor rises from the field to a trailer at an angle of $30^\\circ$ with the level ground, and its horizontal run measures $4\\sqrt{3}$ meters. What is the length, in meters, of the conveyor?",
+      question: "One angle of a right triangle measures $30^{\\circ}$, and the perimeter of the triangle is $12 + 4\\sqrt{3}$ units. What is the length, in units, of the hypotenuse of the triangle?",
       choices: [
-        // distractor: reports the vertical rise instead of the conveyor's length
+        // distractor: reports the shortest side s instead of the hypotenuse
         { id: "A", text: "$4$" },
-        // distractor: repeats the given horizontal run
+        // distractor: reports the side opposite the 60 degree angle
         { id: "B", text: "$4\\sqrt{3}$" },
         { id: "C", text: "$8$" },
-        // distractor: doubles the run instead of the rise
+        // distractor: doubles the longer leg instead of the shorter one
         { id: "D", text: "$8\\sqrt{3}$" }
       ],
       correctAnswer: "C",
-      hint: "The run is not the side opposite the $30^\\circ$ angle.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~35s):** The run is the longer leg, $4\\sqrt{3}$, so the shorter leg is $4$ and the conveyor, the hypotenuse, is $8$ meters.\n\n**The Full Solution:**\nStep 1: The conveyor, its horizontal run, and its vertical rise form a $30$-$60$-$90$ triangle, and the run lies opposite the $60^\\circ$ angle, so it is the longer leg.\nStep 2: The longer leg is $\\sqrt{3}$ times the shorter leg, so the rise is $\\frac{4\\sqrt{3}}{\\sqrt{3}} = 4$ meters.\nStep 3: The hypotenuse is twice the shorter leg, so the conveyor is $8$ meters long. Check: $4^2 + (4\\sqrt{3})^2 = 16 + 48 = 64 = 8^2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): reporting the vertical rise, the shorter leg, instead of the conveyor itself.\n* Choice B ($4\\sqrt{3}$): repeating the horizontal run that the question already gave.\n* Choice D ($8\\sqrt{3}$): doubling the run; the hypotenuse is twice the SHORTER leg, not twice the longer one.\n\n**Test Day Takeaway:** In a $30$-$60$-$90$ triangle, find the shorter leg first — every other length is measured from it.",
+      hint: "Write all three sides in terms of the shortest side.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~45s):** If the shortest side is $s$, the sides are $s$, $s\\sqrt{3}$, and $2s$, so the perimeter is $s(3 + \\sqrt{3}) = 4(3 + \\sqrt{3})$. Then $s = 4$ and the hypotenuse is $8$.\n\n**The Full Solution:**\nStep 1: The triangle is a $30^{\\circ}$-$60^{\\circ}$-$90^{\\circ}$ triangle. Let $s$ be the length of the side opposite the $30^{\\circ}$ angle; then the other leg is $s\\sqrt{3}$ and the hypotenuse is $2s$.\nStep 2: The perimeter is $s + s\\sqrt{3} + 2s = 3s + s\\sqrt{3} = s(3 + \\sqrt{3})$.\nStep 3: The given perimeter is $12 + 4\\sqrt{3} = 4(3 + \\sqrt{3})$, so $s = 4$ and the hypotenuse is $2s = 8$. Check: $4 + 4\\sqrt{3} + 8 = 12 + 4\\sqrt{3}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): this is $s$, the side opposite the $30^{\\circ}$ angle.\n* Choice B ($4\\sqrt{3}$): this is the side opposite the $60^{\\circ}$ angle.\n* Choice D ($8\\sqrt{3}$): doubles the longer leg instead of the shorter one.\n\n**Test Day Takeaway:** Write every side of a special right triangle in terms of the shortest side, then factor the given perimeter to match.",
       skills: ["special-right-triangles"]
     }
   ]

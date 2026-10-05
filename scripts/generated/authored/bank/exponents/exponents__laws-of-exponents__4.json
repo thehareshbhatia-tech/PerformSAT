@@ -1,29 +1,29 @@
 {
- "question": "A soil-moisture decay model multiplies its baseline reading by $\\left(\\dfrac{2}{5}\\right)^{-3}$ to estimate the moisture a test plot held three days earlier. What value does that multiplier have?",
- "hint": "Decide what a negative exponent does to a fraction — and what it leaves alone.",
+ "question": "What is the value of $\\left(\\frac{2}{3}\\right)^{-3}$?",
+ "hint": "A negative exponent means reciprocal; it does not make the value negative.",
  "choices": [
   {
    "id": "A",
-   "text": "$-\\dfrac{125}{8}$"
+   "text": "$-\\frac{27}{8}$"
   },
   {
    "id": "B",
-   "text": "$-\\dfrac{8}{125}$"
+   "text": "$\\frac{8}{27}$"
   },
   {
    "id": "C",
-   "text": "$\\dfrac{8}{125}$"
+   "text": "$\\frac{27}{8}$"
   },
   {
    "id": "D",
-   "text": "$\\dfrac{125}{8}$"
+   "text": "$\\frac{9}{2}$"
   }
  ],
  "distractorNotes": {
-  "A": "flips the fraction and then also negates the result",
-  "B": "reads the negative exponent as making the value negative",
-  "C": "cubes the fraction without flipping it"
+  "A": "takes the reciprocal correctly but also makes the result negative, treating the negative exponent as a negative sign",
+  "B": "cubes 2/3 and ignores the negative sign in the exponent",
+  "D": "takes the reciprocal 3/2 and multiplies it by 3 instead of cubing it"
  },
- "correctAnswer": "D",
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~15s):** The negative exponent flips the fraction: $\\left(\\dfrac{5}{2}\\right)^{3} = \\dfrac{125}{8}$.\n\n**The Full Solution:**\nStep 1: A negative exponent means the reciprocal: $\\left(\\dfrac{2}{5}\\right)^{-3} = \\left(\\dfrac{5}{2}\\right)^{3}$.\nStep 2: Cube the numerator and the denominator: $\\dfrac{5^3}{2^3}$.\nStep 3: Evaluate: $\\dfrac{125}{8}$. Check: $\\dfrac{125}{8} \\cdot \\left(\\dfrac{2}{5}\\right)^{3} = \\dfrac{125}{8} \\cdot \\dfrac{8}{125} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\dfrac{125}{8}$): flips the fraction correctly but then also makes it negative.\n* Choice B ($-\\dfrac{8}{125}$): treats the exponent's sign as the value's sign and skips the reciprocal.\n* Choice C ($\\dfrac{8}{125}$): cubes $\\dfrac25$ directly, ignoring the negative exponent.\n\n**Test Day Takeaway:** A negative exponent moves a factor across the fraction bar; the sign of the value never changes."
+ "correctAnswer": "C",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** $\\left(\\frac{2}{3}\\right)^{-3} = \\left(\\frac{3}{2}\\right)^{3} = \\frac{27}{8}$.\n\n**The Full Solution:**\nStep 1: A negative exponent indicates a reciprocal: $\\left(\\frac{2}{3}\\right)^{-3} = \\frac{1}{\\left(\\frac{2}{3}\\right)^{3}} = \\left(\\frac{3}{2}\\right)^{3}$.\nStep 2: Cube the numerator and the denominator: $\\frac{3^{3}}{2^{3}} = \\frac{27}{8}$.\nStep 3: The value is $\\frac{27}{8}$. Check: $\\frac{27}{8} \\cdot \\left(\\frac{2}{3}\\right)^{3} = \\frac{27}{8} \\cdot \\frac{8}{27} = 1$, so the two are reciprocals ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{27}{8}$): reads the negative exponent as a negative sign on the result. A positive base raised to any power is positive.\n* Choice B ($\\frac{8}{27}$): cubes $\\frac{2}{3}$ but ignores the negative sign, so it gives $\\left(\\frac{2}{3}\\right)^{3}$.\n* Choice D ($\\frac{9}{2}$): takes the reciprocal and then multiplies by $3$: $\\frac{3}{2} \\cdot 3 = \\frac{9}{2}$. The exponent calls for $\\frac{3}{2} \\cdot \\frac{3}{2} \\cdot \\frac{3}{2}$.\n\n**Test Day Takeaway:** A negative exponent on a fraction flips the fraction; then apply the exponent as a positive power to both the numerator and the denominator."
 }

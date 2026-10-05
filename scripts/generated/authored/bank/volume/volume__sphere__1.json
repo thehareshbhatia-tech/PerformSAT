@@ -1,30 +1,30 @@
 {
-  "id": 1,
-  "question": "A sporting-goods supplier sells solid rubber training balls in two sizes. The radius of the large ball is $2$ times the radius of the small ball. Which statement about the volumes of the two balls is true?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "The volume of the large ball is $2$ times the volume of the small ball."
-    },
-    {
-      "id": "B",
-      "text": "The volume of the large ball is $4$ times the volume of the small ball."
-    },
-    {
-      "id": "C",
-      "text": "The volume of the large ball is $6$ times the volume of the small ball."
-    },
-    {
-      "id": "D",
-      "text": "The volume of the large ball is $8$ times the volume of the small ball."
-    }
-  ],
-  "distractorNotes": {
-    "A": "applies the factor once, as if volume were proportional to the radius itself",
-    "B": "squares the factor, giving 4, which is how surface area scales",
-    "C": "multiplies the factor by the exponent, 2 times 3 = 6, instead of raising 2 to the third power"
+ "id": 1,
+ "question": "What is the volume, in cubic inches, of a sphere with a radius of $3$ inches?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$12\\pi$"
   },
-  "correctAnswer": "D",
-  "hint": "Only the radius changes between the two balls; the rest of the formula cancels.",
-  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~20s):** The radius is cubed in $V = \\frac{4}{3}\\pi r^3$, so doubling the radius multiplies the volume by $2^3 = 8$.\n\n**The Full Solution:**\nStep 1: Let the small ball have radius $r$, so its volume is $V_{small} = \\frac{4}{3}\\pi r^3$.\nStep 2: The large ball has radius $2r$, so $V_{large} = \\frac{4}{3}\\pi (2r)^3 = \\frac{4}{3}\\pi \\cdot 8r^3$.\nStep 3: Dividing, $\\frac{V_{large}}{V_{small}} = 8$. Check: with $r = 1$ the volumes are $\\frac{4}{3}\\pi$ and $\\frac{32}{3}\\pi$, and $\\frac{32}{3} \\div \\frac{4}{3} = 8$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: applies the factor once, treating volume as proportional to the radius itself.\n* Choice B: squares the factor, giving $2^2 = 4$ — the way surface area scales, not volume.\n* Choice C: multiplies the factor by the exponent, $2 \\cdot 3 = 6$, instead of raising $2$ to the third power.\n\n**Test Day Takeaway:** When a length is multiplied by $k$, anything measured in cubic units is multiplied by $k^3$ — the exponent is applied to the factor, never multiplied by it."
+  {
+   "id": "B",
+   "text": "$27\\pi$"
+  },
+  {
+   "id": "C",
+   "text": "$36\\pi$"
+  },
+  {
+   "id": "D",
+   "text": "$108\\pi$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "squares the radius instead of cubing it, computing (4/3)(pi)(3^2) = 12pi",
+  "B": "cubes the radius but leaves out the factor 4/3, giving pi(3^3) = 27pi",
+  "D": "multiplies by 4 but forgets to divide by 3, computing 4(pi)(27) = 108pi"
+ },
+ "correctAnswer": "C",
+ "hint": "The radius is cubed in the volume formula for a sphere.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** $V = \\frac{4}{3}\\pi r^{3} = \\frac{4}{3}\\pi(27) = 36\\pi$ cubic inches.\n\n**The Full Solution:**\nStep 1: The volume of a sphere with radius $r$ is $V = \\frac{4}{3}\\pi r^{3}$.\nStep 2: Cube the radius: $3^{3} = 27$.\nStep 3: Multiply: $V = \\frac{4}{3}\\pi(27) = 36\\pi$ cubic inches. Check: $\\frac{4 \\cdot 27}{3} = \\frac{108}{3} = 36$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($12\\pi$): squares the radius instead of cubing it: $\\frac{4}{3}\\pi(9) = 12\\pi$. A volume needs three lengths multiplied together.\n* Choice B ($27\\pi$): cubes the radius but drops the factor $\\frac{4}{3}$, giving $\\pi(27)$.\n* Choice D ($108\\pi$): multiplies $27$ by $4$ and stops, forgetting to divide by $3$.\n\n**Test Day Takeaway:** For a sphere, cube the radius first, then multiply by $\\frac{4}{3}\\pi$; a quick units check (cubic inches) reminds you the radius must appear three times."
 }

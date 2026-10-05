@@ -1,29 +1,29 @@
 {
-  "question": "A weather model uses $f(x) = 12 - \\sqrt{x - 7}$ to give the departure from the seasonal average temperature, in degrees Fahrenheit, $x$ days after a front passes, where $x \\ge 7$. Which statement must be true for every $x$ in the domain of $f$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$f(x) \\ge 0$"
-    },
-    {
-      "id": "B",
-      "text": "$f(x) \\ge 12$"
-    },
-    {
-      "id": "C",
-      "text": "$f(x) \\le 7$"
-    },
-    {
-      "id": "D",
-      "text": "$f(x) \\le 12$"
-    }
-  ],
-  "correctAnswer": "D",
-  "distractorNotes": {
-    "A": "assumes the square root keeps the whole expression nonnegative, but a large enough $x$ drives $f(x)$ below $0$",
-    "B": "treats $-\\sqrt{x - 7}$ as adding to $12$ rather than subtracting from it",
-    "C": "uses the domain restriction $x \\ge 7$ as if it bounded the output"
+ "id": "bank-alg-509",
+ "question": "The function $f$ is defined by $f(x) = a\\sqrt{x - b}$, where $a$ and $b$ are constants. In the $xy$-plane, the graph of $y = f(x)$ has an $x$-intercept at $(-6, 0)$, and $f(10)$ is negative. Which of the following must be true?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$a < 0$ and $b < 0$"
   },
-  "explanation": "**SAT Pattern: Square Root Function — Sign Reasoning**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** A square root is never negative, so $12 - \\sqrt{x - 7}$ can never exceed $12$.\n\n**The Full Solution:**\n\nStep 1: The expression under the radical must be nonnegative, so $x \\ge 7$, matching the stated domain.\n\nStep 2: For every such $x$, $\\sqrt{x - 7} \\ge 0$.\n\nStep 3: Subtracting a nonnegative number from $12$ gives at most $12$, so $f(x) \\le 12$. Check: $f(7) = 12$ and $f(71) = 12 - 8 = 4$.\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($f(x) \\ge 0$): holds only up to $x = 151$, where $f(x) = 12 - 12 = 0$; past that point the value is negative.\n\n* Choice B ($f(x) \\ge 12$): reverses the sign of the radical term; the only $x$ with $f(x) = 12$ is $x = 7$, and every other value is smaller.\n\n* Choice C ($f(x) \\le 7$): borrows the $7$ from the domain restriction, but $f(7) = 12$ already exceeds $7$.\n\n**Test Day Takeaway:** Read the sign in front of the radical: a subtracted square root caps the function at the constant, and the cap is reached only where the radicand is zero.",
-  "id": "bank-alg-509"
+  {
+   "id": "B",
+   "text": "$a < 0$ and $b > 0$"
+  },
+  {
+   "id": "C",
+   "text": "$a > 0$ and $b < 0$"
+  },
+  {
+   "id": "D",
+   "text": "$a > 0$ and $b > 0$"
+  }
+ ],
+ "distractorNotes": {
+  "B": "sets x + b = 0 instead of x - b = 0, reading the intercept as b = 6",
+  "C": "finds b correctly but assumes the function is always positive, ignoring the sign of a",
+  "D": "reads b as 6 and ignores that f(10) < 0 forces a to be negative"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Square Root Function — Sign Reasoning**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** The radical is zero where $x = b$, so the $x$-intercept $(-6, 0)$ gives $b = -6 < 0$. Then $f(10) = a\\sqrt{16} = 4a$, which is negative only if $a < 0$.\n\n**The Full Solution:**\nStep 1: $f(x) = 0$ only when $\\sqrt{x - b} = 0$ (a nonzero $a$ cannot make the product zero), which happens at $x = b$. The graph's $x$-intercept is at $x = -6$, so $b = -6$, and $b < 0$.\nStep 2: Evaluate at $x = 10$: $f(10) = a\\sqrt{10 - (-6)} = a\\sqrt{16} = 4a$.\nStep 3: A square root is never negative, so the sign of $f(10)$ is the sign of $a$. Since $f(10)$ is negative, $a < 0$. Check with $a = -1$: $f(x) = -\\sqrt{x + 6}$ gives $f(-6) = 0$ and $f(10) = -4$, matching both conditions ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($a < 0$ and $b > 0$): sets $x + b = 0$ in place of $x - b = 0$, reading the intercept as $b = 6$.\n* Choice C ($a > 0$ and $b < 0$): finds $b$ correctly but assumes a square root function is always positive, ignoring the sign of $a$.\n* Choice D ($a > 0$ and $b > 0$): makes both errors, reading $b$ as $6$ and ignoring that $f(10) < 0$ forces $a$ to be negative.\n\n**Test Day Takeaway:** For $f(x) = a\\sqrt{x - b}$, the graph starts at $x = b$, and because the radical is never negative, every output has the sign of $a$."
 }

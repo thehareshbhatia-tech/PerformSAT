@@ -1,25 +1,30 @@
 {
-  "id": 4,
-  "question": "The expression $9m^{2}-30m+25$ can be written in the form $(am+b)^{2}$, where $a$ and $b$ are constants and $a>0$. What is the value of $a+b$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-12$"
-    },
-    {
-      "id": "B",
-      "text": "$-2$"
-    },
-    {
-      "id": "C",
-      "text": "$8$"
-    },
-    {
-      "id": "D",
-      "text": "$34$"
-    }
-  ],
-  "correctAnswer": "B",
-  "hint": "Expand $(am+b)^{2}$ in general first, then match it term by term against the given trinomial.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** $9m^{2}=(3m)^{2}$ and $25=(-5)^{2}$, and $2(3)(-5)=-30$ matches the middle term, so $a=3$, $b=-5$ and $a+b=-2$ — choice B.\n\n**The Full Solution:**\nStep 1: Expanding the target form gives $(am+b)^{2}=a^{2}m^{2}+2abm+b^{2}$.\nStep 2: Match the squared term: $a^{2}=9$, and since $a>0$, $a=3$.\nStep 3: Match the middle term: $2ab=-30$, so $2(3)b=-30$ and $b=-5$. That is consistent with $b^{2}=25$.\nStep 4: Then $a+b=3+(-5)=-2$. Check: $(3m-5)^{2}=9m^{2}-30m+25$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): takes $a=3$ correctly but reads $b$ as half the middle coefficient, $\\frac{-30}{2}=-15$, giving $3+(-15)$.\n* Choice C ($8$): gets both magnitudes right but keeps $b=5$; the negative middle term forces $b$ to be negative.\n* Choice D ($34$): uses the coefficients $9$ and $25$ themselves as $a$ and $b$ rather than their square roots.\n\n**Test Day Takeaway:** To match a form, expand the form symbolically and line up coefficients. The sign of the middle term, not the constant term, is what decides the sign of $b$."
+ "id": 4,
+ "question": "$16x^{2} - 56x + 49$\nThe given expression is equivalent to $(ax + b)^{2}$, where $a$ and $b$ are constants and $a > 0$. What is the value of $a + b$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-24$"
+  },
+  {
+   "id": "B",
+   "text": "$-3$"
+  },
+  {
+   "id": "C",
+   "text": "$11$"
+  },
+  {
+   "id": "D",
+   "text": "$65$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "takes b as half the middle coefficient, -28, giving 4 + (-28)",
+  "C": "uses b = 7, ignoring the negative middle term",
+  "D": "adds the coefficients 16 and 49 instead of their square roots"
+ },
+ "correctAnswer": "B",
+ "hint": "Expand $(ax + b)^{2}$ in general first, then match it term by term.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** $16x^{2} = (4x)^{2}$ and $49 = (-7)^{2}$, and $2(4)(-7) = -56$ matches the middle term, so $a = 4$, $b = -7$, and $a + b = -3$.\n\n**The Full Solution:**\nStep 1: Expand the target form: $(ax + b)^{2} = a^{2}x^{2} + 2abx + b^{2}$.\nStep 2: Match the $x^{2}$-terms: $a^{2} = 16$, and since $a > 0$, $a = 4$.\nStep 3: Match the $x$-terms: $2(4)b = -56$, so $b = -7$, which also gives $b^{2} = 49$. Then $a + b = 4 + (-7) = -3$. Check: $(4x - 7)^{2} = 16x^{2} - 56x + 49$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-24$): takes $b$ as half the middle coefficient, $\\frac{-56}{2} = -28$, giving $4 + (-28)$.\n* Choice C ($11$): gets both magnitudes right but uses $b = 7$; the negative middle term requires $b < 0$.\n* Choice D ($65$): uses the coefficients $16$ and $49$ themselves instead of their square roots.\n\n**Test Day Takeaway:** To match a perfect-square form, expand the form symbolically and line up coefficients; the sign of the middle term decides the sign of $b$."
 }

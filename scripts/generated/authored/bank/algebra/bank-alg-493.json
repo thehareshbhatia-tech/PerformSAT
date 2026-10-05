@@ -1,29 +1,29 @@
 {
  "id": "bank-alg-493",
- "question": "A bookbinding studio models the glue remaining as $G = 5{,}600 - 350v$ grams after $v$ volumes have been bound. Which is the best interpretation of the number $5{,}600$ in this model?",
+ "question": "$11 - 4x = 39$\nWhat is the solution to the given equation?",
  "choices": [
   {
    "id": "A",
-   "text": "The studio begins with $5{,}600$ grams of glue."
+   "text": "$-12.5$"
   },
   {
    "id": "B",
-   "text": "Each volume uses $5{,}600$ grams of glue."
+   "text": "$-7$"
   },
   {
    "id": "C",
-   "text": "The studio can bind $5{,}600$ volumes before the glue runs out."
+   "text": "$7$"
   },
   {
    "id": "D",
-   "text": "After every volume, $5{,}600$ grams of glue remain."
+   "text": "$28$"
   }
  ],
+ "correctAnswer": "B",
  "distractorNotes": {
-  "B": "reads the constant as the per-volume rate, which is the coefficient 350",
-  "C": "reads the constant as a volume count; the studio can bind 5600 / 350 = 16 volumes",
-  "D": "treats the constant as a value that never changes, ignoring the -350v term"
+  "A": "adds 11 instead of subtracting it",
+  "C": "divides by 4 instead of -4",
+  "D": "reports the right side of -4x = 28"
  },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Setting $v = 0$ gives $G = 5{,}600$, the glue on hand before any volume is bound.\n\n**The Full Solution:**\nStep 1: Identify the roles in $G = 5{,}600 - 350v$. The constant is the value of $G$ when $v = 0$, and $-350$ is the change in $G$ for each volume bound.\nStep 2: Evaluate at $v = 0$: $G = 5{,}600 - 350(0) = 5{,}600$ grams, so $5{,}600$ is the starting supply.\nStep 3: Confirm the other number carries the rate: from $v = 0$ to $v = 1$ the glue falls to $5{,}250$ grams, a drop of $350$ grams per volume. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: assigns the constant to the per-volume usage, which is actually the coefficient $350$.\n* Choice C: reads the constant as a number of volumes; the studio can bind $5{,}600 \\div 350 = 16$ volumes before the glue runs out.\n* Choice D: treats $5{,}600$ as a value that never changes, which ignores the $-350v$ term entirely.\n\n**Test Day Takeaway:** Substitute $0$ for the input to expose the constant's meaning — it is always the starting value, never a rate and never a count of inputs."
+ "explanation": "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Subtract $11$: $-4x = 28$. Divide by $-4$: $x = -7$.\n\n**The Full Solution:**\nStep 1: Subtract $11$ from both sides: $-4x = 28$.\nStep 2: Divide both sides by $-4$: $x = \\frac{28}{-4} = -7$.\nStep 3: The solution is $-7$. Check: $11 - 4(-7) = 11 + 28 = 39$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12.5$): adds $11$ to both sides instead of subtracting it, so $-4x = 50$ and $x = -12.5$.\n* Choice C ($7$): divides $28$ by $4$ instead of by $-4$, dropping the negative sign.\n* Choice D ($28$): stops at $-4x = 28$ and reports $28$.\n\n**Test Day Takeaway:** Keep the sign with the coefficient: in $11 - 4x$, the coefficient of $x$ is $-4$, so the last step divides by $-4$."
 }

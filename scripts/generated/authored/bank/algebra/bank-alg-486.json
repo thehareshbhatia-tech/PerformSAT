@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-486",
-  "question": "A muralist paints $s$ small panels and $\\ell$ large panels, $18$ panels in all. Each small panel covers $12$ square feet and each large panel covers $30$ square feet, for $360$ square feet in all. How many large panels are painted?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$8$"
-    },
-    {
-      "id": "B",
-      "text": "$10$"
-    },
-    {
-      "id": "C",
-      "text": "$12$"
-    },
-    {
-      "id": "D",
-      "text": "$20$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "reports the 10 small panels instead of the large ones",
-    "C": "divides 360 by 30, treating every panel as a large one",
-    "D": "divides 360 by the 18 panels, using an average area of 20 square feet"
+ "id": "bank-alg-486",
+ "question": "Ana and Ben read a total of $41$ books this year. Ana read $13$ more books than Ben. How many books did Ana read?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$14$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** If all $18$ panels were small they would cover $216$ square feet; each swap to a large panel adds $18$ square feet, and $\\frac{360 - 216}{18} = 8$.\n\n**The Full Solution:**\nStep 1: Write both equations. The panel count gives $s + \\ell = 18$, and the coverage gives $12s + 30\\ell = 360$.\nStep 2: Substitute $s = 18 - \\ell$ into the coverage equation: $12(18 - \\ell) + 30\\ell = 360$, which becomes $216 - 12\\ell + 30\\ell = 360$, or $216 + 18\\ell = 360$.\nStep 3: Solve: $18\\ell = 144$, so $\\ell = 8$, and $s = 18 - 8 = 10$. Check: $12(10) + 30(8) = 120 + 240 = 360$, and $10 + 8 = 18$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($10$): solves the system correctly but reports the small-panel count.\n* Choice C ($12$): divides $360$ by $30$, as if every panel painted were a large one.\n* Choice D ($20$): divides $360$ by the $18$ panels to get an average of $20$ square feet and reports that as a count.\n\n**Test Day Takeaway:** A \"how many of each\" setup needs BOTH a count equation and a value equation; substitute one into the other, then answer for the item the question names."
+  {
+   "id": "B",
+   "text": "$27$"
+  },
+  {
+   "id": "C",
+   "text": "$28$"
+  },
+  {
+   "id": "D",
+   "text": "$54$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "reports Ben's count instead of Ana's",
+  "C": "computes 41 - 13 without splitting between the two readers",
+  "D": "adds 41 and 13 and forgets to divide by 2"
+ },
+ "explanation": "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Adding $a + b = 41$ and $a - b = 13$ gives $2a = 54$, so $a = 27$.\n\n**The Full Solution:**\nStep 1: Let $a$ and $b$ be the numbers of books Ana and Ben read. Then $a + b = 41$ and $a = b + 13$.\nStep 2: Substitute $a = b + 13$ into the first equation: $(b + 13) + b = 41$, so $2b = 28$ and $b = 14$.\nStep 3: Then $a = 14 + 13 = 27$. Check: $27 + 14 = 41$ and $27 - 14 = 13$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($14$): is the number of books Ben read, the other unknown.\n* Choice C ($28$): subtracts the difference from the total, $41 - 13 = 28$, without splitting the rest between the two readers.\n* Choice D ($54$): adds the total and the difference, $41 + 13 = 54$, and stops before dividing by $2$.\n\n**Test Day Takeaway:** A total and a difference give two equations; solve for the variable the question names, not the first one that turns up."
 }

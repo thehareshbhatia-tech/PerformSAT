@@ -1,47 +1,52 @@
 {
-  "id": 1,
-  "question": "The table shows the number of units of each supply a bakery buys and the price per unit, in dollars, in terms of $x$. Which expression represents the total amount, in dollars, the bakery pays for these supplies?",
-  "diagram": {
-    "type": "dataTable",
-    "params": {
-      "headers": [
-        "Supply",
-        "Number of units",
-        "Price per unit (dollars)"
-      ],
-      "rows": [
-        [
-          "Flour sacks",
-          "4",
-          "x + 3"
-        ],
-        [
-          "Yeast packets",
-          "3",
-          "2x − 1"
-        ]
-      ]
-    }
+ "id": 1,
+ "question": "The table shows the number of units of each of two supplies a bakery buys and the price, in dollars, of one unit of each supply. Which expression represents the total cost, in dollars, of these supplies?",
+ "diagram": {
+  "type": "dataTable",
+  "params": {
+   "headers": [
+    "Supply",
+    "Number of units",
+    "Price per unit (dollars)"
+   ],
+   "rows": [
+    [
+     "Flour sacks",
+     "4",
+     "x + 3"
+    ],
+    [
+     "Yeast packets",
+     "3",
+     "2x − 1"
+    ]
+   ]
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$10x + 2$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$10x + 2$"
-    },
-    {
-      "id": "B",
-      "text": "$10x + 9$"
-    },
-    {
-      "id": "C",
-      "text": "$10x + 15$"
-    },
-    {
-      "id": "D",
-      "text": "$21x + 14$"
-    }
-  ],
-  "correctAnswer": "B",
-  "hint": "Each row contributes (number of units)(price per unit); distribute each product completely before you combine anything.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** $4(x+3)=4x+12$ and $3(2x-1)=6x-3$; adding gives $10x+9$ — choice B.\n\n**The Full Solution:**\nStep 1: The flour sacks cost $4(x+3)=4x+12$ dollars.\nStep 2: The yeast packets cost $3(2x-1)=6x-3$ dollars.\nStep 3: Add the two costs and combine like terms: $(4x+6x)+(12-3)=10x+9$.\nStep 4: Check with a number. At $x=2$ the unit prices are $5$ and $3$ dollars, so the bill is $4(5)+3(3)=29$ dollars, and $10(2)+9=29$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($10x + 2$): multiplies each quantity by only the $x$-term and copies the constants over untouched: $4x+3+6x-1$.\n* Choice C ($10x + 15$): distributes the $3$ across $2x-1$ as $6x+3$, losing the subtraction sign on the constant.\n* Choice D ($21x + 14$): adds the two unit prices first, $(x+3)+(2x-1)=3x+2$, then multiplies by the total number of units, $7$ — but the two supplies have different unit counts.\n\n**Test Day Takeaway:** Distribute the multiplier across every term inside the parentheses, sign included, and only then collect like terms. A quick numerical check with a convenient value of $x$ catches a dropped sign in seconds."
+  {
+   "id": "B",
+   "text": "$10x + 9$"
+  },
+  {
+   "id": "C",
+   "text": "$10x + 15$"
+  },
+  {
+   "id": "D",
+   "text": "$21x + 14$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "multiplies only the x-terms by the number of units: 4x + 3 + 6x - 1",
+  "C": "distributes 3(2x - 1) as 6x + 3, losing the negative sign",
+  "D": "adds units and prices separately and multiplies the sums: 7(3x + 2)"
+ },
+ "correctAnswer": "B",
+ "hint": "Each row contributes (number of units)(price per unit); distribute each product completely before you combine anything.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** Total cost $= 4(x + 3) + 3(2x - 1) = 4x + 12 + 6x - 3 = 10x + 9$.\n\n**The Full Solution:**\nStep 1: The cost of each supply is the number of units times the price per unit: flour costs $4(x + 3)$ dollars and yeast costs $3(2x - 1)$ dollars.\nStep 2: Distribute: $4(x + 3) = 4x + 12$ and $3(2x - 1) = 6x - 3$.\nStep 3: Add and combine like terms: $4x + 12 + 6x - 3 = 10x + 9$. Check with $x = 1$: $4(4) + 3(1) = 19$ and $10(1) + 9 = 19$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10x + 2$): multiplies only the $x$-terms by the numbers of units, adding $4x + 3 + 6x - 1$.\n* Choice C ($10x + 15$): distributes the $3$ as $6x + 3$, losing the negative sign on the $-1$.\n* Choice D ($21x + 14$): adds the numbers of units and the prices separately and multiplies the sums, $7(3x + 2)$.\n\n**Test Day Takeaway:** Multiply each quantity by its own price before adding, and distribute the factor to every term inside the parentheses."
 }

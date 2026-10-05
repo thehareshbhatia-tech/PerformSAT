@@ -1,30 +1,30 @@
 {
-  "id": 4,
-  "question": "A turnstile at a transit station advances $\\frac{2\\pi}{9}$ radians each time a rider passes through it. A counter records that $n$ riders passed through and that the turnstile rotated a total of $320$ degrees. What is the value of $n$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$4$"
-    },
-    {
-      "id": "B",
-      "text": "$8$"
-    },
-    {
-      "id": "C",
-      "text": "$16$"
-    },
-    {
-      "id": "D",
-      "text": "$40$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "converts one advance to 80 degrees by using 360 in place of pi, then divides 320 by 80",
-    "C": "converts one advance to 20 degrees by using 90 in place of pi, then divides 320 by 20",
-    "D": "reports the degree measure of a single advance, 40, instead of the number of riders"
+ "id": 4,
+ "question": "The measure of angle $R$ is $\\frac{2\\pi}{9}$ radians. The measure of angle $S$ is $55^{\\circ}$ greater than the measure of angle $R$. What is the measure, in degrees, of angle $S$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$40$"
   },
-  "correctAnswer": "B",
-  "hint": "Find what one rider is worth in degrees before dividing.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** One advance is $\\frac{2\\pi}{9} \\cdot \\frac{180}{\\pi} = 40$ degrees, and $\\frac{320}{40} = 8$ riders.\n\n**The Full Solution:**\nStep 1: Convert one advance to degrees. $\\frac{2\\pi}{9} \\cdot \\frac{180}{\\pi} = \\frac{2 \\cdot 180}{9} = 40$ degrees.\nStep 2: Divide the total by the per-rider amount. $n = \\frac{320}{40} = 8$ riders.\nStep 3: Check. Eight advances of $40$ degrees total $320$ degrees, which is $8 \\cdot \\frac{2\\pi}{9} = \\frac{16\\pi}{9}$ radians. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): converts one advance to $80$ degrees by putting $360$ where $\\pi$ belongs, then divides $320$ by $80$.\n* Choice C ($16$): converts one advance to $20$ degrees by putting $90$ where $\\pi$ belongs.\n* Choice D ($40$): is the degree measure of ONE advance, not the number of riders.\n\n**Test Day Takeaway:** Put both quantities in the same unit before dividing, then check the units of what the question actually asks for."
+  {
+   "id": "B",
+   "text": "$75$"
+  },
+  {
+   "id": "C",
+   "text": "$95$"
+  },
+  {
+   "id": "D",
+   "text": "$135$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "converts angle R to 40 degrees and stops before adding 55",
+  "B": "uses 90 degrees in place of pi, so R becomes 20 degrees",
+  "D": "uses 360 degrees in place of pi, so R becomes 80 degrees"
+ },
+ "correctAnswer": "C",
+ "hint": "Convert angle $R$ to degrees before you add.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\frac{2\\pi}{9}$ radians is $\\frac{2(180)}{9} = 40^{\\circ}$, so angle $S$ measures $40 + 55 = 95^{\\circ}$.\n\n**The Full Solution:**\nStep 1: Convert angle $R$ to degrees by replacing $\\pi$ with $180^{\\circ}$: $\\frac{2(180)}{9} = 40^{\\circ}$.\nStep 2: Angle $S$ is $55^{\\circ}$ greater than angle $R$.\nStep 3: So angle $S$ measures $40^{\\circ} + 55^{\\circ} = 95^{\\circ}$. Check: $95^{\\circ} - 55^{\\circ} = 40^{\\circ}$, and $40 \\cdot \\frac{\\pi}{180} = \\frac{2\\pi}{9}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($40$): converts angle $R$ correctly but stops before adding $55^{\\circ}$.\n* Choice B ($75$): uses $90^{\\circ}$ in place of $\\pi$, so angle $R$ becomes $20^{\\circ}$.\n* Choice D ($135$): uses $360^{\\circ}$ in place of $\\pi$, so angle $R$ becomes $80^{\\circ}$.\n\n**Test Day Takeaway:** Put both measures in the same unit before adding; to convert radians to degrees, replace $\\pi$ with $180$."
 }

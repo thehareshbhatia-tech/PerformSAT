@@ -1,12 +1,12 @@
 {
  "id": 2,
- "question": "A right triangular prism is $9$ inches long. Each triangular face is a right triangle with legs of length $6$ inches and $8$ inches. What is the volume, in cubic inches, of the prism?",
+ "question": "Each base of a right prism is a right triangle with legs of length $4$ inches and $9$ inches, as shown. The height of the prism is $7$ inches. What is the volume, in cubic inches, of the prism?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
    "sideLabels": [
-    "6",
-    "8",
+    "9 in",
+    "4 in",
     ""
    ],
    "rightAngleVertex": 1,
@@ -16,27 +16,27 @@
  "choices": [
   {
    "id": "A",
-   "text": "$24$"
+   "text": "$18$"
   },
   {
    "id": "B",
-   "text": "$108$"
+   "text": "$20$"
   },
   {
    "id": "C",
-   "text": "$216$"
+   "text": "$126$"
   },
   {
    "id": "D",
-   "text": "$432$"
+   "text": "$252$"
   }
  ],
  "distractorNotes": {
-  "A": "gives the area of a triangular face and stops",
-  "B": "divides by $2$ a second time",
-  "D": "omits the $\\frac{1}{2}$ that the triangular face requires"
+  "A": "finds the area of the triangular base and stops",
+  "B": "adds the three given lengths, 4 + 9 + 7, instead of multiplying",
+  "D": "multiplies all three lengths without the 1/2 for the triangular base"
  },
  "correctAnswer": "C",
- "hint": "The two legs of a right triangle serve as its base and its height.",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~20s):** Each triangular face has area $\\frac{1}{2}(6)(8) = 24$, so $V = 24(9) = 216$.\n\n**The Full Solution:**\nStep 1: The face is a right triangle, so its legs act as base and height: $B = \\frac{1}{2}(6)(8) = 24$ square inches.\nStep 2: The length of the prism, $9$ inches, is the distance between the two triangular faces.\nStep 3: $V = 24(9) = 216$ cubic inches.\n\nVerification: $\\frac{216}{24} = 9$, the length of the prism. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($24$): gives the area of a triangular face and stops.\n* Choice B ($108$): divides by $2$ a second time.\n* Choice D ($432$): omits the $\\frac{1}{2}$ that the triangular face requires.\n\n**Test Day Takeaway:** For a prism resting on a side, the height in $V = Bh$ is the distance between the two identical faces."
+ "hint": "Find the area of the triangle before using the height of the prism.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** The base area is $\\frac{1}{2}(4)(9) = 18$, and the volume is $18(7) = 126$ cubic inches.\n\n**The Full Solution:**\nStep 1: The legs of a right triangle are perpendicular, so they serve as the triangle's base and height.\nStep 2: The area of each triangular base is $\\frac{1}{2}(4)(9) = 18$ square inches.\nStep 3: Multiply by the prism's height: $18(7) = 126$ cubic inches. Check: $\\frac{4 \\cdot 9 \\cdot 7}{2} = \\frac{252}{2} = 126$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($18$): is the area of one triangular base, in square inches; it still has to be multiplied by the height $7$.\n* Choice B ($20$): adds the lengths $4 + 9 + 7$; a volume comes from multiplying, not adding.\n* Choice D ($252$): multiplies $4 \\cdot 9 \\cdot 7$ but leaves out the $\\frac{1}{2}$ in the area of a triangle, which is the volume of a rectangular box.\n\n**Test Day Takeaway:** A triangular prism holds half as much as the rectangular box built on its two legs, so multiply the three lengths and then halve."
 }

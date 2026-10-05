@@ -1,10 +1,10 @@
 {
  "id": 5,
- "question": "In right triangle $ABC$, angle $C$ is a right angle. The legs have lengths $AC = x$ and $BC = x + 7$, and the hypotenuse has length $AB = 17$. What is the value of $x$?",
+ "question": "A right triangle has legs of lengths $x$ and $x + 7$ and a hypotenuse of length $x + 9$. What is the value of $x$?",
  "choices": [
   {
    "id": "A",
-   "text": "$5$"
+   "text": "$4$"
   },
   {
    "id": "B",
@@ -12,19 +12,19 @@
   },
   {
    "id": "C",
-   "text": "$10$"
+   "text": "$15$"
   },
   {
    "id": "D",
-   "text": "$15$"
+   "text": "$17$"
   }
  ],
  "distractorNotes": {
-  "A": "solves $x + (x + 7) = 17$, adding the legs to reach the hypotenuse",
-  "C": "subtracts $7$ from the hypotenuse",
-  "D": "gives $BC = x + 7$ instead of $x$ itself"
+  "A": "factors as (x + 8)(x - 4), reversing the signs of the roots",
+  "C": "reports the longer leg, x + 7 = 15",
+  "D": "reports the hypotenuse, x + 9 = 17"
  },
  "correctAnswer": "B",
  "hint": "Write the theorem with the expressions in place, then expand before solving.",
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~60s):** $x^2 + (x + 7)^2 = 289$ reduces to $x^2 + 7x - 120 = 0$, so $x = 8$.\n\n**The Full Solution:**\nStep 1: The legs are $x$ and $x + 7$ and the hypotenuse is $17$, so $x^2 + (x + 7)^2 = 17^2$.\nStep 2: Expand: $x^2 + x^2 + 14x + 49 = 289$, so $2x^2 + 14x - 240 = 0$, or $x^2 + 7x - 120 = 0$.\nStep 3: Factor: $(x + 15)(x - 8) = 0$. A length must be positive, so $x = 8$.\n\nVerification: The legs are $8$ and $15$, and $8^2 + 15^2 = 64 + 225 = 289 = 17^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): solves $x + (x + 7) = 17$, adding the legs to reach the hypotenuse.\n* Choice C ($10$): subtracts $7$ from the hypotenuse.\n* Choice D ($15$): gives $BC = x + 7$ instead of $x$ itself.\n\n**Test Day Takeaway:** When the legs are expressions, square them into a quadratic and throw out the negative root."
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~45s):** $x^{2} + (x + 7)^{2} = (x + 9)^{2}$ simplifies to $x^{2} - 4x - 32 = 0$, or $(x - 8)(x + 4) = 0$; a length is positive, so $x = 8$.\n\n**The Full Solution:**\nStep 1: By the Pythagorean theorem, $x^{2} + (x + 7)^{2} = (x + 9)^{2}$.\nStep 2: Expand: $x^{2} + x^{2} + 14x + 49 = x^{2} + 18x + 81$, which simplifies to $x^{2} - 4x - 32 = 0$.\nStep 3: Factor: $(x - 8)(x + 4) = 0$, so $x = 8$ or $x = -4$. A side length must be positive, so $x = 8$. Check: the sides are $8$, $15$, and $17$, and $8^{2} + 15^{2} = 64 + 225 = 289 = 17^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): factors as $(x + 8)(x - 4)$, reversing the signs of the roots.\n* Choice C ($15$): this is the length $x + 7$ of the longer leg, not $x$.\n* Choice D ($17$): this is the length $x + 9$ of the hypotenuse, not $x$.\n\n**Test Day Takeaway:** When sides are given as expressions, write the Pythagorean theorem with the expressions, expand each square fully, and reject any root that makes a length negative."
 }

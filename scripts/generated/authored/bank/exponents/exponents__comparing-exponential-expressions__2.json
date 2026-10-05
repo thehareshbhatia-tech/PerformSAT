@@ -1,29 +1,29 @@
 {
- "question": "A star's brightness measures $2^{12}$ units at one wavelength and $8^{3}$ units at another. Which expression is equivalent to the quotient $\\dfrac{2^{12}}{8^{3}}$ of those two measurements?",
- "hint": "The two bases are not the same yet.",
+ "question": "$\\frac{3^{10}}{9^{3}}$\nWhich expression is equivalent to the given expression?",
+ "hint": "Rewrite both powers with the same base first.",
  "choices": [
   {
    "id": "A",
-   "text": "$2^{3}$"
+   "text": "$3^{1}$"
   },
   {
    "id": "B",
-   "text": "$2^{4}$"
+   "text": "$3^{4}$"
   },
   {
    "id": "C",
-   "text": "$2^{9}$"
+   "text": "$3^{7}$"
   },
   {
    "id": "D",
-   "text": "$2^{36}$"
+   "text": "$3^{13}$"
   }
  ],
  "distractorNotes": {
-  "B": "computes 12 - 8, using the base 8 as though it were an exponent",
-  "C": "reports the rewritten denominator 2^9",
-  "D": "multiplies 12 by 3 instead of subtracting the exponents"
+  "A": "rewrites 9^3 as 3^9 by multiplying 3 by 3 in the exponent, then subtracts 10 - 9",
+  "C": "subtracts the exponents 10 - 3 without first rewriting 9 as a power of 3",
+  "D": "adds the exponents 10 + 3 and ignores the different bases"
  },
- "correctAnswer": "A",
- "explanation": "**Choice A is correct.**\n\n**The Fast Way (~15s):** $8^3 = 2^9$, so the quotient is $2^{12 - 9} = 2^3$.\n\n**The Full Solution:**\nStep 1: Write the denominator with base $2$: $8 = 2^3$, so $8^3 = (2^3)^3 = 2^9$.\nStep 2: The quotient is now $\\dfrac{2^{12}}{2^{9}}$.\nStep 3: Subtract the exponents: $2^{12 - 9} = 2^3$. Check: $\\dfrac{4096}{512} = 8 = 2^3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2^4$): subtracts $12 - 8$, treating the base $8$ as an exponent.\n* Choice C ($2^9$): reports the rewritten denominator instead of the quotient.\n* Choice D ($2^{36}$): multiplies $12$ by $3$, the rule for a power of a power, not for division.\n\n**Test Day Takeaway:** Matching bases comes before any exponent rule can be applied."
+ "correctAnswer": "B",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** $9^{3} = (3^{2})^{3} = 3^{6}$, so $\\frac{3^{10}}{3^{6}} = 3^{4}$.\n\n**The Full Solution:**\nStep 1: Write $9$ as a power of $3$: $9 = 3^{2}$, so $9^{3} = (3^{2})^{3} = 3^{6}$.\nStep 2: Now both powers have base $3$: $\\frac{3^{10}}{3^{6}}$.\nStep 3: Subtract the exponents: $3^{10 - 6} = 3^{4}$. Check: $3^{10} = 59{,}049$ and $9^{3} = 729$, and $\\frac{59{,}049}{729} = 81 = 3^{4}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3^{1}$): rewrites $9^{3}$ as $3^{9}$; $9^{3} = (3^{2})^{3}$, and the exponents multiply to $6$, not $9$.\n* Choice C ($3^{7}$): subtracts $10 - 3$ even though the bases $3$ and $9$ are different.\n* Choice D ($3^{13}$): adds the exponents, which is the rule for multiplying, and ignores the different bases.\n\n**Test Day Takeaway:** Exponent rules work only on a common base; rewrite $4$, $8$, $9$, $27$, and similar numbers as powers of $2$ or $3$ before combining."
 }

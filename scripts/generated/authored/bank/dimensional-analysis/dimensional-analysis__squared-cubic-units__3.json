@@ -1,25 +1,30 @@
 {
-  "id": 3,
-  "question": "A storage crate is a rectangular box whose interior measures $50$ centimeters by $40$ centimeters by $30$ centimeters. Given that $1$ meter is equal to $100$ centimeters, what is the interior volume of the crate, in cubic meters?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$0.00006$"
-    },
-    {
-      "id": "B",
-      "text": "$0.06$"
-    },
-    {
-      "id": "C",
-      "text": "$6$"
-    },
-    {
-      "id": "D",
-      "text": "$60$"
-    }
-  ],
-  "correctAnswer": "B",
-  "hint": "Find the volume in the units the dimensions are already given in, then convert that single number.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** The volume is $50(40)(30)=60{,}000$ cubic centimeters, and a cubic meter is $100^{3}=1{,}000{,}000$ of them: $\\frac{60{,}000}{1{,}000{,}000}=0.06$ — choice B.\n\n**The Full Solution:**\nStep 1: Volume in the given units: $50(40)(30)=60{,}000$ cubic centimeters.\nStep 2: A cubic meter is a $100$-centimeter cube, so it contains $100^{3}=1{,}000{,}000$ cubic centimeters.\nStep 3: Divide, because a cubic meter is the larger unit: $\\frac{60{,}000}{1{,}000{,}000}=0.06$ cubic meter.\nStep 4: Check by converting the edges first: $0.5$ by $0.4$ by $0.3$ meter gives $0.06$ cubic meter. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.00006$): divides by $1{,}000^{3}$, the factor that would apply if the dimensions were in millimeters.\n* Choice C ($6$): divides by $100^{2}=10{,}000$, the area factor, on a volume.\n* Choice D ($60$): divides by $1{,}000$, borrowing the milliliter-to-liter factor instead of cubing $100$.\n\n**Test Day Takeaway:** Either cube the conversion factor at the end or convert each edge at the start — both work, and doing one of them all the way is safer than mixing."
+ "id": 3,
+ "question": "A box has interior dimensions of $50$ centimeters by $40$ centimeters by $30$ centimeters. What is the volume, in cubic meters, of the interior of the box? ($1$ meter $= 100$ centimeters)",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$0.06$"
+  },
+  {
+   "id": "B",
+   "text": "$6$"
+  },
+  {
+   "id": "C",
+   "text": "$60$"
+  },
+  {
+   "id": "D",
+   "text": "$600$"
+  }
+ ],
+ "correctAnswer": "A",
+ "distractorNotes": {
+  "B": "divides by 100^2 instead of 100^3",
+  "C": "divides by 1,000 instead of 100^3",
+  "D": "divides by 100 instead of 100^3"
+ },
+ "hint": "Change each dimension to meters before multiplying.",
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~25s):** In meters the box is $0.5$ by $0.4$ by $0.3$, so its volume is $0.5(0.4)(0.3) = 0.06$ cubic meter.\n\n**The Full Solution:**\nStep 1: Convert each dimension to meters: $0.5$ meter, $0.4$ meter, and $0.3$ meter.\nStep 2: Multiply: $0.5(0.4) = 0.2$ and $0.2(0.3) = 0.06$.\nStep 3: The volume is $0.06$ cubic meter. Check: in centimeters the volume is $50(40)(30) = 60{,}000$ cubic centimeters, and $\\frac{60{,}000}{100^3} = 0.06$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($6$): divides $60{,}000$ by $100^2 = 10{,}000$, the factor for square units.\n* Choice C ($60$): divides $60{,}000$ by $1{,}000$, as if a cubic meter were $1{,}000$ cubic centimeters.\n* Choice D ($600$): divides $60{,}000$ by $100$, the factor for length.\n\n**Test Day Takeaway:** Converting each length before multiplying avoids choosing the wrong power; a cubic meter is $100^3$ cubic centimeters."
 }

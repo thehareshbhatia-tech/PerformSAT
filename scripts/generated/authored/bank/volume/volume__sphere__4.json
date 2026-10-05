@@ -1,30 +1,30 @@
 {
  "id": 4,
- "question": "Sphere $B$ has a radius that is half the radius of sphere $A$. The volume of sphere $B$ is what fraction of the volume of sphere $A$?",
+ "question": "The volume of sphere $A$ is $27$ times the volume of sphere $B$. The radius of sphere $B$ is $2$ centimeters. What is the radius, in centimeters, of sphere $A$?",
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{1}{8}$"
+   "text": "$3$"
   },
   {
    "id": "B",
-   "text": "$\\frac{1}{6}$"
+   "text": "$6$"
   },
   {
    "id": "C",
-   "text": "$\\frac{1}{4}$"
+   "text": "$18$"
   },
   {
    "id": "D",
-   "text": "$\\frac{1}{2}$"
+   "text": "$54$"
   }
  ],
  "distractorNotes": {
-  "B": "multiplies the denominator by $3$ instead of raising $2$ to the third power",
-  "C": "squares the length factor, which is the rule for area",
-  "D": "uses the length factor once"
+  "A": "finds the scale factor 3 = cube root of 27 but reports it as the radius instead of multiplying by 2",
+  "C": "uses 9 as the scale factor, as if volume scaled with the square of the radius, giving 2(9) = 18",
+  "D": "multiplies the radius by the volume factor 27, as if volume scaled with the radius itself"
  },
- "correctAnswer": "A",
- "hint": "The radius appears three times over in the volume formula.",
- "explanation": "**Choice A is correct.**\n\n**The Fast Way (~30s):** Volume scales by the cube of the radius factor: $\\left(\\frac{1}{2}\\right)^3 = \\frac{1}{8}$.\n\n**The Full Solution:**\nStep 1: Let sphere $A$ have radius $r$, so sphere $B$ has radius $\\frac{r}{2}$.\nStep 2: $V_B = \\frac{4}{3}\\pi\\left(\\frac{r}{2}\\right)^3 = \\frac{4}{3}\\pi \\cdot \\frac{r^3}{8}$.\nStep 3: That is $\\frac{1}{8}$ of $V_A = \\frac{4}{3}\\pi r^3$.\n\nVerification: With $r = 2$: $V_A = \\frac{32\\pi}{3}$ and $V_B = \\frac{4\\pi}{3}$, a ratio of $\\frac{1}{8}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{1}{6}$): multiplies the denominator by $3$ instead of raising $2$ to the third power.\n* Choice C ($\\frac{1}{4}$): squares the length factor, which is the rule for area.\n* Choice D ($\\frac{1}{2}$): uses the length factor once.\n\n**Test Day Takeaway:** Halving every length divides volume by $8$, not by $2$."
+ "correctAnswer": "B",
+ "hint": "Volume grows with the cube of the radius.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** Volume scales with the cube of the radius, so the radius scales by $\\sqrt[3]{27} = 3$, and sphere $A$ has radius $3(2) = 6$.\n\n**The Full Solution:**\nStep 1: Write each volume with the sphere formula: $\\frac{4}{3}\\pi r_{A}^{3} = 27 \\cdot \\frac{4}{3}\\pi(2)^{3}$.\nStep 2: Cancel $\\frac{4}{3}\\pi$: $r_{A}^{3} = 27 \\cdot 8 = 216$.\nStep 3: Take the cube root: $r_{A} = 6$ centimeters. Check: $\\frac{6^{3}}{2^{3}} = \\frac{216}{8} = 27$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): finds the scale factor $\\sqrt[3]{27} = 3$ but reports it as the radius; the factor still has to multiply sphere $B$'s radius of $2$.\n* Choice C ($18$): multiplies the radius by $9$, which is how a radius would change if volume grew with the square of the radius.\n* Choice D ($54$): multiplies the radius by $27$, treating volume as if it were proportional to the radius.\n\n**Test Day Takeaway:** If a volume is multiplied by $k$, every length of a similar solid is multiplied by $\\sqrt[3]{k}$; take the cube root of the volume factor before you touch the given length."
 }

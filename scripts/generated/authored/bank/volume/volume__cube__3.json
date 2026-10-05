@@ -1,30 +1,30 @@
 {
  "id": 3,
- "question": "A cube has a volume of $64$ cubic feet. A second cube has an edge length that is $3$ times the edge length of the first cube. What is the volume, in cubic feet, of the second cube?",
+ "question": "A cube has a volume of $64$ cubic feet. A second cube has edges that are $3$ times as long as the edges of the first cube. What is the volume, in cubic feet, of the second cube?",
  "choices": [
   {
    "id": "A",
-   "text": "$12$"
-  },
-  {
-   "id": "B",
    "text": "$192$"
   },
   {
-   "id": "C",
+   "id": "B",
    "text": "$576$"
   },
   {
-   "id": "D",
+   "id": "C",
    "text": "$1{,}728$"
+  },
+  {
+   "id": "D",
+   "text": "$262{,}144$"
   }
  ],
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "gives the edge length of the second cube rather than its volume",
-  "B": "multiplies the volume by $3$ instead of by $3^3$",
-  "C": "multiplies the volume by $3^2$"
+  "A": "multiplies the volume by the edge factor 3",
+  "B": "multiplies the volume by 3^2, the factor for areas",
+  "D": "cubes the volume instead of the new edge"
  },
- "correctAnswer": "D",
- "hint": "Find the first edge length before scaling anything.",
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~35s):** The first edge is $4$ feet, the second is $12$ feet, and $12^3 = 1{,}728$.\n\n**The Full Solution:**\nStep 1: $s^3 = 64$ gives $s = 4$ feet for the first cube.\nStep 2: The second cube has edge $3(4) = 12$ feet.\nStep 3: $12^3 = 1{,}728$ cubic feet.\n\nVerification: $64 \\cdot 3^3 = 64(27) = 1{,}728$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): gives the edge length of the second cube rather than its volume.\n* Choice B ($192$): multiplies the volume by $3$ instead of by $3^3$.\n* Choice C ($576$): multiplies the volume by $3^2$.\n\n**Test Day Takeaway:** Tripling an edge multiplies volume by $27$, because the factor applies once for each of the three dimensions."
+ "hint": "Find the edge length of the first cube.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~20s):** The first edge is $4$ feet, so the second edge is $12$ feet and the volume is $12^3 = 1{,}728$.\n\n**The Full Solution:**\nStep 1: The first cube has edge $\\sqrt[3]{64} = 4$ feet.\nStep 2: The second cube has edge $3(4) = 12$ feet.\nStep 3: Its volume is $12^3 = 1{,}728$ cubic feet. Check: tripling every edge multiplies the volume by $3^3 = 27$, and $27(64) = 1{,}728$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($192$): multiplies the volume by $3$, as if volume grew at the same rate as the edges.\n* Choice B ($576$): multiplies the volume by $3^2 = 9$, the factor for areas.\n* Choice D ($262{,}144$): cubes the volume, $64^3$, instead of cubing the new edge length.\n\n**Test Day Takeaway:** Multiplying every edge by $k$ multiplies the volume by $k^3$."
 }

@@ -1,6 +1,6 @@
 {
  "id": 4,
- "question": "A cube has edges of length $2$ feet. Given that $1$ foot is equal to $12$ inches, what is the volume, in cubic inches, of the cube?",
+ "question": "A cube has an edge length of $2$ feet. What is the volume, in cubic inches, of the cube? ($1$ foot $= 12$ inches)",
  "choices": [
   {
    "id": "A",
@@ -19,12 +19,12 @@
    "text": "$13{,}824$"
   }
  ],
- "distractorNotes": {
-  "A": "multiplies the volume in cubic feet by $12$ once",
-  "B": "squares the edge length in inches instead of cubing it",
-  "C": "multiplies the volume in cubic feet by $12^2$"
- },
  "correctAnswer": "D",
- "hint": "Change the edge into inches before you raise anything to the third power.",
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~35s):** The edge is $24$ inches, so the volume is $24^3 = 13{,}824$ cubic inches.\n\n**The Full Solution:**\nStep 1: Convert the edge length first: $2$ feet is $2(12) = 24$ inches.\nStep 2: The volume of a cube is $s^3$, so $V = 24^3$.\nStep 3: $24^3 = 13{,}824$ cubic inches.\n\nVerification: The cube holds $8$ cubic feet, and $8(12^3) = 8(1{,}728) = 13{,}824$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($96$): multiplies the volume in cubic feet by $12$ once.\n* Choice B ($576$): squares the edge length in inches instead of cubing it.\n* Choice C ($1{,}152$): multiplies the volume in cubic feet by $12^2$.\n\n**Test Day Takeaway:** Convert the length before cubing, or convert the volume using the cube of the conversion factor — never the factor by itself."
+ "distractorNotes": {
+  "A": "multiplies 8 cubic feet by 12 once instead of by 12^3",
+  "B": "squares the 24-inch edge instead of cubing it",
+  "C": "multiplies 8 cubic feet by 144, the square-unit factor"
+ },
+ "hint": "Change the edge length to inches before finding the volume.",
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~20s):** The edge is $2(12) = 24$ inches, so the volume is $24^3 = 13{,}824$ cubic inches.\n\n**The Full Solution:**\nStep 1: Convert the edge length to inches: $2$ feet is $2(12) = 24$ inches.\nStep 2: The volume of a cube with edge $s$ is $s^3$, so $V = 24^3$.\nStep 3: $24^3 = 13{,}824$ cubic inches. Check: the cube is $2^3 = 8$ cubic feet, and each cubic foot is $12^3 = 1{,}728$ cubic inches; $8(1{,}728) = 13{,}824$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($96$): finds the volume in cubic feet, $2^3 = 8$, and then multiplies by $12$ only once.\n* Choice B ($576$): converts the edge to $24$ inches but squares it, $24^2 = 576$, which is the area of one face.\n* Choice C ($1{,}152$): multiplies $8$ cubic feet by $12^2 = 144$, the conversion factor for square units.\n\n**Test Day Takeaway:** Convert the length before cubing; if you convert after, a cubic foot is $12^3$ cubic inches, not $12$."
 }

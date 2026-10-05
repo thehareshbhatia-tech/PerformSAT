@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-492",
- "question": "A signal contractor bills a \\$90 mobilization fee plus \\$45 for each rail crossing gate serviced. A town's invoice for one visit totals \\$450. How many gates were serviced?",
+ "question": "A gym charges a one-time fee of \\$45 plus \\$30 for each month of membership. Jada paid the gym a total of \\$285. For how many months of membership did Jada pay?",
  "choices": [
   {
    "id": "A",
@@ -8,22 +8,22 @@
   },
   {
    "id": "B",
-   "text": "$9$"
+   "text": "$9.5$"
   },
   {
    "id": "C",
-   "text": "$10$"
+   "text": "$11$"
   },
   {
    "id": "D",
-   "text": "$360$"
+   "text": "$240$"
   }
  ],
- "distractorNotes": {
-  "B": "removes one gate's 45 dollars instead of the 90 dollar fee, computing (450 - 45)/45 = 9",
-  "C": "divides 450 by 45 and ignores the mobilization fee entirely",
-  "D": "reports the 360 dollars billed for gate work rather than the number of gates"
- },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Remove the fee and divide by the per-gate charge: $\\frac{450 - 90}{45} = \\frac{360}{45} = 8$.\n\n**The Full Solution:**\nStep 1: Write the invoice as an equation: $90 + 45g = 450$, where $g$ is the number of gates serviced.\nStep 2: Subtract the one-time mobilization fee: $45g = 360$.\nStep 3: Divide by the per-gate charge: $g = 8$. Check: $90 + 45(8) = 90 + 360 = 450$ dollars. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($9$): subtracts one gate's $45$ dollars instead of the $90$-dollar fee, computing $\\frac{405}{45} = 9$.\n* Choice C ($10$): divides $450$ by $45$ and never removes the mobilization fee.\n* Choice D ($360$): reports the dollars billed for gate work rather than the count of gates.\n\n**Test Day Takeaway:** A one-time fee is not part of any per-unit charge — subtract it once, then divide the remainder by the rate."
+ "distractorNotes": {
+  "B": "ignores the one-time fee",
+  "C": "adds the fee instead of subtracting it",
+  "D": "reports the dollars paid for months instead of the number of months"
+ },
+ "explanation": "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Remove the fee: $285 - 45 = 240$. Divide by the monthly charge: $240 \\div 30 = 8$.\n\n**The Full Solution:**\nStep 1: Let $m$ be the number of months. The total paid is $45 + 30m = 285$.\nStep 2: Subtract $45$ from both sides: $30m = 240$.\nStep 3: Divide by $30$: $m = 8$. Check: $45 + 30(8) = 45 + 240 = 285$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($9.5$): divides the total by the monthly charge, $285 \\div 30 = 9.5$, ignoring the one-time fee.\n* Choice C ($11$): adds the fee to the total instead of subtracting it, $(285 + 45) \\div 30 = 11$.\n* Choice D ($240$): is the amount Jada paid for the months, $285 - 45 = 240$ dollars, not the number of months.\n\n**Test Day Takeaway:** A one-time fee plus a charge per unit is a two-step equation: subtract the fee, then divide by the rate."
 }

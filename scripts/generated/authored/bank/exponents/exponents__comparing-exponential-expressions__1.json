@@ -1,30 +1,30 @@
 {
  "id": 1,
- "question": "Each of the following expressions is a power of a positive integer. Which of these expressions has the greatest value?",
+ "question": "Which of the following has the greatest value?",
  "choices": [
   {
    "id": "A",
-   "text": "$2^5$"
+   "text": "$2^{7}$"
   },
   {
    "id": "B",
-   "text": "$3^4$"
+   "text": "$3^{4}$"
   },
   {
    "id": "C",
-   "text": "$4^3$"
+   "text": "$5^{3}$"
   },
   {
    "id": "D",
-   "text": "$7^2$"
+   "text": "$11^{2}$"
   }
  ],
- "correctAnswer": "B",
- "hint": "None of these is hard to evaluate — evaluate all four before choosing.",
+ "correctAnswer": "A",
+ "hint": "Evaluate each power before comparing.",
  "distractorNotes": {
-  "A": "picks the largest exponent",
-  "C": "assumes a larger base wins",
-  "D": "compares base times exponent"
+  "B": "assumes the larger base 3 with exponent 4 must win over 2^7, but 3^4 is only 81",
+  "C": "estimates 5^3 = 125 as the largest without evaluating 2^7 = 128",
+  "D": "picks the largest base, 11, assuming base matters more than exponent"
  },
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** $2^5 = 32$, $3^4 = 81$, $4^3 = 64$, and $7^2 = 49$, so $3^4$ is the largest.\n\n**The Full Solution:**\nStep 1: Evaluate each power: $2^5 = 32$ and $3^4 = 81$.\nStep 2: Evaluate the rest: $4^3 = 64$ and $7^2 = 49$.\nStep 3: Compare $32$, $81$, $64$, and $49$; the greatest is $81$, so the answer is $3^4$. Check: $81 > 64$, the nearest competitor.\n\n**Why the wrong answers are tempting:**\n* Choice A ($2^5 = 32$): picks the expression with the largest exponent, but the smallest base holds it back.\n* Choice C ($4^3 = 64$): assumes a larger base beats a larger exponent and stops before checking $3^4$.\n* Choice D ($7^2 = 49$): compares $b \\times n$ instead of $b^n$; $7 \\times 2 = 14$ is the largest such product, but the value is not.\n\n**Test Day Takeaway:** Neither the base nor the exponent alone decides the size of a power. When the numbers are small, just compute all four."
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~20s):** $2^{7} = 128$, $3^{4} = 81$, $5^{3} = 125$, and $11^{2} = 121$, so $2^{7}$ is greatest.\n\n**The Full Solution:**\nStep 1: Evaluate the first two: $2^{7} = 128$ and $3^{4} = 81$.\nStep 2: Evaluate the other two: $5^{3} = 125$ and $11^{2} = 121$.\nStep 3: Compare: $128 > 125 > 121 > 81$, so $2^{7}$ has the greatest value. Check: $2^{7} = 2^{3} \\cdot 2^{4} = 8 \\cdot 16 = 128$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3^{4}$): has the largest exponent after $2^{7}$, but its value is only $81$.\n* Choice C ($5^{3}$): is close, at $125$, but $2^{7} = 128$ is greater; the values must be computed, not estimated.\n* Choice D ($11^{2}$): has the largest base, but a large base with a small exponent gives only $121$.\n\n**Test Day Takeaway:** Neither the largest base nor the largest exponent guarantees the largest power; when the values are small enough, evaluate each one."
 }

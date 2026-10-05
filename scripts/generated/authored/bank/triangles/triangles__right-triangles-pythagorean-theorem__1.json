@@ -1,6 +1,6 @@
 {
  "id": 1,
- "question": "The diagonal brace of a barge loading ramp forms the right triangle shown, with two side lengths given in feet. What is the length, in feet, of the brace?",
+ "question": "What is the length of the hypotenuse of the right triangle shown?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -50,6 +50,6 @@
   "D": "stops at 29 squared without taking the square root"
  },
  "correctAnswer": "B",
- "hint": "The brace is the side opposite the right angle.",
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** $21^2 + 20^2 = 441 + 400 = 841$, and $\\sqrt{841} = 29$ feet.\n\n**The Full Solution:**\nStep 1: The brace is the hypotenuse, so $21^2 + 20^2 = c^2$.\nStep 2: That gives $441 + 400 = 841$.\nStep 3: Taking the square root, $c = 29$ feet. Check: $29^2 = 841 = 441 + 400$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\sqrt{41}$): subtracting the squares, $441 - 400$, which finds a leg rather than the hypotenuse.\n* Choice C ($41$): adding the two legs directly; the theorem adds their squares.\n* Choice D ($841$): stopping at $c^2$ and never taking the square root.\n\n**Test Day Takeaway:** Add the squares of the legs to get the square of the hypotenuse, then take the root."
+ "hint": "Square the two legs before adding.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** $21^{2} + 20^{2} = 441 + 400 = 841$, and $\\sqrt{841} = 29$.\n\n**The Full Solution:**\nStep 1: The legs of the right triangle have lengths $21$ and $20$; let $c$ be the length of the hypotenuse.\nStep 2: By the Pythagorean theorem, $c^{2} = 21^{2} + 20^{2} = 441 + 400 = 841$.\nStep 3: Take the positive square root: $c = 29$. Check: $29^{2} = 841 = 441 + 400$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\sqrt{41}$): subtracts the squares, $441 - 400 = 41$, which is the method for a missing leg.\n* Choice C ($41$): adds the two legs instead of their squares.\n* Choice D ($841$): stops at $c^{2}$ and never takes the square root.\n\n**Test Day Takeaway:** For the hypotenuse, add the squares of the legs and then take the square root."
 }

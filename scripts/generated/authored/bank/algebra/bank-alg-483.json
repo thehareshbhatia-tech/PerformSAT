@@ -1,29 +1,29 @@
 {
  "id": "bank-alg-483",
- "question": "A crew lines manholes at $3$ hours each and grouts joints at $2$ hours each, lining twice as many manholes as the joints it grouts, for $48$ hours of work in all. Which equation gives $y$, the number of joints grouted?",
+ "question": "$y = 5 - 2x$\n$3x - 4y = 13$\nThe solution to the given system of equations is $(x, y)$. What is the value of $x$?",
  "choices": [
   {
    "id": "A",
-   "text": "$3(2y) + 2y = 48$"
+   "text": "$-6.6$"
   },
   {
    "id": "B",
-   "text": "$3y + 2(2y) = 48$"
+   "text": "$-1$"
   },
   {
    "id": "C",
-   "text": "$3(2y) + 2(2y) = 48$"
+   "text": "$3$"
   },
   {
    "id": "D",
-   "text": "$3(y + 2) + 2y = 48$"
+   "text": "$33$"
   }
  ],
+ "correctAnswer": "C",
  "distractorNotes": {
-  "B": "makes the joints the doubled quantity instead of the manholes",
-  "C": "doubles both terms, charging the 2-hour joint work to twice as many joints",
-  "D": "reads twice as many as two more than, replacing the factor with an addition"
+  "A": "gets -8x instead of +8x when distributing -4 over -2x",
+  "B": "reports y instead of x",
+  "D": "distributes -4 to the 5 but not to the -2x"
  },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: System of Equations (Substitution)**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Manholes number $2y$, so their hours are $3(2y)$ and the joints add $2y$ hours: $3(2y) + 2y = 48$.\n\n**The Full Solution:**\nStep 1: Name the quantities. Let $y$ be the joints grouted and $m$ the manholes lined. \"Twice as many manholes as joints\" gives $m = 2y$.\nStep 2: Write the hours. Lining costs $3$ hours each, so $3m$; grouting costs $2$ hours each, so $2y$. The total is $3m + 2y = 48$.\nStep 3: Substitute $m = 2y$: $3(2y) + 2y = 48$. Check that it is solvable and sensible: $6y + 2y = 48$ gives $y = 6$ joints and $m = 12$ manholes, and $3(12) + 2(6) = 36 + 12 = 48$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: attaches the doubling to the joints instead of the manholes, reversing the stated relationship.\n* Choice C: doubles both terms, as if there were also twice as many joints as joints.\n* Choice D: reads \"twice as many\" as \"two more than,\" replacing the factor $2$ with an addition.\n\n**Test Day Takeaway:** Write the total in both variables first, then substitute the relationship — that order keeps the multiplier attached to the right quantity."
+ "explanation": "**SAT Pattern: System of Equations (Substitution)**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Substitute: $3x - 4(5 - 2x) = 13$, so $11x - 20 = 13$ and $x = 3$.\n\n**The Full Solution:**\nStep 1: Replace $y$ in the second equation with $5 - 2x$: $3x - 4(5 - 2x) = 13$.\nStep 2: Distribute the $-4$ to both terms: $3x - 20 + 8x = 13$, so $11x = 33$.\nStep 3: Divide: $x = 3$. Check: $y = 5 - 2(3) = -1$, and $3(3) - 4(-1) = 9 + 4 = 13$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6.6$): multiplies $-4$ by $-2x$ and gets $-8x$, so $3x - 20 - 8x = 13$ and $x = -6.6$.\n* Choice B ($-1$): is the value of $y$, not $x$.\n* Choice D ($33$): multiplies only the $5$ by $-4$, writing $3x - 20 - 2x = 13$, so $x = 33$.\n\n**Test Day Takeaway:** A negative coefficient in front of a substituted expression multiplies every term inside, and negative times negative is positive."
 }

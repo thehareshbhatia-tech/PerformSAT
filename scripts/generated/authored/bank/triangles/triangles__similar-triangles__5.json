@@ -1,30 +1,30 @@
 {
  "id": 5,
- "question": "In triangle $ABC$, point $D$ lies on $\\overline{AB}$ and point $E$ lies on $\\overline{AC}$ so that $\\overline{DE}$ is parallel to $\\overline{BC}$. If $AD = 6$, $DB = 4$, and $BC = 20$, what is the length of $\\overline{DE}$?",
+ "question": "In triangle $ABC$, point $D$ lies on $\\overline{AB}$, point $E$ lies on $\\overline{AC}$, and $\\overline{DE}$ is parallel to $\\overline{BC}$. If $AD = 4$, $DB = 6$, $DE = x$, and $BC = x + 9$, what is the value of $x$?",
  "choices": [
   {
    "id": "A",
-   "text": "$8$"
+   "text": "$6$"
   },
   {
    "id": "B",
-   "text": "$12$"
+   "text": "$13.5$"
   },
   {
    "id": "C",
-   "text": "$14$"
+   "text": "$15$"
   },
   {
    "id": "D",
-   "text": "$30$"
+   "text": "$18$"
   }
  ],
  "distractorNotes": {
-  "A": "uses $\\frac{DB}{AB} = \\frac{4}{10}$ instead of $\\frac{AD}{AB}$",
-  "C": "subtracts $AD$ from $BC$ rather than scaling",
-  "D": "uses $\\frac{AD}{DB} = \\frac{6}{4}$, comparing the two pieces of $\\overline{AB}$ instead of a piece to the whole"
+  "B": "compares DB with AB, solving x/(x + 9) = 6/10",
+  "C": "reports the length of BC instead of x",
+  "D": "compares the two pieces of AB, solving x/(x + 9) = 4/6"
  },
- "correctAnswer": "B",
- "hint": "The whole side $\\overline{AB}$, not the piece $\\overline{DB}$, is what $\\overline{AD}$ should be compared with.",
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~50s):** $AB = 6 + 4 = 10$, so $DE = 20 \\cdot \\frac{6}{10} = 12$.\n\n**The Full Solution:**\nStep 1: Because $\\overline{DE}$ is parallel to $\\overline{BC}$, triangles $ADE$ and $ABC$ have congruent corresponding angles and are similar.\nStep 2: The scale factor compares a side of $ADE$ to the whole corresponding side: $\\frac{AD}{AB} = \\frac{6}{6 + 4} = \\frac{3}{5}$.\nStep 3: So $DE = \\frac{3}{5}(20) = 12$.\n\nVerification: $\\frac{12}{20} = \\frac{3}{5} = \\frac{6}{10}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): uses $\\frac{DB}{AB} = \\frac{4}{10}$ instead of $\\frac{AD}{AB}$.\n* Choice C ($14$): subtracts $AD$ from $BC$ rather than scaling.\n* Choice D ($30$): uses $\\frac{AD}{DB} = \\frac{6}{4}$, comparing the two pieces of $\\overline{AB}$ instead of a piece to the whole.\n\n**Test Day Takeaway:** When a parallel segment cuts a triangle, compare a piece to the whole side, never a piece to the other piece."
+ "correctAnswer": "A",
+ "hint": "Compare $\\overline{AD}$ with the whole side $\\overline{AB}$, not with the piece $\\overline{DB}$.",
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~40s):** Triangle $ADE$ is similar to triangle $ABC$ with ratio $\\frac{AD}{AB} = \\frac{4}{10}$, so $\\frac{x}{x + 9} = \\frac{2}{5}$, which gives $5x = 2x + 18$ and $x = 6$.\n\n**The Full Solution:**\nStep 1: Since $\\overline{DE}$ is parallel to $\\overline{BC}$, corresponding angles are congruent, so triangle $ADE$ is similar to triangle $ABC$. The side of the small triangle along $\\overline{AB}$ is $AD = 4$, and the matching side of the large triangle is $AB = AD + DB = 10$.\nStep 2: Corresponding sides are proportional: $\\frac{DE}{BC} = \\frac{AD}{AB}$, so $\\frac{x}{x + 9} = \\frac{4}{10}$.\nStep 3: Cross-multiply: $10x = 4x + 36$, so $6x = 36$ and $x = 6$. Check: $DE = 6$ and $BC = 15$, and $\\frac{6}{15} = \\frac{2}{5} = \\frac{4}{10}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($13.5$): compares $DB$ with $AB$, solving $\\frac{x}{x + 9} = \\frac{6}{10}$.\n* Choice C ($15$): this is the length of $\\overline{BC}$, not the value of $x$.\n* Choice D ($18$): compares the two pieces of $\\overline{AB}$, solving $\\frac{x}{x + 9} = \\frac{4}{6}$.\n\n**Test Day Takeaway:** When a segment parallel to one side cuts a triangle, compare a piece of a side with the whole side, never with the other piece."
 }

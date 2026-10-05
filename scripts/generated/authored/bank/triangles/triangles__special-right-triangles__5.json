@@ -1,6 +1,6 @@
 {
  "id": 5,
- "question": "A beet-loading conveyor rises from the field to a trailer at an angle of $30^\\circ$ with the level ground, and its horizontal run measures $4\\sqrt{3}$ meters. What is the length, in meters, of the conveyor?",
+ "question": "One angle of a right triangle measures $30^{\\circ}$, and the perimeter of the triangle is $12 + 4\\sqrt{3}$ units. What is the length, in units, of the hypotenuse of the triangle?",
  "choices": [
   {
    "id": "A",
@@ -20,11 +20,11 @@
   }
  ],
  "distractorNotes": {
-  "A": "reports the vertical rise instead of the conveyor's length",
-  "B": "repeats the given horizontal run",
-  "D": "doubles the run instead of the rise"
+  "A": "reports the shortest side s instead of the hypotenuse",
+  "B": "reports the side opposite the 60 degree angle",
+  "D": "doubles the longer leg instead of the shorter one"
  },
  "correctAnswer": "C",
- "hint": "The run is not the side opposite the $30^\\circ$ angle.",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~35s):** The run is the longer leg, $4\\sqrt{3}$, so the shorter leg is $4$ and the conveyor, the hypotenuse, is $8$ meters.\n\n**The Full Solution:**\nStep 1: The conveyor, its horizontal run, and its vertical rise form a $30$-$60$-$90$ triangle, and the run lies opposite the $60^\\circ$ angle, so it is the longer leg.\nStep 2: The longer leg is $\\sqrt{3}$ times the shorter leg, so the rise is $\\frac{4\\sqrt{3}}{\\sqrt{3}} = 4$ meters.\nStep 3: The hypotenuse is twice the shorter leg, so the conveyor is $8$ meters long. Check: $4^2 + (4\\sqrt{3})^2 = 16 + 48 = 64 = 8^2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): reporting the vertical rise, the shorter leg, instead of the conveyor itself.\n* Choice B ($4\\sqrt{3}$): repeating the horizontal run that the question already gave.\n* Choice D ($8\\sqrt{3}$): doubling the run; the hypotenuse is twice the SHORTER leg, not twice the longer one.\n\n**Test Day Takeaway:** In a $30$-$60$-$90$ triangle, find the shorter leg first — every other length is measured from it."
+ "hint": "Write all three sides in terms of the shortest side.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~45s):** If the shortest side is $s$, the sides are $s$, $s\\sqrt{3}$, and $2s$, so the perimeter is $s(3 + \\sqrt{3}) = 4(3 + \\sqrt{3})$. Then $s = 4$ and the hypotenuse is $8$.\n\n**The Full Solution:**\nStep 1: The triangle is a $30^{\\circ}$-$60^{\\circ}$-$90^{\\circ}$ triangle. Let $s$ be the length of the side opposite the $30^{\\circ}$ angle; then the other leg is $s\\sqrt{3}$ and the hypotenuse is $2s$.\nStep 2: The perimeter is $s + s\\sqrt{3} + 2s = 3s + s\\sqrt{3} = s(3 + \\sqrt{3})$.\nStep 3: The given perimeter is $12 + 4\\sqrt{3} = 4(3 + \\sqrt{3})$, so $s = 4$ and the hypotenuse is $2s = 8$. Check: $4 + 4\\sqrt{3} + 8 = 12 + 4\\sqrt{3}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): this is $s$, the side opposite the $30^{\\circ}$ angle.\n* Choice B ($4\\sqrt{3}$): this is the side opposite the $60^{\\circ}$ angle.\n* Choice D ($8\\sqrt{3}$): doubles the longer leg instead of the shorter one.\n\n**Test Day Takeaway:** Write every side of a special right triangle in terms of the shortest side, then factor the given perimeter to match."
 }

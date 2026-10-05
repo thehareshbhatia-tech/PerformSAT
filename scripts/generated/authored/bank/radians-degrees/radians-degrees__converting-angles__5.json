@@ -1,25 +1,30 @@
 {
-  "id": 5,
-  "question": "A circle has a radius of $r$, where $r > 0$. An arc of this circle has a length of $\\frac{7\\pi r}{10}$. What is the degree measure of the central angle that bounds this arc?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$\\frac{7\\pi}{10}$"
-    },
-    {
-      "id": "B",
-      "text": "$63^{\\circ}$"
-    },
-    {
-      "id": "C",
-      "text": "$126^{\\circ}$"
-    },
-    {
-      "id": "D",
-      "text": "$252^{\\circ}$"
-    }
-  ],
-  "correctAnswer": "C",
-  "hint": "Solve $s = r\\theta$ for $\\theta$ before you convert anything — watch what happens to $r$.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\theta=\\frac{s}{r}=\\frac{7\\pi}{10}$ radians once $r$ cancels; multiplying by $\\frac{180}{\\pi}$ gives $126$ degrees — choice C.\n\n**The Full Solution:**\nStep 1: Arc length satisfies $s = r\\theta$ with $\\theta$ in radians, so $\\theta = \\frac{s}{r} = \\frac{7\\pi r}{10r} = \\frac{7\\pi}{10}$. The radius cancels, so the angle does not depend on the size of the circle.\nStep 2: Convert that radian measure to degrees: $\\frac{7\\pi}{10}\\cdot\\frac{180}{\\pi}=\\frac{7(180)}{10}=126$ degrees.\nStep 3: Check by fractions of a turn: $126^{\\circ}$ is $\\frac{126}{360}=\\frac{7}{20}$ of the circle, and $\\frac{7}{20}$ of the circumference $2\\pi r$ is $\\frac{7\\pi r}{10}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7\\pi}{10}$): is the correct radian measure, but the question asks for the degree measure — the conversion step is missing.\n* Choice B ($63^{\\circ}$): multiplies by $\\frac{90}{\\pi}$ instead of $\\frac{180}{\\pi}$, pairing $\\pi$ radians with a right angle: $\\frac{7(90)}{10}=63$.\n* Choice D ($252^{\\circ}$): multiplies by $\\frac{360}{\\pi}$, pairing $\\pi$ radians with a full rotation: $\\frac{7(360)}{10}=252$, which is twice too large.\n\n**Test Day Takeaway:** An arc length written as a multiple of $r$ pins the central angle by itself — divide out the radius, then convert. Read the last four words of the stem to see which unit the answer needs."
+ "id": 5,
+ "question": "$x^{2} + y^{2} = 100$\nThe given equation represents a circle in the $xy$-plane. An arc of this circle has length $4\\pi$. What is the measure, in degrees, of the central angle that intercepts this arc?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$7.2$"
+  },
+  {
+   "id": "B",
+   "text": "$36$"
+  },
+  {
+   "id": "C",
+   "text": "$72$"
+  },
+  {
+   "id": "D",
+   "text": "$720$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses 100 as the radius instead of its square root, so theta = 4 pi / 100",
+  "B": "uses the diameter, 20, in place of the radius",
+  "D": "converts 4 pi to degrees without dividing by the radius"
+ },
+ "correctAnswer": "C",
+ "hint": "Find the radius from the equation, then use $s = r\\theta$ before converting.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~40s):** The radius is $\\sqrt{100} = 10$, so the central angle is $\\frac{4\\pi}{10} = \\frac{2\\pi}{5}$ radians, which is $\\frac{2(180)}{5} = 72^{\\circ}$.\n\n**The Full Solution:**\nStep 1: An equation of the form $x^{2} + y^{2} = r^{2}$ is a circle centered at the origin with radius $r$. Here $r^{2} = 100$, so $r = 10$.\nStep 2: Arc length is $s = r\\theta$ with $\\theta$ in radians, so $4\\pi = 10\\theta$ and $\\theta = \\frac{2\\pi}{5}$.\nStep 3: Convert to degrees: $\\frac{2\\pi}{5} \\cdot \\frac{180}{\\pi} = 72^{\\circ}$. Check with the fraction of the circle: the circumference is $20\\pi$, and $\\frac{72}{360}(20\\pi) = 4\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7.2$): uses $100$ as the radius instead of its square root, so $\\theta = \\frac{4\\pi}{100}$.\n* Choice B ($36$): uses the diameter, $20$, in place of the radius.\n* Choice D ($720$): converts $4\\pi$ itself to degrees without dividing by the radius.\n\n**Test Day Takeaway:** Read the radius from $x^{2} + y^{2} = r^{2}$ as a square root, find the angle in radians with $\\theta = \\frac{s}{r}$, and then convert to degrees."
 }

@@ -1,29 +1,30 @@
 {
- "question": "A soil-coring drill advances $k$ centimeters each second while sampling a field plot, and a technician must record the drill's rate in meters per hour. Which expression gives that recorded rate?",
- "hint": "Convert the seconds and the centimeters one at a time.",
+ "id": 4,
+ "question": "$d = 15t$\nThe equation gives the distance $d$, in centimeters, that a toy robot travels in $t$ seconds. What is the robot's speed, in meters per hour? ($1$ meter $= 100$ centimeters)",
  "choices": [
   {
    "id": "A",
-   "text": "$0.36k$"
+   "text": "$9$"
   },
   {
    "id": "B",
-   "text": "$3.6k$"
+   "text": "$540$"
   },
   {
    "id": "C",
-   "text": "$36k$"
+   "text": "$900$"
   },
   {
    "id": "D",
-   "text": "$360k$"
+   "text": "$54{,}000$"
   }
  ],
+ "correctAnswer": "B",
  "distractorNotes": {
-  "A": "uses 1 meter = 10,000 centimeters",
-  "B": "uses 1 meter = 1,000 centimeters",
-  "D": "uses 1 meter = 10 centimeters"
+  "A": "multiplies by 60 instead of 3,600 seconds per hour",
+  "C": "multiplies by 60 and skips the centimeter-to-meter conversion",
+  "D": "leaves the distance in centimeters"
  },
- "correctAnswer": "C",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** $k$ cm/s is $3600k$ cm/h, and dividing by $100$ gives $36k$ meters per hour.\n\n**The Full Solution:**\nStep 1: There are $3600$ seconds in an hour, so the drill advances $3600k$ centimeters per hour.\nStep 2: There are $100$ centimeters in a meter, so divide by $100$.\nStep 3: $\\dfrac{3600k}{100} = 36k$ meters per hour. Check with $k = 1$: $1$ cm/s is $36$ m/h, since $3600$ cm is $36$ m ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.36k$): divides by $10{,}000$, the number of square centimeters in a square meter.\n* Choice B ($3.6k$): divides by $1000$, treating centimeters as millimeters.\n* Choice D ($360k$): divides by $10$, as if a meter held only $10$ centimeters.\n\n**Test Day Takeaway:** Convert one unit at a time and write each conversion as a fraction so the unwanted units cancel."
+ "hint": "Convert the centimeters and the seconds one at a time.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** The robot goes $15$ centimeters per second, or $0.15$ meter per second, and $0.15(3{,}600) = 540$ meters per hour.\n\n**The Full Solution:**\nStep 1: The coefficient $15$ is the speed: $15$ centimeters per second.\nStep 2: Convert the units: $15 \\cdot \\frac{1}{100} \\cdot 3{,}600$, since there are $100$ centimeters in a meter and $3{,}600$ seconds in an hour.\nStep 3: $\\frac{15(3{,}600)}{100} = 540$ meters per hour. Check: $540$ meters is $54{,}000$ centimeters, and $\\frac{54{,}000}{3{,}600} = 15$ centimeters per second ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): multiplies by $60$ instead of $3{,}600$, converting seconds to minutes rather than to hours.\n* Choice C ($900$): multiplies by $60$ and never converts centimeters to meters.\n* Choice D ($54{,}000$): converts seconds to hours but leaves the distance in centimeters.\n\n**Test Day Takeaway:** Convert one unit at a time and write each factor so the unwanted unit cancels; an hour is $3{,}600$ seconds."
 }

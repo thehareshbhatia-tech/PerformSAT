@@ -1,29 +1,29 @@
 {
- "question": "An observatory logs $2^{30}$ frames on one night and $4^{16}$ frames on another. Which statement correctly compares the two totals?",
- "hint": "The bases $2$ and $4$ are not independent of each other.",
+ "question": "Which of the following correctly compares $3^{20}$ and $9^{11}$?",
+ "hint": "Write 9^11 as a power of 3.",
  "choices": [
   {
    "id": "A",
-   "text": "$2^{30}$ is greater than $4^{16}$."
+   "text": "$9^{11}$ is $2$ times $3^{20}$."
   },
   {
    "id": "B",
-   "text": "$4^{16}$ is twice as large as $2^{30}$."
+   "text": "$9^{11}$ is $6$ times $3^{20}$."
   },
   {
    "id": "C",
-   "text": "$4^{16}$ is four times as large as $2^{30}$."
+   "text": "$9^{11}$ is $9$ times $3^{20}$."
   },
   {
    "id": "D",
-   "text": "The two expressions are equal."
+   "text": "$3^{20}$ is $9$ times $9^{11}$."
   }
  ],
  "distractorNotes": {
-  "A": "compares the exponents 30 and 16 directly without matching bases",
-  "B": "reads the exponent gap 32 - 30 = 2 as the ratio",
-  "D": "assumes doubling the base exactly offsets halving the exponent"
+  "A": "finds the exponent difference 22 - 20 = 2 and uses it as the factor instead of 3^2",
+  "B": "finds the exponent difference 2 and multiplies it by the base 3 instead of raising 3 to it",
+  "D": "finds the factor 9 but reverses which number is larger"
  },
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** $4^{16} = 2^{32}$, and $2^{32} = 2^2 \\cdot 2^{30} = 4 \\cdot 2^{30}$.\n\n**The Full Solution:**\nStep 1: Write both with base $2$: $4 = 2^2$, so $4^{16} = (2^2)^{16} = 2^{32}$.\nStep 2: Compare $2^{32}$ with $2^{30}$ by dividing: $\\dfrac{2^{32}}{2^{30}} = 2^{2} = 4$.\nStep 3: So $4^{16}$ is four times $2^{30}$. Check: $2^{30} = 1{,}073{,}741{,}824$ and $4 \\times$ that is $4^{16}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: compares $30$ with $16$ directly, which is only valid when the bases match.\n* Choice B: reports the exponent gap $32 - 30 = 2$ as if it were the ratio.\n* Choice D: assumes squaring the base cancels halving the exponent, which would require $4^{15}$.\n\n**Test Day Takeaway:** Rewrite to a common base, then the exponents alone decide the comparison."
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~20s):** $9^{11} = 3^{22} = 3^{2} \\cdot 3^{20} = 9 \\cdot 3^{20}$.\n\n**The Full Solution:**\nStep 1: Write $9$ as $3^{2}$: $9^{11} = (3^{2})^{11} = 3^{22}$.\nStep 2: Divide: $\\frac{3^{22}}{3^{20}} = 3^{2} = 9$.\nStep 3: So $9^{11}$ is $9$ times $3^{20}$. Check: $9 \\cdot 3^{20} = 3^{2} \\cdot 3^{20} = 3^{22} = 9^{11}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: uses the difference of the exponents, $22 - 20 = 2$, as the factor; the factor is $3^{2}$, not $2$.\n* Choice B: multiplies the base by the exponent difference, $3 \\cdot 2 = 6$, instead of computing $3^{2}$.\n* Choice D: finds the correct factor, $9$, but reverses the comparison; $3^{22}$ is greater than $3^{20}$.\n\n**Test Day Takeaway:** To compare powers with related bases, rewrite them with a common base; the ratio is the base raised to the difference of the exponents."
 }

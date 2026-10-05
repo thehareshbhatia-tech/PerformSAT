@@ -1,29 +1,29 @@
 {
- "question": "A greenhouse's heat-loss model contains the product $x^{5} \\cdot x^{-2}$, where the pane thickness $x$ is measured in millimeters and is positive. Which expression is equivalent to that product?",
- "hint": "Multiplying powers of one base keeps that base.",
+ "question": "$n^{7} \\cdot n^{-3}$\nWhich expression is equivalent to the given expression, where $n > 0$?",
+ "hint": "Multiplying powers of the same base keeps that base.",
  "choices": [
   {
    "id": "A",
-   "text": "$x^{-10}$"
+   "text": "$n^{-21}$"
   },
   {
    "id": "B",
-   "text": "$x^{3}$"
+   "text": "$n^{4}$"
   },
   {
    "id": "C",
-   "text": "$x^{7}$"
+   "text": "$n^{10}$"
   },
   {
    "id": "D",
-   "text": "$x^{10}$"
+   "text": "$n^{21}$"
   }
  ],
  "distractorNotes": {
-  "A": "multiplies the exponents and keeps the negative sign",
-  "C": "subtracts the exponents, 5 - (-2), instead of adding them",
+  "A": "multiplies the exponents 7 and -3 instead of adding them",
+  "C": "subtracts -3 from 7 instead of adding, getting 7 - (-3) = 10",
   "D": "multiplies the exponents and drops the negative sign"
  },
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~10s):** Add the exponents: $5 + (-2) = 3$, so the product is $x^3$.\n\n**The Full Solution:**\nStep 1: Multiplying powers of the same base adds the exponents.\nStep 2: Add: $5 + (-2) = 3$.\nStep 3: The product is $x^3$. Check at $x = 2$: $32 \\cdot \\dfrac14 = 8 = 2^3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{-10}$): multiplies the exponents, which is the rule for a power of a power.\n* Choice C ($x^{7}$): subtracts the exponents, the rule for division rather than multiplication.\n* Choice D ($x^{10}$): multiplies the exponents and also loses the negative sign.\n\n**Test Day Takeaway:** Multiply powers, add exponents — a negative exponent just makes that sum smaller."
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~10s):** Add the exponents: $n^{7} \\cdot n^{-3} = n^{7 + (-3)} = n^{4}$.\n\n**The Full Solution:**\nStep 1: Both factors are powers of the same base, $n$, so the product is $n$ raised to the sum of the exponents.\nStep 2: Add: $7 + (-3) = 4$.\nStep 3: The expression is equivalent to $n^{4}$. Check: with $n = 2$, $2^{7} \\cdot 2^{-3} = \\frac{128}{8} = 16 = 2^{4}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($n^{-21}$): multiplies the exponents, which is the rule for a power raised to a power, not for a product of powers.\n* Choice C ($n^{10}$): subtracts the exponents, $7 - (-3) = 10$; subtraction is the rule for a quotient of powers.\n* Choice D ($n^{21}$): multiplies the exponents and also drops the negative sign.\n\n**Test Day Takeaway:** Same base, multiplying: add the exponents, keeping track of negative signs; a negative exponent simply lowers the total."
 }

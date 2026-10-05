@@ -1,29 +1,29 @@
 {
-  "id": "bank-alg-505",
-  "question": "A die-cutting layout places a scoring rule on the graph of $wx + 2y = 11$ and a trim rule on the graph of $wx - 8y = 7$, with $x$ and $y$ in centimeters. The two rules must meet at a right angle. What is the greatest possible value of the constant $w$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-4$"
-    },
-    {
-      "id": "B",
-      "text": "$0$"
-    },
-    {
-      "id": "C",
-      "text": "$4$"
-    },
-    {
-      "id": "D",
-      "text": "$16$"
-    }
-  ],
-  "correctAnswer": "C",
-  "distractorNotes": {
-    "A": "is the smaller of the two roots, although the question asks for the greatest value",
-    "B": "sets the slopes equal, which is the condition for parallel lines, not perpendicular ones",
-    "D": "stops at $w^2 = 16$ and reports the square instead of $w$"
+ "id": "bank-alg-505",
+ "question": "$wx + 2y = 11$\n$wx - 8y = 7$\nIn the given pair of equations, $w$ is a positive constant. The graphs of these equations in the $xy$-plane are perpendicular lines. What is the value of $w$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-4$"
   },
-  "explanation": "**SAT Pattern: Perpendicular Slopes (Standard Form)**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The slopes are $-\\frac{w}{2}$ and $\\frac{w}{8}$; their product $-\\frac{w^2}{16} = -1$ gives $w = \\pm 4$, so the greatest value is $4$.\n\n**The Full Solution:**\nStep 1: Rewrite the two rules as $y = -\\frac{w}{2}x + \\frac{11}{2}$ and $y = \\frac{w}{8}x - \\frac{7}{8}$.\nStep 2: Perpendicular lines have slopes with product $-1$, so $-\\frac{w}{2} \\cdot \\frac{w}{8} = -\\frac{w^2}{16} = -1$.\nStep 3: Then $w^2 = 16$, so $w = 4$ or $w = -4$, and the greatest value is $4$. Check: with $w = 4$ the slopes are $-2$ and $\\frac{1}{2}$, whose product is $-1$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): is the smaller of the two roots, although the question asks for the greatest value\n* Choice B ($0$): sets the slopes equal, which is the condition for parallel lines, not perpendicular ones\n* Choice D ($16$): stops at $w^2 = 16$ and reports the square instead of $w$\n\n**Test Day Takeaway:** A parameter in both coefficient slots turns the perpendicular condition into a quadratic; solve it, then apply the wording that selects one root."
+  {
+   "id": "B",
+   "text": "$0$"
+  },
+  {
+   "id": "C",
+   "text": "$4$"
+  },
+  {
+   "id": "D",
+   "text": "$16$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "the other root of w^2 = 16; it ignores the condition that w is positive",
+  "B": "sets the slopes equal, the condition for parallel lines",
+  "D": "stops at w^2 = 16 and reports the square instead of w"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Perpendicular Slopes (Standard Form)**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The slopes are $-\\frac{w}{2}$ and $\\frac{w}{8}$. Perpendicular slopes multiply to $-1$: $-\\frac{w^{2}}{16} = -1$, so $w^{2} = 16$ and the positive value is $w = 4$.\n\n**The Full Solution:**\nStep 1: Solve each equation for $y$: $y = -\\frac{w}{2}x + \\frac{11}{2}$ and $y = \\frac{w}{8}x - \\frac{7}{8}$. The slopes are $-\\frac{w}{2}$ and $\\frac{w}{8}$.\nStep 2: Perpendicular lines have slopes whose product is $-1$: $\\left(-\\frac{w}{2}\\right)\\left(\\frac{w}{8}\\right) = -\\frac{w^{2}}{16} = -1$, so $w^{2} = 16$.\nStep 3: Then $w = 4$ or $w = -4$, and $w$ is positive, so $w = 4$. Check: the slopes are $-2$ and $\\frac{1}{2}$, and $(-2)\\left(\\frac{1}{2}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): also makes the lines perpendicular, but the question says $w$ is positive.\n* Choice B ($0$): sets the slopes equal, $-\\frac{w}{2} = \\frac{w}{8}$, which is the condition for parallel lines.\n* Choice D ($16$): stops at $w^{2} = 16$ and reports $w^{2}$ instead of $w$.\n\n**Test Day Takeaway:** For $Ax + By = C$, the slope is $-\\frac{A}{B}$; set the product of the two slopes equal to $-1$ and use any stated sign condition to pick the root."
 }

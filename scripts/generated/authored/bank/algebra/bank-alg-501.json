@@ -1,29 +1,29 @@
 {
  "id": "bank-alg-501",
- "question": "A dairy barn's feed trough is shaped so that $y = 3x^2 + bx + c$, and its lowest point is at $(-7, 5)$. What is the value of $c$?",
+ "question": "In the $xy$-plane, the graph of $y = 2x^{2} + bx + c$, where $b$ and $c$ are constants, has its vertex at $(4, -9)$. What is the value of $c$?",
  "choices": [
   {
    "id": "A",
-   "text": "$5$"
+   "text": "$-9$"
   },
   {
    "id": "B",
-   "text": "$54$"
+   "text": "$7$"
   },
   {
    "id": "C",
-   "text": "$147$"
+   "text": "$23$"
   },
   {
    "id": "D",
-   "text": "$152$"
+   "text": "$41$"
   }
  ],
  "distractorNotes": {
-  "A": "reports 5, the height of the lowest point, as the constant term",
-  "B": "adds 49 + 5 without multiplying 49 by 3",
-  "C": "computes 3(49) = 147 and stops before adding 5"
+  "A": "reports the y-coordinate of the vertex, which is the constant only in vertex form",
+  "B": "uses 16 - 9, forgetting to multiply 16 by 2",
+  "D": "adds 9 to 32 instead of subtracting it"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The trough is $y = 3(x + 7)^2 + 5$, whose constant term is $3(49) + 5 = 152$.\n\n**The Full Solution:**\nStep 1: A lowest point at $(-7, 5)$ means the equation can be written as $y = 3(x + 7)^2 + 5$.\nStep 2: Expand: $3(x^2 + 14x + 49) + 5 = 3x^2 + 42x + 147 + 5$.\nStep 3: Combine constants: $y = 3x^2 + 42x + 152$, so $c = 152$. Check at $x = -7$: $3(49) + 42(-7) + 152 = 147 - 294 + 152 = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): reports the height of the lowest point instead of the value at $x = 0$.\n* Choice B ($54$): adds $49 + 5$ without multiplying the $49$ by $3$.\n* Choice C ($147$): computes $3(49) = 147$ and never adds the $5$.\n\n**Test Day Takeaway:** A known turning point gives the vertex form immediately; the constant term is what that form produces at $x = 0$."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The parabola is $y = 2(x - 4)^{2} - 9$, and its constant term is $2(16) - 9 = 23$.\n\n**The Full Solution:**\nStep 1: A parabola with leading coefficient $2$ and vertex $(4, -9)$ has equation $y = 2(x - 4)^{2} - 9$.\nStep 2: Expand: $2(x^{2} - 8x + 16) - 9 = 2x^{2} - 16x + 32 - 9$.\nStep 3: Combine: $y = 2x^{2} - 16x + 23$, so $c = 23$. Check: the vertex is at $x = -\\frac{-16}{2(2)} = 4$, and $2(16) - 16(4) + 23 = -9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$): reports the $y$-coordinate of the vertex, which is the constant only in vertex form.\n* Choice B ($7$): uses $16 - 9$, forgetting to multiply the $16$ by the leading coefficient $2$.\n* Choice D ($41$): adds $9$ to $32$ instead of subtracting it.\n\n**Test Day Takeaway:** Write the vertex form first, $y = a(x - h)^{2} + k$, then expand; the constant term $c$ is $ah^{2} + k$, not $k$."
 }

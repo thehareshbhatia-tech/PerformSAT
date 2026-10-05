@@ -1,29 +1,29 @@
 {
- "question": "A photon counter shows $9^{9}$ counts at station $M$ and $3^{14}$ counts at station $N$. Station $M$'s count is how many times station $N$'s count?",
- "hint": "Look for a base that both counts share.",
+ "question": "If $\\frac{9^{x}}{3^{y}} = 243$, what is the value of $2x - y$?",
+ "hint": "Write every number in the equation as a power of 3.",
  "choices": [
   {
    "id": "A",
-   "text": "$\\dfrac{1}{81}$"
+   "text": "$-5$"
   },
   {
    "id": "B",
-   "text": "$4$"
+   "text": "$\\frac{5}{2}$"
   },
   {
    "id": "C",
-   "text": "$81$"
+   "text": "$5$"
   },
   {
    "id": "D",
-   "text": "$6561$"
+   "text": "$10$"
   }
  ],
  "distractorNotes": {
-  "A": "divides station N's count by station M's, inverting the ratio",
-  "B": "reports the exponent difference 18 - 14 = 4 rather than 3 to that power",
-  "D": "computes 9^4 instead of 3^4"
+  "A": "subtracts the exponents in the wrong order, writing the quotient as 3^(y - 2x)",
+  "B": "writes 243 as 9^(5/2) and matches it to the exponent of 9 without rewriting 3^y in base 9",
+  "D": "writes 243 as 3^5 and then doubles the 5, applying 9 = 3^2 to the whole equation"
  },
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~35s):** $9^{9} = 3^{18}$, so the ratio is $3^{18 - 14} = 3^{4} = 81$.\n\n**The Full Solution:**\nStep 1: Write station $M$'s count with base $3$: $9 = 3^2$, so $9^{9} = 3^{18}$.\nStep 2: Divide by station $N$'s count: $\\dfrac{3^{18}}{3^{14}} = 3^{18 - 14} = 3^{4}$.\nStep 3: Evaluate: $3^4 = 81$. Check: $81 \\cdot 3^{14} = 3^{18} = 9^{9}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\dfrac{1}{81}$): divides $N$ by $M$, answering the reverse comparison.\n* Choice B ($4$): reports the exponent difference instead of $3$ raised to it.\n* Choice D ($6561$): raises $9$ to the fourth power, using the original base instead of the shared base $3$.\n\n**Test Day Takeaway:** Convert to one base before dividing; the exponent difference is a power, not the answer itself."
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\frac{9^{x}}{3^{y}} = \\frac{3^{2x}}{3^{y}} = 3^{2x - y}$, and $243 = 3^{5}$, so $2x - y = 5$.\n\n**The Full Solution:**\nStep 1: Rewrite the numerator: $9^{x} = (3^{2})^{x} = 3^{2x}$.\nStep 2: Divide powers of $3$ by subtracting exponents: $\\frac{3^{2x}}{3^{y}} = 3^{2x - y}$.\nStep 3: Since $243 = 3^{5}$, the equation $3^{2x - y} = 3^{5}$ gives $2x - y = 5$. Check: $x = 3$ and $y = 1$ satisfy $2x - y = 5$, and $\\frac{9^{3}}{3^{1}} = \\frac{729}{3} = 243$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): subtracts the exponents in the wrong order; dividing by $3^{y}$ subtracts $y$ from $2x$.\n* Choice B ($\\frac{5}{2}$): writes $243$ as $9^{\\frac{5}{2}}$ and matches it to $9^{x}$, leaving $3^{y}$ in a different base.\n* Choice D ($10$): writes $243 = 3^{5}$ correctly, then doubles the $5$ as if the conversion $9 = 3^{2}$ applied to the right side too.\n\n**Test Day Takeaway:** When an exponent expression like $2x - y$ is asked for, rewrite every term with one base; the expression usually appears as the single exponent."
 }

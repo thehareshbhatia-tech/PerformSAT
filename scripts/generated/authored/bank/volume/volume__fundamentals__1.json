@@ -1,30 +1,30 @@
 {
  "id": 1,
- "question": "The length, the width, and the height of a rectangular box are each measured in centimeters. In which of the following units is the volume of the box expressed?",
+ "question": "A right prism has a base with an area of $18$ square inches and a height of $7$ inches. What is the volume, in cubic inches, of the prism?",
  "choices": [
   {
    "id": "A",
-   "text": "Centimeters"
+   "text": "$25$"
   },
   {
    "id": "B",
-   "text": "Square centimeters"
+   "text": "$42$"
   },
   {
    "id": "C",
-   "text": "Cubic centimeters"
+   "text": "$63$"
   },
   {
    "id": "D",
-   "text": "Centimeters per second"
+   "text": "$126$"
   }
  ],
+ "correctAnswer": "D",
  "distractorNotes": {
-  "A": "the unit of a single length, not of a volume",
-  "B": "the unit of an area, such as the area of one face of the box",
-  "D": "a rate, which measures speed rather than how much the box holds"
+  "A": "adds the base area and the height instead of multiplying",
+  "B": "uses the pyramid formula (1/3)Bh instead of Bh",
+  "C": "takes half of base area times height, as in a triangle's area"
  },
- "correctAnswer": "C",
- "hint": "Count how many measurements are multiplied together to get the answer.",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~10s):** Volume multiplies three lengths, so the unit is centimeters cubed.\n\n**The Full Solution:**\nStep 1: The volume of a rectangular box is the product of its length, its width, and its height.\nStep 2: Each of those three factors is measured in centimeters, so the product carries the unit $\\text{cm} \\cdot \\text{cm} \\cdot \\text{cm}$.\nStep 3: That product is $\\text{cm}^3$, read as cubic centimeters.\n\nVerification: A box measuring $2$ by $3$ by $4$ centimeters holds $24$ unit cubes, each $1$ cubic centimeter. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (Centimeters): the unit of a single length, not of a volume.\n* Choice B (Square centimeters): the unit of an area, such as the area of one face of the box.\n* Choice D (Centimeters per second): a rate, which measures speed rather than how much the box holds.\n\n**Test Day Takeaway:** Count how many length factors are multiplied: one gives length units, two gives square units, three gives cubic units."
+ "hint": "Multiply the area of the base by the height.",
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~10s):** The volume of any prism is the base area times the height: $18(7) = 126$.\n\n**The Full Solution:**\nStep 1: For a right prism, $V = Bh$, where $B$ is the area of a base and $h$ is the height.\nStep 2: Substitute $B = 18$ and $h = 7$: $V = 18(7)$.\nStep 3: Multiply: $V = 126$ cubic inches. Check: $126 \\div 7 = 18$, the given base area ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($25$): adds the base area and the height, $18 + 7 = 25$, instead of multiplying them.\n* Choice B ($42$): uses the pyramid formula $\\frac{1}{3}Bh$, giving $\\frac{1}{3}(126) = 42$; a prism has no factor of $\\frac{1}{3}$.\n* Choice C ($63$): takes half of the product, $\\frac{1}{2}(18)(7) = 63$, as if finding the area of a triangle.\n\n**Test Day Takeaway:** Every prism, whatever the shape of its base, has volume $Bh$; when the base area is given, one multiplication finishes the problem."
 }

@@ -1,6 +1,6 @@
 {
  "id": 2,
- "question": "The volume of a cube is $216$ cubic centimeters. What is the length, in centimeters, of one edge of the cube?",
+ "question": "The volume of a cube is $216$ cubic inches. What is the length, in inches, of one edge of the cube?",
  "choices": [
   {
    "id": "A",
@@ -8,23 +8,23 @@
   },
   {
    "id": "B",
-   "text": "$72$"
+   "text": "$36$"
   },
   {
    "id": "C",
-   "text": "$108$"
+   "text": "$72$"
   },
   {
    "id": "D",
-   "text": "$216$"
+   "text": "$108$"
   }
  ],
- "distractorNotes": {
-  "B": "divides the volume by $3$ instead of taking a cube root",
-  "C": "halves the volume",
-  "D": "repeats the volume, leaving the cube undone"
- },
  "correctAnswer": "A",
- "hint": "Ask which number multiplied by itself three times gives the volume.",
- "explanation": "**Choice A is correct.**\n\n**The Fast Way (~15s):** $6^3 = 216$, so the edge is $6$ centimeters.\n\n**The Full Solution:**\nStep 1: For a cube, $V = s^3$, so $s^3 = 216$.\nStep 2: Undo the cube by taking a cube root: $s = \\sqrt[3]{216}$.\nStep 3: Since $6 \\cdot 6 \\cdot 6 = 216$, the edge is $6$ centimeters.\n\nVerification: $6^3 = 216$, the given volume. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($72$): divides the volume by $3$ instead of taking a cube root.\n* Choice C ($108$): halves the volume.\n* Choice D ($216$): repeats the volume, leaving the cube undone.\n\n**Test Day Takeaway:** Undo a cube with a cube root; dividing by $3$ undoes multiplication, not an exponent."
+ "distractorNotes": {
+  "B": "squares the edge, giving the area of one face",
+  "C": "divides the volume by 3 instead of taking the cube root",
+  "D": "divides the volume by 2"
+ },
+ "hint": "Which number times itself three times gives the volume?",
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~10s):** $\\sqrt[3]{216} = 6$, because $6 \\cdot 6 \\cdot 6 = 216$.\n\n**The Full Solution:**\nStep 1: The volume of a cube with edge $s$ is $s^3$, so $s^3 = 216$.\nStep 2: Take the cube root of both sides: $s = \\sqrt[3]{216}$.\nStep 3: Since $6^3 = 216$, $s = 6$ inches. Check: $6 \\cdot 6 = 36$ and $36 \\cdot 6 = 216$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($36$): finds the edge, $6$, and then squares it, giving the area of one face.\n* Choice C ($72$): divides the volume by $3$ instead of taking the cube root.\n* Choice D ($108$): divides the volume by $2$, as if undoing a square root.\n\n**Test Day Takeaway:** Undo a cube with a cube root, not with division by $3$."
 }

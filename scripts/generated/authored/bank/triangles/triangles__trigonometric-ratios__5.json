@@ -1,30 +1,30 @@
 {
  "id": 5,
- "question": "A taxiway wind-fence panel is a right triangle whose two acute angles measure $x^\\circ$ and $y^\\circ$. If $\\sin(x^\\circ) = \\frac{20}{29}$, what is the value of $\\cos(y^\\circ)$?",
+ "question": "$JK = 36$\n$KL = 15$\n$LJ = 39$\nTriangle $JKL$ has the given side lengths. Triangle $PQR$ is similar to triangle $JKL$, where $J$, $K$, and $L$ correspond to $P$, $Q$, and $R$, respectively. What is the value of $\\cos R$?",
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{20}{29}$"
+   "text": "$\\frac{5}{13}$"
   },
   {
    "id": "B",
-   "text": "$\\frac{21}{29}$"
+   "text": "$\\frac{5}{12}$"
   },
   {
    "id": "C",
-   "text": "$\\frac{20}{21}$"
+   "text": "$\\frac{12}{13}$"
   },
   {
    "id": "D",
-   "text": "$\\frac{29}{20}$"
+   "text": "$\\frac{12}{5}$"
   }
  ],
  "distractorNotes": {
-  "B": "computes the cosine of x using the third side 21",
-  "C": "computes the tangent of x",
-  "D": "inverts the ratio"
+  "B": "computes tan J, using the two legs",
+  "C": "computes sin L (equivalently cos J), using the opposite leg",
+  "D": "computes tan L, opposite over adjacent"
  },
  "correctAnswer": "A",
- "hint": "No side length is needed to answer this.",
- "explanation": "**Choice A is correct.**\n\n**The Fast Way (~20s):** The two acute angles are complementary, and the cosine of an angle equals the sine of its complement, so $\\cos(y^\\circ) = \\frac{20}{29}$.\n\n**The Full Solution:**\nStep 1: In a right triangle the two acute angles satisfy $x + y = 90$, so they are complementary.\nStep 2: The side opposite $x^\\circ$ is the side adjacent to $y^\\circ$, and both ratios are taken over the same hypotenuse.\nStep 3: Therefore $\\cos(y^\\circ) = \\sin(x^\\circ) = \\frac{20}{29}$. Check: with legs $20$ and $21$ and hypotenuse $29$, $\\cos(y^\\circ) = \\frac{20}{29}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{21}{29}$): computing $\\cos(x^\\circ)$ with the third side $21$; the complement swaps which leg is adjacent.\n* Choice C ($\\frac{20}{21}$): computing $\\tan(x^\\circ)$, a ratio of the two legs rather than a leg over the hypotenuse.\n* Choice D ($\\frac{29}{20}$): inverting the ratio, which no sine or cosine of an acute angle can exceed $1$.\n\n**Test Day Takeaway:** Complementary angles trade sine for cosine — no side lengths are needed at all."
+ "hint": "First decide whether the triangle has a right angle, and where.",
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~45s):** $15^{2} + 36^{2} = 39^{2}$, so the right angle is at $K$. Angle $R$ corresponds to angle $L$, and $\\cos L = \\frac{KL}{LJ} = \\frac{15}{39} = \\frac{5}{13}$.\n\n**The Full Solution:**\nStep 1: Check for a right angle: $JK^{2} + KL^{2} = 1296 + 225 = 1521 = 39^{2} = LJ^{2}$. So triangle $JKL$ is a right triangle with its right angle at $K$, the vertex between the two shorter sides, and $\\overline{LJ}$ is the hypotenuse.\nStep 2: Corresponding angles of similar triangles are congruent, so $\\cos R = \\cos L$.\nStep 3: From angle $L$, the adjacent leg is $\\overline{KL}$, so $\\cos L = \\frac{15}{39} = \\frac{5}{13}$. Check: $\\sin L = \\frac{36}{39} = \\frac{12}{13}$, and $\\left(\\frac{5}{13}\\right)^{2} + \\left(\\frac{12}{13}\\right)^{2} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{5}{12}$): this is $\\tan J$, using the two legs.\n* Choice C ($\\frac{12}{13}$): this is $\\sin L$ (equivalently $\\cos J$), using the leg opposite angle $L$.\n* Choice D ($\\frac{12}{5}$): this is $\\tan L$, opposite over adjacent.\n\n**Test Day Takeaway:** Similar triangles have equal corresponding angles, so a trigonometric ratio in one triangle can be computed from the matching angle in the other."
 }

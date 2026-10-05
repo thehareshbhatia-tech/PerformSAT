@@ -1,11 +1,11 @@
 {
  "id": 3,
- "question": "A right triangular prism has a volume of $360$ cubic centimeters and a length of $15$ centimeters. Its triangular base is a right triangle with one leg measuring $8$ centimeters. What is the length, in centimeters, of the other leg?",
+ "question": "A right triangular prism has a volume of $420$ cubic centimeters and a height of $14$ centimeters. Each base of the prism is the right triangle shown. What is the length, in centimeters, of the unlabeled leg of the triangle?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
    "sideLabels": [
-    "8",
+    "12 cm",
     "",
     ""
    ],
@@ -16,27 +16,27 @@
  "choices": [
   {
    "id": "A",
-   "text": "$3$"
+   "text": "$2.5$"
   },
   {
    "id": "B",
-   "text": "$6$"
+   "text": "$5$"
   },
   {
    "id": "C",
-   "text": "$24$"
+   "text": "$30$"
   },
   {
    "id": "D",
-   "text": "$48$"
+   "text": "$35$"
   }
  ],
  "distractorNotes": {
-  "A": "divides the base area by $8$ but never doubles it first",
-  "C": "gives the area of the triangular base rather than a leg",
-  "D": "doubles the base area but never divides by $8$"
+  "A": "finds the base area 30 but leaves out the 1/2, solving 12x = 30",
+  "C": "stops at the area of the triangular base, 420/14 = 30",
+  "D": "divides the volume by the labeled leg, 420/12, ignoring the height of the prism and the 1/2"
  },
  "correctAnswer": "B",
- "hint": "Recover the area of the triangular face before touching the legs.",
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~45s):** The base area is $\\frac{360}{15} = 24$, so $\\frac{1}{2}(8)L = 24$ and $L = 6$.\n\n**The Full Solution:**\nStep 1: $V = Bh$ gives $360 = B(15)$, so the base area is $B = 24$ square centimeters.\nStep 2: The base is a right triangle with legs $8$ and $L$: $\\frac{1}{2}(8)L = 24$.\nStep 3: That is $4L = 24$, so $L = 6$ centimeters.\n\nVerification: $\\frac{1}{2}(8)(6)(15) = 24(15) = 360$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): divides the base area by $8$ but never doubles it first.\n* Choice C ($24$): gives the area of the triangular base rather than a leg.\n* Choice D ($48$): doubles the base area but never divides by $8$.\n\n**Test Day Takeaway:** Take the prism apart in the order it was built: volume to base area, then base area to the missing length."
+ "hint": "Work back from the volume to the area of one triangular base.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** The base area is $\\frac{420}{14} = 30$, so $\\frac{1}{2}(12)x = 30$ and $x = 5$.\n\n**The Full Solution:**\nStep 1: Volume equals base area times height, so the area of a triangular base is $\\frac{420}{14} = 30$ square centimeters.\nStep 2: Let $x$ be the unlabeled leg. The legs are the triangle's base and height, so $\\frac{1}{2}(12)x = 30$, or $6x = 30$.\nStep 3: Divide: $x = 5$ centimeters. Check: $\\frac{1}{2}(12)(5)(14) = 30(14) = 420$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.5$): finds the base area correctly but solves $12x = 30$, leaving out the $\\frac{1}{2}$ for a triangle.\n* Choice C ($30$): stops at the area of the triangular base, which is in square centimeters, not a length.\n* Choice D ($35$): divides the volume by $12$ alone, skipping both the height of the prism and the $\\frac{1}{2}$.\n\n**Test Day Takeaway:** To find a missing length in a prism, divide the volume by the height to get the base area, then solve the area formula for the length you need."
 }

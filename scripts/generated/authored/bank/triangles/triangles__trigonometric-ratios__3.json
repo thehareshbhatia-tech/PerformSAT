@@ -1,6 +1,6 @@
 {
  "id": 3,
- "question": "An almond huller's grading chute forms right triangle $PQR$, with its right angle at $Q$. If $\\sin R = \\frac{5}{13}$ and $PR = 39$ centimeters, what is the length, in centimeters, of $PQ$?",
+ "question": "In triangle $PQR$, angle $Q$ is a right angle, $\\sin R = \\frac{5}{13}$, and $PR = 39$. What is the length of $\\overline{PQ}$?",
  "choices": [
   {
    "id": "A",
@@ -25,6 +25,6 @@
   "D": "finds QR, the other leg, instead of PQ"
  },
  "correctAnswer": "C",
- "hint": "A ratio of $\\frac{5}{13}$ does not make any side $5$ or $13$ centimeters long.",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\sin R = \\frac{PQ}{PR}$, so $\\frac{PQ}{39} = \\frac{5}{13}$ and $PQ = 15$ centimeters.\n\n**The Full Solution:**\nStep 1: With the right angle at $Q$, the hypotenuse is $PR$ and the leg opposite angle $R$ is $PQ$.\nStep 2: So $\\sin R = \\frac{PQ}{PR} = \\frac{PQ}{39} = \\frac{5}{13}$.\nStep 3: Multiplying gives $PQ = \\frac{5}{13}(39) = 15$ centimeters. Check: $QR = \\sqrt{39^2 - 15^2} = \\sqrt{1296} = 36$, and $\\frac{15}{39} = \\frac{5}{13}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): reporting the numerator of the ratio as though it were the length itself.\n* Choice B ($13$): reporting the denominator of the ratio as though it were the length itself.\n* Choice D ($36$): computing $QR$, the leg adjacent to angle $R$, instead of the requested $PQ$.\n\n**Test Day Takeaway:** A ratio scales: multiply the hypotenuse by the sine to get the opposite leg, and name the sides before substituting."
+ "hint": "A ratio of $\\frac{5}{13}$ does not make any side $5$ or $13$ units long.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\sin R = \\frac{PQ}{PR}$, so $PQ = 39 \\cdot \\frac{5}{13} = 15$.\n\n**The Full Solution:**\nStep 1: Angle $Q$ is the right angle, so $\\overline{PR}$ is the hypotenuse, and the leg opposite angle $R$ is $\\overline{PQ}$.\nStep 2: Sine is opposite over hypotenuse: $\\frac{PQ}{39} = \\frac{5}{13}$.\nStep 3: Multiply: $PQ = \\frac{5 \\cdot 39}{13} = 15$. Check: $\\frac{15}{39} = \\frac{5}{13}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): treats the numerator of the ratio as a length; the ratio only fixes the proportion of the sides.\n* Choice B ($13$): treats the denominator of the ratio as a length.\n* Choice D ($36$): finds the other leg, $QR = \\sqrt{39^{2} - 15^{2}} = 36$, instead of $PQ$.\n\n**Test Day Takeaway:** A trigonometric ratio gives a proportion, not the lengths themselves; scale it to the side you know."
 }

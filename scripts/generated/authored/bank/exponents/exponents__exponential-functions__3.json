@@ -1,29 +1,29 @@
 {
  "id": 3,
- "question": "The table gives the value $v$, in dollars, of a printing machine $t$ years after it was purchased. Which of the following equations gives the relationship between $v$ and $t$?",
+ "question": "The table shows the value $v$, in dollars, of a machine $t$ years after it was purchased. Which of the following equations represents this relationship?",
  "diagram": {
   "type": "dataTable",
   "params": {
    "headers": [
     "Years after purchase, t",
-    "Value v (dollars)"
+    "Value, v (dollars)"
    ],
    "rows": [
     [
      "0",
-     "6,400"
+     "5,000"
     ],
     [
      "1",
-     "4,800"
+     "4,000"
     ],
     [
      "2",
-     "3,600"
+     "3,200"
     ],
     [
      "3",
-     "2,700"
+     "2,560"
     ]
    ]
   }
@@ -31,27 +31,27 @@
  "choices": [
   {
    "id": "A",
-   "text": "$v = 6{,}400 - 1{,}600t$"
+   "text": "$v = 5{,}000 - 1{,}000t$"
   },
   {
    "id": "B",
-   "text": "$v = 6{,}400(0.25)^t$"
+   "text": "$v = 5{,}000(0.2)^{t}$"
   },
   {
    "id": "C",
-   "text": "$v = 6{,}400(0.75)^t$"
+   "text": "$v = 5{,}000(0.8)^{t}$"
   },
   {
    "id": "D",
-   "text": "$v = 6{,}400(1.25)^t$"
+   "text": "$v = 5{,}000(1.2)^{t}$"
   }
  ],
  "correctAnswer": "C",
- "hint": "Check whether the values fall by a fixed amount each year or by a fixed factor.",
+ "hint": "Check whether the value drops by the same amount each year or by the same factor.",
  "distractorNotes": {
-  "A": "uses the first drop as a constant rate",
-  "B": "uses the percent lost as the multiplier",
-  "D": "models growth instead of decay"
+  "A": "uses the first year's drop of 1,000 dollars as a constant yearly decrease, which does not match the later years",
+  "B": "uses the 20% lost each year as the multiplier instead of the 80% that remains",
+  "D": "treats the 20% change as an increase"
  },
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~40s):** Each value is $0.75$ times the one before it and the starting value is $6{,}400$, so $v = 6{,}400(0.75)^t$.\n\n**The Full Solution:**\nStep 1: The drops are $1{,}600$, then $1{,}200$, then $900$ — not constant, so the relationship is not linear.\nStep 2: The ratios are $\\frac{4{,}800}{6{,}400} = 0.75$, $\\frac{3{,}600}{4{,}800} = 0.75$, and $\\frac{2{,}700}{3{,}600} = 0.75$, a constant decay factor.\nStep 3: With $v = 6{,}400$ at $t = 0$, the model is $v = 6{,}400(0.75)^t$. Check at $t = 3$: $6{,}400(0.75)^3 = 6{,}400(0.421875) = 2{,}700$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($v = 6{,}400 - 1{,}600t$): uses the first year's drop of $1{,}600$ as a constant rate, but the second year's drop is $1{,}200$.\n* Choice B ($v = 6{,}400(0.25)^t$): uses the $25\\%$ lost each year as the multiplier instead of the $75\\%$ that remains, which would leave $1{,}600$ after one year.\n* Choice D ($v = 6{,}400(1.25)^t$): adds the $25\\%$ change instead of subtracting it, which would make the machine gain value.\n\n**Test Day Takeaway:** Test differences and ratios before choosing a model, and remember that the base of a decay model is what remains, not what is lost."
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** Each value is $0.8$ times the previous one, and the value at $t = 0$ is $5{,}000$, so $v = 5{,}000(0.8)^{t}$.\n\n**The Full Solution:**\nStep 1: The differences are $1{,}000$, $800$, and $640$, so the decrease is not constant and the relationship is not linear.\nStep 2: The ratios are $\\frac{4{,}000}{5{,}000} = \\frac{3{,}200}{4{,}000} = \\frac{2{,}560}{3{,}200} = 0.8$, so the value is multiplied by $0.8$ each year, starting from $5{,}000$.\nStep 3: The equation is $v = 5{,}000(0.8)^{t}$. Check: $5{,}000(0.8)^{3} = 5{,}000(0.512) = 2{,}560$, which matches the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($v = 5{,}000 - 1{,}000t$): fits the first year only; at $t = 2$ it gives $3{,}000$, not $3{,}200$.\n* Choice B ($v = 5{,}000(0.2)^{t}$): uses the $20\\%$ lost each year as the multiplier; the factor is the $80\\%$ that remains.\n* Choice D ($v = 5{,}000(1.2)^{t}$): describes a value that grows by $20\\%$ each year, but the values in the table decrease.\n\n**Test Day Takeaway:** If equal steps in $t$ multiply the output by the same factor, the model is exponential; for a decrease of $r\\%$ per step, the factor is $1 - \\frac{r}{100}$."
 }

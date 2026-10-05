@@ -1,30 +1,30 @@
 {
  "id": 4,
- "question": "Triangle $ABC$ is similar to triangle $DEF$, and each side length of triangle $DEF$ is $\\frac{2}{3}$ times the corresponding side length of triangle $ABC$. If the area of triangle $ABC$ is $90$ square units, what is the area, in square units, of triangle $DEF$?",
+ "question": "Triangle $PQR$ is similar to triangle $STU$, where $P$, $Q$, and $R$ correspond to $S$, $T$, and $U$, respectively. The length of $\\overline{PQ}$ is $12$, the length of $\\overline{ST}$ is $8$, and the area of triangle $PQR$ is $81$. What is the area of triangle $STU$?",
  "choices": [
   {
    "id": "A",
-   "text": "$40$"
+   "text": "$36$"
   },
   {
    "id": "B",
-   "text": "$60$"
+   "text": "$54$"
   },
   {
    "id": "C",
-   "text": "$135$"
+   "text": "$121.5$"
   },
   {
    "id": "D",
-   "text": "$202.5$"
+   "text": "$182.25$"
   }
  ],
  "distractorNotes": {
-  "B": "multiplies by $\\frac{2}{3}$ once instead of squaring the scale factor",
-  "C": "inverts the ratio and uses $\\frac{3}{2}$ once",
-  "D": "inverts the ratio and squares it, using $\\frac{9}{4}$"
+  "B": "multiplies by the side ratio 2/3 once instead of squaring it",
+  "C": "inverts the ratio and uses 3/2 once",
+  "D": "inverts the ratio and squares it, using 9/4"
  },
  "correctAnswer": "A",
- "hint": "The factor that applies to area is not the same as the one that applies to length.",
- "explanation": "**Choice A is correct.**\n\n**The Fast Way (~30s):** Area scales by $\\left(\\frac{2}{3}\\right)^2 = \\frac{4}{9}$, so the area is $90 \\cdot \\frac{4}{9} = 40$.\n\n**The Full Solution:**\nStep 1: Corresponding lengths scale by $\\frac{2}{3}$, so areas scale by $\\left(\\frac{2}{3}\\right)^2$.\nStep 2: $\\left(\\frac{2}{3}\\right)^2 = \\frac{4}{9}$.\nStep 3: The area of triangle $DEF$ is $90 \\cdot \\frac{4}{9} = 40$ square units.\n\nVerification: $\\frac{40}{90} = \\frac{4}{9} = \\left(\\frac{2}{3}\\right)^2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($60$): multiplies by $\\frac{2}{3}$ once instead of squaring the scale factor.\n* Choice C ($135$): inverts the ratio and uses $\\frac{3}{2}$ once.\n* Choice D ($202.5$): inverts the ratio and squares it, using $\\frac{9}{4}$.\n\n**Test Day Takeaway:** Shrink every length by a factor and the area shrinks by that factor squared."
+ "hint": "Lengths and areas of similar triangles do not scale by the same factor.",
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~25s):** The scale factor from $PQR$ to $STU$ is $\\frac{8}{12} = \\frac{2}{3}$, so areas scale by $\\left(\\frac{2}{3}\\right)^{2} = \\frac{4}{9}$: $81 \\cdot \\frac{4}{9} = 36$.\n\n**The Full Solution:**\nStep 1: $\\overline{PQ}$ and $\\overline{ST}$ are corresponding sides, so each length in triangle $STU$ is $\\frac{8}{12} = \\frac{2}{3}$ of the corresponding length in triangle $PQR$.\nStep 2: Area depends on two lengths (a base and a height), so the area is multiplied by $\\left(\\frac{2}{3}\\right)^{2} = \\frac{4}{9}$.\nStep 3: The area of triangle $STU$ is $81 \\cdot \\frac{4}{9} = 36$. Check: the ratio of areas, $\\frac{36}{81} = \\frac{4}{9}$, is the square of the side ratio $\\frac{2}{3}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($54$): multiplies the area by the side ratio $\\frac{2}{3}$ once instead of by its square.\n* Choice C ($121.5$): uses the side ratio upside down, $\\frac{3}{2}$, and applies it only once.\n* Choice D ($182.25$): squares the ratio but uses it upside down, multiplying by $\\frac{9}{4}$.\n\n**Test Day Takeaway:** If similar figures have side lengths in the ratio $k$, their areas are in the ratio $k^{2}$."
 }

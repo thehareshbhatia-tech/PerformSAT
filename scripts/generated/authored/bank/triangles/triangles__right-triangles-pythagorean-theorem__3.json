@@ -1,6 +1,6 @@
 {
  "id": 3,
- "question": "The triangular platform brace of a launch tower is shown, with two of its side lengths in meters. Steel bar for the brace costs \\$14 per meter. What is the total cost, in dollars, of the bar needed for all three sides?",
+ "question": "What is the perimeter of the right triangle shown?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -29,27 +29,27 @@
  "choices": [
   {
    "id": "A",
-   "text": "$476$"
+   "text": "$36$"
   },
   {
    "id": "B",
-   "text": "$504$"
+   "text": "$52$"
   },
   {
    "id": "C",
-   "text": "$840$"
+   "text": "$60$"
   },
   {
    "id": "D",
-   "text": "$1{,}680$"
+   "text": "$120$"
   }
  ],
  "distractorNotes": {
-  "A": "uses 10 + 24 = 34 meters and leaves out the hypotenuse",
-  "B": "uses only the two given sides, 10 + 26 = 36 meters",
-  "D": "doubles the perimeter before multiplying"
+  "A": "adds only the two labeled sides",
+  "B": "finds the missing leg as 26 - 10 = 16 instead of using squares",
+  "D": "computes the area, (1/2)(10)(24), instead of the perimeter"
  },
  "correctAnswer": "C",
- "hint": "The figure prints only two of the three lengths the price applies to.",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~40s):** The missing leg is $24$ meters, so the perimeter is $60$ meters and the bar costs $60(14) = 840$ dollars.\n\n**The Full Solution:**\nStep 1: The $26$-meter side is the hypotenuse, so the missing leg satisfies $10^2 + b^2 = 26^2$, giving $b^2 = 676 - 100 = 576$ and $b = 24$ meters.\nStep 2: The perimeter is $10 + 24 + 26 = 60$ meters.\nStep 3: At $14$ dollars per meter the cost is $60(14) = 840$ dollars. Check: $10^2 + 24^2 = 100 + 576 = 676 = 26^2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($476$): using $10 + 24 = 34$ meters and leaving the hypotenuse out of the perimeter.\n* Choice B ($504$): using only the two side lengths printed in the figure, $10 + 26 = 36$ meters.\n* Choice D ($1{,}680$): doubling the perimeter to $120$ meters before multiplying by the price.\n\n**Test Day Takeaway:** Recover the missing side first, then add all three lengths before applying any rate."
+ "hint": "The figure labels only two of the three sides.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** The missing leg is $\\sqrt{26^{2} - 10^{2}} = \\sqrt{576} = 24$, so the perimeter is $10 + 24 + 26 = 60$.\n\n**The Full Solution:**\nStep 1: The side of length $26$ is the hypotenuse, and $10$ is one leg. Let $b$ be the unlabeled leg.\nStep 2: By the Pythagorean theorem, $10^{2} + b^{2} = 26^{2}$, so $b^{2} = 676 - 100 = 576$ and $b = 24$.\nStep 3: Add all three sides: $10 + 24 + 26 = 60$. Check: $10^{2} + 24^{2} = 100 + 576 = 676 = 26^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($36$): adds only the two labeled sides and leaves out the unlabeled leg.\n* Choice B ($52$): finds the missing leg as $26 - 10 = 16$ instead of using the squares.\n* Choice D ($120$): computes the area, $\\frac{1}{2}(10)(24)$, instead of the perimeter.\n\n**Test Day Takeaway:** A perimeter needs every side; use the Pythagorean theorem to find any side the figure leaves unlabeled."
 }

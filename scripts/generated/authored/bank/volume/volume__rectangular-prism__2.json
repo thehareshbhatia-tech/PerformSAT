@@ -1,6 +1,6 @@
 {
  "id": 2,
- "question": "A storage bin in the shape of a right rectangular prism has a volume of $270$ cubic inches. Its base is a rectangle measuring $9$ inches by $5$ inches. What is the height, in inches, of the bin?",
+ "question": "A right rectangular prism has a volume of $270$ cubic centimeters, and its base measures $9$ centimeters by $5$ centimeters. What is the height, in centimeters, of the prism?",
  "choices": [
   {
    "id": "A",
@@ -19,12 +19,12 @@
    "text": "$256$"
   }
  ],
- "distractorNotes": {
-  "B": "divides by the length only, ignoring the width",
-  "C": "divides by the width only, ignoring the length",
-  "D": "subtracts the two base dimensions from the volume"
- },
  "correctAnswer": "A",
- "hint": "Combine the two base measurements into a single number first.",
- "explanation": "**Choice A is correct.**\n\n**The Fast Way (~20s):** The base area is $45$, so $h = \\frac{270}{45} = 6$.\n\n**The Full Solution:**\nStep 1: $V = \\ell wh$, so $270 = 9 \\cdot 5 \\cdot h$.\nStep 2: The base area is $9 \\cdot 5 = 45$ square inches, giving $270 = 45h$.\nStep 3: Divide: $h = \\frac{270}{45} = 6$ inches.\n\nVerification: $9 \\cdot 5 \\cdot 6 = 270$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($30$): divides by the length only, ignoring the width.\n* Choice C ($54$): divides by the width only, ignoring the length.\n* Choice D ($256$): subtracts the two base dimensions from the volume.\n\n**Test Day Takeaway:** Collapse the two base dimensions into one base area before dividing."
+ "distractorNotes": {
+  "B": "divides the volume by one base dimension only (270/9)",
+  "C": "divides the volume by the other base dimension only (270/5)",
+  "D": "subtracts the base dimensions from the volume"
+ },
+ "hint": "Find the area of the base first.",
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~15s):** The base area is $9(5) = 45$, so the height is $\\frac{270}{45} = 6$.\n\n**The Full Solution:**\nStep 1: The volume of a rectangular prism is the base area times the height: $V = (9)(5)h$.\nStep 2: Substitute the volume: $270 = 45h$.\nStep 3: Divide: $h = \\frac{270}{45} = 6$ centimeters. Check: $9(5)(6) = 270$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($30$): divides the volume by the length only, $\\frac{270}{9} = 30$.\n* Choice C ($54$): divides the volume by the width only, $\\frac{270}{5} = 54$.\n* Choice D ($256$): subtracts the two base dimensions from the volume, $270 - 9 - 5 = 256$.\n\n**Test Day Takeaway:** To find a missing dimension, divide the volume by the product of the dimensions you know, not by just one of them."
 }

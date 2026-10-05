@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-503",
- "question": "The graph shown gives the linear function $f$. For which constant $k$ does the function $f(x) + k$ have $-4$ as its only zero?",
+ "question": "The graph of the linear function $f$ is shown. The graph of $y = f(x) + k$, where $k$ is a constant, has an $x$-intercept at $(-4, 0)$. What is the value of $k$?",
  "diagram": {
   "type": "linearGraph",
   "params": {
@@ -54,9 +54,9 @@
  ],
  "distractorNotes": {
   "A": "reports f(-4) = -9 instead of the constant that cancels it",
-  "B": "uses the y-intercept -3 of f as the shift",
-  "C": "evaluates f(4) = 3 instead of f(-4)"
+  "B": "reads -4 as 4, finds f(4) = 3, and negates it",
+  "C": "uses the opposite of the y-intercept of f instead of the opposite of f(-4)"
  },
  "correctAnswer": "D",
- "explanation": "**SAT Pattern: Vertical Shift of a Line — $x$-intercept**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The shifted graph is zero at $x = -4$, so $k = -f(-4) = 9$.\n\n**The Full Solution:**\nStep 1: From the graph, $f$ passes through $(0, -3)$ and $(2, 0)$, so its slope is $\\dfrac{0 - (-3)}{2 - 0} = 1.5$ and $f(x) = 1.5x - 3$.\nStep 2: Evaluate at the new zero: $f(-4) = 1.5(-4) - 3 = -9$.\nStep 3: The shifted function is $f(x) + k$, and it is zero at $x = -4$, so $-9 + k = 0$ and $k = 9$. Check: $1.5(-4) - 3 + 9 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$): reports $f(-4) = -9$ itself rather than the constant that cancels it.\n* Choice B ($-3$): treats the $y$-intercept $-3$ of $f$ as the required shift.\n* Choice C ($3$): evaluates $f(4) = 3$ instead of $f(-4)$, using the wrong sign for the new zero.\n\n**Test Day Takeaway:** A vertical shift moves a zero to wherever the original function equals the opposite of the shift."
+ "explanation": "**SAT Pattern: Vertical Shift of a Line — $x$-intercept**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The new graph is zero at $x = -4$, so $f(-4) + k = 0$. The line through $(0, -3)$ and $(2, 0)$ gives $f(-4) = -9$, so $k = 9$.\n\n**The Full Solution:**\nStep 1: The graph passes through $(0, -3)$ and $(2, 0)$, so its slope is $\\frac{0 - (-3)}{2 - 0} = \\frac{3}{2}$ and $f(x) = \\frac{3}{2}x - 3$.\nStep 2: Evaluate at $x = -4$: $f(-4) = \\frac{3}{2}(-4) - 3 = -9$.\nStep 3: The point $(-4, 0)$ lies on $y = f(x) + k$, so $0 = -9 + k$ and $k = 9$. Check: $\\frac{3}{2}(-4) - 3 + 9 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$): reports $f(-4)$ itself instead of the constant that cancels it.\n* Choice B ($-3$): reads $-4$ as $4$, finds $f(4) = 3$ on the graph, and negates it.\n* Choice C ($3$): uses the opposite of the $y$-intercept of $f$ instead of the value of $f$ at $x = -4$.\n\n**Test Day Takeaway:** For $y = f(x) + k$ to cross the $x$-axis at $x = r$, the shift must be the opposite of $f(r)$: $k = -f(r)$."
 }

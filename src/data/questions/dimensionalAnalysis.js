@@ -7,80 +7,92 @@ export const dimensionalAnalysisQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "A bookshelf is $7.5$ feet tall. Given that $1$ foot is equal to $12$ inches, what is the height of the bookshelf, in inches?",
+      question: "A bookshelf is $7.5$ feet tall. What is the height, in inches, of the bookshelf? ($1$ foot $= 12$ inches)",
       choices: [
+        // distractor: divides by 12 instead of multiplying
         { id: "A", text: "$0.625$" },
+        // distractor: adds 12 instead of multiplying
         { id: "B", text: "$19.5$" },
+        // distractor: converts only the 7 whole feet
         { id: "C", text: "$84$" },
         { id: "D", text: "$90$" }
       ],
       correctAnswer: "D",
-      hint: "An inch is smaller than a foot, so the number of inches must come out larger than the number of feet.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~10s):** $7.5(12)=90$ inches — choice D.\n\n**The Full Solution:**\nStep 1: Set up the conversion so the unwanted unit cancels: $7.5\\text{ feet}\\times\\frac{12\\text{ inches}}{1\\text{ foot}}$.\nStep 2: The unit of feet cancels, leaving $7.5(12)=90$ inches.\nStep 3: Check: $7$ feet is $84$ inches and the extra half foot is $6$ inches, so $84+6=90$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.625$): divides by $12$ instead of multiplying: $7.5\\div 12=0.625$, which would shrink the measurement rather than expressing it in smaller units.\n* Choice B ($19.5$): adds the conversion factor to the measurement: $7.5+12=19.5$.\n* Choice C ($84$): converts only the whole number of feet, $7(12)=84$, and drops the extra $0.5$ foot.\n\n**Test Day Takeaway:** Write the conversion factor as a fraction and let the unit cancel. Converting to a smaller unit always multiplies, so the count goes up.",
+      hint: "An inch is smaller than a foot, so the number of inches must be larger than the number of feet.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~10s):** $7.5(12) = 90$ inches.\n\n**The Full Solution:**\nStep 1: Write the conversion so that feet cancel: $7.5 \\text{ feet} \\times \\frac{12 \\text{ inches}}{1 \\text{ foot}}$.\nStep 2: Multiply: $7.5(12) = 90$.\nStep 3: The bookshelf is $90$ inches tall. Check: $7$ feet is $84$ inches and the extra half foot is $6$ inches, and $84 + 6 = 90$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.625$): divides by $12$ instead of multiplying: $7.5 \\div 12 = 0.625$.\n* Choice B ($19.5$): adds the conversion factor to the measurement: $7.5 + 12 = 19.5$.\n* Choice C ($84$): converts only the whole number of feet, $7(12) = 84$, and drops the extra half foot.\n\n**Test Day Takeaway:** Converting to a smaller unit always gives a larger number, so multiply by the conversion factor.",
       skills: ["unit-conversion"]
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "A conveyor belt carries boxes past a scanner at a constant rate of $2{,}700$ boxes per hour. At this rate, how many boxes pass the scanner per minute?",
+      question: "A conveyor belt carries $2{,}700$ boxes per hour. This rate is equivalent to $k$ boxes per minute. What is the value of $k$?",
       choices: [
+        // distractor: divides by 3,600 seconds instead of 60 minutes
         { id: "A", text: "$0.75$" },
+        // distractor: divides by 100 instead of 60
         { id: "B", text: "$27$" },
         { id: "C", text: "$45$" },
+        // distractor: multiplies by 60 instead of dividing
         { id: "D", text: "$162{,}000$" }
       ],
       correctAnswer: "C",
-      hint: "A minute is a small slice of an hour, so the count per minute must be far smaller than the count per hour.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** There are $60$ minutes in an hour, so $\\frac{2{,}700}{60}=45$ boxes per minute — choice C.\n\n**The Full Solution:**\nStep 1: Write the rate as a fraction: $\\frac{2{,}700\\text{ boxes}}{1\\text{ hour}}$.\nStep 2: Multiply by $\\frac{1\\text{ hour}}{60\\text{ minutes}}$ so that hours cancel: $\\frac{2{,}700}{60}$ boxes per minute.\nStep 3: Divide: $\\frac{2{,}700}{60}=45$ boxes per minute. Check: $45(60)=2{,}700$ boxes in one hour. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.75$): divides by $3{,}600$, converting all the way to boxes per second instead of boxes per minute.\n* Choice B ($27$): divides by $100$, treating an hour as $100$ minutes.\n* Choice D ($162{,}000$): multiplies by $60$ instead of dividing, which scales the rate up when a shorter time interval must scale it down.\n\n**Test Day Takeaway:** Decide the direction before you compute: a shorter time interval means a smaller count, so the $60$ belongs in the denominator.",
+      hint: "A minute is a small part of an hour, so the count per minute must be smaller than the count per hour.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~10s):** An hour is $60$ minutes, so $k = \\frac{2{,}700}{60} = 45$.\n\n**The Full Solution:**\nStep 1: Write the rate as a fraction: $\\frac{2{,}700 \\text{ boxes}}{1 \\text{ hour}}$.\nStep 2: Multiply by $\\frac{1 \\text{ hour}}{60 \\text{ minutes}}$ so that hours cancel: $\\frac{2{,}700}{60}$ boxes per minute.\nStep 3: $\\frac{2{,}700}{60} = 45$, so $k = 45$. Check: $45$ boxes per minute for $60$ minutes is $45(60) = 2{,}700$ boxes ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.75$): divides by $3{,}600$, the number of seconds in an hour, instead of $60$.\n* Choice B ($27$): divides by $100$, as if an hour had $100$ minutes.\n* Choice D ($162{,}000$): multiplies by $60$ instead of dividing, which gives more boxes per minute than per hour.\n\n**Test Day Takeaway:** A rate per minute is smaller than the same rate per hour; divide by $60$.",
       skills: ["unit-conversion", "rate-conversion"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "The table gives the mass, in grams, of each of four mineral samples collected on a field trip. Given that $1$ kilogram is equal to $1{,}000$ grams, what is the total mass of the four samples, in kilograms?",
+      question: "The table shows the masses, in grams, of four rock samples. What is the total mass, in kilograms, of the four samples? ($1$ kilogram $= 1{,}000$ grams)",
       diagram: { type: "dataTable", params: { headers: ["Sample", "Mass (grams)"], rows: [["W", "1,250"], ["X", "860"], ["Y", "2,340"], ["Z", "550"]] } },
       choices: [
+        // distractor: divides by 10,000 instead of 1,000
         { id: "A", text: "$0.5$" },
         { id: "B", text: "$5$" },
+        // distractor: divides by 100 instead of 1,000
         { id: "C", text: "$50$" },
+        // distractor: reports the total in grams without converting
         { id: "D", text: "$5{,}000$" }
       ],
       correctAnswer: "B",
-      hint: "Combine the four masses in the unit the table uses, then convert the single total once.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** The masses total $5{,}000$ grams, and $\\frac{5{,}000}{1{,}000}=5$ kilograms — choice B.\n\n**The Full Solution:**\nStep 1: Add the four masses in grams: $1{,}250+860+2{,}340+550=5{,}000$ grams.\nStep 2: Convert once, at the end: $5{,}000\\text{ grams}\\times\\frac{1\\text{ kilogram}}{1{,}000\\text{ grams}}$.\nStep 3: The grams cancel, leaving $\\frac{5{,}000}{1{,}000}=5$ kilograms. Check: $5$ kilograms is $5(1{,}000)=5{,}000$ grams, the total from step 1. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.5$): divides the total by $10{,}000$ rather than $1{,}000$.\n* Choice C ($50$): divides by $100$, as if a kilogram were $100$ grams.\n* Choice D ($5{,}000$): reports the correct total but leaves it in grams, never performing the conversion the question asks for.\n\n**Test Day Takeaway:** Convert once, after the arithmetic, not sample by sample — fewer conversions means fewer places to slip a factor of ten.",
+      hint: "Add the four masses in grams, then convert the total once.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** The masses total $5{,}000$ grams, and $5{,}000 \\div 1{,}000 = 5$ kilograms.\n\n**The Full Solution:**\nStep 1: Add the masses in the table: $1{,}250 + 860 + 2{,}340 + 550 = 5{,}000$ grams.\nStep 2: Each kilogram is $1{,}000$ grams, so divide by $1{,}000$: $\\frac{5{,}000}{1{,}000}$.\nStep 3: The total mass is $5$ kilograms. Check: $5(1{,}000) = 5{,}000$ grams, the sum of the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.5$): divides the total by $10{,}000$ instead of $1{,}000$.\n* Choice C ($50$): divides the total by $100$, as if $1$ kilogram were $100$ grams.\n* Choice D ($5{,}000$): is the total in grams, before the conversion to kilograms.\n\n**Test Day Takeaway:** Add in the unit the table uses, then convert the single total once.",
       skills: ["unit-conversion"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "A soil-coring drill advances $k$ centimeters each second while sampling a field plot, and a technician must record the drill's rate in meters per hour. Which expression gives that recorded rate?",
+      question: "$d = 15t$\nThe equation gives the distance $d$, in centimeters, that a toy robot travels in $t$ seconds. What is the robot's speed, in meters per hour? ($1$ meter $= 100$ centimeters)",
       choices: [
-        // distractor: uses 1 meter = 10,000 centimeters
-        { id: "A", text: "$0.36k$" },
-        // distractor: uses 1 meter = 1,000 centimeters
-        { id: "B", text: "$3.6k$" },
-        { id: "C", text: "$36k$" },
-        // distractor: uses 1 meter = 10 centimeters
-        { id: "D", text: "$360k$" }
+        // distractor: multiplies by 60 instead of 3,600 seconds per hour
+        { id: "A", text: "$9$" },
+        { id: "B", text: "$540$" },
+        // distractor: multiplies by 60 and skips the centimeter-to-meter conversion
+        { id: "C", text: "$900$" },
+        // distractor: leaves the distance in centimeters
+        { id: "D", text: "$54{,}000$" }
       ],
-      correctAnswer: "C",
-      hint: "Convert the seconds and the centimeters one at a time.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** $k$ cm/s is $3600k$ cm/h, and dividing by $100$ gives $36k$ meters per hour.\n\n**The Full Solution:**\nStep 1: There are $3600$ seconds in an hour, so the drill advances $3600k$ centimeters per hour.\nStep 2: There are $100$ centimeters in a meter, so divide by $100$.\nStep 3: $\\dfrac{3600k}{100} = 36k$ meters per hour. Check with $k = 1$: $1$ cm/s is $36$ m/h, since $3600$ cm is $36$ m ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.36k$): divides by $10{,}000$, the number of square centimeters in a square meter.\n* Choice B ($3.6k$): divides by $1000$, treating centimeters as millimeters.\n* Choice D ($360k$): divides by $10$, as if a meter held only $10$ centimeters.\n\n**Test Day Takeaway:** Convert one unit at a time and write each conversion as a fraction so the unwanted units cancel.",
+      correctAnswer: "B",
+      hint: "Convert the centimeters and the seconds one at a time.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~30s):** The robot goes $15$ centimeters per second, or $0.15$ meter per second, and $0.15(3{,}600) = 540$ meters per hour.\n\n**The Full Solution:**\nStep 1: The coefficient $15$ is the speed: $15$ centimeters per second.\nStep 2: Convert the units: $15 \\cdot \\frac{1}{100} \\cdot 3{,}600$, since there are $100$ centimeters in a meter and $3{,}600$ seconds in an hour.\nStep 3: $\\frac{15(3{,}600)}{100} = 540$ meters per hour. Check: $540$ meters is $54{,}000$ centimeters, and $\\frac{54{,}000}{3{,}600} = 15$ centimeters per second ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): multiplies by $60$ instead of $3{,}600$, converting seconds to minutes rather than to hours.\n* Choice C ($900$): multiplies by $60$ and never converts centimeters to meters.\n* Choice D ($54{,}000$): converts seconds to hours but leaves the distance in centimeters.\n\n**Test Day Takeaway:** Convert one unit at a time and write each factor so the unwanted unit cancels; an hour is $3{,}600$ seconds.",
       skills: ["unit-conversion", "rate-conversion"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "A bottling machine fills $r$ bottles each minute, where $r$ is a positive constant. Which expression represents the number of bottles the machine fills in $h$ hours, if it operates at this constant rate for the entire time?",
+      question: "A machine fills $r$ bottles per minute. Which expression represents the number of hours it takes the machine to fill $b$ bottles?",
       choices: [
-        { id: "A", text: "$\\frac{rh}{60}$" },
-        { id: "B", text: "$\\frac{60h}{r}$" },
-        { id: "C", text: "$60rh$" },
-        { id: "D", text: "$3{,}600rh$" }
+        // distractor: multiplies b by the rate instead of dividing
+        { id: "A", text: "$\\frac{br}{60}$" },
+        { id: "B", text: "$\\frac{b}{60r}$" },
+        // distractor: multiplies the minutes by 60 instead of dividing
+        { id: "C", text: "$\\frac{60b}{r}$" },
+        // distractor: inverts the correct expression
+        { id: "D", text: "$\\frac{60r}{b}$" }
       ],
-      correctAnswer: "C",
-      hint: "Check any candidate with easy numbers: one bottle per minute for one hour has an answer you already know.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~30s):** $h$ hours is $60h$ minutes, and each minute yields $r$ bottles: $60hr$ bottles — choice C.\n\n**The Full Solution:**\nStep 1: Convert the operating time to the unit the rate uses: $h\\text{ hours}\\times\\frac{60\\text{ minutes}}{1\\text{ hour}}=60h$ minutes.\nStep 2: Multiply the number of minutes by the number of bottles filled each minute: $(60h)(r)=60rh$ bottles.\nStep 3: Check the units: $\\frac{\\text{bottles}}{\\text{minute}}\\times\\text{minutes}$ leaves bottles, which is what the question asks for.\nStep 4: Check with numbers: at $r=1$ and $h=1$ the machine fills $1$ bottle per minute for $60$ minutes, so $60$ bottles, and $60(1)(1)=60$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{rh}{60}$): divides by $60$ instead of multiplying, which would be right only if the rate were per hour and the answer were wanted per minute.\n* Choice B ($\\frac{60h}{r}$): inverts the rate, treating $r$ as minutes per bottle rather than bottles per minute.\n* Choice D ($3{,}600rh$): uses $3{,}600$, the number of seconds in an hour, even though the rate is given per minute.\n\n**Test Day Takeaway:** With letters instead of numbers, substitute $r=1$ and $h=1$: the arithmetic becomes trivial and only one expression survives.",
+      correctAnswer: "B",
+      hint: "Try easy numbers: how long do 240 bottles take at 2 bottles per minute?",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~40s):** Filling $b$ bottles takes $\\frac{b}{r}$ minutes, which is $\\frac{b}{60r}$ hours.\n\n**The Full Solution:**\nStep 1: At $r$ bottles per minute, $b$ bottles take $\\frac{b}{r}$ minutes.\nStep 2: An hour is $60$ minutes, so divide by $60$: $\\frac{b}{r} \\div 60 = \\frac{b}{60r}$ hours.\nStep 3: The expression is $\\frac{b}{60r}$. Check: with $r = 2$ and $b = 240$, the machine needs $120$ minutes, or $2$ hours, and $\\frac{240}{60(2)} = 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{br}{60}$): multiplies the number of bottles by the rate instead of dividing by it.\n* Choice C ($\\frac{60b}{r}$): finds the time in minutes, $\\frac{b}{r}$, then multiplies by $60$ instead of dividing.\n* Choice D ($\\frac{60r}{b}$): inverts the correct expression, dividing the rate by the number of bottles instead of the number of bottles by the rate.\n\n**Test Day Takeaway:** Time equals amount divided by rate; then convert minutes to hours by dividing by $60$, and test with easy numbers.",
       skills: ["unit-conversion"]
     }
   ],
@@ -90,77 +102,92 @@ export const dimensionalAnalysisQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "A rectangular rug covers an area of $15$ square yards. Given that $1$ yard is equal to $3$ feet, what is the area of the rug, in square feet?",
+      question: "A rug has an area of $15$ square yards. What is the area, in square feet, of the rug? ($1$ yard $= 3$ feet)",
       choices: [
-        { id: "A", text: "$45$" },
-        { id: "B", text: "$90$" },
+        // distractor: divides by 3 instead of multiplying by 9
+        { id: "A", text: "$5$" },
+        // distractor: multiplies by 3 instead of 9
+        { id: "B", text: "$45$" },
         { id: "C", text: "$135$" },
+        // distractor: multiplies by 27, the cubic factor
         { id: "D", text: "$405$" }
       ],
       correctAnswer: "C",
-      hint: "A square yard is a square that is one yard on each side — picture how many one-foot squares fit inside it.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** One square yard holds $3^{2}=9$ square feet, so $15(9)=135$ square feet — choice C.\n\n**The Full Solution:**\nStep 1: A square yard is a $3$-foot by $3$-foot square, so it contains $3(3)=9$ square feet.\nStep 2: The area conversion therefore multiplies by $9$, not by $3$: $15(9)=135$ square feet.\nStep 3: Check with a concrete rug: a $5$-yard by $3$-yard rug has area $15$ square yards, and in feet it is $15$ by $9$, an area of $135$ square feet. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($45$): multiplies by the linear factor $3$ instead of its square.\n* Choice B ($90$): doubles the linear factor, using $2(3)=6$ where squaring is required.\n* Choice D ($405$): cubes the factor, $3^{3}=27$, which converts volumes rather than areas.\n\n**Test Day Takeaway:** Squaring a unit squares its conversion factor. Draw the one-unit square once and the factor of $9$ is obvious rather than memorized.",
+      hint: "Picture how many one-foot squares fit inside a square yard.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** A square yard is $3 \\times 3 = 9$ square feet, so $15(9) = 135$.\n\n**The Full Solution:**\nStep 1: A square yard is a square $3$ feet on each side, so $1$ square yard $= 3^2 = 9$ square feet.\nStep 2: Multiply the area by $9$: $15(9)$.\nStep 3: The area is $135$ square feet. Check: $135 \\div 9 = 15$ square yards ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): divides by $3$ instead of multiplying, which gives fewer square feet than square yards.\n* Choice B ($45$): multiplies by $3$, the factor for length, instead of by $3^2 = 9$.\n* Choice D ($405$): multiplies by $3^3 = 27$, the factor for cubic units.\n\n**Test Day Takeaway:** Square units convert with the square of the length factor: $1$ square yard is $9$ square feet, not $3$.",
       skills: ["squared-cubed-units"]
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "A solar panel has an area of $2.4$ square meters. Given that $1$ meter is equal to $100$ centimeters, what is the area of the panel, in square centimeters?",
+      question: "How many square centimeters are equivalent to $2.4$ square meters? ($1$ meter $= 100$ centimeters)",
       choices: [
+        // distractor: divides by 100 instead of multiplying
         { id: "A", text: "$0.024$" },
+        // distractor: multiplies by 100 instead of 100^2
         { id: "B", text: "$240$" },
         { id: "C", text: "$24{,}000$" },
+        // distractor: multiplies by 100^3, the cubic factor
         { id: "D", text: "$2{,}400{,}000$" }
       ],
       correctAnswer: "C",
       hint: "Apply the conversion factor once for each dimension of the unit.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** A square meter is $100^{2}=10{,}000$ square centimeters, so $2.4(10{,}000)=24{,}000$ — choice C.\n\n**The Full Solution:**\nStep 1: A square meter is a $100$-centimeter by $100$-centimeter square, so it contains $100^{2}=10{,}000$ square centimeters.\nStep 2: Multiply: $2.4(10{,}000)=24{,}000$ square centimeters.\nStep 3: Check with dimensions: a panel $2$ meters by $1.2$ meters has area $2.4$ square meters, and $200$ centimeters by $120$ centimeters gives $24{,}000$ square centimeters. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.024$): divides by $100$ instead of multiplying, converting in the wrong direction entirely.\n* Choice B ($240$): multiplies by the linear factor $100$ rather than $100^{2}$.\n* Choice D ($2{,}400{,}000$): multiplies by $100^{3}=1{,}000{,}000$, the factor for volume, not area.\n\n**Test Day Takeaway:** The exponent on the unit is the exponent on the conversion factor: squared units square it, cubic units cube it.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** $1$ square meter is $100^2 = 10{,}000$ square centimeters, so $2.4(10{,}000) = 24{,}000$.\n\n**The Full Solution:**\nStep 1: A square meter is a square $100$ centimeters on each side, so $1$ square meter $= 100^2 = 10{,}000$ square centimeters.\nStep 2: Multiply: $2.4(10{,}000)$.\nStep 3: The area is $24{,}000$ square centimeters. Check: $24{,}000 \\div 10{,}000 = 2.4$ square meters ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.024$): divides by $100$ instead of multiplying.\n* Choice B ($240$): multiplies by $100$, the factor for length, instead of by $100^2$.\n* Choice D ($2{,}400{,}000$): multiplies by $100^3 = 1{,}000{,}000$, the factor for cubic units.\n\n**Test Day Takeaway:** For square units, apply the length factor twice.",
       skills: ["squared-cubed-units"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "A storage crate is a rectangular box whose interior measures $50$ centimeters by $40$ centimeters by $30$ centimeters. Given that $1$ meter is equal to $100$ centimeters, what is the interior volume of the crate, in cubic meters?",
+      question: "A box has interior dimensions of $50$ centimeters by $40$ centimeters by $30$ centimeters. What is the volume, in cubic meters, of the interior of the box? ($1$ meter $= 100$ centimeters)",
       choices: [
-        { id: "A", text: "$0.00006$" },
-        { id: "B", text: "$0.06$" },
-        { id: "C", text: "$6$" },
-        { id: "D", text: "$60$" }
+        { id: "A", text: "$0.06$" },
+        // distractor: divides by 100^2 instead of 100^3
+        { id: "B", text: "$6$" },
+        // distractor: divides by 1,000 instead of 100^3
+        { id: "C", text: "$60$" },
+        // distractor: divides by 100 instead of 100^3
+        { id: "D", text: "$600$" }
       ],
-      correctAnswer: "B",
-      hint: "Find the volume in the units the dimensions are already given in, then convert that single number.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~30s):** The volume is $50(40)(30)=60{,}000$ cubic centimeters, and a cubic meter is $100^{3}=1{,}000{,}000$ of them: $\\frac{60{,}000}{1{,}000{,}000}=0.06$ — choice B.\n\n**The Full Solution:**\nStep 1: Volume in the given units: $50(40)(30)=60{,}000$ cubic centimeters.\nStep 2: A cubic meter is a $100$-centimeter cube, so it contains $100^{3}=1{,}000{,}000$ cubic centimeters.\nStep 3: Divide, because a cubic meter is the larger unit: $\\frac{60{,}000}{1{,}000{,}000}=0.06$ cubic meter.\nStep 4: Check by converting the edges first: $0.5$ by $0.4$ by $0.3$ meter gives $0.06$ cubic meter. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.00006$): divides by $1{,}000^{3}$, the factor that would apply if the dimensions were in millimeters.\n* Choice C ($6$): divides by $100^{2}=10{,}000$, the area factor, on a volume.\n* Choice D ($60$): divides by $1{,}000$, borrowing the milliliter-to-liter factor instead of cubing $100$.\n\n**Test Day Takeaway:** Either cube the conversion factor at the end or convert each edge at the start — both work, and doing one of them all the way is safer than mixing.",
+      correctAnswer: "A",
+      hint: "Change each dimension to meters before multiplying.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~25s):** In meters the box is $0.5$ by $0.4$ by $0.3$, so its volume is $0.5(0.4)(0.3) = 0.06$ cubic meter.\n\n**The Full Solution:**\nStep 1: Convert each dimension to meters: $0.5$ meter, $0.4$ meter, and $0.3$ meter.\nStep 2: Multiply: $0.5(0.4) = 0.2$ and $0.2(0.3) = 0.06$.\nStep 3: The volume is $0.06$ cubic meter. Check: in centimeters the volume is $50(40)(30) = 60{,}000$ cubic centimeters, and $\\frac{60{,}000}{100^3} = 0.06$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($6$): divides $60{,}000$ by $100^2 = 10{,}000$, the factor for square units.\n* Choice C ($60$): divides $60{,}000$ by $1{,}000$, as if a cubic meter were $1{,}000$ cubic centimeters.\n* Choice D ($600$): divides $60{,}000$ by $100$, the factor for length.\n\n**Test Day Takeaway:** Converting each length before multiplying avoids choosing the wrong power; a cubic meter is $100^3$ cubic centimeters.",
       skills: ["squared-cubed-units"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "The table gives the length and the width, in feet, of each of the three rectangular sections of a lobby floor. Given that $1$ yard is equal to $3$ feet, what is the combined area of the three sections, in square yards?",
+      question: "The table shows the length and width, in feet, of each of three rectangular sections of a floor. What is the area, in square yards, of the three sections combined? ($1$ yard $= 3$ feet)",
       diagram: { type: "dataTable", params: { headers: ["Section", "Length (feet)", "Width (feet)"], rows: [["A", "12", "9"], ["B", "15", "12"], ["C", "6", "9"]] } },
       choices: [
         { id: "A", text: "$38$" },
+        // distractor: divides by 3 instead of 9
         { id: "B", text: "$114$" },
+        // distractor: reports the area in square feet
         { id: "C", text: "$342$" },
+        // distractor: multiplies by 9 instead of dividing
         { id: "D", text: "$3{,}078$" }
       ],
       correctAnswer: "A",
-      hint: "Total the three areas in square feet first; only the last step involves yards.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~35s):** The sections total $108+180+54=342$ square feet, and $\\frac{342}{9}=38$ square yards — choice A.\n\n**The Full Solution:**\nStep 1: Find each area in square feet: $12(9)=108$, $15(12)=180$, and $6(9)=54$.\nStep 2: Add them: $108+180+54=342$ square feet.\nStep 3: A square yard is $3^{2}=9$ square feet, so divide: $\\frac{342}{9}=38$ square yards.\nStep 4: Check: $38$ square yards is $38(9)=342$ square feet, the total from step 2. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($114$): divides by the linear factor $3$ instead of $3^{2}$: $\\frac{342}{3}=114$.\n* Choice C ($342$): reports the combined area in square feet without converting to square yards.\n* Choice D ($3{,}078$): multiplies by $9$ instead of dividing: $342(9)=3{,}078$, which converts in the wrong direction.\n\n**Test Day Takeaway:** Converting to a larger unit divides, and for an area the divisor is the square of the linear factor — check the direction and the exponent separately.",
+      hint: "Total the three areas in square feet first; only the last step uses yards.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~35s):** The areas are $108 + 180 + 54 = 342$ square feet, and $342 \\div 9 = 38$ square yards.\n\n**The Full Solution:**\nStep 1: Find each area in square feet: $12(9) = 108$, $15(12) = 180$, and $6(9) = 54$.\nStep 2: Add: $108 + 180 + 54 = 342$ square feet.\nStep 3: A square yard is $3^2 = 9$ square feet, so $342 \\div 9 = 38$ square yards. Check: $38(9) = 342$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($114$): divides by $3$ instead of $3^2 = 9$.\n* Choice C ($342$): is the total area in square feet, before the conversion.\n* Choice D ($3{,}078$): multiplies by $9$ instead of dividing.\n\n**Test Day Takeaway:** Total the areas in the units given, then convert once, dividing by the square of the length factor.",
       skills: ["squared-cubed-units"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "An empty tank with a capacity of $4.5$ cubic feet is filled at a constant rate of $216$ cubic inches per second. Given that $1$ foot is equal to $12$ inches, how many seconds does it take to fill the tank?",
+      question: "An empty tank with a volume of $4.5$ cubic feet is filled with water at a rate of $216$ cubic inches per second. How many seconds does it take to fill the tank? ($1$ foot $= 12$ inches)",
       choices: [
+        // distractor: converts cubic feet with 12 instead of 12^3
         { id: "A", text: "$0.25$" },
+        // distractor: converts cubic feet with 144 instead of 1,728
         { id: "B", text: "$3$" },
         { id: "C", text: "$36$" },
-        { id: "D", text: "$1{,}679{,}616$" }
+        // distractor: reports the volume in cubic inches instead of the time
+        { id: "D", text: "$7{,}776$" }
       ],
       correctAnswer: "C",
-      hint: "The capacity and the rate are stated in different cubic units; make them agree before you divide.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~40s):** A cubic foot is $12^{3}=1{,}728$ cubic inches, so the tank holds $4.5(1{,}728)=7{,}776$ cubic inches, and $\\frac{7{,}776}{216}=36$ seconds — choice C.\n\n**The Full Solution:**\nStep 1: A cubic foot is a $12$-inch cube, so it contains $12^{3}=1{,}728$ cubic inches.\nStep 2: Convert the capacity: $4.5(1{,}728)=7{,}776$ cubic inches.\nStep 3: Divide the capacity by the rate: $\\frac{7{,}776\\text{ cubic inches}}{216\\text{ cubic inches per second}}=36$ seconds.\nStep 4: Check: in $36$ seconds the tank receives $36(216)=7{,}776$ cubic inches, which is $\\frac{7{,}776}{1{,}728}=4.5$ cubic feet. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.25$): converts with the linear factor $12$: $\\frac{4.5(12)}{216}=\\frac{54}{216}=0.25$.\n* Choice B ($3$): converts with the square factor $144$: $\\frac{4.5(144)}{216}=\\frac{648}{216}=3$.\n* Choice D ($1{,}679{,}616$): multiplies by the rate instead of dividing by it: $7{,}776(216)=1{,}679{,}616$.\n\n**Test Day Takeaway:** When a rate and a capacity carry different units, convert first and divide second. For cubic units the factor is the linear factor cubed — $12$, $144$, and $1{,}728$ are three different answers.",
+      hint: "The volume and the rate use different cubic units; make them agree before you divide.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~45s):** $4.5$ cubic feet is $4.5(1{,}728) = 7{,}776$ cubic inches, and $7{,}776 \\div 216 = 36$ seconds.\n\n**The Full Solution:**\nStep 1: A cubic foot is $12^3 = 1{,}728$ cubic inches, so the tank holds $4.5(1{,}728) = 7{,}776$ cubic inches.\nStep 2: Time is volume divided by rate: $\\frac{7{,}776}{216}$.\nStep 3: $\\frac{7{,}776}{216} = 36$ seconds. Check: $216(36) = 7{,}776$ cubic inches, which is $\\frac{7{,}776}{1{,}728} = 4.5$ cubic feet ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.25$): converts the tank's volume with a factor of $12$ instead of $12^3$: $\\frac{4.5(12)}{216} = 0.25$.\n* Choice B ($3$): converts with $12^2 = 144$, the factor for square units: $\\frac{4.5(144)}{216} = 3$.\n* Choice D ($7{,}776$): is the volume of the tank in cubic inches, not the time to fill it.\n\n**Test Day Takeaway:** Make the volume and the rate use the same cubic unit before dividing; a cubic foot is $12^3$ cubic inches.",
       skills: ["squared-cubed-units"]
     }
   ]

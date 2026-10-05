@@ -1,30 +1,30 @@
 {
  "id": 3,
- "question": "A cider bottler drains its juice through a conical filter funnel whose circular rim is $10$ centimeters across. The funnel holds $150\\pi$ cubic centimeters of juice when it is filled to the rim. How deep, in centimeters, is the funnel?",
+ "question": "A right circular cone has a volume of $96\\pi$ cubic centimeters, and the diameter of its base is $12$ centimeters. What is the height, in centimeters, of the cone?",
  "choices": [
   {
    "id": "A",
-   "text": "$4.5$"
+   "text": "$2$"
   },
   {
    "id": "B",
-   "text": "$6$"
+   "text": "$\\frac{8}{3}$"
   },
   {
    "id": "C",
-   "text": "$18$"
+   "text": "$8$"
   },
   {
    "id": "D",
-   "text": "$54$"
+   "text": "$48$"
   }
  ],
  "distractorNotes": {
-  "A": "uses the rim measurement 10 as the radius, giving 450/100",
-  "B": "leaves out the one-third factor, giving 150/25",
-  "D": "multiplies by 3 a second time"
+  "A": "uses the diameter 12 as the radius, so 48h = 96 and h = 2",
+  "B": "halves the diameter correctly but leaves out the 1/3, so 36h = 96 and h = 8/3",
+  "D": "uses the radius 6 without squaring it, so 2h = 96 and h = 48"
  },
  "correctAnswer": "C",
- "hint": "Check which measurement across the funnel the volume formula actually asks for.",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~30s):** With radius $5$, $\\frac{1}{3}\\pi(25)h = 150\\pi$ gives $h = \\frac{450}{25} = 18$ centimeters.\n\n**The Full Solution:**\nStep 1: The rim measures $10$ centimeters across, so the radius is $5$ centimeters.\nStep 2: Substitute into the cone formula: $\\frac{1}{3}\\pi(5)^2 h = 150\\pi$, so $\\frac{25}{3}h = 150$.\nStep 3: Multiply by $3$ and divide by $25$: $h = \\frac{450}{25} = 18$ centimeters. Check: $\\frac{1}{3}\\pi(25)(18) = 150\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4.5$): using the $10$-centimeter rim measurement as the radius, which gives $\\frac{450}{100}$.\n* Choice B ($6$): leaving out the factor $\\frac{1}{3}$, which gives $\\frac{150}{25}$.\n* Choice D ($54$): multiplying by $3$ a second time after already clearing the $\\frac{1}{3}$.\n\n**Test Day Takeaway:** Halve a measurement taken across a circle before squaring it, and clear the $\\frac{1}{3}$ exactly once."
+ "hint": "The formula needs the radius, which is half of the diameter.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** The radius is $6$, so $\\frac{1}{3}\\pi(36)h = 96\\pi$, which gives $12h = 96$ and $h = 8$.\n\n**The Full Solution:**\nStep 1: The radius is half the diameter: $r = \\frac{12}{2} = 6$ centimeters.\nStep 2: Substitute into $V = \\frac{1}{3}\\pi r^{2}h$: $\\frac{1}{3}\\pi(6)^{2}h = 96\\pi$, which simplifies to $12h = 96$.\nStep 3: Divide: $h = 8$ centimeters. Check: $\\frac{1}{3}\\pi(36)(8) = \\frac{288}{3}\\pi = 96\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): uses the diameter $12$ as the radius, so $\\frac{1}{3}(144)h = 48h = 96$ and $h = 2$.\n* Choice B ($\\frac{8}{3}$): uses the radius correctly but drops the $\\frac{1}{3}$, solving $36h = 96$.\n* Choice D ($48$): uses $r$ instead of $r^{2}$, solving $\\frac{1}{3}(6)h = 96$.\n\n**Test Day Takeaway:** Convert a diameter to a radius first, then simplify the coefficient of $h$ completely before dividing; that keeps every factor of the formula in play."
 }
