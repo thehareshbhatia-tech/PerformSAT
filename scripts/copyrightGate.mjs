@@ -340,6 +340,18 @@ async function liveItems({ tests, drills, rw }) {
       const mod = { exports: null }; new Function('module', src)(mod);
       for (const q of mod.exports) out.push({ kind: 'math', id: q.id, item: q });
     }
+    // topic drill files (served through the same drill routing)
+    const Q = path.join(ROOT, 'src', 'data', 'questions');
+    for (const f of ['circles', 'dimensionalAnalysis', 'equivalentExpressions', 'exponents', 'functions', 'linearEquations', 'percents', 'quadratics', 'radiansDegrees', 'statistics', 'systems', 'transformations', 'triangles', 'volume']) {
+      const m = await import(pathToFileURL(path.join(Q, `${f}.js`)).href);
+      const obj = Object.values(m).find(v => v && typeof v === 'object' && !Array.isArray(v)) || {};
+      for (const [sec, list] of Object.entries(obj)) for (const q of list || []) out.push({ kind: 'math', id: `topic-${f}-${sec.replace(/\W+/g, '_')}-${q.id}`, item: q });
+    }
+  }
+  if (rw) {
+    // drill-only R&W reading items
+    const m = await import(pathToFileURL(path.join(ROOT, 'src', 'data', 'questions', 'rwBank', 'authoredReadingItems.js')).href);
+    for (const q of m.authoredReadingItems || []) out.push({ kind: 'rw', id: `rwfill-${q.id}`, item: q });
   }
   return out;
 }
