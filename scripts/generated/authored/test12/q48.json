@@ -6,26 +6,26 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 2,
- "passage": "The last working coasting schooners were long dismissed as quaint survivals, kept afloat by sentiment rather than ____ recent studies of harbor ledgers have shown that on many short routes the vessels remained the cheapest carriers of stone and cordwood well into the twentieth century.",
+ "passage": "Coelacanths, an ancient group of fish, were long known only from fossils. Scientists therefore concluded that the group had died out about 66 million years ____ in 1938, a trawler fishing off the coast of South Africa hauled up a living coelacanth.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "profit however"
+   "text": "ago however"
   },
   {
    "id": "B",
-   "text": "profit; however,"
+   "text": "ago; however,"
   },
   {
    "id": "C",
-   "text": "profit, however;"
+   "text": "ago, however;"
   },
   {
    "id": "D",
-   "text": "profit, however,"
+   "text": "ago, however,"
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** Two independent clauses meet at the blank, and the conjunctive adverb \"however\" cannot join them with commas alone: it takes a semicolon before it and a comma after it — \"profit; however,\".\n\n**The Full Solution:**\n- Check each side: \"The last working coasting schooners were long dismissed as quaint survivals, kept afloat by sentiment rather than profit\" is a complete sentence, and so is \"recent studies of harbor ledgers have shown that... the vessels remained the cheapest carriers...\"\n- The rule: when \"however\" links two independent clauses, the clause boundary needs a semicolon (or a period), with a comma setting off \"however\" from the clause it introduces.\n- That yields \"profit; however, recent studies...\"\n\n**Why the other choices are wrong:**\n- A: \"Profit however\" supplies no punctuation at all, fusing the clauses and leaving \"however\" floating between them.\n- C: \"Profit, however;\" reverses the marks, putting the weak comma at the clause boundary and stranding the semicolon after \"however.\"\n- D: \"Profit, however,\" treats \"however\" as a mere aside while still splicing the two independent clauses with a comma."
+ "explanation": "**Choice B is correct.** The text contains two independent clauses: \"Scientists therefore concluded that the group had died out about 66 million years ago\" and \"in 1938, a trawler fishing off the coast of South Africa hauled up a living coelacanth.\" The second contrasts with the first, so \"however\" belongs with the second clause. A semicolon must separate the clauses, and a comma follows \"however.\"\n\n**The Full Solution:**\n- Find the boundary between the two independent clauses: it falls after \"ago.\"\n- \"However\" signals the contrast between the scientists' conclusion and the 1938 catch of a living coelacanth, so it introduces the second clause.\n- The standard punctuation is a semicolon before \"however\" and a comma after it: \"ago; however, in 1938 ...\"\n\n**Why the other choices are wrong:**\n- A: With no punctuation, the two independent clauses run together.\n- C: Placing the semicolon after \"however\" attaches the contrast word to the first clause, where it contrasts with nothing: the scientists' conclusion follows from the fossil evidence, as \"therefore\" indicates.\n- D: Commas on both sides of \"however\" leave the two independent clauses joined only by a comma, a comma splice."
 }

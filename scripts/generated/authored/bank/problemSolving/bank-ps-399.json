@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-399",
-  "question": "The mean mass of $12$ sparrows is $28.5$ grams. When $8$ more sparrows are included, the mean mass of all $20$ sparrows is $26.1$ grams. What is the mean mass, in grams, of the $8$ sparrows that were added?",
+  "question": "The mean mass of $12$ sparrows is $30$ grams. When $8$ more sparrows are included, the mean mass of all $20$ sparrows is $27$ grams. What is the mean mass, in grams, of the $8$ sparrows that were added?",
   "choices": [
     {
       "id": "A",
@@ -8,22 +8,22 @@
     },
     {
       "id": "B",
-      "text": "$23.7$"
+      "text": "$24$"
     },
     {
       "id": "C",
-      "text": "$26.1$"
+      "text": "$27$"
     },
     {
       "id": "D",
-      "text": "$27.3$"
+      "text": "$28.5$"
     }
   ],
   "correctAnswer": "A",
   "distractorNotes": {
-    "B": "assumes the new group's mean is as far below $26.1$ as $28.5$ is above it, ignoring the different group sizes",
-    "C": "reports the mean of all $20$ sparrows",
-    "D": "averages the two given means, $\\frac{28.5 + 26.1}{2}$"
+    "B": "treats the two groups as equal in size: 2(27) - 30",
+    "C": "reports the mean of all 20 sparrows",
+    "D": "averages the two given means, (30 + 27)/2"
   },
-  "explanation": "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**Choice A is correct.**\n\n**The Fast Way (~50s):** All $20$ birds total $20(26.1) = 522$ grams and the first $12$ total $12(28.5) = 342$ grams, so the $8$ added birds have mean $\\frac{180}{8} = 22.5$.\n\n**The Full Solution:**\nStep 1: The total mass of all $20$ sparrows is $20(26.1) = 522$ grams.\nStep 2: The total mass of the first $12$ sparrows is $12(28.5) = 342$ grams, so the $8$ added sparrows total $522 - 342 = 180$ grams.\nStep 3: Their mean is $\\frac{180}{8} = 22.5$ grams. Check: $\\frac{342 + 8(22.5)}{20} = \\frac{522}{20} = 26.1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($23.7$): treats $26.1$ as the midpoint of the two group means, which is true only when the groups are the same size.\n* Choice C ($26.1$): is the mean of all $20$ sparrows, not of the $8$ that were added.\n* Choice D ($27.3$): averages the two means given in the question, which mixes the combined mean with a group mean.\n\n**Test Day Takeaway:** Means do not add or average across groups of different sizes; totals do. Convert every mean to a total."
+  "explanation": "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** All $20$ sparrows total $20(27) = 540$ grams and the first $12$ total $12(30) = 360$, so the $8$ new sparrows average $\\frac{180}{8} = 22.5$ grams.\n\n**The Full Solution:**\nStep 1: Total mass of the first $12$ sparrows: $12(30) = 360$ grams.\nStep 2: Total mass of all $20$ sparrows: $20(27) = 540$ grams, so the $8$ added sparrows total $540 - 360 = 180$ grams.\nStep 3: Their mean is $\\frac{180}{8} = 22.5$ grams. Check: $\\frac{360 + 8(22.5)}{20} = \\frac{540}{20} = 27$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($24$): solves $\\frac{30 + a}{2} = 27$, which would be right only if the two groups had the same number of sparrows.\n* Choice C ($27$): is the mean of all $20$ sparrows, not of the $8$ added.\n* Choice D ($28.5$): averages $30$ and $27$; the new sparrows pulled the mean down, so their mean is below $27$.\n\n**Test Day Takeaway:** Means of groups of different sizes combine through totals: mean $\\times$ count, subtract, then divide."
 }

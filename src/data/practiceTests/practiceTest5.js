@@ -109,18 +109,18 @@ export const practiceTest5 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "Line $k$ is defined by $y = \\frac{3}{4}x - 2$. Line $j$ is perpendicular to line $k$ in the $xy$-plane and passes through the point $(6, -1)$. Which equation defines line $j$?",
+  question: "Line $k$ is defined by $y = \\frac{3}{4}x - 2$. Line $j$ is perpendicular to line $k$ in the $xy$-plane and passes through the point $(0, 7)$. Which equation defines line $j$?",
   choices: [
     { id: "A", text: "$y = -\\frac{4}{3}x + 7$" },
-    // distractor: negates the slope but does not take the reciprocal, using -3/4 through (6, -1)
-    { id: "B", text: "$y = -\\frac{3}{4}x + \\frac{7}{2}$" },
+    // distractor: negates the slope but does not take the reciprocal, using -3/4
+    { id: "B", text: "$y = -\\frac{3}{4}x + 7$" },
     // distractor: reuses line k's slope 3/4, which gives a line parallel to k, not perpendicular
-    { id: "C", text: "$y = \\frac{3}{4}x - \\frac{11}{2}$" },
-    // distractor: takes the reciprocal but does not negate, using 4/3 through (6, -1)
-    { id: "D", text: "$y = \\frac{4}{3}x - 9$" }
+    { id: "C", text: "$y = \\frac{3}{4}x + 7$" },
+    // distractor: takes the reciprocal but does not negate it, using 4/3
+    { id: "D", text: "$y = \\frac{4}{3}x + 7$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Line $k$ has slope $\\frac{3}{4}$, so line $j$ has slope $-\\frac{4}{3}$. Substituting $(6, -1)$ into $y = -\\frac{4}{3}x + b$ gives $-1 = -8 + b$, so $b = 7$.\n\n**The Full Solution:**\nStep 1: Line $k$ is in slope-intercept form, so its slope is $\\frac{3}{4}$. The slope of a perpendicular line is the negative reciprocal, $-\\frac{4}{3}$.\nStep 2: Write line $j$ as $y = -\\frac{4}{3}x + b$ and substitute the point $(6, -1)$: $-1 = -\\frac{4}{3}(6) + b = -8 + b$, so $b = 7$.\nStep 3: Line $j$ is $y = -\\frac{4}{3}x + 7$. Check: $-\\frac{4}{3}(6) + 7 = -1$, and $\\frac{3}{4} \\cdot \\left(-\\frac{4}{3}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: changes the sign of the slope but keeps $\\frac{3}{4}$ instead of flipping it. The line passes through $(6, -1)$, but $\\frac{3}{4} \\cdot \\left(-\\frac{3}{4}\\right) \\neq -1$.\n* Choice C: keeps the slope $\\frac{3}{4}$, which makes line $j$ parallel to line $k$.\n* Choice D: flips the slope to $\\frac{4}{3}$ but forgets to change its sign.\n\n**Test Day Takeaway:** Perpendicular slopes multiply to $-1$: flip the fraction and change the sign, then use the given point to find the $y$-intercept.",
+  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Line $k$ has slope $\\frac{3}{4}$, so line $j$ has slope $-\\frac{4}{3}$. The point $(0, 7)$ is on the $y$-axis, so the $y$-intercept of line $j$ is $7$.\n\n**The Full Solution:**\nStep 1: Line $k$ is in slope-intercept form, so its slope is $\\frac{3}{4}$. The slope of a perpendicular line is the negative reciprocal, $-\\frac{4}{3}$.\nStep 2: Line $j$ passes through $(0, 7)$, a point with $x$-coordinate $0$, so its $y$-intercept is $7$.\nStep 3: Line $j$ is $y = -\\frac{4}{3}x + 7$. Check: $-\\frac{4}{3}(0) + 7 = 7$, and $\\frac{3}{4} \\cdot \\left(-\\frac{4}{3}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: changes the sign of the slope but keeps $\\frac{3}{4}$ instead of flipping it, and $\\frac{3}{4} \\cdot \\left(-\\frac{3}{4}\\right) \\neq -1$.\n* Choice C: keeps the slope $\\frac{3}{4}$, which makes line $j$ parallel to line $k$.\n* Choice D: flips the slope to $\\frac{4}{3}$ but forgets to change its sign.\n\n**Test Day Takeaway:** Perpendicular slopes multiply to $-1$: flip the fraction and change the sign. A given point with $x$-coordinate $0$ is the $y$-intercept.",
   skills: ["perpendicular-negative-reciprocal"]
 },
 {
@@ -128,20 +128,20 @@ export const practiceTest5 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "The table shows values of the functions $f$ and $g$ for selected values of $x$. What is the value of $f(g(2))$?",
-  questionTable: { headers: ["$x$", "$f(x)$", "$g(x)$"], rows: [["1", "8", "2"], ["2", "5", "4"], ["3", "9", "5"], ["4", "3", "1"], ["5", "6", "6"]] },
+  question: "The table shows values of the function $f$ for selected values of $x$. The function $g$ is defined by $g(x) = f(x + 2)$. What is the value of $g(2)$?",
+  questionTable: { headers: ["$x$", "$f(x)$"], rows: [["0", "8"], ["1", "5"], ["2", "9"], ["3", "3"], ["4", "6"]] },
   choices: [
-    { id: "A", text: "$3$" },
-    // distractor: stops after evaluating the inner function, reporting g(2) = 4
-    { id: "B", text: "$4$" },
-    // distractor: evaluates the outer function at 2 instead of at g(2), reporting f(2) = 5
-    { id: "C", text: "$5$" },
-    // distractor: applies the functions in the reverse order, computing g(f(2)) = g(5) = 6
-    { id: "D", text: "$6$" }
+    { id: "A", text: "$6$" },
+    // distractor: subtracts 2 from the input instead of adding it, reporting f(0) = 8
+    { id: "B", text: "$8$" },
+    // distractor: ignores the shift and reads f(2) = 9
+    { id: "C", text: "$9$" },
+    // distractor: adds 2 to the output instead of the input, computing f(2) + 2 = 11
+    { id: "D", text: "$11$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Function Composition**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** From the table, $g(2) = 4$, and then $f(4) = 3$, so $f(g(2)) = 3$.\n\n**The Full Solution:**\nStep 1: Work from the inside out. In the row where $x = 2$, the table shows $g(2) = 4$.\nStep 2: Use that output as the new input for $f$. In the row where $x = 4$, the table shows $f(4) = 3$.\nStep 3: So $f(g(2)) = f(4) = 3$. Check: the inner value $4$ appears in the $x$ column, and its $f(x)$ entry is $3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($4$): stops after the inner step and reports $g(2) = 4$ without applying $f$.\n* Choice C ($5$): reads $f(2) = 5$, evaluating $f$ at $2$ instead of at $g(2)$.\n* Choice D ($6$): applies the functions in the wrong order, finding $f(2) = 5$ and then $g(5) = 6$, which is $g(f(2))$.\n\n**Test Day Takeaway:** For $f(g(a))$, find $g(a)$ first, then look up $f$ of that output; the function written on the outside is applied last.",
-  skills: ["function-composition"]
+  explanation: "**SAT Pattern: Horizontal Shift**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** By the definition of $g$, $g(2) = f(2 + 2) = f(4)$, and the table shows $f(4) = 6$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 2$ into the definition of $g$: $g(2) = f(2 + 2) = f(4)$.\nStep 2: In the row where $x = 4$, the table shows $f(4) = 6$.\nStep 3: So $g(2) = 6$. Check: the input to $f$ is $2 + 2 = 4$, which is in the $x$ column, and its $f(x)$ entry is $6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($8$): computes $f(2 - 2) = f(0)$, subtracting $2$ from the input instead of adding it.\n* Choice C ($9$): reads $f(2)$ and ignores the $+2$ inside the parentheses.\n* Choice D ($11$): adds $2$ to the output, computing $f(2) + 2$, which would be the value of $f(x) + 2$ at $x = 2$.\n\n**Test Day Takeaway:** For $g(x) = f(x + 2)$, add $2$ to the input first, then look up $f$ of the result.",
+  skills: ["function-transformations"]
 },
 {
   id: 7,
@@ -217,18 +217,18 @@ export const practiceTest5 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "In the $xy$-plane, line $p$ passes through the points $(-4, 1)$ and $(4, 13)$. Line $q$ is parallel to line $p$ and passes through the point $(-2, 7)$. Which of the following equations represents line $q$?",
+  question: "In the $xy$-plane, line $p$ passes through the points $(-4, 1)$ and $(4, 13)$. Line $q$ is parallel to line $p$ and passes through the point $(0, -3)$. Which of the following equations represents line $q$?",
   choices: [
-    // distractor: uses the perpendicular slope -2/3 instead of the parallel slope 3/2, through (-2, 7)
-    { id: "A", text: "$2x + 3y = 17$" },
-    { id: "B", text: "$3x - 2y = -20$" },
-    // distractor: uses the correct slope but substitutes the point with its coordinates reversed, as (7, -2)
-    { id: "C", text: "$3x - 2y = 25$" },
-    // distractor: uses slope -3/2, a sign error on the parallel slope, through (-2, 7)
-    { id: "D", text: "$3x + 2y = 8$" }
+    // distractor: inverts the slope, using 2/3: y = (2/3)x - 3 gives 2x - 3y = 9
+    { id: "A", text: "$2x - 3y = 9$" },
+    { id: "B", text: "$3x - 2y = 6$" },
+    // distractor: uses +3 as the y-intercept: y = (3/2)x + 3 gives 3x - 2y = -6
+    { id: "C", text: "$3x - 2y = -6$" },
+    // distractor: uses the slope -3/2: y = (-3/2)x - 3 gives 3x + 2y = -6
+    { id: "D", text: "$3x + 2y = -6$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Line $p$ has slope $\\frac{13 - 1}{4 - (-4)} = \\frac{3}{2}$. Every line with slope $\\frac{3}{2}$ can be written $3x - 2y = C$, and $(-2, 7)$ gives $C = -6 - 14 = -20$.\n\n**The Full Solution:**\nStep 1: The slope of line $p$ is $\\frac{13 - 1}{4 - (-4)} = \\frac{12}{8} = \\frac{3}{2}$. Parallel lines have equal slopes, so line $q$ also has slope $\\frac{3}{2}$.\nStep 2: Use point-slope form with $(-2, 7)$: $y - 7 = \\frac{3}{2}(x + 2)$. Multiply both sides by $2$: $2y - 14 = 3x + 6$.\nStep 3: Rearrange: $3x - 2y = -20$. Check: $3(-2) - 2(7) = -6 - 14 = -20$, and solving for $y$ gives $y = \\frac{3}{2}x + 10$, slope $\\frac{3}{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2x + 3y = 17$): has slope $-\\frac{2}{3}$, the negative reciprocal, which gives a line perpendicular to line $p$.\n* Choice C ($3x - 2y = 25$): has the right slope but passes through $(7, -2)$, the given point with its coordinates swapped.\n* Choice D ($3x + 2y = 8$): passes through $(-2, 7)$ but has slope $-\\frac{3}{2}$, a sign error.\n\n**Test Day Takeaway:** For a line in standard form $Ax + By = C$, the slope is $-\\frac{A}{B}$; check both the slope and the given point before choosing.",
+  explanation: "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Line $p$ has slope $\\frac{13 - 1}{4 - (-4)} = \\frac{3}{2}$, so line $q$ is $y = \\frac{3}{2}x - 3$. Multiplying by $2$ gives $2y = 3x - 6$, or $3x - 2y = 6$.\n\n**The Full Solution:**\nStep 1: The slope of line $p$ is $\\frac{13 - 1}{4 - (-4)} = \\frac{12}{8} = \\frac{3}{2}$. Parallel lines have equal slopes, so line $q$ also has slope $\\frac{3}{2}$.\nStep 2: Line $q$ passes through $(0, -3)$, so its $y$-intercept is $-3$ and line $q$ is $y = \\frac{3}{2}x - 3$.\nStep 3: Multiply both sides by $2$: $2y = 3x - 6$, so $3x - 2y = 6$. Check: $(0, -3)$ gives $3(0) - 2(-3) = 6$ ✓, and solving $3x - 2y = 6$ for $y$ gives slope $\\frac{3}{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2x - 3y = 9$): has slope $\\frac{2}{3}$, the reciprocal of the correct slope, from dividing the change in $x$ by the change in $y$.\n* Choice C ($3x - 2y = -6$): has the correct slope but $y$-intercept $3$ instead of $-3$.\n* Choice D ($3x + 2y = -6$): has slope $-\\frac{3}{2}$, from a sign error in the slope.\n\n**Test Day Takeaway:** Find the slope from the two points, use the point with $x$-coordinate $0$ as the $y$-intercept, and then rearrange to match the form of the choices.",
   skills: ["writing-parallel-equation"]
 },
 {
@@ -627,19 +627,19 @@ export const practiceTest5 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "$3, 5, 4, 5, 6, 4, 5, 7, 4, 5, 8$\nWhich statement about the data set shown is true?",
+  question: "$12, 7, 15, 9, 21, 7, 11, 18$\nWhat is the median of the data set shown?",
   choices: [
-    // distractor: miscounts the frequencies and calls 4 the mode; 4 appears three times but 5 appears four times
-    { id: "A", text: "The mode is less than the median." },
-    { id: "B", text: "The mode is equal to the median." },
-    // distractor: leaves the greatest value, 8, out of the sum, producing a mean of 4.8 that the mode would exceed
-    { id: "C", text: "The mode is greater than the mean." },
-    // distractor: adds the eleven values as 55 instead of 56, making the mean come out exactly 5
-    { id: "D", text: "The mode is equal to the mean." }
+    // distractor: orders the values but takes only the fourth value, 11, instead of averaging the two middle values
+    { id: "A", text: "$11$" },
+    { id: "B", text: "$11.5$" },
+    // distractor: computes the mean, 100/8 = 12.5, instead of the median
+    { id: "C", text: "$12.5$" },
+    // distractor: averages the two middle entries of the list as written, 9 and 21, without putting the values in order
+    { id: "D", text: "$15$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Mode of a Data Set**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The value $5$ appears four times, more than any other value, so the mode is $5$. In order, the sixth of the eleven values is also $5$, so the mode equals the median.\n\n**The Full Solution:**\nStep 1: Count each value: $3$ appears once, $4$ three times, $5$ four times, and $6$, $7$, and $8$ once each. The mode is $5$.\nStep 2: In order, the values are $3$, $4$, $4$, $4$, $5$, $5$, $5$, $5$, $6$, $7$, $8$. With $11$ values, the median is the sixth value, $5$. So the mode equals the median.\nStep 3: Check the comparisons with the mean. The sum is $56$, so the mean is $\\frac{56}{11}\\approx 5.09$, which is greater than the mode. Only the statement in choice B is true ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: takes $4$ as the mode. The value $4$ appears three times, but $5$ appears four times.\n* Choice C: leaves the greatest value, $8$, out of the sum, giving a mean of $\\frac{48}{10}=4.8$, which is less than the mode.\n* Choice D: adds the values as $55$ instead of $56$, which would make the mean exactly $5$. The actual mean, $\\frac{56}{11}$, is not an integer.\n\n**Test Day Takeaway:** Put the values in order first. One ordered list gives the mode by counting repeats and the median by position, and it makes the sum easier to check.",
-  skills: ["find-mode"]
+  explanation: "**SAT Pattern: Median Calculation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** In order, the values are $7, 7, 9, 11, 12, 15, 18, 21$. With $8$ values, the median is the mean of the fourth and fifth values: $\\frac{11 + 12}{2} = 11.5$.\n\n**The Full Solution:**\nStep 1: Put the values in order from least to greatest: $7$, $7$, $9$, $11$, $12$, $15$, $18$, $21$.\nStep 2: The data set has $8$ values, an even number, so the median is the mean of the two middle values, the fourth and fifth values, $11$ and $12$.\nStep 3: The median is $\\frac{11 + 12}{2} = 11.5$. Check: $4$ values ($7$, $7$, $9$, $11$) are less than $11.5$ and $4$ values ($12$, $15$, $18$, $21$) are greater ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($11$): takes only the fourth value. With an even number of values, the median is the mean of the two middle values.\n* Choice C ($12.5$): finds the mean, $\\frac{100}{8} = 12.5$, instead of the median.\n* Choice D ($15$): averages the fourth and fifth entries of the list as written, $9$ and $21$, without ordering the values first.\n\n**Test Day Takeaway:** Order the values before finding the median. With an even number of values, the median is the mean of the two middle values.",
+  skills: ["find-median"]
 },
 {
   id: 14,
@@ -665,9 +665,9 @@ export const practiceTest5 = {
   type: "fill-in",
   difficulty: "easy",
   band: 3,
-  question: "$f(x)=(x-4)^{2}+3$\nThe function $g$ is defined by $g(x)=f(x-6)$. For what value of $x$ does $g(x)$ reach its minimum?",
-  correctAnswer: "10",
-  explanation: "**SAT Pattern: Function Transformation**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~20s):** $f$ reaches its minimum at $x=4$, and $g(x)=f(x-6)$ shifts the graph of $f$ $6$ units to the right, so $g$ reaches its minimum at $4+6=10$.\n\n**The Full Solution:**\nStep 1: In the form $(x-h)^{2}+k$, the minimum occurs at $x=h$, so $f$ reaches its minimum at $x=4$, where $f(4)=3$.\nStep 2: Substitute $x-6$ for $x$ in $f$: $g(x)=\\big((x-6)-4\\big)^{2}+3=(x-10)^{2}+3$.\nStep 3: This is in the same form with $h=10$, so $g$ reaches its minimum at $x=10$. Check: $g(10)=(10-10)^{2}+3=3$, the same minimum value as $f$ ✓\n\n**Common Mistakes:**\n* $-2$: subtracting the shift from the vertex, $4-6$. Replacing $x$ with $x-6$ moves the graph to the right, not the left.\n* $6$: reporting the size of the shift instead of the location of the minimum.\n* $4$: reporting where $f$ reaches its minimum instead of where $g$ does.\n\n**Test Day Takeaway:** Replacing $x$ with $x-c$ shifts a graph $c$ units to the right, and every point, including the vertex, moves with it. When unsure, substitute and rewrite in vertex form.",
+  question: "$f(x)=(x-4)^{2}+3$\nThe function $g$ is defined by $g(x)=f(x)+6$. What is the minimum value of $g(x)$?",
+  correctAnswer: "9",
+  explanation: "**SAT Pattern: Function Transformation**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~15s):** The minimum value of $f(x)$ is $3$, and $g(x)=f(x)+6$ adds $6$ to every output of $f$, so the minimum value of $g(x)$ is $3+6=9$.\n\n**The Full Solution:**\nStep 1: In the form $(x-h)^{2}+k$, the minimum value is $k$, because $(x-4)^{2}$ is never negative and equals $0$ at $x=4$. So the minimum value of $f(x)$ is $3$.\nStep 2: Adding $6$ to $f(x)$ raises every output by $6$: $g(x)=(x-4)^{2}+3+6=(x-4)^{2}+9$.\nStep 3: The minimum value of $g(x)$ is $9$. Check: $g(4)=(4-4)^{2}+9=9$, and $g(5)=1+9=10$, which is greater ✓\n\n**Common Mistakes:**\n* $3$: reporting the minimum value of $f(x)$ instead of $g(x)$.\n* $10$: adding $6$ to the $x$-coordinate of the vertex, $4+6$, instead of to the output.\n* $-3$: subtracting $6$ from the minimum instead of adding it.\n\n**Test Day Takeaway:** Adding a constant outside the function, $f(x)+c$, moves every output, including the minimum, up by $c$.",
   skills: ["function-transformations", "vertex-form"]
 },
 {
@@ -695,18 +695,18 @@ export const practiceTest5 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "A data set of $30$ values has mean $m$ and standard deviation $s$. A new data set is created by multiplying each value by $\\frac{3}{4}$ and then subtracting $6$ from each product. Which statement about the new data set is true?",
+  question: "Data set A has a mean of $m$. Data set B is created by multiplying each value in data set A by $\\frac{3}{4}$ and then subtracting $6$ from each product. Which of the following must be true?\nI. The mean of data set B is $\\frac{3}{4}m-6$.\nII. Data sets A and B have the same standard deviation.",
   choices: [
-    // distractor: applies the multiplier to the mean but never subtracts the 6, leaving the mean 6 too high
-    { id: "A", text: "The mean is $\\dfrac{3}{4}m$ and the standard deviation is $\\dfrac{3}{4}s$." },
-    // distractor: assumes multiplying every value leaves the spread unchanged, so the standard deviation stays s instead of becoming three-fourths of s
-    { id: "B", text: "The mean is $\\dfrac{3}{4}m-6$ and the standard deviation is $s$." },
-    // distractor: subtracts the 6 from the standard deviation as well; subtracting a constant from every value leaves the spread unchanged
-    { id: "C", text: "The mean is $\\dfrac{3}{4}m-6$ and the standard deviation is $\\dfrac{3}{4}s-6$." },
-    { id: "D", text: "The mean is $\\dfrac{3}{4}m-6$ and the standard deviation is $\\dfrac{3}{4}s$." }
+    { id: "A", text: "I only" },
+    // distractor: rejects statement I by applying only the multiplication to the mean, and accepts II by assuming the spread never changes
+    { id: "B", text: "II only" },
+    // distractor: knows that subtracting 6 leaves the spread unchanged but forgets that multiplying by 3/4 shrinks it
+    { id: "C", text: "I and II" },
+    // distractor: subtracts 6 before multiplying, getting a mean of (3/4)(m - 6), and so rejects statement I
+    { id: "D", text: "Neither I nor II" }
   ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** Multiplying every value by $\\frac{3}{4}$ multiplies both the mean and the standard deviation by $\\frac{3}{4}$; subtracting $6$ lowers the mean by $6$ and leaves the standard deviation unchanged.\n\n**The Full Solution:**\nStep 1: Multiplying every value by $\\frac{3}{4}$ multiplies the sum by $\\frac{3}{4}$, so the mean becomes $\\frac{3}{4}m$. It also multiplies every distance between values by $\\frac{3}{4}$, so the standard deviation becomes $\\frac{3}{4}s$.\nStep 2: Subtracting $6$ from every value lowers the mean by $6$, to $\\frac{3}{4}m-6$. The distances between values do not change, so the standard deviation stays $\\frac{3}{4}s$.\nStep 3: The new data set has mean $\\frac{3}{4}m-6$ and standard deviation $\\frac{3}{4}s$. Check with two values: $\\{8,12\\}$ has mean $10$, and each value is $2$ from the mean; the new values are $\\{0,3\\}$, with mean $1.5=\\frac{3}{4}(10)-6$, and each is $1.5=\\frac{3}{4}(2)$ from the mean ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: multiplies both measures by $\\frac{3}{4}$ but forgets to subtract $6$ from the mean.\n* Choice B: treats the standard deviation as unaffected by the multiplication. Multiplying every value by $\\frac{3}{4}$ multiplies the spread by $\\frac{3}{4}$.\n* Choice C: subtracts $6$ from the standard deviation too. Subtracting the same number from every value moves the whole data set without changing its spread.\n\n**Test Day Takeaway:** Multiplying every value changes both the center and the spread; adding or subtracting a constant changes only the center. Apply the two rules one step at a time.",
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** Multiplying every value by $\\frac{3}{4}$ and subtracting $6$ does the same to the mean, so I is true. Multiplying by $\\frac{3}{4}$ shrinks every distance between values, so the standard deviation changes and II need not be true.\n\n**The Full Solution:**\nStep 1: Statement I: multiplying every value by $\\frac{3}{4}$ multiplies the sum, and so the mean, by $\\frac{3}{4}$. Subtracting $6$ from every value lowers the mean by $6$. The mean of data set B is $\\frac{3}{4}m-6$, so I must be true.\nStep 2: Statement II: multiplying every value by $\\frac{3}{4}$ multiplies every distance between values by $\\frac{3}{4}$, and subtracting $6$ does not change those distances. Unless all the values are equal, data set B is less spread out than data set A, so II need not be true.\nStep 3: Only statement I must be true. Check with two values: $\\{8, 12\\}$ has mean $10$, with each value $2$ from the mean; the new values are $\\{0, 3\\}$, with mean $1.5=\\frac{3}{4}(10)-6$ and each value $1.5$ from the mean, so the spread changed ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (II only): applies only the multiplication to the mean and assumes the standard deviation can never change.\n* Choice C (I and II): remembers that subtracting a constant leaves the spread unchanged but overlooks that multiplying by $\\frac{3}{4}$ shrinks it.\n* Choice D (Neither I nor II): subtracts $6$ before multiplying, getting $\\frac{3}{4}(m-6)$ for the mean, which is not $\\frac{3}{4}m-6$.\n\n**Test Day Takeaway:** Adding or subtracting a constant moves the center but not the spread; multiplying every value by a constant changes both the center and the spread.",
   skills: ["data-analysis"]
 },
 {
@@ -724,18 +724,18 @@ export const practiceTest5 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "$p(x)=3x^{3}+19x^{2}+22x-24$\nThe polynomial $p(x)$ has a factor of $x+4$. Which of the following is also a factor of $p(x)$?",
+  question: "$p(x)=(x+4)(3x^{2}+7x-6)$\nThe function $p$ is defined by the given equation. Which of the following is a factor of $p(x)$?",
   choices: [
     { id: "A", text: "$3x-2$" },
-    // distractor: flips the sign of the quotient's root, reading the factor of 3x^2 + 7x - 6 as 3x + 2 (root -2/3) instead of 3x - 2 (root 2/3)
+    // distractor: factors 3x^2 + 7x - 6 as (3x + 2)(x - 3), which has the wrong sign on the middle term: 3x^2 - 7x - 6
     { id: "B", text: "$3x+2$" },
-    // distractor: flips the sign of the other quotient factor; the quotient contains x + 3, whose root is -3, not +3
+    // distractor: uses the same sign error, (3x + 2)(x - 3), and picks its other factor
     { id: "C", text: "$x-3$" },
-    // distractor: guesses a factor straight from the constant term by pairing -24 as (4)(-6), without performing the division
+    // distractor: treats the constant term -6 of the quadratic as if it gave the factor x - 6
     { id: "D", text: "$x-6$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Polynomial Factoring with Given Factor**\n\n**Choice A is correct.**\n\n**The Fast Way (~55s):** Dividing $p(x)$ by $x+4$ gives $3x^{2}+7x-6$, which factors as $(3x-2)(x+3)$. So $3x-2$ is a factor.\n\n**The Full Solution:**\nStep 1: Divide $p(x)$ by $x+4$ using synthetic division with $-4$ on the coefficients $3$, $19$, $22$, $-24$: bring down $3$; $19+3(-4)=7$; $22+7(-4)=-6$; $-24+(-6)(-4)=0$. The remainder is $0$, and the quotient is $3x^{2}+7x-6$.\nStep 2: Factor the quotient. Two numbers with product $3(-6)=-18$ and sum $7$ are $9$ and $-2$, so $3x^{2}+9x-2x-6=3x(x+3)-2(x+3)=(3x-2)(x+3)$.\nStep 3: So $p(x)=(x+4)(3x-2)(x+3)$, and the factor among the choices is $3x-2$. Check: $(3x-2)(x+3)=3x^{2}+7x-6$, and $(x+4)(3x^{2}+7x-6)=3x^{3}+19x^{2}+22x-24$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3x+2$): has the wrong sign. Its zero is $-\\frac{2}{3}$, and $p\\left(-\\frac{2}{3}\\right)=-\\frac{280}{9}\\neq 0$.\n* Choice C ($x-3$): has the wrong sign. The quotient contains $x+3$, and $p(3)=294\\neq 0$.\n* Choice D ($x-6$): pairs $-24$ as $(4)(-6)$ and guesses a matching factor without dividing; $p(6)=1{,}440\\neq 0$.\n\n**Test Day Takeaway:** When one factor is given, divide it out. The quotient is a quadratic you can factor, and a remainder of $0$ confirms the division.",
+  explanation: "**SAT Pattern: Polynomial Factoring with Given Factor**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** Factor the quadratic: $3x^{2}+7x-6=(3x-2)(x+3)$, so $p(x)=(x+4)(3x-2)(x+3)$, and $3x-2$ is a factor.\n\n**The Full Solution:**\nStep 1: The factor $x+4$ is already shown, so factor the quadratic $3x^{2}+7x-6$. Look for two numbers with product $3(-6)=-18$ and sum $7$: they are $9$ and $-2$.\nStep 2: Split the middle term and group: $3x^{2}+9x-2x-6=3x(x+3)-2(x+3)=(3x-2)(x+3)$.\nStep 3: So $p(x)=(x+4)(3x-2)(x+3)$, and the factor among the choices is $3x-2$. Check: $(3x-2)(x+3)=3x^{2}+9x-2x-6=3x^{2}+7x-6$, and $p\\left(\\frac{2}{3}\\right)=0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3x+2$): comes from $(3x+2)(x-3)=3x^{2}-7x-6$, which has the wrong sign on the $x$-term.\n* Choice C ($x-3$): comes from the same incorrect factoring, $(3x+2)(x-3)$; the correct factor is $x+3$.\n* Choice D ($x-6$): reads the constant term $-6$ as a factor. $p(6)=(10)(144)=1{,}440$, which is not $0$.\n\n**Test Day Takeaway:** When part of a polynomial is already factored, factor the rest and check the middle term of your product.",
   skills: ["finding-roots-factoring"]
 },
 {
@@ -762,19 +762,19 @@ export const practiceTest5 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "A computer downloads a file at a constant rate of $1{,}536$ kilobits per second. The table shows several unit conversions. At this rate, how many megabytes of data does the computer download in $5$ minutes?",
-  questionTable: { headers: ["Quantity", "Equivalent"], rows: [["$1$ kilobit", "$1{,}000$ bits"], ["$1$ byte", "$8$ bits"], ["$1$ megabyte", "$1{,}000{,}000$ bytes"], ["$1$ minute", "$60$ seconds"]] },
+  question: "A computer downloads a file at a constant rate of $12$ megabits per second. The table shows two unit conversions. At this rate, how many megabytes of data does the computer download in $5$ minutes?",
+  questionTable: { headers: ["Quantity", "Equivalent"], rows: [["$1$ megabyte", "$8$ megabits"], ["$1$ minute", "$60$ seconds"]] },
   choices: [
-    // distractor: divides by 8 a second time after the bits-to-bytes step is already done, turning 57.6 into 7.2
-    { id: "A", text: "$7.2$" },
-    { id: "B", text: "$57.6$" },
-    // distractor: reports 460,800,000 bits as 460.8 megabytes, skipping the division by 8 that converts bits to bytes
-    { id: "C", text: "$460.8$" },
-    // distractor: multiplies by 8 instead of dividing when converting bits to bytes, giving 3,686,400,000 bytes
-    { id: "D", text: "$3{,}686.4$" }
+    // distractor: multiplies the rate by 5 without converting minutes to seconds: 12 x 5 / 8 = 7.5
+    { id: "A", text: "$7.5$" },
+    { id: "B", text: "$450$" },
+    // distractor: stops at 3,600 megabits and never converts megabits to megabytes
+    { id: "C", text: "$3{,}600$" },
+    // distractor: multiplies by 8 instead of dividing when converting megabits to megabytes
+    { id: "D", text: "$28{,}800$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Unit Conversion**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** $1{,}536$ kilobits per second is $1{,}536{,}000$ bits per second. In $300$ seconds that is $460{,}800{,}000$ bits, which is $57{,}600{,}000$ bytes, or $57.6$ megabytes.\n\n**The Full Solution:**\nStep 1: Convert the rate to bits per second: $1{,}536\\times 1{,}000=1{,}536{,}000$ bits per second.\nStep 2: Convert the time to seconds and multiply: $5$ minutes is $5\\times 60=300$ seconds, so the computer downloads $1{,}536{,}000\\times 300=460{,}800{,}000$ bits.\nStep 3: Convert bits to megabytes: $460{,}800{,}000\\div 8=57{,}600{,}000$ bytes, and $57{,}600{,}000\\div 1{,}000{,}000=57.6$ megabytes. Check: $57.6\\times 1{,}000{,}000\\times 8=460{,}800{,}000$ bits, and $460{,}800{,}000\\div 300=1{,}536{,}000$ bits per second ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7.2$): divides by $8$ a second time after the count is already in bytes.\n* Choice C ($460.8$): skips the division by $8$, treating $460{,}800{,}000$ bits as if they were bytes.\n* Choice D ($3{,}686.4$): multiplies by $8$ instead of dividing when converting bits to bytes. A byte is larger than a bit, so there must be fewer bytes than bits.\n\n**Test Day Takeaway:** Write out the chain of conversions so the units cancel one at a time. Before each step, ask whether the number should get larger or smaller.",
+  explanation: "**SAT Pattern: Unit Conversion**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** $5$ minutes is $300$ seconds, so the computer downloads $12 \\times 300 = 3{,}600$ megabits, which is $\\frac{3{,}600}{8} = 450$ megabytes.\n\n**The Full Solution:**\nStep 1: Convert the time to seconds: $5$ minutes is $5 \\times 60 = 300$ seconds.\nStep 2: Multiply the rate by the time: $12$ megabits per second for $300$ seconds is $12 \\times 300 = 3{,}600$ megabits.\nStep 3: Convert megabits to megabytes: each megabyte is $8$ megabits, so $3{,}600 \\div 8 = 450$ megabytes. Check: $450 \\times 8 = 3{,}600$ megabits, and $3{,}600 \\div 300 = 12$ megabits per second ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7.5$): uses $5$ as the number of seconds, computing $\\frac{12 \\times 5}{8}$.\n* Choice C ($3{,}600$): gives the amount in megabits and skips the conversion to megabytes.\n* Choice D ($28{,}800$): multiplies by $8$ instead of dividing. A megabyte is larger than a megabit, so there must be fewer megabytes than megabits.\n\n**Test Day Takeaway:** Write the conversions so the units cancel, and before each step ask whether the number should get larger or smaller.",
   skills: ["unit-conversion"]
 },
 {
@@ -782,19 +782,19 @@ export const practiceTest5 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The height, in feet, of an arch above the ground is modeled by $h(x)=-0.05x^{2}+2x$, where $x$ is the horizontal distance, in feet, from one end of the arch and $0\\le x\\le 40$. For which values of $x$ is the height of the arch at least $15$ feet?",
+  question: "The function $h(x)=-0.05x^{2}+2x$ gives the height, in feet, of an arch $x$ feet from one end of the arch. The arch is $15$ feet high at exactly two values of $x$. What is the difference between these two values?",
   choices: [
-    // distractor: reverses the inequality and takes the interval before the height first reaches 15 feet, where the arch is lower than 15 feet
-    { id: "A", text: "$0\\le x\\le 10$" },
-    // distractor: stops at the vertex x = 20, the highest point, as if the height dropped below 15 feet right after the maximum
-    { id: "B", text: "$10\\le x\\le 20$" },
-    { id: "C", text: "$10\\le x\\le 30$" },
-    // distractor: takes the interval after the second crossing at x = 30, where the height has already fallen below 15 feet
-    { id: "D", text: "$30\\le x\\le 40$" }
+    // distractor: reports the smaller value of x, 10, instead of the difference between the two values
+    { id: "A", text: "$10$" },
+    { id: "B", text: "$20$" },
+    // distractor: reports the larger value of x, 30, instead of the difference between the two values
+    { id: "C", text: "$30$" },
+    // distractor: solves h(x) = 0 instead of h(x) = 15 and reports the width of the arch, 40
+    { id: "D", text: "$40$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~50s):** Solve $-0.05x^{2}+2x=15$: multiplying by $-20$ gives $x^{2}-40x+300=0$, so $x=10$ or $x=30$. The parabola opens downward, so the height is at least $15$ feet between those values.\n\n**The Full Solution:**\nStep 1: Write the condition as an inequality: $-0.05x^{2}+2x\\ge 15$. Multiply both sides by $-20$ and reverse the inequality sign: $x^{2}-40x\\le -300$, or $x^{2}-40x+300\\le 0$.\nStep 2: Factor: $x^{2}-40x+300=(x-10)(x-30)$, so the boundary values are $x=10$ and $x=30$.\nStep 3: The expression $(x-10)(x-30)$ is less than or equal to $0$ only between its zeros, so $10\\le x\\le 30$, which lies within $0\\le x\\le 40$. Check: $h(20)=-0.05(400)+40=20$, which is at least $15$, and $h(5)=-1.25+10=8.75$, which is not ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0\\le x\\le 10$): keeps the wrong side of the first boundary. At $x=5$, the height is only $8.75$ feet.\n* Choice B ($10\\le x\\le 20$): stops at the vertex, $x=20$. That is where the arch is highest; the height stays at least $15$ feet until $x=30$.\n* Choice D ($30\\le x\\le 40$): takes the interval after the second boundary. At $x=35$, the height is $8.75$ feet.\n\n**Test Day Takeaway:** Solve the related equation to find the boundary values, then use the direction the parabola opens to choose the interval. Test one value inside the interval to confirm.",
-  skills: ["quadratics"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Quadratic via Factoring**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** Solve $-0.05x^{2}+2x=15$: multiplying by $-20$ gives $x^{2}-40x+300=0$, so $x=10$ or $x=30$, and the difference is $30-10=20$.\n\n**The Full Solution:**\nStep 1: Set the height equal to $15$: $-0.05x^{2}+2x=15$.\nStep 2: Multiply both sides by $-20$ to clear the decimal: $x^{2}-40x=-300$, or $x^{2}-40x+300=0$. Factor: $(x-10)(x-30)=0$, so $x=10$ or $x=30$.\nStep 3: The difference between the two values is $30-10=20$. Check: $h(10)=-5+20=15$ and $h(30)=-45+60=15$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): reports the smaller solution instead of the difference between the solutions.\n* Choice C ($30$): reports the larger solution instead of the difference.\n* Choice D ($40$): solves $h(x)=0$, which gives $x=0$ and $x=40$, the two ends of the arch, instead of $h(x)=15$.\n\n**Test Day Takeaway:** Set the model equal to the given output, solve, and then answer the question that was asked: here, the distance between the two solutions.",
+  skills: ["finding-roots-factoring"]
 }
       ]
     }

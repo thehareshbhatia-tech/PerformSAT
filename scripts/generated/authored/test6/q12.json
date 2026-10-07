@@ -6,12 +6,12 @@
   "band": 3,
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-textual",
-  "passage": "Students often prepare for exams by rereading their notes and textbooks, reasoning that each additional pass makes the material more familiar. Psychologists Henry Roediger and Jeffrey Karpicke have hypothesized that the act of retrieving information from memory does more to secure long-term learning than additional exposure to the material does — that testing oneself, in short, is a more powerful study tool than restudying.",
+  "passage": "Students often prepare for exams by rereading their notes and textbooks, reasoning that each pass makes the material more familiar. Psychologists Henry Roediger and Jeffrey Karpicke have hypothesized that recalling material from memory does more for long-term learning than reading it again. In short, testing oneself is a better study tool than restudying.",
   "question": "Which finding from a study of student learning, if true, would most directly support the hypothesis?",
   "choices": [
     {
       "id": "A",
-      "text": "Students who reread a passage several times reported feeling considerably more confident about their performance on an upcoming test than students who had read the passage only once."
+      "text": "Students who reread a passage several times reported feeling more confident about an upcoming test than did students who had read it only once."
     },
     {
       "id": "B",
@@ -23,7 +23,7 @@
     },
     {
       "id": "D",
-      "text": "A week later, students who had spent part of their study time recalling a passage from memory retained more than students who had spent equal time rereading it."
+      "text": "A week later, students who had spent part of their study time recalling a passage retained more than those who spent equal time rereading it."
     }
   ],
   "correctAnswer": "D",

@@ -24,8 +24,8 @@
     "C"
    ],
    "sideLabels": [
-    "x + 1",
-    "x",
+    "21",
+    "",
     ""
    ],
    "rightAngleVertex": 1,
@@ -56,5 +56,5 @@
   "D": "uses AB/BC = 21/20, which is tan C"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~75s):** The hypotenuse is $70 - x - (x + 1) = 69 - 2x$, and $x^2 + (x + 1)^2 = (69 - 2x)^2$ gives $x = 20$, so the sides are $20$, $21$, and $29$ and $\\cos C = \\frac{20}{29}$.\n\n**The Full Solution:**\nStep 1: The hypotenuse $\\overline{CA}$ has length $70 - x - (x + 1) = 69 - 2x$.\nStep 2: By the Pythagorean theorem, $x^2 + (x + 1)^2 = (69 - 2x)^2$, so $2x^2 + 2x + 1 = 4x^2 - 276x + 4{,}761$, which simplifies to $x^2 - 139x + 2{,}380 = 0$, or $(x - 20)(x - 119) = 0$. The value $x = 119$ would make the hypotenuse $69 - 238 < 0$, so $x = 20$: $BC = 20$, $AB = 21$, and $CA = 29$.\nStep 3: From angle $C$, the adjacent leg is $\\overline{BC}$, so $\\cos C = \\frac{BC}{CA} = \\frac{20}{29}$.\n\nCheck: $20 + 21 + 29 = 70$ and $20^2 + 21^2 = 400 + 441 = 841 = 29^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{21}{29}$): divides the leg opposite $C$ by the hypotenuse, which is $\\sin C$.\n* Choice C ($\\frac{20}{21}$): divides the adjacent leg by the opposite leg and never uses the hypotenuse.\n* Choice D ($\\frac{21}{20}$): divides the opposite leg by the adjacent leg, which is $\\tan C$.\n\n**Test Day Takeaway:** Write the unknown side as perimeter minus the other two, set up the Pythagorean equation, and reject any root that makes a length negative."
+ "explanation": "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~60s):** With $BC = x$, the hypotenuse is $70 - 21 - x = 49 - x$, and $(49 - x)^2 = 21^2 + x^2$ gives $x = 20$, so the sides are $20$, $21$, and $29$ and $\\cos C = \\frac{20}{29}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $B$, so $\\overline{AC}$ is the hypotenuse. Let $BC = x$; then $AC = 70 - 21 - x = 49 - x$.\nStep 2: By the Pythagorean theorem, $21^2 + x^2 = (49 - x)^2$, so $441 + x^2 = 2{,}401 - 98x + x^2$. Then $98x = 1{,}960$ and $x = 20$, so $BC = 20$ and $AC = 29$.\nStep 3: From angle $C$, the adjacent leg is $\\overline{BC}$, so $\\cos C = \\frac{BC}{AC} = \\frac{20}{29}$.\n\nCheck: $20 + 21 + 29 = 70$ and $20^2 + 21^2 = 400 + 441 = 841 = 29^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{21}{29}$): divides the leg opposite $C$ by the hypotenuse, which is $\\sin C$.\n* Choice C ($\\frac{20}{21}$): divides the adjacent leg by the opposite leg and never uses the hypotenuse.\n* Choice D ($\\frac{21}{20}$): divides the opposite leg by the adjacent leg, which is $\\tan C$.\n\n**Test Day Takeaway:** Write the hypotenuse as the perimeter minus the two legs; the $x^2$ terms cancel in the Pythagorean equation, leaving a linear equation."
 }

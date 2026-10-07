@@ -133,6 +133,13 @@ async function ourRows() {
 }
 
 // ─── Norms + flags ──────────────────────────────────────────────────────────
+// --json is an OUTPUT path. Refuse to clobber content (two reviewers lost item files this way).
+function safeOut(p) {
+  const abs = path.resolve(p);
+  if (abs.startsWith(path.join(ROOT, 'src')) || abs.startsWith(path.join(ROOT, 'scripts')) || abs.startsWith(path.join(ROOT, 'docs'))) { console.error(`refusing to write audit output inside the repo content tree: ${abs} (use a scratch path)`); process.exit(1); }
+  if (fs.existsSync(abs)) { try { const j = JSON.parse(fs.readFileSync(abs, 'utf8')); if (!Array.isArray(j) || (j[0] && !('flags' in j[0]))) throw 0; } catch { console.error(`refusing to overwrite ${abs}: not a previous audit output`); process.exit(1); } }
+  return abs;
+}
 const pct = (arr, p) => { if (!arr.length) return null; const s = [...arr].sort((a, b) => a - b); return s[Math.min(s.length - 1, Math.floor(p * (s.length - 1)))]; };
 const FEATS = ['words', 'nums', 'digits', 'dec', 'ops', 'vars', 'cnums', 'cops'];
 function buildNorms(qb) {
@@ -193,6 +200,6 @@ for (const d of ['E', 'M', 'H']) {
   console.log(`  ${d}: median ours/CB  ` + ['words', 'nums', 'digits', 'ops', 'cops'].map(ft => `${ft} ${pct(o.map(r => r.f[ft]).filter(v => v !== undefined), 0.5)}/${pct(c.map(r => r.f[ft]).filter(v => v !== undefined), 0.5)}`).join('  ') + `  dec ${Math.round(100 * o.filter(r => r.f.dec).length / o.length)}%/${Math.round(100 * c.filter(r => r.f.dec).length / c.length)}%`);
 }
 if (args.json) {
-  fs.writeFileSync(args.json, JSON.stringify(rows.map(({ q, ...r }) => ({ ...r, text: [q.question, ...(q.choices || []).map(c => c.text)].join(' || '), key: q.correctAnswer })), null, 1));
+  fs.writeFileSync(safeOut(args.json), JSON.stringify(rows.map(({ q, ...r }) => ({ ...r, text: [q.question, ...(q.choices || []).map(c => c.text)].join(' || '), key: q.correctAnswer })), null, 1));
   console.log(`wrote ${args.json}`);
 }

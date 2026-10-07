@@ -6,25 +6,26 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "type": "multiple-choice",
- "passage": "In change-detection experiments, an image and a slightly altered copy of it alternate on a screen. When the two versions alternate directly, viewers spot the difference almost at once, but when a brief blank screen interrupts each alternation, the change can go unnoticed for dozens of cycles. A team of cognitive scientists argued that the blank works by masking the motion signal that would otherwise drag attention straight to the changing region; attention must then search the scene piece by piece, guided by expectations about which parts of a scene matter. Their account predicts a specific pattern in the results: ______",
+ "passage": "In a 1997 study, psychologists Ronald Rensink, J. Kevin O'Regan, and James Clark showed viewers a photograph alternating with a slightly altered copy until they spotted the change. Some changes involved an object central to the scene's meaning; others involved a marginal detail. The researchers argued that a brief blank screen between the images masks the motion signal that normally draws attention to a change. Attention must then search the scene item by item, drawn first to what matters most. Their account predicts a specific pattern in the results: ______",
  "questionTable": {
   "type": "table",
-  "caption": "Mean alternation cycles before viewers detected the change",
+  "caption": "Average number of alternations before viewers identified the change",
   "headers": [
-   "Change location",
-   "No blank inserted",
-   "Blank inserted"
+   "Display condition",
+   "Average alternations"
   ],
   "rows": [
    [
-    "Central to the scene's meaning",
-    "1.2",
-    "4.1"
+    "No blank screen (all changes)",
+    "1.4"
    ],
    [
-    "Marginal to the scene's meaning",
-    "1.4",
-    "17.8"
+    "Blank screen, central change",
+    "7.3"
+   ],
+   [
+    "Blank screen, marginal change",
+    "17.1"
    ]
   ]
  },
@@ -32,24 +33,24 @@
  "choices": [
   {
    "id": "A",
-   "text": "viewers detected central changes after an average of 1.2 cycles when no blank was inserted, the fastest detection in any condition."
+   "text": "without a blank screen, viewers identified changes after an average of only 1.4 alternations, the fastest result in the table."
   },
   {
    "id": "B",
-   "text": "marginal changes took longer to detect than central changes in both conditions, by roughly the same margin in each."
+   "text": "with a blank screen, viewers needed an average of 7.3 alternations to identify central changes, about five times as many as without one."
   },
   {
    "id": "C",
-   "text": "inserting the blank had little effect on the detection of central changes, which shows that motion signals matter only for marginal ones."
+   "text": "the blank screen had little effect on how quickly viewers identified central changes, which shows that motion signals matter only for marginal changes."
   },
   {
    "id": "D",
-   "text": "the blank slowed detection of both kinds of change, but far more for marginal changes (1.4 to 17.8 cycles) than for central ones (1.2 to 4.1)."
+   "text": "the blank screen slowed identification of both kinds of change, but far more for marginal changes (1.4 to 17.1) than central ones (1.4 to 7.3)."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The account makes a two-part prediction — masking the motion signal should slow everything, and expectation-guided search should then favor central content — and D reads both parts off the table: detection slows in each row, and the slowdown is far larger for marginal changes (1.4 to 17.8) than for central ones (1.2 to 4.1).\n\n**The Full Solution:**\n- Without the blank, location barely matters (1.2 vs. 1.4): the motion signal finds the change either way.\n- With the blank, the interaction appears: central changes cost a few extra cycles, marginal ones more than a dozen — the signature of a piece-by-piece search that starts with what the scene is about.\n\n**Why the other choices are wrong:**\n- A: A single cell, however fast, exhibits no pattern and tests no prediction.\n- B: The table contradicts it — the margins differ enormously between conditions (0.2 cycles vs. 13.7).\n- C: A jump from 1.2 to 4.1 cycles is more than a threefold slowing, not \"little effect,\" and the account says motion signals matter for both kinds of change.",
+ "explanation": "**Choice D is correct.** The account makes a two-part prediction. Masking the motion signal should slow the detection of every change, and a search guided by what matters in the scene should find central changes sooner than marginal ones. D reads both parts off the table: identification slowed from 1.4 alternations to 7.3 for central changes and to 17.1 for marginal changes.\n\n**The Full Solution:**\n- Without the blank, viewers found changes almost at once (1.4 alternations on average): the motion signal pointed straight to them.\n- With the blank, both kinds of change took longer, but marginal changes took more than twice as long as central ones (17.1 vs. 7.3), the signature of a search that starts with what the scene is about.\n\n**Why the other choices are wrong:**\n- A: A single result shows no pattern and does not compare central with marginal changes.\n- B: It shows that the blank slowed the detection of central changes but says nothing about marginal changes, so it supports only half of the prediction.\n- C: The table contradicts it: central changes slowed from 1.4 to 7.3 alternations, about a fivefold increase, and the account says the motion signal matters for both kinds of change.",
  "_meta": {
-  "anchor": "Change blindness — blank-interval slowing by change centrality (unnamed cognitive scientists)"
+  "anchor": "Change blindness — Rensink, O'Regan & Clark, Psychological Science 8:368-373 (1997): flicker CI 7.3 / MI 17.1 alternations; no-blank 1.4 (https://www.cs.ubc.ca/~rensink/publications/download/PsychSci97-RR.pdf)"
  }
 }

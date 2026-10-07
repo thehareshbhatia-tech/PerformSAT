@@ -1,29 +1,29 @@
 {
   "id": "bank-geo-199",
-  "question": "The length and the width of a rectangle are each multiplied by $2.5$. The area of the new rectangle is $k$ times the area of the original rectangle. What is the value of $k$?",
+  "question": "The length and the width of a rectangle are each multiplied by $4$. The area of the new rectangle is $k$ times the area of the original rectangle. What is the value of $k$?",
   "choices": [
     {
       "id": "A",
-      "text": "$2.5$"
+      "text": "$4$"
     },
     {
       "id": "B",
-      "text": "$5$"
+      "text": "$8$"
     },
     {
       "id": "C",
-      "text": "$6.25$"
+      "text": "$16$"
     },
     {
       "id": "D",
-      "text": "$15.625$"
+      "text": "$64$"
     }
   ],
   "correctAnswer": "C",
   "distractorNotes": {
-    "A": "uses the length factor as the area factor without squaring",
-    "B": "adds the factor for the length and the factor for the width, 2.5 + 2.5",
-    "D": "cubes the factor, which is the rule for volume"
+    "A": "assumes the area changes by the same factor as each side",
+    "B": "adds the two factors, 4 + 4, instead of multiplying them",
+    "D": "cubes the factor, as for a volume, instead of squaring it"
   },
-  "explanation": "**SAT Pattern: Similar Figures Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Both dimensions are multiplied by $2.5$, so the area is multiplied by $2.5 \\cdot 2.5 = 6.25$.\n\n**The Full Solution:**\nStep 1: If the original rectangle has length $L$ and width $W$, its area is $LW$.\nStep 2: The enlarged rectangle has length $2.5L$ and width $2.5W$, so its area is $(2.5L)(2.5W) = 6.25LW$.\nStep 3: The enlarged area is $6.25$ times the original. Check: a $2$ by $4$ rectangle (area $8$) becomes $5$ by $10$ (area $50$), and $\\frac{50}{8} = 6.25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.5$): uses the length factor as the area factor. Both the length and the width grow, so the factor is applied twice.\n* Choice B ($5$): adds the two factors instead of multiplying them.\n* Choice D ($15.625$): cubes the factor, $2.5^{3}$, which applies to volume, not area.\n\n**Test Day Takeaway:** When every length is multiplied by $k$, area is multiplied by $k^{2}$."
+  "explanation": "**SAT Pattern: Similar Figures Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Both dimensions are multiplied by $4$, so the area is multiplied by $4 \\cdot 4 = 16$.\n\n**The Full Solution:**\nStep 1: Let the original rectangle have length $l$ and width $w$, so its area is $lw$.\nStep 2: The new rectangle has length $4l$ and width $4w$, so its area is $(4l)(4w) = 16lw$.\nStep 3: So the new area is $16$ times the original area, and $k = 16$. Check: a $1$ by $2$ rectangle (area $2$) becomes a $4$ by $8$ rectangle (area $32 = 16 \\cdot 2$) ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): assumes the area grows by the same factor as each side.\n* Choice B ($8$): adds the factors, $4 + 4$, instead of multiplying them.\n* Choice D ($64$): cubes the factor, as for a volume.\n\n**Test Day Takeaway:** When every length is multiplied by $k$, area is multiplied by $k^{2}$."
 }

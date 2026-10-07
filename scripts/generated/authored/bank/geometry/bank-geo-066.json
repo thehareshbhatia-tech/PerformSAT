@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-066",
- "question": "In the triangle shown, $\\sin\\theta = 0.28$. What is the area, in square units, of the triangle?",
+ "question": "In the triangle shown, $\\sin\\theta = \\frac{3}{5}$. What is the area, in square units, of the triangle?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -10,12 +10,12 @@
      0
     ],
     [
-     168,
+     24,
      0
     ],
     [
-     168,
-     49
+     24,
+     18
     ]
    ],
    "labels": [
@@ -26,7 +26,7 @@
    "sideLabels": [
     "",
     "",
-    "175"
+    "30"
    ],
    "rightAngleVertex": 1,
    "figureNote": true
@@ -35,26 +35,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$49$"
+   "text": "$216$"
   },
   {
    "id": "B",
-   "text": "$168$"
+   "text": "$270$"
   },
   {
    "id": "C",
-   "text": "$4{,}116$"
+   "text": "$360$"
   },
   {
    "id": "D",
-   "text": "$8{,}232$"
+   "text": "$432$"
   }
  ],
- "correctAnswer": "C",
+ "correctAnswer": "A",
  "distractorNotes": {
-  "A": "stops at the leg opposite theta, 175(0.28) = 49",
-  "B": "stops at the leg adjacent to theta, 168",
-  "D": "multiplies the legs but forgets the factor of 1/2 in the area formula"
+  "B": "uses the hypotenuse 30 and the leg 18 as base and height",
+  "C": "uses the hypotenuse 30 and the leg 24 as base and height",
+  "D": "multiplies the legs 18 and 24 and forgets the 1/2"
  },
- "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The leg opposite $\\theta$ is $175(0.28) = 49$ and the other leg is $\\sqrt{175^{2} - 49^{2}} = 168$, so the area is $\\frac{1}{2}(49)(168) = 4{,}116$.\n\n**The Full Solution:**\nStep 1: The side of length $175$ is across from the right angle, so it is the hypotenuse. Since $\\sin\\theta = \\frac{\\text{opposite}}{175} = 0.28$, the leg opposite $\\theta$ is $175(0.28) = 49$.\nStep 2: By the Pythagorean theorem, the leg adjacent to $\\theta$ is $\\sqrt{175^{2} - 49^{2}} = \\sqrt{30{,}625 - 2{,}401} = \\sqrt{28{,}224} = 168$.\nStep 3: The legs are the base and height, so the area is $\\frac{1}{2}(49)(168) = 4{,}116$ square units. Check: $\\cos\\theta = \\frac{168}{175} = 0.96$ and $0.28^{2} + 0.96^{2} = 0.0784 + 0.9216 = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($49$): stops after finding the leg opposite $\\theta$.\n* Choice B ($168$): stops after finding the leg adjacent to $\\theta$.\n* Choice D ($8{,}232$): multiplies the two legs and forgets the $\\frac{1}{2}$ in the triangle area formula.\n\n**Test Day Takeaway:** For the area of a right triangle you need both legs; a trig ratio gives one leg, and the Pythagorean theorem gives the other."
+ "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $\\sin\\theta = \\frac{3}{5}$ with hypotenuse $30$ gives legs $18$ and $24$, so the area is $\\frac{1}{2}(18)(24) = 216$.\n\n**The Full Solution:**\nStep 1: The hypotenuse is $30$, and $\\sin\\theta = \\frac{\\text{opposite}}{30} = \\frac{3}{5}$, so the side opposite $\\theta$ is $18$.\nStep 2: By the Pythagorean theorem, the other leg is $\\sqrt{30^{2} - 18^{2}} = \\sqrt{576} = 24$.\nStep 3: The legs are a base and its height, so the area is $\\frac{1}{2}(18)(24) = 216$ square units. Check: the sides $18$, $24$, $30$ are $6$ times $3$, $4$, $5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($270$): uses the hypotenuse as a height, but the hypotenuse is not perpendicular to either leg.\n* Choice C ($360$): also uses the hypotenuse with a leg; only the two legs meet at the right angle.\n* Choice D ($432$): multiplies the legs correctly but forgets the $\\frac{1}{2}$.\n\n**Test Day Takeaway:** A trig ratio and one side give a second side; the Pythagorean theorem gives the third. A right triangle's area is half the product of its legs."
 }

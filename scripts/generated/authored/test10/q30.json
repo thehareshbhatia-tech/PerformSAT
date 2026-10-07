@@ -6,16 +6,16 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 2,
- "passage": "Roman engineering treatises describe an ideal road built in layered courses of stone, and older histories assumed the legions followed this template wherever they marched. Excavation tells a different story. Crews spread gravel over log corduroy in wetlands and cut straight into rock on hillsides; it is now clear that builders ______ their methods to local ground rather than imposing a uniform design upon it.",
+ "passage": "Thatched roofs are often pictured as one English style, but the thatch itself has long varied by region. Thatchers in East Anglia's wetlands used water reed, those in the south-west used combed wheat reed, and those in northern England and Scotland often used heather. Rather than following a single national method, thatchers ______ their craft to whatever material grew nearby.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
    "id": "A",
-   "text": "surrendered"
+   "text": "entrusted"
   },
   {
    "id": "B",
-   "text": "confined"
+   "text": "compared"
   },
   {
    "id": "C",
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The blank must restate what the excavation evidence just showed, gravel over logs in wetlands, cuts into hillside rock, and \"fitted their methods to local ground\" names that practice of matching technique to terrain.\n\n**The Full Solution:**\n- The passage's contrast runs from template to terrain: the treatises' layered ideal versus what crews actually did in wetlands and on hillsides.\n- The closing frame \"______ their methods to local ground rather than imposing a uniform design upon it\" demands a verb of adjustment-to-circumstance, and \"fitted... to\" is the idiom that supplies it.\n\n**Why the other choices are wrong:**\n- A: \"Surrendered their methods to local ground\" would mean giving methods up, but the crews kept building, adapting rather than abandoning.\n- B: \"Confined their methods to local ground\" would mean restricting where methods were used, not adjusting what the methods were.\n- C: \"Elevated\" imports a judgment of raising in status that makes no sense with \"to local ground.\""
+ "explanation": "**Choice D is correct.** The text contrasts \"a single national method\" with regional practice in which each area used its own local plant. \"Fitted\" means adapted to suit something, so thatchers fitted their craft to the materials at hand.\n\n**The Full Solution:**\n- The examples show the material changing from region to region: water reed, combed wheat reed, heather.\n- \"Rather than following a single national method\" tells us the blank describes the opposite of uniformity: adjusting to local conditions.\n- \"Fitted their craft to\" expresses that adjustment precisely.\n\n**Why the other choices are wrong:**\n- A: \"Entrusted\" means handed over for safekeeping, which does not describe shaping a craft around local materials.\n- B: \"Compared\" means examined for likeness or difference, but the text is about how thatchers worked, not about evaluating materials against their craft.\n- C: \"Elevated\" means raised in rank or height, which makes no sense with \"to whatever material grew nearby.\""
 }

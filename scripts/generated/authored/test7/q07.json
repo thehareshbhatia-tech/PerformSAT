@@ -6,12 +6,12 @@
  "domain": "craft-and-structure",
  "skill": "text-structure-and-purpose",
  "module": 1,
- "passage": "Prairie dogs give short barking calls when a predator approaches, and for years the calls were assumed to convey little beyond the presence of danger. Recordings told a richer story: calls prompted by a hawk, a coyote, and a human differ consistently in their acoustic structure. When researchers played the recordings back to colonies with no predator in sight, the animals responded with escape behavior matched to each call type — diving into burrows at a hawk call, standing upright to scan at a coyote call. Similar playback experiments could reveal how much information other social mammals pack into their alarm calls.",
+ "passage": "Prairie dogs give short barking calls when a predator approaches, and for years the calls were assumed to convey little beyond the presence of danger. Recordings told a richer story: calls prompted by a hawk, a coyote, and a human differ consistently in their acoustic structure. When researchers played the recordings back to colonies with no predator in sight, the animals' escape behavior matched each call type. They dove into burrows at a hawk call but stood upright to scan at a coyote call. Similar playback experiments could reveal how much information other social mammals pack into their alarm calls.",
  "question": "Which choice best describes the overall structure of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "It defines a technical term, traces the term's use across several decades of research, and then questions whether it should be kept."
+   "text": "It defines a technical term, traces the term's use across several decades of research, and then questions whether the term should be kept at all."
   },
   {
    "id": "B",
@@ -23,7 +23,7 @@
   },
   {
    "id": "D",
-   "text": "It recounts a single season of fieldwork at one colony and then explains in detail why other research teams could not later replicate its results."
+   "text": "It recounts a single season of fieldwork at one colony and explains why other teams could not replicate its results."
   }
  ],
  "correctAnswer": "B",

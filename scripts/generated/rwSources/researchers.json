@@ -6858,5 +6858,78 @@
   "notes": "Verification: Project Gutenberg eBook #59799 (Art, 1912 English translation of the 1911 French edition), chapter on movement in art; https://en.wikipedia.org/wiki/Auguste_Rodin",
   "reviewer": "seva-rw-review-v3",
   "verifiedAt": "2026-10-04"
+ },
+ {
+  "id": "res-t2-v01",
+  "name": "George de Mestral",
+  "field": "engineering / invention",
+  "affiliation": "Swiss engineer (1907-1990)",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "hook-and-loop fastener (Velcro)"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "boundaries"
+  ],
+  "notes": "Verification: after a 1941 hunting trip in the Alps he examined burdock burrs under a microscope and saw hooks that caught on loops in cloth and fur; patent granted 1955; name from velours + crochet. https://en.wikipedia.org/wiki/George_de_Mestral ; https://www.history.com/articles/velcro-invention",
+  "reviewer": "seva-rw-verify-t02",
+  "verifiedAt": "2026-10-07"
+ },
+ {
+  "id": "res-t5-014",
+  "name": "Klaus Schmidt",
+  "field": "archaeology",
+  "affiliation": "German Archaeological Institute",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "excavation of Göbekli Tepe (1995-2014)",
+   "Göbekli Tepe sanctuary interpretation"
+  ],
+  "publications": [],
+  "suitableForSkills": [
+   "cross-text-connections"
+  ],
+  "passagePromptHint": "Schmidt interpreted Göbekli Tepe as a sanctuary built and visited by hunter-gatherer groups, with no permanent residents."
+ },
+ {
+  "id": "res-t5-015",
+  "name": "Lee Clare",
+  "field": "archaeology",
+  "affiliation": "German Archaeological Institute",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "Göbekli Tepe research coordination after 2014",
+   "settlement reinterpretation of Göbekli Tepe"
+  ],
+  "publications": [
+   "Clare, L. (2020). Göbekli Tepe, Turkey. A brief summary of research at a new World Heritage Site (2015-2019). e-Forschungsberichte des DAI 2020/2."
+  ],
+  "suitableForSkills": [
+   "cross-text-connections"
+  ],
+  "passagePromptHint": "Clare and colleagues report domestic buildings, rock-cut cisterns, and abundant grinding tools at Göbekli Tepe and interpret it as a settlement with special buildings."
+ },
+ {
+  "id": "res-t6-021",
+  "name": "William H. Whyte",
+  "field": "urban studies",
+  "affiliation": "Street Life Project (New York City)",
+  "real": true,
+  "verifiable": true,
+  "knownFor": [
+   "time-lapse studies of how people use New York City plazas",
+   "The Social Life of Small Urban Spaces (1980)"
+  ],
+  "publications": [
+   "Whyte, W. H. (1980). The Social Life of Small Urban Spaces. Washington, DC: The Conservation Foundation."
+  ],
+  "suitableForSkills": [
+   "central-ideas-and-details"
+  ],
+  "passagePromptHint": "Whyte filmed plazas with time-lapse cameras and concluded: \"What attracts people most, it would appear, is other people.\""
  }
 ]

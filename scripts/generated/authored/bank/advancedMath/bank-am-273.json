@@ -1,49 +1,45 @@
 {
- "question": "A loan of $\\$12{,}000$ is charged $4\\%$ annual interest, compounded semiannually. The table shows the amount owed, in dollars, after each of the first three six-month periods. Which equation gives the amount owed, $B$, in dollars, $t$ years after the loan was made?",
+ "question": "A savings account was opened with a deposit of \\$5,000, and no other deposits or withdrawals are made. The table shows the balance, in dollars, at the end of each of the first two 6-month periods. Which equation gives the balance $B$, in dollars, $t$ years after the account was opened?",
  "questionTable": {
   "headers": [
-   "Six-month periods",
-   "Amount owed (dollars)"
+   "6-month periods",
+   "Balance (dollars)"
   ],
   "rows": [
    [
     "$1$",
-    "$12{,}240.00$"
+    "$5{,}100$"
    ],
    [
     "$2$",
-    "$12{,}484.80$"
-   ],
-   [
-    "$3$",
-    "$12{,}734.50$"
+    "$5{,}202$"
    ]
   ]
  },
  "choices": [
   {
    "id": "A",
-   "text": "$B=12000(1.02)^{t}$"
+   "text": "$B = 5{,}000(1.02)^{t}$"
   },
   {
    "id": "B",
-   "text": "$B=12000(1.02)^{2t}$"
+   "text": "$B = 5{,}000(1.02)^{2t}$"
   },
   {
    "id": "C",
-   "text": "$B=12000(1.04)^{t/2}$"
+   "text": "$B = 5{,}000(1.02)^{\\frac{t}{2}}$"
   },
   {
    "id": "D",
-   "text": "$B=12000(1.04)^{2t}$"
+   "text": "$B = 5{,}000(1.04)^{2t}$"
   }
  ],
  "distractorNotes": {
-  "A": "applied the semiannual factor once per year instead of twice",
-  "C": "divided the exponent by 2 instead of multiplying, and used the annual factor",
-  "D": "used the annual factor 1.04 for each six-month period"
+  "A": "applies the 6-month factor once per year instead of twice",
+  "C": "halves the number of periods instead of doubling it",
+  "D": "uses the yearly increase of 4% for each 6-month period"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Compound Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Semiannual compounding uses half the rate, $2\\%$, twice a year, so $B=12000(1.02)^{2t}$.\n\n**The Full Solution:**\nStep 1: The periodic rate is $\\dfrac{0.04}{2}=0.02$, so each six-month period multiplies the balance by $1.02$, matching the table: $12000\\cdot 1.02=12{,}240$.\nStep 2: In $t$ years there are $2t$ six-month periods.\nStep 3: So $B=12000(1.02)^{2t}$. Check at $t=1.5$, three periods: $12000(1.02)^{3}=12{,}734.50$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($B=12000(1.02)^{t}$): applies the semiannual factor once per year.\n* Choice C ($B=12000(1.04)^{t/2}$): divides the exponent by $2$ instead of multiplying and keeps the annual rate.\n* Choice D ($B=12000(1.04)^{2t}$): uses the full annual rate for each six-month period.\n\n**Test Day Takeaway:** Divide the rate by the number of periods per year and multiply the exponent by that same number.",
+ "explanation": "**SAT Pattern: Compound Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Each 6-month period multiplies the balance by $\\frac{5{,}100}{5{,}000} = 1.02$, and $t$ years contain $2t$ such periods.\n\n**The Full Solution:**\nStep 1: Divide consecutive balances: $\\frac{5{,}100}{5{,}000} = 1.02$ and $\\frac{5{,}202}{5{,}100} = 1.02$, so the balance increases by $2\\%$ every 6 months.\nStep 2: There are $2$ six-month periods in a year, so $t$ years contain $2t$ periods.\nStep 3: So $B = 5{,}000(1.02)^{2t}$. Check: $t = 1$ gives $5{,}000(1.02)^{2} = 5{,}202$, the balance after $2$ periods ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: uses the exponent $t$, applying the $2\\%$ increase once per year instead of twice.\n* Choice C: uses the exponent $\\frac{t}{2}$, which counts one period every $2$ years.\n* Choice D: uses $1.04$, a $4\\%$ increase, for each 6-month period; the table shows $2\\%$ per period.\n\n**Test Day Takeaway:** When the growth period is not one year, the exponent counts periods: $t$ years of 6-month periods is $2t$.",
  "id": "bank-am-273"
 }

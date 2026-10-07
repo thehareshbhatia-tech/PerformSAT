@@ -6,26 +6,33 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 2,
- "passage": "For generations the order of turns on the canal lived only in memory and custom. In 1435, after a season of quarrels, the town council ______ the rotation in a written ordinance, fixing each farm's hours by name; the document remained the authority for water disputes in the valley for more than two centuries.",
+ "passage": "For centuries Britain followed the Julian calendar, which had drifted out of step with the seasons. In 1752, under an act passed two years earlier, the country ______ the Gregorian calendar, and the day after Wednesday, September 2, became Thursday, September 14.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "records"
+   "text": "adopts"
   },
   {
    "id": "B",
-   "text": "has recorded"
+   "text": "has adopted"
   },
   {
    "id": "C",
-   "text": "recorded"
+   "text": "adopted"
   },
   {
    "id": "D",
-   "text": "will record"
+   "text": "will adopt"
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The sentence reports a completed action at a stated past date — 1435 — so the verb must be the simple past \"recorded.\"\n\n**The Full Solution:**\n- The time marker \"In 1435\" fixes the action at a specific moment in the past.\n- The surrounding narrative is likewise past: the ordinance \"fixed\" each farm's hours and \"remained\" in force.\n- A single completed past action at a named date takes the simple past: \"the council recorded the rotation in a written ordinance.\"\n\n**Why the other choices are wrong:**\n- A: \"Records\" is present tense and clashes with the dated past event.\n- B: \"Has recorded\" is present perfect, which suits an unspecified time reaching the present, not an action pinned to 1435.\n- D: \"Will record\" points to the future and cannot report what happened at a past date."
+ "explanation": "**Choice C is correct.** The sentence reports a completed event in 1752, and the other verbs in the passage (\"followed,\" \"had drifted,\" \"became\") are in the past tense, so the simple past \"adopted\" is required.\n\n**The Full Solution:**\n- The time marker \"In 1752\" places the action in the past.\n- The same sentence continues with the past-tense \"became,\" so the verbs must match.\n- \"Adopted\" is the simple past and fits both the date and the surrounding verbs.\n\n**Why the other choices are wrong:**\n- A: \"Adopts\" is present tense, which clashes with \"In 1752\" and with \"became.\"\n- B: \"Has adopted\" is present perfect, which links the action to the present and cannot be used with a specific past date like 1752.\n- D: \"Will adopt\" is future tense, which contradicts the past setting of the passage.",
+ "_meta": {
+  "anchor": "Britain adopts the Gregorian calendar in 1752 — simple past tense",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Calendar_(New_Style)_Act_1750",
+   "https://www.amusingplanet.com/2020/08/why-britain-lost-11-days-in-september.html"
+  ]
+ }
 }

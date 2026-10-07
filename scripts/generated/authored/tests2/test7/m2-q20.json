@@ -1,10 +1,10 @@
 {
  "id": 20,
- "question": "The function $N$ defined by $N(t) = 96(2)^{\\frac{t}{8}}$ models the number of bacteria in a sample $t$ hours after the sample was collected. According to the model, the number of bacteria increases by what percent every $24$ hours?",
+ "question": "The function $N$ defined by $N(t) = 96(3)^{\\frac{t}{4}}$ models the number of bacteria in a sample $t$ hours after the sample was collected. According to the model, the number of bacteria increases by what percent every $8$ hours?",
  "choices": [
   {
    "id": "A",
-   "text": "$300\\%$"
+   "text": "$400\\%$"
   },
   {
    "id": "B",
@@ -12,18 +12,18 @@
   },
   {
    "id": "C",
-   "text": "$700\\%$"
+   "text": "$800\\%$"
   },
   {
    "id": "D",
-   "text": "$800\\%$"
+   "text": "$900\\%$"
   }
  ],
  "distractorNotes": {
-  "A": "treats the 100% increase every 8 hours as additive, adding it three times to get 300%",
-  "B": "multiplies the base 2 by the 3 eight-hour periods to get a growth factor of 6, which is a 500% increase",
-  "D": "finds the growth factor 8 but reports it as 800% without subtracting the original 100%"
+  "A": "treats the 200% increase every 4 hours as additive, adding it twice to get 400%",
+  "B": "multiplies the base 3 by the 2 four-hour periods to get a growth factor of 6, which is a 500% increase",
+  "D": "finds the growth factor 9 but reports it as 900% without subtracting the original 100%"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Exponential Growth Interpretation**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** $24$ hours is three $8$-hour periods, so the number of bacteria is multiplied by $2^{3} = 8$; becoming $8$ times as large is a $700\\%$ increase.\n\n**The Full Solution:**\nStep 1: Because the exponent is $\\frac{t}{8}$, it increases by $1$ every $8$ hours, so the number of bacteria doubles every $8$ hours.\nStep 2: Over $24$ hours the exponent increases by $\\frac{24}{8} = 3$, so the number of bacteria is multiplied by $2^{3} = 8$.\nStep 3: A quantity that becomes $8$ times as large increases by $8 - 1 = 7$ times its original value, which is $700\\%$. Check: $N(0) = 96$ and $N(24) = 96(2)^{3} = 768$, and $\\frac{768 - 96}{96} = 7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($300\\%$): adds the $100\\%$ increase for each of the three periods. Percent increases compound; they do not add.\n* Choice B ($500\\%$): multiplies the base $2$ by the $3$ periods to get a factor of $6$. The number of periods belongs in the exponent.\n* Choice D ($800\\%$): finds the correct factor, $8$, but reports it as the percent increase without subtracting the original $100\\%$.\n\n**Test Day Takeaway:** In $a(b)^{\\frac{t}{k}}$, the quantity is multiplied by $b$ every $k$ units of time, so over $n$ periods the factor is $b^{n}$. A growth factor of $F$ is an increase of $(F - 1) \\times 100\\%$."
+ "explanation": "**SAT Pattern: Exponential Growth Interpretation**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** $8$ hours is two $4$-hour periods, so the number of bacteria is multiplied by $3^{2} = 9$; becoming $9$ times as large is an $800\\%$ increase.\n\n**The Full Solution:**\nStep 1: Because the exponent is $\\frac{t}{4}$, it increases by $1$ every $4$ hours, so the number of bacteria triples every $4$ hours.\nStep 2: Over $8$ hours the exponent increases by $\\frac{8}{4} = 2$, so the number of bacteria is multiplied by $3^{2} = 9$.\nStep 3: A quantity that becomes $9$ times as large increases by $9 - 1 = 8$ times its original value, which is $800\\%$. Check: $N(0) = 96$ and $N(8) = 96(3)^{2} = 864$, and $\\frac{864 - 96}{96} = 8$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($400\\%$): adds the $200\\%$ increase for each of the two periods. Percent increases compound; they do not add.\n* Choice B ($500\\%$): multiplies the base $3$ by the $2$ periods to get a factor of $6$. The number of periods belongs in the exponent.\n* Choice D ($900\\%$): finds the correct factor, $9$, but reports it as the percent increase without subtracting the original $100\\%$.\n\n**Test Day Takeaway:** In $a(b)^{\\frac{t}{k}}$, the quantity is multiplied by $b$ every $k$ units of time, so over $n$ periods the factor is $b^{n}$. A growth factor of $F$ is an increase of $(F - 1) \\times 100\\%$."
 }

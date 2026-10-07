@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-276",
- "question": "$f(x) = a(x - 2)^{2} - 3$\nIn the given function, $a$ is a constant. The graph of $y = f(x)$ is shown and passes through the point $(0, 5)$. If $f(x)$ is written in the form $ax^{2} + bx + c$, where $b$ and $c$ are constants, what is the value of $b$?",
+ "question": "$f(x) = a(x - 2)^{2} - 3$\nIn the given function, $a$ is a constant. The graph of $y = f(x)$ is shown and passes through the point $(0, 5)$. Which expression is equivalent to $f(x)$?",
  "diagram": {
   "type": "quadraticVertex",
   "params": {
@@ -21,26 +21,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$-8$"
+   "text": "$x^{2} - 4x + 1$"
   },
   {
    "id": "B",
-   "text": "$-4$"
+   "text": "$2x^{2} - 8x - 3$"
   },
   {
    "id": "C",
-   "text": "$2$"
+   "text": "$2x^{2} - 8x + 5$"
   },
   {
    "id": "D",
-   "text": "$8$"
+   "text": "$2x^{2} - 4x + 5$"
   }
  ],
- "correctAnswer": "A",
+ "correctAnswer": "C",
  "distractorNotes": {
-  "B": "expands (x - 2)^2 without the factor a = 2, giving -4x",
-  "C": "reports a = 2 instead of b",
-  "D": "drops the minus sign on the cross term, giving +8x"
+  "A": "never uses the point (0, 5) and takes a = 1",
+  "B": "finds a = 2 but expands 2(x - 2)^2 as 2x^2 - 8x, dropping the constant 8",
+  "D": "finds a = 2 but expands (x - 2)^2 as x^2 - 2x + 4"
  },
- "explanation": "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The point gives $a(0 - 2)^{2} - 3 = 5$, so $a = 2$; then $2(x^{2} - 4x + 4) - 3$ has $x$-coefficient $-8$.\n\n**The Full Solution:**\nStep 1: Substitute $(0, 5)$: $4a - 3 = 5$, so $a = 2$ and $f(x) = 2(x - 2)^{2} - 3$.\nStep 2: Expand: $2(x^{2} - 4x + 4) - 3 = 2x^{2} - 8x + 8 - 3$.\nStep 3: Combine: $f(x) = 2x^{2} - 8x + 5$, so $b = -8$. Check: $c = 5$ matches the $y$-intercept $(0, 5)$ on the graph ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-4$): expands $(x - 2)^{2}$ but never multiplies by $a = 2$.\n* Choice C ($2$): this is the value of $a$, not $b$.\n* Choice D ($8$): drops the sign of the cross term; the vertex is to the right of the $y$-axis and the parabola opens upward, so $b$ must be negative.\n\n**Test Day Takeaway:** A point on the graph pins down $a$; only then expand, multiplying every term of the square by $a$."
+ "explanation": "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Substituting $(0, 5)$ gives $4a - 3 = 5$, so $a = 2$; then $2(x - 2)^{2} - 3 = 2x^{2} - 8x + 5$.\n\n**The Full Solution:**\nStep 1: The point $(0, 5)$ is on the graph, so $a(0 - 2)^{2} - 3 = 5$, which gives $4a = 8$ and $a = 2$.\nStep 2: Expand: $2(x - 2)^{2} = 2(x^{2} - 4x + 4) = 2x^{2} - 8x + 8$.\nStep 3: Subtract $3$: $f(x) = 2x^{2} - 8x + 5$. Check: at $x = 0$ the expression is $5$, matching the point $(0, 5)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{2} - 4x + 1$): this is $(x - 2)^{2} - 3$, which treats $a$ as $1$ and never uses the point $(0, 5)$.\n* Choice B ($2x^{2} - 8x - 3$): drops the $8$ that comes from $2 \\cdot 4$ when the square is expanded.\n* Choice D ($2x^{2} - 4x + 5$): expands $(x - 2)^{2}$ as $x^{2} - 2x + 4$, missing the doubled middle term.\n\n**Test Day Takeaway:** Use the given point to find the constant first, then expand; checking the expression at that point catches expansion slips."
 }

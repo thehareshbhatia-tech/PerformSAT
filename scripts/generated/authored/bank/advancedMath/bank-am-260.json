@@ -1,31 +1,31 @@
 {
   "id": "bank-am-260",
-  "question": "The graph of the absolute value function $f$ is shown in the $xy$-plane. Reflecting this graph across the $y$-axis gives the graph of the function $g$. Which equation defines $g$?",
+  "question": "The graph of $y = f(x)$ is shown. For which of the following values of $x$ is $f(x) = f(-1)$?",
   "choices": [
     {
       "id": "A",
-      "text": "$g(x) = |x + 3| - 2$"
+      "text": "$1$"
     },
     {
       "id": "B",
-      "text": "$g(x) = |x + 3| + 2$"
+      "text": "$3$"
     },
     {
       "id": "C",
-      "text": "$g(x) = -|x - 3| + 2$"
+      "text": "$5$"
     },
     {
       "id": "D",
-      "text": "$g(x) = |x - 3| + 2$"
+      "text": "$7$"
     }
   ],
   "distractorNotes": {
-    "B": "negates both the input and the constant",
-    "C": "reflects across the x-axis instead",
-    "D": "negates only the constant term"
+    "A": "reflects -1 across the y-axis instead of across x = 3",
+    "B": "gives the x-coordinate of the vertex",
+    "C": "gives the right x-intercept, the mirror of the left intercept rather than of -1"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Reflection of Graph**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The graph has vertex $(3, -2)$, so $f(x) = |x - 3| - 2$ and $g(x) = f(-x) = |-x - 3| - 2 = |x + 3| - 2$.\n\n**The Full Solution:**\nStep 1: The graph shows the vertex $(3, -2)$ and the $x$-intercepts $(1, 0)$ and $(5, 0)$, so the slopes of the two sides are $\\pm 1$ and $f(x) = |x - 3| - 2$.\nStep 2: Reflecting across the $y$-axis replaces $x$ with $-x$: $g(x) = f(-x) = |-x - 3| - 2$.\nStep 3: Since $|-x - 3| = |x + 3|$, $g(x) = |x + 3| - 2$. Check: the vertex $(3, -2)$ reflects to $(-3, -2)$, and $g(-3) = 0 - 2 = -2$; the intercept $(5, 0)$ reflects to $(-5, 0)$, and $g(-5) = 2 - 2 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($|x + 3| + 2$): changes the sign of the constant as well, which also shifts the graph up $4$ units.\n* Choice C ($-|x - 3| + 2$): negates every output, which reflects across the $x$-axis instead of the $y$-axis.\n* Choice D ($|x - 3| + 2$): changes only the constant, which shifts the graph up and does not reflect it.\n\n**Test Day Takeaway:** A reflection across the $y$-axis changes the sign of every $x$-coordinate and leaves every $y$-coordinate alone, so the vertex $(h, k)$ goes to $(-h, k)$.",
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Reflection of Graph**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The graph is symmetric about $x = 3$, the vertex; $-1$ is $4$ units left of $3$, so the matching input is $3 + 4 = 7$.\n\n**The Full Solution:**\nStep 1: From the graph, the vertex is $(3, -2)$, and the graph is symmetric about the line $x = 3$.\nStep 2: $-1$ is $3 - (-1) = 4$ units to the left of $3$, so the mirror input is $3 + 4 = 7$.\nStep 3: Therefore $f(7) = f(-1)$. Check: the graph has vertex $(3, -2)$ and slope $1$ to the right, so $f(x) = |x - 3| - 2$; $f(-1) = 4 - 2 = 2$ and $f(7) = 4 - 2 = 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): reflects $-1$ across the $y$-axis; $f(1) = 0$, not $2$.\n* Choice B ($3$): this is the vertex's $x$-coordinate, where $f(3) = -2$.\n* Choice C ($5$): this is the right $x$-intercept, so $f(5) = 0$; it mirrors the left intercept, $x = 1$, not $x = -1$.\n\n**Test Day Takeaway:** The graph of an absolute value function is symmetric about the vertical line through its vertex, just like a parabola.",
   "diagram": {
     "type": "absoluteValue",
     "params": {

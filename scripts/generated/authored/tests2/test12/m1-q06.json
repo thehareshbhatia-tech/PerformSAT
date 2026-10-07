@@ -1,6 +1,6 @@
 {
   "id": 6,
-  "question": "Line $\\ell$ is shown in the $xy$-plane. Line $t$ is parallel to line $\\ell$ and passes through the point $(-2, 5)$. Which equation defines line $t$?",
+  "question": "Line $\\ell$ is shown in the $xy$-plane. Line $t$ is parallel to line $\\ell$ and passes through the point $(0, 0)$. Which equation defines line $t$?",
   "diagram": {
     "type": "linearGraph",
     "params": {
@@ -23,15 +23,15 @@
   "choices": [
     {
       "id": "A",
-      "text": "$2x - 3y = -19$"
+      "text": "$2x - 3y = 0$"
     },
     {
       "id": "B",
-      "text": "$3x - 2y = -16$"
+      "text": "$3x - 2y = 0$"
     },
     {
       "id": "C",
-      "text": "$3x + 2y = 4$"
+      "text": "$3x + 2y = 0$"
     },
     {
       "id": "D",
@@ -39,10 +39,10 @@
     }
   ],
   "distractorNotes": {
-    "A": "uses the reciprocal of the slope, 2/3 instead of 3/2, though it does pass through (-2, 5)",
-    "C": "uses the opposite of the slope, -3/2 instead of 3/2, though it does pass through (-2, 5)",
-    "D": "gives line l itself, which has the right slope but does not pass through (-2, 5)"
+    "A": "uses the reciprocal of the slope, 2/3 instead of 3/2",
+    "C": "uses the opposite of the slope, -3/2 instead of 3/2",
+    "D": "gives line l itself, which has the right slope but does not pass through (0, 0)"
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice B is correct.** Line $\\ell$ passes through $(0, -3)$ and $(2, 0)$, so its slope is $\\frac{3}{2}$. The line through $(-2, 5)$ with slope $\\frac{3}{2}$ is $y = \\frac{3}{2}x + 8$, or $3x - 2y = -16$.\n\n**The Fast Way (~30s):** Parallel lines have the same slope, $\\frac{3}{2}$, so line $t$ has the form $3x - 2y = k$; substituting $(-2, 5)$ gives $k = -6 - 10 = -16$.\n\n**The Full Solution:**\nStep 1: Read two points off the graph, $(0, -3)$ and $(2, 0)$. The slope of line $\\ell$ is $\\frac{0 - (-3)}{2 - 0} = \\frac{3}{2}$.\nStep 2: Line $t$ is parallel to line $\\ell$, so it also has slope $\\frac{3}{2}$. Through $(-2, 5)$: $y - 5 = \\frac{3}{2}(x + 2)$, which simplifies to $y = \\frac{3}{2}x + 8$.\nStep 3: Clear the fraction and rearrange: $2y = 3x + 16$, so $3x - 2y = -16$. Check: $3(-2) - 2(5) = -6 - 10 = -16$, and the coefficients $3$ and $-2$ give slope $\\frac{3}{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2x - 3y = -19$): passes through $(-2, 5)$ but has slope $\\frac{2}{3}$, the reciprocal of $\\frac{3}{2}$. Reading rise over run backward produces this line.\n* Choice C ($3x + 2y = 4$): also passes through $(-2, 5)$, but its slope is $-\\frac{3}{2}$; a sign slip turns an increasing line into a decreasing one.\n* Choice D ($3x - 2y = 6$): is line $\\ell$ itself. It has the right slope but does not contain $(-2, 5)$, since $3(-2) - 2(5) = -16 \\neq 6$.\n\n**Test Day Takeaway:** For a parallel line in standard form, keep the $x$ and $y$ coefficients exactly as they are and recompute only the constant from the given point."
+  "explanation": "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Line $\\ell$ rises $3$ units for every $2$ units to the right, so its slope is $\\frac{3}{2}$. The line through the origin with that slope is $y = \\frac{3}{2}x$, or $3x - 2y = 0$.\n\n**The Full Solution:**\nStep 1: Read two points off the graph of line $\\ell$, $(0, -3)$ and $(2, 0)$. Its slope is $\\frac{0 - (-3)}{2 - 0} = \\frac{3}{2}$.\nStep 2: Line $t$ is parallel to line $\\ell$, so it also has slope $\\frac{3}{2}$. It passes through $(0, 0)$, so its $y$-intercept is $0$ and $y = \\frac{3}{2}x$.\nStep 3: Multiply by $2$ and rearrange: $2y = 3x$, so $3x - 2y = 0$. Check: $(0, 0)$ satisfies $3(0) - 2(0) = 0$, and solving for $y$ gives slope $\\frac{3}{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2x - 3y = 0$): passes through the origin, but its slope is $\\frac{2}{3}$; reading the run over the rise gives this line.\n* Choice C ($3x + 2y = 0$): passes through the origin, but its slope is $-\\frac{3}{2}$, so it falls from left to right.\n* Choice D ($3x - 2y = 6$): is line $\\ell$ itself. It has the right slope, but $3(0) - 2(0) = 0 \\neq 6$, so it does not pass through $(0, 0)$.\n\n**Test Day Takeaway:** Parallel lines in standard form share their $x$- and $y$-coefficients; the point the line passes through fixes the constant."
 }

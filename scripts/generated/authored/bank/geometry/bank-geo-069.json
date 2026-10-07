@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-069",
- "question": "$x^{2} + y^{2} - 16x - 30y = 0$\nThe graph of the given equation in the $xy$-plane is a circle. Which of the following gives the center of the circle and its radius?",
+ "question": "$x^{2} + y^{2} - 12y = 0$\nThe graph of the given equation in the $xy$-plane is a circle. Which of the following gives the center of the circle and its radius?",
  "choices": [
   {
    "id": "A",
-   "text": "The center is at $(-8, -15)$ and the radius is $17$."
+   "text": "The center is at $(0, -6)$ and the radius is $6$."
   },
   {
    "id": "B",
-   "text": "The center is at $(8, 15)$ and the radius is $17$."
+   "text": "The center is at $(0, 6)$ and the radius is $6$."
   },
   {
    "id": "C",
-   "text": "The center is at $(8, 15)$ and the radius is $289$."
+   "text": "The center is at $(0, 6)$ and the radius is $36$."
   },
   {
    "id": "D",
-   "text": "The center is at $(16, 30)$ and the radius is $17$."
+   "text": "The center is at $(6, 0)$ and the radius is $6$."
   }
  ],
  "correctAnswer": "B",
  "distractorNotes": {
-  "A": "keeps the signs of the coefficients -16 and -30 when halving them, reversing the center",
-  "C": "finds the center correctly but reports r squared, 289, as the radius",
-  "D": "uses the full coefficients 16 and 30 as the center instead of half of each"
+  "A": "takes the sign of -12y directly, putting the center at y = -6",
+  "C": "reports r^2 = 36 as the radius",
+  "D": "puts the 6 in the x-coordinate even though only y was completed"
  },
- "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Halving $-16$ and $-30$ and flipping the signs puts the center at $(8, 15)$, and $r^{2} = 8^{2} + 15^{2} = 289$, so $r = 17$.\n\n**The Full Solution:**\nStep 1: Complete the square in $x$: $x^{2} - 16x = (x - 8)^{2} - 64$.\nStep 2: Complete the square in $y$: $y^{2} - 30y = (y - 15)^{2} - 225$. The equation becomes $(x - 8)^{2} + (y - 15)^{2} = 64 + 225 = 289$.\nStep 3: The center is $(8, 15)$ and the radius is $\\sqrt{289} = 17$. Check: the origin satisfies the original equation, and its distance from $(8, 15)$ is $\\sqrt{64 + 225} = 17$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (center $(-8, -15)$): halves the coefficients but keeps their signs; $(x - 8)^{2}$ means the center's $x$-coordinate is $+8$.\n* Choice C (radius $289$): stops at $r^{2}$ and forgets the square root.\n* Choice D (center $(16, 30)$): uses the whole coefficients; the center comes from half of each one.\n\n**Test Day Takeaway:** In $x^{2} + y^{2} + Dx + Ey + F = 0$, the center is $\\left(-\\frac{D}{2}, -\\frac{E}{2}\\right)$; the radius still needs a square root at the end."
+ "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Add $36$ to both sides: $x^{2} + (y - 6)^{2} = 36$, so the center is $(0, 6)$ and the radius is $6$.\n\n**The Full Solution:**\nStep 1: There is no $x$ term, so $x^{2}$ is already $(x - 0)^{2}$.\nStep 2: Complete the square in $y$: half of $-12$ is $-6$, and $(-6)^{2} = 36$. Adding $36$ to both sides gives $x^{2} + (y - 6)^{2} = 36$.\nStep 3: The center is $(0, 6)$ and $r^{2} = 36$, so $r = 6$. Check: $(0, 12)$ is $6$ units above the center, and $0^{2} + 12^{2} - 12(12) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (The center is at $(0, -6)$ and the radius is $6$.): reads the center straight from $-12y$; in $(y - 6)^{2}$ the center's $y$-coordinate is $+6$.\n* Choice C (The center is at $(0, 6)$ and the radius is $36$.): stops at $r^{2} = 36$; the radius is its square root, $6$.\n* Choice D (The center is at $(6, 0)$ and the radius is $6$.): swaps the coordinates; the completed square is in $y$, so the $6$ belongs to the $y$-coordinate.\n\n**Test Day Takeaway:** To read a circle written as $x^{2} + y^{2} + \\dots = 0$, complete the square in each variable that has a linear term."
 }

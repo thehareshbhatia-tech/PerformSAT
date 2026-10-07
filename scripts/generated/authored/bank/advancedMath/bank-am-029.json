@@ -1,6 +1,6 @@
 {
  "id": "bank-am-029",
- "question": "$x^{2} - 18x + c = 0$\nIn the given equation, $c$ is a constant. The equation has exactly one real solution. What is the value of $c$?",
+ "question": "$x^{2} - 18x + c = 0$\nFor what value of the constant $c$ does the given equation have exactly one real solution?",
  "choices": [
   {
    "id": "A",

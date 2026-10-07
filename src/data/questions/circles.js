@@ -43,19 +43,19 @@ export const circlesQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "Point $M$ is the center of a circle, and point $N$ lies on the circle. If $MN = 9.5$, what is the length of a diameter of the circle?",
+      question: "Point $M$ is the center of a circle, and point $N$ lies on the circle. The area of the circle is $169\\pi$ square units. What is the length of a diameter of the circle, in units?",
       choices: [
-        // distractor: halves MN instead of doubling it
-        { id: "A", text: "$4.75$" },
-        // distractor: reports the radius
-        { id: "B", text: "$9.5$" },
-        { id: "C", text: "$19$" },
-        // distractor: squares MN
-        { id: "D", text: "$90.25$" }
+        // distractor: stops at the radius MN
+        { id: "A", text: "$13$" },
+        { id: "B", text: "$26$" },
+        // distractor: takes 169, the coefficient of pi in the area, as the diameter
+        { id: "C", text: "$169$" },
+        // distractor: doubles 169 without taking its square root
+        { id: "D", text: "$338$" }
       ],
-      correctAnswer: "C",
-      hint: "Decide what kind of segment $\\overline{MN}$ is before you convert anything.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** $\\overline{MN}$ runs from the center to a point on the circle, so it is a radius; the diameter is $2(9.5) = 19$.\n\n**The Full Solution:**\nStep 1: A radius is a segment from the center to any point on the circle, so $MN = 9.5$ is a radius.\nStep 2: A diameter is twice a radius: $d = 2r = 2(9.5)$.\nStep 3: $d = 19$. Check: $\\frac{19}{2} = 9.5$, which matches $MN$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4.75$): halves $MN$ instead of doubling it, converting in the wrong direction.\n* Choice B ($9.5$): reports the radius itself and skips the conversion the question asks for.\n* Choice D ($90.25$): squares $9.5$, importing the $r^2$ from the area formula into a length question.\n\n**Test Day Takeaway:** Center-to-circle is always a radius. Classify the segment first; the arithmetic afterwards is one step.",
+      correctAnswer: "B",
+      hint: "Use the area to find the radius $MN$ first.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** $\\pi r^2 = 169\\pi$ gives $r = 13$, so the diameter is $2(13) = 26$.\n\n**The Full Solution:**\nStep 1: The area of a circle is $\\pi r^2$, so $\\pi r^2 = 169\\pi$ and $r^2 = 169$.\nStep 2: The radius is positive, so $r = \\sqrt{169} = 13$. This is the length of $\\overline{MN}$.\nStep 3: A diameter is twice a radius: $d = 2(13) = 26$. Check: a diameter of $26$ gives a radius of $13$ and an area of $\\pi(13)^2 = 169\\pi$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($13$): is the radius $MN$, not the diameter.\n* Choice C ($169$): takes the number in front of $\\pi$ as the diameter; $169$ is $r^2$.\n* Choice D ($338$): doubles $169$ without taking its square root first.\n\n**Test Day Takeaway:** From an area, take the square root to get the radius, then double it for a diameter.",
       skills: ["circle-parts"]
     },
     {
@@ -199,19 +199,19 @@ export const circlesQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "A circle has a diameter of $2.8$ meters. What is the circumference of the circle, in meters?",
+      question: "A circle has a diameter of $14$ meters. What is the circumference of the circle, in meters?",
       choices: [
-        // distractor: multiplies pi by the radius 1.4 instead of the diameter
-        { id: "A", text: "$1.4\\pi$" },
-        // distractor: computes the area pi(1.4)^2 = 1.96pi
-        { id: "B", text: "$1.96\\pi$" },
-        { id: "C", text: "$2.8\\pi$" },
-        // distractor: doubles the diameter before multiplying by pi
-        { id: "D", text: "$5.6\\pi$" }
+        // distractor: multiplies the radius, 7, by pi
+        { id: "A", text: "$7\\pi$" },
+        { id: "B", text: "$14\\pi$" },
+        // distractor: uses 2 times pi times the diameter
+        { id: "C", text: "$28\\pi$" },
+        // distractor: computes the area, pi r^2
+        { id: "D", text: "$49\\pi$" }
       ],
-      correctAnswer: "C",
-      hint: "Decide whether the given length is a radius or a diameter before choosing a formula.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~10s):** Circumference is $\\pi d$, so the circumference is $\\pi(2.8) = 2.8\\pi$ meters.\n\n**The Full Solution:**\nStep 1: The circumference of a circle with diameter $d$ is $C = \\pi d$.\nStep 2: Substitute $d = 2.8$: $C = \\pi(2.8)$.\nStep 3: $C = 2.8\\pi$ meters. Check: the radius is $1.4$, and $2\\pi(1.4) = 2.8\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.4\\pi$): multiplies $\\pi$ by the radius $1.4$, which gives only half the circumference.\n* Choice B ($1.96\\pi$): computes the area $\\pi(1.4)^2 = 1.96\\pi$, which is not a length.\n* Choice D ($5.6\\pi$): doubles the diameter as if the given number were the radius.\n\n**Test Day Takeaway:** Check whether the number given is a radius or a diameter before choosing between $2\\pi r$ and $\\pi d$.",
+      correctAnswer: "B",
+      hint: "Circumference equals pi times the diameter.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** $C = \\pi d = 14\\pi$.\n\n**The Full Solution:**\nStep 1: The circumference of a circle is $C = \\pi d$, or equivalently $C = 2\\pi r$.\nStep 2: The diameter is $14$ meters, so the radius is $7$ meters.\nStep 3: $C = \\pi(14) = 14\\pi$ meters. Check: $2\\pi r = 2\\pi(7) = 14\\pi$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7\\pi$): multiplies the radius by $\\pi$, which gives half the circumference.\n* Choice C ($28\\pi$): uses $2\\pi$ times the diameter instead of the radius.\n* Choice D ($49\\pi$): computes the area, $\\pi r^2 = 49\\pi$, not the circumference.\n\n**Test Day Takeaway:** $C = \\pi d = 2\\pi r$; read whether you were given $d$ or $r$ before you multiply.",
       skills: ["circumference"]
     },
     {
@@ -296,94 +296,94 @@ export const circlesQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "In the figure, $O$ is the center of the circle, the radius of the circle is $6$, and the measure of angle $AOB$ is $60^\\circ$. What is the area of sector $AOB$?",
+      question: "In the figure, $O$ is the center of the circle, the radius of the circle is $6$, and the measure of angle $AOB$ is $60^\\circ$. What is the length of minor arc $AB$?",
       diagram: { type: "circleWithSector", params: { centralAngle: 60, angleLabel: "60°", radius: 6, labelCenter: "O", labelPoint1: "A", labelPoint2: "B", showRadiusLabel: true, figureNote: true } },
       choices: [
-        // distractor: computes the arc length (1/6)(12pi) = 2pi
-        { id: "A", text: "$2\\pi$" },
-        { id: "B", text: "$6\\pi$" },
+        // distractor: uses pi r = 6pi instead of 2 pi r for the circumference, giving (1/6)(6pi) = pi
+        { id: "A", text: "$\\pi$" },
+        { id: "B", text: "$2\\pi$" },
+        // distractor: computes (1/6) of the circle's area, 36pi, instead of its circumference
+        { id: "C", text: "$6\\pi$" },
         // distractor: reports the whole circumference 12pi
-        { id: "C", text: "$12\\pi$" },
-        // distractor: reports the whole circle's area 36pi
-        { id: "D", text: "$36\\pi$" }
+        { id: "D", text: "$12\\pi$" }
       ],
       correctAnswer: "B",
-      hint: "How many sectors like this one make up the whole circle?",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** One sixth of the circle's area $36\\pi$ is $6\\pi$.\n\n**The Full Solution:**\nStep 1: The whole circle has area $\\pi r^2 = \\pi(6)^2 = 36\\pi$.\nStep 2: A $60^\\circ$ central angle covers $\\dfrac{60}{360} = \\dfrac{1}{6}$ of the circle.\nStep 3: Multiply: $\\dfrac{1}{6}(36\\pi) = 6\\pi$. Check: six such sectors give $6(6\\pi) = 36\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2\\pi$): computes the arc length, $\\dfrac{1}{6}(12\\pi)$, which is a length rather than an area.\n* Choice C ($12\\pi$): reports the whole circumference.\n* Choice D ($36\\pi$): reports the area of the entire circle rather than the sector.\n\n**Test Day Takeaway:** A sector's area is the same fraction of $\\pi r^2$ as its angle is of $360^\\circ$.",
+      hint: "What fraction of the whole circle does a $60^\\circ$ central angle cover?",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** The circumference is $2\\pi(6) = 12\\pi$, and a $60^\\circ$ angle takes $\\frac{1}{6}$ of it: $2\\pi$.\n\n**The Full Solution:**\nStep 1: The circumference of the circle is $2\\pi r = 2\\pi(6) = 12\\pi$.\nStep 2: A $60^\\circ$ central angle covers $\\frac{60}{360} = \\frac{1}{6}$ of the circle.\nStep 3: The length of minor arc $AB$ is $\\frac{1}{6}(12\\pi) = 2\\pi$. Check: six such arcs give $6(2\\pi) = 12\\pi$, the whole circumference. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\pi$): uses $\\pi r = 6\\pi$ as the circumference, which is only half of it.\n* Choice C ($6\\pi$): takes $\\frac{1}{6}$ of the circle's area, $36\\pi$, instead of its circumference.\n* Choice D ($12\\pi$): is the whole circumference, not the part cut off by the angle.\n\n**Test Day Takeaway:** An arc is the same fraction of the circumference as its central angle is of $360^\\circ$.",
       skills: ["sector-area"]
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "A circle has a radius of $10$. A sector of this circle has a central angle of $72^{\\circ}$. What is the area of the sector?",
+      question: "A circle has a radius of $10$. A central angle of the circle has a measure of $72^{\\circ}$. What is the length of the arc intercepted by this angle?",
       choices: [
-        // distractor: computes the arc length
-        { id: "A", text: "$4\\pi$" },
-        { id: "B", text: "$20\\pi$" },
-        // distractor: doubles the area formula
-        { id: "C", text: "$40\\pi$" },
-        // distractor: reports the area of the whole circle
-        { id: "D", text: "$100\\pi$" }
+        // distractor: uses pi r = 10pi instead of 2 pi r, giving (1/5)(10pi) = 2pi
+        { id: "A", text: "$2\\pi$" },
+        { id: "B", text: "$4\\pi$" },
+        // distractor: uses pi r = 10pi and never takes the fraction 72/360
+        { id: "C", text: "$10\\pi$" },
+        // distractor: reports the whole circumference 20pi
+        { id: "D", text: "$20\\pi$" }
       ],
       correctAnswer: "B",
-      hint: "$72^{\\circ}$ is a friendly fraction of $360^{\\circ}$ — simplify it before multiplying.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** $\\frac{72}{360} = \\frac{1}{5}$, and the circle's area is $100\\pi$, so the sector's area is $20\\pi$.\n\n**The Full Solution:**\nStep 1: The circle's area is $\\pi(10)^2 = 100\\pi$.\nStep 2: The sector's central angle is $\\frac{72}{360} = \\frac{1}{5}$ of a full turn.\nStep 3: The sector's area is $\\frac{1}{5}(100\\pi) = 20\\pi$. Check: five congruent sectors of area $20\\pi$ make up the $100\\pi$ circle ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4\\pi$): takes $\\frac{1}{5}$ of the circumference $20\\pi$, producing a length instead of an area.\n* Choice C ($40\\pi$): uses $2\\pi r^2$ for the circle's area, importing the $2$ from the circumference formula.\n* Choice D ($100\\pi$): reports the area of the whole circle rather than of the sector.\n\n**Test Day Takeaway:** Reduce the angle fraction before you multiply; $\\frac{72}{360} = \\frac{1}{5}$ turns the arithmetic into a single step.",
+      hint: "Find the circumference first, then the fraction $\\frac{72}{360}$ of it.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** $72^\\circ$ is $\\frac{1}{5}$ of $360^\\circ$, and $\\frac{1}{5}$ of the circumference $20\\pi$ is $4\\pi$.\n\n**The Full Solution:**\nStep 1: The circumference is $2\\pi r = 2\\pi(10) = 20\\pi$.\nStep 2: The angle covers $\\frac{72}{360} = \\frac{1}{5}$ of the circle.\nStep 3: The arc length is $\\frac{1}{5}(20\\pi) = 4\\pi$. Check: five such arcs give $5(4\\pi) = 20\\pi$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2\\pi$): uses $\\pi r = 10\\pi$ as the circumference, so the arc comes out half as long.\n* Choice C ($10\\pi$): is $\\pi r$, half the circumference, with no fraction of the circle taken.\n* Choice D ($20\\pi$): is the whole circumference, not the arc.\n\n**Test Day Takeaway:** Arc length $= \\frac{\\text{central angle}}{360} \\times 2\\pi r$.",
       skills: ["sector-area"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "In the figure shown, $O$ is the center of the circle, and the area of sector $AOB$ is $16\\pi$. What is the radius of the circle?",
+      question: "In the figure shown, $O$ is the center of the circle, and the length of minor arc $AB$ is $4\\pi$. What is the radius of the circle?",
       diagram: { type: "circleWithSector", params: { centralAngle: 90, angleLabel: "90°", showRadiusLabel: false, labelCenter: "O", labelPoint1: "A", labelPoint2: "B", figureNote: true } },
       choices: [
-        // distractor: solves pi*r^2 = 16pi and forgets the quarter
-        { id: "A", text: "$4$" },
-        { id: "B", text: "$8$" },
-        // distractor: reports the coefficient 16 from the given area
-        { id: "C", text: "$16$" },
-        // distractor: reports r^2 = 64 instead of r
-        { id: "D", text: "$64$" }
+        // distractor: sets the whole circumference 2 pi r equal to 4pi, ignoring the 90-degree angle
+        { id: "A", text: "$2$" },
+        // distractor: uses the area formula, (1/4) pi r^2 = 4pi
+        { id: "B", text: "$4$" },
+        { id: "C", text: "$8$" },
+        // distractor: uses pi r instead of 2 pi r, so (1/4) pi r = 4pi; 16 is the diameter
+        { id: "D", text: "$16$" }
       ],
-      correctAnswer: "B",
-      hint: "The area you are given belongs to only part of the circle.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** A quarter of $\\pi r^2$ equals $16\\pi$, so $\\pi r^2 = 64\\pi$ and $r = 8$.\n\n**The Full Solution:**\nStep 1: A $90^\\circ$ sector is $\\dfrac{1}{4}$ of the circle, so $\\dfrac{1}{4}\\pi r^2 = 16\\pi$.\nStep 2: Multiply both sides by $4$: $\\pi r^2 = 64\\pi$, so $r^2 = 64$.\nStep 3: Take the positive root: $r = 8$. Check: $\\dfrac{1}{4}\\pi(8)^2 = 16\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): solves $\\pi r^2 = 16\\pi$, treating the sector's area as the whole circle's.\n* Choice C ($16$): reports the number multiplying $\\pi$ in the given area.\n* Choice D ($64$): reports $r^2$ and skips the square root.\n\n**Test Day Takeaway:** Undo the fraction of the circle first; only then take the square root.",
+      correctAnswer: "C",
+      hint: "The $90^\\circ$ angle tells you what fraction of the circumference the arc is.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** A $90^\\circ$ arc is $\\frac{1}{4}$ of the circumference, so the circumference is $4(4\\pi) = 16\\pi = 2\\pi r$ and $r = 8$.\n\n**The Full Solution:**\nStep 1: Angle $AOB$ measures $90^\\circ$, so minor arc $AB$ is $\\frac{90}{360} = \\frac{1}{4}$ of the circumference.\nStep 2: The circumference is $4(4\\pi) = 16\\pi$.\nStep 3: Set $2\\pi r = 16\\pi$, so $r = 8$. Check: $\\frac{1}{4}(2\\pi \\cdot 8) = 4\\pi$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): treats $4\\pi$ as the whole circumference, ignoring the $90^\\circ$ angle.\n* Choice B ($4$): uses the area formula, solving $\\frac{1}{4}\\pi r^2 = 4\\pi$.\n* Choice D ($16$): uses $\\pi r$ for the circumference; $16$ is the diameter, not the radius.\n\n**Test Day Takeaway:** Scale the arc up to the full circumference first, then solve $2\\pi r = C$.",
       skills: ["sector-area"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "A circle has a radius of $5$, and a sector of the circle has an area of $5\\pi$. What is the measure, in degrees, of the central angle of the sector?",
+      question: "A circle has a radius of $5$, and an arc of the circle has a length of $2\\pi$. What is the measure, in degrees, of the central angle that intercepts this arc?",
       choices: [
-        // distractor: uses 180 degrees for a full turn
+        // distractor: uses 2 pi times the diameter, 20pi, as the circumference
         { id: "A", text: "$36$" },
         { id: "B", text: "$72$" },
-        // distractor: compares against the circumference
-        { id: "C", text: "$180$" },
-        // distractor: divides by pi r instead of pi r squared
-        { id: "D", text: "$360$" }
+        // distractor: uses pi r = 5pi as the circumference
+        { id: "C", text: "$144$" },
+        // distractor: finds the angle of the rest of the circle, 360 - 72
+        { id: "D", text: "$288$" }
       ],
       correctAnswer: "B",
-      hint: "Find the whole circle's area first; the sector's share of it sets the angle.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** The circle's area is $25\\pi$, so the sector is $\\frac{5\\pi}{25\\pi} = \\frac{1}{5}$ of it, and $\\frac{1}{5}(360^{\\circ}) = 72^{\\circ}$.\n\n**The Full Solution:**\nStep 1: The circle's area is $\\pi(5)^2 = 25\\pi$.\nStep 2: The sector's share of the area is $\\frac{5\\pi}{25\\pi} = \\frac{1}{5}$.\nStep 3: That same share of a full turn is $\\frac{1}{5}(360^{\\circ}) = 72^{\\circ}$. Check: $\\frac{72}{360}(25\\pi) = 5\\pi$, the given sector area.\n\n**Why the wrong answers are tempting:**\n* Choice A ($36$): applies the correct fraction $\\frac{1}{5}$ to $180^{\\circ}$ instead of to a full $360^{\\circ}$ turn.\n* Choice C ($180$): divides the sector's area by the circumference $10\\pi$, getting $\\frac{1}{2}$ of a turn.\n* Choice D ($360$): divides by $\\pi r = 5\\pi$ instead of $\\pi r^2$, which makes the sector look like the whole circle.\n\n**Test Day Takeaway:** Compare like with like: an area against an area. Mixing a sector area with a circumference is what produces the half-turn trap.",
+      hint: "What fraction of the circumference is $2\\pi$?",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** The circumference is $10\\pi$, so the arc is $\\frac{2\\pi}{10\\pi} = \\frac{1}{5}$ of the circle, and $\\frac{1}{5}(360) = 72$.\n\n**The Full Solution:**\nStep 1: The circumference is $2\\pi r = 2\\pi(5) = 10\\pi$.\nStep 2: The arc is $\\frac{2\\pi}{10\\pi} = \\frac{1}{5}$ of the circumference.\nStep 3: The central angle is the same fraction of $360^\\circ$: $\\frac{1}{5}(360) = 72$. Check: $\\frac{72}{360}(10\\pi) = 2\\pi$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($36$): uses $2\\pi(10) = 20\\pi$ as the circumference, treating the diameter as the radius.\n* Choice C ($144$): uses $\\pi r = 5\\pi$ as the circumference.\n* Choice D ($288$): is $360 - 72$, the angle of the rest of the circle.\n\n**Test Day Takeaway:** $\\frac{\\text{arc length}}{\\text{circumference}} = \\frac{\\text{central angle}}{360}$.",
       skills: ["sector-area"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "In the figure, $O$ is the center of the circle and the measure of angle $AOB$ is $135^{\\circ}$. The area of sector $AOB$ is $54\\pi$. What is the length of the minor arc $AB$?",
+      question: "In the figure, $O$ is the center of the circle and the measure of angle $AOB$ is $135^{\\circ}$. The length of minor arc $AB$ is $9\\pi$. What is the area of the circle?",
       diagram: { type: "circleWithSector", params: { centralAngle: 135, showAngleLabel: true, labelCenter: "O", labelPoint1: "A", labelPoint2: "B", figureNote: true } },
       choices: [
-        // distractor: uses pi r for the circumference
-        { id: "A", text: "$\\frac{9\\pi}{2}$" },
-        { id: "B", text: "$9\\pi$" },
-        // distractor: reports the full circumference
-        { id: "C", text: "$24\\pi$" },
-        // distractor: never takes the square root
-        { id: "D", text: "$108\\pi$" }
+        // distractor: stops at the circumference, 24pi
+        { id: "A", text: "$24\\pi$" },
+        // distractor: treats 9, from the arc length 9pi, as the radius
+        { id: "B", text: "$81\\pi$" },
+        { id: "C", text: "$144\\pi$" },
+        // distractor: uses the diameter, 24, as the radius
+        { id: "D", text: "$576\\pi$" }
       ],
-      correctAnswer: "B",
-      hint: "One radius unlocks both formulas — get it out of the area before you touch the arc.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~50s):** $\\frac{135}{360} = \\frac{3}{8}$, so $\\frac{3}{8}\\pi r^2 = 54\\pi$ gives $r = 12$; the arc is then $\\frac{3}{8}(24\\pi) = 9\\pi$.\n\n**The Full Solution:**\nStep 1: The sector is $\\frac{135}{360} = \\frac{3}{8}$ of the circle, so $\\frac{3}{8}\\pi r^2 = 54\\pi$.\nStep 2: Multiply by $\\frac{8}{3}$: $\\pi r^2 = 144\\pi$, so $r^2 = 144$ and $r = 12$.\nStep 3: The circumference is $2\\pi(12) = 24\\pi$, and the arc is $\\frac{3}{8}(24\\pi) = 9\\pi$. Check: the shortcut $A = \\frac{1}{2}sr$ gives $\\frac{1}{2}(9\\pi)(12) = 54\\pi$, the given area.\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{9\\pi}{2}$): uses $\\pi r = 12\\pi$ as the circumference, halving the arc.\n* Choice C ($24\\pi$): reports the full circumference instead of the $\\frac{3}{8}$ of it that the angle cuts off.\n* Choice D ($108\\pi$): uses $r = 144$ without taking the square root: $\\frac{3}{8}(2\\pi \\cdot 144)$.\n\n**Test Day Takeaway:** The same angle fraction serves area and arc. Solve for $r$ once, then reuse it.",
+      correctAnswer: "C",
+      hint: "Use the arc to find the circumference, then the radius.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~40s):** $135^\\circ$ is $\\frac{3}{8}$ of the circle, so the circumference is $\\frac{8}{3}(9\\pi) = 24\\pi$; then $r = 12$ and the area is $144\\pi$.\n\n**The Full Solution:**\nStep 1: Minor arc $AB$ is $\\frac{135}{360} = \\frac{3}{8}$ of the circumference, so $\\frac{3}{8}C = 9\\pi$ and $C = 24\\pi$.\nStep 2: Set $2\\pi r = 24\\pi$, so $r = 12$.\nStep 3: The area is $\\pi r^2 = \\pi(12)^2 = 144\\pi$. Check: $\\frac{3}{8}(2\\pi \\cdot 12) = 9\\pi$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($24\\pi$): is the circumference, not the area.\n* Choice B ($81\\pi$): treats $9$ from the arc length as the radius.\n* Choice D ($576\\pi$): uses the diameter, $24$, as the radius.\n\n**Test Day Takeaway:** From an arc and its angle, find the circumference, then the radius; only then use $\\pi r^2$.",
       skills: ["sector-area"]
     }
   ],
@@ -523,19 +523,19 @@ export const circlesQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "In the $xy$-plane, a circle with center $(0, 0)$ and radius $4$ is dilated about the origin by a scale factor of $3$. Which of the following equations represents the image of the circle?",
+      question: "Circle $A$ in the $xy$-plane has center $(0, 0)$ and radius $4$. Circle $B$ has the same center as circle $A$, and the radius of circle $B$ is $3$ times the radius of circle $A$. Which equation represents circle $B$?",
       choices: [
-        // distractor: substitutes 3x and 3y
+        // distractor: divides r^2 = 16 by 9 instead of multiplying
         { id: "A", text: "$x^2 + y^2 = \\frac{16}{9}$" },
-        // distractor: writes r where r squared belongs
+        // distractor: sets the right side equal to the new radius, 12, without squaring
         { id: "B", text: "$x^2 + y^2 = 12$" },
-        // distractor: scales r squared only once
+        // distractor: multiplies r^2 = 16 by 3 instead of by 3^2
         { id: "C", text: "$x^2 + y^2 = 48$" },
         { id: "D", text: "$x^2 + y^2 = 144$" }
       ],
       correctAnswer: "D",
-      hint: "A dilation scales the radius, but the equation stores the radius squared.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~25s):** The radius becomes $3(4) = 12$, so $r^2 = 144$ and the image is $x^2 + y^2 = 144$.\n\n**The Full Solution:**\nStep 1: A dilation centered at the origin with scale factor $3$ multiplies every distance from the origin by $3$, so the radius becomes $12$.\nStep 2: The center stays at the origin, so the equation is $x^2 + y^2 = r^2$ with $r = 12$.\nStep 3: $x^2 + y^2 = 144$. Check: the point $(4, 0)$ maps to $(12, 0)$, and $12^2 + 0 = 144$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^2 + y^2 = \\frac{16}{9}$): substitutes $3x$ and $3y$ into the original equation, which shrinks the circle by a factor of $3$ instead of enlarging it.\n* Choice B ($x^2 + y^2 = 12$): writes the new radius $12$ on the right side where $r^2$ belongs.\n* Choice C ($x^2 + y^2 = 48$): multiplies $r^2 = 16$ by the scale factor once, giving $48$, instead of by the scale factor squared.\n\n**Test Day Takeaway:** Scale the radius, then square it. Multiplying $r^2$ by $k$ instead of $k^2$ is the classic dilation slip.",
+      hint: "Find the new radius first, then square it.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~20s):** The radius of circle $B$ is $3(4) = 12$, so its equation is $x^2 + y^2 = 12^2 = 144$.\n\n**The Full Solution:**\nStep 1: A circle with center $(0, 0)$ and radius $r$ has equation $x^2 + y^2 = r^2$.\nStep 2: The radius of circle $B$ is $3 \\times 4 = 12$, and the center stays at $(0, 0)$.\nStep 3: So circle $B$ is $x^2 + y^2 = 12^2 = 144$. Check: $\\sqrt{144} = 12 = 3 \\times 4$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^2 + y^2 = \\frac{16}{9}$): divides $16$ by $3^2$ instead of multiplying, which shrinks the circle.\n* Choice B ($x^2 + y^2 = 12$): puts the new radius on the right side without squaring it.\n* Choice C ($x^2 + y^2 = 48$): multiplies $r^2 = 16$ by $3$; the right side grows by $3^2 = 9$, not $3$.\n\n**Test Day Takeaway:** When a radius is multiplied by $k$, the right side of the circle equation is multiplied by $k^2$.",
       skills: ["circle-equation", "function-transformations"]
     },
     {
@@ -711,20 +711,20 @@ export const circlesQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "The table shows equations of circles $P$ and $Q$ in the $xy$-plane. What is the distance between the centers of the two circles?",
-      questionTable: { headers: ["Circle", "Equation"], rows: [["$P$", "$x^2 + y^2 - 12x + 4y + 15 = 0$"], ["$Q$", "$x^2 + y^2 + 4x - 8y + 11 = 0$"]] },
+      question: "The table shows equations of circles $P$ and $Q$ in the $xy$-plane. The radius of circle $Q$ is how many times the radius of circle $P$?",
+      questionTable: { headers: ["Circle", "Equation"], rows: [["$P$", "$x^2 + y^2 - 4x + 6y + 9 = 0$"], ["$Q$", "$x^2 + y^2 + 8x - 2y - 19 = 0$"]] },
       choices: [
-        // distractor: reports only the vertical separation, 6
-        { id: "A", text: "$6$" },
-        // distractor: reports only the horizontal separation, 8
-        { id: "B", text: "$8$" },
-        { id: "C", text: "$10$" },
-        // distractor: adds 8 + 6 instead of using the Pythagorean theorem
-        { id: "D", text: "$14$" }
+        // distractor: compares the x-coefficients, 8 and 4, instead of the radii
+        { id: "A", text: "$2$" },
+        { id: "B", text: "$3$" },
+        // distractor: reports the radius of circle Q
+        { id: "C", text: "$6$" },
+        // distractor: compares the squared radii, 36 and 4
+        { id: "D", text: "$9$" }
       ],
-      correctAnswer: "C",
-      hint: "Only the centers matter here, not the sizes of the circles.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~35s):** The centers are $(6, -2)$ and $(-2, 4)$, and the $8$-$6$-$10$ right triangle gives a distance of $10$.\n\n**The Full Solution:**\nStep 1: For circle $P$, half of $-12$ is $-6$ and half of $4$ is $2$, so its center is $(6, -2)$.\nStep 2: For circle $Q$, half of $4$ is $2$ and half of $-8$ is $-4$, so its center is $(-2, 4)$.\nStep 3: The separations are $6 - (-2) = 8$ and $-2 - 4 = -6$, so the distance is $\\sqrt{8^2 + 6^2} = \\sqrt{100} = 10$. Check: $64 + 36 = 100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): reports only the vertical separation of the centers.\n* Choice B ($8$): reports only the horizontal separation.\n* Choice D ($14$): adds the two separations, $8 + 6$, instead of combining them with the Pythagorean theorem.\n\n**Test Day Takeaway:** The center of $x^2 + y^2 + Dx + Ey + F = 0$ is $\\left(-\\dfrac{D}{2}, -\\dfrac{E}{2}\\right)$ — no completing the square is needed just to locate it.",
+      correctAnswer: "B",
+      hint: "Complete the square in each equation to find r^2.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~60s):** Completing the square gives $r^2 = 4$ for circle $P$ and $r^2 = 36$ for circle $Q$, so the radii are $2$ and $6$, and $6 = 3 \\times 2$.\n\n**The Full Solution:**\nStep 1: Circle $P$: $(x^2 - 4x + 4) + (y^2 + 6y + 9) = -9 + 4 + 9$, so $(x - 2)^2 + (y + 3)^2 = 4$ and its radius is $2$.\nStep 2: Circle $Q$: $(x^2 + 8x + 16) + (y^2 - 2y + 1) = 19 + 16 + 1$, so $(x + 4)^2 + (y - 1)^2 = 36$ and its radius is $6$.\nStep 3: The radius of circle $Q$ is $\\frac{6}{2} = 3$ times the radius of circle $P$. Check: $3 \\times 2 = 6$, and $6^2 = 36$ matches circle $Q$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): compares the $x$-coefficients, $8$ and $4$, which locate the centers but do not give the radii.\n* Choice C ($6$): is the radius of circle $Q$, not the ratio of the two radii.\n* Choice D ($9$): compares the squared radii, $\\frac{36}{4}$, without taking square roots.\n\n**Test Day Takeaway:** The constant in a circle equation is $r^2$ only after completing the square; compare radii, not $r^2$.",
       skills: ["completing-square-circles", "circle-equation"]
     },
     {
@@ -748,19 +748,19 @@ export const circlesQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "$x^2 + y^2 - 8x + 10y + c = 0$\nIn the given equation, $c$ is a constant. The graph of the equation in the $xy$-plane is a circle. Which of the following must be true?",
+      question: "$x^2 + y^2 - 8x + 10y + c = 0$\nIn the given equation, $c$ is a constant. The graph of the equation in the $xy$-plane is a circle with radius $7$. What is the value of $c$?",
       choices: [
-        { id: "A", text: "$c < 41$" },
-        // distractor: moves 41 to the wrong side, requiring c < -41
-        { id: "B", text: "$c < -41$" },
-        // distractor: solves 41 + c > 0 instead of 41 - c > 0
-        { id: "C", text: "$c > -41$" },
-        // distractor: reverses the inequality after finding 41
-        { id: "D", text: "$c > 41$" }
+        { id: "A", text: "$-8$" },
+        // distractor: sets c equal to 49 - 41, a sign error when moving c
+        { id: "B", text: "$8$" },
+        // distractor: sets 41 - c equal to the radius 7 instead of 49
+        { id: "C", text: "$34$" },
+        // distractor: adds 41 and 49 instead of subtracting
+        { id: "D", text: "$90$" }
       ],
       correctAnswer: "A",
-      hint: "After both squares are completed, what has to be true of the number left on the right side?",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~40s):** Completing the squares gives $r^2 = 41 - c$, and $41 - c > 0$ means $c < 41$.\n\n**The Full Solution:**\nStep 1: Group the terms: $(x^2 - 8x) + (y^2 + 10y) = -c$.\nStep 2: Complete both squares by adding $16$ and $25$: $(x - 4)^2 + (y + 5)^2 = 16 + 25 - c = 41 - c$.\nStep 3: The graph is a circle only if its radius is positive, so $41 - c > 0$ and $c < 41$. Check: $c = 40$ gives $r^2 = 1$, a genuine circle, while $c = 41$ collapses the graph to the single point $(4, -5)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($c < -41$): moves $41$ to the wrong side of the inequality.\n* Choice C ($c > -41$): treats the constant as $41 + c$ rather than $41 - c$.\n* Choice D ($c > 41$): finds $41$ correctly but reverses the direction, which makes the right side negative.\n\n**Test Day Takeaway:** A general-form equation is a real circle only while the completed-square right side stays strictly positive.",
+      hint: "Complete the square in $x$ and in $y$; the right side is then $r^2$.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~45s):** Completing the square gives $(x - 4)^2 + (y + 5)^2 = 41 - c$, so $41 - c = 7^2 = 49$ and $c = -8$.\n\n**The Full Solution:**\nStep 1: Group and complete the squares: $(x^2 - 8x + 16) + (y^2 + 10y + 25) = -c + 16 + 25$.\nStep 2: So $(x - 4)^2 + (y + 5)^2 = 41 - c$, and the right side is $r^2 = 49$.\nStep 3: $41 - c = 49$ gives $c = -8$. Check: $x^2 + y^2 - 8x + 10y - 8 = 0$ becomes $(x - 4)^2 + (y + 5)^2 = 49$, radius $7$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($8$): computes $49 - 41$, losing the sign when $c$ moves to the other side.\n* Choice C ($34$): sets $41 - c$ equal to the radius $7$ instead of $7^2$.\n* Choice D ($90$): adds $41$ and $49$.\n\n**Test Day Takeaway:** After completing the square, the constant on the right side is $r^2$, not $r$.",
       skills: ["completing-square-circles", "circle-equation"]
     }
   ],
@@ -806,19 +806,19 @@ export const circlesQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "Segments $\\overline{PA}$ and $\\overline{PB}$ are tangent to a circle at points $A$ and $B$, respectively. If $PA = 4x - 5$ and $PB = 2x + 7$, what is the length of $\\overline{PA}$?",
+      question: "Segments $\\overline{PA}$ and $\\overline{PB}$ are tangent to a circle with center $O$ at points $A$ and $B$, respectively. The radius of the circle is $6$, and $PA = 8$. What is the perimeter of quadrilateral $OAPB$?",
       choices: [
-        // distractor: reports x
-        { id: "A", text: "$6$" },
-        { id: "B", text: "$19$" },
-        // distractor: drops the constant term
-        { id: "C", text: "$24$" },
-        // distractor: adds both segments
-        { id: "D", text: "$38$" }
+        // distractor: adds only one radius and one tangent segment
+        { id: "A", text: "$14$" },
+        // distractor: includes PA but leaves out PB
+        { id: "B", text: "$20$" },
+        { id: "C", text: "$28$" },
+        // distractor: computes the area of OAPB, 2 times (1/2)(6)(8)
+        { id: "D", text: "$48$" }
       ],
-      correctAnswer: "B",
-      hint: "Two tangent segments drawn from the same external point are related in a way that gives you an equation.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~35s):** Tangent segments from a common external point are congruent, so $4x - 5 = 2x + 7$ gives $x = 6$ and $PA = 4(6) - 5 = 19$.\n\n**The Full Solution:**\nStep 1: $\\overline{PA}$ and $\\overline{PB}$ are tangent to the same circle from the same external point, so $PA = PB$.\nStep 2: Solve $4x - 5 = 2x + 7$: subtracting $2x$ gives $2x - 5 = 7$, so $2x = 12$ and $x = 6$.\nStep 3: $PA = 4(6) - 5 = 19$. Check: $PB = 2(6) + 7 = 19$, the same length.\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): reports the value of $x$ instead of substituting it back into the expression for the length.\n* Choice C ($24$): evaluates $4x$ at $x = 6$ but drops the $-5$.\n* Choice D ($38$): adds $PA$ and $PB$, reporting the combined length of both tangent segments.\n\n**Test Day Takeaway:** Solving for $x$ is the middle of the problem, not the end. Substitute back into whatever expression the question actually names.",
+      correctAnswer: "C",
+      hint: "Two tangent segments drawn from the same outside point are equal in length.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** $OA = OB = 6$ and $PB = PA = 8$, so the perimeter is $6 + 8 + 8 + 6 = 28$.\n\n**The Full Solution:**\nStep 1: $\\overline{OA}$ and $\\overline{OB}$ are radii, so $OA = OB = 6$.\nStep 2: Tangent segments from the same point $P$ are equal, so $PB = PA = 8$.\nStep 3: Perimeter of $OAPB$ $= OA + AP + PB + BO = 6 + 8 + 8 + 6 = 28$. Check: the two sides at $O$ total $12$ and the two tangent sides total $16$; $12 + 16 = 28$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($14$): adds one radius and one tangent segment, which is only half the perimeter.\n* Choice B ($20$): uses both radii and $PA$ but leaves out $PB$.\n* Choice D ($48$): computes the area of $OAPB$, two right triangles of area $\\frac{1}{2}(6)(8) = 24$, instead of the perimeter.\n\n**Test Day Takeaway:** From one outside point, the two tangent segments to a circle are always equal.",
       skills: ["tangent-lines"]
     },
     {

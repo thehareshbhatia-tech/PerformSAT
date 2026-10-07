@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-041",
- "question": "Which of the following is true about the largest angle of the triangle shown?",
+ "question": "What is the area of the triangle shown?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -10,47 +10,47 @@
      0
     ],
     [
-     21,
+     15,
      0
     ],
     [
-     13.167,
-     9.091
+     9.6,
+     7.2
     ]
    ],
    "sideLabels": [
-    "21",
-    "12",
-    "16"
+    "15",
+    "9",
+    "12"
    ],
    "showRightAngle": false,
-   "rightAngleVertex": 1,
+   "rightAngleVertex": 2,
    "figureNote": true
   }
  },
  "choices": [
   {
    "id": "A",
-   "text": "$12^2 + 16^2 > 21^2$, so the largest angle is acute."
+   "text": "$54$"
   },
   {
    "id": "B",
-   "text": "$12^2 + 16^2 = 21^2$, so the largest angle is a right angle."
+   "text": "$67.5$"
   },
   {
    "id": "C",
-   "text": "$12^2 + 16^2 < 21^2$, so the largest angle is obtuse."
+   "text": "$90$"
   },
   {
    "id": "D",
-   "text": "$12^2 + 21^2 > 16^2$, so the largest angle is acute."
+   "text": "$108$"
   }
  ],
  "distractorNotes": {
-  "A": "computes 144 + 256 = 400 but reads it as greater than 441",
-  "B": "assumes the triangle must be a right triangle",
-  "D": "tests the shortest and longest sides against the middle side, comparing 12^2 + 21^2 with 16^2"
+  "B": "uses the sides 9 and 15 as base and height, computing (1/2)(9)(15)",
+  "C": "uses the sides 12 and 15 as base and height, computing (1/2)(12)(15)",
+  "D": "multiplies the legs 9 and 12 and forgets the 1/2"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Classify Triangle by Pythagorean Test**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Compare the squares of the two shorter sides with the square of the longest: $144 + 256 = 400 < 441$, so the largest angle is obtuse.\n\n**The Full Solution:**\nStep 1: The largest angle lies opposite the longest side, which has length $21$.\nStep 2: Compare $a^2 + b^2$ for the two shorter sides with $c^2$ for the longest side: $12^2 + 16^2 = 144 + 256 = 400$ and $21^2 = 441$.\nStep 3: Since $400 < 441$, the angle opposite the side of length $21$ is obtuse. Check: $12 + 16 = 28 > 21$, so the three lengths do form a triangle ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: gets $400$ and $441$ but reverses the comparison.\n* Choice B: assumes a right triangle, which would require $400 = 441$.\n* Choice D: puts the shortest and longest sides against the middle one; the test must compare the two shortest sides with the longest.\n\n**Test Day Takeaway:** $a^2 + b^2$ versus $c^2$ classifies the angle opposite $c$: greater means acute, equal means right, less means obtuse."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Classify Triangle by Pythagorean Test**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Since $9^{2} + 12^{2} = 15^{2}$, the triangle is a right triangle with legs $9$ and $12$, so its area is $\\frac{1}{2}(9)(12) = 54$.\n\n**The Full Solution:**\nStep 1: Test the side lengths: $9^{2} + 12^{2} = 81 + 144 = 225 = 15^{2}$.\nStep 2: Because the squares of the two shorter sides add to the square of the longest side, the triangle is a right triangle, and the sides of length $9$ and $12$ are its legs.\nStep 3: The legs are a base and its height, so the area is $\\frac{1}{2}(9)(12) = 54$. Check: the height to the side of length $15$ is $\\frac{9 \\cdot 12}{15} = 7.2$, and $\\frac{1}{2}(15)(7.2) = 54$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($67.5$): uses the sides of length $9$ and $15$, but they do not meet at a right angle, so $15$ is not the height to the side of length $9$.\n* Choice C ($90$): uses the sides of length $12$ and $15$, which also do not meet at a right angle.\n* Choice D ($108$): multiplies the legs correctly but forgets the $\\frac{1}{2}$ in the triangle area formula.\n\n**Test Day Takeaway:** If $a^{2} + b^{2} = c^{2}$ for the side lengths, the triangle is a right triangle and the two shorter sides are a base and height."
 }

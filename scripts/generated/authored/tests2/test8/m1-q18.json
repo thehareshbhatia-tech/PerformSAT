@@ -1,29 +1,29 @@
 {
  "id": 18,
- "question": "Triangles $PQR$ and $STU$ are similar, and side $PQ$ corresponds to side $ST$. The areas of triangles $PQR$ and $STU$ are $36$ and $100$ square units, respectively. If $PQ = 45$, what is the value of $ST$?",
+ "question": "Triangles $PQR$ and $STU$ are similar, and side $PQ$ corresponds to side $ST$. The areas of triangles $PQR$ and $STU$ are $16$ and $36$ square units, respectively. If $PQ = 30$, what is the value of $ST$?",
  "choices": [
   {
    "id": "A",
-   "text": "$25$"
+   "text": "$20$"
   },
   {
    "id": "B",
-   "text": "$27$"
+   "text": "$45$"
   },
   {
    "id": "C",
-   "text": "$75$"
+   "text": "$50$"
   },
   {
    "id": "D",
-   "text": "$125$"
+   "text": "$67.5$"
   }
  ],
  "distractorNotes": {
-  "A": "reduces the area ratio to 25/9 but takes the square root of only the numerator, multiplying 45 by 5/9",
-  "B": "inverts the scale factor, multiplying 45 by 3/5 instead of by 5/3",
-  "D": "multiplies 45 by the area ratio 100/36 instead of by its square root"
+  "A": "inverts the scale factor, multiplying 30 by 4/6 instead of by 6/4",
+  "C": "adds the difference of the areas, 36 - 16 = 20, to PQ instead of scaling it",
+  "D": "multiplies 30 by the area ratio 36/16 instead of by its square root"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Similar Triangles and Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The ratio of the areas is $\\frac{100}{36}$, so the ratio of corresponding sides is $\\sqrt{\\frac{100}{36}} = \\frac{5}{3}$, and $ST = 45 \\cdot \\frac{5}{3} = 75$.\n\n**The Full Solution:**\nStep 1: The ratio of the area of triangle $STU$ to the area of triangle $PQR$ is $\\frac{100}{36} = \\frac{25}{9}$.\nStep 2: For similar figures, the ratio of the areas is the square of the ratio of corresponding sides, so $\\frac{ST}{PQ} = \\sqrt{\\frac{25}{9}} = \\frac{5}{3}$.\nStep 3: Solve: $ST = 45 \\cdot \\frac{5}{3} = 75$. Check: $\\left(\\frac{75}{45}\\right)^{2} = \\frac{25}{9}$, and $36 \\cdot \\frac{25}{9} = 100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($25$): takes the square root of only the $25$ in $\\frac{25}{9}$, multiplying by $\\frac{5}{9}$: $45 \\cdot \\frac{5}{9} = 25$.\n* Choice B ($27$): uses the scale factor upside down, $45 \\cdot \\frac{3}{5} = 27$. Triangle $STU$ has the greater area, so $ST$ must be greater than $PQ$.\n* Choice D ($125$): multiplies by the area ratio itself, $45 \\cdot \\frac{100}{36} = 125$, skipping the square root.\n\n**Test Day Takeaway:** Lengths scale by $k$ and areas by $k^{2}$. Going from an area ratio to a length ratio always takes a square root."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Similar Triangles and Area Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The ratio of the areas is $\\frac{36}{16}$, so the ratio of corresponding sides is $\\sqrt{\\frac{36}{16}} = \\frac{6}{4} = \\frac{3}{2}$, and $ST = 30 \\cdot \\frac{3}{2} = 45$.\n\n**The Full Solution:**\nStep 1: The ratio of the area of triangle $STU$ to the area of triangle $PQR$ is $\\frac{36}{16} = \\frac{9}{4}$.\nStep 2: For similar figures, the ratio of the areas is the square of the ratio of corresponding sides, so $\\frac{ST}{PQ} = \\sqrt{\\frac{9}{4}} = \\frac{3}{2}$.\nStep 3: Solve: $ST = 30 \\cdot \\frac{3}{2} = 45$. Check: $\\left(\\frac{45}{30}\\right)^{2} = \\frac{9}{4}$, and $16 \\cdot \\frac{9}{4} = 36$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): uses the scale factor upside down, $30 \\cdot \\frac{2}{3} = 20$. Triangle $STU$ has the greater area, so $ST$ must be greater than $PQ$.\n* Choice C ($50$): adds the difference of the areas to $PQ$. Similar figures scale by multiplying, not by adding.\n* Choice D ($67.5$): multiplies by the area ratio itself, $30 \\cdot \\frac{36}{16} = 67.5$, skipping the square root.\n\n**Test Day Takeaway:** Lengths scale by $k$ and areas by $k^{2}$. Going from an area ratio to a length ratio always takes a square root."
 }

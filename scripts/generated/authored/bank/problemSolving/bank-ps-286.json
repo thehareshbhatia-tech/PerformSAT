@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-286",
-  "question": "A poll of $320$ randomly chosen commuters had a margin of error of $5.4\\%$. The poll will be repeated with $2{,}880$ commuters selected by the same method. Which of the following is closest to the margin of error of the new poll?",
+  "question": "A random sample of $500$ of a store's customers estimated that $62\\%$ of its customers are satisfied with its hours, with an associated margin of error of $4.4\\%$. The survey was repeated with a random sample of $1{,}000$ customers, and the margin of error was calculated in the same way. Which of the following is true about the new margin of error?",
   "choices": [
     {
       "id": "A",
-      "text": "$0.6\\%$"
+      "text": "It is less than $4.4\\%$."
     },
     {
       "id": "B",
-      "text": "$1.8\\%$"
+      "text": "It is equal to $4.4\\%$."
     },
     {
       "id": "C",
-      "text": "$2.7\\%$"
+      "text": "It is between $4.4\\%$ and $8.8\\%$."
     },
     {
       "id": "D",
-      "text": "$16.2\\%$"
+      "text": "It is equal to $8.8\\%$."
     }
   ],
   "distractorNotes": {
-    "A": "divides by the sample-size ratio $9$ instead of by $\\sqrt{9} = 3$",
-    "C": "halves the margin of error because the sample grew, without using the ratio",
-    "D": "multiplies by $3$ instead of dividing"
+    "B": "ignores the effect of sample size on the margin of error",
+    "C": "thinks a larger sample gives a larger margin of error",
+    "D": "doubles the margin of error because the sample size doubled"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $\\frac{2880}{320} = 9$, so the margin of error is divided by $\\sqrt{9} = 3$: $\\frac{5.4}{3} = 1.8$.\n\n**The Full Solution:**\nStep 1: With the procedure unchanged, the margin of error is proportional to $\\frac{1}{\\sqrt{n}}$.\nStep 2: The sample size grows by the factor $\\frac{2880}{320} = 9$, so $\\sqrt{n}$ grows by $\\sqrt{9} = 3$ and the margin of error shrinks by the same factor of $3$.\nStep 3: $\\frac{5.4}{3} = 1.8$, so the new margin of error is about $1.8\\%$. Check the reverse: to cut a margin of error to one-third, the sample must be $3^2 = 9$ times as large, and $9 \\times 320 = 2{,}880$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.6\\%$): $\\frac{5.4}{9}$, applying the sample-size ratio directly to the margin of error.\n* Choice C ($2.7\\%$): $\\frac{5.4}{2}$, halving the margin because the sample is \"much bigger\" instead of computing the ratio.\n* Choice D ($16.2\\%$): $5.4 \\times 3$; the factor of $3$ is right, but a bigger sample must lower the margin of error.\n\n**Test Day Takeaway:** Take the ratio of the sample sizes first, then square-root it; that number divides the old margin of error."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** A larger random sample generally gives a smaller margin of error, and the second sample is larger, so its margin of error is less than $4.4\\%$.\n\n**The Full Solution:**\nStep 1: When margins of error are calculated in the same way, a larger random sample generally leads to a smaller margin of error.\nStep 2: The second survey used $1{,}000$ customers, more than the $500$ in the first survey.\nStep 3: So the margin of error for the second survey is less than $4.4\\%$. Check: choices C and D both make the larger survey less precise, which is backward. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: doubling the sample size changes the margin of error.\n* Choice C: a margin of error greater than $4.4\\%$ would mean the larger sample is less precise, which is backward.\n* Choice D: the margin of error does not double when the sample size doubles; it gets smaller.\n\n**Test Day Takeaway:** More people in a random sample means a smaller margin of error. Any choice that makes the larger sample less precise is wrong."
 }

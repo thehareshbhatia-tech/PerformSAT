@@ -1,29 +1,29 @@
 {
   "id": "bank-alg-073",
-  "question": "The function $g$ is defined by $g(x) = \\frac{2x}{x - 9}$. Which of the following describes all values of $x$ for which $g(x)$ is defined?",
+  "question": "The function $g$ is defined by $g(x) = \\frac{2x}{x - 9}$. What is the value of $g(12)$?",
   "choices": [
     {
       "id": "A",
-      "text": "All real numbers"
+      "text": "$-8$"
     },
     {
       "id": "B",
-      "text": "All real numbers except $-9$"
+      "text": "$3$"
     },
     {
       "id": "C",
-      "text": "All real numbers except $0$"
+      "text": "$8$"
     },
     {
       "id": "D",
-      "text": "All real numbers except $9$"
+      "text": "$24$"
     }
   ],
   "distractorNotes": {
-    "A": "overlooks the variable in the denominator",
-    "B": "solves x - 9 = 0 with the wrong sign",
-    "C": "excludes the value that makes the numerator zero; 0 divided by -9 is 0, which is defined"
+    "A": "subtracts in the wrong order in the denominator, 9 - 12 = -3",
+    "B": "reports the value of the denominator, 12 - 9",
+    "D": "reports the value of the numerator, 2(12), without dividing"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Domain (Denominator Restriction)**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Division by zero is undefined, and $x - 9 = 0$ only when $x = 9$. Every other real number works.\n\n**The Full Solution:**\nStep 1: A fraction is undefined only when its denominator equals $0$; the numerator can be any value.\nStep 2: Set the denominator equal to $0$: $x - 9 = 0$, so $x = 9$.\nStep 3: So $g(x)$ is defined for all real numbers except $9$. Check: $g(0) = \\frac{0}{-9} = 0$ is defined, while $g(9) = \\frac{18}{0}$ is not ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (all real numbers): overlooks the variable in the denominator, which can equal $0$.\n* Choice B (except $-9$): solves $x - 9 = 0$ with the wrong sign. At $x = -9$ the denominator is $-18$, not $0$.\n* Choice C (except $0$): excludes the value that makes the numerator $0$, but $\\frac{0}{-9} = 0$ is a perfectly good output.\n\n**Test Day Takeaway:** For a rational function, exclude only the values that make the denominator $0$. A zero numerator gives an output of $0$, not an undefined value."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Function Evaluation**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $g(12) = \\frac{2(12)}{12 - 9} = \\frac{24}{3} = 8$.\n\n**The Full Solution:**\nStep 1: Substitute $12$ for $x$ in the numerator: $2(12) = 24$.\nStep 2: Substitute $12$ for $x$ in the denominator: $12 - 9 = 3$.\nStep 3: Divide: $g(12) = \\frac{24}{3} = 8$. Check: $8 \\times 3 = 24$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): computes the denominator as $9 - 12 = -3$ instead of $12 - 9 = 3$.\n* Choice B ($3$): stops at the value of the denominator.\n* Choice D ($24$): evaluates the numerator and forgets to divide by the denominator.\n\n**Test Day Takeaway:** To evaluate a fraction-defined function, substitute the input into the numerator and the denominator separately, then divide."
 }

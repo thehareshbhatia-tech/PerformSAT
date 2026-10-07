@@ -1,6 +1,6 @@
 {
  "id": 11,
- "question": "The table shows the frequency of each value in data set A and in data set B. Data set C consists of all $60$ values from data sets A and B. What is the mode of data set C?",
+ "question": "The table shows the frequency of each value in data set A and in data set B. Data set C consists of all $60$ values from data sets A and B. What is the median of data set C?",
  "questionTable": {
   "headers": [
    "Value",
@@ -10,17 +10,17 @@
   "rows": [
    [
     "$1$",
-    "$4$",
+    "$9$",
     "$3$"
    ],
    [
     "$2$",
-    "$11$",
+    "$8$",
     "$5$"
    ],
    [
     "$3$",
-    "$9$",
+    "$7$",
     "$10$"
    ],
    [
@@ -31,5 +31,5 @@
   ]
  },
  "correctAnswer": "3",
- "explanation": "**SAT Pattern: Mode of a Data Set**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~30s):** Add the two frequencies in each row: $7$, $16$, $19$, $18$. The greatest total, $19$, belongs to the value $3$.\n\n**The Full Solution:**\nStep 1: The mode of data set C is the value that occurs most often in the combined data, so the two frequency columns must be added before any comparison.\nStep 2: Combined frequencies: the value $1$ occurs $4 + 3 = 7$ times; $2$ occurs $11 + 5 = 16$ times; $3$ occurs $9 + 10 = 19$ times; $4$ occurs $6 + 12 = 18$ times.\nStep 3: The greatest frequency is $19$, for the value $3$, so the mode is $3$. Check: $7 + 16 + 19 + 18 = 60$, the number of values in data set C ✓\n\n**Common Mistakes:**\n* $2$: the mode of data set A alone (frequency $11$), which loses to $3$ once data set B is included.\n* $4$: the mode of data set B alone (frequency $12$), which also loses to $3$ in the combined data.\n* $19$: the frequency of the mode rather than the mode itself.\n\n**Test Day Takeaway:** For combined data sets, add the frequencies first; the mode of the combination need not be the mode of either part."
+ "explanation": "**SAT Pattern: Median Calculation**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~40s):** Add each row: data set C has $12$ ones, $13$ twos, $17$ threes, and $18$ fours. The median of $60$ values is the average of the $30$th and $31$st values, and both are $3$.\n\n**The Full Solution:**\nStep 1: Add the two frequencies for each value: $1$ occurs $9 + 3 = 12$ times, $2$ occurs $8 + 5 = 13$ times, $3$ occurs $7 + 10 = 17$ times, and $4$ occurs $6 + 12 = 18$ times. The total is $12 + 13 + 17 + 18 = 60$.\nStep 2: With $60$ values in order, the median is the average of the $30$th and $31$st values.\nStep 3: The first $12$ values are $1$ and the next $13$ are $2$, which accounts for the first $25$ values. The $26$th through $42$nd values are $3$, so the $30$th and $31$st values are both $3$, and the median is $3$. Check: $25$ values are less than $3$ and $18$ values are greater than $3$, so $3$ is in the middle ✓\n\n**Common Mistakes:**\n* $2.5$: averages the median of data set A, $2$, and the median of data set B, $3$. The medians of the parts do not combine this way; the frequencies must be added first.\n* $2$: the median of data set A alone.\n* $17$: the frequency of the value $3$ in data set C rather than the median itself.\n\n**Test Day Takeaway:** For combined data sets, add the frequencies first, then count to the middle position; the median of the combination is not the average of the two medians."
 }

@@ -6,14 +6,32 @@
   "domain": "standard-english-conventions",
   "skill": "boundaries",
   "module": 1,
-  "passage": "Because Chappe's optical telegraph depended on each operator reading the arms of the neighboring station through a ______ fog or nightfall could halt a message halfway down the line, leaving it stranded until morning.",
+  "passage": "Because the water of the Dead Sea is roughly ten times as salty as ocean ______ swimmers there float with almost no effort, their bodies held up by the dense brine.",
   "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
   "choices": [
-    { "id": "A", "text": "telescope," },
-    { "id": "B", "text": "telescope" },
-    { "id": "C", "text": "telescope;" },
-    { "id": "D", "text": "telescope:" }
+    {
+      "id": "A",
+      "text": "water,"
+    },
+    {
+      "id": "B",
+      "text": "water"
+    },
+    {
+      "id": "C",
+      "text": "water;"
+    },
+    {
+      "id": "D",
+      "text": "water:"
+    }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** The sentence opens with a dependent \"Because...\" clause, and the conventional boundary between an introductory dependent clause and the main clause is a comma.\n\n**The Full Solution:**\n- \"Because Chappe's optical telegraph depended on each operator reading the arms of the neighboring station through a telescope\" cannot stand alone — \"Because\" makes it subordinate.\n- The main clause follows: \"fog or nightfall could halt a message halfway down the line.\"\n- A comma is the mark that joins an introductory subordinate clause to the sentence it modifies.\n\n**Why the other choices are wrong:**\n- B: Omitting the comma runs the long introductory clause straight into the main clause, obscuring where one ends and the other begins.\n- C: A semicolon must separate two independent clauses, and the \"Because\" clause is not independent.\n- D: A colon must follow a complete statement that introduces what comes next; a dependent clause cannot support one."
+  "explanation": "**Choice A is correct.** The sentence opens with a dependent \"Because...\" clause, and the conventional boundary between an introductory dependent clause and the main clause is a comma.\n\n**The Full Solution:**\n- \"Because the water of the Dead Sea is roughly ten times as salty as ocean water\" cannot stand alone; \"Because\" makes it subordinate.\n- The main clause follows: \"swimmers there float with almost no effort.\"\n- A comma is the mark that joins an introductory subordinate clause to the sentence it modifies.\n\n**Why the other choices are wrong:**\n- B: Omitting the comma runs the introductory clause straight into the main clause, obscuring where one ends and the other begins.\n- C: A semicolon must separate two independent clauses, and the \"Because\" clause is not independent.\n- D: A colon must follow a complete statement that introduces what comes next; a dependent clause cannot support one.",
+  "_meta": {
+    "anchor": "Dead Sea salinity and floating — comma after introductory Because-clause",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Dead_Sea"
+    ]
+  }
 }

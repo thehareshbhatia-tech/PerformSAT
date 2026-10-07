@@ -1,6 +1,6 @@
 {
  "id": "bank-am-002",
- "question": "A theater models its ticket revenue $R$, in dollars, as $R(p) = p(900 - 15p)$, where $p$ is the price of a ticket, in dollars. The table shows $R(p)$ for three ticket prices. Which of the following best describes $R$?",
+ "question": "A theater's revenue $R(p)$, in dollars, from ticket sales depends on the price $p$, in dollars, of each ticket. The table shows three values of $p$ and their corresponding values of $R(p)$. Which equation could define $R$?",
  "diagram": {
   "type": "dataTable",
   "params": {
@@ -27,26 +27,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$R$ is a linear function, because $R(p)$ increases as $p$ increases."
+   "text": "$R(p) = -15p^{2} + 600p + 3{,}000$"
   },
   {
    "id": "B",
-   "text": "$R$ is a linear function, because $900 - 15p$ is linear."
+   "text": "$R(p) = -15p^{2} + 900p$"
   },
   {
    "id": "C",
-   "text": "$R$ is a quadratic function, because $R(p) = -15p^{2} + 900p$."
+   "text": "$R(p) = -10p^{2} + 750p + 1{,}000$"
   },
   {
    "id": "D",
-   "text": "$R$ is an exponential function, because $R(p)$ grows by a constant factor."
+   "text": "$R(p) = 15p^{2} + 600p$"
   }
  ],
- "correctAnswer": "C",
+ "correctAnswer": "B",
  "distractorNotes": {
-  "A": "treats increasing as linear; the increases 4,500 and 1,500 over equal steps are not constant",
-  "B": "classifies one factor instead of the product p(900 - 15p)",
-  "D": "claims a constant ratio; the ratios 12,000/7,500 = 1.6 and 13,500/12,000 = 1.125 differ"
+  "A": "checks only the first row: it gives 7,500 at p = 10 but 9,000 at p = 20",
+  "C": "checks only the first two rows: it gives 14,500, not 13,500, at p = 30",
+  "D": "checks only the first row: it gives 18,000, not 12,000, at p = 20"
  },
- "explanation": "**SAT Pattern: Classify Model by Expanding**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Distribute: $p(900 - 15p) = 900p - 15p^{2}$. A $p^{2}$ term with a nonzero coefficient makes $R$ quadratic.\n\n**The Full Solution:**\nStep 1: Expand the product: $R(p) = 900p - 15p^{2}$, or $R(p) = -15p^{2} + 900p$.\nStep 2: The highest power of $p$ is $2$ and its coefficient, $-15$, is not zero, so $R$ is a quadratic function of $p$.\nStep 3: Check against the table. From $p = 10$ to $p = 20$, revenue rises by $12{,}000 - 7{,}500 = 4{,}500$; from $p = 20$ to $p = 30$ it rises by $13{,}500 - 12{,}000 = 1{,}500$. Unequal increases over equal steps rule out a linear model, and the ratios $1.6$ and $1.125$ rule out an exponential one ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: increasing is not the same as linear; the increases in the table are $4{,}500$ and then $1{,}500$.\n* Choice B: $900 - 15p$ is linear by itself, but multiplying it by $p$ raises the degree to $2$.\n* Choice D: an exponential function has a constant ratio between outputs at equally spaced inputs; here the ratios are $1.6$ and $1.125$.\n\n**Test Day Takeaway:** Classify a model only after expanding it. The product of two linear factors is quadratic, however linear each factor looks."
+ "explanation": "**SAT Pattern: Classify Model by Expanding**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Every choice gives $7{,}500$ at $p = 10$, so test the other rows. Only $R(p) = -15p^{2} + 900p = p(900 - 15p)$ gives $12{,}000$ at $p = 20$ and $13{,}500$ at $p = 30$.\n\n**The Full Solution:**\nStep 1: Substitute $p = 10$ into each choice. All four give $7{,}500$, so this row does not decide the answer.\nStep 2: Substitute $p = 20$. Choice A gives $-6{,}000 + 12{,}000 + 3{,}000 = 9{,}000$ and choice D gives $6{,}000 + 12{,}000 = 18{,}000$, so both are out. Choices B and C give $12{,}000$.\nStep 3: Substitute $p = 30$. Choice B gives $-15(900) + 900(30) = -13{,}500 + 27{,}000 = 13{,}500$, and choice C gives $-9{,}000 + 22{,}500 + 1{,}000 = 14{,}500$. Check choice B against all three rows: $7{,}500$, $12{,}000$, and $13{,}500$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: matches only the first row; it gives $9{,}000$ at $p = 20$.\n* Choice C: matches the first two rows, but it gives $14{,}500$ at $p = 30$.\n* Choice D: matches only the first row; it gives $18{,}000$ at $p = 20$.\n\n**Test Day Takeaway:** An equation could define a function from a table only if it matches EVERY row. Several equations can share one point, so keep testing until one choice is left."
 }

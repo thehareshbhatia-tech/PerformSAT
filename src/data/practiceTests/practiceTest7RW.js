@@ -70,7 +70,7 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "An octopus can match the seafloor beneath it within a second or two, though its eyes cannot detect color. The animal's skin holds thousands of pigment sacs, each widened or narrowed by tiny muscles under the direct command of the nervous system. Working together, the sacs let the octopus ______ the pattern and brightness of nearly any background, from mottled rock to rippled sand.",
+          "passage": "A pantograph copies a drawing by purely mechanical means. Its jointed rods form a parallelogram, so when a pointer on one arm follows the lines of an original, a pen fixed to another arm moves in step with it. Working together, the rods let a drafter ______ a map or diagram at the same size or at a larger or smaller scale, line for line.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -91,7 +91,13 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The opening sentence states the feat — the octopus can \"match the seafloor beneath it\" — and the final sentence restates it through the blank: the pigment sacs let the animal \"reproduce,\" or copy, the look of its background.\n\n**The Full Solution:**\n- The first sentence supplies the meaning the blank must restate: the octopus matches its surroundings.\n- The mechanism explains how: thousands of pigment sacs widen or narrow to rebuild the background's pattern and brightness on the skin.\n- \"Reproduce\" — to make a copy of — is the precise word for re-creating a pattern on another surface.\n\n**Why the other choices are wrong:**\n- A: \"Memorize\" is about storing information in memory, but the skin displays the pattern rather than remembering it.\n- B: \"Illuminate\" means to light something up, and pigment sacs change color rather than emit light.\n- D: \"Simplify\" would mean the octopus renders a cruder version of the background, which would undercut the matching the passage describes."
+          "explanation": "**Choice C is correct.** The opening sentence states what the device does (a pantograph \"copies a drawing\"), and the final sentence restates it through the blank: the rods let a drafter \"reproduce,\" or copy, a map or diagram line for line.\n\n**The Full Solution:**\n- The first sentence supplies the meaning the blank must restate: the pantograph copies drawings.\n- The mechanism explains how: as a pointer follows the original's lines, a linked pen moves in step and redraws them.\n- \"Reproduce\" (to make a copy of) is the precise word for re-creating a drawing, whether at the same size or at a new scale.\n\n**Why the other choices are wrong:**\n- A: \"Memorize\" is about storing information in memory, but the rods redraw the lines rather than remember them.\n- B: \"Illuminate\" means to light something up, and the device moves a pen rather than shining light on the original.\n- D: \"Simplify\" would mean the copy leaves details out, which contradicts the passage's \"line for line.\"",
+          "_meta": {
+            "anchor": "pantograph: parallelogram linkage whose second pen copies a traced drawing at the same, larger, or smaller scale - WIC reproduce",
+            "sources": [
+              "https://en.wikipedia.org/wiki/Pantograph"
+            ]
+          }
         },
         {
           "id": 701,
@@ -100,7 +106,7 @@ export const practiceTest7RW = {
           "band": 2,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Tardigrades, nearly microscopic animals that live in moss and soil, can survive being dried out completely. As the water around it disappears, a tardigrade draws in its legs, contracts into a compact form, and ______ nearly all activity: its metabolism slows until it is barely measurable, and the animal simply waits, sometimes for years, until moisture returns.",
+          "passage": "Tardigrades, nearly microscopic animals that live in moss and soil, can survive being dried out completely. As the water around it disappears, a tardigrade draws in its legs, contracts into a compact form, and ______ nearly all activity. Its metabolism slows until it is barely measurable, and the animal simply waits, sometimes for years, until moisture returns.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -121,7 +127,7 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The colon spells out what the blank means: metabolism slows until it is barely measurable and the animal waits for water. Activity is put on hold, and \"suspends\" means exactly that.\n\n**The Full Solution:**\n- The clue sits right after the blank: the tardigrade's metabolism \"slows until it is barely measurable,\" and the animal \"waits...until moisture returns.\"\n- The blank therefore needs a word meaning to pause or halt temporarily, and \"suspends\" carries that meaning.\n- The opening sentence — the animal survives drying out — confirms that its life processes stop for a time rather than continue or end for good.\n\n**Why the other choices are wrong:**\n- A: \"Resumes\" means starts up again, the reverse of what happens as the water disappears.\n- B: \"Conceals\" would mean the tardigrade hides its activity, but the text describes activity stopping, not being kept out of sight.\n- C: \"Observes\" would have the animal watching its own activity, which does not fit a description of shutting down."
+          "explanation": "**Choice D is correct.** The next sentence spells out what the blank means: metabolism slows until it is barely measurable and the animal waits for water. Activity is put on hold, and \"suspends\" means exactly that.\n\n**The Full Solution:**\n- The clue comes in the next sentence: the tardigrade's metabolism \"slows until it is barely measurable,\" and the animal \"waits...until moisture returns.\"\n- The blank therefore needs a word meaning to pause or halt temporarily, and \"suspends\" carries that meaning.\n- The opening sentence — the animal survives drying out — confirms that its life processes stop for a time rather than continue or end for good.\n\n**Why the other choices are wrong:**\n- A: \"Resumes\" means starts up again, the reverse of what happens as the water disappears.\n- B: \"Conceals\" would mean the tardigrade hides its activity, but the text describes activity stopping, not being kept out of sight.\n- C: \"Observes\" would have the animal watching its own activity, which does not fit a description of shutting down."
         },
         {
           "id": 703,
@@ -177,7 +183,7 @@ export const practiceTest7RW = {
             },
             {
               "id": "D",
-              "text": "It describes one memorable performance in a stone church and then explains why the hall's unusual acoustics made that particular performance nearly impossible to repeat."
+              "text": "It describes one memorable performance in a stone church and explains why that performance could never be repeated."
             }
           ],
           "correctAnswer": "C",
@@ -203,11 +209,11 @@ export const practiceTest7RW = {
             },
             {
               "id": "C",
-              "text": "To describe, step by step, how a zoo nutritionist prepares a single day's meals for flamingos, pythons, and orangutans in one large collection."
+              "text": "To describe step by step how a zoo nutritionist prepares one day's meals for three different species."
             },
             {
               "id": "D",
-              "text": "To explain that planning zoo diets means balancing nutrition against practical limits rather than simply copying what animals eat in the wild."
+              "text": "To explain that planning zoo diets means balancing nutrition against practical limits, not simply copying wild diets."
             }
           ],
           "correctAnswer": "D",
@@ -220,12 +226,12 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "Prairie dogs give short barking calls when a predator approaches, and for years the calls were assumed to convey little beyond the presence of danger. Recordings told a richer story: calls prompted by a hawk, a coyote, and a human differ consistently in their acoustic structure. When researchers played the recordings back to colonies with no predator in sight, the animals responded with escape behavior matched to each call type — diving into burrows at a hawk call, standing upright to scan at a coyote call. Similar playback experiments could reveal how much information other social mammals pack into their alarm calls.",
+          "passage": "Prairie dogs give short barking calls when a predator approaches, and for years the calls were assumed to convey little beyond the presence of danger. Recordings told a richer story: calls prompted by a hawk, a coyote, and a human differ consistently in their acoustic structure. When researchers played the recordings back to colonies with no predator in sight, the animals' escape behavior matched each call type. They dove into burrows at a hawk call but stood upright to scan at a coyote call. Similar playback experiments could reveal how much information other social mammals pack into their alarm calls.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "It defines a technical term, traces the term's use across several decades of research, and then questions whether it should be kept."
+              "text": "It defines a technical term, traces the term's use across several decades of research, and then questions whether the term should be kept at all."
             },
             {
               "id": "B",
@@ -237,7 +243,7 @@ export const practiceTest7RW = {
             },
             {
               "id": "D",
-              "text": "It recounts a single season of fieldwork at one colony and then explains in detail why other research teams could not later replicate its results."
+              "text": "It recounts a single season of fieldwork at one colony and explains why other teams could not replicate its results."
             }
           ],
           "correctAnswer": "B",
@@ -253,7 +259,7 @@ export const practiceTest7RW = {
           "passages": [
             {
               "label": "Text 1",
-              "text": "In experiments reported in the 1940s, the zoologist Karl von Frisch observed that a honeybee returning from a rich food source performs a figure-eight 'waggle dance' on the comb, and that the dance's angle and duration correspond to the direction and distance of the source. Hive mates that attended the dancer arrived at the advertised site far more often than chance would predict. Von Frisch concluded that the dance is a symbolic communication system through which a forager directs nest mates to food they have never seen."
+              "text": "In experiments reported in the 1940s, the zoologist Karl von Frisch observed that a honeybee returning from a rich food source performs a figure-eight 'waggle dance' on the comb. The dance's angle and duration correspond to the direction and distance of the source. Hive mates that attended the dancer arrived at the advertised site far more often than chance would predict. Von Frisch concluded that the dance is a symbolic communication system through which a forager directs nest mates to food they have never seen."
             },
             {
               "label": "Text 2",
@@ -264,7 +270,7 @@ export const practiceTest7RW = {
           "choices": [
             {
               "id": "A",
-              "text": "He would argue that it outruns the evidence, since recruits' arrivals at food sources could be guided by odors they associate with the dancer rather than by a decoded dance."
+              "text": "He would argue that it goes beyond the evidence, since odor on the dancer could guide recruits without any decoding of the dance."
             },
             {
               "id": "B",
@@ -294,11 +300,11 @@ export const practiceTest7RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Diego Rivera earned wider international recognition than any other painter associated with the Mexican mural movement."
+              "text": "Diego Rivera earned wider international recognition than any other painter associated with the Mexican mural movement in the decades that followed the revolution."
             },
             {
               "id": "B",
-              "text": "The Mexican government commissioned murals for its schools, ministries, and markets chiefly to make those public buildings more attractive to the growing numbers of foreign visitors of the period."
+              "text": "The Mexican government commissioned murals chiefly to make its public buildings more attractive to foreign visitors."
             },
             {
               "id": "C",
@@ -306,7 +312,7 @@ export const practiceTest7RW = {
             },
             {
               "id": "D",
-              "text": "Supported by government commissions after the revolution, Mexican muralists turned public walls into large-scale paintings addressed to everyone rather than to private collectors."
+              "text": "Backed by government commissions after the revolution, Mexican muralists turned public walls into large-scale paintings for everyone, not private collectors."
             }
           ],
           "correctAnswer": "D",
@@ -349,30 +355,30 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "Slow-growing boulder corals may take decades to reach the size at which they reproduce, a serious obstacle for reef restoration. In a technique called microfragmentation, restoration teams cut a colony into fragments of a few square centimeters, which heal and then add tissue far faster than an intact colony would. A yearlong trial raised microfragments and conventionally propagated fragments of the same coral species side by side at three nurseries. The team concludes that microfragmentation accelerated growth at every nursery in the trial because ______",
+          "passage": "Male and female penguins often look nearly alike, so researchers may need a DNA test to tell the sexes apart. From 2007 to 2009, a team of ecologists weighed adult Adélie, chinstrap, and gentoo penguins near Palmer Station, Antarctica, and determined each bird's sex from a blood sample. The team concludes that males were heavier than females in every species studied because ______",
           "questionTable": {
             "type": "table",
-            "caption": "Mean tissue area added per fragment over one year at three coral nurseries (square centimeters)",
+            "caption": "Average body mass of adult penguins near Palmer Station, Antarctica, 2007-2009 (kilograms)",
             "headers": [
-              "Nursery",
-              "Microfragments",
-              "Conventional fragments"
+              "Species",
+              "Females",
+              "Males"
             ],
             "rows": [
               [
-                "North Key",
-                "41",
-                "12"
+                "Adélie",
+                "3.4",
+                "4.0"
               ],
               [
-                "Turtle Bank",
-                "33",
-                "9"
+                "Chinstrap",
+                "3.5",
+                "3.9"
               ],
               [
-                "Lagoon Station",
-                "37",
-                "14"
+                "Gentoo",
+                "4.7",
+                "5.5"
               ]
             ]
           },
@@ -380,23 +386,23 @@ export const practiceTest7RW = {
           "choices": [
             {
               "id": "A",
-              "text": "at North Key, microfragments added 41 square centimeters of tissue, the largest gain recorded for any fragment type at any nursery."
+              "text": "gentoo males averaged 5.5 kilograms, the greatest average body mass recorded for any group of penguins in the table."
             },
             {
               "id": "B",
-              "text": "microfragments at the three nurseries added a combined 111 square centimeters of tissue over the year of the trial."
+              "text": "the average Adélie female weighed 3.4 kilograms, only 0.1 kilogram less than the average chinstrap female did."
             },
             {
               "id": "C",
-              "text": "microfragments outgrew conventional fragments at all three nurseries, adding 33 to 41 square centimeters compared with 9 to 14."
+              "text": "the average male outweighed the average female in all three species, by 0.4 to 0.8 kilogram."
             },
             {
               "id": "D",
-              "text": "conventional fragments at Lagoon Station added more tissue than conventional fragments at either of the other two nurseries."
+              "text": "gentoo females averaged 4.7 kilograms, more than the average male of either of the other two species."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The claim covers \"every nursery in the trial,\" so the supporting data must compare the two methods at all three sites — and C does, showing microfragments ahead everywhere, 33 to 41 square centimeters against 9 to 14.\n\n**The Full Solution:**\n- The conclusion has two requirements: a comparison between methods, and coverage of all three nurseries.\n- C meets both, pairing the microfragment range (33-41) against the conventional range (9-14) so that even the weakest microfragment result beats the strongest conventional one.\n- That is precisely the all-sites pattern an \"every nursery\" claim needs.\n\n**Why the other choices are wrong:**\n- A: It cites one site's best number with no comparison to conventional fragments at that site or any other.\n- B: It totals only the microfragments, so nothing in it shows the conventional method being outgrown.\n- D: It compares conventional fragments across sites — a comparison within one method, irrelevant to whether microfragmentation accelerated growth."
+          "explanation": "**Choice C is correct.** The claim covers \"every species studied,\" so the evidence must compare males with females in all three species — and C does, showing the males heavier in each species by 0.4 to 0.8 kilogram.\n\n**The Full Solution:**\n- The conclusion has two requirements: a comparison between the sexes, and coverage of all three species.\n- C meets both: in every row of the table, the males' average (4.0, 3.9, 5.5) is higher than the females' (3.4, 3.5, 4.7).\n- That is precisely the all-species pattern an \"every species\" claim needs.\n\n**Why the other choices are wrong:**\n- A: It cites one group's figure with no comparison to the females of that species or any other.\n- B: It compares females with females, so nothing in it shows a difference between the sexes.\n- D: It compares gentoo females with the males of other species — a comparison across species, irrelevant to whether males outweighed females within each one."
         },
         {
           "id": 709,
@@ -405,7 +411,7 @@ export const practiceTest7RW = {
           "band": 2,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "During the twelfth and thirteenth centuries, the counts of Champagne, in northeastern France, sponsored a cycle of six trade fairs that rotated among four towns, keeping a market open in the region for much of the year. Surviving regulations show that the counts provided visiting merchants with safe-conduct guarantees on the roads to the fairs and appointed wardens who enforced the contracts merchants made there. Flemish cloth, English wool, and Mediterranean silk and spices all changed hands at the fairs, which for a time formed the principal meeting point of Europe's northern and southern trade.",
+          "passage": "During the twelfth and thirteenth centuries, the counts of Champagne, in northeastern France, sponsored a cycle of six trade fairs. The fairs rotated among four towns, keeping a market open in the region for much of the year. Surviving regulations show that the counts provided visiting merchants with safe-conduct guarantees on the roads to the fairs and appointed wardens who enforced the contracts merchants made there. Flemish cloth, English wool, and Mediterranean silk and spices all changed hands at the fairs, which for a time formed the principal meeting point of Europe's northern and southern trade.",
           "question": "According to the text, what did the counts of Champagne provide for merchants traveling to the fairs?",
           "choices": [
             {
@@ -435,12 +441,12 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "The United States census of 1880 took most of a decade to tabulate by hand, and officials feared the 1890 count would still be in progress when the next one began. The Census Office adopted a system devised by the engineer Herman Hollerith: each person's answers were punched as a pattern of holes in a card, and machines read the cards electrically, advancing counting dials automatically. Clerks using the machines tabulated the 1890 returns faster than the previous count despite a larger population, and the punched card outlived its first job, organizing payrolls, inventories, and scientific records for the next half century.",
+          "passage": "The United States census of 1880 took most of a decade to tabulate by hand, and officials feared the 1890 count would still be in progress when the next one began. The Census Office adopted a system devised by the engineer Herman Hollerith. Each person's answers were punched as a pattern of holes in a card, and machines read the cards electrically, advancing counting dials automatically. Clerks using the machines tabulated the 1890 returns faster than the previous count despite a larger population. The punched card also outlived its first job, organizing payrolls, inventories, and scientific records for the next half century.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "The hand tabulation of the 1880 census took so long to complete that officials doubted the 1890 count could possibly be finished in time."
+              "text": "The 1880 census took so long to tabulate by hand that officials doubted the 1890 count could be finished before the next census was due to begin."
             },
             {
               "id": "B",
@@ -456,7 +462,7 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The passage's arc runs from a crisis (hand tabulation too slow), through the fix (Hollerith's punched-card machines speeding the 1890 count), to the larger legacy (punched cards organizing data for half a century) — and only C spans all of it.\n\n**The Full Solution:**\n- The opening establishes the problem the system was adopted to solve: the 1880 count took most of a decade.\n- The middle describes the solution working — the 1890 returns were tabulated faster despite a larger population.\n- The final sentence widens the frame: the punched card \"outlived its first job,\" which C captures as a technology used far beyond the census.\n\n**Why the other choices are wrong:**\n- A: It stops at the opening problem and never reaches the solution or its legacy.\n- B: It contradicts the text, which says clerks using the machines tabulated the returns faster, not that clerks were eliminated.\n- D: It inflates the closing list into a ranking the text never makes — nothing says payrolls mattered more than the census."
+          "explanation": "**Choice C is correct.** The passage's arc runs from a crisis (hand tabulation too slow), through the fix (Hollerith's punched-card machines speeding the 1890 count), to the larger legacy (punched cards organizing data for half a century) — and only C spans all of it.\n\n**The Full Solution:**\n- The opening establishes the problem the system was adopted to solve: the 1880 count took most of a decade.\n- The middle describes the solution working — the 1890 returns were tabulated faster despite a larger population.\n- The final sentence widens the frame: the punched card \"outlived its first job,\" which C captures as a technology used far beyond the census.\n\n**Why the other choices are wrong:**\n- A: It stops at the opening problem and never reaches the solution or its legacy.\n- B: The text says clerks used the machines to tabulate the returns; it never says the machines replaced the clerks.\n- B: It contradicts the text, which says clerks using the machines tabulated the returns faster, not that clerks were eliminated.\n- D: It inflates the closing list into a ranking the text never makes — nothing says payrolls mattered more than the census."
         },
         {
           "id": 714,
@@ -465,34 +471,34 @@ export const practiceTest7RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "Removing salt from seawater always takes energy, but the amount that reverse-osmosis plants need has fallen dramatically since the first large ones were built. Reviewing the typical energy budgets of such plants by decade of construction, an engineer argues that the steepest gains came earliest and that each later generation of plants improved on its predecessor by a progressively smaller margin because ______",
+          "passage": "Removing salt from seawater always takes energy, but the amount that reverse-osmosis desalination needs has fallen dramatically since 1970. Reviewing estimates of that energy for selected years, an engineer argues that the largest gain came first and that every later gain was less than half as large because ______",
           "questionTable": {
             "type": "table",
-            "caption": "Typical energy required by large seawater reverse-osmosis desalination plants, by decade of construction (kilowatt-hours per cubic meter of fresh water)",
+            "caption": "Energy needed by the reverse-osmosis stage of seawater desalination, selected years (kilowatt-hours per cubic meter of fresh water)",
             "headers": [
-              "Decade",
+              "Year",
               "Energy (kWh per cubic meter)"
             ],
             "rows": [
               [
-                "1970s",
-                "18"
+                "1970",
+                "16"
               ],
               [
-                "1980s",
+                "1980",
                 "8"
               ],
               [
-                "1990s",
-                "6"
+                "1990",
+                "5"
               ],
               [
-                "2000s",
-                "4"
-              ],
-              [
-                "2010s",
+                "2000",
                 "3"
+              ],
+              [
+                "2008",
+                "2"
               ]
             ]
           },
@@ -500,23 +506,23 @@ export const practiceTest7RW = {
           "choices": [
             {
               "id": "A",
-              "text": "plants of the 1980s used 10 fewer kilowatt-hours per cubic meter than plants of the 1970s, while no later generation improved on the one before it by more than 2."
+              "text": "energy use fell by 8 kilowatt-hours per cubic meter from 1970 to 1980, while no later drop was larger than 3."
             },
             {
               "id": "B",
-              "text": "energy use fell from 18 kilowatt-hours per cubic meter in the 1970s to just 3 in the 2010s, a cumulative decline of more than 80 percent across the whole period shown."
+              "text": "energy use fell from 16 kilowatt-hours per cubic meter in 1970 to 2 in 2008, a decline of more than 85 percent."
             },
             {
               "id": "C",
-              "text": "plants built in the 2000s required 4 kilowatt-hours per cubic meter, two fewer than plants built in the 1990s."
+              "text": "the process required 3 kilowatt-hours per cubic meter in 2000, two fewer than it had required in 1990."
             },
             {
               "id": "D",
-              "text": "the generation-to-generation improvements grew steadily larger over time, from 1 kilowatt-hour per cubic meter after the 2010s back to 10 after the 1970s."
+              "text": "the process needed 5 kilowatt-hours per cubic meter in 1990, less than a third of what it had needed in 1970."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The engineer's claim is about the size of each successive step, so the evidence must compare consecutive decades — and A does: one 10-unit leap at the start, then steps of 2, 2, and 1.\n\n**The Full Solution:**\n- The claim has two parts: the steepest gain came first, and each later generation improved by a smaller margin.\n- A establishes the first part with the 1970s-to-1980s drop of 10, and the second by capping every later step at 2 or less.\n- Reading the table's consecutive differences — 10, 2, 2, 1 — confirms the progressively shrinking pattern A describes.\n\n**Why the other choices are wrong:**\n- B: The cumulative 80 percent decline shows that energy use fell overall but says nothing about how the fall was distributed among generations.\n- C: A single mid-series comparison cannot show that early gains dwarfed later ones.\n- D: It reverses the series — the 10-unit change belongs to the earliest step, not to a late-blooming acceleration."
+          "explanation": "**Choice A is correct.** The engineer's claim is about the size of each gain from one listed year to the next, so the evidence must compare consecutive years — and A does: one 8-unit drop at the start, then no drop larger than 3.\n\n**The Full Solution:**\n- The claim has two parts: the largest gain came first, and every later gain was less than half as large.\n- A establishes the first part with the 1970-to-1980 drop of 8 and the second by capping every later drop at 3, which is less than half of 8.\n- The table's consecutive differences — 8, 3, 2, 1 — confirm the pattern A describes.\n\n**Why the other choices are wrong:**\n- B: The overall decline of more than 85 percent shows that energy use fell but says nothing about how the fall was spread across the years.\n- C: A single mid-series comparison cannot show that the first gain dwarfed the later ones.\n- D: Comparing 1990 with 1970 spans two intervals at once, so it cannot show which single gain was largest."
         },
         {
           "id": 712,
@@ -525,20 +531,20 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-textual",
-          "passage": "Before magma reaches the surface, the gases dissolved in it begin to escape, and different gases leave at different depths: carbon dioxide comes out of solution while magma is still deep, sulfur dioxide only much nearer the surface. Volcanologists have proposed that a rising ratio of carbon dioxide to sulfur dioxide in a volcano's emissions can therefore serve as an early warning, since it signals fresh magma beginning to move up from depth. A monitoring team plans to evaluate the proposal using continuous gas-sensor records from several frequently active volcanoes.",
+          "passage": "As magma rises toward the surface, the gases dissolved in it escape at different depths. Carbon dioxide comes out of solution while the magma is still deep, but sulfur dioxide escapes only much nearer the surface. Volcanologists have proposed that a rising ratio of carbon dioxide to sulfur dioxide in a volcano's emissions can therefore serve as an early warning, since it signals fresh magma beginning to move up from depth. A monitoring team plans to evaluate the proposal using continuous gas-sensor records from several frequently active volcanoes.",
           "question": "Which finding from the team's evaluation, if true, would most directly support the proposal?",
           "choices": [
             {
               "id": "A",
-              "text": "At volcanoes that erupted during the study, the carbon dioxide-to-sulfur dioxide ratio climbed in the weeks before each eruption, while at volcanoes that stayed quiet it held roughly steady."
+              "text": "At volcanoes that erupted, the carbon dioxide-to-sulfur dioxide ratio climbed in the weeks before each eruption but held steady at volcanoes that stayed quiet."
             },
             {
               "id": "B",
-              "text": "The ratio rose sharply at several volcanoes during the study, but such rises occurred about as often in ordinary quiet months as they did in the weeks immediately leading up to an eruption."
+              "text": "The ratio rose sharply at several volcanoes, but such rises were about as common in quiet months as in the weeks before an eruption."
             },
             {
               "id": "C",
-              "text": "The gas sensors recorded sulfur dioxide reliably in all weather but often failed to register carbon dioxide during periods of heavy rain."
+              "text": "The gas sensors recorded sulfur dioxide reliably in all weather but often failed to register carbon dioxide during periods of heavy rain, leaving long gaps in the record."
             },
             {
               "id": "D",
@@ -555,7 +561,7 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "inferences",
-          "passage": "For more than a century, several large military training grounds in Europe have been closed to farming, construction, and most visitors. Ecological surveys of these areas keep finding what the surrounding countryside has lost: rare grassland butterflies persist in the ranges' rough grass, ground-nesting birds breed undisturbed, and wildflowers grow in densities unseen on neighboring farmland for decades. The closures were imposed for safety, not for conservation, yet taken together the surveys imply that the training grounds may ______",
+          "passage": "For more than a century, several large military training grounds in Europe have been closed to farming, construction, and most visitors. Ecological surveys of these areas keep finding what the surrounding countryside has lost. Rare grassland butterflies persist in the ranges' rough grass, ground-nesting birds breed undisturbed, and wildflowers grow in densities unseen on neighboring farmland for decades. The closures were imposed for safety, not for conservation, yet taken together the surveys imply that the training grounds may ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
@@ -572,11 +578,11 @@ export const practiceTest7RW = {
             },
             {
               "id": "D",
-              "text": "retain their ecological value entirely undiminished even if the land were reopened to intensive farming as soon as military training moved elsewhere."
+              "text": "retain their full ecological value even if the land were reopened to intensive farming."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The surveys document species thriving inside the closed grounds that the surrounding countryside \"has lost,\" and the closing sentence stresses the closures were accidental to conservation — so the modest conclusion is that the grounds function, in effect, as accidental reserves.\n\n**The Full Solution:**\n- The evidence: butterflies, ground-nesting birds, and wildflowers persist inside areas closed to farming, construction, and visitors.\n- The comparison built into the surveys — these species are exactly what neighboring farmland lost — makes the grounds refuges for the displaced species.\n- A carries the passage's own irony (\"imposed for safety, not for conservation\") in the phrase \"in effect, as accidental nature reserves,\" and its hedged wording matches the passage's \"may.\"\n\n**Why the other choices are wrong:**\n- B: No count compares the grounds with managed nature reserves — the comparison in the passage is with farmland.\n- C: \"Entirely\" and the visitors-only attribution contradict the passage, which lists farming and construction among the exclusions doing the work.\n- D: It contradicts the mechanism — the species persist because farming is excluded, so reopening the land to intensive farming could hardly leave the value undiminished."
+          "explanation": "**Choice A is correct.** The surveys document species thriving inside the closed grounds that the surrounding countryside \"has lost,\" and the closing sentence stresses the closures were accidental to conservation — so the modest conclusion is that the grounds function, in effect, as accidental reserves.\n\n**The Full Solution:**\n- The evidence: butterflies, ground-nesting birds, and wildflowers persist inside areas closed to farming, construction, and visitors.\n- The comparison built into the surveys — these species are exactly what neighboring farmland lost — makes the grounds refuges for the displaced species.\n- A carries the passage's own irony (\"imposed for safety, not for conservation\") in the phrase \"in effect, as accidental nature reserves,\" and its hedged wording matches the passage's \"may.\"\n\n**Why the other choices are wrong:**\n- B: No count compares the grounds with managed nature reserves — the comparison in the passage is with farmland.\n- C: \"Entirely\" and the visitors-only attribution contradict the passage, which lists farming and construction among the exclusions doing the work.\n- D: It contradicts the mechanism — the species persist because farming is excluded, so reopening the land to intensive farming could hardly leave its full value intact."
         },
         {
           "id": 722,
@@ -585,7 +591,7 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "Saffron commands a high price partly because the crop is so exacting. Mapping soil drainage and autumn temperatures across a hillside lets growers match ______ notoriously narrow requirements — fast-draining soil, hot and dry summers, mild weather during the autumn bloom — to the ground most likely to satisfy them.",
+          "passage": "Saffron commands a high price partly because the crop is so exacting. Mapping soil drainage and autumn temperatures across a hillside lets growers match ______ narrow requirements — fast-draining soil, hot and dry summers, mild weather during the autumn bloom — to the ground most likely to satisfy them.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -606,7 +612,7 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The blank needs a possessive pointing back to \"the crop\" — one thing — so the singular possessive \"its\" is the form that fits: the crop's notoriously narrow requirements.\n\n**The Full Solution:**\n- Identify the antecedent: the requirements belong to saffron, called \"the crop\" in the first sentence — a singular noun.\n- The slot is possessive: the word must show that the requirements belong to it, so a possessive form is required, not a contraction.\n- Apply the its/it's test: \"it is notoriously narrow requirements\" fails, confirming the possessive \"its.\"\n\n**Why the other choices are wrong:**\n- A: \"They're\" is the contraction of \"they are\" — plural and not a possessive.\n- C: \"Their\" is possessive but plural, and the antecedent \"the crop\" is singular.\n- D: \"It's\" is the contraction of \"it is,\" which the substitution test rules out."
+          "explanation": "**Choice B is correct.** The blank needs a possessive pointing back to \"the crop\" — one thing — so the singular possessive \"its\" is the form that fits: the crop's narrow requirements.\n\n**The Full Solution:**\n- Identify the antecedent: the requirements belong to saffron, called \"the crop\" in the first sentence — a singular noun.\n- The slot is possessive: the word must show that the requirements belong to it, so a possessive form is required, not a contraction.\n- Apply the its/it's test: \"it is narrow requirements\" fails, confirming the possessive \"its.\"\n\n**Why the other choices are wrong:**\n- A: \"They're\" is the contraction of \"they are\" — plural and not a possessive.\n- C: \"Their\" is possessive but plural, and the antecedent \"the crop\" is singular.\n- D: \"It's\" is the contraction of \"it is,\" which the substitution test rules out."
         },
         {
           "id": 717,
@@ -615,7 +621,7 @@ export const practiceTest7RW = {
           "band": 2,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "To understand how sound moves through a city, an acoustics team combines three kinds of records: fixed monitors, which log sound levels at street corners around the clock; walking surveys, which capture block-to-block variation in ______ and resident questionnaires, which register how the measured levels are actually experienced indoors. Together, the records show planners where quiet-street projects would help most.",
+          "passage": "An acoustics team combines three kinds of records: fixed monitors, which log sound levels at street corners; walking surveys, which capture block-to-block variation in ______ and resident questionnaires, which register how those levels are experienced indoors. Together, the records show city planners where quiet-street projects would help most.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -636,7 +642,7 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The sentence lists three kinds of records, and each item carries its own internal comma (\"fixed monitors, which log...\"); when list items contain commas, the items themselves are separated with semicolons, so a semicolon must precede \"and resident questionnaires.\"\n\n**The Full Solution:**\n- The list's items are complex: each pairs a noun with a comma-set \"which\" clause describing it.\n- The first boundary already uses a semicolon (\"...around the clock; walking surveys...\"), so the second boundary must match.\n- \"loudness; and\" closes the second item and opens the third with the same mark, keeping the three items cleanly fenced.\n\n**Why the other choices are wrong:**\n- A: A comma before \"and\" would blend into the commas already inside each item, blurring where one record ends and the next begins.\n- B: No punctuation at all runs the second and third items together.\n- C: A colon introduces an explanation or a list; it cannot separate items within one."
+          "explanation": "**Choice D is correct.** The sentence lists three kinds of records, and each item carries its own internal comma (\"fixed monitors, which log...\"); when list items contain commas, the items themselves are separated with semicolons, so a semicolon must precede \"and resident questionnaires.\"\n\n**The Full Solution:**\n- The list's items are complex: each pairs a noun with a comma-set \"which\" clause describing it.\n- The first boundary already uses a semicolon (\"...at street corners; walking surveys...\"), so the second boundary must match.\n- \"loudness; and\" closes the second item and opens the third with the same mark, keeping the three items cleanly fenced.\n\n**Why the other choices are wrong:**\n- A: A comma before \"and\" would blend into the commas already inside each item, blurring where one record ends and the next begins.\n- B: No punctuation at all runs the second and third items together.\n- C: A colon introduces an explanation or a list; it cannot separate items within one."
         },
         {
           "id": 720,
@@ -765,7 +771,7 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Stacked hydroponic farms can raise leafy greens in the middle of a city in any season, but the economics remain difficult: electric light must replace sunlight, climate control runs around the clock, and only a few fast-growing, high-value crops repay the expense. ______ the farms have proved valuable as testing grounds, letting growers trial nutrient mixes and new varieties under steady conditions.",
+          "passage": "Stacked hydroponic farms can raise leafy greens in the middle of a city in any season, but their economics remain difficult. Electric light must replace sunlight, climate control runs around the clock, and only a few fast-growing, high-value crops repay the expense. ______ the farms have proved valuable as testing grounds, letting growers trial nutrient mixes and new varieties under steady conditions.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -795,7 +801,7 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "European eels hatch in the open Atlantic and spend their adult lives in rivers, but for a century no one had tracked an adult eel back to its presumed spawning grounds in the Sargasso Sea: tagged fish were eaten, shed their tags, or vanished. ______ in 2022, researchers reported that satellite tags had followed five eels released from the Azores into the Sargasso itself.",
+          "passage": "European eels hatch in the open Atlantic and spend their adult lives in rivers. For a century, no one tracked an adult eel back to its presumed spawning grounds in the Sargasso Sea: tagged fish were eaten, shed their tags, or vanished. ______ in 2022, researchers reported that satellite tags had followed six eels released from the Azores into the Sargasso itself.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -816,7 +822,7 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The first sentence is a century of failure — tags eaten, shed, or lost — and the second is the success that broke the pattern, so the turn needs the contrast word \"However.\"\n\n**The Full Solution:**\n- Before the blank: every tracking attempt for a hundred years fell short of the spawning grounds.\n- After the blank: satellite tags finally followed eels all the way into the Sargasso.\n- Failure giving way to success is a reversal of direction, and \"However\" is the signal for exactly that turn.\n\n**Why the other choices are wrong:**\n- B: \"As a result\" would make the 2022 success a consequence of the earlier failures, but the failures did not produce the 2022 result — it overturned them.\n- C: \"Similarly\" would promise another instance of the same pattern, yet the second sentence breaks the pattern.\n- D: \"For example\" would offer the success as an illustration of the failures it actually overturns."
+          "explanation": "**Choice A is correct.** The sentence before the blank describes a century of failure — tags eaten, shed, or lost — and the sentence after it is the success that broke the pattern, so the turn needs the contrast word \"However.\"\n\n**The Full Solution:**\n- Before the blank: every tracking attempt for a hundred years fell short of the spawning grounds.\n- After the blank: satellite tags finally followed eels all the way into the Sargasso.\n- Failure giving way to success is a reversal of direction, and \"However\" is the signal for exactly that turn.\n\n**Why the other choices are wrong:**\n- B: \"As a result\" would make the 2022 success a consequence of the earlier failures, but the failures did not produce the 2022 result — it overturned them.\n- C: \"Similarly\" would promise another instance of the same pattern, yet the second sentence breaks the pattern.\n- D: \"For example\" would offer the success as an illustration of the failures it actually overturns."
         },
         {
           "id": 724,
@@ -825,7 +831,7 @@ export const practiceTest7RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "In an 1871 version of his periodic table, Dmitri Mendeleev left gaps for undiscovered elements and predicted their properties, including the atomic weight, density, and oxide formula of a metal that would fill the gap below aluminum. ______ when that element, now called gallium, was isolated four years later, careful measurements closely matched his predictions.",
+          "passage": "In an 1871 version of his periodic table, Dmitri Mendeleev left gaps for elements no one had yet found and predicted their properties. For the gap below aluminum, he forecast the atomic weight and density of a metal that would fill it. ______ when that element, now called gallium, was isolated four years later, careful measurements closely matched his predictions.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -846,7 +852,7 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The second sentence delivers a striking confirmation of the first — careful measurements \"closely matched\" the predictions — and \"Indeed\" is the transition that introduces a statement reinforcing what came before.\n\n**The Full Solution:**\n- The first sentence sets up a bold claim: Mendeleev predicted the properties of an element nobody had found.\n- The second sentence verifies it — careful measurements of gallium closely matched the predictions.\n- Verification strengthens rather than opposes the setup, so the emphasizing \"Indeed\" fits the join.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals a result in spite of what preceded, but the discovery fulfilled the prediction rather than defying it.\n- B: \"By contrast\" would set the two sentences against each other, and there is no opposition between a prediction and its confirmation.\n- D: \"Otherwise\" introduces what would happen if the preceding statement were untrue — a hypothetical the passage never entertains."
+          "explanation": "**Choice C is correct.** The final sentence delivers a striking confirmation of what came before — careful measurements \"closely matched\" the predictions — and \"Indeed\" is the transition that introduces a statement reinforcing what came before.\n\n**The Full Solution:**\n- The opening sentences set up a bold claim: Mendeleev predicted the properties of an element nobody had found.\n- The final sentence verifies it — careful measurements of gallium closely matched the predictions.\n- Verification strengthens rather than opposes the setup, so the emphasizing \"Indeed\" fits the join.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals a result in spite of what preceded, but the discovery fulfilled the prediction rather than defying it.\n- B: \"By contrast\" would set the two sentences against each other, and there is no opposition between a prediction and its confirmation.\n- D: \"Otherwise\" introduces what would happen if the preceding statement were untrue — a hypothetical the passage never entertains."
         },
         {
           "id": 727,
@@ -942,7 +948,7 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Cork is harvested by stripping the cork oak's thick outer bark in sheets, a layer the living tree regrows over the following nine years or so. Because the harvest removes no living wood beneath the bark, a skilled crew ______ the tree itself, and a single oak may be stripped about fifteen times over a life that can exceed two centuries.",
+          "passage": "Brazil nuts come almost entirely from wild trees in the Amazon rainforest. Collectors gather the woody pods, which can weigh up to 2 kilograms, after they fall to the forest floor. Because the harvest takes only fallen pods and cuts nothing from the tree, a collector ______ the tree itself, and the same tree can be harvested year after year over a life that can last 500 years or more.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -963,7 +969,13 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** \"Because the harvest removes no living wood\" sets up the consequence: the crew leaves the tree unharmed — \"spares\" it — which is why one oak can be stripped about fifteen times over its life.\n\n**The Full Solution:**\n- The causal clue: nothing living is removed, so the tree survives the harvest intact.\n- The follow-on clause depends on that survival — repeated harvests over a life that can exceed two centuries.\n- \"Spares\" means to refrain from harming, exactly the relationship between crew and tree.\n\n**Why the other choices are wrong:**\n- B: \"Examines\" would have the crew inspecting the tree, but the sentence is about the harvest's effect on it, not an inspection.\n- A: \"Prunes\" means cutting living branches away — precisely the kind of removal the sentence rules out.\n- C: \"Cultivates\" means to tend and raise a plant over time, a broader activity than the harvesting the clause describes."
+          "explanation": "**Choice D is correct.** \"Because the harvest takes only fallen pods and cuts nothing from the tree\" sets up the consequence: the collector leaves the tree unharmed (\"spares\" it), which is why the same tree can be harvested year after year.\n\n**The Full Solution:**\n- The causal clue: nothing is cut from the tree, so it survives the harvest intact.\n- The follow-on clause depends on that survival: repeated harvests over a life that can last 500 years or more.\n- \"Spares\" means to refrain from harming, exactly the relationship between collector and tree.\n\n**Why the other choices are wrong:**\n- A: \"Prunes\" means cutting branches away, precisely the kind of cutting the sentence rules out.\n- B: \"Examines\" would have the collector inspecting the tree, but the sentence is about the harvest's effect on it, not an inspection.\n- C: \"Cultivates\" means to tend and raise a plant over time, but these are wild trees, and the clause describes only gathering what has fallen.",
+          "_meta": {
+            "anchor": "Brazil nuts gathered as fallen pods from wild Amazon trees; harvest leaves tree unharmed; trees live 500+ years - WIC spares",
+            "sources": [
+              "https://en.wikipedia.org/wiki/Brazil_nut"
+            ]
+          }
         },
         {
           "id": 730,
@@ -1126,7 +1138,7 @@ export const practiceTest7RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "Medieval European manuscripts are usually studied for the texts they carry, but their pages are themselves artifacts of animal husbandry: before paper spread, books were written on parchment prepared from the skins of calves, sheep, and goats. __Because finished parchment preserves fragments of the source animal's proteins and DNA for centuries, researchers can now determine the species — and sometimes the sex — of the animal behind each page, using nothing more invasive than the crumbs lifted by rubbing a page with an ordinary eraser.__ Early results are beginning to reveal how much livestock the production of a single large book once demanded, tying monastic libraries to the farm economies around them.",
+          "passage": "Medieval European manuscripts are usually studied for the texts they carry, but their pages are themselves products of livestock farming. Before paper spread, books were written on parchment made from the skins of calves, sheep, and goats. __Because parchment preserves the source animal's proteins and DNA for centuries, researchers can now tell which species each page came from, and sometimes the animal's sex, from the crumbs an eraser lifts off the page.__ Early results are beginning to reveal how much livestock the production of a single large book once demanded, tying monastic libraries to the farm economies around them.",
           "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
           "choices": [
             {
@@ -1159,18 +1171,18 @@ export const practiceTest7RW = {
           "passages": [
             {
               "label": "Text 1",
-              "text": "In the 1990s, the geologist Paul Hoffman and his colleagues revived a startling explanation for glacial deposits in rocks that formed in the tropics: around 700 million years ago, they argued, ice advanced until the entire planet froze over, oceans included. This 'Snowball Earth' would have lasted millions of years, until volcanic carbon dioxide built up in the atmosphere and forced an abrupt thaw. Hoffman pointed to the 'cap' carbonate rocks lying directly atop the glacial deposits as the signature of that sudden escape from ice."
+              "text": "In the 1990s, the geologist Paul Hoffman and his colleagues revived a startling explanation for glacial deposits in rocks that formed in the tropics. Around 700 million years ago, they argued, ice advanced until the entire planet froze over, oceans included. This 'Snowball Earth' would have lasted millions of years, until volcanic carbon dioxide built up in the atmosphere and forced an abrupt thaw. Hoffman pointed to the 'cap' carbonate rocks lying atop the glacial deposits as the signature of that sudden escape from ice."
             },
             {
               "label": "Text 2",
-              "text": "The geologist Philip Allen accepts that glaciers reached sea level in the tropics but questions the leap to a fully frozen planet. Sedimentary rocks from the glacial intervals, he notes, preserve wave ripples, a mark of open water, and show glaciers delivering large amounts of sediment to the sea throughout the cold periods. In his view the evidence supports severe glaciation with some open seas; the hypothesis's most dramatic element, oceans sealed beneath ice, remains undemonstrated."
+              "text": "The geologist Philip Allen accepts that glaciers reached sea level in the tropics, but he questions the leap to a fully frozen planet. Sedimentary rocks from the glacial intervals, he notes, preserve wave ripples, a mark of open water. They also show glaciers delivering large amounts of sediment to the sea throughout the cold periods. In his view, the evidence supports severe glaciation with some open seas. The hypothesis's most dramatic element, oceans sealed beneath ice, remains undemonstrated."
             }
           ],
           "question": "Based on the texts, how would Allen (Text 2) most likely respond to the explanation presented in Text 1?",
           "choices": [
             {
               "id": "A",
-              "text": "He would accept that glaciers reached the tropics but argue that sedimentary evidence of open water shows a completely frozen planet has not been established."
+              "text": "He would accept that glaciers reached the tropics but argue that signs of open water show a fully frozen planet has not been established."
             },
             {
               "id": "B",
@@ -1204,7 +1216,7 @@ export const practiceTest7RW = {
             },
             {
               "id": "B",
-              "text": "Weather radar's chief value to forecasters lay in confirming the storm reports that ground observers telephoned in from distant weather stations."
+              "text": "Weather radar's chief value to forecasters lay in confirming the storm reports that ground observers telephoned in each day from distant weather stations."
             },
             {
               "id": "C",
@@ -1212,7 +1224,7 @@ export const practiceTest7RW = {
             },
             {
               "id": "D",
-              "text": "Rain so badly cluttered wartime radar screens that operators often failed to detect the approaching enemy aircraft that the equipment had been built to track."
+              "text": "Rain so badly cluttered wartime radar screens that operators often missed the enemy aircraft the equipment was built to track."
             }
           ],
           "correctAnswer": "A",
@@ -1225,28 +1237,36 @@ export const practiceTest7RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "Why ice ages come and go was among the longest-standing puzzles in earth science: the rock record plainly showed ice sheets advancing and retreating, but no accepted cause explained their timing. Working through the 1920s and 1930s, the Serbian mathematician Milutin Milanković computed how three slow, overlapping astronomical cycles — in the shape of Earth's orbit, the tilt of its axis, and the direction the axis points — redistribute sunlight across latitudes and seasons. The critical quantity, he proposed, was summer sunlight at high northern latitudes: when the cycles align to weaken it, snow that fell in winter survives the melt season, and ice sheets begin to grow.",
-          "question": "Based on the text, what did Milanković propose about the growth of ice sheets?",
+          "passage": "In the early 1900s, pellagra was common in the American South, and many physicians believed that a germ spread it. In 1914, a US Public Health Service physician sent to study the disease visited orphanages and hospitals for the mentally ill where it was widespread. He found that many of the children and patients had pellagra but that the doctors and nurses who cared for them did not, even though the staff were in constant contact with the sick. The inmates ate monotonous meals built on cornmeal, molasses, and fatback, while the staff ate more varied food. The physician then proposed a cause: the disease did not pass from person to person but came from a diet lacking some essential nutrient.",
+          "question": "Based on the text, what did the physician propose about the pellagra cases in these institutions?",
           "choices": [
             {
               "id": "A",
-              "text": "That ice sheets grow whenever winters across the whole planet become unusually cold and snowy."
+              "text": "That the disease spread mainly through the air of the crowded institutions."
             },
             {
               "id": "B",
-              "text": "That the timing of ice ages would remain unexplained until the rock record of glacial advances was far more complete."
+              "text": "That the cause could not be identified until many more institutions had been studied."
             },
             {
               "id": "C",
-              "text": "That Earth's orbit and axis change too slowly for astronomical cycles to alter how sunlight falls across the planet's latitudes."
+              "text": "That the doctors and nurses passed the disease to the people they cared for."
             },
             {
               "id": "D",
-              "text": "That ice sheets begin to grow when astronomical cycles align to weaken summer sunlight at high northern latitudes, letting winter snow survive the melt season."
+              "text": "That a diet lacking some essential nutrient, not contact with the sick, caused it."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The proposal is stated in the final sentence: the critical quantity is \"summer sunlight at high northern latitudes,\" and when the cycles align to weaken it, winter snow survives the melt season and ice sheets begin to grow — which D restates faithfully.\n\n**The Full Solution:**\n- Locate the proposal: the sentence beginning \"The critical quantity, he proposed...\" carries Milanković's actual claim.\n- Its mechanism has three links: aligned cycles, weakened summer sunlight in the high north, and snow persisting through the melt season.\n- D preserves all three links without adding or reversing any.\n\n**Why the other choices are wrong:**\n- A: It substitutes planet-wide cold winters for the proposal's actual driver — weak northern summers that fail to melt the snow.\n- B: It mistakes the opening puzzle for the proposal; Milanković offered a cause, not a call for more data.\n- C: It reverses the text — his computations showed the slow cycles do redistribute sunlight, slowness notwithstanding."
+          "explanation": "**Choice D is correct.** The proposal is stated in the final sentence: the disease \"did not pass from person to person but came from a diet lacking some essential nutrient,\" which D restates.\n\n**The Full Solution:**\n- Locate the proposal: the sentence beginning \"The physician then proposed a cause\" carries his actual claim.\n- The claim has two parts: it rules out spread from person to person, and it names a diet lacking an essential nutrient as the cause.\n- D keeps both parts and adds nothing.\n\n**Why the other choices are wrong:**\n- A: The text never mentions air or crowding; the proposed cause is diet, not anything carried through the air.\n- B: It mistakes his search for his answer; the physician proposed a cause rather than calling for more institutions to be studied.\n- C: It reverses the text; the staff stayed healthy, and the physician proposed that the disease did not pass from person to person at all.",
+          "_meta": {
+            "anchor": "1914 US Public Health Service pellagra study: institution inmates sick, staff in constant contact healthy; monotonous cornmeal/molasses/fatback diet; diet-deficiency cause proposed (no personal name) - CID",
+            "sources": [
+              "https://en.wikipedia.org/wiki/Joseph_Goldberger",
+              "https://en.wikipedia.org/wiki/Pellagra",
+              "https://www.sciencehistory.org/stories/magazine/joseph-goldbergers-filth-parties/"
+            ]
+          }
         },
         {
           "id": 743,
@@ -1255,7 +1275,7 @@ export const practiceTest7RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "inferences",
-          "passage": "Press coverage of ENIAC's 1946 debut named the men who built the machine but not the women photographed beside it, and early histories of computing mention the six women who programmed it barely or not at all. Historians revisiting the project have worked from a different record: operations logbooks, surviving wiring diagrams, and interviews with the programmers themselves. Those sources document the women designing the machine's first instruction sequences, tracing hardware faults, and inventing techniques that became standard practice. The women appear peripheral only when publicity materials serve as the principal evidence, so the fuller record supports the conclusion that their early invisibility chiefly reflected ______",
+          "passage": "Press coverage of ENIAC's 1946 debut named the men who built the machine but not the women photographed beside it. Early histories of computing mention the six women who programmed it barely or not at all. Historians revisiting the project have worked from a different record: operations logbooks, surviving wiring diagrams, and interviews with the programmers themselves. Those sources document the women designing the machine's first instruction sequences, tracing hardware faults, and inventing techniques that became standard practice. The women appear peripheral only when publicity materials serve as the principal evidence, so the fuller record supports the conclusion that their early invisibility chiefly reflected ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
@@ -1285,40 +1305,40 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "After grey squirrels from North America were introduced to Britain, native red squirrels began disappearing from woodlands the two species shared. Ecologists who monitored one such woodland for two decades hypothesize that the grey squirrel's spread drives the red squirrel's decline, predicting that the two species' counts should move in opposite directions: the more greys a survey records, the fewer reds it should find. A student reviewing the data argues that the 2015 survey most clearly bears out this prediction because ______",
+          "passage": "Gray wolves reached Isle Royale, an island in Lake Superior, in the late 1940s, and moose were already living there. Because the wolves prey on the moose, ecologists studying the island expected the two populations to move in opposite directions: the more wolves a winter count records, the fewer moose it should find. A student reviewing selected counts argues that the 1980 count most clearly bears out this expectation because ______",
           "questionTable": {
             "type": "table",
-            "caption": "Squirrel counts from annual surveys of a monitored British woodland, selected years",
+            "caption": "Winter counts of moose and wolves on Isle Royale, selected years",
             "headers": [
               "Year",
-              "Red squirrels",
-              "Grey squirrels"
+              "Moose",
+              "Wolves"
             ],
             "rows": [
               [
+                "1980",
+                "664",
+                "50"
+              ],
+              [
+                "1985",
+                "1,062",
+                "22"
+              ],
+              [
+                "1990",
+                "1,216",
+                "15"
+              ],
+              [
                 "1995",
-                "142",
-                "6"
+                "2,400",
+                "16"
               ],
               [
                 "2000",
-                "118",
-                "31"
-              ],
-              [
-                "2005",
-                "84",
-                "77"
-              ],
-              [
-                "2010",
-                "51",
-                "130"
-              ],
-              [
-                "2015",
-                "9",
-                "208"
+                "850",
+                "29"
               ]
             ]
           },
@@ -1326,23 +1346,23 @@ export const practiceTest7RW = {
           "choices": [
             {
               "id": "A",
-              "text": "in 1995 the survey recorded 142 red squirrels alongside only 6 greys, the widest gap between the two species in any year shown."
+              "text": "in 1995 the count recorded 2,400 moose alongside only 16 wolves, the widest gap between the two species in any year shown."
             },
             {
               "id": "B",
-              "text": "grey squirrel counts rose in every survey year shown, climbing from 6 in 1995 to 208 in 2015."
+              "text": "wolf counts fell in every count shown from 1980 to 1990, dropping from 50 wolves to 15."
             },
             {
               "id": "C",
-              "text": "the 2015 survey paired the lowest red squirrel count in the table, 9, with the highest grey squirrel count, 208."
+              "text": "the 1980 count paired the lowest moose count in the table, 664, with the highest wolf count, 50."
             },
             {
               "id": "D",
-              "text": "between 2005 and 2010 the red squirrel count fell from 84 to 51 while the grey count rose from 77 to 130."
+              "text": "between 1995 and 2000 the moose count fell from 2,400 to 850 while the wolf count rose from 16 to 29."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The student's claim names 2015 specifically, so the evidence must come from that row and show the predicted opposite pairing — and C does: the table's fewest reds (9) beside its most greys (208).\n\n**The Full Solution:**\n- The prediction is inverse movement: more greys should co-occur with fewer reds.\n- The claim narrows the evidence to one survey, 2015, so the completing choice must use that year's data.\n- C reads the 2015 row as the prediction's strongest instance — the series' extreme low for reds paired with its extreme high for greys.\n\n**Why the other choices are wrong:**\n- A: 1995's wide gap runs in the opposite configuration (many reds, few greys) and, more to the point, is not the 2015 survey the claim cites.\n- B: A one-species trend shows greys increasing but never pairs those counts with red declines.\n- D: It documents the inverse pattern in the wrong interval — 2005 to 2010 — leaving the claim about 2015 unsupported."
+          "explanation": "**Choice C is correct.** The student's claim names 1980 specifically, so the evidence must come from that row and show the expected opposite pairing — and C does: the table's fewest moose (664) beside its most wolves (50).\n\n**The Full Solution:**\n- The expectation is opposite movement: more wolves should go with fewer moose.\n- The claim narrows the evidence to one count, 1980, so the completing choice must use that year's data.\n- C reads the 1980 row as the expectation's strongest instance — the table's lowest moose count paired with its highest wolf count.\n\n**Why the other choices are wrong:**\n- A: 1995's wide gap pairs many moose with few wolves, but it is not the 1980 count the claim cites, and 1995's 16 wolves is not the table's lowest wolf count.\n- B: A one-species trend shows wolves declining but never pairs those counts with the moose counts.\n- D: It documents the opposite movement in the wrong interval — 1995 to 2000 — leaving the claim about 1980 unsupported."
         },
         {
           "id": 741,
@@ -1351,40 +1371,35 @@ export const practiceTest7RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "Rain steadily erodes the leading edges of wind-turbine blades, and the resulting roughness cuts into the energy a blade can capture. A materials engineer subjected samples of four protective coatings to identical simulated-rainfall endurance tests, inspecting each sample at intervals, and argues that one coating stands out for protecting blades over the long exposures a working turbine actually faces because ______",
+          "passage": "Spacecraft are built to work for a planned number of months, but several have kept working long after their plans ran out. Comparing four missions' planned and actual lengths, a space historian argues that one spacecraft outlasted its plan by a far wider margin than any other mission did because ______",
           "questionTable": {
             "type": "table",
-            "caption": "Share of each coating's leading-edge surface remaining smooth after simulated rainfall exposure (percent)",
+            "caption": "Planned and actual lengths of four space missions led or co-led by NASA (months, from launch to last contact; approximate)",
             "headers": [
-              "Coating",
-              "After 500 hours",
-              "After 2,000 hours",
-              "After 8,000 hours"
+              "Mission",
+              "Planned length",
+              "Actual length"
             ],
             "rows": [
               [
-                "Polyurethane film",
-                "97",
-                "88",
-                "64"
+                "Pioneer 10 (1972)",
+                "21",
+                "371"
               ],
               [
-                "Epoxy gelcoat",
-                "95",
-                "76",
-                "41"
+                "Earth Radiation Budget Satellite (1984)",
+                "24",
+                "252"
               ],
               [
-                "Metallic cap",
-                "98",
-                "90",
-                "71"
+                "Tropical Rainfall Measuring Mission (1997)",
+                "36",
+                "209"
               ],
               [
-                "Elastomeric spray",
-                "99",
-                "96",
-                "93"
+                "Wilkinson Microwave Anisotropy Probe (2001)",
+                "27",
+                "110"
               ]
             ]
           },
@@ -1392,23 +1407,33 @@ export const practiceTest7RW = {
           "choices": [
             {
               "id": "A",
-              "text": "after 500 hours of exposure, every coating in the test still kept at least 95 percent of its surface smooth."
+              "text": "every mission in the table kept working in space for longer than it had been planned to."
             },
             {
               "id": "B",
-              "text": "the epoxy gelcoat's smooth surface fell to 41 percent after 8,000 hours, the lowest figure recorded at that stage of the test."
+              "text": "the Earth Radiation Budget Satellite worked for 252 months, more than 10 times its planned 24 months."
             },
             {
               "id": "C",
-              "text": "the polyurethane film's smooth surface declined steadily across the whole test, falling from 97 percent after 500 hours to 88 after 2,000 and finally to 64 after 8,000 hours of exposure."
+              "text": "the Tropical Rainfall Measuring Mission had the longest plan in the table, 36 months, compared with 27 months or less for each of the others."
             },
             {
               "id": "D",
-              "text": "the elastomeric spray kept 93 percent of its surface smooth after 8,000 hours, while the other three coatings had fallen to between 41 and 71 percent."
+              "text": "Pioneer 10's roughly 371 months were about 18 times its plan, while no other mission lasted even 11 times its plan."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The claim is that one coating stands out over long exposures, which requires comparing all four at the longest test point — and D does exactly that: 93 percent for the elastomeric spray at 8,000 hours against 41 to 71 for the rest.\n\n**The Full Solution:**\n- Unpack the claim: \"stands out\" demands a comparison across coatings, and \"long exposures\" points to the 8,000-hour column.\n- D pairs the standout's figure with the full range of the other three, establishing both the gap and its direction.\n- The 22-point margin over the next-best coating at the longest exposure is the evidence the argument needs.\n\n**Why the other choices are wrong:**\n- A: At 500 hours the coatings are nearly indistinguishable — early data cannot show a long-run standout.\n- B: The worst performer's collapse identifies a loser, not the standout the claim is about.\n- C: Tracking one middling coating's decline compares it with nothing, so no coating can stand out from it."
+          "explanation": "**Choice D is correct.** The claim is that one spacecraft outlasted its plan by a far wider margin than any other mission, which requires comparing each mission's actual length with its planned length, and D does: Pioneer 10 worked about 18 times as long as planned, while no other mission reached even 11 times its plan.\n\n**The Full Solution:**\n- Unpack the claim: a \"margin\" over a plan compares actual length with planned length, and \"than any other mission\" requires checking all four.\n- Dividing actual by planned length gives about 18 for Pioneer 10, about 10.5 for the Earth Radiation Budget Satellite, about 6 for the Tropical Rainfall Measuring Mission, and about 4 for the Wilkinson Microwave Anisotropy Probe.\n- D names the standout and sets it against the best of the rest, which is the evidence the argument needs.\n\n**Why the other choices are wrong:**\n- A: That every mission outlasted its plan is true but singles out no mission, so it cannot show that one stands out.\n- B: The Earth Radiation Budget Satellite's margin is large, but the claim is about the widest margin, and its margin is well short of Pioneer 10's.\n- C: Comparing planned lengths alone says nothing about how far any mission outlasted its plan.",
+          "_meta": {
+            "anchor": "NASA spacecraft planned vs actual lengths (Pioneer 10 21->~371 mo; ERBS 24->252; TRMM 36->~209; WMAP 27->~110) - COE-Q widest margin",
+            "sources": [
+              "https://science.nasa.gov/missions/pioneer/pioneer-10-sends-last-signal/",
+              "https://en.wikipedia.org/wiki/Pioneer_10",
+              "https://en.wikipedia.org/wiki/Earth_Radiation_Budget_Satellite",
+              "https://en.wikipedia.org/wiki/Tropical_Rainfall_Measuring_Mission",
+              "https://en.wikipedia.org/wiki/Wilkinson_Microwave_Anisotropy_Probe"
+            ]
+          }
         },
         {
           "id": 737,
@@ -1417,7 +1442,7 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "In the wet uplands of Meghalaya, in northeastern India, Khasi villagers train the aerial roots of rubber fig trees across streams, threading young roots through hollowed palm trunks until they take hold on the far bank. Over decades the roots thicken, fuse, and stiffen into a bridge that carries foot traffic through monsoon floods capable of sweeping away timber spans. Unlike built structures, a root bridge grows stronger with age — and because a crossing can take fifteen years or more to become usable, the guiding of new roots is work that one generation begins largely for the benefit of the next.",
+          "passage": "In the wet uplands of Meghalaya, in northeastern India, Khasi villagers train the aerial roots of rubber fig trees across streams, threading young roots through hollowed palm trunks until they take hold on the far bank. Over decades the roots thicken, fuse, and stiffen into a bridge that carries foot traffic through monsoon floods capable of sweeping away timber spans. Unlike built structures, a root bridge grows stronger with age. Because a crossing can take fifteen years or more to become usable, guiding new roots is work that one generation begins largely for the benefit of the next.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
@@ -1426,7 +1451,7 @@ export const practiceTest7RW = {
             },
             {
               "id": "B",
-              "text": "Timber bridges generally outlast root bridges in Meghalaya but are considerably more expensive for villages to build."
+              "text": "Timber bridges generally outlast root bridges in Meghalaya but are considerably more expensive for villages to build and to maintain over time."
             },
             {
               "id": "C",
@@ -1434,7 +1459,7 @@ export const practiceTest7RW = {
             },
             {
               "id": "D",
-              "text": "The hollowed palm trunks through which young fig roots are threaded remain part of a root bridge's structure permanently, bearing much of its weight."
+              "text": "The hollowed palm trunks used to guide young roots stay in the finished bridge and bear much of its weight."
             }
           ],
           "correctAnswer": "C",
@@ -1447,7 +1472,7 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-textual",
-          "passage": "Artificial light at night is a serious hazard for moths, which exhaust themselves circling lamps instead of feeding and mating. Ecologists have hypothesized that moth populations in brightly lit city centers, exposed to street lighting for many generations, may be evolving a weaker flight-to-light response. To test the idea, a research team has been collecting moth larvae from city centers and from dark rural sites, rearing all of them under identical indoor conditions, and then recording how the emerging adults respond to a standard lamp.",
+          "passage": "Artificial light at night is a serious hazard for moths, which exhaust themselves circling lamps instead of feeding and mating. Ecologists have hypothesized that moth populations in brightly lit city centers, exposed to street lighting for many generations, may be evolving a weaker flight-to-light response. To test the idea, a research team is collecting moth larvae from city centers and from dark rural sites. The team rears all of them under identical indoor conditions and then records how the adults respond to a standard lamp.",
           "question": "Which finding from the study, if true, would most strongly support the ecologists' hypothesis?",
           "choices": [
             {
@@ -1477,7 +1502,7 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "inferences",
-          "passage": "Obsidian, a natural glass once prized for its cutting edge, forms with a trace-element signature particular to the flow that produced it, so an artifact's raw material can be matched to its geological source. Applying such matching across central Anatolia, archaeologists found that tools at settlements several hundred kilometers from one source were made of that source's obsidian — and that such tools appear in occupation layers spanning many centuries, in quantities too large to represent stray finds. The distances also far exceed the territory any single household would have covered. Taken together, the findings suggest that ______",
+          "passage": "Obsidian, a natural glass once prized for its cutting edge, forms with a trace-element signature particular to the flow that produced it, so an artifact's raw material can be matched to its geological source. Applying such matching across central Anatolia, archaeologists found that tools at settlements several hundred kilometers from one source were made of that source's obsidian. Such tools appear in occupation layers spanning many centuries, in quantities too large to represent stray finds. The distances also far exceed the territory any single household would have covered. Taken together, the findings suggest that ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
@@ -1486,7 +1511,7 @@ export const practiceTest7RW = {
             },
             {
               "id": "B",
-              "text": "obsidian tools were manufactured only at the source outcrops themselves and were never reworked or resharpened at the distant settlements."
+              "text": "obsidian tools were made only at the source outcrops and were never resharpened at the distant settlements."
             },
             {
               "id": "C",
@@ -1597,7 +1622,7 @@ export const practiceTest7RW = {
           "band": 4,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "______ that Andean sky-watching traditions treat the dark dust lanes crossing our galaxy's bright band — figures such as the llama and the fox — as constellations in their own right, some historians of astronomy argue that inventories of bright stars capture only one of the ways human cultures have organized the night sky.",
+          "passage": "______ that Andean sky-watching traditions treat the Milky Way's dark dust lanes — figures such as the llama and the fox — as constellations, some historians argue that star catalogs show only one way of organizing the night sky.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1618,7 +1643,7 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The opening participial modifier must describe the subject that follows the comma — \"some historians of astronomy\" — and the historians are the ones doing the observing, so the active participle \"Observing\" is the form that attaches correctly.\n\n**The Full Solution:**\n- An introductory participial phrase attaches to the main clause's subject, so ask who performs the action in the phrase.\n- The historians observe the Andean traditions and then argue their point; observer and arguer are the same people.\n- The active \"-ing\" participle expresses that relationship: Observing that..., the historians argue...\n\n**Why the other choices are wrong:**\n- B: The passive participle \"Observed\" would make the historians the thing being observed — a dangling modifier.\n- C: \"Having been observed\" is passive as well, again turning the observers into the observed.\n- D: \"Observes\" is a finite verb, which cannot head an introductory modifier phrase — it would need its own subject."
+          "explanation": "**Choice A is correct.** The opening participial modifier must describe the subject that follows the comma — \"some historians\" — and the historians are the ones doing the observing, so the active participle \"Observing\" is the form that attaches correctly.\n\n**The Full Solution:**\n- An introductory participial phrase attaches to the main clause's subject, so ask who performs the action in the phrase.\n- The historians observe the Andean traditions and then argue their point; observer and arguer are the same people.\n- The active \"-ing\" participle expresses that relationship: Observing that..., the historians argue...\n\n**Why the other choices are wrong:**\n- B: The passive participle \"Observed\" would make the historians the thing being observed — a dangling modifier.\n- C: \"Having been observed\" is passive as well, again turning the observers into the observed.\n- D: \"Observes\" is a finite verb, which cannot head an introductory modifier phrase — it would need its own subject."
         },
         {
           "id": 744,
@@ -1627,28 +1652,28 @@ export const practiceTest7RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "Geologists had long debated whether the rock deep in Earth's mantle holds water. A battered diamond carried up from more than 500 kilometers below the surface revealed something quite ______ sealed inside it was a fleck of ringwoodite, a deep-mantle mineral, holding about 1.5 percent water by weight — evidence that the mantle may store vast amounts of water bound inside rock.",
+          "passage": "Geologists had long debated whether the rock deep in Earth's mantle holds water. A battered diamond carried up from more than 500 kilometers below the surface contained something quite ______ fleck of ringwoodite, a deep-mantle mineral, holding about 1.5 percent water by weight. The find suggests that the mantle may store vast amounts of water bound inside rock.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "unexpected,"
+              "text": "unexpected. A"
             },
             {
               "id": "B",
-              "text": "unexpected"
+              "text": "unexpected a"
             },
             {
               "id": "C",
-              "text": "unexpected:"
+              "text": "unexpected: a"
             },
             {
               "id": "D",
-              "text": "unexpected;"
+              "text": "unexpected; a"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The clause before the blank is complete — the diamond \"revealed something quite unexpected\" — and what follows spells out what that something was; a colon is the mark that introduces such an explanation.\n\n**The Full Solution:**\n- Check the left side: \"A battered diamond...revealed something quite unexpected\" can stand alone as a sentence, which a colon requires.\n- Check the relationship: \"sealed inside it was a fleck of ringwoodite...\" delivers the promised surprise, unpacking \"something quite unexpected.\"\n- A complete statement followed by its elaboration is the colon's defining use.\n\n**Why the other choices are wrong:**\n- A: A comma is too weak to hold two independent statements apart — it produces a comma splice here.\n- B: With no punctuation, the two statements run together ungrammatically.\n- D: A semicolon signals two coordinate statements, but the second exists to explain the first — the colon's introducing function, not the semicolon's balancing one."
+          "explanation": "**Choice C is correct.** The clause before the blank is complete — the diamond \"contained something quite unexpected\" — and what follows is a phrase naming that something. A colon is the mark that introduces such an explanation.\n\n**The Full Solution:**\n- Check the left side: \"A battered diamond...contained something quite unexpected\" can stand alone as a sentence, which a colon requires.\n- Check the right side: \"a fleck of ringwoodite...holding about 1.5 percent water by weight\" has no main verb, so it cannot stand alone; it spells out \"something quite unexpected.\"\n- A complete clause followed by a phrase that explains part of it is the colon's defining use.\n\n**Why the other choices are wrong:**\n- A: A period would leave \"A fleck of ringwoodite...holding about 1.5 percent water by weight\" as a sentence fragment.\n- B: With no punctuation, the explanation runs into the clause it is meant to explain.\n- D: A semicolon must join two independent clauses, but the phrase after the blank is not a clause."
         },
         {
           "id": 748,
@@ -1657,7 +1682,7 @@ export const practiceTest7RW = {
           "band": 4,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "The flowing, watered pattern of historical Damascus steel blades resisted modern replication for decades, and metallurgists eventually concluded that copying the smiths' hammer work and quenching would never reproduce it ______ the pattern, recent analyses indicate, depends on trace elements peculiar to the original ores, which draw carbide particles into visible bands as the steel is worked.",
+          "passage": "The flowing, watered pattern of historical Damascus steel blades resisted modern replication for decades. Metallurgists eventually concluded that copying the smiths' hammer work and quenching would never reproduce it ______ the pattern, recent analyses indicate, depends on trace elements in the original ores that draw carbide particles into visible bands.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1717,7 +1742,7 @@ export const practiceTest7RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Ancient Mediterranean shipwrights built hulls shell first: planks were edge-joined with thousands of mortise-and-tenon joints, and ribs were added afterward to stiffen the finished shell, a method demanding great skill at the planking stage. ______ the frame-first method that later spread through Europe raised a skeleton of ribs before any planking, letting less specialized workers fasten planks around a form that already fixed the hull's shape.",
+          "passage": "Ancient Mediterranean shipwrights built hulls shell first. Planks were edge-joined with thousands of mortise-and-tenon joints, and ribs were added afterward to stiffen the finished shell, a method demanding great skill at the planking stage. ______ the frame-first method that later spread through Europe raised a skeleton of ribs before any planking, letting less specialized workers fasten planks around a form that already fixed the hull's shape.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1738,7 +1763,7 @@ export const practiceTest7RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The passage sets two construction methods side by side and opposes them point for point — planks before ribs versus ribs before planks, specialist labor versus less specialized work — the relationship \"By contrast\" exists to mark.\n\n**The Full Solution:**\n- Sentence one: shell-first building, with its edge-joined planks and skill-intensive planking stage.\n- Sentence two: frame-first building, reversing the sequence and easing the demand for specialized labor.\n- The sentences describe opposed approaches to the same task, so a comparative-contrast transition is the logical join.\n\n**Why the other choices are wrong:**\n- B: \"Consequently\" would make frame-first construction a result of shell-first construction, but the second method replaces the first rather than following from it.\n- C: \"Likewise\" promises a parallel case, and the second sentence delivers an opposite one.\n- D: \"In fact\" intensifies or corrects the preceding claim, but the second sentence neither strengthens nor corrects the description of shell-first work — it turns to a different method."
+          "explanation": "**Choice A is correct.** The passage sets two construction methods side by side and opposes them point for point — planks before ribs versus ribs before planks, specialist labor versus less specialized work — the relationship \"By contrast\" exists to mark.\n\n**The Full Solution:**\n- Before the blank: shell-first building, with its edge-joined planks and skill-intensive planking stage.\n- After the blank: frame-first building, reversing the sequence and easing the demand for specialized labor.\n- The sentences describe opposed approaches to the same task, so a comparative-contrast transition is the logical join.\n\n**Why the other choices are wrong:**\n- B: \"Consequently\" would make frame-first construction a result of shell-first construction, but the second method replaces the first rather than following from it.\n- C: \"Likewise\" promises a parallel case, and the sentence after the blank delivers an opposite one.\n- D: \"In fact\" intensifies or corrects the preceding claim, but the second sentence neither strengthens nor corrects the description of shell-first work — it turns to a different method."
         },
         {
           "id": 751,

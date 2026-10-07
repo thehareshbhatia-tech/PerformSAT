@@ -6,26 +6,33 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 1,
- "passage": "The mold for a great bell—two nested shells of clay and loam built up by hand around a brick ______ had to be dried thoroughly before the founders dared to pour, since moisture left in the loam could turn to steam and spoil the casting.",
+ "passage": "The Lewis chessmen—78 chess pieces carved mostly from walrus ivory, probably in the late twelfth ______ were found on the Isle of Lewis, in Scotland's Outer Hebrides, in 1831.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "core,"
+   "text": "century,"
   },
   {
    "id": "B",
-   "text": "core"
+   "text": "century"
   },
   {
    "id": "C",
-   "text": "core;"
+   "text": "century;"
   },
   {
    "id": "D",
-   "text": "core—"
+   "text": "century—"
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The interrupting description opens with a dash, so it must close with a matching dash before the main clause resumes.\n\n**The Full Solution:**\n- The core sentence is \"The mold for a great bell ... had to be dried thoroughly before the founders dared to pour.\"\n- The description \"two nested shells of clay and loam built up by hand around a brick core\" is an interruption introduced by a dash.\n- A paired punctuation mark must close as it opened: dash with dash.\n\n**Why the other choices are wrong:**\n- A: A comma cannot close an interruption that a dash opened; the marks must match.\n- B: With no closing mark, the interruption runs into the main verb and the sentence loses its boundary.\n- C: A semicolon would demand an independent clause before it, and the interrupting phrase is not one."
+ "explanation": "**Choice D is correct.** The interrupting description opens with a dash, so it must close with a matching dash before the main clause resumes.\n\n**The Full Solution:**\n- The core sentence is \"The Lewis chessmen ... were found on the Isle of Lewis, in Scotland's Outer Hebrides, in 1831.\"\n- The description \"78 chess pieces carved mostly from walrus ivory, probably in the late twelfth century\" is an interruption introduced by a dash.\n- A paired punctuation mark must close as it opened: dash with dash.\n\n**Why the other choices are wrong:**\n- A: A comma cannot close an interruption that a dash opened; the marks must match.\n- B: With no closing mark, the interruption runs into the main verb \"were found,\" and the sentence loses its structure.\n- C: A semicolon would separate the subject from its verb, leaving neither part a complete clause.",
+ "_meta": {
+  "anchor": "Lewis chessmen (walrus ivory, c. 1150-1200, found 1831) — dash closing a dash-opened interruption",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Lewis_chessmen",
+   "https://www.britishmuseum.org/collection/death-and-memory/lewis-chessmen"
+  ]
+ }
 }

@@ -1,87 +1,87 @@
 {
- "id": "bank-geo-355",
- "question": "Triangle $ABC$ is similar to triangle $DEF$, where $A$, $B$, and $C$ correspond to $D$, $E$, and $F$, respectively. The area of triangle $ABC$ is $54$ square units. What is the area, in square units, of triangle $DEF$?",
- "diagram": {
-  "type": "similarTriangles",
-  "params": {
-   "triangle1": {
-    "vertices": [
-     [
-      0,
-      9
-     ],
-     [
-      0,
-      0
-     ],
-     [
-      12,
-      0
-     ]
-    ],
-    "labels": [
-     "A",
-     "B",
-     "C"
-    ],
-    "sideLabels": [
-     "",
-     "12",
-     ""
-    ]
-   },
-   "triangle2": {
-    "vertices": [
-     [
-      0,
-      15
-     ],
-     [
-      0,
-      0
-     ],
-     [
-      20,
-      0
-     ]
-    ],
-    "labels": [
-     "D",
-     "E",
-     "F"
-    ],
-    "sideLabels": [
-     "",
-     "20",
-     ""
-    ]
-   },
-   "figureNote": true
-  }
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$90$"
+  "id": "bank-geo-355",
+  "question": "Triangle $RST$ shown has an area of $162$ square units. Triangle $LMN$ is similar to triangle $RST$, with $L$, $M$, and $N$ corresponding to $R$, $S$, and $T$, respectively. What is the area, in square units, of triangle $LMN$?",
+  "diagram": {
+    "type": "similarTriangles",
+    "params": {
+      "triangle1": {
+        "vertices": [
+          [
+            4,
+            12
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            12,
+            0
+          ]
+        ],
+        "labels": [
+          "L",
+          "M",
+          "N"
+        ],
+        "sideLabels": [
+          "",
+          "12",
+          ""
+        ]
+      },
+      "triangle2": {
+        "vertices": [
+          [
+            6,
+            18
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            18,
+            0
+          ]
+        ],
+        "labels": [
+          "R",
+          "S",
+          "T"
+        ],
+        "sideLabels": [
+          "",
+          "18",
+          ""
+        ]
+      },
+      "figureNote": true
+    }
   },
-  {
-   "id": "B",
-   "text": "$120$"
+  "choices": [
+    {
+      "id": "A",
+      "text": "$48$"
+    },
+    {
+      "id": "B",
+      "text": "$72$"
+    },
+    {
+      "id": "C",
+      "text": "$108$"
+    },
+    {
+      "id": "D",
+      "text": "$243$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "multiplies the area by the cube of the length ratio, (2/3)^3",
+    "C": "multiplies the area by the length ratio 2/3 instead of its square",
+    "D": "multiplies the area by 3/2, scaling the wrong way and skipping the square"
   },
-  {
-   "id": "C",
-   "text": "$150$"
-  },
-  {
-   "id": "D",
-   "text": "$250$"
-  }
- ],
- "distractorNotes": {
-  "A": "multiplies the area by the length ratio 5/3 instead of its square",
-  "B": "computes (1/2)(20)(12), mixing a side of each triangle",
-  "D": "multiplies the area by the cube of the length ratio, (5/3)^3"
- },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Similar Figures Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The length ratio is $\\frac{EF}{BC} = \\frac{20}{12} = \\frac{5}{3}$, so the area ratio is $\\frac{25}{9}$ and the area of $DEF$ is $54 \\cdot \\frac{25}{9} = 150$.\n\n**The Full Solution:**\nStep 1: Sides $\\overline{BC}$ and $\\overline{EF}$ correspond, so the scale factor from $ABC$ to $DEF$ is $\\frac{20}{12} = \\frac{5}{3}$.\nStep 2: Areas of similar figures scale by the square of the length ratio: $\\left(\\frac{5}{3}\\right)^2 = \\frac{25}{9}$.\nStep 3: Area of $DEF$ $= 54 \\cdot \\frac{25}{9} = 150$ square units.\n\nCheck: $\\frac{150}{54} = \\frac{25}{9} = \\left(\\frac{5}{3}\\right)^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($90$): scales the area by $\\frac{5}{3}$, the length ratio, instead of its square.\n* Choice B ($120$): multiplies $20$ by $12$ and halves, but those sides belong to different triangles.\n* Choice D ($250$): cubes the length ratio, which is how volumes scale, not areas.\n\n**Test Day Takeaway:** Find the length ratio from one pair of corresponding sides, then square it for areas."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Similar Figures Area Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The length ratio is $\\frac{MN}{ST} = \\frac{12}{18} = \\frac{2}{3}$, so the area ratio is $\\frac{4}{9}$ and the area of $LMN$ is $162 \\cdot \\frac{4}{9} = 72$.\n\n**The Full Solution:**\nStep 1: Sides $\\overline{MN}$ and $\\overline{ST}$ correspond, so the scale factor from $RST$ to $LMN$ is $\\frac{12}{18} = \\frac{2}{3}$.\nStep 2: Areas of similar figures scale by the square of the length ratio: $\\left(\\frac{2}{3}\\right)^2 = \\frac{4}{9}$.\nStep 3: Area of $LMN$ $= 162 \\cdot \\frac{4}{9} = 72$ square units. Check: $\\frac{72}{162} = \\frac{4}{9} = \\left(\\frac{2}{3}\\right)^2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($48$): cubes the length ratio, which is how volumes scale, not areas.\n* Choice C ($108$): scales the area by $\\frac{2}{3}$, the length ratio, instead of its square.\n* Choice D ($243$): multiplies by $\\frac{3}{2}$, which makes the smaller triangle larger and skips the square.\n\n**Test Day Takeaway:** Find the length ratio from one pair of corresponding sides, then square it for areas; check that the smaller triangle gets the smaller area."
 }

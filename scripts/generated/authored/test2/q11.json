@@ -11,11 +11,11 @@
   "choices": [
     {
       "id": "A",
-      "text": "Coffeehouse patrons regularly disrupted trade in the surrounding markets by gathering in large and unruly crowds at busy hours."
+      "text": "Crowds of coffeehouse patrons regularly disrupted trade in nearby markets."
     },
     {
       "id": "B",
-      "text": "Religious officials had ruled that coffee itself was a forbidden drink that no observant person could lawfully consume."
+      "text": "Religious officials had ruled that drinking coffee was forbidden."
     },
     {
       "id": "C",
@@ -23,9 +23,9 @@
     },
     {
       "id": "D",
-      "text": "Coffeehouses drew paying customers away from the taverns that the government taxed."
+      "text": "Coffeehouses drew paying customers away from the taverns that the government taxed and depended on for revenue."
     }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The text ties the government's hostility to one thing: patrons talked about politics, \"to the government's recurring alarm,\" and the closure orders follow directly in the next sentence.\n\n**The Full Solution:**\n- The text lists what patrons did — chess, storytellers, and \"above all\" talk.\n- The talk is itemized: business, poetry, and politics, with the political conversation explicitly flagged as the source of official alarm.\n- The final sentence reports the authorities' response — repeated closure orders — completing the cause-and-effect chain the question asks about.\n\n**Why the other choices are wrong:**\n- A: The text mentions no crowds, no disruption of markets, and no unruliness — patrons are shown lingering quietly over chess and conversation.\n- B: No religious ruling about coffee appears anywhere in the text; the alarm is the government's, and it concerns speech, not the drink.\n- D: Taverns are mentioned only as a contrasting kind of gathering place; nothing is said about their customers or about tax revenue."
+  "explanation": "**Choice C is correct.** The text ties the government's hostility to one thing: patrons talked about politics, \"to the government's recurring alarm,\" and the closure orders follow directly in the next sentence.\n\n**The Full Solution:**\n- The text lists what patrons did — chess, storytellers, and \"above all\" talk.\n- The talk is itemized: business, poetry, and politics, with the political conversation explicitly flagged as the source of official alarm.\n- The final sentence reports the authorities' response — repeated closure orders — completing the cause-and-effect chain the question asks about.\n\n**Why the other choices are wrong:**\n- A: The text mentions no crowds and no disruption of markets; patrons are shown lingering over chess and conversation.\n- B: No religious ruling about coffee appears anywhere in the text; the alarm is the government's, and it concerns speech, not the drink.\n- D: Taverns are mentioned only as a contrasting kind of gathering place; nothing is said about their customers or about tax revenue."
 }

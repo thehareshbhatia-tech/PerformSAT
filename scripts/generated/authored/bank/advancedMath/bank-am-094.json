@@ -1,6 +1,6 @@
 {
  "id": "bank-am-094",
- "question": "The graph of $y = ax^{2} + bx + c$ is shown in the $xy$-plane, where $a$, $b$, and $c$ are constants. What is the value of $b$?",
+ "question": "$y = ax^{2} + bx + c$\nIn the given equation, $a$, $b$, and $c$ are constants. The graph of the equation in the $xy$-plane is shown. What is the value of $b$?",
  "diagram": {
   "type": "quadraticVertex",
   "params": {

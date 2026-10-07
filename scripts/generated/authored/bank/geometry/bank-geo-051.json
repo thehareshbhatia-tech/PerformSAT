@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-051",
- "question": "Two opposite vertices of a regular hexagon are $16$ units apart. What is the area, in square units, of the hexagon?",
+ "question": "The perimeter of an equilateral triangle is $96$ inches. What is the area, in square inches, of the triangle?",
  "choices": [
   {
    "id": "A",
-   "text": "$16\\sqrt{3}$"
+   "text": "$64\\sqrt{3}$"
   },
   {
    "id": "B",
-   "text": "$48\\sqrt{3}$"
+   "text": "$128\\sqrt{3}$"
   },
   {
    "id": "C",
-   "text": "$96\\sqrt{3}$"
+   "text": "$256\\sqrt{3}$"
   },
   {
    "id": "D",
-   "text": "$384\\sqrt{3}$"
+   "text": "$512\\sqrt{3}$"
   }
  ],
  "distractorNotes": {
-  "A": "finds the area of one of the six equilateral triangles and stops",
-  "B": "counts only three of the six equilateral triangles",
-  "D": "uses 16 as the side length instead of half of it"
+  "A": "uses half the side length, 16, as the side of the triangle",
+  "B": "uses half the side length, 16, as the base with the correct height",
+  "D": "multiplies the base by the height and forgets the 1/2"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Regular Hexagon Area via Equilateral Triangles**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The opposite-vertex distance is $2s$, so $s = 8$; six equilateral triangles of area $\\frac{\\sqrt{3}}{4}(8^2) = 16\\sqrt{3}$ give $96\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: Segments from the center to the six vertices split a regular hexagon into six equilateral triangles, so the distance from the center to a vertex equals the side length $s$. Opposite vertices are $2s$ apart: $2s = 16$, so $s = 8$.\nStep 2: Each equilateral triangle has area $\\frac{\\sqrt{3}}{4}s^2 = \\frac{\\sqrt{3}}{4}(64) = 16\\sqrt{3}$.\nStep 3: The hexagon's area is $6(16\\sqrt{3}) = 96\\sqrt{3}$ square units. Check: the formula $\\frac{3\\sqrt{3}}{2}s^2 = \\frac{3\\sqrt{3}}{2}(64) = 96\\sqrt{3}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($16\\sqrt{3}$): the area of one equilateral triangle, not the whole hexagon.\n* Choice B ($48\\sqrt{3}$): counts three triangles, which covers only half the hexagon.\n* Choice D ($384\\sqrt{3}$): uses $16$ as the side length; the distance between opposite vertices is twice the side.\n\n**Test Day Takeaway:** In a regular hexagon, the center-to-vertex distance equals the side length, so the distance between opposite vertices is $2s$."
+ "explanation": "**SAT Pattern: 30-60-90 Triangle**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Each side is $\\frac{96}{3} = 32$, the height is $16\\sqrt{3}$, and the area is $\\frac{1}{2}(32)(16\\sqrt{3}) = 256\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: The three sides are equal, so each side is $\\frac{96}{3} = 32$ inches.\nStep 2: The height splits the triangle into two $30°$-$60°$-$90°$ triangles with short leg $16$ and hypotenuse $32$, so the height is $16\\sqrt{3}$.\nStep 3: The area is $\\frac{1}{2}(32)(16\\sqrt{3}) = 256\\sqrt{3}$ square inches. Check: $16^{2} + (16\\sqrt{3})^{2} = 256 + 768 = 1{,}024 = 32^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($64\\sqrt{3}$): treats $16$ as the side length, giving $\\frac{1}{2}(16)(8\\sqrt{3}) = 64\\sqrt{3}$.\n* Choice B ($128\\sqrt{3}$): uses $16$, half of a side, as the base: $\\frac{1}{2}(16)(16\\sqrt{3}) = 128\\sqrt{3}$.\n* Choice D ($512\\sqrt{3}$): computes $32 \\cdot 16\\sqrt{3}$ and forgets the $\\frac{1}{2}$.\n\n**Test Day Takeaway:** The height of an equilateral triangle with side $s$ is $\\frac{s\\sqrt{3}}{2}$, from the $30°$-$60°$-$90°$ triangle it cuts off."
 }

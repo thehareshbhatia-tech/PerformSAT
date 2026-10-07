@@ -6,29 +6,29 @@
   "domain": "standard-english-conventions",
   "skill": "boundaries",
   "module": 2,
-  "passage": "In a Renaissance workshop, a picture began long before any paint was mixed. Turning rough planks into a painting surface meant three stages in a fixed ______ joining and smoothing the seasoned poplar, sealing the wood with coats of glue size, and building up thin layers of gesso to be scraped and polished smooth.",
+  "passage": "Glassblowing was developed along the eastern Mediterranean coast in the first century BCE. Its basic steps still follow a fixed ______ gathering molten glass on the end of a hollow pipe, blowing through the pipe to form a bubble, and shaping the bubble with tools while it is still hot.",
   "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
   "choices": [
     {
       "id": "A",
-      "text": "order, joining"
+      "text": "order, gathering"
     },
     {
       "id": "B",
-      "text": "order joining"
+      "text": "order gathering"
     },
     {
       "id": "C",
-      "text": "order; joining"
+      "text": "order; gathering"
     },
     {
       "id": "D",
-      "text": "order: joining"
+      "text": "order: gathering"
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** An independent clause ends at \"a fixed order,\" and what follows is the list of the three stages — the construction a colon exists to introduce.\n\n**The Full Solution:**\n- The clause before the blank is complete: \"Turning rough planks into a painting surface meant three stages in a fixed order.\"\n- The material after the blank itemizes the promised stages: joining, sealing, building up gesso.\n- A colon after an independent clause formally introduces the list it announces.\n\n**Why the other choices are wrong:**\n- A: A comma is too weak to introduce a formal list after a complete clause and blurs where the clause ends.\n- B: With no punctuation, \"order joining\" runs the clause into the list unreadably.\n- C: A semicolon must have an independent clause on each side, and the list of stages is not a clause.",
+  "explanation": "**Choice D is correct.** The clause \"Its basic steps still follow a fixed order\" is complete, and what follows lists the steps of that order. A colon after a complete clause introduces such a list.\n\n**The Full Solution:**\n- The words before the blank form an independent clause.\n- The words after it list the three steps: gathering, blowing, shaping.\n- A colon is the conventional mark between a complete clause and the list it introduces.\n\n**Why the other choices are wrong:**\n- A: A comma does not make clear that what follows explains \"a fixed order\"; the list reads as loosely tacked on.\n- B: With no punctuation, the list runs into the clause.\n- C: A semicolon must be followed by an independent clause, but the list is not one.",
   "_meta": {
-    "anchor": "Renaissance panel preparation; colon before a list"
+    "anchor": "glassblowing (1st c. BCE, eastern Mediterranean): colon before a list"
   }
 }

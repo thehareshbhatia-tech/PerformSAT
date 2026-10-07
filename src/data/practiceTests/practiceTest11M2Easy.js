@@ -153,18 +153,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "Line $k$ is defined by $y = \\frac{3}{4}x + 2$. Line $j$ is perpendicular to line $k$ and passes through the point $(6, 5)$. Which equation defines line $j$?",
+      question: "In the $xy$-plane, line $j$ is perpendicular to the line $6x + 8y = 5$. What is the slope of line $j$?",
       choices: [
-        // distractor: uses the same slope as line k, which gives a parallel line through (6, 5)
-        { id: "A", text: "$y = \\frac{3}{4}x + \\frac{1}{2}$" },
-        // distractor: takes the reciprocal of 3/4 but not its opposite
-        { id: "B", text: "$y = \\frac{4}{3}x - 3$" },
-        // distractor: takes the opposite of 3/4 but not its reciprocal
-        { id: "C", text: "$y = -\\frac{3}{4}x + \\frac{19}{2}$" },
-        { id: "D", text: "$y = -\\frac{4}{3}x + 13$" }
+        // distractor: takes the reciprocal of -3/4 but does not change its sign
+        { id: "A", text: "$-\\frac{4}{3}$" },
+        // distractor: gives the slope of the given line, -3/4, which is the slope of a parallel line
+        { id: "B", text: "$-\\frac{3}{4}$" },
+        // distractor: changes the sign of -3/4 but does not take the reciprocal
+        { id: "C", text: "$\\frac{3}{4}$" },
+        { id: "D", text: "$\\frac{4}{3}$" }
       ],
       correctAnswer: "D",
-      explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** A perpendicular slope is the negative reciprocal, $-\\frac{4}{3}$, and $5 = -\\frac{4}{3}(6) + b$ gives $b = 13$.\n\n**The Full Solution:**\nStep 1: The slope of line $k$ is $\\frac{3}{4}$, so the slope of line $j$ is its negative reciprocal, $-\\frac{4}{3}$.\nStep 2: Substitute the point $(6, 5)$ into $y = -\\frac{4}{3}x + b$: $5 = -8 + b$, so $b = 13$.\nStep 3: Line $j$ is $y = -\\frac{4}{3}x + 13$. Check: $-\\frac{4}{3}(6) + 13 = 5$, and $\\frac{3}{4} \\cdot \\left(-\\frac{4}{3}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = \\frac{3}{4}x + \\frac{1}{2}$): keeps the slope $\\frac{3}{4}$, which makes the line parallel to line $k$, not perpendicular.\n* Choice B ($y = \\frac{4}{3}x - 3$): flips the fraction but keeps the positive sign; the product of the slopes is $1$, not $-1$.\n* Choice C ($y = -\\frac{3}{4}x + \\frac{19}{2}$): changes the sign but does not flip the fraction.\n\n**Test Day Takeaway:** Perpendicular slopes multiply to $-1$: flip the fraction and change its sign, then use the given point to find the intercept.",
+      explanation: "**SAT Pattern: Perpendicular Slope**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The given line has slope $-\\frac{6}{8} = -\\frac{3}{4}$. A perpendicular line has the negative reciprocal slope, $\\frac{4}{3}$.\n\n**The Full Solution:**\nStep 1: Solve $6x + 8y = 5$ for $y$: $8y = -6x + 5$, so $y = -\\frac{3}{4}x + \\frac{5}{8}$. The slope of the given line is $-\\frac{3}{4}$.\nStep 2: The slopes of perpendicular lines multiply to $-1$, so the slope of line $j$ is the negative reciprocal of $-\\frac{3}{4}$.\nStep 3: Flip the fraction and change its sign: $\\frac{4}{3}$. Check: $\\left(-\\frac{3}{4}\\right)\\left(\\frac{4}{3}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{4}{3}$): flips the fraction but keeps the negative sign; the product of the slopes is $1$, not $-1$.\n* Choice B ($-\\frac{3}{4}$): is the slope of the given line, which a parallel line would have.\n* Choice C ($\\frac{3}{4}$): changes the sign but does not flip the fraction.\n\n**Test Day Takeaway:** Find the slope of the given line first ($-\\frac{A}{B}$ for $Ax + By = C$), then flip it and change its sign.",
       skills: ["perpendicular-negative-reciprocal"]
     },
     {
@@ -172,19 +172,19 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "The equation $y = 0.85x + 14.2$ is a linear model for a data set. One of the data points is $(26, 37.7)$. Which statement about this data point is true?",
+      question: "A linear model for the depth of a pond is $y = 36 - 0.5x$, where $y$ is the predicted depth, in inches, $x$ days after the start of a dry spell. What is the best interpretation of $36$ in this context?",
       choices: [
-        // distractor: computes the correct difference of 1.4 but reverses which value is larger
-        { id: "A", text: "The model predicts a $y$-value that is $1.4$ greater than the actual $y$-value." },
-        { id: "B", text: "The model predicts a $y$-value that is $1.4$ less than the actual $y$-value." },
-        // distractor: leaves out the intercept, predicting 0.85(26) = 22.1 and subtracting it from 37.7
-        { id: "C", text: "The model predicts a $y$-value that is $15.6$ less than the actual $y$-value." },
-        // distractor: leaves out the slope term, subtracting only the intercept 14.2 from 37.7
-        { id: "D", text: "The model predicts a $y$-value that is $23.5$ less than the actual $y$-value." }
+        { id: "A", text: "The predicted depth of the pond at the start of the dry spell is $36$ inches." },
+        // distractor: treats the first day as x = 1; at x = 1 the model predicts 36 - 0.5(1) = 35.5 inches
+        { id: "B", text: "The predicted depth of the pond $1$ day after the start of the dry spell is $36$ inches." },
+        // distractor: reads the constant as the rate of change; the predicted depth decreases by 0.5 inch each day
+        { id: "C", text: "The predicted depth of the pond decreases by $36$ inches each day." },
+        // distractor: treats 36 as the x-value where y = 0; the model predicts a depth of 0 when 36 - 0.5x = 0, or x = 72
+        { id: "D", text: "The predicted number of days until the pond is empty is $36$." }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** At $x = 26$ the model predicts $0.85(26) + 14.2 = 36.3$, which is $37.7 - 36.3 = 1.4$ less than the actual value.\n\n**The Full Solution:**\nStep 1: Substitute $x = 26$ into the model: $y = 0.85(26) + 14.2 = 22.1 + 14.2 = 36.3$.\nStep 2: Compare the prediction with the actual $y$-value of the data point: $37.7 - 36.3 = 1.4$.\nStep 3: The actual value is larger, so the predicted value is $1.4$ less than the actual value. Check: $36.3 + 1.4 = 37.7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: has the right difference, $1.4$, but the wrong direction; the prediction $36.3$ is below the actual $37.7$, so the model underestimates.\n* Choice C: leaves out the $14.2$, predicting $0.85(26) = 22.1$ and getting $37.7 - 22.1 = 15.6$.\n* Choice D: leaves out the $0.85x$ term, subtracting only $14.2$ from $37.7$.\n\n**Test Day Takeaway:** To compare a data point with a model, plug its $x$-value into the equation and subtract the prediction from the actual $y$-value; a positive result means the model predicts too low.",
-      skills: ["calculate-mean", "slope-intercept-form"]
+      correctAnswer: "A",
+      explanation: "**SAT Pattern: Interpret Intercept of Best Fit**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** At the start of the dry spell, $x = 0$, and $y = 36 - 0.5(0) = 36$. So $36$ is the predicted depth, in inches, at the start of the dry spell.\n\n**The Full Solution:**\nStep 1: $x$ is the number of days after the start of the dry spell, so the start of the dry spell is $x = 0$.\nStep 2: Substitute $x = 0$: $y = 36 - 0.5(0) = 36$.\nStep 3: So $36$ is the predicted depth, in inches, at the start of the dry spell. Check: the other number, $-0.5$, multiplies $x$, so it is the predicted change in depth each day ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: treats the first day as $x = 1$; at $x = 1$ the model predicts $35.5$ inches.\n* Choice C: reads $36$ as the daily change; the depth is predicted to drop $0.5$ inch each day.\n* Choice D: treats $36$ as the day the depth reaches $0$; that happens when $36 - 0.5x = 0$, at $x = 72$.\n\n**Test Day Takeaway:** The constant in a linear model is the predicted value of $y$ when $x = 0$; find what $x = 0$ means in the context first.",
+      skills: ["slope-from-points", "scatterplots"]
     },
     {
       id: 10,
@@ -210,11 +210,11 @@ export const practiceTest11M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "The table shows the number of juniors and seniors in a club who did or did not sign up for a field trip. Two of the students who did not sign up will be selected at random, one at a time, without replacement. What is the probability that both students selected are juniors? (Express your answer as a decimal or fraction, not as a percent.)",
-      diagram: { type: "twoWayTable", params: { headers: ["", "Signed up", "Did not sign up", "Total"], rows: [["Juniors", "18", "6", "24"], ["Seniors", "10", "6", "16"], ["Total", "28", "12", "40"]] } },
-      correctAnswer: "5/22",
-      explanation: "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $\\frac{5}{22}$ (or $0.2272$ or $0.2273$).**\n\n**The Fast Way (~30s):** Of the $12$ students who did not sign up, $6$ are juniors, so the probability is $\\frac{6}{12} \\cdot \\frac{5}{11} = \\frac{30}{132} = \\frac{5}{22}$.\n\n**The Full Solution:**\nStep 1: Restrict to the students who did not sign up: there are $12$ of them, and $6$ are juniors.\nStep 2: The first selection is a junior with probability $\\frac{6}{12}$. After one junior is removed, $5$ juniors remain among $11$ students, so the second is a junior with probability $\\frac{5}{11}$.\nStep 3: Multiply: $\\frac{6}{12} \\cdot \\frac{5}{11} = \\frac{30}{132} = \\frac{5}{22}$. Check by counting pairs: there are $6 \\cdot 5 = 30$ ordered junior pairs out of $12 \\cdot 11 = 132$ ordered pairs ✓\n\n**Common Mistakes:**\n* $\\frac{1}{4}$: uses $\\frac{6}{12}$ for both selections, as though the first student were put back.\n* $\\frac{1}{2}$: finds the probability for only the first selection.\n* $\\frac{5}{92}$: divides by the $24$ juniors instead of the $12$ students who did not sign up, computing $\\frac{6}{24} \\cdot \\frac{5}{23}$.\n\n**Test Day Takeaway:** Find the group the selection comes from first, then reduce both the favorable count and the total by one for the second selection.",
-      skills: ["probability-basics"]
+      question: "The table shows the number of juniors and seniors in a club who did or did not sign up for a field trip. If one of these students is selected at random, what is the probability of selecting a junior, given that the student did not sign up for the field trip? (Express your answer as a decimal or fraction, not as a percent.)",
+      diagram: { type: "twoWayTable", params: { headers: ["", "Signed up", "Did not sign up", "Total"], rows: [["Juniors", "18", "7", "25"], ["Seniors", "10", "13", "23"], ["Total", "28", "20", "48"]] } },
+      correctAnswer: "7/20",
+      explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**The correct answer is $\\frac{7}{20}$ (or $0.35$).**\n\n**The Fast Way (~20s):** Only the $20$ students who did not sign up count, and $7$ of them are juniors, so the probability is $\\frac{7}{20}$.\n\n**The Full Solution:**\nStep 1: \"Given that the student did not sign up\" limits the selection to the \"Did not sign up\" column, which has a total of $20$ students.\nStep 2: In that column, $7$ students are juniors.\nStep 3: The probability is $\\frac{7}{20} = 0.35$. Check: the column adds up, $7 + 13 = 20$ ✓\n\n**Common Mistakes:**\n* $\\frac{7}{48}$: divides by all $48$ students instead of the $20$ who did not sign up.\n* $\\frac{7}{25}$: divides by the $25$ juniors, which answers a different question (the probability that a junior did not sign up).\n* $\\frac{5}{12}$: gives $\\frac{20}{48}$, the probability that a student did not sign up.\n\n**Test Day Takeaway:** For \"given that\" questions, use only the row or column named after \"given that\" as the total.",
+      skills: ["conditional-probability", "two-way-table"]
     },
     {
       id: 12,
@@ -311,18 +311,18 @@ export const practiceTest11M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 6,
-      question: "The monthly rate for renting a storage unit was reduced by $12\\%$. Then a \\$9.50 fee was added to the reduced rate, for a total monthly charge of \\$255.90. Which expression represents the monthly rate, in dollars, before it was reduced?",
+      question: "The monthly rate for renting a storage unit was reduced by $20\\%$. Then a \\$15 fee was added to the reduced rate, for a total monthly charge of \\$255. What was the monthly rate, in dollars, before it was reduced?",
       choices: [
-        // distractor: removes the fee correctly but divides by 1.12, treating the 12% reduction as an increase
-        { id: "A", text: "$\\dfrac{255.90 - 9.50}{1.12}$" },
-        // distractor: removes the fee but multiplies by 1.12, as though adding 12% back undoes a 12% reduction
-        { id: "B", text: "$1.12(255.90 - 9.50)$" },
-        { id: "C", text: "$\\dfrac{255.90 - 9.50}{0.88}$" },
-        // distractor: adds the fee to the total instead of subtracting it before undoing the reduction
-        { id: "D", text: "$\\dfrac{255.90 + 9.50}{0.88}$" }
+        // distractor: removes the fee but divides by 1.20, treating the 20% reduction as an increase: 240/1.20 = 200
+        { id: "A", text: "$200$" },
+        // distractor: removes the fee but multiplies by 1.20, as though adding 20% back undoes a 20% reduction: 240(1.20) = 288
+        { id: "B", text: "$288$" },
+        { id: "C", text: "$300$" },
+        // distractor: undoes the reduction without first removing the fee: 255/0.80 = 318.75
+        { id: "D", text: "$318.75$" }
       ],
       correctAnswer: "C",
-      explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Undo the steps in reverse order: subtract the fee, then divide by $0.88$, the multiplier for a $12\\%$ reduction, giving $\\dfrac{255.90 - 9.50}{0.88}$.\n\n**The Full Solution:**\nStep 1: Let $r$ be the original monthly rate. A $12\\%$ reduction leaves $88\\%$ of the rate, so the reduced rate is $0.88r$.\nStep 2: Adding the fee gives the total: $0.88r + 9.50 = 255.90$, so $0.88r = 255.90 - 9.50$.\nStep 3: Divide by $0.88$: $r = \\dfrac{255.90 - 9.50}{0.88}$. Check: this equals $\\dfrac{246.40}{0.88} = 280$, and $0.88(280) + 9.50 = 246.40 + 9.50 = 255.90$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\dfrac{255.90 - 9.50}{1.12}$): divides by $1.12$, which would undo a $12\\%$ increase, not a reduction.\n* Choice B ($1.12(255.90 - 9.50)$): adds $12\\%$ of the reduced rate back, but the $12\\%$ was taken of the larger original rate, so this gives about $\\$275.97$ instead of $\\$280$.\n* Choice D ($\\dfrac{255.90 + 9.50}{0.88}$): adds the fee to the total; the fee was added to produce the total, so it must be subtracted to undo it.\n\n**Test Day Takeaway:** To reverse a chain of changes, undo the last change first, and undo a percent change by dividing by its multiplier ($0.88$ for a $12\\%$ decrease).",
+      explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Undo the steps in reverse order: $255 - 15 = 240$, and $240$ is $80\\%$ of the original rate, so the rate was $\\frac{240}{0.80} = 300$ dollars.\n\n**The Full Solution:**\nStep 1: Let $r$ be the original monthly rate. A $20\\%$ reduction leaves $0.80r$, and adding the fee gives $0.80r + 15 = 255$.\nStep 2: Subtract the fee: $0.80r = 240$.\nStep 3: Divide by $0.80$: $r = 300$. Check: $300 - 0.20(300) = 240$, and $240 + 15 = 255$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($200$): divides by $1.20$ as though the rate had been increased by $20\\%$.\n* Choice B ($288$): multiplies by $1.20$; adding $20\\%$ of the reduced rate back does not undo a $20\\%$ reduction of the original rate.\n* Choice D ($318.75$): divides $255$ by $0.80$ without first removing the fee, which was added after the reduction.\n\n**Test Day Takeaway:** To reverse a percent change, divide by the multiplier ($0.80$ for a $20\\%$ decrease), and undo the last step (the fee) first.",
       skills: ["percent-word-problems", "percent-of-value"]
     },
     {
@@ -349,9 +349,9 @@ export const practiceTest11M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 6,
-      question: "In the $xy$-plane, the midpoint of the line segment with endpoints $(a, 7)$ and $(12, b)$ is $(5, -2)$. What is the value of $a + b$?",
-      correctAnswer: "-13",
-      explanation: "**SAT Pattern: Midpoint Formula**\n\n**The correct answer is -13.**\n\n**The Fast Way (~30s):** Each endpoint coordinate is twice the midpoint coordinate minus the other endpoint: $a = 2(5) - 12 = -2$ and $b = 2(-2) - 7 = -11$, so $a + b = -13$.\n\n**The Full Solution:**\nStep 1: The midpoint averages the coordinates: $\\frac{a + 12}{2} = 5$ and $\\frac{7 + b}{2} = -2$.\nStep 2: Solve each: $a + 12 = 10$, so $a = -2$; $7 + b = -4$, so $b = -11$.\nStep 3: Add: $a + b = -2 + (-11) = -13$. Check: $\\frac{-2 + 12}{2} = 5$ and $\\frac{7 + (-11)}{2} = -2$ ✓\n\n**Common Mistakes:**\n* $-16$: sets $a + 12 = 5$ and $7 + b = -2$, forgetting to multiply the midpoint coordinates by $2$, which gives $a = -7$ and $b = -9$.\n* $1$: solves $7 + b = -4$ as $b = -4 + 7 = 3$, adding the $7$ instead of subtracting it.\n* $-2$: reports $a$ alone instead of $a + b$.\n\n**Test Day Takeaway:** A midpoint coordinate is an average, so double it and subtract the known endpoint to recover the missing one.",
+      question: "In the $xy$-plane, the graph of $ax + 3y = 12$, where $a$ is a constant, passes through the point $(4, -8)$. What is the $x$-coordinate of the $x$-intercept of the graph?",
+      correctAnswer: "4/3",
+      explanation: "**SAT Pattern: Point on a Line**\n\n**The correct answer is $\\frac{4}{3}$ (or $1.333$).**\n\n**The Fast Way (~35s):** Substituting the point gives $4a - 24 = 12$, so $a = 9$. Setting $y = 0$ in $9x + 3y = 12$ gives $x = \\frac{12}{9} = \\frac{4}{3}$.\n\n**The Full Solution:**\nStep 1: The point $(4, -8)$ is on the graph, so $a(4) + 3(-8) = 12$, or $4a - 24 = 12$.\nStep 2: Solve: $4a = 36$, so $a = 9$, and the equation is $9x + 3y = 12$.\nStep 3: At the $x$-intercept, $y = 0$: $9x = 12$, so $x = \\frac{12}{9} = \\frac{4}{3}$. Check: $9(4) + 3(-8) = 36 - 24 = 12$ ✓ and $9\\left(\\frac{4}{3}\\right) + 3(0) = 12$ ✓\n\n**Common Mistakes:**\n* $-4$: drops the negative sign of $-8$, solving $4a + 24 = 12$ to get $a = -3$, and then $-3x = 12$.\n* $4$: finds the $y$-intercept instead, since $3y = 12$ gives $y = 4$ when $x = 0$.\n* $9$: stops after finding the constant $a = 9$.\n\n**Test Day Takeaway:** When a constant is unknown, use the given point to find it first; then the $x$-intercept comes from setting $y = 0$.",
       skills: ["coordinate-geometry"]
     },
     {
@@ -361,16 +361,16 @@ export const practiceTest11M2Easy = {
       band: 7,
       question: "A school has $900$ students. If one student is selected at random, the probability of selecting a student who plays a sport is $0.86$, and the probability of selecting a student who plays a sport and is a senior is $0.22$. Which of the following must be true?",
       choices: [
-        // distractor: uses 1 - 0.86 = 0.14, the probability of not playing a sport, giving 0.14(900) = 126
-        { id: "A", text: "Exactly $126$ students play a sport and are seniors." },
-        { id: "B", text: "Exactly $198$ students play a sport and are seniors." },
-        // distractor: subtracts 0.22 from 0.86 and treats 0.64(900) = 576 as the number of seniors
-        { id: "C", text: "Exactly $576$ students are seniors." },
-        // distractor: uses 0.86, the probability of playing a sport, giving 0.86(900) = 774
-        { id: "D", text: "Exactly $774$ students play a sport and are seniors." }
+        // distractor: treats 0.22 as the probability of selecting a senior, but some seniors may not play a sport
+        { id: "A", text: "Exactly $198$ students are seniors." },
+        { id: "B", text: "Exactly $576$ students play a sport and are not seniors." },
+        // distractor: treats 0.22 as the probability of selecting a senior and subtracts: 900 - 198 = 702
+        { id: "C", text: "Exactly $702$ students are not seniors." },
+        // distractor: uses 0.86(900) = 774, every student who plays a sport, without removing the seniors
+        { id: "D", text: "Exactly $774$ students play a sport and are not seniors." }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Basic Probability**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** A probability times the total gives a count, so $0.22(900) = 198$ students play a sport and are seniors.\n\n**The Full Solution:**\nStep 1: For a random selection, probability equals (number of students in the group) divided by $900$.\nStep 2: The group \"plays a sport and is a senior\" has probability $0.22$, so it contains $0.22(900) = 198$ students.\nStep 3: Only this count is fixed by the given information; the total number of seniors is not given, because some seniors may not play a sport. Check: $\\frac{198}{900} = 0.22$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($126$): $0.14(900)$, or $126$, is the number of students who do not play a sport, not the number who play a sport and are seniors.\n* Choice C ($576$): subtracting $0.22$ from $0.86$ leaves $0.64$, and $0.64(900) = 576$ is the number of students who play a sport and are not seniors; the number of seniors cannot be found from the information given.\n* Choice D ($774$): $0.86(900)$, or $774$, counts every student who plays a sport, seniors or not.\n\n**Test Day Takeaway:** Multiply a probability by the total to get a count, and match each probability to exactly the group it describes.",
+      explanation: "**SAT Pattern: Basic Probability**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The students who play a sport are either seniors or not seniors, so the probability of selecting a student who plays a sport and is not a senior is $0.86-0.22=0.64$, and $0.64(900) = 576$.\n\n**The Full Solution:**\nStep 1: Multiply each probability by $900$: $0.86(900) = 774$ students play a sport, and $0.22(900) = 198$ students play a sport and are seniors.\nStep 2: Every student who plays a sport either is or is not a senior, so $774 - 198 = 576$ students play a sport and are not seniors. This number is fixed by the given information.\nStep 3: The total number of seniors is not fixed, because some seniors may not play a sport. Check: $198 + 576 = 774$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($198$ seniors): $198$ counts only the seniors who play a sport; there may be other seniors who do not play a sport.\n* Choice C ($702$ not seniors): subtracts $198$ from $900$ as if $198$ were all the seniors.\n* Choice D ($774$): counts every student who plays a sport, including the $198$ seniors.\n\n**Test Day Takeaway:** Multiply a probability by the total to get a count, and match each count to exactly the group it describes; a group split into two parts gives the second part by subtraction.",
       skills: ["probability-basics"]
     },
     {

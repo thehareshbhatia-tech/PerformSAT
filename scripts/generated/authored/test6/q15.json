@@ -6,7 +6,7 @@
   "band": 3,
   "domain": "information-and-ideas",
   "skill": "inferences",
-  "passage": "The small marshes called prairie potholes once dotted the upper Midwest by the millions before many were drained for farming, often by burying drainage tiles beneath them. Restoring one might seem to demand heavy intervention, including replanting wetland species by hand. Yet in many restorations, crews did little more than break the buried tiles: the basins refilled with the next season's rains, and wetland plants, sprouting from seeds that had lain dormant in the soil, began returning within a few years. These outcomes suggest that ______",
+  "passage": "The small marshes called prairie potholes once dotted the upper Midwest by the millions before many were drained for farming, often by burying drainage tiles beneath them. Restoring one might seem to demand heavy intervention, including replanting wetland species by hand. Yet in many restorations, crews did little more than break the buried tiles. The basins refilled with the next season's rains, and wetland plants began returning within a few years, sprouting from seeds that had lain dormant in the soil. These outcomes suggest that ______",
   "question": "Which choice most logically completes the text?",
   "choices": [
     {
@@ -15,7 +15,7 @@
     },
     {
       "id": "B",
-      "text": "restoring a drained pothole requires planting a wider variety of wetland species than restorers typically use."
+      "text": "a restored pothole needs a wider variety of planted wetland species than restorers typically use."
     },
     {
       "id": "C",

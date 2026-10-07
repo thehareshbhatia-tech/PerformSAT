@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-353",
- "question": "In the figure shown, $O$ is the center of the circle, and the area of sector $AOB$ is $\\frac{49\\pi}{4}$. What is the length of $\\overline{AB}$?",
+ "question": "In the figure shown, $O$ is the center of the circle, and the length of minor arc $AB$ is $\\frac{7\\pi}{2}$. What is the length of $\\overline{AB}$?",
  "diagram": {
   "type": "circleWithSector",
   "params": {
@@ -16,7 +16,7 @@
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{7\\sqrt{2}}{2}$"
+   "text": "$\\frac{7\\sqrt{2}}{4}$"
   },
   {
    "id": "B",
@@ -28,14 +28,14 @@
   },
   {
    "id": "D",
-   "text": "$14$"
+   "text": "$14\\sqrt{2}$"
   }
  ],
  "distractorNotes": {
-  "A": "treats 49π/4 as the area of the whole circle, so r = 7/2",
+  "A": "treats 7 pi/2 as the circumference of the whole circle, so r = 7/4",
   "B": "reports the radius OA instead of the chord AB",
-  "D": "adds the two radii, OA + OB = 14"
+  "D": "uses pi r as the circumference, so the arc is pi r/4 and r = 14"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Right Triangle at Center — Chord Length**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** A $90^\\circ$ sector is $\\frac{1}{4}$ of the circle, so $\\frac{\\pi r^2}{4} = \\frac{49\\pi}{4}$ gives $r = 7$, and $AB = 7\\sqrt{2}$.\n\n**The Full Solution:**\nStep 1: The central angle is $90^\\circ$, so the sector's area is $\\frac{90}{360}\\pi r^2 = \\frac{\\pi r^2}{4}$.\nStep 2: $\\frac{\\pi r^2}{4} = \\frac{49\\pi}{4}$ gives $r^2 = 49$, so $OA = OB = 7$.\nStep 3: Triangle $AOB$ is an isosceles right triangle with legs $7$, so $AB = 7\\sqrt{2}$.\n\nCheck: $7^2 + 7^2 = 98 = (7\\sqrt{2})^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7\\sqrt{2}}{2}$): sets $\\pi r^2 = \\frac{49\\pi}{4}$, treating the sector as the whole circle, so $r = \\frac{7}{2}$.\n* Choice B ($7$): stops at the radius; $\\overline{AB}$ is the hypotenuse of triangle $AOB$, not a radius.\n* Choice D ($14$): adds $OA$ and $OB$; the hypotenuse is shorter than the sum of the legs.\n\n**Test Day Takeaway:** A sector is its angle's fraction of the full circle; once you have the radius, two radii at $90^\\circ$ make a 45-45-90 triangle."
+ "explanation": "**SAT Pattern: Right Triangle at Center — Chord Length**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** A $90^\\circ$ arc is $\\frac{1}{4}$ of the circumference, so $\\frac{2\\pi r}{4} = \\frac{7\\pi}{2}$ gives $r = 7$, and $AB = 7\\sqrt{2}$.\n\n**The Full Solution:**\nStep 1: The central angle is $90^\\circ$, so the arc length is $\\frac{90}{360}(2\\pi r) = \\frac{\\pi r}{2}$.\nStep 2: $\\frac{\\pi r}{2} = \\frac{7\\pi}{2}$ gives $r = 7$, so $OA = OB = 7$.\nStep 3: Triangle $AOB$ is an isosceles right triangle with legs $7$, so $AB = 7\\sqrt{2}$.\n\nCheck: $7^2 + 7^2 = 98 = (7\\sqrt{2})^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7\\sqrt{2}}{4}$): sets $2\\pi r = \\frac{7\\pi}{2}$, treating the arc as the whole circle, so $r = \\frac{7}{4}$.\n* Choice B ($7$): stops at the radius; $\\overline{AB}$ is the hypotenuse of triangle $AOB$, not a radius.\n* Choice D ($14\\sqrt{2}$): uses $\\pi r$ for the circumference, so $\\frac{\\pi r}{4} = \\frac{7\\pi}{2}$ and $r = 14$.\n\n**Test Day Takeaway:** An arc is its angle's fraction of the circumference; once you have the radius, two radii at $90^\\circ$ make a 45-45-90 triangle."
 }

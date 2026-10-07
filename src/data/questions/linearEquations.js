@@ -276,20 +276,20 @@ export const linearEquationsQuestions = {
     {
       id: 15,
       difficulty: "hard",
-      question: "The table shows three values of $x$ and their corresponding values of $f(x)$, where $f$ is a linear function. What is the x-intercept of the graph of $y = f(x)$ in the $xy$-plane?",
-      diagram: { type: "table", params: { rows: [["−6", 20], ["−2", 14], [6, 2]], xHeader: "x", yHeader: "f(x)" } },
+      question: "The points in the table lie on the graph of the linear function $f$. In the $xy$-plane, what is the x-intercept of the graph of $y = f(x)$?",
+      diagram: { type: "table", params: { rows: [["−3", "−7"], [3, "−3"], [12, 3]], xHeader: "x", yHeader: "f(x)" } },
       choices: [
-        // distractor: solves -1.5x + 11 = 0 with a sign error, getting x = -22/3
-        { id: "A", text: "$\\left(-\\frac{22}{3}, 0\\right)$" },
-        { id: "B", text: "$\\left(\\frac{22}{3}, 0\\right)$" },
+        // distractor: solves (2/3)x - 5 = 0 with a sign error, getting x = -15/2
+        { id: "A", text: "$\\left(-\\frac{15}{2}, 0\\right)$" },
+        // distractor: uses the y-intercept value, -5, as the x-coordinate of the x-intercept
+        { id: "B", text: "$(-5, 0)$" },
         // distractor: gives the y-intercept instead of the x-intercept
-        { id: "C", text: "$(0, 11)$" },
-        // distractor: uses the y-intercept value, 11, as the x-coordinate of the x-intercept
-        { id: "D", text: "$(11, 0)$" }
+        { id: "C", text: "$(0, -5)$" },
+        { id: "D", text: "$\\left(\\frac{15}{2}, 0\\right)$" }
       ],
-      correctAnswer: "B",
+      correctAnswer: "D",
       hint: "The values of $x$ are not evenly spaced, so divide each change in $f(x)$ by the matching change in $x$.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~45s):** The slope is $\\frac{14 - 20}{-2 - (-6)} = -\\frac{3}{2}$, so $f(x) = -\\frac{3}{2}x + 11$, and $f(x) = 0$ when $x = \\frac{22}{3}$.\n\n**The Full Solution:**\nStep 1: Using $(-6, 20)$ and $(-2, 14)$, the slope is $\\frac{14 - 20}{-2 - (-6)} = \\frac{-6}{4} = -\\frac{3}{2}$.\nStep 2: Substitute $(-2, 14)$ into $f(x) = -\\frac{3}{2}x + b$: $14 = 3 + b$, so $b = 11$ and $f(x) = -\\frac{3}{2}x + 11$.\nStep 3: The $x$-intercept is where $f(x) = 0$: $-\\frac{3}{2}x + 11 = 0$, so $x = \\frac{22}{3}$, and the $x$-intercept is $\\left(\\frac{22}{3}, 0\\right)$. Check: $f(6) = -9 + 11 = 2$, matching the table, and $-\\frac{3}{2}\\left(\\frac{22}{3}\\right) + 11 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\left(-\\frac{22}{3}, 0\\right)$): makes a sign error when solving $-\\frac{3}{2}x + 11 = 0$.\n* Choice C ($(0, 11)$): is the $y$-intercept of the graph, not the $x$-intercept.\n* Choice D ($(11, 0)$): uses the $y$-intercept value, $11$, as the $x$-coordinate of the $x$-intercept.\n\n**Test Day Takeaway:** An $x$-intercept has a $y$-coordinate of $0$. Build the equation from the table, then set $f(x) = 0$ and solve.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~45s):** The slope is $\\frac{-3 - (-7)}{3 - (-3)} = \\frac{2}{3}$, so $f(x) = \\frac{2}{3}x - 5$, and $f(x) = 0$ when $x = \\frac{15}{2}$.\n\n**The Full Solution:**\nStep 1: Using $(-3, -7)$ and $(3, -3)$, the slope is $\\frac{-3 - (-7)}{3 - (-3)} = \\frac{4}{6} = \\frac{2}{3}$.\nStep 2: Substitute $(3, -3)$ into $f(x) = \\frac{2}{3}x + b$: $-3 = 2 + b$, so $b = -5$ and $f(x) = \\frac{2}{3}x - 5$.\nStep 3: The $x$-intercept is where $f(x) = 0$: $\\frac{2}{3}x - 5 = 0$, so $x = \\frac{15}{2}$, and the $x$-intercept is $\\left(\\frac{15}{2}, 0\\right)$. Check: $f(12) = 8 - 5 = 3$, matching the table, and $\\frac{2}{3}\\left(\\frac{15}{2}\\right) - 5 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\left(-\\frac{15}{2}, 0\\right)$): makes a sign error when solving $\\frac{2}{3}x - 5 = 0$.\n* Choice B ($(-5, 0)$): uses the $y$-intercept value, $-5$, as the $x$-coordinate of the $x$-intercept.\n* Choice C ($(0, -5)$): is the $y$-intercept of the graph, not the $x$-intercept.\n\n**Test Day Takeaway:** An $x$-intercept has a $y$-coordinate of $0$. Build the equation from the table, then set $f(x) = 0$ and solve.",
       skills: ["table-to-equation", "slope-from-points"]
     },
 
@@ -369,19 +369,19 @@ export const linearEquationsQuestions = {
     {
       id: 20,
       difficulty: "hard",
-      question: "For the linear function $f$, $f(-3) = 20$ and $f(5) = -4$. The graph of $y = f(x)$ in the $xy$-plane has an $x$-intercept at $(a, 0)$ and a $y$-intercept at $(0, b)$. What is the value of $\\frac{b}{a}$?",
+      question: "In the $xy$-plane, the graph of the linear function $f$ has an $x$-intercept at $(a, 0)$ and a $y$-intercept at $(0, b)$. If $f(-2) = 18$ and $f(4) = -6$, what is the value of $\\frac{b}{a}$?",
       choices: [
-        // distractor: reports the slope of the graph, -3, as the value of b/a, missing that b/a is the opposite of the slope
-        { id: "A", text: "$-3$" },
-        // distractor: computes a/b = (11/3)/11 instead of b/a
-        { id: "B", text: "$\\frac{1}{3}$" },
-        { id: "C", text: "$3$" },
-        // distractor: stops at the y-intercept, b = 11, and never finds a
-        { id: "D", text: "$11$" }
+        // distractor: reports the slope of the graph, -4, as the value of b/a, missing that b/a is the opposite of the slope
+        { id: "A", text: "$-4$" },
+        // distractor: computes a/b = (5/2)/10 instead of b/a
+        { id: "B", text: "$\\frac{1}{4}$" },
+        { id: "C", text: "$4$" },
+        // distractor: stops at the y-intercept, b = 10, and never finds a
+        { id: "D", text: "$10$" }
       ],
       correctAnswer: "C",
       hint: "Find the slope from the two given values, then write $f(x)$ in slope-intercept form.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~50s):** The slope is $\\frac{-4 - 20}{5 - (-3)} = -3$, so $f(x) = -3x + 11$; then $b = 11$, $a = \\frac{11}{3}$, and $\\frac{b}{a} = 3$.\n\n**The Full Solution:**\nStep 1: The graph passes through $(-3, 20)$ and $(5, -4)$, so its slope is $\\frac{-4 - 20}{5 - (-3)} = \\frac{-24}{8} = -3$.\nStep 2: Write $f(x) = -3x + b$ and substitute $(5, -4)$: $-4 = -15 + b$, so $b = 11$ and $f(x) = -3x + 11$. The $y$-intercept is $(0, 11)$.\nStep 3: Set $f(a) = 0$: $-3a + 11 = 0$, so $a = \\frac{11}{3}$. Then $\\frac{b}{a} = \\frac{11}{11/3} = 3$.\n\nCheck: $f(-3) = 9 + 11 = 20$, $f(5) = -15 + 11 = -4$, and $f\\left(\\frac{11}{3}\\right) = -11 + 11 = 0$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): is the slope of the graph; the slope is $\\frac{0 - b}{a - 0} = -\\frac{b}{a}$, so $\\frac{b}{a}$ is its opposite.\n* Choice B ($\\frac{1}{3}$): divides in the wrong order, $\\frac{a}{b} = \\frac{11/3}{11}$.\n* Choice D ($11$): is the $y$-intercept $b$ alone; the question asks for $b$ divided by $a$.\n\n**Test Day Takeaway:** Two function values give the slope, the slope and one point give the equation, and the intercepts come straight from that equation; for any line through $(a, 0)$ and $(0, b)$, the slope is $-\\frac{b}{a}$.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~50s):** The slope is $\\frac{-6 - 18}{4 - (-2)} = -4$, so $f(x) = -4x + 10$; then $b = 10$, $a = \\frac{5}{2}$, and $\\frac{b}{a} = 4$.\n\n**The Full Solution:**\nStep 1: The graph passes through $(-2, 18)$ and $(4, -6)$, so its slope is $\\frac{-6 - 18}{4 - (-2)} = \\frac{-24}{6} = -4$.\nStep 2: Write $f(x) = -4x + b$ and substitute $(4, -6)$: $-6 = -16 + b$, so $b = 10$ and $f(x) = -4x + 10$. The $y$-intercept is $(0, 10)$.\nStep 3: Set $f(a) = 0$: $-4a + 10 = 0$, so $a = \\frac{5}{2}$. Then $\\frac{b}{a} = \\frac{10}{5/2} = 4$.\n\nCheck: $f(-2) = 8 + 10 = 18$, $f(4) = -16 + 10 = -6$, and $f\\left(\\frac{5}{2}\\right) = -10 + 10 = 0$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): is the slope of the graph; the slope is $\\frac{0 - b}{a - 0} = -\\frac{b}{a}$, so $\\frac{b}{a}$ is its opposite.\n* Choice B ($\\frac{1}{4}$): divides in the wrong order, $\\frac{a}{b} = \\frac{5/2}{10}$.\n* Choice D ($10$): is the $y$-intercept $b$ alone; the question asks for $b$ divided by $a$.\n\n**Test Day Takeaway:** Two function values give the slope, the slope and one point give the equation, and the intercepts come straight from that equation; for any line through $(a, 0)$ and $(0, b)$, the slope is $-\\frac{b}{a}$.",
       skills: ["function-notation-to-equation", "slope-from-points", "slope-intercept-form"]
     }
   ],
@@ -449,37 +449,37 @@ export const linearEquationsQuestions = {
     {
       id: 4,
       difficulty: "easy",
-      question: "Line $p$ is parallel to the line $y = \\frac{1}{2}x + 3$ in the $xy$-plane and passes through the point $(4, 6)$. Which equation defines line $p$?",
+      question: "In the $xy$-plane, line $p$ is parallel to the line $y = 3x + 2$. Which of the following could be an equation of line $p$?",
       choices: [
-        // distractor: uses the perpendicular slope, -2, through (4, 6)
-        { id: "A", text: "$y = -2x + 14$" },
-        // distractor: copies the given line, which does not pass through (4, 6)
-        { id: "B", text: "$y = \\frac{1}{2}x + 3$" },
-        { id: "C", text: "$y = \\frac{1}{2}x + 4$" },
-        // distractor: adds 2 to 6 instead of subtracting when solving for the y-intercept
-        { id: "D", text: "$y = \\frac{1}{2}x + 8$" }
+        // distractor: changes the sign of the slope instead of keeping it
+        { id: "A", text: "$y = -3x + 2$" },
+        // distractor: uses the negative reciprocal slope, which gives a perpendicular line
+        { id: "B", text: "$y = -\\frac{1}{3}x + 4$" },
+        // distractor: swaps the slope and the y-intercept of the given line
+        { id: "C", text: "$y = 2x + 3$" },
+        { id: "D", text: "$y = 3x - 4$" }
       ],
-      correctAnswer: "C",
-      hint: "Parallel lines share a slope; only the constant term is left to find.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** Line $p$ has slope $\\frac{1}{2}$, and $6 = \\frac{1}{2}(4) + b$ gives $b = 4$.\n\n**The Full Solution:**\nStep 1: Line $p$ is parallel to the given line, so its slope is also $\\frac{1}{2}$: $y = \\frac{1}{2}x + b$.\nStep 2: Substitute the point $(4, 6)$: $6 = \\frac{1}{2}(4) + b = 2 + b$.\nStep 3: So $b = 4$, and line $p$ is $y = \\frac{1}{2}x + 4$.\n\nCheck: $\\frac{1}{2}(4) + 4 = 6$, so $(4, 6)$ is on the line. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -2x + 14$): passes through $(4, 6)$ but has the perpendicular slope, $-2$.\n* Choice B ($y = \\frac{1}{2}x + 3$): is the given line itself; at $x = 4$ it gives $y = 5$, not $6$.\n* Choice D ($y = \\frac{1}{2}x + 8$): adds $2$ to $6$ instead of subtracting it when solving for $b$.\n\n**Test Day Takeaway:** Keep the slope, then substitute the given point to find the new $y$-intercept.",
+      correctAnswer: "D",
+      hint: "Parallel lines have the same slope.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~10s):** Line $p$ must have the same slope as $y = 3x + 2$, which is $3$; only $y = 3x - 4$ has slope $3$.\n\n**The Full Solution:**\nStep 1: The line $y = 3x + 2$ is in slope-intercept form, so its slope is $3$.\nStep 2: Parallel lines have equal slopes and different $y$-intercepts, so line $p$ has slope $3$.\nStep 3: Of the choices, only $y = 3x - 4$ has slope $3$. Check: its $y$-intercept is $-4$, not $2$, so it is a different line with the same slope ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -3x + 2$): has slope $-3$; changing the sign of the slope gives a line that is not parallel.\n* Choice B ($y = -\\frac{1}{3}x + 4$): uses the negative reciprocal of $3$, which gives a perpendicular line.\n* Choice C ($y = 2x + 3$): swaps the slope and the $y$-intercept of the given line.\n\n**Test Day Takeaway:** Parallel means same slope; read the coefficient of $x$ and look for the choice that keeps it.",
       skills: ["parallel-line-slope", "writing-parallel-equation"]
     },
     {
       id: 5,
       difficulty: "medium",
-      question: "Line $j$ passes through the point $(-4, 9)$ and is parallel to the line $3x - 2y = 10$ in the $xy$-plane. Which equation defines line $j$?",
+      question: "Line $j$ passes through the point $(0, 7)$ and is parallel to the line $3x - 2y = 10$ in the $xy$-plane. Which equation defines line $j$?",
       choices: [
-        // distractor: takes the slope of 3x - 2y = 10 as -3/2, losing the sign from dividing by -2
-        { id: "A", text: "$y = -\\frac{3}{2}x + 3$" },
-        // distractor: rewrites the given line, y = (3/2)x - 5, which does not pass through (-4, 9)
+        // distractor: loses the sign when dividing by -2, so the slope is -3/2
+        { id: "A", text: "$y = -\\frac{3}{2}x + 7$" },
+        // distractor: rewrites the given line, which passes through (0, -5), not (0, 7)
         { id: "B", text: "$y = \\frac{3}{2}x - 5$" },
-        // distractor: treats (3/2)(-4) as +6 when solving for the y-intercept, getting b = 9 - 6
-        { id: "C", text: "$y = \\frac{3}{2}x + 3$" },
-        { id: "D", text: "$y = \\frac{3}{2}x + 15$" }
+        { id: "C", text: "$y = \\frac{3}{2}x + 7$" },
+        // distractor: uses the x-coefficient, 3, as the slope without solving for y
+        { id: "D", text: "$y = 3x + 7$" }
       ],
-      correctAnswer: "D",
-      hint: "Rewrite the given line in slope-intercept form to read its slope.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~40s):** The given line is $y = \\frac{3}{2}x - 5$, so line $j$ is $y = \\frac{3}{2}x + b$ with $9 = \\frac{3}{2}(-4) + b = -6 + b$, giving $b = 15$.\n\n**The Full Solution:**\nStep 1: Solve $3x - 2y = 10$ for $y$: $-2y = -3x + 10$, so $y = \\frac{3}{2}x - 5$, which has slope $\\frac{3}{2}$.\nStep 2: Line $j$ is parallel, so it has the form $y = \\frac{3}{2}x + b$. Substitute $(-4, 9)$: $9 = \\frac{3}{2}(-4) + b = -6 + b$.\nStep 3: So $b = 15$, and line $j$ is $y = \\frac{3}{2}x + 15$.\n\nCheck: $\\frac{3}{2}(-4) + 15 = -6 + 15 = 9$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{3}{2}x + 3$): loses a sign when dividing by $-2$, so the slope is wrong even though the line passes through $(-4, 9)$.\n* Choice B ($y = \\frac{3}{2}x - 5$): is the given line itself; at $x = -4$ it gives $y = -11$.\n* Choice C ($y = \\frac{3}{2}x + 3$): treats $\\frac{3}{2}(-4)$ as $+6$, so $b = 9 - 6 = 3$.\n\n**Test Day Takeaway:** Get the slope from the given line in slope-intercept form, then use the point, keeping track of the negative coordinate.",
+      correctAnswer: "C",
+      hint: "Solve 3x - 2y = 10 for y to read its slope.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~30s):** The given line is $y = \\frac{3}{2}x - 5$, so line $j$ has slope $\\frac{3}{2}$ and y-intercept $7$: $y = \\frac{3}{2}x + 7$.\n\n**The Full Solution:**\nStep 1: Solve $3x - 2y = 10$ for $y$: $-2y = -3x + 10$, so $y = \\frac{3}{2}x - 5$, which has slope $\\frac{3}{2}$.\nStep 2: Line $j$ is parallel, so it also has slope $\\frac{3}{2}$.\nStep 3: The point $(0, 7)$ gives the y-intercept $7$, so line $j$ is $y = \\frac{3}{2}x + 7$. Check: at $x = 0$, $y = 7$, and the slope matches the given line. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{3}{2}x + 7$): loses the sign when dividing by $-2$, so the slope is $-\\frac{3}{2}$.\n* Choice B ($y = \\frac{3}{2}x - 5$): is the given line itself; it passes through $(0, -5)$.\n* Choice D ($y = 3x + 7$): takes the $x$-coefficient $3$ as the slope without solving for $y$.\n\n**Test Day Takeaway:** To read a slope from $Ax + By = C$, solve for $y$ first; the slope is $-\\frac{A}{B}$.",
       skills: ["parallel-line-slope", "writing-parallel-equation"]
     },
     {
@@ -599,19 +599,19 @@ export const linearEquationsQuestions = {
     {
       id: 12,
       difficulty: "hard",
-      question: "$10x - 4y = 6$\n$-15x + 6y = c$\nIn the given system of equations, $c$ is a constant. If the system has infinitely many solutions, what is the value of $c$?",
+      question: "$3x + ky = 8$\n$12x - 20y = 5$\nIn the given system of equations, $k$ is a constant. If the system has no solution, what is the value of $k$?",
       choices: [
-        { id: "A", text: "$-9$" },
-        // distractor: uses the inverted scale factor -2/3 instead of -3/2
-        { id: "B", text: "$-4$" },
-        // distractor: copies the constant 6, as if the constants must be equal
-        { id: "C", text: "$6$" },
-        // distractor: drops the negative sign of the scale factor -3/2
-        { id: "D", text: "$9$" }
+        // distractor: multiplies -20 by 4 instead of dividing, scaling the wrong equation
+        { id: "A", text: "$-80$" },
+        // distractor: copies the y-coefficient -20, as if the coefficients must be equal
+        { id: "B", text: "$-20$" },
+        { id: "C", text: "$-5$" },
+        // distractor: drops the negative sign of -20 when dividing by 4
+        { id: "D", text: "$5$" }
       ],
-      correctAnswer: "A",
-      hint: "One equation must be a constant multiple of the other, constants included.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~35s):** Multiplying the first equation by $-\\frac{3}{2}$ gives $-15x + 6y = -9$, so $c = -9$.\n\n**The Full Solution:**\nStep 1: The system has infinitely many solutions when the two equations describe the same line, so the second equation must be a multiple of the first.\nStep 2: The factor that turns $10x$ into $-15x$ is $-\\frac{3}{2}$, and it also turns $-4y$ into $6y$.\nStep 3: Apply the same factor to the constant: $c = -\\frac{3}{2}(6) = -9$.\n\nCheck: $-\\frac{3}{2}(10x - 4y) = -15x + 6y$ and $-\\frac{3}{2}(6) = -9$, so $-15x + 6y = -9$ is the first equation multiplied by $-\\frac{3}{2}$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-4$): uses the factor $-\\frac{2}{3}$, which turns the second equation into the first, but applies it to the first equation's constant.\n* Choice C ($6$): assumes the constants must be equal, but the coefficients were scaled by $-\\frac{3}{2}$.\n* Choice D ($9$): uses $\\frac{3}{2}$ and loses the negative sign of the scale factor.\n\n**Test Day Takeaway:** Infinitely many solutions: find the one factor that matches the $x$- and $y$-coefficients, then apply it to the constant too.",
+      correctAnswer: "C",
+      hint: "No solution means the two lines are parallel: the coefficients of $x$ and $y$ are in the same ratio, but the constants are not.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~35s):** The $x$-coefficient $12$ is $4$ times $3$, so $-20$ must be $4$ times $k$: $k = -5$.\n\n**The Full Solution:**\nStep 1: The system has no solution when the two equations are parallel lines: the $x$- and $y$-coefficients are in the same ratio, but the constants are not.\nStep 2: The second equation's $x$-coefficient is $\\frac{12}{3} = 4$ times the first, so $-20 = 4k$, which gives $k = -5$.\nStep 3: Check the constants: $4 \\cdot 8 = 32 \\neq 5$, so with $k = -5$ the lines $3x - 5y = 8$ and $12x - 20y = 5$ have the same slope, $\\frac{3}{5}$, and different $y$-intercepts, $-\\frac{8}{5}$ and $-\\frac{1}{4}$. They never meet ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-80$): multiplies $-20$ by $4$; the factor $4$ goes from the first equation to the second, so $k$ is $-20$ divided by $4$.\n* Choice B ($-20$): assumes the $y$-coefficients must be equal, but the $x$-coefficients differ by a factor of $4$.\n* Choice D ($5$): divides $20$ by $4$ and loses the negative sign of $-20$.\n\n**Test Day Takeaway:** No solution: match the ratio of the $x$- and $y$-coefficients, then make sure the constants do not follow the same ratio.",
       skills: ["parallel-line-slope", "system-no-solution", "algebraic-manipulation"]
     }
   ],
@@ -639,73 +639,73 @@ export const linearEquationsQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "In the $xy$-plane, line $j$ is perpendicular to the line with equation $y = -3x + 5$. Which equation could define line $j$?",
+      question: "In the $xy$-plane, line $j$ is perpendicular to the line with equation $y = -3x + 5$. What is the slope of line $j$?",
       choices: [
-        // distractor: copies the slope -3, which gives a parallel line
-        { id: "A", text: "$y = -3x + 2$" },
+        // distractor: gives the slope of the given line, not of a line perpendicular to it
+        { id: "A", text: "$-3$" },
         // distractor: takes the reciprocal of -3 but keeps the negative sign
-        { id: "B", text: "$y = -\\frac{1}{3}x + 2$" },
-        { id: "C", text: "$y = \\frac{1}{3}x + 2$" },
+        { id: "B", text: "$-\\frac{1}{3}$" },
+        { id: "C", text: "$\\frac{1}{3}$" },
         // distractor: changes the sign of -3 but does not take the reciprocal
-        { id: "D", text: "$y = 3x + 2$" }
+        { id: "D", text: "$3$" }
       ],
       correctAnswer: "C",
-      hint: "Perpendicular slopes multiply to $-1$.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** The given slope is $-3$, so a perpendicular line has slope $\\frac{1}{3}$; only choice C has that slope.\n\n**The Full Solution:**\nStep 1: The line $y = -3x + 5$ has slope $-3$.\nStep 2: A perpendicular line has slope $m$ with $-3m = -1$, so $m = \\frac{1}{3}$.\nStep 3: The $y$-intercept can be any value, so $y = \\frac{1}{3}x + 2$ could define line $j$.\n\nCheck: $-3 \\cdot \\frac{1}{3} = -1$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -3x + 2$): has the same slope as the given line, so it is parallel, not perpendicular.\n* Choice B ($y = -\\frac{1}{3}x + 2$): takes the reciprocal but keeps the sign; $-3 \\cdot \\left(-\\frac{1}{3}\\right) = 1$.\n* Choice D ($y = 3x + 2$): changes the sign but does not take the reciprocal; $-3 \\cdot 3 = -9$.\n\n**Test Day Takeaway:** Check perpendicular slopes by multiplying them: the product must be $-1$.",
+      hint: "Perpendicular slopes are negative reciprocals.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~30s):** The given line has slope $-3$, and the negative reciprocal of $-3$ is $\\frac{1}{3}$.\n\n**The Full Solution:**\nStep 1: The equation $y = -3x + 5$ is in slope-intercept form, so its slope is $-3$.\nStep 2: The slope of a perpendicular line is the negative reciprocal: $-\\frac{1}{-3} = \\frac{1}{3}$.\nStep 3: So the slope of line $j$ is $\\frac{1}{3}$.\n\nCheck: $(-3)\\left(\\frac{1}{3}\\right) = -1$, as it must be for perpendicular lines. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): is the slope of the given line; a line with this slope is parallel to it, not perpendicular.\n* Choice B ($-\\frac{1}{3}$): takes the reciprocal but forgets to change the sign.\n* Choice D ($3$): changes the sign but forgets to take the reciprocal.\n\n**Test Day Takeaway:** For a perpendicular slope, do both moves: flip the fraction and change the sign.",
       skills: ["perpendicular-negative-reciprocal"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "In the $xy$-plane, line $\\ell$ passes through the point $(6, 7)$ and is perpendicular to the line $y = -\\frac{2}{3}x + 1$. Which equation defines line $\\ell$?",
+      question: "In the $xy$-plane, line $\\ell$ is perpendicular to the graph of $6y + 9x = 4$. What is the slope of line $\\ell$?",
       choices: [
-        // distractor: takes the reciprocal of -2/3 but keeps the negative sign
-        { id: "A", text: "$y = -\\frac{3}{2}x + 16$" },
-        // distractor: changes the sign of -2/3 but does not take the reciprocal
-        { id: "B", text: "$y = \\frac{2}{3}x + 3$" },
-        { id: "C", text: "$y = \\frac{3}{2}x - 2$" },
-        // distractor: uses the correct slope but adds 9 to 7 instead of subtracting when finding the y-intercept
-        { id: "D", text: "$y = \\frac{3}{2}x + 16$" }
+        // distractor: gives the slope of the given line, not of a line perpendicular to it
+        { id: "A", text: "$-\\frac{3}{2}$" },
+        // distractor: takes the reciprocal of -3/2 but keeps the negative sign
+        { id: "B", text: "$-\\frac{2}{3}$" },
+        { id: "C", text: "$\\frac{2}{3}$" },
+        // distractor: changes the sign of -3/2 but does not take the reciprocal
+        { id: "D", text: "$\\frac{3}{2}$" }
       ],
       correctAnswer: "C",
-      hint: "Find the perpendicular slope first, then use the point to find the $y$-intercept.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~35s):** The perpendicular slope is $\\frac{3}{2}$, and $7 = \\frac{3}{2}(6) + b$ gives $b = -2$.\n\n**The Full Solution:**\nStep 1: The given line has slope $-\\frac{2}{3}$, so line $\\ell$ has the negative reciprocal slope, $\\frac{3}{2}$.\nStep 2: Substitute $(6, 7)$ into $y = \\frac{3}{2}x + b$: $7 = 9 + b$.\nStep 3: So $b = -2$, and line $\\ell$ is $y = \\frac{3}{2}x - 2$.\n\nCheck: $\\frac{3}{2}(6) - 2 = 9 - 2 = 7$, and $-\\frac{2}{3} \\cdot \\frac{3}{2} = -1$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{3}{2}x + 16$): passes through $(6, 7)$ but keeps the negative sign, so it is not perpendicular.\n* Choice B ($y = \\frac{2}{3}x + 3$): passes through $(6, 7)$ but only changes the sign of the slope.\n* Choice D ($y = \\frac{3}{2}x + 16$): has the right slope but adds $9$ to $7$; at $x = 6$ it gives $y = 25$.\n\n**Test Day Takeaway:** Perpendicular line through a point: negative reciprocal slope first, then substitute the point to find $b$.",
+      hint: "Solve the given equation for $y$ to read its slope, then take the negative reciprocal.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~30s):** Solving for $y$ gives $y = -\\frac{3}{2}x + \\frac{2}{3}$, so the given slope is $-\\frac{3}{2}$ and the perpendicular slope is $\\frac{2}{3}$.\n\n**The Full Solution:**\nStep 1: Subtract $9x$ from both sides: $6y = -9x + 4$.\nStep 2: Divide by $6$: $y = -\\frac{3}{2}x + \\frac{2}{3}$, so the given line has slope $-\\frac{3}{2}$.\nStep 3: The slope of line $\\ell$ is the negative reciprocal of $-\\frac{3}{2}$, which is $\\frac{2}{3}$.\n\nCheck: $\\left(-\\frac{3}{2}\\right)\\left(\\frac{2}{3}\\right) = -1$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{3}{2}$): is the slope of the given line itself.\n* Choice B ($-\\frac{2}{3}$): flips the fraction but keeps the negative sign.\n* Choice D ($\\frac{3}{2}$): changes the sign but does not flip the fraction.\n\n**Test Day Takeaway:** When a line is given in the form $ax + by = c$, solve for $y$ first; the slope is $-\\frac{a}{b}$.",
       skills: ["perpendicular-negative-reciprocal", "writing-perpendicular-equation"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "In the $xy$-plane, line $k$ passes through the points $(-2, 7)$ and $(4, -1)$. Line $j$ is perpendicular to line $k$. What is the slope of line $j$?",
+      question: "Line $k$ in the $xy$-plane has an x-intercept of $(6, 0)$ and a y-intercept of $(0, -4)$. Line $j$ is perpendicular to line $k$. What is the slope of line $j$?",
       choices: [
+        { id: "A", text: "$-\\frac{3}{2}$" },
+        // distractor: changes the sign of 2/3 but does not take the reciprocal
+        { id: "B", text: "$-\\frac{2}{3}$" },
         // distractor: reports the slope of line k itself
-        { id: "A", text: "$-\\frac{4}{3}$" },
-        // distractor: takes the reciprocal of -4/3 but keeps the negative sign
-        { id: "B", text: "$-\\frac{3}{4}$" },
-        { id: "C", text: "$\\frac{3}{4}$" },
-        // distractor: changes the sign of -4/3 but does not take the reciprocal
-        { id: "D", text: "$\\frac{4}{3}$" }
+        { id: "C", text: "$\\frac{2}{3}$" },
+        // distractor: takes the reciprocal of 2/3 but keeps the positive sign
+        { id: "D", text: "$\\frac{3}{2}$" }
       ],
-      correctAnswer: "C",
-      hint: "Find line $k$'s slope from its two points first.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~30s):** Line $k$ has slope $\\frac{-1 - 7}{4 - (-2)} = -\\frac{4}{3}$, so line $j$ has slope $\\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: The slope of line $k$ is $\\frac{-1 - 7}{4 - (-2)} = \\frac{-8}{6} = -\\frac{4}{3}$.\nStep 2: Perpendicular slopes are negative reciprocals.\nStep 3: The slope of line $j$ is $\\frac{3}{4}$.\n\nCheck: $-\\frac{4}{3} \\cdot \\frac{3}{4} = -1$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{4}{3}$): is the slope of line $k$; the question asks about the perpendicular line.\n* Choice B ($-\\frac{3}{4}$): flips the fraction but keeps the sign; the product with $-\\frac{4}{3}$ is $1$.\n* Choice D ($\\frac{4}{3}$): changes the sign but does not flip the fraction.\n\n**Test Day Takeaway:** Two steps, in order: slope from the two points, then the negative reciprocal.",
+      correctAnswer: "A",
+      hint: "Use the two intercepts as two points on line $k$ to find its slope first.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~30s):** Line $k$ has slope $\\frac{0 - (-4)}{6 - 0} = \\frac{2}{3}$, so line $j$ has slope $-\\frac{3}{2}$.\n\n**The Full Solution:**\nStep 1: The intercepts $(6, 0)$ and $(0, -4)$ are two points on line $k$, so its slope is $\\frac{0 - (-4)}{6 - 0} = \\frac{4}{6} = \\frac{2}{3}$.\nStep 2: Perpendicular slopes are negative reciprocals.\nStep 3: The slope of line $j$ is $-\\frac{3}{2}$.\n\nCheck: $\\frac{2}{3} \\cdot \\left(-\\frac{3}{2}\\right) = -1$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{2}{3}$): changes the sign but does not flip the fraction.\n* Choice C ($\\frac{2}{3}$): is the slope of line $k$; the question asks about the perpendicular line.\n* Choice D ($\\frac{3}{2}$): flips the fraction but keeps the sign; the product with $\\frac{2}{3}$ is $1$.\n\n**Test Day Takeaway:** Two intercepts are two points: find the slope of the line through them, then take the negative reciprocal.",
       skills: ["perpendicular-negative-reciprocal"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "In the $xy$-plane, line $\\ell$ is perpendicular to the line $3x - 4y = 12$ and passes through the points $(2, 10)$ and $(8, k)$. What is the value of $k$?",
+      question: "$\\frac{2}{3}x - \\frac{1}{4}y = 9$\nIn the $xy$-plane, line $k$ is the graph of the given equation. Line $j$ is perpendicular to line $k$. What is the slope of line $j$?",
       choices: [
-        { id: "A", text: "$2$" },
-        // distractor: uses -3/4, changing the sign of the given slope without taking the reciprocal
-        { id: "B", text: "$5.5$" },
-        // distractor: uses 3/4, the slope of the given line, as if the lines were parallel
-        { id: "C", text: "$14.5$" },
-        // distractor: uses 4/3, taking the reciprocal without changing the sign
-        { id: "D", text: "$18$" }
+        // distractor: changes the sign of the slope of line k, 8/3, but does not take the reciprocal
+        { id: "A", text: "$-\\frac{8}{3}$" },
+        { id: "B", text: "$-\\frac{3}{8}$" },
+        // distractor: takes the reciprocal of 8/3 but does not change the sign
+        { id: "C", text: "$\\frac{3}{8}$" },
+        // distractor: gives the slope of line k instead of the slope of a line perpendicular to it
+        { id: "D", text: "$\\frac{8}{3}$" }
       ],
-      correctAnswer: "A",
-      hint: "Perpendicular lines have slopes whose product is $-1$.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~50s):** The given line has slope $\\frac{3}{4}$, so line $\\ell$ has slope $-\\frac{4}{3}$; then $\\frac{k - 10}{8 - 2} = -\\frac{4}{3}$ gives $k = 2$.\n\n**The Full Solution:**\nStep 1: Solve $3x - 4y = 12$ for $y$: $y = \\frac{3}{4}x - 3$, so its slope is $\\frac{3}{4}$ and line $\\ell$ has slope $-\\frac{4}{3}$.\nStep 2: The slope through $(2, 10)$ and $(8, k)$ is $\\frac{k - 10}{8 - 2} = \\frac{k - 10}{6}$. Set it equal to $-\\frac{4}{3}$: $k - 10 = -8$.\nStep 3: So $k = 2$.\n\nCheck: $\\frac{2 - 10}{8 - 2} = \\frac{-8}{6} = -\\frac{4}{3}$, and $\\frac{3}{4} \\cdot \\left(-\\frac{4}{3}\\right) = -1$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($5.5$): uses $-\\frac{3}{4}$, which changes the sign but does not take the reciprocal.\n* Choice C ($14.5$): uses $\\frac{3}{4}$, the slope of the given line, which would make the lines parallel.\n* Choice D ($18$): uses $\\frac{4}{3}$, which takes the reciprocal but keeps the positive sign.\n\n**Test Day Takeaway:** Convert the given line to slope-intercept form, take the negative reciprocal, then set the two-point slope equal to it.",
+      correctAnswer: "B",
+      hint: "Solve for $y$ to find the slope of line $k$, then take the negative reciprocal.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~30s):** Solving for $y$ gives $y = \\frac{8}{3}x - 36$, so line $k$ has slope $\\frac{8}{3}$ and line $j$ has slope $-\\frac{3}{8}$.\n\n**The Full Solution:**\nStep 1: Subtract $\\frac{2}{3}x$ from both sides: $-\\frac{1}{4}y = -\\frac{2}{3}x + 9$.\nStep 2: Multiply both sides by $-4$: $y = \\frac{8}{3}x - 36$, so the slope of line $k$ is $\\frac{8}{3}$.\nStep 3: The slope of line $j$ is the negative reciprocal of $\\frac{8}{3}$, which is $-\\frac{3}{8}$.\n\nCheck: $\\left(\\frac{8}{3}\\right)\\left(-\\frac{3}{8}\\right) = -1$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{8}{3}$): changes the sign of $\\frac{8}{3}$ but does not flip it.\n* Choice C ($\\frac{3}{8}$): flips $\\frac{8}{3}$ but does not change the sign.\n* Choice D ($\\frac{8}{3}$): is the slope of line $k$ itself.\n\n**Test Day Takeaway:** With fraction coefficients, solve for $y$ carefully (multiply by $-4$ here), then apply the negative reciprocal.",
       skills: ["slope-from-points", "perpendicular-negative-reciprocal", "writing-perpendicular-equation"]
     }
   ]

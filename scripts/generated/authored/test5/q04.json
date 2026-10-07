@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 1,
- "passage": "Most mountain glaciers respond to changes in climate gradually, thickening or thinning over decades. Some glaciers in the Karakoram range behave differently: after long quiet periods during which the ice barely moves, they abruptly ______, with the ice front advancing hundreds of meters within months before the glacier subsides into stillness again.",
+ "passage": "Most mountain glaciers respond to changes in climate gradually, thickening or thinning over decades. Some glaciers in the Karakoram range behave differently. After long quiet periods during which the ice barely moves, they abruptly ______: the ice front advances hundreds of meters within months, and then the glacier grows still again.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
@@ -27,7 +27,7 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The blank must describe a sudden burst of motion after near-stillness, and \"accelerate\" names exactly that change of pace.\n\n**The Full Solution:**\n- The contrast is between long quiet periods when \"the ice barely moves\" and an abrupt episode of activity.\n- The clause after the blank specifies what that activity looks like: the ice front advances hundreds of meters within months.\n- A glacier that goes from barely moving to advancing rapidly has sped up, so \"accelerate\" is the logical and precise choice.\n\n**Why the other choices are wrong:**\n- A: \"Retreat\" reverses the direction the text describes; the ice front advances.\n- C: \"Melt\" describes loss of ice, which would shrink the glacier rather than push its front forward.\n- D: \"Solidify\" describes the quiet state, not the abrupt change from it.",
+ "explanation": "**Choice B is correct.** The blank must describe a sudden burst of motion after near-stillness, and \"accelerate\" names exactly that change of pace.\n\n**The Full Solution:**\n- The contrast is between long quiet periods when \"the ice barely moves\" and an abrupt episode of activity.\n- The words after the blank specify what that activity looks like: the ice front advances hundreds of meters within months.\n- A glacier that goes from barely moving to advancing rapidly has sped up, so \"accelerate\" is the logical and precise choice.\n\n**Why the other choices are wrong:**\n- A: \"Retreat\" reverses the direction the text describes; the ice front advances.\n- C: \"Melt\" describes loss of ice, which would shrink the glacier rather than push its front forward.\n- D: \"Solidify\" describes the quiet state, not the abrupt change from it.",
  "_meta": {
   "anchor": "Karakoram surge-type glaciers — abrupt advance after decades of quiet"
  }

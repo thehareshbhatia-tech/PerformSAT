@@ -1,29 +1,29 @@
 {
   "id": "bank-geo-200",
-  "question": "Triangle $ABC$ is similar to triangle $DEF$, where $A$, $B$, and $C$ correspond to $D$, $E$, and $F$, respectively. The area of triangle $DEF$ is $2.25$ times the area of triangle $ABC$, and $AB = 18$. What is the length of $\\overline{DE}$?",
+  "question": "Triangles $JKL$ and $PQR$ are similar, and side $\\overline{JK}$ corresponds to side $\\overline{PQ}$. The area of triangle $PQR$ is $16$ times the area of triangle $JKL$. If $JK = 5$, what is the length of $\\overline{PQ}$?",
   "choices": [
     {
       "id": "A",
-      "text": "$8$"
+      "text": "$\\frac{5}{16}$"
     },
     {
       "id": "B",
-      "text": "$12$"
+      "text": "$\\frac{5}{4}$"
     },
     {
       "id": "C",
-      "text": "$27$"
+      "text": "$20$"
     },
     {
       "id": "D",
-      "text": "$40.5$"
+      "text": "$80$"
     }
   ],
-  "correctAnswer": "C",
   "distractorNotes": {
-    "A": "divides 18 by the area factor 2.25 instead of multiplying by its square root",
-    "B": "divides 18 by the scale factor 1.5, scaling the side down instead of up",
-    "D": "multiplies 18 by the area factor 2.25 instead of by its square root 1.5"
+    "A": "divides JK by the area ratio 16, scaling down and skipping the square root",
+    "B": "divides JK by the scale factor 4 instead of multiplying",
+    "D": "multiplies JK by the area ratio 16 instead of by its square root"
   },
-  "explanation": "**SAT Pattern: Similar Figures Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The scale factor is $\\sqrt{2.25} = 1.5$, so $DE = 1.5(18) = 27$.\n\n**The Full Solution:**\nStep 1: Areas of similar triangles scale by the square of the scale factor, so the scale factor from $ABC$ to $DEF$ is $\\sqrt{2.25} = 1.5$.\nStep 2: Side $\\overline{DE}$ corresponds to side $\\overline{AB}$, so $DE = 1.5 \\cdot AB$.\nStep 3: Compute: $DE = 1.5(18) = 27$. Check: $\\left(\\frac{27}{18}\\right)^{2} = 1.5^{2} = 2.25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): divides $18$ by the area factor $2.25$. Triangle $DEF$ is the larger triangle, and lengths scale by the square root of the area factor.\n* Choice B ($12$): finds the scale factor $1.5$ but divides by it, as if $DEF$ were the smaller triangle.\n* Choice D ($40.5$): multiplies $18$ by the area factor $2.25$ instead of by its square root.\n\n**Test Day Takeaway:** Convert an area factor to a length factor with a square root before scaling a side, and check which triangle is the larger one."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Similar Figures Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The ratio of the areas is $16$, so the ratio of corresponding sides is $\\sqrt{16} = 4$, and $PQ = 4(5) = 20$.\n\n**The Full Solution:**\nStep 1: For similar triangles, the ratio of the areas is the square of the ratio of corresponding sides.\nStep 2: The area ratio is $16$, so the side ratio is $\\sqrt{16} = 4$; each side of triangle $PQR$ is $4$ times the corresponding side of triangle $JKL$.\nStep 3: $\\overline{PQ}$ corresponds to $\\overline{JK}$, so $PQ = 4(5) = 20$. Check: $\\left(\\frac{20}{5}\\right)^{2} = 16$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{5}{16}$): divides $5$ by the area ratio, $16$, which both scales the wrong way and skips the square root.\n* Choice B ($\\frac{5}{4}$): divides $5$ by $4$; triangle $PQR$ is the larger triangle, so its sides are longer.\n* Choice D ($80$): multiplies $5$ by the area ratio, $16$, instead of by its square root.\n\n**Test Day Takeaway:** Take the square root of an area ratio to get the side ratio, then scale the given side."
 }

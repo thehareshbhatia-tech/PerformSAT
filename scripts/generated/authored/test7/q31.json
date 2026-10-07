@@ -1,31 +1,37 @@
 {
- "id": 731,
- "type": "multiple-choice",
- "difficulty": "medium",
- "band": 3,
- "domain": "craft-and-structure",
- "skill": "words-in-context",
- "module": 2,
- "passage": "Cork is harvested by stripping the cork oak's thick outer bark in sheets, a layer the living tree regrows over the following nine years or so. Because the harvest removes no living wood beneath the bark, a skilled crew ______ the tree itself, and a single oak may be stripped about fifteen times over a life that can exceed two centuries.",
- "question": "Which choice completes the text with the most logical and precise word or phrase?",
- "choices": [
-  {
-   "id": "A",
-   "text": "prunes"
-  },
-  {
-   "id": "B",
-   "text": "examines"
-  },
-  {
-   "id": "C",
-   "text": "cultivates"
-  },
-  {
-   "id": "D",
-   "text": "spares"
+  "id": 731,
+  "type": "multiple-choice",
+  "difficulty": "medium",
+  "band": 3,
+  "domain": "craft-and-structure",
+  "skill": "words-in-context",
+  "module": 2,
+  "passage": "Brazil nuts come almost entirely from wild trees in the Amazon rainforest. Collectors gather the woody pods, which can weigh up to 2 kilograms, after they fall to the forest floor. Because the harvest takes only fallen pods and cuts nothing from the tree, a collector ______ the tree itself, and the same tree can be harvested year after year over a life that can last 500 years or more.",
+  "question": "Which choice completes the text with the most logical and precise word or phrase?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "prunes"
+    },
+    {
+      "id": "B",
+      "text": "examines"
+    },
+    {
+      "id": "C",
+      "text": "cultivates"
+    },
+    {
+      "id": "D",
+      "text": "spares"
+    }
+  ],
+  "correctAnswer": "D",
+  "explanation": "**Choice D is correct.** \"Because the harvest takes only fallen pods and cuts nothing from the tree\" sets up the consequence: the collector leaves the tree unharmed (\"spares\" it), which is why the same tree can be harvested year after year.\n\n**The Full Solution:**\n- The causal clue: nothing is cut from the tree, so it survives the harvest intact.\n- The follow-on clause depends on that survival: repeated harvests over a life that can last 500 years or more.\n- \"Spares\" means to refrain from harming, exactly the relationship between collector and tree.\n\n**Why the other choices are wrong:**\n- A: \"Prunes\" means cutting branches away, precisely the kind of cutting the sentence rules out.\n- B: \"Examines\" would have the collector inspecting the tree, but the sentence is about the harvest's effect on it, not an inspection.\n- C: \"Cultivates\" means to tend and raise a plant over time, but these are wild trees, and the clause describes only gathering what has fallen.",
+  "_meta": {
+    "anchor": "Brazil nuts gathered as fallen pods from wild Amazon trees; harvest leaves tree unharmed; trees live 500+ years - WIC spares",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Brazil_nut"
+    ]
   }
- ],
- "correctAnswer": "D",
- "explanation": "**Choice D is correct.** \"Because the harvest removes no living wood\" sets up the consequence: the crew leaves the tree unharmed — \"spares\" it — which is why one oak can be stripped about fifteen times over its life.\n\n**The Full Solution:**\n- The causal clue: nothing living is removed, so the tree survives the harvest intact.\n- The follow-on clause depends on that survival — repeated harvests over a life that can exceed two centuries.\n- \"Spares\" means to refrain from harming, exactly the relationship between crew and tree.\n\n**Why the other choices are wrong:**\n- B: \"Examines\" would have the crew inspecting the tree, but the sentence is about the harvest's effect on it, not an inspection.\n- A: \"Prunes\" means cutting living branches away — precisely the kind of removal the sentence rules out.\n- C: \"Cultivates\" means to tend and raise a plant over time, a broader activity than the harvesting the clause describes."
 }

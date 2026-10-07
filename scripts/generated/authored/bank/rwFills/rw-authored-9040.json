@@ -1,25 +1,31 @@
 {
   "id": 9040,
-  "passage": "Researchers who time museum visitors keep finding that people look at paintings for far less time than curators assume. In one large art museum, the median stop in front of a work lasted about seventeen seconds. The observations, though, were gathered in a single gallery of nineteenth-century European painting, on weekday afternoons, and only from visitors who were not taking part in a guided tour. Taken by themselves, the measurements can support only the conclusion that ______",
+  "passage": "Researchers have tried to measure how long museum visitors actually look at works of art. In a 2001 study at the Metropolitan Museum of Art in New York, researchers timed 150 visitors as they looked at six famous paintings. The median viewing time was 17 seconds. The study, though, observed only those six paintings, all in a single museum. Taken by themselves, the measurements can support only the conclusion that ______",
   "question": "Which choice most logically completes the text?",
   "choices": [
     {
       "id": "A",
-      "text": "museum visitors everywhere devote less attention to paintings than curators would like them to."
+      "text": "museum visitors everywhere look at most paintings for less than half a minute."
     },
     {
       "id": "B",
-      "text": "visitors find nineteenth-century European painting less engaging than they find other kinds of art."
+      "text": "the six paintings in the study held visitors' attention less well than the museum's other works did."
     },
     {
       "id": "C",
-      "text": "guided tours are what allow museum visitors to spend more than a few seconds with a single work."
+      "text": "visitors would have looked at the paintings longer if the labels beside them had been longer."
     },
     {
       "id": "D",
-      "text": "unguided visitors to this gallery typically looked at a painting for well under a minute."
+      "text": "the visitors in the study typically looked at the six paintings for well under a minute."
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** It keeps every limit the text places on the evidence — one gallery, unguided visitors — and claims no more than the median of seventeen seconds will bear.\n\n**The Full Solution:**\n- Mark the limits before reading the choices. The data come from one gallery, one kind of painting, weekday afternoons, and visitors outside a tour.\n- The blank follows Taken by themselves, the measurements can support only, so the answer must be the smallest conclusion the numbers license. Choice D reports the behavior of exactly the group that was watched, in exactly the place it was watched.\n- Any choice that drops a limit, or that compares the observed group with a group never observed, goes beyond the evidence.\n\n**Why the other choices are wrong:**\n- A: Everywhere abandons the limits. One gallery in one museum cannot speak for museum visitors in general.\n- B: The study looked at only one kind of painting, so it offers no comparison with other kinds of art.\n- C: Visitors on guided tours were excluded, so the text supplies no basis for a claim about what tours do."
+  "explanation": "**Choice D is correct.** It keeps every limit the text places on the evidence — six paintings, one museum — and claims no more than a median of 17 seconds will bear.\n\n**The Full Solution:**\n- Mark the limits before reading the choices. The data come from six paintings, all in one museum.\n- The blank follows Taken by themselves, the measurements can support only, so the answer must be the smallest conclusion the numbers license. Choice D reports the behavior of the visitors who were watched, at the paintings where they were watched.\n- Any choice that drops a limit, or that compares the observed paintings with something never observed, goes beyond the evidence.\n\n**Why the other choices are wrong:**\n- A: Everywhere abandons the limits. Six paintings in one museum cannot speak for museum visitors in general.\n- B: The study timed visitors only at the six paintings, so it offers no comparison with the museum's other works.\n- C: The text says nothing about labels, so it supplies no basis for a claim about what longer labels would do.",
+  "source": {
+    "title": "Spending Time on Art",
+    "author": "Jeffrey K. Smith and Lisa F. Smith",
+    "year": 2001,
+    "sourceUrl": "https://journals.sagepub.com/doi/10.2190/5MQM-59JH-X21R-JN5J"
+  }
 }

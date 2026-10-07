@@ -88,20 +88,20 @@ export const practiceTest8 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "The table shows the wave height, in meters, recorded at five wind speeds, in knots. The equation $y = 0.08x + 0.6$ is a linear model for the data, where $y$ is the predicted wave height at a wind speed of $x$ knots. Which of the following correctly compares the recorded wave height with the predicted wave height at a wind speed of $30$ knots?",
-  questionTable: { headers: ["Wind speed (knots)", "Wave height (meters)"], rows: [["10", "1.3"], ["15", "1.6"], ["20", "2.5"], ["25", "3.0"], ["30", "2.6"]] },
+  question: "The table shows the wave height, in meters, recorded at five wind speeds, in knots. Which of the following equations is the most appropriate linear model for the data, where $y$ is the wave height, in meters, at a wind speed of $x$ knots?",
+  questionTable: { headers: ["Wind speed (knots)", "Wave height (meters)"], rows: [["10", "1.3"], ["15", "1.9"], ["20", "2.3"], ["25", "2.6"], ["30", "3.1"]] },
   choices: [
-    // distractor: drops the 0.6 from the line of best fit, predicting 2.4 instead of 3.0, so the recorded 2.6 looks 0.2 greater
-    { id: "A", text: "The recorded height is $0.2$ meter greater than the predicted height." },
-    // distractor: finds the correct difference of 0.4 but reverses which height is greater
-    { id: "B", text: "The recorded height is $0.4$ meter greater than the predicted height." },
-    // distractor: drops the 0.6 from the line of best fit (predicting 2.4) and also reverses which height is greater
-    { id: "C", text: "The recorded height is $0.2$ meter less than the predicted height." },
-    { id: "D", text: "The recorded height is $0.4$ meter less than the predicted height." }
+    // distractor: has both signs wrong: the heights increase as wind speed increases, and this model gives a negative height at every wind speed in the table
+    { id: "A", text: "$y = -0.08x - 0.6$" },
+    // distractor: uses a negative slope, but the wave height increases as the wind speed increases
+    { id: "B", text: "$y = -0.08x + 0.6$" },
+    // distractor: uses a negative constant; at 10 knots this model gives 0.08(10) - 0.6 = 0.2 meter, far from the recorded 1.3 meters
+    { id: "C", text: "$y = 0.08x - 0.6$" },
+    { id: "D", text: "$y = 0.08x + 0.6$" }
   ],
   correctAnswer: "D",
-  explanation: "**SAT Pattern: Residual**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** At $x = 30$ the line predicts $0.08(30) + 0.6 = 3.0$ meters, but the table shows $2.6$ meters, so the recorded height is $0.4$ meter less than the predicted height.\n\n**The Full Solution:**\nStep 1: Compute the predicted height at $x = 30$: $y = 0.08(30) + 0.6 = 2.4 + 0.6 = 3.0$ meters.\nStep 2: Read the recorded height for $30$ knots from the table: $2.6$ meters.\nStep 3: Compare: $2.6 - 3.0 = -0.4$, so the recorded height is $0.4$ meter less than the predicted height. Check: $3.0 - 0.4 = 2.6$, the value in the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: uses $0.08(30) = 2.4$ as the prediction, leaving out the $0.6$, so the recorded $2.6$ appears $0.2$ meter greater.\n* Choice B: finds the correct difference of $0.4$ but reverses the comparison. The predicted $3.0$ is greater than the recorded $2.6$.\n* Choice C: leaves out the $0.6$, predicting $2.4$, and then also reverses which height is greater.\n\n**Test Day Takeaway:** A residual is the actual value minus the predicted value. Compute the prediction from the whole equation, constant term included, before you compare.",
-  skills: ["calculate-mean", "slope-intercept-form"]
+  explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The heights increase with wind speed, so the slope is positive. At $x = 10$, $0.08(10) + 0.6 = 1.4$ is close to the recorded $1.3$, but $0.08(10) - 0.6 = 0.2$ is not.\n\n**The Full Solution:**\nStep 1: As the wind speed increases from $10$ to $30$ knots, the wave height increases from $1.3$ to $3.1$ meters, so the slope of the model is positive. This rules out choices A and B.\nStep 2: Test choices C and D at $x = 10$: choice C gives $0.08(10) - 0.6 = 0.2$, and choice D gives $0.08(10) + 0.6 = 1.4$.\nStep 3: The recorded height at $10$ knots is $1.3$ meters, which is close to $1.4$, so choice D is the most appropriate model. Check: at $x = 30$, choice D gives $0.08(30) + 0.6 = 3.0$, close to the recorded $3.1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: has a negative slope and a negative constant; it gives negative heights for every wind speed in the table.\n* Choice B: has a negative slope, so it predicts the wave height falling as the wind speed rises.\n* Choice C: has the right slope but a negative constant; it gives $0.2$ meter at $10$ knots instead of a value near $1.3$.\n\n**Test Day Takeaway:** Match the sign of the slope to the trend in the data, then test one data value to check the constant.",
+  skills: ["scatterplots", "linear-functions"]
 },
 {
   id: 5,
@@ -128,10 +128,10 @@ export const practiceTest8 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "The table shows the number of pens of each color in a box. One blue pen is removed from the box and is not replaced. Then one of the remaining pens will be selected at random. What is the probability of selecting a blue pen? (Express your answer as a decimal or fraction, not as a percent.)",
+  question: "The table shows the number of pens of each color in a box. If one of these pens is selected at random, what is the probability of selecting a pen that is not black? (Express your answer as a decimal or fraction, not as a percent.)",
   questionTable: { headers: ["Color", "Number of pens"], rows: [["Blue", "18"], ["Black", "14"], ["Red", "8"]] },
-  correctAnswer: "17/39",
-  explanation: "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $\\frac{17}{39}$.**\n\n**The Fast Way (~20s):** Removing one blue pen leaves $17$ blue pens among $39$ pens, so the probability is $\\frac{17}{39}$.\n\n**The Full Solution:**\nStep 1: Total the pens before any are removed: $18 + 14 + 8 = 40$ pens.\nStep 2: One blue pen is removed and not replaced, so both counts drop by one: $18 - 1 = 17$ blue pens remain out of $40 - 1 = 39$ pens.\nStep 3: The selection is made from those $39$ pens, so the probability is $\\frac{17}{39}$. Check: the $22$ pens that are not blue are unchanged, and $\\frac{17}{39} + \\frac{22}{39} = 1$ ✓\n\n**Common Mistakes:**\n* $\\frac{18}{40}$ ($= 0.45$): ignores the removal and uses the original counts.\n* $\\frac{18}{39}$ ($\\approx 0.46$): lowers the total to $39$ but forgets that the removed pen was blue, so the blue count must drop too.\n* $\\frac{17}{40}$ ($= 0.425$): lowers the blue count but leaves the total at $40$, counting a pen that is no longer in the box.\n\n**Test Day Takeaway:** \"Not replaced\" changes BOTH numbers. Subtract one from the total, and when the removed item is in the category asked about, subtract one from that category too.",
+  correctAnswer: "13/20",
+  explanation: "**SAT Pattern: Basic Probability**\n\n**The correct answer is $\\frac{13}{20}$.**\n\n**The Fast Way (~20s):** There are $18 + 14 + 8 = 40$ pens, and $18 + 8 = 26$ of them are not black, so the probability is $\\frac{26}{40} = \\frac{13}{20}$.\n\n**The Full Solution:**\nStep 1: Add the table: $18 + 14 + 8 = 40$ pens in the box.\nStep 2: The pens that are not black are the blue and red pens: $18 + 8 = 26$.\nStep 3: The probability is $\\frac{26}{40} = \\frac{13}{20}$, or $0.65$. Check: the probability of selecting a black pen is $\\frac{14}{40} = \\frac{7}{20}$, and $\\frac{13}{20} + \\frac{7}{20} = 1$ ✓\n\n**Common Mistakes:**\n* $\\frac{7}{20}$: finds the probability of selecting a black pen, $\\frac{14}{40}$, instead of a pen that is not black.\n* $\\frac{9}{20}$: counts only the blue pens, $\\frac{18}{40}$, leaving out the red pens.\n* $\\frac{13}{7}$: compares the $26$ pens that are not black with the $14$ black pens instead of with all $40$ pens.\n\n**Test Day Takeaway:** A probability divides the favorable outcomes by all possible outcomes. For \"not\" questions, either count the other groups directly or subtract the probability of the named group from $1$.",
   skills: ["probability-basics"]
 },
 {
@@ -139,7 +139,7 @@ export const practiceTest8 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "$y = x^{2} - 6x + 11$\n$y = 2x + c$\nIn the given system of equations, $c$ is a constant. The graphs of the two equations intersect at exactly one point in the $xy$-plane. What is the value of $c$?",
+  question: "$y = x^{2} - 6x + 11$\n$y = 2x + c$\nIn the given system of equations, $c$ is a constant. The graphs of the equations intersect at exactly one point. What is the value of $c$?",
   choices: [
     { id: "A", text: "$-5$" },
     // distractor: never subtracts the 2x from the second equation, using -6 as the x-coefficient in the discriminant, which gives c = 2
@@ -150,7 +150,7 @@ export const practiceTest8 = {
     { id: "D", text: "$7$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Tangent Line and Discriminant**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** Setting the two expressions for $y$ equal gives $x^{2} - 8x + (11 - c) = 0$, and exactly one intersection point means the discriminant is $0$: $64 - 4(11 - c) = 0$, so $c = -5$.\n\n**The Full Solution:**\nStep 1: Substitute $2x + c$ for $y$ in the first equation: $2x + c = x^{2} - 6x + 11$. Rearrange: $x^{2} - 8x + (11 - c) = 0$.\nStep 2: The graphs intersect at exactly one point when this quadratic has exactly one real root, so its discriminant is $0$: $(-8)^{2} - 4(1)(11 - c) = 0$.\nStep 3: Solve: $64 - 44 + 4c = 0$, so $4c = -20$ and $c = -5$. Check: with $c = -5$ the quadratic is $x^{2} - 8x + 16 = (x - 4)^{2}$, with the single root $x = 4$; both equations give $y = 3$ there, since $16 - 24 + 11 = 3$ and $2(4) - 5 = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2$): uses $-6$ as the $x$-coefficient without subtracting $2x$. Then $36 - 4(11 - c) = 0$ gives $c = 2$, but the line $y = 2x + 2$ crosses the parabola twice.\n* Choice C ($5$): reaches $4c = -20$ correctly and then loses the negative sign.\n* Choice D ($7$): combines $-6x - 2x$ as $-4x$. Then $16 - 4(11 - c) = 0$ gives $c = 7$.\n\n**Test Day Takeaway:** Exactly one intersection point of a line and a parabola means the combined quadratic has discriminant $0$. Collect the $x$-terms carefully before you square the coefficient.",
+  explanation: "**SAT Pattern: Tangent Line and Discriminant**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** Setting the two expressions for $y$ equal gives $x^{2} - 8x + (11 - c) = 0$, and exactly one intersection point means the discriminant is $0$: $64 - 4(11 - c) = 0$, so $c = -5$.\n\n**The Full Solution:**\nStep 1: Substitute $2x + c$ for $y$ in the first equation: $2x + c = x^{2} - 6x + 11$. Rearrange: $x^{2} - 8x + (11 - c) = 0$.\nStep 2: The graphs intersect at exactly one point when this quadratic has exactly one real root, so its discriminant is $0$: $(-8)^{2} - 4(1)(11 - c) = 0$.\nStep 3: Solve: $64 - 44 + 4c = 0$, so $4c = -20$ and $c = -5$. Check: with $c = -5$ the quadratic is $x^{2} - 8x + 16 = (x - 4)^{2}$, with the single root $x = 4$; both equations give $y = 3$ there, since $16 - 24 + 11 = 3$ and $2(4) - 5 = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2$): uses $-6$ as the $x$-coefficient without subtracting $2x$. Then $36 - 4(11 - c) = 0$ gives $c = 2$, but the line $y = 2x + 2$ crosses the parabola twice.\n* Choice C ($5$): reaches $4c = -20$ correctly and then loses the negative sign.\n* Choice D ($7$): combines $-6x - 2x$ as $-4x$. Then $16 - 4(11 - c) = 0$ gives $c = 7$.\n\n**Test Day Takeaway:** A line and a parabola with exactly one point in common give a combined quadratic with discriminant $0$. Collect the $x$-terms carefully before you square the coefficient.",
   skills: ["tangent-lines", "discriminant-analysis"]
 },
 {
@@ -206,29 +206,29 @@ export const practiceTest8 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "The table shows the number of songs on each of $26$ albums. Four more albums, each with $11$ songs, are added to the data. What is the mode of the number of songs on the $30$ albums?",
-  questionTable: { headers: ["Number of songs", "Number of albums"], rows: [["8", "3"], ["9", "8"], ["10", "5"], ["11", "6"], ["12", "4"]] },
+  question: "The table shows the number of songs on each of $26$ albums. What is the median number of songs on these albums?",
+  questionTable: { headers: ["Number of songs", "Number of albums"], rows: [["8", "2"], ["9", "4"], ["10", "5"], ["11", "6"], ["12", "9"]] },
   choices: [
-    // distractor: gives the mode of the original 26 albums, ignoring the four albums added
-    { id: "A", text: "$9$" },
-    // distractor: reports the median of the 30 albums instead of the mode
+    // distractor: finds the median of the Number of albums column, 2, 4, 5, 6, 9, instead of the median number of songs
+    { id: "A", text: "$5$" },
+    // distractor: picks the middle row of the table, 10 songs, without using the number of albums in each row
     { id: "B", text: "$10$" },
     { id: "C", text: "$11$" },
-    // distractor: reports the greatest number of songs in the table rather than the most frequent
+    // distractor: picks the number of songs with the most albums, 12
     { id: "D", text: "$12$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Mode of a Data Set**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The four added albums raise the count for $11$ songs from $6$ to $10$, which is more than the $8$ albums with $9$ songs, so the mode is $11$.\n\n**The Full Solution:**\nStep 1: Read the frequencies: $8$ songs occurs $3$ times, $9$ occurs $8$ times, $10$ occurs $5$ times, $11$ occurs $6$ times, and $12$ occurs $4$ times, for $26$ albums.\nStep 2: Update the row that changes. Four albums with $11$ songs raise that frequency from $6$ to $6 + 4 = 10$.\nStep 3: The new frequencies are $3$, $8$, $5$, $10$, and $4$; the greatest is $10$, for $11$ songs. Check: $3 + 8 + 5 + 10 + 4 = 30$ albums ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): the mode before the four albums are added. Now $11$ songs occurs $10$ times, more than the $8$ times for $9$ songs.\n* Choice B ($10$): the median. The $15$th and $16$th values of the $30$ ordered values are both $10$.\n* Choice D ($12$): the greatest value in the table. The mode is the most frequent value, not the largest.\n\n**Test Day Takeaway:** In a frequency table, the mode is the value with the greatest frequency. Update the frequencies first, then compare.",
-  skills: ["find-mode"]
+  explanation: "**SAT Pattern: Median Calculation**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** With $26$ albums, the median is the mean of the $13$th and $14$th values. Counting up, $2 + 4 + 5 = 11$ albums have $10$ or fewer songs, and the next $6$ (the $12$th through $17$th) have $11$ songs, so the median is $11$.\n\n**The Full Solution:**\nStep 1: There are $2 + 4 + 5 + 6 + 9 = 26$ albums, an even number, so the median is the mean of the $13$th and $14$th values in order.\nStep 2: Count from the least value: $2$ albums have $8$ songs (values $1$ to $2$), $4$ have $9$ (values $3$ to $6$), $5$ have $10$ (values $7$ to $11$), and $6$ have $11$ (values $12$ to $17$).\nStep 3: The $13$th and $14$th values are both $11$, so the median is $11$. Check: $11$ albums have fewer than $11$ songs and $9$ have more, so the $13$th and $14$th values both fall among the $6$ albums with $11$ songs ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): is the median of the Number of albums column, not of the numbers of songs.\n* Choice B ($10$): is the middle row of the table, but the rows hold different numbers of albums.\n* Choice D ($12$): is the number of songs with the most albums, not the middle value.\n\n**Test Day Takeaway:** In a frequency table, count through the frequencies to find where the middle value falls; the middle row of the table is not the median.",
+  skills: ["find-median"]
 },
 {
   id: 12,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "In the $xy$-plane, line $\\ell$ is the perpendicular bisector of the line segment with endpoints $(2, 9)$ and $(8, 6)$. Line $\\ell$ intersects the $y$-axis at the point $(0, b)$. What is the value of $b$?",
-  correctAnswer: "-2.5",
-  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**The correct answer is $-2.5$.**\n\n**The Fast Way (~40s):** The segment has slope $-\\frac{1}{2}$ and midpoint $(5, 7.5)$, so line $\\ell$ is $y - 7.5 = 2(x - 5)$, which crosses the $y$-axis at $-2.5$.\n\n**The Full Solution:**\nStep 1: The slope of the segment is $\\frac{6 - 9}{8 - 2} = -\\frac{1}{2}$, so line $\\ell$, which is perpendicular to it, has slope $2$.\nStep 2: Line $\\ell$ passes through the midpoint of the segment: $\\left(\\frac{2 + 8}{2}, \\frac{9 + 6}{2}\\right) = (5, 7.5)$.\nStep 3: The line through $(5, 7.5)$ with slope $2$ is $y - 7.5 = 2(x - 5)$, or $y = 2x - 2.5$. At $x = 0$, $y = -2.5$, so $b = -2.5$. Check: $2(5) - 2.5 = 7.5$, and $2 \\cdot \\left(-\\frac{1}{2}\\right) = -1$ ✓\n\n**Common Mistakes:**\n* $10$: uses the slope of the segment, $-\\frac{1}{2}$, instead of the perpendicular slope, giving $y = -\\frac{1}{2}x + 10$.\n* $5$: uses slope $2$ but runs the line through the endpoint $(2, 9)$ instead of the midpoint, giving $y = 2x + 5$.\n* $17.5$: changes the sign of the slope without taking the reciprocal, using $-2$ and getting $y = -2x + 17.5$.\n\n**Test Day Takeaway:** A perpendicular bisector needs two things: the opposite reciprocal slope and the midpoint. Find both before writing the equation.",
+  question: "In the $xy$-plane, line $\\ell$ is perpendicular to the graph of $5x + 2y = 8$. What is the slope of line $\\ell$?",
+  correctAnswer: "2/5",
+  explanation: "**SAT Pattern: Perpendicular Slope**\n\n**The correct answer is $\\frac{2}{5}$.**\n\n**The Fast Way (~25s):** The graph of $5x + 2y = 8$ has slope $-\\frac{5}{2}$, and a perpendicular line has the negative reciprocal slope, $\\frac{2}{5}$.\n\n**The Full Solution:**\nStep 1: Solve $5x + 2y = 8$ for $y$: $2y = -5x + 8$, so $y = -\\frac{5}{2}x + 4$, and its slope is $-\\frac{5}{2}$.\nStep 2: Perpendicular slopes are negative reciprocals: flip $-\\frac{5}{2}$ to $-\\frac{2}{5}$ and change the sign.\nStep 3: The slope of line $\\ell$ is $\\frac{2}{5}$, or $0.4$. Check: $\\left(-\\frac{5}{2}\\right)\\left(\\frac{2}{5}\\right) = -1$ ✓\n\n**Common Mistakes:**\n* $-\\frac{5}{2}$: gives the slope of the given line, which is the slope of a parallel line.\n* $-\\frac{2}{5}$: takes the reciprocal but does not change the sign.\n* $\\frac{5}{2}$: changes the sign but does not take the reciprocal.\n\n**Test Day Takeaway:** Put the equation in $y = mx + b$ form to read its slope, then flip the slope and change its sign; the two slopes must multiply to $-1$.",
   skills: ["perpendicular-negative-reciprocal"]
 },
 {
@@ -236,18 +236,18 @@ export const practiceTest8 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "A right triangle has angles measuring $30^{\\circ}$, $60^{\\circ}$, and $90^{\\circ}$. The area of the triangle is $200\\sqrt{3}$ square inches. What is the perimeter, in inches, of the triangle?",
+  question: "A right triangle has angles measuring $30^{\\circ}$, $60^{\\circ}$, and $90^{\\circ}$. The length of the shorter leg of the triangle is $20$ inches. What is the area, in square inches, of the triangle?",
   choices: [
-    // distractor: adds only the two legs, 20 and 20*sqrt(3), and omits the 40-inch hypotenuse
-    { id: "A", text: "$20 + 20\\sqrt{3}$" },
-    { id: "B", text: "$60 + 20\\sqrt{3}$" },
-    // distractor: uses 3 times the short leg (60) as the hypotenuse instead of 2 times the short leg (40)
-    { id: "C", text: "$80 + 20\\sqrt{3}$" },
-    // distractor: writes the longer leg as 40*sqrt(3), doubling the short leg before multiplying by sqrt(3)
-    { id: "D", text: "$60 + 40\\sqrt{3}$" }
+    // distractor: computes the longer leg as (sqrt(3)/2)(20) = 10*sqrt(3) instead of 20*sqrt(3), so the area is (1/2)(20)(10*sqrt(3))
+    { id: "A", text: "$100\\sqrt{3}$" },
+    // distractor: treats the legs as equal, as in a 45-45-90 triangle, so the area is (1/2)(20)(20) = 200
+    { id: "B", text: "$200$" },
+    { id: "C", text: "$200\\sqrt{3}$" },
+    // distractor: multiplies the two legs, 20 and 20*sqrt(3), and forgets the factor of 1/2
+    { id: "D", text: "$400\\sqrt{3}$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Right Triangle Area with Surds**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The legs are $a$ and $a\\sqrt{3}$, so $\\frac{a^{2}\\sqrt{3}}{2} = 200\\sqrt{3}$ gives $a = 20$, and the perimeter is $20 + 20\\sqrt{3} + 40 = 60 + 20\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: In a $30^{\\circ}$-$60^{\\circ}$-$90^{\\circ}$ triangle the sides are in the ratio $a : a\\sqrt{3} : 2a$, where $a$ is the side opposite the $30^{\\circ}$ angle.\nStep 2: The legs are perpendicular, so the area is $\\frac{1}{2}(a)(a\\sqrt{3}) = \\frac{a^{2}\\sqrt{3}}{2}$. Setting this equal to $200\\sqrt{3}$ gives $a^{2} = 400$, so $a = 20$.\nStep 3: Add the three sides: $20 + 20\\sqrt{3} + 40 = 60 + 20\\sqrt{3}$. Check: $\\frac{1}{2}(20)(20\\sqrt{3}) = 200\\sqrt{3}$, and $20^{2} + (20\\sqrt{3})^{2} = 400 + 1{,}200 = 1{,}600 = 40^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20 + 20\\sqrt{3}$): adds only the two legs and leaves out the hypotenuse, $40$.\n* Choice C ($80 + 20\\sqrt{3}$): uses $3a = 60$ for the hypotenuse instead of $2a = 40$.\n* Choice D ($60 + 40\\sqrt{3}$): multiplies the hypotenuse, not the shorter leg, by $\\sqrt{3}$ to get the longer leg.\n\n**Test Day Takeaway:** Write the ratio $a : a\\sqrt{3} : 2a$ first. The area uses the two legs; the perimeter uses all three sides.",
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Right Triangle Area with Surds**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The longer leg is $20\\sqrt{3}$, so the area is $\\frac{1}{2}(20)(20\\sqrt{3}) = 200\\sqrt{3}$ square inches.\n\n**The Full Solution:**\nStep 1: In a $30^{\\circ}$-$60^{\\circ}$-$90^{\\circ}$ triangle the sides are in the ratio $a : a\\sqrt{3} : 2a$, where $a$ is the shorter leg. Here $a = 20$.\nStep 2: The longer leg is $20\\sqrt{3}$ inches, and the hypotenuse is $40$ inches.\nStep 3: The legs are perpendicular, so the area is $\\frac{1}{2}(20)(20\\sqrt{3}) = 200\\sqrt{3}$ square inches. Check: $20^{2} + (20\\sqrt{3})^{2} = 400 + 1{,}200 = 1{,}600 = 40^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($100\\sqrt{3}$): computes the longer leg as $\\frac{\\sqrt{3}}{2}(20) = 10\\sqrt{3}$. That rule applies to the hypotenuse; the longer leg is $\\sqrt{3}$ times the shorter leg.\n* Choice B ($200$): treats the legs as equal, as in a $45^{\\circ}$-$45^{\\circ}$-$90^{\\circ}$ triangle.\n* Choice D ($400\\sqrt{3}$): multiplies the legs and forgets the factor of $\\frac{1}{2}$.\n\n**Test Day Takeaway:** Write the ratio $a : a\\sqrt{3} : 2a$ first. The area of a right triangle is half the product of its two legs.",
   skills: ["triangle-area"]
 },
 {
@@ -255,18 +255,18 @@ export const practiceTest8 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "In the $xy$-plane, line $m$ is the graph of $8x - 6y = 21$, and line $n$ is the graph of $y = \\frac{2c}{9}x - 4$, where $c$ is a constant. Lines $m$ and $n$ do not intersect. What is the value of $c$?",
+  question: "In the $xy$-plane, the graphs of $8x - 6y = 21$ and $y = \\frac{c}{3}x - 4$, where $c$ is a constant, do not intersect. What is the value of $c$?",
   choices: [
-    // distractor: drops the sign when dividing by -6, taking the first slope as -4/3 and getting c = -6
-    { id: "A", text: "$-6$" },
-    { id: "B", text: "$6$" },
-    // distractor: ignores the factor of 2 in 2c/9, solving c/9 = 4/3 to get c = 12
-    { id: "C", text: "$12$" },
-    // distractor: reads the first line's slope as 8, the coefficient of x, giving 2c/9 = 8 and c = 36
-    { id: "D", text: "$36$" }
+    // distractor: drops the sign when dividing by -6, taking the first slope as -4/3 and getting c = -4
+    { id: "A", text: "$-4$" },
+    // distractor: uses the reciprocal 3/4 as the slope of the first graph, so c/3 = 3/4 and c = 9/4
+    { id: "B", text: "$\\frac{9}{4}$" },
+    { id: "C", text: "$4$" },
+    // distractor: reads the slope of the first graph as 8, the coefficient of x, so c/3 = 8 and c = 24
+    { id: "D", text: "$24$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Solving $8x - 6y = 21$ for $y$ gives slope $\\frac{4}{3}$; setting $\\frac{2c}{9} = \\frac{4}{3}$ gives $c = 6$.\n\n**The Full Solution:**\nStep 1: Rewrite line $m$ in slope-intercept form: $-6y = -8x + 21$, so $y = \\frac{4}{3}x - \\frac{7}{2}$.\nStep 2: Two lines in the $xy$-plane that do not intersect are parallel and distinct, so their slopes are equal: $\\frac{2c}{9} = \\frac{4}{3}$.\nStep 3: Cross-multiply: $6c = 36$, so $c = 6$. Check: with $c = 6$, line $n$ is $y = \\frac{4}{3}x - 4$; the slopes match and the $y$-intercepts, $-4$ and $-\\frac{7}{2}$, differ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): divides by $-6$ without changing the sign of the $x$-term, getting slope $-\\frac{4}{3}$ and $c = -6$.\n* Choice C ($12$): sets $\\frac{c}{9} = \\frac{4}{3}$, overlooking the $2$ in the numerator.\n* Choice D ($36$): treats $8$, the coefficient of $x$, as the slope of line $m$.\n\n**Test Day Takeaway:** Put both equations in $y = mx + b$ form before comparing slopes, and watch the sign when dividing by a negative coefficient.",
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Solving $8x - 6y = 21$ for $y$ gives slope $\\frac{4}{3}$; graphs that do not intersect are parallel, so $\\frac{c}{3} = \\frac{4}{3}$ and $c = 4$.\n\n**The Full Solution:**\nStep 1: Rewrite the first equation in slope-intercept form: $-6y = -8x + 21$, so $y = \\frac{4}{3}x - \\frac{7}{2}$.\nStep 2: Two lines in the $xy$-plane that do not intersect are parallel and distinct, so their slopes are equal: $\\frac{c}{3} = \\frac{4}{3}$.\nStep 3: Multiply both sides by $3$: $c = 4$. Check: with $c = 4$, the second line is $y = \\frac{4}{3}x - 4$; the slopes match and the $y$-intercepts, $-\\frac{7}{2}$ and $-4$, differ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): divides by $-6$ without changing the sign of the $x$-term, getting slope $-\\frac{4}{3}$.\n* Choice B ($\\frac{9}{4}$): uses the reciprocal $\\frac{3}{4}$ as the slope of the first graph.\n* Choice D ($24$): treats $8$, the coefficient of $x$, as the slope of the first graph.\n\n**Test Day Takeaway:** Put both equations in $y = mx + b$ form before comparing slopes, and watch the sign when dividing by a negative coefficient.",
   skills: ["system-solution-types"]
 },
 {
@@ -332,18 +332,18 @@ export const practiceTest8 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "Triangles $PQR$ and $STU$ are similar, and side $PQ$ corresponds to side $ST$. The areas of triangles $PQR$ and $STU$ are $36$ and $100$ square units, respectively. If $PQ = 45$, what is the value of $ST$?",
+  question: "Triangles $PQR$ and $STU$ are similar, and side $PQ$ corresponds to side $ST$. The areas of triangles $PQR$ and $STU$ are $16$ and $36$ square units, respectively. If $PQ = 30$, what is the value of $ST$?",
   choices: [
-    // distractor: reduces the area ratio to 25/9 but takes the square root of only the numerator, multiplying 45 by 5/9
-    { id: "A", text: "$25$" },
-    // distractor: inverts the scale factor, multiplying 45 by 3/5 instead of by 5/3
-    { id: "B", text: "$27$" },
-    { id: "C", text: "$75$" },
-    // distractor: multiplies 45 by the area ratio 100/36 instead of by its square root
-    { id: "D", text: "$125$" }
+    // distractor: inverts the scale factor, multiplying 30 by 4/6 instead of by 6/4
+    { id: "A", text: "$20$" },
+    { id: "B", text: "$45$" },
+    // distractor: adds the difference of the areas, 36 - 16 = 20, to PQ instead of scaling it
+    { id: "C", text: "$50$" },
+    // distractor: multiplies 30 by the area ratio 36/16 instead of by its square root
+    { id: "D", text: "$67.5$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Similar Triangles and Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The ratio of the areas is $\\frac{100}{36}$, so the ratio of corresponding sides is $\\sqrt{\\frac{100}{36}} = \\frac{5}{3}$, and $ST = 45 \\cdot \\frac{5}{3} = 75$.\n\n**The Full Solution:**\nStep 1: The ratio of the area of triangle $STU$ to the area of triangle $PQR$ is $\\frac{100}{36} = \\frac{25}{9}$.\nStep 2: For similar figures, the ratio of the areas is the square of the ratio of corresponding sides, so $\\frac{ST}{PQ} = \\sqrt{\\frac{25}{9}} = \\frac{5}{3}$.\nStep 3: Solve: $ST = 45 \\cdot \\frac{5}{3} = 75$. Check: $\\left(\\frac{75}{45}\\right)^{2} = \\frac{25}{9}$, and $36 \\cdot \\frac{25}{9} = 100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($25$): takes the square root of only the $25$ in $\\frac{25}{9}$, multiplying by $\\frac{5}{9}$: $45 \\cdot \\frac{5}{9} = 25$.\n* Choice B ($27$): uses the scale factor upside down, $45 \\cdot \\frac{3}{5} = 27$. Triangle $STU$ has the greater area, so $ST$ must be greater than $PQ$.\n* Choice D ($125$): multiplies by the area ratio itself, $45 \\cdot \\frac{100}{36} = 125$, skipping the square root.\n\n**Test Day Takeaway:** Lengths scale by $k$ and areas by $k^{2}$. Going from an area ratio to a length ratio always takes a square root.",
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Similar Triangles and Area Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The ratio of the areas is $\\frac{36}{16}$, so the ratio of corresponding sides is $\\sqrt{\\frac{36}{16}} = \\frac{6}{4} = \\frac{3}{2}$, and $ST = 30 \\cdot \\frac{3}{2} = 45$.\n\n**The Full Solution:**\nStep 1: The ratio of the area of triangle $STU$ to the area of triangle $PQR$ is $\\frac{36}{16} = \\frac{9}{4}$.\nStep 2: For similar figures, the ratio of the areas is the square of the ratio of corresponding sides, so $\\frac{ST}{PQ} = \\sqrt{\\frac{9}{4}} = \\frac{3}{2}$.\nStep 3: Solve: $ST = 30 \\cdot \\frac{3}{2} = 45$. Check: $\\left(\\frac{45}{30}\\right)^{2} = \\frac{9}{4}$, and $16 \\cdot \\frac{9}{4} = 36$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): uses the scale factor upside down, $30 \\cdot \\frac{2}{3} = 20$. Triangle $STU$ has the greater area, so $ST$ must be greater than $PQ$.\n* Choice C ($50$): adds the difference of the areas to $PQ$. Similar figures scale by multiplying, not by adding.\n* Choice D ($67.5$): multiplies by the area ratio itself, $30 \\cdot \\frac{36}{16} = 67.5$, skipping the square root.\n\n**Test Day Takeaway:** Lengths scale by $k$ and areas by $k^{2}$. Going from an area ratio to a length ratio always takes a square root.",
   skills: ["similar-triangles"]
 },
 {
@@ -361,9 +361,9 @@ export const practiceTest8 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "$p(x) = 2x^{3} + kx^{2} - 17x + 20$\nIn the given function, $k$ is a constant, and $x - 4$ is a factor of $p(x)$. What is the sum of the solutions to $p(x) = 0$?",
-  correctAnswer: "2.5",
-  explanation: "**SAT Pattern: Polynomial Factoring with Given Factor**\n\n**The correct answer is $2.5$.**\n\n**The Fast Way (~50s):** Since $x - 4$ is a factor, $p(4) = 0$, which gives $80 + 16k = 0$ and $k = -5$; the solutions are then $4$, $1$, and $-\\frac{5}{2}$, with sum $2.5$.\n\n**The Full Solution:**\nStep 1: If $x - 4$ is a factor of $p(x)$, then $p(4) = 0$: $2(64) + 16k - 17(4) + 20 = 80 + 16k = 0$, so $k = -5$.\nStep 2: Divide out the known factor: $2x^{3} - 5x^{2} - 17x + 20 = (x - 4)(2x^{2} + 3x - 5)$.\nStep 3: Factor the quadratic: $2x^{2} + 3x - 5 = (2x + 5)(x - 1)$, so the solutions are $4$, $-\\frac{5}{2}$, and $1$, and their sum is $4 - 2.5 + 1 = 2.5$. Check: $p(1) = 2 - 5 - 17 + 20 = 0$, and $p\\left(-\\frac{5}{2}\\right) = -31.25 - 31.25 + 42.5 + 20 = 0$ ✓\n\n**Common Mistakes:**\n* $4$: reports the one solution given by the factor $x - 4$ instead of the sum of all three.\n* $7.5$: reads the factor $2x + 5$ as the solution $\\frac{5}{2}$ instead of $-\\frac{5}{2}$, getting $4 + 1 + 2.5$.\n* $-5$: reports the value of $k$ instead of the sum of the solutions.\n\n**Test Day Takeaway:** A given factor $x - r$ means $p(r) = 0$. Use it to find the unknown coefficient, divide it out, and factor what remains.",
+  question: "$p(x) = 2x^{2} + kx - 20$\nThe function $p$ is defined by the given equation, where $k$ is a constant. If $x - 4$ is a factor of $p(x)$, what is the sum of the solutions to $p(x) = 0$?",
+  correctAnswer: "1.5",
+  explanation: "**SAT Pattern: Polynomial Factoring with Given Factor**\n\n**The correct answer is $1.5$.**\n\n**The Fast Way (~40s):** Since $x - 4$ is a factor, $p(4) = 0$: $32 + 4k - 20 = 0$, so $k = -3$. Then $2x^{2} - 3x - 20 = (x - 4)(2x + 5)$, whose solutions $4$ and $-2.5$ add to $1.5$.\n\n**The Full Solution:**\nStep 1: If $x - 4$ is a factor of $p(x)$, then $p(4) = 0$: $2(4)^{2} + 4k - 20 = 0$, so $12 + 4k = 0$ and $k = -3$.\nStep 2: Factor $p(x) = 2x^{2} - 3x - 20$: $(x - 4)(2x + 5)$, since $2x \\cdot (-4) + 5x = -3x$ and $(-4)(5) = -20$.\nStep 3: The solutions to $p(x) = 0$ are $x = 4$ and $x = -\\frac{5}{2}$, and their sum is $4 - 2.5 = 1.5$. Check: the sum of the solutions of $ax^{2} + bx + c = 0$ is $-\\frac{b}{a} = -\\frac{-3}{2} = 1.5$ ✓\n\n**Common Mistakes:**\n* $-3$: reports the value of $k$ instead of the sum of the solutions.\n* $-1.5$: uses $p(-4) = 0$, which gives $k = 3$ and the solutions $-4$ and $2.5$.\n* $6.5$: finds both solutions but adds $4 + 2.5$, dropping the negative sign of $-2.5$.\n\n**Test Day Takeaway:** \"$x - a$ is a factor of $p(x)$\" means $p(a) = 0$. Use it to find the constant, then factor or use $-\\frac{b}{a}$ for the sum of the solutions.",
   skills: ["finding-roots-factoring"]
 },
 {
@@ -371,20 +371,20 @@ export const practiceTest8 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The table shows values of the functions $s$ and $v$ for five values of $x$. If $v(s(a)) = 5$, what is the value of $a$?",
-  questionTable: { headers: ["$x$", "$s(x)$", "$v(x)$"], rows: [["1", "3", "2"], ["2", "5", "4"], ["3", "1", "5"], ["4", "4", "1"], ["5", "2", "3"]] },
+  question: "The table shows five values of $x$ and their corresponding values of $f(x)$ for the function $f$. The function $g$ is defined by $g(x) = f(x - 2)$. If $g(a) = 5$, what is the value of $a$?",
+  questionTable: { headers: ["$x$", "$f(x)$"], rows: [["1", "3"], ["2", "5"], ["3", "1"], ["4", "4"], ["5", "2"]] },
   choices: [
-    { id: "A", text: "$1$" },
-    // distractor: applies s to the given output 5, computing s(5) = 2, instead of working backward
-    { id: "B", text: "$2$" },
-    // distractor: finds that s(a) must equal 3 because v(3) = 5, then reports 3 instead of solving s(a) = 3
-    { id: "C", text: "$3$" },
-    // distractor: treats 5 as the input, computing v(s(5)) = v(2) = 4
+    // distractor: shifts in the wrong direction, solving a + 2 = 2 instead of a - 2 = 2
+    { id: "A", text: "$0$" },
+    // distractor: treats 5 as the input, computing g(5) = f(3) = 1
+    { id: "B", text: "$1$" },
+    // distractor: finds f(2) = 5 and reports 2, forgetting that the input of f is a - 2
+    { id: "C", text: "$2$" },
     { id: "D", text: "$4$" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Function Composition**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** The only $x$ with $v(x) = 5$ is $3$, so $s(a) = 3$; the only $x$ with $s(x) = 3$ is $1$, so $a = 1$.\n\n**The Full Solution:**\nStep 1: In $v(s(a))$, the output of $s$ is the input of $v$. Let $s(a) = y$, so $v(y) = 5$.\nStep 2: In the $v(x)$ column, $5$ appears only in the row $x = 3$, so $y = s(a) = 3$.\nStep 3: In the $s(x)$ column, $3$ appears only in the row $x = 1$, so $a = 1$. Check: $s(1) = 3$ and $v(3) = 5$, so $v(s(1)) = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2$): reads $s(5) = 2$, applying $s$ to the output $5$ instead of working backward from it.\n* Choice C ($3$): finds $s(a) = 3$ and stops. That is the value of $s(a)$, not the value of $a$.\n* Choice D ($4$): treats $5$ as the input and computes $v(s(5)) = v(2) = 4$.\n\n**Test Day Takeaway:** To solve $v(s(a)) = c$ from a table, work from the outside in: find the input of $v$ that gives $c$, then find the input of $s$ that gives that value.",
-  skills: ["function-composition"]
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Horizontal Shift**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** $g(a) = f(a - 2) = 5$, and the table shows $f(x) = 5$ only when $x = 2$, so $a - 2 = 2$ and $a = 4$.\n\n**The Full Solution:**\nStep 1: By the definition of $g$, $g(a) = f(a - 2)$, so the equation $g(a) = 5$ means $f(a - 2) = 5$.\nStep 2: In the $f(x)$ column, $5$ appears only in the row $x = 2$, so $a - 2 = 2$.\nStep 3: Add $2$: $a = 4$. Check: $g(4) = f(4 - 2) = f(2) = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): shifts the wrong way, solving $a + 2 = 2$. In $f(x - 2)$, the input of $f$ is $2$ less than $x$.\n* Choice B ($1$): treats $5$ as the input and computes $g(5) = f(3) = 1$.\n* Choice C ($2$): finds $f(2) = 5$ and reports $2$, which is the input of $f$, not the value of $a$.\n\n**Test Day Takeaway:** For $g(x) = f(x - h)$, find the input of $f$ that gives the required output, then add $h$ to get the input of $g$.",
+  skills: ["function-transformations"]
 },
 {
   id: 22,
@@ -466,18 +466,18 @@ export const practiceTest8 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "A store increased the price of a coat by $40\\%$. Later, the store increased the new price by $p\\%$. The final price was $75\\%$ greater than the original price. What is the value of $p$?",
+  question: "A store increased the price of a coat by $30\\%$. Later, the store increased the new price by $p\\%$. The final price was $56\\%$ greater than the original price. What is the value of $p$?",
   choices: [
-    // distractor: divides 1.40 by 1.75 instead of 1.75 by 1.40, getting 0.80, and reports the 20% gap from 1
-    { id: "A", text: "$20$" },
-    { id: "B", text: "$25$" },
-    // distractor: subtracts 40 from 75, treating the two percent increases as additive
-    { id: "C", text: "$35$" },
-    // distractor: reports the second multiplier, 1.25, as 125 instead of the percent increase, 25
-    { id: "D", text: "$125$" }
+    // distractor: finds the second multiplier, 1.2, and reports it as the value of p
+    { id: "A", text: "$1.2$" },
+    { id: "B", text: "$20$" },
+    // distractor: subtracts 30 from 56, treating the two percent increases as additive
+    { id: "C", text: "$26$" },
+    // distractor: reports the second multiplier, 1.2, as 120 instead of the percent increase, 20
+    { id: "D", text: "$120$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Percent Increase**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The final price is $175\\%$ of the original and the first increase made it $140\\%$; since $1.40 \\times 1.25 = 1.75$, the second increase multiplied the price by $1.25$, an increase of $25\\%$.\n\n**The Full Solution:**\nStep 1: Let the original price be $x$. After the $40\\%$ increase, the price is $1.40x$. After the second increase, it is $1.40x\\left(1 + \\frac{p}{100}\\right)$.\nStep 2: A final price $75\\%$ greater than the original is $1.75x$, so $1.40\\left(1 + \\frac{p}{100}\\right) = 1.75$.\nStep 3: Divide by $1.40$: $1 + \\frac{p}{100} = 1.25$, so $p = 25$. Check with $x = 100$: $100 \\to 140 \\to 140(1.25) = 175$, which is $75\\%$ greater than $100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): divides $1.40$ by $1.75$ instead of $1.75$ by $1.40$, getting $0.80$, and reports the $20\\%$ gap from $1$. The final price is the larger one, so it goes in the numerator.\n* Choice C ($35$): subtracts $75 - 40$, as if percent increases added. The second percent is taken of the already increased price, so it must be less than $35$.\n* Choice D ($125$): this is the second multiplier, $1.25$, written as a percent; the increase is $125 - 100 = 25$ percent.\n\n**Test Day Takeaway:** Successive percent changes multiply: write each change as a multiplier, set the product equal to the overall multiplier, and solve. Percents taken of different bases never simply add.",
+  explanation: "**SAT Pattern: Percent Increase**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The final price is $156\\%$ of the original and the first increase made it $130\\%$; since $\\frac{1.56}{1.30} = 1.2$, the second increase multiplied the price by $1.2$, an increase of $20\\%$.\n\n**The Full Solution:**\nStep 1: Let the original price be $x$. After the $30\\%$ increase, the price is $1.30x$. After the second increase, it is $1.30x\\left(1 + \\frac{p}{100}\\right)$.\nStep 2: A final price $56\\%$ greater than the original is $1.56x$, so $1.30\\left(1 + \\frac{p}{100}\\right) = 1.56$.\nStep 3: Divide by $1.30$: $1 + \\frac{p}{100} = 1.2$, so $p = 20$. Check with $x = 100$: $100 \\to 130 \\to 130(1.2) = 156$, which is $56\\%$ greater than $100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.2$): this is the second multiplier, not the percent increase it represents.\n* Choice C ($26$): subtracts $56 - 30$, as if percent increases added. The second percent is taken of the already increased price, so it must be less than $26$.\n* Choice D ($120$): writes the multiplier $1.2$ as a percent; the increase is $120 - 100 = 20$ percent.\n\n**Test Day Takeaway:** Successive percent changes multiply: write each change as a multiplier, set the product equal to the overall multiplier, and solve. Percents taken of different bases never simply add.",
   skills: ["percent-of-value", "percent-change"]
 },
 {
@@ -504,10 +504,10 @@ export const practiceTest8 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "The scatterplot shows the relationship between two variables, $x$ and $y$, and the line of best fit $y = 0.5x - 4$. The point $(a, 15.5)$, which is not shown, has a residual of $1.5$ with respect to this line. What is the value of $a$?",
+  question: "The scatterplot shows the relationship between two variables, $x$ and $y$, for data set A. The line of best fit for data set A is $y = 0.5x - 4$. Data set B is made by tripling the $y$-coordinate of every data point in data set A. The line of best fit for data set B is $y = mx + b$, where $m$ and $b$ are constants. What is the value of $b$?",
   diagram: { type: "scatterplot", params: { points: [[20, 6.9], [25, 7.4], [30, 11.6], [35, 12.8], [40, 17.3], [45, 18], [50, 21.8], [55, 22.3], [60, 26.4]], xMin: 15, xMax: 65, yMin: 0, yMax: 30, xGridStep: 5, yGridStep: 5, xLabelStep: 10, yLabelStep: 10, xLabel: "x", yLabel: "y", bestFitLine: { slope: 0.5, intercept: -4 } } },
-  correctAnswer: "36",
-  explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is 36.**\n\n**The Fast Way (~25s):** A residual of $1.5$ means the point is $1.5$ above the line, so the line predicts $15.5 - 1.5 = 14$ at $x = a$; solving $0.5a - 4 = 14$ gives $a = 36$.\n\n**The Full Solution:**\nStep 1: A residual is the actual $y$-value minus the $y$-value predicted by the line: $15.5 - \\text{predicted} = 1.5$, so the predicted value is $14$.\nStep 2: The line predicts $0.5a - 4$ at $x = a$, so $0.5a - 4 = 14$.\nStep 3: Add $4$ and divide by $0.5$: $0.5a = 18$, so $a = 36$. Check: the line predicts $0.5(36) - 4 = 14$ at $x = 36$, and $15.5 - 14 = 1.5$ ✓\n\n**Common Mistakes:**\n* $42$: adds the residual instead of subtracting it, using a predicted value of $15.5 + 1.5 = 17$ and solving $0.5a - 4 = 17$.\n* $39$: ignores the residual and solves $0.5a - 4 = 15.5$, which treats the point as lying on the line.\n* $11$: uses the residual $1.5$ as the predicted $y$-value, solving $0.5a - 4 = 1.5$.\n\n**Test Day Takeaway:** Residual means actual minus predicted. A positive residual puts the point above the line, so subtract the residual from the actual value to get what the line predicts.",
+  correctAnswer: "-12",
+  explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is $-12$.**\n\n**The Fast Way (~30s):** Tripling every $y$-value triples every $y$-value on the line of best fit too, so the new line is $y = 3(0.5x - 4) = 1.5x - 12$, and $b = -12$.\n\n**The Full Solution:**\nStep 1: Each point $(x, y)$ in data set A becomes $(x, 3y)$ in data set B, so the whole pattern is stretched vertically by a factor of $3$.\nStep 2: The line of best fit is stretched the same way: each predicted value $0.5x - 4$ becomes $3(0.5x - 4)$.\nStep 3: So the line of best fit for data set B is $y = 1.5x - 12$, which gives $m = 1.5$ and $b = -12$. Check: at $x = 20$, data set A's line predicts $0.5(20) - 4 = 6$, and data set B's line predicts $1.5(20) - 12 = 18 = 3(6)$ ✓\n\n**Common Mistakes:**\n* $-4$: triples the slope but keeps the original $y$-intercept.\n* $1.5$: gives the slope $m$ instead of the $y$-intercept $b$.\n* $-1$: adds $3$ to the $y$-intercept instead of multiplying it by $3$.\n\n**Test Day Takeaway:** Multiplying every $y$-value by $k$ multiplies the whole equation of the line of best fit by $k$, so both the slope and the $y$-intercept change.",
   skills: ["scatterplots", "linear-functions"]
 },
 {
@@ -710,18 +710,18 @@ export const practiceTest8 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "Triangle $ABC$ has a perimeter of $80$ centimeters, and two of its sides have lengths of $18$ centimeters and $28$ centimeters. Triangle $DEF$ is similar to triangle $ABC$ and has a perimeter of $20$ meters. What is the length of the longest side of triangle $DEF$, in meters?",
+  question: "Triangle $ABC$ has a perimeter of $80$ centimeters, and two of its sides have lengths of $18$ centimeters and $28$ centimeters. Triangle $DEF$ is similar to triangle $ABC$ and has a perimeter of $120$ centimeters. What is the length, in centimeters, of the longest side of triangle $DEF$?",
   choices: [
     // distractor: scales the 18-centimeter side instead of the longest side
-    { id: "A", text: "$4.5$" },
-    // distractor: scales the 28-centimeter side instead of the longest side
-    { id: "B", text: "$7$" },
-    { id: "C", text: "$8.5$" },
+    { id: "A", text: "$27$" },
+    // distractor: scales the 28-centimeter side, which is not the longest side once the third side is found
+    { id: "B", text: "$42$" },
+    { id: "C", text: "$51$" },
     // distractor: takes the longest side to be half the perimeter of triangle DEF
-    { id: "D", text: "$10$" }
+    { id: "D", text: "$60$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The third side of triangle $ABC$ is $80 - 18 - 28 = 34$ centimeters, the longest side, and it is $\\frac{34}{80}$ of the perimeter; $\\frac{34}{80}(20) = 8.5$ meters.\n\n**The Full Solution:**\nStep 1: Find the third side of triangle $ABC$: $80 - 18 - 28 = 34$ centimeters. Since $34 > 28 > 18$, this is the longest side.\nStep 2: In similar triangles, each side is the same fraction of the perimeter. The longest side of triangle $ABC$ is $\\frac{34}{80}$ of its perimeter.\nStep 3: So the longest side of triangle $DEF$ is $\\frac{34}{80}(20) = 8.5$ meters. Check: the other sides are $\\frac{18}{80}(20) = 4.5$ and $\\frac{28}{80}(20) = 7$ meters, and $4.5 + 7 + 8.5 = 20$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4.5$): scales the $18$-centimeter side, the shortest side.\n* Choice B ($7$): scales the $28$-centimeter side, which is not the longest once the third side is found.\n* Choice D ($10$): takes half of the perimeter of triangle $DEF$; no side of a triangle can be half its perimeter.\n\n**Test Day Takeaway:** Similar figures keep the same proportions, so a side's share of the perimeter carries over; find the missing side first so you scale the right one, and the units take care of themselves.",
+  explanation: "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The third side of triangle $ABC$ is $80 - 18 - 28 = 34$ centimeters, the longest side; the scale factor is $\\frac{120}{80} = 1.5$, so the longest side of triangle $DEF$ is $34(1.5) = 51$ centimeters.\n\n**The Full Solution:**\nStep 1: Find the third side of triangle $ABC$: $80 - 18 - 28 = 34$ centimeters. Since $34 > 28 > 18$, this is the longest side.\nStep 2: The perimeters of similar triangles are in the same ratio as corresponding sides, so the scale factor from triangle $ABC$ to triangle $DEF$ is $\\frac{120}{80} = 1.5$.\nStep 3: The longest side of triangle $DEF$ is $34(1.5) = 51$ centimeters. Check: the other sides are $18(1.5) = 27$ and $28(1.5) = 42$ centimeters, and $27 + 42 + 51 = 120$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($27$): scales the $18$-centimeter side, the shortest side.\n* Choice B ($42$): scales the $28$-centimeter side, which is not the longest once the third side is found.\n* Choice D ($60$): takes half of the perimeter of triangle $DEF$; no side of a triangle can be half its perimeter.\n\n**Test Day Takeaway:** In similar triangles, perimeters scale by the same factor as sides. Find the missing side first so you scale the right one.",
   skills: ["similar-triangles"]
 },
 {
@@ -729,9 +729,9 @@ export const practiceTest8 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "A tank contains $3.2$ liters of water. After $250$ milliliters of water are removed, water drains from the tank at a constant rate of $145$ milliliters per minute. What is the least number of whole minutes of draining after which the tank contains less than $500$ milliliters of water?",
-  correctAnswer: "17",
-  explanation: "**SAT Pattern: Smallest Integer in an Inequality**\n\n**The correct answer is 17.**\n\n**The Fast Way (~40s):** In milliliters, $3{,}200 - 250 - 145m < 500$ gives $145m > 2{,}450$, so $m > 16.9$, and the least whole number of minutes is $17$.\n\n**The Full Solution:**\nStep 1: Convert to milliliters: $3.2$ liters is $3{,}200$ milliliters. After $250$ milliliters are removed, $2{,}950$ milliliters remain, and after $m$ minutes of draining, $2{,}950 - 145m$ milliliters remain.\nStep 2: Less than $500$ milliliters remain when $2{,}950 - 145m < 500$, so $145m > 2{,}450$ and $m > \\frac{2{,}450}{145} \\approx 16.9$.\nStep 3: The least whole number greater than $16.9$ is $17$. Check: after $16$ minutes, $2{,}950 - 145(16) = 630$ milliliters remain, and after $17$ minutes, $2{,}950 - 145(17) = 485$ milliliters remain, which is less than $500$ ✓\n\n**Common Mistakes:**\n* $16$: rounds $16.9$ down; after $16$ minutes the tank still holds $630$ milliliters.\n* $19$: forgets the $250$ milliliters removed first, solving $3{,}200 - 145m < 500$ to get $m > 18.6$.\n* $21$: ignores the $500$-milliliter level and finds when the tank would be empty, solving $2{,}950 - 145m < 0$ to get $m > 20.3$.\n\n**Test Day Takeaway:** Put every quantity in the same unit before writing the inequality, then round in the direction the inequality requires and test the integer you choose.",
+  question: "A tank contains $3.2$ liters of water. Water drains from the tank at a constant rate of $145$ milliliters per minute. What is the least number of whole minutes after which the tank contains less than $500$ milliliters of water?",
+  correctAnswer: "19",
+  explanation: "**SAT Pattern: Smallest Integer in an Inequality**\n\n**The correct answer is 19.**\n\n**The Fast Way (~35s):** In milliliters, $3{,}200 - 145m < 500$ gives $145m > 2{,}700$, so $m > 18.6$, and the least whole number of minutes is $19$.\n\n**The Full Solution:**\nStep 1: Convert to milliliters: $3.2$ liters is $3{,}200$ milliliters, so after $m$ minutes of draining, $3{,}200 - 145m$ milliliters remain.\nStep 2: Less than $500$ milliliters remain when $3{,}200 - 145m < 500$, so $145m > 2{,}700$ and $m > \\frac{2{,}700}{145} \\approx 18.6$.\nStep 3: The least whole number greater than $18.6$ is $19$. Check: after $18$ minutes, $3{,}200 - 145(18) = 590$ milliliters remain, and after $19$ minutes, $3{,}200 - 145(19) = 445$ milliliters remain, which is less than $500$ ✓\n\n**Common Mistakes:**\n* $18$: rounds $18.6$ down; after $18$ minutes the tank still holds $590$ milliliters.\n* $23$: ignores the $500$-milliliter level and finds when the tank would be empty, solving $3{,}200 - 145m < 0$ to get $m > 22.1$.\n\n**Test Day Takeaway:** Put every quantity in the same unit before writing the inequality, then round in the direction the inequality requires and test the integer you choose.",
   skills: ["inequalities"]
 },
 {
@@ -788,19 +788,19 @@ export const practiceTest8 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "An account earns $4.8\\%$ annual interest, compounded quarterly. Its balance $t$ years after a deposit of \\$45,000 is $45{,}000b^{t}$ dollars, where $b$ is a constant. Which of the following is closest to the value of $b$?",
+  question: "A savings account had a balance of \\$5,000 when it was opened. The balance increases by $6\\%$ every $2$ years. Which equation gives the balance $B$, in dollars, $t$ years after the account was opened?",
   choices: [
-    // distractor: reports the quarterly growth factor 1.012 as though the exponent counted years
-    { id: "A", text: "$1.012$" },
-    // distractor: uses the annual rate as 1 + 0.048, ignoring that interest compounds four times a year
-    { id: "B", text: "$1.048$" },
-    { id: "C", text: "$1.049$" },
-    // distractor: raises the annual factor 1.048 to the fourth power, compounding a full year four times
-    { id: "D", text: "$1.206$" }
+    // distractor: uses 0.94, which would model a 6% decrease every 2 years
+    { id: "A", text: "$B = 5{,}000(0.94)^{\\frac{t}{2}}$" },
+    // distractor: splits the 6% evenly over the 2 years and uses 3% per year, ignoring that the growth compounds
+    { id: "B", text: "$B = 5{,}000(1.03)^{t}$" },
+    { id: "C", text: "$B = 5{,}000(1.06)^{\\frac{t}{2}}$" },
+    // distractor: multiplies t by 2 in the exponent, which would model a 6% increase every half year
+    { id: "D", text: "$B = 5{,}000(1.06)^{2t}$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Compound Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Each quarter multiplies the balance by $1 + \\frac{0.048}{4} = 1.012$, and there are four quarters a year, so $b = 1.012^{4} \\approx 1.049$.\n\n**The Full Solution:**\nStep 1: With quarterly compounding, the quarterly rate is $\\frac{4.8\\%}{4} = 1.2\\%$, so each quarter multiplies the balance by $1.012$.\nStep 2: After $t$ years there have been $4t$ quarters: $45{,}000(1.012)^{4t} = 45{,}000\\left(1.012^{4}\\right)^{t}$.\nStep 3: So $b = 1.012^{4} \\approx 1.04887$, which is closest to $1.049$. Check: after one year, $45{,}000(1.04887) \\approx 47{,}199$ dollars, slightly more than the $45{,}000(1.048) = 47{,}160$ dollars that simple annual interest would give ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.012$): is the factor for one quarter, not for one year.\n* Choice B ($1.048$): uses the annual rate as if interest were compounded once a year.\n* Choice D ($1.206$): computes $1.048^{4}$, applying the full annual rate four times in one year.\n\n**Test Day Takeaway:** For interest compounded $n$ times a year, the yearly factor is $\\left(1 + \\frac{r}{n}\\right)^{n}$; quarterly compounding always gives a yearly factor slightly greater than $1 + r$.",
-  skills: ["exponential-functions"]
+  explanation: "**SAT Pattern: Exponential Growth Model**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The balance is multiplied by $1.06$ once every $2$ years, which happens $\\frac{t}{2}$ times in $t$ years, so $B = 5{,}000(1.06)^{\\frac{t}{2}}$.\n\n**The Full Solution:**\nStep 1: An increase of $6\\%$ multiplies the balance by $1 + 0.06 = 1.06$.\nStep 2: The increase happens once every $2$ years, so in $t$ years it happens $\\frac{t}{2}$ times.\nStep 3: Starting from $5{,}000$, the balance is $B = 5{,}000(1.06)^{\\frac{t}{2}}$. Check: at $t = 2$, $B = 5{,}000(1.06) = 5{,}300$, which is $6\\%$ more than $5{,}000$; at $t = 4$, $B = 5{,}300(1.06) = 5{,}618$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: uses the factor $0.94$, which describes a $6\\%$ decrease, not an increase.\n* Choice B: spreads the $6\\%$ over two years as $3\\%$ per year. That gives $5{,}000(1.03)^{2} = 5{,}304.50$ after $2$ years, not $5{,}300$.\n* Choice D: the exponent $2t$ applies the factor $1.06$ twice each year, so the balance would grow by $6\\%$ every half year.\n\n**Test Day Takeaway:** For a change of $r\\%$ every $k$ years, the model is $a\\left(1 \\pm \\frac{r}{100}\\right)^{\\frac{t}{k}}$: the factor comes from the percent, and the exponent counts the $k$-year periods.",
+  skills: ["exponential-growth-decay"]
 }
       ]
     }

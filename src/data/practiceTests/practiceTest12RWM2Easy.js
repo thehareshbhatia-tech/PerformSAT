@@ -63,16 +63,16 @@ export const practiceTest12RWM2Easy = {
       "band": 2,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "A piñata's shell is built up from layers of pasted paper, and every layer a builder adds makes the shell harder to crack. What the builder is really setting, layer by layer, is the shell's ______: how many solid hits it can absorb before it finally breaks open.",
+      "passage": "Most electrical wiring in homes is made of copper, a metal valued for its ______: the ease with which an electric current flows through it. Among all metals, only silver carries current better, and silver costs far more than copper.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "appearance" },
-        { "id": "B", "text": "toughness" },
+        { "id": "B", "text": "conductivity" },
         { "id": "C", "text": "weight" },
-        { "id": "D", "text": "cost" }
+        { "id": "D", "text": "availability" }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The words after the colon define the blank — \"how many solid hits it can absorb before it finally breaks open\" — and the ability to take hits without breaking is toughness.\n\n**The Full Solution:**\n- How to spot it: when a colon follows the blank, the words after it usually restate exactly what the blank means. Read them first and predict your own word.\n- Each pasted layer makes the shell \"harder to crack,\" so adding layers changes how much punishment the shell can take.\n- A word for how much force something can absorb before breaking is \"toughness.\"\n\n**Why the other choices are wrong:**\n- A: \"Appearance\" is about how the shell looks, and the colon says nothing about looks.\n- C: More layers would add weight, but the colon defines the blank in terms of surviving hits, not heaviness.\n- D: \"Cost\" is about price, which the passage never mentions."
+      "explanation": "**Choice B is correct.** The words after the colon define the blank, \"the ease with which an electric current flows through it,\" and a material's ability to let electric current flow through it is its conductivity.\n\n**The Full Solution:**\n- How to spot it: when a colon follows the blank, the words after it usually restate exactly what the blank means. Read them first and predict your own word.\n- The colon describes how easily \"an electric current flows through\" copper.\n- The word for how well a material carries electric current is \"conductivity.\" The next sentence confirms it: only silver \"carries current better.\"\n\n**Why the other choices are wrong:**\n- A: \"Appearance\" is about how the metal looks, and the colon says nothing about looks.\n- C: \"Weight\" is about heaviness, but the colon defines the blank in terms of how easily current flows.\n- D: \"Availability\" is about how easy the metal is to obtain, which is not what the colon describes."
     },
     {
       "id": 1256,
@@ -81,16 +81,16 @@ export const practiceTest12RWM2Easy = {
       "band": 2,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "At a recycling plant, a single greasy pizza box or half-full bottle can spoil an entire bale of paper. Workers stationed along the sorting line therefore ______ the passing material constantly, pulling out anything that does not belong before it reaches the baler.",
+      "passage": "At airport security checkpoints, carry-on bags travel through X-ray machines that produce images of what is packed inside. Security officers ______ each image, looking over every part of it so that they can spot forbidden items, such as knives, without opening the bag.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
-        { "id": "A", "text": "wash" },
-        { "id": "B", "text": "count" },
-        { "id": "C", "text": "screen" },
-        { "id": "D", "text": "flatten" }
+        { "id": "A", "text": "erase" },
+        { "id": "B", "text": "fold" },
+        { "id": "C", "text": "scan" },
+        { "id": "D", "text": "carry" }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The phrase right after the blank describes the action: \"pulling out anything that does not belong.\" To examine a stream of items and remove the bad ones is to \"screen\" it.\n\n**The Full Solution:**\n- How to spot it: the words after the blank often restate it. Here they spell out what the workers do to the passing material.\n- The problem is that one wrong item can spoil a whole bale, so the workers' job is to catch wrong items before the baler.\n- A verb meaning to check material and filter out what should not be there is \"screen.\"\n\n**Why the other choices are wrong:**\n- A: \"Wash\" would mean cleaning the material, but the workers remove items rather than cleaning them.\n- B: \"Count\" would mean keeping a tally, and a tally would not stop a greasy box from reaching the baler.\n- D: \"Flatten\" describes crushing material, which is not what \"pulling out anything that does not belong\" means."
+      "explanation": "**Choice C is correct.** The officers are \"looking over every part of\" each image \"so that they can spot forbidden items.\" Looking carefully across something to find a particular thing is what \"scan\" means.\n\n**The Full Solution:**\n- How to spot it: the words after the blank describe what the officers are doing, so use them to predict your own word.\n- The officers are \"looking over every part of\" the image.\n- Their purpose is to \"spot forbidden items,\" so the blank must mean to look over carefully: \"scan.\"\n\n**Why the other choices are wrong:**\n- A: Erasing an image would remove it, not let officers look over it to spot forbidden items.\n- B: Folding has nothing to do with looking over every part of an image.\n- D: Carrying an image does not involve examining it to spot forbidden items."
     },
     {
       "id": 1260,
@@ -99,16 +99,16 @@ export const practiceTest12RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "text-structure-and-purpose",
-      "passage": "Scenery for a school play was long built as a single painted backdrop stretching across the stage. The approach had a cost: with only one picture behind them, every scene had to happen in the same place, or the audience had to wait in the dark while stagehands wrestled a new drop into position. Many drama programs now build scenery instead as a set of hinged plywood flats on casters. A castle wall rolls off, a forest rolls on, and the play continues almost without pause — which is why teachers who stage several productions a year have largely given up the single painted backdrop.",
+      "passage": "Before the 1840s, patients were awake during surgery. Assistants held them down while surgeons worked as fast as possible; a skilled surgeon could remove a leg in under three minutes. The pain was severe, and operations had to be so short that complex procedures were rarely attempted. In 1846, at Massachusetts General Hospital in Boston, a patient inhaled ether vapor and stayed unconscious while a tumor was removed from his neck. Ether anesthesia soon spread, and surgeons could operate more slowly and carefully on patients who felt no pain.",
       "question": "Which choice best describes the overall structure of the text?",
       "choices": [
-        { "id": "A", "text": "It compares the cost of painting a full backdrop with the cost of building a set of plywood flats, then recommends whichever of the two methods is cheaper overall." },
-        { "id": "B", "text": "It describes a traditional way of building scenery, identifies a problem that the practice created, and explains how a different construction has addressed it." },
-        { "id": "C", "text": "It presents a disagreement between drama teachers about how scenery should be built and leaves the disagreement unresolved." },
-        { "id": "D", "text": "It traces the history of a single school's drama program from its first production to its most recent one." }
+        { "id": "A", "text": "It compares the costs of two ways of performing surgery and then recommends whichever of the two methods is cheaper." },
+        { "id": "B", "text": "It describes a traditional way of performing surgery, names its problems, and explains how a new method solved them." },
+        { "id": "C", "text": "It presents a disagreement among surgeons about how operations should be performed and leaves that disagreement unresolved." },
+        { "id": "D", "text": "It traces the history of a single hospital in Boston from its founding to the present day." }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The text moves from the traditional backdrop, to the problem it created, to the rolling flats that solved it — exactly the sequence choice B lays out.\n\n**The Full Solution:**\n- How to spot it: for a structure question, label what each part DOES, then check the order.\n- First comes the tradition: scenery built as one painted backdrop.\n- Next comes the problem: one picture meant one setting, or long blackouts while stagehands changed drops.\n- Then the different construction: hinged plywood flats on casters that roll on and off.\n- Last comes the result: scenes change almost without pause, which is why many teachers dropped the old approach.\n\n**Why the other choices are wrong:**\n- A: The word \"cost\" in the text refers to a drawback, not a price; no dollar comparison is made.\n- C: No disagreement appears — the text reports a change many programs have already made.\n- D: The text describes drama programs in general, not the history of one school."
+      "explanation": "**Choice B is correct.** The text describes the old way of performing surgery (on awake patients, as fast as possible), names its problems (severe pain and operations too short for complex procedures), and then explains how ether anesthesia solved them.\n\n**The Full Solution:**\n- How to spot it: for a structure question, sum up what each part of the text does, then find the choice that matches that order.\n- First part: the traditional method, in which \"patients were awake during surgery\" and surgeons \"worked as fast as possible.\"\n- Middle: the problems: \"The pain was severe,\" and \"complex procedures were rarely attempted.\"\n- End: the new method, ether anesthesia, which let surgeons \"operate more slowly and carefully on patients who felt no pain.\"\n\n**Why the other choices are wrong:**\n- A: The text never compares costs or recommends a method based on price.\n- C: No disagreement among surgeons is described.\n- D: Massachusetts General Hospital is mentioned only as the place of the 1846 operation; the text does not trace the hospital's history."
     },
     {
       "id": 1262,
@@ -120,22 +120,22 @@ export const practiceTest12RWM2Easy = {
       "passages": [
         {
           "label": "Text 1",
-          "text": "Drape a water-filled garden hose over a wall, set one end in a raised tank and the other on the ground below, and water will run uphill over the wall for hours. The classroom account of this trick credits the atmosphere: air pressing down on the tank's surface pushes water up the short arm of the hose, while the long column falling on the far side keeps the flow going. On this view, a siphon is a machine run by air pressure."
+          "text": "Set one end of a water-filled hose in a raised tank, drape the hose over a wall, and lay the other end on the ground. Water will run uphill and over the wall. The classroom account credits the atmosphere. Air pressing down on the tank's surface pushes water up the short arm of the hose, while the long column falling on the far side keeps the flow going. On this view, a siphon is a machine run by air pressure."
         },
         {
           "label": "Text 2",
-          "text": "Air pressure alone cannot carry the explanation. Siphons have been made to run in chambers holding almost no air, where there is next to nothing left to do the pushing. A fuller account treats the water in the hose as one connected body: the heavier column descending on the long side pulls the shorter column up after it, much as the heavy end of a chain slung over a rail drags the light end upward."
+          "text": "Air pressure alone cannot carry the explanation. Siphons have been made to run in chambers holding almost no air, with next to nothing left to push. A fuller account treats the water in the hose as one connected body. The heavier column on the long side pulls the shorter column up after it, much as the heavy end of a chain slung over a rail drags the light end upward."
         }
       ],
       "question": "Based on the texts, how would the author of Text 2 most likely respond to the argument presented in Text 1?",
       "choices": [
-        { "id": "A", "text": "The author would agree that air pressure is the force that drives a siphon and would add that the long descending column on the far side of the wall plays no real part in keeping the water flowing." },
-        { "id": "B", "text": "The author would deny that air pressure has any effect at all on the behavior of water moving through a hose." },
-        { "id": "C", "text": "The author would conclude that no satisfactory explanation of the behavior of siphons has yet been offered by anyone." },
-        { "id": "D", "text": "The author would object that air pressure cannot fully explain a siphon, since siphons have run in chambers with almost no air, and would credit the pull of the heavier descending column instead." }
+        { "id": "A", "text": "The author would agree that air pressure drives a siphon but deny that the long falling column plays any part." },
+        { "id": "B", "text": "The author would deny that air pressure has any effect at all on the water moving through a siphon's hose." },
+        { "id": "C", "text": "The author would conclude that no one has yet offered a satisfactory explanation of how a siphon keeps water flowing." },
+        { "id": "D", "text": "The author would argue that air pressure cannot fully explain a siphon and would credit the pull of the heavier column." }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** Text 2 opens by saying air pressure \"alone cannot carry the explanation,\" gives the near-vacuum demonstrations as the reason, and offers the falling column's pull as the fuller account — all three parts of choice D.\n\n**The Full Solution:**\n- How to spot it: pin down each text's position first, then find the answer that keeps Text 2's exact objection and its alternative.\n- Text 1 says the siphon runs on air pressure: air pushes water up the short arm while the long falling column keeps the flow going.\n- Text 2 objects with evidence: siphons have run in chambers holding almost no air, where there is next to nothing left to push.\n- Text 2 then supplies its own account: the water acts as one connected body, and the heavier descending column pulls the shorter one up, like a chain over a rail.\n\n**Why the other choices are wrong:**\n- A: This is Text 1's position, the very account Text 2 pushes against — and Text 2 makes the descending column central, not irrelevant.\n- B: Text 2 says air pressure \"alone\" cannot explain siphons, which stops well short of denying it any effect.\n- C: Text 2 does offer an explanation it considers fuller, so its author plainly thinks a satisfactory account exists."
+      "explanation": "**Choice D is correct.** Text 2 opens by saying air pressure \"alone cannot carry the explanation,\" gives the near-vacuum demonstrations as the reason, and offers the heavier column's pull as the fuller account, which is the response choice D describes.\n\n**The Full Solution:**\n- How to spot it: pin down each text's position first, then find the answer that keeps Text 2's exact objection and its alternative.\n- Text 1 says the siphon runs on air pressure: air pushes water up the short arm while the long falling column keeps the flow going.\n- Text 2 objects with evidence: siphons have run in chambers holding almost no air, where there is next to nothing left to push.\n- Text 2 then supplies its own account: the water acts as one connected body, and the heavier column on the long side pulls the shorter one up, like a chain over a rail.\n\n**Why the other choices are wrong:**\n- A: This keeps Text 1's air-pressure account, the very view Text 2 pushes against, and Text 2 makes the heavier column central, not irrelevant.\n- B: Text 2 says air pressure \"alone\" cannot explain siphons, which stops well short of denying it any effect.\n- C: Text 2 does offer an explanation it considers fuller, so its author plainly thinks a satisfactory account exists."
     },
     {
       "id": 1261,
@@ -162,16 +162,16 @@ export const practiceTest12RWM2Easy = {
       "band": 2,
       "domain": "craft-and-structure",
       "skill": "text-structure-and-purpose",
-      "passage": "A ceremonial flag folding begins with two lengthwise folds and then proceeds through a long series of triangular ones, each fold laid tightly over the last. The sequence is not decorative: every triangle tucks the loose edge of the previous fold inside itself, so the finished bundle is a firm triangle that cannot unravel. Folded this way, a flag can be carried, presented, and stored without a single pin or tie to hold it closed.",
+      "passage": "An igloo is built from blocks of firm snow, ideally snow that the wind has packed hard. Each new block leans inward against the blocks already in place, so the walls curve in as they rise and finally close into a dome. Because every block is held up by its neighbors, the builder needs no frame or other support while working. A well-built igloo can even hold the weight of a person standing on its roof.",
       "question": "Which choice best states the main purpose of the text?",
       "choices": [
-        { "id": "A", "text": "To explain how the sequence of folds in a ceremonial flag folding produces a compact bundle that holds itself closed" },
-        { "id": "B", "text": "To describe the public occasions at which a ceremonially folded flag is most often carried, presented, and stored by an honor guard" },
-        { "id": "C", "text": "To argue that flags should always be folded ceremonially rather than stored flat" },
-        { "id": "D", "text": "To trace how the ceremony of folding a flag has changed over the years" }
+        { "id": "A", "text": "To explain how the way an igloo's snow blocks are laid produces a dome that supports itself" },
+        { "id": "B", "text": "To describe the kinds of weather in which people have most often needed to build igloos for shelter" },
+        { "id": "C", "text": "To argue that igloos should be built with wooden frames to make them stronger" },
+        { "id": "D", "text": "To trace how the design of the igloo has changed over the years" }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The text explains the mechanism — each triangular fold tucks the previous edge inside itself — and the payoff: a bundle that stays closed with no pin or tie.\n\n**The Full Solution:**\n- How to spot it: for a main-purpose question, ask what job every sentence is doing. Here each one explains the folding method or its result.\n- The first sentence describes the sequence: two lengthwise folds, then a series of triangular ones.\n- The second gives the mechanism and says the sequence \"is not decorative\": every triangle locks the fold before it.\n- The last states the result: the flag can be carried, presented, and stored with nothing holding it closed.\n\n**Why the other choices are wrong:**\n- B: Carrying and presenting are mentioned only in the last sentence, as the payoff of the fold, not as the topic.\n- C: The text never argues for one storage method over another.\n- D: No history of the ceremony appears anywhere in the text."
+      "explanation": "**Choice A is correct.** The text explains how the blocks are laid (each leaning inward on the ones below) and what that produces: a dome that needs \"no frame or other support\" and can even hold a person's weight.\n\n**The Full Solution:**\n- How to spot it: for a purpose question, ask what the text spends most of its sentences doing.\n- The middle of the text describes a process: each block \"leans inward,\" so the walls \"curve in as they rise and finally close into a dome.\"\n- The end gives the result: because \"every block is held up by its neighbors,\" the dome supports itself.\n\n**Why the other choices are wrong:**\n- B: The text mentions wind-packed snow but never describes the weather in which igloos are needed.\n- C: The text says no frame is needed; it never argues for adding one.\n- D: The text describes how an igloo is built, not how its design has changed over time."
     },
     // ============================================================
     // Q9-Q16: Information and Ideas
@@ -183,16 +183,22 @@ export const practiceTest12RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "central-ideas-and-details",
-      "passage": "Paper mills buy recycled paper by the bale, and they inspect what they buy: a bale shot through with plastic film or food waste is turned away at the gate, and the whole load may end up in a landfill. Because a few wrong items can cost a program an entire bale, school recycling programs aim their effort at the moment of disposal. They pair every recycling bin with a trash can so that no one faces the bin holding garbage, print picture labels of what belongs, and cut narrow slots into bin lids so that bottles fit and lunch trays do not. Sorting machinery farther down the line can catch some mistakes, but a mistake prevented at the bin costs nothing at all.",
+      "passage": "A loose bolt or a scrap of metal on an airport runway can do serious harm. It can cut an aircraft's tire, or it can be pulled into a jet engine and damage the engine. Because one small object can cause such damage, airports focus on keeping debris off the pavement before aircraft use it. Staff members walk the pavement together to pick up debris by hand, sweeper trucks brush loose material out of cracks, and magnetic bars hung beneath service vehicles collect stray bits of metal. Engine inspections can catch some damage later, but debris removed from the pavement harms nothing.",
       "question": "Which choice best states the main idea of the text?",
       "choices": [
-        { "id": "A", "text": "Schools print picture labels above their recycling bins showing exactly which items belong inside each one." },
-        { "id": "B", "text": "Paper mills inspect the bales of recycled paper they buy and reject those containing plastic film or food waste." },
-        { "id": "C", "text": "Because a few misplaced items can ruin an entire bale, school recycling programs concentrate on getting each item into the right bin in the first place." },
-        { "id": "D", "text": "Sorting machinery installed farther down the line at recycling plants is able to catch and pull out some of the mistakes that people make when they toss items at the bin." }
+        { "id": "A", "text": "Airport staff members walk the pavement together to pick up loose bolts and other debris by hand." },
+        { "id": "B", "text": "A loose object on a runway can cut an aircraft's tire or be pulled into a jet engine and damage it." },
+        { "id": "C", "text": "Since one small object can damage an aircraft, airports try to keep debris off the pavement." },
+        { "id": "D", "text": "Engine inspections can catch some of the damage that debris causes after an aircraft has used the runway." }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The passage's point is that contamination is costly enough to make the bin itself the place to fight it, which is why the programs put their effort into the moment of disposal.\n\n**The Full Solution:**\n- How to spot it: the main idea is the claim the details serve. Find the sentence that says where the effort goes, then check that the answer covers it.\n- The stakes come first: mills reject contaminated bales, and a few wrong items can cost a whole load.\n- The response follows: programs \"aim their effort at the moment of disposal.\"\n- The three practices — paired trash cans, picture labels, narrow slots — are all ways of getting the right item into the right bin.\n- The last sentence seals it: machinery can catch some mistakes later, but a mistake prevented at the bin costs nothing.\n\n**Why the other choices are wrong:**\n- A: The labels are one of the three practices, a supporting detail.\n- B: This is the opening stake-setting, not the point the passage builds to.\n- D: This detail concedes what machinery can do; the passage's point is why the bin matters more."
+      "explanation": "**Choice C is correct.** The passage's point is that one small object can damage an aircraft, so airports put their effort into keeping debris off the pavement before aircraft use it.\n\n**The Full Solution:**\n- How to spot it: the main idea is the claim the details serve. Find the sentence that says where the effort goes, then check that the answer covers it.\n- The stakes come first: a loose bolt or scrap of metal can cut a tire or damage a jet engine.\n- The response follows: airports \"focus on keeping debris off the pavement before aircraft use it.\"\n- The three practices (walking the pavement, sweeper trucks, magnetic bars) are all ways of getting debris off the pavement.\n- The last sentence seals it: inspections can catch some damage later, but debris removed from the pavement harms nothing.\n\n**Why the other choices are wrong:**\n- A: Walking the pavement is one of the three practices, a supporting detail.\n- B: This is the opening stake-setting, not the point the passage builds to.\n- D: This detail concedes what inspections can do; the passage's point is why clearing the pavement matters more.",
+      "_meta": {
+        "anchor": "airport foreign object debris (FOD) on runways: tire cuts and engine ingestion; prevention by FOD walks, sweepers, magnetic bars",
+        "sources": [
+          "https://www.faa.gov/documentLibrary/media/Advisory_Circular/150_5210_24.pdf"
+        ]
+      }
     },
     {
       "id": 1269,
@@ -219,26 +225,42 @@ export const practiceTest12RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "command-of-evidence-quantitative",
-      "passage": "For a class regatta, student teams built model boats from empty milk cartons and floated them across a pool, measuring how far each design traveled before taking on enough water to swamp. One team argued that the double-layer hull, which used twice as many cartons as the single-layer design, did not repay the extra materials, since ______",
+      "passage": "In a 2022 field trial in Hamilton County, Nebraska, researchers grew irrigated corn with different total amounts of nitrogen fertilizer and measured the yield from each amount. Looking at the results, a student argued that the 200-pound rate, which used twice as much nitrogen as the 100-pound rate, added little yield, since ______",
       "questionTable": {
         "type": "table",
-        "caption": "Model-boat designs in one class regatta",
-        "headers": ["Hull design", "Cartons used", "Distance before swamping (meters)"],
+        "caption": "Corn yield at four nitrogen rates in a 2022 Nebraska field trial",
+        "headers": [
+          "Total nitrogen (pounds per acre)",
+          "Yield (bushels per acre)"
+        ],
         "rows": [
-          ["Single-layer", "4", "21"],
-          ["Raft-style", "6", "15"],
-          ["Double-layer", "8", "23"]
+          [
+            "50",
+            "211"
+          ],
+          [
+            "100",
+            "222"
+          ],
+          [
+            "150",
+            "231"
+          ],
+          [
+            "200",
+            "232"
+          ]
         ]
       },
       "question": "Which choice most effectively uses data from the table to complete the statement?",
       "choices": [
-        { "id": "A", "text": "the double-layer hull traveled 23 meters before swamping, only 2 meters farther than the 21 meters the single-layer hull managed with half the cartons." },
-        { "id": "B", "text": "the raft-style hull traveled only 15 meters before swamping, by a clear margin the shortest distance recorded for any of the three hull designs in the regatta." },
-        { "id": "C", "text": "the double-layer hull traveled 23 meters before swamping, farther than either of the other two designs managed." },
-        { "id": "D", "text": "the single-layer hull traveled 21 meters before swamping while the raft-style hull traveled 15, a difference of 6 meters." }
+        { "id": "A", "text": "the 200-pound rate produced 232 bushels per acre, only 10 more than the 222 bushels produced with half as much nitrogen." },
+        { "id": "B", "text": "the 50-pound rate produced 211 bushels per acre, the lowest yield of any of the nitrogen rates shown in the table." },
+        { "id": "C", "text": "the 200-pound rate produced 232 bushels per acre, the highest yield of any of the nitrogen rates shown in the table." },
+        { "id": "D", "text": "the 100-pound rate produced 222 bushels per acre, 11 more than the 211 bushels produced at the 50-pound rate." }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The claim is that doubling the cartons was not worth it, so the support has to show how small the payoff was: 23 meters against 21 for a hull built with half the materials.\n\n**The Full Solution:**\n- How to spot it: match the data to the exact point of the sentence. The sentence is about whether the extra cartons paid off, so the answer must compare the double-layer hull with the cheaper single-layer one.\n- The double-layer hull used 8 cartons and traveled 23 meters.\n- The single-layer hull used 4 cartons and traveled 21 meters.\n- Twice the materials bought only 2 extra meters — a slim return, which is exactly the team's argument.\n\n**Why the other choices are wrong:**\n- B: It reports the weakest design, the raft-style hull, which says nothing about whether the double layer was worth its cartons.\n- C: It shows the double-layer hull finishing first, which is true but ignores how small the lead was and what it cost.\n- D: It compares the two cheaper designs with each other and leaves the double-layer hull out entirely."
+      "explanation": "**Choice A is correct.** The student's point is that doubling the nitrogen added little. Choice A compares the two rates the claim is about: 200 pounds per acre produced 232 bushels, only 10 more than the 222 bushels from 100 pounds, half as much nitrogen.\n\n**The Full Solution:**\n- How to spot it: for a table question, reread the exact claim the blank must support, then find the numbers that test it.\n- The claim compares the 200-pound rate with the 100-pound rate, which used half as much nitrogen.\n- The table shows 222 bushels at 100 pounds and 232 bushels at 200 pounds: doubling the nitrogen added only 10 bushels per acre.\n\n**Why the other choices are wrong:**\n- B: It describes the lowest rate, which the claim is not about.\n- C: It reports that the 200-pound rate gave the highest yield, which on its own suggests the extra nitrogen helped rather than showing how little it added.\n- D: It compares the two lowest rates and never mentions the 200-pound rate."
     },
     {
       "id": 1267,
@@ -247,28 +269,64 @@ export const practiceTest12RWM2Easy = {
       "band": 2,
       "domain": "information-and-ideas",
       "skill": "command-of-evidence-quantitative",
-      "passage": "A school's walking bus program sends adult-led walking routes through the surrounding neighborhoods each morning, and the coordinator publishes each route's length along with its scheduled walking time. Reviewing the schedule, a parent noted that one route takes far longer to walk than any of the others, because ______",
+      "passage": "Rankings of the world's tallest buildings measure height to the architectural top, which includes spires but not antennas. Comparing five such buildings, a student noted that Lotte World Tower has more floors than the Mecca Royal Clock Tower, the taller of the two, because ______",
       "questionTable": {
         "type": "table",
-        "caption": "Walking bus routes at one elementary school",
-        "headers": ["Route", "Length (miles)", "Scheduled walking time (minutes)"],
+        "caption": "Height and number of floors of five of the world's tallest buildings",
+        "headers": [
+          "Building",
+          "Approximate height (meters)",
+          "Floors"
+        ],
         "rows": [
-          ["Orchard", "0.4", "9"],
-          ["Willow", "0.6", "13"],
-          ["Depot", "0.7", "15"],
-          ["Fairview", "0.8", "17"],
-          ["Hillcrest", "1.6", "38"]
+          [
+            "Burj Khalifa",
+            "828",
+            "163"
+          ],
+          [
+            "Shanghai Tower",
+            "632",
+            "128"
+          ],
+          [
+            "Mecca Royal Clock Tower",
+            "601",
+            "120"
+          ],
+          [
+            "Lotte World Tower",
+            "555",
+            "123"
+          ],
+          [
+            "One World Trade Center",
+            "541",
+            "94"
+          ]
         ]
       },
       "question": "Which choice most effectively uses data from the table to complete the statement?",
       "choices": [
-        { "id": "A", "text": "the Orchard route, at 0.4 miles the shortest of the five, is scheduled for just 9 minutes of walking." },
-        { "id": "B", "text": "the Depot route is scheduled for 15 minutes of walking, two minutes longer than the Willow route's 13." },
-        { "id": "C", "text": "the Hillcrest route, the longest at 1.6 miles, is scheduled for 38 minutes, more than twice the walking time of any other route." },
-        { "id": "D", "text": "the Fairview route, at 0.8 miles, is scheduled for 17 minutes of walking, the longest walking time of any route in the whole program." }
+        { "id": "A", "text": "Burj Khalifa has 163 floors, far more than any of the other four buildings in the table." },
+        { "id": "B", "text": "the Mecca Royal Clock Tower is 601 meters tall, compared with a height of 555 meters for Lotte World Tower." },
+        { "id": "C", "text": "Lotte World Tower has 123 floors, compared with 120 floors for the Mecca Royal Clock Tower." },
+        { "id": "D", "text": "One World Trade Center has 94 floors, 34 fewer than the 128 floors of the Shanghai Tower." }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The sentence needs the one route that takes far longer than the rest, and the table shows Hillcrest at 38 minutes while every other route is scheduled for 9 to 17 minutes.\n\n**The Full Solution:**\n- How to spot it: for a table question, reread the exact phrase the blank must support — \"one route takes far longer to walk than any of the others\" — then look for the value that stands apart.\n- Four routes cluster between 9 and 17 minutes.\n- Hillcrest is scheduled for 38 minutes, more than double the next-longest time.\n- Hillcrest is also the longest route at 1.6 miles, which fits the passage's point that the coordinator publishes length alongside time.\n\n**Why the other choices are wrong:**\n- A: It names the shortest, quickest route, not the one that takes far longer.\n- B: A two-minute gap between two middle routes is not one route standing far apart from the rest.\n- D: It misreads the table — 17 minutes is not the longest time; Hillcrest's 38 minutes is."
+      "explanation": "**Choice C is correct.** The student's claim is about the number of floors, and the table shows Lotte World Tower with 123 floors and the Mecca Royal Clock Tower with 120, so Lotte World Tower has more floors even though the Mecca Royal Clock Tower is the taller building.\n\n**The Full Solution:**\n- How to spot it: for a table question, reread the exact claim the blank must support, then find the column that tests it.\n- The claim compares the floors of Lotte World Tower and the Mecca Royal Clock Tower, so the relevant column is \"Floors.\"\n- Lotte World Tower's 123 floors is greater than the Mecca Royal Clock Tower's 120 floors, which is what choice C states.\n\n**Why the other choices are wrong:**\n- A: It describes Burj Khalifa, a building the claim is not about.\n- B: It compares heights, which shows that the Mecca Royal Clock Tower is the taller building but says nothing about floors.\n- D: It compares One World Trade Center and the Shanghai Tower, buildings the claim is not about.",
+      "_meta": {
+        "anchor": "five supertall buildings, height vs floor count; Lotte World Tower (123 floors, 555 m) vs Mecca Royal Clock Tower (120 floors, 601 m)",
+        "sources": [
+          "https://en.wikipedia.org/wiki/List_of_tallest_buildings",
+          "https://en.wikipedia.org/wiki/Lotte_World_Tower",
+          "https://en.wikipedia.org/wiki/Abraj_Al-Bait",
+          "https://en.wikipedia.org/wiki/Shanghai_Tower",
+          "https://en.wikipedia.org/wiki/Burj_Khalifa",
+          "https://en.wikipedia.org/wiki/One_World_Trade_Center",
+          "https://www.skyscrapercenter.com/criteria"
+        ]
+      }
     },
     {
       "id": 1263,
@@ -277,13 +335,13 @@ export const practiceTest12RWM2Easy = {
       "band": 2,
       "domain": "information-and-ideas",
       "skill": "central-ideas-and-details",
-      "passage": "A loaded cafeteria tray is carried one-handed past crowded tables, bumped by elbows and swinging backpacks the whole way. Spills, when they come, rarely come from a dropped tray; they come from a milk carton or a bowl sliding across the tray's smooth surface until it sails over the edge. Tray designers work against sliding above all else: they mold raised rims around the border, press separate wells into the surface for bowls and cartons, and texture the plastic so that even a wet dish drags instead of gliding.",
+      "passage": "A loaded cafeteria tray is carried past crowded tables, bumped by elbows and backpacks the whole way. Spills rarely come from a dropped tray. More often, a milk carton or a bowl slides across the tray's smooth surface and over the edge. Tray designers work against sliding above all else. They mold raised rims around the border, press separate wells into the surface for bowls and cartons, and texture the plastic so that even a wet dish drags instead of gliding.",
       "question": "Which choice best states the main idea of the text?",
       "choices": [
         { "id": "A", "text": "A tray's raised rim can stop a sliding carton before the carton reaches the edge of the tray." },
-        { "id": "B", "text": "Students carrying loaded cafeteria trays are frequently bumped by elbows and backpacks on the way to their tables." },
-        { "id": "C", "text": "Because most tray spills come from food sliding rather than from trays being dropped, trays are designed above all to keep items from moving." },
-        { "id": "D", "text": "Tray designers press separate molded wells into a tray's plastic surface so that bowls, cartons, and cups each have a settled place to sit during the walk to the table." }
+        { "id": "B", "text": "Students carrying loaded cafeteria trays are often bumped by elbows and backpacks on the way to their tables." },
+        { "id": "C", "text": "Because most spills come from sliding rather than dropping, trays are designed above all to keep items still." },
+        { "id": "D", "text": "Tray designers press separate wells into the surface so that bowls and cartons each have a place." }
       ],
       "correctAnswer": "C",
       "explanation": "**Choice C is correct.** The passage's point is that sliding, not dropping, causes most spills, which is why every design feature it lists exists to stop items from moving.\n\n**The Full Solution:**\n- How to spot it: the main idea has to cover the passage's reasoning, not one supporting fact. Ask what all the design features are FOR.\n- The setup: a loaded tray gets bumped constantly on the way to the table.\n- The key claim: spills rarely come from dropped trays; they come from items sliding over the edge.\n- The response: designers \"work against sliding above all else,\" with rims, molded wells, and textured plastic — three features, one shared purpose.\n\n**Why the other choices are wrong:**\n- A: True, but the rim is one of the three features, a supporting detail.\n- B: This is the setup, not the point the passage develops.\n- D: The molded wells are another single feature, not the idea behind all of them."
@@ -295,16 +353,16 @@ export const practiceTest12RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "central-ideas-and-details",
-      "passage": "Papier-mâché calls for surprisingly few materials: newspaper, plus a paste of flour and water. The paper, though, is prepared in a particular way. Makers tear each sheet into strips rather than cutting it, because a torn edge feathers out into a thin fringe that flattens into the layer beneath it, while a scissor-cut edge stays thick and square and dries as a raised ridge on the finished surface. Layered and smoothed, the torn strips disappear into a shell that can be sanded and painted like wood.",
+      "passage": "Papier-mâché calls for surprisingly few materials: newspaper, plus a paste of flour and water. The paper, though, is prepared in a particular way. Makers tear each sheet into strips rather than cutting it. A torn edge feathers out into a thin fringe that flattens into the layer beneath it. A scissor-cut edge stays thick and square and dries as a raised ridge on the finished surface. Layered and smoothed, the torn strips disappear into a shell that can be sanded and painted like wood.",
       "question": "According to the text, why do papier-mâché makers tear paper into strips rather than cutting it?",
       "choices": [
-        { "id": "A", "text": "Tearing strips from a sheet of newspaper takes much less time than cutting them." },
-        { "id": "B", "text": "Torn strips of newspaper soak up far less of the flour paste than cut strips do, and so the finished papier-mâché shell dries much faster." },
-        { "id": "C", "text": "Strips torn by hand can be made much longer than strips trimmed with scissors." },
-        { "id": "D", "text": "A torn edge thins out into a fringe that lies flat, while a cut edge dries as a raised ridge on the surface." }
+        { "id": "A", "text": "Tearing strips from a sheet of newspaper takes much less time than cutting the strips with scissors." },
+        { "id": "B", "text": "Torn strips soak up less of the flour paste than cut strips, so the finished shell dries faster." },
+        { "id": "C", "text": "Strips torn by hand can be made much longer than the strips that are trimmed with scissors." },
+        { "id": "D", "text": "A torn edge thins into a fringe that lies flat, while a cut edge dries as a raised ridge." }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The text states the reason directly: a torn edge \"feathers out into a thin fringe that flattens into the layer beneath it,\" while a cut edge \"dries as a raised ridge.\"\n\n**The Full Solution:**\n- How to spot it: a detail question wants the reason the PASSAGE gives. Find the sentence with \"because\" and match the answer to it.\n- The sentence about tearing contains the whole answer: torn edges feather and flatten; scissor-cut edges stay thick and square.\n- The final sentence confirms why flatness matters: the strips must disappear into a shell smooth enough to sand and paint.\n\n**Why the other choices are wrong:**\n- A: Speed is never mentioned in the text.\n- B: The passage says nothing about how much paste either kind of strip absorbs or how fast the shell dries.\n- C: The length of the strips is never discussed."
+      "explanation": "**Choice D is correct.** The text states the reason directly: a torn edge \"feathers out into a thin fringe that flattens into the layer beneath it,\" while a cut edge \"dries as a raised ridge.\"\n\n**The Full Solution:**\n- How to spot it: a detail question wants the reason the PASSAGE gives. Find the sentences that explain the difference between the two kinds of strips and match the answer to them.\n- Those sentences contain the whole answer: torn edges feather and flatten; scissor-cut edges stay thick and square.\n- The final sentence confirms why flatness matters: the strips must disappear into a shell smooth enough to sand and paint.\n\n**Why the other choices are wrong:**\n- A: Speed is never mentioned in the text.\n- B: The passage says nothing about how much paste either kind of strip absorbs or how fast the shell dries.\n- C: The length of the strips is never discussed."
     },
     {
       "id": 1266,
@@ -331,13 +389,13 @@ export const practiceTest12RWM2Easy = {
       "band": 4,
       "domain": "information-and-ideas",
       "skill": "inferences",
-      "passage": "The coin-operated scales that once stood outside drugstores showed a customer's weight for a penny, and many still work today. Whether they still weigh truly is another matter. A scale's springs stretch and its pivots wear, and a worn mechanism drifts — yet its needle still comes to rest as steadily as it did when new, and it will give the same reading for the same load all day. Nothing in the reading itself shows whether the mechanism has drifted; only setting a known standard weight on the platform settles that. Collectors who restore the machines observe that ______",
+      "passage": "The coin-operated scales that once stood outside drugstores showed a customer's weight for a penny, and many still work today. Whether they still weigh truly is another matter. A scale's springs stretch and its pivots wear, so a worn mechanism drifts. Yet its needle still comes to rest as steadily as it did when new, giving the same reading for the same load all day. Nothing in the reading itself shows whether the mechanism has drifted; only setting a known standard weight on the platform settles that. Collectors who restore the machines observe that ______",
       "question": "Which choice most logically completes the text?",
       "choices": [
-        { "id": "A", "text": "an old scale is of little use to anyone, since a worn mechanism almost never comes within several pounds of a true reading." },
-        { "id": "B", "text": "the surest way to judge a restored scale is to weigh one object on it repeatedly, since a scale that gives one steady reading must be weighing truly." },
-        { "id": "C", "text": "a scale whose needle comes to rest as steadily as it did when the machine was new can safely be assumed to weigh as truly as it did then." },
-        { "id": "D", "text": "a restored scale that gives steady readings has not yet been shown to weigh truly, since only a standard weight can reveal whether it has drifted." }
+        { "id": "A", "text": "an old scale is of little use, since a worn mechanism rarely comes within several pounds of a true reading." },
+        { "id": "B", "text": "the surest test of a restored scale is to weigh one object on it repeatedly and check that the reading holds." },
+        { "id": "C", "text": "a scale whose needle still comes to rest steadily can safely be assumed to weigh as truly as it did when new." },
+        { "id": "D", "text": "a steady restored scale has not been shown to weigh truly until it is tested with a standard weight." }
       ],
       "correctAnswer": "D",
       "explanation": "**Choice D is correct.** The passage says a drifted scale still comes to rest steadily and repeats its reading all day, and that only a standard weight settles the question — so steady output proves nothing by itself.\n\n**The Full Solution:**\n- How to spot it: when a passage says a signal shows nothing about the key question, the conclusion almost always limits what that signal can prove.\n- A worn mechanism drifts, yet its needle still comes to rest as steadily as ever.\n- It also gives the same reading for the same load, so consistency survives the drift too.\n- The passage names the only decisive test: a known standard weight on the platform.\n- A restored machine that merely behaves steadily therefore remains unproven until that test is run.\n\n**Why the other choices are wrong:**\n- A: It overshoots in the other direction; the passage never says how far worn scales drift, only that the reading alone cannot tell you.\n- B: Repetition is exactly the false comfort the passage warns about — a drifted scale repeats the same wrong reading all day.\n- C: This reverses the passage's point: a steady needle is what a drifted mechanism keeps showing."
@@ -370,16 +428,16 @@ export const practiceTest12RWM2Easy = {
       "band": 2,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "Four square asks little in the way of equipment: chalk for the court, one rubber ball, and at least four players. The server bounces the ball into another player's square, that player taps it onward into a third, and the rally continues until someone lets the ball bounce ______ player who misses drops to the lowest square, and everyone behind moves up one.",
+      "passage": "The Moon turns once on its axis in the same time it takes to orbit Earth, about 27 days, so the same side always faces our planet. No one had seen the far side until 1959, when the Soviet spacecraft Luna 3 photographed ______ blurry images were the first views of the Moon's hidden half.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "twice, the" },
-        { "id": "B", "text": "twice. The" },
-        { "id": "C", "text": "twice the" },
-        { "id": "D", "text": "twice, therefore the" }
+        { "id": "A", "text": "it, its" },
+        { "id": "B", "text": "it. Its" },
+        { "id": "C", "text": "it its" },
+        { "id": "D", "text": "it, therefore its" }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** Two complete sentences meet at the blank, so they need a full stop between them: a period after \"twice\" and a capital letter to begin the next sentence.\n\n**The Full Solution:**\n- The rule: two complete sentences cannot be joined by a comma alone or run together with no punctuation. Use a period, a semicolon, or a comma plus and/but/so.\n- How to spot it: check whether the words on each side could stand alone. \"The server bounces the ball into another player's square, that player taps it onward into a third, and the rally continues until someone lets the ball bounce twice\" is complete, and so is \"The player who misses drops to the lowest square, and everyone behind moves up one.\"\n- A period cleanly separates how the rally runs from what happens after a miss.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two complete sentences is the comma-splice error.\n- C: With no punctuation at all, the two sentences run together.\n- D: Adding \"therefore\" does not repair the splice; a linking word like that still needs a period or semicolon before it."
+      "explanation": "**Choice B is correct.** Two complete sentences meet at the blank, so they need a full stop between them: a period after \"it\" and a capital letter to begin the next sentence.\n\n**The Full Solution:**\n- The rule: two complete sentences cannot be joined by a comma alone or run together with no punctuation. Use a period, a semicolon, or a comma plus and/but/so.\n- How to spot it: check whether the words on each side could stand alone. \"No one had seen the far side until 1959, when the Soviet spacecraft Luna 3 photographed it\" is complete, and so is \"Its blurry images were the first views of the Moon's hidden half.\"\n- A period cleanly separates the two sentences.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two complete sentences is the comma-splice error.\n- C: With no punctuation at all, the two sentences run together.\n- D: Adding \"therefore\" does not repair the splice; a linking word like that still needs a period or semicolon before it."
     },
     {
       "id": 1276,
@@ -388,7 +446,7 @@ export const practiceTest12RWM2Easy = {
       "band": 4,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "Some of the best physics demonstrations cost almost nothing. Among the equipment kept in one science classroom's supply closet ______ several lengths of ordinary garden hose, saved for the demonstration in which water, once started, climbs over the lip of a raised tank and keeps flowing uphill on its own.",
+      "passage": "Caves in southern Germany have yielded some of the earliest evidence of human music. Among the objects found in these caves ______ a flute carved from the wing bone of a vulture and pieces of flutes made from mammoth ivory, all more than 35,000 years old.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
         { "id": "A", "text": "is" },
@@ -397,7 +455,7 @@ export const practiceTest12RWM2Easy = {
         { "id": "D", "text": "has been" }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The sentence is turned around, so the thing doing the action comes after the verb: \"several lengths\" is plural, which calls for the plural \"are.\"\n\n**The Full Solution:**\n- The rule: a verb has to match its subject even when the sentence puts that subject after the verb.\n- How to spot it: flip the sentence back into normal order. \"Several lengths of ordinary garden hose are among the equipment kept in one science classroom's supply closet\" makes the plural subject obvious.\n- A trap word, the singular \"closet,\" sits right before the blank, but it belongs to the opening phrase and is not what the sentence says is among the equipment.\n- The passage is written in the present (\"cost,\" \"keeps flowing\"), so the present-tense \"are\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Is\" is singular and does not match the plural \"lengths.\"\n- C: \"Was\" is singular as well, and it shifts the sentence into the past.\n- D: \"Has been\" is also singular, and it describes a state carried up to now rather than the present fact the sentence reports."
+      "explanation": "**Choice B is correct.** In this sentence, the subject comes after the verb. The subject is \"a flute ... and pieces of flutes,\" two things joined by \"and,\" so the verb must be plural: \"are.\"\n\n**The Full Solution:**\n- How to spot it: when a sentence starts with a phrase like \"Among the objects,\" the subject often comes after the verb. Ask what is among the objects.\n- What is among the objects? \"A flute carved from the wing bone of a vulture and pieces of flutes made from mammoth ivory.\"\n- Two subjects joined by \"and\" are plural, so the plural verb \"are\" is needed.\n\n**Why the other choices are wrong:**\n- A: \"Is\" is singular, but the subject names a flute and pieces of other flutes.\n- C: \"Was\" is singular and does not agree with the plural subject.\n- D: \"Has been\" is singular and does not agree with the plural subject."
     },
     {
       "id": 1272,
@@ -406,7 +464,7 @@ export const practiceTest12RWM2Easy = {
       "band": 2,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "A playground merry-go-round is little more than a steel disk turning on a well-greased bearing, but it delivers a first lesson in physics. The handles that a rider grips at the platform's rim ______ the surest hold once a push sets the disk spinning, and the closer to the center a rider moves, the slower the ride feels.",
+      "passage": "A playground merry-go-round is little more than a steel disk turning on a greased bearing, but it teaches a first lesson in physics. The handles that a rider grips at the platform's rim ______ the surest hold once a push sets the disk spinning, and the closer to the center a rider moves, the slower the ride feels.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
         { "id": "A", "text": "offer" },
@@ -442,7 +500,7 @@ export const practiceTest12RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "A morning announcement reaches every classroom in the building, and a reader who wanders loses the room in seconds. The advisers who run one school's broadcast therefore hold every episode to the same three segments, delivered in a fixed ______ the day's schedule changes, club meetings and tryouts, and finally the lunch menu.",
+      "passage": "Butterflies grow up through complete metamorphosis, a process in which the young look nothing like the adults. Every butterfly passes through four stages in a fixed ______ egg, larva (or caterpillar), pupa, and adult.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
         { "id": "A", "text": "order:" },
@@ -451,7 +509,7 @@ export const practiceTest12RWM2Easy = {
         { "id": "D", "text": "order" }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** A complete statement comes before the blank and a list follows it, and a colon is the mark that introduces a list after a complete statement.\n\n**The Full Solution:**\n- The rule: use a colon after a complete statement to introduce a list or an explanation.\n- How to spot it: check what sits on each side. \"The advisers who run one school's broadcast therefore hold every episode to the same three segments, delivered in a fixed order\" is a complete statement, and what follows names those three segments.\n- The colon after \"order\" announces that list: the schedule changes, the club meetings and tryouts, and the lunch menu.\n\n**Why the other choices are wrong:**\n- B: A semicolon separates complete sentences or the items of a list that already contains commas; it cannot introduce a list.\n- C: A comma is too weak to introduce the list, and it blurs into the commas already dividing the three segments.\n- D: With no punctuation, the list runs straight into the sentence with nothing to mark where it begins."
+      "explanation": "**Choice A is correct.** A complete statement comes before the blank and a list follows it, and a colon is the mark that introduces a list after a complete statement.\n\n**The Full Solution:**\n- The rule: use a colon after a complete statement to introduce a list or an explanation.\n- How to spot it: check what sits on each side. \"Every butterfly passes through four stages in a fixed order\" is a complete statement, and what follows names those four stages.\n- The colon after \"order\" announces that list: egg, larva, pupa, and adult.\n\n**Why the other choices are wrong:**\n- B: A semicolon must join two complete sentences, and \"egg, larva (or caterpillar), pupa, and adult\" is not a sentence.\n- C: A comma is too weak to introduce the list, and it blurs into the commas already dividing the four stages.\n- D: With no punctuation, the list runs straight into the sentence with nothing to mark where it begins."
     },
     // ============================================================
     // Q23-Q27: Expression of Ideas
@@ -463,7 +521,7 @@ export const practiceTest12RWM2Easy = {
       "band": 2,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "During class changes, a school's hall monitors stand at the stairways and busy corners, pointing new students toward their rooms and keeping the crowds moving in the right direction. ______ a monitor's authority only goes so far: a monitor may remind and redirect, but any real problem must be reported to a teacher.",
+      "passage": "In a bullfight, a matador waves a red cloth in front of the bull, and the bull charges at it again and again. ______ bulls are not enraged by the color red. Bulls are partly colorblind, and in one test, a bull charged red, white, and blue flags with equal force.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "Likewise," },
@@ -472,7 +530,14 @@ export const practiceTest12RWM2Easy = {
         { "id": "D", "text": "For example," }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The first sentence says what monitors can do; the second points out the limit on what they can do, so the contrast word \"However\" fits.\n\n**The Full Solution:**\n- How to spot it: for a transition, cover the choices and ask how the two sentences relate. Do they AGREE, CLASH, or does one CAUSE the other? Here they clash.\n- The first sentence describes the monitors' useful role: guiding new students and keeping crowds moving.\n- The second gives the boundary: monitors may remind and redirect, but real problems go to a teacher.\n- A capability followed by its limitation calls for a contrast word.\n\n**Why the other choices are wrong:**\n- A: \"Likewise\" signals agreement, but the second sentence pulls back from the first.\n- B: \"As a result\" would make the limited authority a consequence of standing at stairways, which it is not.\n- D: \"For example\" would introduce an instance of monitors helping, not a limit on their role."
+      "explanation": "**Choice C is correct.** The first sentence describes a bull charging a red cloth again and again, which might lead a reader to think the color makes bulls angry. The next sentence corrects that idea: \"bulls are not enraged by the color red.\" \"However\" signals this contrast.\n\n**The Full Solution:**\n- How to spot it: decide how the sentence after the blank relates to the one before it.\n- Before the blank: the bull keeps charging at a red cloth.\n- After the blank: bulls \"are not enraged by the color red.\" This goes against what a reader might assume, so a contrast transition is needed: \"However.\"\n\n**Why the other choices are wrong:**\n- A: \"Likewise\" signals a similar point, but not being enraged by red is not similar to charging at a red cloth.\n- B: \"As a result\" signals an effect, but charging at the cloth does not cause bulls to be unaffected by red.\n- D: \"For example\" introduces an example, but the statement that bulls are not enraged by red is not an example of a bull charging.",
+      "_meta": {
+        "anchor": "bulls are not enraged by red: bullfight cloth, dichromatic (partly colorblind) vision, MythBusters flag test",
+        "sources": [
+          "https://en.wikipedia.org/wiki/Muleta",
+          "https://en.wikipedia.org/wiki/MythBusters_(2007_season)"
+        ]
+      }
     },
     {
       "id": 1279,
@@ -481,7 +546,7 @@ export const practiceTest12RWM2Easy = {
       "band": 4,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "By the usual measures of retail, a coin-operated scale was a poor tenant for a drugstore's front step. It earned one cent per customer, it needed cleaning and calibration on a regular schedule, and it occupied floor space at the busiest spot in the store. ______ many druggists kept the machines out front for decades.",
+      "passage": "Judged by its schedule and budget, the Scottish Parliament Building in Edinburgh was a troubled project. It opened in 2004, more than three years later than planned, and its final cost of about 414 million pounds was many times the early estimates. ______ architects praised its design, and in 2005 the building won the Stirling Prize, one of Britain's top awards for architecture.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "As a result," },
@@ -490,7 +555,7 @@ export const practiceTest12RWM2Easy = {
         { "id": "D", "text": "In other words," }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The first sentences pile up reasons to get rid of the scales, and the last reports that druggists kept them anyway, so a concession word like \"Even so\" is needed.\n\n**The Full Solution:**\n- How to spot it: notice that everything before the blank is a drawback. If the next sentence reports the opposite of what those drawbacks would predict, you need a word meaning \"despite that.\"\n- The drawbacks are small earnings (a cent per customer), regular upkeep, and lost floor space at the store's busiest spot.\n- The final sentence runs against all three: many druggists kept the machines out front for decades.\n- An outcome that defies the drawbacks calls for \"Even so.\"\n\n**Why the other choices are wrong:**\n- A: \"As a result\" would make keeping the scales a consequence of their being unprofitable, which makes no sense.\n- C: \"Likewise\" claims the two ideas match, but the outcome runs against the drawbacks.\n- D: \"In other words\" would restate the drawbacks, while the last sentence introduces a surprising new fact instead."
+      "explanation": "**Choice B is correct.** The first two sentences show that the project went badly by the measures of schedule and budget: it opened more than three years late and cost many times the early estimates. The last sentence says the building was nonetheless praised and won a major architecture prize. \"Even so\" introduces something true in spite of what came before.\n\n**The Full Solution:**\n- How to spot it: decide whether the sentence after the blank agrees with, follows from, or pushes against the sentences before it.\n- Before the blank: delays and a huge cost overrun make the project look like a failure.\n- After the blank: architects praised the design, and the building won the Stirling Prize. That pushes against the earlier picture, so a concession transition is needed: \"Even so.\"\n\n**Why the other choices are wrong:**\n- A: The praise and the prize were not caused by the delays and cost overrun, so \"As a result\" does not fit.\n- C: \"Likewise\" signals a similar point, but the praise is the opposite of the troubles described before it.\n- D: \"In other words\" signals a restatement, but the last sentence says something new, not the same idea again."
     },
     {
       "id": 1278,
@@ -499,7 +564,7 @@ export const practiceTest12RWM2Easy = {
       "band": 3,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "Strips of pasted newspaper go onto a papier-mâché project limp and dripping. As the flour paste dries, though, it binds the layered strips into a single rigid shell, far stiffer than a stack of dry paper of the same thickness. ______ a form built up from enough layers can be lifted off its mold and will hold its shape on its own.",
+      "passage": "The Aral Sea in Central Asia was once the fourth-largest lake in the world. It was fed by two rivers, the Amu Darya and the Syr Darya. In the 1960s, the Soviet Union began diverting water from both rivers into canals to irrigate cotton fields. ______ the lake received less and less water and shrank to a fraction of its former size.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "Nevertheless," },
@@ -508,7 +573,7 @@ export const practiceTest12RWM2Easy = {
         { "id": "D", "text": "As a result," }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** Because drying paste binds the strips into a rigid shell, a well-layered form can stand without its mold — the last sentence is the consequence of what came before.\n\n**The Full Solution:**\n- How to spot it: ask whether the last sentence is a CONSEQUENCE of what precedes it. If the earlier idea makes the later one possible, use a result word.\n- The strips start limp and dripping, so on their own they hold no shape at all.\n- Drying paste changes that: it fuses the layers into one shell far stiffer than the paper alone.\n- Holding its shape off the mold is the payoff of that stiffness — a result, not a restatement or an exception.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" marks an outcome that goes against expectation, but this outcome follows naturally from the stiffened shell.\n- B: \"For instance\" would introduce an example, and this is a consequence rather than an example.\n- C: \"In other words\" signals a restatement, but the final sentence adds something new — what the finished form can do — rather than rephrasing the drying process."
+      "explanation": "**Choice D is correct.** The sentence before the blank gives a cause: water from the lake's two rivers was diverted to irrigate cotton fields. The sentence after the blank gives the effect: the lake received less water and shrank. \"As a result\" signals that cause-and-effect link.\n\n**The Full Solution:**\n- How to spot it: read the sentences on both sides of the blank and decide how they relate before looking at the choices.\n- Before the blank: the Soviet Union began \"diverting water from both rivers\" that fed the lake.\n- After the blank: the lake \"received less and less water and shrank.\" Water sent into canals no longer reaches the lake, so the second sentence is a consequence of the first, and \"As a result\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals that something happens despite what came before, but the lake shrank because of the diversion, not in spite of it.\n- B: The shrinking of the lake is not an example of water being diverted; it is what happened because of the diversion.\n- C: \"In other words\" signals a restatement, but the lake's shrinking is a new result, not the same idea said again."
     },
     {
       "id": 1280,
@@ -520,24 +585,24 @@ export const practiceTest12RWM2Easy = {
       "studentNotes": {
         "intro": "While researching a topic, a student has taken the following notes:",
         "bullets": [
-          "A party piñata is a hollow shell of pasted paper, filled with treats.",
-          "Each added layer of paper makes the shell harder to break.",
-          "A shell with too few layers can split on the first swing, ending the game at once.",
-          "A shell with too many layers may never break, leaving players frustrated.",
-          "Experienced builders match the layer count to the players, using fewer layers for younger children.",
-          "A well-matched shell stands up to several swings before it gives way."
+          "Dams can block salmon from swimming upstream to the places where they spawn.",
+          "A fish ladder is a structure built beside a dam to let fish get past it.",
+          "A common design is a series of pools, each one a little higher than the one below.",
+          "Water flows down the ladder from pool to pool.",
+          "Fish swim or leap up from one pool to the next and can rest in each pool along the way.",
+          "The Bonneville Dam on the Columbia River has fish ladders."
         ],
-        "goal": "The student wants to explain how builders keep a piñata game going for more than a swing or two."
+        "goal": "The student wants to explain how a fish ladder lets salmon get past a dam."
       },
       "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       "choices": [
-        { "id": "A", "text": "A party piñata is a hollow shell of pasted paper that is filled with treats before the game begins." },
-        { "id": "B", "text": "Some piñata shells split on the very first swing of the game, while other shells never break at all." },
-        { "id": "C", "text": "By matching the number of layers to the players, builders make a shell that survives several swings but still breaks, keeping the game going." },
-        { "id": "D", "text": "Experienced piñata builders, who work with pasted paper rather than with any other material, generally prefer making shells for older players." }
+        { "id": "A", "text": "A fish ladder is a structure that is built beside a dam, such as the Bonneville Dam on the Columbia River." },
+        { "id": "B", "text": "Dams can block salmon from swimming upstream, and water flows down a fish ladder from pool to pool." },
+        { "id": "C", "text": "A fish ladder's rising pools let salmon climb past a dam one pool at a time, resting as they go." },
+        { "id": "D", "text": "Fish ladders are built beside dams, which can block salmon from swimming upstream to spawn." }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The goal is to explain how builders keep the game going, and C names the method (matching layers to the players) and both failure modes it avoids (breaking at once, never breaking).\n\n**The Full Solution:**\n- How to spot it: for a notes question, reread the GOAL first, then keep only the choice that does that one job. The goal here is HOW builders make the game last.\n- C gives the builders' lever: the number of paper layers, matched to who is playing.\n- It covers both ways the game can fail — a shell that splits on the first swing and a shell that never breaks.\n- It ends on the outcome the goal asks about: a game that keeps going for several swings.\n\n**Why the other choices are wrong:**\n- A: It describes what a piñata is, not how builders make the game last.\n- B: It states the two failure modes but never says what builders do about them.\n- D: It adds a preference for older players that the notes never state, and it skips the layer-matching that answers the goal."
+      "explanation": "**Choice C is correct.** The goal is to explain HOW a fish ladder gets salmon past a dam, and C names the method (a series of rising pools) and what the fish do (climb one pool at a time, resting as they go).\n\n**The Full Solution:**\n- How to spot it: for a notes question, reread the GOAL first, then keep only the choice that does that one job. The goal here is HOW the ladder works for the fish.\n- C gives the ladder's design: \"rising pools.\"\n- It explains the fish's part: they climb past the dam \"one pool at a time,\" resting in each.\n\n**Why the other choices are wrong:**\n- A: It says where a fish ladder is built and names one dam, but not how the ladder helps fish.\n- B: It names the problem and one detail about the water, but it never says how the fish get past the dam.\n- D: It explains why fish ladders are needed, but not how a ladder gets salmon past a dam."
     },
     {
       "id": 1281,

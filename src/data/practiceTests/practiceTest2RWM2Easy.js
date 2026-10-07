@@ -26,16 +26,16 @@ export const practiceTest2RWM2Easy = {
       "band": 2,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "Watercolors are among the most light-sensitive objects in a museum's collection: pigments that look brilliant today can fade permanently after long exposure to bright light. Curators therefore ______ the amount of light the paintings receive, displaying them in dim galleries for short stretches and then returning them to dark storage, sometimes for years at a time.",
+      "passage": "Many animals in Ecuador's Galápagos Islands show little fear of people, so visitors could easily disturb them. To protect the wildlife, the national park's rules ______ what visitors may do. Tourists must stay on marked trails, visit protected areas only with a licensed guide, and keep at least two meters away from the animals.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "estimate" },
         { "id": "B", "text": "increase" },
-        { "id": "C", "text": "describe" },
+        { "id": "C", "text": "ignore" },
         { "id": "D", "text": "restrict" }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The curators are protecting fragile paintings from light, so the verb must mean to limit — \"restrict.\"\n\n**The Full Solution:**\n- The first sentence names the danger: bright light permanently fades watercolors.\n- The word \"therefore\" signals that the curators' action responds to that danger.\n- The rest of the sentence shows what the action looks like in practice: dim galleries, short display periods, years in dark storage. All three are ways of limiting light, so \"restrict\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Estimate\" means to make a rough calculation; guessing at the light level would not protect anything.\n- B: \"Increase\" would worsen the exact problem the first sentence describes.\n- C: \"Describe\" means to put into words, but the curators are controlling the light, not writing about it."
+      "explanation": "**Choice D is correct.** The park's rules protect the animals by limiting visitors' behavior, and \"restrict\" means to limit.\n\n**The Full Solution:**\n- The first sentence names the problem: the animals show little fear of people, so visitors could easily disturb them.\n- The words \"To protect the wildlife\" signal that the rules respond to that problem.\n- The next sentence shows the rules in practice: stay on marked trails, visit protected areas only with a licensed guide, and keep two meters from the animals. Each one limits what visitors may do, so \"restrict\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Estimate\" means to make a rough calculation; the rules set limits rather than calculating anything.\n- B: \"Increase\" makes no sense here; the rules narrow what visitors may do instead of expanding it.\n- C: \"Ignore\" means to pay no attention to something, but the rules focus closely on visitors' behavior."
     },
     {
       "id": 258,
@@ -92,7 +92,7 @@ export const practiceTest2RWM2Easy = {
       "band": 2,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "Bananas ripen in response to ethylene, a gas the fruit itself releases. Grocers use this chemistry at both ends of the supply chain: shippers keep the gas away from green bananas so that the fruit stays firm in transit, while a customer at home can seal bananas in a paper bag, which traps the gas and ______ ripening.",
+      "passage": "Bananas ripen in response to ethylene, a gas the fruit itself releases. This chemistry is useful at both ends of the supply chain. Shippers keep the gas away from green bananas so that the fruit stays firm in transit, while a customer at home can seal bananas in a paper bag, which traps the gas and ______ ripening.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "measures" },
@@ -101,7 +101,7 @@ export const practiceTest2RWM2Easy = {
         { "id": "D", "text": "flavors" }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** Trapping the gas that causes ripening would make ripening happen faster, and \"accelerates\" means speeds up.\n\n**The Full Solution:**\n- The first sentence gives the rule: bananas ripen in response to ethylene.\n- The sentence sets up a contrast: shippers keep the gas AWAY to keep fruit firm, while the paper bag TRAPS the gas.\n- If keeping ethylene away slows ripening down, then trapping ethylene next to the fruit must speed ripening up. \"Accelerates\" says exactly that.\n\n**Why the other choices are wrong:**\n- A: \"Measures\" would make the bag an instrument for recording ripeness, but the bag causes a change rather than recording one.\n- C: \"Interrupts\" is the opposite of the logic — trapping more of the ripening gas cannot stop ripening.\n- D: \"Flavors\" names the wrong effect; the passage is about how fast the fruit ripens, not how it tastes."
+      "explanation": "**Choice B is correct.** Trapping the gas that causes ripening would make ripening happen faster, and \"accelerates\" means speeds up.\n\n**The Full Solution:**\n- The first sentence gives the rule: bananas ripen in response to ethylene.\n- The last sentence sets up a contrast: shippers keep the gas AWAY to keep fruit firm, while the paper bag TRAPS the gas.\n- If keeping ethylene away slows ripening down, then trapping ethylene next to the fruit must speed ripening up. \"Accelerates\" says exactly that.\n\n**Why the other choices are wrong:**\n- A: \"Measures\" would make the bag an instrument for recording ripeness, but the bag causes a change rather than recording one.\n- C: \"Interrupts\" is the opposite of the logic — trapping more of the ripening gas cannot stop ripening.\n- D: \"Flavors\" names the wrong effect; the passage is about how fast the fruit ripens, not how it tastes."
     },
     {
       "id": 259,
@@ -131,10 +131,10 @@ export const practiceTest2RWM2Easy = {
       "passage": "Generations of athletes began every workout the same way: hold each muscle in a long, deep stretch, and injuries will stay away. When researchers finally put the ritual to the test, the results were deflating. Across dozens of controlled studies, lengthy pre-exercise holds did not reduce injury rates in most sports, and holding a stretch for more than a minute measurably weakened the muscle for a short time afterward. Many teams have since moved deep stretching to the end of practice and now warm up instead with light movement that raises the heart rate and rehearses the motions of the sport itself.",
       "question": "Which choice best describes the overall structure of the text?",
       "choices": [
-        { "id": "A", "text": "It presents two competing theories about how athletic injuries occur during exercise and then endorses the theory that has stronger experimental support." },
-        { "id": "B", "text": "It recounts the training routine of a single team across one season and evaluates whether that routine improved the team's performance." },
-        { "id": "C", "text": "It describes a widespread practice, presents research that undercuts the practice's supposed benefits, and notes how many teams have adjusted their routines." },
-        { "id": "D", "text": "It makes a recommendation about how athletes ought to warm up and then acknowledges several recent studies that call that recommendation into question." }
+        { "id": "A", "text": "It presents two theories about how athletic injuries occur and then endorses the one with stronger support." },
+        { "id": "B", "text": "It recounts one team's training routine over a single season and evaluates whether that routine improved performance." },
+        { "id": "C", "text": "It describes a widespread practice, presents research that undercuts the practice's supposed benefits, and notes how teams have adjusted." },
+        { "id": "D", "text": "It recommends a way for athletes to warm up and then acknowledges studies that call that recommendation into question." }
       ],
       "correctAnswer": "C",
       "explanation": "**Choice C is correct.** The text moves from a common practice (deep pre-workout stretching) to research findings that undermine it to the change teams have made in response.\n\n**The Full Solution:**\n- Structure questions are about the order of jobs the sentences do. Label each part: sentences 1-2 describe the traditional practice and its promise; sentence 3 reports what the studies actually found; sentence 4 describes how teams have changed their warm-ups.\n- That sequence — practice, disconfirming research, adjustment — is exactly the sequence choice C lays out, phrase by phrase.\n\n**Why the other choices are wrong:**\n- A: The text never offers any theory of how injuries occur, let alone two competing ones.\n- B: No single team or season appears; the text speaks of generations of athletes and dozens of studies.\n- D: This reverses the arc — the text opens with the old practice and ends with the correction, and the text itself recommends nothing."
@@ -167,7 +167,7 @@ export const practiceTest2RWM2Easy = {
       "passages": [
         {
           "label": "Text 1",
-          "text": "Home teams win more often than visitors in nearly every professional sport, and the most popular explanation credits the crowd directly: thousands of supportive voices are thought to energize home players, sharpening their effort and confidence, while the same noise unsettles the visitors. On this view, the home advantage is chiefly a story about athletes' psychology — players simply perform better in front of their own fans."
+          "text": "Home teams win more often than visitors in nearly every professional sport. The most popular explanation credits the crowd directly: thousands of supportive voices are thought to energize home players while unsettling the visitors. On this view, the home advantage is chiefly a story about athletes' psychology — players simply perform better in front of their own fans."
         },
         {
           "label": "Text 2",
@@ -176,10 +176,10 @@ export const practiceTest2RWM2Easy = {
       ],
       "question": "Based on the texts, how would the author of Text 2 most likely respond to the explanation presented in Text 1?",
       "choices": [
-        { "id": "A", "text": "The home advantage would disappear entirely if leagues permanently barred spectators from attending matches." },
+        { "id": "A", "text": "The home advantage would disappear entirely if leagues permanently barred spectators from matches." },
         { "id": "B", "text": "Home players' greater familiarity with their own stadium, not the crowd, accounts for most of the home advantage." },
-        { "id": "C", "text": "The crowd's influence is real but operates chiefly on players' confidence rather than on their physical effort." },
-        { "id": "D", "text": "The crowd does contribute to the home advantage, but mainly by influencing referees' decisions rather than by improving home players' performance." }
+        { "id": "C", "text": "The crowd's influence is real but works chiefly on players' confidence rather than on their physical effort." },
+        { "id": "D", "text": "The crowd does contribute to the home advantage, but mainly by influencing referees rather than by improving home players' performance." }
       ],
       "correctAnswer": "D",
       "explanation": "**Choice D is correct.** Text 2 agrees that crowds matter — the advantage shrank without them — but relocates the mechanism from the players to the referees, which is exactly the correction choice D states.\n\n**The Full Solution:**\n- Pin down each position. Text 1: the crowd works on the athletes' psychology, so home players \"simply perform better.\" Text 2: in empty stadiums, players performed as usual, but referees awarded fewer of the close calls that favor home teams.\n- Text 2's own conclusion is stated outright: crowds \"shape outcomes less by lifting the players than by swaying the officials.\"\n- Applied to Text 1's explanation, that is partial agreement with a redirect: yes, the crowd drives the advantage — but through the officials, not the players. That is choice D.\n\n**Why the other choices are wrong:**\n- A: Text 2 says the advantage \"shrank noticeably\" in empty stadiums, not that it vanished — \"entirely\" overshoots the evidence.\n- B: Neither text mentions stadium familiarity; this invents a third explanation.\n- C: This keeps the effect inside the players' heads, which is precisely what Text 2's statistics argue against — the players' play barely changed."
@@ -230,16 +230,16 @@ export const practiceTest2RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "command-of-evidence-textual",
-      "passage": "Every sourdough starter is a living community of wild yeasts and bacteria, and no two are exactly alike. Where do the microbes come from? Some bakers insist that the surrounding kitchen — or even the baker's own hands — seeds the community. A team of microbiologists who sampled dozens of starters argues instead that the primary source is the flour itself: in their view, the mix of microbes arriving on the grain largely determines which community takes hold in the crock.",
-      "question": "Which finding, if true, would most directly support the microbiologists' claim?",
+      "passage": "Each spring, the buds of trees in cold and temperate regions open into leaves, and botanists have long asked what sets the timing. Some have proposed that many trees track day length, which changes the same way every year. Botanist Constantin Zohner and colleagues tested 173 woody species in climate-controlled chambers. They argue instead that most of these species time their leaf-out by temperature cues, such as winter chilling and spring warming, rather than by day length.",
+      "question": "Which finding, if true, would most directly support the researchers' claim?",
       "choices": [
-        { "id": "A", "text": "Sourdough starters maintained for many years gradually become more acidic and more stable in composition." },
-        { "id": "B", "text": "Microbes found on bakers' hands frequently appear in the starters those bakers maintain." },
-        { "id": "C", "text": "Wheat flour and rye flour differ noticeably in how much water they absorb when mixed into a starter." },
-        { "id": "D", "text": "Starters mixed from the same bag of flour in many different kitchens develop closely similar microbial communities, while starters mixed from different flours in one kitchen do not." }
+        { "id": "A", "text": "Leaves of most species grew larger in warm chambers than in cool ones." },
+        { "id": "B", "text": "Plants of most species leafed out much later under short days than under long days at the same temperature." },
+        { "id": "C", "text": "Species from different regions differed in how many buds formed on each plant." },
+        { "id": "D", "text": "Plants of most species leafed out at about the same time under short and long days at the same temperature but leafed out earlier when kept warmer." }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** If the flour determines the community, then holding the flour constant should produce similar starters no matter the kitchen — and varying the flour within one kitchen should produce different ones. Choice D reports both patterns.\n\n**The Full Solution:**\n- Pin down the claim: the flour, not the kitchen or the baker, is the primary source of a starter's microbes.\n- The strongest support isolates the variable. Same flour across many kitchens giving similar communities shows the kitchen matters little; different flours in one kitchen giving different communities shows the flour matters a lot.\n- Choice D delivers both halves of that test at once, which ties the outcome to the flour more directly than any other option.\n\n**Why the other choices are wrong:**\n- A: How starters age says nothing about where their microbes originally came from.\n- B: This supports the rival view — the bakers'-hands explanation the microbiologists argue against.\n- C: Water absorption is a baking property, not evidence about the source of the microbial community."
+      "explanation": "**Choice D is correct.** If temperature rather than day length sets the timing, then changing the day length while holding temperature constant should make little difference, and raising the temperature should speed leaf-out. Choice D reports both patterns.\n\n**The Full Solution:**\n- Pin down the claim: most of the species time their leaf-out by temperature cues, not by day length.\n- The strongest support isolates each factor. Similar timing under short and long days shows that day length matters little; earlier leaf-out in warmer conditions shows that temperature matters a lot.\n- Choice D delivers both halves of that test, tying leaf-out timing to temperature more directly than any other option.\n\n**Why the other choices are wrong:**\n- A: Leaf size is a different question from when leaves appear, so this says nothing about what sets the timing.\n- B: This supports the rival view, that day length controls leaf-out, which the researchers argue against.\n- C: The number of buds on each plant is unrelated to which cue triggers those buds to open."
     },
     {
       "id": 268,
@@ -248,26 +248,27 @@ export const practiceTest2RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "command-of-evidence-quantitative",
-      "passage": "A community garden association tested three watering methods by assigning each method to twelve tomato plots of equal size and recording both the harvest from each plot and the time gardeners spent tending it. When the drip-irrigated plots produced the largest harvests, some members credited the gardeners rather than the equipment, suggesting that those plots had simply received more attention. The association's coordinators countered that the drip system's advantage reflects the method itself rather than extra care because ______",
+      "passage": "Countries with large populations often win many Olympic medals, partly because they have more potential athletes to draw on. At the 2018 Winter Olympics in PyeongChang, South Korea, Norway won more medals than any other country. A sports writer argues that Norway's success cannot be explained by the size of its population because ______",
       "questionTable": {
         "type": "table",
-        "caption": "Results of a season-long watering trial at a community garden",
-        "headers": ["Watering method", "Plots", "Average yield (kg per plot)", "Gardener time (hours per plot per week)"],
+        "caption": "Total medals won at the 2018 Winter Olympics and 2018 population, top four countries",
+        "headers": ["Country", "Total medals", "Population (millions)"],
         "rows": [
-          ["Drip irrigation", "12", "19.8", "2.1"],
-          ["Sprinkler", "12", "15.2", "2.3"],
-          ["Hand watering", "12", "16.4", "4.6"]
+          ["Norway", "39", "5.3"],
+          ["Germany", "31", "82.9"],
+          ["Canada", "29", "37.1"],
+          ["United States", "23", "328.5"]
         ]
       },
       "question": "Which choice most effectively uses data from the table to complete the statement?",
       "choices": [
-        { "id": "A", "text": "hand-watered plots received 4.6 hours of gardener time per week, more than twice what the drip-irrigated plots received." },
-        { "id": "B", "text": "drip-irrigated plots produced an average of 19.8 kilograms of tomatoes per plot, the highest yield of the three methods." },
-        { "id": "C", "text": "drip-irrigated plots produced the highest average yield (19.8 kilograms) while receiving the least weekly gardener time (2.1 hours) of the three methods." },
-        { "id": "D", "text": "sprinkler-watered plots produced the lowest average yield of the three methods even though they received the most hours of gardener time per week." }
+        { "id": "A", "text": "the United States had a population of about 328.5 million, the largest of the four countries in the table." },
+        { "id": "B", "text": "Norway won 39 medals, more than any of the other three countries in the table." },
+        { "id": "C", "text": "Norway won the most medals of the four countries (39) while having by far the smallest population (5.3 million)." },
+        { "id": "D", "text": "Canada won fewer medals than Germany even though Canada had the larger population." }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** To show the method — not extra care — explains the advantage, the evidence must pair the top yield with the LOWEST care number, and choice C does exactly that.\n\n**The Full Solution:**\n- The sentence answers a specific objection: maybe drip plots won because gardeners fussed over them more.\n- Gardener time is the table's measure of attention. Drip plots got 2.1 hours per week — less than sprinkler (2.3) and far less than hand watering (4.6) — yet still yielded the most (19.8 kg).\n- Most output from the least attention: the credit has to go to the method. Choice C is the only option that joins both columns into that argument.\n\n**Why the other choices are wrong:**\n- A: The hand-watering figure is accurate but one-sided — without drip's yield, it cannot explain drip's advantage.\n- B: Restating the yield alone leaves the extra-care objection untouched, which is the whole point of the sentence.\n- D: The table shows hand-watered plots, not sprinkler plots, received the most gardener time — the premise is false."
+      "explanation": "**Choice C is correct.** To show that population size does not explain Norway's success, the evidence must pair Norway's top medal count with its population, and choice C does that: the most medals came from the country with the fewest people.\n\n**The Full Solution:**\n- The sports writer answers a specific explanation: large countries win more medals because they have more athletes to draw on.\n- Population is the table's measure of that advantage. Norway had 5.3 million people, far fewer than Canada (37.1 million), Germany (82.9 million), or the United States (328.5 million), yet it won the most medals (39).\n- Most medals from the smallest population means size cannot be the reason. Choice C is the only option that joins both columns into that argument.\n\n**Why the other choices are wrong:**\n- A: The United States figure is accurate, but it says nothing about Norway and so cannot explain Norway's success.\n- B: Restating Norway's medal count alone leaves the population explanation untouched, which is the whole point of the sentence.\n- D: The table shows that Germany, not Canada, had the larger population, so the premise is false."
     },
     {
       "id": 270,
@@ -306,26 +307,26 @@ export const practiceTest2RWM2Easy = {
       "band": 2,
       "domain": "information-and-ideas",
       "skill": "command-of-evidence-quantitative",
-      "passage": "A middle school switched its cafeteria to an \"offer versus serve\" line, in which students take only the dishes they intend to eat instead of receiving a full standard tray. To gauge the change, staff weighed the food discarded at lunch for a month before the switch and for a month after. They concluded that the new line reduced waste in every grade and that the effect was largest in eighth grade because ______",
+      "passage": "Access to electricity has expanded quickly in many countries since 2000. A student examining World Bank data concluded that the share of people with access to electricity rose in each of the three countries in the table from 2000 to 2020 and that the gain was largest in Bangladesh because ______",
       "questionTable": {
         "type": "table",
-        "caption": "Average food discarded per student per lunch, before and after the switch to offer versus serve",
-        "headers": ["Grade", "Before (grams)", "After (grams)", "Change (grams)"],
+        "caption": "Percentage of population with access to electricity, 2000 and 2020",
+        "headers": ["Country", "2000 (%)", "2020 (%)", "Change (percentage points)"],
         "rows": [
-          ["Grade 6", "88", "71", "-17"],
-          ["Grade 7", "84", "73", "-11"],
-          ["Grade 8", "95", "66", "-29"]
+          ["Kenya", "15.2", "71.5", "+56.3"],
+          ["India", "60.3", "96.5", "+36.2"],
+          ["Bangladesh", "32.0", "96.2", "+64.2"]
         ]
       },
       "question": "Which choice most effectively uses data from the table to complete the statement?",
       "choices": [
-        { "id": "A", "text": "discarded food declined in all three grades, and eighth grade's drop of 29 grams per student was the largest in the table." },
-        { "id": "B", "text": "eighth graders discarded 66 grams of food per student after the switch, less than either of the other grades discarded." },
-        { "id": "C", "text": "discarded food declined in two of the three grades, with eighth grade showing the smaller of those two declines." },
-        { "id": "D", "text": "sixth grade's average fell from 88 grams per student before the switch to 71 grams per student after it." }
+        { "id": "A", "text": "access rose in all three countries, and Bangladesh's gain of 64.2 percentage points was the largest in the table." },
+        { "id": "B", "text": "Bangladesh's share reached 96.2 percent in 2020, far higher than Kenya's share of 71.5 percent." },
+        { "id": "C", "text": "access rose in only two of the three countries, with Bangladesh showing the smaller of those two gains." },
+        { "id": "D", "text": "Kenya's share rose from 15.2 percent in 2000 to 71.5 percent in 2020." }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The conclusion has two parts — waste fell in every grade, and eighth grade felt the effect most — and choice A supplies the table's numbers for both.\n\n**The Full Solution:**\n- Break the staff's conclusion into its claims: (1) the new line reduced waste in every grade, and (2) the effect was largest in eighth grade.\n- Check choice A against the Change column: all three entries are negative (-17, -11, -29), and eighth grade's -29 is the biggest drop.\n- Both claims covered, every figure checkable in the table — that is what \"most effectively uses data\" requires.\n\n**Why the other choices are wrong:**\n- B: Eighth grade's low \"after\" number is real, but the claim is about the size of the CHANGE — and this choice ignores the every-grade claim entirely.\n- C: The table contradicts this twice: all three grades declined, and eighth grade's decline was the largest, not the smaller.\n- D: Sixth grade's numbers are accurate but support neither claim about eighth grade — the very grade the sentence is explaining."
+      "explanation": "**Choice A is correct.** The student makes two claims: access rose in every country, and the gain was largest in Bangladesh. Choice A supports both.\n\n**The Full Solution:**\n- Check the first claim: every value in the change column is positive (+56.3, +36.2, +64.2), so access rose in all three countries.\n- Check the second claim: Bangladesh's gain of 64.2 percentage points is larger than Kenya's 56.3 and India's 36.2.\n- Choice A states both facts, so it fully supports the conclusion.\n\n**Why the other choices are wrong:**\n- B: It compares the countries' 2020 levels, not their gains. A high level in 2020 does not show how much access grew since 2000.\n- C: It misreads the table: access rose in all three countries, and Bangladesh's gain was the largest, not the smaller.\n- D: It describes only Kenya, so it says nothing about whether Bangladesh's gain was the largest."
     },
     {
       "id": 263,
@@ -352,7 +353,7 @@ export const practiceTest2RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "inferences",
-      "passage": "On a cold night, a hummingbird can drop its body temperature by more than twenty degrees Celsius and let its heart slow to a small fraction of its daytime rate — a state called torpor that dramatically cuts the bird's overnight energy use. But torpor has drawbacks: a torpid bird cannot react quickly to predators, and rewarming at dawn takes time and burns precious fuel. Field studies find that hummingbirds do not enter torpor every night; they rely on it mainly when nights are unusually cold or when their fat reserves run low. This suggests that ______",
+      "passage": "On a cold night, a hummingbird can drop its body temperature by more than twenty degrees Celsius and let its heart slow to a small fraction of its daytime rate. This state, called torpor, dramatically cuts the bird's overnight energy use. But torpor has drawbacks: a torpid bird cannot react quickly to predators, and rewarming at dawn takes time and burns precious fuel. Field studies find that hummingbirds do not enter torpor every night; they rely on it mainly when nights are unusually cold or when their fat reserves run low. This suggests that ______",
       "question": "Which choice most logically completes the text?",
       "choices": [
         { "id": "A", "text": "hummingbirds that live in mild climates never need to enter torpor at any point during the year." },
@@ -421,7 +422,7 @@ export const practiceTest2RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "Chilling a ripe tomato below about fifty-five degrees Fahrenheit quiets the genes responsible for many of its aroma ______ cooks who want the fullest flavor are therefore advised to store tomatoes on the counter and to refrigerate them only once they threaten to spoil.",
+      "passage": "Chilling a ripe tomato below about fifty-five degrees Fahrenheit quiets the genes responsible for many of its aroma ______ cooks who want the fullest flavor are therefore advised to keep ripe tomatoes out of the refrigerator.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
         { "id": "A", "text": "compounds;" },
@@ -469,16 +470,16 @@ export const practiceTest2RWM2Easy = {
       "band": 2,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "A sealed jar of honey can sit on a shelf for decades without spoiling. The bees that make honey fan the nectar with their wings until most of its water evaporates, leaving a syrup that is intensely sugary and slightly ______ microbes that land in it are quickly drawn dry and cannot multiply.",
+      "passage": "In 1941, Swiss engineer George de Mestral found burdock burrs stuck to his dog after a hunting trip in the Alps. Under a microscope, he saw that each burr was covered with tiny hooks that snagged on the loops of cloth and ______ insight led him to invent the hook-and-loop fastener he later named Velcro.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "acidic, the" },
-        { "id": "B", "text": "acidic the" },
-        { "id": "C", "text": "acidic. The" },
-        { "id": "D", "text": "acidic and, the" }
+        { "id": "A", "text": "fur, this" },
+        { "id": "B", "text": "fur this" },
+        { "id": "C", "text": "fur. This" },
+        { "id": "D", "text": "fur and, this" }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** Two complete sentences meet at the blank, and a period is a correct way to separate them.\n\n**The Full Solution:**\n- Test what stands on each side of the blank. Before: \"The bees that make honey fan the nectar ... leaving a syrup that is intensely sugary and slightly acidic\" — a complete sentence. After: \"the microbes that land in it are quickly drawn dry and cannot multiply\" — also a complete sentence.\n- Two independent clauses need a real boundary: a period, a semicolon, or a comma plus a coordinating conjunction.\n- Choice C supplies the period; read the result aloud and you hear two clean sentences.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses is a comma splice.\n- B: With no punctuation at all, the two sentences run together.\n- D: \"And\" could join the clauses only with a comma BEFORE it (\"acidic, and the\"); putting the comma after \"and\" strands the conjunction from the clause it introduces."
+      "explanation": "**Choice C is correct.** Two complete sentences meet at the blank, and a period is a correct way to separate them.\n\n**The Full Solution:**\n- Test what stands on each side of the blank. Before: \"Under a microscope, he saw that each burr was covered with tiny hooks that snagged on the loops of cloth and fur\" is a complete sentence. After: \"this insight led him to invent the hook-and-loop fastener he later named Velcro\" is also a complete sentence.\n- Two independent clauses need a real boundary: a period, a semicolon, or a comma plus a coordinating conjunction.\n- Choice C supplies the period, producing two clean sentences.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses is a comma splice.\n- B: With no punctuation at all, the two sentences run together.\n- D: \"And\" could join the clauses only with a comma BEFORE it (\"fur, and this\"); putting the comma after \"and\" strands the conjunction from the clause it introduces."
     },
     {
       "id": 274,

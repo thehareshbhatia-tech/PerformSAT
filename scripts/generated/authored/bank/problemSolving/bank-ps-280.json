@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-280",
-  "question": "In a study, $480$ volunteers with chronic knee pain were randomly assigned to a new physical therapy protocol or to the standard protocol. The $95\\%$ confidence interval for the difference in mean reduction in pain score (new minus standard) was $0.4$ point to $2.6$ points. Which of the following is the most appropriate conclusion?",
+  "question": "A random sample of $600$ of the $15{,}000$ households in a town was surveyed. Based on the sample, it is estimated that $24\\%$ of the households in the town have a vegetable garden, with an associated margin of error of $3\\%$. Which of the following is the most appropriate conclusion?",
   "choices": [
     {
       "id": "A",
-      "text": "The new protocol reduces every volunteer's pain score more than the standard protocol does."
+      "text": "Exactly $3{,}600$ households in the town have a vegetable garden."
     },
     {
       "id": "B",
-      "text": "For volunteers like those in the study, the new protocol causes a greater mean reduction in pain score than the standard protocol does."
+      "text": "It is plausible that between $126$ and $162$ households in the town have a vegetable garden."
     },
     {
       "id": "C",
-      "text": "Since the volunteers were not selected at random, no cause-and-effect conclusion can be drawn about the protocols."
+      "text": "It is plausible that between $3{,}150$ and $4{,}050$ households in the town have a vegetable garden."
     },
     {
       "id": "D",
-      "text": "For all adults with chronic knee pain, the new protocol causes a mean reduction at least $2.6$ points greater than the standard protocol does."
+      "text": "It is plausible that between $3{,}492$ and $3{,}708$ households in the town have a vegetable garden."
     }
   ],
   "distractorNotes": {
-    "A": "applies a difference of means to every individual volunteer",
-    "C": "confuses random selection with random assignment",
-    "D": "treats the top endpoint as a guaranteed minimum and widens the population"
+    "A": "treats the estimate, 24% of 15,000, as an exact count",
+    "B": "applies 21% and 27% to the 600 households in the sample instead of to the town",
+    "D": "takes 3% of 3,600 instead of 3 percentage points of the 15,000 households"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Confidence Interval Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The whole interval $0.4$ to $2.6$ is positive, so a difference of zero is not plausible; random assignment makes that difference causal; and because the volunteers were not randomly selected, the conclusion stays with volunteers like these.\n\n**The Full Solution:**\nStep 1: Read the interval. Every plausible value of the difference in mean reduction is greater than $0$, so the data support the conclusion that the new protocol did more on average.\nStep 2: Read the design. Volunteers were assigned to protocols at random, which is what licenses a cause-and-effect statement about the protocols.\nStep 3: Check the scope. The volunteers were not selected at random from all adults with chronic knee pain, so the conclusion is limited to people like the study's volunteers, which is exactly what choice B claims. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: the interval describes a difference of group *means*; individual volunteers vary, and some may have improved less with the new protocol than others did with the standard one.\n* Choice C: random selection controls generalization, not causation. Random assignment was used, so a causal conclusion about volunteers like these is supported.\n* Choice D: $2.6$ is the top of the interval, the largest difference still plausible, not a floor, and \"all adults with chronic knee pain\" goes beyond the group studied.\n\n**Test Day Takeaway:** On a randomized study, answer in two parts: the interval decides *whether* there is an effect, the sampling decides *whom* it applies to."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Confidence Interval Interpretation**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Plausible percents are $21\\%$ to $27\\%$, and $0.21 \\times 15{,}000 = 3{,}150$ and $0.27 \\times 15{,}000 = 4{,}050$.\n\n**The Full Solution:**\nStep 1: The estimate and margin of error give plausible values from $24\\% - 3\\% = 21\\%$ to $24\\% + 3\\% = 27\\%$ of the households in the town.\nStep 2: The town has $15{,}000$ households: $0.21 \\times 15{,}000 = 3{,}150$ and $0.27 \\times 15{,}000 = 4{,}050$.\nStep 3: So it is plausible that between $3{,}150$ and $4{,}050$ households in the town have a vegetable garden. Check: the estimate, $0.24 \\times 15{,}000 = 3{,}600$, is the midpoint of $3{,}150$ and $4{,}050$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: $3{,}600$ is the estimate; the margin of error means the true number could be any value in a range.\n* Choice B: $126$ and $162$ are $21\\%$ and $27\\%$ of the $600$ households surveyed, not of the $15{,}000$ households in the town.\n* Choice D: $3{,}600 \\pm 108$ treats the margin as $3\\%$ of the estimate; the margin is $3$ percentage points, which is $0.03 \\times 15{,}000 = 450$ households.\n\n**Test Day Takeaway:** A margin of error stated in percent is in percentage points of the population. Build the range of percents first, then convert it to counts."
 }

@@ -54,9 +54,9 @@ export const problemSolvingBank = [
     skills: ["percent-decimal-conversion"],
     difficulty: "easy",
     type: "fill-in",
-    question: "Of the seeds planted in a garden, $0.186$ sprouted within one week. What percent of the seeds sprouted within one week?",
+    question: "The proportion of the seeds planted in a garden that sprouted within one week is $0.186$. What percent of the seeds sprouted within one week?",
     correctAnswer: "18.6",
-    explanation: "**SAT Pattern: Decimal to Percent**\n\n**The correct answer is $18.6$.**\n\n**The Fast Way (~5s):** Multiply by $100$: $0.186 \\times 100 = 18.6$, so $18.6\\%$ of the seeds sprouted.\n\n**The Full Solution:**\nStep 1: A decimal is written as a percent by multiplying it by $100$, which moves the decimal point two places to the right.\nStep 2: $0.186 \\times 100 = 18.6$, so $18.6\\%$ of the seeds sprouted within one week.\nStep 3: Check: $18.6\\% = \\frac{18.6}{100} = 0.186$, the given decimal ✓\n\n**Common Mistakes:** Entering $1.86$ (moving the decimal point only one place); entering $0.186$ (not converting at all); entering $186$ (moving the decimal point three places).\n\n**Test Day Takeaway:** Shift the decimal point two places to the right and enter only the number: $0.186$ becomes $18.6$, with no percent sign in the answer box.",
+    explanation: "**SAT Pattern: Decimal to Percent**\n\n**The correct answer is 18.6.**\n\n**The Fast Way (~5s):** Multiply by $100$: $0.186 \\times 100 = 18.6$, so $18.6\\%$ of the seeds sprouted.\n\n**The Full Solution:**\nStep 1: A proportion is written as a percent by multiplying it by $100$, which moves the decimal point two places to the right.\nStep 2: $0.186 \\times 100 = 18.6$, so $18.6\\%$ of the seeds sprouted within one week.\nStep 3: Check: $18.6\\% = \\frac{18.6}{100} = 0.186$, the given proportion ✓\n\n**Common Mistakes:**\n* $1.86$: moves the decimal point only one place to the right.\n* $0.186$: enters the proportion without converting it to a percent.\n* $186$: moves the decimal point three places instead of two.\n\n**Test Day Takeaway:** Shift the decimal point two places to the right and enter only the number: $0.186$ becomes $18.6$, with no percent sign in the answer box.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "decimal-to-percent",
@@ -385,18 +385,18 @@ export const problemSolvingBank = [
     skills: ["percent-word-problems"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A school received a grant of \\$18,000. The school spent $35\\%$ of the grant on equipment, then $20\\%$ of the remaining amount on training, and then $25\\%$ of what remained after that on travel. How many dollars of the grant were left after these three expenses?",
+    question: "A school spent $40\\%$ of a grant on equipment and then spent $25\\%$ of the remaining amount on training. After these two expenses, \\$6,300 of the grant was left. What was the amount, in dollars, of the grant?",
     choices: [
-      // distractor: adds the percents ($35 + 20 + 25 = 80\%$) and takes them all from the original grant, leaving $20\%$ of $18{,}000$; the later percents apply to smaller remainders.
-      { id: "A", text: "$3{,}600$" },
-      { id: "B", text: "$7{,}020$" },
-      // distractor: stops after the second expense and omits the travel spending.
-      { id: "C", text: "$9{,}360$" },
-      // distractor: stops after the first expense and omits both later expenses.
-      { id: "D", text: "$11{,}700$" }
+      // distractor: undoes only the training expense, $\frac{6{,}300}{0.75} = 8{,}400$, and forgets the equipment expense.
+      { id: "A", text: "$8{,}400$" },
+      // distractor: adds the percents back to the amount left, $6{,}300(1.40)(1.25) = 11{,}025$; each percent was taken from a larger amount, so it cannot be reversed by multiplying.
+      { id: "B", text: "$11{,}025$" },
+      { id: "C", text: "$14{,}000$" },
+      // distractor: adds the percents, $40\% + 25\% = 65\%$, and solves $0.35G = 6{,}300$; the $25\%$ was taken from the remaining amount, not from the whole grant.
+      { id: "D", text: "$18{,}000$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Sequential Spending Percent**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Keep the fraction that remains at each stage: $18{,}000 \\times 0.65 \\times 0.80 \\times 0.75 = 7{,}020$.\n\n**The Full Solution:**\nStep 1: After equipment, $100\\% - 35\\% = 65\\%$ remains: $0.65 \\times 18{,}000 = 11{,}700$.\nStep 2: Training takes $20\\%$ of that remainder, leaving $80\\%$: $0.80 \\times 11{,}700 = 9{,}360$. Travel takes $25\\%$ of the new remainder, leaving $75\\%$: $0.75 \\times 9{,}360 = 7{,}020$.\nStep 3: Check by adding the expenses: $6{,}300 + 2{,}340 + 2{,}340 = 10{,}980$, and $18{,}000 - 10{,}980 = 7{,}020$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3{,}600$): adds the percents ($35 + 20 + 25 = 80\\%$) and takes them all from the original grant, leaving $20\\%$ of $18{,}000$; the later percents apply to smaller remainders.\n* Choice C ($9{,}360$): stops after the second expense and omits the travel spending.\n* Choice D ($11{,}700$): stops after the first expense and omits both later expenses.\n\n**Test Day Takeaway:** \"Of the remaining amount\" means each percent uses a new, smaller base. Multiply the remaining fractions; never add the percents.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Sequential Spending Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** After both expenses, $0.60 \\times 0.75 = 0.45$ of the grant is left, so the grant is $\\frac{6{,}300}{0.45} = 14{,}000$ dollars.\n\n**The Full Solution:**\nStep 1: Let $G$ be the grant, in dollars. After equipment, $100\\% - 40\\% = 60\\%$ remains: $0.60G$.\nStep 2: Training takes $25\\%$ of that remainder, leaving $75\\%$ of it: $0.75(0.60G) = 0.45G$. So $0.45G = 6{,}300$ and $G = \\frac{6{,}300}{0.45} = 14{,}000$.\nStep 3: Check: $40\\%$ of $14{,}000$ is $5{,}600$, leaving $8{,}400$; $25\\%$ of $8{,}400$ is $2{,}100$, leaving $6{,}300$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8{,}400$): undoes only the training expense, $\\frac{6{,}300}{0.75} = 8{,}400$, and forgets the equipment expense.\n* Choice B ($11{,}025$): adds the percents back to the amount left, $6{,}300(1.40)(1.25) = 11{,}025$; each percent was taken from a larger amount, so it cannot be reversed by multiplying.\n* Choice D ($18{,}000$): adds the percents, $40\\% + 25\\% = 65\\%$, and solves $0.35G = 6{,}300$; the $25\\%$ was taken from the remaining amount, not from the whole grant.\n\n**Test Day Takeaway:** When each percent is taken from what is left, multiply the remaining fractions ($0.60 \\times 0.75$); never add the percents. To work backward, divide by that product.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "sequential-percent-spending",
@@ -565,19 +565,19 @@ export const problemSolvingBank = [
     skills: ["calculate-mean"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The table shows a swimmer's times, in seconds, for the first $4$ trials of an event. The swimmer wants the mean time for all $5$ trials to be at most $31.8$ seconds. What is the greatest possible time, in seconds, for the fifth trial?",
-    questionTable: { headers: ["Trial", "Time (seconds)"], rows: [["1", "32.1"], ["2", "31.7"], ["3", "32.4"], ["4", "31.9"]] },
+    question: "The table shows a swimmer's times, in seconds, for the first $4$ trials of an event. The swimmer wants the mean time for all $5$ trials to be at most $58$ seconds. What is the greatest possible time, in seconds, for the fifth trial?",
+    questionTable: { headers: ["Trial", "Time (seconds)"], rows: [["1", "58"], ["2", "61"], ["3", "57"], ["4", "60"]] },
     choices: [
-      { id: "A", text: "$30.9$" },
-      // distractor: subtracts the current shortfall ($32.025 - 31.8 = 0.225$) from the target only once, giving about $31.6$, instead of making up the shortfall for all four earlier trials.
-      { id: "B", text: "$31.6$" },
-      // distractor: assumes the fifth trial only needs to equal the target mean; since the first four average above $31.8$, the fifth must be faster than $31.8$.
-      { id: "C", text: "$31.8$" },
-      // distractor: reports the current mean of the four trials, rounded, rather than solving for the fifth trial.
-      { id: "D", text: "$32.0$" }
+      { id: "A", text: "$54$" },
+      // distractor: subtracts the $1$-second gap between the current mean, $59$, and the target only once, instead of making up the gap for all earlier trials.
+      { id: "B", text: "$57$" },
+      // distractor: assumes the fifth trial only needs to equal the target mean; since the first four average more than $58$, the fifth must be faster than $58$.
+      { id: "C", text: "$58$" },
+      // distractor: reports the mean of the first four trials, $\frac{236}{4} = 59$, rather than solving for the fifth trial.
+      { id: "D", text: "$59$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Constraint on Mean**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Five trials at a mean of $31.8$ allow a total of $5 \\times 31.8 = 159$ seconds. The first four total $128.1$, so the fifth can be at most $159 - 128.1 = 30.9$.\n\n**The Full Solution:**\nStep 1: A mean of at most $31.8$ over $5$ trials means the total is at most $5 \\times 31.8 = 159$ seconds.\nStep 2: The first four trials total $32.1 + 31.7 + 32.4 + 31.9 = 128.1$ seconds.\nStep 3: The fifth time $x$ must satisfy $128.1 + x \\le 159$, so $x \\le 30.9$. Check: $\\frac{128.1 + 30.9}{5} = \\frac{159}{5} = 31.8$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($31.6$): subtracts the current shortfall ($32.025 - 31.8 = 0.225$) from the target only once, giving about $31.6$, instead of making up the shortfall for all four earlier trials.\n* Choice C ($31.8$): assumes the fifth trial only needs to equal the target mean; since the first four average above $31.8$, the fifth must be faster than $31.8$.\n* Choice D ($32.0$): reports the current mean of the four trials, rounded, rather than solving for the fifth trial.\n\n**Test Day Takeaway:** Turn a target mean into a target total: (target mean)(count). Subtract what is already banked to bound the remaining value.",
+    explanation: "**SAT Pattern: Constraint on Mean**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Five trials at a mean of $58$ allow a total of $5 \\times 58 = 290$ seconds. The first four total $236$, so the fifth can be at most $290 - 236 = 54$.\n\n**The Full Solution:**\nStep 1: A mean of at most $58$ for $5$ trials means the total time is at most $5 \\times 58 = 290$ seconds.\nStep 2: The first four times total $58 + 61 + 57 + 60 = 236$ seconds, so the fifth time $t$ must satisfy $236 + t \\leq 290$, or $t \\leq 54$.\nStep 3: Check: $\\frac{236 + 54}{5} = \\frac{290}{5} = 58$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($57$): subtracts the $1$-second gap between the current mean, $59$, and the target only once, instead of making up the gap for all earlier trials.\n* Choice C ($58$): assumes the fifth trial only needs to equal the target mean; since the first four average more than $58$, the fifth must be faster than $58$.\n* Choice D ($59$): reports the mean of the first four trials, $\\frac{236}{4} = 59$, rather than solving for the fifth trial.\n\n**Test Day Takeaway:** For a target mean, convert it to a target total (mean times count), then subtract the values you already have.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "mean-target-constraint",
@@ -590,18 +590,18 @@ export const problemSolvingBank = [
     skills: ["calculate-mean"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "On a quiz, the mean score of the $15$ students in one class was $42$ points, and the mean score of the $25$ students in another class was $m$ points. The mean score of all $40$ students was $48$ points. What is the value of $m$?",
+    question: "On a quiz, the mean score of the $16$ students in one class was $42$ points, and the mean score of the $24$ students in another class was $m$ points. The mean score of all $40$ students was $48$ points. What is the value of $m$?",
     choices: [
-      // distractor: divides the second class's total, $1{,}290$, by all $40$ students instead of by the $25$ students in that class.
-      { id: "A", text: "$32.25$" },
-      { id: "B", text: "$51.6$" },
+      // distractor: divides the second class's total, $1{,}248$, by all $40$ students instead of by the $24$ students in that class.
+      { id: "A", text: "$31.2$" },
+      { id: "B", text: "$52$" },
       // distractor: treats the classes as equal in size and solves $\frac{42 + m}{2} = 48$; the overall mean is weighted by the class sizes.
       { id: "C", text: "$54$" },
-      // distractor: swaps the class sizes, using $25$ students for the first class and $15$ for the second.
-      { id: "D", text: "$58$" }
+      // distractor: swaps the class sizes, using $24$ students for the first class and $16$ for the second.
+      { id: "D", text: "$57$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Weighted Combined Mean**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** All $40$ scores total $40 \\times 48 = 1{,}920$ points and the first class's total $15 \\times 42 = 630$ points, so $m = \\frac{1{,}920 - 630}{25} = 51.6$.\n\n**The Full Solution:**\nStep 1: Convert each mean to a total. All $40$ students: $40 \\times 48 = 1{,}920$ points. First class: $15 \\times 42 = 630$ points.\nStep 2: The second class scored $1{,}920 - 630 = 1{,}290$ points in all, so $m = \\frac{1{,}290}{25} = 51.6$.\nStep 3: Check: $\\frac{15(42) + 25(51.6)}{40} = \\frac{630 + 1{,}290}{40} = \\frac{1{,}920}{40} = 48$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($32.25$): divides the second class's total, $1{,}290$, by all $40$ students instead of by the $25$ students in that class.\n* Choice C ($54$): treats the classes as equal in size and solves $\\frac{42 + m}{2} = 48$; the overall mean is weighted by the class sizes.\n* Choice D ($58$): swaps the class sizes, using $25$ students for the first class and $15$ for the second.\n\n**Test Day Takeaway:** A combined mean is a weighted mean. Work in totals: (combined total) $-$ (known total) $=$ (unknown total), then divide by the unknown group's own count.",
+    explanation: "**SAT Pattern: Weighted Combined Mean**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** All $40$ scores total $40 \\times 48 = 1{,}920$ points and the first class's total is $16 \\times 42 = 672$ points, so $m = \\frac{1{,}920 - 672}{24} = 52$.\n\n**The Full Solution:**\nStep 1: Convert each mean to a total: the first class scored $16 \\times 42 = 672$ points, the second class scored $24m$ points, and all $40$ students scored $40 \\times 48 = 1{,}920$ points.\nStep 2: So $672 + 24m = 1{,}920$, which gives $24m = 1{,}248$ and $m = 52$.\nStep 3: Check: $\\frac{672 + 24(52)}{40} = \\frac{672 + 1{,}248}{40} = \\frac{1{,}920}{40} = 48$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($31.2$): divides the second class's total, $1{,}248$, by all $40$ students instead of by the $24$ students in that class.\n* Choice C ($54$): treats the classes as equal in size and solves $\\frac{42 + m}{2} = 48$; the overall mean is weighted by the class sizes.\n* Choice D ($57$): swaps the class sizes, using $24$ students for the first class and $16$ for the second.\n\n**Test Day Takeaway:** To combine means, work with totals: mean times count for each group, then divide the combined total by the combined count.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "combined-group-mean",
@@ -616,19 +616,19 @@ export const problemSolvingBank = [
     skills: ["weighted-mean"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The table shows the weight of each category in a student's course grade and the student's score in each category. The course grade is the weighted mean of the three scores. What is the student's course grade?",
-    questionTable: { headers: ["Category", "Weight", "Score"], rows: [["Tests", "45%", "82"], ["Homework", "35%", "90"], ["Project", "20%", "75"]] },
+    question: "The table shows the scores of the $20$ students in a class on a quiz. What is the mean score of the $20$ students?",
+    questionTable: { headers: ["Score", "Number of students"], rows: [["70", "4"], ["80", "10"], ["90", "6"]] },
     choices: [
-      // distractor: omits the project category, adding only $36.9 + 31.5$.
-      { id: "A", text: "$68.4$" },
-      // distractor: takes the simple average $\frac{82 + 90 + 75}{3}$, ignoring the weights.
-      { id: "B", text: "$82.3$" },
-      { id: "C", text: "$83.4$" },
-      // distractor: swaps the $45\%$ and $35\%$ weights, applying $0.45$ to the homework score and $0.35$ to the test score.
-      { id: "D", text: "$84.2$" }
+      // distractor: averages the three scores, $\frac{70 + 80 + 90}{3}$, ignoring how many students earned each score.
+      { id: "A", text: "$80$" },
+      { id: "B", text: "$81$" },
+      // distractor: divides the total of $1{,}620$ points by the $3$ rows of the table instead of by the $20$ students.
+      { id: "C", text: "$540$" },
+      // distractor: finds the total of all the scores but does not divide by the number of students.
+      { id: "D", text: "$1{,}620$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Weighted Average from Percentages**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Multiply each score by its weight and add: $0.45(82) + 0.35(90) + 0.20(75) = 36.9 + 31.5 + 15 = 83.4$.\n\n**The Full Solution:**\nStep 1: Convert the weights to decimals: $0.45$, $0.35$, $0.20$. They sum to $1$, so no further division is needed.\nStep 2: Weighted contributions: $0.45 \\times 82 = 36.9$; $0.35 \\times 90 = 31.5$; $0.20 \\times 75 = 15$.\nStep 3: Course grade $= 36.9 + 31.5 + 15 = 83.4$. Check: the result lies between the lowest score ($75$) and the highest ($90$), closest to the heavily weighted $82$ and $90$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($68.4$): omits the project category, adding only $36.9 + 31.5$.\n* Choice B ($82.3$): takes the simple average $\\frac{82 + 90 + 75}{3}$, ignoring the weights.\n* Choice D ($84.2$): swaps the $45\\%$ and $35\\%$ weights, applying $0.45$ to the homework score and $0.35$ to the test score.\n\n**Test Day Takeaway:** A weighted mean is $\\sum (\\text{weight} \\times \\text{score})$ when the weights sum to $100\\%$. Match each weight to its own row.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Weighted Average from Percentages**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Total the points: $70(4) + 80(10) + 90(6) = 1{,}620$. Divide by the $20$ students: $\\frac{1{,}620}{20} = 81$.\n\n**The Full Solution:**\nStep 1: Each score counts once for every student who earned it: $70(4) = 280$, $80(10) = 800$, and $90(6) = 540$.\nStep 2: The total is $280 + 800 + 540 = 1{,}620$ points for $4 + 10 + 6 = 20$ students, so the mean is $\\frac{1{,}620}{20} = 81$.\nStep 3: Check: more students scored $90$ than $70$, so the mean should sit a little above the middle score, $80$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($80$): averages the three scores, $\\frac{70 + 80 + 90}{3}$, ignoring how many students earned each score.\n* Choice C ($540$): divides the total of $1{,}620$ points by the $3$ rows of the table instead of by the $20$ students.\n* Choice D ($1{,}620$): finds the total of all the scores but does not divide by the number of students.\n\n**Test Day Takeaway:** For a frequency table, multiply each value by its frequency, add, and divide by the total frequency, not by the number of rows.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "weighted-average",
@@ -653,22 +653,22 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-030",
     domain: "problem-solving",
-    skills: ["weighted-mean"],
+    skills: ["calculate-mean"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The table shows the number of credits and the grade points a student earned in each of three courses. The student's grade point average for these courses, weighted by credits, is $3.32$. What is the value of $x$?",
-    questionTable: { headers: ["Course", "Credits", "Grade points"], rows: [["Biology", "4", "3.5"], ["Chemistry", "3", "x"], ["Statistics", "3", "3.0"]] },
+    question: "The table shows the number of students in each of two classes and the mean score of each class on a test. The mean score of all $30$ students is $76$. What is the value of $x$?",
+    questionTable: { headers: ["Class", "Number of students", "Mean score"], rows: [["A", "20", "72"], ["B", "10", "x"]] },
     choices: [
-      // distractor: divides the missing $10.2$ weighted points by $4$ (Biology's credits) instead of by Chemistry's $3$ credits.
-      { id: "A", text: "$2.55$" },
-      // distractor: assumes the unknown course simply equals the overall average; with unequal weights and unequal grades, it does not.
-      { id: "B", text: "$3.32$" },
-      { id: "C", text: "$3.4$" },
-      // distractor: ignores the credits and solves $\frac{3.5 + x + 3.0}{3} = 3.32$, which treats all three courses as equally weighted.
-      { id: "D", text: "$3.46$" }
+      // distractor: divides class B's total of $840$ points by all $30$ students instead of by the $10$ students in class B.
+      { id: "A", text: "$28$" },
+      // distractor: assumes class B's mean equals the overall mean; class A's mean is below $76$, so class B's must be above it.
+      { id: "B", text: "$76$" },
+      // distractor: treats the classes as equal in size and solves $\frac{72 + x}{2} = 76$.
+      { id: "C", text: "$80$" },
+      { id: "D", text: "$84$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Weighted Average by Credits**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Total credits $= 10$, so total weighted points $= 10 \\times 3.32 = 33.2$. Biology and Statistics contribute $4(3.5) + 3(3.0) = 23$, so $3x = 10.2$ and $x = 3.4$.\n\n**The Full Solution:**\nStep 1: A credit-weighted GPA is $\\frac{\\sum(\\text{credits} \\times \\text{grade points})}{\\sum \\text{credits}}$. Total credits $= 4 + 3 + 3 = 10$.\nStep 2: Set up the equation: $\\frac{4(3.5) + 3x + 3(3.0)}{10} = 3.32$, so $14 + 3x + 9 = 33.2$ and $3x = 10.2$.\nStep 3: $x = 3.4$. Check: $\\frac{14 + 10.2 + 9}{10} = \\frac{33.2}{10} = 3.32$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.55$): divides the missing $10.2$ weighted points by $4$ (Biology's credits) instead of by Chemistry's $3$ credits.\n* Choice B ($3.32$): assumes the unknown course simply equals the overall average; with unequal weights and unequal grades, it does not.\n* Choice D ($3.46$): ignores the credits and solves $\\frac{3.5 + x + 3.0}{3} = 3.32$, which treats all three courses as equally weighted.\n\n**Test Day Takeaway:** When the weighted mean is given and one value is missing, multiply the mean by the total weight to get the total, subtract the known contributions, and divide by the missing value's OWN weight.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Weighted Combined Mean**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** All $30$ scores total $30 \\times 76 = 2{,}280$, and class A's scores total $20 \\times 72 = 1{,}440$, so $x = \\frac{2{,}280 - 1{,}440}{10} = 84$.\n\n**The Full Solution:**\nStep 1: Convert each mean to a total: class A scored $20 \\times 72 = 1{,}440$ points, class B scored $10x$ points, and all $30$ students scored $30 \\times 76 = 2{,}280$ points.\nStep 2: So $1{,}440 + 10x = 2{,}280$, which gives $10x = 840$ and $x = 84$.\nStep 3: Check: $\\frac{1{,}440 + 10(84)}{30} = \\frac{2{,}280}{30} = 76$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($28$): divides class B's total of $840$ points by all $30$ students instead of by the $10$ students in class B.\n* Choice B ($76$): assumes class B's mean equals the overall mean; class A's mean is below $76$, so class B's must be above it.\n* Choice C ($80$): treats the classes as equal in size and solves $\\frac{72 + x}{2} = 76$.\n\n**Test Day Takeaway:** A combined mean is weighted by the group sizes; solve with totals, not by averaging the group means.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "weighted-average-credits",
@@ -748,7 +748,7 @@ export const problemSolvingBank = [
     skills: ["find-median"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The table shows how many matches a volleyball player served each number of aces, for $24$ matches in all. What is the median number of aces per match?",
+    question: "The table shows the number of aces a volleyball player served in each of $24$ matches. What is the median number of aces per match?",
     questionTable: { headers: ["Aces in a match", "Number of matches"], rows: [["0", "3"], ["1", "4"], ["2", "5"], ["3", "8"], ["4", "4"]] },
     choices: [
       // distractor: takes the middle row of the table, $2$, instead of the middle of the $24$ matches.
@@ -796,22 +796,22 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-036",
     domain: "problem-solving",
-    skills: ["find-mode"],
+    skills: ["find-median"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The dot plot shows the number of eggs collected from a henhouse on each of $15$ mornings. What is the mode of the data?",
+    question: "The dot plot shows the number of eggs collected from a henhouse on each of $15$ mornings. What is the median number of eggs collected for the $15$ mornings?",
     diagram: { type: "dotPlot", params: { data: [{ value: 2, count: 1 }, { value: 3, count: 2 }, { value: 4, count: 3 }, { value: 5, count: 3 }, { value: 6, count: 5 }, { value: 7, count: 1 }], xMin: 1, xMax: 8, xLabel: "Eggs collected" } },
     choices: [
-      // distractor: reports the smallest value (the shortest stack), not the most frequent one.
-      { id: "A", text: "$2$" },
-      // distractor: computes the mean, $\frac{72}{15}$, rather than the mode.
+      // distractor: takes the middle of the six values on the number line, $\frac{4 + 5}{2}$, ignoring how many dots are above each value.
+      { id: "A", text: "$4.5$" },
+      // distractor: computes the mean, $\frac{72}{15} = 4.8$, rather than the median.
       { id: "B", text: "$4.8$" },
-      // distractor: reports the height of the tallest stack ($5$ dots) instead of the value beneath it, or reports the median.
       { id: "C", text: "$5$" },
+      // distractor: reports the value with the most dots, $6$, rather than the middle value.
       { id: "D", text: "$6$" }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Mode Identification**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** The mode is the value with the tallest stack of dots. The stack above $6$ has $5$ dots, more than any other, so the mode is $6$.\n\n**The Full Solution:**\nStep 1: The mode is the value that occurs most often. On a dot plot, that is the tallest column.\nStep 2: Column heights: $2$ has $1$ dot, $3$ has $2$, $4$ has $3$, $5$ has $3$, $6$ has $5$, $7$ has $1$.\nStep 3: The tallest column is above $6$, so the mode is $6$. Check: the heights add to $1 + 2 + 3 + 3 + 5 + 1 = 15$, matching the $15$ mornings. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reports the smallest value (the shortest stack), not the most frequent one.\n* Choice B ($4.8$): computes the mean, $\\frac{72}{15}$, rather than the mode.\n* Choice C ($5$): reports the height of the tallest stack ($5$ dots) instead of the value beneath it, or reports the median.\n\n**Test Day Takeaway:** Mode is read off the axis under the tallest stack; the stack's height is a count, never the answer.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Median of Sorted Odd-Count Set**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The median of $15$ values is the $8$th value in order. Counting dots from the left, $1 + 2 + 3 = 6$ dots are at $4$ or less, and the next $3$ dots are at $5$, so the $8$th value is $5$.\n\n**The Full Solution:**\nStep 1: The $15$ values in order have a middle value, the $8$th, with $7$ values below it and $7$ above it.\nStep 2: Counting from the left: $2$ is the $1$st value, $3$ the $2$nd and $3$rd, $4$ the $4$th through $6$th, and $5$ the $7$th through $9$th. The $8$th value is $5$, so the median is $5$.\nStep 3: Check: $6$ values are less than $5$ and $6$ values ($5$ at $6$ and $1$ at $7$) are greater than $5$, with the $3$ dots at $5$ in the middle ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4.5$): takes the middle of the six values on the number line, $\\frac{4 + 5}{2}$, ignoring how many dots are above each value.\n* Choice B ($4.8$): computes the mean, $\\frac{72}{15} = 4.8$, rather than the median.\n* Choice D ($6$): reports the value with the most dots, $6$, rather than the middle value.\n\n**Test Day Takeaway:** On a dot plot, every dot is one data value. Count dots from the left to the middle position; do not take the middle of the number line.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "basic-mode",
@@ -821,22 +821,22 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-037",
     domain: "problem-solving",
-    skills: ["find-mode"],
+    skills: ["range-calculation"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The bar graph shows the number of pairs of shoes of each size that a store sold on one day. What is the mode of the shoe sizes sold?",
+    question: "The bar graph shows the number of pairs of shoes of each size that a store sold on one day. What is the range of the shoe sizes sold?",
     diagram: { type: "barChart", params: { data: [{ label: "6", value: 2 }, { label: "7", value: 8 }, { label: "8", value: 5 }, { label: "9", value: 7 }, { label: "10", value: 4 }, { label: "11", value: 3 }], xAxisLabel: "Shoe size", yAxisLabel: "Pairs sold", yMax: 10, yStep: 2 } },
     choices: [
-      { id: "A", text: "$7$" },
-      // distractor: reports the height of the tallest bar ($8$ pairs) instead of the size on the x-axis; $8$ is also the median size, not the mode.
-      { id: "B", text: "$8$" },
-      // distractor: picks the second-tallest bar ($7$ pairs).
-      { id: "C", text: "$9$" },
-      // distractor: reports the largest shoe size rather than the most frequently sold size.
+      { id: "A", text: "$5$" },
+      // distractor: finds the range of the bar heights, $8 - 2 = 6$, instead of the range of the shoe sizes.
+      { id: "B", text: "$6$" },
+      // distractor: reports the height of the tallest bar, $8$ pairs, rather than a range of sizes.
+      { id: "C", text: "$8$" },
+      // distractor: reports the greatest shoe size sold, $11$, without subtracting the least size.
       { id: "D", text: "$11$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Mode of Shoe Sizes**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** The mode is the size with the tallest bar. The bar for size $7$ reaches $8$ pairs, the highest, so the mode is $7$.\n\n**The Full Solution:**\nStep 1: Each bar's height is the number of pairs sold of that size; the mode is the size sold most often, the tallest bar.\nStep 2: Bar heights: size $6$: $2$; size $7$: $8$; size $8$: $5$; size $9$: $7$; size $10$: $4$; size $11$: $3$.\nStep 3: The tallest bar is size $7$ with $8$ pairs, so the mode is $7$. Check: no other bar reaches $8$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($8$): reports the height of the tallest bar ($8$ pairs) instead of the size on the x-axis; $8$ is also the median size, not the mode.\n* Choice C ($9$): picks the second-tallest bar ($7$ pairs).\n* Choice D ($11$): reports the largest shoe size rather than the most frequently sold size.\n\n**Test Day Takeaway:** On a bar graph of counts, the mode is the CATEGORY under the tallest bar. Read the label on the x-axis, not the height.",
+    explanation: "**SAT Pattern: Range from Min and Max**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The sizes sold run from $6$ to $11$, so the range is $11 - 6 = 5$.\n\n**The Full Solution:**\nStep 1: The data values are the shoe sizes on the x-axis; each bar's height is how many pairs of that size were sold. Every size from $6$ to $11$ has a bar, so each was sold at least once.\nStep 2: The greatest size sold is $11$ and the least is $6$.\nStep 3: The range is $11 - 6 = 5$. Check: the bar heights ($2$, $8$, $5$, $7$, $4$, $3$) are counts, not sizes, so they do not affect the range ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($6$): finds the range of the bar heights, $8 - 2 = 6$, instead of the range of the shoe sizes.\n* Choice C ($8$): reports the height of the tallest bar, $8$ pairs, rather than a range of sizes.\n* Choice D ($11$): reports the greatest shoe size sold, $11$, without subtracting the least size.\n\n**Test Day Takeaway:** The range is the greatest data value minus the least data value. On a bar graph of counts, the data values are the categories on the x-axis, not the bar heights.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "basic-mode",
@@ -846,22 +846,22 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-038",
     domain: "problem-solving",
-    skills: ["find-mode", "find-median"],
+    skills: ["calculate-mean", "find-median"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The dot plot shows the number of points a basketball player scored in each of $13$ games. How much greater is the mode of the data than the median of the data?",
-    diagram: { type: "dotPlot", params: { data: [{ value: 4, count: 1 }, { value: 5, count: 3 }, { value: 7, count: 1 }, { value: 8, count: 2 }, { value: 10, count: 1 }, { value: 12, count: 4 }, { value: 13, count: 1 }], xMin: 3, xMax: 14, xLabel: "Points scored" } },
+    question: "The dot plot shows the number of points a basketball player scored in each of $13$ games. How much greater is the mean of the data than the median of the data?",
+    diagram: { type: "dotPlot", params: { data: [{ value: 6, count: 3 }, { value: 8, count: 4 }, { value: 10, count: 2 }, { value: 12, count: 1 }, { value: 14, count: 1 }, { value: 16, count: 1 }, { value: 18, count: 1 }], xMin: 4, xMax: 20, xLabel: "Points scored" } },
     choices: [
-      // distractor: subtracts the mean, $\frac{113}{13} \approx 8.7$, from the mode instead of the median.
-      { id: "A", text: "$3.3$" },
+      { id: "A", text: "$2$" },
+      // distractor: averages the seven values on the number line, $\frac{6 + 8 + 10 + 12 + 14 + 16 + 18}{7} = 12$, ignoring the number of dots, and then subtracts the median: $12 - 8$.
       { id: "B", text: "$4$" },
-      // distractor: uses the second-tallest stack, $5$, as if it were the median: $12 - 5$.
-      { id: "C", text: "$7$" },
-      // distractor: computes the range, $13 - 4$, instead of mode minus median.
-      { id: "D", text: "$9$" }
+      // distractor: reports the median, $8$, rather than the difference.
+      { id: "C", text: "$8$" },
+      // distractor: reports the mean, $10$, rather than the difference.
+      { id: "D", text: "$10$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Mode vs Median Comparison**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The mode is the tallest stack, $12$ points, and the median is the $7$th of the $13$ dots, which is $8$. The difference is $12 - 8 = 4$.\n\n**The Full Solution:**\nStep 1: The mode is the value with the most dots: $12$ has $4$ dots, more than any other value.\nStep 2: For $13$ values, the median is the $7$th in order. Counting from the left: $4$ (1), $5$ (2, 3, 4), $7$ (5), $8$ (6, 7). The median is $8$.\nStep 3: Mode $-$ median $= 12 - 8 = 4$. Check: six dots lie below the $7$th dot and six lie above it ($10, 12, 12, 12, 12, 13$). $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3.3$): subtracts the mean, $\\frac{113}{13} \\approx 8.7$, from the mode instead of the median.\n* Choice C ($7$): uses the second-tallest stack, $5$, as if it were the median: $12 - 5$.\n* Choice D ($9$): computes the range, $13 - 4$, instead of mode minus median.\n\n**Test Day Takeaway:** Mode comes from stack height; median comes from dot position. Find each separately, then subtract in the order the question states.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Mean-Median Comparison**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** The $13$ scores total $3(6) + 4(8) + 2(10) + 12 + 14 + 16 + 18 = 130$, so the mean is $\\frac{130}{13} = 10$. The median is the $7$th score in order, which is $8$. The difference is $10 - 8 = 2$.\n\n**The Full Solution:**\nStep 1: Each dot is one game. The total is $3(6) + 4(8) + 2(10) + 1(12) + 1(14) + 1(16) + 1(18) = 18 + 32 + 20 + 12 + 14 + 16 + 18 = 130$ points, so the mean is $\\frac{130}{13} = 10$.\nStep 2: For $13$ values, the median is the $7$th in order. Counting from the left, $6$ is the $1$st through $3$rd value and $8$ is the $4$th through $7$th, so the median is $8$.\nStep 3: The mean is $10 - 8 = 2$ points greater than the median. Check: $6$ values ($6, 6, 6, 8, 8, 8$) are below the $7$th value and $6$ values ($10, 10, 12, 14, 16, 18$) are above it ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($4$): averages the seven values on the number line, $\\frac{6 + 8 + 10 + 12 + 14 + 16 + 18}{7} = 12$, ignoring the number of dots, and then subtracts the median: $12 - 8$.\n* Choice C ($8$): reports the median, $8$, rather than the difference.\n* Choice D ($10$): reports the mean, $10$, rather than the difference.\n\n**Test Day Takeaway:** On a dot plot, weight each value by its number of dots for the mean, and count dots to the middle position for the median.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "mode-median-comparison",
@@ -992,18 +992,18 @@ export const problemSolvingBank = [
     skills: ["standard-deviation-concept"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The temperatures of $25$ samples have a mean of $68^{\\circ}\\text{F}$ and a standard deviation of $9^{\\circ}\\text{F}$. Each temperature is converted to degrees Celsius using $C = \\frac{5}{9}(F - 32)$. What are the mean and the standard deviation, in degrees Celsius, of the converted temperatures?",
+    question: "The $30$ values in data set A are positive integers that are not all equal. Data set B is created by multiplying each value in data set A by $3$. Which of the following must be greater for data set B than for data set A?\nI. The mean\nII. The standard deviation",
     choices: [
-      { id: "A", text: "Mean $20$; standard deviation $5$" },
-      // distractor: leaves the standard deviation unchanged; that is correct for the subtraction of $32$ but not for the multiplication by $\frac{5}{9}$.
-      { id: "B", text: "Mean $20$; standard deviation $9$" },
-      // distractor: multiplies the mean by $\frac{5}{9}$ without first subtracting $32$, giving $\frac{5}{9}(68) \approx 37.8$.
-      { id: "C", text: "Mean $37.8$; standard deviation $5$" },
-      // distractor: combines both errors: no subtraction for the mean and no scaling for the standard deviation.
-      { id: "D", text: "Mean $37.8$; standard deviation $9$" }
+      // distractor: treats multiplying like adding a constant, which leaves the spread unchanged; multiplying by $3$ also triples every distance from the mean.
+      { id: "A", text: "I only" },
+      // distractor: assumes the mean is unchanged; tripling every positive value triples the mean.
+      { id: "B", text: "II only" },
+      { id: "C", text: "I and II" },
+      // distractor: assumes a change made to every value affects neither measure; multiplying by $3$ triples both.
+      { id: "D", text: "Neither I nor II" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: SD Under Scaling**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The mean follows the full formula: $\\frac{5}{9}(68 - 32) = 20$. The standard deviation ignores the shift and follows only the scale factor: $\\frac{5}{9} \\times 9 = 5$.\n\n**The Full Solution:**\nStep 1: The conversion is a linear change: subtract $32$, then multiply by $\\frac{5}{9}$. The mean undergoes both steps: $\\frac{5}{9}(68 - 32) = \\frac{5}{9}(36) = 20$.\nStep 2: Subtracting $32$ from every value does not change the spread. Multiplying every value by $\\frac{5}{9}$ multiplies every distance from the mean by $\\frac{5}{9}$, so the standard deviation becomes $\\frac{5}{9} \\times 9 = 5$.\nStep 3: Check with two values one standard deviation apart in Fahrenheit, $68$ and $77$: they convert to $20$ and $25$, which are $5$ apart. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (mean $20$; SD $9$): leaves the standard deviation unchanged; that is correct for the subtraction of $32$ but not for the multiplication by $\\frac{5}{9}$.\n* Choice C (mean $37.8$; SD $5$): multiplies the mean by $\\frac{5}{9}$ without first subtracting $32$, giving $\\frac{5}{9}(68) \\approx 37.8$.\n* Choice D (mean $37.8$; SD $9$): combines both errors: no subtraction for the mean and no scaling for the standard deviation.\n\n**Test Day Takeaway:** Under $y = a x + b$, the mean transforms fully ($a \\bar{x} + b$) but the standard deviation only scales ($|a| \\cdot s$); shifts never touch spread.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: SD Under Scaling**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Multiplying every value by $3$ multiplies the mean by $3$ and stretches every distance from the mean by a factor of $3$. The values are positive and not all equal, so both measures get larger.\n\n**The Full Solution:**\nStep 1: If the mean of data set A is $m$, each value $v$ becomes $3v$, so the mean of data set B is $3m$. The values are positive, so $m > 0$ and $3m > m$. Statement I must be true.\nStep 2: Each distance from the mean, $v - m$, becomes $3v - 3m = 3(v - m)$, so the standard deviation of data set B is $3$ times that of data set A. The values are not all equal, so the standard deviation of data set A is greater than $0$, and $3$ times it is greater still. Statement II must be true.\nStep 3: Check with a small list: $1, 2, 3$ becomes $3, 6, 9$. The mean goes from $2$ to $6$, and the values that were $1$ apart are now $3$ apart ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (I only): treats multiplying like adding a constant, which leaves the spread unchanged; multiplying by $3$ also triples every distance from the mean.\n* Choice B (II only): assumes the mean is unchanged; tripling every positive value triples the mean.\n* Choice D (Neither I nor II): assumes a change made to every value affects neither measure; multiplying by $3$ triples both.\n\n**Test Day Takeaway:** Adding a constant to every value shifts the mean but leaves the standard deviation unchanged; multiplying every value by a constant greater than $1$ increases both when the values are positive and not all equal.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "sd-scale-property",
@@ -1016,18 +1016,18 @@ export const problemSolvingBank = [
     skills: ["standard-deviation-concept"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The lengths, in millimeters, of adult beetles of a certain species are approximately normally distributed with a mean of $12.0$ and a standard deviation of $1.5$. Which of the following is closest to the percent of these beetles with lengths between $10.5$ and $15.0$ millimeters?",
+    question: "$20, 24, 26, 30, 30, 34, 36, 40$\nData set A consists of the $8$ values shown. Data set B is created by removing both values of $30$ from data set A. Which of the following correctly compares data set B with data set A?",
     choices: [
-      // distractor: counts only the portion above the mean (from $12.0$ to $15.0$) and omits the $34\%$ below it.
-      { id: "A", text: "$47.5\\%$" },
-      // distractor: treats the interval as $\pm 1$ standard deviation, although the upper endpoint is $2$ standard deviations above the mean.
-      { id: "B", text: "$68\\%$" },
-      { id: "C", text: "$81.5\\%$" },
-      // distractor: treats the interval as $\pm 2$ standard deviations, although the lower endpoint is only $1$ standard deviation below the mean.
-      { id: "D", text: "$95\\%$" }
+      { id: "A", text: "Data set B has the same mean and a greater standard deviation." },
+      // distractor: assumes removing values always reduces the spread; removing the values at the center leaves only values farther from the mean.
+      { id: "B", text: "Data set B has the same mean and a smaller standard deviation." },
+      // distractor: assumes the mean rises when values are removed; the removed values equal the mean, so the mean does not change.
+      { id: "C", text: "Data set B has a greater mean and the same standard deviation." },
+      // distractor: assumes removing values lowers both measures; neither the mean nor the spread decreases here.
+      { id: "D", text: "Data set B has a smaller mean and a smaller standard deviation." }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Empirical Rule Application**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $10.5$ is $1$ standard deviation below the mean and $15.0$ is $2$ standard deviations above it. Add the two halves, $\\frac{68\\%}{2} = 34\\%$ below the mean and $\\frac{95\\%}{2} = 47.5\\%$ above it, for about $81.5\\%$.\n\n**The Full Solution:**\nStep 1: Express the endpoints in standard deviations: $\\frac{10.5 - 12.0}{1.5} = -1$ and $\\frac{15.0 - 12.0}{1.5} = +2$. The interval is not symmetric about the mean.\nStep 2: By the empirical rule, about $68\\%$ of values lie within $1$ standard deviation of the mean and about $95\\%$ lie within $2$. By symmetry, from the mean to $1$ standard deviation below holds $\\frac{68\\%}{2} = 34\\%$, and from the mean to $2$ standard deviations above holds $\\frac{95\\%}{2} = 47.5\\%$.\nStep 3: Add the two pieces: $34\\% + 47.5\\% = 81.5\\%$. Check: the answer must lie between $68\\%$ (a $\\pm 1$ interval) and $95\\%$ (a $\\pm 2$ interval). $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($47.5\\%$): counts only the portion above the mean (from $12.0$ to $15.0$) and omits the $34\\%$ below it.\n* Choice B ($68\\%$): treats the interval as $\\pm 1$ standard deviation, although the upper endpoint is $2$ standard deviations above the mean.\n* Choice D ($95\\%$): treats the interval as $\\pm 2$ standard deviations, although the lower endpoint is only $1$ standard deviation below the mean.\n\n**Test Day Takeaway:** Convert each endpoint to a number of standard deviations, then split the empirical-rule percents at the mean ($34\\%$, $13.5\\%$, $2.35\\%$ per band) and add the bands the interval covers.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Standard Deviation Comparison**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The mean of data set A is $30$, so removing two values equal to the mean leaves the mean at $30$. Every value that remains is at least $4$ from $30$, so the values are more spread out around the mean.\n\n**The Full Solution:**\nStep 1: Data set A: the sum is $240$, so the mean is $\\frac{240}{8} = 30$.\nStep 2: Data set B: the sum is $240 - 60 = 180$ for $6$ values, so the mean is $\\frac{180}{6} = 30$, the same as for data set A.\nStep 3: The two removed values were $0$ from the mean; the remaining distances are $10, 6, 4, 4, 6, 10$. Removing the values closest to the mean makes the typical distance from the mean larger, so the standard deviation of data set B is greater. Check: the squared distances still total $304$, now shared by $6$ values instead of $8$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (Data set B has the same mean and a smaller standard deviation.): assumes removing values always reduces the spread; removing the values at the center leaves only values farther from the mean.\n* Choice C (Data set B has a greater mean and the same standard deviation.): assumes the mean rises when values are removed; the removed values equal the mean, so the mean does not change.\n* Choice D (Data set B has a smaller mean and a smaller standard deviation.): assumes removing values lowers both measures; neither the mean nor the spread decreases here.\n\n**Test Day Takeaway:** Removing values at the mean leaves the mean unchanged and increases the standard deviation; removing values far from the mean decreases it.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "empirical-rule-application",
@@ -1066,18 +1066,18 @@ export const problemSolvingBank = [
     skills: ["margin-of-error"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "$M = \\frac{k}{\\sqrt{n}}$\nThe given equation models the margin of error $M$, in percent, of a survey with sample size $n$, where $k$ is a constant. If $M = 6$ when $n = 250$, what is the value of $n$ when $M = 2$?",
+    question: "Based on a random sample of $600$ adults in a city, a researcher estimated that $41\\%$ of the city's adults own a bicycle, with a margin of error of $3.9\\%$. A second random sample of $2{,}400$ adults from the city was then surveyed. If both margins of error are calculated in the same way, which of the following is most likely true about the margin of error for the second sample?",
     choices: [
-      // distractor: divides the sample size by $3$; a smaller sample makes the margin of error larger, not smaller.
-      { id: "A", text: "$83$" },
-      // distractor: multiplies the sample size by $3$, forgetting that $M$ depends on $\sqrt{n}$, so $n$ must grow by $3^2$.
-      { id: "B", text: "$750$" },
-      // distractor: multiplies the sample size by the original margin of error, $6$, rather than by the squared ratio $\left(\frac{6}{2}\right)^2 = 9$.
-      { id: "C", text: "$1{,}500$" },
-      { id: "D", text: "$2{,}250$" }
+      { id: "A", text: "It is less than $3.9\\%$." },
+      // distractor: assumes the sample size has no effect on the margin of error.
+      { id: "B", text: "It is equal to $3.9\\%$." },
+      // distractor: reverses the relationship; a larger random sample gives a more precise estimate, not a less precise one.
+      { id: "C", text: "It is greater than $3.9\\%$." },
+      // distractor: multiplies the margin of error by the ratio of the sample sizes, $\frac{2{,}400}{600} = 4$; a larger sample makes the margin of error smaller.
+      { id: "D", text: "It is equal to $4 \\times 3.9\\%$, or $15.6\\%$." }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Cutting $M$ from $6$ to $2$ divides it by $3$, so $\\sqrt{n}$ must be multiplied by $3$ and $n$ by $3^2 = 9$: $9 \\times 250 = 2{,}250$.\n\n**The Full Solution:**\nStep 1: Substitute $M = 6$ and $n = 250$: $6 = \\frac{k}{\\sqrt{250}}$, so $k = 6\\sqrt{250}$.\nStep 2: Substitute $M = 2$: $2 = \\frac{6\\sqrt{250}}{\\sqrt{n}}$, so $\\sqrt{n} = 3\\sqrt{250}$ and $n = 9 \\times 250 = 2{,}250$.\nStep 3: Check: $\\frac{\\sqrt{2{,}250}}{\\sqrt{250}} = \\sqrt{9} = 3$, so $M$ is divided by $3$: $\\frac{6}{3} = 2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($83$): divides the sample size by $3$; a smaller sample makes the margin of error larger, not smaller.\n* Choice B ($750$): multiplies the sample size by $3$, forgetting that $M$ depends on $\\sqrt{n}$, so $n$ must grow by $3^2$.\n* Choice C ($1{,}500$): multiplies the sample size by the original margin of error, $6$, rather than by the squared ratio $\\left(\\frac{6}{2}\\right)^2 = 9$.\n\n**Test Day Takeaway:** When $M = \\frac{k}{\\sqrt{n}}$, dividing the margin of error by a factor $f$ requires multiplying the sample size by $f^2$. Halving needs $4$ times the sample; cutting to a third needs $9$ times.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The second random sample is larger, and a larger random sample gives a more precise estimate, so its margin of error is most likely less than $3.9\\%$.\n\n**The Full Solution:**\nStep 1: The second sample has $2{,}400$ adults, which is $4$ times the $600$ adults in the first sample.\nStep 2: With the same method, a larger random sample produces a smaller margin of error.\nStep 3: So the margin of error for the second survey is most likely less than $3.9\\%$. Check: only the sample size changed, and it increased, so the estimate can only become more precise ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (It is equal to $3.9\\%$.): assumes the sample size has no effect on the margin of error.\n* Choice C (It is greater than $3.9\\%$.): reverses the relationship; a larger random sample gives a more precise estimate, not a less precise one.\n* Choice D (It is equal to $4 \\times 3.9\\%$, or $15.6\\%$.): multiplies the margin of error by the ratio of the sample sizes, $\\frac{2{,}400}{600} = 4$; a larger sample makes the margin of error smaller.\n\n**Test Day Takeaway:** Larger random sample, smaller margin of error. The estimate itself ($41\\%$) does not decide which way the margin of error moves.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "sample-size-margin-relationship",
@@ -1320,18 +1320,18 @@ export const problemSolvingBank = [
     skills: ["rate-conversion"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "Two boats leave a dock at the same time and travel in the same direction, one at a constant speed of $22$ miles per hour and the other at $14$ miles per hour. How many miles apart are the boats after $1.5$ hours?",
+    question: "Two boats leave a dock at the same time. Boat A travels at a constant speed of $22$ miles per hour, and boat B travels at a constant speed of $14$ miles per hour. After $1.5$ hours, how many more miles has boat A traveled than boat B?",
     choices: [
       // distractor: reports the difference in speeds, in miles per hour, without multiplying by the $1.5$ hours.
       { id: "A", text: "$8$" },
       { id: "B", text: "$12$" },
-      // distractor: reports the distance the slower boat traveled rather than the gap between the boats.
+      // distractor: reports the distance boat B traveled, $14 \times 1.5$, rather than the difference in distances.
       { id: "C", text: "$21$" },
-      // distractor: adds the speeds, $22 + 14 = 36$, and multiplies by $1.5$, as if the boats moved in opposite directions.
-      { id: "D", text: "$54$" }
+      // distractor: reports the distance boat A traveled, $22 \times 1.5$, rather than the difference in distances.
+      { id: "D", text: "$33$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Relative Rate (Same Direction)**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Same direction, so the gap grows at the difference of the speeds: $22 - 14 = 8$ miles per hour. After $1.5$ hours the gap is $8 \\times 1.5 = 12$ miles.\n\n**The Full Solution:**\nStep 1: Distances after $1.5$ hours: faster boat $22 \\times 1.5 = 33$ miles; slower boat $14 \\times 1.5 = 21$ miles.\nStep 2: The distance between them is $33 - 21 = 12$ miles.\nStep 3: Check with the relative speed: $(22 - 14) \\times 1.5 = 8 \\times 1.5 = 12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): reports the difference in speeds, in miles per hour, without multiplying by the $1.5$ hours.\n* Choice C ($21$): reports the distance the slower boat traveled rather than the gap between the boats.\n* Choice D ($54$): adds the speeds, $22 + 14 = 36$, and multiplies by $1.5$, as if the boats moved in opposite directions.\n\n**Test Day Takeaway:** Same direction: separation rate is the difference of the speeds; opposite directions: the sum. Then multiply by time.",
+    explanation: "**SAT Pattern: Relative Rate (Same Direction)**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Boat A gains $22 - 14 = 8$ miles on boat B every hour, so after $1.5$ hours it has traveled $8 \\times 1.5 = 12$ more miles.\n\n**The Full Solution:**\nStep 1: Boat A travels $22 \\times 1.5 = 33$ miles in $1.5$ hours.\nStep 2: Boat B travels $14 \\times 1.5 = 21$ miles in $1.5$ hours.\nStep 3: The difference is $33 - 21 = 12$ miles. Check: $(22 - 14) \\times 1.5 = 8 \\times 1.5 = 12$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): reports the difference in speeds, in miles per hour, without multiplying by the $1.5$ hours.\n* Choice C ($21$): reports the distance boat B traveled, $14 \\times 1.5$, rather than the difference in distances.\n* Choice D ($33$): reports the distance boat A traveled, $22 \\times 1.5$, rather than the difference in distances.\n\n**Test Day Takeaway:** Distance is rate times time. To compare two travelers over the same time, multiply the difference in rates by the time.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "relative-rate",
@@ -1542,21 +1542,21 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-068",
     domain: "problem-solving",
-    skills: ["percent-word-problems", "weighted-mean"],
+    skills: ["percent-word-problems", "percent-of-value"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A salesperson earns a $5\\%$ commission on the first $\\$20{,}000$ of her sales each month and an $8\\%$ commission on any sales above $\\$20{,}000$. Last month, her commission was $\\$2{,}200$. What were her total sales, in dollars, last month?",
+    question: "A town's population in 2020 was $240\\%$ greater than its population in 1950. If the town's population in 2020 was $10{,}200$, what was its population in 1950?",
     choices: [
-      // distractor: finds the sales above $20,000 (1,200/0.08) but never adds the first $20,000
-      { id: "A", text: "$15{,}000$" },
-      // distractor: applies the 8% rate to all sales: 2,200/0.08 = 27,500
-      { id: "B", text: "$27{,}500$" },
-      { id: "C", text: "$35{,}000$" },
-      // distractor: applies the 5% rate to all sales: 2,200/0.05 = 44,000
-      { id: "D", text: "$44{,}000$" }
+      { id: "A", text: "$3{,}000$" },
+      // distractor: treats $240\%$ greater than as $240\%$ of, dividing by $2.4$ instead of $3.4$: $\frac{10{,}200}{2.4} = 4{,}250$.
+      { id: "B", text: "$4{,}250$" },
+      // distractor: finds $240\%$ of the 2020 population, $2.4(10{,}200)$, instead of working backward to 1950.
+      { id: "C", text: "$24{,}480$" },
+      // distractor: increases the 2020 population by $240\%$, $3.4(10{,}200)$, instead of working backward to 1950.
+      { id: "D", text: "$34{,}680$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Tiered Commission**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The first $\\$20{,}000$ earns $0.05(20{,}000) = 1{,}000$, so the other $1{,}200$ came at $8\\%$: $\\frac{1{,}200}{0.08} = 15{,}000$. Total sales: $20{,}000 + 15{,}000 = \\$35{,}000$.\n\n**The Full Solution:**\nStep 1: The full first tier earns $0.05(20{,}000) = \\$1{,}000$. Since the commission was more than $\\$1{,}000$, her sales were above $\\$20{,}000$.\nStep 2: Let $s$ be her total sales. Then $1{,}000 + 0.08(s - 20{,}000) = 2{,}200$, so $0.08(s - 20{,}000) = 1{,}200$ and $s - 20{,}000 = 15{,}000$.\nStep 3: So $s = 35{,}000$. Check: $0.05(20{,}000) + 0.08(15{,}000) = 1{,}000 + 1{,}200 = 2{,}200$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($15{,}000$): finds the sales above $\\$20{,}000$ correctly but forgets to add the first $\\$20{,}000$.\n* Choice B ($27{,}500$): applies the $8\\%$ rate to all sales, $\\frac{2{,}200}{0.08}$, ignoring the lower first tier.\n* Choice D ($44{,}000$): applies the $5\\%$ rate to all sales, $\\frac{2{,}200}{0.05}$, ignoring the higher second tier.\n\n**Test Day Takeaway:** With tiered rates, take the full first tier's earnings out first; only what is left is divided by the higher rate.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** A value $240\\%$ greater than $P$ is $P + 2.4P = 3.4P$. So $3.4P = 10{,}200$ and $P = \\frac{10{,}200}{3.4} = 3{,}000$.\n\n**The Full Solution:**\nStep 1: Let $P$ be the population in 1950. A population $240\\%$ greater than $P$ is $100\\% + 240\\% = 340\\%$ of $P$, or $3.4P$.\nStep 2: So $3.4P = 10{,}200$, and $P = \\frac{10{,}200}{3.4} = 3{,}000$.\nStep 3: Check: $240\\%$ of $3{,}000$ is $7{,}200$, and $3{,}000 + 7{,}200 = 10{,}200$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($4{,}250$): treats $240\\%$ greater than as $240\\%$ of, dividing by $2.4$ instead of $3.4$: $\\frac{10{,}200}{2.4} = 4{,}250$.\n* Choice C ($24{,}480$): finds $240\\%$ of the 2020 population, $2.4(10{,}200)$, instead of working backward to 1950.\n* Choice D ($34{,}680$): increases the 2020 population by $240\\%$, $3.4(10{,}200)$, instead of working backward to 1950.\n\n**Test Day Takeaway:** \"$p\\%$ greater than $x$\" means $(1 + \\frac{p}{100})x$, even when $p$ is more than $100$; to work backward, divide by that factor.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "tiered-percent",
@@ -1681,12 +1681,12 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-074",
     domain: "problem-solving",
-    skills: ["weighted-mean"],
+    skills: ["calculate-mean"],
     difficulty: "hard",
     type: "fill-in",
-    question: "A course grade is calculated as $15\\%$ of the quiz average, $25\\%$ of the lab average, and $60\\%$ of the exam average. A student has a quiz average of $90$ and a lab average of $86$. What is the least exam average that gives a course grade of at least $89$?",
-    correctAnswer: "90",
-    explanation: "**SAT Pattern: Weighted Average Final Grade**\n\n**The correct answer is 90.**\n\n**The Fast Way (~25s):** Quizzes and labs contribute $0.15(90) + 0.25(86) = 13.5 + 21.5 = 35$ points. The exams must supply $89 - 35 = 54$ points, so $0.60E = 54$ and $E = 90$.\n\n**The Full Solution:**\nStep 1: Let $E$ be the exam average. The course grade is at least $89$ when $0.15(90) + 0.25(86) + 0.60E \\geq 89$.\nStep 2: Evaluate the known terms: $13.5 + 21.5 = 35$, so $35 + 0.60E \\geq 89$ and $0.60E \\geq 54$.\nStep 3: Divide by $0.60$: $E \\geq 90$, so the least exam average is $90$. Check: $0.15(90) + 0.25(86) + 0.60(90) = 13.5 + 21.5 + 54 = 89$ ✓\n\n**Common Mistakes:**\n* $91$: weights the three averages equally, solving $\\frac{90 + 86 + E}{3} = 89$.\n* $54$: stops at $0.60E = 54$ and reports the exam's weighted contribution instead of the exam average.\n* $89$: assumes the exam average must equal the target grade.\n\n**Test Day Takeaway:** In a weighted average, multiply each score by its weight before adding; to find a missing score, isolate its weighted term and then divide by its weight.",
+    question: "In a course, the mean score on the final exam for the $30$ students in the morning section was $64$ points, and the mean score for the $20$ students in the afternoon section was $74$ points. What was the mean score on the final exam for all $50$ students?",
+    correctAnswer: "68",
+    explanation: "**SAT Pattern: Weighted Combined Mean**\n\n**The correct answer is 68.**\n\n**The Fast Way (~25s):** Total points: $30(64) + 20(74) = 1{,}920 + 1{,}480 = 3{,}400$. Divide by the $50$ students: $\\frac{3{,}400}{50} = 68$.\n\n**The Full Solution:**\nStep 1: Convert each mean to a total: the morning section scored $30 \\times 64 = 1{,}920$ points and the afternoon section scored $20 \\times 74 = 1{,}480$ points.\nStep 2: All $50$ students scored $1{,}920 + 1{,}480 = 3{,}400$ points, so the mean is $\\frac{3{,}400}{50} = 68$.\nStep 3: Check: the morning section is larger, so the combined mean should be closer to $64$ than to $74$; $68$ is $4$ from $64$ and $6$ from $74$ ✓\n\n**Common Mistakes:**\n* $69$: averages the two section means, $\\frac{64 + 74}{2}$, as if the sections were the same size.\n* $70$: swaps the section sizes, giving the afternoon mean a weight of $30$ students.\n* $3{,}400$: finds the total of all $50$ scores but does not divide by $50$.\n\n**Test Day Takeaway:** A combined mean is not the average of the two means; it is the combined total divided by the combined count, so the larger group pulls it toward its own mean.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "weighted-average",
@@ -1783,18 +1783,18 @@ export const problemSolvingBank = [
     skills: ["calculate-mean"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "$6.20$, $6.45$, $6.10$, $6.55$, $6.30$, $x$\nThe mean of the data set shown is $6.35$. What is the value of $x$?",
+    question: "$58$, $64$, $61$, $70$, $62$, $x$\nThe mean of the data set shown is $64$. What is the value of $x$?",
     choices: [
-      // distractor: reports the median of the five known values, 6.30
-      { id: "A", text: "$6.30$" },
-      // distractor: averages only the five known values, 31.60/5 = 6.32
-      { id: "B", text: "$6.32$" },
-      // distractor: assumes the missing value equals the mean, 6.35
-      { id: "C", text: "$6.35$" },
-      { id: "D", text: "$6.50$" }
+      // distractor: reports the median of the five known values, $62$.
+      { id: "A", text: "$62$" },
+      // distractor: averages only the five known values, $\frac{315}{5} = 63$.
+      { id: "B", text: "$63$" },
+      // distractor: assumes the missing value equals the mean, $64$.
+      { id: "C", text: "$64$" },
+      { id: "D", text: "$69$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Mean from List**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The six values sum to $6(6.35) = 38.10$, and the five known values sum to $31.60$, so $x = 38.10 - 31.60 = 6.50$.\n\n**The Full Solution:**\nStep 1: Turn the mean into a sum: six values with a mean of $6.35$ sum to $6(6.35) = 38.10$.\nStep 2: Add the five known values: $6.20+6.45+6.10+6.55+6.30=31.60$.\nStep 3: Subtract: $x = 38.10 - 31.60 = 6.50$. Check: $\\frac{31.60 + 6.50}{6} = \\frac{38.10}{6} = 6.35$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6.30$): is the median of the five known values, not the missing value.\n* Choice B ($6.32$): is the mean of the five known values. The given mean includes $x$.\n* Choice C ($6.35$): assumes the missing value equals the mean, which would be true only if the other five values averaged $6.35$.\n\n**Test Day Takeaway:** Multiply the mean by the full count first; the missing value is the required sum minus the sum of the values you know.",
+    explanation: "**SAT Pattern: Mean from List**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Six values with a mean of $64$ total $6 \\times 64 = 384$. The five known values total $315$, so $x = 384 - 315 = 69$.\n\n**The Full Solution:**\nStep 1: A mean of $64$ for $6$ values means the total is $6 \\times 64 = 384$.\nStep 2: The known values total $58 + 64 + 61 + 70 + 62 = 315$, so $315 + x = 384$ and $x = 69$.\nStep 3: Check: $\\frac{315 + 69}{6} = \\frac{384}{6} = 64$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($62$): reports the median of the five known values, $62$.\n* Choice B ($63$): averages only the five known values, $\\frac{315}{5} = 63$.\n* Choice C ($64$): assumes the missing value equals the mean, $64$.\n\n**Test Day Takeaway:** To find a missing value from a mean, turn the mean into a total (mean times count) and subtract the known values.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "mean-from-list",
@@ -1861,9 +1861,9 @@ export const problemSolvingBank = [
     skills: ["calculate-mean"],
     difficulty: "hard",
     type: "fill-in",
-    question: "A list of $20$ measurements has a mean of $74$. Two measurements were recorded incorrectly: $26$ was recorded as $62$, and $63$ was recorded as $47$. What is the mean of the $20$ measurements after both errors are corrected?",
-    correctAnswer: "73",
-    explanation: "**SAT Pattern: Mean from List**\n\n**The correct answer is 73.**\n\n**The Fast Way (~25s):** The corrections change the sum by $(26 - 62) + (63 - 47) = -36 + 16 = -20$, and $\\frac{-20}{20} = -1$, so the mean drops from $74$ to $73$.\n\n**The Full Solution:**\nStep 1: The list as recorded has a sum of $20 \\times 74 = 1{,}480$.\nStep 2: Replacing $62$ with $26$ lowers the sum by $36$; replacing $47$ with $63$ raises it by $16$. The corrected sum is $1{,}480 - 36 + 16 = 1{,}460$.\nStep 3: The corrected mean is $\\frac{1{,}460}{20} = 73$. Check: the sum changed by $-20$ across $20$ values, so the mean changed by $-1$ ✓\n\n**Common Mistakes:**\n* $72.2$: corrects only the first error, $\\frac{1{,}444}{20}$.\n* $74.8$: corrects only the second error, $\\frac{1{,}496}{20}$.\n* $71.4$: lowers the sum for both corrections, $\\frac{1{,}480 - 36 - 16}{20}$, though the second correction raises it.\n\n**Test Day Takeaway:** Track the change in the sum: each correction moves the sum by (true value $-$ recorded value), and the mean by that amount divided by the count.",
+    question: "A data set of $n$ values has a mean of $74$. When the value $26$ is removed from the data set, the mean of the remaining values is $76$. What is the value of $n$?",
+    correctAnswer: "25",
+    explanation: "**SAT Pattern: Mean from List**\n\n**The correct answer is 25.**\n\n**The Fast Way (~40s):** The sum of the $n$ values is $74n$, and after $26$ is removed, the $n - 1$ remaining values sum to $76(n - 1)$. So $74n - 26 = 76(n - 1)$, which gives $2n = 50$ and $n = 25$.\n\n**The Full Solution:**\nStep 1: A mean of $74$ for $n$ values means the sum is $74n$. Removing $26$ leaves $n - 1$ values with a sum of $74n - 26$.\nStep 2: The new mean is $76$, so $74n - 26 = 76(n - 1)$. Expanding gives $74n - 26 = 76n - 76$, so $50 = 2n$ and $n = 25$.\nStep 3: Check: $25$ values with a mean of $74$ sum to $1{,}850$; removing $26$ leaves $1{,}824$ for $24$ values, and $\\frac{1{,}824}{24} = 76$ ✓\n\n**Common Mistakes:**\n* $13$: divides the removed value by the change in the mean, $\\frac{26}{76 - 74}$, ignoring that the number of values also changes.\n* $24$: solves correctly but reports the number of values left after the removal, $n - 1$.\n* $50$: stops at $2n = 50$ without dividing by $2$.\n\n**Test Day Takeaway:** Write each mean as a sum (mean times count), remembering that removing a value lowers the count by $1$, then set the sums equal.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "mean-from-list",
@@ -1878,13 +1878,13 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-084",
     domain: "problem-solving",
-    skills: ["calculate-mean", "slope-intercept-form"],
+    skills: ["scatterplots", "linear-functions"],
     difficulty: "easy",
     type: "fill-in",
-    question: "The scatterplot shows the daily high temperature $x$, in degrees Fahrenheit, and the number of smoothies $y$ sold at a shop on each of $9$ days. The line of best fit, $y = 1.5x - 96$, is also shown. What is the residual for the data point $(92, 47)$?",
-    diagram: { type: "scatterplot", params: { points: [[76, 20], [78, 19], [82, 29], [84, 28], [86, 35], [88, 35], [90, 41], [92, 47], [94, 44]], xMin: 76, xMax: 96, yMin: 0, yMax: 60, xGridStep: 2, xLabelStep: 4, yGridStep: 5, yLabelStep: 10, xLabel: "Daily high temperature (degrees Fahrenheit)", yLabel: "Smoothies sold", bestFitLine: { slope: 1.5, intercept: -96 }, highlightPoint: [92, 47], highlightLabel: "(92, 47)", showResidual: true } },
-    correctAnswer: "5",
-    explanation: "**SAT Pattern: Residual**\n\n**The correct answer is 5.**\n\n**The Fast Way (~15s):** The line predicts $1.5(92) - 96 = 42$ smoothies, the data point is at $47$, and $47 - 42 = 5$.\n\n**The Full Solution:**\nStep 1: Find the predicted value. Substitute $x = 92$ into $y = 1.5x - 96$: $1.5(92) = 138$, and $138 - 96 = 42$.\nStep 2: The actual value for the data point $(92, 47)$ is $47$.\nStep 3: Residual $=$ actual $-$ predicted $= 47 - 42 = 5$. Check: the point lies above the line, so its residual is positive ✓\n\n**Common Mistakes:**\n* $-5$: subtracts in the wrong order, $42 - 47$; a residual is actual minus predicted.\n* $42$: reports the predicted value instead of the residual.\n* $53$: computes the prediction as $1.5(92 - 96) = -6$, putting the $-96$ inside the parentheses, so $47 - (-6) = 53$.\n\n**Test Day Takeaway:** Residual $=$ actual $-$ predicted. Compute the prediction from the equation, then subtract it from the data value.",
+    question: "The scatterplot shows the daily high temperature $x$, in degrees Fahrenheit, and the number of smoothies $y$ sold at a shop on each of $9$ days. The line of best fit, $y = 1.5x - 96$, is also shown. According to the line of best fit, how many smoothies are predicted to be sold on a day with a high temperature of $92$ degrees Fahrenheit?",
+    diagram: { type: "scatterplot", params: { points: [[76, 20], [78, 19], [82, 29], [84, 28], [86, 35], [88, 35], [90, 41], [92, 47], [94, 44]], xMin: 76, xMax: 96, yMin: 0, yMax: 60, xGridStep: 2, xLabelStep: 4, yGridStep: 5, yLabelStep: 10, xLabel: "Daily high temperature (degrees Fahrenheit)", yLabel: "Smoothies sold", bestFitLine: { slope: 1.5, intercept: -96 } } },
+    correctAnswer: "42",
+    explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is 42.**\n\n**The Fast Way (~10s):** Substitute $x = 92$: $1.5(92) - 96 = 138 - 96 = 42$.\n\n**The Full Solution:**\nStep 1: The line of best fit gives the predicted number of smoothies $y$ for a high temperature of $x$ degrees.\nStep 2: For $x = 92$: $y = 1.5(92) - 96 = 138 - 96 = 42$.\nStep 3: Check: on the graph, the line passes through $(92, 42)$, a little below the data point $(92, 47)$ ✓\n\n**Common Mistakes:**\n* $47$: reads the actual number sold on the day with a high of $92$ degrees, not the number predicted by the line.\n* $138$: computes $1.5(92)$ and forgets to subtract $96$.\n* $234$: adds $96$ instead of subtracting it.\n\n**Test Day Takeaway:** A value \"predicted by the line of best fit\" comes from the line, not from the nearest data point.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "residual",
@@ -1894,13 +1894,13 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-085",
     domain: "problem-solving",
-    skills: ["calculate-mean", "slope-intercept-form"],
+    skills: ["scatterplots", "linear-functions"],
     difficulty: "easy",
     type: "fill-in",
-    question: "The scatterplot shows the number of hours of rain $x$ and the number of visitors $y$ to a city park on each of $9$ days. The line of best fit, $y = -4x + 90$, is also shown. What is the residual for the data point $(12, 38)$?",
-    diagram: { type: "scatterplot", params: { points: [[1, 88], [2, 80], [4, 76], [6, 64], [8, 60], [9, 52], [11, 48], [14, 32]], xMin: 0, xMax: 15, yMin: 0, yMax: 100, xGridStep: 1, yGridStep: 10, xLabelStep: 3, yLabelStep: 20, xLabel: "Hours of rain", yLabel: "Number of visitors", bestFitLine: { slope: -4, intercept: 90 }, highlightPoint: [12, 38], highlightLabel: "(12, 38)", showResidual: true } },
-    correctAnswer: "-4",
-    explanation: "**SAT Pattern: Residual**\n\n**The correct answer is -4.**\n\n**The Fast Way (~10s):** The line predicts $-4(12) + 90 = 42$ visitors, and $38 - 42 = -4$.\n\n**The Full Solution:**\nStep 1: A residual is the actual $y$-value minus the $y$-value predicted by the line of best fit.\nStep 2: At $x = 12$, the line predicts $y = -48 + 90 = 42$ visitors.\nStep 3: The actual value is $38$, so the residual is $38 - 42 = -4$. Check: the point lies below the line, so its residual is negative ✓\n\n**Common Mistakes:**\n* $4$: subtracts in the wrong order, $42 - 38$, and loses the sign.\n* $42$: reports the predicted value instead of the residual.\n* $86$: stops at $-48$ without adding the $90$, computing $38 - (-48)$.\n\n**Test Day Takeaway:** A negative residual means the line overestimates: the data point lies below the line.",
+    question: "The scatterplot shows the number of hours of rain $x$ and the number of visitors $y$ to a city park on each of $9$ days. The line of best fit, $y = -4x + 90$, is also shown. According to the line of best fit, how many visitors are predicted on a day with $12$ hours of rain?",
+    diagram: { type: "scatterplot", params: { points: [[1, 88], [2, 80], [4, 76], [6, 64], [8, 60], [9, 52], [11, 48], [12, 38], [14, 32]], xMin: 0, xMax: 15, yMin: 0, yMax: 100, xGridStep: 1, yGridStep: 10, xLabelStep: 3, yLabelStep: 20, xLabel: "Hours of rain", yLabel: "Number of visitors", bestFitLine: { slope: -4, intercept: 90 } } },
+    correctAnswer: "42",
+    explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is 42.**\n\n**The Fast Way (~10s):** Substitute $x = 12$: $-4(12) + 90 = -48 + 90 = 42$.\n\n**The Full Solution:**\nStep 1: The line of best fit gives the predicted number of visitors $y$ for $x$ hours of rain.\nStep 2: For $x = 12$: $y = -4(12) + 90 = -48 + 90 = 42$.\nStep 3: Check: on the graph, the line passes through $(12, 42)$, just above the data point $(12, 38)$ ✓\n\n**Common Mistakes:**\n* $38$: reads the actual number of visitors on the day with $12$ hours of rain, not the number predicted by the line.\n* $48$: computes $4(12)$ and stops before using the $90$.\n* $138$: treats the slope as positive, $4(12) + 90$.\n\n**Test Day Takeaway:** Substitute the given $x$-value into the equation of the line of best fit; ignore the data point at that $x$-value.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "residual",
@@ -1913,19 +1913,19 @@ export const problemSolvingBank = [
     skills: ["calculate-mean", "slope-intercept-form"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The scatterplot shows the number of hours $x$ that each of $10$ students practiced piano last month and the number of songs $y$ that each student learned. A line of best fit is also shown. For how many of the $10$ data points is the residual negative?",
+    question: "The scatterplot shows the number of hours $x$ that each of $10$ students practiced piano last month and the number of songs $y$ that each student learned. A line of best fit is also shown. For how many of the $10$ students is the actual number of songs learned less than the number predicted by the line of best fit?",
     diagram: { type: "scatterplot", params: { points: [[10, 2], [15, 5], [20, 5], [25, 8], [30, 5], [35, 9], [40, 8], [45, 13], [50, 8], [55, 13]], xMin: 0, xMax: 60, yMin: 0, yMax: 16, xGridStep: 5, xLabelStep: 10, yGridStep: 2, yLabelStep: 4, xLabel: "Hours practiced", yLabel: "Songs learned", bestFitLine: { slope: 0.2, intercept: 1 } } },
     choices: [
-      // distractor: misses the leftmost point at (10, 2), which lies 1 song below the line
+      // distractor: misses the leftmost point, $(10, 2)$, which lies $1$ song below the line.
       { id: "A", text: "$3$" },
       { id: "B", text: "$4$" },
-      // distractor: counts the point at (20, 5), which lies on the line and has a residual of 0, as negative
+      // distractor: counts $(20, 5)$, which lies on the line; its actual and predicted values are equal.
       { id: "C", text: "$5$" },
-      // distractor: counts the points on or above the line (5 above plus 1 on it) instead
+      // distractor: counts the points on or above the line, where the actual number is at least the predicted number.
       { id: "D", text: "$6$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** A negative residual means the data point lies below the line of best fit. Four points do: at $x = 10$, $30$, $40$, and $50$.\n\n**The Full Solution:**\nStep 1: Residual $=$ actual $-$ predicted, so a residual is negative exactly when the data point lies below the line.\nStep 2: The line passes through $(0, 1)$ and $(50, 11)$, so it predicts $y = 0.2x + 1$. The points $(10, 2)$, $(30, 5)$, $(40, 8)$, and $(50, 8)$ lie below it; $(20, 5)$ lies on it; the other five lie above it.\nStep 3: So $4$ data points have a negative residual. Check: $4$ below $+ 1$ on $+ 5$ above $= 10$ points ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): misses the leftmost point, $(10, 2)$, which lies $1$ song below the line.\n* Choice C ($5$): counts $(20, 5)$, which lies on the line. Its residual is $0$, not negative.\n* Choice D ($6$): counts the points on or above the line, whose residuals are not negative.\n\n**Test Day Takeaway:** Below the line means a negative residual; a point on the line has a residual of $0$ and belongs to neither side.",
+    explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The actual number is less than the predicted number exactly when the point lies below the line. Four points do: at $x = 10$, $30$, $40$, and $50$.\n\n**The Full Solution:**\nStep 1: The line passes through $(0, 1)$ and $(50, 11)$, so it predicts $y = 0.2x + 1$.\nStep 2: The points $(10, 2)$, $(30, 5)$, $(40, 8)$, and $(50, 8)$ lie below the line (predicted values $3$, $7$, $9$, and $11$); $(20, 5)$ lies on it; the other five lie above it.\nStep 3: So $4$ students learned fewer songs than predicted. Check: $4$ below $+ 1$ on $+ 5$ above $= 10$ points ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): misses the leftmost point, $(10, 2)$, which lies $1$ song below the line.\n* Choice C ($5$): counts $(20, 5)$, which lies on the line; its actual and predicted values are equal.\n* Choice D ($6$): counts the points on or above the line, where the actual number is at least the predicted number.\n\n**Test Day Takeaway:** \"Actual less than predicted\" means the point is below the line; a point on the line is neither above nor below it.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "residual",
@@ -1960,13 +1960,13 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-088",
     domain: "problem-solving",
-    skills: ["calculate-mean", "slope-intercept-form"],
+    skills: ["slope-from-points", "scatterplots"],
     difficulty: "medium",
     type: "fill-in",
-    question: "The scatterplot shows the length $x$, in days, and the attendance $y$, in hundreds of visitors, of each of $8$ exhibits at a museum. The line of best fit, $y = 0.6x + 4$, is also shown. What is the greatest residual, in hundreds of visitors, of the $8$ data points?",
+    question: "The scatterplot shows the length $x$, in days, and the attendance $y$, in hundreds of visitors, of each of $8$ exhibits at a museum. The line of best fit, $y = 0.6x + 4$, is also shown. Based on the line of best fit, how much greater, in hundreds of visitors, is the predicted attendance for an exhibit that lasts $40$ days than for an exhibit that lasts $25$ days?",
     diagram: { type: "scatterplot", params: { points: [[10, 11], [15, 12], [20, 18], [25, 18], [30, 23], [35, 24], [40, 31], [45, 30]], xMin: 0, xMax: 50, yMin: 0, yMax: 36, xGridStep: 5, xLabelStep: 10, yGridStep: 1, yLabelStep: 4, xLabel: "Length of exhibit (days)", yLabel: "Attendance (hundreds of visitors)", bestFitLine: { slope: 0.6, intercept: 4 } } },
-    correctAnswer: "3",
-    explanation: "**SAT Pattern: Residual**\n\n**The correct answer is 3.**\n\n**The Fast Way (~25s):** The point farthest above the line is $(40, 31)$. The line predicts $0.6(40) + 4 = 28$ there, so the residual is $31 - 28 = 3$.\n\n**The Full Solution:**\nStep 1: The greatest residual belongs to the point farthest above the line, so the four points below the line can be set aside.\nStep 2: Check the points above the line. At $x = 10$: $11 - 10 = 1$. At $x = 20$: $18 - 16 = 2$. At $x = 30$: $23 - 22 = 1$. At $x = 40$: $31 - 28 = 3$.\nStep 3: The greatest of these is $3$. Check: each point below the line has a residual of $-1$, which is less than $3$ ✓\n\n**Common Mistakes:**\n* $31$: reports the greatest attendance instead of its distance from the line.\n* $28$: reports the predicted value at $x = 40$ instead of the residual.\n* $-3$: subtracts in the wrong order, predicted minus actual.\n\n**Test Day Takeaway:** The greatest residual is the point farthest above the line; scan the plot, then compute actual minus predicted for the few candidates.",
+    correctAnswer: "9",
+    explanation: "**SAT Pattern: Interpret Slope of Best Fit**\n\n**The correct answer is 9.**\n\n**The Fast Way (~20s):** Each additional day adds $0.6$ hundred visitors, so $15$ more days add $0.6(15) = 9$.\n\n**The Full Solution:**\nStep 1: For $x = 40$, the line predicts $y = 0.6(40) + 4 = 28$ hundred visitors.\nStep 2: For $x = 25$, the line predicts $y = 0.6(25) + 4 = 19$ hundred visitors.\nStep 3: The difference is $28 - 19 = 9$. Check: $0.6 \\times (40 - 25) = 0.6 \\times 15 = 9$ ✓\n\n**Common Mistakes:**\n* $28$: gives the predicted attendance for a $40$-day exhibit, $0.6(40) + 4$, without subtracting.\n* $19$: gives the predicted attendance for a $25$-day exhibit, $0.6(25) + 4$.\n* $15$: subtracts the numbers of days, $40 - 25$, without multiplying by the slope.\n\n**Test Day Takeaway:** The slope of a line of best fit is the predicted change in $y$ for each increase of $1$ in $x$; for a larger change in $x$, multiply the slope by that change.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "residual",
@@ -1976,13 +1976,13 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-089",
     domain: "problem-solving",
-    skills: ["calculate-mean", "slope-intercept-form"],
+    skills: ["scatterplots", "linear-functions"],
     difficulty: "medium",
     type: "fill-in",
-    question: "The scatterplot shows the temperature $x$, in degrees Celsius, and the number of chirps per minute $y$ made by a cricket on each of $7$ evenings. The line of best fit, $y = 2.5x + 9$, is also shown. A new data point with an $x$-value of $14$ is added, and its residual is $-4$. What is the $y$-value of the new data point?",
+    question: "The scatterplot shows the temperature $x$, in degrees Celsius, and the number of chirps per minute $y$ made by a cricket on each of $7$ evenings. The line of best fit, $y = 2.5x + 9$, is also shown. For what temperature, in degrees Celsius, does the line of best fit predict $64$ chirps per minute?",
     diagram: { type: "scatterplot", params: { points: [[8, 31], [10, 32], [12, 41], [16, 47], [18, 56], [20, 57], [24, 71]], xMin: 0, xMax: 30, yMin: 0, yMax: 90, xGridStep: 2, yGridStep: 10, xLabelStep: 10, yLabelStep: 20, xLabel: "Temperature (degrees Celsius)", yLabel: "Chirps per minute", bestFitLine: { slope: 2.5, intercept: 9 } } },
-    correctAnswer: "40",
-    explanation: "**SAT Pattern: Residual**\n\n**The correct answer is 40.**\n\n**The Fast Way (~15s):** The line predicts $2.5(14) + 9 = 44$, and a residual of $-4$ puts the point $4$ below that: $44 - 4 = 40$.\n\n**The Full Solution:**\nStep 1: Residual $=$ actual $-$ predicted, so actual $=$ predicted $+$ residual.\nStep 2: At $x = 14$, the line predicts $y = 2.5(14) + 9 = 35 + 9 = 44$.\nStep 3: The actual value is $44 + (-4) = 40$. Check: $40 - 44 = -4$, the given residual ✓\n\n**Common Mistakes:**\n* $48$: adds the residual with the wrong sign, $44 + 4$.\n* $44$: reports the predicted value.\n* $31$: drops the intercept, computing $2.5(14) - 4$.\n\n**Test Day Takeaway:** Rearrange the definition once, actual $=$ predicted $+$ residual, and keep the residual's sign.",
+    correctAnswer: "22",
+    explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is 22.**\n\n**The Fast Way (~20s):** Set $2.5x + 9 = 64$: $2.5x = 55$, so $x = 22$.\n\n**The Full Solution:**\nStep 1: The line predicts $64$ chirps per minute when $y = 64$, so solve $2.5x + 9 = 64$.\nStep 2: Subtract $9$: $2.5x = 55$. Divide by $2.5$: $x = 22$.\nStep 3: Check: $2.5(22) + 9 = 55 + 9 = 64$ ✓\n\n**Common Mistakes:**\n* $169$: substitutes $64$ for $x$ instead of for $y$, $2.5(64) + 9$.\n* $29.2$: adds $9$ instead of subtracting it, $\\frac{64 + 9}{2.5}$.\n* $25.6$: divides $64$ by $2.5$ and ignores the $9$.\n\n**Test Day Takeaway:** When the predicted $y$-value is given, substitute it for $y$ and solve for $x$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "residual",
@@ -1992,13 +1992,13 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-090",
     domain: "problem-solving",
-    skills: ["calculate-mean", "slope-intercept-form"],
+    skills: ["scatterplots", "linear-functions"],
     difficulty: "hard",
     type: "fill-in",
-    question: "The scatterplot shows the number of days $x$ before a play's opening night and the number of tickets $y$ sold on each of $8$ days. The line of best fit, $y = -6x + 128$, is also shown. On a ninth day, $52$ tickets were sold, and the residual for that day is $14$. How many days before opening night was the ninth day?",
+    question: "The scatterplot shows the number of days $x$ before a play's opening night and the number of tickets $y$ sold on each of $8$ days. The line of best fit, $y = -6x + 128$, is also shown. A new data set is created by multiplying the number of tickets sold on each of the $8$ days by $1.5$. A line of best fit for the new data set is $y = mx + b$, where $m$ and $b$ are constants. What is the value of $b$?",
     diagram: { type: "scatterplot", params: { points: [[2, 120], [4, 100], [6, 96], [8, 78], [10, 70], [12, 52], [16, 36], [18, 18]], xMin: 0, xMax: 20, yMin: 0, yMax: 140, xGridStep: 2, xLabelStep: 4, yGridStep: 10, yLabelStep: 20, xLabel: "Days before opening night", yLabel: "Tickets sold", bestFitLine: { slope: -6, intercept: 128 } } },
-    correctAnswer: "15",
-    explanation: "**SAT Pattern: Residual**\n\n**The correct answer is 15.**\n\n**The Fast Way (~30s):** A residual of $14$ means the line predicted $52 - 14 = 38$ tickets, and $-6x + 128 = 38$ gives $x = 15$.\n\n**The Full Solution:**\nStep 1: Residual $=$ actual $-$ predicted, so predicted $=$ actual $-$ residual $= 52 - 14 = 38$ tickets.\nStep 2: The line predicts $38$ tickets where $-6x + 128 = 38$, so $-6x = -90$.\nStep 3: $x = 15$, so the ninth day was $15$ days before opening night. Check: the line predicts $-6(15) + 128 = 38$, and $52 - 38 = 14$, the given residual ✓\n\n**Common Mistakes:**\n* $10.33$: adds the residual instead of subtracting it, solving $-6x + 128 = 66$.\n* $12.67$: ignores the residual and solves $-6x + 128 = 52$.\n* $38$: stops at the predicted number of tickets instead of finding $x$.\n\n**Test Day Takeaway:** Predicted $=$ actual $-$ residual. Find the predicted value first, then solve the line's equation for $x$.",
+    correctAnswer: "192",
+    explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is 192.**\n\n**The Fast Way (~30s):** Multiplying every $y$-value by $1.5$ multiplies the whole line by $1.5$: $y = 1.5(-6x + 128) = -9x + 192$, so $b = 192$.\n\n**The Full Solution:**\nStep 1: Each new data point has the same $x$-value as before and $1.5$ times the $y$-value, so the new data are the original data stretched vertically by a factor of $1.5$.\nStep 2: The line of best fit is stretched the same way: every predicted value is multiplied by $1.5$, giving $y = 1.5(-6x + 128) = -9x + 192$.\nStep 3: So $m = -9$ and $b = 192$. Check: at $x = 0$ the original line predicts $128$ tickets, and $1.5 \\times 128 = 192$ ✓\n\n**Common Mistakes:**\n* $128$: keeps the original $y$-intercept, as if multiplying the $y$-values did not move the line.\n* $129.5$: adds $1.5$ to the $y$-intercept instead of multiplying by it.\n* $-9$: gives the new slope, $m = 1.5(-6)$, instead of $b$.\n\n**Test Day Takeaway:** Multiplying every $y$-value by $k$ multiplies both the slope and the $y$-intercept of the line of best fit by $k$; adding a constant to every $y$-value changes only the $y$-intercept.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "residual",
@@ -2008,22 +2008,22 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-091",
     domain: "problem-solving",
-    skills: ["calculate-mean", "slope-intercept-form"],
+    skills: ["scatterplots", "linear-functions"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The scatterplot shows the age $x$, in years, and the annual maintenance cost $y$, in hundreds of dollars, for each of $12$ machines. A line of best fit for the data is also shown, with equation $y = 1.2x + 8$. For which of the following data points does the line of best fit most underestimate the maintenance cost?",
+    question: "The scatterplot shows the age $x$, in years, and the annual maintenance cost $y$, in hundreds of dollars, of each of $12$ machines. A line of best fit for the data, $y = 1.2x + 8$, is also shown. If the maintenance costs were instead given in dollars, which of the following could be an equation of a line of best fit for the data?",
     diagram: { type: "scatterplot", params: { points: [[1, 10], [3, 14], [5, 13], [6, 16], [8, 24], [10, 19], [12, 23], [14, 28], [16, 26], [18, 30], [19, 22], [20, 31]], xMin: 0, xMax: 22, yMin: 0, yMax: 36, xGridStep: 2, yGridStep: 4, xLabelStep: 4, yLabelStep: 8, xLabel: "Age (years)", yLabel: "Maintenance cost (hundreds of dollars)", bestFitLine: { slope: 1.2, intercept: 8 } } },
     choices: [
-      // distractor: smallest predicted value, not the largest underestimate
-      { id: "A", text: "$(3, 14)$" },
-      { id: "B", text: "$(8, 24)$" },
-      // distractor: greatest actual y-value among the choices
-      { id: "C", text: "$(14, 28)$" },
-      // distractor: greatest residual in absolute value, but the line overestimates there
-      { id: "D", text: "$(19, 22)$" }
+      // distractor: converts only the constant to dollars; the slope must also be multiplied by 100
+      { id: "A", text: "$y = 1.2x + 800$" },
+      // distractor: multiplies both numbers by 10 instead of by 100
+      { id: "B", text: "$y = 12x + 80$" },
+      // distractor: converts only the slope to dollars, leaving the constant in hundreds of dollars
+      { id: "C", text: "$y = 120x + 8$" },
+      { id: "D", text: "$y = 120x + 800$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Underestimating means a positive residual, and the residuals are $2.4$, $6.4$, $3.2$, and $-8.8$; the largest is $6.4$ at $(8, 24)$.\n\n**The Full Solution:**\nStep 1: The line underestimates wherever $y > \\hat{y}$, so compare each point's residual $y - \\hat{y}$.\nStep 2: $\\hat{y}(3) = 11.6$, $\\hat{y}(8) = 17.6$, $\\hat{y}(14) = 24.8$, and $\\hat{y}(19) = 30.8$.\nStep 3: The residuals are $14 - 11.6 = 2.4$, $24 - 17.6 = 6.4$, $28 - 24.8 = 3.2$, and $22 - 30.8 = -8.8$. The greatest positive residual is $6.4$.\nCheck: $(8, 24)$ is the point that sits farthest above the line on the graph. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($(3, 14)$): This point has the smallest predicted value, $11.6$; a low prediction is not the same as a large underestimate. Its residual is only $2.4$.\n* Choice C ($(14, 28)$): This has the greatest actual $y$-value of the four, but the line already predicts $24.8$ there, so the miss is just $3.2$.\n* Choice D ($(19, 22)$): This has the largest residual in size, $8.8$, but it is negative: the line overestimates the cost at that point.\n\n**Test Day Takeaway:** \"Underestimates\" fixes the sign: compare positive residuals only, never absolute distances from the line.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Changing hundreds of dollars to dollars multiplies every $y$-value by $100$, so both the slope and the $y$-intercept of the line are multiplied by $100$: $y = 120x + 800$.\n\n**The Full Solution:**\nStep 1: A cost of $y$ hundred dollars is $100y$ dollars, so each data point $(x, y)$ becomes $(x, 100y)$.\nStep 2: Multiplying every $y$-value by $100$ multiplies every predicted value by $100$: $100(1.2x + 8) = 120x + 800$.\nStep 3: So $y = 120x + 800$ could be an equation of a line of best fit for the costs in dollars. Check: for a $10$-year-old machine, the original line predicts $1.2(10) + 8 = 20$ hundred dollars, and the new line predicts $120(10) + 800 = 2{,}000$ dollars ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = 1.2x + 800$): converts only the constant; the slope is also a number of hundreds of dollars per year.\n* Choice B ($y = 12x + 80$): multiplies by $10$ instead of $100$.\n* Choice C ($y = 120x + 8$): converts only the slope and leaves the constant in hundreds of dollars.\n\n**Test Day Takeaway:** When every $y$-value of a data set is multiplied by a constant, both the slope and the $y$-intercept of the line of best fit are multiplied by that constant.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "residual",
@@ -2164,12 +2164,12 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-098",
     domain: "problem-solving",
-    skills: ["margin-of-error"],
+    skills: ["proportion-setup"],
     difficulty: "hard",
     type: "fill-in",
-    question: "Based on a random sample of workers in a city, the mean commute time of all workers in the city is estimated to be $31.4$ minutes, and the interval of plausible values is $1.6$ minutes wide. A second random sample gives the same estimate with a margin of error $25\\%$ greater. What is the greatest plausible value, in minutes, for the mean based on the second sample?",
-    correctAnswer: "32.4",
-    explanation: "**SAT Pattern: Margin of Error**\n\n**The correct answer is $32.4$.**\n\n**The Fast Way (~45s):** A width of $1.6$ means a margin of error of $0.8$; $25\\%$ greater is $1.0$, and $31.4 + 1.0 = 32.4$ minutes.\n\n**The Full Solution:**\nStep 1: The plausible values reach one margin of error on each side of the estimate, so the width is twice the margin of error. The first margin of error is $\\dfrac{1.6}{2} = 0.8$ minute.\nStep 2: A margin of error $25\\%$ greater is $1.25(0.8) = 1.0$ minute.\nStep 3: The second sample's estimate is again $31.4$ minutes, so its greatest plausible value is $31.4 + 1.0 = 32.4$ minutes.\nCheck: the second interval runs from $30.4$ to $32.4$, a width of $2.0$, and $\\dfrac{2.0}{1.6} = 1.25$. $\\checkmark$\n\n**Common Mistakes:**\n* Answering $32.2$ adds the first margin of error, $0.8$, without increasing it.\n* Answering $33.4$ adds the increased width, $1.25(1.6) = 2.0$, treating the width of the interval as its margin of error.\n* Answering $1$ reports the second margin of error instead of the endpoint it produces.\n\n**Test Day Takeaway:** An interval is twice as wide as its margin of error: halve the width first, then scale it, then add it once to the estimate.",
+    question: "In a random sample of $400$ voters in a town, $224$ said they would vote for candidate A and the other $176$ said they would vote for candidate B. Based on the sample, if $7{,}500$ voters vote in the town's election, by how many votes is candidate A expected to win?",
+    correctAnswer: "900",
+    explanation: "**SAT Pattern: Poll Scaling — Margin of Victory**\n\n**The correct answer is 900.**\n\n**The Fast Way (~30s):** Candidate A leads by $224 - 176 = 48$ of every $400$ voters, so the expected margin is $\\frac{48}{400} \\times 7{,}500 = 900$ votes.\n\n**The Full Solution:**\nStep 1: In the sample, candidate A received $\\frac{224}{400} = 0.56$ of the votes and candidate B received $\\frac{176}{400} = 0.44$.\nStep 2: For $7{,}500$ voters, candidate A is expected to receive $0.56 \\times 7{,}500 = 4{,}200$ votes and candidate B $0.44 \\times 7{,}500 = 3{,}300$ votes.\nStep 3: The expected margin is $4{,}200 - 3{,}300 = 900$ votes. Check: $\\frac{48}{400} = 0.12$ and $0.12 \\times 7{,}500 = 900$ ✓\n\n**Common Mistakes:**\n* $48$: reports the difference in the sample, $224 - 176$, without scaling it up to $7{,}500$ voters.\n* $4{,}200$: finds candidate A's expected number of votes, $0.56 \\times 7{,}500$, but does not subtract candidate B's.\n* $3{,}300$: finds candidate B's expected number of votes, $0.44 \\times 7{,}500$.\n\n**Test Day Takeaway:** A random sample's proportions can be applied to the whole population: scale each proportion up to the population size, then compare.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "margin-of-error",
@@ -2429,9 +2429,9 @@ export const problemSolvingBank = [
     skills: ["percent-word-problems", "percent-of-value"],
     difficulty: "easy",
     type: "fill-in",
-    question: "A hiker has walked $8.4$ kilometers, or $35\\%$ of a trail. What is the length of the trail, in kilometers?",
-    correctAnswer: "24",
-    explanation: "**SAT Pattern: Reverse-Percent**\n\n**The correct answer is $24$.**\n\n**The Fast Way (~15s):** $\\dfrac{8.4}{0.35} = 24$.\n\n**The Full Solution:**\nStep 1: Let $L$ be the total length, in kilometers. Then $0.35L = 8.4$.\nStep 2: $L = \\dfrac{8.4}{0.35}$.\nStep 3: $L = 24$ kilometers.\nCheck: $35\\%$ of $24$ is $8.4$. $\\checkmark$\n\n**Common Mistakes:** Multiplying instead of dividing, $0.35(8.4) = 2.94$; dividing by the remaining $65\\%$, which gives about $12.92$; adding $35\\%$ to the distance walked, $1.35(8.4) = 11.34$.\n\n**Test Day Takeaway:** A percent of an unknown whole gives a one-step equation; solve it rather than guessing which way to multiply.",
+    question: "A hiker has walked $14$ kilometers, or $35\\%$ of a trail. What is the length of the trail, in kilometers?",
+    correctAnswer: "40",
+    explanation: "**SAT Pattern: Reverse-Percent**\n\n**The correct answer is 40.**\n\n**The Fast Way (~15s):** $\\frac{14}{0.35} = 40$.\n\n**The Full Solution:**\nStep 1: Let $L$ be the length of the trail, in kilometers. Then $0.35L = 14$.\nStep 2: Divide both sides by $0.35$: $L = \\frac{14}{0.35} = 40$.\nStep 3: Check: $35\\%$ of $40$ is $0.35 \\times 40 = 14$ ✓\n\n**Common Mistakes:**\n* $4.9$: multiplies instead of dividing, $0.35 \\times 14$.\n* $21.5$: divides by the remaining $65\\%$ instead of by $35\\%$, $\\frac{14}{0.65} \\approx 21.5$.\n* $18.9$: adds $35\\%$ to the distance walked, $1.35 \\times 14$.\n\n**Test Day Takeaway:** When a part and its percent are given, divide the part by the percent (as a decimal) to find the whole.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "reverse-percent",
@@ -2567,18 +2567,18 @@ export const problemSolvingBank = [
     skills: ["word-problem-to-equation"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A dry mix contains sand and cement in a mass ratio of $3 : 5$. How many kilograms of sand are in $96$ kilograms of the mix?",
+    question: "A dry mix contains only sand and cement, and the ratio of sand to cement is $3$ to $5$ by mass. How many kilograms of sand are in $96$ kilograms of the mix?",
     choices: [
       // distractor: 96/8 = 12, the mass of one part
       { id: "A", text: "$12$" },
       { id: "B", text: "$36$" },
-      // distractor: 96(3/5) = 57.6, treating 3 : 5 as part to whole
+      // distractor: 96(3/5) = 57.6, treating 3 to 5 as part to whole
       { id: "C", text: "$57.6$" },
       // distractor: 60 kilograms is the cement, the other part
       { id: "D", text: "$60$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The mix has $3 + 5 = 8$ parts, so one part is $\\dfrac{96}{8} = 12$ kilograms and the sand is $3(12) = 36$ kilograms.\n\n**The Full Solution:**\nStep 1: Write the masses as $3k$ kilograms of sand and $5k$ kilograms of cement, so $3k + 5k = 96$.\nStep 2: $8k = 96$, so $k = 12$.\nStep 3: The sand has mass $3k = 36$ kilograms.\nCheck: $36 + 60 = 96$, and $36 : 60$ reduces to $3 : 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): This is $k$, the mass of a single part, not the three parts of sand.\n* Choice C ($57.6$): This computes $\\dfrac{3}{5}$ of $96$, treating $3 : 5$ as a part-to-whole ratio; the whole is $8$ parts, not $5$.\n* Choice D ($60$): This is the mass of the cement, the $5$-part share.\n\n**Test Day Takeaway:** A ratio compares parts to parts; convert it to a part-to-whole fraction, $\\dfrac{3}{8}$ here, before multiplying.",
+    explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The mix has $3 + 5 = 8$ parts, so one part is $\\dfrac{96}{8} = 12$ kilograms and the sand is $3(12) = 36$ kilograms.\n\n**The Full Solution:**\nStep 1: Write the masses as $3k$ kilograms of sand and $5k$ kilograms of cement, so $3k + 5k = 96$.\nStep 2: $8k = 96$, so $k = 12$.\nStep 3: The sand has mass $3k = 36$ kilograms. Check: $36 + 60 = 96$, and $\\dfrac{36}{60} = \\dfrac{3}{5}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): This is $k$, the mass of a single part, not the three parts of sand.\n* Choice C ($57.6$): This computes $\\dfrac{3}{5}$ of $96$, treating the ratio as part to whole; the whole is $8$ parts, not $5$.\n* Choice D ($60$): This is the mass of the cement, the $5$-part share.\n\n**Test Day Takeaway:** A ratio compares parts to parts; turn it into a part-to-whole fraction, $\\dfrac{3}{8}$ here, before multiplying.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "sum-of-parts-ratio",
@@ -2591,9 +2591,9 @@ export const problemSolvingBank = [
     skills: ["word-problem-to-equation"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A drink is made by mixing concentrate and water in a ratio of $2 : 9$ by volume. How many milliliters of concentrate are in $3.3$ liters of the drink? ($1$ liter $= 1{,}000$ milliliters)",
+    question: "A drink contains only concentrate and water, and the ratio of concentrate to water is $2$ to $9$ by volume. How many milliliters of concentrate are in $3.3$ liters of the drink? ($1$ liter $= 1{,}000$ milliliters)",
     correctAnswer: "600",
-    explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**The correct answer is $600$.**\n\n**The Fast Way (~25s):** The drink has $2 + 9 = 11$ parts, so the concentrate is $\\dfrac{2}{11}(3.3) = 0.6$ liters, or $600$ milliliters.\n\n**The Full Solution:**\nStep 1: Write the volumes as $2k$ liters of concentrate and $9k$ liters of water, so $11k = 3.3$ and $k = 0.3$.\nStep 2: The concentrate is $2k = 0.6$ liters.\nStep 3: Convert: $0.6 \\times 1{,}000 = 600$ milliliters.\nCheck: $0.6 + 2.7 = 3.3$ liters, and $0.6 : 2.7$ reduces to $2 : 9$. $\\checkmark$\n\n**Common Mistakes:** Answering $0.6$, the volume in liters, when the question asks for milliliters; using the water term as the whole, $\\dfrac{2}{9}(3.3) \\approx 0.733$ liters, or about $733$ milliliters; reporting one part, $0.3$ liters $= 300$ milliliters.\n\n**Test Day Takeaway:** Finish the ratio work in the given units, then convert once, and check which unit the question asks for.",
+    explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**The correct answer is $600$.**\n\n**The Fast Way (~25s):** The drink has $2 + 9 = 11$ parts, so the concentrate is $\\dfrac{2}{11}(3.3) = 0.6$ liters, or $600$ milliliters.\n\n**The Full Solution:**\nStep 1: Write the volumes as $2k$ liters of concentrate and $9k$ liters of water, so $11k = 3.3$ and $k = 0.3$.\nStep 2: The concentrate is $2k = 0.6$ liters.\nStep 3: Convert: $0.6 \\times 1{,}000 = 600$ milliliters. Check: $0.6 + 2.7 = 3.3$ liters, and $\\dfrac{0.6}{2.7} = \\dfrac{2}{9}$ ✓\n\n**Common Mistakes:**\n* $0.6$: the volume in liters, when the question asks for milliliters.\n* About $733$: uses the water term as the whole, $\\dfrac{2}{9}(3.3) \\approx 0.733$ liters.\n* $300$: one part, $0.3$ liters, instead of the two parts of concentrate.\n\n**Test Day Takeaway:** Finish the ratio work in the given units, then convert once, and check which unit the question asks for.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "sum-of-parts-ratio",
@@ -2606,18 +2606,18 @@ export const problemSolvingBank = [
     skills: ["word-problem-to-equation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A mix contains oats, seeds, and raisins in the ratio $8 : 5 : 2$ by mass. What is the total mass, in grams, of a bag of this mix that contains $160$ grams of oats?",
+    question: "A trail mix contains only peanuts and raisins, and the ratio of peanuts to raisins is $8$ to $7$ by mass. What is the total mass, in grams, of a bag of this mix that contains $160$ grams of peanuts?",
     choices: [
-      // distractor: 140 grams is the seeds and raisins together, 5k + 2k, not the whole bag
-      { id: "A", text: "$140$" },
-      { id: "B", text: "$300$" },
-      // distractor: (160/5)(15) = 480, matching the 160 grams to the seeds term of the ratio
-      { id: "C", text: "$480$" },
-      // distractor: (160/2)(15) = 1,200, matching the 160 grams to the raisins term of the ratio
-      { id: "D", text: "$1{,}200$" }
+      // distractor: 160/8 = 20, the mass of one part
+      { id: "A", text: "$20$" },
+      // distractor: 140 grams is the mass of the raisins, not the whole bag
+      { id: "B", text: "$140$" },
+      { id: "C", text: "$300$" },
+      // distractor: 160 x 15, multiplying by the total number of parts without first dividing by the 8 peanut parts
+      { id: "D", text: "$2{,}400$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The oats are $8$ parts, so one part is $\\dfrac{160}{8} = 20$ grams, and the $8 + 5 + 2 = 15$ parts total $15(20) = 300$ grams.\n\n**The Full Solution:**\nStep 1: Write the masses as $8k$, $5k$, and $2k$ grams. The oats give $8k = 160$, so $k = 20$.\nStep 2: The three parts total $8k + 5k + 2k = 15k$ grams.\nStep 3: $15(20) = 300$ grams.\nCheck: $160 + 100 + 40 = 300$, and $160 : 100 : 40$ reduces to $8 : 5 : 2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($140$): This is the mass of the seeds and raisins, $5k + 2k$, rather than the whole bag.\n* Choice C ($480$): This matches the $160$ grams to the $5$-part term, giving $k = 32$ and a total of $480$ grams.\n* Choice D ($1{,}200$): This matches the $160$ grams to the $2$-part term, giving $k = 80$ and a total of $1{,}200$ grams.\n\n**Test Day Takeaway:** Anchor the size of one part on the quantity you are given, then multiply by whichever number of parts the question asks for.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The peanuts are $8$ parts, so one part is $\\dfrac{160}{8} = 20$ grams, and the whole bag is $8 + 7 = 15$ parts: $15(20) = 300$ grams.\n\n**The Full Solution:**\nStep 1: Write the masses as $8k$ grams of peanuts and $7k$ grams of raisins. Since $8k = 160$, $k = 20$.\nStep 2: The raisins have mass $7k = 140$ grams.\nStep 3: The total mass is $160 + 140 = 300$ grams. Check: $\\dfrac{160}{140} = \\dfrac{8}{7}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): This is $k$, the mass of one part, not the whole bag.\n* Choice B ($140$): This is the mass of the raisins; the question asks for the total mass.\n* Choice D ($2{,}400$): This multiplies $160$ by the $15$ total parts without first dividing by the $8$ parts that the peanuts make up.\n\n**Test Day Takeaway:** Use the known quantity to find one part, then multiply by the number of parts the question asks about.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "sum-of-parts-ratio",
@@ -2630,18 +2630,18 @@ export const problemSolvingBank = [
     skills: ["word-problem-to-equation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A garden has ferns, orchids, and succulents in the ratio $5 : 3 : 7$, respectively. There are $450$ of these plants in all. How many more succulents than ferns are there?",
+    question: "A garden has only ferns and succulents, and the ratio of ferns to succulents is $5$ to $7$. There are $360$ of these plants in all. How many more succulents than ferns are there?",
     choices: [
       // distractor: 30 is the size of one part, not the 7 - 5 = 2 parts by which succulents exceed ferns
       { id: "A", text: "$30$" },
       { id: "B", text: "$60$" },
-      // distractor: 120 is 4 parts, the gap between the succulents and the orchids
-      { id: "C", text: "$120$" },
+      // distractor: 150 is the number of ferns, not the difference
+      { id: "C", text: "$150$" },
       // distractor: 210 is the number of succulents, not the difference
       { id: "D", text: "$210$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** There are $5 + 3 + 7 = 15$ parts, so one part is $\\dfrac{450}{15} = 30$ plants, and the succulents exceed the ferns by $7 - 5 = 2$ parts: $2(30) = 60$.\n\n**The Full Solution:**\nStep 1: Write the counts as $5k$ ferns, $3k$ orchids, and $7k$ succulents, so $15k = 450$ and $k = 30$.\nStep 2: There are $7(30) = 210$ succulents and $5(30) = 150$ ferns.\nStep 3: The difference is $210 - 150 = 60$ plants.\nCheck: $150 + 90 + 210 = 450$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($30$): This is one part; the succulents lead the ferns by $2$ parts, not $1$.\n* Choice C ($120$): This is $4$ parts, the gap between the succulents and the orchids rather than the ferns.\n* Choice D ($210$): This is the number of succulents, not how many more there are than ferns.\n\n**Test Day Takeaway:** For a \"how many more\" question, subtract the ratio terms first and multiply that difference by the size of one part.",
+    explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** There are $5 + 7 = 12$ parts, so one part is $\\dfrac{360}{12} = 30$ plants, and the succulents exceed the ferns by $7 - 5 = 2$ parts: $2(30) = 60$.\n\n**The Full Solution:**\nStep 1: Write the counts as $5k$ ferns and $7k$ succulents, so $12k = 360$ and $k = 30$.\nStep 2: There are $5(30) = 150$ ferns and $7(30) = 210$ succulents.\nStep 3: The difference is $210 - 150 = 60$ plants. Check: $150 + 210 = 360$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($30$): This is one part; the succulents lead the ferns by $2$ parts, not $1$.\n* Choice C ($150$): This is the number of ferns, not how many more succulents there are.\n* Choice D ($210$): This is the number of succulents, not how many more there are than ferns.\n\n**Test Day Takeaway:** For a \"how many more\" question, subtract the ratio terms first and multiply that difference by the size of one part.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "sum-of-parts-ratio",
@@ -2654,9 +2654,9 @@ export const problemSolvingBank = [
     skills: ["word-problem-to-equation"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A $360$-gram bar of metal is made of gold, silver, and copper in the ratio $15 : 3 : 2$ by mass, respectively. What is the mass, in grams, of the silver in the bar?",
-    correctAnswer: "54",
-    explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**The correct answer is $54$.**\n\n**The Fast Way (~15s):** The ratio has $15 + 3 + 2 = 20$ parts, so one part is $360 \\div 20 = 18$ grams. Silver is $3$ parts: $3(18) = 54$ grams.\n\n**The Full Solution:**\nStep 1: Add the ratio numbers to get the total number of parts: $15 + 3 + 2 = 20$.\nStep 2: The whole bar, $360$ grams, is spread over $20$ parts, so one part is $\\frac{360}{20} = 18$ grams.\nStep 3: Silver accounts for $3$ parts: $3 \\times 18 = 54$ grams. Check: gold is $15 \\times 18 = 270$ grams and copper is $2 \\times 18 = 36$ grams, and $270 + 54 + 36 = 360$ ✓\n\n**Common Mistakes:**\n* $120$: divides $360$ by the silver number $3$ instead of by the total number of parts.\n* $18$: reports the mass of one part rather than the $3$ parts that are silver.\n* $60$: adds only $15 + 3 = 18$ parts, leaving out copper, so one part looks like $20$ grams.\n\n**Test Day Takeaway:** Total $\\div$ (sum of the ratio parts) gives the size of one part; then multiply by the number of parts the question actually asks about.",
+    question: "A metal bar is made of only copper and zinc, and the ratio of copper to zinc is $7$ to $2$ by mass. The bar contains $200$ more grams of copper than zinc. What is the mass, in grams, of the bar?",
+    correctAnswer: "360",
+    explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**The correct answer is $360$.**\n\n**The Fast Way (~20s):** Copper exceeds zinc by $7 - 2 = 5$ parts, so one part is $\\dfrac{200}{5} = 40$ grams, and the bar is $7 + 2 = 9$ parts: $9(40) = 360$ grams.\n\n**The Full Solution:**\nStep 1: Write the masses as $7k$ grams of copper and $2k$ grams of zinc, so $7k - 2k = 200$.\nStep 2: $5k = 200$, so $k = 40$.\nStep 3: The bar has mass $9k = 9(40) = 360$ grams. Check: copper $280$ grams, zinc $80$ grams, $280 - 80 = 200$ ✓\n\n**Common Mistakes:**\n* $280$: the mass of the copper only.\n* $80$: the mass of the zinc only.\n* About $257$: divides $200$ by $7$ instead of by the $5$-part difference, then multiplies by $9$.\n\n**Test Day Takeaway:** When a ratio comes with a difference, the difference matches the difference of the ratio terms.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "sum-of-parts-ratio",
@@ -2669,18 +2669,18 @@ export const problemSolvingBank = [
     skills: ["word-problem-to-equation"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A garden has red, yellow, and white tulips in the ratio $5 : 3 : 2$, respectively. There are $90$ more red tulips than white tulips. How many tulips in the garden are not yellow?",
+    question: "A garden has only red tulips and white tulips, and the ratio of red tulips to white tulips is $5$ to $3$. There are $n$ tulips in the garden. Which expression represents how many more red tulips than white tulips there are?",
     choices: [
-      // distractor: the yellow count, 3 parts x 30 = 90 (also equal to the given difference), when the question asks for tulips that are NOT yellow
-      { id: "A", text: "$90$" },
-      // distractor: the red count alone (5 parts), dropping the white tulips
-      { id: "B", text: "$150$" },
-      { id: "C", text: "$210$" },
-      // distractor: the total of all 10 parts, never removing the yellow tulips
-      { id: "D", text: "$300$" }
+      // distractor: n/8 is the size of one part, not the 2 parts by which red exceeds white
+      { id: "A", text: "$\\frac{n}{8}$" },
+      { id: "B", text: "$\\frac{n}{4}$" },
+      // distractor: 3n/8 is the number of white tulips
+      { id: "C", text: "$\\frac{3n}{8}$" },
+      // distractor: 5n/8 is the number of red tulips
+      { id: "D", text: "$\\frac{5n}{8}$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Red minus white is $5 - 2 = 3$ parts, and that difference is $90$ tulips, so one part is $30$. Not yellow means red plus white, $5 + 2 = 7$ parts: $7(30) = 210$.\n\n**The Full Solution:**\nStep 1: Let one part be $k$ tulips. Then red $= 5k$, yellow $= 3k$, white $= 2k$.\nStep 2: The difference between red and white is given: $5k - 2k = 90$, so $3k = 90$ and $k = 30$.\nStep 3: The tulips that are not yellow are the red and white ones: $5k + 2k = 7k = 7(30) = 210$. Check: red $= 150$, white $= 60$, and $150 - 60 = 90$ ✓ Yellow $= 90$, and the total $150 + 90 + 60 = 300$ minus the $90$ yellow tulips is $210$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($90$): This is the number of yellow tulips, $3k = 90$ (it happens to equal the given difference), but the question asks for the tulips that are *not* yellow.\n* Choice B ($150$): This is the red count alone, $5k$; it leaves out the $60$ white tulips.\n* Choice D ($300$): This is the total of all three colors, $10k$; the $90$ yellow tulips were never removed.\n\n**Test Day Takeaway:** When a ratio problem gives a difference instead of a total, set the difference of the parts equal to it to find one part, then reread exactly which parts the question wants.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The garden has $5 + 3 = 8$ parts, so one part is $\\dfrac{n}{8}$ tulips, and red exceeds white by $2$ parts: $\\dfrac{2n}{8} = \\dfrac{n}{4}$.\n\n**The Full Solution:**\nStep 1: Red tulips are $\\dfrac{5}{8}$ of the garden, or $\\dfrac{5n}{8}$; white tulips are $\\dfrac{3}{8}$ of it, or $\\dfrac{3n}{8}$.\nStep 2: Subtract: $\\dfrac{5n}{8} - \\dfrac{3n}{8} = \\dfrac{2n}{8}$.\nStep 3: Simplify: $\\dfrac{2n}{8} = \\dfrac{n}{4}$. Check with $n = 80$: $50$ red and $30$ white tulips, a difference of $20 = \\dfrac{80}{4}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{n}{8}$): This is one part; red exceeds white by $2$ parts.\n* Choice C ($\\frac{3n}{8}$): This is the number of white tulips, not the difference.\n* Choice D ($\\frac{5n}{8}$): This is the number of red tulips, not the difference.\n\n**Test Day Takeaway:** Turn each ratio term into a fraction of the whole (term over the sum of terms), then work with those fractions of $n$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "sum-of-parts-ratio",
@@ -2693,9 +2693,9 @@ export const problemSolvingBank = [
     skills: ["word-problem-to-equation"],
     difficulty: "hard",
     type: "fill-in",
-    question: "The ratio of $a$ to $b$ is $3$ to $2$, and the ratio of $b$ to $c$ is $4$ to $5$. If $a + b + c = 450$, what is the value of $c$?",
-    correctAnswer: "150",
-    explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**The correct answer is $150$.**\n\n**The Fast Way (~25s):** Rewrite $3 : 2$ as $6 : 4$ so that $b$ matches in both ratios: $a : b : c = 6 : 4 : 5$, which is $15$ parts. One part is $\\frac{450}{15} = 30$, so $c = 5(30) = 150$.\n\n**The Full Solution:**\nStep 1: The value $b$ is $2$ parts in the first ratio and $4$ parts in the second. Multiply the first ratio by $2$: $a : b = 6 : 4$. Now both ratios give $b$ as $4$ parts.\nStep 2: Combine the ratios: $a : b : c = 6 : 4 : 5$. The total is $6 + 4 + 5 = 15$ parts, and $a + b + c = 450$, so one part is $\\frac{450}{15} = 30$.\nStep 3: The value $c$ is $5$ parts: $c = 5(30) = 150$. Check: $a = 180$ and $b = 120$, so $180 + 120 + 150 = 450$, $\\frac{180}{120} = \\frac{3}{2}$, and $\\frac{120}{150} = \\frac{4}{5}$ ✓\n\n**Common Mistakes:**\n* $225$: joins the ratios as $3 : 2 : 5$ without matching $b$, which gives $10$ parts of $45$.\n* $187.5$: writes $3 : 4 : 5$, using $b$'s number from the second ratio but not scaling $a$, which gives $12$ parts of $37.5$.\n* $180$: finds the parts correctly but reports $a$ instead of $c$.\n\n**Test Day Takeaway:** When two ratios share a quantity, scale one of them so the shared quantity has the same number in both before combining them into a single three-part ratio.",
+    question: "A tank contains only goldfish and guppies, and the ratio of goldfish to guppies is $4$ to $7$. After $15$ goldfish are added to the tank, the ratio of goldfish to guppies is $3$ to $4$. How many fish were in the tank before the goldfish were added?",
+    correctAnswer: "132",
+    explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**The correct answer is $132$.**\n\n**The Fast Way (~45s):** Write the counts as $4k$ goldfish and $7k$ guppies; then $\\dfrac{4k + 15}{7k} = \\dfrac{3}{4}$, so $k = 12$ and the tank held $11k = 132$ fish.\n\n**The Full Solution:**\nStep 1: Before the change there are $4k$ goldfish and $7k$ guppies, $11k$ fish in all. After the change there are $4k + 15$ goldfish and still $7k$ guppies.\nStep 2: Set up the new ratio: $\\dfrac{4k + 15}{7k} = \\dfrac{3}{4}$, so $16k + 60 = 21k$ and $k = 12$.\nStep 3: The tank held $11(12) = 132$ fish. Check: $48$ goldfish and $84$ guppies; after the change, $\\dfrac{63}{84} = \\dfrac{3}{4}$ ✓\n\n**Common Mistakes:**\n* $147$: the number of fish after the $15$ goldfish are added, not before.\n* $48$: the number of goldfish before the change, not the number of fish.\n* $84$: the number of guppies, which never changes, rather than the total.\n\n**Test Day Takeaway:** Only one quantity changes, so write both counts with the same $k$, set the new ratio equal to its value, and solve for $k$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "sum-of-parts-ratio",
@@ -3154,9 +3154,9 @@ export const problemSolvingBank = [
     skills: ["conditional-probability", "two-way-table"],
     difficulty: "medium",
     type: "fill-in",
-    question: "Of $150$ applicants to a program, $90$ applied online and $60$ applied by mail. Of the applicants who were accepted, $63$ applied online and $27$ applied by mail. One of the accepted applicants will be selected at random. What is the probability of selecting an applicant who applied by mail? (Express your answer as a decimal or fraction, not as a percent.)",
-    correctAnswer: "3/10",
-    explanation: "**SAT Pattern: Two-Way Table Conditional Probability**\n\n**The correct answer is $\\frac{3}{10}$.**\n\n**The Fast Way (~15s):** Accepted applicants total $63 + 27 = 90$, and $27$ of them applied by mail: $\\frac{27}{90} = \\frac{3}{10}$.\n\n**The Full Solution:**\nStep 1: Organize the counts as a two-way table: online $90$ ($63$ accepted, $27$ not) and mail $60$ ($27$ accepted, $33$ not).\nStep 2: The condition \"accepted\" makes the denominator the accepted total, $63 + 27 = 90$.\nStep 3: The mail entry among the accepted is $27$, so the probability is $\\frac{27}{90} = \\frac{3}{10}$, or $0.3$. Check: $0.3 \\times 90 = 27$ ✓\n\n**Common Mistakes:**\n* $\\frac{9}{20}$: divides by the mail total, $\\frac{27}{60}$, which is the probability that a mail applicant was accepted, the condition reversed.\n* $\\frac{9}{50}$: divides by all $150$ applicants instead of the $90$ accepted applicants.\n* $\\frac{2}{5}$: ignores the condition and finds the share of all applicants who applied by mail, $\\frac{60}{150}$.\n\n**Test Day Takeaway:** When the data come as prose, sketch the two-way table first; the \"given\" group's total is the denominator.",
+    question: "Of $150$ applicants to a program, $90$ applied online and the rest applied by mail. Of the $84$ applicants who were accepted, $63$ applied online. If an applicant who applied by mail is selected at random, what is the probability that the applicant was accepted? (Express your answer as a decimal or fraction, not as a percent.)",
+    correctAnswer: "7/20",
+    explanation: "**SAT Pattern: Two-Way Table Conditional Probability**\n\n**The correct answer is $\\frac{7}{20}$.**\n\n**The Fast Way (~25s):** Mail applicants: $150 - 90 = 60$. Accepted mail applicants: $84 - 63 = 21$. The probability is $\\frac{21}{60} = \\frac{7}{20}$.\n\n**The Full Solution:**\nStep 1: The number who applied by mail is $150 - 90 = 60$.\nStep 2: The number of accepted applicants who applied by mail is $84 - 63 = 21$.\nStep 3: Given that the applicant applied by mail, the denominator is $60$: $\\frac{21}{60} = \\frac{7}{20}$, or $0.35$. Check: $0.35 \\times 60 = 21$, and $21 + 63 = 84$ ✓\n\n**Common Mistakes:**\n* $\\frac{1}{4}$: divides by the $84$ accepted applicants, $\\frac{21}{84}$, which reverses the condition.\n* $\\frac{7}{50}$: divides by all $150$ applicants instead of the $60$ mail applicants.\n* $\\frac{14}{25}$: finds the share of all applicants who were accepted, $\\frac{84}{150}$, ignoring the condition.\n\n**Test Day Takeaway:** The group after \"given\" (here, the mail applicants) is the denominator; sketch the two-way table if the counts come as prose.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "two-way-table-conditional-probability",
@@ -3580,18 +3580,18 @@ export const problemSolvingBank = [
     skills: ["calculate-mean"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "Ana's mean time for $5$ races is $42.6$ minutes. What time, in minutes, must she run in her sixth race so that her mean time for all $6$ races is $42$ minutes?",
+    question: "Ana's mean time for $5$ races is $44$ minutes. What time, in minutes, must she run in her sixth race so that her mean time for all $6$ races is $43$ minutes?",
     choices: [
-      // distractor: 42 - 0.6 x 6, multiplying the per-race excess by 6 races instead of the 5 existing races
-      { id: "A", text: "$38.4$" },
-      { id: "B", text: "$39$" },
-      // distractor: 42 - 0.6, subtracting the excess only once
-      { id: "C", text: "$41.4$" },
-      // distractor: the target mean itself, which would leave the mean above 42
-      { id: "D", text: "$42$" }
+      // distractor: 43 - 6(1), charging the 1-minute excess to 6 races instead of the 5 existing races
+      { id: "A", text: "$37$" },
+      { id: "B", text: "$38$" },
+      // distractor: 43 - 1, subtracting the excess only once
+      { id: "C", text: "$42$" },
+      // distractor: the target mean itself, which would leave the mean above 43
+      { id: "D", text: "$43$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Six races with a mean of $42$ total $252$ minutes, and the first five total $5(42.6) = 213$ minutes, so the sixth race must take $252 - 213 = 39$ minutes.\n\n**The Full Solution:**\nStep 1: Current total: $5 \\times 42.6 = 213$ minutes.\nStep 2: Required total for a mean of $42$ over $6$ races: $6 \\times 42 = 252$ minutes.\nStep 3: Sixth race: $252 - 213 = 39$ minutes. Check: $\\frac{213 + 39}{6} = \\frac{252}{6} = 42$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($38.4$): computes $42 - 0.6 \\times 6$, charging the $0.6$-minute excess to six races when only five races are above the target.\n* Choice C ($41.4$): subtracts the $0.6$-minute excess only once instead of five times.\n* Choice D ($42$): running exactly the target time leaves the $3$ minutes of excess in place, so the mean would stay above $42$.\n\n**Test Day Takeaway:** Work with totals: the new mean times the new count, minus the old mean times the old count, is the value needed.",
+    explanation: "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Six races with a mean of $43$ total $258$ minutes, and the first five total $5(44) = 220$ minutes, so the sixth race must take $258 - 220 = 38$ minutes.\n\n**The Full Solution:**\nStep 1: Current total: $5 \\times 44 = 220$ minutes.\nStep 2: Required total for a mean of $43$ over $6$ races: $6 \\times 43 = 258$ minutes.\nStep 3: Sixth race: $258 - 220 = 38$ minutes. Check: $\\frac{220 + 38}{6} = \\frac{258}{6} = 43$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($37$): This computes $43 - 6 \\times 1$, charging the $1$-minute excess to six races when only five races are above the target.\n* Choice C ($42$): This subtracts the $1$-minute excess only once instead of once for each of the five races.\n* Choice D ($43$): Running exactly the target time leaves the $5$ minutes of excess in place, so the mean would stay above $43$.\n\n**Test Day Takeaway:** Work with totals: the new mean times the new count, minus the old mean times the old count, is the value needed.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "finding-a-missing-value-given-the-mean",
@@ -3604,9 +3604,9 @@ export const problemSolvingBank = [
     skills: ["calculate-mean"],
     difficulty: "medium",
     type: "fill-in",
-    question: "An archer's first $n$ arrows scored a mean of $8.4$ points. After one more arrow scored $10$ points, the mean score of all the arrows was $8.6$ points. What is the value of $n$?",
-    correctAnswer: "7",
-    explanation: "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~30s):** The last arrow is $1.4$ points above the new mean, and each earlier arrow is $0.2$ point below it, so $n = \\frac{1.4}{0.2} = 7$.\n\n**The Full Solution:**\nStep 1: The first $n$ arrows scored a total of $8.4n$ points.\nStep 2: After one more arrow, the total is $8.4n + 10$ points over $n + 1$ arrows, so $8.4n + 10 = 8.6(n + 1)$.\nStep 3: Solve: $8.4n + 10 = 8.6n + 8.6$, so $1.4 = 0.2n$ and $n = 7$. Check: $7$ arrows at a mean of $8.4$ total $58.8$ points; adding $10$ gives $68.8$ points over $8$ arrows, and $\\frac{68.8}{8} = 8.6$ ✓\n\n**Common Mistakes:**\n* $50$: divides $10$ by $8.6 - 8.4$, ignoring that the new arrow also raises the count.\n* $8$: reports the number of arrows after the last shot rather than before it.\n* $1.4$: stops at the surplus $10 - 8.6$ without dividing by the $0.2$-point shift.\n\n**Test Day Takeaway:** When one new value moves a mean, balance the surplus above the new mean against the shortfalls below it; that ratio is the count.",
+    question: "A student's first $n$ quiz scores have a mean of $82$. After the student scores $97$ on the next quiz, the mean of all the quiz scores is $85$. What is the value of $n$?",
+    correctAnswer: "4",
+    explanation: "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~25s):** The new score is $97 - 85 = 12$ points above the new mean, and that surplus raises each of the $n$ old scores by $85 - 82 = 3$ points, so $3n = 12$ and $n = 4$.\n\n**The Full Solution:**\nStep 1: Old total: $82n$. New total: $82n + 97$, over $n + 1$ quizzes.\nStep 2: Set the new mean equal to $85$: $82n + 97 = 85(n + 1) = 85n + 85$.\nStep 3: Solve: $97 - 85 = 85n - 82n$, so $12 = 3n$ and $n = 4$. Check: $4(82) = 328$, $328 + 97 = 425$, and $\\frac{425}{5} = 85$ ✓\n\n**Common Mistakes:**\n* $5$: reports the total number of quizzes, $n + 1$, instead of $n$.\n* $5$ also results from dividing $97 - 82 = 15$ by $3$, measuring the new score against the old mean instead of the new one.\n* About $32.3$: writes the new total as $85n$, forgetting that the count is now $n + 1$.\n\n**Test Day Takeaway:** Write both totals: (old mean)(old count) plus the new value equals (new mean)(new count), then solve for the count.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "finding-a-missing-value-given-the-mean",
@@ -3643,9 +3643,9 @@ export const problemSolvingBank = [
     skills: ["calculate-mean"],
     difficulty: "medium",
     type: "fill-in",
-    question: "$8.6$, $10.4$, $a$, $a$\nThe mean of the four numbers shown is $9.2$. What is the value of $a$?",
-    correctAnswer: "8.9",
-    explanation: "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**The correct answer is $8.9$.**\n\n**The Fast Way (~15s):** The four numbers sum to $4(9.2) = 36.8$, the two known numbers sum to $19$, and $2a = 17.8$, so $a = 8.9$.\n\n**The Full Solution:**\nStep 1: The sum of the four numbers is $4 \\times 9.2 = 36.8$.\nStep 2: Write the sum with the unknowns: $8.6 + 10.4 + 2a = 36.8$, so $2a = 17.8$.\nStep 3: Solve: $a = 8.9$. Check: $\\frac{8.6 + 10.4 + 8.9 + 8.9}{4} = \\frac{36.8}{4} = 9.2$ ✓\n\n**Common Mistakes:**\n* $17.8$: reports the combined value $2a$ instead of $a$.\n* $8.6$: uses three numbers in the total, $3(9.2) - 19$.\n* $9.2$: assumes each unknown equals the mean.\n\n**Test Day Takeaway:** Two equal unknowns contribute $2a$ to the sum; solve for the pair, then divide by $2$.",
+    question: "$12$, $30$, $a$, $a$\nThe mean of the four numbers shown is $25$. What is the value of $a$?",
+    correctAnswer: "29",
+    explanation: "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**The correct answer is $29$.**\n\n**The Fast Way (~15s):** The four numbers total $4(25) = 100$, so $2a = 100 - 12 - 30 = 58$ and $a = 29$.\n\n**The Full Solution:**\nStep 1: The sum of the four numbers is $4 \\times 25 = 100$.\nStep 2: So $12 + 30 + 2a = 100$, which gives $2a = 58$.\nStep 3: Divide: $a = 29$. Check: $\\frac{12 + 30 + 29 + 29}{4} = \\frac{100}{4} = 25$ ✓\n\n**Common Mistakes:**\n* $58$: stops at $2a$ and forgets that $a$ appears twice.\n* $33$: treats the list as three numbers, $3(25) - 12 - 30$.\n* $25$: assumes $a$ must equal the mean.\n\n**Test Day Takeaway:** Turn a mean into a total first; a repeated unknown counts once for each time it appears.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "finding-a-missing-value-given-the-mean",
@@ -3722,9 +3722,9 @@ export const problemSolvingBank = [
     skills: ["probability-basics"],
     difficulty: "easy",
     type: "fill-in",
-    question: "A spinner has $10$ equal sections numbered $1$ through $10$. If the spinner is spun once, what is the probability that it lands on a prime number? (Express your answer as a decimal or fraction, not as a percent.)",
+    question: "A fair spinner has $10$ equal sections numbered $1$ through $10$. If the spinner is spun once, what is the probability that it lands on a number greater than $6$? (Express your answer as a decimal or fraction, not as a percent.)",
     correctAnswer: "2/5",
-    explanation: "**SAT Pattern: Basic Probability**\n\n**The correct answer is $\\frac{2}{5}$.**\n\n**The Fast Way (~10s):** The primes from $1$ to $10$ are $2, 3, 5, 7$: four of ten sections, so the probability is $\\frac{4}{10} = \\frac{2}{5}$.\n\n**The Full Solution:**\nStep 1: List the primes among $1$ through $10$: $2, 3, 5, 7$. ($1$ is not prime; $4, 6, 8, 9, 10$ are composite.)\nStep 2: There are $4$ favorable sections out of $10$ equally likely sections.\nStep 3: Probability: $\\frac{4}{10} = \\frac{2}{5}$, which can also be entered as $0.4$. Check: $4$ of the $10$ sections is $40\\%$ of the spinner ✓\n\n**Common Mistakes:**\n* $\\frac{1}{2}$: counts $1$ as prime, giving $\\frac{5}{10}$.\n* $\\frac{1}{2}$ again: counts the odd numbers $1, 3, 5, 7, 9$ instead of the primes.\n* $\\frac{3}{10}$: leaves out $2$, the only even prime.\n\n**Test Day Takeaway:** For a probability over numbered outcomes, list the favorable numbers explicitly; $1$ is not prime and $2$ is.",
+    explanation: "**SAT Pattern: Basic Probability**\n\n**The correct answer is $\\frac{2}{5}$.**\n\n**The Fast Way (~10s):** The numbers greater than $6$ are $7$, $8$, $9$, and $10$, so the probability is $\\frac{4}{10} = \\frac{2}{5}$.\n\n**The Full Solution:**\nStep 1: There are $10$ equally likely outcomes.\nStep 2: The favorable outcomes are $7$, $8$, $9$, and $10$: $4$ outcomes.\nStep 3: Probability: $\\frac{4}{10} = \\frac{2}{5}$, or $0.4$. Check: the other $6$ outcomes give $\\frac{6}{10}$, and $\\frac{4}{10} + \\frac{6}{10} = 1$ ✓\n\n**Common Mistakes:**\n* $\\frac{1}{2}$: counts $6$ through $10$ ($5$ numbers), including $6$, which is not greater than $6$.\n* $\\frac{3}{5}$: finds the probability of a number $6$ or less.\n* $\\frac{2}{3}$: divides the $4$ favorable outcomes by the $6$ unfavorable ones instead of by all $10$.\n\n**Test Day Takeaway:** List the favorable outcomes, and read \"greater than\" strictly: the boundary number is not included.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "basic-probability",
@@ -3737,18 +3737,18 @@ export const problemSolvingBank = [
     skills: ["probability-basics"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A jar contains $30$ tokens numbered $1$ through $30$. One token will be selected at random. What is the probability of selecting a token with a number that is a multiple of $4$?",
+    question: "A jar contains $9$ red tokens, $12$ white tokens, $15$ blue tokens, and $24$ green tokens. If one token is selected at random, what is the probability of selecting a red or white token?",
     choices: [
-      { id: "A", text: "$\\frac{7}{30}$" },
-      // distractor: assumes exactly one-fourth of the tokens are multiples of 4; 30/4 = 7.5 is not a count
-      { id: "B", text: "$\\frac{1}{4}$" },
-      // distractor: 8/30, counting eight multiples (including 0 or 32)
-      { id: "C", text: "$\\frac{4}{15}$" },
-      // distractor: 23/30, the complement
-      { id: "D", text: "$\\frac{23}{30}$" }
+      // distractor: 9/60, counting only the red tokens
+      { id: "A", text: "$\\frac{3}{20}$" },
+      { id: "B", text: "$\\frac{7}{20}$" },
+      // distractor: 21/39, dividing by the other tokens instead of by all 60
+      { id: "C", text: "$\\frac{7}{13}$" },
+      // distractor: 39/60, the probability of selecting a blue or green token
+      { id: "D", text: "$\\frac{13}{20}$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Basic Probability**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The multiples of $4$ from $1$ to $30$ are $4, 8, 12, 16, 20, 24, 28$, seven in all, so the probability is $\\frac{7}{30}$.\n\n**The Full Solution:**\nStep 1: The greatest multiple of $4$ that is at most $30$ is $28 = 4 \\times 7$, so $7$ tokens are multiples of $4$.\nStep 2: There are $30$ equally likely tokens.\nStep 3: Probability: $\\frac{7}{30}$, already in lowest terms. Check: the list $4, 8, 12, 16, 20, 24, 28$ has seven numbers ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{1}{4}$): assumes exactly one-fourth of the tokens qualify, but $\\frac{30}{4} = 7.5$ is not a whole number of tokens.\n* Choice C ($\\frac{4}{15}$): $\\frac{8}{30}$, counting eight multiples, which would require $0$ or $32$ to be in the jar.\n* Choice D ($\\frac{23}{30}$): the probability of selecting a token that is not a multiple of $4$.\n\n**Test Day Takeaway:** Count favorable outcomes exactly by listing them or dividing and rounding down; \"one in every four\" is only approximate when the total is not a multiple of $4$.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Basic Probability**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** There are $9 + 12 + 15 + 24 = 60$ tokens, and $9 + 12 = 21$ are red or white, so the probability is $\\frac{21}{60} = \\frac{7}{20}$.\n\n**The Full Solution:**\nStep 1: Total tokens: $9 + 12 + 15 + 24 = 60$.\nStep 2: Red or white tokens: $9 + 12 = 21$.\nStep 3: Probability: $\\frac{21}{60} = \\frac{7}{20}$. Check: blue or green gives $\\frac{39}{60} = \\frac{13}{20}$, and $\\frac{7}{20} + \\frac{13}{20} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{20}$): This is $\\frac{9}{60}$, the probability of red alone; the white tokens also count.\n* Choice C ($\\frac{7}{13}$): This is $\\frac{21}{39}$, which divides by the blue and green tokens instead of by all $60$ tokens.\n* Choice D ($\\frac{13}{20}$): This is the probability of selecting a blue or green token, the complement.\n\n**Test Day Takeaway:** Probability is favorable over total; the total counts every token, including the favorable ones.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "basic-probability",
@@ -3801,9 +3801,9 @@ export const problemSolvingBank = [
     skills: ["probability-basics"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A bin contains only small, medium, and large bolts, in the ratio $3 : 4 : 8$, respectively. One bolt will be selected at random. What is the probability of selecting a large bolt? (Express your answer as a decimal or fraction, not as a percent.)",
+    question: "A bin contains $18$ small bolts, $24$ medium bolts, and $48$ large bolts. One bolt will be selected at random. What is the probability of selecting a large bolt? (Express your answer as a decimal or fraction, not as a percent.)",
     correctAnswer: "8/15",
-    explanation: "**SAT Pattern: Basic Probability**\n\n**The correct answer is $\\frac{8}{15}$.**\n\n**The Fast Way (~10s):** The ratio has $3 + 4 + 8 = 15$ parts, and large bolts are $8$ of them, so the probability is $\\frac{8}{15}$.\n\n**The Full Solution:**\nStep 1: For some positive integer $k$, there are $3k$ small, $4k$ medium, and $8k$ large bolts.\nStep 2: The total is $15k$ bolts, and $8k$ of them are large.\nStep 3: Probability: $\\frac{8k}{15k} = \\frac{8}{15}$. Check: with $k = 1$, $8$ of the $15$ bolts are large ✓\n\n**Common Mistakes:**\n* $\\frac{8}{7}$: divides by the other parts only, which gives a value greater than $1$.\n* $\\frac{1}{3}$: assumes each of the three sizes is equally likely.\n* $\\frac{2}{3}$: uses $\\frac{8}{12}$, leaving the small bolts out of the total.\n\n**Test Day Takeaway:** A probability from a ratio is the part's term over the sum of all the terms; the actual counts cancel.",
+    explanation: "**SAT Pattern: Basic Probability**\n\n**The correct answer is $\\frac{8}{15}$.**\n\n**The Fast Way (~15s):** The bin holds $18 + 24 + 48 = 90$ bolts, and $48$ are large, so the probability is $\\frac{48}{90} = \\frac{8}{15}$.\n\n**The Full Solution:**\nStep 1: Total bolts: $18 + 24 + 48 = 90$.\nStep 2: Large bolts: $48$.\nStep 3: Probability: $\\frac{48}{90} = \\frac{8}{15}$. Check: $\\frac{8}{15} \\times 90 = 48$ ✓\n\n**Common Mistakes:**\n* $\\frac{8}{7}$: divides $48$ by the $42$ other bolts, which gives a value greater than $1$.\n* $\\frac{1}{3}$: assumes each of the three sizes is equally likely.\n* $\\frac{2}{3}$: uses $\\frac{48}{72}$, leaving the small bolts out of the total.\n\n**Test Day Takeaway:** Add every group to get the total before dividing, and reduce the fraction at the end.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "basic-probability",
@@ -3816,18 +3816,18 @@ export const problemSolvingBank = [
     skills: ["probability-basics"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A fair $20$-sided die has faces numbered $1$ through $20$. If the die is rolled once, what is the probability of rolling a multiple of $3$ or a multiple of $4$?",
+    question: "A theater has $12$ rows of $20$ seats on the main floor and $6$ rows of $15$ seats in the balcony. Each row on the main floor has $4$ aisle seats, and each row in the balcony has $2$ aisle seats. If one of these seats is selected at random, what is the probability of selecting an aisle seat?",
     choices: [
-      // distractor: 5/20, multiples of 4 only
-      { id: "A", text: "$\\frac{1}{4}$" },
-      // distractor: 6/20, multiples of 3 only
-      { id: "B", text: "$\\frac{3}{10}$" },
-      { id: "C", text: "$\\frac{1}{2}$" },
-      // distractor: 6 + 5 = 11 without removing the double-counted 12
-      { id: "D", text: "$\\frac{11}{20}$" }
+      // distractor: 2/15, the share of aisle seats in one balcony row only
+      { id: "A", text: "$\\frac{2}{15}$" },
+      // distractor: (4 + 2)/(20 + 15), adding one row of each section instead of all the rows
+      { id: "B", text: "$\\frac{6}{35}$" },
+      { id: "C", text: "$\\frac{2}{11}$" },
+      // distractor: 4/20, the share of aisle seats in one main-floor row only
+      { id: "D", text: "$\\frac{1}{5}$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Basic Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** There are $6$ multiples of $3$ and $5$ multiples of $4$, and $12$ is in both lists, so $6 + 5 - 1 = 10$ faces qualify: $\\frac{10}{20} = \\frac{1}{2}$.\n\n**The Full Solution:**\nStep 1: Multiples of $3$ from $1$ to $20$: $3, 6, 9, 12, 15, 18$ (six). Multiples of $4$: $4, 8, 12, 16, 20$ (five).\nStep 2: A number that is a multiple of both $3$ and $4$ is a multiple of $12$; only $12$ qualifies, so there is $1$ overlap. Favorable faces: $6 + 5 - 1 = 10$.\nStep 3: Probability: $\\frac{10}{20} = \\frac{1}{2}$. Check by listing: $3, 4, 6, 8, 9, 12, 15, 16, 18, 20$ is ten different faces ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{4}$): counts only the five multiples of $4$.\n* Choice B ($\\frac{3}{10}$): counts only the six multiples of $3$.\n* Choice D ($\\frac{11}{20}$): adds $6 + 5$ without subtracting the face $12$, which was counted twice.\n\n**Test Day Takeaway:** For \"A or B,\" count A, count B, and subtract the outcomes counted twice; listing the outcomes is a reliable check.",
+    explanation: "**SAT Pattern: Basic Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** There are $12(20) + 6(15) = 330$ seats and $12(4) + 6(2) = 60$ aisle seats, so the probability is $\\frac{60}{330} = \\frac{2}{11}$.\n\n**The Full Solution:**\nStep 1: Total seats: $12 \\times 20 = 240$ on the main floor and $6 \\times 15 = 90$ in the balcony, for $330$ seats.\nStep 2: Aisle seats: $12 \\times 4 = 48$ on the main floor and $6 \\times 2 = 12$ in the balcony, for $60$ aisle seats.\nStep 3: Probability: $\\frac{60}{330} = \\frac{2}{11}$. Check: $\\frac{2}{11} \\times 330 = 60$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2}{15}$): This is the share of aisle seats in one balcony row; it ignores the main floor.\n* Choice B ($\\frac{6}{35}$): This adds one row from each section, $\\frac{4 + 2}{20 + 15}$, but the sections have different numbers of rows.\n* Choice D ($\\frac{1}{5}$): This is the share of aisle seats in one main-floor row; it ignores the balcony.\n\n**Test Day Takeaway:** When groups come in rows, multiply to get each group's count before adding; never combine the per-row rates directly.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "basic-probability",
@@ -4235,10 +4235,10 @@ export const problemSolvingBank = [
     skills: ["percent-change"],
     difficulty: "medium",
     type: "fill-in",
-    question: "The table shows the capacity, in milliampere-hours, of a laptop battery when it was new and after one year of use. Over that year, the capacity of the battery decreased by $p\\%$. What is the value of $p$?",
-    diagram: { type: "dataTable", params: { headers: ["Time", "Capacity (mAh)"], rows: [["New", "4,800"], ["After 1 year", "4,080"]] } },
+    question: "The table shows the number of fish in a pond in April and in October. From April to October, the number of fish in the pond decreased by $p\\%$. What is the value of $p$?",
+    diagram: { type: "dataTable", params: { headers: ["Month", "Number of fish"], rows: [["April", "4,800"], ["October", "4,080"]] } },
     correctAnswer: "15",
-    explanation: "**SAT Pattern: Percent Decrease**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~10s):** The loss is $4800 - 4080 = 720$ mAh, out of $4800$: $\\frac{720}{4800} = 0.15$, so $p = 15$.\n\n**The Full Solution:**\nStep 1: Original capacity $4800$ mAh; new capacity $4080$ mAh; decrease $= 4800 - 4080 = 720$ mAh.\nStep 2: Percent decrease $= \\frac{720}{4800} \\times 100 = 15$.\nStep 3: Check: $15\\%$ of $4800$ is $720$, and $4800 - 720 = 4080$. $\\checkmark$\n\n**Common Mistakes:** Reporting $720$, the raw loss, instead of the percent; dividing by the new capacity, $\\frac{720}{4080} \\approx 17.65$; or reporting $\\frac{4080}{4800} = 85$, the percent of capacity that remains.\n\n**Test Day Takeaway:** Simplify the ratio before converting: $\\frac{720}{4800} = \\frac{72}{480} = \\frac{3}{20} = 15\\%$. Reducing first avoids decimal slips.",
+    explanation: "**SAT Pattern: Percent Decrease**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~15s):** The decrease is $4{,}800 - 4{,}080 = 720$ fish, out of $4{,}800$: $\\frac{720}{4{,}800} = 0.15$, so $p = 15$.\n\n**The Full Solution:**\nStep 1: Decrease: $4{,}800 - 4{,}080 = 720$ fish.\nStep 2: Percent decrease: $\\frac{720}{4{,}800} \\times 100 = 15$.\nStep 3: So $p = 15$. Check: $15\\%$ of $4{,}800$ is $720$, and $4{,}800 - 720 = 4{,}080$ ✓\n\n**Common Mistakes:**\n* $720$: reports the decrease in fish, not the percent.\n* About $17.6$: divides the decrease by the October count, $\\frac{720}{4{,}080}$, instead of the starting count.\n* $85$: reports $\\frac{4{,}080}{4{,}800}$, the percent of the fish that remain.\n\n**Test Day Takeaway:** Percent change is (change) divided by the starting value; the starting value is the earlier one.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "percent-decrease",
@@ -4545,18 +4545,18 @@ export const problemSolvingBank = [
     skills: ["conditional-probability"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "At a driving school, $40\\%$ of students take morning classes and the rest take evening classes. Of these groups, $85\\%$ and $70\\%$, respectively, passed the test. What is the probability that a randomly selected student passed?",
+    question: "At a driving school, $40\\%$ of the students take morning classes, and $85\\%$ of the students who take morning classes passed the driving test. If one student at the school is selected at random, what is the probability that the student is not a morning-class student who passed the test?",
     choices: [
-      // distractor: counts only the morning students who passed, 0.40 × 0.85 = 0.34
-      { id: "A", text: "$0.34$" },
-      // distractor: counts only the evening students who passed, 0.60 × 0.70 = 0.42
-      { id: "B", text: "$0.42$" },
-      { id: "C", text: "$0.76$" },
-      // distractor: averages the two pass rates, (0.85 + 0.70)/2 = 0.775, ignoring that the groups differ in size
-      { id: "D", text: "$0.775$" }
+      // distractor: finds the morning-class students who did not pass, 0.40 x 0.15 = 0.06, instead of everyone outside the morning-and-passed group
+      { id: "A", text: "$0.06$" },
+      // distractor: finds the probability of a morning-class student who passed, 0.40 x 0.85 = 0.34, and forgets the word not
+      { id: "B", text: "$0.34$" },
+      // distractor: counts only the students who do not take morning classes, 1 - 0.40 = 0.60, leaving out the morning-class students who did not pass
+      { id: "C", text: "$0.60$" },
+      { id: "D", text: "$0.66$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Weight each pass rate by its group's share: $0.40(0.85) + 0.60(0.70) = 0.34 + 0.42 = 0.76$.\n\n**The Full Solution:**\nStep 1: The rest of the students take evening classes, so the evening share is $1 - 0.40 = 0.60$.\nStep 2: Find each \"group and passed\" probability: morning $0.40 \\times 0.85 = 0.34$; evening $0.60 \\times 0.70 = 0.42$.\nStep 3: The two groups do not overlap, so add: $0.34 + 0.42 = 0.76$. Check with $100$ students: $40(0.85) = 34$ and $60(0.70) = 42$ passed, and $\\frac{76}{100} = 0.76$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.34$): counts the morning students who passed and stops.\n* Choice B ($0.42$): counts the evening students who passed and stops.\n* Choice D ($0.775$): averages $85\\%$ and $70\\%$ as if the groups were the same size; the larger evening group pulls the overall rate toward $70\\%$.\n\n**Test Day Takeaway:** An overall rate built from groups of different sizes is a weighted average: multiply each rate by its group's share, then add.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Morning-class students who passed make up $0.40(0.85) = 0.34$ of the students, so the probability of selecting anyone else is $1 - 0.34 = 0.66$.\n\n**The Full Solution:**\nStep 1: $40\\%$ of the students take morning classes, and $85\\%$ of those passed, so the morning-class students who passed are $0.40 \\times 0.85 = 0.34$ of all the students.\nStep 2: Every other student, whether an evening-class student or a morning-class student who did not pass, is not a morning-class student who passed.\nStep 3: The probability is $1 - 0.34 = 0.66$. Check with $100$ students: $40$ take morning classes and $34$ of them passed, so $100 - 34 = 66$ students are outside that group, and $\\frac{66}{100} = 0.66$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.06$): This is the share of morning-class students who did not pass, $0.40 \\times 0.15$; the evening-class students also count.\n* Choice B ($0.34$): This is the probability of selecting a morning-class student who passed; the question asks for a student who is not in that group.\n* Choice C ($0.60$): This counts only the students who do not take morning classes and leaves out the $6\\%$ who take morning classes but did not pass.\n\n**Test Day Takeaway:** Multiply along the chain to find the share of the described group, then subtract from $1$ for \"not\" that group.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "conditional-probability-with-percent",
@@ -4569,9 +4569,9 @@ export const problemSolvingBank = [
     skills: ["conditional-probability"],
     difficulty: "hard",
     type: "fill-in",
-    question: "Of the pastries at a bakery, $24\\%$ are filled, and $9\\%$ are both filled and topped with sugar. If a filled pastry is selected at random, what is the probability that it is topped with sugar? (Express your answer as a decimal or fraction, not as a percent.)",
-    correctAnswer: "3/8",
-    explanation: "**SAT Pattern: Conditional Probability with Percent**\n\n**The correct answer is $\\frac{3}{8}$.** Equivalent answers such as $0.375$ are also correct.\n\n**The Fast Way (~30s):** Both percents are shares of all the pastries, so among the filled ones the share topped with sugar is $\\frac{9}{24} = \\frac{3}{8}$.\n\n**The Full Solution:**\nStep 1: \"If a filled pastry is selected\" restricts the selection to the filled pastries, so the denominator is the $24\\%$ that are filled.\nStep 2: The pastries that are filled and topped with sugar make up $9\\%$ of all pastries, so the conditional probability is $\\frac{0.09}{0.24}$.\nStep 3: Simplify: $\\frac{0.09}{0.24} = \\frac{9}{24} = \\frac{3}{8}$. Check with $800$ pastries: $192$ are filled, $72$ are filled and topped, and $\\frac{72}{192} = \\frac{3}{8}$ ✓\n\n**Common Mistakes:**\n* $0.09$: reports the share of all pastries that are filled and topped, ignoring that the selection is made only from filled pastries.\n* $0.0216$: multiplies $0.24 \\times 0.09$, treating the $9\\%$ as a rate among the filled pastries.\n* $0.15$: subtracts $9\\%$ from $24\\%$, which gives the share of all pastries that are filled but not topped.\n\n**Test Day Takeaway:** \"Given\" or \"if a filled pastry is selected\" changes the denominator to that group; divide the \"both\" share by the group's share.",
+    question: "Of the bikes at a shop, $36\\%$ are road bikes, $48\\%$ are mountain bikes, and the rest are hybrid bikes. If a bike that is not a road bike is selected at random, what is the probability that it is a hybrid bike? (Express your answer as a decimal or fraction, not as a percent.)",
+    correctAnswer: "1/4",
+    explanation: "**SAT Pattern: Conditional Probability with Percent**\n\n**The correct answer is $\\frac{1}{4}$.** Equivalent answers such as $0.25$ are also correct.\n\n**The Fast Way (~30s):** Hybrid bikes are $100\\% - 36\\% - 48\\% = 16\\%$ of the bikes, and bikes that are not road bikes are $100\\% - 36\\% = 64\\%$, so the probability is $\\frac{16}{64} = \\frac{1}{4}$.\n\n**The Full Solution:**\nStep 1: The hybrid bikes are the rest: $100\\% - 36\\% - 48\\% = 16\\%$ of all the bikes.\nStep 2: The selection is made only from bikes that are not road bikes, which are $100\\% - 36\\% = 64\\%$ of all the bikes. Every hybrid bike is in this group.\nStep 3: The probability is $\\frac{0.16}{0.64} = \\frac{1}{4}$. Check with $100$ bikes: $64$ are not road bikes, $16$ of those are hybrid bikes, and $\\frac{16}{64} = \\frac{1}{4}$ ✓\n\n**Common Mistakes:**\n* $0.16$: the share of all the bikes that are hybrid bikes, ignoring that the selection is made only from bikes that are not road bikes.\n* $\\frac{4}{9}$: divides $16\\%$ by the $36\\%$ that are road bikes instead of by the $64\\%$ that are not.\n* $\\frac{3}{4}$: finds the probability of a mountain bike, $\\frac{48}{64}$, instead of a hybrid bike.\n\n**Test Day Takeaway:** A condition such as \"not a road bike\" changes the denominator to that group's share; divide the target group's share by it.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "conditional-probability-with-percent",
@@ -4737,10 +4737,10 @@ export const problemSolvingBank = [
     skills: ["percent-of-value"],
     difficulty: "hard",
     type: "fill-in",
-    question: "The table shows the number of tiles fired in each of three kilns. Of all these tiles, $6.5\\%$ cracked, and $52$ of the cracked tiles were from kilns $1$ and $2$. How many tiles from kiln $3$ did not crack?",
+    question: "The table shows the number of tiles fired in each of three kilns. Of all these tiles, $5\\%$ cracked, and $52$ of the cracked tiles were from kilns $1$ and $2$. How many tiles from kiln $3$ did not crack?",
     diagram: { type: "dataTable", params: { headers: ["Kiln", "Tiles fired"], rows: [["Kiln 1", "520"], ["Kiln 2", "460"], ["Kiln 3", "420"]] } },
-    correctAnswer: "381",
-    explanation: "**SAT Pattern: Percent Complement**\n\n**The correct answer is $381$.**\n\n**The Fast Way (~45s):** $0.065 \\times 1{,}400 = 91$ tiles cracked, so kiln $3$ had $91 - 52 = 39$ cracked tiles and $420 - 39 = 381$ that did not crack.\n\n**The Full Solution:**\nStep 1: Add the counts in the table: $520 + 460 + 420 = 1{,}400$ tiles, and $6.5\\%$ of them cracked: $0.065 \\times 1{,}400 = 91$.\nStep 2: Kilns $1$ and $2$ account for $52$ cracked tiles, so kiln $3$ had $91 - 52 = 39$ cracked tiles.\nStep 3: The rest of kiln $3$'s tiles did not crack: $420 - 39 = 381$. Check: $52 + 39 = 91$ cracked in all, and $381 + 39 = 420$ ✓\n\n**Common Mistakes:**\n* $39$: finds kiln $3$'s cracked tiles, the group the question excludes.\n* $1{,}309$: finds the tiles from all three kilns that did not crack, $1{,}400 - 91$.\n* $393$: applies $6.5\\%$ to kiln $3$ alone, $420 - 0.065(420) \\approx 393$, ignoring the given count of $52$, so the kilns' crack rates are assumed equal when they are not.\n\n**Test Day Takeaway:** A percent of the whole gives a total count; subtract the parts you are told about to isolate the one group you need, then take its complement.",
+    correctAnswer: "402",
+    explanation: "**SAT Pattern: Percent Complement**\n\n**The correct answer is $402$.**\n\n**The Fast Way (~40s):** $0.05 \\times 1{,}400 = 70$ tiles cracked, so kiln $3$ had $70 - 52 = 18$ cracked tiles and $420 - 18 = 402$ that did not crack.\n\n**The Full Solution:**\nStep 1: Add the counts in the table: $520 + 460 + 420 = 1{,}400$ tiles, and $5\\%$ of them cracked: $0.05 \\times 1{,}400 = 70$.\nStep 2: Kilns $1$ and $2$ account for $52$ cracked tiles, so kiln $3$ had $70 - 52 = 18$ cracked tiles.\nStep 3: The rest of kiln $3$'s tiles did not crack: $420 - 18 = 402$. Check: $52 + 18 = 70$ cracked in all, and $402 + 18 = 420$ ✓\n\n**Common Mistakes:**\n* $18$: kiln $3$'s cracked tiles, the group the question excludes.\n* $1{,}330$: the tiles from all three kilns that did not crack, $1{,}400 - 70$.\n* $399$: applies $5\\%$ to kiln $3$ alone, $420 - 0.05(420)$, ignoring the given count of $52$.\n\n**Test Day Takeaway:** A percent of the whole gives a total count; subtract the parts you are told about to isolate one group, then take its complement.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "percent-complement",
@@ -4759,19 +4759,19 @@ export const problemSolvingBank = [
     skills: ["percent-of-value", "percent-word-problems"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The table shows the number of animals of three species tagged during a survey. The number of sea otters tagged was $20\\%$ of the number of harbor seals tagged. The number of sea otters tagged was what percent of the number of sea lions tagged?",
-    diagram: { type: "dataTable", params: { headers: ["Species", "Number tagged"], rows: [["Harbor seal", "120"], ["Sea lion", "480"], ["Fur seal", "300"]] } },
+    question: "The table shows the number of cats and dogs at a shelter. The number of rabbits is $20\\%$ of the number of cats. The number of rabbits is what percent of the number of dogs?",
+    diagram: { type: "dataTable", params: { headers: ["Animal", "Number"], rows: [["Cats", "40"], ["Dogs", "160"]] } },
     choices: [
       { id: "A", text: "$5\\%$" },
-      // distractor: repeats the given percent, which compares otters with harbor seals rather than sea lions
+      // distractor: repeats the given percent, which compares rabbits with cats rather than dogs
       { id: "B", text: "$20\\%$" },
-      // distractor: reports harbor seals as a percent of sea lions, 120/480 = 25%
+      // distractor: reports cats as a percent of dogs, 40/160 = 25%
       { id: "C", text: "$25\\%$" },
       // distractor: adds the two link percents, 20 + 25, instead of multiplying them
       { id: "D", text: "$45\\%$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Chained Percent Relationship**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Sea otters: $0.20 \\times 120 = 24$. Then $\\frac{24}{480} = 0.05$, or $5\\%$.\n\n**The Full Solution:**\nStep 1: Read the table: $120$ harbor seals and $480$ sea lions were tagged.\nStep 2: Find the sea otters: $20\\%$ of $120$ is $0.20 \\times 120 = 24$.\nStep 3: Compare with the sea lions: $\\frac{24}{480} = 0.05 = 5\\%$. Check by chaining the links: $0.20 \\times \\frac{120}{480} = 0.20 \\times 0.25 = 0.05$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($20\\%$): repeats the given percent, which compares otters with harbor seals, not with sea lions.\n* Choice C ($25\\%$): finds harbor seals as a percent of sea lions and stops one link short.\n* Choice D ($45\\%$): adds the two link percents; percents of different wholes multiply.\n\n**Test Day Takeaway:** Change the base one link at a time: a percent of a percent multiplies.",
+    explanation: "**SAT Pattern: Chained Percent Relationship**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Rabbits: $0.20 \\times 40 = 8$. Then $\\frac{8}{160} = 0.05$, or $5\\%$.\n\n**The Full Solution:**\nStep 1: Read the table: there are $40$ cats and $160$ dogs.\nStep 2: Find the rabbits: $20\\%$ of $40$ is $0.20 \\times 40 = 8$.\nStep 3: Compare with the dogs: $\\frac{8}{160} = 0.05 = 5\\%$. Check by chaining the links: $0.20 \\times \\frac{40}{160} = 0.20 \\times 0.25 = 0.05$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($20\\%$): This repeats the given percent, which compares rabbits with cats, not with dogs.\n* Choice C ($25\\%$): This finds cats as a percent of dogs and stops one link short.\n* Choice D ($45\\%$): This adds the two link percents; percents of different wholes multiply.\n\n**Test Day Takeaway:** Change the base one link at a time: a percent of a percent multiplies.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "chained-percent-relationship",
@@ -4826,18 +4826,18 @@ export const problemSolvingBank = [
     skills: ["percent-of-value", "percent-word-problems"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The number $x$ is $60\\%$ of the number $y$, and $y$ is $30\\%$ less than the positive number $z$. The number $x$ is what percent of $z$?",
+    question: "The sale price of a coat is $30\\%$ less than its regular price. A store member pays $60\\%$ of the sale price. The price the member pays is what percent of the regular price?",
     choices: [
       // distractor: multiplies by 0.30 instead of 0.70, treating '30% less than' as '30% of'
       { id: "A", text: "$18\\%$" },
-      // distractor: subtracts the percents, 60 − 30 = 30
+      // distractor: subtracts the percents, 60 - 30 = 30
       { id: "B", text: "$30\\%$" },
       { id: "C", text: "$42\\%$" },
       // distractor: adds the percents, 60 + 30 = 90
       { id: "D", text: "$90\\%$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Chained Percent Relationship**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $y = 0.70z$, so $x = 0.60(0.70z) = 0.42z$, which is $42\\%$ of $z$.\n\n**The Full Solution:**\nStep 1: \"$30\\%$ less than $z$\" means $y = z - 0.30z = 0.70z$.\nStep 2: Substitute into $x = 0.60y$: $x = 0.60(0.70z)$.\nStep 3: Multiply: $x = 0.42z$, so $x$ is $42\\%$ of $z$. Check with $z = 100$: $y = 70$ and $x = 0.60(70) = 42$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($18\\%$): uses $y = 0.30z$, reading \"$30\\%$ less than\" as \"$30\\%$ of.\"\n* Choice B ($30\\%$): subtracts the percents instead of combining the multipliers.\n* Choice D ($90\\%$): adds the percents; each percent is taken of a different number, so the multipliers combine by multiplication.\n\n**Test Day Takeaway:** Turn every percent phrase into a multiplier ($60\\%$ of $\\to 0.60$, $30\\%$ less than $\\to 0.70$), then multiply along the chain.",
+    explanation: "**SAT Pattern: Chained Percent Relationship**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The sale price is $0.70$ of the regular price, so the member pays $0.60(0.70) = 0.42$ of the regular price, or $42\\%$.\n\n**The Full Solution:**\nStep 1: \"$30\\%$ less than the regular price\" means the sale price is $1 - 0.30 = 0.70$ times the regular price.\nStep 2: The member pays $0.60$ times the sale price, or $0.60(0.70)$ times the regular price.\nStep 3: Multiply: $0.60 \\times 0.70 = 0.42$, so the member pays $42\\%$ of the regular price. Check with a regular price of $100$ dollars: sale price $70$ dollars, member price $0.60(70) = 42$ dollars ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($18\\%$): This uses $0.30$ for the sale price, reading \"$30\\%$ less than\" as \"$30\\%$ of.\"\n* Choice B ($30\\%$): This subtracts the percents instead of combining the multipliers.\n* Choice D ($90\\%$): This adds the percents; each percent is taken of a different price, so the multipliers combine by multiplication.\n\n**Test Day Takeaway:** Turn every percent phrase into a multiplier ($60\\%$ of $\\to 0.60$, $30\\%$ less than $\\to 0.70$), then multiply along the chain.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "chained-percent-relationship",
@@ -4876,9 +4876,9 @@ export const problemSolvingBank = [
     skills: ["percent-of-value", "percent-word-problems"],
     difficulty: "medium",
     type: "fill-in",
-    question: "$x$ is $60\\%$ of $y$, and $y$ is $150\\%$ of $z$. If $z = 18$, what is the value of $x$?",
-    correctAnswer: "16.2",
-    explanation: "**SAT Pattern: Chained Percent Relationship**\n\n**The correct answer is $16.2$.**\n\n**The Fast Way (~20s):** $x = 0.60(1.50)(18) = 0.90(18) = 16.2$.\n\n**The Full Solution:**\nStep 1: Find $y$: $150\\%$ of $18$ is $1.50 \\times 18 = 27$.\nStep 2: Find $x$: $60\\%$ of $27$ is $0.60 \\times 27 = 16.2$.\nStep 3: Check with the combined multiplier: $0.60 \\times 1.50 = 0.90$, and $0.90 \\times 18 = 16.2$ ✓\n\n**Common Mistakes:**\n* $27$: stops at $y$.\n* $10.8$: skips the $150\\%$ link and takes $60\\%$ of $18$.\n* $7.2$: divides by $1.50$ instead of multiplying, computing $\\frac{0.60(18)}{1.50}$.\n\n**Test Day Takeaway:** A percent over $100\\%$ is a multiplier greater than $1$; multiply the links in order and the base takes care of itself.",
+    question: "$54$ is $60\\%$ of $150\\%$ of what number?",
+    correctAnswer: "60",
+    explanation: "**SAT Pattern: Chained Percent Relationship**\n\n**The correct answer is $60$.**\n\n**The Fast Way (~20s):** $60\\%$ of $150\\%$ is $0.60 \\times 1.50 = 0.90$, so the number is $\\frac{54}{0.90} = 60$.\n\n**The Full Solution:**\nStep 1: Let the number be $x$. Then $0.60(1.50x) = 54$.\nStep 2: Combine the multipliers: $0.60 \\times 1.50 = 0.90$, so $0.90x = 54$.\nStep 3: Divide: $x = \\frac{54}{0.90} = 60$. Check: $150\\%$ of $60$ is $90$, and $60\\%$ of $90$ is $54$ ✓\n\n**Common Mistakes:**\n* $90$: undoes only the $60\\%$, $\\frac{54}{0.60}$, and stops at $150\\%$ of the number.\n* $36$: undoes only the $150\\%$, $\\frac{54}{1.50}$.\n* $48.6$: multiplies $54$ by $0.90$ instead of dividing.\n\n**Test Day Takeaway:** Combine the percents into one multiplier, then divide to work backward to the original number.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "chained-percent-relationship",
@@ -5536,10 +5536,10 @@ export const problemSolvingBank = [
     skills: ["percent-of-value", "percent-word-problems"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A nursery has $600$ seedlings, and $35\\%$ of them are oak. If $40\\%$ of the oak seedlings are taller than $1$ meter, how many oak seedlings are taller than $1$ meter?",
+    question: "A nursery has $600$ seedlings, and $35\\%$ of them are oak. If $40\\%$ of the oak seedlings are red oaks, how many red oak seedlings are in the nursery?",
     choices: [
       { id: "A", text: "$84$" },
-      // distractor: stops after the first percent: 35% of 600 (all oak seedlings)
+      // distractor: stops after the first percent: 35% of 600 is all the oak seedlings
       { id: "B", text: "$210$" },
       // distractor: applies the second percent to all 600 seedlings (40% of 600)
       { id: "C", text: "$240$" },
@@ -5547,7 +5547,7 @@ export const problemSolvingBank = [
       { id: "D", text: "$450$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Compound Percent Of**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Chain the percents: $600 \\times 0.35 \\times 0.40 = 84$.\n\n**The Full Solution:**\nStep 1: Oak seedlings: $35\\%$ of $600$ is $0.35 \\times 600 = 210$.\nStep 2: The $40\\%$ applies to the oak seedlings, not to all seedlings: $0.40 \\times 210 = 84$.\nStep 3: Check by combining the percents first: $0.35 \\times 0.40 = 0.14$, and $0.14 \\times 600 = 84$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($210$): this is the number of oak seedlings; the second condition (taller than $1$ meter) was never applied.\n* Choice C ($240$): $0.40 \\times 600$ applies the $40\\%$ to every seedling, but the $40\\%$ refers only to the oak seedlings.\n* Choice D ($450$): $0.75 \\times 600$ adds the percents, but \"of those\" means the percents multiply, not add.\n\n**Test Day Takeaway:** \"$p\\%$ of a group, and $q\\%$ of those\" multiplies: total $\\times \\frac{p}{100} \\times \\frac{q}{100}$.",
+    explanation: "**SAT Pattern: Compound Percent Of**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Chain the percents: $600 \\times 0.35 \\times 0.40 = 84$.\n\n**The Full Solution:**\nStep 1: Oak seedlings: $35\\%$ of $600$ is $0.35 \\times 600 = 210$.\nStep 2: The $40\\%$ applies to the oak seedlings, not to all the seedlings: $0.40 \\times 210 = 84$.\nStep 3: There are $84$ red oak seedlings. Check by combining the percents first: $0.35 \\times 0.40 = 0.14$, and $0.14 \\times 600 = 84$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($210$): this is the number of oak seedlings; the $40\\%$ was never applied.\n* Choice C ($240$): $0.40 \\times 600$ applies the $40\\%$ to every seedling, but the $40\\%$ refers only to the oak seedlings.\n* Choice D ($450$): $0.75 \\times 600$ adds the percents; a percent of a part multiplies, it does not add.\n\n**Test Day Takeaway:** \"$p\\%$ of a group, and $q\\%$ of those\" multiplies: total $\\times \\frac{p}{100} \\times \\frac{q}{100}$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "compound-percent-of",
@@ -5561,19 +5561,19 @@ export const problemSolvingBank = [
     skills: ["percent-of-value", "percent-word-problems"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A museum's collection contains $1{,}500$ artifacts. The table shows the percent of the collection in each category. If $12\\%$ of the pottery artifacts are currently on display, how many pottery artifacts are currently not on display?",
+    question: "A museum's collection contains $1{,}500$ artifacts. The table shows the percent of the collection in each category. If $12\\%$ of the pottery artifacts are on display, how many pottery artifacts are on display?",
     questionTable: { headers: ["Category", "Percent of collection"], rows: [["Pottery", "30%"], ["Tools", "25%"], ["Textiles", "20%"], ["Coins", "25%"]] },
     choices: [
-      // distractor: reports the pottery artifacts that ARE on display (12% of 450)
       { id: "A", text: "$54$" },
-      { id: "B", text: "$396$" },
-      // distractor: reports all pottery artifacts, never applying the display condition
-      { id: "C", text: "$450$" },
-      // distractor: applies the 88% not-on-display rate to the whole collection instead of to pottery
-      { id: "D", text: "$1{,}320$" }
+      // distractor: applies 12% to all 1,500 artifacts instead of to the pottery
+      { id: "B", text: "$180$" },
+      // distractor: number of pottery artifacts not on display, 88% of 450
+      { id: "C", text: "$396$" },
+      // distractor: number of pottery artifacts, 30% of 1,500, with the 12% never applied
+      { id: "D", text: "$450$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Compound Percent Of**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Pottery is $30\\%$ of $1{,}500$, or $450$ artifacts. If $12\\%$ are on display, $88\\%$ are not: $0.88 \\times 450 = 396$.\n\n**The Full Solution:**\nStep 1: From the table, pottery is $30\\%$ of the collection: $0.30 \\times 1{,}500 = 450$ pottery artifacts.\nStep 2: The $12\\%$ applies to pottery only. On display: $0.12 \\times 450 = 54$.\nStep 3: Not on display: $450 - 54 = 396$. Check: $0.88 \\times 450 = 396$, and $54 + 396 = 450$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($54$): this is the number of pottery artifacts on display; the question asks for those not on display.\n* Choice C ($450$): the total number of pottery artifacts, which ignores the display condition entirely.\n* Choice D ($1{,}320$): $0.88 \\times 1{,}500$ applies the complement to the entire collection, but the $12\\%$ was stated for pottery alone.\n\n**Test Day Takeaway:** Read a table percent as a percent of the stated whole, then apply any later percent to that smaller group; \"not\" means use the complement of the last percent.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Compound Percent Of**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Pottery: $0.30 \\times 1{,}500 = 450$; on display: $0.12 \\times 450 = 54$.\n\n**The Full Solution:**\nStep 1: The table shows that $30\\%$ of the collection is pottery: $0.30 \\times 1{,}500 = 450$ pottery artifacts.\nStep 2: The $12\\%$ applies to the pottery artifacts: $0.12 \\times 450 = 54$.\nStep 3: So $54$ pottery artifacts are on display. Check: $0.30 \\times 0.12 = 0.036$, and $0.036 \\times 1{,}500 = 54$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($180$): $0.12 \\times 1{,}500$ applies the $12\\%$ to the whole collection; it applies only to the pottery.\n* Choice C ($396$): $450 - 54 = 396$ is the number of pottery artifacts not on display.\n* Choice D ($450$): this is the number of pottery artifacts; the $12\\%$ was never applied.\n\n**Test Day Takeaway:** Read the one row you need from the table, find that part, then take the second percent of the part.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "compound-percent-of",
@@ -5657,18 +5657,18 @@ export const problemSolvingBank = [
     skills: ["probability-basics"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A bag contains $6$ orange tokens and $4$ purple tokens. If $2$ tokens are selected at random without replacement, what is the probability that both are orange?",
+    question: "A bag contains $6$ orange tokens, $5$ purple tokens, and $4$ green tokens. If one of these tokens is selected at random, what is the probability of selecting a purple token?",
     choices: [
-      // distractor: probability of orange then purple (6/10 times 4/9)
+      // distractor: probability of a green token, 4 out of 15
       { id: "A", text: "$\\frac{4}{15}$" },
       { id: "B", text: "$\\frac{1}{3}$" },
-      // distractor: with replacement: (6/10)(6/10), never reducing the counts
-      { id: "C", text: "$\\frac{9}{25}$" },
-      // distractor: stops after the first draw (6/10)
-      { id: "D", text: "$\\frac{3}{5}$" }
+      // distractor: probability of an orange token, 6 out of 15
+      { id: "C", text: "$\\frac{2}{5}$" },
+      // distractor: compares purple tokens with the other tokens, 5 to 10, instead of with all 15 tokens
+      { id: "D", text: "$\\frac{1}{2}$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Probability Without Replacement**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** First orange: $\\frac{6}{10}$. Second orange, with one orange gone: $\\frac{5}{9}$. Multiply: $\\frac{6}{10} \\times \\frac{5}{9} = \\frac{30}{90} = \\frac{1}{3}$.\n\n**The Full Solution:**\nStep 1: There are $6 + 4 = 10$ tokens, so the probability the first token is orange is $\\frac{6}{10}$.\nStep 2: After removing one orange token, $5$ orange tokens remain among $9$ tokens, so the probability the second is orange is $\\frac{5}{9}$.\nStep 3: Multiply the probabilities of the two draws: $\\frac{6}{10} \\times \\frac{5}{9} = \\frac{30}{90} = \\frac{1}{3}$. Check: the number of orange pairs is $\\frac{6 \\times 5}{2} = 15$ out of $\\frac{10 \\times 9}{2} = 45$ pairs, and $\\frac{15}{45} = \\frac{1}{3}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{4}{15}$): $\\frac{6}{10} \\times \\frac{4}{9} = \\frac{24}{90}$ is the probability of orange followed by purple.\n* Choice C ($\\frac{9}{25}$): $\\frac{6}{10} \\times \\frac{6}{10}$ treats the second draw as if the first token were put back.\n* Choice D ($\\frac{3}{5}$): $\\frac{6}{10}$ is the probability of the first draw alone; the second draw was never included.\n\n**Test Day Takeaway:** Without replacement, both the numerator and the denominator drop by $1$ for the second draw when the first draw succeeded.",
+    explanation: "**SAT Pattern: Basic Probability**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** There are $6 + 5 + 4 = 15$ tokens and $5$ are purple, so the probability is $\\frac{5}{15} = \\frac{1}{3}$.\n\n**The Full Solution:**\nStep 1: Count all the tokens in the bag: $6 + 5 + 4 = 15$.\nStep 2: Count the purple tokens: $5$.\nStep 3: The probability is $\\frac{\\text{purple tokens}}{\\text{all tokens}} = \\frac{5}{15} = \\frac{1}{3}$. Check: the three probabilities $\\frac{6}{15}$, $\\frac{5}{15}$ and $\\frac{4}{15}$ add to $1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{4}{15}$): this is the probability of selecting a green token.\n* Choice C ($\\frac{2}{5}$): $\\frac{6}{15} = \\frac{2}{5}$ is the probability of selecting an orange token.\n* Choice D ($\\frac{1}{2}$): $\\frac{5}{10}$ divides the purple tokens by the tokens that are not purple; the denominator must be all $15$ tokens.\n\n**Test Day Takeaway:** A probability is the number of favorable outcomes over the number of all outcomes. Add every group to get the denominator.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "probability-without-replacement",
@@ -5682,19 +5682,19 @@ export const problemSolvingBank = [
     skills: ["probability-basics"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The table shows the number of seed packets of each type in a box. Two packets will be selected at random from the box, one after the other, without replacement. What is the probability that the first packet selected is tomato and the second packet selected is pepper?",
+    question: "The table shows the number of seed packets of each type in a box. If one packet is selected at random from the box, what is the probability of selecting a pepper packet?",
     diagram: { type: "dataTable", params: { headers: ["Type of seed", "Number of packets"], rows: [["Tomato", "8"], ["Pepper", "5"], ["Squash", "3"]] } },
     choices: [
-      // distractor: with replacement: 8/16 times 5/16, never reducing the total
-      { id: "A", text: "$\\frac{5}{32}$" },
-      { id: "B", text: "$\\frac{1}{6}$" },
-      // distractor: uses only the second draw, 5/15
-      { id: "C", text: "$\\frac{1}{3}$" },
-      // distractor: adds 8/16 + 5/16 instead of multiplying
-      { id: "D", text: "$\\frac{13}{16}$" }
+      // distractor: probability of a squash packet, 3 out of 16
+      { id: "A", text: "$\\frac{3}{16}$" },
+      { id: "B", text: "$\\frac{5}{16}$" },
+      // distractor: divides the pepper packets by the packets that are not pepper, 5 out of 11
+      { id: "C", text: "$\\frac{5}{11}$" },
+      // distractor: probability of a tomato packet, 8 out of 16
+      { id: "D", text: "$\\frac{1}{2}$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Probability Without Replacement**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Total packets: $8 + 5 + 3 = 16$. Tomato first: $\\frac{8}{16}$; pepper second from the remaining $15$: $\\frac{5}{15}$. Product: $\\frac{8}{16} \\times \\frac{5}{15} = \\frac{1}{2} \\times \\frac{1}{3} = \\frac{1}{6}$.\n\n**The Full Solution:**\nStep 1: Add the table's counts: $8 + 5 + 3 = 16$ packets. The probability the first packet is tomato is $\\frac{8}{16} = \\frac{1}{2}$.\nStep 2: One packet is gone, leaving $15$; all $5$ pepper packets remain, so the probability the second is pepper is $\\frac{5}{15} = \\frac{1}{3}$.\nStep 3: Multiply: $\\frac{1}{2} \\times \\frac{1}{3} = \\frac{1}{6}$. Check: $\\frac{8 \\times 5}{16 \\times 15} = \\frac{40}{240} = \\frac{1}{6}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{5}{32}$): $\\frac{8}{16} \\times \\frac{5}{16} = \\frac{40}{256}$ keeps the denominator at $16$, as if the first packet were replaced.\n* Choice C ($\\frac{1}{3}$): $\\frac{5}{15}$ is the second draw's probability alone; the first draw was dropped.\n* Choice D ($\\frac{13}{16}$): $\\frac{8}{16} + \\frac{5}{16}$ adds the probabilities, which would answer \"tomato OR pepper on a single draw.\"\n\n**Test Day Takeaway:** When the first draw is a different type from the second, only the denominator shrinks for the second draw; the numerator stays at the full count of the second type.",
+    explanation: "**SAT Pattern: Basic Probability**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The box holds $8 + 5 + 3 = 16$ packets and $5$ are pepper, so the probability is $\\frac{5}{16}$.\n\n**The Full Solution:**\nStep 1: Add the table to find the number of packets in the box: $8 + 5 + 3 = 16$.\nStep 2: The table shows $5$ pepper packets.\nStep 3: The probability of selecting a pepper packet is $\\frac{5}{16}$. Check: $\\frac{8}{16} + \\frac{5}{16} + \\frac{3}{16} = 1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{16}$): this is the probability of selecting a squash packet.\n* Choice C ($\\frac{5}{11}$): $11$ is the number of packets that are not pepper; the denominator must be all $16$ packets.\n* Choice D ($\\frac{1}{2}$): $\\frac{8}{16}$ is the probability of selecting a tomato packet.\n\n**Test Day Takeaway:** Read the counts from the table, add them for the denominator, and put the one category asked about on top.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "probability-without-replacement",
@@ -5708,18 +5708,18 @@ export const problemSolvingBank = [
     skills: ["probability-basics"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A box contains $40$ batteries, $5$ of which are defective. If $2$ batteries are selected at random from the box without replacement, what is the probability that both are defective?",
+    question: "A box contains $40$ batteries, and each battery is brand X, brand Y, or brand Z. If one battery is selected at random, the probability that it is brand X is $0.35$, and the probability that it is brand Y is $0.4$. How many brand Z batteries are in the box?",
     choices: [
-      { id: "A", text: "$\\frac{1}{78}$" },
-      // distractor: with replacement: (5/40)(5/40) = 25/1600
-      { id: "B", text: "$\\frac{1}{64}$" },
-      // distractor: stops after the first draw (5/40)
-      { id: "C", text: "$\\frac{1}{8}$" },
-      // distractor: adds 5/40 + 5/40 instead of multiplying
-      { id: "D", text: "$\\frac{1}{4}$" }
+      { id: "A", text: "$10$" },
+      // distractor: number of brand X batteries, 0.35 times 40
+      { id: "B", text: "$14$" },
+      // distractor: number of brand Y batteries, 0.4 times 40
+      { id: "C", text: "$16$" },
+      // distractor: number of brand X and brand Y batteries together, 0.75 times 40
+      { id: "D", text: "$30$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Probability Without Replacement**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $\\frac{5}{40} \\times \\frac{4}{39} = \\frac{1}{8} \\times \\frac{4}{39} = \\frac{4}{312} = \\frac{1}{78}$.\n\n**The Full Solution:**\nStep 1: First draw: $5$ defective out of $40$, so $\\frac{5}{40} = \\frac{1}{8}$.\nStep 2: Second draw, after one defective battery is removed: $4$ defective out of $39$, so $\\frac{4}{39}$.\nStep 3: Multiply: $\\frac{1}{8} \\times \\frac{4}{39} = \\frac{4}{312} = \\frac{1}{78}$. Check: $\\frac{5 \\times 4}{40 \\times 39} = \\frac{20}{1{,}560} = \\frac{1}{78}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{1}{64}$): $\\frac{5}{40} \\times \\frac{5}{40} = \\frac{25}{1{,}600}$ assumes the first battery is returned before the second draw.\n* Choice C ($\\frac{1}{8}$): $\\frac{5}{40}$ is the probability that only the first battery is defective.\n* Choice D ($\\frac{1}{4}$): $\\frac{5}{40} + \\frac{5}{40}$ adds when the two draws must both happen, which calls for multiplying.\n\n**Test Day Takeaway:** \"Both\" means multiply; \"without replacement\" means the second fraction uses one fewer success and one fewer item.",
+    explanation: "**SAT Pattern: Basic Probability**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The probability of brand Z is $1 - 0.35 - 0.4 = 0.25$, and $0.25 \\times 40 = 10$.\n\n**The Full Solution:**\nStep 1: Every battery is one of the three brands, so the three probabilities add to $1$.\nStep 2: The probability that a battery is brand Z is $1 - 0.35 - 0.4 = 0.25$.\nStep 3: The number of brand Z batteries is $0.25 \\times 40 = 10$. Check: $14 + 16 + 10 = 40$ batteries. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($14$): $0.35 \\times 40 = 14$ is the number of brand X batteries.\n* Choice C ($16$): $0.4 \\times 40 = 16$ is the number of brand Y batteries.\n* Choice D ($30$): $14 + 16 = 30$ counts brands X and Y; subtract from $40$ to finish.\n\n**Test Day Takeaway:** When every item is in exactly one group, the probabilities of the groups add to $1$. Find the missing probability, then multiply by the total.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "probability-without-replacement",
@@ -5733,9 +5733,9 @@ export const problemSolvingBank = [
     skills: ["probability-basics"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A bag contains $9$ tickets, $4$ of which are prize tickets. If $2$ tickets are selected at random from the bag without replacement, what is the probability that neither is a prize ticket? (Express your answer as a decimal or fraction, not as a percent.)",
-    correctAnswer: "5/18",
-    explanation: "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $\\frac{5}{18}$.**\n\n**The Fast Way (~10s):** Non-prize tickets: $9 - 4 = 5$. Neither is a prize: $\\frac{5}{9} \\times \\frac{4}{8} = \\frac{20}{72} = \\frac{5}{18}$.\n\n**The Full Solution:**\nStep 1: \"Neither is a prize ticket\" means both tickets are non-prize tickets, of which there are $9 - 4 = 5$.\nStep 2: First draw non-prize: $\\frac{5}{9}$. Second draw non-prize, with one non-prize ticket removed: $\\frac{4}{8}$.\nStep 3: Multiply: $\\frac{5}{9} \\times \\frac{4}{8} = \\frac{20}{72} = \\frac{5}{18}$. Check: the $\\frac{5 \\times 4}{2} = 10$ non-prize pairs out of $\\frac{9 \\times 8}{2} = 36$ total pairs gives $\\frac{10}{36} = \\frac{5}{18}$. $\\checkmark$\n\n**Common Mistakes:** Entering $25/81$, from $\\frac{5}{9} \\times \\frac{5}{9}$, which replaces the first ticket; entering $1/6$, from $\\frac{4}{9} \\times \\frac{3}{8} = \\frac{12}{72}$, which is the probability that BOTH are prize tickets; entering $13/18$, the complement $1 - \\frac{5}{18}$, which is the probability of at least one prize ticket.\n\n**Test Day Takeaway:** Translate \"neither\" into \"both are the other kind,\" then multiply the two shrinking fractions.",
+    question: "A drawer contains $14$ black socks, $10$ white socks, and $8$ gray socks. If one of these socks is selected at random, what is the probability of selecting a sock that is not black? (Express your answer as a decimal or fraction, not as a percent.)",
+    correctAnswer: "9/16",
+    explanation: "**SAT Pattern: Basic Probability**\n\n**The correct answer is $\\frac{9}{16}$.**\n\n**The Fast Way (~10s):** There are $10 + 8 = 18$ socks that are not black out of $14 + 10 + 8 = 32$, so the probability is $\\frac{18}{32} = \\frac{9}{16}$.\n\n**The Full Solution:**\nStep 1: Count all the socks: $14 + 10 + 8 = 32$.\nStep 2: The socks that are not black are the white and gray socks: $10 + 8 = 18$.\nStep 3: The probability is $\\frac{18}{32} = \\frac{9}{16}$, or $0.5625$. Check: the probability of black is $\\frac{14}{32} = \\frac{7}{16}$, and $\\frac{7}{16} + \\frac{9}{16} = 1$. $\\checkmark$\n\n**Common Mistakes:**\n* Entering $7/16$, the probability of selecting a black sock.\n* Entering $9/7$, which compares the socks that are not black with the black socks instead of with all $32$ socks.\n* Entering $5/16$ or $1/4$, which counts only the white socks or only the gray socks.\n\n**Test Day Takeaway:** \"Not black\" means every other color. Add those groups for the numerator, or subtract the black probability from $1$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "probability-without-replacement",
@@ -5746,22 +5746,22 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-266",
     domain: "problem-solving",
-    skills: ["probability-basics"],
+    skills: ["conditional-probability", "two-way-table"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The table shows the number of volunteers at a food bank by assigned role. Two of the volunteers will be selected at random, without replacement, to attend a training session. What is the probability that neither volunteer selected is a driver?",
-    questionTable: { headers: ["Role", "Number of volunteers"], rows: [["Driver", "6"], ["Cook", "4"], ["Sorter", "5"]] },
+    question: "The table shows the number of volunteers at a food bank by role and shift. If one of these volunteers is selected at random, what is the probability of selecting a cook, given that the volunteer works the evening shift?",
+    questionTable: { headers: ["Role", "Morning shift", "Evening shift", "Total"], rows: [["Driver", "6", "4", "10"], ["Cook", "5", "7", "12"], ["Sorter", "9", "5", "14"], ["Total", "20", "16", "36"]] },
     choices: [
-      // distractor: probability that BOTH are drivers (6/15 times 5/14)
-      { id: "A", text: "$\\frac{1}{7}$" },
-      { id: "B", text: "$\\frac{12}{35}$" },
-      // distractor: with replacement: (9/15)(9/15) = 81/225
-      { id: "C", text: "$\\frac{9}{25}$" },
-      // distractor: stops after the first draw (9/15)
-      { id: "D", text: "$\\frac{3}{5}$" }
+      // distractor: divides the evening cooks by all 36 volunteers instead of by the 16 evening volunteers
+      { id: "A", text: "$\\frac{7}{36}$" },
+      // distractor: probability of a cook with no condition, 12 out of 36
+      { id: "B", text: "$\\frac{1}{3}$" },
+      { id: "C", text: "$\\frac{7}{16}$" },
+      // distractor: reverses the condition: evening volunteers among the 12 cooks
+      { id: "D", text: "$\\frac{7}{12}$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Probability Without Replacement**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Total volunteers: $6 + 4 + 5 = 15$; non-drivers: $9$. Neither is a driver: $\\frac{9}{15} \\times \\frac{8}{14} = \\frac{72}{210} = \\frac{12}{35}$.\n\n**The Full Solution:**\nStep 1: From the table, there are $15$ volunteers, of whom $4 + 5 = 9$ are not drivers.\nStep 2: First selection is a non-driver: $\\frac{9}{15}$. Second selection is a non-driver, with one non-driver already chosen: $\\frac{8}{14}$.\nStep 3: Multiply: $\\frac{9}{15} \\times \\frac{8}{14} = \\frac{72}{210} = \\frac{12}{35}$. Check: $\\frac{12}{35} \\approx 0.34$, which is reasonable since a bit more than half the volunteers are non-drivers and both picks must be non-drivers. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{7}$): $\\frac{6}{15} \\times \\frac{5}{14} = \\frac{30}{210}$ is the probability that both volunteers ARE drivers.\n* Choice C ($\\frac{9}{25}$): $\\frac{9}{15} \\times \\frac{9}{15}$ keeps the counts fixed, as if the first volunteer could be selected again.\n* Choice D ($\\frac{3}{5}$): $\\frac{9}{15}$ covers the first selection only.\n\n**Test Day Takeaway:** \"Neither\" is a two-step event: count the \"other\" group from the table, then multiply two fractions that each shrink by $1$.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Two-Way Table Conditional Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Only the $16$ evening volunteers count, and $7$ of them are cooks, so the probability is $\\frac{7}{16}$.\n\n**The Full Solution:**\nStep 1: \"Given that the volunteer works the evening shift\" limits the selection to the evening column, which has $4 + 7 + 5 = 16$ volunteers.\nStep 2: Of those $16$ evening volunteers, $7$ are cooks.\nStep 3: The probability is $\\frac{7}{16}$. Check: the evening column gives $\\frac{4}{16} + \\frac{7}{16} + \\frac{5}{16} = 1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7}{36}$): this is the probability of selecting a cook who works the evening shift from all $36$ volunteers; the condition shrinks the denominator to $16$.\n* Choice B ($\\frac{1}{3}$): $\\frac{12}{36}$ is the probability of selecting any cook, ignoring the shift.\n* Choice D ($\\frac{7}{12}$): this is the probability that a cook works the evening shift, the condition reversed.\n\n**Test Day Takeaway:** In a \"given that\" question, the condition picks the row or column you divide by. Find that total first.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "probability-without-replacement",
@@ -5775,18 +5775,18 @@ export const problemSolvingBank = [
     skills: ["probability-basics"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A case holds $7$ bottles of sparkling water and $3$ bottles of still water. If $3$ bottles are selected at random without replacement, what is the probability that all $3$ are sparkling?",
+    question: "A case holds $24$ bottles of water, and each bottle is either sparkling or still. If one bottle is selected at random, the probability of selecting a sparkling bottle is $\\frac{5}{8}$. How many bottles of still water are in the case?",
     choices: [
-      // distractor: probability that all three are STILL (3/10 times 2/9 times 1/8)
-      { id: "A", text: "$\\frac{1}{120}$" },
-      { id: "B", text: "$\\frac{7}{24}$" },
-      // distractor: with replacement: (7/10)^3
-      { id: "C", text: "$\\frac{343}{1000}$" },
-      // distractor: stops after the first draw (7/10)
-      { id: "D", text: "$\\frac{7}{10}$" }
+      // distractor: finds one-eighth of the case, 24 divided by 8, and stops
+      { id: "A", text: "$3$" },
+      // distractor: reads the numerator of the probability as a count
+      { id: "B", text: "$5$" },
+      { id: "C", text: "$9$" },
+      // distractor: number of sparkling bottles, five-eighths of 24
+      { id: "D", text: "$15$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Probability Without Replacement**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $\\frac{7}{10} \\times \\frac{6}{9} \\times \\frac{5}{8} = \\frac{210}{720} = \\frac{7}{24}$.\n\n**The Full Solution:**\nStep 1: First bottle sparkling: $\\frac{7}{10}$.\nStep 2: Each later draw has one fewer sparkling bottle and one fewer bottle overall: second draw $\\frac{6}{9}$, third draw $\\frac{5}{8}$.\nStep 3: Multiply: $\\frac{7}{10} \\times \\frac{6}{9} \\times \\frac{5}{8} = \\frac{210}{720} = \\frac{7}{24}$. Check: $\\frac{7}{24} \\approx 0.29$, smaller than $\\frac{7}{10}$, as it must be since each extra requirement lowers the probability. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{120}$): $\\frac{3}{10} \\times \\frac{2}{9} \\times \\frac{1}{8} = \\frac{6}{720}$ is the probability that all three are still, the wrong type.\n* Choice C ($\\frac{343}{1000}$): $\\left(\\frac{7}{10}\\right)^3$ keeps every draw at $\\frac{7}{10}$, which requires replacing each bottle.\n* Choice D ($\\frac{7}{10}$): only the first draw was considered.\n\n**Test Day Takeaway:** For $k$ draws without replacement, write $k$ fractions whose numerators and denominators each step down by $1$, then multiply.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Basic Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Sparkling bottles: $\\frac{5}{8} \\times 24 = 15$, so still bottles: $24 - 15 = 9$.\n\n**The Full Solution:**\nStep 1: The probability of sparkling is $\\frac{5}{8}$, so $\\frac{5}{8}$ of the $24$ bottles are sparkling: $\\frac{5}{8} \\times 24 = 15$.\nStep 2: Every other bottle is still: $24 - 15 = 9$.\nStep 3: There are $9$ bottles of still water. Check: $\\frac{15}{24} = \\frac{5}{8}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): $\\frac{24}{8} = 3$ is one-eighth of the case; still water is $\\frac{3}{8}$ of the case, $3 \\times 3 = 9$.\n* Choice B ($5$): $5$ is the numerator of $\\frac{5}{8}$, not a number of bottles.\n* Choice D ($15$): this is the number of sparkling bottles; the question asks for still water.\n\n**Test Day Takeaway:** A probability times the total gives a count. Check which group the question asks for before you answer.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "probability-without-replacement",
@@ -5797,22 +5797,22 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-268",
     domain: "problem-solving",
-    skills: ["probability-basics"],
+    skills: ["conditional-probability", "two-way-table"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The table shows the number of beads of each color in a pouch. Three beads will be selected at random from the pouch, one at a time without replacement. What is the probability that the three beads selected are all different colors?",
-    diagram: { type: "dataTable", params: { headers: ["Color", "Number of beads"], rows: [["Amber", "5"], ["Clear", "4"], ["Blue", "3"]] } },
+    question: "The table shows the number of beads in a pouch by color and size. If one of these beads is selected at random, what is the probability of selecting a large bead, given that the bead is not amber?",
+    diagram: { type: "dataTable", params: { headers: ["Color", "Small", "Large"], rows: [["Amber", "6", "9"], ["Clear", "8", "4"], ["Blue", "5", "8"]] } },
     choices: [
-      // distractor: counts one color order only (5/12)(4/11)(3/10)
-      { id: "A", text: "$\\frac{1}{22}$" },
-      // distractor: multiplies the single-order probability by 3 instead of by 3! = 6
-      { id: "B", text: "$\\frac{3}{22}$" },
-      // distractor: with replacement: 6 times (5/12)(4/12)(3/12)
-      { id: "C", text: "$\\frac{5}{24}$" },
-      { id: "D", text: "$\\frac{3}{11}$" }
+      // distractor: divides the large beads that are not amber by all 40 beads
+      { id: "A", text: "$\\frac{3}{10}$" },
+      { id: "B", text: "$\\frac{12}{25}$" },
+      // distractor: probability of a large bead with no condition, 21 out of 40
+      { id: "C", text: "$\\frac{21}{40}$" },
+      // distractor: reverses the condition: beads that are not amber among the 21 large beads
+      { id: "D", text: "$\\frac{4}{7}$" }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Probability Without Replacement**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** One specific order, amber then clear then blue, has probability $\\frac{5}{12} \\times \\frac{4}{11} \\times \\frac{3}{10} = \\frac{60}{1{,}320} = \\frac{1}{22}$. Three different colors can come out in $3! = 6$ orders, each with this same probability, so the answer is $6 \\times \\frac{1}{22} = \\frac{6}{22} = \\frac{3}{11}$.\n\n**The Full Solution:**\nStep 1: From the table, there are $5 + 4 + 3 = 12$ beads. For the order amber, clear, blue: $\\frac{5}{12} \\times \\frac{4}{11} \\times \\frac{3}{10} = \\frac{60}{1{,}320}$.\nStep 2: Any other order of the three colors, such as blue, amber, clear, gives the same product $\\frac{3 \\times 5 \\times 4}{12 \\times 11 \\times 10}$ because the numerators are the same three counts and the denominators are the same $12, 11, 10$. There are $3 \\times 2 \\times 1 = 6$ such orders.\nStep 3: Total probability: $6 \\times \\frac{60}{1{,}320} = \\frac{360}{1{,}320} = \\frac{3}{11}$. Check: the number of unordered 3-bead selections is $\\frac{12 \\times 11 \\times 10}{6} = 220$, and one-of-each selections number $5 \\times 4 \\times 3 = 60$; $\\frac{60}{220} = \\frac{3}{11}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{22}$): counts only one order of the three colors; the question does not specify an order.\n* Choice B ($\\frac{3}{22}$): multiplies by $3$, the number of colors, instead of by $3! = 6$, the number of orders.\n* Choice C ($\\frac{5}{24}$): $6 \\times \\frac{5 \\times 4 \\times 3}{12^3} = \\frac{360}{1{,}728}$ keeps the denominator at $12$ for every draw, which assumes replacement.\n\n**Test Day Takeaway:** When no order is specified, compute one order's probability and multiply by the number of orders; without replacement, the denominators still step down $12, 11, 10$.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Two-Way Table Conditional Probability**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Beads that are not amber: $12 + 13 = 25$; large ones among them: $4 + 8 = 12$. The probability is $\\frac{12}{25}$.\n\n**The Full Solution:**\nStep 1: \"Given that the bead is not amber\" limits the selection to the clear and blue beads: $(8 + 4) + (5 + 8) = 25$ beads.\nStep 2: Of those $25$ beads, the large ones are $4$ clear and $8$ blue, so $12$ beads.\nStep 3: The probability is $\\frac{12}{25}$. Check: the small beads that are not amber are $8 + 5 = 13$, and $\\frac{12}{25} + \\frac{13}{25} = 1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{10}$): $\\frac{12}{40}$ uses all $40$ beads as the denominator; the condition removes the $15$ amber beads.\n* Choice C ($\\frac{21}{40}$): this counts every large bead, including the $9$ amber ones, out of all $40$ beads.\n* Choice D ($\\frac{4}{7}$): $\\frac{12}{21}$ is the probability that a large bead is not amber, the condition reversed.\n\n**Test Day Takeaway:** \"Given that\" a group is excluded, add up everything that is left; that sum is the denominator.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "probability-without-replacement",
@@ -5826,9 +5826,9 @@ export const problemSolvingBank = [
     skills: ["probability-basics"],
     difficulty: "hard",
     type: "fill-in",
-    question: "A drawer contains $3$ red and $7$ black pens. If $3$ pens are selected at random without replacement, what is the probability that exactly $1$ is red? (Express your answer as a decimal or fraction, not as a percent.)",
-    correctAnswer: "21/40",
-    explanation: "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $\\frac{21}{40}$.**\n\n**The Fast Way (~20s):** One order, red then two black: $\\frac{3}{10} \\times \\frac{7}{9} \\times \\frac{6}{8} = \\frac{126}{720}$. The single red pen can be first, second, or third, so multiply by $3$: $\\frac{378}{720} = \\frac{21}{40}$.\n\n**The Full Solution:**\nStep 1: There are $3 + 7 = 10$ pens. For the order red, black, black: $\\frac{3}{10} \\times \\frac{7}{9} \\times \\frac{6}{8} = \\frac{126}{720}$.\nStep 2: The orders black, red, black and black, black, red have the same product, since each uses numerators $3, 7, 6$ over denominators $10, 9, 8$. There are $3$ positions for the red pen.\nStep 3: Total: $3 \\times \\frac{126}{720} = \\frac{378}{720} = \\frac{21}{40}$. Check with counting: unordered selections number $\\frac{10 \\times 9 \\times 8}{6} = 120$; selections with exactly one red pen number $3 \\times \\frac{7 \\times 6}{2} = 63$; $\\frac{63}{120} = \\frac{21}{40}$ ✓\n\n**Common Mistakes:** Entering $7/40$, from $\\frac{126}{720}$, which counts only the order in which the red pen comes first; entering $7/24$, from $\\frac{7}{10} \\times \\frac{6}{9} \\times \\frac{5}{8} = \\frac{210}{720}$, which is the probability of NO red pen; entering $17/24$, the complement $1 - \\frac{7}{24}$, which is the probability of AT LEAST one red pen rather than exactly one.\n\n**Test Day Takeaway:** \"Exactly one\" means one success in any position: find one order's probability, then multiply by the number of positions the success can occupy.",
+    question: "A number will be selected at random from the integers $1$ through $120$. What is the probability that the number selected is a multiple of $3$ and is greater than $90$? (Express your answer as a decimal or fraction, not as a percent.)",
+    correctAnswer: "1/12",
+    explanation: "**SAT Pattern: Basic Probability**\n\n**The correct answer is $\\frac{1}{12}$.**\n\n**The Fast Way (~30s):** The multiples of $3$ greater than $90$ are $93, 96, \\ldots, 120$, which is $10$ numbers, so the probability is $\\frac{10}{120} = \\frac{1}{12}$.\n\n**The Full Solution:**\nStep 1: There are $120$ equally likely outcomes.\nStep 2: The multiples of $3$ from $91$ through $120$ are $93, 96, 99, \\ldots, 120$. Since $93 = 3 \\times 31$ and $120 = 3 \\times 40$, there are $40 - 31 + 1 = 10$ of them.\nStep 3: The probability is $\\frac{10}{120} = \\frac{1}{12}$, or about $0.0833$. Check: list them, $93, 96, 99, 102, 105, 108, 111, 114, 117, 120$, which is $10$ numbers. $\\checkmark$\n\n**Common Mistakes:**\n* Entering $1/3$, the probability of a multiple of $3$ with the \"greater than $90$\" condition ignored.\n* Entering $1/4$, the probability of a number greater than $90$ ($\\frac{30}{120}$) with the \"multiple of $3$\" condition ignored.\n* Entering $3/40$, from counting only $93$ through $117$ ($9$ numbers) and leaving out $120$; the integers run through $120$, and $120$ is a multiple of $3$.\n\n**Test Day Takeaway:** \"And\" means both conditions at once: count only the numbers that pass both tests, then divide by all the outcomes.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "probability-without-replacement",
@@ -5872,16 +5872,16 @@ export const problemSolvingBank = [
     type: "multiple-choice",
     question: "A researcher wants to determine whether a daily $20$-minute silent-reading period increases the reading comprehension scores of fourth-grade students in a certain district. Which of the following is the most appropriate design for this study?",
     choices: [
-      // distractor: observational: records an existing habit, so differences may be explained by other variables
-      { id: "A", text: "Select $200$ fourth-grade students at random from the district and record, for each student, whether the student already has a daily silent-reading period and what the student's comprehension score is." },
-      // distractor: volunteers self-select into the treatment group
-      { id: "B", text: "Recruit $200$ fourth-grade students in the district whose families volunteer them for a daily silent-reading period, and compare their comprehension scores with the scores of students who do not participate." },
-      // distractor: assignment is by prior score, not at random, and the sample comes from one school
-      { id: "C", text: "Select $200$ fourth-grade students at random from one school in the district and assign the silent-reading period to the $100$ of them with the lowest comprehension scores." },
-      { id: "D", text: "Select $200$ fourth-grade students at random from the district and randomly assign $100$ of them to a daily silent-reading period and the other $100$ to their usual schedule." }
+      // distractor: observational: records an existing habit, so other differences between the groups could explain the scores
+      { id: "A", text: "Select $200$ of the district's fourth-grade students at random, and compare those who already have a daily silent-reading period with those who do not." },
+      // distractor: volunteers choose the treatment themselves, so the groups may differ in other ways
+      { id: "B", text: "Ask the families of the district's fourth-grade students to volunteer their children for the reading period, and compare the volunteers with the other students." },
+      // distractor: assigns the treatment by prior score, not at random
+      { id: "C", text: "Select $200$ of the district's fourth-grade students at random, and give the reading period to the $100$ of them with the lowest scores." },
+      { id: "D", text: "Select $200$ of the district's fourth-grade students at random, and randomly assign $100$ of them to the reading period and $100$ to their usual schedule." }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Observational vs Experimental Study**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Only a design with random assignment of the treatment supports a causal conclusion, and only a random sample of the district supports applying that conclusion to the district. Choice D is the one design with both.\n\n**The Full Solution:**\nStep 1: A cause-and-effect conclusion requires that the researcher, not the students, decide who receives the reading period, and that this decision be made at random. Random assignment makes the two groups similar on every other variable, so a difference in mean comprehension score can be attributed to the reading period.\nStep 2: A conclusion about all fourth-grade students in the district requires that the students be selected at random from that district.\nStep 3: Check each design: only choice D selects at random from the district and then assigns the treatment at random. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: the random selection is there, but nothing is assigned; students who already read silently may differ from other students in ways (home support, prior skill) that also affect comprehension. This design supports association only.\n* Choice B: the students choose their own group, so the reading group is a self-selected group. Any difference could come from whatever led those families to volunteer.\n* Choice C: assigning the treatment to the $100$ lowest scorers builds a difference between the groups before the study starts, and drawing from one school limits the conclusion to that school.\n\n**Test Day Takeaway:** Random *assignment* buys cause and effect; random *selection* buys generalization. Read every design looking for those two words separately.",
+    explanation: "**SAT Pattern: Observational vs Experimental Study**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** A cause-and-effect conclusion needs random assignment, and a conclusion about the district needs a random sample of the district. Only choice D has both.\n\n**The Full Solution:**\nStep 1: To show that the reading period causes higher scores, the researcher, not the students, must decide who gets the reading period, and must decide at random. Random assignment makes the two groups alike in other ways.\nStep 2: To apply the result to the district's fourth-grade students, the students must be selected at random from the district.\nStep 3: Choice D selects the students at random from the district and then assigns the reading period at random. Check: each other design lets something besides chance decide who gets the reading period. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: no one is assigned the reading period; students who already have one may differ in other ways, such as their schools, so no cause-and-effect conclusion is possible.\n* Choice B: families who volunteer may differ from other families, for example in how much their children already read.\n* Choice C: the group with the lowest scores is not comparable to the other group, so a difference in scores cannot be credited to the reading period.\n\n**Test Day Takeaway:** Random selection lets you generalize to the population; random assignment lets you conclude cause and effect. A design needs both to answer \"does it increase scores in the district?\"",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "observational-vs-experimental",
@@ -6024,18 +6024,18 @@ export const problemSolvingBank = [
     skills: ["margin-of-error"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "Based on a random sample of $250$ adult salmon from a river, a $95\\%$ confidence interval for the mean length of the adult salmon in the river is $58.4$ centimeters to $61.2$ centimeters. Which of the following is the most appropriate conclusion?",
+    question: "Based on a random sample of $250$ pumpkins grown on a farm, it is estimated that the mean mass of the pumpkins grown on the farm is between $5.2$ kilograms and $6.0$ kilograms. Which of the following is the most appropriate conclusion?",
     choices: [
-      // distractor: reports the interval's midpoint as an exact population value
-      { id: "A", text: "The mean length of the adult salmon in the river is exactly $59.8$ centimeters." },
-      { id: "B", text: "It is plausible that the mean length of the adult salmon in the river is $60.5$ centimeters." },
-      // distractor: applies an interval for the mean to individual fish
-      { id: "C", text: "Every adult salmon in the river has a length between $58.4$ centimeters and $61.2$ centimeters." },
+      // distractor: treats the midpoint of the interval, the sample estimate, as the exact population mean
+      { id: "A", text: "The mean mass of the pumpkins grown on the farm is exactly $5.6$ kilograms." },
+      { id: "B", text: "It is plausible that the mean mass of the pumpkins grown on the farm is $5.9$ kilograms." },
+      // distractor: applies an interval for the mean to individual pumpkins
+      { id: "C", text: "Every pumpkin grown on the farm has a mass between $5.2$ kilograms and $6.0$ kilograms." },
       // distractor: rejects a value that lies inside the interval
-      { id: "D", text: "It is not plausible that the mean length of the adult salmon in the river is $59.0$ centimeters." }
+      { id: "D", text: "It is not plausible that the mean mass of the pumpkins grown on the farm is $5.4$ kilograms." }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Confidence Interval Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** A confidence interval lists the plausible values of the population mean. $60.5$ lies between $58.4$ and $61.2$, so it is plausible.\n\n**The Full Solution:**\nStep 1: The interval $58.4$ to $61.2$ centimeters is an interval of plausible values for the mean length of all adult salmon in the river.\nStep 2: Test each candidate value against the interval: $60.5$ is inside it, so choice B's claim is supported.\nStep 3: Check the remaining claims. $59.8$ is the midpoint, which is the estimate, not a value the data prove exact; $59.0$ is also inside the interval, so it cannot be called implausible; and the interval describes a mean, not the lengths of individual salmon. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: $\\frac{58.4 + 61.2}{2} = 59.8$ is the sample estimate at the center of the interval, but the interval exists because the population mean is uncertain.\n* Choice C: individual salmon vary far more than their mean does; the interval bounds the mean only.\n* Choice D: $59.0$ is inside the interval, so the data support it rather than rule it out.\n\n**Test Day Takeaway:** \"Plausible\" means inside the interval, and the interval is about a mean, never about every individual.",
+    explanation: "**SAT Pattern: Confidence Interval Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Any value between $5.2$ and $6.0$ is a plausible value of the mean, and $5.9$ is in that range.\n\n**The Full Solution:**\nStep 1: The interval from $5.2$ to $6.0$ kilograms gives the plausible values for the mean mass of all the pumpkins grown on the farm.\nStep 2: $5.9$ is between $5.2$ and $6.0$, so a mean of $5.9$ kilograms is plausible.\nStep 3: The interval is about the mean, not about single pumpkins, and it does not pin the mean to one value. Check: $5.2 < 5.9 < 6.0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: $5.6$ is the midpoint, the estimate from the sample; the true mean could be any value in the interval.\n* Choice C: the interval describes the mean mass; individual pumpkins can be much lighter or heavier.\n* Choice D: $5.4$ is between $5.2$ and $6.0$, so it is a plausible value of the mean.\n\n**Test Day Takeaway:** An estimated interval is a range of plausible values for a population mean or percent. Values inside are plausible; it says nothing about individuals.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "confidence-interval-interpretation",
@@ -6049,9 +6049,9 @@ export const problemSolvingBank = [
     skills: ["margin-of-error"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A $95\\%$ confidence interval for the mean wingspan of the bats in a colony is $21.4$ centimeters to $24.6$ centimeters. What is the associated margin of error, in centimeters?",
+    question: "Based on a random sample of bats from a colony, it is estimated that the mean wingspan of the bats in the colony is between $21.4$ centimeters and $24.6$ centimeters. What is the associated margin of error, in centimeters?",
     correctAnswer: "1.6",
-    explanation: "**SAT Pattern: Confidence Interval Interpretation**\n\n**The correct answer is $1.6$.**\n\n**The Fast Way (~10s):** The margin of error is half the width of the interval: $\\frac{24.6 - 21.4}{2} = \\frac{3.2}{2} = 1.6$.\n\n**The Full Solution:**\nStep 1: A confidence interval is built as estimate $\\pm$ margin of error, so the estimate sits at the midpoint and the margin of error is the distance from the midpoint to either endpoint.\nStep 2: The width of the interval is $24.6 - 21.4 = 3.2$ centimeters, which equals two margins of error, so the margin of error is $\\frac{3.2}{2} = 1.6$ centimeters.\nStep 3: Check by rebuilding the interval. The midpoint is $\\frac{21.4 + 24.6}{2} = 23$, and $23 \\pm 1.6$ gives $21.4$ to $24.6$. $\\checkmark$\n\n**Common Mistakes:**\n* Reporting $3.2$, the full width of the interval, without halving it.\n* Reporting $23$, which is the estimated mean wingspan (the midpoint), not the margin of error.\n* Reporting an endpoint such as $21.4$ or $24.6$, which are values of the wingspan, not a distance.\n\n**Test Day Takeaway:** Interval to margin of error: subtract the endpoints, then divide by $2$. Estimate to interval: add and subtract the margin.",
+    explanation: "**SAT Pattern: Confidence Interval Interpretation**\n\n**The correct answer is $1.6$.**\n\n**The Fast Way (~10s):** The margin of error is half the width of the interval: $\\frac{24.6 - 21.4}{2} = \\frac{3.2}{2} = 1.6$.\n\n**The Full Solution:**\nStep 1: The interval is the estimate plus or minus the margin of error, so the estimate is the midpoint and the margin of error is the distance from the midpoint to either endpoint.\nStep 2: The width of the interval is $24.6 - 21.4 = 3.2$ centimeters, which is two margins of error.\nStep 3: The margin of error is $\\frac{3.2}{2} = 1.6$ centimeters. Check: the midpoint is $\\frac{21.4 + 24.6}{2} = 23$, and $23 - 1.6 = 21.4$ and $23 + 1.6 = 24.6$. $\\checkmark$\n\n**Common Mistakes:**\n* Entering $3.2$, the full width of the interval, without halving it.\n* Entering $23$, the estimated mean wingspan (the midpoint), not the margin of error.\n* Entering an endpoint such as $21.4$, which is a wingspan, not a distance.\n\n**Test Day Takeaway:** From an interval to the margin of error: subtract the endpoints, then divide by $2$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "confidence-interval-interpretation",
@@ -6065,19 +6065,19 @@ export const problemSolvingBank = [
     skills: ["margin-of-error"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "Two surveys of residents of the same city were conducted at the same time using the same method. Each survey estimated the percent of the city's residents who commute by rail. The table shows each estimate and its associated margin of error. Which of the following is the most appropriate conclusion?",
-    diagram: { type: "dataTable", params: { headers: ["Survey", "Estimated percent", "Margin of error"], rows: [["Survey 1", "38%", "2%"], ["Survey 2", "41%", "3%"]] } },
+    question: "A town has $12{,}000$ residents. A random sample of residents was asked whether they commute by rail, and the table shows the results of the survey. Based on these results, which of the following is a plausible value for the number of residents of the town who commute by rail?",
+    diagram: { type: "dataTable", params: { headers: ["Survey result", "Value"], rows: [["Residents surveyed", "400"], ["Estimated percent who commute by rail", "38%"], ["Margin of error", "3%"]] } },
     choices: [
-      // distractor: reads a change over time into two simultaneous surveys
-      { id: "A", text: "The percent of the city's residents who commute by rail increased between the two surveys." },
-      // distractor: confuses a larger estimate with a smaller margin of error
-      { id: "B", text: "Survey 2 produced the more precise estimate, because its estimated percent is greater." },
-      // distractor: compares point estimates while ignoring both margins of error
-      { id: "C", text: "Because $41\\%$ is greater than $38\\%$, more than $40\\%$ of the city's residents commute by rail." },
-      { id: "D", text: "The intervals of plausible values from the two surveys overlap, so both surveys are consistent with the same percent for the city's residents." }
+      // distractor: applies 38% to the 400 residents surveyed instead of to the town
+      { id: "A", text: "$152$" },
+      { id: "B", text: "$4{,}800$" },
+      // distractor: adds the margin of error twice, using 44%, which is outside 35% to 41%
+      { id: "C", text: "$5{,}280$" },
+      // distractor: uses 62%, the percent of residents who do not commute by rail
+      { id: "D", text: "$7{,}440$" }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Confidence Interval Interpretation**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Survey 1 gives $38\\% \\pm 2\\%$, or $36\\%$ to $40\\%$; survey 2 gives $41\\% \\pm 3\\%$, or $38\\%$ to $44\\%$. The intervals share the values from $38\\%$ to $40\\%$, so one percent could produce both estimates.\n\n**The Full Solution:**\nStep 1: Build each interval of plausible values. Survey 1: $38 - 2 = 36$ to $38 + 2 = 40$. Survey 2: $41 - 3 = 38$ to $41 + 3 = 44$.\nStep 2: Compare them. The intervals overlap on $38\\%$ to $40\\%$, so a single population percent in that range is consistent with both surveys.\nStep 3: Check: because the overlap is not empty, the data do not establish that the two surveys are estimating different values, so no claim of a real difference is supported. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: the surveys were conducted at the same time, so there is no before and after to compare; a difference of $3$ percentage points between two estimates is not a change over time.\n* Choice B: precision is measured by the margin of error, and survey 2's margin ($3\\%$) is the larger of the two, so survey 2 is the less precise survey.\n* Choice C: this compares $38\\%$ and $41\\%$ as if both were exact. Since $36\\%$ is plausible from survey 1, the data do not establish that the percent exceeds $40\\%$.\n\n**Test Day Takeaway:** Two estimates differ meaningfully only when their intervals of plausible values do not overlap. Compare intervals, never the point estimates alone.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Confidence Interval Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Plausible percents run from $38 - 3 = 35\\%$ to $38 + 3 = 41\\%$ of $12{,}000$, that is, from $4{,}200$ to $4{,}920$; only $4{,}800$ is in that range.\n\n**The Full Solution:**\nStep 1: The estimate and margin of error give plausible values from $38\\% - 3\\% = 35\\%$ to $38\\% + 3\\% = 41\\%$ of the town's residents.\nStep 2: Apply those percents to the town: $0.35 \\times 12{,}000 = 4{,}200$ and $0.41 \\times 12{,}000 = 4{,}920$.\nStep 3: Of the choices, only $4{,}800$ is between $4{,}200$ and $4{,}920$. Check: $\\frac{4{,}800}{12{,}000} = 40\\%$, which is between $35\\%$ and $41\\%$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($152$): $0.38 \\times 400 = 152$ counts residents in the sample, not in the town.\n* Choice C ($5{,}280$): this is $44\\%$ of $12{,}000$, which is $6$ points above the estimate, outside the margin of error.\n* Choice D ($7{,}440$): this is $62\\%$ of $12{,}000$, the residents who do not commute by rail.\n\n**Test Day Takeaway:** Turn the estimate and margin of error into a range of percents, then multiply the endpoints by the population size.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "confidence-interval-interpretation",
@@ -6091,18 +6091,18 @@ export const problemSolvingBank = [
     skills: ["margin-of-error"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "In a study, $480$ volunteers with chronic knee pain were randomly assigned to a new physical therapy protocol or to the standard protocol. The $95\\%$ confidence interval for the difference in mean reduction in pain score (new minus standard) was $0.4$ point to $2.6$ points. Which of the following is the most appropriate conclusion?",
+    question: "A random sample of $600$ of the $15{,}000$ households in a town was surveyed. Based on the sample, it is estimated that $24\\%$ of the households in the town have a vegetable garden, with an associated margin of error of $3\\%$. Which of the following is the most appropriate conclusion?",
     choices: [
-      // distractor: applies a difference of means to every individual volunteer
-      { id: "A", text: "The new protocol reduces every volunteer's pain score more than the standard protocol does." },
-      { id: "B", text: "For volunteers like those in the study, the new protocol causes a greater mean reduction in pain score than the standard protocol does." },
-      // distractor: confuses random selection with random assignment
-      { id: "C", text: "Since the volunteers were not selected at random, no cause-and-effect conclusion can be drawn about the protocols." },
-      // distractor: treats the top endpoint as a guaranteed minimum and widens the population
-      { id: "D", text: "For all adults with chronic knee pain, the new protocol causes a mean reduction at least $2.6$ points greater than the standard protocol does." }
+      // distractor: treats the estimate, 24% of 15,000, as an exact count
+      { id: "A", text: "Exactly $3{,}600$ households in the town have a vegetable garden." },
+      // distractor: applies 21% and 27% to the 600 households in the sample instead of to the town
+      { id: "B", text: "It is plausible that between $126$ and $162$ households in the town have a vegetable garden." },
+      { id: "C", text: "It is plausible that between $3{,}150$ and $4{,}050$ households in the town have a vegetable garden." },
+      // distractor: takes 3% of 3,600 instead of 3 percentage points of the 15,000 households
+      { id: "D", text: "It is plausible that between $3{,}492$ and $3{,}708$ households in the town have a vegetable garden." }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Confidence Interval Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The whole interval $0.4$ to $2.6$ is positive, so a difference of zero is not plausible; random assignment makes that difference causal; and because the volunteers were not randomly selected, the conclusion stays with volunteers like these.\n\n**The Full Solution:**\nStep 1: Read the interval. Every plausible value of the difference in mean reduction is greater than $0$, so the data support the conclusion that the new protocol did more on average.\nStep 2: Read the design. Volunteers were assigned to protocols at random, which is what licenses a cause-and-effect statement about the protocols.\nStep 3: Check the scope. The volunteers were not selected at random from all adults with chronic knee pain, so the conclusion is limited to people like the study's volunteers, which is exactly what choice B claims. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: the interval describes a difference of group *means*; individual volunteers vary, and some may have improved less with the new protocol than others did with the standard one.\n* Choice C: random selection controls generalization, not causation. Random assignment was used, so a causal conclusion about volunteers like these is supported.\n* Choice D: $2.6$ is the top of the interval, the largest difference still plausible, not a floor, and \"all adults with chronic knee pain\" goes beyond the group studied.\n\n**Test Day Takeaway:** On a randomized study, answer in two parts: the interval decides *whether* there is an effect, the sampling decides *whom* it applies to.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Confidence Interval Interpretation**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Plausible percents are $21\\%$ to $27\\%$, and $0.21 \\times 15{,}000 = 3{,}150$ and $0.27 \\times 15{,}000 = 4{,}050$.\n\n**The Full Solution:**\nStep 1: The estimate and margin of error give plausible values from $24\\% - 3\\% = 21\\%$ to $24\\% + 3\\% = 27\\%$ of the households in the town.\nStep 2: The town has $15{,}000$ households: $0.21 \\times 15{,}000 = 3{,}150$ and $0.27 \\times 15{,}000 = 4{,}050$.\nStep 3: So it is plausible that between $3{,}150$ and $4{,}050$ households in the town have a vegetable garden. Check: the estimate, $0.24 \\times 15{,}000 = 3{,}600$, is the midpoint of $3{,}150$ and $4{,}050$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: $3{,}600$ is the estimate; the margin of error means the true number could be any value in a range.\n* Choice B: $126$ and $162$ are $21\\%$ and $27\\%$ of the $600$ households surveyed, not of the $15{,}000$ households in the town.\n* Choice D: $3{,}600 \\pm 108$ treats the margin as $3\\%$ of the estimate; the margin is $3$ percentage points, which is $0.03 \\times 15{,}000 = 450$ households.\n\n**Test Day Takeaway:** A margin of error stated in percent is in percentage points of the population. Build the range of percents first, then convert it to counts.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "confidence-interval-interpretation",
@@ -6116,9 +6116,9 @@ export const problemSolvingBank = [
     skills: ["margin-of-error"],
     difficulty: "hard",
     type: "fill-in",
-    question: "A $95\\%$ confidence interval for the mean daily water use per household in a town is $148$ liters to $172$ liters. A second survey of the town produced the same estimated mean but a margin of error one-fourth as large. What is the upper endpoint, in liters, of the second interval?",
+    question: "Based on a random sample of households in a town, the mean daily water use per household is estimated to be between $148$ liters and $172$ liters. A second random sample gave the same estimate with a margin of error one-fourth as large. Based on the second sample, what is the greatest plausible value, in liters, of the mean daily water use per household?",
     correctAnswer: "163",
-    explanation: "**SAT Pattern: Confidence Interval Interpretation**\n\n**The correct answer is $163$.**\n\n**The Fast Way (~20s):** The first interval has midpoint $160$ and margin of error $12$. One-fourth of $12$ is $3$, so the new upper endpoint is $160 + 3 = 163$.\n\n**The Full Solution:**\nStep 1: Recover the estimate and the margin of error from the first interval. The estimate is the midpoint, $\\frac{148 + 172}{2} = 160$ liters, and the margin of error is half the width, $\\frac{172 - 148}{2} = 12$ liters.\nStep 2: The second survey has the same estimate, $160$ liters, and a margin of error of $\\frac{12}{4} = 3$ liters.\nStep 3: The second interval is $160 \\pm 3$, that is, $157$ to $163$ liters, so its upper endpoint is $163$. Check: its width is $163 - 157 = 6$, one-fourth of the first interval's width of $24$. $\\checkmark$\n\n**Common Mistakes:**\n* Reporting $166$: dividing the interval's *width* of $24$ by $4$ gives $6$, and $160 + 6 = 166$. The margin of error is half the width, not the width.\n* Reporting $160$: stopping at the estimate and forgetting to add the new margin of error.\n* Reporting $157$: giving the lower endpoint of the new interval instead of the upper endpoint.\n* Reporting $43$: dividing the old endpoint $172$ by $4$, which shrinks the whole endpoint instead of the margin of error.\n\n**Test Day Takeaway:** Turn any interval back into estimate $\\pm$ margin before doing anything else: midpoint for the estimate, half-width for the margin.",
+    explanation: "**SAT Pattern: Confidence Interval Interpretation**\n\n**The correct answer is $163$.**\n\n**The Fast Way (~30s):** The estimate is $\\frac{148 + 172}{2} = 160$ and the first margin is $12$, so the second margin is $3$ and the greatest plausible value is $160 + 3 = 163$.\n\n**The Full Solution:**\nStep 1: The estimated mean is the midpoint of the first interval: $\\frac{148 + 172}{2} = 160$ liters. The first margin of error is $172 - 160 = 12$ liters.\nStep 2: The second margin of error is one-fourth as large: $\\frac{12}{4} = 3$ liters.\nStep 3: With the same estimate, the second interval runs from $160 - 3 = 157$ to $160 + 3 = 163$ liters, so the greatest plausible value is $163$. Check: the second interval, $6$ liters wide, is one-fourth the width of the first, $24$ liters. $\\checkmark$\n\n**Common Mistakes:**\n* Entering $166$, from dividing the full width $24$ by $4$ and adding $6$ to $160$.\n* Entering $175$, from adding the new margin of error, $3$, to the old upper endpoint, $172$, instead of to the estimate, $160$.\n* Entering $157$, the least plausible value instead of the greatest.\n\n**Test Day Takeaway:** An interval is the estimate plus or minus the margin of error. Find the midpoint and the margin first; then change only what the question changes.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "confidence-interval-interpretation",
@@ -6134,18 +6134,18 @@ export const problemSolvingBank = [
     skills: ["margin-of-error"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A random sample of $180$ people gives an estimate with a margin of error of $6\\%$. What sample size would give a margin of error of $3\\%$?",
+    question: "Random samples of $120$ students (sample A) and $480$ students (sample B) at a college were used to estimate the mean number of hours the college's students study each week. The margins of error were calculated in the same way. Which of the following is most likely true?",
     choices: [
-      // distractor: halves the sample size because the margin of error is halved, 180/2 = 90
-      { id: "A", text: "$90$" },
-      // distractor: doubles the sample size, treating the margin of error as proportional to 1/n
-      { id: "B", text: "$360$" },
-      { id: "C", text: "$720$" },
-      // distractor: applies the factor of 4 twice, 16(180) = 2,880
-      { id: "D", text: "$2{,}880$" }
+      // distractor: reverses the relationship: a smaller sample gives a larger margin of error
+      { id: "A", text: "The margin of error for sample A is less than the margin of error for sample B." },
+      { id: "B", text: "The margin of error for sample B is less than the margin of error for sample A." },
+      // distractor: ignores the effect of sample size on the margin of error
+      { id: "C", text: "The margins of error for the two samples are equal." },
+      // distractor: thinks a larger sample makes the estimate itself larger
+      { id: "D", text: "The estimated mean for sample B is $4$ times the estimated mean for sample A." }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Margin of error scales like $\\frac{1}{\\sqrt{n}}$, so halving it requires $2^2 = 4$ times the sample: $4 \\times 180 = 720$.\n\n**The Full Solution:**\nStep 1: For a fixed method and confidence level, the margin of error is proportional to $\\frac{1}{\\sqrt{n}}$, where $n$ is the sample size.\nStep 2: The margin of error must go from $6\\%$ to $3\\%$, a factor of $\\frac{1}{2}$. Since the margin depends on $\\sqrt{n}$, $\\sqrt{n}$ must double, so $n$ must be multiplied by $2^2 = 4$.\nStep 3: $4 \\times 180 = 720$ people. Check: $\\sqrt{720} = \\sqrt{4 \\times 180} = 2\\sqrt{180}$, so the margin of error is halved. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($90$): halves the sample size along with the margin of error. A smaller sample makes the margin of error larger, not smaller.\n* Choice B ($360$): doubles the sample, which would work only if the margin of error were proportional to $\\frac{1}{n}$. Doubling $n$ shrinks the margin by a factor of $\\sqrt{2} \\approx 1.41$, not $2$.\n* Choice D ($2{,}880$): $16 \\times 180$, applying the factor of $4$ a second time.\n\n**Test Day Takeaway:** Divide the margin of error by $k$ by multiplying the sample size by $k^2$.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** A larger random sample generally gives a smaller margin of error, and sample B is the larger sample.\n\n**The Full Solution:**\nStep 1: When margins of error are calculated in the same way, a larger random sample generally leads to a smaller margin of error.\nStep 2: Sample B, with $480$ students, is larger than sample A, with $120$ students.\nStep 3: So the margin of error for sample B is most likely less than the margin of error for sample A. Check: the sample size changes how precise the estimate is, not the size of the estimate itself. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: this has the relationship backward; the smaller sample, A, is the one with the larger margin of error.\n* Choice C: the samples have different sizes, so their margins of error are not expected to be equal.\n* Choice D: both samples estimate the same mean, so their estimates should be close; sample size affects the margin of error, not the estimate.\n\n**Test Day Takeaway:** Larger random sample, smaller margin of error. The sample size changes the precision, not the estimate.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "sample-size-for-margin-reduction",
@@ -6159,18 +6159,18 @@ export const problemSolvingBank = [
     skills: ["margin-of-error"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A random sample of size $n$ gives an estimate with a margin of error of $6\\%$. What would the margin of error be for a sample of size $9n$?",
+    question: "A survey of a random sample of $900$ adults in a city estimated that $45\\%$ of the city's adults read a newspaper daily, with an associated margin of error of $3\\%$. If a random sample of $300$ adults had been used instead, which of the following would most likely be true about the margin of error?",
     choices: [
-      // distractor: divides by $9$ instead of by $\sqrt{9}$
-      { id: "A", text: "$\\frac{2}{3}\\%$" },
-      { id: "B", text: "$2\\%$" },
-      // distractor: halves the margin of error regardless of the factor $9$
-      { id: "C", text: "$3\\%$" },
-      // distractor: multiplies by $3$ instead of dividing
-      { id: "D", text: "$18\\%$" }
+      // distractor: shrinks the margin of error for a smaller sample, the wrong direction
+      { id: "A", text: "It would be less than $1\\%$." },
+      // distractor: reverses the relationship: a margin of error less than 3% would come from a larger sample
+      { id: "B", text: "It would be between $1\\%$ and $3\\%$." },
+      // distractor: ignores the effect of sample size on the margin of error
+      { id: "C", text: "It would be equal to $3\\%$." },
+      { id: "D", text: "It would be greater than $3\\%$." }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Multiplying the sample size by $9$ divides the margin of error by $\\sqrt{9} = 3$: $\\frac{6}{3} = 2$.\n\n**The Full Solution:**\nStep 1: The margin of error is proportional to $\\frac{1}{\\sqrt{n}}$, so replacing $n$ by $9n$ replaces $\\sqrt{n}$ by $\\sqrt{9n} = 3\\sqrt{n}$.\nStep 2: The margin of error is therefore divided by $3$: $\\frac{6}{3} = 2$, so the new margin of error is $2\\%$.\nStep 3: Check with the reverse rule: to divide a margin of error by $3$, multiply the sample size by $3^2 = 9$, which is exactly the change described. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2}{3}\\%$): $\\frac{6}{9}$, dividing by the sample-size factor itself instead of by its square root.\n* Choice C ($3\\%$): halving the margin of error, which corresponds to multiplying the sample size by $4$, not $9$.\n* Choice D ($18\\%$): $6 \\times 3$; a larger sample makes an estimate more precise, so the margin of error must go down.\n\n**Test Day Takeaway:** The sample-size factor goes under a square root before it touches the margin of error.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** A smaller random sample generally gives a larger margin of error, so the margin of error would be greater than $3\\%$.\n\n**The Full Solution:**\nStep 1: When margins of error are calculated in the same way, a smaller random sample generally leads to a larger margin of error.\nStep 2: A sample of $300$ adults is smaller than a sample of $900$ adults.\nStep 3: So the margin of error would most likely be greater than $3\\%$. Check: a smaller sample gives a less precise estimate, which shows up as a wider range of plausible values. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: a margin of error below $1\\%$ would mean the smaller sample is far more precise, which is backward.\n* Choice B: any margin of error less than $3\\%$ would come from a larger sample, not a smaller one.\n* Choice C: changing the sample size changes the margin of error.\n\n**Test Day Takeaway:** Smaller random sample, larger margin of error. Any choice that makes the smaller sample more precise is wrong.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "sample-size-for-margin-reduction",
@@ -6184,19 +6184,19 @@ export const problemSolvingBank = [
     skills: ["margin-of-error"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "Three surveys used the same method and differed only in sample size. The table shows the sample size and the margin of error, in percentage points, for each survey. What is the margin of error, in percentage points, for survey $3$?",
-    questionTable: { headers: ["Survey", "Sample size", "Margin of error"], rows: [["1", "400", "6.0"], ["2", "900", "4.0"], ["3", "3,600", "?"]] },
+    question: "Three surveys of the same population used random samples and the same method. The table shows the sample size and the margin of error, in percentage points, for each survey, but the margin of error for survey $3$ is missing. Which of the following could be the margin of error, in percentage points, for survey $3$?",
+    questionTable: { headers: ["Survey", "Sample size", "Margin of error"], rows: [["1", "300", "5.6"], ["2", "1,200", "2.8"], ["3", "600", "?"]] },
     choices: [
-      // distractor: divides $6.0$ by the sample-size ratio $9$ instead of by $\sqrt{9} = 3$
-      { id: "A", text: "$0.67$" },
-      { id: "B", text: "$2.0$" },
-      // distractor: pairs survey 1's margin of error with the ratio of survey 3's sample size to survey 2's
-      { id: "C", text: "$3.0$" },
-      // distractor: multiplies by $3$ instead of dividing
-      { id: "D", text: "$18.0$" }
+      // distractor: picks a margin smaller than 2.8, that of the largest sample
+      { id: "A", text: "$2.0$" },
+      // distractor: picks a margin just below 2.8, still smaller than that of the largest sample
+      { id: "B", text: "$2.4$" },
+      { id: "C", text: "$4.0$" },
+      // distractor: picks a margin larger than that of the smallest sample
+      { id: "D", text: "$6.2$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** From survey $1$ to survey $3$, the sample size is multiplied by $\\frac{3600}{400} = 9$, so the margin of error is divided by $\\sqrt{9} = 3$: $\\frac{6.0}{3} = 2.0$.\n\n**The Full Solution:**\nStep 1: Confirm the rule with the two completed rows. Going from $400$ to $900$ multiplies the sample size by $\\frac{9}{4}$, so the margin of error is divided by $\\sqrt{\\frac{9}{4}} = \\frac{3}{2}$: $6.0 \\div \\frac{3}{2} = 4.0$, matching the table.\nStep 2: Apply the same rule from survey $1$ to survey $3$: $\\frac{3600}{400} = 9$, and $\\sqrt{9} = 3$, so the margin of error is $\\frac{6.0}{3} = 2.0$ percentage points.\nStep 3: Check from survey $2$: $\\frac{3600}{900} = 4$, $\\sqrt{4} = 2$, and $\\frac{4.0}{2} = 2.0$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.67$): $\\frac{6.0}{9}$, dividing by the sample-size ratio without taking its square root.\n* Choice C ($3.0$): $\\frac{6.0}{2}$, which uses the ratio $\\frac{3600}{900} = 4$ and its square root $2$ but keeps survey $1$'s margin of error, mixing rows.\n* Choice D ($18.0$): $6.0 \\times 3$; multiplying instead of dividing makes the largest sample the least precise.\n\n**Test Day Takeaway:** When a table gives two complete rows, use them to confirm the $\\frac{1}{\\sqrt{n}}$ rule before extending it to the missing entry.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Survey $3$ is larger than survey $1$ and smaller than survey $2$, so its margin of error must be between $2.8$ and $5.6$; only $4.0$ is.\n\n**The Full Solution:**\nStep 1: A larger random sample generally gives a smaller margin of error, so the margins of error should decrease as the sample size increases.\nStep 2: Survey $3$, with $600$ people, is larger than survey $1$ ($300$ people, margin $5.6$) and smaller than survey $2$ ($1{,}200$ people, margin $2.8$).\nStep 3: So the margin of error for survey $3$ should be less than $5.6$ and greater than $2.8$. Of the choices, only $4.0$ is in that range. Check: $2.8 < 4.0 < 5.6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.0$): this is less than $2.8$, the margin of the largest survey; a smaller survey cannot be expected to be more precise.\n* Choice B ($2.4$): this is also less than $2.8$, so it would make survey $3$ more precise than the larger survey $2$.\n* Choice D ($6.2$): this is greater than $5.6$, so it would make survey $3$ less precise than the smaller survey $1$.\n\n**Test Day Takeaway:** Order the surveys by sample size; the margins of error run in the opposite order. A middle-sized sample gets a middle-sized margin.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "sample-size-for-margin-reduction",
@@ -6210,9 +6210,9 @@ export const problemSolvingBank = [
     skills: ["margin-of-error"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A survey has a margin of error of $6.3\\%$. If the sample size is multiplied by $k$ and nothing else changes, the margin of error becomes $0.9\\%$. What is the value of $k$?",
-    correctAnswer: "49",
-    explanation: "**SAT Pattern: Sample Size for Margin Reduction**\n\n**The correct answer is $49$.**\n\n**The Fast Way (~15s):** The margin of error shrinks by a factor of $\\frac{6.3}{0.9} = 7$, so the sample size must grow by $7^2 = 49$.\n\n**The Full Solution:**\nStep 1: For a fixed method and confidence level, the margin of error is proportional to $\\frac{1}{\\sqrt{n}}$.\nStep 2: The new margin of error is $\\frac{0.9}{6.3} = \\frac{1}{7}$ of the old one, so $\\sqrt{n}$ must be $7$ times as large.\nStep 3: If $\\sqrt{n}$ is multiplied by $7$, then $n$ is multiplied by $7^2 = 49$, so $k = 49$. Check: with $n$ replaced by $49n$, the margin of error becomes $\\frac{1}{\\sqrt{49}} = \\frac{1}{7}$ of what it was, and $\\frac{6.3}{7} = 0.9$ ✓\n\n**Common Mistakes:**\n* Reporting $7$: this is the factor by which the *margin of error* shrinks, not the factor for the sample size.\n* Reporting $5.4$: subtracting, $6.3 - 0.9$, treats the relationship as additive.\n* Reporting $\\frac{1}{49}$: inverting the direction, which would make the sample smaller and the margin of error larger.\n\n**Test Day Takeaway:** Precision costs the square: to make a margin of error $k$ times smaller, make the sample $k^2$ times bigger.",
+    question: "Random samples of $200$ and $800$ residents of a town were used to estimate the percent of residents who own a dog. The margins of error, calculated the same way, were $3$ and $6$ percentage points. The estimate from the larger sample was $34\\%$. Based on the larger sample, what is the greatest plausible percent of the town's residents who own a dog?",
+    correctAnswer: "37",
+    explanation: "**SAT Pattern: Sample Size for Margin Reduction**\n\n**The correct answer is $37$.**\n\n**The Fast Way (~20s):** The larger sample has the smaller margin of error, $3$ points, so the greatest plausible value is $34 + 3 = 37$.\n\n**The Full Solution:**\nStep 1: A larger random sample generally gives a smaller margin of error, so the sample of $800$ residents has the margin of error of $3$ percentage points.\nStep 2: The plausible values from the larger sample run from $34 - 3 = 31$ to $34 + 3 = 37$ percent.\nStep 3: The greatest plausible value is $37\\%$. Check: the margin of $6$ points belongs to the sample of $200$, the smaller and less precise sample. $\\checkmark$\n\n**Common Mistakes:**\n* Entering $40$, which uses the margin of error of $6$ points; that margin belongs to the smaller sample.\n* Entering $31$, the least plausible value instead of the greatest.\n* Entering $34$, the estimate itself, without the margin of error.\n\n**Test Day Takeaway:** Match the margins of error to the samples first: the larger sample gets the smaller margin. Then add the margin to the estimate.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "sample-size-for-margin-reduction",
@@ -6226,18 +6226,18 @@ export const problemSolvingBank = [
     skills: ["margin-of-error"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A poll of $320$ randomly chosen commuters had a margin of error of $5.4\\%$. The poll will be repeated with $2{,}880$ commuters selected by the same method. Which of the following is closest to the margin of error of the new poll?",
+    question: "A random sample of $500$ of a store's customers estimated that $62\\%$ of its customers are satisfied with its hours, with an associated margin of error of $4.4\\%$. The survey was repeated with a random sample of $1{,}000$ customers, and the margin of error was calculated in the same way. Which of the following is true about the new margin of error?",
     choices: [
-      // distractor: divides by the sample-size ratio $9$ instead of by $\sqrt{9} = 3$
-      { id: "A", text: "$0.6\\%$" },
-      { id: "B", text: "$1.8\\%$" },
-      // distractor: halves the margin of error because the sample grew, without using the ratio
-      { id: "C", text: "$2.7\\%$" },
-      // distractor: multiplies by $3$ instead of dividing
-      { id: "D", text: "$16.2\\%$" }
+      { id: "A", text: "It is less than $4.4\\%$." },
+      // distractor: ignores the effect of sample size on the margin of error
+      { id: "B", text: "It is equal to $4.4\\%$." },
+      // distractor: thinks a larger sample gives a larger margin of error
+      { id: "C", text: "It is between $4.4\\%$ and $8.8\\%$." },
+      // distractor: doubles the margin of error because the sample size doubled
+      { id: "D", text: "It is equal to $8.8\\%$." }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $\\frac{2880}{320} = 9$, so the margin of error is divided by $\\sqrt{9} = 3$: $\\frac{5.4}{3} = 1.8$.\n\n**The Full Solution:**\nStep 1: With the procedure unchanged, the margin of error is proportional to $\\frac{1}{\\sqrt{n}}$.\nStep 2: The sample size grows by the factor $\\frac{2880}{320} = 9$, so $\\sqrt{n}$ grows by $\\sqrt{9} = 3$ and the margin of error shrinks by the same factor of $3$.\nStep 3: $\\frac{5.4}{3} = 1.8$, so the new margin of error is about $1.8\\%$. Check the reverse: to cut a margin of error to one-third, the sample must be $3^2 = 9$ times as large, and $9 \\times 320 = 2{,}880$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.6\\%$): $\\frac{5.4}{9}$, applying the sample-size ratio directly to the margin of error.\n* Choice C ($2.7\\%$): $\\frac{5.4}{2}$, halving the margin because the sample is \"much bigger\" instead of computing the ratio.\n* Choice D ($16.2\\%$): $5.4 \\times 3$; the factor of $3$ is right, but a bigger sample must lower the margin of error.\n\n**Test Day Takeaway:** Take the ratio of the sample sizes first, then square-root it; that number divides the old margin of error.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** A larger random sample generally gives a smaller margin of error, and the second sample is larger, so its margin of error is less than $4.4\\%$.\n\n**The Full Solution:**\nStep 1: When margins of error are calculated in the same way, a larger random sample generally leads to a smaller margin of error.\nStep 2: The second survey used $1{,}000$ customers, more than the $500$ in the first survey.\nStep 3: So the margin of error for the second survey is less than $4.4\\%$. Check: choices C and D both make the larger survey less precise, which is backward. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: doubling the sample size changes the margin of error.\n* Choice C: a margin of error greater than $4.4\\%$ would mean the larger sample is less precise, which is backward.\n* Choice D: the margin of error does not double when the sample size doubles; it gets smaller.\n\n**Test Day Takeaway:** More people in a random sample means a smaller margin of error. Any choice that makes the larger sample less precise is wrong.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "sample-size-for-margin-reduction",
@@ -6251,9 +6251,9 @@ export const problemSolvingBank = [
     skills: ["margin-of-error"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A random sample of $250$ solar panels gives an estimate with a margin of error of $8\\%$. What would the margin of error be, in percent, for a sample of $4{,}000$ panels?",
-    correctAnswer: "2",
-    explanation: "**SAT Pattern: Sample Size for Margin Reduction**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~15s):** $\\frac{4000}{250} = 16$ and $\\sqrt{16} = 4$, so the margin of error is $\\frac{8}{4} = 2$ percent.\n\n**The Full Solution:**\nStep 1: The margin of error is proportional to $\\frac{1}{\\sqrt{n}}$ when the method and confidence level are unchanged.\nStep 2: The sample size is multiplied by $\\frac{4000}{250} = 16$, so $\\sqrt{n}$ is multiplied by $\\sqrt{16} = 4$ and the margin of error is divided by $4$.\nStep 3: $\\frac{8}{4} = 2$, so the margin of error is $2\\%$. Check: quadrupling precision requires $4^2 = 16$ times the sample, and $16 \\times 250 = 4{,}000$. $\\checkmark$\n\n**Common Mistakes:**\n* Reporting $0.5$: dividing $8$ by the sample-size ratio $16$ instead of by $\\sqrt{16} = 4$.\n* Reporting $4$: halving the margin of error, which corresponds to only quadrupling the sample size.\n* Reporting $32$: multiplying by $4$ instead of dividing, which makes the larger sample less precise.\n\n**Test Day Takeaway:** Sample size up by a factor of $k$ means margin of error down by a factor of $\\sqrt{k}$ — always the square root, never the factor itself.",
+    question: "Random samples of $60$ trout and $240$ trout from a lake were used to estimate the mean length of the lake's trout. One sample's margin of error was $1.2$ centimeters and the other's was $2.4$ centimeters, calculated the same way. The smaller sample gave a mean of $31.5$ centimeters. Based on the smaller sample, what is the least plausible value, in centimeters, of the mean length?",
+    correctAnswer: "29.1",
+    explanation: "**SAT Pattern: Sample Size for Margin Reduction**\n\n**The correct answer is $29.1$.**\n\n**The Fast Way (~20s):** The smaller sample has the larger margin of error, $2.4$ centimeters, so the least plausible value is $31.5 - 2.4 = 29.1$.\n\n**The Full Solution:**\nStep 1: A smaller random sample generally gives a larger margin of error, so the sample of $60$ trout has the margin of error of $2.4$ centimeters.\nStep 2: The plausible values from the smaller sample run from $31.5 - 2.4 = 29.1$ to $31.5 + 2.4 = 33.9$ centimeters.\nStep 3: The least plausible value is $29.1$ centimeters. Check: the margin of $1.2$ centimeters belongs to the sample of $240$, the larger and more precise sample. $\\checkmark$\n\n**Common Mistakes:**\n* Entering $30.3$, which uses the margin of error of $1.2$ centimeters; that margin belongs to the larger sample.\n* Entering $33.9$, the greatest plausible value instead of the least.\n* Entering $31.5$, the estimate itself, without the margin of error.\n\n**Test Day Takeaway:** The smaller sample gets the larger margin of error. Subtract it from the estimate for the least plausible value.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "sample-size-for-margin-reduction",
@@ -6267,18 +6267,18 @@ export const problemSolvingBank = [
     skills: ["margin-of-error"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A random sample of size $n$ gives an estimate with a margin of error of $m$. Which of the following is the sample size that, by the same method, gives a margin of error of $\\frac{m}{5}$?",
+    question: "A random sample of $400$ adults in a state estimated that $53\\%$ of the state's adults support a new park, with an associated margin of error of $4\\%$. A second random sample of $1{,}600$ adults from the state also gave an estimate of $53\\%$, and its margin of error was calculated in the same way. Which of the following is the most appropriate conclusion?",
     choices: [
-      // distractor: inverts the relationship, shrinking the sample as the margin of error shrinks
-      { id: "A", text: "$\\frac{n}{25}$" },
-      // distractor: uses the factor $5$ without squaring it
-      { id: "B", text: "$5n$" },
-      // distractor: doubles the factor $5$ instead of squaring it
-      { id: "C", text: "$10n$" },
-      { id: "D", text: "$25n$" }
+      // distractor: reverses the effect of sample size on the margin of error
+      { id: "A", text: "The interval of plausible values from the second sample is wider than the interval from the first sample." },
+      { id: "B", text: "The interval of plausible values from the second sample is narrower than the interval from the first sample." },
+      // distractor: assumes equal estimates mean equal margins of error
+      { id: "C", text: "The two samples give the same interval of plausible values, because their estimates are equal." },
+      // distractor: treats a more precise estimate as an exact value
+      { id: "D", text: "The second sample shows that exactly $53\\%$ of the state's adults support the new park." }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The margin of error is divided by $5$, and the margin of error varies as $\\frac{1}{\\sqrt{n}}$, so the sample size is multiplied by $5^2 = 25$.\n\n**The Full Solution:**\nStep 1: Write the relationship as $m = \\frac{k}{\\sqrt{n}}$ for some constant $k$ fixed by the method and the confidence level.\nStep 2: Let $N$ be the second sample size. Then $\\frac{m}{5} = \\frac{k}{\\sqrt{N}}$, and substituting $m = \\frac{k}{\\sqrt{n}}$ gives $\\frac{k}{5\\sqrt{n}} = \\frac{k}{\\sqrt{N}}$, so $\\sqrt{N} = 5\\sqrt{n}$.\nStep 3: Squaring both sides gives $N = 25n$. Check with numbers: if $n = 4$ and $k = 2$, then $m = 1$; with $N = 100$, the margin of error is $\\frac{2}{10} = 0.2 = \\frac{m}{5}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{n}{25}$): the factor $25$ is right, but dividing the sample size by it makes the margin of error $5$ times *larger*.\n* Choice B ($5n$): applies the margin-of-error factor straight to $n$; multiplying $n$ by $5$ divides the margin of error by only $\\sqrt{5} \\approx 2.24$.\n* Choice C ($10n$): doubles the factor instead of squaring it; $\\sqrt{10} \\approx 3.16$, not $5$.\n\n**Test Day Takeaway:** Set up $m = \\frac{k}{\\sqrt{n}}$ and solve. In symbols the square is impossible to forget, and the same setup answers every version of this question.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The larger second sample has a smaller margin of error, so its interval around the same estimate, $53\\%$, is narrower.\n\n**The Full Solution:**\nStep 1: The interval of plausible values is the estimate plus or minus the margin of error, so its width is twice the margin of error.\nStep 2: The second sample, with $1{,}600$ adults, is larger than the first, with $400$ adults, so its margin of error is smaller than $4\\%$.\nStep 3: Both intervals are centered at $53\\%$, and the second has the smaller margin of error, so it is narrower. Check: a narrower interval still contains a range of values, so the second sample does not give an exact percent. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: a wider interval would require a larger margin of error, which comes from a smaller sample, not a larger one.\n* Choice C: equal estimates put the two intervals at the same center, but the widths depend on the margins of error, which differ.\n* Choice D: the second sample has a margin of error too, so the true percent is still a range of plausible values.\n\n**Test Day Takeaway:** Interval width is set by the margin of error, and the margin of error is set by the sample size. Same center, larger sample, narrower interval.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "sample-size-for-margin-reduction",
@@ -6292,9 +6292,9 @@ export const problemSolvingBank = [
     skills: ["margin-of-error"],
     difficulty: "hard",
     type: "fill-in",
-    question: "A random sample of $384$ adults gives an estimate with a margin of error of $4.5\\%$. Using the same method, how many more adults must be sampled to reduce the margin of error to $1.5\\%$?",
-    correctAnswer: "3072",
-    explanation: "**SAT Pattern: Sample Size for Margin Reduction**\n\n**The correct answer is $3{,}072$.**\n\n**The Fast Way (~25s):** The margin of error must shrink by a factor of $\\frac{4.5}{1.5} = 3$, so the sample must grow to $3^2 \\times 384 = 3{,}456$; the question asks for the increase, $3456 - 384 = 3{,}072$.\n\n**The Full Solution:**\nStep 1: The margin of error is proportional to $\\frac{1}{\\sqrt{n}}$, and it must be divided by $\\frac{4.5}{1.5} = 3$.\nStep 2: Dividing the margin of error by $3$ requires multiplying the sample size by $3^2 = 9$, so the required sample size is $9 \\times 384 = 3{,}456$ adults.\nStep 3: The sample already has $384$ adults, so $3456 - 384 = 3{,}072$ more adults must be sampled. Check: $8 \\times 384 = 3{,}072$, and adding $8$ times the original sample to the original gives $9$ times it. $\\checkmark$\n\n**Common Mistakes:**\n* Reporting $3{,}456$: that is the required total sample size, not the number of *additional* adults.\n* Reporting $1{,}152$: multiplying $384$ by $3$ instead of by $3^2 = 9$.\n* Reporting $768$: multiplying by $3$ and then subtracting the original, $1152 - 384$, which compounds the missing square with the subtraction.\n* Reporting $9$: giving the factor itself rather than a number of adults.\n\n**Test Day Takeaway:** Square the precision factor to get the new sample size, then reread the question: \"how many more\" means subtract the sample you already have.",
+    question: "Based on a random sample of $300$ residents of a city, it is estimated that between $36\\%$ and $46\\%$ of the city's residents use the public library. A second random sample, of $1{,}200$ residents, gave the same estimate. The margins of error for the two samples, calculated the same way, were $2.5$ and $5$ percentage points. Based on the second sample, what is the greatest plausible percent of the city's residents who use the public library?",
+    correctAnswer: "43.5",
+    explanation: "**SAT Pattern: Sample Size for Margin Reduction**\n\n**The correct answer is $43.5$.**\n\n**The Fast Way (~30s):** The estimate is $\\frac{36 + 46}{2} = 41$. The larger second sample has the smaller margin of error, $2.5$, so the greatest plausible value is $41 + 2.5 = 43.5$.\n\n**The Full Solution:**\nStep 1: The first interval is the estimate plus or minus the margin of error, so the estimate is its midpoint, $\\frac{36 + 46}{2} = 41$ percent, and the first margin of error is $46 - 41 = 5$ percentage points.\nStep 2: A larger random sample generally gives a smaller margin of error, so the second sample, $1{,}200$ residents, has the margin of error of $2.5$ percentage points.\nStep 3: The second sample gives the same estimate, $41\\%$, so its plausible values run from $41 - 2.5 = 38.5$ to $41 + 2.5 = 43.5$ percent. The greatest plausible value is $43.5$. Check: the first sample's margin, $5$, matches its interval, which is $10$ points wide. $\\checkmark$\n\n**Common Mistakes:**\n* Entering $46$, the greatest plausible value from the first sample, not the second.\n* Entering $48.5$, from adding the new margin of error, $2.5$, to the old endpoint, $46$, instead of to the estimate, $41$.\n* Entering $38.5$, the least plausible value instead of the greatest.\n\n**Test Day Takeaway:** Find the estimate as the midpoint of the interval, give the smaller margin of error to the larger sample, then add it to the estimate.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "sample-size-for-margin-reduction",
@@ -6469,19 +6469,19 @@ export const problemSolvingBank = [
     skills: ["unit-conversion"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The table shows the constant rate at which each of three machines fills bottles. If all three machines operate at the same time, how many bottles do they fill in $1$ hour?",
-    diagram: { type: "dataTable", params: { headers: ["Machine", "Filling rate"], rows: [["A", "9 bottles every 4 seconds"], ["B", "5 bottles every 2 seconds"], ["C", "7 bottles every 3 seconds"]] } },
+    question: "The table shows the constant rate at which each of two machines fills bottles. If both machines operate at the same time, how many bottles do they fill in $1$ hour?",
+    diagram: { type: "dataTable", params: { headers: ["Machine", "Filling rate"], rows: [["A", "9 bottles every 4 seconds"], ["B", "7 bottles every 3 seconds"]] } },
     choices: [
-      // distractor: gives the number of bottles filled in $1$ minute
-      { id: "A", text: "$425$" },
-      // distractor: adds the numerators and the denominators of the three rates
-      { id: "B", text: "$8{,}400$" },
-      // distractor: omits machine C
-      { id: "C", text: "$17{,}100$" },
-      { id: "D", text: "$25{,}500$" }
+      // distractor: finds the combined number of bottles per minute and stops
+      { id: "A", text: "$275$" },
+      // distractor: number of bottles machine A alone fills in 1 hour
+      { id: "B", text: "$8{,}100$" },
+      { id: "C", text: "$16{,}500$" },
+      // distractor: multiplies by 60 one time too many
+      { id: "D", text: "$990{,}000$" }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Unit Conversion**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The rates are $\\frac{9}{4}$, $\\frac{5}{2}$, and $\\frac{7}{3}$ bottles per second, which total $\\frac{85}{12}$ bottles per second; $\\frac{85}{12} \\times 3{,}600 = 25{,}500$.\n\n**The Full Solution:**\nStep 1: Write each machine's rate in bottles per second: machine A gives $\\frac{9}{4} = 2.25$, machine B gives $\\frac{5}{2} = 2.5$, and machine C gives $\\frac{7}{3}$.\nStep 2: Because the machines run at the same time, the combined rate is the sum: $\\frac{9}{4} + \\frac{5}{2} + \\frac{7}{3} = \\frac{27 + 30 + 28}{12} = \\frac{85}{12}$ bottles per second.\nStep 3: Multiply by the number of seconds in an hour: $\\frac{85}{12} \\times 3{,}600 = 85 \\times 300 = 25{,}500$ bottles. Check machine by machine: $2.25 \\times 3{,}600 = 8{,}100$, $2.5 \\times 3{,}600 = 9{,}000$, and $\\frac{7}{3} \\times 3{,}600 = 8{,}400$, and $8{,}100 + 9{,}000 + 8{,}400 = 25{,}500$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($425$): $\\frac{85}{12} \\times 60$, the number of bottles filled in one minute rather than one hour.\n* Choice B ($8{,}400$): from $\\frac{9 + 5 + 7}{4 + 2 + 3} = \\frac{21}{9}$ bottles per second, which adds the rates by adding numerators and denominators.\n* Choice C ($17{,}100$): $(\\frac{9}{4} + \\frac{5}{2}) \\times 3{,}600$, the total for machines A and B only.\n\n**Test Day Takeaway:** Convert every rate to the same per-unit form before adding, then convert the time once at the end.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Unit Conversion**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Machine A fills $\\frac{9}{4} \\times 3{,}600 = 8{,}100$ bottles per hour and machine B fills $\\frac{7}{3} \\times 3{,}600 = 8{,}400$, so together they fill $16{,}500$.\n\n**The Full Solution:**\nStep 1: There are $60 \\times 60 = 3{,}600$ seconds in $1$ hour.\nStep 2: Machine A fills $9$ bottles every $4$ seconds, so in $1$ hour it fills $\\frac{3{,}600}{4} \\times 9 = 8{,}100$ bottles. Machine B fills $7$ bottles every $3$ seconds, so it fills $\\frac{3{,}600}{3} \\times 7 = 8{,}400$ bottles.\nStep 3: Together they fill $8{,}100 + 8{,}400 = 16{,}500$ bottles in $1$ hour. Check: per minute, A fills $\\frac{9}{4} \\times 60 = 135$ and B fills $\\frac{7}{3} \\times 60 = 140$, and $275 \\times 60 = 16{,}500$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($275$): $135 + 140 = 275$ is the number of bottles filled in $1$ minute, not $1$ hour.\n* Choice B ($8{,}100$): this counts machine A only; machine B is also running.\n* Choice D ($990{,}000$): this is $16{,}500 \\times 60$, which converts from minutes to hours one extra time.\n\n**Test Day Takeaway:** Convert every rate to the same unit of time before adding. One hour is $3{,}600$ seconds.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "unit-conversion",
@@ -6683,19 +6683,19 @@ export const problemSolvingBank = [
     skills: ["find-median"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The box plot summarizes the sodium content, in milligrams per serving, of $28$ canned soups. What is the interquartile range, in milligrams per serving, of the data?",
+    question: "The box plot summarizes the sodium content, in milligrams per serving, of $28$ canned soups. What is the range, in milligrams per serving, of the data?",
     diagram: { type: "boxPlot", params: { min: 200, q1: 380, median: 470, q3: 620, max: 810, xLabel: "Sodium content (mg per serving)", xMin: 150, xMax: 850, xGridStep: 50, xLabelStep: 100 } },
     choices: [
-      // distractor: measures from the first quartile to the median, 470 - 380 = 90
-      { id: "A", text: "$90$" },
-      // distractor: measures from the median to the third quartile, 620 - 470 = 150
-      { id: "B", text: "$150$" },
-      { id: "C", text: "$240$" },
-      // distractor: subtracts the minimum from the maximum, 810 - 200 = 610, which is the range
-      { id: "D", text: "$610$" }
+      // distractor: subtracts the ends of the box, 380 from 620, instead of the ends of the whiskers
+      { id: "A", text: "$240$" },
+      // distractor: reads the median, the line inside the box
+      { id: "B", text: "$470$" },
+      { id: "C", text: "$610$" },
+      // distractor: reads the maximum value and does not subtract the minimum
+      { id: "D", text: "$810$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Box Plot Interpretation**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The interquartile range is the width of the box: $620 - 380 = 240$.\n\n**The Full Solution:**\nStep 1: The box runs from the first quartile to the third quartile. Here $Q_1 = 380$ and $Q_3 = 620$.\nStep 2: The interquartile range is $Q_3 - Q_1 = 620 - 380$.\nStep 3: So the interquartile range is $240$ milligrams per serving. Check: the two parts of the box, $470 - 380 = 90$ and $620 - 470 = 150$, add to $240$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($90$): measures only the left part of the box, from $Q_1$ to the median.\n* Choice B ($150$): measures only the right part of the box, from the median to $Q_3$.\n* Choice D ($610$): subtracts the whisker ends, $810 - 200$, which gives the range.\n\n**Test Day Takeaway:** The interquartile range is the box; the range is the whiskers. Subtract the two edges of the box and ignore the median line.",
+    explanation: "**SAT Pattern: Box Plot Interpretation**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The range is the maximum minus the minimum: $810 - 200 = 610$.\n\n**The Full Solution:**\nStep 1: In a box plot, the left end of the left whisker is the minimum and the right end of the right whisker is the maximum.\nStep 2: Here the minimum is $200$ and the maximum is $810$ milligrams per serving.\nStep 3: The range is $810 - 200 = 610$ milligrams per serving. Check: $200 + 610 = 810$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($240$): $620 - 380$ uses the ends of the box, not the ends of the whiskers.\n* Choice B ($470$): this is the median, the line inside the box.\n* Choice D ($810$): this is the maximum value; the range is the maximum minus the minimum.\n\n**Test Day Takeaway:** Range = greatest value $-$ least value. On a box plot, those are the ends of the whiskers.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "box-plot-interpretation",
@@ -6761,10 +6761,10 @@ export const problemSolvingBank = [
     skills: ["find-median"],
     difficulty: "medium",
     type: "fill-in",
-    question: "The box plot summarizes the wingspans, in centimeters, of $46$ birds. The range of the wingspans is how many centimeters greater than the interquartile range of the wingspans?",
-    diagram: { type: "boxPlot", params: { min: 96, q1: 118, median: 129, q3: 143, max: 168, xLabel: "Wingspan (cm)", xMin: 90, xMax: 175, xGridStep: 5, xLabelStep: 10 } },
-    correctAnswer: "47",
-    explanation: "**SAT Pattern: Box Plot Interpretation**\n\n**The correct answer is 47.**\n\n**The Fast Way (~15s):** Range $= 168 - 96 = 72$ and interquartile range $= 143 - 118 = 25$, so the difference is $72 - 25 = 47$.\n\n**The Full Solution:**\nStep 1: The range uses the ends of the whiskers: $168 - 96 = 72$ centimeters.\nStep 2: The interquartile range uses the edges of the box: $143 - 118 = 25$ centimeters.\nStep 3: The difference is $72 - 25 = 47$ centimeters. Check: this equals the two whisker lengths combined, $(118 - 96) + (168 - 143) = 22 + 25 = 47$ ✓\n\n**Common Mistakes:**\n* $72$ or $25$: computes only one of the two measures and stops.\n* $39$: uses the median as an endpoint, computing $168 - 129 = 39$.\n* $-47$: subtracts in the wrong order.\n\n**Test Day Takeaway:** The range minus the interquartile range is the total length of the two whiskers. Compute each measure, then subtract.",
+    question: "The box plots summarize the wingspans, in centimeters, of the birds in two flocks, A and B. What is the positive difference, in centimeters, between the range of the wingspans for flock A and the range of the wingspans for flock B?",
+    diagram: { type: "boxPlot", params: { distributions: [{ label: "Flock A", min: 96, q1: 118, median: 129, q3: 143, max: 168 }, { label: "Flock B", min: 104, q1: 120, median: 133, q3: 140, max: 158 }], xMin: 90, xMax: 175, xGridStep: 5, xLabelStep: 10, xLabel: "Wingspan (cm)" } },
+    correctAnswer: "18",
+    explanation: "**SAT Pattern: Box Plot Interpretation**\n\n**The correct answer is $18$.**\n\n**The Fast Way (~20s):** Flock A: $168 - 96 = 72$. Flock B: $158 - 104 = 54$. The difference is $72 - 54 = 18$.\n\n**The Full Solution:**\nStep 1: The range of each data set is its maximum minus its minimum, the distance between the ends of the whiskers.\nStep 2: Flock A has a minimum of $96$ and a maximum of $168$, so its range is $168 - 96 = 72$ centimeters. Flock B has a minimum of $104$ and a maximum of $158$, so its range is $158 - 104 = 54$ centimeters.\nStep 3: The positive difference between the ranges is $72 - 54 = 18$ centimeters. Check: $54 + 18 = 72$. $\\checkmark$\n\n**Common Mistakes:**\n* Entering $10$, the difference between the maximums ($168 - 158$), or $8$, the difference between the minimums.\n* Entering $4$, the difference between the medians ($133 - 129$).\n* Entering $72$ or $54$, the range of only one flock.\n\n**Test Day Takeaway:** Find each range separately (maximum minus minimum), then subtract the two ranges.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "box-plot-interpretation",
@@ -6804,19 +6804,19 @@ export const problemSolvingBank = [
     skills: ["find-median"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The box plot summarizes the diameters, in millimeters, of $60$ ball bearings. Approximately how many of the ball bearings have a diameter greater than $12.4$ millimeters?",
-    diagram: { type: "boxPlot", params: { min: 11.2, q1: 11.8, median: 12.1, q3: 12.4, max: 13, xLabel: "Diameter (mm)", xMin: 11, xMax: 13.2, xGridStep: 0.2, xLabelStep: 0.4 } },
+    question: "The box plot summarizes the lengths, in millimeters, of the $60$ bolts in data set A. Data set B is created by adding $6$ millimeters to each length in data set A. What are the median and the range of data set B?",
+    diagram: { type: "boxPlot", params: { min: 42, q1: 48, median: 51, q3: 55, max: 63, xLabel: "Bolt length (mm)", xMin: 40, xMax: 66, xGridStep: 1, xLabelStep: 5 } },
     choices: [
-      { id: "A", text: "$15$" },
-      // distractor: uses the half of the data above the median, 0.50(60), instead of the quarter above the third quartile
-      { id: "B", text: "$30$" },
-      // distractor: counts the bearings at or below 12.4 millimeters, 0.75(60), the opposite of what was asked
-      { id: "C", text: "$45$" },
-      // distractor: counts the whole sample
-      { id: "D", text: "$60$" }
+      // distractor: keeps the median of data set A, but adding 6 to every value moves the median up by 6
+      { id: "A", text: "Median: $51$; range: $21$" },
+      { id: "B", text: "Median: $57$; range: $21$" },
+      // distractor: adds 6 to the range too, but the minimum and maximum both move up by 6
+      { id: "C", text: "Median: $57$; range: $27$" },
+      // distractor: leaves the median unchanged and adds 6 to the range, both backward
+      { id: "D", text: "Median: $51$; range: $27$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Box Plot Interpretation**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $12.4$ is the third quartile, so about $25\\%$ of the data lie above it: $0.25(60) = 15$.\n\n**The Full Solution:**\nStep 1: The right edge of the box is at $12.4$ millimeters, so $12.4$ is the third quartile.\nStep 2: About $25\\%$ of the values in a data set lie above the third quartile.\nStep 3: So about $0.25(60) = 15$ bearings have a diameter greater than $12.4$ millimeters. Check: about $75\\%$, or $45$ bearings, are at or below $12.4$, and $15 + 45 = 60$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($30$): uses the median, so it counts the half of the data above $12.1$ instead of the quarter above $12.4$.\n* Choice C ($45$): counts the bearings at or below the third quartile, the opposite of what was asked.\n* Choice D ($60$): counts every bearing in the sample.\n\n**Test Day Takeaway:** Each of the four sections of a box plot holds about a quarter of the data. Find which edge the given value sits on, then count the quarters beyond it.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Box Plot Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Adding $6$ to every value moves the median up $6$, from $51$ to $57$, and leaves the range, $63 - 42 = 21$, unchanged.\n\n**The Full Solution:**\nStep 1: From the box plot, data set A has a median of $51$, a minimum of $42$ and a maximum of $63$, so its range is $63 - 42 = 21$.\nStep 2: Adding $6$ to every value shifts the whole data set $6$ to the right: the median becomes $51 + 6 = 57$.\nStep 3: The minimum becomes $48$ and the maximum becomes $69$, so the range is $69 - 48 = 21$, the same as before. Check: the spread does not change when every value moves the same distance. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: $51$ is the median of data set A; every value, including the middle one, increased by $6$.\n* Choice C: the range is a difference, and adding $6$ to both the maximum and the minimum cancels in the subtraction.\n* Choice D: this has both effects backward: the median changes and the range does not.\n\n**Test Day Takeaway:** Adding the same number to every value shifts the center by that number and leaves the spread alone.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "box-plot-interpretation",
@@ -6836,13 +6836,13 @@ export const problemSolvingBank = [
       // distractor: the new median is the 40th value, which can equal 115 when the 40th and 41st values are both 115
       { id: "A", text: "Their median is less than $115$ gallons." },
       { id: "B", text: "Their mean is less than the mean of all $80$ values." },
-      // distractor: removing one extreme value can leave both quartiles, and so the interquartile range, unchanged
-      { id: "C", text: "Their interquartile range is less than that of all $80$ values." },
+      // distractor: removing the greatest value leaves the least value, 40, in the data
+      { id: "C", text: "Their least value is greater than $40$ gallons." },
       // distractor: removing the maximum cannot widen the span from minimum to maximum, so the range cannot increase
       { id: "D", text: "Their range is greater than that of all $80$ values." }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Box Plot Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The removed value, $420$, is greater than the mean of the data, so taking it out lowers the mean.\n\n**The Full Solution:**\nStep 1: The greatest value is $420$ gallons, the end of the right whisker. The data also include values less than $420$, such as the minimum, $40$, so the mean of the $80$ values is less than $420$.\nStep 2: Removing a value that is greater than the mean always lowers the mean of what remains.\nStep 3: So the mean of the remaining $79$ values must be less than the mean of all $80$ values. Check: the median, quartiles and range can stay the same or shrink, but none of choices A, C or D is guaranteed ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: the original median, $115$, is the average of the $40$th and $41$st values, and the new median is the $40$th value. If both of those values are $115$, the median does not change.\n* Choice C: removing one value at the far end can leave the quartiles where they were, so the interquartile range need not decrease.\n* Choice D: removing the maximum can only shorten the range or leave it the same, never lengthen it.\n\n**Test Day Takeaway:** For a \"must be true\" question, test each choice for a case where it fails. Removing an extreme value always moves the mean, but the median and quartiles may not move at all.",
+    explanation: "**SAT Pattern: Box Plot Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The removed value, $420$, is greater than the mean of the data, so taking it out lowers the mean.\n\n**The Full Solution:**\nStep 1: The greatest value is $420$ gallons, the end of the right whisker. The data also include values less than $420$, such as the minimum, $40$, so the mean of the $80$ values is less than $420$.\nStep 2: Removing a value that is greater than the mean always lowers the mean of what remains.\nStep 3: So the mean of the remaining $79$ values must be less than the mean of all $80$ values. Check: the median can stay at $115$, the least value stays at $40$, and the range cannot grow, so none of choices A, C or D is guaranteed. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: the original median, $115$, is the average of the $40$th and $41$st values, and the new median is the $40$th value. If both of those values are $115$, the median does not change.\n* Choice C: only the greatest value is removed, so the least value, $40$ gallons, is still in the data.\n* Choice D: removing the maximum can only shorten the range or leave it the same, never lengthen it.\n\n**Test Day Takeaway:** For a \"must be true\" question, test each choice for a case where it fails. Removing an extreme value always moves the mean, but the median may not move at all.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "box-plot-interpretation",
@@ -6900,18 +6900,18 @@ export const problemSolvingBank = [
     skills: ["standard-deviation-concept"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The $24$ scores in class A range from $79$ to $83$. The $24$ scores in class B range from $46$ to $97$. Which class's scores have the greater standard deviation?",
+    question: "Which of the following data sets has the greatest standard deviation?",
     choices: [
-      // distractor: reverses the comparison; class A's scores all lie within 4 points of one another
-      { id: "A", text: "Class A" },
-      { id: "B", text: "Class B" },
-      // distractor: treats the equal number of scores as equal spread
-      { id: "C", text: "The standard deviations are equal." },
-      // distractor: assumes the individual scores are needed, but class A's scores cannot be spread as much as class B's
-      { id: "D", text: "There is not enough information to compare the standard deviations." }
+      // distractor: reverses greatest and least: every value equals the mean, so this standard deviation is 0, the least possible
+      { id: "A", text: "$8$, $8$, $8$, $8$, $8$" },
+      // distractor: consecutive values sit close to the mean of 8, so this set has little spread
+      { id: "B", text: "$6$, $7$, $8$, $9$, $10$" },
+      // distractor: its values are 2 apart, but the values in choice D are 3 apart and farther from the mean
+      { id: "C", text: "$4$, $6$, $8$, $10$, $12$" },
+      { id: "D", text: "$2$, $5$, $8$, $11$, $14$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Standard Deviation Comparison**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Class A's scores all lie within a $4$-point band, while class B's scores stretch over $51$ points, so class B has the greater standard deviation.\n\n**The Full Solution:**\nStep 1: Every score in class A is between $79$ and $83$, so no score in class A is more than $4$ points from the class mean.\nStep 2: Class B includes a score of $46$ and a score of $97$. These are $51$ points apart, so at least one of them is more than $25$ points from the class mean.\nStep 3: Since class B's scores lie much farther from their mean, class B has the greater standard deviation. Check: a score $25$ points from the mean is impossible in class A ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: reverses the comparison; scores in a narrow band have a small standard deviation.\n* Choice C: the number of scores does not determine the spread.\n* Choice D: the ranges alone settle it, because class A's scores can never be as far from their mean as class B's extreme scores are from theirs.\n\n**Test Day Takeaway:** A narrow range forces a small standard deviation. When one data set's range is many times the other's, the comparison is settled without the individual values.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Standard Deviation Comparison**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Every set has a mean of $8$, and the values in choice D lie farthest from $8$, so choice D has the greatest standard deviation.\n\n**The Full Solution:**\nStep 1: Each data set is balanced around $8$, so each has a mean of $8$.\nStep 2: The distances of the values from $8$ are $0, 0, 0, 0, 0$ in choice A; $2, 1, 0, 1, 2$ in choice B; $4, 2, 0, 2, 4$ in choice C; and $6, 3, 0, 3, 6$ in choice D.\nStep 3: Standard deviation measures how far the values are from the mean, and the values in choice D are the farthest from $8$. So choice D has the greatest standard deviation. Check: the ranges are $0$, $4$, $8$ and $12$, and choice D is the most spread out. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: every value equals the mean, so this standard deviation is $0$, the least possible, not the greatest.\n* Choice B: these values are only $1$ apart and stay within $2$ of the mean, so this set has little spread.\n* Choice C: these values are $2$ apart, but the values in choice D are $3$ apart and farther from the mean.\n\n**Test Day Takeaway:** Standard deviation measures spread from the mean. When the data sets share a mean, the set whose values sit farthest from it has the greatest standard deviation.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "standard-deviation-comparison",
@@ -6951,18 +6951,18 @@ export const problemSolvingBank = [
     skills: ["standard-deviation-concept"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "Data set V: $64$, $64$, $64$, $64$, $64$, $64$\nData set W: $58$, $58$, $64$, $64$, $70$, $70$\nWhich of the following correctly compares data sets V and W?",
+    question: "Data set V: $64$, $64$, $64$, $64$\nData set W: $59$, $62$, $66$, $69$\nWhich of the following correctly compares data sets V and W?",
     choices: [
-      // distractor: matches the means correctly but assumes equal means force equal spread
+      // distractor: matches the means but overlooks that W varies while V does not
       { id: "A", text: "The data sets have the same mean and the same standard deviation." },
       { id: "B", text: "The data sets have the same mean, and data set W has the greater standard deviation." },
-      // distractor: reverses which measure differs: the means are equal, and only W has any spread
+      // distractor: reverses which measure differs
       { id: "C", text: "The data sets have the same standard deviation, and data set W has the greater mean." },
-      // distractor: sees the larger values 70 in W and assumes its mean is greater, missing the balancing 58s
+      // distractor: thinks the spread in W raises its mean
       { id: "D", text: "Data set W has the greater mean and the greater standard deviation." }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Standard Deviation Comparison**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** W's values balance around $64$, so both means are $64$; every value in V equals $64$, so V has no spread, and W has the greater standard deviation.\n\n**The Full Solution:**\nStep 1: The mean of V is $64$, since every value is $64$. The mean of W is $\\frac{2(58) + 2(64) + 2(70)}{6} = \\frac{384}{6} = 64$.\nStep 2: Every value in V equals the mean, so the standard deviation of V is $0$. Four of the values in W are $6$ away from the mean, so the standard deviation of W is greater than $0$.\nStep 3: So the means are equal and W has the greater standard deviation. Check: the range of V is $0$ and the range of W is $12$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: the means are equal, but equal means do not force equal spread.\n* Choice C: reverses which measure differs.\n* Choice D: the $58$s balance the $70$s, so the mean of W is $64$, the same as V.\n\n**Test Day Takeaway:** A data set whose values are all equal has a standard deviation of $0$. Check the center and the spread separately; one can match while the other does not.",
+    explanation: "**SAT Pattern: Standard Deviation Comparison**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Both means are $64$; V has no spread at all, while W's values are spread around $64$, so W has the greater standard deviation.\n\n**The Full Solution:**\nStep 1: Mean of V: every value is $64$, so the mean is $64$. Mean of W: $\\frac{59 + 62 + 66 + 69}{4} = \\frac{256}{4} = 64$.\nStep 2: Every value in V equals the mean, so the standard deviation of V is $0$. The values in W are $5$, $2$, $2$ and $5$ away from the mean, so its standard deviation is greater than $0$.\nStep 3: The data sets have the same mean, and W has the greater standard deviation. Check: W is symmetric around $64$ ($59$ and $69$, $62$ and $66$), which confirms the mean of $64$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: the means are equal, but a data set whose values are all equal has a standard deviation of $0$, while W does not.\n* Choice C: the means are the same; it is the spread that differs.\n* Choice D: W's values are balanced around $64$, so spreading them out does not change the mean.\n\n**Test Day Takeaway:** Standard deviation measures how far the values are from the mean. A data set with every value equal has a standard deviation of $0$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "standard-deviation-comparison",
@@ -6976,9 +6976,9 @@ export const problemSolvingBank = [
     skills: ["standard-deviation-concept"],
     difficulty: "medium",
     type: "fill-in",
-    question: "The lengths of $8$ boards have a standard deviation of $3.5$ centimeters. What is this standard deviation in millimeters? ($1$ centimeter $= 10$ millimeters)",
-    correctAnswer: "35",
-    explanation: "**SAT Pattern: Standard Deviation Comparison**\n\n**The correct answer is 35.**\n\n**The Fast Way (~10s):** Converting multiplies every length by $10$, which multiplies every distance from the mean by $10$, so the standard deviation is $3.5(10) = 35$ millimeters.\n\n**The Full Solution:**\nStep 1: Converting from centimeters to millimeters multiplies each length by $10$, and it also multiplies the mean by $10$.\nStep 2: So each length's distance from the mean is multiplied by $10$, and the standard deviation, which measures those distances, is multiplied by $10$ as well.\nStep 3: The standard deviation is $3.5(10) = 35$ millimeters. Check: two boards $3.5$ centimeters apart are $35$ millimeters apart ✓\n\n**Common Mistakes:**\n* $3.5$: assumes a change of units leaves the standard deviation unchanged.\n* $0.35$: divides by $10$ instead of multiplying, converting in the wrong direction.\n* $350$: multiplies by $100$, the conversion for meters to centimeters.\n\n**Test Day Takeaway:** Multiplying every value by a number multiplies the standard deviation by that number. A unit conversion is just such a multiplication.",
+    question: "$6, 10, 11, 12, 21$\nOne value will be removed from the data set shown so that the four remaining values have the least possible standard deviation. Which value should be removed?",
+    correctAnswer: "21",
+    explanation: "**SAT Pattern: Standard Deviation Comparison**\n\n**The correct answer is $21$.**\n\n**The Fast Way (~15s):** The values $10$, $11$ and $12$ are close together; $21$ is farther from them than $6$ is, so removing $21$ leaves the least spread.\n\n**The Full Solution:**\nStep 1: Standard deviation measures how spread out the values are from their mean, so the remaining four values should be as close together as possible.\nStep 2: The values $10$, $11$ and $12$ are bunched together. The value $6$ is $4$ less than $10$, and the value $21$ is $9$ greater than $12$.\nStep 3: Removing $21$ leaves $6, 10, 11, 12$, which are closer together than $10, 11, 12, 21$. So $21$ should be removed. Check: the range of $6, 10, 11, 12$ is $6$, and the range of $10, 11, 12, 21$ is $11$. $\\checkmark$\n\n**Common Mistakes:**\n* Entering $6$, the least value; it is closer to the cluster than $21$ is.\n* Entering $11$, the middle value; removing a value near the center makes the spread larger, not smaller.\n* Entering the remaining standard deviation, a range, or a mean instead of the value that is removed.\n\n**Test Day Takeaway:** To shrink the standard deviation, remove the value that is farthest from the rest of the data.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "standard-deviation-comparison",
@@ -7042,9 +7042,9 @@ export const problemSolvingBank = [
     skills: ["standard-deviation-concept"],
     difficulty: "hard",
     type: "fill-in",
-    question: "$31, 34, 40, 43, 47, x$\nFor what value of $x$ does the data set shown have the least possible standard deviation?",
-    correctAnswer: "39",
-    explanation: "**SAT Pattern: Standard Deviation Comparison**\n\n**The correct answer is 39.**\n\n**The Fast Way (~25s):** A new value adds the least spread when it equals the mean of the other values, $\\frac{31 + 34 + 40 + 43 + 47}{5} = \\frac{195}{5} = 39$.\n\n**The Full Solution:**\nStep 1: The standard deviation measures how far values lie from the mean, so the sixth value should add as little distance as possible.\nStep 2: That happens when $x$ equals the mean of the other five values: $\\frac{31 + 34 + 40 + 43 + 47}{5} = \\frac{195}{5} = 39$.\nStep 3: With $x = 39$, the mean of all six values is still $39$, and the new value is $0$ away from it. Check: the sum of squared distances from the mean is $170$ for $x = 39$ and about $170.8$ for $x = 40$ ✓\n\n**Common Mistakes:**\n* $40$: uses the median of the five values instead of the mean.\n* $39.5$: averages the two middle values as if the list had an even number of values.\n* $195$: reports the sum of the five values instead of their mean.\n\n**Test Day Takeaway:** To keep the standard deviation as small as possible, place a new value at the mean of the existing values. It is the mean, not the median, that the standard deviation measures from.",
+    question: "$28, 35, 40, 45, 52, x$\nFor what value of $x$ does the data set shown have the least possible standard deviation?",
+    correctAnswer: "40",
+    explanation: "**SAT Pattern: Standard Deviation Comparison**\n\n**The correct answer is $40$.**\n\n**The Fast Way (~20s):** The five known values are balanced around $40$, so their mean is $40$. A new value at the mean adds no distance from the mean, so $x = 40$ gives the least spread.\n\n**The Full Solution:**\nStep 1: The known values pair off around $40$: $28$ and $52$ are each $12$ from $40$, and $35$ and $45$ are each $5$ from $40$. So their mean is $40$.\nStep 2: Standard deviation measures how far the values are from the mean. Any value of $x$ other than $40$ lies some distance from the center and adds to the spread.\nStep 3: The value $x = 40$ sits exactly at the mean, adds no distance, and keeps the mean at $40$, so it gives the least possible standard deviation. Check: $\\frac{28 + 35 + 40 + 45 + 52 + 40}{6} = \\frac{240}{6} = 40$, so the mean does not move. $\\checkmark$\n\n**Common Mistakes:**\n* Entering $28$ or $52$, a value at one end of the data, which increases the spread.\n* Entering $24$, the range of the data, or $12$, a distance from the mean, instead of a data value.\n* Entering $0$, which is far from every value and makes the spread much larger.\n\n**Test Day Takeaway:** To keep a standard deviation as small as possible, put the new value at the center of the data.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "standard-deviation-comparison",
@@ -7249,10 +7249,10 @@ export const problemSolvingBank = [
     skills: ["slope-from-points", "scatterplots"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The equation $y = 2.4x + 18$ models the height $y$, in centimeters, of a tomato plant $x$ weeks after it was planted. What is the best interpretation of $18$ in this context?",
+    question: "The equation $y = 3x + 18$ models the height $y$, in centimeters, of a tomato plant $x$ weeks after it was planted. What is the best interpretation of $18$ in this context?",
     choices: [
       { id: "A", text: "The predicted height, in centimeters, of the plant when it was planted" },
-      // distractor: interprets the coefficient 2.4, the rate of change, instead of the constant term
+      // distractor: interprets the coefficient 3, the rate of change, instead of the constant term
       { id: "B", text: "The predicted increase in the height of the plant, in centimeters, each week" },
       // distractor: reads the constant as a value of x rather than as the value of y when x = 0
       { id: "C", text: "The number of weeks after planting at which the predicted height of the plant is $0$ centimeters" },
@@ -7260,7 +7260,7 @@ export const problemSolvingBank = [
       { id: "D", text: "The greatest predicted height, in centimeters, of the plant" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Interpret Intercept of Best Fit**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The constant $18$ is the value of $y$ when $x = 0$: the predicted height at $0$ weeks, when the plant was planted.\n\n**The Full Solution:**\nStep 1: In $y = 2.4x + 18$, the constant term $18$ is the $y$-intercept, the value of $y$ when $x = 0$.\nStep 2: Here $x = 0$ means $0$ weeks after the plant was planted, and $y$ is the height in centimeters.\nStep 3: So $18$ is the predicted height, in centimeters, of the plant when it was planted. Check: $2.4(0) + 18 = 18$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: describes $2.4$, the slope, which is the predicted weekly increase in height.\n* Choice C: $18$ is a value of $y$, not of $x$; the model's height is never $0$ for $x \\ge 0$.\n* Choice D: the height in this model increases every week, so it has no greatest value.\n\n**Test Day Takeaway:** The constant term of a linear model is the predicted value of $y$ when $x = 0$. Translate \"$x = 0$\" into the context: the start, the moment of planting.",
+    explanation: "**SAT Pattern: Interpret Intercept of Best Fit**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The constant $18$ is the value of $y$ when $x = 0$: the predicted height at $0$ weeks, when the plant was planted.\n\n**The Full Solution:**\nStep 1: In $y = 3x + 18$, the constant term $18$ is the $y$-intercept, the value of $y$ when $x = 0$.\nStep 2: Here $x = 0$ means $0$ weeks after the plant was planted, and $y$ is the height in centimeters.\nStep 3: So $18$ is the predicted height, in centimeters, of the plant when it was planted. Check: $3(0) + 18 = 18$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: describes $3$, the slope, which is the predicted weekly increase in height.\n* Choice C: $18$ is a value of $y$, not of $x$; the model's height is never $0$ for $x \\ge 0$.\n* Choice D: the height in this model increases every week, so it has no greatest value.\n\n**Test Day Takeaway:** The constant term of a linear model is the predicted value of $y$ when $x = 0$. Translate \"$x = 0$\" into the context: the start, the moment of planting.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "interpret-intercept-of-best-fit",
@@ -7458,18 +7458,18 @@ export const problemSolvingBank = [
     skills: ["margin-of-error"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A random sample of $400$ households in a county was used to estimate the percentage of households that own a bicycle, with an associated margin of error of $4.8$ percentage points. A new random sample of $1{,}600$ households from the county was selected using the same method. Which of the following is closest to the margin of error for the new estimate?",
+    question: "Two surveys used random samples of households in a county to estimate the percent of households that own a bicycle, with margins of error calculated in the same way. Survey A had a margin of error of $2.4$ percentage points, and survey B had a margin of error of $4.8$ percentage points. Which of the following is most likely true?",
     choices: [
-      // distractor: divides the margin of error by $4$, the sample-size factor, instead of by $\sqrt{4} = 2$.
-      { id: "A", text: "$1.2$ percentage points" },
-      { id: "B", text: "$2.4$ percentage points" },
-      // distractor: assumes a larger sample leaves the margin of error unchanged.
-      { id: "C", text: "$4.8$ percentage points" },
-      // distractor: multiplies by $4$, making the margin of error grow when the sample grows.
-      { id: "D", text: "$19.2$ percentage points" }
+      { id: "A", text: "Survey A used a larger sample than survey B." },
+      // distractor: reverses the relationship between sample size and margin of error
+      { id: "B", text: "Survey B used a larger sample than survey A." },
+      // distractor: ignores the effect of sample size on the margin of error
+      { id: "C", text: "Survey A and survey B used samples of the same size." },
+      // distractor: thinks the margin of error scales the estimate itself
+      { id: "D", text: "The estimate from survey A is half the estimate from survey B." }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The sample size is multiplied by $4$, and the margin of error scales with $\\frac{1}{\\sqrt{n}}$, so it is divided by $\\sqrt{4} = 2$: $\\frac{4.8}{2} = 2.4$.\n\n**The Full Solution:**\nStep 1: With the same methods and population, the margin of error is inversely proportional to $\\sqrt{n}$.\nStep 2: The sample size goes from $400$ to $1{,}600$, a factor of $\\frac{1{,}600}{400} = 4$, so $\\sqrt{n}$ grows by a factor of $2$.\nStep 3: The margin of error is therefore about $\\frac{4.8}{2} = 2.4$ percentage points. Check: to halve a margin of error you need four times the sample, which is exactly the change described ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.2$): divides the margin of error by $4$, the sample-size factor, instead of by $\\sqrt{4} = 2$.\n* Choice C ($4.8$): assumes a larger sample leaves the margin of error unchanged.\n* Choice D ($19.2$): multiplies by $4$, making the margin of error grow when the sample grows.\n\n**Test Day Takeaway:** Margin of error shrinks with the square root of the sample size: four times the data cuts it in half, nine times the data cuts it to a third.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** A smaller margin of error comes from a larger random sample, and survey A has the smaller margin of error.\n\n**The Full Solution:**\nStep 1: When margins of error are calculated in the same way, a larger random sample generally leads to a smaller margin of error.\nStep 2: Survey A has the smaller margin of error, $2.4$ percentage points, compared with $4.8$ for survey B.\nStep 3: So survey A most likely used the larger sample. Check: both surveys estimate the same county percent, so their estimates should be close no matter which sample was larger. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B: the survey with the larger sample is expected to have the smaller margin of error, which is survey A.\n* Choice C: samples of the same size, used in the same way, would be expected to give similar margins of error, not one twice the other.\n* Choice D: the margin of error measures precision; it does not tell how large the estimate is.\n\n**Test Day Takeaway:** Work backward as well as forward: the smaller margin of error points to the larger sample.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "sample-size-for-margin-reduction",
@@ -7483,18 +7483,18 @@ export const problemSolvingBank = [
     skills: ["margin-of-error"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "Based on a random sample of $900$ registered voters in a state, the proportion of all registered voters in the state who support a ballot measure is estimated to be $0.52$, with a $95\\%$ confidence interval from $0.49$ to $0.55$. Which of the following statements is best supported by this confidence interval?",
+    question: "Based on a random sample of $900$ registered voters in a state, it is estimated that $52\\%$ of all registered voters in the state support a ballot measure, with an associated margin of error of $3\\%$. Which of the following statements is best supported by this estimate and margin of error?",
     choices: [
-      // distractor: reports the sample estimate as an exact population value, which the width of the interval explicitly denies.
+      // distractor: treats the estimate as an exact value
       { id: "A", text: "Exactly $52\\%$ of all registered voters in the state support the ballot measure." },
-      // distractor: treats the interval as open at the top, but $0.55$ is the largest plausible proportion, so nothing above $55\%$ is supported.
+      // distractor: goes beyond the upper end of the plausible range, 55%
       { id: "B", text: "It is plausible that more than $55\\%$ of all registered voters in the state support the ballot measure." },
       { id: "C", text: "It is plausible that fewer than half of all registered voters in the state support the ballot measure." },
-      // distractor: reads only the center of the interval; because $0.50$ lies inside $[0.49,\ 0.55]$, a minority is still plausible.
-      { id: "D", text: "More than half of all registered voters in the state support the ballot measure, because the estimate $0.52$ is greater than $0.50$." }
+      // distractor: ignores the margin of error, which allows values below 50%
+      { id: "D", text: "More than half of all registered voters in the state support the ballot measure, because the estimate $52\\%$ is greater than $50\\%$." }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Confidence Interval Interpretation**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The interval runs from $0.49$ to $0.55$, and $0.49<0.50$. Values below one half are inside the interval, so a minority of support is plausible.\n\n**The Full Solution:**\nStep 1: A confidence interval gives the range of plausible values for the population proportion: values inside it are plausible, and values outside it are not supported.\nStep 2: The interval $[0.49,\\ 0.55]$ contains $0.50$, so proportions on both sides of one half are plausible.\nStep 3: In particular $0.49$ is plausible, which means fewer than half of all registered voters supporting the measure cannot be ruled out. Check: an interval that supported a majority claim would have to lie entirely above $0.50$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: reports the sample estimate as an exact population value, which the width of the interval explicitly denies.\n* Choice B: treats the interval as open at the top, but $0.55$ is the largest plausible proportion, so nothing above $55\\%$ is supported.\n* Choice D: reads only the center of the interval; because $0.50$ lies inside $[0.49,\\ 0.55]$, a minority is still plausible.\n\n**Test Day Takeaway:** Check whether the decisive value, here $0.50$, falls inside the interval. If it does, no claim about which side of it the population lies on is supported.",
+    explanation: "**SAT Pattern: Confidence Interval Interpretation**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The plausible values run from $49\\%$ to $55\\%$, and values such as $49\\%$ are less than half.\n\n**The Full Solution:**\nStep 1: The plausible values for the percent of all registered voters who support the measure run from $52\\% - 3\\% = 49\\%$ to $52\\% + 3\\% = 55\\%$.\nStep 2: Part of that range, from $49\\%$ up to $50\\%$, is less than half.\nStep 3: So it is plausible that fewer than half of all registered voters support the measure. Check: $49\\%$ is a plausible value, and $49\\% < 50\\%$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: $52\\%$ is the estimate from the sample; the true percent could be any value from $49\\%$ to $55\\%$.\n* Choice B: $55\\%$ is the greatest plausible value, so more than $55\\%$ is not supported.\n* Choice D: the estimate is above $50\\%$, but the range of plausible values reaches below $50\\%$, so a majority is not established.\n\n**Test Day Takeaway:** Before deciding whether a percent is above or below a cutoff, build the whole range of plausible values. If the cutoff is inside the range, either side is plausible.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "confidence-interval-interpretation",
@@ -7532,22 +7532,22 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-342",
     domain: "problem-solving",
-    skills: ["slope-from-points", "scatterplots"],
+    skills: ["scatterplots", "linear-functions"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The scatterplot shows the electricity use $y$, in kilowatt-hours, of a workshop and the number of machines $x$ in use, for each of $9$ months. The line of best fit shown has equation $y = 145x + 60$. In the month with $6$ machines in use, the electricity use was $1{,}000$ kilowatt-hours. What is the residual, in kilowatt-hours, for that month?",
-    diagram: { type: "scatterplot", params: { points: [[2, 340], [3, 520], [4, 610], [5, 800], [6, 1000], [7, 1050], [8, 1240], [9, 1330], [10, 1540]], xMin: 0, xMax: 11, yMin: 0, yMax: 1800, xGridStep: 1, yGridStep: 200, xLabelStep: 2, yLabelStep: 400, xLabel: "Machines in use", yLabel: "Electricity use (kWh)", bestFitLine: { slope: 145, intercept: 60 } } },
+    question: "The scatterplot shows the electricity use $y$, in kilowatt-hours, of a workshop $x$ months after January. What is the average rate of change, in kilowatt-hours per month, of the workshop's electricity use from March to July?",
+    diagram: { type: "scatterplot", params: { points: [[1, 400], [2, 500], [3, 700], [4, 800], [5, 1000], [6, 1100], [7, 1200], [8, 1400], [9, 1600], [10, 1700]], xMin: 0, xMax: 11, yMin: 0, yMax: 1800, xGridStep: 1, yGridStep: 100, xLabelStep: 1, yLabelStep: 200, xLabel: "Months after January", yLabel: "Electricity use (kWh)" } },
     choices: [
-      // distractor: subtracts in the reverse order, predicted minus actual, which flips the sign of the residual.
-      { id: "A", text: "$-70$" },
-      { id: "B", text: "$70$" },
-      // distractor: reports the predicted value $145(6) + 60 = 930$ instead of the difference.
-      { id: "C", text: "$930$" },
-      // distractor: reports the recorded value, the height of the data point rather than its distance from the line.
-      { id: "D", text: "$1{,}000$" }
+      // distractor: divides by 5, counting March through July as 5 months; July is only 4 months after March: (1,100 - 500)/5 = 120
+      { id: "A", text: "$120$" },
+      // distractor: uses x = 3 for March and x = 7 for July, (1,200 - 700)/4 = 125; March is 2 months after January, so it is x = 2
+      { id: "B", text: "$125$" },
+      { id: "C", text: "$150$" },
+      // distractor: gives the total change from March to July, 1,100 - 500 = 600 kilowatt-hours, without dividing by the 4 months
+      { id: "D", text: "$600$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Predicted use is $145(6) + 60 = 930$, so the residual is $1{,}000 - 930 = 70$ kilowatt-hours.\n\n**The Full Solution:**\nStep 1: A residual is the actual value minus the value the model predicts at that same $x$.\nStep 2: At $x = 6$ the line of best fit predicts $145(6) + 60 = 870 + 60 = 930$ kilowatt-hours.\nStep 3: The residual is $1{,}000 - 930 = 70$ kilowatt-hours. Check: the point lies above the line on the scatterplot, and a point above the line has a positive residual ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-70$): subtracts in the reverse order, predicted minus actual, which flips the sign of the residual.\n* Choice C ($930$): reports the predicted value $145(6) + 60 = 930$ instead of the difference.\n* Choice D ($1{,}000$): reports the recorded value, the height of the data point rather than its distance from the line.\n\n**Test Day Takeaway:** Residual $=$ actual $-$ predicted, in that order. Above the line is positive, below the line is negative. Check the sign against the picture before answering.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** March is $x = 2$ and July is $x = 6$. The use goes from $500$ to $1{,}100$ kilowatt-hours, so the rate is $\\frac{1{,}100 - 500}{6 - 2} = 150$.\n\n**The Full Solution:**\nStep 1: $x$ is the number of months after January, so February is $x = 1$, March is $x = 2$, and July is $x = 6$.\nStep 2: Read the scatterplot: at $x = 2$ the electricity use is $500$ kilowatt-hours, and at $x = 6$ it is $1{,}100$ kilowatt-hours.\nStep 3: The average rate of change is $\\frac{1{,}100 - 500}{6 - 2} = \\frac{600}{4} = 150$ kilowatt-hours per month. Check: $500 + 4(150) = 1{,}100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($120$): divides by $5$; from March to July is $6 - 2 = 4$ months.\n* Choice B ($125$): uses $x = 3$ for March and $x = 7$ for July; January is $x = 0$, so March is $x = 2$.\n* Choice D ($600$): is the total change in electricity use, not the change per month.\n\n**Test Day Takeaway:** Turn each month into its $x$-value before reading the graph: with \"months after January,\" January is $x = 0$. Then divide the change in $y$ by the change in $x$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "residual",
@@ -7561,22 +7561,22 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-343",
     domain: "problem-solving",
-    skills: ["find-mode"],
+    skills: ["find-median"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The dot plot shows the number of pieces of mail delivered to a mailbox on each of $12$ days. What is the mode of the data shown?",
-    diagram: { type: "dotPlot", params: { data: [{ value: 0, count: 1 }, { value: 1, count: 5 }, { value: 2, count: 2 }, { value: 3, count: 1 }, { value: 4, count: 2 }, { value: 7, count: 1 }], xMin: 0, xMax: 8, xLabel: "Pieces of mail delivered" } },
+    question: "The dot plot shows the number of pieces of mail delivered to a mailbox on each of $13$ days. What is the median of the data shown?",
+    diagram: { type: "dotPlot", params: { data: [{ value: 0, count: 1 }, { value: 1, count: 5 }, { value: 2, count: 2 }, { value: 3, count: 2 }, { value: 4, count: 2 }, { value: 7, count: 1 }], xMin: 0, xMax: 8, xLabel: "Pieces of mail delivered" } },
     choices: [
+      // distractor: reports the value with the tallest stack, which is the most common value, not the middle one
       { id: "A", text: "$1$" },
-      // distractor: reports the median, the average of the $6$th and $7$th dots, $\frac{1 + 2}{2}$.
-      { id: "B", text: "$1.5$" },
-      // distractor: reports the mean, $\frac{27}{12} = 2.25$.
-      { id: "C", text: "$2.25$" },
-      // distractor: reports the height of the tallest stack, a frequency rather than the value that repeats.
+      { id: "B", text: "$2$" },
+      // distractor: averages the least and greatest values, 0 and 7, instead of finding the middle dot
+      { id: "C", text: "$3.5$" },
+      // distractor: reads the height of the tallest stack, a count of days
       { id: "D", text: "$5$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Mode from List**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** The tallest stack of dots sits above $1$, so the mode is $1$.\n\n**The Full Solution:**\nStep 1: On a dot plot each dot is one day, and the value on the axis is what was recorded that day.\nStep 2: The stacks have heights $1$, $5$, $2$, $1$, $2$, and $1$ above the values $0$, $1$, $2$, $3$, $4$, and $7$.\nStep 3: The greatest height, $5$, sits above the value $1$, so the mode is $1$ piece of mail. Check: no other value occurs more than twice ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($1.5$): reports the median, the average of the $6$th and $7$th dots, $\\frac{1 + 2}{2}$.\n* Choice C ($2.25$): reports the mean, $\\frac{27}{12} = 2.25$.\n* Choice D ($5$): reports the height of the tallest stack, a frequency rather than the value that repeats.\n\n**Test Day Takeaway:** The mode is read off the number line, not the height of a stack. Find the tallest stack, then look down at the number under it.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Median from Frequency Table**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** With $13$ dots, the median is the $7$th value in order; counting from the left, the $7$th dot is above $2$.\n\n**The Full Solution:**\nStep 1: Each dot is one day, so there are $13$ values. The median is the middle value, the $7$th in order.\nStep 2: Counting from the left: $1$ dot above $0$ (the $1$st value), $5$ dots above $1$ (the $2$nd through $6$th values), then $2$ dots above $2$ (the $7$th and $8$th values).\nStep 3: The $7$th value is $2$, so the median is $2$. Check: $6$ values are less than or equal to $1$, and the other $6$ values, from the $8$th to the $13$th, are at least $2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): $1$ has the tallest stack, so it is the most common value, but $6$ of the $13$ values are at most $1$, so it is not the middle value.\n* Choice C ($3.5$): this is halfway between the least value, $0$, and the greatest value, $7$; the median depends on how many dots are above each value, not only on the two ends.\n* Choice D ($5$): this is the number of dots above $1$, a count of days, not a value of the data.\n\n**Test Day Takeaway:** For the median from a dot plot, count the dots, find the middle position, and count to it from the left.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "mode-from-list",
@@ -7587,12 +7587,12 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-344",
     domain: "problem-solving",
-    skills: ["find-mode"],
+    skills: ["calculate-mean"],
     difficulty: "easy",
     type: "fill-in",
-    question: "$23, 31, 27, 31, 25, 31, 29, 24, 28$\nWhat is the mode of the data shown?",
-    correctAnswer: "31",
-    explanation: "**SAT Pattern: Mode from List**\n\n**The correct answer is 31.**\n\n**The Fast Way (~10s):** Only $31$ appears more than once, three times, so it is the mode.\n\n**The Full Solution:**\nStep 1: The mode is the value that occurs most often in the data.\nStep 2: Tally the values: $31$ appears three times, and $23$, $24$, $25$, $27$, $28$, and $29$ each appear once.\nStep 3: The most frequent value is $31$. Check: the three $31$s are three of the nine values, and no other value appears twice ✓\n\n**Common Mistakes:**\n* $3$: reports how many times the mode occurs rather than the value itself.\n* $28$: sorts the list and reports the middle value, which is the median.\n* $27.67$: averages the nine values, $\\frac{249}{9} \\approx 27.67$, which is the mean.\n\n**Test Day Takeaway:** Mode, median, and mean answer three different questions; the mode is always one of the listed values, the one that repeats most.",
+    question: "$23, 31, 27, 30, 25, 33, 29, 24, 30$\nWhat is the mean of the data shown?",
+    correctAnswer: "28",
+    explanation: "**SAT Pattern: Mean from List**\n\n**The correct answer is $28$.**\n\n**The Fast Way (~15s):** The sum is $252$ and there are $9$ values, so the mean is $\\frac{252}{9} = 28$.\n\n**The Full Solution:**\nStep 1: Add the values: $23 + 31 + 27 + 30 + 25 + 33 + 29 + 24 + 30 = 252$.\nStep 2: Count the values: there are $9$.\nStep 3: The mean is $\\frac{252}{9} = 28$. Check: $28 \\times 9 = 252$. $\\checkmark$\n\n**Common Mistakes:**\n* Entering $29$, the median of the data (the $5$th value in order: $23, 24, 25, 27, 29, 30, 30, 31, 33$).\n* Entering $30$, the value that appears most often.\n* Entering $31.5$, from dividing the sum by $8$ instead of $9$.\n\n**Test Day Takeaway:** Mean = sum of the values $\\div$ number of values. Count the values carefully; a list can be longer than it looks.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "mode-from-list",
@@ -7603,22 +7603,22 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-345",
     domain: "problem-solving",
-    skills: ["find-mode"],
+    skills: ["find-median"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The table shows the number of games won by each member of a chess club during a tournament and the number of members who won that many games. What is the mode of the numbers of games won by the members?",
+    question: "The table shows the number of games won by each member of a chess club during a tournament and the number of members who won that many games. What is the median number of games won by the members?",
     diagram: { type: "dataTable", params: { headers: ["Games won", "Number of members"], rows: [["0", "2"], ["1", "9"], ["2", "4"], ["3", "6"], ["4", "5"]] } },
     choices: [
+      // distractor: reports the number of games won by the most members, not the middle value
       { id: "A", text: "$1$" },
-      // distractor: reports the median of the $26$ values, which falls at $2$ games, rather than the most frequent value.
       { id: "B", text: "$2$" },
-      // distractor: reports the largest entry in the "Games won" column instead of the value with the largest frequency.
-      { id: "C", text: "$4$" },
-      // distractor: reports the largest frequency, the number of members, rather than the number of games those members won.
-      { id: "D", text: "$9$" }
+      // distractor: finds the median of the numbers in the second column, which are counts of members
+      { id: "C", text: "$5$" },
+      // distractor: reports the position of the median, half of 26, instead of the value there
+      { id: "D", text: "$13$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Mode from List**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The largest frequency in the right column is $9$; the value beside it in the left column is $1$ game won.\n\n**The Full Solution:**\nStep 1: In a frequency table the left column lists the values and the right column tells how many times each occurs.\nStep 2: The frequencies are $2$, $9$, $4$, $6$, and $5$, and the greatest of these is $9$.\nStep 3: The frequency $9$ belongs to the row \"$1$ game won,\" so the mode is $1$. Check: no other number of wins was reported by more than $6$ members ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2$): reports the median of the $26$ values, which falls at $2$ games, rather than the most frequent value.\n* Choice C ($4$): reports the largest entry in the \"Games won\" column instead of the value with the largest frequency.\n* Choice D ($9$): reports the largest frequency, the number of members, rather than the number of games those members won.\n\n**Test Day Takeaway:** Find the biggest frequency, then read across to the value column. Reporting the frequency itself is the single most common slip on frequency-table mode questions.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Median from Frequency Table**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The $26$ members put the median between the $13$th and $14$th values; both fall in the row for $2$ games, so the median is $2$.\n\n**The Full Solution:**\nStep 1: The club has $2 + 9 + 4 + 6 + 5 = 26$ members, so the median is the average of the $13$th and $14$th values in order.\nStep 2: Counting through the table: $2$ members won $0$ games (values $1$ and $2$), $9$ won $1$ game (values $3$ through $11$), and $4$ won $2$ games (values $12$ through $15$).\nStep 3: The $13$th and $14$th values are both $2$, so the median is $2$ games. Check: $11$ members won fewer than $2$ games and $11$ members won more than $2$ games. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): $1$ game has the greatest count, $9$ members, so it is the most common value, not the middle one.\n* Choice C ($5$): $5$ is the median of the counts $2, 4, 5, 6, 9$; the data values are the numbers of games won.\n* Choice D ($13$): $13$ is the position of the middle, not the number of games won there.\n\n**Test Day Takeaway:** In a frequency table, the second column says how many times each value appears. Count through it to the middle position.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "mode-from-list",
@@ -7629,21 +7629,21 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-346",
     domain: "problem-solving",
-    skills: ["find-mode"],
+    skills: ["calculate-mean"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "$4, 5, 3, 5, 4, 6, k, 4, 5$\nIn the data set shown, $5$ is the only mode. What is the value of $k$?",
+    question: "$4, 5, 3, 5, 4, 6, k, 4, 5$\nThe mean of the data set shown is $5$. What is the value of $k$?",
     choices: [
-      // distractor: makes $3$ appear twice and leaves $4$ and $5$ tied at three each, so there is no single mode
-      { id: "A", text: "$3$" },
-      // distractor: makes $4$ appear four times, which would make $4$ the only mode instead of $5$
-      { id: "B", text: "$4$" },
-      { id: "C", text: "$5$" },
-      // distractor: makes $6$ appear twice and again leaves $4$ and $5$ tied at three each
-      { id: "D", text: "$6$" }
+      // distractor: uses 8 values instead of 9 when finding the total
+      { id: "A", text: "$4$" },
+      // distractor: assumes the missing value equals the mean
+      { id: "B", text: "$5$" },
+      { id: "C", text: "$9$" },
+      // distractor: reports the total of all 9 values instead of the missing value
+      { id: "D", text: "$45$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Mode from List**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Without $k$, the values $4$ and $5$ each appear three times. For $5$ to be the only mode, $k$ must be $5$.\n\n**The Full Solution:**\nStep 1: Tally the eight known values: $3$ appears once, $4$ appears three times, $5$ appears three times, and $6$ appears once.\nStep 2: For $5$ to be the only mode, $5$ must occur more often than every other value, so it must beat the three appearances of $4$.\nStep 3: Only $k = 5$ does this: $5$ then appears four times and $4$ three times. Check: $k = 3$ or $k = 6$ leaves $4$ and $5$ tied at three, and $k = 4$ makes $4$ the only mode ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): raises $3$ to two appearances while $4$ and $5$ stay tied at three, so the data set has two modes.\n* Choice B ($4$): gives $4$ four appearances, making $4$ the only mode rather than $5$.\n* Choice D ($6$): raises $6$ to two appearances and leaves the tie between $4$ and $5$ in place.\n\n**Test Day Takeaway:** Tally the known values before placing the unknown; a unique mode has to beat the runner-up, not just tie it.",
+    explanation: "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Nine values with a mean of $5$ add to $45$; the other eight add to $36$, so $k = 45 - 36 = 9$.\n\n**The Full Solution:**\nStep 1: The data set has $9$ values and a mean of $5$, so the values add to $9 \\times 5 = 45$.\nStep 2: The eight known values add to $4 + 5 + 3 + 5 + 4 + 6 + 4 + 5 = 36$.\nStep 3: So $k = 45 - 36 = 9$. Check: $\\frac{36 + 9}{9} = \\frac{45}{9} = 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): $8 \\times 5 - 36 = 4$ counts only $8$ values; with $k$ there are $9$.\n* Choice B ($5$): if $k$ were $5$, the total would be $41$ and the mean would be about $4.56$, not $5$.\n* Choice D ($45$): this is the total of all $9$ values; subtract the known values to find $k$.\n\n**Test Day Takeaway:** Mean $\\times$ number of values = total. Subtract the known values from the total to find the missing one.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "mode-from-list",
@@ -7654,22 +7654,22 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-347",
     domain: "problem-solving",
-    skills: ["find-mode"],
+    skills: ["calculate-mean", "find-median"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The dot plot shows the number of days each of $15$ hikers spent on a long-distance trail. Which of the following statements about these data is true?",
+    question: "The dot plot shows the number of days each of $15$ hikers spent on a long-distance trail. Which of the following correctly compares the mean and the median of these data?",
     diagram: { type: "dotPlot", params: { data: [{ value: 4, count: 1 }, { value: 5, count: 6 }, { value: 6, count: 2 }, { value: 7, count: 3 }, { value: 8, count: 2 }, { value: 12, count: 1 }], xMin: 3, xMax: 13, xLabel: "Days spent on the trail" } },
     choices: [
-      { id: "A", text: "The mode is $5$ and the median is $6$." },
-      // distractor: swaps the two statistics, reporting the median as the mode and the mode as the median.
-      { id: "B", text: "The mode is $6$ and the median is $5$." },
-      // distractor: reads the middle of the axis as the mode instead of counting the dots in each stack.
-      { id: "C", text: "The mode and the median are both $6$." },
-      // distractor: reports the mean, $\frac{95}{15} \approx 6.33$, in place of the median, and still misidentifies the mode.
-      { id: "D", text: "The mode is $6$ and the median is $6.33$." }
+      // distractor: reverses the comparison; the single high value, 12, pulls the mean up, not down
+      { id: "A", text: "The mean is less than the median." },
+      // distractor: assumes the mean and median match, but the data are not symmetric
+      { id: "B", text: "The mean is equal to the median." },
+      { id: "C", text: "The mean is greater than the median." },
+      // distractor: the dot plot shows every value, so both measures can be found
+      { id: "D", text: "There is not enough information to compare the mean and the median." }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Mode from List**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The tallest stack is above $5$, so the mode is $5$. With $15$ dots, the median is the $8$th, which lands on $6$.\n\n**The Full Solution:**\nStep 1: The stacks have heights $1$, $6$, $2$, $3$, $2$, and $1$ above the values $4$, $5$, $6$, $7$, $8$, and $12$, so the mode is $5$.\nStep 2: With $15$ values, the median is the $8$th value when the data are in order.\nStep 3: The running counts are $1$ (through $4$), $7$ (through $5$), and $9$ (through $6$), so the $8$th value is $6$ and the median is $6$. Check: mode $5$, median $6$, a right-tailed shape with one hiker at $12$ days ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: swaps the two statistics, reporting the median as the mode and the mode as the median.\n* Choice C: reads the middle of the axis as the mode instead of counting the dots in each stack.\n* Choice D: reports the mean, $\\frac{95}{15} \\approx 6.33$, in place of the median, and still misidentifies the mode.\n\n**Test Day Takeaway:** On a dot plot, the mode is the tallest stack and the median is found by counting dots from one end. They rarely coincide, so compute each one separately.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Mean-Median Comparison**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The median is the $8$th value, $6$. The mean is $\\frac{95}{15} \\approx 6.33$, pulled up by the hiker who spent $12$ days.\n\n**The Full Solution:**\nStep 1: There are $15$ values, so the median is the $8$th in order. The dot above $4$ is the $1$st value, the $6$ dots above $5$ are the $2$nd through $7$th, and the $2$ dots above $6$ are the $8$th and $9$th. The median is $6$.\nStep 2: The sum is $4(1) + 5(6) + 6(2) + 7(3) + 8(2) + 12(1) = 4 + 30 + 12 + 21 + 16 + 12 = 95$, so the mean is $\\frac{95}{15} \\approx 6.33$.\nStep 3: Since $6.33 > 6$, the mean is greater than the median. Check: the value $12$ is far to the right of the rest of the data, which pulls the mean up but does not move the median. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: the far-right value, $12$, raises the mean, so the mean is greater than the median, not less.\n* Choice B: the mean, about $6.33$, is not equal to the median, $6$.\n* Choice D: a dot plot shows every value, so the mean and the median can both be computed.\n\n**Test Day Takeaway:** A value far to the right pulls the mean up but barely moves the median. Compute both when they are close.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "mode-from-list",
@@ -7680,13 +7680,13 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-348",
     domain: "problem-solving",
-    skills: ["find-mode"],
+    skills: ["find-median"],
     difficulty: "hard",
     type: "fill-in",
-    question: "The dot plot shows the $15$ values in a data set. Some values, each equal to $13$, are added to the data set so that $13$ is the only mode of the new data set. What is the least possible number of values that were added?",
-    diagram: { type: "dotPlot", params: { data: [{ value: 11, count: 2 }, { value: 12, count: 6 }, { value: 13, count: 4 }, { value: 14, count: 3 }], xMin: 10, xMax: 15, xLabel: "Value" } },
-    correctAnswer: "3",
-    explanation: "**SAT Pattern: Mode from List**\n\n**The correct answer is 3.**\n\n**The Fast Way (~20s):** The value $12$ occurs $6$ times and $13$ occurs $4$ times, so $13$ needs at least $7$ occurrences to be the only mode: $7 - 4 = 3$ values.\n\n**The Full Solution:**\nStep 1: Read the stacks: $11$ occurs twice, $12$ occurs six times, $13$ occurs four times, and $14$ occurs three times, for $15$ values in all.\nStep 2: Adding values equal to $13$ changes only the count for $13$. For $13$ to be the only mode, its count must be greater than $6$, the count for $12$, so it must be at least $7$.\nStep 3: Going from $4$ to $7$ takes $7 - 4 = 3$ added values. Check: with $3$ added, the counts are $2$, $6$, $7$, and $3$, and $13$ is the only mode; with $2$ added, $12$ and $13$ tie at $6$ ✓\n\n**Common Mistakes:** Reporting $2$ makes $13$ tie with $12$ at six occurrences, so $13$ is a mode but not the only mode. Reporting $7$ gives the number of times $13$ must occur rather than the number of values added. Reporting $6$ gives the count for $12$, the current mode.\n\n**Test Day Takeaway:** \"The only mode\" means strictly more occurrences than every other value. Find the current greatest count, add $1$, and subtract the count already there.",
+    question: "The dot plot shows the number of hours each of $14$ volunteers worked at a food bank last month. A new volunteer who worked $6$ hours last month is added to the data. What is the positive difference between the median number of hours for the $15$ volunteers and the median number of hours for the original $14$ volunteers?",
+    diagram: { type: "dotPlot", params: { data: [{ value: 11, count: 2 }, { value: 12, count: 5 }, { value: 13, count: 4 }, { value: 14, count: 3 }], xMin: 5, xMax: 15, xLabel: "Hours worked" } },
+    correctAnswer: "0.5",
+    explanation: "**SAT Pattern: Median Shift from Insertion**\n\n**The correct answer is $0.5$.**\n\n**The Fast Way (~40s):** The original median is the average of the $7$th and $8$th values, $\\frac{12 + 13}{2} = 12.5$. With the value $6$ added at the low end, the median of $15$ values is the $8$th value, $12$. The difference is $12.5 - 12 = 0.5$.\n\n**The Full Solution:**\nStep 1: In order, the $14$ values are $11$ (values $1$ and $2$), $12$ (values $3$ through $7$), $13$ (values $8$ through $11$) and $14$ (values $12$ through $14$). The median is the average of the $7$th and $8$th values: $\\frac{12 + 13}{2} = 12.5$.\nStep 2: The new value, $6$, is less than every other value, so it becomes the $1$st value and every other value moves up one position. The $15$ values are now $6$, then $11$ (values $2$ and $3$), then $12$ (values $4$ through $8$), and so on. The median is the $8$th value, $12$.\nStep 3: The positive difference between the medians is $12.5 - 12 = 0.5$. Check: $7$ of the $15$ values ($6$, $11$, $11$ and four $12$s) are below the $8$th value and $7$ are above it. $\\checkmark$\n\n**Common Mistakes:**\n* Entering $0$, from assuming that adding a value far from the center cannot change the median.\n* Entering $1$, from taking the original median as $13$, the $8$th value, instead of averaging the $7$th and $8$th values.\n* Entering $12$ or $12.5$, one of the medians instead of the difference between them.\n\n**Test Day Takeaway:** With an even number of values, the median is the average of the two middle values. Adding one value to one end moves the middle position, so recount before you compare.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "mode-from-list",
@@ -7702,18 +7702,18 @@ export const problemSolvingBank = [
     skills: ["data-analysis"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "Each value in a data set is multiplied by $3$. Which statement about the new data set is true?",
+    question: "Data set A has a mean of $24$. Data set B is created by adding $6$ to each value in data set A. What is the mean of data set B?",
     choices: [
-      // distractor: scales the spread but not the center, as if multiplying moved every value away from a fixed mean
-      { id: "A", text: "Its mean is the same as the original mean, and its standard deviation is $3$ times the original standard deviation." },
-      { id: "B", text: "Its mean is $3$ times the original mean, and its standard deviation is $3$ times the original standard deviation." },
-      // distractor: applies the rule for adding a constant to the standard deviation; multiplying stretches the spread
-      { id: "C", text: "Its mean is $3$ times the original mean, and its standard deviation is the same as the original standard deviation." },
-      // distractor: assumes that changing every value by the same factor leaves the summary statistics unchanged
-      { id: "D", text: "Its mean is the same as the original mean, and its standard deviation is the same as the original standard deviation." }
+      // distractor: divides the mean by 6 instead of adding 6
+      { id: "A", text: "$4$" },
+      // distractor: subtracts 6 from the mean instead of adding it
+      { id: "B", text: "$18$" },
+      { id: "C", text: "$30$" },
+      // distractor: multiplies the mean by 6 instead of adding 6
+      { id: "D", text: "$144$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Scaling a Data Set**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Multiplying every value by $3$ multiplies the mean by $3$ and stretches every distance from the mean by $3$, so the standard deviation is also multiplied by $3$.\n\n**The Full Solution:**\nStep 1: The mean is the sum divided by the count. Multiplying every value by $3$ multiplies the sum by $3$ and leaves the count alone, so the mean is multiplied by $3$.\nStep 2: Each value's distance from the mean is also multiplied by $3$, and the standard deviation measures those distances, so it is multiplied by $3$.\nStep 3: So both statistics are $3$ times the originals. Check: the values $2$ and $4$ have mean $3$ and lie $1$ from the mean; tripled they are $6$ and $12$, with mean $9$ and each $3$ from the mean ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: changes the spread but not the center. Every value moves, so the mean moves too.\n* Choice C: keeps the standard deviation fixed, which is what happens when a constant is added, not multiplied.\n* Choice D: treats the change as if it had no effect on either statistic.\n\n**Test Day Takeaway:** Multiplying every value by $a$ multiplies the mean by $a$ and the standard deviation by $|a|$; adding a constant moves only the mean.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Scaling a Data Set**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Adding $6$ to every value adds $6$ to the mean, so the mean of data set B is $24 + 6 = 30$.\n\n**The Full Solution:**\nStep 1: If data set A has $n$ values, the sum of its values is $24n$.\nStep 2: Adding $6$ to each of the $n$ values adds $6n$ to the sum, so the sum of data set B is $24n + 6n = 30n$.\nStep 3: The mean of data set B is $\\frac{30n}{n} = 30$. Check: data set A $= 20, 28$ has mean $24$, and data set B $= 26, 34$ has mean $30$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): divides $24$ by $6$; nothing in the question divides the values.\n* Choice B ($18$): subtracts $6$, but each value was increased by $6$.\n* Choice D ($144$): multiplies $24$ by $6$, which would be the effect of multiplying each value by $6$.\n\n**Test Day Takeaway:** Adding the same number to every value shifts the mean and the median by that number and leaves the range unchanged.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "scaling-a-data-set",
@@ -7727,18 +7727,18 @@ export const problemSolvingBank = [
     skills: ["data-analysis"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The mean of $16$ masses is $2.4$ kilograms. What is the mean of the masses, in grams? ($1$ kilogram $= 1{,}000$ grams)",
+    question: "The mean length of the boards in a stack is $8$ feet. What is the mean length of the boards, in inches? ($1$ foot $= 12$ inches)",
     choices: [
-      // distractor: multiplies by $10$ instead of $1{,}000$
-      { id: "A", text: "$24$" },
-      // distractor: multiplies by $100$, the factor for meters to centimeters, instead of $1{,}000$
-      { id: "B", text: "$240$" },
-      { id: "C", text: "$2{,}400$" },
-      // distractor: finds the total mass of all $16$ masses in grams, $16(2{,}400)$, instead of the mean
-      { id: "D", text: "$38{,}400$" }
+      // distractor: divides 8 by 12, converting in the wrong direction
+      { id: "A", text: "$\\frac{2}{3}$" },
+      // distractor: subtracts 8 from 12
+      { id: "B", text: "$4$" },
+      // distractor: adds 12 to 8 instead of multiplying
+      { id: "C", text: "$20$" },
+      { id: "D", text: "$96$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Scaling a Data Set**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Converting each mass to grams multiplies it by $1{,}000$, so the mean is $2.4 \\times 1{,}000 = 2{,}400$ grams.\n\n**The Full Solution:**\nStep 1: Each mass in grams is $1{,}000$ times the same mass in kilograms.\nStep 2: Multiplying every value in a data set by $1{,}000$ multiplies the mean by $1{,}000$.\nStep 3: The mean is $2.4 \\times 1{,}000 = 2{,}400$ grams. Check: the total is $16 \\times 2.4 = 38.4$ kilograms, or $38{,}400$ grams, and $\\frac{38{,}400}{16} = 2{,}400$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($24$): multiplies by $10$ instead of $1{,}000$.\n* Choice B ($240$): multiplies by $100$, the factor for meters to centimeters.\n* Choice D ($38{,}400$): gives the total mass of the $16$ masses in grams, not the mean.\n\n**Test Day Takeaway:** A unit conversion multiplies every value by the same factor, so the mean converts exactly like a single value; the number of values does not matter.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Scaling a Data Set**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Each length in inches is $12$ times its length in feet, so the mean is $12(8) = 96$ inches.\n\n**The Full Solution:**\nStep 1: Converting every length from feet to inches multiplies every length by $12$.\nStep 2: When every value is multiplied by $12$, the sum is multiplied by $12$, so the mean is multiplied by $12$.\nStep 3: The mean length is $12(8) = 96$ inches. Check: boards of $6$ and $10$ feet have mean $8$ feet; in inches they are $72$ and $120$, with mean $96$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2}{3}$): divides by $12$; inches are smaller units, so the number of inches must be larger.\n* Choice B ($4$): subtracts the two numbers given.\n* Choice C ($20$): adds $12$ instead of multiplying by $12$.\n\n**Test Day Takeaway:** Changing units multiplies every value, and therefore the mean, by the conversion factor.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "scaling-a-data-set",
@@ -7777,18 +7777,18 @@ export const problemSolvingBank = [
     skills: ["data-analysis"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A data set of lengths, in inches, has a mean of $9.6$ and a range of $2.5$. Each length is multiplied by $2.54$ to convert it to centimeters. What is the new range?",
+    question: "A data set gives the lengths, in yards, of several ropes. The shortest rope is $4$ yards long, and the longest rope is $11$ yards long. What is the range of the lengths, in feet? ($1$ yard $= 3$ feet)",
     choices: [
-      // distractor: leaves the range unchanged, applying the rule for adding a constant rather than for multiplying.
-      { id: "A", text: "$2.5$" },
-      // distractor: adds the conversion factor, $2.5 + 2.54$, instead of multiplying by it.
-      { id: "B", text: "$5.04$" },
-      { id: "C", text: "$6.35$" },
-      // distractor: converts the mean, $9.6 \times 2.54$, rather than the range.
-      { id: "D", text: "$24.384$" }
+      // distractor: finds the range in yards and does not convert to feet
+      { id: "A", text: "$7$" },
+      { id: "B", text: "$21$" },
+      // distractor: converts the longest length, 11(3), instead of the range
+      { id: "C", text: "$33$" },
+      // distractor: adds the two lengths before converting: (11 + 4)(3)
+      { id: "D", text: "$45$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Scaling a Data Set**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The range scales with the values: $2.5 \\times 2.54 = 6.35$ centimeters.\n\n**The Full Solution:**\nStep 1: The range is the maximum minus the minimum.\nStep 2: Multiplying every length by $2.54$ multiplies both the maximum and the minimum by $2.54$, so their difference is multiplied by $2.54$ as well.\nStep 3: The converted range is $2.54 \\times 2.5 = 6.35$ centimeters. Check: a spread of $2.5$ inches is the same physical spread as $6.35$ centimeters ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.5$): leaves the range unchanged, applying the rule for adding a constant rather than for multiplying.\n* Choice B ($5.04$): adds the conversion factor, $2.5 + 2.54$, instead of multiplying by it.\n* Choice D ($24.384$): converts the mean, $9.6 \\times 2.54$, rather than the range.\n\n**Test Day Takeaway:** A unit conversion is a multiplication, so it scales the range and the standard deviation by the same factor as the values. The mean given in the stem is a decoy.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Scaling a Data Set**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The range is $11 - 4 = 7$ yards, and $7$ yards is $7(3) = 21$ feet.\n\n**The Full Solution:**\nStep 1: The range is the longest length minus the shortest length: $11 - 4 = 7$ yards.\nStep 2: Converting to feet multiplies every length by $3$, so it multiplies the range by $3$.\nStep 3: The range is $7(3) = 21$ feet. Check: in feet the lengths run from $12$ to $33$, and $33 - 12 = 21$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): is the range in yards; the question asks for feet.\n* Choice C ($33$): is the longest rope in feet, not the range.\n* Choice D ($45$): adds the two lengths instead of subtracting them.\n\n**Test Day Takeaway:** The range is a difference of two values, so a change of units multiplies it by the conversion factor.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "scaling-a-data-set",
@@ -7802,9 +7802,9 @@ export const problemSolvingBank = [
     skills: ["data-analysis"],
     difficulty: "medium",
     type: "fill-in",
-    question: "Each value in a data set with standard deviation $6.4$ is multiplied by a positive constant $k$. The new data set has standard deviation $22.4$. What is the value of $k$?",
-    correctAnswer: "3.5",
-    explanation: "**SAT Pattern: Scaling a Data Set**\n\n**The correct answer is 3.5.**\n\n**The Fast Way (~15s):** Multiplying every value by a positive $k$ multiplies the standard deviation by $k$, so $k = \\frac{22.4}{6.4} = 3.5$.\n\n**The Full Solution:**\nStep 1: Multiplying every value by $k$ multiplies each distance from the mean by $k$, so the new standard deviation is $k$ times the original one.\nStep 2: Write the equation: $6.4k = 22.4$.\nStep 3: Divide: $k = \\frac{22.4}{6.4} = 3.5$. Check: $6.4 \\times 3.5 = 22.4$ ✓\n\n**Common Mistakes:**\n* $16$: subtracts the standard deviations, $22.4 - 6.4$, as if a constant had been added; adding a constant would not change the standard deviation at all.\n* $0.286$: divides in the wrong order, $\\frac{6.4}{22.4}$, which would shrink the spread.\n* $1.87$: takes $\\sqrt{3.5}$, treating the standard deviation as if it were multiplied by $k^{2}$; that is the rule for the variance.\n\n**Test Day Takeaway:** Under multiplication by a positive $k$, the standard deviation scales by exactly $k$, so the ratio of the two standard deviations is the multiplier.",
+    question: "Data set A has a mean of $37$ and a range of $18$. Data set B is created by adding the same number to each value in data set A, and the mean of data set B is $52$. What is the range of data set B?",
+    correctAnswer: "18",
+    explanation: "**SAT Pattern: Scaling a Data Set**\n\n**The correct answer is $18$.**\n\n**The Fast Way (~20s):** Adding the same number to every value moves the largest and smallest values up by the same amount, so the range stays $18$.\n\n**The Full Solution:**\nStep 1: The means show that the number added is $52 - 37 = 15$, so every value in data set B is $15$ greater than the matching value in data set A.\nStep 2: The largest value and the smallest value each increase by $15$, so their difference does not change.\nStep 3: The range of data set B is $18$. Check: if data set A runs from $30$ to $48$ (range $18$), data set B runs from $45$ to $63$, and $63 - 45 = 18$ ✓\n\n**Common Mistakes:**\n* $33$: adds the $15$ to the range, $18 + 15$; the range is a difference, so the shift cancels.\n* $15$: reports the number added to each value, not the range.\n* $70$: adds the range to the mean of data set B, $52 + 18$.\n\n**Test Day Takeaway:** A shift moves the center but not the spread: means and medians change by the number added; the range does not change.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "scaling-a-data-set",
@@ -7818,18 +7818,18 @@ export const problemSolvingBank = [
     skills: ["data-analysis"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "Each value in a data set with mean $42$ and median $40$ is doubled and increased by $3$. What is the new mean?",
+    question: "$18, 23, 27, 30, 32$\nData set A consists of the $5$ values shown. Data set B is created by adding $9$ to each value in data set A. What is the mean of data set B?",
     choices: [
-      // distractor: adds $3$ to the mean but never doubles it: $42 + 3 = 45$
-      { id: "A", text: "$45$" },
-      // distractor: transforms the median instead of the mean: $2(40) + 3 = 83$
-      { id: "B", text: "$83$" },
-      { id: "C", text: "$87$" },
-      // distractor: adds the $3$ before doubling: $2(42 + 3) = 90$, applying the operations in the wrong order
-      { id: "D", text: "$90$" }
+      // distractor: finds the mean of data set A and forgets to add 9
+      { id: "A", text: "$26$" },
+      // distractor: adds 9 to the sum only once instead of to each of the 5 values: (130 + 9)/5 = 27.8
+      { id: "B", text: "$27.8$" },
+      { id: "C", text: "$35$" },
+      // distractor: finds the median of data set B, 27 + 9 = 36, instead of the mean
+      { id: "D", text: "$36$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Scaling a Data Set**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Doubling doubles the mean and adding $3$ adds $3$ to it: $2(42) + 3 = 87$.\n\n**The Full Solution:**\nStep 1: Doubling every value doubles the sum and keeps the count, so the mean becomes $2 \\times 42 = 84$.\nStep 2: Adding $3$ to every value adds $3$ to the mean: $84 + 3 = 87$.\nStep 3: The new mean is $87$; the median, $40$, is not needed. Check: the values $40$, $40$, $46$ have mean $42$ and median $40$; they become $83$, $83$, $95$, whose mean is $\\frac{261}{3} = 87$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($45$): adds $3$ but skips the doubling.\n* Choice B ($83$): transforms the median, $2(40) + 3 = 83$, when the question asks for the mean.\n* Choice D ($90$): computes $2(42 + 3)$, adding $3$ before doubling; the values are doubled first.\n\n**Test Day Takeaway:** When every value $x$ becomes $ax + b$, the mean becomes $a(\\text{mean}) + b$, in the same order as the operations.",
+    explanation: "**SAT Pattern: Scaling a Data Set**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The mean of data set A is $\\frac{130}{5} = 26$, and adding $9$ to every value adds $9$ to the mean: $26 + 9 = 35$.\n\n**The Full Solution:**\nStep 1: The sum of the values in data set A is $18 + 23 + 27 + 30 + 32 = 130$, so its mean is $\\frac{130}{5} = 26$.\nStep 2: Adding $9$ to each of the $5$ values adds $5(9) = 45$ to the sum, so the sum of data set B is $130 + 45 = 175$.\nStep 3: The mean of data set B is $\\frac{175}{5} = 35$. Check: data set B is $27, 32, 36, 39, 41$, and $\\frac{27 + 32 + 36 + 39 + 41}{5} = \\frac{175}{5} = 35$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($26$): is the mean of data set A; every value was increased by $9$.\n* Choice B ($27.8$): adds $9$ to the sum once, $\\frac{139}{5}$; the $9$ is added to each of the $5$ values.\n* Choice D ($36$): is the median of data set B, $27 + 9$, not the mean.\n\n**Test Day Takeaway:** Adding the same number to every value adds that number to the mean, so find the original mean and add.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "scaling-a-data-set",
@@ -7843,18 +7843,18 @@ export const problemSolvingBank = [
     skills: ["data-analysis"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A data set of $25$ values has mean $m$ and standard deviation $s$. Each value $v$ in the data set is replaced by $9 - 2v$. Which of the following gives the mean and standard deviation of the new values?",
+    question: "A scale adds $2$ kilograms to every weight it records, so $2$ kilograms was subtracted from each weight recorded with this scale. Which of the following correctly compares the mean and standard deviation of the corrected weights with those of the recorded weights?",
     choices: [
-      // distractor: carries the negative sign into the standard deviation, which can never be negative
-      { id: "A", text: "Mean: $9 - 2m$; standard deviation: $-2s$" },
-      { id: "B", text: "Mean: $9 - 2m$; standard deviation: $2s$" },
-      // distractor: reverses the transformation for the mean, computing $2m - 9$ instead of $9 - 2m$
-      { id: "C", text: "Mean: $2m - 9$; standard deviation: $2s$" },
-      // distractor: leaves the standard deviation unchanged, treating the factor $-2$ as though it were only a shift
-      { id: "D", text: "Mean: $9 - 2m$; standard deviation: $s$" }
+      // distractor: thinks subtracting 2 kilograms from every weight also shrinks the spread, though every weight moves the same distance
+      { id: "A", text: "Both the mean and the standard deviation are $2$ kilograms less." },
+      { id: "B", text: "The mean is $2$ kilograms less, and the standard deviation is the same." },
+      // distractor: reverses the effects: the shift moves the center, not the spread
+      { id: "C", text: "The mean is the same, and the standard deviation is $2$ kilograms less." },
+      // distractor: thinks subtracting the same amount from every weight changes neither measure
+      { id: "D", text: "Both the mean and the standard deviation are the same." }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Scaling a Data Set**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The mean follows the rule itself, $9 - 2m$, while the standard deviation is multiplied by $|-2| = 2$.\n\n**The Full Solution:**\nStep 1: Transform the mean. Each new value is $9 - 2v$, and the mean passes through multiplication and addition, so the new mean is $9 - 2m$.\nStep 2: Transform the spread. Each distance from the mean is multiplied by $-2$, and the standard deviation measures distances, so it is multiplied by $|-2| = 2$, giving $2s$.\nStep 3: Test two values. The values $1$ and $3$ have mean $2$ and lie $1$ from it; they become $7$ and $3$, with mean $5 = 9 - 2(2)$, and each lies $2$ from it, so the spread doubled ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2s$): carries the minus sign into the spread. A standard deviation is a distance and is never negative.\n* Choice C ($2m - 9$): applies the rule backwards; each value becomes $9 - 2v$, not $2v - 9$.\n* Choice D ($s$): leaves the spread unchanged, which is what adding $9$ alone would do. The factor $-2$ stretches it.\n\n**Test Day Takeaway:** When every value $v$ becomes $av + b$, the mean becomes $am + b$ and the standard deviation becomes $|a|s$; the sign disappears from the spread but not from the center.",
+    explanation: "**SAT Pattern: Scaling a Data Set**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Subtracting $2$ kilograms from every weight moves the whole list $2$ units down: the mean drops by $2$ kilograms, and the distances between the weights, so the standard deviation, stay the same.\n\n**The Full Solution:**\nStep 1: Mean: if the list has $n$ weights, subtracting $2$ from each one lowers the sum by $2n$, so the mean of the corrected weights is $2$ kilograms less than the mean of the recorded weights.\nStep 2: Spread: every weight moves down by the same $2$ kilograms, so each corrected weight is the same distance from the new mean as the recorded weight was from the old mean. The standard deviation does not change.\nStep 3: So the mean is $2$ kilograms less, and the standard deviation is the same. Check with recorded weights $50$, $54$, $61$ (mean $55$): the corrected weights $48$, $52$, $59$ have mean $53$, and both lists have values $5$ below, $1$ below and $6$ above their mean ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: the mean does drop, but subtracting the same amount from every weight does not bring the weights closer together.\n* Choice C: has the two effects reversed; a shift changes the center, not the spread.\n* Choice D: the spread is unchanged, but every weight is $2$ kilograms lower, so the mean is $2$ kilograms lower too.\n\n**Test Day Takeaway:** Adding or subtracting the same number to every value shifts the mean and the median by that number and leaves the standard deviation and the range unchanged.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "scaling-a-data-set",
@@ -7868,18 +7868,18 @@ export const problemSolvingBank = [
     skills: ["data-analysis"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "Each score $v$ in a list of $28$ scores is replaced by $4v - 7$. The new scores have a mean of $61$ and a standard deviation of $12$. What is the standard deviation of the original scores?",
+    question: "Data set A consists of $40$ values and has a mean of $25$. Data set B is created by adding $14$ to each value in data set A. Data set C consists of the $80$ values from data sets A and B. What is the mean of data set C?",
     choices: [
-      { id: "A", text: "$3$" },
-      // distractor: undoes the $-7$ on the spread as well: $\frac{12 + 7}{4} = 4.75$
-      { id: "B", text: "$4.75$" },
-      // distractor: keeps the new standard deviation, ignoring the factor $4$
-      { id: "C", text: "$12$" },
-      // distractor: adds $7$ back to the standard deviation: $12 + 7 = 19$, treating the shift as if it affected the spread
-      { id: "D", text: "$19$" }
+      // distractor: reports the mean of data set A
+      { id: "A", text: "$25$" },
+      { id: "B", text: "$32$" },
+      // distractor: reports the mean of data set B instead of combining the two data sets
+      { id: "C", text: "$39$" },
+      // distractor: adds the means of data sets A and B, 25 + 39, instead of finding the mean of all 80 values
+      { id: "D", text: "$64$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Scaling a Data Set**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Only the factor $4$ changes the spread, so the original standard deviation is $\\frac{12}{4} = 3$.\n\n**The Full Solution:**\nStep 1: Separate the two operations in $4v - 7$: the factor $4$ stretches the data, and subtracting $7$ slides it.\nStep 2: Subtracting $7$ from every score leaves the standard deviation unchanged, so the new standard deviation is $4$ times the original one: $4\\sigma = 12$.\nStep 3: Solve: $\\sigma = \\frac{12}{4} = 3$; the mean of $61$ is not needed. Check: two original scores $3$ apart become new scores $4(3) = 12$ apart, matching the new spread ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($4.75$): computes $\\frac{12 + 7}{4}$, undoing the $-7$ on the spread as well. A shift does not change the spread.\n* Choice C ($12$): keeps the new standard deviation, ignoring the factor $4$.\n* Choice D ($19$): adds the $7$ back, $12 + 7 = 19$, reversing a shift that never affected the spread.\n\n**Test Day Takeaway:** To reverse $av + b$ for a standard deviation, divide by $|a|$ and ignore $b$; only the mean is affected by $b$.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Scaling a Data Set**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Data set B has mean $25 + 14 = 39$, and data sets A and B have the same number of values, so data set C has mean $\\frac{25 + 39}{2} = 32$.\n\n**The Full Solution:**\nStep 1: Adding $14$ to each value adds $14$ to the mean, so data set B has a mean of $25 + 14 = 39$.\nStep 2: The sum of data set A is $40(25) = 1{,}000$, and the sum of data set B is $40(39) = 1{,}560$, so the sum of data set C is $1{,}000 + 1{,}560 = 2{,}560$.\nStep 3: The mean of data set C is $\\frac{2{,}560}{80} = 32$. Check: each value of data set B is $14$ more than a value of data set A, so the $80$ values average $25 + \\frac{14}{2} = 32$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($25$): is the mean of data set A only.\n* Choice C ($39$): is the mean of data set B only; data set C also contains the $40$ values of data set A.\n* Choice D ($64$): adds the two means, $25 + 39$, without dividing by $2$.\n\n**Test Day Takeaway:** Find each group's mean first; when two groups have the same number of values, the combined mean is halfway between their means.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "scaling-a-data-set",
@@ -7962,18 +7962,18 @@ export const problemSolvingBank = [
     skills: ["rate-conversion"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A drone leaves a station and flies due east at a constant speed of $32$ kilometers per hour. Half an hour later, a second drone leaves the station and flies due west at $44$ kilometers per hour. How many kilometers apart are the drones $2$ hours after the first drone left?",
+    question: "A drone flies at a constant speed of $s$ meters per second. Which expression represents the distance, in kilometers, the drone flies in $m$ minutes? ($1$ kilometer $= 1{,}000$ meters)",
     choices: [
-      // distractor: subtracts the two distances, $66 - 64$, as if the drones flew in the same direction.
-      { id: "A", text: "$2$" },
-      // distractor: reports only the first drone's distance, $32 \times 2$, leaving out the second drone entirely.
-      { id: "B", text: "$64$" },
-      { id: "C", text: "$130$" },
-      // distractor: gives the second drone the full $2$ hours, $32(2) + 44(2)$, ignoring its half-hour later start.
-      { id: "D", text: "$152$" }
+      { id: "A", text: "$\\frac{3sm}{50}$" },
+      // distractor: inverts the conversion, multiplying by 1,000/60 instead of 60/1,000
+      { id: "B", text: "$\\frac{50sm}{3}$" },
+      // distractor: converts minutes to seconds but leaves the distance in meters
+      { id: "C", text: "$60sm$" },
+      // distractor: multiplies by 1,000 instead of dividing by 1,000 to change meters to kilometers
+      { id: "D", text: "$60{,}000sm$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Distance = Rate × Time**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The first drone flies $32(2) = 64$ kilometers and the second flies $44(1.5) = 66$ kilometers in opposite directions, so they are $64 + 66 = 130$ kilometers apart.\n\n**The Full Solution:**\nStep 1: The first drone flies for the full $2$ hours: $32 \\times 2 = 64$ kilometers east of the station.\nStep 2: The second drone starts a half hour later, so it flies for $2 - 0.5 = 1.5$ hours: $44 \\times 1.5 = 66$ kilometers west of the station.\nStep 3: Opposite directions means the distances add: $64 + 66 = 130$ kilometers. Check: the station lies between them, $64$ kilometers from one and $66$ from the other ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): subtracts the two distances, $66 - 64$, as if the drones flew in the same direction.\n* Choice B ($64$): reports only the first drone's distance, $32 \\times 2$, leaving out the second drone entirely.\n* Choice D ($152$): gives the second drone the full $2$ hours, $32(2) + 44(2)$, ignoring its half-hour later start.\n\n**Test Day Takeaway:** Give each traveler its own time on the clock, then add distances for opposite directions and subtract for the same direction. A staggered start is the trap this question is built on.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Distance = Rate × Time**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** In $m$ minutes the drone flies $60m$ seconds, or $60sm$ meters, which is $\\frac{60sm}{1{,}000} = \\frac{3sm}{50}$ kilometers.\n\n**The Full Solution:**\nStep 1: Convert the time: $m$ minutes is $60m$ seconds.\nStep 2: Distance in meters: $s \\cdot 60m = 60sm$ meters.\nStep 3: Convert to kilometers: $\\frac{60sm}{1{,}000} = \\frac{3sm}{50}$. Check with $s = 10$ and $m = 5$: the drone flies $10(300) = 3{,}000$ meters, or $3$ kilometers, and $\\frac{3(10)(5)}{50} = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{50sm}{3}$): multiplies by $\\frac{1{,}000}{60}$; both conversion factors are flipped.\n* Choice C ($60sm$): is the distance in meters; it still has to be divided by $1{,}000$.\n* Choice D ($60{,}000sm$): multiplies by $1{,}000$; a kilometer is larger than a meter, so the number must get smaller.\n\n**Test Day Takeaway:** Write the units beside every factor; when the units cancel to the ones asked for, the expression is right.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "distance-rate-time",
@@ -8055,18 +8055,18 @@ export const problemSolvingBank = [
     skills: ["rate-conversion"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "Dana drove to a lake at $r$ miles per hour and returned on the same road at $2r$ miles per hour. Her average speed for the round trip was $48$ miles per hour. What is the value of $r$?",
+    question: "Dana drove for $2$ hours at an average speed of $x$ miles per hour and then for $3$ hours at an average speed $10$ miles per hour faster. Her average speed for the entire $5$ hours was $58$ miles per hour. What is the value of $x$?",
     choices: [
-      // distractor: divides $48$ by $3$, treating the average speed as the sum $r + 2r$
-      { id: "A", text: "$16$" },
-      // distractor: sets $2r = 48$, using the faster leg's speed as the average speed
-      { id: "B", text: "$24$" },
-      // distractor: averages the two speeds, solving $\frac{r + 2r}{2} = 48$
-      { id: "C", text: "$32$" },
-      { id: "D", text: "$36$" }
+      // distractor: subtracts the full 10 from the average speed
+      { id: "A", text: "$48$" },
+      { id: "B", text: "$52$" },
+      // distractor: averages the two speeds as if each were driven for the same time: (x + x + 10)/2 = 58
+      { id: "C", text: "$53$" },
+      // distractor: reports the average speed for the whole drive
+      { id: "D", text: "$58$" }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Average Rate**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** With one-way distance $d$, total time is $\\frac{d}{r} + \\frac{d}{2r} = \\frac{3d}{2r}$, so the average speed is $\\frac{2d}{3d/(2r)} = \\frac{4r}{3}$. Then $\\frac{4r}{3} = 48$ gives $r = 36$.\n\n**The Full Solution:**\nStep 1: Let $d$ be the one-way distance. The round trip covers $2d$ miles.\nStep 2: The trip to the lake takes $\\frac{d}{r}$ hours and the trip back takes $\\frac{d}{2r}$ hours, so the total time is $\\frac{2d}{2r} + \\frac{d}{2r} = \\frac{3d}{2r}$ hours.\nStep 3: Average speed $= \\frac{2d}{\\frac{3d}{2r}} = \\frac{4r}{3}$, and $d$ cancels. Setting $\\frac{4r}{3} = 48$ gives $r = 36$. Check: at $36$ and $72$ miles per hour over $72$ miles each way, the times are $2$ and $1$ hours, so $\\frac{144}{3} = 48$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($16$): divides $48$ by $3$, treating the average speed as the sum $r + 2r$\n* Choice B ($24$): sets $2r = 48$, using the faster leg's speed as the average speed\n* Choice C ($32$): averages the two speeds, solving $\\frac{r + 2r}{2} = 48$\n\n**Test Day Takeaway:** For equal distances at two speeds, the average speed depends only on the speeds, never on the distance. Introduce $d$, write the two times, and watch it cancel.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Average Rate**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** Total distance is $2x + 3(x + 10) = 5(58)$, so $5x + 30 = 290$ and $x = 52$.\n\n**The Full Solution:**\nStep 1: Total distance: $2x + 3(x + 10) = 5x + 30$ miles.\nStep 2: Average speed is total distance divided by total time: $\\frac{5x + 30}{5} = 58$, so $5x + 30 = 290$.\nStep 3: Then $5x = 260$ and $x = 52$. Check: $2(52) + 3(62) = 104 + 186 = 290$ miles in $5$ hours is $58$ miles per hour ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($48$): subtracts $10$ from $58$, as if all $5$ hours were at the faster speed.\n* Choice C ($53$): averages $x$ and $x + 10$ equally, but Dana spent more time at the faster speed.\n* Choice D ($58$): is the average speed for the whole drive, not the first speed.\n\n**Test Day Takeaway:** Average speed is total distance over total time; speeds held for different lengths of time are not averaged equally.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "average-rate",
@@ -8149,7 +8149,7 @@ export const problemSolvingBank = [
     skills: ["rate-conversion"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "$B = 4{,}500 + 180t$\nThe given equation models the balance $B$, in dollars, of a savings account that earns simple interest, $t$ years after the account was opened. What is the best interpretation of $180$ in this context?",
+    question: "$B = 4{,}500 + 180t$\nThe given equation models the balance $B$, in dollars, of a savings account that earns interest, $t$ years after the account was opened. What is the best interpretation of $180$ in this context?",
     choices: [
       // distractor: confuses the coefficient of t with the constant term 4,500, which is the balance when t = 0
       { id: "A", text: "The balance, in dollars, when the account was opened" },
@@ -8160,7 +8160,7 @@ export const problemSolvingBank = [
       { id: "D", text: "The balance, in dollars, after $t$ years" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Simple Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $180$ is the coefficient of $t$, so the balance grows by $\\$180$ each year: that is the interest the account earns per year.\n\n**The Full Solution:**\nStep 1: At $t = 0$, $B = 4{,}500$, so $4{,}500$ is the balance when the account was opened.\nStep 2: Each time $t$ increases by $1$, $B$ increases by $180$, so the balance grows by $\\$180$ per year.\nStep 3: Under simple interest the balance grows only by the interest earned, so $180$ is the interest, in dollars, the account earns each year. Check: $t = 1$ gives $4{,}680$ and $t = 2$ gives $4{,}860$; each year adds $180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (opening balance): the opening balance is the constant term, $4{,}500$, the value of $B$ when $t = 0$.\n* Choice C (interest rate): $180$ is a number of dollars, not a percent. The rate is $\\frac{180}{4{,}500} = 0.04$, or $4\\%$.\n* Choice D (balance after $t$ years): the balance after $t$ years is $B$ itself, $4{,}500 + 180t$, not the coefficient $180$.\n\n**Test Day Takeaway:** In a linear model, the constant term is the starting value and the coefficient of the time variable is the change per unit of time.",
+    explanation: "**SAT Pattern: Simple Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $180$ is the coefficient of $t$, so the balance grows by $\\$180$ each year, which is the interest the account earns per year.\n\n**The Full Solution:**\nStep 1: At $t = 0$, $B = 4{,}500$, so $4{,}500$ is the balance when the account was opened.\nStep 2: Each time $t$ increases by $1$, $B$ increases by $180$, so the balance grows by $\\$180$ per year.\nStep 3: So $180$ is the interest, in dollars, the account earns each year. Check: $t = 1$ gives $4{,}680$ and $t = 2$ gives $4{,}860$; each year adds $180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (opening balance): the opening balance is the constant term, $4{,}500$, the value of $B$ when $t = 0$.\n* Choice C (interest rate): $180$ is a number of dollars, not a percent. The rate would be $\\frac{180}{4{,}500} = 0.04$, or $4\\%$.\n* Choice D (balance after $t$ years): the balance after $t$ years is $B$ itself, $4{,}500 + 180t$, not the coefficient $180$.\n\n**Test Day Takeaway:** In a linear model, the constant term is the starting value and the coefficient of the time variable is the change per unit of time.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "simple-interest",
@@ -8174,18 +8174,18 @@ export const problemSolvingBank = [
     skills: ["rate-conversion"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "Ana borrowed $\\$6{,}000$ at a simple annual interest rate of $5\\%$. If she makes no payments, how much will she owe, in dollars, at the end of $3$ years?",
+    question: "A savings account earns $\\$24$ in interest each month. At this rate, how much interest, in dollars, does the account earn in $9$ months?",
     choices: [
-      // distractor: reports only the interest accrued, not the total owed
-      { id: "A", text: "$900$" },
-      // distractor: adds only $1$ year of interest instead of $3$
-      { id: "B", text: "$6{,}300$" },
-      { id: "C", text: "$6{,}900$" },
-      // distractor: uses $5$ years of interest, confusing the rate with the number of years
-      { id: "D", text: "$7{,}500$" }
+      // distractor: subtracts 9 from 24
+      { id: "A", text: "$15$" },
+      // distractor: adds 9 to 24 instead of multiplying
+      { id: "B", text: "$33$" },
+      { id: "C", text: "$216$" },
+      // distractor: uses 12 months, a full year, instead of 9 months
+      { id: "D", text: "$288$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Simple Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Interest is $6000(0.05)(3) = 900$, so the total owed is $6000 + 900 = 6900$.\n\n**The Full Solution:**\nStep 1: The amount owed is the principal plus the accrued simple interest: $A = P + Prt$.\nStep 2: The interest is $6000(0.05)(3) = 300(3) = 900$ dollars.\nStep 3: The total owed is $6000 + 900 = 6900$ dollars. Check: $\\$300$ of interest per year for $3$ years is $\\$900$, and $\\$6{,}000 + \\$900 = \\$6{,}900$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($900$): reports only the interest accrued, not the total owed\n* Choice B ($6{,}300$): adds only $1$ year of interest instead of $3$\n* Choice D ($7{,}500$): uses $5$ years of interest, confusing the rate with the number of years\n\n**Test Day Takeaway:** Read the last line of the question: interest earned and total balance differ by the principal. One asks for $Prt$, the other for $P + Prt$.",
+    explanation: "**SAT Pattern: Simple Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $9$ months at $\\$24$ per month is $24(9) = 216$ dollars.\n\n**The Full Solution:**\nStep 1: The account earns the same amount, $\\$24$, every month.\nStep 2: Multiply the monthly amount by the number of months: $24 \\times 9$.\nStep 3: $24 \\times 9 = 216$ dollars. Check: $\\frac{216}{9} = 24$ dollars per month ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): subtracts the two numbers given.\n* Choice B ($33$): adds the two numbers given; a rate is multiplied by the time.\n* Choice D ($288$): is $24 \\times 12$, the interest for a full year, not for $9$ months.\n\n**Test Day Takeaway:** Amount $=$ rate $\\times$ time, with the time in the same unit as the rate (here, months).",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "simple-interest",
@@ -8199,9 +8199,9 @@ export const problemSolvingBank = [
     skills: ["rate-conversion"],
     difficulty: "medium",
     type: "fill-in",
-    question: "An account earns simple interest at an annual rate of $4.25\\%$. After $3$ years, the account has earned $\\$1{,}530$ in interest. How much money, in dollars, was deposited in the account?",
-    correctAnswer: "12000",
-    explanation: "**SAT Pattern: Simple Interest**\n\n**The correct answer is $12{,}000$.**\n\n**The Fast Way (~20s):** Three years at $4.25\\%$ pay $12.75\\%$ of the deposit, so the deposit is $\\frac{1{,}530}{0.1275} = 12{,}000$ dollars.\n\n**The Full Solution:**\nStep 1: Write the simple-interest relationship. Interest $=$ deposit $\\times$ rate $\\times$ years, so $1{,}530 = P(0.0425)(3)$.\nStep 2: Combine the rate and the time. $0.0425 \\times 3 = 0.1275$, so $0.1275P = 1{,}530$.\nStep 3: Solve and check. $P = \\frac{1{,}530}{0.1275} = 12{,}000$ dollars. Forward: $4.25\\%$ of $12{,}000$ is $510$ per year, and $3 \\times 510 = 1{,}530$. ✓\n\n**Common Mistakes:**\n* Dividing by $0.0425$ alone gives $36{,}000$, which forgets that the interest accumulated over $3$ years.\n* Multiplying $1{,}530$ by $3$ gives $4{,}590$, which triples the interest instead of dividing by the three years.\n* Treating $4.25$ as a decimal instead of a percent gives $\\frac{1{,}530}{12.75} = 120$, off by a factor of $100$.\n\n**Test Day Takeaway:** For simple interest, rate and time multiply into a single factor. Divide the total interest by that factor to recover the principal.",
+    question: "A savings account earned the same amount of interest each month for $3$ years, for a total of $\\$540$ in interest. How much interest, in dollars, did the account earn each month?",
+    correctAnswer: "15",
+    explanation: "**SAT Pattern: Simple Interest**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~20s):** Three years is $36$ months, so the account earned $\\frac{540}{36} = 15$ dollars per month.\n\n**The Full Solution:**\nStep 1: Convert the time to months: $3$ years is $3 \\times 12 = 36$ months.\nStep 2: The interest is the same each month, so divide the total by the number of months: $\\frac{540}{36}$.\nStep 3: $\\frac{540}{36} = 15$ dollars per month. Check: $15 \\times 36 = 540$ ✓\n\n**Common Mistakes:**\n* $180$: divides by $3$, which gives the interest per year, not per month.\n* $45$: divides by $12$, which treats the $3$ years as $1$ year.\n* $6{,}480$: multiplies $540$ by $12$ instead of dividing by the number of months.\n\n**Test Day Takeaway:** Before dividing a total by a time, put the time in the unit the question asks for.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "simple-interest",
@@ -8215,18 +8215,18 @@ export const problemSolvingBank = [
     skills: ["rate-conversion"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A deposit of $P$ dollars earns simple interest at an annual rate of $r$, expressed as a decimal. Which expression gives the balance after $t$ years?",
+    question: "A savings account earns $m$ dollars in interest each month. Which expression represents the interest, in dollars, the account earns in $y$ years?",
     choices: [
-      // distractor: adds the product $rt$ to the principal without scaling it by $P$, so the units are wrong
-      { id: "A", text: "$P + rt$" },
-      // distractor: gives the interest earned, not the balance, because the principal is never added back
-      { id: "B", text: "$Prt$" },
-      { id: "C", text: "$P(1 + rt)$" },
-      // distractor: is the compound-interest balance; simple interest is never applied to interest already earned
-      { id: "D", text: "$P(1 + r)^t$" }
+      // distractor: divides by 12 instead of multiplying, converting years to months the wrong way
+      { id: "A", text: "$\\frac{my}{12}$" },
+      { id: "B", text: "$12my$" },
+      // distractor: adds the monthly interest to the number of months instead of multiplying
+      { id: "C", text: "$m + 12y$" },
+      // distractor: divides the number of months by the monthly interest, inverting the rate
+      { id: "D", text: "$\\frac{12y}{m}$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Simple Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The balance is the principal plus the simple interest: $P + Prt$, and factoring $P$ gives $P(1 + rt)$.\n\n**The Full Solution:**\nStep 1: Simple interest earned over $t$ years is $I = Prt$.\nStep 2: The balance is the principal plus that interest: $A = P + Prt$.\nStep 3: Factor the common $P$: $A = P(1 + rt)$. Check with $P = 1000$, $r = 0.05$, $t = 2$: the interest is $\\$100$ and the balance is $\\$1{,}100$, and $1000(1 + 0.05 \\cdot 2) = 1{,}100$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($P + rt$): adds the product $rt$ to the principal without scaling it by $P$, so the units are wrong\n* Choice B ($Prt$): gives the interest earned, not the balance, because the principal is never added back\n* Choice D ($P(1 + r)^t$): is the compound-interest balance; simple interest is never applied to interest already earned\n\n**Test Day Takeaway:** Test a symbolic answer with easy numbers. Simple interest grows linearly in $t$; only compound interest puts $t$ in an exponent.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Simple Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $y$ years is $12y$ months, and $m$ dollars each month for $12y$ months is $12my$ dollars.\n\n**The Full Solution:**\nStep 1: Convert the time: $y$ years is $12y$ months.\nStep 2: Interest $=$ (interest per month) $\\times$ (number of months) $= m \\cdot 12y$.\nStep 3: So the interest is $12my$ dollars. Check with $m = 10$ and $y = 2$: $24$ months at $\\$10$ per month is $\\$240$, and $12(10)(2) = 240$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{my}{12}$): divides by $12$; there are more months than years, so multiply by $12$.\n* Choice C ($m + 12y$): adds a dollar amount to a number of months.\n* Choice D ($\\frac{12y}{m}$): divides by the rate; earnings grow when the rate grows, so $m$ belongs in the numerator.\n\n**Test Day Takeaway:** Test an expression with small numbers: if it gives the right answer for $m = 10$ and $y = 2$, the units are handled correctly.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "simple-interest",
@@ -8240,18 +8240,18 @@ export const problemSolvingBank = [
     skills: ["rate-conversion"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "An account opened with $\\$2{,}500$ earns $4\\%$ simple annual interest. After $t$ years, its balance is $\\$2{,}800$. What is the value of $t$?",
+    question: "A savings account had a balance of $\\$2{,}500$. The account then earned $\\$25$ in interest each month, and no deposits or withdrawals were made. After how many months was the balance $\\$2{,}800$?",
     choices: [
-      // distractor: divides the interest by the principal, $\frac{300}{2500}$, which gives $rt$, not $t$
-      { id: "A", text: "$0.12$" },
-      { id: "B", text: "$3$" },
-      // distractor: divides the whole balance, rather than the interest, by the $\$100$ earned each year
-      { id: "C", text: "$28$" },
-      // distractor: divides the interest by $4$, the percent, instead of by the $\$100$ of interest earned each year
-      { id: "D", text: "$75$" }
+      { id: "A", text: "$12$" },
+      // distractor: divides the starting balance by the monthly interest
+      { id: "B", text: "$100$" },
+      // distractor: divides the final balance by the monthly interest
+      { id: "C", text: "$112$" },
+      // distractor: reports the increase in dollars, not the number of months
+      { id: "D", text: "$300$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Simple Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The interest is $2800 - 2500 = 300$ dollars, and the account earns $2500(0.04) = 100$ dollars per year, so $t = \\frac{300}{100} = 3$.\n\n**The Full Solution:**\nStep 1: Separate the interest from the balance: $I = 2800 - 2500 = 300$ dollars.\nStep 2: One year of simple interest is $2500(0.04) = 100$ dollars, and that amount repeats every year.\nStep 3: $t = \\frac{300}{100} = 3$ years. Check: $2500 + 100(3) = 2{,}800$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.12$): divides the interest by the principal, $\\frac{300}{2500}$, which gives $rt$, not $t$\n* Choice C ($28$): divides the whole balance, rather than the interest, by the $\\$100$ earned each year\n* Choice D ($75$): divides the interest by $4$, the percent, instead of by the $\\$100$ of interest earned each year\n\n**Test Day Takeaway:** Subtract the principal before you divide. Only the interest tells you how many years have passed.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Simple Interest**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The balance must grow by $2{,}800 - 2{,}500 = 300$ dollars, and $\\frac{300}{25} = 12$ months.\n\n**The Full Solution:**\nStep 1: Find the increase: $2{,}800 - 2{,}500 = 300$ dollars.\nStep 2: The account gains $\\$25$ each month, so the number of months is $\\frac{300}{25}$.\nStep 3: $\\frac{300}{25} = 12$ months. Check: $2{,}500 + 25(12) = 2{,}500 + 300 = 2{,}800$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($100$): divides $2{,}500$ by $25$; the starting balance was not earned as interest.\n* Choice C ($112$): divides $2{,}800$ by $25$, counting the starting balance as interest.\n* Choice D ($300$): is the increase in dollars; it still has to be divided by $25$.\n\n**Test Day Takeaway:** Only the change in the balance comes from the monthly amount, so divide the change, not the balance.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "simple-interest",
@@ -8265,9 +8265,9 @@ export const problemSolvingBank = [
     skills: ["rate-conversion"],
     difficulty: "hard",
     type: "fill-in",
-    question: "Omar borrowed $\\$18{,}000$ at a simple annual interest rate of $6\\%$. He has made no payments, and he now owes a total of $\\$19{,}890$. For how many months has Omar had the loan?",
-    correctAnswer: "21",
-    explanation: "**SAT Pattern: Simple Interest**\n\n**The correct answer is $21$.**\n\n**The Fast Way (~30s):** The interest is $\\$1{,}890$, one year costs $\\$1{,}080$, so the loan has run $1.75$ years, which is $21$ months.\n\n**The Full Solution:**\nStep 1: Isolate the interest. Total owed minus principal is $19{,}890 - 18{,}000 = 1{,}890$ dollars of interest.\nStep 2: Find the interest for one year. $6\\%$ of $18{,}000$ is $0.06 \\times 18{,}000 = 1{,}080$ dollars per year.\nStep 3: Convert to months. $\\frac{1{,}890}{1{,}080} = 1.75$ years, and $1.75 \\times 12 = 21$ months. Check: $21$ months of interest is $\\frac{21}{12} \\times 1{,}080 = 1{,}890$. ✓\n\n**Common Mistakes:**\n* Answering $1.75$ gives the time in YEARS; the question asks for months.\n* Dividing the total owed rather than the interest, $\\frac{19{,}890}{1{,}080} = 18.4\\overline{1}$, forgets to subtract the principal first.\n* Using $6\\%$ of the total owed, $1{,}193.40$ per year, applies the rate to the balance instead of the amount borrowed.\n\n**Test Day Takeaway:** Subtract the principal first, divide by ONE year of interest, and read the units the question asks for before you answer.",
+    question: "A savings account earns $\\$42$ in interest every $3$ months. At this rate, how many years will it take the account to earn $\\$1{,}008$ in interest?",
+    correctAnswer: "6",
+    explanation: "**SAT Pattern: Simple Interest**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~40s):** $\\frac{1{,}008}{42} = 24$ three-month periods, which is $72$ months, or $6$ years.\n\n**The Full Solution:**\nStep 1: Count the three-month periods needed: $\\frac{1{,}008}{42} = 24$.\nStep 2: Convert to months: $24 \\times 3 = 72$ months.\nStep 3: Convert to years: $\\frac{72}{12} = 6$ years. Check: there are $4$ three-month periods in a year, so the account earns $4(42) = 168$ dollars per year, and $6(168) = 1{,}008$ ✓\n\n**Common Mistakes:**\n* $24$: is the number of three-month periods, not years.\n* $72$: is the number of months, not years.\n* $2$: divides $24$ by $12$, treating each three-month period as a single month.\n\n**Test Day Takeaway:** Turn the rate into the unit the question asks for first ($\\$168$ per year), then divide.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "simple-interest",
@@ -8281,18 +8281,18 @@ export const problemSolvingBank = [
     skills: ["rate-conversion"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "Accounts A and B each start with $\\$4{,}000$. Account A earns $8\\%$ simple interest per year, and account B earns $8\\%$ interest compounded annually. To the nearest dollar, how much greater is account B's balance than account A's balance after $5$ years?",
+    question: "Accounts A and B each earn a fixed amount of interest every month. Account A earns $x$ dollars in interest every $4$ months, and account B earns $3$ times as much interest each month as account A. Which expression represents the interest, in dollars, account B earns in $1$ year?",
     choices: [
-      { id: "A", text: "$277$" },
-      // distractor: reports one year's interest on $\$4{,}000$
-      { id: "B", text: "$320$" },
-      // distractor: reports the simple interest earned over the $5$ years
-      { id: "C", text: "$1{,}600$" },
-      // distractor: reports the interest account B earns, not the difference between the two balances
-      { id: "D", text: "$1{,}877$" }
+      // distractor: gives account B's interest for 4 months, not for a year
+      { id: "A", text: "$3x$" },
+      { id: "B", text: "$9x$" },
+      // distractor: multiplies account B's 4-month interest by 4 instead of by the 3 four-month periods in a year
+      { id: "C", text: "$12x$" },
+      // distractor: treats x as account A's monthly interest: 12(3x)
+      { id: "D", text: "$36x$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Simple Interest**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** Account A: $4000 + 4000(0.08)(5) = 5{,}600$. Account B: $4000(1.08)^5 \\approx 5{,}877.31$. The difference is about $\\$277$.\n\n**The Full Solution:**\nStep 1: Account A's balance is $4000 + 4000(0.08)(5) = 4000 + 1600 = 5{,}600$ dollars.\nStep 2: Account B's balance is $4000(1.08)^5 \\approx 4000(1.469328) \\approx 5{,}877.31$ dollars.\nStep 3: The difference is $5877.31 - 5600 = 277.31$, which is $\\$277$ to the nearest dollar. Check: compounding earns $\\$1{,}877$ of interest against $\\$1{,}600$ of simple interest, and $1877 - 1600 = 277$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($320$): reports one year's interest on $\\$4{,}000$\n* Choice C ($1{,}600$): reports the simple interest earned over the $5$ years\n* Choice D ($1{,}877$): reports the interest account B earns, not the difference between the two balances\n\n**Test Day Takeaway:** Compound interest earns interest on interest, so it always exceeds simple interest at the same rate; the question asks for the gap, not for either balance.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Simple Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** Account B earns $3x$ every $4$ months, and a year has $3$ four-month periods, so it earns $3(3x) = 9x$.\n\n**The Full Solution:**\nStep 1: Account A earns $\\frac{x}{4}$ dollars per month, so account B earns $3 \\cdot \\frac{x}{4} = \\frac{3x}{4}$ dollars per month.\nStep 2: A year has $12$ months, so account B earns $12 \\cdot \\frac{3x}{4}$ dollars in a year.\nStep 3: $12 \\cdot \\frac{3x}{4} = 9x$. Check with $x = 40$: account A earns $\\$10$ per month, account B earns $\\$30$ per month, or $\\$360$ per year, and $9(40) = 360$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x$): is account B's interest for $4$ months; a year is three times as long.\n* Choice C ($12x$): multiplies $3x$ by $4$, confusing the $4$ months in each period with the $3$ periods in a year.\n* Choice D ($36x$): uses $x$ as if it were a monthly amount; $x$ is earned over $4$ months.\n\n**Test Day Takeaway:** Reduce every rate to one common unit (per month) before scaling up to the time asked for.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "simple-interest",
@@ -8306,18 +8306,18 @@ export const problemSolvingBank = [
     skills: ["rate-conversion"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "$A = P(1 + rt)$\nThe given equation gives the balance $A$ of an account after $t$ years, where $P$ is the amount deposited and $r$ is the annual simple interest rate. Which equation correctly expresses $r$ in terms of $A$, $P$, and $t$?",
+    question: "The balance of a savings account was $\\$1{,}200$ at the end of month $4$ and $\\$1{,}272$ at the end of month $10$. The account earns the same amount of interest each month, and no deposits or withdrawals are made. How much interest, in dollars, does the account earn each month?",
     choices: [
-      // distractor: subtracts P but never divides by P, the factor that multiplies rt after distributing
-      { id: "A", text: "$r = \\frac{A - P}{t}$" },
-      { id: "B", text: "$r = \\frac{A - P}{Pt}$" },
-      // distractor: treats the equation as A = Pt(1 + r), dividing both sides by Pt and then subtracting 1
-      { id: "C", text: "$r = \\frac{A}{Pt} - 1$" },
-      // distractor: multiplies by t in the last step instead of dividing by t
-      { id: "D", text: "$r = \\frac{t(A - P)}{P}$" }
+      // distractor: divides the increase by 10, the later month number, instead of by the 6 months that passed
+      { id: "A", text: "$7.20$" },
+      { id: "B", text: "$12$" },
+      // distractor: divides the increase by 4, the earlier month number
+      { id: "C", text: "$18$" },
+      // distractor: reports the total increase over the 6 months
+      { id: "D", text: "$72$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Simple Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Distribute to get $A = P + Prt$, so $A - P = Prt$ and $r = \\frac{A - P}{Pt}$.\n\n**The Full Solution:**\nStep 1: Distribute $P$: $A = P + Prt$.\nStep 2: Subtract $P$ from both sides: $A - P = Prt$.\nStep 3: Divide both sides by $Pt$: $r = \\frac{A - P}{Pt}$. Check: with $P = 1{,}000$, $r = 0.05$, and $t = 2$, the balance is $A = 1{,}000(1.1) = 1{,}100$, and $\\frac{1{,}100 - 1{,}000}{1{,}000(2)} = 0.05$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($r = \\frac{A - P}{t}$): stops after dividing by $t$. The term $Prt$ also carries a factor of $P$, so the test values give $\\frac{100}{2} = 50$, not $0.05$.\n* Choice C ($r = \\frac{A}{Pt} - 1$): divides by $Pt$ as though the equation were $A = Pt(1 + r)$. The test values give $\\frac{1{,}100}{2{,}000} - 1 = -0.45$.\n* Choice D ($r = \\frac{t(A - P)}{P}$): multiplies by $t$ instead of dividing by it. The test values give $\\frac{2(100)}{1{,}000} = 0.2$.\n\n**Test Day Takeaway:** To solve a formula for one variable, distribute first, move every term without that variable to the other side, then divide by its coefficient. Test a choice with easy numbers when in doubt.",
+    explanation: "**SAT Pattern: Simple Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The balance rose $1{,}272 - 1{,}200 = 72$ dollars in $10 - 4 = 6$ months, which is $\\frac{72}{6} = 12$ dollars per month.\n\n**The Full Solution:**\nStep 1: Find the increase in the balance: $1{,}272 - 1{,}200 = 72$ dollars.\nStep 2: Find the time that passed: from month $4$ to month $10$ is $6$ months.\nStep 3: Divide: $\\frac{72}{6} = 12$ dollars per month. Check: $1{,}200 + 6(12) = 1{,}272$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7.20$): divides by $10$; the account had already been open $4$ months at the first reading.\n* Choice C ($18$): divides by $4$, the month of the first reading.\n* Choice D ($72$): is the total increase; it still has to be divided by the $6$ months.\n\n**Test Day Takeaway:** A rate from two readings is change in amount over change in time; subtract the times, do not use either one alone.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "simple-interest",
@@ -8461,19 +8461,19 @@ export const problemSolvingBank = [
     skills: ["slope-intercept-form"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The scatterplot shows the number of people enrolled in an online course at the end of each of its first $9$ weeks. An equation of the line of best fit is $y = 240 - 10x$, where $x$ is the week number. Based on the line of best fit, how many people are predicted to be enrolled at the end of week $12$?",
-    diagram: { type: "scatterplot", params: { points: [[1, 234], [2, 216], [3, 213], [4, 197], [5, 193], [6, 176], [7, 172], [8, 158], [9, 148]], xMin: 0, xMax: 10, yMin: 0, yMax: 260, xGridStep: 1, xLabelStep: 2, yGridStep: 20, yLabelStep: 40, xLabel: "Week", yLabel: "People enrolled", bestFitLine: { slope: -10, intercept: 240 } } },
+    question: "The scatterplot shows the number of people enrolled in an online course at the end of each of its first $9$ weeks. An equation of the line of best fit is $y = 230 - 9x$, where $x$ is the week number. Based on the line of best fit, how many people are predicted to be enrolled at the end of week $12$?",
+    diagram: { type: "scatterplot", params: { points: [[1, 224], [2, 210], [3, 207], [4, 191], [5, 186], [6, 172], [7, 169], [8, 155], [9, 151]], xMin: 0, xMax: 10, yMin: 0, yMax: 260, xGridStep: 1, xLabelStep: 2, yGridStep: 20, yLabelStep: 40, xLabel: "Week", yLabel: "People enrolled", bestFitLine: { slope: -9, intercept: 230 } } },
     choices: [
-      { id: "A", text: "$120$" },
-      // distractor: subtracts the week number instead of 10 times it: 240 - 12 = 228
-      { id: "B", text: "$228$" },
-      // distractor: reports the week-0 value 240, the intercept, without advancing 12 weeks
-      { id: "C", text: "$240$" },
-      // distractor: ignores the negative sign of the slope: 240 + 10(12) = 360
-      { id: "D", text: "$360$" }
+      { id: "A", text: "$122$" },
+      // distractor: subtracts the week number instead of 9 times it: 230 - 12 = 218
+      { id: "B", text: "$218$" },
+      // distractor: reports the week-0 value 230, the intercept, without advancing 12 weeks
+      { id: "C", text: "$230$" },
+      // distractor: ignores the negative sign of the slope: 230 + 9(12) = 338
+      { id: "D", text: "$338$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Substitute $x = 12$ into $y = 240 - 10x$: $240 - 120 = 120$ people.\n\n**The Full Solution:**\nStep 1: Read the model. The line of best fit is $y = 240 - 10x$, so enrollment starts near $240$ and falls about $10$ people per week.\nStep 2: Substitute the target week. $y = 240 - 10(12) = 240 - 120 = 120$ people.\nStep 3: Check the trend. Week $9$ predicts $150$, and three more weeks at $-10$ each gives $150 - 30 = 120$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($228$): subtracts the week number itself: $240 - 12 = 228$, dropping the factor of $10$.\n* Choice C ($240$): is the value the model gives at week $0$, before any weeks pass.\n* Choice D ($360$): adds $10x$ instead of subtracting it: $240 + 10(12) = 360$. Enrollment is falling, so the prediction must be below $240$.\n\n**Test Day Takeaway:** Week $12$ lies past the plotted data, so the equation is the only tool; substitute and let the slope do the work.",
+    explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Substitute $x = 12$ into $y = 230 - 9x$: $230 - 108 = 122$ people.\n\n**The Full Solution:**\nStep 1: Read the model: the line of best fit is $y = 230 - 9x$, so enrollment starts near $230$ and falls about $9$ people per week.\nStep 2: Substitute the target week: $y = 230 - 9(12) = 230 - 108 = 122$ people.\nStep 3: Check the trend: week $9$ predicts $230 - 81 = 149$, and three more weeks at $-9$ each gives $149 - 27 = 122$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($218$): subtracts the week number itself, $230 - 12$, dropping the factor of $9$.\n* Choice C ($230$): is the value the model gives at week $0$, before any weeks pass.\n* Choice D ($338$): adds $9x$ instead of subtracting it; enrollment is falling, so the prediction must be below $230$.\n\n**Test Day Takeaway:** Week $12$ lies past the plotted data, so the equation is the tool: substitute and let the slope do the work.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "scatterplot-line-of-best-fit",
@@ -8617,18 +8617,18 @@ export const problemSolvingBank = [
     skills: ["probability-basics"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "Of the $80$ students in a club, $46$ play soccer, $38$ play basketball, and $14$ play both. A student from the club will be selected at random. What is the probability of selecting a student who plays exactly one of these sports?",
+    question: "A bag contains only red, blue, and green marbles. If one marble is selected at random, the probability of selecting a red marble is $\\frac{1}{4}$, and the probability of selecting a blue marble is $\\frac{2}{5}$. The bag contains $21$ green marbles. How many marbles are in the bag?",
     choices: [
-      // distractor: gives the probability that the student plays neither sport
-      { id: "A", text: "$\\frac{1}{8}$" },
-      // distractor: gives the probability that the student plays both sports
-      { id: "B", text: "$\\frac{7}{40}$" },
-      { id: "C", text: "$\\frac{7}{10}$" },
-      // distractor: gives the probability that the student plays at least one of the sports, which still includes the 14 who play both
-      { id: "D", text: "$\\frac{7}{8}$" }
+      // distractor: uses only the red probability: 21 divided by 3/4
+      { id: "A", text: "$28$" },
+      // distractor: uses only the blue probability: 21 divided by 3/5
+      { id: "B", text: "$35$" },
+      { id: "C", text: "$60$" },
+      // distractor: treats the green probability as 1/4, the red probability: 21 times 4
+      { id: "D", text: "$84$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Basic Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Soccer only: $46 - 14 = 32$. Basketball only: $38 - 14 = 24$. Exactly one sport: $32 + 24 = 56$, so the probability is $\\frac{56}{80} = \\frac{7}{10}$.\n\n**The Full Solution:**\nStep 1: The $46$ soccer players include the $14$ who play both, so $46 - 14 = 32$ play only soccer.\nStep 2: Likewise, $38 - 14 = 24$ play only basketball, so $32 + 24 = 56$ students play exactly one sport.\nStep 3: The probability is $\\frac{56}{80} = \\frac{7}{10}$. Check: $56$ play exactly one sport, $14$ play both, and $80 - 70 = 10$ play neither, for a total of $56 + 14 + 10 = 80$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{8}$): is $\\frac{10}{80}$, the probability that the student plays neither sport.\n* Choice B ($\\frac{7}{40}$): is $\\frac{14}{80}$, the probability that the student plays both sports.\n* Choice D ($\\frac{7}{8}$): is $\\frac{46 + 38 - 14}{80} = \\frac{70}{80}$, the probability of playing at least one sport. That count still includes the $14$ students who play both.\n\n**Test Day Takeaway:** With overlapping groups, split the counts into 'only' pieces and 'both' before counting; 'exactly one' and 'at least one' differ by the overlap.",
+    explanation: "**SAT Pattern: Basic Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The probability of green is $1 - \\frac{1}{4} - \\frac{2}{5} = \\frac{7}{20}$, so the bag holds $21 \\div \\frac{7}{20} = 60$ marbles.\n\n**The Full Solution:**\nStep 1: The three probabilities add to $1$, so the probability of green is $1 - \\frac{5}{20} - \\frac{8}{20} = \\frac{7}{20}$.\nStep 2: If the bag holds $n$ marbles, then $\\frac{7}{20}n = 21$.\nStep 3: $n = 21 \\cdot \\frac{20}{7} = 60$. Check: $60$ marbles give $15$ red, $24$ blue, and $21$ green, and $15 + 24 + 21 = 60$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($28$): takes green as $1 - \\frac{1}{4} = \\frac{3}{4}$ of the bag, forgetting the blue marbles.\n* Choice B ($35$): takes green as $1 - \\frac{2}{5} = \\frac{3}{5}$ of the bag, forgetting the red marbles.\n* Choice D ($84$): uses $\\frac{1}{4}$, the red probability, for green.\n\n**Test Day Takeaway:** Probabilities of all the possible outcomes add to $1$; find the missing one first, then scale up to the whole.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "basic-probability",
@@ -8643,18 +8643,18 @@ export const problemSolvingBank = [
     skills: ["conditional-probability"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "In a survey of $250$ adults, $40\\%$ own a bicycle, and $30\\%$ of the bicycle owners ride it to work. How many of the adults ride a bicycle to work?",
+    question: "In a survey of $300$ adults, $35\\%$ own a bicycle, and $40\\%$ of the bicycle owners ride it to work. How many of the adults ride a bicycle to work?",
     choices: [
-      { id: "A", text: "$30$" },
-      // distractor: counts the bicycle owners who do not ride to work, $70\%$ of $100$
-      { id: "B", text: "$70$" },
-      // distractor: applies $30\%$ to all $250$ adults instead of to the bicycle owners
-      { id: "C", text: "$75$" },
+      { id: "A", text: "$42$" },
       // distractor: stops after the first step and reports the number of bicycle owners
-      { id: "D", text: "$100$" }
+      { id: "B", text: "$105$" },
+      // distractor: takes 40% of all 300 adults instead of 40% of the bicycle owners
+      { id: "C", text: "$120$" },
+      // distractor: adds the two percents and takes 75% of 300
+      { id: "D", text: "$225$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $0.40(250) = 100$ bicycle owners, and $0.30(100) = 30$ of them ride to work.\n\n**The Full Solution:**\nStep 1: Find the size of the subgroup: $40\\%$ of $250$ is $0.40(250) = 100$ bicycle owners.\nStep 2: The second percent applies to that subgroup, not to everyone surveyed: $30\\%$ of $100$ is $0.30(100) = 30$.\nStep 3: So $30$ of the adults surveyed ride a bicycle to work. Check: $0.40(0.30) = 0.12$, and $0.12(250) = 30$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($70$): counts the bicycle owners who do not ride to work, $0.70(100) = 70$.\n* Choice C ($75$): applies $30\\%$ to all $250$ adults, $0.30(250) = 75$, but the $30\\%$ describes only the bicycle owners.\n* Choice D ($100$): stops after the first step and reports the number of bicycle owners.\n\n**Test Day Takeaway:** A percent of a percent applies to the smaller group. Compute the subgroup first, then apply the second percent to it.",
+    explanation: "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $35\\%$ of $300$ is $105$ owners, and $40\\%$ of $105$ is $42$.\n\n**The Full Solution:**\nStep 1: Bicycle owners: $0.35 \\times 300 = 105$.\nStep 2: Owners who ride to work: $0.40 \\times 105 = 42$.\nStep 3: So $42$ adults ride a bicycle to work. Check: $0.35 \\times 0.40 = 0.14$, and $14\\%$ of $300$ is $42$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($105$): is the number of bicycle owners; the second percent still has to be applied.\n* Choice C ($120$): applies $40\\%$ to all $300$ adults, but the $40\\%$ is of the owners only.\n* Choice D ($225$): adds $35\\%$ and $40\\%$; a percent of a percent multiplies.\n\n**Test Day Takeaway:** \"Of the owners\" means the second percent applies to the first group, so multiply the percents.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "conditional-probability-with-percent",
@@ -8768,19 +8768,19 @@ export const problemSolvingBank = [
     skills: ["conditional-probability"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The table shows the distribution of $300$ storms by the weather station that recorded each storm and by whether the storm produced hail. One of these storms will be selected at random. Let $p$ be the probability of selecting a storm that produced hail, given that it was recorded by the inland station, and let $q$ be the probability of selecting a storm recorded by the inland station, given that it produced hail. What is the value of $q - p$?",
+    question: "The table shows the distribution of $300$ storms by the weather station that recorded each storm and by whether the storm produced hail. If one of these storms is selected at random, what is the probability of selecting a storm recorded by the inland station, given that the storm produced hail?",
     diagram: { type: "twoWayTable", params: { headers: ["", "Produced hail", "No hail", "Total"], rows: [["Coastal station", "18", "132", "150"], ["Inland station", "42", "108", "150"], ["Total", "60", "240", "300"]] } },
     choices: [
-      // distractor: reports $p = \frac{42}{150} = 0.28$ instead of $q - p$
-      { id: "A", text: "$0.28$" },
-      { id: "B", text: "$0.42$" },
-      // distractor: reports $q = \frac{42}{60} = 0.70$ instead of $q - p$
-      { id: "C", text: "$0.70$" },
-      // distractor: adds the two probabilities, $0.70 + 0.28$, instead of subtracting
-      { id: "D", text: "$0.98$" }
+      // distractor: divides the inland hail storms by all 300 storms instead of by the hail storms
+      { id: "A", text: "$\\frac{7}{50}$" },
+      // distractor: reverses the condition: 42 out of the 150 inland storms
+      { id: "B", text: "$\\frac{7}{25}$" },
+      // distractor: gives the probability of an inland storm without the condition: 150/300
+      { id: "C", text: "$\\frac{1}{2}$" },
+      { id: "D", text: "$\\frac{7}{10}$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** $p = \\frac{42}{150} = 0.28$ and $q = \\frac{42}{60} = 0.70$, so $q - p = 0.42$.\n\n**The Full Solution:**\nStep 1: For $p$, the condition is \"recorded by the inland station,\" so the denominator is the inland total, $150$: $p = \\frac{42}{150} = 0.28$.\nStep 2: For $q$, the condition is \"produced hail,\" so the denominator is the hail total, $60$: $q = \\frac{42}{60} = 0.70$.\nStep 3: Subtract: $q - p = 0.70 - 0.28 = 0.42$. Check: both use the same $42$ storms in the numerator; only the denominators differ ($150$ versus $60$) ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.28$): is the value of $p$ alone.\n* Choice C ($0.70$): is the value of $q$ alone.\n* Choice D ($0.98$): adds the two probabilities instead of subtracting them.\n\n**Test Day Takeaway:** In a conditional probability, the \"given\" group is the denominator. Swapping the condition keeps the numerator and changes the denominator.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Given hail, look only at the $60$ hail storms; $42$ of them were inland, so the probability is $\\frac{42}{60} = \\frac{7}{10}$.\n\n**The Full Solution:**\nStep 1: The condition \"the storm produced hail\" limits the choices to the Produced hail column, which totals $60$ storms.\nStep 2: Of those $60$ storms, $42$ were recorded by the inland station.\nStep 3: The probability is $\\frac{42}{60} = \\frac{7}{10}$. Check: the coastal station recorded the other $18$, and $\\frac{18}{60} + \\frac{42}{60} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7}{50}$): uses all $300$ storms as the denominator, ignoring the condition.\n* Choice B ($\\frac{7}{25}$): is $\\frac{42}{150}$, the probability of hail given an inland storm, which reverses the condition.\n* Choice C ($\\frac{1}{2}$): is $\\frac{150}{300}$, the probability of an inland storm with no condition.\n\n**Test Day Takeaway:** The \"given\" group is the denominator: find its total in the table first.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "conditional-probability-with-percent",
@@ -8846,19 +8846,19 @@ export const problemSolvingBank = [
     skills: ["calculate-mean"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The table shows the number of goals a player scored in each of four games, where $g$ is the number of goals scored in game 4. The mean number of goals per game for the four games is $3.5$. What is the value of $g$?",
-    diagram: { type: "dataTable", params: { headers: ["Game", "Goals"], rows: [["1", "3"], ["2", "5"], ["3", "4"], ["4", "g"]] } },
+    question: "The table shows the number of goals a player scored in each of four games, where $g$ is the number of goals scored in game 4. The mean number of goals per game for the four games is $4$. What is the value of $g$?",
+    diagram: { type: "dataTable", params: { headers: ["Game", "Goals"], rows: [["1", "3"], ["2", "6"], ["3", "4"], ["4", "g"]] } },
     choices: [
-      { id: "A", text: "$2$" },
+      { id: "A", text: "$3$" },
       // distractor: reports the mean as the missing value
-      { id: "B", text: "$3.5$" },
-      // distractor: finds the mean of the three known games, $\frac{12}{3}$
-      { id: "C", text: "$4$" },
-      // distractor: finds the total for all four games, $4(3.5)$, and stops
-      { id: "D", text: "$14$" }
+      { id: "B", text: "$4$" },
+      // distractor: adds the three known games and stops
+      { id: "C", text: "$13$" },
+      // distractor: finds the total for all four games, 4(4), and stops
+      { id: "D", text: "$16$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The four games total $4(3.5) = 14$ goals, and games 1-3 total $12$, so $g = 2$.\n\n**The Full Solution:**\nStep 1: The total for the four games is $4(3.5) = 14$.\nStep 2: Games 1, 2, and 3 add to $3 + 5 + 4 = 12$.\nStep 3: So $g = 14 - 12 = 2$. Check: $\\frac{3 + 5 + 4 + 2}{4} = \\frac{14}{4} = 3.5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3.5$): repeats the mean.\n* Choice C ($4$): averages the three known games, $\\frac{12}{3} = 4$.\n* Choice D ($14$): finds the four-game total but does not subtract the known games.\n\n**Test Day Takeaway:** Turn the mean into a total, then subtract the known values.",
+    explanation: "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The four games total $4(4) = 16$ goals, and games 1-3 total $13$, so $g = 3$.\n\n**The Full Solution:**\nStep 1: The total for the four games is $4(4) = 16$.\nStep 2: Games 1, 2, and 3 add to $3 + 6 + 4 = 13$.\nStep 3: So $g = 16 - 13 = 3$. Check: $\\frac{3 + 6 + 4 + 3}{4} = \\frac{16}{4} = 4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($4$): repeats the mean.\n* Choice C ($13$): is the total of the three known games, not the missing value.\n* Choice D ($16$): is the four-game total; the known games still have to be subtracted.\n\n**Test Day Takeaway:** Turn the mean into a total, then subtract the known values.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "finding-a-missing-value-given-the-mean",
@@ -8872,12 +8872,12 @@ export const problemSolvingBank = [
     skills: ["calculate-mean"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The table shows the number of birds a student counted at a feeder on each of the first four days of a study. On day 6, the student counted $6$ more birds than on day 5. If the mean number of birds counted per day for the six days is $25$, how many birds did the student count on day 6?",
+    question: "The table shows the number of birds Leah counted on each of days 1 through 4. She counted $6$ more birds on day 6 than on day 5. The mean for all six days is $25$ birds per day. How many birds did she count on day 6?",
     diagram: { type: "dataTable", params: { headers: ["Day", "Number of birds"], rows: [["1", "26"], ["2", "19"], ["3", "22"], ["4", "31"]] } },
     choices: [
       // distractor: solves correctly but reports the day 5 count instead of the day 6 count
       { id: "A", text: "$23$" },
-      // distractor: splits the remaining $52$ evenly, $\frac{52}{2}$, ignoring the difference of $6$
+      // distractor: splits the remaining 52 evenly, 52/2, ignoring the difference of 6
       { id: "B", text: "$26$" },
       { id: "C", text: "$29$" },
       // distractor: reports the combined count for days 5 and 6
@@ -8923,18 +8923,18 @@ export const problemSolvingBank = [
     skills: ["calculate-mean"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The mean mass of $12$ sparrows is $28.5$ grams. When $8$ more sparrows are included, the mean mass of all $20$ sparrows is $26.1$ grams. What is the mean mass, in grams, of the $8$ sparrows that were added?",
+    question: "The mean mass of $12$ sparrows is $30$ grams. When $8$ more sparrows are included, the mean mass of all $20$ sparrows is $27$ grams. What is the mean mass, in grams, of the $8$ sparrows that were added?",
     choices: [
       { id: "A", text: "$22.5$" },
-      // distractor: assumes the new group's mean is as far below $26.1$ as $28.5$ is above it, ignoring the different group sizes
-      { id: "B", text: "$23.7$" },
-      // distractor: reports the mean of all $20$ sparrows
-      { id: "C", text: "$26.1$" },
-      // distractor: averages the two given means, $\frac{28.5 + 26.1}{2}$
-      { id: "D", text: "$27.3$" }
+      // distractor: treats the two groups as equal in size: 2(27) - 30
+      { id: "B", text: "$24$" },
+      // distractor: reports the mean of all 20 sparrows
+      { id: "C", text: "$27$" },
+      // distractor: averages the two given means, (30 + 27)/2
+      { id: "D", text: "$28.5$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**Choice A is correct.**\n\n**The Fast Way (~50s):** All $20$ birds total $20(26.1) = 522$ grams and the first $12$ total $12(28.5) = 342$ grams, so the $8$ added birds have mean $\\frac{180}{8} = 22.5$.\n\n**The Full Solution:**\nStep 1: The total mass of all $20$ sparrows is $20(26.1) = 522$ grams.\nStep 2: The total mass of the first $12$ sparrows is $12(28.5) = 342$ grams, so the $8$ added sparrows total $522 - 342 = 180$ grams.\nStep 3: Their mean is $\\frac{180}{8} = 22.5$ grams. Check: $\\frac{342 + 8(22.5)}{20} = \\frac{522}{20} = 26.1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($23.7$): treats $26.1$ as the midpoint of the two group means, which is true only when the groups are the same size.\n* Choice C ($26.1$): is the mean of all $20$ sparrows, not of the $8$ that were added.\n* Choice D ($27.3$): averages the two means given in the question, which mixes the combined mean with a group mean.\n\n**Test Day Takeaway:** Means do not add or average across groups of different sizes; totals do. Convert every mean to a total.",
+    explanation: "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** All $20$ sparrows total $20(27) = 540$ grams and the first $12$ total $12(30) = 360$, so the $8$ new sparrows average $\\frac{180}{8} = 22.5$ grams.\n\n**The Full Solution:**\nStep 1: Total mass of the first $12$ sparrows: $12(30) = 360$ grams.\nStep 2: Total mass of all $20$ sparrows: $20(27) = 540$ grams, so the $8$ added sparrows total $540 - 360 = 180$ grams.\nStep 3: Their mean is $\\frac{180}{8} = 22.5$ grams. Check: $\\frac{360 + 8(22.5)}{20} = \\frac{540}{20} = 27$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($24$): solves $\\frac{30 + a}{2} = 27$, which would be right only if the two groups had the same number of sparrows.\n* Choice C ($27$): is the mean of all $20$ sparrows, not of the $8$ added.\n* Choice D ($28.5$): averages $30$ and $27$; the new sparrows pulled the mean down, so their mean is below $27$.\n\n**Test Day Takeaway:** Means of groups of different sizes combine through totals: mean $\\times$ count, subtract, then divide.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "finding-a-missing-value-given-the-mean",
@@ -9078,18 +9078,18 @@ export const problemSolvingBank = [
     skills: ["probability-basics"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "Of the $120$ students in a program, $78$ take statistics, $54$ take economics, and $18$ take neither course. One of these students will be selected at random. What is the probability of selecting a student who takes statistics but not economics?",
+    question: "Each of the $150$ members of a club is on one of three teams: red, blue, or gold. The probability that a randomly selected member is on the red team is $0.36$. The blue team has twice as many members as the gold team. How many members are on the blue team?",
     choices: [
-      // distractor: gives the probability of selecting a student who takes economics but not statistics, $\frac{24}{120}$
-      { id: "A", text: "$\\frac{1}{5}$" },
-      // distractor: gives the probability of selecting a student who takes both courses, $\frac{30}{120}$
-      { id: "B", text: "$\\frac{1}{4}$" },
-      { id: "C", text: "$\\frac{2}{5}$" },
-      // distractor: uses all $78$ statistics students, including the $30$ who also take economics
-      { id: "D", text: "$\\frac{13}{20}$" }
+      // distractor: finds the gold team instead of the blue team
+      { id: "A", text: "$32$" },
+      // distractor: splits the other 96 members equally between blue and gold
+      { id: "B", text: "$48$" },
+      // distractor: reports the number of red team members
+      { id: "C", text: "$54$" },
+      { id: "D", text: "$64$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Marginal Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~50s):** $120 - 18 = 102$ take at least one course, so $78 + 54 - 102 = 30$ take both and $78 - 30 = 48$ take statistics only: $\\frac{48}{120} = \\frac{2}{5}$.\n\n**The Full Solution:**\nStep 1: Since $18$ students take neither course, $120 - 18 = 102$ students take at least one.\nStep 2: The two course counts add to $78 + 54 = 132$, which counts the students in both courses twice, so $132 - 102 = 30$ take both.\nStep 3: Statistics but not economics: $78 - 30 = 48$, so the probability is $\\frac{48}{120} = \\frac{2}{5}$. Check: $48 + 24 + 30 + 18 = 120$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{5}$): is the economics-only probability, $\\frac{54 - 30}{120}$.\n* Choice B ($\\frac{1}{4}$): is the probability of taking both courses.\n* Choice D ($\\frac{13}{20}$): counts every statistics student, including the $30$ who also take economics.\n\n**Test Day Takeaway:** \"A but not B\" is the A total minus the overlap. Use the \"neither\" count to find the overlap first.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Marginal Probability**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** Red has $0.36(150) = 54$ members, leaving $96$; blue is $\\frac{2}{3}$ of those, or $64$.\n\n**The Full Solution:**\nStep 1: Red team: $0.36 \\times 150 = 54$ members, so blue and gold together have $150 - 54 = 96$ members.\nStep 2: If gold has $g$ members, blue has $2g$, so $3g = 96$ and $g = 32$.\nStep 3: Blue has $2(32) = 64$ members. Check: $54 + 64 + 32 = 150$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($32$): is the gold team; blue has twice as many.\n* Choice B ($48$): splits $96$ in half, but the teams are not equal in size.\n* Choice C ($54$): is the red team.\n\n**Test Day Takeaway:** A probability times the total gives a count; then use the remaining condition on what is left.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "marginal-probability",
@@ -9707,21 +9707,21 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-430",
     domain: "problem-solving",
-    skills: ["calculate-mean", "slope-intercept-form"],
+    skills: ["scatterplots", "linear-functions"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "$\\hat{y} = 6x + 11$\nThe given equation is a linear model for a set of data. What is the value of $y - \\hat{y}$ for the data point $(4, 41)$?",
+    question: "$y = 6x + 11$\nThe given equation is a linear model for a data set. What is the predicted value of $y$ when $x = 4$?",
     choices: [
-      // distractor: subtracts in the wrong order, predicted minus actual: 35 - 41 = -6
-      { id: "A", text: "$-6$" },
-      { id: "B", text: "$6$" },
-      // distractor: leaves out the constant 11 when evaluating the model: 41 - 24 = 17
-      { id: "C", text: "$17$" },
-      // distractor: reports the predicted value 35 instead of the difference
-      { id: "D", text: "$35$" }
+      // distractor: adds the numbers, 6 + 4 + 11 = 21, instead of multiplying 6 by 4
+      { id: "A", text: "$21$" },
+      // distractor: leaves out the constant 11: 6(4) = 24
+      { id: "B", text: "$24$" },
+      { id: "C", text: "$35$" },
+      // distractor: adds 4 and 11 before multiplying: 6(4 + 11) = 90
+      { id: "D", text: "$90$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The line predicts $6(4) + 11 = 35$, and $41 - 35 = 6$.\n\n**The Full Solution:**\nStep 1: Evaluate the model at $x = 4$: $\\hat{y} = 6(4) + 11 = 35$.\nStep 2: The data point gives the actual value $y = 41$.\nStep 3: Subtract: $y - \\hat{y} = 41 - 35 = 6$. Check: $35 + 6 = 41$, so the point lies $6$ units above the line ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): computes $\\hat{y} - y$. The question asks for the actual value minus the predicted value.\n* Choice C ($17$): uses $6x$ alone as the prediction and forgets the $+11$.\n* Choice D ($35$): is the value of $\\hat{y}$, the first step of the calculation.\n\n**Test Day Takeaway:** Actual minus predicted: positive when the point is above the line, negative when it is below.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Substitute $x = 4$: $6(4) + 11 = 24 + 11 = 35$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 4$ into the equation: $y = 6(4) + 11$.\nStep 2: Multiply first: $6(4) = 24$.\nStep 3: Then add: $24 + 11 = 35$. Check: $35 - 11 = 24$ and $24 \\div 6 = 4$, the given $x$-value ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($21$): adds $6 + 4 + 11$ instead of multiplying $6$ by $4$.\n* Choice B ($24$): stops at $6(4)$ and leaves out the constant $11$.\n* Choice D ($90$): adds $4 + 11$ before multiplying, computing $6(15)$.\n\n**Test Day Takeaway:** A predicted value is the output of the model: substitute the $x$-value into the whole equation, constant included.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "residual",
@@ -9735,19 +9735,19 @@ export const problemSolvingBank = [
     skills: ["calculate-mean", "slope-intercept-form"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The table shows the number of customers a café served on four days and the number of customers a model predicted for each day. On which day did the number of customers served exceed the predicted number by the greatest amount?",
-    diagram: { type: "dataTable", params: { headers: ["Day", "Customers served", "Customers predicted"], rows: [["Monday", "312", "298"], ["Tuesday", "372", "355"], ["Wednesday", "289", "312"], ["Thursday", "366", "348"]] } },
+    question: "The table shows the number of customers a café served on four days and the number of customers a model predicted for each of those days. On which day did the café serve more customers than the model predicted?",
+    diagram: { type: "dataTable", params: { headers: ["Day", "Customers served", "Customers predicted"], rows: [["Monday", "324", "324"], ["Tuesday", "344", "336"], ["Wednesday", "297", "320"], ["Thursday", "362", "371"]] } },
     choices: [
-      // distractor: Monday's excess is only 312 - 298 = 14
+      // distractor: on Monday the café served exactly the predicted number, 324, not more
       { id: "A", text: "Monday" },
-      // distractor: Tuesday's excess is 372 - 355 = 17, one less than Thursday's
       { id: "B", text: "Tuesday" },
-      // distractor: Wednesday has the largest gap, 23, but the café served fewer customers than predicted that day
+      // distractor: Wednesday has the largest gap between the two numbers, but the café served fewer customers than predicted that day
       { id: "C", text: "Wednesday" },
+      // distractor: Thursday has the most customers served, 362, but the model predicted 371, more than were served
       { id: "D", text: "Thursday" }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Residual**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Served minus predicted is $14$, $17$, $-23$, and $18$; the greatest is $18$, on Thursday.\n\n**The Full Solution:**\nStep 1: Subtract predicted from served for each day: Monday $312 - 298 = 14$, Tuesday $372 - 355 = 17$, Wednesday $289 - 312 = -23$, Thursday $366 - 348 = 18$.\nStep 2: Only positive differences mean the café served more customers than predicted.\nStep 3: The greatest of $14$, $17$, and $18$ is $18$, on Thursday. Check: $348 + 18 = 366$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: has an excess of $14$, smaller than Tuesday's or Thursday's.\n* Choice B: has an excess of $17$, just short of Thursday's $18$.\n* Choice C: has the largest difference in size, but the café served $23$ fewer customers than predicted, so the number served did not exceed the prediction.\n\n**Test Day Takeaway:** \"Exceed\" fixes the direction: compute actual minus predicted and compare only the positive results.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Only on Tuesday is the number served, $344$, greater than the number predicted, $336$.\n\n**The Full Solution:**\nStep 1: Compare the two numbers in each row: Monday $324$ and $324$; Tuesday $344$ and $336$; Wednesday $297$ and $320$; Thursday $362$ and $371$.\nStep 2: The number served is greater than the number predicted only on Tuesday: $344 > 336$.\nStep 3: On Monday the two numbers are equal, and on Wednesday and Thursday the café served fewer customers than predicted. Check: Tuesday is the only row where the number served is the larger number ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: the café served exactly the predicted number on Monday, not more.\n* Choice C: has the largest gap, but the café served fewer customers than predicted.\n* Choice D: has the most customers served, but the model predicted even more.\n\n**Test Day Takeaway:** \"Served more than predicted\" is about direction: the actual value must be the greater one. Do not pick a row just because its gap or its total is large.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "residual",
@@ -9758,22 +9758,22 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-432",
     domain: "problem-solving",
-    skills: ["calculate-mean", "slope-intercept-form"],
+    skills: ["scatterplots", "linear-functions"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The scatterplot shows the relationship between two variables, $x$ and $y$. The line of best fit for the data, $\\hat{y} = 2x + 5$, is also shown. What is the value of $y - \\hat{y}$ for the data point with $x = 6$?",
-    diagram: { type: "scatterplot", params: { points: [[1, 8], [2, 8], [3, 12], [4, 12], [5, 16], [6, 22], [7, 18], [8, 22], [9, 22]], xMin: 0, xMax: 10, yMin: 0, yMax: 28, xGridStep: 1, yGridStep: 2, xLabelStep: 2, yLabelStep: 4, xLabel: "x", yLabel: "y", bestFitLine: { slope: 2, intercept: 5 } } },
+    question: "The scatterplot shows $9$ data points and a line of best fit for the data. Based on the graph, which of the following is closest to the slope of the line?",
+    diagram: { type: "scatterplot", params: { points: [[1, 7], [2, 6], [3, 11], [4, 11], [5, 15], [6, 14], [7, 19], [8, 19], [9, 23]], xMin: 0, xMax: 10, yMin: 0, yMax: 28, xGridStep: 1, yGridStep: 2, xLabelStep: 2, yLabelStep: 4, xLabel: "x", yLabel: "y", bestFitLine: { slope: 2, intercept: 4 } } },
     choices: [
-      // distractor: subtracts in the wrong order, predicted minus actual: 17 - 22 = -5
-      { id: "A", text: "$-5$" },
-      { id: "B", text: "$5$" },
-      // distractor: reports the predicted value at x = 6 instead of the difference
-      { id: "C", text: "$17$" },
-      // distractor: reports the actual y-value of the data point instead of the difference
-      { id: "D", text: "$22$" }
+      // distractor: divides the change in x by the change in y, 5/10 = 0.5, instead of the change in y by the change in x
+      { id: "A", text: "$0.5$" },
+      { id: "B", text: "$2$" },
+      // distractor: divides the line's y-value at x = 10 by 10, 24/10 = 2.4, ignoring that the line starts at y = 4
+      { id: "C", text: "$2.4$" },
+      // distractor: gives the y-intercept of the line, 4, instead of its slope
+      { id: "D", text: "$4$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The point at $x = 6$ has $y = 22$, the line predicts $2(6) + 5 = 17$, and $22 - 17 = 5$.\n\n**The Full Solution:**\nStep 1: Read the data point at $x = 6$ from the scatterplot: $y = 22$.\nStep 2: Evaluate the line of best fit at $x = 6$: $\\hat{y} = 2(6) + 5 = 17$.\nStep 3: Subtract: $y - \\hat{y} = 22 - 17 = 5$. Check: the point $(6, 22)$ lies above the line, so the difference must be positive ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): computes $\\hat{y} - y$, which flips the sign.\n* Choice C ($17$): is $\\hat{y}$, the value predicted by the line, not the difference.\n* Choice D ($22$): is the actual $y$-value read from the graph, not the difference.\n\n**Test Day Takeaway:** Read the actual value from the graph, compute the predicted value from the equation, and subtract in the order the question gives.",
+    explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The line passes through $(0, 4)$ and $(5, 14)$, so its slope is $\\frac{14 - 4}{5 - 0} = 2$.\n\n**The Full Solution:**\nStep 1: Choose two points on the line itself where gridlines cross: $(0, 4)$ and $(5, 14)$.\nStep 2: Slope is the change in $y$ divided by the change in $x$: $\\frac{14 - 4}{5 - 0} = \\frac{10}{5}$.\nStep 3: So the slope is $2$. Check: the line also passes through $(10, 24)$, and $\\frac{24 - 14}{10 - 5} = 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.5$): divides the change in $x$ by the change in $y$.\n* Choice C ($2.4$): divides $24$ by $10$ as if the line passed through the origin; it starts at $y = 4$.\n* Choice D ($4$): is the $y$-intercept of the line, not its slope.\n\n**Test Day Takeaway:** To find the slope of a line of best fit, read two points on the line, not data points, and divide the change in $y$ by the change in $x$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "residual",
@@ -9787,19 +9787,19 @@ export const problemSolvingBank = [
     skills: ["calculate-mean", "slope-intercept-form"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The table shows the number of vehicles $v$, in thousands, that crossed a bridge on day $d$ of a study. A model predicts $\\hat{v} = 0.5d + 21$. What is the value of $v - \\hat{v}$ for day $6$?",
-    diagram: { type: "dataTable", params: { headers: ["Day (d)", "Vehicles (thousands)"], rows: [["2", "22.9"], ["4", "22.6"], ["6", "24.5"], ["8", "26.2"]] } },
+    question: "The table shows the number of visitors to a museum on four days of a study. A model predicts $3d + 20$ visitors on day $d$. For which day in the table does the model predict more visitors than the actual number of visitors?",
+    diagram: { type: "dataTable", params: { headers: ["Day (d)", "Number of visitors"], rows: [["2", "27"], ["4", "31"], ["6", "41"], ["8", "44"]] } },
     choices: [
-      { id: "A", text: "$0.5$" },
-      // distractor: subtracts only the constant 21 from 24.5 and leaves out the 0.5d term
-      { id: "B", text: "$3.5$" },
-      // distractor: reports the predicted value for day 6 instead of the difference
-      { id: "C", text: "$24$" },
-      // distractor: reports the actual value for day 6 instead of the difference
-      { id: "D", text: "$24.5$" }
+      // distractor: picks the day with the fewest visitors; the model predicts 3(2) + 20 = 26, fewer than the actual 27
+      { id: "A", text: "Day $2$" },
+      { id: "B", text: "Day $4$" },
+      // distractor: reverses the comparison: on day 6 the actual number, 41, is greater than the predicted 38
+      { id: "C", text: "Day $6$" },
+      // distractor: the model predicts 3(8) + 20 = 44, equal to the actual number, not more
+      { id: "D", text: "Day $8$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Residual**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The model predicts $0.5(6) + 21 = 24$ for day $6$, the table shows $24.5$, and $24.5 - 24 = 0.5$.\n\n**The Full Solution:**\nStep 1: Evaluate the model at $d = 6$: $\\hat{v} = 0.5(6) + 21 = 24$.\nStep 2: Read the actual value for day $6$ from the table: $v = 24.5$.\nStep 3: Subtract: $v - \\hat{v} = 24.5 - 24 = 0.5$. Check: $24 + 0.5 = 24.5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3.5$): subtracts $21$ but forgets the $0.5d$ term, which adds $3$ for day $6$.\n* Choice C ($24$): is the model's prediction, the first step of the calculation.\n* Choice D ($24.5$): is the number from the table, the second ingredient of the difference.\n\n**Test Day Takeaway:** A residual needs two numbers, the actual value and the model's value at the same input; subtract only after you have both.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The model predicts $26$, $32$, $38$, and $44$ visitors on days $2$, $4$, $6$, and $8$. Only on day $4$ is the prediction, $32$, more than the actual $31$.\n\n**The Full Solution:**\nStep 1: Evaluate the model for each day: $3(2) + 20 = 26$, $3(4) + 20 = 32$, $3(6) + 20 = 38$, and $3(8) + 20 = 44$.\nStep 2: Compare each prediction with the table: $26 < 27$, $32 > 31$, $38 < 41$, and $44 = 44$.\nStep 3: Only on day $4$ does the model predict more visitors than came. Check: $3(4) + 20 = 32$, and the table shows $31$ visitors on day $4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: has the fewest visitors, but the model predicts $26$, fewer than the actual $27$.\n* Choice C: reverses the comparison: the actual $41$ is more than the predicted $38$.\n* Choice D: the model predicts exactly $44$, the actual number, not more.\n\n**Test Day Takeaway:** Evaluate the model at each day, then compare in the direction the question asks; an equal prediction is not \"more.\"",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "residual",
@@ -9810,22 +9810,22 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-434",
     domain: "problem-solving",
-    skills: ["calculate-mean", "slope-intercept-form"],
+    skills: ["scatterplots", "linear-functions"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The table shows the delivery times for four orders from a restaurant and the distance $g$, in miles, of each delivery. A model predicts a delivery time of $3.5g + 12$ minutes. For how many of these orders did the delivery time exceed the predicted time by more than $4$ minutes?",
-    diagram: { type: "dataTable", params: { headers: ["Order", "Distance g (miles)", "Delivery time (minutes)"], rows: [["W", "4", "31"], ["X", "6", "40"], ["Y", "8", "46"], ["Z", "10", "50"]] } },
+    question: "The table shows the distance $g$, in miles, and the delivery time, in minutes, for four orders from a restaurant. Which of the following equations is the most appropriate linear model for the data, where $t$ is the predicted delivery time, in minutes, for a delivery of $g$ miles?",
+    diagram: { type: "dataTable", params: { headers: ["Order", "Distance g (miles)", "Delivery time (minutes)"], rows: [["W", "2", "21"], ["X", "4", "25"], ["Y", "6", "33"], ["Z", "8", "37"]] } },
     choices: [
-      // distractor: counts only order X, whose excess of 7 minutes is the largest
-      { id: "A", text: "$1$" },
-      // distractor: counts only the excesses of 6 minutes or more, leaving out order W's 5 minutes
-      { id: "B", text: "$2$" },
-      { id: "C", text: "$3$" },
-      // distractor: counts every order, including order Z, whose excess is only 3 minutes
-      { id: "D", text: "$4$" }
+      { id: "A", text: "$t = 3g + 14$" },
+      // distractor: uses the first delivery time in the table, 21, as the constant; at g = 2 this model gives 27 minutes, not about 21
+      { id: "B", text: "$t = 3g + 21$" },
+      // distractor: uses the increase of about 6 minutes from one row to the next as the rate, but the rows are 2 miles apart, so the rate is about 3 minutes per mile
+      { id: "C", text: "$t = 6g + 14$" },
+      // distractor: switches the slope and the constant; at g = 2 this model gives 31 minutes, not about 21
+      { id: "D", text: "$t = 14g + 3$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Residual**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The model predicts $26$, $33$, $40$, and $47$ minutes; the excesses are $5$, $7$, $6$, and $3$, and three of them are more than $4$.\n\n**The Full Solution:**\nStep 1: Evaluate the model for each distance: $3.5(4) + 12 = 26$, $3.5(6) + 12 = 33$, $3.5(8) + 12 = 40$, and $3.5(10) + 12 = 47$ minutes.\nStep 2: Subtract each prediction from the actual time: $31 - 26 = 5$, $40 - 33 = 7$, $46 - 40 = 6$, and $50 - 47 = 3$.\nStep 3: Three of the differences, $5$, $7$, and $6$, are greater than $4$. Check: order Z's difference, $3$, is the only one that is not ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): counts only the order with the largest excess.\n* Choice B ($2$): drops order W, whose excess of $5$ minutes is still more than $4$.\n* Choice D ($4$): includes order Z, which arrived only $3$ minutes later than predicted.\n\n**Test Day Takeaway:** When a question asks \"for how many,\" compute every difference before counting; one skipped row changes the answer.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** From $2$ to $8$ miles the time rises from $21$ to $37$ minutes, about $16$ minutes over $6$ miles, or about $3$ minutes per mile. Then $3(2) + 14 = 20$ is close to $21$.\n\n**The Full Solution:**\nStep 1: Estimate the rate: from $g = 2$ to $g = 8$ the time increases from $21$ to $37$ minutes, so the rate is about $\\frac{37 - 21}{8 - 2} = \\frac{16}{6} \\approx 2.7$ minutes per mile. Only choices A and B have a slope near $3$.\nStep 2: Test choices A and B at $g = 2$: choice A gives $3(2) + 14 = 20$, and choice B gives $3(2) + 21 = 27$. The table shows $21$ minutes.\nStep 3: Choice A fits the data; choice B does not. Check: at $g = 8$, choice A gives $3(8) + 14 = 38$, close to the $37$ minutes in the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($t = 3g + 21$): uses the first time in the table as the constant; the constant is the predicted time at $g = 0$, not at $g = 2$.\n* Choice C ($t = 6g + 14$): uses the change from one row to the next, about $6$ minutes, as the rate per mile; the rows are $2$ miles apart.\n* Choice D ($t = 14g + 3$): switches the slope and the constant, giving $31$ minutes at $g = 2$.\n\n**Test Day Takeaway:** Check a linear model two ways: its slope against the rate in the data, and one data value against the equation.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "residual",
@@ -9839,19 +9839,19 @@ export const problemSolvingBank = [
     skills: ["calculate-mean", "slope-intercept-form"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The table shows four data points. For these data, a linear model predicts $\\hat{y} = 4x - 3$. What is the sum of the four values of $y - \\hat{y}$?",
-    diagram: { type: "dataTable", params: { headers: ["x", "1", "3", "6", "9"], rows: [["y", "5", "12", "21", "36"]] } },
+    question: "The table shows four data points. A linear model for these data is $y = 4x + b$, where $b$ is a constant. The model predicts the actual $y$-value exactly when $x = 6$. For how many of the four data points is the actual $y$-value greater than the $y$-value predicted by the model?",
+    diagram: { type: "dataTable", params: { headers: ["x", "1", "3", "6", "9"], rows: [["y", "5", "8", "21", "36"]] } },
     choices: [
-      // distractor: subtracts in the wrong order, predicted minus actual for every point
-      { id: "A", text: "$-10$" },
-      // distractor: divides the sum by 4, giving the mean of the differences
-      { id: "B", text: "$2.5$" },
-      { id: "C", text: "$10$" },
-      // distractor: reports the sum of the predicted values, 1 + 9 + 21 + 33 = 64
-      { id: "D", text: "$64$" }
+      // distractor: makes a sign error and uses b = 3, which puts every prediction above the actual value
+      { id: "A", text: "$0$" },
+      // distractor: counts the points where the predicted value is greater than the actual value
+      { id: "B", text: "$1$" },
+      { id: "C", text: "$2$" },
+      // distractor: also counts the point with x = 6, where the actual and predicted values are equal
+      { id: "D", text: "$3$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Residual**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The sum of the differences is the sum of the $y$-values minus the sum of the predictions: $(5 + 12 + 21 + 36) - (1 + 9 + 21 + 33) = 74 - 64 = 10$.\n\n**The Full Solution:**\nStep 1: Evaluate the model at each $x$: $4(1) - 3 = 1$, $4(3) - 3 = 9$, $4(6) - 3 = 21$, and $4(9) - 3 = 33$.\nStep 2: Subtract each prediction from the actual value: $5 - 1 = 4$, $12 - 9 = 3$, $21 - 21 = 0$, and $36 - 33 = 3$.\nStep 3: Add: $4 + 3 + 0 + 3 = 10$. Check: $74 - 64 = 10$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$): computes $\\hat{y} - y$ at every point, which flips the sign of the sum.\n* Choice B ($2.5$): is the mean of the four differences, not their sum.\n* Choice D ($64$): is the total of the predicted values before any subtraction.\n\n**Test Day Takeaway:** A sum of differences equals the difference of the sums, which is a quick check on four separate subtractions.",
+    explanation: "**SAT Pattern: Residual**\n\n**Choice C is correct.**\n\n**The Fast Way (~60s):** From $21 = 4(6) + b$, $b = -3$; the predictions $1, 9, 21, 33$ are below the actual values only at $x = 1$ and $x = 9$.\n\n**The Full Solution:**\nStep 1: The model is exact at $(6, 21)$, so $21 = 24 + b$ and $b = -3$.\nStep 2: Predicted values for $x = 1, 3, 6, 9$: $1, 9, 21, 33$. Actual values: $5, 8, 21, 36$.\nStep 3: Actual is greater than predicted at $x = 1$ ($5 > 1$) and at $x = 9$ ($36 > 33$), so the answer is $2$. Check: at $x = 3$, $8 < 9$, and at $x = 6$ the values are equal ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): uses $b = 3$; then the predictions $7, 15, 27, 39$ are all above the actual values.\n* Choice B ($1$): counts the one point below the line ($x = 3$) instead of the points above it.\n* Choice D ($3$): counts $x = 6$, but there the actual value equals the prediction; it is not greater.\n\n**Test Day Takeaway:** Find the constant from the point the model fits exactly, then compare actual and predicted point by point.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "residual",
@@ -10415,9 +10415,9 @@ export const problemSolvingBank = [
     skills: ["proportion-setup", "rate-conversion"],
     difficulty: "hard",
     type: "fill-in",
-    question: "A patio is made of two squares. The larger square's side length is $3$ times the smaller square's side length. Tiling the patio costs \\$17 per square foot, for a total of \\$1,530. What is the cost, in dollars, of tiling the larger square?",
-    correctAnswer: "1377",
-    explanation: "**SAT Pattern: Proportional Area — Recover Side, Then Apply**\n\n**The correct answer is $1377$.**\n\n**The Fast Way (~45s):** The areas are in the ratio $3^{2} : 1^{2} = 9 : 1$, so the larger square is $\\frac{9}{10}$ of the patio and costs $\\frac{9}{10}(1{,}530) = 1{,}377$ dollars.\n\n**The Full Solution:**\nStep 1: Let the smaller square have side length $s$ feet. The larger square has side length $3s$, so its area is $(3s)^{2} = 9s^{2}$, and the patio's area is $9s^{2} + s^{2} = 10s^{2}$ square feet.\nStep 2: The total cost is $17(10s^{2}) = 170s^{2} = 1{,}530$, so $s^{2} = 9$.\nStep 3: The larger square has area $9s^{2} = 81$ square feet and costs $17(81) = 1{,}377$ dollars. Check: the smaller square costs $17(9) = 153$ dollars, and $1{,}377 + 153 = 1{,}530$ ✓\n\n**Common Mistakes:**\n* $1147.5$: uses the side ratio $3 : 1$ as the area ratio and takes $\\frac{3}{4}$ of $1{,}530$.\n* $153$: reports the cost of tiling the smaller square.\n* $1530$: reports the cost of the whole patio instead of the larger square.\n\n**Test Day Takeaway:** Squaring a side ratio gives the area ratio, so sides in the ratio $3 : 1$ split the area, and the cost, $9 : 1$.",
+    question: "A patio is made of two squares. The larger square's side length is $2$ times the smaller square's side length. Tiling the patio costs \\$12 per square foot, for a total of \\$3,000. What is the cost, in dollars, of tiling the larger square?",
+    correctAnswer: "2400",
+    explanation: "**SAT Pattern: Proportional Area — Recover Side, Then Apply**\n\n**The correct answer is $2{,}400$.**\n\n**The Fast Way (~45s):** The areas are in the ratio $2^{2} : 1^{2} = 4 : 1$, so the larger square is $\\frac{4}{5}$ of the patio and costs $\\frac{4}{5}(3{,}000) = 2{,}400$ dollars.\n\n**The Full Solution:**\nStep 1: Let the smaller square have side length $s$ feet. The larger square has side length $2s$, so its area is $(2s)^{2} = 4s^{2}$, and the patio's area is $4s^{2} + s^{2} = 5s^{2}$ square feet.\nStep 2: The total cost is $12(5s^{2}) = 60s^{2} = 3{,}000$, so $s^{2} = 50$.\nStep 3: The larger square has area $4s^{2} = 200$ square feet and costs $12(200) = 2{,}400$ dollars. Check: the smaller square costs $12(50) = 600$ dollars, and $2{,}400 + 600 = 3{,}000$ ✓\n\n**Common Mistakes:**\n* $2{,}000$: uses the side ratio $2 : 1$ as the area ratio and takes $\\frac{2}{3}$ of $3{,}000$.\n* $600$: reports the cost of tiling the smaller square.\n* $3{,}000$: reports the cost of the whole patio instead of the larger square.\n\n**Test Day Takeaway:** Squaring a side ratio gives the area ratio, so sides in the ratio $2 : 1$ split the area, and the cost, $4 : 1$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "rate-conversion",
@@ -10453,21 +10453,21 @@ export const problemSolvingBank = [
   {
     id: "bank-ps-460",
     domain: "problem-solving",
-    skills: ["squared-cubed-units", "unit-conversion"],
+    skills: ["unit-conversion"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A cyclist's acceleration is $2.5$ meters per second squared. This rate is equivalent to $k$ kilometers per hour squared. What is the value of $k$? ($1$ kilometer $= 1{,}000$ meters)",
+    question: "A machine polishes a floor at a rate of $0.6$ square meters per minute. What is this rate, in square centimeters per second? ($1$ meter $= 100$ centimeters)",
     choices: [
-      // distractor: converts seconds to hours only once, 2.5(3,600)/1,000 = 9, though seconds are squared
-      { id: "A", text: "$9$" },
-      // distractor: divides by 1,000 twice, treating meters as squared too
-      { id: "B", text: "$32.4$" },
-      // distractor: converts seconds to hours once and never converts meters to kilometers
-      { id: "C", text: "$9{,}000$" },
-      { id: "D", text: "$32{,}400$" }
+      // distractor: converts square meters with 100 instead of 100 squared
+      { id: "A", text: "$1$" },
+      // distractor: multiplies by 60 and never converts the area
+      { id: "B", text: "$36$" },
+      { id: "C", text: "$100$" },
+      // distractor: multiplies by 60 instead of dividing by 60 to change per minute to per second
+      { id: "D", text: "$360{,}000$" }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Chained Unit Conversion — Squared Time**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** Seconds are squared, so multiply by $3{,}600^{2}$ and then divide by $1{,}000$: $k = \\frac{2.5(3{,}600)^{2}}{1{,}000} = 32{,}400$.\n\n**The Full Solution:**\nStep 1: One hour is $3{,}600$ seconds, so $1$ second squared is $\\left(\\frac{1}{3{,}600}\\right)^{2}$ hour squared. Dividing by that factor multiplies the rate by $3{,}600^{2} = 12{,}960{,}000$.\nStep 2: Convert the time: $2.5(12{,}960{,}000) = 32{,}400{,}000$ meters per hour squared.\nStep 3: Convert the distance: $\\frac{32{,}400{,}000}{1{,}000} = 32{,}400$ kilometers per hour squared, so $k = 32{,}400$. Check: $\\frac{32{,}400(1{,}000)}{3{,}600^{2}} = 2.5$ meters per second squared ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): uses the factor $3{,}600$ only once. The time unit is squared, so the factor must be applied twice.\n* Choice B ($32.4$): divides by $1{,}000$ twice. Only the time unit is squared; meters appear once.\n* Choice C ($9{,}000$): applies $3{,}600$ once and leaves the distance in meters.\n\n**Test Day Takeaway:** Count how many times each unit appears: a squared unit needs its conversion factor applied twice.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Chained Rate Conversion**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** One square meter is $100^{2} = 10{,}000$ square centimeters, so the rate is $6{,}000$ square centimeters per minute, or $\\frac{6{,}000}{60} = 100$ per second.\n\n**The Full Solution:**\nStep 1: Square the length conversion: $1$ square meter $= (100)^{2} = 10{,}000$ square centimeters.\nStep 2: Convert the area: $0.6 \\times 10{,}000 = 6{,}000$ square centimeters per minute.\nStep 3: Convert the time: a minute is $60$ seconds, so $\\frac{6{,}000}{60} = 100$ square centimeters per second. Check: $100 \\times 60 = 6{,}000$ square centimeters per minute, which is $0.6$ square meters ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): uses $1$ square meter $= 100$ square centimeters; an area conversion squares the length factor.\n* Choice B ($36$): multiplies $0.6$ by $60$ and leaves the area in square meters.\n* Choice D ($360{,}000$): multiplies by $60$; there are fewer square centimeters in a second than in a minute.\n\n**Test Day Takeaway:** Square the length factor for area units, and check whether each time conversion should make the number larger or smaller.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "chained-unit-conversion",

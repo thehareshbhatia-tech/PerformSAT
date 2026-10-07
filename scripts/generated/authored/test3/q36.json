@@ -6,28 +6,28 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "type": "multiple-choice",
- "passage": "When the Framingham Heart Study began in 1948, heart disease was the leading cause of death in the United States, yet physicians could say little about why some people developed it and others did not. The study enrolled more than five thousand residents of one Massachusetts town and examined them every two years, recording blood pressure, cholesterol, smoking, and weight. Over the following decades, the records let researchers identify what they called risk factors: measurable traits that predict a person's chances of developing disease, a concept that now organizes preventive medicine well beyond cardiology.",
+ "passage": "When the Framingham Heart Study began in 1948, heart disease was the leading cause of death in the United States. Yet physicians could say little about why some people developed it and others did not. The study enrolled more than five thousand residents of one Massachusetts town and examined them every two years, recording blood pressure, cholesterol, smoking, and weight. Over the following decades, the records let researchers identify what they called risk factors: measurable traits that predict a person's chances of developing disease. The concept now organizes preventive medicine well beyond cardiology.",
  "question": "Which choice best states the main idea of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "The Framingham study succeeded because the residents of a single Massachusetts town happened to be unusually representative of the American population as a whole."
+   "text": "The Framingham study succeeded mainly because the residents of a single Massachusetts town happened to represent the whole country unusually well."
   },
   {
    "id": "B",
-   "text": "By tracking thousands of participants over decades, the Framingham study established the concept of risk factors on which preventive medicine still relies."
+   "text": "By tracking thousands of people for decades, the Framingham study established the risk-factor concept on which preventive medicine still relies."
   },
   {
    "id": "C",
-   "text": "Physicians in 1948 already suspected that blood pressure, cholesterol, smoking, and weight caused heart disease and designed the Framingham study primarily to confirm those suspicions."
+   "text": "Physicians in 1948 already knew what caused heart disease and designed the Framingham study mainly to confirm their views."
   },
   {
    "id": "D",
-   "text": "The Framingham study demonstrated that heart disease could be cured if its warning signs were detected early enough in a patient's life."
+   "text": "The Framingham study showed that heart disease could be cured if its warning signs were detected early enough."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The text moves from ignorance (no one knew why some people developed heart disease) through method (thousands of residents, examined for decades) to legacy (the risk-factor concept that now organizes preventive medicine) — the exact arc B compresses.\n\n**The Full Solution:**\n- The first sentence establishes the problem the study confronted; the second describes its long-haul design.\n- The final sentence names the study's lasting contribution and generalizes it beyond cardiology, which is what makes B's \"still relies\" the right emphasis for the main idea.\n\n**Why the other choices are wrong:**\n- A: The text never claims the town was representative, let alone credits the study's success to that.\n- C: It reverses the setup — the text says physicians \"could say little\" about causes in 1948; the measured traits emerged as predictors from the data, not as prior suspicions being confirmed.\n- D: The study produced prediction, not cure; \"risk factors\" forecast disease, and the text says nothing about curing it.",
+ "explanation": "**Choice B is correct.** The text moves from ignorance (no one knew why some people developed heart disease) through method (thousands of residents, examined for decades) to legacy (the risk-factor concept that now organizes preventive medicine) — the exact arc B compresses.\n\n**The Full Solution:**\n- The first two sentences establish the problem the study confronted; the third describes its long-haul design.\n- The last two sentences name the study's lasting contribution and generalize it beyond cardiology, which is what makes B's \"still relies\" the right emphasis for the main idea.\n\n**Why the other choices are wrong:**\n- A: The text never claims the town was representative, let alone credits the study's success to that.\n- C: It reverses the setup — the text says physicians \"could say little\" about causes in 1948; the measured traits emerged as predictors from the data, not as prior views being confirmed.\n- D: The study produced prediction, not cure; \"risk factors\" forecast disease, and the text says nothing about curing it.",
  "_meta": {
   "anchor": "Framingham Heart Study — origin of the risk-factor concept"
  }

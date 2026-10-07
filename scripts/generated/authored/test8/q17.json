@@ -6,26 +6,33 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 1,
- "passage": "In 1815 the surveyor William Smith published the first geological map of England and Wales ______ its colors traced every major rock formation across the country, from the coal measures of the north to the chalk of the southern downs.",
+ "passage": "In 1869 workers completed the first transcontinental railroad in the United States at Promontory Summit, ______ a ceremonial golden spike marked the place where the eastern and western lines met.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "Wales;"
+   "text": "Utah;"
   },
   {
    "id": "B",
-   "text": "Wales,"
+   "text": "Utah,"
   },
   {
    "id": "C",
-   "text": "Wales"
+   "text": "Utah"
   },
   {
    "id": "D",
-   "text": "Wales, therefore"
+   "text": "Utah, therefore"
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** Two independent clauses meet at the blank, and a semicolon is a conventional boundary between them.\n\n**The Full Solution:**\n- The first clause is complete: \"In 1815 the surveyor William Smith published the first geological map of England and Wales.\"\n- The second is also complete: \"its colors traced every major rock formation across the country.\"\n- A semicolon joins two related independent clauses correctly.\n\n**Why the other choices are wrong:**\n- B: A comma alone between two independent clauses is a comma splice.\n- C: No punctuation at all fuses the two clauses into a run-on.\n- D: \"Wales, therefore\" still splices the clauses with only a comma; the conjunctive adverb does not repair the boundary."
+ "explanation": "**Choice A is correct.** Two independent clauses meet at the blank, and a semicolon is a conventional boundary between them.\n\n**The Full Solution:**\n- The first clause is complete: \"In 1869 workers completed the first transcontinental railroad in the United States at Promontory Summit, Utah.\"\n- The second is also complete: \"a ceremonial golden spike marked the place where the eastern and western lines met.\"\n- A semicolon joins two related independent clauses correctly.\n\n**Why the other choices are wrong:**\n- B: A comma alone between two independent clauses is a comma splice.\n- C: No punctuation at all fuses the two clauses into a run-on.\n- D: \"Utah, therefore\" still splices the clauses with only a comma; the conjunctive adverb does not make the comma a legal boundary.",
+ "_meta": {
+  "anchor": "transcontinental railroad, Promontory Summit 1869 — semicolon between independent clauses",
+  "sources": [
+   "https://historytogo.utah.gov/golden-spike/",
+   "https://en.wikipedia.org/wiki/First_transcontinental_railroad"
+  ]
+ }
 }

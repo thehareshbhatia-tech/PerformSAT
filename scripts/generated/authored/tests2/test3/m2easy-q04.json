@@ -1,53 +1,53 @@
 {
  "id": 4,
- "question": "The scatterplot shows the relationship between two variables, $x$ and $y$. A line of best fit for the data, $y = 3.5x + 18$, is also shown. For the data point with $x = 8$, how much greater is the actual $y$-value than the $y$-value predicted by the line of best fit?",
+ "question": "The scatterplot shows $11$ data points and a line of best fit for the data. Based on the line, which of the following is closest to the predicted value of $y$ when $x = 12$?",
  "diagram": {
   "type": "scatterplot",
   "params": {
    "points": [
     [
      1,
-     20
+     24
     ],
     [
      2,
-     27
+     22
     ],
     [
      4,
-     30
-    ],
-    [
-     5,
-     38
-    ],
-    [
-     6,
      36
     ],
     [
+     5,
+     31
+    ],
+    [
+     7,
+     46
+    ],
+    [
      8,
-     53
+     42
     ],
     [
      10,
-     50
+     58
     ],
     [
-     11,
-     59
+     12,
+     66
     ],
     [
      13,
-     61
+     59
     ],
     [
-     14,
-     70
+     15,
+     74
     ],
     [
      16,
-     72
+     70
     ]
    ],
    "xMin": 0,
@@ -63,38 +63,32 @@
    "bestFitLine": {
     "slope": 3.5,
     "intercept": 18
-   },
-   "highlightPoint": [
-    8,
-    53
-   ],
-   "highlightLabel": "(8, 53)",
-   "showResidual": true
+   }
   }
  },
  "choices": [
   {
    "id": "A",
-   "text": "$7$"
+   "text": "$6$"
   },
   {
    "id": "B",
-   "text": "$25$"
+   "text": "$18$"
   },
   {
    "id": "C",
-   "text": "$46$"
+   "text": "$60$"
   },
   {
    "id": "D",
-   "text": "$53$"
+   "text": "$66$"
   }
  ],
  "distractorNotes": {
-  "B": "drops the intercept, predicting 3.5(8) = 28 and reporting 53 - 28",
-  "C": "reports the predicted y-value instead of the difference",
-  "D": "reports the actual y-value instead of the difference"
+  "A": "gives how far the data point at x = 12 lies above the line, 66 - 60 = 6, instead of the predicted value",
+  "B": "reads the line where it meets the y-axis, at x = 0, instead of at x = 12",
+  "D": "reads the data point at x = 12, the actual y-value 66, instead of the line"
  },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** At $x = 8$ the line predicts $3.5(8) + 18 = 46$, and the data point is at $(8, 53)$, so the difference is $53 - 46 = 7$.\n\n**The Full Solution:**\nStep 1: Evaluate the line of best fit at $x = 8$. Substituting into $y = 3.5x + 18$ gives $y = 28 + 18 = 46$.\nStep 2: Read the actual value. The data point with $x = 8$ is $(8, 53)$, so the actual $y$-value is $53$.\nStep 3: Subtract in the order the question asks. The actual value exceeds the predicted value by $53 - 46 = 7$. Check: $46 + 7 = 53$, the actual value ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($25$): uses $3.5(8) = 28$ as the prediction and computes $53 - 28 = 25$, dropping the intercept $18$.\n* Choice C ($46$): stops at the predicted $y$-value, which is only the middle of the calculation.\n* Choice D ($53$): reports the actual $y$-value without comparing it to the line.\n\n**Test Day Takeaway:** The vertical gap between a data point and the line of best fit is the actual value minus the predicted value. Substitute $x$ into the whole equation, intercept included, before subtracting."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Go up from $x = 12$ to the line of best fit and read across: the line passes through $(12, 60)$.\n\n**The Full Solution:**\nStep 1: Find $x = 12$ on the $x$-axis.\nStep 2: Move straight up to the line of best fit, not to the data point. The line crosses $x = 12$ where it meets the gridline $y = 60$.\nStep 3: The predicted value of $y$ is about $60$. Check: the data point at $x = 12$ is $(12, 66)$, which lies above the line, so the prediction must be less than $66$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): is the vertical distance from the data point $(12, 66)$ down to the line, not the predicted value.\n* Choice B ($18$): is where the line meets the $y$-axis, the predicted value at $x = 0$.\n* Choice D ($66$): is the actual $y$-value of the data point at $x = 12$; the question asks for the value on the line.\n\n**Test Day Takeaway:** A predicted value comes from the line of best fit, not from a data point: go up from the given $x$-value to the line and read across."
 }

@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-018",
-  "question": "A school received a grant of \\$18,000. The school spent $35\\%$ of the grant on equipment, then $20\\%$ of the remaining amount on training, and then $25\\%$ of what remained after that on travel. How many dollars of the grant were left after these three expenses?",
+  "question": "A school spent $40\\%$ of a grant on equipment and then spent $25\\%$ of the remaining amount on training. After these two expenses, \\$6,300 of the grant was left. What was the amount, in dollars, of the grant?",
   "choices": [
     {
       "id": "A",
-      "text": "$3{,}600$"
+      "text": "$8{,}400$"
     },
     {
       "id": "B",
-      "text": "$7{,}020$"
+      "text": "$11{,}025$"
     },
     {
       "id": "C",
-      "text": "$9{,}360$"
+      "text": "$14{,}000$"
     },
     {
       "id": "D",
-      "text": "$11{,}700$"
+      "text": "$18{,}000$"
     }
   ],
   "distractorNotes": {
-    "A": "adds the percents ($35 + 20 + 25 = 80\\%$) and takes them all from the original grant, leaving $20\\%$ of $18{,}000$; the later percents apply to smaller remainders.",
-    "C": "stops after the second expense and omits the travel spending.",
-    "D": "stops after the first expense and omits both later expenses."
+    "A": "undoes only the training expense, $\\frac{6{,}300}{0.75} = 8{,}400$, and forgets the equipment expense.",
+    "B": "adds the percents back to the amount left, $6{,}300(1.40)(1.25) = 11{,}025$; each percent was taken from a larger amount, so it cannot be reversed by multiplying.",
+    "D": "adds the percents, $40\\% + 25\\% = 65\\%$, and solves $0.35G = 6{,}300$; the $25\\%$ was taken from the remaining amount, not from the whole grant."
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Sequential Spending Percent**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Keep the fraction that remains at each stage: $18{,}000 \\times 0.65 \\times 0.80 \\times 0.75 = 7{,}020$.\n\n**The Full Solution:**\nStep 1: After equipment, $100\\% - 35\\% = 65\\%$ remains: $0.65 \\times 18{,}000 = 11{,}700$.\nStep 2: Training takes $20\\%$ of that remainder, leaving $80\\%$: $0.80 \\times 11{,}700 = 9{,}360$. Travel takes $25\\%$ of the new remainder, leaving $75\\%$: $0.75 \\times 9{,}360 = 7{,}020$.\nStep 3: Check by adding the expenses: $6{,}300 + 2{,}340 + 2{,}340 = 10{,}980$, and $18{,}000 - 10{,}980 = 7{,}020$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3{,}600$): adds the percents ($35 + 20 + 25 = 80\\%$) and takes them all from the original grant, leaving $20\\%$ of $18{,}000$; the later percents apply to smaller remainders.\n* Choice C ($9{,}360$): stops after the second expense and omits the travel spending.\n* Choice D ($11{,}700$): stops after the first expense and omits both later expenses.\n\n**Test Day Takeaway:** \"Of the remaining amount\" means each percent uses a new, smaller base. Multiply the remaining fractions; never add the percents."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Sequential Spending Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** After both expenses, $0.60 \\times 0.75 = 0.45$ of the grant is left, so the grant is $\\frac{6{,}300}{0.45} = 14{,}000$ dollars.\n\n**The Full Solution:**\nStep 1: Let $G$ be the grant, in dollars. After equipment, $100\\% - 40\\% = 60\\%$ remains: $0.60G$.\nStep 2: Training takes $25\\%$ of that remainder, leaving $75\\%$ of it: $0.75(0.60G) = 0.45G$. So $0.45G = 6{,}300$ and $G = \\frac{6{,}300}{0.45} = 14{,}000$.\nStep 3: Check: $40\\%$ of $14{,}000$ is $5{,}600$, leaving $8{,}400$; $25\\%$ of $8{,}400$ is $2{,}100$, leaving $6{,}300$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8{,}400$): undoes only the training expense, $\\frac{6{,}300}{0.75} = 8{,}400$, and forgets the equipment expense.\n* Choice B ($11{,}025$): adds the percents back to the amount left, $6{,}300(1.40)(1.25) = 11{,}025$; each percent was taken from a larger amount, so it cannot be reversed by multiplying.\n* Choice D ($18{,}000$): adds the percents, $40\\% + 25\\% = 65\\%$, and solves $0.35G = 6{,}300$; the $25\\%$ was taken from the remaining amount, not from the whole grant.\n\n**Test Day Takeaway:** When each percent is taken from what is left, multiply the remaining fractions ($0.60 \\times 0.75$); never add the percents. To work backward, divide by that product."
 }

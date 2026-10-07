@@ -1,6 +1,6 @@
 {
   "id": 1,
-  "question": "$x^{2} - 6x - 9 = 0$\nHow many distinct real solutions does the given equation have?",
+  "question": "$x^{2} = 2x + 8$\nHow many distinct real solutions does the given equation have?",
   "choices": [
     {
       "id": "A",
@@ -20,11 +20,11 @@
     }
   ],
   "distractorNotes": {
-    "A": "computes the discriminant as 36 - 36 = 0, treating the constant -9 as +9 (the equation looks like the perfect square x^2 - 6x + 9)",
+    "A": "factors x^2 - 2x - 8 = 0 as (x - 4)(x + 2) = 0 and counts only the positive solution, 4",
     "C": "treats the equation as an identity; a quadratic equation has at most two solutions",
-    "D": "assumes a negative constant term keeps the parabola y = x^2 - 6x - 9 off the x-axis; with a > 0 and c < 0 the graph must cross the x-axis twice"
+    "D": "moves 8 to the left side without changing its sign, getting x^2 - 2x + 8 = 0, whose discriminant 4 - 32 = -28 is negative"
   },
   "correctAnswer": "B",
-  "hint": "Compute b squared minus 4ac and look only at its sign.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** $b^{2} - 4ac = (-6)^{2} - 4(1)(-9) = 36 + 36 = 72$, which is positive, so there are two distinct real solutions.\n\n**The Full Solution:**\nStep 1: Identify the coefficients: $a = 1$, $b = -6$, and $c = -9$.\nStep 2: Compute the discriminant: $b^{2} - 4ac = 36 - 4(1)(-9) = 36 + 36 = 72$.\nStep 3: A positive discriminant gives two distinct real solutions. Check with the quadratic formula: $x = \\frac{6 \\pm \\sqrt{72}}{2} = 3 \\pm 3\\sqrt{2}$, two different real numbers. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Exactly one): uses $c = +9$, getting $36 - 36 = 0$. The equation resembles the perfect square $x^{2} - 6x + 9$, but its constant is $-9$.\n* Choice C (Infinitely many): a quadratic equation can never have more than two solutions.\n* Choice D (Zero): assumes the negative constant keeps the graph of $y = x^{2} - 6x - 9$ off the $x$-axis. The graph passes through $(0, -9)$, below the axis, and opens upward, so it must cross the axis twice.\n\n**Test Day Takeaway:** When $a$ and $c$ have opposite signs, $-4ac$ is positive, so the discriminant is positive and the equation has two real solutions."
+  "hint": "Write the equation as $ax^{2} + bx + c = 0$ first, then find the sign of $b^{2} - 4ac$.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** Rewrite as $x^{2} - 2x - 8 = 0$. Then $b^{2} - 4ac = (-2)^{2} - 4(1)(-8) = 4 + 32 = 36$, which is positive, so there are two distinct real solutions.\n\n**The Full Solution:**\nStep 1: Subtract $2x$ and $8$ from both sides: $x^{2} - 2x - 8 = 0$, so $a = 1$, $b = -2$, and $c = -8$.\nStep 2: Compute the discriminant: $b^{2} - 4ac = 4 - 4(1)(-8) = 4 + 32 = 36$.\nStep 3: A positive discriminant gives two distinct real solutions. Check: $x^{2} - 2x - 8 = (x - 4)(x + 2)$, so $x = 4$ or $x = -2$, and $4^{2} = 2(4) + 8$ and $(-2)^{2} = 2(-2) + 8$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Exactly one): factors correctly but keeps only the positive solution, $4$; the solution $-2$ also satisfies the equation.\n* Choice C (Infinitely many): a quadratic equation can never have more than two solutions.\n* Choice D (Zero): moves $8$ to the left side as $+8$, getting $x^{2} - 2x + 8 = 0$ and a discriminant of $4 - 32 = -28$. Subtracting $8$ from both sides gives $-8$.\n\n**Test Day Takeaway:** Put every term on one side before reading $a$, $b$, and $c$; a sign slip in $c$ can flip the sign of the discriminant."
 }

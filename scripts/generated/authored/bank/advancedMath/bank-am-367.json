@@ -1,29 +1,29 @@
 {
- "id": "bank-am-367",
- "question": "The functions $f$ and $g$ are defined by $f(x) = \\frac{x}{3}$ and $g(x) = x + 8$. If $f(g(k)) = -2$, what is the value of $k$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$-30$"
+  "id": "bank-am-367",
+  "question": "For the function $f$, $f(2) = 9$. The function $g$ is defined by $g(x) = f(x - 3) + 4$. Which point lies on the graph of $y = g(x)$ in the $xy$-plane?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$(-1, 13)$"
+    },
+    {
+      "id": "B",
+      "text": "$(5, 5)$"
+    },
+    {
+      "id": "C",
+      "text": "$(5, 13)$"
+    },
+    {
+      "id": "D",
+      "text": "$(6, 12)$"
+    }
+  ],
+  "correctAnswer": "C",
+  "distractorNotes": {
+    "A": "moves the point left $3$ units instead of right",
+    "B": "moves the point down $4$ units instead of up",
+    "D": "swaps the shifts, moving right $4$ and up $3$"
   },
-  {
-   "id": "B",
-   "text": "$-14$"
-  },
-  {
-   "id": "C",
-   "text": "$-6$"
-  },
-  {
-   "id": "D",
-   "text": "$2$"
-  }
- ],
- "correctAnswer": "B",
- "distractorNotes": {
-  "A": "composes in the wrong order, solving g(f(k)) = k/3 + 8 = -2",
-  "C": "stops at g(k) = -6 and reports that value as k",
-  "D": "adds 8 to -6 instead of subtracting it when undoing g"
- },
- "explanation": "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f(g(k)) = \\frac{k + 8}{3} = -2$, so $k + 8 = -6$ and $k = -14$.\n\n**The Full Solution:**\nStep 1: Write the composition: $f(g(k)) = f(k + 8) = \\frac{k + 8}{3}$.\nStep 2: Set it equal to $-2$ and multiply both sides by $3$: $k + 8 = -6$.\nStep 3: Subtract $8$: $k = -14$. Check: $g(-14) = -6$ and $f(-6) = \\frac{-6}{3} = -2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-30$): divides by $3$ first and adds $8$ second, solving $\\frac{k}{3} + 8 = -2$. That is $g(f(k))$, the reverse order.\n* Choice C ($-6$): finds the value of $g(k)$ and stops; $k$ is the input that produces it.\n* Choice D ($2$): undoes the $+8$ by adding $8$, computing $-6 + 8 = 2$. Then $g(2) = 10$ and $f(10) = \\frac{10}{3}$, not $-2$.\n\n**Test Day Takeaway:** To solve $f(g(k)) = c$, write the composition as one expression and solve it; undo the outer function first, then the inner one."
+  "explanation": "**SAT Pattern: Horizontal Shift**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The point $(2, 9)$ is on the graph of $f$, and $f(x - 3) + 4$ moves the graph right $3$ and up $4$, so it moves to $(5, 13)$.\n\n**The Full Solution:**\nStep 1: Since $f(2) = 9$, choose $x$ so that the input $x - 3$ equals $2$: $x = 5$.\nStep 2: Then $y = f(5 - 3) + 4 = f(2) + 4 = 9 + 4 = 13$.\nStep 3: So $(5, 13)$ is on the graph. Check: $(5, 13)$ is $3$ units right of and $4$ units above $(2, 9)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-1, 13)$): reads $x - 3$ as a shift left; the input must be $2$, so $x = 5$.\n* Choice B ($(5, 5)$): subtracts $4$ from the output instead of adding it.\n* Choice D ($(6, 12)$): pairs the $4$ with $x$ and the $3$ with $y$.\n\n**Test Day Takeaway:** Inside the parentheses, $x - 3$ shifts the graph right $3$; outside, $+ 4$ shifts it up $4$."
 }

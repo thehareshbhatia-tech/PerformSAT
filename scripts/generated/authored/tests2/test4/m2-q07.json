@@ -1,29 +1,29 @@
 {
  "id": 7,
- "question": "Line $j$ passes through the points $(2, -7)$ and $(10, 3)$. Line $k$ is parallel to line $j$ and passes through the point $(6, 1)$. An equation of line $k$ is $ax - 4y = c$, where $a$ and $c$ are constants. What is the value of $a + c$?",
+ "question": "$ax - 4y = 12$\nIn the given equation, $a$ is a constant. In the $xy$-plane, the graph of the given equation is parallel to the line that passes through the points $(2, -7)$ and $(10, 3)$. What is the value of $a$?",
  "choices": [
   {
    "id": "A",
-   "text": "$5$"
+   "text": "$-5$"
   },
   {
    "id": "B",
-   "text": "$26$"
+   "text": "$\\frac{5}{4}$"
   },
   {
    "id": "C",
-   "text": "$31$"
+   "text": "$\\frac{16}{5}$"
   },
   {
    "id": "D",
-   "text": "$43$"
+   "text": "$5$"
   }
  ],
  "distractorNotes": {
-  "A": "reports a alone, stopping after matching the slope",
-  "B": "reports c alone, stopping after substituting the point",
-  "D": "substitutes (2, -7), a point on line j, instead of (6, 1), getting c = 38 and a + c = 43"
+  "A": "writes the slope of ax - 4y = 12 as -a/4 instead of a/4",
+  "B": "reports the common slope, 5/4, instead of the value of a",
+  "C": "finds the slope as run over rise, 8/10 = 4/5, and solves a/4 = 4/5"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** Line $j$ has slope $\\frac{10}{8} = \\frac{5}{4}$, and $ax - 4y = c$ has slope $\\frac{a}{4}$, so $a = 5$. Then $c = 5(6) - 4(1) = 26$, and $a + c = 31$.\n\n**The Full Solution:**\nStep 1: The slope of line $j$ is $\\frac{3 - (-7)}{10 - 2} = \\frac{10}{8} = \\frac{5}{4}$.\nStep 2: Solving $ax - 4y = c$ for $y$ gives $y = \\frac{a}{4}x - \\frac{c}{4}$. Parallel lines have equal slopes, so $\\frac{a}{4} = \\frac{5}{4}$ and $a = 5$.\nStep 3: Line $k$ passes through $(6, 1)$, so $5(6) - 4(1) = c$ and $c = 26$. Then $a + c = 31$. Check: $5x - 4y = 26$ has slope $\\frac{5}{4}$, and $5(6) - 4(1) = 26$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): this is $a$ alone; the question asks for $a + c$.\n* Choice B ($26$): this is $c$ alone, the other half of the sum.\n* Choice D ($43$): this substitutes $(2, -7)$, giving $c = 10 + 28 = 38$. That point is on line $j$, not on line $k$.\n\n**Test Day Takeaway:** In $Ax + By = C$, the slope is $-\\frac{A}{B}$; use the parallel condition to fix the coefficients, then substitute a point that is on the new line."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** The line through the two points has slope $\\frac{3 - (-7)}{10 - 2} = \\frac{5}{4}$. The graph of $ax - 4y = 12$ is $y = \\frac{a}{4}x - 3$, with slope $\\frac{a}{4}$. Parallel lines have equal slopes, so $\\frac{a}{4} = \\frac{5}{4}$ and $a = 5$.\n\n**The Full Solution:**\nStep 1: Find the slope of the line through $(2, -7)$ and $(10, 3)$: $\\frac{3 - (-7)}{10 - 2} = \\frac{10}{8} = \\frac{5}{4}$.\nStep 2: Solve the given equation for $y$: $-4y = -ax + 12$, so $y = \\frac{a}{4}x - 3$. Its slope is $\\frac{a}{4}$.\nStep 3: Parallel lines have equal slopes: $\\frac{a}{4} = \\frac{5}{4}$, so $a = 5$. Check: the graph of $5x - 4y = 12$ is $y = \\frac{5}{4}x - 3$, with slope $\\frac{5}{4}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): writes the slope of $ax - 4y = 12$ as $-\\frac{a}{4}$. Solving for $y$ divides $-ax$ by $-4$, which gives $+\\frac{a}{4}x$.\n* Choice B ($\\frac{5}{4}$): this is the slope the two lines share, not the value of $a$.\n* Choice C ($\\frac{16}{5}$): computes the slope as run over rise, $\\frac{8}{10} = \\frac{4}{5}$, and then solves $\\frac{a}{4} = \\frac{4}{5}$.\n\n**Test Day Takeaway:** For a line in the form $Ax + By = C$, the slope is $-\\frac{A}{B}$; set it equal to the slope of the parallel line and solve for the constant."
 }

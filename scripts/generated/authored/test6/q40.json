@@ -6,34 +6,40 @@
   "band": 3,
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-quantitative",
-  "passage": "Scheduled airline service in one country reaches 140 airports, from international hubs to single-runway regional fields. Analysts reviewing the country's annual traffic statistics have argued that passenger travel is far more concentrated than the network's size suggests: a handful of hub airports, they claim, handles a share of total boardings wildly out of proportion to their number.",
+  "passage": "In 2019, scheduled passenger flights in the United States served 522 commercial airports, from international hubs to small regional fields. Analysts reviewing Federal Aviation Administration figures have argued that air travel is far more concentrated than the size of this network suggests. A handful of hub airports, they claim, handles a share of all boardings far out of proportion to their number.",
   "questionTable": {
     "type": "table",
-    "caption": "Passenger boardings at a country's airports with scheduled airline service in selected years",
+    "caption": "Passenger boardings at U.S. commercial airports in 2019, by airport category",
     "headers": [
-      "Year",
-      "Total boardings (millions)",
-      "Boardings at the 5 busiest airports (millions)",
-      "Share received by the 5 busiest airports"
+      "Airport category",
+      "Number of airports",
+      "Boardings (millions)",
+      "Share of all boardings"
     ],
     "rows": [
       [
-        "2015",
-        "210",
-        "113",
-        "54%"
+        "Large hubs",
+        "30",
+        "663",
+        "71%"
       ],
       [
-        "2019",
-        "260",
-        "143",
-        "55%"
+        "Medium hubs",
+        "32",
+        "159",
+        "17%"
       ],
       [
-        "2023",
-        "250",
-        "140",
-        "56%"
+        "Small hubs",
+        "74",
+        "82",
+        "9%"
+      ],
+      [
+        "Nonhubs",
+        "386",
+        "31",
+        "3%"
       ]
     ]
   },
@@ -41,21 +47,21 @@
   "choices": [
     {
       "id": "A",
-      "text": "Total passenger boardings at the country's airports rose from 210 million in 2015 to 260 million in 2019 before dipping slightly to 250 million in 2023."
+      "text": "There were 74 small hubs in 2019, more than twice as many as there were large hubs."
     },
     {
       "id": "B",
-      "text": "The five busiest airports received 143 million boardings in 2019, more than they received in either 2015 or 2023."
+      "text": "Medium hubs and small hubs together accounted for about a quarter of all boardings in 2019."
     },
     {
       "id": "C",
-      "text": "In each year shown, the five busiest airports — a small fraction of the 140 served — received more than half of all boardings."
+      "text": "The 30 large hubs, under 6% of the 522 airports, handled 71% of all boardings in 2019."
     },
     {
       "id": "D",
-      "text": "The number of airports with scheduled service grew steadily even as total boardings remained roughly stable."
+      "text": "Nonhubs made up 386 of the 522 airports in 2019, far more than any other category of airport shown in the table."
     }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The claim is about disproportion — a handful of hubs taking a share \"wildly out of proportion to their number\" — and C exhibits the disproportion directly: 5 airports out of 140 drawing more than half of all boardings, in every year shown.\n\n**The Full Solution:**\n- Supporting a concentration claim requires relating the small group's size to its share.\n- C does both: it counts the group against the whole network and cites the 54-56% shares across all three years, showing the pattern is persistent rather than a one-year quirk.\n\n**Why the other choices are wrong:**\n- A: The trajectory of total boardings says nothing about how those boardings are distributed among airports.\n- B: The top airports' raw counts, without the network totals, cannot show a disproportionate share.\n- D: The table contains no counts of airports over time, so this statement cannot be drawn from it — and network growth is not the claim at issue."
+  "explanation": "**Choice C is correct.** The claim is about disproportion: a handful of hubs takes a share of boardings far out of proportion to their number. Choice C shows exactly that, setting the large hubs' small number (30 of 522 airports, under 6%) beside their large share of boardings (71%).\n\n**The Full Solution:**\n- Supporting a concentration claim requires relating a small group's size to its share of the total.\n- Choice C does both: it counts the large hubs against the whole network and gives their share of all boardings.\n\n**Why the other choices are wrong:**\n- A: It compares numbers of airports only; it says nothing about where passengers boarded.\n- B: It describes the middle categories, not the handful of hubs the claim is about, and it never relates their share to their number.\n- D: It counts the nonhubs without mentioning boardings, so it cannot show that travel is concentrated."
 }

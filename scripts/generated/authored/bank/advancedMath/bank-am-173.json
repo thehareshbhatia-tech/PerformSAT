@@ -1,6 +1,6 @@
 {
-  "id": "bank-am-173",
-  "question": "The functions $f$ and $g$ are defined by $f(x) = 4x - 5$ and $g(x) = x^{2} + 1$. What is the value of $f(g(2))$?",
-  "correctAnswer": "15",
-  "explanation": "**SAT Pattern: Function Composition**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~15s):** $g(2) = 5$ and $f(5) = 20 - 5 = 15$.\n\n**The Full Solution:**\nStep 1: Evaluate the inner function: $g(2) = 2^{2} + 1 = 5$.\nStep 2: Use that output as the input to $f$: $f(5) = 4(5) - 5$.\nStep 3: Compute: $20 - 5 = 15$. Check: $f(g(2)) = 4(2^{2} + 1) - 5 = 4(5) - 5 = 15$ ✓\n\n**Common Mistakes:**\n* $10$: applies the functions in the wrong order, computing $g(f(2)) = g(3) = 10$.\n* $5$: stops at $g(2) = 5$ without applying $f$.\n* $3$: computes $f(2)$ and ignores $g$.\n\n**Test Day Takeaway:** $f(g(x))$ means \"do $g$ first, then $f$\"; the function written closest to $x$ acts first."
+ "id": "bank-am-173",
+ "question": "The functions $f$ and $g$ are defined by $f(x) = 4x - 5$ and $g(x) = x^{2} + 1$. If $h(x) = f(x) + g(x)$, what is the value of $h(2)$?",
+ "correctAnswer": "8",
+ "explanation": "**SAT Pattern: Function Composition**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~15s):** $f(2) = 3$ and $g(2) = 5$, so $h(2) = 3 + 5 = 8$.\n\n**The Full Solution:**\nStep 1: Find $f(2)$: $4(2) - 5 = 3$.\nStep 2: Find $g(2)$: $2^{2} + 1 = 5$.\nStep 3: Add: $h(2) = f(2) + g(2) = 3 + 5 = 8$. Check: $h(x) = x^{2} + 4x - 4$, and $4 + 8 - 4 = 8$ ✓\n\n**Common Mistakes:**\n* $15$: puts $g(2) = 5$ into $f$, computing $f(g(2))$ instead of adding the two outputs.\n* $3$: reports $f(2)$ and leaves out $g(2)$.\n* $5$: reports $g(2)$ and leaves out $f(2)$.\n\n**Test Day Takeaway:** For $h(x) = f(x) + g(x)$, evaluate each function at the same input, then add."
 }

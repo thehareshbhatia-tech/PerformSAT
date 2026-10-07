@@ -1,29 +1,29 @@
 {
  "id": "bank-am-212",
- "question": "The function $C(h) = 45 + 38h$ gives the cost, in dollars, of an $h$-hour repair. What is the best interpretation of $45$ in this context?",
+ "question": "The function $h(t) = -5t^{2} + 20t + 45$ gives the height, in meters, of a ball above the ground $t$ seconds after it is thrown upward from a balcony. What is the best interpretation of $45$ in this context?",
  "choices": [
   {
    "id": "A",
-   "text": "The cost of the repair is \\$45 before any hours of work are charged."
+   "text": "The ball was thrown from a height of $45$ meters above the ground."
   },
   {
    "id": "B",
-   "text": "The cost of the repair increases by \\$45 for each hour of work."
+   "text": "The ball reaches a maximum height of $45$ meters above the ground."
   },
   {
    "id": "C",
-   "text": "The repair includes 45 hours of work at no charge."
+   "text": "The ball hits the ground $45$ seconds after it is thrown."
   },
   {
    "id": "D",
-   "text": "The cost of the repair is \\$45 for 38 hours of work."
+   "text": "The height of the ball increases by $45$ meters each second."
   }
  ],
  "correctAnswer": "A",
  "distractorNotes": {
-  "B": "reads the constant as the hourly rate; the hourly rate is 38",
-  "C": "reads a dollar amount as a number of hours",
-  "D": "pairs the constant with the coefficient instead of reading it at h = 0; a 38-hour repair costs 45 + 1,444 = 1,489 dollars"
+  "B": "takes the constant term as the maximum height; the maximum is h(2) = 65 meters",
+  "C": "reads a height in meters as a time in seconds",
+  "D": "reads the constant term as a rate of change in height"
  },
- "explanation": "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** At $h = 0$ the model gives $C(0) = 45$, the cost before any hours of work are charged.\n\n**The Full Solution:**\nStep 1: Substituting $h = 0$ removes the hourly term, leaving $C(0) = 45$.\nStep 2: Zero hours means no work has been charged yet, so \\$45 is a starting charge.\nStep 3: The term 45 is therefore the cost before any hours are charged. Check: $C(2) = 45 + 76 = 121$, which is the \\$45 plus two hours at \\$38 ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: names 45 as the hourly rate, but that role belongs to 38.\n* Choice C: converts dollars into hours.\n* Choice D: pairs the constant with the coefficient; a 38-hour repair costs $45 + 38(38) = 1{,}489$ dollars, not 45.\n\n**Test Day Takeaway:** The constant term is the output when the input is zero — say what zero input means in the situation."
+ "explanation": "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $h(0) = 45$, so $45$ meters is the height of the ball when it is thrown, which is the height of the balcony.\n\n**The Full Solution:**\nStep 1: The ball is thrown at $t = 0$.\nStep 2: Substitute $0$ for $t$: $h(0) = -5(0)^{2} + 20(0) + 45 = 45$.\nStep 3: So the ball was thrown from a height of $45$ meters above the ground. Check: the maximum height is $h(2) = -20 + 40 + 45 = 65$ meters, so $45$ is the starting height, not the maximum ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (maximum height of $45$ meters): the ball keeps rising after it is thrown; its maximum height is $h(2) = 65$ meters.\n* Choice C ($45$ seconds): $45$ is a height in meters, not a time.\n* Choice D (increases by $45$ meters each second): a constant term is not a rate of change.\n\n**Test Day Takeaway:** The constant term of a model is its value when the input is $0$; state it in the units of the output."
 }

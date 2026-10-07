@@ -1,29 +1,29 @@
 {
  "id": 17,
- "question": "$ax + 8y = b$\nIn the given equation, $a$ and $b$ are constants. In the $xy$-plane, the graph of the equation is parallel to the graph of $3x - 2y = 7$ and passes through the point $(4, -1)$. What is the value of $b$?",
+ "question": "In the $xy$-plane, line $\\ell$ is parallel to the graph of $3x - 2y = 7$. Line $\\ell$ passes through the points $(0, 0)$ and $(6, d)$. What is the value of $d$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-56$"
+   "text": "$-9$"
   },
   {
    "id": "B",
-   "text": "$-48$"
+   "text": "$-4$"
   },
   {
    "id": "C",
-   "text": "$40$"
+   "text": "$4$"
   },
   {
    "id": "D",
-   "text": "$44$"
+   "text": "$9$"
   }
  ],
  "distractorNotes": {
-  "B": "finds a = -12 but drops the 8y term when substituting, computing b = -12(4) = -48",
-  "C": "takes a = 12 by losing the sign of the slope, then computes 12(4) + 8(-1) = 40",
-  "D": "finds a = -12 but swaps the coordinates, substituting x = -1 and y = 4: -12(-1) + 8(4) = 44"
+  "A": "loses the sign when solving for y, using the slope -3/2, so d = (-3/2)(6) = -9",
+  "B": "uses the perpendicular slope -2/3 instead of the parallel slope, so d = (-2/3)(6) = -4",
+  "C": "uses the reciprocal 2/3 of the slope, so d = (2/3)(6) = 4"
  },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** Parallel lines have proportional $x$- and $y$-coefficients: $\\frac{a}{3} = \\frac{8}{-2}$, so $a = -12$. Then $b = -12(4) + 8(-1) = -56$.\n\n**The Full Solution:**\nStep 1: The line $3x - 2y = 7$ has slope $\\frac{3}{2}$, and $ax + 8y = b$ has slope $-\\frac{a}{8}$. Parallel lines have equal slopes, so $-\\frac{a}{8} = \\frac{3}{2}$ and $a = -12$.\nStep 2: The point $(4, -1)$ is on the line, so substitute $x = 4$ and $y = -1$ into $-12x + 8y = b$: $b = -12(4) + 8(-1)$.\nStep 3: $b = -48 - 8 = -56$. Check: $-12x + 8y = -56$ is $-4$ times $3x - 2y = 14$, which has the same slope as $3x - 2y = 7$ but a different constant, so the lines are parallel and distinct, and $-12(4) + 8(-1) = -56$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-48$): finds $a = -12$ but leaves out the $8y$ term, computing only $-12(4)$.\n* Choice C ($40$): loses the negative sign and uses $a = 12$, which gives a line with slope $-\\frac{3}{2}$, not parallel to the given line.\n* Choice D ($44$): swaps the coordinates, substituting $x = -1$ and $y = 4$.\n\n**Test Day Takeaway:** For lines in standard form, parallel means the $x$- and $y$-coefficients are in the same ratio; find the missing coefficient first, then use the point to find the constant."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The graph of $3x - 2y = 7$ has slope $\\frac{3}{2}$, so line $\\ell$ is $y = \\frac{3}{2}x$, and $d = \\frac{3}{2}(6) = 9$.\n\n**The Full Solution:**\nStep 1: Solve $3x - 2y = 7$ for $y$: $-2y = -3x + 7$, so $y = \\frac{3}{2}x - \\frac{7}{2}$, and its slope is $\\frac{3}{2}$.\nStep 2: Parallel lines have equal slopes, and line $\\ell$ passes through $(0, 0)$, so its $y$-intercept is $0$ and line $\\ell$ is $y = \\frac{3}{2}x$.\nStep 3: Substitute $x = 6$: $d = \\frac{3}{2}(6) = 9$. Check: the slope from $(0, 0)$ to $(6, 9)$ is $\\frac{9}{6} = \\frac{3}{2}$, the same as the slope of the given graph ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$): loses the sign when dividing by $-2$, using the slope $-\\frac{3}{2}$.\n* Choice B ($-4$): uses the perpendicular slope, $-\\frac{2}{3}$; parallel lines have equal slopes.\n* Choice C ($4$): uses the reciprocal of the slope, $\\frac{2}{3}$.\n\n**Test Day Takeaway:** Solve the given equation for $y$ to read its slope. A parallel line through the origin is $y = mx$ with the same slope $m$."
 }

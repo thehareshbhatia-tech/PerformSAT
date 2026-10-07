@@ -6,35 +6,35 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "type": "multiple-choice",
- "passage": "Insect-eating bats forage where insects are abundant, and restoration ecologists predicted that converting former cropland back to native prairie would increase bat activity. Using acoustic detectors that record bats' echolocation calls, a research team monitored four paired sites, each pair consisting of a restored prairie and an adjacent field still planted in row crops. The team concluded that the restored prairies supported more bat activity than the croplands, noting that ______",
+ "passage": "In the 1850s and 1860s, Gregor Mendel crossed pea plants that differed in a single trait, such as seed shape. All of the first-generation offspring showed only one form of the trait, which Mendel called dominant. The other form, which he called recessive, reappeared when those offspring were self-pollinated. Mendel concluded that in this second generation the dominant form appears about three times as often as the recessive form, noting that ______",
  "questionTable": {
   "type": "table",
-  "caption": "Mean bat echolocation calls recorded per night at paired prairie and cropland sites",
+  "caption": "Second-generation offspring in four of Mendel's pea crosses",
   "headers": [
-   "Site pair",
-   "Restored prairie",
-   "Cropland"
+   "Trait",
+   "Dominant form",
+   "Recessive form"
   ],
   "rows": [
    [
-    "1",
-    "118",
-    "46"
+    "Seed shape",
+    "5,474 round",
+    "1,850 wrinkled"
    ],
    [
-    "2",
-    "87",
-    "51"
+    "Seed color",
+    "6,022 yellow",
+    "2,001 green"
    ],
    [
-    "3",
-    "203",
-    "88"
+    "Flower color",
+    "705 purple",
+    "224 white"
    ],
    [
-    "4",
-    "141",
-    "63"
+    "Stem length",
+    "787 tall",
+    "277 dwarf"
    ]
   ]
  },
@@ -42,24 +42,24 @@
  "choices": [
   {
    "id": "A",
-   "text": "detectors recorded more calls per night at the restored prairie than at the adjacent cropland in every one of the four site pairs."
+   "text": "in each of the four crosses, offspring with the dominant form outnumbered those with the recessive form by roughly three to one."
   },
   {
    "id": "B",
-   "text": "the restored prairie at site pair 3 recorded 203 calls per night, the highest number at any site in the study."
+   "text": "the seed color cross produced 6,022 yellow seeds, the largest number of offspring in any category in the table."
   },
   {
    "id": "C",
-   "text": "the cropland at site pair 3 recorded more calls per night than the restored prairie at site pair 2 did."
+   "text": "more wrinkled seeds (1,850) were counted in the seed shape cross than purple-flowered plants (705) in the flower color cross."
   },
   {
    "id": "D",
-   "text": "the number of echolocation calls recorded per night varied considerably more among the four restored prairies than it did among the four adjacent croplands."
+   "text": "the number of offspring Mendel counted varied considerably from one cross to another, ranging from fewer than 1,000 to more than 8,000."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The conclusion compares prairies with croplands across the study, and the study's design makes that comparison pair by pair. A cites the decisive pattern: in all four pairs, the prairie side recorded more calls — 118 vs. 46, 87 vs. 51, 203 vs. 88, and 141 vs. 63.\n\n**The Full Solution:**\n- Paired sites exist so that each prairie is judged against its own neighboring cropland; consistent wins across every pair are exactly the evidence the conclusion needs.\n- A states that consistency, covering the entire table rather than any single site.\n\n**Why the other choices are wrong:**\n- B: One prairie's high count cannot support a conclusion about prairies versus croplands generally — it makes no comparison at all.\n- C: This cross-pair comparison is true (88 exceeds 87) but runs against the conclusion's grain, comparing sites that were never meant to be compared and muddying the pairwise pattern.\n- D: Variability among prairies says nothing about whether prairies outperform croplands.",
+ "explanation": "**Choice A is correct.** Mendel's conclusion covers every trait he studied: in the second generation, the dominant form appears about three times as often as the recessive form. A cites that pattern across all four crosses: 5,474 to 1,850, 6,022 to 2,001, 705 to 224, and 787 to 277 are each close to three to one.\n\n**The Full Solution:**\n- The conclusion is a general rule, so the evidence must hold for each cross, not just one.\n- Dividing each dominant count by its recessive count gives about 2.96, 3.01, 3.15, and 2.84, all near 3.\n\n**Why the other choices are wrong:**\n- B: One large count makes no comparison between the dominant and recessive forms, so it cannot show a three-to-one ratio.\n- C: The comparison is true (1,850 is greater than 705), but it sets counts from two different crosses against each other, which says nothing about the ratio within either cross.\n- D: The size of each sample says nothing about how often the dominant form appeared relative to the recessive form.",
  "_meta": {
-  "anchor": "Bat acoustic activity at paired restored-prairie vs. cropland sites (unnamed restoration ecologists)"
+  "anchor": "Mendel's pea crosses — F2 counts for seed shape, seed color, flower color, stem length (Mendel 1866; https://www.ndsu.edu/pubweb/~mcclean/plsc431/overheads/mendel/mend2.htm) — consistent 3:1 in every cross"
  }
 }

@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-228",
- "question": "The circle shown has center $O$ and a diameter of $32$. What is the length of minor arc $AB$?",
+ "question": "Points $A$ and $B$ lie on the circle shown with center $O$. If the diameter of the circle is $32$, what is the length of minor arc $AB$?",
  "diagram": {
   "type": "circleWithSector",
   "params": {

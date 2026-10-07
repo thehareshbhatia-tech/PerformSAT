@@ -1,29 +1,29 @@
 {
  "id": 5,
- "question": "In the $xy$-plane, the midpoint of segment $AB$ is $(4, 4)$. Point $A$ has coordinates $(-6, 10)$. What are the coordinates of point $B$?",
+ "question": "Line $j$ is parallel to the line $y = -\\frac{1}{2}x + 3$ in the $xy$-plane and passes through the point $(0, 10)$. If line $j$ also passes through the point $(6, d)$, what is the value of $d$?",
  "choices": [
   {
    "id": "A",
-   "text": "$(-16, 16)$"
+   "text": "$0$"
   },
   {
    "id": "B",
-   "text": "$(-1, 7)$"
+   "text": "$7$"
   },
   {
    "id": "C",
-   "text": "$(10, -6)$"
+   "text": "$13$"
   },
   {
    "id": "D",
-   "text": "$(14, -2)$"
+   "text": "$22$"
   }
  ],
  "distractorNotes": {
-  "A": "steps from the midpoint away from B, computing 2A - M instead of 2M - A",
-  "B": "averages the two given points, which gives the midpoint of A and the midpoint of AB",
-  "C": "reports the change from A to the midpoint, (10, -6), instead of the endpoint"
+  "A": "uses the y-intercept of the given line, 3, instead of the point (0, 10): -1/2(6) + 3 = 0",
+  "C": "uses slope +1/2 instead of -1/2: 1/2(6) + 10 = 13",
+  "D": "uses the perpendicular slope 2 instead of the parallel slope -1/2: 2(6) + 10 = 22"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Midpoint Formula**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Going from $A$ to the midpoint is $+10$ in $x$ and $-6$ in $y$, so repeat that step from the midpoint: $(4 + 10, 4 - 6) = (14, -2)$.\n\n**The Full Solution:**\nStep 1: Let $B = (x, y)$. The midpoint formula gives $\\frac{-6 + x}{2} = 4$ and $\\frac{10 + y}{2} = 4$.\nStep 2: Solve the first equation: $-6 + x = 8$, so $x = 14$.\nStep 3: Solve the second equation: $10 + y = 8$, so $y = -2$, and $B = (14, -2)$. Check: $\\left(\\frac{-6 + 14}{2}, \\frac{10 + (-2)}{2}\\right) = (4, 4)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-16, 16)$): steps from the midpoint through $A$ and beyond, computing $(2(-6) - 4, 2(10) - 4)$, which lands on the wrong side of $A$.\n* Choice B ($(-1, 7)$): averages $A$ and the midpoint, which gives a point halfway between them, not the other endpoint.\n* Choice C ($(10, -6)$): reports the change from $A$ to the midpoint instead of adding that change to the midpoint.\n\n**Test Day Takeaway:** The missing endpoint is the midpoint plus the same step it took to get from the known endpoint to the midpoint: $B = 2M - A$."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Line $j$ has slope $-\\frac{1}{2}$ and $y$-intercept $10$, so it is $y = -\\frac{1}{2}x + 10$, and $d = -\\frac{1}{2}(6) + 10 = 7$.\n\n**The Full Solution:**\nStep 1: Parallel lines have equal slopes, so line $j$ has slope $-\\frac{1}{2}$.\nStep 2: Line $j$ passes through $(0, 10)$, a point with $x$-coordinate $0$, so its $y$-intercept is $10$ and line $j$ is $y = -\\frac{1}{2}x + 10$.\nStep 3: Substitute $x = 6$: $d = -\\frac{1}{2}(6) + 10 = -3 + 10 = 7$. Check: the slope from $(0, 10)$ to $(6, 7)$ is $\\frac{7 - 10}{6 - 0} = -\\frac{1}{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): uses the $y$-intercept of the given line, $3$, instead of $10$. Parallel lines share a slope, not a $y$-intercept.\n* Choice C ($13$): drops the negative sign of the slope, computing $\\frac{1}{2}(6) + 10$.\n* Choice D ($22$): uses the perpendicular slope $2$, computing $2(6) + 10$.\n\n**Test Day Takeaway:** A parallel line keeps the slope; a given point with $x$-coordinate $0$ gives the new $y$-intercept."
 }

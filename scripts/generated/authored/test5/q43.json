@@ -6,29 +6,29 @@
  "domain": "information-and-ideas",
  "skill": "inferences",
  "module": 2,
- "passage": "Very young infants can distinguish consonant contrasts used in languages they have never heard: six-month-olds raised in English-speaking homes reliably discriminate pairs of Hindi consonants that their own parents hear as a single sound. By around twelve months, however, that ability recedes for contrasts absent from the language around them, even as their discrimination of native contrasts grows sharper. This developmental trajectory indicates that ______",
+ "passage": "Rock pocket mice live in the deserts of the southwestern United States and northern Mexico. Across most of their range, they have sandy-colored fur and live among pale rocks. On several ancient lava flows, however, most of the mice have dark fur that matches the black rock. Owls, among the mice's main predators, hunt by sight, and a mouse whose fur contrasts with the ground beneath it is easier to spot. Taken together, these observations suggest that ______",
  "question": "Which choice most logically completes the text?",
  "choices": [
   {
    "id": "A",
-   "text": "infants start out with perceptual sensitivities broader than any single language requires, which experience then narrows and sharpens rather than creates."
+   "text": "visual predators have favored, in each habitat, the fur color that best matches the local rock."
   },
   {
    "id": "B",
-   "text": "adults could recover the ability to hear nonnative contrasts with only minimal practice."
+   "text": "the dark fur of the mice on lava flows is caused by direct contact with the black rock."
   },
   {
    "id": "C",
-   "text": "twelve-month-olds perceive fewer distinctions among speech sounds of every kind than newborns do."
+   "text": "owls avoid hunting over lava flows because the dark rock makes every mouse hard to see."
   },
   {
    "id": "D",
-   "text": "the parents' inability to hear the Hindi contrasts was inherited by their infants at birth."
+   "text": "mice with dark fur are generally larger and stronger than mice with sandy-colored fur."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The infants' early success with foreign contrasts shows the sensitivity was present before relevant experience, and its later selective loss — paired with sharpening for native sounds — shows experience trimming and tuning an already-broad capacity.\n\n**The Full Solution:**\n- Premise one: at six months, infants discriminate contrasts their language never provided, so the ability cannot have been built by exposure.\n- Premise two: by twelve months the ability fades precisely for contrasts the ambient language lacks, while native discrimination improves.\n- The pattern — broad at the start, then pruned where unused and sharpened where used — is exactly what choice A concludes: experience narrows and refines initial sensitivities rather than creating them.\n\n**Why the other choices are wrong:**\n- B: The text says nothing about adults' capacity to relearn; the trajectory described ends at twelve months.\n- C: It overgeneralizes the loss — discrimination of native contrasts grows sharper, so not every distinction fades.\n- D: It is refuted by the data: the infants of those very parents heard the Hindi contrasts at six months, so the inability was not present at birth.",
+ "explanation": "**Choice A is correct.** In each habitat, the common fur color is the one that matches the rock, and the main predators hunt by sight and spot contrasting mice more easily. Mice that blend in are more likely to survive, so predation has favored matching fur in each place.\n\n**The Full Solution:**\n- Premise one: on pale rock, most mice are sandy-colored; on black lava, most are dark. Fur color tracks the background.\n- Premise two: owls hunt by sight and more easily find a mouse that contrasts with the ground.\n- Joining the two: mice that do not match are eaten more often, so over time each habitat holds mostly matching mice. Choice A states that conclusion.\n\n**Why the other choices are wrong:**\n- B: Nothing in the text suggests the rock colors the fur; the text points to predators, not contact.\n- C: The text says a mouse is easy to spot when its fur contrasts with the ground, so a sandy mouse on black lava would be easy to see, not hard.\n- D: The text says nothing about the size or strength of the mice.",
  "_meta": {
-  "anchor": "perceptual narrowing — nonnative contrast discrimination fading by twelve months"
+  "anchor": "rock pocket mice — background-matching fur on lava vs. pale rock; visual predators"
  }
 }

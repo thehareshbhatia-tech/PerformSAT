@@ -6,27 +6,32 @@
   "domain": "craft-and-structure",
   "skill": "text-structure-and-purpose",
   "module": 2,
-  "passage": "From the late nineteenth century until 1927, federal engineers held that confining the Mississippi between continuous levees would force the river to scour its own bed deeper, so that levees alone could contain any flood. The great flood of 1927 — when the river broke through in more than a hundred places and drove hundreds of thousands of people from their homes — ended the doctrine. In 1928, Congress authorized a plan built on the opposite premise: the river would sometimes exceed any channel human beings could build for it, and engineered floodways would give the excess water somewhere safe to go.",
+  "passage": "In the 1930s, many bridge engineers held that a suspension bridge did not need a deep, stiff deck. In their view, the weight of the cables and roadway would keep the bridge steady, so a slender deck could be both economical and elegant. The Tacoma Narrows Bridge in Washington State, opened in July 1940, was built on this principle. Four months later, in winds of about 40 miles per hour, its deck twisted violently and collapsed. The bridge that replaced it in 1950 was stiffened with a deep, heavy truss, and wind-tunnel testing of bridge designs became standard practice.",
   "question": "Which choice best describes the overall structure of the text?",
   "choices": [
     {
       "id": "A",
-      "text": "It describes a natural disaster and then evaluates several competing proposals for preventing its recurrence."
+      "text": "It describes a bridge collapse and then evaluates several competing proposals for preventing similar failures."
     },
     {
       "id": "B",
-      "text": "It presents two schools of engineering thought and argues that the older of the two has been unfairly dismissed."
+      "text": "It presents two schools of engineering thought and argues that the older one has been unfairly dismissed."
     },
     {
       "id": "C",
-      "text": "It explains how a river's behavior changed gradually over the nineteenth century and how engineers adjusted their methods, step by step, in response to each change."
+      "text": "It traces how engineers revised one bridge's design over many years in response to a series of small problems."
     },
     {
       "id": "D",
-      "text": "It states an engineering doctrine and its rationale, recounts the disaster that discredited the doctrine, and describes the opposing approach adopted in its place."
+      "text": "It states a design principle and its rationale, recounts the failure that discredited it, and describes the approach that replaced it."
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The three sentences perform exactly the three moves D names: the levees-only doctrine with its scouring rationale; the 1927 flood that \"ended the doctrine\"; and the replacement plan \"built on the opposite premise.\"\n\n**The Full Solution:**\n- Sentence one is doctrine plus rationale — confinement would deepen the bed, so levees alone would suffice.\n- Sentence two is the discrediting event, with its scale spelled out in the dash-set interruption.\n- Sentence three is the reversal: floodways that concede what the old doctrine denied.\n\n**Why the other choices are wrong:**\n- A: Only one plan follows the flood; no competing proposals are weighed against each other.\n- B: The text records the older doctrine's failure without defending it — no argument for rehabilitation appears.\n- C: The change described is abrupt, not gradual — a single flood reverses policy by the following year — and it is the doctrine, not the river's behavior, that changes.",
-  "_meta": {}
+  "explanation": "**Choice D is correct.** The text first states a principle and the reasoning behind it (slender decks were thought steady enough because of the cables' weight), then recounts the 1940 collapse that discredited it, and finally describes the stiffer design and wind-tunnel testing that replaced it.\n\n**The Full Solution:**\n- The first two sentences: the principle (no deep, stiff deck needed) and its rationale (the cables and roadway keep the bridge steady).\n- The next two sentences: a bridge built on that principle twisted and collapsed four months after opening.\n- The last sentence: the replacement used a deep, heavy truss, and wind-tunnel testing became standard, the opposite of the slender-deck approach.\n\n**Why the other choices are wrong:**\n- A: The text describes only one response to the collapse and does not weigh competing proposals.\n- B: The text does not defend the older approach; it shows that the collapse discredited it.\n- C: The text describes a sudden failure four months after opening, not gradual revisions in response to small problems.",
+  "_meta": {
+    "anchor": "Tacoma Narrows Bridge 1940 — slender-deck doctrine, collapse, stiffened replacement (TSP structure)",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Tacoma_Narrows_Bridge_(1940)"
+    ]
+  }
 }

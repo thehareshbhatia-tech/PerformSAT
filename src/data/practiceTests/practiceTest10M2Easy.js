@@ -112,19 +112,19 @@ export const practiceTest10M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "In right triangle $XYZ$ shown, the perimeter of the triangle is $40$. What is the value of $\\sin X$?",
-      diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [15, 0], [0, 8]], labels: ["Z", "X", "Y"], sideLabels: ["15", "", ""], rightAngleVertex: 0 } },
+      question: "In right triangle $PQR$ shown, $\\tan P = \\frac{8}{15}$. What is the perimeter of triangle $PQR$?",
+      diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [15, 0], [0, 8]], labels: ["R", "P", "Q"], sideLabels: ["15", "", ""], rightAngleVertex: 0 } },
       choices: [
-        { id: "A", text: "$\\frac{8}{17}$" },
-        // distractor: divides the leg opposite X by the leg adjacent to X, which is tan X
-        { id: "B", text: "$\\frac{8}{15}$" },
-        // distractor: divides the leg adjacent to X by the hypotenuse, which is cos X
-        { id: "C", text: "$\\frac{15}{17}$" },
-        // distractor: divides the adjacent leg by the opposite leg, the reciprocal of tan X
-        { id: "D", text: "$\\frac{15}{8}$" }
+        // distractor: adds only the two legs, 15 + 8, and leaves out the hypotenuse
+        { id: "A", text: "$23$" },
+        // distractor: adds QR and PQ, 8 + 17, but leaves out the given side PR = 15
+        { id: "B", text: "$25$" },
+        { id: "C", text: "$40$" },
+        // distractor: takes the hypotenuse to be the sum of the legs, 15 + 8 = 23, giving 15 + 8 + 23 = 46
+        { id: "D", text: "$46$" }
       ],
-      correctAnswer: "A",
-      explanation: "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** The other two sides add to $40 - 15 = 25$, and their squares differ by $15^{2} = 225$, so they differ by $\\frac{225}{25} = 9$: $XY = 17$ and $YZ = 8$, giving $\\sin X = \\frac{8}{17}$.\n\n**The Full Solution:**\nStep 1: Let $YZ = a$ and $XY = h$, the hypotenuse. The perimeter gives $15 + a + h = 40$, so $h + a = 25$.\nStep 2: The Pythagorean theorem gives $h^{2} - a^{2} = 15^{2} = 225$. Since $h^{2} - a^{2} = (h + a)(h - a)$, it follows that $25(h - a) = 225$, so $h - a = 9$. Adding $h + a = 25$ and $h - a = 9$ gives $h = 17$ and $a = 8$.\nStep 3: The side opposite angle $X$ is $YZ = 8$, so $\\sin X = \\frac{8}{17}$. Check: $8^{2} + 15^{2} = 64 + 225 = 289 = 17^{2}$, and $8 + 15 + 17 = 40$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{8}{15}$): divides the opposite leg by the adjacent leg, which is $\\tan X$.\n* Choice C ($\\frac{15}{17}$): divides the adjacent leg by the hypotenuse, which is $\\cos X$.\n* Choice D ($\\frac{15}{8}$): divides the adjacent leg by the opposite leg, the reciprocal of $\\tan X$.\n\n**Test Day Takeaway:** When the perimeter is given with one leg, write the sum of the other two sides and use the difference of squares to find each side; then match sine to opposite over hypotenuse.",
+      correctAnswer: "C",
+      explanation: "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\tan P = \\frac{QR}{PR}$, so $QR = \\frac{8}{15}(15) = 8$; the hypotenuse is $\\sqrt{8^{2} + 15^{2}} = 17$, and the perimeter is $15 + 8 + 17 = 40$.\n\n**The Full Solution:**\nStep 1: The right angle is at $R$. For angle $P$, the opposite side is $QR$ and the adjacent side is $PR = 15$, so $\\frac{QR}{15} = \\frac{8}{15}$ and $QR = 8$.\nStep 2: The hypotenuse is $PQ = \\sqrt{15^{2} + 8^{2}} = \\sqrt{289} = 17$.\nStep 3: The perimeter is $15 + 8 + 17 = 40$. Check: $8^{2} + 15^{2} = 64 + 225 = 289 = 17^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($23$): adds only the two legs and leaves out the hypotenuse $PQ = 17$.\n* Choice B ($25$): adds $QR$ and $PQ$ but leaves out the side $PR = 15$ shown in the figure.\n* Choice D ($46$): takes the hypotenuse to be $15 + 8 = 23$ instead of using the Pythagorean theorem.\n\n**Test Day Takeaway:** Tangent is opposite over adjacent; use it to find the missing leg, then the Pythagorean theorem for the hypotenuse.",
       skills: ["soh-cah-toa"]
     },
     {
@@ -208,11 +208,11 @@ export const practiceTest10M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "What is the distance between the two points shown in the $xy$-plane?",
-      diagram: { type: "coordinatePoints", params: { points: [[2, 2], [10, 8]], xMin: 0, xMax: 12, yMin: 0, yMax: 12 } },
-      correctAnswer: "10",
-      explanation: "**SAT Pattern: Distance Formula**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~20s):** The points are $(2, 2)$ and $(10, 8)$, which are $8$ units apart horizontally and $6$ units apart vertically, so the distance is $\\sqrt{8^{2} + 6^{2}} = 10$.\n\n**The Full Solution:**\nStep 1: Read the points from the grid: $(2, 2)$ and $(10, 8)$.\nStep 2: The horizontal change is $10 - 2 = 8$ and the vertical change is $8 - 2 = 6$.\nStep 3: By the distance formula, $d = \\sqrt{8^{2} + 6^{2}} = \\sqrt{64 + 36} = \\sqrt{100} = 10$. Check: $6$, $8$, $10$ is a multiple of the right triangle $3$, $4$, $5$, and $2(5) = 10$ ✓\n\n**Common Mistakes:**\n* $14$: adds the horizontal and vertical changes, $8 + 6$, instead of using the Pythagorean theorem.\n* $100$: stops at $d^{2}$ and forgets to take the square root.\n* $2$: subtracts the changes, $8 - 6$, instead of combining their squares.\n\n**Test Day Takeaway:** The distance between two points is the hypotenuse of a right triangle whose legs are the horizontal and vertical changes; square, add, then take the square root.",
-      skills: ["coordinate-geometry"]
+      question: "The line shown in the $xy$-plane is parallel to the graph of $3x + ky = 24$, where $k$ is a constant. What is the value of $k$?",
+      diagram: { type: "linearGraph", params: { slope: -0.75, yIntercept: 3, xRange: [-2, 8], yRange: [-4, 6], xTickInterval: 2, yTickInterval: 2, gridInterval: 1, showPoints: [[0, 3], [4, 0]] } },
+      correctAnswer: "4",
+      explanation: "**SAT Pattern: Parallel Lines and Standard Form**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~25s):** The line shown passes through $(0, 3)$ and $(4, 0)$, so its slope is $-\\frac{3}{4}$. The graph of $3x + ky = 24$ has slope $-\\frac{3}{k}$, so $k = 4$.\n\n**The Full Solution:**\nStep 1: Read two points on the line shown: $(0, 3)$ and $(4, 0)$. Its slope is $\\frac{0 - 3}{4 - 0} = -\\frac{3}{4}$.\nStep 2: Solve $3x + ky = 24$ for $y$: $y = -\\frac{3}{k}x + \\frac{24}{k}$, so its slope is $-\\frac{3}{k}$.\nStep 3: Parallel lines have equal slopes: $-\\frac{3}{k} = -\\frac{3}{4}$, so $k = 4$. Check: $3x + 4y = 24$ is $y = -\\frac{3}{4}x + 6$, which has slope $-\\frac{3}{4}$ and a different $y$-intercept from the line shown ✓\n\n**Common Mistakes:**\n* $8$: substitutes the point $(0, 3)$ into $3x + ky = 24$, but that point is on the line shown, not on the parallel line.\n* $-4$: drops the negative sign when writing the slope of $3x + ky = 24$, solving $\\frac{3}{k} = -\\frac{3}{4}$.\n* $\\frac{9}{4}$: writes the slope of $3x + ky = 24$ as $-\\frac{k}{3}$ instead of $-\\frac{3}{k}$.\n\n**Test Day Takeaway:** The line $Ax + By = C$ has slope $-\\frac{A}{B}$; parallel lines share that slope, not their points.",
+      skills: ["writing-parallel-equation"]
     },
     {
       id: 12,
@@ -377,19 +377,19 @@ export const practiceTest10M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 7,
-      question: "For the linear function $f$, the table shows four values of $x$ and their corresponding values of $f(x)$. What is the value of $f(f(3))$?",
+      question: "For the linear function $f$, the table shows four values of $x$ and their corresponding values of $f(x)$. If $h(x) = f(x) - 9$, what is the value of $h(11)$?",
       questionTable: { headers: ["$x$", "$f(x)$"], rows: [["$1$", "$5$"], ["$3$", "$11$"], ["$5$", "$17$"], ["$7$", "$23$"]] },
       choices: [
-        // distractor: finds f(3) and stops instead of applying f a second time
-        { id: "A", text: "$11$" },
-        // distractor: uses the rule f(x) = 3x and drops the constant 2
-        { id: "B", text: "$33$" },
+        // distractor: uses the rule f(x) = 3x, dropping the constant 2, so h(11) = 33 - 9
+        { id: "A", text: "$24$" },
+        { id: "B", text: "$26$" },
+        // distractor: finds f(11) = 35 but does not subtract 9
         { id: "C", text: "$35$" },
-        // distractor: multiplies f(3) by itself instead of evaluating f at f(3)
-        { id: "D", text: "$121$" }
+        // distractor: adds 9 to f(11) instead of subtracting it
+        { id: "D", text: "$44$" }
       ],
-      correctAnswer: "C",
-      explanation: "**SAT Pattern: Function Evaluation**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The outputs rise $6$ for every $2$ of input, so $f(x) = 3x + 2$; then $f(3) = 11$ and $f(11) = 35$.\n\n**The Full Solution:**\nStep 1: Find the rule. From $x = 1$ to $x = 3$, $f(x)$ increases by $11 - 5 = 6$, so the slope is $\\frac{6}{2} = 3$. Since $f(1) = 5$, the constant is $5 - 3 = 2$, giving $f(x) = 3x + 2$.\nStep 2: Work from the inside out. The table shows $f(3) = 11$.\nStep 3: The value $11$ is not in the table, so use the rule: $f(11) = 3(11) + 2 = 35$. Check the rule with a row it was not built from: $f(7) = 3(7) + 2 = 23$, which matches the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($11$): is $f(3)$, the inside value. The function must be applied again to that output.\n* Choice B ($33$): uses $f(x) = 3x$, which matches the spacing of the outputs but misses the constant $2$; it does not match any row of the table.\n* Choice D ($121$): squares $f(3)$, reading $f(f(3))$ as $f(3) \\cdot f(3)$.\n\n**Test Day Takeaway:** For $f(f(a))$, find $f(a)$ first, then use that output as the new input; when the new input is outside the table, write the linear rule.",
+      correctAnswer: "B",
+      explanation: "**SAT Pattern: Function Evaluation**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The outputs rise $6$ for every $2$ of input, so $f(x) = 3x + 2$; then $f(11) = 35$ and $h(11) = 35 - 9 = 26$.\n\n**The Full Solution:**\nStep 1: Find the rule for $f$. From $x = 1$ to $x = 3$, $f(x)$ increases by $11 - 5 = 6$, so the slope is $\\frac{6}{2} = 3$. Since $f(1) = 5$, the constant is $5 - 3 = 2$, so $f(x) = 3x + 2$.\nStep 2: The input $11$ is not in the table, so use the rule: $f(11) = 3(11) + 2 = 35$.\nStep 3: $h(11) = f(11) - 9 = 35 - 9 = 26$. Check the rule with another row: $f(7) = 3(7) + 2 = 23$, which matches the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($24$): uses $f(x) = 3x$, which matches the spacing of the outputs but misses the constant $2$.\n* Choice C ($35$): this is $f(11)$; $h$ is $9$ less than $f$.\n* Choice D ($44$): adds $9$ instead of subtracting it.\n\n**Test Day Takeaway:** When an input is outside the table, write the linear rule from two rows; then apply any change to the output, such as $-9$, last.",
       skills: ["function-evaluation"]
     },
     {

@@ -8,29 +8,29 @@
  "choices": [
   {
    "id": "A",
-   "text": ", wave troughs reflect radar more strongly than crests do, which skews each reading slightly low, "
+   "text": ", a compass needle points to magnetic north, which can lie more than ten degrees from true north, "
   },
   {
    "id": "B",
-   "text": "—wave troughs reflect radar more strongly than crests do, which skews each reading slightly low—"
+   "text": "—a compass needle points to magnetic north, which can lie more than ten degrees from true north—"
   },
   {
    "id": "C",
-   "text": " wave troughs reflect radar more strongly than crests do, which skews each reading slightly low "
+   "text": " a compass needle points to magnetic north, which can lie more than ten degrees from true north "
   },
   {
    "id": "D",
-   "text": "—wave troughs reflect radar more strongly than crests do, which skews each reading slightly low,"
+   "text": "—a compass needle points to magnetic north, which can lie more than ten degrees from true north,"
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The explanation of sea state bias is a full clause interrupting the main sentence, and a matched pair of dashes is the conventional way to set off such an interruption.\n\n**The Full Solution:**\n- Remove the insertion and the frame reads cleanly: \"researchers must first correct for what oceanographers call sea state bias ... before the measurements can be compared.\"\n- The inserted material contains its own subject and verb plus a trailing \"which\" clause — an interruption this heavy needs strong, matching fences.\n- Choice B opens with a dash and closes with a dash: the pair must match.\n\n**Why the other choices are wrong:**\n- A: Commas around an insertion that itself contains internal commas and a full clause leave the boundaries ambiguous — the reader cannot tell which commas fence the interruption.\n- C: With no punctuation at all, the inserted clause collides with the frame sentence in an unreadable run-on.\n- D: It opens with a dash but closes with a comma; mismatched fences around a single interruption violate the pairing convention.",
- "passage": "Researchers converting a satellite's radar echoes into sea-surface heights must first correct for what oceanographers call sea state bias ______ before the measurements from one pass can be compared with those from the next.",
+ "explanation": "**Choice B is correct.** The explanation of magnetic declination is a full clause interrupting the main sentence, and a matched pair of dashes is the conventional way to set off such an interruption.\n\n**The Full Solution:**\n- Remove the insertion and the frame reads cleanly: \"Hikers using a map and compass must correct for magnetic declination before matching a compass bearing to the map.\"\n- The inserted material has its own subject and verb (\"a compass needle points\") plus a trailing \"which\" clause, so it needs strong, matching marks on both sides.\n- Choice B opens with a dash and closes with a dash.\n\n**Why the other choices are wrong:**\n- A: Commas around an insertion that itself contains a comma make it impossible to tell where the interruption ends, and they splice the independent clause \"a compass needle points to magnetic north\" onto the main sentence.\n- C: With no punctuation at all, the inserted clause runs into the main sentence, creating a run-on.\n- D: The insertion opens with a dash but closes with a comma; paired marks must match.",
+ "passage": "Hikers using a map and compass must correct for magnetic declination ______ before matching a compass bearing to the map.",
  "_meta": {
   "rule": "paired em-dashes around an interrupting clause",
-  "anchor": "satellite altimetry of oceans — sea state bias correction",
+  "anchor": "magnetic declination — compass points to magnetic north, offset from true north by location (NOAA NCEI; NWCG declination lesson)",
   "distractors": {
-   "A": "comma fences ambiguous around comma-bearing insertion",
+   "A": "comma fences around comma-bearing clause",
    "C": "no fences, run-on",
    "D": "mismatched dash-comma pair"
   }

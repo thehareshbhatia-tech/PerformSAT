@@ -9,9 +9,9 @@
   "studentNotes": {
     "intro": "While researching a topic, a student has taken the following notes:",
     "bullets": [
-      "Until the 1970s, biologists customarily sorted all living things into two fundamental groups: bacteria and everything else.",
-      "The microbiologist Carl Woese compared ribosomal RNA sequences to trace evolutionary relationships among microbes.",
-      "In 1977, Woese and George Fox reported that the microbes now called archaea, though they look like bacteria, are no more closely related to bacteria than to plants and animals.",
+      "Until the 1970s, biologists usually sorted all living things into two groups: bacteria and everything else.",
+      "The microbiologist Carl Woese compared ribosomal RNA sequences to trace how microbes are related.",
+      "In 1977, Woese and George Fox reported that one group of bacteria-like microbes, now called archaea, is no more related to bacteria than to plants and animals.",
       "Woese proposed dividing life into three domains: Bacteria, Archaea, and Eukarya.",
       "Biologists and textbooks have since widely adopted the three-domain scheme."
     ],
@@ -21,11 +21,11 @@
   "choices": [
     {
       "id": "A",
-      "text": "Working with George Fox, Carl Woese compared ribosomal RNA sequences from many microbes to trace the evolutionary relationships among them."
+      "text": "Working with George Fox, the microbiologist Carl Woese compared ribosomal RNA sequences from many microbes to trace how they are related to one another."
     },
     {
       "id": "B",
-      "text": "By revealing that archaea are a distinct branch of life despite looking like bacteria, Woese's work replaced the two-group view of life with the widely adopted three-domain scheme."
+      "text": "Woese's finding that archaea form a distinct branch of life led biologists to replace the two-group view with the widely adopted three-domain scheme."
     },
     {
       "id": "C",
@@ -33,9 +33,9 @@
     },
     {
       "id": "D",
-      "text": "Until the 1970s, biologists customarily sorted all living things into just two fundamental groups."
+      "text": "Until the 1970s, biologists usually sorted all living things into just two groups."
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** Significance for classification means showing what the finding changed, and B does precisely that: it names the finding (archaea are a distinct branch despite their bacterial look) and its classificatory consequence (two groups replaced by the widely adopted three domains).\n\n**The Full Solution:**\n- The goal has two parts: Woese's finding, and its significance for how life is classified.\n- B carries both — the discovery in its opening clause, the overthrow of the old scheme and adoption of the new one in its main clause — synthesizing the third, fourth, and fifth notes.\n\n**Why the other choices are wrong:**\n- A: It describes the method but stops before any finding or consequence, so no significance is conveyed.\n- C: It states the finding stripped of any connection to classification — the significance the goal demands is missing.\n- D: It gives only the before picture; without the finding or the new scheme, nothing about Woese's impact is emphasized."
+  "explanation": "**Choice B is correct.** Significance for classification means showing what the finding changed, and B does precisely that: it names the finding (archaea form a distinct branch of life) and its classificatory consequence (two groups replaced by the widely adopted three domains).\n\n**The Full Solution:**\n- The goal has two parts: Woese's finding, and its significance for how life is classified.\n- B carries both — the discovery in its subject, the overthrow of the old scheme and adoption of the new one in its predicate — synthesizing the third, fourth, and fifth notes.\n\n**Why the other choices are wrong:**\n- A: It describes the method but stops before any finding or consequence, so no significance is conveyed.\n- C: It states the finding stripped of any connection to classification — the significance the goal demands is missing.\n- D: It gives only the before picture; without the finding or the new scheme, nothing about Woese's impact is emphasized."
 }

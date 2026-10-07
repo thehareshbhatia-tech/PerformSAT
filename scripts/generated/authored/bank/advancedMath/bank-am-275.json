@@ -1,49 +1,49 @@
 {
- "question": "A credit card balance of $\\$2{,}400$ is charged interest at an annual rate of $6\\%$, compounded monthly, and no payments are made. The table shows the balance, in dollars, after each of the first $3$ months. To the nearest dollar, what is the balance after $12$ months?",
+ "question": "The table shows the value, in dollars, of an investment at the end of each of the first three years after it was bought. The value grew by the same percentage each year. Based on the table, what will the value be at the end of the fifth year?",
  "questionTable": {
   "headers": [
-   "Months",
-   "Balance (dollars)"
+   "Year",
+   "Value (dollars)"
   ],
   "rows": [
    [
     "$1$",
-    "$2{,}412.00$"
+    "$6{,}250$"
    ],
    [
     "$2$",
-    "$2{,}424.06$"
+    "$7{,}500$"
    ],
    [
     "$3$",
-    "$2{,}436.18$"
+    "$9{,}000$"
    ]
   ]
  },
  "choices": [
   {
    "id": "A",
-   "text": "$\\$2{,}436$"
+   "text": "$10{,}800$"
   },
   {
    "id": "B",
-   "text": "$\\$2{,}544$"
+   "text": "$12{,}000$"
   },
   {
    "id": "C",
-   "text": "$\\$2{,}548$"
+   "text": "$12{,}960$"
   },
   {
    "id": "D",
-   "text": "$\\$4{,}829$"
+   "text": "$15{,}552$"
   }
  ],
  "distractorNotes": {
-  "A": "reported the last value in the table, the balance after 3 months",
-  "B": "applied the annual rate once, computing 2400 times 1.06",
-  "D": "used 6 percent as the monthly rate, computing 2400 times 1.06 to the twelfth power"
+  "A": "applies only one more year of growth, giving the year-4 value",
+  "B": "adds 1,500 each year, treating the growth as linear",
+  "D": "applies three more years of growth, giving the year-6 value"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Compound Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The monthly factor is $1.005$, so after $12$ months the balance is $2400(1.005)^{12}\\approx \\$2{,}548$.\n\n**The Full Solution:**\nStep 1: The monthly rate is $\\dfrac{0.06}{12}=0.005$, matching the table: $2400\\cdot 1.005=2{,}412.00$.\nStep 2: After $12$ months the balance is $2400(1.005)^{12}$.\nStep 3: Since $(1.005)^{12}=1.06168$, the balance is $\\$2{,}548.03$, or $\\$2{,}548$ to the nearest dollar. Check: this is slightly more than $6\\%$ of $\\$2{,}400$ added on, as compounding requires ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\$2{,}436$): reports the last value in the table, the balance after $3$ months.\n* Choice B ($\\$2{,}544$): applies the annual rate once, computing $2400(1.06)$.\n* Choice D ($\\$4{,}829$): uses $6\\%$ as the monthly rate, computing $2400(1.06)^{12}$.\n\n**Test Day Takeaway:** Monthly compounding divides the annual rate by $12$ and raises to the number of months — the two must change together.",
+ "explanation": "**SAT Pattern: Compound Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Each year multiplies the value by $\\frac{7{,}500}{6{,}250} = 1.2$, so year 5 is $9{,}000(1.2)^{2} = 12{,}960$.\n\n**The Full Solution:**\nStep 1: Divide consecutive values: $\\frac{7{,}500}{6{,}250} = 1.2$ and $\\frac{9{,}000}{7{,}500} = 1.2$, so the value is multiplied by $1.2$ each year.\nStep 2: From year 3 to year 5 is $2$ years, so multiply by $1.2$ twice: $(1.2)^{2} = 1.44$.\nStep 3: The year-5 value is $9{,}000(1.44) = 12{,}960$. Check: year 4 is $9{,}000(1.2) = 10{,}800$, and $10{,}800(1.2) = 12{,}960$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10{,}800$): applies one year of growth, which gives the value at the end of year 4.\n* Choice B ($12{,}000$): adds the last increase, $1{,}500$, twice, as if the value grew by the same amount each year.\n* Choice D ($15{,}552$): applies $3$ years of growth to the year-3 value, which gives year 6.\n\n**Test Day Takeaway:** Same percentage each year means the same ratio between consecutive values; count the years and apply the factor that many times.",
  "id": "bank-am-275"
 }

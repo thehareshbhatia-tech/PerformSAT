@@ -6,14 +6,33 @@
   "domain": "craft-and-structure",
   "skill": "words-in-context",
   "module": 2,
-  "passage": "Using a nocturnal required no specialized training: the observer sighted the North Star through a hole at the instrument's center, turned a pointer until it lay along the two guard stars of the Little Bear, and read the hour against a toothed ring. Manuals of the period accordingly presented the whole procedure as ______, a matter of three motions and a glance.",
+  "passage": "The Mohs scratch test lets a geologist estimate a mineral's hardness with a few common objects. If a fingernail scratches the sample, it is very soft; if only a copper coin does, it is somewhat harder; if only a steel knife does, it is harder still. Field guides therefore present the test as ______, something a beginner can do in minutes.",
   "question": "Which choice completes the text with the most logical and precise word or phrase?",
   "choices": [
-    { "id": "A", "text": "straightforward" },
-    { "id": "B", "text": "incomprehensible" },
-    { "id": "C", "text": "tedious" },
-    { "id": "D", "text": "ingenious" }
+    {
+      "id": "A",
+      "text": "straightforward"
+    },
+    {
+      "id": "B",
+      "text": "incomprehensible"
+    },
+    {
+      "id": "C",
+      "text": "tedious"
+    },
+    {
+      "id": "D",
+      "text": "ingenious"
+    }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** The blank is restated on both sides: \"no specialized training\" before it, \"three motions and a glance\" after it. The word that sums up both is \"straightforward.\"\n\n**The Full Solution:**\n- The passage opens by declaring the procedure easy and closes by compressing it into three motions.\n- The appositive after the blank (\"a matter of three motions and a glance\") is a direct paraphrase of the missing word, so the blank must mean simple and easily done.\n\n**Why the other choices are wrong:**\n- B: \"Incomprehensible\" reverses the passage's whole point — a procedure needing \"no specialized training\" is the opposite of one that cannot be understood.\n- C: \"Tedious\" implies long, wearying effort — the opposite of three motions and a glance.\n- D: \"Ingenious\" would praise the instrument's cleverness, but the sentence characterizes how easy the procedure is for its user, not how inventive its design is."
+  "explanation": "**Choice A is correct.** The passage describes a test that needs only a fingernail, a coin, and a knife, and the phrase after the blank says a beginner can do it in minutes. The word that sums this up is \"straightforward.\"\n\n**The Full Solution:**\n- The passage shows the procedure step by step: try to scratch the sample with each common object in turn.\n- The phrase after the blank (\"something a beginner can do in minutes\") restates the missing word, so the blank must mean simple and easily done.\n\n**Why the other choices are wrong:**\n- B: \"Incomprehensible\" reverses the point; a test a beginner can do in minutes is easy to understand.\n- C: \"Tedious\" implies long, wearying effort, the opposite of a test done in minutes.\n- D: \"Ingenious\" would praise the test's cleverness, but the sentence describes how easy the test is for its user, not how inventive it is.",
+  "_meta": {
+    "anchor": "Mohs scratch test with common objects — WIC straightforward",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Mohs_scale",
+      "https://sciencenotes.org/mohs-hardness-scale/"
+    ]
+  }
 }

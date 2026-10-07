@@ -1,29 +1,29 @@
 {
- "question": "$\\frac{r}{x - 5} + \\frac{4}{x + 3} = \\frac{7x - 11}{(x - 5)(x + 3)}$\nThe given equation is true for all values of $x$ greater than $5$, where $r$ is a constant. What is the value of $r$?",
+ "question": "$\\frac{10x + 35}{5} - \\frac{k}{3} = 2x + 4$\nIn the given equation, $k$ is a constant. If the equation has infinitely many solutions, what is the value of $k$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-\\frac{11}{3}$"
-  },
-  {
-   "id": "B",
    "text": "$3$"
   },
   {
+   "id": "B",
+   "text": "$9$"
+  },
+  {
    "id": "C",
-   "text": "$7$"
+   "text": "$21$"
   },
   {
    "id": "D",
-   "text": "$11$"
+   "text": "$33$"
   }
  ],
  "correctAnswer": "B",
  "distractorNotes": {
-  "A": "matches the constant terms but drops the -20 that comes from 4(x - 5), solving 3r = -11",
-  "C": "sets r equal to the coefficient 7, forgetting the 4x contributed by the second fraction",
-  "D": "subtracts the second fraction instead of adding it, solving r - 4 = 7"
+  "A": "finds k/3 = 3 and reports 3 without multiplying by 3",
+  "C": "ignores the 4 on the right side and solves k/3 = 7",
+  "D": "adds the constants, k/3 = 7 + 4, instead of subtracting"
  },
- "explanation": "**SAT Pattern: Polynomial Identity with Rational Expressions**\n\n**Choice B is correct.**\n\n**The Fast Way (~60s):** Over the common denominator the left side's numerator is $r(x + 3) + 4(x - 5) = (r + 4)x + (3r - 20)$. Matching the $x$-coefficients with $7x - 11$ gives $r + 4 = 7$, so $r = 3$.\n\n**The Full Solution:**\nStep 1: Rewrite the left side over the common denominator $(x - 5)(x + 3)$: its numerator is $r(x + 3) + 4(x - 5)$.\nStep 2: Expand and group: $rx + 3r + 4x - 20 = (r + 4)x + (3r - 20)$. Since the denominators agree, this must equal $7x - 11$ for every $x$ greater than $5$.\nStep 3: Match the $x$-coefficients: $r + 4 = 7$, so $r = 3$. Check the constants: $3(3) - 20 = -11$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: ($-\\frac{11}{3}$): matches the constant terms but drops the $-20$ that comes from $4(x - 5)$, solving $3r = -11$.\n* Choice C: ($7$): sets $r$ equal to the coefficient $7$, forgetting the $4x$ that the second fraction contributes.\n* Choice D: ($11$): subtracts the second fraction instead of adding it, which gives $r - 4 = 7$.\n\n**Test Day Takeaway:** For an identity with fractions, combine over the common denominator, match one pair of coefficients, and use the other pair as a check.",
+ "explanation": "**SAT Pattern: Polynomial Identity with Rational Expressions**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The left side is $2x + 7 - \\frac{k}{3}$; for infinitely many solutions $7 - \\frac{k}{3} = 4$, so $k = 9$.\n\n**The Full Solution:**\nStep 1: Simplify the fraction: $\\frac{10x + 35}{5} = 2x + 7$, so the equation is $2x + 7 - \\frac{k}{3} = 2x + 4$.\nStep 2: The $x$-terms already match, so the equation has infinitely many solutions only when the constants match: $7 - \\frac{k}{3} = 4$.\nStep 3: Then $\\frac{k}{3} = 3$, so $k = 9$. Check: $2x + 7 - 3 = 2x + 4$ for every $x$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): stops at $\\frac{k}{3} = 3$ and forgets to multiply by $3$.\n* Choice C ($21$): ignores the $4$ on the right side and solves $\\frac{k}{3} = 7$.\n* Choice D ($33$): adds the constants, $\\frac{k}{3} = 7 + 4$, instead of subtracting.\n\n**Test Day Takeaway:** A linear equation has infinitely many solutions when both sides simplify to the same expression: match the $x$-coefficients and the constants.",
  "id": "bank-alg-302"
 }

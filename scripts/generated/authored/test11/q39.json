@@ -4,34 +4,34 @@
  "band": 3,
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-textual",
- "question": "Which finding, if true, would most directly support the historian's argument?",
+ "question": "Which finding, if true, would most directly support the biologists' argument?",
  "choices": [
   {
    "id": "A",
-   "text": "Songs that became the era's biggest hits were frequently praised by newspaper critics of the day for their unusually memorable melodies and clever lyrics."
+   "text": "Dark peppered moths were more common in industrial areas in years when pollution was heavier."
   },
   {
    "id": "B",
-   "text": "Several vaudeville stars refused publishers' payments for songs they personally admired and sang anyway."
+   "text": "Peppered moths of both forms were eaten by several kinds of birds, such as robins and thrushes."
   },
   {
    "id": "C",
-   "text": "Comparable new songs given sharply different plugging budgets sold in proportion to those budgets, not to the publishers' own rankings of their quality."
+   "text": "On the same soot-darkened trunks, birds ate a much larger share of pale moths than of dark moths."
   },
   {
    "id": "D",
-   "text": "Publishers spent more money on plugging in years when overall sheet-music sales were rising."
+   "text": "The dark form of the peppered moth also became common near industrial cities in other countries."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The historian claims promotion, not song quality, drove sales; the skeptics reply that plugging money simply followed quality. C breaks the tie: when comparable songs got different budgets, sales tracked the budgets and ignored the publishers' own quality rankings — promotion moving sales on its own.\n\n**The Full Solution:**\n- The dispute is about direction: does plugging cause success, or does expected success attract plugging?\n- Evidence must therefore hold quality roughly constant while promotion varies. \"Comparable new songs\" with \"sharply different plugging budgets\" is that setup.\n- Sales proportional to budget, and decoupled from ranked quality, is the outcome the historian's argument predicts.\n\n**Why the other choices are wrong:**\n- A: Critical praise for hits' melodies is what the skeptics would predict — quality showing through.\n- B: Stars singing admired songs unpaid ties performance to merit, again favoring the skeptics.\n- D: Total spending rising with total sales fits either causal story and cannot distinguish them.",
- "passage": "Publishers on Tin Pan Alley kept ledgers of their sheet-music sales, and a music historian has used the ledgers to press a claim about how hits were made. The biggest sellers, the historian argues, owed their success less to any measurable quality of the songs themselves than to plugging — the publishers' paid campaigns to place songs with star vaudeville performers. Skeptics respond that plugging money naturally flowed toward the catchiest songs, so promotion merely amplified merit that was already there.",
+ "explanation": "**Choice C is correct.** The biologists' claim is that birds removed pale moths more than dark moths on darkened bark. A finding that birds ate a much larger share of pale moths than dark moths on the same soot-darkened trunks shows exactly that difference.\n\n**The Full Solution:**\n- The claim has a specific mechanism: selective predation by birds, based on how visible each form is on dark bark.\n- To support it, a finding must show birds taking pale moths more often than dark ones in polluted woods.\n- C provides that comparison directly, with both forms on the same trunks.\n\n**Why the other choices are wrong:**\n- A: More dark moths in heavily polluted years fits both explanations, including the idea that pollution itself darkened the moths.\n- B: That birds ate both forms says nothing about whether they ate one form more than the other.\n- D: The spread of the dark form near other industrial cities is consistent with either explanation and does not point to birds.",
+ "passage": "In the 1800s, a dark form of the peppered moth, once rare in England, became common in woods near industrial cities, where soot had blackened the tree trunks. Many biologists have argued that birds drove this change: against dark bark, pale moths were easier for birds to spot and eat than dark moths were. Some early researchers proposed instead that pollution itself caused moths to turn dark.",
  "_meta": {
-  "anchor": "Tin Pan Alley song plugging — promotion vs. merit as the driver of hits",
+  "anchor": "peppered moth industrial melanism — bird predation claim (Kettlewell's experiment, Wikipedia; Evolution: Education and Outreach 2008)",
   "distractors": {
-   "A": "supports the skeptics",
-   "B": "supports the skeptics",
-   "D": "consistent with both stories"
+   "A": "fits both hypotheses",
+   "B": "no differential",
+   "D": "fits both hypotheses"
   }
  },
  "id": 1139,

@@ -6,29 +6,29 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 2,
- "passage": "Among the Yoruba of southwestern Nigeria, the prestige cloth called aso oke is woven on narrow looms in long strips that are afterward cut and sewn edge to edge into wrappers and robes. Reserved for weddings, funerals, and chieftaincy ceremonies, ______",
+ "passage": "The Olmec, who lived along Mexico's Gulf Coast some 3,000 years ago, left behind seventeen known colossal stone heads. Carved from single basalt boulders hauled from mountains many kilometers away, ______",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "families preserve the finest aso oke cloths and pass them down as heirlooms."
+   "text": "Olmec sculptors made heads as tall as 3.4 meters, each with a distinctive headdress."
   },
   {
    "id": "B",
-   "text": "the finest aso oke cloths are preserved by families and passed down as heirlooms."
+   "text": "the heads stand as tall as 3.4 meters, and each wears a distinctive headdress."
   },
   {
    "id": "C",
-   "text": "there are aso oke cloths of the finest kind that families preserve and pass down as heirlooms."
+   "text": "there are heads as tall as 3.4 meters, each wearing a distinctive headdress."
   },
   {
    "id": "D",
-   "text": "heirloom status is conferred on the finest aso oke cloths preserved within families."
+   "text": "the height of the tallest head, with its distinctive headdress, reaches 3.4 meters."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The introductory modifier \"Reserved for weddings, funerals, and chieftaincy ceremonies\" must describe the noun that immediately follows it, and only choice B places that noun — \"the finest aso oke cloths\" — there.\n\n**The Full Solution:**\n- The participial phrase has an implied subject: whatever is \"reserved for\" those ceremonies. In sense, that can only be the cloths.\n- Standard English requires the modified noun to head the clause that follows the modifier.\n- Choice B begins with \"the finest aso oke cloths,\" attaching the modifier correctly; the rest of the clause proceeds grammatically in the passive.\n\n**Why the other choices are wrong:**\n- A: It makes \"families\" the modified noun, absurdly declaring the families reserved for weddings and funerals.\n- C: The dummy subject \"there\" gives the modifier nothing sensible to attach to.\n- D: It hangs the modifier on \"heirloom status,\" but a status is not what is reserved for ceremonies — the cloths are.",
+ "explanation": "**Choice B is correct.** The introductory phrase \"Carved from single basalt boulders hauled from mountains many kilometers away\" describes the heads, so the noun right after the comma must be \"the heads.\" Only choice B places it there.\n\n**The Full Solution:**\n- Ask what was carved from basalt boulders. In sense, only the heads were.\n- An introductory modifier applies to the noun that immediately follows it, so the clause must begin with \"the heads.\"\n- Choice B begins with \"the heads\" and completes the sentence grammatically.\n\n**Why the other choices are wrong:**\n- A: It makes \"Olmec sculptors\" the thing carved from basalt boulders, which is illogical.\n- C: The word \"there\" gives the modifier no noun to describe, so the modifier dangles.\n- D: It attaches the modifier to \"the height,\" but a height is not carved from a boulder; the head is.",
  "_meta": {
-  "anchor": "aso oke ceremonial cloth; introductory modifier attachment"
+  "anchor": "Olmec colossal heads; introductory modifier attachment"
  }
 }

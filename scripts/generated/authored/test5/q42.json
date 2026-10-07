@@ -6,29 +6,29 @@
  "domain": "information-and-ideas",
  "skill": "inferences",
  "module": 2,
- "passage": "In the nineteenth century, most large American cities built combined sewers, single networks of pipes carrying stormwater and household waste together. Treatment plants added in the twentieth century were sized for dry-weather flow, so during heavy rain the combined volume overwhelms plant capacity and the overflow discharges, untreated, into rivers and harbors. Fully separating the two systems would mean excavating nearly every street a city has, a disruption measured in decades and enormous sums. City engineers who want cleaner harbors within years rather than generations have therefore tended to ______",
+ "passage": "Many older American homes still receive drinking water through lead service lines, the pipes that connect a house to the water main. Replacing every such line would mean digging up streets and yards across entire cities. Nationally, the cost is estimated in the tens of billions of dollars, and the work could take decades. In the meantime, water can dissolve lead from the inside of the pipes. Utilities that want to cut lead levels quickly have therefore tended to ______",
  "question": "Which choice most logically completes the text?",
  "choices": [
   {
    "id": "A",
-   "text": "favor measures that keep stormwater out of the sewers or hold it back during storms rather than wait on full separation."
+   "text": "add treatments that coat the pipes' inner walls and limit lead release while replacement proceeds."
   },
   {
    "id": "B",
-   "text": "conclude that treatment plants should continue to be sized for dry-weather flow alone."
+   "text": "stop testing tap water for lead until every lead service line in the city has been replaced."
   },
   {
    "id": "C",
-   "text": "argue that combined sewers should have been outlawed before any city built them."
+   "text": "argue that lead service lines should never have been installed in American homes at all."
   },
   {
    "id": "D",
-   "text": "expect the untreated discharges into rivers and harbors to cease entirely once every household in the city has been connected to a treatment plant."
+   "text": "expect lead levels to fall on their own once the city's water mains have been replaced."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The overflow problem is driven by storm surges of water entering pipes sized for dry weather, and full separation is ruled out on cost and time — so engineers seeking results \"within years\" must reach for faster measures that reduce or delay storm flow.\n\n**The Full Solution:**\n- Premise one: overflows happen when heavy rain pushes combined flow past plant capacity.\n- Premise two: the definitive fix, separating the systems, takes decades and enormous sums.\n- The blank describes what engineers with a shorter horizon \"therefore\" do. The logic points to interventions that attack the same cause — storm water in the pipes — without the generational rebuild: keeping it out or holding it back, exactly choice A.\n\n**Why the other choices are wrong:**\n- B: Retaining dry-weather sizing preserves the bottleneck that causes the overflows; it solves nothing.\n- C: A retrospective wish about the nineteenth century offers no course of action for cleaner harbors now.\n- D: Household connections are not the issue — the text locates the failure in storm volume exceeding capacity, which more connections would only worsen.",
+ "explanation": "**Choice A is correct.** The lead comes from water dissolving the inside of the pipes, and full replacement is ruled out as a quick fix by its cost and time. Utilities that want results soon must therefore act on the pipes already in the ground, for example by coating their inner walls so less lead dissolves.\n\n**The Full Solution:**\n- Premise one: replacing every lead service line means digging up whole cities, costs tens of billions of dollars, and could take decades.\n- Premise two: until then, water can dissolve lead from the inside of the pipes.\n- The blank says what utilities that want to cut lead levels \"quickly\" therefore do. The logic points to a measure that attacks the same cause, lead dissolving from the pipe walls, without waiting for replacement. That is choice A.\n\n**Why the other choices are wrong:**\n- B: Stopping testing would hide the problem, not reduce lead levels.\n- C: A complaint about past decisions is not a course of action for lowering lead levels now.\n- D: The text locates the lead in the service lines, not the water mains, so replacing mains would not be expected to solve it.",
  "_meta": {
-  "anchor": "combined sewer overflows — near-term stormwater measures vs. generational separation"
+  "anchor": "lead service lines — interim corrosion-control treatment vs. decades-long replacement"
  }
 }

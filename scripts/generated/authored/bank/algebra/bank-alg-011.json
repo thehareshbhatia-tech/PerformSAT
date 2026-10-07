@@ -1,29 +1,29 @@
 {
   "id": "bank-alg-011",
-  "question": "A snowbank was $96$ centimeters tall at 10:30 A.M. and $66$ centimeters tall at 1:00 P.M. the same day. If its height decreases at a constant rate, at what time will its height be $0$ centimeters?",
+  "question": "A snowbank was $90$ centimeters tall at the start of an observation and $60$ centimeters tall $150$ minutes later. The height of the snowbank decreased at a constant rate. How many hours after the start of the observation was the height of the snowbank $0$ centimeters?",
   "choices": [
     {
       "id": "A",
-      "text": "4:00 P.M."
+      "text": "$3$"
     },
     {
       "id": "B",
-      "text": "5:24 P.M."
+      "text": "$5$"
     },
     {
       "id": "C",
-      "text": "6:30 P.M."
+      "text": "$7.5$"
     },
     {
       "id": "D",
-      "text": "9:00 P.M."
+      "text": "$10$"
     }
   ],
   "distractorNotes": {
-    "A": "adds the 5.5 remaining hours to 10:30 A.M. instead of to 1:00 P.M.",
-    "B": "uses 2 hours for the interval (rate 15 cm/h), then 66/15 = 4.4 h after 1:00 P.M.",
-    "D": "divides the original 96 cm by 12 and counts 8 hours from 1:00 P.M."
+    "A": "treats the 30-centimeter drop as happening in 1 hour instead of 2.5 hours (90 / 30)",
+    "B": "divides the second height, 60, by the rate, which measures from the second observation instead of the start",
+    "D": "finds the 7.5 hours from the start and then adds the 2.5 hours that have already passed"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Linear Model to Find Zero Time**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The snowbank lost $30$ centimeters in $2.5$ hours, so it melts $12$ centimeters per hour. At 1:00 P.M. there are $66$ centimeters left, which lasts $\\frac{66}{12} = 5.5$ hours, reaching $0$ at 6:30 P.M.\n\n**The Full Solution:**\nStep 1: Find the rate. From 10:30 A.M. to 1:00 P.M. is $2.5$ hours, and the height dropped $96 - 66 = 30$ centimeters, so the rate is $\\frac{30}{2.5} = 12$ centimeters per hour.\nStep 2: Let $h$ be hours after 1:00 P.M. Then the height is $66 - 12h$. Set $66 - 12h = 0$: $h = \\frac{66}{12} = 5.5$ hours.\nStep 3: $5.5$ hours after 1:00 P.M. is 6:30 P.M. Check from the start instead: $96$ centimeters at $12$ per hour lasts $8$ hours, and $8$ hours after 10:30 A.M. is also 6:30 P.M. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (4:00 P.M.): finds the correct $5.5$ hours but counts them from 10:30 A.M., the time of the first measurement, instead of from 1:00 P.M.\n* Choice B (5:24 P.M.): treats the interval as $2$ hours, getting a rate of $15$ centimeters per hour, then $\\frac{66}{15} = 4.4$ hours, or $4$ hours $24$ minutes, after 1:00 P.M.\n* Choice D (9:00 P.M.): divides the original $96$ centimeters by $12$ to get $8$ hours but counts those $8$ hours from 1:00 P.M. rather than from 10:30 A.M.\n\n**Test Day Takeaway:** In a time-to-zero problem, anchor the remaining amount and the clock time to the same moment; mixing the starting height with the later time is the classic slip."
+  "explanation": "**SAT Pattern: Linear Model to Find Zero Time**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The height fell $30$ centimeters in $150$ minutes, or $2.5$ hours, which is $12$ centimeters per hour. Melting all $90$ centimeters takes $\\frac{90}{12} = 7.5$ hours.\n\n**The Full Solution:**\nStep 1: Change in height $= 90 - 60 = 30$ centimeters over $150$ minutes $= 2.5$ hours, so the rate is $\\frac{30}{2.5} = 12$ centimeters per hour.\nStep 2: The height $t$ hours after the start is $h = 90 - 12t$.\nStep 3: Set $h = 0$: $12t = 90$, so $t = 7.5$. Check: after $2.5$ hours the height is $90 - 12(2.5) = 60$ centimeters, matching the second measurement, and $90 - 12(7.5) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): uses $30$ centimeters per hour, forgetting that the $30$-centimeter drop took $2.5$ hours: $\\frac{90}{30} = 3$.\n* Choice B ($5$): computes $\\frac{60}{12} = 5$, which is the time after the second measurement, not after the start.\n* Choice D ($10$): finds the correct $7.5$ hours from the start and then adds the $2.5$ hours a second time.\n\n**Test Day Takeaway:** For a \"when does it reach zero\" question, find the rate with consistent units, write height $=$ start $-$ rate $\\times$ time, and measure the time from the starting point the question names."
 }

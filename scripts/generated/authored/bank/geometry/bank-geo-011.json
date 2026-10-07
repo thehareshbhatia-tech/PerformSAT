@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-011",
- "question": "In a circle with center $O$, chord $\\overline{AB}$ passes through $O$. If $OA = 7$, what is the length of $\\overline{AB}$?",
+ "question": "Points $A$ and $B$ lie on a circle with center $O$, and $\\overline{AB}$ passes through $O$. If $OA = 7$, what is the length of $\\overline{AB}$?",
  "choices": [
   {
    "id": "A",
@@ -25,5 +25,5 @@
   "D": "computes the circumference, 2 pi (7), about 44"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Circle Vocabulary**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** A chord through the center is a diameter, and $OA$ is a radius, so $AB = 2(7) = 14$.\n\n**The Full Solution:**\nStep 1: $O$ is the center and $A$ is on the circle, so $\\overline{OA}$ is a radius: the radius is $7$.\nStep 2: A chord that passes through the center of a circle is a diameter, so $\\overline{AB}$ is a diameter.\nStep 3: A diameter is twice the radius: $AB = 2(7) = 14$. Check: $AB = AO + OB = 7 + 7 = 14$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3.5$): halves the radius, mixing up which of radius and diameter is the longer one.\n* Choice B ($7$): treats $\\overline{AB}$ as a radius, but it runs all the way across the circle.\n* Choice D ($44$): computes the circumference $2\\pi(7) \\approx 44$, the distance around the circle, not across it.\n\n**Test Day Takeaway:** Any chord through the center is a diameter, and a diameter is two radii laid end to end."
+ "explanation": "**SAT Pattern: Circle Vocabulary**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** A segment that joins two points of the circle through the center is a diameter, and $OA$ is a radius, so $AB = 2(7) = 14$.\n\n**The Full Solution:**\nStep 1: $O$ is the center and $A$ is on the circle, so $\\overline{OA}$ is a radius: the radius is $7$.\nStep 2: $\\overline{AB}$ joins two points of the circle and passes through the center, so $\\overline{AB}$ is a diameter.\nStep 3: A diameter is twice the radius: $AB = 2(7) = 14$. Check: $AB = AO + OB = 7 + 7 = 14$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3.5$): halves the radius, mixing up which of radius and diameter is the longer one.\n* Choice B ($7$): treats $\\overline{AB}$ as a radius, but it runs all the way across the circle.\n* Choice D ($44$): computes the circumference $2\\pi(7) \\approx 44$, the distance around the circle, not across it.\n\n**Test Day Takeaway:** A segment through the center with both endpoints on the circle is a diameter, and a diameter is two radii laid end to end."
 }

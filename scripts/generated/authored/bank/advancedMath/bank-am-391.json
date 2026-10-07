@@ -1,29 +1,29 @@
 {
   "id": "bank-am-391",
-  "question": "$f(x) = (x - 5)^{2} + c$\nIn the given function, $c$ is a constant. The graph of $y = f(x)$ in the $xy$-plane passes through the point $(7, 10)$. What is the value of $c$?",
+  "question": "$f(x) = (x + 4)^{2} + c$\nIn the given function, $c$ is a constant. If $f(-1) = 6$, what is the value of $c$?",
   "choices": [
     {
       "id": "A",
-      "text": "$4$"
+      "text": "$-3$"
     },
     {
       "id": "B",
-      "text": "$6$"
+      "text": "$3$"
     },
     {
       "id": "C",
-      "text": "$8$"
+      "text": "$9$"
     },
     {
       "id": "D",
-      "text": "$14$"
+      "text": "$15$"
     }
   ],
   "distractorNotes": {
-    "A": "reports $(7 - 5)^2 = 4$, the value of the squared term, instead of $c$",
-    "C": "forgets to square, using $7 - 5 = 2$ and $10 - 2 = 8$",
-    "D": "adds $4$ to $10$ instead of subtracting it"
+    "B": "forgets to square, using $-1 + 4 = 3$ and $6 - 3 = 3$",
+    "C": "reports $(-1 + 4)^2 = 9$, the value of the squared term, instead of $c$",
+    "D": "adds $9$ to $6$ instead of subtracting it"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Substitute the point: $(7 - 5)^{2} + c = 10$, so $4 + c = 10$ and $c = 6$.\n\n**The Full Solution:**\nStep 1: The point $(7, 10)$ is on the graph, so $f(7) = 10$: $(7 - 5)^{2} + c = 10$.\nStep 2: $(7 - 5)^{2} = 2^{2} = 4$, so $4 + c = 10$.\nStep 3: Subtract $4$: $c = 6$. Check: $f(x) = (x - 5)^{2} + 6$ gives $f(7) = 4 + 6 = 10$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): stops at the value of the squared term, $(7 - 5)^{2} = 4$, and never solves for $c$.\n* Choice C ($8$): forgets to square $7 - 5$, so it solves $2 + c = 10$.\n* Choice D ($14$): adds $4$ to $10$ instead of subtracting it.\n\n**Test Day Takeaway:** A point on the graph is an equation: substitute its $x$- and $y$-values, then solve for the one constant that is left."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Substitute $x = -1$: $(-1 + 4)^{2} + c = 6$, so $9 + c = 6$ and $c = -3$.\n\n**The Full Solution:**\nStep 1: $f(-1) = 6$, so $(-1 + 4)^{2} + c = 6$.\nStep 2: $(-1 + 4)^{2} = 3^{2} = 9$, so $9 + c = 6$.\nStep 3: Subtract $9$: $c = -3$. Check: $f(x) = (x + 4)^{2} - 3$ gives $f(-1) = 9 - 3 = 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3$): forgets to square $-1 + 4$, so it solves $3 + c = 6$.\n* Choice C ($9$): stops at the value of the squared term, $(-1 + 4)^{2} = 9$, and never solves for $c$.\n* Choice D ($15$): adds $9$ to $6$ instead of subtracting it.\n\n**Test Day Takeaway:** A known output is an equation: substitute the input and the output, then solve for the one constant that is left."
 }

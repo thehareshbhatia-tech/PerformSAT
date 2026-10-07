@@ -8,30 +8,30 @@
  "choices": [
   {
    "id": "A",
-   "text": "To argue that the chasqui system moved messages more efficiently than any postal service that came after it"
+   "text": "To argue that the moving assembly line was the most important invention of the twentieth century"
   },
   {
    "id": "B",
-   "text": "To describe the training that prepared young runners for service in the chasqui system"
+   "text": "To describe the training that Ford's workers received before they joined the assembly line"
   },
   {
    "id": "C",
-   "text": "To explain how a communication system achieved its speed by dividing one long journey among many runners"
+   "text": "To explain how a production method achieved its speed by dividing one job among many workers"
   },
   {
    "id": "D",
-   "text": "To recount how a Spanish chronicler came to witness the chasqui relays at first hand"
+   "text": "To recount how Henry Ford first came up with the idea for a moving assembly line"
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The text poses the problem (news had to outrun any single messenger), presents the design (stations a few miles apart, fresh runners), and closes with the principle: \"By breaking one immense journey into many short sprints, the system turned ordinary human endurance into a speed no individual could match.\"\n\n**The Full Solution:**\n- Purpose questions ask what the whole text is doing; here every sentence serves the how-it-worked explanation.\n- The need, the mechanism, and the closing principle form one explanatory arc — the division of a long journey into short relays as the source of speed.\n- Choice C states that arc; the chroniclers' astonishment is one supporting detail within it.\n\n**Why the other choices are wrong:**\n- A: No later postal service is mentioned, so no such comparison can be the purpose.\n- B: Training is never discussed; the runners appear already stationed and ready.\n- D: The Spanish chroniclers appear only as witnesses to the relays' speed; how any one of them came to see the relays is never told.",
- "passage": "The Inca empire stretched along the spine of the Andes, and its rulers needed news to travel faster than any single messenger could carry it. The solution was the chasqui system: relay stations placed about every two and a half kilometers along the royal roads, each housing runners ready to sprint to the next post. The relays could carry a message as far as 300 kilometers in a single day, a speed that astonished the first Spanish chroniclers. By breaking one immense journey into many short sprints, the system turned ordinary human endurance into a speed no individual could match.",
+ "explanation": "**Choice C is correct.** The text describes how the moving line worked — each worker doing \"one small task again and again\" as the cars moved past — and then reports the result: assembly time fell from about twelve and a half hours to about an hour and a half.\n\n**The Full Solution:**\n- The text contrasts the old method (building each car in one spot) with the new one.\n- It explains the new method's key feature: the work was split into small, repeated tasks along a moving line.\n- It ends with the dramatic speedup, so the text as a whole explains how dividing the work produced speed.\n\n**Why the other choices are wrong:**\n- A: The text never compares the assembly line with other inventions or ranks its importance.\n- B: The text does not mention any training of workers.\n- D: The text describes how the line worked, not how Ford got the idea for it.",
+ "passage": "In 1913, Henry Ford's company began building its Model T cars on a moving assembly line at its plant in Highland Park, Michigan. Before then, workers built each car in one spot, carrying parts to it. On the new line, a rope and later a powered chain pulled each car's frame past a row of workers, and each worker did one small task again and again. By 1914, the time needed to assemble a Model T had fallen from about twelve and a half hours to about an hour and a half.",
  "_meta": {
-  "anchor": "chasqui relay runners — relay division as the source of speed (Wikipedia, Chasqui: stations ~2.5 km apart; up to 300 km per day; speed noted by the first Spanish chroniclers)",
+  "anchor": "Ford's moving assembly line, Highland Park 1913 — 12.5 hours to about 1.5 hours (The Henry Ford; History.com)",
   "distractors": {
-   "A": "comparison never made",
-   "B": "topic never discussed",
-   "D": "evidence mistaken for purpose"
+   "A": "unsupported ranking",
+   "B": "absent topic",
+   "D": "origin story not given"
   }
  },
  "id": 1132,

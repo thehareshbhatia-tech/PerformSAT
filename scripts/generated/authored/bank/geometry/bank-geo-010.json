@@ -10,12 +10,12 @@
      0
     ],
     [
-     11.314,
+     16,
      0
     ],
     [
-     11.314,
-     11.314
+     16,
+     16
     ]
    ],
    "rightAngleVertex": 1,
@@ -25,9 +25,9 @@
     ""
    ],
    "sideLabels": [
-    "x",
+    "16",
     "",
-    "16"
+    "x"
    ],
    "figureNote": true
   }
@@ -35,26 +35,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$8$"
-  },
-  {
-   "id": "B",
    "text": "$8\\sqrt{2}$"
   },
   {
-   "id": "C",
+   "id": "B",
    "text": "$16$"
   },
   {
-   "id": "D",
+   "id": "C",
    "text": "$16\\sqrt{2}$"
+  },
+  {
+   "id": "D",
+   "text": "$32$"
   }
  ],
  "distractorNotes": {
-  "A": "halves the hypotenuse, as if each leg were half of it",
-  "C": "sets the leg equal to the hypotenuse",
-  "D": "multiplies the hypotenuse by the square root of 2 instead of dividing"
+  "A": "divides the leg by sqrt(2) instead of multiplying",
+  "B": "assumes the hypotenuse is equal to the leg",
+  "D": "doubles the leg instead of multiplying it by sqrt(2)"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: 45-45-90 Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** In a $45°$-$45°$-$90°$ triangle the hypotenuse is $\\sqrt{2}$ times a leg, so $x = \\frac{16}{\\sqrt{2}} = 8\\sqrt{2}$.\n\n**The Full Solution:**\nStep 1: The triangle has a right angle and a $45°$ angle, so its third angle is $45°$ and it is a $45°$-$45°$-$90°$ triangle with two equal legs.\nStep 2: In such a triangle, the hypotenuse is $\\sqrt{2}$ times each leg: $x\\sqrt{2} = 16$.\nStep 3: Solve: $x = \\frac{16}{\\sqrt{2}} = \\frac{16\\sqrt{2}}{2} = 8\\sqrt{2}$. Check: $(8\\sqrt{2})^{2} + (8\\sqrt{2})^{2} = 128 + 128 = 256 = 16^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): halves the hypotenuse; that ratio belongs to the short leg of a $30°$-$60°$-$90°$ triangle.\n* Choice C ($16$): makes the leg as long as the hypotenuse, which is impossible in a right triangle.\n* Choice D ($16\\sqrt{2}$): multiplies by $\\sqrt{2}$ instead of dividing, making the leg longer than the hypotenuse.\n\n**Test Day Takeaway:** In a $45°$-$45°$-$90°$ triangle, leg $\\times \\sqrt{2}$ = hypotenuse; going from hypotenuse to leg, divide by $\\sqrt{2}$."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: 45-45-90 Triangle**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** In a $45°$-$45°$-$90°$ triangle, the hypotenuse is $\\sqrt{2}$ times a leg, so $x = 16\\sqrt{2}$.\n\n**The Full Solution:**\nStep 1: The triangle has a right angle and a $45°$ angle, so its third angle is $45°$ and its legs are equal: both legs are $16$.\nStep 2: In a $45°$-$45°$-$90°$ triangle, the hypotenuse is $\\sqrt{2}$ times the length of a leg.\nStep 3: So $x = 16\\sqrt{2}$. Check: $16^{2} + 16^{2} = 512$ and $(16\\sqrt{2})^{2} = 256 \\cdot 2 = 512$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8\\sqrt{2}$): divides the leg by $\\sqrt{2}$; that move finds a leg from the hypotenuse, not the hypotenuse from a leg.\n* Choice B ($16$): treats the hypotenuse as equal to the leg, but the hypotenuse is always the longest side.\n* Choice D ($32$): doubles the leg. The hypotenuse is $\\sqrt{2} \\approx 1.41$ times a leg, not $2$ times.\n\n**Test Day Takeaway:** In a $45°$-$45°$-$90°$ triangle, leg to hypotenuse: multiply by $\\sqrt{2}$. Hypotenuse to leg: divide by $\\sqrt{2}$."
 }

@@ -1,47 +1,47 @@
 {
- "id": 2,
- "question": "The graph of $y = f(x)$ is shown, where $f(x) = \\dfrac{a}{x + b}$ and $a$ and $b$ are constants. If $h(x) = f(x - 2)$, which of the following is an equation of the vertical asymptote of the graph of $y = h(x)$?",
- "diagram": {
-  "type": "rationalFunction",
-  "params": {
-   "a": 10,
-   "b": -4,
-   "showPoints": [
-    [
-     6,
-     5
-    ],
-    [
-     9,
-     2
-    ]
-   ]
-  }
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$x = -6$"
+  "id": 2,
+  "question": "The graph of $y = f(x)$ is shown, where $f(x) = \\dfrac{a}{x + b}$ and $a$ and $b$ are constants. If $h(x) = f(x - 2)$, which equation defines $h$?",
+  "diagram": {
+    "type": "rationalFunction",
+    "params": {
+      "a": 10,
+      "b": -4,
+      "showPoints": [
+        [
+          6,
+          5
+        ],
+        [
+          9,
+          2
+        ]
+      ]
+    }
   },
-  {
-   "id": "B",
-   "text": "$x = 2$"
+  "choices": [
+    {
+      "id": "A",
+      "text": "$h(x) = \\dfrac{8}{x - 4}$"
+    },
+    {
+      "id": "B",
+      "text": "$h(x) = \\dfrac{10}{x - 2}$"
+    },
+    {
+      "id": "C",
+      "text": "$h(x) = \\dfrac{10}{x - 4}$"
+    },
+    {
+      "id": "D",
+      "text": "$h(x) = \\dfrac{10}{x - 6}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "subtracts 2 from a instead of from the input x",
+    "B": "adds 2 to b, which moves the graph 2 units left",
+    "C": "is the equation of f, with no shift"
   },
-  {
-   "id": "C",
-   "text": "$x = 4$"
-  },
-  {
-   "id": "D",
-   "text": "$x = 6$"
-  }
- ],
- "distractorNotes": {
-  "A": "takes the opposite of the correct asymptote, mixing up the signs of b and the shift",
-  "B": "shifts the asymptote 2 units left instead of right",
-  "C": "reports the vertical asymptote of the graph of f"
- },
- "correctAnswer": "D",
- "hint": "Find the vertical asymptote of the graph of $f$ first, then apply the shift.",
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~45s):** The marked points give $f(x) = \\dfrac{10}{x - 4}$, with asymptote $x = 4$; $f(x - 2)$ moves it $2$ units right, to $x = 6$.\n\n**The Full Solution:**\nStep 1: The points $(6, 5)$ and $(9, 2)$ are on the graph: $\\dfrac{a}{6 + b} = 5$ and $\\dfrac{a}{9 + b} = 2$, so $5(6 + b) = 2(9 + b)$, $3b = -12$, and $b = -4$; then $a = 10$.\nStep 2: So $f(x) = \\dfrac{10}{x - 4}$, whose vertical asymptote is $x = 4$.\nStep 3: $h(x) = f(x - 2) = \\dfrac{10}{x - 6}$, which is undefined at $x = 6$, so the asymptote is $x = 6$. Check: the graph of $h$ is the graph of $f$ shifted $2$ units right, and $4 + 2 = 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x = -6$): takes the opposite of the correct value, mixing up the sign of $b$ with the direction of the shift.\n* Choice B ($x = 2$): shifts the asymptote $2$ units left instead of right.\n* Choice C ($x = 4$): reports the asymptote of the graph of $f$, before the shift.\n\n**Test Day Takeaway:** The graph of $y = f(x - 2)$ is the graph of $y = f(x)$ moved $2$ units right, asymptotes included."
+  "correctAnswer": "D",
+  "hint": "Use the two marked points to find $a$ and $b$, then replace $x$ with $x - 2$.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~45s):** The marked points give $f(x) = \\dfrac{10}{x - 4}$, so $h(x) = \\dfrac{10}{(x - 2) - 4} = \\dfrac{10}{x - 6}$.\n\n**The Full Solution:**\nStep 1: The points $(6, 5)$ and $(9, 2)$ are on the graph: $\\dfrac{a}{6 + b} = 5$ and $\\dfrac{a}{9 + b} = 2$, so $5(6 + b) = 2(9 + b)$, $3b = -12$, and $b = -4$; then $a = 5(6 - 4) = 10$.\nStep 2: So $f(x) = \\dfrac{10}{x - 4}$.\nStep 3: $h(x) = f(x - 2) = \\dfrac{10}{(x - 2) - 4} = \\dfrac{10}{x - 6}$. Check: $(6, 5)$ should move $2$ units right to $(8, 5)$, and $h(8) = \\dfrac{10}{2} = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($h(x) = \\dfrac{8}{x - 4}$): this subtracts $2$ from $a$; the shift changes the input $x$, not the numerator.\n* Choice B ($h(x) = \\dfrac{10}{x - 2}$): this adds $2$ to $b$ instead of subtracting it, which moves the graph $2$ units left.\n* Choice C ($h(x) = \\dfrac{10}{x - 4}$): this is $f(x)$ itself, before the shift.\n\n**Test Day Takeaway:** To find $f(x - 2)$, replace every $x$ in the rule for $f$ with $x - 2$; the graph moves $2$ units right."
 }

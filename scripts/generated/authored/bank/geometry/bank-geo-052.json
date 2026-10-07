@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-052",
- "question": "A sector of a circle has a perimeter of $64$ centimeters, and the arc of the sector has a length of $24$ centimeters. What is the area, in square centimeters, of the sector?",
+ "question": "Points $A$ and $B$ lie on a circle with center $O$. Arc $AB$ has a measure of $40°$ and a length of $6\\pi$ centimeters. What is the radius, in centimeters, of the circle?",
  "choices": [
   {
    "id": "A",
-   "text": "$96$"
+   "text": "$9$"
   },
   {
    "id": "B",
-   "text": "$240$"
+   "text": "$13.5$"
   },
   {
    "id": "C",
-   "text": "$480$"
+   "text": "$27$"
   },
   {
    "id": "D",
-   "text": "$640$"
+   "text": "$54$"
   }
  ],
  "distractorNotes": {
-  "A": "halves the whole perimeter before removing the arc, getting r = 32 - 24 = 8, then (1/2)(24)(8) = 96",
-  "C": "finds r = 20 but drops the 1/2 in A = (1/2)sr: 24 x 20 = 480",
-  "D": "uses the whole perimeter 64 as the arc length: (1/2)(64)(20) = 640"
+  "A": "finds 360/40 = 9 and stops before using the arc length",
+  "B": "uses 180 degrees instead of 360 degrees for the whole circle",
+  "D": "finds the circumference 54 pi and reports 54, which is the diameter"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Sector Area from Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The perimeter is two radii plus the arc, so $2r = 64 - 24 = 40$ and $r = 20$; then $A = \\frac{1}{2}sr = \\frac{1}{2}(24)(20) = 240$.\n\n**The Full Solution:**\nStep 1: The boundary of a sector is the arc plus two radii, so $2r + 24 = 64$, which gives $r = 20$ centimeters.\nStep 2: The central angle in radians is $\\theta = \\frac{s}{r} = \\frac{24}{20} = 1.2$.\nStep 3: The sector's area is $\\frac{1}{2}r^2\\theta = \\frac{1}{2}(400)(1.2) = 240$ square centimeters. Check: $\\frac{1}{2}sr = \\frac{1}{2}(24)(20) = 240$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($96$): halves the whole perimeter before removing the arc, getting $r = 32 - 24 = 8$, then $\\frac{1}{2}(24)(8) = 96$.\n* Choice C ($480$): finds $r = 20$ but drops the $\\frac{1}{2}$, computing $24(20)$.\n* Choice D ($640$): treats the whole perimeter, $64$, as the arc: $\\frac{1}{2}(64)(20) = 640$.\n\n**Test Day Takeaway:** A sector's perimeter is the arc plus two radii; remove the arc, halve what is left to get $r$, then use $A = \\frac{1}{2}sr$."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Arc Length**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** A $40°$ arc is $\\frac{1}{9}$ of the circle, so the circumference is $9(6\\pi) = 54\\pi$ and the radius is $27$.\n\n**The Full Solution:**\nStep 1: The arc measures $40°$, so it is $\\frac{40}{360} = \\frac{1}{9}$ of the circle.\nStep 2: The arc length is $\\frac{1}{9}$ of the circumference, so the circumference is $9(6\\pi) = 54\\pi$ centimeters.\nStep 3: Since $2\\pi r = 54\\pi$, the radius is $r = 27$ centimeters. Check: $\\frac{40}{360}(2\\pi \\cdot 27) = \\frac{1}{9}(54\\pi) = 6\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): is how many $40°$ arcs fit in the circle, not a length.\n* Choice B ($13.5$): uses $180°$ for the whole circle, which makes the arc look like $\\frac{2}{9}$ of the circle.\n* Choice D ($54$): is the diameter: $54\\pi = \\pi d$ gives $d = 54$, and the radius is half of that.\n\n**Test Day Takeaway:** An arc's length is the same fraction of the circumference as its measure is of $360°$. Find the circumference first, then the radius."
 }

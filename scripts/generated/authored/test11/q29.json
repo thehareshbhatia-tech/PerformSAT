@@ -24,14 +24,14 @@
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The passage contrasts an old, surface-bound method with a new one that finally reaches where \"the real work is done\" — a change of kind, not degree. The sensors have \"transformed\" the study of bores.\n\n**The Full Solution:**\n- Before: watching from a riverbank, while the most interesting behavior \"happens below the surface.\"\n- After: anchored sensors record bores from the riverbed itself.\n- Opening a previously inaccessible domain remakes the research rather than merely adding to it; \"transformed\" carries that weight, and the sentence's \"letting researchers...\" clause confirms the change is enabling, not obstructing.\n\n**Why the other choices are wrong:**\n- A: \"Complicated\" is negative — the sentence describes new capability, not new difficulty.\n- B: \"Imperiled\" would mean the sensors endangered the field, the opposite of what follows the blank.\n- C: \"Predicted\" is something done to future events, not to a field of study; instruments cannot predict \"the study\" of waves.",
- "passage": "Studying a tidal bore once meant standing on a riverbank as the wave swept past, though the bore's most interesting behavior happens below the surface. The spread of rugged, inexpensive sensors that can be anchored to the riverbed has ______ the study of these waves, letting researchers record bores from within the very layer where the real work is done.",
+ "explanation": "**Choice D is correct.** The text contrasts listening with \"an ear directly against the patient's chest\" with listening through a tube that let doctors \"hear chest sounds more clearly\" and \"link particular sounds to particular diseases.\" The stethoscope changed that work completely, which is what \"transformed\" means.\n\n**The Full Solution:**\n- Before: doctors \"usually pressed an ear directly against the patient's chest.\"\n- After: doctors could \"hear chest sounds more clearly\" and connect sounds to diseases.\n- A change that makes a whole new kind of diagnosis possible is a transformation.\n\n**Why the other choices are wrong:**\n- A: \"Complicated\" means made more difficult, but the text describes listening becoming clearer and more useful.\n- B: \"Imperiled\" means put in danger, which nothing in the text suggests.\n- C: \"Predicted\" means said in advance what would happen, but the stethoscope changed the work; it did not foretell it.",
+ "passage": "For centuries, a doctor who wanted to hear a patient's heart or lungs usually pressed an ear directly against the patient's chest. The stethoscope, a simple tube first made by a French physician in 1816, ______ that work. With it, doctors could hear chest sounds more clearly and learn to link particular sounds to particular diseases.",
  "_meta": {
-  "anchor": "tidal bores — riverbed sensors opening subsurface study",
+  "anchor": "stethoscope — 1816 wooden tube replaced ear-on-chest listening, sounds linked to diseases (Wikipedia: Rene Laennec; Lemelson-MIT)",
   "distractors": {
-   "A": "wrong valence — difficulty vs. capability",
-   "B": "wrong valence — danger",
-   "C": "wrong object — fields are not predicted"
+   "A": "opposite effect",
+   "B": "unsupported danger",
+   "C": "wrong action"
   }
  },
  "id": 1129,

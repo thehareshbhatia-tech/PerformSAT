@@ -6,29 +6,33 @@
   "domain": "information-and-ideas",
   "skill": "central-ideas-and-details",
   "module": 2,
-  "passage": "The free reed is an ancient Asian idea with a comparatively brief European history. Mouth organs built on the principle, such as the Chinese sheng, have been played for well over two thousand years. European builders took up the free reed only in the late eighteenth century, after instruments and written descriptions reached Western workshops; within a few decades the borrowed principle powered a wave of new inventions, from the harmonica and the accordion to the parlor harmonium. A single acoustic idea, long established in one tradition, thus seeded an entire family of instruments in another.",
+  "passage": "The numerals used around the world today began as an Indian idea. By about the seventh century CE, mathematicians in India wrote numbers with nine digits and a zero, letting each digit's position show its value. Scholars in the Arabic-speaking world adopted the system in the following centuries, and from them it reached Europe, where merchants took it up after about 1200. Over the next few centuries it displaced Roman numerals, which were clumsy for calculation. A method long established in one tradition thus transformed arithmetic in another.",
   "question": "Which choice best states the main idea of the text?",
   "choices": [
     {
       "id": "A",
-      "text": "European instrument makers refined the free reed far beyond the designs found in the Asian instruments that inspired them."
+      "text": "European mathematicians greatly improved the Indian numerals, developing them far beyond the system that Arabic scholars had passed on."
     },
     {
       "id": "B",
-      "text": "The harmonica and the accordion owe their popularity to the portability that free reeds made possible."
+      "text": "Roman numerals stayed in use for centuries because merchants trusted them more than written digits."
     },
     {
       "id": "C",
-      "text": "The free reed, played in Asian instruments for millennia, was adopted in Europe only in the late 1700s and there rapidly generated a new family of instruments."
+      "text": "A place-value number system developed in India reached Europe centuries later and transformed calculation there."
     },
     {
       "id": "D",
-      "text": "The sheng and the khaen remained essentially unknown to European musicians until instrument makers in Europe had already developed free-reed instruments of their own, working independently."
+      "text": "Indian and Arabic scholars developed place-value numerals independently, without any contact with each other."
     }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The text's spine is a transfer story: millennia of Asian use, adoption in Europe in the late 1700s, and a burst of new instruments there — the arc C compresses into one sentence.\n\n**The Full Solution:**\n- Sentence one announces the asymmetry: ancient in Asia, brief in Europe.\n- The middle sentences supply the dates and mechanism of transfer — traveling instruments and descriptions reaching Western workshops.\n- The final sentence generalizes exactly as C does: one established idea seeding a family of instruments in a new tradition.\n\n**Why the other choices are wrong:**\n- A: The text says Europeans built new instruments from the principle, not that they surpassed the Asian designs.\n- B: Portability is never mentioned; it imports a plausible-sounding cause the text does not give.\n- D: It reverses the stated direction of influence — European adoption followed the arrival of Asian instruments and descriptions.",
+  "explanation": "**Choice C is correct.** The text traces the numerals from India, where the place-value system with zero was in use by about the seventh century, through Arabic scholars to Europe, where they displaced Roman numerals. Its last sentence states the point: a method long established in one tradition transformed arithmetic in another.\n\n**The Full Solution:**\n- Origin: Indian mathematicians used nine digits and a zero, with position showing value.\n- Spread: Arabic-speaking scholars adopted the system, and it reached Europe after about 1200.\n- Effect: it slowly replaced Roman numerals, which were clumsy for calculation.\n\n**Why the other choices are wrong:**\n- A: The text never says Europeans improved the system.\n- B: The text says Roman numerals were displaced; it gives no reason merchants might have preferred them.\n- D: The text says Arabic scholars adopted the Indian system, the opposite of independent development.",
   "_meta": {
-    "anchor": "Sheng first mentioned in 14th-12th c. BCE oracle-bone writings (Wikipedia: Sheng); European free-reed organ pipes from c. 1780 (Kirsnick, Vogler), accordion patented 1829 (Wikipedia: Free reed aerophone). 2026-10-04 review: dropped the khaen (age unverified) and corrected \"around the turn of the nineteenth century\"."
+    "anchor": "Hindu-Arabic place-value numerals: India -> Arabic scholars -> Europe, displacing Roman numerals — CID main idea",
+    "sources": [
+      "https://www.ebsco.com/research-starters/history/arabic-numerals/",
+      "https://www.discovermagazine.com/how-medieval-europe-finally-ditched-roman-numerals-42162"
+    ]
   }
 }

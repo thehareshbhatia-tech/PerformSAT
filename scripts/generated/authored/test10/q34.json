@@ -6,26 +6,26 @@
  "domain": "craft-and-structure",
  "skill": "text-structure-and-purpose",
  "module": 2,
- "passage": "A courtroom interpreter is commonly imagined as a conduit: a neutral channel through which testimony passes unchanged from one language into another. Scholars of legal interpreting have complicated this picture. A witness's hedges, false starts, and shifts in register can weigh with a jury, yet a rendering that reproduces them risks sounding like the interpreter's own incompetence, while one that smooths them away alters the impression the witness makes. Every rendering, on this view, involves judgment, and the conduit is less a description of what interpreters do than a demand the profession cannot strictly meet.",
+ "passage": "A photograph is often treated as a neutral record: unlike a painter, the camera simply captures what is in front of it. Historians of photography have complicated this view. Nineteenth-century photographers chose what to frame and what to leave out, and some arranged their scenes. After the Battle of Gettysburg in 1863, one team moved a fallen soldier's body to a new spot to compose a more dramatic picture. On this view, the purely objective photograph is less a description of what cameras produce than an ideal no photographer fully meets.",
  "question": "Which choice best describes the overall structure of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "The text recounts the history of a modern profession from its informal nineteenth-century origins to the present day and closes by predicting how that profession will soon change."
+   "text": "The text recounts the history of an invention from its origins to the present and predicts how it will change."
   },
   {
    "id": "B",
-   "text": "The text states a thesis about courtroom procedure and supports it with a series of examples drawn from actual trials."
+   "text": "The text states a thesis about wartime journalism and supports it with a series of examples from several wars."
   },
   {
    "id": "C",
-   "text": "The text introduces a familiar conception of a role, complicates that conception with scholarly observations, and concludes that it amounts to an unattainable ideal."
+   "text": "The text introduces a common view of a medium, complicates it with historians' findings, and calls it an unreachable ideal."
   },
   {
    "id": "D",
-   "text": "The text compares two professions that face similar demands and argues that one of them has adapted to those demands far more successfully."
+   "text": "The text compares two art forms that face similar demands and argues that one has met them more successfully."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The text opens with the received image (the interpreter as conduit), announces that scholars \"have complicated this picture,\" works through the dilemma that does the complicating, and ends by reclassifying the conduit as \"a demand the profession cannot strictly meet\", an ideal rather than a description.\n\n**The Full Solution:**\n- Movement one: the familiar conception, marked by \"commonly imagined.\"\n- Movement two: the complication, the hedges-and-register dilemma in which both reproducing and smoothing distort something.\n- Movement three: the conclusion that every rendering involves judgment, so the conduit standard cannot be strictly met. C names all three movements in order.\n\n**Why the other choices are wrong:**\n- A: Nothing is narrated historically and no prediction is made; the text analyzes a conception, not a timeline.\n- B: The examples are hypothetical features of testimony, not episodes from actual trials, and the text revises a picture rather than defending a procedural thesis.\n- D: Only one profession is discussed; no second profession enters for comparison."
+ "explanation": "**Choice C is correct.** The text begins with the common view that a photograph is a neutral record, then reports historians' findings that photographers selected and sometimes staged their scenes, and ends by calling the objective photograph \"an ideal no photographer fully meets.\"\n\n**The Full Solution:**\n- First sentence: the familiar conception (the camera simply records).\n- Middle sentences: the complication (framing choices, arranged scenes, the moved body at Gettysburg).\n- Last sentence: the conclusion that objectivity is an ideal rather than a description, which C summarizes.\n\n**Why the other choices are wrong:**\n- A: The text offers no history from origins to the present and makes no prediction.\n- B: The Gettysburg photograph is the only wartime example, and the text's subject is photography in general, not wartime journalism.\n- D: Painting appears only in passing as a contrast; the text does not judge which art form has done better."
 }

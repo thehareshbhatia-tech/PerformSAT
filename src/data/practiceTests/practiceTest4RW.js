@@ -73,7 +73,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "No map drawn at a reduced scale can carry every feature of the landscape it represents. Cartographers therefore practice what they call generalization: deciding which details a map's purpose requires and which it can afford to ______, so that the roads, rivers, and settlements that remain stay legible rather than disappearing into clutter.",
+          "passage": "No map drawn at a reduced scale can carry every feature of the landscape it represents. Cartographers therefore practice what they call generalization: deciding which details a map's purpose requires and which it can afford to ______, so that the roads, rivers, and towns that remain stay easy to read.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -94,7 +94,7 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** Generalization is a choice between details a map keeps and details it leaves out, and \"omit\" names the leaving-out.\n\n**The Full Solution:**\n- The first sentence sets the constraint: a reduced-scale map cannot carry every feature.\n- The blank is paired against \"which details a map's purpose requires\" — so it must name the fate of the details not required.\n- \"Omit,\" to leave out, completes the contrast and explains why the remaining features stay legible.\n\n**Why the other choices are wrong:**\n- B: \"Enlarge\" would add prominence to details, aggravating the clutter the sentence is trying to avoid.\n- C: \"Invent\" means to fabricate features, which describes bad mapmaking, not selective mapmaking.\n- D: \"Duplicate\" means to repeat features, which no part of the text suggests and which would also worsen clutter.",
+          "explanation": "**Choice A is correct.** Generalization is a choice between details a map keeps and details it leaves out, and \"omit\" names the leaving-out.\n\n**The Full Solution:**\n- The first sentence sets the constraint: a reduced-scale map cannot carry every feature.\n- The blank is paired against \"which details a map's purpose requires\" — so it must name the fate of the details not required.\n- \"Omit,\" to leave out, completes the contrast and explains why the remaining features stay legible.\n\n**Why the other choices are wrong:**\n- B: \"Enlarge\" would add prominence to details, making the map harder to read, the opposite of what the sentence describes.\n- C: \"Invent\" means to fabricate features, which describes bad mapmaking, not selective mapmaking.\n- D: \"Duplicate\" means to repeat features, which no part of the text suggests and which would also make the map harder to read.",
           "_meta": {
             "anchor": "cartographic generalization — selective omission at reduced scale"
           }
@@ -106,7 +106,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Analysts no longer judge a soccer team by its goals alone; they rate the quality of every scoring chance it creates. By comparing each shot's distance, angle, and buildup with thousands of similar past attempts, they can ______ how often a chance of that kind ends in a goal, and thus whether a team's results reflect its play or merely its luck.",
+          "passage": "Analysts no longer judge a soccer team by its goals alone; they rate the quality of every scoring chance it creates. By comparing each shot's distance, angle, and buildup with thousands of similar past attempts, they can ______ how often a chance of that kind ends in a goal. That figure shows whether a team's results reflect its play or merely its luck.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -177,7 +177,7 @@ export const practiceTest4RW = {
           "choices": [
             {
               "id": "A",
-              "text": "It describes the chimney model of mound ventilation that the rest of the passage goes on to defend against the objections of its critics."
+              "text": "It describes the chimney model, which the rest of the passage goes on to defend against the critics who have proposed the lung comparison."
             },
             {
               "id": "B",
@@ -241,18 +241,18 @@ export const practiceTest4RW = {
           "passages": [
             {
               "label": "Text 1",
-              "text": "In an influential 1985 study, psychologist Thomas Gilovich and his colleagues tested a belief shared by players, coaches, and fans: that a basketball player who has just made several shots in a row is more likely to make the next one. Analyzing game records and a controlled shooting experiment with college players, the researchers found that a player's chance of hitting the next shot was no higher after a string of makes than after a string of misses. The \"hot hand,\" they concluded, is a cognitive illusion."
+              "text": "In an influential 1985 study, psychologist Thomas Gilovich and his colleagues tested a common belief among players, coaches, and fans: a player who has just made several shots in a row is more likely to make the next one. The researchers analyzed game records and ran a shooting experiment with college players. A player's chance of hitting the next shot, they found, was no higher after a string of makes than after a string of misses. The \"hot hand,\" they concluded, is a cognitive illusion."
             },
             {
               "label": "Text 2",
-              "text": "Economists Joshua Miller and Adam Sanjurjo have identified a subtle bias in how early studies measured streak shooting. Selecting from a finite record only the shots that immediately follow several makes skews the expected success rate on those shots downward: even a shooter with no streakiness at all would score below his overall average on that subset. Judged against the corrected benchmark, the 1985 study's own data show significant streak shooting."
+              "text": "Economists Joshua Miller and Adam Sanjurjo have identified a subtle bias in how early studies measured streak shooting. Suppose a researcher picks out, from a finite record, only the shots that immediately follow several makes. The expected success rate on those shots is skewed downward: even a shooter with no streakiness at all would score below his overall average on them. Judged against the corrected benchmark, the 1985 study's own data show significant streak shooting."
             }
           ],
           "question": "Based on the texts, how would Miller and Sanjurjo (Text 2) most likely respond to the conclusion presented in Text 1?",
           "choices": [
             {
               "id": "A",
-              "text": "Fans and players were wrong to perceive streaks, but the tendency to see patterns in chance sequences is too deeply rooted to correct."
+              "text": "Fans and players were wrong to see streaks, but the habit of seeing patterns in chance events is too deeply rooted to correct."
             },
             {
               "id": "B",
@@ -264,7 +264,7 @@ export const practiceTest4RW = {
             },
             {
               "id": "D",
-              "text": "The hot hand is indeed an illusion, and the bias they identified makes that illusion even more convincing than Gilovich and his colleagues claimed."
+              "text": "The hot hand is indeed an illusion, and the bias they identified makes the case for that conclusion even stronger."
             }
           ],
           "correctAnswer": "C",
@@ -313,30 +313,30 @@ export const practiceTest4RW = {
           "band": 2,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "Nineteenth-century European expeditions often fared badly in conditions Arctic peoples had lived with for centuries. Crews that ignored local practice hauled heavy sledges by hand, wore woolens that soaked through and froze, and lived on tinned rations. Expeditions that learned from Inuit communities did far better: dog teams pulled their loads, fur clothing shed moisture before it froze, and fresh meat kept scurvy away. Again and again, success depended less on equipment shipped from Europe than on a crew's willingness to adopt techniques refined over generations in the Arctic itself.",
+          "passage": "Cusco, in Peru, was the capital of the Inca Empire. Inca builders there cut each block of stone to fit tightly against its neighbors, so their finest walls held together without any mortar. After the Spanish conquest in the 1530s, colonists built churches and houses on top of these Inca foundations. In 1950 a strong earthquake damaged more than a third of the city's buildings. The colonial church and convent of Santo Domingo was badly damaged, but the Inca walls beneath it held firm. The old technique had proved better suited to the region's earthquakes than the one that replaced it.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "European expeditions failed in the Arctic primarily because their crews lacked the physical endurance of the region's inhabitants."
+              "text": "The Spanish colonists who settled in Cusco tore down most of the walls the Inca had built and reused the stones."
             },
             {
               "id": "B",
-              "text": "Expeditions that adopted the equipment and techniques of Arctic peoples tended to succeed where those that relied on European methods struggled."
+              "text": "Inca walls built without mortar withstood an earthquake that badly damaged later colonial buildings."
             },
             {
               "id": "C",
-              "text": "The dog teams used by nineteenth-century expeditions could haul heavier loads than any machine available at the time."
+              "text": "The 1950 earthquake was the strongest ever recorded in the history of Cusco."
             },
             {
               "id": "D",
-              "text": "Arctic peoples developed clothing and travel methods over generations that European manufacturers of the nineteenth century tried and failed to copy."
+              "text": "Inca builders used mortar only in the walls of their most important temples."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The text's contrast runs from start to finish: crews that ignored Arctic practice suffered; crews that adopted it thrived; and the closing sentence generalizes the pattern.\n\n**The Full Solution:**\n- The first half catalogs the failures of European methods: hand-hauling, freezing woolens, tinned rations.\n- The second half catalogs the successes of adopted techniques: dog teams, fur clothing, fresh meat.\n- The final sentence states the lesson — success turned on willingness to adopt local techniques — which choice B restates.\n\n**Why the other choices are wrong:**\n- A: The text attributes failure to methods, not to the crews' endurance.\n- C: Machines are never discussed; the dog teams are contrasted only with crews hauling sledges by hand.\n- D: Copying by European manufacturers appears nowhere in the text.",
+          "explanation": "**Choice B is correct.** The text describes the Inca way of building (tightly fitted stone, no mortar), the colonial buildings set on top of it, and the 1950 earthquake that damaged the newer buildings but left the Inca walls standing. Choice B states that main point.\n\n**The Full Solution:**\n- The first two sentences explain the Inca technique: stones cut to fit so closely that no mortar was needed.\n- The middle of the text adds the colonial buildings and the 1950 earthquake.\n- The evidence: the colonial church and convent of Santo Domingo was badly damaged, but the Inca walls beneath it held firm.\n- The last sentence draws the conclusion that B restates: the older technique held up better in earthquakes.\n\n**Why the other choices are wrong:**\n- A: The text says colonists built on top of the Inca foundations, not that they tore the walls down.\n- C: The text calls the earthquake strong but never compares it with other earthquakes in Cusco's history.\n- D: The text says the finest Inca walls used no mortar at all; it never mentions mortar in temple walls.",
           "_meta": {
-            "anchor": "polar expeditions — adoption of Inuit equipment and techniques"
+            "anchor": "Cusco 1950 earthquake: mortarless Inca masonry vs colonial buildings"
           }
         },
         {
@@ -346,30 +346,35 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "inferences",
-          "passage": "A medieval book was copied not into a bound volume but onto separate gatherings of folded leaves called quires, which were sewn together only after the writing was finished. At the foot of each quire's final page, the scribe added a catchword: the first word of the quire that was meant to follow. A binder assembling the finished book could thus put the gatherings in order by simple matching, joining each quire to the one whose opening word answered its catchword, with no need to follow the text itself. The custom suggests that ______",
+          "passage": "On the open range of the American West, cattle belonging to many different ranches grazed together on the same unfenced land. Each ranch therefore marked its animals with its own brand, a symbol burned into the hide: one might be a single letter, while another set a letter above a straight bar. As brands multiplied, they were recorded in books small enough for ranchers to carry in their pockets. By matching the mark on a steer to an entry in the book, cowboys at a roundup could tell exactly which ranch owned it. The practice suggests that ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
               "id": "A",
-              "text": "the makers of such books did not assume that the person assembling them would be reading the text along the way."
+              "text": "without distinct brands, cowboys could not reliably tell one ranch's cattle from another's on shared land."
             },
             {
               "id": "B",
-              "text": "binders often placed quires in the wrong order even when the catchwords were clearly written."
+              "text": "cowboys often misidentified cattle even when they checked each brand carefully against the entries in the book."
             },
             {
               "id": "C",
-              "text": "catchwords were added only to books whose quires had been copied by several different scribes."
+              "text": "brands were assigned only to ranches in regions where cattle had frequently been stolen."
             },
             {
               "id": "D",
-              "text": "binders were expected to trim every catchword away so that a finished book would show no visible trace of how it had been assembled."
+              "text": "ranchers were expected to design a new brand every season so that no two roundups would ever look alike."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** A device that reduces ordering to word-matching is valuable precisely when the assembler cannot be relied on to follow the text — which is what the custom implies about the people doing the assembling.\n\n**The Full Solution:**\n- The catchword lets a binder order quires \"by simple matching,\" the text says, \"with no need to follow the text itself.\"\n- Building such a device into every quire is a precaution; precautions imply an expected need.\n- The expected need is an assembler who is not reading the text — exactly choice A, and nothing stronger.\n\n**Why the other choices are wrong:**\n- B: The text describes the system working, not failing; frequent misbinding is unsupported.\n- C: Nothing links catchwords to the number of scribes; the motive given concerns binding order.\n- D: Trimming is never mentioned, and a custom meant to guide assembly says nothing about hiding it afterward.",
+          "explanation": "**Choice A is correct.** Each ranch gave its cattle its own brand so that cowboys could tell which ranch owned an animal grazing on shared land. A system built for that purpose implies that, without it, the cattle themselves would not show who owned them.\n\n**The Full Solution:**\n- On the open range, cattle from many ranches grazed together on the same unfenced land.\n- Each ranch had its own brand, and the brands were recorded in pocket-sized books.\n- Matching a steer's brand to the book told cowboys exactly which ranch owned it.\n- The practice exists to solve a problem: mixed herds of unmarked cattle would look alike. That is what A states.\n\n**Why the other choices are wrong:**\n- B: The text presents checking a brand against the book as a reliable way to identify an owner; nothing suggests frequent mistakes.\n- C: The text says each ranch marked its animals, not only ranches in areas with cattle theft.\n- D: Changing brands every season would make the recorded books useless, the opposite of what the practice is for.",
           "_meta": {
-            "anchor": "medieval quires and catchwords — assembly by matching"
+            "anchor": "cattle brands on the open range, recorded in pocket brand books and read at roundups",
+            "sources": [
+              "https://en.wikipedia.org/wiki/Livestock_branding",
+              "https://www.tshaonline.org/handbook/entries/cattle-brands",
+              "https://www.americanheritage.com/lazy-y-and-flying-u"
+            ]
           }
         },
         {
@@ -379,30 +384,30 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "At the universities of thirteenth-century Europe, demand for accurate copies of required texts outran what bookshops could produce by copying whole volumes one at a time. Stationers answered with the pecia system. A shop kept an approved exemplar of each text, divided into numbered sections, or peciae, that students and scribes rented individually for a fixed fee. Dozens of copyists could then work on different sections of the same book at once. And because every section was copied directly from one vetted exemplar, mistakes did not compound from copy to copy.",
+          "passage": "Before the 1830s, few living plants survived long sea voyages; exposed to salt spray and short of fresh water, most died before reaching port. In 1829 the London doctor Nathaniel Ward noticed a fern thriving inside a sealed glass bottle that he had not watered at all. Moisture from the soil condensed on the glass and ran back down. Ward built glass-sided wooden cases on the same principle, and in 1833 he sent two of them to Sydney, Australia. After a voyage of several months, the plants inside arrived in good condition.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "By renting sections of one vetted master copy to many copyists at once, the pecia system made texts quickly without compounding errors."
+              "text": "Ward's sealed glass cases, which recycled their own moisture, let living plants survive long sea voyages."
             },
             {
               "id": "B",
-              "text": "Thirteenth-century stationers earned most of their income by renting out sections of manuscripts rather than by selling completed books."
+              "text": "Ward first designed his glass cases to protect ferns grown in London homes rather than plants at sea."
             },
             {
               "id": "C",
-              "text": "University students of the thirteenth century were required to copy their own textbooks from exemplars that stationers kept on approved lists."
+              "text": "Plant collectors of the 1830s preferred to ship seeds because live plants were too costly to transport."
             },
             {
               "id": "D",
-              "text": "The pecia system slowed the spread of errors by requiring that every new manuscript be checked against the copy from which it had been made."
+              "text": "Ward's cases kept plants alive at sea by giving them a regular supply of fresh water from the ship."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The text presents the pecia system as solving two problems at once — speed and accuracy — and choice A captures both halves.\n\n**The Full Solution:**\n- The problem: demand outran one-at-a-time copying.\n- The speed half: renting numbered sections let dozens of copyists work on one book simultaneously.\n- The accuracy half: every section came straight from a single vetted exemplar, so errors did not compound from copy to copy. Choice A is the only option that joins the two.\n\n**Why the other choices are wrong:**\n- B: The stationers' sources of income are never discussed.\n- C: The text says students could rent sections, not that they were required to copy their own textbooks.\n- D: The system prevented compounding by copying from the exemplar directly; the text describes no checking of finished manuscripts.",
+          "explanation": "**Choice A is correct.** The text sets up a problem (plants died at sea), describes Ward's discovery that a sealed container recycles its own moisture, and reports that his sealed cases carried plants to Sydney in good condition. Choice A states that main idea.\n\n**The Full Solution:**\n- Problem: salt spray and a lack of fresh water killed most plants on long voyages.\n- Discovery: a fern lived in a sealed bottle without watering, because moisture condensed on the glass and ran back into the soil.\n- Result: Ward's cases, built on that principle, delivered living plants after a voyage of several months.\n- A joins the device, the way it works, and what it made possible.\n\n**Why the other choices are wrong:**\n- B: The text never says Ward designed the cases for homes; it describes them being used to ship plants overseas.\n- C: Seeds and shipping costs are never mentioned.\n- D: The cases worked because they were sealed and recycled their own moisture; the text says the bottle's fern needed no watering at all.",
           "_meta": {
-            "anchor": "pecia system — university book production before print"
+            "anchor": "Wardian case: Nathaniel Ward's sealed glass cases; 1833 shipment to Sydney"
           }
         },
         {
@@ -412,12 +417,12 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-textual",
-          "passage": "Female paper wasps of the species Polistes dominula bear black facial patches that vary strikingly from individual to individual. Behavioral ecologist Elizabeth Tibbetts has proposed that these markings serve as status signals: by advertising a wasp's fighting ability, the patches let rivals size each other up and settle contests over resources without paying the costs of an actual fight.",
+          "passage": "Female paper wasps of the species Polistes dominula bear black facial patches that vary strikingly from individual to individual. Behavioral ecologist Elizabeth Tibbetts has proposed that these markings serve as status signals. By advertising a wasp's fighting ability, the patches let rivals size each other up and settle contests over resources without the costs of an actual fight.",
           "question": "Which finding, if true, would most directly support the researcher's hypothesis?",
           "choices": [
             {
               "id": "A",
-              "text": "The size and shape of a wasp's black facial patches are determined mainly by the quantity and quality of the nutrition the wasp happened to receive while developing as a larva in the nest."
+              "text": "The size and shape of a wasp's facial patches depend mainly on how well the wasp was fed as a larva."
             },
             {
               "id": "B",
@@ -425,7 +430,7 @@ export const practiceTest4RW = {
             },
             {
               "id": "C",
-              "text": "Wasps with heavily broken-up facial patches spend more of the day foraging away from the nest than wasps with plain faces do."
+              "text": "Wasps with heavily broken-up facial patches spend more of the day foraging away from the nest than wasps with plain faces do, and they return with larger loads of food."
             },
             {
               "id": "D",
@@ -433,7 +438,7 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The hypothesis says the patches let rivals assess fighting ability and avoid combat; rivals retreating from strong-fighter markings without a fight is that mechanism observed in action.\n\n**The Full Solution:**\n- The hypothesis has two parts: patches advertise fighting ability, and the advertisement lets contests end without fighting.\n- Choice B supplies both: wasps read the strong-fighter pattern on a rival's face and yield before combat begins.\n- That is a direct behavioral confirmation of the signaling function.\n\n**Why the other choices are wrong:**\n- A: It explains where patches come from, not whether rivals use them to settle contests.\n- C: Foraging time has no bearing on whether patches function as signals in contests.\n- D: It pairs two facts about aging without showing that any wasp responds to another's markings.",
+          "explanation": "**Choice B is correct.** The hypothesis says the patches let rivals assess fighting ability and avoid combat; rivals retreating from strong-fighter markings without a fight is that mechanism observed in action.\n\n**The Full Solution:**\n- The hypothesis has two parts: patches advertise fighting ability, and the advertisement lets contests end without fighting.\n- Choice B supplies both: wasps read the strong-fighter pattern on a rival's face and yield before combat begins.\n- That is a direct behavioral confirmation of the signaling function.\n\n**Why the other choices are wrong:**\n- A: It explains where patches come from, not whether rivals use them to settle contests.\n- C: Foraging time and food loads have no bearing on whether patches function as signals in contests.\n- D: It pairs two facts about aging without showing that any wasp responds to another's markings.",
           "_meta": {
             "anchor": "Elizabeth Tibbetts — paper wasp facial badges as status signals; finding-if-true form"
           }
@@ -478,30 +483,30 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "An analyst studying one professional basketball league argues that its offenses were remade during the 2010s. In the analyst's account, teams did not merely shoot more three-pointers as the decade went on; the shift toward the three-point line was accompanied by a league-wide rise in scoring efficiency. The analyst supports the claim with league averages from three seasons.",
+          "passage": "Since 1958, scientists at Mauna Loa Observatory in Hawaii have recorded the amount of carbon dioxide in Earth's atmosphere. An environmental scientist claims that the rise in carbon dioxide over this period has been accompanied by rising global temperatures. To support the claim, the scientist cites data from three years.",
           "questionTable": {
             "type": "table",
-            "caption": "League-wide averages in one professional basketball league, selected seasons",
+            "caption": "Atmospheric carbon dioxide at Mauna Loa and global average surface temperature, selected years",
             "headers": [
-              "Season",
-              "Three-point attempts per game",
-              "Points per 100 possessions"
+              "Year",
+              "Carbon dioxide (parts per million)",
+              "Global temperature compared with the 1951-1980 average (°C)"
             ],
             "rows": [
               [
-                "2011-12",
-                "18.4",
-                "104.6"
+                "1960",
+                "316.9",
+                "-0.02"
               ],
               [
-                "2015-16",
-                "24.1",
-                "106.4"
+                "1990",
+                "354.5",
+                "+0.45"
               ],
               [
-                "2019-20",
-                "34.1",
-                "110.6"
+                "2020",
+                "414.2",
+                "+1.01"
               ]
             ]
           },
@@ -509,25 +514,25 @@ export const practiceTest4RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Teams attempted 34.1 three-pointers per game in the 2019-20 season, nearly double the 18.4 per game they had attempted in 2011-12."
+              "text": "Carbon dioxide at Mauna Loa rose from 316.9 parts per million in 1960 to 414.2 in 2020."
             },
             {
               "id": "B",
-              "text": "Three-point attempts rose from 18.4 per game in 2011-12 to 24.1 in 2015-16 and 34.1 in 2019-20, while points per 100 possessions climbed from 104.6 to 106.4 to 110.6 over the same seasons."
+              "text": "Carbon dioxide rose from 316.9 to 354.5 to 414.2 parts per million, while the global temperature figure rose from -0.02 to +0.45 to +1.01°C."
             },
             {
               "id": "C",
-              "text": "Points per 100 possessions rose from 104.6 in 2011-12 to 106.4 in 2015-16 and 110.6 in 2019-20."
+              "text": "The global temperature figure rose from -0.02°C in 1960 to +0.45°C in 1990 and +1.01°C in 2020."
             },
             {
               "id": "D",
-              "text": "In the 2015-16 season, teams attempted 24.1 three-pointers per game and scored 106.4 points per 100 possessions, both higher than in 2011-12."
+              "text": "In 1990, carbon dioxide stood at 354.5 parts per million and the global temperature figure at +0.45°C."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The claim has two coupled parts — attempts shifted toward the three-point line, and efficiency rose alongside — and B is the only choice that traces both series across all three seasons.\n\n**The Full Solution:**\n- Part one of the claim: more three-pointers over the decade. B shows 18.4 to 24.1 to 34.1.\n- Part two: scoring efficiency rose as the shift happened. B shows 104.6 to 106.4 to 110.6 over the same seasons.\n- Presenting the two rises together is what makes the data support an \"accompanied by\" claim.\n\n**Why the other choices are wrong:**\n- A: It documents only the rise in attempts and says nothing about efficiency.\n- C: It documents only the rise in efficiency and says nothing about attempts.\n- D: A single season's pair of values, even with a comparison to 2011-12, cannot show two sustained trends moving together.",
+          "explanation": "**Choice B is correct.** The claim links two trends: carbon dioxide rose, and global temperatures rose along with it. Choice B is the only choice that traces both columns across all three years.\n\n**The Full Solution:**\n- The claim has two parts: rising carbon dioxide and rising temperatures over the same period.\n- Carbon dioxide column: 316.9, 354.5, 414.2 parts per million.\n- Temperature column: -0.02, +0.45, +1.01°C compared with the 1951-1980 average.\n- B reports both increases together, so it shows the rise in one accompanied by the rise in the other.\n\n**Why the other choices are wrong:**\n- A: It shows only that carbon dioxide rose; it says nothing about temperature.\n- C: It shows only that temperatures rose; it leaves out carbon dioxide.\n- D: It gives both values for a single year, so it shows no change in either one.",
           "_meta": {
-            "anchor": "basketball analytics — three-point shift with rising efficiency; original league-average table"
+            "anchor": "Mauna Loa CO2 (NOAA GML annual means) and NASA GISTEMP global temperature anomaly, 1960/1990/2020"
           }
         },
         {
@@ -537,45 +542,35 @@ export const practiceTest4RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "A nineteenth-century triangulation survey began from a baseline whose length was measured directly on the ground, since every distance in the network would ultimately be computed from it. A historian of surveying claims that the compensated measuring bars adopted at mid-century marked a decisive advance: baselines measured with the bars closed with far smaller errors than those measured with steel chains, even though the bar-measured baselines were longer.",
+          "passage": "Engineers compare materials not only by tensile strength, the pull a material can withstand before it breaks, but also by breaking length: how long a strand of the material could hang before snapping under its own weight. An engineer claims that by this second measure some woods outperform common steels. Balsa and white pine, the engineer notes, have far longer breaking lengths than low-carbon and stainless steel, even though the woods have much lower tensile strengths.",
           "questionTable": {
             "type": "table",
-            "caption": "Baselines measured by one national survey, 1821-1867",
+            "caption": "Tensile strength and breaking length of four materials",
             "headers": [
-              "Baseline",
-              "Year",
-              "Apparatus",
-              "Length (miles)",
-              "Closure error (inches per mile)"
+              "Material",
+              "Tensile strength (megapascals)",
+              "Breaking length (kilometers)"
             ],
             "rows": [
               [
-                "Ashford Flats",
-                "1821",
-                "Steel chain",
-                "5.2",
-                "3.1"
+                "Low-carbon steel",
+                "365",
+                "4.7"
               ],
               [
-                "Redstone Valley",
-                "1838",
-                "Steel chain",
-                "6.0",
-                "2.7"
+                "Stainless steel",
+                "505",
+                "6.4"
               ],
               [
-                "Millbrook Plain",
-                "1852",
-                "Compensated bars",
-                "7.4",
-                "0.6"
+                "White pine",
+                "78",
+                "22.7"
               ],
               [
-                "Saltmarsh Level",
-                "1867",
-                "Compensated bars",
-                "8.9",
-                "0.4"
+                "Balsa",
+                "73",
+                "53.2"
               ]
             ]
           },
@@ -583,25 +578,26 @@ export const practiceTest4RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The baselines measured with compensated bars, at 7.4 and 8.9 miles, were longer than either chain-measured baseline, yet they closed with errors of 0.6 and 0.4 inches per mile, against 3.1 and 2.7 for the chains."
+              "text": "The two woods, at 78 and 73 megapascals, had lower tensile strengths than both steels, yet their breaking lengths were 22.7 and 53.2 kilometers, against 4.7 and 6.4 for the steels."
             },
             {
               "id": "B",
-              "text": "The Saltmarsh Level baseline, measured with compensated bars in 1867, was the longest of the four baselines listed in the table, at 8.9 miles."
+              "text": "Stainless steel, at 505 megapascals, had the highest tensile strength of the four materials listed in the table."
             },
             {
               "id": "C",
-              "text": "The survey's closure errors declined with every successive baseline it measured between 1821 and 1867, whatever apparatus was in use."
+              "text": "Across the four materials in the table, the lower a material's tensile strength was, the longer its breaking length was."
             },
             {
               "id": "D",
-              "text": "The Ashford Flats baseline of 1821, measured with a steel chain, closed with an error of 3.1 inches per mile, the largest error of the four in the table."
+              "text": "Low-carbon steel had a breaking length of 4.7 kilometers, the shortest breaking length of the four materials in the table."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The claim compares apparatus under a handicap — smaller errors from the bars even on longer baselines — and A cites the lengths and the errors for both pairs, completing the comparison.\n\n**The Full Solution:**\n- The claim's structure: bars beat chains on error despite longer lines.\n- A establishes the handicap (7.4 and 8.9 miles versus 5.2 and 6.0) and the result (0.6 and 0.4 inches per mile versus 3.1 and 2.7).\n- Both conditions of the claim are documented; nothing is left to inference.\n\n**Why the other choices are wrong:**\n- B: One baseline's length says nothing about closure errors or the chain comparison.\n- C: A steady decline over time blurs the claim's point — it credits the sequence of measurements rather than the change of apparatus.\n- D: The single worst chain error omits the bar measurements entirely, so no comparison is made.",
+          "explanation": "**Choice A is correct.** The claim has two parts: the woods are weaker in tensile strength, yet they have longer breaking lengths. Choice A cites the tensile strengths and the breaking lengths of all four materials, so it documents both parts of the comparison.\n\n**The Full Solution:**\n- The claim's structure: the woods beat the steels on breaking length even though they lose on tensile strength.\n- A establishes the handicap (78 and 73 megapascals versus 365 and 505) and the result (22.7 and 53.2 kilometers versus 4.7 and 6.4).\n- Both conditions of the claim are shown; nothing is left to inference.\n\n**Why the other choices are wrong:**\n- B: It reports only one material's tensile strength and says nothing about breaking length or the woods.\n- C: The statement is inaccurate: stainless steel has a higher tensile strength than low-carbon steel and also a longer breaking length (6.4 versus 4.7). It also ignores the comparison between woods and steels that the claim makes.\n- D: It reports a single steel's breaking length and leaves out the woods entirely, so no comparison is made.",
           "_meta": {
-            "anchor": "history of surveying — chain versus compensated-bar baselines; original survey table"
+            "anchor": "specific strength / breaking length: balsa and white pine vs low-carbon (AISI 1010) and stainless (304) steel; values from Wikipedia 'Specific strength' table (balsa 73 MPa, 53.2 km; eastern white pine 78 MPa, 22.7 km; AISI 1010 365 MPa, 4.73 km; 304 SS 505 MPa, 6.4 km)",
+            "source": "https://en.wikipedia.org/wiki/Specific_strength"
           }
         },
         {
@@ -611,7 +607,7 @@ export const practiceTest4RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "inferences",
-          "passage": "In 1828 the German chemist Friedrich Wöhler synthesized urea, a compound until then obtained only from living bodies, out of inorganic starting materials. Textbooks often cast the experiment as the decisive blow against vitalism — the doctrine that substances formed in living things require a special vital force. The record is less tidy. Wöhler presented the result to colleagues as a striking curiosity, not a refutation; prominent chemists went on invoking vital forces for decades afterward; and vitalist explanations thinned out only gradually, as laboratory syntheses of one organic compound after another accumulated through mid-century. Taken together, these facts suggest that ______",
+          "passage": "In 1828 the German chemist Friedrich Wöhler synthesized urea, a compound until then obtained only from living bodies, out of inorganic starting materials. Textbooks often cast the experiment as the decisive blow against vitalism — the doctrine that substances formed in living things require a special vital force. The record is less tidy. Wöhler presented the result to colleagues as a striking curiosity, not a refutation. Prominent chemists went on invoking vital forces for decades afterward. And vitalist explanations thinned out only gradually, as chemists synthesized one organic compound after another through mid-century. Taken together, these facts suggest that ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
@@ -632,7 +628,7 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** Each fact chips at the single-blow story from a different side, and together they force only the modest conclusion C draws: vitalism receded gradually, under accumulating syntheses.\n\n**The Full Solution:**\n- Wöhler himself claimed no refutation — so the experiment was not received as a decisive blow.\n- Chemists kept invoking vital forces for decades — so no blow felled the doctrine in 1828.\n- Vitalism thinned \"only gradually, as laboratory syntheses ... accumulated\" — naming the actual driver.\n- The conclusion that fits all three is gradual retreat by accumulation, exactly choice C.\n\n**Why the other choices are wrong:**\n- A: The text records no doubt about the product's identity; it questions the experiment's decisiveness, not its chemistry.\n- B: It reasserts the textbook story the three facts undermine, explaining away the holdouts with a motive the text never gives.\n- D: A speculation about presentation; the text shows persistence for decades, not a doctrine one announcement from collapse.",
+          "explanation": "**Choice C is correct.** Each fact chips at the single-blow story from a different side, and together they force only the modest conclusion C draws: vitalism receded gradually, under accumulating syntheses.\n\n**The Full Solution:**\n- Wöhler himself claimed no refutation — so the experiment was not received as a decisive blow.\n- Chemists kept invoking vital forces for decades — so no blow felled the doctrine in 1828.\n- Vitalist explanations thinned \"only gradually, as chemists synthesized one organic compound after another\" — naming the actual driver.\n- The conclusion that fits all three is gradual retreat by accumulation, exactly choice C.\n\n**Why the other choices are wrong:**\n- A: The text records no doubt about the product's identity; it questions the experiment's decisiveness, not its chemistry.\n- B: It reasserts the textbook story the three facts undermine, explaining away the holdouts with a motive the text never gives.\n- D: A speculation about presentation; the text shows persistence for decades, not a doctrine one announcement from collapse.",
           "_meta": {
             "anchor": "Friedrich Wöhler — urea synthesis and the gradual decline of vitalism; hard inference"
           }
@@ -677,7 +673,7 @@ export const practiceTest4RW = {
           "band": 2,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "The combs inside a long-abandoned honeybee nest ______ a detailed record of the colony that built them, since wax preserves traces of the pollens the bees gathered and of the brood they raised season by season.",
+          "passage": "The combs inside a long-abandoned honeybee nest ______ a detailed record of the colony that built them. The wax preserves traces of the pollen the bees gathered and of the brood they raised season by season.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -710,30 +706,33 @@ export const practiceTest4RW = {
           "band": 2,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "Sled dogs made long-distance polar travel possible in the era before machines. Teams hauled heavily loaded sledges across ice that no vehicle of the time could ______ their thick double coats let them sleep in the open at temperatures that confined their drivers to shelter.",
+          "passage": "The hoatzin is a bird of the swamps and riverside forests of the Amazon and Orinoco basins. Unlike most birds, it digests leaves by fermenting them in its enlarged ______ its chicks also have two claws on each wing for climbing through branches.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "cross, their"
+              "text": "crop, its"
             },
             {
               "id": "B",
-              "text": "cross. Their"
+              "text": "crop. Its"
             },
             {
               "id": "C",
-              "text": "cross their"
+              "text": "crop its"
             },
             {
               "id": "D",
-              "text": "cross and, their"
+              "text": "crop and, its"
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** \"Teams hauled ... could cross\" and \"their thick double coats let them sleep ...\" are both independent clauses, and a period is a standard way to separate them.\n\n**The Full Solution:**\n- Clause one: \"Teams hauled heavily loaded sledges across ice that no vehicle of the time could cross.\"\n- Clause two: \"Their thick double coats let them sleep in the open ...\" — a complete sentence with its own subject and verb.\n- Two independent clauses need a period, a semicolon, or a comma plus a coordinating conjunction. Only choice B provides one of these.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses creates a comma splice.\n- C: No punctuation at all fuses the two clauses into a run-on.\n- D: \"And\" could join the clauses, but only with a comma before it; a comma after it is not a conventional joining.",
+          "explanation": "**Choice B is correct.** \"Unlike most birds, it digests leaves by fermenting them in its enlarged crop\" and \"Its chicks also have two claws on each wing for climbing through branches\" are both complete sentences, and a period correctly separates them.\n\n**The Full Solution:**\n- First clause: subject \"it\" + verb \"digests\": complete.\n- Second clause: subject \"chicks\" + verb \"have\": also complete.\n- Two independent clauses need a period, a semicolon, or a comma with a conjunction. Only B gives one of these.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses creates a comma splice.\n- C: With no punctuation, the two clauses run together.\n- D: The comma is in the wrong place; \"and\" must come after the comma, not before it.",
           "_meta": {
-            "anchor": "sled dogs in polar travel; period between independent clauses"
+            "anchor": "hoatzin: leaf fermentation in an enlarged crop and wing-clawed chicks",
+            "sources": [
+              "https://en.wikipedia.org/wiki/Hoatzin"
+            ]
           }
         },
         {
@@ -743,30 +742,30 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "The pigment ultramarine — ground from lapis lazuli that reached European scriptoria along trade routes beginning in the mountain mines of ______ was so costly that illuminators reserved it for a manuscript's most honored pages: full-page miniatures and the robes of central figures.",
+          "passage": "The Great Basin bristlecone pine — a species whose oldest known living tree, in California's White Mountains, has been dated to more than 4,800 ______ grows on high, dry slopes where few other trees can survive.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "Afghanistan:"
+              "text": "years:"
             },
             {
               "id": "B",
-              "text": "Afghanistan —"
+              "text": "years —"
             },
             {
               "id": "C",
-              "text": "Afghanistan,"
+              "text": "years,"
             },
             {
               "id": "D",
-              "text": "Afghanistan"
+              "text": "years"
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The interrupting phrase that begins with the dash after \"ultramarine\" must be closed by a matching dash before the sentence resumes at \"was so costly.\"\n\n**The Full Solution:**\n- The frame sentence is \"The pigment ultramarine ... was so costly that ...\"\n- \"— ground from lapis lazuli ... Afghanistan\" is an interruption opened with an em dash.\n- Paired punctuation must match: an interruption opened with a dash is closed with a dash.\n\n**Why the other choices are wrong:**\n- A: A colon cannot close an interruption that a dash opened, and nothing after the blank is being introduced as a list or explanation.\n- C: A comma mismatches the opening dash, leaving the pair unbalanced.\n- D: With no punctuation, the interruption never closes, and the frame sentence's subject and verb collide with the modifier.",
+          "explanation": "**Choice B is correct.** The phrase beginning \"a species whose oldest known living tree\" is set off by a dash after \"pine,\" so it must close with a matching dash before the sentence continues with \"grows.\"\n\n**The Full Solution:**\n- Main sentence: \"The Great Basin bristlecone pine ... grows on high, dry slopes.\"\n- The interruption opens with a dash, so it must close with a dash.\n- \"years —\" closes the interruption and returns the reader to the verb \"grows.\"\n\n**Why the other choices are wrong:**\n- A: A colon cannot close an interruption that a dash opened.\n- C: A comma cannot close a dash-opened interruption; the marks must match.\n- D: Without closing punctuation, the interruption runs into the main verb.",
           "_meta": {
-            "anchor": "ultramarine in manuscript illumination; paired em-dashes"
+            "anchor": "Great Basin bristlecone pine; Methuselah >4,800 years, White Mountains"
           }
         },
         {
@@ -776,30 +775,30 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "Each of the cameras ringing the upper deck of a modern arena ______ the positions of the players and the ball dozens of times every second, producing the raw feed from which analysts later reconstruct every play.",
+          "passage": "Each of the 88 keys on a standard modern piano ______ a felt-covered hammer through a series of levers, so that pressing a key sends the hammer against the strings for that note.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "record"
+              "text": "drive"
             },
             {
               "id": "B",
-              "text": "are recording"
+              "text": "are driving"
             },
             {
               "id": "C",
-              "text": "have recorded"
+              "text": "have driven"
             },
             {
               "id": "D",
-              "text": "records"
+              "text": "drives"
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The subject is the singular pronoun \"each,\" so the verb must be the singular \"records.\"\n\n**The Full Solution:**\n- Strip the prepositional phrase: \"Each ... records the positions ...\"\n- \"Of the cameras ringing the upper deck of a modern arena\" modifies \"each\" but does not change its number.\n- \"Each\" is grammatically singular even when it points at many cameras, so it takes \"records.\"\n\n**Why the other choices are wrong:**\n- A: \"Record\" is plural, agreeing with the nearby \"cameras\" rather than with the subject \"each.\"\n- B: \"Are recording\" is likewise plural and mismatches the singular subject.\n- C: \"Have recorded\" is plural, and its completed aspect also clashes with the ongoing \"dozens of times every second.\"",
+          "explanation": "**Choice D is correct.** The subject is \"Each,\" which is singular, so the verb must be singular: \"drives.\"\n\n**The Full Solution:**\n- Strip the prepositional phrase: \"Each [of the 88 keys on a standard modern piano] ___ a felt-covered hammer.\"\n- \"Each\" takes a singular verb.\n- The sentence describes how a piano always works, so the simple present \"drives\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Drive\" is plural; it agrees with \"keys,\" which is not the subject.\n- B: \"Are driving\" is plural.\n- C: \"Have driven\" is plural.",
           "_meta": {
-            "anchor": "player-tracking cameras; 'each' + singular verb"
+            "anchor": "piano action: each of 88 keys drives a felt hammer; subject-verb agreement"
           }
         },
         {
@@ -809,30 +808,30 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "From its stations on the northern plains of India, the Great Trigonometrical Survey sighted and computed the heights of some of the world's highest ______ Dhaulagiri, once thought the tallest of all; Kangchenjunga, which replaced it in that role for more than a decade; and the distant summit the survey's computers listed simply as Peak XV.",
+          "passage": "In 1979 the Voyager 1 spacecraft flew past Jupiter and photographed several of its large ______ Io, where the images revealed active volcanoes; Ganymede, the largest moon in the solar system; and Callisto, whose surface is covered with craters.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "peaks, including"
+              "text": "moons, including"
             },
             {
               "id": "B",
-              "text": "peaks. Including"
+              "text": "moons. Including"
             },
             {
               "id": "C",
-              "text": "peaks; including"
+              "text": "moons; including"
             },
             {
               "id": "D",
-              "text": "peaks: including"
+              "text": "moons: including"
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** \"Including Dhaulagiri ... Kangchenjunga ... and ... Peak XV\" is a modifying phrase attached to \"peaks,\" and a comma is the conventional way to attach it.\n\n**The Full Solution:**\n- The main clause ends at \"some of the world's highest peaks.\"\n- What follows is not a new clause but an including-phrase that lists examples of those peaks (the items separated by semicolons because they carry internal commas).\n- A phrase of this kind is joined to its noun with a comma: \"peaks, including ...\"\n\n**Why the other choices are wrong:**\n- B: A period strands the including-phrase as a fragment with no subject or verb.\n- C: A semicolon must join two independent clauses; \"including ...\" is not a clause.\n- D: A colon could introduce the list directly (\"peaks: Dhaulagiri ...\"), but placing one before \"including\" makes the word redundant and is not conventional.",
+          "explanation": "**Choice A is correct.** \"Including Io ... Ganymede ... and Callisto\" is a phrase that gives examples of \"moons,\" and a comma is the conventional way to attach it.\n\n**The Full Solution:**\n- The main clause ends at \"photographed several of its large moons.\"\n- What follows is not a new clause but an including-phrase listing examples of those moons (the items are separated by semicolons because they contain commas).\n- A phrase of this kind is joined to its noun with a comma: \"moons, including ...\"\n\n**Why the other choices are wrong:**\n- B: A period leaves the including-phrase as a fragment with no subject or verb.\n- C: A semicolon must join two independent clauses; \"including ...\" is not a clause.\n- D: A colon could introduce the list directly (\"moons: Io ...\"), but a colon before \"including\" is not conventional.",
           "_meta": {
-            "anchor": "Great Trigonometrical Survey: Dhaulagiri thought highest 1808-1838, Kangchenjunga 1838-1852, Peak XV (Everest)"
+            "anchor": "Voyager 1 at Jupiter 1979: Io volcanoes, Ganymede largest moon, cratered Callisto"
           }
         },
         {
@@ -842,7 +841,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "For the first sledging parties bound for the South Pole, the journey began on the Ross Ice Shelf, a floating sheet of ice nearly the size of France that stays level for hundreds of miles. ______ the route beyond the shelf climbed steeply: crevassed glaciers led through the Transantarctic Mountains to a polar plateau nearly 3,000 meters high.",
+          "passage": "The cheetah is the fastest land animal, with a top speed of about 65 miles per hour. ______ it cannot keep up that pace for long: its chases last less than 40 seconds on average and cover less than 200 meters.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -863,9 +862,9 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The first sentence describes the level opening stage of the journey, and the second describes a steep climb beyond it, so a contrast transition is needed.\n\n**The Full Solution:**\n- Sentence one: the journey began on the Ross Ice Shelf, level for hundreds of miles.\n- Sentence two: beyond the shelf, the route climbed steeply up crevassed glaciers to a high plateau.\n- Level ground set against a steep climb calls for \"However.\"\n\n**Why the other choices are wrong:**\n- A: \"In addition\" would simply add the climb to the description of level ground as if the two agreed; they contrast.\n- B: \"For example\" would make the steep climb an illustration of the level shelf, which makes no sense.\n- D: \"Therefore\" would present the climb as a consequence of the shelf being level, but one does not cause the other.",
+          "explanation": "**Choice C is correct.** The first sentence stresses the cheetah's great speed; the second gives a limit on it: the cheetah cannot keep that speed for long. \"However\" marks this contrast.\n\n**The Full Solution:**\n- Sentence 1: the cheetah can reach about 65 miles per hour.\n- Sentence 2: it cannot hold that pace for long; its chases are short.\n- The second sentence qualifies the first, so a contrasting transition is needed.\n\n**Why the other choices are wrong:**\n- A: \"In addition\" would add a similar point, but the second sentence limits the first.\n- B: The second sentence is not an example of the cheetah's speed.\n- D: The cheetah's short chases are not a result of its high top speed as the text presents it; the sentences contrast.",
           "_meta": {
-            "anchor": "Ross Ice Shelf (nearly the size of France, level) vs. the climb through the Transantarctic Mountains to the polar plateau"
+            "anchor": "cheetah top speed ~65 mph; chases average 37.9 s and 173 m (Wikipedia: Cheetah)"
           }
         },
         {
@@ -875,7 +874,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Medieval scribes had more than one way to fix a slip of the pen. A copyist could scrape the dried ink from the parchment with a knife and write the word afresh. ______ a corrector could leave the faulty word in place and set a row of dots beneath it, a signal that readers should skip it.",
+          "passage": "Norwegian fishers have long had two ways to preserve cod. They can salt the fish heavily and then dry it, producing what is called clipfish. ______ they can skip the salt entirely and hang the cod on wooden racks to dry in the cold winter air, producing stockfish.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -896,9 +895,9 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The passage promises \"more than one way\" to fix an error and then gives two: scraping the ink away, or dotting the word for readers to skip. The second is an alternative to the first.\n\n**The Full Solution:**\n- The opening sentence frames a menu of options.\n- Option one: physical erasure with a knife.\n- Option two: leaving the word but marking it to be passed over — a different route to the same end, which \"Alternatively\" introduces.\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" would make the dotting a consequence of the scraping; the two are independent options.\n- C: \"For example\" would make dotting an instance of scraping, but it is a different technique altogether.\n- D: \"Similarly\" notes likeness of manner, yet the two methods work in opposite ways — one removes the word, the other preserves and cancels it.",
+          "explanation": "**Choice A is correct.** The text promises two ways to preserve cod and then describes them one after the other. \"Alternatively\" introduces the second option.\n\n**The Full Solution:**\n- Setup: \"two ways to preserve cod.\"\n- Way 1: salt the fish, then dry it (clipfish).\n- Way 2: skip the salt and dry the fish on racks (stockfish).\n- The second method is a different choice from the first, so \"Alternatively\" fits.\n\n**Why the other choices are wrong:**\n- B: Drying without salt is not a result of salting the fish.\n- C: The second method is not an example of the first; it is a different method.\n- D: \"Similarly\" would signal a likeness, but the second method differs from the first by leaving out the salt.",
           "_meta": {
-            "anchor": "scribal error correction — erasure versus expunction; alternative transition"
+            "anchor": "Norwegian cod preservation: clipfish (salted, dried) vs stockfish (unsalted, rack-dried)"
           }
         },
         {
@@ -987,37 +986,37 @@ export const practiceTest4RW = {
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "Batting average and on-base percentage are both used to evaluate baseball hitters.",
-              "Batting average is the share of a hitter's official at-bats that end in hits.",
-              "Walks do not count as official at-bats, so they do not affect batting average.",
-              "On-base percentage is the share of plate appearances in which a hitter reaches base by a hit, a walk, or being hit by a pitch.",
-              "Two hitters with equal batting averages can differ widely in on-base percentage."
+              "Venomous and poisonous animals both carry toxins.",
+              "A venomous animal delivers its toxin actively, through a bite or a sting.",
+              "Rattlesnakes and scorpions are venomous.",
+              "A poisonous animal's toxin harms only an animal that touches or eats it.",
+              "Poison dart frogs, which carry toxins in their skin, are poisonous."
             ],
-            "goal": "The student wants to emphasize a difference between batting average and on-base percentage."
+            "goal": "The student wants to emphasize a difference between venomous and poisonous animals."
           },
           "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
           "choices": [
             {
               "id": "A",
-              "text": "Batting average and on-base percentage are both statistics that analysts use to evaluate the performance of baseball hitters."
+              "text": "Both venomous animals, such as rattlesnakes and scorpions, and poisonous animals, such as poison dart frogs, carry toxins that can harm other animals."
             },
             {
               "id": "B",
-              "text": "Unlike batting average, which ignores walks, on-base percentage counts every time a hitter reaches base, walks included."
+              "text": "Unlike a venomous animal, which delivers its toxin through a bite or sting, a poisonous animal harms only animals that touch or eat it."
             },
             {
               "id": "C",
-              "text": "Batting average is the share of a hitter's official at-bats that end in hits, and a walk does not count as an official at-bat."
+              "text": "Venomous animals, such as rattlesnakes and scorpions, deliver their toxins through a bite or a sting."
             },
             {
               "id": "D",
-              "text": "Because hitters with equal batting averages can differ in on-base percentage, teams should never rely on either statistic alone."
+              "text": "Because poison dart frogs carry toxins in their skin, they are more dangerous than rattlesnakes."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The goal is to emphasize a difference, and B places the two statistics on either side of an explicit contrast: walks ignored by one, counted by the other.\n\n**The Full Solution:**\n- The notes locate the difference in walks: excluded from batting average (bullet 3), included in on-base percentage (bullet 4).\n- B frames exactly that contrast with \"Unlike batting average ...\" and names both statistics' treatment of walks.\n- Contrastive framing is what an emphasize-a-difference goal requires.\n\n**Why the other choices are wrong:**\n- A: It emphasizes what the statistics share, not how they differ.\n- C: It defines batting average alone; with one statistic on stage there is no difference to see.\n- D: It draws a recommendation about using the statistics rather than emphasizing how they differ, a conclusion the notes do not support.",
+          "explanation": "**Choice B is correct.** The goal is to emphasize a difference, and B sets the two kinds of animals on either side of an explicit contrast: one delivers its toxin by a bite or sting, the other harms only animals that touch or eat it.\n\n**The Full Solution:**\n- The notes place the difference in how the toxin reaches a victim (bullets 2 and 4).\n- B uses \"Unlike ...\" and names how each kind of animal does it.\n- A sentence that contrasts the two is what an emphasize-a-difference goal requires.\n\n**Why the other choices are wrong:**\n- A: It emphasizes what the two kinds of animals share, not how they differ.\n- C: It describes venomous animals only; with one kind of animal, no difference appears.\n- D: It compares how dangerous two animals are, a claim the notes never make.",
           "_meta": {
-            "anchor": "baseball statistics — batting average versus on-base percentage; difference goal"
+            "anchor": "venomous vs poisonous animals: difference goal"
           }
         }
       ]
@@ -1034,7 +1033,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "A promising new crop variety cannot be released on the strength of one good season. Because yield is shaped by weather, soil, and disease pressures that differ from year to year and field to field, breeders must ______ a variety's performance in trials sown across many sites and seasons before offering its seed to farmers.",
+          "passage": "A promising new crop variety cannot be released on the strength of one good season. Yield is shaped by weather, soil, and disease pressures that differ from year to year and field to field. Breeders must therefore ______ a variety's performance in trials sown across many sites and seasons before offering its seed to farmers.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -1100,7 +1099,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "When opera companies in the 1980s began projecting translations of the libretto onto a screen above the stage, some critics and conductors objected. A strip of glowing text, they argued, would ______ the audience's attention, pulling eyes upward at exactly the moments when a singer's face and body carried the drama.",
+          "passage": "A magician performing sleight of hand cannot hide the hand that does the secret work. Instead, the performer relies on misdirection: a gesture, a glance, or a joke is used to ______ the audience's attention from that hand, so that the move goes unnoticed even though it happens in plain sight.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -1121,9 +1120,9 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The objectors' fear is attention pulled away from the stage — \"pulling eyes upward\" — and \"divert\" means precisely to draw something off its intended course.\n\n**The Full Solution:**\n- The screen sits above the stage; the drama lives in the singer's face and body below.\n- The objection is that the glowing text competes for the audience's gaze at the crucial moments.\n- \"Divert the audience's attention\" names that redirection exactly.\n\n**Why the other choices are wrong:**\n- A: \"Reward\" would make the text a benefit to attention, not a threat to it.\n- C: \"Sharpen\" means to focus attention more keenly — the opposite of the objectors' worry.\n- D: \"Sustain\" means to keep attention going, but the objection is about where attention goes, not whether it lasts.",
+          "explanation": "**Choice B is correct.** Misdirection works by drawing the audience's attention away from the hand doing the secret work, and \"divert\" means to turn something aside from its course.\n\n**The Full Solution:**\n- The magician cannot hide the hand, so the audience must be made to look elsewhere.\n- The gesture, glance, or joke moves attention \"from that hand.\"\n- \"Divert the audience's attention from that hand\" names that turning-away exactly, which is why the move goes unnoticed.\n\n**Why the other choices are wrong:**\n- A: \"Reward\" would make the gesture a benefit to the audience's attention, not a way of steering it away.\n- C: \"Sharpen\" means to make attention keener, the opposite of what misdirection needs.\n- D: \"Sustain\" means to keep attention going, but the point is where attention goes, not how long it lasts.",
           "_meta": {
-            "anchor": "opera supertitles controversy — attention drawn from the stage"
+            "anchor": "magic misdirection: drawing attention away from the secret move"
           }
         },
         {
@@ -1133,7 +1132,7 @@ export const practiceTest4RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Written around 1400, Cennino Cennini's handbook for painters ______ the practices of the workshop in exacting detail — how to season a poplar panel, how many coats of gesso to lay and how thin, how long to mull each pigment — setting down in writing procedures that masters had previously handed to apprentices only by demonstration.",
+          "passage": "First published in 1876, Henry Martyn Robert's manual for running meetings ______ the procedures of debate in exacting detail: how to make a motion, how to amend it, how to bring discussion to a close. Robert, a US Army officer, adapted the rules of the House of Representatives so that ordinary clubs and societies could follow them.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -1154,9 +1153,10 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The handbook takes practices that lived only in demonstration and sets them down systematically in writing — which is what \"codifies\" means.\n\n**The Full Solution:**\n- The content: workshop procedures, given \"in exacting detail\" and item by item.\n- The transformation: from knowledge \"handed to apprentices only by demonstration\" to procedures fixed in a written text.\n- Organizing practice into systematic written form is codification.\n\n**Why the other choices are wrong:**\n- B: \"Embellishes\" means to decorate or exaggerate, but exacting detail is the opposite of ornament.\n- C: \"Disputes\" would set the handbook against workshop practice, yet it records that practice faithfully.\n- D: \"Predates\" concerns chronology only, and the handbook follows the practices it describes rather than preceding them.",
+          "explanation": "**Choice A is correct.** The manual takes the rules of debate and arranges them, step by step, into a written system that any group can follow, which is what \"codifies\" means.\n\n**The Full Solution:**\n- The content: meeting procedures, given \"in exacting detail\" and item by item (motions, amendments, closing debate).\n- The purpose: rules used in the House of Representatives were adapted so that ordinary clubs and societies could follow them.\n- Organizing procedures into a systematic written form is codification.\n\n**Why the other choices are wrong:**\n- B: \"Embellishes\" means to decorate or exaggerate, but exacting detail is the opposite of ornament.\n- C: \"Disputes\" would set the manual against the procedures, yet it lays them out for others to use.\n- D: \"Predates\" concerns chronology only, and the manual came after the House rules it adapted rather than before them.",
           "_meta": {
-            "anchor": "Cennino Cennini — workshop practice codified in writing; hard words-in-context"
+            "anchor": "Robert's Rules of Order (1876), Henry Martyn Robert, US Army officer, adapted US House procedure for ordinary societies; hard words-in-context",
+            "source": "https://en.wikipedia.org/wiki/Robert%27s_Rules_of_Order"
           }
         },
         {
@@ -1175,7 +1175,7 @@ export const practiceTest4RW = {
             },
             {
               "id": "B",
-              "text": "To argue that the long wavelengths should have been reserved for amateur operators rather than for the commercial and military services that received them."
+              "text": "To argue that the long wavelengths should have gone to amateur operators rather than to the commercial and military services that received them in 1912."
             },
             {
               "id": "C",
@@ -1309,30 +1309,30 @@ export const practiceTest4RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "A terminal lake has no outlet to the sea; its level is set by the balance between the water flowing in and the water evaporating from its surface. When one large terminal lake in the arid West fell to record lows, public discussion blamed drought. Hydrologists who reconstructed a century of the basin's water budget reached a different conclusion. Precipitation over the period swings widely but shows no sustained decline. What has grown steadily is the share of river flow withdrawn for farms and cities before it reaches the lake. The lake is shrinking chiefly because its inflow is being used upstream.",
+          "passage": "Rapa Nui (Easter Island) is often told as a story of collapse: a population of as many as 17,500 people, the story goes, used up the island's resources and then crashed. When Europeans arrived in 1722, they found only a few thousand residents. In 2024 a team of archaeologists tested the story by mapping the island's rock gardens, stone-covered plots where islanders grew sweet potatoes. Satellite images showed that the gardens covered less than half a percent of the island, enough, along with seafood, to feed only about 3,900 people. The population, the researchers concluded, was probably never much larger than the one Europeans met.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "Precipitation in the basin has declined so steadily over the past century that the lake can no longer be sustained at its former level."
+              "text": "The islanders' rock gardens covered most of the island's land but still could not feed its growing population."
             },
             {
               "id": "B",
-              "text": "Terminal lakes are unusually sensitive to drought because evaporation is the only way water leaves them."
+              "text": "Rock gardens were the most productive farming method that any Pacific island society ever developed."
             },
             {
               "id": "C",
-              "text": "Although public discussion blames drought, the water budget shows the lake is shrinking mainly because its inflow is diverted upstream."
+              "text": "Although Rapa Nui is often said to have collapsed, its gardens suggest that its population was never much larger than the one Europeans found."
             },
             {
               "id": "D",
-              "text": "Wet years and dry years alternate so unpredictably in the basin that no single cause of the lake's decline can be identified."
+              "text": "The earlier estimate of 17,500 people was accurate, since the study found that most islanders lived on seafood rather than on sweet potatoes from the gardens."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The text sets the popular explanation (drought) against the hydrologists' accounting (steadily growing upstream withdrawals) and sides with the accounting — which is what C states.\n\n**The Full Solution:**\n- The public story: public discussion \"blamed drought.\"\n- The evidence: precipitation swings but does not decline; withdrawals for farms and cities have grown steadily.\n- The verdict: \"The lake is shrinking chiefly because its inflow is being used upstream.\" C compresses the contrast and the conclusion.\n\n**Why the other choices are wrong:**\n- A: It contradicts the text, which says precipitation \"shows no sustained decline.\"\n- B: A general fact about terminal lakes from the opening sentence — background, not the point.\n- D: The text identifies a chief cause; it does not throw up its hands at variability.",
+          "explanation": "**Choice C is correct.** The text presents a popular story (a large population used up the island and collapsed), then a study whose evidence points the other way: the gardens could feed only about 3,900 people, close to the number Europeans found. Choice C states both the story and the study's conclusion.\n\n**The Full Solution:**\n- The popular account: as many as 17,500 people, followed by a crash.\n- The test: the researchers mapped the rock gardens where sweet potatoes were grown.\n- The finding: the gardens covered less than half a percent of the island, enough (with seafood) for only about 3,900 people.\n- The conclusion: the population was probably never much larger than the few thousand Europeans met in 1722. C sets this against the collapse story.\n\n**Why the other choices are wrong:**\n- A: The text says the gardens covered less than half a percent of the island, not most of it.\n- B: The text never compares Rapa Nui's gardens with farming on other Pacific islands.\n- D: The text never says most islanders lived on seafood. The study counts seafood and still arrives at only about 3,900 people, so it rejects the large estimate rather than supporting it.",
           "_meta": {
-            "anchor": "terminal-lake water budget — upstream diversion versus drought"
+            "anchor": "Rapa Nui rock gardens and population size (Davis et al. 2024, Science Advances): <0.5% of island in gardens, ~3,900 people with seafood (archaeology.org); earlier estimates as high as 17,500 (Columbia Climate School news, 2024-06-21)"
           }
         },
         {
@@ -1342,7 +1342,7 @@ export const practiceTest4RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "inferences",
-          "passage": "In the 1920s the Russian botanist Nikolai Vavilov led collecting expeditions on five continents, gathering seeds of wheat, barley, and dozens of other crops. He found their variation strikingly uneven: for each crop, a few regions held a profusion of distinct local forms, while other regions grew only a handful. Two principles, Vavilov reasoned, explained the pattern. Varieties accumulate where a crop has been grown longest, as centuries of cultivation and selection add form after form; and farmers who carry a crop into new territory take only a narrow sample of what exists. If both principles hold, then for any crop, the region with the greatest concentration of distinct varieties is likely to be ______",
+          "passage": "In the 1920s the Russian botanist Nikolai Vavilov led collecting expeditions on five continents, gathering seeds of wheat, barley, and dozens of other crops. He found their variation strikingly uneven: for each crop, a few regions held a profusion of distinct local forms, while other regions grew only a handful. Two principles, Vavilov reasoned, explained the pattern. First, varieties accumulate where a crop has been grown longest, as centuries of cultivation and selection add form after form. Second, farmers who carry a crop into new territory take only a narrow sample of what exists. If both principles hold, then for any crop, the region with the greatest concentration of distinct varieties is likely to be ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
@@ -1375,7 +1375,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "The court theater at Drottningholm, outside Stockholm, still has its eighteenth-century stage machinery in working order, and performances there still use it. Scene changes depend on ropes and rolling carriages beneath the stage. When stagehands turn the great capstan below the floor, every carriage moves at once: each painted flat in view slides away as a fresh one slides out to replace it, and the whole scene is transformed in seconds, in full sight of the audience. Eighteenth-century stagecraft treated such visible transformation as a spectacle in its own right.",
+          "passage": "The court theater at Drottningholm, outside Stockholm, still has its eighteenth-century stage machinery in working order, and performances there still use it. Scene changes depend on ropes and rolling carriages beneath the stage. When stagehands turn the great capstan below the floor, every carriage moves at once. Each painted flat in view slides away as a fresh one slides out to replace it, and the whole scene is transformed in seconds, in full sight of the audience. Eighteenth-century stagecraft treated such visible transformation as a spectacle in its own right.",
           "question": "According to the text, what happens when stagehands turn the capstan beneath the theater's stage?",
           "choices": [
             {
@@ -1408,30 +1408,30 @@ export const practiceTest4RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-textual",
-          "passage": "Winter wheat is sown in autumn, overwinters as a seedling, and flowers only after prolonged exposure to cold — a requirement called vernalization. Agronomists have hypothesized that the requirement is a safeguard keyed to local climate: by blocking flowering until a real winter has passed, it prevents a warm autumn spell from luring plants into blooming just before killing frosts arrive.",
-          "question": "Which finding, if true, would most directly support the agronomists' hypothesis?",
+          "passage": "Anoles are small lizards that cling to tree trunks and branches with adhesive pads on their toes. After two hurricanes struck the Caribbean in 2017, a team of biologists found that the anoles surviving on two islands in the storms' path had larger toepads, on average, than those islands' anoles had before. The researchers hypothesize that hurricanes favor lizards with larger toepads, which grip more strongly and help a lizard hold on in high winds.",
+          "question": "Which finding, if true, would most directly support the researchers' hypothesis?",
           "choices": [
             {
               "id": "A",
-              "text": "Varieties bred for centuries in regions with long, severe winters demand longer cold exposure before flowering than varieties from regions where winters are short and mild."
+              "text": "Anole populations on islands struck by hurricanes more often over the past several decades have larger toepads than populations on islands struck less often."
             },
             {
               "id": "B",
-              "text": "Spring wheat, which is sown after the last frost of the season, flowers without any period of cold exposure at all."
+              "text": "Anoles that live mostly on the ground have smaller toepads than anoles that live mostly in trees."
             },
             {
               "id": "C",
-              "text": "Vernalized seedlings raised in heated greenhouses flower at the same rate whether their light comes from the sun or from lamps."
+              "text": "Anoles kept in laboratory enclosures grow at the same rate whether they are fed live insects or a prepared diet."
             },
             {
               "id": "D",
-              "text": "Varieties bred in the regions with the longest, harshest winters flower after the briefest cold exposure, while varieties from the mildest regions turn out to demand the most prolonged exposure of all."
+              "text": "Anole populations on the islands struck most often by hurricanes have the smallest toepads on average, while populations on rarely struck islands have the largest."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** If the cold requirement is a safeguard \"keyed to local climate,\" it should be calibrated to the winters a variety actually faces — longer and harsher winters demanding a longer proof of winter before flowering. Choice A reports exactly that calibration.\n\n**The Full Solution:**\n- The hypothesis predicts a match between requirement and risk: flowering should stay blocked for as long as killing frosts remain possible locally.\n- Where winters are long and severe, a brief chill is no proof that winter has passed; a long requirement is protective. Where winters are short and mild, a long requirement would only cost growing time.\n- A gradient in which each variety's requirement mirrors its home climate is the safeguard hypothesis observed in the field.\n\n**Why the other choices are wrong:**\n- B: Spring wheat never faces the autumn-sowing hazard, so its lack of a requirement neither confirms nor tests the safeguard account.\n- C: The light source is irrelevant to whether cold exposure is calibrated to frost risk.\n- D: This is the reverse gradient — it would count against the hypothesis, not for it.",
+          "explanation": "**Choice A is correct.** If hurricanes favor anoles with larger toepads, then islands that hurricanes strike more often should, over time, hold lizards with larger toepads. Choice A reports exactly that pattern.\n\n**The Full Solution:**\n- The hypothesis links two things: hurricanes and larger toepads.\n- A finding that supports it should show toepad size rising with hurricane exposure.\n- A compares islands struck more often with islands struck less often and finds larger toepads where storms are more frequent.\n\n**Why the other choices are wrong:**\n- B: Ground-dwelling and tree-dwelling lizards may differ for many reasons; the finding says nothing about hurricanes.\n- C: Diet and growth rate in the laboratory have nothing to do with surviving high winds.\n- D: This is the reverse pattern; it would count against the hypothesis, not for it.",
           "_meta": {
-            "anchor": "vernalization as a climate-keyed safeguard; finding-if-true form"
+            "anchor": "Anolis toepads and hurricanes (Donihue et al. 2018 Nature; 2020 PNAS); finding-if-true form"
           }
         },
         {
@@ -1441,7 +1441,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "Smallpox inoculation reached England not through its medical colleges but through an ambassador's household. In Constantinople in 1717, Lady Mary Wortley Montagu, who had survived smallpox herself, observed the Ottoman practice of engrafting: placing a trace of matter from a mild case into a scratch on the skin, producing a brief illness and lasting protection. She had her son inoculated there, and after returning to London she promoted the procedure, arranging for her daughter to be inoculated before physicians during the epidemic of 1721. The practice took hold in England decades before vaccination was introduced.",
+          "passage": "Smallpox inoculation reached England not through its medical colleges but through an ambassador's household. In Constantinople in 1717, Lady Mary Wortley Montagu, who had survived smallpox herself, observed the Ottoman practice of engrafting. A trace of matter from a mild case was placed in a scratch on the skin, producing a brief illness and lasting protection. She had her son inoculated there, and after returning to London she promoted the procedure, arranging for her daughter to be inoculated before physicians during the epidemic of 1721. The practice took hold in England decades before vaccination was introduced.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
@@ -1474,40 +1474,40 @@ export const practiceTest4RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "A media historian claims that the American radio boom of the 1920s had two phases. After a burst of growth, the number of broadcasting stations leveled off after 1923, but the audience did not stall with it: the number of households owning a radio kept climbing year after year.",
+          "passage": "Between 2000 and 2020, the world's yearly harvest from wild fisheries and aquaculture (the farming of fish, shellfish, and aquatic plants) grew by about 75 million metric tons. An analyst claims that nearly all of this growth came from aquaculture: the wild catch held almost steady for two decades, while aquaculture production kept climbing in every five-year period.",
           "questionTable": {
             "type": "table",
-            "caption": "Broadcasting stations (as of June 30) and households with a radio in the United States, 1922-1926",
+            "caption": "World wild-capture fisheries and aquaculture production, 2000-2020 (approximate)",
             "headers": [
               "Year",
-              "Broadcasting stations",
-              "Households with a radio (millions)"
+              "Wild capture (millions of metric tons)",
+              "Aquaculture (millions of metric tons)"
             ],
             "rows": [
               [
-                "1922",
-                "378",
-                "0.06"
+                "2000",
+                "96.2",
+                "43.1"
               ],
               [
-                "1923",
-                "558",
-                "0.4"
+                "2005",
+                "95.6",
+                "59.2"
               ],
               [
-                "1924",
-                "545",
-                "1.25"
+                "2010",
+                "89.7",
+                "78.1"
               ],
               [
-                "1925",
-                "585",
-                "2.75"
+                "2015",
+                "94.4",
+                "103.9"
               ],
               [
-                "1926",
-                "535",
-                "4.5"
+                "2020",
+                "91.6",
+                "122.8"
               ]
             ]
           },
@@ -1515,25 +1515,31 @@ export const practiceTest4RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The number of broadcasting stations reached its highest level in 1925, at 585, and then fell to 535 in 1926."
+              "text": "Wild capture reached its highest level in 2000, at 96.2 million metric tons, and then fell to 89.7 million metric tons by 2010, the lowest level shown."
             },
             {
               "id": "B",
-              "text": "Households with a radio grew from 0.06 million in 1922 to 4.5 million in 1926, rising in every year shown in the table."
+              "text": "Aquaculture production grew from 43.1 million metric tons in 2000 to 122.8 million in 2020, rising in every year shown."
             },
             {
               "id": "C",
-              "text": "In 1922 there were 378 broadcasting stations, but only 0.06 million households owned a radio that year."
+              "text": "In 2000 aquaculture production was 43.1 million metric tons, while wild capture was 96.2 million metric tons."
             },
             {
               "id": "D",
-              "text": "After rising from 378 in 1922 to 558 in 1923, the number of stations stayed between 535 and 585, while households with a radio rose every year, from 0.06 million to 4.5 million."
+              "text": "From 2000 to 2020 wild capture stayed between 89.7 and 96.2 million metric tons, while aquaculture rose every five years, from 43.1 to 122.8 million."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The claim describes two series moving differently: stations rising and then leveling off by 1923, households with a radio climbing every year. D documents both: the rise to 558, the later range of 535 to 585, and the uninterrupted climb in ownership.\n\n**The Full Solution:**\n- Phase one: stations rise from 378 to 558 between 1922 and 1923, then stay between 535 and 585, so the number has leveled off.\n- The audience: households with a radio rise in every year shown, from 0.06 million to 4.5 million.\n- Only a choice that traces both series can support a claim that contrasts them.\n\n**Why the other choices are wrong:**\n- A: It covers only the stations' peak and dip, saying nothing about the audience.\n- B: It covers only the audience and says nothing about the stations leveling off.\n- C: A single year's figures illustrate neither trend.",
+          "explanation": "**Choice D is correct.** The claim has two parts: the wild catch held almost steady, and aquaculture production kept climbing. Only D reports both: wild-capture figures stayed within a narrow band (89.7 to 96.2 million metric tons) while aquaculture rose in every five-year period.\n\n**The Full Solution:**\n- Part 1 of the claim: the wild catch barely changed from 2000 to 2020.\n- Part 2: aquaculture production rose in every period shown.\n- D gives the wild-capture range and the aquaculture rise from 43.1 to 122.8 million metric tons, covering both parts.\n\n**Why the other choices are wrong:**\n- A: It describes a fall in the wild catch but says nothing about aquaculture growth.\n- B: It supports only the aquaculture half of the claim; it leaves out the steady wild catch.\n- C: It gives a single year, so it cannot show either the steady wild catch or the rising aquaculture figures.",
           "_meta": {
-            "anchor": "US radio 1922-26: Dept. of Commerce station lists (June 30 counts: 378, 558, 545, 585, 535) and households with radio (Historical Statistics of the US: 60k, 400k, 1.25M, 2.75M, 4.5M)"
+            "anchor": "world capture fisheries (steady) vs aquaculture production (rising), 2000-2020, FAO data via World Bank",
+            "sources": [
+              "https://data.worldbank.org/indicator/ER.FSH.CAPT.MT?locations=1W",
+              "https://data.worldbank.org/indicator/ER.FSH.AQUA.MT?locations=1W",
+              "https://api.worldbank.org/v2/country/WLD/indicator/ER.FSH.CAPT.MT?format=json&date=2000:2020",
+              "https://api.worldbank.org/v2/country/WLD/indicator/ER.FSH.AQUA.MT?format=json&date=2000:2020"
+            ]
           }
         },
         {
@@ -1543,40 +1549,40 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "In mountain basins of the American West, winter snowpack acts as a natural reservoir, holding water that is released as meltwater through the warm months. Hydrologists summarize the reservoir each spring as the snowpack's water content measured on April 1, expressed against the long-term average. A basin manager claims that summer streamflow in one such basin tracks the April snowpack closely: thin snowpacks are followed by meager summer flows, and deep snowpacks by abundant ones.",
+          "passage": "Among mammals, the length of pregnancy, or gestation, ranges from a few weeks to nearly two years. Drawing on records in the AnAge database of animal life histories, a biologist claims that gestation length tracks body size closely: small species have short pregnancies, and large species have long ones.",
           "questionTable": {
             "type": "table",
-            "caption": "April 1 snow water content and summer streamflow in one mountain basin (percent of long-term average)",
+            "caption": "Adult body mass and gestation length of five mammal species",
             "headers": [
-              "Year",
-              "April 1 snow water content (% of average)",
-              "June-August streamflow (% of average)"
+              "Species",
+              "Adult body mass (kilograms)",
+              "Gestation (days)"
             ],
             "rows": [
               [
-                "2018",
-                "142",
-                "128"
+                "African elephant",
+                "4,800",
+                "670"
               ],
               [
-                "2019",
-                "96",
-                "91"
+                "European rabbit",
+                "1.8",
+                "30"
               ],
               [
-                "2020",
-                "71",
-                "63"
+                "Gray wolf",
+                "26.6",
+                "62"
               ],
               [
-                "2021",
-                "118",
-                "109"
+                "Red fox",
+                "4.1",
+                "52"
               ],
               [
-                "2022",
-                "55",
-                "48"
+                "White-tailed deer",
+                "87",
+                "198"
               ]
             ]
           },
@@ -1584,25 +1590,26 @@ export const practiceTest4RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Snow water content on April 1 ranged from a low of 55% of average in 2022 to a high of 142% of average in 2018."
+              "text": "Adult body mass ranged from 1.8 kilograms for the European rabbit to 4,800 kilograms for the African elephant."
             },
             {
               "id": "B",
-              "text": "Summer streamflow fell below its long-term average in three of the five years shown in the table and exceeded it in the other two."
+              "text": "Gestation lasted fewer than 100 days in three of the five species shown in the table and more than 100 days in the other two."
             },
             {
               "id": "C",
-              "text": "The two thinnest snowpacks, 55% and 71% of average, were followed by the two lowest flows, 48% and 63%, and the deepest, 142%, by the highest flow, 128%."
+              "text": "The two lightest species (1.8 and 4.1 kilograms) had the two shortest gestations (30 and 52 days), and the heaviest (4,800 kilograms) had the longest (670 days)."
             },
             {
               "id": "D",
-              "text": "In 2019, snow water content stood at 96% of average and summer streamflow at 91% of average, the closest pairing of values in the table."
+              "text": "The gray wolf weighed 26.6 kilograms and had a gestation of 62 days, the middle value of the five in both columns."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** A tracking claim needs both variables moving together across years, and C shows the correspondence at both ends of the range: thinnest snowpacks with lowest flows, deepest snowpack with highest flow.\n\n**The Full Solution:**\n- The claim pairs conditions: thin snowpack with meager flow, deep snowpack with abundant flow.\n- C matches the two low years (2022, 2020) to the two lowest flows and the high year (2018) to the highest flow.\n- Correspondence across the extremes is what demonstrates tracking.\n\n**Why the other choices are wrong:**\n- A: It reports only the snowpack's range and never mentions streamflow.\n- B: It reports only streamflow and never connects it to the snowpack.\n- D: One close pairing in a single year cannot show that the two quantities move together across years.",
+          "explanation": "**Choice C is correct.** A tracking claim needs both quantities moving together across species, and C shows the match at both ends of the range: the lightest species have the shortest gestations, and the heaviest species has the longest.\n\n**The Full Solution:**\n- The claim pairs conditions: small body with short pregnancy, large body with long pregnancy.\n- C matches the two lightest species (European rabbit, red fox) to the two shortest gestations and the heaviest (African elephant) to the longest.\n- Agreement at both extremes is what shows that one quantity tracks the other.\n\n**Why the other choices are wrong:**\n- A: It reports only body mass and never mentions gestation.\n- B: It reports only gestation and never connects it to body mass.\n- D: One species' values cannot show that the two quantities move together across species.",
           "_meta": {
-            "anchor": "snowpack as natural reservoir — April snow water content and summer flow; original basin table"
+            "anchor": "mammal gestation vs adult body mass, AnAge (genomics.senescence.info): rabbit 1,800 g/30 d; red fox 4,132 g/52 d; gray wolf 26,625 g/62 d; white-tailed deer 87,000 g/198 d; African elephant 4,800,000 g/670 d",
+            "source": "https://genomics.senescence.info/species/"
           }
         },
         {
@@ -1612,7 +1619,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "inferences",
-          "passage": "A true fresco is painted on plaster while the plaster is still damp, so that the pigment bonds into the wall as it dries. Each morning, therefore, a plasterer laid down only as much fresh plaster as could be painted before it set — a day's patch, called a giornata. Because a patch could not be reworked once dry, the joints where one day's plaster meets the next were simply left where the work ended, and although the painter smoothed them, they remain faintly detectable on the finished wall. Since each giornata represents at most a single day's painting, a historian who maps the joints across an entire fresco can ______",
+          "passage": "A true fresco is painted on plaster while the plaster is still damp, so that the pigment bonds into the wall as it dries. Each morning, therefore, a plasterer laid down only as much fresh plaster as could be painted before it set — a day's patch, called a giornata. A patch could not be reworked once dry, so the joint where one day's plaster met the next was left where the work ended. Although painters smoothed these joints, they remain faintly detectable on the finished wall. Since each giornata represents at most a single day's painting, a historian who maps the joints across an entire fresco can ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
@@ -1645,7 +1652,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "After winning Florence's 1401 competition for a set of bronze doors, the young goldsmith Lorenzo Ghiberti ______ a workshop in which a generation of Florentine artists trained; the two pairs of doors he produced there occupied him for nearly half a century.",
+          "passage": "After winning Florence's 1401 competition for a set of bronze doors, the young goldsmith Lorenzo Ghiberti ______ a workshop in which a generation of Florentine artists trained. The two pairs of doors he produced there occupied him for nearly half a century.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1678,30 +1685,31 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "Rain that falls on the limestone plateau does not linger at the ______ it slips into sinkholes, threads through caverns dissolved out of the rock, and emerges days later, filtered and cold, at springs in the valleys below.",
+          "passage": "The peacock mantis shrimp does not pry open the shells of its ______ it smashes snails and crabs with a pair of club-shaped limbs that strike at more than 20 meters per second.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "surface, it"
+              "text": "prey, it"
             },
             {
               "id": "B",
-              "text": "surface; it"
+              "text": "prey; it"
             },
             {
               "id": "C",
-              "text": "surface it"
+              "text": "prey it"
             },
             {
               "id": "D",
-              "text": "surface and, it"
+              "text": "prey and, it"
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** \"Rain ... does not linger at the surface\" and \"it slips into sinkholes ...\" are both independent clauses, and a semicolon is a standard way to join two closely related independent clauses.\n\n**The Full Solution:**\n- Clause one is complete: \"Rain that falls on the limestone plateau does not linger at the surface.\"\n- Clause two is complete: \"it slips into sinkholes, threads through caverns ..., and emerges ... at springs.\"\n- The second clause elaborates the first, so a semicolon joins them correctly.\n\n**Why the other choices are wrong:**\n- A: A comma alone between the two independent clauses creates a comma splice.\n- C: No punctuation fuses the clauses into a run-on.\n- D: \"And\" would need a comma before it to join the clauses; a comma after it is not a conventional joining.",
+          "explanation": "**Choice B is correct.** \"The peacock mantis shrimp does not pry open the shells of its prey\" and \"it smashes snails and crabs ...\" are both independent clauses, and a semicolon is a standard way to join two closely related independent clauses.\n\n**The Full Solution:**\n- Clause one is complete: \"The peacock mantis shrimp does not pry open the shells of its prey.\"\n- Clause two is complete: \"it smashes snails and crabs with a pair of club-shaped limbs ...\"\n- The second clause explains the first, so a semicolon joins them correctly.\n\n**Why the other choices are wrong:**\n- A: A comma alone between the two independent clauses creates a comma splice.\n- C: No punctuation fuses the clauses into a run-on.\n- D: \"And\" would need a comma before it to join the clauses; a comma after it is not a conventional joining.",
           "_meta": {
-            "anchor": "karst drainage; semicolon between independent clauses"
+            "anchor": "peacock mantis shrimp club strike >20 m/s on snails and crabs; semicolon between independent clauses",
+            "source": "https://en.wikipedia.org/wiki/Odontodactylus_scyllarus"
           }
         },
         {
@@ -1711,30 +1719,30 @@ export const practiceTest4RW = {
           "band": 4,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "______ a hydrologist waded into the same bend of the river every week for eleven years, lowering a current meter at measured intervals across the channel and noting the stage, the ice, and the drift of every season in a field book that colleagues still consult.",
+          "passage": "______ the ornithologist Margaret Morse Nice followed the song sparrows near her Columbus, Ohio, home for eight years, recording each bird's territory, mates, and nests in exacting detail.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "While gauging the river's flow by hand"
+              "text": "While fitting each bird with its own combination of colored leg bands"
             },
             {
               "id": "B",
-              "text": "Having gauged the river's flow by hand,"
+              "text": "Having been fitted with its own combination of colored leg bands,"
             },
             {
               "id": "C",
-              "text": "Gauging the river's flow by hand,"
+              "text": "Fitting each bird with its own combination of colored leg bands,"
             },
             {
               "id": "D",
-              "text": "Gauging the river's flow by hand"
+              "text": "Fitting each bird with its own combination of colored leg bands"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** An introductory present-participial phrase modifying \"a hydrologist\" must end with a comma before the main clause begins, and its tense must fit the ongoing weekly work the sentence describes.\n\n**The Full Solution:**\n- The main clause is \"a hydrologist waded into the same bend ... every week for eleven years.\"\n- \"Gauging the river's flow by hand\" describes what the wading amounted to — action simultaneous with the waded visits, so the present participle is right.\n- An introductory modifier is set off from the clause it modifies with a comma: \"Gauging the river's flow by hand, a hydrologist waded ...\"\n\n**Why the other choices are wrong:**\n- A: The subordinate \"While gauging ...\" lacks the required comma before the main clause.\n- B: \"Having gauged\" marks the gauging as finished before the waded visits began, contradicting the eleven years of simultaneous work.\n- D: The participial phrase is correct but the comma is missing, running the modifier into its clause.",
+          "explanation": "**Choice C is correct.** An introductory participial phrase that describes the subject (\"the ornithologist Margaret Morse Nice\") must end with a comma before the main clause begins.\n\n**The Full Solution:**\n- The main clause is \"the ornithologist Margaret Morse Nice followed the song sparrows ... for eight years.\"\n- \"Fitting each bird with its own combination of colored leg bands\" describes what Nice did as she followed the birds, so it correctly modifies her.\n- An introductory modifier is set off from its clause with a comma.\n\n**Why the other choices are wrong:**\n- A: \"While fitting ...\" needs a comma before the main clause.\n- B: \"Having been fitted ...\" describes something that was fitted with bands, yet it sits next to Nice, so the sentence says she wore the bands.\n- D: The phrase is right, but without a comma it runs into the main clause.",
           "_meta": {
-            "anchor": "stream gauging by hand; present-participial modifier; single defensible answer"
+            "anchor": "Margaret Morse Nice, song sparrows, Columbus Ohio; introductory participial phrase"
           }
         },
         {
@@ -1744,30 +1752,30 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "In a Renaissance workshop, a picture began long before any paint was mixed. Turning rough planks into a painting surface meant three stages in a fixed ______ joining and smoothing the seasoned poplar, sealing the wood with coats of glue size, and building up thin layers of gesso to be scraped and polished smooth.",
+          "passage": "Glassblowing was developed along the eastern Mediterranean coast in the first century BCE. Its basic steps still follow a fixed ______ gathering molten glass on the end of a hollow pipe, blowing through the pipe to form a bubble, and shaping the bubble with tools while it is still hot.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "order, joining"
+              "text": "order, gathering"
             },
             {
               "id": "B",
-              "text": "order joining"
+              "text": "order gathering"
             },
             {
               "id": "C",
-              "text": "order; joining"
+              "text": "order; gathering"
             },
             {
               "id": "D",
-              "text": "order: joining"
+              "text": "order: gathering"
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** An independent clause ends at \"a fixed order,\" and what follows is the list of the three stages — the construction a colon exists to introduce.\n\n**The Full Solution:**\n- The clause before the blank is complete: \"Turning rough planks into a painting surface meant three stages in a fixed order.\"\n- The material after the blank itemizes the promised stages: joining, sealing, building up gesso.\n- A colon after an independent clause formally introduces the list it announces.\n\n**Why the other choices are wrong:**\n- A: A comma is too weak to introduce a formal list after a complete clause and blurs where the clause ends.\n- B: With no punctuation, \"order joining\" runs the clause into the list unreadably.\n- C: A semicolon must have an independent clause on each side, and the list of stages is not a clause.",
+          "explanation": "**Choice D is correct.** The clause \"Its basic steps still follow a fixed order\" is complete, and what follows lists the steps of that order. A colon after a complete clause introduces such a list.\n\n**The Full Solution:**\n- The words before the blank form an independent clause.\n- The words after it list the three steps: gathering, blowing, shaping.\n- A colon is the conventional mark between a complete clause and the list it introduces.\n\n**Why the other choices are wrong:**\n- A: A comma does not make clear that what follows explains \"a fixed order\"; the list reads as loosely tacked on.\n- B: With no punctuation, the list runs into the clause.\n- C: A semicolon must be followed by an independent clause, but the list is not one.",
           "_meta": {
-            "anchor": "Renaissance panel preparation; colon before a list"
+            "anchor": "glassblowing (1st c. BCE, eastern Mediterranean): colon before a list"
           }
         },
         {
@@ -1777,30 +1785,30 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "At many nineteenth-century opera houses, the waves of applause that greeted a favored singer were rarely ______ instead, they were organized in advance by the chef de claque, who seated his hired clappers throughout the hall and cued their bravos on schedule.",
+          "passage": "Young sunflowers turn to follow the sun across the sky each day. Mature sunflower heads, however, stop ______ they stay facing east, which warms them quickly in the morning and draws more visits from pollinating insects.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "spontaneous, instead"
+              "text": "moving, instead"
             },
             {
               "id": "B",
-              "text": "spontaneous; instead,"
+              "text": "moving; instead,"
             },
             {
               "id": "C",
-              "text": "spontaneous, instead,"
+              "text": "moving, instead,"
             },
             {
               "id": "D",
-              "text": "spontaneous instead"
+              "text": "moving instead"
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** Two independent clauses meet at the blank, and the second begins with the conjunctive adverb \"instead\" — a joining that requires a semicolon before the adverb and a comma after it.\n\n**The Full Solution:**\n- Clause one: \"the waves of applause ... were rarely spontaneous.\"\n- Clause two: \"they were organized in advance by the chef de claque ...\"\n- A conjunctive adverb like \"instead\" cannot join clauses by itself; the pattern is \"; instead,\" — semicolon, adverb, comma.\n\n**Why the other choices are wrong:**\n- A: A comma before \"instead\" splices the clauses, and the missing comma after the adverb compounds the error.\n- C: Even with the comma after \"instead,\" the comma before it still splices two independent clauses.\n- D: No punctuation at all fuses the clauses into a run-on.",
+          "explanation": "**Choice B is correct.** \"Mature sunflower heads, however, stop moving\" and \"instead, they stay facing east ...\" are independent clauses. A semicolon joins them, and the comma after \"instead\" sets off the transition at the start of the second clause.\n\n**The Full Solution:**\n- Clause 1 ends at \"stop moving.\"\n- Clause 2 begins with the transition \"instead\" and has its own subject and verb (\"they stay\").\n- A transition word such as \"instead\" cannot join two clauses by itself; a semicolon must come before it.\n\n**Why the other choices are wrong:**\n- A: A comma before \"instead\" creates a comma splice.\n- C: Two commas still leave the clauses spliced together.\n- D: With no punctuation, the clauses run together.",
           "_meta": {
-            "anchor": "the opera claque; semicolon with conjunctive adverb"
+            "anchor": "sunflower heliotropism: mature heads face east (Atamian et al. 2016, Science); semicolon + instead"
           }
         },
         {
@@ -1810,7 +1818,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "The mixture of winter rye, crimson clover, and hairy vetch that many growers sow after the autumn harvest ______ several jobs at once: the rye's dense roots hold the soil against winter rains, the clover and vetch draw nitrogen from the air, and the whole stand smothers early weeds.",
+          "passage": "The mixture of winter rye, crimson clover, and hairy vetch that many growers sow after the autumn harvest ______ several jobs at once. The rye's dense roots hold the soil against winter rains, the clover and vetch draw nitrogen from the air, and the whole stand smothers early weeds.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1831,7 +1839,7 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The subject is the singular noun \"mixture,\" so the verb must be the singular \"performs.\"\n\n**The Full Solution:**\n- Strip the modifiers: \"The mixture ... performs several jobs at once.\"\n- \"Of winter rye, crimson clover, and hairy vetch\" and the that-clause modify \"mixture\" without changing its number.\n- The plural nouns inside those modifiers (rye, clover, vetch, growers) are bait; the head noun is \"mixture,\" and it is singular.\n\n**Why the other choices are wrong:**\n- A: \"Perform\" is plural, agreeing with the nearby crop names instead of the subject.\n- B: \"Are performing\" is likewise plural and mismatches the singular head noun.\n- D: \"Have performed\" is plural, and its completed aspect also clashes with the ongoing jobs the colon then lists.",
+          "explanation": "**Choice C is correct.** The subject is the singular noun \"mixture,\" so the verb must be the singular \"performs.\"\n\n**The Full Solution:**\n- Strip the modifiers: \"The mixture ... performs several jobs at once.\"\n- \"Of winter rye, crimson clover, and hairy vetch\" and the that-clause modify \"mixture\" without changing its number.\n- The plural nouns inside those modifiers (rye, clover, vetch, growers) are bait; the head noun is \"mixture,\" and it is singular.\n\n**Why the other choices are wrong:**\n- A: \"Perform\" is plural, agreeing with the nearby crop names instead of the subject.\n- B: \"Are performing\" is likewise plural and mismatches the singular head noun.\n- D: \"Have performed\" is plural, and its completed aspect also clashes with the ongoing jobs the next sentence lists.",
           "_meta": {
             "anchor": "cover-crop mixture; subject-verb agreement (singular collective subject)"
           }
@@ -1843,7 +1851,7 @@ export const practiceTest4RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "In wireless telegraphy's first years, ships used a jumble of company-specific distress calls, and a call sent in one firm's code might mean nothing to the nearest vessel. An international agreement then fixed a single distress signal for all ships. ______ any operator who heard it, whatever line he worked for, knew at once that a ship nearby was in danger.",
+          "passage": "Before 1883, most American towns set their clocks by the sun's position overhead, so a railroad might have to deal with dozens of different local times. On November 18 of that year, the railroads switched to four standard time zones. ______ a passenger changing trains no longer had to convert from one town's time to the next.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1864,9 +1872,9 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The standardized signal is a cause; instant, universal recognition of a distress call is its effect. \"As a result\" marks the final sentence as the consequence of the agreement.\n\n**The Full Solution:**\n- The problem: incompatible company codes meant a distress call could go unrecognized.\n- The change: one signal fixed internationally for all ships.\n- The outcome: any operator, on any line, understood the call immediately — a state of affairs produced by the standardization.\n\n**Why the other choices are wrong:**\n- A: \"Meanwhile\" would place the operators' comprehension alongside the agreement as a separate, simultaneous development rather than its effect.\n- C: \"In other words\" introduces a restatement, but the final sentence adds a new consequence, not a paraphrase.\n- D: \"Likewise\" claims a parallel case, and there is no second case here.",
+          "explanation": "**Choice B is correct.** The switch to four time zones caused the change described in the last sentence: passengers no longer had to convert between local times. \"As a result\" marks this cause and effect.\n\n**The Full Solution:**\n- Problem: dozens of local times.\n- Change: four standard time zones adopted in 1883.\n- Effect: no more converting from one town's time to the next.\n\n**Why the other choices are wrong:**\n- A: \"Meanwhile\" signals a separate event at the same time, but the last sentence is a consequence of the switch.\n- C: The last sentence does not restate the switch; it describes what the switch made possible.\n- D: \"Likewise\" signals a similar point, not an effect.",
           "_meta": {
-            "anchor": "standardization of the maritime distress signal; result transition"
+            "anchor": "1883 railroad standard time zones"
           }
         },
         {
@@ -1909,7 +1917,7 @@ export const practiceTest4RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Connoisseurs long treated a Renaissance master's name on an altarpiece as an assurance that every figure came from his own brush. The surviving commissioning contracts read differently. ______ many stipulate only that the master design the composition and paint the principal heads, expressly leaving draperies, backgrounds, and minor figures to the assistants of his shop.",
+          "passage": "Napoleon Bonaparte is often remembered as an unusually short man. Historians who have checked the records tell a different story. ______ he stood about 1.7 meters (roughly 5 feet 6 inches), close to the average height for men of his time; the image of a tiny Napoleon owes much to British cartoonists who mocked him.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1930,9 +1938,9 @@ export const practiceTest4RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The passage announces that the contracts \"read differently\" from the connoisseurs' assumption, and the final sentence delivers the correcting detail. \"In fact\" is the transition that introduces the reality behind a mistaken belief.\n\n**The Full Solution:**\n- Sentence one: the belief — a master's name means every figure is his.\n- Sentence two: the pivot — the documents say otherwise.\n- Sentence three: the substance of the correction — contracts assign only the design and the principal heads to the master. \"In fact\" signals precisely this corrective specification.\n\n**Why the other choices are wrong:**\n- A: \"Similarly\" would liken the contracts' contents to the belief they overturn.\n- B: \"Meanwhile\" sets two developments side by side in time; there is only one thread here.\n- C: \"Consequently\" would make the contracts' stipulations a result of their reading differently, but the sentence is explaining what they say, not what followed from it.",
+          "explanation": "**Choice D is correct.** The second sentence says historians \"tell a different story\"; the third gives the evidence for it: Napoleon was about average height. \"In fact\" introduces information that backs up and sharpens the claim just made.\n\n**The Full Solution:**\n- Sentence 1: the popular view (Napoleon was unusually short).\n- Sentence 2: historians disagree, in general terms.\n- Sentence 3: the specific detail that shows what the historians mean, his measured height and where the myth came from.\n- \"In fact\" signals this move from a general statement to stronger, specific support.\n\n**Why the other choices are wrong:**\n- A: The third sentence does not describe something similar to the second; it explains it.\n- B: \"Meanwhile\" signals something happening at the same time, but the sentence supports the point just made.\n- C: Napoleon's height is not a result of historians telling a different story; it is the evidence for that story.",
           "_meta": {
-            "anchor": "Renaissance workshop contracts — divided authorship; corrective transition"
+            "anchor": "Napoleon height myth: ~1.7 m, average for era; British cartoonists (Wikipedia: Napoleon complex)"
           }
         },
         {

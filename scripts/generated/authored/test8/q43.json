@@ -11,7 +11,7 @@
  "choices": [
   {
    "id": "A",
-   "text": "harm only the farm whose turn immediately followed the violator's."
+   "text": "harm only the farm whose turn came immediately after the violator's, leaving every other farm's schedule unchanged."
   },
   {
    "id": "B",
@@ -23,7 +23,7 @@
   },
   {
    "id": "D",
-   "text": "lead the community to abandon the rotation altogether and to divide the canal's water into fixed shares that individual farms could hold permanently."
+   "text": "lead the community to abandon the rotation and divide the canal's water into permanent fixed shares."
   }
  ],
  "correctAnswer": "C",

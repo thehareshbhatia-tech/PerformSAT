@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-379",
- "question": "Point $P$ lies on the $x$-axis and is the same distance from each of the two points shown in the $xy$-plane. What is the $x$-coordinate of point $P$?",
+ "question": "Line $p$ passes through the two points shown in the $xy$-plane. The graph of $4x + ky = 9$, where $k$ is a constant, is parallel to line $p$. What is the value of $k$?",
  "diagram": {
   "type": "coordinatePoints",
   "params": {
@@ -14,35 +14,35 @@
      7
     ]
    ],
-   "xMin": -7,
-   "xMax": 9,
-   "yMin": -4,
-   "yMax": 12
+   "xMin": -6,
+   "xMax": 8,
+   "yMin": -2,
+   "yMax": 10
   }
  },
  "choices": [
   {
    "id": "A",
-   "text": "$-1$"
+   "text": "$-10$"
   },
   {
    "id": "B",
-   "text": "$1$"
+   "text": "$-\\frac{8}{5}$"
   },
   {
    "id": "C",
-   "text": "$3$"
+   "text": "$\\frac{8}{5}$"
   },
   {
    "id": "D",
-   "text": "$15$"
+   "text": "$10$"
   }
  ],
- "correctAnswer": "C",
+ "correctAnswer": "A",
  "distractorNotes": {
-  "A": "pairs the vertical distances with the wrong points, using 7 with (-4, 3) and 3 with (6, 7)",
-  "B": "averages the two x-coordinates, which works only when the two points are equally far from the x-axis",
-  "D": "writes the distance to (-4, 3) with (x - 4) instead of (x + 4)"
+  "B": "takes the slope of 4x + ky = 9 to be -k/4 instead of -4/k",
+  "C": "takes the slope of 4x + ky = 9 to be k/4, inverting it and dropping the sign",
+  "D": "drops the negative sign: solves 4/k = 2/5"
  },
- "explanation": "**SAT Pattern: Distance Formula**\n\n**Choice C is correct.**\n\n**The Fast Way (~50s):** Set the squared distances equal: $(x + 4)^{2} + 3^{2} = (x - 6)^{2} + 7^{2}$, which simplifies to $20x = 60$, so $x = 3$.\n\n**The Full Solution:**\nStep 1: Read the points: $(-4, 3)$ and $(6, 7)$. Let $P = (x, 0)$.\nStep 2: The squared distances are $(x + 4)^{2} + 9$ and $(x - 6)^{2} + 49$. Setting them equal: $x^{2} + 8x + 25 = x^{2} - 12x + 85$.\nStep 3: Then $20x = 60$, so $x = 3$. Check: from $(3, 0)$, $7^{2} + 3^{2} = 58$ and $3^{2} + 7^{2} = 58$, so the distances are equal ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-1$): attaches $49$ to the left point and $9$ to the right point, solving $(x + 4)^{2} + 49 = (x - 6)^{2} + 9$.\n* Choice B ($1$): averages the $x$-coordinates. That would work only if the two points were the same height above the $x$-axis.\n* Choice D ($15$): writes the distance to $(-4, 3)$ with $(x - 4)^{2}$, a sign error.\n\n**Test Day Takeaway:** For a point equally distant from two others, set the squared distances equal; the $x^{2}$ terms cancel and a linear equation remains."
+ "explanation": "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** Line $p$ has slope $\\frac{7 - 3}{6 - (-4)} = \\frac{2}{5}$. The graph of $4x + ky = 9$ has slope $-\\frac{4}{k}$, so $-\\frac{4}{k} = \\frac{2}{5}$ and $k = -10$.\n\n**The Full Solution:**\nStep 1: Read the points: $(-4, 3)$ and $(6, 7)$. Slope of line $p$: $\\frac{7 - 3}{6 - (-4)} = \\frac{4}{10} = \\frac{2}{5}$.\nStep 2: Solve $4x + ky = 9$ for $y$: $y = -\\frac{4}{k}x + \\frac{9}{k}$, so its slope is $-\\frac{4}{k}$.\nStep 3: Parallel lines have equal slopes: $-\\frac{4}{k} = \\frac{2}{5}$, so $2k = -20$ and $k = -10$. Check: $4x - 10y = 9$ gives $y = \\frac{2}{5}x - \\frac{9}{10}$, slope $\\frac{2}{5}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{8}{5}$): treats the slope of $4x + ky = 9$ as $-\\frac{k}{4}$, so $-\\frac{k}{4} = \\frac{2}{5}$.\n* Choice C ($\\frac{8}{5}$): treats the slope as $\\frac{k}{4}$, inverting it and dropping the sign.\n* Choice D ($10$): drops the negative sign and solves $\\frac{4}{k} = \\frac{2}{5}$.\n\n**Test Day Takeaway:** The slope of $Ax + By = C$ is $-\\frac{A}{B}$; set it equal to the slope you read from the graph."
 }

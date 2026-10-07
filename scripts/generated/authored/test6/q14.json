@@ -6,35 +6,35 @@
   "band": 4,
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-quantitative",
-  "passage": "The carbon dioxide record kept since 1958 at the Mauna Loa Observatory in Hawaii traces a rising curve with a sawtooth edge: each year the concentration dips as Northern Hemisphere plants leaf out and draw carbon from the air, then climbs again as leaves fall and decay. A research team reviewing the record has argued that the long-term rise now dwarfs this seasonal breathing: over the decades, the baseline has climbed many times farther than the concentration swings within any single year.",
+  "passage": "The water level of Lake Mead, the reservoir behind Hoover Dam, has been recorded at the end of every month since the 1930s. The level rises and falls within each year as inflows and releases change, but since 2000 a long drought has also pulled it steadily downward. A research team reviewing the record has argued that the long-term decline now dwarfs the yearly fluctuation: between 2000 and 2022, the lake's average level fell several times farther than it rose and fell within any single year.",
   "questionTable": {
     "type": "table",
-    "caption": "Atmospheric carbon dioxide at Mauna Loa Observatory in selected years",
+    "caption": "Lake Mead water level in selected years, based on end-of-month elevations",
     "headers": [
       "Year",
-      "Annual mean (parts per million)",
-      "Seasonal swing, highest to lowest monthly mean (parts per million)"
+      "Annual mean elevation (feet above sea level)",
+      "Swing within the year, highest to lowest month (feet)"
     ],
     "rows": [
       [
-        "1970",
-        "325.7",
-        "5.1"
+        "2000",
+        "1,203.5",
+        "18.1"
       ],
       [
-        "1990",
-        "354.5",
-        "6.0"
+        "2008",
+        "1,109.4",
+        "12.5"
       ],
       [
-        "2010",
-        "390.1",
-        "6.2"
+        "2015",
+        "1,080.5",
+        "13.9"
       ],
       [
-        "2023",
-        "421.1",
-        "5.5"
+        "2022",
+        "1,050.4",
+        "26.2"
       ]
     ]
   },
@@ -42,21 +42,28 @@
   "choices": [
     {
       "id": "A",
-      "text": "The annual mean concentration rose from 325.7 parts per million in 1970 to 421.1 parts per million in 2023."
+      "text": "The annual mean elevation fell from 1,203.5 feet above sea level in 2000 to 1,050.4 feet in 2022."
     },
     {
       "id": "B",
-      "text": "The seasonal swing was smallest in 1970, at 5.1 parts per million, and largest in 2010, at 6.2 parts per million."
+      "text": "The swing within the year was smallest in 2008, at 12.5 feet, and largest in 2022, at 26.2 feet."
     },
     {
       "id": "C",
-      "text": "In every one of the years shown in the table, the seasonal swing from the highest to the lowest monthly mean was far smaller than the annual mean concentration recorded for that same year."
+      "text": "In every year shown, the swing from the highest to the lowest month was far smaller than the lake's annual mean elevation for that year."
     },
     {
       "id": "D",
-      "text": "While the annual mean climbed by more than 95 parts per million between 1970 and 2023, the seasonal swing in each year shown never exceeded 6.2 parts per million."
+      "text": "While the annual mean elevation fell by more than 150 feet from 2000 to 2022, the swing within any year shown never exceeded 26.2 feet."
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The claim compares two quantities — how far the baseline has climbed over the decades and how far the concentration swings within a single year — so support requires both columns at once, and D supplies them: a rise of more than 95 parts per million against yearly swings of no more than 6.2.\n\n**The Full Solution:**\n- Break the claim into its parts: (1) the baseline climbed a long way over the decades; (2) the swing within any one year is small; (3) the first is many times the second.\n- D documents (1) with the 325.7-to-421.1 rise and (2) with swings that never exceed 6.2, and setting them side by side shows (3): roughly fifteen times as large.\n\n**Why the other choices are wrong:**\n- A: It gives only the rising baseline, leaving the claim's other half — the size of the seasonal swing — without evidence.\n- B: It reports how the swing varied from year to year but never compares it with the long-term rise, which is the heart of the claim.\n- C: Comparing the swing with the mean concentration itself is beside the point — the claim compares the swing with how far the baseline has risen, not with the total amount of carbon dioxide in the air."
+  "explanation": "**Choice D is correct.** The claim compares two quantities, how far the lake's average level fell over two decades and how far the level rises and falls within a single year, so support requires both columns at once, and D supplies them: a drop of more than 150 feet against yearly swings of no more than 26.2.\n\n**The Full Solution:**\n- Break the claim into its parts: (1) the average level fell a long way between 2000 and 2022; (2) the swing within any one year is small; (3) the first is several times the second.\n- D documents (1) with the 1,203.5-to-1,050.4 drop and (2) with swings that never exceed 26.2, and setting them side by side shows (3): roughly six times as large.\n\n**Why the other choices are wrong:**\n- A: It gives only the falling average, leaving the claim's other half, the size of the yearly swing, without evidence.\n- B: It reports how the swing varied from year to year but never compares it with the long-term decline, which is the heart of the claim.\n- C: Comparing the swing with the elevation itself is beside the point; the claim compares the swing with how far the average level has fallen, not with the lake's height above sea level.",
+  "_meta": {
+    "anchor": "Lake Mead end-of-month elevations: annual mean fall 2000-2022 vs within-year swing (computed from USBR table)",
+    "sources": [
+      "https://www.usbr.gov/lc/region/g4000/hourly/mead-elv.html",
+      "https://earthobservatory.nasa.gov/images/86426/losses-in-lake-mead"
+    ]
+  }
 }

@@ -15,7 +15,7 @@
   },
   {
    "id": "B",
-   "text": "Weather radar's chief value to forecasters lay in confirming the storm reports that ground observers telephoned in from distant weather stations."
+   "text": "Weather radar's chief value to forecasters lay in confirming the storm reports that ground observers telephoned in each day from distant weather stations."
   },
   {
    "id": "C",
@@ -23,7 +23,7 @@
   },
   {
    "id": "D",
-   "text": "Rain so badly cluttered wartime radar screens that operators often failed to detect the approaching enemy aircraft that the equipment had been built to track."
+   "text": "Rain so badly cluttered wartime radar screens that operators often missed the enemy aircraft the equipment was built to track."
   }
  ],
  "correctAnswer": "A",

@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-352",
- "question": "$(x + 4)^{2} + (y - 1)^{2} = 36$\nIn the $xy$-plane, the graph of the given equation is a circle. For what positive value of $k$ does the line $x = k$ intersect the circle at exactly one point?",
+ "question": "$(x + 4)^{2} + (y - 1)^{2} = 25$\nThe graph of the given equation in the $xy$-plane is a circle. Line $p$ is tangent to the circle at the point $(-1, 5)$. What is the slope of line $p$?",
  "choices": [
   {
    "id": "A",
-   "text": "$1$"
+   "text": "$-\\frac{4}{3}$"
   },
   {
    "id": "B",
-   "text": "$2$"
+   "text": "$-\\frac{3}{4}$"
   },
   {
    "id": "C",
-   "text": "$6$"
+   "text": "$\\frac{3}{4}$"
   },
   {
    "id": "D",
-   "text": "$10$"
+   "text": "$\\frac{4}{3}$"
   }
  ],
  "distractorNotes": {
-  "A": "uses the y-coordinate of the center, 1",
-  "C": "reports the radius, 6",
-  "D": "reads the center as (4, 1) and adds the radius, 4 + 6"
+  "A": "negates the slope of the radius, 4/3, but does not take its reciprocal",
+  "C": "takes the reciprocal of the radius slope but does not change its sign",
+  "D": "gives the slope of the radius from the center to (-1, 5), not of the tangent line"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Tangent Line to a Circle**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The center is $(-4, 1)$ and the radius is $6$, so the vertical tangent lines are $x = -4 \\pm 6$, that is, $x = -10$ and $x = 2$; the positive one is $k = 2$.\n\n**The Full Solution:**\nStep 1: The circle has center $(-4, 1)$ and radius $\\sqrt{36} = 6$.\nStep 2: A vertical line meets the circle at exactly one point when it is $6$ units from the center horizontally: $x = -4 + 6 = 2$ or $x = -4 - 6 = -10$.\nStep 3: Since $k$ is positive, $k = 2$.\n\nCheck: With $x = 2$, $(2 + 4)^2 + (y - 1)^2 = 36$ gives $(y - 1)^2 = 0$, so $y = 1$ is the only solution. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): uses the $y$-coordinate of the center, which matters for horizontal lines, not vertical ones.\n* Choice C ($6$): reports the radius without adding it to the center's $x$-coordinate.\n* Choice D ($10$): reads the center as $(4, 1)$, missing that $(x + 4)$ means $x$-coordinate $-4$.\n\n**Test Day Takeaway:** A vertical tangent sits one radius left or right of the center: $x = h \\pm r$; read $h$ with its sign flipped from $(x - h)$."
+ "explanation": "**SAT Pattern: Tangent Line to a Circle**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The center is $(-4, 1)$, so the radius to $(-1, 5)$ has slope $\\frac{5 - 1}{-1 - (-4)} = \\frac{4}{3}$; the tangent line is perpendicular to it, with slope $-\\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: The circle has center $(-4, 1)$ and radius $\\sqrt{25} = 5$; the point $(-1, 5)$ is on it because $3^{2} + 4^{2} = 25$.\nStep 2: The radius from $(-4, 1)$ to $(-1, 5)$ has slope $\\frac{4}{3}$.\nStep 3: A tangent line is perpendicular to the radius at the point of tangency, so its slope is the negative reciprocal, $-\\frac{3}{4}$. Check: $\\frac{4}{3}\\left(-\\frac{3}{4}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{4}{3}$): changes the sign of the radius slope but does not flip the fraction.\n* Choice C ($\\frac{3}{4}$): flips the fraction but keeps the positive sign.\n* Choice D ($\\frac{4}{3}$): is the slope of the radius, not the tangent line.\n\n**Test Day Takeaway:** A tangent line meets the radius at a right angle: find the slope from the center to the point, then take its negative reciprocal."
 }

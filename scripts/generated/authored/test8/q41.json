@@ -6,30 +6,34 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 2,
- "passage": "Researchers measuring how mangrove forests damp incoming waves set wave gauges along four shore-normal transects, each crossing a belt of different width, and recorded the mean height of waves arriving at the landward edge during the same monsoon season. They argue that the data show a consistent relationship — the wider the belt a wave must cross, the smaller the wave that reaches the shore — because _______",
+ "passage": "Water boils when the pressure of its vapor matches the pressure of the air above it, and air pressure falls as elevation rises. A state university extension service, advising cooks who live at high elevations, lists the temperature at which water boils at several elevations. A student argues that the data show a consistent relationship (the higher the elevation, the lower the temperature at which water boils) because _______",
  "questionTable": {
   "type": "table",
-  "caption": "Mean wave height at the landward edge of four mangrove belts",
+  "caption": "Boiling point of water at selected elevations",
   "headers": [
-   "Belt width (m)",
-   "Mean wave height at shore (cm)"
+   "Elevation (feet)",
+   "Boiling point (°F)"
   ],
   "rows": [
    [
-    "50",
-    "42"
+    "Sea level",
+    "212"
    ],
    [
-    "100",
-    "31"
+    "2,000",
+    "208"
    ],
    [
-    "200",
-    "18"
+    "5,000",
+    "203"
    ],
    [
-    "400",
-    "9"
+    "7,500",
+    "198"
+   ],
+   [
+    "10,000",
+    "193"
    ]
   ]
  },
@@ -37,21 +41,28 @@
  "choices": [
   {
    "id": "A",
-   "text": "waves crossing the 50-meter belt still averaged 42 centimeters in height when they reached the shore."
+   "text": "water at sea level boils at 212°F, the highest boiling point shown in the table."
   },
   {
    "id": "B",
-   "text": "as belt width increases from 50 to 100 to 200 to 400 meters, mean wave height at the shore falls from 42 to 31 to 18 to 9 centimeters."
+   "text": "as elevation increases from sea level to 2,000, 5,000, 7,500, and 10,000 feet, the boiling point falls from 212°F to 208, 203, 198, and 193°F."
   },
   {
    "id": "C",
-   "text": "mean wave height behind the 400-meter belt was 9 centimeters, well below the 42 centimeters recorded behind the 50-meter belt at the opposite end of the range."
+   "text": "water boils at 193°F at 10,000 feet, well below the 212°F at which it boils at sea level."
   },
   {
    "id": "D",
-   "text": "the four transects differed from one another in both belt width and mean wave height at the shore."
+   "text": "the five elevations in the table differ from one another in both height and boiling point."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The claim ties wave height to belt width across the range, and B traces the full relation: as width grows from 50 to 400 meters, mean wave height at the shore falls step by step from 42 to 9 centimeters.\n\n**The Full Solution:**\n- The researchers' claim is a relationship, not a single comparison: the wider the belt, the smaller the waves behind it.\n- Choice B walks the whole table in order, showing height falling at every step as width increases — the pattern the claim asserts.\n\n**Why the other choices are wrong:**\n- A: One transect's figures cannot establish a relationship across belt widths.\n- C: Comparing only the widest and narrowest belts skips the intermediate values that show the relation holds throughout.\n- D: Saying the transects differ from one another concedes variation without connecting it to belt width at all."
+ "explanation": "**Choice B is correct.** A consistent relationship has to hold at every step, not just at the ends, and B shows it does: each rise in elevation comes with a lower boiling point, from 212°F at sea level down to 193°F at 10,000 feet.\n\n**The Full Solution:**\n- The claim is about a consistent pattern across all the elevations: the higher the elevation, the lower the boiling point.\n- Choice B walks through every row in order, showing the boiling point dropping at each step.\n\n**Why the other choices are wrong:**\n- A: A single value cannot show a relationship between two quantities.\n- C: Comparing only the two extremes does not show that the pattern holds at the elevations in between.\n- D: Saying the values differ does not say in which direction they change, so it cannot support the claim.",
+ "_meta": {
+  "anchor": "boiling point of water vs elevation (CSU Extension) — CoE-quant: consistent inverse relationship",
+  "sources": [
+   "https://foodsmartcolorado.colostate.edu/recipes/cooking-and-baking/high-elevation-food-preparation-guide",
+   "https://routt.extension.colostate.edu/wp-content/uploads/sites/4/2018/05/High-Altitude-Food-Perperation-Guide.pdf"
+  ]
+ }
 }

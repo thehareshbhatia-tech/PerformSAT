@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-215",
-  "question": "At a driving school, $40\\%$ of students take morning classes and the rest take evening classes. Of these groups, $85\\%$ and $70\\%$, respectively, passed the test. What is the probability that a randomly selected student passed?",
+  "question": "At a driving school, $40\\%$ of the students take morning classes, and $85\\%$ of the students who take morning classes passed the driving test. If one student at the school is selected at random, what is the probability that the student is not a morning-class student who passed the test?",
   "choices": [
     {
       "id": "A",
-      "text": "$0.34$"
+      "text": "$0.06$"
     },
     {
       "id": "B",
-      "text": "$0.42$"
+      "text": "$0.34$"
     },
     {
       "id": "C",
-      "text": "$0.76$"
+      "text": "$0.60$"
     },
     {
       "id": "D",
-      "text": "$0.775$"
+      "text": "$0.66$"
     }
   ],
   "distractorNotes": {
-    "A": "counts only the morning students who passed, 0.40 × 0.85 = 0.34",
-    "B": "counts only the evening students who passed, 0.60 × 0.70 = 0.42",
-    "D": "averages the two pass rates, (0.85 + 0.70)/2 = 0.775, ignoring that the groups differ in size"
+    "A": "finds the morning-class students who did not pass, 0.40 x 0.15 = 0.06, instead of everyone outside the morning-and-passed group",
+    "B": "finds the probability of a morning-class student who passed, 0.40 x 0.85 = 0.34, and forgets the word not",
+    "C": "counts only the students who do not take morning classes, 1 - 0.40 = 0.60, leaving out the morning-class students who did not pass"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Weight each pass rate by its group's share: $0.40(0.85) + 0.60(0.70) = 0.34 + 0.42 = 0.76$.\n\n**The Full Solution:**\nStep 1: The rest of the students take evening classes, so the evening share is $1 - 0.40 = 0.60$.\nStep 2: Find each \"group and passed\" probability: morning $0.40 \\times 0.85 = 0.34$; evening $0.60 \\times 0.70 = 0.42$.\nStep 3: The two groups do not overlap, so add: $0.34 + 0.42 = 0.76$. Check with $100$ students: $40(0.85) = 34$ and $60(0.70) = 42$ passed, and $\\frac{76}{100} = 0.76$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.34$): counts the morning students who passed and stops.\n* Choice B ($0.42$): counts the evening students who passed and stops.\n* Choice D ($0.775$): averages $85\\%$ and $70\\%$ as if the groups were the same size; the larger evening group pulls the overall rate toward $70\\%$.\n\n**Test Day Takeaway:** An overall rate built from groups of different sizes is a weighted average: multiply each rate by its group's share, then add."
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Morning-class students who passed make up $0.40(0.85) = 0.34$ of the students, so the probability of selecting anyone else is $1 - 0.34 = 0.66$.\n\n**The Full Solution:**\nStep 1: $40\\%$ of the students take morning classes, and $85\\%$ of those passed, so the morning-class students who passed are $0.40 \\times 0.85 = 0.34$ of all the students.\nStep 2: Every other student, whether an evening-class student or a morning-class student who did not pass, is not a morning-class student who passed.\nStep 3: The probability is $1 - 0.34 = 0.66$. Check with $100$ students: $40$ take morning classes and $34$ of them passed, so $100 - 34 = 66$ students are outside that group, and $\\frac{66}{100} = 0.66$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.06$): This is the share of morning-class students who did not pass, $0.40 \\times 0.15$; the evening-class students also count.\n* Choice B ($0.34$): This is the probability of selecting a morning-class student who passed; the question asks for a student who is not in that group.\n* Choice C ($0.60$): This counts only the students who do not take morning classes and leaves out the $6\\%$ who take morning classes but did not pass.\n\n**Test Day Takeaway:** Multiply along the chain to find the share of the described group, then subtract from $1$ for \"not\" that group."
 }

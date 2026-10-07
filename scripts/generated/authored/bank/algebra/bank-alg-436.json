@@ -1,29 +1,29 @@
 {
  "id": "bank-alg-436",
- "question": "$ax + by = c$\nIn the given equation, $a$, $b$, and $c$ are constants, and $b \\neq 0$. In the $xy$-plane, line $\\ell$ is parallel to the graph of the given equation and passes through the point $(p, q)$, where $p$ and $q$ are constants. Which equation defines line $\\ell$?",
+ "question": "$9x - 6y = 4$\nIn the $xy$-plane, line $\\ell$ passes through the point $(0, 0)$ and is parallel to the graph of the given equation. If line $\\ell$ also passes through the point $(4, d)$, what is the value of $d$?",
  "choices": [
   {
    "id": "A",
-   "text": "$y - q = \\frac{a}{b}(x - p)$"
+   "text": "$-6$"
   },
   {
    "id": "B",
-   "text": "$y - q = \\frac{b}{a}(x - p)$"
+   "text": "$\\frac{8}{3}$"
   },
   {
    "id": "C",
-   "text": "$y - q = -\\frac{a}{b}(x - p)$"
+   "text": "$\\frac{16}{3}$"
   },
   {
    "id": "D",
-   "text": "$y - p = -\\frac{a}{b}(x - q)$"
+   "text": "$6$"
   }
  ],
- "correctAnswer": "C",
+ "correctAnswer": "D",
  "distractorNotes": {
-  "A": "drops the negative sign when solving ax + by = c for y",
-  "B": "inverts the slope and drops its sign",
-  "D": "has the right slope but swaps the coordinates p and q in point-slope form"
+  "A": "drops the sign when solving for y, using slope -3/2, getting -6",
+  "B": "inverts the slope to 2/3, getting (2/3)(4)",
+  "C": "finds the point on the graph of the given equation at x = 4, solving 36 - 6y = 4, instead of on line l"
  },
- "explanation": "**SAT Pattern: Parallel Line through a Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The graph of $ax + by = c$ has slope $-\\frac{a}{b}$, so the parallel line through $(p, q)$ is $y - q = -\\frac{a}{b}(x - p)$.\n\n**The Full Solution:**\nStep 1: Solve the given equation for $y$: $by = -ax + c$, so $y = -\\frac{a}{b}x + \\frac{c}{b}$, which has slope $-\\frac{a}{b}$.\nStep 2: Line $\\ell$ is parallel to this graph, so it also has slope $-\\frac{a}{b}$.\nStep 3: Point-slope form through $(p, q)$ is $y - q = m(x - p)$, so line $\\ell$ is $y - q = -\\frac{a}{b}(x - p)$. Check: substituting $x = p$ gives $y = q$, and the slope is $-\\frac{a}{b}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y - q = \\frac{a}{b}(x - p)$): drops the negative sign when moving $ax$ to the other side.\n* Choice B ($y - q = \\frac{b}{a}(x - p)$): inverts the slope and drops its sign.\n* Choice D ($y - p = -\\frac{a}{b}(x - q)$): has the correct slope but pairs $p$ with $y$ and $q$ with $x$, so the line passes through $(q, p)$ instead of $(p, q)$.\n\n**Test Day Takeaway:** With all-letter constants, do the same steps as with numbers: the slope of $ax + by = c$ is $-\\frac{a}{b}$, and point-slope form pairs $x$ with the first coordinate."
+ "explanation": "**SAT Pattern: Parallel Line through a Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The given line has slope $\\frac{9}{6} = \\frac{3}{2}$, so line $\\ell$ is $y = \\frac{3}{2}x$, and $d = \\frac{3}{2}(4) = 6$.\n\n**The Full Solution:**\nStep 1: Solve the given equation for $y$: $-6y = -9x + 4$, so $y = \\frac{3}{2}x - \\frac{2}{3}$, which has slope $\\frac{3}{2}$.\nStep 2: Line $\\ell$ is parallel to this graph and passes through the origin, so line $\\ell$ is $y = \\frac{3}{2}x$.\nStep 3: Substitute $x = 4$: $d = \\frac{3}{2}(4) = 6$. Check: the slope from $(0, 0)$ to $(4, 6)$ is $\\frac{6}{4} = \\frac{3}{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): loses the negative signs when solving for $y$ and uses slope $-\\frac{3}{2}$.\n* Choice B ($\\frac{8}{3}$): inverts the slope to $\\frac{2}{3}$.\n* Choice C ($\\frac{16}{3}$): finds the point with $x = 4$ on the graph of the given equation, $9(4) - 6y = 4$, which is not line $\\ell$.\n\n**Test Day Takeaway:** For a line given in standard form, solve for $y$ to read the slope; a parallel line through the origin is just that slope times $x$."
 }

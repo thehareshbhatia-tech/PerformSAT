@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 1,
- "passage": "A hazel stool cut on a seven-year rotation yields a crop of straight poles sized for fence rails, bean sticks, and the woven panels called hurdles. ______ the brushwood left over from trimming was bundled into faggots and sold as fuel for bread ovens, so almost nothing cut in a working coppice went to waste.",
+ "passage": "A camel's hump is made mostly of fat, not water. When food is scarce, the camel can live off this stored fat for long periods. ______ a camel can drink as much as 30 gallons of water in about 13 minutes, so it can quickly recover after days without water.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The second sentence stacks a further product, fuel faggots from the trimmings, on top of the poles named in the first, and the sentence's own conclusion, \"almost nothing... went to waste,\" confirms that the two sentences are items in an accumulating list. \"In addition\" marks that relationship.\n\n**The Full Solution:**\n- Sentence one: the rotation yields poles for rails, sticks, and hurdles.\n- Sentence two: beyond those, even the leftover brushwood found a market as oven fuel.\n- Adding a second use to a first calls for an additive transition.\n\n**Why the other choices are wrong:**\n- B: \"Nevertheless\" concedes an obstacle or contradiction, but the second sentence reinforces the first rather than pushing against it.\n- C: \"Therefore\" would present the faggot trade as a logical consequence of the pole crop, but the two are parallel uses, not cause and effect.\n- D: \"For instance\" would make the brushwood an example of the poles just listed, but it is a different product entirely."
+ "explanation": "**Choice A is correct.** The text lists two separate ways the camel copes with scarcity: it lives off fat stored in its hump, and it can drink a great deal of water very quickly. \"In addition\" signals that a second, similar point is being added.\n\n**The Full Solution:**\n- The first two sentences describe one adaptation, the fat stored in the hump.\n- The last sentence describes another adaptation, rapid drinking.\n- An additive transition joins two points of the same kind.\n\n**Why the other choices are wrong:**\n- B: \"Nevertheless\" signals a contrast with what came before, but rapid drinking does not oppose the fat-storage point.\n- C: \"Therefore\" signals a result, but the camel's drinking ability is not caused by its stored fat.\n- D: \"For instance\" would make the last sentence an example of living off stored fat, which it is not."
 }

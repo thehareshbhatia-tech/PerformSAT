@@ -9,18 +9,18 @@
  "passages": [
   {
    "label": "Text 1",
-   "text": "In the 1990s, the geologist Paul Hoffman and his colleagues revived a startling explanation for glacial deposits in rocks that formed in the tropics: around 700 million years ago, they argued, ice advanced until the entire planet froze over, oceans included. This 'Snowball Earth' would have lasted millions of years, until volcanic carbon dioxide built up in the atmosphere and forced an abrupt thaw. Hoffman pointed to the 'cap' carbonate rocks lying directly atop the glacial deposits as the signature of that sudden escape from ice."
+   "text": "In the 1990s, the geologist Paul Hoffman and his colleagues revived a startling explanation for glacial deposits in rocks that formed in the tropics. Around 700 million years ago, they argued, ice advanced until the entire planet froze over, oceans included. This 'Snowball Earth' would have lasted millions of years, until volcanic carbon dioxide built up in the atmosphere and forced an abrupt thaw. Hoffman pointed to the 'cap' carbonate rocks lying atop the glacial deposits as the signature of that sudden escape from ice."
   },
   {
    "label": "Text 2",
-   "text": "The geologist Philip Allen accepts that glaciers reached sea level in the tropics but questions the leap to a fully frozen planet. Sedimentary rocks from the glacial intervals, he notes, preserve wave ripples, a mark of open water, and show glaciers delivering large amounts of sediment to the sea throughout the cold periods. In his view the evidence supports severe glaciation with some open seas; the hypothesis's most dramatic element, oceans sealed beneath ice, remains undemonstrated."
+   "text": "The geologist Philip Allen accepts that glaciers reached sea level in the tropics, but he questions the leap to a fully frozen planet. Sedimentary rocks from the glacial intervals, he notes, preserve wave ripples, a mark of open water. They also show glaciers delivering large amounts of sediment to the sea throughout the cold periods. In his view, the evidence supports severe glaciation with some open seas. The hypothesis's most dramatic element, oceans sealed beneath ice, remains undemonstrated."
   }
  ],
  "question": "Based on the texts, how would Allen (Text 2) most likely respond to the explanation presented in Text 1?",
  "choices": [
   {
    "id": "A",
-   "text": "He would accept that glaciers reached the tropics but argue that sedimentary evidence of open water shows a completely frozen planet has not been established."
+   "text": "He would accept that glaciers reached the tropics but argue that signs of open water show a fully frozen planet has not been established."
   },
   {
    "id": "B",

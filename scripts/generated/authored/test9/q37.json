@@ -6,29 +6,32 @@
   "domain": "information-and-ideas",
   "skill": "central-ideas-and-details",
   "module": 2,
-  "passage": "The emperor Frederick II wrote De arte venandi cum avibus (The Art of Hunting with Birds), a falconry treatise, in the 1240s. What set the work apart from earlier bird lore was its method. Frederick accepted received claims only after testing them: he sent envoys north for the driftwood from which barnacle geese were said to hatch and, finding no birds on it, doubted the legend; he covered the eyes of vultures to learn whether they found food by sight or by smell; and he corrected Aristotle wherever his own observations disagreed.",
-  "question": "According to the text, what distinguished Frederick II's treatise from earlier writing about birds?",
+  "passage": "The Royal Society, founded in London in 1660, took as its motto Nullius in verba, roughly \"Take nobody's word for it.\" What set the society apart from earlier gatherings of scholars was its method. Its members did not settle questions by citing ancient authorities. Instead, they met each week to watch experiments performed in front of them and to discuss the results, and a claim earned their acceptance only after it had been tested and observed.",
+  "question": "According to the text, what distinguished the Royal Society from earlier gatherings of scholars?",
   "choices": [
     {
       "id": "A",
-      "text": "It was written for a general audience of readers rather than for practicing falconers."
+      "text": "It admitted members from a wider range of backgrounds and professions than earlier gatherings of scholars had."
     },
     {
       "id": "B",
-      "text": "It was composed by a reigning monarch rather than by a scholar."
+      "text": "It published its findings in Latin so that scholars across Europe could read them."
     },
     {
       "id": "C",
-      "text": "It described more species of birds than any earlier treatise had attempted to cover."
+      "text": "It studied a wider range of subjects than any earlier gathering had attempted."
     },
     {
       "id": "D",
-      "text": "It based its claims on observation and testing rather than on older authorities."
+      "text": "It accepted claims only after testing and observing them rather than relying on authorities."
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The text names the distinction explicitly — \"What set the work apart from earlier bird lore was its method\" — and then defines that method as accepting claims only after testing them against observation.\n\n**The Full Solution:**\n- The question asks what the text says, and the second sentence answers it directly: the method.\n- The examples specify the method — the barnacle-goose legend checked against driftwood brought from the north, the vulture experiment, Aristotle corrected against Frederick's own observations.\n- D restates that method: observation and testing over inherited authority.\n\n**Why the other choices are wrong:**\n- A: The text says nothing about the treatise's intended readers; its distinction lies in how claims were justified.\n- B: Frederick's rank is mentioned, but the text attributes the work's distinction to its method, not its author's throne.\n- C: Breadth of coverage is never compared; the comparison drawn is about how claims were justified.",
+  "explanation": "**Choice D is correct.** The text says the society was set apart by \"its method\": members did not settle questions by citing ancient authorities, and a claim was accepted only after it \"had been tested and observed.\"\n\n**The Full Solution:**\n- The second sentence names the distinguishing feature directly: the society's method.\n- The third and fourth sentences describe that method: no appeals to ancient authorities; experiments performed before the members; acceptance only after testing and observation.\n- The motto, \"Take nobody's word for it,\" sums up the same idea.\n\n**Why the other choices are wrong:**\n- A: The text says nothing about who could become a member.\n- B: The motto is in Latin, but the text never says the society published its findings in Latin.\n- C: The text does not compare the range of subjects the society studied with those of earlier gatherings.",
   "_meta": {
-    "anchor": "Frederick II — De arte venandi cum avibus, written in the 1240s (Wikipedia); envoys sent north for barnacle-goose timbers (Barnacle goose myth, quoting the treatise); vultures' eyes covered to test smell; contradicts Aristotle. 2026-10-04 review removed unverified \"three decades\" / \"completed around 1245\" claims."
+    "anchor": "Royal Society (1660), Nullius in verba, experiments before members — CID detail",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Royal_Society"
+    ]
   }
 }

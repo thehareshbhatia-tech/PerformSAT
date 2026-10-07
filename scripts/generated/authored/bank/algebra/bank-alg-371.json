@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-371",
- "question": "The shaded region shown represents the solutions to the system of inequalities $y \\leq ax + b$ and $2y + kx \\leq 8$, where $a$, $b$, and $k$ are constants. What is the value of $a + b + k$?",
+ "question": "The shaded region shown represents the solutions to a system of two linear inequalities. One of the inequalities is $2y + kx \\leq 8$, where $k$ is a constant. What is the value of $k$?",
  "diagram": {
   "type": "twoLineGraph",
   "params": {
@@ -32,22 +32,22 @@
   },
   {
    "id": "B",
-   "text": "$1$"
+   "text": "$-1$"
   },
   {
    "id": "C",
-   "text": "$2$"
+   "text": "$1$"
   },
   {
    "id": "D",
-   "text": "$6$"
+   "text": "$2$"
   }
  ],
- "correctAnswer": "C",
+ "correctAnswer": "D",
  "distractorNotes": {
   "A": "solves -k/2 = -1 with a sign error, getting k = -2",
-  "B": "forgets to divide by 2 when rewriting 2y + kx <= 8, matching -k to the slope -1 and getting k = 1",
-  "D": "reads the y-intercept of the rising line as 2 instead of -2"
+  "B": "uses the slope of the boundary line, -1, as the value of k",
+  "C": "forgets to divide by 2 when solving for y, matching -k to the slope -1"
  },
- "explanation": "**SAT Pattern: System of Linear Inequalities**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** From the graph, the rising line is $y = 2x - 2$, so $a = 2$ and $b = -2$; the falling line is $y = -x + 4$, which is $2y + 2x = 8$, so $k = 2$ and $a + b + k = 2$.\n\n**The Full Solution:**\nStep 1: Read the rising boundary: it passes through $(0, -2)$ and $(2, 2)$, so its slope is $2$ and its equation is $y = 2x - 2$. Thus $a = 2$ and $b = -2$.\nStep 2: Read the falling boundary: it passes through $(0, 4)$ and $(2, 2)$, so its slope is $-1$ and its equation is $y = -x + 4$. Rewrite $2y + kx \\leq 8$ as $y \\leq -\\frac{k}{2}x + 4$; matching slopes gives $-\\frac{k}{2} = -1$, so $k = 2$.\nStep 3: Add: $a + b + k = 2 + (-2) + 2 = 2$. Check: with $k = 2$, the point $(2, 2)$ gives $2(2) + 2(2) = 8$, so it is on the boundary, as the graph shows ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): solves $-\\frac{k}{2} = -1$ as $k = -2$, a sign error.\n* Choice B ($1$): matches $-k$ to the slope $-1$ without first dividing $2y + kx \\leq 8$ by $2$, so it gets $k = 1$.\n* Choice D ($6$): reads the rising line's $y$-intercept as $2$ instead of $-2$.\n\n**Test Day Takeaway:** To match a boundary line to an inequality in standard form, first solve for $y$; the slope is $-\\frac{k}{2}$, not $-k$."
+ "explanation": "**SAT Pattern: System of Linear Inequalities**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Solving $2y + kx = 8$ for $y$ gives $y = -\\frac{k}{2}x + 4$, a line with $y$-intercept $4$. The boundary through $(0, 4)$ has slope $-1$, so $-\\frac{k}{2} = -1$ and $k = 2$.\n\n**The Full Solution:**\nStep 1: Solve the boundary equation $2y + kx = 8$ for $y$: $y = -\\frac{k}{2}x + 4$. Its $y$-intercept is $(0, 4)$.\nStep 2: The boundary line that crosses the $y$-axis at $(0, 4)$ also passes through $(2, 2)$, so its slope is $\\frac{2 - 4}{2 - 0} = -1$.\nStep 3: Match the slopes: $-\\frac{k}{2} = -1$, so $k = 2$. Check: the point $(2, 2)$ gives $2(2) + 2(2) = 8$, so it is on the boundary, and the shaded point $(2, 0)$ gives $2(0) + 2(2) = 4 \\leq 8$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): solves $-\\frac{k}{2} = -1$ with a sign error.\n* Choice B ($-1$): uses the slope of the boundary line as $k$ instead of solving $-\\frac{k}{2} = -1$.\n* Choice C ($1$): forgets to divide by $2$ when solving for $y$, so it matches $-k$ to the slope $-1$.\n\n**Test Day Takeaway:** To match a boundary line to an inequality in standard form, first solve for $y$; the $y$-intercept tells you which line it is, and the slope gives the constant."
 }

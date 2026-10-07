@@ -101,19 +101,19 @@ export const exponentsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "Which of the following has the greatest value?",
+      question: "Which expression is equivalent to $(2x^{3})(5x^{4})$?",
       choices: [
-        { id: "A", text: "$2^{7}$" },
-        // distractor: assumes the larger base 3 with exponent 4 must win over 2^7, but 3^4 is only 81
-        { id: "B", text: "$3^{4}$" },
-        // distractor: estimates 5^3 = 125 as the largest without evaluating 2^7 = 128
-        { id: "C", text: "$5^{3}$" },
-        // distractor: picks the largest base, 11, assuming base matters more than exponent
-        { id: "D", text: "$11^{2}$" }
+        // distractor: adds the coefficients instead of multiplying them
+        { id: "A", text: "$7x^{7}$" },
+        // distractor: adds the coefficients and multiplies the exponents
+        { id: "B", text: "$7x^{12}$" },
+        { id: "C", text: "$10x^{7}$" },
+        // distractor: multiplies the exponents instead of adding them
+        { id: "D", text: "$10x^{12}$" }
       ],
-      correctAnswer: "A",
-      hint: "Evaluate each power before comparing.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** $2^{7} = 128$, $3^{4} = 81$, $5^{3} = 125$, and $11^{2} = 121$, so $2^{7}$ is greatest.\n\n**The Full Solution:**\nStep 1: Evaluate the first two: $2^{7} = 128$ and $3^{4} = 81$.\nStep 2: Evaluate the other two: $5^{3} = 125$ and $11^{2} = 121$.\nStep 3: Compare: $128 > 125 > 121 > 81$, so $2^{7}$ has the greatest value. Check: $2^{7} = 2^{3} \\cdot 2^{4} = 8 \\cdot 16 = 128$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3^{4}$): has the largest exponent after $2^{7}$, but its value is only $81$.\n* Choice C ($5^{3}$): is close, at $125$, but $2^{7} = 128$ is greater; the values must be computed, not estimated.\n* Choice D ($11^{2}$): has the largest base, but a large base with a small exponent gives only $121$.\n\n**Test Day Takeaway:** Neither the largest base nor the largest exponent guarantees the largest power; when the values are small enough, evaluate each one.",
+      correctAnswer: "C",
+      hint: "Multiply the coefficients; add the exponents of x.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~10s):** $2 \\cdot 5 = 10$ and $x^{3} \\cdot x^{4} = x^{3 + 4} = x^{7}$.\n\n**The Full Solution:**\nStep 1: Group the numbers and the powers of $x$: $(2 \\cdot 5)(x^{3} \\cdot x^{4})$.\nStep 2: Multiply the coefficients: $2 \\cdot 5 = 10$.\nStep 3: Multiply powers with the same base by adding exponents: $x^{3} \\cdot x^{4} = x^{7}$. So the product is $10x^{7}$. Check: at $x = 1$, $(2)(5) = 10$ and $10(1)^{7} = 10$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7x^{7}$): adds the coefficients $2 + 5$ instead of multiplying them.\n* Choice B ($7x^{12}$): adds the coefficients and multiplies the exponents, reversing both rules.\n* Choice D ($10x^{12}$): multiplies the exponents $3 \\cdot 4$; exponents are added when the bases are multiplied.\n\n**Test Day Takeaway:** Product of monomials: coefficients multiply, exponents add.",
       skills: ["comparing-exponentials"]
     },
     {
@@ -155,19 +155,19 @@ export const exponentsQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "Which of the following correctly compares $3^{20}$ and $9^{11}$?",
+      question: "Which expression is equivalent to $\\sqrt[3]{x^{2}} \\cdot \\sqrt[3]{x^{4}}$, where $x > 0$?",
       choices: [
-        // distractor: finds the exponent difference 22 - 20 = 2 and uses it as the factor instead of 3^2
-        { id: "A", text: "$9^{11}$ is $2$ times $3^{20}$." },
-        // distractor: finds the exponent difference 2 and multiplies it by the base 3 instead of raising 3 to it
-        { id: "B", text: "$9^{11}$ is $6$ times $3^{20}$." },
-        { id: "C", text: "$9^{11}$ is $9$ times $3^{20}$." },
-        // distractor: finds the factor 9 but reverses which number is larger
-        { id: "D", text: "$3^{20}$ is $9$ times $9^{11}$." }
+        // distractor: multiplies the exponents 2/3 and 4/3 instead of adding them
+        { id: "A", text: "$x^{\\frac{8}{9}}$" },
+        { id: "B", text: "$x^{2}$" },
+        // distractor: multiplies 2 and 4 inside the root, getting the cube root of x^8
+        { id: "C", text: "$x^{\\frac{8}{3}}$" },
+        // distractor: adds the exponents 2 and 4 but drops the cube root
+        { id: "D", text: "$x^{6}$" }
       ],
-      correctAnswer: "C",
-      hint: "Write 9^11 as a power of 3.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~20s):** $9^{11} = 3^{22} = 3^{2} \\cdot 3^{20} = 9 \\cdot 3^{20}$.\n\n**The Full Solution:**\nStep 1: Write $9$ as $3^{2}$: $9^{11} = (3^{2})^{11} = 3^{22}$.\nStep 2: Divide: $\\frac{3^{22}}{3^{20}} = 3^{2} = 9$.\nStep 3: So $9^{11}$ is $9$ times $3^{20}$. Check: $9 \\cdot 3^{20} = 3^{2} \\cdot 3^{20} = 3^{22} = 9^{11}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: uses the difference of the exponents, $22 - 20 = 2$, as the factor; the factor is $3^{2}$, not $2$.\n* Choice B: multiplies the base by the exponent difference, $3 \\cdot 2 = 6$, instead of computing $3^{2}$.\n* Choice D: finds the correct factor, $9$, but reverses the comparison; $3^{22}$ is greater than $3^{20}$.\n\n**Test Day Takeaway:** To compare powers with related bases, rewrite them with a common base; the ratio is the base raised to the difference of the exponents.",
+      correctAnswer: "B",
+      hint: "Write each cube root as a power with a fractional exponent.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** $x^{\\frac{2}{3}} \\cdot x^{\\frac{4}{3}} = x^{\\frac{6}{3}} = x^{2}$.\n\n**The Full Solution:**\nStep 1: A cube root is the power $\\frac{1}{3}$: $\\sqrt[3]{x^{2}} = x^{\\frac{2}{3}}$ and $\\sqrt[3]{x^{4}} = x^{\\frac{4}{3}}$.\nStep 2: Multiply by adding exponents: $\\frac{2}{3} + \\frac{4}{3} = \\frac{6}{3}$.\nStep 3: $\\frac{6}{3} = 2$, so the product is $x^{2}$. Check: with $x = 8$, $\\sqrt[3]{64} \\cdot \\sqrt[3]{4096} = 4 \\cdot 16 = 64 = 8^{2}$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{\\frac{8}{9}}$): multiplies the exponents $\\frac{2}{3} \\cdot \\frac{4}{3}$ instead of adding them.\n* Choice C ($x^{\\frac{8}{3}}$): multiplies $x^{2}$ and $x^{4}$ as if the result were $x^{8}$, then takes the cube root.\n* Choice D ($x^{6}$): adds $2 + 4$ but drops the cube root.\n\n**Test Day Takeaway:** Turn roots into fractional exponents; then the ordinary exponent rules apply.",
       skills: ["comparing-exponentials", "exponent-laws"]
     },
     {
@@ -252,19 +252,19 @@ export const exponentsQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "For the exponential function $g$, $g(3) = 56$, and the value of $g(x)$ doubles for each increase of $1$ in the value of $x$. What is the y-intercept of the graph of $y = g(x)$ in the $xy$-plane?",
+      question: "$g(x) = a(2)^{x}$\nIn the given function, $a$ is a constant, and $g(3) = 56$. What is the y-intercept of the graph of $y = g(x)$ in the $xy$-plane?",
       choices: [
         { id: "A", text: "$(0, 7)$" },
-        // distractor: halves 56 only twice, stopping at x = 1
+        // distractor: divides 56 by 2 only twice
         { id: "B", text: "$(0, 14)$" },
-        // distractor: subtracts 2 for each step back from x = 3, as if the function were linear
-        { id: "C", text: "$(0, 50)$" },
-        // distractor: uses the given value g(3) = 56 as the y-intercept
+        // distractor: divides 56 by 2 only once
+        { id: "C", text: "$(0, 28)$" },
+        // distractor: uses g(3) as the y-intercept
         { id: "D", text: "$(0, 56)$" }
       ],
       correctAnswer: "A",
-      hint: "Work backward from x = 3 to x = 0 one step at a time.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** Going back $3$ steps from $x = 3$ to $x = 0$ halves the value $3$ times: $\\frac{56}{2^{3}} = 7$, so the y-intercept is $(0, 7)$.\n\n**The Full Solution:**\nStep 1: Since the value doubles for each increase of $1$ in $x$, $g(x) = a(2)^{x}$, where $a = g(0)$.\nStep 2: Substitute $x = 3$: $a(2)^{3} = 56$, so $8a = 56$.\nStep 3: Divide: $a = 7$, so the graph crosses the y-axis at $(0, 7)$. Check: $7 \\to 14 \\to 28 \\to 56$ for $x = 0, 1, 2, 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($(0, 14)$): halves $56$ only twice, which gives $g(1)$, not $g(0)$.\n* Choice C ($(0, 50)$): subtracts $2$ three times; the function doubles, so stepping back means dividing by $2$.\n* Choice D ($(0, 56)$): uses $g(3)$ as the y-intercept, but the y-intercept is the value at $x = 0$.\n\n**Test Day Takeaway:** The y-intercept of an exponential function is its value at $x = 0$; undo the growth factor once for each unit you step back.",
+      hint: "The y-intercept is (0, g(0)), and g(0) = a.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** $g(3) = 8a = 56$, so $a = 7$, and the y-intercept is $(0, g(0)) = (0, 7)$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 3$: $g(3) = a(2)^{3} = 8a$.\nStep 2: Set $8a = 56$, so $a = 7$.\nStep 3: The y-intercept is $(0, g(0))$, and $g(0) = 7(2)^{0} = 7$. Check: $7(2)^{3} = 7 \\cdot 8 = 56$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($(0, 14)$): divides $56$ by $2$ only twice, which gives $g(1)$.\n* Choice C ($(0, 28)$): divides $56$ by $2$ only once, which gives $g(2)$.\n* Choice D ($(0, 56)$): uses the value at $x = 3$ as if it were the value at $x = 0$.\n\n**Test Day Takeaway:** For $f(x) = a(b)^{x}$, the y-intercept is always $(0, a)$.",
       skills: ["exponential-y-intercept"]
     },
     {

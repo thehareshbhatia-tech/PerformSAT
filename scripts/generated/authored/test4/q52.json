@@ -6,7 +6,7 @@
   "domain": "expression-of-ideas",
   "skill": "transitions",
   "module": 2,
-  "passage": "In wireless telegraphy's first years, ships used a jumble of company-specific distress calls, and a call sent in one firm's code might mean nothing to the nearest vessel. An international agreement then fixed a single distress signal for all ships. ______ any operator who heard it, whatever line he worked for, knew at once that a ship nearby was in danger.",
+  "passage": "Before 1883, most American towns set their clocks by the sun's position overhead, so a railroad might have to deal with dozens of different local times. On November 18 of that year, the railroads switched to four standard time zones. ______ a passenger changing trains no longer had to convert from one town's time to the next.",
   "question": "Which choice completes the text with the most logical transition?",
   "choices": [
     {
@@ -27,8 +27,8 @@
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** The standardized signal is a cause; instant, universal recognition of a distress call is its effect. \"As a result\" marks the final sentence as the consequence of the agreement.\n\n**The Full Solution:**\n- The problem: incompatible company codes meant a distress call could go unrecognized.\n- The change: one signal fixed internationally for all ships.\n- The outcome: any operator, on any line, understood the call immediately — a state of affairs produced by the standardization.\n\n**Why the other choices are wrong:**\n- A: \"Meanwhile\" would place the operators' comprehension alongside the agreement as a separate, simultaneous development rather than its effect.\n- C: \"In other words\" introduces a restatement, but the final sentence adds a new consequence, not a paraphrase.\n- D: \"Likewise\" claims a parallel case, and there is no second case here.",
+  "explanation": "**Choice B is correct.** The switch to four time zones caused the change described in the last sentence: passengers no longer had to convert between local times. \"As a result\" marks this cause and effect.\n\n**The Full Solution:**\n- Problem: dozens of local times.\n- Change: four standard time zones adopted in 1883.\n- Effect: no more converting from one town's time to the next.\n\n**Why the other choices are wrong:**\n- A: \"Meanwhile\" signals a separate event at the same time, but the last sentence is a consequence of the switch.\n- C: The last sentence does not restate the switch; it describes what the switch made possible.\n- D: \"Likewise\" signals a similar point, not an effect.",
   "_meta": {
-    "anchor": "standardization of the maritime distress signal; result transition"
+    "anchor": "1883 railroad standard time zones"
   }
 }

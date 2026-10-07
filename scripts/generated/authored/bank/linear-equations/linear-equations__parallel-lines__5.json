@@ -1,10 +1,10 @@
 {
  "id": 5,
- "question": "Line $j$ passes through the point $(-4, 9)$ and is parallel to the line $3x - 2y = 10$ in the $xy$-plane. Which equation defines line $j$?",
+ "question": "Line $j$ passes through the point $(0, 7)$ and is parallel to the line $3x - 2y = 10$ in the $xy$-plane. Which equation defines line $j$?",
  "choices": [
   {
    "id": "A",
-   "text": "$y = -\\frac{3}{2}x + 3$"
+   "text": "$y = -\\frac{3}{2}x + 7$"
   },
   {
    "id": "B",
@@ -12,19 +12,19 @@
   },
   {
    "id": "C",
-   "text": "$y = \\frac{3}{2}x + 3$"
+   "text": "$y = \\frac{3}{2}x + 7$"
   },
   {
    "id": "D",
-   "text": "$y = \\frac{3}{2}x + 15$"
+   "text": "$y = 3x + 7$"
   }
  ],
  "distractorNotes": {
-  "A": "takes the slope of 3x - 2y = 10 as -3/2, losing the sign from dividing by -2",
-  "B": "rewrites the given line, y = (3/2)x - 5, which does not pass through (-4, 9)",
-  "C": "treats (3/2)(-4) as +6 when solving for the y-intercept, getting b = 9 - 6"
+  "A": "loses the sign when dividing by -2, so the slope is -3/2",
+  "B": "rewrites the given line, which passes through (0, -5), not (0, 7)",
+  "D": "uses the x-coefficient, 3, as the slope without solving for y"
  },
- "correctAnswer": "D",
- "hint": "Rewrite the given line in slope-intercept form to read its slope.",
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~40s):** The given line is $y = \\frac{3}{2}x - 5$, so line $j$ is $y = \\frac{3}{2}x + b$ with $9 = \\frac{3}{2}(-4) + b = -6 + b$, giving $b = 15$.\n\n**The Full Solution:**\nStep 1: Solve $3x - 2y = 10$ for $y$: $-2y = -3x + 10$, so $y = \\frac{3}{2}x - 5$, which has slope $\\frac{3}{2}$.\nStep 2: Line $j$ is parallel, so it has the form $y = \\frac{3}{2}x + b$. Substitute $(-4, 9)$: $9 = \\frac{3}{2}(-4) + b = -6 + b$.\nStep 3: So $b = 15$, and line $j$ is $y = \\frac{3}{2}x + 15$.\n\nCheck: $\\frac{3}{2}(-4) + 15 = -6 + 15 = 9$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{3}{2}x + 3$): loses a sign when dividing by $-2$, so the slope is wrong even though the line passes through $(-4, 9)$.\n* Choice B ($y = \\frac{3}{2}x - 5$): is the given line itself; at $x = -4$ it gives $y = -11$.\n* Choice C ($y = \\frac{3}{2}x + 3$): treats $\\frac{3}{2}(-4)$ as $+6$, so $b = 9 - 6 = 3$.\n\n**Test Day Takeaway:** Get the slope from the given line in slope-intercept form, then use the point, keeping track of the negative coordinate."
+ "correctAnswer": "C",
+ "hint": "Solve 3x - 2y = 10 for y to read its slope.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~30s):** The given line is $y = \\frac{3}{2}x - 5$, so line $j$ has slope $\\frac{3}{2}$ and y-intercept $7$: $y = \\frac{3}{2}x + 7$.\n\n**The Full Solution:**\nStep 1: Solve $3x - 2y = 10$ for $y$: $-2y = -3x + 10$, so $y = \\frac{3}{2}x - 5$, which has slope $\\frac{3}{2}$.\nStep 2: Line $j$ is parallel, so it also has slope $\\frac{3}{2}$.\nStep 3: The point $(0, 7)$ gives the y-intercept $7$, so line $j$ is $y = \\frac{3}{2}x + 7$. Check: at $x = 0$, $y = 7$, and the slope matches the given line. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{3}{2}x + 7$): loses the sign when dividing by $-2$, so the slope is $-\\frac{3}{2}$.\n* Choice B ($y = \\frac{3}{2}x - 5$): is the given line itself; it passes through $(0, -5)$.\n* Choice D ($y = 3x + 7$): takes the $x$-coefficient $3$ as the slope without solving for $y$.\n\n**Test Day Takeaway:** To read a slope from $Ax + By = C$, solve for $y$ first; the slope is $-\\frac{A}{B}$."
 }

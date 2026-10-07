@@ -1,29 +1,29 @@
 {
   "id": 17,
-  "question": "Triangle $ABC$ has a perimeter of $80$ centimeters, and two of its sides have lengths of $18$ centimeters and $28$ centimeters. Triangle $DEF$ is similar to triangle $ABC$ and has a perimeter of $20$ meters. What is the length of the longest side of triangle $DEF$, in meters?",
+  "question": "Triangle $ABC$ has a perimeter of $80$ centimeters, and two of its sides have lengths of $18$ centimeters and $28$ centimeters. Triangle $DEF$ is similar to triangle $ABC$ and has a perimeter of $120$ centimeters. What is the length, in centimeters, of the longest side of triangle $DEF$?",
   "choices": [
     {
       "id": "A",
-      "text": "$4.5$"
+      "text": "$27$"
     },
     {
       "id": "B",
-      "text": "$7$"
+      "text": "$42$"
     },
     {
       "id": "C",
-      "text": "$8.5$"
+      "text": "$51$"
     },
     {
       "id": "D",
-      "text": "$10$"
+      "text": "$60$"
     }
   ],
   "distractorNotes": {
     "A": "scales the 18-centimeter side instead of the longest side",
-    "B": "scales the 28-centimeter side instead of the longest side",
+    "B": "scales the 28-centimeter side, which is not the longest side once the third side is found",
     "D": "takes the longest side to be half the perimeter of triangle DEF"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The third side of triangle $ABC$ is $80 - 18 - 28 = 34$ centimeters, the longest side, and it is $\\frac{34}{80}$ of the perimeter; $\\frac{34}{80}(20) = 8.5$ meters.\n\n**The Full Solution:**\nStep 1: Find the third side of triangle $ABC$: $80 - 18 - 28 = 34$ centimeters. Since $34 > 28 > 18$, this is the longest side.\nStep 2: In similar triangles, each side is the same fraction of the perimeter. The longest side of triangle $ABC$ is $\\frac{34}{80}$ of its perimeter.\nStep 3: So the longest side of triangle $DEF$ is $\\frac{34}{80}(20) = 8.5$ meters. Check: the other sides are $\\frac{18}{80}(20) = 4.5$ and $\\frac{28}{80}(20) = 7$ meters, and $4.5 + 7 + 8.5 = 20$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4.5$): scales the $18$-centimeter side, the shortest side.\n* Choice B ($7$): scales the $28$-centimeter side, which is not the longest once the third side is found.\n* Choice D ($10$): takes half of the perimeter of triangle $DEF$; no side of a triangle can be half its perimeter.\n\n**Test Day Takeaway:** Similar figures keep the same proportions, so a side's share of the perimeter carries over; find the missing side first so you scale the right one, and the units take care of themselves."
+  "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The third side of triangle $ABC$ is $80 - 18 - 28 = 34$ centimeters, the longest side; the scale factor is $\\frac{120}{80} = 1.5$, so the longest side of triangle $DEF$ is $34(1.5) = 51$ centimeters.\n\n**The Full Solution:**\nStep 1: Find the third side of triangle $ABC$: $80 - 18 - 28 = 34$ centimeters. Since $34 > 28 > 18$, this is the longest side.\nStep 2: The perimeters of similar triangles are in the same ratio as corresponding sides, so the scale factor from triangle $ABC$ to triangle $DEF$ is $\\frac{120}{80} = 1.5$.\nStep 3: The longest side of triangle $DEF$ is $34(1.5) = 51$ centimeters. Check: the other sides are $18(1.5) = 27$ and $28(1.5) = 42$ centimeters, and $27 + 42 + 51 = 120$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($27$): scales the $18$-centimeter side, the shortest side.\n* Choice B ($42$): scales the $28$-centimeter side, which is not the longest once the third side is found.\n* Choice D ($60$): takes half of the perimeter of triangle $DEF$; no side of a triangle can be half its perimeter.\n\n**Test Day Takeaway:** In similar triangles, perimeters scale by the same factor as sides. Find the missing side first so you scale the right one."
 }

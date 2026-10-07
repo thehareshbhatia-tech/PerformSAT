@@ -6,7 +6,7 @@
   "band": 4,
   "domain": "information-and-ideas",
   "skill": "inferences",
-  "passage": "In a public-goods experiment, players receive tokens and choose how many to contribute to a common pool, which is multiplied and shared equally among the group; a free rider keeps his own tokens while still collecting his share of the pool. Over repeated rounds, contributions typically start moderate and collapse toward zero. The economists Ernst Fehr and Simon Gächter added one feature: after each round, any player could pay a fee to reduce a specific other player's earnings. Punishing was costly to the punisher and brought no material return, yet players used it freely against low contributors — and under its threat, contributions climbed round after round instead of collapsing. The finding suggests that ______",
+  "passage": "In a public-goods experiment, players receive tokens and choose how many to contribute to a common pool, which is multiplied and shared equally among the group. A free rider keeps his own tokens while still collecting a share of the pool. Over repeated rounds, contributions typically start moderate and collapse toward zero. The economists Ernst Fehr and Simon Gächter added one feature: after each round, any player could pay a fee to reduce another player's earnings. Punishing was costly to the punisher and brought no material return, yet players used it freely against low contributors. Under its threat, contributions climbed round after round instead of collapsing. The finding suggests that ______",
   "question": "Which choice most logically completes the text?",
   "choices": [
     {

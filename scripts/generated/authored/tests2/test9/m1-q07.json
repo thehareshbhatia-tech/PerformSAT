@@ -1,29 +1,29 @@
 {
  "id": 7,
- "question": "A data set has a mean of $8.4$ and a standard deviation of $1.2$. When each value in the data set is multiplied by the same positive constant, the standard deviation becomes $4.2$. What is the new mean?",
+ "question": "Data set A: $6, 8, 10, 12, 14$\nData set B: $18, 24, 30, 36, 42$\nThe lists give the values in data sets A and B. Which statement best compares the standard deviations of the two data sets?",
  "choices": [
   {
    "id": "A",
-   "text": "$2.4$"
+   "text": "The standard deviation of data set A is less than the standard deviation of data set B."
   },
   {
    "id": "B",
-   "text": "$11.4$"
+   "text": "The standard deviation of data set A is equal to the standard deviation of data set B."
   },
   {
    "id": "C",
-   "text": "$25.2$"
+   "text": "The standard deviation of data set A is greater than the standard deviation of data set B."
   },
   {
    "id": "D",
-   "text": "$29.4$"
+   "text": "There is not enough information to compare the standard deviations."
   }
  ],
  "distractorNotes": {
-  "A": "inverts the scale factor and multiplies the mean by 1.2/4.2 instead of 4.2/1.2",
-  "B": "adds the change of 3 in the standard deviation to the mean instead of scaling",
-  "C": "uses the difference 4.2 - 1.2 = 3 as the constant instead of the ratio 3.5"
+  "B": "sees that both lists have five evenly spaced values and assumes the spreads are the same, ignoring that B's values are 6 apart instead of 2",
+  "C": "reverses the comparison",
+  "D": "thinks a standard deviation must be calculated exactly before two data sets can be compared"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Multiplying every value by $c$ multiplies both the mean and the standard deviation by $c$, so $c = \\frac{4.2}{1.2} = 3.5$ and the new mean is $3.5(8.4) = 29.4$.\n\n**The Full Solution:**\nStep 1: Let $c$ be the constant. Multiplying every value by $c$ multiplies the standard deviation by $c$, so $1.2c = 4.2$.\nStep 2: Solve for the constant: $c = \\frac{4.2}{1.2} = 3.5$.\nStep 3: The mean is multiplied by the same constant: $3.5(8.4) = 29.4$. Check: the ratio of the new mean to the old mean, $\\frac{29.4}{8.4} = 3.5$, equals the ratio of the standard deviations, $\\frac{4.2}{1.2} = 3.5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.4$): uses the reciprocal factor, $8.4 \\cdot \\frac{1.2}{4.2} = 2.4$. The standard deviation grew, so the mean must grow too.\n* Choice B ($11.4$): adds the increase in the standard deviation, $4.2 - 1.2 = 3$, to the mean. Multiplying by a constant scales the mean; it does not shift it by a fixed amount.\n* Choice C ($25.2$): multiplies the mean by $3$, the difference of the standard deviations, instead of by their ratio, $3.5$.\n\n**Test Day Takeaway:** Multiplying every value by $c$ multiplies the mean and the standard deviation by $c$; adding a constant shifts the mean but leaves the standard deviation unchanged."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Each value in data set B is $3$ times the matching value in data set A, so B's values are spread $3$ times as far from their mean; B has the greater standard deviation.\n\n**The Full Solution:**\nStep 1: Find each mean. Data set A is centered at $10$, and data set B is centered at $30$.\nStep 2: Compare distances from the mean. In A the values are $4$, $2$, $0$, $2$, and $4$ away from $10$; in B they are $12$, $6$, $0$, $6$, and $12$ away from $30$.\nStep 3: Every distance in B is $3$ times the matching distance in A, so the values in B are more spread out and the standard deviation of A is less than that of B. Check: the range of A is $14 - 6 = 8$ and the range of B is $42 - 18 = 24$, three times as large ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: both lists have five evenly spaced values, so they can look equally spread out, but B's values are $6$ apart while A's are only $2$ apart.\n* Choice C: reverses the comparison; the larger distances from the mean belong to data set B.\n* Choice D: the standard deviation does not need to be computed; comparing the distances from the mean is enough.\n\n**Test Day Takeaway:** Standard deviation measures how far values sit from the mean, so compare the spread of the lists, not the size of the values."
 }

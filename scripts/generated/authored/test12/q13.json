@@ -6,40 +6,40 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 1,
- "passage": "In target competition, hot-air balloon pilots attempt to drop a weighted marker as close as possible to a target laid out on the ground, and a pilot's performance over a championship is summarized by the mean distance from marker to target across all scored tasks. Reviewing one national championship, the event's organizers noted that although the top five finishers were closely matched on most measures, one competitor stood clearly apart from the rest because ______",
+ "passage": "Oceans cover about 71 percent of Earth's surface, and the five oceans together hold more than 1.3 billion cubic kilometers of water. That water, however, is far from evenly shared among them. Comparing the oceans, a geography student noted that one of them holds far more water than any of the others: ______",
  "questionTable": {
   "type": "table",
-  "caption": "Top five finishers at a national hot-air balloon championship",
+  "caption": "Estimated surface area and water volume of the five oceans",
   "headers": [
-   "Pilot",
-   "Mean distance from target (meters)",
-   "Tasks scored"
+   "Ocean",
+   "Surface area (millions of square kilometers)",
+   "Water volume (millions of cubic kilometers)"
   ],
   "rows": [
    [
-    "Pilot 1",
-    "4.2",
-    "18"
+    "Pacific",
+    "169",
+    "670"
    ],
    [
-    "Pilot 2",
-    "21.5",
-    "18"
+    "Atlantic",
+    "85",
+    "310"
    ],
    [
-    "Pilot 3",
-    "24.8",
-    "17"
+    "Indian",
+    "71",
+    "264"
    ],
    [
-    "Pilot 4",
-    "27.1",
-    "18"
+    "Southern",
+    "22",
+    "72"
    ],
    [
-    "Pilot 5",
-    "29.9",
-    "16"
+    "Arctic",
+    "16",
+    "19"
    ]
   ]
  },
@@ -47,21 +47,21 @@
  "choices": [
   {
    "id": "A",
-   "text": "Pilot 1's mean marker distance of 4.2 meters was by far the lowest of the five, less than a fifth of the next-best mean of 21.5 meters."
+   "text": "the Pacific Ocean holds about 670 million cubic kilometers of water, more than twice the 310 million of the Atlantic."
   },
   {
    "id": "B",
-   "text": "Pilot 5 recorded the highest mean marker distance of the five in the table, 29.9 meters, and also scored the fewest tasks of any of the finishers."
+   "text": "the Atlantic Ocean's surface area of about 85 million square kilometers is larger than the Indian Ocean's 71 million."
   },
   {
    "id": "C",
-   "text": "Pilot 3 scored 17 tasks, one fewer than the 18 tasks scored by each of three of the other pilots and one more than the 16 tasks scored by Pilot 5."
+   "text": "the Arctic Ocean holds about 19 million cubic kilometers of water, less than a third of the Southern Ocean's 72 million."
   },
   {
    "id": "D",
-   "text": "the five pilots' mean marker distances ranged from 4.2 meters at the low end to 29.9 meters at the high end."
+   "text": "the oceans' surface areas range from about 16 million square kilometers for the Arctic to 169 million for the Pacific."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The sentence needs the competitor who \"stood clearly apart from the rest,\" and the table shows Pilot 1 at 4.2 meters — a mean less than one fifth of the next-best 21.5 meters, while the other four cluster between 21.5 and 29.9.\n\n**The Full Solution:**\n- In this event a lower mean distance is better, so scan the distance column for a value separated from the pack.\n- Pilots 2 through 5 sit within about 8 meters of one another (21.5 to 29.9) — that is the \"closely matched\" group the sentence describes.\n- Pilot 1's 4.2 meters lies far below that cluster, so Pilot 1 is the one who stands apart, exactly as choice A states.\n\n**Why the other choices are wrong:**\n- B: Pilot 5's 29.9 meters sits only 2.8 meters from Pilot 4's mean — the worst of the cluster, not a competitor set apart from it.\n- C: Task counts differ by at most two across the field; they show the pilots' similarity, not one standing apart.\n- D: Stating the overall range never identifies which pilot stands apart or by how much."
+ "explanation": "**Choice A is correct.** The statement needs the ocean that \"holds far more water than any of the others,\" and the table shows the Pacific at about 670 million cubic kilometers, more than twice the 310 million of the Atlantic, the next largest.\n\n**The Full Solution:**\n- The claim is about water held, so the relevant column is water volume, not surface area.\n- The volumes of the other four oceans run from 19 to 310 million cubic kilometers.\n- The Pacific's 670 million cubic kilometers is more than double the next-largest volume, so the Pacific is the ocean that stands apart, exactly as choice A states.\n\n**Why the other choices are wrong:**\n- B: It compares surface areas, and the gap between the Atlantic and the Indian Ocean does not show any ocean holding far more water than the rest.\n- C: It describes the Arctic Ocean, the ocean that holds the least water, not the one that holds the most.\n- D: It reports the range of surface areas, which says nothing about which ocean holds the most water."
 }

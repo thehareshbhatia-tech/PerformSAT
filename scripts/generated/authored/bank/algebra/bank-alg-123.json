@@ -1,49 +1,29 @@
 {
   "id": "bank-alg-123",
-  "question": "The table shows three values of $x$ and their corresponding values of $y$ for line $\\ell$. How many solutions does the system of equations consisting of the equation of line $\\ell$ and $6x + 4y = 36$ have?",
-  "questionTable": {
-    "headers": [
-      "$x$",
-      "$y$"
-    ],
-    "rows": [
-      [
-        "$0$",
-        "$9$"
-      ],
-      [
-        "$2$",
-        "$6$"
-      ],
-      [
-        "$4$",
-        "$3$"
-      ]
-    ]
-  },
+  "question": "$3x - y = 5$\n$6x - 2y = 10$\nHow many solutions does the given system of equations have?",
   "choices": [
     {
       "id": "A",
-      "text": "Exactly one"
+      "text": "Zero"
     },
     {
       "id": "B",
-      "text": "Exactly two"
+      "text": "Exactly one"
     },
     {
       "id": "C",
-      "text": "Infinitely many"
+      "text": "Exactly two"
     },
     {
       "id": "D",
-      "text": "Zero"
+      "text": "Infinitely many"
     }
   ],
-  "correctAnswer": "C",
+  "correctAnswer": "D",
   "distractorNotes": {
-    "A": "assumes two equations that look different must have graphs that cross exactly once",
-    "B": "two distinct lines meet at most once, so a linear system never has exactly two solutions",
-    "D": "sees the larger coefficients and calls the lines parallel without checking that the constant 18 also doubles to 36"
+    "A": "sees the larger coefficients and calls the lines parallel without checking that the constant 5 also doubles to 10",
+    "B": "assumes two equations that look different must have graphs that cross exactly once",
+    "C": "two distinct lines meet at most once, so a linear system never has exactly two solutions"
   },
-  "explanation": "**SAT Pattern: System Equivalence Check**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The table's points lie on $3x + 2y = 18$, and $6x + 4y = 36$ is that equation multiplied by $2$, so both equations describe the same line.\n\n**The Full Solution:**\nStep 1: From $(0, 9)$ to $(2, 6)$, $y$ falls by $3$ while $x$ rises by $2$, so the slope is $-\\frac{3}{2}$ and the $y$-intercept is $9$: $y = -\\frac{3}{2}x + 9$.\nStep 2: Multiply by $2$ and collect the terms: $2y = -3x + 18$, or $3x + 2y = 18$.\nStep 3: Multiplying $3x + 2y = 18$ by $2$ gives $6x + 4y = 36$, so the two equations have the same graph and every point on it is a solution: infinitely many. Check with $(4, 3)$: $6(4) + 4(3) = 24 + 12 = 36$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: two equations can look different and still be multiples of each other; here every coefficient and the constant are doubled.\n* Choice B: two lines meet in zero points, one point, or every point, so a linear system never has exactly two solutions.\n* Choice D: parallel lines need different constants after scaling, but $18$ doubles to exactly $36$, so the lines coincide.\n\n**Test Day Takeaway:** Two linear equations have infinitely many solutions when one is a constant multiple of the other, constant term included; check all three numbers before deciding."
+  "explanation": "**SAT Pattern: System Equivalence Check**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Multiplying $3x - y = 5$ by $2$ gives $6x - 2y = 10$, the second equation, so both equations describe the same line.\n\n**The Full Solution:**\nStep 1: Compare the coefficients: $\\frac{6}{3} = 2$ and $\\frac{-2}{-1} = 2$.\nStep 2: Compare the constants: $\\frac{10}{5} = 2$, the same multiplier.\nStep 3: The second equation is $2$ times the first, so the two equations have the same graph and every point on it is a solution: infinitely many. Check with $(2, 1)$: $3(2) - 1 = 5$ and $6(2) - 2(1) = 10$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Zero): parallel lines need different constants after scaling, but $5$ doubles to exactly $10$, so the lines coincide.\n* Choice B (Exactly one): two equations can look different and still be multiples of each other.\n* Choice C (Exactly two): two lines meet in zero points, one point, or every point, so a linear system never has exactly two solutions.\n\n**Test Day Takeaway:** Two linear equations have infinitely many solutions when one is a constant multiple of the other, constant term included; check all three numbers before deciding."
 }

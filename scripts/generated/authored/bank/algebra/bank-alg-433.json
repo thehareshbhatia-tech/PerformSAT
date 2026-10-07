@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-433",
- "question": "Line $z$ is parallel to line $u$, shown, and passes through the point $(-2, 5)$. The $y$-intercept of line $z$ is $(0, b)$. What is the value of $b$?",
+ "question": "Line $z$ is parallel to line $u$, shown, and passes through the point $(0, 4)$. If the point $(6, d)$ lies on line $z$, what is the value of $d$?",
  "diagram": {
   "type": "linearGraph",
   "params": {
@@ -33,7 +33,7 @@
  "choices": [
   {
    "id": "A",
-   "text": "$-3$"
+   "text": "$0$"
   },
   {
    "id": "B",
@@ -41,18 +41,18 @@
   },
   {
    "id": "C",
-   "text": "$4$"
+   "text": "$7$"
   },
   {
    "id": "D",
-   "text": "$6$"
+   "text": "$16$"
   }
  ],
- "correctAnswer": "D",
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "reports the y-intercept of line u instead of line z",
-  "B": "uses the negative reciprocal slope -2, which gives a perpendicular line",
-  "C": "subtracts the change in y when moving right from x = -2 to x = 0"
+  "A": "uses the y-intercept of line u, -3, instead of 4, computing -3 + 3",
+  "B": "uses slope -1/2, getting 4 - 3",
+  "D": "inverts the slope to 2, getting 4 + 12"
  },
- "explanation": "**SAT Pattern: Parallel Line through a Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Line $u$ has slope $\\frac{1}{2}$. Moving from $x = -2$ to $x = 0$ on line $z$ raises $y$ by $\\frac{1}{2}(2) = 1$, so $b = 5 + 1 = 6$.\n\n**The Full Solution:**\nStep 1: Line $u$ passes through $(0, -3)$ and $(4, -1)$, so its slope is $\\frac{-1 - (-3)}{4 - 0} = \\frac{1}{2}$.\nStep 2: Line $z$ is parallel, so it has slope $\\frac{1}{2}$: $y = \\frac{1}{2}x + b$.\nStep 3: Substitute $(-2, 5)$: $5 = \\frac{1}{2}(-2) + b = -1 + b$, so $b = 6$. Check: $y = \\frac{1}{2}x + 6$ gives $\\frac{1}{2}(-2) + 6 = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): is the $y$-intercept of line $u$, not of line $z$.\n* Choice B ($1$): uses slope $-2$, the negative reciprocal, which describes a perpendicular line.\n* Choice C ($4$): moves in the wrong direction, subtracting $1$ from $5$ while going right from $x = -2$ to $x = 0$.\n\n**Test Day Takeaway:** Take the slope from the graph, then substitute the given point into $y = mx + b$ to find the intercept."
+ "explanation": "**SAT Pattern: Parallel Line through a Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Line $u$ has slope $\\frac{1}{2}$, so line $z$ is $y = \\frac{1}{2}x + 4$, and $d = \\frac{1}{2}(6) + 4 = 7$.\n\n**The Full Solution:**\nStep 1: Line $u$ passes through $(0, -3)$ and $(4, -1)$, so its slope is $\\frac{-1 - (-3)}{4 - 0} = \\frac{1}{2}$.\nStep 2: Line $z$ is parallel to line $u$, so it also has slope $\\frac{1}{2}$, and its $y$-intercept is $(0, 4)$: $y = \\frac{1}{2}x + 4$.\nStep 3: Substitute $x = 6$: $d = \\frac{1}{2}(6) + 4 = 7$. Check: the slope from $(0, 4)$ to $(6, 7)$ is $\\frac{7 - 4}{6 - 0} = \\frac{1}{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): starts from the $y$-intercept of line $u$, $-3$, so it finds the point on line $u$, not line $z$.\n* Choice B ($1$): reads the slope as $-\\frac{1}{2}$, so $y$ falls by $3$ instead of rising.\n* Choice D ($16$): inverts the slope to $2$, computing $4 + 2(6)$.\n\n**Test Day Takeaway:** Read the slope from the graph, keep it for the parallel line, and use the new line's own $y$-intercept."
 }

@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-019",
- "question": "A ladder $26$ feet long leans against a wall that is $30$ feet tall, with the bottom of the ladder $10$ feet from the wall, as shown. How many feet below the top of the wall is the top of the ladder?",
+ "question": "A $17$-foot ladder leans against a vertical wall, and the bottom of the ladder is $8$ feet from the wall, as shown. How many feet up the wall does the top of the ladder reach?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -10,18 +10,18 @@
      0
     ],
     [
-     10,
+     8,
      0
     ],
     [
-     10,
-     24
+     8,
+     15
     ]
    ],
    "sideLabels": [
-    "10 ft",
+    "8 ft",
     "",
-    "26 ft"
+    "17 ft"
    ],
    "rightAngleVertex": 1
   }
@@ -29,26 +29,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$4$"
+   "text": "$9$"
   },
   {
    "id": "B",
-   "text": "$6$"
+   "text": "$15$"
   },
   {
    "id": "C",
-   "text": "$20$"
+   "text": "$25$"
   },
   {
    "id": "D",
-   "text": "$24$"
+   "text": "$225$"
   }
  ],
  "distractorNotes": {
-  "A": "subtracts the ladder length from the wall height, 30 - 26, as if the ladder stood straight up",
-  "C": "subtracts the 10-foot ground distance from the wall height, 30 - 10",
-  "D": "reports the height the ladder reaches, 24, without comparing it to the 30-foot wall"
+  "A": "subtracts the side lengths, 17 - 8 = 9, instead of their squares",
+  "C": "adds the side lengths, 17 + 8 = 25",
+  "D": "finds 17^2 - 8^2 = 225 and forgets to take the square root"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Ladder Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The ladder reaches $\\sqrt{26^{2} - 10^{2}} = 24$ feet up the wall, and $30 - 24 = 6$.\n\n**The Full Solution:**\nStep 1: The ladder, the ground, and the wall form a right triangle with hypotenuse $26$ and one leg $10$.\nStep 2: The height the ladder reaches is the other leg: $\\sqrt{26^{2} - 10^{2}} = \\sqrt{676 - 100} = \\sqrt{576} = 24$ feet.\nStep 3: The wall is $30$ feet tall, so the top of the ladder is $30 - 24 = 6$ feet below the top of the wall. Check: $10^{2} + 24^{2} = 100 + 576 = 676 = 26^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): subtracts the ladder's length from the wall height, treating the slanted ladder as vertical.\n* Choice C ($20$): subtracts the $10$-foot ground distance from the wall height; that distance is horizontal.\n* Choice D ($24$): finds how high the ladder reaches but stops before comparing it with the $30$-foot wall.\n\n**Test Day Takeaway:** Find the missing leg with the Pythagorean theorem, then reread the question: here it asks for the gap to the top of the wall, not the height reached."
+ "explanation": "**SAT Pattern: Ladder Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The ladder is the hypotenuse: $\\sqrt{17^{2} - 8^{2}} = \\sqrt{225} = 15$.\n\n**The Full Solution:**\nStep 1: The wall, the ground, and the ladder form a right triangle with the ladder, $17$ feet, as the hypotenuse and the ground distance, $8$ feet, as one leg.\nStep 2: Let $h$ be the height the ladder reaches. By the Pythagorean theorem, $8^{2} + h^{2} = 17^{2}$, so $h^{2} = 289 - 64 = 225$.\nStep 3: $h = \\sqrt{225} = 15$ feet. Check: $8^{2} + 15^{2} = 64 + 225 = 289 = 17^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): subtracts the lengths themselves; the Pythagorean theorem works with their squares.\n* Choice C ($25$): adds the two lengths, but a leg must be shorter than the hypotenuse.\n* Choice D ($225$): is $h^{2}$, not $h$; the last step is the square root.\n\n**Test Day Takeaway:** In a right triangle, the side across from the right angle is the hypotenuse. To find a leg, subtract squares: $b = \\sqrt{c^{2} - a^{2}}$."
 }

@@ -6,26 +6,33 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 1,
- "passage": "In eighteenth-century Montpellier, making verdigris was a patient process. Copper plates were stacked in clay pots filled with ______ over time, acid from the wine crusted the plates with green crystals, which workers scraped off once they had matured.",
+ "passage": "Making Parmigiano Reggiano cheese takes patience. After the fresh wheels are shaped, they are placed in tanks of ______ over about twenty days, salt slowly works its way into each wheel, which is then aged for at least a year.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "wine"
+   "text": "brine"
   },
   {
    "id": "B",
-   "text": "wine,"
+   "text": "brine,"
   },
   {
    "id": "C",
-   "text": "wine;"
+   "text": "brine;"
   },
   {
    "id": "D",
-   "text": "wine, which"
+   "text": "brine, which"
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The blank falls between two independent clauses, and a semicolon is the conventional mark for joining them without a conjunction.\n\n**The Full Solution:**\n- \"Copper plates were stacked in clay pots filled with wine\" is a complete clause.\n- \"Over time, acid from the wine crusted the plates with green crystals...\" is also a complete clause, with its own subject (\"acid\") and verb (\"crusted\").\n- Two independent clauses with no coordinating conjunction between them must be joined by a semicolon.\n\n**Why the other choices are wrong:**\n- A: With no punctuation, the two clauses run together in a run-on sentence.\n- B: A comma alone between two independent clauses creates a comma splice.\n- D: \"Which\" would begin a relative clause, but the words that follow already have their own subject, \"acid,\" so the sentence becomes ungrammatical."
+ "explanation": "**Choice C is correct.** The blank falls between two independent clauses, and a semicolon is the conventional mark for joining them without a conjunction.\n\n**The Full Solution:**\n- \"After the fresh wheels are shaped, they are placed in tanks of brine\" is a complete clause.\n- \"Over about twenty days, salt slowly works its way into each wheel...\" is also a complete clause, with its own subject (\"salt\") and verb (\"works\").\n- Two independent clauses with no coordinating conjunction between them must be joined by a semicolon.\n\n**Why the other choices are wrong:**\n- A: With no punctuation, the two clauses run together in a run-on sentence.\n- B: A comma alone between two independent clauses creates a comma splice.\n- D: \"Brine, which\" turns the second part into a relative clause, but that clause already has its own subject (\"salt\"), so the sentence becomes ungrammatical.",
+ "_meta": {
+  "anchor": "Parmigiano Reggiano brining and aging — semicolon before a second independent clause opening with an adverbial",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Parmesan",
+   "https://backend.parmigianoreggiano.com/uploads/0325_disciplinare_docx_EN_2eda3456af.pdf"
+  ]
+ }
 }

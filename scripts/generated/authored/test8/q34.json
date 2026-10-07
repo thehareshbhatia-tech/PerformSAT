@@ -6,26 +6,33 @@
  "domain": "craft-and-structure",
  "skill": "text-structure-and-purpose",
  "module": 2,
- "passage": "When the railways began carrying freight in the 1830s and 1840s, observers on both sides assumed the verdict was in: the canals, plodding at a horse's pace, would be empty within a generation. The boats' answer was not speed but thrift. __Boating families gave up lodgings ashore and moved into the cabins, working their craft as household crews, and their boats went on carrying coal, grain, and clay for decades after the railways came.__ A mode of transport that could not compete on time competed instead on cost, surviving longest in the heavy, patient cargoes where a day's delay mattered least.",
+ "passage": "When steamships took over most ocean trade in the late 1800s, many observers expected sailing ships to vanish from commerce entirely. Steamers were faster and kept to schedules, but they had to buy coal for every voyage, while the wind cost nothing. __Some owners of sailing ships responded by moving their large steel windjammers into long-distance bulk trades, such as carrying wheat from South Australia to Europe, where low cost mattered more than speed.__ These grain ships were still making the voyage in 1949, decades after steam had taken over most other routes.",
  "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
  "choices": [
   {
    "id": "A",
-   "text": "It explains how railway companies set freight rates deliberately low on routes where canal boats still carried traffic."
+   "text": "It explains how steamship companies lowered their freight rates on the routes where sailing ships still carried cargo."
   },
   {
    "id": "B",
-   "text": "It reports how boat operators adapted to railway competition, countering the expectation the passage has set up."
+   "text": "It reports how sailing-ship owners adapted to competition from steam, countering the expectation the text has set up."
   },
   {
    "id": "C",
-   "text": "It describes the engineering improvements that made the canals faster to travel."
+   "text": "It describes the engineering improvements that made sailing ships faster than steamships."
   },
   {
    "id": "D",
-   "text": "It concedes that the boat operators eventually abandoned the trade the railways had captured."
+   "text": "It concedes that sailing-ship owners eventually abandoned the trade that steamships had captured."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The underlined sentence reports how boat operators answered the railway threat — moving their families aboard and cutting shore costs — and the persistence of canal freight that resulted, which the passage frames against predictions of quick extinction.\n\n**The Full Solution:**\n- The text first sets up the expectation: observers assumed the railways would sweep canal carrying away within a generation.\n- The underlined sentence then supplies the adaptation (families living aboard, boats worked as household crews) and the outcome (coal and grain still moving by water decades later).\n- Its function is to present that adaptive response and its unexpected persistence — choice B.\n\n**Why the other choices are wrong:**\n- A: The sentence describes the boat operators' response, not the railways' pricing.\n- C: Nothing in the sentence concerns the construction or engineering of the canals.\n- D: The sentence shows canal carrying persisting, not the operators conceding defeat."
+ "explanation": "**Choice B is correct.** The text first sets up the expectation that sailing ships would vanish from commerce; the underlined sentence then reports how owners adapted by moving into bulk trades where cost mattered more than speed, which runs against that expectation.\n\n**The Full Solution:**\n- The opening sentence sets the expectation: observers thought sailing ships would \"vanish from commerce entirely.\"\n- The second sentence names steam's weak point: steamers had to buy coal for every voyage, while the wind cost nothing.\n- The underlined sentence shows owners using that weak point, carrying wheat from South Australia to Europe, a trade where low cost mattered more than speed.\n- The final sentence confirms the result: the grain ships were still making the voyage in 1949.\n\n**Why the other choices are wrong:**\n- A: The underlined sentence is about what sailing-ship owners did, not about steamship rates.\n- C: Nothing in the text says sailing ships became faster; the sentence says cost mattered more than speed.\n- D: The underlined sentence describes how owners stayed in business, not how they gave up.",
+ "_meta": {
+  "anchor": "windjammers in the grain trade after steam — TSP underlined: adaptation countering an expectation",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Grain_race",
+   "https://collections.sea.museum/objects/90343/four-masted-barque-archibald-russell"
+  ]
+ }
 }

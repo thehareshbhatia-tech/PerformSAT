@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-079",
-  "question": "$6.20$, $6.45$, $6.10$, $6.55$, $6.30$, $x$\nThe mean of the data set shown is $6.35$. What is the value of $x$?",
+  "question": "$58$, $64$, $61$, $70$, $62$, $x$\nThe mean of the data set shown is $64$. What is the value of $x$?",
   "choices": [
     {
       "id": "A",
-      "text": "$6.30$"
+      "text": "$62$"
     },
     {
       "id": "B",
-      "text": "$6.32$"
+      "text": "$63$"
     },
     {
       "id": "C",
-      "text": "$6.35$"
+      "text": "$64$"
     },
     {
       "id": "D",
-      "text": "$6.50$"
+      "text": "$69$"
     }
   ],
   "correctAnswer": "D",
   "distractorNotes": {
-    "A": "reports the median of the five known values, 6.30",
-    "B": "averages only the five known values, 31.60/5 = 6.32",
-    "C": "assumes the missing value equals the mean, 6.35"
+    "A": "reports the median of the five known values, $62$.",
+    "B": "averages only the five known values, $\\frac{315}{5} = 63$.",
+    "C": "assumes the missing value equals the mean, $64$."
   },
-  "explanation": "**SAT Pattern: Mean from List**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The six values sum to $6(6.35) = 38.10$, and the five known values sum to $31.60$, so $x = 38.10 - 31.60 = 6.50$.\n\n**The Full Solution:**\nStep 1: Turn the mean into a sum: six values with a mean of $6.35$ sum to $6(6.35) = 38.10$.\nStep 2: Add the five known values: $6.20+6.45+6.10+6.55+6.30=31.60$.\nStep 3: Subtract: $x = 38.10 - 31.60 = 6.50$. Check: $\\frac{31.60 + 6.50}{6} = \\frac{38.10}{6} = 6.35$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6.30$): is the median of the five known values, not the missing value.\n* Choice B ($6.32$): is the mean of the five known values. The given mean includes $x$.\n* Choice C ($6.35$): assumes the missing value equals the mean, which would be true only if the other five values averaged $6.35$.\n\n**Test Day Takeaway:** Multiply the mean by the full count first; the missing value is the required sum minus the sum of the values you know."
+  "explanation": "**SAT Pattern: Mean from List**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Six values with a mean of $64$ total $6 \\times 64 = 384$. The five known values total $315$, so $x = 384 - 315 = 69$.\n\n**The Full Solution:**\nStep 1: A mean of $64$ for $6$ values means the total is $6 \\times 64 = 384$.\nStep 2: The known values total $58 + 64 + 61 + 70 + 62 = 315$, so $315 + x = 384$ and $x = 69$.\nStep 3: Check: $\\frac{315 + 69}{6} = \\frac{384}{6} = 64$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($62$): reports the median of the five known values, $62$.\n* Choice B ($63$): averages only the five known values, $\\frac{315}{5} = 63$.\n* Choice C ($64$): assumes the missing value equals the mean, $64$.\n\n**Test Day Takeaway:** To find a missing value from a mean, turn the mean into a total (mean times count) and subtract the known values."
 }

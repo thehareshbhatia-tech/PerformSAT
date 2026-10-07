@@ -24,15 +24,14 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The skeptics' objection stands in the first sentence; the second sentence reports that the registers delivered valuable findings anyway. Proceeding in the face of a stated objection calls for a concessive contrast — \"Nevertheless.\"\n\n**The Full Solution:**\n- Sentence 1 raises a doubt: the registers cover only a narrow slice of the population.\n- Sentence 2 does not answer the doubt point by point; it reports that, doubt notwithstanding, the registers revealed patterns \"no other source preserved.\"\n- \"Nevertheless\" concedes the objection while asserting the outcome that defied it — exactly the relation between the two sentences.\n\n**Why the other choices are wrong:**\n- A: \"As a result\" would make the discoveries a consequence of the skeptics' objection, inverting the logic.\n- B: \"Moreover\" stacks a second point on top of a first, but the second sentence opposes the first rather than extending it.\n- D: \"Subsequently\" marks bare temporal sequence, missing the tension between doubt and result that the sentences turn on.",
- "passage": "When historians first proposed tracing early modern migration through guild apprenticeship registers, skeptics objected that the registers recorded only a narrow slice of the population. ______ as the registers were transcribed and analyzed, patterns emerged that no other source preserved: boys traveling hundreds of miles to enter a trade, and recruitment ranges that widened and narrowed over the centuries.",
+ "explanation": "**Choice C is correct.** The first sentence describes the desert as nearly rainless and bare; the next states something true despite that appearance: the soil holds dormant seeds and bulbs. \"Nevertheless\" signals a point that holds in spite of what came before.\n\n**The Full Solution:**\n- Before the blank: very little rain, and ground that looks almost completely bare.\n- After the blank: the soil is \"far from lifeless,\" holding seeds and bulbs that sprout and flower after heavy rains.\n- The second point stands in spite of the first, which is exactly what \"nevertheless\" expresses.\n\n**Why the other choices are wrong:**\n- A: \"As a result\" would mean the lack of rain caused the soil to hold seeds and bulbs, which the text does not say.\n- B: \"Moreover\" adds a point in the same direction, but the hidden seeds and bulbs cut against the picture of a bare, lifeless desert.\n- D: \"Subsequently\" marks a later event, but the seeds and bulbs are in the soil all along; the text contrasts appearance with reality rather than describing a sequence of events.",
+ "passage": "Parts of Chile's Atacama Desert receive only a few millimeters of rain in a typical year, and for long stretches the ground looks almost completely bare. ______ the soil is far from lifeless: it holds seeds and bulbs that can lie dormant for years. When unusually heavy rains fall, they sprout and flower, covering the desert in a bloom known as the desierto florido.",
  "_meta": {
-  "anchor": "early modern guild apprenticeships — registers as migration evidence despite selectivity objection (e.g., London company registers 1486-1750)",
-  "transitionBucket": "transitions-contrast",
+  "anchor": "Atacama Desert flowering (desierto florido) — bare, nearly rainless ground holds dormant seeds and bulbs that bloom after unusually heavy rain (Wikipedia: Atacama Desert; Flowering desert)",
   "distractors": {
-   "A": "inverted causation",
-   "B": "addition where concession is needed",
-   "D": "bare sequence misses the tension"
+   "A": "false causation",
+   "B": "false addition",
+   "D": "false sequence"
   }
  },
  "id": 1124,

@@ -9,33 +9,34 @@
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "Spices reaching medieval Europe from the Indian Ocean passed through a chain of ports rather than traveling in a single ship.",
-   "Some ports served as entrepôts, where goods were unloaded, stored, and resold.",
-   "At an entrepôt, cargoes moved between ships suited to different seas, such as ocean-going vessels and Mediterranean galleys.",
-   "Merchants there could buy in bulk when fleets arrived and sell gradually as demand allowed.",
-   "Because fleets sailed only when seasonal winds allowed, storage at entrepôts smoothed the trade between arrivals."
+   "The Rosetta Stone is a stone slab carved with a decree issued in Egypt in 196 BCE.",
+   "The decree appears in hieroglyphic script, Demotic script, and ancient Greek.",
+   "French soldiers found the stone in Egypt in 1799.",
+   "Scholars could read ancient Greek but not hieroglyphs.",
+   "Because the three versions say nearly the same thing, the Greek gave scholars a key to the Egyptian scripts.",
+   "In 1822, a French scholar announced that he had deciphered hieroglyphs."
   ],
-  "goal": "The student wants to emphasize the significance of entrepôts to the spice trade."
+  "goal": "The student wants to emphasize the significance of the Rosetta Stone to the decipherment of Egyptian hieroglyphs."
  },
  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
  "choices": [
   {
    "id": "A",
-   "text": "By storing cargoes between fleets and passing them from ships suited to one sea to ships suited to another, entrepôts turned a wind-bound, seasonal trade into a continuous one."
+   "text": "The Rosetta Stone's Greek text gave scholars the key that let them decipher hieroglyphs in 1822."
   },
   {
    "id": "B",
-   "text": "Spices bound for medieval Europe passed through a chain of intermediate ports rather than traveling the whole way in a single ship."
+   "text": "The Rosetta Stone, found by French soldiers in Egypt in 1799, is carved with a decree issued there in 196 BCE."
   },
   {
    "id": "C",
-   "text": "Merchants at an entrepôt could buy spices in bulk whenever trading fleets arrived at the port."
+   "text": "The decree on the Rosetta Stone appears in three scripts: hieroglyphic, Demotic, and ancient Greek."
   },
   {
    "id": "D",
-   "text": "Ocean-going vessels and Mediterranean galleys were suited to different seas, so cargoes bound for Europe changed hands between the two kinds of ship at some point on the route."
+   "text": "In 1822, a French scholar announced that he had deciphered the hieroglyphic script of ancient Egypt."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** Significance means saying what entrepôts accomplished for the trade, and A does: by bridging wind-bound fleet arrivals with storage and connecting ships suited to different seas, they made a seasonal trade flow continuously.\n\n**The Full Solution:**\n- The notes supply two functions, storage that smooths the rhythm between fleets, and transshipment between vessel types, and A combines both.\n- A then names the payoff, converting a seasonal trade into a continuous one, which is precisely the emphasis on significance the goal demands.\n\n**Why the other choices are wrong:**\n- B: It describes the route's structure without attributing any effect to entrepôts.\n- C: It reports one merchant practice and stops before saying why it mattered.\n- D: It explains why cargoes changed ships but never connects that fact to what entrepôts made possible for the trade as a whole."
+ "explanation": "**Choice A is correct.** Significance means saying what the stone made possible, and A does: its readable Greek text gave scholars the key that led to deciphering hieroglyphs in 1822.\n\n**The Full Solution:**\n- The notes explain why the stone mattered: it carries the same decree in Greek, which scholars could read, and in hieroglyphs, which they could not.\n- A connects the stone to the outcome, the 1822 decipherment, which is the emphasis on significance the goal asks for.\n\n**Why the other choices are wrong:**\n- B: It gives the stone's discovery and the decree's date but says nothing about its role in deciphering hieroglyphs.\n- C: It describes the three versions of the decree without saying what they made possible.\n- D: It reports the decipherment but never mentions the Rosetta Stone."
 }

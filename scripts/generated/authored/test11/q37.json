@@ -8,30 +8,30 @@
  "choices": [
   {
    "id": "A",
-   "text": "Antarctic notothenioid fish avoid freezing chiefly by keeping to pockets of water warmer than their blood's ordinary freezing point."
+   "text": "Geckos cling to smooth surfaces mainly by giving off a sticky liquid from their toes."
   },
   {
    "id": "B",
-   "text": "Antifreeze proteins protect notothenioids not by excluding ice but by arresting the growth of crystals that enter the body."
+   "text": "Geckos cling not by suction or glue but by molecular attraction from countless tiny hairs."
   },
   {
    "id": "C",
-   "text": "Arthur DeVries was the first scientist to observe ice crystals inside the bodies of living fish."
+   "text": "The biologists who reported their findings in 2002 were the first to see the tiny hairs on a gecko's toes."
   },
   {
    "id": "D",
-   "text": "Antifreeze glycoproteins lower the temperature at which a notothenioid's blood begins to cool."
+   "text": "The hairs on a gecko's toes work only on surfaces as smooth as glass."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The text's central contrast is between two protective strategies: the proteins \"do not keep the blood from cooling\" or ice from appearing — they act \"by surface action,\" locking onto crystals so that each one \"simply stops growing.\"\n\n**The Full Solution:**\n- The second sentence rules out the intuitive mechanism: the fish swims below its blood's ordinary freezing point, so cold and ice cannot be excluded.\n- The third sentence supplies the real mechanism — adhesion to crystal faces, blocking water molecules from joining the lattice.\n- The final sentence names the result: ice is tolerated \"in a kind of arrested state.\" Choice B is that idea in one sentence.\n\n**Why the other choices are wrong:**\n- A: It contradicts the text, which puts the fish in water below the blood's ordinary freezing point.\n- C: DeVries discovered the proteins; the text never credits him with first observing internal ice crystals, and no such priority claim is its point.\n- D: It garbles the mechanism — the proteins stop crystal growth; nothing in the text says they change when blood \"begins to cool.\"",
- "passage": "The biologist Arthur DeVries discovered in the late 1960s that Antarctic notothenioid fish carry antifreeze glycoproteins in their blood. The proteins do not keep the blood from cooling; a notothenioid swims at temperatures below its blood's ordinary freezing point. Instead, the proteins work by surface action: they adhere to the faces of any minute ice crystal that enters the body and block water molecules from joining the crystal's lattice, so the crystal simply stops growing. The fish thus tolerates the ice it cannot avoid, holding internal crystals in a kind of arrested state through the long polar winter.",
+ "explanation": "**Choice B is correct.** The text rejects the old explanations (suction cups or glue) and replaces them with a new one: hundreds of thousands of tiny hairs whose tips come close enough to a surface for van der Waals forces to produce a strong grip.\n\n**The Full Solution:**\n- Old view: gecko feet worked by suction or by a glue.\n- New evidence (a team of biologists, 2002): the grip comes from weak molecular attractions multiplied across millions of fine hair tips.\n- B states both halves: not suction or glue, but molecular attraction from the hairs.\n\n**Why the other choices are wrong:**\n- A: The glue idea is the explanation the text says was replaced.\n- C: The text says the 2002 team explained the grip, not that it was the first to see the hairs.\n- D: The text mentions glass as one example of what geckos can climb; it never limits the hairs to smooth surfaces.",
+ "passage": "A gecko can run up a pane of glass and hang from a ceiling by a single toe. Its feet were once thought to work like suction cups or to give off a kind of glue. In 2002, a team of biologists reported evidence for a different explanation. Each foot carries hundreds of thousands of tiny hairs whose tips split into even finer branches. These tips get so close to a surface that weak attractions between molecules, called van der Waals forces, add up to a strong grip.",
  "_meta": {
-  "anchor": "Antarctic fish antifreeze proteins — DeVries discovery; adsorption arrests crystal growth",
+  "anchor": "gecko adhesion — van der Waals forces from setae, not suction or glue (Autumn et al. 2002, PNAS 99:12252)",
   "distractors": {
-   "A": "contradicts the below-freezing habitat",
-   "C": "fabricated priority claim",
-   "D": "garbled mechanism"
+   "A": "rejected view",
+   "C": "unsupported first",
+   "D": "distorted limit"
   }
  },
  "id": 1137,

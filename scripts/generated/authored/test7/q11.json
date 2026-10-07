@@ -11,11 +11,11 @@
  "choices": [
   {
    "id": "A",
-   "text": "Diego Rivera earned wider international recognition than any other painter associated with the Mexican mural movement."
+   "text": "Diego Rivera earned wider international recognition than any other painter associated with the Mexican mural movement in the decades that followed the revolution."
   },
   {
    "id": "B",
-   "text": "The Mexican government commissioned murals for its schools, ministries, and markets chiefly to make those public buildings more attractive to the growing numbers of foreign visitors of the period."
+   "text": "The Mexican government commissioned murals chiefly to make its public buildings more attractive to foreign visitors."
   },
   {
    "id": "C",
@@ -23,7 +23,7 @@
   },
   {
    "id": "D",
-   "text": "Supported by government commissions after the revolution, Mexican muralists turned public walls into large-scale paintings addressed to everyone rather than to private collectors."
+   "text": "Backed by government commissions after the revolution, Mexican muralists turned public walls into large-scale paintings for everyone, not private collectors."
   }
  ],
  "correctAnswer": "D",

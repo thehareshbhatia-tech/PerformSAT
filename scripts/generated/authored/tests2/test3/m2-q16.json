@@ -1,37 +1,29 @@
 {
  "id": 16,
- "question": "Each of the quadratic functions $f$, $g$, and $h$ is defined by an equation of the form $p(x) = ax^{2} + bx + c$. The table shows the values of the constants $a$, $b$, and $c$ for each function. What is the sum of the solutions to $g(x) = 0$?",
+ "question": "For the quadratic function $g$, the table shows three values of $x$ and their corresponding values of $g(x)$. What is the sum of the solutions to $g(x) = 0$?",
  "diagram": {
   "type": "dataTable",
   "params": {
    "headers": [
-    "Function",
-    "a",
-    "b",
-    "c"
+    "x",
+    "g(x)"
    ],
    "rows": [
     [
-     "f",
+     "0",
+     "36"
+    ],
+    [
      "2",
-     "-18",
-     "36"
+     "0"
     ],
     [
-     "g",
-     "3",
-     "-24",
+     "8",
      "36"
-    ],
-    [
-     "h",
-     "5",
-     "-35",
-     "60"
     ]
    ]
   }
  },
  "correctAnswer": "8",
- "explanation": "**SAT Pattern: Quadratic — Vieta's Sum/Product**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~30s):** From the table, $g(x) = 3x^{2} - 24x + 36$, and the sum of the solutions of $ax^{2} + bx + c = 0$ is $-\\frac{b}{a} = -\\frac{-24}{3} = 8$.\n\n**The Full Solution:**\nStep 1: Read the row for $g$: $a = 3$, $b = -24$, and $c = 36$, so the equation is $3x^{2} - 24x + 36 = 0$.\nStep 2: Divide every term by $3$: $x^{2} - 8x + 12 = 0$, which factors as $(x - 2)(x - 6) = 0$.\nStep 3: The solutions are $x = 2$ and $x = 6$, and their sum is $8$. Check: $-\\frac{b}{a} = -\\frac{-24}{3} = 8$ gives the same sum ✓\n\n**Common Mistakes:**\n* $-8$: computes $\\frac{b}{a}$ and forgets the negative sign in $-\\frac{b}{a}$.\n* $12$: finds the product of the solutions, $\\frac{c}{a} = \\frac{36}{3}$, instead of the sum.\n* $9$: uses the row for $f$, where $-\\frac{-18}{2} = 9$, instead of the row for $g$.\n\n**Test Day Takeaway:** For $ax^{2} + bx + c = 0$, the solutions add to $-\\frac{b}{a}$ and multiply to $\\frac{c}{a}$; you do not need to solve the equation to find either."
+ "explanation": "**SAT Pattern: Quadratic — Vieta's Sum/Product**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~30s):** Since $g(0) = g(8)$, the graph of $y = g(x)$ is symmetric about $x = 4$, so the solutions to $g(x) = 0$ are the same distance from $4$ on each side and their sum is $2 \\times 4 = 8$.\n\n**The Full Solution:**\nStep 1: The graph of a quadratic function is symmetric about the vertical line through its vertex. Because $g(0) = 36$ and $g(8) = 36$, that line is halfway between $0$ and $8$: $x = 4$.\nStep 2: The table shows $g(2) = 0$, so $2$ is one solution. It is $2$ units to the left of $x = 4$, so the other solution is $2$ units to the right: $x = 6$.\nStep 3: The sum of the solutions is $2 + 6 = 8$. Check: $g(x) = 3(x - 2)(x - 6)$ fits the table, since $3(-2)(-6) = 36$, $3(0)(-4) = 0$, and $3(6)(2) = 36$ ✓\n\n**Common Mistakes:**\n* $2$: reports the one solution shown in the table instead of the sum of both solutions.\n* $4$: finds the line of symmetry, $x = 4$, and stops before using it to find the other solution.\n* $10$: treats $x = 8$ as a solution and adds $2 + 8$, but $g(8) = 36$, not $0$.\n\n**Test Day Takeaway:** Two inputs with the same output sit the same distance from the vertex, so the axis of symmetry is their midpoint; the two zeros of a quadratic always add to twice that value."
 }

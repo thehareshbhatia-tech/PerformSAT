@@ -1,29 +1,29 @@
 {
  "id": 12,
- "question": "The graph of a linear model for a data set passes through the points $(4, 23)$ and $(16, 59)$ in the $xy$-plane. The data point $(10, k)$ is the same vertical distance above the graph as the data point $(22, 68)$ is below it. What is the value of $k$?",
+ "question": "A linear model for data set E has a slope of $3$ and predicts a $y$-value of $23$ when $x = 4$. For each data point $(x, y)$ in data set E, data set F contains the point $(x, 2y)$. Which equation could represent a linear model for data set F?",
  "choices": [
   {
    "id": "A",
-   "text": "$32$"
+   "text": "$y = 3x + 11$"
   },
   {
    "id": "B",
-   "text": "$41$"
+   "text": "$y = 3x + 22$"
   },
   {
    "id": "C",
-   "text": "$50$"
+   "text": "$y = 6x + 11$"
   },
   {
    "id": "D",
-   "text": "$68$"
+   "text": "$y = 6x + 22$"
   }
  ],
  "distractorNotes": {
-  "A": "subtracts the 9-unit distance from the model's value at x = 10, placing the point below the graph instead of above it: 41 - 9 = 32",
-  "B": "reports the model's value at x = 10, 41, never applying the 9-unit distance",
-  "D": "reads 'the same vertical distance' as meaning the two data points have the same y-value, copying 68"
+  "A": "gives the linear model for data set E without doubling anything",
+  "B": "doubles the y-intercept but not the slope",
+  "C": "doubles the slope but not the y-intercept"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** The model is $y = 3x + 11$, which gives $77$ at $x = 22$, so $(22, 68)$ is $9$ below the graph. At $x = 10$ the model gives $41$, so $k = 41 + 9 = 50$.\n\n**The Full Solution:**\nStep 1: Find the model. Its slope is $\\frac{59 - 23}{16 - 4} = 3$, and $23 = 3(4) + b$ gives $b = 11$, so the model is $y = 3x + 11$.\nStep 2: At $x = 22$ the model gives $3(22) + 11 = 77$, so the data point $(22, 68)$ is $77 - 68 = 9$ units below the graph.\nStep 3: At $x = 10$ the model gives $3(10) + 11 = 41$. The data point $(10, k)$ is $9$ units above the graph, so $k = 41 + 9 = 50$. Check: $50 - 41 = 9$ and $77 - 68 = 9$, equal distances on opposite sides of the graph ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($32$): computes $41 - 9$, which places $(10, k)$ below the graph. The point is above it.\n* Choice B ($41$): the model's value at $x = 10$; a data point with that value would lie on the graph.\n* Choice D ($68$): copies the other point's $y$-value. The two points are the same distance from the graph, not the same height.\n\n**Test Day Takeaway:** Find the model's value at the given $x$-value first, then add the vertical distance for a point above the graph or subtract it for a point below."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The model for data set E is $y = 3x + 11$. Doubling every $y$-value doubles both the slope and the $y$-intercept, so a model for F is $y = 6x + 22$.\n\n**The Full Solution:**\nStep 1: Write the model for data set E: it has slope $3$ and passes through $(4, 23)$, so $y - 23 = 3(x - 4)$, or $y = 3x + 11$.\nStep 2: Each point of data set F has the same $x$-value and twice the $y$-value, so each value the model predicts is also doubled: $y = 2(3x + 11)$.\nStep 3: Distribute: $y = 6x + 22$. Check: at $x = 4$, the model for E predicts $23$ and the model for F predicts $6(4) + 22 = 46 = 2(23)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = 3x + 11$): is the model for data set E; the $y$-values were never doubled.\n* Choice B ($y = 3x + 22$): doubles only the $y$-intercept. At $x = 4$ it predicts $34$, not $46$.\n* Choice C ($y = 6x + 11$): doubles only the slope. At $x = 4$ it predicts $35$, not $46$.\n\n**Test Day Takeaway:** Multiplying every $y$-value of a data set by $k$ multiplies the whole equation of its linear model, slope and intercept, by $k$."
 }

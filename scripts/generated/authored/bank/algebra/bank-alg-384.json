@@ -1,26 +1,22 @@
 {
  "id": "bank-alg-384",
- "question": "The table shows the coordinates of points $P$ and $Q$ and of the midpoint of $\\overline{PQ}$ in the $xy$-plane. What is the value of $k$?",
+ "question": "The table shows the coordinates of two points on line $\\ell$ in the $xy$-plane. Line $m$ is perpendicular to line $\\ell$. What is the slope of line $m$?",
  "questionTable": {
   "headers": [
-   "Point",
-   "Coordinates"
+   "$x$",
+   "$y$"
   ],
   "rows": [
    [
-    "$P$",
-    "$(3, k)$"
+    "$3$",
+    "$-2$"
    ],
    [
-    "$Q$",
-    "$(11, 6)$"
-   ],
-   [
-    "Midpoint of $\\overline{PQ}$",
-    "$(7, -2)$"
+    "$11$",
+    "$4$"
    ]
   ]
  },
- "correctAnswer": "-10",
- "explanation": "**SAT Pattern: Midpoint Formula**\n\n**The correct answer is -10.**\n\n**The Fast Way (~20s):** The midpoint's $y$-coordinate is the average $\\frac{k + 6}{2} = -2$, so $k + 6 = -4$ and $k = -10$.\n\n**The Full Solution:**\nStep 1: The $y$-coordinate of the midpoint is the average of the endpoints' $y$-coordinates: $\\frac{k + 6}{2} = -2$.\nStep 2: Multiply both sides by $2$: $k + 6 = -4$.\nStep 3: Subtract $6$: $k = -10$. Check: $\\frac{-10 + 6}{2} = -2$, and the $x$-coordinates agree as well, since $\\frac{3 + 11}{2} = 7$ ✓\n\n**Common Mistakes:**\n* $2$: adds $6$ at the last step instead of subtracting it, writing $k = -4 + 6$.\n* $-8$: solves $k + 6 = -2$, forgetting to double the midpoint's coordinate.\n* $-4$: stops at $k + 6 = -4$ and reports $-4$.\n\n**Test Day Takeaway:** To find a missing endpoint coordinate, double the midpoint's coordinate and subtract the known endpoint's coordinate."
+ "correctAnswer": "-4/3",
+ "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**The correct answer is $-\\frac{4}{3}$ (or $-1.333$).**\n\n**The Fast Way (~30s):** Line $\\ell$ has slope $\\frac{4 - (-2)}{11 - 3} = \\frac{6}{8} = \\frac{3}{4}$, so line $m$ has slope $-\\frac{4}{3}$.\n\n**The Full Solution:**\nStep 1: The table gives two points on line $\\ell$: $(3, -2)$ and $(11, 4)$.\nStep 2: Slope of line $\\ell$: $\\frac{4 - (-2)}{11 - 3} = \\frac{6}{8} = \\frac{3}{4}$.\nStep 3: Perpendicular slopes are negative reciprocals, so line $m$ has slope $-\\frac{4}{3}$. Check: $\\frac{3}{4} \\cdot \\left(-\\frac{4}{3}\\right) = -1$ ✓\n\n**Common Mistakes:**\n* $\\frac{3}{4}$: gives the slope of line $\\ell$ itself.\n* $\\frac{4}{3}$: takes the reciprocal but does not change the sign.\n* $-4$: subtracts $4 - 2$ instead of $4 - (-2)$, getting a slope of $\\frac{1}{4}$ for line $\\ell$.\n\n**Test Day Takeaway:** Find the slope from the two rows first, then take the negative reciprocal."
 }

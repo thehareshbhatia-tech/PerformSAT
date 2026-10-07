@@ -1,21 +1,21 @@
 {
  "id": "bank-alg-386",
- "question": "Point $M$ is the midpoint of the line segment joining the two points shown in the $xy$-plane. What are the coordinates of the midpoint of the line segment joining $M$ and the origin?",
+ "question": "Line $t$ passes through the two points shown in the $xy$-plane. Line $s$ is parallel to line $t$ and passes through the origin. The point $(a, 3)$ lies on line $s$. What is the value of $a$?",
  "diagram": {
   "type": "coordinatePoints",
   "params": {
    "points": [
     [
-     -2,
-     10
+     -4,
+     8
     ],
     [
-     10,
-     2
+     2,
+     5
     ]
    ],
-   "xMin": -4,
-   "xMax": 12,
+   "xMin": -6,
+   "xMax": 6,
    "yMin": -2,
    "yMax": 12
   }
@@ -23,26 +23,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$(-1, 5)$"
+   "text": "$-6$"
   },
   {
    "id": "B",
-   "text": "$(2, 3)$"
+   "text": "$-\\frac{3}{2}$"
   },
   {
    "id": "C",
-   "text": "$(4, 6)$"
+   "text": "$\\frac{3}{2}$"
   },
   {
    "id": "D",
-   "text": "$(5, 1)$"
+   "text": "$6$"
   }
  ],
- "correctAnswer": "B",
+ "correctAnswer": "A",
  "distractorNotes": {
-  "A": "averages the origin with the upper-left point instead of with M",
-  "C": "reports M itself and never takes the second midpoint",
-  "D": "averages the origin with the lower-right point instead of with M"
+  "B": "inverts the slope to -2, solving 3 = -2a",
+  "C": "inverts the slope and drops its sign, solving 3 = 2a",
+  "D": "uses line t itself, y = -(1/2)x + 6, instead of the line through the origin"
  },
- "explanation": "**SAT Pattern: Midpoint Formula**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $M$ is the midpoint of $(-2, 10)$ and $(10, 2)$, so $M = (4, 6)$; halfway from the origin to $M$ is $(2, 3)$.\n\n**The Full Solution:**\nStep 1: Read the points: $(-2, 10)$ and $(10, 2)$.\nStep 2: $M = \\left(\\frac{-2 + 10}{2}, \\frac{10 + 2}{2}\\right) = (4, 6)$.\nStep 3: The midpoint of the segment from $(0, 0)$ to $(4, 6)$ is $\\left(\\frac{0 + 4}{2}, \\frac{0 + 6}{2}\\right) = (2, 3)$. Check: doubling $(2, 3)$ gives $(4, 6)$, which is $M$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-1, 5)$): averages the origin with $(-2, 10)$ instead of with $M$.\n* Choice C ($(4, 6)$): finds $M$ and stops one step short.\n* Choice D ($(5, 1)$): averages the origin with $(10, 2)$ instead of with $M$.\n\n**Test Day Takeaway:** When one endpoint is the origin, the midpoint is simply half of the other endpoint's coordinates."
+ "explanation": "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Line $t$ has slope $\\frac{5 - 8}{2 - (-4)} = -\\frac{1}{2}$, so line $s$ is $y = -\\frac{1}{2}x$. Then $3 = -\\frac{1}{2}a$, so $a = -6$.\n\n**The Full Solution:**\nStep 1: Read the points: $(-4, 8)$ and $(2, 5)$. Slope of line $t$: $\\frac{5 - 8}{2 - (-4)} = \\frac{-3}{6} = -\\frac{1}{2}$.\nStep 2: Line $s$ is parallel to line $t$ and passes through the origin, so its equation is $y = -\\frac{1}{2}x$.\nStep 3: Substitute $(a, 3)$: $3 = -\\frac{1}{2}a$, so $a = -6$. Check: $-\\frac{1}{2}(-6) = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{3}{2}$): inverts the slope to $-2$ and solves $3 = -2a$.\n* Choice C ($\\frac{3}{2}$): inverts the slope and drops its sign, solving $3 = 2a$.\n* Choice D ($6$): uses line $t$ itself, $y = -\\frac{1}{2}x + 6$, which does not pass through the origin.\n\n**Test Day Takeaway:** A parallel line through the origin is $y = mx$ with the same $m$; substitute the given coordinate and solve."
 }

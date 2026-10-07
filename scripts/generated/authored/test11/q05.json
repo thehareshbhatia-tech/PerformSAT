@@ -8,11 +8,11 @@
  "choices": [
   {
    "id": "A",
-   "text": "The speaker recounts a late-night walk through the city's streets and then regrets having abandoned the quiet countryside for an unfamiliar and glittering capital."
+   "text": "The speaker recounts a late-night walk through the city's streets and then regrets having left the quiet countryside."
   },
   {
    "id": "B",
-   "text": "The speaker describes the city and its street at night, sets the moon against the city's glare, and closes by siding with the moon."
+   "text": "The speaker describes the city at night, contrasts the moon with the city's glare, and ends by siding with the moon."
   },
   {
    "id": "C",
@@ -20,11 +20,11 @@
   },
   {
    "id": "D",
-   "text": "The speaker celebrates the brilliance of the lamplit city and then wonders whether the moon will ever be bright enough to outshine it."
+   "text": "The speaker celebrates the lamplit city and then wonders whether the moon could ever outshine its glare."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The excerpt moves in three steps: the \"squalid and sinister\" city with its silver-barred street, then the moon opposite the window, outshone by the city's white lamps, and finally the speaker's declaration — \"She is thin and lustreless, / But I love her. / I know the moon, / And this is an alien city.\"\n\n**The Full Solution:**\n- The first stanza is description: the city and the street that runs through it \"Like\" a river \"leading nowhere.\"\n- The second stanza raises the eyes to the moon and stages the contest — \"She cannot light the city; / It is too bright.\"\n- The third stanza resolves it in the moon's favor on grounds of familiarity, not brightness. Description, contrast, allegiance: that is choice B's sequence.\n\n**Why the other choices are wrong:**\n- A: The speaker never walks — she watches from a window — and no countryside appears anywhere in the excerpt.\n- C: The excerpt contains no daytime scene to compare against; everything happens at night.\n- D: It reverses the speaker's attitude — the city is \"squalid and sinister,\" not celebrated, and the moon is loved despite being outshone.",
+ "explanation": "**Choice B is correct.** The excerpt moves in three steps: the \"squalid and sinister\" city with its silver-barred street, then the moon opposite the window, outshone by the city's white lamps, and finally the speaker's declaration — \"She is thin and lustreless, / But I love her. / I know the moon, / And this is an alien city.\"\n\n**The Full Solution:**\n- The first stanza is description: the city and the street that runs through it, \"A river leading nowhere.\"\n- The second stanza raises the eyes to the moon and stages the contest — \"She cannot light the city; / It is too bright.\"\n- The third stanza resolves it in the moon's favor on grounds of familiarity, not brightness. Description, contrast, allegiance: that is choice B's sequence.\n\n**Why the other choices are wrong:**\n- A: The speaker never walks — she watches from a window — and no countryside appears anywhere in the excerpt.\n- C: The excerpt contains no daytime scene to compare against; everything happens at night.\n- D: It reverses the speaker's attitude — the city is \"squalid and sinister,\" not celebrated, and the moon is loved despite being outshone.",
  "passage": "The following text is from Amy Lowell's 1914 poem \"A London Thoroughfare. 2 A.M.\"\n\nThe city is squalid and sinister,\nWith the silver-barred street in the midst,\nSlow-moving,\nA river leading nowhere.\n\nOpposite my window,\nThe moon cuts,\nClear and round,\nThrough the plum-coloured night.\nShe cannot light the city;\nIt is too bright.\nIt has white lamps,\nAnd glitters coldly.\n\nI stand in the window and watch the moon.\nShe is thin and lustreless,\nBut I love her.\nI know the moon,\nAnd this is an alien city.",
  "_meta": {
   "anchor": "Amy Lowell, \"A London Thoroughfare. 2 A.M.\" (1914) — genuine public-domain text, final 19 lines verbatim",

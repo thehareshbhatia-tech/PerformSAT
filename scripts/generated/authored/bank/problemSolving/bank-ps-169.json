@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-169",
-  "question": "$8.6$, $10.4$, $a$, $a$\nThe mean of the four numbers shown is $9.2$. What is the value of $a$?",
-  "correctAnswer": "8.9",
-  "explanation": "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**The correct answer is $8.9$.**\n\n**The Fast Way (~15s):** The four numbers sum to $4(9.2) = 36.8$, the two known numbers sum to $19$, and $2a = 17.8$, so $a = 8.9$.\n\n**The Full Solution:**\nStep 1: The sum of the four numbers is $4 \\times 9.2 = 36.8$.\nStep 2: Write the sum with the unknowns: $8.6 + 10.4 + 2a = 36.8$, so $2a = 17.8$.\nStep 3: Solve: $a = 8.9$. Check: $\\frac{8.6 + 10.4 + 8.9 + 8.9}{4} = \\frac{36.8}{4} = 9.2$ ✓\n\n**Common Mistakes:**\n* $17.8$: reports the combined value $2a$ instead of $a$.\n* $8.6$: uses three numbers in the total, $3(9.2) - 19$.\n* $9.2$: assumes each unknown equals the mean.\n\n**Test Day Takeaway:** Two equal unknowns contribute $2a$ to the sum; solve for the pair, then divide by $2$."
+  "question": "$12$, $30$, $a$, $a$\nThe mean of the four numbers shown is $25$. What is the value of $a$?",
+  "correctAnswer": "29",
+  "explanation": "**SAT Pattern: Finding a Missing Value Given the Mean**\n\n**The correct answer is $29$.**\n\n**The Fast Way (~15s):** The four numbers total $4(25) = 100$, so $2a = 100 - 12 - 30 = 58$ and $a = 29$.\n\n**The Full Solution:**\nStep 1: The sum of the four numbers is $4 \\times 25 = 100$.\nStep 2: So $12 + 30 + 2a = 100$, which gives $2a = 58$.\nStep 3: Divide: $a = 29$. Check: $\\frac{12 + 30 + 29 + 29}{4} = \\frac{100}{4} = 25$ ✓\n\n**Common Mistakes:**\n* $58$: stops at $2a$ and forgets that $a$ appears twice.\n* $33$: treats the list as three numbers, $3(25) - 12 - 30$.\n* $25$: assumes $a$ must equal the mean.\n\n**Test Day Takeaway:** Turn a mean into a total first; a repeated unknown counts once for each time it appears."
 }

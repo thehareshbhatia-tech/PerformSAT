@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-070",
-  "question": "A shop's monthly profit $P$, in dollars, from repairing bicycles is given by $P(r) = 42r - 3150$, where $r$ is the number of bicycles repaired. What is the least number of bicycles the shop must repair in a month to avoid a loss?",
+  "question": "A shop's monthly profit $P$, in dollars, from repairing bicycles is given by $P(r) = 42r - 3{,}150$, where $r$ is the number of bicycles repaired. What is the least number of bicycles the shop must repair in a month to avoid a loss?",
   "choices": [
     {
       "id": "A",
@@ -16,14 +16,14 @@
     },
     {
       "id": "D",
-      "text": "$3108$"
+      "text": "$3{,}108$"
     }
   ],
   "distractorNotes": {
     "A": "reports the profit per bicycle instead of solving for r",
-    "C": "assumes the profit must be strictly positive, but a profit of exactly $0 is not a loss",
-    "D": "subtracts 42 from 3150 instead of dividing"
+    "C": "assumes the profit must be strictly positive, but a profit of exactly 0 is not a loss",
+    "D": "subtracts 42 from 3,150 instead of dividing"
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Break-Even from Profit Function**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Avoiding a loss means $P(r) \\ge 0$: $42r \\ge 3150$, so $r \\ge 75$. The least number is $75$.\n\n**The Full Solution:**\nStep 1: A loss is a negative profit, so the shop avoids a loss when $42r - 3150 \\ge 0$.\nStep 2: Add $3150$ and divide by $42$: $r \\ge \\frac{3150}{42} = 75$.\nStep 3: Since $75$ is a whole number, it is the least number of bicycles that works. Check: $P(75) = 42(75) - 3150 = 0$, and $P(74) = -42 < 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($42$): reports the profit from each bicycle, the coefficient of $r$, instead of solving for $r$.\n* Choice C ($76$): requires a strictly positive profit, but $P(75) = 0$ is not a loss, so $75$ already works.\n* Choice D ($3108$): subtracts $42$ from $3150$ instead of dividing.\n\n**Test Day Takeaway:** Break-even is where profit equals $0$. Solve $P(r) = 0$, then read the wording (\"avoid a loss\" versus \"make a profit\") to decide whether the boundary value counts."
+  "explanation": "**SAT Pattern: Break-Even from Profit Function**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Avoiding a loss means $P(r) \\ge 0$: $42r \\ge 3{,}150$, so $r \\ge 75$. The least number is $75$.\n\n**The Full Solution:**\nStep 1: A loss is a negative profit, so the shop avoids a loss when $42r - 3{,}150 \\ge 0$.\nStep 2: Add $3{,}150$ and divide by $42$: $r \\ge \\frac{3{,}150}{42} = 75$.\nStep 3: Since $75$ is a whole number, it is the least number of bicycles that works. Check: $P(75) = 42(75) - 3{,}150 = 0$, and $P(74) = -42 < 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($42$): reports the profit from each bicycle, the coefficient of $r$, instead of solving for $r$.\n* Choice C ($76$): requires a strictly positive profit, but $P(75) = 0$ is not a loss, so $75$ already works.\n* Choice D ($3{,}108$): subtracts $42$ from $3{,}150$ instead of dividing.\n\n**Test Day Takeaway:** Break-even is where profit equals $0$. Solve $P(r) = 0$, then read the wording (\"avoid a loss\" versus \"make a profit\") to decide whether the boundary value counts."
 }

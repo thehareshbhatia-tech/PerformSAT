@@ -1,25 +1,21 @@
 {
   "id": "bank-ps-225",
-  "question": "The table shows the number of animals of three species tagged during a survey. The number of sea otters tagged was $20\\%$ of the number of harbor seals tagged. The number of sea otters tagged was what percent of the number of sea lions tagged?",
+  "question": "The table shows the number of cats and dogs at a shelter. The number of rabbits is $20\\%$ of the number of cats. The number of rabbits is what percent of the number of dogs?",
   "diagram": {
     "type": "dataTable",
     "params": {
       "headers": [
-        "Species",
-        "Number tagged"
+        "Animal",
+        "Number"
       ],
       "rows": [
         [
-          "Harbor seal",
-          "120"
+          "Cats",
+          "40"
         ],
         [
-          "Sea lion",
-          "480"
-        ],
-        [
-          "Fur seal",
-          "300"
+          "Dogs",
+          "160"
         ]
       ]
     }
@@ -43,10 +39,10 @@
     }
   ],
   "distractorNotes": {
-    "B": "repeats the given percent, which compares otters with harbor seals rather than sea lions",
-    "C": "reports harbor seals as a percent of sea lions, 120/480 = 25%",
+    "B": "repeats the given percent, which compares rabbits with cats rather than dogs",
+    "C": "reports cats as a percent of dogs, 40/160 = 25%",
     "D": "adds the two link percents, 20 + 25, instead of multiplying them"
   },
   "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Chained Percent Relationship**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Sea otters: $0.20 \\times 120 = 24$. Then $\\frac{24}{480} = 0.05$, or $5\\%$.\n\n**The Full Solution:**\nStep 1: Read the table: $120$ harbor seals and $480$ sea lions were tagged.\nStep 2: Find the sea otters: $20\\%$ of $120$ is $0.20 \\times 120 = 24$.\nStep 3: Compare with the sea lions: $\\frac{24}{480} = 0.05 = 5\\%$. Check by chaining the links: $0.20 \\times \\frac{120}{480} = 0.20 \\times 0.25 = 0.05$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($20\\%$): repeats the given percent, which compares otters with harbor seals, not with sea lions.\n* Choice C ($25\\%$): finds harbor seals as a percent of sea lions and stops one link short.\n* Choice D ($45\\%$): adds the two link percents; percents of different wholes multiply.\n\n**Test Day Takeaway:** Change the base one link at a time: a percent of a percent multiplies."
+  "explanation": "**SAT Pattern: Chained Percent Relationship**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Rabbits: $0.20 \\times 40 = 8$. Then $\\frac{8}{160} = 0.05$, or $5\\%$.\n\n**The Full Solution:**\nStep 1: Read the table: there are $40$ cats and $160$ dogs.\nStep 2: Find the rabbits: $20\\%$ of $40$ is $0.20 \\times 40 = 8$.\nStep 3: Compare with the dogs: $\\frac{8}{160} = 0.05 = 5\\%$. Check by chaining the links: $0.20 \\times \\frac{40}{160} = 0.20 \\times 0.25 = 0.05$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($20\\%$): This repeats the given percent, which compares rabbits with cats, not with dogs.\n* Choice C ($25\\%$): This finds cats as a percent of dogs and stops one link short.\n* Choice D ($45\\%$): This adds the two link percents; percents of different wholes multiply.\n\n**Test Day Takeaway:** Change the base one link at a time: a percent of a percent multiplies."
 }

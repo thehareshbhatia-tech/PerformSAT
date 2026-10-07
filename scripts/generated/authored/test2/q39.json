@@ -6,26 +6,26 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-textual",
  "module": 2,
- "passage": "How large a hailstone grows depends on how long it can remain aloft inside a storm, riding the rising air while layers of ice accumulate. In a multiyear study of severe thunderstorms, meteorologists claim that the strength of a storm's updraft — the column of rising air that suspends growing hailstones — is the chief factor limiting maximum hailstone size, outweighing the storm's duration, its moisture supply, and the altitude of its cloud base.",
+ "passage": "During the Carboniferous and Permian periods, some insects grew far larger than any alive today: griffinflies, ancient relatives of dragonflies, had wingspans of up to 70 centimeters. Insects take in oxygen through tiny breathing tubes rather than lungs. Paleontologist Matthew Clapham and graduate student Jered Karr compiled measurements of more than 10,500 fossil insect wings. They claim that until birds appeared, about 150 million years ago, the level of oxygen in the atmosphere was the chief factor limiting how large insects could grow.",
  "question": "Which finding from the study, if true, would most strongly support the researchers' claim?",
  "choices": [
   {
    "id": "A",
-   "text": "Storms that lasted the longest produced the greatest total number of hailstones over their lifetimes."
+   "text": "The insects with the longest wings in the study lived mainly in warm, swampy forests where plant life was abundant."
   },
   {
    "id": "B",
-   "text": "Among storms with similar duration, moisture, and cloud-base altitude, maximum hailstone size rose consistently with measured updraft speed, and the largest stones fell only from storms with the fastest updrafts."
+   "text": "Before birds appeared, the maximum wing length of fossil insects rose and fell with atmospheric oxygen levels."
   },
   {
    "id": "C",
-   "text": "A few storms with unusually weak updrafts produced no hailstones of any measurable size at all."
+   "text": "Fossils of small insects were far more common in the study than fossils of large insects."
   },
   {
    "id": "D",
-   "text": "Hailstones from a single storm often contained different numbers of ice layers, indicating that individual stones had followed different paths through the storm."
+   "text": "The fossil insects with the longest wings were all close relatives of modern dragonflies."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The claim ranks updraft strength above duration, moisture, and altitude as the limit on hailstone size — and B tests exactly that ranking by holding the rival factors similar and showing size still tracks updraft speed.\n\n**The Full Solution:**\n- The claim has two parts: updraft strength governs maximum hailstone size, and it outweighs three named competitors.\n- Choice B controls for those competitors (\"similar duration, moisture, and cloud-base altitude\") so any size differences must come from what varies — updraft speed.\n- The consistent rise of size with updraft speed, capped by the largest stones falling only from the fastest updrafts, is the strongest possible signature of the claimed relationship.\n\n**Why the other choices are wrong:**\n- A: Total number of hailstones is a different quantity from maximum size, and tying it to duration supports one of the rival factors, not the claim.\n- C: Weak updrafts producing no hail is consistent with the claim but barely tests it — it involves no comparison of hailstone sizes and no control of the competing factors.\n- D: Varied layer counts show stones take different paths within a storm; the finding never connects updraft strength to size, so it leaves the claim untested."
+ "explanation": "**Choice B is correct.** The claim is that oxygen levels set the limit on insect size until birds appeared. If maximum wing length rose and fell along with oxygen during that time, size tracked oxygen just as the claim predicts.\n\n**The Full Solution:**\n- The claim names one factor, atmospheric oxygen, as the chief limit on how large insects could grow before birds appeared.\n- The strongest support would show the largest insect size changing whenever oxygen changed during that period.\n- Choice B reports exactly that pattern: maximum wing length rose when oxygen rose and fell when it fell.\n\n**Why the other choices are wrong:**\n- A: Linking the largest insects to warm, swampy forests points to climate or habitat, a rival factor, rather than to oxygen.\n- C: How common small fossils are says nothing about what limited the maximum size insects could reach.\n- D: The relationship of the largest insects to dragonflies is a fact about ancestry; it does not connect size to oxygen at all."
 }

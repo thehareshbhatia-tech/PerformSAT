@@ -1,30 +1,30 @@
 {
   "id": 2,
-  "question": "$7, 2, 9, 2, 5, 9, 9, 4, 6$\nWhat is the mode of the data shown?",
+  "question": "Data set A: $12, 15, 15, 18$\nData set B: $3, 12, 15, 15, 18$\nWhich statement correctly compares the means of data sets A and B?",
   "choices": [
     {
       "id": "A",
-      "text": "$2$"
+      "text": "The mean of data set B is less than the mean of data set A."
     },
     {
       "id": "B",
-      "text": "$3$"
+      "text": "The mean of data set B is greater than the mean of data set A."
     },
     {
       "id": "C",
-      "text": "$6$"
+      "text": "The means of data sets A and B are equal."
     },
     {
       "id": "D",
-      "text": "$9$"
+      "text": "There is not enough information to compare the means."
     }
   ],
   "distractorNotes": {
-    "A": "picks $2$, which also repeats, but $2$ occurs only twice while $9$ occurs three times.",
-    "B": "reports how many times the mode occurs, $3$, instead of the value that occurs most often.",
-    "C": "reports the median, the fifth value of the ordered list $2, 2, 4, 5, 6, 7, 9, 9, 9$."
+    "B": "thinks that adding a value to a data set always increases its mean",
+    "C": "thinks one added value cannot change the mean, which is true of the median here but not the mean",
+    "D": "does not realize that both means can be computed from the listed values"
   },
-  "correctAnswer": "D",
-  "hint": "Count how many times each value occurs.",
-  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~15s):** The value $9$ occurs $3$ times, more than any other value, so the mode is $9$.\n\n**The Full Solution:**\nStep 1: Count each value: $2$ occurs $2$ times, $9$ occurs $3$ times, and $4$, $5$, $6$, and $7$ each occur once.\nStep 2: The greatest frequency is $3$, and only the value $9$ has it.\nStep 3: So the mode is $9$. Check: the frequencies $2 + 3 + 1 + 1 + 1 + 1 = 9$ account for all $9$ values. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): picks $2$, which also repeats, but $2$ occurs only twice while $9$ occurs three times.\n* Choice B ($3$): reports how many times the mode occurs, $3$, instead of the value that occurs most often.\n* Choice C ($6$): reports the median, the fifth value of the ordered list $2, 2, 4, 5, 6, 7, 9, 9, 9$.\n\n**Test Day Takeaway:** The mode is a VALUE from the data set, the one with the greatest frequency; the frequency itself is not the answer."
+  "correctAnswer": "A",
+  "hint": "Compare the added value with the mean of data set A.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~20s):** The added value, $3$, is less than the mean of data set A, $15$, so it pulls the mean down.\n\n**The Full Solution:**\nStep 1: The mean of data set A is $\\frac{12 + 15 + 15 + 18}{4} = \\frac{60}{4} = 15$.\nStep 2: The mean of data set B is $\\frac{3 + 12 + 15 + 15 + 18}{5} = \\frac{63}{5} = 12.6$.\nStep 3: Since $12.6 < 15$, the mean of data set B is less than the mean of data set A.\n\nCheck: The medians are both $15$, but the means differ: $12.6$ and $15$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (greater): assumes adding a value raises the mean; a value below the mean lowers it.\n* Choice C (equal): confuses the mean with the median, which stays $15$.\n* Choice D (not enough information): every value is listed, so both means can be found.\n\n**Test Day Takeaway:** Adding a value below the mean lowers the mean; adding a value above it raises the mean."
 }

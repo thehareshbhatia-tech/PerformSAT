@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-047",
-  "question": "$M = \\frac{k}{\\sqrt{n}}$\nThe given equation models the margin of error $M$, in percent, of a survey with sample size $n$, where $k$ is a constant. If $M = 6$ when $n = 250$, what is the value of $n$ when $M = 2$?",
+  "question": "Based on a random sample of $600$ adults in a city, a researcher estimated that $41\\%$ of the city's adults own a bicycle, with a margin of error of $3.9\\%$. A second random sample of $2{,}400$ adults from the city was then surveyed. If both margins of error are calculated in the same way, which of the following is most likely true about the margin of error for the second sample?",
   "choices": [
     {
       "id": "A",
-      "text": "$83$"
+      "text": "It is less than $3.9\\%$."
     },
     {
       "id": "B",
-      "text": "$750$"
+      "text": "It is equal to $3.9\\%$."
     },
     {
       "id": "C",
-      "text": "$1{,}500$"
+      "text": "It is greater than $3.9\\%$."
     },
     {
       "id": "D",
-      "text": "$2{,}250$"
+      "text": "It is equal to $4 \\times 3.9\\%$, or $15.6\\%$."
     }
   ],
   "distractorNotes": {
-    "A": "divides the sample size by $3$; a smaller sample makes the margin of error larger, not smaller.",
-    "B": "multiplies the sample size by $3$, forgetting that $M$ depends on $\\sqrt{n}$, so $n$ must grow by $3^2$.",
-    "C": "multiplies the sample size by the original margin of error, $6$, rather than by the squared ratio $\\left(\\frac{6}{2}\\right)^2 = 9$."
+    "B": "assumes the sample size has no effect on the margin of error.",
+    "C": "reverses the relationship; a larger random sample gives a more precise estimate, not a less precise one.",
+    "D": "multiplies the margin of error by the ratio of the sample sizes, $\\frac{2{,}400}{600} = 4$; a larger sample makes the margin of error smaller."
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Cutting $M$ from $6$ to $2$ divides it by $3$, so $\\sqrt{n}$ must be multiplied by $3$ and $n$ by $3^2 = 9$: $9 \\times 250 = 2{,}250$.\n\n**The Full Solution:**\nStep 1: Substitute $M = 6$ and $n = 250$: $6 = \\frac{k}{\\sqrt{250}}$, so $k = 6\\sqrt{250}$.\nStep 2: Substitute $M = 2$: $2 = \\frac{6\\sqrt{250}}{\\sqrt{n}}$, so $\\sqrt{n} = 3\\sqrt{250}$ and $n = 9 \\times 250 = 2{,}250$.\nStep 3: Check: $\\frac{\\sqrt{2{,}250}}{\\sqrt{250}} = \\sqrt{9} = 3$, so $M$ is divided by $3$: $\\frac{6}{3} = 2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($83$): divides the sample size by $3$; a smaller sample makes the margin of error larger, not smaller.\n* Choice B ($750$): multiplies the sample size by $3$, forgetting that $M$ depends on $\\sqrt{n}$, so $n$ must grow by $3^2$.\n* Choice C ($1{,}500$): multiplies the sample size by the original margin of error, $6$, rather than by the squared ratio $\\left(\\frac{6}{2}\\right)^2 = 9$.\n\n**Test Day Takeaway:** When $M = \\frac{k}{\\sqrt{n}}$, dividing the margin of error by a factor $f$ requires multiplying the sample size by $f^2$. Halving needs $4$ times the sample; cutting to a third needs $9$ times."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The second random sample is larger, and a larger random sample gives a more precise estimate, so its margin of error is most likely less than $3.9\\%$.\n\n**The Full Solution:**\nStep 1: The second sample has $2{,}400$ adults, which is $4$ times the $600$ adults in the first sample.\nStep 2: With the same method, a larger random sample produces a smaller margin of error.\nStep 3: So the margin of error for the second survey is most likely less than $3.9\\%$. Check: only the sample size changed, and it increased, so the estimate can only become more precise ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (It is equal to $3.9\\%$.): assumes the sample size has no effect on the margin of error.\n* Choice C (It is greater than $3.9\\%$.): reverses the relationship; a larger random sample gives a more precise estimate, not a less precise one.\n* Choice D (It is equal to $4 \\times 3.9\\%$, or $15.6\\%$.): multiplies the margin of error by the ratio of the sample sizes, $\\frac{2{,}400}{600} = 4$; a larger sample makes the margin of error smaller.\n\n**Test Day Takeaway:** Larger random sample, smaller margin of error. The estimate itself ($41\\%$) does not decide which way the margin of error moves."
 }

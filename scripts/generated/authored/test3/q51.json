@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "type": "multiple-choice",
- "passage": "On the high plain around Lake Titicaca, pre-Columbian farmers built waru waru: raised planting beds separated by water-filled canals. The canal water absorbs heat during the day and releases it through the freezing night, keeping the air above the beds a few degrees warmer than the surrounding plain. ______ crops on the raised beds can survive frosts that kill crops planted on open ground nearby.",
+ "passage": "Most substances are densest as solids, but ice is less dense than liquid water, so it floats. When a lake cools in winter, the ice stays at the surface and shields the water below from the frigid air. ______ most deep lakes in cold regions do not freeze solid, and fish survive the winter in the water beneath the ice.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,8 +27,8 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The passage lays out a mechanism — canal water banking daytime heat and releasing it at night — and the blank sentence states that mechanism's payoff: crops on the beds survive frosts that kill neighboring fields. Effect follows cause, so \"As a result\" is the logical connector.\n\n**The Full Solution:**\n- Sentence two explains the physics (a few degrees of nighttime warmth over the beds).\n- Sentence three reports the agricultural consequence of exactly those few degrees.\n\n**Why the other choices are wrong:**\n- B: \"Nevertheless\" would make frost survival happen despite the warming, inverting the causal link the passage establishes.\n- C: \"For instance\" would offer the frost outcome as one example of the warming, but it is the warming's consequence — the passage gives no list of effects to exemplify.\n- D: \"In comparison\" signals a measured likeness between two items; though the sentence mentions nearby fields, its work is to state an outcome of the mechanism, and the comparison is internal to that outcome.",
+ "explanation": "**Choice A is correct.** The last sentence reports the result of the process just described: because floating ice shields the water below from the cold, deep lakes stay liquid underneath and fish survive. \"As a result\" signals that cause-and-effect relationship.\n\n**The Full Solution:**\n- The first two sentences build the cause: ice floats, and a floating layer of ice protects the water beneath it from the cold air.\n- The final sentence states the effect of that protection, so the transition must mark a result.\n\n**Why the other choices are wrong:**\n- B: \"Nevertheless\" signals something that happens despite what came before, but the lakes stay liquid because of the floating ice, not in spite of it.\n- C: \"For instance\" would introduce an example of the previous point, but the sentence describes a consequence of the ice's shielding, not an example of it.\n- D: \"In comparison\" signals a comparison between two things, and no second thing is being compared.",
  "_meta": {
-  "anchor": "Waru waru raised-field frost protection on the Titicaca altiplano — cause-effect transition"
+  "anchor": "Ice ~9% less dense than water floats and insulates lakes; cause-effect transition (https://sciencenotes.org/why-does-ice-float-on-water/; https://www.lakescientist.com/temperature-and-ice/)"
  }
 }

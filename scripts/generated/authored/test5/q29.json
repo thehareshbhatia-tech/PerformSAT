@@ -6,29 +6,29 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 2,
- "passage": "Printing type much taller than a few centimeters was rarely cast in metal: poster-sized letters in lead would have been costly and, above all, ponderous. Once routers guided by pantographs could carve display letters from maple in any size, poster printers embraced wood type chiefly for its ______: a compositor could lift a hand-high letter with two fingers, and a large poster form would not sag under its own weight.",
+ "passage": "Gold has long been valued for its rarity and its brilliant luster. Goldbeaters, however, who hammer the metal into the thin leaf used for gilding, depend chiefly on its ______. A single gram of gold can be beaten into a sheet about one square meter in area, so thin that light shows through it.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
    "id": "A",
-   "text": "rarity"
+   "text": "scarcity"
   },
   {
    "id": "B",
-   "text": "durability"
+   "text": "brilliance"
   },
   {
    "id": "C",
-   "text": "delicacy"
+   "text": "permanence"
   },
   {
    "id": "D",
-   "text": "lightness"
+   "text": "malleability"
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The passage opposes wood to \"ponderous\" lead, and both illustrations after the colon — a huge letter lifted with two fingers, a form that does not sag under its own weight — are virtues of low weight.\n\n**The Full Solution:**\n- The problem with metal display type is stated plainly: poster-sized lead letters would be costly and ponderous, that is, heavy.\n- The blank names the property for which printers \"chiefly\" embraced wood, and the colon supplies the evidence: effortless lifting and a form that will not sag from its own mass.\n- The property those examples demonstrate is lightness.\n\n**Why the other choices are wrong:**\n- A: \"Rarity\" is contradicted by the point of the routers, which made wood letters producible \"in any size\"; scarcity is nowhere valued.\n- B: \"Durability\" concerns resistance to wear, which neither illustration addresses; sagging under weight is a mass problem, not a wear problem.\n- C: \"Delicacy\" suggests fine fragility, nearly the opposite of what a printer wants in working type, and it does not follow from the examples.",
+ "explanation": "**Choice D is correct.** Goldbeaters need a metal that can be hammered very thin without breaking, and \"malleability\" is the ability of a metal to be beaten or pressed into a new shape.\n\n**The Full Solution:**\n- How to spot it: the word \"however\" sets the goldbeaters apart from the qualities named in the first sentence, rarity and luster, so the blank must name a different property.\n- The last sentence shows what that property is: one gram of gold can be beaten into a sheet about one square meter in area, thin enough for light to show through.\n- A metal that can be hammered that thin is extremely malleable, so \"malleability\" is the precise word.\n\n**Why the other choices are wrong:**\n- A: \"Scarcity\" repeats the rarity that the first sentence names; \"however\" signals that goldbeaters depend on something else, and scarcity does not explain hammering gold thin.\n- B: \"Brilliance\" repeats the luster that the first sentence names, and shine does not explain how gold can be beaten into such thin sheets.\n- C: \"Permanence\" means lasting without change, but the text is about gold being reshaped, not about how long it lasts.",
  "_meta": {
-  "anchor": "wood type for posters — lightness versus ponderous lead display letters"
+  "anchor": "gold leaf — goldbeaters depend on gold's malleability (one gram beaten to about one square meter)"
  }
 }

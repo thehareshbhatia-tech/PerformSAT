@@ -1,51 +1,51 @@
 {
-  "id": "bank-am-307",
-  "question": "The graph shown models the height $y$, in meters, of the ceiling of a tunnel above the road, where $y = -\\frac{1}{4}x^{2} + 9$ and $x$ is the horizontal position, in meters, measured from the center of the tunnel. For which values of $x$ is the ceiling more than $5$ meters above the road?",
-  "diagram": {
-    "type": "parabola",
-    "params": {
-      "vertex": {
-        "h": 0,
-        "k": 9
-      },
-      "a": -0.25,
-      "xRange": [
-        -8,
-        8
-      ],
-      "yRange": [
-        -2,
-        10
-      ],
-      "xTickInterval": 2,
-      "yTickInterval": 2,
-      "gridInterval": 2,
-      "showVertex": true
-    }
+ "id": "bank-am-307",
+ "question": "The height $y$, in meters, of a tunnel's ceiling above the road $x$ meters from the center of the tunnel is modeled by $y = -\\frac{1}{4}x^{2} + 9$, and the graph of this model is shown. For what positive value of $x$ is $y = 5$?",
+ "diagram": {
+  "type": "parabola",
+  "params": {
+   "vertex": {
+    "h": 0,
+    "k": 9
+   },
+   "a": -0.25,
+   "xRange": [
+    -8,
+    8
+   ],
+   "yRange": [
+    -2,
+    10
+   ],
+   "xTickInterval": 2,
+   "yTickInterval": 2,
+   "gridInterval": 2,
+   "showVertex": false
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$2$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-6 < x < 6$"
-    },
-    {
-      "id": "B",
-      "text": "$x < -4$ or $x > 4$"
-    },
-    {
-      "id": "C",
-      "text": "$-4 < x < 4$"
-    },
-    {
-      "id": "D",
-      "text": "$0 < x < 4$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "solves y > 0, the road-level width",
-    "B": "fails to reverse the inequality",
-    "D": "keeps only the right half"
+  {
+   "id": "B",
+   "text": "$4$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Solve $-\\dfrac{1}{4}x^2 + 9 > 5$. Then $\\dfrac{1}{4}x^2 < 4$, so $x^2 < 16$ and $-4 < x < 4$.\n\n**The Full Solution:**\nStep 1: \"More than $5$ meters above the road\" means $-\\dfrac{1}{4}x^2 + 9 > 5$.\nStep 2: Subtracting $9$ gives $-\\dfrac{1}{4}x^2 > -4$. Multiplying by $-4$ reverses the inequality: $x^2 < 16$.\nStep 3: $x^2 < 16$ means $|x| < 4$, so $-4 < x < 4$. Check: at $x = 0$ the height is $9$, which is more than $5$; at $x = 5$ the height is $-6.25 + 9 = 2.75$, which is not. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6 < x < 6$): solves $y > 0$ instead of $y > 5$, giving the tunnel's full width at road level.\n* Choice B ($x < -4$ or $x > 4$): forgets to reverse the inequality when multiplying by $-4$.\n* Choice D ($0 < x < 4$): keeps only the right half of the tunnel and drops the negative distances.\n\n**Test Day Takeaway:** Multiplying an inequality by a negative number flips it, and $x^2 < k$ always produces a two-sided interval around $0$."
+  {
+   "id": "C",
+   "text": "$6$"
+  },
+  {
+   "id": "D",
+   "text": "$16$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "drops the 1/4, solving x^2 = 4",
+  "C": "finds where the ceiling meets the road, at height 0",
+  "D": "reports x^2 instead of x"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Quadratic via Factoring**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $-\\frac{1}{4}x^{2} + 9 = 5$ gives $\\frac{1}{4}x^{2} = 4$, so $x^{2} = 16$ and $x = 4$.\n\n**The Full Solution:**\nStep 1: Set the height equal to $5$: $-\\frac{1}{4}x^{2} + 9 = 5$.\nStep 2: Subtract $9$ and multiply by $-4$: $x^{2} = 16$.\nStep 3: The positive solution is $x = 4$. Check: $-\\frac{1}{4}(16) + 9 = -4 + 9 = 5$, and the graph is at height $5$ at $x = 4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): drops the $\\frac{1}{4}$, solving $x^{2} = 4$.\n* Choice C ($6$): finds where the ceiling meets the road: $-\\frac{1}{4}(36) + 9 = 0$.\n* Choice D ($16$): stops at $x^{2} = 16$ without taking the square root.\n\n**Test Day Takeaway:** Set the model equal to the given height and solve; the context tells you which solution to keep."
 }

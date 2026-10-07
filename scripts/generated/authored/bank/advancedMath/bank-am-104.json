@@ -16,14 +16,14 @@
   },
   {
    "id": "D",
-   "text": "$\\dfrac{5x - 45}{x}$"
+   "text": "$\\dfrac{5x - 45}{x + 3}$"
   }
  ],
  "distractorNotes": {
   "A": "drops the common factor 5 when factoring 5x squared minus 45",
   "C": "cancels the factor x - 3 instead of the factor x + 3",
-  "D": "divides only the leading terms by x instead of factoring"
+  "D": "divides only the x-terms by x (5x^2 to 5x, x^2 to x, 3x to 3) and leaves -45 alone, instead of factoring"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Rational Expression Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $\\frac{5(x - 3)(x + 3)}{x(x + 3)}$; cancel $x + 3$ to get $\\frac{5(x - 3)}{x}$.\n\n**The Full Solution:**\nStep 1: Factor the numerator in two stages: $5x^{2} - 45 = 5(x^{2} - 9) = 5(x - 3)(x + 3)$.\nStep 2: Factor the denominator: $x^{2} + 3x = x(x + 3)$.\nStep 3: For $x > 0$, the factor $x + 3$ is not zero and cancels, leaving $\\frac{5(x - 3)}{x}$. Check at $x = 5$: $\\frac{125 - 45}{25 + 15} = \\frac{80}{40} = 2$ and $\\frac{5(2)}{5} = 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{x - 3}{x}$): loses the common factor $5$ pulled out of the numerator.\n* Choice C ($\\frac{5(x + 3)}{x}$): cancels $x - 3$, which the denominator does not contain.\n* Choice D ($\\frac{5x - 45}{x}$): cancels an $x$ from the $x^{2}$ terms only, which is not a legal step.\n\n**Test Day Takeaway:** Pull out a numerical common factor first; the difference of squares is easier to see once the coefficient is outside."
+ "explanation": "**SAT Pattern: Rational Expression Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $\\frac{5(x - 3)(x + 3)}{x(x + 3)}$; cancel $x + 3$ to get $\\frac{5(x - 3)}{x}$.\n\n**The Full Solution:**\nStep 1: Factor the numerator in two stages: $5x^{2} - 45 = 5(x^{2} - 9) = 5(x - 3)(x + 3)$.\nStep 2: Factor the denominator: $x^{2} + 3x = x(x + 3)$.\nStep 3: For $x > 0$, the factor $x + 3$ is not zero and cancels, leaving $\\frac{5(x - 3)}{x}$. Check at $x = 5$: $\\frac{125 - 45}{25 + 15} = \\frac{80}{40} = 2$ and $\\frac{5(2)}{5} = 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{x - 3}{x}$): loses the common factor $5$ pulled out of the numerator.\n* Choice C ($\\frac{5(x + 3)}{x}$): cancels $x - 3$, which the denominator does not contain.\n* Choice D ($\\frac{5x - 45}{x + 3}$): divides only the terms that contain $x$ by $x$ and leaves $-45$ alone; a factor can be canceled only when it divides the whole numerator and the whole denominator.\n\n**Test Day Takeaway:** Pull out a numerical common factor first; the difference of squares is easier to see once the coefficient is outside."
 }

@@ -6,34 +6,35 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 1,
- "passage": "In 1874 the Illinois farmer Joseph Glidden patented a fence wire with barbs held in place by a second strand twisted around the first. Sales soared. By 1876 American makers were selling nearly three million pounds of barbed wire a ______ from the treeless plains, where timber for fence rails was scarce, showed no sign of slackening.",
+ "passage": "The deepest lake in the world is Lake Baikal, in southern Siberia. At its deepest point, the bottom lies about 1,640 meters below the surface. The lake holds about a fifth of the unfrozen fresh water on Earth's ______ no other lake contains as much.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "year and, demand"
+   "text": "surface and, no"
   },
   {
    "id": "B",
-   "text": "year, demand"
+   "text": "surface, no"
   },
   {
    "id": "C",
-   "text": "year. Demand"
+   "text": "surface. No"
   },
   {
    "id": "D",
-   "text": "year demand"
+   "text": "surface no"
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** Two independent clauses meet at the blank, and a period is a conventional way to separate them: \"By 1876 American makers were selling nearly three million pounds of barbed wire a year. Demand from the treeless plains... showed no sign of slackening.\"\n\n**The Full Solution:**\n- Clause one is complete: \"By 1876 American makers were selling nearly three million pounds of barbed wire a year.\"\n- Clause two is also complete: \"Demand from the treeless plains, where timber for fence rails was scarce, showed no sign of slackening.\"\n- Two independent clauses need a full boundary, a period, a semicolon, or a comma plus a coordinating conjunction. Only the period is on offer.\n\n**Why the other choices are wrong:**\n- A: It garbles the coordination: \"and\" would need a comma before it, not after it.\n- B: A comma alone between two independent clauses is a comma splice.\n- D: With no punctuation at all, the two clauses fuse into a run-on.",
+ "explanation": "**Choice C is correct.** Two independent clauses meet at the blank, and a period separates them correctly: \"The lake holds about a fifth of the unfrozen fresh water on Earth's surface. No other lake contains as much.\"\n\n**The Full Solution:**\n- \"The lake holds about a fifth of the unfrozen fresh water on Earth's surface\" is a complete sentence.\n- \"No other lake contains as much\" is also a complete sentence, with its own subject (\"lake\") and verb (\"contains\").\n- Two complete sentences need a strong boundary, and a period provides one.\n\n**Why the other choices are wrong:**\n- A: A comma placed after \"and\" instead of before it is not a correct way to join two independent clauses.\n- B: A comma alone between two independent clauses creates a comma splice.\n- D: With no punctuation at all, the two clauses run together as a fused sentence.",
  "_meta": {
   "rule": "period between independent clauses",
   "distractors": {
    "A": "misplaced comma after coordinating conjunction",
    "B": "comma splice",
    "D": "fused sentence"
-  }
+  },
+  "anchor": "Lake Baikal fresh water — period between independent clauses"
  }
 }

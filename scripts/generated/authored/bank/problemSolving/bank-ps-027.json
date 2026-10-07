@@ -1,14 +1,14 @@
 {
   "id": "bank-ps-027",
-  "question": "On a quiz, the mean score of the $15$ students in one class was $42$ points, and the mean score of the $25$ students in another class was $m$ points. The mean score of all $40$ students was $48$ points. What is the value of $m$?",
+  "question": "On a quiz, the mean score of the $16$ students in one class was $42$ points, and the mean score of the $24$ students in another class was $m$ points. The mean score of all $40$ students was $48$ points. What is the value of $m$?",
   "choices": [
     {
       "id": "A",
-      "text": "$32.25$"
+      "text": "$31.2$"
     },
     {
       "id": "B",
-      "text": "$51.6$"
+      "text": "$52$"
     },
     {
       "id": "C",
@@ -16,14 +16,14 @@
     },
     {
       "id": "D",
-      "text": "$58$"
+      "text": "$57$"
     }
   ],
   "distractorNotes": {
-    "A": "divides the second class's total, $1{,}290$, by all $40$ students instead of by the $25$ students in that class.",
+    "A": "divides the second class's total, $1{,}248$, by all $40$ students instead of by the $24$ students in that class.",
     "C": "treats the classes as equal in size and solves $\\frac{42 + m}{2} = 48$; the overall mean is weighted by the class sizes.",
-    "D": "swaps the class sizes, using $25$ students for the first class and $15$ for the second."
+    "D": "swaps the class sizes, using $24$ students for the first class and $16$ for the second."
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Weighted Combined Mean**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** All $40$ scores total $40 \\times 48 = 1{,}920$ points and the first class's total $15 \\times 42 = 630$ points, so $m = \\frac{1{,}920 - 630}{25} = 51.6$.\n\n**The Full Solution:**\nStep 1: Convert each mean to a total. All $40$ students: $40 \\times 48 = 1{,}920$ points. First class: $15 \\times 42 = 630$ points.\nStep 2: The second class scored $1{,}920 - 630 = 1{,}290$ points in all, so $m = \\frac{1{,}290}{25} = 51.6$.\nStep 3: Check: $\\frac{15(42) + 25(51.6)}{40} = \\frac{630 + 1{,}290}{40} = \\frac{1{,}920}{40} = 48$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($32.25$): divides the second class's total, $1{,}290$, by all $40$ students instead of by the $25$ students in that class.\n* Choice C ($54$): treats the classes as equal in size and solves $\\frac{42 + m}{2} = 48$; the overall mean is weighted by the class sizes.\n* Choice D ($58$): swaps the class sizes, using $25$ students for the first class and $15$ for the second.\n\n**Test Day Takeaway:** A combined mean is a weighted mean. Work in totals: (combined total) $-$ (known total) $=$ (unknown total), then divide by the unknown group's own count."
+  "explanation": "**SAT Pattern: Weighted Combined Mean**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** All $40$ scores total $40 \\times 48 = 1{,}920$ points and the first class's total is $16 \\times 42 = 672$ points, so $m = \\frac{1{,}920 - 672}{24} = 52$.\n\n**The Full Solution:**\nStep 1: Convert each mean to a total: the first class scored $16 \\times 42 = 672$ points, the second class scored $24m$ points, and all $40$ students scored $40 \\times 48 = 1{,}920$ points.\nStep 2: So $672 + 24m = 1{,}920$, which gives $24m = 1{,}248$ and $m = 52$.\nStep 3: Check: $\\frac{672 + 24(52)}{40} = \\frac{672 + 1{,}248}{40} = \\frac{1{,}920}{40} = 48$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($31.2$): divides the second class's total, $1{,}248$, by all $40$ students instead of by the $24$ students in that class.\n* Choice C ($54$): treats the classes as equal in size and solves $\\frac{42 + m}{2} = 48$; the overall mean is weighted by the class sizes.\n* Choice D ($57$): swaps the class sizes, using $24$ students for the first class and $16$ for the second.\n\n**Test Day Takeaway:** To combine means, work with totals: mean times count for each group, then divide the combined total by the combined count."
 }

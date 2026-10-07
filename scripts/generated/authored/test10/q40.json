@@ -6,30 +6,30 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 2,
- "passage": "The finest teas are made from just the bud and first two leaves of each new shoot, a plucking standard that machines struggle to honor. An agronomist comparing harvest methods on a single estate recorded both how much leaf each method gathered and how much of it met the standard. The agronomist concludes that mechanical harvesting achieves its speed at the cost of selectivity because ______",
+ "passage": "Dairy breeds differ in two ways that matter to farmers: how much milk a cow gives and how rich that milk is in butterfat. Holsteins, the black-and-white cows common on large dairy farms, are known for volume, while Jerseys, a smaller breed, are known for rich milk. Comparing records from Canadian herds, a dairy scientist concludes that Holsteins achieve their high milk yield at the cost of butterfat content because ______",
  "questionTable": {
   "type": "table",
-  "caption": "Harvest methods compared on one tea estate",
+  "caption": "Average milk yield per cow and butterfat content for three dairy breeds in Canadian herds, 2025",
   "headers": [
-   "Method",
-   "Leaf gathered per worker-hour (kg)",
-   "Shoots meeting two-leaves-and-a-bud standard (%)"
+   "Breed",
+   "Milk per cow (kilograms)",
+   "Butterfat (%)"
   ],
   "rows": [
    [
-    "Hand plucking",
-    "2",
-    "88"
+    "Holstein",
+    "11,557",
+    "4.21"
    ],
    [
-    "Shear harvesting",
-    "9",
-    "61"
+    "Brown Swiss",
+    "9,080",
+    "4.35"
    ],
    [
-    "Machine harvesting",
-    "26",
-    "34"
+    "Jersey",
+    "7,563",
+    "5.28"
    ]
   ]
  },
@@ -37,21 +37,21 @@
  "choices": [
   {
    "id": "A",
-   "text": "hand plucking gathered only 2 kilograms of leaf per worker-hour, the lowest rate among the three methods recorded."
+   "text": "Jersey milk contained 5.28 percent butterfat, the highest butterfat content of any of the three dairy breeds listed in the table."
   },
   {
    "id": "B",
-   "text": "machine harvesting gathered thirteen times as much leaf per worker-hour as hand plucking but cut the share meeting the standard from 88 to 34 percent."
+   "text": "Holsteins gave about 4,000 more kilograms of milk per cow than Jerseys, but their milk held 4.21 percent butterfat to Jerseys' 5.28."
   },
   {
    "id": "C",
-   "text": "shear harvesting, the intermediate method recorded, gathered 9 kilograms of leaf per worker-hour, of which 61 percent met the two-leaves-and-a-bud standard."
+   "text": "Brown Swiss cows, which ranked between the other two breeds in milk yield, gave an average of 9,080 kilograms of milk per cow in 2025."
   },
   {
    "id": "D",
-   "text": "the two-leaves-and-a-bud standard restricts fine teas to the youngest growth on each new shoot."
+   "text": "a cow's breed is only one of several factors, along with feed and climate, that affect the butterfat content of its milk."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The conclusion is a trade-off, speed bought with selectivity, so the completing evidence must cite both columns at the two extremes, which B does: thirteenfold speed (26 versus 2 kilograms) against a collapse in standard-meeting shoots (88 to 34 percent).\n\n**The Full Solution:**\n- \"Speed at the cost of selectivity\" requires two linked comparisons: machine harvesting faster than hand plucking, and machine harvesting less selective.\n- From the table: 26 versus 2 kilograms per worker-hour, and 34 versus 88 percent meeting the standard. B pairs exactly these figures.\n\n**Why the other choices are wrong:**\n- A: It reads the speed column alone, and from the wrong direction, saying nothing about what speed cost.\n- C: The middle method's figures, cited without any comparison, establish neither the speed gain nor the selectivity loss.\n- D: It paraphrases the plucking standard from the passage and uses no data from the table at all."
+ "explanation": "**Choice B is correct.** The conclusion is a trade-off: Holsteins gain milk volume but lose butterfat. B uses both columns at the two extremes: Holsteins gave about 4,000 more kilograms of milk than Jerseys (11,557 versus 7,563) but had less butterfat (4.21 versus 5.28 percent).\n\n**The Full Solution:**\n- \"High milk yield at the cost of butterfat content\" needs two comparisons: Holsteins give more milk, and their milk has less butterfat.\n- From the table: 11,557 versus 7,563 kilograms, and 4.21 versus 5.28 percent. B pairs exactly these figures.\n\n**Why the other choices are wrong:**\n- A: It reports only the butterfat column and never shows Holsteins' greater milk yield.\n- C: It describes the middle breed's milk yield only and says nothing about butterfat or about Holsteins.\n- D: It makes a general statement about butterfat without using any data from the table."
 }

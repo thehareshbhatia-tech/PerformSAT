@@ -11,11 +11,11 @@
  "choices": [
   {
    "id": "A",
-   "text": "The speaker describes the peace he imagines on the island, then reveals that its sounds reach him even as he stands on distant pavements."
+   "text": "The speaker describes the peace he imagines on the island, then reveals that he hears its sounds even on distant pavements."
   },
   {
    "id": "B",
-   "text": "The speaker remembers an island he visited long ago in childhood and mourns that both the place and he himself have since changed beyond recognition."
+   "text": "The speaker remembers an island he visited in childhood and mourns that it has changed beyond recognition."
   },
   {
    "id": "C",
@@ -23,7 +23,7 @@
   },
   {
    "id": "D",
-   "text": "The speaker describes how an island looks at midnight, noon, and evening and then urges a companion to travel there with him."
+   "text": "The speaker describes the island at midnight, at noon, and in the evening and then urges a companion to travel there with him."
   }
  ],
  "correctAnswer": "A",

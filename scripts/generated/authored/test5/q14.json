@@ -6,40 +6,35 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 1,
- "passage": "Rockfall from surrounding peaks can bury a glacier's lower reaches under a blanket of debris, and a layer more than a few centimeters thick insulates the ice beneath it from summer warmth. Comparing glaciers in a single mountain range that have experienced similar warming since 2000, a glaciologist claims that heavy debris cover has slowed the retreat of glacier termini, with lightly covered glaciers pulling back far more than heavily covered ones.",
+ "passage": "An earthquake's magnitude measures the energy it releases, and each whole-number step up the scale marks about 32 times more energy, so a magnitude 7.0 earthquake releases roughly 1,000 times the energy of a magnitude 5.0 earthquake. Drawing on worldwide counts kept by the US Geological Survey, a geophysics student claims that earthquakes grow far rarer as magnitude rises. Earthquakes of magnitude 5.0 to 6.9, the student argues, occur several times as often each year as earthquakes of magnitude 7.0 or greater.",
  "questionTable": {
   "type": "table",
-  "caption": "Debris cover and terminus retreat for five glaciers in one mountain range, 2000-2020",
+  "caption": "Number of earthquakes recorded worldwide per year, 2000-2021, by magnitude",
   "headers": [
-   "Glacier",
-   "Debris-covered area (%)",
-   "Terminus retreat (m)"
+   "Magnitude",
+   "Class",
+   "Earthquakes per year (lowest-highest)"
   ],
   "rows": [
    [
-    "A",
-    "2",
-    "640"
+    "5.0-5.9",
+    "Moderate",
+    "1,201-2,276"
    ],
    [
-    "B",
-    "5",
-    "590"
+    "6.0-6.9",
+    "Strong",
+    "104-185"
    ],
    [
-    "C",
-    "38",
-    "220"
+    "7.0-7.9",
+    "Major",
+    "6-23"
    ],
    [
-    "D",
-    "51",
-    "180"
-   ],
-   [
-    "E",
-    "64",
-    "150"
+    "8.0 or greater",
+    "Great",
+    "0-4"
    ]
   ]
  },
@@ -47,24 +42,29 @@
  "choices": [
   {
    "id": "A",
-   "text": "All five glaciers retreated between 2000 and 2020, by amounts ranging from 150 to 640 meters."
+   "text": "Each class's yearly count spans a range, from only 4 earthquakes for the great class to more than 1,000 for the moderate class."
   },
   {
    "id": "B",
-   "text": "The two glaciers with debris cover of 5% or less retreated 590 meters or more, while the three glaciers with debris cover above 35% each retreated 220 meters or less."
+   "text": "Classes below magnitude 7.0 had 104 or more earthquakes every year, while those of 7.0 or greater had 23 or fewer."
   },
   {
    "id": "C",
-   "text": "Glacier E, with 64% of its area under debris, retreated 150 meters over the two decades."
+   "text": "Moderate earthquakes, those of magnitude 5.0 to 5.9, numbered between 1,201 and 2,276 each year."
   },
   {
    "id": "D",
-   "text": "Averaged across the five glaciers, terminus retreat between 2000 and 2020 was slightly more than 350 meters."
+   "text": "The major class never had fewer than 6 earthquakes in a year, while the great class sometimes had none at all."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The claim links two variables — debris cover and retreat — and B is the only choice that pairs them, contrasting the heavy retreat of the two lightly covered glaciers with the much smaller retreat of the three heavily covered ones.\n\n**The Full Solution:**\n- Supporting the claim requires showing that retreat differs systematically with debris cover, not merely that retreat occurred.\n- B splits the table along exactly the relevant line: at or below 5% cover, retreat is 590-640 meters; above 35% cover, retreat is 150-220 meters.\n- Because the glaciers shared similar warming, that stark separation is the comparison the glaciologist's claim rests on.\n\n**Why the other choices are wrong:**\n- A: It reports that everything retreated but never touches debris cover, so it cannot connect the two variables.\n- C: It cites one heavily covered glacier; with no lightly covered glacier for contrast, slower retreat cannot be established.\n- D: An average collapses precisely the difference between groups that the claim depends on.",
+ "explanation": "**Choice B is correct.** The claim links magnitude to how often earthquakes occur, and B is the only choice that pairs the two, contrasting the yearly counts of the smaller classes with the far lower counts of the larger ones.\n\n**The Full Solution:**\n- Supporting the claim requires showing that the yearly count differs systematically with magnitude, not just reporting one class's count.\n- B splits the table along exactly the relevant line: below magnitude 7.0, each class had 104 or more earthquakes every year; at 7.0 or greater, each had 23 or fewer.\n- Even the lowest count for a smaller class (104) is more than four times the highest count for a larger class (23), so the smaller earthquakes occur several times as often, as the claim states.\n\n**Why the other choices are wrong:**\n- A: It describes how wide each class's range is, which says nothing about whether earthquakes grow rarer as magnitude rises.\n- C: A single class's count, with no larger class for comparison, cannot show a relationship with magnitude.\n- D: The major and great classes are both magnitude 7.0 or greater, so comparing them does not set smaller earthquakes against larger ones at all.",
  "_meta": {
-  "anchor": "debris-covered glaciers — insulating rock cover slowing terminus retreat"
+  "anchor": "USGS worldwide earthquake counts per year by magnitude class, 2000-2021 (yearly low-high ranges): smaller vs larger classes",
+  "sources": [
+   "https://www.usgs.gov/programs/earthquake-hazards/lists-maps-and-statistics",
+   "https://www.usgs.gov/programs/earthquake-hazards/earthquake-magnitude-energy-release-and-shaking-intensity",
+   "https://ds.iris.edu/ds/support/faq/52/how-do-i-interpret-magnitudes-and-magnitude-types/"
+  ]
  }
 }

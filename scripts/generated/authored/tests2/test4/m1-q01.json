@@ -1,6 +1,6 @@
 {
  "id": 1,
- "question": "The table shows the total rainfall, in centimeters, at a weather station during a storm in which rain fell at a constant rate. At this rate, what was the total rainfall, in millimeters, after $12$ hours? ($1$ centimeter $= 10$ millimeters)",
+ "question": "The table shows the total rainfall, in centimeters, at a weather station during a storm in which rain fell at a constant rate. At this rate, what was the total rainfall, in centimeters, after $12$ hours?",
  "diagram": {
   "type": "dataTable",
   "params": {
@@ -31,22 +31,22 @@
   },
   {
    "id": "B",
-   "text": "$56$"
+   "text": "$9.6$"
   },
   {
    "id": "C",
-   "text": "$84$"
+   "text": "$16.8$"
   },
   {
    "id": "D",
-   "text": "$840$"
+   "text": "$67.2$"
   }
  ],
  "distractorNotes": {
-  "A": "finds the 12-hour total in centimeters, 0.7(12) = 8.4, and never converts to millimeters",
-  "B": "converts the last table entry, 5.6 centimeters after 8 hours, to 56 millimeters instead of extending to 12 hours",
-  "D": "multiplies 8.4 centimeters by 100 instead of 10 when converting to millimeters"
+  "B": "adds the 4 extra hours to the 8-hour total of 5.6 centimeters, as if each hour added 1 centimeter",
+  "C": "treats 1.4 centimeters, the rainfall in 2 hours, as the rainfall per hour, giving 1.4(12)",
+  "D": "multiplies the 8-hour total, 5.6 centimeters, by 12 hours"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Proportion Solving**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The rain fell at $\\frac{1.4}{2} = 0.7$ centimeter per hour, so after $12$ hours the total was $0.7(12) = 8.4$ centimeters, or $8.4(10) = 84$ millimeters.\n\n**The Full Solution:**\nStep 1: Find the rate from any row of the table: $\\frac{1.4}{2} = 0.7$ centimeter per hour. The other rows agree: $\\frac{3.5}{5} = 0.7$ and $\\frac{5.6}{8} = 0.7$.\nStep 2: Extend to $12$ hours: $0.7(12) = 8.4$ centimeters.\nStep 3: Convert to millimeters: $8.4(10) = 84$ millimeters. Check: $12$ hours is $1.5$ times $8$ hours, and $1.5(5.6) = 8.4$ centimeters, which is $84$ millimeters ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8.4$): this is the 12-hour total in centimeters; the question asks for millimeters.\n* Choice B ($56$): converts the 8-hour entry, $5.6$ centimeters, to millimeters but never extends the rate to $12$ hours.\n* Choice D ($840$): multiplies by $100$ instead of $10$; there are $10$ millimeters in a centimeter, not $100$.\n\n**Test Day Takeaway:** Find the unit rate first, scale it to the requested time, and convert units as the last step; check which unit the question asks for before choosing."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Proportion Solving**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The rain fell at $\\frac{1.4}{2} = 0.7$ centimeter per hour, so after $12$ hours the total was $0.7(12) = 8.4$ centimeters.\n\n**The Full Solution:**\nStep 1: Find the rate from any row of the table: $\\frac{1.4}{2} = 0.7$ centimeter per hour. The other rows agree: $\\frac{3.5}{5} = 0.7$ and $\\frac{5.6}{8} = 0.7$.\nStep 2: The total rainfall is the rate times the time, so after $12$ hours it is $0.7(12)$ centimeters.\nStep 3: Multiply: $0.7(12) = 8.4$ centimeters. Check: $12$ hours is $1.5$ times $8$ hours, and $1.5(5.6) = 8.4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($9.6$): adds $4$ to the 8-hour total of $5.6$, as if each extra hour added $1$ centimeter. The rate is $0.7$ centimeter per hour.\n* Choice C ($16.8$): treats $1.4$ centimeters as the rainfall per hour, but $1.4$ centimeters fell in $2$ hours.\n* Choice D ($67.2$): multiplies the 8-hour total by $12$; the table entries are totals, not hourly amounts.\n\n**Test Day Takeaway:** Find the unit rate first, then scale it to the requested time; a second row of the table is a free check on the rate."
 }

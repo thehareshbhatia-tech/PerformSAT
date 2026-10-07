@@ -1,30 +1,30 @@
 {
  "id": 3,
- "question": "Segments $\\overline{PA}$ and $\\overline{PB}$ are tangent to a circle at points $A$ and $B$, respectively. If $PA = 4x - 5$ and $PB = 2x + 7$, what is the length of $\\overline{PA}$?",
+ "question": "Segments $\\overline{PA}$ and $\\overline{PB}$ are tangent to a circle with center $O$ at points $A$ and $B$, respectively. The radius of the circle is $6$, and $PA = 8$. What is the perimeter of quadrilateral $OAPB$?",
  "choices": [
   {
    "id": "A",
-   "text": "$6$"
+   "text": "$14$"
   },
   {
    "id": "B",
-   "text": "$19$"
+   "text": "$20$"
   },
   {
    "id": "C",
-   "text": "$24$"
+   "text": "$28$"
   },
   {
    "id": "D",
-   "text": "$38$"
+   "text": "$48$"
   }
  ],
- "correctAnswer": "B",
- "hint": "Two tangent segments drawn from the same external point are related in a way that gives you an equation.",
+ "correctAnswer": "C",
+ "hint": "Two tangent segments drawn from the same outside point are equal in length.",
  "distractorNotes": {
-  "A": "reports x",
-  "C": "drops the constant term",
-  "D": "adds both segments"
+  "A": "adds only one radius and one tangent segment",
+  "B": "includes PA but leaves out PB",
+  "D": "computes the area of OAPB, 2 times (1/2)(6)(8)"
  },
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~35s):** Tangent segments from a common external point are congruent, so $4x - 5 = 2x + 7$ gives $x = 6$ and $PA = 4(6) - 5 = 19$.\n\n**The Full Solution:**\nStep 1: $\\overline{PA}$ and $\\overline{PB}$ are tangent to the same circle from the same external point, so $PA = PB$.\nStep 2: Solve $4x - 5 = 2x + 7$: subtracting $2x$ gives $2x - 5 = 7$, so $2x = 12$ and $x = 6$.\nStep 3: $PA = 4(6) - 5 = 19$. Check: $PB = 2(6) + 7 = 19$, the same length.\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): reports the value of $x$ instead of substituting it back into the expression for the length.\n* Choice C ($24$): evaluates $4x$ at $x = 6$ but drops the $-5$.\n* Choice D ($38$): adds $PA$ and $PB$, reporting the combined length of both tangent segments.\n\n**Test Day Takeaway:** Solving for $x$ is the middle of the problem, not the end. Substitute back into whatever expression the question actually names."
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** $OA = OB = 6$ and $PB = PA = 8$, so the perimeter is $6 + 8 + 8 + 6 = 28$.\n\n**The Full Solution:**\nStep 1: $\\overline{OA}$ and $\\overline{OB}$ are radii, so $OA = OB = 6$.\nStep 2: Tangent segments from the same point $P$ are equal, so $PB = PA = 8$.\nStep 3: Perimeter of $OAPB$ $= OA + AP + PB + BO = 6 + 8 + 8 + 6 = 28$. Check: the two sides at $O$ total $12$ and the two tangent sides total $16$; $12 + 16 = 28$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($14$): adds one radius and one tangent segment, which is only half the perimeter.\n* Choice B ($20$): uses both radii and $PA$ but leaves out $PB$.\n* Choice D ($48$): computes the area of $OAPB$, two right triangles of area $\\frac{1}{2}(6)(8) = 24$, instead of the perimeter.\n\n**Test Day Takeaway:** From one outside point, the two tangent segments to a circle are always equal."
 }

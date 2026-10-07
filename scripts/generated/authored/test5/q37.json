@@ -6,29 +6,29 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 2,
- "passage": "Before drawing conclusions from a fossil deposit, paleontologists must ask how far its bones traveled before burial: bones swept together by a river tell a different story than animals buried where they died. To calibrate the signs of transport, researchers have tumbled fresh bones in rotating drums with water and gravel, mimicking the battering of river transport over long distances. Projecting edges and crests rounded off first, and fine surface traces such as cut marks and gnaw marks wore away. Matching the wear on excavated bones to these experimental stages lets researchers estimate how far a specimen moved.",
- "question": "Based on the text, what happened when researchers tumbled fresh bones with water and gravel?",
+ "passage": "In the 1960s, archaeologists excavating an ancient palace at Masada, a desert fortress in southern Israel, found a jar of date palm seeds. The seeds were later dated to about 2,000 years ago. No one knew whether seeds so old could still grow. In 2005, researchers soaked some of the seeds in water, treated them with fertilizer and plant hormones, and planted them. One seed sprouted and grew into a healthy palm, which by 2015 was producing pollen that could fertilize other date palms.",
+ "question": "Based on the text, what happened when researchers planted the ancient seeds?",
  "choices": [
   {
    "id": "A",
-   "text": "The bones broke into fragments too small to be identified."
+   "text": "None of the seeds sprouted, which suggested that seeds so old can no longer grow."
   },
   {
    "id": "B",
-   "text": "The bones' surfaces hardened, protecting fine marks from further wear."
+   "text": "Several seeds sprouted, but none of the young palms survived long enough to flower."
   },
   {
    "id": "C",
-   "text": "The bones' projecting edges rounded off and fine marks on their surfaces wore away."
+   "text": "One seed grew into a palm that eventually produced pollen able to fertilize other palms."
   },
   {
    "id": "D",
-   "text": "The bones showed no measurable change until they had been tumbled for a very long time."
+   "text": "One seed grew into a palm whose dates tasted just like those described in ancient written records."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The text reports the experimental outcome directly: \"Projecting edges and crests rounded off first, and fine surface traces such as cut marks and gnaw marks wore away.\"\n\n**The Full Solution:**\n- The question asks for the result of the tumbling experiments, which the sentence after the description of the drums states.\n- That sentence names two changes, and they are precisely choice C's contents: rounding of projecting edges and loss of fine surface marks.\n- The final sentence confirms that these changes came in stages that researchers can match against excavated bones.\n\n**Why the other choices are wrong:**\n- A: Fragmentation beyond identification is never reported; the bones wore progressively, which is what makes the stages usable for calibration.\n- B: Hardening reverses the finding — the marks wore away instead of being protected.\n- D: The text describes an ordered sequence of wear (edges \"rounded off first\"), not an absence of change followed by sudden damage.",
+ "explanation": "**Choice C is correct.** The text reports that one of the planted seeds sprouted and grew into a healthy palm, and that by 2015 this palm was producing pollen that could fertilize other date palms.\n\n**The Full Solution:**\n- How to spot it: find the sentences about what happened after the 2005 planting, not the background about the excavation.\n- The result is stated directly: \"One seed sprouted and grew into a healthy palm.\"\n- The text adds that by 2015 the palm \"was producing pollen that could fertilize other date palms.\" Choice C combines both details.\n\n**Why the other choices are wrong:**\n- A: The text says one seed sprouted, so it is false that none did.\n- B: The text describes only one seedling, and that palm survived and produced pollen.\n- D: The text never mentions the palm producing dates or how any dates tasted; it reports only pollen.",
  "_meta": {
-  "anchor": "taphonomy tumbling experiments — calibrating bone wear to transport distance"
+  "anchor": "Judean date palm grown from 2,000-year-old Masada seeds — detail: what happened after planting"
  }
 }

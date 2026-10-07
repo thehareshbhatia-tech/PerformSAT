@@ -8,31 +8,31 @@
  "choices": [
   {
    "id": "A",
-   "text": "1960s,"
+   "text": "51,"
   },
   {
    "id": "B",
-   "text": "1960s;"
+   "text": "51;"
   },
   {
    "id": "C",
-   "text": "1960s"
+   "text": "51"
   },
   {
    "id": "D",
-   "text": "1960s:"
+   "text": "51:"
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** Two independent clauses meet at the blank, and with no coordinating conjunction between them, a semicolon is the conventional joint.\n\n**The Full Solution:**\n- Clause 1: \"The biologist Arthur DeVries first isolated antifreeze glycoproteins ... in the late 1960s\" — complete.\n- Clause 2: \"nearly identical proteins were later found in Arctic cod, which had evolved them independently\" — also complete.\n- Related independent clauses joined without \"and,\" \"but,\" or another coordinator take a semicolon.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses is a comma splice.\n- C: No punctuation at all fuses the clauses into a run-on.\n- D: A colon signals that what follows explains or specifies what precedes; the second clause reports a later, separate discovery, not an explanation of DeVries's isolation of the proteins.",
- "passage": "The biologist Arthur DeVries first isolated antifreeze glycoproteins from the blood of Antarctic notothenioid fish in the late ______ nearly identical proteins were later found in Arctic cod, which had evolved them independently.",
+ "explanation": "**Choice B is correct.** The sentence joins two independent clauses: \"Rosalind Franklin and Raymond Gosling recorded an X-ray image of DNA known as Photo 51\" and \"less than a year later, James Watson and Francis Crick published their double-helix model of DNA.\" A semicolon is the conventional way to join two independent clauses without a conjunction.\n\n**The Full Solution:**\n- Clause 1 has a subject (Franklin and Gosling) and a verb (recorded).\n- Clause 2 has its own subject (Watson and Crick) and verb (published).\n- With no coordinating conjunction between them, a semicolon is required.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses creates a comma splice.\n- C: With no punctuation, the two clauses run together as a fused sentence.\n- D: A colon introduces an explanation or elaboration of the first clause, but the second clause reports a separate, later event.",
+ "passage": "In May 1952, Rosalind Franklin and Raymond Gosling recorded an X-ray image of DNA known as Photo ______ less than a year later, James Watson and Francis Crick published their double-helix model of DNA.",
  "_meta": {
-  "rule": "semicolon between independent clauses without a coordinator",
-  "anchor": "Antarctic fish antifreeze proteins — DeVries isolation (late 1960s); convergent AFGPs in Arctic cod (Chen, DeVries & Cheng, PNAS 1997, PMID 9108061)",
+  "rule": "semicolon between two independent clauses",
+  "anchor": "Photo 51 (6 May 1952, Franklin and Gosling, King's College London; Watson-Crick model April 1953) — Embryo Project ASU; KCL",
   "distractors": {
    "A": "comma splice",
-   "C": "fused run-on",
-   "D": "colon without elaborating relation"
+   "C": "fused sentence",
+   "D": "colon without elaboration"
   }
  },
  "id": 1144,

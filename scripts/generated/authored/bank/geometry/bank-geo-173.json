@@ -1,60 +1,60 @@
 {
- "id": "bank-geo-173",
- "question": "In the right triangle shown, $\\tan\\theta = \\frac{8}{15}$. If the perimeter of the triangle is $120$, what is the length of the hypotenuse?",
- "diagram": {
-  "type": "rightTriangle",
-  "params": {
-   "vertices": [
-    [
-     0,
-     0
-    ],
-    [
-     45,
-     0
-    ],
-    [
-     45,
-     24
-    ]
-   ],
-   "labels": [
-    "θ",
-    "",
-    ""
-   ],
-   "sideLabels": [
-    "",
-    "",
-    ""
-   ],
-   "rightAngleVertex": 1,
-   "figureNote": true
-  }
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$17$"
+  "id": "bank-geo-173",
+  "question": "The perimeter of the right triangle shown is $90$, and $\\tan\\theta = \\frac{5}{12}$. What is the length of the hypotenuse of the triangle?",
+  "diagram": {
+    "type": "rightTriangle",
+    "params": {
+      "vertices": [
+        [
+          0,
+          0
+        ],
+        [
+          36,
+          0
+        ],
+        [
+          36,
+          15
+        ]
+      ],
+      "labels": [
+        "θ",
+        "",
+        ""
+      ],
+      "sideLabels": [
+        "",
+        "",
+        ""
+      ],
+      "rightAngleVertex": 1,
+      "figureNote": true
+    }
   },
-  {
-   "id": "B",
-   "text": "$24$"
+  "choices": [
+    {
+      "id": "A",
+      "text": "$13$"
+    },
+    {
+      "id": "B",
+      "text": "$15$"
+    },
+    {
+      "id": "C",
+      "text": "$36$"
+    },
+    {
+      "id": "D",
+      "text": "$39$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses 5, 12, and 13 as the side lengths without scaling them to the perimeter of 90",
+    "B": "reports the leg opposite theta, 5k = 15",
+    "C": "reports the leg adjacent to theta, 12k = 36"
   },
-  {
-   "id": "C",
-   "text": "$45$"
-  },
-  {
-   "id": "D",
-   "text": "$51$"
-  }
- ],
- "distractorNotes": {
-  "A": "uses 8, 15, and 17 as the side lengths without scaling them to the perimeter of 120",
-  "B": "reports the leg opposite theta, 8k = 24",
-  "C": "reports the leg adjacent to theta, 15k = 45"
- },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** $\\tan\\theta = \\frac{8}{15}$ makes the sides $8k$, $15k$, and $17k$; the perimeter $40k = 120$ gives $k = 3$, so the hypotenuse is $17(3) = 51$.\n\n**The Full Solution:**\nStep 1: $\\tan\\theta = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{8}{15}$, so the leg opposite $\\theta$ is $8k$ and the leg adjacent to $\\theta$ is $15k$ for some positive $k$. The hypotenuse is $\\sqrt{(8k)^{2} + (15k)^{2}} = \\sqrt{289k^{2}} = 17k$.\nStep 2: The perimeter is $8k + 15k + 17k = 40k$, so $40k = 120$ and $k = 3$.\nStep 3: The hypotenuse is $17(3) = 51$. Check: the sides $24$, $45$, and $51$ sum to $120$, and $\\frac{24}{45} = \\frac{8}{15}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($17$): uses $8$, $15$, and $17$ as the actual side lengths, but those sides have a perimeter of only $40$.\n* Choice B ($24$): reports the leg opposite $\\theta$, $8k$.\n* Choice C ($45$): reports the leg adjacent to $\\theta$, $15k$.\n\n**Test Day Takeaway:** A trig ratio fixes the shape of a right triangle, not its size; write each side as a multiple of $k$, and let the perimeter find $k$."
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** $\\tan\\theta = \\frac{5}{12}$ makes the sides $5k$, $12k$, and $13k$; the perimeter $30k = 90$ gives $k = 3$, so the hypotenuse is $13(3) = 39$.\n\n**The Full Solution:**\nStep 1: $\\tan\\theta = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{5}{12}$, so the leg opposite $\\theta$ is $5k$ and the leg adjacent to $\\theta$ is $12k$ for some positive $k$. The hypotenuse is $\\sqrt{(5k)^{2} + (12k)^{2}} = \\sqrt{169k^{2}} = 13k$.\nStep 2: The perimeter is $5k + 12k + 13k = 30k$, so $30k = 90$ and $k = 3$.\nStep 3: The hypotenuse is $13(3) = 39$. Check: the sides $15$, $36$, and $39$ sum to $90$, and $\\frac{15}{36} = \\frac{5}{12}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($13$): uses $5$, $12$, and $13$ as the actual side lengths, but those sides have a perimeter of only $30$.\n* Choice B ($15$): reports the leg opposite $\\theta$, $5k$.\n* Choice C ($36$): reports the leg adjacent to $\\theta$, $12k$.\n\n**Test Day Takeaway:** A trig ratio fixes the shape of a right triangle, not its size; write each side as a multiple of $k$, and let the perimeter find $k$."
 }

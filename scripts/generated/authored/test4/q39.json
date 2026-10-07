@@ -6,29 +6,29 @@
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-textual",
   "module": 2,
-  "passage": "Winter wheat is sown in autumn, overwinters as a seedling, and flowers only after prolonged exposure to cold — a requirement called vernalization. Agronomists have hypothesized that the requirement is a safeguard keyed to local climate: by blocking flowering until a real winter has passed, it prevents a warm autumn spell from luring plants into blooming just before killing frosts arrive.",
-  "question": "Which finding, if true, would most directly support the agronomists' hypothesis?",
+  "passage": "Anoles are small lizards that cling to tree trunks and branches with adhesive pads on their toes. After two hurricanes struck the Caribbean in 2017, a team of biologists found that the anoles surviving on two islands in the storms' path had larger toepads, on average, than those islands' anoles had before. The researchers hypothesize that hurricanes favor lizards with larger toepads, which grip more strongly and help a lizard hold on in high winds.",
+  "question": "Which finding, if true, would most directly support the researchers' hypothesis?",
   "choices": [
     {
       "id": "A",
-      "text": "Varieties bred for centuries in regions with long, severe winters demand longer cold exposure before flowering than varieties from regions where winters are short and mild."
+      "text": "Anole populations on islands struck by hurricanes more often over the past several decades have larger toepads than populations on islands struck less often."
     },
     {
       "id": "B",
-      "text": "Spring wheat, which is sown after the last frost of the season, flowers without any period of cold exposure at all."
+      "text": "Anoles that live mostly on the ground have smaller toepads than anoles that live mostly in trees."
     },
     {
       "id": "C",
-      "text": "Vernalized seedlings raised in heated greenhouses flower at the same rate whether their light comes from the sun or from lamps."
+      "text": "Anoles kept in laboratory enclosures grow at the same rate whether they are fed live insects or a prepared diet."
     },
     {
       "id": "D",
-      "text": "Varieties bred in the regions with the longest, harshest winters flower after the briefest cold exposure, while varieties from the mildest regions turn out to demand the most prolonged exposure of all."
+      "text": "Anole populations on the islands struck most often by hurricanes have the smallest toepads on average, while populations on rarely struck islands have the largest."
     }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** If the cold requirement is a safeguard \"keyed to local climate,\" it should be calibrated to the winters a variety actually faces — longer and harsher winters demanding a longer proof of winter before flowering. Choice A reports exactly that calibration.\n\n**The Full Solution:**\n- The hypothesis predicts a match between requirement and risk: flowering should stay blocked for as long as killing frosts remain possible locally.\n- Where winters are long and severe, a brief chill is no proof that winter has passed; a long requirement is protective. Where winters are short and mild, a long requirement would only cost growing time.\n- A gradient in which each variety's requirement mirrors its home climate is the safeguard hypothesis observed in the field.\n\n**Why the other choices are wrong:**\n- B: Spring wheat never faces the autumn-sowing hazard, so its lack of a requirement neither confirms nor tests the safeguard account.\n- C: The light source is irrelevant to whether cold exposure is calibrated to frost risk.\n- D: This is the reverse gradient — it would count against the hypothesis, not for it.",
+  "explanation": "**Choice A is correct.** If hurricanes favor anoles with larger toepads, then islands that hurricanes strike more often should, over time, hold lizards with larger toepads. Choice A reports exactly that pattern.\n\n**The Full Solution:**\n- The hypothesis links two things: hurricanes and larger toepads.\n- A finding that supports it should show toepad size rising with hurricane exposure.\n- A compares islands struck more often with islands struck less often and finds larger toepads where storms are more frequent.\n\n**Why the other choices are wrong:**\n- B: Ground-dwelling and tree-dwelling lizards may differ for many reasons; the finding says nothing about hurricanes.\n- C: Diet and growth rate in the laboratory have nothing to do with surviving high winds.\n- D: This is the reverse pattern; it would count against the hypothesis, not for it.",
   "_meta": {
-    "anchor": "vernalization as a climate-keyed safeguard; finding-if-true form"
+    "anchor": "Anolis toepads and hurricanes (Donihue et al. 2018 Nature; 2020 PNAS); finding-if-true form"
   }
 }

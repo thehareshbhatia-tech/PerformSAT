@@ -6,40 +6,35 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 2,
- "passage": "Ecologists monitoring former grazing land in Europe have debated what drives biodiversity gains after farming stops. Some attribute the gains simply to the removal of livestock; others argue that reintroducing large grazers such as bison or feral horses at low density is what matters, because their patchy, selective grazing creates a mosaic of habitats that uniform abandonment does not. Researchers tracking plant species richness at four reserves contend that low-density grazer reintroduction, not the end of farming alone, drives the largest gains. The claim is supported by the data because ______",
+ "passage": "In some European countries, people are organ donors only if they register to be one, an opt-in system. In others, everyone is a donor unless they register not to be, an opt-out system. Psychologists Eric J. Johnson and Daniel Goldstein argued in 2003 that this default, rather than differences in culture, explains much of the gap in consent rates. Germany and Austria are neighbors with much in common, as are Denmark and Sweden. The data support the argument because ______",
  "questionTable": {
   "type": "table",
-  "caption": "Plant species per survey plot at four former grazing reserves, ten years after farming ceased",
+  "caption": "Effective consent rates for organ donation in four European countries, as reported by Johnson and Goldstein (2003)",
   "headers": [
-   "Reserve",
-   "Species per plot, year 0",
-   "Species per plot, year 10",
-   "Management after farming ceased"
+   "Country",
+   "Donation system",
+   "Consent rate (%)"
   ],
   "rows": [
    [
-    "Reserve 1",
-    "24",
-    "58",
-    "Bison reintroduced"
+    "Germany",
+    "Opt-in",
+    "12"
    ],
    [
-    "Reserve 2",
-    "27",
-    "61",
-    "Feral horses reintroduced"
+    "Austria",
+    "Opt-out",
+    "99.98"
    ],
    [
-    "Reserve 3",
-    "25",
-    "38",
-    "No grazers (abandonment)"
+    "Denmark",
+    "Opt-in",
+    "4.25"
    ],
    [
-    "Reserve 4",
-    "23",
-    "36",
-    "No grazers (abandonment)"
+    "Sweden",
+    "Opt-out",
+    "85.9"
    ]
   ]
  },
@@ -47,21 +42,24 @@
  "choices": [
   {
    "id": "A",
-   "text": "species richness at Reserve 1 more than doubled over the decade, rising from 24 species per plot in year 0 to 58 species per plot in year 10."
+   "text": "Austria's consent rate of 99.98% was the highest of the four countries in the table."
   },
   {
    "id": "B",
-   "text": "all four reserves supported more plant species per plot in year 10 than in year 0, regardless of how they were managed after farming ceased."
+   "text": "every country in the table had a consent rate above 4%, whichever donation system it used."
   },
   {
    "id": "C",
-   "text": "although richness rose at every reserve after farming ceased, the two grazer reserves gained roughly 34 species per plot, more than twice the roughly 13 gained at the abandoned reserves with similar baselines."
+   "text": "in each pair of neighbors, the opt-out country's rate far exceeded the opt-in country's: 99.98% in Austria versus 12% in Germany, and 85.9% in Sweden versus 4.25% in Denmark."
   },
   {
    "id": "D",
-   "text": "the two grazer reserves began with 24 and 27 species per plot, close to the 25 and 23 species recorded in year 0 at the two abandoned reserves."
+   "text": "Sweden's consent rate was lower than Austria's, even though both countries use opt-out systems."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The claim is that grazers add gains beyond abandonment alone, and C isolates exactly that difference: roughly 34 species per plot with grazers versus roughly 13 without, from similar starting values.\n\n**The Full Solution:**\n- The claim has two parts the evidence must separate: ending farming helps (undisputed), and grazer reintroduction adds gains beyond abandonment alone.\n- Choice C concedes that richness rose everywhere, then quantifies the management difference — and because the plots started from similar values, the gap cannot be explained by baseline differences.\n\n**Why the other choices are wrong:**\n- A: A single reserve's improvement with no comparison across managements cannot distinguish the grazers' contribution from abandonment's.\n- B: It establishes only the undisputed part, and its \"regardless of how they were managed\" framing actively cuts against the claim.\n- D: It verifies comparable baselines — a precondition — but stops before the comparison; similar starting points alone say nothing about what drove the gains."
+ "explanation": "**Choice C is correct.** To show that the default matters more than culture, the data must compare countries whose cultures are similar but whose systems differ. C does exactly that for both pairs of neighbors.\n\n**The Full Solution:**\n- The argument has two parts: the default drives consent rates, and culture does not explain the gap.\n- The text pairs culturally similar neighbors: Germany with Austria, and Denmark with Sweden. In each pair, one country uses opt-in and the other uses opt-out.\n- Choice C shows a huge gap inside each pair (99.98% vs. 12%, and 85.9% vs. 4.25%). Because culture is similar within a pair, the system is the difference that lines up with the gap.\n\n**Why the other choices are wrong:**\n- A: It reports one country's rate without any comparison, so it cannot show what causes the differences.\n- B: It points to something all four countries share whatever their system, so it does nothing to show that the system matters.\n- D: It compares two countries with the same system, so it cannot show an effect of the system; if anything, it shows variation the default does not explain.",
+ "_meta": {
+  "source": "Johnson, E. J., & Goldstein, D. (2003). Do Defaults Save Lives? Science 302:1338-1339, figure 'Effective consent rates, by country': Denmark 4.25, Netherlands 27.5, UK 17.17, Germany 12 (opt-in); Austria 99.98, Belgium 98, France 99.91, Hungary 99.97, Poland 99.5, Portugal 99.64, Sweden 85.9 (opt-out). PDF: https://www.dangoldstein.com/papers/DefaultsScience.pdf ; Germany/Austria similar culture per https://en.wikipedia.org/wiki/Organ_donation. Replaces an invented four-reserve grazing table (verify 2026-10-06)."
+ }
 }

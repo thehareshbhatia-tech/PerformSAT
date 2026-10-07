@@ -1,30 +1,30 @@
 {
- "id": 5,
- "question": "A solid metal sphere with a radius of $9$ centimeters is melted and recast as a solid right circular cylinder with a base diameter of $12$ centimeters. What is the height, in centimeters, of the cylinder?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$3$"
+  "id": 5,
+  "question": "A sphere fits exactly inside a cube, touching each of the cube's six faces. The volume of the cube is $216$ cubic inches. What is the volume, in cubic inches, of the sphere?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$27\\pi$"
+    },
+    {
+      "id": "B",
+      "text": "$36\\pi$"
+    },
+    {
+      "id": "C",
+      "text": "$108\\pi$"
+    },
+    {
+      "id": "D",
+      "text": "$288\\pi$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "computes pi times r^3, leaving out the 4/3",
+    "C": "computes 4 pi r^3, leaving out the division by 3",
+    "D": "uses the edge length, 6, as the radius"
   },
-  {
-   "id": "B",
-   "text": "$6.75$"
-  },
-  {
-   "id": "C",
-   "text": "$20.25$"
-  },
-  {
-   "id": "D",
-   "text": "$27$"
-  }
- ],
- "distractorNotes": {
-  "A": "squares the sphere's radius instead of cubing it, so the sphere's volume becomes (4/3)(81)pi = 108pi and h = 108/36 = 3",
-  "B": "uses the diameter 12 as the cylinder's radius, so 144h = 972 and h = 6.75",
-  "C": "leaves out the 4/3 in the sphere formula, so 36h = 729 and h = 20.25"
- },
- "correctAnswer": "D",
- "hint": "No metal is lost, so the two solids have the same volume.",
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~45s):** Set the volumes equal: $\\frac{4}{3}\\pi(9)^{3} = \\pi(6)^{2}h$, so $972 = 36h$ and $h = 27$.\n\n**The Full Solution:**\nStep 1: The sphere's volume is $\\frac{4}{3}\\pi(9)^{3} = \\frac{4}{3}\\pi(729) = 972\\pi$ cubic centimeters.\nStep 2: The cylinder's base diameter is $12$, so its radius is $6$ and its volume is $\\pi(6)^{2}h = 36\\pi h$.\nStep 3: Set the volumes equal: $36\\pi h = 972\\pi$, so $h = 27$ centimeters. Check: $\\pi(6)^{2}(27) = 972\\pi$, the sphere's volume ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): squares the radius $9$ instead of cubing it, so the sphere's volume comes out as $108\\pi$ instead of $972\\pi$.\n* Choice B ($6.75$): uses the diameter $12$ as the cylinder's radius, making its base area $144\\pi$ instead of $36\\pi$.\n* Choice C ($20.25$): drops the $\\frac{4}{3}$ from the sphere's volume, using $729\\pi$ instead of $972\\pi$.\n\n**Test Day Takeaway:** When a solid is melted and recast, write the two volume formulas, set them equal, and convert every diameter to a radius before substituting."
+  "correctAnswer": "B",
+  "hint": "The diameter of the sphere equals the edge length of the cube.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** The cube's edge is $\\sqrt[3]{216} = 6$, so the sphere's radius is $3$ and its volume is $\\frac{4}{3}\\pi(3)^{3} = 36\\pi$.\n\n**The Full Solution:**\nStep 1: The edge length of the cube is $\\sqrt[3]{216} = 6$ inches.\nStep 2: The sphere touches opposite faces of the cube, so its diameter is $6$ inches and its radius is $3$ inches.\nStep 3: $V = \\frac{4}{3}\\pi(3)^{3} = \\frac{4}{3}\\pi(27) = 36\\pi$ cubic inches. Check: $36\\pi \\approx 113$, which is less than the cube's $216$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($27\\pi$): this leaves the $\\frac{4}{3}$ out of the sphere formula.\n* Choice C ($108\\pi$): this multiplies by $4$ but does not divide by $3$.\n* Choice D ($288\\pi$): this uses the edge length, $6$, as the radius; the edge is the diameter.\n\n**Test Day Takeaway:** When a sphere fits exactly inside a cube, the cube's edge length is the sphere's diameter."
 }

@@ -6,40 +6,40 @@
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-quantitative",
   "module": 2,
-  "passage": "A media historian claims that the American radio boom of the 1920s had two phases. After a burst of growth, the number of broadcasting stations leveled off after 1923, but the audience did not stall with it: the number of households owning a radio kept climbing year after year.",
+  "passage": "Between 2000 and 2020, the world's yearly harvest from wild fisheries and aquaculture (the farming of fish, shellfish, and aquatic plants) grew by about 75 million metric tons. An analyst claims that nearly all of this growth came from aquaculture: the wild catch held almost steady for two decades, while aquaculture production kept climbing in every five-year period.",
   "questionTable": {
     "type": "table",
-    "caption": "Broadcasting stations (as of June 30) and households with a radio in the United States, 1922-1926",
+    "caption": "World wild-capture fisheries and aquaculture production, 2000-2020 (approximate)",
     "headers": [
       "Year",
-      "Broadcasting stations",
-      "Households with a radio (millions)"
+      "Wild capture (millions of metric tons)",
+      "Aquaculture (millions of metric tons)"
     ],
     "rows": [
       [
-        "1922",
-        "378",
-        "0.06"
+        "2000",
+        "96.2",
+        "43.1"
       ],
       [
-        "1923",
-        "558",
-        "0.4"
+        "2005",
+        "95.6",
+        "59.2"
       ],
       [
-        "1924",
-        "545",
-        "1.25"
+        "2010",
+        "89.7",
+        "78.1"
       ],
       [
-        "1925",
-        "585",
-        "2.75"
+        "2015",
+        "94.4",
+        "103.9"
       ],
       [
-        "1926",
-        "535",
-        "4.5"
+        "2020",
+        "91.6",
+        "122.8"
       ]
     ]
   },
@@ -47,24 +47,30 @@
   "choices": [
     {
       "id": "A",
-      "text": "The number of broadcasting stations reached its highest level in 1925, at 585, and then fell to 535 in 1926."
+      "text": "Wild capture reached its highest level in 2000, at 96.2 million metric tons, and then fell to 89.7 million metric tons by 2010, the lowest level shown."
     },
     {
       "id": "B",
-      "text": "Households with a radio grew from 0.06 million in 1922 to 4.5 million in 1926, rising in every year shown in the table."
+      "text": "Aquaculture production grew from 43.1 million metric tons in 2000 to 122.8 million in 2020, rising in every year shown."
     },
     {
       "id": "C",
-      "text": "In 1922 there were 378 broadcasting stations, but only 0.06 million households owned a radio that year."
+      "text": "In 2000 aquaculture production was 43.1 million metric tons, while wild capture was 96.2 million metric tons."
     },
     {
       "id": "D",
-      "text": "After rising from 378 in 1922 to 558 in 1923, the number of stations stayed between 535 and 585, while households with a radio rose every year, from 0.06 million to 4.5 million."
+      "text": "From 2000 to 2020 wild capture stayed between 89.7 and 96.2 million metric tons, while aquaculture rose every five years, from 43.1 to 122.8 million."
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The claim describes two series moving differently: stations rising and then leveling off by 1923, households with a radio climbing every year. D documents both: the rise to 558, the later range of 535 to 585, and the uninterrupted climb in ownership.\n\n**The Full Solution:**\n- Phase one: stations rise from 378 to 558 between 1922 and 1923, then stay between 535 and 585, so the number has leveled off.\n- The audience: households with a radio rise in every year shown, from 0.06 million to 4.5 million.\n- Only a choice that traces both series can support a claim that contrasts them.\n\n**Why the other choices are wrong:**\n- A: It covers only the stations' peak and dip, saying nothing about the audience.\n- B: It covers only the audience and says nothing about the stations leveling off.\n- C: A single year's figures illustrate neither trend.",
+  "explanation": "**Choice D is correct.** The claim has two parts: the wild catch held almost steady, and aquaculture production kept climbing. Only D reports both: wild-capture figures stayed within a narrow band (89.7 to 96.2 million metric tons) while aquaculture rose in every five-year period.\n\n**The Full Solution:**\n- Part 1 of the claim: the wild catch barely changed from 2000 to 2020.\n- Part 2: aquaculture production rose in every period shown.\n- D gives the wild-capture range and the aquaculture rise from 43.1 to 122.8 million metric tons, covering both parts.\n\n**Why the other choices are wrong:**\n- A: It describes a fall in the wild catch but says nothing about aquaculture growth.\n- B: It supports only the aquaculture half of the claim; it leaves out the steady wild catch.\n- C: It gives a single year, so it cannot show either the steady wild catch or the rising aquaculture figures.",
   "_meta": {
-    "anchor": "US radio 1922-26: Dept. of Commerce station lists (June 30 counts: 378, 558, 545, 585, 535) and households with radio (Historical Statistics of the US: 60k, 400k, 1.25M, 2.75M, 4.5M)"
+    "anchor": "world capture fisheries (steady) vs aquaculture production (rising), 2000-2020, FAO data via World Bank",
+    "sources": [
+      "https://data.worldbank.org/indicator/ER.FSH.CAPT.MT?locations=1W",
+      "https://data.worldbank.org/indicator/ER.FSH.AQUA.MT?locations=1W",
+      "https://api.worldbank.org/v2/country/WLD/indicator/ER.FSH.CAPT.MT?format=json&date=2000:2020",
+      "https://api.worldbank.org/v2/country/WLD/indicator/ER.FSH.AQUA.MT?format=json&date=2000:2020"
+    ]
   }
 }

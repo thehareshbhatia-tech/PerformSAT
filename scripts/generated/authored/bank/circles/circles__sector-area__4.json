@@ -1,6 +1,6 @@
 {
  "id": 4,
- "question": "A circle has a radius of $5$, and a sector of the circle has an area of $5\\pi$. What is the measure, in degrees, of the central angle of the sector?",
+ "question": "A circle has a radius of $5$, and an arc of the circle has a length of $2\\pi$. What is the measure, in degrees, of the central angle that intercepts this arc?",
  "choices": [
   {
    "id": "A",
@@ -12,19 +12,19 @@
   },
   {
    "id": "C",
-   "text": "$180$"
+   "text": "$144$"
   },
   {
    "id": "D",
-   "text": "$360$"
+   "text": "$288$"
   }
  ],
  "correctAnswer": "B",
- "hint": "Find the whole circle's area first; the sector's share of it sets the angle.",
+ "hint": "What fraction of the circumference is $2\\pi$?",
  "distractorNotes": {
-  "A": "uses 180 degrees for a full turn",
-  "C": "compares against the circumference",
-  "D": "divides by pi r instead of pi r squared"
+  "A": "uses 2 pi times the diameter, 20pi, as the circumference",
+  "C": "uses pi r = 5pi as the circumference",
+  "D": "finds the angle of the rest of the circle, 360 - 72"
  },
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** The circle's area is $25\\pi$, so the sector is $\\frac{5\\pi}{25\\pi} = \\frac{1}{5}$ of it, and $\\frac{1}{5}(360^{\\circ}) = 72^{\\circ}$.\n\n**The Full Solution:**\nStep 1: The circle's area is $\\pi(5)^2 = 25\\pi$.\nStep 2: The sector's share of the area is $\\frac{5\\pi}{25\\pi} = \\frac{1}{5}$.\nStep 3: That same share of a full turn is $\\frac{1}{5}(360^{\\circ}) = 72^{\\circ}$. Check: $\\frac{72}{360}(25\\pi) = 5\\pi$, the given sector area.\n\n**Why the wrong answers are tempting:**\n* Choice A ($36$): applies the correct fraction $\\frac{1}{5}$ to $180^{\\circ}$ instead of to a full $360^{\\circ}$ turn.\n* Choice C ($180$): divides the sector's area by the circumference $10\\pi$, getting $\\frac{1}{2}$ of a turn.\n* Choice D ($360$): divides by $\\pi r = 5\\pi$ instead of $\\pi r^2$, which makes the sector look like the whole circle.\n\n**Test Day Takeaway:** Compare like with like: an area against an area. Mixing a sector area with a circumference is what produces the half-turn trap."
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** The circumference is $10\\pi$, so the arc is $\\frac{2\\pi}{10\\pi} = \\frac{1}{5}$ of the circle, and $\\frac{1}{5}(360) = 72$.\n\n**The Full Solution:**\nStep 1: The circumference is $2\\pi r = 2\\pi(5) = 10\\pi$.\nStep 2: The arc is $\\frac{2\\pi}{10\\pi} = \\frac{1}{5}$ of the circumference.\nStep 3: The central angle is the same fraction of $360^\\circ$: $\\frac{1}{5}(360) = 72$. Check: $\\frac{72}{360}(10\\pi) = 2\\pi$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($36$): uses $2\\pi(10) = 20\\pi$ as the circumference, treating the diameter as the radius.\n* Choice C ($144$): uses $\\pi r = 5\\pi$ as the circumference.\n* Choice D ($288$): is $360 - 72$, the angle of the rest of the circle.\n\n**Test Day Takeaway:** $\\frac{\\text{arc length}}{\\text{circumference}} = \\frac{\\text{central angle}}{360}$."
 }

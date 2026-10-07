@@ -6,34 +6,38 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 2,
- "passage": "Dictionary editors once waited years for volunteers to mail in slips showing new words in use. Now that editors can search vast electronic collections of newspapers, transcripts, and ______ they can watch a new word's rise almost as it happens and decide much sooner whether it has earned an entry.",
+ "passage": "People with diabetes once checked their blood sugar mainly by pricking a finger and testing a drop of blood. Now that a small sensor under the skin can estimate glucose levels every few ______ patients can follow those levels through the day and night.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "fiction"
+   "text": "minutes"
   },
   {
    "id": "B",
-   "text": "fiction,"
+   "text": "minutes,"
   },
   {
    "id": "C",
-   "text": "fiction;"
+   "text": "minutes;"
   },
   {
    "id": "D",
-   "text": "fiction:"
+   "text": "minutes:"
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The sentence opens with the long dependent clause \"Now that editors can search vast electronic collections of newspapers, transcripts, and fiction,\" and an introductory dependent clause is joined to its main clause with a comma.\n\n**The Full Solution:**\n- \"Now that... fiction\" cannot stand alone; it is a subordinate clause setting up the main clause \"they can watch a new word's rise...\"\n- The conventional boundary between an introductory subordinate clause and the main clause is a comma, placed after \"fiction,\" the last item in the clause's internal list.\n\n**Why the other choices are wrong:**\n- A: Omitting the comma runs the subordinate clause straight into the main clause with no boundary at all.\n- C: A semicolon must have an independent clause on each side, but everything before the blank is a fragment on its own.\n- D: A colon likewise requires a complete clause before it, which the \"Now that...\" clause is not.",
+ "explanation": "**Choice B is correct.** The sentence opens with the dependent clause \"Now that a small sensor under the skin can estimate glucose levels every few minutes,\" and an introductory dependent clause is joined to its main clause with a comma.\n\n**The Full Solution:**\n- \"Now that... minutes\" cannot stand alone; it is a subordinate clause setting up the main clause \"patients can follow those levels through the day and night.\"\n- A comma marks where the introductory clause ends and the main clause begins.\n\n**Why the other choices are wrong:**\n- A: With no punctuation, the reader cannot tell where the long introductory clause ends and the main clause begins.\n- C: A semicolon must join two independent clauses, but the words before it are a dependent clause.\n- D: A colon must follow a complete independent clause, and the words before it are a dependent clause.",
  "_meta": {
   "rule": "comma after introductory dependent clause",
   "distractors": {
    "A": "missing boundary",
    "C": "semicolon after dependent clause fragment",
    "D": "colon after dependent clause fragment"
-  }
+  },
+  "anchor": "continuous glucose monitors vs finger-prick tests — comma after introductory dependent clause",
+  "sources": [
+   "https://www.niddk.nih.gov/health-information/diabetes/overview/managing-diabetes/continuous-glucose-monitoring"
+  ]
  }
 }

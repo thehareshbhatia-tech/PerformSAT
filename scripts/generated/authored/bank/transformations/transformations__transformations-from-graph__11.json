@@ -1,30 +1,30 @@
 {
   "id": 11,
-  "question": "For the function $f$, $f(x) = 0$ only when $x = -6$ or $x = 8$. For what values of $x$ does $f(2x + 4) = 0$?",
+  "question": "For the function $f$, $f(x) = 0$ only when $x = -6$ or $x = 8$. The function $g$ is defined by $g(x) = f(x + 5)$. What is the sum of all values of $x$ for which $g(x) = 0$?",
   "choices": [
     {
       "id": "A",
-      "text": "$x = -10$ and $x = 4$"
+      "text": "$-8$"
     },
     {
       "id": "B",
-      "text": "$x = -5$ and $x = 2$"
+      "text": "$-3$"
     },
     {
       "id": "C",
-      "text": "$x = -3$ and $x = 4$"
+      "text": "$2$"
     },
     {
       "id": "D",
-      "text": "$x = -1$ and $x = 6$"
+      "text": "$12$"
     }
   ],
   "distractorNotes": {
-    "A": "subtracts 4 but forgets to divide by 2",
-    "C": "divides by 2 but ignores the +4",
-    "D": "adds 4 instead of subtracting before dividing by 2"
+    "B": "subtracts 5 from the sum of the zeros of f only once instead of once for each solution",
+    "C": "adds the zeros of f and ignores the shift",
+    "D": "solves x - 5 = -6 and x - 5 = 8, shifting the wrong way"
   },
-  "correctAnswer": "B",
-  "hint": "Set the whole input $2x + 4$ equal to each zero of $f$.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** $2x + 4 = -6$ gives $x = -5$, and $2x + 4 = 8$ gives $x = 2$.\n\n**The Full Solution:**\nStep 1: $f(2x + 4) = 0$ exactly when the input $2x + 4$ is $-6$ or $8$.\nStep 2: $2x + 4 = -6$ gives $2x = -10$, so $x = -5$; $2x + 4 = 8$ gives $2x = 4$, so $x = 2$.\nStep 3: Check: $2(-5) + 4 = -6$ and $2(2) + 4 = 8$, both zeros of $f$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x = -10$ and $x = 4$): this stops at $2x = -10$ and $2x = 4$ without dividing by $2$.\n* Choice C ($x = -3$ and $x = 4$): this halves $-6$ and $8$ but never accounts for the $+4$.\n* Choice D ($x = -1$ and $x = 6$): this adds $4$ to each zero before halving; the $4$ must be subtracted.\n\n**Test Day Takeaway:** For $f(ax + b)$, solve $ax + b = $ (each known input); do not try to read the shift off by eye."
+  "correctAnswer": "A",
+  "hint": "Set the whole input $x + 5$ equal to each zero of $f$.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~25s):** $x + 5 = -6$ gives $x = -11$, and $x + 5 = 8$ gives $x = 3$; the sum is $-11 + 3 = -8$.\n\n**The Full Solution:**\nStep 1: $g(x) = 0$ means $f(x + 5) = 0$, which happens only when $x + 5 = -6$ or $x + 5 = 8$.\nStep 2: So $x = -11$ or $x = 3$.\nStep 3: The sum is $-11 + 3 = -8$. Check: $g(-11) = f(-6) = 0$ and $g(3) = f(8) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-3$): this subtracts $5$ from $-6 + 8 = 2$ once; each of the two solutions is $5$ less than a zero of $f$, so the sum is $10$ less.\n* Choice C ($2$): this is $-6 + 8$, the sum of the zeros of $f$; the shift inside $f$ changes them.\n* Choice D ($12$): this uses $x - 5$, which gives $-1$ and $13$; adding $5$ inside $f$ moves the graph left, not right.\n\n**Test Day Takeaway:** The graph of $y = f(x + 5)$ is the graph of $y = f(x)$ moved $5$ units left, so every zero decreases by $5$."
 }

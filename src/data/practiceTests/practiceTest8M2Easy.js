@@ -49,18 +49,18 @@ export const practiceTest8M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 3,
-      question: "Each value in a data set with a median of $14$ and a standard deviation of $5$ is multiplied by $3$. What are the median and standard deviation of the resulting data set?",
+      question: "$4, 7, 8, 11, 15$\nThe list gives the values in data set A. Data set B is created by multiplying each value in data set A by $3$. What is the median of data set B?",
       choices: [
-        // distractor: adds 3 to each statistic instead of multiplying, giving 14 + 3 = 17 and 5 + 3 = 8
-        { id: "A", text: "Median $17$ and standard deviation $8$" },
-        // distractor: multiplies the median by 3 but leaves the standard deviation at 5
-        { id: "B", text: "Median $42$ and standard deviation $5$" },
-        { id: "C", text: "Median $42$ and standard deviation $15$" },
-        // distractor: multiplies by 9 instead of 3, applying the factor twice
-        { id: "D", text: "Median $126$ and standard deviation $45$" }
+        // distractor: reports the median of data set A without multiplying it by 3
+        { id: "A", text: "$8$" },
+        // distractor: adds 3 to the median of data set A instead of multiplying by 3
+        { id: "B", text: "$11$" },
+        { id: "C", text: "$24$" },
+        // distractor: multiplies the greatest value, 15, by 3 instead of the median
+        { id: "D", text: "$45$" }
       ],
       correctAnswer: "C",
-      explanation: "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Multiplying every value by $3$ multiplies both the median and the standard deviation by $3$: $3(14) = 42$ and $3(5) = 15$.\n\n**The Full Solution:**\nStep 1: Multiplying every value by a positive number keeps the values in the same order, so the middle value stays in the middle and the median is multiplied by $3$: $3(14) = 42$.\nStep 2: Every distance between values is also multiplied by $3$, so the standard deviation is multiplied by $3$: $3(5) = 15$.\nStep 3: Check with two values $5$ apart, $14$ and $19$: after multiplying they are $42$ and $57$, which are $15$ apart ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (median $17$, standard deviation $8$): adds $3$ to each statistic instead of multiplying by $3$.\n* Choice B (median $42$, standard deviation $5$): scales the median but not the spread. Spread stays the same only when a constant is added to every value.\n* Choice D (median $126$, standard deviation $45$): multiplies by $9$, applying the factor $3$ twice.\n\n**Test Day Takeaway:** Adding a constant shifts the center and leaves the spread alone; multiplying by a constant scales the center and the spread by that constant.",
+      explanation: "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The median of data set A is the middle value, $8$. Multiplying every value by $3$ keeps the order, so the median of data set B is $3 \\times 8 = 24$.\n\n**The Full Solution:**\nStep 1: The values of data set A are already in order, and the middle (third) value is $8$, so the median of data set A is $8$.\nStep 2: Multiplying each value by $3$ gives data set B: $12, 21, 24, 33, 45$.\nStep 3: The middle value of data set B is $24$. Check: $3 \\times 8 = 24$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): this is the median of data set A; every value, including the middle one, was multiplied by $3$.\n* Choice B ($11$): adds $3$ to the median instead of multiplying by $3$.\n* Choice D ($45$): multiplies the greatest value, $15$, by $3$; that is the maximum of data set B, not the median.\n\n**Test Day Takeaway:** Multiplying every value in a data set by the same positive number keeps the values in the same order, so the median is multiplied by that number too.",
       skills: ["data-analysis"]
     },
     {
@@ -233,18 +233,18 @@ export const practiceTest8M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "$x^{2} + bx + 81 = 0$\nIn the given equation, $b$ is a constant. The equation has two positive solutions, and one solution is $9$ times the other. What is the value of $b$?",
+      question: "$x^{2} + bx + 81 = 0$\nIn the given equation, $b$ is a constant. One solution to the given equation is $3$. What is the value of $b$?",
       choices: [
-        // distractor: uses the factor pair 1 and 81, whose sum is 82, ignoring that one solution must be 9 times the other
-        { id: "A", text: "$-82$" },
-        { id: "B", text: "$-30$" },
-        // distractor: finds the smaller solution 3 but uses the multiplier 9 as the other solution, giving 3 + 9 = 12
-        { id: "C", text: "$-12$" },
-        // distractor: finds the sum of the solutions, 30, but does not take its opposite
+        { id: "A", text: "$-30$" },
+        // distractor: finds the other solution, 81/3 = 27, and reports its opposite instead of the opposite of the sum of the solutions
+        { id: "B", text: "$-27$" },
+        // distractor: treats 3 as the only solution, as in (x - 3)^2 = x^2 - 6x + 9, ignoring the constant 81
+        { id: "C", text: "$-6$" },
+        // distractor: makes a sign error when solving 9 + 3b + 81 = 0, getting b = 30
         { id: "D", text: "$30$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: Quadratic — Vieta's Sum/Product**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The solutions multiply to $81$. Writing them as $r$ and $9r$ gives $9r^{2} = 81$, so $r = 3$; the solutions are $3$ and $27$, and $b = -(3 + 27) = -30$.\n\n**The Full Solution:**\nStep 1: For $x^{2} + bx + c = 0$, the solutions multiply to $c$ and add to $-b$. Here the product is $81$.\nStep 2: Let the solutions be $r$ and $9r$ with $r > 0$. Then $9r^{2} = 81$, so $r^{2} = 9$ and $r = 3$; the solutions are $3$ and $27$.\nStep 3: Their sum is $30$, and the sum equals $-b$, so $b = -30$. Check: $(x - 3)(x - 27) = x^{2} - 30x + 81$, and $27 = 9(3)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-82$): uses the solutions $1$ and $81$. They multiply to $81$, but $81$ is not $9$ times $1$.\n* Choice C ($-12$): finds the smaller solution, $3$, but uses $9$ as the other solution. The other solution is $9(3) = 27$.\n* Choice D ($30$): finds the sum of the solutions but forgets that $b$ is the opposite of the sum.\n\n**Test Day Takeaway:** When the solutions are related by a ratio, use the product first to find them, then use the sum to find the coefficient, remembering the sign change.",
+      correctAnswer: "A",
+      explanation: "**SAT Pattern: Quadratic — Vieta's Sum/Product**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Substitute $x = 3$: $9 + 3b + 81 = 0$, so $3b = -90$ and $b = -30$.\n\n**The Full Solution:**\nStep 1: Because $3$ is a solution, substituting $x = 3$ makes the equation true: $3^{2} + 3b + 81 = 0$.\nStep 2: Simplify: $90 + 3b = 0$, so $3b = -90$.\nStep 3: Divide by $3$: $b = -30$. Check: $x^{2} - 30x + 81 = (x - 3)(x - 27)$, so $3$ is a solution, and the other solution is $27$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-27$): finds the other solution, $\\frac{81}{3} = 27$, and reports $-27$. The value of $b$ is the opposite of the sum of the solutions, $-(3 + 27) = -30$.\n* Choice C ($-6$): treats $3$ as a double solution, as in $(x - 3)^{2} = x^{2} - 6x + 9$; that would need a constant of $9$, not $81$.\n* Choice D ($30$): moves $90$ to the other side without changing its sign, getting $3b = 90$.\n\n**Test Day Takeaway:** A solution of an equation makes the equation true. Substitute it to find an unknown coefficient, then check by factoring.",
       skills: ["quadratic-factoring"]
     },
     {
@@ -349,19 +349,19 @@ export const practiceTest8M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 7,
-      question: "The graph shows the height $h(t)$, in feet, of a kite $t$ minutes after it was launched, where $h(t) = -3t^{2} + 30t$. For how many minutes was the kite at a height of at least $48$ feet?",
+      question: "The graph shows the height $h(t)$, in feet, of a kite $t$ minutes after it was launched, where $h(t) = -3t^{2} + 30t$. The kite was at a height of $48$ feet at two different times. How many minutes passed between these two times?",
       diagram: { type: "parabola", params: { vertex: { h: 5, k: 75 }, a: -3, xRange: [0, 10], yRange: [0, 80], xTickInterval: 1, yTickInterval: 25, gridInterval: 5, showVertex: false } },
       choices: [
-        // distractor: gives t = 2, the time when the kite first reaches 48 feet, instead of the length of the interval
+        // distractor: gives t = 2, the first time the kite is at a height of 48 feet, instead of the time between the two times
         { id: "A", text: "$2$" },
         { id: "B", text: "$6$" },
-        // distractor: gives t = 8, the time when the kite falls back to 48 feet, instead of the length of the interval
+        // distractor: gives t = 8, the second time the kite is at a height of 48 feet, instead of the time between the two times
         { id: "C", text: "$8$" },
-        // distractor: uses all 10 minutes during which the height is positive, ignoring the 48-foot level
+        // distractor: adds the two times, 2 + 8 = 10, instead of subtracting them
         { id: "D", text: "$10$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Solve $-3t^{2} + 30t \\ge 48$: dividing by $-3$ gives $t^{2} - 10t + 16 \\le 0$, or $(t - 2)(t - 8) \\le 0$, so $2 \\le t \\le 8$, which is $6$ minutes.\n\n**The Full Solution:**\nStep 1: The condition is $-3t^{2} + 30t \\ge 48$. Subtract $48$: $-3t^{2} + 30t - 48 \\ge 0$. Divide by $-3$ and reverse the inequality: $t^{2} - 10t + 16 \\le 0$.\nStep 2: Factor: $(t - 2)(t - 8) \\le 0$. The product is less than or equal to $0$ only between the zeros, so $2 \\le t \\le 8$; on the graph, this is where the curve is at or above a height of $48$.\nStep 3: The kite is at or above $48$ feet for $8 - 2 = 6$ minutes. Check: $h(2) = -12 + 60 = 48$, $h(8) = -192 + 240 = 48$, and $h(5) = -75 + 150 = 75 \\ge 48$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): the time when the kite first reaches $48$ feet, not how long it stays at or above that height.\n* Choice C ($8$): the time when the kite comes back down to $48$ feet. The length of the interval is $8 - 2$.\n* Choice D ($10$): the whole time the kite is above the ground, ignoring the $48$-foot level.\n\n**Test Day Takeaway:** A \"for how long\" question asks for the difference between the two times, not either time; dividing an inequality by a negative number reverses it.",
+      explanation: "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Set $-3t^{2} + 30t = 48$ and divide by $-3$: $t^{2} - 10t + 16 = 0$, or $(t - 2)(t - 8) = 0$. The kite is at $48$ feet at $t = 2$ and $t = 8$, which are $6$ minutes apart.\n\n**The Full Solution:**\nStep 1: The kite is at a height of $48$ feet when $-3t^{2} + 30t = 48$. Subtract $48$ and divide by $-3$: $t^{2} - 10t + 16 = 0$.\nStep 2: Factor: $(t - 2)(t - 8) = 0$, so $t = 2$ or $t = 8$. On the graph, these are the two times the curve is at a height of $48$, once rising and once falling.\nStep 3: The time between them is $8 - 2 = 6$ minutes. Check: $h(2) = -12 + 60 = 48$ and $h(8) = -192 + 240 = 48$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): the first time the kite is at $48$ feet, not the time between the two times.\n* Choice C ($8$): the second time the kite is at $48$ feet. The time between the two times is $8 - 2$.\n* Choice D ($10$): adds the two times instead of subtracting them; $10$ is also when the kite returns to the ground.\n\n**Test Day Takeaway:** Set the function equal to the given height to find both times, then subtract the smaller time from the larger one.",
       skills: ["quadratics"]
     },
     {
@@ -369,10 +369,10 @@ export const practiceTest8M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 7,
-      question: "In the $xy$-plane, the distance between the points $(2, 1)$ and $(k, 7)$ is $10$. What is the least possible value of $k$?",
-      correctAnswer: "-6",
-      explanation: "**SAT Pattern: Distance Formula**\n\n**The correct answer is $-6$.**\n\n**The Fast Way (~40s):** The vertical distance is $7 - 1 = 6$, so $(k - 2)^{2} = 100 - 36 = 64$ and $k - 2 = \\pm 8$; the lesser value is $k = 2 - 8 = -6$.\n\n**The Full Solution:**\nStep 1: By the distance formula, $\\sqrt{(k - 2)^{2} + (7 - 1)^{2}} = 10$. Squaring both sides gives $(k - 2)^{2} + 36 = 100$.\nStep 2: So $(k - 2)^{2} = 64$, which means $k - 2 = 8$ or $k - 2 = -8$, giving $k = 10$ or $k = -6$.\nStep 3: The least possible value is $k = -6$. Check: from $(2, 1)$ to $(-6, 7)$ the horizontal distance is $8$ and the vertical distance is $6$, and $\\sqrt{64 + 36} = 10$ ✓\n\n**Common Mistakes:**\n* $10$: uses only $k - 2 = 8$. This value of $k$ works, but it is the greatest possible value, not the least.\n* $-8$: reports $k - 2$ instead of $k$.\n* $-2$: subtracts the distances, computing $10 - 6 = 4$ and $2 - 4$, as if the horizontal and vertical distances added to $10$.\n\n**Test Day Takeaway:** Squaring gives two possible values; \"least possible value\" asks for the smaller one, and the last step turns the distance back into a coordinate.",
-      skills: ["coordinate-geometry"]
+      question: "In the $xy$-plane, line $\\ell$ passes through the points $(2, 1)$ and $(6, 7)$. Line $\\ell$ intersects the $x$-axis at the point $(k, 0)$. What is the value of $k$?",
+      correctAnswer: "4/3",
+      explanation: "**SAT Pattern: Line from Two Points**\n\n**The correct answer is $\\frac{4}{3}$.**\n\n**The Fast Way (~35s):** The slope is $\\frac{7 - 1}{6 - 2} = \\frac{3}{2}$. Going from $(2, 1)$ down to $y = 0$ is a change of $-1$ in $y$, so $x$ changes by $-1 \\div \\frac{3}{2} = -\\frac{2}{3}$, and $k = 2 - \\frac{2}{3} = \\frac{4}{3}$.\n\n**The Full Solution:**\nStep 1: The slope of line $\\ell$ is $\\frac{7 - 1}{6 - 2} = \\frac{6}{4} = \\frac{3}{2}$.\nStep 2: Use the point $(2, 1)$ to find the $y$-intercept: $1 = \\frac{3}{2}(2) + b$, so $b = -2$ and line $\\ell$ is $y = \\frac{3}{2}x - 2$.\nStep 3: At the $x$-intercept, $y = 0$: $0 = \\frac{3}{2}k - 2$, so $k = \\frac{4}{3}$. Check: $\\frac{3}{2} \\cdot \\frac{4}{3} - 2 = 2 - 2 = 0$, and $\\frac{3}{2}(6) - 2 = 7$ ✓\n\n**Common Mistakes:**\n* $-2$: reports the $y$-intercept of line $\\ell$ instead of the $x$-intercept.\n* $\\frac{1}{2}$: uses the slope upside down, $\\frac{2}{3}$, which gives $0 = 1 + \\frac{2}{3}(k - 2)$ and $k = \\frac{1}{2}$.\n* $-\\frac{4}{3}$: makes a sign error when solving $\\frac{3}{2}k - 2 = 0$.\n\n**Test Day Takeaway:** Find the slope from two points, write the equation of the line, and set $y = 0$ to find the $x$-intercept.",
+      skills: ["linear-functions", "slope", "coordinate-geometry"]
     }
   ]
 };

@@ -6,30 +6,30 @@
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-quantitative",
   "module": 1,
-  "passage": "An analyst studying one professional basketball league argues that its offenses were remade during the 2010s. In the analyst's account, teams did not merely shoot more three-pointers as the decade went on; the shift toward the three-point line was accompanied by a league-wide rise in scoring efficiency. The analyst supports the claim with league averages from three seasons.",
+  "passage": "Since 1958, scientists at Mauna Loa Observatory in Hawaii have recorded the amount of carbon dioxide in Earth's atmosphere. An environmental scientist claims that the rise in carbon dioxide over this period has been accompanied by rising global temperatures. To support the claim, the scientist cites data from three years.",
   "questionTable": {
     "type": "table",
-    "caption": "League-wide averages in one professional basketball league, selected seasons",
+    "caption": "Atmospheric carbon dioxide at Mauna Loa and global average surface temperature, selected years",
     "headers": [
-      "Season",
-      "Three-point attempts per game",
-      "Points per 100 possessions"
+      "Year",
+      "Carbon dioxide (parts per million)",
+      "Global temperature compared with the 1951-1980 average (°C)"
     ],
     "rows": [
       [
-        "2011-12",
-        "18.4",
-        "104.6"
+        "1960",
+        "316.9",
+        "-0.02"
       ],
       [
-        "2015-16",
-        "24.1",
-        "106.4"
+        "1990",
+        "354.5",
+        "+0.45"
       ],
       [
-        "2019-20",
-        "34.1",
-        "110.6"
+        "2020",
+        "414.2",
+        "+1.01"
       ]
     ]
   },
@@ -37,24 +37,24 @@
   "choices": [
     {
       "id": "A",
-      "text": "Teams attempted 34.1 three-pointers per game in the 2019-20 season, nearly double the 18.4 per game they had attempted in 2011-12."
+      "text": "Carbon dioxide at Mauna Loa rose from 316.9 parts per million in 1960 to 414.2 in 2020."
     },
     {
       "id": "B",
-      "text": "Three-point attempts rose from 18.4 per game in 2011-12 to 24.1 in 2015-16 and 34.1 in 2019-20, while points per 100 possessions climbed from 104.6 to 106.4 to 110.6 over the same seasons."
+      "text": "Carbon dioxide rose from 316.9 to 354.5 to 414.2 parts per million, while the global temperature figure rose from -0.02 to +0.45 to +1.01°C."
     },
     {
       "id": "C",
-      "text": "Points per 100 possessions rose from 104.6 in 2011-12 to 106.4 in 2015-16 and 110.6 in 2019-20."
+      "text": "The global temperature figure rose from -0.02°C in 1960 to +0.45°C in 1990 and +1.01°C in 2020."
     },
     {
       "id": "D",
-      "text": "In the 2015-16 season, teams attempted 24.1 three-pointers per game and scored 106.4 points per 100 possessions, both higher than in 2011-12."
+      "text": "In 1990, carbon dioxide stood at 354.5 parts per million and the global temperature figure at +0.45°C."
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** The claim has two coupled parts — attempts shifted toward the three-point line, and efficiency rose alongside — and B is the only choice that traces both series across all three seasons.\n\n**The Full Solution:**\n- Part one of the claim: more three-pointers over the decade. B shows 18.4 to 24.1 to 34.1.\n- Part two: scoring efficiency rose as the shift happened. B shows 104.6 to 106.4 to 110.6 over the same seasons.\n- Presenting the two rises together is what makes the data support an \"accompanied by\" claim.\n\n**Why the other choices are wrong:**\n- A: It documents only the rise in attempts and says nothing about efficiency.\n- C: It documents only the rise in efficiency and says nothing about attempts.\n- D: A single season's pair of values, even with a comparison to 2011-12, cannot show two sustained trends moving together.",
+  "explanation": "**Choice B is correct.** The claim links two trends: carbon dioxide rose, and global temperatures rose along with it. Choice B is the only choice that traces both columns across all three years.\n\n**The Full Solution:**\n- The claim has two parts: rising carbon dioxide and rising temperatures over the same period.\n- Carbon dioxide column: 316.9, 354.5, 414.2 parts per million.\n- Temperature column: -0.02, +0.45, +1.01°C compared with the 1951-1980 average.\n- B reports both increases together, so it shows the rise in one accompanied by the rise in the other.\n\n**Why the other choices are wrong:**\n- A: It shows only that carbon dioxide rose; it says nothing about temperature.\n- C: It shows only that temperatures rose; it leaves out carbon dioxide.\n- D: It gives both values for a single year, so it shows no change in either one.",
   "_meta": {
-    "anchor": "basketball analytics — three-point shift with rising efficiency; original league-average table"
+    "anchor": "Mauna Loa CO2 (NOAA GML annual means) and NASA GISTEMP global temperature anomaly, 1960/1990/2020"
   }
 }

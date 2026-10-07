@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 1,
- "passage": "An octopus can match the seafloor beneath it within a second or two, though its eyes cannot detect color. The animal's skin holds thousands of pigment sacs, each widened or narrowed by tiny muscles under the direct command of the nervous system. Working together, the sacs let the octopus ______ the pattern and brightness of nearly any background, from mottled rock to rippled sand.",
+ "passage": "A pantograph copies a drawing by purely mechanical means. Its jointed rods form a parallelogram, so when a pointer on one arm follows the lines of an original, a pen fixed to another arm moves in step with it. Working together, the rods let a drafter ______ a map or diagram at the same size or at a larger or smaller scale, line for line.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
@@ -27,5 +27,11 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The opening sentence states the feat — the octopus can \"match the seafloor beneath it\" — and the final sentence restates it through the blank: the pigment sacs let the animal \"reproduce,\" or copy, the look of its background.\n\n**The Full Solution:**\n- The first sentence supplies the meaning the blank must restate: the octopus matches its surroundings.\n- The mechanism explains how: thousands of pigment sacs widen or narrow to rebuild the background's pattern and brightness on the skin.\n- \"Reproduce\" — to make a copy of — is the precise word for re-creating a pattern on another surface.\n\n**Why the other choices are wrong:**\n- A: \"Memorize\" is about storing information in memory, but the skin displays the pattern rather than remembering it.\n- B: \"Illuminate\" means to light something up, and pigment sacs change color rather than emit light.\n- D: \"Simplify\" would mean the octopus renders a cruder version of the background, which would undercut the matching the passage describes."
+ "explanation": "**Choice C is correct.** The opening sentence states what the device does (a pantograph \"copies a drawing\"), and the final sentence restates it through the blank: the rods let a drafter \"reproduce,\" or copy, a map or diagram line for line.\n\n**The Full Solution:**\n- The first sentence supplies the meaning the blank must restate: the pantograph copies drawings.\n- The mechanism explains how: as a pointer follows the original's lines, a linked pen moves in step and redraws them.\n- \"Reproduce\" (to make a copy of) is the precise word for re-creating a drawing, whether at the same size or at a new scale.\n\n**Why the other choices are wrong:**\n- A: \"Memorize\" is about storing information in memory, but the rods redraw the lines rather than remember them.\n- B: \"Illuminate\" means to light something up, and the device moves a pen rather than shining light on the original.\n- D: \"Simplify\" would mean the copy leaves details out, which contradicts the passage's \"line for line.\"",
+ "_meta": {
+  "anchor": "pantograph: parallelogram linkage whose second pen copies a traced drawing at the same, larger, or smaller scale - WIC reproduce",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Pantograph"
+  ]
+ }
 }

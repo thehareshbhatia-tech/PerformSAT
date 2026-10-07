@@ -6,29 +6,33 @@
   "domain": "standard-english-conventions",
   "skill": "boundaries",
   "module": 2,
-  "passage": "Chemists studying bog bodies have explained a paradox that long puzzled ______ the same acidic water that keeps skin, hair, and fingernails intact for millennia slowly dissolves the skeleton itself.",
+  "passage": "Botanists can explain why the leaves of many trees turn yellow in ______ the yellow pigments are present all summer, hidden by green chlorophyll that breaks down as the days grow shorter.",
   "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
   "choices": [
     {
       "id": "A",
-      "text": "excavators,"
+      "text": "autumn,"
     },
     {
       "id": "B",
-      "text": "excavators"
+      "text": "autumn"
     },
     {
       "id": "C",
-      "text": "excavators:"
+      "text": "autumn:"
     },
     {
       "id": "D",
-      "text": "excavators, but"
+      "text": "autumn, but"
     }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The first clause is a complete statement that announces a paradox; the clause after the blank states what that paradox is. A colon after a complete statement is the mark that delivers on such an announcement.\n\n**The Full Solution:**\n- Left of the blank is independent: \"Chemists studying bog bodies have explained a paradox that long puzzled excavators.\"\n- Right of the blank spells the paradox out — preservation and destruction from the same conditions.\n- Announcement followed by its content is the colon's defining use.\n\n**Why the other choices are wrong:**\n- A: A comma alone splices two independent clauses together.\n- B: With nothing at the boundary, the two sentences fuse into a run-on.\n- D: \"But\" is grammatical at the joint but wrecks the logic — the second clause is the paradox the first clause promised, not a turn against it.",
+  "explanation": "**Choice C is correct.** \"Botanists can explain why the leaves of many trees turn yellow in autumn\" is an independent clause that sets up an explanation, and the clause after the blank supplies it. A colon is the mark that introduces such an explanation.\n\n**The Full Solution:**\n- The first clause announces that an explanation exists.\n- The second clause gives it: the yellow pigments were there all along, hidden by chlorophyll.\n- A colon after an independent clause can introduce an independent clause that explains it.\n\n**Why the other choices are wrong:**\n- A: A comma alone cannot join two independent clauses; it creates a comma splice.\n- B: With no punctuation, the two independent clauses run together.\n- D: \"But\" signals a contrast, yet the second clause explains the first rather than contrasting with it.",
   "_meta": {
-    "anchor": "Bog body (Wikipedia): \"The high levels of acidity can tan their skin and preserve internal organs, but inversely dissolve the calcium phosphate of bone.\" 2026-10-04 review removed the unverified \"By the 1980s\" date."
+    "anchor": "Autumn leaf color: carotenoids unmasked as chlorophyll breaks down — colon before explanatory clause",
+    "sources": [
+      "https://www.uky.edu/Ag/Forestry/McLaren/Fallcolor1.htm",
+      "https://www.pbs.org/newshour/science/why-do-leaves-change-color"
+    ]
   }
 }

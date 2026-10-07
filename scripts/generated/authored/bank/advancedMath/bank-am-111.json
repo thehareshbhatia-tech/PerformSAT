@@ -1,6 +1,6 @@
 {
  "id": "bank-am-111",
- "question": "For the function $d$, the table shows five values of $x$ and their corresponding values of $d(x)$. If $e(x) = 4 - d(x)$, what value of $x$ satisfies $e(x) = 9$?",
+ "question": "For the function $d$, the table shows five values of $x$ and their corresponding values of $d(x)$. If $e(x) = d(x) - 6$, what value of $x$ satisfies $e(x) = -11$?",
  "diagram": {
   "type": "table",
   "params": {
@@ -31,5 +31,5 @@
   }
  },
  "correctAnswer": "4",
- "explanation": "**SAT Pattern: Function Transformation**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~25s):** $4 - d(x) = 9$ means $d(x) = -5$, and the table gives $d(4) = -5$.\n\n**The Full Solution:**\nStep 1: Set the rule equal to $9$: $4 - d(x) = 9$.\nStep 2: Solve for $d(x)$: $-d(x) = 5$, so $d(x) = -5$.\nStep 3: The table shows $d(x) = -5$ in the row $x = 4$, so $x = 4$. Check: $e(4) = 4 - (-5) = 9$ ✓\n\n**Common Mistakes:**\n* $0$: solves $d(x) = 9 - 4 = 5$, dropping the negative sign, and reads the row where $d(x) = 5$.\n* $-2$: adds instead, solving $d(x) = 4 + 9 = 13$.\n* $-5$: reports the value of $d(x)$ instead of the value of $x$.\n\n**Test Day Takeaway:** Solve for the inner function's output first, then use the table backward to find the input."
+ "explanation": "**SAT Pattern: Function Transformation**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~20s):** $d(x) - 6 = -11$ means $d(x) = -5$, and the table gives $d(4) = -5$.\n\n**The Full Solution:**\nStep 1: Write $e(x) = -11$ in terms of $d$: $d(x) - 6 = -11$.\nStep 2: Add $6$ to both sides: $d(x) = -5$.\nStep 3: In the table, $d(x) = -5$ when $x = 4$. Check: $e(4) = d(4) - 6 = -5 - 6 = -11$ ✓\n\n**Common Mistakes:**\n* $6$: finds the row where $d(x) = -11$, skipping the $- 6$ in the definition of $e$.\n* $-5$: reports the value of $d(x)$ instead of the value of $x$.\n\n**Test Day Takeaway:** Turn a condition on $e(x)$ into a condition on $d(x)$, then look up the input in the table."
 }

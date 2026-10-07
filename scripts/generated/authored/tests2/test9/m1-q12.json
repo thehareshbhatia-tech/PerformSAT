@@ -1,29 +1,29 @@
 {
  "id": 12,
- "question": "A bag contains $5$ red marbles and $n$ blue marbles. If two marbles are selected at random without replacement, the probability that both are red is $\\frac{5}{33}$. What is the value of $n$?",
+ "question": "A bag contains $5$ red marbles and $n$ blue marbles. After one red marble is removed, one of the remaining marbles will be selected at random. The probability of selecting a red marble is $\\frac{1}{3}$. What is the value of $n$?",
  "choices": [
   {
    "id": "A",
-   "text": "$7$"
-  },
-  {
-   "id": "B",
    "text": "$8$"
   },
   {
+   "id": "B",
+   "text": "$10$"
+  },
+  {
    "id": "C",
-   "text": "$12$"
+   "text": "$11$"
   },
   {
    "id": "D",
-   "text": "$28$"
+   "text": "$12$"
   }
  ],
  "distractorNotes": {
-  "B": "matches 132 = 12 x 11 to the wrong factor, setting n + 4 = 12 instead of n + 5 = 12",
-  "C": "reports the total number of marbles, 12, rather than the number of blue marbles",
-  "D": "treats 5/33 as a one-draw probability and solves 5/(5 + n) = 5/33"
+  "B": "ignores the removed marble and solves 5/(5 + n) = 1/3",
+  "C": "removes the marble from the total but not from the red count, solving 5/(4 + n) = 1/3",
+  "D": "reports the number of marbles left in the bag, 4 + n = 12, rather than the number of blue marbles"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Probability Without Replacement**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** With $T = n + 5$ marbles, $\\frac{5}{T} \\cdot \\frac{4}{T - 1} = \\frac{5}{33}$ forces $T(T - 1) = 132 = 12 \\cdot 11$, so $T = 12$ and $n = 7$.\n\n**The Full Solution:**\nStep 1: Let $T = n + 5$ be the total number of marbles. The first marble is red with probability $\\frac{5}{T}$; then $4$ red marbles remain among $T - 1$, so the second is red with probability $\\frac{4}{T - 1}$.\nStep 2: Set the product equal to the given probability: $\\frac{20}{T(T - 1)} = \\frac{5}{33}$, so $5T(T - 1) = 660$ and $T(T - 1) = 132$.\nStep 3: Consecutive whole numbers with product $132$ are $12$ and $11$, so $T = 12$ and $n = 12 - 5 = 7$. Check: $\\frac{5}{12} \\cdot \\frac{4}{11} = \\frac{20}{132} = \\frac{5}{33}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($8$): sets $n + 4 = 12$, matching the second-draw count to $12$ instead of the total $n + 5$.\n* Choice C ($12$): this is the total number of marbles, $T$. The question asks for the number of blue marbles.\n* Choice D ($28$): treats $\\frac{5}{33}$ as the chance that one marble is red, solving $\\frac{5}{5 + n} = \\frac{5}{33}$. The stem describes two draws without replacement.\n\n**Test Day Takeaway:** Without replacement, the second fraction loses one from both the top and the bottom; multiply the two fractions, then solve."
+ "explanation": "**SAT Pattern: Probability Without Replacement**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** After the removal there are $4$ red marbles out of $4 + n$, so $\\frac{4}{4 + n} = \\frac{1}{3}$, which gives $4 + n = 12$ and $n = 8$.\n\n**The Full Solution:**\nStep 1: Removing one red marble leaves $4$ red marbles and $n$ blue marbles, or $4 + n$ marbles in all.\nStep 2: The probability of selecting a red marble is $\\frac{4}{4 + n}$, so $\\frac{4}{4 + n} = \\frac{1}{3}$.\nStep 3: Cross-multiply: $12 = 4 + n$, so $n = 8$. Check: with $4$ red and $8$ blue marbles, the probability of red is $\\frac{4}{12} = \\frac{1}{3}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($10$): ignores the removed marble and solves $\\frac{5}{5 + n} = \\frac{1}{3}$.\n* Choice C ($11$): subtracts the removed marble from the total but still counts $5$ red marbles, solving $\\frac{5}{4 + n} = \\frac{1}{3}$.\n* Choice D ($12$): reports the number of marbles left in the bag, $4 + n$, instead of the number of blue marbles.\n\n**Test Day Takeaway:** When an item is removed before the selection, update both the favorable count and the total before writing the probability."
 }

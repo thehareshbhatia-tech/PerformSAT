@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-313",
- "question": "What is the area, in square centimeters, of a rectangle with a length of $6.5$ centimeters and a width of $4$ centimeters?",
+ "question": "A rectangle has a length of $9$ centimeters and a width of $5$ centimeters. What is the area, in square centimeters, of the rectangle?",
  "choices": [
   {
    "id": "A",
-   "text": "$10.5$"
+   "text": "$14$"
   },
   {
    "id": "B",
-   "text": "$13$"
+   "text": "$22.5$"
   },
   {
    "id": "C",
-   "text": "$21$"
+   "text": "$28$"
   },
   {
    "id": "D",
-   "text": "$26$"
+   "text": "$45$"
   }
  ],
  "correctAnswer": "D",
  "distractorNotes": {
-  "A": "adds the length and the width, 6.5 + 4",
-  "B": "uses the triangle formula, one half times 6.5 times 4",
-  "C": "computes the perimeter, 2(6.5) + 2(4)"
+  "A": "adds the length and the width, 9 + 5",
+  "B": "uses the triangle formula, one half times 9 times 5",
+  "C": "computes the perimeter, 2(9) + 2(5)"
  },
- "explanation": "**SAT Pattern: Rectangle Area**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Area is length times width: $6.5 \\times 4 = 26$.\n\n**The Full Solution:**\nStep 1: The area of a rectangle is length times width.\nStep 2: Here that is $6.5 \\times 4$.\nStep 3: $6.5 \\times 4 = 26$ square centimeters. Check: $6 \\times 4 = 24$ and $0.5 \\times 4 = 2$, and $24 + 2 = 26$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10.5$): adds the two dimensions instead of multiplying them.\n* Choice B ($13$): includes a factor of $\\frac{1}{2}$, which belongs to the area of a triangle.\n* Choice C ($21$): is the perimeter, $2(6.5) + 2(4)$, not the area.\n\n**Test Day Takeaway:** Area multiplies the two dimensions and is measured in square units; perimeter adds all four sides."
+ "explanation": "**SAT Pattern: Rectangle Area**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Area is length times width: $9 \\times 5 = 45$.\n\n**The Full Solution:**\nStep 1: The area of a rectangle is length times width.\nStep 2: Here that is $9 \\times 5$.\nStep 3: $9 \\times 5 = 45$ square centimeters. Check: $45 \\div 9 = 5$, the width ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($14$): adds the two dimensions instead of multiplying them.\n* Choice B ($22.5$): includes a factor of $\\frac{1}{2}$, which belongs to the area of a triangle.\n* Choice C ($28$): is the perimeter, $2(9) + 2(5)$, not the area.\n\n**Test Day Takeaway:** Area multiplies the two dimensions and is measured in square units; perimeter adds all four sides."
 }

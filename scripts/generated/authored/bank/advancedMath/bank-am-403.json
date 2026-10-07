@@ -1,6 +1,6 @@
 {
   "id": "bank-am-403",
-  "question": "The graph of $y = ax^{2} + bx + c$ is shown in the $xy$-plane, where $a$, $b$, and $c$ are constants. What is the value of $\\dfrac{b}{a}$?",
+  "question": "The quadratic function $f$ is defined by $f(x) = ax^{2} + bx + c$, where $a$, $b$, and $c$ are constants. The graph of $y = f(x)$ is shown. What is the value of $\\dfrac{b}{a}$?",
   "diagram": {
     "type": "quadraticIntercepts",
     "params": {

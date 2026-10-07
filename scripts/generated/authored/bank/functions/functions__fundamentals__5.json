@@ -1,29 +1,29 @@
 {
-  "question": "$f(x) = \\dfrac{7}{x^{2} - 10x + c}$\nIn the given function, $c$ is a constant. If $f$ is undefined for exactly one value of $x$, what is the value of $c$?",
-  "hint": "When does a quadratic have exactly one zero?",
+  "question": "$f(x) = x^{2} - 10x + c$\nIn the given function, $c$ is a constant. The minimum value of $f(x)$ is $3$. What is the value of $f(2)$?",
+  "hint": "The minimum of a parabola that opens upward occurs at its vertex.",
   "choices": [
     {
       "id": "A",
-      "text": "$-25$"
+      "text": "$-13$"
     },
     {
       "id": "B",
-      "text": "$10$"
+      "text": "$3$"
     },
     {
       "id": "C",
-      "text": "$25$"
+      "text": "$12$"
     },
     {
       "id": "D",
-      "text": "$100$"
+      "text": "$28$"
     }
   ],
   "distractorNotes": {
-    "A": "makes a sign error in the discriminant, solving 100 + 4c = 0",
-    "B": "copies the magnitude of the x-coefficient as c",
-    "D": "sets c equal to b^2 = 100, forgetting the factor of 4 in b^2 - 4ac"
+    "A": "takes c = 3, treating the minimum value as the constant term",
+    "B": "reports the minimum value of f",
+    "D": "reports c instead of evaluating f(2)"
   },
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~30s):** The denominator must have exactly one zero, so its discriminant is $0$: $(-10)^{2} - 4(1)(c) = 0$, giving $c = 25$.\n\n**The Full Solution:**\nStep 1: A fraction is undefined exactly where its denominator equals $0$, so $x^{2} - 10x + c = 0$ must have exactly one real solution.\nStep 2: A quadratic has exactly one real solution when its discriminant is $0$: $(-10)^{2} - 4(1)(c) = 100 - 4c = 0$.\nStep 3: Solve: $4c = 100$, so $c = 25$. Check: $x^{2} - 10x + 25 = (x - 5)^{2}$, which equals $0$ only at $x = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-25$): drops the minus sign in $b^{2} - 4ac$ and solves $100 + 4c = 0$. With $c = -25$ the denominator has two zeros.\n* Choice B ($10$): copies the coefficient of $x$. With $c = 10$ the discriminant is $60$, so there are two zeros.\n* Choice D ($100$): sets $c = b^{2}$ and forgets the factor of $4$; the discriminant would then be $-300$, and $f$ would be defined everywhere.\n\n**Test Day Takeaway:** A rational function is undefined at the zeros of its denominator; \"exactly one\" value means a perfect-square denominator, or a discriminant of $0$."
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~50s):** The minimum occurs at $x = \\frac{10}{2} = 5$, so $f(5) = 25 - 50 + c = 3$ gives $c = 28$; then $f(2) = 4 - 20 + 28 = 12$.\n\n**The Full Solution:**\nStep 1: The graph opens upward, so the minimum is at the vertex, where $x = -\\frac{-10}{2(1)} = 5$.\nStep 2: Set $f(5) = 3$: $25 - 50 + c = 3$, so $c = 28$.\nStep 3: Evaluate: $f(2) = 2^{2} - 10(2) + 28 = 4 - 20 + 28 = 12$. Check: $f(x) = (x - 5)^{2} + 3$, and $(2 - 5)^{2} + 3 = 9 + 3 = 12$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-13$): takes $c = 3$, treating the minimum value as the constant term, so $f(2) = 4 - 20 + 3$.\n* Choice B ($3$): is the minimum value of $f$, which occurs at $x = 5$, not $x = 2$.\n* Choice D ($28$): is the value of $c$, found halfway through the solution.\n\n**Test Day Takeaway:** A minimum (or maximum) value of a quadratic is its value at the vertex; use it to find the missing constant."
 }

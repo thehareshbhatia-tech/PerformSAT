@@ -1,11 +1,11 @@
 {
  "id": "bank-geo-244",
- "question": "In the circle shown with center $O$, the area of sector $AOB$ is $k\\pi$ square inches, where $k$ is a constant. What is the value of $k$?",
+ "question": "In the circle shown with center $O$, the length of minor arc $AB$ is $10\\pi$ inches. What is the value of $x$?",
  "diagram": {
   "type": "circleWithSector",
   "params": {
    "centralAngle": 150,
-   "angleLabel": "150°",
+   "angleLabel": "x°",
    "radius": "12 in",
    "showRadiusLabel": true,
    "labelCenter": "O",
@@ -13,6 +13,6 @@
    "labelPoint2": "B"
   }
  },
- "correctAnswer": "60",
- "explanation": "**SAT Pattern: Sector Area**\n\n**The correct answer is $60$.**\n\n**The Fast Way (~25s):** The sector is $\\frac{150}{360} = \\frac{5}{12}$ of a circle with area $144\\pi$, and $\\frac{5}{12}(144\\pi) = 60\\pi$, so $k = 60$.\n\n**The Full Solution:**\nStep 1: Read the figure: the radius is $12$ inches and the central angle of sector $AOB$ is $150^{\\circ}$.\nStep 2: Find the area of the whole circle: $\\pi(12)^{2} = 144\\pi$ square inches.\nStep 3: Take the sector's share: $\\frac{150}{360}(144\\pi) = \\frac{5}{12}(144\\pi) = 60\\pi$, so $k\\pi = 60\\pi$ and $k = 60$. Check: $\\frac{60}{144} = \\frac{5}{12}$, the same fraction as $\\frac{150}{360}$ ✓\n\n**Common Mistakes:**\n* $10$: uses the arc length $\\frac{150}{360}(24\\pi) = 10\\pi$, a length rather than an area.\n* $144$: gives the area of the whole circle and never scales by the angle.\n* $240$: squares the diameter $24$ instead of the radius, $\\frac{5}{12}(576\\pi) = 240\\pi$.\n\n**Test Day Takeaway:** When the area is written as $k\\pi$, carry $\\pi$ along symbolically and read $k$ off the coefficient at the end."
+ "correctAnswer": "150",
+ "explanation": "**SAT Pattern: Arc Length**\n\n**The correct answer is $150$.**\n\n**The Fast Way (~30s):** The circumference is $2\\pi(12) = 24\\pi$, and the arc is $\\frac{10\\pi}{24\\pi} = \\frac{5}{12}$ of it, so $x = \\frac{5}{12}(360) = 150$.\n\n**The Full Solution:**\nStep 1: Read the figure: the radius is $12$ inches, so the circumference is $2\\pi(12) = 24\\pi$ inches.\nStep 2: The arc's share of the circle is $\\frac{10\\pi}{24\\pi} = \\frac{5}{12}$.\nStep 3: The central angle is the same share of $360^{\\circ}$: $x = \\frac{5}{12}(360) = 150$. Check: $\\frac{150}{360}(24\\pi) = 10\\pi$ ✓\n\n**Common Mistakes:**\n* $300$: uses $\\pi r = 12\\pi$ as the circumference, so the share looks like $\\frac{10}{12}$.\n* $75$: finds the share $\\frac{5}{12}$ but multiplies by $180$ instead of $360$.\n* $210$: gives the angle of the major arc, $360 - 150$.\n\n**Test Day Takeaway:** An arc and its central angle are the same fraction of the whole: arc over circumference equals angle over $360^{\\circ}$."
 }

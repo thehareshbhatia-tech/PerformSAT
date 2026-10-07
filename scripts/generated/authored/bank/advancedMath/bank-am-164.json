@@ -1,40 +1,40 @@
 {
-  "id": "bank-am-164",
-  "question": "The graph of $y = (x - h)^{2} + k$ is shown in the $xy$-plane, where $h$ and $k$ are constants. What is the value of $h + k$?",
-  "diagram": {
-    "type": "quadraticVertex",
-    "params": {
-      "vertex": [
-        3,
-        -5
-      ],
-      "a": 1,
-      "showVertex": true
-    }
+ "id": "bank-am-164",
+ "question": "The graph of the quadratic function $f$ is shown, where $f(x) = (x - h)^{2} + k$ and $h$ and $k$ are constants. What is the value of $h + k$?",
+ "diagram": {
+  "type": "quadraticVertex",
+  "params": {
+   "vertex": [
+    3,
+    -5
+   ],
+   "a": 1,
+   "showVertex": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-8$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-8$"
-    },
-    {
-      "id": "B",
-      "text": "$-5$"
-    },
-    {
-      "id": "C",
-      "text": "$-2$"
-    },
-    {
-      "id": "D",
-      "text": "$8$"
-    }
-  ],
-  "correctAnswer": "C",
-  "distractorNotes": {
-    "A": "misreads the sign in (x - h), taking h = -3, so -3 + (-5) = -8",
-    "B": "reports k, the minimum value, without adding h",
-    "D": "computes h - k = 3 - (-5) = 8 instead of h + k"
+  {
+   "id": "B",
+   "text": "$-5$"
   },
-  "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The minimum point is $(3, -5)$, so $h = 3$ and $k = -5$, and $h + k = -2$.\n\n**The Full Solution:**\nStep 1: In $y = (x - h)^{2} + k$, the vertex is $(h, k)$, and because the parabola opens upward, the vertex is the minimum point.\nStep 2: The marked minimum point on the graph is $(3, -5)$, so $h = 3$ and $k = -5$.\nStep 3: Then $h + k = 3 + (-5) = -2$. Check: $y = (x - 3)^{2} - 5$ gives $y = -5$ at $x = 3$ and $y = 9 - 5 = 4$ at $x = 0$, matching the graph's $y$-intercept ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): misreads the sign in $(x - h)$, taking $h = -3$.\n* Choice B ($-5$): reports $k$, the minimum value, without adding $h$.\n* Choice D ($8$): subtracts instead of adding, computing $3 - (-5)$.\n\n**Test Day Takeaway:** In $(x - h)^{2} + k$ the vertex is $(h, k)$ exactly as read from the graph; the minus sign is already built into the form."
+  {
+   "id": "C",
+   "text": "$-2$"
+  },
+  {
+   "id": "D",
+   "text": "$8$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "misreads the sign in (x - h), taking h = -3, so -3 + (-5) = -8",
+  "B": "reports k, the minimum value, without adding h",
+  "D": "computes h - k = 3 - (-5) = 8 instead of h + k"
+ },
+ "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The minimum point is $(3, -5)$, so $h = 3$ and $k = -5$, and $h + k = -2$.\n\n**The Full Solution:**\nStep 1: In $f(x) = (x - h)^{2} + k$, the vertex is $(h, k)$, and because the parabola opens upward, the vertex is the minimum point.\nStep 2: The marked minimum point on the graph is $(3, -5)$, so $h = 3$ and $k = -5$.\nStep 3: Then $h + k = 3 + (-5) = -2$. Check: $f(x) = (x - 3)^{2} - 5$ gives $f(3) = -5$ and $f(0) = 9 - 5 = 4$, matching the graph's $y$-intercept ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): misreads the sign in $(x - h)$, taking $h = -3$.\n* Choice B ($-5$): reports $k$, the minimum value, without adding $h$.\n* Choice D ($8$): subtracts instead of adding, computing $3 - (-5)$.\n\n**Test Day Takeaway:** In $(x - h)^{2} + k$ the vertex is $(h, k)$ exactly as read from the graph; the minus sign is already built into the form."
 }

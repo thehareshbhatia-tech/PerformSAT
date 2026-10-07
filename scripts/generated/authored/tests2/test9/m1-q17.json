@@ -1,29 +1,29 @@
 {
  "id": 17,
- "question": "$3x^{2} + kx + 12 = 0$\nIn the given equation, $k$ is a positive even integer. For how many values of $k$ does the equation have no real solution?",
+ "question": "$3x^{2} + kx + 12 = 0$\nIn the given equation, $k$ is a positive integer. If the equation has no real solution, how many possible values of $k$ are there?",
  "choices": [
   {
    "id": "A",
-   "text": "$3$"
-  },
-  {
-   "id": "B",
    "text": "$5$"
   },
   {
-   "id": "C",
+   "id": "B",
    "text": "$6$"
   },
   {
-   "id": "D",
+   "id": "C",
    "text": "$11$"
+  },
+  {
+   "id": "D",
+   "text": "$12$"
   }
  ],
  "distractorNotes": {
-  "A": "drops the leading coefficient and uses k^2 < 48 instead of k^2 < 144, leaving the even values 2, 4, 6",
-  "C": "includes k = 12, where the discriminant is 0 and there is one real solution",
-  "D": "counts every positive integer from 1 to 11 and ignores the restriction to even values"
+  "A": "drops the 4 from the discriminant, solving k^2 - 36 < 0 to get k = 1 through 5",
+  "B": "drops the 4 from the discriminant and also allows k^2 - 36 = 0, counting k = 1 through 6",
+  "D": "allows the discriminant to equal 0 and counts k = 12, which gives exactly one real solution"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** No real solution means $k^{2} - 4(3)(12) < 0$, so $k^{2} < 144$ and $0 < k < 12$; the even values are $2, 4, 6, 8, 10$, five of them.\n\n**The Full Solution:**\nStep 1: A quadratic equation $ax^{2} + bx + c = 0$ has no real solution when its discriminant $b^{2} - 4ac$ is negative. Here that is $k^{2} - 4(3)(12) < 0$.\nStep 2: Simplify: $k^{2} < 144$. Since $k$ is positive, $0 < k < 12$; $k = 12$ is excluded because it makes the discriminant $0$.\nStep 3: The positive even integers less than $12$ are $2, 4, 6, 8, 10$, so there are $5$ values. Check: $k = 10$ gives $100 - 144 = -44 < 0$, and $k = 12$ gives $144 - 144 = 0$, one real solution ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): leaves out the $3$ in $4ac$, solving $k^{2} < 48$, which keeps only $2$, $4$, and $6$.\n* Choice C ($6$): includes $k = 12$. With a discriminant of $0$, the equation has exactly one real solution, so it does have a real solution.\n* Choice D ($11$): counts every positive integer from $1$ to $11$, ignoring the condition that $k$ is even.\n\n**Test Day Takeaway:** No real solution means a negative discriminant, and the inequality is strict; after solving for the range, apply every restriction in the stem before you count."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** No real solution means $k^{2} - 4(3)(12) < 0$, so $k^{2} < 144$ and $k < 12$; the positive integers $1$ through $11$ work, which is $11$ values.\n\n**The Full Solution:**\nStep 1: A quadratic equation $ax^{2} + bx + c = 0$ has no real solution when its discriminant $b^{2} - 4ac$ is negative. Here $a = 3$, $b = k$, and $c = 12$.\nStep 2: Set up the inequality: $k^{2} - 4(3)(12) < 0$, or $k^{2} < 144$.\nStep 3: Since $k$ is a positive integer, $k < 12$, so $k$ can be $1, 2, 3, \\ldots, 11$, which is $11$ values. Check: $11^{2} - 144 = -23 < 0$, while $12^{2} - 144 = 0$, which gives one real solution ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): forgets the $4$ in the discriminant and solves $k^{2} - 3(12) < 0$, which allows only $k = 1$ through $5$.\n* Choice B ($6$): forgets the $4$ and also lets the discriminant equal $0$, counting $k = 1$ through $6$.\n* Choice D ($12$): counts $k = 12$, but that makes the discriminant exactly $0$, which gives one real solution, not zero.\n\n**Test Day Takeaway:** \"No real solution\" means the discriminant is strictly less than $0$; a discriminant of $0$ still gives one solution."
 }

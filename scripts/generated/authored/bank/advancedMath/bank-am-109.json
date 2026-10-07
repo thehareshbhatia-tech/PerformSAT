@@ -1,6 +1,6 @@
 {
  "id": "bank-am-109",
- "question": "$f(x) = 3x + 8$\nThe function $g$ is defined by $g(x) = 4f(x)$. What is the value of $g(5)$?",
- "correctAnswer": "92",
- "explanation": "**SAT Pattern: Function Transformation**\n\n**The correct answer is $92$.**\n\n**The Fast Way (~15s):** $f(5) = 23$, and $g(5) = 4(23) = 92$.\n\n**The Full Solution:**\nStep 1: Evaluate $f$ at $5$: $f(5) = 3(5) + 8 = 23$.\nStep 2: The rule $g(x) = 4f(x)$ multiplies the whole output by $4$: $g(5) = 4f(5)$.\nStep 3: So $g(5) = 4(23) = 92$. Check: $g(x) = 4(3x + 8) = 12x + 32$, and $12(5) + 32 = 92$ ✓\n\n**Common Mistakes:**\n* $68$: multiplies only the $x$-term by $4$, computing $12(5) + 8$; multiplying the input instead, $f(20) = 68$, gives the same wrong value.\n* $27$: adds $4$ to $f(5)$ instead of multiplying.\n* $23$: reports $f(5)$ and never applies the factor $4$.\n\n**Test Day Takeaway:** A factor outside the function multiplies the entire output, constant term included."
+ "question": "$f(x) = x^{2} - 3$\nThe function $g$ is defined by $g(x) = f(x) + 10$. What is the value of $g(4)$?",
+ "correctAnswer": "23",
+ "explanation": "**SAT Pattern: Function Transformation**\n\n**The correct answer is $23$.**\n\n**The Fast Way (~15s):** $f(4) = 16 - 3 = 13$, so $g(4) = 13 + 10 = 23$.\n\n**The Full Solution:**\nStep 1: By definition, $g(4) = f(4) + 10$.\nStep 2: Evaluate $f$ at $4$: $f(4) = 4^{2} - 3 = 16 - 3 = 13$.\nStep 3: Add $10$: $g(4) = 13 + 10 = 23$. Check: $g(x) = x^{2} + 7$, and $4^{2} + 7 = 23$ ✓\n\n**Common Mistakes:**\n* $13$: finds $f(4)$ and forgets to add $10$.\n* $15$: computes $4^{2}$ as $2(4) = 8$, so $8 - 3 + 10 = 15$.\n\n**Test Day Takeaway:** For $g(x) = f(x) + c$, find the output of $f$ first, then add $c$."
 }

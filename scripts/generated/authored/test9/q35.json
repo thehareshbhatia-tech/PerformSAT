@@ -9,20 +9,40 @@
   "passages": [
     {
       "label": "Text 1",
-      "text": "Standard accounts date the Hanseatic League's decline to the sixteenth century and explain it geographically. As Atlantic routes eclipsed the Baltic trade and Dutch and English shippers learned to move bulk goods more cheaply, the League's grip on northern commerce simply ceased to matter. On this view the League was a casualty of forces far beyond its members' control, and its slow dissolution requires no further explanation."
+      "text": "Angkor, the capital of the Khmer Empire in what is now Cambodia, is traditionally said to have fallen in 1431, when armies from the Thai kingdom of Ayutthaya captured and sacked it. On this view, the city's end was a military defeat, and its abandonment needs no further explanation."
     },
     {
       "label": "Text 2",
-      "text": "Geography alone makes a poor executioner. The Hanseatic League had weathered earlier shifts in trade by adjusting its privileges and admitting new partners; what changed in the sixteenth century was political. As territorial princes consolidated power, member towns lost the independence that Hanseatic cooperation required — towns cannot coordinate their commercial policies when rulers now set those policies for them. Foreign competition mattered, but it pressed on an association already being hollowed out from within."
+      "text": "Tree rings from cypress trees in the highlands of Vietnam tell a longer story. They show that the region suffered decades-long droughts in the 1300s and early 1400s, broken by unusually intense monsoons. Angkor depended on a vast network of canals and reservoirs. The droughts would have strained its water supply and harvests, and the floods damaged the network itself. The armies of 1431 struck a city whose foundations were already failing."
     }
   ],
   "question": "Based on the texts, how would the author of Text 2 most likely respond to the argument presented in Text 1?",
   "choices": [
-    { "id": "A", "text": "Dutch and English competition, though often cited by historians, never posed a genuine threat to the League's merchants." },
-    { "id": "B", "text": "The League's dissolution was indeed gradual, but the process began a full century earlier than the standard geographic accounts recognize." },
-    { "id": "C", "text": "An account limited to shifting trade routes omits the political changes that had already undermined the League's capacity to adapt." },
-    { "id": "D", "text": "The League's member towns deliberately dissolved the association once its trading privileges had lost their commercial value." }
+    {
+      "id": "A",
+      "text": "Thai armies, though often cited by historians, never actually reached the city of Angkor."
+    },
+    {
+      "id": "B",
+      "text": "The 1431 invasion was indeed decisive, but it was launched by a different kingdom than the standard accounts claim."
+    },
+    {
+      "id": "C",
+      "text": "An account limited to the 1431 invasion omits the climate extremes that had already undermined Angkor's water system."
+    },
+    {
+      "id": "D",
+      "text": "Angkor's residents deliberately abandoned the city once its reservoirs had lost their usefulness."
+    }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** Text 2 does not dispute that trade shifted; it disputes the sufficiency of that explanation. The League had adapted to shifts before, so what needs explaining is the lost capacity to adapt — a political story about princes and town autonomy that Text 1's geographic account omits.\n\n**The Full Solution:**\n- Text 1's argument culminates in \"requires no further explanation\" — geography suffices.\n- Text 2's opening line rejects exactly that sufficiency (\"Geography alone makes a poor executioner\").\n- Its evidence: past resilience under earlier trade shifts, and the political consolidation that dissolved the coordination the League ran on. C reproduces this objection precisely — the geographic account is incomplete, not wrong.\n\n**Why the other choices are wrong:**\n- A: Text 2 concedes foreign competition was real pressure; it denies only that competition is the whole story.\n- B: Text 2 redates nothing — it relocates the cause, not the century.\n- D: No deliberate dissolution appears in either text; Text 2 describes erosion from within, not a decision by the towns."
+  "explanation": "**Choice C is correct.** Text 1 explains Angkor's end entirely by the 1431 invasion. Text 2 does not deny the invasion but argues that droughts and floods had already damaged the city's water system, so the author of Text 2 would say that an account limited to the invasion leaves out those earlier climate extremes.\n\n**The Full Solution:**\n- Text 1: Angkor fell to a military defeat in 1431, and \"needs no further explanation.\"\n- Text 2: tree rings reveal decades of drought and intense monsoons that strained the water supply and damaged the canals and reservoirs.\n- Text 2's final sentence accepts the invasion but says it struck \"a city whose foundations were already failing.\"\n\n**Why the other choices are wrong:**\n- A: Text 2 refers to \"the armies of 1431,\" so its author accepts that the invasion happened.\n- B: Text 2 never questions which kingdom invaded Angkor.\n- D: Text 2 says the droughts and floods damaged the water system, not that residents chose to leave once the reservoirs were useless.",
+  "_meta": {
+    "anchor": "Decline of Angkor — 1431 Ayutthaya sack vs tree-ring drought/monsoon evidence (Buckley et al. 2010, PNAS) — CTC",
+    "sources": [
+      "https://www.sciencedaily.com/releases/2010/03/100329203547.htm",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC2872380",
+      "https://en.wikipedia.org/wiki/Angkor"
+    ]
+  }
 }

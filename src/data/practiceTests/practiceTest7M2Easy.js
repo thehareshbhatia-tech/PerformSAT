@@ -87,19 +87,19 @@ export const practiceTest7M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 4,
-      question: "In the $xy$-plane, the midpoint of the line segment with endpoints $(-4, 3)$ and $(k, 11)$ is $(5, 7)$. What is the value of $k$?",
+      question: "In the $xy$-plane, line $\\ell$ passes through the points $(-4, 3)$ and $(k, 11)$. The slope of line $\\ell$ is $\\frac{1}{2}$. What is the value of $k$?",
       choices: [
-        // distractor: drops the sign of the -4, solving 2(5) - 4 = 6 instead of 2(5) - (-4)
-        { id: "A", text: "$6$" },
-        // distractor: forgets to double the midpoint coordinate, computing 5 - (-4) = 9
-        { id: "B", text: "$9$" },
-        // distractor: applies the midpoint relation to the y-coordinates, computing 2(7) - 3 = 11
-        { id: "C", text: "$11$" },
-        { id: "D", text: "$14$" }
+        // distractor: inverts the slope formula, setting (k + 4)/8 = 1/2, so k + 4 = 4 and k = 0
+        { id: "A", text: "$0$" },
+        { id: "B", text: "$12$" },
+        // distractor: finds the change in x, k + 4 = 16, and reports 16 instead of subtracting 4
+        { id: "C", text: "$16$" },
+        // distractor: writes the change in x as k - 4 instead of k - (-4), so k - 4 = 16 and k = 20
+        { id: "D", text: "$20$" }
       ],
-      correctAnswer: "D",
-      explanation: "**SAT Pattern: Midpoint Formula**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The midpoint's $x$-coordinate is the average of the endpoints' $x$-coordinates: $\\frac{-4 + k}{2} = 5$, so $k = 14$.\n\n**The Full Solution:**\nStep 1: The $x$-coordinate of a midpoint is the average of the endpoints' $x$-coordinates, so $\\frac{-4 + k}{2} = 5$.\nStep 2: Multiply both sides by $2$: $-4 + k = 10$.\nStep 3: Add $4$: $k = 14$. Check: $\\frac{-4 + 14}{2} = 5$, and the $y$-coordinate $\\frac{3 + 11}{2} = 7$ also matches ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): computes $2(5) - 4$, dropping the negative sign on $-4$.\n* Choice B ($9$): computes $5 - (-4)$, forgetting that the midpoint coordinate is half the sum, so it must be doubled first.\n* Choice C ($11$): works with the $y$-coordinates, computing $2(7) - 3 = 11$, which is the given $y$-coordinate of the second endpoint, not $k$.\n\n**Test Day Takeaway:** Midpoint coordinates are averages; to find a missing endpoint, double the midpoint coordinate and subtract the known endpoint coordinate.",
-      skills: ["coordinate-geometry"]
+      correctAnswer: "B",
+      explanation: "**SAT Pattern: Slope from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The change in $y$ is $11 - 3 = 8$. With a slope of $\\frac{1}{2}$, the change in $x$ must be $16$, so $k = -4 + 16 = 12$.\n\n**The Full Solution:**\nStep 1: The slope of the line through $(-4, 3)$ and $(k, 11)$ is $\\frac{11 - 3}{k - (-4)} = \\frac{8}{k + 4}$.\nStep 2: Set it equal to $\\frac{1}{2}$: $\\frac{8}{k + 4} = \\frac{1}{2}$, so $k + 4 = 16$.\nStep 3: Subtract $4$: $k = 12$. Check: $\\frac{11 - 3}{12 - (-4)} = \\frac{8}{16} = \\frac{1}{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): puts the change in $x$ on top, $\\frac{k + 4}{8} = \\frac{1}{2}$, which gives $k = 0$.\n* Choice C ($16$): finds the change in $x$, $16$, and stops before subtracting $4$.\n* Choice D ($20$): writes $k - 4$ for the change in $x$, losing the double negative in $k - (-4)$.\n\n**Test Day Takeaway:** Slope is the change in $y$ over the change in $x$. When a coordinate is negative, write the subtraction with parentheses so the sign is not lost.",
+      skills: ["slope-from-points"]
     },
     {
       id: 6,
@@ -205,9 +205,9 @@ export const practiceTest7M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "The length of a rectangle is $2.5$ times its width. The area of the rectangle is $40$ square centimeters. What is the width, in centimeters, of the rectangle?",
-      correctAnswer: "4",
-      explanation: "**SAT Pattern: Rectangle Area**\n\n**The correct answer is 4.**\n\n**The Fast Way (~20s):** With width $w$, the area is $w(2.5w) = 2.5w^{2} = 40$, so $w^{2} = 16$ and $w = 4$.\n\n**The Full Solution:**\nStep 1: Let $w$ be the width. The length is $2.5w$, so the area is $w \\cdot 2.5w = 2.5w^{2}$.\nStep 2: Set the area equal to $40$: $2.5w^{2} = 40$, so $w^{2} = 16$.\nStep 3: A width is positive, so $w = 4$ centimeters. Check: the length is $2.5(4) = 10$, and $4 \\times 10 = 40$ ✓\n\n**Common Mistakes:**\n* $16$: stops at $w^{2} = 16$ without taking the square root.\n* $10$: gives the length, $2.5(4)$, instead of the width.\n* $8$: divides $40$ by $2(2.5) = 5$, treating the area as $2.5w + 2.5w$ rather than $w \\cdot 2.5w$.\n\n**Test Day Takeaway:** Name the width, write the length in terms of it, and multiply; the area equation becomes a squared variable, so finish with a square root.",
+      question: "The length of a rectangle is $3$ times its width. The area of the rectangle is $75$ square centimeters. What is the width, in centimeters, of the rectangle?",
+      correctAnswer: "5",
+      explanation: "**SAT Pattern: Rectangle Area**\n\n**The correct answer is 5.**\n\n**The Fast Way (~20s):** With width $w$, the area is $w(3w) = 3w^{2} = 75$, so $w^{2} = 25$ and $w = 5$.\n\n**The Full Solution:**\nStep 1: Let $w$ be the width. The length is $3w$, so the area is $w \\cdot 3w = 3w^{2}$.\nStep 2: Set the area equal to $75$: $3w^{2} = 75$, so $w^{2} = 25$.\nStep 3: A width is positive, so $w = 5$ centimeters. Check: the length is $3(5) = 15$, and $5 \\times 15 = 75$ ✓\n\n**Common Mistakes:**\n* $25$: stops at $w^{2} = 25$ without taking the square root.\n* $15$: gives the length, $3(5)$, instead of the width.\n* $12.5$: divides $75$ by $2(3) = 6$, treating the area as $3w + 3w$ rather than $w \\cdot 3w$.\n\n**Test Day Takeaway:** Name the width, write the length in terms of it, and multiply; the area equation becomes a squared variable, so finish with a square root.",
       skills: ["triangle-area"]
     },
     {
@@ -283,18 +283,18 @@ export const practiceTest7M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 6,
-      question: "$ax + 8y = b$\nIn the given equation, $a$ and $b$ are constants. In the $xy$-plane, the graph of the equation is parallel to the graph of $3x - 2y = 7$ and passes through the point $(4, -1)$. What is the value of $b$?",
+      question: "In the $xy$-plane, line $\\ell$ is parallel to the graph of $3x - 2y = 7$. Line $\\ell$ passes through the points $(0, 0)$ and $(6, d)$. What is the value of $d$?",
       choices: [
-        { id: "A", text: "$-56$" },
-        // distractor: finds a = -12 but drops the 8y term when substituting, computing b = -12(4) = -48
-        { id: "B", text: "$-48$" },
-        // distractor: takes a = 12 by losing the sign of the slope, then computes 12(4) + 8(-1) = 40
-        { id: "C", text: "$40$" },
-        // distractor: finds a = -12 but swaps the coordinates, substituting x = -1 and y = 4: -12(-1) + 8(4) = 44
-        { id: "D", text: "$44$" }
+        // distractor: loses the sign when solving for y, using the slope -3/2, so d = (-3/2)(6) = -9
+        { id: "A", text: "$-9$" },
+        // distractor: uses the perpendicular slope -2/3 instead of the parallel slope, so d = (-2/3)(6) = -4
+        { id: "B", text: "$-4$" },
+        // distractor: uses the reciprocal 2/3 of the slope, so d = (2/3)(6) = 4
+        { id: "C", text: "$4$" },
+        { id: "D", text: "$9$" }
       ],
-      correctAnswer: "A",
-      explanation: "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** Parallel lines have proportional $x$- and $y$-coefficients: $\\frac{a}{3} = \\frac{8}{-2}$, so $a = -12$. Then $b = -12(4) + 8(-1) = -56$.\n\n**The Full Solution:**\nStep 1: The line $3x - 2y = 7$ has slope $\\frac{3}{2}$, and $ax + 8y = b$ has slope $-\\frac{a}{8}$. Parallel lines have equal slopes, so $-\\frac{a}{8} = \\frac{3}{2}$ and $a = -12$.\nStep 2: The point $(4, -1)$ is on the line, so substitute $x = 4$ and $y = -1$ into $-12x + 8y = b$: $b = -12(4) + 8(-1)$.\nStep 3: $b = -48 - 8 = -56$. Check: $-12x + 8y = -56$ is $-4$ times $3x - 2y = 14$, which has the same slope as $3x - 2y = 7$ but a different constant, so the lines are parallel and distinct, and $-12(4) + 8(-1) = -56$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-48$): finds $a = -12$ but leaves out the $8y$ term, computing only $-12(4)$.\n* Choice C ($40$): loses the negative sign and uses $a = 12$, which gives a line with slope $-\\frac{3}{2}$, not parallel to the given line.\n* Choice D ($44$): swaps the coordinates, substituting $x = -1$ and $y = 4$.\n\n**Test Day Takeaway:** For lines in standard form, parallel means the $x$- and $y$-coefficients are in the same ratio; find the missing coefficient first, then use the point to find the constant.",
+      correctAnswer: "D",
+      explanation: "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The graph of $3x - 2y = 7$ has slope $\\frac{3}{2}$, so line $\\ell$ is $y = \\frac{3}{2}x$, and $d = \\frac{3}{2}(6) = 9$.\n\n**The Full Solution:**\nStep 1: Solve $3x - 2y = 7$ for $y$: $-2y = -3x + 7$, so $y = \\frac{3}{2}x - \\frac{7}{2}$, and its slope is $\\frac{3}{2}$.\nStep 2: Parallel lines have equal slopes, and line $\\ell$ passes through $(0, 0)$, so its $y$-intercept is $0$ and line $\\ell$ is $y = \\frac{3}{2}x$.\nStep 3: Substitute $x = 6$: $d = \\frac{3}{2}(6) = 9$. Check: the slope from $(0, 0)$ to $(6, 9)$ is $\\frac{9}{6} = \\frac{3}{2}$, the same as the slope of the given graph ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$): loses the sign when dividing by $-2$, using the slope $-\\frac{3}{2}$.\n* Choice B ($-4$): uses the perpendicular slope, $-\\frac{2}{3}$; parallel lines have equal slopes.\n* Choice C ($4$): uses the reciprocal of the slope, $\\frac{2}{3}$.\n\n**Test Day Takeaway:** Solve the given equation for $y$ to read its slope. A parallel line through the origin is $y = mx$ with the same slope $m$.",
       skills: ["writing-parallel-equation"]
     },
     {
@@ -312,18 +312,18 @@ export const practiceTest7M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 6,
-      question: "In the $xy$-plane, line $\\ell$ passes through the point $(-2, 7)$ and is perpendicular to the line that passes through the points $(0, 8)$ and $(15, 2)$. Which equation defines line $\\ell$?",
+      question: "In the $xy$-plane, line $k$ is defined by $\\frac{1}{2}x + \\frac{1}{5}y = 3$. Line $\\ell$ is perpendicular to line $k$. What is the slope of line $\\ell$?",
       choices: [
-        // distractor: takes the reciprocal of -2/5 but keeps the negative sign, using slope -5/2
-        { id: "A", text: "$y = -\\frac{5}{2}x + 2$" },
-        // distractor: uses the slope -2/5 of the given line itself, which gives a parallel line
-        { id: "B", text: "$y = -\\frac{2}{5}x + \\frac{31}{5}$" },
-        // distractor: changes the sign of -2/5 but does not take the reciprocal, using slope 2/5
-        { id: "C", text: "$y = \\frac{2}{5}x + \\frac{39}{5}$" },
-        { id: "D", text: "$y = \\frac{5}{2}x + 12$" }
+        // distractor: gives the slope of line k itself, -5/2, which is the slope of a parallel line
+        { id: "A", text: "$-\\frac{5}{2}$" },
+        // distractor: takes the reciprocal of -5/2 but does not change the sign
+        { id: "B", text: "$-\\frac{2}{5}$" },
+        { id: "C", text: "$\\frac{2}{5}$" },
+        // distractor: changes the sign of -5/2 but does not take the reciprocal
+        { id: "D", text: "$\\frac{5}{2}$" }
       ],
-      correctAnswer: "D",
-      explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** The given line has slope $\\frac{2 - 8}{15 - 0} = -\\frac{2}{5}$, so line $\\ell$ has slope $\\frac{5}{2}$. Then $7 = \\frac{5}{2}(-2) + b$ gives $b = 12$.\n\n**The Full Solution:**\nStep 1: Find the slope of the line through $(0, 8)$ and $(15, 2)$: $\\frac{2 - 8}{15 - 0} = \\frac{-6}{15} = -\\frac{2}{5}$.\nStep 2: Perpendicular slopes are negative reciprocals, so line $\\ell$ has slope $\\frac{5}{2}$ and equation $y = \\frac{5}{2}x + b$.\nStep 3: Substitute $(-2, 7)$: $7 = \\frac{5}{2}(-2) + b = -5 + b$, so $b = 12$ and $y = \\frac{5}{2}x + 12$. Check: $\\frac{5}{2} \\cdot \\left(-\\frac{2}{5}\\right) = -1$, and $\\frac{5}{2}(-2) + 12 = 7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{5}{2}x + 2$): takes the reciprocal but keeps the negative sign, so the slopes multiply to $1$, not $-1$.\n* Choice B ($y = -\\frac{2}{5}x + \\frac{31}{5}$): uses the slope of the given line itself, which makes line $\\ell$ parallel to it.\n* Choice C ($y = \\frac{2}{5}x + \\frac{39}{5}$): changes the sign but does not take the reciprocal.\n\n**Test Day Takeaway:** A perpendicular slope needs two changes, flip and negate; check that the two slopes multiply to $-1$, then use the given point to find the $y$-intercept.",
+      correctAnswer: "C",
+      explanation: "**SAT Pattern: Perpendicular Slope**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Solving for $y$ gives $y = -\\frac{5}{2}x + 15$, so line $k$ has slope $-\\frac{5}{2}$ and line $\\ell$ has slope $\\frac{2}{5}$.\n\n**The Full Solution:**\nStep 1: Multiply $\\frac{1}{2}x + \\frac{1}{5}y = 3$ by $10$ to clear the fractions: $5x + 2y = 30$.\nStep 2: Solve for $y$: $2y = -5x + 30$, so $y = -\\frac{5}{2}x + 15$. The slope of line $k$ is $-\\frac{5}{2}$.\nStep 3: A perpendicular line has the negative reciprocal slope, so the slope of line $\\ell$ is $\\frac{2}{5}$. Check: $\\left(-\\frac{5}{2}\\right)\\left(\\frac{2}{5}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{5}{2}$): is the slope of line $k$, which would make line $\\ell$ parallel to line $k$.\n* Choice B ($-\\frac{2}{5}$): takes the reciprocal but keeps the negative sign, so the slopes multiply to $1$, not $-1$.\n* Choice D ($\\frac{5}{2}$): changes the sign of $-\\frac{5}{2}$ but does not take the reciprocal.\n\n**Test Day Takeaway:** Clear the fractions, solve for $y$ to read the slope, then flip it and change its sign for the perpendicular slope.",
       skills: ["perpendicular-negative-reciprocal"]
     },
     {
@@ -361,18 +361,18 @@ export const practiceTest7M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 7,
-      question: "At a school, $32\\%$ of the students take Spanish, and $24\\%$ of the students take both Spanish and chemistry. Of the students who take chemistry, $40\\%$ take Spanish. What percent of the students at the school take chemistry?",
+      question: "Of the cars in a parking garage, $35\\%$ are red, $25\\%$ are blue, $15\\%$ are white, and $25\\%$ are black. If a car in the garage is selected at random, what is the probability of selecting a red car, given that the car is not blue?",
       choices: [
-        // distractor: finds the percent who take Spanish but not chemistry, 32% - 24% = 8%
-        { id: "A", text: "$8\\%$" },
-        // distractor: multiplies the two percents, 0.24(0.40) = 0.096, instead of dividing
-        { id: "B", text: "$9.6\\%$" },
-        { id: "C", text: "$60\\%$" },
-        // distractor: reverses the condition, computing 24/32 = 75%, the percent of Spanish students who take chemistry
-        { id: "D", text: "$75\\%$" }
+        // distractor: ignores the condition and gives the probability of selecting a red car from all the cars, 35/100
+        { id: "A", text: "$\\frac{7}{20}$" },
+        { id: "B", text: "$\\frac{7}{15}$" },
+        // distractor: divides by the 65% of cars that are not red instead of the 75% that are not blue, 35/65
+        { id: "C", text: "$\\frac{7}{13}$" },
+        // distractor: gives the probability that the car is not blue, 75/100, instead of the probability that it is red
+        { id: "D", text: "$\\frac{3}{4}$" }
       ],
-      correctAnswer: "C",
-      explanation: "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The students who take both are $40\\%$ of the chemistry students, so $0.40c = 24$ and $c = 60$.\n\n**The Full Solution:**\nStep 1: Let $c\\%$ of the students take chemistry. The students who take both subjects are the chemistry students who take Spanish, which is $40\\%$ of the chemistry students.\nStep 2: So $0.40c = 24$, where both sides are percents of all students at the school.\nStep 3: Divide: $c = \\frac{24}{0.40} = 60$. Check: $40\\%$ of $60\\%$ is $24\\%$; and $32\\% + 60\\% - 24\\% = 68\\%$ take at least one subject, which is possible ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8\\%$): is the percent who take Spanish but not chemistry, $32\\% - 24\\%$.\n* Choice B ($9.6\\%$): multiplies $0.24$ by $0.40$ instead of dividing.\n* Choice D ($75\\%$): divides $24$ by $32$, which is the percent of Spanish students who take chemistry, the reverse of the given condition.\n\n**Test Day Takeaway:** A percent of the students who take chemistry is a percent of the chemistry group, not of the whole school; set that percent of the unknown group equal to the overlap and solve.",
+      correctAnswer: "B",
+      explanation: "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The cars that are not blue make up $100\\% - 25\\% = 75\\%$ of the garage, and red cars are $35\\%$, so the probability is $\\frac{35}{75} = \\frac{7}{15}$.\n\n**The Full Solution:**\nStep 1: The condition \"the car is not blue\" limits the selection to the red, white, and black cars: $35\\% + 15\\% + 25\\% = 75\\%$ of the cars.\nStep 2: All of the red cars are in this group, and they make up $35\\%$ of the cars.\nStep 3: The probability is $\\frac{35}{75} = \\frac{7}{15}$. Check: with $100$ cars, $75$ are not blue and $35$ of those are red, and $\\frac{35}{75} = \\frac{7}{15}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7}{20}$): is $\\frac{35}{100}$, the probability of a red car with no condition.\n* Choice C ($\\frac{7}{13}$): divides by the $65\\%$ of cars that are not red; the condition removes the blue cars, not the red ones.\n* Choice D ($\\frac{3}{4}$): is the probability that the car is not blue, which is the size of the group, not the answer.\n\n**Test Day Takeaway:** In a \"given that\" question, the condition sets the denominator. Here the denominator is the percent of cars that are not blue.",
       skills: ["conditional-probability"]
     }
   ]

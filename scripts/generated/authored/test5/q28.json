@@ -6,12 +6,12 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 2,
- "passage": "On tropical reefs, certain damselfish defend small territories where a preferred species of alga grows. The fish do more than graze these patches: they actively ______ them, weeding out less digestible algae that would otherwise overgrow the crop and driving off intruding grazers.",
+ "passage": "In the mountains of northern Luzon, in the Philippines, Ifugao farmers have carved steep slopes into terraces held up by walls of stone and mud. Channels carry water down from the forests above to flood each flat field. This system allows the farmers to ______ rice at elevations of more than 1,000 meters.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
    "id": "A",
-   "text": "patrol"
+   "text": "preserve"
   },
   {
    "id": "B",
@@ -19,16 +19,16 @@
   },
   {
    "id": "C",
-   "text": "sample"
+   "text": "import"
   },
   {
    "id": "D",
-   "text": "enlarge"
+   "text": "market"
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The behaviors listed — weeding out competing algae and excluding other grazers — amount to tending a crop, and \"cultivate\" names exactly that active care.\n\n**The Full Solution:**\n- The sentence announces that the fish \"do more than graze,\" so the blank must go beyond feeding.\n- The details that follow specify gardening behaviors: removing the less digestible algae that would overgrow \"the crop\" and defending the patch from other grazers.\n- Taken together these describe managing the alga's growth, which is what \"cultivate\" means.\n\n**Why the other choices are wrong:**\n- A: \"Patrol\" covers only the defensive part of the list and misses the weeding that makes the care agricultural.\n- C: \"Sample\" means to try small amounts, a feeding notion the sentence has already set aside.\n- D: \"Enlarge\" concerns the territory's size, which none of the listed behaviors addresses.",
+ "explanation": "**Choice B is correct.** The terraces and water channels let the farmers grow rice on steep mountainsides, and \"cultivate\" means to raise a crop on prepared land.\n\n**The Full Solution:**\n- How to spot it: the details before the blank are all about preparing land for a crop. The farmers carve flat terraces and bring water to flood each field.\n- Flooded, level fields are how rice is grown, so the system makes it possible to grow rice high in the mountains.\n- \"Cultivate\" names that work of growing a crop.\n\n**Why the other choices are wrong:**\n- A: \"Preserve\" means to keep something from spoiling; terraces and flooded fields are for growing rice, not storing it.\n- C: \"Import\" means to bring goods in from another place, but the text describes rice grown on the farmers' own fields.\n- D: \"Market\" means to sell; nothing in the text is about selling rice.",
  "_meta": {
-  "anchor": "farming damselfish — weeding and defending algal turf territories"
+  "anchor": "Ifugao rice terraces of northern Luzon — terraces and irrigation let farmers cultivate rice"
  }
 }

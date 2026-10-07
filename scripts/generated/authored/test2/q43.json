@@ -6,7 +6,7 @@
   "domain": "information-and-ideas",
   "skill": "inferences",
   "module": 2,
-  "passage": "The papyrus scrolls carbonized by the eruption of Vesuvius in 79 CE are too fragile to unroll, so researchers scan them with X-rays and unwrap them virtually. For most ancient manuscripts, that would be enough: medieval inks carry iron, which absorbs X-rays and makes the letters stand out sharply against the page. But these scrolls were written in carbon-based ink — chemically almost indistinguishable from the carbonized papyrus beneath it — so the writing is nearly invisible in the scans, detectable at best as a minute difference in surface texture where ink sits atop the fibers. Recent successes in reading the scrolls have therefore depended on ______",
+  "passage": "The papyrus scrolls carbonized by the eruption of Vesuvius in 79 CE are too fragile to unroll, so researchers scan them with X-rays and unwrap them virtually. For most ancient manuscripts, that would be enough: medieval inks carry iron, which absorbs X-rays and makes the letters stand out sharply against the page. But these scrolls were written in carbon-based ink, which is chemically almost indistinguishable from the carbonized papyrus beneath it. In the scans, the writing is nearly invisible, detectable at best as a minute difference in surface texture where ink sits atop the fibers. Recent successes in reading the scrolls have therefore depended on ______",
   "question": "Which choice most logically completes the text?",
   "choices": [
     {
@@ -19,7 +19,7 @@
     },
     {
       "id": "C",
-      "text": "training machine-learning models to recognize, across the scanned surfaces, textural traces of ink too subtle for human eyes to distinguish reliably from the papyrus itself."
+      "text": "training machine-learning models to recognize textural traces of ink too subtle for human eyes to detect in the scans."
     },
     {
       "id": "D",

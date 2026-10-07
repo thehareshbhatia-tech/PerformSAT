@@ -35,19 +35,19 @@ export const practiceTest10 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "The graph of line $t$ is shown in the $xy$-plane. Line $k$ is perpendicular to line $t$ and passes through the point $(4, 9)$. Which equation defines line $k$?",
-  diagram: { type: "linearGraph", params: { slope: 2, yIntercept: 1, xRange: [-5, 5], yRange: [-9, 11], xTickInterval: 1, yTickInterval: 2, gridInterval: 1, showPoints: [[0, 1], [4, 9]], label: "t" } },
+  question: "The graph of line $t$ is shown in the $xy$-plane. Line $k$ is perpendicular to line $t$. What is the slope of line $k$?",
+  diagram: { type: "linearGraph", params: { slope: -3, yIntercept: 4, xRange: [-2, 4], yRange: [-10, 12], xTickInterval: 1, yTickInterval: 2, gridInterval: 1, showPoints: [[0, 4], [2, -2]], label: "t" } },
   choices: [
-    // distractor: negates the slope of line t but does not take the reciprocal, giving slope -2
-    { id: "A", text: "$y = -2x + 17$" },
-    { id: "B", text: "$y = -\\frac{1}{2}x + 11$" },
-    // distractor: takes the reciprocal of 2 but keeps the sign positive, giving slope 1/2
-    { id: "C", text: "$y = \\frac{1}{2}x + 7$" },
-    // distractor: uses the slope of line t itself, which is the equation of line t, a line parallel to (not perpendicular to) line t
-    { id: "D", text: "$y = 2x + 1$" }
+    // distractor: gives the slope of line t itself, which is the slope of a parallel line
+    { id: "A", text: "$-3$" },
+    // distractor: takes the reciprocal of the slope of line t but keeps the negative sign
+    { id: "B", text: "$-\\frac{1}{3}$" },
+    { id: "C", text: "$\\frac{1}{3}$" },
+    // distractor: changes the sign of the slope of line t but does not take the reciprocal
+    { id: "D", text: "$3$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Line $t$ has slope $2$, so line $k$ has slope $-\\frac{1}{2}$. Of the two choices with that slope, only $y = -\\frac{1}{2}x + 11$ passes through $(4, 9)$.\n\n**The Full Solution:**\nStep 1: Read two points on line $t$ from the graph, $(0, 1)$ and $(4, 9)$. The slope of line $t$ is $\\frac{9 - 1}{4 - 0} = 2$.\nStep 2: The slopes of perpendicular lines multiply to $-1$, so line $k$ has slope $-\\frac{1}{2}$ and can be written as $y = -\\frac{1}{2}x + b$.\nStep 3: Substitute $(4, 9)$: $9 = -\\frac{1}{2}(4) + b = -2 + b$, so $b = 11$ and line $k$ is $y = -\\frac{1}{2}x + 11$. Check: $-\\frac{1}{2}(4) + 11 = 9$, and $\\left(-\\frac{1}{2}\\right)(2) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -2x + 17$): negates the slope of line $t$ but does not take the reciprocal; $(-2)(2) = -4$, not $-1$.\n* Choice C ($y = \\frac{1}{2}x + 7$): takes the reciprocal but keeps it positive; $\\left(\\frac{1}{2}\\right)(2) = 1$, not $-1$.\n* Choice D ($y = 2x + 1$): this is line $t$ itself. A line with the same slope is parallel to line $t$, not perpendicular to it.\n\n**Test Day Takeaway:** A perpendicular slope is the negative reciprocal: flip the fraction and change the sign. Then substitute the given point into $y = mx + b$ to find $b$.",
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Perpendicular Slope**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Line $t$ passes through $(0, 4)$ and $(2, -2)$, so its slope is $\\frac{-6}{2} = -3$; the perpendicular slope is the negative reciprocal, $\\frac{1}{3}$.\n\n**The Full Solution:**\nStep 1: Read two points on line $t$ from the graph: $(0, 4)$ and $(2, -2)$.\nStep 2: The slope of line $t$ is $\\frac{-2 - 4}{2 - 0} = \\frac{-6}{2} = -3$.\nStep 3: Slopes of perpendicular lines multiply to $-1$, so the slope of line $k$ is $\\frac{1}{3}$. Check: $(-3)\\left(\\frac{1}{3}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): this is the slope of line $t$; a line with this slope is parallel to line $t$.\n* Choice B ($-\\frac{1}{3}$): takes the reciprocal but keeps the negative sign; $(-3)\\left(-\\frac{1}{3}\\right) = 1$, not $-1$.\n* Choice D ($3$): changes the sign but does not take the reciprocal; $(-3)(3) = -9$, not $-1$.\n\n**Test Day Takeaway:** For a perpendicular line, flip the slope and change its sign: a falling line with slope $-3$ becomes a rising line with slope $\\frac{1}{3}$.",
   skills: ["perpendicular-negative-reciprocal"]
 },
 {
@@ -93,19 +93,19 @@ export const practiceTest10 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "$4$, $8$, $9$, $9$, $13$, $16$, $18$, $18$, $18$, $20$, $21$\nWhat is the mode of the data shown?",
+  question: "$3$, $6$, $6$, $10$, $12$, $15$, $25$\nWhat is the mean of the data shown?",
   choices: [
-    // distractor: gives the mean, 154 divided by 11, which is 14
-    { id: "A", text: "$14$" },
-    // distractor: gives the median, the 6th of the 11 ordered values, which is 16
-    { id: "B", text: "$16$" },
-    // distractor: gives the range, 21 minus 4, which is 17
-    { id: "C", text: "$17$" },
-    { id: "D", text: "$18$" }
+    // distractor: gives the mode, the value that appears most often
+    { id: "A", text: "$6$" },
+    // distractor: gives the median, the 4th of the 7 ordered values
+    { id: "B", text: "$10$" },
+    { id: "C", text: "$11$" },
+    // distractor: gives the range, 25 - 3
+    { id: "D", text: "$22$" }
   ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Mode of a Data Set**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** The mode is the value that appears most often. The value $18$ appears three times, more than any other value.\n\n**The Full Solution:**\nStep 1: Count how often each value appears: $18$ appears three times, $9$ appears twice, and every other value appears once.\nStep 2: The mode is the value with the greatest frequency.\nStep 3: So the mode is $18$. Check: no other value appears three or more times; $9$ appears only twice ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($14$): this is the mean, since the values add to $154$ and $\\frac{154}{11} = 14$.\n* Choice B ($16$): this is the median, the $6$th of the $11$ ordered values.\n* Choice C ($17$): this is the range, $21 - 4 = 17$.\n\n**Test Day Takeaway:** Mode means most frequent, median means middle, and mean means average. Read which one the question asks for before you calculate anything.",
-  skills: ["find-mode"]
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Mean from List**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The values add to $77$, and $\\frac{77}{7} = 11$.\n\n**The Full Solution:**\nStep 1: Add the values: $3 + 6 + 6 + 10 + 12 + 15 + 25 = 77$.\nStep 2: Count the values: there are $7$.\nStep 3: Divide: $\\frac{77}{7} = 11$. Check: $7 \\times 11 = 77$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): this is the mode, the value that appears most often.\n* Choice B ($10$): this is the median, the middle ($4$th) of the $7$ ordered values.\n* Choice D ($22$): this is the range, $25 - 3 = 22$.\n\n**Test Day Takeaway:** The mean is the sum of the values divided by the number of values; read which measure the question asks for before you calculate.",
+  skills: ["calculate-mean"]
 },
 {
   id: 5,
@@ -267,28 +267,28 @@ export const practiceTest10 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "In the $xy$-plane, the midpoint of the line segment with endpoints $(-5, 8)$ and $(a, -2)$ is $(4, 3)$. What is the value of $a$?",
-  correctAnswer: "13",
-  explanation: "**SAT Pattern: Midpoint Formula**\n\n**The correct answer is 13.**\n\n**The Fast Way (~15s):** The $x$-coordinate of the midpoint is the average of the endpoint $x$-coordinates: $\\frac{-5 + a}{2} = 4$, so $a = 13$.\n\n**The Full Solution:**\nStep 1: The midpoint's $x$-coordinate is the average of the endpoints' $x$-coordinates: $\\frac{-5 + a}{2} = 4$.\nStep 2: Multiply both sides by $2$: $-5 + a = 8$.\nStep 3: Add $5$: $a = 13$. Check: $\\frac{-5 + 13}{2} = 4$ and $\\frac{8 + (-2)}{2} = 3$, so the midpoint is $(4, 3)$ ✓\n\n**Common Mistakes:**\n* $3$: solves $-5 + a = 8$ as $a = 8 - 5$, subtracting $5$ instead of adding it.\n* $9$: forgets to double the midpoint coordinate, solving $-5 + a = 4$.\n* $-0.5$: averages $-5$ and $4$ instead of treating $4$ as the average.\n\n**Test Day Takeaway:** For a missing endpoint, double the midpoint coordinate and subtract the known endpoint coordinate: $a = 2(4) - (-5) = 13$.",
-  skills: ["coordinate-geometry"]
+  question: "In the $xy$-plane, line $k$ passes through the point $(0, 0)$ and is parallel to the graph of $y = -3x + 5$. Line $k$ also passes through the point $(a, -12)$. What is the value of $a$?",
+  correctAnswer: "4",
+  explanation: "**SAT Pattern: Parallel Line Through a Point**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~20s):** Line $k$ has the same slope, $-3$, and passes through the origin, so it is $y = -3x$; then $-12 = -3a$ gives $a = 4$.\n\n**The Full Solution:**\nStep 1: Parallel lines have equal slopes, so line $k$ has slope $-3$.\nStep 2: Line $k$ passes through $(0, 0)$, so its $y$-intercept is $0$ and line $k$ is $y = -3x$.\nStep 3: Substitute the point $(a, -12)$: $-12 = -3a$, so $a = 4$. Check: $-3(4) = -12$ ✓\n\n**Common Mistakes:**\n* $-4$: uses a slope of $3$ instead of $-3$, solving $-12 = 3a$.\n* $\\frac{17}{3}$: substitutes into the given line $y = -3x + 5$ instead of line $k$, solving $-12 = -3a + 5$.\n* $36$: substitutes $-12$ for $x$ instead of $y$, computing $-3(-12) = 36$.\n\n**Test Day Takeaway:** A parallel line keeps the slope; a line through the origin has $y$-intercept $0$, so it is $y = mx$.",
+  skills: ["writing-parallel-equation"]
 },
 {
   id: 15,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "$3x^{2} - kx + 24 = 0$\nIn the given equation, $k$ is a constant. The equation has two positive solutions, and one solution is twice the other. What is the value of $k$?",
+  question: "$3x^{2} - kx + 24 = 0$\nIn the given equation, $k$ is a constant. One solution to the given equation is $2$. What is the sum of the solutions to the given equation?",
   choices: [
-    // distractor: uses -b/a with b = k instead of b = -k, which flips the sign of k
-    { id: "A", text: "$-18$" },
-    // distractor: finds the sum of the solutions, 6, but does not multiply it by 3
+    // distractor: finds the other solution, 4, and reports it instead of the sum 2 + 4
+    { id: "A", text: "$4$" },
     { id: "B", text: "$6$" },
-    { id: "C", text: "$18$" },
-    // distractor: treats the product of the solutions, 24/3 = 8, as their sum and computes 3 times 8
-    { id: "D", text: "$24$" }
+    // distractor: reports the product of the solutions, 24/3 = 8, instead of the sum
+    { id: "C", text: "$8$" },
+    // distractor: reports the value of k, 18, instead of the sum k/3
+    { id: "D", text: "$18$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Quadratic — Vieta's Sum/Product**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Call the solutions $r$ and $2r$. Their product is $\\frac{24}{3} = 8$, so $2r^{2} = 8$ and $r = 2$; their sum, $6$, equals $\\frac{k}{3}$, so $k = 18$.\n\n**The Full Solution:**\nStep 1: For $ax^{2} + bx + c = 0$, the solutions have product $\\frac{c}{a}$ and sum $-\\frac{b}{a}$. Here the product is $\\frac{24}{3} = 8$ and the sum is $\\frac{k}{3}$.\nStep 2: Let the solutions be $r$ and $2r$ with $r > 0$. Then $r(2r) = 8$, so $r^{2} = 4$ and $r = 2$; the solutions are $2$ and $4$.\nStep 3: The sum is $2 + 4 = 6$, so $\\frac{k}{3} = 6$ and $k = 18$. Check: $3x^{2} - 18x + 24 = 3(x^{2} - 6x + 8) = 3(x - 2)(x - 4)$, with solutions $2$ and $4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-18$): takes the coefficient of $x$ to be $k$ rather than $-k$, so the sum $-\\frac{b}{a}$ comes out as $-\\frac{k}{3}$ and the sign of $k$ flips.\n* Choice B ($6$): finds the sum of the solutions, $6$, but forgets that the sum equals $\\frac{k}{3}$, not $k$.\n* Choice D ($24$): treats $\\frac{24}{3} = 8$ as the sum of the solutions instead of their product, then computes $3(8)$.\n\n**Test Day Takeaway:** Sum $= -\\frac{b}{a}$ and product $= \\frac{c}{a}$. When one solution is a multiple of the other, use the product to find them and the sum to find the constant.",
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Quadratic — Vieta's Sum/Product**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The product of the solutions is $\\frac{24}{3} = 8$, so the other solution is $\\frac{8}{2} = 4$ and the sum is $2 + 4 = 6$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 2$: $3(2)^{2} - 2k + 24 = 0$, so $36 - 2k = 0$ and $k = 18$.\nStep 2: The equation is $3x^{2} - 18x + 24 = 0$. Divide by $3$: $x^{2} - 6x + 8 = 0$, which factors as $(x - 2)(x - 4) = 0$.\nStep 3: The solutions are $2$ and $4$, so their sum is $6$. Check: for $ax^{2} + bx + c = 0$ the sum of the solutions is $-\\frac{b}{a} = \\frac{18}{3} = 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): finds the other solution and stops, forgetting to add the given solution $2$.\n* Choice C ($8$): reports the product of the solutions, $\\frac{24}{3}$, instead of the sum.\n* Choice D ($18$): reports $k$ itself; the sum of the solutions is $\\frac{k}{3}$.\n\n**Test Day Takeaway:** For $ax^{2} + bx + c = 0$, the solutions add to $-\\frac{b}{a}$ and multiply to $\\frac{c}{a}$; one known solution and the product give the other quickly.",
   skills: ["quadratic-factoring"]
 },
 {
@@ -354,19 +354,19 @@ export const practiceTest10 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "$f(x) = x^{2} - 3$\n$g(x) = 2x + k$\nThe functions $f$ and $g$ are defined as shown, where $k$ is a negative constant. If $f(g(1)) = 46$, what is the value of $k$?",
+  question: "$f(x) = 2x^{2} + kx - 3$\nIn the given function, $k$ is a constant. If $f(-3) = 6$, what is the value of $f(3)$?",
   choices: [
-    { id: "A", text: "$-9$" },
-    // distractor: solves (2 + k)^2 = 49 and reports 2 + k = -7 instead of k
-    { id: "B", text: "$-7$" },
-    // distractor: takes only the positive square root, 2 + k = 7, ignoring that k is negative
-    { id: "C", text: "$5$" },
-    // distractor: composes the functions in the wrong order, solving g(f(1)) = 46
-    { id: "D", text: "$50$" }
+    // distractor: treats (-3)^2 as -9, so -18 - 3k - 3 = 6 gives k = -9 and f(3) = 18 - 27 - 3 = -12
+    { id: "A", text: "$-12$" },
+    // distractor: finds k = 3 and reports k instead of f(3)
+    { id: "B", text: "$3$" },
+    // distractor: assumes f(3) = f(-3), but the kx term changes sign when x changes sign
+    { id: "C", text: "$6$" },
+    { id: "D", text: "$24$" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Function Composition**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $g(1) = 2 + k$, so $(2 + k)^{2} - 3 = 46$ and $(2 + k)^{2} = 49$. Since $k < 0$, $2 + k = -7$ and $k = -9$.\n\n**The Full Solution:**\nStep 1: Evaluate the inner function first: $g(1) = 2(1) + k = 2 + k$.\nStep 2: Apply $f$: $f(2 + k) = (2 + k)^{2} - 3 = 46$, so $(2 + k)^{2} = 49$ and $2 + k = 7$ or $2 + k = -7$.\nStep 3: These give $k = 5$ or $k = -9$. Because $k$ is negative, $k = -9$. Check: $g(1) = 2 - 9 = -7$ and $f(-7) = 49 - 3 = 46$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-7$): this is the value of $g(1) = 2 + k$, not $k$.\n* Choice C ($5$): uses only the positive square root, $2 + k = 7$, but $k$ must be negative.\n* Choice D ($50$): reverses the order, computing $g(f(1)) = 2(-2) + k = -4 + k = 46$.\n\n**Test Day Takeaway:** In $f(g(x))$, evaluate $g$ first. When you take a square root, keep both signs, then use the given condition to choose.",
-  skills: ["function-composition"]
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Function Evaluation with Negative Input**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** $f(-3) = 18 - 3k - 3 = 15 - 3k = 6$, so $k = 3$. Then $f(3) = 18 + 9 - 3 = 24$.\n\n**The Full Solution:**\nStep 1: Substitute $x = -3$: $f(-3) = 2(-3)^{2} + k(-3) - 3 = 18 - 3k - 3 = 15 - 3k$.\nStep 2: Set this equal to $6$: $15 - 3k = 6$, so $3k = 9$ and $k = 3$.\nStep 3: With $f(x) = 2x^{2} + 3x - 3$, $f(3) = 2(9) + 3(3) - 3 = 24$. Check: $f(-3) = 18 - 9 - 3 = 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): evaluates $(-3)^{2}$ as $-9$, which gives $k = -9$ and $f(3) = -12$.\n* Choice B ($3$): this is the value of $k$, not $f(3)$.\n* Choice C ($6$): assumes the function has the same value at $3$ and $-3$; only the $2x^{2}$ and $-3$ terms are unchanged, while $kx$ changes sign.\n\n**Test Day Takeaway:** Use the given function value to find the constant first, then evaluate at the new input; a negative input squared is positive.",
+  skills: ["function-evaluation"]
 },
 {
   id: 20,
@@ -489,19 +489,19 @@ export const practiceTest10 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "The equation $y = 34x + 96$ estimates the number of students, $y$, enrolled in a school's coding course $x$ years after $2016$. In $2022$, $312$ students were enrolled in the course. How many more students were enrolled in $2022$ than the equation estimates?",
+  question: "The equation $y = 34x + 96$ gives the estimated number of students, $y$, enrolled in a coding course $x$ years after the course was first offered. What is the best interpretation of $96$ in this context?",
   choices: [
-    { id: "A", text: "$12$" },
-    // distractor: reports the slope, 34, the estimated increase per year, instead of the difference between actual and estimated
-    { id: "B", text: "$34$" },
-    // distractor: drops the constant 96, estimating 34(6) = 204 and reporting 312 - 204 = 108
-    { id: "C", text: "$108$" },
-    // distractor: reports the estimate for 2022, 34(6) + 96 = 300, instead of the difference
-    { id: "D", text: "$300$" }
+    // distractor: takes the coefficient 34 as the starting value; 34 is the estimated increase in enrollment each year
+    { id: "A", text: "The estimated number of students enrolled when the course was first offered is $34$." },
+    { id: "B", text: "The estimated number of students enrolled when the course was first offered is $96$." },
+    // distractor: treats the first year as x = 1; the course was first offered at x = 0, and at x = 1 the estimate is 34(1) + 96 = 130
+    { id: "C", text: "The estimated number of students enrolled $1$ year after the course was first offered is $96$." },
+    // distractor: reads the constant term as the rate of change; the estimated increase each year is the coefficient 34
+    { id: "D", text: "The estimated number of students enrolled increases by $96$ each year." }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Residual**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $2022$ is $6$ years after $2016$, so the estimate is $34(6) + 96 = 300$, and $312 - 300 = 12$.\n\n**The Full Solution:**\nStep 1: Since $x$ is the number of years after $2016$, the year $2022$ corresponds to $x = 2022 - 2016 = 6$.\nStep 2: Evaluate the equation at $x = 6$: $y = 34(6) + 96 = 204 + 96 = 300$ students.\nStep 3: The actual enrollment exceeds the estimate by $312 - 300 = 12$ students. Check: $300 + 12 = 312$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($34$): reports the slope, which is the estimated increase in enrollment each year, not the gap between the actual and estimated enrollment.\n* Choice C ($108$): uses only $34(6) = 204$ and forgets the constant $96$, giving $312 - 204 = 108$.\n* Choice D ($300$): stops at the estimate for $2022$ and never subtracts it from the actual enrollment.\n\n**Test Day Takeaway:** With a \"years after\" model, first turn the calendar year into $x$, then subtract the estimated value from the actual value.",
-  skills: ["calculate-mean", "slope-intercept-form"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Interpret Intercept of Best Fit**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** When the course was first offered, $x = 0$, and $y = 34(0) + 96 = 96$. So $96$ is the estimated number of students enrolled when the course was first offered.\n\n**The Full Solution:**\nStep 1: $x$ is the number of years after the course was first offered, so $x = 0$ is the year it was first offered.\nStep 2: Substitute $x = 0$: $y = 34(0) + 96 = 96$.\nStep 3: So $96$ is the estimated enrollment when the course was first offered. Check: the other number, $34$, multiplies $x$, so it is the estimated increase in enrollment each year, not a starting value ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: uses $34$ as the starting enrollment; $34$ is the estimated increase each year.\n* Choice C: treats the first year as $x = 1$; at $x = 1$ the estimate is $34(1) + 96 = 130$, not $96$.\n* Choice D: reads the constant as the yearly increase; the yearly increase is the coefficient of $x$, $34$.\n\n**Test Day Takeaway:** In $y = mx + b$, the constant $b$ is the estimated value of $y$ when $x = 0$, and $m$ is the estimated change in $y$ for each increase of $1$ in $x$.",
+  skills: ["slope-from-points", "scatterplots"]
 },
 {
   id: 5,
@@ -653,9 +653,9 @@ export const practiceTest10 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "A savings account was opened with a deposit of \\$8,000 and earns $5\\%$ interest compounded annually. No other deposits or withdrawals are made. How much interest, in dollars, does the account earn during the third year?",
-  correctAnswer: "441",
-  explanation: "**SAT Pattern: Compound Interest**\n\n**The correct answer is 441.**\n\n**The Fast Way (~35s):** After two years the balance is $8{,}000(1.05)^{2} = 8{,}820$ dollars, and the third year adds $5\\%$ of that: $0.05(8{,}820) = 441$.\n\n**The Full Solution:**\nStep 1: Interest of $5\\%$ compounded annually multiplies the balance by $1.05$ each year, so the balance after $t$ years is $8{,}000(1.05)^{t}$ dollars.\nStep 2: The third year runs from $t = 2$ to $t = 3$. After $2$ years the balance is $8{,}000(1.1025) = 8{,}820$ dollars, and after $3$ years it is $8{,}000(1.157625) = 9{,}261$ dollars.\nStep 3: The interest earned during the third year is $9{,}261 - 8{,}820 = 441$ dollars. Check: the third year's interest is $5\\%$ of the balance at the start of that year, and $0.05(8{,}820) = 441$ ✓\n\n**Common Mistakes:**\n* $400$: takes $5\\%$ of the original $\\$8{,}000$. That is the interest for the first year; each later year earns interest on a larger balance.\n* $1{,}261$: reports the total interest for all three years, $9{,}261 - 8{,}000$, instead of the interest for the third year alone.\n* $420$: takes $5\\%$ of the balance after one year, $\\$8{,}400$, which is the interest for the second year.\n\n**Test Day Takeaway:** With compound interest, the interest for a single year is the rate times the balance at the start of that year, so count the exponent carefully before you multiply.",
+  question: "A savings account has an initial balance of \\$8,000. The balance increases by $5\\%$ each year, and no deposits or withdrawals are made. What is the balance, in dollars, of the account after $2$ years?",
+  correctAnswer: "8820",
+  explanation: "**SAT Pattern: Compound Interest**\n\n**The correct answer is $8{,}820$.**\n\n**The Fast Way (~20s):** Increasing by $5\\%$ each year multiplies the balance by $1.05$ each year, so after $2$ years the balance is $8{,}000(1.05)^{2} = 8{,}820$ dollars.\n\n**The Full Solution:**\nStep 1: An increase of $5\\%$ multiplies the balance by $1 + 0.05 = 1.05$.\nStep 2: After $1$ year: $8{,}000(1.05) = 8{,}400$ dollars.\nStep 3: After $2$ years: $8{,}400(1.05) = 8{,}820$ dollars. Check: $8{,}000(1.05)^{2} = 8{,}000(1.1025) = 8{,}820$ ✓\n\n**Common Mistakes:**\n* $8{,}800$: adds $5\\%$ of the original $\\$8{,}000$ twice, $8{,}000 + 2(400)$; the second year's increase is $5\\%$ of the larger balance, $\\$8{,}400$.\n* $8{,}400$: stops after one year.\n* $820$: reports only the total increase, $8{,}820 - 8{,}000$, instead of the balance.\n\n**Test Day Takeaway:** \"Increases by $r\\%$ each year\" means multiply by $1 + \\frac{r}{100}$ once per year, so the growth is exponential, not a fixed amount each year.",
   skills: ["exponential-functions"]
 },
 {

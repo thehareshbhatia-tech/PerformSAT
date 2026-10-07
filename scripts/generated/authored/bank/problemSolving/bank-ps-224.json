@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-224",
-  "question": "The table shows the number of tiles fired in each of three kilns. Of all these tiles, $6.5\\%$ cracked, and $52$ of the cracked tiles were from kilns $1$ and $2$. How many tiles from kiln $3$ did not crack?",
+  "question": "The table shows the number of tiles fired in each of three kilns. Of all these tiles, $5\\%$ cracked, and $52$ of the cracked tiles were from kilns $1$ and $2$. How many tiles from kiln $3$ did not crack?",
   "diagram": {
     "type": "dataTable",
     "params": {
@@ -24,6 +24,6 @@
       ]
     }
   },
-  "correctAnswer": "381",
-  "explanation": "**SAT Pattern: Percent Complement**\n\n**The correct answer is $381$.**\n\n**The Fast Way (~45s):** $0.065 \\times 1{,}400 = 91$ tiles cracked, so kiln $3$ had $91 - 52 = 39$ cracked tiles and $420 - 39 = 381$ that did not crack.\n\n**The Full Solution:**\nStep 1: Add the counts in the table: $520 + 460 + 420 = 1{,}400$ tiles, and $6.5\\%$ of them cracked: $0.065 \\times 1{,}400 = 91$.\nStep 2: Kilns $1$ and $2$ account for $52$ cracked tiles, so kiln $3$ had $91 - 52 = 39$ cracked tiles.\nStep 3: The rest of kiln $3$'s tiles did not crack: $420 - 39 = 381$. Check: $52 + 39 = 91$ cracked in all, and $381 + 39 = 420$ ✓\n\n**Common Mistakes:**\n* $39$: finds kiln $3$'s cracked tiles, the group the question excludes.\n* $1{,}309$: finds the tiles from all three kilns that did not crack, $1{,}400 - 91$.\n* $393$: applies $6.5\\%$ to kiln $3$ alone, $420 - 0.065(420) \\approx 393$, ignoring the given count of $52$, so the kilns' crack rates are assumed equal when they are not.\n\n**Test Day Takeaway:** A percent of the whole gives a total count; subtract the parts you are told about to isolate the one group you need, then take its complement."
+  "correctAnswer": "402",
+  "explanation": "**SAT Pattern: Percent Complement**\n\n**The correct answer is $402$.**\n\n**The Fast Way (~40s):** $0.05 \\times 1{,}400 = 70$ tiles cracked, so kiln $3$ had $70 - 52 = 18$ cracked tiles and $420 - 18 = 402$ that did not crack.\n\n**The Full Solution:**\nStep 1: Add the counts in the table: $520 + 460 + 420 = 1{,}400$ tiles, and $5\\%$ of them cracked: $0.05 \\times 1{,}400 = 70$.\nStep 2: Kilns $1$ and $2$ account for $52$ cracked tiles, so kiln $3$ had $70 - 52 = 18$ cracked tiles.\nStep 3: The rest of kiln $3$'s tiles did not crack: $420 - 18 = 402$. Check: $52 + 18 = 70$ cracked in all, and $402 + 18 = 420$ ✓\n\n**Common Mistakes:**\n* $18$: kiln $3$'s cracked tiles, the group the question excludes.\n* $1{,}330$: the tiles from all three kilns that did not crack, $1{,}400 - 70$.\n* $399$: applies $5\\%$ to kiln $3$ alone, $420 - 0.05(420)$, ignoring the given count of $52$.\n\n**Test Day Takeaway:** A percent of the whole gives a total count; subtract the parts you are told about to isolate one group, then take its complement."
 }

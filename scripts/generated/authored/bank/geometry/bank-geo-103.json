@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-103",
- "question": "In the $xy$-plane, the points $(3, -4)$ and $(15, 12)$ are the endpoints of a diameter of a circle. Which equation represents the circle?",
+ "question": "In the $xy$-plane, the points $(4, -7)$ and $(4, 3)$ are the endpoints of a diameter of a circle. Which equation represents the circle?",
  "choices": [
   {
    "id": "A",
-   "text": "$(x + 9)^2 + (y + 4)^2 = 100$"
+   "text": "$(x + 4)^2 + (y - 2)^2 = 25$"
   },
   {
    "id": "B",
-   "text": "$(x - 9)^2 + (y - 4)^2 = 10$"
+   "text": "$(x - 4)^2 + (y + 2)^2 = 5$"
   },
   {
    "id": "C",
-   "text": "$(x - 9)^2 + (y - 4)^2 = 100$"
+   "text": "$(x - 4)^2 + (y + 2)^2 = 25$"
   },
   {
    "id": "D",
-   "text": "$(x - 9)^2 + (y - 4)^2 = 400$"
+   "text": "$(x - 4)^2 + (y + 2)^2 = 100$"
   }
  ],
  "distractorNotes": {
   "A": "flips the signs of the center coordinates",
-  "B": "uses the radius, 10, on the right side instead of the radius squared",
-  "D": "uses the length of the diameter, 20, as the radius, giving 20 squared = 400"
+  "B": "uses the radius 5 on the right side instead of 5^2",
+  "D": "uses the diameter 10 in place of the radius, 10^2 = 100"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The center is the midpoint of the diameter, $\\left(\\frac{3 + 15}{2}, \\frac{-4 + 12}{2}\\right) = (9, 4)$, and the radius is half of $\\sqrt{12^2 + 16^2} = 20$, so $r^2 = 100$.\n\n**The Full Solution:**\nStep 1: The center of a circle is the midpoint of any diameter: $\\left(\\frac{3 + 15}{2}, \\frac{-4 + 12}{2}\\right) = (9, 4)$.\nStep 2: The diameter has length $\\sqrt{(15 - 3)^2 + (12 - (-4))^2} = \\sqrt{144 + 256} = \\sqrt{400} = 20$, so the radius is $10$ and $r^2 = 100$.\nStep 3: The equation is $(x - 9)^2 + (y - 4)^2 = 100$. Check: the endpoint $(15, 12)$ gives $6^2 + 8^2 = 36 + 64 = 100$, and $(3, -4)$ gives $(-6)^2 + (-8)^2 = 100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: flips the signs of the center, which would place it at $(-9, -4)$.\n* Choice B: puts the radius, $10$, on the right side instead of $r^2 = 100$.\n* Choice D: uses the whole diameter, $20$, as the radius, so the right side becomes $20^2 = 400$.\n\n**Test Day Takeaway:** The midpoint of a diameter is the center and half its length is the radius; the right side of standard form is the radius squared."
+ "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The center is halfway between the endpoints, $(4, -2)$, and the diameter is $3 - (-7) = 10$, so $r = 5$ and $r^{2} = 25$.\n\n**The Full Solution:**\nStep 1: Both endpoints have $x$-coordinate $4$, so the diameter is vertical with length $3 - (-7) = 10$. The radius is $5$.\nStep 2: The center is halfway between the endpoints: $\\left(4, \\frac{-7 + 3}{2}\\right) = (4, -2)$.\nStep 3: With center $(4, -2)$ and $r^{2} = 25$, the equation is $(x - 4)^2 + (y + 2)^2 = 25$. Check: $(4, 3)$ gives $0^{2} + 5^{2} = 25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x + 4)^2 + (y - 2)^2 = 25$): writes $(x + 4)$ and $(y - 2)$, which would put the center at $(-4, 2)$.\n* Choice B ($(x - 4)^2 + (y + 2)^2 = 5$): puts the radius $5$ on the right side; the equation needs $r^{2} = 25$.\n* Choice D ($(x - 4)^2 + (y + 2)^2 = 100$): squares the diameter $10$ instead of the radius $5$.\n\n**Test Day Takeaway:** From the endpoints of a diameter: the center is the halfway point, the radius is half the diameter, and the equation uses $r^{2}$."
 }

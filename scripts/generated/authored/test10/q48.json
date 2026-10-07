@@ -6,34 +6,38 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 2,
- "passage": "When Germany's national railway ended its night trains in 2016, Austria's railway took over several of the routes, and ridership soon grew. New sleeping cars could not be built fast ______ the Austrian railway leased older cars so that it could add services in the meantime.",
+ "passage": "For more than 130 years, the stone London Bridge carried traffic over the Thames in central ______ by the 1960s it was no longer sturdy enough for the heavy loads of modern traffic. The city sold the bridge in 1968, and its numbered facing stones were shipped to Arizona and used to rebuild it in Lake Havasu City.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "enough, however,"
+   "text": "London, however,"
   },
   {
    "id": "B",
-   "text": "enough however,"
+   "text": "London however,"
   },
   {
    "id": "C",
-   "text": "enough, however;"
+   "text": "London, however;"
   },
   {
    "id": "D",
-   "text": "enough; however,"
+   "text": "London; however,"
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** Two independent clauses meet at the blank, and the second opens with the conjunctive adverb \"however.\" The standard pattern is a semicolon before the conjunctive adverb and a comma after it: \"New sleeping cars could not be built fast enough; however, the Austrian railway leased older cars...\"\n\n**The Full Solution:**\n- Clause one is complete: \"New sleeping cars could not be built fast enough.\"\n- Clause two is complete: \"the Austrian railway leased older cars so that it could add services in the meantime.\"\n- \"However\" is not a coordinating conjunction, so it cannot join clauses with a comma alone; it needs the semicolon boundary before it.\n\n**Why the other choices are wrong:**\n- A: A comma before \"however\" leaves two independent clauses joined by a comma, a splice that the adverb cannot repair.\n- B: With no boundary before \"however,\" the clauses fuse outright.\n- C: It reverses the marks: the semicolon must precede \"however\" at the clause boundary, and the comma must follow it.",
+ "explanation": "**Choice D is correct.** Two independent clauses meet at the blank, and the second opens with the conjunctive adverb \"however.\" The standard pattern is a semicolon before the conjunctive adverb and a comma after it: \"the stone London Bridge carried traffic over the Thames in central London; however, by the 1960s it was no longer sturdy enough for the heavy loads of modern traffic.\"\n\n**The Full Solution:**\n- Clause one is complete: \"For more than 130 years, the stone London Bridge carried traffic over the Thames in central London.\"\n- Clause two is complete: \"By the 1960s it was no longer sturdy enough for the heavy loads of modern traffic.\"\n- \"However\" is not a conjunction, so it cannot join the clauses by itself; the semicolon does the joining, and the comma follows \"however.\"\n\n**Why the other choices are wrong:**\n- A: Commas on both sides of \"however\" leave two independent clauses joined only by a comma, a comma splice.\n- B: With no punctuation before \"however,\" the two clauses run together as a fused sentence.\n- C: The punctuation is reversed: the semicolon belongs before \"however,\" not after it.",
  "_meta": {
   "rule": "semicolon before conjunctive adverb joining independent clauses",
   "distractors": {
    "A": "comma splice around however",
    "B": "fused sentence",
    "C": "punctuation pair reversed"
-  }
+  },
+  "anchor": "London Bridge (1831) sold in 1968 and rebuilt in Lake Havasu City — semicolon before however",
+  "sources": [
+   "https://en.wikipedia.org/wiki/London_Bridge_(Lake_Havasu_City)"
+  ]
  }
 }

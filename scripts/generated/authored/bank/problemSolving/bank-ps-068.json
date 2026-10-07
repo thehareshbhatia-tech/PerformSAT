@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-068",
-  "question": "A salesperson earns a $5\\%$ commission on the first $\\$20{,}000$ of her sales each month and an $8\\%$ commission on any sales above $\\$20{,}000$. Last month, her commission was $\\$2{,}200$. What were her total sales, in dollars, last month?",
+  "question": "A town's population in 2020 was $240\\%$ greater than its population in 1950. If the town's population in 2020 was $10{,}200$, what was its population in 1950?",
   "choices": [
     {
       "id": "A",
-      "text": "$15{,}000$"
+      "text": "$3{,}000$"
     },
     {
       "id": "B",
-      "text": "$27{,}500$"
+      "text": "$4{,}250$"
     },
     {
       "id": "C",
-      "text": "$35{,}000$"
+      "text": "$24{,}480$"
     },
     {
       "id": "D",
-      "text": "$44{,}000$"
+      "text": "$34{,}680$"
     }
   ],
   "distractorNotes": {
-    "A": "finds the sales above $20,000 (1,200/0.08) but never adds the first $20,000",
-    "B": "applies the 8% rate to all sales: 2,200/0.08 = 27,500",
-    "D": "applies the 5% rate to all sales: 2,200/0.05 = 44,000"
+    "B": "treats $240\\%$ greater than as $240\\%$ of, dividing by $2.4$ instead of $3.4$: $\\frac{10{,}200}{2.4} = 4{,}250$.",
+    "C": "finds $240\\%$ of the 2020 population, $2.4(10{,}200)$, instead of working backward to 1950.",
+    "D": "increases the 2020 population by $240\\%$, $3.4(10{,}200)$, instead of working backward to 1950."
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Tiered Commission**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The first $\\$20{,}000$ earns $0.05(20{,}000) = 1{,}000$, so the other $1{,}200$ came at $8\\%$: $\\frac{1{,}200}{0.08} = 15{,}000$. Total sales: $20{,}000 + 15{,}000 = \\$35{,}000$.\n\n**The Full Solution:**\nStep 1: The full first tier earns $0.05(20{,}000) = \\$1{,}000$. Since the commission was more than $\\$1{,}000$, her sales were above $\\$20{,}000$.\nStep 2: Let $s$ be her total sales. Then $1{,}000 + 0.08(s - 20{,}000) = 2{,}200$, so $0.08(s - 20{,}000) = 1{,}200$ and $s - 20{,}000 = 15{,}000$.\nStep 3: So $s = 35{,}000$. Check: $0.05(20{,}000) + 0.08(15{,}000) = 1{,}000 + 1{,}200 = 2{,}200$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($15{,}000$): finds the sales above $\\$20{,}000$ correctly but forgets to add the first $\\$20{,}000$.\n* Choice B ($27{,}500$): applies the $8\\%$ rate to all sales, $\\frac{2{,}200}{0.08}$, ignoring the lower first tier.\n* Choice D ($44{,}000$): applies the $5\\%$ rate to all sales, $\\frac{2{,}200}{0.05}$, ignoring the higher second tier.\n\n**Test Day Takeaway:** With tiered rates, take the full first tier's earnings out first; only what is left is divided by the higher rate."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Reverse-Percent**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** A value $240\\%$ greater than $P$ is $P + 2.4P = 3.4P$. So $3.4P = 10{,}200$ and $P = \\frac{10{,}200}{3.4} = 3{,}000$.\n\n**The Full Solution:**\nStep 1: Let $P$ be the population in 1950. A population $240\\%$ greater than $P$ is $100\\% + 240\\% = 340\\%$ of $P$, or $3.4P$.\nStep 2: So $3.4P = 10{,}200$, and $P = \\frac{10{,}200}{3.4} = 3{,}000$.\nStep 3: Check: $240\\%$ of $3{,}000$ is $7{,}200$, and $3{,}000 + 7{,}200 = 10{,}200$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($4{,}250$): treats $240\\%$ greater than as $240\\%$ of, dividing by $2.4$ instead of $3.4$: $\\frac{10{,}200}{2.4} = 4{,}250$.\n* Choice C ($24{,}480$): finds $240\\%$ of the 2020 population, $2.4(10{,}200)$, instead of working backward to 1950.\n* Choice D ($34{,}680$): increases the 2020 population by $240\\%$, $3.4(10{,}200)$, instead of working backward to 1950.\n\n**Test Day Takeaway:** \"$p\\%$ greater than $x$\" means $(1 + \\frac{p}{100})x$, even when $p$ is more than $100$; to work backward, divide by that factor."
 }

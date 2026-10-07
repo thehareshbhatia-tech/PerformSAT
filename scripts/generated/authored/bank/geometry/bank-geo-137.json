@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-137",
- "question": "In the $xy$-plane, circles $A$ and $B$ both have center $(4, -1)$. Circle $A$ passes through the point $(-4, 5)$, and circle $B$ passes through the point $(9, 11)$. What is the area of the region inside circle $B$ and outside circle $A$?",
+ "question": "$(x - 4)^{2} + (y + 1)^{2} = 100$\nIn the $xy$-plane, the graph of the given equation is circle $A$. Circle $B$ has the same center as circle $A$ and passes through the point $(9, 11)$. What is the area of the region inside circle $B$ and outside circle $A$?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "squares the difference of the radii, (13 - 10) squared",
+  "A": "squares the difference of the radii, (13 - 10) squared, instead of subtracting the areas",
   "C": "gives the area of circle B only",
-  "D": "adds the two squared radii, 169 + 100"
+  "D": "adds the two areas, 169 pi + 100 pi, instead of subtracting"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Distance from Center as Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** The radii are $\\sqrt{64 + 36} = 10$ and $\\sqrt{25 + 144} = 13$, so the region's area is $\\pi(169 - 100) = 69\\pi$.\n\n**The Full Solution:**\nStep 1: The radius of circle $A$ is the distance from $(4, -1)$ to $(-4, 5)$: $\\sqrt{(-8)^{2} + 6^{2}} = \\sqrt{100} = 10$.\nStep 2: The radius of circle $B$ is the distance from $(4, -1)$ to $(9, 11)$: $\\sqrt{5^{2} + 12^{2}} = \\sqrt{169} = 13$.\nStep 3: Circle $A$ lies inside circle $B$, so the region's area is $\\pi(13^{2}) - \\pi(10^{2}) = 169\\pi - 100\\pi = 69\\pi$. Check: $69\\pi + 100\\pi = 169\\pi$, the area of circle $B$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9\\pi$): squares the difference of the radii; $(13 - 10)^{2}$ is not $13^{2} - 10^{2}$.\n* Choice C ($169\\pi$): gives the area of circle $B$ and never removes circle $A$.\n* Choice D ($269\\pi$): adds the two areas instead of subtracting.\n\n**Test Day Takeaway:** The region between two circles with the same center is a difference of areas, so subtract the squares of the radii; never square the difference of the radii."
+ "explanation": "**SAT Pattern: Distance from Center as Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Circle $A$ has center $(4, -1)$ and radius $10$, and circle $B$'s radius is the distance from $(4, -1)$ to $(9, 11)$, $\\sqrt{25 + 144} = 13$. The region's area is $169\\pi - 100\\pi = 69\\pi$.\n\n**The Full Solution:**\nStep 1: From the given equation, circle $A$ has center $(4, -1)$ and radius $\\sqrt{100} = 10$, so its area is $100\\pi$.\nStep 2: Circle $B$ has center $(4, -1)$ and passes through $(9, 11)$, so its radius squared is $(9 - 4)^{2} + (11 - (-1))^{2} = 25 + 144 = 169$. Its radius is $13$ and its area is $169\\pi$.\nStep 3: The region inside circle $B$ and outside circle $A$ has area $169\\pi - 100\\pi = 69\\pi$. Check: $69\\pi + 100\\pi = 169\\pi$, the area of circle $B$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9\\pi$): squares the difference of the radii, $(13 - 10)^{2} = 9$, instead of subtracting the areas.\n* Choice C ($169\\pi$): gives the area of circle $B$ without removing circle $A$.\n* Choice D ($269\\pi$): adds the two areas instead of subtracting them.\n\n**Test Day Takeaway:** The area between two circles with the same center is the larger area minus the smaller area; subtract the areas, not the radii."
 }

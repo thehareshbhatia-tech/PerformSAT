@@ -8,31 +8,31 @@
  "choices": [
   {
    "id": "A",
-   "text": "strive"
+   "text": "try"
   },
   {
    "id": "B",
-   "text": "are striving"
+   "text": "are trying"
   },
   {
    "id": "C",
-   "text": "had been striving"
+   "text": "had been trying"
   },
   {
    "id": "D",
-   "text": "have been striving"
+   "text": "have been trying"
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The sentence describes effort that was already underway before a past reference point — \"By the time the phonograph, radio, and motion pictures supplanted sheet music\" — so the past perfect progressive \"had been striving\" is required.\n\n**The Full Solution:**\n- \"By the time X happened\" anchors the sentence at a moment in the past (the 1930s).\n- The publishers' campaign (\"for decades\") stretches back before that anchor and continues up to it — the textbook territory of the past perfect progressive.\n- \"Had been striving ... for decades\" places the ongoing effort correctly before the past milestone.\n\n**Why the other choices are wrong:**\n- A: The simple present \"strive\" cannot sit inside a sentence anchored to a past decade.\n- B: The present progressive \"are striving\" likewise clashes with the past time frame.\n- D: The present perfect progressive \"have been striving\" measures duration up to now, but the sentence measures duration up to a point in the past.",
- "passage": "By the time the phonograph, radio, and motion pictures supplanted sheet music in the 1930s, Tin Pan Alley's publishers ______ for decades to place their newest songs with star performers, and the pluggers simply carried the same methods into the new media.",
+ "explanation": "**Choice C is correct.** The sentence describes an effort that continued up to a past moment (\"By the time ... reached the summit ... in 1953\"), so the past perfect progressive \"had been trying\" is required.\n\n**The Full Solution:**\n- \"By the time\" plus a past-tense event sets a reference point in the past: 1953.\n- The British attempts began earlier (1921) and continued up to that point, for \"more than three decades.\"\n- An ongoing action that ran up to a past reference point takes the past perfect progressive: \"had been trying.\"\n\n**Why the other choices are wrong:**\n- A: \"Try\" is present tense and cannot describe attempts that ended in 1953.\n- B: \"Are trying\" describes an action happening now, not one completed before 1953.\n- D: \"Have been trying\" runs up to the present, not to a moment in the past.",
+ "passage": "By the time Edmund Hillary and Tenzing Norgay reached the summit of Mount Everest in 1953, British climbers ______ for more than three decades to reach the top, beginning with a reconnaissance expedition in 1921.",
  "_meta": {
-  "rule": "past perfect progressive before a past reference point",
-  "anchor": "Tin Pan Alley song plugging — phonograph, radio and film supplant sheet music in the 1930s (Wikipedia, Tin Pan Alley)",
+  "rule": "past perfect progressive for action continuing to a past reference point",
+  "anchor": "British Everest expeditions 1921-1953 (Wikipedia: List of Mount Everest expeditions)",
   "distractors": {
-   "A": "simple present in past frame",
-   "B": "present progressive in past frame",
-   "D": "present perfect measures to now, not to a past point"
+   "A": "simple present",
+   "B": "present progressive",
+   "D": "present perfect progressive"
   }
  },
  "id": 1122,

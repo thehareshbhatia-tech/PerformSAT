@@ -24,14 +24,14 @@
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The colon's explanation defines the blank: \"one of the most common jobs for young American women was disappearing.\" Demand for new operators shrank — it \"contracted.\"\n\n**The Full Solution:**\n- The subject is \"the demand for new operators\" in cities converted to dial — the machines were absorbing the local-call work operators had done.\n- The clause after the colon describes a job disappearing, and the adverb \"steadily\" requires a single sustained direction, not a wobble.\n- \"Contracted\" — steadily diminished — matches both the mechanism and the adverb.\n\n**Why the other choices are wrong:**\n- A: \"Recovered\" implies demand had earlier fallen and was rebounding; the text describes the opposite arc.\n- B: \"Fluctuated\" means moved up and down, which contradicts \"steadily\" and the one-way spread of dial service.\n- C: \"Intensified\" reverses the logic — machines taking over connections would not raise the need for new operators.",
- "passage": "Between 1920 and 1940, AT&T converted more than half of the U.S. telephone network to dial service, letting subscribers place local calls themselves. Operators were still needed for long-distance and information calls. But in each city converted to dial, the demand for new operators steadily ______: one of the most common jobs for young American women was disappearing.",
+ "explanation": "**Choice D is correct.** Cheaper quartz watches \"flooded the market,\" and Swiss watch employment fell \"from about 90,000 workers in 1970 to about 28,000 by 1988,\" so the industry's workforce was shrinking. \"Contracted\" means became smaller.\n\n**The Full Solution:**\n- The text describes a cheaper, more accurate rival product taking over the market for Swiss mechanical watches.\n- \"Steadily\" signals a change in one direction over time, and \"falling\" names that direction.\n- A steady shrinking of employment is a contraction, so \"contracted\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Recovered\" means returned to an earlier, higher level, but the text describes only a fall.\n- B: \"Fluctuated\" means rose and fell irregularly, which conflicts with \"steadily\" and with the one-way drop from 90,000 to 28,000.\n- C: \"Intensified\" means grew stronger, the opposite of what the falling numbers show.",
+ "passage": "For decades, Swiss companies led the world in making mechanical watches, which keep time with springs and gears. In the 1970s, however, cheaper and more accurate watches run by quartz crystals, many of them made in Japan, flooded the market. Employment in the Swiss watch industry steadily ______, falling from about 90,000 workers in 1970 to about 28,000 by 1988.",
  "_meta": {
-  "anchor": "telephone switchboard operators — AT&T dial conversion 1920-1940 and shrinking demand (Feigenbaum & Gross, NBER w28061 / QJE 2024: AT&T replaced operators with mechanical switching in over half the U.S. network, 1920-1940)",
+  "anchor": "Swiss watch industry and the quartz crisis — employment 90,000 (1970) to 28,000 (1988) (Wikipedia: Quartz crisis; Gear Patrol)",
   "distractors": {
-   "A": "reversed arc — implies rebound",
-   "B": "contradicts 'steadily'",
-   "C": "reversed direction"
+   "A": "implies rebound",
+   "B": "contradicts steadily",
+   "C": "opposite direction"
   }
  },
  "id": 1128,

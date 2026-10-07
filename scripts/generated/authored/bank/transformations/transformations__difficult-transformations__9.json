@@ -1,6 +1,6 @@
 {
  "id": 9,
- "question": "The three points shown lie on the graph of $y = f(x)$. The function $g$ is defined by $g(x) = -2f(x - 4) + 1$. What is the value of $g(6)$?",
+ "question": "The three points shown lie on the graph of $y = f(x)$. The function $g$ is defined by $g(x) = f(x - 4) + 7$. What is the value of $g(2)$?",
  "diagram": {
   "type": "coordinatePoints",
   "params": {
@@ -23,11 +23,11 @@
  "choices": [
   {
    "id": "A",
-   "text": "$-7$"
+   "text": "$-4$"
   },
   {
    "id": "B",
-   "text": "$-1$"
+   "text": "$3$"
   },
   {
    "id": "C",
@@ -35,15 +35,15 @@
   },
   {
    "id": "D",
-   "text": "$9$"
+   "text": "$10$"
   }
  ],
  "distractorNotes": {
-  "A": "drops the negative sign, computing 2(-4) + 1",
-  "B": "ignores the shift and uses f(6) = 1",
-  "C": "computes -2f(2) and forgets to add 1"
+  "A": "subtracts 7 instead of adding it",
+  "B": "uses f(2), ignoring the shift inside f",
+  "C": "uses f(6), shifting the input the wrong way"
  },
  "correctAnswer": "D",
- "hint": "$g(6)$ uses the value of $f$ at $6 - 4$.",
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~30s):** $g(6) = -2f(2) + 1$, and the graph gives $f(2) = -4$, so $g(6) = 8 + 1 = 9$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 6$: $g(6) = -2f(6 - 4) + 1 = -2f(2) + 1$.\nStep 2: The point $(2, -4)$ is on the graph, so $f(2) = -4$.\nStep 3: $g(6) = -2(-4) + 1 = 8 + 1 = 9$. Check: the point $(2, -4)$ on the graph of $f$ moves to $(2 + 4, -2(-4) + 1) = (6, 9)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): drops the negative sign, computing $2(-4) + 1$.\n* Choice B ($-1$): ignores the shift and uses $f(6) = 1$.\n* Choice C ($8$): computes $-2f(2)$ and forgets to add $1$.\n\n**Test Day Takeaway:** Find the input of $f$ first, read its output from the graph, then apply the outside operations in order."
+ "hint": "$g(2)$ uses the value of $f$ at $2 - 4$.",
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~20s):** $g(2) = f(-2) + 7 = 3 + 7 = 10$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 2$: $g(2) = f(2 - 4) + 7 = f(-2) + 7$.\nStep 2: The point $(-2, 3)$ is on the graph of $f$, so $f(-2) = 3$.\nStep 3: So $g(2) = 3 + 7 = 10$. Check: the point $(-2, 3)$ moves right $4$ units and up $7$ units to $(2, 10)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): this is $f(-2) - 7$; the $+7$ raises the output.\n* Choice B ($3$): this is $f(2) + 7 = -4 + 7$; the input to $f$ is $2 - 4$, not $2$.\n* Choice C ($8$): this is $f(6) + 7 = 1 + 7$, which uses $2 + 4$ instead of $2 - 4$.\n\n**Test Day Takeaway:** Evaluate the inside first: $g(2)$ reads $f$ at $2 - 4$, and then the $+7$ applies to that output."
 }

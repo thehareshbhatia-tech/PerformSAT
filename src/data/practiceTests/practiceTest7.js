@@ -295,11 +295,11 @@ export const practiceTest7 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "The table shows the number of students in each of two classes who own a pet and who do not own a pet. Two different students will be selected at random from these $40$ students. What is the probability that both students selected own a pet? (Express your answer as a decimal or fraction, not as a percent.)",
+  question: "The table shows the number of students in each of two classes who own a pet and who do not own a pet. One of these students will be selected at random. What is the probability of selecting a student in Class B, given that the student owns a pet? (Express your answer as a decimal or fraction, not as a percent.)",
   questionTable: { headers: ["", "Owns a pet", "Does not own a pet", "Total"], rows: [["Class A", "9", "13", "22"], ["Class B", "7", "11", "18"], ["Total", "16", "24", "40"]] },
-  correctAnswer: "2/13",
-  explanation: "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $\\frac{2}{13}$.**\n\n**The Fast Way (~30s):** There are $16$ pet owners among the $40$ students. Multiply the two selections: $\\frac{16}{40} \\cdot \\frac{15}{39} = \\frac{2}{5} \\cdot \\frac{5}{13} = \\frac{2}{13}$.\n\n**The Full Solution:**\nStep 1: From the table, $9 + 7 = 16$ of the $40$ students own a pet, so the probability that the first student selected owns a pet is $\\frac{16}{40} = \\frac{2}{5}$.\nStep 2: The first student cannot be selected again, so $39$ students remain and $15$ of them own a pet. The probability that the second student owns a pet is $\\frac{15}{39} = \\frac{5}{13}$.\nStep 3: Multiply: $\\frac{2}{5} \\cdot \\frac{5}{13} = \\frac{2}{13}$. Check as a decimal: $0.4 \\times 0.3846 \\approx 0.1538$, and $\\frac{2}{13} \\approx 0.1538$ ✓\n\n**Common Mistakes:**\n* $\\frac{4}{25}$: using $\\frac{16}{40} \\cdot \\frac{16}{40}$, as if the same student could be selected twice.\n* $\\frac{3}{20}$: using $\\frac{16}{40} \\cdot \\frac{15}{40}$, reducing the number of pet owners for the second selection but leaving the total at $40$.\n* $\\frac{2}{5}$: reporting only the probability for the first selection.\n\n**Test Day Takeaway:** \"Two different\" means both the numerator and the denominator of the second fraction drop by one. Write both fractions before multiplying.",
-  skills: ["probability-basics"]
+  correctAnswer: "7/16",
+  explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**The correct answer is $\\frac{7}{16}$.**\n\n**The Fast Way (~25s):** The condition \"owns a pet\" limits the selection to the $16$ pet owners, and $7$ of them are in Class B, so the probability is $\\frac{7}{16}$.\n\n**The Full Solution:**\nStep 1: Because the student is known to own a pet, only the \"Owns a pet\" column counts: $9 + 7 = 16$ students.\nStep 2: Of these $16$ students, $7$ are in Class B.\nStep 3: The probability is $\\frac{7}{16}$, or $0.4375$. Check: the pet owners in Class A give $\\frac{9}{16}$, and $\\frac{7}{16} + \\frac{9}{16} = 1$ ✓\n\n**Common Mistakes:**\n* $\\frac{7}{40}$: divides by all $40$ students instead of only the $16$ pet owners.\n* $\\frac{7}{18}$: divides by the $18$ students in Class B, which gives the probability that a Class B student owns a pet.\n* $\\frac{9}{16}$: uses the Class A pet owners instead of the Class B pet owners.\n\n**Test Day Takeaway:** In a \"given that\" question, the condition sets the denominator: use only the row or column named after \"given that.\"",
+  skills: ["conditional-probability", "two-way-table"]
 },
 {
   id: 17,
@@ -393,9 +393,9 @@ export const practiceTest7 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "The function $f(t) = 25{,}000(1 + r)^{t}$ gives the balance, in dollars, in a savings account $t$ years after the account was opened, where $r$ is a constant. If $f(2) = 28{,}090$, what is the value of $r$?",
+  question: "The function $f(t) = 2{,}500(1 + r)^{t}$ gives the balance, in dollars, in a savings account $t$ years after the account was opened, where $r$ is a constant. If $f(2) = 2{,}809$, what is the value of $r$?",
   correctAnswer: "0.06",
-  explanation: "**SAT Pattern: Compound Interest**\n\n**The correct answer is $0.06$.**\n\n**The Fast Way (~30s):** Two years of growth multiply the balance by $\\frac{28{,}090}{25{,}000} = 1.1236$, and $\\sqrt{1.1236} = 1.06$, so $r = 0.06$.\n\n**The Full Solution:**\nStep 1: Substitute $t = 2$: $25{,}000(1 + r)^{2} = 28{,}090$.\nStep 2: Divide both sides by $25{,}000$: $(1 + r)^{2} = 1.1236$. Since $1 + r$ is positive, $1 + r = \\sqrt{1.1236} = 1.06$.\nStep 3: Subtract $1$: $r = 0.06$. Check: $25{,}000(1.06)^{2} = 25{,}000(1.1236) = 28{,}090$ ✓\n\n**Common Mistakes:**\n* $0.1236$: using the total two-year increase, $\\frac{28{,}090 - 25{,}000}{25{,}000}$, as $r$. That growth happened over two years, not one.\n* $0.0618$: halving the two-year increase. The growth compounds, so the yearly factor is the square root of the two-year factor.\n* $1.06$: reporting the growth factor $1 + r$ instead of $r$.\n\n**Test Day Takeaway:** Divide the later value by the initial value to isolate the growth factor, then take the $t$th root. Do not divide the total percent increase by the number of years.",
+  explanation: "**SAT Pattern: Compound Interest**\n\n**The correct answer is $0.06$.**\n\n**The Fast Way (~30s):** Two years of growth multiply the balance by $\\frac{2{,}809}{2{,}500} = 1.1236$, and $\\sqrt{1.1236} = 1.06$, so $r = 0.06$.\n\n**The Full Solution:**\nStep 1: Substitute $t = 2$: $2{,}500(1 + r)^{2} = 2{,}809$.\nStep 2: Divide both sides by $2{,}500$: $(1 + r)^{2} = 1.1236$. Since $1 + r$ is positive, $1 + r = \\sqrt{1.1236} = 1.06$.\nStep 3: Subtract $1$: $r = 0.06$. Check: $2{,}500(1.06)^{2} = 2{,}500(1.1236) = 2{,}809$ ✓\n\n**Common Mistakes:**\n* $0.1236$: uses the total two-year increase, $\\frac{2{,}809 - 2{,}500}{2{,}500}$, as $r$. That growth happened over two years, not one.\n* $0.0618$: halves the two-year increase. The growth compounds, so the yearly factor is the square root of the two-year factor.\n* $1.06$: reports the growth factor $1 + r$ instead of $r$.\n\n**Test Day Takeaway:** Divide the later value by the initial value to isolate the growth factor, then take the root that matches the number of years. Do not divide the total percent increase by the number of years.",
   skills: ["exponential-functions"]
 }
       ]
@@ -604,19 +604,19 @@ export const practiceTest7 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "In the xy-plane, the distance between the points $(3, k)$ and $(11, 1)$ is $10$ units. If $k > 1$, what is the value of $k$?",
+  question: "In the $xy$-plane, line $\\ell$ has a slope of $-\\frac{3}{4}$ and passes through the point $(15, 1)$. If the point $(3, k)$ lies on line $\\ell$, what is the value of $k$?",
   choices: [
-    // distractor: takes the negative square root, k - 1 = -6, ignoring the condition k > 1
-    { id: "A", text: "$-5$" },
-    // distractor: adds the coordinate differences instead of their squares, solving 8 + (k - 1) = 10
-    { id: "B", text: "$3$" },
-    // distractor: solves (k - 1)^2 = 36 to get k - 1 = 6 and reports 6 instead of adding 1
-    { id: "C", text: "$6$" },
-    { id: "D", text: "$7$" }
+    // distractor: uses a slope of 3/4 instead of -3/4, so k = 1 + (3/4)(3 - 15) = -8
+    { id: "A", text: "$-8$" },
+    // distractor: finds the change in y, (-3/4)(3 - 15) = 9, and does not add the y-coordinate 1
+    { id: "B", text: "$9$" },
+    { id: "C", text: "$10$" },
+    // distractor: uses -4/3, the reciprocal of the slope, so k = 1 + (-4/3)(3 - 15) = 17
+    { id: "D", text: "$17$" }
   ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Distance Formula**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The horizontal distance is $11 - 3 = 8$, so $8^{2} + (k - 1)^{2} = 10^{2}$; then $(k - 1)^{2} = 36$ and, since $k > 1$, $k = 7$.\n\n**The Full Solution:**\nStep 1: Apply the distance formula: $\\sqrt{(11 - 3)^{2} + (1 - k)^{2}} = 10$, so $64 + (1 - k)^{2} = 100$.\nStep 2: Isolate the squared term: $(1 - k)^{2} = 36$, so $1 - k = 6$ or $1 - k = -6$, which gives $k = -5$ or $k = 7$.\nStep 3: Only $k = 7$ satisfies $k > 1$. Check: the distance between $(3, 7)$ and $(11, 1)$ is $\\sqrt{8^{2} + 6^{2}} = \\sqrt{100} = 10$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): comes from the other root, $1 - k = 6$; it satisfies the distance equation but not the condition $k > 1$.\n* Choice B ($3$): adds the coordinate differences instead of their squares, solving $8 + (k - 1) = 10$.\n* Choice C ($6$): solves $(k - 1)^{2} = 36$ and reports $k - 1 = 6$ rather than $k$.\n\n**Test Day Takeaway:** A distance equation with an unknown coordinate has two roots. The condition in the question is there to choose between them, so apply it last.",
-  skills: ["coordinate-geometry"]
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Slope from Two Points**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Moving from $x = 15$ to $x = 3$ changes $x$ by $-12$, so $y$ changes by $\\left(-\\frac{3}{4}\\right)(-12) = 9$, and $k = 1 + 9 = 10$.\n\n**The Full Solution:**\nStep 1: The slope between $(15, 1)$ and $(3, k)$ is $\\frac{k - 1}{3 - 15} = \\frac{k - 1}{-12}$.\nStep 2: Set this equal to the slope of line $\\ell$: $\\frac{k - 1}{-12} = -\\frac{3}{4}$, so $k - 1 = 9$.\nStep 3: Add $1$: $k = 10$. Check: $\\frac{10 - 1}{3 - 15} = \\frac{9}{-12} = -\\frac{3}{4}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): drops the negative sign of the slope, so $y$ goes down $9$ instead of up $9$ as $x$ decreases.\n* Choice B ($9$): finds the change in $y$, $9$, and forgets to add it to the $y$-coordinate $1$.\n* Choice D ($17$): uses $-\\frac{4}{3}$, the reciprocal of the slope, giving $1 + \\left(-\\frac{4}{3}\\right)(-12) = 17$.\n\n**Test Day Takeaway:** Slope is the change in $y$ divided by the change in $x$. Multiply the slope by the change in $x$ to get the change in $y$, then add it to the known $y$-coordinate.",
+  skills: ["slope-from-points"]
 },
 {
   id: 14,
@@ -720,18 +720,18 @@ export const practiceTest7 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The function $N$ defined by $N(t) = 96(2)^{\\frac{t}{8}}$ models the number of bacteria in a sample $t$ hours after the sample was collected. According to the model, the number of bacteria increases by what percent every $24$ hours?",
+  question: "The function $N$ defined by $N(t) = 96(3)^{\\frac{t}{4}}$ models the number of bacteria in a sample $t$ hours after the sample was collected. According to the model, the number of bacteria increases by what percent every $8$ hours?",
   choices: [
-    // distractor: treats the 100% increase every 8 hours as additive, adding it three times to get 300%
-    { id: "A", text: "$300\\%$" },
-    // distractor: multiplies the base 2 by the 3 eight-hour periods to get a growth factor of 6, which is a 500% increase
+    // distractor: treats the 200% increase every 4 hours as additive, adding it twice to get 400%
+    { id: "A", text: "$400\\%$" },
+    // distractor: multiplies the base 3 by the 2 four-hour periods to get a growth factor of 6, which is a 500% increase
     { id: "B", text: "$500\\%$" },
-    { id: "C", text: "$700\\%$" },
-    // distractor: finds the growth factor 8 but reports it as 800% without subtracting the original 100%
-    { id: "D", text: "$800\\%$" }
+    { id: "C", text: "$800\\%$" },
+    // distractor: finds the growth factor 9 but reports it as 900% without subtracting the original 100%
+    { id: "D", text: "$900\\%$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponential Growth Interpretation**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** $24$ hours is three $8$-hour periods, so the number of bacteria is multiplied by $2^{3} = 8$; becoming $8$ times as large is a $700\\%$ increase.\n\n**The Full Solution:**\nStep 1: Because the exponent is $\\frac{t}{8}$, it increases by $1$ every $8$ hours, so the number of bacteria doubles every $8$ hours.\nStep 2: Over $24$ hours the exponent increases by $\\frac{24}{8} = 3$, so the number of bacteria is multiplied by $2^{3} = 8$.\nStep 3: A quantity that becomes $8$ times as large increases by $8 - 1 = 7$ times its original value, which is $700\\%$. Check: $N(0) = 96$ and $N(24) = 96(2)^{3} = 768$, and $\\frac{768 - 96}{96} = 7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($300\\%$): adds the $100\\%$ increase for each of the three periods. Percent increases compound; they do not add.\n* Choice B ($500\\%$): multiplies the base $2$ by the $3$ periods to get a factor of $6$. The number of periods belongs in the exponent.\n* Choice D ($800\\%$): finds the correct factor, $8$, but reports it as the percent increase without subtracting the original $100\\%$.\n\n**Test Day Takeaway:** In $a(b)^{\\frac{t}{k}}$, the quantity is multiplied by $b$ every $k$ units of time, so over $n$ periods the factor is $b^{n}$. A growth factor of $F$ is an increase of $(F - 1) \\times 100\\%$.",
+  explanation: "**SAT Pattern: Exponential Growth Interpretation**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** $8$ hours is two $4$-hour periods, so the number of bacteria is multiplied by $3^{2} = 9$; becoming $9$ times as large is an $800\\%$ increase.\n\n**The Full Solution:**\nStep 1: Because the exponent is $\\frac{t}{4}$, it increases by $1$ every $4$ hours, so the number of bacteria triples every $4$ hours.\nStep 2: Over $8$ hours the exponent increases by $\\frac{8}{4} = 2$, so the number of bacteria is multiplied by $3^{2} = 9$.\nStep 3: A quantity that becomes $9$ times as large increases by $9 - 1 = 8$ times its original value, which is $800\\%$. Check: $N(0) = 96$ and $N(8) = 96(3)^{2} = 864$, and $\\frac{864 - 96}{96} = 8$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($400\\%$): adds the $200\\%$ increase for each of the two periods. Percent increases compound; they do not add.\n* Choice B ($500\\%$): multiplies the base $3$ by the $2$ periods to get a factor of $6$. The number of periods belongs in the exponent.\n* Choice D ($900\\%$): finds the correct factor, $9$, but reports it as the percent increase without subtracting the original $100\\%$.\n\n**Test Day Takeaway:** In $a(b)^{\\frac{t}{k}}$, the quantity is multiplied by $b$ every $k$ units of time, so over $n$ periods the factor is $b^{n}$. A growth factor of $F$ is an increase of $(F - 1) \\times 100\\%$.",
   skills: ["exponential-growth-decay"]
 },
 {

@@ -1,30 +1,30 @@
 {
   "id": 5,
-  "question": "A data set of $15$ integers has exactly one mode, $24$, which occurs $4$ times. The value $19$ occurs $3$ times. If one more $19$ is added, which of the following is true about the mode of the new data set?",
+  "question": "Data set F has $35$ integer values, each between $60$ and $95$. Data set G is created by adding the value $100$ to data set F. Which of the following must be greater for data set G than for data set F?\nI. The mean\nII. The median",
   "choices": [
     {
       "id": "A",
-      "text": "The only mode is $24$."
+      "text": "I only"
     },
     {
       "id": "B",
-      "text": "The only mode is $19$."
+      "text": "II only"
     },
     {
       "id": "C",
-      "text": "The data set has two modes, $19$ and $24$."
+      "text": "I and II"
     },
     {
       "id": "D",
-      "text": "The data set has no mode."
+      "text": "Neither I nor II"
     }
   ],
   "distractorNotes": {
-    "A": "keeps $24$ as the only mode, overlooking that $19$ now occurs as often as $24$ does.",
-    "B": "assumes the value just added becomes the only mode, but $19$ only ties $24$; it does not pass it.",
-    "D": "treats a tie for the greatest frequency as no mode; both tied values are modes."
+    "B": "has the effects reversed: the mean must increase, while the median might not",
+    "C": "assumes the median must increase, but it stays the same if the 18th and 19th values of F are equal",
+    "D": "overlooks that a value greater than every value in F must raise the mean"
   },
-  "correctAnswer": "C",
-  "hint": "Update the frequency of 19 and compare it with the frequency of 24.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~35s):** After the addition, $19$ occurs $3 + 1 = 4$ times, the same as $24$, and no other value occurs more than $3$ times, so both are modes.\n\n**The Full Solution:**\nStep 1: Since $24$ is the only mode and occurs $4$ times, every other value in the original data set occurs at most $3$ times.\nStep 2: Adding one $19$ raises its frequency from $3$ to $4$; the frequency of $24$ stays $4$, and every other frequency stays at most $3$.\nStep 3: The greatest frequency is $4$, reached by both $19$ and $24$, so the new data set has two modes, $19$ and $24$. Check: the new data set has $16$ values, and no value occurs more than $4$ times. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (The only mode is $24$.): keeps $24$ as the only mode, overlooking that $19$ now occurs as often as $24$ does.\n* Choice B (The only mode is $19$.): assumes the value just added becomes the only mode, but $19$ only ties $24$; it does not pass it.\n* Choice D (The data set has no mode.): treats a tie for the greatest frequency as no mode; both tied values are modes.\n\n**Test Day Takeaway:** After values are added, recount the frequencies. A tie for the greatest frequency gives more than one mode, not a new single mode and not no mode."
+  "correctAnswer": "A",
+  "hint": "Compare $100$ with the values in F, then ask whether the middle of the list must move.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~45s):** Since $100$ is greater than every value in F, the mean must rise; the median moves from the 18th value to the average of the 18th and 19th values, which can be equal.\n\n**The Full Solution:**\nStep 1: Mean: every value in F is less than $100$, so the mean of F is less than $100$, and adding $100$ must increase the mean.\nStep 2: Median: F has $35$ values, so its median is the 18th value. G has $36$ values, so its median is the average of the 18th and 19th values of F.\nStep 3: If the 18th and 19th values of F are equal, the median does not change, so it need not be greater. Only I must be true.\n\nCheck: For example, if the 18th and 19th values of F are both $80$, both data sets have median $80$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (II only): reverses the two results.\n* Choice C (I and II): assumes the median must increase; it can stay the same.\n* Choice D (Neither I nor II): a value greater than every value always raises the mean.\n\n**Test Day Takeaway:** For a must-be-true question, look for one case where the statement fails; for the median, try equal middle values."
 }

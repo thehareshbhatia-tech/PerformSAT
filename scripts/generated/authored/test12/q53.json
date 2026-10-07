@@ -9,34 +9,34 @@
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "In the mid-1700s, performers played music on wine glasses fixed to a table and tuned by adding or removing water.",
-   "Benjamin Franklin heard such a performance in Cambridge, England, in 1761.",
-   "That year he designed the glass armonica: glass bowls of graduated sizes mounted on one spindle turned by a treadle.",
-   "Each bowl's pitch came from its size, so no water tuning was needed.",
-   "A player could sound chords of as many notes as the fingers could reach.",
-   "Mozart later wrote music for the instrument."
+   "In the nineteenth century, many matches had heads containing white phosphorus.",
+   "These matches would light when struck on any rough surface, so they sometimes caught fire by accident.",
+   "Match-factory workers exposed to white phosphorus fumes could develop a painful disease of the jawbone.",
+   "Safety matches were developed in Sweden in the mid-1800s.",
+   "Their makers moved the phosphorus from the match head to a striking surface on the box and used red phosphorus instead of white.",
+   "A safety match lights only when struck on that special surface."
   ],
-  "goal": "The student wants to emphasize how Franklin's design overcame the limitations of the tuned wine glasses."
+  "goal": "The student wants to emphasize how safety matches overcame the limitations of earlier matches."
  },
  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
  "choices": [
   {
    "id": "A",
-   "text": "In the mid-1700s, performers played music on wine glasses that were fixed to a table and tuned by adding or removing water."
+   "text": "Safety matches, which light only when struck on a special surface on the box, were developed in Sweden in the mid-1800s."
   },
   {
    "id": "B",
-   "text": "Benjamin Franklin heard a performance on tuned wine glasses in Cambridge, England, in 1761, and he designed his own instrument that same year."
+   "text": "In the nineteenth century, many matches had heads containing white phosphorus, and these matches would light when they were struck on any rough surface."
   },
   {
    "id": "C",
-   "text": "Because each bowl's pitch came from its size, Franklin's armonica needed no water tuning, unlike the wine glasses that inspired it."
+   "text": "Unlike earlier matches, which lit on any rough surface and sometimes caught fire by accident, safety matches light only on a special surface."
   },
   {
    "id": "D",
-   "text": "Composers as celebrated as Mozart later wrote music for the glass armonica, which Franklin designed in 1761."
+   "text": "Match-factory workers who were exposed to the fumes of white phosphorus could develop a painful disease of the jawbone."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The goal is to show HOW the design overcame the glasses' limitations, and C pairs a design feature with the limitation it removed: because each bowl's pitch came from its size, the water tuning the wine glasses required was no longer needed.\n\n**The Full Solution:**\n- The notes name the old instrument's burden: each glass had to be tuned by adding or removing water.\n- They also name Franklin's answer: bowls of graduated sizes, each sounding its pitch by its size alone.\n- C is the only choice that connects the design to the limitation it overcame — feature, then payoff — which is exactly the emphasis the goal requests.\n\n**Why the other choices are wrong:**\n- A: It describes only the old instrument and its tuning, never Franklin or his design.\n- B: It tells when Franklin encountered the glasses and designed his instrument but never says what the design changed.\n- D: It attests to the instrument's later success without mentioning a single feature of the design or the limitation it overcame."
+ "explanation": "**Choice C is correct.** To show how safety matches overcame the limitations of earlier matches, a sentence must name the limitation and the improvement together. C does: earlier matches lit on any rough surface and sometimes caught fire by accident, while safety matches light only on a special surface.\n\n**The Full Solution:**\n- The limitation, from the notes: earlier matches \"would light when struck on any rough surface, so they sometimes caught fire by accident.\"\n- The improvement: a safety match \"lights only when struck on that special surface.\"\n- C places these side by side with \"Unlike,\" which emphasizes how the newer match solved the older match's problem.\n\n**Why the other choices are wrong:**\n- A: It describes safety matches and their origin but never mentions earlier matches or their limitations.\n- B: It describes only the earlier matches, not how safety matches overcame their limitations.\n- D: It names a hazard of making the earlier matches but does not mention safety matches or compare the two."
 }

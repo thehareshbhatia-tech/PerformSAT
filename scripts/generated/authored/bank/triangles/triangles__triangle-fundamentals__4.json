@@ -1,30 +1,30 @@
 {
- "id": 4,
- "question": "A triangle has sides of length $11$ centimeters and $26$ centimeters. Which of the following could be the length, in centimeters, of the third side?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$10$"
+  "id": 4,
+  "question": "In triangle $PQR$, the measure of angle $Q$ is $3$ times the measure of angle $P$, and the measure of angle $R$ is $76^{\\circ}$. What is the measure, in degrees, of angle $P$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$26$"
+    },
+    {
+      "id": "B",
+      "text": "$52$"
+    },
+    {
+      "id": "C",
+      "text": "$78$"
+    },
+    {
+      "id": "D",
+      "text": "$104$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "splits 104 equally, as if angles P and Q were equal",
+    "C": "gives the measure of angle Q",
+    "D": "gives the combined measure of angles P and Q"
   },
-  {
-   "id": "B",
-   "text": "$15$"
-  },
-  {
-   "id": "C",
-   "text": "$30$"
-  },
-  {
-   "id": "D",
-   "text": "$37$"
-  }
- ],
- "distractorNotes": {
-  "A": "is shorter than 26 - 11 = 15, so 10 + 11 is less than 26",
-  "B": "equals 26 - 11, so 11 + 15 = 26 and the three sides would lie flat",
-  "D": "equals 11 + 26, so the two given sides would only reach the third side lying flat"
- },
- "correctAnswer": "C",
- "hint": "Each side must be shorter than the sum of the other two sides.",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** The third side must be greater than $26 - 11 = 15$ and less than $26 + 11 = 37$; only $30$ is strictly between.\n\n**The Full Solution:**\nStep 1: By the triangle inequality, the sum of any two side lengths must be greater than the third, so the third side $s$ satisfies $s + 11 > 26$, or $s > 15$.\nStep 2: Also $11 + 26 > s$, so $s < 37$.\nStep 3: The third side must satisfy $15 < s < 37$, and $30$ is the only choice in that range. Check: $11 + 26 = 37 > 30$, $11 + 30 = 41 > 26$, and $26 + 30 = 56 > 11$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): is too short: $10 + 11 = 21$, which is less than $26$.\n* Choice B ($15$): gives $11 + 15 = 26$, equal to the third side, so the sides would lie flat instead of forming a triangle.\n* Choice D ($37$): equals $11 + 26$, so the two given sides could not meet to form a triangle.\n\n**Test Day Takeaway:** The third side of a triangle is strictly between the difference and the sum of the other two sides; the endpoints themselves never work."
+  "correctAnswer": "A",
+  "hint": "Write the measure of angle $Q$ in terms of the measure of angle $P$, then use the angle sum.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~20s):** $p + 3p + 76 = 180$, so $4p = 104$ and $p = 26$.\n\n**The Full Solution:**\nStep 1: Let angle $P$ measure $p$ degrees; then angle $Q$ measures $3p$ degrees.\nStep 2: The angles of a triangle sum to $180^{\\circ}$: $p + 3p + 76 = 180$, so $4p = 104$.\nStep 3: So $p = 26$. Check: $26 + 78 + 76 = 180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($52$): this splits $104$ equally, as if angles $P$ and $Q$ were equal; angle $Q$ is $3$ times angle $P$.\n* Choice C ($78$): this is the measure of angle $Q$, $3(26)$.\n* Choice D ($104$): this is the combined measure of angles $P$ and $Q$.\n\n**Test Day Takeaway:** Write every unknown angle in terms of one variable, then use the $180^{\\circ}$ angle sum."
 }

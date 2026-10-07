@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-369",
-  "question": "Ana borrowed $\\$6{,}000$ at a simple annual interest rate of $5\\%$. If she makes no payments, how much will she owe, in dollars, at the end of $3$ years?",
+  "question": "A savings account earns $\\$24$ in interest each month. At this rate, how much interest, in dollars, does the account earn in $9$ months?",
   "choices": [
     {
       "id": "A",
-      "text": "$900$"
+      "text": "$15$"
     },
     {
       "id": "B",
-      "text": "$6{,}300$"
+      "text": "$33$"
     },
     {
       "id": "C",
-      "text": "$6{,}900$"
+      "text": "$216$"
     },
     {
       "id": "D",
-      "text": "$7{,}500$"
+      "text": "$288$"
     }
   ],
-  "distractorNotes": {
-    "A": "reports only the interest accrued, not the total owed",
-    "B": "adds only $1$ year of interest instead of $3$",
-    "D": "uses $5$ years of interest, confusing the rate with the number of years"
-  },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Simple Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Interest is $6000(0.05)(3) = 900$, so the total owed is $6000 + 900 = 6900$.\n\n**The Full Solution:**\nStep 1: The amount owed is the principal plus the accrued simple interest: $A = P + Prt$.\nStep 2: The interest is $6000(0.05)(3) = 300(3) = 900$ dollars.\nStep 3: The total owed is $6000 + 900 = 6900$ dollars. Check: $\\$300$ of interest per year for $3$ years is $\\$900$, and $\\$6{,}000 + \\$900 = \\$6{,}900$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($900$): reports only the interest accrued, not the total owed\n* Choice B ($6{,}300$): adds only $1$ year of interest instead of $3$\n* Choice D ($7{,}500$): uses $5$ years of interest, confusing the rate with the number of years\n\n**Test Day Takeaway:** Read the last line of the question: interest earned and total balance differ by the principal. One asks for $Prt$, the other for $P + Prt$."
+  "distractorNotes": {
+    "A": "subtracts 9 from 24",
+    "B": "adds 9 to 24 instead of multiplying",
+    "D": "uses 12 months, a full year, instead of 9 months"
+  },
+  "explanation": "**SAT Pattern: Simple Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $9$ months at $\\$24$ per month is $24(9) = 216$ dollars.\n\n**The Full Solution:**\nStep 1: The account earns the same amount, $\\$24$, every month.\nStep 2: Multiply the monthly amount by the number of months: $24 \\times 9$.\nStep 3: $24 \\times 9 = 216$ dollars. Check: $\\frac{216}{9} = 24$ dollars per month ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): subtracts the two numbers given.\n* Choice B ($33$): adds the two numbers given; a rate is multiplied by the time.\n* Choice D ($288$): is $24 \\times 12$, the interest for a full year, not for $9$ months.\n\n**Test Day Takeaway:** Amount $=$ rate $\\times$ time, with the time in the same unit as the rate (here, months)."
 }

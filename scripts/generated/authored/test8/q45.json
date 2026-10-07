@@ -6,26 +6,33 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 2,
- "passage": "Cut into the hillside in stepped platforms and fed by water led down from mountain streams, the taro terraces ______ generations of farmers from a single engineered slope, their pondfields yielding harvests year after year where unterraced ground would have shed both water and soil.",
+ "passage": "Built up from the seafloor by eruptions that lasted from 1963 to 1967, the island of Surtsey, off the southern coast of Iceland, ______ a natural laboratory where scientists have watched plants and animals colonize new land.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "to support"
+   "text": "to become"
   },
   {
    "id": "B",
-   "text": "supporting"
+   "text": "becoming"
   },
   {
    "id": "C",
-   "text": "having supported"
+   "text": "having become"
   },
   {
    "id": "D",
-   "text": "supported"
+   "text": "became"
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The sentence's subject, \"the terraces,\" still needs its main verb, and only \"supported\" is a finite verb that can carry the sentence.\n\n**The Full Solution:**\n- The long opening is all modifier: \"Cut into the hillside in stepped platforms and fed by water led down from mountain streams\" describes the terraces but contains no main verb.\n- The frame \"the terraces ______ generations of farmers\" therefore requires a finite verb at the blank.\n- \"Supported\" completes a grammatical sentence: the terraces supported generations of farmers from a single engineered slope.\n\n**Why the other choices are wrong:**\n- A: \"To support\" is an infinitive; the sentence would be left with no main verb at all.\n- B: \"Supporting\" is a participle and likewise cannot serve as the sentence's main verb.\n- C: \"Having supported\" is a perfect participle — still not finite, so the sentence would remain a fragment."
+ "explanation": "**Choice D is correct.** The sentence's subject, \"the island of Surtsey,\" needs a main verb, and only the finite past-tense verb \"became\" supplies one.\n\n**The Full Solution:**\n- The opening phrase, \"Built up from the seafloor by eruptions that lasted from 1963 to 1967,\" is a modifier; it cannot serve as the sentence's verb.\n- The subject is \"the island of Surtsey,\" and the blank must give it a verb.\n- \"Became\" is a finite verb, so the sentence reads: \"the island of Surtsey ... became a natural laboratory.\"\n\n**Why the other choices are wrong:**\n- A: \"To become\" is an infinitive, which cannot serve as a sentence's main verb.\n- B: \"Becoming\" is a participle; without a helping verb it leaves the sentence with no main verb.\n- C: \"Having become\" is also a participle phrase and leaves the sentence without a main verb.",
+ "_meta": {
+  "anchor": "Surtsey (1963-1967 eruption, natural laboratory) — finite verb after a long participial opener",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Surtsey",
+   "https://whc.unesco.org/en/list/1267/"
+  ]
+ }
 }

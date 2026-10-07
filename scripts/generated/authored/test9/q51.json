@@ -6,7 +6,7 @@
   "domain": "expression-of-ideas",
   "skill": "transitions",
   "module": 2,
-  "passage": "Levees along the lower Mississippi now keep the river from spilling across its floodplain during high water. The sediment that each flood once spread over the surrounding delta instead stays in the channel and rides the current out to deep water beyond the coast. ______ large areas of the delta, cut off from the deposits that once offset their natural settling, are slowly sinking below sea level.",
+  "passage": "In April 1815, Mount Tambora in Indonesia erupted in the largest volcanic eruption in recorded history. It sent enormous amounts of sulfur gas into the upper atmosphere, where a haze formed that reflected sunlight back into space. ______ the summer of 1816 brought snow in June and widespread crop failures to parts of Europe and North America.",
   "question": "Which choice completes the text with the most logical transition?",
   "choices": [
     {
@@ -27,6 +27,12 @@
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** The final sentence is the downstream result of the chain the first two build — levees stop the flooding, so the sediment bypasses the delta, so the delta sinks. \"Consequently\" marks that cause-and-effect relation.\n\n**The Full Solution:**\n- Sentence one states the intervention; sentence two states its side effect (sediment carried past the delta).\n- Sentence three reports what follows from that side effect: land \"cut off from the deposits\" subsides.\n- The sentence even restates the cause inside itself (\"cut off from the deposits\"), confirming that the blank must signal consequence.\n\n**Why the other choices are wrong:**\n- A: The sinking delta is not an example of sediment riding the current; it is the outcome of it.\n- C: \"Still\" would concede a countercurrent, but the third sentence extends the chain rather than resisting it.\n- D: \"In the same way\" announces a parallel case, and no second, similar situation has been introduced.",
-  "_meta": {}
+  "explanation": "**Choice B is correct.** The first two sentences describe a cause: the eruption filled the upper atmosphere with a haze that reflected sunlight. The last sentence gives the effect: a summer with June snow and failed crops. \"Consequently\" signals that what follows results from what came before.\n\n**The Full Solution:**\n- Cause: sulfur gas from the eruption formed a haze that blocked sunlight.\n- Effect: the summer of 1816 brought June snow and failed crops.\n- A cause followed by its effect calls for a causal transition.\n\n**Why the other choices are wrong:**\n- A: \"For example\" would make the cold summer an example of the haze, but it is a result of the haze.\n- C: \"Still\" signals that something happened despite what came before, but the cold summer follows from the eruption rather than in spite of it.\n- D: \"In the same way\" signals a comparison between similar things, but the sentence reports an effect, not a parallel case.",
+  "_meta": {
+    "anchor": "Tambora 1815 eruption -> 1816 'Year Without a Summer' — Consequently",
+    "sources": [
+      "https://www.aaas.org/year-without-summer",
+      "https://en.wikipedia.org/wiki/Year_Without_a_Summer"
+    ]
+  }
 }

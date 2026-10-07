@@ -1,29 +1,29 @@
 {
   "id": "bank-alg-013",
-  "question": "A club spent \\$56 to print $140$ programs. Each color program cost \\$0.60, and each black-and-white program cost \\$0.25. The club printed $c$ color programs. Which equation represents this situation?",
+  "question": "A club printed $c$ color programs that cost \\$0.60 each and $80$ black-and-white programs that cost \\$0.25 each. The club spent a total of \\$56 on these programs. Which equation represents this situation?",
   "choices": [
     {
       "id": "A",
-      "text": "$0.60c + 0.25c = 56$"
+      "text": "$0.25c + 0.60(80) = 56$"
     },
     {
       "id": "B",
-      "text": "$0.60(140 - c) + 0.25c = 56$"
+      "text": "$0.60c + 0.25c = 56$"
     },
     {
       "id": "C",
-      "text": "$0.60c + 0.25(140 - c) = 56$"
+      "text": "$0.60c + 0.25(80) = 56$"
     },
     {
       "id": "D",
-      "text": "$0.60c + 0.25(140) = 56$"
+      "text": "$0.60c + 80 = 56$"
     }
   ],
   "distractorNotes": {
-    "A": "uses c for both program types",
-    "B": "attaches the color price to the black-and-white count",
-    "D": "charges all 140 programs at the black-and-white price in addition to the color ones"
+    "A": "swaps the two prices",
+    "B": "uses c for both kinds of programs instead of 80 for the black-and-white programs",
+    "D": "adds the number of black-and-white programs instead of their cost"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Word Problem to Equation Setup**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Color programs: $c$ at $0.60$ each. Black-and-white programs: the remaining $140 - c$ at $0.25$ each. Total cost: $0.60c + 0.25(140 - c) = 56$.\n\n**The Full Solution:**\nStep 1: Only one variable is defined, so express both counts with it: $c$ color programs and $140 - c$ black-and-white programs, since the two counts sum to $140$.\nStep 2: Cost is price times count for each type: $0.60c$ for color and $0.25(140 - c)$ for black-and-white. Their sum is the total, $56$.\nStep 3: Check that the equation is solvable with a sensible answer: $0.60c + 35 - 0.25c = 56 \\Rightarrow 0.35c = 21 \\Rightarrow c = 60$, so $60$ color and $80$ black-and-white programs cost $36 + 20 = 56$ dollars. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.60c + 0.25c = 56$): uses $c$ for both counts, ignoring that the black-and-white count is $140 - c$.\n* Choice B ($0.60(140 - c) + 0.25c = 56$): pairs the color price with the black-and-white count, reversing the definition of $c$.\n* Choice D ($0.60c + 0.25(140) = 56$): charges all $140$ programs at the black-and-white price and then adds the color programs again.\n\n**Test Day Takeaway:** When a total count is given and only one variable is defined, the other count is \"total minus the variable\"; write both counts before multiplying by prices."
+  "explanation": "**SAT Pattern: Word Problem to Equation Setup**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The color programs cost $0.60c$ dollars and the $80$ black-and-white programs cost $0.25(80)$ dollars, and together they cost $56$ dollars.\n\n**The Full Solution:**\nStep 1: Cost of the color programs: $c$ programs at \\$0.60 each is $0.60c$ dollars.\nStep 2: Cost of the black-and-white programs: $80$ programs at \\$0.25 each is $0.25(80)$ dollars.\nStep 3: The total is \\$56, so $0.60c + 0.25(80) = 56$. Check: this gives $0.60c + 20 = 56$, so $c = 60$, and $60(0.60) + 80(0.25) = 36 + 20 = 56$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.25c + 0.60(80) = 56$): attaches each price to the wrong kind of program.\n* Choice B ($0.60c + 0.25c = 56$): multiplies the black-and-white price by $c$, but $c$ counts only the color programs.\n* Choice D ($0.60c + 80 = 56$): adds the number of black-and-white programs, $80$, instead of their cost, $0.25(80)$.\n\n**Test Day Takeaway:** Build a cost equation one item at a time: (price) $\\times$ (number of that item), then add the parts and set the sum equal to the total."
 }

@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-112",
-  "question": "Line $p$ in the $xy$-plane passes through the point $(3, -2)$ and is parallel to the line $y = 4x + 7$. Which equation defines line $p$?",
+  "question": "Line $p$ in the $xy$-plane passes through the points $(3, -2)$ and $(5, 6)$. Which equation defines line $p$?",
   "choices": [
     {
       "id": "A",
@@ -21,9 +21,9 @@
   ],
   "distractorNotes": {
     "B": "forgets to multiply the slope by x = 3, computing b = -2 - 3",
-    "C": "uses the y-coordinate of the given point, -2, as the y-intercept",
+    "C": "uses the y-coordinate of the first point, -2, as the y-intercept",
     "D": "adds 12 to -2 instead of subtracting, getting b = 10"
   },
   "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Line from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Line $p$ has slope $4$, and $-2 = 4(3) + b$ gives $b = -14$, so $y = 4x - 14$.\n\n**The Full Solution:**\nStep 1: Parallel lines have equal slopes, so line $p$ has slope $4$ and can be written $y = 4x + b$.\nStep 2: Substitute the point $(3, -2)$: $-2 = 4(3) + b = 12 + b$.\nStep 3: Subtract $12$: $b = -14$, so line $p$ is $y = 4x - 14$. Check: $4(3) - 14 = -2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = 4x - 5$): subtracts $3$ instead of $4 \\cdot 3 = 12$ from $-2$, getting $b = -5$.\n* Choice C ($y = 4x - 2$): uses the $y$-coordinate of the point, $-2$, as the $y$-intercept; but the point has $x = 3$, not $x = 0$.\n* Choice D ($y = 4x + 10$): adds $12$ to $-2$ instead of subtracting, getting $b = 10$; then $4(3) + 10 = 22$, not $-2$.\n\n**Test Day Takeaway:** A parallel line keeps the slope and changes only the intercept; find the new intercept by substituting the given point."
+  "explanation": "**SAT Pattern: Line from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The slope is $\\frac{6 - (-2)}{5 - 3} = 4$, and $-2 = 4(3) + b$ gives $b = -14$, so $y = 4x - 14$.\n\n**The Full Solution:**\nStep 1: Slope $= \\frac{6 - (-2)}{5 - 3} = \\frac{8}{2} = 4$, so line $p$ can be written $y = 4x + b$.\nStep 2: Substitute the point $(3, -2)$: $-2 = 4(3) + b = 12 + b$, so $b = -14$.\nStep 3: Line $p$ is $y = 4x - 14$. Check with the other point: $4(5) - 14 = 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = 4x - 5$): computes $b = -2 - 3$, forgetting to multiply the slope by the $x$-coordinate.\n* Choice C ($y = 4x - 2$): uses the $y$-coordinate of $(3, -2)$ as the $y$-intercept, but that point has $x = 3$, not $x = 0$.\n* Choice D ($y = 4x + 10$): adds $12$ to $-2$ instead of subtracting it from $-2$.\n\n**Test Day Takeaway:** Find the slope from the two points, then solve for $b$ with one point and check with the other."
 }

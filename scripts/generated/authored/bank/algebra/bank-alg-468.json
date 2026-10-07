@@ -1,51 +1,49 @@
 {
-  "id": "bank-alg-468",
-  "question": "Each equation in a system of two linear equations has the form $ax + by = c$. The table shows the values of $a$, $b$, and $c$ for each equation. How many solutions does the system have?",
-  "questionTable": {
-    "headers": [
-      "Equation",
-      "$a$",
-      "$b$",
-      "$c$"
-    ],
-    "rows": [
-      [
-        "First",
-        "$4$",
-        "$-10$",
-        "$18$"
-      ],
-      [
-        "Second",
-        "$-6$",
-        "$15$",
-        "$-24$"
-      ]
-    ]
-  },
-  "choices": [
-    {
-      "id": "A",
-      "text": "Zero"
-    },
-    {
-      "id": "B",
-      "text": "Exactly one"
-    },
-    {
-      "id": "C",
-      "text": "Exactly two"
-    },
-    {
-      "id": "D",
-      "text": "Infinitely many"
-    }
+ "id": "bank-alg-468",
+ "question": "The table shows three values of $x$ and their corresponding values of $y$ for line $\\ell$ in the $xy$-plane. Line $m$ is the graph of $-6x + 15y = -24$. How many solutions does the system consisting of the equations of lines $\\ell$ and $m$ have?",
+ "questionTable": {
+  "headers": [
+   "$x$",
+   "$y$"
   ],
-  "distractorNotes": {
-    "B": "assumes two equations with different numbers must cross once, without comparing the coefficient ratios",
-    "C": "two lines meet at most once, so a system of two linear equations never has exactly two solutions",
-    "D": "checks only $a$ and $b$, which both scale by $-1.5$, and misses that $c$ would have to be $-27$, not $-24$"
+  "rows": [
+   [
+    "$2$",
+    "$-1$"
+   ],
+   [
+    "$7$",
+    "$1$"
+   ],
+   [
+    "$12$",
+    "$3$"
+   ]
+  ]
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "Zero"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: System Equivalence Check**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Both coefficients scale by $-1.5$ from the first equation to the second, but $-1.5(18) = -27$, not $-24$, so the lines are parallel and distinct.\n\n**The Full Solution:**\nStep 1: Write the equations from the table: $4x - 10y = 18$ and $-6x + 15y = -24$.\nStep 2: Compare coefficients: $\\frac{-6}{4} = -1.5$ and $\\frac{15}{-10} = -1.5$, so the lines have the same slope.\nStep 3: Compare constants with the same factor: $-1.5(18) = -27 \\neq -24$, so the lines are parallel and distinct and the system has zero solutions. Check: dividing the first equation by $2$ gives $2x - 5y = 9$, and dividing the second by $-3$ gives $2x - 5y = 8$; $9 \\neq 8$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly one): assumes two equations with different numbers must cross once, without comparing the coefficient ratios\n* Choice C (Exactly two): two lines meet at most once, so a system of two linear equations never has exactly two solutions\n* Choice D (Infinitely many): checks only $a$ and $b$, which both scale by $-1.5$, and misses that $c$ would have to be $-27$, not $-24$\n\n**Test Day Takeaway:** Reduce both equations to lowest terms: the same left side with different constants means zero solutions, and the same equation means infinitely many."
+  {
+   "id": "B",
+   "text": "Exactly one"
+  },
+  {
+   "id": "C",
+   "text": "Exactly two"
+  },
+  {
+   "id": "D",
+   "text": "Infinitely many"
+  }
+ ],
+ "distractorNotes": {
+  "B": "assumes two different-looking equations always have different slopes",
+  "C": "treats the system as if two lines could meet at exactly two points",
+  "D": "sees that the slopes match and assumes the lines coincide without checking a point"
+ },
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: System Equivalence Check**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** Line $\\ell$ has slope $\\frac{1 - (-1)}{7 - 2} = \\frac{2}{5}$, and line $m$, $y = \\frac{2}{5}x - \\frac{8}{5}$, has the same slope; but $(2, -1)$ is not on $m$, so the lines are parallel and distinct.\n\n**The Full Solution:**\nStep 1: From the table, the slope of line $\\ell$ is $\\frac{1 - (-1)}{7 - 2} = \\frac{2}{5}$, and line $\\ell$ passes through $(2, -1)$.\nStep 2: Solve $-6x + 15y = -24$ for $y$: $15y = 6x - 24$, so $y = \\frac{2}{5}x - \\frac{8}{5}$. Line $m$ also has slope $\\frac{2}{5}$.\nStep 3: Test the table point $(2, -1)$ in line $m$: $-6(2) + 15(-1) = -27$, not $-24$. Parallel lines with no common point never meet, so the system has zero solutions. Check: line $\\ell$ is $y = \\frac{2}{5}x - \\frac{9}{5}$, whose $y$-intercept differs from line $m$'s $-\\frac{8}{5}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly one): assumes two different-looking equations must have different slopes, without comparing them.\n* Choice C (Exactly two): two distinct lines can never meet in exactly two points.\n* Choice D (Infinitely many): notices the matching slopes and assumes the lines are the same without checking a point.\n\n**Test Day Takeaway:** Equal slopes mean zero or infinitely many solutions; test one point to decide which."
 }

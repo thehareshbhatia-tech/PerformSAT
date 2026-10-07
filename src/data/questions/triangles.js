@@ -25,19 +25,19 @@ export const trianglesQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "Triangle $ABC$ has side lengths $AB = 13$, $BC = 13$, and $AC = 20$. Which of the following best describes triangle $ABC$?",
+      question: "In triangle $ABC$, $AB = AC$, and the measure of angle $A$ is $50^{\\circ}$. What is the measure, in degrees, of angle $B$?",
       choices: [
-        // distractor: requires all three sides to be equal, but AC = 20 is not 13
-        { id: "A", text: "Equilateral" },
-        { id: "B", text: "Isosceles" },
-        // distractor: would require 13 squared + 13 squared = 20 squared, but 338 is not 400
-        { id: "C", text: "Right" },
-        // distractor: requires no two sides to be equal, but AB = BC = 13
-        { id: "D", text: "Scalene" }
+        // distractor: halves the measure of angle A
+        { id: "A", text: "$25$" },
+        // distractor: assumes angle B is equal to angle A
+        { id: "B", text: "$50$" },
+        { id: "C", text: "$65$" },
+        // distractor: finds the combined measure of angles B and C and does not split it
+        { id: "D", text: "$130$" }
       ],
-      correctAnswer: "B",
-      hint: "Count how many of the three lengths are equal.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** Two sides, $AB$ and $BC$, are both $13$ and the third is $20$, so the triangle is isosceles.\n\n**The Full Solution:**\nStep 1: Compare the lengths: $AB = BC = 13$, and $AC = 20$ is different.\nStep 2: A triangle with exactly two equal sides is isosceles.\nStep 3: Rule out a right triangle: $13^{2} + 13^{2} = 169 + 169 = 338$, and $20^{2} = 400$. Since $338 \\ne 400$, the triangle is not a right triangle. Check: two equal sides and $338 \\ne 400$, so isosceles is the description that fits ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Equilateral): needs all three sides equal, but $AC = 20$ while the other two sides are $13$.\n* Choice C (Right): needs $13^{2} + 13^{2} = 20^{2}$, but $338 \\ne 400$.\n* Choice D (Scalene): needs three different side lengths, but two sides are both $13$.\n\n**Test Day Takeaway:** Classify a triangle by its sides by counting equal lengths, and test for a right triangle only with the Pythagorean theorem.",
+      correctAnswer: "C",
+      hint: "The angles opposite the two equal sides are equal.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** Angles $B$ and $C$ are equal, so each measures $\\frac{180 - 50}{2} = 65$ degrees.\n\n**The Full Solution:**\nStep 1: Since $AB = AC$, the angles opposite those sides, angles $C$ and $B$, have equal measures.\nStep 2: The three angles sum to $180^{\\circ}$, so angles $B$ and $C$ together measure $180 - 50 = 130$ degrees.\nStep 3: Each of them measures $\\frac{130}{2} = 65$ degrees. Check: $50 + 65 + 65 = 180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($25$): this halves $50$; the $130$ degrees left over is what is split between the two equal angles.\n* Choice B ($50$): the equal angles are $B$ and $C$, not $A$ and $B$.\n* Choice D ($130$): this is the combined measure of angles $B$ and $C$; each one is half of it.\n\n**Test Day Takeaway:** In an isosceles triangle, the angles opposite the equal sides are equal; split what is left of $180^{\\circ}$ between them.",
       skills: ["triangle-types"]
     },
     {
@@ -61,19 +61,19 @@ export const trianglesQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "A triangle has sides of length $11$ centimeters and $26$ centimeters. Which of the following could be the length, in centimeters, of the third side?",
+      question: "In triangle $PQR$, the measure of angle $Q$ is $3$ times the measure of angle $P$, and the measure of angle $R$ is $76^{\\circ}$. What is the measure, in degrees, of angle $P$?",
       choices: [
-        // distractor: is shorter than 26 - 11 = 15, so 10 + 11 is less than 26
-        { id: "A", text: "$10$" },
-        // distractor: equals 26 - 11, so 11 + 15 = 26 and the three sides would lie flat
-        { id: "B", text: "$15$" },
-        { id: "C", text: "$30$" },
-        // distractor: equals 11 + 26, so the two given sides would only reach the third side lying flat
-        { id: "D", text: "$37$" }
+        { id: "A", text: "$26$" },
+        // distractor: splits 104 equally, as if angles P and Q were equal
+        { id: "B", text: "$52$" },
+        // distractor: gives the measure of angle Q
+        { id: "C", text: "$78$" },
+        // distractor: gives the combined measure of angles P and Q
+        { id: "D", text: "$104$" }
       ],
-      correctAnswer: "C",
-      hint: "Each side must be shorter than the sum of the other two sides.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** The third side must be greater than $26 - 11 = 15$ and less than $26 + 11 = 37$; only $30$ is strictly between.\n\n**The Full Solution:**\nStep 1: By the triangle inequality, the sum of any two side lengths must be greater than the third, so the third side $s$ satisfies $s + 11 > 26$, or $s > 15$.\nStep 2: Also $11 + 26 > s$, so $s < 37$.\nStep 3: The third side must satisfy $15 < s < 37$, and $30$ is the only choice in that range. Check: $11 + 26 = 37 > 30$, $11 + 30 = 41 > 26$, and $26 + 30 = 56 > 11$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): is too short: $10 + 11 = 21$, which is less than $26$.\n* Choice B ($15$): gives $11 + 15 = 26$, equal to the third side, so the sides would lie flat instead of forming a triangle.\n* Choice D ($37$): equals $11 + 26$, so the two given sides could not meet to form a triangle.\n\n**Test Day Takeaway:** The third side of a triangle is strictly between the difference and the sum of the other two sides; the endpoints themselves never work.",
+      correctAnswer: "A",
+      hint: "Write the measure of angle $Q$ in terms of the measure of angle $P$, then use the angle sum.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** $p + 3p + 76 = 180$, so $4p = 104$ and $p = 26$.\n\n**The Full Solution:**\nStep 1: Let angle $P$ measure $p$ degrees; then angle $Q$ measures $3p$ degrees.\nStep 2: The angles of a triangle sum to $180^{\\circ}$: $p + 3p + 76 = 180$, so $4p = 104$.\nStep 3: So $p = 26$. Check: $26 + 78 + 76 = 180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($52$): this splits $104$ equally, as if angles $P$ and $Q$ were equal; angle $Q$ is $3$ times angle $P$.\n* Choice C ($78$): this is the measure of angle $Q$, $3(26)$.\n* Choice D ($104$): this is the combined measure of angles $P$ and $Q$.\n\n**Test Day Takeaway:** Write every unknown angle in terms of one variable, then use the $180^{\\circ}$ angle sum.",
       skills: ["triangle-inequality"]
     },
     {
@@ -296,20 +296,20 @@ export const trianglesQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "In the figure shown, triangle $PQR$ is similar to triangle $STU$, where $P$, $Q$, and $R$ correspond to $S$, $T$, and $U$, respectively. What is the length of $\\overline{TU}$?",
-      diagram: { type: "similarTriangles", params: { triangle1: { labels: ["P", "Q", "R"], sideLabels: ["10", "14", ""] }, triangle2: { labels: ["S", "T", "U"], sideLabels: ["25", "", ""] }, figureNote: true } },
+      question: "Triangle $ABC$ is similar to triangle $DEF$, where $A$ corresponds to $D$ and $C$ corresponds to $F$. What is the length of $\\overline{EF}$?",
+      diagram: { type: "similarTriangles", params: { triangle1: { labels: ["A", "B", "C"], sideLabels: ["8", "6", ""] }, triangle2: { labels: ["D", "E", "F"], sideLabels: ["12", "", ""] }, figureNote: true } },
       choices: [
-        // distractor: divides by the scale factor instead of multiplying by it
-        { id: "A", text: "$5.6$" },
-        // distractor: adds the difference $25 - 10$ to $14$ rather than scaling
-        { id: "B", text: "$29$" },
-        { id: "C", text: "$35$" },
-        // distractor: multiplies $14$ by $25$ without dividing by $10$
-        { id: "D", text: "$350$" }
+        // distractor: divides 6 by the scale factor 1.5 instead of multiplying
+        { id: "A", text: "$4$" },
+        { id: "B", text: "$9$" },
+        // distractor: adds the difference 12 - 8 = 4 to 6 rather than scaling
+        { id: "C", text: "$10$" },
+        // distractor: multiplies 6 by 12 without dividing by 8
+        { id: "D", text: "$72$" }
       ],
-      correctAnswer: "C",
-      hint: "Compare the two corresponding sides whose lengths are both given.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** $\\frac{ST}{PQ} = \\frac{25}{10} = 2.5$, so $TU = 2.5(14) = 35$.\n\n**The Full Solution:**\nStep 1: Side $\\overline{ST}$ corresponds to $\\overline{PQ}$ and side $\\overline{TU}$ corresponds to $\\overline{QR}$.\nStep 2: The scale factor from triangle $PQR$ to triangle $STU$ is $\\frac{25}{10} = 2.5$.\nStep 3: Multiply: $TU = 2.5(14) = 35$. Check: $\\frac{35}{14} = 2.5 = \\frac{25}{10}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5.6$): divides $14$ by the scale factor instead of multiplying.\n* Choice B ($29$): adds the difference $25 - 10 = 15$ to $14$ instead of scaling.\n* Choice D ($350$): multiplies $14$ by $25$ and never divides by $10$.\n\n**Test Day Takeaway:** Similar triangles scale every side by the same factor; find it from one pair of corresponding sides, then multiply.",
+      correctAnswer: "B",
+      hint: "$B$ must correspond to $E$. Compare the two corresponding sides whose lengths are both given.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** $\\frac{DE}{AB} = \\frac{12}{8} = 1.5$, so $EF = 1.5(6) = 9$.\n\n**The Full Solution:**\nStep 1: Since $A$ corresponds to $D$ and $C$ corresponds to $F$, $B$ corresponds to $E$. So $\\overline{DE}$ corresponds to $\\overline{AB}$ and $\\overline{EF}$ corresponds to $\\overline{BC}$.\nStep 2: The scale factor from triangle $ABC$ to triangle $DEF$ is $\\frac{12}{8} = 1.5$.\nStep 3: Multiply: $EF = 1.5(6) = 9$. Check: $\\frac{9}{6} = 1.5 = \\frac{12}{8}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): divides $6$ by the scale factor instead of multiplying; triangle $DEF$ is the larger triangle.\n* Choice C ($10$): adds the difference $12 - 8 = 4$ to $6$ instead of scaling.\n* Choice D ($72$): multiplies $6$ by $12$ and never divides by $8$.\n\n**Test Day Takeaway:** Similar triangles scale every side by the same factor; find it from one pair of corresponding sides, then multiply.",
       skills: ["similar-triangles"]
     },
     {
@@ -369,19 +369,19 @@ export const trianglesQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "In triangle $ABC$, point $D$ lies on $\\overline{AB}$, point $E$ lies on $\\overline{AC}$, and $\\overline{DE}$ is parallel to $\\overline{BC}$. If $AD = 4$, $DB = 6$, $DE = x$, and $BC = x + 9$, what is the value of $x$?",
+      question: "In triangle $PQR$, point $S$ is on $\\overline{PQ}$ and point $T$ is on $\\overline{PR}$ such that $\\overline{ST}$ is parallel to $\\overline{QR}$. The length of $\\overline{QR}$ is $12$ more than the length of $\\overline{ST}$. If $PT = 6$ and $TR = 9$, what is the length of $\\overline{QR}$?",
       choices: [
-        { id: "A", text: "$6$" },
-        // distractor: compares DB with AB, solving x/(x + 9) = 6/10
-        { id: "B", text: "$13.5$" },
-        // distractor: reports the length of BC instead of x
-        { id: "C", text: "$15$" },
-        // distractor: compares the two pieces of AB, solving x/(x + 9) = 4/6
-        { id: "D", text: "$18$" }
+        // distractor: stops at the length of ST, 8, instead of QR
+        { id: "A", text: "$8$" },
+        { id: "B", text: "$20$" },
+        // distractor: compares TR with PR, solving s/(s + 12) = 9/15
+        { id: "C", text: "$30$" },
+        // distractor: compares the two pieces of PR, solving s/(s + 12) = 6/9
+        { id: "D", text: "$36$" }
       ],
-      correctAnswer: "A",
-      hint: "Compare $\\overline{AD}$ with the whole side $\\overline{AB}$, not with the piece $\\overline{DB}$.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~40s):** Triangle $ADE$ is similar to triangle $ABC$ with ratio $\\frac{AD}{AB} = \\frac{4}{10}$, so $\\frac{x}{x + 9} = \\frac{2}{5}$, which gives $5x = 2x + 18$ and $x = 6$.\n\n**The Full Solution:**\nStep 1: Since $\\overline{DE}$ is parallel to $\\overline{BC}$, corresponding angles are congruent, so triangle $ADE$ is similar to triangle $ABC$. The side of the small triangle along $\\overline{AB}$ is $AD = 4$, and the matching side of the large triangle is $AB = AD + DB = 10$.\nStep 2: Corresponding sides are proportional: $\\frac{DE}{BC} = \\frac{AD}{AB}$, so $\\frac{x}{x + 9} = \\frac{4}{10}$.\nStep 3: Cross-multiply: $10x = 4x + 36$, so $6x = 36$ and $x = 6$. Check: $DE = 6$ and $BC = 15$, and $\\frac{6}{15} = \\frac{2}{5} = \\frac{4}{10}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($13.5$): compares $DB$ with $AB$, solving $\\frac{x}{x + 9} = \\frac{6}{10}$.\n* Choice C ($15$): this is the length of $\\overline{BC}$, not the value of $x$.\n* Choice D ($18$): compares the two pieces of $\\overline{AB}$, solving $\\frac{x}{x + 9} = \\frac{4}{6}$.\n\n**Test Day Takeaway:** When a segment parallel to one side cuts a triangle, compare a piece of a side with the whole side, never with the other piece.",
+      correctAnswer: "B",
+      hint: "Compare $\\overline{PT}$ with the whole side $\\overline{PR}$, not with the piece $\\overline{TR}$.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~40s):** Triangle $PST$ is similar to triangle $PQR$ with ratio $\\frac{PT}{PR} = \\frac{6}{15} = \\frac{2}{5}$, so with $ST = s$, $\\frac{s}{s + 12} = \\frac{2}{5}$, which gives $s = 8$ and $QR = 20$.\n\n**The Full Solution:**\nStep 1: Since $\\overline{ST}$ is parallel to $\\overline{QR}$, corresponding angles are congruent, so triangle $PST$ is similar to triangle $PQR$. The side of the small triangle along $\\overline{PR}$ is $PT = 6$, and the matching side of the large triangle is $PR = PT + TR = 15$.\nStep 2: Let $ST = s$, so $QR = s + 12$. Corresponding sides are proportional: $\\frac{ST}{QR} = \\frac{PT}{PR}$, so $\\frac{s}{s + 12} = \\frac{6}{15}$.\nStep 3: Cross-multiply: $15s = 6s + 72$, so $9s = 72$ and $s = 8$. Then $QR = 8 + 12 = 20$. Check: $\\frac{8}{20} = \\frac{2}{5} = \\frac{6}{15}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): this is the length of $\\overline{ST}$; the question asks for $\\overline{QR}$, which is $12$ longer.\n* Choice C ($30$): compares $TR$ with $PR$, solving $\\frac{s}{s + 12} = \\frac{9}{15}$, which gives $s = 18$.\n* Choice D ($36$): compares the two pieces of $\\overline{PR}$, solving $\\frac{s}{s + 12} = \\frac{6}{9}$, which gives $s = 24$.\n\n**Test Day Takeaway:** When a segment parallel to one side cuts a triangle, compare a piece of a side with the whole side, never with the other piece, and answer the length the question asks for.",
       skills: ["similar-triangles"]
     }
   ],

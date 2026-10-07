@@ -1,29 +1,29 @@
 {
  "id": 3,
- "question": "A store increased the price of a coat by $40\\%$. Later, the store increased the new price by $p\\%$. The final price was $75\\%$ greater than the original price. What is the value of $p$?",
+ "question": "A store increased the price of a coat by $30\\%$. Later, the store increased the new price by $p\\%$. The final price was $56\\%$ greater than the original price. What is the value of $p$?",
  "choices": [
   {
    "id": "A",
-   "text": "$20$"
+   "text": "$1.2$"
   },
   {
    "id": "B",
-   "text": "$25$"
+   "text": "$20$"
   },
   {
    "id": "C",
-   "text": "$35$"
+   "text": "$26$"
   },
   {
    "id": "D",
-   "text": "$125$"
+   "text": "$120$"
   }
  ],
  "distractorNotes": {
-  "A": "divides 1.40 by 1.75 instead of 1.75 by 1.40, getting 0.80, and reports the 20% gap from 1",
-  "C": "subtracts 40 from 75, treating the two percent increases as additive",
-  "D": "reports the second multiplier, 1.25, as 125 instead of the percent increase, 25"
+  "A": "finds the second multiplier, 1.2, and reports it as the value of p",
+  "C": "subtracts 30 from 56, treating the two percent increases as additive",
+  "D": "reports the second multiplier, 1.2, as 120 instead of the percent increase, 20"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Percent Increase**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The final price is $175\\%$ of the original and the first increase made it $140\\%$; since $1.40 \\times 1.25 = 1.75$, the second increase multiplied the price by $1.25$, an increase of $25\\%$.\n\n**The Full Solution:**\nStep 1: Let the original price be $x$. After the $40\\%$ increase, the price is $1.40x$. After the second increase, it is $1.40x\\left(1 + \\frac{p}{100}\\right)$.\nStep 2: A final price $75\\%$ greater than the original is $1.75x$, so $1.40\\left(1 + \\frac{p}{100}\\right) = 1.75$.\nStep 3: Divide by $1.40$: $1 + \\frac{p}{100} = 1.25$, so $p = 25$. Check with $x = 100$: $100 \\to 140 \\to 140(1.25) = 175$, which is $75\\%$ greater than $100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): divides $1.40$ by $1.75$ instead of $1.75$ by $1.40$, getting $0.80$, and reports the $20\\%$ gap from $1$. The final price is the larger one, so it goes in the numerator.\n* Choice C ($35$): subtracts $75 - 40$, as if percent increases added. The second percent is taken of the already increased price, so it must be less than $35$.\n* Choice D ($125$): this is the second multiplier, $1.25$, written as a percent; the increase is $125 - 100 = 25$ percent.\n\n**Test Day Takeaway:** Successive percent changes multiply: write each change as a multiplier, set the product equal to the overall multiplier, and solve. Percents taken of different bases never simply add."
+ "explanation": "**SAT Pattern: Percent Increase**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The final price is $156\\%$ of the original and the first increase made it $130\\%$; since $\\frac{1.56}{1.30} = 1.2$, the second increase multiplied the price by $1.2$, an increase of $20\\%$.\n\n**The Full Solution:**\nStep 1: Let the original price be $x$. After the $30\\%$ increase, the price is $1.30x$. After the second increase, it is $1.30x\\left(1 + \\frac{p}{100}\\right)$.\nStep 2: A final price $56\\%$ greater than the original is $1.56x$, so $1.30\\left(1 + \\frac{p}{100}\\right) = 1.56$.\nStep 3: Divide by $1.30$: $1 + \\frac{p}{100} = 1.2$, so $p = 20$. Check with $x = 100$: $100 \\to 130 \\to 130(1.2) = 156$, which is $56\\%$ greater than $100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.2$): this is the second multiplier, not the percent increase it represents.\n* Choice C ($26$): subtracts $56 - 30$, as if percent increases added. The second percent is taken of the already increased price, so it must be less than $26$.\n* Choice D ($120$): writes the multiplier $1.2$ as a percent; the increase is $120 - 100 = 20$ percent.\n\n**Test Day Takeaway:** Successive percent changes multiply: write each change as a multiplier, set the product equal to the overall multiplier, and solve. Percents taken of different bases never simply add."
 }

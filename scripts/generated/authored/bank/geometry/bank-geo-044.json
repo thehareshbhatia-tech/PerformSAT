@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-044",
- "question": "Two sides of a triangle have lengths $26$ and $41$. Which of the following could be the length of the third side?",
+ "question": "In triangle $PQR$, the measure of angle $P$ is $34°$, and angle $Q$ is obtuse. Which of the following could be the measure, in degrees, of angle $R$?",
  "choices": [
   {
    "id": "A",
-   "text": "$12$"
+   "text": "$50$"
   },
   {
    "id": "B",
-   "text": "$15$"
+   "text": "$56$"
   },
   {
    "id": "C",
-   "text": "$40$"
+   "text": "$73$"
   },
   {
    "id": "D",
-   "text": "$70$"
+   "text": "$146$"
   }
  ],
  "distractorNotes": {
-  "A": "is below the lower bound 41 - 26 = 15",
-  "B": "equals the difference 41 - 26 exactly, which would make the three sides lie flat",
-  "D": "is above the upper bound 41 + 26 = 67"
+  "B": "treats angle Q as exactly 90 degrees, but a right angle is not obtuse",
+  "C": "splits 180 - 34 = 146 evenly between Q and R, which makes Q acute",
+  "D": "uses 180 - 34 = 146 and forgets that angle Q also takes part of the 180 degrees"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Triangle Inequality Range**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The third side must be strictly between $41 - 26 = 15$ and $41 + 26 = 67$, and only $40$ is.\n\n**The Full Solution:**\nStep 1: Let $x$ be the third side. The triangle inequality requires $26 + x > 41$, so $x > 15$.\nStep 2: It also requires $26 + 41 > x$, so $x < 67$.\nStep 3: The third side satisfies $15 < x < 67$, and among the choices only $40$ is in that interval. Check: $26 + 40 = 66 > 41$, $26 + 41 = 67 > 40$, and $40 + 41 = 81 > 26$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): is less than $15$, so the sides of lengths $12$ and $26$ cannot reach across $41$.\n* Choice B ($15$): equals $41 - 26$ exactly; then $26 + 15 = 41$, and the three sides lie flat instead of forming a triangle.\n* Choice D ($70$): is greater than $67$, so the other two sides are too short to close the triangle.\n\n**Test Day Takeaway:** The third side of a triangle is always strictly between the difference and the sum of the other two sides."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Triangle Angle Sum**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Angles $Q$ and $R$ share $180 - 34 = 146$ degrees, and $Q > 90$, so $R < 56$. Only $50$ works.\n\n**The Full Solution:**\nStep 1: The angles of a triangle add to $180°$, so $Q + R = 180 - 34 = 146$.\nStep 2: Angle $Q$ is obtuse, so $Q > 90$. Then $R = 146 - Q < 146 - 90 = 56$.\nStep 3: Of the choices, only $50$ is less than $56$. Check: if $R = 50$, then $Q = 96$, which is obtuse, and $34 + 96 + 50 = 180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($56$): gives $Q = 146 - 56 = 90$, a right angle, which is not obtuse.\n* Choice C ($73$): gives $Q = 146 - 73 = 73$, which is acute.\n* Choice D ($146$): leaves $0°$ for angle $Q$.\n\n**Test Day Takeaway:** Turn each condition into an inequality: the angle sum fixes $Q + R$, and \"obtuse\" means greater than $90°$."
 }

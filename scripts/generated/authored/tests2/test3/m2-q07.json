@@ -1,29 +1,29 @@
 {
  "id": 7,
- "question": "The equation $y = 18x + 270$ models the number of hotel rooms booked in a town during a week, $y$, where $x$ is the number of flights that arrived that week. In one week, $1{,}350$ rooms were booked, which was $90$ more than the model predicts. How many flights arrived that week?",
+ "question": "The equation $y = 1.5x + 9$ is a linear model for the height $y$, in centimeters, of a plant $x$ days after it sprouts. Which of the following is the best interpretation of the model in this context?",
  "choices": [
   {
    "id": "A",
-   "text": "$55$"
+   "text": "The predicted height of the plant increases by $1.5$ centimeters each week."
   },
   {
    "id": "B",
-   "text": "$60$"
+   "text": "The predicted height of the plant increases by $9$ centimeters each week."
   },
   {
    "id": "C",
-   "text": "$65$"
+   "text": "The predicted height of the plant increases by $10.5$ centimeters each week."
   },
   {
    "id": "D",
-   "text": "$70$"
+   "text": "The predicted height of the plant increases by $19.5$ centimeters each week."
   }
  ],
- "correctAnswer": "A",
  "distractorNotes": {
-  "B": "ignores the 90-room difference and solves 18x + 270 = 1350",
-  "C": "adds the 90-room difference to the actual value instead of subtracting it, solving 18x + 270 = 1440",
-  "D": "subtracts the 90-room difference but drops the constant 270, solving 18x = 1260"
+  "A": "uses the daily increase, 1.5 centimeters, as the weekly increase; x is measured in days",
+  "B": "uses the constant 9, the predicted height when the plant sprouts, as the weekly increase",
+  "D": "gives the predicted height after 7 days, 1.5(7) + 9 = 19.5, instead of the increase over 7 days"
  },
- "explanation": "**SAT Pattern: Residual**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** The model predicted $1{,}350 - 90 = 1{,}260$ rooms, so $18x + 270 = 1{,}260$, which gives $18x = 990$ and $x = 55$.\n\n**The Full Solution:**\nStep 1: The actual number of rooms was $90$ more than the predicted number, so the model's prediction for that week was $1{,}350 - 90 = 1{,}260$.\nStep 2: The model's prediction is $18x + 270$, so $18x + 270 = 1{,}260$.\nStep 3: Subtract $270$ and divide by $18$: $18x = 990$, so $x = 55$. Check: $18(55) + 270 = 990 + 270 = 1{,}260$, and $1{,}350 - 1{,}260 = 90$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($60$): sets the model equal to the actual $1{,}350$ rooms. The model's value is the prediction, which was $90$ less than the actual number.\n* Choice C ($65$): adds $90$ to the actual number, using $1{,}440$ as the prediction. The prediction is below the actual value, not above it.\n* Choice D ($70$): finds the predicted $1{,}260$ correctly but solves $18x = 1{,}260$, leaving out the constant $270$.\n\n**Test Day Takeaway:** Actual minus predicted is the residual; when the actual value is above the model, subtract the difference to get the prediction, then solve the model's equation."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Interpret Slope of Best Fit**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The slope, $1.5$, is the predicted increase in height each day, so each week the predicted height increases by $7(1.5) = 10.5$ centimeters.\n\n**The Full Solution:**\nStep 1: In $y = 1.5x + 9$, the slope is $1.5$: for each increase of $1$ in $x$, one more day, the predicted height increases by $1.5$ centimeters.\nStep 2: A week is $7$ days, so over a week $x$ increases by $7$ and the predicted height increases by $7(1.5)$.\nStep 3: $7(1.5) = 10.5$, so the predicted height increases by $10.5$ centimeters each week. Check: from day $0$ to day $7$ the prediction goes from $9$ to $1.5(7) + 9 = 19.5$, and $19.5 - 9 = 10.5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: gives the increase per day; $x$ counts days, not weeks.\n* Choice B: uses $9$, the predicted height on the day the plant sprouts, as a rate.\n* Choice D: gives the predicted height on day $7$, which includes the starting height of $9$ centimeters.\n\n**Test Day Takeaway:** The slope is the predicted change for an increase of $1$ in $x$; for a different unit of time, multiply the slope by the number of $x$-units in that unit."
 }

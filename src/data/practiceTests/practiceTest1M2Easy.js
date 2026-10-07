@@ -178,10 +178,10 @@ export const practiceTest1M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "Data set A consists of the values $12$, $9$, $15$, $9$, $12$, and $12$. Data set B consists of the values $14$, $9$, $11$, $14$, $9$, and $14$. Data sets A and B are combined to form data set C. What is the mode of data set C?",
-      correctAnswer: "9",
-      explanation: "**SAT Pattern: Mode of a Data Set**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~25s):** In data set C, $9$ appears $2 + 2 = 4$ times, while $12$ and $14$ each appear only $3$ times, so the mode is $9$.\n\n**The Full Solution:**\nStep 1: Count each value in data set A: $12$ appears $3$ times, $9$ appears $2$ times, and $15$ appears once.\nStep 2: Count each value in data set B: $14$ appears $3$ times, $9$ appears $2$ times, and $11$ appears once.\nStep 3: Combine the counts for data set C: $9$ appears $4$ times, $12$ appears $3$ times, $14$ appears $3$ times, and $11$ and $15$ appear once each. The mode is $9$. Check: $4 + 3 + 3 + 1 + 1 = 12$, the total number of values in A and B ✓\n\n**Common Mistakes:**\n* $12$: the mode of data set A alone. It is also the median of data set C, but the question asks for the mode.\n* $14$: the mode of data set B alone.\n* $11.67$: the mean of data set C, $\\frac{140}{12}$, which is a different measure of center.\n\n**Test Day Takeaway:** The mode of a combined data set comes from the combined counts, not from the modes of the separate sets; a value that is never the most frequent in either set can be the most frequent overall.",
-      skills: ["find-mode"]
+      question: "Data set A consists of the values $12$, $9$, $15$, and $20$. Data set B consists of the values $14$, $8$, and $11$. Data sets A and B are combined to form data set C. What is the median of data set C?",
+      correctAnswer: "12",
+      explanation: "**SAT Pattern: Median Calculation**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~25s):** In order, data set C is $8$, $9$, $11$, $12$, $14$, $15$, $20$. The middle (4th) of these $7$ values is $12$.\n\n**The Full Solution:**\nStep 1: Data set C has $4 + 3 = 7$ values.\nStep 2: List them in order: $8$, $9$, $11$, $12$, $14$, $15$, $20$.\nStep 3: With $7$ values, the median is the 4th value, $12$. Check: three values ($8$, $9$, $11$) are below $12$ and three ($14$, $15$, $20$) are above it ✓\n\n**Common Mistakes:**\n* $20$: the 4th value in the order the values are given, before sorting.\n* $13.5$: the median of data set A alone, $\\frac{12 + 15}{2}$.\n* $12.7$: the mean of data set C, $\\frac{89}{7} \\approx 12.71$, which is a different measure of center.\n\n**Test Day Takeaway:** To find a median, put every value in order first; for an odd number of values, the median is the middle one.",
+      skills: ["find-median"]
     },
     {
       id: 11,
@@ -208,18 +208,18 @@ export const practiceTest1M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "The equation $y = 2.4x + 18$ models the relationship between $x$ and $y$ for a data set. For the data point $(25, 71)$, what is the actual $y$-value minus the $y$-value predicted by the model?",
+      question: "$y = 2.5x + 14$\nThe given equation is a linear model for a data set. For which data point is the actual $y$-value less than the $y$-value predicted by the model?",
       choices: [
-        { id: "A", text: "$-7$" },
-        // distractor: subtracts in the reverse order, computing predicted minus actual
-        { id: "B", text: "$7$" },
-        // distractor: leaves out the constant 18 when predicting, using 2.4(25) = 60
-        { id: "C", text: "$11$" },
-        // distractor: reports the predicted y-value itself instead of the difference
-        { id: "D", text: "$78$" }
+        // distractor: swaps the slope and the y-intercept, predicting 14(2) + 2.5 = 30.5, so the actual 20 looks less than the prediction; the model actually predicts 2.5(2) + 14 = 19, less than 20
+        { id: "A", text: "$(2, 20)$" },
+        { id: "B", text: "$(4, 22)$" },
+        // distractor: reverses the comparison: the model predicts 2.5(8) + 14 = 34, and the actual y-value 37 is greater than 34, not less
+        { id: "C", text: "$(8, 37)$" },
+        // distractor: the model predicts 2.5(12) + 14 = 44, which equals the actual y-value rather than being less than it
+        { id: "D", text: "$(12, 44)$" }
       ],
-      correctAnswer: "A",
-      explanation: "**SAT Pattern: Residual**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The predicted $y$-value at $x = 25$ is $2.4(25) + 18 = 78$, and $71 - 78 = -7$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 25$ into the model: $2.4(25) + 18 = 60 + 18 = 78$.\nStep 2: The actual $y$-value of the data point is $71$.\nStep 3: Subtract in the order asked, actual minus predicted: $71 - 78 = -7$. Check: $78 + (-7) = 71$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($7$): subtracts in the reverse order, $78 - 71$.\n* Choice C ($11$): forgets the $18$, predicting $2.4(25) = 60$ and computing $71 - 60$.\n* Choice D ($78$): stops at the predicted $y$-value.\n\n**Test Day Takeaway:** Actual minus predicted is negative when the data point lies below the graph of the model; keep the order the question gives.",
+      correctAnswer: "B",
+      explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** At $x = 4$ the model predicts $2.5(4) + 14 = 24$, and the actual $y$-value, $22$, is less than $24$.\n\n**The Full Solution:**\nStep 1: Evaluate the model at each $x$-coordinate: $2.5(2) + 14 = 19$, $2.5(4) + 14 = 24$, $2.5(8) + 14 = 34$, and $2.5(12) + 14 = 44$.\nStep 2: Compare each actual $y$-value with its predicted value: $20 > 19$, $22 < 24$, $37 > 34$, and $44 = 44$.\nStep 3: Only for $(4, 22)$ is the actual value less than the predicted value. Check: $22 < 24$, so the point $(4, 22)$ lies below the graph of the model ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(2, 20)$): swapping the slope and the $y$-intercept gives $14(2) + 2.5 = 30.5$, which would make $20$ look less than the prediction; the model actually predicts $19$.\n* Choice C ($(8, 37)$): reverses the comparison; the model predicts $34$, and the actual $37$ is greater, not less.\n* Choice D ($(12, 44)$): the model predicts exactly $44$, so the actual value equals the predicted value instead of being less.\n\n**Test Day Takeaway:** The actual $y$-value is less than the predicted $y$-value exactly when the data point lies below the graph of the model.",
       skills: ["calculate-mean", "slope-intercept-form"]
     },
     {

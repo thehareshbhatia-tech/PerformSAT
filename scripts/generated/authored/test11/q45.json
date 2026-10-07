@@ -8,31 +8,31 @@
  "choices": [
   {
    "id": "A",
-   "text": "maintaining"
+   "text": "attaching"
   },
   {
    "id": "B",
-   "text": "to maintain"
+   "text": "to attach"
   },
   {
    "id": "C",
-   "text": "maintained"
+   "text": "attached"
   },
   {
    "id": "D",
-   "text": "the maintenance of"
+   "text": "the attachment of"
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The blank is the third item in a list whose first two items are gerund phrases — \"stocking the roadside stations...\" and \"staffing them with runners...\" — so the third must be a gerund as well: \"maintaining.\"\n\n**The Full Solution:**\n- Items in a coordinated series must share grammatical form (parallel structure).\n- The established pattern is gerund + object: \"stocking ... , staffing ... , and ______ the roads and rope bridges.\"\n- \"Maintaining\" continues the gerund-gerund-gerund series exactly.\n\n**Why the other choices are wrong:**\n- B: \"To maintain\" switches the series to an infinitive midstream, breaking parallelism.\n- C: \"Maintained\" is a past-tense or participial form that cannot follow \"and\" as the third item of a gerund list.\n- D: \"The maintenance of\" swaps in a noun phrase, again mismatching the two gerunds that set the pattern.",
- "passage": "To keep the relay network running, Inca administrators drew on several kinds of labor: stocking the roadside stations with food and fuel, staffing them with runners drawn from nearby villages, and ______ the roads and rope bridges on which the whole system depended.",
+ "explanation": "**Choice A is correct.** The blank completes a list of three steps, and the first two are -ing phrases (\"folding the printed sheets,\" \"sewing the signatures together\"). Items in a list must share the same form, so the third must be \"attaching.\"\n\n**The Full Solution:**\n- The colon introduces a list of the \"three main tasks.\"\n- Item 1: \"folding the printed sheets...\" Item 2: \"sewing the signatures together...\"\n- Item 3 must match: \"attaching a protective cover...\"\n\n**Why the other choices are wrong:**\n- B: \"To attach\" is an infinitive, which breaks the -ing pattern of the list.\n- C: \"Attached\" is a past-tense verb, which does not match the -ing phrases.\n- D: \"The attachment of\" is a noun phrase, which also breaks the parallel structure.",
+ "passage": "Binding a book by hand involves three main tasks: folding the printed sheets into groups called signatures, sewing the signatures together along their folds, and ______ a protective cover to the sewn pages.",
  "_meta": {
-  "rule": "parallel structure in a gerund series",
-  "anchor": "chasqui relay runners — station provisioning and road upkeep",
+  "rule": "parallel -ing phrases in a series",
+  "anchor": "hand bookbinding — fold sheets into signatures, sew through the folds, attach a cover (Wikipedia, Bookbinding; Talas, A Comprehensive Guide to Bookbinding)",
   "distractors": {
-   "B": "infinitive breaks the series",
-   "C": "past form cannot serve as list item",
-   "D": "noun phrase breaks the series"
+   "B": "infinitive",
+   "C": "past tense",
+   "D": "noun phrase"
   }
  },
  "id": 1145,

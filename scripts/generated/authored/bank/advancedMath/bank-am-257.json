@@ -1,61 +1,54 @@
 {
   "id": "bank-am-257",
-  "question": "The table shows values of the functions $f$ and $g$ for four values of $x$. Which of the following could be the equation that relates $g$ to $f$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$g(x) = f(-x)$"
-    },
-    {
-      "id": "B",
-      "text": "$g(x) = f(x) + 4$"
-    },
-    {
-      "id": "C",
-      "text": "$g(x) = -f(-x)$"
-    },
-    {
-      "id": "D",
-      "text": "$g(x) = -f(x)$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "reflects across the y-axis; f(0) = -2 but g(0) = 2",
-    "B": "adds a constant; at x = -1 it gives 5, not -1",
-    "C": "matches the row x = 0 only; at x = 1 it gives -f(-1) = -1, not 3"
-  },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Reflection of Graph**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** In every row $g(x)$ is the opposite of $f(x)$: $1 \\to -1$, $-2 \\to 2$, $-3 \\to 3$, $4 \\to -4$, so $g(x) = -f(x)$.\n\n**The Full Solution:**\nStep 1: Compare the two columns row by row: $f(-1) = 1$ and $g(-1) = -1$; $f(0) = -2$ and $g(0) = 2$; $f(1) = -3$ and $g(1) = 3$; $f(2) = 4$ and $g(2) = -4$.\nStep 2: In each row, $g(x)$ is the opposite of $f(x)$ at the same input, so $g(x) = -f(x)$.\nStep 3: This is a reflection of the graph of $y = f(x)$ across the $x$-axis. Check against the other choices: $f(-x)$ fails at $x = 0$, since $f(0) = -2 \\ne 2$, and $-f(-x)$ fails at $x = 1$, since $-f(-1) = -1 \\ne 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(-x)$): reflects across the $y$-axis; at $x = 0$ it gives $f(0) = -2$, but $g(0) = 2$.\n* Choice B ($f(x) + 4$): adds a constant; at $x = -1$ it gives $5$, but $g(-1) = -1$.\n* Choice C ($-f(-x)$): works at $x = 0$, where $-f(0) = 2$, but at $x = 1$ it gives $-f(-1) = -1$, not $3$.\n\n**Test Day Takeaway:** Test a proposed rule against every row of the table; one matching row is not enough.",
+  "question": "The table shows several values of $x$ and $f(x)$ for the quadratic function $f$. For what value of $x$ does $f(x)$ reach its maximum?",
   "diagram": {
-    "type": "dataTable",
+    "type": "table",
     "params": {
-      "headers": [
-        "x",
-        "f(x)",
-        "g(x)"
-      ],
+      "xHeader": "x",
+      "yHeader": "f(x)",
       "rows": [
         [
-          "-1",
           "1",
-          "-1"
+          "-4"
         ],
         [
-          "0",
-          "-2",
-          "2"
+          "3",
+          "8"
         ],
         [
-          "1",
-          "-3",
-          "3"
+          "6",
+          "11"
         ],
         [
-          "2",
-          "4",
+          "9",
           "-4"
         ]
       ]
     }
-  }
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-4$"
+    },
+    {
+      "id": "B",
+      "text": "$5$"
+    },
+    {
+      "id": "C",
+      "text": "$6$"
+    },
+    {
+      "id": "D",
+      "text": "$11$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "reports the output that repeats instead of an x-value",
+    "C": "picks the x-value with the greatest listed output; the maximum lies between rows",
+    "D": "reports the greatest output in the table instead of an x-value"
+  },
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Reflection of Graph**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $f(1) = f(9) = -4$, so the graph is symmetric about $x = 5$, halfway between $1$ and $9$; that is where the maximum occurs.\n\n**The Full Solution:**\nStep 1: The graph of a quadratic function is symmetric about the vertical line through its vertex, so two inputs with the same output are equally far from the vertex.\nStep 2: $f(1) = -4$ and $f(9) = -4$, so the vertex is at $x = \\frac{1 + 9}{2} = 5$.\nStep 3: $f(6) = 11$ is greater than $f(1) = -4$, so the parabola opens downward and the vertex is a maximum, at $x = 5$. Check: $f(x) = -(x - 5)^{2} + 12$ gives $-4$, $8$, $11$, and $-4$ at $x = 1, 3, 6, 9$, matching the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): this is the output that repeats, not the input where the maximum occurs.\n* Choice C ($6$): the greatest listed output occurs at $x = 6$, but the true maximum lies between the rows, at $x = 5$.\n* Choice D ($11$): this is the greatest output listed in the table, not an input.\n\n**Test Day Takeaway:** Two inputs with equal outputs on a parabola are mirror images; the vertex is halfway between them."
 }

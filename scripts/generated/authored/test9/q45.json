@@ -6,7 +6,7 @@
   "domain": "standard-english-conventions",
   "skill": "form-structure-and-sense",
   "module": 2,
-  "passage": "Stored in the herders' cooperative archive ______ the shearing records of every chaccu held in the district, each one listing the animals gathered, the grams of fleece taken, and the herd's condition at release.",
+  "passage": "Displayed in the Rotunda of the National Archives in Washington, DC, ______ the original Declaration of Independence, Constitution, and Bill of Rights, all three kept in sealed protective cases.",
   "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
   "choices": [
     {
@@ -27,6 +27,12 @@
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** The sentence is inverted: the subject follows the verb. That subject is the plural \"records,\" so the verb must be the plural \"are.\"\n\n**The Full Solution:**\n- \"Stored in the herders' cooperative archive\" is an opening participial phrase, not a subject.\n- Restore normal order and the agreement is plain: \"The shearing records... are stored in the archive.\"\n- The plural is confirmed by \"each one listing,\" which distributes over multiple records.\n\n**Why the other choices are wrong:**\n- A: A singular verb drawn to the singular \"archive\" beside the blank — but \"archive\" sits inside the opening phrase and cannot be the subject.\n- C: Singular again, and the perfect adds an unneeded time frame to a simple statement of where the records are.\n- D: Singular, and the past tense contradicts \"since 1994,\" which carries the records up to the present.",
-  "_meta": {}
+  "explanation": "**Choice B is correct.** The sentence is inverted: the subject, \"the original Declaration of Independence, Constitution, and Bill of Rights,\" comes after the verb. That subject names three documents joined by \"and,\" so it is plural and takes the plural verb \"are.\"\n\n**The Full Solution:**\n- The opening phrase, \"Displayed in the Rotunda of the National Archives,\" is not the subject.\n- The subject follows the blank: three documents joined by \"and.\"\n- A compound subject joined by \"and\" is plural, and the present tense fits a permanent display, so \"are\" is correct.\n\n**Why the other choices are wrong:**\n- A: \"Is\" is singular and does not agree with the plural subject.\n- C: \"Has been\" is singular and does not agree with the plural subject.\n- D: \"Was\" is singular and does not agree with the plural subject.",
+  "_meta": {
+    "anchor": "Charters of Freedom in the National Archives Rotunda — inverted sentence, plural verb",
+    "sources": [
+      "https://visit.archives.gov/whats-on/explore-exhibits/charters-freedom",
+      "https://en.wikipedia.org/wiki/Charters_of_Freedom"
+    ]
+  }
 }

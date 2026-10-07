@@ -1,30 +1,30 @@
 {
   "id": 1,
-  "question": "$f(x) = x^{2} - 10x + 21$\nWhat is the $x$-coordinate of the vertex of the graph of $y = f(x)$ in the $xy$-plane?",
+  "question": "$f(x) = x^{2} + 6x - 16$\nIn the $xy$-plane, what is the $x$-coordinate of the vertex of the graph of $y = f(x)$?",
   "choices": [
     {
       "id": "A",
-      "text": "$-10$"
+      "text": "$-16$"
     },
     {
       "id": "B",
-      "text": "$-5$"
+      "text": "$-3$"
     },
     {
       "id": "C",
-      "text": "$5$"
+      "text": "$3$"
     },
     {
       "id": "D",
-      "text": "$21$"
+      "text": "$6$"
     }
   ],
   "distractorNotes": {
-    "A": "reports b itself instead of -b/(2a)",
-    "B": "computes b/(2a) and drops the minus sign in the formula",
-    "D": "reports the constant term, which is the y-intercept"
+    "A": "reports the constant term, which is the y-intercept",
+    "C": "computes b/(2a) and drops the minus sign in the formula",
+    "D": "reports b itself instead of -b/(2a)"
   },
-  "correctAnswer": "C",
+  "correctAnswer": "B",
   "hint": "Use $x = -\\frac{b}{2a}$, or find the point halfway between the two $x$-intercepts.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** $x = -\\frac{b}{2a} = -\\frac{-10}{2(1)} = 5$.\n\n**The Full Solution:**\nStep 1: Identify the coefficients: $a = 1$, $b = -10$, and $c = 21$.\nStep 2: The vertex of $y = ax^2 + bx + c$ has $x = -\\frac{b}{2a}$, so $x = -\\frac{-10}{2} = 5$.\nStep 3: Confirm with the $x$-intercepts. Factoring gives $(x - 3)(x - 7)$, so the intercepts are $3$ and $7$, whose midpoint is $\\frac{3 + 7}{2} = 5$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$): reports $b$ itself instead of $-\\frac{b}{2a}$.\n* Choice B ($-5$): computes $\\frac{b}{2a}$ and forgets the leading negative sign in the formula.\n* Choice D ($21$): reports the constant term $c$, which is the $y$-intercept rather than anything about the vertex.\n\n**Test Day Takeaway:** Two routes give the same vertex $x$-value: $-\\frac{b}{2a}$, or the midpoint of the two $x$-intercepts when they exist."
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** $x = -\\frac{b}{2a} = -\\frac{6}{2(1)} = -3$.\n\n**The Full Solution:**\nStep 1: Identify the coefficients: $a = 1$, $b = 6$, and $c = -16$.\nStep 2: The vertex of $y = ax^2 + bx + c$ has $x = -\\frac{b}{2a}$, so $x = -\\frac{6}{2} = -3$.\nStep 3: Confirm with the $x$-intercepts. Factoring gives $(x + 8)(x - 2)$, so the intercepts are $-8$ and $2$, whose midpoint is $\\frac{-8 + 2}{2} = -3$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-16$): reports the constant term $c$, which is the $y$-intercept rather than anything about the vertex.\n* Choice C ($3$): computes $\\frac{b}{2a}$ and forgets the leading negative sign in the formula.\n* Choice D ($6$): reports $b$ itself instead of $-\\frac{b}{2a}$.\n\n**Test Day Takeaway:** Two routes give the same vertex $x$-value: $-\\frac{b}{2a}$, or the midpoint of the two $x$-intercepts when they exist."
 }

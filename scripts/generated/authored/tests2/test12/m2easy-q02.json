@@ -1,29 +1,29 @@
 {
  "id": 2,
- "question": "In the $xy$-plane, the midpoint of segment $JK$ is $(3, -1)$, and point $J$ has coordinates $(-5, 4)$. What are the coordinates of point $K$?",
+ "question": "In the $xy$-plane, the graph of $2x - 5y = 30$ passes through the point $(a, -4)$. What is the value of $a$?",
  "choices": [
   {
    "id": "A",
-   "text": "$(-13, 9)$"
+   "text": "$-7.6$"
   },
   {
    "id": "B",
-   "text": "$(-1, 1.5)$"
+   "text": "$5$"
   },
   {
    "id": "C",
-   "text": "$(8, -5)$"
+   "text": "$15$"
   },
   {
    "id": "D",
-   "text": "$(11, -6)$"
+   "text": "$25$"
   }
  ],
  "distractorNotes": {
-  "A": "runs the doubling in the wrong direction, computing 2J - M instead of 2M - J",
-  "B": "averages J and M, finding the midpoint of segment JM instead of the far endpoint",
-  "C": "computes M - J, the change from J to M, and reports it as a point"
+  "A": "substitutes -4 for x instead of y and solves 2(-4) - 5a = 30",
+  "C": "ignores the y-term and solves 2a = 30",
+  "D": "treats -5(-4) as -20 and solves 2a - 20 = 30"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Midpoint Formula**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Going from $J$ to $M$ moves right $8$ and down $5$; repeating that move from $M$ lands on $(3 + 8, -1 - 5) = (11, -6)$.\n\n**The Full Solution:**\nStep 1: Let $K = (x, y)$. The midpoint formula gives $\\frac{-5 + x}{2} = 3$ and $\\frac{4 + y}{2} = -1$.\nStep 2: Multiply each equation by $2$: $-5 + x = 6$ and $4 + y = -2$.\nStep 3: Solve: $x = 11$ and $y = -6$, so $K = (11, -6)$. Check: the midpoint of $(-5, 4)$ and $(11, -6)$ is $\\left(\\frac{-5 + 11}{2}, \\frac{4 + (-6)}{2}\\right) = (3, -1)$, which is $M$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-13, 9)$): computes $2J - M = (2(-5) - 3,\\ 2(4) - (-1))$, which swaps the roles of the endpoint and the midpoint.\n* Choice B ($(-1, 1.5)$): averages $J$ and $M$, giving $\\left(\\frac{-5 + 3}{2}, \\frac{4 - 1}{2}\\right)$, the midpoint of segment $JM$ rather than point $K$.\n* Choice C ($(8, -5)$): computes $M - J = (3 - (-5),\\ -1 - 4)$, the change from $J$ to $M$, not a location.\n\n**Test Day Takeaway:** The midpoint is the average of the endpoints, so a missing endpoint is $2M - J$. Confirm by averaging your answer with the known endpoint."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Point on a Line**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Substitute $x = a$ and $y = -4$: $2a + 20 = 30$, so $a = 5$.\n\n**The Full Solution:**\nStep 1: A point on the graph satisfies the equation, so substitute $x = a$ and $y = -4$: $2a - 5(-4) = 30$.\nStep 2: Simplify: $2a + 20 = 30$, so $2a = 10$.\nStep 3: Divide by $2$: $a = 5$. Check: $2(5) - 5(-4) = 10 + 20 = 30$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7.6$): puts $-4$ in for $x$ instead of $y$, solving $-8 - 5a = 30$.\n* Choice C ($15$): drops the $y$-term and solves $2a = 30$.\n* Choice D ($25$): makes a sign error, writing $-5(-4)$ as $-20$ and solving $2a - 20 = 30$.\n\n**Test Day Takeaway:** A point lies on a graph exactly when its coordinates make the equation true; substitute the $x$- and $y$-coordinates in the right places."
 }

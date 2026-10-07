@@ -6,26 +6,33 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 2,
- "passage": "The glass called cristallo, perfected in fifteenth-century Venice, owed its fame to what it lacked. Ordinary glass of the period carried a green or brown cast from iron in the sand it was made from; Venetian makers instead began with carefully chosen quartz pebbles low in iron, purified their plant-ash flux by repeatedly dissolving and straining it, and added small amounts of manganese to cancel what color remained. The result was a glass nearly as colorless as rock crystal, the quartz it was named for, and thin-walled vessels of cristallo commanded prices across Europe that no rival glasshouse could match.",
- "question": "According to the text, how did Venetian glassmakers counteract the color that impurities gave to ordinary glass?",
+ "passage": "In the 1990s, a subway station was dug about 30 meters from the Big Ben clock tower in London. Engineers feared the digging would make the ground under the tower's shallow foundation sink, worsening its slight lean. To steady the tower, they first laid a network of horizontal tubes in the ground between the new tunnels and the tower's base. They then attached instruments to the tower to measure the smallest tilt. Whenever the readings showed movement, they pumped cement grout through holes in the tubes, pushing the ground back up. Without the grout, the tower would have shifted well over 100 millimeters.",
+ "question": "According to the text, how did engineers stabilize the tower?",
  "choices": [
   {
    "id": "A",
-   "text": "They chose raw materials low in iron, purified their flux, and added manganese to offset the tint that remained."
+   "text": "They laid tubes underground, tracked the tower's tilt, and pumped grout through the tubes as it moved."
   },
   {
    "id": "B",
-   "text": "They ground rock crystal into their raw materials so that the finished glass would take on the clarity of quartz."
+   "text": "They rebuilt the tower's foundation on deeper supports so that the structure could stand fully upright."
   },
   {
    "id": "C",
-   "text": "They blew the walls of their vessels thin enough that any tint in the glass became too faint to notice."
+   "text": "They stopped the digging each time the tower moved and restarted it only after the ground had settled."
   },
   {
    "id": "D",
-   "text": "They imported finished colorless glass from rival glasshouses and resold it across Europe at higher prices."
+   "text": "They removed the heavy bells from the tower's belfry to lighten the weight pressing on its foundation."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The text lists three measures, and A reproduces all three: quartz pebbles chosen for low iron, flux purified by dissolving and straining, and manganese added \"to cancel what color remained.\"\n\n**The Full Solution:**\n- The question asks for the makers' method against color, which the second sentence gives as a sequence: select low-iron pebbles, purify the plant-ash flux, add manganese for the residue.\n- A is the only choice that matches the stated method rather than remixing the passage's other details.\n\n**Why the other choices are wrong:**\n- B: Rock crystal appears only as the standard of comparison that gave cristallo its name; nothing says quartz was ground into the batch to add clarity.\n- C: Thin walls are mentioned as a feature of the prized vessels, not as a technique for hiding color.\n- D: The text says rivals could not match Venetian prices; it never describes importing or reselling anyone's glass."
+ "explanation": "**Choice A is correct.** The text lists three steps in order: a network of horizontal tubes laid in the ground beside the tower's base, instruments attached to measure the tower's tilt, and cement grout pumped through the tubes whenever the readings showed movement.\n\n**The Full Solution:**\n- \"They first laid a network of horizontal tubes in the ground between the new tunnels and the tower's base.\"\n- \"They then attached instruments to the tower to measure the smallest tilt.\"\n- \"Whenever the readings showed movement, they pumped cement grout through holes in the tubes, pushing the ground back up.\" A names all three steps.\n\n**Why the other choices are wrong:**\n- B: The text never mentions rebuilding the foundation or adding deeper supports.\n- C: The text says grout was pumped in when the tower moved; it never says the digging was stopped.\n- D: Nothing was taken out of the tower; the engineers worked on the ground beneath it instead.",
+ "_meta": {
+  "anchor": "Big Ben clock tower protected by compensation grouting during 1990s Jubilee line tunnelling",
+  "sources": [
+   "https://www-g.eng.cam.ac.uk/enginuity/issue9/article13.html",
+   "https://en.wikipedia.org/wiki/Elizabeth_Tower"
+  ]
+ }
 }

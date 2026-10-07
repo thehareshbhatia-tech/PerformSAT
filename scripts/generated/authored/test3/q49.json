@@ -6,30 +6,30 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "type": "multiple-choice",
- "passage": "Working for a federal agency that documented the Depression's toll on farm families, ______ made photographs that gave economic catastrophe a human face and helped build public support for relief programs.",
+ "passage": "Programming some of the earliest computers in the 1940s and 1950s, ______ developed the A-0 system in 1952. It was one of the first compilers, programs that translate symbolic code into instructions a machine can carry out.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "Dorothea Lange's camera"
+   "text": "Grace Hopper's software"
   },
   {
    "id": "B",
-   "text": "the photographer Dorothea Lange"
+   "text": "the mathematician Grace Hopper"
   },
   {
    "id": "C",
-   "text": "Dorothea Lange's photographs"
+   "text": "Grace Hopper's research"
   },
   {
    "id": "D",
-   "text": "it was Dorothea Lange who"
+   "text": "it was Grace Hopper who"
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The opening modifier \"Working for a federal agency...\" must attach to whoever was doing the working, so the subject that follows the comma has to be the person herself: \"the photographer Dorothea Lange.\"\n\n**The Full Solution:**\n- Participial openers grab the nearest following subject. The sentence is only conventional if that subject names the worker.\n- B places Lange immediately after the modifier, and the rest of the sentence proceeds naturally: she \"made photographs that gave economic catastrophe a human face.\"\n\n**Why the other choices are wrong:**\n- A: It hands the modifier to her camera — the camera was not working for a federal agency — a classic dangling modifier.\n- C: It makes the photographs the workers, and doubly fails by having photographs make photographs.\n- D: The cleft \"it was... who\" puts the empty pronoun \"it\" in the modifier's grasp; \"it\" was not working for the agency, so the modifier still dangles.",
+ "explanation": "**Choice B is correct.** The sentence opens with a modifying phrase, \"Programming some of the earliest computers in the 1940s and 1950s.\" Whatever comes right after the comma must be the one doing the programming, and only a person can program. \"The mathematician Grace Hopper\" supplies that person.\n\n**The Full Solution:**\n- Ask who or what was \"programming some of the earliest computers.\" The answer is Hopper herself.\n- An introductory participial phrase must be followed immediately by the noun it describes, so the blank must begin with Hopper, not with something she owned or produced.\n\n**Why the other choices are wrong:**\n- A: This says Hopper's software was programming the computers, which is illogical; software does not program computers in the sense described.\n- C: This says Hopper's research was programming the computers; research cannot program anything.\n- D: \"It was Grace Hopper who\" places the pronoun \"it\" right after the phrase, so the phrase seems to describe \"it\" rather than Hopper.",
  "_meta": {
-  "anchor": "Dorothea Lange — Depression-era documentary photography; dangling modifier repair",
-  "rule": "introductory participial phrase must modify the main-clause subject"
+  "anchor": "Grace Hopper — A-0 compiler (1952); dangling modifier repair (https://en.wikipedia.org/wiki/A-0_System; https://www.computinghistory.org.uk/det/5487/Grace-Hopper-completes-the-A-0-Compiler/)",
+  "rule": "introductory participial phrase must modify the noun that follows it"
  }
 }

@@ -9,35 +9,35 @@
  "passages": [
   {
    "label": "Text 1",
-   "text": "In 2014 and again in 2020, paleontologist Nizar Ibrahim and colleagues described new fossils of Spinosaurus, a sail-backed predator from Cretaceous rocks in Morocco. They pointed to unusually dense limb bones, nostrils set far back on the skull, and a deep, paddle-like tail as evidence that Spinosaurus was a largely aquatic animal — a pursuit predator that propelled itself through river channels with strokes of its tail, running down fish in open water."
+   "text": "From 1995 until his death in 2014, archaeologist Klaus Schmidt led the excavation of Göbekli Tepe in southeastern Turkey. Around 9500 BCE, people there built round enclosures ringed by massive T-shaped stone pillars, many carved with animals. Schmidt argued that the site was a sanctuary. In his view, groups of hunter-gatherers from across the region gathered there for rituals and feasts, but no one lived at the site."
   },
   {
    "label": "Text 2",
-   "text": "Paleontologists David Hone and Thomas Holtz have reassessed that evidence. Spinosaurus would have been highly buoyant, they observe, which would have made diving costly, and by the 2020 study's own measurements its tail performed poorly as a swimming organ. Spinosaurus, they conclude, likely fed the way a giant heron or stork does: wading in shallow water and seizing fish from the shoreline rather than chasing them beneath the surface."
+   "text": "Archaeologist Lee Clare and colleagues, who continued the excavation, have reexamined the site. They agree that the large pillared enclosures were special buildings, not ordinary homes. But they also report smaller buildings used for daily life, stone-cut cisterns for storing rainwater, and thousands of grinding stones for processing cereals. Göbekli Tepe, they conclude, was a settlement where people lived, not simply a place they visited for ceremonies."
   }
  ],
- "question": "Based on the texts, how would Hone and Holtz (Text 2) most likely respond to the account of Spinosaurus presented in Text 1?",
+ "question": "Based on the texts, how would Clare and colleagues (Text 2) most likely respond to Schmidt's account of Göbekli Tepe in Text 1?",
  "choices": [
   {
    "id": "A",
-   "text": "They would deny that the Moroccan fossil remains described in Text 1 can provide any reliable information about how a predator like Spinosaurus obtained its food."
+   "text": "They would deny that the remains found at Göbekli Tepe can reveal anything reliable about how the site was actually used."
   },
   {
    "id": "B",
-   "text": "They would accept that Spinosaurus took fish from rivers while rejecting the claim that it hunted by swimming down its prey in deep water."
+   "text": "They would accept that the enclosures were special buildings but reject the claim that no one lived at the site."
   },
   {
    "id": "C",
-   "text": "They would argue that Spinosaurus's tail was even better suited to underwater propulsion than Text 1 suggests."
+   "text": "They would argue that the pillared enclosures were ordinary houses, much like the smaller buildings found around them."
   },
   {
    "id": "D",
-   "text": "They would object that comparisons with living animals cannot illuminate the behavior of an extinct predator like Spinosaurus."
+   "text": "They would object that animal carvings cannot reveal anything about the beliefs of the people who made them."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** Hone and Holtz agree that Spinosaurus ate fish — their heron model has it \"seizing fish from the shoreline\" — but their anatomical and biomechanical objections target precisely the deep-water pursuit swimming that Text 1 proposes.\n\n**The Full Solution:**\n- Text 1's account has two parts: Spinosaurus fed on fish, and it did so as an aquatic pursuit predator swimming through deep channels.\n- Text 2 keeps the first part: the heron comparison is a fish-catching model, just executed by wading in shallows.\n- Text 2 attacks the second part on two grounds — a buoyant body that made diving costly and a tail that, by the 2020 study's own measurements, performed poorly for swimming.\n- Accepting the diet while rejecting the deep-water hunting method is exactly the response choice B describes.\n\n**Why the other choices are wrong:**\n- A: It overshoots — Hone and Holtz dispute the interpretation of the fossils, not the fossils' relevance; their own argument reasons from the animal's anatomy.\n- C: It reverses their position on the tail, which they argue performed poorly as a swimming organ, not better than Text 1 suggests.\n- D: It contradicts their own method — the heron comparison is itself an argument from a living animal.",
+ "explanation": "**Choice B is correct.** Clare and colleagues agree with part of Schmidt's account, that the pillared enclosures were special buildings rather than ordinary homes, but the houses, cisterns, and grinding stones they report lead them to reject his claim that no one lived at the site.\n\n**The Full Solution:**\n- Text 1's account has two parts: the enclosures were a sanctuary for rituals, and the site had no residents; groups only gathered there.\n- Text 2 keeps the first part: \"They agree that the large pillared enclosures were special buildings, not ordinary homes.\"\n- Text 2 rejects the second part: evidence of daily life (smaller buildings, rainwater cisterns, thousands of grinding stones) shows that Göbekli Tepe \"was a settlement where people lived.\"\n- Accepting the special status of the enclosures while rejecting the claim that the site was uninhabited is exactly the response choice B describes.\n\n**Why the other choices are wrong:**\n- A: It overshoots. Clare and colleagues build their own argument from the remains at the site, so they clearly think the remains are informative.\n- C: It contradicts Text 2, which agrees that the enclosures were special buildings, not ordinary homes.\n- D: Text 2 never discusses the animal carvings or what they meant; its disagreement with Schmidt is about whether people lived at the site.",
  "_meta": {
-  "anchor": "Spinosaurus feeding-ecology debate — Ibrahim's aquatic pursuit model vs. Hone and Holtz's wading model"
+  "anchor": "Göbekli Tepe debate: Schmidt's sanctuary-without-residents model vs. Clare et al.'s settlement reinterpretation (special buildings accepted, uninhabited claim rejected)"
  }
 }

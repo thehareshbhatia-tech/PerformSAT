@@ -1,6 +1,6 @@
 {
  "id": "bank-am-235",
- "question": "$y = 2x + 3$\n$y = x^{2} + 6x + c$\nThe given system of equations, where $c$ is a constant, has exactly one solution, $(x, y)$. What is the value of $y$?",
+ "question": "$y = 2x + 3$\n$y = x^{2} + 6x + c$\nIn the $xy$-plane, the graphs of the given equations, where $c$ is a constant, intersect at exactly one point, $(x, y)$. What is the value of $y$?",
  "correctAnswer": "-1",
  "explanation": "**SAT Pattern: Tangent Line and Discriminant**\n\n**The correct answer is $-1$.**\n\n**The Fast Way (~30s):** Equating gives $x^{2} + 4x + (c - 3) = 0$, whose double root is $x = -\\frac{4}{2} = -2$; substituting into $y = 2x + 3$ gives $y = -1$.\n\n**The Full Solution:**\nStep 1: Set $x^{2} + 6x + c = 2x + 3$, which rearranges to $x^{2} + 4x + (c - 3) = 0$.\nStep 2: Exactly one intersection point means this quadratic has a double root, located at $x = -\\frac{4}{2(1)} = -2$.\nStep 3: Put $x = -2$ into the line: $y = 2(-2) + 3 = -1$. Check: a double root at $-2$ makes the quadratic $(x + 2)^{2} = x^{2} + 4x + 4$, so $c - 3 = 4$ and $c = 7$; then $y = 4 - 12 + 7 = -1$ on the parabola as well ✓\n\n**Common Mistakes:**\n* $-2$: reports the $x$-coordinate of the intersection point instead of the $y$-coordinate.\n* $7$: reports the value of $c$.\n* $3$: reports the $y$-intercept of the line.\n\n**Test Day Takeaway:** Find the tangency input from $-\\frac{b}{2a}$ of the difference quadratic, then read the output off the line — it is the easier of the two equations."
 }

@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-322",
- "question": "A rectangular box has dimensions $12$ inches by $16$ inches by $21$ inches. What is the length, in inches, of the longest line segment that can be drawn between two vertices of the box?",
+ "question": "A rectangle has a diagonal of length $4\\sqrt{10}$ centimeters. The length of the rectangle is $3$ times its width. What is the area, in square centimeters, of the rectangle?",
  "choices": [
   {
    "id": "A",
-   "text": "$20$"
+   "text": "$12$"
   },
   {
    "id": "B",
-   "text": "$29$"
+   "text": "$16$"
   },
   {
    "id": "C",
-   "text": "$49$"
+   "text": "$48$"
   },
   {
    "id": "D",
-   "text": "$841$"
+   "text": "$160$"
   }
  ],
- "correctAnswer": "B",
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "finds the diagonal of the 12 by 16 face and stops",
-  "C": "adds the three edge lengths, 12 + 16 + 21",
-  "D": "stops at the square of the diagonal, 144 + 256 + 441 = 841"
+  "A": "finds the length, 12, and stops before multiplying by the width",
+  "B": "finds w squared = 16 and stops, which is the area of a square with the width as its side",
+  "D": "squares the diagonal, (4 sqrt 10) squared = 160, and reports it as the area"
  },
- "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $d = \\sqrt{12^2 + 16^2 + 21^2} = \\sqrt{841} = 29$.\n\n**The Full Solution:**\nStep 1: The diagonal of the $12$ by $16$ face is $\\sqrt{144 + 256} = 20$.\nStep 2: That face diagonal and the $21$-inch edge are perpendicular legs of a right triangle whose hypotenuse joins opposite corners of the box.\nStep 3: So the longest segment is $\\sqrt{20^2 + 21^2} = \\sqrt{400 + 441} = \\sqrt{841} = 29$ inches. Check: $12^2 + 16^2 + 21^2 = 841 = 29^2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): is the diagonal of one face; the longest segment also climbs the third dimension.\n* Choice C ($49$): adds the three edges, a path along the outside of the box.\n* Choice D ($841$): is $d^2$; take the square root.\n\n**Test Day Takeaway:** Apply the Pythagorean theorem twice: once across a face, then from that face diagonal up the remaining edge."
+ "explanation": "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** With width $w$ and length $3w$, $w^{2} + (3w)^{2} = (4\\sqrt{10})^{2}$ gives $10w^{2} = 160$, so $w = 4$, the length is $12$, and the area is $4(12) = 48$.\n\n**The Full Solution:**\nStep 1: The diagonal splits the rectangle into two right triangles with legs $w$ and $3w$ and hypotenuse $4\\sqrt{10}$.\nStep 2: By the Pythagorean theorem, $w^{2} + 9w^{2} = 16(10)$, so $10w^{2} = 160$, $w^{2} = 16$, and $w = 4$. The length is $3(4) = 12$.\nStep 3: The area is $12(4) = 48$ square centimeters. Check: $4^{2} + 12^{2} = 16 + 144 = 160 = (4\\sqrt{10})^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): is the length of the rectangle, not its area.\n* Choice B ($16$): is $w^{2}$; the area is $w(3w) = 3w^{2}$, not $w^{2}$.\n* Choice D ($160$): is the square of the diagonal, which is the sum of the squares of the sides, not their product.\n\n**Test Day Takeaway:** A rectangle's diagonal is the hypotenuse of a right triangle whose legs are the sides; write both sides in one variable, solve, then multiply for the area."
 }

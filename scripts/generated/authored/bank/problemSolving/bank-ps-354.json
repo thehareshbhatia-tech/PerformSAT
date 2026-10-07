@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-354",
-  "question": "Each value in a data set with mean $42$ and median $40$ is doubled and increased by $3$. What is the new mean?",
+  "question": "$18, 23, 27, 30, 32$\nData set A consists of the $5$ values shown. Data set B is created by adding $9$ to each value in data set A. What is the mean of data set B?",
   "choices": [
     {
       "id": "A",
-      "text": "$45$"
+      "text": "$26$"
     },
     {
       "id": "B",
-      "text": "$83$"
+      "text": "$27.8$"
     },
     {
       "id": "C",
-      "text": "$87$"
+      "text": "$35$"
     },
     {
       "id": "D",
-      "text": "$90$"
+      "text": "$36$"
     }
   ],
-  "distractorNotes": {
-    "A": "adds $3$ to the mean but never doubles it: $42 + 3 = 45$",
-    "B": "transforms the median instead of the mean: $2(40) + 3 = 83$",
-    "D": "adds the $3$ before doubling: $2(42 + 3) = 90$, applying the operations in the wrong order"
-  },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Scaling a Data Set**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Doubling doubles the mean and adding $3$ adds $3$ to it: $2(42) + 3 = 87$.\n\n**The Full Solution:**\nStep 1: Doubling every value doubles the sum and keeps the count, so the mean becomes $2 \\times 42 = 84$.\nStep 2: Adding $3$ to every value adds $3$ to the mean: $84 + 3 = 87$.\nStep 3: The new mean is $87$; the median, $40$, is not needed. Check: the values $40$, $40$, $46$ have mean $42$ and median $40$; they become $83$, $83$, $95$, whose mean is $\\frac{261}{3} = 87$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($45$): adds $3$ but skips the doubling.\n* Choice B ($83$): transforms the median, $2(40) + 3 = 83$, when the question asks for the mean.\n* Choice D ($90$): computes $2(42 + 3)$, adding $3$ before doubling; the values are doubled first.\n\n**Test Day Takeaway:** When every value $x$ becomes $ax + b$, the mean becomes $a(\\text{mean}) + b$, in the same order as the operations."
+  "distractorNotes": {
+    "A": "finds the mean of data set A and forgets to add 9",
+    "B": "adds 9 to the sum only once instead of to each of the 5 values: (130 + 9)/5 = 27.8",
+    "D": "finds the median of data set B, 27 + 9 = 36, instead of the mean"
+  },
+  "explanation": "**SAT Pattern: Scaling a Data Set**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The mean of data set A is $\\frac{130}{5} = 26$, and adding $9$ to every value adds $9$ to the mean: $26 + 9 = 35$.\n\n**The Full Solution:**\nStep 1: The sum of the values in data set A is $18 + 23 + 27 + 30 + 32 = 130$, so its mean is $\\frac{130}{5} = 26$.\nStep 2: Adding $9$ to each of the $5$ values adds $5(9) = 45$ to the sum, so the sum of data set B is $130 + 45 = 175$.\nStep 3: The mean of data set B is $\\frac{175}{5} = 35$. Check: data set B is $27, 32, 36, 39, 41$, and $\\frac{27 + 32 + 36 + 39 + 41}{5} = \\frac{175}{5} = 35$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($26$): is the mean of data set A; every value was increased by $9$.\n* Choice B ($27.8$): adds $9$ to the sum once, $\\frac{139}{5}$; the $9$ is added to each of the $5$ values.\n* Choice D ($36$): is the median of data set B, $27 + 9$, not the mean.\n\n**Test Day Takeaway:** Adding the same number to every value adds that number to the mean, so find the original mean and add."
 }

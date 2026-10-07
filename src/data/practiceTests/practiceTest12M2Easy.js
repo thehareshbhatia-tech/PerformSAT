@@ -42,18 +42,18 @@ export const practiceTest12M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 3,
-      question: "In the $xy$-plane, the midpoint of segment $JK$ is $(3, -1)$, and point $J$ has coordinates $(-5, 4)$. What are the coordinates of point $K$?",
+      question: "In the $xy$-plane, the graph of $2x - 5y = 30$ passes through the point $(a, -4)$. What is the value of $a$?",
       choices: [
-        // distractor: runs the doubling in the wrong direction, computing 2J - M instead of 2M - J
-        { id: "A", text: "$(-13, 9)$" },
-        // distractor: averages J and M, finding the midpoint of segment JM instead of the far endpoint
-        { id: "B", text: "$(-1, 1.5)$" },
-        // distractor: computes M - J, the change from J to M, and reports it as a point
-        { id: "C", text: "$(8, -5)$" },
-        { id: "D", text: "$(11, -6)$" }
+        // distractor: substitutes -4 for x instead of y and solves 2(-4) - 5a = 30
+        { id: "A", text: "$-7.6$" },
+        { id: "B", text: "$5$" },
+        // distractor: ignores the y-term and solves 2a = 30
+        { id: "C", text: "$15$" },
+        // distractor: treats -5(-4) as -20 and solves 2a - 20 = 30
+        { id: "D", text: "$25$" }
       ],
-      correctAnswer: "D",
-      explanation: "**SAT Pattern: Midpoint Formula**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Going from $J$ to $M$ moves right $8$ and down $5$; repeating that move from $M$ lands on $(3 + 8, -1 - 5) = (11, -6)$.\n\n**The Full Solution:**\nStep 1: Let $K = (x, y)$. The midpoint formula gives $\\frac{-5 + x}{2} = 3$ and $\\frac{4 + y}{2} = -1$.\nStep 2: Multiply each equation by $2$: $-5 + x = 6$ and $4 + y = -2$.\nStep 3: Solve: $x = 11$ and $y = -6$, so $K = (11, -6)$. Check: the midpoint of $(-5, 4)$ and $(11, -6)$ is $\\left(\\frac{-5 + 11}{2}, \\frac{4 + (-6)}{2}\\right) = (3, -1)$, which is $M$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-13, 9)$): computes $2J - M = (2(-5) - 3,\\ 2(4) - (-1))$, which swaps the roles of the endpoint and the midpoint.\n* Choice B ($(-1, 1.5)$): averages $J$ and $M$, giving $\\left(\\frac{-5 + 3}{2}, \\frac{4 - 1}{2}\\right)$, the midpoint of segment $JM$ rather than point $K$.\n* Choice C ($(8, -5)$): computes $M - J = (3 - (-5),\\ -1 - 4)$, the change from $J$ to $M$, not a location.\n\n**Test Day Takeaway:** The midpoint is the average of the endpoints, so a missing endpoint is $2M - J$. Confirm by averaging your answer with the known endpoint.",
+      correctAnswer: "B",
+      explanation: "**SAT Pattern: Point on a Line**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Substitute $x = a$ and $y = -4$: $2a + 20 = 30$, so $a = 5$.\n\n**The Full Solution:**\nStep 1: A point on the graph satisfies the equation, so substitute $x = a$ and $y = -4$: $2a - 5(-4) = 30$.\nStep 2: Simplify: $2a + 20 = 30$, so $2a = 10$.\nStep 3: Divide by $2$: $a = 5$. Check: $2(5) - 5(-4) = 10 + 20 = 30$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7.6$): puts $-4$ in for $x$ instead of $y$, solving $-8 - 5a = 30$.\n* Choice C ($15$): drops the $y$-term and solves $2a = 30$.\n* Choice D ($25$): makes a sign error, writing $-5(-4)$ as $-20$ and solving $2a - 20 = 30$.\n\n**Test Day Takeaway:** A point lies on a graph exactly when its coordinates make the equation true; substitute the $x$- and $y$-coordinates in the right places.",
       skills: ["coordinate-geometry"]
     },
     {
@@ -151,37 +151,37 @@ export const practiceTest12M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "In the $xy$-plane, line $k$ passes through the point $(6, -3)$ and is perpendicular to the graph of $x + 2y = 14$. Which equation defines line $k$?",
+      question: "Line $k$ in the $xy$-plane is parallel to the graph of $x + 2y = 14$ and passes through the origin. The point $(6, d)$ lies on line $k$. What is the value of $d$?",
       choices: [
-        { id: "A", text: "$y = 2x - 15$" },
-        // distractor: uses the given line's own slope -1/2 instead of the perpendicular slope 2
-        { id: "B", text: "$y = -\\frac{1}{2}x$" },
-        // distractor: uses -2, the reciprocal of -1/2 with the negative sign left in place
-        { id: "C", text: "$y = -2x + 9$" },
-        // distractor: substitutes the coordinates in reverse, using x = -3 and y = 6
-        { id: "D", text: "$y = 2x + 12$" }
+        // distractor: uses -2, the reciprocal of the slope, as the slope: -2(6) = -12
+        { id: "A", text: "$-12$" },
+        { id: "B", text: "$-3$" },
+        // distractor: finds the y-value at x = 6 on the given line x + 2y = 14 instead of on line k
+        { id: "C", text: "$4$" },
+        // distractor: uses 2, the perpendicular slope, as the slope: 2(6) = 12
+        { id: "D", text: "$12$" }
       ],
-      correctAnswer: "A",
-      explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The given line has slope $-\\frac{1}{2}$, so line $k$ has slope $2$; then $-3 = 2(6) + b$ gives $b = -15$.\n\n**The Full Solution:**\nStep 1: Solve $x + 2y = 14$ for $y$: $y = -\\frac{1}{2}x + 7$, so its slope is $-\\frac{1}{2}$.\nStep 2: A perpendicular line has the negative reciprocal slope, $2$, so line $k$ is $y = 2x + b$.\nStep 3: Substitute $(6, -3)$: $-3 = 12 + b$, so $b = -15$ and line $k$ is $y = 2x - 15$. Check: $2(6) - 15 = -3$, and $(2)\\left(-\\frac{1}{2}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = -\\frac{1}{2}x$): keeps the given slope, $-3 = -\\frac{1}{2}(6) + b$, so $b = 0$. That line is parallel to the given line.\n* Choice C ($y = -2x + 9$): flips $-\\frac{1}{2}$ to $-2$ but does not negate it, then solves $-3 = -12 + b$.\n* Choice D ($y = 2x + 12$): has the right slope but substitutes the point backward, $6 = 2(-3) + b$.\n\n**Test Day Takeaway:** Flip and negate the slope for a perpendicular line, then substitute the point in the order $(x, y)$ to find the intercept.",
-      skills: ["perpendicular-negative-reciprocal"]
+      correctAnswer: "B",
+      explanation: "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The given line is $y = -\\frac{1}{2}x + 7$, so line $k$ is $y = -\\frac{1}{2}x$, and $d = -\\frac{1}{2}(6) = -3$.\n\n**The Full Solution:**\nStep 1: Solve $x + 2y = 14$ for $y$: $y = -\\frac{1}{2}x + 7$. Its slope is $-\\frac{1}{2}$, so line $k$ also has slope $-\\frac{1}{2}$.\nStep 2: Line $k$ passes through the origin, so its $y$-intercept is $0$ and line $k$ is $y = -\\frac{1}{2}x$.\nStep 3: Substitute $x = 6$: $d = -\\frac{1}{2}(6) = -3$. Check: the slope from $(0, 0)$ to $(6, -3)$ is $\\frac{-3 - 0}{6 - 0} = -\\frac{1}{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): uses $-2$ as the slope, flipping $-\\frac{1}{2}$ by mistake.\n* Choice C ($4$): substitutes $x = 6$ into $x + 2y = 14$, which gives a point on the given line, not on line $k$.\n* Choice D ($12$): uses $2$, the slope of a perpendicular line.\n\n**Test Day Takeaway:** A line parallel to a given line has the same slope; if it passes through the origin, its equation is $y = mx$.",
+      skills: ["writing-parallel-equation"]
     },
     {
       id: 9,
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "A data set consists of $15$ temperatures, in degrees Celsius, and has a mean of $4.5$. Each temperature is converted to degrees Fahrenheit using the formula $F = 1.8C + 32$. What is the mean, in degrees Fahrenheit, of the converted temperatures?",
+      question: "Data set A has a mean of $38$ and a range of $20$. Data set B is created by adding $9$ to each value in data set A. What are the mean and the range of data set B?",
       choices: [
-        // distractor: multiplies the mean by 1.8 but never adds the 32
-        { id: "A", text: "$8.1$" },
-        // distractor: adds 32 to the mean without multiplying by 1.8
-        { id: "B", text: "$36.5$" },
-        { id: "C", text: "$40.1$" },
-        // distractor: adds 32 to the mean first and then multiplies the sum by 1.8
-        { id: "D", text: "$65.7$" }
+        // distractor: assumes adding the same number to every value changes neither measure
+        { id: "A", text: "The mean is $38$ and the range is $20$." },
+        // distractor: shifts the range by 9 but leaves the mean unchanged, the reverse of what happens
+        { id: "B", text: "The mean is $38$ and the range is $29$." },
+        { id: "C", text: "The mean is $47$ and the range is $20$." },
+        // distractor: adds 9 to the range as well as to the mean
+        { id: "D", text: "The mean is $47$ and the range is $29$." }
       ],
       correctAnswer: "C",
-      explanation: "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The mean changes the same way each value does, so the new mean is $1.8(4.5) + 32 = 40.1$.\n\n**The Full Solution:**\nStep 1: Multiplying every value by $1.8$ multiplies the mean by $1.8$: $1.8(4.5) = 8.1$.\nStep 2: Adding $32$ to every value adds $32$ to the mean: $8.1 + 32 = 40.1$ degrees Fahrenheit.\nStep 3: Confirm with the sums. The Celsius values total $15(4.5) = 67.5$, so the Fahrenheit values total $1.8(67.5) + 15(32) = 121.5 + 480 = 601.5$, and $\\frac{601.5}{15} = 40.1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8.1$): applies only the multiplication, $1.8(4.5)$, and leaves out the $32$.\n* Choice B ($36.5$): applies only the addition, $4.5 + 32$, and leaves out the factor of $1.8$.\n* Choice D ($65.7$): adds before multiplying, computing $1.8(4.5 + 32)$; the formula multiplies first.\n\n**Test Day Takeaway:** When every value is transformed by $y = mx + k$, the mean is transformed by the same rule: multiply the old mean by $m$, then add $k$.",
+      explanation: "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Adding $9$ to every value adds $9$ to the mean, $38 + 9 = 47$, but the greatest and least values both go up by $9$, so the range stays $20$.\n\n**The Full Solution:**\nStep 1: If the values of data set A add to $S$ for $n$ values, the values of data set B add to $S + 9n$, so the mean of B is $\\frac{S + 9n}{n} = \\frac{S}{n} + 9 = 38 + 9 = 47$.\nStep 2: If the greatest and least values of A are $M$ and $L$, with $M - L = 20$, then the greatest and least values of B are $M + 9$ and $L + 9$.\nStep 3: The range of B is $(M + 9) - (L + 9) = M - L = 20$. Check with the values $28$, $38$, $48$ (mean $38$, range $20$): adding $9$ gives $37$, $47$, $57$, with mean $47$ and range $57 - 37 = 20$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: the range is unchanged, but every value, and so the mean, is $9$ greater.\n* Choice B: switches the two effects; the center moves and the spread stays the same.\n* Choice D: adds $9$ to the range, but the distance between the greatest and least values does not change.\n\n**Test Day Takeaway:** Adding the same number to every value shifts the mean and the median by that number and leaves the range and the standard deviation unchanged.",
       skills: ["data-analysis"]
     },
     {
@@ -208,10 +208,10 @@ export const practiceTest12M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "The table shows the amount of fiber in each kilogram of two types of flour. A $40$-kilogram blend contains $x$ kilograms of oat flour and the rest barley flour. The total amount of fiber in the blend, in grams, can be written as $ax + b$, where $a$ and $b$ are constants. What is the value of $a + b$?",
+      question: "The table shows the amount of fiber in each kilogram of two types of flour. A $40$-kilogram blend contains $x$ kilograms of oat flour and the rest barley flour. The total amount of fiber in the blend, in grams, can be written as $ax + b$, where $a$ and $b$ are constants. What is the value of $a$?",
       questionTable: { headers: ["Flour", "Fiber per kilogram (grams)"], rows: [["Oat", "$96$"], ["Barley", "$132$"]] },
-      correctAnswer: "5244",
-      explanation: "**SAT Pattern: Matching Coefficients**\n\n**The correct answer is $5244$.**\n\n**The Fast Way (~35s):** Total fiber $= 96x + 132(40 - x) = -36x + 5280$, so $a = -36$, $b = 5280$, and $a + b = 5244$.\n\n**The Full Solution:**\nStep 1: The blend has $x$ kilograms of oat flour and $40 - x$ kilograms of barley flour, so the total fiber is $96x + 132(40 - x)$ grams.\nStep 2: Distribute and combine like terms: $96x + 5280 - 132x = -36x + 5280$.\nStep 3: Match to $ax + b$: $a = -36$ and $b = 5280$, so $a + b = 5244$. Check at $x = 40$ (all oat flour): $-36(40) + 5280 = 3840$, and $96(40) = 3840$ ✓\n\n**Common Mistakes:**\n* $5316$: takes $a = 36$ from $132 - 96$, losing the sign; oat flour has less fiber per kilogram, so the total falls as $x$ increases.\n* $5280$: reports $b$ alone without adding $a$.\n* $228$: adds the two table values, $96 + 132$, instead of building the expression.\n\n**Test Day Takeaway:** Write the expression for the total, expand it completely, and read $a$ and $b$ from the collected form; the sign of $a$ comes from the subtraction.",
+      correctAnswer: "-36",
+      explanation: "**SAT Pattern: Matching Coefficients**\n\n**The correct answer is $-36$.**\n\n**The Fast Way (~30s):** The fiber is $96x + 132(40 - x) = -36x + 5{,}280$, so $a = -36$.\n\n**The Full Solution:**\nStep 1: The blend has $x$ kilograms of oat flour and $40 - x$ kilograms of barley flour.\nStep 2: The total fiber, in grams, is $96x + 132(40 - x) = 96x + 5{,}280 - 132x$.\nStep 3: Combine like terms: $-36x + 5{,}280$. Matching this to $ax + b$ gives $a = -36$ (and $b = 5{,}280$). Check with $x = 40$ (all oat flour): $-36(40) + 5{,}280 = 3{,}840 = 96(40)$ ✓\n\n**Common Mistakes:**\n* $96$: uses the oat flour's fiber per kilogram without accounting for the barley flour that the oat flour replaces.\n* $36$: subtracts in the wrong order, $132 - 96$, losing the negative sign.\n* $5{,}280$: gives $b$, the constant term, instead of the coefficient of $x$.\n\n**Test Day Takeaway:** Write the whole expression, expand, and combine like terms before matching coefficients; each kilogram of oat flour replaces a kilogram of barley flour.",
       skills: ["distributive-property"]
     },
     {
@@ -328,10 +328,10 @@ export const practiceTest12M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 6,
-      question: "The functions $f$ and $g$ are defined by $f(x) = 3x - 5$ and $g(x) = (x - 2)^{2}$. If $f(g(a)) = 43$, what is the greatest possible value of $a$?",
+      question: "The function $f$ is defined by $f(x) = 3x^{2} - 5$. If $f(a - 2) = 43$, what is the greatest possible value of $a$?",
       correctAnswer: "6",
-      explanation: "**SAT Pattern: Function Composition**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~40s):** $3(a - 2)^{2} - 5 = 43$ gives $(a - 2)^{2} = 16$, so $a - 2 = \\pm 4$ and the greater value is $a = 6$.\n\n**The Full Solution:**\nStep 1: Work from the inside out: $g(a) = (a - 2)^{2}$, so $f(g(a)) = 3(a - 2)^{2} - 5$. Set this equal to $43$.\nStep 2: Add $5$ to both sides, $3(a - 2)^{2} = 48$, then divide by $3$: $(a - 2)^{2} = 16$.\nStep 3: Take both square roots: $a - 2 = 4$ or $a - 2 = -4$, so $a = 6$ or $a = -2$. The greater value is $6$. Check: $g(6) = 16$ and $f(16) = 3(16) - 5 = 43$ ✓\n\n**Common Mistakes:**\n* $-2$: the other solution; the question asks for the greatest possible value.\n* $18$: writes $a - 2 = 16$ without taking the square root.\n* $4$: stops at $a - 2 = 4$ and never adds the $2$.\n\n**Test Day Takeaway:** Undo a composition one function at a time, starting with the outer function. A squared expression gives two roots, so find both before choosing the one the question asks for.",
-      skills: ["function-composition"]
+      explanation: "**SAT Pattern: Horizontal Shift**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~35s):** $3(a - 2)^{2} - 5 = 43$ gives $(a - 2)^{2} = 16$, so $a - 2 = \\pm 4$ and $a = 6$ or $a = -2$. The greatest value is $6$.\n\n**The Full Solution:**\nStep 1: Replace $x$ with $a - 2$: $f(a - 2) = 3(a - 2)^{2} - 5$, so $3(a - 2)^{2} - 5 = 43$.\nStep 2: Add $5$ and divide by $3$: $(a - 2)^{2} = 16$.\nStep 3: Take square roots: $a - 2 = 4$ or $a - 2 = -4$, so $a = 6$ or $a = -2$. The greatest possible value is $6$. Check: $f(4) = 3(16) - 5 = 43$ ✓\n\n**Common Mistakes:**\n* $4$: solves for $a - 2$ and stops, reporting $4$ instead of $a$.\n* $-2$: takes the negative square root, which gives the least value of $a$, not the greatest.\n* $18$: forgets the square root and sets $a - 2 = 16$.\n\n**Test Day Takeaway:** Substitute the whole input $a - 2$ for $x$, isolate the square, and remember that a square has two square roots; then choose the one the question asks for.",
+      skills: ["function-transformations"]
     },
     {
       id: 19,

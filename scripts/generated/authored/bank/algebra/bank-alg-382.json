@@ -1,48 +1,58 @@
 {
  "id": "bank-alg-382",
- "question": "Point $M$ is the midpoint of the line segment whose endpoints are the two points shown in the $xy$-plane. Which ordered pair gives the coordinates of point $M$?",
+ "question": "Line $k$ is shown in the $xy$-plane. Line $j$ is parallel to line $k$ and passes through the origin. Which equation defines line $j$?",
  "diagram": {
-  "type": "coordinatePoints",
+  "type": "linearGraph",
   "params": {
-   "points": [
+   "slope": -2,
+   "yIntercept": 4,
+   "xRange": [
+    -4,
+    6
+   ],
+   "yRange": [
+    -4,
+    8
+   ],
+   "xTickInterval": 2,
+   "yTickInterval": 2,
+   "gridInterval": 1,
+   "showPoints": [
     [
-     -5,
-     -1
+     0,
+     4
     ],
     [
-     7,
-     9
+     2,
+     0
     ]
    ],
-   "xMin": -7,
-   "xMax": 9,
-   "yMin": -3,
-   "yMax": 11
+   "label": "k"
   }
  },
  "choices": [
   {
    "id": "A",
-   "text": "$(1, 4)$"
+   "text": "$y = -2x$"
   },
   {
    "id": "B",
-   "text": "$(2, 8)$"
+   "text": "$y = -2x + 4$"
   },
   {
    "id": "C",
-   "text": "$(4, 1)$"
+   "text": "$y = \\frac{1}{2}x$"
   },
   {
    "id": "D",
-   "text": "$(6, 5)$"
+   "text": "$y = 2x$"
   }
  ],
  "correctAnswer": "A",
  "distractorNotes": {
-  "B": "adds the coordinates but does not divide by 2",
-  "C": "finds the correct averages but swaps the x- and y-coordinates",
-  "D": "halves the differences between the coordinates instead of averaging them"
+  "B": "gives line k itself, which does not pass through the origin",
+  "C": "uses the negative reciprocal of line k's slope, which gives a perpendicular line",
+  "D": "drops the negative sign from the slope"
  },
- "explanation": "**SAT Pattern: Midpoint Formula**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The endpoints are $(-5, -1)$ and $(7, 9)$, so $M = \\left(\\frac{-5 + 7}{2}, \\frac{-1 + 9}{2}\\right) = (1, 4)$.\n\n**The Full Solution:**\nStep 1: Read the endpoints from the graph: $(-5, -1)$ and $(7, 9)$.\nStep 2: Average the $x$-coordinates: $\\frac{-5 + 7}{2} = 1$. Average the $y$-coordinates: $\\frac{-1 + 9}{2} = 4$.\nStep 3: So $M = (1, 4)$. Check: $1$ is $6$ units from both $-5$ and $7$, and $4$ is $5$ units from both $-1$ and $9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($(2, 8)$): adds the coordinates but never divides by $2$.\n* Choice C ($(4, 1)$): computes the right numbers but writes them in the wrong order.\n* Choice D ($(6, 5)$): halves the differences, $\\frac{7 - (-5)}{2}$ and $\\frac{9 - (-1)}{2}$, which gives the distance from each end, not the location.\n\n**Test Day Takeaway:** Midpoint means average: add the two $x$-coordinates and divide by $2$, then do the same for the $y$-coordinates."
+ "explanation": "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Line $k$ passes through $(0, 4)$ and $(2, 0)$, so its slope is $-2$. A parallel line through the origin is $y = -2x$.\n\n**The Full Solution:**\nStep 1: Read two points on line $k$: $(0, 4)$ and $(2, 0)$.\nStep 2: Slope of line $k$: $\\frac{0 - 4}{2 - 0} = -2$. Line $j$ is parallel, so it also has slope $-2$.\nStep 3: Line $j$ passes through $(0, 0)$, so its $y$-intercept is $0$: $y = -2x$. Check: line $k$ is $y = -2x + 4$, a different line with the same slope ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = -2x + 4$): is line $k$ itself, which does not pass through the origin.\n* Choice C ($y = \\frac{1}{2}x$): uses the negative reciprocal, which gives a perpendicular line.\n* Choice D ($y = 2x$): drops the negative sign; line $k$ falls from left to right.\n\n**Test Day Takeaway:** A line through the origin has the form $y = mx$; a parallel line supplies $m$."
 }

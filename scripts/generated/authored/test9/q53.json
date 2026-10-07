@@ -9,34 +9,41 @@
   "studentNotes": {
     "intro": "While researching a topic, a student has taken the following notes:",
     "bullets": [
-      "The camera obscura, known since antiquity, projects a real image of a scene into a darkened chamber or box.",
-      "An artist working inside a camera obscura can trace the projected image directly.",
-      "The camera lucida, patented in 1806, is a small prism mounted on a stem and is used in ordinary daylight.",
-      "An artist looking through the prism sees the scene apparently superimposed on the drawing paper, but no image is actually cast on the paper.",
-      "The camera lucida was compact enough to carry in a coat pocket for fieldwork."
+      "Stalactites and stalagmites are mineral formations found in limestone caves.",
+      "Both form from water that drips through a cave and carries dissolved calcite.",
+      "Stalactites hang from a cave's ceiling.",
+      "As water drips from the ceiling, it leaves calcite behind, so a stalactite grows downward like an icicle.",
+      "Stalagmites rise from a cave's floor.",
+      "Where the drops land, they leave calcite on the floor, so a stalagmite grows upward."
     ],
-    "goal": "The student wants to emphasize a difference between the camera lucida and the camera obscura."
+    "goal": "The student wants to emphasize a difference between stalactites and stalagmites."
   },
   "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
   "choices": [
     {
       "id": "A",
-      "text": "Whereas the camera obscura casts a real, traceable image in a darkened space, the camera lucida projects no image onto the paper at all."
+      "text": "Whereas stalactites hang from a cave's ceiling and grow downward, stalagmites rise from the floor and grow upward."
     },
     {
       "id": "B",
-      "text": "The camera lucida, patented in 1806, is a small prism mounted on a stem and used in ordinary daylight."
+      "text": "Stalagmites form where drops of calcite-rich water land on a cave's floor and leave calcite behind."
     },
     {
       "id": "C",
-      "text": "Both the camera obscura and the camera lucida helped artists set down the proportions of a scene accurately."
+      "text": "Both stalactites and stalagmites form from dripping water that carries dissolved calcite."
     },
     {
       "id": "D",
-      "text": "The camera obscura, an instrument known since antiquity, projects a real image of a scene into a darkened chamber or box, where an artist can trace the projected image directly."
+      "text": "Stalactites and stalagmites are mineral formations found in limestone caves, where water drips through the rock and carries dissolved calcite."
     }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** Emphasizing a difference requires putting both devices in one frame and stating what divides them. A does exactly that with the sharpest divide the notes contain: a real projected image versus no projection at all.\n\n**The Full Solution:**\n- The goal names two devices, so the sentence must mention both — and in contrastive relation, which A's \"Whereas\" supplies.\n- A draws its two halves straight from the notes: the obscura's traceable projection in a dark chamber; the lucida's superimposition, with \"no image... actually cast on the paper.\"\n\n**Why the other choices are wrong:**\n- B: It describes the camera lucida alone; with one device on stage, no difference can be emphasized.\n- C: It emphasizes a similarity — the precise opposite of the stated goal.\n- D: Like B, it presents a single device; the camera lucida never appears for the comparison.",
-  "_meta": {}
+  "explanation": "**Choice A is correct.** To emphasize a difference, the sentence must set the two formations against each other. Choice A does so with \"Whereas,\" contrasting where each forms (ceiling versus floor) and which way each grows (downward versus upward).\n\n**The Full Solution:**\n- The goal asks for a difference, so the answer must mention both formations and contrast them.\n- The notes supply two contrasts: ceiling versus floor, and downward versus upward growth.\n- Choice A combines both in one contrasting sentence.\n\n**Why the other choices are wrong:**\n- B: It describes only stalagmites, so it cannot show a difference between the two.\n- C: It emphasizes a similarity, not a difference.\n- D: It describes both formations together and draws no contrast between them.",
+  "_meta": {
+    "anchor": "Stalactites vs stalagmites — RS emphasize a difference",
+    "sources": [
+      "https://www.nps.gov/subjects/caves/growing-speleothems.htm",
+      "https://www.britannica.com/science/stalactite"
+    ]
+  }
 }

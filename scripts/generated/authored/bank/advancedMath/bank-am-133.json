@@ -1,6 +1,6 @@
 {
-  "question": "$x^{2} + 10x + c = 0$\nIn the given equation, $c$ is a constant. If the equation has exactly one real solution, what is the value of $c$?",
-  "correctAnswer": "25",
-  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**The correct answer is $25$.**\n\n**The Fast Way (~15s):** One real solution means $10^{2} - 4c = 0$, so $c = 25$.\n\n**The Full Solution:**\nStep 1: Identify $a = 1$, $b = 10$ and the constant $c$.\nStep 2: Exactly one real solution means the discriminant is $0$: $10^{2} - 4(1)(c) = 0$, so $100 = 4c$.\nStep 3: Solve: $c = 25$. Check: $x^{2} + 10x + 25 = (x + 5)^{2}$, which is $0$ only at $x = -5$ ✓\n\n**Common Mistakes:**\n* $100$: forgets the factor $4$, solving $10^{2} - c = 0$.\n* $5$: halves $10$ but does not square it.\n\n**Test Day Takeaway:** A quadratic $x^{2} + bx + c$ has exactly one solution when $c = \\left(\\frac{b}{2}\\right)^{2}$.",
-  "id": "bank-am-133"
+ "question": "In the $xy$-plane, the graph of $y = x^{2} + 10x + c$, where $c$ is a constant, intersects the $x$-axis at exactly one point. What is the value of $c$?",
+ "correctAnswer": "25",
+ "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**The correct answer is $25$.**\n\n**The Fast Way (~15s):** The graph meets the $x$-axis once when $x^{2} + 10x + c = 0$ has one real solution: $10^{2} - 4c = 0$, so $c = 25$.\n\n**The Full Solution:**\nStep 1: The graph meets the $x$-axis where $y = 0$, so $x^{2} + 10x + c = 0$ must have exactly one real solution.\nStep 2: Exactly one real solution means the discriminant is $0$: $10^{2} - 4(1)(c) = 0$, so $100 = 4c$.\nStep 3: Solve: $c = 25$. Check: $x^{2} + 10x + 25 = (x + 5)^{2}$, which is $0$ only at $x = -5$, so the graph touches the $x$-axis only at $(-5, 0)$ ✓\n\n**Common Mistakes:**\n* $100$: forgets the factor $4$, solving $10^{2} - c = 0$.\n* $5$: halves $10$ but does not square it.\n\n**Test Day Takeaway:** A graph of $y = x^{2} + bx + c$ touches the $x$-axis exactly once when $c = \\left(\\frac{b}{2}\\right)^{2}$.",
+ "id": "bank-am-133"
 }

@@ -6,7 +6,7 @@
   "domain": "craft-and-structure",
   "skill": "words-in-context",
   "module": 2,
-  "passage": "Written around 1400, Cennino Cennini's handbook for painters ______ the practices of the workshop in exacting detail — how to season a poplar panel, how many coats of gesso to lay and how thin, how long to mull each pigment — setting down in writing procedures that masters had previously handed to apprentices only by demonstration.",
+  "passage": "First published in 1876, Henry Martyn Robert's manual for running meetings ______ the procedures of debate in exacting detail: how to make a motion, how to amend it, how to bring discussion to a close. Robert, a US Army officer, adapted the rules of the House of Representatives so that ordinary clubs and societies could follow them.",
   "question": "Which choice completes the text with the most logical and precise word or phrase?",
   "choices": [
     {
@@ -27,8 +27,9 @@
     }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** The handbook takes practices that lived only in demonstration and sets them down systematically in writing — which is what \"codifies\" means.\n\n**The Full Solution:**\n- The content: workshop procedures, given \"in exacting detail\" and item by item.\n- The transformation: from knowledge \"handed to apprentices only by demonstration\" to procedures fixed in a written text.\n- Organizing practice into systematic written form is codification.\n\n**Why the other choices are wrong:**\n- B: \"Embellishes\" means to decorate or exaggerate, but exacting detail is the opposite of ornament.\n- C: \"Disputes\" would set the handbook against workshop practice, yet it records that practice faithfully.\n- D: \"Predates\" concerns chronology only, and the handbook follows the practices it describes rather than preceding them.",
+  "explanation": "**Choice A is correct.** The manual takes the rules of debate and arranges them, step by step, into a written system that any group can follow, which is what \"codifies\" means.\n\n**The Full Solution:**\n- The content: meeting procedures, given \"in exacting detail\" and item by item (motions, amendments, closing debate).\n- The purpose: rules used in the House of Representatives were adapted so that ordinary clubs and societies could follow them.\n- Organizing procedures into a systematic written form is codification.\n\n**Why the other choices are wrong:**\n- B: \"Embellishes\" means to decorate or exaggerate, but exacting detail is the opposite of ornament.\n- C: \"Disputes\" would set the manual against the procedures, yet it lays them out for others to use.\n- D: \"Predates\" concerns chronology only, and the manual came after the House rules it adapted rather than before them.",
   "_meta": {
-    "anchor": "Cennino Cennini — workshop practice codified in writing; hard words-in-context"
+    "anchor": "Robert's Rules of Order (1876), Henry Martyn Robert, US Army officer, adapted US House procedure for ordinary societies; hard words-in-context",
+    "source": "https://en.wikipedia.org/wiki/Robert%27s_Rules_of_Order"
   }
 }

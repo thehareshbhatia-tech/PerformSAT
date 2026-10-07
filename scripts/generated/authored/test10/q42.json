@@ -6,12 +6,12 @@
  "domain": "information-and-ideas",
  "skill": "inferences",
  "module": 2,
- "passage": "When key-driven calculating machines entered American offices around 1900, observers predicted the end of clerical arithmetic as an occupation. What followed was different. The machines made each calculation cheaper, and firms responded by demanding far more calculation: insurance companies and railroads ordered full audits where spot checks had once sufficed, and monthly account statements where annual ones had been the rule. Employment in calculating departments grew for decades after the machines arrived. The episode suggests that ______",
+ "passage": "When automated teller machines spread through American banks late in the twentieth century, many observers expected bank tellers to disappear. What followed was different. The machines handled routine cash withdrawals, so the average urban branch needed fewer tellers, about 13 instead of about 20. But a branch that was cheaper to staff was also cheaper to run, and banks responded by opening more branches, increasing their number in urban areas by 43 percent. Teller employment grew rather than shrank. The episode suggests that ______",
  "question": "Which choice most logically completes the text?",
  "choices": [
   {
    "id": "A",
-   "text": "when a technology lowers the cost of a task, demand for that task can expand enough to increase employment in it rather than reduce it."
+   "text": "when a technology makes a business cheaper to run, firms may expand it enough to employ more workers."
   },
   {
    "id": "B",
@@ -19,13 +19,13 @@
   },
   {
    "id": "C",
-   "text": "firms adopted calculating machines more slowly than the machines' capabilities would have justified."
+   "text": "banks adopted automated teller machines more slowly than the machines' capabilities would have justified."
   },
   {
    "id": "D",
-   "text": "clerical arithmetic remained attractive as an occupation only for workers who learned to service the machines they operated."
+   "text": "tellers kept their jobs only if they learned to repair the machines that took over their routine work."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The passage is built as a general lesson drawn from one case: cheaper calculation led firms to demand much more of it, and employment rose instead of vanishing. A states that mechanism at the level of generality \"the episode suggests\" calls for.\n\n**The Full Solution:**\n- The causal chain in the text: machines cut the cost per calculation; firms then bought far more calculation (full audits, monthly statements); calculating employment grew for decades.\n- A generalizes exactly this chain, lower task cost, expanded task demand, higher employment, and contradicts nothing in the passage.\n\n**Why the other choices are wrong:**\n- B: The failed prediction is the passage's starting point, but the text explains what happened through demand, not through observers' ignorance of the machines' workings.\n- C: Nothing describes the pace of adoption; the machines \"entered American offices\" and the story proceeds from there.\n- D: Machine servicing is never mentioned, and employment grew across calculating departments, not merely for a technical few."
+ "explanation": "**Choice A is correct.** The passage draws a general lesson from one case: ATMs made each branch cheaper to run, banks opened many more branches, and teller employment grew instead of disappearing. A states that chain at the level of generality \"the episode suggests\" calls for.\n\n**The Full Solution:**\n- The causal chain in the text: machines cut the number of tellers each branch needed; cheaper branches led banks to open 43 percent more of them in urban areas; total teller employment grew.\n- A generalizes exactly this chain: lower operating cost, expansion of the business, higher employment.\n\n**Why the other choices are wrong:**\n- B: The failed prediction is the passage's starting point, but the text explains the outcome through branch expansion, not through observers' ignorance of the machines.\n- C: Nothing describes the pace at which banks adopted the machines.\n- D: Repairing the machines is never mentioned, and teller employment grew because banks opened more branches."
 }

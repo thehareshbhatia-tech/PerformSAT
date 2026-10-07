@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-211",
- "question": "In a triangle, two of the interior angles measure $x^{\\circ}$ and $y^{\\circ}$. An exterior angle at the third vertex measures $z^{\\circ}$. Which equation must be true?",
+ "question": "In triangle $ABC$, side $\\overline{AC}$ is extended through $C$ to point $D$. The measure of angle $BCD$ is $118^{\\circ}$, and the measure of angle $A$ is $46^{\\circ}$. What is the measure of angle $B$?",
  "choices": [
   {
    "id": "A",
-   "text": "$z = x + y$"
+   "text": "$62^{\\circ}$"
   },
   {
    "id": "B",
-   "text": "$z = 180 - x - y$"
+   "text": "$72^{\\circ}$"
   },
   {
    "id": "C",
-   "text": "$z = 180 - x + y$"
+   "text": "$134^{\\circ}$"
   },
   {
    "id": "D",
-   "text": "$z = \\frac{x + y}{2}$"
+   "text": "$164^{\\circ}$"
   }
  ],
  "distractorNotes": {
-  "B": "gives the interior angle at the third vertex, 180 - x - y, instead of the exterior angle",
-  "C": "distributes the minus sign over only one of the two angles: 180 - (x - y)",
-  "D": "averages the two remote interior angles instead of adding them"
+  "A": "gives the interior angle ACB, 180 - 118 = 62, instead of angle B",
+  "C": "subtracts angle A from 180: 180 - 46 = 134",
+  "D": "adds the two given angles, 118 + 46 = 164, instead of subtracting"
  },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** An exterior angle of a triangle equals the sum of the two interior angles that are not next to it, so $z = x + y$.\n\n**The Full Solution:**\nStep 1: Call the interior angle at the third vertex $w^{\\circ}$. The angles of a triangle add to $180^{\\circ}$, so $x + y + w = 180$.\nStep 2: The exterior angle and the interior angle at the same vertex form a straight line, so $z + w = 180$.\nStep 3: Both sums equal $180$, so $x + y + w = z + w$, which gives $z = x + y$. Check: if $x = 50$ and $y = 60$, then $w = 70$ and $z = 180 - 70 = 110 = 50 + 60$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($z = 180 - x - y$): $180 - x - y$ is the interior angle at the third vertex. The exterior angle is its supplement.\n* Choice C ($z = 180 - x + y$): $180 - x + y$ comes from writing $180 - (x - y)$; the subtraction has to apply to both angles, and even then it gives the interior angle.\n* Choice D ($z = \\frac{x + y}{2}$): halving the sum treats the exterior angle as an average. With $x = 50$ and $y = 60$ it gives $55$, not the true $110$.\n\n**Test Day Takeaway:** Exterior angle = sum of the two remote interior angles. No $180$ appears in the final relationship."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Angle $BCD$ is the exterior angle at $C$, so it equals angle $A$ plus angle $B$: $118 = 46 + B$, and angle $B$ measures $72^{\\circ}$.\n\n**The Full Solution:**\nStep 1: Angle $BCD$ is formed by side $\\overline{BC}$ and the extension of $\\overline{AC}$, so it is an exterior angle of the triangle at $C$. The interior angles not next to it are angle $A$ and angle $B$.\nStep 2: An exterior angle equals the sum of the two remote interior angles: $118^{\\circ} = 46^{\\circ} + B$.\nStep 3: So angle $B$ measures $118^{\\circ} - 46^{\\circ} = 72^{\\circ}$. Check: angle $ACB = 180^{\\circ} - 118^{\\circ} = 62^{\\circ}$, and $46^{\\circ} + 72^{\\circ} + 62^{\\circ} = 180^{\\circ}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($62^{\\circ}$): $62^{\\circ}$ is angle $ACB$, the interior angle at $C$, not angle $B$.\n* Choice C ($134^{\\circ}$): $180 - 46$ subtracts only angle $A$ from $180$ and ignores angle $BCD$.\n* Choice D ($164^{\\circ}$): $118 + 46$ adds the given angles; angle $A$ and angle $B$ together make up angle $BCD$, so subtract.\n\n**Test Day Takeaway:** When a side of a triangle is extended, the outside angle equals the sum of the two far interior angles; if one of them is missing, subtract."
 }

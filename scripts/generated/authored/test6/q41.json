@@ -6,35 +6,35 @@
   "band": 4,
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-quantitative",
-  "passage": "Cocoa prices on world markets are notoriously volatile. A team of economists studying the records of one cocoa-growing cooperative has argued that the cooperative's financial turbulence originated in the market rather than in its fields: its harvests, they claim, held roughly steady across the years they examined even as the price buyers paid swung sharply.",
+  "passage": "Gasoline prices in the United States can rise or fall sharply from one year to the next. Many economists argue that in the short run, Americans change how much gasoline they buy very little when the price changes, since most people still need to drive to work and school. In this view, the nation's gasoline use should hold roughly steady even as the price at the pump swings widely.",
   "questionTable": {
     "type": "table",
-    "caption": "Annual harvest and average price received by a cocoa-growing cooperative in selected years",
+    "caption": "U.S. gasoline use and average retail price of regular gasoline in selected years",
     "headers": [
       "Year",
-      "Harvest (metric tons)",
-      "Average price received (dollars per kilogram)"
+      "Gasoline use (million barrels per day)",
+      "Average retail price (dollars per gallon)"
     ],
     "rows": [
       [
+        "2012",
+        "8.68",
+        "3.62"
+      ],
+      [
         "2015",
-        "410",
-        "3.20"
+        "9.18",
+        "2.43"
       ],
       [
-        "2017",
-        "395",
-        "2.60"
+        "2018",
+        "9.33",
+        "2.72"
       ],
       [
-        "2019",
-        "405",
-        "2.10"
-      ],
-      [
-        "2021",
-        "420",
-        "3.90"
+        "2022",
+        "8.81",
+        "3.95"
       ]
     ]
   },
@@ -42,21 +42,21 @@
   "choices": [
     {
       "id": "A",
-      "text": "The harvest stayed between 395 and 420 metric tons in every year shown, while the price swung between 2.10 and 3.90 dollars per kilogram."
+      "text": "Gasoline use stayed between 8.68 and 9.33 million barrels per day in every year shown, while the price ranged from $2.43 to $3.95."
     },
     {
       "id": "B",
-      "text": "The price the cooperative received reached its peak of 3.90 dollars per kilogram in 2021."
+      "text": "The average retail price of regular gasoline reached its highest level in the table, $3.95 per gallon, in 2022."
     },
     {
       "id": "C",
-      "text": "The cooperative's harvest was larger in 2021, at 420 metric tons, than in any of the three earlier years for which the table reports harvest figures."
+      "text": "Gasoline use was higher in 2018, at 9.33 million barrels per day, than in any of the three other years for which the table reports gasoline use."
     },
     {
       "id": "D",
-      "text": "The price rose whenever the cooperative's harvest fell and fell whenever its harvest rose."
+      "text": "The price of gasoline rose whenever gasoline use fell and fell whenever gasoline use rose."
     }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** The claim has two coordinated parts — steady harvests, volatile prices — and A documents both: harvests confined to a narrow 395-420 band while prices ranged from 2.10 to 3.90 dollars per kilogram.\n\n**The Full Solution:**\n- Steady production shows in the harvest column's tight spread (about six percent from lowest to highest).\n- Market turbulence shows in the price column's swings (falling by a third, then nearly doubling).\n- Placing the stable series beside the volatile one is what locates the turbulence in the market — exactly the argument's structure.\n\n**Why the other choices are wrong:**\n- B: A single price peak shows neither sustained volatility nor anything about the harvests.\n- C: Ranking the harvest years works against the claim, which needs harvests to be effectively flat, and it ignores prices altogether.\n- D: The table contradicts this tidy inverse rule — between 2015 and 2017, the harvest fell and the price fell too."
+  "explanation": "**Choice A is correct.** The claim has two parts: gasoline use holds roughly steady, and the price swings widely. Choice A documents both: use stayed in a narrow band of 8.68 to 9.33 million barrels per day, while the price ranged from $2.43 to $3.95 per gallon.\n\n**The Full Solution:**\n- Steady use shows in the first data column's tight spread (less than 8% from lowest to highest).\n- The wide swing shows in the price column, where the highest price is more than one and a half times the lowest.\n- Setting the steady series beside the volatile one is exactly what the economists' claim requires.\n\n**Why the other choices are wrong:**\n- B: A single price peak shows neither how widely the price swung nor anything about gasoline use.\n- C: Picking out the year of highest use says nothing about the price, and it emphasizes a change in use rather than its steadiness.\n- D: The table contradicts this rule: between 2015 and 2018, gasoline use rose and the price rose too."
 }

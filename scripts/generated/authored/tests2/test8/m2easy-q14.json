@@ -1,18 +1,18 @@
 {
  "id": 14,
- "question": "$x^{2} + bx + 81 = 0$\nIn the given equation, $b$ is a constant. The equation has two positive solutions, and one solution is $9$ times the other. What is the value of $b$?",
+ "question": "$x^{2} + bx + 81 = 0$\nIn the given equation, $b$ is a constant. One solution to the given equation is $3$. What is the value of $b$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-82$"
-  },
-  {
-   "id": "B",
    "text": "$-30$"
   },
   {
+   "id": "B",
+   "text": "$-27$"
+  },
+  {
    "id": "C",
-   "text": "$-12$"
+   "text": "$-6$"
   },
   {
    "id": "D",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "uses the factor pair 1 and 81, whose sum is 82, ignoring that one solution must be 9 times the other",
-  "C": "finds the smaller solution 3 but uses the multiplier 9 as the other solution, giving 3 + 9 = 12",
-  "D": "finds the sum of the solutions, 30, but does not take its opposite"
+  "B": "finds the other solution, 81/3 = 27, and reports its opposite instead of the opposite of the sum of the solutions",
+  "C": "treats 3 as the only solution, as in (x - 3)^2 = x^2 - 6x + 9, ignoring the constant 81",
+  "D": "makes a sign error when solving 9 + 3b + 81 = 0, getting b = 30"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Quadratic — Vieta's Sum/Product**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The solutions multiply to $81$. Writing them as $r$ and $9r$ gives $9r^{2} = 81$, so $r = 3$; the solutions are $3$ and $27$, and $b = -(3 + 27) = -30$.\n\n**The Full Solution:**\nStep 1: For $x^{2} + bx + c = 0$, the solutions multiply to $c$ and add to $-b$. Here the product is $81$.\nStep 2: Let the solutions be $r$ and $9r$ with $r > 0$. Then $9r^{2} = 81$, so $r^{2} = 9$ and $r = 3$; the solutions are $3$ and $27$.\nStep 3: Their sum is $30$, and the sum equals $-b$, so $b = -30$. Check: $(x - 3)(x - 27) = x^{2} - 30x + 81$, and $27 = 9(3)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-82$): uses the solutions $1$ and $81$. They multiply to $81$, but $81$ is not $9$ times $1$.\n* Choice C ($-12$): finds the smaller solution, $3$, but uses $9$ as the other solution. The other solution is $9(3) = 27$.\n* Choice D ($30$): finds the sum of the solutions but forgets that $b$ is the opposite of the sum.\n\n**Test Day Takeaway:** When the solutions are related by a ratio, use the product first to find them, then use the sum to find the coefficient, remembering the sign change."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Quadratic — Vieta's Sum/Product**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Substitute $x = 3$: $9 + 3b + 81 = 0$, so $3b = -90$ and $b = -30$.\n\n**The Full Solution:**\nStep 1: Because $3$ is a solution, substituting $x = 3$ makes the equation true: $3^{2} + 3b + 81 = 0$.\nStep 2: Simplify: $90 + 3b = 0$, so $3b = -90$.\nStep 3: Divide by $3$: $b = -30$. Check: $x^{2} - 30x + 81 = (x - 3)(x - 27)$, so $3$ is a solution, and the other solution is $27$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-27$): finds the other solution, $\\frac{81}{3} = 27$, and reports $-27$. The value of $b$ is the opposite of the sum of the solutions, $-(3 + 27) = -30$.\n* Choice C ($-6$): treats $3$ as a double solution, as in $(x - 3)^{2} = x^{2} - 6x + 9$; that would need a constant of $9$, not $81$.\n* Choice D ($30$): moves $90$ to the other side without changing its sign, getting $3b = 90$.\n\n**Test Day Takeaway:** A solution of an equation makes the equation true. Substitute it to find an unknown coefficient, then check by factoring."
 }

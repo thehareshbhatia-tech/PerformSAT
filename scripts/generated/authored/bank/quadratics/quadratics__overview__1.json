@@ -1,30 +1,30 @@
 {
   "id": 1,
-  "question": "Which of the following is a quadratic function?",
+  "question": "$x^{2} + 28 = 92$\nWhat is the positive solution to the given equation?",
   "choices": [
     {
       "id": "A",
-      "text": "$f(x) = 5x - 9$"
+      "text": "$8$"
     },
     {
       "id": "B",
-      "text": "$f(x) = 4x^3 - x$"
+      "text": "$32$"
     },
     {
       "id": "C",
-      "text": "$f(x) = 7 - 2x^2$"
+      "text": "$64$"
     },
     {
       "id": "D",
-      "text": "$f(x) = \\dfrac{6}{x^2}$"
+      "text": "$120$"
     }
   ],
   "distractorNotes": {
-    "A": "degree 1",
-    "B": "degree 3",
-    "D": "variable in the denominator gives exponent -2"
+    "B": "divides 64 by 2 instead of taking its square root",
+    "C": "finds x^2 = 64 but stops before taking the square root",
+    "D": "adds 28 to 92 instead of subtracting, and does not take the square root"
   },
-  "correctAnswer": "C",
-  "hint": "Look for a highest power of exactly $2$, with the variable in the numerator.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** Only $7 - 2x^2$ has a highest power of $2$ with a nonzero coefficient.\n\n**The Full Solution:**\nStep 1: A quadratic function can be written as $f(x) = ax^2 + bx + c$ with $a \\neq 0$.\nStep 2: Rewriting choice C in that order gives $f(x) = -2x^2 + 0x + 7$, so $a = -2$, $b = 0$, and $c = 7$.\nStep 3: Since $a \\neq 0$ and no higher power appears, $f$ is quadratic. Check the shape: its graph is a parabola opening downward. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: the highest power of $x$ is $1$, so this is a linear function.\n* Choice B: the highest power is $3$, making this a cubic function even though a lower-degree term is present.\n* Choice D: the variable sits in the denominator, so the exponent is $-2$; this is a rational function, not a quadratic one.\n\n**Test Day Takeaway:** Degree is decided by the HIGHEST power of the variable, and a variable in a denominator carries a negative exponent."
+  "correctAnswer": "A",
+  "hint": "Isolate $x^{2}$ first, then take the square root.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~15s):** Subtract $28$ to get $x^{2} = 64$, so the positive solution is $x = 8$.\n\n**The Full Solution:**\nStep 1: Subtract $28$ from both sides: $x^{2} = 92 - 28 = 64$.\nStep 2: Take the square root of both sides: $x = 8$ or $x = -8$.\nStep 3: The positive solution is $8$.\n\nCheck: $8^{2} + 28 = 64 + 28 = 92$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($32$): halves $64$ instead of taking its square root.\n* Choice C ($64$): is the value of $x^{2}$, not of $x$.\n* Choice D ($120$): adds $28$ to $92$ and never takes the square root.\n\n**Test Day Takeaway:** For $x^{2} = c$, isolate $x^{2}$, then take the square root; the question tells you which sign it wants."
 }

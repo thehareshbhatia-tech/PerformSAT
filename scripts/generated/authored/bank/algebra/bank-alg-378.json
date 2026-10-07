@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-378",
- "question": "The two points shown in the $xy$-plane are adjacent vertices of a square. What is the perimeter of the square?",
+ "question": "Line $p$ passes through the two points shown in the $xy$-plane. Line $q$ is parallel to line $p$ and passes through the origin. Which equation defines line $q$?",
  "diagram": {
   "type": "coordinatePoints",
   "params": {
@@ -23,26 +23,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$5$"
+   "text": "$y = -\\frac{4}{3}x$"
   },
   {
    "id": "B",
-   "text": "$20$"
+   "text": "$y = \\frac{3}{4}x$"
   },
   {
    "id": "C",
-   "text": "$25$"
+   "text": "$y = \\frac{3}{4}x + \\frac{5}{4}$"
   },
   {
    "id": "D",
-   "text": "$28$"
+   "text": "$y = \\frac{4}{3}x$"
   }
  ],
  "correctAnswer": "B",
  "distractorNotes": {
-  "A": "finds the side length, 5, and stops before multiplying by 4",
-  "C": "computes the area of the square, 5 squared, instead of its perimeter",
-  "D": "adds the changes, 4 + 3 = 7, as the side length and multiplies by 4"
+  "A": "uses the perpendicular slope instead of the same slope",
+  "C": "gives the equation of line p, which does not pass through the origin",
+  "D": "divides the run by the rise"
  },
- "explanation": "**SAT Pattern: Distance Formula**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The points $(1, 2)$ and $(5, 5)$ are $\\sqrt{16 + 9} = 5$ apart, so each side is $5$ and the perimeter is $4(5) = 20$.\n\n**The Full Solution:**\nStep 1: Read the points: $(1, 2)$ and $(5, 5)$. Adjacent vertices are joined by a side of the square.\nStep 2: Side length $= \\sqrt{(5 - 1)^{2} + (5 - 2)^{2}} = \\sqrt{16 + 9} = \\sqrt{25} = 5$.\nStep 3: Perimeter $= 4(5) = 20$. Check: $3$, $4$, $5$ is a right triangle, so the side really is $5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): finds one side and stops.\n* Choice C ($25$): squares the side, which gives the area, not the perimeter.\n* Choice D ($28$): adds the changes, $4 + 3 = 7$, instead of using the Pythagorean theorem, then multiplies by $4$.\n\n**Test Day Takeaway:** Adjacent vertices give a side; use the distance formula for the side, then reread whether the question wants perimeter or area."
+ "explanation": "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Line $p$ has slope $\\frac{5 - 2}{5 - 1} = \\frac{3}{4}$; a parallel line through the origin is $y = \\frac{3}{4}x$.\n\n**The Full Solution:**\nStep 1: Read the points: $(1, 2)$ and $(5, 5)$.\nStep 2: Slope of line $p$: $\\frac{5 - 2}{5 - 1} = \\frac{3}{4}$. Parallel lines have equal slopes, so line $q$ also has slope $\\frac{3}{4}$.\nStep 3: Line $q$ passes through $(0, 0)$, so its $y$-intercept is $0$: $y = \\frac{3}{4}x$. Check: line $p$ is $y = \\frac{3}{4}x + \\frac{5}{4}$, a different line with the same slope ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{4}{3}x$): uses the negative reciprocal, which gives a perpendicular line.\n* Choice C ($y = \\frac{3}{4}x + \\frac{5}{4}$): is the equation of line $p$ itself, which does not pass through the origin.\n* Choice D ($y = \\frac{4}{3}x$): divides the run by the rise.\n\n**Test Day Takeaway:** Parallel lines share a slope; the point the new line passes through fixes its intercept."
 }

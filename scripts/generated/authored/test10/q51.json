@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 2,
- "passage": "Meteor sightings reported by scattered observers were once nearly impossible to combine. To make reports comparable, organizers asked volunteers to follow common rules. ______ each observer was to note where a meteor began and ended against named stars, so that paths seen from different towns could be plotted on a single chart.",
+ "passage": "Volunteers in a national weather-watching network measure rain and snow in their own yards, and their reports are useful only if everyone measures the same way. The network therefore asks all observers to follow common rules. ______ every volunteer uses the same kind of rain gauge, four inches wide, and reports a reading at about seven o'clock each morning.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -23,9 +23,9 @@
   },
   {
    "id": "D",
-   "text": "Therefore,"
+   "text": "In contrast,"
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The second sentence makes a general claim, organizers asked volunteers to follow common rules, and the third sentence supplies a specific illustration of such a rule: noting start and end points against named stars. \"For instance\" is the transition that introduces an example.\n\n**The Full Solution:**\n- General statement: volunteers should follow common rules so that reports are \"comparable.\"\n- Particular case: fixing each path's endpoints against named stars so charts from different towns align.\n- The particular instantiates the general, which is exactly the example relationship.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" concedes something working against the previous sentence, but the example works entirely in its support.\n- B: \"Meanwhile\" sets two events side by side in time, yet the sentences are related by illustration, not simultaneity.\n- D: \"Therefore\" would present the star-referencing rule as a conclusion derived from the previous sentence, but it is a concrete example of the common rules already described."
+ "explanation": "**Choice C is correct.** The second sentence makes a general statement, that observers follow common rules, and the third sentence gives specific examples of those rules: the same rain gauge and a reading at the same time each morning. \"For instance\" is the transition that introduces an example.\n\n**The Full Solution:**\n- General statement: the network asks observers to follow common rules.\n- Specific illustration: one standard gauge and one standard reading time.\n- An example-signaling transition links the general claim to its instances.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals a contrast, but the third sentence supports the second rather than contradicting it.\n- B: \"Meanwhile\" signals something happening at the same time, not an example of the rules.\n- D: \"In contrast\" signals a difference, but the third sentence describes the very rules the second sentence mentions rather than something that differs from them."
 }

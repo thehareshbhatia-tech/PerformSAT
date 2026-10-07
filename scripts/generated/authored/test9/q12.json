@@ -9,10 +9,22 @@
   "passage": "Seabird ecologists commonly estimate the size of cliff-nesting colonies from photographs taken during the breeding season, counting every bird visible on the ledges. A monitoring team argues that such counts systematically understate the number of breeding pairs, since at any given moment one member of a pair is typically away from the ledge, feeding at sea.",
   "question": "Which finding, if true, would most directly support the team's claim?",
   "choices": [
-    { "id": "A", "text": "At colonies where breeding pairs were individually tracked at their nest sites, single-day ledge photographs captured only about two-thirds of the pairs known to be breeding there." },
-    { "id": "B", "text": "Photographic counts of the same colony taken in successive years often differ from one another by more than ten percent." },
-    { "id": "C", "text": "Birds visible on the ledges in photographs include some nonbreeding individuals that have not formed pairs." },
-    { "id": "D", "text": "Photographic counts of cliff colonies are generally made by two independent observers, whose totals for the same photographed image can differ from each other by several percentage points." }
+    {
+      "id": "A",
+      "text": "At colonies where breeding pairs were tracked at their nests, single-day ledge photographs captured only about two-thirds of the known breeding pairs."
+    },
+    {
+      "id": "B",
+      "text": "Photographic counts of the same colony taken in successive years often differ from one another by more than ten percent."
+    },
+    {
+      "id": "C",
+      "text": "Birds visible on the ledges in photographs include some nonbreeding individuals that have not formed pairs."
+    },
+    {
+      "id": "D",
+      "text": "Two observers counting the birds in the same photograph often arrive at totals that differ by several percentage points, especially when the ledges are crowded."
+    }
   ],
   "correctAnswer": "A",
   "explanation": "**Choice A is correct.** The claim is that photographs undercount breeding pairs. A finding that photographs captured only two-thirds of pairs independently verified at their nests is direct evidence of exactly that shortfall.\n\n**The Full Solution:**\n- To support an undercount claim, a finding must compare photographic counts against a more complete, independent measure of the same colonies.\n- Choice A supplies that comparison — tracked pairs as ground truth, photographs falling a third short — in the direction the team predicts.\n\n**Why the other choices are wrong:**\n- B: Year-to-year variation shows the counts are noisy, not that they are biased low; the differences could run in either direction.\n- C: Nonbreeders on the ledges would inflate the count of apparent breeders — evidence for an overcount, the opposite of the claim.\n- D: Disagreement between observers reading the same image is measurement noise; it says nothing about how photographic counts compare with the true number of pairs."

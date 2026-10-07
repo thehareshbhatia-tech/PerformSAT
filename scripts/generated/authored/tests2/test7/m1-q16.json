@@ -1,6 +1,6 @@
 {
  "id": 16,
- "question": "The table shows the number of students in each of two classes who own a pet and who do not own a pet. Two different students will be selected at random from these $40$ students. What is the probability that both students selected own a pet? (Express your answer as a decimal or fraction, not as a percent.)",
+ "question": "The table shows the number of students in each of two classes who own a pet and who do not own a pet. One of these students will be selected at random. What is the probability of selecting a student in Class B, given that the student owns a pet? (Express your answer as a decimal or fraction, not as a percent.)",
  "questionTable": {
   "headers": [
    "",
@@ -29,6 +29,6 @@
    ]
   ]
  },
- "correctAnswer": "2/13",
- "explanation": "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $\\frac{2}{13}$.**\n\n**The Fast Way (~30s):** There are $16$ pet owners among the $40$ students. Multiply the two selections: $\\frac{16}{40} \\cdot \\frac{15}{39} = \\frac{2}{5} \\cdot \\frac{5}{13} = \\frac{2}{13}$.\n\n**The Full Solution:**\nStep 1: From the table, $9 + 7 = 16$ of the $40$ students own a pet, so the probability that the first student selected owns a pet is $\\frac{16}{40} = \\frac{2}{5}$.\nStep 2: The first student cannot be selected again, so $39$ students remain and $15$ of them own a pet. The probability that the second student owns a pet is $\\frac{15}{39} = \\frac{5}{13}$.\nStep 3: Multiply: $\\frac{2}{5} \\cdot \\frac{5}{13} = \\frac{2}{13}$. Check as a decimal: $0.4 \\times 0.3846 \\approx 0.1538$, and $\\frac{2}{13} \\approx 0.1538$ ✓\n\n**Common Mistakes:**\n* $\\frac{4}{25}$: using $\\frac{16}{40} \\cdot \\frac{16}{40}$, as if the same student could be selected twice.\n* $\\frac{3}{20}$: using $\\frac{16}{40} \\cdot \\frac{15}{40}$, reducing the number of pet owners for the second selection but leaving the total at $40$.\n* $\\frac{2}{5}$: reporting only the probability for the first selection.\n\n**Test Day Takeaway:** \"Two different\" means both the numerator and the denominator of the second fraction drop by one. Write both fractions before multiplying."
+ "correctAnswer": "7/16",
+ "explanation": "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**The correct answer is $\\frac{7}{16}$.**\n\n**The Fast Way (~25s):** The condition \"owns a pet\" limits the selection to the $16$ pet owners, and $7$ of them are in Class B, so the probability is $\\frac{7}{16}$.\n\n**The Full Solution:**\nStep 1: Because the student is known to own a pet, only the \"Owns a pet\" column counts: $9 + 7 = 16$ students.\nStep 2: Of these $16$ students, $7$ are in Class B.\nStep 3: The probability is $\\frac{7}{16}$, or $0.4375$. Check: the pet owners in Class A give $\\frac{9}{16}$, and $\\frac{7}{16} + \\frac{9}{16} = 1$ ✓\n\n**Common Mistakes:**\n* $\\frac{7}{40}$: divides by all $40$ students instead of only the $16$ pet owners.\n* $\\frac{7}{18}$: divides by the $18$ students in Class B, which gives the probability that a Class B student owns a pet.\n* $\\frac{9}{16}$: uses the Class A pet owners instead of the Class B pet owners.\n\n**Test Day Takeaway:** In a \"given that\" question, the condition sets the denominator: use only the row or column named after \"given that.\""
 }

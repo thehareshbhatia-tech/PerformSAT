@@ -6,27 +6,33 @@
   "domain": "information-and-ideas",
   "skill": "central-ideas-and-details",
   "module": 2,
-  "passage": "The windcatchers of Yazd do more than move air. In the courtyard houses of the city's historic quarter, each tall tower works as one part of an integrated cooling system: air drawn down the shaft passes over a pool or through a cellar, shedding heat by evaporation before it reaches the living quarters, while warmed air escapes through the courtyard, pulling a steady current through the house. Rooms at a tower's base stay usable through the hottest afternoons, and households traditionally reorganized daily life around those rooms each summer.",
+  "passage": "India's stepwells do more than store water. Built mostly in the country's dry western regions, these deep stone structures lead down long flights of steps to a well that reaches the water table. People could thus reach water even when it lay far below the surface. Their lower levels stay several degrees cooler than the ground above, and travelers sheltered there during the heat of the day. Women gathered at the wells to draw water and to perform rituals, and many social and religious customs grew up around them.",
   "question": "Which choice best states the main idea of the text?",
   "choices": [
     {
       "id": "A",
-      "text": "Windcatchers cool the houses of Yazd primarily by chilling the water that is stored in the pools and cellars that sit beneath the bases of the towers."
+      "text": "Stepwells supplied water mainly to travelers and caravans rather than to the people who lived near them."
     },
     {
       "id": "B",
-      "text": "In Yazd's traditional houses, windcatchers work within a larger cooling system whose cool rooms shaped how households lived."
+      "text": "India's stepwells were not only sources of water but also cool gathering places central to community life."
     },
     {
       "id": "C",
-      "text": "The tallest windcatchers in Yazd's historic quarter belonged to the households that were wealthy enough to pay for their construction."
+      "text": "The deepest stepwells were built by wealthy patrons who competed with one another to construct the most elaborate designs."
     },
     {
       "id": "D",
-      "text": "Mechanical air-conditioning has now made the windcatchers of Yazd's historic quarter obsolete as a means of cooling the city's houses."
+      "text": "Modern piped water has made India's stepwells obsolete as a source of water for nearby towns."
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** The text's two halves are the system and its consequences: the tower works with pools, cellars, and courtyard as \"an integrated cooling system,\" and the resulting cool rooms reorganized summer life. B joins both halves.\n\n**The Full Solution:**\n- The opening sentence announces the thesis — the towers \"do more than move air.\"\n- The middle sentence details the integration: shaft, evaporation, courtyard current.\n- The final sentence gives the human consequence, which B folds in: households arranged their days around the cooled rooms.\n\n**Why the other choices are wrong:**\n- A: It inverts the mechanism — the water cools the air by evaporation; the text never says the system exists to chill the water.\n- C: Tower height and household wealth are never discussed.\n- D: Modern air-conditioning appears nowhere in the text.",
-  "_meta": {}
+  "explanation": "**Choice B is correct.** The text opens by saying stepwells \"do more than store water\" and then shows how: their cool lower levels sheltered travelers, and women's daily visits made them centers of social and religious life.\n\n**The Full Solution:**\n- The first sentence states the main claim: stepwells did more than store water.\n- The middle of the text explains their basic job, reaching water far below the surface.\n- The rest adds the other roles: cool shelter from the heat and a gathering place where customs grew up.\n\n**Why the other choices are wrong:**\n- A: Travelers are mentioned, but the text also describes local women drawing water, and it never says travelers were the main users.\n- C: The text says nothing about patrons competing over designs.\n- D: The text never mentions modern piped water.",
+  "_meta": {
+    "anchor": "Indian stepwells (vav/baori): water + cool refuge + social center — CID main idea",
+    "sources": [
+      "https://www.britannica.com/technology/stepwell",
+      "https://www.aramcoworld.com/en/resources/reviews/2020/the-vanishing-stepwells-of-india"
+    ]
+  }
 }

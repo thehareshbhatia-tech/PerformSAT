@@ -6,29 +6,29 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-textual",
  "module": 2,
- "passage": "Most reef fishes begin life adrift: their larvae develop for weeks in the open ocean, and the survivors must then locate a reef on which to settle. Vision fails at any distance in open water, but the crackle of snapping shrimp and the grunts of resident fish carry for kilometers beneath the surface. A marine biologist therefore proposes that settling-stage larvae find their way to reefs in part by homing in on reef sound.",
+ "passage": "Sea turtles bury their eggs in sandy beaches, and the hatchlings usually emerge at night. They must reach the ocean quickly, since every minute on the sand exposes them to predators. On a natural beach, the view toward the sea is brighter than the view toward land, where dunes and plants block the sky. A researcher therefore proposes that hatchlings find the ocean mainly by crawling toward the brightest part of the horizon.",
  "question": "Which finding, if true, would most directly support the researcher's proposal?",
  "choices": [
   {
    "id": "A",
-   "text": "Larval reef fish raised in aquariums grow more quickly when recordings of reef sound are played to them."
+   "text": "Hatchlings from nests close to the water reach the ocean much faster than hatchlings from nests near the dunes, which must crawl farther."
   },
   {
    "id": "B",
-   "text": "The sound produced by a reef is loudest at dawn and dusk, when many resident fish are most active."
+   "text": "Hatchlings crawl across the sand more quickly on cool nights than they do on warm nights."
   },
   {
    "id": "C",
-   "text": "At patches of open water far from any reef, traps broadcasting recorded reef sound catch significantly more settling-stage larvae than identical silent traps nearby."
+   "text": "On beaches where bright lights shine from buildings behind the dunes, many hatchlings crawl inland, away from the sea."
   },
   {
    "id": "D",
-   "text": "Larvae that settle successfully on reefs tend to have larger fins than larvae collected in the open ocean."
+   "text": "Hatchlings that reach the ocean swim almost continuously for about a day before they begin to rest."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The proposal is that larvae steer toward reef sound, and C is a direct behavioral test: with all else equal, sound-broadcasting traps out-collect silent ones, showing larvae moving toward the sound itself.\n\n**The Full Solution:**\n- Supporting the proposal requires evidence that reef sound influences where settling-stage larvae go — orientation, not merely exposure or correlation.\n- Choice C isolates sound as the only difference between paired traps in open water, far from confounding reef cues; the surplus of larvae at the noisy traps demonstrates attraction to the sound.\n- That is the proposal's mechanism observed in action.\n\n**Why the other choices are wrong:**\n- A: Faster growth under recorded sound concerns development, not navigation; it shows no movement toward anything.\n- B: A daily rhythm in reef loudness describes the cue's availability without showing that larvae use it.\n- D: Fin size differences say nothing about whether sound guided the successful settlers.",
+ "explanation": "**Choice C is correct.** If hatchlings head for the brightest part of the horizon, then lights placed on the land side should pull them the wrong way. Hatchlings crawling inland toward bright buildings is exactly what the proposal predicts.\n\n**The Full Solution:**\n- How to spot it: the proposal says brightness, not the sea itself, guides the hatchlings.\n- The strongest test reverses the normal brightness. On a natural beach the sea side is brighter; with lights behind the dunes, the land side is brighter.\n- If hatchlings then crawl inland, brightness is steering them, which directly supports the proposal.\n\n**Why the other choices are wrong:**\n- A: Nests near the water are simply closer to the sea, so faster arrival says nothing about how hatchlings choose a direction.\n- B: Crawling speed on cool and warm nights does not show what guides the hatchlings.\n- D: What hatchlings do after reaching the ocean does not show how they found it.",
  "_meta": {
-  "anchor": "acoustic settlement cues — larval reef fish attracted to broadcast reef sound"
+  "anchor": "sea-turtle hatchling orientation — brighter seaward horizon vs. inland lights"
  }
 }

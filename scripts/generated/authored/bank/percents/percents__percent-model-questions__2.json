@@ -1,10 +1,10 @@
 {
   "id": 2,
-  "question": "A solution contains only salt and water, and $8\\%$ of its mass is salt. The solution contains $276$ grams of water and $x$ grams of salt. What is the value of $x$?",
+  "question": "A solution has a mass of $300$ grams, and $8\\%$ of its mass is salt. What is the mass, in grams, of the salt in the solution?",
   "choices": [
     {
       "id": "A",
-      "text": "$22.08$"
+      "text": "$2.4$"
     },
     {
       "id": "B",
@@ -12,19 +12,19 @@
     },
     {
       "id": "C",
-      "text": "$252$"
+      "text": "$37.5$"
     },
     {
       "id": "D",
-      "text": "$300$"
+      "text": "$276$"
     }
   ],
   "distractorNotes": {
-    "A": "takes 8 percent of the water",
-    "C": "subtracts salt from water",
-    "D": "reports the total mass"
+    "A": "writes 8% as 0.008 instead of 0.08",
+    "C": "divides 300 by 8 instead of multiplying by 0.08",
+    "D": "finds the mass of the rest of the solution, 300 - 24"
   },
   "correctAnswer": "B",
-  "hint": "The water is $92\\%$ of the whole, so it can be used to recover the total mass first.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** Water is $92\\%$ of the solution, so the total is $276 \\div 0.92 = 300$ grams and the salt is $300 - 276 = 24$ grams.\n\n**The Full Solution:**\nStep 1: Salt is $8\\%$ of the solution by mass, so water is $100\\% - 8\\% = 92\\%$ of it.\nStep 2: Let $m$ be the total mass. Then $0.92m = 276$, so $m = \\frac{276}{0.92} = 300$ grams.\nStep 3: The salt is the rest: $300 - 276 = 24$ grams, so $x = 24$. Check: $0.08 \\times 300 = 24$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($22.08$): takes $8\\%$ of the WATER mass; the $8\\%$ refers to the whole solution.\n* Choice C ($252$): subtracts the salt mass from the water mass instead of reporting the salt mass.\n* Choice D ($300$): reports the total mass of the solution rather than the mass of the salt.\n\n**Test Day Takeaway:** When a percent is stated for one component, the other component carries the complementary percent; use whichever one is given a number."
+  "hint": "Write $8\\%$ as a decimal and multiply.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** $8\\%$ of $300$ is $0.08(300) = 24$.\n\n**The Full Solution:**\nStep 1: Write the percent as a decimal: $8\\% = 0.08$.\nStep 2: Multiply by the total mass: $0.08(300) = 24$.\nStep 3: So the solution contains $24$ grams of salt.\n\nCheck: $\\frac{24}{300} = 0.08 = 8\\%$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.4$): uses $0.008$ for $8\\%$, which is $0.8\\%$.\n* Choice C ($37.5$): divides $300$ by $8$ instead of finding $8$ hundredths of $300$.\n* Choice D ($276$): is the mass of the part of the solution that is not salt.\n\n**Test Day Takeaway:** Read $p\\%$ of $N$ as $\\frac{p}{100} \\cdot N$."
 }

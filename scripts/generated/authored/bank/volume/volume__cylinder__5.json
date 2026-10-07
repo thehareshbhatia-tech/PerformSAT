@@ -1,30 +1,30 @@
 {
- "id": 5,
- "question": "Water is $5$ feet deep in a right circular cylinder of radius $6$ feet. All of it is poured into an empty right circular cylinder of radius $3$ feet. How deep, in feet, is the water in the second cylinder?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$1.25$"
+  "id": 5,
+  "question": "The circumference of the base of a right circular cylinder is $14\\pi$ inches, and the volume of the cylinder is $490\\pi$ cubic inches. What is the height, in inches, of the cylinder?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2.5$"
+    },
+    {
+      "id": "B",
+      "text": "$10$"
+    },
+    {
+      "id": "C",
+      "text": "$35$"
+    },
+    {
+      "id": "D",
+      "text": "$70$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses the diameter, 14, as the radius",
+    "C": "divides the volume by the circumference",
+    "D": "divides by the radius, 7, instead of by the square of the radius"
   },
-  {
-   "id": "B",
-   "text": "$10$"
-  },
-  {
-   "id": "C",
-   "text": "$20$"
-  },
-  {
-   "id": "D",
-   "text": "$40$"
-  }
- ],
- "distractorNotes": {
-  "A": "multiplies the depth by (3/6)^2 = 1/4 instead of dividing by it, so the water gets shallower in the narrower cylinder",
-  "B": "uses the radius ratio 6/3 = 2 once instead of squaring it, giving 5(2) = 10",
-  "D": "cubes the radius ratio, giving 5(2^3) = 40, as if depth scaled like a volume"
- },
- "correctAnswer": "C",
- "hint": "The volume of water stays the same; only the base it sits on changes.",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~30s):** The second base has $\\left(\\frac{3}{6}\\right)^{2} = \\frac{1}{4}$ the area of the first, so the same water stands $4$ times as deep: $4(5) = 20$ feet.\n\n**The Full Solution:**\nStep 1: The volume of the water in the first cylinder is $\\pi(6)^{2}(5) = 180\\pi$ cubic feet.\nStep 2: In the second cylinder the same volume has a base of radius $3$, so $\\pi(3)^{2}d = 180\\pi$, or $9d = 180$.\nStep 3: Divide: $d = 20$ feet. Check: $\\pi(3)^{2}(20) = 180\\pi$, the same volume of water ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.25$): multiplies the depth by $\\frac{1}{4}$ instead of dividing by it. A narrower cylinder makes the water deeper, not shallower.\n* Choice B ($10$): uses the radius ratio $\\frac{6}{3} = 2$ once, but the base area depends on the radius squared, so the ratio of base areas is $4$.\n* Choice D ($40$): cubes the ratio $2$, treating depth as if it scaled like a volume. Only the base area changes between the two cylinders.\n\n**Test Day Takeaway:** When liquid moves between containers, set the two volumes equal; for cylinders, the depth changes by the inverse of the ratio of the base areas, which is the square of the ratio of the radii."
+  "correctAnswer": "B",
+  "hint": "Use the circumference to find the radius first.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** $2\\pi r = 14\\pi$ gives $r = 7$, so $490\\pi = \\pi(7)^{2}h$ and $h = \\frac{490}{49} = 10$.\n\n**The Full Solution:**\nStep 1: The circumference is $2\\pi r = 14\\pi$, so $r = 7$ inches.\nStep 2: The volume is $V = \\pi r^{2}h$: $490\\pi = \\pi(7)^{2}h = 49\\pi h$.\nStep 3: So $h = \\frac{490}{49} = 10$ inches. Check: $\\pi(7)^{2}(10) = 490\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.5$): this uses the diameter, $14$, as the radius: $\\frac{490}{196} = 2.5$.\n* Choice C ($35$): this divides $490\\pi$ by the circumference, $14\\pi$; the volume formula uses the area of the base, $49\\pi$.\n* Choice D ($70$): this divides by $7$ instead of by $7^{2}$.\n\n**Test Day Takeaway:** From a circumference, get the radius first, $r = \\frac{C}{2\\pi}$; then use $V = \\pi r^{2}h$."
 }

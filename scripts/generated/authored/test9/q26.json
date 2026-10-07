@@ -9,34 +9,39 @@
   "studentNotes": {
     "intro": "While researching a topic, a student has taken the following notes:",
     "bullets": [
-      "An artesian well taps groundwater trapped under pressure between layers of impermeable rock, so the water rises on its own, without pumping.",
-      "The Grenelle well was the first artesian well drilled in Paris.",
-      "The engineer Louis-Georges Mulot directed its drilling from 1833 to 1841.",
-      "The borehole finally reached pressurized water at a depth of 548 meters.",
-      "When the drill broke through in 1841, water shot up above the wooden drilling tower."
+      "The Grand Canal is a system of artificial waterways in eastern China.",
+      "Its main route runs about 1,776 kilometers, linking Beijing in the north with Hangzhou in the south.",
+      "Its sections were first joined into one system during the Sui dynasty (581–618 CE).",
+      "It is the longest artificial waterway in the world.",
+      "It was named a UNESCO World Heritage Site in 2014."
     ],
-    "goal": "The student wants to introduce the Grenelle well to an audience unfamiliar with it."
+    "goal": "The student wants to introduce the Grand Canal to an audience unfamiliar with it."
   },
   "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
   "choices": [
     {
       "id": "A",
-      "text": "Completed in 1841, the Grenelle well was Paris's first artesian well, tapping water so pressurized at 548 meters down that it rose without pumping."
+      "text": "The Grand Canal, the world's longest artificial waterway, runs about 1,776 kilometers through eastern China, from Beijing to Hangzhou."
     },
     {
       "id": "B",
-      "text": "The engineer Louis-Georges Mulot directed one of the longest and most difficult drilling projects undertaken in nineteenth-century Paris."
+      "text": "A waterway first joined into one system during the Sui dynasty was named a UNESCO World Heritage Site in 2014."
     },
     {
       "id": "C",
-      "text": "An artesian well requires no pumping because its water is trapped under pressure between layers of impermeable rock."
+      "text": "Artificial waterways in eastern China link cities in the north with cities in the south."
     },
     {
       "id": "D",
-      "text": "In 1841, after eight years of drilling directed by Louis-Georges Mulot, water from the Grenelle well shot up above the wooden tower that housed the drill."
+      "text": "The Grand Canal, whose sections were first joined into one system during the Sui dynasty (581–618 CE), was named a UNESCO World Heritage Site in 2014."
     }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** An introduction for unfamiliar readers must say what the Grenelle well is, where and when it was made, and what made it remarkable — and A folds all three into one sentence: Paris's first artesian well, finished in 1841, tapping water so pressurized at 548 meters down that it rose without pumping.\n\n**The Full Solution:**\n- The goal has two demands: identify the well and make it intelligible to readers who have never heard of it.\n- A names it, places it, dates it, and explains the defining fact — water pressurized enough to rise from 548 meters with no pumping.\n\n**Why the other choices are wrong:**\n- B: It introduces the engineer, not the well — the well itself is never even named.\n- C: It defines artesian wells in general and never mentions the Grenelle well at all.\n- D: It assumes the reader already knows what the Grenelle well is, recounting its drilling and dramatic breakthrough without ever identifying what kind of well it was or why the water rose at all.",
-  "_meta": {}
+  "explanation": "**Choice A is correct.** An introduction for unfamiliar readers must name the Grand Canal and say what and where it is. Choice A does all of this in one sentence: it is the world's longest artificial waterway, running about 1,776 kilometers through eastern China from Beijing to Hangzhou.\n\n**The Full Solution:**\n- The goal has two demands: name the canal and make it understandable to readers who have never heard of it.\n- Choice A names it, identifies what it is, and gives its location and length.\n\n**Why the other choices are wrong:**\n- B: It never names the Grand Canal or says where it is.\n- C: It describes waterways in general and never mentions the Grand Canal.\n- D: It assumes the reader already knows what the Grand Canal is, giving historical dates without explaining what the canal is or where it runs.",
+  "_meta": {
+    "anchor": "Grand Canal of China — RS introduce to an unfamiliar audience",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Grand_Canal_(China)"
+    ]
+  }
 }

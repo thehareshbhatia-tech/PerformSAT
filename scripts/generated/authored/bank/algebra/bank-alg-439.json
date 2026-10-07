@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-439",
- "question": "For the linear functions $f$ and $g$, the table shows three values of $x$ and their corresponding values of $f(x)$ and $g(x)$. How many solutions does the system of equations $y = f(x)$ and $y = g(x)$ have?",
+ "question": "In the $xy$-plane, the graphs of the linear functions $f$ and $g$ pass through the points shown in the table. How many solutions does the system of equations $y = f(x)$ and $y = g(x)$ have?",
  "diagram": {
   "type": "dataTable",
   "params": {

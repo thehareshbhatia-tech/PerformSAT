@@ -1,6 +1,6 @@
 {
  "id": 19,
- "question": "$p(x)=3x^{3}+19x^{2}+22x-24$\nThe polynomial $p(x)$ has a factor of $x+4$. Which of the following is also a factor of $p(x)$?",
+ "question": "$p(x)=(x+4)(3x^{2}+7x-6)$\nThe function $p$ is defined by the given equation. Which of the following is a factor of $p(x)$?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "B": "flips the sign of the quotient's root, reading the factor of 3x^2 + 7x - 6 as 3x + 2 (root -2/3) instead of 3x - 2 (root 2/3)",
-  "C": "flips the sign of the other quotient factor; the quotient contains x + 3, whose root is -3, not +3",
-  "D": "guesses a factor straight from the constant term by pairing -24 as (4)(-6), without performing the division"
+  "B": "factors 3x^2 + 7x - 6 as (3x + 2)(x - 3), which has the wrong sign on the middle term: 3x^2 - 7x - 6",
+  "C": "uses the same sign error, (3x + 2)(x - 3), and picks its other factor",
+  "D": "treats the constant term -6 of the quadratic as if it gave the factor x - 6"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Polynomial Factoring with Given Factor**\n\n**Choice A is correct.**\n\n**The Fast Way (~55s):** Dividing $p(x)$ by $x+4$ gives $3x^{2}+7x-6$, which factors as $(3x-2)(x+3)$. So $3x-2$ is a factor.\n\n**The Full Solution:**\nStep 1: Divide $p(x)$ by $x+4$ using synthetic division with $-4$ on the coefficients $3$, $19$, $22$, $-24$: bring down $3$; $19+3(-4)=7$; $22+7(-4)=-6$; $-24+(-6)(-4)=0$. The remainder is $0$, and the quotient is $3x^{2}+7x-6$.\nStep 2: Factor the quotient. Two numbers with product $3(-6)=-18$ and sum $7$ are $9$ and $-2$, so $3x^{2}+9x-2x-6=3x(x+3)-2(x+3)=(3x-2)(x+3)$.\nStep 3: So $p(x)=(x+4)(3x-2)(x+3)$, and the factor among the choices is $3x-2$. Check: $(3x-2)(x+3)=3x^{2}+7x-6$, and $(x+4)(3x^{2}+7x-6)=3x^{3}+19x^{2}+22x-24$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3x+2$): has the wrong sign. Its zero is $-\\frac{2}{3}$, and $p\\left(-\\frac{2}{3}\\right)=-\\frac{280}{9}\\neq 0$.\n* Choice C ($x-3$): has the wrong sign. The quotient contains $x+3$, and $p(3)=294\\neq 0$.\n* Choice D ($x-6$): pairs $-24$ as $(4)(-6)$ and guesses a matching factor without dividing; $p(6)=1{,}440\\neq 0$.\n\n**Test Day Takeaway:** When one factor is given, divide it out. The quotient is a quadratic you can factor, and a remainder of $0$ confirms the division."
+ "explanation": "**SAT Pattern: Polynomial Factoring with Given Factor**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** Factor the quadratic: $3x^{2}+7x-6=(3x-2)(x+3)$, so $p(x)=(x+4)(3x-2)(x+3)$, and $3x-2$ is a factor.\n\n**The Full Solution:**\nStep 1: The factor $x+4$ is already shown, so factor the quadratic $3x^{2}+7x-6$. Look for two numbers with product $3(-6)=-18$ and sum $7$: they are $9$ and $-2$.\nStep 2: Split the middle term and group: $3x^{2}+9x-2x-6=3x(x+3)-2(x+3)=(3x-2)(x+3)$.\nStep 3: So $p(x)=(x+4)(3x-2)(x+3)$, and the factor among the choices is $3x-2$. Check: $(3x-2)(x+3)=3x^{2}+9x-2x-6=3x^{2}+7x-6$, and $p\\left(\\frac{2}{3}\\right)=0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3x+2$): comes from $(3x+2)(x-3)=3x^{2}-7x-6$, which has the wrong sign on the $x$-term.\n* Choice C ($x-3$): comes from the same incorrect factoring, $(3x+2)(x-3)$; the correct factor is $x+3$.\n* Choice D ($x-6$): reads the constant term $-6$ as a factor. $p(6)=(10)(144)=1{,}440$, which is not $0$.\n\n**Test Day Takeaway:** When part of a polynomial is already factored, factor the rest and check the middle term of your product."
 }

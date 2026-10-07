@@ -1,29 +1,29 @@
 {
   "id": "bank-geo-188",
-  "question": "A rectangle has a length of $x + 6$ and a width of $x + 5$. Which expression represents the area of the rectangle?",
+  "question": "A rectangle has a length of $x + 6$ and a width of $5$. Which expression represents the area of the rectangle?",
   "choices": [
     {
       "id": "A",
-      "text": "$x^{2} + 30$"
+      "text": "$x + 11$"
     },
     {
       "id": "B",
-      "text": "$x^{2} + 11x + 11$"
+      "text": "$2x + 22$"
     },
     {
       "id": "C",
-      "text": "$x^{2} + 11x + 30$"
+      "text": "$5x + 6$"
     },
     {
       "id": "D",
-      "text": "$4x + 22$"
+      "text": "$5x + 30$"
     }
   ],
-  "correctAnswer": "C",
+  "correctAnswer": "D",
   "distractorNotes": {
-    "A": "multiplies only the first terms and the last terms, skipping the middle terms 6x and 5x",
-    "B": "adds 6 and 5 for the constant term instead of multiplying them",
-    "D": "computes the perimeter, 2(x + 6) + 2(x + 5), instead of the area"
+    "A": "adds the length and the width instead of multiplying",
+    "B": "gives the perimeter, 2(x + 6) + 2(5), instead of the area",
+    "C": "multiplies only the x term by 5 and leaves the 6 unchanged"
   },
-  "explanation": "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Area is length times width: $(x + 6)(x + 5) = x^{2} + 11x + 30$.\n\n**The Full Solution:**\nStep 1: The area of a rectangle is its length times its width: $A = (x + 6)(x + 5)$.\nStep 2: Multiply each term of the first factor by each term of the second: $x^{2} + 5x + 6x + 30$.\nStep 3: Combine like terms: $A = x^{2} + 11x + 30$. Check: with $x = 1$, the rectangle is $7$ by $6$, so $A = 42$, and $1 + 11 + 30 = 42$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{2} + 30$): multiplies $x \\cdot x$ and $6 \\cdot 5$ but drops the middle terms $5x$ and $6x$.\n* Choice B ($x^{2} + 11x + 11$): gets the middle term right but adds $6 + 5$ for the constant instead of multiplying.\n* Choice D ($4x + 22$): finds the perimeter, $2(x + 6) + 2(x + 5)$, not the area.\n\n**Test Day Takeaway:** When both dimensions are binomials, multiply every term by every term; testing one value of $x$ catches a dropped middle term."
+  "explanation": "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Area is length times width: $5(x + 6) = 5x + 30$.\n\n**The Full Solution:**\nStep 1: The area of a rectangle is its length times its width: $5(x + 6)$.\nStep 2: Distribute the $5$ to both terms: $5 \\cdot x + 5 \\cdot 6$.\nStep 3: So the area is $5x + 30$. Check: if $x = 2$, the rectangle is $8$ by $5$, with area $40 = 5(2) + 30$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x + 11$): adds the length and the width instead of multiplying them.\n* Choice B ($2x + 22$): gives the perimeter, $2(x + 6) + 2(5)$, instead of the area.\n* Choice C ($5x + 6$): multiplies only $x$ by $5$ and forgets to multiply the $6$.\n\n**Test Day Takeaway:** Area is length times width; distribute the width to every term of the length."
 }

@@ -1,29 +1,29 @@
 {
- "id": "bank-am-347",
- "question": "$5x^{2} - 6x + 2 = 0$\nWhat is the value of the discriminant of the given equation?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$-4$"
+  "id": "bank-am-347",
+  "question": "$x^{2} - 10x + 25 = 0$\nHow many distinct real solutions does the given equation have?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Exactly one"
+    },
+    {
+      "id": "B",
+      "text": "Exactly two"
+    },
+    {
+      "id": "C",
+      "text": "Infinitely many"
+    },
+    {
+      "id": "D",
+      "text": "Zero"
+    }
+  ],
+  "distractorNotes": {
+    "B": "assumes every quadratic equation has two solutions, or counts the repeated solution 5 twice",
+    "C": "confuses a repeated solution with an equation that is true for every value of x",
+    "D": "reads a discriminant of 0 as negative, the case with no real solutions"
   },
-  {
-   "id": "B",
-   "text": "$4$"
-  },
-  {
-   "id": "C",
-   "text": "$36$"
-  },
-  {
-   "id": "D",
-   "text": "$76$"
-  }
- ],
- "distractorNotes": {
-  "B": "subtracts in the wrong order, computing 4ac - b^2 = 40 - 36",
-  "C": "computes b^2 = 36 and never subtracts 4ac",
-  "D": "adds 4ac to b^2 instead of subtracting it"
- },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $b^{2} - 4ac = (-6)^{2} - 4(5)(2) = 36 - 40 = -4$.\n\n**The Full Solution:**\nStep 1: The equation is in the form $ax^{2} + bx + c = 0$ with $a = 5$, $b = -6$, and $c = 2$.\nStep 2: The discriminant is $b^{2} - 4ac$. Here $b^{2} = (-6)^{2} = 36$ and $4ac = 4(5)(2) = 40$.\nStep 3: The discriminant is $36 - 40 = -4$. Check: a negative discriminant means no real solutions, and indeed $5x^{2} - 6x + 2 = 5\\left(x - \\dfrac{3}{5}\\right)^{2} + \\dfrac{1}{5}$ is always positive ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($4$): subtracts in the wrong order, $4ac - b^{2}$.\n* Choice C ($36$): stops at $b^{2}$.\n* Choice D ($76$): adds $4ac$ instead of subtracting it.\n\n**Test Day Takeaway:** Square $b$ with its sign, subtract $4ac$, and trust a negative result; it simply means the equation has no real solutions."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The discriminant is $(-10)^{2} - 4(1)(25) = 100 - 100 = 0$, and a discriminant of $0$ means exactly one real solution.\n\n**The Full Solution:**\nStep 1: The equation has the form $ax^{2} + bx + c = 0$ with $a = 1$, $b = -10$, and $c = 25$.\nStep 2: The discriminant is $b^{2} - 4ac = 100 - 100 = 0$. A positive discriminant gives two real solutions, $0$ gives one, and a negative value gives none.\nStep 3: So the equation has exactly one distinct real solution. Check: $x^{2} - 10x + 25 = (x - 5)^{2}$, which equals $0$ only when $x = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly two): assumes every quadratic has two solutions; here both factors are $x - 5$, so the two solutions are the same number.\n* Choice C (Infinitely many): mistakes a repeated solution for an equation that is true for every value of $x$.\n* Choice D (Zero): treats a discriminant of $0$ as if it were negative.\n\n**Test Day Takeaway:** Count real solutions with the sign of $b^{2} - 4ac$: positive means two, zero means one, negative means none. A perfect-square trinomial always has exactly one."
 }

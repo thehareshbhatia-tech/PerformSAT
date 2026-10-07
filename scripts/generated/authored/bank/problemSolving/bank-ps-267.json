@@ -1,29 +1,29 @@
 {
  "id": "bank-ps-267",
- "question": "A case holds $7$ bottles of sparkling water and $3$ bottles of still water. If $3$ bottles are selected at random without replacement, what is the probability that all $3$ are sparkling?",
+ "question": "A case holds $24$ bottles of water, and each bottle is either sparkling or still. If one bottle is selected at random, the probability of selecting a sparkling bottle is $\\frac{5}{8}$. How many bottles of still water are in the case?",
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{1}{120}$"
+   "text": "$3$"
   },
   {
    "id": "B",
-   "text": "$\\frac{7}{24}$"
+   "text": "$5$"
   },
   {
    "id": "C",
-   "text": "$\\frac{343}{1000}$"
+   "text": "$9$"
   },
   {
    "id": "D",
-   "text": "$\\frac{7}{10}$"
+   "text": "$15$"
   }
  ],
  "distractorNotes": {
-  "A": "probability that all three are STILL (3/10 times 2/9 times 1/8)",
-  "C": "with replacement: (7/10)^3",
-  "D": "stops after the first draw (7/10)"
+  "A": "finds one-eighth of the case, 24 divided by 8, and stops",
+  "B": "reads the numerator of the probability as a count",
+  "D": "number of sparkling bottles, five-eighths of 24"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Probability Without Replacement**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $\\frac{7}{10} \\times \\frac{6}{9} \\times \\frac{5}{8} = \\frac{210}{720} = \\frac{7}{24}$.\n\n**The Full Solution:**\nStep 1: First bottle sparkling: $\\frac{7}{10}$.\nStep 2: Each later draw has one fewer sparkling bottle and one fewer bottle overall: second draw $\\frac{6}{9}$, third draw $\\frac{5}{8}$.\nStep 3: Multiply: $\\frac{7}{10} \\times \\frac{6}{9} \\times \\frac{5}{8} = \\frac{210}{720} = \\frac{7}{24}$. Check: $\\frac{7}{24} \\approx 0.29$, smaller than $\\frac{7}{10}$, as it must be since each extra requirement lowers the probability. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{120}$): $\\frac{3}{10} \\times \\frac{2}{9} \\times \\frac{1}{8} = \\frac{6}{720}$ is the probability that all three are still, the wrong type.\n* Choice C ($\\frac{343}{1000}$): $\\left(\\frac{7}{10}\\right)^3$ keeps every draw at $\\frac{7}{10}$, which requires replacing each bottle.\n* Choice D ($\\frac{7}{10}$): only the first draw was considered.\n\n**Test Day Takeaway:** For $k$ draws without replacement, write $k$ fractions whose numerators and denominators each step down by $1$, then multiply."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Sparkling bottles: $\\frac{5}{8} \\times 24 = 15$, so still bottles: $24 - 15 = 9$.\n\n**The Full Solution:**\nStep 1: The probability of sparkling is $\\frac{5}{8}$, so $\\frac{5}{8}$ of the $24$ bottles are sparkling: $\\frac{5}{8} \\times 24 = 15$.\nStep 2: Every other bottle is still: $24 - 15 = 9$.\nStep 3: There are $9$ bottles of still water. Check: $\\frac{15}{24} = \\frac{5}{8}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): $\\frac{24}{8} = 3$ is one-eighth of the case; still water is $\\frac{3}{8}$ of the case, $3 \\times 3 = 9$.\n* Choice B ($5$): $5$ is the numerator of $\\frac{5}{8}$, not a number of bottles.\n* Choice D ($15$): this is the number of sparkling bottles; the question asks for still water.\n\n**Test Day Takeaway:** A probability times the total gives a count. Check which group the question asks for before you answer."
 }

@@ -1,30 +1,30 @@
 {
  "id": 2,
- "question": "A circle has a radius of $10$. A sector of this circle has a central angle of $72^{\\circ}$. What is the area of the sector?",
+ "question": "A circle has a radius of $10$. A central angle of the circle has a measure of $72^{\\circ}$. What is the length of the arc intercepted by this angle?",
  "choices": [
   {
    "id": "A",
-   "text": "$4\\pi$"
+   "text": "$2\\pi$"
   },
   {
    "id": "B",
-   "text": "$20\\pi$"
+   "text": "$4\\pi$"
   },
   {
    "id": "C",
-   "text": "$40\\pi$"
+   "text": "$10\\pi$"
   },
   {
    "id": "D",
-   "text": "$100\\pi$"
+   "text": "$20\\pi$"
   }
  ],
  "correctAnswer": "B",
- "hint": "$72^{\\circ}$ is a friendly fraction of $360^{\\circ}$ — simplify it before multiplying.",
+ "hint": "Find the circumference first, then the fraction $\\frac{72}{360}$ of it.",
  "distractorNotes": {
-  "A": "computes the arc length",
-  "C": "doubles the area formula",
-  "D": "reports the area of the whole circle"
+  "A": "uses pi r = 10pi instead of 2 pi r, giving (1/5)(10pi) = 2pi",
+  "C": "uses pi r = 10pi and never takes the fraction 72/360",
+  "D": "reports the whole circumference 20pi"
  },
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** $\\frac{72}{360} = \\frac{1}{5}$, and the circle's area is $100\\pi$, so the sector's area is $20\\pi$.\n\n**The Full Solution:**\nStep 1: The circle's area is $\\pi(10)^2 = 100\\pi$.\nStep 2: The sector's central angle is $\\frac{72}{360} = \\frac{1}{5}$ of a full turn.\nStep 3: The sector's area is $\\frac{1}{5}(100\\pi) = 20\\pi$. Check: five congruent sectors of area $20\\pi$ make up the $100\\pi$ circle ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4\\pi$): takes $\\frac{1}{5}$ of the circumference $20\\pi$, producing a length instead of an area.\n* Choice C ($40\\pi$): uses $2\\pi r^2$ for the circle's area, importing the $2$ from the circumference formula.\n* Choice D ($100\\pi$): reports the area of the whole circle rather than of the sector.\n\n**Test Day Takeaway:** Reduce the angle fraction before you multiply; $\\frac{72}{360} = \\frac{1}{5}$ turns the arithmetic into a single step."
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** $72^\\circ$ is $\\frac{1}{5}$ of $360^\\circ$, and $\\frac{1}{5}$ of the circumference $20\\pi$ is $4\\pi$.\n\n**The Full Solution:**\nStep 1: The circumference is $2\\pi r = 2\\pi(10) = 20\\pi$.\nStep 2: The angle covers $\\frac{72}{360} = \\frac{1}{5}$ of the circle.\nStep 3: The arc length is $\\frac{1}{5}(20\\pi) = 4\\pi$. Check: five such arcs give $5(4\\pi) = 20\\pi$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2\\pi$): uses $\\pi r = 10\\pi$ as the circumference, so the arc comes out half as long.\n* Choice C ($10\\pi$): is $\\pi r$, half the circumference, with no fraction of the circle taken.\n* Choice D ($20\\pi$): is the whole circumference, not the arc.\n\n**Test Day Takeaway:** Arc length $= \\frac{\\text{central angle}}{360} \\times 2\\pi r$."
 }

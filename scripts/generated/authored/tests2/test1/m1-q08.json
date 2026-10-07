@@ -1,29 +1,29 @@
 {
  "id": 8,
- "question": "A savings account has an initial balance of \\$8,000 and earns $4\\%$ annual interest, compounded quarterly. No other deposits or withdrawals are made. Which expression gives the balance, in dollars, of the account after $t$ years?",
+ "question": "A savings account was opened with \\$5,000. No deposits or withdrawals were made, and the balance increased by $6\\%$ every $2$ years. Which expression gives the balance, in dollars, $t$ years after the account was opened?",
  "choices": [
   {
    "id": "A",
-   "text": "$8{,}000(1.01)^{t}$"
+   "text": "$5{,}000(1.03)^{t}$"
   },
   {
    "id": "B",
-   "text": "$8{,}000(1.01)^{4t}$"
+   "text": "$5{,}000(1.06)^{\\frac{t}{2}}$"
   },
   {
    "id": "C",
-   "text": "$8{,}000(1.04)^{4t}$"
+   "text": "$5{,}000(1.06)^{2t}$"
   },
   {
    "id": "D",
-   "text": "$8{,}000(1.04)^{\\frac{t}{4}}$"
+   "text": "$5{,}000(1.06)^{t}$"
   }
  ],
  "correctAnswer": "B",
  "distractorNotes": {
-  "A": "divides the annual rate by 4 but leaves the exponent as t, counting only one compounding period per year",
-  "C": "multiplies the exponent by 4 but never divides the 4% annual rate by 4, applying a full 4% four times a year",
-  "D": "divides the exponent by 4 instead of multiplying it, and leaves the annual rate undivided"
+  "A": "splits the 6% evenly into 3% per year, as if the growth added instead of multiplied",
+  "C": "multiplies t by 2 instead of dividing, applying the 6% increase twice a year",
+  "D": "applies the 6% increase every year, ignoring that it happens once every 2 years"
  },
- "explanation": "**SAT Pattern: Compound Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Each quarter the balance is multiplied by $1 + \\frac{0.04}{4} = 1.01$, and there are $4t$ quarters in $t$ years, so the balance is $8{,}000(1.01)^{4t}$.\n\n**The Full Solution:**\nStep 1: Find the growth per period. Compounded quarterly, the $4\\%$ annual rate becomes $\\frac{4\\%}{4} = 1\\%$ per quarter, so each quarter the balance is multiplied by $1.01$.\nStep 2: Count the periods. There are four quarters in a year, so in $t$ years the multiplier $1.01$ is applied $4t$ times.\nStep 3: Combine with the initial balance: the account holds $8{,}000(1.01)^{4t}$ dollars. Check with $t = 1$: $8{,}000(1.01)^{4} \\approx 8{,}324.83$, a little more than the $8{,}320$ that a single yearly application of $4\\%$ would give, which is what compounding four times a year should do ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8{,}000(1.01)^{t}$): uses the quarterly multiplier but only $t$ periods, so the balance grows once a year at the quarterly rate.\n* Choice C ($8{,}000(1.04)^{4t}$): counts $4t$ periods but applies the full annual $4\\%$ each time, which is four times too much growth.\n* Choice D ($8{,}000(1.04)^{\\frac{t}{4}}$): divides the exponent by $4$ rather than multiplying, which would model growth once every four years.\n\n**Test Day Takeaway:** When interest is compounded $n$ times a year, divide the annual rate by $n$ and multiply the number of years by $n$; the two adjustments always move in opposite directions."
+ "explanation": "**SAT Pattern: Compound Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** A $6\\%$ increase multiplies the balance by $1.06$, and that happens once every $2$ years, or $\\frac{t}{2}$ times in $t$ years. The balance is $5{,}000(1.06)^{\\frac{t}{2}}$.\n\n**The Full Solution:**\nStep 1: A $6\\%$ increase multiplies the balance by $1 + 0.06 = 1.06$.\nStep 2: The increase happens once every $2$ years, so in $t$ years it happens $\\frac{t}{2}$ times.\nStep 3: Start from \\$5,000 and multiply by $1.06$ a total of $\\frac{t}{2}$ times: $5{,}000(1.06)^{\\frac{t}{2}}$. Check with $t = 2$: $5{,}000(1.06)^{1} = 5{,}300$, which is $6\\%$ more than $5{,}000$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5{,}000(1.03)^{t}$): splits the $6\\%$ into $3\\%$ per year. Growth multiplies, so at $t = 2$ this gives $5{,}000(1.03)^{2} = 5{,}304.50$, not $5{,}300$.\n* Choice C ($5{,}000(1.06)^{2t}$): multiplies $t$ by $2$, so the $6\\%$ increase is applied twice every year instead of once every $2$ years.\n* Choice D ($5{,}000(1.06)^{t}$): applies the $6\\%$ increase every year, which ignores the $2$-year period.\n\n**Test Day Takeaway:** When a quantity grows by a fixed percent every $k$ years, the exponent is $\\frac{t}{k}$, the number of $k$-year periods in $t$ years."
 }

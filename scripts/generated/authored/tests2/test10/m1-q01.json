@@ -1,18 +1,18 @@
 {
  "id": 1,
- "question": "The graph of line $t$ is shown in the $xy$-plane. Line $k$ is perpendicular to line $t$ and passes through the point $(4, 9)$. Which equation defines line $k$?",
+ "question": "The graph of line $t$ is shown in the $xy$-plane. Line $k$ is perpendicular to line $t$. What is the slope of line $k$?",
  "diagram": {
   "type": "linearGraph",
   "params": {
-   "slope": 2,
-   "yIntercept": 1,
+   "slope": -3,
+   "yIntercept": 4,
    "xRange": [
-    -5,
-    5
+    -2,
+    4
    ],
    "yRange": [
-    -9,
-    11
+    -10,
+    12
    ],
    "xTickInterval": 1,
    "yTickInterval": 2,
@@ -20,11 +20,11 @@
    "showPoints": [
     [
      0,
-     1
+     4
     ],
     [
-     4,
-     9
+     2,
+     -2
     ]
    ],
    "label": "t"
@@ -33,26 +33,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$y = -2x + 17$"
+   "text": "$-3$"
   },
   {
    "id": "B",
-   "text": "$y = -\\frac{1}{2}x + 11$"
+   "text": "$-\\frac{1}{3}$"
   },
   {
    "id": "C",
-   "text": "$y = \\frac{1}{2}x + 7$"
+   "text": "$\\frac{1}{3}$"
   },
   {
    "id": "D",
-   "text": "$y = 2x + 1$"
+   "text": "$3$"
   }
  ],
  "distractorNotes": {
-  "A": "negates the slope of line t but does not take the reciprocal, giving slope -2",
-  "C": "takes the reciprocal of 2 but keeps the sign positive, giving slope 1/2",
-  "D": "uses the slope of line t itself, which is the equation of line t, a line parallel to (not perpendicular to) line t"
+  "A": "gives the slope of line t itself, which is the slope of a parallel line",
+  "B": "takes the reciprocal of the slope of line t but keeps the negative sign",
+  "D": "changes the sign of the slope of line t but does not take the reciprocal"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Line $t$ has slope $2$, so line $k$ has slope $-\\frac{1}{2}$. Of the two choices with that slope, only $y = -\\frac{1}{2}x + 11$ passes through $(4, 9)$.\n\n**The Full Solution:**\nStep 1: Read two points on line $t$ from the graph, $(0, 1)$ and $(4, 9)$. The slope of line $t$ is $\\frac{9 - 1}{4 - 0} = 2$.\nStep 2: The slopes of perpendicular lines multiply to $-1$, so line $k$ has slope $-\\frac{1}{2}$ and can be written as $y = -\\frac{1}{2}x + b$.\nStep 3: Substitute $(4, 9)$: $9 = -\\frac{1}{2}(4) + b = -2 + b$, so $b = 11$ and line $k$ is $y = -\\frac{1}{2}x + 11$. Check: $-\\frac{1}{2}(4) + 11 = 9$, and $\\left(-\\frac{1}{2}\\right)(2) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -2x + 17$): negates the slope of line $t$ but does not take the reciprocal; $(-2)(2) = -4$, not $-1$.\n* Choice C ($y = \\frac{1}{2}x + 7$): takes the reciprocal but keeps it positive; $\\left(\\frac{1}{2}\\right)(2) = 1$, not $-1$.\n* Choice D ($y = 2x + 1$): this is line $t$ itself. A line with the same slope is parallel to line $t$, not perpendicular to it.\n\n**Test Day Takeaway:** A perpendicular slope is the negative reciprocal: flip the fraction and change the sign. Then substitute the given point into $y = mx + b$ to find $b$."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Line $t$ passes through $(0, 4)$ and $(2, -2)$, so its slope is $\\frac{-6}{2} = -3$; the perpendicular slope is the negative reciprocal, $\\frac{1}{3}$.\n\n**The Full Solution:**\nStep 1: Read two points on line $t$ from the graph: $(0, 4)$ and $(2, -2)$.\nStep 2: The slope of line $t$ is $\\frac{-2 - 4}{2 - 0} = \\frac{-6}{2} = -3$.\nStep 3: Slopes of perpendicular lines multiply to $-1$, so the slope of line $k$ is $\\frac{1}{3}$. Check: $(-3)\\left(\\frac{1}{3}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): this is the slope of line $t$; a line with this slope is parallel to line $t$.\n* Choice B ($-\\frac{1}{3}$): takes the reciprocal but keeps the negative sign; $(-3)\\left(-\\frac{1}{3}\\right) = 1$, not $-1$.\n* Choice D ($3$): changes the sign but does not take the reciprocal; $(-3)(3) = -9$, not $-1$.\n\n**Test Day Takeaway:** For a perpendicular line, flip the slope and change its sign: a falling line with slope $-3$ becomes a rising line with slope $\\frac{1}{3}$."
 }

@@ -1,29 +1,29 @@
 {
  "id": 2,
- "question": "$13$, $22$, $13$, $19$, $16$, $13$, $24$, $18$, $21$\nWhat is the mode of the data shown?",
+ "question": "$14$, $23$, $9$, $17$, $30$, $11$, $20$, $16$, $25$\nWhat is the median of the data shown?",
  "choices": [
   {
    "id": "A",
-   "text": "$11$"
+   "text": "$17$"
   },
   {
    "id": "B",
-   "text": "$13$"
+   "text": "$19.5$"
   },
   {
    "id": "C",
-   "text": "$18$"
+   "text": "$21$"
   },
   {
    "id": "D",
-   "text": "$24$"
+   "text": "$30$"
   }
  ],
- "correctAnswer": "B",
+ "correctAnswer": "A",
  "distractorNotes": {
-  "A": "reports the range, 24 - 13 = 11, instead of the most frequent value",
-  "C": "reports the median, the fifth value of the ordered list, instead of the mode",
-  "D": "reports the largest value in the data set instead of the most frequent one"
+  "B": "averages the least and greatest values, (9 + 30)/2, instead of finding the middle value",
+  "C": "finds the range, 30 - 9, instead of the median",
+  "D": "takes the middle value of the list as written, without putting the values in order"
  },
- "explanation": "**SAT Pattern: Mode of a Data Set**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Scan for a repeat. Only $13$ appears more than once, and it appears three times, so the mode is $13$.\n\n**The Full Solution:**\nStep 1: The mode of a data set is the value that occurs most often, so count how many times each value appears.\nStep 2: The value $13$ appears three times, and $16$, $18$, $19$, $21$, $22$, and $24$ appear once each.\nStep 3: Three is the largest count, so the mode is $13$. Check: the counts total $3 + 1 + 1 + 1 + 1 + 1 + 1 = 9$, one for each value shown, and no other value repeats ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($11$): this is the range, $24 - 13 = 11$. The range measures spread; the mode is a value in the data set.\n* Choice C ($18$): ordering the data gives $13$, $13$, $13$, $16$, $18$, $19$, $21$, $22$, $24$, whose middle value is $18$. That is the median, not the mode.\n* Choice D ($24$): this is the greatest value. The greatest value and the most frequent value are different statistics, and here they are different numbers.\n\n**Test Day Takeaway:** Mode means \"most often,\" so count repeats before you order or average anything; ordering the list is what leads students to the median by mistake."
+ "explanation": "**SAT Pattern: Median Calculation**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** In order, the values are $9, 11, 14, 16, 17, 20, 23, 25, 30$. With $9$ values, the median is the $5$th value, $17$.\n\n**The Full Solution:**\nStep 1: List the values from least to greatest: $9, 11, 14, 16, 17, 20, 23, 25, 30$.\nStep 2: There are $9$ values, an odd number, so the median is the single middle value, the $\\frac{9 + 1}{2} = 5$th value.\nStep 3: The $5$th value in the ordered list is $17$. Check: $4$ values ($9, 11, 14, 16$) are less than $17$ and $4$ values ($20, 23, 25, 30$) are greater ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($19.5$): averages the least and greatest values, $\\frac{9 + 30}{2}$. That is the midpoint of the range, not the middle value of the data.\n* Choice C ($21$): this is the range, $30 - 9$, a measure of spread rather than center.\n* Choice D ($30$): this is the middle value of the list as it is written. The values must be put in order first.\n\n**Test Day Takeaway:** Always sort before finding a median. For an odd number of values, the median is the one value with as many values below it as above it."
 }

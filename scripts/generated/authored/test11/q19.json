@@ -8,31 +8,31 @@
  "choices": [
   {
    "id": "A",
-   "text": "tasks;"
+   "text": "steps;"
   },
   {
    "id": "B",
-   "text": "tasks,"
+   "text": "steps,"
   },
   {
    "id": "C",
-   "text": "tasks"
+   "text": "steps"
   },
   {
    "id": "D",
-   "text": "tasks:"
+   "text": "steps:"
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** An independent clause ends at \"tasks,\" and what follows is a list spelling those tasks out — the conventional mark to introduce it is a colon.\n\n**The Full Solution:**\n- Before the blank: \"Manuals for early telephone operators broke the job into a strict sequence of tasks\" — a complete clause.\n- After the blank: a series of gerund phrases (\"answering ... asking ... testing ... connecting\") that names the tasks just promised.\n- A colon after an independent clause is exactly the device for introducing such an elaborating list.\n\n**Why the other choices are wrong:**\n- A: A semicolon must join two independent clauses; the list of gerund phrases that follows cannot stand alone.\n- B: A comma leaves the boundary between the claim and its elaborating list unmarked in kind — it reads as a stray series comma rather than an introduction.\n- C: No punctuation at all runs the clause straight into the list, obscuring where the promise ends and the enumeration begins.",
- "passage": "Manuals for early telephone operators broke the job into a strict sequence of ______ answering the calling lamp, asking for the number requested, testing whether the called line was busy, and connecting the cords in the proper order.",
+ "explanation": "**Choice D is correct.** The words before the blank form a complete main clause, and what follows is a list that spells out the \"sequence of steps.\" A colon is the conventional punctuation for introducing such a list.\n\n**The Full Solution:**\n- \"Making it requires a strict sequence of steps\" can stand alone as a sentence.\n- The four -ing phrases that follow (peeling, soaking, beating, joining) name the steps themselves.\n- A colon after a complete clause signals that a list or explanation follows, so \"steps:\" is correct.\n\n**Why the other choices are wrong:**\n- A: A semicolon must join two independent clauses, but the list that follows is not an independent clause.\n- B: A comma here makes the list read as if it were part of the phrase \"sequence of steps\" and blurs where the list begins.\n- C: With no punctuation, the list runs directly into \"steps,\" producing an ungrammatical sequence of words.",
+ "passage": "Tapa is a cloth made from tree bark on many Pacific islands. Making it requires a strict sequence of ______ peeling the inner bark from paper mulberry trees, soaking the strips in water, beating them thin with wooden mallets, and joining several strips into one large sheet.",
  "_meta": {
-  "rule": "colon introducing an elaborating list after an independent clause",
-  "anchor": "telephone switchboard operators — procedure manuals",
+  "rule": "colon after a complete clause to introduce a list",
+  "anchor": "tapa barkcloth — peel inner bark of paper mulberry, soak, beat with mallets, join strips into sheets (Wikipedia: Tapa cloth; Peabody Museum, Harvard)",
   "distractors": {
    "A": "semicolon before a non-clause",
-   "B": "comma too weak to introduce the list",
-   "C": "missing boundary"
+   "B": "comma blurs the list",
+   "C": "no punctuation"
   }
  },
  "id": 1119,

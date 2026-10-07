@@ -1,53 +1,49 @@
 {
  "id": 21,
- "question": "The table shows the balance, in dollars, of a savings account at the end of each of the first four quarters after the account was opened. Interest is compounded quarterly. Which of the following equations represents the balance $B$, in dollars, $t$ years after the account was opened?",
+ "question": "The table shows the balance, in dollars, of a savings account at the end of each of the first three years after the account was opened. The balance increased by the same percentage each year. Which equation represents the balance $B$, in dollars, $m$ months after the account was opened?",
  "questionTable": {
   "headers": [
-   "Quarter",
+   "Year",
    "Balance (dollars)"
   ],
   "rows": [
    [
     "$1$",
-    "$8{,}120.00$"
+    "$8{,}400$"
    ],
    [
     "$2$",
-    "$8{,}241.80$"
+    "$8{,}820$"
    ],
    [
     "$3$",
-    "$8{,}365.43$"
-   ],
-   [
-    "$4$",
-    "$8{,}490.91$"
+    "$9{,}261$"
    ]
   ]
  },
  "choices": [
   {
    "id": "A",
-   "text": "$B = 8000(1.015)^{t}$"
+   "text": "$B = 8{,}000(1.05)^{\\frac{m}{12}}$"
   },
   {
    "id": "B",
-   "text": "$B = 8000(1.06)^{t}$"
+   "text": "$B = 8{,}000(1.05)^{12m}$"
   },
   {
    "id": "C",
-   "text": "$B = 8000(1.06)^{4t}$"
+   "text": "$B = 8{,}400(1.05)^{\\frac{m}{12}}$"
   },
   {
    "id": "D",
-   "text": "$B = 8000(1.015)^{4t}$"
+   "text": "$B = 8{,}400(1.05)^{12m}$"
   }
  ],
  "distractorNotes": {
-  "A": "uses the quarterly factor 1.015 but applies it once per year instead of four times",
-  "B": "compounds a 6% annual rate once per year, which does not match the quarterly balances in the table",
-  "C": "applies the annual factor 1.06 in each of the 4t quarters"
+  "B": "finds the right starting balance but multiplies m by 12, treating each month as 12 years",
+  "C": "uses the year-1 balance as the starting balance",
+  "D": "uses the year-1 balance as the starting balance and multiplies m by 12"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Compound Interest**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** Each quarter multiplies the balance by $\\frac{8241.80}{8120} = 1.015$, and the starting balance was $\\frac{8120}{1.015} = 8000$. In $t$ years there are $4t$ quarters, so $B = 8000(1.015)^{4t}$.\n\n**The Full Solution:**\nStep 1: Divide consecutive balances: $\\frac{8241.80}{8120} = 1.015$ and $\\frac{8365.43}{8241.80} \\approx 1.015$, so the balance is multiplied by $1.015$ each quarter.\nStep 2: Find the starting balance: $\\frac{8120}{1.015} = 8000$ dollars.\nStep 3: There are $4$ quarters in a year, so after $t$ years the balance is $B = 8000(1.015)^{4t}$. Check at $t = 1$: $8000(1.015)^{4} \\approx 8490.91$, the balance at the end of quarter $4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($B = 8000(1.015)^{t}$): applies the quarterly factor once per year. At $t = 1$ it gives $8{,}120$, the balance after one quarter.\n* Choice B ($B = 8000(1.06)^{t}$): compounds $6\\%$ once per year, giving $8{,}480$ after one year instead of $8{,}490.91$.\n* Choice C ($B = 8000(1.06)^{4t}$): applies the annual factor every quarter, giving about $10{,}099.82$ after one year.\n\n**Test Day Takeaway:** Find the growth factor from the ratio of consecutive table values, then make the exponent count the number of those periods in the time unit the question uses."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Compound Interest**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Each year the balance is multiplied by $\\frac{8{,}820}{8{,}400} = 1.05$, so the starting balance was $\\frac{8{,}400}{1.05} = 8{,}000$. In $m$ months there are $\\frac{m}{12}$ years, so $B = 8{,}000(1.05)^{\\frac{m}{12}}$.\n\n**The Full Solution:**\nStep 1: Find the yearly growth factor: $\\frac{8{,}820}{8{,}400} = 1.05$ and $\\frac{9{,}261}{8{,}820} = 1.05$.\nStep 2: The table starts at the end of year $1$, so the balance when the account was opened was $\\frac{8{,}400}{1.05} = 8{,}000$.\nStep 3: In $m$ months there are $\\frac{m}{12}$ years, so $B = 8{,}000(1.05)^{\\frac{m}{12}}$. Check: $m = 24$ gives $8{,}000(1.05)^{2} = 8{,}820$, the year-2 balance ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($B = 8{,}000(1.05)^{12m}$): multiplies $m$ by $12$, so each month counts as $12$ years of growth.\n* Choice C ($B = 8{,}400(1.05)^{\\frac{m}{12}}$): uses the year-1 balance as the starting balance; at $m = 0$ it gives $8{,}400$, but the account had grown to $8{,}400$ only after one year.\n* Choice D ($B = 8{,}400(1.05)^{12m}$): makes both errors, the wrong starting balance and the wrong exponent.\n\n**Test Day Takeaway:** When time is measured in months but the growth happens yearly, the exponent is $\\frac{m}{12}$; and a table that starts at year $1$ does not show the starting value."
 }

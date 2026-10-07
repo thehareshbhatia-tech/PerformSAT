@@ -6,27 +6,33 @@
   "domain": "standard-english-conventions",
   "skill": "boundaries",
   "module": 2,
-  "passage": "Because the pen shells that yield the raw filaments were gathered one by one by free divers, and because each shell furnished only a wisp of usable ______ a single pair of knitted sea-silk gloves could require the byssus of some 150 shells.",
+  "passage": "Because eucalyptus leaves supply very little energy, and because a koala needs many hours to digest the tough, fibrous ______ the animal sleeps or rests for most of the day, often 18 to 22 hours.",
   "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
   "choices": [
     {
       "id": "A",
-      "text": "fiber,"
+      "text": "foliage,"
     },
     {
       "id": "B",
-      "text": "fiber"
+      "text": "foliage"
     },
     {
       "id": "C",
-      "text": "fiber;"
+      "text": "foliage;"
     },
     {
       "id": "D",
-      "text": "fiber:"
+      "text": "foliage:"
     }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** The sentence opens with a pair of dependent \"Because\" clauses, and the boundary between an introductory dependent structure and the main clause is a comma.\n\n**The Full Solution:**\n- Everything before the blank hangs on \"Because... and because...\" — neither clause can stand alone.\n- The main clause follows: \"a single pair of knitted sea-silk gloves could require the byssus of some 150 shells.\"\n- A comma is the conventional mark that closes the introductory subordination and opens the main assertion.\n\n**Why the other choices are wrong:**\n- B: Without the comma, the long double introduction collides with the main clause, leaving the sentence's turning point unmarked.\n- C: A semicolon requires an independent clause on each side; the \"Because\" clauses are not independent.\n- D: A colon must follow a complete introducing statement, and the subordinate clauses do not form one.",
-  "_meta": {}
+  "explanation": "**Choice A is correct.** The sentence opens with a long dependent clause (\"Because eucalyptus leaves supply very little energy, and because a koala needs many hours to digest the tough, fibrous foliage\"), and a comma marks where that introductory clause ends and the main clause (\"the animal sleeps or rests for most of the day\") begins.\n\n**The Full Solution:**\n- Both \"because\" clauses are dependent; neither can stand alone.\n- The main clause starts with \"the animal sleeps.\"\n- A comma is the conventional mark between an introductory dependent clause and the main clause.\n\n**Why the other choices are wrong:**\n- B: Without a comma, the long introductory clause runs straight into the main clause, blurring where one ends and the other begins.\n- C: A semicolon must join two independent clauses, and the \"because\" clauses are dependent.\n- D: A colon must follow an independent clause, and the words before the blank are not one.",
+  "_meta": {
+    "anchor": "Koalas: low-energy, fibrous eucalyptus diet -> 18-22 hours of sleep — comma after long introductory Because-clause",
+    "sources": [
+      "https://www.guinnessworldrecords.com/world-records/84855-sleepiest-marsupial",
+      "https://savethekoala.com/about-koalas/koalas-diet-digestion/"
+    ]
+  }
 }

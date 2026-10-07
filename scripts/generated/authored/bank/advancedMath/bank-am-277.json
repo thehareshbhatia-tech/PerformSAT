@@ -1,29 +1,29 @@
 {
  "id": "bank-am-277",
- "question": "An account earns $9\\%$ annual interest, compounded annually, and no deposits or withdrawals are made. Which of the following is closest to the number of years it takes for the value of the account to triple?",
+ "question": "$B(t) = 2{,}000(1.10)^{t}$\nThe function $B$ gives the balance, in dollars, of a savings account $t$ years after it was opened. By what percentage does the balance increase every $2$ years?",
  "choices": [
   {
    "id": "A",
-   "text": "$8$"
+   "text": "$10\\%$"
   },
   {
    "id": "B",
-   "text": "$13$"
+   "text": "$20\\%$"
   },
   {
    "id": "C",
-   "text": "$22$"
+   "text": "$21\\%$"
   },
   {
    "id": "D",
-   "text": "$33$"
+   "text": "$121\\%$"
   }
  ],
  "distractorNotes": {
-  "A": "finds the time to double rather than to triple",
-  "C": "computes $\\dfrac{200}{9}$, treating the growth as simple interest",
-  "D": "computes $\\dfrac{300}{9}$, dividing the target percent by the rate"
+  "A": "gives the increase for one year",
+  "B": "doubles the yearly rate instead of applying it twice",
+  "D": "reports the 2-year growth factor 1.21 as a percentage"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Compound Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Solve $(1.09)^t = 3$. Since $(1.09)^{12} \\approx 2.81$ and $(1.09)^{13} \\approx 3.07$, the value first reaches triple near $t = 13$.\n\n**The Full Solution:**\nStep 1: Let $P$ be the starting value. After $t$ years the account holds $P(1.09)^t$, and tripling means $P(1.09)^t = 3P$, so $(1.09)^t = 3$.\nStep 2: Test values: $(1.09)^{10} \\approx 2.37$, $(1.09)^{12} \\approx 2.81$, $(1.09)^{13} \\approx 3.07$.\nStep 3: The multiplier passes $3$ between $t = 12$ and $t = 13$, and $3.07$ is closer to $3$ than $2.81$ is, so $13$ years is closest. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): $(1.09)^8 \\approx 1.99$ — that is the doubling time, not the tripling time.\n* Choice C ($22$): this divides $200$ by $9$, which would be right only for simple interest on the original $200\\%$ gain.\n* Choice D ($33$): this divides $300$ by $9$, mistaking the target multiple for a percent to be divided by the rate.\n\n**Test Day Takeaway:** \"Doubles/triples\" means the MULTIPLIER hits $2$ or $3$; set $(1 + r)^t$ equal to that number and test exponents rather than dividing percents."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Compound Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Two years multiply the balance by $(1.10)^{2} = 1.21$, an increase of $21\\%$.\n\n**The Full Solution:**\nStep 1: Each year the balance is multiplied by $1.10$.\nStep 2: Over $2$ years it is multiplied by $(1.10)^{2} = 1.21$, so $B(t) = 2{,}000(1.21)^{\\frac{t}{2}}$.\nStep 3: A factor of $1.21$ is an increase of $21\\%$. Check: $B(0) = 2{,}000$ and $B(2) = 2{,}000(1.21) = 2{,}420$, and $\\frac{420}{2{,}000} = 0.21$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10\\%$): this is the increase for one year, not for two.\n* Choice B ($20\\%$): adds $10\\%$ twice; the second year's $10\\%$ is taken on the larger balance, so the total is more than $20\\%$.\n* Choice D ($121\\%$): treats the factor $1.21$ as the percentage; a factor of $1.21$ means $121\\%$ OF the starting balance, an increase of $21\\%$.\n\n**Test Day Takeaway:** To change the period of an exponential model, raise the factor to the number of years in the new period."
 }

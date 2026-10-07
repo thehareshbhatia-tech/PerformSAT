@@ -1,29 +1,29 @@
 {
   "id": "bank-alg-076",
-  "question": "$g(x) = \\frac{\\sqrt{x + 6}}{x - k}$\nIn the given function, $k$ is a constant greater than $-6$. Which of the following describes all values of $x$ for which $g(x)$ is a real number?",
+  "question": "$f(x) = \\sqrt{x + 6}$\nThe function $f$ is defined by the given equation. For what value of $x$ does $f(x) = x$?",
   "choices": [
     {
       "id": "A",
-      "text": "$x \\ge -6$"
+      "text": "$-3$"
     },
     {
       "id": "B",
-      "text": "$x > -6$ and $x \\ne k$"
+      "text": "$-2$"
     },
     {
       "id": "C",
-      "text": "$x \\ge -6$ and $x \\ne k$"
+      "text": "$2$"
     },
     {
       "id": "D",
-      "text": "$x \\ne -6$ and $x \\ne k$"
+      "text": "$3$"
     }
   ],
   "distractorNotes": {
-    "A": "handles the square root but forgets that the denominator cannot be zero",
-    "B": "excludes -6 even though the square root of 0 is a real number",
-    "D": "treats the square root like a denominator, excluding only x = -6 and allowing values below -6, where the square root is not real"
+    "A": "takes the root -3 from factoring x^2 - x - 6 with the signs reversed, (x + 3)(x - 2)",
+    "B": "keeps the extraneous solution from squaring without checking it in the original equation",
+    "C": "takes the root 2 from the same sign error in factoring, (x + 3)(x - 2)"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Domain with Radical and Denominator**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The square root needs $x + 6 \\ge 0$, so $x \\ge -6$. The denominator needs $x \\ne k$. Both conditions apply.\n\n**The Full Solution:**\nStep 1: The square root of a negative number is not real, so $x + 6 \\ge 0$, which gives $x \\ge -6$. The value $x = -6$ is allowed, since $\\sqrt{0} = 0$.\nStep 2: The denominator cannot be $0$, so $x - k \\ne 0$, which gives $x \\ne k$. Since $k > -6$, this excludes a value inside the interval $x \\ge -6$.\nStep 3: Combine: $x \\ge -6$ and $x \\ne k$. Check: at $x = -6$, $g(-6) = \\frac{0}{-6 - k}$, and $-6 - k \\ne 0$ because $k > -6$, so $g(-6) = 0$ is real ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x \\ge -6$): gets the square root condition but forgets that $x = k$ makes the denominator $0$.\n* Choice B ($x > -6$ and $x \\ne k$): excludes $-6$, but $\\sqrt{0} = 0$, and the numerator may be $0$.\n* Choice D ($x \\ne -6$ and $x \\ne k$): treats the radicand like a denominator, allowing values such as $x = -10$, where $\\sqrt{-4}$ is not real.\n\n**Test Day Takeaway:** Collect one condition per restriction: radicands must be at least $0$ (equality allowed), and denominators must not equal $0$ (equality excluded). Then intersect them."
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Radical Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Squaring $\\sqrt{x + 6} = x$ gives $x^{2} - x - 6 = 0$, so $x = 3$ or $x = -2$. Only $x = 3$ checks, because $\\sqrt{4} = 2$, not $-2$.\n\n**The Full Solution:**\nStep 1: Set $f(x) = x$: $\\sqrt{x + 6} = x$. Square both sides: $x + 6 = x^{2}$.\nStep 2: Rearrange and factor: $x^{2} - x - 6 = 0$, so $(x - 3)(x + 2) = 0$ and $x = 3$ or $x = -2$.\nStep 3: Check each value in the original equation. For $x = 3$: $\\sqrt{9} = 3$ ✓. For $x = -2$: $\\sqrt{4} = 2 \\neq -2$, so $-2$ is extraneous. The only value is $x = 3$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): comes from factoring $x^{2} - x - 6$ as $(x + 3)(x - 2)$, which expands to $x^{2} + x - 6$.\n* Choice B ($-2$): is a solution of the squared equation, but a square root is never negative, so $\\sqrt{4} = 2$ does not equal $-2$.\n* Choice C ($2$): comes from the same sign error in factoring, $(x + 3)(x - 2)$.\n\n**Test Day Takeaway:** Squaring both sides of an equation can create extra solutions; substitute every candidate back into the original equation with the square root."
 }

@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "type": "multiple-choice",
- "passage": "The gopher tortoise digs burrows up to twelve meters long in the sandy soils of the southeastern United States. More than three hundred other species, including indigo snakes, gopher frogs, and many insects, take refuge in these tunnels during wildfires and winter cold. ______ conservationists rank the tortoise among the region's most important animals: protecting it protects the many species that depend on its burrows.",
+ "passage": "Mangrove trees grow along tropical coasts in salty water that would kill most plants. Their dense tangles of roots slow incoming waves and trap sediment that the tides would otherwise carry away. ______ many coastal communities now plant mangroves as a living barrier against storm surges and erosion.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,8 +27,8 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The final sentence states a consequence of what came before: because hundreds of species shelter in the tortoise's burrows, conservationists rank the tortoise as critically important. \"For this reason\" is the transition that marks a conclusion drawn from the preceding facts.\n\n**The Full Solution:**\n- Map the logic: fact (many species depend on the burrows) leads to judgment (the tortoise is a conservation priority).\n- The colon in the final sentence even restates the causal link — protecting the tortoise protects its dependents — confirming that the blank must signal cause and effect.\n\n**Why the other choices are wrong:**\n- A: \"However\" requires a reversal, but the conservationists' ranking follows from the burrow facts rather than opposing them.\n- B: \"For example\" would make the ranking an illustration of the shelter-seeking species, which it is not — it is a response to them.\n- D: \"Meanwhile\" sets two developments side by side in time; the sentences here are linked by logic, not simultaneity.",
+ "explanation": "**Choice C is correct.** The planting described in the last sentence is a consequence of the facts before it: because mangrove roots slow waves and hold sediment in place, communities plant mangroves for protection. \"For this reason\" signals exactly that cause-and-effect link.\n\n**The Full Solution:**\n- The second sentence gives the cause: the roots weaken waves and keep sediment from washing away.\n- The final sentence gives a result that follows from it: communities use mangroves as a barrier against storm surges and erosion.\n- A cause followed by its consequence calls for a causal transition.\n\n**Why the other choices are wrong:**\n- A: \"However\" signals a contrast, but planting mangroves agrees with, rather than contradicts, the protective role just described.\n- B: \"For example\" would introduce an instance of the previous claim, but planting by communities is not an example of roots slowing waves; it is a response to that fact.\n- D: \"Meanwhile\" signals something happening at the same time, which misses the logical link between the roots' effects and the planting.",
  "_meta": {
-  "anchor": "Gopher tortoise burrows as keystone shelter — consequence transition"
+  "anchor": "Mangrove roots dissipate wave energy and trap sediment; planted for coastal protection (https://en.wikipedia.org/wiki/Mangrove_forest; https://www.nature.com/articles/s41598-020-61136-6) — consequence transition"
  }
 }

@@ -1,53 +1,48 @@
 {
   "id": "bank-ps-030",
-  "question": "The table shows the number of credits and the grade points a student earned in each of three courses. The student's grade point average for these courses, weighted by credits, is $3.32$. What is the value of $x$?",
+  "question": "The table shows the number of students in each of two classes and the mean score of each class on a test. The mean score of all $30$ students is $76$. What is the value of $x$?",
   "questionTable": {
     "headers": [
-      "Course",
-      "Credits",
-      "Grade points"
+      "Class",
+      "Number of students",
+      "Mean score"
     ],
     "rows": [
       [
-        "Biology",
-        "4",
-        "3.5"
+        "A",
+        "20",
+        "72"
       ],
       [
-        "Chemistry",
-        "3",
+        "B",
+        "10",
         "x"
-      ],
-      [
-        "Statistics",
-        "3",
-        "3.0"
       ]
     ]
   },
   "choices": [
     {
       "id": "A",
-      "text": "$2.55$"
+      "text": "$28$"
     },
     {
       "id": "B",
-      "text": "$3.32$"
+      "text": "$76$"
     },
     {
       "id": "C",
-      "text": "$3.4$"
+      "text": "$80$"
     },
     {
       "id": "D",
-      "text": "$3.46$"
+      "text": "$84$"
     }
   ],
   "distractorNotes": {
-    "A": "divides the missing $10.2$ weighted points by $4$ (Biology's credits) instead of by Chemistry's $3$ credits.",
-    "B": "assumes the unknown course simply equals the overall average; with unequal weights and unequal grades, it does not.",
-    "D": "ignores the credits and solves $\\frac{3.5 + x + 3.0}{3} = 3.32$, which treats all three courses as equally weighted."
+    "A": "divides class B's total of $840$ points by all $30$ students instead of by the $10$ students in class B.",
+    "B": "assumes class B's mean equals the overall mean; class A's mean is below $76$, so class B's must be above it.",
+    "C": "treats the classes as equal in size and solves $\\frac{72 + x}{2} = 76$."
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Weighted Average by Credits**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Total credits $= 10$, so total weighted points $= 10 \\times 3.32 = 33.2$. Biology and Statistics contribute $4(3.5) + 3(3.0) = 23$, so $3x = 10.2$ and $x = 3.4$.\n\n**The Full Solution:**\nStep 1: A credit-weighted GPA is $\\frac{\\sum(\\text{credits} \\times \\text{grade points})}{\\sum \\text{credits}}$. Total credits $= 4 + 3 + 3 = 10$.\nStep 2: Set up the equation: $\\frac{4(3.5) + 3x + 3(3.0)}{10} = 3.32$, so $14 + 3x + 9 = 33.2$ and $3x = 10.2$.\nStep 3: $x = 3.4$. Check: $\\frac{14 + 10.2 + 9}{10} = \\frac{33.2}{10} = 3.32$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.55$): divides the missing $10.2$ weighted points by $4$ (Biology's credits) instead of by Chemistry's $3$ credits.\n* Choice B ($3.32$): assumes the unknown course simply equals the overall average; with unequal weights and unequal grades, it does not.\n* Choice D ($3.46$): ignores the credits and solves $\\frac{3.5 + x + 3.0}{3} = 3.32$, which treats all three courses as equally weighted.\n\n**Test Day Takeaway:** When the weighted mean is given and one value is missing, multiply the mean by the total weight to get the total, subtract the known contributions, and divide by the missing value's OWN weight."
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Weighted Combined Mean**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** All $30$ scores total $30 \\times 76 = 2{,}280$, and class A's scores total $20 \\times 72 = 1{,}440$, so $x = \\frac{2{,}280 - 1{,}440}{10} = 84$.\n\n**The Full Solution:**\nStep 1: Convert each mean to a total: class A scored $20 \\times 72 = 1{,}440$ points, class B scored $10x$ points, and all $30$ students scored $30 \\times 76 = 2{,}280$ points.\nStep 2: So $1{,}440 + 10x = 2{,}280$, which gives $10x = 840$ and $x = 84$.\nStep 3: Check: $\\frac{1{,}440 + 10(84)}{30} = \\frac{2{,}280}{30} = 76$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($28$): divides class B's total of $840$ points by all $30$ students instead of by the $10$ students in class B.\n* Choice B ($76$): assumes class B's mean equals the overall mean; class A's mean is below $76$, so class B's must be above it.\n* Choice C ($80$): treats the classes as equal in size and solves $\\frac{72 + x}{2} = 76$.\n\n**Test Day Takeaway:** A combined mean is weighted by the group sizes; solve with totals, not by averaging the group means."
 }

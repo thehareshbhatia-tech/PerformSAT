@@ -6,7 +6,7 @@
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-textual",
   "module": 1,
-  "passage": "Many households intend to save money and simply fail to follow through. Working with a bank, a team of economists enrolled clients who had recently opened savings accounts tied to a self-chosen goal — a roof repair, a school fee — and sent a randomly selected group of them monthly text-message reminders. The researchers hypothesize that reminders raise saving not by teaching clients anything new but by bringing the neglected goal to mind at moments when a deposit is possible.",
+  "passage": "Many households intend to save money and simply fail to follow through. Working with a bank, a team of economists studied clients who had recently opened savings accounts tied to a goal they chose, such as a roof repair or a school fee. The team sent monthly text-message reminders to a randomly selected group of these clients. The researchers hypothesize that reminders raise saving not by teaching clients anything new but by bringing the neglected goal to mind at moments when a deposit is possible.",
   "question": "Which finding from the study, if true, would most directly support the researchers' hypothesis?",
   "choices": [
     {
@@ -19,11 +19,11 @@
     },
     {
       "id": "C",
-      "text": "Clients who opened their accounts with larger initial balances went on to save substantially more in the year that followed than other clients did, whether or not they received reminders."
+      "text": "Clients who opened their accounts with larger balances saved more over the following year, whether or not they received reminders."
     },
     {
       "id": "D",
-      "text": "Reminder messages increased deposits only among the clients who had also attended a workshop explaining how interest accumulates on savings."
+      "text": "Reminder messages increased deposits only among the clients who had also attended an earlier bank workshop explaining how interest accumulates on savings over time."
     }
   ],
   "correctAnswer": "A",

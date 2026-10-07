@@ -11,19 +11,19 @@
  "choices": [
   {
    "id": "A",
-   "text": "The speaker recalls a time when these conditions prevailed in his country and then mourns that they have since been lost."
+   "text": "The speaker recalls a time when these conditions existed in his country, then mourns their loss."
   },
   {
    "id": "B",
-   "text": "The speaker poses a series of questions about a country's future and then supplies an answer to each one."
+   "text": "The speaker asks a series of questions about a country's future, then answers each one."
   },
   {
    "id": "C",
-   "text": "The speaker describes the obstacles that stand in a country's way and then proposes a specific plan for removing each of them."
+   "text": "The speaker lists obstacles facing a country, then proposes a plan for removing each one."
   },
   {
    "id": "D",
-   "text": "The speaker names one condition after another and then asks that his country be awakened into the state those conditions define."
+   "text": "The speaker names one condition after another, then asks that his country awake into the state they describe."
   }
  ],
  "correctAnswer": "D",

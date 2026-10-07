@@ -11,19 +11,19 @@
  "choices": [
   {
    "id": "A",
-   "text": "To argue that city governments exceeded their legitimate authority when they compelled independent street sellers to rent regulated indoor stalls."
+   "text": "To argue that city governments overstepped their authority by forcing street sellers to rent regulated indoor stalls."
   },
   {
    "id": "B",
-   "text": "To describe the structural innovations in cast iron and glass that first allowed nineteenth-century builders to roof very large open spaces without any interior supports."
+   "text": "To describe the cast-iron and glass innovations that let builders roof large spaces without interior supports."
   },
   {
    "id": "C",
-   "text": "To explain how the disorder of open-air markets led cities to build covered halls that ended up transforming the urban food trade itself."
+   "text": "To explain how disorderly open-air markets led cities to build covered halls that transformed the urban food trade."
   },
   {
    "id": "D",
-   "text": "To contrast the crowded food markets of nineteenth-century cities with the smaller and more orderly weekly markets of the countryside."
+   "text": "To contrast the crowded food markets of cities with the smaller, more orderly weekly markets of the countryside."
   }
  ],
  "correctAnswer": "C",

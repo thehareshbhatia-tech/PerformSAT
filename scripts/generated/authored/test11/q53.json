@@ -8,40 +8,41 @@
  "choices": [
   {
    "id": "A",
-   "text": "Campbell, who homesteaded in Dakota Territory in 1879, became the best-known promoter of dry farming on the Great Plains."
+   "text": "Rachel Carson, who worked for the US Fish and Wildlife Service, was a marine biologist."
   },
   {
    "id": "B",
-   "text": "The Dry Farming Congress, founded in Denver in 1907 to promote Campbell's methods, was soon joined by agricultural scientists."
+   "text": "Published in 1962, Silent Spring documented harm to wildlife caused by the spraying of pesticides such as DDT."
   },
   {
    "id": "C",
-   "text": "Campbell's Soil Culture Manual (1902) taught deep fall plowing, subsurface packing, and summer fallowing."
+   "text": "The United States banned DDT for most uses in 1972, ten years after Silent Spring was published."
   },
   {
    "id": "D",
-   "text": "Campbell saw his methods as the key to family farming on the Plains, but agricultural scientists questioned them."
+   "text": "Carson argued against careless pesticide use, but the chemical industry attacked her conclusions."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** A point of disagreement requires both parties on the page, taking opposed positions on the same thing — and D delivers the collision: Campbell's confidence in his methods set directly against the scientists' doubts about those same methods.\n\n**The Full Solution:**\n- The goal names two sides: Campbell and the agricultural scientists.\n- The notes give each side a stance on the same subject — Campbell's tillage methods: he believed they would make family farming possible on the Plains; the scientists questioned them.\n- D pairs those stances in one sentence with an adversative \"but,\" which is precisely how a disagreement is emphasized.\n\n**Why the other choices are wrong:**\n- A: It introduces Campbell's background and fame and says nothing of what anyone disputed.\n- B: It reports that scientists joined the Congress but not that they questioned anything, so no disagreement appears.\n- C: It presents Campbell's teaching alone; with no answering position, no disagreement appears.",
+ "explanation": "**Choice D is correct.** The goal is to emphasize a disagreement between Carson and the chemical industry, and D sets the two sides against each other: Carson argued against careless pesticide use, \"but\" the industry attacked her conclusions.\n\n**The Full Solution:**\n- A disagreement needs both positions in view.\n- The fourth note gives Carson's position; the fifth gives the industry's response.\n- D joins them with \"but,\" which makes the conflict the focus of the sentence.\n\n**Why the other choices are wrong:**\n- A: It describes Carson's job and mentions no disagreement.\n- B: It summarizes what Silent Spring documented but leaves out the industry's response.\n- C: It reports a later government action and does not mention the chemical industry at all.",
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "Hardy Webster Campbell homesteaded in Dakota Territory in 1879 and became the best-known promoter of dry farming on the Great Plains.",
-   "His Soil Culture Manual (1902) taught deep fall plowing, subsurface packing, and summer fallowing.",
-   "Campbell believed his system would make family farming possible on the Plains.",
-   "In 1907, the Dry Farming Congress was founded in Denver to promote his methods.",
-   "Agricultural scientists who joined the Congress began questioning those methods."
+   "Rachel Carson was a marine biologist who worked for the US Fish and Wildlife Service.",
+   "Her book Silent Spring was published in 1962.",
+   "It documented harm to wildlife caused by the widespread spraying of pesticides such as DDT.",
+   "Carson argued against the careless use of such chemicals.",
+   "Representatives of the chemical industry attacked the book and Carson's conclusions.",
+   "The United States banned DDT for most uses in 1972."
   ],
-  "goal": "The student wants to emphasize a point of disagreement between Campbell and agricultural scientists."
+  "goal": "The student wants to emphasize a point of disagreement between Carson and the chemical industry."
  },
  "_meta": {
-  "anchor": "dry farming — Hardy Webster Campbell (Encyclopedia of the Great Plains: homesteaded Dakota Territory 1879; Soil Culture Manual 1902; Dry Farming Congress, Denver 1907, where agricultural scientists questioned his methods)",
+  "anchor": "Rachel Carson, Silent Spring (1962) — industry attacks, DDT ban 1972 (Wikipedia: Silent Spring; History.com; Britannica)",
   "distractors": {
-   "A": "background without dispute",
-   "B": "scientists present, dispute absent",
-   "C": "one side only"
+   "A": "biography only",
+   "B": "one side only",
+   "C": "outcome, no disagreement"
   }
  },
  "id": 1153,

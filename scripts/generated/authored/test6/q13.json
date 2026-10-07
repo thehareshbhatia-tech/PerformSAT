@@ -6,46 +6,38 @@
   "band": 3,
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-quantitative",
-  "passage": "At repair cafés, volunteers with tools and spare parts meet visitors who bring in broken household items — lamps, toasters, bicycles, torn clothing — and attempt fixes on the spot, free of charge. Coordinators of one city's five cafés, who log every item brought in over a season, have claimed that the events do more than raise awareness: at every location, they say, a clear majority of the items carried in go home working again.",
+  "passage": "At Repair Cafés, volunteers try to fix the broken items that visitors bring in, from kitchen knives to laptops. The Repair Café International Foundation gathers records of these repairs from cafés in several countries. Many repair advocates argue that an item's chances depend heavily on what it is. Simple tools, clothing, and bicycles, they say, are usually fixed, but electronic devices are fixed far less often.",
   "questionTable": {
     "type": "table",
-    "caption": "Items brought to five repair cafés over one season and repair outcomes",
+    "caption": "Share of repairs that succeeded for six commonly repaired items at Repair Cafés, 2021",
     "headers": [
-      "Café",
-      "Items brought in",
-      "Items repaired on site",
-      "Share repaired"
+      "Item",
+      "Share of repairs that succeeded"
     ],
     "rows": [
       [
-        "Northside",
-        "214",
-        "132",
-        "62%"
+        "Knife or scissors",
+        "98%"
       ],
       [
-        "Riverfront",
-        "183",
-        "104",
-        "57%"
+        "Trousers",
+        "96%"
       ],
       [
-        "Old Market",
-        "246",
-        "153",
-        "62%"
+        "Bicycle",
+        "85%"
       ],
       [
-        "Garden District",
-        "158",
-        "87",
-        "55%"
+        "Laptop",
+        "46%"
       ],
       [
-        "Union Hall",
-        "201",
-        "119",
-        "59%"
+        "Printer",
+        "36%"
+      ],
+      [
+        "Television",
+        "33%"
       ]
     ]
   },
@@ -53,21 +45,21 @@
   "choices": [
     {
       "id": "A",
-      "text": "Old Market received 246 items over the season, more than any other café in the city."
+      "text": "Knives and scissors were repaired successfully 98% of the time, the highest share in the table."
     },
     {
       "id": "B",
-      "text": "Northside and Old Market each repaired 62% of the items that visitors brought in over the season, the highest share recorded at any of the city's five cafés."
+      "text": "Of the items in the table, knives and scissors, trousers, and bicycles were repaired successfully 98%, 96%, and 85% of the time."
     },
     {
       "id": "C",
-      "text": "The five cafés together received more than 1,000 items over the course of the season."
+      "text": "Laptops were repaired successfully more often than printers were, 46% of the time compared with 36%."
     },
     {
       "id": "D",
-      "text": "The share of items repaired on site exceeded half at every café, ranging from 55% at Garden District to 62% at Northside and Old Market."
+      "text": "Every non-electronic item was fixed at least 85% of the time, but no electronic device was fixed even half the time."
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The claim is about every location — \"at every location... a clear majority\" — so supporting it takes evidence spanning all five rows, and D provides exactly that: each café's repair share topped 50%, from 55% up to 62%.\n\n**The Full Solution:**\n- Restate the claim's scope: a majority of items repaired at each of the five cafés.\n- Only a choice that covers all five cafés can establish an at-every-location claim; D cites the full range and confirms the majority threshold everywhere.\n\n**Why the other choices are wrong:**\n- A: A single café's intake says nothing about repair outcomes anywhere.\n- B: Citing only the two best-performing cafés cannot establish a claim about all five.\n- C: The combined intake is volume, not outcome — it never touches the share repaired."
+  "explanation": "**Choice D is correct.** The claim contrasts two groups of items: simple tools, clothing, and bicycles are usually fixed, while electronic devices are fixed far less often. Choice D covers both groups: every non-electronic item succeeded at least 85% of the time, and no electronic device reached 50%.\n\n**The Full Solution:**\n- Break the claim into its parts: (1) tools, clothing, and bicycles are usually fixed; (2) electronic devices are fixed far less often.\n- Sort the table into the two groups: knife or scissors (98%), trousers (96%), and bicycle (85%) against laptop (46%), printer (36%), and television (33%).\n- Only a choice that reports both groups can show the gap the claim describes, and choice D does.\n\n**Why the other choices are wrong:**\n- A: It reports one item's success rate and says nothing about electronic devices, so it cannot show the contrast.\n- B: It covers only the non-electronic items; without the electronic devices beside them, there is no comparison.\n- C: It compares two electronic devices with each other, which does not address the difference between the two groups."
 }

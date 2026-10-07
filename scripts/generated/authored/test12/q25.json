@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 1,
- "passage": "A harpsichord plucks its strings, and each note sounds at nearly the same loudness however firmly the key is pressed. The early piano struck its strings with hammers instead, so a player's touch could make each note soft or loud. ______ composers writing for the piano could call for crescendos, gradual swells in volume that a harpsichord cannot produce through touch.",
+ "passage": "In the hot summer of 1858, sewage in London's Thames gave off a stench so strong that lawmakers in the riverside Houses of Parliament soaked their curtains in chloride of lime. ______ Parliament passed a law that August allowing London's board of works to borrow £3 million for a new sewer system.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,5 +27,11 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The hammer action gave players control over loudness, and the final sentence reports what FOLLOWED from that new capability — composers could now call for gradual swells in volume — so the cause-and-effect link \"As a result\" fits.\n\n**The Full Solution:**\n- The harpsichord plucks its strings, so each note sounds at nearly the same loudness whatever the player does.\n- The early piano's hammers put loudness under the player's control: touch could make each note soft or loud.\n- The last sentence gives the consequence of that control: crescendos became something composers could ask for. A consequence takes a result transition.\n\n**Why the other choices are wrong:**\n- A: \"For example\" would make the composers' crescendos an illustration of the hammer mechanism, but they are an outcome of it, not an instance.\n- C: \"Even so\" signals a result that arrives despite what came before, but the crescendos follow from the new instrument rather than defying it.\n- D: \"Until then\" points to the time before the change, yet the sentence describes what composers could do after the new instrument existed."
+ "explanation": "**Choice B is correct.** The first sentence describes a cause: sewage in the Thames gave off a stench so strong that lawmakers beside the river soaked their curtains in chloride of lime. The final sentence describes the effect: Parliament passed a law funding a new sewer system. \"As a result\" signals that cause-and-effect relationship.\n\n**The Full Solution:**\n- Cause: sewage in the Thames \"gave off a stench so strong\" that lawmakers \"soaked their curtains in chloride of lime.\"\n- Effect: Parliament \"passed a law that August\" to pay for \"a new sewer system.\"\n- A transition that marks a consequence is needed, and \"As a result\" does exactly that.\n\n**Why the other choices are wrong:**\n- A: The law is not an example of the stench; it is a consequence of it.\n- C: \"Even so\" signals that something happened despite what came before, but the law follows from the stench rather than contrasting with it.\n- D: \"Until then\" describes what was true before a turning point, but the law was passed after the stench, that August, as a response to it.",
+ "_meta": {
+  "anchor": "Great Stink of 1858: Thames sewage stench prompts Parliament to fund London's sewer system",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Great_Stink"
+  ]
+ }
 }

@@ -22,7 +22,7 @@
  "choices": [
   {
    "id": "A",
-   "text": "Camera traps, which are triggered by motion, photograph the animals that pass in front of them."
+   "text": "Camera traps, which are triggered by motion, automatically photograph the animals that pass in front of them at any hour of the day or night."
   },
   {
    "id": "B",
@@ -34,7 +34,7 @@
   },
   {
    "id": "D",
-   "text": "Unlike costly field surveys that disturb animals, camera traps run unattended for months and often record shy species such as snow leopards."
+   "text": "Unlike costly, disruptive field surveys, camera traps run unattended for months and often capture shy species such as snow leopards."
   }
  ],
  "correctAnswer": "D",

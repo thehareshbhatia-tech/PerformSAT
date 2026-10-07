@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-045",
-  "question": "The lengths, in millimeters, of adult beetles of a certain species are approximately normally distributed with a mean of $12.0$ and a standard deviation of $1.5$. Which of the following is closest to the percent of these beetles with lengths between $10.5$ and $15.0$ millimeters?",
+  "question": "$20, 24, 26, 30, 30, 34, 36, 40$\nData set A consists of the $8$ values shown. Data set B is created by removing both values of $30$ from data set A. Which of the following correctly compares data set B with data set A?",
   "choices": [
     {
       "id": "A",
-      "text": "$47.5\\%$"
+      "text": "Data set B has the same mean and a greater standard deviation."
     },
     {
       "id": "B",
-      "text": "$68\\%$"
+      "text": "Data set B has the same mean and a smaller standard deviation."
     },
     {
       "id": "C",
-      "text": "$81.5\\%$"
+      "text": "Data set B has a greater mean and the same standard deviation."
     },
     {
       "id": "D",
-      "text": "$95\\%$"
+      "text": "Data set B has a smaller mean and a smaller standard deviation."
     }
   ],
   "distractorNotes": {
-    "A": "counts only the portion above the mean (from $12.0$ to $15.0$) and omits the $34\\%$ below it.",
-    "B": "treats the interval as $\\pm 1$ standard deviation, although the upper endpoint is $2$ standard deviations above the mean.",
-    "D": "treats the interval as $\\pm 2$ standard deviations, although the lower endpoint is only $1$ standard deviation below the mean."
+    "B": "assumes removing values always reduces the spread; removing the values at the center leaves only values farther from the mean.",
+    "C": "assumes the mean rises when values are removed; the removed values equal the mean, so the mean does not change.",
+    "D": "assumes removing values lowers both measures; neither the mean nor the spread decreases here."
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Empirical Rule Application**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $10.5$ is $1$ standard deviation below the mean and $15.0$ is $2$ standard deviations above it. Add the two halves, $\\frac{68\\%}{2} = 34\\%$ below the mean and $\\frac{95\\%}{2} = 47.5\\%$ above it, for about $81.5\\%$.\n\n**The Full Solution:**\nStep 1: Express the endpoints in standard deviations: $\\frac{10.5 - 12.0}{1.5} = -1$ and $\\frac{15.0 - 12.0}{1.5} = +2$. The interval is not symmetric about the mean.\nStep 2: By the empirical rule, about $68\\%$ of values lie within $1$ standard deviation of the mean and about $95\\%$ lie within $2$. By symmetry, from the mean to $1$ standard deviation below holds $\\frac{68\\%}{2} = 34\\%$, and from the mean to $2$ standard deviations above holds $\\frac{95\\%}{2} = 47.5\\%$.\nStep 3: Add the two pieces: $34\\% + 47.5\\% = 81.5\\%$. Check: the answer must lie between $68\\%$ (a $\\pm 1$ interval) and $95\\%$ (a $\\pm 2$ interval). $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($47.5\\%$): counts only the portion above the mean (from $12.0$ to $15.0$) and omits the $34\\%$ below it.\n* Choice B ($68\\%$): treats the interval as $\\pm 1$ standard deviation, although the upper endpoint is $2$ standard deviations above the mean.\n* Choice D ($95\\%$): treats the interval as $\\pm 2$ standard deviations, although the lower endpoint is only $1$ standard deviation below the mean.\n\n**Test Day Takeaway:** Convert each endpoint to a number of standard deviations, then split the empirical-rule percents at the mean ($34\\%$, $13.5\\%$, $2.35\\%$ per band) and add the bands the interval covers."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Standard Deviation Comparison**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The mean of data set A is $30$, so removing two values equal to the mean leaves the mean at $30$. Every value that remains is at least $4$ from $30$, so the values are more spread out around the mean.\n\n**The Full Solution:**\nStep 1: Data set A: the sum is $240$, so the mean is $\\frac{240}{8} = 30$.\nStep 2: Data set B: the sum is $240 - 60 = 180$ for $6$ values, so the mean is $\\frac{180}{6} = 30$, the same as for data set A.\nStep 3: The two removed values were $0$ from the mean; the remaining distances are $10, 6, 4, 4, 6, 10$. Removing the values closest to the mean makes the typical distance from the mean larger, so the standard deviation of data set B is greater. Check: the squared distances still total $304$, now shared by $6$ values instead of $8$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (Data set B has the same mean and a smaller standard deviation.): assumes removing values always reduces the spread; removing the values at the center leaves only values farther from the mean.\n* Choice C (Data set B has a greater mean and the same standard deviation.): assumes the mean rises when values are removed; the removed values equal the mean, so the mean does not change.\n* Choice D (Data set B has a smaller mean and a smaller standard deviation.): assumes removing values lowers both measures; neither the mean nor the spread decreases here.\n\n**Test Day Takeaway:** Removing values at the mean leaves the mean unchanged and increases the standard deviation; removing values far from the mean decreases it."
 }

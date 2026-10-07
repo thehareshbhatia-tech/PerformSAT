@@ -24,11 +24,11 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The decisions belong to the weavers, plural — the sentence has already put \"generations of weavers\" at the loom — so the plural possessive \"weavers'\" is required.\n\n**The Full Solution:**\n- The possessor is plural: the town's weavers collectively, across generations.\n- A regular plural noun ending in -s forms its possessive with an apostrophe alone: weavers → weavers'.\n- \"The weavers' decisions about splitting, moisture, and tension\" correctly marks plural possession.\n\n**Why the other choices are wrong:**\n- A: \"Weaver's\" is the singular possessive, but the sentence attributes the decisions to weavers generally, not to one weaver.\n- B: \"Weavers\" is a bare plural with no possessive marking, yet the noun must possess \"decisions.\"\n- D: \"Weavers's\" is a malformed possessive — a plural already ending in -s never adds another 's.",
- "passage": "Generations of weavers in Montecristi have produced hats of a fineness no factory has matched, and it was the ______ decisions about splitting, moisture, and tension, made hour by hour at the crown, that determined how fine each hat could become.",
+ "explanation": "**Choice C is correct.** The nest belongs to the weavers, plural: the first sentence says the birds \"work together to build one huge nest,\" so the plural possessive \"weavers'\" is required.\n\n**The Full Solution:**\n- The possessor is plural: the many sociable weavers that build the nest together.\n- A regular plural noun ending in -s forms its possessive with an apostrophe alone: weavers → weavers'.\n- \"The weavers' nest\" correctly marks plural possession.\n\n**Why the other choices are wrong:**\n- A: \"Weaver's\" is the singular possessive, but the text describes many birds building the nest, not one.\n- B: \"Weavers\" is a plain plural with no possessive marking, so it cannot show that the nest belongs to the birds.\n- D: \"Weavers's\" is not a standard form; a plural ending in -s takes only an apostrophe.",
+ "passage": "Sociable weavers, small birds of southern Africa, work together to build one huge nest of twigs and dry grass in a tree. The ______ nest can contain dozens of separate chambers, and its well-insulated central chambers help the birds stay warm on freezing winter nights.",
  "_meta": {
   "rule": "plural possessive of a regular -s plural",
-  "anchor": "panama-hat weaving — Montecristi weavers' judgment",
+  "anchor": "sociable weavers — one communal grass nest, dozens of chambers, insulated central chambers (San Diego Zoo Wildlife Alliance; Frontiers in Ecology and Evolution 2020)",
   "distractors": {
    "A": "singular possessive",
    "B": "no possessive marking",

@@ -1,30 +1,30 @@
 {
   "id": 9,
-  "question": "In the $xy$-plane, the graph of $y = f(x)$ is reflected across the $y$-axis, and the resulting graph is then translated right $3$ units. Which equation defines the final graph?",
+  "question": "In the $xy$-plane, the graph of $y = f(x)$ is translated right $3$ units and up $2$ units. Which equation represents the resulting graph?",
   "choices": [
     {
       "id": "A",
-      "text": "$y = -f(x - 3)$"
+      "text": "$y = f(x + 3) + 2$"
     },
     {
       "id": "B",
-      "text": "$y = f(-x) + 3$"
+      "text": "$y = f(x - 2) + 3$"
     },
     {
       "id": "C",
-      "text": "$y = f(-x - 3)$"
+      "text": "$y = f(x - 3) - 2$"
     },
     {
       "id": "D",
-      "text": "$y = f(3 - x)$"
+      "text": "$y = f(x - 3) + 2$"
     }
   ],
   "distractorNotes": {
-    "A": "reflects across the x-axis instead of the y-axis",
-    "B": "translates up 3 instead of right 3",
-    "C": "replaces -x with -x - 3, which translates left 3"
+    "A": "replaces x with x + 3, which moves the graph left",
+    "B": "swaps the two shifts",
+    "C": "subtracts 2, which moves the graph down"
   },
   "correctAnswer": "D",
-  "hint": "After the reflection, replace $x$ with $x - 3$ in the new rule.",
-  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~25s):** Reflect: $y = f(-x)$. Then replace $x$ with $x - 3$: $y = f(-(x - 3)) = f(3 - x)$.\n\n**The Full Solution:**\nStep 1: Reflecting across the $y$-axis replaces $x$ with $-x$: $y = f(-x)$.\nStep 2: Translating that graph right $3$ units replaces $x$ with $x - 3$: $y = f(-(x - 3)) = f(3 - x)$.\nStep 3: Check: the point $(0, f(0))$ stays at $(0, f(0))$ after the reflection and moves to $(3, f(0))$; in $y = f(3 - x)$, $x = 3$ gives $f(0)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -f(x - 3)$): the negative sign outside $f$ reflects across the $x$-axis, not the $y$-axis.\n* Choice B ($y = f(-x) + 3$): adding $3$ outside $f$ moves the graph up $3$, not right $3$.\n* Choice C ($y = f(-x - 3)$): $f(-x - 3) = f(-(x + 3))$, which moves the reflected graph left $3$.\n\n**Test Day Takeaway:** After a reflection, a horizontal shift replaces $x$ itself: write $f(-(x - h))$ before simplifying."
+  "hint": "A horizontal shift changes the input; a vertical shift changes the output.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~20s):** Right $3$ replaces $x$ with $x - 3$, and up $2$ adds $2$ to the output: $y = f(x - 3) + 2$.\n\n**The Full Solution:**\nStep 1: Moving the graph right $3$ units means each output now occurs at an input $3$ greater, so replace $x$ with $x - 3$: $y = f(x - 3)$.\nStep 2: Moving the graph up $2$ units adds $2$ to every output: $y = f(x - 3) + 2$.\nStep 3: Check with a point: $(0, f(0))$ on the original graph should move to $(3, f(0) + 2)$, and substituting $x = 3$ gives $y = f(0) + 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = f(x + 3) + 2$): replacing $x$ with $x + 3$ moves the graph $3$ units left, not right.\n* Choice B ($y = f(x - 2) + 3$): this swaps the shifts, moving the graph right $2$ units and up $3$ units.\n* Choice C ($y = f(x - 3) - 2$): subtracting $2$ moves the graph down, not up.\n\n**Test Day Takeaway:** The graph of $y = f(x - h) + k$ is the graph of $y = f(x)$ moved right $h$ units and up $k$ units."
 }

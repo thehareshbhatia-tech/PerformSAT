@@ -6,7 +6,7 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 1,
- "passage": "The stone city of Great Zimbabwe, built between the eleventh and fifteenth centuries in southern Africa, was once portrayed by outsiders as an isolated curiosity. Archaeological work tells a different story. Excavations at the site have recovered Chinese celadon dishes, imported glass beads, and a coin minted at Kilwa, a port on the East African coast, while gold and ivory from the Zimbabwe plateau moved outward through such Indian Ocean ports. Far from standing apart, Great Zimbabwe operated as an inland hub in a trading web that stretched across the Indian Ocean world.",
+ "passage": "The stone city of Great Zimbabwe, built between the eleventh and fifteenth centuries in southern Africa, was once portrayed by outsiders as an isolated curiosity. Archaeological work tells a different story. Excavations at the site have recovered Chinese celadon dishes, imported glass beads, and a coin minted at Kilwa, a port on the East African coast. Gold and ivory from the Zimbabwe plateau, in turn, moved outward through such Indian Ocean ports. Far from standing apart, Great Zimbabwe operated as an inland hub in a trading web that stretched across the Indian Ocean world.",
  "question": "Which choice best states the main idea of the text?",
  "choices": [
   {
@@ -23,7 +23,7 @@
   },
   {
    "id": "D",
-   "text": "Archaeological evidence shows that Great Zimbabwe, once seen as isolated, was an active participant in long-distance trade networks."
+   "text": "Archaeological evidence shows that Great Zimbabwe, once seen as isolated, actively took part in long-distance trade networks."
   }
  ],
  "correctAnswer": "D",

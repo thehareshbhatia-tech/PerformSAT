@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-110",
-  "question": "A hiker has walked $8.4$ kilometers, or $35\\%$ of a trail. What is the length of the trail, in kilometers?",
-  "correctAnswer": "24",
-  "explanation": "**SAT Pattern: Reverse-Percent**\n\n**The correct answer is $24$.**\n\n**The Fast Way (~15s):** $\\dfrac{8.4}{0.35} = 24$.\n\n**The Full Solution:**\nStep 1: Let $L$ be the total length, in kilometers. Then $0.35L = 8.4$.\nStep 2: $L = \\dfrac{8.4}{0.35}$.\nStep 3: $L = 24$ kilometers.\nCheck: $35\\%$ of $24$ is $8.4$. $\\checkmark$\n\n**Common Mistakes:** Multiplying instead of dividing, $0.35(8.4) = 2.94$; dividing by the remaining $65\\%$, which gives about $12.92$; adding $35\\%$ to the distance walked, $1.35(8.4) = 11.34$.\n\n**Test Day Takeaway:** A percent of an unknown whole gives a one-step equation; solve it rather than guessing which way to multiply."
+  "question": "A hiker has walked $14$ kilometers, or $35\\%$ of a trail. What is the length of the trail, in kilometers?",
+  "correctAnswer": "40",
+  "explanation": "**SAT Pattern: Reverse-Percent**\n\n**The correct answer is 40.**\n\n**The Fast Way (~15s):** $\\frac{14}{0.35} = 40$.\n\n**The Full Solution:**\nStep 1: Let $L$ be the length of the trail, in kilometers. Then $0.35L = 14$.\nStep 2: Divide both sides by $0.35$: $L = \\frac{14}{0.35} = 40$.\nStep 3: Check: $35\\%$ of $40$ is $0.35 \\times 40 = 14$ ✓\n\n**Common Mistakes:**\n* $4.9$: multiplies instead of dividing, $0.35 \\times 14$.\n* $21.5$: divides by the remaining $65\\%$ instead of by $35\\%$, $\\frac{14}{0.65} \\approx 21.5$.\n* $18.9$: adds $35\\%$ to the distance walked, $1.35 \\times 14$.\n\n**Test Day Takeaway:** When a part and its percent are given, divide the part by the percent (as a decimal) to find the whole."
 }

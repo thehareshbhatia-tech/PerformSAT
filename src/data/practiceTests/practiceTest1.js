@@ -25,7 +25,7 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "A $400$-gram sample of a metal alloy contains only copper, tin, lead, and zinc. The table shows the percent of the sample's mass made up by each of three of these metals. What is the mass, in grams, of the zinc in the sample?",
+  question: "The table shows the percent of a $400$-gram alloy sample's mass made up by copper, tin, and lead. The rest of the sample is zinc. What is the mass, in grams, of the zinc?",
   questionTable: { headers: ["Metal", "Percent of sample mass"], rows: [["Copper", "62%"], ["Tin", "3%"], ["Lead", "5%"]] },
   choices: [
     // distractor: reports the leftover percent (30) as a number of grams instead of taking 30% of 400
@@ -83,19 +83,19 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "Points $Q(1, 9)$ and $R(25, 2)$ lie in the $xy$-plane. What is the length of $\\overline{QR}$?",
+  question: "Line $k$ is parallel to the graph of $y = 3x - 7$ in the $xy$-plane and passes through the point $(0, 4)$. Which equation defines line $k$?",
   choices: [
-    // distractor: gives the vertical change between the points, 9 - 2 = 7, instead of the distance
-    { id: "A", text: "$7$" },
-    // distractor: gives the horizontal change between the points, 25 - 1 = 24, instead of the distance
-    { id: "B", text: "$24$" },
-    { id: "C", text: "$25$" },
-    // distractor: adds the horizontal and vertical changes, 24 + 7 = 31, instead of using the distance formula
-    { id: "D", text: "$31$" }
+    // distractor: uses the negative reciprocal of 3, which gives a line perpendicular to the given line, not parallel to it
+    { id: "A", text: "$y = -\\frac{1}{3}x + 4$" },
+    // distractor: gives the given line itself, which has slope 3 but passes through (0, -7), not (0, 4)
+    { id: "B", text: "$y = 3x - 7$" },
+    { id: "C", text: "$y = 3x + 4$" },
+    // distractor: uses 4 as the slope and keeps the given y-intercept, -7
+    { id: "D", text: "$y = 4x - 7$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Distance Formula**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The horizontal change is $25 - 1 = 24$ and the vertical change is $9 - 2 = 7$, a $7$-$24$-$25$ right triangle, so $QR = 25$.\n\n**The Full Solution:**\nStep 1: Find the horizontal change from $Q(1, 9)$ to $R(25, 2)$: $25 - 1 = 24$.\nStep 2: Find the vertical change: $9 - 2 = 7$.\nStep 3: Apply the distance formula: $\\sqrt{24^{2} + 7^{2}} = \\sqrt{576 + 49} = \\sqrt{625} = 25$. Check: $25$ is greater than both $24$ and $7$ and less than their sum, $31$, as the long side of a right triangle must be ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): reports the vertical change alone. That is one leg of the right triangle formed by the two changes, not the distance.\n* Choice B ($24$): reports the horizontal change alone, the longer leg, instead of the hypotenuse.\n* Choice D ($31$): adds the two changes, $24 + 7 = 31$. That is the length of the path that goes across and then down, which is longer than the straight segment.\n\n**Test Day Takeaway:** The distance between two points is the hypotenuse of the right triangle built from the horizontal and vertical changes, so it must exceed each change but be less than their sum.",
-  skills: ["coordinate-geometry"]
+  explanation: "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Parallel lines have the same slope, so line $k$ has slope $3$. The point $(0, 4)$ is on the $y$-axis, so the $y$-intercept is $4$: $y = 3x + 4$.\n\n**The Full Solution:**\nStep 1: The graph of $y = 3x - 7$ has slope $3$. Line $k$ is parallel to it, so line $k$ also has slope $3$.\nStep 2: Line $k$ passes through $(0, 4)$. A point with $x$-coordinate $0$ is the $y$-intercept, so $b = 4$.\nStep 3: In slope-intercept form, line $k$ is $y = 3x + 4$. Check: at $x = 0$, $y = 3(0) + 4 = 4$ ✓, and the slope, $3$, matches the given line ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{1}{3}x + 4$): uses the negative reciprocal of $3$. That slope gives a line perpendicular to the given line, not parallel to it.\n* Choice B ($y = 3x - 7$): is the given line itself. It has slope $3$, but at $x = 0$ it gives $y = -7$, so it does not pass through $(0, 4)$.\n* Choice D ($y = 4x - 7$): uses $4$ as the slope. A line with slope $4$ is not parallel to a line with slope $3$.\n\n**Test Day Takeaway:** Parallel lines have equal slopes; when the given point has $x$-coordinate $0$, its $y$-coordinate is the $y$-intercept.",
+  skills: ["writing-parallel-equation"]
 },
 {
   id: 5,
@@ -151,18 +151,18 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "A savings account has an initial balance of \\$8,000 and earns $4\\%$ annual interest, compounded quarterly. No other deposits or withdrawals are made. Which expression gives the balance, in dollars, of the account after $t$ years?",
+  question: "A savings account was opened with \\$5,000. No deposits or withdrawals were made, and the balance increased by $6\\%$ every $2$ years. Which expression gives the balance, in dollars, $t$ years after the account was opened?",
   choices: [
-    // distractor: divides the annual rate by 4 but leaves the exponent as t, counting only one compounding period per year
-    { id: "A", text: "$8{,}000(1.01)^{t}$" },
-    { id: "B", text: "$8{,}000(1.01)^{4t}$" },
-    // distractor: multiplies the exponent by 4 but never divides the 4% annual rate by 4, applying a full 4% four times a year
-    { id: "C", text: "$8{,}000(1.04)^{4t}$" },
-    // distractor: divides the exponent by 4 instead of multiplying it, and leaves the annual rate undivided
-    { id: "D", text: "$8{,}000(1.04)^{\\frac{t}{4}}$" }
+    // distractor: splits the 6% evenly into 3% per year, as if the growth added instead of multiplied
+    { id: "A", text: "$5{,}000(1.03)^{t}$" },
+    { id: "B", text: "$5{,}000(1.06)^{\\frac{t}{2}}$" },
+    // distractor: multiplies t by 2 instead of dividing, applying the 6% increase twice a year
+    { id: "C", text: "$5{,}000(1.06)^{2t}$" },
+    // distractor: applies the 6% increase every year, ignoring that it happens once every 2 years
+    { id: "D", text: "$5{,}000(1.06)^{t}$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Compound Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Each quarter the balance is multiplied by $1 + \\frac{0.04}{4} = 1.01$, and there are $4t$ quarters in $t$ years, so the balance is $8{,}000(1.01)^{4t}$.\n\n**The Full Solution:**\nStep 1: Find the growth per period. Compounded quarterly, the $4\\%$ annual rate becomes $\\frac{4\\%}{4} = 1\\%$ per quarter, so each quarter the balance is multiplied by $1.01$.\nStep 2: Count the periods. There are four quarters in a year, so in $t$ years the multiplier $1.01$ is applied $4t$ times.\nStep 3: Combine with the initial balance: the account holds $8{,}000(1.01)^{4t}$ dollars. Check with $t = 1$: $8{,}000(1.01)^{4} \\approx 8{,}324.83$, a little more than the $8{,}320$ that a single yearly application of $4\\%$ would give, which is what compounding four times a year should do ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8{,}000(1.01)^{t}$): uses the quarterly multiplier but only $t$ periods, so the balance grows once a year at the quarterly rate.\n* Choice C ($8{,}000(1.04)^{4t}$): counts $4t$ periods but applies the full annual $4\\%$ each time, which is four times too much growth.\n* Choice D ($8{,}000(1.04)^{\\frac{t}{4}}$): divides the exponent by $4$ rather than multiplying, which would model growth once every four years.\n\n**Test Day Takeaway:** When interest is compounded $n$ times a year, divide the annual rate by $n$ and multiply the number of years by $n$; the two adjustments always move in opposite directions.",
+  explanation: "**SAT Pattern: Compound Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** A $6\\%$ increase multiplies the balance by $1.06$, and that happens once every $2$ years, or $\\frac{t}{2}$ times in $t$ years. The balance is $5{,}000(1.06)^{\\frac{t}{2}}$.\n\n**The Full Solution:**\nStep 1: A $6\\%$ increase multiplies the balance by $1 + 0.06 = 1.06$.\nStep 2: The increase happens once every $2$ years, so in $t$ years it happens $\\frac{t}{2}$ times.\nStep 3: Start from \\$5,000 and multiply by $1.06$ a total of $\\frac{t}{2}$ times: $5{,}000(1.06)^{\\frac{t}{2}}$. Check with $t = 2$: $5{,}000(1.06)^{1} = 5{,}300$, which is $6\\%$ more than $5{,}000$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5{,}000(1.03)^{t}$): splits the $6\\%$ into $3\\%$ per year. Growth multiplies, so at $t = 2$ this gives $5{,}000(1.03)^{2} = 5{,}304.50$, not $5{,}300$.\n* Choice C ($5{,}000(1.06)^{2t}$): multiplies $t$ by $2$, so the $6\\%$ increase is applied twice every year instead of once every $2$ years.\n* Choice D ($5{,}000(1.06)^{t}$): applies the $6\\%$ increase every year, which ignores the $2$-year period.\n\n**Test Day Takeaway:** When a quantity grows by a fixed percent every $k$ years, the exponent is $\\frac{t}{k}$, the number of $k$-year periods in $t$ years.",
   skills: ["exponential-functions"]
 },
 {
@@ -238,18 +238,18 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "In the $xy$-plane, line $k$ passes through the points $(-4, 1)$ and $(8, 10)$. Line $j$ is perpendicular to line $k$ and passes through the point $(3, -2)$. Which equation defines line $j$?",
+  question: "In the $xy$-plane, line $k$ passes through the points $(-4, 1)$ and $(6, 5)$. Line $j$ is perpendicular to line $k$. What is the slope of line $j$?",
   choices: [
-    // distractor: takes the reciprocal of the slope 3/4 without changing its sign, using 4/3
-    { id: "A", text: "$y = \\frac{4}{3}x - 6$" },
-    // distractor: keeps the slope 3/4 of line k, producing a line parallel to k rather than perpendicular to it
-    { id: "B", text: "$y = \\frac{3}{4}x - \\frac{17}{4}$" },
-    // distractor: changes the sign of the slope without taking the reciprocal, using -3/4
-    { id: "C", text: "$y = -\\frac{3}{4}x + \\frac{1}{4}$" },
-    { id: "D", text: "$y = -\\frac{4}{3}x + 2$" }
+    { id: "A", text: "$-\\frac{5}{2}$" },
+    // distractor: changes the sign of line k's slope, 2/5, but does not take the reciprocal
+    { id: "B", text: "$-\\frac{2}{5}$" },
+    // distractor: gives the slope of line k itself, which is the slope of a line parallel to k
+    { id: "C", text: "$\\frac{2}{5}$" },
+    // distractor: takes the reciprocal of line k's slope but does not change its sign
+    { id: "D", text: "$\\frac{5}{2}$" }
   ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** Line $k$ has slope $\\frac{10 - 1}{8 - (-4)} = \\frac{3}{4}$, so line $j$ has slope $-\\frac{4}{3}$; through $(3, -2)$ that gives $y = -\\frac{4}{3}x + 2$.\n\n**The Full Solution:**\nStep 1: Find the slope of line $k$ from its two points: $\\frac{10 - 1}{8 - (-4)} = \\frac{9}{12} = \\frac{3}{4}$.\nStep 2: Perpendicular lines have slopes that are negative reciprocals, so line $j$ has slope $-\\frac{4}{3}$.\nStep 3: Substitute the point $(3, -2)$ into $y = -\\frac{4}{3}x + b$: $-2 = -4 + b$, so $b = 2$ and the equation is $y = -\\frac{4}{3}x + 2$. Check: $\\frac{3}{4} \\cdot \\left(-\\frac{4}{3}\\right) = -1$, and $-\\frac{4}{3}(3) + 2 = -2$, so the line passes through $(3, -2)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = \\frac{4}{3}x - 6$): flips the fraction but keeps it positive. The product of the slopes is then $1$, not $-1$.\n* Choice B ($y = \\frac{3}{4}x - \\frac{17}{4}$): reuses the slope of line $k$, which produces a line parallel to $k$ through $(3, -2)$ instead of a perpendicular one.\n* Choice C ($y = -\\frac{3}{4}x + \\frac{1}{4}$): changes only the sign and skips the reciprocal, so the product of the slopes is $-\\frac{9}{16}$.\n\n**Test Day Takeaway:** Perpendicular means flip the fraction and change the sign; multiply the two slopes as a check, since only a product of exactly $-1$ confirms a right angle.",
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Perpendicular Slope**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Line $k$ has slope $\\frac{5 - 1}{6 - (-4)} = \\frac{4}{10} = \\frac{2}{5}$. A perpendicular line has the negative reciprocal slope, $-\\frac{5}{2}$.\n\n**The Full Solution:**\nStep 1: Find the slope of line $k$: $\\frac{5 - 1}{6 - (-4)} = \\frac{4}{10} = \\frac{2}{5}$.\nStep 2: Perpendicular lines have slopes whose product is $-1$, so the slope of line $j$ is the negative reciprocal of $\\frac{2}{5}$.\nStep 3: The negative reciprocal of $\\frac{2}{5}$ is $-\\frac{5}{2}$. Check: $\\left(\\frac{2}{5}\\right)\\left(-\\frac{5}{2}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{2}{5}$): changes the sign but keeps the fraction. Its product with $\\frac{2}{5}$ is $-\\frac{4}{25}$, not $-1$.\n* Choice C ($\\frac{2}{5}$): is the slope of line $k$ itself, the slope of a line parallel to $k$.\n* Choice D ($\\frac{5}{2}$): flips the fraction but keeps the sign. Its product with $\\frac{2}{5}$ is $1$, not $-1$.\n\n**Test Day Takeaway:** For a perpendicular line, flip the slope and change its sign: $\\frac{a}{b}$ becomes $-\\frac{b}{a}$.",
   skills: ["perpendicular-negative-reciprocal"]
 },
 {
@@ -267,9 +267,9 @@ export const practiceTest1 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "Data set A consists of $40$ values and has a mean of $88$ and a standard deviation of $12$. Data set B is created by multiplying each value in data set A by $1.25$ and then subtracting $15$. What is the standard deviation of data set B?",
-  correctAnswer: "15",
-  explanation: "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**The correct answer is 15.**\n\n**The Fast Way (~30s):** Multiplying every value by $1.25$ multiplies the standard deviation by $1.25$, and subtracting the same amount from every value leaves it unchanged, so the standard deviation of data set B is $1.25(12) = 15$.\n\n**The Full Solution:**\nStep 1: Write the rule. If $v$ is a value in data set A, the corresponding value in data set B is $1.25v - 15$.\nStep 2: Handle the two operations separately. Multiplying every value by a constant stretches the spread by that same constant, so the standard deviation becomes $1.25(12) = 15$. Subtracting $15$ from every value slides the whole data set down without changing how far apart the values are, so it does not change the standard deviation.\nStep 3: The standard deviation of data set B is therefore $15$. Check: two values $20$ apart in data set A become $1.25(20) = 25$ apart after the multiplication and stay $25$ apart after the subtraction, which is exactly the $1.25$ stretch and no shift effect ✓\n\n**Common Mistakes:**\n* $0$: subtracts $15$ from the standard deviation as well, computing $1.25(12) - 15 = 0$. A shift moves the center, not the spread.\n* $12$: assumes neither operation changes the standard deviation. The multiplication by $1.25$ does change it.\n* $95$: reports the mean of data set B, $1.25(88) - 15 = 95$, instead of its standard deviation.\n\n**Test Day Takeaway:** Adding or subtracting a constant shifts the mean and leaves the standard deviation alone; multiplying by a constant scales both. Apply each operation to the right statistic separately.",
+  question: "Data set A has $40$ values with a mean of $88$. Data set B is created by adding $16$ to each value in data set A. What is the mean of the $80$ values in data sets A and B combined?",
+  correctAnswer: "96",
+  explanation: "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**The correct answer is $96$.**\n\n**The Fast Way (~25s):** Adding $16$ to every value raises the mean by $16$, so data set B has a mean of $104$. Data sets A and B have the same number of values, so the combined mean is halfway between: $\\frac{88 + 104}{2} = 96$.\n\n**The Full Solution:**\nStep 1: The sum of the values in data set A is $40(88) = 3{,}520$.\nStep 2: Each of the $40$ values in data set B is $16$ greater, so the sum for B is $3{,}520 + 40(16) = 4{,}160$, and its mean is $104$.\nStep 3: The $80$ combined values have a sum of $3{,}520 + 4{,}160 = 7{,}680$, so their mean is $\\frac{7{,}680}{80} = 96$. Check: $96$ is $8$ more than $88$ and $8$ less than $104$, as it must be for two sets of equal size ✓\n\n**Common Mistakes:**\n* $104$: the mean of data set B alone, not of the combined values.\n* $88$: assumes adding the same number to each value leaves the mean unchanged. That is true of the range and the standard deviation, not the mean.\n* $52$: adds only $40(16) = 640$ to the sum of A, getting $4{,}160$, and divides by all $80$ values, leaving out the values of data set A.\n\n**Test Day Takeaway:** Adding a constant to every value shifts the mean by that constant; when two sets of equal size are combined, the combined mean is the average of their means.",
   skills: ["data-analysis"]
 },
 {
@@ -457,38 +457,38 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "In the $xy$-plane, the midpoint of the line segment with endpoints $(-7, 4)$ and $(3, -12)$ is $(a, b)$. What is the value of $ab$?",
+  question: "In the $xy$-plane, line $j$ is parallel to the graph of $3x - 5y = 8$. What is the slope of line $j$?",
   choices: [
-    // distractor: drops the negative on -12 and averages 4 and 12 to get b = 8, giving (-2)(8) = -16
-    { id: "A", text: "$-16$" },
-    // distractor: reports b, the y-coordinate of the midpoint, instead of the product ab
-    { id: "B", text: "$-4$" },
-    // distractor: reports a, the x-coordinate of the midpoint, instead of the product ab
-    { id: "C", text: "$-2$" },
-    { id: "D", text: "$8$" }
+    // distractor: gives the negative reciprocal of the slope of the graph of 3x - 5y = 8, which is the slope of a line perpendicular to it
+    { id: "A", text: "$-\\frac{5}{3}$" },
+    // distractor: moves 3x to the right side as -3x but then divides by 5 instead of -5, losing the sign of the y-coefficient
+    { id: "B", text: "$-\\frac{3}{5}$" },
+    { id: "C", text: "$\\frac{3}{5}$" },
+    // distractor: divides the coefficients in the wrong order, using 5/3 instead of 3/5
+    { id: "D", text: "$\\frac{5}{3}$" }
   ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Midpoint Formula**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The midpoint is $\\left(\\frac{-7 + 3}{2}, \\frac{4 + (-12)}{2}\\right) = (-2, -4)$, so $ab = (-2)(-4) = 8$.\n\n**The Full Solution:**\nStep 1: The midpoint of the segment with endpoints $(x_1, y_1)$ and $(x_2, y_2)$ is $\\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$.\nStep 2: The x-coordinate is $a = \\frac{-7 + 3}{2} = \\frac{-4}{2} = -2$, and the y-coordinate is $b = \\frac{4 + (-12)}{2} = \\frac{-8}{2} = -4$.\nStep 3: The product is $ab = (-2)(-4) = 8$. Check: $(-2, -4)$ is $\\sqrt{5^{2} + 8^{2}} = \\sqrt{89}$ from $(-7, 4)$ and $\\sqrt{5^{2} + 8^{2}} = \\sqrt{89}$ from $(3, -12)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-16$): drops the negative sign on $-12$ and averages $4$ and $12$ to get $b = 8$, then multiplies $(-2)(8)$.\n* Choice B ($-4$): this is $b$, the y-coordinate of the midpoint, not the product $ab$.\n* Choice C ($-2$): this is $a$, the x-coordinate of the midpoint, again reported before the final multiplication.\n\n**Test Day Takeaway:** Average each coordinate separately and keep every sign, then reread the question: it asks for a value built from the midpoint, not the midpoint itself.",
-  skills: ["coordinate-geometry"]
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Solve for $y$: $-5y = -3x + 8$, so $y = \\frac{3}{5}x - \\frac{8}{5}$. The graph has slope $\\frac{3}{5}$, and a parallel line has the same slope.\n\n**The Full Solution:**\nStep 1: Subtract $3x$ from both sides of $3x - 5y = 8$: $-5y = -3x + 8$.\nStep 2: Divide both sides by $-5$: $y = \\frac{3}{5}x - \\frac{8}{5}$, so the graph has slope $\\frac{3}{5}$.\nStep 3: Parallel lines have equal slopes, so line $j$ has slope $\\frac{3}{5}$. Check: the points $(1, -1)$ and $(6, 2)$ both satisfy $3x - 5y = 8$, and $\\frac{2 - (-1)}{6 - 1} = \\frac{3}{5}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{5}{3}$): is the negative reciprocal of $\\frac{3}{5}$, the slope of a line perpendicular to the graph of $3x - 5y = 8$.\n* Choice B ($-\\frac{3}{5}$): divides $-3x$ by $5$ instead of by $-5$. The coefficient of $y$ is $-5$, so both signs change.\n* Choice D ($\\frac{5}{3}$): divides the coefficients in the wrong order. For $Ax + By = C$, the slope is $-\\frac{A}{B} = -\\frac{3}{-5} = \\frac{3}{5}$.\n\n**Test Day Takeaway:** To read a slope from $Ax + By = C$, solve for $y$; the slope is $-\\frac{A}{B}$, and a parallel line has that same slope.",
+  skills: ["writing-parallel-equation"]
 },
 {
   id: 5,
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "At a health fair, $45\\%$ of the visitors were over age $50$. Of these visitors, $30\\%$ had high blood pressure. If a visitor is selected at random, what is the probability that the visitor is over age $50$ and has high blood pressure?",
+  question: "At a health fair, $126$ of the $180$ visitors over age $50$ did not have high blood pressure. If one of these $180$ visitors is selected at random, what is the probability of selecting a visitor who had high blood pressure?",
   choices: [
-    { id: "A", text: "$13.5\\%$" },
-    // distractor: subtracts the two percents, 45 - 30 = 15, instead of multiplying them
-    { id: "B", text: "$15\\%$" },
-    // distractor: reports the probability of high blood pressure given that the visitor is over age 50, not the probability of both
-    { id: "C", text: "$30\\%$" },
-    // distractor: adds the two percents, 45 + 30 = 75
-    { id: "D", text: "$75\\%$" }
+    { id: "A", text: "$\\frac{3}{10}$" },
+    // distractor: divides the 54 visitors with high blood pressure by the 126 without it instead of by all 180
+    { id: "B", text: "$\\frac{3}{7}$" },
+    // distractor: gives 126/180, the probability of selecting a visitor who did not have high blood pressure
+    { id: "C", text: "$\\frac{7}{10}$" },
+    // distractor: divides 126 by 54, inverting the part-to-part ratio
+    { id: "D", text: "$\\frac{7}{3}$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The $30\\%$ applies only to the visitors over age $50$, so multiply: $0.45 \\times 0.30 = 0.135$, which is $13.5\\%$.\n\n**The Full Solution:**\nStep 1: Suppose there were $1{,}000$ visitors. Then $45\\%$ of them, or $450$, were over age $50$.\nStep 2: The $30\\%$ is a percent of that group, not of all visitors, so the number who were over age $50$ and had high blood pressure is $0.30 \\times 450 = 135$.\nStep 3: The probability that a randomly selected visitor is in both groups is $\\frac{135}{1{,}000} = 0.135$, or $13.5\\%$. Check: $13.5\\%$ is less than both $45\\%$ and $30\\%$, as it must be for a share of a share ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($15\\%$): subtracts, $45 - 30 = 15$. Subtraction compares the two percents; it does not find the visitors in both groups.\n* Choice C ($30\\%$): this is the probability of high blood pressure given that the visitor is over age $50$, the conditional probability the question gives, not the one it asks for.\n* Choice D ($75\\%$): adds the two percents. That cannot be right, since only $45\\%$ of the visitors are over age $50$ at all.\n\n**Test Day Takeaway:** A percent \"of\" a subgroup is a rate inside that subgroup. To find the share of everyone, multiply the two rates, and confirm the result is smaller than either one.",
-  skills: ["conditional-probability"]
+  explanation: "**SAT Pattern: Basic Probability**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Of the $180$ visitors, $180 - 126 = 54$ had high blood pressure, so the probability is $\\frac{54}{180} = \\frac{3}{10}$.\n\n**The Full Solution:**\nStep 1: Find how many of the visitors over age $50$ had high blood pressure: $180 - 126 = 54$.\nStep 2: The visitor is selected from the $180$ visitors over age $50$, so the probability is $\\frac{54}{180}$.\nStep 3: Simplify: $\\frac{54}{180} = \\frac{3}{10}$. Check: the probability of no high blood pressure is $\\frac{126}{180} = \\frac{7}{10}$, and $\\frac{3}{10} + \\frac{7}{10} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{3}{7}$): compares the $54$ visitors with high blood pressure to the $126$ without it, $\\frac{54}{126}$, instead of to all $180$.\n* Choice C ($\\frac{7}{10}$): is $\\frac{126}{180}$, the probability of selecting a visitor who did not have high blood pressure.\n* Choice D ($\\frac{7}{3}$): divides $126$ by $54$; a probability can never be greater than $1$.\n\n**Test Day Takeaway:** A probability is the number of favorable outcomes divided by the number of possible outcomes; find the missing count first if the question gives its complement.",
+  skills: ["probability-basics"]
 },
 {
   id: 6,
@@ -591,30 +591,30 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "For the functions $f$ and $g$, the table shows five values of $x$ and their corresponding values of $f(x)$ and $g(x)$. For one of the values of $x$ in the table, $x = a$, the value of $g(f(a))$ is $5$. What is the value of $f(g(a))$?",
-  questionTable: { headers: ["$x$", "$f(x)$", "$g(x)$"], rows: [["$1$", "$4$", "$3$"], ["$2$", "$1$", "$5$"], ["$3$", "$5$", "$2$"], ["$4$", "$3$", "$1$"], ["$5$", "$2$", "$4$"]] },
+  question: "The table shows three values of $x$ and their corresponding values of $y$, where $y = f(x) + 5$ and $f$ is an exponential function. What is the value of $f(3)$?",
+  questionTable: { headers: ["$x$", "$y$"], rows: [["$0$", "$7$"], ["$1$", "$11$"], ["$2$", "$23$"]] },
   choices: [
-    // distractor: stops at f(a) = 2, the inner output found on the way to identifying a
-    { id: "A", text: "$2$" },
-    { id: "B", text: "$3$" },
-    // distractor: reports g(a) = 4 without applying f to it
-    { id: "C", text: "$4$" },
-    // distractor: reports the input a = 5 itself instead of the requested value f(g(a))
-    { id: "D", text: "$5$" }
+    { id: "A", text: "$54$" },
+    // distractor: gives the value of y when x = 3, 54 + 5 = 59, instead of f(3)
+    { id: "B", text: "$59$" },
+    // distractor: multiplies the table value 23 by the growth factor 3 without first subtracting 5
+    { id: "C", text: "$69$" },
+    // distractor: uses the table value 7 as the initial value of f, computing 7(3)^3 = 189
+    { id: "D", text: "$189$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** In the table, $g(x) = 5$ only when $x = 2$, and $f(x) = 2$ only when $x = 5$, so $a = 5$. Then $g(5) = 4$ and $f(4) = 3$.\n\n**The Full Solution:**\nStep 1: Work $g(f(a)) = 5$ from the outside in. In the $g(x)$ column, the only output of $5$ occurs at $x = 2$, so $f(a)$ must equal $2$.\nStep 2: In the $f(x)$ column, the only output of $2$ occurs at $x = 5$, so $a = 5$.\nStep 3: Evaluate $f(g(a)) = f(g(5))$. From the table, $g(5) = 4$ and $f(4) = 3$. Check forward: $f(5) = 2$ and $g(2) = 5$, confirming $a = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): this is $f(a)$, the inner value found on the way to identifying $a$.\n* Choice C ($4$): this is $g(a) = g(5)$, the inner function of the requested composition; $f$ is never applied to it.\n* Choice D ($5$): this is $a$ itself, which also matches the $5$ in the given equation.\n\n**Test Day Takeaway:** Read a composition from a table one lookup at a time, inside first, then outside, and label each intermediate value so you do not stop at $f(a)$ or $g(a)$.",
-  skills: ["function-composition"]
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Function Transformation**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** Subtract $5$ from each $y$-value to get $f(0) = 2$, $f(1) = 6$, and $f(2) = 18$. Each value is $3$ times the one before, so $f(3) = 3(18) = 54$.\n\n**The Full Solution:**\nStep 1: Since $y = f(x) + 5$, each value of $f(x)$ is $5$ less than the $y$-value in the table: $f(0) = 7 - 5 = 2$, $f(1) = 11 - 5 = 6$, and $f(2) = 23 - 5 = 18$.\nStep 2: For an exponential function, each increase of $1$ in $x$ multiplies $f(x)$ by the same factor: $\\frac{6}{2} = \\frac{18}{6} = 3$. So $f(x) = 2(3)^{x}$.\nStep 3: $f(3) = 2(3)^{3} = 54$. Check: $f(3) = 3 \\cdot f(2) = 3(18) = 54$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($59$): is $f(3) + 5$, the value of $y$ when $x = 3$, not the value of $f(3)$.\n* Choice C ($69$): multiplies the table value $23$ by $3$. The factor $3$ applies to $f(x)$, which is $5$ less than each $y$-value.\n* Choice D ($189$): uses $7$ as the initial value of $f$. The table shows $f(0) + 5 = 7$, so $f(0) = 2$.\n\n**Test Day Takeaway:** When a table gives values of $f(x) + k$, remove $k$ first; only then do the values of an exponential function share a constant ratio.",
+  skills: ["function-transformations", "vertex-form"]
 },
 {
   id: 12,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "A bakery's weekly profit, in hundreds of dollars, when it charges $x$ dollars for a cake is modeled by $p(x) = -x^{2} + 14x - 40$. What is the greatest integer value of $x$ for which the model predicts a positive weekly profit?",
-  correctAnswer: "9",
-  explanation: "**SAT Pattern: Quadratic Inequality from Context**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~40s):** Factor: $-x^{2} + 14x - 40 = -(x - 4)(x - 10)$, which is positive only for $4 < x < 10$. The greatest integer less than $10$ is $9$.\n\n**The Full Solution:**\nStep 1: A positive profit means $p(x) > 0$, so solve $-x^{2} + 14x - 40 > 0$. Multiplying by $-1$ and reversing the inequality gives $x^{2} - 14x + 40 < 0$.\nStep 2: Factor: $x^{2} - 14x + 40 = (x - 4)(x - 10)$. The product is negative exactly when $x$ is between the zeros, so $4 < x < 10$.\nStep 3: The greatest integer less than $10$ is $9$. Check: $p(9) = -81 + 126 - 40 = 5$, which is positive, while $p(10) = -100 + 140 - 40 = 0$, which is not ✓\n\n**Common Mistakes:**\n* $10$: enters the larger zero. At $x = 10$ the model predicts a profit of exactly $0$, which is not positive.\n* $4$: enters the smaller zero, which is the lower end of the interval, not its greatest integer.\n* $7$: enters the $x$-value of the vertex, where the profit is greatest, instead of the greatest price that still gives a positive profit.\n\n**Test Day Takeaway:** For a downward-opening quadratic, \"positive\" means strictly between the zeros. Find the zeros, decide whether the endpoints count, then step inside the interval.",
-  skills: ["quadratics"]
+  question: "The function $p(x) = -x^{2} + 14x - 40$ models a bakery's weekly profit, in hundreds of dollars, when it charges $x$ dollars for a cake. What is the greatest value of $x$ for which $p(x) = 0$?",
+  correctAnswer: "10",
+  explanation: "**SAT Pattern: Quadratic via Factoring**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~25s):** $-x^{2} + 14x - 40 = -(x - 4)(x - 10)$, which is $0$ when $x = 4$ or $x = 10$. The greater value is $10$.\n\n**The Full Solution:**\nStep 1: Set the model equal to $0$ and multiply both sides by $-1$: $x^{2} - 14x + 40 = 0$.\nStep 2: Factor: $(x - 4)(x - 10) = 0$, so $x = 4$ or $x = 10$.\nStep 3: The greater of these values is $10$. Check: $p(10) = -100 + 140 - 40 = 0$ ✓\n\n**Common Mistakes:**\n* $4$: the smaller value of $x$ for which $p(x) = 0$.\n* $7$: the price at the vertex, where the model's profit is greatest, not where it is $0$.\n* $14$: the sum of the two solutions, $4 + 10$.\n\n**Test Day Takeaway:** To find where a quadratic model equals $0$, factor it and read off both solutions, then pick the one the question asks for.",
+  skills: ["finding-roots-factoring"]
 },
 {
   id: 13,
@@ -689,19 +689,19 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "A bag contains $18$ marbles, and $6$ of the marbles are red. Two marbles will be selected at random from the bag, one after the other, without replacement. What is the probability that exactly one of the two selected marbles is red?",
+  question: "A bag contains $15$ red marbles and $35$ blue marbles. Of the red marbles, $40\\%$ are large, and of the blue marbles, $20\\%$ are large. One of the large marbles will be selected at random. What is the probability of selecting a red marble?",
   choices: [
-    // distractor: counts only the red-then-not-red order and never adds the not-red-then-red order
-    { id: "A", text: "$\\frac{4}{17}$" },
-    // distractor: reports 6/18, the probability that a single selected marble is red
-    { id: "B", text: "$\\frac{1}{3}$" },
-    // distractor: treats the selections as independent, as if the first marble were replaced, computing 2(1/3)(2/3) = 4/9
-    { id: "C", text: "$\\frac{4}{9}$" },
-    { id: "D", text: "$\\frac{8}{17}$" }
+    // distractor: divides the 6 large red marbles by all 50 marbles instead of by the 13 large marbles
+    { id: "A", text: "$\\frac{3}{25}$" },
+    // distractor: gives 15/50, the probability of selecting a red marble from the whole bag
+    { id: "B", text: "$\\frac{3}{10}$" },
+    // distractor: gives 40%, the probability that a red marble is large, which reverses the condition
+    { id: "C", text: "$\\frac{2}{5}$" },
+    { id: "D", text: "$\\frac{6}{13}$" }
   ],
   correctAnswer: "D",
-  explanation: "**SAT Pattern: Probability Without Replacement**\n\n**Choice D is correct.**\n\n**The Fast Way (~50s):** Exactly one red can happen in two orders, each with probability $\\frac{6}{18} \\cdot \\frac{12}{17} = \\frac{4}{17}$. Adding the two orders gives $\\frac{8}{17}$.\n\n**The Full Solution:**\nStep 1: Red first, then not red: $\\frac{6}{18} \\cdot \\frac{12}{17} = \\frac{72}{306} = \\frac{4}{17}$. After one red marble is removed, $17$ marbles remain and $12$ of them are not red.\nStep 2: Not red first, then red: $\\frac{12}{18} \\cdot \\frac{6}{17} = \\frac{72}{306} = \\frac{4}{17}$.\nStep 3: The two orders cannot both happen, so add them: $\\frac{4}{17} + \\frac{4}{17} = \\frac{8}{17}$. Check by counting pairs: $\\frac{6 \\cdot 12}{\\binom{18}{2}} = \\frac{72}{153} = \\frac{8}{17}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{4}{17}$): counts only the red-then-not-red order and leaves out the not-red-then-red order.\n* Choice B ($\\frac{1}{3}$): this is $\\frac{6}{18}$, the probability that one selected marble is red, not the probability for a pair.\n* Choice C ($\\frac{4}{9}$): computes $2 \\cdot \\frac{1}{3} \\cdot \\frac{2}{3}$, as if the first marble were put back. Without replacement, the second selection is out of $17$ marbles.\n\n**Test Day Takeaway:** For \"exactly one\" without replacement, list every order, shrink the total by one for the second selection, and add the orders.",
-  skills: ["probability-basics"]
+  explanation: "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** There are $0.40(15) = 6$ large red marbles and $0.20(35) = 7$ large blue marbles, so $13$ large marbles in all. The probability is $\\frac{6}{13}$.\n\n**The Full Solution:**\nStep 1: Large red marbles: $0.40(15) = 6$. Large blue marbles: $0.20(35) = 7$.\nStep 2: The marble is selected from the large marbles only, and there are $6 + 7 = 13$ of them.\nStep 3: Of these $13$ large marbles, $6$ are red, so the probability is $\\frac{6}{13}$. Check: the probability of selecting a blue marble is $\\frac{7}{13}$, and $\\frac{6}{13} + \\frac{7}{13} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{25}$): is $\\frac{6}{50}$, which divides by all $50$ marbles. The selection is made only from the $13$ large marbles.\n* Choice B ($\\frac{3}{10}$): is $\\frac{15}{50}$, the probability of selecting a red marble from the whole bag.\n* Choice C ($\\frac{2}{5}$): is $40\\%$, the fraction of red marbles that are large, which reverses the condition.\n\n**Test Day Takeaway:** In a conditional probability, the group the item is selected from is the denominator; count that group first.",
+  skills: ["conditional-probability"]
 },
 {
   id: 18,

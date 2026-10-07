@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-345",
-  "question": "The table shows the number of games won by each member of a chess club during a tournament and the number of members who won that many games. What is the mode of the numbers of games won by the members?",
+  "question": "The table shows the number of games won by each member of a chess club during a tournament and the number of members who won that many games. What is the median number of games won by the members?",
   "diagram": {
     "type": "dataTable",
     "params": {
@@ -43,18 +43,18 @@
     },
     {
       "id": "C",
-      "text": "$4$"
+      "text": "$5$"
     },
     {
       "id": "D",
-      "text": "$9$"
+      "text": "$13$"
     }
   ],
   "distractorNotes": {
-    "B": "reports the median of the $26$ values, which falls at $2$ games, rather than the most frequent value.",
-    "C": "reports the largest entry in the \"Games won\" column instead of the value with the largest frequency.",
-    "D": "reports the largest frequency, the number of members, rather than the number of games those members won."
+    "A": "reports the number of games won by the most members, not the middle value",
+    "C": "finds the median of the numbers in the second column, which are counts of members",
+    "D": "reports the position of the median, half of 26, instead of the value there"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Mode from List**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The largest frequency in the right column is $9$; the value beside it in the left column is $1$ game won.\n\n**The Full Solution:**\nStep 1: In a frequency table the left column lists the values and the right column tells how many times each occurs.\nStep 2: The frequencies are $2$, $9$, $4$, $6$, and $5$, and the greatest of these is $9$.\nStep 3: The frequency $9$ belongs to the row \"$1$ game won,\" so the mode is $1$. Check: no other number of wins was reported by more than $6$ members ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2$): reports the median of the $26$ values, which falls at $2$ games, rather than the most frequent value.\n* Choice C ($4$): reports the largest entry in the \"Games won\" column instead of the value with the largest frequency.\n* Choice D ($9$): reports the largest frequency, the number of members, rather than the number of games those members won.\n\n**Test Day Takeaway:** Find the biggest frequency, then read across to the value column. Reporting the frequency itself is the single most common slip on frequency-table mode questions."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Median from Frequency Table**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The $26$ members put the median between the $13$th and $14$th values; both fall in the row for $2$ games, so the median is $2$.\n\n**The Full Solution:**\nStep 1: The club has $2 + 9 + 4 + 6 + 5 = 26$ members, so the median is the average of the $13$th and $14$th values in order.\nStep 2: Counting through the table: $2$ members won $0$ games (values $1$ and $2$), $9$ won $1$ game (values $3$ through $11$), and $4$ won $2$ games (values $12$ through $15$).\nStep 3: The $13$th and $14$th values are both $2$, so the median is $2$ games. Check: $11$ members won fewer than $2$ games and $11$ members won more than $2$ games. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): $1$ game has the greatest count, $9$ members, so it is the most common value, not the middle one.\n* Choice C ($5$): $5$ is the median of the counts $2, 4, 5, 6, 9$; the data values are the numbers of games won.\n* Choice D ($13$): $13$ is the position of the middle, not the number of games won there.\n\n**Test Day Takeaway:** In a frequency table, the second column says how many times each value appears. Count through it to the middle position."
 }

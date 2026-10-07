@@ -1,29 +1,29 @@
 {
  "id": 4,
- "question": "The function $P$ gives a bakery's daily profit, in dollars, from selling $x$ cakes, where $P(x) = -3x^{2} + 165x - 1{,}800$. For which values of $x$ is the daily profit positive?",
+ "question": "The function $P$ gives a bakery's daily profit, in dollars, from selling $x$ cakes, where $P(x) = -3x^{2} + 165x - 1{,}800$. On one day, the bakery's profit was $\\$72$. What is the least possible number of cakes the bakery sold that day?",
  "choices": [
   {
    "id": "A",
-   "text": "$15 < x < 40$"
+   "text": "$15$"
   },
   {
    "id": "B",
-   "text": "$-40 < x < -15$"
+   "text": "$16$"
   },
   {
    "id": "C",
-   "text": "$x < 15$ or $x > 40$"
+   "text": "$39$"
   },
   {
    "id": "D",
-   "text": "$x > 15$"
+   "text": "$40$"
   }
  ],
- "correctAnswer": "A",
+ "correctAnswer": "B",
  "distractorNotes": {
-  "B": "reads the zeros from the factors (x - 15)(x - 40) with the wrong signs, giving -15 and -40",
-  "C": "chooses the intervals outside the zeros, where the downward-opening parabola is below the x-axis and the profit is negative",
-  "D": "keeps only the lower boundary and ignores that the profit becomes negative again after x = 40"
+  "A": "sets P(x) = 0 instead of 72 and gives the smaller zero, 15",
+  "C": "solves P(x) = 72 correctly but gives the greater solution, 39, instead of the least",
+  "D": "sets P(x) = 0 instead of 72 and gives the larger zero, 40"
  },
- "explanation": "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** $P(x) = -3(x^{2} - 55x + 600) = -3(x - 15)(x - 40)$. The parabola opens downward, so $P(x) > 0$ between the zeros: $15 < x < 40$.\n\n**The Full Solution:**\nStep 1: Factor out $-3$: $P(x) = -3\\left(x^{2} - 55x + 600\\right)$. The numbers $15$ and $40$ have product $600$ and sum $55$, so $P(x) = -3(x - 15)(x - 40)$.\nStep 2: The zeros are $x = 15$ and $x = 40$. Because the leading coefficient $-3$ is negative, the graph opens downward and is above the x-axis only between its zeros.\nStep 3: So the daily profit is positive for $15 < x < 40$. Check $x = 20$: $P(20) = -3(400) + 165(20) - 1{,}800 = -1{,}200 + 3{,}300 - 1{,}800 = 300 > 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-40 < x < -15$): flips the signs when reading zeros from $(x - 15)(x - 40)$; the zeros are $15$ and $40$, not $-15$ and $-40$.\n* Choice C ($x < 15$ or $x > 40$): these are the values where a downward-opening parabola is below the x-axis, so the profit is negative there.\n* Choice D ($x > 15$): uses only the first zero; for example, $P(50) = -3(35)(10) = -1{,}050$, so the profit is negative again beyond $40$.\n\n**Test Day Takeaway:** For a quadratic inequality, find the zeros, then use the sign of the leading coefficient: a downward-opening parabola is positive between its zeros and negative outside them."
+ "explanation": "**SAT Pattern: Quadratic via Factoring**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Set $-3x^{2} + 165x - 1{,}800 = 72$ and divide by $-3$: $x^{2} - 55x + 624 = 0$, so $(x - 16)(x - 39) = 0$. The lesser solution is $16$.\n\n**The Full Solution:**\nStep 1: A profit of $\\$72$ means $P(x) = 72$: $-3x^{2} + 165x - 1{,}800 = 72$.\nStep 2: Subtract $72$ from both sides: $-3x^{2} + 165x - 1{,}872 = 0$. Divide every term by $-3$: $x^{2} - 55x + 624 = 0$.\nStep 3: Find two numbers with product $624$ and sum $55$: $16$ and $39$. So $(x - 16)(x - 39) = 0$, and $x = 16$ or $x = 39$.\nStep 4: The least possible number of cakes is $16$. Check: $P(16) = -3(256) + 165(16) - 1{,}800 = -768 + 2{,}640 - 1{,}800 = 72$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): solves $P(x) = 0$ instead of $P(x) = 72$; at $15$ cakes the profit is $\\$0$.\n* Choice C ($39$): also gives a profit of $\\$72$, but it is the greater solution, not the least.\n* Choice D ($40$): the larger solution of $P(x) = 0$, where the profit is $\\$0$.\n\n**Test Day Takeaway:** When a model's output is given, set the function equal to that value, move everything to one side, and factor; then read which solution the question asks for."
 }

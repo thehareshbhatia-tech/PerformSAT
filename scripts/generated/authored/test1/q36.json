@@ -6,28 +6,28 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 2,
- "passage": "In 1990, the Leaning Tower of Pisa was closed to visitors because engineers feared that its increasing tilt could lead to collapse. An international committee, whose members included geotechnical engineer John Burland, chose a method that would leave the tower's famous silhouette intact: between 1999 and 2001, workers slowly extracted small amounts of soil from beneath the foundation's north side — the side opposite the lean — allowing the tower to settle back toward vertical. The method reduced the tilt by roughly ten percent, enough, the committee calculated, to stabilize the structure for at least two hundred years.",
+ "passage": "In 1990, the Leaning Tower of Pisa was closed to visitors because engineers feared that its increasing tilt could lead to collapse. An international committee, whose members included geotechnical engineer John Burland, chose a method that would leave the tower's famous silhouette intact. Between 1999 and 2001, workers slowly removed small amounts of soil from beneath the north side of the foundation, opposite the lean, and the tower settled back toward vertical. The method reduced the tilt by roughly ten percent, enough, the committee calculated, to stabilize the structure for at least two hundred years.",
  "question": "Which choice best states the main idea of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "In 1990 the tower was closed to visitors, and it remained closed until engineers finalized a plan to dismantle the structure and rebuild it on firmer ground."
+   "text": "Engineers kept the tower closed until they finalized a plan to dismantle it stone by stone and rebuild it on firmer ground."
   },
   {
    "id": "B",
-   "text": "The tower tilts because the soil beneath its south side is softer than the soil beneath its north side, a difference undetected until 1990."
+   "text": "The tower tilts because the soil beneath its south side is softer than the soil beneath its north side."
   },
   {
    "id": "C",
-   "text": "Engineers secured the Leaning Tower of Pisa by removing soil from beneath the side opposite its lean, reducing the tilt without changing the tower's appearance."
+   "text": "Engineers stabilized the tower by removing soil from beneath the side opposite its lean, preserving its appearance."
   },
   {
    "id": "D",
-   "text": "The committee determined that continued soil extraction could eventually return the tower fully to vertical if the work were extended for several more years."
+   "text": "The committee concluded that further soil removal could eventually return the tower fully to vertical."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The text's central idea joins the problem, the method, and the outcome: facing feared collapse, engineers removed soil from beneath the north side, and the modest reduction in tilt secured the tower while preserving how it looks.\n\n**The Full Solution:**\n- The passage moves from a crisis (closure in 1990 over fears of collapse) to a chosen method (soil extraction beneath the side opposite the lean, picked because it would leave the silhouette intact) to a result (tilt reduced about ten percent — enough to stabilize the tower for at least two hundred years).\n- A main-idea answer must capture that full arc at the right level of generality, and choice C states each element: the goal, the method, and the deliberately limited correction.\n\n**Why the other choices are wrong:**\n- A: The text never mentions a plan to dismantle and rebuild the tower; the committee chose soil extraction precisely to keep the tower as it stands.\n- B: The text never explains why the tower leans or compares soil softness on the two sides; soil is discussed only as what the engineers removed.\n- D: The text describes a deliberately partial correction; nothing suggests extending the work to reach full vertical, which would erase the famous lean the committee set out to preserve.",
+ "explanation": "**Choice C is correct.** The text's central idea joins the problem, the method, and the outcome: facing feared collapse, engineers removed soil from beneath the north side, and the modest reduction in tilt secured the tower while preserving how it looks.\n\n**The Full Solution:**\n- The passage moves from a crisis (closure in 1990 over fears of collapse) to a chosen method (removing soil beneath the side opposite the lean, picked because it would leave the silhouette intact) to a result (tilt reduced about ten percent — enough to stabilize the tower for at least two hundred years).\n- A main-idea answer must capture that full arc at the right level of generality, and choice C states each element: the goal, the method, and the deliberately limited correction.\n\n**Why the other choices are wrong:**\n- A: The text never mentions a plan to dismantle and rebuild the tower; the committee chose soil extraction precisely to keep the tower as it stands.\n- B: The text never explains why the tower leans or compares soil softness on the two sides; soil is discussed only as what the engineers removed.\n- D: The text describes a deliberately partial correction; nothing suggests extending the work to reach full vertical, which would erase the famous lean the committee set out to preserve.",
  "_meta": {
   "source": "Burland, Jamiolkowski & Viggiani, stabilisation of the Tower of Pisa: closed Jan 1990; committee chaired by M. Jamiolkowski with J. Burland as member; soil extraction Feb 1999-Jun 2001; inclination reduced ~10% (~44 cm at the top); stable for at least 200-300 years"
  }

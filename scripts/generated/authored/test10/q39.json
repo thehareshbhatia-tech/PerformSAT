@@ -6,26 +6,26 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-textual",
  "module": 2,
- "passage": "The sleeping cars that crossed Europe's borders in the late nineteenth century belonged not to the railways themselves but to an independent operator, the Compagnie Internationale des Wagons-Lits, founded by the Belgian engineer Georges Nagelmackers. A historian of railways claims that the company's decisive innovation was diplomatic rather than mechanical: what set it apart was not the comfort of its carriages but its success in persuading a chain of national railway administrations to haul one through-carriage across their successive networks.",
+ "passage": "Shipping goods in large boxes was not a new idea in the 1950s. Railways in Britain and the United States had carried freight in containers decades earlier, but each system used boxes of its own design. A historian of trade claims that the decisive innovation of modern container shipping was not the box itself but the standardization of its size and fittings. Standard boxes let any crane, ship, train, or truck handle any container.",
  "question": "Which finding, if true, would most directly support the historian's claim?",
  "choices": [
   {
    "id": "A",
-   "text": "Surviving Wagons-Lits carriages feature interior fittings and furnishings considerably more elaborate than those found in the ordinary first-class coaches of the period."
+   "text": "Steel containers of the 1960s were stronger and more weatherproof than the wooden boxes that railways had used earlier in the century."
   },
   {
    "id": "B",
-   "text": "Several national railways of the era operated their own sleeping cars on routes within their home countries."
+   "text": "Several early railway container systems carried freight successfully for decades on routes within a single country."
   },
   {
    "id": "C",
-   "text": "Nagelmackers modeled his first sleeping cars on designs he had studied during a tour of the United States."
+   "text": "The first ships built to carry containers were converted from vessels that had been designed to carry oil."
   },
   {
    "id": "D",
-   "text": "Company records show that Nagelmackers negotiated separate running agreements with each national railway on a route before any through-carriage entered service."
+   "text": "Port handling costs fell sharply only after international standards fixed container sizes, not when container ships first sailed."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The claim locates the company's achievement in persuasion, getting many national administrations to haul one carriage, and D is direct documentary evidence of exactly that: negotiated running agreements, railway by railway, as the precondition for through service.\n\n**The Full Solution:**\n- The historian's claim has a specific shape: the innovation was diplomatic (agreements across networks), not mechanical (the carriages themselves).\n- Supporting evidence must therefore show the diplomatic work mattering. D shows it as the bottleneck: no through-carriage ran until each network's agreement was in hand.\n\n**Why the other choices are wrong:**\n- A: Elaborate fittings are evidence for the mechanical-comfort account the historian explicitly sets aside.\n- B: Domestic sleeping cars run by single railways involve no cross-border persuasion, so they cannot show diplomacy was the differentiator.\n- C: Borrowed design ideas concern the carriages' engineering origins, not the negotiation of passage across networks."
+ "explanation": "**Choice D is correct.** The historian credits standardization, not the box, with the decisive change. D shows the big gain arriving only when standards fixed container dimensions, and not when containers themselves first appeared on ships, which is exactly the pattern the claim predicts.\n\n**The Full Solution:**\n- The claim has two parts: the box alone was not decisive, and standard sizes and fittings were.\n- Supporting evidence must separate those two causes. D does: containers already existed, yet costs fell sharply only after the standards arrived.\n\n**Why the other choices are wrong:**\n- A: Stronger, weatherproof boxes would point to the box itself as the improvement, the opposite of the historian's emphasis.\n- B: Container systems working within one country says nothing about the value of a shared international standard.\n- C: Where the first container ships came from is unrelated to whether standardization was the decisive innovation."
 }

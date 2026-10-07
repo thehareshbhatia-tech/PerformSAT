@@ -6,30 +6,30 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 1,
- "passage": "Slow-growing boulder corals may take decades to reach the size at which they reproduce, a serious obstacle for reef restoration. In a technique called microfragmentation, restoration teams cut a colony into fragments of a few square centimeters, which heal and then add tissue far faster than an intact colony would. A yearlong trial raised microfragments and conventionally propagated fragments of the same coral species side by side at three nurseries. The team concludes that microfragmentation accelerated growth at every nursery in the trial because ______",
+ "passage": "Male and female penguins often look nearly alike, so researchers may need a DNA test to tell the sexes apart. From 2007 to 2009, a team of ecologists weighed adult Adélie, chinstrap, and gentoo penguins near Palmer Station, Antarctica, and determined each bird's sex from a blood sample. The team concludes that males were heavier than females in every species studied because ______",
  "questionTable": {
   "type": "table",
-  "caption": "Mean tissue area added per fragment over one year at three coral nurseries (square centimeters)",
+  "caption": "Average body mass of adult penguins near Palmer Station, Antarctica, 2007-2009 (kilograms)",
   "headers": [
-   "Nursery",
-   "Microfragments",
-   "Conventional fragments"
+   "Species",
+   "Females",
+   "Males"
   ],
   "rows": [
    [
-    "North Key",
-    "41",
-    "12"
+    "Adélie",
+    "3.4",
+    "4.0"
    ],
    [
-    "Turtle Bank",
-    "33",
-    "9"
+    "Chinstrap",
+    "3.5",
+    "3.9"
    ],
    [
-    "Lagoon Station",
-    "37",
-    "14"
+    "Gentoo",
+    "4.7",
+    "5.5"
    ]
   ]
  },
@@ -37,21 +37,21 @@
  "choices": [
   {
    "id": "A",
-   "text": "at North Key, microfragments added 41 square centimeters of tissue, the largest gain recorded for any fragment type at any nursery."
+   "text": "gentoo males averaged 5.5 kilograms, the greatest average body mass recorded for any group of penguins in the table."
   },
   {
    "id": "B",
-   "text": "microfragments at the three nurseries added a combined 111 square centimeters of tissue over the year of the trial."
+   "text": "the average Adélie female weighed 3.4 kilograms, only 0.1 kilogram less than the average chinstrap female did."
   },
   {
    "id": "C",
-   "text": "microfragments outgrew conventional fragments at all three nurseries, adding 33 to 41 square centimeters compared with 9 to 14."
+   "text": "the average male outweighed the average female in all three species, by 0.4 to 0.8 kilogram."
   },
   {
    "id": "D",
-   "text": "conventional fragments at Lagoon Station added more tissue than conventional fragments at either of the other two nurseries."
+   "text": "gentoo females averaged 4.7 kilograms, more than the average male of either of the other two species."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The claim covers \"every nursery in the trial,\" so the supporting data must compare the two methods at all three sites — and C does, showing microfragments ahead everywhere, 33 to 41 square centimeters against 9 to 14.\n\n**The Full Solution:**\n- The conclusion has two requirements: a comparison between methods, and coverage of all three nurseries.\n- C meets both, pairing the microfragment range (33-41) against the conventional range (9-14) so that even the weakest microfragment result beats the strongest conventional one.\n- That is precisely the all-sites pattern an \"every nursery\" claim needs.\n\n**Why the other choices are wrong:**\n- A: It cites one site's best number with no comparison to conventional fragments at that site or any other.\n- B: It totals only the microfragments, so nothing in it shows the conventional method being outgrown.\n- D: It compares conventional fragments across sites — a comparison within one method, irrelevant to whether microfragmentation accelerated growth."
+ "explanation": "**Choice C is correct.** The claim covers \"every species studied,\" so the evidence must compare males with females in all three species — and C does, showing the males heavier in each species by 0.4 to 0.8 kilogram.\n\n**The Full Solution:**\n- The conclusion has two requirements: a comparison between the sexes, and coverage of all three species.\n- C meets both: in every row of the table, the males' average (4.0, 3.9, 5.5) is higher than the females' (3.4, 3.5, 4.7).\n- That is precisely the all-species pattern an \"every species\" claim needs.\n\n**Why the other choices are wrong:**\n- A: It cites one group's figure with no comparison to the females of that species or any other.\n- B: It compares females with females, so nothing in it shows a difference between the sexes.\n- D: It compares gentoo females with the males of other species — a comparison across species, irrelevant to whether males outweighed females within each one."
 }

@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 1,
- "passage": "The pound lock enclosed boats in a chamber between two sets of gates, so that the water level around a vessel could be raised or lowered gradually, with the boat floating calmly the whole time. ______ a laden barge could descend a steep hillside in a series of measured steps, without ever riding the violent flush of water that older river weirs released.",
+ "passage": "A lightning rod is a metal rod mounted at the highest point of a building and connected by a heavy wire to a metal conductor buried in the ground. Metal carries electric current far more easily than wood, brick, or stone. ______ a bolt that strikes the rod follows the wire down into the earth instead of passing through the building's roof and walls.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,5 +27,12 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The second sentence states the consequence of the mechanism the first describes — controlled, gradual water levels made steep descents safe — so a cause-and-effect transition is required.\n\n**The Full Solution:**\n- Sentence one explains the pound lock's design: a chamber between two gates in which the water level rises or falls gradually.\n- Sentence two reports what that design achieved: a laden barge could descend a steep hillside safely in stages.\n- The outcome follows from the mechanism, and \"As a result,\" marks exactly that relation.\n\n**Why the other choices are wrong:**\n- A: \"For example,\" would make the descent an illustration of the design rather than its consequence.\n- B: \"Nevertheless,\" signals that the second sentence resists the first, but the sentences run in the same direction.\n- D: \"Meanwhile,\" implies two unrelated events happening at once, misstating the causal link."
+ "explanation": "**Choice C is correct.** The last sentence states the consequence of the setup the first two describe, a metal path to the ground that carries current more easily than the building does, so a cause-and-effect transition is required.\n\n**The Full Solution:**\n- The first two sentences explain the design: a metal rod wired to a conductor in the ground, and metal carries current far more easily than wood, brick, or stone.\n- The last sentence reports what that design achieves: a bolt follows the wire into the earth instead of passing through the building.\n- The outcome follows from the design, and \"As a result,\" marks exactly that relation.\n\n**Why the other choices are wrong:**\n- A: \"For example,\" would make the bolt's path an illustration of metal's conductivity rather than its consequence.\n- B: \"Nevertheless,\" signals a contrast, but the bolt's path is what the design leads one to expect.\n- D: \"Meanwhile,\" signals something happening at the same time, not a result.",
+ "_meta": {
+  "anchor": "lightning rod — As a result (mechanism -> consequence)",
+  "sources": [
+   "https://www.britannica.com/technology/lightning-rod",
+   "https://en.wikipedia.org/wiki/Lightning_rod"
+  ]
+ }
 }

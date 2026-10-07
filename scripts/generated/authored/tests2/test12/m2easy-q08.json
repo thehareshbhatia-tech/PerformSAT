@@ -1,29 +1,29 @@
 {
- "id": 8,
- "question": "In the $xy$-plane, line $k$ passes through the point $(6, -3)$ and is perpendicular to the graph of $x + 2y = 14$. Which equation defines line $k$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$y = 2x - 15$"
+  "id": 8,
+  "question": "Line $k$ in the $xy$-plane is parallel to the graph of $x + 2y = 14$ and passes through the origin. The point $(6, d)$ lies on line $k$. What is the value of $d$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-12$"
+    },
+    {
+      "id": "B",
+      "text": "$-3$"
+    },
+    {
+      "id": "C",
+      "text": "$4$"
+    },
+    {
+      "id": "D",
+      "text": "$12$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses -2, the reciprocal of the slope, as the slope: -2(6) = -12",
+    "C": "finds the y-value at x = 6 on the given line x + 2y = 14 instead of on line k",
+    "D": "uses 2, the perpendicular slope, as the slope: 2(6) = 12"
   },
-  {
-   "id": "B",
-   "text": "$y = -\\frac{1}{2}x$"
-  },
-  {
-   "id": "C",
-   "text": "$y = -2x + 9$"
-  },
-  {
-   "id": "D",
-   "text": "$y = 2x + 12$"
-  }
- ],
- "distractorNotes": {
-  "B": "uses the given line's own slope -1/2 instead of the perpendicular slope 2",
-  "C": "uses -2, the reciprocal of -1/2 with the negative sign left in place",
-  "D": "substitutes the coordinates in reverse, using x = -3 and y = 6"
- },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The given line has slope $-\\frac{1}{2}$, so line $k$ has slope $2$; then $-3 = 2(6) + b$ gives $b = -15$.\n\n**The Full Solution:**\nStep 1: Solve $x + 2y = 14$ for $y$: $y = -\\frac{1}{2}x + 7$, so its slope is $-\\frac{1}{2}$.\nStep 2: A perpendicular line has the negative reciprocal slope, $2$, so line $k$ is $y = 2x + b$.\nStep 3: Substitute $(6, -3)$: $-3 = 12 + b$, so $b = -15$ and line $k$ is $y = 2x - 15$. Check: $2(6) - 15 = -3$, and $(2)\\left(-\\frac{1}{2}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = -\\frac{1}{2}x$): keeps the given slope, $-3 = -\\frac{1}{2}(6) + b$, so $b = 0$. That line is parallel to the given line.\n* Choice C ($y = -2x + 9$): flips $-\\frac{1}{2}$ to $-2$ but does not negate it, then solves $-3 = -12 + b$.\n* Choice D ($y = 2x + 12$): has the right slope but substitutes the point backward, $6 = 2(-3) + b$.\n\n**Test Day Takeaway:** Flip and negate the slope for a perpendicular line, then substitute the point in the order $(x, y)$ to find the intercept."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The given line is $y = -\\frac{1}{2}x + 7$, so line $k$ is $y = -\\frac{1}{2}x$, and $d = -\\frac{1}{2}(6) = -3$.\n\n**The Full Solution:**\nStep 1: Solve $x + 2y = 14$ for $y$: $y = -\\frac{1}{2}x + 7$. Its slope is $-\\frac{1}{2}$, so line $k$ also has slope $-\\frac{1}{2}$.\nStep 2: Line $k$ passes through the origin, so its $y$-intercept is $0$ and line $k$ is $y = -\\frac{1}{2}x$.\nStep 3: Substitute $x = 6$: $d = -\\frac{1}{2}(6) = -3$. Check: the slope from $(0, 0)$ to $(6, -3)$ is $\\frac{-3 - 0}{6 - 0} = -\\frac{1}{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): uses $-2$ as the slope, flipping $-\\frac{1}{2}$ by mistake.\n* Choice C ($4$): substitutes $x = 6$ into $x + 2y = 14$, which gives a point on the given line, not on line $k$.\n* Choice D ($12$): uses $2$, the slope of a perpendicular line.\n\n**Test Day Takeaway:** A line parallel to a given line has the same slope; if it passes through the origin, its equation is $y = mx$."
 }

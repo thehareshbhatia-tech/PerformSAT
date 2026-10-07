@@ -1,6 +1,6 @@
 {
   "id": "bank-alg-072",
-  "question": "For the linear function $f$, $f(4) - f(-2) = -18$. The function $g$ is defined by $g(x) = f(2x)$. What is the slope of the graph of $y = g(x)$ in the $xy$-plane?",
+  "question": "For the linear function $f$, $f(4) - f(-2) = -18$. The function $g$ is defined by $g(x) = f(x) - 10$. What is the slope of the graph of $y = g(x)$ in the $xy$-plane?",
   "choices": [
     {
       "id": "A",
@@ -8,22 +8,22 @@
     },
     {
       "id": "B",
-      "text": "$-6$"
+      "text": "$-9$"
     },
     {
       "id": "C",
-      "text": "$-3$"
+      "text": "$-\\frac{14}{3}$"
     },
     {
       "id": "D",
-      "text": "$-\\frac{3}{2}$"
+      "text": "$-3$"
     }
   ],
   "distractorNotes": {
-    "A": "takes the change in output, -18, as the slope without dividing by the change in input",
-    "C": "finds the slope of f but does not account for the 2x inside g",
-    "D": "divides the slope of f by 2 instead of multiplying"
+    "A": "uses the change in output as the slope without dividing by the change in input",
+    "B": "divides by 4 - 2 = 2 instead of 4 - (-2) = 6",
+    "C": "subtracts 10 from the change in output before dividing, as if the shift changed the slope"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Slope from Function Difference**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The slope of $f$ is $\\frac{-18}{4 - (-2)} = -3$. Replacing $x$ with $2x$ doubles the slope, so $g$ has slope $-6$.\n\n**The Full Solution:**\nStep 1: The inputs $4$ and $-2$ differ by $6$, and the outputs differ by $-18$, so the slope of $f$ is $\\frac{-18}{6} = -3$. Then $f(x) = -3x + b$ for some constant $b$.\nStep 2: Substitute $2x$ for $x$: $g(x) = f(2x) = -3(2x) + b = -6x + b$.\nStep 3: The slope of $y = g(x)$ is the coefficient of $x$, which is $-6$. Check: $g(2) - g(-1) = f(4) - f(-2) = -18$, and the inputs $2$ and $-1$ differ by $3$, so the slope is $\\frac{-18}{3} = -6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-18$): treats the change in output as the slope without dividing by the change in input, $6$.\n* Choice C ($-3$): finds the slope of $f$ correctly but stops there; $g$ is not the same function as $f$.\n* Choice D ($-\\frac{3}{2}$): divides the slope of $f$ by $2$, as though $g(x) = f\\left(\\frac{x}{2}\\right)$.\n\n**Test Day Takeaway:** Slope is the change in output divided by the change in input. Replacing $x$ with $cx$ inside a linear function multiplies its slope by $c$."
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Slope from Function Difference**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The slope of $f$ is $\\frac{-18}{4 - (-2)} = -3$, and subtracting $10$ only moves the graph down, so the slope of $g$ is also $-3$.\n\n**The Full Solution:**\nStep 1: For a linear function, slope $= \\frac{f(4) - f(-2)}{4 - (-2)} = \\frac{-18}{6} = -3$.\nStep 2: Write $f(x) = -3x + b$ for some constant $b$. Then $g(x) = f(x) - 10 = -3x + (b - 10)$.\nStep 3: The coefficient of $x$ is still $-3$, so the slope of the graph of $y = g(x)$ is $-3$. Check: $g(4) - g(-2) = [f(4) - 10] - [f(-2) - 10] = -18$, and $\\frac{-18}{6} = -3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-18$): treats the change in output as the slope and never divides by the change in $x$.\n* Choice B ($-9$): computes the change in $x$ as $4 - 2 = 2$, dropping the negative sign on $-2$.\n* Choice C ($-\\frac{14}{3}$): subtracts $10$ from $-18$ before dividing, but a vertical shift changes every output by the same amount and leaves the slope unchanged.\n\n**Test Day Takeaway:** Adding or subtracting a constant from a function translates its graph up or down; the slope stays the same."
 }

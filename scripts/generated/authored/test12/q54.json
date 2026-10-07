@@ -9,34 +9,34 @@
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "The Shakers were a religious community that founded villages in the northeastern United States.",
-   "Shaker craftsmen built furniture for their own dwellings, workshops, and meetinghouses.",
-   "Community rules discouraged carving, veneer, and other ornament as worldly display.",
-   "Shaker belief held that labor was a form of worship and that an object's beauty lay in its fitness for use.",
-   "Chairs were made light enough to hang from wall pegs; cupboards and drawers were often built into the walls.",
-   "Museums now exhibit Shaker furniture as a landmark of functional design."
+   "The Bauhaus was a German art school that operated from 1919 to 1933.",
+   "It was based first in Weimar, then in Dessau, and finally in Berlin.",
+   "The school combined training in the fine arts with training in crafts.",
+   "Its approach held that an object's design should follow from its function.",
+   "Bauhaus designs avoided ornament and used simplified forms suited to mass production.",
+   "The school closed in 1933 under pressure from the Nazi regime."
   ],
-  "goal": "The student wants to emphasize the central principle that guided Shaker furniture making."
+  "goal": "The student wants to emphasize the central principle that guided Bauhaus design."
  },
  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
  "choices": [
   {
    "id": "A",
-   "text": "The Shakers were a religious community that founded villages across the northeastern United States."
+   "text": "The Bauhaus, a German art school, operated in Weimar, Dessau, and Berlin between 1919 and 1933."
   },
   {
    "id": "B",
-   "text": "Holding that labor was worship and that beauty lay in fitness for use, Shaker craftsmen shunned ornament and built furniture shaped by practical need."
+   "text": "Holding that an object's design should follow from its function, Bauhaus designers avoided ornament and used simplified forms."
   },
   {
    "id": "C",
-   "text": "Museums now exhibit the furniture that Shaker craftsmen made for their communities as a landmark in the history of functional design."
+   "text": "The Bauhaus combined training in the fine arts with training in crafts in Weimar, Dessau, and Berlin until the school closed in 1933."
   },
   {
    "id": "D",
-   "text": "Shaker chairs were made light enough to hang from wall pegs, and Shaker cupboards and drawers were often built directly into the walls of the rooms they served."
+   "text": "Under pressure from the Nazi regime, the Bauhaus closed in 1933 after operating for fourteen years."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The goal asks for the principle behind the furniture, and B states it in the Shakers' own terms — labor as worship, beauty as fitness for use — and then shows the principle at work in the shunning of ornament and the practicality of every feature.\n\n**The Full Solution:**\n- A principle is a guiding belief, so the right choice must lead with the belief, not with facts around it.\n- The notes give the belief twice over: ornament was rejected as worldly display, and beauty was located in fitness for use.\n- B opens with exactly that creed and ties it to the practice it produced, which is what \"emphasize the central principle\" requires.\n\n**Why the other choices are wrong:**\n- A: It supplies background about the community's villages and says nothing about furniture or belief.\n- C: It reports how museums regard the furniture today — reception, not the principle that guided its making.\n- D: It gives two vivid examples of the principle's results while leaving the principle itself unstated."
+ "explanation": "**Choice B is correct.** The goal is to emphasize the central principle behind Bauhaus design. B states that principle, that \"an object's design should follow from its function,\" and shows how it shaped the designs: no ornament and simplified forms.\n\n**The Full Solution:**\n- The notes name the guiding idea: the school's \"approach held that an object's design should follow from its function.\"\n- They also describe the designs that resulted: they \"avoided ornament and used simplified forms.\"\n- B joins the principle to its results, which is what the goal requires.\n\n**Why the other choices are wrong:**\n- A: It gives the school's locations and dates but no principle of design.\n- C: It describes how the school trained students, not the principle that guided its designs.\n- D: It explains how the school ended, which says nothing about how it designed objects."
 }

@@ -1,30 +1,30 @@
 {
   "id": 4,
-  "question": "The paint color of each of $200$ cars in a parking lot was recorded. Which of the following measures of center can be determined from these data?",
+  "question": "$18, 7, 25, 12, 30, 10$\nWhat is the median of the data shown?",
   "choices": [
     {
       "id": "A",
-      "text": "The mean only"
+      "text": "$12$"
     },
     {
       "id": "B",
-      "text": "The median only"
+      "text": "$15$"
     },
     {
       "id": "C",
-      "text": "The mode only"
+      "text": "$17$"
     },
     {
       "id": "D",
-      "text": "The mean, the median, and the mode"
+      "text": "$18.5$"
     }
   ],
   "distractorNotes": {
-    "A": "the mean requires arithmetic on the values, which categorical labels do not support.",
-    "B": "the median requires an order on the values, and paint colors have no least-to-greatest order.",
-    "D": "assumes every measure of center applies to every data set, but only the mode applies to categorical data."
+    "A": "orders the values but takes only the lower of the two middle values",
+    "C": "computes the mean, 102/6, instead of the median",
+    "D": "averages the two middle values of the list as given, 25 and 12, without ordering it"
   },
-  "correctAnswer": "C",
-  "hint": "Ask which of the three measures needs the data to be numbers you can order or add.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** Colors cannot be added or ordered, so only the most frequent color, the mode, can be found.\n\n**The Full Solution:**\nStep 1: The mean requires adding the values and dividing, which is impossible for color names.\nStep 2: The median requires arranging the values from least to greatest, and colors have no numerical order.\nStep 3: The mode requires only counting how often each value occurs, which works for colors, so the mode alone can be determined. Check: reporting that red occurs most often is meaningful, while an average color is not. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: the mean requires arithmetic on the values, which categorical labels do not support.\n* Choice B: the median requires an order on the values, and paint colors have no least-to-greatest order.\n* Choice D: assumes every measure of center applies to every data set, but only the mode applies to categorical data.\n\n**Test Day Takeaway:** Categorical data supports only the mode. Mean and median require values you can add or order."
+  "correctAnswer": "B",
+  "hint": "Order the values first. With an even number of values, average the two in the middle.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** In order the values are $7, 10, 12, 18, 25, 30$, and the median is $\\frac{12 + 18}{2} = 15$.\n\n**The Full Solution:**\nStep 1: Order the six values: $7, 10, 12, 18, 25, 30$.\nStep 2: With $6$ values, the median is the average of the 3rd and 4th values, $12$ and $18$.\nStep 3: The median is $\\frac{12 + 18}{2} = 15$.\n\nCheck: Three values ($7$, $10$, $12$) are below $15$ and three ($18$, $25$, $30$) are above it. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): stops at the 3rd value; with an even count the two middle values must be averaged.\n* Choice C ($17$): is the mean, $\\frac{102}{6}$.\n* Choice D ($18.5$): averages $25$ and $12$, the middle of the unordered list.\n\n**Test Day Takeaway:** Median: order first; for an even number of values, average the two middle values."
 }

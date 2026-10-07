@@ -9,35 +9,35 @@
  "passages": [
   {
    "label": "Text 1",
-   "text": "Popular histories describe the Silk Road as antiquity's great commercial artery: caravans crossing the breadth of Eurasia laden with silk bound for Mediterranean markets, merchants growing rich on a trade of intercontinental scale, and cities rising wherever the caravans paused. In this telling, sustained long-distance commerce was the routes' defining activity and the source of their historical importance."
+   "text": "Popular books and films often suggest that people in medieval Europe were old by the age of thirty. They point to estimates that life expectancy at birth in medieval England was only about 30 years. On this view, few people of the period lived to see middle age, and a person of forty would have been considered elderly."
   },
   {
    "label": "Text 2",
-   "text": "The historian Valerie Hansen, drawing on documents excavated at desert settlements along the routes, notes that the caravans they record were mostly small and their dealings mostly local. Silk itself often moved not as merchandise but as currency or army pay, and the largest flows of goods accompanied soldiers and officials rather than private traders. The routes transformed the societies along them, Hansen argues, but chiefly as corridors for technologies, religions, and ideas, not through the volume of their commerce."
+   "text": "Historians accept that life expectancy at birth in medieval England was low, roughly 30 years. That average, however, was pulled down by the many children who died in infancy or early childhood. People who survived childhood often lived much longer. Estimates for English aristocrats of the 1200s suggest that a man who reached the age of 21 could expect to live to about 64."
   }
  ],
- "question": "Based on the texts, how would Hansen (Text 2) most likely respond to the account of the Silk Road presented in Text 1?",
+ "question": "Based on the texts, how would the author of Text 2 most likely respond to the view of medieval life spans presented in Text 1?",
  "choices": [
   {
    "id": "A",
-   "text": "She would grant that goods and people moved along the routes while objecting that the account misrepresents the scale and character of the trade."
+   "text": "The author would accept the estimate of about 30 years but deny that it means most adults died young."
   },
   {
    "id": "B",
-   "text": "She would deny that silk was transported along the routes in any significant quantity."
+   "text": "The author would argue that life expectancy at birth in medieval England was in fact much higher than 30 years."
   },
   {
    "id": "C",
-   "text": "She would agree that commerce on an intercontinental scale occurred but argue that it traveled by sea rather than over land."
+   "text": "The author would agree that few medieval people reached middle age, because so many of them died as children."
   },
   {
    "id": "D",
-   "text": "She would respond that excavated documents are too fragmentary to support any conclusions about the routes' history."
+   "text": "The author would claim that too few records survive from medieval England to support any estimate of life expectancy."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** Hansen does not dispute that things moved along the routes — her documents record caravans, silk, soldiers, and officials — but she rejects Text 1's picture of large-scale private commerce, recasting the trade as small, local, and often not commercial at all.\n\n**The Full Solution:**\n- Text 1's account rests on two commitments: trade of intercontinental scale, and commerce as the routes' defining activity.\n- Text 2 concedes movement while contesting both commitments: recorded caravans were \"mostly small,\" dealings \"mostly local,\" silk often served as currency or pay, and the biggest flows attended armies, not merchants.\n- Hansen's positive claim — the routes mattered as corridors for technologies, religions, and ideas — replaces the character of the routes' importance without denying that they were traveled. That is the grant-plus-objection stance of choice A.\n\n**Why the other choices are wrong:**\n- B: It overshoots; Hansen says silk moved, only often as currency or pay rather than merchandise.\n- C: She relocates nothing to the sea — she shrinks and recharacterizes the overland trade itself.\n- D: It attacks her own evidentiary base; the excavated documents are the foundation of her argument, not its target.",
+ "explanation": "**Choice A is correct.** Text 2 accepts the figure that Text 1 relies on, a life expectancy at birth of about 30 years, but explains that the average was pulled down by deaths in childhood and that people who survived childhood often lived much longer. Its author would accept the number and reject the conclusion Text 1 draws from it.\n\n**The Full Solution:**\n- How to spot it: separate Text 1's evidence from its conclusion. The evidence is the estimate of about 30 years; the conclusion is that few people reached middle age.\n- Text 2 agrees with the evidence: life expectancy at birth was \"roughly 30 years.\"\n- Text 2 rejects the conclusion: the low average reflects child deaths, and an aristocrat who reached 21 could expect to live to about 64. Choice A captures both the agreement and the objection.\n\n**Why the other choices are wrong:**\n- B: Text 2 accepts the estimate of roughly 30 years, so its author would not argue that the figure was much higher.\n- C: Text 2 says people who survived childhood often lived much longer, so its author would not agree that few people reached middle age.\n- D: Text 2 itself cites estimates for medieval England, so its author does not think the records are too scarce to support any estimate.",
  "_meta": {
-  "anchor": "Silk Road historiography — grand commercial narrative vs. Hansen's local-trade revision"
+  "anchor": "medieval life expectancy — low average at birth vs. long lives of adults who survived childhood"
  }
 }

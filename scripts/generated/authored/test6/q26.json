@@ -9,33 +9,40 @@
   "studentNotes": {
     "intro": "While researching a topic, a student has taken the following notes:",
     "bullets": [
-      "In the early 1800s, most live plants shipped overseas died at sea.",
-      "In 1829, the London doctor Nathaniel Bagshaw Ward found that plants could thrive for years inside a sealed glass case.",
-      "A sealed Wardian case let in sunlight but kept out salt spray.",
-      "In an 1833 trial, ferns and grasses sealed in Wardian cases reached Sydney alive after months at sea.",
-      "Plant shipments carried on open decks in the same era commonly lost most of their plants."
+      "In the 1700s, short-staple cotton seeds had to be picked out of the fiber by hand.",
+      "In 1793, an American inventor built a cotton gin, a machine for separating the seeds from the fiber.",
+      "The gin pulled the fiber through small holes in a metal plate that held back the seeds.",
+      "With a gin, two or three workers could clean about fifty pounds of cotton in a day.",
+      "By hand, one laborer needed about ten hours to clean a single pound of cotton."
     ],
-    "goal": "The student wants to emphasize the difference between the outcomes of the two shipping methods."
+    "goal": "The student wants to emphasize the difference between the results of the two cleaning methods."
   },
   "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
   "choices": [
     {
       "id": "A",
-      "text": "Nathaniel Bagshaw Ward, a London doctor, discovered in 1829 that plants could thrive for years inside a sealed glass case."
+      "text": "In 1793, an American inventor built a cotton gin, a machine for separating cotton seeds from the fiber."
     },
     {
       "id": "B",
-      "text": "During the 1833 trial, ferns and grasses sealed in Wardian cases spent months at sea before reaching Sydney."
+      "text": "With a cotton gin, a team of two or three workers could clean about fifty pounds of cotton in a day."
     },
     {
       "id": "C",
-      "text": "A sealed Wardian case admitted sunlight but kept out salt spray, so the plants inside it were sheltered from the sea air."
+      "text": "The gin pulled the fiber through small holes in a metal plate, which held back the seeds so that the cotton came out of the machine clean."
     },
     {
       "id": "D",
-      "text": "Whereas plants shipped on open decks commonly died at sea, ferns and grasses sealed in Wardian cases survived the months-long voyage to Sydney."
+      "text": "Whereas one laborer needed about ten hours to clean a pound of cotton by hand, a few workers with a gin cleaned about fifty pounds a day."
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The goal is a difference in outcomes between the two shipping methods, and D sets the two outcomes side by side in one sentence — open-deck plants commonly died; case-sealed plants survived the voyage.\n\n**The Full Solution:**\n- The goal names two requirements: both methods must appear, and what must be contrasted is how each turned out.\n- D's \"Whereas... commonly died... survived\" is built on exactly that comparison, drawing one outcome from the open-deck note and the other from the Sydney trial note.\n\n**Why the other choices are wrong:**\n- A: It introduces Ward and his discovery but mentions only one method and no comparative outcome.\n- B: It reports the sealed cases' voyage alone — with nothing about open-deck shipments, no difference is drawn.\n- C: It explains how the case worked, a mechanism rather than a comparison of results."
+  "explanation": "**Choice D is correct.** The goal is a difference in results between the two cleaning methods, and D sets the two results side by side in one sentence: about ten hours for one pound by hand, about fifty pounds a day with the gin.\n\n**The Full Solution:**\n- The goal names two requirements: both methods must appear, and what must be contrasted is how much each one accomplished.\n- D's \"Whereas... a pound... fifty pounds\" is built on exactly that comparison, drawing one result from the hand-cleaning note and the other from the note about the gin's output.\n\n**Why the other choices are wrong:**\n- A: It introduces the inventor and the machine but mentions only one method and no comparative result.\n- B: It reports the gin's output alone; with nothing about hand cleaning, no difference is drawn.\n- C: It explains how the gin worked, a mechanism rather than a comparison of results.",
+  "_meta": {
+    "anchor": "cotton gin (1793) vs hand cleaning: about 1 lb per 10 hours by hand vs about 50 lb a day with a gin",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Cotton_gin",
+      "https://www.archives.gov/education/lessons/cotton-gin-patent"
+    ]
+  }
 }

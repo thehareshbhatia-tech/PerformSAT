@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 1,
- "passage": "William Smith had no university training, and in 1819, after a stone-quarrying venture failed, he was imprisoned for debt and then spent years working as an itinerant surveyor. ______ his method of identifying strata by their fossils became standard geological practice, and in 1831 the Geological Society of London awarded him its first Wollaston Medal.",
+ "passage": "Digging a tunnel beneath the Thames in London proved far harder than expected. Work began in 1825, but the river flooded the tunnel in 1827 and again in 1828, and digging then stopped for seven years. ______ work resumed in 1835, and the Thames Tunnel opened in 1843, the first tunnel known to have been built successfully under a navigable river.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,5 +27,12 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The passage turns from Smith's setbacks to the eventual triumph of his method, a reversal that the concessive \"Even so,\" marks precisely.\n\n**The Full Solution:**\n- The first sentence piles up setbacks: no university training, a failed business venture, prison for debt, and years of itinerant work.\n- The final sentence runs the other way: his fossil-based method became standard practice, and the Geological Society honored him.\n- A contrast transition is needed to turn from misfortune to recognition: \"Even so.\"\n\n**Why the other choices are wrong:**\n- B: \"Accordingly,\" would present the honors as the logical outcome of the setbacks, inverting the passage's logic.\n- C: \"Likewise,\" promises another point in the same direction, but the final sentence reverses direction.\n- D: \"Previously,\" points backward in time, but the recognition came after the setbacks, not before."
+ "explanation": "**Choice A is correct.** The text first reports serious setbacks (two floods and a seven-year halt) and then reports that the work went on anyway, a concession-then-contrast that \"Even so,\" marks.\n\n**The Full Solution:**\n- The text lists setbacks: the river flooded the tunnel in 1827 and again in 1828, and digging then stopped for seven years.\n- The last sentence reports an outcome those setbacks would not lead a reader to expect: work resumed in 1835, and the tunnel opened in 1843.\n- \"Even so,\" grants the earlier setbacks and introduces a result that came about despite them.\n\n**Why the other choices are wrong:**\n- B: \"Accordingly,\" would present the resumed work as following from the floods and the long halt, but those setbacks point the other way.\n- C: \"Likewise,\" signals a similar point, but the last sentence reverses the pattern of setbacks rather than continuing it.\n- D: \"Previously,\" would place the 1835 resumption before the floods and the halt, scrambling the timeline.",
+ "_meta": {
+  "anchor": "Thames Tunnel (begun 1825, floods 1827/1828, halt, resumed 1835, opened 1843) - concession transition Even so",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Thames_Tunnel",
+   "https://www.britannica.com/topic/Thames-Tunnel"
+  ]
+ }
 }

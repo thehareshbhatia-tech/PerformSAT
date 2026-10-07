@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-090",
-  "question": "The scatterplot shows the number of days $x$ before a play's opening night and the number of tickets $y$ sold on each of $8$ days. The line of best fit, $y = -6x + 128$, is also shown. On a ninth day, $52$ tickets were sold, and the residual for that day is $14$. How many days before opening night was the ninth day?",
+  "question": "The scatterplot shows the number of days $x$ before a play's opening night and the number of tickets $y$ sold on each of $8$ days. The line of best fit, $y = -6x + 128$, is also shown. A new data set is created by multiplying the number of tickets sold on each of the $8$ days by $1.5$. A line of best fit for the new data set is $y = mx + b$, where $m$ and $b$ are constants. What is the value of $b$?",
   "diagram": {
     "type": "scatterplot",
     "params": {
@@ -54,6 +54,6 @@
       }
     }
   },
-  "correctAnswer": "15",
-  "explanation": "**SAT Pattern: Residual**\n\n**The correct answer is 15.**\n\n**The Fast Way (~30s):** A residual of $14$ means the line predicted $52 - 14 = 38$ tickets, and $-6x + 128 = 38$ gives $x = 15$.\n\n**The Full Solution:**\nStep 1: Residual $=$ actual $-$ predicted, so predicted $=$ actual $-$ residual $= 52 - 14 = 38$ tickets.\nStep 2: The line predicts $38$ tickets where $-6x + 128 = 38$, so $-6x = -90$.\nStep 3: $x = 15$, so the ninth day was $15$ days before opening night. Check: the line predicts $-6(15) + 128 = 38$, and $52 - 38 = 14$, the given residual ✓\n\n**Common Mistakes:**\n* $10.33$: adds the residual instead of subtracting it, solving $-6x + 128 = 66$.\n* $12.67$: ignores the residual and solves $-6x + 128 = 52$.\n* $38$: stops at the predicted number of tickets instead of finding $x$.\n\n**Test Day Takeaway:** Predicted $=$ actual $-$ residual. Find the predicted value first, then solve the line's equation for $x$."
+  "correctAnswer": "192",
+  "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is 192.**\n\n**The Fast Way (~30s):** Multiplying every $y$-value by $1.5$ multiplies the whole line by $1.5$: $y = 1.5(-6x + 128) = -9x + 192$, so $b = 192$.\n\n**The Full Solution:**\nStep 1: Each new data point has the same $x$-value as before and $1.5$ times the $y$-value, so the new data are the original data stretched vertically by a factor of $1.5$.\nStep 2: The line of best fit is stretched the same way: every predicted value is multiplied by $1.5$, giving $y = 1.5(-6x + 128) = -9x + 192$.\nStep 3: So $m = -9$ and $b = 192$. Check: at $x = 0$ the original line predicts $128$ tickets, and $1.5 \\times 128 = 192$ ✓\n\n**Common Mistakes:**\n* $128$: keeps the original $y$-intercept, as if multiplying the $y$-values did not move the line.\n* $129.5$: adds $1.5$ to the $y$-intercept instead of multiplying by it.\n* $-9$: gives the new slope, $m = 1.5(-6)$, instead of $b$.\n\n**Test Day Takeaway:** Multiplying every $y$-value by $k$ multiplies both the slope and the $y$-intercept of the line of best fit by $k$; adding a constant to every $y$-value changes only the $y$-intercept."
 }

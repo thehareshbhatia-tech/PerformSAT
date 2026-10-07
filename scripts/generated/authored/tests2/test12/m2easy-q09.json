@@ -1,29 +1,29 @@
 {
  "id": 9,
- "question": "A data set consists of $15$ temperatures, in degrees Celsius, and has a mean of $4.5$. Each temperature is converted to degrees Fahrenheit using the formula $F = 1.8C + 32$. What is the mean, in degrees Fahrenheit, of the converted temperatures?",
+ "question": "Data set A has a mean of $38$ and a range of $20$. Data set B is created by adding $9$ to each value in data set A. What are the mean and the range of data set B?",
  "choices": [
   {
    "id": "A",
-   "text": "$8.1$"
+   "text": "The mean is $38$ and the range is $20$."
   },
   {
    "id": "B",
-   "text": "$36.5$"
+   "text": "The mean is $38$ and the range is $29$."
   },
   {
    "id": "C",
-   "text": "$40.1$"
+   "text": "The mean is $47$ and the range is $20$."
   },
   {
    "id": "D",
-   "text": "$65.7$"
+   "text": "The mean is $47$ and the range is $29$."
   }
  ],
  "distractorNotes": {
-  "A": "multiplies the mean by 1.8 but never adds the 32",
-  "B": "adds 32 to the mean without multiplying by 1.8",
-  "D": "adds 32 to the mean first and then multiplies the sum by 1.8"
+  "A": "assumes adding the same number to every value changes neither measure",
+  "B": "shifts the range by 9 but leaves the mean unchanged, the reverse of what happens",
+  "D": "adds 9 to the range as well as to the mean"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The mean changes the same way each value does, so the new mean is $1.8(4.5) + 32 = 40.1$.\n\n**The Full Solution:**\nStep 1: Multiplying every value by $1.8$ multiplies the mean by $1.8$: $1.8(4.5) = 8.1$.\nStep 2: Adding $32$ to every value adds $32$ to the mean: $8.1 + 32 = 40.1$ degrees Fahrenheit.\nStep 3: Confirm with the sums. The Celsius values total $15(4.5) = 67.5$, so the Fahrenheit values total $1.8(67.5) + 15(32) = 121.5 + 480 = 601.5$, and $\\frac{601.5}{15} = 40.1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8.1$): applies only the multiplication, $1.8(4.5)$, and leaves out the $32$.\n* Choice B ($36.5$): applies only the addition, $4.5 + 32$, and leaves out the factor of $1.8$.\n* Choice D ($65.7$): adds before multiplying, computing $1.8(4.5 + 32)$; the formula multiplies first.\n\n**Test Day Takeaway:** When every value is transformed by $y = mx + k$, the mean is transformed by the same rule: multiply the old mean by $m$, then add $k$."
+ "explanation": "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Adding $9$ to every value adds $9$ to the mean, $38 + 9 = 47$, but the greatest and least values both go up by $9$, so the range stays $20$.\n\n**The Full Solution:**\nStep 1: If the values of data set A add to $S$ for $n$ values, the values of data set B add to $S + 9n$, so the mean of B is $\\frac{S + 9n}{n} = \\frac{S}{n} + 9 = 38 + 9 = 47$.\nStep 2: If the greatest and least values of A are $M$ and $L$, with $M - L = 20$, then the greatest and least values of B are $M + 9$ and $L + 9$.\nStep 3: The range of B is $(M + 9) - (L + 9) = M - L = 20$. Check with the values $28$, $38$, $48$ (mean $38$, range $20$): adding $9$ gives $37$, $47$, $57$, with mean $47$ and range $57 - 37 = 20$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: the range is unchanged, but every value, and so the mean, is $9$ greater.\n* Choice B: switches the two effects; the center moves and the spread stays the same.\n* Choice D: adds $9$ to the range, but the distance between the greatest and least values does not change.\n\n**Test Day Takeaway:** Adding the same number to every value shifts the mean and the median by that number and leaves the range and the standard deviation unchanged."
 }

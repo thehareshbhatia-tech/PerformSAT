@@ -9,33 +9,33 @@
   "studentNotes": {
     "intro": "While researching a topic, a student has taken the following notes:",
     "bullets": [
-      "Many students believe that the more complete their lecture notes, the better they will learn.",
-      "Psychologists Pam Mueller and Daniel Oppenheimer compared students who took lecture notes on laptops with students who wrote notes by hand.",
-      "Laptop users recorded more words but tended to transcribe the lecture verbatim.",
-      "Handwriting is slower, forcing note-takers to select and rephrase ideas in their own words.",
-      "On later tests of conceptual understanding, the longhand group outperformed the laptop group."
+      "Many parents believe that eating sugar makes children hyperactive.",
+      "In a study published in 1994, pediatrician Mark Wolraich and colleagues tested this belief.",
+      "For three-week periods, children followed diets sweetened mainly with sugar, with aspartame, or with saccharin.",
+      "Neither the families nor the researchers knew which diet a child was on at a given time.",
+      "The researchers concluded that the diet high in sugar did not affect the children's behavior or cognitive performance."
     ],
-    "goal": "The student wants to emphasize the difference between a common belief about note-taking and the study's result."
+    "goal": "The student wants to emphasize the difference between a common belief about sugar and the study's result."
   },
   "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
   "choices": [
     {
       "id": "A",
-      "text": "Pam Mueller and Daniel Oppenheimer compared students who took lecture notes on laptops with students who wrote their notes by hand."
+      "text": "Mark Wolraich and colleagues had children follow diets sweetened mainly with sugar, with aspartame, or with saccharin."
     },
     {
       "id": "B",
-      "text": "Because handwriting is considerably slower than typing on a laptop, note-takers who write by hand are forced to select and rephrase a lecturer's ideas in their own words."
+      "text": "Neither the families nor the researchers knew whether a child's diet during a given three-week period was sweetened mainly with sugar, with aspartame, or with saccharin."
     },
     {
       "id": "C",
-      "text": "Although many students assume that fuller notes mean better learning, the slower, less complete longhand notes were the ones associated with stronger conceptual understanding."
+      "text": "Although many parents believe that sugar makes children hyperactive, Wolraich's study found that a diet high in sugar did not change children's behavior."
     },
     {
       "id": "D",
-      "text": "On later tests of conceptual understanding, students who had written notes by hand outperformed students who had typed."
+      "text": "The researchers concluded that the diet high in sugar did not affect the children's behavior or cognitive performance."
     }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The goal pairs a common belief with a result that cut against it, and C holds both in one sentence: the assumption (fuller notes, better learning) fronted by \"Although,\" then the finding that the sparser longhand notes won on conceptual understanding.\n\n**The Full Solution:**\n- Required elements: the belief from the first note, the outcome from the last note, and a frame that opposes them.\n- C's concessive structure does the opposing work explicitly — belief conceded, result delivered — which is what \"emphasize the difference\" demands.\n\n**Why the other choices are wrong:**\n- A: It describes the study's setup; neither the belief nor the result appears, so no difference can be felt.\n- B: It explains the mechanism behind longhand's advantage but mentions neither the common belief nor the test outcome.\n- D: It reports the result alone — without the expectation beside it, the contrast the goal calls for never materializes."
+  "explanation": "**Choice C is correct.** The goal pairs a common belief with a result that cut against it, and C holds both in one sentence: the belief (sugar makes children hyperactive) fronted by \"Although,\" then the finding that a high-sugar diet did not change the children's behavior.\n\n**The Full Solution:**\n- Required elements: the belief from the first note, the outcome from the last note, and a frame that opposes them.\n- C's concessive structure does the opposing work explicitly — belief conceded, result delivered — which is what \"emphasize the difference\" demands.\n\n**Why the other choices are wrong:**\n- A: It describes the study's setup; neither the belief nor the result appears, so no difference can be felt.\n- B: It explains how the study kept everyone unaware of the diets but mentions neither the common belief nor the outcome.\n- D: It reports the result alone — without the belief beside it, the contrast the goal calls for never appears."
 }

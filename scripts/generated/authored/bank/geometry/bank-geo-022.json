@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-022",
- "question": "In the figure shown, point $O$ is the center of the circle. What is the length of arc $AB$?",
+ "question": "The circle shown has center $O$. What is the length of arc $AB$?",
  "diagram": {
   "type": "circleWithSector",
   "params": {

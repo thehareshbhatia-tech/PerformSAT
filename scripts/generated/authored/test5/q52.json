@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 2,
- "passage": "When the Croton Aqueduct began delivering water to New York City in 1842, most households paid a flat annual rate no matter how much water they used. Officials soon warned of widespread waste, since using more water cost a household nothing extra. ______ the city began requiring water meters in 1879, starting with businesses, so that bills reflected actual use.",
+ "passage": "Until the 1970s, supermarket cashiers read the price marked on each item and typed it into the register by hand. The work was slow, and mistyped prices were common. ______ in 1973 the US grocery industry adopted a standard code of printed bars that a scanner could read, and the first item was scanned in a store the following year.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,8 +27,8 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The metering policy is presented as the city's response to the waste that flat-rate billing encouraged, so the sentence needs a cause-and-effect transition.\n\n**The Full Solution:**\n- The first two sentences build the cause: a flat rate that made extra use free, and the widespread waste officials warned of.\n- The final sentence delivers the consequence: the city began requiring meters so that bills would track use — a remedy aimed squarely at the incentive problem just described.\n- \"As a result\" states that causal link directly.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" would cast metering as happening despite the waste, when the waste is precisely why metering came.\n- B: \"In addition\" would stack metering alongside the waste as one more parallel fact, missing the cause-effect relation.\n- D: \"Meanwhile\" would place the metering in a separate simultaneous thread, but it came decades later, in response to the problem.",
+ "explanation": "**Choice C is correct.** The first two sentences describe a problem, slow checkout and frequent errors from typing prices by hand, and the last sentence describes the response: a standard bar code that a scanner could read. \"As a result\" marks that cause-and-effect link.\n\n**The Full Solution:**\n- The first sentence explains the old method: cashiers typed each price into the register by hand.\n- The second sentence states the drawbacks: the work was slow, and mistyped prices were common.\n- The final sentence reports what followed from those drawbacks: in 1973 the grocery industry adopted a bar code that machines could read. A step taken because of a problem calls for \"As a result.\"\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" would present the bar code as adopted despite the problems, when the problems are the reason for it.\n- B: \"In addition\" would treat the bar code as one more feature of the old method, missing the cause-and-effect relationship.\n- D: \"Meanwhile\" would present the bar code as a separate development happening at the same time, not as a response to the problem just described.",
  "_meta": {
-  "anchor": "Croton Aqueduct flat-rate waste and the turn to water meters; causal transition"
+  "anchor": "supermarket bar codes (1973 standard) replacing hand-typed prices; causal transition"
  }
 }

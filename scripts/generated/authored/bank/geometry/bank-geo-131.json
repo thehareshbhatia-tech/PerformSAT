@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-131",
- "question": "In the $xy$-plane, a circle has center $(0, 0)$ and passes through the point $(-20, 21)$. What is the radius of the circle?",
+ "question": "In the $xy$-plane, a circle has center $(-3, 2)$ and passes through the point $(5, 2)$. What is the radius of the circle?",
  "choices": [
   {
    "id": "A",
-   "text": "$1$"
+   "text": "$2$"
   },
   {
    "id": "B",
-   "text": "$29$"
+   "text": "$4$"
   },
   {
    "id": "C",
-   "text": "$41$"
+   "text": "$8$"
   },
   {
    "id": "D",
-   "text": "$841$"
+   "text": "$16$"
   }
  ],
  "distractorNotes": {
-  "A": "adds the coordinates, -20 + 21 = 1, instead of using the distance formula",
-  "C": "adds the distances along each axis, 20 + 21 = 41, instead of using the distance formula",
-  "D": "stops at r squared = 841 without taking the square root"
+  "A": "subtracts 5 - 3 = 2, dropping the negative sign of the center's x-coordinate",
+  "B": "halves the distance 8, as if the segment from the center to the point were a diameter",
+  "D": "doubles the distance 8, giving the diameter instead of the radius"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Distance from Center as Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The radius is the distance from the origin to the point: $\\sqrt{(-20)^{2} + 21^{2}} = \\sqrt{841} = 29$.\n\n**The Full Solution:**\nStep 1: Every point on a circle is one radius from the center, so $r$ is the distance from $(0, 0)$ to $(-20, 21)$.\nStep 2: By the distance formula, $r^{2} = (-20 - 0)^{2} + (21 - 0)^{2} = 400 + 441 = 841$.\nStep 3: $r = \\sqrt{841} = 29$. Check: $29^{2} = 841 = 400 + 441$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): adds the coordinates, $-20 + 21 = 1$, instead of using the distance formula.\n* Choice C ($41$): adds the distances along each axis, $20 + 21$; the straight-line distance is shorter than that path.\n* Choice D ($841$): stops at $r^{2}$ without taking the square root.\n\n**Test Day Takeaway:** The radius is the distance from the center to any point on the circle, so the distance formula from the center to a given point gives it directly."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Distance from Center as Radius**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The center $(-3, 2)$ and the point $(5, 2)$ have the same $y$-coordinate, so the radius is $5 - (-3) = 8$.\n\n**The Full Solution:**\nStep 1: Every point on a circle is one radius from the center, so the radius is the distance from $(-3, 2)$ to $(5, 2)$.\nStep 2: Both points lie on the horizontal line $y = 2$, so the distance between them is the difference of their $x$-coordinates.\nStep 3: The radius is $5 - (-3) = 8$. Check: moving $8$ units to the right of $(-3, 2)$ gives $(5, 2)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): computes $5 - 3$, dropping the negative sign of $-3$.\n* Choice B ($4$): halves the distance, as if the segment from the center to the point were a diameter.\n* Choice D ($16$): doubles the distance, giving the diameter instead of the radius.\n\n**Test Day Takeaway:** The radius is the distance from the center to any point on the circle; when the two points share a coordinate, subtract the other coordinates."
 }

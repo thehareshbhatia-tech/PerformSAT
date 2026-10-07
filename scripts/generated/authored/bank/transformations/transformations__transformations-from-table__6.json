@@ -1,30 +1,30 @@
 {
   "id": 6,
-  "question": "$g(x) = 0.75f(x)$\nIf $f(6) = 240$, what is the value of $g(6)$?",
+  "question": "$g(x) = f(x - 4)$\nThe function $g$ is defined by the given equation, where $f$ is another function. If $f(2) = 15$, what is the value of $g(6)$?",
   "choices": [
     {
       "id": "A",
-      "text": "$60$"
+      "text": "$2$"
     },
     {
       "id": "B",
-      "text": "$180$"
+      "text": "$11$"
     },
     {
       "id": "C",
-      "text": "$240$"
+      "text": "$15$"
     },
     {
       "id": "D",
-      "text": "$320$"
+      "text": "$19$"
     }
   ],
   "distractorNotes": {
-    "A": "computes the 25% that is removed",
-    "C": "reports f(6) and ignores the factor",
-    "D": "divides by 0.75 instead of multiplying"
+    "A": "reports the input of f instead of its output",
+    "B": "subtracts 4 from the output instead of from the input",
+    "D": "adds 4 to the output"
   },
-  "correctAnswer": "B",
+  "correctAnswer": "C",
   "hint": "Substitute $6$ for $x$ in the given equation.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~10s):** $g(6) = 0.75(240) = 180$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 6$: $g(6) = 0.75f(6)$.\nStep 2: It's given that $f(6) = 240$, so $g(6) = 0.75(240)$.\nStep 3: $g(6) = 180$. Check: $\\frac{180}{240} = 0.75$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($60$): this is $0.25(240)$, the part removed, not the part kept.\n* Choice C ($240$): this is $f(6)$; the factor of $0.75$ still has to be applied.\n* Choice D ($320$): this divides $240$ by $0.75$; the equation multiplies.\n\n**Test Day Takeaway:** A factor outside $f$ scales the output: multiply the known value of $f$ by it."
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** $g(6) = f(6 - 4) = f(2) = 15$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 6$: $g(6) = f(6 - 4)$.\nStep 2: Since $6 - 4 = 2$, $g(6) = f(2)$.\nStep 3: It's given that $f(2) = 15$, so $g(6) = 15$. Check: the $4$ changes only the input to $f$, so the output $15$ is unchanged ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): this is the input to $f$, not the value of $f$.\n* Choice B ($11$): this subtracts $4$ from the output; the $4$ is subtracted from the input.\n* Choice D ($19$): this adds $4$ to the output; nothing is added outside $f$.\n\n**Test Day Takeaway:** In $g(x) = f(x - 4)$, the $4$ changes the input only; the output of $f$ passes through unchanged."
 }

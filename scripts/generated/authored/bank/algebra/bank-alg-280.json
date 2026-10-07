@@ -1,49 +1,49 @@
 {
- "id": "bank-alg-280",
- "question": "For the linear function $f$, the table shows three values of $x$ and their corresponding values of $f(x)$. How many solutions does the equation $f(x) = 3x + 12$ have?",
- "questionTable": {
-  "headers": [
-   "$x$",
-   "$f(x)$"
+  "id": "bank-alg-280",
+  "question": "The linear function $f$ has the values shown in the table. How many solutions does the equation $f(x) = 2x - 5$ have?",
+  "questionTable": {
+    "headers": [
+      "$x$",
+      "$f(x)$"
+    ],
+    "rows": [
+      [
+        "$-1$",
+        "$-7$"
+      ],
+      [
+        "$0$",
+        "$-5$"
+      ],
+      [
+        "$4$",
+        "$3$"
+      ]
+    ]
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "Zero"
+    },
+    {
+      "id": "B",
+      "text": "Exactly one"
+    },
+    {
+      "id": "C",
+      "text": "Exactly three"
+    },
+    {
+      "id": "D",
+      "text": "Infinitely many"
+    }
   ],
-  "rows": [
-   [
-    "$-2$",
-    "$6$"
-   ],
-   [
-    "$0$",
-    "$12$"
-   ],
-   [
-    "$5$",
-    "$27$"
-   ]
-  ]
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "Zero"
+  "correctAnswer": "D",
+  "distractorNotes": {
+    "A": "sees the x-terms cancel and reads that as a contradiction, though the constants also match",
+    "B": "assumes every linear equation in one variable has exactly one solution",
+    "C": "counts the three rows of the table as the complete set of solutions"
   },
-  {
-   "id": "B",
-   "text": "Exactly one"
-  },
-  {
-   "id": "C",
-   "text": "Exactly three"
-  },
-  {
-   "id": "D",
-   "text": "Infinitely many"
-  }
- ],
- "correctAnswer": "D",
- "distractorNotes": {
-  "A": "sees the x-terms cancel and reads that as a contradiction, though the constants also match",
-  "B": "assumes every linear equation in one variable has exactly one solution",
-  "C": "counts the three rows of the table as the complete set of solutions"
- },
- "explanation": "**SAT Pattern: Identifying Identity / Contradiction Equations**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** From the table, $f(0) = 12$ and $f$ rises $6$ when $x$ rises $2$, so $f(x) = 3x + 12$. Both sides are the same expression, so every $x$ works.\n\n**The Full Solution:**\nStep 1: The slope of $f$ is $\\frac{12 - 6}{0 - (-2)} = 3$, and $f(0) = 12$, so $f(x) = 3x + 12$.\nStep 2: The equation becomes $3x + 12 = 3x + 12$; subtracting $3x$ leaves $12 = 12$, which is always true.\nStep 3: So every value of $x$ is a solution. Check with the third row: $f(5) = 27$ and $3(5) + 12 = 27$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Zero): the $x$-terms cancel, but what is left, $12 = 12$, is true rather than false.\n* Choice B (Exactly one): most linear equations have one solution, but only when the $x$-coefficients differ.\n* Choice C (Exactly three): the three rows are only samples; the two sides agree at every $x$, not just the ones listed.\n\n**Test Day Takeaway:** If the $x$-terms cancel, look at what remains: a true statement means infinitely many solutions, a false one means none."
+  "explanation": "**SAT Pattern: Identifying Identity / Contradiction Equations**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** From the table, $f(0) = -5$ and $f$ rises $2$ when $x$ rises $1$, so $f(x) = 2x - 5$. Both sides are the same expression, so every $x$ works.\n\n**The Full Solution:**\nStep 1: The slope of $f$ is $\\frac{-5 - (-7)}{0 - (-1)} = 2$, and $f(0) = -5$, so $f(x) = 2x - 5$.\nStep 2: The equation becomes $2x - 5 = 2x - 5$; subtracting $2x$ leaves $-5 = -5$, which is always true.\nStep 3: So every value of $x$ is a solution. Check with the third row: $f(4) = 3$ and $2(4) - 5 = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Zero): the $x$-terms cancel, but what is left, $-5 = -5$, is true rather than false.\n* Choice B (Exactly one): most linear equations have one solution, but only when the $x$-coefficients differ.\n* Choice C (Exactly three): the three rows are only samples; the two sides agree at every $x$, not just the ones listed.\n\n**Test Day Takeaway:** If the $x$-terms cancel, look at what remains: a true statement means infinitely many solutions, a false one means none."
 }

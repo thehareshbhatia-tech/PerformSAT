@@ -1,34 +1,34 @@
 {
-  "id": 410,
-  "type": "multiple-choice",
-  "difficulty": "medium",
-  "band": 3,
-  "domain": "information-and-ideas",
-  "skill": "central-ideas-and-details",
-  "module": 1,
-  "passage": "At the universities of thirteenth-century Europe, demand for accurate copies of required texts outran what bookshops could produce by copying whole volumes one at a time. Stationers answered with the pecia system. A shop kept an approved exemplar of each text, divided into numbered sections, or peciae, that students and scribes rented individually for a fixed fee. Dozens of copyists could then work on different sections of the same book at once. And because every section was copied directly from one vetted exemplar, mistakes did not compound from copy to copy.",
-  "question": "Which choice best states the main idea of the text?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "By renting sections of one vetted master copy to many copyists at once, the pecia system made texts quickly without compounding errors."
-    },
-    {
-      "id": "B",
-      "text": "Thirteenth-century stationers earned most of their income by renting out sections of manuscripts rather than by selling completed books."
-    },
-    {
-      "id": "C",
-      "text": "University students of the thirteenth century were required to copy their own textbooks from exemplars that stationers kept on approved lists."
-    },
-    {
-      "id": "D",
-      "text": "The pecia system slowed the spread of errors by requiring that every new manuscript be checked against the copy from which it had been made."
-    }
-  ],
-  "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** The text presents the pecia system as solving two problems at once — speed and accuracy — and choice A captures both halves.\n\n**The Full Solution:**\n- The problem: demand outran one-at-a-time copying.\n- The speed half: renting numbered sections let dozens of copyists work on one book simultaneously.\n- The accuracy half: every section came straight from a single vetted exemplar, so errors did not compound from copy to copy. Choice A is the only option that joins the two.\n\n**Why the other choices are wrong:**\n- B: The stationers' sources of income are never discussed.\n- C: The text says students could rent sections, not that they were required to copy their own textbooks.\n- D: The system prevented compounding by copying from the exemplar directly; the text describes no checking of finished manuscripts.",
-  "_meta": {
-    "anchor": "pecia system — university book production before print"
+ "id": 410,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "information-and-ideas",
+ "skill": "central-ideas-and-details",
+ "module": 1,
+ "passage": "Before the 1830s, few living plants survived long sea voyages; exposed to salt spray and short of fresh water, most died before reaching port. In 1829 the London doctor Nathaniel Ward noticed a fern thriving inside a sealed glass bottle that he had not watered at all. Moisture from the soil condensed on the glass and ran back down. Ward built glass-sided wooden cases on the same principle, and in 1833 he sent two of them to Sydney, Australia. After a voyage of several months, the plants inside arrived in good condition.",
+ "question": "Which choice best states the main idea of the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Ward's sealed glass cases, which recycled their own moisture, let living plants survive long sea voyages."
+  },
+  {
+   "id": "B",
+   "text": "Ward first designed his glass cases to protect ferns grown in London homes rather than plants at sea."
+  },
+  {
+   "id": "C",
+   "text": "Plant collectors of the 1830s preferred to ship seeds because live plants were too costly to transport."
+  },
+  {
+   "id": "D",
+   "text": "Ward's cases kept plants alive at sea by giving them a regular supply of fresh water from the ship."
   }
+ ],
+ "correctAnswer": "A",
+ "explanation": "**Choice A is correct.** The text sets up a problem (plants died at sea), describes Ward's discovery that a sealed container recycles its own moisture, and reports that his sealed cases carried plants to Sydney in good condition. Choice A states that main idea.\n\n**The Full Solution:**\n- Problem: salt spray and a lack of fresh water killed most plants on long voyages.\n- Discovery: a fern lived in a sealed bottle without watering, because moisture condensed on the glass and ran back into the soil.\n- Result: Ward's cases, built on that principle, delivered living plants after a voyage of several months.\n- A joins the device, the way it works, and what it made possible.\n\n**Why the other choices are wrong:**\n- B: The text never says Ward designed the cases for homes; it describes them being used to ship plants overseas.\n- C: Seeds and shipping costs are never mentioned.\n- D: The cases worked because they were sealed and recycled their own moisture; the text says the bottle's fern needed no watering at all.",
+ "_meta": {
+  "anchor": "Wardian case: Nathaniel Ward's sealed glass cases; 1833 shipment to Sydney"
+ }
 }

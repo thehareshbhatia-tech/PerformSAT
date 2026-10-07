@@ -1,52 +1,48 @@
 {
- "id": "bank-alg-375",
- "question": "The three points shown in the $xy$-plane are the vertices of a triangle. What is the perimeter of the triangle?",
- "diagram": {
-  "type": "coordinatePoints",
-  "params": {
-   "points": [
-    [
-     -5,
-     -2
-    ],
-    [
-     3,
-     -2
-    ],
-    [
-     3,
-     13
-    ]
-   ],
-   "xMin": -10,
-   "xMax": 10,
-   "yMin": -5,
-   "yMax": 15
-  }
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$23$"
+  "id": "bank-alg-375",
+  "question": "The two points shown in the $xy$-plane lie on line $k$. Line $j$ is parallel to line $k$ and has a $y$-intercept of $(0, 4)$. Which equation defines line $j$?",
+  "diagram": {
+    "type": "coordinatePoints",
+    "params": {
+      "points": [
+        [
+          -3,
+          5
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "xMin": -5,
+      "xMax": 5,
+      "yMin": -2,
+      "yMax": 7
+    }
   },
-  {
-   "id": "B",
-   "text": "$40$"
+  "choices": [
+    {
+      "id": "A",
+      "text": "$y = -\\frac{3}{2}x + 4$"
+    },
+    {
+      "id": "B",
+      "text": "$y = -\\frac{2}{3}x + 3$"
+    },
+    {
+      "id": "C",
+      "text": "$y = -\\frac{2}{3}x + 4$"
+    },
+    {
+      "id": "D",
+      "text": "$y = \\frac{3}{2}x + 4$"
+    }
+  ],
+  "correctAnswer": "C",
+  "distractorNotes": {
+    "A": "divides the change in x by the change in y, getting a slope of -3/2",
+    "B": "gives line k itself, which does not pass through (0, 4)",
+    "D": "uses the negative reciprocal of line k's slope, which gives a perpendicular line"
   },
-  {
-   "id": "C",
-   "text": "$46$"
-  },
-  {
-   "id": "D",
-   "text": "$60$"
-  }
- ],
- "correctAnswer": "B",
- "distractorNotes": {
-  "A": "adds only the two legs, 8 + 15, and leaves out the slanted side",
-  "C": "uses the sum of the legs, 23, as the length of the slanted side",
-  "D": "computes the area of the triangle, (1/2)(8)(15), instead of its perimeter"
- },
- "explanation": "**SAT Pattern: Distance Formula**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The legs are $8$ and $15$, the slanted side is $\\sqrt{64 + 225} = 17$, and $8 + 15 + 17 = 40$.\n\n**The Full Solution:**\nStep 1: Read the vertices: $(-5, -2)$, $(3, -2)$, and $(3, 13)$. The horizontal side has length $3 - (-5) = 8$ and the vertical side has length $13 - (-2) = 15$.\nStep 2: The third side joins $(-5, -2)$ and $(3, 13)$: $\\sqrt{8^{2} + 15^{2}} = \\sqrt{64 + 225} = \\sqrt{289} = 17$.\nStep 3: Perimeter $= 8 + 15 + 17 = 40$. Check: $8^{2} + 15^{2} = 289 = 17^{2}$, so the three sides form a right triangle ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($23$): adds only the horizontal and vertical sides and leaves out the third side.\n* Choice C ($46$): uses $8 + 15 = 23$ as the length of the slanted side, giving $8 + 15 + 23$.\n* Choice D ($60$): finds the area, $\\frac{1}{2}(8)(15) = 60$, instead of the perimeter.\n\n**Test Day Takeaway:** Horizontal and vertical sides come straight from subtracting coordinates; only a slanted side needs the distance formula."
+  "explanation": "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Line $k$ has slope $\\frac{1 - 5}{3 - (-3)} = -\\frac{2}{3}$. Line $j$ has the same slope and $y$-intercept $4$: $y = -\\frac{2}{3}x + 4$.\n\n**The Full Solution:**\nStep 1: Read the points: $(-3, 5)$ and $(3, 1)$.\nStep 2: Slope of line $k$: $\\frac{1 - 5}{3 - (-3)} = \\frac{-4}{6} = -\\frac{2}{3}$. Parallel lines have equal slopes, so line $j$ also has slope $-\\frac{2}{3}$.\nStep 3: Line $j$ has $y$-intercept $(0, 4)$, so its equation is $y = -\\frac{2}{3}x + 4$. Check: line $k$ is $y = -\\frac{2}{3}x + 3$, a different line with the same slope ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{3}{2}x + 4$): divides the change in $x$ by the change in $y$.\n* Choice B ($y = -\\frac{2}{3}x + 3$): is line $k$ itself, which does not pass through $(0, 4)$.\n* Choice D ($y = \\frac{3}{2}x + 4$): uses the negative reciprocal of the slope, which gives a perpendicular line.\n\n**Test Day Takeaway:** Parallel lines share a slope; the $y$-intercept fixes which of those lines you want."
 }

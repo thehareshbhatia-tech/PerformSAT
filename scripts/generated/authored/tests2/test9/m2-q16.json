@@ -1,6 +1,6 @@
 {
  "id": 16,
- "question": "The graph of the function $N$, where $N(w) = -w^{2} + 14w + 15$, is shown. The function models the number of tadpoles, in hundreds, in a pond $w$ weeks after May $1$. For which values of $w$ does the model estimate at least $5{,}500$ tadpoles in the pond?",
+ "question": "The graph shown models the number of tadpoles $N(w)$, in hundreds, in a pond $w$ weeks after May $1$, where $N(w) = -w^{2} + 14w + 15$. What is the least value of $w$ for which $N(w) = 55$?",
  "diagram": {
   "type": "parabola",
   "params": {
@@ -27,26 +27,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$-1 \\le w \\le 15$"
+   "text": "$4$"
   },
   {
    "id": "B",
-   "text": "$4 \\le w \\le 7$"
+   "text": "$7$"
   },
   {
    "id": "C",
-   "text": "$4 \\le w \\le 10$"
+   "text": "$10$"
   },
   {
    "id": "D",
-   "text": "$10 \\le w \\le 15$"
+   "text": "$15$"
   }
  ],
- "correctAnswer": "C",
  "distractorNotes": {
-  "A": "solves N(w) >= 0 instead of N(w) >= 55, returning the zeros -1 and 15",
-  "B": "stops at the vertex w = 7 rather than continuing to the second solution w = 10",
-  "D": "takes the interval from the larger root to the larger zero, where the model is below 5,500"
+  "B": "gives the w-coordinate of the vertex, where the model reaches its greatest value",
+  "C": "gives the greater of the two solutions to N(w) = 55 instead of the lesser",
+  "D": "gives the positive solution to N(w) = 0, where the model reaches 0 tadpoles"
  },
- "explanation": "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** At least $5{,}500$ tadpoles means $N(w) \\ge 55$, so $w^{2} - 14w + 40 \\le 0$, or $(w - 4)(w - 10) \\le 0$. That holds for $4 \\le w \\le 10$.\n\n**The Full Solution:**\nStep 1: Since $N$ counts hundreds, $5{,}500$ tadpoles corresponds to $N(w) = 55$, so solve $-w^{2} + 14w + 15 \\ge 55$.\nStep 2: Rearrange: $-w^{2} + 14w - 40 \\ge 0$, or $w^{2} - 14w + 40 \\le 0$, which factors as $(w - 4)(w - 10) \\le 0$.\nStep 3: The product is at most $0$ between the roots, so $4 \\le w \\le 10$. Check: $N(4) = -16 + 56 + 15 = 55$ and $N(10) = -100 + 140 + 15 = 55$, and the graph is above $55$ between them ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-1 \\le w \\le 15$): solves $N(w) \\ge 0$, returning the zeros $-1$ and $15$ instead of the points where $N(w) = 55$.\n* Choice B ($4 \\le w \\le 7$): stops at the vertex $w = 7$, but the model stays above $55$ until $w = 10$.\n* Choice D ($10 \\le w \\le 15$): uses the interval from the larger root to the larger zero, where the model is below $55$.\n\n**Test Day Takeaway:** Convert the threshold into the model's units first, then solve the quadratic inequality by finding where the graph crosses that level."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Quadratic via Factoring**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** $-w^{2} + 14w + 15 = 55$ becomes $w^{2} - 14w + 40 = 0$, or $(w - 4)(w - 10) = 0$; the lesser solution is $4$.\n\n**The Full Solution:**\nStep 1: Set the function equal to $55$: $-w^{2} + 14w + 15 = 55$.\nStep 2: Rearrange: $w^{2} - 14w + 40 = 0$, which factors as $(w - 4)(w - 10) = 0$.\nStep 3: The solutions are $w = 4$ and $w = 10$, so the least value is $4$. Check: $N(4) = -16 + 56 + 15 = 55$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($7$): the vertex of the graph is at $w = 7$, where the model is greatest, $N(7) = 64$, not $55$.\n* Choice C ($10$): $N(10) = 55$ as well, but $10$ is the greater solution.\n* Choice D ($15$): $N(15) = 0$; this is where the graph meets the $x$-axis, not where $N(w) = 55$.\n\n**Test Day Takeaway:** To find when a quadratic model reaches a value, set it equal to that value, move everything to one side, and factor."
 }

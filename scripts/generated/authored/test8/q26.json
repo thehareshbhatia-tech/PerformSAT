@@ -9,33 +9,40 @@
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "Joseph Talon was a farmer near Apt, in Provence, in the early 1800s.",
-   "In his day, truffles could be gathered only where they happened to appear in the wild.",
-   "Talon noticed that truffles were found among the roots of certain oaks.",
-   "He collected young oak seedlings from beneath truffle-bearing oaks and planted them on his own land.",
-   "Years later, truffles appeared among the roots of the transplanted oaks, showing that truffles could be deliberately farmed."
+   "The Cave of the Crystals lies about 300 meters underground in a mine at Naica, in northern Mexico.",
+   "In April 2000, two miners drilling in the mine broke into the cave.",
+   "It holds gypsum crystals up to about 11 meters long, among the largest natural crystals ever found.",
+   "Temperatures in the cave reach about 58°C, so people could stay inside only briefly.",
+   "After mining there stopped, the cave was allowed to flood again in 2015."
   ],
-  "goal": "The student wants to explain Talon's discovery to an audience unfamiliar with truffle growing."
+  "goal": "The student wants to explain the discovery of the Cave of the Crystals to an audience unfamiliar with it."
  },
  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
  "choices": [
   {
    "id": "A",
-   "text": "Joseph Talon was a farmer who lived near the town of Apt, in Provence, during the early years of the nineteenth century."
+   "text": "The Cave of the Crystals, which lies in a mine in northern Mexico, was allowed to flood again in 2015 after mining there stopped."
   },
   {
    "id": "B",
-   "text": "Joseph Talon, a Provençal farmer, showed that truffles could be farmed: oak seedlings he moved from beneath truffle-bearing oaks later bore truffles."
+   "text": "In 2000, miners drilling in a Mexican mine broke into the Cave of the Crystals, which holds some of the largest natural crystals ever found."
   },
   {
    "id": "C",
-   "text": "Talon noticed that truffles were found among the roots of certain oaks, an observation he made while farming in Provence."
+   "text": "Temperatures in the cave reach about 58°C, so people who entered it could stay inside only briefly."
   },
   {
    "id": "D",
-   "text": "Before Talon's time, truffles could be gathered only where they appeared in the wild, and even skilled gatherers knew no way to make new ground yield them."
+   "text": "The Cave of the Crystals holds gypsum crystals up to about 11 meters long, among the largest natural crystals that have ever been found anywhere."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The goal asks for Talon's discovery explained to readers who know nothing of truffle growing, and B does the whole job: who he was, what he did, and what it showed, namely that truffles could be deliberately farmed.\n\n**The Full Solution:**\n- The audience is unfamiliar, so the sentence must identify Talon and make the discovery itself plain.\n- Choice B compresses the method (moving seedlings from beneath truffle-bearing oaks) and the result (the young oaks later bore truffles), presenting the finding as a finding: truffles could be farmed.\n\n**Why the other choices are wrong:**\n- A: It gives biographical placement but never says what Talon discovered.\n- C: It reports only the observation that led to his experiment, not the experiment or its result.\n- D: It states only the problem Talon faced, not his answer to it."
+ "explanation": "**Choice B is correct.** The goal asks for the discovery explained to readers who know nothing of the cave, and B does the whole job: who found it, when and where, and why the find matters.\n\n**The Full Solution:**\n- The audience is unfamiliar, so the sentence must make the discovery itself plain and say what was found.\n- Choice B combines the finders (miners drilling in a mine), the time and place (2000, Mexico), and the find (a cave holding some of the largest natural crystals ever found).\n\n**Why the other choices are wrong:**\n- A: It tells where the cave is and what happened to it in 2015 but never mentions its discovery.\n- C: It describes conditions inside the cave but not who found it, when, or what it holds.\n- D: It explains what the cave holds but says nothing about how or when it was discovered.",
+ "_meta": {
+  "anchor": "Cave of the Crystals, Naica, Mexico (found by miners April 2000; gypsum crystals to ~11 m; ~58 C; reflooded 2015) - RS explain a discovery",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Cave_of_the_Crystals",
+   "https://education.nationalgeographic.org/resource/naica-mine/"
+  ]
+ }
 }

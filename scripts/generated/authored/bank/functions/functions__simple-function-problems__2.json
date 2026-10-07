@@ -1,30 +1,30 @@
 {
   "id": 2,
-  "question": "The function $k$ is defined by $k(x) = 6x + 5$. Which expression is equivalent to $k(x - 2)$?",
+  "question": "The function $k$ is defined by $k(x) = 6x + 5$. For what value of $x$ is $k(x) = 47$?",
   "choices": [
     {
       "id": "A",
-      "text": "$6x - 12$"
+      "text": "$7$"
     },
     {
       "id": "B",
-      "text": "$6x - 7$"
+      "text": "$\\frac{26}{3}$"
     },
     {
       "id": "C",
-      "text": "$6x + 3$"
+      "text": "$42$"
     },
     {
       "id": "D",
-      "text": "$6x + 17$"
+      "text": "$287$"
     }
   ],
   "distractorNotes": {
-    "A": "drops the constant +5",
-    "C": "subtracts 2 from the constant instead of substituting",
-    "D": "substitutes x + 2, flipping the sign inside the input"
+    "B": "adds 5 instead of subtracting it, getting 6x = 52",
+    "C": "subtracts 5 but does not divide by 6",
+    "D": "evaluates k(47) instead of solving k(x) = 47"
   },
-  "correctAnswer": "B",
-  "hint": "Substitute the whole expression $x - 2$ for $x$, then distribute.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** $k(x - 2) = 6(x - 2) + 5 = 6x - 12 + 5 = 6x - 7$.\n\n**The Full Solution:**\nStep 1: Replace $x$ with $x - 2$: $k(x - 2) = 6(x - 2) + 5$.\nStep 2: Distribute the $6$ across both terms: $6(x - 2) = 6x - 12$.\nStep 3: Combine the constants: $6x - 12 + 5 = 6x - 7$. Check at $x = 3$: $k(1) = 6(1) + 5 = 11$, and $6(3) - 7 = 11$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6x - 12$): distributes correctly but drops the $+5$ from the original rule.\n* Choice C ($6x + 3$): subtracts $2$ from the constant term instead of substituting, giving $5 - 2 = 3$.\n* Choice D ($6x + 17$): substitutes $x + 2$, flipping the sign inside the input, and gets $6x + 12 + 5$.\n\n**Test Day Takeaway:** When the input is an expression, put it in parentheses and distribute; only the variable is replaced, never the constant term."
+  "correctAnswer": "A",
+  "hint": "Set 6x + 5 equal to 47 and solve for x.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~15s):** $6x + 5 = 47$ gives $6x = 42$, so $x = 7$.\n\n**The Full Solution:**\nStep 1: Set the function equal to $47$: $6x + 5 = 47$.\nStep 2: Subtract $5$ from both sides: $6x = 42$.\nStep 3: Divide both sides by $6$: $x = 7$. Check: $k(7) = 6(7) + 5 = 47$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{26}{3}$): adds $5$ to both sides instead of subtracting, giving $6x = 52$.\n* Choice C ($42$): subtracts $5$ but forgets to divide by $6$.\n* Choice D ($287$): evaluates $k(47) = 6(47) + 5$ instead of solving $k(x) = 47$.\n\n**Test Day Takeaway:** \"For what value of $x$ is $k(x) = 47$?\" means solve for the input, not plug $47$ in."
 }

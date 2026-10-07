@@ -6,26 +6,26 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-textual",
  "module": 2,
- "passage": "In championship hot-air ballooning, pilots score points by dropping markers on ground targets, yet a balloon cannot be steered directly — it drifts with whatever air surrounds it. Observers offer two explanations for why a small group of pilots wins consistently. The first is meteorological: winds at different altitudes move in different directions, and the best pilots read those layers, climbing or descending to ride whichever current bends toward the target. The second is manual: expert burner control, the argument runs, lets a pilot hold any chosen altitude with unusual steadiness, and it is smooth flying rather than weather sense that separates champions from the field. The two accounts make different predictions about what the top pilots should be doing in the air.",
- "question": "Which finding, if true, would most directly support the meteorological explanation?",
+ "passage": "Homing pigeons released far from their loft can usually find their way back, and researchers have long debated how they do it. One explanation is olfactory: pigeons learn how airborne odors are spread across the region around their home, then use smells carried on the wind to judge where they are. The other explanation is magnetic: pigeons sense small variations in Earth's magnetic field and use them like coordinates on a map. The two explanations make different predictions about what a pigeon needs in order to get home.",
+ "question": "Which finding, if true, would most directly support the olfactory explanation?",
  "choices": [
   {
    "id": "A",
-   "text": "In flight records from several championships, winning pilots changed altitude more often than mid-field pilots, and their climbs and descents coincided with entries into wind layers bending toward the target."
+   "text": "Pigeons whose sense of smell was blocked often failed to return home, while untreated pigeons from the same loft returned normally."
   },
   {
    "id": "B",
-   "text": "During the final approach to each target, winning pilots were found to hold their altitude within a considerably narrower band than any other group of competitors studied across several national championships."
+   "text": "Pigeons released near a site where Earth's magnetic field is unusually irregular often flew off in the wrong direction when they were first let go."
   },
   {
    "id": "C",
-   "text": "Pilots who spent an off-season training on burner-control simulators improved their standings the following year more than pilots who did no such training."
+   "text": "Pigeons fitted with small magnets that disrupted their magnetic sense often failed to find their way home."
   },
   {
    "id": "D",
-   "text": "Champions interviewed after major events tended to credit their success to instinct, saying they could not fully explain the choices they had made in the air."
+   "text": "Pigeons raised in lofts in different regions took about the same amount of time to fly home from equal distances."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The meteorological explanation says winners win by reading and riding wind layers, so its telltale behavior is frequent, purposeful altitude changes tied to favorable currents — exactly what A reports in the flight records.\n\n**The Full Solution:**\n- Pin down what the meteorological account predicts: top pilots should be moving between layers, and their moves should track the winds that bend toward the target.\n- A delivers both halves: winners changed altitude more often than others, and the changes coincided with entries into target-bending layers — behavior tied to wind reading, not to smoothness.\n- The rival manual account predicts the opposite signature (steady altitude), so A's finding separates the two explanations cleanly in the meteorological account's favor.\n\n**Why the other choices are wrong:**\n- B: Rock-steady altitude is the manual explanation's prediction; it supports the rival account.\n- C: Gains from burner-control training again point to piloting mechanics, not weather sense.\n- D: Champions crediting unexplainable instinct distinguishes neither account — it offers no evidence about winds or control at all."
+ "explanation": "**Choice A is correct.** The olfactory explanation says pigeons find home by smell. If pigeons that could not smell often failed to return while otherwise similar pigeons returned normally, smell would be shown to matter for getting home, directly supporting that explanation.\n\n**The Full Solution:**\n- The olfactory explanation predicts that a pigeon needs its sense of smell to navigate.\n- Choice A compares pigeons with smell blocked against untreated pigeons from the same loft, so the only difference between the groups is the ability to smell.\n- Because the smell-blocked birds often failed, the finding ties successful homing to smell.\n\n**Why the other choices are wrong:**\n- B: Confusion near an irregular magnetic field would support the magnetic explanation, not the olfactory one.\n- C: Disrupting the magnetic sense and finding that pigeons get lost would also support the magnetic explanation.\n- D: Similar flight times from different regions say nothing about whether pigeons rely on smell or on magnetism."
 }

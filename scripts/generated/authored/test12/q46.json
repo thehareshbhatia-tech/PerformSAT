@@ -6,26 +6,26 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 2,
- "passage": "The earliest balloon competitions were tests of pure endurance, with trophies going to the crew that stayed aloft longest or drifted ____ the modern sport instead rewards precision, requiring pilots to steer by altitude choice alone toward targets only a few meters wide.",
+ "passage": "The marathons run at the early modern Olympic Games were about 40 kilometers long, and the exact distance changed from one Games to the next. The course for the 1908 London Olympics measured 42.195 ____ it was not until 1921 that the sport's governing body made that length the official standard.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "farthest, but"
+   "text": "kilometers, but"
   },
   {
    "id": "B",
-   "text": "farthest,"
+   "text": "kilometers,"
   },
   {
    "id": "C",
-   "text": "farthest but,"
+   "text": "kilometers but,"
   },
   {
    "id": "D",
-   "text": "farthest"
+   "text": "kilometers"
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** Two independent clauses meet at the blank, and a comma plus the coordinating conjunction \"but\" joins them while marking their contrast.\n\n**The Full Solution:**\n- Check each side: \"The earliest balloon competitions were tests of pure endurance, with trophies going to the crew that stayed aloft longest or drifted farthest\" stands alone, and so does \"the modern sport instead rewards precision...\"\n- The rule: independent clauses may be joined by a comma plus a coordinating conjunction (and, but, or, so).\n- The relationship is a contrast — endurance then, precision now — so \"but\" is the right conjunction, placed after the comma: \"farthest, but.\"\n\n**Why the other choices are wrong:**\n- B: A comma alone between two independent clauses is a comma splice.\n- C: \"Farthest but,\" misplaces the comma after the conjunction instead of before it, leaving the clauses unjoined.\n- D: With no punctuation, the two complete sentences run together."
+ "explanation": "**Choice A is correct.** The sentence joins two independent clauses: \"The course for the 1908 London Olympics measured 42.195 kilometers\" and \"it was not until 1921 that the sport's governing body made that length the official standard.\" A comma followed by the coordinating conjunction \"but\" correctly joins them and signals the contrast.\n\n**The Full Solution:**\n- Each clause has its own subject and verb and could stand alone as a sentence.\n- Two independent clauses can be joined with a comma plus a coordinating conjunction.\n- \"Kilometers, but\" does this and shows the contrast between the 1908 distance and the later date when it became official.\n\n**Why the other choices are wrong:**\n- B: A comma alone between two independent clauses creates a comma splice.\n- C: The comma must come before \"but,\" not after it.\n- D: With no punctuation or conjunction, the two clauses run together."
 }

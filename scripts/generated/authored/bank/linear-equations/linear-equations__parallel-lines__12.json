@@ -1,30 +1,30 @@
 {
  "id": 12,
- "question": "$10x - 4y = 6$\n$-15x + 6y = c$\nIn the given system of equations, $c$ is a constant. If the system has infinitely many solutions, what is the value of $c$?",
+ "question": "$3x + ky = 8$\n$12x - 20y = 5$\nIn the given system of equations, $k$ is a constant. If the system has no solution, what is the value of $k$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-9$"
+   "text": "$-80$"
   },
   {
    "id": "B",
-   "text": "$-4$"
+   "text": "$-20$"
   },
   {
    "id": "C",
-   "text": "$6$"
+   "text": "$-5$"
   },
   {
    "id": "D",
-   "text": "$9$"
+   "text": "$5$"
   }
  ],
  "distractorNotes": {
-  "B": "uses the inverted scale factor -2/3 instead of -3/2",
-  "C": "copies the constant 6, as if the constants must be equal",
-  "D": "drops the negative sign of the scale factor -3/2"
+  "A": "multiplies -20 by 4 instead of dividing, scaling the wrong equation",
+  "B": "copies the y-coefficient -20, as if the coefficients must be equal",
+  "D": "drops the negative sign of -20 when dividing by 4"
  },
- "correctAnswer": "A",
- "hint": "One equation must be a constant multiple of the other, constants included.",
- "explanation": "**Choice A is correct.**\n\n**The Fast Way (~35s):** Multiplying the first equation by $-\\frac{3}{2}$ gives $-15x + 6y = -9$, so $c = -9$.\n\n**The Full Solution:**\nStep 1: The system has infinitely many solutions when the two equations describe the same line, so the second equation must be a multiple of the first.\nStep 2: The factor that turns $10x$ into $-15x$ is $-\\frac{3}{2}$, and it also turns $-4y$ into $6y$.\nStep 3: Apply the same factor to the constant: $c = -\\frac{3}{2}(6) = -9$.\n\nCheck: $-\\frac{3}{2}(10x - 4y) = -15x + 6y$ and $-\\frac{3}{2}(6) = -9$, so $-15x + 6y = -9$ is the first equation multiplied by $-\\frac{3}{2}$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-4$): uses the factor $-\\frac{2}{3}$, which turns the second equation into the first, but applies it to the first equation's constant.\n* Choice C ($6$): assumes the constants must be equal, but the coefficients were scaled by $-\\frac{3}{2}$.\n* Choice D ($9$): uses $\\frac{3}{2}$ and loses the negative sign of the scale factor.\n\n**Test Day Takeaway:** Infinitely many solutions: find the one factor that matches the $x$- and $y$-coefficients, then apply it to the constant too."
+ "correctAnswer": "C",
+ "hint": "No solution means the two lines are parallel: the coefficients of $x$ and $y$ are in the same ratio, but the constants are not.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~35s):** The $x$-coefficient $12$ is $4$ times $3$, so $-20$ must be $4$ times $k$: $k = -5$.\n\n**The Full Solution:**\nStep 1: The system has no solution when the two equations are parallel lines: the $x$- and $y$-coefficients are in the same ratio, but the constants are not.\nStep 2: The second equation's $x$-coefficient is $\\frac{12}{3} = 4$ times the first, so $-20 = 4k$, which gives $k = -5$.\nStep 3: Check the constants: $4 \\cdot 8 = 32 \\neq 5$, so with $k = -5$ the lines $3x - 5y = 8$ and $12x - 20y = 5$ have the same slope, $\\frac{3}{5}$, and different $y$-intercepts, $-\\frac{8}{5}$ and $-\\frac{1}{4}$. They never meet ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-80$): multiplies $-20$ by $4$; the factor $4$ goes from the first equation to the second, so $k$ is $-20$ divided by $4$.\n* Choice B ($-20$): assumes the $y$-coefficients must be equal, but the $x$-coefficients differ by a factor of $4$.\n* Choice D ($5$): divides $20$ by $4$ and loses the negative sign of $-20$.\n\n**Test Day Takeaway:** No solution: match the ratio of the $x$- and $y$-coefficients, then make sure the constants do not follow the same ratio."
 }

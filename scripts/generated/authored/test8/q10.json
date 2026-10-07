@@ -6,26 +6,33 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 1,
- "passage": "Nurseries now sell oak and hazel seedlings whose roots already carry the truffle fungus, and a grower who plants them has started a truffle orchard. What follows is the harder part. The fungus fruits only when its partnership with the tree stays in balance, so growers prune to control the light reaching the soil, water in summer on a schedule suited to the site, and keep the ground loose and alkaline. Even well-run orchards often wait seven to ten years for a first harvest.",
+ "passage": "Vanilla comes from the seed pods of a climbing orchid, and planting a vine is only the beginning of a long process. A young vine usually needs about three years before it flowers. Each flower opens for a single day, and on farms outside the plant's native Mexico, where its natural pollinators are absent, workers must pollinate every flower by hand on that day. The pods then take about nine months to mature, and after harvest they are cured for several more months before they develop their familiar flavor.",
  "question": "Which choice best states the main idea of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "The chief obstacle to truffle farming remains producing nursery seedlings whose roots reliably carry the truffle fungus."
+   "text": "The main difficulty in growing vanilla is obtaining young vines that will survive being planted."
   },
   {
    "id": "B",
-   "text": "Planting inoculated seedlings only begins a truffle orchard; harvests depend on years of careful management."
+   "text": "Planting a vanilla vine only begins the work; a harvest depends on years of careful labor."
   },
   {
    "id": "C",
-   "text": "Truffles raised in orchards are generally judged inferior to those gathered from wild woodlands."
+   "text": "Vanilla grown outside Mexico is generally judged inferior to vanilla grown in Mexico."
   },
   {
    "id": "D",
-   "text": "Truffle harvests are so dependent on weather that growers can do little to influence them."
+   "text": "Vanilla harvests depend so heavily on the weather that growers can do very little to influence them."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The text's sentences all serve one claim: planting inoculated seedlings begins a truffle orchard, but harvests depend on years of managing the partnership between tree, fungus, and soil.\n\n**The Full Solution:**\n- The text concedes what nurseries can now do: sell oak and hazel seedlings whose roots already carry the fungus.\n- It then calls what follows \"the harder part\" and lists what still determines success: pruning to control light, summer watering suited to the site, soil kept loose and alkaline.\n- The wait of seven to ten years for a first harvest underlines that planting is only the beginning, the main idea stated in choice B.\n\n**Why the other choices are wrong:**\n- A: The text says inoculated seedlings are already sold; producing them is not presented as the difficulty.\n- C: The text does not compare cultivated truffles' quality with wild ones'.\n- D: The text stresses what growers do to influence harvests, not that weather leaves them powerless."
+ "explanation": "**Choice B is correct.** The text's sentences all serve one claim: planting a vanilla vine is \"only the beginning of a long process,\" and a harvest depends on years of patient, hands-on work.\n\n**The Full Solution:**\n- The first sentence states the idea directly: planting a vine \"is only the beginning of a long process.\"\n- The rest of the text lists what follows: about three years before the vine flowers, hand pollination of every flower on the single day it is open, about nine months for the pods to mature, and several more months of curing.\n- Each detail supports the main idea stated in choice B.\n\n**Why the other choices are wrong:**\n- A: The text never says that getting young vines to survive is a problem.\n- C: The text does not compare the quality of vanilla from different places.\n- D: The text describes work that growers must do, not weather they cannot control.",
+ "_meta": {
+  "anchor": "growing vanilla — main idea: planting only begins the work; harvest depends on years of labor",
+  "sources": [
+   "https://www.davidvanille.com/en/content/18-how-vanilla-grows",
+   "https://journals.flvc.org/edis/article/download/132782/136926/242536"
+  ]
+ }
 }

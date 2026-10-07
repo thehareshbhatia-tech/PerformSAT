@@ -1,6 +1,6 @@
 {
   "id": 3,
-  "question": "The table shows four values of $x$ and their corresponding values of $f(x)$. If $g(x) = -f(x + 3)$, what is the value of $g(3)$?",
+  "question": "For the function $f$, selected values of $f(x)$ appear in the table. If $h(x) = f(x - 3) + 8$, what is the value of $h(3)$?",
   "diagram": {
     "type": "dataTable",
     "params": {
@@ -10,19 +10,19 @@
       ],
       "rows": [
         [
+          "-3",
+          "7"
+        ],
+        [
           "0",
-          "5"
-        ],
-        [
-          "3",
-          "8"
-        ],
-        [
-          "6",
           "-2"
         ],
         [
-          "9",
+          "3",
+          "4"
+        ],
+        [
+          "6",
           "11"
         ]
       ]
@@ -31,27 +31,27 @@
   "choices": [
     {
       "id": "A",
-      "text": "$-8$"
+      "text": "$-10$"
     },
     {
       "id": "B",
-      "text": "$-5$"
+      "text": "$6$"
     },
     {
       "id": "C",
-      "text": "$-2$"
+      "text": "$12$"
     },
     {
       "id": "D",
-      "text": "$2$"
+      "text": "$19$"
     }
   ],
   "distractorNotes": {
-    "A": "ignores the +3 and negates f(3)",
-    "B": "subtracts 3 from the input and negates f(0)",
-    "C": "finds f(6) but drops the negative sign"
+    "A": "subtracts 8 instead of adding it",
+    "C": "uses f(3), ignoring the shift inside f",
+    "D": "uses f(6), shifting the input the wrong way"
   },
-  "correctAnswer": "D",
+  "correctAnswer": "B",
   "hint": "Find the input that $f$ receives when $x = 3$.",
-  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~20s):** $g(3) = -f(6) = -(-2) = 2$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 3$: $g(3) = -f(3 + 3) = -f(6)$.\nStep 2: The table shows $f(6) = -2$.\nStep 3: So $g(3) = -(-2) = 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): this negates $f(3) = 8$ and never adds $3$ to the input.\n* Choice B ($-5$): this uses $f(0) = 5$, subtracting $3$ from the input instead of adding it.\n* Choice C ($-2$): this is $f(6)$ itself; the negative sign outside $f$ still has to be applied.\n\n**Test Day Takeaway:** Work from the inside out: compute the new input, look it up, then apply the outside sign."
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** $h(3) = f(0) + 8 = -2 + 8 = 6$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 3$: $h(3) = f(3 - 3) + 8 = f(0) + 8$.\nStep 2: The table gives $f(0) = -2$.\nStep 3: So $h(3) = -2 + 8 = 6$. Check: the input $3 - 3 = 0$ is in the table, and its output $-2$ raised by $8$ is $6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$): this is $f(0) - 8$; the $+8$ raises the output.\n* Choice C ($12$): this is $f(3) + 8$; the input to $f$ is $3 - 3$, not $3$.\n* Choice D ($19$): this is $f(6) + 8$, which uses $3 + 3$ instead of $3 - 3$.\n\n**Test Day Takeaway:** Evaluate the inside first: $h(3)$ needs $f$ at $3 - 3$, and then the $+8$ applies to that output."
 }

@@ -6,7 +6,7 @@
   "domain": "expression-of-ideas",
   "skill": "transitions",
   "module": 1,
-  "passage": "Frederick II insisted that claims about birds be tested against direct observation, and his falconry treatise corrected several assertions that ancient authorities such as Aristotle had made. His demanding empirical method found few imitators among medieval writers. ______ the treatise itself remained a touchstone, copied, translated, and annotated by generations of European falconers.",
+  "passage": "Esperanto was published in 1887 as an easy-to-learn language that its creator hoped would become a common second language for the whole world. It never reached that goal, and no country has adopted it as an official language. ______ Esperanto still has a worldwide community of speakers, including some people who have spoken it from birth.",
   "question": "Which choice completes the text with the most logical transition?",
   "choices": [
     {
@@ -27,6 +27,11 @@
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The final sentence runs against the expectation set by the one before it: the method attracted few imitators, yet the book itself stayed influential for generations. \"Nevertheless\" marks exactly that concession-and-reversal.\n\n**The Full Solution:**\n- Sentence three sets up a limitation — the empirical method was not widely adopted.\n- Sentence four reports a fact that survives despite that limitation: the treatise remained a touchstone.\n- \"Few imitators\" followed by \"remained a touchstone\" is a contrast between neglect of the method and endurance of the work.\n\n**Why the other choices are wrong:**\n- A: \"In addition\" treats the treatise's endurance as more of the same, ignoring the tension with \"few imitators.\"\n- B: \"Therefore\" claims the endurance followed from the lack of imitators, reversing the logic.\n- C: \"For instance\" would make the last sentence an example of the method finding few imitators, which it is not.",
-  "_meta": {}
+  "explanation": "**Choice D is correct.** The final sentence runs against the expectation set by the one before it: Esperanto failed to become a world language, yet it still has a worldwide community of speakers. \"Nevertheless\" marks exactly that concession and reversal.\n\n**The Full Solution:**\n- Sentence two states a limitation: the language never reached its goal and no country adopted it.\n- Sentence three reports a fact that holds despite that limitation: people around the world still speak it, some from birth.\n- A failure followed by a surviving community is a contrast, which calls for a concessive transition.\n\n**Why the other choices are wrong:**\n- A: \"In addition\" treats the surviving community as more of the same, ignoring the tension with the failure just described.\n- B: \"Therefore\" claims the community exists because the language failed, which reverses the logic.\n- C: \"For instance\" would make the last sentence an example of Esperanto's failure, which it is not.",
+  "_meta": {
+    "anchor": "Esperanto: never a world language, yet a lasting community — Nevertheless",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Esperanto"
+    ]
+  }
 }

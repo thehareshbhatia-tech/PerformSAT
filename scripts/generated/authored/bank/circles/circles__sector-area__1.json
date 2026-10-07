@@ -1,5 +1,5 @@
 {
- "question": "In the figure, $O$ is the center of the circle, the radius of the circle is $6$, and the measure of angle $AOB$ is $60^\\circ$. What is the area of sector $AOB$?",
+ "question": "In the figure, $O$ is the center of the circle, the radius of the circle is $6$, and the measure of angle $AOB$ is $60^\\circ$. What is the length of minor arc $AB$?",
  "diagram": {
   "type": "circleWithSector",
   "params": {
@@ -13,30 +13,30 @@
    "figureNote": true
   }
  },
- "hint": "How many sectors like this one make up the whole circle?",
+ "hint": "What fraction of the whole circle does a $60^\\circ$ central angle cover?",
  "choices": [
   {
    "id": "A",
-   "text": "$2\\pi$"
+   "text": "$\\pi$"
   },
   {
    "id": "B",
-   "text": "$6\\pi$"
+   "text": "$2\\pi$"
   },
   {
    "id": "C",
-   "text": "$12\\pi$"
+   "text": "$6\\pi$"
   },
   {
    "id": "D",
-   "text": "$36\\pi$"
+   "text": "$12\\pi$"
   }
  ],
  "distractorNotes": {
-  "A": "computes the arc length (1/6)(12pi) = 2pi",
-  "C": "reports the whole circumference 12pi",
-  "D": "reports the whole circle's area 36pi"
+  "A": "uses pi r = 6pi instead of 2 pi r for the circumference, giving (1/6)(6pi) = pi",
+  "C": "computes (1/6) of the circle's area, 36pi, instead of its circumference",
+  "D": "reports the whole circumference 12pi"
  },
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** One sixth of the circle's area $36\\pi$ is $6\\pi$.\n\n**The Full Solution:**\nStep 1: The whole circle has area $\\pi r^2 = \\pi(6)^2 = 36\\pi$.\nStep 2: A $60^\\circ$ central angle covers $\\dfrac{60}{360} = \\dfrac{1}{6}$ of the circle.\nStep 3: Multiply: $\\dfrac{1}{6}(36\\pi) = 6\\pi$. Check: six such sectors give $6(6\\pi) = 36\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2\\pi$): computes the arc length, $\\dfrac{1}{6}(12\\pi)$, which is a length rather than an area.\n* Choice C ($12\\pi$): reports the whole circumference.\n* Choice D ($36\\pi$): reports the area of the entire circle rather than the sector.\n\n**Test Day Takeaway:** A sector's area is the same fraction of $\\pi r^2$ as its angle is of $360^\\circ$."
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** The circumference is $2\\pi(6) = 12\\pi$, and a $60^\\circ$ angle takes $\\frac{1}{6}$ of it: $2\\pi$.\n\n**The Full Solution:**\nStep 1: The circumference of the circle is $2\\pi r = 2\\pi(6) = 12\\pi$.\nStep 2: A $60^\\circ$ central angle covers $\\frac{60}{360} = \\frac{1}{6}$ of the circle.\nStep 3: The length of minor arc $AB$ is $\\frac{1}{6}(12\\pi) = 2\\pi$. Check: six such arcs give $6(2\\pi) = 12\\pi$, the whole circumference. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\pi$): uses $\\pi r = 6\\pi$ as the circumference, which is only half of it.\n* Choice C ($6\\pi$): takes $\\frac{1}{6}$ of the circle's area, $36\\pi$, instead of its circumference.\n* Choice D ($12\\pi$): is the whole circumference, not the part cut off by the angle.\n\n**Test Day Takeaway:** An arc is the same fraction of the circumference as its central angle is of $360^\\circ$."
 }

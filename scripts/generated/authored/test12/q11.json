@@ -6,26 +6,34 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 1,
- "passage": "Steamships are usually said to have driven sail from the seas by the end of the nineteenth century, but the coasting schooner tells a more stubborn story. Schooners rigged fore-and-aft could be worked by unusually small crews, entered shallow harbors closed to larger vessels, and burned no coal at all. On routes where speed mattered little — carrying lumber, granite, and oysters to towns along the shore — those economies kept schooners profitable for decades after steam had captured the passenger and express trades. Maritime historians who tally harbor records find schooners still delivering bulk cargo along the northern coast well into the twentieth century, long after the age of sail had supposedly closed.",
+ "passage": "Transistors are usually said to have made the vacuum tube obsolete by the 1970s, but the electric guitar amplifier tells a more stubborn story. Transistors were smaller, cooler, and more reliable than tubes, and from the mid-1960s they replaced tubes in most radios, televisions, and other electronics. Guitarists, however, often play loud enough to push an amplifier into distortion, and tubes distort gradually, producing a sound many players call warm, while early transistor amplifiers clipped the signal harshly. Factories in Russia and China, where tube production never stopped, still make tubes, and guitar amplifiers today still rely heavily on them.",
  "question": "Which choice best states the main idea of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "By the end of the nineteenth century, steamships had taken over from sailing vessels of every kind the carrying of both passengers and express freight."
+   "text": "Beginning in the mid-1960s, transistors replaced vacuum tubes in most radios, televisions, and other kinds of electronics."
   },
   {
    "id": "B",
-   "text": "Schooners rigged fore-and-aft could be sailed by far smaller crews than the deepwater square-rigged ships of the same era required."
+   "text": "Factories in Russia and China now make more vacuum tubes than they did before transistors began to replace tubes."
   },
   {
    "id": "C",
-   "text": "Because they were cheap to operate and could reach harbors steamships could not, coasting schooners stayed profitable in bulk trades long after steam ruled other routes."
+   "text": "Valued by guitarists for the way they distort, tubes have stayed in guitar amplifiers long after transistors took over."
   },
   {
    "id": "D",
-   "text": "Maritime historians have concluded that the cost of a vessel's crew mattered more to most nineteenth-century shippers than the speed of the vessel's passage between ports."
+   "text": "Sound engineers have concluded that tubes produce better sound than transistors do in every kind of electronic equipment."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The passage's point is the schooner's stubborn survival: cheap crews, no coal, and access to shallow harbors kept the vessels profitable in slow bulk trades for decades after steam had taken the glamorous routes.\n\n**The Full Solution:**\n- The opening announces a correction to the usual story that steam simply drove out sail.\n- The middle gives the schooner's specific economies — small crews, shallow draft, no fuel cost — and the niche where they counted: slow bulk cargo like lumber, granite, and oysters.\n- The close cites harbor records showing schooners at work \"well into the twentieth century.\" C gathers the cause (cheap operation, harbor access) and the effect (long profitability in bulk trades).\n\n**Why the other choices are wrong:**\n- A: It restates the conventional story the passage sets out to complicate, and it is the setup, not the idea.\n- B: It isolates one economy (small crews) and adds a comparison with square-riggers the text never makes in that form.\n- D: It inflates the passage into a general ranking of crew cost over speed that the historians are never said to draw."
+ "explanation": "**Choice C is correct.** The passage's point is the vacuum tube's stubborn survival in one niche: because tubes distort gradually, producing a sound guitarists call warm, they still power guitar amplifiers long after transistors replaced them in most other electronics.\n\n**The Full Solution:**\n- The opening announces a correction to the usual story that transistors simply made the tube obsolete.\n- The middle grants transistors' advantages (smaller, cooler, more reliable) and then gives the reason tubes held on: guitarists play loud enough to distort the signal, and tubes distort gradually while early transistor amplifiers clipped harshly.\n- The close notes that factories still make tubes and that guitar amplifiers \"still rely heavily on them.\" C gathers the cause (the distortion guitarists value) and the effect (tubes' long survival in amplifiers).\n\n**Why the other choices are wrong:**\n- A: It restates a background fact the passage grants before making its point; it explains why tubes vanished elsewhere, not why they survived in amplifiers.\n- B: It isolates one detail (the Russian and Chinese factories) and adds a comparison of tube output before and after transistors arrived that the text never makes.\n- D: It inflates the passage into a sweeping verdict on all electronic equipment, which the text contradicts by saying transistors replaced tubes in most electronics.",
+ "_meta": {
+  "anchor": "Vacuum tubes surviving in electric guitar amplifiers after transistors replaced them elsewhere (soft vs hard clipping)",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Vacuum_tube",
+   "https://en.wikipedia.org/wiki/Tube_sound",
+   "https://en.wikipedia.org/wiki/Clipping_(audio)"
+  ]
+ }
 }

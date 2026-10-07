@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-340",
- "question": "In right triangle $XYZ$ shown, $XY$ is $41$ greater than $YZ$. What is the value of $\\cos Z$?",
+ "question": "In right triangle $XYZ$ shown, $XY$ is $31$ greater than $YZ$. What is the value of $\\cos Z$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -10,12 +10,12 @@
      0
     ],
     [
-     80,
+     40,
      0
     ],
     [
-     80,
-     39
+     40,
+     9
     ]
    ],
    "labels": [
@@ -26,7 +26,7 @@
    "sideLabels": [
     "",
     "",
-    "89"
+    "41"
    ],
    "rightAngleVertex": 1,
    "figureNote": true
@@ -35,26 +35,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{39}{89}$"
+   "text": "$\\frac{9}{41}$"
   },
   {
    "id": "B",
-   "text": "$\\frac{39}{80}$"
+   "text": "$\\frac{9}{40}$"
   },
   {
    "id": "C",
-   "text": "$\\frac{80}{89}$"
+   "text": "$\\frac{40}{41}$"
   },
   {
    "id": "D",
-   "text": "$\\frac{80}{39}$"
+   "text": "$\\frac{40}{9}$"
   }
  ],
  "distractorNotes": {
-  "B": "uses YZ/XY = 39/80, adjacent over opposite for angle Z",
-  "C": "uses XY/XZ = 80/89, which is sin Z",
-  "D": "uses XY/YZ = 80/39, which is tan Z"
+  "B": "uses YZ/XY = 9/40, adjacent over opposite for angle Z",
+  "C": "uses XY/XZ = 40/41, which is sin Z",
+  "D": "uses XY/YZ = 40/9, which is tan Z"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice A is correct.**\n\n**The Fast Way (~70s):** With $YZ = y$, $y^2 + (y + 41)^2 = 89^2$ gives $y = 39$, so $\\cos Z = \\frac{YZ}{XZ} = \\frac{39}{89}$.\n\n**The Full Solution:**\nStep 1: Let $YZ = y$, so $XY = y + 41$. The right angle is at $Y$, so $\\overline{XZ}$, with length $89$, is the hypotenuse.\nStep 2: $y^2 + (y + 41)^2 = 89^2$ gives $2y^2 + 82y + 1{,}681 = 7{,}921$, so $y^2 + 41y - 3{,}120 = 0$, or $(y - 39)(y + 80) = 0$. A length is positive, so $y = 39$ and $XY = 80$.\nStep 3: The leg adjacent to angle $Z$ is $\\overline{YZ}$, so $\\cos Z = \\frac{39}{89}$.\n\nCheck: $80 - 39 = 41$ and $39^2 + 80^2 = 1{,}521 + 6{,}400 = 7{,}921 = 89^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{39}{80}$): divides the adjacent leg by the opposite leg and never uses the hypotenuse.\n* Choice C ($\\frac{80}{89}$): uses the leg opposite $Z$, which gives $\\sin Z$.\n* Choice D ($\\frac{80}{39}$): divides the opposite leg by the adjacent leg, which is $\\tan Z$.\n\n**Test Day Takeaway:** A relation between the legs plus the hypotenuse is a quadratic; factor it, keep the positive root, and only then pick the ratio."
+ "explanation": "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice A is correct.**\n\n**The Fast Way (~60s):** With $YZ = y$, $y^2 + (y + 31)^2 = 41^2$ gives $y = 9$, so $\\cos Z = \\frac{YZ}{XZ} = \\frac{9}{41}$.\n\n**The Full Solution:**\nStep 1: Let $YZ = y$, so $XY = y + 31$. The right angle is at $Y$, so $\\overline{XZ}$, with length $41$, is the hypotenuse.\nStep 2: $y^2 + (y + 31)^2 = 41^2$ gives $2y^2 + 62y + 961 = 1{,}681$, so $y^2 + 31y - 360 = 0$, or $(y - 9)(y + 40) = 0$. A length is positive, so $y = 9$ and $XY = 40$.\nStep 3: The leg adjacent to angle $Z$ is $\\overline{YZ}$, so $\\cos Z = \\frac{9}{41}$.\n\nCheck: $40 - 9 = 31$ and $9^2 + 40^2 = 81 + 1{,}600 = 1{,}681 = 41^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{9}{40}$): divides the adjacent leg by the opposite leg and never uses the hypotenuse.\n* Choice C ($\\frac{40}{41}$): uses the leg opposite $Z$, which gives $\\sin Z$.\n* Choice D ($\\frac{40}{9}$): divides the opposite leg by the adjacent leg, which is $\\tan Z$.\n\n**Test Day Takeaway:** A relation between the legs plus the hypotenuse is a quadratic; factor it, keep the positive root, and only then pick the ratio."
 }

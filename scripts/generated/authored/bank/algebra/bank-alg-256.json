@@ -1,29 +1,29 @@
 {
  "id": "bank-alg-256",
- "question": "$4x + 3y = 25$\n$2x + y = 11$\nThe solution to the given system of equations is $(x, y)$. What is the value of $2x + 2y$?",
+ "question": "$3x + y = 20$\n$x + y = 8$\nThe solution to the given system of equations is $(x, y)$. What is the value of $2x$?",
  "choices": [
   {
    "id": "A",
-   "text": "$7$"
+   "text": "$2$"
   },
   {
    "id": "B",
-   "text": "$11$"
+   "text": "$6$"
   },
   {
    "id": "C",
-   "text": "$14$"
+   "text": "$12$"
   },
   {
    "id": "D",
-   "text": "$36$"
+   "text": "$28$"
   }
  ],
  "correctAnswer": "C",
  "distractorNotes": {
-  "A": "finds $x + y$ instead of $2x + 2y$",
-  "B": "copies the constant of the second equation, which is the value of $2x + y$",
-  "D": "adds the two equations, which gives $6x + 4y = 36$"
+  "A": "finds $y$ instead of $2x$",
+  "B": "finds $x$ but does not double it",
+  "D": "adds the two equations, which gives $4x + 2y = 28$"
  },
- "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Subtract the second equation from the first: $(4x + 3y) - (2x + y) = 25 - 11$, so $2x + 2y = 14$.\n\n**The Full Solution:**\nStep 1: Look at the target $2x + 2y$ and the two equations: their difference has exactly these coefficients.\nStep 2: Subtract: $(4x + 3y) - (2x + y) = 2x + 2y$, and $25 - 11 = 14$.\nStep 3: So $2x + 2y = 14$. Check: solving gives $x = 4$ and $y = 3$, and $2(4) + 2(3) = 14$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): finds $x + y$ instead of $2x + 2y$\n* Choice B ($11$): copies the constant of the second equation, which is the value of $2x + y$\n* Choice D ($36$): adds the two equations, which gives $6x + 4y = 36$\n\n**Test Day Takeaway:** Before solving for $x$ and $y$, see whether adding or subtracting the equations produces the expression the question asks for."
+ "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Subtract the second equation from the first: $(3x + y) - (x + y) = 20 - 8$, so $2x = 12$.\n\n**The Full Solution:**\nStep 1: Notice that the two equations have the same $y$-term, so subtracting them leaves only $x$-terms.\nStep 2: Subtract: $(3x + y) - (x + y) = 2x$, and $20 - 8 = 12$.\nStep 3: So $2x = 12$. Check: $x = 6$ and $y = 8 - 6 = 2$, and $3(6) + 2 = 20$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): finds $y$ instead of $2x$.\n* Choice B ($6$): finds $x$ but does not double it.\n* Choice D ($28$): adds the two equations, which gives $4x + 2y = 28$.\n\n**Test Day Takeaway:** Before solving for $x$ and $y$, see whether adding or subtracting the equations produces the expression the question asks for."
 }

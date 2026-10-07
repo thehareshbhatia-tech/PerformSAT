@@ -1,49 +1,49 @@
 {
- "question": "The table shows three values of $x$ and their corresponding values of $f(x)$. The function $g$ is defined by $g(x) = 3f(x) - 4$. What is the value of $g(2)$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$2$"
-  },
-  {
-   "id": "B",
-   "text": "$5$"
-  },
-  {
-   "id": "C",
-   "text": "$9$"
-  },
-  {
-   "id": "D",
-   "text": "$13$"
-  }
- ],
- "correctAnswer": "B",
- "distractorNotes": {
-  "A": "substitutes the input 2 for f(x), computing 3(2) - 4 = 2",
-  "C": "computes 3f(2) = 9 and drops the -4",
-  "D": "adds 4 instead of subtracting, computing 3(3) + 4 = 13"
- },
- "explanation": "**SAT Pattern: Function Evaluation**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** From the table, $f(2) = 3$, so $g(2) = 3(3) - 4 = 5$.\n\n**The Full Solution:**\nStep 1: To evaluate $g(2)$, the definition requires $f(2)$: $g(2) = 3f(2) - 4$.\nStep 2: The table shows that when $x = 2$, $f(x) = 3$, so $f(2) = 3$.\nStep 3: Then $g(2) = 3(3) - 4 = 9 - 4 = 5$. Check: $3(3) = 9$ and $9 - 4 = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): uses the input $2$ in place of $f(2)$, computing $3(2) - 4$.\n* Choice C ($9$): stops at $3f(2) = 9$ and leaves off the $-4$.\n* Choice D ($13$): adds $4$ instead of subtracting it, computing $3(3) + 4$.\n\n**Test Day Takeaway:** When one function is defined in terms of another, evaluate the inner function first, then apply the outer rule.",
- "id": "bank-alg-392",
- "questionTable": {
-  "headers": [
-   "$x$",
-   "$f(x)$"
+  "question": "$g(x) = f(x) + 6$\nThe function $f$ is linear, and three of its values are shown in the table. What is the value of $g(10)$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-26$"
+    },
+    {
+      "id": "B",
+      "text": "$-20$"
+    },
+    {
+      "id": "C",
+      "text": "$-14$"
+    },
+    {
+      "id": "D",
+      "text": "$-8$"
+    }
   ],
-  "rows": [
-   [
-    "$-1$",
-    "$9$"
-   ],
-   [
-    "$2$",
-    "$3$"
-   ],
-   [
-    "$5$",
-    "$-3$"
-   ]
-  ]
- }
+  "correctAnswer": "C",
+  "distractorNotes": {
+    "A": "subtracts 6 instead of adding it, computing -20 - 6 = -26",
+    "B": "finds f(10) = -20 correctly but forgets to add 6",
+    "D": "reads f(-2) = 16 as the y-intercept, using f(x) = -3x + 16, so g(10) = -14 + 6 = -8"
+  },
+  "explanation": "**SAT Pattern: Function Evaluation**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Each step of $3$ in $x$ lowers $f(x)$ by $9$, so the slope is $-3$ and $f(x) = -3x + 10$. Then $f(10) = -20$ and $g(10) = -20 + 6 = -14$.\n\n**The Full Solution:**\nStep 1: Find the slope of $f$ from two rows of the table: $\\frac{7 - 16}{1 - (-2)} = \\frac{-9}{3} = -3$.\nStep 2: Use the point $(1, 7)$: $7 = -3(1) + b$, so $b = 10$ and $f(x) = -3x + 10$.\nStep 3: Evaluate $f(10) = -3(10) + 10 = -20$.\nStep 4: Since $g(x) = f(x) + 6$, $g(10) = -20 + 6 = -14$. Check: $f(4) = -3(4) + 10 = -2$, matching the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-26$): subtracts $6$ from $f(10)$ instead of adding it.\n* Choice B ($-20$): this is $f(10)$; the $+6$ in the definition of $g$ was left off.\n* Choice D ($-8$): treats $f(-2) = 16$ as the $y$-intercept, giving $f(x) = -3x + 16$ and $g(10) = -14 + 6$.\n\n**Test Day Takeaway:** When $g(x) = f(x) + k$, find the value of $f$ first, then add $k$; a table of a linear function gives you its slope and intercept.",
+  "id": "bank-alg-392",
+  "questionTable": {
+    "headers": [
+      "$x$",
+      "$f(x)$"
+    ],
+    "rows": [
+      [
+        "$-2$",
+        "$16$"
+      ],
+      [
+        "$1$",
+        "$7$"
+      ],
+      [
+        "$4$",
+        "$-2$"
+      ]
+    ]
+  }
 }

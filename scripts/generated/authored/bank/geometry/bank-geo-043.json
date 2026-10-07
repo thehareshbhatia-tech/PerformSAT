@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-043",
- "question": "Two circles have the same center and have radii of $8$ meters and $11$ meters. What is the area, in square meters, of the region between the two circles?",
+ "question": "The radius of a circle is $2.5$ meters. What is the area, in square meters, of the circle?",
  "choices": [
   {
    "id": "A",
-   "text": "$9\\pi$"
+   "text": "$5\\pi$"
   },
   {
    "id": "B",
-   "text": "$57\\pi$"
+   "text": "$6.25\\pi$"
   },
   {
    "id": "C",
-   "text": "$121\\pi$"
+   "text": "$12.5\\pi$"
   },
   {
    "id": "D",
-   "text": "$185\\pi$"
+   "text": "$25\\pi$"
   }
  ],
  "distractorNotes": {
-  "A": "subtracts the radii first, 11 - 8 = 3, and squares the difference",
-  "C": "gives the area of the larger circle and never removes the smaller one",
-  "D": "adds the two areas instead of subtracting them"
+  "A": "computes the circumference 2 pi (2.5) = 5 pi instead of the area",
+  "C": "multiplies the radius by the diameter, pi (2.5)(5), instead of squaring the radius",
+  "D": "squares the diameter 5 instead of the radius 2.5"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Annulus (Ring) Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The region's area is the larger circle's area minus the smaller one's: $121\\pi - 64\\pi = 57\\pi$.\n\n**The Full Solution:**\nStep 1: The larger circle has area $\\pi(11)^2 = 121\\pi$ square meters.\nStep 2: The smaller circle has area $\\pi(8)^2 = 64\\pi$ square meters, and it lies entirely inside the larger circle because the circles share a center.\nStep 3: The region between the circles has area $121\\pi - 64\\pi = 57\\pi$ square meters. Check: $\\pi(11^2 - 8^2) = \\pi(11 - 8)(11 + 8) = \\pi(3)(19) = 57\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9\\pi$): subtracts the radii, $11 - 8 = 3$, and squares the difference; $11^2 - 8^2$ is not $(11 - 8)^2$.\n* Choice C ($121\\pi$): is the area of the larger circle with nothing removed.\n* Choice D ($185\\pi$): adds the two areas instead of subtracting them.\n\n**Test Day Takeaway:** For a ring, subtract whole areas, $\\pi R^2 - \\pi r^2$; never square the difference of the radii."
+ "explanation": "**SAT Pattern: Area of a Circle**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $A = \\pi r^{2} = \\pi(2.5)^{2} = 6.25\\pi$.\n\n**The Full Solution:**\nStep 1: The area of a circle with radius $r$ is $A = \\pi r^{2}$.\nStep 2: Substitute $r = 2.5$: $A = \\pi(2.5)^{2}$.\nStep 3: $(2.5)^{2} = 2.5 \\cdot 2.5 = 6.25$, so the area is $6.25\\pi$ square meters. Check: $\\frac{6.25\\pi}{\\pi} = 6.25$ and $\\sqrt{6.25} = 2.5$, the given radius ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5\\pi$): is $2\\pi(2.5)$, the circumference of the circle, not its area.\n* Choice C ($12.5\\pi$): multiplies the radius $2.5$ by the diameter $5$ instead of multiplying the radius by itself.\n* Choice D ($25\\pi$): squares the diameter $5$ instead of the radius $2.5$.\n\n**Test Day Takeaway:** Area uses the radius squared, $\\pi r^{2}$; circumference uses the radius once, $2\\pi r$. With a decimal radius, square it carefully: $(2.5)^{2} = 6.25$."
 }

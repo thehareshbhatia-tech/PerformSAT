@@ -6,40 +6,40 @@
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-quantitative",
   "module": 2,
-  "passage": "In mountain basins of the American West, winter snowpack acts as a natural reservoir, holding water that is released as meltwater through the warm months. Hydrologists summarize the reservoir each spring as the snowpack's water content measured on April 1, expressed against the long-term average. A basin manager claims that summer streamflow in one such basin tracks the April snowpack closely: thin snowpacks are followed by meager summer flows, and deep snowpacks by abundant ones.",
+  "passage": "Among mammals, the length of pregnancy, or gestation, ranges from a few weeks to nearly two years. Drawing on records in the AnAge database of animal life histories, a biologist claims that gestation length tracks body size closely: small species have short pregnancies, and large species have long ones.",
   "questionTable": {
     "type": "table",
-    "caption": "April 1 snow water content and summer streamflow in one mountain basin (percent of long-term average)",
+    "caption": "Adult body mass and gestation length of five mammal species",
     "headers": [
-      "Year",
-      "April 1 snow water content (% of average)",
-      "June-August streamflow (% of average)"
+      "Species",
+      "Adult body mass (kilograms)",
+      "Gestation (days)"
     ],
     "rows": [
       [
-        "2018",
-        "142",
-        "128"
+        "African elephant",
+        "4,800",
+        "670"
       ],
       [
-        "2019",
-        "96",
-        "91"
+        "European rabbit",
+        "1.8",
+        "30"
       ],
       [
-        "2020",
-        "71",
-        "63"
+        "Gray wolf",
+        "26.6",
+        "62"
       ],
       [
-        "2021",
-        "118",
-        "109"
+        "Red fox",
+        "4.1",
+        "52"
       ],
       [
-        "2022",
-        "55",
-        "48"
+        "White-tailed deer",
+        "87",
+        "198"
       ]
     ]
   },
@@ -47,24 +47,25 @@
   "choices": [
     {
       "id": "A",
-      "text": "Snow water content on April 1 ranged from a low of 55% of average in 2022 to a high of 142% of average in 2018."
+      "text": "Adult body mass ranged from 1.8 kilograms for the European rabbit to 4,800 kilograms for the African elephant."
     },
     {
       "id": "B",
-      "text": "Summer streamflow fell below its long-term average in three of the five years shown in the table and exceeded it in the other two."
+      "text": "Gestation lasted fewer than 100 days in three of the five species shown in the table and more than 100 days in the other two."
     },
     {
       "id": "C",
-      "text": "The two thinnest snowpacks, 55% and 71% of average, were followed by the two lowest flows, 48% and 63%, and the deepest, 142%, by the highest flow, 128%."
+      "text": "The two lightest species (1.8 and 4.1 kilograms) had the two shortest gestations (30 and 52 days), and the heaviest (4,800 kilograms) had the longest (670 days)."
     },
     {
       "id": "D",
-      "text": "In 2019, snow water content stood at 96% of average and summer streamflow at 91% of average, the closest pairing of values in the table."
+      "text": "The gray wolf weighed 26.6 kilograms and had a gestation of 62 days, the middle value of the five in both columns."
     }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** A tracking claim needs both variables moving together across years, and C shows the correspondence at both ends of the range: thinnest snowpacks with lowest flows, deepest snowpack with highest flow.\n\n**The Full Solution:**\n- The claim pairs conditions: thin snowpack with meager flow, deep snowpack with abundant flow.\n- C matches the two low years (2022, 2020) to the two lowest flows and the high year (2018) to the highest flow.\n- Correspondence across the extremes is what demonstrates tracking.\n\n**Why the other choices are wrong:**\n- A: It reports only the snowpack's range and never mentions streamflow.\n- B: It reports only streamflow and never connects it to the snowpack.\n- D: One close pairing in a single year cannot show that the two quantities move together across years.",
+  "explanation": "**Choice C is correct.** A tracking claim needs both quantities moving together across species, and C shows the match at both ends of the range: the lightest species have the shortest gestations, and the heaviest species has the longest.\n\n**The Full Solution:**\n- The claim pairs conditions: small body with short pregnancy, large body with long pregnancy.\n- C matches the two lightest species (European rabbit, red fox) to the two shortest gestations and the heaviest (African elephant) to the longest.\n- Agreement at both extremes is what shows that one quantity tracks the other.\n\n**Why the other choices are wrong:**\n- A: It reports only body mass and never mentions gestation.\n- B: It reports only gestation and never connects it to body mass.\n- D: One species' values cannot show that the two quantities move together across species.",
   "_meta": {
-    "anchor": "snowpack as natural reservoir — April snow water content and summer flow; original basin table"
+    "anchor": "mammal gestation vs adult body mass, AnAge (genomics.senescence.info): rabbit 1,800 g/30 d; red fox 4,132 g/52 d; gray wolf 26,625 g/62 d; white-tailed deer 87,000 g/198 d; African elephant 4,800,000 g/670 d",
+    "source": "https://genomics.senescence.info/species/"
   }
 }

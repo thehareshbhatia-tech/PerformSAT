@@ -6,7 +6,7 @@
   "band": 3,
   "domain": "standard-english-conventions",
   "skill": "boundaries",
-  "passage": "Across the dry Iranian plateau, communities short of surface water dug qanats, and each system depended on three coordinated elements ______ that together delivered groundwater to distant fields by gravity alone, with no pumps and no open channel exposed to the desert sun.",
+  "passage": "Across the dry Iranian plateau, people dug qanats, and each system depended on three parts ______ that together carried groundwater to distant fields by gravity alone.",
   "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
   "choices": [
     {
@@ -27,5 +27,5 @@
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** The list of three elements is an interruption between \"three coordinated elements\" and the clause \"that together delivered...\" — and an interrupting list containing its own commas must be enclosed by a matched pair of dashes.\n\n**The Full Solution:**\n- The sentence's spine is \"each system depended on three coordinated elements... that together delivered groundwater.\"\n- The naming of the elements is parenthetical, and because it carries internal commas, commas cannot set it off legibly; dashes can — provided they come as a pair, one opening and one closing.\n\n**Why the other choices are wrong:**\n- A: It opens with a dash but closes with a comma, an unmatched pair.\n- C: Commas around a list already full of commas leave the boundaries of the interruption unreadable.\n- D: With no punctuation at all, the list collides with both the noun before it and the clause after it."
+  "explanation": "**Choice B is correct.** The list of three parts is an interruption between \"three parts\" and the clause \"that together carried...\" — and an interrupting list containing its own commas must be enclosed by a matched pair of dashes.\n\n**The Full Solution:**\n- The sentence's spine is \"each system depended on three parts... that together carried groundwater.\"\n- The naming of the parts is parenthetical, and because it carries internal commas, commas cannot set it off legibly; dashes can — provided they come as a pair, one opening and one closing.\n\n**Why the other choices are wrong:**\n- A: It opens with a dash but closes with a comma, an unmatched pair.\n- C: Commas around a list already full of commas leave the boundaries of the interruption unreadable.\n- D: With no punctuation at all, the list collides with both the noun before it and the clause after it."
 }

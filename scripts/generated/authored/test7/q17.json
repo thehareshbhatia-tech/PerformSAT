@@ -6,7 +6,7 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 1,
- "passage": "To understand how sound moves through a city, an acoustics team combines three kinds of records: fixed monitors, which log sound levels at street corners around the clock; walking surveys, which capture block-to-block variation in ______ and resident questionnaires, which register how the measured levels are actually experienced indoors. Together, the records show planners where quiet-street projects would help most.",
+ "passage": "An acoustics team combines three kinds of records: fixed monitors, which log sound levels at street corners; walking surveys, which capture block-to-block variation in ______ and resident questionnaires, which register how those levels are experienced indoors. Together, the records show city planners where quiet-street projects would help most.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The sentence lists three kinds of records, and each item carries its own internal comma (\"fixed monitors, which log...\"); when list items contain commas, the items themselves are separated with semicolons, so a semicolon must precede \"and resident questionnaires.\"\n\n**The Full Solution:**\n- The list's items are complex: each pairs a noun with a comma-set \"which\" clause describing it.\n- The first boundary already uses a semicolon (\"...around the clock; walking surveys...\"), so the second boundary must match.\n- \"loudness; and\" closes the second item and opens the third with the same mark, keeping the three items cleanly fenced.\n\n**Why the other choices are wrong:**\n- A: A comma before \"and\" would blend into the commas already inside each item, blurring where one record ends and the next begins.\n- B: No punctuation at all runs the second and third items together.\n- C: A colon introduces an explanation or a list; it cannot separate items within one."
+ "explanation": "**Choice D is correct.** The sentence lists three kinds of records, and each item carries its own internal comma (\"fixed monitors, which log...\"); when list items contain commas, the items themselves are separated with semicolons, so a semicolon must precede \"and resident questionnaires.\"\n\n**The Full Solution:**\n- The list's items are complex: each pairs a noun with a comma-set \"which\" clause describing it.\n- The first boundary already uses a semicolon (\"...at street corners; walking surveys...\"), so the second boundary must match.\n- \"loudness; and\" closes the second item and opens the third with the same mark, keeping the three items cleanly fenced.\n\n**Why the other choices are wrong:**\n- A: A comma before \"and\" would blend into the commas already inside each item, blurring where one record ends and the next begins.\n- B: No punctuation at all runs the second and third items together.\n- C: A colon introduces an explanation or a list; it cannot separate items within one."
 }

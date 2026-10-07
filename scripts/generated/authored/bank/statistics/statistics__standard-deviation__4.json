@@ -1,30 +1,30 @@
 {
   "id": 4,
-  "question": "Data set M has a mean of $58$ and a standard deviation of $9$. Data set N is formed by increasing each value in data set M by $12$. What is the standard deviation of data set N?",
+  "question": "$31, 38, 40, 42, 49$\nIf the values $31$ and $49$ are removed from the data set shown, which statement best describes the effect on the mean and the standard deviation?",
   "choices": [
     {
       "id": "A",
-      "text": "$9$"
+      "text": "The mean does not change, and the standard deviation decreases."
     },
     {
       "id": "B",
-      "text": "$12$"
+      "text": "The mean does not change, and the standard deviation increases."
     },
     {
       "id": "C",
-      "text": "$21$"
+      "text": "The mean decreases, and the standard deviation decreases."
     },
     {
       "id": "D",
-      "text": "$70$"
+      "text": "Neither the mean nor the standard deviation changes."
     }
   ],
   "distractorNotes": {
-    "B": "reports the amount added to each value rather than the spread of the new data set.",
-    "C": "adds $12$ to the standard deviation, treating spread the same way as center.",
-    "D": "reports the mean of data set N instead of its standard deviation."
+    "B": "reverses the effect on spread: removing the two values farthest from the mean makes the data less spread out",
+    "C": "thinks removing values always lowers the mean, but 31 and 49 are equally far below and above 40",
+    "D": "thinks the standard deviation stays the same when the mean stays the same"
   },
   "correctAnswer": "A",
-  "hint": "Picture sliding every dot the same distance along the number line.",
-  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~30s):** Adding the same amount to every value slides the whole distribution without stretching it, so the standard deviation stays $9$.\n\n**The Full Solution:**\nStep 1: Each value of N is a value of M plus $12$, and the mean of N is $58 + 12 = 70$.\nStep 2: Each deviation from the mean is unchanged, since $(x + 12) - (58 + 12) = x - 58$.\nStep 3: Standard deviation is built entirely from those deviations, so it is still $9$. Check: the distances between values are unchanged by a shift, so the spread cannot change. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($12$): reports the amount added to each value rather than the spread of the new data set.\n* Choice C ($21$): adds $12$ to the standard deviation, treating spread the same way as center.\n* Choice D ($70$): reports the mean of data set N instead of its standard deviation.\n\n**Test Day Takeaway:** Adding a constant moves the center and leaves the spread alone. Only the mean and median shift by that constant."
+  "hint": "Compare $31$ and $49$ with the mean of the data set.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~30s):** The values $31$ and $49$ are $9$ below and $9$ above the mean $40$, so removing them keeps the mean at $40$ and leaves values closer to it.\n\n**The Full Solution:**\nStep 1: The mean of the data set is $\\frac{31 + 38 + 40 + 42 + 49}{5} = \\frac{200}{5} = 40$.\nStep 2: The remaining values are $38, 40, 42$, with mean $\\frac{120}{3} = 40$, so the mean does not change.\nStep 3: The removed values were the farthest from the mean, and the remaining values are within $2$ of $40$, so the standard deviation decreases.\n\nCheck: Before, the values lie between $31$ and $49$; after, they lie between $38$ and $42$, a much smaller spread around the same mean. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (SD increases): has the effect on spread reversed.\n* Choice C (mean decreases): removing two values equally far below and above the mean leaves the mean unchanged.\n* Choice D (neither changes): the spread shrinks even though the center stays the same.\n\n**Test Day Takeaway:** Removing values far from the mean lowers the standard deviation; removing a balanced pair leaves the mean unchanged."
 }

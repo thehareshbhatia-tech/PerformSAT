@@ -1,29 +1,29 @@
 {
  "id": "bank-alg-412",
- "question": "$|2x - 9| = k$\nIn the given equation, $k$ is a positive constant. The greater solution to the equation is $4$ times the lesser solution. What is the value of $k$?",
+ "question": "$|2x - 9| = k$\nIn the given equation, $k$ is a positive constant. What is the sum of the solutions to the given equation?",
  "choices": [
   {
    "id": "A",
-   "text": "$1.8$"
+   "text": "$0$"
   },
   {
    "id": "B",
-   "text": "$2.25$"
+   "text": "$\\frac{9}{2}$"
   },
   {
    "id": "C",
-   "text": "$5.4$"
+   "text": "$9$"
   },
   {
    "id": "D",
-   "text": "$7.2$"
+   "text": "$18$"
   }
  ],
  "distractorNotes": {
-  "A": "reports the lesser solution instead of k",
-  "B": "divides 9 by 4, applying the ratio to the constant inside the bars",
-  "D": "reports the greater solution instead of k"
+  "A": "treats the two solutions as opposites, as for |x| = k, so they appear to cancel to 0",
+  "B": "finds the average of the two solutions instead of their sum",
+  "D": "adds the two values of 2x, (9 + k) + (9 - k), without dividing by 2"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** The solutions are $\\frac{9 + k}{2}$ and $\\frac{9 - k}{2}$; setting $9 + k = 4(9 - k)$ gives $5k = 27$, so $k = 5.4$.\n\n**The Full Solution:**\nStep 1: Split the equation: $2x - 9 = k$ gives $x = \\frac{9 + k}{2}$, and $2x - 9 = -k$ gives $x = \\frac{9 - k}{2}$, the greater and lesser solutions.\nStep 2: The greater is $4$ times the lesser: $\\frac{9 + k}{2} = 4 \\cdot \\frac{9 - k}{2}$, which reduces to $9 + k = 36 - 4k$.\nStep 3: Then $5k = 27$ and $k = 5.4$. Check: the solutions are $\\frac{14.4}{2} = 7.2$ and $\\frac{3.6}{2} = 1.8$, and $4(1.8) = 7.2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.8$): this is the lesser solution, not the constant $k$.\n* Choice B ($2.25$): divides $9$ by $4$, applying the ratio to the constant inside the bars instead of to the two solutions.\n* Choice D ($7.2$): this is the greater solution, not the constant $k$.\n\n**Test Day Takeaway:** Write both solutions in terms of the unknown constant before imposing the relationship between them."
+ "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The solutions are $\\frac{9 + k}{2}$ and $\\frac{9 - k}{2}$; the $k$ terms cancel when they are added, so the sum is $\\frac{18}{2} = 9$.\n\n**The Full Solution:**\nStep 1: Since $k > 0$, the equation splits into $2x - 9 = k$ and $2x - 9 = -k$.\nStep 2: Solve each: $x = \\frac{9 + k}{2}$ and $x = \\frac{9 - k}{2}$.\nStep 3: Add: $\\frac{9 + k}{2} + \\frac{9 - k}{2} = \\frac{18}{2} = 9$. Check with $k = 3$: $|2x - 9| = 3$ gives $x = 6$ and $x = 3$, and $6 + 3 = 9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): treats the solutions as opposites, as for $|x| = k$, but here they are centered at $\\frac{9}{2}$, not at $0$.\n* Choice B ($\\frac{9}{2}$): is the average of the two solutions (the center), not their sum.\n* Choice D ($18$): adds the two values of $2x$, $(9 + k) + (9 - k)$, and forgets to divide by $2$.\n\n**Test Day Takeaway:** The two solutions of an absolute value equation sit the same distance on either side of the center, so their sum does not depend on that distance."
 }

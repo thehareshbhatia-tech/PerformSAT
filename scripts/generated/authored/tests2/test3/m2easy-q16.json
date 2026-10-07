@@ -1,6 +1,6 @@
 {
  "id": 16,
- "question": "The table shows the number of marbles of each color in a bag. Two marbles will be selected from the bag at random, one at a time, without replacement. What is the probability that both marbles selected are red?",
+ "question": "The table shows the number of marbles of each color in a bag. One red marble is removed from the bag and not replaced. If one of the remaining marbles is then selected at random, what is the probability of selecting a red marble? (Express your answer as a decimal or fraction, not as a percent.)",
  "diagram": {
   "type": "dataTable",
   "params": {
@@ -28,6 +28,6 @@
    ]
   }
  },
- "correctAnswer": "3/20",
- "explanation": "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $\\frac{3}{20}$.**\n\n**The Fast Way (~25s):** The first marble is red with probability $\\frac{10}{25}$; with that marble removed, the second is red with probability $\\frac{9}{24}$. The product is $\\frac{90}{600} = \\frac{3}{20}$.\n\n**The Full Solution:**\nStep 1: The bag has $10$ red marbles out of $25$, so the first marble is red with probability $\\frac{10}{25} = \\frac{2}{5}$.\nStep 2: After one red marble is removed, $9$ red marbles remain among $24$, so the second marble is red with probability $\\frac{9}{24} = \\frac{3}{8}$.\nStep 3: Multiply: $\\frac{2}{5} \\times \\frac{3}{8} = \\frac{6}{40} = \\frac{3}{20}$. Check: $\\frac{10}{25} \\times \\frac{9}{24} = \\frac{90}{600} = \\frac{3}{20}$ ✓\n\n**Common Mistakes:**\n* $\\frac{4}{25}$: uses $\\frac{10}{25} \\times \\frac{10}{25}$, as if the first marble were put back.\n* $\\frac{1}{6}$: uses $\\frac{10}{25} \\times \\frac{10}{24}$, reducing the total to $24$ but forgetting that only $9$ red marbles remain.\n* $\\frac{2}{5}$: finds the probability for one marble only.\n\n**Test Day Takeaway:** Without replacement, both the number of favorable outcomes and the total drop by one before the second selection. Multiply the two fractions."
+ "correctAnswer": "3/8",
+ "explanation": "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $\\frac{3}{8}$.**\n\n**The Fast Way (~20s):** After one red marble is removed, $9$ red marbles remain among $24$ marbles, so the probability is $\\frac{9}{24} = \\frac{3}{8}$.\n\n**The Full Solution:**\nStep 1: The bag starts with $10$ red marbles and $25$ marbles in all.\nStep 2: Removing one red marble lowers both counts by $1$: $10 - 1 = 9$ red marbles and $25 - 1 = 24$ marbles in all.\nStep 3: The probability of selecting a red marble from the remaining marbles is $\\frac{9}{24} = \\frac{3}{8}$. Check: $\\frac{3}{8} = 0.375$, and $9 \\div 24 = 0.375$ ✓\n\n**Common Mistakes:**\n* $\\frac{2}{5}$: uses the original counts, $\\frac{10}{25}$, as if the red marble had not been removed.\n* $\\frac{5}{12}$: lowers the total to $24$ but keeps $10$ red marbles, giving $\\frac{10}{24}$.\n* $\\frac{9}{25}$: lowers the number of red marbles to $9$ but keeps the total at $25$.\n\n**Test Day Takeaway:** When an item is removed and not replaced, both the number of favorable outcomes and the total change before the next selection; update both counts, then divide."
 }

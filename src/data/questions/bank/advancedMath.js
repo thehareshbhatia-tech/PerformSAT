@@ -6,18 +6,18 @@ export const advancedMathBank = [
     skills: ["identify-quadratic"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "Which of the following is a quadratic equation?",
+    question: "$x(3x - 4) = 7$\nWhich equation is equivalent to the given equation?",
     choices: [
-      // distractor: the highest power of x is 1, so the equation is linear
-      { id: "A", text: "$7x - 21 = 0$" },
-      // distractor: x is in a denominator, so the equation is not a polynomial equation
-      { id: "B", text: "$\\dfrac{5}{x} + 2 = 0$" },
-      { id: "C", text: "$3x^{2} - 4x + 1 = 0$" },
-      // distractor: the highest power of x is 3, so the equation is cubic
-      { id: "D", text: "$x^{3} - 9x = 0$" }
+      // distractor: multiplies x by +4 instead of -4
+      { id: "A", text: "$3x^{2} + 4x - 7 = 0$" },
+      { id: "B", text: "$3x^{2} - 4x - 7 = 0$" },
+      // distractor: moves 7 to the left side without changing its sign
+      { id: "C", text: "$3x^{2} - 4x + 7 = 0$" },
+      // distractor: multiplies only 3x by x, giving 3x^2 - 4 = 7
+      { id: "D", text: "$3x^{2} - 11 = 0$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Identify Quadratic Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Look for the equation whose highest power of $x$ is exactly $2$, with $x$ never in a denominator. Only $3x^{2} - 4x + 1 = 0$ qualifies.\n\n**The Full Solution:**\nStep 1: A quadratic equation in $x$ can be written as $ax^{2} + bx + c = 0$ with $a \\neq 0$: its highest power of $x$ is $2$, and every power of $x$ is a whole number.\nStep 2: Check the other choices. In $7x - 21 = 0$ the highest power is $1$. In $\\dfrac{5}{x} + 2 = 0$, $x$ is in a denominator, which is the power $x^{-1}$. In $x^{3} - 9x = 0$ the highest power is $3$.\nStep 3: $3x^{2} - 4x + 1 = 0$ has the form $ax^{2} + bx + c = 0$ with $a = 3$, $b = -4$, and $c = 1$, and $a \\neq 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7x - 21 = 0$): the highest power of $x$ is $1$, so this equation is linear.\n* Choice B ($\\dfrac{5}{x} + 2 = 0$): the variable is in a denominator, so this is a rational equation, not a polynomial one.\n* Choice D ($x^{3} - 9x = 0$): the highest power of $x$ is $3$, so this equation is cubic.\n\n**Test Day Takeaway:** Classify an equation by the HIGHEST power of the variable, and make sure the variable never sits in a denominator.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Identify Quadratic Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Distribute $x$ to get $3x^{2} - 4x = 7$, then subtract $7$ from each side: $3x^{2} - 4x - 7 = 0$.\n\n**The Full Solution:**\nStep 1: Distribute $x$ over both terms in the parentheses: $x(3x) - x(4) = 3x^{2} - 4x$.\nStep 2: The equation becomes $3x^{2} - 4x = 7$.\nStep 3: Subtract $7$ from each side: $3x^{2} - 4x - 7 = 0$. Check with $x = -1$: the given equation gives $(-1)(-3 - 4) = 7$, and $3(1) + 4 - 7 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x^{2} + 4x - 7 = 0$): multiplies $x$ by $+4$ instead of $-4$.\n* Choice C ($3x^{2} - 4x + 7 = 0$): moves $7$ to the left side without changing its sign.\n* Choice D ($3x^{2} - 11 = 0$): multiplies only $3x$ by $x$, which gives $3x^{2} - 4 = 7$.\n\n**Test Day Takeaway:** To write a quadratic equation as $ax^{2} + bx + c = 0$, distribute to every term in the parentheses, then move every term to one side, changing its sign as it crosses.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "concept-identification",
@@ -30,19 +30,19 @@ export const advancedMathBank = [
     skills: ["identify-quadratic"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A theater models its ticket revenue $R$, in dollars, as $R(p) = p(900 - 15p)$, where $p$ is the price of a ticket, in dollars. The table shows $R(p)$ for three ticket prices. Which of the following best describes $R$?",
+    question: "A theater's revenue $R(p)$, in dollars, from ticket sales depends on the price $p$, in dollars, of each ticket. The table shows three values of $p$ and their corresponding values of $R(p)$. Which equation could define $R$?",
     diagram: { type: "dataTable", params: { headers: ["Ticket price p (dollars)", "Revenue R(p) (dollars)"], rows: [["10", "7,500"], ["20", "12,000"], ["30", "13,500"]] } },
     choices: [
-      // distractor: treats increasing as linear; the increases 4,500 and 1,500 over equal steps are not constant
-      { id: "A", text: "$R$ is a linear function, because $R(p)$ increases as $p$ increases." },
-      // distractor: classifies one factor instead of the product p(900 - 15p)
-      { id: "B", text: "$R$ is a linear function, because $900 - 15p$ is linear." },
-      { id: "C", text: "$R$ is a quadratic function, because $R(p) = -15p^{2} + 900p$." },
-      // distractor: claims a constant ratio; the ratios 12,000/7,500 = 1.6 and 13,500/12,000 = 1.125 differ
-      { id: "D", text: "$R$ is an exponential function, because $R(p)$ grows by a constant factor." }
+      // distractor: checks only the first row: it gives 7,500 at p = 10 but 9,000 at p = 20
+      { id: "A", text: "$R(p) = -15p^{2} + 600p + 3{,}000$" },
+      { id: "B", text: "$R(p) = -15p^{2} + 900p$" },
+      // distractor: checks only the first two rows: it gives 14,500, not 13,500, at p = 30
+      { id: "C", text: "$R(p) = -10p^{2} + 750p + 1{,}000$" },
+      // distractor: checks only the first row: it gives 18,000, not 12,000, at p = 20
+      { id: "D", text: "$R(p) = 15p^{2} + 600p$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Classify Model by Expanding**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Distribute: $p(900 - 15p) = 900p - 15p^{2}$. A $p^{2}$ term with a nonzero coefficient makes $R$ quadratic.\n\n**The Full Solution:**\nStep 1: Expand the product: $R(p) = 900p - 15p^{2}$, or $R(p) = -15p^{2} + 900p$.\nStep 2: The highest power of $p$ is $2$ and its coefficient, $-15$, is not zero, so $R$ is a quadratic function of $p$.\nStep 3: Check against the table. From $p = 10$ to $p = 20$, revenue rises by $12{,}000 - 7{,}500 = 4{,}500$; from $p = 20$ to $p = 30$ it rises by $13{,}500 - 12{,}000 = 1{,}500$. Unequal increases over equal steps rule out a linear model, and the ratios $1.6$ and $1.125$ rule out an exponential one ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: increasing is not the same as linear; the increases in the table are $4{,}500$ and then $1{,}500$.\n* Choice B: $900 - 15p$ is linear by itself, but multiplying it by $p$ raises the degree to $2$.\n* Choice D: an exponential function has a constant ratio between outputs at equally spaced inputs; here the ratios are $1.6$ and $1.125$.\n\n**Test Day Takeaway:** Classify a model only after expanding it. The product of two linear factors is quadratic, however linear each factor looks.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Classify Model by Expanding**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Every choice gives $7{,}500$ at $p = 10$, so test the other rows. Only $R(p) = -15p^{2} + 900p = p(900 - 15p)$ gives $12{,}000$ at $p = 20$ and $13{,}500$ at $p = 30$.\n\n**The Full Solution:**\nStep 1: Substitute $p = 10$ into each choice. All four give $7{,}500$, so this row does not decide the answer.\nStep 2: Substitute $p = 20$. Choice A gives $-6{,}000 + 12{,}000 + 3{,}000 = 9{,}000$ and choice D gives $6{,}000 + 12{,}000 = 18{,}000$, so both are out. Choices B and C give $12{,}000$.\nStep 3: Substitute $p = 30$. Choice B gives $-15(900) + 900(30) = -13{,}500 + 27{,}000 = 13{,}500$, and choice C gives $-9{,}000 + 22{,}500 + 1{,}000 = 14{,}500$. Check choice B against all three rows: $7{,}500$, $12{,}000$, and $13{,}500$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: matches only the first row; it gives $9{,}000$ at $p = 20$.\n* Choice C: matches the first two rows, but it gives $14{,}500$ at $p = 30$.\n* Choice D: matches only the first row; it gives $18{,}000$ at $p = 20$.\n\n**Test Day Takeaway:** An equation could define a function from a table only if it matches EVERY row. Several equations can share one point, so keep testing until one choice is left.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "model-classification",
@@ -55,18 +55,18 @@ export const advancedMathBank = [
     skills: ["identify-quadratic"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "I. $(m + 6)^{2} - m^{2}$\nII. $(3m - 2)(m + 5)$\nIII. $\\dfrac{m^{4} - m^{2}}{m^{2}}$, where $m \\neq 0$\nWhich of the given expressions are equivalent to a quadratic expression in $m$?",
+    question: "$m^{2} - 9$\nFor $m > 0$, the given expression is equivalent to which of the following?\nI. $(m - 3)^{2} + 6m$\nII. $\\dfrac{m^{4} - 9m^{2}}{m^{2}}$",
     choices: [
-      // distractor: assumes squaring a binomial always leaves an m^2 term, and overlooks II and III
+      // distractor: expands (m - 3)^2 as m^2 - 6m - 9, which makes I look like m^2 - 9, and does not factor m^2 out of II
       { id: "A", text: "I only" },
-      // distractor: stops before reducing III, which simplifies to m^2 - 1
       { id: "B", text: "II only" },
-      { id: "C", text: "II and III only" },
-      // distractor: counts I, whose m^2 terms cancel to leave 12m + 36
-      { id: "D", text: "I, II, and III" }
+      // distractor: expands (m - 3)^2 as m^2 - 6m - 9, a sign error on the 9, so I looks equivalent
+      { id: "C", text: "I and II" },
+      // distractor: correctly rejects I but does not factor m^2 out of the numerator of II
+      { id: "D", text: "Neither I nor II" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Classify After Simplification**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** I collapses to $12m + 36$, which is linear. II expands to $3m^{2} + 13m - 10$ and III reduces to $m^{2} - 1$, both quadratic.\n\n**The Full Solution:**\nStep 1: Expression I: $(m + 6)^{2} - m^{2} = m^{2} + 12m + 36 - m^{2} = 12m + 36$. The $m^{2}$ terms cancel, so I is linear.\nStep 2: Expression II: $(3m - 2)(m + 5) = 3m^{2} + 15m - 2m - 10 = 3m^{2} + 13m - 10$, which is quadratic.\nStep 3: Expression III: $\\dfrac{m^{4} - m^{2}}{m^{2}} = \\dfrac{m^{2}(m^{2} - 1)}{m^{2}} = m^{2} - 1$ for $m \\neq 0$, which is quadratic. So the answer is II and III only. Check at $m = 2$: I gives $64 - 4 = 60 = 12(2) + 36$, II gives $(4)(7) = 28 = 12 + 26 - 10$, and III gives $\\frac{16 - 4}{4} = 3 = 2^{2} - 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: expanding $(m + 6)^{2}$ does produce an $m^{2}$ term, but subtracting $m^{2}$ removes it, so I is linear.\n* Choice B: III looks like a fourth-degree expression until the common factor $m^{2}$ is divided out.\n* Choice D: includes I, which loses its $m^{2}$ term in the subtraction.\n\n**Test Day Takeaway:** Degree belongs to the SIMPLIFIED expression. Expand and reduce first, then read the highest power that survives.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Classify After Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Expression I is $m^{2} - 6m + 9 + 6m = m^{2} + 9$, not $m^{2} - 9$. Expression II is $\\dfrac{m^{2}(m^{2} - 9)}{m^{2}} = m^{2} - 9$.\n\n**The Full Solution:**\nStep 1: Expand expression I: $(m - 3)^{2} + 6m = m^{2} - 6m + 9 + 6m = m^{2} + 9$. Its constant term is $+9$, so I is not equivalent to $m^{2} - 9$.\nStep 2: Factor the numerator of expression II: $m^{4} - 9m^{2} = m^{2}(m^{2} - 9)$.\nStep 3: Since $m > 0$, $m^{2} \\neq 0$, and the common factor cancels: II is $m^{2} - 9$. Check with $m = 2$: $m^{2} - 9 = -5$; I gives $1 + 12 = 13$; II gives $\\dfrac{16 - 36}{4} = -5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (I only): expands $(m - 3)^{2}$ with a constant of $-9$ and does not factor $m^{2}$ out of II.\n* Choice C (I and II): expands $(m - 3)^{2}$ as $m^{2} - 6m - 9$, a sign error on the $9$.\n* Choice D (Neither I nor II): rejects I correctly but does not factor $m^{2}$ out of the numerator of II.\n\n**Test Day Takeaway:** Simplify each expression completely before comparing it with the target, and test a value such as $m = 2$ to confirm.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "classify-after-simplify",
@@ -76,22 +76,22 @@ export const advancedMathBank = [
   {
     id: "bank-am-004",
     domain: "advanced-math",
-    skills: ["identify-quadratic"],
+    skills: ["converting-quadratic-forms"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The function $h(x) = -0.5x^{2} + 4x$ models the height, in feet, of a stream of water from a fountain when the water is $x$ feet horizontally from the nozzle. The graph of $y = h(x)$ is shown. Which of the following must be true?",
+    question: "The function $h(x) = -0.5x^{2} + 4x$ models the height, in feet, of a stream of water from a fountain when the water is $x$ feet horizontally from the nozzle. The graph of $y = h(x)$ is shown. What is the best interpretation of the vertex of the graph in this context?",
     diagram: { type: "parabola", params: { vertex: { h: 4, k: 8 }, a: -0.5, xRange: [0, 10], yRange: [0, 10], xTickInterval: 2, yTickInterval: 2, gridInterval: 1, showVertex: false } },
     choices: [
-      // distractor: calls a curved graph linear
-      { id: "A", text: "The model is linear, because the height changes at a constant rate." },
-      // distractor: labels any rise-then-fall shape exponential
-      { id: "B", text: "The model is exponential, because the height decreases after its peak." },
-      { id: "C", text: "The model is quadratic, and the greatest height of the water is $8$ feet." },
-      // distractor: reports the x-coordinate of the vertex, 4, as the greatest height
-      { id: "D", text: "The model is quadratic, and the greatest height of the water is $4$ feet." }
+      // distractor: swaps the coordinates of the vertex (4, 8)
+      { id: "A", text: "The water reaches its greatest height, $4$ feet, when it is $8$ feet horizontally from the nozzle." },
+      { id: "B", text: "The water reaches its greatest height, $8$ feet, when it is $4$ feet horizontally from the nozzle." },
+      // distractor: describes the x-intercept (8, 0) instead of the vertex
+      { id: "C", text: "The water reaches the ground when it is $8$ feet horizontally from the nozzle." },
+      // distractor: reads the coefficient 4 as a starting height; h(0) = 0
+      { id: "D", text: "The water leaves the nozzle at a height of $4$ feet." }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Classify Physical Motion Model**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The $x^{2}$ term makes $h$ quadratic, and its vertex is at $x = -\\dfrac{4}{2(-0.5)} = 4$, where $h(4) = -8 + 16 = 8$ feet.\n\n**The Full Solution:**\nStep 1: $h(x) = -0.5x^{2} + 4x$ has degree $2$, so the model is quadratic and its graph is a parabola. Because $-0.5 < 0$, the parabola opens downward and has a maximum.\nStep 2: The maximum occurs at the vertex, $x = -\\dfrac{b}{2a} = -\\dfrac{4}{2(-0.5)} = 4$.\nStep 3: The greatest height is $h(4) = -0.5(16) + 4(4) = -8 + 16 = 8$ feet. Check with symmetric points: $h(0) = 0$ and $h(8) = -32 + 32 = 0$, and $4$ is halfway between $0$ and $8$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: the graph is curved, so the height does not change at a constant rate.\n* Choice B: an exponential model never returns to an earlier value, but this one has $h(0) = h(8) = 0$.\n* Choice D ($4$ feet): $4$ is the horizontal distance at which the peak occurs, not the height of the peak.\n\n**Test Day Takeaway:** The vertex of a quadratic model carries two numbers with two different jobs: the input says WHERE the extreme happens, and the output says WHAT it is.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Vertex Form Maximum**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The vertex is the highest point of the graph, $(4, 8)$: at $x = 4$ feet from the nozzle, the water is at its greatest height, $8$ feet.\n\n**The Full Solution:**\nStep 1: The vertex is at $x = -\\dfrac{b}{2a} = -\\dfrac{4}{2(-0.5)} = 4$.\nStep 2: The height there is $h(4) = -0.5(16) + 4(4) = -8 + 16 = 8$, so the vertex is $(4, 8)$. Because $-0.5 < 0$, the parabola opens downward and the vertex is the highest point.\nStep 3: In context, $x = 4$ is a horizontal distance and $y = 8$ is a height, so the water reaches its greatest height, $8$ feet, $4$ feet horizontally from the nozzle. Check with symmetric points: $h(0) = 0$ and $h(8) = -32 + 32 = 0$, and $4$ is halfway between $0$ and $8$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: swaps the two coordinates of the vertex $(4, 8)$.\n* Choice C: describes the $x$-intercept $(8, 0)$, not the vertex.\n* Choice D: reads the coefficient $4$ as a starting height, but $h(0) = 0$.\n\n**Test Day Takeaway:** The vertex of a quadratic model carries two numbers with two different jobs: the input says WHERE the greatest or least value happens, and the output says WHAT that value is.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "model-classification",
@@ -108,16 +108,16 @@ export const advancedMathBank = [
     type: "multiple-choice",
     question: "$y = -\\dfrac{1}{3}x^{2} + 5x - 8$\nThe graph of the given equation in the $xy$-plane is a parabola. Which of the following correctly describes the parabola?",
     choices: [
-      // distractor: uses the sign of the x-coefficient, which shifts the parabola but does not set its direction
-      { id: "A", text: "It opens upward, because the coefficient of $x$ is positive." },
-      // distractor: uses the constant term, which is the y-intercept, not the direction
-      { id: "B", text: "It opens upward, because the constant term is negative." },
-      { id: "C", text: "It opens downward, because the coefficient of $x^{2}$ is negative." },
-      // distractor: reaches the right direction for the wrong reason: the constant term only gives the y-intercept
-      { id: "D", text: "It opens downward, because the constant term is negative." }
+      // distractor: judges the direction by the positive coefficient of x instead of the coefficient of x^2
+      { id: "A", text: "It opens upward, and its $y$-intercept is $(0, -8)$." },
+      // distractor: judges the direction by the coefficient of x and uses that coefficient, 5, as the y-intercept
+      { id: "B", text: "It opens upward, and its $y$-intercept is $(0, 5)$." },
+      { id: "C", text: "It opens downward, and its $y$-intercept is $(0, -8)$." },
+      // distractor: uses the coefficient of x, 5, as the y-intercept instead of the constant term
+      { id: "D", text: "It opens downward, and its $y$-intercept is $(0, 5)$." }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Parabola Direction**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Only the sign of the $x^{2}$ coefficient decides the direction. Here it is $-\\dfrac{1}{3}$, which is negative, so the parabola opens downward.\n\n**The Full Solution:**\nStep 1: For $y = ax^{2} + bx + c$, the parabola opens upward when $a > 0$ and downward when $a < 0$.\nStep 2: In the given equation, $a = -\\dfrac{1}{3}$, $b = 5$, and $c = -8$.\nStep 3: Since $a = -\\dfrac{1}{3} < 0$, the parabola opens downward. Check: for large $|x|$ the $-\\dfrac{1}{3}x^{2}$ term dominates, for example $x = 30$ gives $y = -300 + 150 - 8 = -158$, far below the vertex ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: $b = 5$ affects where the vertex sits, not which way the parabola opens.\n* Choice B: the constant term $-8$ is the $y$-intercept; it says nothing about direction.\n* Choice D: the direction is right, but the reason is wrong. A negative constant term only places the $y$-intercept below the $x$-axis.\n\n**Test Day Takeaway:** Direction is decided by the sign of the $x^{2}$ coefficient alone: positive opens up, negative opens down.",
+    explanation: "**SAT Pattern: Parabola Direction**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The coefficient of $x^{2}$, $-\\dfrac{1}{3}$, is negative, so the parabola opens downward. Setting $x = 0$ gives $y = -8$.\n\n**The Full Solution:**\nStep 1: A parabola $y = ax^{2} + bx + c$ opens downward when $a < 0$. Here $a = -\\dfrac{1}{3}$, so it opens downward.\nStep 2: The $y$-intercept is where $x = 0$: $y = -\\dfrac{1}{3}(0) + 5(0) - 8 = -8$.\nStep 3: So the parabola opens downward and its $y$-intercept is $(0, -8)$. Check with $x = 3$: $y = -3 + 15 - 8 = 4$, and the parabola rises from $(0, -8)$ to $(3, 4)$ before it turns down at its vertex, $x = 7.5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: judges the direction by the positive coefficient of $x$ instead of the coefficient of $x^{2}$.\n* Choice B: judges the direction by the coefficient of $x$ and also uses that $5$ as the $y$-intercept.\n* Choice D: uses the coefficient of $x$, $5$, as the $y$-intercept instead of the constant term, $-8$.\n\n**Test Day Takeaway:** In $y = ax^{2} + bx + c$, the sign of $a$ alone sets the direction, and $c$ alone is the $y$-coordinate of the $y$-intercept.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "parabola-orientation",
@@ -621,18 +621,18 @@ export const advancedMathBank = [
     skills: ["discriminant-analysis"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "$3x^{2} + kx + 7 = 0$\nIn the given equation, $k$ is a constant. If the equation is written in the form $ax^{2} + bx + c = 0$, which expression is equal to $b^{2} - 4ac$?",
+    question: "$x^{2} + 10x + 25 = 0$\nWhat is the solution to the given equation?",
     choices: [
-      { id: "A", text: "$k^{2} - 84$" },
-      // distractor: uses 2ac = 42 instead of 4ac
-      { id: "B", text: "$k^{2} - 42$" },
-      // distractor: uses ac = 21, leaving out the 4
-      { id: "C", text: "$k^{2} - 21$" },
-      // distractor: adds 4ac instead of subtracting it
-      { id: "D", text: "$k^{2} + 84$" }
+      // distractor: uses the coefficient of x, 10, with a negative sign
+      { id: "A", text: "$-10$" },
+      { id: "B", text: "$-5$" },
+      // distractor: sets x - 5 = 0, a sign error in the factor x + 5
+      { id: "C", text: "$5$" },
+      // distractor: gives the constant term 25
+      { id: "D", text: "$25$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Compute Discriminant**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Here $a = 3$, $b = k$, and $c = 7$, so $b^{2} - 4ac = k^{2} - 4(3)(7) = k^{2} - 84$.\n\n**The Full Solution:**\nStep 1: Match the equation to $ax^{2} + bx + c = 0$: $a = 3$, $b = k$, and $c = 7$.\nStep 2: Substitute: $b^{2} - 4ac = k^{2} - 4(3)(7)$.\nStep 3: Since $4 \\cdot 3 \\cdot 7 = 84$, the expression is $k^{2} - 84$. Check with $k = 10$: $b^{2} - 4ac = 100 - 84 = 16$, and $10^{2} - 84 = 16$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($k^{2} - 42$): multiplies by $2$ instead of $4$.\n* Choice C ($k^{2} - 21$): leaves out the $4$ entirely.\n* Choice D ($k^{2} + 84$): adds $4ac$ instead of subtracting it.\n\n**Test Day Takeaway:** Identify $a$, $b$, and $c$ first, including any constant standing in for a coefficient, then substitute into $b^{2} - 4ac$.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Compute Discriminant**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The left side is a perfect square, $(x + 5)^{2}$, so $x + 5 = 0$ and $x = -5$.\n\n**The Full Solution:**\nStep 1: With $a = 1$, $b = 10$, and $c = 25$, the discriminant is $b^{2} - 4ac = 100 - 4(1)(25) = 0$, so the equation has exactly one real solution.\nStep 2: That matches a perfect square: $x^{2} + 10x + 25 = (x + 5)^{2}$, so $(x + 5)^{2} = 0$.\nStep 3: So $x + 5 = 0$ and $x = -5$. Check: $(-5)^{2} + 10(-5) + 25 = 25 - 50 + 25 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$): uses the coefficient of $x$ with a negative sign.\n* Choice C ($5$): solves $x - 5 = 0$, a sign error in the factor $x + 5$.\n* Choice D ($25$): gives the constant term instead of solving.\n\n**Test Day Takeaway:** When $b^{2} - 4ac = 0$, the quadratic is a perfect square, and its one solution is $x = -\\dfrac{b}{2a}$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "discriminant-compute",
@@ -645,7 +645,7 @@ export const advancedMathBank = [
     skills: ["discriminant-analysis"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "$x^{2} - 18x + c = 0$\nIn the given equation, $c$ is a constant. The equation has exactly one real solution. What is the value of $c$?",
+    question: "$x^{2} - 18x + c = 0$\nFor what value of the constant $c$ does the given equation have exactly one real solution?",
     choices: [
       // distractor: gives the solution x = 9 instead of c
       { id: "A", text: "$9$" },
@@ -669,18 +669,18 @@ export const advancedMathBank = [
     skills: ["discriminant-analysis"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "$3x^{2} + kx + 12 = 0$\nIn the given equation, $k$ is a constant. The equation has two distinct real solutions. Which of the following must be true?",
+    question: "$2x^{2} + kx + 18 = 0$\nIn the given equation, $k$ is a constant. The equation has two distinct real solutions. Which of the following could be the value of $k$?",
     choices: [
-      // distractor: reverses the inequality, which is the condition for no real solutions
-      { id: "A", text: "$|k| < 12$" },
-      // distractor: reverses the inequality and includes |k| = 12, which gives one solution
-      { id: "B", text: "$|k| \\leq 12$" },
-      { id: "C", text: "$|k| > 12$" },
-      // distractor: includes |k| = 12, where the discriminant is 0 and there is only one solution
-      { id: "D", text: "$|k| \\geq 12$" }
+      // distractor: gives a discriminant of 36 - 144 = -108 < 0, so there are no real solutions
+      { id: "A", text: "$-6$" },
+      // distractor: gives a discriminant of -144 < 0, so there are no real solutions
+      { id: "B", text: "$0$" },
+      // distractor: gives a discriminant of 144 - 144 = 0, so there is only one real solution
+      { id: "C", text: "$12$" },
+      { id: "D", text: "$15$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Discriminant Inequality**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Two distinct real solutions need $k^{2} - 4(3)(12) > 0$, so $k^{2} > 144$, which means $|k| > 12$.\n\n**The Full Solution:**\nStep 1: A quadratic equation has two distinct real solutions exactly when its discriminant is positive: $k^{2} - 4(3)(12) > 0$.\nStep 2: Simplify: $k^{2} - 144 > 0$, so $k^{2} > 144$.\nStep 3: Taking square roots gives $|k| > 12$. Check: $k = 13$ gives $169 - 144 = 25 > 0$ (two solutions), and $k = 12$ gives $144 - 144 = 0$ (one solution), so $12$ must be excluded ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($|k| < 12$): this makes the discriminant negative, so there are no real solutions.\n* Choice B ($|k| \\leq 12$): reverses the inequality and also allows the one-solution case $|k| = 12$.\n* Choice D ($|k| \\geq 12$): at $|k| = 12$ the discriminant is $0$, which gives only one solution.\n\n**Test Day Takeaway:** \"Two distinct real solutions\" means a STRICT inequality, $b^{2} - 4ac > 0$. Then $k^{2} > m$ becomes $|k| > \\sqrt{m}$.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Discriminant Inequality**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Two distinct real solutions need $k^{2} - 4(2)(18) > 0$, or $k^{2} > 144$. Of the choices, only $15^{2} = 225$ is greater than $144$.\n\n**The Full Solution:**\nStep 1: A quadratic equation has two distinct real solutions exactly when its discriminant is positive: $k^{2} - 4(2)(18) > 0$.\nStep 2: Simplify: $k^{2} - 144 > 0$, so $k^{2} > 144$, which means $k < -12$ or $k > 12$.\nStep 3: Only $15$ satisfies this. Check: $k = 15$ gives $225 - 144 = 81 > 0$, so there are two solutions; in fact $2x^{2} + 15x + 18 = (2x + 3)(x + 6)$, with solutions $-\\dfrac{3}{2}$ and $-6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): the discriminant is $36 - 144 = -108$, so there are no real solutions.\n* Choice B ($0$): the discriminant is $-144$, so there are no real solutions.\n* Choice C ($12$): the discriminant is $144 - 144 = 0$, which gives only one real solution.\n\n**Test Day Takeaway:** \"Two distinct real solutions\" means a STRICT inequality, $b^{2} - 4ac > 0$; a value that makes the discriminant exactly $0$ gives only one solution.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "discriminant-inequality",
@@ -719,18 +719,18 @@ export const advancedMathBank = [
     skills: ["converting-quadratic-forms"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "Which expression is equivalent to $(x - 6)^{2} + 5$?",
+    question: "Which expression is equivalent to $(x - 7)^{2} + 4$?",
     choices: [
-      { id: "A", text: "$x^{2} - 12x + 41$" },
-      // distractor: forgets to double the middle term, writing $-6x$ instead of $2(-6)x = -12x$
-      { id: "B", text: "$x^{2} - 6x + 41$" },
+      { id: "A", text: "$x^{2} - 14x + 53$" },
+      // distractor: forgets to double the middle term, writing $-7x$ instead of $2(-7)x = -14x$
+      { id: "B", text: "$x^{2} - 7x + 53$" },
       // distractor: loses the negative sign on the middle term
-      { id: "C", text: "$x^{2} + 12x + 41$" },
-      // distractor: squares term by term, treating $(x - 6)^{2}$ as $x^{2} + 36$ with no middle term
-      { id: "D", text: "$x^{2} + 41$" }
+      { id: "C", text: "$x^{2} + 14x + 53$" },
+      // distractor: squares term by term, treating $(x - 7)^{2}$ as $x^{2} + 49$ with no middle term
+      { id: "D", text: "$x^{2} + 53$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Vertex to Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $(x - 6)^{2} = x^{2} - 12x + 36$, and adding $5$ gives $x^{2} - 12x + 41$.\n\n**The Full Solution:**\nStep 1: Expand the square: $(x - 6)^{2} = (x - 6)(x - 6) = x^{2} - 6x - 6x + 36 = x^{2} - 12x + 36$.\nStep 2: Add the constant outside the square: $x^{2} - 12x + 36 + 5 = x^{2} - 12x + 41$.\nStep 3: Check at $x = 6$: the given expression is $0 + 5 = 5$, and $36 - 72 + 41 = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: writes the middle term as $-6x$; the two cross products $-6x$ and $-6x$ add to $-12x$.\n* Choice C: writes $+12x$, which would come from $(x + 6)^{2}$.\n* Choice D: squares each term separately, dropping the middle term $-12x$ entirely.\n\n**Test Day Takeaway:** $(x - h)^{2}$ always expands to three terms, and the middle term is $-2hx$, not $-hx$.",
+    explanation: "**SAT Pattern: Vertex to Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $(x - 7)^{2} = x^{2} - 14x + 49$, and adding $4$ gives $x^{2} - 14x + 53$.\n\n**The Full Solution:**\nStep 1: Expand the square: $(x - 7)^{2} = (x - 7)(x - 7) = x^{2} - 7x - 7x + 49 = x^{2} - 14x + 49$.\nStep 2: Add the constant outside the square: $x^{2} - 14x + 49 + 4 = x^{2} - 14x + 53$.\nStep 3: Check at $x = 7$: the given expression is $0 + 4 = 4$, and $49 - 98 + 53 = 4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: writes the middle term as $-7x$; the two cross products $-7x$ and $-7x$ add to $-14x$.\n* Choice C: writes $+14x$, which would come from $(x + 7)^{2}$.\n* Choice D: squares each term separately, dropping the middle term $-14x$ entirely.\n\n**Test Day Takeaway:** $(x - h)^{2}$ always expands to three terms, and the middle term is $-2hx$, not $-hx$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "vertex-to-standard",
@@ -1146,21 +1146,21 @@ export const advancedMathBank = [
   {
     id: "bank-am-051",
     domain: "advanced-math",
-    skills: ["exponential-growth-decay"],
+    skills: ["exponential-functions"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "Maria deposits $\\$2{,}500$ in a savings account. The balance increases by $8\\%$ each year, and she makes no withdrawals. After how many whole years will the balance first be greater than $\\$4{,}000$?",
+    question: "Maria deposits $\\$2{,}500$ in a savings account. The balance increases by $8\\%$ each year, and she makes no other deposits or withdrawals. Which of the following is closest to the balance, in dollars, after $3$ years?",
     choices: [
-      // distractor: stopped at year 6, whose balance 3,967.19 is still below 4,000
-      { id: "A", text: "$6$" },
-      { id: "B", text: "$7$" },
-      // distractor: treated the growth as simple interest of 200 dollars per year, solving 200t > 1500
-      { id: "C", text: "$8$" },
-      // distractor: divided the required growth factor 1.6 by the rate 0.08
-      { id: "D", text: "$20$" }
+      // distractor: applies the 8% increase for only 1 year
+      { id: "A", text: "$2{,}700$" },
+      // distractor: adds 8% of the original deposit, 200 dollars, each year instead of multiplying by 1.08
+      { id: "B", text: "$3{,}100$" },
+      { id: "C", text: "$3{,}150$" },
+      // distractor: multiplies 2,500(1.08) by 3 instead of raising 1.08 to the 3rd power
+      { id: "D", text: "$8{,}100$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Compound Growth Threshold**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Continue multiplying by $1.08$: year $6$ gives $\\$3{,}967.19$ and year $7$ gives $\\$4{,}284.56$, the first balance above $\\$4{,}000$.\n\n**The Full Solution:**\nStep 1: An $8\\%$ yearly increase multiplies the balance by $1.08$ each year, so the balance after $t$ years is $2500(1.08)^{t}$.\nStep 2: Solve $2500(1.08)^{t}>4000$, or $(1.08)^{t}>1.6$.\nStep 3: Testing whole years, $(1.08)^{6}=1.5869$ and $(1.08)^{7}=1.7138$, so the first year that works is $t=7$. Check: $2500(1.08)^{7}=4{,}284.56>4{,}000$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): stops at year $6$, whose balance $\\$3{,}967.19$ is still below $\\$4{,}000$.\n* Choice C ($8$): treats the growth as simple interest of $\\$200$ per year, solving $200t>1500$.\n* Choice D ($20$): divides the required factor $1.6$ by the rate $0.08$.\n\n**Test Day Takeaway:** Threshold questions want the first whole year past the line — check the year before it as well as the year you land on.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Compound Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** An $8\\%$ yearly increase multiplies the balance by $1.08$ each year: $2{,}500(1.08)^{3} \\approx 3{,}149.28$, which is closest to $3{,}150$.\n\n**The Full Solution:**\nStep 1: Increasing by $8\\%$ means multiplying by $1 + 0.08 = 1.08$, so the balance after $t$ years is $2{,}500(1.08)^{t}$.\nStep 2: Substitute $t = 3$: $2{,}500(1.08)^{3} = 2{,}500(1.259712)$.\nStep 3: This is $3{,}149.28$, which is closest to $3{,}150$. Check year by year: $2{,}500 \\to 2{,}700 \\to 2{,}916 \\to 3{,}149.28$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2{,}700$): applies the increase for only $1$ year.\n* Choice B ($3{,}100$): adds $8\\%$ of the original deposit, $\\$200$, each year instead of multiplying by $1.08$.\n* Choice D ($8{,}100$): multiplies $2{,}500(1.08)$ by $3$ instead of raising $1.08$ to the $3$rd power.\n\n**Test Day Takeaway:** A percent increase \"each year\" is a repeated multiplication: the number of years goes in the exponent, not in front.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "growth-threshold",
@@ -1173,18 +1173,18 @@ export const advancedMathBank = [
     skills: ["exponential-growth-decay"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "$D(t) = \\dfrac{5{,}400}{3 + 24(0.5)^{t}}$\nThe function $D$ models the number of deer in a park $t$ years after $2015$. As $t$ increases, the value of $D(t)$ approaches which of the following?",
+    question: "$D(t) = 500(1.2)^{\\frac{t}{3}}$\nThe function $D$ models the number of deer in a park $t$ years after 2015. According to the model, the number of deer increases by what percent every $6$ years?",
     choices: [
-      // distractor: reports $D(0) = 200$, the number of deer in 2015
-      { id: "A", text: "$200$" },
-      // distractor: stops at $D(3) = 900$, which is only half of the long-run value
-      { id: "B", text: "$900$" },
-      { id: "C", text: "$1{,}800$" },
-      // distractor: quotes the numerator, assuming the denominator's constant is $1$ rather than $3$
-      { id: "D", text: "$5{,}400$" }
+      // distractor: gives the percent increase every 3 years, not every 6 years
+      { id: "A", text: "$20\\%$" },
+      // distractor: doubles the 3-year increase of 20% instead of multiplying the factors
+      { id: "B", text: "$40\\%$" },
+      { id: "C", text: "$44\\%$" },
+      // distractor: reads the growth factor 1.44 as a 144% increase
+      { id: "D", text: "$144\\%$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Logistic Carrying Capacity**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** As $t$ increases, $(0.5)^{t}$ approaches $0$, so the denominator approaches $3$, not $1$. The value approaches $\\dfrac{5{,}400}{3} = 1{,}800$ deer.\n\n**The Full Solution:**\nStep 1: The only place $t$ appears is in $(0.5)^{t}$. Each increase of $1$ in $t$ halves this term, so it shrinks toward $0$.\nStep 2: The denominator $3 + 24(0.5)^{t}$ therefore approaches $3 + 24(0) = 3$.\nStep 3: So $D(t)$ approaches $\\dfrac{5{,}400}{3} = 1{,}800$ deer. Check the trend: $D(0) = \\dfrac{5{,}400}{27} = 200$, $D(3) = \\dfrac{5{,}400}{6} = 900$, and $D(10) \\approx 1{,}786$, rising toward $1{,}800$ but never reaching it ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($200$): this is $D(0) = \\dfrac{5{,}400}{3 + 24}$, the number of deer in $2015$, not the long-run number.\n* Choice B ($900$): this is $D(3)$, only half of the long-run value; the population keeps growing after year $3$.\n* Choice D ($5{,}400$): quotes the numerator, which is the long-run value only when the denominator's constant term is $1$; here it is $3$.\n\n**Test Day Takeaway:** In $\\dfrac{N}{c + Ab^{t}}$ with $0 < b < 1$, the term $Ab^{t}$ dies out, so the long-run value is $\\dfrac{N}{c}$. Read the denominator's constant before quoting the numerator.",
+    explanation: "**SAT Pattern: Exponential Growth Factor over a Period**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Every $6$ years the exponent $\\dfrac{t}{3}$ increases by $2$, so the number of deer is multiplied by $(1.2)^{2} = 1.44$, a $44\\%$ increase.\n\n**The Full Solution:**\nStep 1: When $t$ increases by $6$, the exponent $\\dfrac{t}{3}$ increases by $\\dfrac{6}{3} = 2$.\nStep 2: So $D(t + 6) = 500(1.2)^{\\frac{t}{3} + 2} = D(t)(1.2)^{2} = 1.44D(t)$.\nStep 3: Multiplying by $1.44$ is an increase of $1.44 - 1 = 0.44$, or $44\\%$. Check with numbers: $D(0) = 500$ and $D(6) = 500(1.44) = 720$, and $720 - 500 = 220$, which is $44\\%$ of $500$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20\\%$): gives the increase every $3$ years, not every $6$ years.\n* Choice B ($40\\%$): adds the two $3$-year increases of $20\\%$ instead of multiplying the factors.\n* Choice D ($144\\%$): reads the growth factor $1.44$ as the percent increase.\n\n**Test Day Takeaway:** For $a(b)^{\\frac{t}{n}}$, the factor over any time span $s$ is $b^{\\frac{s}{n}}$; subtract $1$ from the factor to get the percent increase.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "logistic-carrying-capacity",
@@ -1289,18 +1289,18 @@ export const advancedMathBank = [
     skills: ["distributive-property"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "$(5x + c)(2x - 3) = 10x^{2} + 11x - 39$\nIn the given equation, $c$ is a constant. If the equation is true for all values of $x$, what is the value of $c$?",
+    question: "$(4x + c)(3x - 5) = 12x^{2} + x - 35$\nIn the given equation, $c$ is a constant. If the equation is true for all values of $x$, what is the value of $c$?",
     choices: [
-      // distractor: solves $-3c = 39$, flipping the sign of the constant term
-      { id: "A", text: "$-13$" },
-      // distractor: quotes the $3$ inside $2x - 3$ instead of solving for $c$
-      { id: "B", text: "$3$" },
-      // distractor: reports the middle coefficient $11$ rather than the constant $c$
-      { id: "C", text: "$11$" },
-      { id: "D", text: "$13$" }
+      // distractor: solves $-5c = 35$, flipping the sign of the constant term
+      { id: "A", text: "$-7$" },
+      // distractor: reports the coefficient of $x$, $1$, rather than the constant $c$
+      { id: "B", text: "$1$" },
+      // distractor: quotes the $5$ inside $3x - 5$ instead of solving for $c$
+      { id: "C", text: "$5$" },
+      { id: "D", text: "$7$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: FOIL Two Binomials**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The constant term of the product is $c(-3) = -39$, so $c = 13$.\n\n**The Full Solution:**\nStep 1: Expand: $(5x + c)(2x - 3) = 10x^2 - 15x + 2cx - 3c$.\nStep 2: The constant term is $-3c$, and it must equal $-39$, so $c = 13$.\nStep 3: Confirm with the middle term: $-15 + 2(13) = 11$, matching $11x$. Check: $(5x + 13)(2x - 3) = 10x^2 + 11x - 39$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-13$): loses a negative sign, since $-3c = -39$ gives a positive $c$.\n* Choice B ($3$): copies a number out of the given binomial.\n* Choice C ($11$): reads off the coefficient of $x$, which is $-15 + 2c$, not $c$.\n\n**Test Day Takeaway:** The constant term of a product comes only from the two constants — solve there first, then use the middle term as a check.",
+    explanation: "**SAT Pattern: FOIL Two Binomials**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The constant term of the product is $c(-5) = -35$, so $c = 7$.\n\n**The Full Solution:**\nStep 1: Expand: $(4x + c)(3x - 5) = 12x^{2} - 20x + 3cx - 5c$.\nStep 2: The constant term is $-5c$, and it must equal $-35$, so $c = 7$.\nStep 3: Confirm with the middle term: $-20 + 3(7) = 1$, matching $1x$. Check: $(4x + 7)(3x - 5) = 12x^{2} + x - 35$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): loses a negative sign, since $-5c = -35$ gives a positive $c$.\n* Choice B ($1$): reads off the coefficient of $x$, which is $-20 + 3c$, not $c$.\n* Choice C ($5$): copies a number out of the given binomial.\n\n**Test Day Takeaway:** The constant term of a product comes only from the two constants — solve there first, then use the middle term as a check.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "foil-binomials",
@@ -1325,21 +1325,21 @@ export const advancedMathBank = [
   {
     id: "bank-am-059",
     domain: "advanced-math",
-    skills: ["distributive-property"],
+    skills: ["combining-like-terms", "distributive-property"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "$(x^{2} + kx + 3)(3x - 2) = ax^{3} + bx^{2} + cx + d$\nThe given equation is true for all values of $x$, where $a$, $b$, $c$, $d$, and $k$ are constants. If $a - b + c - d = 35$, what is the value of $k$?",
+    question: "$(x^{2} + kx + 3)(3x - 2) = 3x^{3} + bx^{2} + cx - 6$\nThe given equation is true for all values of $x$, where $b$, $c$, and $k$ are constants. If $b = 7$, what is the value of $c$?",
     choices: [
-      { id: "A", text: "$-3$" },
-      // distractor: reaches $20 - 5k = 35$ but solves it as $5k = 15$, dropping the sign
+      // distractor: forgets the 9x term from 3(3x), giving c = -2k = -6
+      { id: "A", text: "$-6$" },
       { id: "B", text: "$3$" },
-      // distractor: sets the left side at $x = -1$ equal to $35$, but that value is $-a + b - c + d$, the opposite of $a - b + c - d$
-      { id: "C", text: "$11$" },
-      // distractor: substitutes $x = 1$, which gives $a + b + c + d$, and solves $k + 4 = 35$
-      { id: "D", text: "$31$" }
+      // distractor: forgets the -2kx term from kx(-2), giving c = 9
+      { id: "C", text: "$9$" },
+      // distractor: takes kx(-2) as +2kx, giving c = 9 + 2k = 15
+      { id: "D", text: "$15$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Alternating-Sign Coefficient Sum via $f(-1)$**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Substituting $x = -1$ into the right side gives $-a + b - c + d$, the opposite of $a - b + c - d$. The left side at $x = -1$ is $(1 - k + 3)(-5) = -5(4 - k)$, so $a - b + c - d = 5(4 - k) = 20 - 5k$. Then $20 - 5k = 35$ and $k = -3$.\n\n**The Full Solution:**\nStep 1: Expand the left side: $(x^{2} + kx + 3)(3x - 2) = 3x^{3} + (3k - 2)x^{2} + (9 - 2k)x - 6$, so $a = 3$, $b = 3k - 2$, $c = 9 - 2k$, and $d = -6$.\nStep 2: Form the alternating sum: $a - b + c - d = 3 - (3k - 2) + (9 - 2k) - (-6) = 20 - 5k$.\nStep 3: Solve $20 - 5k = 35$: $-5k = 15$, so $k = -3$. Check: with $k = -3$ the expansion is $3x^{3} - 11x^{2} + 15x - 6$, and $3 - (-11) + 15 - (-6) = 35$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3$): reaches $20 - 5k = 35$ but drops the negative sign when solving.\n* Choice C ($11$): sets the value at $x = -1$, which is $-a + b - c + d = 5k - 20$, equal to $35$; that is the opposite of the sum asked for.\n* Choice D ($31$): substitutes $x = 1$, which gives the plain sum $a + b + c + d = (4 + k)(1)$, and solves $4 + k = 35$.\n\n**Test Day Takeaway:** Substituting $x = -1$ alternates the signs of the coefficients and $x = 1$ adds them all; decide which sign pattern the question wants before you set anything equal.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Match Coefficients of Equivalent Polynomials**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The $x^{2}$-terms of the product are $-2x^{2} + 3kx^{2}$, so $3k - 2 = 7$ and $k = 3$. The $x$-terms are $-2kx + 9x$, so $c = 9 - 2(3) = 3$.\n\n**The Full Solution:**\nStep 1: Expand the left side: $(x^{2} + kx + 3)(3x - 2) = 3x^{3} - 2x^{2} + 3kx^{2} - 2kx + 9x - 6 = 3x^{3} + (3k - 2)x^{2} + (9 - 2k)x - 6$.\nStep 2: Match the $x^{2}$-coefficients: $b = 3k - 2 = 7$, so $3k = 9$ and $k = 3$.\nStep 3: Match the $x$-coefficients: $c = 9 - 2k = 9 - 6 = 3$. Check: $(x^{2} + 3x + 3)(3x - 2) = 3x^{3} + 7x^{2} + 3x - 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): forgets the $9x$ term that comes from $3(3x)$.\n* Choice C ($9$): forgets the $-2kx$ term that comes from $kx(-2)$.\n* Choice D ($15$): takes $kx(-2)$ as $+2kx$, so it gets $c = 9 + 2k$.\n\n**Test Day Takeaway:** When two polynomials are equal for all $x$, match coefficients one power at a time: use the coefficient you know to find the parameter, then the parameter to find the coefficient you need.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "cube-of-binomial",
@@ -1889,7 +1889,7 @@ export const advancedMathBank = [
     skills: ["exponent-laws"],
     difficulty: "easy",
     type: "fill-in",
-    question: "$\\sqrt[4]{d^{12}} = d^{n}$\nThe given equation is true for all positive values of $d$, where $n$ is a constant. What is the value of $n$?",
+    question: "$\\sqrt[4]{d^{12}} = d^{n}$\nIf $d > 0$, what is the value of $n$?",
     correctAnswer: "3",
     explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~10s):** A fourth root is the power $\\frac{1}{4}$: $\\left(d^{12}\\right)^{\\frac{1}{4}} = d^{3}$, so $n = 3$.\n\n**The Full Solution:**\nStep 1: Rewrite the radical as a fractional exponent: $\\sqrt[4]{d^{12}} = \\left(d^{12}\\right)^{\\frac{1}{4}}$.\nStep 2: Multiply the exponents: $12 \\cdot \\frac{1}{4} = 3$, so the left side is $d^{3}$.\nStep 3: So $n = 3$. Check with $d = 2$: $\\sqrt[4]{2^{12}} = \\sqrt[4]{4{,}096} = 8$, and $2^{3} = 8$ ✓\n\n**Common Mistakes:**\n* $48$: multiplies $12$ by $4$ instead of dividing.\n* $8$: subtracts $12 - 4$.\n* $16$: adds $12 + 4$.\n\n**Test Day Takeaway:** $\\sqrt[k]{x^{m}} = x^{\\frac{m}{k}}$: the power goes on top, the index of the root goes on the bottom.",
     calculatorAllowed: true,
@@ -2074,7 +2074,7 @@ export const advancedMathBank = [
     skills: ["vertex-form"],
     difficulty: "medium",
     type: "fill-in",
-    question: "The graph of $y = ax^{2} + bx + c$ is shown in the $xy$-plane, where $a$, $b$, and $c$ are constants. What is the value of $b$?",
+    question: "$y = ax^{2} + bx + c$\nIn the given equation, $a$, $b$, and $c$ are constants. The graph of the equation in the $xy$-plane is shown. What is the value of $b$?",
     diagram: { type: "quadraticVertex", params: { vertex: [-2, 6], a: -0.5, showVertex: true, showPoints: [[2, -2]] } },
     correctAnswer: "-2",
     explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $-2$.**\n\n**The Fast Way (~40s):** The vertex $(-2, 6)$ and the point $(2, -2)$ give $y = -\\frac{1}{2}(x + 2)^{2} + 6 = -\\frac{1}{2}x^{2} - 2x + 4$, so $b = -2$.\n\n**The Full Solution:**\nStep 1: Read the vertex from the graph: the highest point is $(-2, 6)$, so $y = a(x + 2)^{2} + 6$.\nStep 2: Use the other marked point, $(2, -2)$: $-2 = a(4)^{2} + 6$, so $16a = -8$ and $a = -\\frac{1}{2}$.\nStep 3: Expand: $-\\frac{1}{2}(x^{2} + 4x + 4) + 6 = -\\frac{1}{2}x^{2} - 2x + 4$, so $b = -2$. Check: the vertex of $y = ax^{2} + bx + c$ is at $x = -\\frac{b}{2a} = -\\frac{-2}{2\\left(-\\frac{1}{2}\\right)} = -2$ ✓\n\n**Common Mistakes:**\n* $2$: expands $-\\frac{1}{2}(x + 2)^{2}$ but drops the negative sign on the $x$-term.\n* $4$: reports $c$, the $y$-intercept, instead of $b$.\n* $-0.5$: reports $a$ instead of $b$.\n\n**Test Day Takeaway:** To get standard-form coefficients from a graph, write vertex form first, find $a$ with a second point, then expand.",
@@ -2224,18 +2224,18 @@ export const advancedMathBank = [
     skills: ["simplifying-rational-expressions", "difference-of-squares"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "$\\dfrac{x^{2} + x - 12}{x^{2} - 16}$\nFor which values of $x$ is the given expression undefined?",
+    question: "$\\dfrac{x^{2} + x - 12}{x - 3}$\nThe given expression is equivalent to $x + b$ for $x > 3$, where $b$ is a constant. What is the value of $b$?",
     choices: [
-      { id: "A", text: "$x = -4$ and $x = 4$" },
-      // distractor: uses the zeros of the numerator, (x + 4)(x - 3), instead of the zeros of the denominator
-      { id: "B", text: "$x = -4$ and $x = 3$" },
-      // distractor: simplifies to (x - 3)/(x - 4) first and uses only that denominator
-      { id: "C", text: "$x = 4$ only" },
-      // distractor: takes 3, a zero of the numerator, as an excluded value
-      { id: "D", text: "$x = 3$ and $x = 4$" }
+      // distractor: factors the numerator as (x - 4)(x + 3), a sign error
+      { id: "A", text: "$-4$" },
+      // distractor: copies the constant term of the denominator
+      { id: "B", text: "$-3$" },
+      // distractor: divides only the first two terms of the numerator by x, getting x + 1
+      { id: "C", text: "$1$" },
+      { id: "D", text: "$4$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The denominator $x^{2} - 16 = (x - 4)(x + 4)$ is $0$ at $x = 4$ and $x = -4$, so the expression is undefined at both.\n\n**The Full Solution:**\nStep 1: Factor both parts: $x^{2} + x - 12 = (x + 4)(x - 3)$ and $x^{2} - 16 = (x - 4)(x + 4)$.\nStep 2: A fraction is undefined where its denominator is $0$, and $(x - 4)(x + 4) = 0$ at $x = 4$ and $x = -4$.\nStep 3: Cancelling $x + 4$ gives $\\frac{x - 3}{x - 4}$, but that rewrite does not remove the exclusion at $x = -4$ from the given expression. Check: at $x = -4$ the given expression is $\\frac{16 - 4 - 12}{16 - 16} = \\frac{0}{0}$, undefined ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($x = -4$ and $x = 3$): uses the zeros of the numerator, $(x + 4)(x - 3)$, instead of the zeros of the denominator.\n* Choice C ($x = 4$ only): simplifies first and uses only the simplified denominator $x - 4$.\n* Choice D ($x = 3$ and $x = 4$): treats $3$, a zero of the numerator, as an excluded value.\n\n**Test Day Takeaway:** Excluded values come from the denominator you are given, including any factor that later cancels.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Factor the numerator: $x^{2} + x - 12 = (x + 4)(x - 3)$. Canceling $x - 3$ leaves $x + 4$, so $b = 4$.\n\n**The Full Solution:**\nStep 1: Find two numbers whose product is $-12$ and whose sum is $1$: $4$ and $-3$. So $x^{2} + x - 12 = (x + 4)(x - 3)$.\nStep 2: For $x > 3$, $x - 3 \\neq 0$, so $\\dfrac{(x + 4)(x - 3)}{x - 3} = x + 4$.\nStep 3: Matching $x + 4$ with $x + b$ gives $b = 4$. Check with $x = 5$: $\\dfrac{25 + 5 - 12}{5 - 3} = \\dfrac{18}{2} = 9$, and $5 + 4 = 9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): factors the numerator as $(x - 4)(x + 3)$, which multiplies to $x^{2} - x - 12$.\n* Choice B ($-3$): copies the constant term of the denominator.\n* Choice C ($1$): divides only $x^{2}$ and $x$ by $x$, getting $x + 1$, and ignores the $-12$.\n\n**Test Day Takeaway:** To simplify a rational expression, factor the numerator completely and cancel the factor it shares with the denominator.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "rational-expression-simplification",
@@ -2303,11 +2303,11 @@ export const advancedMathBank = [
       { id: "B", text: "$\\dfrac{5(x - 3)}{x}$" },
       // distractor: cancels the factor x - 3 instead of the factor x + 3
       { id: "C", text: "$\\dfrac{5(x + 3)}{x}$" },
-      // distractor: divides only the leading terms by x instead of factoring
-      { id: "D", text: "$\\dfrac{5x - 45}{x}$" }
+      // distractor: divides only the x-terms by x (5x^2 to 5x, x^2 to x, 3x to 3) and leaves -45 alone, instead of factoring
+      { id: "D", text: "$\\dfrac{5x - 45}{x + 3}$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $\\frac{5(x - 3)(x + 3)}{x(x + 3)}$; cancel $x + 3$ to get $\\frac{5(x - 3)}{x}$.\n\n**The Full Solution:**\nStep 1: Factor the numerator in two stages: $5x^{2} - 45 = 5(x^{2} - 9) = 5(x - 3)(x + 3)$.\nStep 2: Factor the denominator: $x^{2} + 3x = x(x + 3)$.\nStep 3: For $x > 0$, the factor $x + 3$ is not zero and cancels, leaving $\\frac{5(x - 3)}{x}$. Check at $x = 5$: $\\frac{125 - 45}{25 + 15} = \\frac{80}{40} = 2$ and $\\frac{5(2)}{5} = 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{x - 3}{x}$): loses the common factor $5$ pulled out of the numerator.\n* Choice C ($\\frac{5(x + 3)}{x}$): cancels $x - 3$, which the denominator does not contain.\n* Choice D ($\\frac{5x - 45}{x}$): cancels an $x$ from the $x^{2}$ terms only, which is not a legal step.\n\n**Test Day Takeaway:** Pull out a numerical common factor first; the difference of squares is easier to see once the coefficient is outside.",
+    explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $\\frac{5(x - 3)(x + 3)}{x(x + 3)}$; cancel $x + 3$ to get $\\frac{5(x - 3)}{x}$.\n\n**The Full Solution:**\nStep 1: Factor the numerator in two stages: $5x^{2} - 45 = 5(x^{2} - 9) = 5(x - 3)(x + 3)$.\nStep 2: Factor the denominator: $x^{2} + 3x = x(x + 3)$.\nStep 3: For $x > 0$, the factor $x + 3$ is not zero and cancels, leaving $\\frac{5(x - 3)}{x}$. Check at $x = 5$: $\\frac{125 - 45}{25 + 15} = \\frac{80}{40} = 2$ and $\\frac{5(2)}{5} = 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{x - 3}{x}$): loses the common factor $5$ pulled out of the numerator.\n* Choice C ($\\frac{5(x + 3)}{x}$): cancels $x - 3$, which the denominator does not contain.\n* Choice D ($\\frac{5x - 45}{x + 3}$): divides only the terms that contain $x$ by $x$ and leaves $-45$ alone; a factor can be canceled only when it divides the whole numerator and the whole denominator.\n\n**Test Day Takeaway:** Pull out a numerical common factor first; the difference of squares is easier to see once the coefficient is outside.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "rational-expression-simplification",
@@ -2414,9 +2414,9 @@ export const advancedMathBank = [
     skills: ["function-transformations", "function-evaluation"],
     difficulty: "easy",
     type: "fill-in",
-    question: "$f(x) = 3x + 8$\nThe function $g$ is defined by $g(x) = 4f(x)$. What is the value of $g(5)$?",
-    correctAnswer: "92",
-    explanation: "**SAT Pattern: Function Transformation**\n\n**The correct answer is $92$.**\n\n**The Fast Way (~15s):** $f(5) = 23$, and $g(5) = 4(23) = 92$.\n\n**The Full Solution:**\nStep 1: Evaluate $f$ at $5$: $f(5) = 3(5) + 8 = 23$.\nStep 2: The rule $g(x) = 4f(x)$ multiplies the whole output by $4$: $g(5) = 4f(5)$.\nStep 3: So $g(5) = 4(23) = 92$. Check: $g(x) = 4(3x + 8) = 12x + 32$, and $12(5) + 32 = 92$ ✓\n\n**Common Mistakes:**\n* $68$: multiplies only the $x$-term by $4$, computing $12(5) + 8$; multiplying the input instead, $f(20) = 68$, gives the same wrong value.\n* $27$: adds $4$ to $f(5)$ instead of multiplying.\n* $23$: reports $f(5)$ and never applies the factor $4$.\n\n**Test Day Takeaway:** A factor outside the function multiplies the entire output, constant term included.",
+    question: "$f(x) = x^{2} - 3$\nThe function $g$ is defined by $g(x) = f(x) + 10$. What is the value of $g(4)$?",
+    correctAnswer: "23",
+    explanation: "**SAT Pattern: Function Transformation**\n\n**The correct answer is $23$.**\n\n**The Fast Way (~15s):** $f(4) = 16 - 3 = 13$, so $g(4) = 13 + 10 = 23$.\n\n**The Full Solution:**\nStep 1: By definition, $g(4) = f(4) + 10$.\nStep 2: Evaluate $f$ at $4$: $f(4) = 4^{2} - 3 = 16 - 3 = 13$.\nStep 3: Add $10$: $g(4) = 13 + 10 = 23$. Check: $g(x) = x^{2} + 7$, and $4^{2} + 7 = 23$ ✓\n\n**Common Mistakes:**\n* $13$: finds $f(4)$ and forgets to add $10$.\n* $15$: computes $4^{2}$ as $2(4) = 8$, so $8 - 3 + 10 = 15$.\n\n**Test Day Takeaway:** For $g(x) = f(x) + c$, find the output of $f$ first, then add $c$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-transformation",
@@ -2429,10 +2429,10 @@ export const advancedMathBank = [
     skills: ["function-transformations", "vertex-form"],
     difficulty: "medium",
     type: "fill-in",
-    question: "The graph of $y = f(x)$ is shown. The function $g$ is defined by $g(x) = f(x + 3) - 2$. What is the value of $g(-2)$?",
-    diagram: { type: "quadraticVertex", params: { vertex: [1, -4], a: 1, showPoints: [[-1, 0], [3, 0]], showVertex: true } },
-    correctAnswer: "-6",
-    explanation: "**SAT Pattern: Function Transformation**\n\n**The correct answer is $-6$.**\n\n**The Fast Way (~25s):** $g(-2) = f(-2 + 3) - 2 = f(1) - 2$, and the graph shows $f(1) = -4$, so $g(-2) = -6$.\n\n**The Full Solution:**\nStep 1: Substitute $x = -2$ into the rule: $g(-2) = f(-2 + 3) - 2 = f(1) - 2$.\nStep 2: Read $f(1)$ from the graph: the lowest point is $(1, -4)$, so $f(1) = -4$.\nStep 3: So $g(-2) = -4 - 2 = -6$. Check: the graph is $f(x) = (x - 1)^{2} - 4$, and $(-2 + 3 - 1)^{2} - 4 - 2 = -6$ ✓\n\n**Common Mistakes:**\n* $-4$: finds $f(1)$ but forgets to subtract $2$.\n* $3$: ignores the shift inside, reading $f(-2) = 5$ and subtracting $2$.\n* $30$: subtracts $3$ instead of adding it, using $f(-5) = 32$.\n\n**Test Day Takeaway:** Work from the inside out: do the arithmetic on the input, read the graph there, then apply the outside operation.",
+    question: "In the $xy$-plane, the graph of $y = f(x)$ is shown. If $g(x) = f(x - 4)$, what is the value of $g(2)$?",
+    diagram: { type: "quadraticVertex", params: { vertex: [-2, -9], a: 1, showPoints: [[-5, 0], [1, 0]], showVertex: true } },
+    correctAnswer: "-9",
+    explanation: "**SAT Pattern: Function Transformation**\n\n**The correct answer is $-9$.**\n\n**The Fast Way (~20s):** $g(2) = f(2 - 4) = f(-2)$, and the graph shows its lowest point at $(-2, -9)$, so $g(2) = -9$.\n\n**The Full Solution:**\nStep 1: Substitute $2$ for $x$ in the definition of $g$: $g(2) = f(2 - 4) = f(-2)$.\nStep 2: Read $f(-2)$ from the graph: the point on the graph with $x = -2$ is the vertex, $(-2, -9)$.\nStep 3: So $g(2) = f(-2) = -9$. Check: the graph has $x$-intercepts $-5$ and $1$ and vertex $(-2, -9)$, so $f(x) = (x + 2)^{2} - 9$ and $f(-2) = 0 - 9 = -9$ ✓\n\n**Common Mistakes:**\n* $7$: reads $f(2)$ and ignores the $- 4$ inside $f$.\n* $55$: adds $4$ instead of subtracting it, finding $f(6)$.\n\n**Test Day Takeaway:** To evaluate $f(x - c)$ at a number, subtract $c$ from the number first, then read $f$ at the result.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-transformation",
@@ -2445,10 +2445,10 @@ export const advancedMathBank = [
     skills: ["function-transformations", "function-evaluation"],
     difficulty: "medium",
     type: "fill-in",
-    question: "For the function $d$, the table shows five values of $x$ and their corresponding values of $d(x)$. If $e(x) = 4 - d(x)$, what value of $x$ satisfies $e(x) = 9$?",
+    question: "For the function $d$, the table shows five values of $x$ and their corresponding values of $d(x)$. If $e(x) = d(x) - 6$, what value of $x$ satisfies $e(x) = -11$?",
     diagram: { type: "table", params: { xHeader: "x", yHeader: "d(x)", rows: [["-2", "13"], ["0", "5"], ["2", "1"], ["4", "-5"], ["6", "-11"]] } },
     correctAnswer: "4",
-    explanation: "**SAT Pattern: Function Transformation**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~25s):** $4 - d(x) = 9$ means $d(x) = -5$, and the table gives $d(4) = -5$.\n\n**The Full Solution:**\nStep 1: Set the rule equal to $9$: $4 - d(x) = 9$.\nStep 2: Solve for $d(x)$: $-d(x) = 5$, so $d(x) = -5$.\nStep 3: The table shows $d(x) = -5$ in the row $x = 4$, so $x = 4$. Check: $e(4) = 4 - (-5) = 9$ ✓\n\n**Common Mistakes:**\n* $0$: solves $d(x) = 9 - 4 = 5$, dropping the negative sign, and reads the row where $d(x) = 5$.\n* $-2$: adds instead, solving $d(x) = 4 + 9 = 13$.\n* $-5$: reports the value of $d(x)$ instead of the value of $x$.\n\n**Test Day Takeaway:** Solve for the inner function's output first, then use the table backward to find the input.",
+    explanation: "**SAT Pattern: Function Transformation**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~20s):** $d(x) - 6 = -11$ means $d(x) = -5$, and the table gives $d(4) = -5$.\n\n**The Full Solution:**\nStep 1: Write $e(x) = -11$ in terms of $d$: $d(x) - 6 = -11$.\nStep 2: Add $6$ to both sides: $d(x) = -5$.\nStep 3: In the table, $d(x) = -5$ when $x = 4$. Check: $e(4) = d(4) - 6 = -5 - 6 = -11$ ✓\n\n**Common Mistakes:**\n* $6$: finds the row where $d(x) = -11$, skipping the $- 6$ in the definition of $e$.\n* $-5$: reports the value of $d(x)$ instead of the value of $x$.\n\n**Test Day Takeaway:** Turn a condition on $e(x)$ into a condition on $d(x)$, then look up the input in the table.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-transformation",
@@ -2461,19 +2461,19 @@ export const advancedMathBank = [
     skills: ["function-transformations", "vertex-form"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The graph of $y = f(x)$ is shown. If $g(x) = 2f(x) - 5$, what is the maximum value of $g(x)$?",
-    diagram: { type: "quadraticVertex", params: { vertex: [2, 6], a: -1, showPoints: [[0, 2], [4, 2]], showVertex: true } },
+    question: "The function $h$ is defined by $h(x) = f(x - 5)$, where the graph of $y = f(x)$ is shown. For what value of $x$ does $h(x)$ reach its maximum?",
+    diagram: { type: "quadraticVertex", params: { vertex: [-1, 7], a: -1, showPoints: [[-3, 3], [1, 3]], showVertex: true } },
     choices: [
-      // distractor: subtracts 5 from the maximum of f but never doubles it
-      { id: "A", text: "$1$" },
-      // distractor: subtracts 5 before doubling, computing 2(6 - 5)
-      { id: "B", text: "$2$" },
-      { id: "C", text: "$7$" },
-      // distractor: doubles the maximum of f but never subtracts 5
-      { id: "D", text: "$12$" }
+      // distractor: moves the vertex 5 units left instead of right: -1 - 5
+      { id: "A", text: "$-6$" },
+      // distractor: gives the x-coordinate of the vertex of f, ignoring the shift
+      { id: "B", text: "$-1$" },
+      { id: "C", text: "$4$" },
+      // distractor: gives the maximum value of h instead of the x-value where it occurs
+      { id: "D", text: "$7$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Function Transformation**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The graph peaks at $y = 6$, so the greatest value of $g$ is $2(6) - 5 = 7$.\n\n**The Full Solution:**\nStep 1: The highest point of the graph is $(2, 6)$, so the maximum value of $f(x)$ is $6$.\nStep 2: The rule $g(x) = 2f(x) - 5$ doubles each output of $f$ and then subtracts $5$; both steps keep the largest output largest, so $g$ is greatest where $f$ is greatest.\nStep 3: The maximum value of $g(x)$ is $2(6) - 5 = 7$. Check: at $x = 0$, $g(0) = 2(2) - 5 = -1$, which is less than $7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): subtracts $5$ but never doubles.\n* Choice B ($2$): subtracts $5$ first and then doubles, computing $2(6 - 5)$.\n* Choice D ($12$): doubles the maximum but never subtracts $5$.\n\n**Test Day Takeaway:** Outside operations act on outputs in order: multiply first, then add or subtract, exactly as written.",
+    explanation: "**SAT Pattern: Function Transformation**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The graph of $f$ peaks at $x = -1$. Since $h(x) = f(x - 5)$, $h$ peaks where $x - 5 = -1$, so $x = 4$.\n\n**The Full Solution:**\nStep 1: The graph of $f$ reaches its maximum, $7$, at its vertex $(-1, 7)$.\nStep 2: $h(x) = f(x - 5)$ reaches its maximum when the input of $f$ is $-1$: $x - 5 = -1$.\nStep 3: Solve: $x = 4$. Check: $h(4) = f(-1) = 7$, the greatest value of $f$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): moves the vertex $5$ units left; replacing $x$ with $x - 5$ moves the graph right.\n* Choice B ($-1$): is where $f$ reaches its maximum; $h$ is $f$ moved $5$ units right.\n* Choice D ($7$): is the maximum value of $h$, not the value of $x$ where it occurs.\n\n**Test Day Takeaway:** The graph of $y = f(x - c)$ is the graph of $f$ moved $c$ units right, so its vertex moves right by $c$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-transformation",
@@ -2511,19 +2511,19 @@ export const advancedMathBank = [
     skills: ["function-transformations", "vertex-form"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The graph of $y = f(x)$ is shown. If $g(x) = 2f(x - 3) + 4$, which of the following is the vertex of the graph of $y = g(x)$?",
-    diagram: { type: "quadraticVertex", params: { vertex: [4, 1], a: 1, showVertex: true } },
+    question: "The graph of the quadratic function $f$ is shown. If $g(x) = f(x + 3)$, which equation defines $g$?",
+    diagram: { type: "quadraticVertex", params: { vertex: [4, 1], a: 1, showPoints: [[2, 5], [6, 5]], showVertex: true } },
     choices: [
-      // distractor: shifts left 3 instead of right, computing 4 - 3
-      { id: "A", text: "$(1, 6)$" },
-      // distractor: applies the + 4 but not the factor 2, computing 1 + 4
-      { id: "B", text: "$(7, 5)$" },
-      { id: "C", text: "$(7, 6)$" },
-      // distractor: adds 4 before doubling, computing 2(1 + 4)
-      { id: "D", text: "$(7, 10)$" }
+      // distractor: replaces x with x - 3, moving the graph right instead of left
+      { id: "A", text: "$g(x) = (x - 7)^{2} + 1$" },
+      // distractor: adds 3 to the output, which is f(x) + 3, not f(x + 3)
+      { id: "B", text: "$g(x) = (x - 4)^{2} + 4$" },
+      { id: "C", text: "$g(x) = (x - 1)^{2} + 1$" },
+      // distractor: simplifies (x + 3) - 4 as x + 1
+      { id: "D", text: "$g(x) = (x + 1)^{2} + 1$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Function Transformation**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The vertex of $f$ is $(4, 1)$. Inside, $x - 3 = 4$ gives $x = 7$; outside, $2(1) + 4 = 6$. The vertex of $g$ is $(7, 6)$.\n\n**The Full Solution:**\nStep 1: Read the vertex of $f$ from the graph: $(4, 1)$, so $f(4) = 1$ is the least output of $f$.\nStep 2: In $g(x) = 2f(x - 3) + 4$, the inside must equal $4$ to reach that point: $x - 3 = 4$, so $x = 7$.\nStep 3: The output is doubled and then raised by $4$: $g(7) = 2f(4) + 4 = 2(1) + 4 = 6$. The vertex of $g$ is $(7, 6)$. Check: doubling and adding $4$ keep the least output least, so $(7, 6)$ is still the lowest point ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(1, 6)$): computes $4 - 3$; replacing $x$ with $x - 3$ moves the graph $3$ units right, not left.\n* Choice B ($(7, 5)$): applies the $+4$ but not the factor $2$.\n* Choice D ($(7, 10)$): adds $4$ before doubling, computing $2(1 + 4)$.\n\n**Test Day Takeaway:** Handle the input and the output separately: solve the inside for the new $x$, then run the old $y$-value through the outside operations in order.",
+    explanation: "**SAT Pattern: Function Transformation**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The graph has vertex $(4, 1)$ and passes through $(2, 5)$, so $f(x) = (x - 4)^{2} + 1$. Then $g(x) = f(x + 3) = (x + 3 - 4)^{2} + 1 = (x - 1)^{2} + 1$.\n\n**The Full Solution:**\nStep 1: The vertex of the graph is $(4, 1)$, so $f(x) = a(x - 4)^{2} + 1$ for some constant $a$.\nStep 2: The point $(2, 5)$ is on the graph: $5 = a(2 - 4)^{2} + 1$, so $4a = 4$ and $a = 1$. Thus $f(x) = (x - 4)^{2} + 1$.\nStep 3: Replace $x$ with $x + 3$: $g(x) = ((x + 3) - 4)^{2} + 1 = (x - 1)^{2} + 1$. Check: $g(-1) = f(2) = 5$, and $(-1 - 1)^{2} + 1 = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($g(x) = (x - 7)^{2} + 1$): moves the vertex $3$ units right; replacing $x$ with $x + 3$ moves the graph $3$ units left.\n* Choice B ($g(x) = (x - 4)^{2} + 4$): adds $3$ to the output, which describes $f(x) + 3$, not $f(x + 3)$.\n* Choice D ($g(x) = (x + 1)^{2} + 1$): simplifies $(x + 3) - 4$ as $x + 1$ instead of $x - 1$.\n\n**Test Day Takeaway:** For $g(x) = f(x + c)$, substitute $x + c$ for every $x$ in $f$; the graph moves $c$ units left.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-transformation",
@@ -2536,18 +2536,18 @@ export const advancedMathBank = [
     skills: ["function-transformations", "vertex-form"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "In the $xy$-plane, the graph of $y = f(x)$ has exactly one $x$-intercept, $(11, 0)$. What is the $x$-coordinate of the $x$-intercept of the graph of $y = f(3x - 4)$?",
+    question: "$f(x) = (x - 6)(x + 2)$\nThe function $f$ is defined by the given equation. If $g(x) = f(x + 5)$, what is the $x$-coordinate of the positive $x$-intercept of the graph of $y = g(x)$ in the $xy$-plane?",
     choices: [
-      // distractor: subtracts 4 instead of adding it before dividing: (11 - 4)/3
-      { id: "A", text: "$\\frac{7}{3}$" },
-      { id: "B", text: "$5$" },
-      // distractor: adds 4 but never divides by 3: 11 + 4 = 15
-      { id: "C", text: "$15$" },
-      // distractor: substitutes 11 into 3x - 4 instead of setting 3x - 4 equal to 11
-      { id: "D", text: "$29$" }
+      // distractor: gives the other x-intercept of g, which is negative
+      { id: "A", text: "$-7$" },
+      { id: "B", text: "$1$" },
+      // distractor: reports the positive x-intercept of f, without the shift
+      { id: "C", text: "$6$" },
+      // distractor: moves the intercept 5 units right instead of left: 6 + 5
+      { id: "D", text: "$11$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f$ is $0$ only when its input is $11$, so $3x - 4 = 11$ and $x = 5$.\n\n**The Full Solution:**\nStep 1: The graph of $y = f(x)$ meets the $x$-axis only at $(11, 0)$, so $f(t) = 0$ exactly when $t = 11$.\nStep 2: The graph of $y = f(3x - 4)$ meets the $x$-axis where $f(3x - 4) = 0$, which happens exactly when $3x - 4 = 11$.\nStep 3: Solve: $3x = 15$, so $x = 5$. Check: $3(5) - 4 = 11$, and $f(11) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7}{3}$): subtracts $4$ from $11$ instead of adding it before dividing by $3$.\n* Choice C ($15$): adds $4$ but forgets to divide by the coefficient $3$.\n* Choice D ($29$): substitutes $11$ into $3x - 4$ instead of setting $3x - 4$ equal to $11$.\n\n**Test Day Takeaway:** For a function of an expression, set the whole inner expression equal to the input you know and solve, coefficient included.",
+    explanation: "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** $g(x) = (x + 5 - 6)(x + 5 + 2) = (x - 1)(x + 7)$, so the $x$-intercepts are at $x = 1$ and $x = -7$; the positive one is $1$.\n\n**The Full Solution:**\nStep 1: Replace $x$ with $x + 5$ in $f$: $g(x) = ((x + 5) - 6)((x + 5) + 2) = (x - 1)(x + 7)$.\nStep 2: The graph of $y = g(x)$ meets the $x$-axis where $g(x) = 0$: $x - 1 = 0$ or $x + 7 = 0$, so $x = 1$ or $x = -7$.\nStep 3: The positive $x$-intercept is $(1, 0)$, so its $x$-coordinate is $1$. Check: $g(1) = f(6) = (0)(8) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): is the other $x$-intercept of the graph of $g$, which is negative.\n* Choice C ($6$): is the positive $x$-intercept of $f$ itself; $g(6) = f(11) = 65$, not $0$.\n* Choice D ($11$): moves the intercept $5$ units right; replacing $x$ with $x + 5$ moves the graph $5$ units left.\n\n**Test Day Takeaway:** The graph of $y = f(x + c)$ is the graph of $f$ moved $c$ units left, so each $x$-intercept of $f$ decreases by $c$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-transformation",
@@ -2743,9 +2743,9 @@ export const advancedMathBank = [
     skills: ["tangent-lines", "discriminant-analysis"],
     difficulty: "easy",
     type: "fill-in",
-    question: "$y = x^{2} + 6x + c$\n$y = 3$\nIn the given system of equations, $c$ is a constant. If the system has exactly one real solution, what is the value of $c$?",
-    correctAnswer: "12",
-    explanation: "**SAT Pattern: Tangent Line and Discriminant**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~20s):** Substituting gives $x^{2} + 6x + (c - 3) = 0$, which has one solution when $36 - 4(c - 3) = 0$, so $c = 12$.\n\n**The Full Solution:**\nStep 1: Substitute $y = 3$ into the first equation: $x^{2} + 6x + c = 3$, so $x^{2} + 6x + (c - 3) = 0$.\nStep 2: Exactly one solution means the discriminant is $0$: $6^{2} - 4(1)(c - 3) = 0$, so $36 = 4c - 12$.\nStep 3: Solve: $4c = 48$, so $c = 12$. Check: $x^{2} + 6x + 9 = 0$ is $(x + 3)^{2} = 0$, with the single solution $x = -3$ ✓\n\n**Common Mistakes:**\n* $9$: sets the discriminant of $x^{2} + 6x + c$ equal to $0$ and never uses $y = 3$.\n* $6$: moves the $3$ to the wrong side, writing the constant term as $c + 3$, so $36 = 4(c + 3)$.\n\n**Test Day Takeaway:** A line meets a parabola once when the combined quadratic has discriminant $0$; move every term to one side before finding $b^{2} - 4ac$.",
+    question: "$y = 2(x - 3)^{2} + 7$\n$y = k$\nIn the given system of equations, $k$ is a constant. For what value of $k$ does the system have exactly one real solution?",
+    correctAnswer: "7",
+    explanation: "**SAT Pattern: Tangent Line and Discriminant**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~15s):** The parabola opens upward with vertex $(3, 7)$, so the horizontal line $y = k$ meets it exactly once when $k = 7$.\n\n**The Full Solution:**\nStep 1: The first equation is in vertex form with vertex $(3, 7)$. Its leading coefficient, $2$, is positive, so the parabola opens upward and $7$ is its least $y$-value.\nStep 2: The graph of $y = k$ is a horizontal line. It meets the parabola twice if $k > 7$, never if $k < 7$, and exactly once when it passes through the vertex.\nStep 3: So $k = 7$. Check: $2(x - 3)^{2} + 7 = 7$ gives $(x - 3)^{2} = 0$, whose only solution is $x = 3$ ✓\n\n**Common Mistakes:**\n* $3$: reports the $x$-coordinate of the vertex instead of the $y$-coordinate.\n* $2$: reports the leading coefficient, which only sets how wide the parabola is.\n* $-7$: changes the sign of $7$ as if it were the $3$ inside $(x - 3)$; the $+7$ is read as written.\n\n**Test Day Takeaway:** A horizontal line meets a parabola exactly once only at the vertex, so $k$ is the $y$-coordinate of the vertex.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "tangent-line-and-discriminant",
@@ -2907,9 +2907,9 @@ export const advancedMathBank = [
     skills: ["discriminant-analysis"],
     difficulty: "easy",
     type: "fill-in",
-    question: "$x^{2} + 10x + c = 0$\nIn the given equation, $c$ is a constant. If the equation has exactly one real solution, what is the value of $c$?",
+    question: "In the $xy$-plane, the graph of $y = x^{2} + 10x + c$, where $c$ is a constant, intersects the $x$-axis at exactly one point. What is the value of $c$?",
     correctAnswer: "25",
-    explanation: "**SAT Pattern: Discriminant Analysis**\n\n**The correct answer is $25$.**\n\n**The Fast Way (~15s):** One real solution means $10^{2} - 4c = 0$, so $c = 25$.\n\n**The Full Solution:**\nStep 1: Identify $a = 1$, $b = 10$ and the constant $c$.\nStep 2: Exactly one real solution means the discriminant is $0$: $10^{2} - 4(1)(c) = 0$, so $100 = 4c$.\nStep 3: Solve: $c = 25$. Check: $x^{2} + 10x + 25 = (x + 5)^{2}$, which is $0$ only at $x = -5$ ✓\n\n**Common Mistakes:**\n* $100$: forgets the factor $4$, solving $10^{2} - c = 0$.\n* $5$: halves $10$ but does not square it.\n\n**Test Day Takeaway:** A quadratic $x^{2} + bx + c$ has exactly one solution when $c = \\left(\\frac{b}{2}\\right)^{2}$.",
+    explanation: "**SAT Pattern: Discriminant Analysis**\n\n**The correct answer is $25$.**\n\n**The Fast Way (~15s):** The graph meets the $x$-axis once when $x^{2} + 10x + c = 0$ has one real solution: $10^{2} - 4c = 0$, so $c = 25$.\n\n**The Full Solution:**\nStep 1: The graph meets the $x$-axis where $y = 0$, so $x^{2} + 10x + c = 0$ must have exactly one real solution.\nStep 2: Exactly one real solution means the discriminant is $0$: $10^{2} - 4(1)(c) = 0$, so $100 = 4c$.\nStep 3: Solve: $c = 25$. Check: $x^{2} + 10x + 25 = (x + 5)^{2}$, which is $0$ only at $x = -5$, so the graph touches the $x$-axis only at $(-5, 0)$ ✓\n\n**Common Mistakes:**\n* $100$: forgets the factor $4$, solving $10^{2} - c = 0$.\n* $5$: halves $10$ but does not square it.\n\n**Test Day Takeaway:** A graph of $y = x^{2} + bx + c$ touches the $x$-axis exactly once when $c = \\left(\\frac{b}{2}\\right)^{2}$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "discriminant-analysis",
@@ -3106,9 +3106,9 @@ export const advancedMathBank = [
     skills: ["finding-roots-factoring"],
     difficulty: "medium",
     type: "fill-in",
-    question: "$x^{2} - 13x + c = 0$\nIn the given equation, $c$ is a constant. The two solutions to the equation differ by $3$. What is the value of $c$?",
-    correctAnswer: "40",
-    explanation: "**SAT Pattern: Quadratic via Factoring**\n\n**The correct answer is $40$.**\n\n**The Fast Way (~25s):** The solutions add to $13$ and differ by $3$, so they are $5$ and $8$, and $c = 5\\cdot 8 = 40$.\n\n**The Full Solution:**\nStep 1: If the equation factors as $(x - r)(x - s) = 0$, then $r + s = 13$ and $rs = c$.\nStep 2: With $r - s = 3$ and $r + s = 13$: adding gives $2r = 16$, so $r = 8$ and $s = 5$.\nStep 3: So $c = 8\\cdot 5 = 40$. Check: $x^{2} - 13x + 40 = (x - 5)(x - 8)$, whose solutions $5$ and $8$ differ by $3$ ✓\n\n**Common Mistakes:**\n* $39$: multiplies $13$ by $3$ instead of finding the solutions.\n* $8$: reports the larger solution instead of $c$.\n* $-40$: uses $c = -rs$, mixing up the sign rule for the constant term.\n\n**Test Day Takeaway:** For $x^{2} + bx + c$, the solutions add to $-b$ and multiply to $c$; find the pair, then multiply.",
+    question: "$3x^{2} - 13x - 10 = 0$\nWhat is the positive solution to the given equation?",
+    correctAnswer: "5",
+    explanation: "**SAT Pattern: Quadratic via Factoring**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~25s):** $3x^{2} - 13x - 10 = (3x + 2)(x - 5)$, so the solutions are $-\\frac{2}{3}$ and $5$; the positive one is $5$.\n\n**The Full Solution:**\nStep 1: Look for a factorization $(3x + p)(x + q)$ with $pq = -10$ and $3q + p = -13$.\nStep 2: The pair $p = 2$, $q = -5$ works, since $3(-5) + 2 = -13$. So the equation is $(3x + 2)(x - 5) = 0$.\nStep 3: Then $3x + 2 = 0$ or $x - 5 = 0$, so $x = -\\frac{2}{3}$ or $x = 5$. The positive solution is $5$. Check: $3(25) - 13(5) - 10 = 75 - 65 - 10 = 0$ ✓\n\n**Common Mistakes:**\n* $\\frac{2}{3}$: factors as $(3x - 2)(x + 5)$, whose middle term is $+13x$, not $-13x$.\n* $\\frac{5}{3}$: factors correctly but also divides the solution $5$ by $3$.\n\n**Test Day Takeaway:** When the leading coefficient is not $1$, factor into $(ax + p)(x + q)$ and check the middle term before solving each factor.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "quadratic-via-factoring",
@@ -3482,18 +3482,18 @@ export const advancedMathBank = [
     skills: ["discriminant-analysis"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "$x^{2} + kx + 30 = 0$\nIn the given equation, $k$ is an integer. For how many values of $k$ does the equation have no real solutions?",
+    question: "$x^{2} + kx + 30 = 0$\nIn the given equation, $k$ is an integer. If the equation has no real solutions, what is the least possible value of $k$?",
     choices: [
-      // distractor: counts only the positive integers 1 through 10
-      { id: "A", text: "$10$" },
-      // distractor: counts 0 through 10, missing the negative values
-      { id: "B", text: "$11$" },
-      // distractor: counts both signs but leaves out k = 0
-      { id: "C", text: "$20$" },
-      { id: "D", text: "$21$" }
+      // distractor: includes k = -11, but (-11)^2 = 121 is greater than 120
+      { id: "A", text: "$-11$" },
+      { id: "B", text: "$-10$" },
+      // distractor: leaves out the 4 in the discriminant, solving k^2 < 30
+      { id: "C", text: "$-5$" },
+      // distractor: gives the greatest possible value of k instead of the least
+      { id: "D", text: "$10$" }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** $k^{2} < 120$, and $10^{2} = 100 < 120 < 121 = 11^{2}$, so $k$ can be any integer from $-10$ to $10$: that is $21$ values.\n\n**The Full Solution:**\nStep 1: The discriminant is $k^{2} - 4(1)(30) = k^{2} - 120$, and no real solutions requires $k^{2} - 120 < 0$.\nStep 2: $k^{2} < 120$ means $-\\sqrt{120} < k < \\sqrt{120}$, and $\\sqrt{120} \\approx 10.95$.\nStep 3: The integers from $-10$ to $10$ are $10$ negative values, $10$ positive values, and $0$, for $21$ in all. Check: $k = \\pm 10$ gives $100 - 120 < 0$, while $k = \\pm 11$ gives $121 - 120 > 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): counts only the positive integers $1$ through $10$.\n* Choice B ($11$): counts $0$ through $10$, missing the negative values.\n* Choice C ($20$): counts both signs but leaves out $k = 0$, which also works ($0 - 120 < 0$).\n\n**Test Day Takeaway:** For \"how many integers,\" count both sides of a symmetric interval and remember $0$.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** No real solutions means $k^{2} - 120 < 0$, so $k^{2} < 120$. Since $10^{2} = 100 < 120 < 121 = 11^{2}$, the least integer is $-10$.\n\n**The Full Solution:**\nStep 1: The equation has no real solutions when its discriminant is negative: $k^{2} - 4(1)(30) < 0$, so $k^{2} < 120$.\nStep 2: Because $10^{2} = 100$ and $11^{2} = 121$, the integers that satisfy $k^{2} < 120$ are $-10, -9, \\ldots, 9, 10$.\nStep 3: The least of these is $-10$. Check: $(-10)^{2} - 120 = -20 < 0$, while $(-11)^{2} - 120 = 1 > 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-11$): $(-11)^{2} = 121$ is greater than $120$, so the equation would have two real solutions.\n* Choice C ($-5$): leaves out the factor $4$ in the discriminant, solving $k^{2} < 30$.\n* Choice D ($10$): is the greatest possible value of $k$, not the least.\n\n**Test Day Takeaway:** For no real solutions, set $b^{2} - 4ac < 0$; a squared parameter allows both negative and positive values.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "discriminant-with-integer-bound",
@@ -3525,7 +3525,7 @@ export const advancedMathBank = [
     skills: ["converting-quadratic-forms"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The graph of $y = (x - h)^{2} + k$ is shown in the $xy$-plane, where $h$ and $k$ are constants. What is the value of $h + k$?",
+    question: "The graph of the quadratic function $f$ is shown, where $f(x) = (x - h)^{2} + k$ and $h$ and $k$ are constants. What is the value of $h + k$?",
     diagram: { type: "quadraticVertex", params: { vertex: [3, -5], a: 1, showVertex: true } },
     choices: [
       // distractor: misreads the sign in (x - h), taking h = -3, so -3 + (-5) = -8
@@ -3537,7 +3537,7 @@ export const advancedMathBank = [
       { id: "D", text: "$8$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Vertex Form Maximum**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The minimum point is $(3, -5)$, so $h = 3$ and $k = -5$, and $h + k = -2$.\n\n**The Full Solution:**\nStep 1: In $y = (x - h)^{2} + k$, the vertex is $(h, k)$, and because the parabola opens upward, the vertex is the minimum point.\nStep 2: The marked minimum point on the graph is $(3, -5)$, so $h = 3$ and $k = -5$.\nStep 3: Then $h + k = 3 + (-5) = -2$. Check: $y = (x - 3)^{2} - 5$ gives $y = -5$ at $x = 3$ and $y = 9 - 5 = 4$ at $x = 0$, matching the graph's $y$-intercept ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): misreads the sign in $(x - h)$, taking $h = -3$.\n* Choice B ($-5$): reports $k$, the minimum value, without adding $h$.\n* Choice D ($8$): subtracts instead of adding, computing $3 - (-5)$.\n\n**Test Day Takeaway:** In $(x - h)^{2} + k$ the vertex is $(h, k)$ exactly as read from the graph; the minus sign is already built into the form.",
+    explanation: "**SAT Pattern: Vertex Form Maximum**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The minimum point is $(3, -5)$, so $h = 3$ and $k = -5$, and $h + k = -2$.\n\n**The Full Solution:**\nStep 1: In $f(x) = (x - h)^{2} + k$, the vertex is $(h, k)$, and because the parabola opens upward, the vertex is the minimum point.\nStep 2: The marked minimum point on the graph is $(3, -5)$, so $h = 3$ and $k = -5$.\nStep 3: Then $h + k = 3 + (-5) = -2$. Check: $f(x) = (x - 3)^{2} - 5$ gives $f(3) = -5$ and $f(0) = 9 - 5 = 4$, matching the graph's $y$-intercept ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): misreads the sign in $(x - h)$, taking $h = -3$.\n* Choice B ($-5$): reports $k$, the minimum value, without adding $h$.\n* Choice D ($8$): subtracts instead of adding, computing $3 - (-5)$.\n\n**Test Day Takeaway:** In $(x - h)^{2} + k$ the vertex is $(h, k)$ exactly as read from the graph; the minus sign is already built into the form.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "vertex-form-maximum",
@@ -3605,19 +3605,19 @@ export const advancedMathBank = [
     skills: ["converting-quadratic-forms"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The graph of $y = f(x)$ is shown. If $g(x) = f(x - 2) + 3$, what is the maximum value of $g$?",
+    question: "The graph of $y = f(x)$ is shown. If $g(x) = f(x - 2)$, what is the maximum value of $g$?",
     diagram: { type: "quadraticVertex", params: { vertex: [3, 8], a: -0.5, showVertex: true } },
     choices: [
-      // distractor: subtracts 3 instead of adding it, giving 8 - 3 = 5
-      { id: "A", text: "$5$" },
-      // distractor: handles the horizontal shift but ignores the +3
-      { id: "B", text: "$8$" },
-      { id: "C", text: "$11$" },
-      // distractor: treats the horizontal shift as vertical too, giving 8 + 2 + 3 = 13
-      { id: "D", text: "$13$" }
+      // distractor: gives the x-coordinate of the vertex of f, not a value of the function
+      { id: "A", text: "$3$" },
+      // distractor: gives the x-coordinate where g reaches its maximum: 3 + 2
+      { id: "B", text: "$5$" },
+      { id: "C", text: "$8$" },
+      // distractor: adds the shift of 2 to the maximum value: 8 + 2
+      { id: "D", text: "$10$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Vertex Form Maximum**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The maximum of $f$ is $8$. Replacing $x$ with $x - 2$ moves the graph right, which does not change the maximum, and adding $3$ raises it to $11$.\n\n**The Full Solution:**\nStep 1: From the graph, the vertex of $f$ is $(3, 8)$, so the maximum value of $f$ is $8$.\nStep 2: The graph of $y = f(x - 2)$ is the graph of $f$ shifted $2$ units right; its vertex is $(5, 8)$ and its maximum is still $8$.\nStep 3: Adding $3$ shifts the graph up $3$ units, so the vertex of $g$ is $(5, 11)$ and the maximum value of $g$ is $11$. Check: $g(5) = f(3) + 3 = 8 + 3 = 11$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): subtracts $3$ instead of adding it, moving the graph down.\n* Choice B ($8$): handles the horizontal shift but ignores the $+3$.\n* Choice D ($13$): treats the horizontal shift as vertical too, adding both $2$ and $3$ to $8$.\n\n**Test Day Takeaway:** A change inside the parentheses moves the graph left or right and never changes a maximum; only a change outside, like $+3$, moves the maximum value.",
+    explanation: "**SAT Pattern: Vertex Form Maximum**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The graph of $f$ peaks at $(3, 8)$. Replacing $x$ with $x - 2$ only moves the graph $2$ units right, so the maximum value is still $8$.\n\n**The Full Solution:**\nStep 1: The graph of $f$ opens downward with vertex $(3, 8)$, so the maximum value of $f$ is $8$.\nStep 2: The graph of $g(x) = f(x - 2)$ is the graph of $f$ moved $2$ units right, so its vertex is $(5, 8)$.\nStep 3: A horizontal move does not change the outputs, so the maximum value of $g$ is $8$. Check: $g(5) = f(3) = 8$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): is the $x$-coordinate of the vertex of $f$, not a value of the function.\n* Choice B ($5$): is the $x$-coordinate where $g$ reaches its maximum, not the maximum value.\n* Choice D ($10$): adds the shift to the output; $f(x - 2)$ moves the graph right, not up.\n\n**Test Day Takeaway:** A change inside the parentheses, $f(x - c)$, moves the graph left or right and leaves the maximum value unchanged.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "vertex-form-maximum",
@@ -3686,19 +3686,19 @@ export const advancedMathBank = [
     skills: ["function-composition"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The table shows some values of the functions $f$ and $g$. What is the value of $f(g(2))$?",
+    question: "The table shows some values of the functions $f$ and $g$. If $h(x) = f(x) + g(x)$, what is the value of $h(3)$?",
     diagram: { type: "dataTable", params: { headers: ["x", "f(x)", "g(x)"], rows: [["1", "5", "3"], ["2", "8", "1"], ["3", "2", "4"], ["4", "7", "2"]] } },
     choices: [
-      // distractor: stops at the inner value g(2) = 1 without applying f
-      { id: "A", text: "$1$" },
-      { id: "B", text: "$5$" },
-      // distractor: reports f(4), using the input whose g-value is 2 instead of g(2)
-      { id: "C", text: "$7$" },
-      // distractor: reports f(2), applying f to the original input and skipping g
-      { id: "D", text: "$8$" }
+      // distractor: reports f(3) and leaves out g(3)
+      { id: "A", text: "$2$" },
+      // distractor: reports g(3) and leaves out f(3)
+      { id: "B", text: "$4$" },
+      { id: "C", text: "$6$" },
+      // distractor: adds the values in the row x = 2, 8 + 1
+      { id: "D", text: "$9$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** From the table, $g(2) = 1$, and then $f(1) = 5$.\n\n**The Full Solution:**\nStep 1: Work from the inside out: find $g(2)$ first. In the row where $x = 2$, $g(x) = 1$.\nStep 2: Now find $f(1)$. In the row where $x = 1$, $f(x) = 5$.\nStep 3: So $f(g(2)) = f(1) = 5$. Check: the inner output $1$ is used as the input to $f$, not the original $2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): stops at the inner value $g(2) = 1$ without applying $f$.\n* Choice C ($7$): reports $f(4)$, using the input whose $g$-value is $2$ instead of $g(2)$.\n* Choice D ($8$): reports $f(2)$, applying $f$ to the original input and skipping $g$.\n\n**Test Day Takeaway:** In $f(g(2))$, the inside function goes first; its output becomes the new input you look up in the $f$ column.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Function Composition**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** In the row $x = 3$, $f(3) = 2$ and $g(3) = 4$, so $h(3) = 2 + 4 = 6$.\n\n**The Full Solution:**\nStep 1: By definition, $h(3) = f(3) + g(3)$, so both values come from the same row, $x = 3$.\nStep 2: The row $x = 3$ gives $f(3) = 2$ and $g(3) = 4$.\nStep 3: So $h(3) = 2 + 4 = 6$. Check: both functions are evaluated at the same input, $3$, and $6$ is the sum of the two outputs in that row ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reports $f(3)$ and leaves out $g(3)$.\n* Choice B ($4$): reports $g(3)$ and leaves out $f(3)$.\n* Choice D ($9$): adds the values in the row $x = 2$, $8 + 1$, instead of the row $x = 3$.\n\n**Test Day Takeaway:** For $h(x) = f(x) + g(x)$, evaluate both functions at the same input and add the outputs.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "function-composition",
@@ -3711,9 +3711,9 @@ export const advancedMathBank = [
     skills: ["function-composition"],
     difficulty: "easy",
     type: "fill-in",
-    question: "The functions $f$ and $g$ are defined by $f(x) = 4x - 5$ and $g(x) = x^{2} + 1$. What is the value of $f(g(2))$?",
-    correctAnswer: "15",
-    explanation: "**SAT Pattern: Function Composition**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~15s):** $g(2) = 5$ and $f(5) = 20 - 5 = 15$.\n\n**The Full Solution:**\nStep 1: Evaluate the inner function: $g(2) = 2^{2} + 1 = 5$.\nStep 2: Use that output as the input to $f$: $f(5) = 4(5) - 5$.\nStep 3: Compute: $20 - 5 = 15$. Check: $f(g(2)) = 4(2^{2} + 1) - 5 = 4(5) - 5 = 15$ ✓\n\n**Common Mistakes:**\n* $10$: applies the functions in the wrong order, computing $g(f(2)) = g(3) = 10$.\n* $5$: stops at $g(2) = 5$ without applying $f$.\n* $3$: computes $f(2)$ and ignores $g$.\n\n**Test Day Takeaway:** $f(g(x))$ means \"do $g$ first, then $f$\"; the function written closest to $x$ acts first.",
+    question: "The functions $f$ and $g$ are defined by $f(x) = 4x - 5$ and $g(x) = x^{2} + 1$. If $h(x) = f(x) + g(x)$, what is the value of $h(2)$?",
+    correctAnswer: "8",
+    explanation: "**SAT Pattern: Function Composition**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~15s):** $f(2) = 3$ and $g(2) = 5$, so $h(2) = 3 + 5 = 8$.\n\n**The Full Solution:**\nStep 1: Find $f(2)$: $4(2) - 5 = 3$.\nStep 2: Find $g(2)$: $2^{2} + 1 = 5$.\nStep 3: Add: $h(2) = f(2) + g(2) = 3 + 5 = 8$. Check: $h(x) = x^{2} + 4x - 4$, and $4 + 8 - 4 = 8$ ✓\n\n**Common Mistakes:**\n* $15$: puts $g(2) = 5$ into $f$, computing $f(g(2))$ instead of adding the two outputs.\n* $3$: reports $f(2)$ and leaves out $g(2)$.\n* $5$: reports $g(2)$ and leaves out $f(2)$.\n\n**Test Day Takeaway:** For $h(x) = f(x) + g(x)$, evaluate each function at the same input, then add.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "function-composition",
@@ -3726,19 +3726,19 @@ export const advancedMathBank = [
     skills: ["function-composition"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The table shows some values of the functions $p$ and $q$. What is the value of $q(p(3)) + p(q(2))$?",
-    diagram: { type: "dataTable", params: { headers: ["x", "p(x)", "q(x)"], rows: [["0", "3", "6"], ["1", "0", "2"], ["2", "5", "0"], ["3", "1", "5"]] } },
+    question: "The table shows some values of the functions $p$ and $q$. If $h(x) = p(x) - q(x)$, for what value of $x$ does $h(x) = 4$?",
+    diagram: { type: "dataTable", params: { headers: ["x", "p(x)", "q(x)"], rows: [["0", "7", "3"], ["1", "2", "6"], ["2", "4", "5"], ["3", "1", "3"]] } },
     choices: [
-      // distractor: reports only the first term, q(p(3)) = 2
-      { id: "A", text: "$2$" },
-      // distractor: reports only the second term, p(q(2)) = 3
-      { id: "B", text: "$3$" },
-      { id: "C", text: "$5$" },
-      // distractor: computes q(3) + p(2) = 5 + 5, applying each outer function to the original input
-      { id: "D", text: "$10$" }
+      { id: "A", text: "$0$" },
+      // distractor: subtracts in the wrong order: q(1) - p(1) = 6 - 2 = 4
+      { id: "B", text: "$1$" },
+      // distractor: finds the row where p(x) = 4 and ignores q
+      { id: "C", text: "$2$" },
+      // distractor: adds instead of subtracting: p(3) + q(3) = 1 + 3 = 4
+      { id: "D", text: "$3$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Function Composition**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $p(3) = 1$, so $q(p(3)) = q(1) = 2$; $q(2) = 0$, so $p(q(2)) = p(0) = 3$. The sum is $5$.\n\n**The Full Solution:**\nStep 1: First term: in the row $x = 3$, $p(3) = 1$; in the row $x = 1$, $q(1) = 2$. So $q(p(3)) = 2$.\nStep 2: Second term: in the row $x = 2$, $q(2) = 0$; in the row $x = 0$, $p(0) = 3$. So $p(q(2)) = 3$.\nStep 3: Add: $2 + 3 = 5$. Check: each inner output ($1$ and $0$) is itself an input listed in the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reports only the first term, $q(p(3))$.\n* Choice B ($3$): reports only the second term, $p(q(2))$.\n* Choice D ($10$): computes $q(3) + p(2) = 5 + 5$, applying each outer function to the original input.\n\n**Test Day Takeaway:** Evaluate each composition separately from the inside out, writing down each inner output before you look up the outer function.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Function Composition**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Compute $p(x) - q(x)$ in each row: $4$, $-4$, $-1$, $-2$. Only $x = 0$ gives $4$.\n\n**The Full Solution:**\nStep 1: $h(x) = 4$ means $p(x) - q(x) = 4$, so check each row of the table.\nStep 2: $x = 0$: $7 - 3 = 4$. $x = 1$: $2 - 6 = -4$. $x = 2$: $4 - 5 = -1$. $x = 3$: $1 - 3 = -2$.\nStep 3: Only $x = 0$ gives $h(x) = 4$. Check: $h(0) = p(0) - q(0) = 7 - 3 = 4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($1$): subtracts in the wrong order, $q(1) - p(1) = 6 - 2 = 4$; in fact $h(1) = -4$.\n* Choice C ($2$): finds the row where $p(x) = 4$ and ignores $q$; $h(2) = -1$.\n* Choice D ($3$): adds instead of subtracting, $1 + 3 = 4$; $h(3) = -2$.\n\n**Test Day Takeaway:** When a function is built from table values, compute it row by row and keep the order of subtraction.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "function-composition",
@@ -3751,9 +3751,9 @@ export const advancedMathBank = [
     skills: ["function-composition"],
     difficulty: "medium",
     type: "fill-in",
-    question: "The functions $f$ and $g$ are defined by $f(x) = 5x - 8$ and $g(x) = x + k$, where $k$ is a constant. If $f(g(2)) = 27$, what is the value of $k$?",
-    correctAnswer: "5",
-    explanation: "**SAT Pattern: Function Composition**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~25s):** $f(g(2)) = 5(2 + k) - 8 = 27$, so $5(2 + k) = 35$, $2 + k = 7$, and $k = 5$.\n\n**The Full Solution:**\nStep 1: The inner value is $g(2) = 2 + k$.\nStep 2: Apply $f$: $f(2 + k) = 5(2 + k) - 8$. Set this equal to $27$: $5(2 + k) - 8 = 27$, so $5(2 + k) = 35$.\nStep 3: Divide by $5$: $2 + k = 7$, so $k = 5$. Check: $g(2) = 7$ and $f(7) = 35 - 8 = 27$ ✓\n\n**Common Mistakes:**\n* $7$: stops at $g(2) = 7$, reporting the inner value instead of $k$.\n* $25$: writes $5(2 + k)$ as $10 + k$, so $10 + k - 8 = 27$.\n\n**Test Day Takeaway:** Substitute the whole inner expression into the outer function with parentheses, so the $5$ multiplies both the $2$ and the $k$.",
+    question: "$f(x) = x^{2} + 2$\n$g(x) = x + k$\nIn the given functions, $k$ is a constant. The function $h$ is defined by $h(x) = f(x) + g(x)$. If $h(2) = 27$, what is the value of $k$?",
+    correctAnswer: "19",
+    explanation: "**SAT Pattern: Function Composition**\n\n**The correct answer is $19$.**\n\n**The Fast Way (~25s):** $f(2) = 6$ and $g(2) = 2 + k$, so $h(2) = 8 + k = 27$ and $k = 19$.\n\n**The Full Solution:**\nStep 1: Find $f(2)$: $2^{2} + 2 = 6$.\nStep 2: Find $g(2)$: $2 + k$.\nStep 3: Then $h(2) = 6 + (2 + k) = 8 + k$. Setting $8 + k = 27$ gives $k = 19$. Check: $g(2) = 21$, and $6 + 21 = 27$ ✓\n\n**Common Mistakes:**\n* $21$: uses $g(2) = k$, dropping the $x$ in $g(x) = x + k$.\n* $3$: treats $h$ as $f(g(x))$, solving $(2 + k)^{2} + 2 = 27$.\n\n**Test Day Takeaway:** For $h(x) = f(x) + g(x)$, evaluate each function at the input first, then set the sum equal to the given value.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "function-composition",
@@ -3766,19 +3766,19 @@ export const advancedMathBank = [
     skills: ["function-composition"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The graph of the quadratic function $f$ is shown. If $g(x) = 2x - 6$, what is the value of $f(g(5))$?",
+    question: "The graph of the quadratic function $f$ is shown. If $g(x) = 2x - 6$ and $h(x) = f(x) + g(x)$, what is the value of $h(4)$?",
     diagram: { type: "quadraticVertex", params: { vertex: [1, -4], a: 1, showPoints: [[-1, 0], [3, 0]], showVertex: true } },
     choices: [
-      // distractor: reports the minimum value of f, read off the vertex, instead of f(4)
-      { id: "A", text: "$-4$" },
-      // distractor: reports the x-coordinate of the vertex rather than a value of f
-      { id: "B", text: "$1$" },
-      // distractor: stops at the inner value g(5) = 4 without applying f
-      { id: "C", text: "$4$" },
-      { id: "D", text: "$5$" }
+      // distractor: reports g(4) and leaves out f(4)
+      { id: "A", text: "$2$" },
+      // distractor: subtracts g(4) from f(4) instead of adding: 5 - 2
+      { id: "B", text: "$3$" },
+      // distractor: reports f(4) and leaves out g(4)
+      { id: "C", text: "$5$" },
+      { id: "D", text: "$7$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Function Composition**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** $g(5) = 4$. The graph has vertex $(1, -4)$ and passes through $(3, 0)$, so $f(x) = (x - 1)^{2} - 4$ and $f(4) = 9 - 4 = 5$.\n\n**The Full Solution:**\nStep 1: Evaluate the inner function: $g(5) = 2(5) - 6 = 4$, so the question asks for $f(4)$.\nStep 2: The point $x = 4$ is not marked, so find $f$. The vertex is $(1, -4)$, so $f(x) = a(x - 1)^{2} - 4$. The $x$-intercept $(3, 0)$ gives $0 = a(2)^{2} - 4$, so $a = 1$.\nStep 3: Then $f(4) = (4 - 1)^{2} - 4 = 9 - 4 = 5$. Check: $f(-1) = 4 - 4 = 0$, matching the other marked $x$-intercept ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): reports the minimum value of $f$, read off the vertex, instead of $f(4)$.\n* Choice B ($1$): reports the $x$-coordinate of the vertex rather than a value of $f$.\n* Choice C ($4$): stops at the inner value $g(5) = 4$ without applying $f$.\n\n**Test Day Takeaway:** When the input you need is not marked on the graph, use the marked points to write the function, then evaluate it.",
+    explanation: "**SAT Pattern: Function Composition**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The graph gives $f(x) = (x + 1)(x - 3)$, so $f(4) = 5$; also $g(4) = 2$, so $h(4) = 5 + 2 = 7$.\n\n**The Full Solution:**\nStep 1: The graph has $x$-intercepts $-1$ and $3$ and vertex $(1, -4)$, so $f(x) = (x + 1)(x - 3)$; check: $f(1) = (2)(-2) = -4$. Then $f(4) = (5)(1) = 5$.\nStep 2: Find $g(4)$: $2(4) - 6 = 2$.\nStep 3: So $h(4) = f(4) + g(4) = 5 + 2 = 7$. Check: in vertex form, $f(4) = (4 - 1)^{2} - 4 = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reports $g(4)$ and leaves out $f(4)$.\n* Choice B ($3$): subtracts, $5 - 2$, instead of adding.\n* Choice C ($5$): reports $f(4)$ and leaves out $g(4)$.\n\n**Test Day Takeaway:** Read or build $f$ from the graph, evaluate both functions at the same input, then combine as the definition says.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "function-composition",
@@ -3791,9 +3791,9 @@ export const advancedMathBank = [
     skills: ["function-composition"],
     difficulty: "medium",
     type: "fill-in",
-    question: "The function $C(n) = 1.5n + 40$ gives the cost, in dollars, for a bakery to make $n$ loaves of bread. The function $N(d) = 60d$ gives the number of loaves the bakery makes in $d$ days. What is the value of $C(N(3))$?",
-    correctAnswer: "310",
-    explanation: "**SAT Pattern: Function Composition**\n\n**The correct answer is $310$.**\n\n**The Fast Way (~20s):** $N(3) = 180$ loaves, and $C(180) = 1.5(180) + 40 = 310$ dollars.\n\n**The Full Solution:**\nStep 1: Evaluate the inner function: $N(3) = 60(3) = 180$, the number of loaves made in $3$ days.\nStep 2: Use that number of loaves as the input to $C$: $C(180) = 1.5(180) + 40$.\nStep 3: Compute: $270 + 40 = 310$, the cost, in dollars, to make the loaves from $3$ days. Check: $C(N(d)) = 1.5(60d) + 40 = 90d + 40$, and $90(3) + 40 = 310$ ✓\n\n**Common Mistakes:**\n* $2670$: composes in the wrong order, computing $N(C(3)) = 60(44.5)$.\n* $44.5$: computes $C(3)$, skipping $N$.\n* $180$: stops at the inner value $N(3)$.\n\n**Test Day Takeaway:** In a composition with units, the inner function's output (loaves) must be the kind of input the outer function expects (loaves); that tells you the order.",
+    question: "$f(x) = x + 6$\n$g(x) = x - 2$\nThe function $h$ is defined by $h(x) = f(x) \\cdot g(x)$. For what positive value of $x$ is $h(x) = 84$?",
+    correctAnswer: "8",
+    explanation: "**SAT Pattern: Function Composition**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~30s):** $(x + 6)(x - 2) = 84$ gives $x^{2} + 4x - 96 = 0$, or $(x + 12)(x - 8) = 0$; the positive solution is $8$.\n\n**The Full Solution:**\nStep 1: Write $h$: $h(x) = (x + 6)(x - 2) = x^{2} + 4x - 12$.\nStep 2: Set $h(x) = 84$: $x^{2} + 4x - 12 = 84$, so $x^{2} + 4x - 96 = 0$.\nStep 3: Factor: $(x + 12)(x - 8) = 0$, so $x = -12$ or $x = 8$. The positive value is $8$. Check: $f(8) = 14$, $g(8) = 6$, and $14 \\cdot 6 = 84$ ✓\n\n**Common Mistakes:**\n* $40$: adds the functions instead of multiplying, solving $2x + 4 = 84$.\n* $78$: sets only $f(x) = x + 6$ equal to $84$.\n\n**Test Day Takeaway:** Build $h$ exactly as defined (here a product), move everything to one side, and factor.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "function-composition",
@@ -3806,19 +3806,19 @@ export const advancedMathBank = [
     skills: ["function-composition"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The table shows the values of the functions $f$ and $g$ for five values of $x$. For how many of these values of $x$ does $f(g(x)) = g(f(x))$?",
-    diagram: { type: "dataTable", params: { headers: ["x", "f(x)", "g(x)"], rows: [["1", "4", "4"], ["2", "2", "3"], ["3", "1", "3"], ["4", "4", "2"], ["5", "3", "5"]] } },
+    question: "The table shows some values of the exponential function $f$. The function $g$ is defined by $g(x) = f(x + 1)$. Which equation defines $g$?",
+    diagram: { type: "dataTable", params: { headers: ["x", "f(x)"], rows: [["0", "3"], ["1", "6"], ["2", "12"]] } },
     choices: [
-      // distractor: counts the values of x for which f(g(x)) returns x itself (none), a different condition
-      { id: "A", text: "$0$" },
-      // distractor: counts the values of x for which f(x) = g(x) (only x = 1)
-      { id: "B", text: "$1$" },
-      { id: "C", text: "$2$" },
-      // distractor: compares f(g(x)) with f(x) instead of with g(f(x)), which matches for three values
-      { id: "D", text: "$3$" }
+      // distractor: finds f but ignores the shift, giving f(x) itself
+      { id: "A", text: "$g(x) = 3(2)^{x}$" },
+      // distractor: adds 1 to the growth factor instead of to the input
+      { id: "B", text: "$g(x) = 3(3)^{x}$" },
+      // distractor: adds 1 to the initial value 3 instead of to the input
+      { id: "C", text: "$g(x) = 4(2)^{x}$" },
+      { id: "D", text: "$g(x) = 6(2)^{x}$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Function Composition**\n\n**Choice C is correct.**\n\n**The Fast Way (~60s):** Compute both sides for each $x$: they agree only at $x = 4$ (both $2$) and $x = 5$ (both $3$).\n\n**The Full Solution:**\nStep 1: Compute $f(g(x))$: $x = 1$: $f(4) = 4$; $x = 2$: $f(3) = 1$; $x = 3$: $f(3) = 1$; $x = 4$: $f(2) = 2$; $x = 5$: $f(5) = 3$.\nStep 2: Compute $g(f(x))$: $x = 1$: $g(4) = 2$; $x = 2$: $g(2) = 3$; $x = 3$: $g(1) = 4$; $x = 4$: $g(4) = 2$; $x = 5$: $g(3) = 3$.\nStep 3: Compare: the pairs are $(4, 2)$, $(1, 3)$, $(1, 4)$, $(2, 2)$, and $(3, 3)$, so the two sides agree for $2$ values of $x$. Check: at $x = 4$, $g(4) = 2$ and $f(2) = 2$, while $f(4) = 4$ and $g(4) = 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): counts the values of $x$ for which $f(g(x))$ returns $x$ itself, a different condition.\n* Choice B ($1$): counts the values of $x$ for which $f(x) = g(x)$ (only $x = 1$).\n* Choice D ($3$): compares $f(g(x))$ with $f(x)$ instead of with $g(f(x))$, which matches at $x = 1$, $3$, and $5$.\n\n**Test Day Takeaway:** Composition is usually not commutative; build both columns, $f(g(x))$ and $g(f(x))$, from the table and compare them row by row.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Function Composition**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** The table gives $f(x) = 3(2)^{x}$, so $g(x) = 3(2)^{x + 1} = 3(2)(2)^{x} = 6(2)^{x}$.\n\n**The Full Solution:**\nStep 1: The table gives $f(0) = 3$, and each increase of $1$ in $x$ doubles the output ($3$, $6$, $12$), so $f(x) = 3(2)^{x}$.\nStep 2: Replace $x$ with $x + 1$: $g(x) = f(x + 1) = 3(2)^{x + 1}$.\nStep 3: Rewrite: $3(2)^{x + 1} = 3(2)(2)^{x} = 6(2)^{x}$. Check: $g(0) = f(1) = 6$ and $6(2)^{0} = 6$; $g(1) = f(2) = 12$ and $6(2)^{1} = 12$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($g(x) = 3(2)^{x}$): finds $f$ correctly but leaves out the shift; this is $f(x)$.\n* Choice B ($g(x) = 3(3)^{x}$): adds $1$ to the growth factor instead of to the input.\n* Choice C ($g(x) = 4(2)^{x}$): adds $1$ to the initial value $3$ instead of to the input.\n\n**Test Day Takeaway:** Shifting the input of an exponential function changes its initial value: $a(b)^{x + 1} = ab(b)^{x}$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "function-composition",
@@ -3831,9 +3831,9 @@ export const advancedMathBank = [
     skills: ["function-composition"],
     difficulty: "hard",
     type: "fill-in",
-    question: "The functions $f$ and $g$ are defined by $f(x) = 3x + k$ and $g(x) = x^{2} - 2k$, where $k$ is a constant. If $f(g(3)) = 12$, what is the value of $k$?",
-    correctAnswer: "3",
-    explanation: "**SAT Pattern: Function Composition**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~30s):** $g(3) = 9 - 2k$, so $f(g(3)) = 3(9 - 2k) + k = 27 - 5k$. Setting $27 - 5k = 12$ gives $k = 3$.\n\n**The Full Solution:**\nStep 1: Evaluate the inner function: $g(3) = 3^{2} - 2k = 9 - 2k$.\nStep 2: Apply $f$: $f(9 - 2k) = 3(9 - 2k) + k = 27 - 6k + k = 27 - 5k$.\nStep 3: Solve $27 - 5k = 12$: $5k = 15$, so $k = 3$. Check: with $k = 3$, $g(3) = 9 - 6 = 3$ and $f(3) = 9 + 3 = 12$ ✓\n\n**Common Mistakes:**\n* $15$: multiplies only the $9$ by $3$, writing $27 - 2k + k = 12$.\n* $\\frac{15}{7}$: adds the $k$ terms with the wrong sign, writing $27 - 7k = 12$.\n* $-3$: solves $27 - 5k = 12$ as $5k = -15$.\n\n**Test Day Takeaway:** When the constant appears in both functions, carry it through: substitute $g(3)$ as a whole expression, distribute, then combine the $k$ terms.",
+    question: "$f(x) = x^{2} - 10x + 31$\nThe function $g$ is defined by $g(x) = f(x - 4)$. The graph of $y = g(x)$ in the $xy$-plane has its vertex at $(h, k)$. What is the value of $h$?",
+    correctAnswer: "9",
+    explanation: "**SAT Pattern: Function Composition**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~40s):** $f(x) = (x - 5)^{2} + 6$ has its vertex at $x = 5$; replacing $x$ with $x - 4$ moves the graph $4$ units right, so $h = 9$.\n\n**The Full Solution:**\nStep 1: Complete the square: $x^{2} - 10x + 31 = (x^{2} - 10x + 25) + 6 = (x - 5)^{2} + 6$, so the vertex of the graph of $f$ is $(5, 6)$.\nStep 2: Replace $x$ with $x - 4$: $g(x) = ((x - 4) - 5)^{2} + 6 = (x - 9)^{2} + 6$.\nStep 3: The vertex of the graph of $g$ is $(9, 6)$, so $h = 9$. Check: $g(9) = f(5) = 25 - 50 + 31 = 6$, the least value of $g$ ✓\n\n**Common Mistakes:**\n* $1$: moves the vertex $4$ units left instead of right.\n* $5$: reports the vertex of $f$ without the shift.\n* $6$: reports $k$, the $y$-coordinate of the vertex, instead of $h$.\n\n**Test Day Takeaway:** The graph of $y = f(x - c)$ is the graph of $f$ moved $c$ units right; find the vertex of $f$, then shift it.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "function-composition",
@@ -4092,18 +4092,18 @@ export const advancedMathBank = [
     skills: ["quadratic-factoring"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "$x^{2} - 13x + 30 = 0$\nThe solutions to the given equation are $p$ and $q$. What is the value of $p^{2} + q^{2}$?",
+    question: "$2x^{2} = 18x - 40$\nWhat is the sum of the solutions to the given equation?",
     choices: [
-      { id: "A", text: "$109$" },
-      // distractor: subtracts pq = 30 once instead of 2pq = 60, giving 139
-      { id: "B", text: "$139$" },
-      // distractor: reports (p+q)^2 = 169 and never subtracts 2pq
-      { id: "C", text: "$169$" },
-      // distractor: adds 2pq instead of subtracting it, giving 229
-      { id: "D", text: "$229$" }
+      // distractor: uses b/a instead of -b/a after rearranging
+      { id: "A", text: "$-9$" },
+      { id: "B", text: "$9$" },
+      // distractor: uses -b without dividing by a = 2
+      { id: "C", text: "$18$" },
+      // distractor: reports the product of the solutions, 40/2 = 20
+      { id: "D", text: "$20$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** $p+q=13$ and $pq=30$, so $p^2+q^2=(p+q)^2-2pq=169-60=109$.\n\n**The Full Solution:**\nStep 1: By Vieta's, $p+q=-\\frac{-13}{1}=13$ and $pq=\\frac{30}{1}=30$.\nStep 2: Use the identity $p^2+q^2=(p+q)^2-2pq$.\nStep 3: Substitute: $13^2-2(30)=169-60=109$. Check: the solutions are $3$ and $10$, and $9+100=109$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($139$): subtracts $pq=30$ once instead of $2pq=60$.\n* Choice C ($169$): reports $(p+q)^2=169$ and never subtracts the $2pq$ term.\n* Choice D ($229$): adds $2pq=60$ to $169$ instead of subtracting it.\n\n**Test Day Takeaway:** Any symmetric expression in the two solutions can be rebuilt from their sum and product — no need to solve the quadratic.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Rewrite as $2x^{2} - 18x + 40 = 0$; the sum of the solutions is $\\frac{18}{2} = 9$.\n\n**The Full Solution:**\nStep 1: Move every term to one side: $2x^{2} - 18x + 40 = 0$.\nStep 2: Divide by $2$: $x^{2} - 9x + 20 = 0$, which factors as $(x - 4)(x - 5) = 0$.\nStep 3: The solutions are $4$ and $5$, and their sum is $9$. Check: $2(4)^{2} = 32 = 18(4) - 40$ and $2(5)^{2} = 50 = 18(5) - 40$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$): uses $\\frac{b}{a}$ instead of $-\\frac{b}{a}$.\n* Choice C ($18$): uses $-b$ without dividing by $a = 2$.\n* Choice D ($20$): reports the product of the solutions, $\\frac{40}{2}$, instead of the sum.\n\n**Test Day Takeaway:** Put the equation in the form $ax^{2} + bx + c = 0$ first; then the sum of the solutions is $-\\frac{b}{a}$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "vieta-sum-product-of-roots",
@@ -4117,9 +4117,9 @@ export const advancedMathBank = [
     skills: ["quadratic-factoring"],
     difficulty: "medium",
     type: "fill-in",
-    question: "$5x^{2} - 40x + 35 = 0$\nThe solutions to the given equation are $a$ and $b$. What is the value of $\\frac{1}{a} + \\frac{1}{b}$?",
-    correctAnswer: "8/7",
-    explanation: "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**The correct answer is $\\frac{8}{7}$.**\n\n**The Fast Way (~25s):** $\\frac{1}{a}+\\frac{1}{b}=\\frac{a+b}{ab}$, and Vieta's gives $a+b=8$ and $ab=7$, so the value is $\\frac{8}{7}$.\n\n**The Full Solution:**\nStep 1: From $5x^2-40x+35=0$, the sum is $-\\frac{-40}{5}=8$ and the product is $\\frac{35}{5}=7$.\nStep 2: Combine the reciprocals over a common denominator: $\\frac{1}{a}+\\frac{1}{b}=\\frac{a+b}{ab}$.\nStep 3: Substitute: $\\frac{8}{7}$. Check: the solutions are $1$ and $7$, and $\\frac{1}{1}+\\frac{1}{7}=\\frac{8}{7}$ ✓\n\n**Common Mistakes:**\n* $\\frac{7}{8}$: writes $\\frac{ab}{a+b}$, inverting the combined fraction.\n* $8$: reports the sum $a+b$ and never divides by the product.\n* $7$: reports the product $ab$ instead of the combined reciprocal.\n\n**Test Day Takeaway:** Rewrite a reciprocal sum as $\\frac{\\text{sum}}{\\text{product}}$ — both pieces come straight from the coefficients.",
+    question: "$2x^{2} - 9x - 35 = 0$\nWhat is the sum of the solutions to the given equation?",
+    correctAnswer: "9/2",
+    explanation: "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**The correct answer is $\\frac{9}{2}$.**\n\n**The Fast Way (~20s):** For $ax^{2} + bx + c = 0$, the sum of the solutions is $-\\frac{b}{a} = -\\frac{-9}{2} = \\frac{9}{2}$.\n\n**The Full Solution:**\nStep 1: Here $a = 2$, $b = -9$, and $c = -35$.\nStep 2: The sum of the solutions is $-\\frac{b}{a} = \\frac{9}{2}$.\nStep 3: Check by factoring: $(2x + 5)(x - 7) = 0$, so the solutions are $-\\frac{5}{2}$ and $7$, and $-\\frac{5}{2} + 7 = \\frac{9}{2}$ ✓ (Either $9/2$ or $4.5$ is accepted.)\n\n**Common Mistakes:**\n* $9$: uses $-b$ without dividing by $a = 2$.\n* $-\\frac{9}{2}$: uses $\\frac{b}{a}$ instead of $-\\frac{b}{a}$.\n* $-\\frac{35}{2}$: computes the product of the solutions, $\\frac{c}{a}$, instead of the sum.\n\n**Test Day Takeaway:** The sum of the solutions of $ax^{2} + bx + c = 0$ is $-\\frac{b}{a}$; divide by the leading coefficient.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "vieta-sum-product-of-roots",
@@ -4133,18 +4133,18 @@ export const advancedMathBank = [
     skills: ["quadratic-factoring"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "$x^{2} + bx + 48 = 0$\nIn the given equation, $b$ is a negative constant. One solution is $3$ times the other. What is the value of $b$?",
+    question: "$2x(x - 5) = x^{2} + 3x - 7$\nWhat is the sum of the solutions to the given equation?",
     choices: [
-      { id: "A", text: "$-16$" },
-      // distractor: adds the solutions as 2r instead of 4r, giving -8
-      { id: "B", text: "$-8$" },
-      // distractor: makes the 2r slip and also drops the sign, giving 8
+      // distractor: uses b/a instead of -b/a
+      { id: "A", text: "$-13$" },
+      // distractor: reports the product of the solutions, 7
+      { id: "B", text: "$7$" },
+      // distractor: expands 2x(x - 5) as 2x^2 - 5x, which leads to x^2 - 8x + 7 = 0
       { id: "C", text: "$8$" },
-      // distractor: takes r = -4 and ignores that b must be negative, giving 16
-      { id: "D", text: "$16$" }
+      { id: "D", text: "$13$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** Let the solutions be $r$ and $3r$: their product $3r^2=48$ gives $r=\\pm4$, and their sum $4r=-b$; $b<0$ forces $r=4$, so $b=-16$.\n\n**The Full Solution:**\nStep 1: Name the solutions $r$ and $3r$. Their product is $\\frac{c}{a}=48$, so $3r^2=48$ and $r^2=16$, giving $r=4$ or $r=-4$.\nStep 2: Their sum is $r+3r=4r$, and Vieta's says that sum equals $-\\frac{b}{1}=-b$.\nStep 3: $b<0$ means $-b>0$, so $4r>0$ and $r=4$; then $-b=16$ and $b=-16$. Check: $x^2-16x+48=(x-4)(x-12)$, and $12=3\\cdot4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-8$): adds the solutions as $r+r=2r$ instead of $r+3r=4r$.\n* Choice C ($8$): makes that same $2r$ slip and then drops the negative sign.\n* Choice D ($16$): takes $r=-4$ and ignores the requirement that $b$ be negative.\n\n**Test Day Takeaway:** When one solution is a multiple of the other, name them $r$ and $mr$ — the product pins $r$ and the sum pins the coefficient.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** Expanding and collecting gives $x^{2} - 13x + 7 = 0$, so the sum of the solutions is $13$.\n\n**The Full Solution:**\nStep 1: Expand the left side: $2x^{2} - 10x = x^{2} + 3x - 7$.\nStep 2: Collect every term on the left: $x^{2} - 13x + 7 = 0$. Its discriminant, $169 - 28 = 141$, is positive, so there are two real solutions (not integers).\nStep 3: The sum of the solutions is $-\\frac{-13}{1} = 13$. Check: the solutions are $\\frac{13 \\pm \\sqrt{141}}{2}$, which add to $\\frac{26}{2} = 13$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-13$): uses $\\frac{b}{a}$ instead of $-\\frac{b}{a}$.\n* Choice B ($7$): reports the product of the solutions, $\\frac{7}{1}$, instead of the sum.\n* Choice C ($8$): expands $2x(x - 5)$ as $2x^{2} - 5x$, which leads to $x^{2} - 8x + 7 = 0$.\n\n**Test Day Takeaway:** When the solutions are messy, do not solve; write the equation in standard form and read the sum as $-\\frac{b}{a}$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "vieta-sum-product-of-roots",
@@ -4158,9 +4158,9 @@ export const advancedMathBank = [
     skills: ["quadratic-factoring"],
     difficulty: "hard",
     type: "fill-in",
-    question: "$4x^{2} - 28x + c = 0$\nIn the given equation, $c$ is a constant. The two solutions to the equation differ by $5$. What is the value of $c$?",
-    correctAnswer: "24",
-    explanation: "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**The correct answer is $24$.**\n\n**The Fast Way (~35s):** The solutions add to $-\\frac{-28}{4}=7$ and differ by $5$, so they are $6$ and $1$; their product $6$ equals $\\frac{c}{4}$, giving $c=24$.\n\n**The Full Solution:**\nStep 1: Vieta's gives the sum $-\\frac{-28}{4}=7$, so the two solutions satisfy $x_1+x_2=7$ and $x_1-x_2=5$.\nStep 2: Adding the two equations gives $2x_1=12$, so $x_1=6$ and $x_2=1$.\nStep 3: The product is $\\frac{c}{4}$, so $6\\cdot1=\\frac{c}{4}$ and $c=24$. Check: $4x^2-28x+24=4(x-1)(x-6)$, and $6-1=5$ ✓\n\n**Common Mistakes:**\n* $6$: reports the product $\\frac{c}{4}=6$ instead of solving for $c$.\n* $96$: uses $x_1=7+5=12$ and $x_2=7-5=2$ without halving, giving a product of $24$ and $c=96$.\n* $-24$: attaches a negative sign that the product formula $\\frac{c}{a}$ does not carry.\n\n**Test Day Takeaway:** A sum-and-difference pair is a two-line system: add to get one solution, subtract to get the other, then use the product for the missing coefficient.",
+    question: "$(x - 9)^{2} = 3x - 27$\nWhat is the sum of the solutions to the given equation?",
+    correctAnswer: "21",
+    explanation: "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**The correct answer is $21$.**\n\n**The Fast Way (~30s):** Expanding gives $x^{2} - 21x + 108 = 0$, so the sum of the solutions is $21$.\n\n**The Full Solution:**\nStep 1: The right side is $3(x - 9)$, so the equation is $(x - 9)^{2} - 3(x - 9) = 0$.\nStep 2: Factor out $x - 9$: $(x - 9)(x - 9 - 3) = (x - 9)(x - 12) = 0$.\nStep 3: The solutions are $9$ and $12$, and their sum is $21$. Check: expanding gives $x^{2} - 18x + 81 = 3x - 27$, or $x^{2} - 21x + 108 = 0$, and $-\\frac{-21}{1} = 21$ ✓\n\n**Common Mistakes:**\n* $12$: divides both sides by $x - 9$, which loses the solution $x = 9$.\n* $18$: uses only the $-18x$ from expanding the left side and forgets the $3x$ on the right.\n\n**Test Day Takeaway:** Never divide both sides by an expression that can equal $0$; factor it out instead, or a solution is lost.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "vieta-sum-product-of-roots",
@@ -4423,19 +4423,19 @@ export const advancedMathBank = [
     skills: ["function-interpretation", "identify-quadratic"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A rectangular pen is enclosed by $120$ meters of fencing. The table shows the area of the pen, in square meters, for three values of its width $w$, in meters. Which type of function best models the area as a function of $w$?",
-    diagram: { type: "dataTable", params: { headers: ["w (meters)", "Area (square meters)"], rows: [["10", "500"], ["30", "900"], ["50", "500"]] } },
+    question: "The table shows the number of members in a book club at the start of each of three consecutive years. Which type of function best models the number of members as a function of time?",
+    diagram: { type: "dataTable", params: { headers: ["Years after 2020", "Members"], rows: [["0", "500"], ["1", "600"], ["2", "720"]] } },
     choices: [
-      // distractor: the area rises before it falls
-      { id: "A", text: "Decreasing linear" },
-      // distractor: the area falls after $w = 30$
-      { id: "B", text: "Increasing linear" },
-      // distractor: an exponential function never turns around
+      // distractor: the right family, but the number of members is rising, not falling
+      { id: "A", text: "Decreasing exponential" },
+      // distractor: the number of members is rising, and the yearly changes are not constant
+      { id: "B", text: "Decreasing linear" },
       { id: "C", text: "Increasing exponential" },
-      { id: "D", text: "Quadratic" }
+      // distractor: the yearly increases, 100 and then 120, are not constant; the ratios are
+      { id: "D", text: "Increasing linear" }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Classify Physical Motion Model**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Half the perimeter is $60$, so the length is $60 - w$, so the area is $w(60 - w) = 60w - w^2$ — a squared term, so the model is quadratic.\n\n**The Full Solution:**\nStep 1: The perimeter is $2w + 2L = 120$, so $w + L = 60$ and the length is $L = 60 - w$ and the area is $A(w) = w(60 - w)$.\nStep 2: Expanding gives $A(w) = 60w - w^2$, a degree-$2$ polynomial, so $A$ is quadratic.\nStep 3: The table confirms the shape: the area rises from $500$ to $900$, then falls back to $500$. Check: $A(10) = 10(50) = 500$, $A(30) = 30(30) = 900$, $A(50) = 50(10) = 500$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (decreasing linear): matches only the second half of the table; the area increases from $w = 10$ to $w = 30$.\n* Choice B (increasing linear): matches only the first half; the area decreases after $w = 30$.\n* Choice C (increasing exponential): an exponential model rises without ever turning around, and equal steps in $w$ here do not give equal ratios.\n\n**Test Day Takeaway:** A quantity that rises to a maximum and then falls symmetrically is quadratic — a product of two expressions that move in opposite directions is the usual source.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Classify Physical Motion Model**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\frac{600}{500} = 1.2$ and $\\frac{720}{600} = 1.2$: a constant ratio greater than $1$, so the model is increasing exponential.\n\n**The Full Solution:**\nStep 1: Check the differences: $600 - 500 = 100$ and $720 - 600 = 120$. They are not equal, so a linear model does not fit.\nStep 2: Check the ratios: $\\frac{600}{500} = 1.2$ and $\\frac{720}{600} = 1.2$. They are equal, so the number of members is multiplied by $1.2$ each year, which is exponential.\nStep 3: Because the factor $1.2$ is greater than $1$, the model is increasing exponential. Check: $500(1.2)^{2} = 720$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Decreasing exponential): the right family, but the number of members is rising, not falling.\n* Choice B (Decreasing linear): the number of members is rising, and the yearly changes are not constant.\n* Choice D (Increasing linear): the yearly increases, $100$ and then $120$, are not constant; the ratios are.\n\n**Test Day Takeaway:** Equal differences mean linear; equal ratios mean exponential; a factor above $1$ means increasing.",
     calculatorAllowed: true,
     tags: ["model-classification"],
     sourceStyleRef: "model-classification",
@@ -4478,19 +4478,19 @@ export const advancedMathBank = [
     skills: ["function-interpretation", "linear-functions"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A plant nursery gave away seedling flats during a spring event. The graph shown models the number of flats $y$ remaining $x$ weeks after the event began. What is the best interpretation of the $y$-intercept of the graph in this context?",
-    diagram: { type: "linearGraph", params: { slope: -5, yIntercept: 40, xRange: [0, 10], yRange: [0, 50], xTickInterval: 5, yTickInterval: 10, gridInterval: 5, showPoints: [[0, 40], [8, 0]] } },
+    question: "A garden center gave away free tomato plants during a spring event. The graph shown models the number of plants $y$ remaining $x$ weeks after the event began. What is the best interpretation of the $y$-intercept of the graph in this context?",
+    diagram: { type: "parabola", params: { vertex: { h: 10, k: 0 }, a: 0.4, xRange: [0, 10], yRange: [0, 50], xTickInterval: 5, yTickInterval: 10, gridInterval: 5, showVertex: false, highlightPoints: [[0, 40], [10, 0]] } },
     choices: [
-      // distractor: interprets the slope instead of the $y$-intercept
-      { id: "A", text: "The nursery gave away $5$ flats each week." },
-      { id: "B", text: "The nursery had $40$ flats when the event began." },
-      // distractor: reads the intercept as a total given away rather than a starting stock
-      { id: "C", text: "The nursery had given away $40$ flats when the event ended." },
-      // distractor: reads the intercept as a number of weeks
+      // distractor: reads the intercept as a weekly rate
+      { id: "A", text: "The garden center gave away $40$ plants each week." },
+      { id: "B", text: "The garden center had $40$ plants when the event began." },
+      // distractor: pairs the y-value 40 with the x-intercept, 10 weeks, where the graph shows 0 plants
+      { id: "C", text: "The garden center had $40$ plants remaining $10$ weeks after the event began." },
+      // distractor: reads the intercept, a number of plants, as a number of weeks
       { id: "D", text: "The event lasted $40$ weeks." }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The $y$-intercept is $(0, 40)$: when $x = 0$ weeks, $40$ flats remained, which is the number the nursery had when the event began.\n\n**The Full Solution:**\nStep 1: The $y$-intercept of a graph is the point where $x = 0$. The graph shown crosses the $y$-axis at $(0, 40)$.\nStep 2: Here $x$ is the number of weeks since the event began and $y$ is the number of flats remaining, so $x = 0$ is the moment the event began.\nStep 3: So the nursery had $40$ flats when the event began. Check the rest of the graph: it falls to $(8, 0)$, a drop of $40$ flats over $8$ weeks, or $5$ flats per week, so the slope describes the giveaway rate, not the intercept ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$ flats each week): describes the slope of the graph, not the $y$-intercept.\n* Choice C ($40$ given away by the end): $40$ is the number of flats at the START; at the end the graph shows $0$ remaining.\n* Choice D ($40$ weeks): $40$ is measured on the $y$-axis, in flats; the graph reaches $0$ at $x = 8$ weeks.\n\n**Test Day Takeaway:** The $y$-intercept always answers \"what was the output when the input was $0$?\"; state it in the units of the output.",
+    explanation: "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The graph crosses the $y$-axis at $(0, 40)$: when $x = 0$ weeks, $40$ plants remained, which is the number the garden center had when the event began.\n\n**The Full Solution:**\nStep 1: The $y$-intercept of a graph is the point where $x = 0$. The graph shown crosses the $y$-axis at $(0, 40)$.\nStep 2: Here $x$ is the number of weeks since the event began and $y$ is the number of plants remaining, so $x = 0$ is the moment the event began.\nStep 3: So the garden center had $40$ plants when the event began. Check: the curve falls from $40$ to $0$ at $x = 10$, so $40$ is the starting number of plants, not a number of weeks or a weekly amount ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($40$ plants each week): reads the intercept as a weekly rate; $40$ is the number of plants at the start.\n* Choice C ($40$ plants after $10$ weeks): at $x = 10$ the graph shows $0$ plants remaining, not $40$.\n* Choice D ($40$ weeks): $40$ is measured on the $y$-axis, in plants; the graph reaches $0$ at $x = 10$ weeks.\n\n**Test Day Takeaway:** The $y$-intercept answers \"what was the output when the input was $0$?\"; state it in the units of the output.",
     calculatorAllowed: true,
     tags: ["interpret-parameter"],
     sourceStyleRef: "interpret-y-intercept",
@@ -4504,18 +4504,18 @@ export const advancedMathBank = [
     skills: ["function-interpretation", "linear-functions"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "$F(d) = 250d + 3{,}000$\nThe function $F$ gives the total amount of money, in dollars, a charity had raised $d$ days after a fundraiser began. What is the best interpretation of $3{,}000$ in this context?",
+    question: "$F(d) = 2{,}400(1.25)^{\\frac{d}{7}}$\nThe function $F$ gives the number of members of an online gardening forum $d$ days after the forum was launched. What is the best interpretation of $2{,}400$ in this context?",
     choices: [
-      // distractor: swaps the two constants, reading the daily rate 250 as the starting amount
-      { id: "A", text: "The charity had raised \\$250 when the fundraiser began." },
-      // distractor: reads the constant term as a daily rate, the job of the coefficient of d
-      { id: "B", text: "The charity raised \\$3,000 each day of the fundraiser." },
-      { id: "C", text: "The charity had raised \\$3,000 when the fundraiser began." },
-      // distractor: reads the constant term as a number of days instead of a number of dollars
-      { id: "D", text: "The fundraiser lasted $3{,}000$ days." }
+      // distractor: reads the initial value as a daily increase
+      { id: "A", text: "The number of members increased by $2{,}400$ each day." },
+      // distractor: reads the initial value as the change over each 7-day period; the growth is by a factor of 1.25, not by a fixed amount
+      { id: "B", text: "The number of members increased by $2{,}400$ every $7$ days." },
+      { id: "C", text: "The forum had $2{,}400$ members when it was launched." },
+      // distractor: pairs 2,400 with d = 7; F(7) = 2,400(1.25) = 3,000
+      { id: "D", text: "The forum had $2{,}400$ members $7$ days after it was launched." }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $F(0) = 3{,}000$, so $3{,}000$ is the amount, in dollars, the charity had raised at $d = 0$, when the fundraiser began.\n\n**The Full Solution:**\nStep 1: The constant term of $F(d) = 250d + 3{,}000$ is the value of $F$ when $d = 0$.\nStep 2: $F(0) = 250(0) + 3{,}000 = 3{,}000$.\nStep 3: Since $F(d)$ is the total raised, in dollars, $d$ days after the fundraiser began, the charity had already raised $\\$3{,}000$ when it began. Check the other constant: $F(1) - F(0) = 250$, the amount raised each day ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (\\$250 when the fundraiser began): swaps the two constants; $250$ is the amount raised each day.\n* Choice B (\\$3,000 each day): gives the constant term the job of the coefficient of $d$; the charity raised \\$250 each day.\n* Choice D ($3{,}000$ days): $3{,}000$ is a number of dollars, the output of $F$, not a number of days.\n\n**Test Day Takeaway:** Attach units before choosing: the constant term carries the OUTPUT units (dollars), and the coefficient of $d$ carries output-per-input units (dollars per day).",
+    explanation: "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $F(0) = 2{,}400(1.25)^{0} = 2{,}400$, so the forum had $2{,}400$ members when it was launched.\n\n**The Full Solution:**\nStep 1: The forum was launched at $d = 0$.\nStep 2: Substitute $0$ for $d$: $F(0) = 2{,}400(1.25)^{\\frac{0}{7}} = 2{,}400(1) = 2{,}400$.\nStep 3: So $2{,}400$ is the number of members at launch. Check: $F(7) = 2{,}400(1.25) = 3{,}000$, so $2{,}400$ is not the number after $7$ days ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (increase of $2{,}400$ each day): the model multiplies by a factor; it does not add a fixed amount each day.\n* Choice B (increase of $2{,}400$ every $7$ days): every $7$ days the number of members is multiplied by $1.25$; $2{,}400$ is the starting value.\n* Choice D ($2{,}400$ members after $7$ days): $F(7) = 3{,}000$; $2{,}400$ is the value at $d = 0$.\n\n**Test Day Takeaway:** In $a(b)^{\\frac{t}{k}}$, the coefficient $a$ is the value at $t = 0$.",
     calculatorAllowed: true,
     tags: ["interpret-parameter"],
     sourceStyleRef: "interpret-y-intercept",
@@ -4554,18 +4554,18 @@ export const advancedMathBank = [
     skills: ["function-interpretation", "linear-functions"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The function $C(h) = 45 + 38h$ gives the cost, in dollars, of an $h$-hour repair. What is the best interpretation of $45$ in this context?",
+    question: "The function $h(t) = -5t^{2} + 20t + 45$ gives the height, in meters, of a ball above the ground $t$ seconds after it is thrown upward from a balcony. What is the best interpretation of $45$ in this context?",
     choices: [
-      { id: "A", text: "The cost of the repair is \\$45 before any hours of work are charged." },
-      // distractor: reads the constant as the hourly rate; the hourly rate is 38
-      { id: "B", text: "The cost of the repair increases by \\$45 for each hour of work." },
-      // distractor: reads a dollar amount as a number of hours
-      { id: "C", text: "The repair includes 45 hours of work at no charge." },
-      // distractor: pairs the constant with the coefficient instead of reading it at h = 0; a 38-hour repair costs 45 + 1,444 = 1,489 dollars
-      { id: "D", text: "The cost of the repair is \\$45 for 38 hours of work." }
+      { id: "A", text: "The ball was thrown from a height of $45$ meters above the ground." },
+      // distractor: takes the constant term as the maximum height; the maximum is h(2) = 65 meters
+      { id: "B", text: "The ball reaches a maximum height of $45$ meters above the ground." },
+      // distractor: reads a height in meters as a time in seconds
+      { id: "C", text: "The ball hits the ground $45$ seconds after it is thrown." },
+      // distractor: reads the constant term as a rate of change in height
+      { id: "D", text: "The height of the ball increases by $45$ meters each second." }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** At $h = 0$ the model gives $C(0) = 45$, the cost before any hours of work are charged.\n\n**The Full Solution:**\nStep 1: Substituting $h = 0$ removes the hourly term, leaving $C(0) = 45$.\nStep 2: Zero hours means no work has been charged yet, so \\$45 is a starting charge.\nStep 3: The term 45 is therefore the cost before any hours are charged. Check: $C(2) = 45 + 76 = 121$, which is the \\$45 plus two hours at \\$38 ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: names 45 as the hourly rate, but that role belongs to 38.\n* Choice C: converts dollars into hours.\n* Choice D: pairs the constant with the coefficient; a 38-hour repair costs $45 + 38(38) = 1{,}489$ dollars, not 45.\n\n**Test Day Takeaway:** The constant term is the output when the input is zero — say what zero input means in the situation.",
+    explanation: "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $h(0) = 45$, so $45$ meters is the height of the ball when it is thrown, which is the height of the balcony.\n\n**The Full Solution:**\nStep 1: The ball is thrown at $t = 0$.\nStep 2: Substitute $0$ for $t$: $h(0) = -5(0)^{2} + 20(0) + 45 = 45$.\nStep 3: So the ball was thrown from a height of $45$ meters above the ground. Check: the maximum height is $h(2) = -20 + 40 + 45 = 65$ meters, so $45$ is the starting height, not the maximum ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (maximum height of $45$ meters): the ball keeps rising after it is thrown; its maximum height is $h(2) = 65$ meters.\n* Choice C ($45$ seconds): $45$ is a height in meters, not a time.\n* Choice D (increases by $45$ meters each second): a constant term is not a rate of change.\n\n**Test Day Takeaway:** The constant term of a model is its value when the input is $0$; state it in the units of the output.",
     calculatorAllowed: true,
     tags: ["interpret-parameter"],
     sourceStyleRef: "interpret-y-intercept",
@@ -5128,7 +5128,7 @@ export const advancedMathBank = [
     skills: ["tangent-lines", "discriminant-analysis"],
     difficulty: "medium",
     type: "fill-in",
-    question: "$y = 2x + 3$\n$y = x^{2} + 6x + c$\nThe given system of equations, where $c$ is a constant, has exactly one solution, $(x, y)$. What is the value of $y$?",
+    question: "$y = 2x + 3$\n$y = x^{2} + 6x + c$\nIn the $xy$-plane, the graphs of the given equations, where $c$ is a constant, intersect at exactly one point, $(x, y)$. What is the value of $y$?",
     correctAnswer: "-1",
     explanation: "**SAT Pattern: Tangent Line and Discriminant**\n\n**The correct answer is $-1$.**\n\n**The Fast Way (~30s):** Equating gives $x^{2} + 4x + (c - 3) = 0$, whose double root is $x = -\\frac{4}{2} = -2$; substituting into $y = 2x + 3$ gives $y = -1$.\n\n**The Full Solution:**\nStep 1: Set $x^{2} + 6x + c = 2x + 3$, which rearranges to $x^{2} + 4x + (c - 3) = 0$.\nStep 2: Exactly one intersection point means this quadratic has a double root, located at $x = -\\frac{4}{2(1)} = -2$.\nStep 3: Put $x = -2$ into the line: $y = 2(-2) + 3 = -1$. Check: a double root at $-2$ makes the quadratic $(x + 2)^{2} = x^{2} + 4x + 4$, so $c - 3 = 4$ and $c = 7$; then $y = 4 - 12 + 7 = -1$ on the parabola as well ✓\n\n**Common Mistakes:**\n* $-2$: reports the $x$-coordinate of the intersection point instead of the $y$-coordinate.\n* $7$: reports the value of $c$.\n* $3$: reports the $y$-intercept of the line.\n\n**Test Day Takeaway:** Find the tangency input from $-\\frac{b}{2a}$ of the difference quadratic, then read the output off the line — it is the easier of the two equations.",
     calculatorAllowed: true,
@@ -5144,7 +5144,7 @@ export const advancedMathBank = [
     skills: ["tangent-lines", "discriminant-analysis"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The graph of the quadratic function $f$ is shown. In the $xy$-plane, the line $y = 2x - 7$ intersects the graph of $y = f(x)$ at exactly one point. What is the $x$-coordinate of this point?",
+    question: "The graph of the quadratic function $f$ is shown. The line $y = 2x - 7$ intersects the graph of $y = f(x)$ at exactly one point. What is the $x$-coordinate of this point?",
     diagram: { type: "parabola", params: { vertex: { h: 1, k: -4 }, a: 1, xRange: [-6, 8], yRange: [-6, 10], showVertex: false, highlightPoints: [[-1, 0], [1, -4], [3, 0]], xTickInterval: 2, yTickInterval: 2, gridInterval: 1, label: "y = f(x)" } },
     choices: [
       // distractor: reports the y-intercept of the parabola
@@ -5214,7 +5214,7 @@ export const advancedMathBank = [
     skills: ["function-transformations"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The table shows four values of $x$ and their corresponding values of $f(x)$. The function $g$ is defined by $g(x) = f(x) + 6$. What is the value of $g(2)$?",
+    question: "$g(x) = f(x) + 6$\nThe function $g$ is defined by the given equation, and selected values of $f(x)$ are shown in the table. What is the value of $g(2)$?",
     diagram: { type: "dataTable", params: { headers: ["x", "f(x)"], rows: [["0", "7"], ["1", "3"], ["2", "-2"], ["3", "6"]] } },
     choices: [
       // distractor: subtracts 6 instead of adding it
@@ -5588,19 +5588,19 @@ export const advancedMathBank = [
     skills: ["function-transformations"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The table shows selected values of the function $f$. The function $g$ is given by $g(x) = -f(x)$. What is the value of $g(0)$?",
-    diagram: { type: "table", params: { xHeader: "x", yHeader: "f(x)", rows: [["-2", "7"], ["0", "3"], ["1", "-1"], ["4", "5"]] } },
+    question: "The graph of the quadratic function $f$ is shown. One $x$-intercept of the graph of $y = f(x)$ is $(-1, 0)$. What is the other $x$-intercept?",
+    diagram: { type: "quadraticVertex", params: { vertex: [2, -9], a: 1, showPoints: [[-1, 0], [5, 0]], showVertex: true } },
     choices: [
-      // distractor: takes the opposite of f(-2) instead of f(0)
-      { id: "A", text: "$-7$" },
-      { id: "B", text: "$-3$" },
-      // distractor: takes the opposite of f(1) instead of f(0)
-      { id: "C", text: "$1$" },
-      // distractor: reports f(0) without taking its opposite
-      { id: "D", text: "$3$" }
+      // distractor: gives the y-intercept, where the graph crosses the y-axis
+      { id: "A", text: "$(0, -5)$" },
+      // distractor: reflects (-1, 0) across the y-axis instead of across the line x = 2 through the vertex
+      { id: "B", text: "$(1, 0)$" },
+      // distractor: gives the vertex, which is not on the x-axis
+      { id: "C", text: "$(2, -9)$" },
+      { id: "D", text: "$(5, 0)$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Reflection of Graph**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The table shows $f(0) = 3$, so $g(0) = -f(0) = -3$.\n\n**The Full Solution:**\nStep 1: The table shows that when $x = 0$, $f(x) = 3$.\nStep 2: By definition, $g(0) = -f(0)$.\nStep 3: So $g(0) = -3$. Check: the graph of $y = -f(x)$ is the reflection of the graph of $y = f(x)$ across the $x$-axis, so the point $(0, 3)$ becomes $(0, -3)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): takes the opposite of $f(-2) = 7$, the value in the wrong row.\n* Choice C ($1$): takes the opposite of $f(1) = -1$, the value in the wrong row.\n* Choice D ($3$): reads $f(0)$ from the table but never takes its opposite.\n\n**Test Day Takeaway:** A negative sign outside the function changes the sign of every output and leaves every input alone.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Reflection of Graph**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The graph meets the $x$-axis at $x = -1$ and again at $x = 5$, so the other $x$-intercept is $(5, 0)$.\n\n**The Full Solution:**\nStep 1: An $x$-intercept is a point where the graph meets the $x$-axis, so its $y$-coordinate is $0$.\nStep 2: The graph shown meets the $x$-axis at $x = -1$ and at $x = 5$.\nStep 3: The other $x$-intercept is $(5, 0)$. Check: the vertex is at $x = 2$, and $-1$ and $5$ are each $3$ units from $2$, as the two $x$-intercepts of a parabola must be ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(0, -5)$): this is where the graph crosses the $y$-axis, the $y$-intercept.\n* Choice B ($(1, 0)$): reflects $(-1, 0)$ across the $y$-axis, but the graph is symmetric about the line $x = 2$ through its vertex.\n* Choice C ($(2, -9)$): this is the vertex, the lowest point of the graph, and it is not on the $x$-axis.\n\n**Test Day Takeaway:** The two $x$-intercepts of a parabola are mirror images across the vertical line through the vertex.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "reflection-of-graph",
@@ -5614,19 +5614,19 @@ export const advancedMathBank = [
     skills: ["function-transformations"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The graph of $y = f(x)$ is shown. If $g(x) = f(-x)$, what is the value of $g(2)$?",
-    diagram: { type: "linearGraph", params: { slope: 2, yIntercept: -1, xRange: [-5, 5], yRange: [-12, 10], xTickInterval: 1, yTickInterval: 2, gridInterval: 1, showPoints: [[0, -1], [3, 5]] } },
+    question: "The graph of $y = f(x)$ is shown. For what value of $x$, other than $0$, is $f(x) = 5$?",
+    diagram: { type: "quadraticVertex", params: { vertex: [3, -4], a: 1, showPoints: [[0, 5], [6, 5]], showVertex: true } },
     choices: [
-      { id: "A", text: "$-5$" },
-      // distractor: computes -f(2), reflecting across the x-axis instead
-      { id: "B", text: "$-3$" },
-      // distractor: computes f(2), ignoring the reflection
-      { id: "C", text: "$3$" },
-      // distractor: computes -f(-2), reflecting across both axes
-      { id: "D", text: "$5$" }
+      // distractor: gives an x-intercept, where f(x) = 0
+      { id: "A", text: "$1$" },
+      // distractor: gives the x-coordinate of the vertex
+      { id: "B", text: "$3$" },
+      // distractor: confuses the output 5 with an input
+      { id: "C", text: "$5$" },
+      { id: "D", text: "$6$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Reflection of Graph**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $g(2) = f(-2)$, and the line through $(0, -1)$ and $(3, 5)$ has $f(x) = 2x - 1$, so $f(-2) = -5$.\n\n**The Full Solution:**\nStep 1: By definition, $g(2) = f(-2)$.\nStep 2: The line shown passes through $(0, -1)$ and $(3, 5)$, so its slope is $\\frac{5 - (-1)}{3 - 0} = 2$ and $f(x) = 2x - 1$.\nStep 3: Then $g(2) = f(-2) = 2(-2) - 1 = -5$. Check: the graph of $y = f(-x)$ is the reflection of the line across the $y$-axis, so the point $(-2, -5)$ on the graph of $f$ becomes $(2, -5)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-3$): computes $-f(2) = -3$, which reflects the graph across the $x$-axis instead of the $y$-axis.\n* Choice C ($3$): computes $f(2) = 3$ and ignores the negative sign on the input.\n* Choice D ($5$): computes $-f(-2) = 5$, reflecting across both axes.\n\n**Test Day Takeaway:** A negative sign on the input, $f(-x)$, reflects across the $y$-axis; a negative sign on the output, $-f(x)$, reflects across the $x$-axis.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Reflection of Graph**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The graph is at height $5$ at $x = 0$ and again at $x = 6$, on the other side of the vertex.\n\n**The Full Solution:**\nStep 1: $f(x) = 5$ asks for points on the graph whose $y$-coordinate is $5$.\nStep 2: The graph shown passes through $(0, 5)$ and through $(6, 5)$.\nStep 3: Other than $0$, the value is $x = 6$. Check: the vertex is at $x = 3$, and $0$ and $6$ are each $3$ units from $3$, so the graph has the same height at both ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): the graph crosses the $x$-axis at $x = 1$, so $f(1) = 0$, not $5$.\n* Choice B ($3$): this is the $x$-coordinate of the vertex, where $f(3) = -4$.\n* Choice C ($5$): treats the output $5$ as an input; the graph shows $f(5) = 0$.\n\n**Test Day Takeaway:** Points at the same height on a parabola sit at equal distances on either side of the vertex.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "reflection-of-graph",
@@ -5640,19 +5640,19 @@ export const advancedMathBank = [
     skills: ["function-transformations"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The table shows values of the functions $f$ and $g$ for four values of $x$. Which of the following could be the equation that relates $g$ to $f$?",
-    diagram: { type: "dataTable", params: { headers: ["x", "f(x)", "g(x)"], rows: [["-1", "1", "-1"], ["0", "-2", "2"], ["1", "-3", "3"], ["2", "4", "-4"]] } },
+    question: "The table shows several values of $x$ and $f(x)$ for the quadratic function $f$. For what value of $x$ does $f(x)$ reach its maximum?",
+    diagram: { type: "table", params: { xHeader: "x", yHeader: "f(x)", rows: [["1", "-4"], ["3", "8"], ["6", "11"], ["9", "-4"]] } },
     choices: [
-      // distractor: reflects across the y-axis; f(0) = -2 but g(0) = 2
-      { id: "A", text: "$g(x) = f(-x)$" },
-      // distractor: adds a constant; at x = -1 it gives 5, not -1
-      { id: "B", text: "$g(x) = f(x) + 4$" },
-      // distractor: matches the row x = 0 only; at x = 1 it gives -f(-1) = -1, not 3
-      { id: "C", text: "$g(x) = -f(-x)$" },
-      { id: "D", text: "$g(x) = -f(x)$" }
+      // distractor: reports the output that repeats instead of an x-value
+      { id: "A", text: "$-4$" },
+      { id: "B", text: "$5$" },
+      // distractor: picks the x-value with the greatest listed output; the maximum lies between rows
+      { id: "C", text: "$6$" },
+      // distractor: reports the greatest output in the table instead of an x-value
+      { id: "D", text: "$11$" }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Reflection of Graph**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** In every row $g(x)$ is the opposite of $f(x)$: $1 \\to -1$, $-2 \\to 2$, $-3 \\to 3$, $4 \\to -4$, so $g(x) = -f(x)$.\n\n**The Full Solution:**\nStep 1: Compare the two columns row by row: $f(-1) = 1$ and $g(-1) = -1$; $f(0) = -2$ and $g(0) = 2$; $f(1) = -3$ and $g(1) = 3$; $f(2) = 4$ and $g(2) = -4$.\nStep 2: In each row, $g(x)$ is the opposite of $f(x)$ at the same input, so $g(x) = -f(x)$.\nStep 3: This is a reflection of the graph of $y = f(x)$ across the $x$-axis. Check against the other choices: $f(-x)$ fails at $x = 0$, since $f(0) = -2 \\ne 2$, and $-f(-x)$ fails at $x = 1$, since $-f(-1) = -1 \\ne 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(-x)$): reflects across the $y$-axis; at $x = 0$ it gives $f(0) = -2$, but $g(0) = 2$.\n* Choice B ($f(x) + 4$): adds a constant; at $x = -1$ it gives $5$, but $g(-1) = -1$.\n* Choice C ($-f(-x)$): works at $x = 0$, where $-f(0) = 2$, but at $x = 1$ it gives $-f(-1) = -1$, not $3$.\n\n**Test Day Takeaway:** Test a proposed rule against every row of the table; one matching row is not enough.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Reflection of Graph**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $f(1) = f(9) = -4$, so the graph is symmetric about $x = 5$, halfway between $1$ and $9$; that is where the maximum occurs.\n\n**The Full Solution:**\nStep 1: The graph of a quadratic function is symmetric about the vertical line through its vertex, so two inputs with the same output are equally far from the vertex.\nStep 2: $f(1) = -4$ and $f(9) = -4$, so the vertex is at $x = \\frac{1 + 9}{2} = 5$.\nStep 3: $f(6) = 11$ is greater than $f(1) = -4$, so the parabola opens downward and the vertex is a maximum, at $x = 5$. Check: $f(x) = -(x - 5)^{2} + 12$ gives $-4$, $8$, $11$, and $-4$ at $x = 1, 3, 6, 9$, matching the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): this is the output that repeats, not the input where the maximum occurs.\n* Choice C ($6$): the greatest listed output occurs at $x = 6$, but the true maximum lies between the rows, at $x = 5$.\n* Choice D ($11$): this is the greatest output listed in the table, not an input.\n\n**Test Day Takeaway:** Two inputs with equal outputs on a parabola are mirror images; the vertex is halfway between them.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "reflection-of-graph",
@@ -5666,19 +5666,19 @@ export const advancedMathBank = [
     skills: ["function-transformations"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The graph of $y = f(x)$ is shown. The graph of $y = g(x)$ is the reflection of the graph of $y = f(x)$ across the $x$-axis. Which equation defines $g$?",
+    question: "The graph of the quadratic function $f$ is shown. The point $(4, 21)$ lies on the graph of $y = f(x)$. Which of the following points also lies on the graph?",
     diagram: { type: "quadraticVertex", params: { vertex: [-1, -4], a: 1, showPoints: [[-3, 0], [1, 0]], showVertex: true } },
     choices: [
-      // distractor: reflects across the y-axis, replacing x with -x
-      { id: "A", text: "$g(x) = (x - 1)^{2} - 4$" },
-      // distractor: negates only the squared term and keeps -4
-      { id: "B", text: "$g(x) = -(x + 1)^{2} - 4$" },
-      { id: "C", text: "$g(x) = -(x + 1)^{2} + 4$" },
-      // distractor: negates only the constant term
-      { id: "D", text: "$g(x) = (x + 1)^{2} + 4$" }
+      { id: "A", text: "$(-6, 21)$" },
+      // distractor: reflects (4, 21) across the y-axis instead of across x = -1
+      { id: "B", text: "$(-4, 21)$" },
+      // distractor: reflects (4, 21) across x = 1, an x-intercept, instead of across x = -1
+      { id: "C", text: "$(-2, 21)$" },
+      // distractor: reflects (4, 21) across the x-axis
+      { id: "D", text: "$(4, -21)$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Reflection of Graph**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The graph has vertex $(-1, -4)$ and passes through $(1, 0)$, so $f(x) = (x + 1)^{2} - 4$ and $g(x) = -f(x) = -(x + 1)^{2} + 4$.\n\n**The Full Solution:**\nStep 1: The graph shows the vertex $(-1, -4)$ and the $x$-intercept $(1, 0)$. In vertex form $f(x) = a(x + 1)^{2} - 4$, and $0 = a(2)^{2} - 4$ gives $a = 1$, so $f(x) = (x + 1)^{2} - 4$.\nStep 2: Reflecting across the $x$-axis negates every output: $g(x) = -f(x)$.\nStep 3: Distribute the negative sign: $g(x) = -(x + 1)^{2} + 4$. Check: the vertex $(-1, -4)$ reflects to $(-1, 4)$, and $g(-1) = -0 + 4 = 4$; the $x$-intercept $(1, 0)$ stays put, and $g(1) = -4 + 4 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x - 1)^{2} - 4$): replaces $x$ with $-x$, which reflects the graph across the $y$-axis.\n* Choice B ($-(x + 1)^{2} - 4$): negates the squared term but not the constant, so the vertex stays at $(-1, -4)$.\n* Choice D ($(x + 1)^{2} + 4$): negates the constant but not the squared term, so the parabola still opens upward.\n\n**Test Day Takeaway:** To reflect across the $x$-axis, negate the whole function, every term; the vertex's $y$-coordinate changes sign and its $x$-coordinate stays the same.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Reflection of Graph**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** The vertex is at $x = -1$, and $4$ is $5$ units to its right; the matching point is $5$ units to its left, at $x = -6$, with the same $y$-value, $21$.\n\n**The Full Solution:**\nStep 1: From the graph, the vertex is $(-1, -4)$, so the graph is symmetric about the line $x = -1$.\nStep 2: $4$ is $4 - (-1) = 5$ units to the right of $-1$, so the mirror input is $-1 - 5 = -6$.\nStep 3: The point $(-6, 21)$ lies on the graph. Check: the graph has $x$-intercepts $-3$ and $1$ and vertex $(-1, -4)$, so $f(x) = (x + 1)^{2} - 4$; then $f(4) = 25 - 4 = 21$ and $f(-6) = 25 - 4 = 21$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($(-4, 21)$): reflects across the $y$-axis; $f(-4) = 9 - 4 = 5$, not $21$.\n* Choice C ($(-2, 21)$): reflects across the line $x = 1$ through an $x$-intercept; $f(-2) = 1 - 4 = -3$.\n* Choice D ($(4, -21)$): reflects across the $x$-axis; the graph has only one point with $x = 4$, and it is $(4, 21)$.\n\n**Test Day Takeaway:** Find the vertex's $x$-coordinate, measure the distance to the given input, and step the same distance to the other side.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "reflection-of-graph",
@@ -5692,10 +5692,10 @@ export const advancedMathBank = [
     skills: ["function-transformations"],
     difficulty: "medium",
     type: "fill-in",
-    question: "The graph of $y = f(x)$ is shown. If $g(x) = -f(x)$, what is the maximum value of $g(x)$?",
-    diagram: { type: "parabola", params: { vertex: { h: 2, k: -6 }, a: 1, xRange: [-1, 5], yRange: [-8, 4], xTickInterval: 1, yTickInterval: 2, gridInterval: 1, showVertex: false } },
-    correctAnswer: "6",
-    explanation: "**SAT Pattern: Reflection of Graph**\n\n**The correct answer is 6.**\n\n**The Fast Way (~15s):** The minimum value of $f(x)$ is $-6$, at the vertex $(2, -6)$; negating every output turns that minimum into the maximum $6$.\n\n**The Full Solution:**\nStep 1: The graph shows a parabola that opens upward with vertex $(2, -6)$, so the minimum value of $f(x)$ is $-6$.\nStep 2: The graph of $y = -f(x)$ is the reflection across the $x$-axis, so it opens downward and its vertex is $(2, 6)$.\nStep 3: The maximum value of $g(x)$ is therefore $6$. Check: $g(2) = -f(2) = -(-6) = 6$, and every other value $f(x) \\ge -6$ gives $g(x) \\le 6$ ✓\n\n**Common Mistakes:**\n* $-6$: reports the minimum value of $f$ without negating it.\n* $2$: reports the $x$-coordinate of the vertex instead of the maximum value.\n* $-2$: negates the $x$-coordinate of the vertex instead of the $y$-coordinate.\n\n**Test Day Takeaway:** Negating a function swaps its minimum and maximum: the lowest output becomes the highest, with its sign changed.",
+    question: "The graph of the quadratic function $f$ is shown. If $f(-4) = 27$, what is the value of $f(8)$?",
+    diagram: { type: "parabola", params: { vertex: { h: 2, k: -9 }, a: 1, xRange: [-2, 6], yRange: [-10, 8], xTickInterval: 1, yTickInterval: 2, gridInterval: 1, showVertex: false, highlightPoints: [[-1, 0], [2, -9], [5, 0]] } },
+    correctAnswer: "27",
+    explanation: "**SAT Pattern: Reflection of Graph**\n\n**The correct answer is $27$.**\n\n**The Fast Way (~25s):** The vertex is at $x = 2$; $-4$ and $8$ are each $6$ units from $2$, so $f(8) = f(-4) = 27$.\n\n**The Full Solution:**\nStep 1: From the graph, the vertex is $(2, -9)$, so the graph is symmetric about the line $x = 2$.\nStep 2: $-4$ is $6$ units to the left of $2$, and $8$ is $6$ units to the right of $2$.\nStep 3: Mirror inputs give the same output, so $f(8) = 27$. Check: the graph has $x$-intercepts $-1$ and $5$ and vertex $(2, -9)$, so $f(x) = (x - 2)^{2} - 9$; then $f(-4) = 36 - 9 = 27$ and $f(8) = 36 - 9 = 27$ ✓\n\n**Common Mistakes:**\n* $-27$: reflects across the $x$-axis instead of across the line $x = 2$.\n* $-5$: mirrors $-4$ across the $y$-axis and computes $f(4) = 4 - 9 = -5$.\n\n**Test Day Takeaway:** On a parabola, inputs equally far from the vertex's $x$-coordinate have equal outputs.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "reflection-of-graph",
@@ -5709,19 +5709,19 @@ export const advancedMathBank = [
     skills: ["function-transformations"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The graph of the absolute value function $f$ is shown in the $xy$-plane. Reflecting this graph across the $y$-axis gives the graph of the function $g$. Which equation defines $g$?",
+    question: "The graph of $y = f(x)$ is shown. For which of the following values of $x$ is $f(x) = f(-1)$?",
     diagram: { type: "absoluteValue", params: { vertex: [3, -2], slope: 1, showPoints: [[1, 0], [5, 0]] } },
     choices: [
-      { id: "A", text: "$g(x) = |x + 3| - 2$" },
-      // distractor: negates both the input and the constant
-      { id: "B", text: "$g(x) = |x + 3| + 2$" },
-      // distractor: reflects across the x-axis instead
-      { id: "C", text: "$g(x) = -|x - 3| + 2$" },
-      // distractor: negates only the constant term
-      { id: "D", text: "$g(x) = |x - 3| + 2$" }
+      // distractor: reflects -1 across the y-axis instead of across x = 3
+      { id: "A", text: "$1$" },
+      // distractor: gives the x-coordinate of the vertex
+      { id: "B", text: "$3$" },
+      // distractor: gives the right x-intercept, the mirror of the left intercept rather than of -1
+      { id: "C", text: "$5$" },
+      { id: "D", text: "$7$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Reflection of Graph**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The graph has vertex $(3, -2)$, so $f(x) = |x - 3| - 2$ and $g(x) = f(-x) = |-x - 3| - 2 = |x + 3| - 2$.\n\n**The Full Solution:**\nStep 1: The graph shows the vertex $(3, -2)$ and the $x$-intercepts $(1, 0)$ and $(5, 0)$, so the slopes of the two sides are $\\pm 1$ and $f(x) = |x - 3| - 2$.\nStep 2: Reflecting across the $y$-axis replaces $x$ with $-x$: $g(x) = f(-x) = |-x - 3| - 2$.\nStep 3: Since $|-x - 3| = |x + 3|$, $g(x) = |x + 3| - 2$. Check: the vertex $(3, -2)$ reflects to $(-3, -2)$, and $g(-3) = 0 - 2 = -2$; the intercept $(5, 0)$ reflects to $(-5, 0)$, and $g(-5) = 2 - 2 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($|x + 3| + 2$): changes the sign of the constant as well, which also shifts the graph up $4$ units.\n* Choice C ($-|x - 3| + 2$): negates every output, which reflects across the $x$-axis instead of the $y$-axis.\n* Choice D ($|x - 3| + 2$): changes only the constant, which shifts the graph up and does not reflect it.\n\n**Test Day Takeaway:** A reflection across the $y$-axis changes the sign of every $x$-coordinate and leaves every $y$-coordinate alone, so the vertex $(h, k)$ goes to $(-h, k)$.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Reflection of Graph**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The graph is symmetric about $x = 3$, the vertex; $-1$ is $4$ units left of $3$, so the matching input is $3 + 4 = 7$.\n\n**The Full Solution:**\nStep 1: From the graph, the vertex is $(3, -2)$, and the graph is symmetric about the line $x = 3$.\nStep 2: $-1$ is $3 - (-1) = 4$ units to the left of $3$, so the mirror input is $3 + 4 = 7$.\nStep 3: Therefore $f(7) = f(-1)$. Check: the graph has vertex $(3, -2)$ and slope $1$ to the right, so $f(x) = |x - 3| - 2$; $f(-1) = 4 - 2 = 2$ and $f(7) = 4 - 2 = 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): reflects $-1$ across the $y$-axis; $f(1) = 0$, not $2$.\n* Choice B ($3$): this is the vertex's $x$-coordinate, where $f(3) = -2$.\n* Choice C ($5$): this is the right $x$-intercept, so $f(5) = 0$; it mirrors the left intercept, $x = 1$, not $x = -1$.\n\n**Test Day Takeaway:** The graph of an absolute value function is symmetric about the vertical line through its vertex, just like a parabola.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "reflection-of-graph",
@@ -5735,19 +5735,19 @@ export const advancedMathBank = [
     skills: ["function-transformations"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "$h(x) = -f(x - 2)$\nThe table shows five values of $x$ and their corresponding values of $f(x)$. For which of the following values of $x$ is $h(x) = 1$?",
-    diagram: { type: "table", params: { xHeader: "x", yHeader: "f(x)", rows: [["-2", "3"], ["0", "-1"], ["2", "5"], ["4", "1"], ["6", "-4"]] } },
+    question: "For the quadratic function $f$, the table shows four values of $x$ and their corresponding values of $f(x)$. What is the minimum value of $f(x)$?",
+    diagram: { type: "table", params: { xHeader: "x", yHeader: "f(x)", rows: [["1", "4"], ["2", "-2"], ["5", "4"], ["6", "14"]] } },
     choices: [
-      // distractor: subtracts 2 from the input found in the table instead of adding 2
-      { id: "A", text: "$-2$" },
-      // distractor: stops at the input to f, x - 2 = 0, without solving for x
-      { id: "B", text: "$0$" },
-      { id: "C", text: "$2$" },
-      // distractor: ignores the negative sign, uses f(4) = 1, and then adds 2
-      { id: "D", text: "$6$" }
+      { id: "A", text: "$-4$" },
+      // distractor: takes the least value in the table; the vertex lies between rows
+      { id: "B", text: "$-2$" },
+      // distractor: gives the x-value where the minimum occurs
+      { id: "C", text: "$3$" },
+      // distractor: reports the output that repeats
+      { id: "D", text: "$4$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Reflection of Graph**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $h(x) = 1$ means $f(x - 2) = -1$; the table shows $f(0) = -1$, so $x - 2 = 0$ and $x = 2$.\n\n**The Full Solution:**\nStep 1: Set $-f(x - 2) = 1$, so $f(x - 2) = -1$.\nStep 2: The table shows only one input with $f(x) = -1$: $f(0) = -1$. So $x - 2 = 0$.\nStep 3: Solve: $x = 2$. Check: $h(2) = -f(2 - 2) = -f(0) = -(-1) = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): finds the input $0$ in the table but subtracts $2$ instead of adding $2$.\n* Choice B ($0$): finds the input to $f$, $x - 2 = 0$, and reports it as the answer.\n* Choice D ($6$): ignores the negative sign, uses $f(4) = 1$, and then solves $x - 2 = 4$.\n\n**Test Day Takeaway:** Undo the transformations in reverse order: first the outside negative sign, then the inside shift.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Reflection of Graph**\n\n**Choice A is correct.**\n\n**The Fast Way (~50s):** $f(1) = f(5)$ puts the vertex at $x = 3$, so $f(x) = a(x - 3)^{2} + k$; then $f(1) = 4a + k = 4$ and $f(2) = a + k = -2$ give $a = 2$ and $k = -4$.\n\n**The Full Solution:**\nStep 1: $f(1) = f(5) = 4$, so the graph is symmetric about $x = \\frac{1 + 5}{2} = 3$, and $f(x) = a(x - 3)^{2} + k$ for some constants $a$ and $k$.\nStep 2: Use two rows: $f(1) = 4a + k = 4$ and $f(2) = a + k = -2$. Subtracting gives $3a = 6$, so $a = 2$ and $k = -4$.\nStep 3: Because $a > 0$, the parabola opens upward, and the minimum value is $k = -4$. Check: $f(6) = 2(9) - 4 = 14$, matching the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-2$): this is the least value in the table, at $x = 2$, but the vertex is at $x = 3$, between rows.\n* Choice C ($3$): this is the $x$-value where the minimum occurs, not the minimum value.\n* Choice D ($4$): this is the output that repeats at $x = 1$ and $x = 5$.\n\n**Test Day Takeaway:** Use a pair of equal outputs to locate the vertex, then use the rows to find the remaining constants.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "reflection-of-graph",
@@ -5761,9 +5761,9 @@ export const advancedMathBank = [
     skills: ["function-transformations"],
     difficulty: "hard",
     type: "fill-in",
-    question: "$f(x) = x^{2} + bx + 9$\nIn the given function, $b$ is a negative constant. The function $g$ is defined by $g(x) = -f(x)$. If the maximum value of $g(x)$ is $-5$, what is the value of $b$?",
-    correctAnswer: "-4",
-    explanation: "**SAT Pattern: Reflection of Graph**\n\n**The correct answer is -4.**\n\n**The Fast Way (~45s):** The maximum of $-f(x)$ is $-5$, so the minimum of $f(x)$ is $5$; the minimum of $x^{2} + bx + 9$ is $9 - \\frac{b^{2}}{4}$, so $\\frac{b^{2}}{4} = 4$, $b^{2} = 16$, and with $b < 0$, $b = -4$.\n\n**The Full Solution:**\nStep 1: Since $g(x) = -f(x)$, the maximum value of $g(x)$ is the opposite of the minimum value of $f(x)$. So the minimum value of $f(x)$ is $5$.\nStep 2: The vertex of the graph of $y = f(x)$ has $x$-coordinate $-\\frac{b}{2}$, and $f\\left(-\\frac{b}{2}\\right) = \\frac{b^{2}}{4} - \\frac{b^{2}}{2} + 9 = 9 - \\frac{b^{2}}{4}$. Set $9 - \\frac{b^{2}}{4} = 5$, so $b^{2} = 16$.\nStep 3: So $b = 4$ or $b = -4$, and $b$ is negative, so $b = -4$. Check: $f(x) = x^{2} - 4x + 9 = (x - 2)^{2} + 5$ has minimum $5$, so $g(x) = -(x - 2)^{2} - 5$ has maximum $-5$ ✓\n\n**Common Mistakes:**\n* $4$: solves $b^{2} = 16$ correctly but ignores the condition that $b$ is negative.\n* $-2\\sqrt{2}$: writes the vertex value as $9 - \\frac{b^{2}}{2}$, dropping the $\\frac{b^{2}}{4}$ that comes from squaring $-\\frac{b}{2}$, so $b^{2} = 8$.\n* $-2\\sqrt{14}$: uses $-5$ as the minimum of $f(x)$, solving $9 - \\frac{b^{2}}{4} = -5$.\n\n**Test Day Takeaway:** A negative sign outside the function turns a minimum of $m$ into a maximum of $-m$; translate the condition back to $f$ before solving.",
+    question: "$f(x) = x^{2} + bx + c$\nIn the given function, $b$ and $c$ are constants. If $f(-2) = f(8)$, what is the value of $b$?",
+    correctAnswer: "-6",
+    explanation: "**SAT Pattern: Reflection of Graph**\n\n**The correct answer is $-6$.**\n\n**The Fast Way (~35s):** Equal outputs at $-2$ and $8$ put the vertex at $x = 3$; the vertex of $y = x^{2} + bx + c$ is at $x = -\\frac{b}{2}$, so $b = -6$.\n\n**The Full Solution:**\nStep 1: The graph of $f$ is a parabola, symmetric about the vertical line through its vertex, so $f(-2) = f(8)$ means the vertex is at $x = \\frac{-2 + 8}{2} = 3$.\nStep 2: For $f(x) = x^{2} + bx + c$, the vertex is at $x = -\\frac{b}{2}$, so $-\\frac{b}{2} = 3$.\nStep 3: Solve: $b = -6$. Check: $f(-2) = 4 + 12 + c = 16 + c$ and $f(8) = 64 - 48 + c = 16 + c$, which are equal ✓\n\n**Common Mistakes:**\n* $6$: drops the negative sign, setting $\\frac{b}{2} = 3$.\n* $3$: reports the $x$-coordinate of the vertex instead of $b$.\n* $-3$: sets $-b = 3$, forgetting the $2$ in $-\\frac{b}{2}$.\n\n**Test Day Takeaway:** If $f(p) = f(q)$ for a quadratic $f$, the vertex is at $x = \\frac{p + q}{2}$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "reflection-of-graph",
@@ -5780,19 +5780,19 @@ export const advancedMathBank = [
     skills: ["function-transformations"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "$g(x) = 3f(x)$\nSome values of $f(x)$ are shown in the table. What is the value of $g(2)$?",
-    diagram: { type: "dataTable", params: { headers: ["x", "f(x)"], rows: [["1", "6"], ["2", "-3"], ["3", "0"], ["4", "9"]] } },
+    question: "The table shows three values of $x$ and their corresponding values of $f(x)$, where $f(x) = kx^{2}$ and $k$ is a constant. What is the value of $k$?",
+    diagram: { type: "dataTable", params: { headers: ["x", "f(x)"], rows: [["1", "3"], ["2", "12"], ["3", "27"]] } },
     choices: [
-      { id: "A", text: "$-9$" },
-      // distractor: divides f(2) by 3 instead of multiplying
-      { id: "B", text: "$-1$" },
-      // distractor: adds 3 to f(2) instead of multiplying
-      { id: "C", text: "$0$" },
-      // distractor: multiplies the input 2 by 3 and reports 6 instead of multiplying the output f(2) by 3
-      { id: "D", text: "$6$" }
+      { id: "A", text: "$3$" },
+      // distractor: divides f(3) = 27 by 3 instead of by 3^2
+      { id: "B", text: "$9$" },
+      // distractor: reports f(2)
+      { id: "C", text: "$12$" },
+      // distractor: reports f(3)
+      { id: "D", text: "$27$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Vertical Stretch**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The table shows $f(2) = -3$, so $g(2) = 3(-3) = -9$.\n\n**The Full Solution:**\nStep 1: The table shows that when $x = 2$, $f(x) = -3$.\nStep 2: By definition, $g(2) = 3f(2)$.\nStep 3: So $g(2) = 3(-3) = -9$. Check: multiplying by $3$ triples the distance from the $x$-axis and keeps the sign, so $-3$ becomes $-9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-1$): divides $f(2)$ by $3$ instead of multiplying.\n* Choice C ($0$): adds $3$ to $f(2)$ instead of multiplying, computing $-3 + 3$.\n* Choice D ($6$): multiplies the input $2$ by $3$ instead of the output.\n\n**Test Day Takeaway:** A constant multiplying the function multiplies each output; read the output from the table first, then multiply.",
+    explanation: "**SAT Pattern: Vertical Stretch**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** At $x = 1$, $f(1) = k(1)^{2} = k$, and the table gives $f(1) = 3$, so $k = 3$.\n\n**The Full Solution:**\nStep 1: Substitute a row of the table into $f(x) = kx^{2}$.\nStep 2: The row $x = 1$ gives $k(1)^{2} = 3$.\nStep 3: So $k = 3$. Check: $3(2)^{2} = 12$ and $3(3)^{2} = 27$, matching the other rows ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($9$): divides $27$ by $3$ instead of by $3^{2} = 9$.\n* Choice C ($12$): reports $f(2)$, an output, instead of $k$.\n* Choice D ($27$): reports $f(3)$, an output, instead of $k$.\n\n**Test Day Takeaway:** To find a constant in a function, substitute one known input-output pair and solve.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "vertical-stretch",
@@ -5806,18 +5806,18 @@ export const advancedMathBank = [
     skills: ["function-transformations"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The functions $f$ and $g$ are defined so that $g(x) = 4f(x)$ for all values of $x$. Which of the following must be true?",
+    question: "The function $f$ is defined by $f(x) = ax^{2}$, where $a$ is a constant. In the $xy$-plane, the graph of $y = f(x)$ passes through the point $(2, 28)$. What is the value of $a$?",
     choices: [
-      // distractor: reads the multiplier as an addition, as in g(x) = f(x) + 4
-      { id: "A", text: "Each output of $g$ is $4$ more than the corresponding output of $f$." },
-      // distractor: inverts the factor, as in g(x) = (1/4)f(x)
-      { id: "B", text: "Each output of $g$ is one fourth of the corresponding output of $f$." },
-      // distractor: applies the factor to the input rather than the output
-      { id: "C", text: "Each input of $g$ is $4$ times the corresponding input of $f$." },
-      { id: "D", text: "Each output of $g$ is $4$ times the corresponding output of $f$." }
+      { id: "A", text: "$7$" },
+      // distractor: divides 28 by 2 instead of by 2^2
+      { id: "B", text: "$14$" },
+      // distractor: subtracts 2 from 28
+      { id: "C", text: "$26$" },
+      // distractor: multiplies 28 by 2^2 instead of dividing
+      { id: "D", text: "$112$" }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Vertical Stretch**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** The $4$ multiplies $f(x)$ after $f$ is evaluated, so each output of $g$ is $4$ times the output of $f$ at the same input.\n\n**The Full Solution:**\nStep 1: The rule $g(x) = 4f(x)$ evaluates $f$ at the input $x$ and then multiplies the result by $4$.\nStep 2: Because the $4$ is applied after $f$, it scales outputs, not inputs.\nStep 3: So each output of $g$ is $4$ times the corresponding output of $f$. Check: if $f(5) = 30$, then $g(5) = 4(30) = 120$, four times as large at the same input ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: reads the multiplier as an addition, which would be $g(x) = f(x) + 4$.\n* Choice B: inverts the factor, which would be $g(x) = \\frac{1}{4}f(x)$.\n* Choice C: applies the $4$ to the input, which would describe $g(x) = f\\left(\\frac{x}{4}\\right)$.\n\n**Test Day Takeaway:** A constant multiplying the whole function stretches outputs vertically; the inputs are untouched.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Vertical Stretch**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Substitute $(2, 28)$: $a(2)^{2} = 28$, so $4a = 28$ and $a = 7$.\n\n**The Full Solution:**\nStep 1: A point on the graph satisfies the equation, so substitute $x = 2$ and $f(x) = 28$.\nStep 2: This gives $a(2)^{2} = 28$, or $4a = 28$.\nStep 3: Divide by $4$: $a = 7$. Check: $f(2) = 7(4) = 28$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($14$): divides $28$ by $2$ instead of by $2^{2} = 4$.\n* Choice C ($26$): subtracts the input $2$ from the output $28$.\n* Choice D ($112$): multiplies $28$ by $4$ instead of dividing.\n\n**Test Day Takeaway:** Square the input before solving for the coefficient.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "vertical-stretch",
@@ -5831,18 +5831,18 @@ export const advancedMathBank = [
     skills: ["function-transformations"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "$f(x) = \\sqrt{x} + 2$\nThe graph of $y = g(x)$ is the graph of $y = f(x)$ stretched vertically by a factor of $4$. Which equation defines $g$?",
+    question: "$f(x) = a\\sqrt{x} + 2$\nIn the given function, $a$ is a constant. If $f(9) = 14$, what is the value of $f(25)$?",
     choices: [
-      // distractor: multiplies only the square root term and leaves the +2 unscaled
-      { id: "A", text: "$g(x) = 4\\sqrt{x} + 2$" },
-      { id: "B", text: "$g(x) = 4\\sqrt{x} + 8$" },
-      // distractor: multiplies the input by 4 instead of the output
-      { id: "C", text: "$g(x) = \\sqrt{4x} + 2$" },
-      // distractor: multiplies only the constant term
-      { id: "D", text: "$g(x) = \\sqrt{x} + 8$" }
+      // distractor: finds a = 4 but drops the + 2 when computing f(25)
+      { id: "A", text: "$20$" },
+      { id: "B", text: "$22$" },
+      // distractor: adds the change in x, 16, to 14 as if f increased 1 for each unit of x
+      { id: "C", text: "$30$" },
+      // distractor: uses 25 instead of the square root of 25
+      { id: "D", text: "$102$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Vertical Stretch**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** A vertical stretch by $4$ multiplies the whole output: $g(x) = 4(\\sqrt{x} + 2) = 4\\sqrt{x} + 8$.\n\n**The Full Solution:**\nStep 1: A vertical stretch by a factor of $4$ multiplies every output by $4$, so $g(x) = 4f(x)$.\nStep 2: Substitute: $g(x) = 4(\\sqrt{x} + 2)$.\nStep 3: Distribute: $g(x) = 4\\sqrt{x} + 8$. Check: $f(9) = 3 + 2 = 5$ and $g(9) = 4(3) + 8 = 20 = 4(5)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4\\sqrt{x} + 2$): multiplies the square root term but not the constant, so outputs are not all multiplied by $4$.\n* Choice C ($\\sqrt{4x} + 2$): multiplies the input by $4$, which changes the graph horizontally.\n* Choice D ($\\sqrt{x} + 8$): multiplies only the constant, which shifts the graph up $6$ units.\n\n**Test Day Takeaway:** A vertical stretch multiplies the entire function, so distribute the factor to every term.",
+    explanation: "**SAT Pattern: Vertical Stretch**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** $3a + 2 = 14$ gives $a = 4$, so $f(25) = 4(5) + 2 = 22$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 9$: $a\\sqrt{9} + 2 = 14$, so $3a + 2 = 14$.\nStep 2: Solve: $3a = 12$, so $a = 4$ and $f(x) = 4\\sqrt{x} + 2$.\nStep 3: Then $f(25) = 4\\sqrt{25} + 2 = 4(5) + 2 = 22$. Check: $f(9) = 4(3) + 2 = 14$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): finds $a = 4$ but forgets to add $2$ when computing $f(25)$.\n* Choice C ($30$): adds $25 - 9 = 16$ to $14$, as if $f$ increased by $1$ for each unit of $x$.\n* Choice D ($102$): computes $4(25) + 2$, using $25$ instead of $\\sqrt{25} = 5$.\n\n**Test Day Takeaway:** Find the constant from the given value first, then evaluate the function at the new input.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "vertical-stretch",
@@ -5856,9 +5856,9 @@ export const advancedMathBank = [
     skills: ["function-transformations"],
     difficulty: "medium",
     type: "fill-in",
-    question: "$f(x) = 2x^{2} - 5x + 1$\nThe function $g$ is defined by $g(x) = kf(x)$, where $k$ is a constant. If $g(3) = 24$, what is the value of $k$?",
+    question: "$f(x) = a(2x^{2} - 5x + 1)$\nIn the given function, $a$ is a constant. If $f(3) = 24$, what is the value of $a$?",
     correctAnswer: "6",
-    explanation: "**SAT Pattern: Vertical Stretch**\n\n**The correct answer is 6.**\n\n**The Fast Way (~20s):** $f(3) = 18 - 15 + 1 = 4$, so $4k = 24$ and $k = 6$.\n\n**The Full Solution:**\nStep 1: Evaluate $f$ at $3$: $f(3) = 2(3)^{2} - 5(3) + 1 = 18 - 15 + 1 = 4$.\nStep 2: Then $g(3) = kf(3) = 4k$, and $g(3) = 24$, so $4k = 24$.\nStep 3: Divide by $4$: $k = 6$. Check: $g(3) = 6(4) = 24$ ✓\n\n**Common Mistakes:**\n* $8$: divides $24$ by the input $3$ instead of by $f(3)$.\n* $20$: subtracts $f(3)$ from $24$, treating $k$ as a vertical shift.\n* $\\frac{12}{17}$: evaluates $-5x$ as $+15$, getting $f(3) = 34$.\n\n**Test Day Takeaway:** Evaluate the original function at the given input first; the stretch factor is the ratio of the new output to the old one.",
+    explanation: "**SAT Pattern: Vertical Stretch**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~25s):** At $x = 3$ the expression in parentheses is $18 - 15 + 1 = 4$, so $4a = 24$ and $a = 6$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 3$ into the expression in parentheses: $2(3)^{2} - 5(3) + 1 = 18 - 15 + 1 = 4$.\nStep 2: So $f(3) = 4a$, and $4a = 24$.\nStep 3: Divide by $4$: $a = 6$. Check: $f(3) = 6(4) = 24$ ✓\n\n**Common Mistakes:**\n* $\\frac{12}{17}$: adds $5x$ instead of subtracting it, so the parentheses equal $18 + 15 + 1 = 34$.\n* $-12$: evaluates $2x^{2}$ as $2(2)(3) = 12$, so the parentheses equal $12 - 15 + 1 = -2$.\n\n**Test Day Takeaway:** Evaluate everything except the unknown constant first; then one division finishes the problem.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "vertical-stretch",
@@ -5872,19 +5872,19 @@ export const advancedMathBank = [
     skills: ["function-transformations"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The graph of $y = f(x)$ is shown. The function $g$ is defined by $g(x) = 4f(x)$. What is the $y$-coordinate of the vertex of the graph of $y = g(x)$?",
-    diagram: { type: "quadraticVertex", params: { vertex: [3, -2], a: 1, showPoints: [[1, 2], [5, 2]], showVertex: true } },
+    question: "The graph of $y = a(x - 3)^{2} - 2$, where $a$ is a constant, is shown. What is the value of $a$?",
+    diagram: { type: "quadraticVertex", params: { vertex: [3, -2], a: 2, showPoints: [[1, 6], [5, 6]], showVertex: true } },
     choices: [
-      { id: "A", text: "$-8$" },
-      // distractor: subtracts 4 from the vertex's y-coordinate instead of multiplying
-      { id: "B", text: "$-6$" },
-      // distractor: reports the y-coordinate of the vertex of f without stretching it
-      { id: "C", text: "$-2$" },
-      // distractor: multiplies the x-coordinate of the vertex by 4
-      { id: "D", text: "$12$" }
+      // distractor: drops the square, solving a(1 - 3) - 2 = 6
+      { id: "A", text: "$-4$" },
+      // distractor: drops the - 2, solving 4a = 6
+      { id: "B", text: "$\\frac{3}{2}$" },
+      { id: "C", text: "$2$" },
+      // distractor: reports the y-coordinate of a marked point
+      { id: "D", text: "$6$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Vertical Stretch**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The vertex of the graph shown is $(3, -2)$; multiplying every output by $4$ moves it to $(3, -8)$.\n\n**The Full Solution:**\nStep 1: The graph shows the vertex of $y = f(x)$ at $(3, -2)$.\nStep 2: A vertical stretch by $4$ keeps each $x$-coordinate and multiplies each $y$-coordinate by $4$, so the vertex moves to $(3, 4(-2)) = (3, -8)$.\nStep 3: The $y$-coordinate of the vertex of the graph of $y = g(x)$ is $-8$. Check: the graph passes through $(1, 2)$ and $(5, 2)$, which become $(1, 8)$ and $(5, 8)$; the vertex is still midway between them, at $x = 3$, with $g(3) = 4f(3) = -8$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-6$): subtracts $4$ from the $y$-coordinate, treating the stretch as a shift down.\n* Choice C ($-2$): reports the vertex of the graph of $y = f(x)$ without stretching it.\n* Choice D ($12$): multiplies the $x$-coordinate of the vertex by $4$ instead of the $y$-coordinate.\n\n**Test Day Takeaway:** A vertical stretch scales $y$-coordinates only, so the vertex keeps its $x$-coordinate.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Vertical Stretch**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The graph passes through $(1, 6)$, so $a(1 - 3)^{2} - 2 = 6$, which gives $4a = 8$ and $a = 2$.\n\n**The Full Solution:**\nStep 1: The graph passes through the marked point $(1, 6)$, so substitute $x = 1$ and $y = 6$.\nStep 2: $6 = a(1 - 3)^{2} - 2 = 4a - 2$, so $4a = 8$.\nStep 3: Solve: $a = 2$. Check: the other marked point, $(5, 6)$, gives $2(5 - 3)^{2} - 2 = 8 - 2 = 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): drops the square, solving $a(1 - 3) - 2 = 6$, or $-2a = 8$.\n* Choice B ($\\frac{3}{2}$): drops the $-2$, solving $4a = 6$.\n* Choice D ($6$): reports the $y$-coordinate of the marked point instead of solving for $a$.\n\n**Test Day Takeaway:** Read one exact point off the graph and substitute it to find the missing constant.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "vertical-stretch",
@@ -5923,19 +5923,19 @@ export const advancedMathBank = [
     skills: ["function-transformations"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The table shows four values of $x$ and their corresponding values of $f(x)$. The function $g$ is defined by $g(x) = kf(x)$, where $k$ is a constant. If $g(-2) = 45$, what is the value of $g(4)$?",
-    questionTable: { headers: ["$x$", "$f(x)$"], rows: [["$-2$", "$-9$"], ["$0$", "$3$"], ["$2$", "$7$"], ["$4$", "$6$"]] },
+    question: "$f(x) = a(x - 3)^{2} + k$\nIn the given function, $a$ and $k$ are constants. The table shows two values of $x$ and their corresponding values of $f(x)$. What is the value of $f(6)$?",
+    questionTable: { headers: ["$x$", "$f(x)$"], rows: [["$1$", "$9$"], ["$2$", "$3$"]] },
     choices: [
-      { id: "A", text: "$-30$" },
-      // distractor: uses k = -1, treating the rescaling as only a reflection
-      { id: "B", text: "$-6$" },
-      // distractor: reports f(4) = 6 without applying k
-      { id: "C", text: "$6$" },
-      // distractor: gets k = 5 by ignoring the negative sign of f(-2) = -9
-      { id: "D", text: "$30$" }
+      // distractor: continues the drop of 6 per unit as if f were linear
+      { id: "A", text: "$-21$" },
+      // distractor: assumes f(6) = f(1), mirroring across x = 3.5 instead of x = 3
+      { id: "B", text: "$9$" },
+      // distractor: finds a = 2 but drops k when computing f(6)
+      { id: "C", text: "$18$" },
+      { id: "D", text: "$19$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Vertical Stretch**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The table shows $f(-2) = -9$, so $-9k = 45$ and $k = -5$; then $g(4) = -5f(4) = -5(6) = -30$.\n\n**The Full Solution:**\nStep 1: The table shows $f(-2) = -9$, so $g(-2) = kf(-2) = -9k$.\nStep 2: Since $g(-2) = 45$, solve $-9k = 45$ to get $k = -5$.\nStep 3: The table shows $f(4) = 6$, so $g(4) = -5(6) = -30$. Check: $g(-2) = -5(-9) = 45$, which matches the given value ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-6$): uses $k = -1$, treating the rescaling as only a reflection and never solving for $k$.\n* Choice C ($6$): reports $f(4)$ from the table without applying $k$.\n* Choice D ($30$): solves $9k = 45$, ignoring the negative sign of $f(-2) = -9$.\n\n**Test Day Takeaway:** Solve for the stretch factor at the one input you are given, keeping its sign, then apply the same factor at the input you are asked about.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Vertical Stretch**\n\n**Choice D is correct.**\n\n**The Fast Way (~50s):** The rows give $4a + k = 9$ and $a + k = 3$, so $a = 2$ and $k = 1$; then $f(6) = 2(9) + 1 = 19$.\n\n**The Full Solution:**\nStep 1: Substitute the rows: $f(1) = a(1 - 3)^{2} + k = 4a + k = 9$ and $f(2) = a(2 - 3)^{2} + k = a + k = 3$.\nStep 2: Subtract the second equation from the first: $3a = 6$, so $a = 2$ and $k = 1$.\nStep 3: Then $f(6) = 2(6 - 3)^{2} + 1 = 18 + 1 = 19$. Check: $f(1) = 8 + 1 = 9$ and $f(2) = 2 + 1 = 3$, matching the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-21$): continues the drop of $6$ from $x = 1$ to $x = 2$ as if $f$ were linear: $9 - 6(5) = -21$.\n* Choice B ($9$): assumes $f(6) = f(1)$, but $1$ and $6$ are mirror inputs only across $x = 3.5$; the vertex is at $x = 3$.\n* Choice C ($18$): finds $a = 2$ but leaves out $k = 1$.\n\n**Test Day Takeaway:** Two unknown constants need two equations: substitute two rows, solve, then evaluate.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "vertical-stretch",
@@ -5949,9 +5949,9 @@ export const advancedMathBank = [
     skills: ["function-transformations"],
     difficulty: "hard",
     type: "fill-in",
-    question: "$f(x) = -0.5x^{2} + 6x$\nThe function $g$ is defined by $g(x) = kf(x)$, where $k$ is a constant. If $g(2) = -30$, what is the value of $g(8)$?",
-    correctAnswer: "-48",
-    explanation: "**SAT Pattern: Vertical Stretch**\n\n**The correct answer is -48.**\n\n**The Fast Way (~30s):** $f(2) = -2 + 12 = 10$, so $k = -3$; $f(8) = -32 + 48 = 16$, so $g(8) = -3(16) = -48$.\n\n**The Full Solution:**\nStep 1: Evaluate $f(2) = -0.5(4) + 6(2) = -2 + 12 = 10$. Then $g(2) = 10k = -30$, so $k = -3$.\nStep 2: Evaluate $f(8) = -0.5(64) + 6(8) = -32 + 48 = 16$.\nStep 3: Then $g(8) = kf(8) = -3(16) = -48$. Check: $g(2) = -3(10) = -30$, which matches the given value ✓\n\n**Common Mistakes:**\n* $48$: drops the negative sign of $k$, using $k = 3$.\n* $16$: reports $f(8)$ without applying $k$.\n* $-120$: assumes $g(x)$ is proportional to $x$ and multiplies $-30$ by $\\frac{8}{2} = 4$.\n\n**Test Day Takeaway:** Find the constant $k$ from the one known output, then evaluate the original function at the new input and multiply by $k$.",
+    question: "$f(x) = ax(x - 12)$\nIn the given function, $a$ is a constant. If $f(2) = 60$, what is the maximum value of $f(x)$?",
+    correctAnswer: "108",
+    explanation: "**SAT Pattern: Vertical Stretch**\n\n**The correct answer is $108$.**\n\n**The Fast Way (~40s):** $f(2) = a(2)(-10) = -20a = 60$, so $a = -3$; the maximum is at $x = 6$, halfway between the zeros $0$ and $12$: $f(6) = -3(6)(-6) = 108$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 2$: $f(2) = a(2)(2 - 12) = -20a$, so $-20a = 60$ and $a = -3$.\nStep 2: Because $a < 0$, the parabola opens downward, and its maximum is at the vertex, halfway between the zeros $x = 0$ and $x = 12$, at $x = 6$.\nStep 3: $f(6) = -3(6)(6 - 12) = -3(6)(-6) = 108$. Check: $f(2) = -3(2)(-10) = 60$ ✓\n\n**Common Mistakes:**\n* $6$: reports the $x$-value where the maximum occurs.\n* $-3$: reports the value of $a$.\n* $-108$: drops the negative sign, using $a = 3$.\n\n**Test Day Takeaway:** For $f(x) = a(x - r)(x - s)$, the vertex is at $x = \\frac{r + s}{2}$; find $a$ from the given value, then evaluate there.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "vertical-stretch",
@@ -5995,19 +5995,19 @@ export const advancedMathBank = [
     skills: ["exponential-functions"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A college fund earns $4\\%$ interest, compounded annually. The table shows the balance of the fund at the end of each of the first three years after it was opened. What will the balance be at the end of the fourth year?",
-    questionTable: { headers: ["Year", "Balance (dollars)"], rows: [["$1$", "$5{,}200.00$"], ["$2$", "$5{,}408.00$"], ["$3$", "$5{,}624.32$"]] },
+    question: "The balance of a savings account increases by $10\\%$ each year. The table shows the balance, in dollars, at the end of each of the first three years. What will the balance be, in dollars, at the end of the fourth year?",
+    questionTable: { headers: ["Year", "Balance (dollars)"], rows: [["$1$", "$2{,}000$"], ["$2$", "$2{,}200$"], ["$3$", "$2{,}420$"]] },
     choices: [
-      // distractor: added 4 percent of the year-1 balance, 208 dollars, instead of 4 percent of the year-3 balance
-      { id: "A", text: "$\\$5{,}832.32$" },
-      // distractor: added the year-3 interest of 216.32 again instead of taking 4 percent of the new balance
-      { id: "B", text: "$\\$5{,}840.64$" },
-      { id: "C", text: "$\\$5{,}849.29$" },
-      // distractor: applied the 4 percent increase twice, giving the balance at the end of year 5
-      { id: "D", text: "$\\$6{,}083.26$" }
+      // distractor: adds the first increase, 200, as if the growth were linear
+      { id: "A", text: "$2{,}620$" },
+      // distractor: adds the second increase, 220, again
+      { id: "B", text: "$2{,}640$" },
+      { id: "C", text: "$2{,}662$" },
+      // distractor: increases the balance by 20% instead of 10%
+      { id: "D", text: "$2{,}904$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Compound Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Multiply the year-$3$ balance by $1.04$: $5624.32\\cdot 1.04=5{,}849.29$.\n\n**The Full Solution:**\nStep 1: Compounding annually at $4\\%$ multiplies each year's balance by $1.04$, which the table confirms: $5408.00\\cdot 1.04=5{,}624.32$.\nStep 2: Apply the same factor once more: $5624.32\\cdot 1.04$.\nStep 3: The year-$4$ balance is $\\$5{,}849.29$. Check: the interest earned is $\\$224.97$, which is $4\\%$ of $\\$5{,}624.32$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\$5{,}832.32$): adds $4\\%$ of the year-$1$ balance, $\\$208$, instead of $4\\%$ of the year-$3$ balance.\n* Choice B ($\\$5{,}840.64$): adds the year-$3$ interest of $\\$216.32$ again.\n* Choice D ($\\$6{,}083.26$): applies the increase twice, giving the year-$5$ balance.\n\n**Test Day Takeaway:** Compound interest is a percent of the newest balance, so the yearly interest grows — never reuse an earlier year's dollar amount.",
+    explanation: "**SAT Pattern: Compound Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Increase the year-3 balance by $10\\%$: $2{,}420(1.10) = 2{,}662$.\n\n**The Full Solution:**\nStep 1: An increase of $10\\%$ each year multiplies the balance by $1.10$ each year.\nStep 2: The balance at the end of year 3 is $2{,}420$.\nStep 3: At the end of year 4 it is $2{,}420(1.10) = 2{,}662$. Check: $2{,}000(1.10) = 2{,}200$ and $2{,}200(1.10) = 2{,}420$, matching the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2{,}620$): adds $200$, the first year's increase, as if the balance grew by the same amount each year.\n* Choice B ($2{,}640$): adds $220$, the second year's increase, again; each year's increase is larger than the last.\n* Choice D ($2{,}904$): increases $2{,}420$ by $20\\%$ instead of $10\\%$.\n\n**Test Day Takeaway:** A percent increase is applied to the latest value, so the dollar increase grows every year.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "compound-interest",
@@ -6021,19 +6021,19 @@ export const advancedMathBank = [
     skills: ["exponential-functions"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A loan of $\\$12{,}000$ is charged $4\\%$ annual interest, compounded semiannually. The table shows the amount owed, in dollars, after each of the first three six-month periods. Which equation gives the amount owed, $B$, in dollars, $t$ years after the loan was made?",
-    questionTable: { headers: ["Six-month periods", "Amount owed (dollars)"], rows: [["$1$", "$12{,}240.00$"], ["$2$", "$12{,}484.80$"], ["$3$", "$12{,}734.50$"]] },
+    question: "A savings account was opened with a deposit of \\$5,000, and no other deposits or withdrawals are made. The table shows the balance, in dollars, at the end of each of the first two 6-month periods. Which equation gives the balance $B$, in dollars, $t$ years after the account was opened?",
+    questionTable: { headers: ["6-month periods", "Balance (dollars)"], rows: [["$1$", "$5{,}100$"], ["$2$", "$5{,}202$"]] },
     choices: [
-      // distractor: applied the semiannual factor once per year instead of twice
-      { id: "A", text: "$B=12000(1.02)^{t}$" },
-      { id: "B", text: "$B=12000(1.02)^{2t}$" },
-      // distractor: divided the exponent by 2 instead of multiplying, and used the annual factor
-      { id: "C", text: "$B=12000(1.04)^{t/2}$" },
-      // distractor: used the annual factor 1.04 for each six-month period
-      { id: "D", text: "$B=12000(1.04)^{2t}$" }
+      // distractor: applies the 6-month factor once per year instead of twice
+      { id: "A", text: "$B = 5{,}000(1.02)^{t}$" },
+      { id: "B", text: "$B = 5{,}000(1.02)^{2t}$" },
+      // distractor: halves the number of periods instead of doubling it
+      { id: "C", text: "$B = 5{,}000(1.02)^{\\frac{t}{2}}$" },
+      // distractor: uses the yearly increase of 4% for each 6-month period
+      { id: "D", text: "$B = 5{,}000(1.04)^{2t}$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Compound Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Semiannual compounding uses half the rate, $2\\%$, twice a year, so $B=12000(1.02)^{2t}$.\n\n**The Full Solution:**\nStep 1: The periodic rate is $\\dfrac{0.04}{2}=0.02$, so each six-month period multiplies the balance by $1.02$, matching the table: $12000\\cdot 1.02=12{,}240$.\nStep 2: In $t$ years there are $2t$ six-month periods.\nStep 3: So $B=12000(1.02)^{2t}$. Check at $t=1.5$, three periods: $12000(1.02)^{3}=12{,}734.50$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($B=12000(1.02)^{t}$): applies the semiannual factor once per year.\n* Choice C ($B=12000(1.04)^{t/2}$): divides the exponent by $2$ instead of multiplying and keeps the annual rate.\n* Choice D ($B=12000(1.04)^{2t}$): uses the full annual rate for each six-month period.\n\n**Test Day Takeaway:** Divide the rate by the number of periods per year and multiply the exponent by that same number.",
+    explanation: "**SAT Pattern: Compound Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Each 6-month period multiplies the balance by $\\frac{5{,}100}{5{,}000} = 1.02$, and $t$ years contain $2t$ such periods.\n\n**The Full Solution:**\nStep 1: Divide consecutive balances: $\\frac{5{,}100}{5{,}000} = 1.02$ and $\\frac{5{,}202}{5{,}100} = 1.02$, so the balance increases by $2\\%$ every 6 months.\nStep 2: There are $2$ six-month periods in a year, so $t$ years contain $2t$ periods.\nStep 3: So $B = 5{,}000(1.02)^{2t}$. Check: $t = 1$ gives $5{,}000(1.02)^{2} = 5{,}202$, the balance after $2$ periods ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: uses the exponent $t$, applying the $2\\%$ increase once per year instead of twice.\n* Choice C: uses the exponent $\\frac{t}{2}$, which counts one period every $2$ years.\n* Choice D: uses $1.04$, a $4\\%$ increase, for each 6-month period; the table shows $2\\%$ per period.\n\n**Test Day Takeaway:** When the growth period is not one year, the exponent counts periods: $t$ years of 6-month periods is $2t$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "compound-interest",
@@ -6047,9 +6047,9 @@ export const advancedMathBank = [
     skills: ["exponential-functions"],
     difficulty: "medium",
     type: "fill-in",
-    question: "$3{,}200\\left(1+\\frac{r}{100}\\right)^{2}=3{,}528$\nThe given equation shows that a deposit of $\\$3{,}200$ in an account that earns $r\\%$ annual interest, compounded annually, is worth $\\$3{,}528$ after $2$ years. What is the value of $r$?",
+    question: "$3{,}200\\left(1+\\frac{r}{100}\\right)^{2}=3{,}528$\nThe balance of a savings account increases by $r\\%$ each year. The given equation shows that a deposit of \\$3,200 grows to \\$3,528 after $2$ years. What is the value of $r$?",
     correctAnswer: "5",
-    explanation: "**SAT Pattern: Compound Interest**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~25s):** $3528/3200=1.1025$, and $\\sqrt{1.1025}=1.05$, so $r=5$.\n\n**The Full Solution:**\nStep 1: Divide both sides by $3200$: $\\left(1+\\dfrac{r}{100}\\right)^{2}=\\dfrac{3528}{3200}=1.1025$.\nStep 2: Take the positive square root: $1+\\dfrac{r}{100}=1.05$.\nStep 3: So $\\dfrac{r}{100}=0.05$ and $r=5$. Check: $3200(1.05)^{2}=3200(1.1025)=3{,}528$ ✓\n\n**Common Mistakes:**\n* $10.25$: used the two-year growth of $10.25\\%$ as the annual rate, skipping the square root.\n* $1.05$: reported the annual growth factor instead of the percent rate.\n* $328$: reported the total interest earned rather than the rate.\n\n**Test Day Takeaway:** Two years of compounding is the annual factor squared — undo it with a square root, not by halving.",
+    explanation: "**SAT Pattern: Compound Interest**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~25s):** $3528/3200=1.1025$, and $\\sqrt{1.1025}=1.05$, so $r=5$.\n\n**The Full Solution:**\nStep 1: Divide both sides by $3200$: $\\left(1+\\dfrac{r}{100}\\right)^{2}=\\dfrac{3528}{3200}=1.1025$.\nStep 2: Take the positive square root: $1+\\dfrac{r}{100}=1.05$.\nStep 3: So $\\dfrac{r}{100}=0.05$ and $r=5$. Check: $3200(1.05)^{2}=3200(1.1025)=3{,}528$ ✓\n\n**Common Mistakes:**\n* $10.25$: used the two-year growth of $10.25\\%$ as the annual rate, skipping the square root.\n* $1.05$: reported the annual growth factor instead of the percent rate.\n* $328$: reported the total interest earned rather than the rate.\n\n**Test Day Takeaway:** Two years of growth at the same rate is the yearly factor squared — undo it with a square root, not by halving.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "compound-interest",
@@ -6063,19 +6063,19 @@ export const advancedMathBank = [
     skills: ["exponential-functions", "function-interpretation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A credit card balance of $\\$2{,}400$ is charged interest at an annual rate of $6\\%$, compounded monthly, and no payments are made. The table shows the balance, in dollars, after each of the first $3$ months. To the nearest dollar, what is the balance after $12$ months?",
-    questionTable: { headers: ["Months", "Balance (dollars)"], rows: [["$1$", "$2{,}412.00$"], ["$2$", "$2{,}424.06$"], ["$3$", "$2{,}436.18$"]] },
+    question: "The table shows the value, in dollars, of an investment at the end of each of the first three years after it was bought. The value grew by the same percentage each year. Based on the table, what will the value be at the end of the fifth year?",
+    questionTable: { headers: ["Year", "Value (dollars)"], rows: [["$1$", "$6{,}250$"], ["$2$", "$7{,}500$"], ["$3$", "$9{,}000$"]] },
     choices: [
-      // distractor: reported the last value in the table, the balance after 3 months
-      { id: "A", text: "$\\$2{,}436$" },
-      // distractor: applied the annual rate once, computing 2400 times 1.06
-      { id: "B", text: "$\\$2{,}544$" },
-      { id: "C", text: "$\\$2{,}548$" },
-      // distractor: used 6 percent as the monthly rate, computing 2400 times 1.06 to the twelfth power
-      { id: "D", text: "$\\$4{,}829$" }
+      // distractor: applies only one more year of growth, giving the year-4 value
+      { id: "A", text: "$10{,}800$" },
+      // distractor: adds 1,500 each year, treating the growth as linear
+      { id: "B", text: "$12{,}000$" },
+      { id: "C", text: "$12{,}960$" },
+      // distractor: applies three more years of growth, giving the year-6 value
+      { id: "D", text: "$15{,}552$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Compound Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The monthly factor is $1.005$, so after $12$ months the balance is $2400(1.005)^{12}\\approx \\$2{,}548$.\n\n**The Full Solution:**\nStep 1: The monthly rate is $\\dfrac{0.06}{12}=0.005$, matching the table: $2400\\cdot 1.005=2{,}412.00$.\nStep 2: After $12$ months the balance is $2400(1.005)^{12}$.\nStep 3: Since $(1.005)^{12}=1.06168$, the balance is $\\$2{,}548.03$, or $\\$2{,}548$ to the nearest dollar. Check: this is slightly more than $6\\%$ of $\\$2{,}400$ added on, as compounding requires ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\$2{,}436$): reports the last value in the table, the balance after $3$ months.\n* Choice B ($\\$2{,}544$): applies the annual rate once, computing $2400(1.06)$.\n* Choice D ($\\$4{,}829$): uses $6\\%$ as the monthly rate, computing $2400(1.06)^{12}$.\n\n**Test Day Takeaway:** Monthly compounding divides the annual rate by $12$ and raises to the number of months — the two must change together.",
+    explanation: "**SAT Pattern: Compound Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Each year multiplies the value by $\\frac{7{,}500}{6{,}250} = 1.2$, so year 5 is $9{,}000(1.2)^{2} = 12{,}960$.\n\n**The Full Solution:**\nStep 1: Divide consecutive values: $\\frac{7{,}500}{6{,}250} = 1.2$ and $\\frac{9{,}000}{7{,}500} = 1.2$, so the value is multiplied by $1.2$ each year.\nStep 2: From year 3 to year 5 is $2$ years, so multiply by $1.2$ twice: $(1.2)^{2} = 1.44$.\nStep 3: The year-5 value is $9{,}000(1.44) = 12{,}960$. Check: year 4 is $9{,}000(1.2) = 10{,}800$, and $10{,}800(1.2) = 12{,}960$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10{,}800$): applies one year of growth, which gives the value at the end of year 4.\n* Choice B ($12{,}000$): adds the last increase, $1{,}500$, twice, as if the value grew by the same amount each year.\n* Choice D ($15{,}552$): applies $3$ years of growth to the year-3 value, which gives year 6.\n\n**Test Day Takeaway:** Same percentage each year means the same ratio between consecutive values; count the years and apply the factor that many times.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "compound-interest",
@@ -6089,7 +6089,7 @@ export const advancedMathBank = [
     skills: ["exponential-functions"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "An account earns interest at a constant annual rate, compounded annually. The table shows the balance in the account at the end of each of the first two years. What is the annual interest rate?",
+    question: "The balance of a savings account increases exponentially, and no deposits or withdrawals are made. The table shows the balance at the end of each of the first two years after the account was opened. By what percentage does the balance increase each year?",
     diagram: { type: "dataTable", params: { headers: ["End of year", "Balance (dollars)"], rows: [["1", "5,400"], ["2", "5,832"]] } },
     choices: [
       // distractor: splits the one-year increase across two years
@@ -6101,7 +6101,7 @@ export const advancedMathBank = [
       { id: "D", text: "$16\\%$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Compound Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\dfrac{5{,}832}{5{,}400} = 1.08$, so the balance grows by $8\\%$ in one year.\n\n**The Full Solution:**\nStep 1: Consecutive balances differ by exactly one year of compounding, so their ratio is the growth multiplier $1 + r$.\nStep 2: $\\dfrac{5{,}832}{5{,}400} = 1.08$, so $1 + r = 1.08$ and $r = 0.08$.\nStep 3: As a percent, the annual rate is $8\\%$. Check: the increase is $5{,}832 - 5{,}400 = 432$, and $\\dfrac{432}{5{,}400} = 0.08$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4\\%$): this halves the $\\$432$ increase, as if it had accumulated over two years; the table already shows a single year of growth.\n* Choice B ($7.4\\%$): this computes $\\dfrac{432}{5{,}832} \\approx 0.074$, dividing by the ending balance instead of the starting one.\n* Choice D ($16\\%$): this doubles the correct rate, treating the two listed balances as two years of growth from the original deposit.\n\n**Test Day Takeaway:** For a constant compound rate, divide any balance by the one from the period before; percent change is always measured against the EARLIER amount.",
+    explanation: "**SAT Pattern: Compound Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\dfrac{5{,}832}{5{,}400} = 1.08$, so the balance grows by $8\\%$ in one year.\n\n**The Full Solution:**\nStep 1: Consecutive balances are exactly one year apart, so their ratio is the growth multiplier $1 + r$.\nStep 2: $\\dfrac{5{,}832}{5{,}400} = 1.08$, so $1 + r = 1.08$ and $r = 0.08$.\nStep 3: As a percent, the annual rate is $8\\%$. Check: the increase is $5{,}832 - 5{,}400 = 432$, and $\\dfrac{432}{5{,}400} = 0.08$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($4\\%$): this halves the $\\$432$ increase, as if it had accumulated over two years; the table already shows a single year of growth.\n* Choice B ($7.4\\%$): this computes $\\dfrac{432}{5{,}832} \\approx 0.074$, dividing by the ending balance instead of the starting one.\n* Choice D ($16\\%$): this doubles the correct rate, treating the two listed balances as two years of growth from the original deposit.\n\n**Test Day Takeaway:** For a constant percentage increase, divide any balance by the one from the period before; percent change is always measured against the EARLIER amount.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "compound-interest",
@@ -6115,18 +6115,18 @@ export const advancedMathBank = [
     skills: ["exponential-functions"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "An account earns $9\\%$ annual interest, compounded annually, and no deposits or withdrawals are made. Which of the following is closest to the number of years it takes for the value of the account to triple?",
+    question: "$B(t) = 2{,}000(1.10)^{t}$\nThe function $B$ gives the balance, in dollars, of a savings account $t$ years after it was opened. By what percentage does the balance increase every $2$ years?",
     choices: [
-      // distractor: finds the time to double rather than to triple
-      { id: "A", text: "$8$" },
-      { id: "B", text: "$13$" },
-      // distractor: computes $\dfrac{200}{9}$, treating the growth as simple interest
-      { id: "C", text: "$22$" },
-      // distractor: computes $\dfrac{300}{9}$, dividing the target percent by the rate
-      { id: "D", text: "$33$" }
+      // distractor: gives the increase for one year
+      { id: "A", text: "$10\\%$" },
+      // distractor: doubles the yearly rate instead of applying it twice
+      { id: "B", text: "$20\\%$" },
+      { id: "C", text: "$21\\%$" },
+      // distractor: reports the 2-year growth factor 1.21 as a percentage
+      { id: "D", text: "$121\\%$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Compound Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Solve $(1.09)^t = 3$. Since $(1.09)^{12} \\approx 2.81$ and $(1.09)^{13} \\approx 3.07$, the value first reaches triple near $t = 13$.\n\n**The Full Solution:**\nStep 1: Let $P$ be the starting value. After $t$ years the account holds $P(1.09)^t$, and tripling means $P(1.09)^t = 3P$, so $(1.09)^t = 3$.\nStep 2: Test values: $(1.09)^{10} \\approx 2.37$, $(1.09)^{12} \\approx 2.81$, $(1.09)^{13} \\approx 3.07$.\nStep 3: The multiplier passes $3$ between $t = 12$ and $t = 13$, and $3.07$ is closer to $3$ than $2.81$ is, so $13$ years is closest. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): $(1.09)^8 \\approx 1.99$ — that is the doubling time, not the tripling time.\n* Choice C ($22$): this divides $200$ by $9$, which would be right only for simple interest on the original $200\\%$ gain.\n* Choice D ($33$): this divides $300$ by $9$, mistaking the target multiple for a percent to be divided by the rate.\n\n**Test Day Takeaway:** \"Doubles/triples\" means the MULTIPLIER hits $2$ or $3$; set $(1 + r)^t$ equal to that number and test exponents rather than dividing percents.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Compound Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Two years multiply the balance by $(1.10)^{2} = 1.21$, an increase of $21\\%$.\n\n**The Full Solution:**\nStep 1: Each year the balance is multiplied by $1.10$.\nStep 2: Over $2$ years it is multiplied by $(1.10)^{2} = 1.21$, so $B(t) = 2{,}000(1.21)^{\\frac{t}{2}}$.\nStep 3: A factor of $1.21$ is an increase of $21\\%$. Check: $B(0) = 2{,}000$ and $B(2) = 2{,}000(1.21) = 2{,}420$, and $\\frac{420}{2{,}000} = 0.21$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10\\%$): this is the increase for one year, not for two.\n* Choice B ($20\\%$): adds $10\\%$ twice; the second year's $10\\%$ is taken on the larger balance, so the total is more than $20\\%$.\n* Choice D ($121\\%$): treats the factor $1.21$ as the percentage; a factor of $1.21$ means $121\\%$ OF the starting balance, an increase of $21\\%$.\n\n**Test Day Takeaway:** To change the period of an exponential model, raise the factor to the number of years in the new period.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "compound-interest",
@@ -6140,9 +6140,9 @@ export const advancedMathBank = [
     skills: ["exponential-functions"],
     difficulty: "hard",
     type: "fill-in",
-    question: "A deposit of $P$ dollars earns $4\\%$ annual interest, compounded semiannually. No other deposits or withdrawals are made, and the balance after $2$ years is $\\$8{,}659.46$. What is the value of $P$?",
-    correctAnswer: "8000",
-    explanation: "**SAT Pattern: Compound Interest**\n\n**The correct answer is $8000$.**\n\n**The Fast Way (~30s):** Two years is four periods at $2\\%$, so divide: $8659.46/(1.02)^{4}=8659.46/1.08243216=8{,}000$.\n\n**The Full Solution:**\nStep 1: Semiannual compounding at $4\\%$ per year uses a periodic rate of $2\\%$, so the factor per period is $1.02$.\nStep 2: Two years contain $4$ periods, so the account value is $P(1.02)^{4}$, where $P$ is the deposit.\nStep 3: Solve $P(1.08243216)=8659.46$, giving $P=8{,}000$. Check: $8000\\cdot 1.02=8160$, then $8323.20$, then $8489.66$, then $\\$8{,}659.46$ ✓\n\n**Common Mistakes:**\n* $8006$: divided by $(1.04)^{2}$, compounding once a year instead of twice.\n* $8323$: divided by $(1.02)^{2}$, using two periods instead of four.\n* $9373$: multiplied by $(1.02)^{4}$ instead of dividing.\n\n**Test Day Takeaway:** Working backwards from a future value divides by the growth factor — and the number of periods, not the number of years, is the exponent.",
+    question: "The value of an investment increases by the same percentage each year. Its value is \\$3,000 at the end of the first year and \\$4,320 at the end of the third year. What was the value, in dollars, of the investment when it was purchased?",
+    correctAnswer: "2500",
+    explanation: "**SAT Pattern: Compound Interest**\n\n**The correct answer is $2500$.**\n\n**The Fast Way (~40s):** Two years multiply the value by $\\frac{4{,}320}{3{,}000} = 1.44 = (1.2)^{2}$, so the yearly factor is $1.2$ and the purchase value is $\\frac{3{,}000}{1.2} = 2{,}500$.\n\n**The Full Solution:**\nStep 1: From the end of year 1 to the end of year 3 is $2$ years, so the yearly factor $b$ satisfies $b^{2} = \\frac{4{,}320}{3{,}000} = 1.44$.\nStep 2: The positive square root gives $b = 1.2$, an increase of $20\\%$ each year.\nStep 3: The value one year before the end of year 1 is $\\frac{3{,}000}{1.2} = 2{,}500$. Check: $2{,}500(1.2) = 3{,}000$ and $2{,}500(1.2)^{3} = 4{,}320$ ✓\n\n**Common Mistakes:**\n* $2{,}340$: treats the growth as linear, subtracting half of the $1{,}320$ increase from $3{,}000$.\n* $2{,}400$: takes $20\\%$ off $3{,}000$ instead of dividing by $1.2$.\n* $2{,}083.33$: divides $3{,}000$ by the 2-year factor $1.44$ instead of the yearly factor $1.2$.\n\n**Test Day Takeaway:** Two values $n$ years apart give the factor for $n$ years; take the $n$th root to get the yearly factor, then divide to go back in time.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "compound-interest",
@@ -6209,18 +6209,18 @@ export const advancedMathBank = [
     skills: ["rational-expressions"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "$\\dfrac{x}{x-2}+\\dfrac{4}{x+2}=\\dfrac{8}{x^{2}-4}$\nWhat value of $x$ is the solution to the given equation?",
+    question: "$\\dfrac{x}{x-2}=\\dfrac{8}{x^{2}-4}$\nWhat value of $x$ is the solution to the given equation?",
     choices: [
-      { id: "A", text: "$-8$" },
-      // distractor: sets the common denominator x^2 - 4 equal to zero and takes the negative root
-      { id: "B", text: "$-2$" },
-      // distractor: keeps the root x = 2 of x^2 + 6x - 16 = 0, which makes the denominators zero
-      { id: "C", text: "$2$" },
-      // distractor: factors x^2 + 6x - 16 with the signs reversed, as (x - 8)(x + 2), and keeps 8
+      { id: "A", text: "$-4$" },
+      // distractor: keeps x = 2, which makes the denominators 0
+      { id: "B", text: "$2$" },
+      // distractor: factors x^2 + 2x - 8 as (x - 4)(x + 2)
+      { id: "C", text: "$4$" },
+      // distractor: sets the numerators equal
       { id: "D", text: "$8$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** Multiplying by $x^{2}-4$ gives $x^{2}+6x-16=0$, or $(x+8)(x-2)=0$. The root $2$ is excluded, so $x=-8$.\n\n**The Full Solution:**\nStep 1: Since $x^{2}-4=(x-2)(x+2)$, the values $2$ and $-2$ are excluded. Multiply both sides by $(x-2)(x+2)$: $x(x+2)+4(x-2)=8$.\nStep 2: Expand and collect: $x^{2}+2x+4x-8-8=0$, so $x^{2}+6x-16=0$, which factors as $(x+8)(x-2)=0$.\nStep 3: The candidates are $-8$ and $2$; $2$ is excluded, so $x=-8$. Check: $\\dfrac{-8}{-10}+\\dfrac{4}{-6}=\\dfrac{4}{5}-\\dfrac{2}{3}=\\dfrac{2}{15}$ and $\\dfrac{8}{60}=\\dfrac{2}{15}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-2$): solves $x^{2}-4=0$, the denominator, instead of the equation.\n* Choice C ($2$): keeps the second root of $x^{2}+6x-16=0$, but $x=2$ makes two denominators zero.\n* Choice D ($8$): factors $x^{2}+6x-16$ as $(x-8)(x+2)$, reversing the signs.\n\n**Test Day Takeaway:** After clearing denominators, test every root against the excluded values before choosing.",
+    explanation: "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** Multiply both sides by $(x - 2)(x + 2)$: $x(x + 2) = 8$, so $(x + 4)(x - 2) = 0$; $x = 2$ makes a denominator $0$, so $x = -4$.\n\n**The Full Solution:**\nStep 1: Since $x^{2} - 4 = (x - 2)(x + 2)$, multiply both sides by $(x - 2)(x + 2)$: $x(x + 2) = 8$.\nStep 2: Rearrange and factor: $x^{2} + 2x - 8 = 0$, so $(x + 4)(x - 2) = 0$ and $x = -4$ or $x = 2$.\nStep 3: $x = 2$ makes the denominators $0$, so it is not a solution; the solution is $x = -4$. Check: $\\frac{-4}{-6} = \\frac{2}{3}$ and $\\frac{8}{16 - 4} = \\frac{2}{3}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2$): solves the quadratic but keeps $x = 2$, which makes both denominators $0$.\n* Choice C ($4$): factors $x^{2} + 2x - 8$ as $(x - 4)(x + 2)$, reversing the signs.\n* Choice D ($8$): sets the numerators equal, ignoring that the denominators differ.\n\n**Test Day Takeaway:** After clearing denominators, test every solution in the original equation; any value that makes a denominator $0$ is thrown out.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "rational-equation-with-extraneous-solution",
@@ -6472,7 +6472,7 @@ export const advancedMathBank = [
     skills: ["quadratics"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "$y=x^{2}-6x+2$\nWhich equation is equivalent to the given equation and shows the coordinates of the vertex of its graph in the $xy$-plane as constants?",
+    question: "$y=x^{2}-6x+2$\nWhich equation is equivalent to the given equation?",
     choices: [
       { id: "A", text: "$y = (x - 3)^2 - 7$" },
       // distractor: keeps the original constant term
@@ -6483,7 +6483,7 @@ export const advancedMathBank = [
       { id: "D", text: "$y = (x - 6)^2 - 34$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Completing the Square**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Half of $-6$ is $-3$, and $(x - 3)^2 = x^2 - 6x + 9$, which is $7$ too big, so $y = (x - 3)^2 - 7$.\n\n**The Full Solution:**\nStep 1: Complete the square on $x^2 - 6x$: half of $-6$ is $-3$, and $(x - 3)^2 = x^2 - 6x + 9$.\nStep 2: Rewrite: $y = (x^2 - 6x + 9) - 9 + 2 = (x - 3)^2 - 7$.\nStep 3: In the form $y = (x - h)^2 + k$, the vertex is $(h, k) = (3, -7)$, and the constants $3$ and $-7$ appear in the equation. Check: $(x - 3)^2 - 7 = x^2 - 6x + 9 - 7 = x^2 - 6x + 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = (x - 3)^2 + 2$): the constant $2$ was carried over unchanged; this expands to $x^2 - 6x + 11$, not $x^2 - 6x + 2$.\n* Choice C ($y = (x - 3)^2 + 11$): the $9$ was added instead of subtracted.\n* Choice D ($y = (x - 6)^2 - 34$): the full coefficient $-6$ was used inside the square, which expands to $x^2 - 12x + 2$.\n\n**Test Day Takeaway:** Vertex form reads the vertex straight off. Expand your answer to confirm it matches the original equation.",
+    explanation: "**SAT Pattern: Completing the Square**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Half of $-6$ is $-3$, and $(x - 3)^2 = x^2 - 6x + 9$, which is $7$ too big, so $y = (x - 3)^2 - 7$.\n\n**The Full Solution:**\nStep 1: Complete the square on $x^2 - 6x$: half of $-6$ is $-3$, and $(x - 3)^2 = x^2 - 6x + 9$.\nStep 2: Rewrite: $y = (x^2 - 6x + 9) - 9 + 2 = (x - 3)^2 - 7$.\nStep 3: So the given equation is equivalent to $y = (x - 3)^2 - 7$. Check: $(x - 3)^2 - 7 = x^2 - 6x + 9 - 7 = x^2 - 6x + 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = (x - 3)^2 + 2$): the constant $2$ was carried over unchanged; this expands to $x^2 - 6x + 11$, not $x^2 - 6x + 2$.\n* Choice C ($y = (x - 3)^2 + 11$): the $9$ was added instead of subtracted.\n* Choice D ($y = (x - 6)^2 - 34$): the full coefficient $-6$ was used inside the square, which expands to $x^2 - 12x + 2$.\n\n**Test Day Takeaway:** To complete the square, add and subtract the square of half the $x$-coefficient; expand your answer to confirm it matches the original equation.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "completing-the-square",
@@ -6629,22 +6629,22 @@ export const advancedMathBank = [
   {
     id: "bank-am-299",
     domain: "advanced-math",
-    skills: ["polynomials"],
+    skills: ["finding-roots-factoring"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "For the polynomial function $p$, the table shows values of $p(x)$ for selected values of $x$. If $p(x)=(x-3)q(x)+r$, where $q$ is a polynomial and $r$ is a constant, what is the value of $r$?",
-    diagram: { type: "table", params: { xHeader: "x", yHeader: "p(x)", rows: [["-1", "12"], ["0", "-4"], ["2", "6"], ["3", "9"], ["5", "40"]] } },
+    question: "For the polynomial function $p$, the table shows four values of $x$ and their corresponding values of $p(x)$. Which of the following must be a factor of $p(x)$?",
+    diagram: { type: "table", params: { xHeader: "x", yHeader: "p(x)", rows: [["-3", "12"], ["0", "6"], ["3", "0"], ["5", "14"]] } },
     choices: [
-      // distractor: substitutes x = 0 instead of x = 3 and reports p(0) = -4
-      { id: "A", text: "$-4$" },
-      // distractor: substitutes x = 2, the row above the needed one, and reports p(2) = 6
-      { id: "B", text: "$6$" },
-      { id: "C", text: "$9$" },
-      // distractor: substitutes x = 5 and reports p(5) = 40
-      { id: "D", text: "$40$" }
+      // distractor: treats the y-intercept value p(0) = 6 as a zero
+      { id: "A", text: "$x - 6$" },
+      { id: "B", text: "$x - 3$" },
+      // distractor: flips the sign of the zero x = 3
+      { id: "C", text: "$x + 3$" },
+      // distractor: treats p(0) = 6 as a zero and flips the sign
+      { id: "D", text: "$x + 6$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Polynomial Remainder Theorem**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Substituting $x=3$ kills the $(x-3)q(x)$ term, so $r=p(3)=9$.\n\n**The Full Solution:**\n\nStep 1: The identity $p(x)=(x-3)q(x)+r$ holds for every $x$, so it holds at $x=3$.\n\nStep 2: At $x=3$ the first term is $(3-3)q(3)=0$, leaving $p(3)=r$.\n\nStep 3: The table shows $p(3)=9$, so $r=9$. Check: with $r=9$ the identity reads $p(3)=0+9=9$, which matches the table ✓\n\n**Why the wrong answers are tempting:**\n\n* Choice A ($-4$): substitutes $x=0$ instead of $x=3$ and reports $p(0)=-4$.\n* Choice B ($6$): reads the row above the needed one and reports $p(2)=6$.\n* Choice D ($40$): reads the last row and reports $p(5)=40$.\n\n**Test Day Takeaway:** A constant remainder on division by $x-a$ is just the function value at $x=a$; find the row where the divisor vanishes.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Polynomial Factoring with Given Factor**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The table shows $p(3) = 0$, so $x = 3$ is a zero of $p$ and $x - 3$ is a factor.\n\n**The Full Solution:**\nStep 1: If $p(a) = 0$, then $x - a$ is a factor of $p(x)$.\nStep 2: The table shows $p(3) = 0$.\nStep 3: So $x - 3$ must be a factor of $p(x)$. Check: $x - 3$ equals $0$ at $x = 3$, exactly where the table shows $p(x) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x - 6$): treats $6$, the value of $p(0)$, as a zero; $p(6)$ is not given.\n* Choice C ($x + 3$): flips the sign; $x + 3$ is a factor only if $p(-3) = 0$, but $p(-3) = 12$.\n* Choice D ($x + 6$): treats the output $6$ as a zero and flips the sign as well.\n\n**Test Day Takeaway:** A zero at $x = a$ means the factor $x - a$; look for the row where the output is $0$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "polynomial-remainder-theorem",
@@ -6658,9 +6658,9 @@ export const advancedMathBank = [
     skills: ["polynomials"],
     difficulty: "easy",
     type: "fill-in",
-    question: "$p(x)=x^{3}-6x^{2}+11x+7$\nWhat is the remainder when $p(x)$ is divided by $x-4$?",
+    question: "$p(x)=x^{3}-6x^{2}+11x+7$\nWhat is the value of $p(4)$?",
     correctAnswer: "19",
-    explanation: "**SAT Pattern: Polynomial Remainder Theorem**\n\n**The correct answer is $19$.**\n\n**The Fast Way (~20s):** The remainder on division by $x-4$ equals $p(4)$, and $p(4)=64-96+44+7=19$.\n\n**The Full Solution:**\nStep 1: Write $p(x)=(x-4)q(x)+r$, where $q$ is a polynomial and $r$ is the constant remainder.\nStep 2: Substitute $x=4$. The product $(4-4)q(4)$ is $0$, so $r=p(4)$.\nStep 3: Evaluate: $4^{3}=64$, $-6(4)^{2}=-96$, $11(4)=44$, and the constant is $7$, so $p(4)=64-96+44+7=19$. Check: long division gives quotient $x^{2}-2x+3$ and $(x-4)(x^{2}-2x+3)+19=x^{3}-6x^{2}+11x+7$ ✓\n\n**Common Mistakes:**\n* $-197$: substitutes $x=-4$, the constant seen inside the divisor: $-64-96-44+7=-197$.\n* $12$: drops the constant term $+7$: $64-96+44=12$.\n\n**Test Day Takeaway:** Match the divisor $x-a$ to the input $x=a$; the remainder is one substitution away, never a long division.",
+    explanation: "**SAT Pattern: Polynomial Remainder Theorem**\n\n**The correct answer is $19$.**\n\n**The Fast Way (~20s):** $p(4) = 64 - 96 + 44 + 7 = 19$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 4$ into every term of $p(x)$.\nStep 2: $4^{3} = 64$, $6(4)^{2} = 96$, and $11(4) = 44$.\nStep 3: $p(4) = 64 - 96 + 44 + 7 = 19$. Check: $64 - 96 = -32$, $-32 + 44 = 12$, and $12 + 7 = 19$ ✓\n\n**Common Mistakes:**\n* $12$: drops the constant term $7$.\n* $211$: adds $6(4)^{2}$ instead of subtracting it: $64 + 96 + 44 + 7 = 211$.\n* $-197$: substitutes $x = -4$ instead of $x = 4$.\n\n**Test Day Takeaway:** Evaluate a polynomial one term at a time, keeping every sign.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "polynomial-remainder-theorem",
@@ -6671,7 +6671,7 @@ export const advancedMathBank = [
   {
     id: "bank-am-301",
     domain: "advanced-math",
-    skills: ["polynomials"],
+    skills: ["finding-roots-factoring"],
     difficulty: "medium",
     type: "multiple-choice",
     question: "$p(x) = 2x^{3} - 7x^{2} + cx - 9$\nIn the given equation, $c$ is a constant, and $x - 3$ is a factor of $p(x)$. What is the value of $c$?",
@@ -6685,7 +6685,7 @@ export const advancedMathBank = [
       { id: "D", text: "$18$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Polynomial Remainder Theorem**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** If $x - 3$ is a factor, then $p(3) = 0$. Substituting gives $54 - 63 + 3c - 9 = 0$, so $3c = 18$ and $c = 6$.\n\n**The Full Solution:**\nStep 1: The factor theorem says $x - 3$ is a factor of $p(x)$ exactly when $p(3) = 0$.\nStep 2: $p(3) = 2(27) - 7(9) + c(3) - 9 = 54 - 63 + 3c - 9 = 3c - 18$.\nStep 3: Setting $3c - 18 = 0$ gives $c = 6$. Check: with $c = 6$, $p(3) = 54 - 63 + 18 - 9 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): treats the constant term as $+9$, solving $54 - 63 + 3c + 9 = 0$.\n* Choice B ($3$): drops the constant term $-9$ entirely, solving $54 - 63 + 3c = 0$.\n* Choice D ($18$): substitutes $x = 3$ into every term except $cx$, solving $54 - 63 + c - 9 = 0$.\n\n**Test Day Takeaway:** A factor $x - r$ means the polynomial is zero at $x = r$ — substitute $r$, keep every term, and solve the resulting linear equation.",
+    explanation: "**SAT Pattern: Polynomial Factoring with Given Factor**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** If $x - 3$ is a factor, then $p(3) = 0$. Substituting gives $54 - 63 + 3c - 9 = 0$, so $3c = 18$ and $c = 6$.\n\n**The Full Solution:**\nStep 1: The factor theorem says $x - 3$ is a factor of $p(x)$ exactly when $p(3) = 0$.\nStep 2: $p(3) = 2(27) - 7(9) + c(3) - 9 = 54 - 63 + 3c - 9 = 3c - 18$.\nStep 3: Setting $3c - 18 = 0$ gives $c = 6$. Check: with $c = 6$, $p(3) = 54 - 63 + 18 - 9 = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): treats the constant term as $+9$, solving $54 - 63 + 3c + 9 = 0$.\n* Choice B ($3$): drops the constant term $-9$ entirely, solving $54 - 63 + 3c = 0$.\n* Choice D ($18$): substitutes $x = 3$ into every term except $cx$, solving $54 - 63 + c - 9 = 0$.\n\n**Test Day Takeaway:** A factor $x - r$ means the polynomial is zero at $x = r$ — substitute $r$, keep every term, and solve the resulting linear equation.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "polynomial-remainder-theorem",
@@ -6725,9 +6725,9 @@ export const advancedMathBank = [
     skills: ["polynomials"],
     difficulty: "medium",
     type: "fill-in",
-    question: "$p(x) = (x + 3)(2x^{2} - x + 4) - 5x$\nWhat is the remainder when $p(x)$ is divided by $x - 2$?",
+    question: "$p(x) = (x + 3)(2x^{2} - x + 4) - 5x$\nWhat is the value of $p(2)$?",
     correctAnswer: "40",
-    explanation: "**SAT Pattern: Polynomial Remainder Theorem**\n\n**The correct answer is $40$.**\n\n**The Fast Way (~25s):** The remainder equals $p(2)=(5)(8-2+4)-10=50-10=40$; the factored form never has to be expanded.\n\n**The Full Solution:**\n\nStep 1: Division by $x-2$ leaves a constant remainder $r$ with $p(x)=(x-2)q(x)+r$, so $r=p(2)$.\n\nStep 2: Evaluate the first factor at $x=2$: $2+3=5$. Evaluate the second: $2(2)^{2}-2+4=8-2+4=10$.\n\nStep 3: Combine: $p(2)=5\\cdot10-5(2)=50-10=40$. Check: expanding gives $p(x)=2x^{3}+5x^{2}-4x+12$, and $2(8)+5(4)-4(2)+12=16+20-8+12=40$.\n\n**Common Mistakes:**\n\n* Substituting $x=-2$ gives $(1)(8+2+4)+10=24$, the remainder for the divisor $x+2$ instead.\n* Forgetting the trailing $-5x$ gives $5\\cdot10=50$.\n\n**Test Day Takeaway:** Evaluate the polynomial exactly as it is written; a factored form is faster to plug into than to expand.",
+    explanation: "**SAT Pattern: Polynomial Remainder Theorem**\n\n**The correct answer is $40$.**\n\n**The Fast Way (~25s):** $p(2) = (5)(8 - 2 + 4) - 10 = 50 - 10 = 40$; the factored form never has to be expanded.\n\n**The Full Solution:**\nStep 1: Evaluate the first factor at $x = 2$: $2 + 3 = 5$.\nStep 2: Evaluate the second factor at $x = 2$: $2(2)^{2} - 2 + 4 = 8 - 2 + 4 = 10$.\nStep 3: Combine: $p(2) = 5 \\cdot 10 - 5(2) = 50 - 10 = 40$. Check: expanding gives $p(x) = 2x^{3} + 5x^{2} - 4x + 12$, and $16 + 20 - 8 + 12 = 40$ ✓\n\n**Common Mistakes:**\n* $50$: forgets the trailing $-5x$.\n* $24$: substitutes $x = -2$ instead of $x = 2$: $(1)(8 + 2 + 4) + 10 = 24$.\n\n**Test Day Takeaway:** Evaluate a function exactly as it is written; a factored form is faster to substitute into than to expand.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "polynomial-remainder-theorem",
@@ -6738,22 +6738,22 @@ export const advancedMathBank = [
   {
     id: "bank-am-304",
     domain: "advanced-math",
-    skills: ["polynomials"],
+    skills: ["finding-roots-factoring"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The table shows three values of $x$ and their corresponding values of $p(x)$ for the polynomial function $p$. The function $q$ is defined by $q(x) = p(x) - 2x + 1$. What is the remainder when $q(x)$ is divided by $x - 3$?",
+    question: "The table shows three values of $x$ and their corresponding values of $p(x)$ for the polynomial function $p$. The function $q$ is defined by $q(x) = p(x) - 2x + 1$. Which of the following must be a factor of $q(x)$?",
     diagram: { type: "dataTable", params: { headers: ["x", "p(x)"], rows: [["-1", "8"], ["1", "-4"], ["3", "5"]] } },
     choices: [
-      // distractor: evaluates q at x = 1
-      { id: "A", text: "$-5$" },
-      { id: "B", text: "$0$" },
-      // distractor: assumes the subtraction leaves the remainder unchanged
-      { id: "C", text: "$5$" },
-      // distractor: evaluates q at x = -1
-      { id: "D", text: "$11$" }
+      // distractor: flips the sign of the zero x = 3
+      { id: "A", text: "$x + 3$" },
+      // distractor: picks the row where p(x) is negative; q(1) = -5, not 0
+      { id: "B", text: "$x - 1$" },
+      { id: "C", text: "$x - 3$" },
+      // distractor: treats the output p(3) = 5 as a zero
+      { id: "D", text: "$x - 5$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Polynomial Remainder Theorem**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The remainder is $q(3) = p(3) - 2(3) + 1$. The table shows $p(3) = 5$, so $q(3) = 5 - 6 + 1 = 0$.\n\n**The Full Solution:**\nStep 1: By the remainder theorem, dividing $q(x)$ by $x - 3$ leaves the remainder $q(3)$.\nStep 2: $q(3) = p(3) - 2(3) + 1 = p(3) - 5$.\nStep 3: The table's third row gives $p(3) = 5$, so $q(3) = 5 - 5 = 0$. Check: a remainder of $0$ means $x - 3$ divides $q(x)$ exactly, which is consistent with $q(3) = 0$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): evaluates $q$ at $x = 1$ instead of $x = 3$: $-4 - 2 + 1 = -5$.\n* Choice C ($5$): reports $p(3)$, assuming that subtracting $2x - 1$ leaves the remainder unchanged.\n* Choice D ($11$): evaluates $q$ at $x = -1$, using the sign of the divisor's constant: $8 + 2 + 1 = 11$.\n\n**Test Day Takeaway:** Dividing by $x - 3$ always asks for the value at $x = 3$ — pick the row the divisor names, then apply the rest of the definition.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Polynomial Factoring with Given Factor**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** $q(3) = p(3) - 6 + 1 = 5 - 5 = 0$, so $x - 3$ is a factor of $q(x)$.\n\n**The Full Solution:**\nStep 1: $q$ is a polynomial, and $x - a$ is a factor of $q(x)$ exactly when $q(a) = 0$.\nStep 2: Use the table: $q(-1) = 8 + 2 + 1 = 11$, $q(1) = -4 - 2 + 1 = -5$, and $q(3) = 5 - 6 + 1 = 0$.\nStep 3: The zero at $x = 3$ gives the factor $x - 3$. Check: $q(3) = p(3) - 2(3) + 1 = 5 - 6 + 1 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x + 3$): flips the sign; $x + 3$ would require $q(-3) = 0$, and the table says nothing about $x = -3$.\n* Choice B ($x - 1$): $p(1)$ is negative, but $q(1) = -5$, not $0$.\n* Choice D ($x - 5$): treats the output $p(3) = 5$ as if it were a zero.\n\n**Test Day Takeaway:** To find a factor of a new function, compute its value at each listed input and look for $0$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "polynomial-remainder-theorem",
@@ -6764,7 +6764,7 @@ export const advancedMathBank = [
   {
     id: "bank-am-305",
     domain: "advanced-math",
-    skills: ["polynomials"],
+    skills: ["finding-roots-factoring"],
     difficulty: "hard",
     type: "multiple-choice",
     question: "Values of the polynomial function $f$ at three values of $x$ are shown in the table. Which of the following must be a factor of $f(x) - 5$?",
@@ -6779,7 +6779,7 @@ export const advancedMathBank = [
       { id: "D", text: "$x + 3$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Polynomial Remainder Theorem**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Let $g(x) = f(x) - 5$. The table gives $g(-2) = 0$ and $g(4) = 0$, so $x + 2$ and $x - 4$ are factors of $g(x)$, and only $x - 4$ is a choice.\n\n**The Full Solution:**\nStep 1: $g(x) = f(x) - 5$ is a polynomial, and $x - a$ is a factor of $g(x)$ exactly when $g(a) = 0$.\nStep 2: From the table, $g(-2) = 5 - 5 = 0$, $g(1) = -3 - 5 = -8$, and $g(4) = 5 - 5 = 0$.\nStep 3: The zeros $x = -2$ and $x = 4$ give the factors $x + 2$ and $x - 4$; of the choices, only $x - 4$ appears. Check: $g(4) = f(4) - 5 = 5 - 5 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x + 4$): flips the sign. A factor $x + 4$ would need $g(-4) = 0$, and the table says nothing about $x = -4$.\n* Choice C ($x - 5$): treats the output $5$ as if it were an input that makes the expression zero.\n* Choice D ($x + 3$): reads the output $-3$ at $x = 1$ as a zero, but $g(1) = -8$, not $0$.\n\n**Test Day Takeaway:** For a factor of $f(x) - c$, look for the inputs where $f(x) = c$; each such input $a$ gives the factor $x - a$.",
+    explanation: "**SAT Pattern: Polynomial Factoring with Given Factor**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Let $g(x) = f(x) - 5$. The table gives $g(-2) = 0$ and $g(4) = 0$, so $x + 2$ and $x - 4$ are factors of $g(x)$, and only $x - 4$ is a choice.\n\n**The Full Solution:**\nStep 1: $g(x) = f(x) - 5$ is a polynomial, and $x - a$ is a factor of $g(x)$ exactly when $g(a) = 0$.\nStep 2: From the table, $g(-2) = 5 - 5 = 0$, $g(1) = -3 - 5 = -8$, and $g(4) = 5 - 5 = 0$.\nStep 3: The zeros $x = -2$ and $x = 4$ give the factors $x + 2$ and $x - 4$; of the choices, only $x - 4$ appears. Check: $g(4) = f(4) - 5 = 5 - 5 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x + 4$): flips the sign. A factor $x + 4$ would need $g(-4) = 0$, and the table says nothing about $x = -4$.\n* Choice C ($x - 5$): treats the output $5$ as if it were an input that makes the expression zero.\n* Choice D ($x + 3$): reads the output $-3$ at $x = 1$ as a zero, but $g(1) = -8$, not $0$.\n\n**Test Day Takeaway:** For a factor of $f(x) - c$, look for the inputs where $f(x) = c$; each such input $a$ gives the factor $x - a$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "polynomial-remainder-theorem",
@@ -6793,9 +6793,9 @@ export const advancedMathBank = [
     skills: ["polynomials"],
     difficulty: "hard",
     type: "fill-in",
-    question: "$p(x) = x^{3} + kx^{2} - 2x + 5$\nIn the given equation, $k$ is a constant. The remainder when $p(x)$ is divided by $x - 4$ is $5$ times the remainder when $p(x)$ is divided by $x + 2$. What is the value of $k$?",
+    question: "$p(x) = x^{3} + kx^{2} - 2x + 5$\nIn the given function, $k$ is a constant. If $p(4) = 5p(-2)$, what is the value of $k$?",
     correctAnswer: "14",
-    explanation: "**SAT Pattern: Polynomial Remainder Theorem**\n\n**The correct answer is $14$.**\n\n**The Fast Way (~45s):** The two remainders are $p(4)=61+16k$ and $p(-2)=1+4k$; setting $61+16k=5(1+4k)$ gives $56=4k$, so $k=14$.\n\n**The Full Solution:**\n\nStep 1: The remainder on division by $x-4$ is $p(4)=64+16k-8+5=61+16k$.\n\nStep 2: The remainder on division by $x+2$ is $p(-2)=-8+4k+4+5=1+4k$.\n\nStep 3: Translate the sentence into $61+16k=5(1+4k)$, so $61+16k=5+20k$ and $56=4k$, giving $k=14$. Check: $p(4)=61+224=285$, $p(-2)=1+56=57$, and $5\\cdot57=285$.\n\n**Common Mistakes:**\n\n* Reading the divisors' constants as the inputs, using $x=-4$ and $x=2$, gives $16k-51=5(4k+9)$ and the wrong value $k=-24$.\n* Attaching the factor $5$ to the wrong remainder, $5p(4)=p(-2)$, gives $305+80k=1+4k$ and the wrong value $k=-4$.\n\n**Test Day Takeaway:** Write both remainders as expressions in the unknown constant first; the comparison sentence then becomes a one-line linear equation.",
+    explanation: "**SAT Pattern: Polynomial Remainder Theorem**\n\n**The correct answer is $14$.**\n\n**The Fast Way (~45s):** $p(4) = 61 + 16k$ and $p(-2) = 1 + 4k$; setting $61 + 16k = 5(1 + 4k)$ gives $56 = 4k$, so $k = 14$.\n\n**The Full Solution:**\nStep 1: Evaluate $p(4) = 64 + 16k - 8 + 5 = 61 + 16k$.\nStep 2: Evaluate $p(-2) = -8 + 4k + 4 + 5 = 1 + 4k$.\nStep 3: Set $61 + 16k = 5(1 + 4k) = 5 + 20k$, so $56 = 4k$ and $k = 14$. Check: $p(4) = 61 + 224 = 285$, $p(-2) = 1 + 56 = 57$, and $5 \\cdot 57 = 285$ ✓\n\n**Common Mistakes:**\n* $-4$: attaches the $5$ to the wrong side, solving $5p(4) = p(-2)$: $305 + 80k = 1 + 4k$.\n* $-24$: substitutes $x = -4$ and $x = 2$ instead of $x = 4$ and $x = -2$.\n\n**Test Day Takeaway:** Write each function value as an expression in the unknown constant first; the given relationship then becomes a linear equation.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "polynomial-remainder-theorem",
@@ -6808,22 +6808,22 @@ export const advancedMathBank = [
   {
     id: "bank-am-307",
     domain: "advanced-math",
-    skills: ["quadratics"],
+    skills: ["finding-roots-factoring"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The graph shown models the height $y$, in meters, of the ceiling of a tunnel above the road, where $y = -\\frac{1}{4}x^{2} + 9$ and $x$ is the horizontal position, in meters, measured from the center of the tunnel. For which values of $x$ is the ceiling more than $5$ meters above the road?",
-    diagram: { type: "parabola", params: { vertex: { h: 0, k: 9 }, a: -0.25, xRange: [-8, 8], yRange: [-2, 10], xTickInterval: 2, yTickInterval: 2, gridInterval: 2, showVertex: true } },
+    question: "The height $y$, in meters, of a tunnel's ceiling above the road $x$ meters from the center of the tunnel is modeled by $y = -\\frac{1}{4}x^{2} + 9$, and the graph of this model is shown. For what positive value of $x$ is $y = 5$?",
+    diagram: { type: "parabola", params: { vertex: { h: 0, k: 9 }, a: -0.25, xRange: [-8, 8], yRange: [-2, 10], xTickInterval: 2, yTickInterval: 2, gridInterval: 2, showVertex: false } },
     choices: [
-      // distractor: solves y > 0, the road-level width
-      { id: "A", text: "$-6 < x < 6$" },
-      // distractor: fails to reverse the inequality
-      { id: "B", text: "$x < -4$ or $x > 4$" },
-      { id: "C", text: "$-4 < x < 4$" },
-      // distractor: keeps only the right half
-      { id: "D", text: "$0 < x < 4$" }
+      // distractor: drops the 1/4, solving x^2 = 4
+      { id: "A", text: "$2$" },
+      { id: "B", text: "$4$" },
+      // distractor: finds where the ceiling meets the road, at height 0
+      { id: "C", text: "$6$" },
+      // distractor: reports x^2 instead of x
+      { id: "D", text: "$16$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Solve $-\\dfrac{1}{4}x^2 + 9 > 5$. Then $\\dfrac{1}{4}x^2 < 4$, so $x^2 < 16$ and $-4 < x < 4$.\n\n**The Full Solution:**\nStep 1: \"More than $5$ meters above the road\" means $-\\dfrac{1}{4}x^2 + 9 > 5$.\nStep 2: Subtracting $9$ gives $-\\dfrac{1}{4}x^2 > -4$. Multiplying by $-4$ reverses the inequality: $x^2 < 16$.\nStep 3: $x^2 < 16$ means $|x| < 4$, so $-4 < x < 4$. Check: at $x = 0$ the height is $9$, which is more than $5$; at $x = 5$ the height is $-6.25 + 9 = 2.75$, which is not. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6 < x < 6$): solves $y > 0$ instead of $y > 5$, giving the tunnel's full width at road level.\n* Choice B ($x < -4$ or $x > 4$): forgets to reverse the inequality when multiplying by $-4$.\n* Choice D ($0 < x < 4$): keeps only the right half of the tunnel and drops the negative distances.\n\n**Test Day Takeaway:** Multiplying an inequality by a negative number flips it, and $x^2 < k$ always produces a two-sided interval around $0$.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Quadratic via Factoring**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $-\\frac{1}{4}x^{2} + 9 = 5$ gives $\\frac{1}{4}x^{2} = 4$, so $x^{2} = 16$ and $x = 4$.\n\n**The Full Solution:**\nStep 1: Set the height equal to $5$: $-\\frac{1}{4}x^{2} + 9 = 5$.\nStep 2: Subtract $9$ and multiply by $-4$: $x^{2} = 16$.\nStep 3: The positive solution is $x = 4$. Check: $-\\frac{1}{4}(16) + 9 = -4 + 9 = 5$, and the graph is at height $5$ at $x = 4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): drops the $\\frac{1}{4}$, solving $x^{2} = 4$.\n* Choice C ($6$): finds where the ceiling meets the road: $-\\frac{1}{4}(36) + 9 = 0$.\n* Choice D ($16$): stops at $x^{2} = 16$ without taking the square root.\n\n**Test Day Takeaway:** Set the model equal to the given height and solve; the context tells you which solution to keep.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "quadratic-inequality-from-context",
@@ -6834,21 +6834,21 @@ export const advancedMathBank = [
   {
     id: "bank-am-308",
     domain: "advanced-math",
-    skills: ["quadratics"],
+    skills: ["finding-roots-factoring"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A rectangular rug is $3$ feet longer than it is wide. If the width of the rug is $w$ feet, for which values of $w$ is the area of the rug less than $54$ square feet?",
+    question: "A rectangular rug is $3$ feet longer than it is wide, and its area is $54$ square feet. What is the width, in feet, of the rug?",
     choices: [
-      // distractor: keeps widths that cannot exist
-      { id: "A", text: "$-9 < w < 6$" },
-      // distractor: uses 9 as the upper bound
-      { id: "B", text: "$0 < w < 9$" },
-      // distractor: reverses the inequality
-      { id: "C", text: "$w > 6$" },
-      { id: "D", text: "$0 < w < 6$" }
+      { id: "A", text: "$6$" },
+      // distractor: gives the length instead of the width
+      { id: "B", text: "$9$" },
+      // distractor: divides the area by 3
+      { id: "C", text: "$18$" },
+      // distractor: divides the area by 2
+      { id: "D", text: "$27$" }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** $w(w + 3) < 54$ becomes $(w + 9)(w - 6) < 0$, so $-9 < w < 6$. A width must be positive, leaving $0 < w < 6$.\n\n**The Full Solution:**\nStep 1: The length is $w + 3$, so the area is $w(w + 3)$ and the condition is $w(w + 3) < 54$.\nStep 2: Expanding and collecting gives $w^2 + 3w - 54 < 0$, which factors as $(w + 9)(w - 6) < 0$. The product is negative between the critical values, so $-9 < w < 6$.\nStep 3: A physical width satisfies $w > 0$, so the answer is $0 < w < 6$. Check: $w = 5$ gives an area of $5(8) = 40 < 54$, and $w = 6$ gives exactly $54$, which is not less. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9 < w < 6$): solves the inequality correctly but keeps negative widths the context forbids.\n* Choice B ($0 < w < 9$): uses $9$, the size of the negative critical value, as the upper bound.\n* Choice C ($w > 6$): reverses the inequality and describes the widths for which the area exceeds $54$.\n\n**Test Day Takeaway:** Solve the quadratic inequality first, then intersect the solution set with the values the context allows.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Quadratic via Factoring**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $w(w + 3) = 54$ gives $w^{2} + 3w - 54 = 0$, or $(w + 9)(w - 6) = 0$, so $w = 6$.\n\n**The Full Solution:**\nStep 1: Let $w$ be the width, in feet; the length is $w + 3$, so $w(w + 3) = 54$.\nStep 2: Rearrange and factor: $w^{2} + 3w - 54 = 0$, so $(w + 9)(w - 6) = 0$.\nStep 3: A width must be positive, so $w = 6$. Check: $6 \\times 9 = 54$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($9$): this is the length, $6 + 3$, not the width.\n* Choice C ($18$): divides $54$ by $3$, using the difference in side lengths as a side.\n* Choice D ($27$): divides $54$ by $2$.\n\n**Test Day Takeaway:** Write the area as width times length in terms of one variable, then keep the positive solution.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "quadratic-inequality-from-context",
@@ -6859,12 +6859,12 @@ export const advancedMathBank = [
   {
     id: "bank-am-309",
     domain: "advanced-math",
-    skills: ["quadratics"],
+    skills: ["finding-roots-factoring"],
     difficulty: "medium",
     type: "fill-in",
-    question: "$P(n) = -n^{2} + 34n - 168$\nThe function $P$ gives a store's daily profit, in dollars, from selling $n$ posters. What is the least number of posters the store must sell for its daily profit to be positive?",
-    correctAnswer: "7",
-    explanation: "**SAT Pattern: Quadratic Inequality from Context**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~45s):** $-n^2 + 34n - 168 > 0$ becomes $(n - 6)(n - 28) < 0$, so $6 < n < 28$. The least whole number in that interval is $7$.\n\n**The Full Solution:**\nStep 1: Positive profit means $-n^2 + 34n - 168 > 0$. Multiplying by $-1$ reverses the inequality: $n^2 - 34n + 168 < 0$.\nStep 2: $n^2 - 34n + 168 = (n - 6)(n - 28)$, and this product is negative exactly when $6 < n < 28$.\nStep 3: $n$ counts posters, so the least whole number strictly greater than $6$ is $7$. Check: $P(6) = -36 + 204 - 168 = 0$, which is not positive, and $P(7) = -49 + 238 - 168 = 21$, which is. $\\checkmark$\n\n**Common Mistakes:** Answering $6$ uses the break-even count, where the profit is exactly $\\$0$ rather than positive. Answering $28$ gives the largest profitable count instead of the least. Forgetting to reverse the inequality when multiplying by $-1$ makes the solution set look like $n < 6$ or $n > 28$, which points to $n = 1$.\n\n**Test Day Takeaway:** \"Positive\" is strict — the boundary value breaks even, so step one past it.",
+    question: "$P(n) = -n^{2} + 34n - 168$\nThe function $P$ gives a store's daily profit, in dollars, from selling $n$ posters. What is the least value of $n$ for which $P(n) = 0$?",
+    correctAnswer: "6",
+    explanation: "**SAT Pattern: Quadratic via Factoring**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~30s):** $-n^{2} + 34n - 168 = 0$ is $n^{2} - 34n + 168 = 0$, or $(n - 6)(n - 28) = 0$, so the least value is $6$.\n\n**The Full Solution:**\nStep 1: Set $P(n) = 0$ and multiply by $-1$: $n^{2} - 34n + 168 = 0$.\nStep 2: Factor: two numbers with product $168$ and sum $34$ are $6$ and $28$, so $(n - 6)(n - 28) = 0$.\nStep 3: The solutions are $n = 6$ and $n = 28$; the least is $6$. Check: $P(6) = -36 + 204 - 168 = 0$ ✓\n\n**Common Mistakes:**\n* $28$: gives the greater solution.\n* $17$: gives the number of posters for the greatest profit, halfway between the solutions.\n* $7$: gives the least number of posters for a positive profit, not a profit of $0$.\n\n**Test Day Takeaway:** Set the function equal to the given value, factor, and read which solution the question asks for.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "quadratic-inequality-from-context",
@@ -6875,22 +6875,22 @@ export const advancedMathBank = [
   {
     id: "bank-am-310",
     domain: "advanced-math",
-    skills: ["quadratics"],
+    skills: ["finding-roots-factoring"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The graph shown models the height $y$, in meters, of a cable above a road, where $y = \\frac{1}{2}x^{2} - 4x + 12$ and $x$ is the distance, in meters, from the left end of the cable, for $0 \\le x \\le 8$. For which values of $x$ is the cable less than $6$ meters above the road?",
-    diagram: { type: "parabola", params: { vertex: { h: 4, k: 4 }, a: 0.5, xRange: [0, 8], yRange: [0, 14], xTickInterval: 2, yTickInterval: 2, gridInterval: 2, showVertex: true } },
+    question: "The height $y$, in meters, of a cable above a road $x$ meters from the cable's left end is modeled by $y = \\frac{1}{2}x^{2} - 4x + 12$, and the graph of this model is shown. For which values of $x$ is $y = 6$?",
+    diagram: { type: "parabola", params: { vertex: { h: 4, k: 4 }, a: 0.5, xRange: [0, 8], yRange: [0, 14], xTickInterval: 2, yTickInterval: 2, gridInterval: 2, showVertex: false } },
     choices: [
-      // distractor: takes the stretch before the first crossing
-      { id: "A", text: "$0 \\le x < 2$" },
-      { id: "B", text: "$2 < x < 6$" },
-      // distractor: uses the domain endpoint as the second crossing
-      { id: "C", text: "$2 < x \\le 8$" },
-      // distractor: solves the reversed inequality
-      { id: "D", text: "$x < 2$ or $x > 6$" }
+      // distractor: keeps only the smaller solution
+      { id: "A", text: "$2$ only" },
+      // distractor: gives the x-value of the lowest point, where the height is 4
+      { id: "B", text: "$4$ only" },
+      // distractor: keeps only the larger solution
+      { id: "C", text: "$6$ only" },
+      { id: "D", text: "$2$ and $6$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** $\\dfrac{1}{2}x^2 - 4x + 12 < 6$ doubles to $x^2 - 8x + 12 < 0$, which factors as $(x - 2)(x - 6) < 0$, so $2 < x < 6$.\n\n**The Full Solution:**\nStep 1: The condition is $\\dfrac{1}{2}x^2 - 4x + 12 < 6$. Multiplying by $2$ gives $x^2 - 8x + 24 < 12$, or $x^2 - 8x + 12 < 0$.\nStep 2: $x^2 - 8x + 12 = (x - 2)(x - 6)$, and an upward parabola is below the axis strictly between its zeros, so $2 < x < 6$.\nStep 3: Both critical values lie inside the stated domain $0 \\le x \\le 8$, so no trimming is needed. Check: at $x = 4$ the height is $8 - 16 + 12 = 4$, which is less than $6$; at $x = 2$ it is $2 - 8 + 12 = 6$ exactly. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0 \\le x < 2$): takes the stretch before the first crossing, where the cable is still higher than $6$ meters.\n* Choice C ($2 < x \\le 8$): replaces the second crossing with the right end of the domain.\n* Choice D ($x < 2$ or $x > 6$): solves $y > 6$, the outside interval, instead of $y < 6$.\n\n**Test Day Takeaway:** An upward parabola sits below a horizontal level between its two crossings and above it outside them.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Quadratic via Factoring**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** $\\frac{1}{2}x^{2} - 4x + 12 = 6$ gives $x^{2} - 8x + 12 = 0$, or $(x - 2)(x - 6) = 0$, so $x = 2$ and $x = 6$.\n\n**The Full Solution:**\nStep 1: Set the height equal to $6$: $\\frac{1}{2}x^{2} - 4x + 12 = 6$.\nStep 2: Subtract $6$ and multiply by $2$: $x^{2} - 8x + 12 = 0$, so $(x - 2)(x - 6) = 0$.\nStep 3: Both $x = 2$ and $x = 6$ are distances along the cable shown, so the cable is $6$ meters high at both. Check: $\\frac{1}{2}(4) - 8 + 12 = 6$ and $\\frac{1}{2}(36) - 24 + 12 = 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$ only): stops after the first solution; the cable is also $6$ meters high at $x = 6$.\n* Choice B ($4$ only): this is the lowest point of the cable, where the height is $4$ meters.\n* Choice C ($6$ only): keeps only the larger solution; $x = 2$ also works.\n\n**Test Day Takeaway:** A height below the starting value is usually reached twice by a U-shaped cable; check both solutions against the graph.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "quadratic-inequality-from-context",
@@ -6901,21 +6901,21 @@ export const advancedMathBank = [
   {
     id: "bank-am-311",
     domain: "advanced-math",
-    skills: ["quadratics"],
+    skills: ["finding-roots-factoring"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A rectangular garden is enclosed by $48$ meters of fencing. If the width of the garden is $w$ meters, for which values of $w$ is the area of the garden at least $140$ square meters?",
+    question: "A rectangular garden is enclosed by $48$ meters of fencing and has an area of $140$ square meters. What is the difference, in meters, between the lengths of the longer and shorter sides of the garden?",
     choices: [
-      // distractor: stops at the first critical value
-      { id: "A", text: "$0 < w \\le 10$" },
-      // distractor: does not reverse the inequality
-      { id: "B", text: "$w \\le 10$ or $w \\ge 14$" },
-      { id: "C", text: "$10 \\le w \\le 14$" },
-      // distractor: uses the semiperimeter as the upper bound
-      { id: "D", text: "$10 \\le w \\le 24$" }
+      { id: "A", text: "$4$" },
+      // distractor: gives the shorter side
+      { id: "B", text: "$10$" },
+      // distractor: gives the longer side
+      { id: "C", text: "$14$" },
+      // distractor: gives half the perimeter, the sum of the two sides
+      { id: "D", text: "$24$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~50s):** The perimeter forces length $= 24 - w$, so $w(24 - w) \\ge 140$ becomes $(w - 10)(w - 14) \\le 0$, giving $10 \\le w \\le 14$.\n\n**The Full Solution:**\nStep 1: A perimeter of $48$ means width plus length is $24$, so the length is $24 - w$ and the area is $w(24 - w)$.\nStep 2: $w(24 - w) \\ge 140$ gives $24w - w^2 \\ge 140$; moving everything to one side gives $w^2 - 24w + 140 \\le 0$.\nStep 3: $w^2 - 24w + 140 = (w - 10)(w - 14)$, which is at most $0$ exactly when $10 \\le w \\le 14$. Check: $w = 12$ gives $12(12) = 144 \\ge 140$, and $w = 9$ gives $9(15) = 135$, which falls short. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0 < w \\le 10$): stops at the first critical value instead of using the interval between the two.\n* Choice B ($w \\le 10$ or $w \\ge 14$): keeps the original direction after multiplying through by $-1$.\n* Choice D ($10 \\le w \\le 24$): replaces the second critical value with $24$, the sum of the width and length.\n\n**Test Day Takeaway:** When a perimeter is given, halve it first: the two adjacent sides sum to $\\dfrac{P}{2}$, not $P$.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Quadratic via Factoring**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** The two sides add to $24$ and multiply to $140$, so they are $10$ and $14$, a difference of $4$.\n\n**The Full Solution:**\nStep 1: Half the perimeter is $24$, so if one side is $w$ meters, the other is $24 - w$ meters, and $w(24 - w) = 140$.\nStep 2: Rearrange and factor: $w^{2} - 24w + 140 = 0$, so $(w - 10)(w - 14) = 0$.\nStep 3: The sides are $10$ and $14$ meters, and the difference is $14 - 10 = 4$. Check: $2(10 + 14) = 48$ and $10 \\times 14 = 140$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($10$): this is the shorter side, not the difference.\n* Choice C ($14$): this is the longer side, not the difference.\n* Choice D ($24$): this is half the perimeter, the sum of the two sides.\n\n**Test Day Takeaway:** Perimeter gives the sum of two sides and area gives their product; one quadratic then gives both sides.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "quadratic-inequality-from-context",
@@ -6926,21 +6926,21 @@ export const advancedMathBank = [
   {
     id: "bank-am-312",
     domain: "advanced-math",
-    skills: ["quadratics"],
+    skills: ["finding-roots-factoring"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "$h(t) = -16t^{2} + 128t$\nThe function $h$ gives the height, in feet, of a model rocket $t$ seconds after it is launched from the ground. What is the greatest integer value of $t$ for which the rocket is at least $240$ feet above the ground?",
+    question: "$h(t) = -16t^{2} + 128t$\nThe function $h$ gives the height, in feet, of a model rocket $t$ seconds after it is launched from the ground. How many seconds after launch is the rocket first $240$ feet above the ground?",
     choices: [
-      // distractor: reports the first time the rocket reaches 240 feet
       { id: "A", text: "$3$" },
-      // distractor: reports the time of maximum height
+      // distractor: gives the time of the greatest height
       { id: "B", text: "$4$" },
+      // distractor: gives the second time, on the way down
       { id: "C", text: "$5$" },
-      // distractor: reports the time the rocket returns to the ground
+      // distractor: gives the time the rocket returns to the ground
       { id: "D", text: "$8$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** $-16t^2 + 128t \\ge 240$ divides to $t^2 - 8t + 15 \\le 0$, or $(t - 3)(t - 5) \\le 0$, so $3 \\le t \\le 5$ and the greatest whole second is $5$.\n\n**The Full Solution:**\nStep 1: The condition is $-16t^2 + 128t \\ge 240$. Dividing by $-16$ reverses the inequality: $t^2 - 8t \\le -15$, or $t^2 - 8t + 15 \\le 0$.\nStep 2: $t^2 - 8t + 15 = (t - 3)(t - 5)$, so the height is at least $240$ feet exactly when $3 \\le t \\le 5$.\nStep 3: The greatest whole number of seconds in that window is $5$. Check: $h(5) = -400 + 640 = 240$, exactly at the limit, and $h(6) = -576 + 768 = 192$, which is too low. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports the first time the rocket reaches $240$ feet rather than the last.\n* Choice B ($4$): reports the time of maximum height, $t = \\dfrac{-128}{2(-16)} = 4$.\n* Choice D ($8$): reports the time the rocket returns to the ground, where $h(t) = 0$.\n\n**Test Day Takeaway:** \"At least\" includes the boundary — solve for the whole interval, then read off the end the question asks for.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Quadratic via Factoring**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $-16t^{2} + 128t = 240$ gives $t^{2} - 8t + 15 = 0$, or $(t - 3)(t - 5) = 0$; the first time is $t = 3$.\n\n**The Full Solution:**\nStep 1: Set the height equal to $240$: $-16t^{2} + 128t = 240$.\nStep 2: Divide by $-16$ and rearrange: $t^{2} - 8t + 15 = 0$, so $(t - 3)(t - 5) = 0$.\nStep 3: The rocket is at $240$ feet at $t = 3$ (going up) and $t = 5$ (coming down); the first time is $3$ seconds. Check: $-16(9) + 128(3) = -144 + 384 = 240$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($4$): this is the time of the greatest height, $h(4) = 256$ feet.\n* Choice C ($5$): this is the second time the rocket is at $240$ feet, on the way down.\n* Choice D ($8$): this is when the rocket returns to the ground, $h(8) = 0$.\n\n**Test Day Takeaway:** A launched object passes each height below its peak twice; \"first\" means the smaller solution.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "quadratic-inequality-from-context",
@@ -6951,21 +6951,21 @@ export const advancedMathBank = [
   {
     id: "bank-am-313",
     domain: "advanced-math",
-    skills: ["quadratics"],
+    skills: ["finding-roots-factoring"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The function $h$ models the depth, in centimeters, of the water in a tank $x$ minutes after a drain is opened, where $h(x) = x^{2} - 18x + 90$ for $0 \\le x \\le 9$. For which values of $x$ is the depth less than $25$ centimeters?",
+    question: "The function $h$ models the depth, in centimeters, of the water in a tank $x$ minutes after a drain is opened, where $h(x) = x^{2} - 18x + 90$ for $0 \\le x \\le 9$. How many minutes after the drain is opened is the depth $25$ centimeters?",
     choices: [
-      // distractor: takes the minutes before the first crossing
-      { id: "A", text: "$0 \\le x < 5$" },
-      // distractor: solves the reversed inequality
-      { id: "B", text: "$x < 5$ or $x > 13$" },
-      // distractor: ignores the stated domain
-      { id: "C", text: "$5 < x < 13$" },
-      { id: "D", text: "$5 < x \\le 9$" }
+      { id: "A", text: "$5$" },
+      // distractor: gives the time of the least depth, 9 centimeters
+      { id: "B", text: "$9$" },
+      // distractor: keeps the solution outside 0 <= x <= 9
+      { id: "C", text: "$13$" },
+      // distractor: gives the sum of the two solutions
+      { id: "D", text: "$18$" }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice D is correct.**\n\n**The Fast Way (~50s):** $x^2 - 18x + 90 < 25$ gives $(x - 5)(x - 13) < 0$, so $5 < x < 13$; the model only runs to $x = 9$, leaving $5 < x \\le 9$.\n\n**The Full Solution:**\nStep 1: The condition is $x^2 - 18x + 90 < 25$, or $x^2 - 18x + 65 < 0$.\nStep 2: $x^2 - 18x + 65 = (x - 5)(x - 13)$, which is negative exactly when $5 < x < 13$.\nStep 3: The model is defined only for $0 \\le x \\le 9$, so intersect: $5 < x \\le 9$. Check: $h(5) = 25 - 90 + 90 = 25$, which is not less than $25$, and $h(9) = 81 - 162 + 90 = 9$, which is. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0 \\le x < 5$): takes the minutes before the first crossing, where the depth is still above $25$ centimeters.\n* Choice B ($x < 5$ or $x > 13$): solves $h(x) > 25$ instead of $h(x) < 25$.\n* Choice C ($5 < x < 13$): solves the inequality correctly but ignores the stated domain $0 \\le x \\le 9$.\n\n**Test Day Takeaway:** A model's domain is part of the answer — trim the solution set to the values the model actually covers.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Quadratic via Factoring**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** $x^{2} - 18x + 90 = 25$ gives $(x - 5)(x - 13) = 0$; only $x = 5$ is in $0 \\le x \\le 9$.\n\n**The Full Solution:**\nStep 1: Set the depth equal to $25$: $x^{2} - 18x + 90 = 25$, so $x^{2} - 18x + 65 = 0$.\nStep 2: Factor: $(x - 5)(x - 13) = 0$, so $x = 5$ or $x = 13$.\nStep 3: The model applies only for $0 \\le x \\le 9$, so $x = 13$ is out; the answer is $5$ minutes. Check: $25 - 90 + 90 = 25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($9$): this is the end of the model's domain, where the depth is least, $h(9) = 9$ centimeters.\n* Choice C ($13$): solves the equation correctly but keeps the solution outside $0 \\le x \\le 9$.\n* Choice D ($18$): this is the sum of the two solutions, not a solution.\n\n**Test Day Takeaway:** After solving, check each solution against the interval where the model applies.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "quadratic-inequality-from-context",
@@ -6976,12 +6976,12 @@ export const advancedMathBank = [
   {
     id: "bank-am-314",
     domain: "advanced-math",
-    skills: ["quadratics"],
+    skills: ["finding-roots-factoring"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A rectangular photograph is $x$ inches wide and $x + 4$ inches long, where $x$ is a positive integer. For how many values of $x$ is the area of the photograph greater than $45$ square inches and less than $140$ square inches?",
-    correctAnswer: "4",
-    explanation: "**SAT Pattern: Quadratic Inequality from Context**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~50s):** The area is $x(x + 4)$. Since $5(9) = 45$ and $10(14) = 140$, the strict inequalities leave $x = 6$, $7$, $8$, and $9$ — four values.\n\n**The Full Solution:**\nStep 1: The area condition is $45 < x(x + 4) < 140$, so solve the two inequalities separately.\nStep 2: $x^2 + 4x - 45 > 0$ factors as $(x + 9)(x - 5) > 0$, which for positive $x$ means $x > 5$; $x^2 + 4x - 140 < 0$ factors as $(x + 14)(x - 10) < 0$, which means $x < 10$.\nStep 3: So $5 < x < 10$, and the integer widths are $6$, $7$, $8$, $9$, a count of $4$. Check: $6(10) = 60$ and $9(13) = 117$, both strictly between $45$ and $140$. $\\checkmark$\n\n**Common Mistakes:** Counting $x = 5$ and $x = 10$ as well gives $6$; those widths give areas of exactly $45$ and exactly $140$, which the strict inequalities exclude. Answering $9$ reports the largest width instead of how many widths work. Solving only the lower bound gives $5$.\n\n**Test Day Takeaway:** When the question asks \"how many values,\" finish by listing the integers — the count, not an endpoint, is the answer.",
+    question: "A rectangular photograph is $x$ inches wide and $x + 4$ inches long. The area of the photograph is $96$ square inches. What is the value of $x$?",
+    correctAnswer: "8",
+    explanation: "**SAT Pattern: Quadratic via Factoring**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~25s):** $x(x + 4) = 96$ gives $x^{2} + 4x - 96 = 0$, or $(x + 12)(x - 8) = 0$, so $x = 8$.\n\n**The Full Solution:**\nStep 1: The area is width times length: $x(x + 4) = 96$.\nStep 2: Rearrange and factor: $x^{2} + 4x - 96 = 0$, so $(x + 12)(x - 8) = 0$.\nStep 3: A width must be positive, so $x = 8$. Check: $8 \\times 12 = 96$ ✓\n\n**Common Mistakes:**\n* $12$: gives the length, $x + 4$, instead of the width.\n* $-12$: keeps the negative solution, which cannot be a width.\n* $24$: divides $96$ by $4$.\n\n**Test Day Takeaway:** Write the area in one variable, factor, and keep the solution that makes sense as a length.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "quadratic-inequality-from-context",
@@ -7249,7 +7249,7 @@ export const advancedMathBank = [
     skills: ["exponential-functions"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The table shows the mass, in grams, of a substance remaining in a sample $d$ days after an experiment began. If the mass continues to decrease in the same way, what is the value of $d$ when the mass is $\\frac{1}{25}$ gram?",
+    question: "The table shows the mass, in grams, of a sample $d$ days after it was prepared. The mass decreases exponentially. For what value of $d$ is the mass $\\frac{1}{25}$ gram?",
     diagram: { type: "dataTable", params: { headers: ["d", "Mass (grams)"], rows: [["0", "625"], ["1", "125"], ["2", "25"], ["3", "5"]] } },
     choices: [
       // distractor: matches 1/25 to the 25 in the table, dropping the negative exponent
@@ -7506,19 +7506,19 @@ export const advancedMathBank = [
     skills: ["quadratics"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The graph of the quadratic function $f$ is shown, with its vertex labeled. The function $h$ is defined by $h(x) = f(2x)$. The graph of $y = h(x)$ intersects the $x$-axis at $(p, 0)$ and $(q, 0)$, where $p < q$. What is the value of $q - p$?",
+    question: "The graph of the quadratic function $f$ is shown, with its vertex labeled. The function $g$ is defined by $g(x) = f(x) + k$, where $k$ is a constant. The graph of $y = g(x)$ intersects the $x$-axis at two points that are $4$ units apart. What is the value of $k$?",
     diagram: { type: "parabola", params: { vertex: { h: 2, k: -18 }, a: 2, xRange: [-3, 7], yRange: [-20, 5], xTickInterval: 2, yTickInterval: 4, gridInterval: 1, showVertex: true } },
     choices: [
-      // distractor: halves the distance between the intercepts of f twice instead of once
-      { id: "A", text: "$1.5$" },
-      { id: "B", text: "$3$" },
-      // distractor: gives the distance for f itself, as if h and f had the same x-intercepts
-      { id: "C", text: "$6$" },
-      // distractor: doubles the distance for f instead of halving it, treating f(2x) as a horizontal stretch
-      { id: "D", text: "$12$" }
+      // distractor: uses $4$ as the distance from the axis of symmetry to each intercept: $2(4)^{2} = 32$, so $k = 18 - 32$
+      { id: "A", text: "$-14$" },
+      // distractor: uses $4$ as the distance from the axis to each intercept and ignores $a = 2$: $4^{2} = 16$, so $k = 18 - 16$
+      { id: "B", text: "$2$" },
+      { id: "C", text: "$10$" },
+      // distractor: uses the correct half-distance $2$ but ignores $a = 2$: $2^{2} = 4$, so $k = 18 - 4$
+      { id: "D", text: "$14$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The graph of $f$ crosses the $x$-axis at $x = -1$ and $x = 5$, and $h(x) = f(2x)$ is $0$ when $2x = -1$ or $2x = 5$, so $p = -0.5$, $q = 2.5$, and $q - p = 3$.\n\n**The Full Solution:**\nStep 1: From the graph, $f(x) = 0$ at $x = -1$ and $x = 5$.\nStep 2: $h(x) = f(2x)$, so $h(x) = 0$ exactly when $2x = -1$ or $2x = 5$. That gives $x = -0.5$ and $x = 2.5$, so $p = -0.5$ and $q = 2.5$.\nStep 3: $q - p = 2.5 - (-0.5) = 3$. Check: with the labeled vertex $(2, -18)$, $f(x) = 2(x - 2)^{2} - 18$, and $h(2.5) = f(5) = 2(9) - 18 = 0$ and $h(-0.5) = f(-1) = 2(9) - 18 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.5$): halves the original distance of $6$ twice.\n* Choice C ($6$): the distance for $f$, as if replacing $x$ with $2x$ changed nothing.\n* Choice D ($12$): doubles the distance, treating $f(2x)$ as a horizontal stretch instead of a compression.\n\n**Test Day Takeaway:** In $f(2x)$, each $x$-intercept is half the corresponding intercept of $f$, so every horizontal distance is cut in half.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** From the graph, $f(x) = 2(x - 2)^{2} - 18$. The intercepts of $g$ are $2$ units on each side of $x = 2$, so $2(2)^{2} - 18 + k = 0$ and $k = 10$.\n\n**The Full Solution:**\nStep 1: The vertex is $(2, -18)$ and the graph crosses the $x$-axis at $(-1, 0)$ and $(5, 0)$, so $f(x) = a(x - 2)^{2} - 18$ with $a(5 - 2)^{2} - 18 = 0$, which gives $a = 2$.\nStep 2: Adding $k$ shifts the graph vertically, so the axis of symmetry stays $x = 2$. Intercepts $4$ units apart are $2$ units on each side of it: $x = 0$ and $x = 4$.\nStep 3: $g(4) = 2(4 - 2)^{2} - 18 + k = 8 - 18 + k = 0$, so $k = 10$. Check: $g(x) = 2(x - 2)^{2} - 8$ is $0$ when $(x - 2)^{2} = 4$, at $x = 0$ and $x = 4$, which are $4$ units apart ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-14$): places each intercept $4$ units from the axis instead of $2$, giving $2(4)^{2} - 18 + k = 0$.\n* Choice B ($2$): places each intercept $4$ units from the axis and also drops the factor $a = 2$.\n* Choice D ($14$): uses the correct half-distance $2$ but forgets that $a = 2$, so it solves $2^{2} - 18 + k = 0$.\n\n**Test Day Takeaway:** A vertical shift keeps the axis of symmetry; split the distance between the intercepts in half on each side of it, and read $a$ from a second point on the graph.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "distance-between-x-intercepts",
@@ -7769,18 +7769,18 @@ export const advancedMathBank = [
     skills: ["discriminant-analysis"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "$5x^{2} - 6x + 2 = 0$\nWhat is the value of the discriminant of the given equation?",
+    question: "$x^{2} - 10x + 25 = 0$\nHow many distinct real solutions does the given equation have?",
     choices: [
-      { id: "A", text: "$-4$" },
-      // distractor: subtracts in the wrong order, computing 4ac - b^2 = 40 - 36
-      { id: "B", text: "$4$" },
-      // distractor: computes b^2 = 36 and never subtracts 4ac
-      { id: "C", text: "$36$" },
-      // distractor: adds 4ac to b^2 instead of subtracting it
-      { id: "D", text: "$76$" }
+      { id: "A", text: "Exactly one" },
+      // distractor: assumes every quadratic equation has two solutions, or counts the repeated solution 5 twice
+      { id: "B", text: "Exactly two" },
+      // distractor: confuses a repeated solution with an equation that is true for every value of x
+      { id: "C", text: "Infinitely many" },
+      // distractor: reads a discriminant of 0 as negative, the case with no real solutions
+      { id: "D", text: "Zero" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Discriminant Analysis**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $b^{2} - 4ac = (-6)^{2} - 4(5)(2) = 36 - 40 = -4$.\n\n**The Full Solution:**\nStep 1: The equation is in the form $ax^{2} + bx + c = 0$ with $a = 5$, $b = -6$, and $c = 2$.\nStep 2: The discriminant is $b^{2} - 4ac$. Here $b^{2} = (-6)^{2} = 36$ and $4ac = 4(5)(2) = 40$.\nStep 3: The discriminant is $36 - 40 = -4$. Check: a negative discriminant means no real solutions, and indeed $5x^{2} - 6x + 2 = 5\\left(x - \\dfrac{3}{5}\\right)^{2} + \\dfrac{1}{5}$ is always positive ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($4$): subtracts in the wrong order, $4ac - b^{2}$.\n* Choice C ($36$): stops at $b^{2}$.\n* Choice D ($76$): adds $4ac$ instead of subtracting it.\n\n**Test Day Takeaway:** Square $b$ with its sign, subtract $4ac$, and trust a negative result; it simply means the equation has no real solutions.",
+    explanation: "**SAT Pattern: Discriminant Analysis**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The discriminant is $(-10)^{2} - 4(1)(25) = 100 - 100 = 0$, and a discriminant of $0$ means exactly one real solution.\n\n**The Full Solution:**\nStep 1: The equation has the form $ax^{2} + bx + c = 0$ with $a = 1$, $b = -10$, and $c = 25$.\nStep 2: The discriminant is $b^{2} - 4ac = 100 - 100 = 0$. A positive discriminant gives two real solutions, $0$ gives one, and a negative value gives none.\nStep 3: So the equation has exactly one distinct real solution. Check: $x^{2} - 10x + 25 = (x - 5)^{2}$, which equals $0$ only when $x = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly two): assumes every quadratic has two solutions; here both factors are $x - 5$, so the two solutions are the same number.\n* Choice C (Infinitely many): mistakes a repeated solution for an equation that is true for every value of $x$.\n* Choice D (Zero): treats a discriminant of $0$ as if it were negative.\n\n**Test Day Takeaway:** Count real solutions with the sign of $b^{2} - 4ac$: positive means two, zero means one, negative means none. A perfect-square trinomial always has exactly one.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "discriminant-analysis",
@@ -7794,19 +7794,19 @@ export const advancedMathBank = [
     skills: ["discriminant-analysis"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "$f(x) = 3x^{2} - 9x + 5$\nThe table shows four values of $x$ and their corresponding values of $f(x)$ for the given function $f$. How many distinct real solutions does the equation $f(x) = 0$ have?",
-    questionTable: { headers: ["$x$", "$f(x)$"], rows: [["$0$", "$5$"], ["$1$", "$-1$"], ["$2$", "$-1$"], ["$3$", "$5$"]] },
+    question: "$f(x) = 2x^{2} - 7x + 4$\nSome values of the given function $f$ are shown in the table. How many distinct real solutions does the equation $f(x) = 0$ have?",
+    questionTable: { headers: ["$x$", "$f(x)$"], rows: [["$1$", "$-1$"], ["$2$", "$-2$"], ["$3$", "$1$"], ["$4$", "$8$"]] },
     choices: [
       // distractor: concludes that because no value of f(x) in the table is 0, the equation has no solutions
       { id: "A", text: "Zero" },
-      // distractor: counts only the sign change between x = 0 and x = 1
+      // distractor: counts only the one sign change shown in the table, between x = 2 and x = 3
       { id: "B", text: "Exactly one" },
       { id: "C", text: "Exactly two" },
       // distractor: confuses the infinitely many inputs of f with the solutions of f(x) = 0
       { id: "D", text: "Infinitely many" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Discriminant Analysis**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The discriminant of $3x^{2} - 9x + 5$ is $(-9)^{2} - 4(3)(5) = 81 - 60 = 21$, which is positive, so there are exactly two real solutions.\n\n**The Full Solution:**\nStep 1: The solutions of $f(x) = 0$ are the solutions of $3x^{2} - 9x + 5 = 0$, with $a = 3$, $b = -9$, and $c = 5$.\nStep 2: The discriminant is $b^{2} - 4ac = 81 - 60 = 21$.\nStep 3: A positive discriminant means exactly two distinct real solutions. Check: the table agrees, since $f(x)$ changes sign between $x = 0$ and $x = 1$ and again between $x = 2$ and $x = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Zero): no table value is $0$, but the solutions lie between the listed values of $x$.\n* Choice B (Exactly one): counts only the first sign change in the table.\n* Choice D (Infinitely many): $f$ has infinitely many inputs, but a quadratic equation has at most two solutions.\n\n**Test Day Takeaway:** The discriminant counts the real solutions; a table only shows a few points, so use it as a check, not as the answer.",
+    explanation: "**SAT Pattern: Discriminant Analysis**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The discriminant of $2x^{2} - 7x + 4$ is $(-7)^{2} - 4(2)(4) = 49 - 32 = 17$, which is positive, so there are exactly two real solutions.\n\n**The Full Solution:**\nStep 1: The solutions of $f(x) = 0$ are the solutions of $2x^{2} - 7x + 4 = 0$, with $a = 2$, $b = -7$, and $c = 4$.\nStep 2: The discriminant is $b^{2} - 4ac = 49 - 32 = 17$.\nStep 3: A positive discriminant means exactly two distinct real solutions. Check: $f(0) = 4$ and $f(1) = -1$, so $f(x)$ changes sign between $x = 0$ and $x = 1$, and the table shows a second sign change between $x = 2$ and $x = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Zero): no table value is $0$, but the solutions lie between values of $x$.\n* Choice B (Exactly one): the table shows only one sign change, but the other solution lies between $x = 0$ and $x = 1$, outside the listed rows.\n* Choice D (Infinitely many): $f$ has infinitely many inputs, but a quadratic equation has at most two solutions.\n\n**Test Day Takeaway:** The discriminant counts the real solutions; a table only shows a few points, so use it as a check, not as the answer.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "discriminant-analysis",
@@ -7922,18 +7922,18 @@ export const advancedMathBank = [
     skills: ["discriminant-analysis"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "$x^{2} + bx + 45 = 0$\nIn the given equation, $b$ is a positive integer. If the equation has two distinct real solutions, what is the least possible value of $b$?",
+    question: "$3x^{2} + 10 = bx$\nThe given equation has two distinct real solutions, where $b$ is a positive integer constant. What is the least possible value of $b$?",
     choices: [
-      // distractor: uses b^2 > 45, leaving the 4 out of 4ac
-      { id: "A", text: "$7$" },
-      // distractor: rounds the square root of 180, about 13.42, down instead of up
-      { id: "B", text: "$13$" },
-      { id: "C", text: "$14$" },
-      // distractor: uses b > 2c = 90 instead of b^2 > 4c
-      { id: "D", text: "$90$" }
+      // distractor: uses b^2 > 30, leaving the 4 out of 4ac
+      { id: "A", text: "$6$" },
+      // distractor: uses b^2 > 40, leaving the leading coefficient 3 out of 4ac
+      { id: "B", text: "$7$" },
+      // distractor: rounds the square root of 120, about 10.95, down instead of up
+      { id: "C", text: "$10$" },
+      { id: "D", text: "$11$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Two distinct real solutions need $b^{2} > 4(1)(45) = 180$. Since $13^{2} = 169$ and $14^{2} = 196$, the least positive integer is $14$.\n\n**The Full Solution:**\nStep 1: The discriminant is $b^{2} - 4(1)(45) = b^{2} - 180$.\nStep 2: Two distinct real solutions require a positive discriminant: $b^{2} > 180$, so $b > \\sqrt{180} \\approx 13.42$ for positive $b$.\nStep 3: The least integer greater than $13.42$ is $14$. Check: $b = 14$ gives $196 - 180 = 16 > 0$, while $b = 13$ gives $169 - 180 = -11 < 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): uses $b^{2} > 45$, leaving the $4$ out of $4ac$.\n* Choice B ($13$): rounds $\\sqrt{180} \\approx 13.42$ down instead of up.\n* Choice D ($90$): uses $b > 2c$, which is not the discriminant condition.\n\n**Test Day Takeaway:** When the boundary is an irrational square root, test the two integers on either side of it instead of rounding by habit.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Rewritten as $3x^{2} - bx + 10 = 0$, the equation has two distinct real solutions when $b^{2} > 4(3)(10) = 120$. Since $10^{2} = 100$ and $11^{2} = 121$, the least positive integer is $11$.\n\n**The Full Solution:**\nStep 1: Subtract $bx$ from each side: $3x^{2} - bx + 10 = 0$. The discriminant is $(-b)^{2} - 4(3)(10) = b^{2} - 120$.\nStep 2: Two distinct real solutions require a positive discriminant: $b^{2} > 120$, so $b > \\sqrt{120} \\approx 10.95$ for positive $b$.\nStep 3: The least integer greater than $10.95$ is $11$. Check: $b = 11$ gives $121 - 120 = 1 > 0$, while $b = 10$ gives $100 - 120 = -20 < 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): uses $b^{2} > 30$, leaving the $4$ out of $4ac$.\n* Choice B ($7$): uses $b^{2} > 40$, leaving the leading coefficient $3$ out of $4ac$.\n* Choice C ($10$): rounds $\\sqrt{120} \\approx 10.95$ down instead of up.\n\n**Test Day Takeaway:** Put the equation in the form $ax^{2} + bx + c = 0$ first, then test the two integers on either side of the square-root boundary instead of rounding by habit.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "discriminant-with-integer-bound",
@@ -8221,21 +8221,21 @@ export const advancedMathBank = [
   {
     id: "bank-am-365",
     domain: "advanced-math",
-    skills: ["function-composition"],
+    skills: ["function-transformations"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The functions $f$ and $g$ are defined by $f(x) = 4x - 7$ and $g(x) = x + 6$. What is the value of $f(g(2))$?",
+    question: "The function $f$ is defined by $f(x) = 3(2)^{x}$. In the $xy$-plane, the graph of $y = g(x)$ is the result of shifting the graph of $y = f(x)$ down $4$ units. Which equation defines $g$?",
     choices: [
-      // distractor: applies the functions in the wrong order, computing g(f(2)) = 1 + 6 = 7
-      { id: "A", text: "$7$" },
-      // distractor: adds f(2) and g(2), computing 1 + 8 = 9
-      { id: "B", text: "$9$" },
-      { id: "C", text: "$25$" },
-      // distractor: multiplies g(2) = 8 by 4 but forgets to subtract 7
-      { id: "D", text: "$32$" }
+      // distractor: shifts the graph up instead of down
+      { id: "A", text: "$g(x) = 3(2)^{x} + 4$" },
+      { id: "B", text: "$g(x) = 3(2)^{x} - 4$" },
+      // distractor: changes the input, which shifts the graph left $4$ units
+      { id: "C", text: "$g(x) = 3(2)^{x + 4}$" },
+      // distractor: changes the input, which shifts the graph right $4$ units
+      { id: "D", text: "$g(x) = 3(2)^{x - 4}$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Function Composition**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $g(2) = 8$, so $f(g(2)) = f(8) = 4(8) - 7 = 25$.\n\n**The Full Solution:**\nStep 1: Work from the inside out. First find $g(2) = 2 + 6 = 8$.\nStep 2: Use that output as the input of $f$: $f(8) = 4(8) - 7$.\nStep 3: Compute: $32 - 7 = 25$. Check: $g$ adds $6$ to $2$, then $f$ multiplies by $4$ and subtracts $7$, giving $25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): applies $f$ first. That computes $g(f(2)) = g(1) = 7$, which is a different composition.\n* Choice B ($9$): adds $f(2) = 1$ and $g(2) = 8$. Composition feeds one output into the other function; it does not add them.\n* Choice D ($32$): multiplies $8$ by $4$ and stops before subtracting $7$.\n\n**Test Day Takeaway:** In $f(g(a))$, the inner function acts first; evaluate $g(a)$, then put that number into $f$.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Vertical Shift**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Shifting a graph down $4$ units subtracts $4$ from every output, so $g(x) = 3(2)^{x} - 4$.\n\n**The Full Solution:**\nStep 1: Each point $(x, y)$ on the graph of $f$ moves to $(x, y - 4)$.\nStep 2: So every output of $g$ is $4$ less than the output of $f$: $g(x) = f(x) - 4$.\nStep 3: Substitute: $g(x) = 3(2)^{x} - 4$. Check: $f(0) = 3$ and $g(0) = 3 - 4 = -1$, which is $4$ units lower ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3(2)^{x} + 4$): adds $4$, which shifts the graph up.\n* Choice C ($3(2)^{x + 4}$): changes the input; that moves the graph left $4$ units, not down.\n* Choice D ($3(2)^{x - 4}$): changes the input; that moves the graph right $4$ units, not down.\n\n**Test Day Takeaway:** Up or down means add to or subtract from the whole function; left or right means change the input $x$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "function-composition",
@@ -8246,22 +8246,22 @@ export const advancedMathBank = [
   {
     id: "bank-am-366",
     domain: "advanced-math",
-    skills: ["function-composition"],
+    skills: ["function-transformations"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The table shows four values of $x$ and their corresponding values of $f(x)$ for the function $f$. If $g(x) = 2x - 1$, what is the value of $f(g(3))$?",
-    questionTable: { headers: ["$x$", "$f(x)$"], rows: [["$1$", "$4$"], ["$3$", "$9$"], ["$5$", "$15$"], ["$7$", "$22$"]] },
+    question: "The function $g$ is defined by $g(x) = f(x) + 5$, and some values of the function $f$ are shown in the table. For what value of $x$ is $g(x) = 24$?",
+    questionTable: { headers: ["$x$", "$f(x)$"], rows: [["$0$", "$11$"], ["$2$", "$19$"], ["$4$", "$24$"], ["$6$", "$29$"]] },
     choices: [
-      // distractor: reads f(3) from the table without applying g first
-      { id: "A", text: "$9$" },
-      { id: "B", text: "$15$" },
-      // distractor: applies the functions in the wrong order, computing g(f(3)) = 2(9) - 1 = 17
-      { id: "C", text: "$17$" },
-      // distractor: computes g(3) as 2(3) + 1 = 7 and reads f(7) = 22
-      { id: "D", text: "$22$" }
+      { id: "A", text: "$2$" },
+      // distractor: looks for $f(x) = 24$, ignoring the $+5$ in $g$
+      { id: "B", text: "$4$" },
+      // distractor: adds $5$ to $24$ and looks for $f(x) = 29$
+      { id: "C", text: "$6$" },
+      // distractor: gives the value of $f(x)$ instead of the value of $x$
+      { id: "D", text: "$19$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $g(3) = 2(3) - 1 = 5$, and the table shows $f(5) = 15$.\n\n**The Full Solution:**\nStep 1: Start with the inner function: $g(3) = 2(3) - 1 = 5$.\nStep 2: Now find $f(5)$. In the table, the row with $x = 5$ shows $f(x) = 15$.\nStep 3: So $f(g(3)) = f(5) = 15$. Check: $5$ is one of the $x$-values in the table, and its row reads $15$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): reads $f(3)$ and never applies $g$.\n* Choice C ($17$): applies $f$ first and then $g$, computing $g(f(3)) = 2(9) - 1 = 17$.\n* Choice D ($22$): adds $1$ instead of subtracting it, so $g(3)$ becomes $7$ and the table gives $f(7) = 22$.\n\n**Test Day Takeaway:** With a table, compute the inner function's output first, then look up that output in the $x$ column.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Vertical Shift**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $g(x) = 24$ means $f(x) + 5 = 24$, so $f(x) = 19$, which the table shows at $x = 2$.\n\n**The Full Solution:**\nStep 1: Substitute the definition of $g$: $f(x) + 5 = 24$.\nStep 2: Subtract $5$ from each side: $f(x) = 19$.\nStep 3: In the table, $f(x) = 19$ when $x = 2$. Check: $g(2) = f(2) + 5 = 19 + 5 = 24$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($4$): finds where $f(x) = 24$, which is where $f$, not $g$, equals $24$.\n* Choice C ($6$): adds $5$ to $24$ and finds $f(x) = 29$, but $f(x)$ must be $5$ less than $24$.\n* Choice D ($19$): finds $f(x) = 19$ but reports that output instead of the input $x$.\n\n**Test Day Takeaway:** When $g(x) = f(x) + 5$, an output of $g$ is $5$ more than the matching output of $f$; undo the $+5$ first, then read the table.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "function-composition",
@@ -8272,21 +8272,21 @@ export const advancedMathBank = [
   {
     id: "bank-am-367",
     domain: "advanced-math",
-    skills: ["function-composition"],
+    skills: ["function-transformations"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The functions $f$ and $g$ are defined by $f(x) = \\frac{x}{3}$ and $g(x) = x + 8$. If $f(g(k)) = -2$, what is the value of $k$?",
+    question: "For the function $f$, $f(2) = 9$. The function $g$ is defined by $g(x) = f(x - 3) + 4$. Which point lies on the graph of $y = g(x)$ in the $xy$-plane?",
     choices: [
-      // distractor: composes in the wrong order, solving g(f(k)) = k/3 + 8 = -2
-      { id: "A", text: "$-30$" },
-      { id: "B", text: "$-14$" },
-      // distractor: stops at g(k) = -6 and reports that value as k
-      { id: "C", text: "$-6$" },
-      // distractor: adds 8 to -6 instead of subtracting it when undoing g
-      { id: "D", text: "$2$" }
+      // distractor: moves the point left $3$ units instead of right
+      { id: "A", text: "$(-1, 13)$" },
+      // distractor: moves the point down $4$ units instead of up
+      { id: "B", text: "$(5, 5)$" },
+      { id: "C", text: "$(5, 13)$" },
+      // distractor: swaps the shifts, moving right $4$ and up $3$
+      { id: "D", text: "$(6, 12)$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f(g(k)) = \\frac{k + 8}{3} = -2$, so $k + 8 = -6$ and $k = -14$.\n\n**The Full Solution:**\nStep 1: Write the composition: $f(g(k)) = f(k + 8) = \\frac{k + 8}{3}$.\nStep 2: Set it equal to $-2$ and multiply both sides by $3$: $k + 8 = -6$.\nStep 3: Subtract $8$: $k = -14$. Check: $g(-14) = -6$ and $f(-6) = \\frac{-6}{3} = -2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-30$): divides by $3$ first and adds $8$ second, solving $\\frac{k}{3} + 8 = -2$. That is $g(f(k))$, the reverse order.\n* Choice C ($-6$): finds the value of $g(k)$ and stops; $k$ is the input that produces it.\n* Choice D ($2$): undoes the $+8$ by adding $8$, computing $-6 + 8 = 2$. Then $g(2) = 10$ and $f(10) = \\frac{10}{3}$, not $-2$.\n\n**Test Day Takeaway:** To solve $f(g(k)) = c$, write the composition as one expression and solve it; undo the outer function first, then the inner one.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Horizontal Shift**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The point $(2, 9)$ is on the graph of $f$, and $f(x - 3) + 4$ moves the graph right $3$ and up $4$, so it moves to $(5, 13)$.\n\n**The Full Solution:**\nStep 1: Since $f(2) = 9$, choose $x$ so that the input $x - 3$ equals $2$: $x = 5$.\nStep 2: Then $y = f(5 - 3) + 4 = f(2) + 4 = 9 + 4 = 13$.\nStep 3: So $(5, 13)$ is on the graph. Check: $(5, 13)$ is $3$ units right of and $4$ units above $(2, 9)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-1, 13)$): reads $x - 3$ as a shift left; the input must be $2$, so $x = 5$.\n* Choice B ($(5, 5)$): subtracts $4$ from the output instead of adding it.\n* Choice D ($(6, 12)$): pairs the $4$ with $x$ and the $3$ with $y$.\n\n**Test Day Takeaway:** Inside the parentheses, $x - 3$ shifts the graph right $3$; outside, $+ 4$ shifts it up $4$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "function-composition",
@@ -8297,21 +8297,21 @@ export const advancedMathBank = [
   {
     id: "bank-am-368",
     domain: "advanced-math",
-    skills: ["function-composition"],
+    skills: ["function-transformations", "function-interpretation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "$f(x) = 3x - 2$\n$g(x) = x^{2} + 1$\nThe functions $f$ and $g$ are defined by the given equations. Which expression is equivalent to $f(g(x))$?",
+    question: "The function $f$ is defined by $f(x) = x^{2} + 5$. In the $xy$-plane, the graph of $y = g(x)$ is the result of translating the graph of $y = f(x)$ $2$ units to the right and $3$ units down. Which equation defines $g$?",
     choices: [
-      { id: "A", text: "$3x^{2} + 1$" },
-      // distractor: multiplies only x^2 by 3, writing 3x^2 + 1 - 2 instead of 3(x^2 + 1) - 2
-      { id: "B", text: "$3x^{2} - 1$" },
-      // distractor: composes in the wrong order, finding g(f(x)) = (3x - 2)^2 + 1
-      { id: "C", text: "$9x^{2} - 12x + 5$" },
-      // distractor: multiplies f(x) by g(x) instead of composing
-      { id: "D", text: "$3x^{3} - 2x^{2} + 3x - 2$" }
+      // distractor: replaces $x$ with $x + 2$, which translates the graph to the left
+      { id: "A", text: "$g(x) = (x + 2)^{2} + 2$" },
+      { id: "B", text: "$g(x) = (x - 2)^{2} + 2$" },
+      // distractor: adds $3$, which translates the graph up
+      { id: "C", text: "$g(x) = (x - 2)^{2} + 8$" },
+      // distractor: swaps the shifts, moving $3$ units right and $2$ units down
+      { id: "D", text: "$g(x) = (x - 3)^{2} + 3$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Function Composition**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Replace $x$ in $f$ with $x^{2} + 1$: $3(x^{2} + 1) - 2 = 3x^{2} + 1$.\n\n**The Full Solution:**\nStep 1: $f(g(x))$ means the output of $g$ becomes the input of $f$: $f(g(x)) = 3(x^{2} + 1) - 2$.\nStep 2: Distribute the $3$: $3x^{2} + 3 - 2$.\nStep 3: Combine the constants: $3x^{2} + 1$. Check at $x = 2$: $g(2) = 5$ and $f(5) = 13$, while $3(2)^{2} + 1 = 13$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3x^{2} - 1$): multiplies only the $x^{2}$ by $3$ and leaves the $1$ alone. The whole input $x^{2} + 1$ is multiplied by $3$.\n* Choice C ($9x^{2} - 12x + 5$): composes in the reverse order. This is $g(f(x)) = (3x - 2)^{2} + 1$.\n* Choice D ($3x^{3} - 2x^{2} + 3x - 2$): multiplies the two functions. That is $f(x) \\cdot g(x)$, not a composition.\n\n**Test Day Takeaway:** Substitute the inner function in parentheses everywhere $x$ appears in the outer function, then distribute.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Function from Shifted Graph**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Right $2$ replaces $x$ with $x - 2$, and down $3$ subtracts $3$: $g(x) = (x - 2)^{2} + 5 - 3 = (x - 2)^{2} + 2$.\n\n**The Full Solution:**\nStep 1: The vertex of the graph of $f$ is $(0, 5)$.\nStep 2: Moving it $2$ units right and $3$ units down gives the vertex $(2, 2)$.\nStep 3: The shape is unchanged, so $g(x) = (x - 2)^{2} + 2$. Check: $g(2) = 2$, which is $f(0) - 3$ at an $x$-value $2$ units to the right ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x + 2)^{2} + 2$): uses $x + 2$, which moves the graph left.\n* Choice C ($(x - 2)^{2} + 8$): adds $3$ to the output, which moves the graph up.\n* Choice D ($(x - 3)^{2} + 3$): moves the graph $3$ units right and $2$ units down, swapping the two shifts.\n\n**Test Day Takeaway:** Track the vertex: a translation moves it, and the coefficient of $x^{2}$ stays the same.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "function-composition",
@@ -8322,21 +8322,21 @@ export const advancedMathBank = [
   {
     id: "bank-am-369",
     domain: "advanced-math",
-    skills: ["function-composition"],
+    skills: ["function-evaluation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The function $h$ is defined by $h(x) = f(g(x))$, where $f(x) = 2x^{2} - 1$ and $g(x) = x + 4$. What is the value of $h(-2)$?",
+    question: "$f(x) = ax^{3} + 4$\nIn the given function, $a$ is a constant. If $f(2) = 28$, what is the value of $f(-2)$?",
     choices: [
-      // distractor: forgets to square g(-2) = 2, computing 2(2) - 1 = 3
-      { id: "A", text: "$3$" },
-      { id: "B", text: "$7$" },
-      // distractor: composes in the wrong order, computing g(f(-2)) = 7 + 4 = 11
-      { id: "C", text: "$11$" },
-      // distractor: squares 2 times the input instead of the input alone, computing (2 * 2)^2 - 1 = 15
-      { id: "D", text: "$15$" }
+      // distractor: assumes $f(-2)$ is the opposite of $f(2)$, ignoring the constant $4$
+      { id: "A", text: "$-28$" },
+      // distractor: finds $a(-2)^{3} = -24$ and forgets to add $4$
+      { id: "B", text: "$-24$" },
+      { id: "C", text: "$-20$" },
+      // distractor: evaluates $(-2)^{3}$ as $8$
+      { id: "D", text: "$28$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $g(-2) = 2$, so $h(-2) = f(2) = 2(2)^{2} - 1 = 7$.\n\n**The Full Solution:**\nStep 1: Find the inner value: $g(-2) = -2 + 4 = 2$.\nStep 2: Use it as the input of $f$: $f(2) = 2(2)^{2} - 1$.\nStep 3: Compute: $2(4) - 1 = 7$, so $h(-2) = 7$. Check with the expression $h(x) = 2(x + 4)^{2} - 1$: $2(2)^{2} - 1 = 7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): leaves out the square, computing $2(2) - 1$.\n* Choice C ($11$): applies $f$ first: $f(-2) = 7$ and then $g(7) = 11$. That is $g(f(-2))$.\n* Choice D ($15$): squares $2 \\cdot 2$ instead of squaring $2$ and then doubling, computing $(4)^{2} - 1$.\n\n**Test Day Takeaway:** Exponents come before multiplication: in $2x^{2}$, square the input first, then multiply by $2$.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Function Evaluation with Negative Input**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $8a + 4 = 28$ gives $a = 3$, so $f(-2) = 3(-8) + 4 = -20$.\n\n**The Full Solution:**\nStep 1: Use $f(2) = 28$: $a(2)^{3} + 4 = 28$, so $8a = 24$ and $a = 3$.\nStep 2: Then $f(x) = 3x^{3} + 4$.\nStep 3: $f(-2) = 3(-2)^{3} + 4 = -24 + 4 = -20$. Check: $f(2) = 24 + 4 = 28$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-28$): flips the sign of $f(2)$; only the $3x^{3}$ part changes sign, not the $+ 4$.\n* Choice B ($-24$): computes $3(-2)^{3}$ correctly but leaves off the $+ 4$.\n* Choice D ($28$): treats $(-2)^{3}$ as $8$; an odd power of a negative number is negative.\n\n**Test Day Takeaway:** Find the constant first, then substitute the negative input in parentheses.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "function-composition",
@@ -8347,21 +8347,21 @@ export const advancedMathBank = [
   {
     id: "bank-am-370",
     domain: "advanced-math",
-    skills: ["function-composition"],
+    skills: ["function-transformations", "vertex-form"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "For the functions $f$ and $g$, $f(x) = 3x - 5$ and $f(g(x)) = 12x + 7$ for all values of $x$. Which equation defines $g$?",
+    question: "$f(x) = 2x^{2} - 12x + 13$\nIn the $xy$-plane, the graph of $y = g(x)$ is the result of translating the graph of $y = f(x)$ $4$ units to the right. The function $g$ can be written as $g(x) = 2x^{2} + bx + c$, where $b$ and $c$ are constants. What is the value of $b$?",
     choices: [
-      // distractor: subtracts 5 from both sides instead of adding it, solving 3g(x) = 12x + 2
-      { id: "A", text: "$g(x) = 4x + \\frac{2}{3}$" },
-      // distractor: adds 5 correctly but divides only the x-term by 3, leaving the constant 12
-      { id: "B", text: "$g(x) = 4x + 12$" },
-      // distractor: substitutes 12x + 7 into f instead of solving for the input of f
-      { id: "C", text: "$g(x) = 36x + 16$" },
-      { id: "D", text: "$g(x) = 4x + 4$" }
+      { id: "A", text: "$-28$" },
+      // distractor: moves the vertex to $x = 7$ but writes $b = -2(7)$, leaving out the leading coefficient $2$
+      { id: "B", text: "$-14$" },
+      // distractor: assumes a translation does not change the $x$-coefficient
+      { id: "C", text: "$-12$" },
+      // distractor: translates the graph to the left, moving the vertex to $x = -1$
+      { id: "D", text: "$4$" }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Function Composition**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** $f(g(x)) = 3g(x) - 5 = 12x + 7$, so $3g(x) = 12x + 12$ and $g(x) = 4x + 4$.\n\n**The Full Solution:**\nStep 1: Since $f$ triples its input and subtracts $5$, $f(g(x)) = 3g(x) - 5$.\nStep 2: Set this equal to the given expression: $3g(x) - 5 = 12x + 7$. Add $5$ to both sides: $3g(x) = 12x + 12$.\nStep 3: Divide every term by $3$: $g(x) = 4x + 4$. Check: $f(4x + 4) = 3(4x + 4) - 5 = 12x + 12 - 5 = 12x + 7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($g(x) = 4x + \\frac{2}{3}$): subtracts $5$ instead of adding it, giving $3g(x) = 12x + 2$.\n* Choice B ($g(x) = 4x + 12$): divides $12x$ by $3$ but not $12$. Every term must be divided.\n* Choice C ($g(x) = 36x + 16$): puts $12x + 7$ into $f$, computing $3(12x + 7) - 5$. That treats the output of $f$ as its input.\n\n**Test Day Takeaway:** When the outer function is known, write $f(g(x))$ with $g(x)$ as a single unknown, then solve for it like a linear equation.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Function Transformation**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** The vertex of $f$ is at $x = \\frac{12}{4} = 3$, so the vertex of $g$ is at $x = 7$; then $-\\frac{b}{2(2)} = 7$ and $b = -28$.\n\n**The Full Solution:**\nStep 1: Complete the square: $f(x) = 2(x - 3)^{2} - 5$, so the vertex of the graph of $f$ is $(3, -5)$.\nStep 2: Moving $4$ units to the right gives the vertex $(7, -5)$, so $g(x) = 2(x - 7)^{2} - 5$.\nStep 3: Expand: $g(x) = 2x^{2} - 28x + 93$, so $b = -28$. Check: $f(x - 4) = 2(x - 4)^{2} - 12(x - 4) + 13 = 2x^{2} - 28x + 93$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-14$): finds the new vertex $x = 7$ but uses $b = -2h$ instead of $b = -2ah = -2(2)(7)$.\n* Choice C ($-12$): keeps the $x$-coefficient of $f$; a horizontal translation changes $b$ and $c$.\n* Choice D ($4$): moves the vertex left to $x = -1$, which gives $g(x) = 2x^{2} + 4x - 3$.\n\n**Test Day Takeaway:** For a horizontal translation, move the vertex and keep $a$; then $b = -2ah$ for the new vertex $(h, k)$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "function-composition",
@@ -8758,18 +8758,18 @@ export const advancedMathBank = [
     skills: ["exponential-growth-decay"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The amount of a medication, in milligrams, in a patient's bloodstream $t$ hours after a dose is modeled by $A(t) = 500(0.25)^{\\frac{t}{12}}$. What is the half-life, in hours, of the medication?",
+    question: "The amount of a medication, in milligrams, in a patient's bloodstream $t$ hours after a dose is modeled by $A(t) = 500(0.25)^{\\frac{t}{12}}$. What is the best interpretation of $12$ in this context?",
     choices: [
-      { id: "A", text: "$6$" },
-      // distractor: reads the 12 in the exponent as the half-life, but in 12 hours the amount falls to a quarter
-      { id: "B", text: "$12$" },
-      // distractor: doubles the 12 instead of halving it
-      { id: "C", text: "$24$" },
-      // distractor: multiplies 12 by 4 because 0.25 is one fourth
-      { id: "D", text: "$48$" }
+      // distractor: treats the exponential model as linear, reading 12 as a constant hourly decrease
+      { id: "A", text: "The number of milligrams by which the amount of medication decreases each hour" },
+      // distractor: reads the factor 0.25 as the percent decrease instead of the fraction that remains
+      { id: "B", text: "The number of hours it takes for the amount of medication to decrease by $25\\%$" },
+      // distractor: assumes the time in the exponent is always the time it takes for the amount to decrease by half
+      { id: "C", text: "The number of hours it takes for the amount of medication to decrease by $50\\%$" },
+      { id: "D", text: "The number of hours it takes for the amount of medication to decrease by $75\\%$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Interpret Exponential Parameters**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Every $12$ hours the amount is multiplied by $0.25 = \\left(\\frac{1}{2}\\right)^{2}$, which is two halvings, so one halving takes $6$ hours.\n\n**The Full Solution:**\nStep 1: When $t$ increases by $12$, the exponent $\\frac{t}{12}$ increases by $1$, so the amount is multiplied by $0.25$ every $12$ hours.\nStep 2: Write $0.25 = \\left(\\frac{1}{2}\\right)^{2}$. Then $A(t) = 500\\left(\\frac{1}{2}\\right)^{\\frac{2t}{12}} = 500\\left(\\frac{1}{2}\\right)^{\\frac{t}{6}}$.\nStep 3: The amount is halved each time $t$ increases by $6$, so the half-life is $6$ hours. Check: $A(6) = 500(0.25)^{0.5} = 500(0.5) = 250$, half of $500$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($12$): in $12$ hours the amount falls to $0.25$ of its value, a quarter, not a half.\n* Choice C ($24$): after $24$ hours only $500(0.25)^{2} = 31.25$ milligrams remain.\n* Choice D ($48$): multiplies by $4$ because $0.25$ is one fourth; a smaller base means a faster decay, not a slower one.\n\n**Test Day Takeaway:** To read a half-life, rewrite the base as a power of $\\frac{1}{2}$; the half-life is the time that makes that exponent $1$.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Interpret Exponential Parameters**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Each time $t$ increases by $12$, the amount is multiplied by $0.25$, so $25\\%$ remains and the amount has decreased by $75\\%$.\n\n**The Full Solution:**\nStep 1: When $t$ increases by $12$, the exponent $\\frac{t}{12}$ increases by $1$, so the amount is multiplied by $0.25$ one more time.\nStep 2: Multiplying by $0.25$ leaves $25\\%$ of the amount, which is a decrease of $100\\% - 25\\% = 75\\%$.\nStep 3: So $12$ is the number of hours it takes for the amount of medication to decrease by $75\\%$. Check: $A(0) = 500$ and $A(12) = 500(0.25) = 125$, and $125$ is $75\\%$ less than $500$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: treats the model as linear; an exponential model decreases by a percent, not by a fixed number of milligrams.\n* Choice B: reads $0.25$ as the percent decrease, but $0.25$ is the fraction that remains.\n* Choice C: assumes the time in the exponent is the time it takes for the amount to fall by half; after $12$ hours only a quarter remains, not a half.\n\n**Test Day Takeaway:** In $a(b)^{\\frac{t}{k}}$, the amount is multiplied by $b$ every $k$ units of time; for a decay factor $b$, the percent decrease over that time is $(1 - b) \\times 100\\%$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "interpret-exponential-parameters",
@@ -8886,18 +8886,18 @@ export const advancedMathBank = [
     skills: ["vertex-form", "function-evaluation"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "$f(x) = (x - 5)^{2} + c$\nIn the given function, $c$ is a constant. The graph of $y = f(x)$ in the $xy$-plane passes through the point $(7, 10)$. What is the value of $c$?",
+    question: "$f(x) = (x + 4)^{2} + c$\nIn the given function, $c$ is a constant. If $f(-1) = 6$, what is the value of $c$?",
     choices: [
-      // distractor: reports $(7 - 5)^2 = 4$, the value of the squared term, instead of $c$
-      { id: "A", text: "$4$" },
-      { id: "B", text: "$6$" },
-      // distractor: forgets to square, using $7 - 5 = 2$ and $10 - 2 = 8$
-      { id: "C", text: "$8$" },
-      // distractor: adds $4$ to $10$ instead of subtracting it
-      { id: "D", text: "$14$" }
+      { id: "A", text: "$-3$" },
+      // distractor: forgets to square, using $-1 + 4 = 3$ and $6 - 3 = 3$
+      { id: "B", text: "$3$" },
+      // distractor: reports $(-1 + 4)^2 = 9$, the value of the squared term, instead of $c$
+      { id: "C", text: "$9$" },
+      // distractor: adds $9$ to $6$ instead of subtracting it
+      { id: "D", text: "$15$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Substitute the point: $(7 - 5)^{2} + c = 10$, so $4 + c = 10$ and $c = 6$.\n\n**The Full Solution:**\nStep 1: The point $(7, 10)$ is on the graph, so $f(7) = 10$: $(7 - 5)^{2} + c = 10$.\nStep 2: $(7 - 5)^{2} = 2^{2} = 4$, so $4 + c = 10$.\nStep 3: Subtract $4$: $c = 6$. Check: $f(x) = (x - 5)^{2} + 6$ gives $f(7) = 4 + 6 = 10$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): stops at the value of the squared term, $(7 - 5)^{2} = 4$, and never solves for $c$.\n* Choice C ($8$): forgets to square $7 - 5$, so it solves $2 + c = 10$.\n* Choice D ($14$): adds $4$ to $10$ instead of subtracting it.\n\n**Test Day Takeaway:** A point on the graph is an equation: substitute its $x$- and $y$-values, then solve for the one constant that is left.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Substitute $x = -1$: $(-1 + 4)^{2} + c = 6$, so $9 + c = 6$ and $c = -3$.\n\n**The Full Solution:**\nStep 1: $f(-1) = 6$, so $(-1 + 4)^{2} + c = 6$.\nStep 2: $(-1 + 4)^{2} = 3^{2} = 9$, so $9 + c = 6$.\nStep 3: Subtract $9$: $c = -3$. Check: $f(x) = (x + 4)^{2} - 3$ gives $f(-1) = 9 - 3 = 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3$): forgets to square $-1 + 4$, so it solves $3 + c = 6$.\n* Choice C ($9$): stops at the value of the squared term, $(-1 + 4)^{2} = 9$, and never solves for $c$.\n* Choice D ($15$): adds $9$ to $6$ instead of subtracting it.\n\n**Test Day Takeaway:** A known output is an equation: substitute the input and the output, then solve for the one constant that is left.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "vertex-form-from-two-conditions",
@@ -8961,7 +8961,7 @@ export const advancedMathBank = [
     skills: ["vertex-form", "function-evaluation"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The graph of $y = a(x - h)^{2} + k$ is shown in the $xy$-plane, where $a$, $h$, and $k$ are constants. What is the value of $a + h + k$?",
+    question: "The parabola shown in the $xy$-plane has the equation $y = a(x - h)^{2} + k$, where $a$, $h$, and $k$ are constants. What is the value of $a + h + k$?",
     diagram: { type: "quadraticVertex", params: { vertex: [2, -6], a: 0.5, showPoints: [[6, 2]], showVertex: true } },
     choices: [
       // distractor: reads the vertex as $(-2, -6)$, giving $\frac{1}{2} - 2 - 6$
@@ -9141,18 +9141,18 @@ export const advancedMathBank = [
     skills: ["quadratic-factoring"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "$x^{2} - 11x + 24 = 0$\nWhat is the sum of the solutions to the given equation?",
+    question: "$x^{2} - 13x + 36 = 0$\nWhat is the sum of the solutions to the given equation?",
     choices: [
-      // distractor: uses the coefficient $-11$ itself instead of its opposite
-      { id: "A", text: "$-11$" },
-      // distractor: subtracts the solutions, $8 - 3$, instead of adding them
+      // distractor: uses the coefficient $-13$ itself instead of its opposite
+      { id: "A", text: "$-13$" },
+      // distractor: subtracts the solutions, $9 - 4$, instead of adding them
       { id: "B", text: "$5$" },
-      { id: "C", text: "$11$" },
+      { id: "C", text: "$13$" },
       // distractor: gives the product of the solutions instead of the sum
-      { id: "D", text: "$24$" }
+      { id: "D", text: "$36$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Vieta Sum & Product of Roots**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** For $x^{2} + bx + c = 0$, the solutions add to $-b$, so the sum is $-(-11) = 11$.\n\n**The Full Solution:**\nStep 1: Factor: $x^{2} - 11x + 24 = (x - 3)(x - 8)$.\nStep 2: The solutions are $x = 3$ and $x = 8$.\nStep 3: Their sum is $3 + 8 = 11$, which matches $-b = 11$. Check: $3^{2} - 11(3) + 24 = 0$ and $8^{2} - 11(8) + 24 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-11$): takes the coefficient $-11$ as the sum, forgetting that the sum is its opposite.\n* Choice B ($5$): finds the solutions $3$ and $8$ but subtracts them.\n* Choice D ($24$): gives the product of the solutions, the constant term.\n\n**Test Day Takeaway:** When the leading coefficient is $1$, the sum of the solutions is the opposite of the $x$-coefficient and the product is the constant term.",
+    explanation: "**SAT Pattern: Vieta Sum & Product of Roots**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** For $x^{2} + bx + c = 0$, the solutions add to $-b$, so the sum is $-(-13) = 13$.\n\n**The Full Solution:**\nStep 1: Factor: $x^{2} - 13x + 36 = (x - 4)(x - 9)$.\nStep 2: The solutions are $x = 4$ and $x = 9$.\nStep 3: Their sum is $4 + 9 = 13$, which matches $-b = 13$. Check: $4^{2} - 13(4) + 36 = 0$ and $9^{2} - 13(9) + 36 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-13$): takes the coefficient $-13$ as the sum, forgetting that the sum is its opposite.\n* Choice B ($5$): finds the solutions $4$ and $9$ but subtracts them.\n* Choice D ($36$): gives the product of the solutions, the constant term.\n\n**Test Day Takeaway:** When the leading coefficient is $1$, the sum of the solutions is the opposite of the $x$-coefficient and the product is the constant term.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "vieta-sum-product-of-roots",
@@ -9191,7 +9191,7 @@ export const advancedMathBank = [
     skills: ["quadratic-factoring"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The graph of $y = ax^{2} + bx + c$ is shown in the $xy$-plane, where $a$, $b$, and $c$ are constants. What is the value of $\\dfrac{b}{a}$?",
+    question: "The quadratic function $f$ is defined by $f(x) = ax^{2} + bx + c$, where $a$, $b$, and $c$ are constants. The graph of $y = f(x)$ is shown. What is the value of $\\dfrac{b}{a}$?",
     diagram: { type: "quadraticIntercepts", params: { intercepts: [-7, 3] } },
     choices: [
       // distractor: computes the product of the zeros, $(-7)(3)$, which equals $\frac{c}{a}$
@@ -9267,18 +9267,18 @@ export const advancedMathBank = [
     skills: ["quadratic-factoring"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "$x^{2} - 16x + k = 0$\nIn the given equation, $k$ is a constant. One solution to the equation is $3$ times the other solution. What is the greater solution to the equation?",
+    question: "$x(2x - 3) - 10 = 5(x + 4)$\nWhat is the sum of the solutions to the given equation?",
     choices: [
-      // distractor: reports the lesser solution
-      { id: "A", text: "$4$" },
-      // distractor: splits the sum $16$ equally, as if both solutions were the same
-      { id: "B", text: "$8$" },
-      { id: "C", text: "$12$" },
-      // distractor: reports the product $k = 48$ instead of a solution
-      { id: "D", text: "$48$" }
+      // distractor: uses $\frac{b}{a} = \frac{-8}{2}$ and drops the sign change in $-\frac{b}{a}$
+      { id: "A", text: "$-4$" },
+      // distractor: computes $-\frac{b}{2a}$, the average of the two solutions, instead of their sum
+      { id: "B", text: "$2$" },
+      { id: "C", text: "$4$" },
+      // distractor: reads the sum as $-b = 8$ from $2x^{2} - 8x - 30 = 0$ without dividing by the leading coefficient $2$
+      { id: "D", text: "$8$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Vieta Sum & Product of Roots**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Let the solutions be $r$ and $3r$; their sum is $16$, so $4r = 16$, $r = 4$, and the greater solution is $12$.\n\n**The Full Solution:**\nStep 1: Call the solutions $r$ and $3r$. The sum of the solutions is the opposite of the $x$-coefficient: $r + 3r = 16$.\nStep 2: So $4r = 16$ and $r = 4$; the solutions are $4$ and $12$.\nStep 3: The greater solution is $12$. Check: $k = 4 \\cdot 12 = 48$, and $x^{2} - 16x + 48 = (x - 4)(x - 12)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): solves correctly but reports the lesser solution.\n* Choice B ($8$): divides $16$ by $2$, as if the two solutions were equal.\n* Choice D ($48$): gives $k$, the product of the solutions.\n\n**Test Day Takeaway:** When a relationship between the solutions is given, name them $r$ and $3r$ and use the sum, which you can read from the equation without knowing $k$.",
+    explanation: "**SAT Pattern: Vieta Sum & Product of Roots**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Expand and collect: $2x^{2} - 8x - 30 = 0$, so the sum of the solutions is $-\\frac{b}{a} = -\\frac{-8}{2} = 4$.\n\n**The Full Solution:**\nStep 1: Expand each side: $2x^{2} - 3x - 10 = 5x + 20$.\nStep 2: Move every term to one side: $2x^{2} - 8x - 30 = 0$, which is equivalent to $x^{2} - 4x - 15 = 0$.\nStep 3: For $x^{2} + bx + c = 0$, the solutions add to $-b$, so the sum is $4$. Check: the quadratic formula gives $x = 2 + \\sqrt{19}$ and $x = 2 - \\sqrt{19}$, and $(2 + \\sqrt{19}) + (2 - \\sqrt{19}) = 4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): computes $\\frac{b}{a} = \\frac{-8}{2}$ and forgets that the sum of the solutions is the opposite, $-\\frac{b}{a}$.\n* Choice B ($2$): finds $-\\frac{b}{2a} = 2$, which is the average of the two solutions (the $x$-coordinate of the vertex), not their sum.\n* Choice D ($8$): takes $-b = 8$ from $2x^{2} - 8x - 30 = 0$ without dividing by the leading coefficient $2$.\n\n**Test Day Takeaway:** The solutions here are not integers, so don't solve: write the equation as $ax^{2} + bx + c = 0$ and use sum $= -\\frac{b}{a}$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "vieta-sum-product-of-roots",
@@ -9469,9 +9469,9 @@ export const advancedMathBank = [
     skills: ["finding-roots-factoring", "roots-from-factors"],
     difficulty: "hard",
     type: "fill-in",
-    question: "The function $q$ is defined by $q(x) = x^{2} - 11x + 24$. The function $w$ is defined by $w(x) = q(2x - 5)$. What is the sum of the solutions to $w(x) = 0$?",
-    correctAnswer: "10.5",
-    explanation: "**SAT Pattern: Sum of Roots via Input Shift**\n\n**The correct answer is $\\frac{21}{2}$, or $10.5$.**\n\n**The Fast Way (~35s):** $q$ is zero at $3$ and $8$, so $2x - 5 = 3$ or $2x - 5 = 8$, giving $x = 4$ and $x = \\frac{13}{2}$, with sum $\\frac{21}{2}$.\n\n**The Full Solution:**\nStep 1: Factor: $q(x) = (x - 3)(x - 8)$, so $q$ is zero when its input is $3$ or $8$.\nStep 2: $w(x) = q(2x - 5) = 0$ when $2x - 5 = 3$ or $2x - 5 = 8$, so $x = 4$ or $x = \\frac{13}{2}$.\nStep 3: The sum is $4 + \\frac{13}{2} = \\frac{21}{2}$. Check: $w(4) = q(3) = 9 - 33 + 24 = 0$ and $w(\\frac{13}{2}) = q(8) = 64 - 88 + 24 = 0$ ✓\n\n**Common Mistakes:**\n* $11$: gives the sum of the zeros of $q$, not of $w$.\n* $\\frac{11}{2}$: divides the zeros of $q$ by $2$ but ignores the $-5$.\n* $\\frac{1}{2}$: solves $2x + 5 = 3$ and $2x + 5 = 8$, shifting the wrong way.\n\n**Test Day Takeaway:** For $w(x) = q(\\text{input})$, find the zeros of $q$, set the input equal to each one, and solve for $x$.",
+    question: "$q(x) = x^{2} - 9x + 5$\nIn the $xy$-plane, the graph of $y = w(x)$ is the result of translating the graph of $y = q(x)$ $6$ units to the right. What is the sum of the solutions to $w(x) = 0$?",
+    correctAnswer: "21",
+    explanation: "**SAT Pattern: Sum of Roots via Input Shift**\n\n**The correct answer is $21$.**\n\n**The Fast Way (~30s):** The solutions to $q(x) = 0$ add to $9$. Moving the graph $6$ units right adds $6$ to each of the two solutions, so the sum is $9 + 2(6) = 21$.\n\n**The Full Solution:**\nStep 1: The solutions to $x^{2} - 9x + 5 = 0$ have sum $-(-9) = 9$; they are not integers, so there is no need to find them.\nStep 2: Translating the graph $6$ units right moves each $x$-intercept $6$ units right, so each solution to $w(x) = 0$ is $6$ more than a solution to $q(x) = 0$.\nStep 3: The sum is $9 + 6 + 6 = 21$. Check: $w(x) = q(x - 6) = (x - 6)^{2} - 9(x - 6) + 5 = x^{2} - 21x + 95$, whose solutions add to $21$ ✓\n\n**Common Mistakes:**\n* $9$: gives the sum of the solutions to $q(x) = 0$ and ignores the translation.\n* $15$: adds $6$ only once, but each of the two solutions moves $6$ units.\n* $-3$: moves the graph left, subtracting $6$ from each solution: $9 - 12$.\n\n**Test Day Takeaway:** A horizontal translation moves every $x$-intercept by the same amount; with two solutions, the sum changes by twice that amount.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "roots-from-factors",
@@ -9578,19 +9578,19 @@ export const advancedMathBank = [
     skills: ["exponent-laws", "exponential-growth-decay"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The table shows the number of members, $N$, of a library's book club $t$ years after the club started, where $N$ grows exponentially. Which of the following is closest to the percent increase in $N$ every $3$ months?",
-    diagram: { type: "dataTable", params: { headers: ["t", "N"], rows: [["0", "500"], ["1", "600"], ["2", "720"], ["3", "864"]] } },
+    question: "The table shows the number of subscribers, $N$, to an online newsletter $t$ years after it was launched, where $N$ increases exponentially. What is the percent increase in $N$ every $6$ months?",
+    diagram: { type: "dataTable", params: { headers: ["t", "N"], rows: [["0", "10,000"], ["1", "12,100"], ["2", "14,641"]] } },
     choices: [
-      { id: "A", text: "$4.7\\%$" },
-      // distractor: divides the annual $20\%$ by the $4$ quarters in a year instead of taking a fourth root
-      { id: "B", text: "$5\\%$" },
-      // distractor: reports the annual increase of $20\%$ as the quarterly increase
-      { id: "C", text: "$20\\%$" },
-      // distractor: multiplies the annual $20\%$ by the $3$ months in a quarter
-      { id: "D", text: "$60\\%$" }
+      { id: "A", text: "$10\\%$" },
+      // distractor: halves the yearly $21\%$ increase instead of taking a square root of the growth factor
+      { id: "B", text: "$10.5\\%$" },
+      // distractor: reports the yearly increase of $21\%$ as the increase every $6$ months
+      { id: "C", text: "$21\\%$" },
+      // distractor: doubles the yearly $21\%$ because a year has two $6$-month periods
+      { id: "D", text: "$42\\%$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Rewriting Exponential Form — Equivalent Rate**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** $N$ is multiplied by $1.2$ each year, so each $3$-month period multiplies it by $(1.2)^{\\frac{1}{4}} \\approx 1.047$, an increase of about $4.7\\%$.\n\n**The Full Solution:**\nStep 1: Divide consecutive values: $\\frac{600}{500} = \\frac{720}{600} = \\frac{864}{720} = 1.2$, so $N = 500(1.2)^{t}$.\nStep 2: A year has four $3$-month periods, so the factor $q$ for each period satisfies $q^{4} = 1.2$, and $q = (1.2)^{\\frac{1}{4}} \\approx 1.0466$.\nStep 3: That is an increase of about $4.7\\%$ every $3$ months. Check: $(1.0466)^{4} \\approx 1.200$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($5\\%$): divides $20\\%$ by $4$; four increases of $5\\%$ compound to about $21.6\\%$, not $20\\%$.\n* Choice C ($20\\%$): is the yearly increase, not the increase every $3$ months.\n* Choice D ($60\\%$): multiplies $20\\%$ by $3$, treating months as years.\n\n**Test Day Takeaway:** To convert a growth factor to a shorter period, take a root of the factor; dividing the percent only approximates it, and the compounding makes the true rate a little smaller.",
+    explanation: "**SAT Pattern: Rewriting Exponential Form — Equivalent Rate**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $N$ is multiplied by $1.21$ each year, and $1.21 = (1.1)^{2}$, so $N$ is multiplied by $1.1$ every $6$ months, an increase of $10\\%$.\n\n**The Full Solution:**\nStep 1: Divide consecutive values: $\\frac{12{,}100}{10{,}000} = \\frac{14{,}641}{12{,}100} = 1.21$, so $N = 10{,}000(1.21)^{t}$.\nStep 2: A year has two $6$-month periods, so the factor $q$ for each period satisfies $q^{2} = 1.21$, and $q = 1.1$.\nStep 3: A factor of $1.1$ is an increase of $10\\%$ every $6$ months. Check: $10{,}000(1.1)^{2} = 12{,}100$ and $10{,}000(1.1)^{4} = 14{,}641$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($10.5\\%$): halves $21\\%$; two increases of $10.5\\%$ give $(1.105)^{2} \\approx 1.221$, an increase of about $22.1\\%$, not $21\\%$.\n* Choice C ($21\\%$): is the yearly increase, not the increase every $6$ months.\n* Choice D ($42\\%$): doubles $21\\%$, but a shorter period means a smaller increase, not a larger one.\n\n**Test Day Takeaway:** To convert a growth factor to a shorter period, take a root of the factor; for half a year, $N$ grows by the square root of the yearly factor.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "interpret-exponential-parameters",

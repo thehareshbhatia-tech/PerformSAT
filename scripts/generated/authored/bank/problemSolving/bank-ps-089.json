@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-089",
-  "question": "The scatterplot shows the temperature $x$, in degrees Celsius, and the number of chirps per minute $y$ made by a cricket on each of $7$ evenings. The line of best fit, $y = 2.5x + 9$, is also shown. A new data point with an $x$-value of $14$ is added, and its residual is $-4$. What is the $y$-value of the new data point?",
+  "question": "The scatterplot shows the temperature $x$, in degrees Celsius, and the number of chirps per minute $y$ made by a cricket on each of $7$ evenings. The line of best fit, $y = 2.5x + 9$, is also shown. For what temperature, in degrees Celsius, does the line of best fit predict $64$ chirps per minute?",
   "diagram": {
     "type": "scatterplot",
     "params": {
@@ -50,6 +50,6 @@
       }
     }
   },
-  "correctAnswer": "40",
-  "explanation": "**SAT Pattern: Residual**\n\n**The correct answer is 40.**\n\n**The Fast Way (~15s):** The line predicts $2.5(14) + 9 = 44$, and a residual of $-4$ puts the point $4$ below that: $44 - 4 = 40$.\n\n**The Full Solution:**\nStep 1: Residual $=$ actual $-$ predicted, so actual $=$ predicted $+$ residual.\nStep 2: At $x = 14$, the line predicts $y = 2.5(14) + 9 = 35 + 9 = 44$.\nStep 3: The actual value is $44 + (-4) = 40$. Check: $40 - 44 = -4$, the given residual ✓\n\n**Common Mistakes:**\n* $48$: adds the residual with the wrong sign, $44 + 4$.\n* $44$: reports the predicted value.\n* $31$: drops the intercept, computing $2.5(14) - 4$.\n\n**Test Day Takeaway:** Rearrange the definition once, actual $=$ predicted $+$ residual, and keep the residual's sign."
+  "correctAnswer": "22",
+  "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is 22.**\n\n**The Fast Way (~20s):** Set $2.5x + 9 = 64$: $2.5x = 55$, so $x = 22$.\n\n**The Full Solution:**\nStep 1: The line predicts $64$ chirps per minute when $y = 64$, so solve $2.5x + 9 = 64$.\nStep 2: Subtract $9$: $2.5x = 55$. Divide by $2.5$: $x = 22$.\nStep 3: Check: $2.5(22) + 9 = 55 + 9 = 64$ ✓\n\n**Common Mistakes:**\n* $169$: substitutes $64$ for $x$ instead of for $y$, $2.5(64) + 9$.\n* $29.2$: adds $9$ instead of subtracting it, $\\frac{64 + 9}{2.5}$.\n* $25.6$: divides $64$ by $2.5$ and ignores the $9$.\n\n**Test Day Takeaway:** When the predicted $y$-value is given, substitute it for $y$ and solve for $x$."
 }

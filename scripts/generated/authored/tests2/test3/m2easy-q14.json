@@ -1,29 +1,29 @@
 {
  "id": 14,
- "question": "$2x^{2} - 22x + 48 = 0$\nOne solution to the given equation is $3$. What is the other solution?",
+ "question": "$3x^{2} + kx + 6$\nIn the given expression, $k$ is a constant. If $x - 3$ is a factor of the expression, what is the value of $k$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-8$"
+   "text": "$-11$"
   },
   {
    "id": "B",
-   "text": "$8$"
+   "text": "$-9$"
   },
   {
    "id": "C",
-   "text": "$11$"
+   "text": "$-5$"
   },
   {
    "id": "D",
-   "text": "$16$"
+   "text": "$11$"
   }
  ],
  "distractorNotes": {
-  "A": "sign slip in factoring, writing 2(x - 3)(x + 8) instead of 2(x - 3)(x - 8)",
-  "C": "uses 22/2 = 11, the sum of the two solutions, as the second solution",
-  "D": "uses 48 as the product of the solutions without dividing by the leading coefficient 2, computing 48/3 = 16"
+  "B": "multiplies (x - 3)(3x - 2) but keeps only the -9x term, leaving out the -2x term",
+  "C": "substitutes x = 3 but uses x^2 instead of 3x^2, solving 9 + 3k + 6 = 0",
+  "D": "substitutes x = -3 instead of x = 3, solving 27 - 3k + 6 = 0"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Polynomial Factoring with Given Factor**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Since $3$ is a solution, $x - 3$ is a factor. Factoring out $2$ gives $2(x^{2} - 11x + 24) = 2(x - 3)(x - 8)$, so the other solution is $8$.\n\n**The Full Solution:**\nStep 1: Because $x = 3$ is a solution, $x - 3$ is a factor of $2x^{2} - 22x + 48$.\nStep 2: Factor out $2$: $2(x^{2} - 11x + 24) = 0$. The numbers with product $24$ and sum $-11$ are $-3$ and $-8$, so the equation is $2(x - 3)(x - 8) = 0$.\nStep 3: The solutions are $x = 3$ and $x = 8$, so the other solution is $8$. Check: $2(8)^{2} - 22(8) + 48 = 128 - 176 + 48 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): flips a sign while factoring, writing $2(x - 3)(x + 8)$. That product has middle term $+10x$, not $-22x$.\n* Choice C ($11$): computes $\\frac{22}{2} = 11$, which is the sum of the two solutions, not the second solution. Subtracting the known solution gives $11 - 3 = 8$.\n* Choice D ($16$): treats $48$ as the product of the solutions and computes $\\frac{48}{3} = 16$. The product of the solutions is $\\frac{48}{2} = 24$, because the leading coefficient is $2$.\n\n**Test Day Takeaway:** One known solution turns a quadratic into a quick factoring problem. Factor out the leading coefficient first, then find the pair of numbers whose product is the constant and whose sum is the middle coefficient."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Polynomial Factoring with Given Factor**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** If $x - 3$ is a factor, the expression equals $0$ when $x = 3$: $3(3)^{2} + 3k + 6 = 0$, so $33 + 3k = 0$ and $k = -11$.\n\n**The Full Solution:**\nStep 1: If $x - 3$ is a factor of the expression, then the expression equals $0$ when $x - 3 = 0$, that is, when $x = 3$.\nStep 2: Substitute $x = 3$: $3(9) + 3k + 6 = 0$, which gives $33 + 3k = 0$.\nStep 3: Solve: $3k = -33$, so $k = -11$. Check: $(x - 3)(3x - 2) = 3x^{2} - 2x - 9x + 6 = 3x^{2} - 11x + 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-9$): multiplies $(x - 3)(3x - 2)$ but keeps only the $-9x$ term. The $-2x$ term also belongs to the middle term.\n* Choice C ($-5$): drops the coefficient $3$ on $x^{2}$, solving $9 + 3k + 6 = 0$.\n* Choice D ($11$): substitutes $x = -3$. The factor $x - 3$ is zero when $x = 3$, not $-3$.\n\n**Test Day Takeaway:** $x - a$ is a factor exactly when the expression equals $0$ at $x = a$; substitute $a$ and solve for the unknown constant."
 }

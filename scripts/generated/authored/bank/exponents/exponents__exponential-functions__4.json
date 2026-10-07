@@ -1,6 +1,6 @@
 {
  "id": 4,
- "question": "For the exponential function $g$, $g(3) = 56$, and the value of $g(x)$ doubles for each increase of $1$ in the value of $x$. What is the y-intercept of the graph of $y = g(x)$ in the $xy$-plane?",
+ "question": "$g(x) = a(2)^{x}$\nIn the given function, $a$ is a constant, and $g(3) = 56$. What is the y-intercept of the graph of $y = g(x)$ in the $xy$-plane?",
  "choices": [
   {
    "id": "A",
@@ -12,7 +12,7 @@
   },
   {
    "id": "C",
-   "text": "$(0, 50)$"
+   "text": "$(0, 28)$"
   },
   {
    "id": "D",
@@ -20,11 +20,11 @@
   }
  ],
  "correctAnswer": "A",
- "hint": "Work backward from x = 3 to x = 0 one step at a time.",
+ "hint": "The y-intercept is (0, g(0)), and g(0) = a.",
  "distractorNotes": {
-  "B": "halves 56 only twice, stopping at x = 1",
-  "C": "subtracts 2 for each step back from x = 3, as if the function were linear",
-  "D": "uses the given value g(3) = 56 as the y-intercept"
+  "B": "divides 56 by 2 only twice",
+  "C": "divides 56 by 2 only once",
+  "D": "uses g(3) as the y-intercept"
  },
- "explanation": "**Choice A is correct.**\n\n**The Fast Way (~20s):** Going back $3$ steps from $x = 3$ to $x = 0$ halves the value $3$ times: $\\frac{56}{2^{3}} = 7$, so the y-intercept is $(0, 7)$.\n\n**The Full Solution:**\nStep 1: Since the value doubles for each increase of $1$ in $x$, $g(x) = a(2)^{x}$, where $a = g(0)$.\nStep 2: Substitute $x = 3$: $a(2)^{3} = 56$, so $8a = 56$.\nStep 3: Divide: $a = 7$, so the graph crosses the y-axis at $(0, 7)$. Check: $7 \\to 14 \\to 28 \\to 56$ for $x = 0, 1, 2, 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($(0, 14)$): halves $56$ only twice, which gives $g(1)$, not $g(0)$.\n* Choice C ($(0, 50)$): subtracts $2$ three times; the function doubles, so stepping back means dividing by $2$.\n* Choice D ($(0, 56)$): uses $g(3)$ as the y-intercept, but the y-intercept is the value at $x = 0$.\n\n**Test Day Takeaway:** The y-intercept of an exponential function is its value at $x = 0$; undo the growth factor once for each unit you step back."
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~20s):** $g(3) = 8a = 56$, so $a = 7$, and the y-intercept is $(0, g(0)) = (0, 7)$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 3$: $g(3) = a(2)^{3} = 8a$.\nStep 2: Set $8a = 56$, so $a = 7$.\nStep 3: The y-intercept is $(0, g(0))$, and $g(0) = 7(2)^{0} = 7$. Check: $7(2)^{3} = 7 \\cdot 8 = 56$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($(0, 14)$): divides $56$ by $2$ only twice, which gives $g(1)$.\n* Choice C ($(0, 28)$): divides $56$ by $2$ only once, which gives $g(2)$.\n* Choice D ($(0, 56)$): uses the value at $x = 3$ as if it were the value at $x = 0$.\n\n**Test Day Takeaway:** For $f(x) = a(b)^{x}$, the y-intercept is always $(0, a)$."
 }

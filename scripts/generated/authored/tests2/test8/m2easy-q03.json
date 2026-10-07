@@ -1,29 +1,29 @@
 {
  "id": 3,
- "question": "Each value in a data set with a median of $14$ and a standard deviation of $5$ is multiplied by $3$. What are the median and standard deviation of the resulting data set?",
+ "question": "$4, 7, 8, 11, 15$\nThe list gives the values in data set A. Data set B is created by multiplying each value in data set A by $3$. What is the median of data set B?",
  "choices": [
   {
    "id": "A",
-   "text": "Median $17$ and standard deviation $8$"
+   "text": "$8$"
   },
   {
    "id": "B",
-   "text": "Median $42$ and standard deviation $5$"
+   "text": "$11$"
   },
   {
    "id": "C",
-   "text": "Median $42$ and standard deviation $15$"
+   "text": "$24$"
   },
   {
    "id": "D",
-   "text": "Median $126$ and standard deviation $45$"
+   "text": "$45$"
   }
  ],
  "distractorNotes": {
-  "A": "adds 3 to each statistic instead of multiplying, giving 14 + 3 = 17 and 5 + 3 = 8",
-  "B": "multiplies the median by 3 but leaves the standard deviation at 5",
-  "D": "multiplies by 9 instead of 3, applying the factor twice"
+  "A": "reports the median of data set A without multiplying it by 3",
+  "B": "adds 3 to the median of data set A instead of multiplying by 3",
+  "D": "multiplies the greatest value, 15, by 3 instead of the median"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Multiplying every value by $3$ multiplies both the median and the standard deviation by $3$: $3(14) = 42$ and $3(5) = 15$.\n\n**The Full Solution:**\nStep 1: Multiplying every value by a positive number keeps the values in the same order, so the middle value stays in the middle and the median is multiplied by $3$: $3(14) = 42$.\nStep 2: Every distance between values is also multiplied by $3$, so the standard deviation is multiplied by $3$: $3(5) = 15$.\nStep 3: Check with two values $5$ apart, $14$ and $19$: after multiplying they are $42$ and $57$, which are $15$ apart ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (median $17$, standard deviation $8$): adds $3$ to each statistic instead of multiplying by $3$.\n* Choice B (median $42$, standard deviation $5$): scales the median but not the spread. Spread stays the same only when a constant is added to every value.\n* Choice D (median $126$, standard deviation $45$): multiplies by $9$, applying the factor $3$ twice.\n\n**Test Day Takeaway:** Adding a constant shifts the center and leaves the spread alone; multiplying by a constant scales the center and the spread by that constant."
+ "explanation": "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The median of data set A is the middle value, $8$. Multiplying every value by $3$ keeps the order, so the median of data set B is $3 \\times 8 = 24$.\n\n**The Full Solution:**\nStep 1: The values of data set A are already in order, and the middle (third) value is $8$, so the median of data set A is $8$.\nStep 2: Multiplying each value by $3$ gives data set B: $12, 21, 24, 33, 45$.\nStep 3: The middle value of data set B is $24$. Check: $3 \\times 8 = 24$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): this is the median of data set A; every value, including the middle one, was multiplied by $3$.\n* Choice B ($11$): adds $3$ to the median instead of multiplying by $3$.\n* Choice D ($45$): multiplies the greatest value, $15$, by $3$; that is the maximum of data set B, not the median.\n\n**Test Day Takeaway:** Multiplying every value in a data set by the same positive number keeps the values in the same order, so the median is multiplied by that number too."
 }

@@ -6,40 +6,35 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 2,
- "passage": "Rain steadily erodes the leading edges of wind-turbine blades, and the resulting roughness cuts into the energy a blade can capture. A materials engineer subjected samples of four protective coatings to identical simulated-rainfall endurance tests, inspecting each sample at intervals, and argues that one coating stands out for protecting blades over the long exposures a working turbine actually faces because ______",
+ "passage": "Spacecraft are built to work for a planned number of months, but several have kept working long after their plans ran out. Comparing four missions' planned and actual lengths, a space historian argues that one spacecraft outlasted its plan by a far wider margin than any other mission did because ______",
  "questionTable": {
   "type": "table",
-  "caption": "Share of each coating's leading-edge surface remaining smooth after simulated rainfall exposure (percent)",
+  "caption": "Planned and actual lengths of four space missions led or co-led by NASA (months, from launch to last contact; approximate)",
   "headers": [
-   "Coating",
-   "After 500 hours",
-   "After 2,000 hours",
-   "After 8,000 hours"
+   "Mission",
+   "Planned length",
+   "Actual length"
   ],
   "rows": [
    [
-    "Polyurethane film",
-    "97",
-    "88",
-    "64"
+    "Pioneer 10 (1972)",
+    "21",
+    "371"
    ],
    [
-    "Epoxy gelcoat",
-    "95",
-    "76",
-    "41"
+    "Earth Radiation Budget Satellite (1984)",
+    "24",
+    "252"
    ],
    [
-    "Metallic cap",
-    "98",
-    "90",
-    "71"
+    "Tropical Rainfall Measuring Mission (1997)",
+    "36",
+    "209"
    ],
    [
-    "Elastomeric spray",
-    "99",
-    "96",
-    "93"
+    "Wilkinson Microwave Anisotropy Probe (2001)",
+    "27",
+    "110"
    ]
   ]
  },
@@ -47,21 +42,31 @@
  "choices": [
   {
    "id": "A",
-   "text": "after 500 hours of exposure, every coating in the test still kept at least 95 percent of its surface smooth."
+   "text": "every mission in the table kept working in space for longer than it had been planned to."
   },
   {
    "id": "B",
-   "text": "the epoxy gelcoat's smooth surface fell to 41 percent after 8,000 hours, the lowest figure recorded at that stage of the test."
+   "text": "the Earth Radiation Budget Satellite worked for 252 months, more than 10 times its planned 24 months."
   },
   {
    "id": "C",
-   "text": "the polyurethane film's smooth surface declined steadily across the whole test, falling from 97 percent after 500 hours to 88 after 2,000 and finally to 64 after 8,000 hours of exposure."
+   "text": "the Tropical Rainfall Measuring Mission had the longest plan in the table, 36 months, compared with 27 months or less for each of the others."
   },
   {
    "id": "D",
-   "text": "the elastomeric spray kept 93 percent of its surface smooth after 8,000 hours, while the other three coatings had fallen to between 41 and 71 percent."
+   "text": "Pioneer 10's roughly 371 months were about 18 times its plan, while no other mission lasted even 11 times its plan."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The claim is that one coating stands out over long exposures, which requires comparing all four at the longest test point — and D does exactly that: 93 percent for the elastomeric spray at 8,000 hours against 41 to 71 for the rest.\n\n**The Full Solution:**\n- Unpack the claim: \"stands out\" demands a comparison across coatings, and \"long exposures\" points to the 8,000-hour column.\n- D pairs the standout's figure with the full range of the other three, establishing both the gap and its direction.\n- The 22-point margin over the next-best coating at the longest exposure is the evidence the argument needs.\n\n**Why the other choices are wrong:**\n- A: At 500 hours the coatings are nearly indistinguishable — early data cannot show a long-run standout.\n- B: The worst performer's collapse identifies a loser, not the standout the claim is about.\n- C: Tracking one middling coating's decline compares it with nothing, so no coating can stand out from it."
+ "explanation": "**Choice D is correct.** The claim is that one spacecraft outlasted its plan by a far wider margin than any other mission, which requires comparing each mission's actual length with its planned length, and D does: Pioneer 10 worked about 18 times as long as planned, while no other mission reached even 11 times its plan.\n\n**The Full Solution:**\n- Unpack the claim: a \"margin\" over a plan compares actual length with planned length, and \"than any other mission\" requires checking all four.\n- Dividing actual by planned length gives about 18 for Pioneer 10, about 10.5 for the Earth Radiation Budget Satellite, about 6 for the Tropical Rainfall Measuring Mission, and about 4 for the Wilkinson Microwave Anisotropy Probe.\n- D names the standout and sets it against the best of the rest, which is the evidence the argument needs.\n\n**Why the other choices are wrong:**\n- A: That every mission outlasted its plan is true but singles out no mission, so it cannot show that one stands out.\n- B: The Earth Radiation Budget Satellite's margin is large, but the claim is about the widest margin, and its margin is well short of Pioneer 10's.\n- C: Comparing planned lengths alone says nothing about how far any mission outlasted its plan.",
+ "_meta": {
+  "anchor": "NASA spacecraft planned vs actual lengths (Pioneer 10 21->~371 mo; ERBS 24->252; TRMM 36->~209; WMAP 27->~110) - COE-Q widest margin",
+  "sources": [
+   "https://science.nasa.gov/missions/pioneer/pioneer-10-sends-last-signal/",
+   "https://en.wikipedia.org/wiki/Pioneer_10",
+   "https://en.wikipedia.org/wiki/Earth_Radiation_Budget_Satellite",
+   "https://en.wikipedia.org/wiki/Tropical_Rainfall_Measuring_Mission",
+   "https://en.wikipedia.org/wiki/Wilkinson_Microwave_Anisotropy_Probe"
+  ]
+ }
 }

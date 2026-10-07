@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-178",
-  "question": "A fair $20$-sided die has faces numbered $1$ through $20$. If the die is rolled once, what is the probability of rolling a multiple of $3$ or a multiple of $4$?",
+  "question": "A theater has $12$ rows of $20$ seats on the main floor and $6$ rows of $15$ seats in the balcony. Each row on the main floor has $4$ aisle seats, and each row in the balcony has $2$ aisle seats. If one of these seats is selected at random, what is the probability of selecting an aisle seat?",
   "choices": [
     {
       "id": "A",
-      "text": "$\\frac{1}{4}$"
+      "text": "$\\frac{2}{15}$"
     },
     {
       "id": "B",
-      "text": "$\\frac{3}{10}$"
+      "text": "$\\frac{6}{35}$"
     },
     {
       "id": "C",
-      "text": "$\\frac{1}{2}$"
+      "text": "$\\frac{2}{11}$"
     },
     {
       "id": "D",
-      "text": "$\\frac{11}{20}$"
+      "text": "$\\frac{1}{5}$"
     }
   ],
   "distractorNotes": {
-    "A": "5/20, multiples of 4 only",
-    "B": "6/20, multiples of 3 only",
-    "D": "6 + 5 = 11 without removing the double-counted 12"
+    "A": "2/15, the share of aisle seats in one balcony row only",
+    "B": "(4 + 2)/(20 + 15), adding one row of each section instead of all the rows",
+    "D": "4/20, the share of aisle seats in one main-floor row only"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** There are $6$ multiples of $3$ and $5$ multiples of $4$, and $12$ is in both lists, so $6 + 5 - 1 = 10$ faces qualify: $\\frac{10}{20} = \\frac{1}{2}$.\n\n**The Full Solution:**\nStep 1: Multiples of $3$ from $1$ to $20$: $3, 6, 9, 12, 15, 18$ (six). Multiples of $4$: $4, 8, 12, 16, 20$ (five).\nStep 2: A number that is a multiple of both $3$ and $4$ is a multiple of $12$; only $12$ qualifies, so there is $1$ overlap. Favorable faces: $6 + 5 - 1 = 10$.\nStep 3: Probability: $\\frac{10}{20} = \\frac{1}{2}$. Check by listing: $3, 4, 6, 8, 9, 12, 15, 16, 18, 20$ is ten different faces ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{4}$): counts only the five multiples of $4$.\n* Choice B ($\\frac{3}{10}$): counts only the six multiples of $3$.\n* Choice D ($\\frac{11}{20}$): adds $6 + 5$ without subtracting the face $12$, which was counted twice.\n\n**Test Day Takeaway:** For \"A or B,\" count A, count B, and subtract the outcomes counted twice; listing the outcomes is a reliable check."
+  "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** There are $12(20) + 6(15) = 330$ seats and $12(4) + 6(2) = 60$ aisle seats, so the probability is $\\frac{60}{330} = \\frac{2}{11}$.\n\n**The Full Solution:**\nStep 1: Total seats: $12 \\times 20 = 240$ on the main floor and $6 \\times 15 = 90$ in the balcony, for $330$ seats.\nStep 2: Aisle seats: $12 \\times 4 = 48$ on the main floor and $6 \\times 2 = 12$ in the balcony, for $60$ aisle seats.\nStep 3: Probability: $\\frac{60}{330} = \\frac{2}{11}$. Check: $\\frac{2}{11} \\times 330 = 60$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2}{15}$): This is the share of aisle seats in one balcony row; it ignores the main floor.\n* Choice B ($\\frac{6}{35}$): This adds one row from each section, $\\frac{4 + 2}{20 + 15}$, but the sections have different numbers of rows.\n* Choice D ($\\frac{1}{5}$): This is the share of aisle seats in one main-floor row; it ignores the balcony.\n\n**Test Day Takeaway:** When groups come in rows, multiply to get each group's count before adding; never combine the per-row rates directly."
 }

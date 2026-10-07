@@ -1,6 +1,6 @@
 {
  "id": 9,
- "question": "Of the seeds in a bag, $60\\%$ are variety R and the rest are variety S. Of the variety R seeds, $85\\%$ germinate, and of the variety S seeds, $60\\%$ germinate. If a seed that germinated is selected at random, what is the probability that it is variety S?",
+ "question": "Of the $200$ seeds a gardener planted, $60\\%$ were variety R and the rest were variety S. Of the variety S seeds, $48$ germinated. If a variety S seed is selected at random, what is the probability that it germinated?",
  "choices": [
   {
    "id": "A",
@@ -8,22 +8,22 @@
   },
   {
    "id": "B",
-   "text": "$0.32$"
-  },
-  {
-   "id": "C",
    "text": "$0.40$"
   },
   {
-   "id": "D",
+   "id": "C",
    "text": "$0.60$"
+  },
+  {
+   "id": "D",
+   "text": "$0.80$"
   }
  ],
- "correctAnswer": "B",
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "reports the joint probability 0.40(0.60) = 0.24, the share of all seeds that are variety S and germinate, without dividing by the share that germinate",
-  "C": "reports 0.40, the share of all seeds that are variety S, ignoring the information that the seed germinated",
-  "D": "reverses the condition and reports 0.60, the germination rate among variety S seeds"
+  "A": "divides the 48 seeds by all 200 seeds instead of by the 80 variety S seeds",
+  "B": "gives 0.40, the fraction of all seeds that were variety S",
+  "D": "divides 48 by 60, treating the 60% for variety R as the number of variety S seeds"
  },
- "explanation": "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Out of $100$ seeds, $51$ are variety R seeds that germinate and $24$ are variety S seeds that germinate, so the probability is $\\frac{24}{75} = 0.32$.\n\n**The Full Solution:**\nStep 1: Imagine the bag holds $100$ seeds. Variety R accounts for $60$ of them and variety S for the other $40$.\nStep 2: Count the germinating seeds in each group: $0.85(60) = 51$ from variety R and $0.60(40) = 24$ from variety S, for $51 + 24 = 75$ germinating seeds in all.\nStep 3: The seed is selected from the $75$ that germinated, so the probability that it is variety S is $\\frac{24}{75} = 0.32$. Check: the probability that it is variety R is $\\frac{51}{75} = 0.68$, and $0.32 + 0.68 = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.24$): computes $0.40(0.60) = 0.24$, the share of all the seeds that are both variety S and germinate. The seed is chosen only from the germinating seeds, so divide by $0.75$, not by $1$.\n* Choice C ($0.40$): reports the share of all the seeds that are variety S, ignoring that the seed is known to have germinated. Variety R germinates more often, so it makes up more of the germinating seeds.\n* Choice D ($0.60$): reports the germination rate among variety S seeds, the probability of germinating given variety S, which is the reverse of what is asked.\n\n**Test Day Takeaway:** In a conditional probability, the denominator is the group the selection is made from (here, the germinating seeds), not the whole population."
+ "explanation": "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Variety S is $40\\%$ of $200$, or $80$ seeds, so the probability is $\\frac{48}{80} = 0.60$.\n\n**The Full Solution:**\nStep 1: Variety S makes up $100\\% - 60\\% = 40\\%$ of the seeds.\nStep 2: There are $0.40(200) = 80$ variety S seeds.\nStep 3: The seed is selected from these $80$, and $48$ of them germinated, so the probability is $\\frac{48}{80} = 0.60$. Check: $0.60(80) = 48$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.24$): divides $48$ by all $200$ seeds, but the seed is selected only from the variety S seeds.\n* Choice B ($0.40$): is the fraction of all the seeds that were variety S, not the fraction of variety S seeds that germinated.\n* Choice D ($0.80$): divides $48$ by $60$, using the percent for variety R as if it were the number of variety S seeds.\n\n**Test Day Takeaway:** In a conditional probability, the condition names the group you divide by; find that group's size before dividing."
 }

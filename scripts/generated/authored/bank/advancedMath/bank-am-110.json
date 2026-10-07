@@ -1,27 +1,27 @@
 {
- "id": "bank-am-110",
- "question": "The graph of $y = f(x)$ is shown. The function $g$ is defined by $g(x) = f(x + 3) - 2$. What is the value of $g(-2)$?",
- "diagram": {
-  "type": "quadraticVertex",
-  "params": {
-   "vertex": [
-    1,
-    -4
-   ],
-   "a": 1,
-   "showPoints": [
-    [
-     -1,
-     0
-    ],
-    [
-     3,
-     0
-    ]
-   ],
-   "showVertex": true
-  }
- },
- "correctAnswer": "-6",
- "explanation": "**SAT Pattern: Function Transformation**\n\n**The correct answer is $-6$.**\n\n**The Fast Way (~25s):** $g(-2) = f(-2 + 3) - 2 = f(1) - 2$, and the graph shows $f(1) = -4$, so $g(-2) = -6$.\n\n**The Full Solution:**\nStep 1: Substitute $x = -2$ into the rule: $g(-2) = f(-2 + 3) - 2 = f(1) - 2$.\nStep 2: Read $f(1)$ from the graph: the lowest point is $(1, -4)$, so $f(1) = -4$.\nStep 3: So $g(-2) = -4 - 2 = -6$. Check: the graph is $f(x) = (x - 1)^{2} - 4$, and $(-2 + 3 - 1)^{2} - 4 - 2 = -6$ ✓\n\n**Common Mistakes:**\n* $-4$: finds $f(1)$ but forgets to subtract $2$.\n* $3$: ignores the shift inside, reading $f(-2) = 5$ and subtracting $2$.\n* $30$: subtracts $3$ instead of adding it, using $f(-5) = 32$.\n\n**Test Day Takeaway:** Work from the inside out: do the arithmetic on the input, read the graph there, then apply the outside operation."
+  "id": "bank-am-110",
+  "question": "In the $xy$-plane, the graph of $y = f(x)$ is shown. If $g(x) = f(x - 4)$, what is the value of $g(2)$?",
+  "diagram": {
+    "type": "quadraticVertex",
+    "params": {
+      "vertex": [
+        -2,
+        -9
+      ],
+      "a": 1,
+      "showPoints": [
+        [
+          -5,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "showVertex": true
+    }
+  },
+  "correctAnswer": "-9",
+  "explanation": "**SAT Pattern: Function Transformation**\n\n**The correct answer is $-9$.**\n\n**The Fast Way (~20s):** $g(2) = f(2 - 4) = f(-2)$, and the graph shows its lowest point at $(-2, -9)$, so $g(2) = -9$.\n\n**The Full Solution:**\nStep 1: Substitute $2$ for $x$ in the definition of $g$: $g(2) = f(2 - 4) = f(-2)$.\nStep 2: Read $f(-2)$ from the graph: the point on the graph with $x = -2$ is the vertex, $(-2, -9)$.\nStep 3: So $g(2) = f(-2) = -9$. Check: the graph has $x$-intercepts $-5$ and $1$ and vertex $(-2, -9)$, so $f(x) = (x + 2)^{2} - 9$ and $f(-2) = 0 - 9 = -9$ ✓\n\n**Common Mistakes:**\n* $7$: reads $f(2)$ and ignores the $- 4$ inside $f$.\n* $55$: adds $4$ instead of subtracting it, finding $f(6)$.\n\n**Test Day Takeaway:** To evaluate $f(x - c)$ at a number, subtract $c$ from the number first, then read $f$ at the result."
 }

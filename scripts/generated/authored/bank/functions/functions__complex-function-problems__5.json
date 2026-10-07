@@ -1,29 +1,29 @@
 {
-  "question": "For the function $f$, $f(x + 1) = 2f(x)$ for all values of $x$. If $f(3) = 5$, which expression is equal to $f(6)$?",
-  "hint": "Count how many single steps separate $x = 3$ from $x = 6$.",
+  "question": "A bike rental shop charges \\$24 for the first hour and \\$9 for each additional hour. Which function $f$ gives the total charge, in dollars, for renting a bike for $h$ hours, where $h$ is a positive integer?",
+  "hint": "The first hour costs 24 dollars; only the remaining h - 1 hours cost 9 dollars each.",
   "choices": [
     {
       "id": "A",
-      "text": "$5(2)^{2}$"
+      "text": "$f(h) = 9h + 15$"
     },
     {
       "id": "B",
-      "text": "$5(2)^{3}$"
+      "text": "$f(h) = 9h + 24$"
     },
     {
       "id": "C",
-      "text": "$5(3)^{2}$"
+      "text": "$f(h) = 24h - 15$"
     },
     {
       "id": "D",
-      "text": "$5(2)^{6}$"
+      "text": "$f(h) = 24h + 9$"
     }
   ],
   "distractorNotes": {
-    "A": "counts two steps from x = 3 to x = 6 instead of three",
-    "C": "uses the step count as the base and the base as the exponent",
-    "D": "uses the input 6 as the number of doublings"
+    "B": "charges 9 dollars for every hour on top of the 24-dollar first hour",
+    "C": "swaps the two rates, charging 9 for the first hour and 24 for each additional hour",
+    "D": "uses 24 as the hourly rate and 9 as a fixed fee"
   },
-  "correctAnswer": "B",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** Going from $x = 3$ to $x = 6$ takes three doublings, so $f(6) = 5(2)^{3}$.\n\n**The Full Solution:**\nStep 1: The rule doubles the value each time the input rises by $1$.\nStep 2: From $3$ to $6$ the input rises by $1$ three times, so the value doubles three times.\nStep 3: Therefore $f(6) = 5 \\cdot 2 \\cdot 2 \\cdot 2 = 5(2)^{3}$. Check step by step: $f(4) = 10$, $f(5) = 20$, $f(6) = 40$, and $5(2)^3 = 40$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5(2)^{2}$): counts only two doublings, which lands on $f(5) = 20$.\n* Choice C ($5(3)^{2}$): swaps the roles of the doubling factor and the step count.\n* Choice D ($5(2)^{6}$): uses the input $6$ as the number of doublings, ignoring that the count starts at $x = 3$.\n\n**Test Day Takeaway:** A recursive rule multiplies once per step, so count the steps between inputs, not the inputs themselves."
+  "correctAnswer": "A",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~40s):** The charge is $24 + 9(h - 1) = 9h + 15$.\n\n**The Full Solution:**\nStep 1: The first hour costs \\$24, and the other $h - 1$ hours cost \\$9 each.\nStep 2: Total charge: $f(h) = 24 + 9(h - 1)$.\nStep 3: Distribute and combine: $24 + 9h - 9 = 9h + 15$. Check: $f(1) = 9 + 15 = 24$ and $f(3) = 27 + 15 = 42 = 24 + 9 + 9$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($f(h) = 9h + 24$): charges \\$9 for every hour, including the first, on top of the \\$24; this gives $f(1) = 33$.\n* Choice C ($f(h) = 24h - 15$): swaps the rates, charging \\$9 for the first hour and \\$24 for each additional hour.\n* Choice D ($f(h) = 24h + 9$): uses \\$24 as the hourly rate and \\$9 as a fixed fee.\n\n**Test Day Takeaway:** When the first unit has its own price, the rest are counted as $h - 1$; test $h = 1$ to check."
 }

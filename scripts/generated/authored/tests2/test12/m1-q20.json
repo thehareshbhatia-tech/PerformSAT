@@ -1,29 +1,29 @@
 {
-  "id": 20,
-  "question": "Ana deposited $\\$8{,}000$ into a savings account that earns $6\\%$ annual interest compounded semiannually. She made no other deposits or withdrawals. To the nearest dollar, how much interest will the account earn in $4$ years?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$1{,}920$"
-    },
-    {
-      "id": "B",
-      "text": "$2{,}100$"
-    },
-    {
-      "id": "C",
-      "text": "$2{,}134$"
-    },
-    {
-      "id": "D",
-      "text": "$4{,}751$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "uses simple interest, 8000 x 0.06 x 4 = 1920, so earned interest never earns interest",
-    "B": "compounds once a year instead of twice: 8000(1.06)^4 - 8000 is about 2099.82, or 2,100",
-    "D": "uses 8 compounding periods but keeps the full 6% rate in each: 8000(1.06)^8 - 8000 is about 4750.78"
+ "id": 20,
+ "question": "Ana deposited \\$8,000 into a savings account. The value of the account increases by $6\\%$ each year. Which equation gives the value $V$, in dollars, of the account $m$ months after Ana made the deposit?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$V = 8{,}000(0.06)^{\\frac{m}{12}}$"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Compound Interest**\n\n**Choice C is correct.** Semiannual compounding pays $\\frac{6\\%}{2} = 3\\%$ in each of $2(4) = 8$ periods, so the balance after $4$ years is $8{,}000(1.03)^8 \\approx 10{,}134.16$ dollars, and the interest earned is about $2{,}134$ dollars.\n\n**The Fast Way (~45s):** Rate per period $0.03$, number of periods $8$: $8{,}000(1.03)^8 \\approx 10{,}134$, and subtracting the original $8{,}000$ leaves about $2{,}134$.\n\n**The Full Solution:**\nStep 1: Convert the annual rate to a rate per period. Compounded semiannually, each period pays $\\frac{0.06}{2} = 0.03$.\nStep 2: Count the periods: $4$ years at $2$ periods per year is $8$ periods, so the balance is $8{,}000(1 + 0.03)^8 = 8{,}000(1.03)^8 \\approx 10{,}134.16$ dollars.\nStep 3: The question asks for the interest, not the balance, so subtract the deposit: $10{,}134.16 - 8{,}000 = 2{,}134.16$, or about $2{,}134$ dollars. Check: $(1.03)^8 \\approx 1.2668$, and $8{,}000 \\times 1.2668 \\approx 10{,}134$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1{,}920$): uses simple interest, $8{,}000(0.06)(4) = 1{,}920$. Simple interest never lets earned interest earn interest, so it is too small.\n* Choice B ($2{,}100$): compounds annually instead of semiannually, $8{,}000(1.06)^4 - 8{,}000 \\approx 2{,}099.82$. Compounding more often at the same annual rate earns a little more.\n* Choice D ($4{,}751$): uses $8$ periods but applies the full $6\\%$ in each, $8{,}000(1.06)^8 - 8{,}000 \\approx 4{,}750.78$. Splitting the year into two periods doubles the number of periods and halves the rate.\n\n**Test Day Takeaway:** Divide the annual rate by the number of periods per year and multiply the years by that same number; then re-read whether the question asks for the balance or only the interest."
+  {
+   "id": "B",
+   "text": "$V = 8{,}000(1.005)^{m}$"
+  },
+  {
+   "id": "C",
+   "text": "$V = 8{,}000(1.06)^{12m}$"
+  },
+  {
+   "id": "D",
+   "text": "$V = 8{,}000(1.06)^{\\frac{m}{12}}$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses the rate 0.06 as the growth factor instead of 1 + 0.06 = 1.06",
+  "B": "splits 6% into 0.5% each month, but (1.005)^12 is about 1.0617, more than a 6% increase per year",
+  "C": "multiplies the number of months by 12 instead of dividing by 12 to get years"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Compound Interest**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** A $6\\%$ increase each year is a factor of $1.06$ per year, and $m$ months is $\\frac{m}{12}$ years, so $V = 8{,}000(1.06)^{\\frac{m}{12}}$.\n\n**The Full Solution:**\nStep 1: Increasing by $6\\%$ multiplies the value by $1 + 0.06 = 1.06$ each year, so after $t$ years the value is $8{,}000(1.06)^{t}$.\nStep 2: There are $12$ months in a year, so $m$ months is $t = \\frac{m}{12}$ years.\nStep 3: Substitute: $V = 8{,}000(1.06)^{\\frac{m}{12}}$. Check: after $m = 12$ months, $V = 8{,}000(1.06)^{1} = 8{,}480$, which is $6\\%$ more than $8{,}000$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: uses $0.06$ as the base; a base less than $1$ would make the value shrink each year.\n* Choice B: divides $6\\%$ evenly among $12$ months, but after $12$ months this gives $8{,}000(1.005)^{12} \\approx 8{,}494$, an increase of about $6.2\\%$, not $6\\%$.\n* Choice C: after $12$ months the exponent would be $144$, as though $144$ years had passed.\n\n**Test Day Takeaway:** Write the growth factor per year first, then convert the time variable into years (here $\\frac{m}{12}$) in the exponent."
 }

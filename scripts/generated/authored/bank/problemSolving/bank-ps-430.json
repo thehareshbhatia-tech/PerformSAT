@@ -1,29 +1,29 @@
 {
  "id": "bank-ps-430",
- "question": "$\\hat{y} = 6x + 11$\nThe given equation is a linear model for a set of data. What is the value of $y - \\hat{y}$ for the data point $(4, 41)$?",
+ "question": "$y = 6x + 11$\nThe given equation is a linear model for a data set. What is the predicted value of $y$ when $x = 4$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-6$"
+   "text": "$21$"
   },
   {
    "id": "B",
-   "text": "$6$"
+   "text": "$24$"
   },
   {
    "id": "C",
-   "text": "$17$"
+   "text": "$35$"
   },
   {
    "id": "D",
-   "text": "$35$"
+   "text": "$90$"
   }
  ],
- "correctAnswer": "B",
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "subtracts in the wrong order, predicted minus actual: 35 - 41 = -6",
-  "C": "leaves out the constant 11 when evaluating the model: 41 - 24 = 17",
-  "D": "reports the predicted value 35 instead of the difference"
+  "A": "adds the numbers, 6 + 4 + 11 = 21, instead of multiplying 6 by 4",
+  "B": "leaves out the constant 11: 6(4) = 24",
+  "D": "adds 4 and 11 before multiplying: 6(4 + 11) = 90"
  },
- "explanation": "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The line predicts $6(4) + 11 = 35$, and $41 - 35 = 6$.\n\n**The Full Solution:**\nStep 1: Evaluate the model at $x = 4$: $\\hat{y} = 6(4) + 11 = 35$.\nStep 2: The data point gives the actual value $y = 41$.\nStep 3: Subtract: $y - \\hat{y} = 41 - 35 = 6$. Check: $35 + 6 = 41$, so the point lies $6$ units above the line ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): computes $\\hat{y} - y$. The question asks for the actual value minus the predicted value.\n* Choice C ($17$): uses $6x$ alone as the prediction and forgets the $+11$.\n* Choice D ($35$): is the value of $\\hat{y}$, the first step of the calculation.\n\n**Test Day Takeaway:** Actual minus predicted: positive when the point is above the line, negative when it is below."
+ "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Substitute $x = 4$: $6(4) + 11 = 24 + 11 = 35$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 4$ into the equation: $y = 6(4) + 11$.\nStep 2: Multiply first: $6(4) = 24$.\nStep 3: Then add: $24 + 11 = 35$. Check: $35 - 11 = 24$ and $24 \\div 6 = 4$, the given $x$-value ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($21$): adds $6 + 4 + 11$ instead of multiplying $6$ by $4$.\n* Choice B ($24$): stops at $6(4)$ and leaves out the constant $11$.\n* Choice D ($90$): adds $4 + 11$ before multiplying, computing $6(15)$.\n\n**Test Day Takeaway:** A predicted value is the output of the model: substitute the $x$-value into the whole equation, constant included."
 }

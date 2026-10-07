@@ -6,7 +6,7 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 1,
- "passage": "At the sound archive, preservationists spend their days cataloging brittle lacquer discs, transferring fragile wax-cylinder recordings to digital files, and ______ the temperature-controlled vaults where the originals are stored.",
+ "passage": "At the weather station, technicians spend their days launching instrument balloons, recording wind speeds, and ______ the sensors that measure rainfall.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
@@ -27,5 +27,9 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The series \"cataloging... transferring...\" is built on gerunds, so the third item must be the gerund \"monitoring.\"\n\n**The Full Solution:**\n- The blank completes the third item in a parallel series whose first two items are gerunds.\n- Parallel structure requires the same grammatical form throughout the series.\n\n**Why the other choices are wrong:**\n- B: It switches to an infinitive, breaking the pattern the first two items establish.\n- C: It inserts a subject and finite verb, turning the list item into a clause that cannot sit in the series.\n- D: The past-tense form neither matches the gerunds nor forms any grammatical unit with \"spend their days.\""
+ "explanation": "**Choice A is correct.** The series \"launching... recording...\" is built on -ing verb forms, so the third item must be \"monitoring.\"\n\n**The Full Solution:**\n- The blank completes the third item in a series that tells how technicians \"spend their days\": launching balloons, recording wind speeds, and ______ the sensors.\n- The first two items are -ing forms, and parallel structure requires the same grammatical form throughout the series.\n- \"Monitoring the sensors\" matches \"launching\" and \"recording.\"\n\n**Why the other choices are wrong:**\n- B: It switches to an infinitive, breaking the pattern the first two items establish.\n- C: It inserts a subject and a verb, turning the list item into a clause that cannot sit in the series.\n- D: The past-tense form neither matches the -ing forms nor fits after \"spend their days.\"",
+ "_meta": {
+  "rule": "parallel structure in a series (-ing forms)",
+  "note": "Re-set 2026-10-06 from a sound-archive setting (archive/digitization family with 118 Index of American Design and 163 flood-damaged library books); generic setting, no factual claims."
+ }
 }

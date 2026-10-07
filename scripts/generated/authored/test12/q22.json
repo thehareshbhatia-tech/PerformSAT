@@ -6,7 +6,7 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 1,
- "passage": "Museums devoted to Shaker craftsmanship let visitors handle the work as well as look at it. At one restored village, a joinery demonstration and a case of graduated oval boxes ____ visitors a feel for the sect's exacting standards, from the tight swallowtail joints of the boxes to the drawers that still slide shut on a cushion of air.",
+ "passage": "Kew Gardens in London shows visitors its plants from more than one angle. A treetop walkway that opened in 2008 and the Palm House, a glasshouse built in the 1840s, ____ visitors two very different views: from 18 meters up in the tree canopy and from inside a tropical greenhouse.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The subject is compound — \"a joinery demonstration and a case of graduated oval boxes\" — and two subjects joined by \"and\" take a plural verb: \"give.\"\n\n**The Full Solution:**\n- The rule: nouns joined by \"and\" form a plural subject and require a plural verb.\n- Ask what gives visitors the feel: the demonstration AND the case of boxes together, so the subject counts as plural.\n- A trap hides in the second subject: its head noun is the singular \"case\" (of boxes), which can tempt the ear toward a singular verb — but the verb agrees with the whole compound subject, not with its last piece.\n- The sentence describes what the museum offers in the present (\"let visitors handle\"), so the plural present \"give\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Gives\" is singular and cannot agree with the two-part subject.\n- B: \"Is giving\" is singular as well, and its in-progress sense misfits a standing exhibit.\n- D: \"Has given\" is singular too, and it moves a present offering into a completed past."
+ "explanation": "**Choice C is correct.** The subject of the verb is compound: \"A treetop walkway ... and the Palm House.\" Two subjects joined by \"and\" take a plural verb, so \"give\" is needed.\n\n**The Full Solution:**\n- Strip away the descriptive phrases: \"A treetop walkway ... and the Palm House ... ____ visitors two very different views.\"\n- The word \"and\" joins the two subjects into a plural subject.\n- A plural subject needs the plural verb \"give.\"\n\n**Why the other choices are wrong:**\n- A: \"Gives\" is singular; it agrees only with the nearby noun \"the Palm House,\" not with the full compound subject.\n- B: \"Is giving\" is singular and does not agree with the plural subject.\n- D: \"Has given\" is singular and does not agree with the plural subject."
 }

@@ -6,24 +6,24 @@
  "domain": "craft-and-structure",
  "skill": "text-structure-and-purpose",
  "module": 2,
- "passage": "Ensembles devoted to historically informed performance play Bach and Handel on gut strings and valveless horns, aiming to restore the sound this music had for its first audiences. Musicologist Richard Taruskin argued that this aim misdescribes the movement's real achievement: instruments alone cannot recover vanished habits of listening, and the movement's hallmark virtues — lean textures, brisk tempos, transparency — match twentieth-century modernist taste, so period performance is better understood as a vital contemporary style than as a reconstruction. Listeners, on Taruskin's account, should therefore judge such performances by their present persuasiveness rather than by their fidelity to a past that cannot be audited.",
+ "passage": "Ensembles devoted to historically informed performance play Bach and Handel on gut strings and valveless horns, aiming to restore the sound this music had for its first audiences. Musicologist Richard Taruskin argued that this aim misdescribes the movement's real achievement. Instruments alone, he noted, cannot recover vanished habits of listening, and the movement's hallmark virtues — lean textures, brisk tempos, transparency — match twentieth-century modernist taste. Period performance is thus better understood as a vital contemporary style than as a reconstruction. Listeners, on Taruskin's account, should therefore judge such performances by their present persuasiveness rather than by their fidelity to a past that cannot be audited.",
  "question": "Which choice best describes the overall structure of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "It describes a movement's stated aim, presents a scholar's argument that the movement is better understood differently, and notes the resulting standard of judgment."
+   "text": "It describes a movement's stated aim, presents a scholar's reinterpretation of the movement, and notes the standard of judgment that follows."
   },
   {
    "id": "B",
-   "text": "It traces a performance movement's history, identifies obstacles the movement has yet to overcome, and predicts that further research will resolve them."
+   "text": "It traces a movement's history, identifies obstacles it has yet to overcome, and predicts that research will resolve them."
   },
   {
    "id": "C",
-   "text": "It presents a scholar's objection to a performance movement, recounts the movement's rebuttal, and concludes that the objection rested on a misunderstanding."
+   "text": "It presents a scholar's objection to a movement, recounts the movement's rebuttal, and concludes that the objection was mistaken."
   },
   {
    "id": "D",
-   "text": "It contrasts two rival performance movements, weighs the evidence for each one's claims of accuracy, and endorses the better-documented movement."
+   "text": "It contrasts two rival performance movements, weighs each one's claims of accuracy, and endorses the better-documented one."
   }
  ],
  "correctAnswer": "A",

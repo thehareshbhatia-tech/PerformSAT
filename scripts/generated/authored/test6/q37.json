@@ -6,7 +6,7 @@
   "band": 3,
   "domain": "information-and-ideas",
   "skill": "central-ideas-and-details",
-  "passage": "Deep in a fish's inner ear sit the otoliths, small stones of calcium carbonate that grow throughout the animal's life. Their growth is not continuous but rhythmic: material is deposited more quickly by day than by night, producing microscopic bands, one per day, like tree rings compressed to the width of a hair. Counting the bands under a microscope tells a biologist a larval fish's age in days; the width of each band records how fast the fish was growing when that band formed; and chemical traces locked into the stone can reveal the temperature, and even the type of water, the fish passed through.",
+  "passage": "Deep in a fish's inner ear sit the otoliths, small stones of calcium carbonate that grow throughout the animal's life. Their growth is not continuous but rhythmic: material is deposited more quickly by day than by night, producing microscopic bands, one per day, like tree rings compressed to the width of a hair. Counting the bands under a microscope tells a biologist a larval fish's age in days. The width of each band records how fast the fish was growing when that band formed, and chemical traces in the stone can reveal the temperature and even the type of water the fish passed through.",
   "question": "According to the text, why do otoliths form daily bands?",
   "choices": [
     {

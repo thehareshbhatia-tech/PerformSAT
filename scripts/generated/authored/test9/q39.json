@@ -6,29 +6,34 @@
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-textual",
   "module": 2,
-  "passage": "Bog bodies — human remains preserved for centuries in northern European peatlands — retain skin, hair, and even clothing in remarkable condition, and the acidity of bog water was long assumed to be the preservative. A research team instead hypothesizes that the crucial agent is sphagnan, a reactive carbohydrate in the cell walls of sphagnum moss that both tans skin, much as oak bark tans leather, and inhibits the growth of decay bacteria.",
-  "question": "Which finding, if true, would most directly support the team's hypothesis?",
+  "passage": "The giraffe's long neck is often explained as an adaptation for reaching leaves that other plant eaters cannot. Zoologists Robert Simmons and Lue Scheepers instead hypothesized that the neck grew long mainly through competition among males. Male giraffes fight by swinging their necks and striking each other with their heads, and the winners mate more often. On this view, longer necks were favored because they won fights, not because they reached higher food.",
+  "question": "Which finding, if true, would most directly support the zoologists' hypothesis?",
   "choices": [
     {
       "id": "A",
-      "text": "Tissue samples in neutral solutions containing extracted sphagnan resist bacterial decay nearly as well as samples in bog water, while samples in equally acidic solutions without sphagnan decay quickly."
+      "text": "Males with longer necks won more fights and mated more often, while giraffes of both sexes usually fed at shoulder height rather than at full reach."
     },
     {
       "id": "B",
-      "text": "Bog bodies recovered from the most strongly acidic peatlands are on average no better preserved than bodies recovered from peatlands whose waters are only mildly acidic, according to surveys of dozens of recovered bodies."
+      "text": "Giraffes living in areas where most trees are tall have, on average, noticeably longer necks than giraffes living in areas where most trees are short."
     },
     {
       "id": "C",
-      "text": "Sphagnum moss grows more slowly in peatlands from which well-preserved bodies have been recovered than in peatlands containing no bodies."
+      "text": "Female giraffes, which do not fight with their necks, have necks nearly as long as males' necks relative to body size."
     },
     {
       "id": "D",
-      "text": "Peatlands where sphagnum moss is absent tend to be more acidic, on average, than peatlands where the moss is abundant."
+      "text": "Giraffes spend more of each day feeding than most of the other large plant-eating animals of the African savanna do."
     }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** The hypothesis makes sphagnan, not acidity, the crucial agent. A's experiment isolates exactly that variable — sphagnan without acidity preserves; acidity without sphagnan does not — which is the most direct support a finding could give.\n\n**The Full Solution:**\n- Supporting \"sphagnan is the crucial agent\" requires showing preservation tracks sphagnan when acidity is removed from the picture.\n- A's neutral-solution condition does that, and its acid-only condition simultaneously undermines the rival explanation the team is arguing against.\n\n**Why the other choices are wrong:**\n- B: It counts against the acidity hypothesis but says nothing about sphagnan — it removes a rival without supporting the team's own agent.\n- C: Slower moss growth near preserved bodies is a correlation running in an uninformative direction; it neither isolates sphagnan nor links it to preservation.\n- D: A relationship between moss and acidity levels describes the bogs themselves, not the preservation of tissue, and so tests neither hypothesis.",
+  "explanation": "**Choice A is correct.** The hypothesis credits fighting, not feeding, for the long neck. Choice A supports both halves: longer necks bring success in fights and mating, while giraffes rarely use their full reach when they feed.\n\n**The Full Solution:**\n- The hypothesis has two parts: long necks were favored because they won fights, and not because they reached higher food.\n- A finding that supports it should link neck length to winning fights and show that feeding does not depend on the neck's full length.\n- Choice A does both: longer-necked males win and mate more, and giraffes of both sexes usually feed at shoulder height.\n\n**Why the other choices are wrong:**\n- B: Longer necks where trees are tall would support the feeding explanation, not the fighting one.\n- C: If females, which do not fight with their necks, have necks nearly as long as males', fighting cannot easily explain neck length, so this would weaken the hypothesis.\n- D: Time spent feeding says nothing about whether fights or food selected for long necks.",
   "_meta": {
-    "anchor": "Sphagnan hypothesis: T. J. Painter, \"Lindow man, Tollund man and other peat-bog bodies: the preservative and antimicrobial action of Sphagnan, a reactive glycuronoglycan with tanning and sequestering properties,\" Carbohydrate Polymers (1991). 2026-10-04 review removed the unverified \"binds the calcium that decay bacteria require\" mechanism."
+    "anchor": "Giraffe necks: sexual-selection ('necks for sex', Simmons & Scheepers 1996) vs browsing hypothesis — CoE textual",
+    "sources": [
+      "https://www.nationalgeographic.com/science/article/giraffes-necks-for-food-or-necks-for-sex",
+      "https://whyevolutionistrue.com/2009/05/17/how-the-giraffe-got-its-long-neck/",
+      "https://doi.org/10.1086/285957"
+    ]
   }
 }

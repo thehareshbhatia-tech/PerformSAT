@@ -1,29 +1,29 @@
 {
   "id": "bank-alg-074",
-  "question": "$v(t) = \\frac{140}{3t - 24}$\nFor what value of $t$ is the given function $v$ undefined?",
+  "question": "$v(t) = \\frac{120}{3t - 24}$\nFor what value of $t$ does $v(t) = 10$?",
   "choices": [
     {
       "id": "A",
-      "text": "$-8$"
+      "text": "$-4$"
     },
     {
       "id": "B",
-      "text": "$3$"
+      "text": "$4$"
     },
     {
       "id": "C",
-      "text": "$8$"
+      "text": "$12$"
     },
     {
       "id": "D",
-      "text": "$24$"
+      "text": "$36$"
     }
   ],
   "distractorNotes": {
-    "A": "moves -24 across the equals sign without changing its sign, solving 3t = -24",
-    "B": "reports the coefficient of t",
-    "D": "reports the constant 24 without dividing by 3"
+    "A": "subtracts 24 instead of adding it, solving 3t = 12 - 24",
+    "B": "drops the -24, solving 3t = 12",
+    "D": "drops the coefficient 3, solving t - 24 = 12"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Find Undefined Point (Denominator Zero)**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The function is undefined where the denominator is $0$: $3t - 24 = 0$, so $t = 8$.\n\n**The Full Solution:**\nStep 1: A fraction is undefined when its denominator equals $0$, so set $3t - 24 = 0$.\nStep 2: Add $24$ to both sides: $3t = 24$.\nStep 3: Divide by $3$: $t = 8$. Check: $3(8) - 24 = 0$, so $v(8) = \\frac{140}{0}$, which is undefined ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): moves $-24$ to the other side without changing its sign, solving $3t = -24$.\n* Choice B ($3$): reports the coefficient of $t$ instead of solving.\n* Choice D ($24$): stops at $3t = 24$ without dividing by $3$.\n\n**Test Day Takeaway:** \"Undefined\" for a fraction means a zero denominator. Set the denominator equal to $0$ and solve; the numerator does not matter."
+  "explanation": "**SAT Pattern: Solve for Input from Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $\\frac{120}{3t - 24} = 10$ means $3t - 24 = 12$, so $3t = 36$ and $t = 12$.\n\n**The Full Solution:**\nStep 1: Set the function equal to $10$: $\\frac{120}{3t - 24} = 10$.\nStep 2: Multiply both sides by $3t - 24$ and divide by $10$: $3t - 24 = 12$.\nStep 3: Add $24$ and divide by $3$: $3t = 36$, so $t = 12$. Check: $v(12) = \\frac{120}{36 - 24} = \\frac{120}{12} = 10$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): moves $24$ to the other side with the wrong sign, $3t = 12 - 24 = -12$.\n* Choice B ($4$): ignores the $-24$ and solves $3t = 12$.\n* Choice D ($36$): ignores the coefficient $3$ and solves $t - 24 = 12$.\n\n**Test Day Takeaway:** When a fraction equals a number, the denominator equals the numerator divided by that number; then solve the resulting linear equation."
 }

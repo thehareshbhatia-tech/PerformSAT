@@ -1,41 +1,41 @@
 {
   "id": 8,
-  "question": "The graph of $y = f(x)$ is shown. The function $g$ is defined by $g(x) = f(x + 6) + 5$. What is the vertex of the graph of $y = g(x)$?",
+  "question": "The graph of $y = f(x)$ is shown. For the function $g$, $g(x) = f(x - 3) - 4$. What are the coordinates of the maximum point of the graph of $y = g(x)$?",
   "diagram": {
     "type": "quadraticVertex",
     "params": {
       "vertex": [
-        2,
-        -7
+        -1,
+        6
       ],
-      "a": 1,
+      "a": -1,
       "showVertex": true
     }
   },
   "choices": [
     {
       "id": "A",
-      "text": "$(-4, -12)$"
+      "text": "$(-4, 2)$"
     },
     {
       "id": "B",
-      "text": "$(-4, -2)$"
+      "text": "$(-4, 10)$"
     },
     {
       "id": "C",
-      "text": "$(8, -12)$"
+      "text": "$(2, 2)$"
     },
     {
       "id": "D",
-      "text": "$(8, -2)$"
+      "text": "$(2, 10)$"
     }
   ],
   "distractorNotes": {
-    "A": "subtracts 5 from the y-coordinate instead of adding it",
-    "C": "reverses the direction of both shifts",
-    "D": "moves the vertex right 6 instead of left 6"
+    "A": "moves the maximum point left 3 instead of right 3",
+    "B": "reverses the direction of both shifts",
+    "D": "adds 4 to the y-coordinate instead of subtracting it"
   },
-  "correctAnswer": "B",
-  "hint": "Read the vertex of $f$, then move it horizontally and vertically.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** The vertex $(2, -7)$ moves left $6$ and up $5$, to $(-4, -2)$.\n\n**The Full Solution:**\nStep 1: From the graph, the vertex of $y = f(x)$ is $(2, -7)$.\nStep 2: The inside $x + 6$ moves the graph left $6$: $2 - 6 = -4$. The outside $+5$ moves it up $5$: $-7 + 5 = -2$.\nStep 3: The vertex of $y = g(x)$ is $(-4, -2)$. Check: $g(-4) = f(2) + 5 = -7 + 5 = -2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-4, -12)$): this moves the vertex down $5$; adding $5$ outside $f$ moves it up.\n* Choice C ($(8, -12)$): this reverses both moves: right instead of left and down instead of up.\n* Choice D ($(8, -2)$): $f(x + 6)$ moves the graph left, so the $x$-coordinate decreases by $6$.\n\n**Test Day Takeaway:** Move the vertex with the transformation: the inside constant acts on $x$ with the opposite sign, the outside constant acts on $y$ as written."
+  "correctAnswer": "C",
+  "hint": "Read the highest point of the graph of $f$, then move it horizontally and vertically.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~20s):** The maximum point $(-1, 6)$ moves right $3$ and down $4$, to $(2, 2)$.\n\n**The Full Solution:**\nStep 1: From the graph, the maximum point (the vertex) of $y = f(x)$ is $(-1, 6)$.\nStep 2: The inside $x - 3$ moves the graph right $3$: $-1 + 3 = 2$. The outside $-4$ moves it down $4$: $6 - 4 = 2$.\nStep 3: The maximum point of $y = g(x)$ is $(2, 2)$. Check: $g(2) = f(-1) - 4 = 6 - 4 = 2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-4, 2)$): $f(x - 3)$ moves the graph right, so the $x$-coordinate increases by $3$.\n* Choice B ($(-4, 10)$): this reverses both moves: left instead of right and up instead of down.\n* Choice D ($(2, 10)$): this moves the point up $4$; subtracting $4$ outside $f$ moves it down.\n\n**Test Day Takeaway:** Move the vertex with the transformation: the inside constant acts on $x$ with the opposite sign, the outside constant acts on $y$ as written."
 }

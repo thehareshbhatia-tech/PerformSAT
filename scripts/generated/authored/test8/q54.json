@@ -9,33 +9,40 @@
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "A lo'i is a flooded terrace used in Hawai'i to grow taro, a starchy root crop.",
-   "Lo'i are built as stepped platforms cut into a hillside.",
-   "Water diverted from a stream flows through the terraces from top to bottom and then returns to the stream.",
-   "The continuous flow keeps the water cool, which protects taro from rot.",
-   "Some lo'i complexes have been farmed for hundreds of years."
+   "The okapi is a hoofed mammal of the Ituri rainforest in the Democratic Republic of the Congo.",
+   "It is the only living close relative of the giraffe.",
+   "Its body is dark brown, and its legs have horizontal white stripes.",
+   "From a distance, the stripes make it resemble a zebra.",
+   "European scientists first described the okapi in 1901, though local people had long known it."
   ],
-  "goal": "The student wants to introduce the lo'i to an audience unfamiliar with it."
+  "goal": "The student wants to introduce the okapi to an audience unfamiliar with it."
  },
  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
  "choices": [
   {
    "id": "A",
-   "text": "Some lo'i complexes in the Hawaiian Islands have remained in continuous cultivation for hundreds of years, tended by one generation of farming families after another."
+   "text": "European scientists first described the okapi in 1901, although people living in the Ituri rainforest of central Africa had long known the animal."
   },
   {
    "id": "B",
-   "text": "Water diverted from a stream passes through the terraces from top to bottom before returning to the stream below."
+   "text": "From a distance, the okapi's dark brown body and white-striped legs make it resemble a zebra."
   },
   {
    "id": "C",
-   "text": "Because the water flowing through the terraces stays cool, the taro growing in them is protected from rot."
+   "text": "The okapi lives in the Ituri rainforest of the Democratic Republic of the Congo, in central Africa."
   },
   {
    "id": "D",
-   "text": "A lo'i is a flooded hillside terrace where Hawaiian farmers grow taro, a starchy root crop, in stream water that flows through continuously."
+   "text": "The okapi, a hoofed mammal of a central African rainforest, is the giraffe's only living close relative, though it has zebra-like striped legs."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** For a reader meeting the term for the first time, D does the essential work in one sentence: it defines the lo'i, names the crop, and explains the flowing water that makes the system function.\n\n**The Full Solution:**\n- An introduction for an unfamiliar audience must define the concept, not assume it.\n- Choice D states what a lo'i is (a flooded hillside terrace in Hawai'i), what it grows (taro), and the mechanism that sustains it (stream water flowing through continuously).\n\n**Why the other choices are wrong:**\n- A: It presumes the reader already knows what a lo'i is and reports only its longevity.\n- B: It describes the water's path without ever saying what a lo'i is or what it grows.\n- C: It states the cool-water benefit but leaves the term itself undefined for a newcomer."
+ "explanation": "**Choice D is correct.** An introduction for readers who have never heard of the okapi must say what the animal is and give its defining features. D does that in one sentence: a hoofed mammal of a central African rainforest, the giraffe's only living close relative, with zebra-like stripes.\n\n**The Full Solution:**\n- An unfamiliar audience first needs to know what kind of thing an okapi is and where it lives.\n- Choice D identifies it as a hoofed mammal of a central African rainforest, links it to a familiar animal (the giraffe), and notes its most striking feature (its striped legs).\n\n**Why the other choices are wrong:**\n- A: It reports when scientists described the okapi but never says what kind of animal it is.\n- B: It describes the okapi's appearance but not what the animal is or where it lives.\n- C: It gives only the okapi's location, leaving readers with no idea what the animal is.",
+ "_meta": {
+  "anchor": "okapi — RS introduce to an unfamiliar audience",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Okapi",
+   "https://ultimateungulate.com/Artiodactyla/Okapia_johnstoni.html"
+  ]
+ }
 }

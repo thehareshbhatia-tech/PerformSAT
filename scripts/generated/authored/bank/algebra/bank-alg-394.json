@@ -1,13 +1,13 @@
 {
- "question": "$4(3x - 2) + 9 = 12x + c$\nIn the given equation, $c$ is a constant. If the equation has infinitely many solutions, what is the value of $c$?",
+ "question": "$6(3x - 4) + 11 = 18x + c$\nIn the given equation, $c$ is a constant. For what value of $c$ does the equation have infinitely many solutions?",
  "choices": [
   {
    "id": "A",
-   "text": "$-17$"
+   "text": "$-35$"
   },
   {
    "id": "B",
-   "text": "$1$"
+   "text": "$-13$"
   },
   {
    "id": "C",
@@ -15,15 +15,15 @@
   },
   {
    "id": "D",
-   "text": "$17$"
+   "text": "$35$"
   }
  ],
  "correctAnswer": "B",
  "distractorNotes": {
-  "A": "treats +9 as -9 when combining the constants, computing -8 - 9 = -17",
-  "C": "multiplies only 3x by 4, computing -2 + 9 = 7",
-  "D": "drops the negative sign on -8, computing 8 + 9 = 17"
+  "A": "treats +11 as -11 when combining the constants, computing -24 - 11 = -35",
+  "C": "multiplies only 3x by 6, computing -4 + 11 = 7",
+  "D": "drops the negative sign on -24, computing 24 + 11 = 35"
  },
- "explanation": "**SAT Pattern: Identifying Identity / Contradiction Equations**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The left side simplifies to $12x - 8 + 9 = 12x + 1$, so the sides are identical when $c = 1$.\n\n**The Full Solution:**\nStep 1: Distribute the $4$: $4(3x - 2) = 12x - 8$.\nStep 2: Combine the constants on the left: $12x - 8 + 9 = 12x + 1$.\nStep 3: The equation $12x + 1 = 12x + c$ is true for every $x$ exactly when $c = 1$. Check: at $x = 2$ the left side is $4(4) + 9 = 25$ and the right side is $24 + 1 = 25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-17$): combines the constants as $-8 - 9$, losing the plus sign on $9$.\n* Choice C ($7$): multiplies only $3x$ by $4$, so the constant becomes $-2 + 9 = 7$.\n* Choice D ($17$): drops the negative sign on $-8$ and adds $8 + 9$.\n\n**Test Day Takeaway:** An equation has infinitely many solutions only when both sides simplify to exactly the same expression.",
+ "explanation": "**SAT Pattern: Identifying Identity / Contradiction Equations**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The left side simplifies to $18x - 24 + 11 = 18x - 13$, so the sides are identical when $c = -13$.\n\n**The Full Solution:**\nStep 1: Distribute the $6$: $6(3x - 4) = 18x - 24$.\nStep 2: Combine the constants on the left: $18x - 24 + 11 = 18x - 13$.\nStep 3: The equation $18x - 13 = 18x + c$ is true for every $x$ exactly when $c = -13$. Check: at $x = 1$ the left side is $6(-1) + 11 = 5$ and the right side is $18 - 13 = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-35$): combines the constants as $-24 - 11$, losing the plus sign on $11$.\n* Choice C ($7$): multiplies only $3x$ by $6$, so the constant becomes $-4 + 11 = 7$.\n* Choice D ($35$): drops the negative sign on $-24$ and adds $24 + 11$.\n\n**Test Day Takeaway:** An equation has infinitely many solutions only when both sides simplify to exactly the same expression.",
  "id": "bank-alg-394"
 }

@@ -1,6 +1,6 @@
 {
  "id": "bank-am-236",
- "question": "The graph of the quadratic function $f$ is shown. In the $xy$-plane, the line $y = 2x - 7$ intersects the graph of $y = f(x)$ at exactly one point. What is the $x$-coordinate of this point?",
+ "question": "The graph of the quadratic function $f$ is shown. The line $y = 2x - 7$ intersects the graph of $y = f(x)$ at exactly one point. What is the $x$-coordinate of this point?",
  "choices": [
   {
    "id": "A",

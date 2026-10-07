@@ -1,30 +1,30 @@
 {
  "id": 11,
- "question": "For the function $f$, $f(-2) = 5$, $f(0) = -1$, and $f(3) = 8$. If $h(x) = f(-x) + 2$, which of the following must be true?",
+ "question": "For the function $f$, $f(-2) = 5$, $f(0) = -1$, and $f(3) = 8$. If $h(x) = f(x + 2) - 3$, which of the following must be true?",
  "choices": [
   {
    "id": "A",
-   "text": "$h(-2) = 7$"
+   "text": "$h(1) = 5$"
   },
   {
    "id": "B",
-   "text": "$h(2) = 3$"
+   "text": "$h(1) = 11$"
   },
   {
    "id": "C",
-   "text": "$h(3) = 10$"
+   "text": "$h(3) = 5$"
   },
   {
    "id": "D",
-   "text": "$h(2) = 7$"
+   "text": "$h(5) = 5$"
   }
  ],
  "distractorNotes": {
-  "A": "ignores the reflection and pairs x = -2 with f(-2)",
-  "B": "subtracts 2 from f(-2) instead of adding 2",
-  "C": "ignores the reflection and pairs x = 3 with f(3); h(3) depends on the unknown f(-3)"
+  "B": "uses the right input but adds 3 instead of subtracting it",
+  "C": "uses x = 3, ignoring the shift inside f",
+  "D": "uses x = 3 + 2, shifting the input the wrong way"
  },
- "correctAnswer": "D",
+ "correctAnswer": "A",
  "hint": "For each choice, find which value of $f$ the expression $h(x)$ actually uses.",
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~30s):** $h(2) = f(-2) + 2 = 5 + 2 = 7$.\n\n**The Full Solution:**\nStep 1: By definition, $h(x)$ uses the value of $f$ at $-x$, so $h(2) = f(-2) + 2$ and $h(-2) = f(2) + 2$.\nStep 2: Only inputs whose opposites are $-2$, $0$, or $3$ can be evaluated: $h(2)$, $h(0)$, and $h(-3)$.\nStep 3: $h(2) = f(-2) + 2 = 5 + 2 = 7$, so choice D must be true. Check: $h(-2)$ and $h(3)$ need $f(2)$ and $f(-3)$, which are not given, and $h(2)$ is $7$, not $3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($h(-2) = 7$): ignores the reflection; $h(-2)$ uses the unknown value $f(2)$.\n* Choice B ($h(2) = 3$): uses the right value of $f$ but subtracts $2$ instead of adding it.\n* Choice C ($h(3) = 10$): ignores the reflection; $h(3)$ uses the unknown value $f(-3)$, and $f(3) + 2 = 10$ is the value of $h(-3)$.\n\n**Test Day Takeaway:** In $f(-x)$, every input is replaced by its opposite: $h$ at $a$ reads $f$ at $-a$."
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~30s):** $h(1) = f(3) - 3 = 8 - 3 = 5$.\n\n**The Full Solution:**\nStep 1: $h(x)$ uses $f$ at $x + 2$, so a statement about $h$ can be checked only when $x + 2$ is $-2$, $0$, or $3$, that is, when $x = -4$, $-2$, or $1$.\nStep 2: Of the choices, only $h(1)$ uses a known value: $h(1) = f(1 + 2) - 3 = f(3) - 3$.\nStep 3: So $h(1) = 8 - 3 = 5$, which is choice A. Check: $h(3) = f(5) - 3$ and $h(5) = f(7) - 3$ use values of $f$ that are not given, so choices C and D need not be true ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($h(1) = 11$): the input is right, but this adds $3$; the $-3$ lowers the output.\n* Choice C ($h(3) = 5$): this ignores the shift; $h(3)$ uses $f(5)$, which is not given.\n* Choice D ($h(5) = 5$): this moves the input the wrong way; $h(5)$ uses $f(7)$, which is not given.\n\n**Test Day Takeaway:** $h(x) = f(x + 2) - 3$ reads $f$ at $x + 2$ and then lowers the output by $3$."
 }

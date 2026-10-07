@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-036",
-  "question": "The dot plot shows the number of eggs collected from a henhouse on each of $15$ mornings. What is the mode of the data?",
+  "question": "The dot plot shows the number of eggs collected from a henhouse on each of $15$ mornings. What is the median number of eggs collected for the $15$ mornings?",
   "diagram": {
     "type": "dotPlot",
     "params": {
@@ -38,7 +38,7 @@
   "choices": [
     {
       "id": "A",
-      "text": "$2$"
+      "text": "$4.5$"
     },
     {
       "id": "B",
@@ -54,10 +54,10 @@
     }
   ],
   "distractorNotes": {
-    "A": "reports the smallest value (the shortest stack), not the most frequent one.",
-    "B": "computes the mean, $\\frac{72}{15}$, rather than the mode.",
-    "C": "reports the height of the tallest stack ($5$ dots) instead of the value beneath it, or reports the median."
+    "A": "takes the middle of the six values on the number line, $\\frac{4 + 5}{2}$, ignoring how many dots are above each value.",
+    "B": "computes the mean, $\\frac{72}{15} = 4.8$, rather than the median.",
+    "D": "reports the value with the most dots, $6$, rather than the middle value."
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Mode Identification**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** The mode is the value with the tallest stack of dots. The stack above $6$ has $5$ dots, more than any other, so the mode is $6$.\n\n**The Full Solution:**\nStep 1: The mode is the value that occurs most often. On a dot plot, that is the tallest column.\nStep 2: Column heights: $2$ has $1$ dot, $3$ has $2$, $4$ has $3$, $5$ has $3$, $6$ has $5$, $7$ has $1$.\nStep 3: The tallest column is above $6$, so the mode is $6$. Check: the heights add to $1 + 2 + 3 + 3 + 5 + 1 = 15$, matching the $15$ mornings. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reports the smallest value (the shortest stack), not the most frequent one.\n* Choice B ($4.8$): computes the mean, $\\frac{72}{15}$, rather than the mode.\n* Choice C ($5$): reports the height of the tallest stack ($5$ dots) instead of the value beneath it, or reports the median.\n\n**Test Day Takeaway:** Mode is read off the axis under the tallest stack; the stack's height is a count, never the answer."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Median of Sorted Odd-Count Set**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The median of $15$ values is the $8$th value in order. Counting dots from the left, $1 + 2 + 3 = 6$ dots are at $4$ or less, and the next $3$ dots are at $5$, so the $8$th value is $5$.\n\n**The Full Solution:**\nStep 1: The $15$ values in order have a middle value, the $8$th, with $7$ values below it and $7$ above it.\nStep 2: Counting from the left: $2$ is the $1$st value, $3$ the $2$nd and $3$rd, $4$ the $4$th through $6$th, and $5$ the $7$th through $9$th. The $8$th value is $5$, so the median is $5$.\nStep 3: Check: $6$ values are less than $5$ and $6$ values ($5$ at $6$ and $1$ at $7$) are greater than $5$, with the $3$ dots at $5$ in the middle ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4.5$): takes the middle of the six values on the number line, $\\frac{4 + 5}{2}$, ignoring how many dots are above each value.\n* Choice B ($4.8$): computes the mean, $\\frac{72}{15} = 4.8$, rather than the median.\n* Choice D ($6$): reports the value with the most dots, $6$, rather than the middle value.\n\n**Test Day Takeaway:** On a dot plot, every dot is one data value. Count dots from the left to the middle position; do not take the middle of the number line."
 }

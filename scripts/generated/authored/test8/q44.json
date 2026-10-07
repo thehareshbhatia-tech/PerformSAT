@@ -6,7 +6,7 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 2,
- "passage": "Early growers assumed a cranberry bog needed nothing more than acid peat and abundant ______ the great yields came only after growers began spreading a thin layer of sand over the vines every few winters, a practice that anchors new runners and buries the insects that overwinter in the leaf litter.",
+ "passage": "Many European maps of the 1600s showed California as an island, separated from the rest of North America by a long strait of ______ overland journeys made around 1700 showed that California was in fact joined to the continent.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
@@ -27,5 +27,12 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** Two independent clauses meet at the blank, and the second opens with the conjunctive adverb \"however\" — the conventional boundary is a semicolon before \"however\" and a comma after it.\n\n**The Full Solution:**\n- Clause one is complete: \"Early growers assumed a cranberry bog needed nothing more than acid peat and abundant water.\"\n- Clause two is also complete: \"the great yields came only after growers began spreading sand over the vines.\"\n- \"However\" linking two independent clauses takes a semicolon before it and a comma after: \"water; however,\".\n\n**Why the other choices are wrong:**\n- A: \"water, however\" splices the two independent clauses with only a comma.\n- C: \"water however,\" runs the clauses together with no boundary before the adverb at all.\n- D: \"water, however;\" puts the marks in reverse order, stranding the semicolon where the clause has not yet ended."
+ "explanation": "**Choice B is correct.** Two independent clauses meet at the blank, and the second opens with the conjunctive adverb \"however.\" A semicolon must separate the clauses, and a comma follows \"however.\"\n\n**The Full Solution:**\n- Clause one: \"Many European maps of the 1600s showed California as an island, separated from the rest of North America by a long strait of water.\"\n- Clause two: \"however, overland journeys made around 1700 showed that California was in fact joined to the continent.\"\n- \"However\" is not a coordinating conjunction, so it cannot join the clauses with a comma; the semicolon does the joining, and the comma sets off \"however.\"\n\n**Why the other choices are wrong:**\n- A: A comma before \"however\" creates a comma splice between two independent clauses.\n- C: With no punctuation before \"however,\" the two clauses run together.\n- D: The semicolon after \"however\" attaches the adverb to the first clause, where it makes no sense, and leaves the contrast unmarked at the true boundary.",
+ "_meta": {
+  "anchor": "Island of California map myth — semicolon + however + comma",
+  "sources": [
+   "https://raremaps.com/gallery/detail/50639",
+   "https://en.wikipedia.org/wiki/Island_of_California"
+  ]
+ }
 }

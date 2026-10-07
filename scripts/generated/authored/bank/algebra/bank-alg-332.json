@@ -1,10 +1,10 @@
 {
  "id": "bank-alg-332",
- "question": "A climbing gym charges a one-time $\\$100$ fee plus $\\$50$ per class. A member attended $n$ classes, used a $\\$50$ credit toward these charges, and paid $\\$650$ in all. What is the value of $n$?",
+ "question": "A climbing gym charges a one-time fee of $\\$100$ plus $\\$50$ per class. The total amount Jordan paid for $n$ classes was $\\$250$ more than the total amount Sam paid for $8$ classes. What is the value of $n$?",
  "choices": [
   {
    "id": "A",
-   "text": "$10$"
+   "text": "$5$"
   },
   {
    "id": "B",
@@ -12,18 +12,18 @@
   },
   {
    "id": "C",
-   "text": "$12$"
+   "text": "$13$"
   },
   {
    "id": "D",
-   "text": "$14$"
+   "text": "$15$"
   }
  ],
  "correctAnswer": "C",
  "distractorNotes": {
-  "A": "treats the 50-dollar credit as an extra charge: 100 + 50n + 50 = 650 gives n = 10",
-  "B": "ignores the credit: 100 + 50n = 650 gives n = 11",
-  "D": "adds the credit back to the total but forgets the one-time fee: 50n = 700 gives n = 14"
+  "A": "divides the difference 250 by 50 and stops, ignoring Sam's 8 classes",
+  "B": "includes the one-time fee for Jordan but not for Sam: 100 + 50n = 400 + 250",
+  "D": "includes the one-time fee for Sam but not for Jordan: 50n = 100 + 400 + 250"
  },
- "explanation": "**SAT Pattern: Linear Cost Equation Setup**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The charges were $100 + 50n$ and the credit took $50$ off, so $100 + 50n - 50 = 650$. Then $50n = 600$ and $n = 12$.\n\n**The Full Solution:**\nStep 1: Before the credit, the charges for $n$ classes are $100 + 50n$ dollars.\nStep 2: The $\\$50$ credit lowers the amount paid, so $100 + 50n - 50 = 650$, which simplifies to $50n + 50 = 650$.\nStep 3: Subtract $50$ from each side and divide by $50$: $50n = 600$, so $n = 12$. Check: $100 + 50(12) - 50 = 100 + 600 - 50 = 650$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): treats the credit as one more charge, writing $100 + 50n + 50 = 650$, so $50n = 500$.\n* Choice B ($11$): leaves the credit out: $100 + 50n = 650$ gives $50n = 550$.\n* Choice D ($14$): adds the credit back to the total but forgets the one-time fee: $50n = 650 + 50 = 700$.\n\n**Test Day Takeaway:** A credit is subtracted from the charges, so the member could afford more classes, not fewer; write the whole equation before dividing."
+ "explanation": "**SAT Pattern: Linear Cost Equation Setup**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Both totals include the same $\\$100$ fee, so Jordan's classes cost $\\$250$ more than Sam's: $50n = 400 + 250$, and $n = 13$.\n\n**The Full Solution:**\nStep 1: Write each total: Jordan paid $100 + 50n$ dollars and Sam paid $100 + 50(8) = 500$ dollars.\nStep 2: Jordan paid $\\$250$ more: $100 + 50n = 500 + 250 = 750$.\nStep 3: Solve: $50n = 650$, so $n = 13$. Check: $100 + 50(13) = 750$, which is $250$ more than $500$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): divides the difference, $250 \\div 50$, which is how many more classes Jordan took, not how many Jordan took.\n* Choice B ($11$): includes the one-time fee in Jordan's total but leaves it out of Sam's: $100 + 50n = 400 + 250$.\n* Choice D ($15$): includes the one-time fee in Sam's total but leaves it out of Jordan's: $50n = 750$.\n\n**Test Day Takeaway:** Write a full expression for each total before comparing them; a charge that appears in both totals cancels."
 }

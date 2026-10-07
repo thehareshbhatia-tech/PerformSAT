@@ -8,66 +8,66 @@
  "choices": [
   {
    "id": "A",
-   "text": "91% of shipments on the Chicago route arrived in good condition, the highest share of any route in the table."
+   "text": "Syracuse received about 128 inches of snow per year, the most of any city in the table."
   },
   {
    "id": "B",
-   "text": "shipments traveled as far as 3,200 miles, and three of the four routes covered more than 2,000 miles."
+   "text": "average January temperatures ranged from about −12°F in Utqiagvik to about 24°F in Syracuse, a difference of 36 degrees."
   },
   {
    "id": "C",
-   "text": "the Boston route, the longest shown, saw 89% of shipments arrive in good condition, while the shorter Atlanta route, with the widest station spacing, saw only 64%."
+   "text": "Syracuse, the warmest city, had the most precipitation and snow, while Utqiagvik, the coldest, had the least of both."
   },
   {
    "id": "D",
-   "text": "shipments to Atlanta arrived in good condition less often than shipments to New Orleans, even though the two routes differed in length by only several hundred miles."
+   "text": "Duluth received about 25 more inches of snow per year than Fairbanks, though Duluth averaged about 19 degrees warmer in January."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The historian's claim pits two variables against each other — distance versus station spacing — and C cites the pair of routes that separates them: the longest route (Boston, stations every 260 miles) succeeded, while a shorter route (Atlanta, stations every 610 miles) failed.\n\n**The Full Solution:**\n- If distance set the limits of the trade, the 3,200-mile Boston route should fare worst. It did not: 89% arrived in good condition.\n- If station spacing set the limits, Atlanta — 800 miles shorter but with intervals more than twice as wide — should fare worst. It did: 64%.\n- Only that cross-comparison isolates the icing network as the operative constraint, which is exactly what the conclusion asserts.\n\n**Why the other choices are wrong:**\n- A: A single route's success rate, with no reference to spacing or distance, cannot arbitrate between the two variables.\n- B: It reports distances alone and never touches the outcome the claim is about.\n- D: The Atlanta-New Orleans contrast never mentions station spacing, so it leaves open the possibility that some other difference explains the gap.",
- "passage": "Before mechanical refrigeration, a refrigerated rail car was an insulated box cooled by blocks of ice, which had to be replenished at icing stations along the route. A historian of the produce trade argues that the system's reach was limited less by how much ice a car could carry than by where the icing stations stood. The historian concludes that the icing network, rather than car design, set the geography of the trade because ______",
+ "explanation": "**Choice C is correct.** The claim sets moisture against cold, so the evidence must separate the two. C does: Syracuse, the warmest city (about 24°F in January), had the most precipitation (about 39.9 inches) and the most snow (about 128 inches), while Utqiagvik, the coldest (about −12°F), had the least precipitation (about 5.4 inches) and the least snow (about 46 inches).\n\n**The Full Solution:**\n- If cold set snowfall, the coldest city, Utqiagvik, should get the most snow. It gets the least: about 46 inches.\n- If moisture set snowfall, the city with the most precipitation, Syracuse, should get the most snow even though it is the warmest city. It does: about 128 inches.\n- Only that cross-comparison shows snowfall following moisture rather than cold, which is exactly what the idea asserts.\n\n**Why the other choices are wrong:**\n- A: A single city's snowfall, with no reference to temperature or precipitation, cannot decide between the two factors.\n- B: It reports temperatures alone and never mentions snowfall, the outcome the claim is about.\n- D: The Duluth-Fairbanks contrast shows a warmer city getting more snow, but it never mentions precipitation, so it does not show that moisture is the factor that matters.",
+ "passage": "Many people assume that the coldest places get the most snow. Scientists at the National Snow and Ice Data Center explain that this is not the case. Snow requires moisture, and very cold air usually holds little water vapor. In fact, most heavy snowfalls occur when the air near the ground is about 15°F or warmer. Data from four US cities support the idea that a place's snowfall depends more on its supply of moisture than on how cold it gets, because ______",
  "questionTable": {
   "type": "table",
-  "caption": "Lettuce shipments from California arriving in good condition, by route",
+  "caption": "Climate averages for four US cities, 1991–2020 (source: NOAA)",
   "headers": [
-   "Route",
-   "Distance (miles)",
-   "Average interval between icing stations (miles)",
-   "Shipments arriving in good condition (%)"
+   "City",
+   "Average January temperature (°F)",
+   "Average yearly precipitation (inches)",
+   "Average yearly snowfall (inches)"
   ],
   "rows": [
    [
-    "To Chicago",
-    "2,200",
-    "250",
-    "91"
+    "Utqiagvik, Alaska",
+    "−12",
+    "5.4",
+    "46"
    ],
    [
-    "To New Orleans",
-    "2,000",
-    "320",
-    "88"
+    "Fairbanks, Alaska",
+    "−8",
+    "11.7",
+    "65"
    ],
    [
-    "To Atlanta",
-    "2,400",
-    "610",
-    "64"
+    "Duluth, Minnesota",
+    "11",
+    "31.2",
+    "90"
    ],
    [
-    "To Boston",
-    "3,200",
-    "260",
-    "89"
+    "Syracuse, New York",
+    "24",
+    "39.9",
+    "128"
    ]
   ]
  },
  "_meta": {
-  "anchor": "refrigerated rail cars — icing-station spacing vs. distance as the constraint on the produce trade",
+  "anchor": "snowfall vs. coldness in four US cities — moisture supply, not cold, sets snowfall (NSIDC, Science of Snow; NOAA 1991–2020 normals via Wikipedia climate tables)",
   "distractors": {
-   "A": "single row, no variable isolation",
-   "B": "distance only, outcome ignored",
-   "D": "comparison that omits the station-spacing variable"
+   "A": "single row, no factor isolation",
+   "B": "temperature only, outcome ignored",
+   "D": "comparison that omits the moisture (precipitation) factor"
   }
  },
  "id": 1114,

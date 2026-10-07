@@ -25,7 +25,7 @@
     },
     {
       "id": "B",
-      "text": "More than a century after Emmy Noether published it in 1918, physicists still use her theorem to identify conserved quantities in new theories."
+      "text": "More than a century after its 1918 publication, physicists still use Noether's theorem to identify conserved quantities in new theories."
     },
     {
       "id": "C",
@@ -37,5 +37,5 @@
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** The goal is lasting usefulness, and B is built around exactly that: \"more than a century after\" she published it, physicists \"still use\" the theorem for a working purpose.\n\n**The Full Solution:**\n- The goal has two parts to convey: the theorem endures, and physicists find it useful.\n- Choice B delivers both — the time span establishes endurance, and \"to identify conserved quantities in new theories\" establishes ongoing, practical use.\n\n**Why the other choices are wrong:**\n- A: It states the theorem's content accurately but stops in 1918 — nothing conveys that physicists still rely on it.\n- C: It reduces Noether to biography and calls the theorem \"important\" without evidence of use, present or past.\n- D: It describes the 1915 problem that preceded the theorem and never mentions the theorem's later usefulness at all."
+  "explanation": "**Choice B is correct.** The goal is lasting usefulness, and B is built around exactly that: \"more than a century after\" its publication, physicists \"still use\" the theorem for a working purpose.\n\n**The Full Solution:**\n- The goal has two parts to convey: the theorem endures, and physicists find it useful.\n- Choice B delivers both — the time span establishes endurance, and \"to identify conserved quantities in new theories\" establishes ongoing, practical use.\n\n**Why the other choices are wrong:**\n- A: It states the theorem's content accurately but stops in 1918 — nothing conveys that physicists still rely on it.\n- C: It reduces Noether to biography and calls the theorem \"important\" without evidence of use, present or past.\n- D: It describes the 1915 problem that preceded the theorem and never mentions the theorem's later usefulness at all."
 }

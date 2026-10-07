@@ -6,7 +6,7 @@
   "domain": "information-and-ideas",
   "skill": "central-ideas-and-details",
   "module": 2,
-  "passage": "Most lightning concentrates over warm continental land in summer, where strong updrafts build electrical charge inside towering storms. In a study drawing on years of data from a global lightning-detection network, atmospheric scientist Robert Holzworth and colleagues examined \"superbolts\" — rare strokes that release at least a thousand times more electrical energy than an average lightning stroke. The team found that superbolts follow nearly the opposite pattern from ordinary lightning: they strike most often over oceans rather than land, they cluster in regions such as the North Atlantic and the Mediterranean, and their frequency peaks in the months around the Northern Hemisphere's winter rather than its summer.",
+  "passage": "Most lightning concentrates over warm continental land in summer, where strong updrafts build electrical charge inside towering storms. Atmospheric scientist Robert Holzworth and colleagues used years of data from a global lightning-detection network to study \"superbolts.\" These rare strokes release at least a thousand times more electrical energy than an average lightning stroke. The team found that superbolts follow nearly the opposite pattern from ordinary lightning. They strike most often over oceans rather than land, cluster in regions such as the North Atlantic and the Mediterranean, and peak in the months around the Northern Hemisphere's winter rather than its summer.",
   "question": "According to the text, how does the occurrence of superbolts differ from that of most lightning?",
   "choices": [
     {
@@ -15,7 +15,7 @@
     },
     {
       "id": "B",
-      "text": "Superbolts proved so rare that the detection network recorded too few of them for Holzworth and colleagues to identify any clear geographic or seasonal pattern."
+      "text": "Superbolts are so rare that the researchers could not identify any clear pattern in where or when they tend to occur."
     },
     {
       "id": "C",

@@ -1,29 +1,29 @@
 {
- "question": "$x^2 + y^2 - 8x + 10y + c = 0$\nIn the given equation, $c$ is a constant. The graph of the equation in the $xy$-plane is a circle. Which of the following must be true?",
- "hint": "After both squares are completed, what has to be true of the number left on the right side?",
+ "question": "$x^2 + y^2 - 8x + 10y + c = 0$\nIn the given equation, $c$ is a constant. The graph of the equation in the $xy$-plane is a circle with radius $7$. What is the value of $c$?",
+ "hint": "Complete the square in $x$ and in $y$; the right side is then $r^2$.",
  "choices": [
   {
    "id": "A",
-   "text": "$c < 41$"
+   "text": "$-8$"
   },
   {
    "id": "B",
-   "text": "$c < -41$"
+   "text": "$8$"
   },
   {
    "id": "C",
-   "text": "$c > -41$"
+   "text": "$34$"
   },
   {
    "id": "D",
-   "text": "$c > 41$"
+   "text": "$90$"
   }
  ],
  "distractorNotes": {
-  "B": "moves 41 to the wrong side, requiring c < -41",
-  "C": "solves 41 + c > 0 instead of 41 - c > 0",
-  "D": "reverses the inequality after finding 41"
+  "B": "sets c equal to 49 - 41, a sign error when moving c",
+  "C": "sets 41 - c equal to the radius 7 instead of 49",
+  "D": "adds 41 and 49 instead of subtracting"
  },
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.**\n\n**The Fast Way (~40s):** Completing the squares gives $r^2 = 41 - c$, and $41 - c > 0$ means $c < 41$.\n\n**The Full Solution:**\nStep 1: Group the terms: $(x^2 - 8x) + (y^2 + 10y) = -c$.\nStep 2: Complete both squares by adding $16$ and $25$: $(x - 4)^2 + (y + 5)^2 = 16 + 25 - c = 41 - c$.\nStep 3: The graph is a circle only if its radius is positive, so $41 - c > 0$ and $c < 41$. Check: $c = 40$ gives $r^2 = 1$, a genuine circle, while $c = 41$ collapses the graph to the single point $(4, -5)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($c < -41$): moves $41$ to the wrong side of the inequality.\n* Choice C ($c > -41$): treats the constant as $41 + c$ rather than $41 - c$.\n* Choice D ($c > 41$): finds $41$ correctly but reverses the direction, which makes the right side negative.\n\n**Test Day Takeaway:** A general-form equation is a real circle only while the completed-square right side stays strictly positive."
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~45s):** Completing the square gives $(x - 4)^2 + (y + 5)^2 = 41 - c$, so $41 - c = 7^2 = 49$ and $c = -8$.\n\n**The Full Solution:**\nStep 1: Group and complete the squares: $(x^2 - 8x + 16) + (y^2 + 10y + 25) = -c + 16 + 25$.\nStep 2: So $(x - 4)^2 + (y + 5)^2 = 41 - c$, and the right side is $r^2 = 49$.\nStep 3: $41 - c = 49$ gives $c = -8$. Check: $x^2 + y^2 - 8x + 10y - 8 = 0$ becomes $(x - 4)^2 + (y + 5)^2 = 49$, radius $7$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($8$): computes $49 - 41$, losing the sign when $c$ moves to the other side.\n* Choice C ($34$): sets $41 - c$ equal to the radius $7$ instead of $7^2$.\n* Choice D ($90$): adds $41$ and $49$.\n\n**Test Day Takeaway:** After completing the square, the constant on the right side is $r^2$, not $r$."
 }

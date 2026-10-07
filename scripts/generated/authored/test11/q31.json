@@ -24,14 +24,14 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The colon's explanation — ordinary boxcars fitted with bins of ice — describes making do with \"the equipment at hand\" for a problem \"no purpose-built car yet existed to solve.\" That is an \"improvisation.\"\n\n**The Full Solution:**\n- The frame \"less an invention than an ______\" demands a noun that contrasts with \"invention\": something put together from what was available rather than designed from scratch.\n- The detail after the colon is adaptation of existing things — ordinary boxcars and bins of ice — pressed into a new role.\n- \"Improvisation\" names exactly that mode of solving a problem with whatever is available.\n\n**Why the other choices are wrong:**\n- A: \"Embarrassment\" imports a negative judgment, but the passage presents the improvised shipment as a practical solution, not a source of shame.\n- C: \"Afterthought\" implies neglect or low priority, while the passage shows a deliberate effort to solve a problem.\n- D: \"Imitation\" requires an original being copied, and the text says no purpose-built car yet existed.",
- "passage": "The first refrigerated rail shipments of beef in the United States were less an invention than an ______: in 1857, dressed beef left the Chicago stockyards in ordinary boxcars fitted with bins of ice, adapting the equipment at hand to a problem no purpose-built car yet existed to solve.",
+ "explanation": "**Choice B is correct.** The fix was assembled on the spot from \"items already on board\" to solve an unexpected problem. Something made quickly from whatever is at hand is an improvisation.\n\n**The Full Solution:**\n- \"Less an invention than an ______\" asks what the device was instead of a planned invention.\n- The text explains: a sudden emergency, mismatched parts, and a fix built from plastic bags, cardboard, and duct tape.\n- \"Improvisation\" names exactly that kind of on-the-spot solution.\n\n**Why the other choices are wrong:**\n- A: \"Embarrassment\" suggests something shameful, but the device kept the crew safe.\n- C: \"Afterthought\" suggests something added carelessly later, but the fix was the urgent center of the rescue effort.\n- D: \"Imitation\" means a copy of something else, but the device was a new arrangement of materials, not a copy.",
+ "passage": "The device that kept the Apollo 13 astronauts breathing safely in 1970 was less an invention than an ______. After an explosion crippled their spacecraft, the crew had to clean carbon dioxide from the air with square filters, but the sockets in the lunar module were round. Engineers on the ground worked out a fix the crew could build from items already on board: plastic bags, cardboard, and duct tape.",
  "_meta": {
-  "anchor": "refrigerated rail cars — 1857 dressed beef shipped from Chicago in ordinary boxcars retrofitted with ice bins (Wikipedia, Refrigerator car)",
+  "anchor": "Apollo 13 CO2 filter adapter built from bags, cardboard, duct tape (NASA ALSJ, Apollo 13 LiOH adapter)",
   "distractors": {
-   "A": "imported negative judgment",
-   "C": "wrong attitude — neglect vs. effort",
-   "D": "requires an original the text rules out"
+   "A": "wrong tone",
+   "C": "wrong role",
+   "D": "wrong relation"
   }
  },
  "id": 1131,

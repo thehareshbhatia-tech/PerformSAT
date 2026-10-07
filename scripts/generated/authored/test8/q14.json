@@ -6,34 +6,34 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 1,
- "passage": "Canning began as handwork: for decades after the tin can's introduction, each can was cut, formed, and soldered shut by a skilled tinsmith and his helper. Machines then took over the work piecemeal — first stamped bodies, later the automatic double-seam closing machines that needed no solder at all. A student preparing an exhibit panel wants to use the benchmark figures below to argue that mechanization did not raise canning output evenly but accelerated it, with the later innovations bringing far larger gains than the earlier refinements, because _______",
+ "passage": "The first planets orbiting stars like the Sun were confirmed in the mid-1990s, mostly by ground-based telescopes that detected the slight wobble a planet's pull causes in its star. Discoveries came slowly at first. In 2009 NASA launched the Kepler space telescope, which watched thousands of stars for the tiny dips in brightness caused by passing planets. A student wants to use the table to argue that the pace of discovery did not grow evenly but accelerated, with later years bringing far larger gains than earlier ones, because _______",
  "questionTable": {
   "type": "table",
-  "caption": "Cans sealed per hour by a two-person team, selected benchmark years",
+  "caption": "Confirmed exoplanets discovered by the end of selected years (cumulative)",
   "headers": [
-   "Benchmark year",
-   "Cans sealed per hour"
+   "Year",
+   "Confirmed exoplanets"
   ],
   "rows": [
    [
-    "1810",
-    "6"
+    "1995",
+    "4"
    ],
    [
-    "1840",
-    "12"
+    "2000",
+    "46"
    ],
    [
-    "1870",
-    "55"
+    "2005",
+    "172"
    ],
    [
-    "1900",
-    "320"
+    "2010",
+    "498"
    ],
    [
-    "1925",
-    "1,500"
+    "2015",
+    "1,938"
    ]
   ]
  },
@@ -41,21 +41,28 @@
  "choices": [
   {
    "id": "A",
-   "text": "output rose from 6 cans per hour in 1810 to 12 in 1840, doubling within the method's first three decades."
+   "text": "the total rose from 4 planets in 1995 to 46 in 2000, more than ten times as many within five years."
   },
   {
    "id": "B",
-   "text": "output edged from 6 cans per hour in 1810 to 55 in 1870, then leapt to 320 by 1900 and 1,500 by 1925, the largest gains coming in the latest intervals."
+   "text": "the total grew from 4 planets in 1995 to 172 in 2005 but then climbed to 498 by 2010 and 1,938 by 2015, the largest gains coming last."
   },
   {
    "id": "C",
-   "text": "by 1925 a two-person team could seal 1,500 cans per hour, the highest rate recorded in the table."
+   "text": "by 2015 the total had reached 1,938 confirmed planets, the highest figure shown in the table."
   },
   {
    "id": "D",
-   "text": "output was higher at each benchmark year in the table than it had been at the benchmark before, rising without interruption across more than a century of canning."
+   "text": "the total in each year shown in the table was higher than the total in the year before it."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** An acceleration claim needs the whole span and the shape of the change, and B provides both: output crept from 6 to 55 cans per hour over the first six decades, then vaulted to 1,500 by 1925, the gains concentrated in the later intervals.\n\n**The Full Solution:**\n- The claim is not merely that output rose but that it rose unevenly, with later mechanization bringing far larger gains than earlier refinements.\n- Choice B traces the full sequence and points out where the big jumps fall — after 1870 — which is precisely the accelerating pattern the student wants to demonstrate.\n\n**Why the other choices are wrong:**\n- A: Comparing only 1810 with 1840 shows a modest early rise and says nothing about later acceleration.\n- C: The 1925 figure alone documents a high endpoint, not how the pace of change was distributed.\n- D: Noting that every interval shows an increase supports steady growth — the very reading the claim argues against."
+ "explanation": "**Choice B is correct.** An acceleration claim needs the whole span and the shape of the change, and B provides both: the total reached only 172 over the first decade, then jumped to 1,938 by 2015, with the gains concentrated in the later intervals.\n\n**The Full Solution:**\n- The claim is not merely that the total rose but that it rose unevenly, with later years bringing far larger gains than earlier ones.\n- Choice B traces the full sequence and points out where the big jumps fall, after 2005 and especially from 2010 to 2015 (an increase of 1,440 planets), which is the accelerating pattern the student wants to show.\n\n**Why the other choices are wrong:**\n- A: Comparing only 1995 with 2000 describes an early rise of 42 planets and says nothing about later acceleration.\n- C: The 2015 figure alone shows a high endpoint, not how the pace of discovery changed over time.\n- D: Noting that every total exceeds the one before shows steady growth, not the uneven, accelerating pattern the claim describes.",
+ "_meta": {
+  "anchor": "exoplanet discoveries (cumulative, NASA Exoplanet Archive) — CoE-quant: accelerating growth",
+  "sources": [
+   "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+disc_year,count(*)+from+pscomppars+group+by+disc_year&format=csv",
+   "https://science.nasa.gov/mission/kepler/"
+  ]
+ }
 }

@@ -1,29 +1,29 @@
 {
-  "question": "$9x + ky = 50$\n$4x + 3y = 22$\nIn the given system of equations, $k$ is a constant. Subtracting the second equation from the first yields $5x + 4y = 28$. What is the value of $k$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-1$"
-    },
-    {
-      "id": "B",
-      "text": "$3$"
-    },
-    {
-      "id": "C",
-      "text": "$4$"
-    },
-    {
-      "id": "D",
-      "text": "$7$"
-    }
-  ],
-  "correctAnswer": "D",
-  "distractorNotes": {
-    "A": "subtracts in the wrong order, solving $3 - k = 4$",
-    "B": "copies the $y$-coefficient of the second equation",
-    "C": "copies the $y$-coefficient of the resulting equation, $5x + 4y = 28$"
+ "question": "$7x + 4y = 39$\n$6x + 5y = 35$\nThe solution to the given system of equations is $(x, y)$. What is the value of $x - y$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-4$"
   },
-  "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Subtracting the $y$-terms gives $(k - 3)y$, and that must equal $4y$, so $k = 7$.\n\n**The Full Solution:**\nStep 1: Subtract the second equation from the first, term by term: $(9x - 4x) + (ky - 3y) = 50 - 22$, or $5x + (k - 3)y = 28$.\nStep 2: Match this with $5x + 4y = 28$: the $x$-terms and constants already agree, so $k - 3 = 4$.\nStep 3: Solve: $k = 7$. Check: $(9x + 7y) - (4x + 3y) = 5x + 4y$ and $50 - 22 = 28$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-1$): subtracts in the wrong order, solving $3 - k = 4$\n* Choice B ($3$): copies the $y$-coefficient of the second equation\n* Choice C ($4$): copies the $y$-coefficient of the resulting equation, $5x + 4y = 28$\n\n**Test Day Takeaway:** When a combination of two equations is given, write the combination with the unknown coefficient in place and match it term by term.",
-  "id": "bank-alg-462"
+  {
+   "id": "B",
+   "text": "$4$"
+  },
+  {
+   "id": "C",
+   "text": "$5$"
+  },
+  {
+   "id": "D",
+   "text": "$6$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "subtracts the first equation from the second, getting -x + y = -4, and reports y - x",
+  "C": "solves the whole system and reports x = 5",
+  "D": "finds x + y = 6 instead of x - y"
+ },
+ "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Subtract the second equation from the first: $(7x - 6x) + (4y - 5y) = 39 - 35$, which is $x - y = 4$.\n\n**The Full Solution:**\nStep 1: Line up the equations and subtract the second from the first, term by term.\nStep 2: The $x$-terms give $7x - 6x = x$, the $y$-terms give $4y - 5y = -y$, and the constants give $39 - 35 = 4$.\nStep 3: So $x - y = 4$. Check: the solution is $(5, 1)$, since $7(5) + 4(1) = 39$ and $6(5) + 5(1) = 35$, and $5 - 1 = 4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): subtracts the first equation from the second, which gives $y - x = -4$, then reports that value.\n* Choice C ($5$): solves the system fully and reports $x$, not $x - y$.\n* Choice D ($6$): finds $x + y = 5 + 1$ instead of $x - y$.\n\n**Test Day Takeaway:** Before solving a system, check whether adding or subtracting the equations produces the exact combination the question asks for.",
+ "id": "bank-alg-462"
 }

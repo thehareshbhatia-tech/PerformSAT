@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-085",
-  "question": "The scatterplot shows the number of hours of rain $x$ and the number of visitors $y$ to a city park on each of $9$ days. The line of best fit, $y = -4x + 90$, is also shown. What is the residual for the data point $(12, 38)$?",
+  "question": "The scatterplot shows the number of hours of rain $x$ and the number of visitors $y$ to a city park on each of $9$ days. The line of best fit, $y = -4x + 90$, is also shown. According to the line of best fit, how many visitors are predicted on a day with $12$ hours of rain?",
   "diagram": {
     "type": "scatterplot",
     "params": {
@@ -34,6 +34,10 @@
           48
         ],
         [
+          12,
+          38
+        ],
+        [
           14,
           32
         ]
@@ -51,15 +55,9 @@
       "bestFitLine": {
         "slope": -4,
         "intercept": 90
-      },
-      "highlightPoint": [
-        12,
-        38
-      ],
-      "highlightLabel": "(12, 38)",
-      "showResidual": true
+      }
     }
   },
-  "correctAnswer": "-4",
-  "explanation": "**SAT Pattern: Residual**\n\n**The correct answer is -4.**\n\n**The Fast Way (~10s):** The line predicts $-4(12) + 90 = 42$ visitors, and $38 - 42 = -4$.\n\n**The Full Solution:**\nStep 1: A residual is the actual $y$-value minus the $y$-value predicted by the line of best fit.\nStep 2: At $x = 12$, the line predicts $y = -48 + 90 = 42$ visitors.\nStep 3: The actual value is $38$, so the residual is $38 - 42 = -4$. Check: the point lies below the line, so its residual is negative ✓\n\n**Common Mistakes:**\n* $4$: subtracts in the wrong order, $42 - 38$, and loses the sign.\n* $42$: reports the predicted value instead of the residual.\n* $86$: stops at $-48$ without adding the $90$, computing $38 - (-48)$.\n\n**Test Day Takeaway:** A negative residual means the line overestimates: the data point lies below the line."
+  "correctAnswer": "42",
+  "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is 42.**\n\n**The Fast Way (~10s):** Substitute $x = 12$: $-4(12) + 90 = -48 + 90 = 42$.\n\n**The Full Solution:**\nStep 1: The line of best fit gives the predicted number of visitors $y$ for $x$ hours of rain.\nStep 2: For $x = 12$: $y = -4(12) + 90 = -48 + 90 = 42$.\nStep 3: Check: on the graph, the line passes through $(12, 42)$, just above the data point $(12, 38)$ ✓\n\n**Common Mistakes:**\n* $38$: reads the actual number of visitors on the day with $12$ hours of rain, not the number predicted by the line.\n* $48$: computes $4(12)$ and stops before using the $90$.\n* $138$: treats the slope as positive, $4(12) + 90$.\n\n**Test Day Takeaway:** Substitute the given $x$-value into the equation of the line of best fit; ignore the data point at that $x$-value."
 }

@@ -19,11 +19,11 @@
   },
   {
    "id": "C",
-   "text": "To describe, step by step, how a zoo nutritionist prepares a single day's meals for flamingos, pythons, and orangutans in one large collection."
+   "text": "To describe step by step how a zoo nutritionist prepares one day's meals for three different species."
   },
   {
    "id": "D",
-   "text": "To explain that planning zoo diets means balancing nutrition against practical limits rather than simply copying what animals eat in the wild."
+   "text": "To explain that planning zoo diets means balancing nutrition against practical limits, not simply copying wild diets."
   }
  ],
  "correctAnswer": "D",

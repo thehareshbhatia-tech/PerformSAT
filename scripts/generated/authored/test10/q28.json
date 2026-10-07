@@ -6,16 +6,16 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 2,
- "passage": "In villages of the high Alps, the summer's milk had to be turned into cheeses large enough to age through the winter, yet no single family's herd gave enough milk in a day to fill the vat. Villages therefore ______ their milk: each evening's deliveries were weighed and recorded, and families were repaid over the season in wheels of cheese proportional to what they had brought.",
+ "passage": "No single radio dish on Earth is large enough to photograph the shadow of a black hole. For the Event Horizon Telescope project, observatories at six sites around the world therefore ______ their data. Recordings from eight telescopes were combined to work as one virtual telescope nearly as wide as Earth. The result, released in 2019, was the first image of a black hole.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
    "id": "A",
-   "text": "concealed"
+   "text": "withheld"
   },
   {
    "id": "B",
-   "text": "flavored"
+   "text": "narrowed"
   },
   {
    "id": "C",
@@ -23,9 +23,9 @@
   },
   {
    "id": "D",
-   "text": "rationed"
+   "text": "repeated"
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The problem is that no one herd could fill the vat, and the solution the colon goes on to describe, everyone's deliveries combined, with repayment in proportion, is pooling.\n\n**The Full Solution:**\n- \"Yet\" sets up the gap between what cheesemaking required (a full vat) and what one family could supply, and \"therefore\" signals that the blank names the village's remedy.\n- The clause after the colon spells the remedy out: deliveries from many families were weighed, recorded, and combined, with shares paid back later, which is precisely what \"pooled\" means.\n\n**Why the other choices are wrong:**\n- A: \"Concealed\" contradicts the careful public weighing and recording the text describes.\n- B: \"Flavored\" is about taste and cannot answer the problem of insufficient quantity.\n- D: \"Rationed\" means limiting how much each party receives, but the villagers were combining supplies, not restricting consumption."
+ "explanation": "**Choice C is correct.** No single dish is big enough, so the observatories put their recordings together; the next sentence, which says recordings from eight telescopes \"were combined\" into one virtual instrument, confirms the meaning. \"Pooled\" means combined into a shared supply.\n\n**The Full Solution:**\n- The first sentence sets up the problem: one dish cannot do the job alone.\n- The next sentence describes the solution: combining recordings from many telescopes.\n- \"Pooled\" names exactly that act of putting separate contributions together for common use.\n\n**Why the other choices are wrong:**\n- A: \"Withheld\" means kept back, the opposite of combining the data.\n- B: \"Narrowed\" means made smaller or more limited, but the project made its data set larger by joining it.\n- D: \"Repeated\" means did again, which does not describe merging recordings from different sites."
 }

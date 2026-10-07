@@ -8,56 +8,56 @@
  "choices": [
   {
    "id": "A",
-   "text": "fallowed land produced higher per-acre yields than continuously cropped land in every one of the season types shown in the table."
+   "text": "helmet use was associated with lower odds of injury for every type of injury shown in the table."
   },
   {
    "id": "B",
-   "text": "fallowing's advantage swelled from 3 bushels per acre in wet seasons to 9 in dry ones, when continuous cropping neared failure."
+   "text": "helmet use cut the odds of serious head injury by 69 percent and of neck injury by only 4 percent."
   },
   {
    "id": "C",
-   "text": "continuous cropping produced 21 bushels per acre in wet seasons, its highest figure anywhere in the table."
+   "text": "helmet use cut the odds of head injury by 51 percent, a reduction of more than half."
   },
   {
    "id": "D",
-   "text": "yields under both practices fell as growing seasons became drier, with the lowest figures coming in dry seasons."
+   "text": "the reductions in the odds of head injury and of serious head injury were both greater than 50 percent."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The claim is that fallowing works as drought insurance \"specifically, rather than as a means of raising yields generally.\" B cites the pattern that makes the distinction: a modest 3-bushel edge in wet seasons versus a 9-bushel edge in dry ones — 13 against a near-failure 4.\n\n**The Full Solution:**\n- Since fallowing halves the harvested acreage, the passage notes, a small per-acre edge is not worth much; the case for the practice must rest on where its edge is large.\n- The table concentrates the advantage in dry seasons: 24 vs. 21 (wet), 19 vs. 14 (average), 13 vs. 4 (dry) — the gap triples exactly when continuous cropping collapses.\n- That asymmetry is the signature of insurance — the payoff arrives in the bad state — and B is the choice that reports it.\n\n**Why the other choices are wrong:**\n- A: True but fatal to the argument's precision — a uniform advantage is what \"raising yields generally\" would look like; the claim turns on where the advantage concentrates.\n- C: A single cell about the rival practice's best year supports nothing about fallowing's role.\n- D: The shared downward slope ignores the comparison between practices entirely.",
- "passage": "Agricultural experiment stations in the early twentieth century ran long trials comparing continuous wheat cropping with alternate-year fallow, in which land rests unplanted every other season so that two years of moisture can feed one crop. Analysts reviewing one station's records note that fallowing means harvesting only half the acreage in any year, so the practice pays only where its per-acre advantage is large. They argue that the records support fallowing as insurance against drought specifically, rather than as a means of raising yields generally, because ______",
+ "explanation": "**Choice B is correct.** To show that protection is concentrated on the head, the evidence must contrast a large effect on the head with a small effect elsewhere. B does: a 69 percent reduction for serious head injury against only 4 percent for neck injury.\n\n**The Full Solution:**\n- The claim is comparative: the helmet's benefit is focused on the head rather than spread across the body.\n- The table shows large reductions for head injuries (51 and 69 percent) and almost none for neck injury (4 percent).\n- Only B sets a head figure against a non-head figure, which is the comparison the claim requires.\n\n**Why the other choices are wrong:**\n- A: Even if every figure in the table shows some reduction, a reduction for every injury type suggests broad protection, which undercuts the idea that protection is concentrated on the head.\n- C: A single head-injury figure shows that helmets help the head but gives nothing to compare it with.\n- D: It reports two head-injury figures only, so it never shows that protection is weaker elsewhere.",
+ "passage": "Bicycle helmets are built to protect the head, but some critics have suggested that wearing one might raise the risk of neck injury. In 2017, researchers Jake Olivier and Prudence Creighton combined data from 40 studies covering more than 64,000 injured cyclists, comparing riders who wore helmets with riders who did not. The results suggest that a helmet's protection is concentrated on the head it covers, since ______",
  "questionTable": {
   "type": "table",
-  "caption": "Wheat yields at a Great Plains experiment station, by practice and season type (bushels per acre)",
+  "caption": "Reduction in odds of injury for injured cyclists wearing helmets, by type of injury (Olivier and Creighton, 2017)",
   "headers": [
-   "Season type",
-   "Continuous cropping",
-   "Alternate-year fallow"
+   "Type of injury",
+   "Reduction in odds of injury"
   ],
   "rows": [
    [
-    "Wet seasons",
-    "21",
-    "24"
+    "Head injury",
+    "51%"
    ],
    [
-    "Average seasons",
-    "14",
-    "19"
+    "Serious head injury",
+    "69%"
    ],
    [
-    "Dry seasons",
-    "4",
-    "13"
+    "Face injury",
+    "33%"
+   ],
+   [
+    "Neck injury",
+    "4%"
    ]
   ]
  },
  "_meta": {
-  "anchor": "dry farming techniques — alternate-year fallow as drought insurance in station trials",
+  "anchor": "bicycle helmets meta-analysis — Olivier & Creighton 2017, Int J Epidemiol 46(1):278 (ORs 0.49 head, 0.31 serious head, 0.67 face, 0.96 neck)",
   "distractors": {
-   "A": "true-but-general, misses the asymmetry the claim needs",
-   "C": "single cell, wrong practice",
-   "D": "shared trend without the comparison"
+   "A": "true but supports general protection",
+   "C": "single cell, no contrast",
+   "D": "head-only, no contrast"
   }
  },
  "id": 1141,

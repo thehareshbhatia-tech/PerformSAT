@@ -1,30 +1,26 @@
 {
- "id": 11,
- "question": "$p(x) = x^{3} + ax^{2} + bx + 30$\nIn the given function, $a$ and $b$ are constants. The table shows four values of $x$ and their corresponding values of $p(x)$. What is the greatest zero of $p$?",
- "questionTable": {
-  "headers": [
-   "$x$",
-   "$p(x)$"
-  ],
-  "rows": [
-   [
-    "$-2$",
-    "$0$"
-   ],
-   [
-    "$1$",
-    "$24$"
-   ],
-   [
-    "$2$",
-    "$12$"
-   ],
-   [
-    "$3$",
-    "$0$"
-   ]
-  ]
- },
- "correctAnswer": "5",
- "explanation": "**SAT Pattern: Polynomial Factoring with Given Factor**\n\n**The correct answer is 5.**\n\n**The Fast Way (~45s):** The table shows $p(-2) = 0$ and $p(3) = 0$, so $p(x) = (x + 2)(x - 3)(x - r)$. The constant term is $(2)(-3)(-r) = 6r = 30$, so $r = 5$, which is greater than $3$.\n\n**The Full Solution:**\nStep 1: A zero of $p$ is an input with output $0$, so the table gives the zeros $-2$ and $3$. Since the leading coefficient is $1$, $p(x) = (x + 2)(x - 3)(x - r)$ for some third zero $r$.\nStep 2: Match constant terms: at $x = 0$, $(2)(-3)(-r) = 6r$, and $p(0) = 30$. So $6r = 30$ and $r = 5$.\nStep 3: The zeros are $-2$, $3$, and $5$, so the greatest zero is $5$. Check the row $x = 1$: $(3)(-2)(-4) = 24$ ✓\n\n**Common Mistakes:**\n* $3$: the greatest zero visible in the table; the third zero is not listed.\n* $-5$: writes the constant term as $-6r$ and solves $-6r = 30$, a sign slip in $(2)(-3)(-r)$.\n* $15$: divides out only the factor $x + 2$ and reports the constant term of the quotient, which is the product of the other two zeros, $3 \\cdot 5 = 15$.\n\n**Test Day Takeaway:** Each row with output $0$ gives a factor; once all but one factor is known, the constant term of the polynomial gives the last zero in one step."
+  "id": 11,
+  "question": "$p(x) = 2x^{2} + bx - 24$\nIn the given function, $b$ is a constant. The table shows three values of $x$ and their corresponding values of $p(x)$. What is the positive solution to the equation $p(x) = 0$?",
+  "questionTable": {
+    "headers": [
+      "$x$",
+      "$p(x)$"
+    ],
+    "rows": [
+      [
+        "$-4$",
+        "$0$"
+      ],
+      [
+        "$1$",
+        "$-20$"
+      ],
+      [
+        "$2$",
+        "$-12$"
+      ]
+    ]
+  },
+  "correctAnswer": "3",
+  "explanation": "**SAT Pattern: Polynomial Factoring with Given Factor**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~40s):** The table shows $p(-4) = 0$, so $x + 4$ is a factor of $p(x)$. The product of the two solutions of $2x^{2} + bx - 24 = 0$ is $\\frac{-24}{2} = -12$, so the other solution is $\\frac{-12}{-4} = 3$.\n\n**The Full Solution:**\nStep 1: From the row $x = -4$: $2(-4)^{2} + b(-4) - 24 = 0$, so $32 - 4b - 24 = 0$, $8 = 4b$, and $b = 2$.\nStep 2: Factor: $p(x) = 2x^{2} + 2x - 24 = 2(x^{2} + x - 12) = 2(x + 4)(x - 3)$.\nStep 3: The solutions to $p(x) = 0$ are $x = -4$ and $x = 3$, so the positive solution is $3$. Check the other rows: $p(1) = 2(5)(-2) = -20$ ✓ and $p(2) = 2(6)(-1) = -12$ ✓\n\n**Common Mistakes:**\n* $4$: drops the negative sign of the zero shown in the table, $-4$.\n* $2$: stops after finding the constant $b = 2$.\n* $6$: divides $-24$ by $-4$ but forgets the leading coefficient $2$, giving a product of solutions of $-24$ instead of $-12$.\n\n**Test Day Takeaway:** An output of $0$ in a table gives a solution, and so a factor; with the constant found, factor (or use the product of the solutions) to get the other solution."
 }

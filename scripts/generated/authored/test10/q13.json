@@ -6,35 +6,35 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 1,
- "passage": "Raw wool is sold largely by fineness: the thinner the average fiber, the softer the yarn it can become. Before auction, lots are graded by mean fiber diameter, measured in microns. An agricultural economist reviewing one season's auction results argues that buyers were paying specifically for fineness rather than for any other property of the lots because ______",
+ "passage": "Workers in the United States who have more schooling tend to earn more. Some economists argue that most of this gain comes from finishing a four-year college degree. Reviewing government survey data for 2025, a labor economist argues instead that pay rises with each additional level of education because ______",
  "questionTable": {
   "type": "table",
-  "caption": "Mean fiber diameter and average auction price for wool lots sold in one season, by grade",
+  "caption": "Unemployment rate and median weekly earnings of US workers age 25 and over, by highest level of education, 2025",
   "headers": [
-   "Grade",
-   "Mean fiber diameter (microns)",
-   "Average price (dollars per kilogram)"
+   "Highest level of education",
+   "Unemployment rate (%)",
+   "Median weekly earnings (dollars)"
   ],
   "rows": [
    [
-    "Superfine",
-    "17",
-    "14.10"
+    "Master's degree",
+    "2.6",
+    "1,876"
    ],
    [
-    "Fine",
-    "19",
-    "10.60"
+    "Bachelor's degree",
+    "2.8",
+    "1,578"
    ],
    [
-    "Medium",
-    "22",
-    "7.90"
+    "Associate's degree",
+    "3.0",
+    "1,135"
    ],
    [
-    "Strong",
-    "28",
-    "6.20"
+    "High school diploma",
+    "4.3",
+    "966"
    ]
   ]
  },
@@ -42,21 +42,21 @@
  "choices": [
   {
    "id": "A",
-   "text": "the Superfine grade, the finest wool sold, earned 14.10 dollars per kilogram, the highest average price of any of the four grades sold during the season."
+   "text": "workers with a master's degree had the highest median weekly earnings of the four groups, 1,876 dollars."
   },
   {
    "id": "B",
-   "text": "Strong wool, with a mean fiber diameter of 28 microns, was the coarsest of the four grades sold during the season."
+   "text": "workers with only a high school diploma had an unemployment rate of 4.3 percent, the highest of the four groups."
   },
   {
    "id": "C",
-   "text": "the price difference between adjacent grades was largest between the Medium and Fine grades."
+   "text": "the difference in median weekly earnings between adjacent levels was largest between the high school and associate's levels."
   },
   {
    "id": "D",
-   "text": "average price rose with every step toward finer fiber, from 6.20 dollars per kilogram for the coarsest grade to 14.10 for the finest."
+   "text": "median weekly earnings rose at every step up in education, from 966 dollars for high school to 1,876 for a master's."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** A claim that buyers paid for fineness needs the whole pattern, and D provides it: across all four grades, price climbs step by step as fiber diameter falls, from 6.20 to 14.10 dollars per kilogram.\n\n**The Full Solution:**\n- The economist's conclusion is a relationship, finer fiber commands higher price, so the supporting data must span the grades, not describe one of them.\n- Reading the table from Strong (28 microns, 6.20 dollars) up to Superfine (17 microns, 14.10 dollars), price increases at every step, which is exactly the monotonic pattern D reports.\n\n**Why the other choices are wrong:**\n- A: One grade's top price cannot establish a relationship across grades; it is consistent with prices that jump around below it.\n- B: It identifies the coarsest grade without mentioning price at all, so it cannot connect fineness to what buyers paid.\n- C: It misreads the table: the largest adjacent gap, 3.50 dollars, lies between Fine and Superfine, not between Medium and Fine."
+ "explanation": "**Choice D is correct.** The economist's claim is that pay rises with each added level of education, and D reports exactly that pattern: earnings climb at every step in the table, from 966 dollars for a high school diploma to 1,876 dollars for a master's degree.\n\n**The Full Solution:**\n- The claim is about a relationship across all the levels, so the supporting data must span the levels rather than describe one of them.\n- Reading the earnings column from high school (966) to associate's (1,135) to bachelor's (1,578) to master's (1,876), pay rises at every step, including the step below a bachelor's degree.\n\n**Why the other choices are wrong:**\n- A: One group's top earnings cannot show that pay rises at each level; it says nothing about the levels below it.\n- B: It cites only the unemployment column, so it says nothing about pay.\n- C: It misreads the table: the largest gap between adjacent levels, 443 dollars, lies between the associate's and bachelor's levels, not between high school and associate's (169 dollars)."
 }

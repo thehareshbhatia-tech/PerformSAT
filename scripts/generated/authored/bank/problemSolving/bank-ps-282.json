@@ -1,29 +1,29 @@
 {
  "id": "bank-ps-282",
- "question": "A random sample of $180$ people gives an estimate with a margin of error of $6\\%$. What sample size would give a margin of error of $3\\%$?",
+ "question": "Random samples of $120$ students (sample A) and $480$ students (sample B) at a college were used to estimate the mean number of hours the college's students study each week. The margins of error were calculated in the same way. Which of the following is most likely true?",
  "choices": [
   {
    "id": "A",
-   "text": "$90$"
+   "text": "The margin of error for sample A is less than the margin of error for sample B."
   },
   {
    "id": "B",
-   "text": "$360$"
+   "text": "The margin of error for sample B is less than the margin of error for sample A."
   },
   {
    "id": "C",
-   "text": "$720$"
+   "text": "The margins of error for the two samples are equal."
   },
   {
    "id": "D",
-   "text": "$2{,}880$"
+   "text": "The estimated mean for sample B is $4$ times the estimated mean for sample A."
   }
  ],
  "distractorNotes": {
-  "A": "halves the sample size because the margin of error is halved, 180/2 = 90",
-  "B": "doubles the sample size, treating the margin of error as proportional to 1/n",
-  "D": "applies the factor of 4 twice, 16(180) = 2,880"
+  "A": "reverses the relationship: a smaller sample gives a larger margin of error",
+  "C": "ignores the effect of sample size on the margin of error",
+  "D": "thinks a larger sample makes the estimate itself larger"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Margin of error scales like $\\frac{1}{\\sqrt{n}}$, so halving it requires $2^2 = 4$ times the sample: $4 \\times 180 = 720$.\n\n**The Full Solution:**\nStep 1: For a fixed method and confidence level, the margin of error is proportional to $\\frac{1}{\\sqrt{n}}$, where $n$ is the sample size.\nStep 2: The margin of error must go from $6\\%$ to $3\\%$, a factor of $\\frac{1}{2}$. Since the margin depends on $\\sqrt{n}$, $\\sqrt{n}$ must double, so $n$ must be multiplied by $2^2 = 4$.\nStep 3: $4 \\times 180 = 720$ people. Check: $\\sqrt{720} = \\sqrt{4 \\times 180} = 2\\sqrt{180}$, so the margin of error is halved. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($90$): halves the sample size along with the margin of error. A smaller sample makes the margin of error larger, not smaller.\n* Choice B ($360$): doubles the sample, which would work only if the margin of error were proportional to $\\frac{1}{n}$. Doubling $n$ shrinks the margin by a factor of $\\sqrt{2} \\approx 1.41$, not $2$.\n* Choice D ($2{,}880$): $16 \\times 180$, applying the factor of $4$ a second time.\n\n**Test Day Takeaway:** Divide the margin of error by $k$ by multiplying the sample size by $k^2$."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** A larger random sample generally gives a smaller margin of error, and sample B is the larger sample.\n\n**The Full Solution:**\nStep 1: When margins of error are calculated in the same way, a larger random sample generally leads to a smaller margin of error.\nStep 2: Sample B, with $480$ students, is larger than sample A, with $120$ students.\nStep 3: So the margin of error for sample B is most likely less than the margin of error for sample A. Check: the sample size changes how precise the estimate is, not the size of the estimate itself. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: this has the relationship backward; the smaller sample, A, is the one with the larger margin of error.\n* Choice C: the samples have different sizes, so their margins of error are not expected to be equal.\n* Choice D: both samples estimate the same mean, so their estimates should be close; sample size affects the margin of error, not the estimate.\n\n**Test Day Takeaway:** Larger random sample, smaller margin of error. The sample size changes the precision, not the estimate."
 }

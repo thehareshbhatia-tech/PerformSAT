@@ -1,30 +1,30 @@
 {
  "id": 5,
- "question": "The graph of $y = f(x)$ in the $xy$-plane has exactly two x-intercepts, $(-8, 0)$ and $(12, 0)$. If $g(x) = f(2x + 4)$, which of the following is an x-intercept of the graph of $y = g(x)$?",
+ "question": "In the $xy$-plane, the graph of $y = f(x)$ has exactly two x-intercepts, $(-6, 0)$ and $(10, 0)$. The function $g$ is defined by $g(x) = f(x - k)$, where $k$ is a positive constant. If the graph of $y = g(x)$ passes through the point $(-2, 0)$, what is the value of $k$?",
  "choices": [
   {
    "id": "A",
-   "text": "$(-12, 0)$"
+   "text": "$4$"
   },
   {
    "id": "B",
-   "text": "$(-6, 0)$"
+   "text": "$8$"
   },
   {
    "id": "C",
-   "text": "$(-4, 0)$"
+   "text": "$12$"
   },
   {
    "id": "D",
-   "text": "$(-2, 0)$"
+   "text": "$16$"
   }
  ],
  "distractorNotes": {
-  "A": "substitutes -8 into 2x + 4 instead of solving 2x + 4 = -8",
-  "C": "halves -8 and ignores the 4",
-  "D": "adds 4 before halving, solving x = (-8 + 4)/2"
+  "B": "computes 10 - 2 instead of solving -2 - k = 10",
+  "C": "solves -2 - k = 10, which gives k = -12, and drops the negative sign",
+  "D": "finds the distance between the two x-intercepts of f"
  },
- "correctAnswer": "B",
- "hint": "The graph of $g$ crosses the x-axis where $2x + 4$ equals an x-intercept of $f$.",
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~45s):** $g(x) = 0$ when $2x + 4 = -8$ or $2x + 4 = 12$, which gives $x = -6$ or $x = 4$; only $(-6, 0)$ is a choice.\n\n**The Full Solution:**\nStep 1: $g(x) = f(2x + 4)$ equals $0$ exactly when $2x + 4$ is $-8$ or $12$.\nStep 2: Solve $2x + 4 = -8$: $2x = -12$, so $x = -6$. Solve $2x + 4 = 12$: $2x = 8$, so $x = 4$.\nStep 3: The x-intercepts of the graph of $y = g(x)$ are $(-6, 0)$ and $(4, 0)$, and only $(-6, 0)$ is a choice. Check: $g(-6) = f(2(-6) + 4) = f(-8) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-12, 0)$): substitutes $-8$ into $2x + 4$ instead of solving $2x + 4 = -8$.\n* Choice C ($(-4, 0)$): halves $-8$ but ignores the $+4$ inside the function.\n* Choice D ($(-2, 0)$): adds $4$ before halving instead of subtracting it.\n\n**Test Day Takeaway:** To find where $f(ax + b)$ is zero, set the inside expression equal to each zero of $f$ and solve for $x$."
+ "correctAnswer": "A",
+ "hint": "At an x-intercept of $g$, the input $-2 - k$ must equal an x-intercept of $f$.",
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~35s):** $g(-2) = f(-2 - k) = 0$, so $-2 - k = -6$ or $-2 - k = 10$; $k = 4$ or $k = -12$, and $k$ is positive, so $k = 4$.\n\n**The Full Solution:**\nStep 1: Since $(-2, 0)$ is on the graph of $g$, $g(-2) = f(-2 - k) = 0$.\nStep 2: The value of $f$ is $0$ only at $x = -6$ and $x = 10$, so $-2 - k = -6$, which gives $k = 4$, or $-2 - k = 10$, which gives $k = -12$.\nStep 3: Since $k$ is positive, $k = 4$. Check: $g(-2) = f(-2 - 4) = f(-6) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($8$): this is $10 - 2$; solving $-2 - k = 10$ gives $k = -12$, not $8$.\n* Choice C ($12$): $-2 - k = 10$ gives $k = -12$, which is not positive; dropping the sign does not make it a solution.\n* Choice D ($16$): this is the distance from $-6$ to $10$, which does not involve the point $(-2, 0)$.\n\n**Test Day Takeaway:** Each x-intercept of the graph of $y = f(x - k)$ is $k$ more than an x-intercept of the graph of $y = f(x)$."
 }

@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 2,
- "passage": "Neural machine translation systems, trained on vast collections of paired sentences, now render routine prose between major languages with striking fluency. ______ idioms still expose the systems' limits: because a phrase like \"spill the beans\" means something unrelated to beans, and because such phrases are rare in training data, the systems sometimes translate them word for word into fluent nonsense.",
+ "passage": "Neural machine translation systems, trained on vast collections of paired sentences, now render routine prose between major languages with striking fluency. ______ idioms still expose the systems' limits. Because a phrase like \"spill the beans\" means something unrelated to beans, and because such phrases are rare in training data, the systems sometimes translate them word for word into fluent nonsense.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {

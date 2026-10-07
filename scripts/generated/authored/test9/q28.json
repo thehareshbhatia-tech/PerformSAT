@@ -6,14 +6,32 @@
   "domain": "craft-and-structure",
   "skill": "words-in-context",
   "module": 2,
-  "passage": "Steller's sea cow grazed on kelp in the shallowest water along the shore, and its buoyant body could not fully submerge. Because the animals could neither dive out of reach nor swim quickly away, hunting parties found them easy to ______, and crews provisioning their ships in the Bering Sea took the slow-breeding animals faster than the small population could replace them.",
+  "passage": "The kākāpō, a large flightless parrot of New Zealand, evolved where the main predators were birds of prey that hunted by sight. When threatened, it freezes and relies on its mossy green feathers for camouflage. That defense failed against introduced cats and stoats, which hunt by smell: they found the motionless birds easy to ______.",
   "question": "Which choice completes the text with the most logical and precise word or phrase?",
   "choices": [
-    { "id": "A", "text": "overlook" },
-    { "id": "B", "text": "approach" },
-    { "id": "C", "text": "domesticate" },
-    { "id": "D", "text": "describe" }
+    {
+      "id": "A",
+      "text": "overlook"
+    },
+    {
+      "id": "B",
+      "text": "approach"
+    },
+    {
+      "id": "C",
+      "text": "domesticate"
+    },
+    {
+      "id": "D",
+      "text": "describe"
+    }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** The \"Because\" clause supplies the cause — the animals could not dive or flee — and the blank must name the effect that follows for hunters: the sea cows were easy to \"approach.\"\n\n**The Full Solution:**\n- The logic is causal: an animal that cannot escape is an animal a hunting party can get close to.\n- The rest of the sentence confirms the hunting context — crews \"took\" the animals for provisions — so the blank describes the step that made the killing easy.\n\n**Why the other choices are wrong:**\n- A: \"Overlook\" means to fail to notice, which would make the animals harder to hunt, not easier — the causal chain collapses.\n- C: Nothing in the passage involves taming; the crews wanted provisions, not livestock.\n- D: Ease of description has no connection to the inability to dive or flee, and the sentence's consequence is depletion, not documentation."
+  "explanation": "**Choice B is correct.** A bird that freezes in place instead of fleeing lets a predator that has found it by smell get close, so the predators found the birds easy to \"approach.\"\n\n**The Full Solution:**\n- The logic is causal: freezing worked against hunters that needed to see their prey, but cats and stoats hunt by smell.\n- An animal that stays motionless and cannot fly away is an animal a predator can get close to.\n\n**Why the other choices are wrong:**\n- A: \"Overlook\" means to fail to notice, but predators hunting by smell would find the birds, not miss them; the passage says the defense failed.\n- C: Nothing in the passage involves taming; cats and stoats hunt the birds.\n- D: Ease of description has no connection to a predator's hunting by smell or to a bird that freezes in place.",
+  "_meta": {
+    "anchor": "kākāpō freezing defense vs introduced predators — WIC approach",
+    "sources": [
+      "https://en.wikipedia.org/wiki/K%C4%81k%C4%81p%C5%8D"
+    ]
+  }
 }

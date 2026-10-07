@@ -1,22 +1,22 @@
 {
   "id": "bank-alg-083",
-  "question": "The graph of $y = f(x)$ is shown in the $xy$-plane. What are the coordinates of the vertex of the graph of $y = f(x - 2) + 6$?",
+  "question": "The function $h$ is defined by $h(x) = f(x + 3) - 5$, where the graph of the function $f$ is shown. What are the coordinates of the vertex of the graph of $h$?",
   "diagram": {
     "type": "quadraticVertex",
     "params": {
       "vertex": [
-        4,
-        -3
+        -1,
+        2
       ],
       "a": 1,
       "showPoints": [
         [
-          2,
-          1
+          -3,
+          6
         ],
         [
-          6,
-          1
+          1,
+          6
         ]
       ],
       "showVertex": true
@@ -25,26 +25,26 @@
   "choices": [
     {
       "id": "A",
-      "text": "$(2, -9)$"
+      "text": "$(-4, -3)$"
     },
     {
       "id": "B",
-      "text": "$(2, 3)$"
+      "text": "$(-4, 7)$"
     },
     {
       "id": "C",
-      "text": "$(6, -9)$"
+      "text": "$(2, -3)$"
     },
     {
       "id": "D",
-      "text": "$(6, 3)$"
+      "text": "$(2, 7)$"
     }
   ],
   "distractorNotes": {
-    "A": "shifts left instead of right and down instead of up",
-    "B": "shifts left 2 instead of right 2",
-    "C": "shifts down 6 instead of up 6"
+    "B": "shifts up 5 instead of down 5",
+    "C": "shifts right 3 instead of left 3",
+    "D": "shifts right instead of left and up instead of down"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Vertex from Transformations**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The vertex of $f$ is $(4, -3)$. The graph of $f(x - 2) + 6$ is that graph moved $2$ right and $6$ up, so the new vertex is $(6, 3)$.\n\n**The Full Solution:**\nStep 1: From the graph, the vertex of $y = f(x)$ is $(4, -3)$.\nStep 2: Replacing $x$ with $x - 2$ shifts the graph $2$ units right, and adding $6$ shifts it $6$ units up.\nStep 3: Apply both shifts to the vertex: $(4 + 2, -3 + 6) = (6, 3)$. Check: $f(x - 2) + 6$ at $x = 6$ is $f(4) + 6 = -3 + 6 = 3$, the lowest output, since $f(4)$ is the minimum of $f$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(2, -9)$): reverses both shifts, moving the vertex left $2$ and down $6$.\n* Choice B ($(2, 3)$): reads $x - 2$ as a shift to the left.\n* Choice C ($(6, -9)$): reads $+6$ as a shift down.\n\n**Test Day Takeaway:** Inside the parentheses, the shift goes opposite to the sign ($x - 2$ means right $2$); outside, it goes with the sign ($+6$ means up $6$). Move the vertex and you have moved the graph."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Vertex from Transformations**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The vertex of $f$ is $(-1, 2)$. The graph of $h(x) = f(x + 3) - 5$ is that graph moved $3$ left and $5$ down, so the new vertex is $(-4, -3)$.\n\n**The Full Solution:**\nStep 1: From the graph, the vertex of $y = f(x)$ is $(-1, 2)$.\nStep 2: Replacing $x$ with $x + 3$ shifts the graph $3$ units left, and subtracting $5$ shifts it $5$ units down.\nStep 3: Apply both shifts to the vertex: $(-1 - 3, 2 - 5) = (-4, -3)$. Check: $h(-4) = f(-1) - 5 = 2 - 5 = -3$, the lowest output, since $f(-1)$ is the minimum of $f$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($(-4, 7)$): reads $-5$ as a shift up.\n* Choice C ($(2, -3)$): reads $x + 3$ as a shift to the right.\n* Choice D ($(2, 7)$): reverses both shifts, moving the vertex right $3$ and up $5$.\n\n**Test Day Takeaway:** Inside the parentheses, the shift goes opposite to the sign ($x + 3$ means left $3$); outside, it goes with the sign ($-5$ means down $5$). Move the vertex and you have moved the graph."
 }

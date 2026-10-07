@@ -6,26 +6,26 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 2,
- "passage": "Before opening a lake to ricing crews each season, tribal natural-resource officers judge the stand's readiness by three signs ____ and postpone the harvest if any of the three falls short.",
+ "passage": "Diamond graders judge each stone by four qualities ____ and a weakness in any one of them can lower the price of an otherwise fine gem.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": ", the density of the standing plants, the ripeness of the seed heads, and the firmness of the grain,"
+   "text": ", cut, color, clarity, and carat weight,"
   },
   {
    "id": "B",
-   "text": "the density of the standing plants, the ripeness of the seed heads, and the firmness of the grain"
+   "text": "cut, color, clarity, and carat weight"
   },
   {
    "id": "C",
-   "text": "—the density of the standing plants, the ripeness of the seed heads, and the firmness of the grain,"
+   "text": "—cut, color, clarity, and carat weight,"
   },
   {
    "id": "D",
-   "text": "—the density of the standing plants, the ripeness of the seed heads, and the firmness of the grain—"
+   "text": "—cut, color, clarity, and carat weight—"
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The list of three signs is an interrupting aside dropped into the middle of the sentence, and because the list carries its own commas, it must be fenced off by a matched pair of dashes — one before \"the density\" and one after \"the grain.\"\n\n**The Full Solution:**\n- Lift the aside out and the sentence still stands: \"officers judge the stand's readiness by three signs... and postpone the harvest if any of the three falls short.\" So the list is a parenthetical insertion.\n- The rule: a mid-sentence aside takes the same mark at both ends, and when the aside contains commas of its own, dashes keep its boundaries visible.\n- Only D supplies the matched pair of dashes around the comma-filled list.\n\n**Why the other choices are wrong:**\n- A: Its fencing commas drown among the list's internal commas, leaving the aside's edges unreadable.\n- B: With no punctuation at all, the list crashes into \"three signs\" on one side and \"and postpone\" on the other.\n- C: It opens with a dash but closes with a comma — mismatched fences around a single aside."
+ "explanation": "**Choice D is correct.** The list \"cut, color, clarity, and carat weight\" is an interruption that names the \"four qualities.\" Because the list itself contains commas, a pair of dashes is the clearest way to set it off, and a dash that opens an interruption must be matched by a dash that closes it.\n\n**The Full Solution:**\n- The main sentence is \"Diamond graders judge each stone by four qualities ... and a weakness in any one of them can lower the price of an otherwise fine gem.\"\n- The list in the middle renames the four qualities, so it must be set off from the rest of the sentence.\n- A dash before the list and a matching dash after it mark its boundaries clearly.\n\n**Why the other choices are wrong:**\n- A: Setting off a list that contains commas with more commas makes it unclear where the list ends and the sentence resumes.\n- B: With no punctuation, the list runs straight into the surrounding sentence.\n- C: The opening dash must be closed by a second dash, not by a comma."
 }

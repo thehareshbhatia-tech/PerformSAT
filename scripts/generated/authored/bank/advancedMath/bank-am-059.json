@@ -1,10 +1,10 @@
 {
  "id": "bank-am-059",
- "question": "$(x^{2} + kx + 3)(3x - 2) = ax^{3} + bx^{2} + cx + d$\nThe given equation is true for all values of $x$, where $a$, $b$, $c$, $d$, and $k$ are constants. If $a - b + c - d = 35$, what is the value of $k$?",
+ "question": "$(x^{2} + kx + 3)(3x - 2) = 3x^{3} + bx^{2} + cx - 6$\nThe given equation is true for all values of $x$, where $b$, $c$, and $k$ are constants. If $b = 7$, what is the value of $c$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-3$"
+   "text": "$-6$"
   },
   {
    "id": "B",
@@ -12,18 +12,18 @@
   },
   {
    "id": "C",
-   "text": "$11$"
+   "text": "$9$"
   },
   {
    "id": "D",
-   "text": "$31$"
+   "text": "$15$"
   }
  ],
  "distractorNotes": {
-  "B": "reaches $20 - 5k = 35$ but solves it as $5k = 15$, dropping the sign",
-  "C": "sets the left side at $x = -1$ equal to $35$, but that value is $-a + b - c + d$, the opposite of $a - b + c - d$",
-  "D": "substitutes $x = 1$, which gives $a + b + c + d$, and solves $k + 4 = 35$"
+  "A": "forgets the 9x term from 3(3x), giving c = -2k = -6",
+  "C": "forgets the -2kx term from kx(-2), giving c = 9",
+  "D": "takes kx(-2) as +2kx, giving c = 9 + 2k = 15"
  },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Alternating-Sign Coefficient Sum via $f(-1)$**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Substituting $x = -1$ into the right side gives $-a + b - c + d$, the opposite of $a - b + c - d$. The left side at $x = -1$ is $(1 - k + 3)(-5) = -5(4 - k)$, so $a - b + c - d = 5(4 - k) = 20 - 5k$. Then $20 - 5k = 35$ and $k = -3$.\n\n**The Full Solution:**\nStep 1: Expand the left side: $(x^{2} + kx + 3)(3x - 2) = 3x^{3} + (3k - 2)x^{2} + (9 - 2k)x - 6$, so $a = 3$, $b = 3k - 2$, $c = 9 - 2k$, and $d = -6$.\nStep 2: Form the alternating sum: $a - b + c - d = 3 - (3k - 2) + (9 - 2k) - (-6) = 20 - 5k$.\nStep 3: Solve $20 - 5k = 35$: $-5k = 15$, so $k = -3$. Check: with $k = -3$ the expansion is $3x^{3} - 11x^{2} + 15x - 6$, and $3 - (-11) + 15 - (-6) = 35$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3$): reaches $20 - 5k = 35$ but drops the negative sign when solving.\n* Choice C ($11$): sets the value at $x = -1$, which is $-a + b - c + d = 5k - 20$, equal to $35$; that is the opposite of the sum asked for.\n* Choice D ($31$): substitutes $x = 1$, which gives the plain sum $a + b + c + d = (4 + k)(1)$, and solves $4 + k = 35$.\n\n**Test Day Takeaway:** Substituting $x = -1$ alternates the signs of the coefficients and $x = 1$ adds them all; decide which sign pattern the question wants before you set anything equal."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Match Coefficients of Equivalent Polynomials**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The $x^{2}$-terms of the product are $-2x^{2} + 3kx^{2}$, so $3k - 2 = 7$ and $k = 3$. The $x$-terms are $-2kx + 9x$, so $c = 9 - 2(3) = 3$.\n\n**The Full Solution:**\nStep 1: Expand the left side: $(x^{2} + kx + 3)(3x - 2) = 3x^{3} - 2x^{2} + 3kx^{2} - 2kx + 9x - 6 = 3x^{3} + (3k - 2)x^{2} + (9 - 2k)x - 6$.\nStep 2: Match the $x^{2}$-coefficients: $b = 3k - 2 = 7$, so $3k = 9$ and $k = 3$.\nStep 3: Match the $x$-coefficients: $c = 9 - 2k = 9 - 6 = 3$. Check: $(x^{2} + 3x + 3)(3x - 2) = 3x^{3} + 7x^{2} + 3x - 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): forgets the $9x$ term that comes from $3(3x)$.\n* Choice C ($9$): forgets the $-2kx$ term that comes from $kx(-2)$.\n* Choice D ($15$): takes $kx(-2)$ as $+2kx$, so it gets $c = 9 + 2k$.\n\n**Test Day Takeaway:** When two polynomials are equal for all $x$, match coefficients one power at a time: use the coefficient you know to find the parameter, then the parameter to find the coefficient you need."
 }

@@ -1,6 +1,6 @@
 {
  "id": 1,
- "question": "A $400$-gram sample of a metal alloy contains only copper, tin, lead, and zinc. The table shows the percent of the sample's mass made up by each of three of these metals. What is the mass, in grams, of the zinc in the sample?",
+ "question": "The table shows the percent of a $400$-gram alloy sample's mass made up by copper, tin, and lead. The rest of the sample is zinc. What is the mass, in grams, of the zinc?",
  "questionTable": {
   "headers": [
    "Metal",

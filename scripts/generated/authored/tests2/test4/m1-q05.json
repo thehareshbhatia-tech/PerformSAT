@@ -1,29 +1,29 @@
 {
  "id": 5,
- "question": "Which expression is equivalent to $-3(x - 8)^{2} + 240$?",
+ "question": "Which expression is equivalent to $(x - 6)^{2} + 5$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-3x^{2} - 48x + 48$"
+   "text": "$x^{2} + 41$"
   },
   {
    "id": "B",
-   "text": "$-3x^{2} + 48x + 48$"
+   "text": "$x^{2} - 6x + 41$"
   },
   {
    "id": "C",
-   "text": "$-3x^{2} + 48x + 176$"
+   "text": "$x^{2} - 12x - 31$"
   },
   {
    "id": "D",
-   "text": "$-3x^{2} + 48x + 432$"
+   "text": "$x^{2} - 12x + 41$"
   }
  ],
  "distractorNotes": {
-  "A": "drops the negative sign on the middle term when distributing -3 over -16x",
-  "C": "adds 240 to -64 without first multiplying the 64 by -3, giving 176",
-  "D": "multiplies 64 by +3 instead of -3, adding 192 to 240 to get 432"
+  "A": "squares each term inside the parentheses, writing (x - 6)^2 as x^2 + 36 and leaving out the middle term",
+  "B": "forgets to double the middle term, writing -6x instead of -12x",
+  "C": "writes the constant term of (x - 6)^2 as -36 instead of +36"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $(x - 8)^{2} = x^{2} - 16x + 64$, so $-3(x^{2} - 16x + 64) + 240 = -3x^{2} + 48x - 192 + 240 = -3x^{2} + 48x + 48$.\n\n**The Full Solution:**\nStep 1: Expand the square: $(x - 8)^{2} = x^{2} - 16x + 64$.\nStep 2: Distribute $-3$ to each term: $-3x^{2} + 48x - 192$.\nStep 3: Add $240$: $-3x^{2} + 48x - 192 + 240 = -3x^{2} + 48x + 48$. Check at $x = 0$: the original gives $-3(64) + 240 = 48$, and the answer gives $48$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3x^{2} - 48x + 48$): the product of $-3$ and $-16x$ is $+48x$, not $-48x$.\n* Choice C ($-3x^{2} + 48x + 176$): adds $240$ to $-64$ without multiplying the $64$ by $-3$.\n* Choice D ($-3x^{2} + 48x + 432$): multiplies $64$ by $3$ instead of $-3$, so it adds $192$ rather than subtracting it.\n\n**Test Day Takeaway:** Expand the square before distributing the outside coefficient, and test the result at $x = 0$; the constant terms must match."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** $(x - 6)^{2} = x^{2} - 12x + 36$, so $(x - 6)^{2} + 5 = x^{2} - 12x + 41$.\n\n**The Full Solution:**\nStep 1: Write the square as a product: $(x - 6)^{2} = (x - 6)(x - 6)$.\nStep 2: Multiply: $x^{2} - 6x - 6x + 36 = x^{2} - 12x + 36$.\nStep 3: Add $5$: $x^{2} - 12x + 36 + 5 = x^{2} - 12x + 41$. Check at $x = 1$: the original gives $(-5)^{2} + 5 = 30$, and the answer gives $1 - 12 + 41 = 30$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{2} + 41$): squares each term separately. $(x - 6)^{2}$ also has the middle term $-12x$.\n* Choice B ($x^{2} - 6x + 41$): finds only one of the two $-6x$ terms; the middle term is $2(-6x) = -12x$.\n* Choice C ($x^{2} - 12x - 31$): uses $-36$ for the last term, but $(-6)(-6) = +36$.\n\n**Test Day Takeaway:** $(x - a)^{2} = x^{2} - 2ax + a^{2}$: the middle term is doubled and the last term is always positive. Test your answer at an easy value such as $x = 1$."
 }

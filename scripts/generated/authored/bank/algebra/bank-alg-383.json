@@ -1,48 +1,48 @@
 {
  "id": "bank-alg-383",
- "question": "The midpoint of the line segment joining the two points shown in the $xy$-plane lies on the line $y = kx$, where $k$ is a constant. What is the value of $k$?",
+ "question": "The two points shown in the $xy$-plane lie on line $r$. Line $s$ is perpendicular to line $r$. What is the slope of line $s$?",
  "diagram": {
   "type": "coordinatePoints",
   "params": {
    "points": [
     [
-     -8,
+     -6,
      -2
     ],
     [
      4,
-     10
+     6
     ]
    ],
-   "xMin": -10,
+   "xMin": -8,
    "xMax": 6,
    "yMin": -4,
-   "yMax": 12
+   "yMax": 8
   }
  },
  "choices": [
   {
    "id": "A",
-   "text": "$-2$"
+   "text": "$-\\frac{5}{4}$"
   },
   {
    "id": "B",
-   "text": "$-\\frac{1}{2}$"
+   "text": "$-\\frac{4}{5}$"
   },
   {
    "id": "C",
-   "text": "$1$"
+   "text": "$\\frac{4}{5}$"
   },
   {
    "id": "D",
-   "text": "$2$"
+   "text": "$\\frac{5}{4}$"
   }
  ],
  "correctAnswer": "A",
  "distractorNotes": {
-  "B": "divides the x-coordinate of the midpoint by its y-coordinate instead of y by x",
-  "C": "finds the slope of the segment joining the two points instead of using the midpoint",
-  "D": "drops the negative sign on the midpoint's x-coordinate"
+  "B": "changes the sign of line r's slope but does not take the reciprocal",
+  "C": "gives the slope of line r itself",
+  "D": "takes the reciprocal of line r's slope but does not change the sign"
  },
- "explanation": "**SAT Pattern: Midpoint Formula**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The points are $(-8, -2)$ and $(4, 10)$, so the midpoint is $(-2, 4)$, and $4 = k(-2)$ gives $k = -2$.\n\n**The Full Solution:**\nStep 1: Read the points: $(-8, -2)$ and $(4, 10)$.\nStep 2: Midpoint $= \\left(\\frac{-8 + 4}{2}, \\frac{-2 + 10}{2}\\right) = (-2, 4)$.\nStep 3: Substitute into $y = kx$: $4 = k(-2)$, so $k = -2$. Check: the line $y = -2x$ passes through $(-2, 4)$ because $-2(-2) = 4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{1}{2}$): computes $\\frac{x}{y} = \\frac{-2}{4}$, the reciprocal of $k$.\n* Choice C ($1$): finds the slope of the segment, $\\frac{10 - (-2)}{4 - (-8)} = 1$, which is not the line $y = kx$.\n* Choice D ($2$): loses the negative sign on the midpoint's $x$-coordinate.\n\n**Test Day Takeaway:** A line $y = kx$ passes through the origin, so $k$ is just $\\frac{y}{x}$ for any point on it other than the origin."
+ "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Line $r$ has slope $\\frac{6 - (-2)}{4 - (-6)} = \\frac{8}{10} = \\frac{4}{5}$, so a perpendicular line has slope $-\\frac{5}{4}$.\n\n**The Full Solution:**\nStep 1: Read the points: $(-6, -2)$ and $(4, 6)$.\nStep 2: Slope of line $r$: $\\frac{6 - (-2)}{4 - (-6)} = \\frac{8}{10} = \\frac{4}{5}$.\nStep 3: Perpendicular slopes are negative reciprocals, so line $s$ has slope $-\\frac{5}{4}$. Check: $\\frac{4}{5} \\cdot \\left(-\\frac{5}{4}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{4}{5}$): changes the sign but does not take the reciprocal.\n* Choice C ($\\frac{4}{5}$): is the slope of line $r$, which would make the lines parallel.\n* Choice D ($\\frac{5}{4}$): takes the reciprocal but does not change the sign.\n\n**Test Day Takeaway:** Subtracting a negative coordinate adds; get the slope right first, then flip it and change its sign."
 }

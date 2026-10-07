@@ -1,6 +1,6 @@
 {
   "id": 2,
-  "question": "The box plot summarizes the mass, in grams, of each of $45$ river stones collected from a streambed. What is the interquartile range, in grams, of the masses?",
+  "question": "The box plot summarizes the mass, in grams, of each of $45$ river stones collected from a streambed. What is the range, in grams, of the masses?",
   "diagram": {
     "type": "boxPlot",
     "params": {
@@ -19,27 +19,27 @@
   "choices": [
     {
       "id": "A",
-      "text": "$7$"
-    },
-    {
-      "id": "B",
-      "text": "$9$"
-    },
-    {
-      "id": "C",
       "text": "$16$"
     },
     {
-      "id": "D",
+      "id": "B",
+      "text": "$22$"
+    },
+    {
+      "id": "C",
       "text": "$36$"
+    },
+    {
+      "id": "D",
+      "text": "$58$"
     }
   ],
   "distractorNotes": {
-    "A": "subtracts the first quartile from the median, $38 - 31$, covering only the left half of the box.",
-    "B": "subtracts the median from the third quartile, $47 - 38$, covering only the right half of the box.",
-    "D": "subtracts the whisker ends, $58 - 22$, which is the range rather than the interquartile range."
+    "A": "subtracts the quartiles, 47 - 31, instead of the minimum from the maximum",
+    "B": "reports the minimum mass",
+    "D": "reports the maximum mass"
   },
   "correctAnswer": "C",
-  "hint": "The interquartile range is the width of the box itself.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** The box runs from $31$ to $47$ grams, so the interquartile range is $47 - 31 = 16$.\n\n**The Full Solution:**\nStep 1: A box plot marks five values: the minimum and maximum at the whisker ends, the quartiles at the box edges, and the median inside the box.\nStep 2: The interquartile range is the third quartile minus the first quartile, so it uses only the two box edges, $47$ and $31$.\nStep 3: Interquartile range $= 47 - 31 = 16$ grams. Check: the middle half of the $45$ masses lies inside a $16$-gram-wide box. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): subtracts the first quartile from the median, $38 - 31$, covering only the left half of the box.\n* Choice B ($9$): subtracts the median from the third quartile, $47 - 38$, covering only the right half of the box.\n* Choice D ($36$): subtracts the whisker ends, $58 - 22$, which is the range rather than the interquartile range.\n\n**Test Day Takeaway:** Box edges give the interquartile range; whisker ends give the range. Decide which two marks the question wants before subtracting."
+  "hint": "The ends of the whiskers are the minimum and the maximum.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** The whiskers end at $22$ and $58$, so the range is $58 - 22 = 36$ grams.\n\n**The Full Solution:**\nStep 1: In a box plot, the left end of the left whisker is the minimum: $22$ grams.\nStep 2: The right end of the right whisker is the maximum: $58$ grams.\nStep 3: The range is the maximum minus the minimum: $58 - 22 = 36$ grams.\n\nCheck: $22 + 36 = 58$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($16$): uses the ends of the box, $47 - 31$, instead of the ends of the whiskers.\n* Choice B ($22$): is the minimum, not the range.\n* Choice D ($58$): is the maximum, not the range.\n\n**Test Day Takeaway:** In a box plot, the whisker ends give the minimum and maximum, and the range is their difference."
 }

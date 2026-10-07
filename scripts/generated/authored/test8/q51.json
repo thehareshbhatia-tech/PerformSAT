@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 2,
- "passage": "Even at a walking pace, the canal boat held a great advantage over the road: on still water, one horse could move a load that would have needed many teams on land. ______ a horse that could draw only about five-eighths of a ton in a cart on a soft road could pull up to thirty tons in a boat on a canal.",
+ "passage": "The Arctic tern makes one of the longest migrations of any animal, flying each year between its Arctic breeding grounds and the waters around Antarctica. ______ when researchers fitted terns from Greenland and Iceland with tiny tracking devices in a study published in 2010, the birds' migrations averaged about 70,900 kilometers a year.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,5 +27,12 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The second sentence moves from the general claim (one horse could move far more on water) to the precise figures behind it, and \"Specifically,\" is the transition that introduces exactly that sharpening.\n\n**The Full Solution:**\n- Sentence one makes a general point: on still water, one horse could move a load that would need many teams on land.\n- Sentence two supplies the particulars: about five-eighths of a ton in a cart on a soft road against up to thirty tons in a canal boat.\n- Moving from a claim to the exact detail behind it calls for \"Specifically.\"\n\n**Why the other choices are wrong:**\n- B: \"Alternatively,\" offers a different option, but the second sentence details the first rather than offering a substitute for it.\n- C: \"As a result,\" would make the figures a consequence of the claim, though they are its content.\n- D: \"By contrast,\" signals opposition, and no opposing idea appears between the two sentences."
+ "explanation": "**Choice A is correct.** The first sentence makes a general claim (the Arctic tern's migration is one of the longest of any animal), and the second supplies a precise measurement of that migration. \"Specifically,\" introduces exact detail that sharpens a general claim.\n\n**The Full Solution:**\n- Sentence one: the tern makes \"one of the longest migrations of any animal.\"\n- Sentence two: tracking showed the birds' migrations averaged about 70,900 kilometers a year.\n- The second sentence gives the exact figure behind the general statement, which is what \"Specifically,\" signals.\n\n**Why the other choices are wrong:**\n- B: \"Alternatively,\" introduces another option, but the tracking result measures the same migration rather than offering a different one.\n- C: \"As a result,\" would make the measured distance a consequence of the migration being long, when it is the evidence for that claim.\n- D: \"By contrast,\" signals an opposing point, but the measurement confirms the first sentence.",
+ "_meta": {
+  "anchor": "Arctic tern migration (geolocator study, PNAS 2010) — Specifically (general claim then precise figure)",
+  "sources": [
+   "https://www.pnas.org/doi/10.1073/pnas.0909493107",
+   "https://nora.nerc.ac.uk/id/eprint/14091/"
+  ]
+ }
 }

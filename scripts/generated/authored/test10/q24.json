@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 1,
- "passage": "The arithmometer, the first commercially successful calculating machine, required its operator to set each number on a row of sliders and then turn a crank to register it; entering a single figure took several deliberate motions. ______ the key-driven comptometer, introduced in 1887, added a digit the instant a key was struck, and a practiced operator's fingers could run well ahead of conscious thought.",
+ "passage": "A freshwater fish's body fluids are saltier than the water around it, so water keeps seeping into its body. The fish drinks hardly any water and releases large amounts of dilute urine. ______ a saltwater fish loses water to the saltier sea around it, so it drinks constantly and pushes extra salt out through its gills.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,5 +27,12 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The two sentences set opposed methods side by side, slow, multi-motion entry on the arithmometer versus instant, single-keystroke entry on the comptometer, and \"By contrast\" is the transition that marks such an opposition.\n\n**The Full Solution:**\n- Sentence one characterizes the arithmometer by its slowness: several deliberate motions per figure.\n- Sentence two characterizes the comptometer by the opposite quality: a digit registered the instant a key is struck.\n- The blank must flag that the second machine is being weighed against the first, which is contrast, not consequence or restatement.\n\n**Why the other choices are wrong:**\n- A: \"As a result\" would make the comptometer's speed an effect of the arithmometer's slowness, a causal link the text does not draw.\n- B: \"Similarly\" announces a likeness, but the sentences emphasize how the machines differ.\n- D: \"In other words\" introduces a restatement, yet the second sentence describes a different machine, not the first machine in new terms."
+ "explanation": "**Choice C is correct.** The text sets two kinds of fish side by side: the freshwater fish takes in too much water and hardly drinks, while the saltwater fish loses water and must drink constantly. \"By contrast\" signals that difference.\n\n**The Full Solution:**\n- The first two sentences describe how a freshwater fish gains water from its surroundings and how it gets rid of the extra.\n- The last sentence describes a different fish that faces the opposite problem and handles it in the opposite way.\n- A contrasting transition fits this comparison.\n\n**Why the other choices are wrong:**\n- A: \"As a result\" would mean the saltwater fish's water loss was caused by the freshwater fish's situation, which the text does not say.\n- B: \"Similarly\" signals a likeness, but the saltwater fish differs from the freshwater fish.\n- D: \"In other words\" signals a restatement, but the last sentence introduces a different fish rather than restating the earlier point.",
+ "_meta": {
+  "anchor": "freshwater vs saltwater fish water balance — By contrast",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Osmoregulation",
+   "https://askdruniverse.wsu.edu/2023/07/06/fish-sharks-drink-water/"
+  ]
+ }
 }

@@ -1,29 +1,29 @@
 {
  "id": 10,
- "question": "$5, 3, 12, 2, 3, 7, 4, 3, 9, 2, 5$\nThe list shows the number of nights each of $11$ guests stayed at a hotel. Which statement about these data is true?",
+ "question": "$6, 2, 13, 3, 4, 11, 3$\nThe list shows the number of nights each of $7$ guests stayed at a hotel. Which statement about these data is true?",
  "choices": [
   {
    "id": "A",
-   "text": "The mode is $3$ and the median is $4$."
+   "text": "The median is $3$ and the range is $11$."
   },
   {
    "id": "B",
-   "text": "The mode is $4$ and the median is $3$."
+   "text": "The median is $4$ and the range is $11$."
   },
   {
    "id": "C",
-   "text": "The mode is $3$ and the median is $5$."
+   "text": "The median is $4$ and the range is $13$."
   },
   {
    "id": "D",
-   "text": "The mode is $3$ and the median is $7$."
+   "text": "The median is $6$ and the range is $11$."
   }
  ],
- "correctAnswer": "A",
+ "correctAnswer": "B",
  "distractorNotes": {
-  "B": "swaps the two measures: 3 is the most frequent value and 4 is the middle value, not the reverse",
-  "C": "reports the mean, 55/11 = 5, as the median",
-  "D": "takes the middle entry of the unsorted list, the 6th value 7, as the median"
+  "A": "takes the middle entry of the unsorted list, the 4th value 3, as the median",
+  "C": "uses the greatest value, 13, as the range instead of 13 - 2",
+  "D": "reports the mean, 42/7 = 6, as the median"
  },
- "explanation": "**SAT Pattern: Mode of a Data Set**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Sorted, the list is $2, 2, 3, 3, 3, 4, 5, 5, 7, 9, 12$. The value $3$ appears most often, and the $6$th value is $4$.\n\n**The Full Solution:**\nStep 1: Order the $11$ values from least to greatest: $2, 2, 3, 3, 3, 4, 5, 5, 7, 9, 12$.\nStep 2: The mode is the most frequent value. The value $3$ appears $3$ times, more than any other value, so the mode is $3$.\nStep 3: With $11$ values, the median is the $6$th value in order, which is $4$. Check: there are $5$ values below it ($2, 2, 3, 3, 3$) and $5$ above it ($5, 5, 7, 9, 12$) ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: swaps the two measures; $4$ appears only once.\n* Choice C: $5$ is the mean, $\\frac{55}{11} = 5$, not the median.\n* Choice D: $7$ is the $6$th entry of the list as written, but the median must be found after the values are put in order.\n\n**Test Day Takeaway:** Sort the data before finding a median; the mode is the value that repeats most, and the mean is a separate measure."
+ "explanation": "**SAT Pattern: Median Calculation**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Sorted, the list is $2, 3, 3, 4, 6, 11, 13$. The middle ($4$th) value is $4$, and the range is $13 - 2 = 11$.\n\n**The Full Solution:**\nStep 1: Order the $7$ values from least to greatest: $2, 3, 3, 4, 6, 11, 13$.\nStep 2: With $7$ values, the median is the $4$th value in order, which is $4$.\nStep 3: The range is the greatest value minus the least value: $13 - 2 = 11$. Check: there are $3$ values below the median ($2, 3, 3$) and $3$ above it ($6, 11, 13$) ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: $3$ is the $4$th entry of the list as written, but the median must be found after the values are put in order.\n* Choice C: $13$ is the greatest value; the range is the difference between the greatest and least values.\n* Choice D: $6$ is the mean, $\\frac{42}{7} = 6$, not the median.\n\n**Test Day Takeaway:** Sort the data before finding a median, and remember that the range is a difference, greatest minus least."
 }

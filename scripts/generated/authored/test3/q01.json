@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "type": "multiple-choice",
- "passage": "In many mountain parks, wildlife biologists fit reintroduced bighorn sheep with lightweight radio collars. Each collar transmits a signal several times a day, allowing researchers to ______ the animals' movements across steep terrain that would be difficult to search on foot and to learn whether the herds are reaching the seasonal pastures they need.",
+ "passage": "In many mountain parks, wildlife biologists fit reintroduced bighorn sheep with lightweight radio collars. Each collar transmits a signal several times a day, allowing researchers to ______ the animals' movements across steep terrain that would be difficult to search on foot. The signals also show whether the herds are reaching the seasonal pastures they need.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {

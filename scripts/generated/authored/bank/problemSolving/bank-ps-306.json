@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-306",
-  "question": "The box plot summarizes the sodium content, in milligrams per serving, of $28$ canned soups. What is the interquartile range, in milligrams per serving, of the data?",
+  "question": "The box plot summarizes the sodium content, in milligrams per serving, of $28$ canned soups. What is the range, in milligrams per serving, of the data?",
   "diagram": {
     "type": "boxPlot",
     "params": {
@@ -19,26 +19,26 @@
   "choices": [
     {
       "id": "A",
-      "text": "$90$"
-    },
-    {
-      "id": "B",
-      "text": "$150$"
-    },
-    {
-      "id": "C",
       "text": "$240$"
     },
     {
-      "id": "D",
+      "id": "B",
+      "text": "$470$"
+    },
+    {
+      "id": "C",
       "text": "$610$"
+    },
+    {
+      "id": "D",
+      "text": "$810$"
     }
   ],
   "distractorNotes": {
-    "A": "measures from the first quartile to the median, 470 - 380 = 90",
-    "B": "measures from the median to the third quartile, 620 - 470 = 150",
-    "D": "subtracts the minimum from the maximum, 810 - 200 = 610, which is the range"
+    "A": "subtracts the ends of the box, 380 from 620, instead of the ends of the whiskers",
+    "B": "reads the median, the line inside the box",
+    "D": "reads the maximum value and does not subtract the minimum"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Box Plot Interpretation**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The interquartile range is the width of the box: $620 - 380 = 240$.\n\n**The Full Solution:**\nStep 1: The box runs from the first quartile to the third quartile. Here $Q_1 = 380$ and $Q_3 = 620$.\nStep 2: The interquartile range is $Q_3 - Q_1 = 620 - 380$.\nStep 3: So the interquartile range is $240$ milligrams per serving. Check: the two parts of the box, $470 - 380 = 90$ and $620 - 470 = 150$, add to $240$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($90$): measures only the left part of the box, from $Q_1$ to the median.\n* Choice B ($150$): measures only the right part of the box, from the median to $Q_3$.\n* Choice D ($610$): subtracts the whisker ends, $810 - 200$, which gives the range.\n\n**Test Day Takeaway:** The interquartile range is the box; the range is the whiskers. Subtract the two edges of the box and ignore the median line."
+  "explanation": "**SAT Pattern: Box Plot Interpretation**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The range is the maximum minus the minimum: $810 - 200 = 610$.\n\n**The Full Solution:**\nStep 1: In a box plot, the left end of the left whisker is the minimum and the right end of the right whisker is the maximum.\nStep 2: Here the minimum is $200$ and the maximum is $810$ milligrams per serving.\nStep 3: The range is $810 - 200 = 610$ milligrams per serving. Check: $200 + 610 = 810$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($240$): $620 - 380$ uses the ends of the box, not the ends of the whiskers.\n* Choice B ($470$): this is the median, the line inside the box.\n* Choice D ($810$): this is the maximum value; the range is the maximum minus the minimum.\n\n**Test Day Takeaway:** Range = greatest value $-$ least value. On a box plot, those are the ends of the whiskers."
 }

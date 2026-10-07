@@ -1,6 +1,6 @@
 {
   "id": "bank-am-168",
-  "question": "The graph of $y = f(x)$ is shown. If $g(x) = f(x - 2) + 3$, what is the maximum value of $g$?",
+  "question": "The graph of $y = f(x)$ is shown. If $g(x) = f(x - 2)$, what is the maximum value of $g$?",
   "diagram": {
     "type": "quadraticVertex",
     "params": {
@@ -15,26 +15,26 @@
   "choices": [
     {
       "id": "A",
-      "text": "$5$"
+      "text": "$3$"
     },
     {
       "id": "B",
-      "text": "$8$"
+      "text": "$5$"
     },
     {
       "id": "C",
-      "text": "$11$"
+      "text": "$8$"
     },
     {
       "id": "D",
-      "text": "$13$"
+      "text": "$10$"
     }
   ],
   "correctAnswer": "C",
   "distractorNotes": {
-    "A": "subtracts 3 instead of adding it, giving 8 - 3 = 5",
-    "B": "handles the horizontal shift but ignores the +3",
-    "D": "treats the horizontal shift as vertical too, giving 8 + 2 + 3 = 13"
+    "A": "gives the x-coordinate of the vertex of f, not a value of the function",
+    "B": "gives the x-coordinate where g reaches its maximum: 3 + 2",
+    "D": "adds the shift of 2 to the maximum value: 8 + 2"
   },
-  "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The maximum of $f$ is $8$. Replacing $x$ with $x - 2$ moves the graph right, which does not change the maximum, and adding $3$ raises it to $11$.\n\n**The Full Solution:**\nStep 1: From the graph, the vertex of $f$ is $(3, 8)$, so the maximum value of $f$ is $8$.\nStep 2: The graph of $y = f(x - 2)$ is the graph of $f$ shifted $2$ units right; its vertex is $(5, 8)$ and its maximum is still $8$.\nStep 3: Adding $3$ shifts the graph up $3$ units, so the vertex of $g$ is $(5, 11)$ and the maximum value of $g$ is $11$. Check: $g(5) = f(3) + 3 = 8 + 3 = 11$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): subtracts $3$ instead of adding it, moving the graph down.\n* Choice B ($8$): handles the horizontal shift but ignores the $+3$.\n* Choice D ($13$): treats the horizontal shift as vertical too, adding both $2$ and $3$ to $8$.\n\n**Test Day Takeaway:** A change inside the parentheses moves the graph left or right and never changes a maximum; only a change outside, like $+3$, moves the maximum value."
+  "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The graph of $f$ peaks at $(3, 8)$. Replacing $x$ with $x - 2$ only moves the graph $2$ units right, so the maximum value is still $8$.\n\n**The Full Solution:**\nStep 1: The graph of $f$ opens downward with vertex $(3, 8)$, so the maximum value of $f$ is $8$.\nStep 2: The graph of $g(x) = f(x - 2)$ is the graph of $f$ moved $2$ units right, so its vertex is $(5, 8)$.\nStep 3: A horizontal move does not change the outputs, so the maximum value of $g$ is $8$. Check: $g(5) = f(3) = 8$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): is the $x$-coordinate of the vertex of $f$, not a value of the function.\n* Choice B ($5$): is the $x$-coordinate where $g$ reaches its maximum, not the maximum value.\n* Choice D ($10$): adds the shift to the output; $f(x - 2)$ moves the graph right, not up.\n\n**Test Day Takeaway:** A change inside the parentheses, $f(x - c)$, moves the graph left or right and leaves the maximum value unchanged."
 }

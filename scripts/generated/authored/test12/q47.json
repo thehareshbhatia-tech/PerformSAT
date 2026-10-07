@@ -6,7 +6,7 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 2,
- "passage": "Players of the glass harmonica speak of the instrument's one unforgiving skill — keeping the fingertips at exactly the right dampness against the spinning glass — and students practice ____ on slow scales for months before performing, since a finger too wet slides silently over the rims and one too dry catches with a squeak.",
+ "passage": "For most people learning to juggle, the first pattern to master is the three-ball cascade, in which each ball crosses in an arc from one hand to the other. Because the cascade is the simplest pattern possible with an odd number of balls, beginners usually learn ____ before attempting any other.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The pronoun stands in for \"the instrument's one unforgiving skill,\" a single thing, so the singular pronoun \"it\" is required.\n\n**The Full Solution:**\n- The rule: a pronoun must agree in number with the word it refers back to.\n- Ask what the students practice: the skill just named — keeping the fingertips at the right dampness. That antecedent, \"skill,\" is singular.\n- \"Students practice it on slow scales\" points cleanly back to that one skill.\n- The plural nouns nearby (\"players,\" \"fingertips,\" \"rims\") can pull the ear toward a plural pronoun, but none of them is what gets practiced.\n\n**Why the other choices are wrong:**\n- A: \"Them\" is plural and has no plural antecedent doing the work — the thing practiced is one skill.\n- B: \"Those\" is plural as well and points at nothing the students could practice.\n- D: \"These\" is plural too, and nothing plural in the sentence names what is being practiced."
+ "explanation": "**Choice C is correct.** The pronoun refers to \"the cascade,\" a single pattern, so it must be the singular pronoun \"it.\"\n\n**The Full Solution:**\n- Ask what beginners \"usually learn ... before attempting any other\": the cascade.\n- \"The cascade\" is singular.\n- A singular antecedent needs the singular pronoun \"it.\"\n\n**Why the other choices are wrong:**\n- A: \"Them\" is plural, but beginners learn the single pattern, not the balls.\n- B: \"Those\" is plural and does not agree with \"the cascade.\"\n- D: \"These\" is plural and does not agree with \"the cascade.\""
 }

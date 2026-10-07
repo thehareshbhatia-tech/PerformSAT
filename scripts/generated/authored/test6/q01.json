@@ -6,7 +6,7 @@
   "band": 2,
   "domain": "craft-and-structure",
   "skill": "words-in-context",
-  "passage": "Wine grapes develop much of their flavor in the final weeks before harvest. Many growers therefore withhold irrigation late in the season: vines under mild water stress produce smaller berries with thicker skins, and because most of a grape's flavor compounds are made in the skin, the practice tends to ______ the concentration of those compounds in the finished wine.",
+  "passage": "Wine grapes develop much of their flavor in the final weeks before harvest. Many growers therefore withhold irrigation late in the season. Vines under mild water stress produce smaller berries with thicker skins, and most of a grape's flavor compounds are made in the skin. As a result, the practice tends to ______ the concentration of those compounds in the finished wine.",
   "question": "Which choice completes the text with the most logical and precise word or phrase?",
   "choices": [
     {
@@ -27,5 +27,5 @@
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** Smaller berries with thicker, flavor-rich skins mean more flavor compounds relative to juice, so the practice tends to \"increase\" their concentration.\n\n**The Full Solution:**\n- The colon introduces the reasoning: water stress yields smaller berries with thicker skins, and the skin is where most flavor compounds are made.\n- Less berry and proportionally more skin pushes the concentration of flavor compounds up, so the blank needs a word meaning raise — \"increase.\"\n\n**Why the other choices are wrong:**\n- A: \"Dilute\" is the opposite of what the evidence supports — smaller, skin-heavy berries concentrate flavor rather than watering it down.\n- B: \"Delay\" mistakes the effect for a timing change; the text says nothing about flavor developing later.\n- C: \"Conceal\" would mean hiding the compounds, which no part of the text suggests."
+  "explanation": "**Choice D is correct.** Smaller berries with thicker, flavor-rich skins mean more flavor compounds relative to juice, so the practice tends to \"increase\" their concentration.\n\n**The Full Solution:**\n- The middle sentences give the reasoning: water stress yields smaller berries with thicker skins, and the skin is where most flavor compounds are made.\n- Less berry and proportionally more skin pushes the concentration of flavor compounds up, so the blank needs a word meaning raise — \"increase.\"\n\n**Why the other choices are wrong:**\n- A: \"Dilute\" is the opposite of what the evidence supports — smaller, skin-heavy berries concentrate flavor rather than watering it down.\n- B: \"Delay\" mistakes the effect for a timing change; the text says nothing about flavor developing later.\n- C: \"Conceal\" would mean hiding the compounds, which no part of the text suggests."
 }

@@ -24,15 +24,14 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The passage sets two freights against each other: grain, which \"could wait in a siding for days without losing value,\" and fresh produce, which \"began deteriorating the moment it was harvested.\" Opposed cases introduced in sequence take \"by contrast.\"\n\n**The Full Solution:**\n- Sentence 1 establishes the tolerant cargo and the leisurely handling it permitted.\n- Sentence 2 presents the opposite cargo — time-critical, value-bleeding — and its opposite consequences for the shipper.\n- The blank sits where produce is measured against grain, and \"by contrast\" announces exactly that opposition.\n\n**Why the other choices are wrong:**\n- A: \"For instance\" would make perishable produce an example of patient grain freight — the reverse of the relationship.\n- B: \"In addition\" stacks like upon like, but the sentences are built as opposites, not as accumulating points.\n- D: \"Therefore\" would derive produce's perishability from grain's patience, a causal link that does not exist.",
- "passage": "A carload of grain could wait in a siding for days without losing value, so railroads moved it whenever traffic allowed. Fresh produce, ______ began deteriorating the moment it was harvested: every hour spent waiting cost the shipper money, and a delayed lettuce car might arrive worthless.",
+ "explanation": "**Choice C is correct.** The text sets the coqui against most frogs: most frogs lay eggs in water that hatch into tadpoles, while the coqui lays its eggs on land and its young skip the tadpole stage. \"By contrast\" marks that difference.\n\n**The Full Solution:**\n- Sentence 1: the usual pattern — eggs in water, then swimming tadpoles.\n- Sentence 2: the coqui's eggs are laid on land, and its young hatch as \"tiny froglets.\"\n- The two facts are opposed, so a contrasting transition is needed.\n\n**Why the other choices are wrong:**\n- A: \"For instance\" would make the coqui an example of the usual pattern, but it breaks that pattern.\n- B: \"In addition\" would add a similar point, but the second sentence presents an opposite one.\n- D: \"Therefore\" would mean that most frogs' habits cause the coqui's, which makes no sense.",
+ "passage": "Most frogs lay their eggs in water, where the eggs hatch into swimming tadpoles. The coqui, a small frog of Puerto Rico, ______ lays its eggs on land, and its young hatch as tiny froglets, skipping the tadpole stage entirely.",
  "_meta": {
-  "anchor": "refrigerated rail cars — grain's patience vs. produce's urgency",
-  "transitionBucket": "transitions-contrast",
+  "anchor": "coqui (Eleutherodactylus coqui) direct development — terrestrial eggs hatch as froglets, no tadpole, vs. aquatic tadpoles of most frogs (Elinson et al., PMC514616; eLife 2021 \"The big potential of the small frog Eleutherodactylus coqui\")",
   "distractors": {
-   "A": "example relation reversed",
-   "B": "addition where opposition is needed",
-   "D": "false derivation"
+   "A": "false exemplification",
+   "B": "false addition",
+   "D": "false causation"
   }
  },
  "id": 1152,

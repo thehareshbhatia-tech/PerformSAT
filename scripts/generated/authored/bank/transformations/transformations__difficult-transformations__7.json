@@ -1,6 +1,6 @@
 {
  "id": 7,
- "question": "The graph of $y = f(x)$ is shown, and its x-intercepts are $(-4, 0)$ and $(2, 0)$. The function $g$ is defined by $g(x) = f(5 - x)$. What is the sum of the x-coordinates of the x-intercepts of the graph of $y = g(x)$?",
+ "question": "The graph of $y = f(x)$ is shown, and its x-intercepts are $(-4, 0)$ and $(2, 0)$. The function $g$ is defined by $g(x) = f(x - 5)$. What is the sum of the x-coordinates of the x-intercepts of the graph of $y = g(x)$?",
  "diagram": {
   "type": "quadraticIntercepts",
   "params": {
@@ -13,27 +13,27 @@
  "choices": [
   {
    "id": "A",
-   "text": "$-8$"
+   "text": "$-12$"
   },
   {
    "id": "B",
-   "text": "$2$"
+   "text": "$-2$"
   },
   {
    "id": "C",
-   "text": "$8$"
+   "text": "$3$"
   },
   {
    "id": "D",
-   "text": "$12$"
+   "text": "$8$"
   }
  ],
  "distractorNotes": {
-  "A": "reflects the intercepts to 4 and -2, then moves them 5 units left instead of right",
-  "B": "reflects the intercepts across the y-axis but ignores the 5",
-  "C": "ignores the reflection and shifts each intercept 5 units right"
+  "A": "solves x + 5 = -4 and x + 5 = 2, shifting the wrong way",
+  "B": "adds the x-intercepts of f and ignores the shift",
+  "C": "adds 5 to the sum only once instead of once for each intercept"
  },
  "correctAnswer": "D",
- "hint": "Each x-intercept of the graph of $g$ is where $5 - x$ equals an x-intercept of the graph of $f$.",
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~40s):** $g(x) = 0$ when $5 - x = -4$ or $5 - x = 2$, so $x = 9$ or $x = 3$, and $9 + 3 = 12$.\n\n**The Full Solution:**\nStep 1: $g(x) = f(5 - x)$ equals $0$ exactly when the input $5 - x$ is $-4$ or $2$.\nStep 2: $5 - x = -4$ gives $x = 9$, and $5 - x = 2$ gives $x = 3$, so the x-intercepts of the graph of $y = g(x)$ are $(3, 0)$ and $(9, 0)$.\nStep 3: The sum is $3 + 9 = 12$. Check: $g(9) = f(-4) = 0$ and $g(3) = f(2) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): reflects the intercepts to $4$ and $-2$ but then moves them $5$ units left, to $-1$ and $-7$; since $f(5 - x) = f(-(x - 5))$, the reflected graph moves right.\n* Choice B ($2$): reflects the intercepts across the y-axis, to $4$ and $-2$, but ignores the $5$.\n* Choice C ($8$): treats $f(5 - x)$ like $f(x - 5)$, shifting $-4$ and $2$ right to $1$ and $7$ and ignoring the reflection.\n\n**Test Day Takeaway:** For $f(h - x)$, write it as $f(-(x - h))$: reflect across the y-axis, then shift $h$ units right, or simply solve $h - x =$ each known input."
+ "hint": "Each x-intercept of the graph of $g$ is where $x - 5$ equals an x-intercept of the graph of $f$.",
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~25s):** Moving the graph $5$ units right moves the x-intercepts to $(1, 0)$ and $(7, 0)$, and $1 + 7 = 8$.\n\n**The Full Solution:**\nStep 1: $g(x) = 0$ when $f(x - 5) = 0$, which happens when $x - 5 = -4$ or $x - 5 = 2$.\nStep 2: So $x = 1$ or $x = 7$.\nStep 3: The sum is $1 + 7 = 8$. Check: $g(1) = f(-4) = 0$ and $g(7) = f(2) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): this uses $x + 5$, which gives $-9$ and $-3$; subtracting $5$ inside $f$ moves the graph right.\n* Choice B ($-2$): this is $-4 + 2$, the sum for $f$; the shift moves both intercepts.\n* Choice C ($3$): this adds $5$ to $-2$ once; each of the two intercepts moves $5$ units, so the sum increases by $10$.\n\n**Test Day Takeaway:** The graph of $y = f(x - 5)$ is the graph of $y = f(x)$ moved $5$ units right, so each x-intercept increases by $5$."
 }

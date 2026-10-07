@@ -9,18 +9,18 @@
   "passages": [
     {
       "label": "Text 1",
-      "text": "In an influential 1985 study, psychologist Thomas Gilovich and his colleagues tested a belief shared by players, coaches, and fans: that a basketball player who has just made several shots in a row is more likely to make the next one. Analyzing game records and a controlled shooting experiment with college players, the researchers found that a player's chance of hitting the next shot was no higher after a string of makes than after a string of misses. The \"hot hand,\" they concluded, is a cognitive illusion."
+      "text": "In an influential 1985 study, psychologist Thomas Gilovich and his colleagues tested a common belief among players, coaches, and fans: a player who has just made several shots in a row is more likely to make the next one. The researchers analyzed game records and ran a shooting experiment with college players. A player's chance of hitting the next shot, they found, was no higher after a string of makes than after a string of misses. The \"hot hand,\" they concluded, is a cognitive illusion."
     },
     {
       "label": "Text 2",
-      "text": "Economists Joshua Miller and Adam Sanjurjo have identified a subtle bias in how early studies measured streak shooting. Selecting from a finite record only the shots that immediately follow several makes skews the expected success rate on those shots downward: even a shooter with no streakiness at all would score below his overall average on that subset. Judged against the corrected benchmark, the 1985 study's own data show significant streak shooting."
+      "text": "Economists Joshua Miller and Adam Sanjurjo have identified a subtle bias in how early studies measured streak shooting. Suppose a researcher picks out, from a finite record, only the shots that immediately follow several makes. The expected success rate on those shots is skewed downward: even a shooter with no streakiness at all would score below his overall average on them. Judged against the corrected benchmark, the 1985 study's own data show significant streak shooting."
     }
   ],
   "question": "Based on the texts, how would Miller and Sanjurjo (Text 2) most likely respond to the conclusion presented in Text 1?",
   "choices": [
     {
       "id": "A",
-      "text": "Fans and players were wrong to perceive streaks, but the tendency to see patterns in chance sequences is too deeply rooted to correct."
+      "text": "Fans and players were wrong to see streaks, but the habit of seeing patterns in chance events is too deeply rooted to correct."
     },
     {
       "id": "B",
@@ -32,7 +32,7 @@
     },
     {
       "id": "D",
-      "text": "The hot hand is indeed an illusion, and the bias they identified makes that illusion even more convincing than Gilovich and his colleagues claimed."
+      "text": "The hot hand is indeed an illusion, and the bias they identified makes the case for that conclusion even stronger."
     }
   ],
   "correctAnswer": "C",

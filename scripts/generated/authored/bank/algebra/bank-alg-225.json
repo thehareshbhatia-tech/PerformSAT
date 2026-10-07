@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-225",
- "question": "The graph of line $t$ is shown in the $xy$-plane. Line $w$ is parallel to line $t$ and passes through the point $(3, -5)$. Which equation defines line $w$?",
+ "question": "The graph of line $t$ is shown in the $xy$-plane. Line $w$ is parallel to line $t$ and passes through the point $(0, -5)$. Which equation defines line $w$?",
  "diagram": {
   "type": "linearGraph",
   "params": {
@@ -33,26 +33,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$y = -2x - 11$"
+   "text": "$y = -2x - 5$"
   },
   {
    "id": "B",
-   "text": "$y = \\frac{1}{2}x - \\frac{13}{2}$"
-  },
-  {
-   "id": "C",
    "text": "$y = -2x + 4$"
   },
   {
+   "id": "C",
+   "text": "$y = \\frac{1}{2}x - 5$"
+  },
+  {
    "id": "D",
-   "text": "$y = -2x + 1$"
+   "text": "$y = 2x - 5$"
   }
  ],
- "correctAnswer": "D",
+ "correctAnswer": "A",
  "distractorNotes": {
-  "A": "computes the $y$-intercept as $y + mx = -5 + (-2)(3) = -11$",
-  "B": "uses the negative reciprocal $\\frac{1}{2}$, which gives a perpendicular line",
-  "C": "keeps line $t$'s own $y$-intercept, so this is line $t$ itself"
+  "B": "gives the equation of line $t$ itself instead of a line through $(0, -5)$",
+  "C": "uses the perpendicular slope $\\frac{1}{2}$ instead of the same slope",
+  "D": "changes the sign of the slope"
  },
- "explanation": "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Line $t$ has slope $-2$, and $-5 = -2(3) + b$ gives $b = 1$.\n\n**The Full Solution:**\nStep 1: Line $t$ passes through $(0, 4)$ and $(3, -2)$, so its slope is $\\frac{-2 - 4}{3 - 0} = -2$.\nStep 2: Parallel lines have equal slopes, so line $w$ is $y = -2x + b$. Substituting $(3, -5)$ gives $-5 = -6 + b$.\nStep 3: So $b = 1$, and line $w$ is $y = -2x + 1$. Check: $-2(3) + 1 = -5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -2x - 11$): has the right slope but computes the intercept as $y + mx = -5 + (-2)(3) = -11$.\n* Choice B ($y = \\frac{1}{2}x - \\frac{13}{2}$): uses the negative reciprocal slope, which gives a line perpendicular to line $t$.\n* Choice C ($y = -2x + 4$): keeps line $t$'s $y$-intercept, so it is line $t$ itself and does not pass through $(3, -5)$.\n\n**Test Day Takeaway:** A parallel line keeps the slope and gets a new intercept; find it with $b = y - mx$ using the given point."
+ "explanation": "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Line $t$ has slope $-2$, so line $w$ does too. The point $(0, -5)$ is its $y$-intercept: $y = -2x - 5$.\n\n**The Full Solution:**\nStep 1: Read two points on line $t$ from the graph: $(0, 4)$ and $(3, -2)$. The slope is $\\frac{-2 - 4}{3 - 0} = -2$.\nStep 2: Parallel lines have the same slope, so line $w$ has slope $-2$.\nStep 3: The point $(0, -5)$ is on the $y$-axis, so it is the $y$-intercept of line $w$: $y = -2x - 5$. Check: $-2(0) - 5 = -5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = -2x + 4$): gives the equation of line $t$ itself instead of a line through $(0, -5)$\n* Choice C ($y = \\frac{1}{2}x - 5$): uses the perpendicular slope $\\frac{1}{2}$ instead of the same slope\n* Choice D ($y = 2x - 5$): changes the sign of the slope\n\n**Test Day Takeaway:** A parallel line keeps the slope; a point with $x$-coordinate $0$ gives the $y$-intercept directly."
 }

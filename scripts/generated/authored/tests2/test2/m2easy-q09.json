@@ -1,29 +1,29 @@
 {
  "id": 9,
- "question": "$y = 0.5x^{2} - 7x + 20$\nThe graph of the given equation intersects the $x$-axis at two points. What is the distance between the two points?",
+ "question": "$y = 2x^{2} - 20x + 42$\nThe graph of the given equation intersects the $x$-axis at two points. What is the distance between the two points?",
  "choices": [
   {
    "id": "A",
-   "text": "$4$"
+   "text": "$3$"
   },
   {
    "id": "B",
-   "text": "$6$"
+   "text": "$4$"
   },
   {
    "id": "C",
-   "text": "$10$"
+   "text": "$7$"
   },
   {
    "id": "D",
-   "text": "$14$"
+   "text": "$10$"
   }
  ],
  "correctAnswer": "B",
  "distractorNotes": {
-  "A": "reports the smaller x-intercept, 4, instead of the distance between the two intercepts",
-  "C": "reports the larger x-intercept, 10, instead of the distance between the two intercepts",
-  "D": "adds the two intercepts, 4 + 10, instead of subtracting them"
+  "A": "gives the smaller x-intercept, 3, instead of the distance",
+  "C": "gives the larger x-intercept, 7, instead of the distance",
+  "D": "adds the x-intercepts, 3 + 7, instead of subtracting"
  },
- "explanation": "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Multiply by $2$ to get $x^{2} - 14x + 40 = 0$, which factors as $(x - 4)(x - 10) = 0$. The intercepts are at $x = 4$ and $x = 10$, which are $10 - 4 = 6$ apart.\n\n**The Full Solution:**\nStep 1: The graph meets the $x$-axis where $y = 0$: $0.5x^{2} - 7x + 20 = 0$. Multiplying both sides by $2$ gives $x^{2} - 14x + 40 = 0$.\nStep 2: Factor: $(x - 4)(x - 10) = 0$, so $x = 4$ or $x = 10$. The points are $(4, 0)$ and $(10, 0)$.\nStep 3: Both points are on the $x$-axis, so the distance between them is $10 - 4 = 6$. Check: $0.5(4)^{2} - 7(4) + 20 = 8 - 28 + 20 = 0$ and $0.5(10)^{2} - 7(10) + 20 = 50 - 70 + 20 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): is the smaller $x$-intercept, not the distance between the intercepts.\n* Choice C ($10$): is the larger $x$-intercept, not the distance between the intercepts.\n* Choice D ($14$): adds the intercepts, $4 + 10$, which gives the sum of the solutions rather than the distance.\n\n**Test Day Takeaway:** For the distance between $x$-intercepts, find both zeros and subtract the smaller from the larger. Clearing a decimal coefficient first makes factoring easier."
+ "explanation": "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $2x^{2} - 20x + 42 = 2(x - 3)(x - 7)$, so the graph crosses the $x$-axis at $x = 3$ and $x = 7$, which are $4$ units apart.\n\n**The Full Solution:**\nStep 1: Set $y = 0$ and divide by $2$: $x^{2} - 10x + 21 = 0$.\nStep 2: Factor: $(x - 3)(x - 7) = 0$, so the $x$-intercepts are $(3, 0)$ and $(7, 0)$.\nStep 3: Both points are on the $x$-axis, so the distance between them is $7 - 3 = 4$. Check: $2(3)^{2} - 20(3) + 42 = 18 - 60 + 42 = 0$ and $2(7)^{2} - 20(7) + 42 = 98 - 140 + 42 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): is the smaller $x$-intercept, not the distance between the two.\n* Choice C ($7$): is the larger $x$-intercept, not the distance between the two.\n* Choice D ($10$): adds the $x$-intercepts instead of subtracting them.\n\n**Test Day Takeaway:** The distance between two $x$-intercepts is the difference of the solutions; factor out any common number first to make the factoring easier."
 }

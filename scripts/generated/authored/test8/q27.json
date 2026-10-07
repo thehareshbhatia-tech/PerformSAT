@@ -9,32 +9,39 @@
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "Emanuela Guidoboni is an Italian historical seismologist who studies earthquakes recorded in historical documents.",
-   "Earlier Italian catalogs listed medieval Sicilian earthquakes based largely on local sources.",
-   "Guidoboni and a colleague re-examined those earthquakes using Byzantine, Latin, and Arab sources as well.",
-   "Their 1996 revision deleted six spurious earthquakes from the record and identified five previously unknown ones."
+   "Before the 1920s, ocean depths were usually measured by lowering a weighted line until it touched the seafloor.",
+   "From 1925 to 1927, Meteor, a German research ship, surveyed the South Atlantic Ocean.",
+   "Its crew used echo sounders, which measure depth by timing how long a sound pulse takes to return from the seafloor.",
+   "The expedition made about 67,000 depth measurements."
   ],
-  "goal": "The student wants to emphasize a difference between Guidoboni's method and the practice of earlier catalog compilers."
+  "goal": "The student wants to emphasize a difference between the Meteor expedition's method and earlier practice."
  },
  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
  "choices": [
   {
    "id": "A",
-   "text": "Earlier Italian earthquake catalogs listed the earthquakes of medieval Sicily based largely on local sources."
+   "text": "Before the 1920s, ocean depths were usually measured by lowering a weighted line until it touched the seafloor."
   },
   {
    "id": "B",
-   "text": "Guidoboni's 1996 revision of the catalogs deleted six spurious earthquakes from the record of medieval Sicily and identified five earthquakes that had previously been unknown."
+   "text": "From 1925 to 1927, the German research ship Meteor surveyed the South Atlantic Ocean and made about 67,000 depth measurements there."
   },
   {
    "id": "C",
-   "text": "Emanuela Guidoboni is an Italian historical seismologist who studies earthquakes recorded in historical documents."
+   "text": "Meteor, a German research ship, surveyed the South Atlantic Ocean in the years between 1925 and 1927."
   },
   {
    "id": "D",
-   "text": "Whereas earlier catalogs relied largely on local sources, Guidoboni also drew on Byzantine, Latin, and Arab sources to revise the record of medieval Sicily's earthquakes."
+   "text": "Whereas earlier surveys lowered a weighted line to the seafloor, the Meteor's crew measured depth by timing sound echoes."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The goal is to set Guidoboni's method against the earlier compilers' practice, and D holds the two side by side: they relied largely on local sources; she also drew on Byzantine, Latin, and Arab sources.\n\n**The Full Solution:**\n- A difference is only emphasized when both approaches appear in one frame.\n- Choice D's \"Whereas\" construction does exactly that, pairing the old practice (local sources) with hers (a wider range of sources).\n\n**Why the other choices are wrong:**\n- A: It describes only the earlier catalogs and never presents Guidoboni's alternative.\n- B: It reports the results of her revision, not how her method differed from anyone's.\n- C: It identifies her field without contrasting her method with earlier practice."
+ "explanation": "**Choice D is correct.** The goal is a difference in method, and D sets the two methods side by side with \"Whereas\": earlier surveys lowered a weighted line, while the Meteor's crew timed sound echoes.\n\n**The Full Solution:**\n- To emphasize a difference, the sentence must name both methods and contrast them.\n- Earlier practice: lowering a weighted line until it touched the seafloor. The Meteor's method: echo sounders that time a sound pulse's return.\n- Choice D states both and links them with a contrast word, which is exactly what the goal requires.\n\n**Why the other choices are wrong:**\n- A: It describes only the earlier practice, with nothing to contrast it against.\n- B: It reports the expedition's dates and number of measurements but not how the measurements were made, so no difference in method appears.\n- C: It gives only background about the ship and its survey, not either method.",
+ "_meta": {
+  "anchor": "Meteor expedition echo sounding vs weighted-line soundings — RS emphasize a difference in method",
+  "sources": [
+   "https://en.wikipedia.org/wiki/German_Meteor_expedition",
+   "https://www.geomar.de/en/discover/100-years-meteor-expedition"
+  ]
+ }
 }

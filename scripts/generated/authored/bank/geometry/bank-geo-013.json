@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-013",
- "question": "Which of the following could be the side lengths of a triangle?",
+ "question": "Two angles of a triangle have measures $38°$ and $x°$. Which of the following could be the value of $x$?",
  "choices": [
   {
    "id": "A",
-   "text": "$4$, $6$, and $11$"
+   "text": "$135$"
   },
   {
    "id": "B",
-   "text": "$5$, $9$, and $14$"
+   "text": "$142$"
   },
   {
    "id": "C",
-   "text": "$6$, $8$, and $15$"
+   "text": "$160$"
   },
   {
    "id": "D",
-   "text": "$7$, $10$, and $16$"
+   "text": "$218$"
   }
  ],
  "distractorNotes": {
-  "A": "checks only a pair that works, such as 6 + 11 > 4, and misses 4 + 6 < 11",
-  "B": "accepts a sum equal to the third side, 5 + 9 = 14, which gives a flat segment, not a triangle",
-  "C": "checks only a pair that works, such as 8 + 15 > 6, and misses 6 + 8 < 15"
+  "B": "uses 180 - 38 = 142, which leaves 0 degrees for the third angle",
+  "C": "ignores the 180-degree total once x looks less than 180",
+  "D": "adds 38 to 180 instead of subtracting"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Triangle Inequality**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The two shorter sides must add to more than the longest side; only $7 + 10 = 17 > 16$ works.\n\n**The Full Solution:**\nStep 1: Three lengths form a triangle only if the sum of the two shorter lengths is greater than the longest length.\nStep 2: Test each choice: $4 + 6 = 10 < 11$, $5 + 9 = 14 = 14$, $6 + 8 = 14 < 15$, and $7 + 10 = 17 > 16$.\nStep 3: Only $7$, $10$, and $16$ passes. Check: the other two sums also hold, $7 + 16 > 10$ and $10 + 16 > 7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$, $6$, and $11$): $4 + 6 = 10$ is less than $11$, so the two short sides cannot meet.\n* Choice B ($5$, $9$, and $14$): $5 + 9$ equals $14$ exactly, so the sides would lie flat along one segment.\n* Choice C ($6$, $8$, and $15$): $6 + 8 = 14$ is less than $15$.\n\n**Test Day Takeaway:** Test only the two shortest sides against the longest; the sum must be strictly greater, and equal is not enough."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Triangle Angle Sum**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The third angle is $180 - 38 - x = 142 - x$, which must be positive, so $x < 142$. Only $135$ works.\n\n**The Full Solution:**\nStep 1: The three angles of a triangle add to $180°$, so the third angle measures $180 - 38 - x = 142 - x$ degrees.\nStep 2: Every angle of a triangle has a positive measure, so $142 - x > 0$, which means $x < 142$.\nStep 3: Of the choices, only $135$ is less than $142$. Check: the angles would be $38°$, $135°$, and $7°$, and $38 + 135 + 7 = 180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($142$): makes the third angle $142 - 142 = 0°$, which is not a triangle.\n* Choice C ($160$): makes the third angle $142 - 160 = -18°$, which is impossible.\n* Choice D ($218$): adds $38$ to $180$; no angle of a triangle can be greater than $180°$.\n\n**Test Day Takeaway:** The angles of a triangle add to $180°$, and each one is positive, so any two angles must add to less than $180°$."
 }

@@ -9,36 +9,36 @@
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "In the late 1800s and early 1900s, survey parties photographed glaciers in the Alps and Alaska from stations they marked.",
-   "The surveyors recorded each station's location and each camera's orientation so that the views could be repeated.",
-   "Decades later, research teams returned to many of these stations to photograph the same glaciers again.",
-   "The modern teams match the original camera positions and framing.",
-   "Paired photographs taken decades apart reveal changes in ice extent that no earlier measurements captured."
+   "In Kyoto, Japan, the date when the city's cherry trees reach full bloom has been noted for more than 1,200 years.",
+   "Beginning in the ninth century, courtiers, monks, and emperors recorded the blossoms in diaries and official chronicles.",
+   "Modern observers record Kyoto's full-bloom date each spring.",
+   "A researcher combined these sources into a record that begins in 812 CE.",
+   "In 2021, full bloom came on March 26, the earliest date in that record."
   ],
-  "goal": "The student wants to emphasize a similarity between the historical surveys and the modern rephotography projects."
+  "goal": "The student wants to emphasize a similarity between the historical records and the modern observations of Kyoto's cherry blossoms."
  },
  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
  "choices": [
   {
    "id": "A",
-   "text": "In the late 1800s and early 1900s, survey parties photographed glaciers in both the Alps and Alaska from stations that they carefully marked and thoroughly documented for later use."
+   "text": "In the ninth century, courtiers, monks, and emperors in Kyoto began recording the cherry blossoms in diaries and official chronicles."
   },
   {
    "id": "B",
-   "text": "Decades later, research teams returned to many of the documented stations to photograph the same glaciers again."
+   "text": "Each spring, modern observers record the date when the cherry trees of Kyoto, Japan, reach full bloom."
   },
   {
    "id": "C",
-   "text": "Paired photographs taken decades apart reveal changes in ice extent that no earlier measurements captured."
+   "text": "In 2021, Kyoto's cherry trees reached full bloom on March 26, the earliest date in a record that begins in 812 CE."
   },
   {
    "id": "D",
-   "text": "Like the historical surveyors, who marked their stations and recorded camera orientations, the modern teams work from documented positions, making images decades apart comparable."
+   "text": "Like the courtiers, monks, and emperors who noted the blossoms in diaries and chronicles, modern observers record Kyoto's full-bloom date each spring."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The goal asks for a similarity, and D holds the two efforts up together on the shared trait: both work from precisely documented camera stations, the surveyors recording them and the modern teams matching them.\n\n**The Full Solution:**\n- Emphasizing a similarity requires naming both parties and the practice they share in a single comparative statement.\n- Choice D does so with an explicit \"Like\" frame: historical parties marked stations and recorded orientations; modern teams work from those documented positions.\n- It also states why the shared discipline matters — images taken decades apart become comparable — drawing on the notes' final point without abandoning the comparison.\n\n**Why the other choices are wrong:**\n- A: It reports the historical half only; no similarity can emerge from one side.\n- B: It reports the modern half only, leaving the parallel implicit at best.\n- C: It states the payoff of the paired photographs but compares nothing about how the two efforts worked.",
+ "explanation": "**Choice D is correct.** The goal asks for a similarity, and D places the two groups side by side on the practice they share: noting when Kyoto's cherry trees bloom, whether in old diaries and chronicles or in modern records.\n\n**The Full Solution:**\n- Emphasizing a similarity requires naming both parties and what they have in common in one comparative statement.\n- Choice D uses an explicit \"Like\" frame: the historical writers noted the blossoms, and modern observers record the full-bloom date each spring.\n- The shared practice, recording the timing of the bloom, is the point of the comparison.\n\n**Why the other choices are wrong:**\n- A: It describes only the historical records, so no similarity can emerge.\n- B: It describes only the modern observations, leaving out the historical side of the comparison.\n- C: It reports a result from the combined record but compares nothing about how the two groups kept their records.",
  "_meta": {
-  "anchor": "glacier repeat photography — documented camera stations shared across a century"
+  "anchor": "Kyoto cherry-blossom records — historical diaries and modern observations share the practice"
  }
 }

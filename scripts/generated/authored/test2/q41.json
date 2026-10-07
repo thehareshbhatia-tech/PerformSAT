@@ -1,62 +1,57 @@
 {
-  "id": 241,
-  "type": "multiple-choice",
-  "difficulty": "hard",
-  "band": 4,
-  "domain": "information-and-ideas",
-  "skill": "command-of-evidence-quantitative",
-  "module": 2,
-  "passage": "Economists ran a randomized experiment with small-business owners in four cities, offering a randomly selected treatment group an intensive business-training course while a control group received nothing. Because profits in such markets rise and fall with local conditions, the researchers caution that the treatment group's gains cannot be read on their own: any citywide trend would lift treated and untreated businesses alike. A student concludes that the training itself raised profits in every city studied because ______",
-  "questionTable": {
-    "type": "table",
-    "caption": "Average change in monthly profit one year after training, by city and group (percent)",
-    "headers": [
-      "City",
-      "Treatment group",
-      "Control group"
-    ],
-    "rows": [
-      [
-        "Northport",
-        "+14",
-        "+5"
-      ],
-      [
-        "Eastvale",
-        "+9",
-        "+2"
-      ],
-      [
-        "Riverton",
-        "+11",
-        "+6"
-      ],
-      [
-        "Southbay",
-        "+6",
-        "-1"
-      ]
-    ]
-  },
-  "question": "Which choice most effectively uses data from the table to complete the statement?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "treatment-group profits rose in all four cities, by as much as 14 percent in Northport."
-    },
-    {
-      "id": "B",
-      "text": "in each of the four cities, the treatment group's profit change exceeded the control group's, by margins ranging from 5 to 9 percentage points."
-    },
-    {
-      "id": "C",
-      "text": "control-group profits rose in three of the four cities over the year, confirming that local business conditions were generally improving during the study period."
-    },
-    {
-      "id": "D",
-      "text": "Northport's treatment group gained 14 percent, the largest profit change recorded for any group in any city in the table."
-    }
+ "id": 241,
+ "type": "multiple-choice",
+ "difficulty": "hard",
+ "band": 4,
+ "domain": "information-and-ideas",
+ "skill": "command-of-evidence-quantitative",
+ "module": 2,
+ "passage": "In 2020, researchers tested a COVID-19 vaccine developed by Pfizer and BioNTech in a trial that randomly assigned volunteers to receive either the vaccine or a placebo, an injection with no active ingredient. In each country, the two groups were about the same size. Because the virus spread faster in some places than in others, a country's case count among vaccinated volunteers means little on its own: a local outbreak would expose both groups alike. A student concludes that the vaccine prevented illness in every country in the table because ______",
+ "questionTable": {
+  "type": "table",
+  "caption": "COVID-19 cases among volunteers in the Pfizer-BioNTech vaccine trial, by country and group",
+  "headers": [
+   "Country",
+   "Vaccine group (cases)",
+   "Placebo group (cases)"
   ],
-  "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** The researchers' own caution dictates the evidence: raw treatment gains are contaminated by citywide trends, so the training's effect shows up only in the treatment-minus-control gap — and B reports that gap as positive in every city.\n\n**The Full Solution:**\n- The passage rules out reading the treatment column alone: \"any citywide trend would lift treated and untreated businesses alike.\"\n- The control group measures the trend; the training's contribution in each city is the difference between columns: Northport 14 − 5 = 9, Eastvale 9 − 2 = 7, Riverton 11 − 6 = 5, Southbay 6 − (−1) = 7 percentage points.\n- Every difference is positive, and the margins run from 5 to 9 points — exactly what choice B states, supporting the claim for \"every city studied.\"\n\n**Why the other choices are wrong:**\n- A: It reads the treatment column on its own — the precise inference the researchers' caution forbids, since rising local conditions could explain those gains.\n- C: It documents the confound rather than the effect: improving conditions explain why controls rose, but say nothing about what the training added.\n- D: A single city's single-group maximum ignores both the control comparison and the every-city scope of the student's conclusion."
+  "rows": [
+   [
+    "Argentina",
+    "1",
+    "35"
+   ],
+   [
+    "Brazil",
+    "1",
+    "8"
+   ],
+   [
+    "United States",
+    "6",
+    "119"
+   ]
+  ]
+ },
+ "question": "Which choice most effectively uses data from the table to complete the statement?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "vaccine-group cases were low in all three countries, with no more than 6 cases recorded in any one of them."
+  },
+  {
+   "id": "B",
+   "text": "in each country, the vaccine group had far fewer cases than the placebo group, such as 1 versus 35 in Argentina."
+  },
+  {
+   "id": "C",
+   "text": "placebo-group cases occurred in all three countries, suggesting that the virus was circulating in each of them."
+  },
+  {
+   "id": "D",
+   "text": "the United States placebo group recorded 119 cases, the most for any group in any country in the table."
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "**Choice B is correct.** The passage warns that vaccine-group cases cannot be read alone, because a local outbreak would affect both groups. The vaccine's effect shows up in the comparison between the two equal-sized groups within each country, and B reports that comparison favoring the vaccine in every country.\n\n**The Full Solution:**\n- The passage rules out reading one column on its own: \"a local outbreak would expose both groups alike.\"\n- The placebo group shows how much illness local spread caused without the vaccine. Compare the groups country by country: Argentina 1 versus 35, Brazil 1 versus 8, United States 6 versus 119.\n- In every country the vaccine group had far fewer cases, which is what B states, so it supports the claim about every country in the table.\n\n**Why the other choices are wrong:**\n- A: It reads the vaccine column on its own, the very reading the passage warns against; low counts could simply reflect little local spread.\n- C: It shows only that the virus was present, which explains the placebo cases but says nothing about what the vaccine prevented.\n- D: One group's count in one country ignores the comparison between groups and the every-country scope of the student's conclusion."
 }

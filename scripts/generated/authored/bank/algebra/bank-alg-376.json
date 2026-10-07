@@ -1,25 +1,25 @@
 {
- "id": "bank-alg-376",
- "question": "The points $(-5, -2)$ and $(7, 3)$ shown in the $xy$-plane are the endpoints of a diameter of a circle. What is the radius of the circle?",
- "diagram": {
-  "type": "coordinatePoints",
-  "params": {
-   "points": [
-    [
-     -5,
-     -2
-    ],
-    [
-     7,
-     3
-    ]
-   ],
-   "xMin": -8,
-   "xMax": 8,
-   "yMin": -4,
-   "yMax": 6
-  }
- },
- "correctAnswer": "6.5",
- "explanation": "**SAT Pattern: Distance Formula**\n\n**The correct answer is 6.5.**\n\n**The Fast Way (~25s):** The diameter is $\\sqrt{12^{2} + 5^{2}} = 13$, so the radius is $\\frac{13}{2} = 6.5$.\n\n**The Full Solution:**\nStep 1: Find the changes between the endpoints: horizontal $7 - (-5) = 12$ and vertical $3 - (-2) = 5$.\nStep 2: The diameter is the distance between the endpoints: $\\sqrt{12^{2} + 5^{2}} = \\sqrt{144 + 25} = \\sqrt{169} = 13$.\nStep 3: The radius is half the diameter: $\\frac{13}{2} = 6.5$. Check: $2(6.5) = 13$ and $13^{2} = 169$ ✓\n\n**Common Mistakes:**\n* $13$: reports the diameter when the question asks for the radius.\n* About $1.12$: drops the negative signs, using changes of $2$ and $1$, so the diameter comes out $\\sqrt{5}$.\n* $8.5$: adds the changes, $12 + 5 = 17$, and halves that.\n\n**Test Day Takeaway:** Subtracting a negative coordinate adds; after using the distance formula, reread the question to see whether it asks for the diameter or the radius."
+  "id": "bank-alg-376",
+  "question": "Line $k$ contains the two points shown. Line $j$ is parallel to line $k$, and both the origin and the point $(9, b)$ lie on line $j$. What is the value of $b$?",
+  "diagram": {
+    "type": "coordinatePoints",
+    "params": {
+      "points": [
+        [
+          1,
+          -2
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "xMin": -2,
+      "xMax": 6,
+      "yMin": -4,
+      "yMax": 4
+    }
+  },
+  "correctAnswer": "12",
+  "explanation": "**SAT Pattern: Parallel Line Through a Point**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~30s):** Line $k$ has slope $\\frac{2 - (-2)}{4 - 1} = \\frac{4}{3}$, so line $j$ is $y = \\frac{4}{3}x$ and $b = \\frac{4}{3}(9) = 12$.\n\n**The Full Solution:**\nStep 1: Read the points: $(1, -2)$ and $(4, 2)$.\nStep 2: Slope of line $k$: $\\frac{2 - (-2)}{4 - 1} = \\frac{4}{3}$. Line $j$ is parallel, so it also has slope $\\frac{4}{3}$.\nStep 3: Line $j$ passes through the origin, so its equation is $y = \\frac{4}{3}x$. At $x = 9$: $b = \\frac{4}{3}(9) = 12$. Check: $\\frac{12 - 0}{9 - 0} = \\frac{4}{3}$ ✓\n\n**Common Mistakes:**\n* $\\frac{26}{3}$: uses line $k$ itself, $y = \\frac{4}{3}x - \\frac{10}{3}$, which does not pass through the origin.\n* $\\frac{27}{4}$: inverts the slope to $\\frac{3}{4}$.\n* $36$: uses the rise, $4$, as the slope.\n\n**Test Day Takeaway:** A line through the origin is $y = mx$; a parallel line gives you $m$."
 }

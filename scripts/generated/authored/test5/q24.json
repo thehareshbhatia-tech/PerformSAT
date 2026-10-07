@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 1,
- "passage": "Young children's grammatical mistakes are often evidence of learning rather than of its absence, since many errors come from applying a general rule to a word that happens to be an exception. ______ a three-year-old who says \"goed\" instead of \"went\" has correctly extracted the regular past-tense pattern of English and has simply extended it to a verb that refuses the rule.",
+ "passage": "Some lizards change color partly to control their body temperature, since dark skin absorbs more of the sun's heat than pale skin does. ______ an Australian bearded dragon's back turns dark brown on a cool morning, helping the lizard warm up quickly, and turns much paler as its body heats up.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,8 +27,8 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The first sentence makes a general claim about children's errors, and the second offers a specific illustration — the child who says \"goed\" — so an exemplifying transition is required.\n\n**The Full Solution:**\n- The opening sentence generalizes: many errors reflect a rule applied to an exceptional word.\n- The second sentence supplies one concrete case fitting that description exactly: \"goed\" applies the regular past-tense rule to the irregular verb \"go.\"\n- The relationship of general claim to particular instance is signaled by \"For example.\"\n\n**Why the other choices are wrong:**\n- B: \"However\" signals opposition, but the \"goed\" case supports the claim instead of countering it.\n- C: \"In other words\" introduces a restatement of the same content, whereas this sentence narrows from a generalization to one specific child's error.\n- D: \"Meanwhile\" sets two events side by side in time, a relation that plays no part here.",
+ "explanation": "**Choice A is correct.** The first sentence makes a general claim about lizards that change color to control their temperature, and the second gives a specific case, the bearded dragon, so a transition that introduces an example is needed.\n\n**The Full Solution:**\n- The opening sentence generalizes: some lizards change color partly to control their body temperature.\n- The second sentence describes one lizard that does exactly that: the bearded dragon darkens when cool and turns paler as it heats up.\n- The relationship of a general claim to a particular instance is signaled by \"For example.\"\n\n**Why the other choices are wrong:**\n- B: \"However\" signals a contrast, but the bearded dragon supports the claim rather than challenging it.\n- C: \"In other words\" introduces a restatement, whereas this sentence moves from a general claim to one specific animal.\n- D: \"Meanwhile\" signals that two things happen at the same time, a relationship that plays no part here.",
  "_meta": {
-  "anchor": "overregularization errors ('goed'); general-claim-to-example transition"
+  "anchor": "bearded dragon color change for thermoregulation; general-claim-to-example transition"
  }
 }

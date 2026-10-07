@@ -1,29 +1,29 @@
 {
   "id": "bank-alg-037",
-  "question": "$y = \\frac{2}{5}x - 6$\nIn the $xy$-plane, line $t$ is perpendicular to the graph of the given equation and passes through the point $(4, -3)$. Which equation defines line $t$?",
+  "question": "$y = \\frac{2}{5}x - 6$\nIn the $xy$-plane, line $t$ is perpendicular to the graph of the given equation. What is the slope of line $t$?",
   "choices": [
     {
       "id": "A",
-      "text": "$y = -\\frac{5}{2}x - 3$"
+      "text": "$-\\frac{5}{2}$"
     },
     {
       "id": "B",
-      "text": "$y = -\\frac{5}{2}x + 7$"
+      "text": "$-\\frac{2}{5}$"
     },
     {
       "id": "C",
-      "text": "$y = \\frac{2}{5}x - \\frac{23}{5}$"
+      "text": "$\\frac{2}{5}$"
     },
     {
       "id": "D",
-      "text": "$y = \\frac{5}{2}x - 13$"
+      "text": "$\\frac{5}{2}$"
     }
   ],
-  "correctAnswer": "B",
+  "correctAnswer": "A",
   "distractorNotes": {
-    "A": "uses the point's y-coordinate as the y-intercept",
-    "C": "keeps the given slope, which gives a parallel line through the point",
-    "D": "inverts the slope but does not change its sign"
+    "B": "changes the sign of the slope but does not take the reciprocal",
+    "C": "uses the slope of the given line, which gives a parallel line",
+    "D": "takes the reciprocal of the slope but does not change its sign"
   },
-  "explanation": "**SAT Pattern: Perpendicular Line Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Line $t$ has slope $-\\frac{5}{2}$; substituting $(4, -3)$ gives $-3 = -10 + b$, so $b = 7$.\n\n**The Full Solution:**\nStep 1: The given line has slope $\\frac{2}{5}$, so a perpendicular line has slope $-\\frac{5}{2}$.\nStep 2: Write line $t$ as $y = -\\frac{5}{2}x + b$ and substitute the point $(4, -3)$: $-3 = -\\frac{5}{2}(4) + b = -10 + b$, so $b = 7$.\nStep 3: Line $t$ is $y = -\\frac{5}{2}x + 7$. Check: at $x = 4$, $y = -10 + 7 = -3$, and $\\frac{2}{5}\\left(-\\frac{5}{2}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{5}{2}x - 3$): has the right slope but treats the point's $y$-coordinate, $-3$, as the $y$-intercept; the point has $x = 4$, not $x = 0$.\n* Choice C ($y = \\frac{2}{5}x - \\frac{23}{5}$): keeps the given slope $\\frac{2}{5}$, which produces the line through $(4, -3)$ that is parallel to the graph, not perpendicular.\n* Choice D ($y = \\frac{5}{2}x - 13$): flips the fraction but keeps the positive sign, so $\\frac{2}{5} \\cdot \\frac{5}{2} = 1$, not $-1$.\n\n**Test Day Takeaway:** Perpendicular means flip and negate the slope; then substitute the given point to find $b$ rather than reading it off the point."
+  "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The given line has slope $\\frac{2}{5}$, so a perpendicular line has slope $-\\frac{5}{2}$, the negative reciprocal.\n\n**The Full Solution:**\nStep 1: The equation $y = \\frac{2}{5}x - 6$ is in slope-intercept form, so the slope of the given line is $\\frac{2}{5}$.\nStep 2: Perpendicular lines have slopes whose product is $-1$, so the slope of line $t$ is the negative reciprocal of $\\frac{2}{5}$.\nStep 3: The negative reciprocal of $\\frac{2}{5}$ is $-\\frac{5}{2}$. Check: $\\frac{2}{5}\\left(-\\frac{5}{2}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{2}{5}$): changes the sign but keeps the fraction; the product $\\frac{2}{5}\\left(-\\frac{2}{5}\\right) = -\\frac{4}{25}$, not $-1$.\n* Choice C ($\\frac{2}{5}$): is the slope of the given line itself, which would make line $t$ parallel to it.\n* Choice D ($\\frac{5}{2}$): flips the fraction but keeps the positive sign; the product is $1$, not $-1$.\n\n**Test Day Takeaway:** For a perpendicular line, do both moves: flip the fraction and change the sign. The $y$-intercept, $-6$, plays no part."
 }

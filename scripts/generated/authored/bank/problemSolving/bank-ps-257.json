@@ -1,6 +1,6 @@
 {
  "id": "bank-ps-257",
- "question": "A nursery has $600$ seedlings, and $35\\%$ of them are oak. If $40\\%$ of the oak seedlings are taller than $1$ meter, how many oak seedlings are taller than $1$ meter?",
+ "question": "A nursery has $600$ seedlings, and $35\\%$ of them are oak. If $40\\%$ of the oak seedlings are red oaks, how many red oak seedlings are in the nursery?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "B": "stops after the first percent: 35% of 600 (all oak seedlings)",
+  "B": "stops after the first percent: 35% of 600 is all the oak seedlings",
   "C": "applies the second percent to all 600 seedlings (40% of 600)",
   "D": "adds the two percents and takes 75% of 600"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Compound Percent Of**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Chain the percents: $600 \\times 0.35 \\times 0.40 = 84$.\n\n**The Full Solution:**\nStep 1: Oak seedlings: $35\\%$ of $600$ is $0.35 \\times 600 = 210$.\nStep 2: The $40\\%$ applies to the oak seedlings, not to all seedlings: $0.40 \\times 210 = 84$.\nStep 3: Check by combining the percents first: $0.35 \\times 0.40 = 0.14$, and $0.14 \\times 600 = 84$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($210$): this is the number of oak seedlings; the second condition (taller than $1$ meter) was never applied.\n* Choice C ($240$): $0.40 \\times 600$ applies the $40\\%$ to every seedling, but the $40\\%$ refers only to the oak seedlings.\n* Choice D ($450$): $0.75 \\times 600$ adds the percents, but \"of those\" means the percents multiply, not add.\n\n**Test Day Takeaway:** \"$p\\%$ of a group, and $q\\%$ of those\" multiplies: total $\\times \\frac{p}{100} \\times \\frac{q}{100}$."
+ "explanation": "**SAT Pattern: Compound Percent Of**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Chain the percents: $600 \\times 0.35 \\times 0.40 = 84$.\n\n**The Full Solution:**\nStep 1: Oak seedlings: $35\\%$ of $600$ is $0.35 \\times 600 = 210$.\nStep 2: The $40\\%$ applies to the oak seedlings, not to all the seedlings: $0.40 \\times 210 = 84$.\nStep 3: There are $84$ red oak seedlings. Check by combining the percents first: $0.35 \\times 0.40 = 0.14$, and $0.14 \\times 600 = 84$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($210$): this is the number of oak seedlings; the $40\\%$ was never applied.\n* Choice C ($240$): $0.40 \\times 600$ applies the $40\\%$ to every seedling, but the $40\\%$ refers only to the oak seedlings.\n* Choice D ($450$): $0.75 \\times 600$ adds the percents; a percent of a part multiplies, it does not add.\n\n**Test Day Takeaway:** \"$p\\%$ of a group, and $q\\%$ of those\" multiplies: total $\\times \\frac{p}{100} \\times \\frac{q}{100}$."
 }

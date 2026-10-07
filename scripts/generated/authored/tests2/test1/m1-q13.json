@@ -1,30 +1,29 @@
 {
  "id": 13,
- "question": "In the $xy$-plane, line $k$ passes through the points $(-4, 1)$ and $(8, 10)$. Line $j$ is perpendicular to line $k$ and passes through the point $(3, -2)$. Which equation defines line $j$?",
+ "question": "In the $xy$-plane, line $k$ passes through the points $(-4, 1)$ and $(6, 5)$. Line $j$ is perpendicular to line $k$. What is the slope of line $j$?",
  "choices": [
   {
    "id": "A",
-   "text": "$y = \\frac{4}{3}x - 6$"
+   "text": "$-\\frac{5}{2}$"
   },
   {
    "id": "B",
-   "text": "$y = \\frac{3}{4}x - \\frac{17}{4}$"
+   "text": "$-\\frac{2}{5}$"
   },
   {
    "id": "C",
-   "text": "$y = -\\frac{3}{4}x + \\frac{1}{4}$"
+   "text": "$\\frac{2}{5}$"
   },
   {
    "id": "D",
-   "text": "$y = -\\frac{4}{3}x + 2$"
+   "text": "$\\frac{5}{2}$"
   }
  ],
- "correctAnswer": "D",
- "choiceOrderNote": "Choices are line equations rather than single numeric values; they are listed in increasing order of y-intercept.",
+ "correctAnswer": "A",
  "distractorNotes": {
-  "A": "takes the reciprocal of the slope 3/4 without changing its sign, using 4/3",
-  "B": "keeps the slope 3/4 of line k, producing a line parallel to k rather than perpendicular to it",
-  "C": "changes the sign of the slope without taking the reciprocal, using -3/4"
+  "B": "changes the sign of line k's slope, 2/5, but does not take the reciprocal",
+  "C": "gives the slope of line k itself, which is the slope of a line parallel to k",
+  "D": "takes the reciprocal of line k's slope but does not change its sign"
  },
- "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** Line $k$ has slope $\\frac{10 - 1}{8 - (-4)} = \\frac{3}{4}$, so line $j$ has slope $-\\frac{4}{3}$; through $(3, -2)$ that gives $y = -\\frac{4}{3}x + 2$.\n\n**The Full Solution:**\nStep 1: Find the slope of line $k$ from its two points: $\\frac{10 - 1}{8 - (-4)} = \\frac{9}{12} = \\frac{3}{4}$.\nStep 2: Perpendicular lines have slopes that are negative reciprocals, so line $j$ has slope $-\\frac{4}{3}$.\nStep 3: Substitute the point $(3, -2)$ into $y = -\\frac{4}{3}x + b$: $-2 = -4 + b$, so $b = 2$ and the equation is $y = -\\frac{4}{3}x + 2$. Check: $\\frac{3}{4} \\cdot \\left(-\\frac{4}{3}\\right) = -1$, and $-\\frac{4}{3}(3) + 2 = -2$, so the line passes through $(3, -2)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = \\frac{4}{3}x - 6$): flips the fraction but keeps it positive. The product of the slopes is then $1$, not $-1$.\n* Choice B ($y = \\frac{3}{4}x - \\frac{17}{4}$): reuses the slope of line $k$, which produces a line parallel to $k$ through $(3, -2)$ instead of a perpendicular one.\n* Choice C ($y = -\\frac{3}{4}x + \\frac{1}{4}$): changes only the sign and skips the reciprocal, so the product of the slopes is $-\\frac{9}{16}$.\n\n**Test Day Takeaway:** Perpendicular means flip the fraction and change the sign; multiply the two slopes as a check, since only a product of exactly $-1$ confirms a right angle."
+ "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Line $k$ has slope $\\frac{5 - 1}{6 - (-4)} = \\frac{4}{10} = \\frac{2}{5}$. A perpendicular line has the negative reciprocal slope, $-\\frac{5}{2}$.\n\n**The Full Solution:**\nStep 1: Find the slope of line $k$: $\\frac{5 - 1}{6 - (-4)} = \\frac{4}{10} = \\frac{2}{5}$.\nStep 2: Perpendicular lines have slopes whose product is $-1$, so the slope of line $j$ is the negative reciprocal of $\\frac{2}{5}$.\nStep 3: The negative reciprocal of $\\frac{2}{5}$ is $-\\frac{5}{2}$. Check: $\\left(\\frac{2}{5}\\right)\\left(-\\frac{5}{2}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-\\frac{2}{5}$): changes the sign but keeps the fraction. Its product with $\\frac{2}{5}$ is $-\\frac{4}{25}$, not $-1$.\n* Choice C ($\\frac{2}{5}$): is the slope of line $k$ itself, the slope of a line parallel to $k$.\n* Choice D ($\\frac{5}{2}$): flips the fraction but keeps the sign. Its product with $\\frac{2}{5}$ is $1$, not $-1$.\n\n**Test Day Takeaway:** For a perpendicular line, flip the slope and change its sign: $\\frac{a}{b}$ becomes $-\\frac{b}{a}$."
 }

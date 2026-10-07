@@ -1,29 +1,29 @@
 {
- "id": "bank-am-386",
- "question": "The amount of a medication, in milligrams, in a patient's bloodstream $t$ hours after a dose is modeled by $A(t) = 500(0.25)^{\\frac{t}{12}}$. What is the half-life, in hours, of the medication?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$6$"
+  "id": "bank-am-386",
+  "question": "The amount of a medication, in milligrams, in a patient's bloodstream $t$ hours after a dose is modeled by $A(t) = 500(0.25)^{\\frac{t}{12}}$. What is the best interpretation of $12$ in this context?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The number of milligrams by which the amount of medication decreases each hour"
+    },
+    {
+      "id": "B",
+      "text": "The number of hours it takes for the amount of medication to decrease by $25\\%$"
+    },
+    {
+      "id": "C",
+      "text": "The number of hours it takes for the amount of medication to decrease by $50\\%$"
+    },
+    {
+      "id": "D",
+      "text": "The number of hours it takes for the amount of medication to decrease by $75\\%$"
+    }
+  ],
+  "correctAnswer": "D",
+  "distractorNotes": {
+    "A": "treats the exponential model as linear, reading 12 as a constant hourly decrease",
+    "B": "reads the factor 0.25 as the percent decrease instead of the fraction that remains",
+    "C": "assumes the time in the exponent is always the time it takes for the amount to decrease by half"
   },
-  {
-   "id": "B",
-   "text": "$12$"
-  },
-  {
-   "id": "C",
-   "text": "$24$"
-  },
-  {
-   "id": "D",
-   "text": "$48$"
-  }
- ],
- "correctAnswer": "A",
- "distractorNotes": {
-  "B": "reads the 12 in the exponent as the half-life, but in 12 hours the amount falls to a quarter",
-  "C": "doubles the 12 instead of halving it",
-  "D": "multiplies 12 by 4 because 0.25 is one fourth"
- },
- "explanation": "**SAT Pattern: Interpret Exponential Parameters**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Every $12$ hours the amount is multiplied by $0.25 = \\left(\\frac{1}{2}\\right)^{2}$, which is two halvings, so one halving takes $6$ hours.\n\n**The Full Solution:**\nStep 1: When $t$ increases by $12$, the exponent $\\frac{t}{12}$ increases by $1$, so the amount is multiplied by $0.25$ every $12$ hours.\nStep 2: Write $0.25 = \\left(\\frac{1}{2}\\right)^{2}$. Then $A(t) = 500\\left(\\frac{1}{2}\\right)^{\\frac{2t}{12}} = 500\\left(\\frac{1}{2}\\right)^{\\frac{t}{6}}$.\nStep 3: The amount is halved each time $t$ increases by $6$, so the half-life is $6$ hours. Check: $A(6) = 500(0.25)^{0.5} = 500(0.5) = 250$, half of $500$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($12$): in $12$ hours the amount falls to $0.25$ of its value, a quarter, not a half.\n* Choice C ($24$): after $24$ hours only $500(0.25)^{2} = 31.25$ milligrams remain.\n* Choice D ($48$): multiplies by $4$ because $0.25$ is one fourth; a smaller base means a faster decay, not a slower one.\n\n**Test Day Takeaway:** To read a half-life, rewrite the base as a power of $\\frac{1}{2}$; the half-life is the time that makes that exponent $1$."
+  "explanation": "**SAT Pattern: Interpret Exponential Parameters**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Each time $t$ increases by $12$, the amount is multiplied by $0.25$, so $25\\%$ remains and the amount has decreased by $75\\%$.\n\n**The Full Solution:**\nStep 1: When $t$ increases by $12$, the exponent $\\frac{t}{12}$ increases by $1$, so the amount is multiplied by $0.25$ one more time.\nStep 2: Multiplying by $0.25$ leaves $25\\%$ of the amount, which is a decrease of $100\\% - 25\\% = 75\\%$.\nStep 3: So $12$ is the number of hours it takes for the amount of medication to decrease by $75\\%$. Check: $A(0) = 500$ and $A(12) = 500(0.25) = 125$, and $125$ is $75\\%$ less than $500$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: treats the model as linear; an exponential model decreases by a percent, not by a fixed number of milligrams.\n* Choice B: reads $0.25$ as the percent decrease, but $0.25$ is the fraction that remains.\n* Choice C: assumes the time in the exponent is the time it takes for the amount to fall by half; after $12$ hours only a quarter remains, not a half.\n\n**Test Day Takeaway:** In $a(b)^{\\frac{t}{k}}$, the amount is multiplied by $b$ every $k$ units of time; for a decay factor $b$, the percent decrease over that time is $(1 - b) \\times 100\\%$."
 }

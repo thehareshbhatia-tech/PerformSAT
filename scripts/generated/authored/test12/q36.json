@@ -6,26 +6,26 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 2,
- "passage": "Wild rice, called manoomin by the Ojibwe people who have gathered it for centuries, grows untended in shallow lakes and rivers, and no one plants it in fields. It would be wrong, though, to call the plant unmanaged. Ojibwe families historically returned to the same stands year after year, tied standing stalks into bundles to protect the ripening grain, harvested in a way that let ripe seed fall back into the water, and started new stands by scattering seed where none had grown. Manoomin is better described as a tended landscape than a found one: a food never domesticated, in the sense of being genetically transformed, yet deliberately sustained and extended by the people who depended on it.",
+ "passage": "Along the Pacific coast of North America, some beaches have wide, flat terraces where clams thrive. To a visitor, these beaches may look entirely natural, but many are clam gardens built by Indigenous peoples. Builders rolled large boulders down to the low-tide line to form a rock wall. Sediment carried in by the tides collected behind the wall, creating a broad, flat beach well suited to clams. Families kept adding rocks to the walls as they harvested, and some clam gardens are about 3,500 years old.",
  "question": "Which choice best states the main idea of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "Ojibwe families historically tied standing wild rice stalks into bundles and scattered seed in places where the plant had not grown before."
+   "text": "Builders of clam gardens rolled large boulders down to the low-tide line to form a rock wall."
   },
   {
    "id": "B",
-   "text": "Though never planted in fields or domesticated, manoomin was far from unmanaged, since Ojibwe practices deliberately sustained and extended its stands."
+   "text": "Many Pacific beaches that look natural are in fact clam gardens that Indigenous peoples built and maintained."
   },
   {
    "id": "C",
-   "text": "Wild rice grows untended in the shallow lakes and rivers of the regions where the Ojibwe people have gathered it for centuries."
+   "text": "Clams grow best on wide, flat beaches made of loose sediment rather than on steep, rocky ones."
   },
   {
    "id": "D",
-   "text": "Ethnobotanists have concluded that manoomin was in fact gradually domesticated over its centuries of harvesting, though the genetic changes involved long went unnoticed."
+   "text": "Archaeologists have concluded that most clam gardens were abandoned within a few years of being built and were never repaired."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The passage's pivot is the second sentence — \"It would be wrong, though, to call the plant unmanaged\" — and everything after it supports that correction: stalks were tied to protect the grain, the harvest reseeded the stands, new stands were sown. B states the correction with its qualifier intact (no fields, no domestication, yet real management).\n\n**The Full Solution:**\n- The opening concedes the surface facts: manoomin grows untended and is not planted in fields.\n- The turn rejects the inference those facts invite — that the plant was unmanaged.\n- The evidence lists deliberate practices: returning to stands, tying stalks to protect the ripening grain, harvesting so seed fell back into the water, seeding new stands.\n- The close names the resulting idea: a \"tended landscape,\" sustained and extended without domestication. B compresses exactly this.\n\n**Why the other choices are wrong:**\n- A: It lists two of the practices — supporting evidence, not the idea they support.\n- C: It restates only the opening concession, the very impression the passage goes on to correct.\n- D: It contradicts the text, which says manoomin was never domesticated \"in the sense of being genetically transformed.\""
+ "explanation": "**Choice B is correct.** The text explains that beaches that \"may look entirely natural\" are often clam gardens that Indigenous peoples built and kept up for generations. That contrast between natural appearance and human design is the main idea.\n\n**The Full Solution:**\n- The text sets up an assumption: the terraced beaches \"may look entirely natural.\"\n- It then corrects it: \"many are clam gardens built by Indigenous peoples.\"\n- The rest of the text supports this by describing how the walls were built and kept up, so the main idea is that these seemingly natural beaches were built and maintained by people.\n\n**Why the other choices are wrong:**\n- A: This is one step in building a clam garden, a supporting detail rather than the main idea.\n- C: The text says the flat beaches suit clams, but that detail only explains why the gardens were built.\n- D: The text says the opposite: families kept adding rocks for generations, and some gardens are thousands of years old."
 }

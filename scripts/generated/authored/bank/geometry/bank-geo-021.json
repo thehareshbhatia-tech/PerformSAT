@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-021",
- "question": "Point $P$ is $8$ meters above level ground, and point $Q$ is on the ground, as shown. The angle of depression from $P$ to $Q$ is $28°$. To the nearest meter, what is the distance between $P$ and $Q$?",
+ "question": "In the right triangle shown, which expression represents the value of $x$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -21,12 +21,12 @@
    "rightAngleVertex": 0,
    "labels": [
     "",
-    "Q",
-    "P"
+    "28°",
+    ""
    ],
    "sideLabels": [
     "",
-    "",
+    "x",
     "8"
    ]
   }
@@ -34,26 +34,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$4$"
+   "text": "$8\\sin 28°$"
   },
   {
    "id": "B",
-   "text": "$8$"
+   "text": "$8\\cos 28°$"
   },
   {
    "id": "C",
-   "text": "$15$"
+   "text": "$\\frac{8}{\\cos 28°}$"
   },
   {
    "id": "D",
-   "text": "$17$"
+   "text": "$\\frac{8}{\\sin 28°}$"
   }
  ],
  "distractorNotes": {
-  "A": "multiplies by sin 28 instead of dividing, giving 8 sin 28 about 3.8",
-  "B": "reports the 8-meter height",
-  "C": "gives the horizontal distance along the ground, 8 / tan 28 about 15.0"
+  "A": "sets x/8 = sin 28 degrees, putting the hypotenuse in the numerator",
+  "B": "treats the side of length 8 as the hypotenuse and x as the adjacent side",
+  "C": "treats the side of length 8 as adjacent to the 28-degree angle"
  },
  "correctAnswer": "D",
- "explanation": "**SAT Pattern: Angle of Depression**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** The angle at $Q$ equals the $28°$ angle of depression, and the $8$-meter height is opposite it, so $PQ = \\frac{8}{\\sin 28°} \\approx 17$ meters.\n\n**The Full Solution:**\nStep 1: The angle of depression is measured down from a horizontal line through $P$. The ground is also horizontal, so the angle of elevation from $Q$ up to $P$ is also $28°$ (alternate interior angles).\nStep 2: In the right triangle, the $8$-meter height is opposite the $28°$ angle at $Q$, and $\\overline{PQ}$ is the hypotenuse, so $\\sin 28° = \\frac{8}{PQ}$.\nStep 3: Solve: $PQ = \\frac{8}{\\sin 28°} \\approx \\frac{8}{0.4695} \\approx 17.0$, so the distance is about $17$ meters. Check: the ground distance is $\\frac{8}{\\tan 28°} \\approx 15.0$, and $15.05^{2} + 8^{2} \\approx 290.5 \\approx 17.04^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): multiplies by $\\sin 28°$ instead of dividing, giving $8\\sin 28° \\approx 3.8$.\n* Choice B ($8$): reports the height, a leg of the triangle, rather than the slanted distance.\n* Choice C ($15$): finds the distance along the ground, $\\frac{8}{\\tan 28°}$, instead of the straight-line distance from $P$ to $Q$.\n\n**Test Day Takeaway:** An angle of depression from above equals the angle of elevation from below; then decide whether the question wants a leg or the hypotenuse before choosing sine, cosine, or tangent."
+ "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The side of length $8$ is opposite the $28°$ angle and $x$ is the hypotenuse, so $\\sin 28° = \\frac{8}{x}$ and $x = \\frac{8}{\\sin 28°}$.\n\n**The Full Solution:**\nStep 1: The side of length $8$ is across from the $28°$ angle, and $x$ is across from the right angle, so $x$ is the hypotenuse.\nStep 2: Sine relates the opposite side and the hypotenuse: $\\sin 28° = \\frac{8}{x}$.\nStep 3: Multiply both sides by $x$ and divide by $\\sin 28°$: $x = \\frac{8}{\\sin 28°}$. Check: $\\sin 28° \\approx 0.469$, so $x \\approx 17.0$, which is longer than $8$, as a hypotenuse must be ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8\\sin 28°$): gives $8\\sin 28° \\approx 3.8$, shorter than the leg of length $8$, so it cannot be the hypotenuse.\n* Choice B ($8\\cos 28°$): treats $8$ as the hypotenuse and $x$ as the side next to the $28°$ angle.\n* Choice C ($\\frac{8}{\\cos 28°}$): uses cosine, which would require the side of length $8$ to be next to the $28°$ angle, not across from it.\n\n**Test Day Takeaway:** Label the sides from the given angle first (opposite, adjacent, hypotenuse), then pick the ratio that uses the side you know and the side you want."
 }

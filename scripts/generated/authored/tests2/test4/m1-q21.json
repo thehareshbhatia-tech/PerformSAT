@@ -1,12 +1,12 @@
 {
  "id": 21,
- "question": "The function $S$ is defined by $S(d) = -2d^{2} + 44d - 150$ and models the depth of snow, in centimeters, at a ski area on day $d$ of the season. The table shows the depth measured on four days. According to the model, on how many days is the depth at least $90$ centimeters?",
+ "question": "The function $S(d) = -2d^{2} + 44d - 150$ models the depth of snow, in centimeters, on day $d$ of a ski season. The table shows four values of $d$ and their corresponding values of $S(d)$. According to the model, on what day is the depth of snow first $90$ centimeters?",
  "diagram": {
   "type": "dataTable",
   "params": {
    "headers": [
-    "Day",
-    "Measured depth (centimeters)"
+    "d",
+    "S(d)"
    ],
    "rows": [
     [
@@ -31,26 +31,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$2$"
+   "text": "$10$"
   },
   {
    "id": "B",
-   "text": "$3$"
-  },
-  {
-   "id": "C",
    "text": "$11$"
   },
   {
+   "id": "C",
+   "text": "$12$"
+  },
+  {
    "id": "D",
-   "text": "$13$"
+   "text": "$22$"
   }
  ],
  "distractorNotes": {
-  "A": "solves S(d) = 90 and counts its two solutions, d = 10 and d = 12, instead of every day from 10 to 12",
-  "C": "reports the day on which the model's depth is greatest, d = 11, instead of a number of days",
-  "D": "counts the days on which the model gives any snow, S(d) at least 0, which are days 5 through 17"
+  "B": "reports the day of greatest depth, d = 11, the axis of symmetry the table suggests, where the model gives 92 centimeters",
+  "C": "reports the later of the two solutions to S(d) = 90 instead of the first",
+  "D": "adds the two solutions, 10 + 12, instead of choosing the smaller one"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** $-2d^{2} + 44d - 150 \\ge 90$ simplifies to $d^{2} - 22d + 120 \\le 0$, or $(d - 10)(d - 12) \\le 0$, so $d = 10$, $11$, or $12$: three days.\n\n**The Full Solution:**\nStep 1: Set up the inequality: $-2d^{2} + 44d - 150 \\ge 90$, so $-2d^{2} + 44d - 240 \\ge 0$.\nStep 2: Divide by $-2$ and reverse the inequality: $d^{2} - 22d + 120 \\le 0$, which factors as $(d - 10)(d - 12) \\le 0$. This holds for $10 \\le d \\le 12$.\nStep 3: The days in that interval are $10$, $11$, and $12$, so there are $3$ days. Check: $S(10) = 90$, $S(11) = 92$, $S(12) = 90$, and $S(9) = S(13) = 84$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): counts only the two days on which the depth equals $90$, leaving out day $11$ between them.\n* Choice C ($11$): this is the day on which the model's depth is greatest, the axis of symmetry the table suggests, not a number of days.\n* Choice D ($13$): counts the days with any snow at all, $S(d) \\ge 0$, which are days $5$ through $17$.\n\n**Test Day Takeaway:** For a quadratic inequality, solve the related equation, then decide whether the answer lies between or outside the roots; count whole days inclusively."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Quadratic via Factoring**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** Set $-2d^{2} + 44d - 150 = 90$. This simplifies to $d^{2} - 22d + 120 = 0$, or $(d - 10)(d - 12) = 0$, so the depth is $90$ centimeters on days $10$ and $12$. The first of these is day $10$.\n\n**The Full Solution:**\nStep 1: Set the model equal to $90$: $-2d^{2} + 44d - 150 = 90$, so $-2d^{2} + 44d - 240 = 0$.\nStep 2: Divide each side by $-2$: $d^{2} - 22d + 120 = 0$, which factors as $(d - 10)(d - 12) = 0$. So $d = 10$ or $d = 12$.\nStep 3: The first day on which the depth is $90$ centimeters is day $10$. Check: $S(10) = -200 + 440 - 150 = 90$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($11$): the table is symmetric about $d = 11$, the day of greatest depth. The model gives $S(11) = 92$ centimeters, not $90$.\n* Choice C ($12$): this is the second solution. The depth is also $90$ centimeters on day $12$, but on the way down, after day $10$.\n* Choice D ($22$): this is the sum of the two solutions, $10 + 12$, not a day on which the depth is $90$.\n\n**Test Day Takeaway:** To find when a quadratic model reaches a value, set the model equal to that value, move everything to one side, and factor; a \"first\" question asks for the smaller solution."
 }

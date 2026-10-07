@@ -1,10 +1,10 @@
 {
   "id": "bank-am-401",
-  "question": "$x^{2} - 11x + 24 = 0$\nWhat is the sum of the solutions to the given equation?",
+  "question": "$x^{2} - 13x + 36 = 0$\nWhat is the sum of the solutions to the given equation?",
   "choices": [
     {
       "id": "A",
-      "text": "$-11$"
+      "text": "$-13$"
     },
     {
       "id": "B",
@@ -12,18 +12,18 @@
     },
     {
       "id": "C",
-      "text": "$11$"
+      "text": "$13$"
     },
     {
       "id": "D",
-      "text": "$24$"
+      "text": "$36$"
     }
   ],
   "distractorNotes": {
-    "A": "uses the coefficient $-11$ itself instead of its opposite",
-    "B": "subtracts the solutions, $8 - 3$, instead of adding them",
+    "A": "uses the coefficient $-13$ itself instead of its opposite",
+    "B": "subtracts the solutions, $9 - 4$, instead of adding them",
     "D": "gives the product of the solutions instead of the sum"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Vieta Sum & Product of Roots**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** For $x^{2} + bx + c = 0$, the solutions add to $-b$, so the sum is $-(-11) = 11$.\n\n**The Full Solution:**\nStep 1: Factor: $x^{2} - 11x + 24 = (x - 3)(x - 8)$.\nStep 2: The solutions are $x = 3$ and $x = 8$.\nStep 3: Their sum is $3 + 8 = 11$, which matches $-b = 11$. Check: $3^{2} - 11(3) + 24 = 0$ and $8^{2} - 11(8) + 24 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-11$): takes the coefficient $-11$ as the sum, forgetting that the sum is its opposite.\n* Choice B ($5$): finds the solutions $3$ and $8$ but subtracts them.\n* Choice D ($24$): gives the product of the solutions, the constant term.\n\n**Test Day Takeaway:** When the leading coefficient is $1$, the sum of the solutions is the opposite of the $x$-coefficient and the product is the constant term."
+  "explanation": "**SAT Pattern: Vieta Sum & Product of Roots**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** For $x^{2} + bx + c = 0$, the solutions add to $-b$, so the sum is $-(-13) = 13$.\n\n**The Full Solution:**\nStep 1: Factor: $x^{2} - 13x + 36 = (x - 4)(x - 9)$.\nStep 2: The solutions are $x = 4$ and $x = 9$.\nStep 3: Their sum is $4 + 9 = 13$, which matches $-b = 13$. Check: $4^{2} - 13(4) + 36 = 0$ and $9^{2} - 13(9) + 36 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-13$): takes the coefficient $-13$ as the sum, forgetting that the sum is its opposite.\n* Choice B ($5$): finds the solutions $4$ and $9$ but subtracts them.\n* Choice D ($36$): gives the product of the solutions, the constant term.\n\n**Test Day Takeaway:** When the leading coefficient is $1$, the sum of the solutions is the opposite of the $x$-coefficient and the product is the constant term."
 }

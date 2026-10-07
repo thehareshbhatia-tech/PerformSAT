@@ -6,45 +6,40 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 2,
- "passage": "After 2020, public transit agencies in the United States rebuilt ridership at strikingly different rates. Transportation analysts examining the recovery argue that systems serving many riders without cars — so-called transit-dependent riders — regained ridership faster than systems whose passengers were mostly commuters with other options. Data from four rail systems are consistent with the analysts' argument because ______",
+ "passage": "An atom's first ionization energy is the energy needed to remove one electron from it. Chemists explain that atoms with a full outer shell of electrons hold their electrons far more tightly than atoms with a single outer electron do. A student examining data for four elements argues that the data are consistent with this explanation because ______",
  "questionTable": {
   "type": "table",
-  "caption": "Average weekday rail ridership in 2019 and 2024 for four U.S. transit systems, with the share of each system's riders classified as transit-dependent",
+  "caption": "First ionization energies of four elements",
   "headers": [
-   "System",
-   "2019 riders (thousands)",
-   "2024 riders (thousands)",
-   "2024 as % of 2019",
-   "Transit-dependent share"
+   "Element",
+   "Atomic number",
+   "Outer shell",
+   "First ionization energy (kJ/mol)"
   ],
   "rows": [
    [
-    "System A",
-    "412",
-    "379",
-    "92%",
-    "High"
+    "Helium",
+    "2",
+    "Full",
+    "2,372"
    ],
    [
-    "System B",
-    "268",
-    "241",
-    "90%",
-    "High"
+    "Neon",
+    "10",
+    "Full",
+    "2,081"
    ],
    [
-    "System C",
-    "731",
-    "468",
-    "64%",
-    "Low"
+    "Lithium",
+    "3",
+    "One electron",
+    "520"
    ],
    [
-    "System D",
-    "155",
-    "105",
-    "68%",
-    "Low"
+    "Sodium",
+    "11",
+    "One electron",
+    "496"
    ]
   ]
  },
@@ -52,21 +47,24 @@
  "choices": [
   {
    "id": "A",
-   "text": "System C carried the most riders of the four systems in both 2019 and 2024, even though its recovery rate was among the lowest."
+   "text": "sodium has the largest atomic number of the four elements and the lowest first ionization energy, 496 kJ/mol."
   },
   {
    "id": "B",
-   "text": "the two systems with high shares of transit-dependent riders had recovered 92% and 90% of their 2019 ridership by 2024, while the two systems with low shares had recovered only 64% and 68%."
+   "text": "the two elements with full outer shells have ionization energies of 2,372 and 2,081 kJ/mol, while the two with one outer electron have only 520 and 496 kJ/mol."
   },
   {
    "id": "C",
-   "text": "System A lost only 33,000 weekday riders between 2019 and 2024, a smaller absolute loss than System C's decline of 263,000 riders."
+   "text": "helium's ionization energy is about 290 kJ/mol higher than neon's, while lithium's is only about 24 kJ/mol higher than sodium's."
   },
   {
    "id": "D",
-   "text": "all four systems carried fewer weekday riders in 2024 than they had carried in 2019, with recovery rates that ranged from a low of 64% at System C to a high of 92% at System A."
+   "text": "the first ionization energies of the four elements range from 496 to 2,372 kJ/mol."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The argument is comparative — high transit-dependent systems recovered faster — and B pairs each system's recovery rate with its dependence share, splitting exactly along the predicted line.\n\n**The Full Solution:**\n- The analysts' claim links two variables: transit-dependent ridership share and recovery rate.\n- Choice B makes the required pairing: the two high-share systems at 92% and 90% against the two low-share systems at 64% and 68%.\n\n**Why the other choices are wrong:**\n- A: It cites true figures but compares system size, a variable the argument says nothing about.\n- C: The absolute-loss comparison is distorted by size — System C is far larger, so a bigger raw loss is uninformative; the argument concerns rates of recovery.\n- D: It summarizes the table accurately but omits the transit-dependent classification, so it shows recovery varied without connecting the variation to rider dependence."
+ "explanation": "**Choice B is correct.** The explanation links two things, the outer shell and how tightly electrons are held, and B pairs them: both full-shell elements need over 2,000 kJ/mol, while both one-electron elements need about 500.\n\n**The Full Solution:**\n- The explanation compares two groups: atoms with a full outer shell and atoms with a single outer electron.\n- Ionization energy measures how tightly an atom holds an electron, so the full-shell atoms should have much higher values.\n- Choice B reports exactly that split: 2,372 and 2,081 kJ/mol for helium and neon against 520 and 496 kJ/mol for lithium and sodium.\n\n**Why the other choices are wrong:**\n- A: It ties sodium's low value to atomic number, a variable the explanation does not mention, and says nothing about outer shells.\n- C: It compares elements within the same group, so it cannot show a difference between the two kinds of outer shell.\n- D: It reports the range accurately but leaves out the outer-shell column, so it never connects the values to the explanation.",
+ "_meta": {
+  "source": "First molar ionization energies (kJ/mol): He 2372.3, Ne 2080.7, Li 520.2, Na 495.8 — https://en.wikipedia.org/wiki/Molar_ionization_energies_of_the_elements (CRC Handbook values). Replaces an invented four-system rail-ridership table (verify 2026-10-06)."
+ }
 }

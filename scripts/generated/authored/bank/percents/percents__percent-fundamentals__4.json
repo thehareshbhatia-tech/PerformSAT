@@ -1,30 +1,30 @@
 {
   "id": 4,
-  "question": "Of the material collected at a recycling center, $\\frac{7}{20}$ is glass, $0.28$ is paper, $12\\%$ is metal, and the rest is plastic. Which type of material makes up the greatest share of the material collected?",
+  "question": "The number of members of a hiking club increased by $35\\%$ from $2022$ to $2023$. If the number of members in $2023$ is $k$ times the number of members in $2022$, what is the value of $k$?",
   "choices": [
     {
       "id": "A",
-      "text": "Glass"
+      "text": "$0.35$"
     },
     {
       "id": "B",
-      "text": "Paper"
+      "text": "$0.65$"
     },
     {
       "id": "C",
-      "text": "Metal"
+      "text": "$1.35$"
     },
     {
       "id": "D",
-      "text": "Plastic"
+      "text": "$35$"
     }
   ],
   "distractorNotes": {
-    "B": "reads 7/20 as 7 percent and compares only the stated shares",
-    "C": "compares raw numbers without converting",
-    "D": "omits glass from the leftover subtraction"
+    "A": "gives the increase as a decimal, 0.35, without adding it to the original amount",
+    "B": "subtracts 35% instead of adding it, which would describe a 35% decrease",
+    "D": "writes the percent 35 without converting it to a decimal or adding the original amount"
   },
-  "correctAnswer": "A",
-  "hint": "Put all three given shares into one common form before comparing, and remember the leftover has to be found.",
-  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~30s):** As percents the shares are $35$, $28$, $12$, and the leftover $25$; glass is largest.\n\n**The Full Solution:**\nStep 1: Convert everything to percents. $\\frac{7}{20} = \\frac{35}{100} = 35\\%$ glass, and $0.28 = 28\\%$ paper. Metal is already $12\\%$.\nStep 2: The four shares total $100\\%$, so plastic is $100 - 35 - 28 - 12 = 25\\%$.\nStep 3: Comparing $35\\%$, $28\\%$, $12\\%$, and $25\\%$, the largest is glass. Check the sum: $35 + 28 + 12 + 25 = 100$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (Paper): reads $\\frac{7}{20}$ as $7\\%$ and compares only the three shares that are stated, where paper's $28\\%$ would be the largest.\n* Choice C (Metal): compares the raw numbers $\\frac{7}{20}$, $0.28$, and $12$ without converting, so $12$ looks biggest.\n* Choice D (Plastic): leaves glass out of the subtraction, computing $100 - 28 - 12 = 60$ for plastic.\n\n**Test Day Takeaway:** Comparisons across fractions, decimals, and percents are only safe after everything is in the same form, and a share described as the rest must be computed, not skipped."
+  "correctAnswer": "C",
+  "hint": "An increase of $35\\%$ means the new amount is $100\\% + 35\\%$ of the old amount.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** A $35\\%$ increase makes the new amount $100\\% + 35\\% = 135\\%$ of the old amount, and $135\\% = 1.35$.\n\n**The Full Solution:**\nStep 1: Let $m$ be the number of members in $2022$. The increase is $35\\%$ of $m$, or $0.35m$.\nStep 2: The number of members in $2023$ is $m + 0.35m = 1.35m$.\nStep 3: So the number in $2023$ is $1.35$ times the number in $2022$, and $k = 1.35$.\n\nCheck: If the club had $80$ members in $2022$, it gained $0.35(80) = 28$ members, for $108$ in all, and $1.35(80) = 108$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.35$): is the increase alone; the original members must be added back.\n* Choice B ($0.65$): is the multiplier for a $35\\%$ decrease, not an increase.\n* Choice D ($35$): uses the percent as a whole number and leaves out the original amount.\n\n**Test Day Takeaway:** An increase of $p\\%$ multiplies an amount by $1 + \\frac{p}{100}$; a decrease of $p\\%$ multiplies it by $1 - \\frac{p}{100}$."
 }

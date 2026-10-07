@@ -6,7 +6,7 @@
   "domain": "expression-of-ideas",
   "skill": "transitions",
   "module": 1,
-  "passage": "For the first sledging parties bound for the South Pole, the journey began on the Ross Ice Shelf, a floating sheet of ice nearly the size of France that stays level for hundreds of miles. ______ the route beyond the shelf climbed steeply: crevassed glaciers led through the Transantarctic Mountains to a polar plateau nearly 3,000 meters high.",
+  "passage": "The cheetah is the fastest land animal, with a top speed of about 65 miles per hour. ______ it cannot keep up that pace for long: its chases last less than 40 seconds on average and cover less than 200 meters.",
   "question": "Which choice completes the text with the most logical transition?",
   "choices": [
     {
@@ -27,8 +27,8 @@
     }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The first sentence describes the level opening stage of the journey, and the second describes a steep climb beyond it, so a contrast transition is needed.\n\n**The Full Solution:**\n- Sentence one: the journey began on the Ross Ice Shelf, level for hundreds of miles.\n- Sentence two: beyond the shelf, the route climbed steeply up crevassed glaciers to a high plateau.\n- Level ground set against a steep climb calls for \"However.\"\n\n**Why the other choices are wrong:**\n- A: \"In addition\" would simply add the climb to the description of level ground as if the two agreed; they contrast.\n- B: \"For example\" would make the steep climb an illustration of the level shelf, which makes no sense.\n- D: \"Therefore\" would present the climb as a consequence of the shelf being level, but one does not cause the other.",
+  "explanation": "**Choice C is correct.** The first sentence stresses the cheetah's great speed; the second gives a limit on it: the cheetah cannot keep that speed for long. \"However\" marks this contrast.\n\n**The Full Solution:**\n- Sentence 1: the cheetah can reach about 65 miles per hour.\n- Sentence 2: it cannot hold that pace for long; its chases are short.\n- The second sentence qualifies the first, so a contrasting transition is needed.\n\n**Why the other choices are wrong:**\n- A: \"In addition\" would add a similar point, but the second sentence limits the first.\n- B: The second sentence is not an example of the cheetah's speed.\n- D: The cheetah's short chases are not a result of its high top speed as the text presents it; the sentences contrast.",
   "_meta": {
-    "anchor": "Ross Ice Shelf (nearly the size of France, level) vs. the climb through the Transantarctic Mountains to the polar plateau"
+    "anchor": "cheetah top speed ~65 mph; chases average 37.9 s and 173 m (Wikipedia: Cheetah)"
   }
 }

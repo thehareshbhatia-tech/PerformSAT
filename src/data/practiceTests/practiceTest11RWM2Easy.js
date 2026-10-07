@@ -27,7 +27,7 @@ export const practiceTest11RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "In a crayon factory, a sample from each fresh batch of colored wax is checked against a master chip of the intended shade. Because a mismatched batch would waste hundreds of pounds of wax, workers do not discard a batch that misses the mark; they ______ it, stirring in small amounts of pigment until the sample and the chip agree.",
+      "passage": "In a crayon factory, a sample from each fresh batch of colored wax is checked against a master chip of the intended shade. Because a mismatched batch would waste hundreds of pounds of wax, workers do not discard a batch that misses the mark. Instead, they ______ it, stirring in small amounts of pigment until the sample and the chip agree.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "abandon" },
@@ -36,7 +36,7 @@ export const practiceTest11RWM2Easy = {
         { "id": "D", "text": "duplicate" }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The workers fix the batch bit by bit — \"stirring in small amounts of pigment until the sample and the chip agree\" — and \"adjust\" names that gradual correcting.\n\n**The Full Solution:**\n- How to spot it: the sentence rules something out before the blank — workers \"do not discard\" a mismatched batch — so the blank must be what they do INSTEAD of throwing it away.\n- The phrase right after the blank describes the action: adding pigment a little at a time until the color matches the master chip.\n- Correcting something in small steps until it hits a target is \"adjusting\" it, so \"adjust\" fits both the contrast and the description.\n\n**Why the other choices are wrong:**\n- A: \"Abandon\" just restates \"discard,\" which the sentence has explicitly ruled out.\n- C: \"Conceal\" means to hide the mismatch, but the workers are fixing the color, not covering it up.\n- D: \"Duplicate\" means to copy the batch, and making a second mismatched batch would fix nothing."
+      "explanation": "**Choice B is correct.** The workers fix the batch bit by bit — \"stirring in small amounts of pigment until the sample and the chip agree\" — and \"adjust\" names that gradual correcting.\n\n**The Full Solution:**\n- How to spot it: the text rules something out before the blank — workers \"do not discard\" a mismatched batch — so the blank must be what they do INSTEAD of throwing it away.\n- The phrase right after the blank describes the action: adding pigment a little at a time until the color matches the master chip.\n- Correcting something in small steps until it hits a target is \"adjusting\" it, so \"adjust\" fits both the contrast and the description.\n\n**Why the other choices are wrong:**\n- A: \"Abandon\" just restates \"discard,\" which the sentence has explicitly ruled out.\n- C: \"Conceal\" means to hide the mismatch, but the workers are fixing the color, not covering it up.\n- D: \"Duplicate\" means to copy the batch, and making a second mismatched batch would fix nothing."
     },
     {
       "id": 1157,
@@ -81,7 +81,7 @@ export const practiceTest11RWM2Easy = {
       "band": 2,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "The fifth graders share responsibility for the class guinea pig, and a chart beside the cage lists every job: feeding in the morning, fresh water at noon, a clean layer of bedding on Fridays. Because each task is printed beside a student's name, no job is ______, and the guinea pig's routine never skips a day.",
+      "passage": "The fifth graders share responsibility for the class guinea pig. A chart beside the cage lists every job: feeding in the morning, fresh water at noon, a clean layer of bedding on Fridays. Because each task is printed beside a student's name, no job is ______, and the guinea pig's routine never skips a day.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "overlooked" },
@@ -102,22 +102,22 @@ export const practiceTest11RWM2Easy = {
       "passages": [
         {
           "label": "Text 1",
-          "text": "Jump-rope rhymes are among the oldest games children play, and collectors have long treated them as heirlooms passed down intact. Folklorists writing in this tradition point to rhymes recorded a century apart with nearly identical wording, and they credit the stability to the chant's tight rhythm: a line that fits the turning rope is hard to alter without spoiling the game. On this view, children are faithful custodians of verses they did not compose."
+          "text": "Many dog owners are sure that their pets know when they have broken a rule. An owner comes home to a chewed shoe, and the dog lowers its head, flattens its ears, and avoids eye contact. Owners commonly read this \"guilty look\" as a sign that the dog remembers its misdeed and feels bad about it."
         },
         {
           "label": "Text 2",
-          "text": "A research team that recorded jump-rope rhymes at the same schoolyard over several decades found the repertoire in constant motion. Jumpers swapped in classmates' names, replaced outdated words, and folded in phrases from songs and advertisements, usually without disturbing the beat. Rhymes that no longer suited the jumpers simply disappeared. The team argues that this steady revising is what keeps the rhymes alive: each generation refits the verses to its own playground."
+          "text": "In a 2009 experiment, a researcher at Barnard College asked owners to forbid their dogs to eat a treat and then leave the room. While the owners were away, the dogs were given the treat in some trials but not in others. Returning owners were sometimes told the wrong thing about what their dogs had done. The dogs looked most \"guilty\" when their owners scolded them. In fact, dogs that had obeyed and were scolded anyway looked guiltier than scolded dogs that had actually eaten the treat."
         }
       ],
-      "question": "Based on the texts, how would the research team in Text 2 most likely respond to the view presented in Text 1?",
+      "question": "Based on the texts, how would the researcher in Text 2 most likely respond to the view presented in Text 1?",
       "choices": [
-        { "id": "A", "text": "Children preserve the wording of jump-rope rhymes so faithfully that a rhyme's age can be estimated from its vocabulary." },
-        { "id": "B", "text": "The rhymes recorded a century apart with nearly identical wording were probably not used in actual games." },
-        { "id": "C", "text": "A rhyme's rhythm has little influence on whether children continue to use it in the schoolyard." },
-        { "id": "D", "text": "The rhymes endure not because children repeat them unchanged but because jumpers keep refitting them while preserving the beat." }
+        { "id": "A", "text": "The guilty look reliably shows that a dog knows it has broken a rule set by its owner." },
+        { "id": "B", "text": "Owners should stop scolding their dogs and should reward them for good behavior instead." },
+        { "id": "C", "text": "Dogs rarely react to how their owners behave when the owners return to a room." },
+        { "id": "D", "text": "Dogs show the guilty look not because they know they misbehaved but because their owners scold them." }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** Text 2's team watched the rhymes change for decades — names swapped, words updated, the beat left intact — and concluded that this revising \"is what keeps the rhymes alive.\" That directly counters Text 1's picture of children as \"faithful custodians\" of unchanged verses.\n\n**The Full Solution:**\n- How to spot it: pin down each text's claim first. Text 1: rhymes survive because children repeat them intact, held in place by the rhythm. Text 2: rhymes survive because children constantly revise them, refitting the words while keeping the beat.\n- The two texts agree the rhymes endure and agree the beat matters; they disagree about WHY the rhymes endure — faithful repetition versus steady revision.\n- Choice D states Text 2's side of exactly that disagreement, including the shared ground about the beat.\n\n**Why the other choices are wrong:**\n- A: This is Text 1's position, the very view Text 2's recordings undercut.\n- B: Text 2 never questions whether the old recorded rhymes were really used — it offers a different account of survival, not an attack on the records.\n- C: Text 2's own evidence shows the beat matters: jumpers made changes \"usually without disturbing the beat,\" so the team would not dismiss rhythm."
+      "explanation": "**Choice D is correct.** Text 2 reports that dogs looked most \"guilty\" when their owners scolded them, and that dogs that had obeyed and were scolded anyway \"looked guiltier than scolded dogs that had actually eaten the treat.\" So the look tracks the owner's scolding, not the dog's misdeed, which directly counters Text 1's view that the look shows the dog \"remembers its misdeed and feels bad about it.\"\n\n**The Full Solution:**\n- How to spot it: pin down each text's claim first. Text 1: the guilty look means the dog knows it broke a rule. Text 2: the look appeared whenever owners scolded, whether or not the dog had disobeyed.\n- The two texts agree that dogs show the look; they disagree about WHY dogs show it: a memory of misbehaving versus a reaction to being scolded.\n- Choice D states Text 2's side of exactly that disagreement.\n\n**Why the other choices are wrong:**\n- A: This is Text 1's position, the very view that Text 2's experiment undercuts.\n- B: Text 2 makes no recommendation about how owners should train their dogs; it reports what caused the look.\n- C: Text 2's findings show the opposite: the dogs reacted strongly to whether their returning owners scolded them."
     },
     {
       "id": 1161,
@@ -126,16 +126,16 @@ export const practiceTest11RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "text-structure-and-purpose",
-      "passage": "A street tree and the sidewalk beside it are natural rivals: as the trunk thickens, shallow roots swell beneath the concrete and tilt whole slabs upward. For decades, city crews responded by cutting the offending roots or removing the tree, a fix that often killed the tree without saving the pavement, since the roots that remained kept growing. Many cities now rebuild such corners differently, laying a deep bed of coarse gravel and soil beneath the walkway that invites roots downward, below the slabs, where they can spread without lifting anything.",
+      "passage": "A street tree and the sidewalk beside it are natural rivals: as the trunk thickens, shallow roots swell beneath the concrete and tilt whole slabs upward. For decades, city crews responded by cutting the offending roots or removing the tree. That fix often killed the tree without saving the pavement, since the roots that remained kept growing. Many cities now rebuild such corners differently, laying a deep bed of coarse gravel and soil beneath the walkway that invites roots downward, below the slabs, where they can spread without lifting anything.",
       "question": "Which choice best describes the overall structure of the text?",
       "choices": [
-        { "id": "A", "text": "The writer recommends a policy, acknowledges its costs, and then presents data collected by several cities to justify it." },
-        { "id": "B", "text": "The writer describes a conflict between trees and pavement, notes why an older remedy failed, and then explains a design that addresses the conflict's cause." },
-        { "id": "C", "text": "The writer traces the history of one city's street trees from their planting through their removal, dating each stage of the process." },
-        { "id": "D", "text": "The writer presents two competing explanations for why sidewalks crack and then argues that neither can fully account for the damage." }
+        { "id": "A", "text": "The writer recommends a policy, admits its costs, and then cites data from several cities to justify it." },
+        { "id": "B", "text": "The writer describes a tree-pavement conflict, notes why an old fix failed, and explains a design that addresses the cause." },
+        { "id": "C", "text": "The writer traces one city's street trees from planting to removal, dating each stage." },
+        { "id": "D", "text": "The writer presents two explanations for why sidewalks crack and argues that neither is complete." }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The text moves from a conflict (roots tilt slabs) to a failed older remedy (cutting roots or removing trees) to a newer design that removes the cause (deep gravel beds that draw roots downward).\n\n**The Full Solution:**\n- How to spot it: structure questions are about the order of jobs the sentences do. Label each part. Sentence 1: the conflict — thickening roots lift the concrete. Sentence 2: the old response and why it failed — trees died and the pavement still lifted.\n- Sentence 3: the new approach — a deep bed beneath the walkway that invites roots below the slabs.\n- That sequence — conflict, failed remedy, cause-addressing design — is exactly what choice B lays out, piece by piece.\n\n**Why the other choices are wrong:**\n- A: The writer reports what cities do without recommending anything, and no data or costs appear.\n- C: No single city's history is traced, and the text supplies no dates beyond \"for decades.\"\n- D: The cause of the damage is never in dispute — roots lift the slabs — so there are no competing explanations to weigh."
+      "explanation": "**Choice B is correct.** The text moves from a conflict (roots tilt slabs) to a failed older remedy (cutting roots or removing trees) to a newer design that removes the cause (deep gravel beds that draw roots downward).\n\n**The Full Solution:**\n- How to spot it: structure questions are about the order of jobs the sentences do. Label each part. Sentence 1: the conflict — thickening roots lift the concrete. Sentences 2-3: the old response and why it failed — trees died and the pavement still lifted.\n- Sentence 4: the new approach — a deep bed beneath the walkway that invites roots below the slabs.\n- That sequence — conflict, failed remedy, cause-addressing design — is exactly what choice B lays out, piece by piece.\n\n**Why the other choices are wrong:**\n- A: The writer reports what cities do without recommending anything, and no data or costs appear.\n- C: No single city's history is traced, and the text supplies no dates beyond \"for decades.\"\n- D: The cause of the damage is never in dispute — roots lift the slabs — so there are no competing explanations to weigh."
     },
     {
       "id": 1159,
@@ -183,7 +183,7 @@ export const practiceTest11RWM2Easy = {
       "band": 2,
       "domain": "information-and-ideas",
       "skill": "central-ideas-and-details",
-      "passage": "A juice box looks like simple cardboard, but its wall is a sandwich of six thin layers: paper for stiffness, plastic for waterproofing, and a sheet of aluminum thinner than a hair. The aluminum blocks light and oxygen, the two things that spoil juice fastest, and the box is filled and sealed before any air can enter. Because nothing gets in, the juice inside stays fresh for months on an ordinary shelf, no refrigerator required.",
+      "passage": "A juice box looks like simple cardboard, but its wall is a sandwich of six thin layers: paper for stiffness, plastic for waterproofing, and a sheet of aluminum thinner than a hair. The aluminum blocks light and oxygen, the two things that spoil juice fastest. The box is filled and sealed before any air can enter. Because nothing gets in, the juice inside stays fresh for months on an ordinary shelf, no refrigerator required.",
       "question": "Which choice best states the main idea of the text?",
       "choices": [
         { "id": "A", "text": "The layered wall of a juice box seals out light and air, letting juice stay fresh without refrigeration." },
@@ -201,16 +201,16 @@ export const practiceTest11RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "command-of-evidence-textual",
-      "passage": "An archivist who studies class time capsules from the 1950s argues that the objects sealed inside were chosen mainly by the students themselves, not by the teachers who supervised the ceremonies. School newsletters from the period credit teachers with organizing the burials, she notes, and some historians have assumed that the adults selected the contents as well.",
-      "question": "Which finding, if true, would most directly support the archivist's claim?",
+      "passage": "Researchers in Japan claim that pet cats can recognize their own names. In their tests, a cat heard recordings of four ordinary words followed by its name. Many cats paid less and less attention as the ordinary words played but then moved their ears or heads when they heard their names. A cat's name, however, is also one of the words it hears most often, so the cats might simply have been reacting to a familiar word.",
+      "question": "Which finding, if true, would most directly support the researchers' claim?",
       "choices": [
-        { "id": "A", "text": "Most capsules from the period contain a local newspaper printed on the day the capsule was sealed." },
-        { "id": "B", "text": "Capsules sealed at schools in different regions of the country tend to contain similar kinds of objects." },
-        { "id": "C", "text": "Capsules sealed in different years under the same supervising teacher contain strikingly different mixes of objects." },
-        { "id": "D", "text": "Many capsules from the 1950s were buried in spots that were poorly recorded and have never been found." }
+        { "id": "A", "text": "Cats reacted more to their own names than to ordinary words that they had rarely or never heard at home." },
+        { "id": "B", "text": "Cats responded to recordings of human voices about as quickly as they responded to people who were speaking to them in person." },
+        { "id": "C", "text": "Cats reacted more to their own names than to the names of other cats in their homes, which they heard equally often." },
+        { "id": "D", "text": "Cats older than ten years moved their heads and ears less often during the tests than younger cats did." }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** If the same teacher supervised year after year but the contents changed dramatically each time, the constant factor (the teacher) cannot explain the choices — the changing factor (each year's students) must have been doing the choosing.\n\n**The Full Solution:**\n- How to spot it: state the claim plainly first — students, not teachers, picked what went inside. Then ask which result would make that more believable.\n- Hold the teacher steady and watch what varies. Under one unchanging teacher, capsule contents shift \"strikingly\" from year to year.\n- The only thing that changed between those years was the class of students, so the variation points to the students as the choosers — exactly the archivist's claim.\n\n**Why the other choices are wrong:**\n- A: A newspaper is the kind of item anyone — teacher or student — would include, so it cannot show who chose.\n- B: Similar contents across regions says nothing about whether adults or children did the selecting.\n- D: Poorly recorded burial spots concern finding capsules, not who filled them."
+      "explanation": "**Choice C is correct.** The doubt in the text is that a cat's name is simply a familiar word. The names of other cats in the same home are heard just as often, so if cats still react more to their own names, familiarity cannot explain the reaction; the cats must be recognizing their own names.\n\n**The Full Solution:**\n- How to spot it: state the claim plainly first: cats recognize their own names. Then note the rival explanation the text raises: the cats might react to any familiar word.\n- Hold familiarity steady and see what changes. Other cats' names in the home are heard \"equally often,\" so they are just as familiar as the cat's own name.\n- If cats still react more to their own names, the only difference left is that the word is their name, which is exactly the researchers' claim.\n\n**Why the other choices are wrong:**\n- A: Rarely heard words are less familiar than a cat's name, so a stronger reaction to the name fits the familiar-word explanation just as well.\n- B: Whether a voice is recorded or live says nothing about whether cats recognize their names or just familiar words.\n- D: A difference between older and younger cats is a side issue; it does not address what the cats were reacting to."
     },
     {
       "id": 1168,
@@ -219,27 +219,42 @@ export const practiceTest11RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "command-of-evidence-quantitative",
-      "passage": "A beverage company found that customers were leaving juice at the bottoms of its cartons: the straw simply could not reach the last of it. Engineers tested three revisions against the original design, measuring how much juice a panel of children left unreachable with each. Comparing the results, the engineers argue that reshaping the carton itself does more to reduce stranded juice than changing the straw does, because _______",
+      "passage": "A full-size electric oven must heat its whole interior to cook a dish. A toaster oven heats a much smaller space, while a microwave oven works differently: it makes the water molecules in food vibrate, which heats the food itself. Figures from a home energy guide suggest that cooking with a different kind of appliance saves much more energy than simply using a smaller oven, because _______",
       "questionTable": {
         "type": "table",
-        "caption": "Average share of juice left unreachable in a drink carton, by design",
-        "headers": ["Design", "Juice left unreachable"],
+        "caption": "Energy used to cook a meatloaf with four appliances (source: American Council for an Energy-Efficient Economy)",
+        "headers": [
+          "Appliance",
+          "Energy used (kilowatt-hours)"
+        ],
         "rows": [
-          ["Original carton, straight straw", "9%"],
-          ["Original carton, wider straw", "8%"],
-          ["Original carton, hinged straw", "6%"],
-          ["Sloped-bottom carton, straight straw", "2%"]
+          [
+            "Full-size electric oven",
+            "2.00"
+          ],
+          [
+            "Toaster oven",
+            "0.95"
+          ],
+          [
+            "Slow cooker",
+            "0.70"
+          ],
+          [
+            "Microwave oven",
+            "0.36"
+          ]
         ]
       },
       "question": "Which choice most effectively uses data from the table to complete the statement?",
       "choices": [
-        { "id": "A", "text": "the wider straw reduced the share of juice left unreachable from 9 percent to 8 percent, the largest improvement in the table." },
-        { "id": "B", "text": "the sloped-bottom carton left 2 percent of the juice unreachable, one-third the 6 percent left by the most effective straw revision." },
-        { "id": "C", "text": "every design the engineers tested left at least some juice unreachable at the bottom of the carton." },
-        { "id": "D", "text": "the hinged straw left 6 percent of the juice unreachable, compared with 8 percent for the wider straw." }
+        { "id": "A", "text": "the toaster oven used 1.05 fewer kilowatt-hours than the full-size oven, the largest saving in the table." },
+        { "id": "B", "text": "the microwave oven used 0.36 kilowatt-hour, less than half of the 0.95 used by the toaster oven." },
+        { "id": "C", "text": "every appliance in the table used at least some electricity to cook the dish." },
+        { "id": "D", "text": "the slow cooker used 0.70 kilowatt-hour, compared with 0.36 kilowatt-hour for the microwave oven." }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The claim compares carton reshaping with straw changes, so the evidence must set the sloped-bottom result against the best straw result — and 2 percent is one-third of 6 percent.\n\n**The Full Solution:**\n- How to spot it: when a claim says one approach beats another, the evidence has to name BOTH approaches and compare their numbers. A figure for only one side settles nothing.\n- The straw revisions brought stranded juice from 9 percent down to 8 and 6 percent — modest gains. The reshaped carton, with the ordinary straight straw, cut it to 2 percent.\n- Choice B pairs the carton's 2 percent against the best straw's 6 percent, which is exactly the comparison the engineers' argument rests on.\n\n**Why the other choices are wrong:**\n- A: The wider straw's 1-point drop is the SMALLEST improvement in the table, not the largest.\n- C: True, but it compares nothing — it cannot show that the carton beat the straws.\n- D: This compares two straw designs with each other and leaves the reshaped carton out entirely."
+      "explanation": "**Choice B is correct.** The claim compares a different kind of appliance with a smaller oven, so the evidence must set a non-oven appliance against the best of the ovens. The microwave oven's 0.36 kilowatt-hour is less than half of the toaster oven's 0.95 kilowatt-hour.\n\n**The Full Solution:**\n- How to spot it: the claim has two sides — a different kind of appliance versus a smaller oven — so the evidence needs one appliance from each side.\n- Best smaller oven: the toaster oven, at 0.95 kilowatt-hour.\n- A different kind of appliance: the microwave oven, at 0.36 kilowatt-hour, which is less than half of 0.95.\n\n**Why the other choices are wrong:**\n- A: It misreads the table: the toaster oven saves 1.05 kilowatt-hours compared with the full-size oven, but the slow cooker (1.30) and the microwave oven (1.64) save more.\n- C: It is true of every appliance and compares nothing, so it cannot support a claim about which approach saves more.\n- D: It compares two appliances that are not ovens and leaves out the smaller oven entirely."
     },
     {
       "id": 1169,
@@ -248,16 +263,16 @@ export const practiceTest11RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "inferences",
-      "passage": "Street trees are often planted in small pits surrounded by soil that decades of traffic have compacted, and compacted soil holds little of the air and water that roots need. The roots respond by growing where those things are: in the loose few inches just beneath the pavement, where rainwater seeps in and air filters through cracks. Trees given deeper beds of loose soil, by contrast, send their roots down instead of sideways. Taken together, these observations suggest that ______",
+      "passage": "Snowshoe hares change color with the seasons. Each fall, a hare's brown coat is replaced by a white one, and each spring the white coat gives way to brown again. Against snow, the white coat hides the hare from predators. Researchers in Montana found that hares begin each color change at about the same time every year. The timing is set by day length, not by snow. Meanwhile, climate models project that snow will cover the ground for fewer days each year in that region. Taken together, these observations suggest that ______",
       "question": "Which choice most logically completes the text?",
       "choices": [
-        { "id": "A", "text": "sidewalks buckle near street trees partly because compacted soil leaves roots nowhere to grow except directly beneath the pavement." },
-        { "id": "B", "text": "street trees planted in small pits will eventually grow taller than trees that are given deeper beds of loose soil." },
-        { "id": "C", "text": "tree roots are drawn to the warmth that pavement absorbs during the day and releases at night." },
-        { "id": "D", "text": "cities could prevent all sidewalk damage by planting trees farther apart along their streets." }
+        { "id": "A", "text": "snowshoe hares will likely spend more days each year white against ground with no snow." },
+        { "id": "B", "text": "snowshoe hares will soon stop growing white coats in the fall altogether." },
+        { "id": "C", "text": "snowshoe hares will start turning white earlier in years when the first snow arrives early." },
+        { "id": "D", "text": "the predators of snowshoe hares will have more trouble finding them in winter." }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The passage shows roots crowding into the loose inches under the pavement only because the surrounding compacted soil offers no air or water — so buckling is partly a soil problem, not just a tree problem.\n\n**The Full Solution:**\n- How to spot it: an inference question wants the conclusion the given facts force, not a leap beyond them. List the facts: compacted soil starves roots of air and water; roots therefore grow in the loose layer just under the pavement; trees with deep loose beds send roots down instead.\n- The pattern: WHERE roots go depends on where the soil lets them go. Roots under pavement are there because the compacted soil pushed them there.\n- Choice A draws exactly that conclusion — the growing conditions share the blame for buckled sidewalks — and its \"partly\" keeps it inside the evidence.\n\n**Why the other choices are wrong:**\n- B: The passage never discusses how tall any tree grows.\n- C: Warmth is never mentioned; the passage names air and water as what draws roots.\n- D: \"All sidewalk damage\" overshoots the evidence, and tree spacing is never discussed."
+      "explanation": "**Choice A is correct.** The hares' color change starts on a schedule set by day length, not by snow, while the snow season is projected to get shorter. Put together, hares will keep turning white on schedule even as snow covers the ground for fewer days, so they will spend more days white on bare ground.\n\n**The Full Solution:**\n- How to spot it: chain the facts. Fact 1: the white coat hides a hare against snow. Fact 2: the timing of the color change is set by day length, so it stays about the same every year. Fact 3: snow is projected to cover the ground for fewer days.\n- The coat follows the calendar; the snow does not.\n- A fixed white season plus a shorter snow season means more days when a white hare sits on snowless ground.\n\n**Why the other choices are wrong:**\n- B: Nothing in the text suggests that hares will stop turning white; the change is set by day length, which does not change.\n- C: The text says the timing is set by day length, \"not by snow,\" so early snow would not make hares turn white sooner.\n- D: A white hare on bare ground would be easier to see, not harder, so the text points the other way."
     },
     {
       "id": 1167,
@@ -266,27 +281,47 @@ export const practiceTest11RWM2Easy = {
       "band": 2,
       "domain": "information-and-ideas",
       "skill": "command-of-evidence-quantitative",
-      "passage": "Halfway through the year, an elementary school began tracking its lost-and-found. For each item turned in, office volunteers recorded what kind of item it was and whether a family eventually reclaimed it. Reviewing a semester of records, a counselor concludes that lunch boxes were the type of item families were most likely to recover because _______",
+      "passage": "The coastal states of the United States differ greatly in size and in the length of their shorelines. Using government figures, a student compared four of these states and concluded that Florida has the longest shoreline of the four because _______",
       "questionTable": {
         "type": "table",
-        "caption": "Lost items turned in and reclaimed at one elementary school, one semester",
-        "headers": ["Item type", "Items turned in", "Share reclaimed"],
+        "caption": "Total area and shoreline length of four US coastal states (sources: NOAA; US Census Bureau)",
+        "headers": [
+          "State",
+          "Total area (square miles)",
+          "Shoreline (miles)"
+        ],
         "rows": [
-          ["Water bottles", "84", "24%"],
-          ["Hats", "37", "32%"],
-          ["Jackets", "52", "61%"],
-          ["Lunch boxes", "45", "78%"]
+          [
+            "Florida",
+            "65,758",
+            "8,436"
+          ],
+          [
+            "California",
+            "163,695",
+            "3,427"
+          ],
+          [
+            "Texas",
+            "268,596",
+            "3,359"
+          ],
+          [
+            "Hawaii",
+            "10,932",
+            "1,052"
+          ]
         ]
       },
       "question": "Which choice most effectively uses data from the table to complete the statement?",
       "choices": [
-        { "id": "A", "text": "jackets were reclaimed at a rate of 61 percent, higher than the rates for hats and water bottles." },
-        { "id": "B", "text": "84 water bottles were turned in during the semester, more than any other type of item." },
-        { "id": "C", "text": "water bottles were reclaimed at a rate of 24 percent, the lowest rate of the four item types." },
-        { "id": "D", "text": "their reclaim rate of 78 percent was the highest of the four item types in the table." }
+        { "id": "A", "text": "California has 3,427 miles of shoreline, more than both Texas and Hawaii." },
+        { "id": "B", "text": "Florida covers a total area of 65,758 square miles, more than Hawaii does." },
+        { "id": "C", "text": "Hawaii has only 1,052 miles of shoreline, the shortest of the four states in the table." },
+        { "id": "D", "text": "its shoreline of 8,436 miles is the longest of the four states in the table." }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The claim is about lunch boxes being the MOST likely to be recovered, so the evidence must give the lunch-box rate and show it tops the table — 78 percent does.\n\n**The Full Solution:**\n- How to spot it: read the claim before the blank and note which item it is about. It is about lunch boxes, so the right choice has to report the lunch-box number and say why that number wins.\n- Scan the \"Share reclaimed\" column: 24, 32, 61, 78. The largest value, 78 percent, belongs to lunch boxes.\n- Choice D states both facts the claim needs — the rate itself and that it is the highest of the four.\n\n**Why the other choices are wrong:**\n- A: It compares jackets with hats and water bottles and never mentions lunch boxes, the item the claim is about.\n- B: It reports how many water bottles were turned in — a count, not a reclaim rate, and about the wrong item.\n- C: It reads the table correctly but proves the wrong point: the LOWEST rate says nothing about lunch boxes being highest."
+      "explanation": "**Choice D is correct.** The claim is that Florida has the LONGEST shoreline, so the evidence must give Florida's shoreline length and show that it tops the table — 8,436 miles does.\n\n**The Full Solution:**\n- How to spot it: read the claim before the blank and note which state and which measurement it is about. It is about Florida's shoreline.\n- Find Florida's row and the \"Shoreline\" column: 8,436 miles.\n- Compare with the other states (3,427, 3,359, and 1,052 miles): 8,436 is the largest, so D supports the claim.\n\n**Why the other choices are wrong:**\n- A: It is accurate, but it is about California, not Florida.\n- B: It uses the total-area column; a state's area does not show how long its shoreline is.\n- C: It is accurate, but it is about Hawaii, the state with the shortest shoreline, not Florida."
     },
     {
       "id": 1164,
@@ -295,12 +330,12 @@ export const practiceTest11RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "central-ideas-and-details",
-      "passage": "On picture day, a school photographer may have less than a minute with each of four hundred students. The pace is possible because almost nothing changes between sitters: the stool is bolted at one height, the lights are fixed, and the photographer uses the same three or four poses all day. What looks like an assembly line is also what makes the yearbook work, since portraits taken under identical conditions can sit side by side on a page without any one photo jarring against its neighbors.",
+      "passage": "On picture day, a school photographer may have less than a minute with each of four hundred students. The pace is possible because almost nothing changes between sitters: the stool is bolted at one height, the lights are fixed, and the photographer uses the same three or four poses all day. What looks like an assembly line is also what makes the yearbook work. Portraits taken under identical conditions can sit side by side on a page without any one photo jarring against its neighbors.",
       "question": "Which choice best states the main idea of the text?",
       "choices": [
         { "id": "A", "text": "School photographers would take better portraits if they spent more time with each student on picture day." },
         { "id": "B", "text": "A yearbook page looks best when the portraits on it were taken in a variety of poses." },
-        { "id": "C", "text": "Most schools schedule picture day early in the fall so that yearbook editors have enough time to lay out and print their pages." },
+        { "id": "C", "text": "Most schools hold picture day early in the fall so that yearbook editors have time to finish their pages." },
         { "id": "D", "text": "Keeping poses and lighting the same lets a school photographer work quickly and gives yearbook pages a uniform look." }
       ],
       "correctAnswer": "D",
@@ -313,16 +348,16 @@ export const practiceTest11RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "central-ideas-and-details",
-      "passage": "The class hamster spends every long weekend and vacation with a different family, chosen from a sign-up sheet that fills within hours. Along with the cage, each host family receives a one-page care sheet: the amounts he is fed, the hour the cage light goes off, the vegetables he may and may not have. The teacher explains that the sheet is not about trust. Hamsters are creatures of habit, and a pet passed among a dozen households stays calm only if every one of them keeps his routine exactly the same.",
-      "question": "According to the text, why does the teacher send a care sheet home with the hamster?",
+      "passage": "The nine-banded armadillo's armored body is heavy, and the animal sinks in water. At a narrow stream, an armadillo can simply walk across the bottom, holding its breath for up to six minutes. Wider rivers call for a different method. Before crossing one, the armadillo swallows air until its stomach and intestines swell to about twice their normal size. The trapped air makes the animal light enough to float, and it swims to the other side.",
+      "question": "According to the text, why do nine-banded armadillos sometimes swallow air?",
       "choices": [
-        { "id": "A", "text": "To test whether host families are responsible enough to care for a pet again" },
-        { "id": "B", "text": "To keep the hamster's routine the same no matter which family is hosting him" },
-        { "id": "C", "text": "To teach students how animals like hamsters behave in the wild" },
-        { "id": "D", "text": "To make sure the sign-up sheet fills quickly before each vacation" }
+        { "id": "A", "text": "To make their bodies look larger and scare away predators" },
+        { "id": "B", "text": "To become light enough to float while crossing wide rivers" },
+        { "id": "C", "text": "To hold their breath longer while walking along stream bottoms" },
+        { "id": "D", "text": "To keep their bodies warm while swimming in cold water" }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The text says a hamster passed among many households \"stays calm only if every one of them keeps his routine exactly the same\" — the care sheet exists to make that happen.\n\n**The Full Solution:**\n- How to spot it: this is a detail question, so the answer must restate something the text says outright. Find the teacher's own explanation, which comes in the last two sentences.\n- The sheet \"is not about trust\"; it exists because \"hamsters are creatures of habit\" and calm depends on a dozen different households following one identical routine.\n- Choice B restates that reason without adding anything — same routine, no matter the family.\n\n**Why the other choices are wrong:**\n- A: The text rules this out directly: \"the sheet is not about trust.\"\n- C: Wild hamster behavior is never mentioned; \"creatures of habit\" describes the pet's need for routine.\n- D: The sign-up sheet fills within hours on its own — the care sheet has nothing to do with it."
+      "explanation": "**Choice B is correct.** The text says that before crossing a wide river, the armadillo \"swallows air until its stomach and intestines swell,\" and that \"the trapped air makes the animal light enough to float.\"\n\n**The Full Solution:**\n- How to spot it: this is a detail question, so the answer must restate a reason the text actually gives.\n- The text first sets up the problem: the armadillo's heavy, armored body sinks in water.\n- A narrow stream is crossed on foot along the bottom; for a wider river, the swallowed air lets the armadillo float and swim across.\n\n**Why the other choices are wrong:**\n- A: The text never mentions predators or looking larger.\n- C: The text links holding its breath to walking across narrow streams, not to swallowing air.\n- D: The text says nothing about body temperature or cold water."
     },
     {
       "id": 1170,
@@ -331,7 +366,7 @@ export const practiceTest11RWM2Easy = {
       "band": 4,
       "domain": "information-and-ideas",
       "skill": "inferences",
-      "passage": "In schoolyards where sticker collecting takes hold, an informal market springs up at recess, and traders price stickers with surprising consistency: common designs swap one for one, while a scarce design can command ten or more in exchange. The scarcity is often manufactured. Some publishers print certain designs in deliberately small numbers, knowing that hunting for the rare ones keeps children buying packets. Yet every sticker in a packet costs the publisher the same fraction of a cent to print. Observers of these markets note that two stickers of identical quality and printing cost ______",
+      "passage": "In schoolyards where sticker collecting takes hold, an informal market springs up at recess. Traders price stickers with surprising consistency: common designs swap one for one, while a scarce design can command ten or more in exchange. The scarcity is often manufactured. Some publishers print certain designs in deliberately small numbers, knowing that hunting for the rare ones keeps children buying packets. Yet every sticker in a packet costs the publisher the same fraction of a cent to print. Observers of these markets note that two stickers of identical quality and printing cost ______",
       "question": "Which choice most logically completes the text?",
       "choices": [
         { "id": "A", "text": "will trade at the same rate, since traders at recess have no way of knowing how many copies of each design exist." },
@@ -352,16 +387,16 @@ export const practiceTest11RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "Veteran sandcastle competitors pack light but precisely. A single canvas bag holds the essential ______ a square-nosed shovel for stacking wet sand, a bucket with the bottom cut away for forming towers, and a set of thin blades for carving stairs and windows.",
+      "passage": "The Japanese tea ceremony centers on the preparation of matcha, a powdered green tea. The host prepares it with a few essential ______ a tea bowl, a bamboo whisk, a bamboo scoop, and a small caddy that holds the tea.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "tools;" },
-        { "id": "B", "text": "tools," },
-        { "id": "C", "text": "tools" },
-        { "id": "D", "text": "tools:" }
+        { "id": "A", "text": "utensils;" },
+        { "id": "B", "text": "utensils," },
+        { "id": "C", "text": "utensils" },
+        { "id": "D", "text": "utensils:" }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** Everything before the blank is a complete sentence, and what follows is a list spelling out what the bag holds, so a colon introduces it.\n\n**The Full Solution:**\n- How to spot it: a colon needs a complete sentence in front of it and works like the words \"here they are\" before a list or explanation. Check the left side, then see whether a list follows.\n- \"A single canvas bag holds the essential tools\" is a complete sentence.\n- What follows is a three-item list of phrases — a shovel, a bottomless bucket, a set of blades — naming those tools.\n- A colon is the mark for introducing that list, so \"tools:\" is correct.\n\n**Why the other choices are wrong:**\n- A: A semicolon promises a second complete sentence, but a list of phrases is not a sentence.\n- B: A comma cannot cleanly introduce a three-item list whose items are already separated by commas.\n- C: With no punctuation, the sentence runs straight into the list."
+      "explanation": "**Choice D is correct.** \"The host prepares it with a few essential utensils\" is a complete sentence, and what follows is a list naming those utensils. A colon after a complete sentence is the standard way to introduce such a list.\n\n**The Full Solution:**\n- How to spot it: check whether the words before the blank could stand alone as a sentence. \"The host prepares it with a few essential utensils\" can.\n- Then check what follows: a list of four items that spells out the \"essential utensils.\"\n- Complete sentence + list that explains it = colon.\n\n**Why the other choices are wrong:**\n- A: A semicolon must be followed by another complete sentence, but the list is not a sentence.\n- B: A comma does not introduce a list after a complete sentence and makes the list run into the sentence.\n- C: With no punctuation, the list runs straight into \"utensils\" and the sentence becomes confusing."
     },
     {
       "id": 1176,
@@ -388,7 +423,7 @@ export const practiceTest11RWM2Easy = {
       "band": 2,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "Recess kickball asks almost nothing in the way of ______ a rubber ball and four bases scavenged from cones, backpacks, and sweatshirts will do, and any stretch of blacktop becomes a diamond.",
+      "passage": "Recess kickball asks almost nothing in the way of ______ A rubber ball and four bases scavenged from cones, backpacks, and sweatshirts will do, and any stretch of blacktop becomes a diamond.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
         { "id": "A", "text": "equipment," },
@@ -397,7 +432,7 @@ export const practiceTest11RWM2Easy = {
         { "id": "D", "text": "equipment and" }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** Each side of the blank is a complete sentence, and no joining word links them, so the clean fix is to end the first sentence with a period.\n\n**The Full Solution:**\n- How to spot it: cover the blank and test both sides. Before it: \"Recess kickball asks almost nothing in the way of equipment\" — complete. After it: \"a rubber ball and four bases ... will do, and any stretch of blacktop becomes a diamond\" — also complete.\n- Two complete sentences cannot be glued together with a comma alone, and nothing here supplies a proper joining word.\n- A period ends the first sentence and lets the second start fresh, so \"equipment.\" is correct.\n\n**Why the other choices are wrong:**\n- A: A comma between two complete sentences is the error called a comma splice.\n- C: With no punctuation at all, the two sentences run together.\n- D: \"And\" with no comma before it still jams the two complete sentences into a run-on."
+      "explanation": "**Choice B is correct.** Each side of the blank is a complete sentence, and no joining word links them, so the clean fix is to end the first sentence with a period.\n\n**The Full Solution:**\n- How to spot it: cover the blank and test both sides. Before it: \"Recess kickball asks almost nothing in the way of equipment\" — complete. After it: \"A rubber ball and four bases ... will do, and any stretch of blacktop becomes a diamond\" — also complete.\n- Two complete sentences cannot be glued together with a comma alone, and nothing here supplies a proper joining word.\n- A period ends the first sentence and lets the second start fresh, so \"equipment.\" is correct.\n\n**Why the other choices are wrong:**\n- A: A comma between two complete sentences is the error called a comma splice.\n- C: With no punctuation at all, the two sentences run together.\n- D: \"And\" with no comma before it still jams the two complete sentences into a run-on."
     },
     {
       "id": 1172,
@@ -406,16 +441,16 @@ export const practiceTest11RWM2Easy = {
       "band": 2,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "The checklist taped to the photographer's tripod, along with the reminder notes sent in by each classroom teacher, ______ picture-day retakes to a minimum: names are checked against order forms before the first photo is snapped.",
+      "passage": "The Liberty Bell, along with the elm-wood yoke from which it hangs, ______ on display at the Liberty Bell Center in Philadelphia, across the street from Independence Hall.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "hold" },
-        { "id": "B", "text": "have held" },
-        { "id": "C", "text": "holds" },
-        { "id": "D", "text": "are holding" }
+        { "id": "A", "text": "remain" },
+        { "id": "B", "text": "have remained" },
+        { "id": "C", "text": "remains" },
+        { "id": "D", "text": "are remaining" }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The word doing the action is the single \"checklist,\" so it takes the singular verb \"holds.\"\n\n**The Full Solution:**\n- How to spot it: find the one word the verb is really about and ignore everything stuffed in between. Ask \"what holds retakes to a minimum?\" The answer is the checklist — just one thing.\n- The plural words before the blank — \"notes,\" \"teachers\" — sit inside an \"along with\" phrase, and an \"along with\" phrase never changes the subject's number.\n- A singular subject takes a singular verb, so \"the checklist ... holds retakes to a minimum\" is correct. This match is called subject-verb agreement.\n\n**Why the other choices are wrong:**\n- A: \"Hold\" is the plural form, agreeing with the nearby plural words instead of the real subject.\n- B: \"Have held\" also uses the plural \"have\" where the singular \"checklist\" needs \"holds.\"\n- D: \"Are holding\" is plural too, so it matches the wrong words."
+      "explanation": "**Choice C is correct.** The subject of the sentence is \"The Liberty Bell,\" which is singular, so the verb must be the singular \"remains.\" The phrase \"along with the elm-wood yoke...\" does not make the subject plural.\n\n**The Full Solution:**\n- How to spot it: cross out the phrase between the commas. \"The Liberty Bell ______ on display\" is what is left.\n- \"Bell\" is one thing, so it needs a singular verb: \"remains.\"\n- Phrases beginning with \"along with,\" \"as well as,\" or \"together with\" add information but never change the number of the subject.\n\n**Why the other choices are wrong:**\n- A: \"Remain\" is plural; it would fit only if \"along with\" made the subject plural, which it does not.\n- B: \"Have remained\" is plural and does not agree with \"bell.\"\n- D: \"Are remaining\" is plural and does not agree with \"bell.\""
     },
     {
       "id": 1175,
@@ -424,16 +459,16 @@ export const practiceTest11RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "Curb cuts ______ spread to sidewalks across the United States after the Americans with Disabilities Act of 1990 required them. The ramps must slope gently enough for a wheelchair user to climb them without help.",
+      "passage": "Tsunamis ______ can cross an entire ocean in less than a day. In deep water, they can travel faster than 500 miles per hour, about as fast as a jet plane.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": ", the short ramps that carry a sidewalk down to street level" },
-        { "id": "B", "text": " the short ramps that carry a sidewalk down to street level" },
-        { "id": "C", "text": ", the short ramps that carry a sidewalk down to street level," },
-        { "id": "D", "text": " the short ramps that carry a sidewalk down to street level," }
+        { "id": "A", "text": ", ocean waves often set off by undersea earthquakes" },
+        { "id": "B", "text": " ocean waves often set off by undersea earthquakes" },
+        { "id": "C", "text": ", ocean waves often set off by undersea earthquakes," },
+        { "id": "D", "text": " ocean waves often set off by undersea earthquakes," }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The phrase \"the short ramps that carry a sidewalk down to street level\" is extra information about something already named, so it needs a comma both before and after it.\n\n**The Full Solution:**\n- How to spot it: ask whether you could lift the phrase out and still know exactly what the sentence is about. \"Curb cuts spread to sidewalks across the United States\" works on its own, so the phrase is added detail, not identification.\n- Extra detail dropped into the middle of a sentence gets fenced off with the same mark on each side.\n- Choice C puts a comma before the phrase and a comma after it, closing the fence properly.\n\n**Why the other choices are wrong:**\n- A: A comma before but none after leaves the added phrase open at one end.\n- B: No commas at all treat the phrase as needed to identify the curb cuts, which it is not.\n- D: A comma after but none before likewise leaves one end unfenced."
+      "explanation": "**Choice C is correct.** The phrase \"ocean waves often set off by undersea earthquakes\" renames \"Tsunamis\" and adds extra information, so it needs a comma both before and after it.\n\n**The Full Solution:**\n- How to spot it: ask whether you could lift the phrase out and still have a complete sentence. \"Tsunamis can cross an entire ocean in less than a day\" works, so the phrase is extra.\n- Extra information in the middle of a sentence is set off on both sides.\n- C opens the phrase with a comma and closes it with a comma before \"can cross.\"\n\n**Why the other choices are wrong:**\n- A: It opens the phrase with a comma but never closes it, so the phrase runs into the verb \"can cross.\"\n- B: With no commas, the sentence reads as if \"Tsunamis ocean waves\" were one jumbled subject.\n- D: It closes the phrase with a comma but never opens it; the commas must come in a pair."
     },
     {
       "id": 1174,
@@ -442,16 +477,16 @@ export const practiceTest11RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "Double Dutch requires the two rope turners and the jumper to stay locked on a shared rhythm, yet each of them ______ that rhythm differently: the turners feel it in their wrists, while the jumper counts it in her feet.",
+      "passage": "The traditional Chinese zodiac is a repeating twelve-year cycle, and each of the twelve animals in the cycle, from the rat to the pig, ______ one of its years.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "tracks" },
-        { "id": "B", "text": "track" },
-        { "id": "C", "text": "are tracking" },
-        { "id": "D", "text": "have tracked" }
+        { "id": "A", "text": "represents" },
+        { "id": "B", "text": "represent" },
+        { "id": "C", "text": "are representing" },
+        { "id": "D", "text": "have represented" }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The subject is \"each,\" which is always singular, so the verb must be the singular \"tracks.\"\n\n**The Full Solution:**\n- How to spot it: when a clause is built on \"each,\" \"every,\" or \"either,\" that word is the subject and it is singular — no matter how many people the phrase after it names.\n- The subject here is \"each of them,\" not \"them,\" so the plural \"them\" is a trap; so are the turners and the jumper named earlier.\n- A singular subject takes a singular verb, so \"each of them tracks that rhythm differently\" is correct.\n\n**Why the other choices are wrong:**\n- B: \"Track\" is plural and agrees with \"them\" rather than with \"each.\"\n- C: \"Are tracking\" is also plural, so it matches the wrong word.\n- D: \"Have tracked\" uses the plural \"have\" where the singular \"each\" needs \"tracks.\""
+      "explanation": "**Choice A is correct.** The subject of the second clause is \"each,\" which is singular, so the verb must be the singular \"represents.\" The phrases \"of the twelve animals in the cycle\" and \"from the rat to the pig\" do not change that.\n\n**The Full Solution:**\n- How to spot it: find the true subject. In \"each of the twelve animals in the cycle, from the rat to the pig, ______,\" the subject is \"each,\" not \"animals.\"\n- \"Each\" refers to one item at a time, so it takes a singular verb.\n- \"Each ... represents one of its years\" agrees.\n\n**Why the other choices are wrong:**\n- B: \"Represent\" is plural; it agrees with \"animals,\" which is not the subject.\n- C: \"Are representing\" is plural and does not agree with \"each.\"\n- D: \"Have represented\" is plural and does not agree with \"each.\""
     },
     // ============================================================
     // Q23-Q27: Expression of Ideas
@@ -463,7 +498,7 @@ export const practiceTest11RWM2Easy = {
       "band": 2,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "Sticker publishers number every design in a series and print a checklist inside the front cover of the album. A collector can run a finger down the list and see in seconds which numbers are still missing. ______ trading at recess is quick and exact: children arrive knowing precisely which stickers they need and which duplicates they can afford to give up.",
+      "passage": "The wing feathers of most owls have comb-like front edges and a soft, velvety surface. These features break up rushing air and absorb sound. ______ owls can fly almost silently, which lets them close in on prey without being heard.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "However," },
@@ -472,7 +507,7 @@ export const practiceTest11RWM2Easy = {
         { "id": "D", "text": "For this reason," }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The first sentences explain the setup — numbered designs and a printed checklist that shows every gap at a glance — and the sentence after the blank reports what follows from it: quick, exact trading. A cause-and-effect transition fits.\n\n**The Full Solution:**\n- How to spot it: ask whether the last sentence follows FROM the ones before it. If the earlier sentences give the reason and the final one gives the outcome, use a result word.\n- The reason: every design is numbered, and the checklist shows \"in seconds\" which are missing.\n- The outcome: children arrive at recess \"knowing precisely which stickers they need\" — trading is fast and exact BECAUSE the checklist told them.\n- \"For this reason\" marks that link directly.\n\n**Why the other choices are wrong:**\n- A: \"However\" signals a reversal, but the trading scene confirms the checklist's usefulness rather than pushing against it.\n- B: \"For example\" would make the trading an example of the checklist, but it is a consequence of it.\n- C: \"Similarly\" needs a second parallel situation, and the trading is a result, not a lookalike case."
+      "explanation": "**Choice D is correct.** The first two sentences describe feathers that break up rushing air and absorb sound; the last sentence gives the result: owls fly almost silently. \"For this reason\" introduces a result of what came before.\n\n**The Full Solution:**\n- How to spot it: ask how the sentence after the blank relates to the sentences before it.\n- Before: owl feathers are built to reduce the noise of flight.\n- After: owls fly almost silently.\n- The silence is caused by the feathers, so a cause-and-effect transition fits.\n\n**Why the other choices are wrong:**\n- A: \"However\" signals a contrast, but silent flight agrees with the description of the feathers.\n- B: \"For example\" introduces an example, but silent flight is a result of the feathers, not an example of them.\n- C: \"Similarly\" signals a comparison with something alike, but the text describes one cause and its effect."
     },
     {
       "id": 1178,
@@ -499,7 +534,7 @@ export const practiceTest11RWM2Easy = {
       "band": 4,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "Burying a class time capsule is a satisfying ceremony, but damp soil is a poor guardian of paper: even a container sold as watertight usually admits enough moisture over the decades to ruin photographs and newsprint. ______ preservation experts rarely argue against the ritual itself; they suggest sealing the capsule indoors, in a dry closet, where the ceremony and the contents both survive.",
+      "passage": "Wood rots when it stays damp, insects feed on it, and it burns easily. ______ some wooden buildings at Horyu-ji, a Buddhist temple near Nara, Japan, have stood for about 1,300 years. The temple's main hall, rebuilt after a fire in 670 CE, is considered one of the oldest surviving wooden buildings in the world.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "Similarly," },
@@ -508,7 +543,7 @@ export const practiceTest11RWM2Easy = {
         { "id": "D", "text": "Indeed," }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The first sentence builds a strong case against burial — moisture ruins photographs and newsprint — yet the sentence with the blank reports that the experts do NOT attack the ritual; they relocate it. A concession transition marks that turn.\n\n**The Full Solution:**\n- How to spot it: ask whether the final sentence goes where the previous one was pointing. The damp-soil sentence points toward abandoning burial altogether.\n- The final sentence swerves: \"rarely argue against the ritual itself\" — despite the damage case just made, the experts keep the ceremony and merely move it indoors.\n- A sentence that holds its ground in spite of what preceded it takes \"Even so.\"\n\n**Why the other choices are wrong:**\n- A: \"Similarly\" needs a parallel case, but the experts' advice answers the moisture problem rather than resembling it.\n- C: \"In other words\" promises a restatement, but the final sentence adds new advice instead of rephrasing the damage report.\n- D: \"Indeed\" would intensify the point about moisture damage, yet the sentence pivots away from that point rather than pressing it further."
+      "explanation": "**Choice B is correct.** The first sentence lists weaknesses of wood — it rots, insects eat it, and it burns. The next sentence states something true despite those weaknesses: some wooden buildings at Horyu-ji have stood for about 1,300 years. \"Even so\" introduces a point that holds in spite of what was just said.\n\n**The Full Solution:**\n- Before the blank: wood rots, is eaten by insects, and burns easily.\n- After the blank: wooden buildings at Horyu-ji have lasted about 1,300 years, and the temple's main hall is considered one of the oldest surviving wooden buildings in the world.\n- The second point stands despite the first, which is exactly the job of \"even so.\"\n\n**Why the other choices are wrong:**\n- A: \"Similarly\" signals a point like the one before, but buildings lasting 1,300 years are the opposite of what wood's weaknesses would predict.\n- C: \"In other words\" signals a restatement, but the second sentence makes a new and contrasting point.\n- D: \"Indeed\" strengthens the previous point, but buildings lasting for centuries cuts against the idea that wood decays and burns."
     },
     {
       "id": 1180,
@@ -519,25 +554,18 @@ export const practiceTest11RWM2Easy = {
       "skill": "rhetorical-synthesis",
       "studentNotes": {
         "intro": "While researching a topic, a student has taken the following notes:",
-        "bullets": [
-          "Crayons are made by pouring heated wax mixed with pigment into water-cooled molds.",
-          "Each mold forms more than a thousand crayons at a time, and the wax hardens in minutes.",
-          "After molding, inspectors examine the crayons by hand.",
-          "Crayons with broken tips, chipped sides, or crooked labels are pulled from the line.",
-          "Rejected crayons are not thrown away.",
-          "They are returned to the melting vats, recolored if needed, and molded again."
-        ],
-        "goal": "The student wants to explain what happens to crayons that fail inspection."
+        "bullets": ["Banks send used paper money to the Federal Reserve for processing.", "There, high-speed machines count each bill and check it for counterfeits.", "The machines also check each bill for wear, such as tears, holes, and writing.", "Bills in good condition are packaged and sent back out to banks.", "Bills that are too worn to use are not returned to circulation.", "Instead, they are shredded on the spot, and most of the shreds are recycled."],
+        "goal": "The student wants to explain what happens to bills that fail inspection."
       },
       "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       "choices": [
-        { "id": "A", "text": "Crayons are made by pouring heated wax mixed with pigment into water-cooled molds, each of which forms more than a thousand crayons at a time." },
-        { "id": "B", "text": "After the wax hardens, inspectors examine the crayons by hand, pulling any with broken tips, chipped sides, or crooked labels from the line." },
-        { "id": "C", "text": "Because the wax hardens in minutes, a single mold can produce more than a thousand crayons at a time." },
-        { "id": "D", "text": "Crayons that fail inspection are not discarded; they go back into the melting vats to be recolored if needed and molded again." }
+        { "id": "A", "text": "Banks send used paper money to the Federal Reserve, where high-speed machines count each bill." },
+        { "id": "B", "text": "High-speed machines check each bill for counterfeits and for wear, such as tears and holes." },
+        { "id": "C", "text": "Bills in good condition are packaged and sent back out to banks to be used again." },
+        { "id": "D", "text": "Bills too worn to use are not returned to circulation; instead, they are shredded, and most of the shreds are recycled." }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The goal asks what happens to crayons that fail inspection, and choice D answers with the full fate the notes describe: not discarded, but remelted, recolored if needed, and molded again.\n\n**The Full Solution:**\n- How to spot it: do exactly what the goal sentence asks. It asks about the crayons AFTER they fail, so hunt for the notes about rejects.\n- Two notes carry that weight: rejected crayons \"are not thrown away,\" and they are \"returned to the melting vats, recolored if needed, and molded again.\"\n- Choice D joins those two notes into one sentence that starts at failing inspection and ends at becoming new crayons — the complete answer to the goal.\n\n**Why the other choices are wrong:**\n- A: It describes how crayons are made in the first place and never reaches inspection at all.\n- B: It stops at the moment crayons are pulled from the line — the goal asks what happens to them NEXT.\n- C: It reports production speed, which has nothing to do with failed crayons."
+      "explanation": "**Choice D is correct.** The goal asks what happens to bills that fail inspection, and choice D answers with the full fate the notes describe: not returned to circulation, but shredded, with most of the shreds recycled.\n\n**The Full Solution:**\n- How to spot it: do exactly what the goal sentence asks. It asks about bills that FAIL inspection.\n- The last two notes describe those bills: they are kept out of circulation, shredded, and mostly recycled.\n- D combines those two notes into one sentence.\n\n**Why the other choices are wrong:**\n- A: It describes how bills arrive and are counted, not what happens to bills that fail.\n- B: It describes the inspection itself, not what happens after a bill fails it.\n- C: It describes bills that PASS inspection, the opposite of what the goal asks about."
     },
     {
       "id": 1181,
@@ -549,24 +577,24 @@ export const practiceTest11RWM2Easy = {
       "studentNotes": {
         "intro": "While researching a topic, a student has taken the following notes:",
         "bullets": [
-          "At most schools, recess kickball is played without any adult referee.",
-          "Players make the calls themselves, announcing outs and fouls as they happen.",
-          "When a call is disputed, the play is not argued to a finish; it is simply replayed.",
-          "Researchers who study children's games describe the replay rule as a fairness mechanism.",
-          "Because recess lasts only about twenty minutes, long arguments cost playing time that cannot be recovered.",
-          "Teams are usually re-picked from scratch the next day."
+          "Yakhchals are ice houses built in ancient Persia, in what is now Iran, as early as 400 BCE.",
+          "They stored ice through hot desert summers without refrigeration.",
+          "The ice was kept in a large storage pit dug below ground.",
+          "Above the pit rose a dome with walls at least two meters thick at the base.",
+          "The walls were made of sarooj, a mortar that resists the flow of heat.",
+          "One well-preserved yakhchal, in Kerman, Iran, is a cone-shaped building about 18 meters tall."
         ],
-        "goal": "The student wants to explain how kickball players keep their games fair without a referee."
+        "goal": "The student wants to explain how yakhchals kept ice frozen through the summer without refrigeration."
       },
       "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       "choices": [
-        { "id": "A", "text": "Recess kickball is played without any adult referee at most schools, and teams are usually re-picked from scratch the next day." },
-        { "id": "B", "text": "Because recess lasts only about twenty minutes, kickball players cannot afford to spend their limited playing time on long arguments." },
-        { "id": "C", "text": "Kickball players referee themselves, announcing outs and fouls as plays happen and settling any disputed call by simply replaying the play." },
-        { "id": "D", "text": "Researchers who study children's games have taken an interest in the way disputed kickball plays are handled at recess." }
+        { "id": "A", "text": "Yakhchals, the ice houses of ancient Persia, were built as early as 400 BCE." },
+        { "id": "B", "text": "One well-preserved yakhchal, in the city of Kerman in Iran, is a cone-shaped building about 18 meters tall." },
+        { "id": "C", "text": "Yakhchals kept ice in an underground pit below a dome with thick walls of heat-resistant mortar." },
+        { "id": "D", "text": "Yakhchals were ice houses that stored ice through hot desert summers in what is now Iran." }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The goal asks HOW the players keep games fair with no referee, and choice C gives the mechanism the notes describe: players call their own outs and fouls, and disputes end in a replay.\n\n**The Full Solution:**\n- How to spot it: when the goal asks HOW something works, pick the choice that gives the working parts, not the choice that only describes the situation or the people studying it.\n- The notes supply two parts: players \"make the calls themselves,\" and a disputed play \"is simply replayed\" — the rule researchers call a fairness mechanism.\n- Choice C strings both parts into one sentence, which is exactly the explanation the goal asks for.\n\n**Why the other choices are wrong:**\n- A: It states that there is no referee and that teams get re-picked, but never says how fairness is actually kept during a game.\n- B: It explains why players avoid long arguments, not how they settle the disputes themselves.\n- D: It reports the researchers' interest without giving any of the mechanism they observed."
+      "explanation": "**Choice C is correct.** The goal asks how yakhchals kept ice frozen without refrigeration. C gives the method from the notes: the ice sat in a pit below ground, under a dome whose thick walls were made of a mortar that resists the flow of heat.\n\n**The Full Solution:**\n- How to spot it: the goal asks HOW, so the answer must name the method, not just describe a yakhchal.\n- The notes give the method in pieces: an underground storage pit, a dome above it, and thick walls of heat-resistant sarooj.\n- C joins those pieces into one explanation.\n\n**Why the other choices are wrong:**\n- A: It gives the age of yakhchals but never explains how they kept ice frozen.\n- B: It describes the size and shape of one yakhchal, which does not explain how the ice stayed frozen.\n- D: It says that yakhchals stored ice through the summer but not how they did it."
     }
   ]
 };

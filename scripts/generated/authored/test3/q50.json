@@ -6,12 +6,12 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "type": "multiple-choice",
- "passage": "The spring phytoplankton bloom in northern seas was long explained by sunlight: as days lengthen, the surface water warms and settles into layers, holding the cells near the light. Satellite records, however, show some blooms beginning in midwinter, before the surface warms at all. ______ some oceanographers now argue that winter storms set the stage, mixing phytoplankton so deep that the grazers that eat them rarely find them.",
+ "passage": "Many nineteenth-century histories claimed that medieval Europeans believed the Earth was flat. Medieval sources, however, tell a different story. Sacrobosco's thirteenth-century treatise On the Sphere, which describes a round Earth, was required reading at European universities for some four hundred years. ______ historians now regard the medieval flat Earth as a myth invented long after the Middle Ages.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
    "id": "A",
-   "text": "In contrast,"
+   "text": "Nevertheless,"
   },
   {
    "id": "B",
@@ -27,8 +27,8 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The final sentence is the response the awkward evidence demands: because satellites show blooms starting before the sunlight mechanism could operate, oceanographers propose a new account. \"Accordingly\" signals a step taken in line with what was just established.\n\n**The Full Solution:**\n- Sentence two undermines the old explanation with winter-start blooms.\n- Sentence three offers a hypothesis engineered to fit that very observation — storms, a winter phenomenon, as the trigger. The new argument follows from the complication, so the transition must mark consequence.\n\n**Why the other choices are wrong:**\n- A: \"In contrast\" would oppose the final sentence to the satellite findings, but the storm hypothesis is motivated by those findings, not set against them.\n- C: \"In the meantime\" implies simultaneous, unrelated developments; the relationship here is evidence-then-response.\n- D: \"Similarly\" claims the storm proposal parallels the satellite records, but one is data and the other is an explanation prompted by the data — sequence, not resemblance.",
+ "explanation": "**Choice B is correct.** The final sentence states the conclusion that the evidence before it supports: because medieval universities taught a round Earth for centuries, historians now treat the flat-Earth belief as a later myth. \"Accordingly\" signals a conclusion that follows from what was just shown.\n\n**The Full Solution:**\n- The first sentence gives the old claim; the next two sentences give evidence against it — a standard textbook describing a round Earth was taught for some four hundred years.\n- The last sentence draws the conclusion that evidence supports, so the transition must mark a logical consequence.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" would signal a conclusion reached in spite of the evidence, but the evidence supports calling the flat-Earth story a myth.\n- C: \"In the meantime\" signals something happening at the same time; the sentence is a conclusion, not a parallel event.\n- D: \"Similarly\" signals a comparable point, but the sentence draws a conclusion from the evidence rather than adding a similar piece of evidence.",
  "_meta": {
-  "anchor": "Winter onset of phytoplankton blooms — storm-dilution hypothesis; consequence transition"
+  "anchor": "Myth of the medieval flat Earth — Sacrobosco's De sphaera (c. 1230) as a university text; myth popularized in the 19th century (https://en.wikipedia.org/wiki/Myth_of_the_flat_Earth; https://en.wikipedia.org/wiki/Inventing_the_Flat_Earth) — consequence transition"
  }
 }

@@ -1,23 +1,24 @@
 {
   "id": "bank-ps-279",
-  "question": "Two surveys of residents of the same city were conducted at the same time using the same method. Each survey estimated the percent of the city's residents who commute by rail. The table shows each estimate and its associated margin of error. Which of the following is the most appropriate conclusion?",
+  "question": "A town has $12{,}000$ residents. A random sample of residents was asked whether they commute by rail, and the table shows the results of the survey. Based on these results, which of the following is a plausible value for the number of residents of the town who commute by rail?",
   "diagram": {
     "type": "dataTable",
     "params": {
       "headers": [
-        "Survey",
-        "Estimated percent",
-        "Margin of error"
+        "Survey result",
+        "Value"
       ],
       "rows": [
         [
-          "Survey 1",
-          "38%",
-          "2%"
+          "Residents surveyed",
+          "400"
         ],
         [
-          "Survey 2",
-          "41%",
+          "Estimated percent who commute by rail",
+          "38%"
+        ],
+        [
+          "Margin of error",
           "3%"
         ]
       ]
@@ -26,26 +27,26 @@
   "choices": [
     {
       "id": "A",
-      "text": "The percent of the city's residents who commute by rail increased between the two surveys."
+      "text": "$152$"
     },
     {
       "id": "B",
-      "text": "Survey 2 produced the more precise estimate, because its estimated percent is greater."
+      "text": "$4{,}800$"
     },
     {
       "id": "C",
-      "text": "Because $41\\%$ is greater than $38\\%$, more than $40\\%$ of the city's residents commute by rail."
+      "text": "$5{,}280$"
     },
     {
       "id": "D",
-      "text": "The intervals of plausible values from the two surveys overlap, so both surveys are consistent with the same percent for the city's residents."
+      "text": "$7{,}440$"
     }
   ],
   "distractorNotes": {
-    "A": "reads a change over time into two simultaneous surveys",
-    "B": "confuses a larger estimate with a smaller margin of error",
-    "C": "compares point estimates while ignoring both margins of error"
+    "A": "applies 38% to the 400 residents surveyed instead of to the town",
+    "C": "adds the margin of error twice, using 44%, which is outside 35% to 41%",
+    "D": "uses 62%, the percent of residents who do not commute by rail"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Confidence Interval Interpretation**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Survey 1 gives $38\\% \\pm 2\\%$, or $36\\%$ to $40\\%$; survey 2 gives $41\\% \\pm 3\\%$, or $38\\%$ to $44\\%$. The intervals share the values from $38\\%$ to $40\\%$, so one percent could produce both estimates.\n\n**The Full Solution:**\nStep 1: Build each interval of plausible values. Survey 1: $38 - 2 = 36$ to $38 + 2 = 40$. Survey 2: $41 - 3 = 38$ to $41 + 3 = 44$.\nStep 2: Compare them. The intervals overlap on $38\\%$ to $40\\%$, so a single population percent in that range is consistent with both surveys.\nStep 3: Check: because the overlap is not empty, the data do not establish that the two surveys are estimating different values, so no claim of a real difference is supported. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: the surveys were conducted at the same time, so there is no before and after to compare; a difference of $3$ percentage points between two estimates is not a change over time.\n* Choice B: precision is measured by the margin of error, and survey 2's margin ($3\\%$) is the larger of the two, so survey 2 is the less precise survey.\n* Choice C: this compares $38\\%$ and $41\\%$ as if both were exact. Since $36\\%$ is plausible from survey 1, the data do not establish that the percent exceeds $40\\%$.\n\n**Test Day Takeaway:** Two estimates differ meaningfully only when their intervals of plausible values do not overlap. Compare intervals, never the point estimates alone."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Confidence Interval Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Plausible percents run from $38 - 3 = 35\\%$ to $38 + 3 = 41\\%$ of $12{,}000$, that is, from $4{,}200$ to $4{,}920$; only $4{,}800$ is in that range.\n\n**The Full Solution:**\nStep 1: The estimate and margin of error give plausible values from $38\\% - 3\\% = 35\\%$ to $38\\% + 3\\% = 41\\%$ of the town's residents.\nStep 2: Apply those percents to the town: $0.35 \\times 12{,}000 = 4{,}200$ and $0.41 \\times 12{,}000 = 4{,}920$.\nStep 3: Of the choices, only $4{,}800$ is between $4{,}200$ and $4{,}920$. Check: $\\frac{4{,}800}{12{,}000} = 40\\%$, which is between $35\\%$ and $41\\%$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($152$): $0.38 \\times 400 = 152$ counts residents in the sample, not in the town.\n* Choice C ($5{,}280$): this is $44\\%$ of $12{,}000$, which is $6$ points above the estimate, outside the margin of error.\n* Choice D ($7{,}440$): this is $62\\%$ of $12{,}000$, the residents who do not commute by rail.\n\n**Test Day Takeaway:** Turn the estimate and margin of error into a range of percents, then multiply the endpoints by the population size."
 }

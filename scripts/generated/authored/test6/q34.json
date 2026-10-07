@@ -6,12 +6,12 @@
   "band": 4,
   "domain": "craft-and-structure",
   "skill": "text-structure-and-purpose",
-  "passage": "The plasmodial slime mold Physarum polycephalum is a single giant cell, without brain or nervous system, that forages by extending a web of protoplasmic veins toward food. When researchers set out oat flakes in an arrangement matching the cities around Tokyo, the organism first flooded the whole space, then pruned itself back to a network of tubes linking the flakes — a web whose efficiency, fault tolerance, and cost the researchers judged comparable to the actual Tokyo rail system's. Engineers have taken note: an organism that solves network problems by local trial and reinforcement, with no central plan, offers a template for routing algorithms in settings that change faster than any planner can redraw the map.",
+  "passage": "The plasmodial slime mold Physarum polycephalum is a single giant cell, without brain or nervous system, that forages by extending a web of protoplasmic veins toward food. When researchers set out oat flakes in an arrangement matching the cities around Tokyo, the organism first flooded the whole space. It then pruned itself back to a network of tubes linking the flakes, a web the researchers judged comparable to the actual Tokyo rail system in efficiency, fault tolerance, and cost. Engineers have taken note. An organism that solves network problems by local trial and reinforcement, with no central plan, offers a template for routing algorithms in settings that change too fast for central planning.",
   "question": "Which choice best states the main purpose of the text?",
   "choices": [
     {
       "id": "A",
-      "text": "To question whether experiments performed in laboratory settings can accurately measure the problem-solving abilities of organisms that lack brains or nervous systems"
+      "text": "To question whether laboratory experiments can accurately measure the problem-solving abilities of organisms without brains"
     },
     {
       "id": "B",
@@ -23,9 +23,9 @@
     },
     {
       "id": "D",
-      "text": "To describe an experiment showing a brainless organism's ability to build efficient networks and the interest that ability holds for engineers"
+      "text": "To describe a brainless organism's ability to build efficient networks and the interest that ability holds for engineers"
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The text introduces the organism, recounts the Tokyo-map experiment demonstrating its network-building, and closes with why engineers care — the two halves D names: the demonstration and the practical interest.\n\n**The Full Solution:**\n- The first two sentences establish the surprise: a single brainless cell pruned itself into a network judged comparable to a real rail system.\n- The final sentence converts the finding into significance: a decentralized problem-solver as a template for routing algorithms.\n- D covers both movements; each wrong answer invents a purpose the text never pursues.\n\n**Why the other choices are wrong:**\n- A: The text treats the experiment's result as credible throughout; no doubt about laboratory measurement is raised.\n- B: Evolution is never mentioned — the foraging behavior is described, not traced to origins.\n- C: The comparison drawn is between the finished networks' efficiency and cost, not between rates of growth and construction."
+  "explanation": "**Choice D is correct.** The text introduces the organism, recounts the Tokyo-map experiment demonstrating its network-building, and closes with why engineers care — the two halves D names: the organism's demonstrated ability and the engineers' interest.\n\n**The Full Solution:**\n- The first three sentences establish the surprise: a single brainless cell pruned itself into a network judged comparable to a real rail system.\n- The final two sentences convert the finding into significance: a decentralized problem-solver as a template for routing algorithms.\n- D covers both movements; each wrong answer invents a purpose the text never pursues.\n\n**Why the other choices are wrong:**\n- A: The text treats the experiment's result as credible throughout; no doubt about laboratory measurement is raised.\n- B: Evolution is never mentioned — the foraging behavior is described, not traced to origins.\n- C: The comparison drawn is between the finished networks' efficiency and cost, not between rates of growth and construction."
 }

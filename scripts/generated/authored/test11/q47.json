@@ -8,29 +8,29 @@
  "choices": [
   {
    "id": "A",
-   "text": "operators'"
+   "text": "sergeants'"
   },
   {
    "id": "B",
-   "text": "operator's"
+   "text": "sergeant's"
   },
   {
    "id": "C",
-   "text": "operators"
+   "text": "sergeants"
   },
   {
    "id": "D",
-   "text": "operators's"
+   "text": "sergeants's"
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The tallies belong to the operators as a group — the whole passage concerns an exchange's staff — so the plural possessive \"operators'\" is required before \"own tallies.\"\n\n**The Full Solution:**\n- The parallel later in the sentence confirms the pattern: \"their supervisors' estimates\" is a plural possessive of the same shape.\n- A regular plural ending in -s takes only an apostrophe to form its possessive: operators → operators'.\n- \"The operators' own tallies\" marks plural possession correctly.\n\n**Why the other choices are wrong:**\n- B: \"Operator's\" is singular, but the sentence contrasts the workforce's records with their supervisors' — both possessors are plural.\n- C: \"Operators\" carries no possessive marking, yet the noun must possess \"own tallies\"; \"own\" cannot attach to a bare plural.\n- D: \"Operators's\" adds an extra 's to a plural already ending in -s — a malformed possessive.",
- "passage": "Telephone companies kept meticulous records of switchboard work, and labor historians mining them can often reconstruct an exchange's daily rhythm by sorting out which surviving entries reflect the ______ own tallies of calls handled rather than their supervisors' estimates.",
+ "explanation": "**Choice A is correct.** The records belong to more than one sergeant — the sentence says \"three of the expedition's sergeants\" kept journals — so the plural possessive \"sergeants'\" is required.\n\n**The Full Solution:**\n- The possessor is plural: the three sergeants who kept journals.\n- A regular plural noun ending in -s forms its possessive with an apostrophe alone: sergeants → sergeants'.\n- \"The sergeants' own records\" correctly marks plural possession.\n\n**Why the other choices are wrong:**\n- B: \"Sergeant's\" is the singular possessive, but three sergeants kept records.\n- C: \"Sergeants\" is a plain plural with no possessive marking, so it cannot show ownership of the records.\n- D: \"Sergeants's\" is not a standard form; a plural ending in -s takes only an apostrophe.",
+ "passage": "Historians of the Lewis and Clark expedition draw not only on the journals of Meriwether Lewis and William Clark but also on the ______ own records, since three of the expedition's sergeants also kept journals.",
  "_meta": {
-  "rule": "plural possessive of a regular -s plural",
-  "anchor": "telephone switchboard operators — call tallies vs. supervisors' estimates",
+  "rule": "plural possessive of a regular -s plural (cue after the blank)",
+  "anchor": "Lewis and Clark expedition — sergeants Ordway, Floyd, Gass kept journals (Journals of the Lewis and Clark Expedition, Univ. of Nebraska, vols. 9-10)",
   "distractors": {
-   "B": "singular possessive against plural context",
+   "B": "singular possessive",
    "C": "no possessive marking",
    "D": "double-s malformed possessive"
   }

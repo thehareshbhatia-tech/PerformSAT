@@ -1,25 +1,25 @@
 {
- "id": "bank-alg-165",
- "question": "The two points shown lie on line $\\ell$ in the $xy$-plane. Line $k$ has a slope that is $3$ times the slope of line $\\ell$. What is the slope of line $k$?",
- "diagram": {
-  "type": "coordinatePoints",
-  "params": {
-   "points": [
-    [
-     -3,
-     7
-    ],
-    [
-     5,
-     -5
-    ]
-   ],
-   "xMin": -6,
-   "xMax": 8,
-   "yMin": -8,
-   "yMax": 10
-  }
- },
- "correctAnswer": "-4.5",
- "explanation": "**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $-4.5$.**\n\n**The Fast Way (~25s):** The points $(-3, 7)$ and $(5, -5)$ give a slope of $\\frac{-12}{8} = -1.5$ for line $\\ell$, and $3(-1.5) = -4.5$.\n\n**The Full Solution:**\nStep 1: Read the two plotted points: $(-3, 7)$ and $(5, -5)$.\nStep 2: The slope of line $\\ell$ is $\\frac{-5 - 7}{5 - (-3)} = \\frac{-12}{8} = -\\frac{3}{2}$.\nStep 3: The slope of line $k$ is $3\\left(-\\frac{3}{2}\\right) = -\\frac{9}{2} = -4.5$. Check: $-4.5 \\div 3 = -1.5$, the slope of line $\\ell$ ✓ (The answer may also be entered as $-\\frac{9}{2}$.)\n\n**Common Mistakes:**\n* $-1.5$: reports the slope of line $\\ell$ and forgets to multiply by $3$.\n* $4.5$: drops the negative sign, even though line $\\ell$ falls from left to right.\n* $-2$: inverts rise and run, using $-\\frac{2}{3}$, before tripling.\n\n**Test Day Takeaway:** Compute the slope from the two points first, then apply the multiplier the question describes; the sign carries through."
+  "id": "bank-alg-165",
+  "question": "Line $\\ell$ in the $xy$-plane passes through the two points shown. What is the slope of a line that is perpendicular to line $\\ell$?",
+  "diagram": {
+    "type": "coordinatePoints",
+    "params": {
+      "points": [
+        [
+          -1,
+          -5
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "xMin": -4,
+      "xMax": 8,
+      "yMin": -8,
+      "yMax": 6
+    }
+  },
+  "correctAnswer": "-3/4",
+  "explanation": "**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $-\\frac{3}{4}$.**\n\n**The Fast Way (~20s):** The points $(-1, -5)$ and $(5, 3)$ give line $\\ell$ a slope of $\\frac{8}{6} = \\frac{4}{3}$. A perpendicular line has the negative reciprocal slope, $-\\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: Read the two plotted points: $(-1, -5)$ and $(5, 3)$.\nStep 2: The slope of line $\\ell$ is $\\frac{3 - (-5)}{5 - (-1)} = \\frac{8}{6} = \\frac{4}{3}$.\nStep 3: Perpendicular lines have slopes that are negative reciprocals, so a line perpendicular to line $\\ell$ has slope $-\\frac{3}{4}$. Check: $\\left(\\frac{4}{3}\\right)\\left(-\\frac{3}{4}\\right) = -1$ ✓ (The answer may also be entered as $-0.75$.)\n\n**Common Mistakes:**\n* $\\frac{4}{3}$: reports the slope of line $\\ell$ itself.\n* $\\frac{3}{4}$: takes the reciprocal but does not change the sign.\n* $-\\frac{4}{3}$: changes the sign but does not take the reciprocal.\n\n**Test Day Takeaway:** Find the slope from the two points first, then take its negative reciprocal for the perpendicular line."
 }

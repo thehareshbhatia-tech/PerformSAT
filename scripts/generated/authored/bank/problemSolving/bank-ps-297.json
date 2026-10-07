@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-297",
-  "question": "The table shows the constant rate at which each of three machines fills bottles. If all three machines operate at the same time, how many bottles do they fill in $1$ hour?",
+  "question": "The table shows the constant rate at which each of two machines fills bottles. If both machines operate at the same time, how many bottles do they fill in $1$ hour?",
   "diagram": {
     "type": "dataTable",
     "params": {
@@ -15,10 +15,6 @@
         ],
         [
           "B",
-          "5 bottles every 2 seconds"
-        ],
-        [
-          "C",
           "7 bottles every 3 seconds"
         ]
       ]
@@ -27,26 +23,26 @@
   "choices": [
     {
       "id": "A",
-      "text": "$425$"
+      "text": "$275$"
     },
     {
       "id": "B",
-      "text": "$8{,}400$"
+      "text": "$8{,}100$"
     },
     {
       "id": "C",
-      "text": "$17{,}100$"
+      "text": "$16{,}500$"
     },
     {
       "id": "D",
-      "text": "$25{,}500$"
+      "text": "$990{,}000$"
     }
   ],
   "distractorNotes": {
-    "A": "gives the number of bottles filled in $1$ minute",
-    "B": "adds the numerators and the denominators of the three rates",
-    "C": "omits machine C"
+    "A": "finds the combined number of bottles per minute and stops",
+    "B": "number of bottles machine A alone fills in 1 hour",
+    "D": "multiplies by 60 one time too many"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Unit Conversion**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The rates are $\\frac{9}{4}$, $\\frac{5}{2}$, and $\\frac{7}{3}$ bottles per second, which total $\\frac{85}{12}$ bottles per second; $\\frac{85}{12} \\times 3{,}600 = 25{,}500$.\n\n**The Full Solution:**\nStep 1: Write each machine's rate in bottles per second: machine A gives $\\frac{9}{4} = 2.25$, machine B gives $\\frac{5}{2} = 2.5$, and machine C gives $\\frac{7}{3}$.\nStep 2: Because the machines run at the same time, the combined rate is the sum: $\\frac{9}{4} + \\frac{5}{2} + \\frac{7}{3} = \\frac{27 + 30 + 28}{12} = \\frac{85}{12}$ bottles per second.\nStep 3: Multiply by the number of seconds in an hour: $\\frac{85}{12} \\times 3{,}600 = 85 \\times 300 = 25{,}500$ bottles. Check machine by machine: $2.25 \\times 3{,}600 = 8{,}100$, $2.5 \\times 3{,}600 = 9{,}000$, and $\\frac{7}{3} \\times 3{,}600 = 8{,}400$, and $8{,}100 + 9{,}000 + 8{,}400 = 25{,}500$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($425$): $\\frac{85}{12} \\times 60$, the number of bottles filled in one minute rather than one hour.\n* Choice B ($8{,}400$): from $\\frac{9 + 5 + 7}{4 + 2 + 3} = \\frac{21}{9}$ bottles per second, which adds the rates by adding numerators and denominators.\n* Choice C ($17{,}100$): $(\\frac{9}{4} + \\frac{5}{2}) \\times 3{,}600$, the total for machines A and B only.\n\n**Test Day Takeaway:** Convert every rate to the same per-unit form before adding, then convert the time once at the end."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Unit Conversion**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Machine A fills $\\frac{9}{4} \\times 3{,}600 = 8{,}100$ bottles per hour and machine B fills $\\frac{7}{3} \\times 3{,}600 = 8{,}400$, so together they fill $16{,}500$.\n\n**The Full Solution:**\nStep 1: There are $60 \\times 60 = 3{,}600$ seconds in $1$ hour.\nStep 2: Machine A fills $9$ bottles every $4$ seconds, so in $1$ hour it fills $\\frac{3{,}600}{4} \\times 9 = 8{,}100$ bottles. Machine B fills $7$ bottles every $3$ seconds, so it fills $\\frac{3{,}600}{3} \\times 7 = 8{,}400$ bottles.\nStep 3: Together they fill $8{,}100 + 8{,}400 = 16{,}500$ bottles in $1$ hour. Check: per minute, A fills $\\frac{9}{4} \\times 60 = 135$ and B fills $\\frac{7}{3} \\times 60 = 140$, and $275 \\times 60 = 16{,}500$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($275$): $135 + 140 = 275$ is the number of bottles filled in $1$ minute, not $1$ hour.\n* Choice B ($8{,}100$): this counts machine A only; machine B is also running.\n* Choice D ($990{,}000$): this is $16{,}500 \\times 60$, which converts from minutes to hours one extra time.\n\n**Test Day Takeaway:** Convert every rate to the same unit of time before adding. One hour is $3{,}600$ seconds."
 }

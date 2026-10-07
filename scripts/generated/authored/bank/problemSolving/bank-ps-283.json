@@ -1,29 +1,29 @@
 {
  "id": "bank-ps-283",
- "question": "A random sample of size $n$ gives an estimate with a margin of error of $6\\%$. What would the margin of error be for a sample of size $9n$?",
+ "question": "A survey of a random sample of $900$ adults in a city estimated that $45\\%$ of the city's adults read a newspaper daily, with an associated margin of error of $3\\%$. If a random sample of $300$ adults had been used instead, which of the following would most likely be true about the margin of error?",
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{2}{3}\\%$"
+   "text": "It would be less than $1\\%$."
   },
   {
    "id": "B",
-   "text": "$2\\%$"
+   "text": "It would be between $1\\%$ and $3\\%$."
   },
   {
    "id": "C",
-   "text": "$3\\%$"
+   "text": "It would be equal to $3\\%$."
   },
   {
    "id": "D",
-   "text": "$18\\%$"
+   "text": "It would be greater than $3\\%$."
   }
  ],
  "distractorNotes": {
-  "A": "divides by $9$ instead of by $\\sqrt{9}$",
-  "C": "halves the margin of error regardless of the factor $9$",
-  "D": "multiplies by $3$ instead of dividing"
+  "A": "shrinks the margin of error for a smaller sample, the wrong direction",
+  "B": "reverses the relationship: a margin of error less than 3% would come from a larger sample",
+  "C": "ignores the effect of sample size on the margin of error"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Multiplying the sample size by $9$ divides the margin of error by $\\sqrt{9} = 3$: $\\frac{6}{3} = 2$.\n\n**The Full Solution:**\nStep 1: The margin of error is proportional to $\\frac{1}{\\sqrt{n}}$, so replacing $n$ by $9n$ replaces $\\sqrt{n}$ by $\\sqrt{9n} = 3\\sqrt{n}$.\nStep 2: The margin of error is therefore divided by $3$: $\\frac{6}{3} = 2$, so the new margin of error is $2\\%$.\nStep 3: Check with the reverse rule: to divide a margin of error by $3$, multiply the sample size by $3^2 = 9$, which is exactly the change described. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2}{3}\\%$): $\\frac{6}{9}$, dividing by the sample-size factor itself instead of by its square root.\n* Choice C ($3\\%$): halving the margin of error, which corresponds to multiplying the sample size by $4$, not $9$.\n* Choice D ($18\\%$): $6 \\times 3$; a larger sample makes an estimate more precise, so the margin of error must go down.\n\n**Test Day Takeaway:** The sample-size factor goes under a square root before it touches the margin of error."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** A smaller random sample generally gives a larger margin of error, so the margin of error would be greater than $3\\%$.\n\n**The Full Solution:**\nStep 1: When margins of error are calculated in the same way, a smaller random sample generally leads to a larger margin of error.\nStep 2: A sample of $300$ adults is smaller than a sample of $900$ adults.\nStep 3: So the margin of error would most likely be greater than $3\\%$. Check: a smaller sample gives a less precise estimate, which shows up as a wider range of plausible values. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: a margin of error below $1\\%$ would mean the smaller sample is far more precise, which is backward.\n* Choice B: any margin of error less than $3\\%$ would come from a larger sample, not a smaller one.\n* Choice C: changing the sample size changes the margin of error.\n\n**Test Day Takeaway:** Smaller random sample, larger margin of error. Any choice that makes the smaller sample more precise is wrong."
 }

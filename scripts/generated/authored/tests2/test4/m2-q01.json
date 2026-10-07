@@ -1,6 +1,6 @@
 {
  "id": 1,
- "question": "The table shows the two solutions to the equation $|x - c| = d$, where $c$ and $d$ are positive constants. What is the value of $cd$?",
+ "question": "The table shows the two solutions to the equation $|x - c| = d$, where $c$ and $d$ are positive constants. What is the value of $c$?",
  "questionTable": {
   "headers": [
    "Solution",
@@ -9,37 +9,37 @@
   "rows": [
    [
     "Smaller solution",
-    "$1.4$"
+    "$3$"
    ],
    [
     "Larger solution",
-    "$4.6$"
+    "$11$"
    ]
   ]
  },
  "choices": [
   {
    "id": "A",
-   "text": "$1.6$"
+   "text": "$4$"
   },
   {
    "id": "B",
-   "text": "$3$"
+   "text": "$7$"
   },
   {
    "id": "C",
-   "text": "$4.8$"
+   "text": "$8$"
   },
   {
    "id": "D",
-   "text": "$9.6$"
+   "text": "$14$"
   }
  ],
  "distractorNotes": {
-  "A": "reports d alone, half the distance between the solutions, instead of the product cd",
-  "B": "reports c alone, the midpoint of the two solutions, instead of the product cd",
-  "D": "uses the full distance 4.6 - 1.4 = 3.2 as d instead of half of it, giving 3(3.2) = 9.6"
+  "A": "finds d, the distance from c to each solution, instead of c",
+  "C": "finds the distance between the two solutions, 11 - 3, instead of the value halfway between them",
+  "D": "adds the two solutions, 3 + 11, without dividing by 2"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The solutions of $|x - c| = d$ lie $d$ units on either side of $c$, so $c$ is the midpoint, $3$, and $d$ is half the gap, $1.6$. Then $cd = 4.8$.\n\n**The Full Solution:**\nStep 1: The equation $|x - c| = d$ splits into $x = c + d$ and $x = c - d$, so $c + d = 4.6$ and $c - d = 1.4$.\nStep 2: Adding the two equations gives $2c = 6$, so $c = 3$. Subtracting them gives $2d = 3.2$, so $d = 1.6$.\nStep 3: $cd = 3(1.6) = 4.8$. Check: $|1.4 - 3| = 1.6$ and $|4.6 - 3| = 1.6$, so both values satisfy $|x - 3| = 1.6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.6$): this is $d$ alone. Finding $d$ is a middle step; the question asks for the product $cd$.\n* Choice B ($3$): this is $c$ alone, the midpoint of the two solutions, with the multiplication never carried out.\n* Choice D ($9.6$): this uses the full distance $4.6 - 1.4 = 3.2$ as $d$, giving $3(3.2) = 9.6$. The distance from $c$ to each solution is half of that.\n\n**Test Day Takeaway:** For $|x - c| = d$, the constant $c$ is the average of the two solutions and $d$ is half their difference."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The solutions of $|x - c| = d$ are the two numbers $d$ units from $c$, so $c$ is halfway between $3$ and $11$: $c = \\frac{3 + 11}{2} = 7$.\n\n**The Full Solution:**\nStep 1: The equation $|x - c| = d$ means $x - c = d$ or $x - c = -d$, so the solutions are $c + d$ and $c - d$.\nStep 2: The table gives $c + d = 11$ and $c - d = 3$. Adding these equations gives $2c = 14$.\nStep 3: So $c = 7$. Check: with $c = 7$, $d = 4$, and $|3 - 7| = 4$ and $|11 - 7| = 4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): this is $d$, the distance from $c$ to each solution.\n* Choice C ($8$): this is the distance between the two solutions, $11 - 3$, which equals $2d$.\n* Choice D ($14$): this is the sum of the two solutions, $2c$, before dividing by $2$.\n\n**Test Day Takeaway:** For $|x - c| = d$, the constant $c$ is the midpoint of the two solutions and $d$ is half the distance between them."
 }

@@ -6,29 +6,29 @@
  "domain": "craft-and-structure",
  "skill": "text-structure-and-purpose",
  "module": 2,
- "passage": "Adults in many communities address infants in a distinctive register: pitch rises, vowels stretch, sentences shorten, and the voice swings through wider melodic curves than adult conversation employs. Infants are demonstrably responsive to this style, attending longer to infant-directed speech than to speech between adults, and its exaggerated vowels present unusually clear examples of the sound categories a language distinguishes. Some researchers therefore propose that a manner of speaking adults fall into without any instruction functions as a natural teaching tool, tuned to the listeners most in need of language lessons.",
+ "passage": "Male humpback whales produce long, complex songs built from short phrases that repeat in groups called themes. A single song can last ten to twenty minutes, and a male may repeat it for hours. At any one time, the males in a population sing nearly the same version of the song, and that shared version gradually changes over the breeding season. Because only males sing, and mostly during the breeding season, many researchers propose that the song serves as a mating display.",
  "question": "Which choice best describes the overall structure of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "It presents a disagreement between researchers about why adults alter their speech around infants and endorses one side."
+   "text": "It presents a disagreement between researchers about why humpback whales sing and endorses one side."
   },
   {
    "id": "B",
-   "text": "It describes the features of a speech style, notes infants' responsiveness to it, and then presents a proposed function that the style may serve."
+   "text": "It describes features of a whale song, notes how males share and change it, and presents a proposed function."
   },
   {
    "id": "C",
-   "text": "It recommends that caregivers adopt a particular way of speaking and lists the benefits that are likely to follow."
+   "text": "It recommends particular methods for recording whale songs at sea and lists the benefits likely to follow."
   },
   {
    "id": "D",
-   "text": "It traces how the way adults speak to infants has changed across generations and questions whether those changes have actually helped infants learn their native language."
+   "text": "It traces how humpback songs have changed over many decades and then questions whether the changes help the whales."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The text moves through exactly three stages: the register's features, the evidence of infants' engagement with it, and the researchers' proposal that it works as a natural teaching tool.\n\n**The Full Solution:**\n- Sentence one inventories features: raised pitch, stretched vowels, shortened sentences, wide melodic curves.\n- Sentence two turns to the listeners: infants attend longer to this style, and its clear vowels showcase the language's sound categories.\n- Sentence three, flagged by \"therefore propose,\" advances the function: an untaught speaking style may serve as instruction tuned to infants. That describe-note-propose sequence is choice B.\n\n**Why the other choices are wrong:**\n- A: No disagreement appears; the researchers named all advance the same proposal.\n- C: The text analyzes a style adults already \"fall into without any instruction\"; it recommends nothing to caregivers.\n- D: Nothing in the text concerns change over time.",
+ "explanation": "**Choice B is correct.** The text first describes the song itself, then explains how the males of a population share one version that changes over the season, and finally presents what researchers propose the song is for.\n\n**The Full Solution:**\n- How to spot it: follow the order of the sentences. The first two give the song's features: repeated phrases, themes, and long performances.\n- The third reports a pattern: males in a population sing nearly the same version, which gradually changes.\n- The last sentence offers a proposed function: a mating display. Choice B lists those three moves in order.\n\n**Why the other choices are wrong:**\n- A: The text reports one proposal and no opposing view, so there is no disagreement to settle.\n- C: The text gives no advice about recording songs.\n- D: The text describes change within a breeding season, not over decades, and it never questions any change.",
  "_meta": {
-  "anchor": "infant-directed speech — features, infant attention, and the natural-teaching proposal"
+  "anchor": "humpback whale song — features, shared changing versions, mating-display proposal"
  }
 }

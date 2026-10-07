@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-360",
-  "question": "A drone leaves a station and flies due east at a constant speed of $32$ kilometers per hour. Half an hour later, a second drone leaves the station and flies due west at $44$ kilometers per hour. How many kilometers apart are the drones $2$ hours after the first drone left?",
+  "question": "A drone flies at a constant speed of $s$ meters per second. Which expression represents the distance, in kilometers, the drone flies in $m$ minutes? ($1$ kilometer $= 1{,}000$ meters)",
   "choices": [
     {
       "id": "A",
-      "text": "$2$"
+      "text": "$\\frac{3sm}{50}$"
     },
     {
       "id": "B",
-      "text": "$64$"
+      "text": "$\\frac{50sm}{3}$"
     },
     {
       "id": "C",
-      "text": "$130$"
+      "text": "$60sm$"
     },
     {
       "id": "D",
-      "text": "$152$"
+      "text": "$60{,}000sm$"
     }
   ],
+  "correctAnswer": "A",
   "distractorNotes": {
-    "A": "subtracts the two distances, $66 - 64$, as if the drones flew in the same direction.",
-    "B": "reports only the first drone's distance, $32 \\times 2$, leaving out the second drone entirely.",
-    "D": "gives the second drone the full $2$ hours, $32(2) + 44(2)$, ignoring its half-hour later start."
+    "B": "inverts the conversion, multiplying by 1,000/60 instead of 60/1,000",
+    "C": "converts minutes to seconds but leaves the distance in meters",
+    "D": "multiplies by 1,000 instead of dividing by 1,000 to change meters to kilometers"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Distance = Rate × Time**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The first drone flies $32(2) = 64$ kilometers and the second flies $44(1.5) = 66$ kilometers in opposite directions, so they are $64 + 66 = 130$ kilometers apart.\n\n**The Full Solution:**\nStep 1: The first drone flies for the full $2$ hours: $32 \\times 2 = 64$ kilometers east of the station.\nStep 2: The second drone starts a half hour later, so it flies for $2 - 0.5 = 1.5$ hours: $44 \\times 1.5 = 66$ kilometers west of the station.\nStep 3: Opposite directions means the distances add: $64 + 66 = 130$ kilometers. Check: the station lies between them, $64$ kilometers from one and $66$ from the other ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): subtracts the two distances, $66 - 64$, as if the drones flew in the same direction.\n* Choice B ($64$): reports only the first drone's distance, $32 \\times 2$, leaving out the second drone entirely.\n* Choice D ($152$): gives the second drone the full $2$ hours, $32(2) + 44(2)$, ignoring its half-hour later start.\n\n**Test Day Takeaway:** Give each traveler its own time on the clock, then add distances for opposite directions and subtract for the same direction. A staggered start is the trap this question is built on."
+  "explanation": "**SAT Pattern: Distance = Rate × Time**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** In $m$ minutes the drone flies $60m$ seconds, or $60sm$ meters, which is $\\frac{60sm}{1{,}000} = \\frac{3sm}{50}$ kilometers.\n\n**The Full Solution:**\nStep 1: Convert the time: $m$ minutes is $60m$ seconds.\nStep 2: Distance in meters: $s \\cdot 60m = 60sm$ meters.\nStep 3: Convert to kilometers: $\\frac{60sm}{1{,}000} = \\frac{3sm}{50}$. Check with $s = 10$ and $m = 5$: the drone flies $10(300) = 3{,}000$ meters, or $3$ kilometers, and $\\frac{3(10)(5)}{50} = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{50sm}{3}$): multiplies by $\\frac{1{,}000}{60}$; both conversion factors are flipped.\n* Choice C ($60sm$): is the distance in meters; it still has to be divided by $1{,}000$.\n* Choice D ($60{,}000sm$): multiplies by $1{,}000$; a kilometer is larger than a meter, so the number must get smaller.\n\n**Test Day Takeaway:** Write the units beside every factor; when the units cancel to the ones asked for, the expression is right."
 }

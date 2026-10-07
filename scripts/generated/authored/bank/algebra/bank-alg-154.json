@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-154",
- "question": "The table shows three values of $x$ and their corresponding values of $y$ for line $p$ in the $xy$-plane. The equation of line $p$ and the equation $y = kx + 7$, where $k$ is a constant, form a system of equations that has no solution. What is the value of $k$?",
+ "question": "The table shows three values of $x$ and their corresponding values of $y$ for a line in the $xy$-plane. The equation of this line and the equation $y = kx + 7$, where $k$ is a constant, form a system of equations that has no solution. What is the value of $k$?",
  "questionTable": {
   "headers": [
    "$x$",
@@ -8,16 +8,16 @@
   ],
   "rows": [
    [
+    "$0$",
+    "$2$"
+   ],
+   [
     "$1$",
-    "$9$"
+    "$8$"
    ],
    [
-    "$3$",
-    "$27$"
-   ],
-   [
-    "$5$",
-    "$45$"
+    "$2$",
+    "$14$"
    ]
   ]
  },
@@ -28,22 +28,22 @@
   },
   {
    "id": "B",
-   "text": "$7$"
+   "text": "$6$"
   },
   {
    "id": "C",
-   "text": "$9$"
+   "text": "$7$"
   },
   {
    "id": "D",
-   "text": "$18$"
+   "text": "$12$"
   }
  ],
  "distractorNotes": {
-  "A": "uses the change in x between rows (2) as the slope",
-  "B": "copies the y-intercept 7 of the second equation",
-  "D": "uses the change in y between rows (18) without dividing by the change in x (2)"
+  "A": "copies the $y$-intercept of the line in the table instead of its slope",
+  "C": "copies the $y$-intercept $7$ of the second equation",
+  "D": "uses the change in $y$ from $x = 0$ to $x = 2$ without dividing by the change in $x$"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** From the table, $y$ rises by $18$ each time $x$ rises by $2$, so line $p$ has slope $9$. No solution means parallel lines, so $k = 9$.\n\n**The Full Solution:**\nStep 1: Find the slope of line $p$ from two rows: $\\frac{27 - 9}{3 - 1} = \\frac{18}{2} = 9$. Since $9 = 9(1) + b$ gives $b = 0$, line $p$ is $y = 9x$.\nStep 2: A system of two linear equations has no solution when the lines are parallel and distinct: the same slope with different $y$-intercepts.\nStep 3: The intercepts $0$ and $7$ already differ, so the slopes must match: $k = 9$. Check: $9x = 9x + 7$ reduces to $0 = 7$, which is false, so the system has no solution ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): uses the change in $x$ between rows instead of the slope.\n* Choice B ($7$): copies the $y$-intercept of the second equation.\n* Choice D ($18$): uses the change in $y$ between rows without dividing by the change in $x$.\n\n**Test Day Takeaway:** For a line given by a table, slope is the change in $y$ divided by the change in $x$; then no solution simply means matching that slope."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: No-Solution Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** In the table, $y$ rises by $6$ each time $x$ rises by $1$, so the line has slope $6$. No solution means parallel lines, so $k = 6$.\n\n**The Full Solution:**\nStep 1: Find the slope of the line from two rows: $\\frac{8 - 2}{1 - 0} = 6$. The row $(0, 2)$ gives the $y$-intercept, so the line is $y = 6x + 2$.\nStep 2: A system of two linear equations has no solution when the lines are parallel and distinct: the same slope with different $y$-intercepts.\nStep 3: The intercepts $2$ and $7$ already differ, so the slopes must match: $k = 6$. Check: $6x + 2 = 6x + 7$ reduces to $2 = 7$, which is false, so the system has no solution ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): copies the $y$-intercept of the line in the table instead of its slope.\n* Choice C ($7$): copies the $y$-intercept of the second equation.\n* Choice D ($12$): uses the change in $y$ from $x = 0$ to $x = 2$ without dividing by the change in $x$.\n\n**Test Day Takeaway:** For a line given by a table, slope is the change in $y$ divided by the change in $x$; no solution then means matching that slope."
 }

@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-348",
-  "question": "The dot plot shows the $15$ values in a data set. Some values, each equal to $13$, are added to the data set so that $13$ is the only mode of the new data set. What is the least possible number of values that were added?",
+  "question": "The dot plot shows the number of hours each of $14$ volunteers worked at a food bank last month. A new volunteer who worked $6$ hours last month is added to the data. What is the positive difference between the median number of hours for the $15$ volunteers and the median number of hours for the original $14$ volunteers?",
   "diagram": {
     "type": "dotPlot",
     "params": {
@@ -11,7 +11,7 @@
         },
         {
           "value": 12,
-          "count": 6
+          "count": 5
         },
         {
           "value": 13,
@@ -22,11 +22,11 @@
           "count": 3
         }
       ],
-      "xMin": 10,
+      "xMin": 5,
       "xMax": 15,
-      "xLabel": "Value"
+      "xLabel": "Hours worked"
     }
   },
-  "correctAnswer": "3",
-  "explanation": "**SAT Pattern: Mode from List**\n\n**The correct answer is 3.**\n\n**The Fast Way (~20s):** The value $12$ occurs $6$ times and $13$ occurs $4$ times, so $13$ needs at least $7$ occurrences to be the only mode: $7 - 4 = 3$ values.\n\n**The Full Solution:**\nStep 1: Read the stacks: $11$ occurs twice, $12$ occurs six times, $13$ occurs four times, and $14$ occurs three times, for $15$ values in all.\nStep 2: Adding values equal to $13$ changes only the count for $13$. For $13$ to be the only mode, its count must be greater than $6$, the count for $12$, so it must be at least $7$.\nStep 3: Going from $4$ to $7$ takes $7 - 4 = 3$ added values. Check: with $3$ added, the counts are $2$, $6$, $7$, and $3$, and $13$ is the only mode; with $2$ added, $12$ and $13$ tie at $6$ ✓\n\n**Common Mistakes:** Reporting $2$ makes $13$ tie with $12$ at six occurrences, so $13$ is a mode but not the only mode. Reporting $7$ gives the number of times $13$ must occur rather than the number of values added. Reporting $6$ gives the count for $12$, the current mode.\n\n**Test Day Takeaway:** \"The only mode\" means strictly more occurrences than every other value. Find the current greatest count, add $1$, and subtract the count already there."
+  "correctAnswer": "0.5",
+  "explanation": "**SAT Pattern: Median Shift from Insertion**\n\n**The correct answer is $0.5$.**\n\n**The Fast Way (~40s):** The original median is the average of the $7$th and $8$th values, $\\frac{12 + 13}{2} = 12.5$. With the value $6$ added at the low end, the median of $15$ values is the $8$th value, $12$. The difference is $12.5 - 12 = 0.5$.\n\n**The Full Solution:**\nStep 1: In order, the $14$ values are $11$ (values $1$ and $2$), $12$ (values $3$ through $7$), $13$ (values $8$ through $11$) and $14$ (values $12$ through $14$). The median is the average of the $7$th and $8$th values: $\\frac{12 + 13}{2} = 12.5$.\nStep 2: The new value, $6$, is less than every other value, so it becomes the $1$st value and every other value moves up one position. The $15$ values are now $6$, then $11$ (values $2$ and $3$), then $12$ (values $4$ through $8$), and so on. The median is the $8$th value, $12$.\nStep 3: The positive difference between the medians is $12.5 - 12 = 0.5$. Check: $7$ of the $15$ values ($6$, $11$, $11$ and four $12$s) are below the $8$th value and $7$ are above it. $\\checkmark$\n\n**Common Mistakes:**\n* Entering $0$, from assuming that adding a value far from the center cannot change the median.\n* Entering $1$, from taking the original median as $13$, the $8$th value, instead of averaging the $7$th and $8$th values.\n* Entering $12$ or $12.5$, one of the medians instead of the difference between them.\n\n**Test Day Takeaway:** With an even number of values, the median is the average of the two middle values. Adding one value to one end moves the middle position, so recount before you compare."
 }

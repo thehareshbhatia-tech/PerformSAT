@@ -6,40 +6,40 @@
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-quantitative",
   "module": 1,
-  "passage": "Vicuña fiber sells for many times the price of alpaca fiber, though both animals are shorn for fine textiles. Textile economists attribute the premium to two factors working together — the vicuña fiber's extreme fineness and its scarcity — rather than to either factor alone. Data on fleece-bearing animals support the economists' account because ______",
+  "passage": "Venus is nearly twice as far from the Sun as Mercury is, yet its surface is much hotter. Planetary scientists attribute Venus's heat to its thick atmosphere of carbon dioxide, which traps heat, rather than to its distance from the Sun. Data on four planets support this account because ______",
   "questionTable": {
     "type": "table",
-    "caption": "Fiber characteristics of four fleece-bearing animals",
+    "caption": "Distance from the Sun, surface pressure, and mean surface temperature of four planets",
     "headers": [
-      "Animal",
-      "Mean fiber diameter (microns)",
-      "Fleece yield per shearing (kg)",
-      "Typical shearing interval (years)"
+      "Planet",
+      "Distance from the Sun (million km)",
+      "Surface pressure (bars)",
+      "Mean surface temperature (°C)"
     ],
     "rows": [
       [
-        "Vicuña",
-        "12.0",
-        "0.2",
-        "3"
+        "Mercury",
+        "57.9",
+        "0",
+        "167"
       ],
       [
-        "Cashmere goat",
-        "17.0",
-        "0.4",
-        "1"
+        "Venus",
+        "108.2",
+        "92",
+        "464"
       ],
       [
-        "Merino sheep",
-        "19.5",
-        "4.3",
-        "1"
+        "Earth",
+        "149.6",
+        "1",
+        "15"
       ],
       [
-        "Alpaca (huacaya)",
-        "26.0",
-        "2.7",
-        "1"
+        "Mars",
+        "228.0",
+        "0.01",
+        "−65"
       ]
     ]
   },
@@ -47,24 +47,27 @@
   "choices": [
     {
       "id": "A",
-      "text": "the alpaca has the largest mean fiber diameter of the four animals, at 26.0 microns, and is shorn every year, as are the cashmere goat and the merino sheep."
+      "text": "Mars, the farthest of the four planets from the Sun, has the coldest mean surface temperature, at −65°C."
     },
     {
       "id": "B",
-      "text": "the merino sheep, which is shorn every year, yields more fleece per shearing than the other three animals in the table combined."
+      "text": "Earth's surface pressure, at 1 bar, is greater than that of Mercury or Mars but far lower than that of Venus."
     },
     {
       "id": "C",
-      "text": "the vicuña has both the finest fiber listed, at 12.0 microns, and the smallest, least frequent yield: 0.2 kilograms every three years."
+      "text": "Venus is farther from the Sun than Mercury but is far hotter, at 464°C, and has the densest atmosphere, at 92 bars."
     },
     {
       "id": "D",
-      "text": "the cashmere goat's fiber is finer than the alpaca's even though both animals are shorn every year and the goat yields far less fleece per shearing."
+      "text": "Mercury, at 57.9 million kilometers, is closer to the Sun than any other planet in the table, and its mean temperature is 167°C."
     }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The economists' account rests on two factors together — fineness and scarcity — so the completing evidence must document both, and only C does: the finest fiber in the table and by far the smallest, least frequent yield.\n\n**The Full Solution:**\n- Fineness: the vicuña's 12.0 microns is the lowest diameter listed.\n- Scarcity: 0.2 kilograms per shearing, and only every three years — a tiny fraction of the alpaca's 2.7 kilograms every year.\n- C cites both columns in one statement, matching the claim's two-factor structure.\n\n**Why the other choices are wrong:**\n- A: A fact about the alpaca's coarseness touches one factor for the wrong animals and says nothing about scarcity.\n- B: The merino's large yield is true in the table but irrelevant to why vicuña fiber commands a premium.\n- D: A comparison between cashmere and alpaca never engages the vicuña, the animal the claim is about.",
+  "explanation": "**Choice C is correct.** The scientists credit Venus's heat to its thick atmosphere rather than to its distance from the Sun, so the supporting data must show both that distance does not explain the heat and that Venus's atmosphere is unusually dense. Only C does both: Venus is farther from the Sun than Mercury yet far hotter (464°C versus 167°C), and its surface pressure of 92 bars is by far the highest in the table.\n\n**The Full Solution:**\n- The claim has two parts: distance is not the cause, and the dense atmosphere is.\n- Distance: Venus (108.2 million km) is farther out than Mercury (57.9 million km), yet its mean temperature is far higher.\n- Atmosphere: Venus's 92 bars dwarfs every other planet's surface pressure (1 bar or less).\n\n**Why the other choices are wrong:**\n- A: Mars being both farthest and coldest fits a distance explanation and says nothing about Venus's atmosphere.\n- B: The comparison of surface pressures never mentions temperature, so it cannot show that the dense atmosphere is linked to heat.\n- D: Mercury's closeness and temperature, taken alone, do not address Venus at all.",
   "_meta": {
-    "anchor": "Unattributed fiber table; values plausible. Vicuña ~12 microns and shorn only every three years per Wikipedia (Vicuña); cashmere 14-19 microns."
+    "anchor": "Venus surface heat: dense atmosphere rather than distance — two-column key",
+    "sources": [
+      "https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
+    ]
   }
 }

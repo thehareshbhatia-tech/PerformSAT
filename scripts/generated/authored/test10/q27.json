@@ -9,33 +9,41 @@
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "Tea plants grown in full sun produce leaves rich in catechins, compounds that taste brisk and astringent.",
-   "For gyokuro, a prized Japanese green tea, growers cover the plants with shading screens for about three weeks before harvest.",
-   "Shading sharply reduces the light reaching the leaves.",
-   "Shaded leaves accumulate more theanine, an amino acid associated with sweetness and savoriness, and fewer catechins.",
-   "Gyokuro brews into a tea described as sweet and full-bodied rather than brisk."
+   "Tanning is the process that turns animal hides into leather.",
+   "In vegetable tanning, hides are soaked in tannins taken from tree bark, wood, or leaves.",
+   "Vegetable tanning can take weeks or even months.",
+   "In chrome tanning, hides are soaked in a solution of chromium salts.",
+   "Chrome tanning can be finished in about a day.",
+   "Today, most of the world's leather is chrome-tanned."
   ],
-  "goal": "The student wants to emphasize the difference between shaded and sun-grown tea leaves."
+  "goal": "The student wants to emphasize the difference between vegetable tanning and chrome tanning."
  },
  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
  "choices": [
   {
    "id": "A",
-   "text": "Growers of gyokuro, a prized and expensive Japanese green tea, keep their plants covered with special shading screens for roughly three weeks before the harvest begins."
+   "text": "Tanning turns animal hides into leather by soaking them in tannins from plants or in a solution of chromium salts."
   },
   {
    "id": "B",
-   "text": "Whereas sun-grown tea leaves are rich in astringent catechins, leaves shaded before harvest accumulate more theanine and brew into a sweeter, fuller-bodied tea."
+   "text": "Whereas vegetable tanning can take weeks or even months, chrome tanning can be finished in about a day."
   },
   {
    "id": "C",
-   "text": "Theanine is an amino acid that is associated with sweetness and savoriness in brewed tea."
+   "text": "In chrome tanning, hides are soaked in a solution of chromium salts, and most of the world's leather is made this way."
   },
   {
    "id": "D",
-   "text": "Gyokuro, which is described as sweet and full-bodied rather than brisk, is among the most prized green teas produced in Japan."
+   "text": "In vegetable tanning, animal hides are soaked in tannins taken from tree bark, wood, or leaves."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The goal is a difference, so the sentence must put the two kinds of leaf side by side, and B does: sun-grown leaves rich in astringent catechins on one side, shaded leaves higher in theanine and sweeter in the cup on the other.\n\n**The Full Solution:**\n- The notes contrast two growing conditions (full sun versus screens), two chemistries (catechins versus theanine), and two flavors (brisk versus sweet).\n- B's \"Whereas... \" frame captures the contrast across both chemistry and flavor, using only information from the notes.\n\n**Why the other choices are wrong:**\n- A: It describes the shading practice alone, with no mention of sun-grown leaves, so no difference is drawn.\n- C: It defines theanine without comparing leaf types at all.\n- D: It characterizes gyokuro's flavor and prestige but is silent about sun-grown tea, leaving the comparison one-sided."
+ "explanation": "**Choice B is correct.** The goal is to emphasize a difference, and B sets the two methods against each other with \"Whereas\": vegetable tanning can take weeks or months, while chrome tanning can be finished in about a day.\n\n**The Full Solution:**\n- The notes describe two methods that differ in what the hides are soaked in (plant tannins or chromium salts) and in how long the process takes (weeks or months, or about a day).\n- B names both methods and states that contrast directly.\n\n**Why the other choices are wrong:**\n- A: It describes tanning in general and never distinguishes one method from the other.\n- C: It describes only chrome tanning, so there is no difference to emphasize.\n- D: It describes only vegetable tanning, leaving out the method it differs from.",
+ "_meta": {
+  "anchor": "vegetable tanning vs chrome tanning of leather — rhetorical synthesis (emphasize difference)",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Tanning_(leather)",
+   "https://www.carryology.com/insights/chrome-vs-vegetable-tanned-leather/"
+  ]
+ }
 }

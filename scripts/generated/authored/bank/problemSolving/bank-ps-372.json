@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-372",
-  "question": "An account opened with $\\$2{,}500$ earns $4\\%$ simple annual interest. After $t$ years, its balance is $\\$2{,}800$. What is the value of $t$?",
+  "question": "A savings account had a balance of $\\$2{,}500$. The account then earned $\\$25$ in interest each month, and no deposits or withdrawals were made. After how many months was the balance $\\$2{,}800$?",
   "choices": [
     {
       "id": "A",
-      "text": "$0.12$"
+      "text": "$12$"
     },
     {
       "id": "B",
-      "text": "$3$"
+      "text": "$100$"
     },
     {
       "id": "C",
-      "text": "$28$"
+      "text": "$112$"
     },
     {
       "id": "D",
-      "text": "$75$"
+      "text": "$300$"
     }
   ],
+  "correctAnswer": "A",
   "distractorNotes": {
-    "A": "divides the interest by the principal, $\\frac{300}{2500}$, which gives $rt$, not $t$",
-    "C": "divides the whole balance, rather than the interest, by the $\\$100$ earned each year",
-    "D": "divides the interest by $4$, the percent, instead of by the $\\$100$ of interest earned each year"
+    "B": "divides the starting balance by the monthly interest",
+    "C": "divides the final balance by the monthly interest",
+    "D": "reports the increase in dollars, not the number of months"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Simple Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The interest is $2800 - 2500 = 300$ dollars, and the account earns $2500(0.04) = 100$ dollars per year, so $t = \\frac{300}{100} = 3$.\n\n**The Full Solution:**\nStep 1: Separate the interest from the balance: $I = 2800 - 2500 = 300$ dollars.\nStep 2: One year of simple interest is $2500(0.04) = 100$ dollars, and that amount repeats every year.\nStep 3: $t = \\frac{300}{100} = 3$ years. Check: $2500 + 100(3) = 2{,}800$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.12$): divides the interest by the principal, $\\frac{300}{2500}$, which gives $rt$, not $t$\n* Choice C ($28$): divides the whole balance, rather than the interest, by the $\\$100$ earned each year\n* Choice D ($75$): divides the interest by $4$, the percent, instead of by the $\\$100$ of interest earned each year\n\n**Test Day Takeaway:** Subtract the principal before you divide. Only the interest tells you how many years have passed."
+  "explanation": "**SAT Pattern: Simple Interest**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The balance must grow by $2{,}800 - 2{,}500 = 300$ dollars, and $\\frac{300}{25} = 12$ months.\n\n**The Full Solution:**\nStep 1: Find the increase: $2{,}800 - 2{,}500 = 300$ dollars.\nStep 2: The account gains $\\$25$ each month, so the number of months is $\\frac{300}{25}$.\nStep 3: $\\frac{300}{25} = 12$ months. Check: $2{,}500 + 25(12) = 2{,}500 + 300 = 2{,}800$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($100$): divides $2{,}500$ by $25$; the starting balance was not earned as interest.\n* Choice C ($112$): divides $2{,}800$ by $25$, counting the starting balance as interest.\n* Choice D ($300$): is the increase in dollars; it still has to be divided by $25$.\n\n**Test Day Takeaway:** Only the change in the balance comes from the monthly amount, so divide the change, not the balance."
 }

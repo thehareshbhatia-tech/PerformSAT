@@ -8,56 +8,56 @@
  "choices": [
   {
    "id": "A",
-   "text": "the western tropical Pacific, at 4.6 millimeters per year, rose faster than any other region shown in the table."
+   "text": "grassland birds, with a decrease of 53.3 percent, declined more than birds in any other habitat shown."
   },
   {
    "id": "B",
-   "text": "the eastern Pacific's average rate of 2.2 millimeters per year was the lowest recorded among the four regions."
+   "text": "the eastern forest decrease of 17.4 percent was the smallest among the four habitats."
   },
   {
    "id": "C",
-   "text": "the North Atlantic and the southeast Indian Ocean differ in average rate by less than a millimeter per year."
+   "text": "the boreal forest and western forest decreases differ by less than four percentage points."
   },
   {
    "id": "D",
-   "text": "every region shows a positive average rate, but the rates range from 2.2 to 4.6 millimeters per year."
+   "text": "every habitat shows a decrease, but the decreases range from 17.4 to 53.3 percent."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The conclusion has two halves — a shared upward direction and important regional differences — and D alone documents both: all four rates are positive, and they span more than a twofold range.\n\n**The Full Solution:**\n- The researchers' claim: the trend is \"upward across all of the regions studied,\" yet the rate differs \"substantially from one region to another.\"\n- Supporting that claim requires citing the whole table twice over — direction everywhere, plus spread. \"Every region shows a positive average rate\" covers the first half; \"from 2.2 to 4.6 millimeters per year\" quantifies the second.\n\n**Why the other choices are wrong:**\n- A: It isolates the fastest region, showing neither the shared direction nor the full spread.\n- B: It likewise cites a single region — the slowest — and cannot establish a claim about all four.\n- C: A near-tie between two regions actually understates the differences the conclusion asserts, and it ignores direction entirely.",
- "passage": "Satellite altimeters have measured the height of the sea surface across nearly the entire global ocean since the early 1990s. Researchers analyzing three decades of these measurements emphasize that the ocean does not rise like water filling a bathtub: winds, currents, and uneven warming make the rate of sea-level rise differ substantially from one region to another, even though the trend is upward across all of the regions studied. The researchers conclude that the altimetry record shows both a shared direction and important regional differences because ______",
+ "explanation": "**Choice D is correct.** The researchers' finding has two halves, declines in all four habitats and very different amounts, and D alone documents both: all four values are decreases, and they range from 17.4 to 53.3 percent.\n\n**The Full Solution:**\n- The finding: birds \"declined in all of them but by very different amounts.\"\n- Supporting it requires the whole table: every value is negative (declines everywhere), and the largest decrease is about three times the smallest (very different amounts).\n- D states both facts in one clause.\n\n**Why the other choices are wrong:**\n- A: It reports only the grassland decrease, which says nothing about whether birds of every habitat declined.\n- B: It reports only the smallest decrease; it never shows the spread across habitats.\n- C: It points to the two most similar habitats, which undercuts rather than supports the claim of very different amounts.",
+ "passage": "Since 1970, North America has lost nearly 3 billion breeding birds, according to a 2019 study led by researchers at the Cornell Lab of Ornithology. The researchers also sorted bird species by the type of habitat in which they breed. For the four habitats shown, they found that birds declined in all of them but by very different amounts because ______",
  "questionTable": {
   "type": "table",
-  "caption": "Average rate of sea-level rise measured by satellite altimetry in four ocean regions, 1993-2023",
+  "caption": "Change in number of breeding birds since 1970 in four North American habitats",
   "headers": [
-   "Region",
-   "Average rise (millimeters per year)"
+   "Habitat",
+   "Change in number of birds (%)"
   ],
   "rows": [
    [
-    "Western tropical Pacific",
-    "4.6"
+    "Grassland",
+    "-53.3"
    ],
    [
-    "Southeast Indian Ocean",
-    "3.9"
+    "Boreal forest",
+    "-33.1"
    ],
    [
-    "North Atlantic",
-    "3.1"
+    "Western forest",
+    "-29.5"
    ],
    [
-    "Eastern Pacific",
-    "2.2"
+    "Eastern forest",
+    "-17.4"
    ]
   ]
  },
  "_meta": {
-  "anchor": "satellite altimetry of oceans — regional sea-level-rise rates, shared direction with spread",
+  "anchor": "North American bird declines by breeding habitat — losses everywhere with wide spread (Rosenberg et al. 2019, Science, Table 1)",
   "distractors": {
-   "A": "single strongest region",
-   "B": "single weakest region",
-   "C": "understates differences, omits direction"
+   "A": "single largest decrease",
+   "B": "single smallest decrease",
+   "C": "smallest gap, omits losses everywhere"
   }
  },
  "id": 1113,

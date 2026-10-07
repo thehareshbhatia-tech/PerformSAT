@@ -6,12 +6,12 @@
   "band": 3,
   "domain": "craft-and-structure",
   "skill": "text-structure-and-purpose",
-  "passage": "When the fur trade drove sea otters nearly to extinction along the North Pacific rim, many of the kelp forests where they had lived disappeared as well, but the connection between the two losses was not established until the 1970s. Comparative surveys in the Aleutian Islands revealed it. Around islands where otters persisted, the ecologist James Estes found thick kelp and few sea urchins; around similar islands without otters, urchins carpeted the seafloor and the kelp was gone. The mechanism proved simple: otters eat urchins, and urchins eat kelp.",
+  "passage": "When the fur trade drove sea otters nearly to extinction along the North Pacific rim, many of the kelp forests where they had lived disappeared as well. But the connection between the two losses was not established until the 1970s. Comparative surveys in the Aleutian Islands revealed it. Around islands where otters persisted, the ecologist James Estes found thick kelp and few sea urchins; around similar islands without otters, urchins carpeted the seafloor and the kelp was gone. The mechanism proved simple: otters eat urchins, and urchins eat kelp.",
   "question": "Which choice best describes the overall structure of the text?",
   "choices": [
     {
       "id": "A",
-      "text": "It presents two competing explanations for the collapse of an ecosystem and argues that neither explanation can fully account for the available evidence."
+      "text": "It presents two competing explanations for the collapse of an ecosystem and argues that neither fully fits the evidence."
     },
     {
       "id": "B",
@@ -19,7 +19,7 @@
     },
     {
       "id": "C",
-      "text": "It notes a pair of losses whose connection had long gone unestablished, then presents the comparison that revealed the link between them."
+      "text": "It notes two losses whose connection had long gone unestablished, then presents the comparison that revealed the link."
     },
     {
       "id": "D",

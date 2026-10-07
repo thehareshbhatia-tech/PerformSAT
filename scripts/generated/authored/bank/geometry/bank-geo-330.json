@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-330",
- "question": "Triangle $ABC$ shown has a perimeter of $40$, and $BC < AC$. What is the value of $\\tan A$?",
+ "question": "Triangle $ABC$ shown has a perimeter of $40$. What is the value of $\\tan A$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -24,7 +24,7 @@
     "B"
    ],
    "sideLabels": [
-    "",
+    "15",
     "",
     "17"
    ],
@@ -56,5 +56,5 @@
   "D": "uses AC/BC = 15/8, adjacent over opposite (tan B)"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** The legs add to $40 - 17 = 23$ and their squares add to $17^2 = 289$, which fits $8$ and $15$; with $BC < AC$, $\\tan A = \\frac{BC}{AC} = \\frac{8}{15}$.\n\n**The Full Solution:**\nStep 1: The hypotenuse is $\\overline{AB}$, with length $17$, so the legs satisfy $AC + BC = 40 - 17 = 23$ and $AC^2 + BC^2 = 17^2 = 289$.\nStep 2: Squaring the sum gives $(AC + BC)^2 = 529$, so $2(AC)(BC) = 529 - 289 = 240$ and $(AC)(BC) = 120$. Two numbers with sum $23$ and product $120$ are $8$ and $15$. Since $BC < AC$, $BC = 8$ and $AC = 15$.\nStep 3: For angle $A$, the opposite leg is $\\overline{BC}$ and the adjacent leg is $\\overline{AC}$, so $\\tan A = \\frac{8}{15}$.\n\nCheck: $8 + 15 + 17 = 40$ and $8^2 + 15^2 = 64 + 225 = 289 = 17^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{8}{17}$): divides the opposite leg by the hypotenuse, which is $\\sin A$.\n* Choice C ($\\frac{15}{17}$): divides the adjacent leg by the hypotenuse, which is $\\cos A$.\n* Choice D ($\\frac{15}{8}$): divides the adjacent leg by the opposite leg, which is $\\tan B$, not $\\tan A$.\n\n**Test Day Takeaway:** When only the hypotenuse is labeled, the perimeter gives the sum of the legs; pair that with the Pythagorean theorem, then use the stated inequality to decide which leg is which."
+ "explanation": "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $BC = 40 - 15 - 17 = 8$, so $\\tan A = \\frac{BC}{AC} = \\frac{8}{15}$.\n\n**The Full Solution:**\nStep 1: The perimeter is $AC + BC + AB = 40$, so $15 + BC + 17 = 40$ and $BC = 8$.\nStep 2: The right angle is at $C$, so $\\overline{AB}$ is the hypotenuse; for angle $A$, the opposite leg is $\\overline{BC}$ and the adjacent leg is $\\overline{AC}$.\nStep 3: $\\tan A = \\frac{BC}{AC} = \\frac{8}{15}$.\n\nCheck: $8^2 + 15^2 = 64 + 225 = 289 = 17^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{8}{17}$): divides the opposite leg by the hypotenuse, which is $\\sin A$.\n* Choice C ($\\frac{15}{17}$): divides the adjacent leg by the hypotenuse, which is $\\cos A$.\n* Choice D ($\\frac{15}{8}$): divides the adjacent leg by the opposite leg, which is $\\tan B$, not $\\tan A$.\n\n**Test Day Takeaway:** Use the perimeter to find the missing side, then read the ratio from angle $A$: tangent is opposite over adjacent."
 }

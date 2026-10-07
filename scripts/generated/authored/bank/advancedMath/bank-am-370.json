@@ -1,29 +1,29 @@
 {
- "id": "bank-am-370",
- "question": "For the functions $f$ and $g$, $f(x) = 3x - 5$ and $f(g(x)) = 12x + 7$ for all values of $x$. Which equation defines $g$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$g(x) = 4x + \\frac{2}{3}$"
+  "id": "bank-am-370",
+  "question": "$f(x) = 2x^{2} - 12x + 13$\nIn the $xy$-plane, the graph of $y = g(x)$ is the result of translating the graph of $y = f(x)$ $4$ units to the right. The function $g$ can be written as $g(x) = 2x^{2} + bx + c$, where $b$ and $c$ are constants. What is the value of $b$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-28$"
+    },
+    {
+      "id": "B",
+      "text": "$-14$"
+    },
+    {
+      "id": "C",
+      "text": "$-12$"
+    },
+    {
+      "id": "D",
+      "text": "$4$"
+    }
+  ],
+  "correctAnswer": "A",
+  "distractorNotes": {
+    "B": "moves the vertex to $x = 7$ but writes $b = -2(7)$, leaving out the leading coefficient $2$",
+    "C": "assumes a translation does not change the $x$-coefficient",
+    "D": "translates the graph to the left, moving the vertex to $x = -1$"
   },
-  {
-   "id": "B",
-   "text": "$g(x) = 4x + 12$"
-  },
-  {
-   "id": "C",
-   "text": "$g(x) = 36x + 16$"
-  },
-  {
-   "id": "D",
-   "text": "$g(x) = 4x + 4$"
-  }
- ],
- "correctAnswer": "D",
- "distractorNotes": {
-  "A": "subtracts 5 from both sides instead of adding it, solving 3g(x) = 12x + 2",
-  "B": "adds 5 correctly but divides only the x-term by 3, leaving the constant 12",
-  "C": "substitutes 12x + 7 into f instead of solving for the input of f"
- },
- "explanation": "**SAT Pattern: Function Composition**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** $f(g(x)) = 3g(x) - 5 = 12x + 7$, so $3g(x) = 12x + 12$ and $g(x) = 4x + 4$.\n\n**The Full Solution:**\nStep 1: Since $f$ triples its input and subtracts $5$, $f(g(x)) = 3g(x) - 5$.\nStep 2: Set this equal to the given expression: $3g(x) - 5 = 12x + 7$. Add $5$ to both sides: $3g(x) = 12x + 12$.\nStep 3: Divide every term by $3$: $g(x) = 4x + 4$. Check: $f(4x + 4) = 3(4x + 4) - 5 = 12x + 12 - 5 = 12x + 7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($g(x) = 4x + \\frac{2}{3}$): subtracts $5$ instead of adding it, giving $3g(x) = 12x + 2$.\n* Choice B ($g(x) = 4x + 12$): divides $12x$ by $3$ but not $12$. Every term must be divided.\n* Choice C ($g(x) = 36x + 16$): puts $12x + 7$ into $f$, computing $3(12x + 7) - 5$. That treats the output of $f$ as its input.\n\n**Test Day Takeaway:** When the outer function is known, write $f(g(x))$ with $g(x)$ as a single unknown, then solve for it like a linear equation."
+  "explanation": "**SAT Pattern: Function Transformation**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** The vertex of $f$ is at $x = \\frac{12}{4} = 3$, so the vertex of $g$ is at $x = 7$; then $-\\frac{b}{2(2)} = 7$ and $b = -28$.\n\n**The Full Solution:**\nStep 1: Complete the square: $f(x) = 2(x - 3)^{2} - 5$, so the vertex of the graph of $f$ is $(3, -5)$.\nStep 2: Moving $4$ units to the right gives the vertex $(7, -5)$, so $g(x) = 2(x - 7)^{2} - 5$.\nStep 3: Expand: $g(x) = 2x^{2} - 28x + 93$, so $b = -28$. Check: $f(x - 4) = 2(x - 4)^{2} - 12(x - 4) + 13 = 2x^{2} - 28x + 93$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-14$): finds the new vertex $x = 7$ but uses $b = -2h$ instead of $b = -2ah = -2(2)(7)$.\n* Choice C ($-12$): keeps the $x$-coefficient of $f$; a horizontal translation changes $b$ and $c$.\n* Choice D ($4$): moves the vertex left to $x = -1$, which gives $g(x) = 2x^{2} + 4x - 3$.\n\n**Test Day Takeaway:** For a horizontal translation, move the vertex and keep $a$; then $b = -2ah$ for the new vertex $(h, k)$."
 }

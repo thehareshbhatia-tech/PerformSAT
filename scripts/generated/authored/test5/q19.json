@@ -6,29 +6,29 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 1,
- "passage": "Three museums hold especially important collections of early scientific instruments: the Museo Galileo in Florence, which preserves telescopes and mathematical instruments from the seventeenth ______ History of Science Museum in Oxford, which owns one of the world's largest gatherings of astrolabes; and the Adler Planetarium in Chicago, whose holdings span some nine centuries of astronomy.",
+ "passage": "Three of the world's earliest national parks were created in three different countries: Yellowstone, set aside by the United States in ______ Royal National Park, established near Sydney in 1879; and Banff, Canada's first national park, founded in 1885.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "century, the"
+   "text": "1872, Australia's"
   },
   {
    "id": "B",
-   "text": "century: the"
+   "text": "1872: Australia's"
   },
   {
    "id": "C",
-   "text": "century; the"
+   "text": "1872; Australia's"
   },
   {
    "id": "D",
-   "text": "century. The"
+   "text": "1872. Australia's"
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The sentence is a list of three museums whose items contain internal commas, so the items must be separated by semicolons — and the third item already ends with one (\"astrolabes; and\").\n\n**The Full Solution:**\n- After the colon, the sentence enumerates three museums, each expanded by a comma-bearing \"which\" or \"whose\" clause.\n- When list items carry internal commas, the boundaries between items are marked with semicolons to keep the structure legible.\n- The boundary before the final item is already a semicolon (\"...astrolabes; and the Adler Planetarium...\"), so the parallel boundary at the blank must be a semicolon as well.\n\n**Why the other choices are wrong:**\n- A: A comma would disappear among the internal commas of the items, blurring where one museum ends and the next begins, and would break parallelism with the semicolon later in the list.\n- B: A colon cannot divide items inside a list that a colon has already introduced.\n- D: A period would strand \"History of Science Museum... astrolabes; and the Adler Planetarium...\" as a fragment with no main clause.",
+ "explanation": "**Choice C is correct.** The sentence is a list of three parks whose items contain internal commas, so the items must be separated by semicolons, and the boundary before the third item already uses one (\"1879; and Banff\").\n\n**The Full Solution:**\n- After the colon, the sentence lists three parks, each followed by a comma and a descriptive phrase.\n- When list items carry internal commas, the boundaries between items are marked with semicolons to keep the structure clear.\n- The boundary before the final item is already a semicolon (\"...in 1879; and Banff...\"), so the matching boundary at the blank must be a semicolon too.\n\n**Why the other choices are wrong:**\n- A: A comma would blend in with the commas inside the items, blurring where one park ends and the next begins, and would break parallelism with the later semicolon.\n- B: A colon cannot divide items inside a list that a colon has already introduced.\n- D: A period would leave \"Australia's Royal National Park... founded in 1885\" as a fragment with no main verb.",
  "_meta": {
-  "anchor": "three early-scientific-instrument museums; semicolons in a complex list"
+  "anchor": "Yellowstone, Royal National Park, Banff — semicolons in a complex list"
  }
 }

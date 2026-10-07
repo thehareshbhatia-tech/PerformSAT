@@ -40,7 +40,7 @@ export const practiceTest1RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "The Icelandic sagas that describe Norse voyages west of Greenland were written down some two centuries after the events, so historians have treated their details with caution. In 2021, however, researchers used tree rings to show that wood at the Norse site of L'Anse aux Meadows in Newfoundland was cut in the year 1021, a finding that helps ______ the sagas' account of Norse travel to North America.",
+          "passage": "The Icelandic sagas that describe Norse voyages west of Greenland were written down some two centuries after the events, so historians have treated their details with caution. In 2021, however, researchers used tree rings to show that wood at the Norse site of L'Anse aux Meadows in Newfoundland was cut in the year 1021. The finding helps ______ the sagas' account of Norse travel to North America.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -171,19 +171,19 @@ export const practiceTest1RW = {
           "choices": [
             {
               "id": "A",
-              "text": "It describes a behavior shared by several deep-sea species, then explains how one species' version of the behavior differs."
+              "text": "It describes a behavior shared by several deep-sea species, then explains how one species differs."
             },
             {
               "id": "B",
-              "text": "It presents a scientific consensus about an unusual anatomical feature, then summarizes the evidence that overturned it."
+              "text": "It presents a scientific consensus about an unusual feature, then summarizes evidence that overturned it."
             },
             {
               "id": "C",
-              "text": "It explains how a research tool works, then lists several discoveries that the tool has made possible."
+              "text": "It explains how a research tool works, then lists discoveries the tool has made possible."
             },
             {
               "id": "D",
-              "text": "It poses a question about an unusual anatomical feature, then presents a possible explanation for that feature."
+              "text": "It poses a question about an unusual anatomical feature, then presents a possible explanation for it."
             }
           ],
           "correctAnswer": "D",
@@ -243,23 +243,23 @@ export const practiceTest1RW = {
           "choices": [
             {
               "id": "A",
-              "text": "It poses an economic question, explains why it is hard to answer, and describes how researchers designed a comparison to address that difficulty."
+              "text": "It poses a question, explains why it is hard to answer, and describes a study designed around that difficulty."
             },
             {
               "id": "B",
-              "text": "It states a widely accepted economic principle, then presents survey data that confirm the principle's predictions."
+              "text": "It states a widely accepted economic principle, then presents survey data that confirm it."
             },
             {
               "id": "C",
-              "text": "It summarizes a disagreement between two economists, then describes the study they conducted together to resolve it."
+              "text": "It summarizes a disagreement between two economists, then describes how they resolved it."
             },
             {
               "id": "D",
-              "text": "It describes a change in one state's employment laws, then weighs the strongest arguments for and against adopting the same change in every other state."
+              "text": "It describes a change in one state's wage law, then argues that other states should adopt it."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The text presents a question, an obstacle to answering it, and a research design that gets around the obstacle — exactly the sequence choice A describes.\n\n**The Full Solution:**\n- The three moves come in order: an opening question (does a minimum-wage increase reduce employment?), an obstacle (national statistics tangle too many factors together), and a design that isolates the policy (comparing restaurants across a state line where only one state raised its wage), ending with the result.\n\n**Why the other choices are wrong:**\n- B: It fails twice — no principle is stated as accepted, and the finding runs against the expectation the question implies rather than confirming one.\n- C: It invents a disagreement: Card and Krueger worked as a team throughout.\n- D: The text never weighs arguments about extending the policy."
+          "explanation": "**Choice A is correct.** The text presents a question, an obstacle to answering it, and a research design that gets around the obstacle — exactly the sequence choice A describes.\n\n**The Full Solution:**\n- The three moves come in order: an opening question (does a minimum-wage increase reduce employment?), an obstacle (national statistics tangle too many factors together), and a design that isolates the policy (comparing restaurants across a state line where only one state raised its wage), ending with the result.\n\n**Why the other choices are wrong:**\n- B: It fails twice — no principle is stated as accepted, and the finding runs against the expectation the question implies rather than confirming one.\n- C: It invents a disagreement: Card and Krueger worked as a team throughout.\n- D: The text never argues that other states should adopt the policy; it reports a study of one state's change."
         },
         {
           "id": 105,
@@ -268,7 +268,7 @@ export const practiceTest1RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "Johannes Vermeer's Girl with a Pearl Earring (c. 1665) has been studied by generations of art historians, but in 2018 a research team at the Mauritshuis museum examined the painting with instruments rather than eyes alone. Using macro X-ray fluorescence scanning and other noninvasive imaging techniques, the team mapped the painting layer by layer without touching its surface. The scans revealed details invisible in the finished work: tiny eyelashes around the girl's eyes and a folded green curtain in what now appears to be an empty dark background.",
+          "passage": "Johannes Vermeer's Girl with a Pearl Earring (c. 1665) has been studied by generations of art historians. In 2018, however, a research team at the Mauritshuis museum examined the painting with instruments rather than eyes alone. Using macro X-ray fluorescence scanning and other noninvasive imaging techniques, the team mapped the painting layer by layer without touching its surface. The scans revealed details invisible in the finished work: tiny eyelashes around the girl's eyes and a folded green curtain in what now appears to be an empty dark background.",
           "question": "Which choice best states the main purpose of the text?",
           "choices": [
             {
@@ -298,12 +298,12 @@ export const practiceTest1RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "On La Gomera in the Canary Islands, shepherds have long communicated across deep ravines using Silbo Gomero, a whistled form of Spanish in which changes in pitch and melody stand in for the vowels and consonants of spoken words. Cognitive scientists wondered whether the brain treats such whistling as language or merely as sound. Brain-imaging studies offered an answer: when experienced whistlers listened to Silbo Gomero, regions of the brain associated with processing spoken language became active, but when Spanish speakers unfamiliar with the whistled form heard the same recordings, those language regions stayed comparatively quiet.",
+          "passage": "On La Gomera in the Canary Islands, shepherds have long communicated across deep ravines using Silbo Gomero. In this whistled form of Spanish, changes in pitch and melody stand in for the vowels and consonants of spoken words. Cognitive scientists wondered whether the brain treats such whistling as language or merely as sound. Brain-imaging studies offered an answer. When experienced whistlers listened to Silbo Gomero, regions of the brain associated with processing spoken language became active. When Spanish speakers unfamiliar with the whistled form heard the same recordings, those language regions stayed comparatively quiet.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "Brain-imaging research indicates that experienced users of a whistled language process it with the same brain regions used for spoken language."
+              "text": "Brain-imaging research indicates that experienced whistlers process Silbo Gomero with the brain regions used for spoken language."
             },
             {
               "id": "B",
@@ -311,11 +311,11 @@ export const practiceTest1RW = {
             },
             {
               "id": "C",
-              "text": "Shepherds on La Gomera developed Silbo Gomero because ordinary spoken Spanish cannot be heard clearly across the island's deep ravines and steep volcanic valleys."
+              "text": "Shepherds on La Gomera developed Silbo Gomero because ordinary speech cannot be heard across the island's deep ravines."
             },
             {
               "id": "D",
-              "text": "People who do not know Silbo Gomero are unable to distinguish its whistles from ordinary environmental sounds."
+              "text": "People who do not know Silbo Gomero are unable to distinguish its whistles from birdsong and the other ordinary sounds of the island's environment."
             }
           ],
           "correctAnswer": "A",
@@ -375,7 +375,7 @@ export const practiceTest1RW = {
               ],
               [
                 "Saturn",
-                "95.1",
+                "95.2",
                 "0.69"
               ],
               [
@@ -410,7 +410,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The claim has two parts — the ice giants are far less massive than the gas giants, and they are not correspondingly less dense — and A is the only choice that uses the table to show both.\n\n**The Full Solution:**\n- Neptune's mass is 17.1 Earth masses, compared with Saturn's 95.1, so Neptune has less than one-fifth of Saturn's mass.\n- Neptune's density, 1.64 g/cm³, is more than twice Saturn's 0.69 g/cm³.\n- A planet with far less mass but much greater density shows that size alone does not set density, which is exactly what the student claims.\n\n**Why the other choices are wrong:**\n- B: It describes Jupiter alone, so it makes no comparison between the gas giants and the ice giants.\n- C: It compares the masses of the two ice giants with each other and says nothing about density.\n- D: The table contradicts it. Saturn, not Uranus, is the least dense planet, at 0.69 g/cm³.",
+          "explanation": "**Choice A is correct.** The claim has two parts — the ice giants are far less massive than the gas giants, and they are not correspondingly less dense — and A is the only choice that uses the table to show both.\n\n**The Full Solution:**\n- Neptune's mass is 17.1 Earth masses, compared with Saturn's 95.2, so Neptune has less than one-fifth of Saturn's mass.\n- Neptune's density, 1.64 g/cm³, is more than twice Saturn's 0.69 g/cm³.\n- A planet with far less mass but much greater density shows that size alone does not set density, which is exactly what the student claims.\n\n**Why the other choices are wrong:**\n- B: It describes Jupiter alone, so it makes no comparison between the gas giants and the ice giants.\n- C: It compares the masses of the two ice giants with each other and says nothing about density.\n- D: The table contradicts it. Saturn, not Uranus, is the least dense planet, at 0.69 g/cm³.",
           "_meta": {
             "source": "NASA NSSDC Planetary Fact Sheet (mass 10^24 kg: Earth 5.97, Jupiter 1898, Saturn 568, Uranus 86.8, Neptune 102; density kg/m3: 1326, 687, 1270, 1638); ice-giant composition per NASA. Replaces a table wrongly attributed to IPCC AR6."
           }
@@ -422,12 +422,12 @@ export const practiceTest1RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-textual",
-          "passage": "Many songbirds establish territory and attract mates with songs that carry low-frequency notes. City environments, however, are saturated with low-frequency noise from traffic and machinery. A research team studying great tits in the Dutch city of Leiden hypothesized that the birds adjust their songs to avoid this acoustic interference, singing at higher minimum frequencies in noisier locations so that their songs remain audible to other great tits.",
+          "passage": "Many songbirds establish territory and attract mates with songs that carry low-frequency notes. City environments, however, are saturated with low-frequency noise from traffic and machinery. A research team studying great tits in the Dutch city of Leiden hypothesized that the birds adjust their songs to avoid this interference. In noisier locations, the team proposed, the birds sing at higher minimum frequencies so that their songs remain audible to other great tits.",
           "question": "Which finding, if true, would most directly support the team's hypothesis?",
           "choices": [
             {
               "id": "A",
-              "text": "Great tits living in the city begin singing earlier in the morning and sing more often than great tits in nearby forests do."
+              "text": "Great tits living in the city begin singing earlier in the morning and sing more often than great tits in nearby forests do throughout the breeding season."
             },
             {
               "id": "B",
@@ -435,7 +435,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "C",
-              "text": "Within the same city, great tits holding territories along busy roads sing with higher minimum frequencies than great tits in quiet parks a short distance away."
+              "text": "Within the same city, great tits along busy roads sing with higher minimum frequencies than great tits in quiet parks a short distance away."
             },
             {
               "id": "D",
@@ -452,7 +452,7 @@ export const practiceTest1RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "The stone city of Great Zimbabwe, built between the eleventh and fifteenth centuries in southern Africa, was once portrayed by outsiders as an isolated curiosity. Archaeological work tells a different story. Excavations at the site have recovered Chinese celadon dishes, imported glass beads, and a coin minted at Kilwa, a port on the East African coast, while gold and ivory from the Zimbabwe plateau moved outward through such Indian Ocean ports. Far from standing apart, Great Zimbabwe operated as an inland hub in a trading web that stretched across the Indian Ocean world.",
+          "passage": "The stone city of Great Zimbabwe, built between the eleventh and fifteenth centuries in southern Africa, was once portrayed by outsiders as an isolated curiosity. Archaeological work tells a different story. Excavations at the site have recovered Chinese celadon dishes, imported glass beads, and a coin minted at Kilwa, a port on the East African coast. Gold and ivory from the Zimbabwe plateau, in turn, moved outward through such Indian Ocean ports. Far from standing apart, Great Zimbabwe operated as an inland hub in a trading web that stretched across the Indian Ocean world.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
@@ -469,7 +469,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "D",
-              "text": "Archaeological evidence shows that Great Zimbabwe, once seen as isolated, was an active participant in long-distance trade networks."
+              "text": "Archaeological evidence shows that Great Zimbabwe, once seen as isolated, actively took part in long-distance trade networks."
             }
           ],
           "correctAnswer": "D",
@@ -482,46 +482,46 @@ export const practiceTest1RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "Beavers engineer their surroundings, building dams that pond water and create wetlands. Between 2015 and 2023, ecologists tracked five headwater stream sites in the western United States where beavers had recently established colonies, counting the ponds at each site and measuring the area of adjacent wetland habitat. The ecologists conclude that the beavers' activity expanded wetland habitat across all of the monitored sites because ______",
+          "passage": "Every ten years, the US Census Bureau counts everyone living in the United States. Between the 2010 and 2020 censuses, the nation's population grew by 7.4 percent. A student examining census figures for five states claims that each of these states grew at more than twice the national rate during the decade because ______",
           "questionTable": {
             "type": "table",
-            "caption": "Beaver ponds and change in adjacent wetland area at five monitored stream sites, 2015-2023",
+            "caption": "Population of five US states in the 2010 and 2020 censuses",
             "headers": [
-              "Site",
-              "Ponds, 2015",
-              "Ponds, 2023",
-              "Change in wetland area (%)"
+              "State",
+              "2010 population (millions)",
+              "2020 population (millions)",
+              "Change (%)"
             ],
             "rows": [
               [
-                "Willow Creek",
-                "2",
-                "9",
-                "+61"
+                "Utah",
+                "2.76",
+                "3.27",
+                "+18.4"
               ],
               [
-                "Alder Fork",
-                "1",
-                "5",
-                "+34"
+                "Idaho",
+                "1.57",
+                "1.84",
+                "+17.3"
               ],
               [
-                "Granite Run",
-                "3",
-                "8",
-                "+47"
+                "Texas",
+                "25.15",
+                "29.15",
+                "+15.9"
               ],
               [
-                "Fox Hollow",
-                "0",
-                "4",
-                "+28"
+                "North Dakota",
+                "0.67",
+                "0.78",
+                "+15.8"
               ],
               [
-                "Marsh Branch",
-                "2",
-                "6",
-                "+39"
+                "Nevada",
+                "2.70",
+                "3.10",
+                "+15.0"
               ]
             ]
           },
@@ -529,23 +529,26 @@ export const practiceTest1RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Willow Creek, which gained seven ponds between 2015 and 2023, showed a 61% increase in adjacent wetland area over the same period, the largest increase of any monitored site."
+              "text": "Utah's population grew by 18.4%, the largest increase of any state in the table."
             },
             {
               "id": "B",
-              "text": "every site gained ponds over the monitoring period, and wetland area increased at all five sites, by amounts ranging from 28% to 61%."
+              "text": "every state in the table grew by at least 15.0%, more than twice the national growth rate of 7.4%."
             },
             {
               "id": "C",
-              "text": "Fox Hollow, which had no ponds in 2015, supported four ponds by 2023."
+              "text": "Texas gained about 4 million residents, far more than any of the other four states gained."
             },
             {
               "id": "D",
-              "text": "the total number of ponds across the five sites more than doubled between 2015 and 2023."
+              "text": "the combined population of the five states was larger in 2020 than it was in 2010."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** A claim about all monitored sites needs evidence covering every row of the table, and B alone provides it: every site gained ponds, and wetland area rose at all five.\n\n**The Full Solution:**\n- The claim's scope is total: beaver activity \"expanded wetland habitat across all\" of the monitored sites.\n- Choice B covers every site, and its 28% to 61% range shows the pattern's uniform direction with varying size — exactly what supports an all-sites claim.\n\n**Why the other choices are wrong:**\n- A: It cites only the single strongest site, which cannot establish a claim about all five.\n- C: It likewise isolates one site and never mentions wetland area.\n- D: It aggregates the pond counts but says nothing about wetland area, the quantity the conclusion is actually about."
+          "explanation": "**Choice B is correct.** The claim is about every state in the table, and it sets a specific bar: growth of more than twice the national rate. B covers all five states and shows that even the slowest grew 15.0%, more than twice 7.4%.\n\n**The Full Solution:**\n- The claim has two parts: it applies to \"each of these states,\" and the benchmark is \"more than twice the national rate.\"\n- Twice the national rate is 2 x 7.4% = 14.8%.\n- The smallest change in the table is Nevada's +15.0%, so every state clears 14.8%. Choice B states exactly this.\n\n**Why the other choices are wrong:**\n- A: It describes only Utah, the fastest-growing state, so it says nothing about the other four.\n- C: It compares the number of people added, not growth rates; Texas's large gain reflects its large population.\n- D: Growth of the five states combined does not show that each state grew, or that any grew faster than twice the national rate.",
+          "_meta": {
+            "source": "2020 United States census, state apportionment populations 2010 vs 2020 (US Census Bureau; tabulated at https://en.wikipedia.org/wiki/2020_United_States_census): Utah 2,763,885->3,271,616 (+18.4%), Idaho 1,567,582->1,839,106 (+17.3%), Texas 25,145,561->29,145,505 (+15.9%), North Dakota 672,591->779,094 (+15.8%), Nevada 2,700,551->3,104,614 (+15.0%); US 308,745,538->331,449,281 (+7.4%). Replaces an invented five-site beaver table (verify 2026-10-06)."
+          }
         },
         {
           "id": 109,
@@ -554,7 +557,7 @@ export const practiceTest1RW = {
           "band": 2,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "Coyotes were once animals of open prairie, active mostly at dawn and dusk. Today, however, coyotes live in cities across the United States, and researchers who have fitted coyotes in the Chicago area with tracking collars have documented a striking shift: city coyotes do most of their moving and hunting late at night, when streets are quiet, and spend the busy daylight hours resting in patches of cover such as cemeteries and golf courses. The animals have not simply moved into cities; they have reorganized their daily routines around human activity.",
+          "passage": "Coyotes were once animals of open prairie, active mostly at dawn and dusk. Today, however, coyotes live in cities across the United States. Researchers who have fitted coyotes in the Chicago area with tracking collars have documented a striking shift. City coyotes do most of their moving and hunting late at night, when streets are quiet, and they spend the busy daylight hours resting in patches of cover such as cemeteries and golf courses. The animals have not simply moved into cities; they have reorganized their daily routines around human activity.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
@@ -563,7 +566,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "B",
-              "text": "Urban coyotes have adapted to city life by shifting their activity to times and places where they are least likely to encounter people."
+              "text": "Urban coyotes have adapted by shifting their activity to times and places where they are unlikely to meet people."
             },
             {
               "id": "C",
@@ -571,7 +574,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "D",
-              "text": "Coyotes strongly prefer sheltered urban habitats such as cemeteries and golf courses to the open prairie landscapes where the species formerly lived."
+              "text": "Coyotes prefer sheltered urban habitats such as cemeteries and golf courses to the open prairie where they once lived."
             }
           ],
           "correctAnswer": "B",
@@ -584,7 +587,7 @@ export const practiceTest1RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "inferences",
-          "passage": "Seagrass meadows store large amounts of carbon in their leaves, roots, and the sediments beneath them. In a 2015 review, ecologist Trisha Atwood and colleagues noted that where sharks and other large predators have declined, sea turtles and other grazers can strip meadows bare; in parts of Bermuda and Indonesia, grazing has removed nearly all of the seagrass growing above the seafloor. The researchers therefore reasoned that ______",
+          "passage": "Seagrass meadows store large amounts of carbon in their leaves, roots, and the sediments beneath them. In a 2015 review, ecologist Trisha Atwood and colleagues noted that where sharks and other large predators have declined, sea turtles and other grazers can strip meadows bare. In parts of Bermuda and Indonesia, grazing has removed nearly all of the seagrass growing above the seafloor. The researchers therefore reasoned that ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
@@ -681,7 +684,7 @@ export const practiceTest1RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "At the sound archive, preservationists spend their days cataloging brittle lacquer discs, transferring fragile wax-cylinder recordings to digital files, and ______ the temperature-controlled vaults where the originals are stored.",
+          "passage": "At the weather station, technicians spend their days launching instrument balloons, recording wind speeds, and ______ the sensors that measure rainfall.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -702,7 +705,11 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The series \"cataloging... transferring...\" is built on gerunds, so the third item must be the gerund \"monitoring.\"\n\n**The Full Solution:**\n- The blank completes the third item in a parallel series whose first two items are gerunds.\n- Parallel structure requires the same grammatical form throughout the series.\n\n**Why the other choices are wrong:**\n- B: It switches to an infinitive, breaking the pattern the first two items establish.\n- C: It inserts a subject and finite verb, turning the list item into a clause that cannot sit in the series.\n- D: The past-tense form neither matches the gerunds nor forms any grammatical unit with \"spend their days.\""
+          "explanation": "**Choice A is correct.** The series \"launching... recording...\" is built on -ing verb forms, so the third item must be \"monitoring.\"\n\n**The Full Solution:**\n- The blank completes the third item in a series that tells how technicians \"spend their days\": launching balloons, recording wind speeds, and ______ the sensors.\n- The first two items are -ing forms, and parallel structure requires the same grammatical form throughout the series.\n- \"Monitoring the sensors\" matches \"launching\" and \"recording.\"\n\n**Why the other choices are wrong:**\n- B: It switches to an infinitive, breaking the pattern the first two items establish.\n- C: It inserts a subject and a verb, turning the list item into a clause that cannot sit in the series.\n- D: The past-tense form neither matches the -ing forms nor fits after \"spend their days.\"",
+          "_meta": {
+            "rule": "parallel structure in a series (-ing forms)",
+            "note": "Re-set 2026-10-06 from a sound-archive setting (archive/digitization family with 118 Index of American Design and 163 flood-damaged library books); generic setting, no factual claims."
+          }
         },
         {
           "id": 120,
@@ -711,7 +718,7 @@ export const practiceTest1RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "In September 1928, bacteriologist Alexander Fleming ______ culture plates that had sat on his laboratory bench during a vacation when he noticed that a mold growing on one plate had killed the bacteria around it — the observation that led to penicillin.",
+          "passage": "In September 1928, bacteriologist Alexander Fleming ______ culture plates that had sat on his laboratory bench during a vacation when he noticed that a mold growing on one plate had killed the bacteria around it. That observation led to penicillin.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -745,7 +752,7 @@ export const practiceTest1RW = {
           "band": 2,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "In 1967, reviewing data from a radio telescope she had helped build at Cambridge, astrophysicist Jocelyn Bell Burnell noticed a strikingly regular pulse. Although the signal at first seemed too orderly to be ______ her records showed it returning night after night from the same patch of sky, and its source proved to be a spinning neutron star.",
+          "passage": "In 1967, reviewing data from a radio telescope she had helped build at Cambridge, astrophysicist Jocelyn Bell Burnell noticed a strikingly regular pulse. Although the signal at first seemed too orderly to be ______ her records showed it returning night after night from the same patch of sky. Its source proved to be a spinning neutron star.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -784,7 +791,7 @@ export const practiceTest1RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "In Nairobi, the artists who decorate privately owned minibuses known as matatus treat each vehicle as a rolling ______ owners pay for bold murals and custom lettering because a striking design can draw passengers away from competing vehicles.",
+          "passage": "In Nairobi, the artists who decorate minibuses known as matatus treat each vehicle as a rolling ______ owners pay for bold murals and custom lettering because a striking design can draw passengers away from competing vehicles.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -805,7 +812,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** Two independent clauses meet at the blank, and joining them requires a comma plus a coordinating conjunction: \"gallery, and.\"\n\n**The Full Solution:**\n- Both sides are complete sentences: \"the artists who decorate privately owned minibuses known as matatus treat each vehicle as a rolling gallery\" and \"owners pay for bold murals and custom lettering.\"\n- The conventional join for two independent clauses is comma + coordinating conjunction, which only choice B supplies.\n\n**Why the other choices are wrong:**\n- A: A comma splice — it fuses two complete sentences with only a comma.\n- C: It supplies the conjunction but drops the comma required between independent clauses.\n- D: It runs the clauses together with no boundary at all."
+          "explanation": "**Choice B is correct.** Two independent clauses meet at the blank, and joining them requires a comma plus a coordinating conjunction: \"gallery, and.\"\n\n**The Full Solution:**\n- Both sides are complete sentences: \"the artists who decorate minibuses known as matatus treat each vehicle as a rolling gallery\" and \"owners pay for bold murals and custom lettering.\"\n- The conventional join for two independent clauses is comma + coordinating conjunction, which only choice B supplies.\n\n**Why the other choices are wrong:**\n- A: A comma splice — it fuses two complete sentences with only a comma.\n- C: It supplies the conjunction but drops the comma required between independent clauses.\n- D: It runs the clauses together with no boundary at all."
         },
         {
           "id": 123,
@@ -814,7 +821,7 @@ export const practiceTest1RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Engineers routinely borrow designs that evolution has already tested. ______ when designers of Japan's Shinkansen trains needed to stop the thunderclap the trains produced on exiting tunnels, they reshaped the train's nose after the beak of the kingfisher, a bird that plunges from air into water with barely a splash.",
+          "passage": "Engineers routinely borrow designs that evolution has already tested. ______ when designers of Japan's Shinkansen trains needed to stop the thunderclap the trains produced on exiting tunnels, they reshaped the train's nose after the beak of the kingfisher. This bird plunges from air into water with barely a splash.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -922,7 +929,7 @@ export const practiceTest1RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Japanese geochemist Katsuko Saruhashi developed Saruhashi's Table, a method that became a standard tool for measuring carbon dioxide in seawater and clarified how the ocean absorbs the gas."
+              "text": "Japanese geochemist Katsuko Saruhashi developed Saruhashi's Table, which became a standard tool for measuring carbon dioxide in seawater and clarified how the ocean absorbs the gas."
             },
             {
               "id": "B",
@@ -1117,11 +1124,11 @@ export const practiceTest1RW = {
           "passages": [
             {
               "label": "Text 1",
-              "text": "Thin sections cut from the limb bones of many dinosaurs show lines of arrested growth: rings, like a tree's, that record annual pauses in bone growth. Because today's reptiles form such rings when cool seasons slow their metabolism, while mammals and birds were long thought to grow bone continuously, some paleontologists have read the rings as evidence that dinosaurs' metabolic rates tracked the seasons the way a crocodile's do — that dinosaurs were, in this respect, fundamentally reptilian."
+              "text": "Thin sections cut from the limb bones of many dinosaurs show lines of arrested growth. These rings, like a tree's, record annual pauses in bone growth. Today's reptiles form such rings when cool seasons slow their metabolism, while mammals and birds were long thought to grow bone continuously. Some paleontologists have therefore read the rings as evidence that dinosaurs' metabolic rates tracked the seasons the way a crocodile's do. In this respect, they argue, dinosaurs were fundamentally reptilian."
             },
             {
               "label": "Text 2",
-              "text": "Rings record pauses in growth, not their cause. Paleontologist Meike Köhler found such rings in the leg bones of more than 100 modern ruminants, including deer and antelope — warm-blooded animals that stop growing during harsh seasons. A team led by geochemist Robin Dawson, meanwhile, measured the ordering of heavy isotopes in fossil eggshells, which reflects the temperature of the body in which a shell formed. Eggshells from three major dinosaur groups indicated body temperatures above those of the animals' surroundings."
+              "text": "Rings record pauses in growth, not their cause. Paleontologist Meike Köhler found such rings in the leg bones of more than 100 modern ruminants, including deer and antelope. These warm-blooded animals stop growing during harsh seasons. A team led by geochemist Robin Dawson, meanwhile, studied fossil eggshells. The ordering of heavy isotopes in a shell reflects the temperature of the body in which it formed. Shells from three major dinosaur groups indicated body temperatures above those of the animals' surroundings."
             }
           ],
           "question": "Based on the texts, how would the author of Text 2 most likely respond to the conclusion presented in Text 1?",
@@ -1156,28 +1163,28 @@ export const practiceTest1RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "A scratch in a car's paint or a crack in a phone case ordinarily marks permanent damage, because the polymer chains in conventional plastics, once severed, cannot rejoin. Materials chemists have engineered an alternative: polymers threaded with reversible bonds — hydrogen bonds or metal-ligand links — that break preferentially under stress and then re-form when the damaged surfaces are pressed together, restoring much of the material's original strength. Yet these self-healing plastics remain rare in commercial products, largely because the reversible bonds that permit repair also soften the material, and manufacturers have been unwilling to trade durability in daily use for recovery after damage.",
+          "passage": "A scratch in a car's paint or a crack in a phone case usually marks permanent damage. Once the long molecular chains in ordinary plastics are cut, they cannot rejoin. Materials chemists have engineered an alternative: plastics held together partly by reversible bonds. These bonds break first under stress and then re-form when the damaged surfaces are pressed together, restoring much of the material's strength. Yet such self-healing plastics remain rare in commercial products. The bonds that allow repair also soften the material, and manufacturers have been unwilling to give up everyday durability for the ability to recover from damage.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "It presents a debate among materials chemists, summarizes the evidence on each side, and indicates which position has prevailed."
+              "text": "It presents a debate among chemists, summarizes each side's evidence, and indicates which side prevailed."
             },
             {
               "id": "B",
-              "text": "It describes a widely used class of materials, traces how those materials are manufactured, and predicts how that process will change."
+              "text": "It describes widely used materials, explains how they are made, and predicts changes in that process."
             },
             {
               "id": "C",
-              "text": "It identifies a limitation of conventional plastics, describes a mechanism that overcomes it, and explains why the resulting materials remain commercially rare."
+              "text": "It identifies a flaw in ordinary plastics, describes a way around it, and explains why that solution remains rare."
             },
             {
               "id": "D",
-              "text": "It introduces a new class of polymers, lists the products that contain them, and questions whether those products perform as advertised."
+              "text": "It introduces new plastics, lists products that contain them, and questions whether those products work as claimed."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The text moves from a limitation of conventional plastics, to the engineered solution, to the trade-off that has kept the solution out of products — and C tracks all three movements in order.\n\n**The Full Solution:**\n- First move: conventional plastics' severed polymer chains \"cannot rejoin,\" so damage is permanent.\n- Second move: the engineered solution — polymers with reversible bonds that break under stress and re-form on contact.\n- Third move: the pivot \"Yet\" introduces why adoption is limited: the same bonds that permit repair soften the material, a trade-off manufacturers have refused.\n\n**Why the other choices are wrong:**\n- A: The text stages no debate between camps and weighs no competing evidence.\n- B: Self-healing polymers are described as \"rare in commercial products,\" not widely used, and no manufacturing process is traced.\n- D: The text catalogs no products containing the polymers — their absence from products is the point of the final sentence."
+          "explanation": "**Choice C is correct.** The text moves from a flaw in ordinary plastics, to the engineered solution, to the trade-off that has kept the solution out of products — and C tracks all three movements in order.\n\n**The Full Solution:**\n- First move: once the molecular chains in ordinary plastics are cut, they \"cannot rejoin,\" so damage is permanent.\n- Second move: the engineered solution — plastics with reversible bonds that break under stress and re-form when the surfaces are pressed together.\n- Third move: the pivot \"Yet\" introduces why adoption is limited: the same bonds that allow repair soften the material, a trade-off manufacturers have refused.\n\n**Why the other choices are wrong:**\n- A: The text stages no debate between camps and weighs no competing evidence.\n- B: Self-healing plastics are described as \"rare in commercial products,\" not widely used, and no manufacturing process is traced.\n- D: The text lists no products containing the plastics — their absence from products is the point of the final sentences."
         },
         {
           "id": 133,
@@ -1191,19 +1198,19 @@ export const practiceTest1RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The speaker recalls a time when these conditions prevailed in his country and then mourns that they have since been lost."
+              "text": "The speaker recalls a time when these conditions existed in his country, then mourns their loss."
             },
             {
               "id": "B",
-              "text": "The speaker poses a series of questions about a country's future and then supplies an answer to each one."
+              "text": "The speaker asks a series of questions about a country's future, then answers each one."
             },
             {
               "id": "C",
-              "text": "The speaker describes the obstacles that stand in a country's way and then proposes a specific plan for removing each of them."
+              "text": "The speaker lists obstacles facing a country, then proposes a plan for removing each one."
             },
             {
               "id": "D",
-              "text": "The speaker names one condition after another and then asks that his country be awakened into the state those conditions define."
+              "text": "The speaker names one condition after another, then asks that his country awake into the state they describe."
             }
           ],
           "correctAnswer": "D",
@@ -1220,24 +1227,24 @@ export const practiceTest1RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "Ensembles devoted to historically informed performance play Bach and Handel on gut strings and valveless horns, aiming to restore the sound this music had for its first audiences. Musicologist Richard Taruskin argued that this aim misdescribes the movement's real achievement: instruments alone cannot recover vanished habits of listening, and the movement's hallmark virtues — lean textures, brisk tempos, transparency — match twentieth-century modernist taste, so period performance is better understood as a vital contemporary style than as a reconstruction. Listeners, on Taruskin's account, should therefore judge such performances by their present persuasiveness rather than by their fidelity to a past that cannot be audited.",
+          "passage": "Ensembles devoted to historically informed performance play Bach and Handel on gut strings and valveless horns, aiming to restore the sound this music had for its first audiences. Musicologist Richard Taruskin argued that this aim misdescribes the movement's real achievement. Instruments alone, he noted, cannot recover vanished habits of listening, and the movement's hallmark virtues — lean textures, brisk tempos, transparency — match twentieth-century modernist taste. Period performance is thus better understood as a vital contemporary style than as a reconstruction. Listeners, on Taruskin's account, should therefore judge such performances by their present persuasiveness rather than by their fidelity to a past that cannot be audited.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "It describes a movement's stated aim, presents a scholar's argument that the movement is better understood differently, and notes the resulting standard of judgment."
+              "text": "It describes a movement's stated aim, presents a scholar's reinterpretation of the movement, and notes the standard of judgment that follows."
             },
             {
               "id": "B",
-              "text": "It traces a performance movement's history, identifies obstacles the movement has yet to overcome, and predicts that further research will resolve them."
+              "text": "It traces a movement's history, identifies obstacles it has yet to overcome, and predicts that research will resolve them."
             },
             {
               "id": "C",
-              "text": "It presents a scholar's objection to a performance movement, recounts the movement's rebuttal, and concludes that the objection rested on a misunderstanding."
+              "text": "It presents a scholar's objection to a movement, recounts the movement's rebuttal, and concludes that the objection was mistaken."
             },
             {
               "id": "D",
-              "text": "It contrasts two rival performance movements, weighs the evidence for each one's claims of accuracy, and endorses the better-documented movement."
+              "text": "It contrasts two rival performance movements, weighs each one's claims of accuracy, and endorses the better-documented one."
             }
           ],
           "correctAnswer": "A",
@@ -1250,28 +1257,28 @@ export const practiceTest1RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "In 1990, the Leaning Tower of Pisa was closed to visitors because engineers feared that its increasing tilt could lead to collapse. An international committee, whose members included geotechnical engineer John Burland, chose a method that would leave the tower's famous silhouette intact: between 1999 and 2001, workers slowly extracted small amounts of soil from beneath the foundation's north side — the side opposite the lean — allowing the tower to settle back toward vertical. The method reduced the tilt by roughly ten percent, enough, the committee calculated, to stabilize the structure for at least two hundred years.",
+          "passage": "In 1990, the Leaning Tower of Pisa was closed to visitors because engineers feared that its increasing tilt could lead to collapse. An international committee, whose members included geotechnical engineer John Burland, chose a method that would leave the tower's famous silhouette intact. Between 1999 and 2001, workers slowly removed small amounts of soil from beneath the north side of the foundation, opposite the lean, and the tower settled back toward vertical. The method reduced the tilt by roughly ten percent, enough, the committee calculated, to stabilize the structure for at least two hundred years.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "In 1990 the tower was closed to visitors, and it remained closed until engineers finalized a plan to dismantle the structure and rebuild it on firmer ground."
+              "text": "Engineers kept the tower closed until they finalized a plan to dismantle it stone by stone and rebuild it on firmer ground."
             },
             {
               "id": "B",
-              "text": "The tower tilts because the soil beneath its south side is softer than the soil beneath its north side, a difference undetected until 1990."
+              "text": "The tower tilts because the soil beneath its south side is softer than the soil beneath its north side."
             },
             {
               "id": "C",
-              "text": "Engineers secured the Leaning Tower of Pisa by removing soil from beneath the side opposite its lean, reducing the tilt without changing the tower's appearance."
+              "text": "Engineers stabilized the tower by removing soil from beneath the side opposite its lean, preserving its appearance."
             },
             {
               "id": "D",
-              "text": "The committee determined that continued soil extraction could eventually return the tower fully to vertical if the work were extended for several more years."
+              "text": "The committee concluded that further soil removal could eventually return the tower fully to vertical."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The text's central idea joins the problem, the method, and the outcome: facing feared collapse, engineers removed soil from beneath the north side, and the modest reduction in tilt secured the tower while preserving how it looks.\n\n**The Full Solution:**\n- The passage moves from a crisis (closure in 1990 over fears of collapse) to a chosen method (soil extraction beneath the side opposite the lean, picked because it would leave the silhouette intact) to a result (tilt reduced about ten percent — enough to stabilize the tower for at least two hundred years).\n- A main-idea answer must capture that full arc at the right level of generality, and choice C states each element: the goal, the method, and the deliberately limited correction.\n\n**Why the other choices are wrong:**\n- A: The text never mentions a plan to dismantle and rebuild the tower; the committee chose soil extraction precisely to keep the tower as it stands.\n- B: The text never explains why the tower leans or compares soil softness on the two sides; soil is discussed only as what the engineers removed.\n- D: The text describes a deliberately partial correction; nothing suggests extending the work to reach full vertical, which would erase the famous lean the committee set out to preserve.",
+          "explanation": "**Choice C is correct.** The text's central idea joins the problem, the method, and the outcome: facing feared collapse, engineers removed soil from beneath the north side, and the modest reduction in tilt secured the tower while preserving how it looks.\n\n**The Full Solution:**\n- The passage moves from a crisis (closure in 1990 over fears of collapse) to a chosen method (removing soil beneath the side opposite the lean, picked because it would leave the silhouette intact) to a result (tilt reduced about ten percent — enough to stabilize the tower for at least two hundred years).\n- A main-idea answer must capture that full arc at the right level of generality, and choice C states each element: the goal, the method, and the deliberately limited correction.\n\n**Why the other choices are wrong:**\n- A: The text never mentions a plan to dismantle and rebuild the tower; the committee chose soil extraction precisely to keep the tower as it stands.\n- B: The text never explains why the tower leans or compares soil softness on the two sides; soil is discussed only as what the engineers removed.\n- D: The text describes a deliberately partial correction; nothing suggests extending the work to reach full vertical, which would erase the famous lean the committee set out to preserve.",
           "_meta": {
             "source": "Burland, Jamiolkowski & Viggiani, stabilisation of the Tower of Pisa: closed Jan 1990; committee chaired by M. Jamiolkowski with J. Burland as member; soil extraction Feb 1999-Jun 2001; inclination reduced ~10% (~44 cm at the top); stable for at least 200-300 years"
           }
@@ -1283,45 +1290,40 @@ export const practiceTest1RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "After 2020, public transit agencies in the United States rebuilt ridership at strikingly different rates. Transportation analysts examining the recovery argue that systems serving many riders without cars — so-called transit-dependent riders — regained ridership faster than systems whose passengers were mostly commuters with other options. Data from four rail systems are consistent with the analysts' argument because ______",
+          "passage": "An atom's first ionization energy is the energy needed to remove one electron from it. Chemists explain that atoms with a full outer shell of electrons hold their electrons far more tightly than atoms with a single outer electron do. A student examining data for four elements argues that the data are consistent with this explanation because ______",
           "questionTable": {
             "type": "table",
-            "caption": "Average weekday rail ridership in 2019 and 2024 for four U.S. transit systems, with the share of each system's riders classified as transit-dependent",
+            "caption": "First ionization energies of four elements",
             "headers": [
-              "System",
-              "2019 riders (thousands)",
-              "2024 riders (thousands)",
-              "2024 as % of 2019",
-              "Transit-dependent share"
+              "Element",
+              "Atomic number",
+              "Outer shell",
+              "First ionization energy (kJ/mol)"
             ],
             "rows": [
               [
-                "System A",
-                "412",
-                "379",
-                "92%",
-                "High"
+                "Helium",
+                "2",
+                "Full",
+                "2,372"
               ],
               [
-                "System B",
-                "268",
-                "241",
-                "90%",
-                "High"
+                "Neon",
+                "10",
+                "Full",
+                "2,081"
               ],
               [
-                "System C",
-                "731",
-                "468",
-                "64%",
-                "Low"
+                "Lithium",
+                "3",
+                "One electron",
+                "520"
               ],
               [
-                "System D",
-                "155",
-                "105",
-                "68%",
-                "Low"
+                "Sodium",
+                "11",
+                "One electron",
+                "496"
               ]
             ]
           },
@@ -1329,23 +1331,26 @@ export const practiceTest1RW = {
           "choices": [
             {
               "id": "A",
-              "text": "System C carried the most riders of the four systems in both 2019 and 2024, even though its recovery rate was among the lowest."
+              "text": "sodium has the largest atomic number of the four elements and the lowest first ionization energy, 496 kJ/mol."
             },
             {
               "id": "B",
-              "text": "the two systems with high shares of transit-dependent riders had recovered 92% and 90% of their 2019 ridership by 2024, while the two systems with low shares had recovered only 64% and 68%."
+              "text": "the two elements with full outer shells have ionization energies of 2,372 and 2,081 kJ/mol, while the two with one outer electron have only 520 and 496 kJ/mol."
             },
             {
               "id": "C",
-              "text": "System A lost only 33,000 weekday riders between 2019 and 2024, a smaller absolute loss than System C's decline of 263,000 riders."
+              "text": "helium's ionization energy is about 290 kJ/mol higher than neon's, while lithium's is only about 24 kJ/mol higher than sodium's."
             },
             {
               "id": "D",
-              "text": "all four systems carried fewer weekday riders in 2024 than they had carried in 2019, with recovery rates that ranged from a low of 64% at System C to a high of 92% at System A."
+              "text": "the first ionization energies of the four elements range from 496 to 2,372 kJ/mol."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The argument is comparative — high transit-dependent systems recovered faster — and B pairs each system's recovery rate with its dependence share, splitting exactly along the predicted line.\n\n**The Full Solution:**\n- The analysts' claim links two variables: transit-dependent ridership share and recovery rate.\n- Choice B makes the required pairing: the two high-share systems at 92% and 90% against the two low-share systems at 64% and 68%.\n\n**Why the other choices are wrong:**\n- A: It cites true figures but compares system size, a variable the argument says nothing about.\n- C: The absolute-loss comparison is distorted by size — System C is far larger, so a bigger raw loss is uninformative; the argument concerns rates of recovery.\n- D: It summarizes the table accurately but omits the transit-dependent classification, so it shows recovery varied without connecting the variation to rider dependence."
+          "explanation": "**Choice B is correct.** The explanation links two things, the outer shell and how tightly electrons are held, and B pairs them: both full-shell elements need over 2,000 kJ/mol, while both one-electron elements need about 500.\n\n**The Full Solution:**\n- The explanation compares two groups: atoms with a full outer shell and atoms with a single outer electron.\n- Ionization energy measures how tightly an atom holds an electron, so the full-shell atoms should have much higher values.\n- Choice B reports exactly that split: 2,372 and 2,081 kJ/mol for helium and neon against 520 and 496 kJ/mol for lithium and sodium.\n\n**Why the other choices are wrong:**\n- A: It ties sodium's low value to atomic number, a variable the explanation does not mention, and says nothing about outer shells.\n- C: It compares elements within the same group, so it cannot show a difference between the two kinds of outer shell.\n- D: It reports the range accurately but leaves out the outer-shell column, so it never connects the values to the explanation.",
+          "_meta": {
+            "source": "First molar ionization energies (kJ/mol): He 2372.3, Ne 2080.7, Li 520.2, Na 495.8 — https://en.wikipedia.org/wiki/Molar_ionization_energies_of_the_elements (CRC Handbook values). Replaces an invented four-system rail-ridership table (verify 2026-10-06)."
+          }
         },
         {
           "id": 142,
@@ -1354,24 +1359,24 @@ export const practiceTest1RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "inferences",
-          "passage": "Roman harbor concrete has survived two millennia of pounding surf that destroys modern marine concrete within decades. Analyzing drill cores from breakwaters at Portus Cosanus and elsewhere, geologists found that seawater percolating through the Roman material for centuries dissolved parts of its volcanic ash and lime and, in the voids left behind, grew interlocking mineral crystals that knit the concrete more tightly together over time. Engineers who mix chemically faithful reproductions of the Roman recipe, however, should not expect their samples to match the ancient breakwaters' strength right away, since ______",
+          "passage": "Roman harbor concrete has survived two millennia of pounding surf that destroys modern marine concrete within decades. Geologists analyzed drill cores from breakwaters at Portus Cosanus and elsewhere. They found that seawater percolating through the Roman material for centuries dissolved parts of its volcanic ash and lime. In the voids left behind, interlocking mineral crystals grew and knit the concrete more tightly together over time. Engineers who mix chemically faithful reproductions of the Roman recipe, however, should not expect them to match the ancient breakwaters' strength right away, since ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
               "id": "A",
-              "text": "modern testing standards measure the strength of concrete samples far more precisely than any method available to Roman builders."
+              "text": "modern tests measure the strength of concrete far more precisely than any method Roman builders had."
             },
             {
               "id": "B",
-              "text": "the volcanic ash the Romans used came from deposits near the Bay of Naples that modern engineers cannot access in large quantities."
+              "text": "the Romans' volcanic ash came from deposits near the Bay of Naples that modern engineers cannot easily access today."
             },
             {
               "id": "C",
-              "text": "the reinforcing crystals are not an original ingredient of the concrete but the product of centuries of seawater exposure that new samples have not yet undergone."
+              "text": "the reinforcing crystals formed only during centuries of seawater exposure, which new samples have not undergone."
             },
             {
               "id": "D",
-              "text": "Roman builders reserved their most durable concrete formulations for harbors and used weaker mixtures in structures on land."
+              "text": "Roman builders used their most durable concrete for harbors and weaker mixtures for structures on land."
             }
           ],
           "correctAnswer": "C",
@@ -1384,12 +1389,12 @@ export const practiceTest1RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "Grid cells in the mammalian brain fire whenever an animal occupies any vertex of a hexagonal lattice tiling the space it moves through. Neuroscientist Edvard Moser's group asked whether that lattice is anchored to what the animal sees: they recorded from grid cells while rats foraged first in a lighted arena and then in total darkness. If the pattern depended on visual landmarks, darkness should have dissolved or displaced it. Instead, the hexagonal pattern persisted in the dark, and Moser concluded that the grid is generated internally from the animal's own movement signals, with landmarks serving mainly to anchor the map and correct its drift rather than to construct it.",
+          "passage": "Grid cells in the mammalian brain fire whenever an animal occupies any vertex of a hexagonal lattice tiling the space it moves through. Neuroscientist Edvard Moser's group asked whether that lattice is anchored to what the animal sees: they recorded from grid cells while rats foraged first in a lighted arena and then in total darkness. If the pattern depended on visual landmarks, darkness should have dissolved or displaced it. Instead, the hexagonal pattern persisted in the dark. Moser concluded that the grid is generated internally from the animal's own movement signals, with landmarks serving mainly to anchor the map and correct its drift rather than to construct it.",
           "question": "According to the text, what did Moser conclude about the firing pattern of grid cells?",
           "choices": [
             {
               "id": "A",
-              "text": "It arises only in animals that have first explored an arena in the light, because darkness prevents the lattice from forming at all."
+              "text": "It arises only in animals that have first explored an arena in the light, because darkness prevents the hexagonal lattice from forming at all."
             },
             {
               "id": "B",
@@ -1401,7 +1406,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "D",
-              "text": "It is produced internally from self-motion signals, with visual landmarks serving chiefly to anchor and correct the pattern rather than to build it."
+              "text": "It is produced internally from self-motion signals, with visual landmarks serving chiefly to anchor and correct the pattern, not to build it."
             }
           ],
           "correctAnswer": "D",
@@ -1422,19 +1427,19 @@ export const practiceTest1RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The Book of Fixed Stars became influential primarily because Arabic was more widely read than Greek among astronomers of the tenth century."
+              "text": "The book became influential mainly because more astronomers of the time could read Arabic than could read Ptolemy's original Greek."
             },
             {
               "id": "B",
-              "text": "Al-Sufi's observation of a \"little cloud\" in Andromeda was the most important astronomical discovery of the tenth century, though it went unrecognized until modern times."
+              "text": "Al-Sufi's notice of a \"little cloud\" in Andromeda was the tenth century's most important astronomical discovery."
             },
             {
               "id": "C",
-              "text": "Ptolemy's catalog contained so many errors that later astronomers discarded it entirely and compiled replacements from fresh observations."
+              "text": "Ptolemy's catalog contained so many errors that later astronomers discarded it entirely."
             },
             {
               "id": "D",
-              "text": "Al-Sufi's book was less a translation of Ptolemy's catalog than a revision of it, preserving Greek astronomy while adding corrections and new observations."
+              "text": "Al-Sufi's book did more than translate Ptolemy's catalog: it preserved the catalog while correcting and adding to it."
             }
           ],
           "correctAnswer": "D",
@@ -1447,40 +1452,35 @@ export const practiceTest1RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "Ecologists monitoring former grazing land in Europe have debated what drives biodiversity gains after farming stops. Some attribute the gains simply to the removal of livestock; others argue that reintroducing large grazers such as bison or feral horses at low density is what matters, because their patchy, selective grazing creates a mosaic of habitats that uniform abandonment does not. Researchers tracking plant species richness at four reserves contend that low-density grazer reintroduction, not the end of farming alone, drives the largest gains. The claim is supported by the data because ______",
+          "passage": "In some European countries, people are organ donors only if they register to be one, an opt-in system. In others, everyone is a donor unless they register not to be, an opt-out system. Psychologists Eric J. Johnson and Daniel Goldstein argued in 2003 that this default, rather than differences in culture, explains much of the gap in consent rates. Germany and Austria are neighbors with much in common, as are Denmark and Sweden. The data support the argument because ______",
           "questionTable": {
             "type": "table",
-            "caption": "Plant species per survey plot at four former grazing reserves, ten years after farming ceased",
+            "caption": "Effective consent rates for organ donation in four European countries, as reported by Johnson and Goldstein (2003)",
             "headers": [
-              "Reserve",
-              "Species per plot, year 0",
-              "Species per plot, year 10",
-              "Management after farming ceased"
+              "Country",
+              "Donation system",
+              "Consent rate (%)"
             ],
             "rows": [
               [
-                "Reserve 1",
-                "24",
-                "58",
-                "Bison reintroduced"
+                "Germany",
+                "Opt-in",
+                "12"
               ],
               [
-                "Reserve 2",
-                "27",
-                "61",
-                "Feral horses reintroduced"
+                "Austria",
+                "Opt-out",
+                "99.98"
               ],
               [
-                "Reserve 3",
-                "25",
-                "38",
-                "No grazers (abandonment)"
+                "Denmark",
+                "Opt-in",
+                "4.25"
               ],
               [
-                "Reserve 4",
-                "23",
-                "36",
-                "No grazers (abandonment)"
+                "Sweden",
+                "Opt-out",
+                "85.9"
               ]
             ]
           },
@@ -1488,23 +1488,26 @@ export const practiceTest1RW = {
           "choices": [
             {
               "id": "A",
-              "text": "species richness at Reserve 1 more than doubled over the decade, rising from 24 species per plot in year 0 to 58 species per plot in year 10."
+              "text": "Austria's consent rate of 99.98% was the highest of the four countries in the table."
             },
             {
               "id": "B",
-              "text": "all four reserves supported more plant species per plot in year 10 than in year 0, regardless of how they were managed after farming ceased."
+              "text": "every country in the table had a consent rate above 4%, whichever donation system it used."
             },
             {
               "id": "C",
-              "text": "although richness rose at every reserve after farming ceased, the two grazer reserves gained roughly 34 species per plot, more than twice the roughly 13 gained at the abandoned reserves with similar baselines."
+              "text": "in each pair of neighbors, the opt-out country's rate far exceeded the opt-in country's: 99.98% in Austria versus 12% in Germany, and 85.9% in Sweden versus 4.25% in Denmark."
             },
             {
               "id": "D",
-              "text": "the two grazer reserves began with 24 and 27 species per plot, close to the 25 and 23 species recorded in year 0 at the two abandoned reserves."
+              "text": "Sweden's consent rate was lower than Austria's, even though both countries use opt-out systems."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The claim is that grazers add gains beyond abandonment alone, and C isolates exactly that difference: roughly 34 species per plot with grazers versus roughly 13 without, from similar starting values.\n\n**The Full Solution:**\n- The claim has two parts the evidence must separate: ending farming helps (undisputed), and grazer reintroduction adds gains beyond abandonment alone.\n- Choice C concedes that richness rose everywhere, then quantifies the management difference — and because the plots started from similar values, the gap cannot be explained by baseline differences.\n\n**Why the other choices are wrong:**\n- A: A single reserve's improvement with no comparison across managements cannot distinguish the grazers' contribution from abandonment's.\n- B: It establishes only the undisputed part, and its \"regardless of how they were managed\" framing actively cuts against the claim.\n- D: It verifies comparable baselines — a precondition — but stops before the comparison; similar starting points alone say nothing about what drove the gains."
+          "explanation": "**Choice C is correct.** To show that the default matters more than culture, the data must compare countries whose cultures are similar but whose systems differ. C does exactly that for both pairs of neighbors.\n\n**The Full Solution:**\n- The argument has two parts: the default drives consent rates, and culture does not explain the gap.\n- The text pairs culturally similar neighbors: Germany with Austria, and Denmark with Sweden. In each pair, one country uses opt-in and the other uses opt-out.\n- Choice C shows a huge gap inside each pair (99.98% vs. 12%, and 85.9% vs. 4.25%). Because culture is similar within a pair, the system is the difference that lines up with the gap.\n\n**Why the other choices are wrong:**\n- A: It reports one country's rate without any comparison, so it cannot show what causes the differences.\n- B: It points to something all four countries share whatever their system, so it does nothing to show that the system matters.\n- D: It compares two countries with the same system, so it cannot show an effect of the system; if anything, it shows variation the default does not explain.",
+          "_meta": {
+            "source": "Johnson, E. J., & Goldstein, D. (2003). Do Defaults Save Lives? Science 302:1338-1339, figure 'Effective consent rates, by country': Denmark 4.25, Netherlands 27.5, UK 17.17, Germany 12 (opt-in); Austria 99.98, Belgium 98, France 99.91, Hungary 99.97, Poland 99.5, Portugal 99.64, Sweden 85.9 (opt-out). PDF: https://www.dangoldstein.com/papers/DefaultsScience.pdf ; Germany/Austria similar culture per https://en.wikipedia.org/wiki/Organ_donation. Replaces an invented four-reserve grazing table (verify 2026-10-06)."
+          }
         },
         {
           "id": 139,
@@ -1513,7 +1516,7 @@ export const practiceTest1RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-textual",
-          "passage": "Electric washing machines, vacuum cleaners, and gas ranges spread through American homes between 1900 and 1950, and manufacturers advertised them as a way to free women from hours of labor. Historian Ruth Schwartz Cowan has argued that the new machines did not in fact reduce the time women spent on household work. As each task became easier, she contends, standards of cleanliness rose, and work that families had once sent out, such as laundry and baking, moved back into the home, so hours saved on one chore were spent on another.",
+          "passage": "Electric washing machines, vacuum cleaners, and gas ranges spread through American homes between 1900 and 1950, and manufacturers advertised them as a way to free women from hours of labor. Historian Ruth Schwartz Cowan has argued that the new machines did not in fact reduce the time women spent on household work. As each task became easier, she contends, standards of cleanliness rose. Work that families had once sent out, such as laundry and baking, also moved back into the home, so hours saved on one chore were spent on another.",
           "question": "Which finding, if true, would most directly support the historian's claim?",
           "choices": [
             {
@@ -1563,7 +1566,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "D",
-              "text": "the language's grammatical structure must have originated at least partly in the young learners themselves, who imposed regularities their input lacked."
+              "text": "the language's grammatical structure must have originated at least partly in the young learners, who imposed regularities their input lacked."
             }
           ],
           "correctAnswer": "D",
@@ -1576,28 +1579,28 @@ export const practiceTest1RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "In 1843, botanist Anna Atkins began photographing her collection of algae by placing each specimen directly onto light-sensitized paper, a cameraless technique that rendered the samples as ghostly white silhouettes on deep blue ______ the resulting volume, Photographs of British Algae, is widely regarded as the first book ever illustrated with photographs.",
+          "passage": "In 1843, botanist Anna Atkins began making images of her algae collection without a camera. She placed each specimen directly onto light-sensitive paper, which rendered it as a white silhouette on a deep blue ______ the resulting volume, Photographs of British Algae, is widely regarded as the first book illustrated with photographs.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "grounds,"
+              "text": "ground,"
             },
             {
               "id": "B",
-              "text": "grounds"
+              "text": "ground"
             },
             {
               "id": "C",
-              "text": "grounds;"
+              "text": "ground;"
             },
             {
               "id": "D",
-              "text": "grounds, however,"
+              "text": "ground, however,"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** Two independent clauses meet at the blank, and the semicolon in \"grounds;\" is a conventional way to join them.\n\n**The Full Solution:**\n- Each side stands alone: \"In 1843, botanist Anna Atkins began photographing her collection of algae ... on deep blue grounds\" and \"the resulting volume ... is widely regarded as the first book ever illustrated with photographs.\"\n- Standard English joins two independent clauses with a period, a semicolon, or a comma plus coordinating conjunction; choice C supplies the semicolon.\n\n**Why the other choices are wrong:**\n- A: A comma alone between independent clauses — a comma splice.\n- B: No punctuation at all — a run-on.\n- D: The conjunctive adverb \"however\" cannot join independent clauses with commas alone (a semicolon would still be required before it), and the contrast it signals is illogical — the second clause extends the first rather than opposing it.",
+          "explanation": "**Choice C is correct.** Two independent clauses meet at the blank, and the semicolon in \"ground;\" is a conventional way to join them.\n\n**The Full Solution:**\n- Each side stands alone: \"She placed each specimen directly onto light-sensitive paper, which rendered it as a white silhouette on a deep blue ground\" and \"the resulting volume ... is widely regarded as the first book illustrated with photographs.\"\n- Standard English joins two independent clauses with a period, a semicolon, or a comma plus coordinating conjunction; choice C supplies the semicolon.\n\n**Why the other choices are wrong:**\n- A: A comma alone between independent clauses — a comma splice.\n- B: No punctuation at all — a run-on.\n- D: The conjunctive adverb \"however\" cannot join independent clauses with commas alone (a semicolon would still be required before it), and the contrast it signals is illogical — the second clause extends the first rather than opposing it.",
           "_meta": {
             "rule": "semicolon between two independent clauses (comma splice / run-on / conjunctive-adverb splice distractors)",
             "anchor": "Anna Atkins, Photographs of British Algae: Cyanotype Impressions (1843) — first photographically illustrated book",
@@ -1615,7 +1618,7 @@ export const practiceTest1RW = {
           "band": 4,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "In the early 1950s, cartographer Marie Tharp plotted ocean-depth soundings gathered by research ships crossing the Atlantic — ships that she, as a woman, was not permitted to ______ the profiles she drew revealed a rift valley running down the center of the Mid-Atlantic Ridge, a sign, she argued, that the ocean floor was splitting apart.",
+          "passage": "In the early 1950s, Marie Tharp mapped soundings from research ships crossing the Atlantic — ships that she, as a woman, could not ______ her profiles revealed a rift valley along the center of the Mid-Atlantic Ridge. Tharp argued that the rift was a sign that the ocean floor was splitting apart.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1636,7 +1639,7 @@ export const practiceTest1RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** What follows the blank is a new independent clause, and the semicolon in \"board;\" closes the first statement — supplement included — and joins the second to it.\n\n**The Full Solution:**\n- The sentence's first part ends inside a supplementary element set off by a dash (\"ships that she, as a woman, was not permitted to board\").\n- \"The profiles she drew revealed a rift valley ...\" is a complete independent clause, so the boundary between the statements must be sentence-strength.\n\n**Why the other choices are wrong:**\n- A: \"Board, and\" ties the new clause into the dash-opened supplement about the ships, as though the profiles were part of the description of ships Tharp could not board, garbling the sense.\n- C: A comma produces a comma splice between the two independent statements.\n- D: Punctuationally legal but logically wrong — \"however\" asserts a contrast, yet the rift valley's revelation is the payoff of Tharp's plotting, not a turn against it.",
+          "explanation": "**Choice B is correct.** What follows the blank is a new independent clause, and the semicolon in \"board;\" closes the first statement — supplement included — and joins the second to it.\n\n**The Full Solution:**\n- The sentence's first part ends inside a supplementary element set off by a dash (\"ships that she, as a woman, could not board\").\n- \"Her profiles revealed a rift valley ...\" is a complete independent clause, so the boundary between the statements must be sentence-strength.\n\n**Why the other choices are wrong:**\n- A: \"Board, and\" ties the new clause into the dash-opened supplement about the ships, as though the profiles were part of the description of ships Tharp could not board, garbling the sense.\n- C: A comma produces a comma splice between the two independent statements.\n- D: Punctuationally legal but logically wrong — \"however\" asserts a contrast, yet the rift valley's revelation is the payoff of Tharp's plotting, not a turn against it.",
           "_meta": {
             "rule": "semicolon closing a dash-opened supplement before a second independent clause; splice, faulty coordination, and illogical conjunctive-adverb distractors",
             "anchor": "Marie Tharp — Lamont; barred from research ships as a woman until 1968; identified the Mid-Atlantic Ridge rift valley from sounding profiles in 1952, interpreting it as seafloor spreading",
@@ -1813,7 +1816,7 @@ export const practiceTest1RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Neural machine translation systems, trained on vast collections of paired sentences, now render routine prose between major languages with striking fluency. ______ idioms still expose the systems' limits: because a phrase like \"spill the beans\" means something unrelated to beans, and because such phrases are rare in training data, the systems sometimes translate them word for word into fluent nonsense.",
+          "passage": "Neural machine translation systems, trained on vast collections of paired sentences, now render routine prose between major languages with striking fluency. ______ idioms still expose the systems' limits. Because a phrase like \"spill the beans\" means something unrelated to beans, and because such phrases are rare in training data, the systems sometimes translate them word for word into fluent nonsense.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1896,7 +1899,7 @@ export const practiceTest1RW = {
             },
             {
               "id": "C",
-              "text": "Because treatments once considered safe have sometimes proved damaging, art conservators face difficult decisions when they repair damaged artworks."
+              "text": "Because treatments once considered safe have sometimes proved damaging, art conservators face difficult decisions about which materials to use when they repair damaged artworks."
             },
             {
               "id": "D",

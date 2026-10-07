@@ -1,57 +1,61 @@
 {
-  "id": "bank-am-209",
-  "question": "A plant nursery gave away seedling flats during a spring event. The graph shown models the number of flats $y$ remaining $x$ weeks after the event began. What is the best interpretation of the $y$-intercept of the graph in this context?",
-  "diagram": {
-    "type": "linearGraph",
-    "params": {
-      "slope": -5,
-      "yIntercept": 40,
-      "xRange": [
-        0,
-        10
-      ],
-      "yRange": [
-        0,
-        50
-      ],
-      "xTickInterval": 5,
-      "yTickInterval": 10,
-      "gridInterval": 5,
-      "showPoints": [
-        [
-          0,
-          40
-        ],
-        [
-          8,
-          0
-        ]
-      ]
-    }
+ "id": "bank-am-209",
+ "question": "A garden center gave away free tomato plants during a spring event. The graph shown models the number of plants $y$ remaining $x$ weeks after the event began. What is the best interpretation of the $y$-intercept of the graph in this context?",
+ "diagram": {
+  "type": "parabola",
+  "params": {
+   "vertex": {
+    "h": 10,
+    "k": 0
+   },
+   "a": 0.4,
+   "xRange": [
+    0,
+    10
+   ],
+   "yRange": [
+    0,
+    50
+   ],
+   "xTickInterval": 5,
+   "yTickInterval": 10,
+   "gridInterval": 5,
+   "showVertex": false,
+   "highlightPoints": [
+    [
+     0,
+     40
+    ],
+    [
+     10,
+     0
+    ]
+   ]
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "The garden center gave away $40$ plants each week."
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "The nursery gave away $5$ flats each week."
-    },
-    {
-      "id": "B",
-      "text": "The nursery had $40$ flats when the event began."
-    },
-    {
-      "id": "C",
-      "text": "The nursery had given away $40$ flats when the event ended."
-    },
-    {
-      "id": "D",
-      "text": "The event lasted $40$ weeks."
-    }
-  ],
-  "distractorNotes": {
-    "A": "interprets the slope instead of the $y$-intercept",
-    "C": "reads the intercept as a total given away rather than a starting stock",
-    "D": "reads the intercept as a number of weeks"
+  {
+   "id": "B",
+   "text": "The garden center had $40$ plants when the event began."
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The $y$-intercept is $(0, 40)$: when $x = 0$ weeks, $40$ flats remained, which is the number the nursery had when the event began.\n\n**The Full Solution:**\nStep 1: The $y$-intercept of a graph is the point where $x = 0$. The graph shown crosses the $y$-axis at $(0, 40)$.\nStep 2: Here $x$ is the number of weeks since the event began and $y$ is the number of flats remaining, so $x = 0$ is the moment the event began.\nStep 3: So the nursery had $40$ flats when the event began. Check the rest of the graph: it falls to $(8, 0)$, a drop of $40$ flats over $8$ weeks, or $5$ flats per week, so the slope describes the giveaway rate, not the intercept ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$ flats each week): describes the slope of the graph, not the $y$-intercept.\n* Choice C ($40$ given away by the end): $40$ is the number of flats at the START; at the end the graph shows $0$ remaining.\n* Choice D ($40$ weeks): $40$ is measured on the $y$-axis, in flats; the graph reaches $0$ at $x = 8$ weeks.\n\n**Test Day Takeaway:** The $y$-intercept always answers \"what was the output when the input was $0$?\"; state it in the units of the output."
+  {
+   "id": "C",
+   "text": "The garden center had $40$ plants remaining $10$ weeks after the event began."
+  },
+  {
+   "id": "D",
+   "text": "The event lasted $40$ weeks."
+  }
+ ],
+ "distractorNotes": {
+  "A": "reads the intercept as a weekly rate",
+  "C": "pairs the y-value 40 with the x-intercept, 10 weeks, where the graph shows 0 plants",
+  "D": "reads the intercept, a number of plants, as a number of weeks"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The graph crosses the $y$-axis at $(0, 40)$: when $x = 0$ weeks, $40$ plants remained, which is the number the garden center had when the event began.\n\n**The Full Solution:**\nStep 1: The $y$-intercept of a graph is the point where $x = 0$. The graph shown crosses the $y$-axis at $(0, 40)$.\nStep 2: Here $x$ is the number of weeks since the event began and $y$ is the number of plants remaining, so $x = 0$ is the moment the event began.\nStep 3: So the garden center had $40$ plants when the event began. Check: the curve falls from $40$ to $0$ at $x = 10$, so $40$ is the starting number of plants, not a number of weeks or a weekly amount ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($40$ plants each week): reads the intercept as a weekly rate; $40$ is the number of plants at the start.\n* Choice C ($40$ plants after $10$ weeks): at $x = 10$ the graph shows $0$ plants remaining, not $40$.\n* Choice D ($40$ weeks): $40$ is measured on the $y$-axis, in plants; the graph reaches $0$ at $x = 10$ weeks.\n\n**Test Day Takeaway:** The $y$-intercept answers \"what was the output when the input was $0$?\"; state it in the units of the output."
 }

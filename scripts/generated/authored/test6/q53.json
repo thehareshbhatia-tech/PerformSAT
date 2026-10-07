@@ -25,11 +25,11 @@
     },
     {
       "id": "B",
-      "text": "Terra preta, a deep black soil found in patches along the Amazon, remains fertile for centuries in a region whose soils are otherwise quickly exhausted."
+      "text": "Terra preta, a deep black soil found along the Amazon, stays fertile for centuries in a region whose soils are otherwise quickly exhausted."
     },
     {
       "id": "C",
-      "text": "Because heavy tropical rains leach nutrients from most Amazonian soils, fields cleared for farming in the region often become infertile within only a few years of cultivation."
+      "text": "Because heavy tropical rains leach away nutrients, fields cleared for farming in the Amazon often become infertile within only a few years of cultivation."
     },
     {
       "id": "D",
@@ -37,5 +37,5 @@
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** An introduction for unfamiliar readers must name the thing, say what it is, and convey why it is notable — B does all three: the name, the definition (deep black soil in Amazonian patches), and the striking property (centuries of fertility where soils are otherwise quickly spent).\n\n**The Full Solution:**\n- The audience knows nothing, so the sentence must be self-contained: term plus identification plus significance.\n- B compresses the second and third notes into the identification and borrows the first note's contrast to make the significance legible at first read.\n\n**Why the other choices are wrong:**\n- A: It reports Sombroek's finding without ever naming or describing terra preta — an unfamiliar reader cannot tell what soil is meant or why it matters.\n- C: It is all background: the region's poor soils are described, and terra preta never appears.\n- D: It states significance for researchers but assumes the reader already knows what terra preta is — the one thing this audience lacks."
+  "explanation": "**Choice B is correct.** An introduction for unfamiliar readers must name the thing, say what it is, and convey why it is notable — B does all three: the name, the definition (deep black soil found along the Amazon), and the striking property (centuries of fertility where soils are otherwise quickly spent).\n\n**The Full Solution:**\n- The audience knows nothing, so the sentence must be self-contained: term plus identification plus significance.\n- B compresses the second and third notes into the identification and borrows the first note's contrast to make the significance legible at first read.\n\n**Why the other choices are wrong:**\n- A: It reports Sombroek's finding without ever naming or describing terra preta — an unfamiliar reader cannot tell what soil is meant or why it matters.\n- C: It is all background: the region's poor soils are described, and terra preta never appears.\n- D: It states significance for researchers but assumes the reader already knows what terra preta is — the one thing this audience lacks."
 }

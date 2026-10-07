@@ -1,5 +1,5 @@
 {
- "question": "The table shows equations of circles $P$ and $Q$ in the $xy$-plane. What is the distance between the centers of the two circles?",
+ "question": "The table shows equations of circles $P$ and $Q$ in the $xy$-plane. The radius of circle $Q$ is how many times the radius of circle $P$?",
  "questionTable": {
   "headers": [
    "Circle",
@@ -8,38 +8,38 @@
   "rows": [
    [
     "$P$",
-    "$x^2 + y^2 - 12x + 4y + 15 = 0$"
+    "$x^2 + y^2 - 4x + 6y + 9 = 0$"
    ],
    [
     "$Q$",
-    "$x^2 + y^2 + 4x - 8y + 11 = 0$"
+    "$x^2 + y^2 + 8x - 2y - 19 = 0$"
    ]
   ]
  },
- "hint": "Only the centers matter here, not the sizes of the circles.",
+ "hint": "Complete the square in each equation to find r^2.",
  "choices": [
   {
    "id": "A",
-   "text": "$6$"
+   "text": "$2$"
   },
   {
    "id": "B",
-   "text": "$8$"
+   "text": "$3$"
   },
   {
    "id": "C",
-   "text": "$10$"
+   "text": "$6$"
   },
   {
    "id": "D",
-   "text": "$14$"
+   "text": "$9$"
   }
  ],
  "distractorNotes": {
-  "A": "reports only the vertical separation, 6",
-  "B": "reports only the horizontal separation, 8",
-  "D": "adds 8 + 6 instead of using the Pythagorean theorem"
+  "A": "compares the x-coefficients, 8 and 4, instead of the radii",
+  "C": "reports the radius of circle Q",
+  "D": "compares the squared radii, 36 and 4"
  },
- "correctAnswer": "C",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~35s):** The centers are $(6, -2)$ and $(-2, 4)$, and the $8$-$6$-$10$ right triangle gives a distance of $10$.\n\n**The Full Solution:**\nStep 1: For circle $P$, half of $-12$ is $-6$ and half of $4$ is $2$, so its center is $(6, -2)$.\nStep 2: For circle $Q$, half of $4$ is $2$ and half of $-8$ is $-4$, so its center is $(-2, 4)$.\nStep 3: The separations are $6 - (-2) = 8$ and $-2 - 4 = -6$, so the distance is $\\sqrt{8^2 + 6^2} = \\sqrt{100} = 10$. Check: $64 + 36 = 100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): reports only the vertical separation of the centers.\n* Choice B ($8$): reports only the horizontal separation.\n* Choice D ($14$): adds the two separations, $8 + 6$, instead of combining them with the Pythagorean theorem.\n\n**Test Day Takeaway:** The center of $x^2 + y^2 + Dx + Ey + F = 0$ is $\\left(-\\dfrac{D}{2}, -\\dfrac{E}{2}\\right)$ — no completing the square is needed just to locate it."
+ "correctAnswer": "B",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~60s):** Completing the square gives $r^2 = 4$ for circle $P$ and $r^2 = 36$ for circle $Q$, so the radii are $2$ and $6$, and $6 = 3 \\times 2$.\n\n**The Full Solution:**\nStep 1: Circle $P$: $(x^2 - 4x + 4) + (y^2 + 6y + 9) = -9 + 4 + 9$, so $(x - 2)^2 + (y + 3)^2 = 4$ and its radius is $2$.\nStep 2: Circle $Q$: $(x^2 + 8x + 16) + (y^2 - 2y + 1) = 19 + 16 + 1$, so $(x + 4)^2 + (y - 1)^2 = 36$ and its radius is $6$.\nStep 3: The radius of circle $Q$ is $\\frac{6}{2} = 3$ times the radius of circle $P$. Check: $3 \\times 2 = 6$, and $6^2 = 36$ matches circle $Q$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): compares the $x$-coefficients, $8$ and $4$, which locate the centers but do not give the radii.\n* Choice C ($6$): is the radius of circle $Q$, not the ratio of the two radii.\n* Choice D ($9$): compares the squared radii, $\\frac{36}{4}$, without taking square roots.\n\n**Test Day Takeaway:** The constant in a circle equation is $r^2$ only after completing the square; compare radii, not $r^2$."
 }

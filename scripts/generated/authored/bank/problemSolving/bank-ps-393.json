@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-393",
-  "question": "The table shows the distribution of $300$ storms by the weather station that recorded each storm and by whether the storm produced hail. One of these storms will be selected at random. Let $p$ be the probability of selecting a storm that produced hail, given that it was recorded by the inland station, and let $q$ be the probability of selecting a storm recorded by the inland station, given that it produced hail. What is the value of $q - p$?",
+  "question": "The table shows the distribution of $300$ storms by the weather station that recorded each storm and by whether the storm produced hail. If one of these storms is selected at random, what is the probability of selecting a storm recorded by the inland station, given that the storm produced hail?",
   "diagram": {
     "type": "twoWayTable",
     "params": {
@@ -35,26 +35,26 @@
   "choices": [
     {
       "id": "A",
-      "text": "$0.28$"
+      "text": "$\\frac{7}{50}$"
     },
     {
       "id": "B",
-      "text": "$0.42$"
+      "text": "$\\frac{7}{25}$"
     },
     {
       "id": "C",
-      "text": "$0.70$"
+      "text": "$\\frac{1}{2}$"
     },
     {
       "id": "D",
-      "text": "$0.98$"
+      "text": "$\\frac{7}{10}$"
     }
   ],
-  "correctAnswer": "B",
+  "correctAnswer": "D",
   "distractorNotes": {
-    "A": "reports $p = \\frac{42}{150} = 0.28$ instead of $q - p$",
-    "C": "reports $q = \\frac{42}{60} = 0.70$ instead of $q - p$",
-    "D": "adds the two probabilities, $0.70 + 0.28$, instead of subtracting"
+    "A": "divides the inland hail storms by all 300 storms instead of by the hail storms",
+    "B": "reverses the condition: 42 out of the 150 inland storms",
+    "C": "gives the probability of an inland storm without the condition: 150/300"
   },
-  "explanation": "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** $p = \\frac{42}{150} = 0.28$ and $q = \\frac{42}{60} = 0.70$, so $q - p = 0.42$.\n\n**The Full Solution:**\nStep 1: For $p$, the condition is \"recorded by the inland station,\" so the denominator is the inland total, $150$: $p = \\frac{42}{150} = 0.28$.\nStep 2: For $q$, the condition is \"produced hail,\" so the denominator is the hail total, $60$: $q = \\frac{42}{60} = 0.70$.\nStep 3: Subtract: $q - p = 0.70 - 0.28 = 0.42$. Check: both use the same $42$ storms in the numerator; only the denominators differ ($150$ versus $60$) ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.28$): is the value of $p$ alone.\n* Choice C ($0.70$): is the value of $q$ alone.\n* Choice D ($0.98$): adds the two probabilities instead of subtracting them.\n\n**Test Day Takeaway:** In a conditional probability, the \"given\" group is the denominator. Swapping the condition keeps the numerator and changes the denominator."
+  "explanation": "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Given hail, look only at the $60$ hail storms; $42$ of them were inland, so the probability is $\\frac{42}{60} = \\frac{7}{10}$.\n\n**The Full Solution:**\nStep 1: The condition \"the storm produced hail\" limits the choices to the Produced hail column, which totals $60$ storms.\nStep 2: Of those $60$ storms, $42$ were recorded by the inland station.\nStep 3: The probability is $\\frac{42}{60} = \\frac{7}{10}$. Check: the coastal station recorded the other $18$, and $\\frac{18}{60} + \\frac{42}{60} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7}{50}$): uses all $300$ storms as the denominator, ignoring the condition.\n* Choice B ($\\frac{7}{25}$): is $\\frac{42}{150}$, the probability of hail given an inland storm, which reverses the condition.\n* Choice C ($\\frac{1}{2}$): is $\\frac{150}{300}$, the probability of an inland storm with no condition.\n\n**Test Day Takeaway:** The \"given\" group is the denominator: find its total in the table first."
 }

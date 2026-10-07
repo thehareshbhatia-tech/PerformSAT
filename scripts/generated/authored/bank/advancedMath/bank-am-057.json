@@ -1,29 +1,29 @@
 {
  "id": "bank-am-057",
- "question": "$(5x + c)(2x - 3) = 10x^{2} + 11x - 39$\nIn the given equation, $c$ is a constant. If the equation is true for all values of $x$, what is the value of $c$?",
+ "question": "$(4x + c)(3x - 5) = 12x^{2} + x - 35$\nIn the given equation, $c$ is a constant. If the equation is true for all values of $x$, what is the value of $c$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-13$"
+   "text": "$-7$"
   },
   {
    "id": "B",
-   "text": "$3$"
+   "text": "$1$"
   },
   {
    "id": "C",
-   "text": "$11$"
+   "text": "$5$"
   },
   {
    "id": "D",
-   "text": "$13$"
+   "text": "$7$"
   }
  ],
  "distractorNotes": {
-  "A": "solves $-3c = 39$, flipping the sign of the constant term",
-  "B": "quotes the $3$ inside $2x - 3$ instead of solving for $c$",
-  "C": "reports the middle coefficient $11$ rather than the constant $c$"
+  "A": "solves $-5c = 35$, flipping the sign of the constant term",
+  "B": "reports the coefficient of $x$, $1$, rather than the constant $c$",
+  "C": "quotes the $5$ inside $3x - 5$ instead of solving for $c$"
  },
  "correctAnswer": "D",
- "explanation": "**SAT Pattern: FOIL Two Binomials**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The constant term of the product is $c(-3) = -39$, so $c = 13$.\n\n**The Full Solution:**\nStep 1: Expand: $(5x + c)(2x - 3) = 10x^2 - 15x + 2cx - 3c$.\nStep 2: The constant term is $-3c$, and it must equal $-39$, so $c = 13$.\nStep 3: Confirm with the middle term: $-15 + 2(13) = 11$, matching $11x$. Check: $(5x + 13)(2x - 3) = 10x^2 + 11x - 39$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-13$): loses a negative sign, since $-3c = -39$ gives a positive $c$.\n* Choice B ($3$): copies a number out of the given binomial.\n* Choice C ($11$): reads off the coefficient of $x$, which is $-15 + 2c$, not $c$.\n\n**Test Day Takeaway:** The constant term of a product comes only from the two constants — solve there first, then use the middle term as a check."
+ "explanation": "**SAT Pattern: FOIL Two Binomials**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The constant term of the product is $c(-5) = -35$, so $c = 7$.\n\n**The Full Solution:**\nStep 1: Expand: $(4x + c)(3x - 5) = 12x^{2} - 20x + 3cx - 5c$.\nStep 2: The constant term is $-5c$, and it must equal $-35$, so $c = 7$.\nStep 3: Confirm with the middle term: $-20 + 3(7) = 1$, matching $1x$. Check: $(4x + 7)(3x - 5) = 12x^{2} + x - 35$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): loses a negative sign, since $-5c = -35$ gives a positive $c$.\n* Choice B ($1$): reads off the coefficient of $x$, which is $-20 + 3c$, not $c$.\n* Choice C ($5$): copies a number out of the given binomial.\n\n**Test Day Takeaway:** The constant term of a product comes only from the two constants — solve there first, then use the middle term as a check."
 }

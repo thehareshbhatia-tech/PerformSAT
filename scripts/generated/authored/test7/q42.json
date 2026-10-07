@@ -6,7 +6,7 @@
  "domain": "information-and-ideas",
  "skill": "inferences",
  "module": 2,
- "passage": "Obsidian, a natural glass once prized for its cutting edge, forms with a trace-element signature particular to the flow that produced it, so an artifact's raw material can be matched to its geological source. Applying such matching across central Anatolia, archaeologists found that tools at settlements several hundred kilometers from one source were made of that source's obsidian — and that such tools appear in occupation layers spanning many centuries, in quantities too large to represent stray finds. The distances also far exceed the territory any single household would have covered. Taken together, the findings suggest that ______",
+ "passage": "Obsidian, a natural glass once prized for its cutting edge, forms with a trace-element signature particular to the flow that produced it, so an artifact's raw material can be matched to its geological source. Applying such matching across central Anatolia, archaeologists found that tools at settlements several hundred kilometers from one source were made of that source's obsidian. Such tools appear in occupation layers spanning many centuries, in quantities too large to represent stray finds. The distances also far exceed the territory any single household would have covered. Taken together, the findings suggest that ______",
  "question": "Which choice most logically completes the text?",
  "choices": [
   {
@@ -15,7 +15,7 @@
   },
   {
    "id": "B",
-   "text": "obsidian tools were manufactured only at the source outcrops themselves and were never reworked or resharpened at the distant settlements."
+   "text": "obsidian tools were made only at the source outcrops and were never resharpened at the distant settlements."
   },
   {
    "id": "C",

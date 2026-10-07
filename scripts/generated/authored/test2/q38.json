@@ -6,16 +6,16 @@
   "domain": "information-and-ideas",
   "skill": "central-ideas-and-details",
   "module": 2,
-  "passage": "In the fourteenth century, the mathematician Madhava founded a school in Kerala, in southern India, whose members derived infinite-series expressions for the sine, cosine, and arctangent — results usually credited to European mathematicians who arrived at them roughly 250 years later. The Kerala derivations were rigorous by the standards of their own tradition and were preserved and refined through generations of careful commentaries. What the school lacked, it appears, was not insight but circulation: no persuasive evidence has surfaced that its manuscripts reached Europe, and historians accordingly treat the two discoveries as independent. The episode has become a touchstone in the history of science for a sobering distinction — priority in discovery guarantees neither influence nor remembrance.",
+  "passage": "In the fourteenth century, the mathematician Madhava founded a school in Kerala, in southern India. Its members derived infinite-series expressions for the sine, cosine, and arctangent, results usually credited to European mathematicians who arrived at them roughly 250 years later. The Kerala derivations were rigorous by the standards of their own tradition and were preserved and refined through generations of careful commentaries. What the school lacked, it appears, was not insight but circulation: no persuasive evidence has surfaced that its manuscripts reached Europe, and historians accordingly treat the two discoveries as independent. Historians of science often cite the episode as a lesson: priority in discovery guarantees neither influence nor remembrance.",
   "question": "Which choice best states the main idea of the text?",
   "choices": [
     {
       "id": "A",
-      "text": "Kerala mathematicians derived major results centuries before Europeans did, but because the work never circulated beyond its own tradition, the case shows that being first secures neither influence nor recognition."
+      "text": "Kerala mathematicians derived major results centuries before Europeans did, but because the work never circulated, the case shows that being first secures neither influence nor recognition."
     },
     {
       "id": "B",
-      "text": "European mathematicians of the seventeenth century quietly relied on manuscripts from the Kerala school when they developed their own infinite-series methods."
+      "text": "European mathematicians of the seventeenth century quietly relied on manuscripts from the Kerala school when they developed their own infinite-series methods for the sine, cosine, and arctangent."
     },
     {
       "id": "C",

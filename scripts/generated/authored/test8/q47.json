@@ -6,26 +6,33 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 2,
- "passage": "A court reporter's greatest asset was often a private one. Compiled stroke by stroke from years of courtroom practice, ______, and young reporters would copy such collections by hand, absorbing shortcuts that no published manual taught.",
+ "passage": "The first edition of the great Oxford dictionary of English relied on volunteer readers, who copied out examples of words in use onto paper slips. Assembled over seven decades from the quotation slips these readers mailed in, ______.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "the last reporters trained in the old pen systems inherited the stenographer's dictionary of brief forms"
+   "text": "the editors finally published the complete dictionary in 1928"
   },
   {
    "id": "B",
-   "text": "collecting the forms into a dictionary occupied the stenographer's final years"
+   "text": "completing the dictionary took its editors until 1928"
   },
   {
    "id": "C",
-   "text": "the stenographer's dictionary of brief forms preserved the accumulated speed of a working lifetime"
+   "text": "the dictionary was finally published in full in 1928"
   },
   {
    "id": "D",
-   "text": "there were hundreds of brief forms recorded in the stenographer's dictionary"
+   "text": "there were ten bound volumes in the finished dictionary"
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The opening modifier — \"Compiled stroke by stroke from years of courtroom practice\" — must attach to the thing that was compiled, and only choice C makes that thing, the stenographer's dictionary of brief forms, the subject.\n\n**The Full Solution:**\n- An introductory participial phrase modifies the subject of the clause that follows.\n- What was compiled stroke by stroke? The dictionary of brief forms — so \"the stenographer's dictionary\" must stand immediately after the comma.\n- Choice C supplies it: \"the stenographer's dictionary of brief forms preserved the accumulated speed of a working lifetime.\"\n\n**Why the other choices are wrong:**\n- A: It makes \"the last reporters trained in the old pen systems\" the subject, absurdly casting them as what was compiled.\n- B: It hangs the modifier on the gerund phrase \"collecting the forms,\" leaving the compiled thing itself displaced from subject position.\n- D: The expletive \"there were\" gives the modifier no subject at all to attach to, leaving it dangling."
+ "explanation": "**Choice C is correct.** The opening modifier, \"Assembled over seven decades from the quotation slips these readers mailed in,\" must describe the noun that comes right after the comma. Only the dictionary was assembled from slips, so \"the dictionary\" must begin the main clause.\n\n**The Full Solution:**\n- Ask what was \"assembled over seven decades from the quotation slips\": the dictionary.\n- A modifying phrase like this attaches to the subject that immediately follows it.\n- Choice C places \"the dictionary\" right after the comma, so the modifier describes the right thing.\n\n**Why the other choices are wrong:**\n- A: This makes \"the editors\" the thing assembled from quotation slips, which is illogical.\n- B: This puts the phrase \"completing the dictionary\" in the subject position, so the modifier describes an action rather than the dictionary.\n- D: \"There\" is not a noun the modifier can describe, so the opening phrase is left dangling.",
+ "_meta": {
+  "anchor": "Oxford English Dictionary first edition (1857-1928, volunteer quotation slips) — dangling modifier",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Oxford_English_Dictionary",
+   "https://archives.oup.com/featured-collection-1/"
+  ]
+ }
 }

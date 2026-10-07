@@ -1,6 +1,6 @@
 {
   "id": 3,
-  "question": "$y = 8$\n$y = -0.5x^{2} + 6x - 10$\nAt how many points do the graphs of the given equations intersect in the $xy$-plane?",
+  "question": "$y = 8$\n$y = -x^{2} + 6x - 1$\nAt how many points do the graphs of the given equations intersect in the $xy$-plane?",
   "choices": [
     {
       "id": "A",
@@ -16,15 +16,15 @@
     },
     {
       "id": "D",
-      "text": "More than two"
+      "text": "Infinitely many"
     }
   ],
   "distractorNotes": {
-    "A": "drops the 0.5 when computing 4ac, getting 36 - 4(1)(18) = -36 < 0",
-    "C": "sets the quadratic equal to 0 instead of 8, and 36 - 4(-0.5)(-10) = 16 > 0 gives two solutions",
-    "D": "thinks a horizontal line can cross a parabola more than twice"
+    "A": "thinks a line that only touches the parabola at its vertex does not count as an intersection",
+    "C": "sets the quadratic equal to 0 instead of 8, and 36 - 4(-1)(-1) = 32 > 0 gives two solutions",
+    "D": "treats a discriminant of 0 as meaning every value of x is a solution"
   },
   "correctAnswer": "B",
-  "hint": "Substitute y = 8 into the second equation and check the discriminant of the result.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** Setting $-0.5x^{2} + 6x - 10 = 8$ gives $x^{2} - 12x + 36 = 0$, whose discriminant is $0$: one intersection point, at $x = 6$.\n\n**The Full Solution:**\nStep 1: Substitute $y = 8$: $-0.5x^{2} + 6x - 10 = 8$, so $-0.5x^{2} + 6x - 18 = 0$.\nStep 2: Multiply by $-2$: $x^{2} - 12x + 36 = 0$. Its discriminant is $(-12)^{2} - 4(1)(36) = 144 - 144 = 0$.\nStep 3: A discriminant of $0$ gives exactly one solution, $x = 6$, so the graphs meet at one point, $(6, 8)$. Check: $-0.5(36) + 36 - 10 = 8$, so the line $y = 8$ touches the parabola at its vertex. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Zero): drops the $0.5$ when computing $4ac$, getting $36 - 4(1)(18) = -36$.\n* Choice C (Exactly two): solves $-0.5x^{2} + 6x - 10 = 0$ instead of setting the expression equal to $8$; that discriminant is $36 - 20 = 16$.\n* Choice D (More than two): a line and a parabola can intersect at most twice.\n\n**Test Day Takeaway:** To count intersection points of a line and a parabola, set the expressions equal, move everything to one side, and use the discriminant."
+  "hint": "Substitute $y = 8$ into the second equation and check the discriminant of the result.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** Setting $-x^{2} + 6x - 1 = 8$ gives $x^{2} - 6x + 9 = 0$, whose discriminant is $0$: one intersection point, at $x = 3$.\n\n**The Full Solution:**\nStep 1: Substitute $y = 8$: $-x^{2} + 6x - 1 = 8$, so $-x^{2} + 6x - 9 = 0$.\nStep 2: Multiply by $-1$: $x^{2} - 6x + 9 = 0$. Its discriminant is $(-6)^{2} - 4(1)(9) = 36 - 36 = 0$.\nStep 3: A discriminant of $0$ gives exactly one solution, $x = 3$, so the graphs meet at one point, $(3, 8)$.\n\nCheck: $-(3)^{2} + 6(3) - 1 = -9 + 18 - 1 = 8$, so the line $y = 8$ touches the parabola at its vertex. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Zero): treats a point where the line only touches the parabola as no intersection; touching at the vertex is one point.\n* Choice C (Exactly two): solves $-x^{2} + 6x - 1 = 0$ instead of setting the expression equal to $8$; that discriminant is $36 - 4 = 32$.\n* Choice D (Infinitely many): a discriminant of $0$ means exactly one solution, $x = 3$, not that every $x$ works; a line and a parabola share at most two points.\n\n**Test Day Takeaway:** To count intersection points of a line and a parabola, set the expressions equal, move everything to one side, and use the discriminant."
 }

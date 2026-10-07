@@ -1,5 +1,5 @@
 {
- "question": "$(x - 6)^{2} + (y + 15)^{2} = k$\nIn the given equation, $k$ is a positive constant. The graph of the equation in the $xy$-plane is a circle that is tangent to the line $y = -7$. What is the value of $k$?",
+ "question": "$(x - 6)^{2} + (y + 15)^{2} = k$\nIn the given equation, $k$ is a positive constant. The graph of the equation in the $xy$-plane is a circle. The points $(6, -23)$ and $(6, -7)$ are the endpoints of a diameter of the circle. What is the value of $k$?",
  "choices": [
   {
    "id": "A",
@@ -7,23 +7,23 @@
   },
   {
    "id": "B",
-   "text": "$64$"
+   "text": "$16$"
   },
   {
    "id": "C",
-   "text": "$225$"
+   "text": "$64$"
   },
   {
    "id": "D",
-   "text": "$484$"
+   "text": "$256$"
   }
  ],
- "correctAnswer": "B",
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "finds the radius 8 but forgets that k is r squared",
-  "C": "uses the distance from the center to the x-axis, 15, as the radius",
-  "D": "adds 15 and 7 instead of finding the distance between y = -15 and y = -7"
+  "A": "finds the radius, 8, but does not square it",
+  "B": "uses the diameter, 16, as k",
+  "D": "squares the diameter, 16 squared, instead of the radius"
  },
- "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The center is $(6, -15)$, and the horizontal line $y = -7$ is $8$ units above it, so $r = 8$ and $k = r^{2} = 64$.\n\n**The Full Solution:**\nStep 1: The center of the circle is $(6, -15)$, and $k = r^{2}$.\nStep 2: A circle tangent to a horizontal line has a radius equal to the vertical distance from the center to the line: $r = -7 - (-15) = 8$.\nStep 3: So $k = 8^{2} = 64$. Check: with $y = -7$, $(x - 6)^{2} + 8^{2} = 64$ gives $(x - 6)^{2} = 0$, so the line meets the circle only at $(6, -7)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): finds the radius but forgets that the right side is $r^{2}$.\n* Choice C ($225$): uses $15$, the distance from the center to the $x$-axis, as the radius.\n* Choice D ($484$): adds $15 + 7 = 22$ instead of subtracting to find the distance between $y = -15$ and $y = -7$.\n\n**Test Day Takeaway:** Tangent to a horizontal line means the radius equals the vertical distance from the center to that line; then square it.",
+ "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The diameter runs from $y = -23$ to $y = -7$, so it is $16$ long; the radius is $8$, and $k = r^{2} = 64$.\n\n**The Full Solution:**\nStep 1: In $(x - h)^{2} + (y - k)^{2} = r^{2}$ form, the right side $k$ is the square of the radius.\nStep 2: The endpoints $(6, -23)$ and $(6, -7)$ share an $x$-coordinate, so the diameter is $-7 - (-23) = 16$ and the radius is $8$.\nStep 3: $k = 8^{2} = 64$. Check: $(6, -7)$ gives $0^{2} + (-7 + 15)^{2} = 64$, and $(6, -23)$ gives $0^{2} + (-8)^{2} = 64$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): is the radius; the right side of the equation is the radius squared.\n* Choice B ($16$): is the length of the diameter.\n* Choice D ($256$): squares the diameter instead of the radius.\n\n**Test Day Takeaway:** The constant on the right side of a circle's equation is $r^{2}$; halve the diameter first, then square.",
  "id": "bank-geo-292"
 }

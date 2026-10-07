@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-060",
- "question": "The circle shown has center $O$ and a circumference of $30\\pi$. What is the area of sector $AOB$?",
+ "question": "The circle shown has center $O$, and the length of arc $AB$ is $12\\pi$. What is the area of the circle?",
  "diagram": {
   "type": "circleWithSector",
   "params": {
@@ -15,26 +15,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$12\\pi$"
+   "text": "$30\\pi$"
   },
   {
    "id": "B",
-   "text": "$90\\pi$"
+   "text": "$36\\pi$"
   },
   {
    "id": "C",
-   "text": "$180\\pi$"
+   "text": "$225\\pi$"
   },
   {
    "id": "D",
-   "text": "$225\\pi$"
+   "text": "$900\\pi$"
   }
  ],
  "distractorNotes": {
-  "A": "takes 2/5 of the circumference, which is the arc length, not the area",
-  "C": "divides 144 by 180 instead of 360, doubling the fraction",
-  "D": "gives the area of the whole circle"
+  "A": "stops at the circumference, 30 pi",
+  "B": "treats 12 pi as the whole circumference, so r = 6",
+  "D": "uses the diameter 30 as the radius"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Circumference → Radius → Sector**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** From $2\\pi r = 30\\pi$, the radius is $15$; sector $AOB$ is $\\frac{144}{360} = \\frac{2}{5}$ of the circle's area $225\\pi$, which is $90\\pi$.\n\n**The Full Solution:**\nStep 1: The circumference is $2\\pi r = 30\\pi$, so $r = 15$.\nStep 2: The whole circle has area $\\pi r^2 = 225\\pi$.\nStep 3: Sector $AOB$ has a central angle of $144^{\\circ}$, which is $\\frac{144}{360} = \\frac{2}{5}$ of the circle, so its area is $\\frac{2}{5}(225\\pi) = 90\\pi$. Check: $90\\pi$ is less than half of $225\\pi$, as it should be for an angle less than $180^{\\circ}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($12\\pi$): takes $\\frac{2}{5}$ of the circumference, which is the arc length, not the area.\n* Choice C ($180\\pi$): divides $144$ by $180$ instead of $360$, doubling the fraction.\n* Choice D ($225\\pi$): is the area of the whole circle.\n\n**Test Day Takeaway:** Circumference gives the radius; the angle fraction then scales arc length from $2\\pi r$ or area from $\\pi r^2$, so use the one the question asks for."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Arc Length**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** A $144°$ arc is $\\frac{2}{5}$ of the circle, so the circumference is $\\frac{5}{2}(12\\pi) = 30\\pi$, the radius is $15$, and the area is $225\\pi$.\n\n**The Full Solution:**\nStep 1: The central angle is $144°$, so arc $AB$ is $\\frac{144}{360} = \\frac{2}{5}$ of the circle.\nStep 2: The circumference is $12\\pi \\div \\frac{2}{5} = 30\\pi$, so $2\\pi r = 30\\pi$ and $r = 15$.\nStep 3: The area is $\\pi(15)^{2} = 225\\pi$. Check: $\\frac{2}{5}(2\\pi \\cdot 15) = \\frac{2}{5}(30\\pi) = 12\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($30\\pi$): is the circumference; the question asks for the area.\n* Choice B ($36\\pi$): treats $12\\pi$ as the whole circumference, ignoring the $144°$ angle, so $r = 6$ and the area is $36\\pi$.\n* Choice D ($900\\pi$): squares the diameter $30$ instead of the radius $15$.\n\n**Test Day Takeaway:** From an arc: angle fraction gives the circumference, the circumference gives the radius, and the radius gives the area."
 }

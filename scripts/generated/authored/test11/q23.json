@@ -24,15 +24,14 @@
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The first sentence carries the growers' like-for-like claim; the second reports independent tests finding the material \"falls short of leather in tensile strength.\" The second sentence pushes against the first, so a contrast transition — \"However,\" — is needed.\n\n**The Full Solution:**\n- Sentence 1: growers describe mycelium sheets as a like-for-like replacement, and the sheets do handle like hide in the workshop.\n- Sentence 2: testing reveals a shortfall in strength — a complication for the like-for-like claim.\n- Moving from a favorable claim to evidence that undercuts it is a contrastive move; \"However,\" signals it precisely.\n\n**Why the other choices are wrong:**\n- A: \"As a result\" would make the strength shortfall a consequence of the growers' marketing, a causal link the text does not draw.\n- B: \"In other words\" promises a restatement, but the test findings say something new — and opposed — rather than rephrasing the claim.\n- C: \"For example\" would offer the tests as an illustration of the like-for-like claim, when they in fact challenge it.",
- "passage": "Growers of mycelium-based materials often describe their product as a like-for-like replacement for animal hide, and the sheets can indeed be dyed and stitched with standard workshop equipment. ______ independent tests have found that many early mycelium materials fall short of leather in tensile strength, suggesting that matching hide's feel has proved easier than matching its toughness.",
+ "explanation": "**Choice D is correct.** The first two sentences present the H-4 Hercules as an enormous, ambitious aircraft; the third presents a fact that works against that picture: the plane flew only once, for about a mile. \"However\" marks that contrast.\n\n**The Full Solution:**\n- Sentences 1-2: the plane was designed to carry 750 soldiers, and its wingspan was the largest of any aircraft flown until 2019.\n- Sentence 3: it flew only once, in 1947, rising about 70 feet and traveling roughly one mile.\n- The third sentence turns from the plane's size and purpose to its very limited use, so a contrasting transition is needed.\n\n**Why the other choices are wrong:**\n- A: \"As a result\" would mean the plane's size and purpose caused it to fly only once, which the text does not say.\n- B: \"In other words\" would mean the third sentence restates the first two, but it introduces a new and opposing point.\n- C: \"For example\" would make the single short flight an example of the plane's impressive size, but it is a limitation.",
+ "passage": "Built in the United States during the 1940s, the H-4 Hercules was a wooden flying boat designed to carry 750 soldiers. Its wingspan of about 320 feet was the largest of any aircraft ever flown until 2019. ______ the giant plane flew only once: in 1947, it rose about 70 feet above the water and traveled roughly one mile.",
  "_meta": {
-  "anchor": "fungal leather alternatives — marketing claim vs. tensile-strength tests",
-  "transitionBucket": "transitions-contrast",
+  "anchor": "H-4 Hercules flying boat — designed for 750 troops, largest wingspan flown until 2019, yet flew only once (1947, about 70 ft, about 1 mile) (Wikipedia: Hughes H-4 Hercules)",
   "distractors": {
    "A": "false causation",
-   "B": "restatement where opposition is needed",
-   "C": "illustration where opposition is needed"
+   "B": "false restatement",
+   "C": "false exemplification"
   }
  },
  "id": 1123,

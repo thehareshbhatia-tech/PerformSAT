@@ -1,29 +1,29 @@
 {
   "id": "bank-alg-079",
-  "question": "The functions $f$ and $g$ are defined by $f(x) = x^{2} - 3$ and $g(x) = 4x + 1$. Which expression is equivalent to $f(g(x))$?",
+  "question": "The function $f$ is defined by $f(x) = x^{2} - 3$. The function $g$ is defined by $g(x) = f(x + 2)$. Which expression is equivalent to $g(x)$?",
   "choices": [
     {
       "id": "A",
-      "text": "$4x^{2} - 11$"
+      "text": "$x^{2} - 1$"
     },
     {
       "id": "B",
-      "text": "$16x^{2} - 2$"
+      "text": "$x^{2} + 1$"
     },
     {
       "id": "C",
-      "text": "$16x^{2} + 8x - 2$"
+      "text": "$x^{2} + 4x + 1$"
     },
     {
       "id": "D",
-      "text": "$16x^{2} + 8x + 4$"
+      "text": "$x^{2} + 4x + 7$"
     }
   ],
   "distractorNotes": {
-    "A": "composes in the reverse order, computing g(f(x)) = 4(x^2 - 3) + 1",
-    "B": "squares each term of 4x + 1 separately, dropping the middle term 8x",
-    "D": "adds 3 instead of subtracting it after squaring"
+    "A": "adds 2 to the output, computing f(x) + 2 instead of f(x + 2)",
+    "B": "squares x + 2 as x^2 + 4, dropping the middle term 4x",
+    "D": "adds 3 instead of subtracting it after expanding (x + 2)^2"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Function Composition (Expression)**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Substitute $4x + 1$ into $f$: $(4x + 1)^{2} - 3 = 16x^{2} + 8x + 1 - 3 = 16x^{2} + 8x - 2$.\n\n**The Full Solution:**\nStep 1: $f(g(x))$ means $f$ applied to $g(x)$, so replace the $x$ in $f(x) = x^{2} - 3$ with $4x + 1$: $f(g(x)) = (4x + 1)^{2} - 3$.\nStep 2: Expand the square: $(4x + 1)^{2} = 16x^{2} + 8x + 1$.\nStep 3: Subtract $3$: $16x^{2} + 8x - 2$. Check with $x = 1$: $g(1) = 5$ and $f(5) = 22$, and $16 + 8 - 2 = 22$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4x^{2} - 11$): composes in the reverse order, $g(f(x)) = 4(x^{2} - 3) + 1$.\n* Choice B ($16x^{2} - 2$): squares $4x$ and $1$ separately, losing the middle term $2(4x)(1) = 8x$.\n* Choice D ($16x^{2} + 8x + 4$): expands the square correctly but adds $3$ instead of subtracting it.\n\n**Test Day Takeaway:** Substitute the whole inner expression, in parentheses, for $x$ in the outer function, and expand a squared binomial with its middle term. Test $x = 1$ to confirm."
+  "explanation": "**SAT Pattern: Horizontal Shift**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Replace $x$ with $x + 2$: $g(x) = (x + 2)^{2} - 3 = x^{2} + 4x + 4 - 3 = x^{2} + 4x + 1$.\n\n**The Full Solution:**\nStep 1: $g(x) = f(x + 2)$ means every $x$ in $f(x) = x^{2} - 3$ is replaced with $x + 2$: $g(x) = (x + 2)^{2} - 3$.\nStep 2: Expand the square: $(x + 2)^{2} = x^{2} + 4x + 4$.\nStep 3: Subtract $3$: $g(x) = x^{2} + 4x + 1$. Check at $x = 1$: $g(1) = f(3) = 9 - 3 = 6$, and $1 + 4 + 1 = 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{2} - 1$): computes $f(x) + 2$, which adds $2$ to the output instead of to the input.\n* Choice B ($x^{2} + 1$): squares $x + 2$ as $x^{2} + 4$, losing the middle term $4x$.\n* Choice D ($x^{2} + 4x + 7$): expands correctly but adds $3$ instead of subtracting it.\n\n**Test Day Takeaway:** For $f(x + k)$, substitute the whole expression $x + k$ for $x$, and remember $(x + k)^{2}$ has a middle term $2kx$."
 }

@@ -1,6 +1,6 @@
 {
  "id": "bank-ps-434",
- "question": "The table shows the delivery times for four orders from a restaurant and the distance $g$, in miles, of each delivery. A model predicts a delivery time of $3.5g + 12$ minutes. For how many of these orders did the delivery time exceed the predicted time by more than $4$ minutes?",
+ "question": "The table shows the distance $g$, in miles, and the delivery time, in minutes, for four orders from a restaurant. Which of the following equations is the most appropriate linear model for the data, where $t$ is the predicted delivery time, in minutes, for a delivery of $g$ miles?",
  "diagram": {
   "type": "dataTable",
   "params": {
@@ -12,23 +12,23 @@
    "rows": [
     [
      "W",
-     "4",
-     "31"
+     "2",
+     "21"
     ],
     [
      "X",
-     "6",
-     "40"
+     "4",
+     "25"
     ],
     [
      "Y",
-     "8",
-     "46"
+     "6",
+     "33"
     ],
     [
      "Z",
-     "10",
-     "50"
+     "8",
+     "37"
     ]
    ]
   }
@@ -36,26 +36,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$1$"
+   "text": "$t = 3g + 14$"
   },
   {
    "id": "B",
-   "text": "$2$"
+   "text": "$t = 3g + 21$"
   },
   {
    "id": "C",
-   "text": "$3$"
+   "text": "$t = 6g + 14$"
   },
   {
    "id": "D",
-   "text": "$4$"
+   "text": "$t = 14g + 3$"
   }
  ],
- "correctAnswer": "C",
+ "correctAnswer": "A",
  "distractorNotes": {
-  "A": "counts only order X, whose excess of 7 minutes is the largest",
-  "B": "counts only the excesses of 6 minutes or more, leaving out order W's 5 minutes",
-  "D": "counts every order, including order Z, whose excess is only 3 minutes"
+  "B": "uses the first delivery time in the table, 21, as the constant; at g = 2 this model gives 27 minutes, not about 21",
+  "C": "uses the increase of about 6 minutes from one row to the next as the rate, but the rows are 2 miles apart, so the rate is about 3 minutes per mile",
+  "D": "switches the slope and the constant; at g = 2 this model gives 31 minutes, not about 21"
  },
- "explanation": "**SAT Pattern: Residual**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The model predicts $26$, $33$, $40$, and $47$ minutes; the excesses are $5$, $7$, $6$, and $3$, and three of them are more than $4$.\n\n**The Full Solution:**\nStep 1: Evaluate the model for each distance: $3.5(4) + 12 = 26$, $3.5(6) + 12 = 33$, $3.5(8) + 12 = 40$, and $3.5(10) + 12 = 47$ minutes.\nStep 2: Subtract each prediction from the actual time: $31 - 26 = 5$, $40 - 33 = 7$, $46 - 40 = 6$, and $50 - 47 = 3$.\nStep 3: Three of the differences, $5$, $7$, and $6$, are greater than $4$. Check: order Z's difference, $3$, is the only one that is not ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): counts only the order with the largest excess.\n* Choice B ($2$): drops order W, whose excess of $5$ minutes is still more than $4$.\n* Choice D ($4$): includes order Z, which arrived only $3$ minutes later than predicted.\n\n**Test Day Takeaway:** When a question asks \"for how many,\" compute every difference before counting; one skipped row changes the answer."
+ "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** From $2$ to $8$ miles the time rises from $21$ to $37$ minutes, about $16$ minutes over $6$ miles, or about $3$ minutes per mile. Then $3(2) + 14 = 20$ is close to $21$.\n\n**The Full Solution:**\nStep 1: Estimate the rate: from $g = 2$ to $g = 8$ the time increases from $21$ to $37$ minutes, so the rate is about $\\frac{37 - 21}{8 - 2} = \\frac{16}{6} \\approx 2.7$ minutes per mile. Only choices A and B have a slope near $3$.\nStep 2: Test choices A and B at $g = 2$: choice A gives $3(2) + 14 = 20$, and choice B gives $3(2) + 21 = 27$. The table shows $21$ minutes.\nStep 3: Choice A fits the data; choice B does not. Check: at $g = 8$, choice A gives $3(8) + 14 = 38$, close to the $37$ minutes in the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($t = 3g + 21$): uses the first time in the table as the constant; the constant is the predicted time at $g = 0$, not at $g = 2$.\n* Choice C ($t = 6g + 14$): uses the change from one row to the next, about $6$ minutes, as the rate per mile; the rows are $2$ miles apart.\n* Choice D ($t = 14g + 3$): switches the slope and the constant, giving $31$ minutes at $g = 2$.\n\n**Test Day Takeaway:** Check a linear model two ways: its slope against the rate in the data, and one data value against the equation."
 }

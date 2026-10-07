@@ -6,29 +6,32 @@
   "domain": "standard-english-conventions",
   "skill": "boundaries",
   "module": 1,
-  "passage": "Sled dogs made long-distance polar travel possible in the era before machines. Teams hauled heavily loaded sledges across ice that no vehicle of the time could ______ their thick double coats let them sleep in the open at temperatures that confined their drivers to shelter.",
+  "passage": "The hoatzin is a bird of the swamps and riverside forests of the Amazon and Orinoco basins. Unlike most birds, it digests leaves by fermenting them in its enlarged ______ its chicks also have two claws on each wing for climbing through branches.",
   "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
   "choices": [
     {
       "id": "A",
-      "text": "cross, their"
+      "text": "crop, its"
     },
     {
       "id": "B",
-      "text": "cross. Their"
+      "text": "crop. Its"
     },
     {
       "id": "C",
-      "text": "cross their"
+      "text": "crop its"
     },
     {
       "id": "D",
-      "text": "cross and, their"
+      "text": "crop and, its"
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** \"Teams hauled ... could cross\" and \"their thick double coats let them sleep ...\" are both independent clauses, and a period is a standard way to separate them.\n\n**The Full Solution:**\n- Clause one: \"Teams hauled heavily loaded sledges across ice that no vehicle of the time could cross.\"\n- Clause two: \"Their thick double coats let them sleep in the open ...\" — a complete sentence with its own subject and verb.\n- Two independent clauses need a period, a semicolon, or a comma plus a coordinating conjunction. Only choice B provides one of these.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses creates a comma splice.\n- C: No punctuation at all fuses the two clauses into a run-on.\n- D: \"And\" could join the clauses, but only with a comma before it; a comma after it is not a conventional joining.",
+  "explanation": "**Choice B is correct.** \"Unlike most birds, it digests leaves by fermenting them in its enlarged crop\" and \"Its chicks also have two claws on each wing for climbing through branches\" are both complete sentences, and a period correctly separates them.\n\n**The Full Solution:**\n- First clause: subject \"it\" + verb \"digests\": complete.\n- Second clause: subject \"chicks\" + verb \"have\": also complete.\n- Two independent clauses need a period, a semicolon, or a comma with a conjunction. Only B gives one of these.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses creates a comma splice.\n- C: With no punctuation, the two clauses run together.\n- D: The comma is in the wrong place; \"and\" must come after the comma, not before it.",
   "_meta": {
-    "anchor": "sled dogs in polar travel; period between independent clauses"
+    "anchor": "hoatzin: leaf fermentation in an enlarged crop and wing-clawed chicks",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Hoatzin"
+    ]
   }
 }

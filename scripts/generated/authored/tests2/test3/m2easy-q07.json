@@ -1,29 +1,29 @@
 {
  "id": 7,
- "question": "Of the $640$ students at a school, $44$ are in the band, $36$ are in the choir, and $16$ are in both. What is the probability that a student selected at random is in the band, the choir, or both?",
+ "question": "A bakery made $640$ cookies: $160$ oatmeal, $288$ chocolate chip, and the rest sugar. If one of these cookies is selected at random, what is the probability of selecting a cookie that is not chocolate chip?",
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{1}{40}$"
+   "text": "$\\frac{1}{4}$"
   },
   {
    "id": "B",
-   "text": "$\\frac{3}{40}$"
+   "text": "$\\frac{3}{10}$"
   },
   {
    "id": "C",
-   "text": "$\\frac{1}{10}$"
+   "text": "$\\frac{9}{20}$"
   },
   {
    "id": "D",
-   "text": "$\\frac{1}{8}$"
+   "text": "$\\frac{11}{20}$"
   }
  ],
  "distractorNotes": {
-  "A": "counts only the 16 students who are in both groups",
-  "B": "removes the 16 students in both groups twice, using 44 + 36 - 32 = 48",
-  "D": "adds 44 and 36 without removing the 16 students counted in both groups"
+  "A": "counts only the 160 oatmeal cookies as not chocolate chip, leaving out the sugar cookies",
+  "B": "counts only the 192 sugar cookies as not chocolate chip, leaving out the oatmeal cookies",
+  "C": "finds the probability of selecting a chocolate chip cookie, 288/640, instead of a cookie that is not chocolate chip"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The $16$ students in both groups are counted twice, so remove them once: $44 + 36 - 16 = 64$ students, and $\\frac{64}{640} = \\frac{1}{10}$.\n\n**The Full Solution:**\nStep 1: Adding $44$ and $36$ counts the $16$ students who are in both the band and the choir twice.\nStep 2: Remove the double count once. The number of students in the band, the choir, or both is $44 + 36 - 16 = 64$.\nStep 3: Divide by the total number of students. The probability is $\\frac{64}{640} = \\frac{1}{10}$. Check: $28$ are in the band only, $20$ are in the choir only, and $16$ are in both, and $28 + 20 + 16 = 64$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{40}$): uses only the $16$ students in both groups, giving $\\frac{16}{640}$. That is the probability of being in both, not in at least one.\n* Choice B ($\\frac{3}{40}$): subtracts the overlap from each group, using $44 + 36 - 32 = 48$ and giving $\\frac{48}{640}$.\n* Choice D ($\\frac{1}{8}$): adds the two counts as if no student were in both, giving $\\frac{80}{640}$.\n\n**Test Day Takeaway:** When two groups share members, the count for \"one or the other or both\" is the first group plus the second group minus the overlap. Subtract the overlap exactly once, then divide by the total."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The cookies that are not chocolate chip number $640 - 288 = 352$, so the probability is $\\frac{352}{640} = \\frac{11}{20}$.\n\n**The Full Solution:**\nStep 1: The cookies that are not chocolate chip are the oatmeal cookies and the sugar cookies. There are $640 - 160 - 288 = 192$ sugar cookies.\nStep 2: The number of cookies that are not chocolate chip is $160 + 192 = 352$, which is the same as $640 - 288$.\nStep 3: Divide by the total: $\\frac{352}{640} = \\frac{11}{20}$. Check: the probability of selecting a chocolate chip cookie is $\\frac{288}{640} = \\frac{9}{20}$, and $\\frac{9}{20} + \\frac{11}{20} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{4}$): this is $\\frac{160}{640}$, which counts only the oatmeal cookies. The sugar cookies are also not chocolate chip.\n* Choice B ($\\frac{3}{10}$): this is $\\frac{192}{640}$, which counts only the sugar cookies and leaves out the oatmeal cookies.\n* Choice C ($\\frac{9}{20}$): this is $\\frac{288}{640}$, the probability of selecting a chocolate chip cookie, the opposite of what the question asks.\n\n**Test Day Takeaway:** For \"not\" a category, subtract that category from the total, or subtract its probability from $1$; then check that the two probabilities add to $1$."
 }

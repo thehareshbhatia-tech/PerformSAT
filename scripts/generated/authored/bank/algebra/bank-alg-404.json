@@ -1,58 +1,58 @@
 {
- "id": "bank-alg-404",
- "question": "Line $m$ is shown in the $xy$-plane. Line $n$ is perpendicular to line $m$. What is the slope of line $n$?",
- "diagram": {
-  "type": "linearGraph",
-  "params": {
-   "slope": -0.5,
-   "yIntercept": 3,
-   "xRange": [
-    -6,
-    6
-   ],
-   "yRange": [
-    -4,
-    6
-   ],
-   "xTickInterval": 2,
-   "yTickInterval": 2,
-   "gridInterval": 1,
-   "showPoints": [
-    [
-     0,
-     3
-    ],
-    [
-     4,
-     1
-    ]
-   ],
-   "label": "m"
-  }
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$-2$"
+  "id": "bank-alg-404",
+  "question": "Line $m$ is graphed in the $xy$-plane. Which of the following is the slope of a line perpendicular to line $m$?",
+  "diagram": {
+    "type": "linearGraph",
+    "params": {
+      "slope": 3,
+      "yIntercept": -1,
+      "xRange": [
+        -4,
+        4
+      ],
+      "yRange": [
+        -6,
+        8
+      ],
+      "xTickInterval": 2,
+      "yTickInterval": 2,
+      "gridInterval": 1,
+      "showPoints": [
+        [
+          0,
+          -1
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "label": "m"
+    }
   },
-  {
-   "id": "B",
-   "text": "$-\\frac{1}{2}$"
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-3$"
+    },
+    {
+      "id": "B",
+      "text": "$-\\frac{1}{3}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\frac{1}{3}$"
+    },
+    {
+      "id": "D",
+      "text": "$3$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "changes the sign of 3 but does not take the reciprocal",
+    "C": "takes the reciprocal of 3 but does not change the sign",
+    "D": "gives the slope of line m, which is the slope of a parallel line"
   },
-  {
-   "id": "C",
-   "text": "$\\frac{1}{2}$"
-  },
-  {
-   "id": "D",
-   "text": "$2$"
-  }
- ],
- "distractorNotes": {
-  "A": "takes the reciprocal of -1/2 but keeps the negative sign",
-  "B": "gives the slope of line m, which is the slope of a parallel line",
-  "C": "changes the sign of -1/2 but does not take the reciprocal"
- },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Line $m$ falls $2$ units over a run of $4$, so its slope is $-\\frac{1}{2}$; the negative reciprocal is $2$.\n\n**The Full Solution:**\nStep 1: Line $m$ passes through the marked points $(0, 3)$ and $(4, 1)$.\nStep 2: Its slope is $\\frac{1 - 3}{4 - 0} = -\\frac{1}{2}$.\nStep 3: The slope of a perpendicular line is the negative reciprocal: $2$. Check: $-\\frac{1}{2} \\cdot 2 = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): takes the reciprocal but keeps the negative sign; the product with $-\\frac{1}{2}$ is $1$, not $-1$.\n* Choice B ($-\\frac{1}{2}$): this is the slope of line $m$, so a line with this slope would be parallel to it.\n* Choice C ($\\frac{1}{2}$): changes the sign without taking the reciprocal.\n\n**Test Day Takeaway:** Read the slope from two marked points first, then flip the fraction and change the sign."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Line $m$ rises $6$ units over a run of $2$, so its slope is $3$; the negative reciprocal is $-\\frac{1}{3}$.\n\n**The Full Solution:**\nStep 1: Line $m$ passes through the marked points $(0, -1)$ and $(2, 5)$.\nStep 2: Its slope is $\\frac{5 - (-1)}{2 - 0} = \\frac{6}{2} = 3$.\nStep 3: The slope of a perpendicular line is the negative reciprocal: $-\\frac{1}{3}$. Check: $3 \\cdot \\left(-\\frac{1}{3}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): changes the sign without taking the reciprocal; the product with $3$ is $-9$, not $-1$.\n* Choice C ($\\frac{1}{3}$): takes the reciprocal but keeps the positive sign.\n* Choice D ($3$): this is the slope of line $m$, so a line with this slope would be parallel to it.\n\n**Test Day Takeaway:** Read the slope from two marked points first, then flip the fraction and change the sign."
 }

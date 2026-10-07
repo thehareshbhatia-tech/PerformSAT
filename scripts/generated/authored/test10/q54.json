@@ -9,33 +9,39 @@
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "For much of the twentieth century, wool buyers judged fineness by eye and touch, handling sample fleeces at auction.",
-   "Buyers judging the same wool by hand could reach different conclusions about its quality.",
-   "Laboratory instruments can measure a wool sample's mean fiber diameter in microns.",
-   "In 1969, Australia's wool-testing authority launched a long-range plan to introduce scientific measurement and testing before auction.",
-   "With measured results in hand, buyers could bid on wool they had never handled, and mills could order fiber to precise specifications."
+   "Before electronic tolling, drivers stopped at toll booths to pay in cash.",
+   "E-ZPass is an electronic toll-collection system that uses a small transponder mounted in a vehicle.",
+   "At a toll point, an antenna reads the transponder, and the toll is deducted from a prepaid account.",
+   "In 1993, the Spring Valley toll plaza on the New York State Thruway became the first to use E-ZPass.",
+   "Standard E-ZPass tags for passenger cars are white; tags for commercial vehicles are blue."
   ],
-  "goal": "The student wants to emphasize the significance of instrument testing for the wool trade."
+  "goal": "The student wants to emphasize the significance of E-ZPass for paying highway tolls."
  },
  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
  "choices": [
   {
    "id": "A",
-   "text": "Instrument testing replaced fallible judgments of touch with measurements, letting buyers bid confidently on wool they had never handled."
+   "text": "E-ZPass let an antenna read a car's transponder and deduct the toll, replacing stops to pay cash."
   },
   {
    "id": "B",
-   "text": "Experienced buyers judging the same wool by hand at auction could reach quite different conclusions about its quality."
+   "text": "In 1993, the Spring Valley toll plaza on the New York State Thruway became the first to use E-ZPass."
   },
   {
    "id": "C",
-   "text": "Laboratory instruments are capable of measuring the mean fiber diameter of a wool sample in microns."
+   "text": "E-ZPass is an electronic toll-collection system that uses a small transponder mounted in a vehicle."
   },
   {
    "id": "D",
-   "text": "In 1969, Australia's wool-testing authority launched a long-range plan to introduce the testing of wool lots before they were offered at auction."
+   "text": "Standard E-ZPass tags for passenger cars are white, while tags issued for commercial vehicles are blue."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The goal asks what instrument testing changed for the trade, and A answers with the before-and-after in one sentence: inconsistent judgments of touch gave way to measurements, and buyers could bid on wool they had never handled.\n\n**The Full Solution:**\n- The notes' significance lies in the transformation: appraisal by handling (which varied from buyer to buyer) versus measured results that made unhandled wool biddable.\n- A compresses that transformation, method replaced and new capability gained, which is what emphasizing significance requires.\n\n**Why the other choices are wrong:**\n- B: It documents the problem, inconsistent appraisals, without mentioning instrument testing at all.\n- C: It describes what the instruments measure but says nothing about any effect on the trade.\n- D: It records Australia's plan to adopt testing yet never says what the testing changed for buyers or mills."
+ "explanation": "**Choice A is correct.** The goal asks what E-ZPass changed about paying tolls, and A answers with the before and after: an antenna now reads a car's transponder and deducts the toll, replacing stops to pay cash.\n\n**The Full Solution:**\n- The notes describe tolling before E-ZPass (drivers stopped at booths to pay in cash) and after (an antenna reads the transponder and the toll is deducted from a prepaid account).\n- A joins the two into a statement of what E-ZPass made possible, which is what emphasizing significance requires.\n\n**Why the other choices are wrong:**\n- B: It records the first toll plaza to use the system but never says what E-ZPass changed about paying tolls.\n- C: It describes what the system is but says nothing about its effect on paying tolls.\n- D: It mentions the colors of the tags, which is unrelated to the system's significance for paying tolls.",
+ "_meta": {
+  "anchor": "E-ZPass electronic toll collection (first used 1993, Spring Valley, NY Thruway)",
+  "sources": [
+   "https://en.wikipedia.org/wiki/E-ZPass"
+  ]
+ }
 }

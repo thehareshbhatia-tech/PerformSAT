@@ -6,25 +6,64 @@
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-quantitative",
   "module": 2,
-  "passage": "Engineers assessing passive cooling monitored four traditional courtyard houses in Yazd, Iran, on summer afternoons, recording mean indoor temperatures with each house's windcatcher shaft open and, on comparable days, with the shaft sealed. Outdoor air on the study days averaged 39°C. The engineers conclude that the towers meaningfully cooled every house monitored because ______",
+  "passage": "Life expectancy at birth is the number of years a newborn would be expected to live if current death rates stayed the same. Using World Bank estimates for four countries, a student concludes that life expectancy rose substantially in every one of them between 1960 and 2000 because ______",
   "questionTable": {
     "type": "table",
-    "caption": "Mean afternoon indoor temperature in four courtyard houses, Yazd",
-    "headers": ["House", "Shaft open (°C)", "Shaft sealed (°C)"],
+    "caption": "Life expectancy at birth (years) in four countries, 1960 and 2000",
+    "headers": [
+      "Country",
+      "1960",
+      "2000"
+    ],
     "rows": [
-      ["House 1", "31", "36"],
-      ["House 2", "30", "34"],
-      ["House 3", "32", "38"],
-      ["House 4", "29", "33"]
+      [
+        "Brazil",
+        "53.2",
+        "69.6"
+      ],
+      [
+        "Egypt",
+        "44.4",
+        "67.3"
+      ],
+      [
+        "India",
+        "45.6",
+        "62.7"
+      ],
+      [
+        "Mexico",
+        "53.6",
+        "72.6"
+      ]
     ]
   },
   "question": "Which choice most effectively uses data from the table to complete the statement?",
   "choices": [
-    { "id": "A", "text": "House 3 recorded the warmest sealed-shaft temperature of the study, at 38°C." },
-    { "id": "B", "text": "every house was at least 4°C cooler with its shaft open than with the shaft sealed, with differences ranging from 4°C to 6°C." },
-    { "id": "C", "text": "indoor temperatures with the windcatcher shafts open stayed well below the 39°C outdoor average in all four of the monitored courtyard houses." },
-    { "id": "D", "text": "House 4 was the coolest of the four houses whether its shaft was open or sealed." }
+    {
+      "id": "A",
+      "text": "Egypt's life expectancy rose from 44.4 years in 1960 to 67.3 years in 2000, the largest gain of the four countries."
+    },
+    {
+      "id": "B",
+      "text": "each country's life expectancy rose by at least 16 years, with gains ranging from about 16 to 23 years."
+    },
+    {
+      "id": "C",
+      "text": "life expectancy in 2000 was above 60 years in all four countries, with Mexico's the highest at 72.6 years."
+    },
+    {
+      "id": "D",
+      "text": "Mexico had the highest life expectancy of the four countries in 2000, and Egypt had the lowest in 1960."
+    }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** The conclusion is about the towers' effect in every monitored house, so the evidence must compare open against sealed for all four rows — and B does, reporting a 4-6°C advantage in each.\n\n**The Full Solution:**\n- The tower's contribution is isolated by the open-versus-sealed comparison, since the two conditions differ only in the shaft.\n- B covers all four houses, matching the claim's \"every house\" scope, and quantifies the range of the effect.\n\n**Why the other choices are wrong:**\n- A: A single sealed-shaft reading involves no comparison and no cooling effect.\n- C: Comparing open-shaft readings to the outdoor average ignores the sealed condition — sealed houses were also below 39°C, so the comparison cannot isolate what the tower added.\n- D: Ranking the houses against one another says nothing about what opening a shaft did within any house."
+  "explanation": "**Choice B is correct.** The student's conclusion is about every country, so the supporting data must show a large rise in each one. Choice B does: each country gained at least 16 years, from about 16 years in Brazil (53.2 to 69.6) to about 23 years in Egypt (44.4 to 67.3).\n\n**The Full Solution:**\n- The claim covers \"every one\" of the four countries, so a single country's figures cannot support it.\n- Subtracting row by row: Brazil 16.4, Egypt 22.9, India 17.1, Mexico 19.0.\n- Choice B states that every gain was at least 16 years and gives the range.\n\n**Why the other choices are wrong:**\n- A: Egypt's figures are accurate, but one country cannot show that life expectancy rose in all four.\n- C: It reports only the 2000 values, so it does not show how much life expectancy rose in any country.\n- D: It compares countries within single years and says nothing about change over time.",
+  "_meta": {
+    "anchor": "Life expectancy at birth 1960 vs 2000, Brazil/Egypt/India/Mexico (World Bank SP.DYN.LE00.IN) — CoE quant 'every row'",
+    "sources": [
+      "https://api.worldbank.org/v2/country/BRA;EGY;IND;MEX/indicator/SP.DYN.LE00.IN?date=1960:2000&format=json",
+      "https://data.worldbank.org/indicator/SP.DYN.LE00.IN"
+    ]
+  }
 }

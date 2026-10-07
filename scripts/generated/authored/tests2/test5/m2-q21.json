@@ -1,6 +1,6 @@
 {
  "id": 21,
- "question": "A computer downloads a file at a constant rate of $1{,}536$ kilobits per second. The table shows several unit conversions. At this rate, how many megabytes of data does the computer download in $5$ minutes?",
+ "question": "A computer downloads a file at a constant rate of $12$ megabits per second. The table shows two unit conversions. At this rate, how many megabytes of data does the computer download in $5$ minutes?",
  "questionTable": {
   "headers": [
    "Quantity",
@@ -8,16 +8,8 @@
   ],
   "rows": [
    [
-    "$1$ kilobit",
-    "$1{,}000$ bits"
-   ],
-   [
-    "$1$ byte",
-    "$8$ bits"
-   ],
-   [
     "$1$ megabyte",
-    "$1{,}000{,}000$ bytes"
+    "$8$ megabits"
    ],
    [
     "$1$ minute",
@@ -28,26 +20,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$7.2$"
+   "text": "$7.5$"
   },
   {
    "id": "B",
-   "text": "$57.6$"
+   "text": "$450$"
   },
   {
    "id": "C",
-   "text": "$460.8$"
+   "text": "$3{,}600$"
   },
   {
    "id": "D",
-   "text": "$3{,}686.4$"
+   "text": "$28{,}800$"
   }
  ],
  "distractorNotes": {
-  "A": "divides by 8 a second time after the bits-to-bytes step is already done, turning 57.6 into 7.2",
-  "C": "reports 460,800,000 bits as 460.8 megabytes, skipping the division by 8 that converts bits to bytes",
-  "D": "multiplies by 8 instead of dividing when converting bits to bytes, giving 3,686,400,000 bytes"
+  "A": "multiplies the rate by 5 without converting minutes to seconds: 12 x 5 / 8 = 7.5",
+  "C": "stops at 3,600 megabits and never converts megabits to megabytes",
+  "D": "multiplies by 8 instead of dividing when converting megabits to megabytes"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Unit Conversion**\n\n**Choice B is correct.**\n\n**The Fast Way (~50s):** $1{,}536$ kilobits per second is $1{,}536{,}000$ bits per second. In $300$ seconds that is $460{,}800{,}000$ bits, which is $57{,}600{,}000$ bytes, or $57.6$ megabytes.\n\n**The Full Solution:**\nStep 1: Convert the rate to bits per second: $1{,}536\\times 1{,}000=1{,}536{,}000$ bits per second.\nStep 2: Convert the time to seconds and multiply: $5$ minutes is $5\\times 60=300$ seconds, so the computer downloads $1{,}536{,}000\\times 300=460{,}800{,}000$ bits.\nStep 3: Convert bits to megabytes: $460{,}800{,}000\\div 8=57{,}600{,}000$ bytes, and $57{,}600{,}000\\div 1{,}000{,}000=57.6$ megabytes. Check: $57.6\\times 1{,}000{,}000\\times 8=460{,}800{,}000$ bits, and $460{,}800{,}000\\div 300=1{,}536{,}000$ bits per second ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7.2$): divides by $8$ a second time after the count is already in bytes.\n* Choice C ($460.8$): skips the division by $8$, treating $460{,}800{,}000$ bits as if they were bytes.\n* Choice D ($3{,}686.4$): multiplies by $8$ instead of dividing when converting bits to bytes. A byte is larger than a bit, so there must be fewer bytes than bits.\n\n**Test Day Takeaway:** Write out the chain of conversions so the units cancel one at a time. Before each step, ask whether the number should get larger or smaller."
+ "explanation": "**SAT Pattern: Unit Conversion**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** $5$ minutes is $300$ seconds, so the computer downloads $12 \\times 300 = 3{,}600$ megabits, which is $\\frac{3{,}600}{8} = 450$ megabytes.\n\n**The Full Solution:**\nStep 1: Convert the time to seconds: $5$ minutes is $5 \\times 60 = 300$ seconds.\nStep 2: Multiply the rate by the time: $12$ megabits per second for $300$ seconds is $12 \\times 300 = 3{,}600$ megabits.\nStep 3: Convert megabits to megabytes: each megabyte is $8$ megabits, so $3{,}600 \\div 8 = 450$ megabytes. Check: $450 \\times 8 = 3{,}600$ megabits, and $3{,}600 \\div 300 = 12$ megabits per second ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7.5$): uses $5$ as the number of seconds, computing $\\frac{12 \\times 5}{8}$.\n* Choice C ($3{,}600$): gives the amount in megabits and skips the conversion to megabytes.\n* Choice D ($28{,}800$): multiplies by $8$ instead of dividing. A megabyte is larger than a megabit, so there must be fewer megabytes than megabits.\n\n**Test Day Takeaway:** Write the conversions so the units cancel, and before each step ask whether the number should get larger or smaller."
 }

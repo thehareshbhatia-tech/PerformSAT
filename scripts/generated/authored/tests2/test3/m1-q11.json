@@ -1,6 +1,6 @@
 {
  "id": 11,
- "question": "The table shows three unit equivalences. A computer downloads data at a constant rate of $320$ megabits per second. At this rate, how many gigabytes of data does the computer download in $1$ hour?",
+ "question": "The table shows two unit equivalences. A conveyor belt moves at a constant speed of $2$ feet per second. What is the speed of the conveyor belt, in yards per minute?",
  "questionTable": {
   "headers": [
    "Quantity",
@@ -8,42 +8,38 @@
   ],
   "rows": [
    [
-    "1 byte",
-    "8 bits"
+    "1 yard",
+    "3 feet"
    ],
    [
-    "1 gigabyte",
-    "1,000 megabytes"
-   ],
-   [
-    "1 hour",
-    "3,600 seconds"
+    "1 minute",
+    "60 seconds"
    ]
   ]
  },
  "choices": [
   {
    "id": "A",
-   "text": "$40$"
+   "text": "$6$"
   },
   {
    "id": "B",
-   "text": "$144$"
+   "text": "$40$"
   },
   {
    "id": "C",
-   "text": "$9{,}216$"
+   "text": "$120$"
   },
   {
    "id": "D",
-   "text": "$144{,}000$"
+   "text": "$360$"
   }
  ],
  "correctAnswer": "B",
  "distractorNotes": {
-  "A": "stops after converting 320 megabits per second to 40 megabytes per second and never multiplies by 3,600",
-  "C": "multiplies by 8 instead of dividing, treating 1 megabit as 8 megabytes",
-  "D": "gives the number of megabytes downloaded in 1 hour and never divides by 1,000 to reach gigabytes"
+  "A": "multiplies 2 by 3 instead of dividing and never converts seconds to minutes",
+  "C": "converts seconds to minutes but leaves the speed in feet, 2 times 60",
+  "D": "converts seconds to minutes but multiplies by 3 instead of dividing, treating 1 foot as 3 yards"
  },
- "explanation": "**SAT Pattern: Unit Conversion**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $320 \\div 8 = 40$ megabytes per second; $40 \\times 3{,}600 = 144{,}000$ megabytes per hour; $144{,}000 \\div 1{,}000 = 144$ gigabytes.\n\n**The Full Solution:**\nStep 1: Convert bits to bytes. Since $1$ byte is $8$ bits, $320$ megabits is $\\frac{320}{8} = 40$ megabytes, so the computer downloads $40$ megabytes each second.\nStep 2: Convert seconds to hours. In $3{,}600$ seconds the computer downloads $40 \\times 3{,}600 = 144{,}000$ megabytes.\nStep 3: Convert megabytes to gigabytes: $\\frac{144{,}000}{1{,}000} = 144$ gigabytes. Check the units: $\\frac{\\text{megabits}}{\\text{second}} \\times \\frac{\\text{byte}}{8\\ \\text{bits}} \\times \\frac{3{,}600\\ \\text{seconds}}{\\text{hour}} \\times \\frac{\\text{gigabyte}}{1{,}000\\ \\text{megabytes}}$ leaves gigabytes per hour ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($40$): this is the rate in megabytes per second, the result of only the first conversion.\n* Choice C ($9{,}216$): multiplying by $8$ instead of dividing gives $2{,}560$ megabytes per second and $9{,}216$ gigabytes per hour. A byte is larger than a bit, so the number of bytes must be smaller.\n* Choice D ($144{,}000$): this is the number of megabytes downloaded in $1$ hour. Converting to gigabytes takes one more division by $1{,}000$.\n\n**Test Day Takeaway:** Write a conversion as a chain of fractions and cancel units as you go; the unit that remains should be the one the question asks for."
+ "explanation": "**SAT Pattern: Unit Conversion**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** In $1$ minute the belt moves $2 \\times 60 = 120$ feet, and $120$ feet is $\\frac{120}{3} = 40$ yards.\n\n**The Full Solution:**\nStep 1: Convert seconds to minutes. There are $60$ seconds in $1$ minute, so the belt moves $2 \\times 60 = 120$ feet each minute.\nStep 2: Convert feet to yards. Since $1$ yard is $3$ feet, $120$ feet is $\\frac{120}{3} = 40$ yards.\nStep 3: The speed is $40$ yards per minute. Check the units: $\\frac{2\\ \\text{feet}}{\\text{second}} \\times \\frac{60\\ \\text{seconds}}{\\text{minute}} \\times \\frac{1\\ \\text{yard}}{3\\ \\text{feet}} = 40$ yards per minute ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): multiplies $2$ by $3$ and stops. A yard is longer than a foot, so the number of yards must be smaller, and the seconds were never converted.\n* Choice C ($120$): this is the speed in feet per minute. Converting to yards takes one more division by $3$.\n* Choice D ($360$): multiplies by $3$ instead of dividing by $3$, giving $2 \\times 60 \\times 3$.\n\n**Test Day Takeaway:** Write a conversion as a chain of fractions and cancel units as you go; the unit that remains should be the one the question asks for."
 }

@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-181",
- "question": "The graph of line $d$ is shown. Line $p$ is perpendicular to line $d$ and passes through the points $(3, 1)$ and $(12, w)$. What is the value of $w$?",
+ "question": "Line $d$ is shown in the $xy$-plane. Line $p$ is defined by $y = mx + 6$, where $m$ is a constant. If line $p$ is perpendicular to line $d$, what is the value of $m$?",
  "diagram": {
   "type": "linearGraph",
   "params": {
@@ -33,26 +33,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$-26$"
+   "text": "$-3$"
   },
   {
    "id": "B",
-   "text": "$-2$"
+   "text": "$-\\frac{1}{3}$"
   },
   {
    "id": "C",
-   "text": "$4$"
+   "text": "$\\frac{1}{3}$"
   },
   {
    "id": "D",
-   "text": "$28$"
+   "text": "$3$"
   }
  ],
  "correctAnswer": "B",
  "distractorNotes": {
-  "A": "changes the sign of the slope but skips the reciprocal, using -3: 1 + (-3)(9) = -26",
-  "C": "takes the reciprocal but keeps it positive, using 1/3: 1 + (1/3)(9) = 4",
-  "D": "uses line d's own slope 3, a parallel line: 1 + 3(9) = 28"
+  "A": "changes the sign of line $d$'s slope but does not take the reciprocal",
+  "C": "takes the reciprocal of line $d$'s slope but does not change the sign",
+  "D": "uses the slope of line $d$ itself, which would make the lines parallel"
  },
- "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Line $d$ has slope $3$, so line $p$ has slope $-\\frac{1}{3}$; moving $9$ units right from $(3, 1)$ changes $y$ by $-\\frac{1}{3}(9) = -3$, so $w = 1 - 3 = -2$.\n\n**The Full Solution:**\nStep 1: Line $d$ passes through $(0, -2)$ and $(2, 4)$, so its slope is $\\frac{4 - (-2)}{2 - 0} = 3$.\nStep 2: Perpendicular lines have slopes that are negative reciprocals, so line $p$ has slope $-\\frac{1}{3}$.\nStep 3: Use the two points on line $p$: $\\frac{w - 1}{12 - 3} = -\\frac{1}{3}$, so $w - 1 = -3$ and $w = -2$. Check: the slope from $(3, 1)$ to $(12, -2)$ is $\\frac{-3}{9} = -\\frac{1}{3}$, and $3 \\cdot \\left(-\\frac{1}{3}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-26$): changes the sign of the slope but skips the reciprocal, using $-3$: $1 + (-3)(9) = -26$.\n* Choice C ($4$): takes the reciprocal but keeps it positive, using $\\frac{1}{3}$: $1 + \\frac{1}{3}(9) = 4$.\n* Choice D ($28$): uses line $d$'s own slope, $3$, which gives a line parallel to $d$: $1 + 3(9) = 28$.\n\n**Test Day Takeaway:** Read the slope of the graphed line from two lattice points, then flip and negate it; the product of perpendicular slopes must be $-1$."
+ "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Line $d$ rises $6$ units for every $2$ units to the right, so its slope is $3$. Line $p$ must have the negative reciprocal slope, $-\\frac{1}{3}$.\n\n**The Full Solution:**\nStep 1: Read two points on line $d$ from the graph: $(0, -2)$ and $(2, 4)$. The slope of line $d$ is $\\frac{4 - (-2)}{2 - 0} = 3$.\nStep 2: Line $p$, $y = mx + 6$, has slope $m$. Perpendicular lines have slopes that are negative reciprocals.\nStep 3: So $m = -\\frac{1}{3}$. Check: $(3)\\left(-\\frac{1}{3}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): changes the sign of line $d$'s slope but does not take the reciprocal\n* Choice C ($\\frac{1}{3}$): takes the reciprocal of line $d$'s slope but does not change the sign\n* Choice D ($3$): uses the slope of line $d$ itself, which would make the lines parallel\n\n**Test Day Takeaway:** In $y = mx + b$, the constant $m$ is the slope; for a perpendicular line, flip the other slope and change its sign."
 }

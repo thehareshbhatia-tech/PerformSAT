@@ -6,29 +6,29 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 2,
- "passage": "Three vehicles trace the arc of deep-ocean exploration since 1960: the bathyscaphe Trieste, which carried two crew members to the ocean's deepest point that year; the submersible Alvin, in service since 1964 and rebuilt so many times that little of the original craft ______ remotely operated vehicle Jason, which is linked to its ship by a fiber-optic tether.",
+ "passage": "Three New York skyscrapers each held the title of world's tallest building: the Woolworth Building, completed in 1913; the Chrysler Building, which held the title for less than a ______ Empire State Building, which kept it for nearly forty years.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "remains and the"
+   "text": "year and the"
   },
   {
    "id": "B",
-   "text": "remains, and the"
+   "text": "year, and the"
   },
   {
    "id": "C",
-   "text": "remains: and the"
+   "text": "year: and the"
   },
   {
    "id": "D",
-   "text": "remains; and the"
+   "text": "year; and the"
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The sentence lists three vehicles whose descriptions contain internal commas, so the items are divided by semicolons — and the final item, introduced by \"and,\" still needs the semicolon that marks its boundary: \"remains; and the.\"\n\n**The Full Solution:**\n- The colon introduces a three-item list: the Trieste, the Alvin, and the Jason, each trailed by a descriptive clause with commas of its own.\n- The first boundary is already a semicolon (\"...that year; the submersible Alvin...\"), committing the list to semicolon separation throughout.\n- Before the final item of a semicolon-separated list, the conjunction \"and\" follows a semicolon, exactly as choice D punctuates it.\n\n**Why the other choices are wrong:**\n- A: With no punctuation, the boundary between the second and third items vanishes into the surrounding commas.\n- B: A comma before \"and the\" breaks parallelism with the semicolon boundary earlier in the same list, downgrading the final item's separator.\n- C: A colon cannot recur inside the list that the sentence's first colon has already introduced.",
+ "explanation": "**Choice D is correct.** The sentence lists three skyscrapers whose descriptions contain internal commas, so the items are separated by semicolons. The final item, introduced by \"and,\" still needs the semicolon that marks its boundary: \"year; and the.\"\n\n**The Full Solution:**\n- The colon introduces a three-item list: the Woolworth Building, the Chrysler Building, and the Empire State Building, each followed by a descriptive phrase set off with a comma.\n- The first boundary is already a semicolon (\"completed in 1913; the Chrysler Building\"), so the list uses semicolons throughout.\n- Before the final item of a semicolon-separated list, \"and\" follows a semicolon, as in choice D.\n\n**Why the other choices are wrong:**\n- A: With no punctuation, the boundary between the second and third items disappears.\n- B: A comma before \"and the\" breaks the pattern set by the semicolon earlier in the list, blurring where the second item ends.\n- C: A colon cannot appear again inside a list that the sentence's first colon has already introduced.",
  "_meta": {
-  "anchor": "Trieste, Alvin, and Jason; semicolon before 'and' closing a complex list"
+  "anchor": "Woolworth, Chrysler, Empire State buildings; semicolon before 'and' closing a complex list"
  }
 }

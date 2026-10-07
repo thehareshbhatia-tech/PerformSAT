@@ -11,21 +11,21 @@
  "choices": [
   {
    "id": "A",
-   "text": "identifying a piece's maker usually depends on evidence beyond the furniture itself, such as community journals and account books."
+   "text": "identifying a piece's maker usually depends on evidence from sources other than the furniture itself."
   },
   {
    "id": "B",
-   "text": "unsigned pieces can usually be assigned to their makers by differences in workmanship, since each craftsman finished his work in a recognizable way."
+   "text": "unsigned pieces can usually be matched to their makers, since each craftsman finished his work in a recognizable way."
   },
   {
    "id": "C",
-   "text": "most surviving Shaker furniture must have been built by only a few craftsmen, since the unsigned pieces are so alike in their workmanship."
+   "text": "most surviving Shaker furniture must have been built by only a few craftsmen, since the pieces are so alike."
   },
   {
    "id": "D",
-   "text": "the question of who made a particular piece should be abandoned, because no kind of evidence can ever connect furniture to its maker."
+   "text": "the question of who made a piece should be abandoned, since no evidence can ever connect furniture to its maker."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** If many craftsmen followed the same patterns and standards and most left their work unsigned, then the piece alone cannot reveal who made it — so the answer must come from somewhere other than the furniture.\n\n**The Full Solution:**\n- The key facts: Shaker craftsmen mostly left their work unsigned, and members of a community followed the same patterns and standards of workmanship.\n- The curators' experience confirms the consequence: \"the piece itself rarely settles the question.\"\n- What follows is that attribution requires outside evidence — documents like community journals and account books — which is precisely choice A.\n\n**Why the other choices are wrong:**\n- B: It contradicts the passage, which says members worked to the same patterns and standards, so workmanship is not a reliable signature.\n- C: Nothing in the text says how many craftsmen made the surviving furniture; the passage concerns how to identify makers, not how many there were.\n- D: It overshoots — the passage says the piece itself rarely answers the question, not that no evidence of any kind can."
+ "explanation": "**Choice A is correct.** If many craftsmen followed the same patterns and standards and most left their work unsigned, then the piece alone cannot reveal who made it — so the answer must come from somewhere other than the furniture.\n\n**The Full Solution:**\n- The key facts: Shaker craftsmen mostly left their work unsigned, and members of a community followed the same patterns and standards of workmanship.\n- The curators' experience confirms the consequence: \"the piece itself rarely settles the question.\"\n- What follows is that attribution requires evidence from outside the piece, which is precisely choice A.\n\n**Why the other choices are wrong:**\n- B: It contradicts the passage, which says members worked to the same patterns and standards, so workmanship is not a reliable signature.\n- C: Nothing in the text says how many craftsmen made the surviving furniture; the passage concerns how to identify makers, not how many there were.\n- D: It overshoots — the passage says the piece itself rarely answers the question, not that no evidence of any kind can."
 }

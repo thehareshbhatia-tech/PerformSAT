@@ -1,29 +1,29 @@
 {
  "id": 2,
- "question": "In the $xy$-plane, line $p$ is defined by $2x + 5y = 40$. Line $q$ is perpendicular to line $p$ and passes through the point $(10, 5)$. Line $q$ has an x-intercept of $(a, 0)$. What is the value of $a$?",
+ "question": "In the $xy$-plane, line $p$ is defined by $2x + 5y = 40$. Line $q$ is perpendicular to line $p$ and passes through the point $(0, -4)$. Which equation defines line $q$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-2.5$"
+   "text": "$y = -\\frac{5}{2}x - 4$"
   },
   {
    "id": "B",
-   "text": "$8$"
+   "text": "$y = \\frac{5}{2}x - 4$"
   },
   {
    "id": "C",
-   "text": "$12$"
+   "text": "$y = -\\frac{2}{5}x - 4$"
   },
   {
    "id": "D",
-   "text": "$22.5$"
+   "text": "$y = \\frac{2}{5}x - 4$"
   }
  ],
  "distractorNotes": {
-  "A": "uses slope 2/5, the reciprocal without the sign change: y = 0.4x + 1 crosses the x-axis at -2.5",
-  "C": "uses slope -5/2, changing the sign twice: y = -2.5x + 30 crosses the x-axis at 12",
-  "D": "reuses line p's own slope -2/5: y = -0.4x + 9 crosses the x-axis at 22.5"
+  "A": "takes the reciprocal of -2/5 but does not change its sign, using -5/2",
+  "C": "uses the slope of line p, -2/5, which gives a line parallel to p",
+  "D": "changes the sign of -2/5 but does not take the reciprocal, using 2/5"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Line $p$ has slope $-\\frac{2}{5}$, so line $q$ has slope $\\frac{5}{2}$. Through $(10, 5)$ that is $y = \\frac{5}{2}x - 20$, which equals $0$ at $x = 8$.\n\n**The Full Solution:**\nStep 1: Write line $p$ in slope-intercept form: $5y = -2x + 40$, so $y = -\\frac{2}{5}x + 8$ and its slope is $-\\frac{2}{5}$.\nStep 2: A perpendicular line has the negative reciprocal slope, $\\frac{5}{2}$. Using the point $(10, 5)$: $5 = \\frac{5}{2}(10) + b$, so $b = 5 - 25 = -20$ and line $q$ is $y = \\frac{5}{2}x - 20$.\nStep 3: Set $y = 0$: $0 = \\frac{5}{2}x - 20$, so $x = 8$ and $a = 8$. Check: $\\left(-\\frac{2}{5}\\right)\\left(\\frac{5}{2}\\right) = -1$, and $\\frac{5}{2}(10) - 20 = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2.5$): uses $\\frac{2}{5}$, the reciprocal with no sign change, giving $y = 0.4x + 1$, which crosses the x-axis at $-2.5$.\n* Choice C ($12$): changes the sign twice and uses $-\\frac{5}{2}$, giving $y = -2.5x + 30$, which crosses at $12$.\n* Choice D ($22.5$): keeps line $p$'s own slope $-\\frac{2}{5}$, which produces a line parallel to $p$, not perpendicular to it.\n\n**Test Day Takeaway:** Perpendicular slopes multiply to $-1$: flip and change the sign, then use the given point to find the intercept before answering what was actually asked."
+ "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Solving for $y$ gives $y = -\\frac{2}{5}x + 8$, so line $p$ has slope $-\\frac{2}{5}$ and line $q$ has slope $\\frac{5}{2}$. The point $(0, -4)$ is the $y$-intercept, so line $q$ is $y = \\frac{5}{2}x - 4$.\n\n**The Full Solution:**\nStep 1: Solve $2x + 5y = 40$ for $y$: $5y = -2x + 40$, so $y = -\\frac{2}{5}x + 8$. Line $p$ has slope $-\\frac{2}{5}$.\nStep 2: The slope of a perpendicular line is the negative reciprocal, so line $q$ has slope $\\frac{5}{2}$.\nStep 3: Line $q$ passes through $(0, -4)$, so its $y$-intercept is $-4$, and line $q$ is $y = \\frac{5}{2}x - 4$. Check: $\\left(-\\frac{2}{5}\\right)\\left(\\frac{5}{2}\\right) = -1$, and $\\frac{5}{2}(0) - 4 = -4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: flips $-\\frac{2}{5}$ to $-\\frac{5}{2}$ but keeps the negative sign.\n* Choice C: keeps the slope of line $p$, which gives a line parallel to $p$.\n* Choice D: changes the sign to $\\frac{2}{5}$ but does not flip the fraction.\n\n**Test Day Takeaway:** Solve for $y$ to read the slope from standard form; a perpendicular slope is the negative reciprocal, so flip the fraction and change the sign."
 }

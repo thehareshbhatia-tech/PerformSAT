@@ -1,86 +1,86 @@
 {
-  "id": "bank-ps-342",
-  "question": "The scatterplot shows the electricity use $y$, in kilowatt-hours, of a workshop and the number of machines $x$ in use, for each of $9$ months. The line of best fit shown has equation $y = 145x + 60$. In the month with $6$ machines in use, the electricity use was $1{,}000$ kilowatt-hours. What is the residual, in kilowatt-hours, for that month?",
-  "diagram": {
-    "type": "scatterplot",
-    "params": {
-      "points": [
-        [
-          2,
-          340
-        ],
-        [
-          3,
-          520
-        ],
-        [
-          4,
-          610
-        ],
-        [
-          5,
-          800
-        ],
-        [
-          6,
-          1000
-        ],
-        [
-          7,
-          1050
-        ],
-        [
-          8,
-          1240
-        ],
-        [
-          9,
-          1330
-        ],
-        [
-          10,
-          1540
-        ]
-      ],
-      "xMin": 0,
-      "xMax": 11,
-      "yMin": 0,
-      "yMax": 1800,
-      "xGridStep": 1,
-      "yGridStep": 200,
-      "xLabelStep": 2,
-      "yLabelStep": 400,
-      "xLabel": "Machines in use",
-      "yLabel": "Electricity use (kWh)",
-      "bestFitLine": {
-        "slope": 145,
-        "intercept": 60
-      }
-    }
+ "id": "bank-ps-342",
+ "question": "The scatterplot shows the electricity use $y$, in kilowatt-hours, of a workshop $x$ months after January. What is the average rate of change, in kilowatt-hours per month, of the workshop's electricity use from March to July?",
+ "diagram": {
+  "type": "scatterplot",
+  "params": {
+   "points": [
+    [
+     1,
+     400
+    ],
+    [
+     2,
+     500
+    ],
+    [
+     3,
+     700
+    ],
+    [
+     4,
+     800
+    ],
+    [
+     5,
+     1000
+    ],
+    [
+     6,
+     1100
+    ],
+    [
+     7,
+     1200
+    ],
+    [
+     8,
+     1400
+    ],
+    [
+     9,
+     1600
+    ],
+    [
+     10,
+     1700
+    ]
+   ],
+   "xMin": 0,
+   "xMax": 11,
+   "yMin": 0,
+   "yMax": 1800,
+   "xGridStep": 1,
+   "yGridStep": 100,
+   "xLabelStep": 1,
+   "yLabelStep": 200,
+   "xLabel": "Months after January",
+   "yLabel": "Electricity use (kWh)"
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$120$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-70$"
-    },
-    {
-      "id": "B",
-      "text": "$70$"
-    },
-    {
-      "id": "C",
-      "text": "$930$"
-    },
-    {
-      "id": "D",
-      "text": "$1{,}000$"
-    }
-  ],
-  "distractorNotes": {
-    "A": "subtracts in the reverse order, predicted minus actual, which flips the sign of the residual.",
-    "C": "reports the predicted value $145(6) + 60 = 930$ instead of the difference.",
-    "D": "reports the recorded value, the height of the data point rather than its distance from the line."
+  {
+   "id": "B",
+   "text": "$125$"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Predicted use is $145(6) + 60 = 930$, so the residual is $1{,}000 - 930 = 70$ kilowatt-hours.\n\n**The Full Solution:**\nStep 1: A residual is the actual value minus the value the model predicts at that same $x$.\nStep 2: At $x = 6$ the line of best fit predicts $145(6) + 60 = 870 + 60 = 930$ kilowatt-hours.\nStep 3: The residual is $1{,}000 - 930 = 70$ kilowatt-hours. Check: the point lies above the line on the scatterplot, and a point above the line has a positive residual ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-70$): subtracts in the reverse order, predicted minus actual, which flips the sign of the residual.\n* Choice C ($930$): reports the predicted value $145(6) + 60 = 930$ instead of the difference.\n* Choice D ($1{,}000$): reports the recorded value, the height of the data point rather than its distance from the line.\n\n**Test Day Takeaway:** Residual $=$ actual $-$ predicted, in that order. Above the line is positive, below the line is negative. Check the sign against the picture before answering."
+  {
+   "id": "C",
+   "text": "$150$"
+  },
+  {
+   "id": "D",
+   "text": "$600$"
+  }
+ ],
+ "correctAnswer": "C",
+ "distractorNotes": {
+  "A": "divides by 5, counting March through July as 5 months; July is only 4 months after March: (1,100 - 500)/5 = 120",
+  "B": "uses x = 3 for March and x = 7 for July, (1,200 - 700)/4 = 125; March is 2 months after January, so it is x = 2",
+  "D": "gives the total change from March to July, 1,100 - 500 = 600 kilowatt-hours, without dividing by the 4 months"
+ },
+ "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** March is $x = 2$ and July is $x = 6$. The use goes from $500$ to $1{,}100$ kilowatt-hours, so the rate is $\\frac{1{,}100 - 500}{6 - 2} = 150$.\n\n**The Full Solution:**\nStep 1: $x$ is the number of months after January, so February is $x = 1$, March is $x = 2$, and July is $x = 6$.\nStep 2: Read the scatterplot: at $x = 2$ the electricity use is $500$ kilowatt-hours, and at $x = 6$ it is $1{,}100$ kilowatt-hours.\nStep 3: The average rate of change is $\\frac{1{,}100 - 500}{6 - 2} = \\frac{600}{4} = 150$ kilowatt-hours per month. Check: $500 + 4(150) = 1{,}100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($120$): divides by $5$; from March to July is $6 - 2 = 4$ months.\n* Choice B ($125$): uses $x = 3$ for March and $x = 7$ for July; January is $x = 0$, so March is $x = 2$.\n* Choice D ($600$): is the total change in electricity use, not the change per month.\n\n**Test Day Takeaway:** Turn each month into its $x$-value before reading the graph: with \"months after January,\" January is $x = 0$. Then divide the change in $y$ by the change in $x$."
 }

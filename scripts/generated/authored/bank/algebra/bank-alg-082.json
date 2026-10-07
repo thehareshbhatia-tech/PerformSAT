@@ -1,22 +1,22 @@
 {
   "id": "bank-alg-082",
-  "question": "The graph of $y = f(x)$ is shown in the $xy$-plane. The graph of $y = g(x)$ is the reflection of the graph of $y = f(x)$ across the $x$-axis. Which equation defines $g$?",
+  "question": "The quadratic function $f$ is graphed in the $xy$-plane, as shown. Shifting this graph up $6$ units gives the graph of the function $g$. Which equation defines $g$?",
   "diagram": {
     "type": "quadraticVertex",
     "params": {
       "vertex": [
-        3,
-        -4
+        -2,
+        1
       ],
       "a": 1,
       "showPoints": [
         [
-          1,
-          0
+          -4,
+          5
         ],
         [
-          5,
-          0
+          0,
+          5
         ]
       ],
       "showVertex": true
@@ -25,26 +25,26 @@
   "choices": [
     {
       "id": "A",
-      "text": "$g(x) = (x + 3)^{2} - 4$"
+      "text": "$g(x) = (x + 2)^{2} - 5$"
     },
     {
       "id": "B",
-      "text": "$g(x) = (x - 3)^{2} + 4$"
+      "text": "$g(x) = (x + 2)^{2} + 7$"
     },
     {
       "id": "C",
-      "text": "$g(x) = -(x - 3)^{2} + 4$"
+      "text": "$g(x) = (x - 4)^{2} + 1$"
     },
     {
       "id": "D",
-      "text": "$g(x) = -(x - 3)^{2} - 4$"
+      "text": "$g(x) = (x + 8)^{2} + 1$"
     }
   ],
   "distractorNotes": {
-    "A": "reflects across the y-axis instead of the x-axis",
-    "B": "flips the vertex but keeps the parabola opening upward",
-    "D": "negates the squared term but not the constant"
+    "A": "translates the graph down 6 units instead of up",
+    "C": "translates the graph 6 units to the right instead of up",
+    "D": "translates the graph 6 units to the left instead of up"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Reflection over Axis**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The graph has vertex $(3, -4)$ and passes through $(1, 0)$, so $f(x) = (x - 3)^{2} - 4$. Reflecting across the $x$-axis negates every output: $g(x) = -(x - 3)^{2} + 4$.\n\n**The Full Solution:**\nStep 1: From the graph, the vertex is $(3, -4)$ and the parabola passes through $(1, 0)$ and $(5, 0)$. With $f(x) = a(x - 3)^{2} - 4$, the point $(1, 0)$ gives $4a - 4 = 0$, so $a = 1$ and $f(x) = (x - 3)^{2} - 4$.\nStep 2: A reflection across the $x$-axis replaces each output $y$ with $-y$, so $g(x) = -f(x)$.\nStep 3: Negate the whole expression: $g(x) = -\\left[(x - 3)^{2} - 4\\right] = -(x - 3)^{2} + 4$. Check: the vertex of $g$ is $(3, 4)$, the mirror image of $(3, -4)$, and $g(1) = -4 + 4 = 0$, so the $x$-intercepts stay put ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x + 3)^{2} - 4$): replaces $x$ with $-x$, which reflects across the $y$-axis, not the $x$-axis.\n* Choice B ($(x - 3)^{2} + 4$): moves the vertex to $(3, 4)$ but keeps the parabola opening upward, so it is a translation, not a reflection.\n* Choice D ($-(x - 3)^{2} - 4$): negates the squared term but not the $-4$, so the vertex stays at $(3, -4)$.\n\n**Test Day Takeaway:** Reflecting across the $x$-axis negates the entire output, $g(x) = -f(x)$: every term changes sign, and points on the $x$-axis stay fixed."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Vertical Shift**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The graph has vertex $(-2, 1)$ and passes through $(0, 5)$, so $f(x) = (x + 2)^{2} + 1$. Shifting up $6$ units adds $6$ to every output: $g(x) = (x + 2)^{2} + 7$.\n\n**The Full Solution:**\nStep 1: From the graph, the vertex is $(-2, 1)$ and the parabola passes through $(-4, 5)$ and $(0, 5)$. With $f(x) = a(x + 2)^{2} + 1$, the point $(0, 5)$ gives $4a + 1 = 5$, so $a = 1$ and $f(x) = (x + 2)^{2} + 1$.\nStep 2: A shift up $6$ units adds $6$ to each output, so $g(x) = f(x) + 6$.\nStep 3: $g(x) = (x + 2)^{2} + 1 + 6 = (x + 2)^{2} + 7$. Check: the vertex of $g$ is $(-2, 7)$, which is $6$ units above $(-2, 1)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x + 2)^{2} - 5$): subtracts $6$, which moves the graph down instead of up.\n* Choice C ($(x - 4)^{2} + 1$): changes the input, which moves the graph $6$ units to the right.\n* Choice D ($(x + 8)^{2} + 1$): changes the input the other way, which moves the graph $6$ units to the left.\n\n**Test Day Takeaway:** A vertical shift changes the output: add to move up, subtract to move down. Changing the number inside the parentheses moves the graph left or right instead."
 }

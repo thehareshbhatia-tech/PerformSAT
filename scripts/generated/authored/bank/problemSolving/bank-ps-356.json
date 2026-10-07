@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-356",
-  "question": "Each score $v$ in a list of $28$ scores is replaced by $4v - 7$. The new scores have a mean of $61$ and a standard deviation of $12$. What is the standard deviation of the original scores?",
+  "question": "Data set A consists of $40$ values and has a mean of $25$. Data set B is created by adding $14$ to each value in data set A. Data set C consists of the $80$ values from data sets A and B. What is the mean of data set C?",
   "choices": [
     {
       "id": "A",
-      "text": "$3$"
+      "text": "$25$"
     },
     {
       "id": "B",
-      "text": "$4.75$"
+      "text": "$32$"
     },
     {
       "id": "C",
-      "text": "$12$"
+      "text": "$39$"
     },
     {
       "id": "D",
-      "text": "$19$"
+      "text": "$64$"
     }
   ],
+  "correctAnswer": "B",
   "distractorNotes": {
-    "B": "undoes the $-7$ on the spread as well: $\\frac{12 + 7}{4} = 4.75$",
-    "C": "keeps the new standard deviation, ignoring the factor $4$",
-    "D": "adds $7$ back to the standard deviation: $12 + 7 = 19$, treating the shift as if it affected the spread"
+    "A": "reports the mean of data set A",
+    "C": "reports the mean of data set B instead of combining the two data sets",
+    "D": "adds the means of data sets A and B, 25 + 39, instead of finding the mean of all 80 values"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Scaling a Data Set**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Only the factor $4$ changes the spread, so the original standard deviation is $\\frac{12}{4} = 3$.\n\n**The Full Solution:**\nStep 1: Separate the two operations in $4v - 7$: the factor $4$ stretches the data, and subtracting $7$ slides it.\nStep 2: Subtracting $7$ from every score leaves the standard deviation unchanged, so the new standard deviation is $4$ times the original one: $4\\sigma = 12$.\nStep 3: Solve: $\\sigma = \\frac{12}{4} = 3$; the mean of $61$ is not needed. Check: two original scores $3$ apart become new scores $4(3) = 12$ apart, matching the new spread ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($4.75$): computes $\\frac{12 + 7}{4}$, undoing the $-7$ on the spread as well. A shift does not change the spread.\n* Choice C ($12$): keeps the new standard deviation, ignoring the factor $4$.\n* Choice D ($19$): adds the $7$ back, $12 + 7 = 19$, reversing a shift that never affected the spread.\n\n**Test Day Takeaway:** To reverse $av + b$ for a standard deviation, divide by $|a|$ and ignore $b$; only the mean is affected by $b$."
+  "explanation": "**SAT Pattern: Scaling a Data Set**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Data set B has mean $25 + 14 = 39$, and data sets A and B have the same number of values, so data set C has mean $\\frac{25 + 39}{2} = 32$.\n\n**The Full Solution:**\nStep 1: Adding $14$ to each value adds $14$ to the mean, so data set B has a mean of $25 + 14 = 39$.\nStep 2: The sum of data set A is $40(25) = 1{,}000$, and the sum of data set B is $40(39) = 1{,}560$, so the sum of data set C is $1{,}000 + 1{,}560 = 2{,}560$.\nStep 3: The mean of data set C is $\\frac{2{,}560}{80} = 32$. Check: each value of data set B is $14$ more than a value of data set A, so the $80$ values average $25 + \\frac{14}{2} = 32$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($25$): is the mean of data set A only.\n* Choice C ($39$): is the mean of data set B only; data set C also contains the $40$ values of data set A.\n* Choice D ($64$): adds the two means, $25 + 39$, without dividing by $2$.\n\n**Test Day Takeaway:** Find each group's mean first; when two groups have the same number of values, the combined mean is halfway between their means."
 }

@@ -6,34 +6,35 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 2,
- "passage": "Along a finished road, Roman crews set milestones recording the distance to the nearest town and the emperor under whom the work was done. By the time scholars began cataloging the surviving stones systematically in the nineteenth century, farmers ______ many of them into gateposts and door lintels.",
+ "passage": "Passenger pigeons once numbered in the billions, possibly making them the most numerous birds in North America. By the 1890s, commercial hunting and the clearing of forests ______ the great flocks to scattered survivors, and the last known passenger pigeon died in 1914.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "turn"
+   "text": "reduce"
   },
   {
    "id": "B",
-   "text": "have turned"
+   "text": "have reduced"
   },
   {
    "id": "C",
-   "text": "had turned"
+   "text": "had reduced"
   },
   {
    "id": "D",
-   "text": "will have turned"
+   "text": "will have reduced"
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The sentence describes an action completed before another past event: the farmers' reuse of the stones preceded the scholars' nineteenth-century cataloging. The past perfect \"had turned\" marks exactly that earlier-past relationship.\n\n**The Full Solution:**\n- The time anchor is \"By the time scholars began cataloging,\" a past reference point.\n- What the farmers did was finished before that point, so the verb takes the past perfect: by then, they \"had turned\" many stones into gateposts and lintels.\n\n**Why the other choices are wrong:**\n- A: The simple present \"turn\" clashes with the past-time frame the sentence establishes.\n- B: The present perfect \"have turned\" connects a past action to the present moment, not to another moment in the past, which is what \"By the time... began\" requires.\n- D: The future perfect \"will have turned\" points forward from now, contradicting the nineteenth-century setting.",
+ "explanation": "**Choice C is correct.** The sentence describes an action completed before a past reference point: by the 1890s, hunting and forest clearing had already cut the flocks down. The past perfect \"had reduced\" marks that earlier-past relationship.\n\n**The Full Solution:**\n- The time anchor is \"By the 1890s,\" a point in the past.\n- The reduction of the flocks was complete by that point, which calls for the past perfect.\n- The rest of the sentence stays in the past (\"died in 1914\"), so \"had reduced\" fits the narrative.\n\n**Why the other choices are wrong:**\n- A: The present tense \"reduce\" clashes with the past time frame \"By the 1890s.\"\n- B: The present perfect \"have reduced\" connects an action to the present, not to a past reference point.\n- D: The future perfect \"will have reduced\" describes an action completed before a future time, which does not fit a past narrative.",
  "_meta": {
   "rule": "past perfect for action completed before a past reference point",
   "distractors": {
    "A": "present tense in past frame",
    "B": "present perfect vs. past reference point",
    "D": "future perfect in past narrative"
-  }
+  },
+  "anchor": "passenger pigeon decline — past perfect before a past reference point"
  }
 }

@@ -6,12 +6,12 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 2,
- "passage": "Grid cells in the mammalian brain fire whenever an animal occupies any vertex of a hexagonal lattice tiling the space it moves through. Neuroscientist Edvard Moser's group asked whether that lattice is anchored to what the animal sees: they recorded from grid cells while rats foraged first in a lighted arena and then in total darkness. If the pattern depended on visual landmarks, darkness should have dissolved or displaced it. Instead, the hexagonal pattern persisted in the dark, and Moser concluded that the grid is generated internally from the animal's own movement signals, with landmarks serving mainly to anchor the map and correct its drift rather than to construct it.",
+ "passage": "Grid cells in the mammalian brain fire whenever an animal occupies any vertex of a hexagonal lattice tiling the space it moves through. Neuroscientist Edvard Moser's group asked whether that lattice is anchored to what the animal sees: they recorded from grid cells while rats foraged first in a lighted arena and then in total darkness. If the pattern depended on visual landmarks, darkness should have dissolved or displaced it. Instead, the hexagonal pattern persisted in the dark. Moser concluded that the grid is generated internally from the animal's own movement signals, with landmarks serving mainly to anchor the map and correct its drift rather than to construct it.",
  "question": "According to the text, what did Moser conclude about the firing pattern of grid cells?",
  "choices": [
   {
    "id": "A",
-   "text": "It arises only in animals that have first explored an arena in the light, because darkness prevents the lattice from forming at all."
+   "text": "It arises only in animals that have first explored an arena in the light, because darkness prevents the hexagonal lattice from forming at all."
   },
   {
    "id": "B",
@@ -23,7 +23,7 @@
   },
   {
    "id": "D",
-   "text": "It is produced internally from self-motion signals, with visual landmarks serving chiefly to anchor and correct the pattern rather than to build it."
+   "text": "It is produced internally from self-motion signals, with visual landmarks serving chiefly to anchor and correct the pattern, not to build it."
   }
  ],
  "correctAnswer": "D",

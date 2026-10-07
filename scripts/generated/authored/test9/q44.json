@@ -6,14 +6,33 @@
   "domain": "standard-english-conventions",
   "skill": "boundaries",
   "module": 2,
-  "passage": "Steller watched living sea cows almost daily during the months his shipwrecked crew spent on Bering ______ no trained naturalist ever saw the animals alive after 1768, so every later account of the species rests on his notes, a few skeletons, and fragments of hide.",
+  "passage": "Soon after its 1990 launch, the Hubble Space Telescope sent back blurry images because its main mirror had been ground to the wrong ______ astronauts installed corrective optics in 1993, and the images became sharp.",
   "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
   "choices": [
-    { "id": "A", "text": "Island," },
-    { "id": "B", "text": "Island" },
-    { "id": "C", "text": "Island;" },
-    { "id": "D", "text": "Island, however" }
+    {
+      "id": "A",
+      "text": "shape,"
+    },
+    {
+      "id": "B",
+      "text": "shape"
+    },
+    {
+      "id": "C",
+      "text": "shape;"
+    },
+    {
+      "id": "D",
+      "text": "shape, however"
+    }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** Two independent clauses meet at the blank — the months of observation, and the fact that no naturalist ever saw the animals again — and a semicolon is the conventional boundary between them.\n\n**The Full Solution:**\n- Left of the blank stands a complete sentence: \"Steller watched living sea cows almost daily during the months his shipwrecked crew spent on Bering Island.\"\n- Right of the blank stands another: \"no trained naturalist ever saw the animals alive after 1768...\"\n- With no conjunction supplied, only a semicolon can hold the two sentences together.\n\n**Why the other choices are wrong:**\n- A: A comma alone between independent clauses is a comma splice.\n- B: No punctuation at all fuses the two sentences into a run-on.\n- D: \"Island, however no trained naturalist...\" mispunctuates the conjunctive adverb — \"however\" would need a semicolon before it and a comma after it to do this job."
+  "explanation": "**Choice C is correct.** \"Soon after its 1990 launch, the Hubble Space Telescope sent back blurry images because its main mirror had been ground to the wrong shape\" is an independent clause, and so is \"astronauts installed corrective optics in 1993, and the images became sharp.\" A semicolon can join two independent clauses.\n\n**The Full Solution:**\n- Left of the blank: a complete sentence about the blurry images and their cause.\n- Right of the blank: a second complete sentence about the 1993 repair.\n- Two independent clauses with no conjunction between them need a semicolon (or a period).\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses creates a comma splice.\n- B: With no punctuation, the two independent clauses run together.\n- D: \"However\" is not a conjunction, so a comma before it still leaves a comma splice.",
+  "_meta": {
+    "anchor": "Hubble's flawed mirror (1990) and corrective optics (1993) — semicolon between independent clauses",
+    "sources": [
+      "https://science.nasa.gov/mission/hubble/overview/hubbles-mirror-flaw",
+      "https://esahubble.org/about/history/servicing_mission_1/"
+    ]
+  }
 }

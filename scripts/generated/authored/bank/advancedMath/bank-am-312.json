@@ -1,6 +1,6 @@
 {
   "id": "bank-am-312",
-  "question": "$h(t) = -16t^{2} + 128t$\nThe function $h$ gives the height, in feet, of a model rocket $t$ seconds after it is launched from the ground. What is the greatest integer value of $t$ for which the rocket is at least $240$ feet above the ground?",
+  "question": "$h(t) = -16t^{2} + 128t$\nThe function $h$ gives the height, in feet, of a model rocket $t$ seconds after it is launched from the ground. How many seconds after launch is the rocket first $240$ feet above the ground?",
   "choices": [
     {
       "id": "A",
@@ -20,10 +20,10 @@
     }
   ],
   "distractorNotes": {
-    "A": "reports the first time the rocket reaches 240 feet",
-    "B": "reports the time of maximum height",
-    "D": "reports the time the rocket returns to the ground"
+    "B": "gives the time of the greatest height",
+    "C": "gives the second time, on the way down",
+    "D": "gives the time the rocket returns to the ground"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** $-16t^2 + 128t \\ge 240$ divides to $t^2 - 8t + 15 \\le 0$, or $(t - 3)(t - 5) \\le 0$, so $3 \\le t \\le 5$ and the greatest whole second is $5$.\n\n**The Full Solution:**\nStep 1: The condition is $-16t^2 + 128t \\ge 240$. Dividing by $-16$ reverses the inequality: $t^2 - 8t \\le -15$, or $t^2 - 8t + 15 \\le 0$.\nStep 2: $t^2 - 8t + 15 = (t - 3)(t - 5)$, so the height is at least $240$ feet exactly when $3 \\le t \\le 5$.\nStep 3: The greatest whole number of seconds in that window is $5$. Check: $h(5) = -400 + 640 = 240$, exactly at the limit, and $h(6) = -576 + 768 = 192$, which is too low. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports the first time the rocket reaches $240$ feet rather than the last.\n* Choice B ($4$): reports the time of maximum height, $t = \\dfrac{-128}{2(-16)} = 4$.\n* Choice D ($8$): reports the time the rocket returns to the ground, where $h(t) = 0$.\n\n**Test Day Takeaway:** \"At least\" includes the boundary — solve for the whole interval, then read off the end the question asks for."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Quadratic via Factoring**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $-16t^{2} + 128t = 240$ gives $t^{2} - 8t + 15 = 0$, or $(t - 3)(t - 5) = 0$; the first time is $t = 3$.\n\n**The Full Solution:**\nStep 1: Set the height equal to $240$: $-16t^{2} + 128t = 240$.\nStep 2: Divide by $-16$ and rearrange: $t^{2} - 8t + 15 = 0$, so $(t - 3)(t - 5) = 0$.\nStep 3: The rocket is at $240$ feet at $t = 3$ (going up) and $t = 5$ (coming down); the first time is $3$ seconds. Check: $-16(9) + 128(3) = -144 + 384 = 240$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($4$): this is the time of the greatest height, $h(4) = 256$ feet.\n* Choice C ($5$): this is the second time the rocket is at $240$ feet, on the way down.\n* Choice D ($8$): this is when the rocket returns to the ground, $h(8) = 0$.\n\n**Test Day Takeaway:** A launched object passes each height below its peak twice; \"first\" means the smaller solution."
 }

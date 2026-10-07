@@ -6,7 +6,7 @@
   "band": 3,
   "domain": "craft-and-structure",
   "skill": "words-in-context",
-  "passage": "During hibernation, the body temperature of an Arctic ground squirrel can fall to nearly three degrees below the freezing point of water, a temperature at which ice crystals would normally form in a mammal's tissues and fatally injure them. Yet the squirrels come through such episodes with their tissues ______: their body fluids stay liquid in a supercooled state, and no ice forms to damage their cells.",
+  "passage": "During hibernation, the body temperature of an Arctic ground squirrel can fall to nearly three degrees below the freezing point of water. At that temperature, ice crystals would normally form in a mammal's tissues and fatally injure them. Yet the squirrels come through such episodes with their tissues ______: their body fluids stay liquid in a supercooled state, and no ice forms to damage their cells.",
   "question": "Which choice completes the text with the most logical and precise word or phrase?",
   "choices": [
     {
@@ -27,5 +27,5 @@
     }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** The contrast set up by \"Yet\" demands a word opposing the expected fatal injury, and the colon spells it out: the fluids stay liquid and \"no ice forms to damage their cells\" — the tissues are \"intact.\"\n\n**The Full Solution:**\n- The first sentence establishes an expectation: at that temperature, ice would normally form in the tissues and \"fatally injure them.\"\n- \"Yet\" signals that the outcome defied that expectation, and the elaboration after the colon — no ice, no damage to cells — restates the blank directly: the tissues remain whole and undamaged.\n\n**Why the other choices are wrong:**\n- B: \"Flexible\" describes pliability, a property the text never discusses.\n- C: \"Fragile\" reverses the outcome, agreeing with the expectation the \"Yet\" is there to overturn.\n- D: \"Inactive\" might describe a hibernating animal, but the colon explains that the tissues escape damage, not that they stop functioning."
+  "explanation": "**Choice A is correct.** The contrast set up by \"Yet\" demands a word opposing the expected fatal injury, and the colon spells it out: the fluids stay liquid and \"no ice forms to damage their cells\" — the tissues are \"intact.\"\n\n**The Full Solution:**\n- The first two sentences establish an expectation: at that temperature, ice would normally form in the tissues and \"fatally injure them.\"\n- \"Yet\" signals that the outcome defied that expectation, and the elaboration after the colon — no ice, no damage to cells — restates the blank directly: the tissues remain whole and undamaged.\n\n**Why the other choices are wrong:**\n- B: \"Flexible\" describes pliability, a property the text never discusses.\n- C: \"Fragile\" reverses the outcome, agreeing with the expectation the \"Yet\" is there to overturn.\n- D: \"Inactive\" might describe a hibernating animal, but the colon explains that the tissues escape damage, not that they stop functioning."
 }

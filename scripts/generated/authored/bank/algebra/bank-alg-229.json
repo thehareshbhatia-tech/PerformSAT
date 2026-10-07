@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-229",
- "question": "The graph of line $g$ is shown in the $xy$-plane. Line $h$ is parallel to line $g$ and passes through the point $(-1, -4)$. What is the $x$-coordinate of the $x$-intercept of line $h$?",
+ "question": "The graph of line $g$ is shown in the $xy$-plane. Line $h$ is parallel to line $g$ and passes through the point $(0, -4)$. What is the $x$-coordinate of the $x$-intercept of line $h$?",
  "diagram": {
   "type": "linearGraph",
   "params": {
@@ -33,7 +33,7 @@
  "choices": [
   {
    "id": "A",
-   "text": "$-9$"
+   "text": "$-8$"
   },
   {
    "id": "B",
@@ -41,18 +41,18 @@
   },
   {
    "id": "C",
-   "text": "$1$"
+   "text": "$\\frac{3}{2}$"
   },
   {
    "id": "D",
-   "text": "$3$"
+   "text": "$2$"
   }
  ],
- "correctAnswer": "C",
+ "correctAnswer": "D",
  "distractorNotes": {
-  "A": "uses the negative reciprocal $-\\frac{1}{2}$, giving $y = -\\frac{1}{2}x - \\frac{9}{2}$ and $x = -9$",
-  "B": "reports the $y$-intercept of line $h$ instead of its $x$-intercept",
-  "D": "computes the $y$-intercept as $y + mx = -4 + 2(-1) = -6$, giving $0 = 2x - 6$ and $x = 3$"
+  "A": "uses the perpendicular slope $-\\frac{1}{2}$, so $-\\frac{1}{2}x - 4 = 0$ gives $x = -8$",
+  "B": "makes a sign error solving $2x - 4 = 0$",
+  "C": "gives the $x$-intercept of line $g$ instead of line $h$"
  },
- "explanation": "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Line $g$ has slope $2$, so line $h$ is $y = 2x - 2$, which crosses the $x$-axis at $x = 1$.\n\n**The Full Solution:**\nStep 1: Line $g$ passes through $(0, -3)$ and $(2, 1)$, so its slope is $\\frac{1 - (-3)}{2 - 0} = 2$.\nStep 2: Line $h$ has slope $2$ and passes through $(-1, -4)$, so $-4 = 2(-1) + b$ and $b = -2$: line $h$ is $y = 2x - 2$.\nStep 3: Set $y = 0$: $0 = 2x - 2$, so $x = 1$. Check: $2(1) - 2 = 0$, and $2(-1) - 2 = -4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$): uses the negative reciprocal slope $-\\frac{1}{2}$, giving $y = -\\frac{1}{2}x - \\frac{9}{2}$, whose $x$-intercept is $-9$.\n* Choice B ($-2$): stops at the $y$-intercept of line $h$ instead of finding the $x$-intercept.\n* Choice D ($3$): computes the intercept as $y + mx = -4 + 2(-1) = -6$, giving $y = 2x - 6$.\n\n**Test Day Takeaway:** An $x$-intercept question takes two steps: write the line, then set $y = 0$."
+ "explanation": "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Line $g$ has slope $2$, so line $h$ is $y = 2x - 4$. Setting $y = 0$ gives $x = 2$.\n\n**The Full Solution:**\nStep 1: Read two points on line $g$ from the graph: $(0, -3)$ and $(2, 1)$. The slope is $\\frac{1 - (-3)}{2 - 0} = 2$.\nStep 2: Parallel lines have the same slope, and $(0, -4)$ is the $y$-intercept of line $h$, so line $h$ is $y = 2x - 4$.\nStep 3: At the $x$-intercept, $y = 0$: $2x - 4 = 0$, so $x = 2$. Check: $2(2) - 4 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): uses the perpendicular slope $-\\frac{1}{2}$, so $-\\frac{1}{2}x - 4 = 0$ gives $x = -8$\n* Choice B ($-2$): makes a sign error solving $2x - 4 = 0$\n* Choice C ($\\frac{3}{2}$): gives the $x$-intercept of line $g$ instead of line $h$\n\n**Test Day Takeaway:** Find the parallel line's equation from the slope and the $y$-intercept, then set $y = 0$."
 }

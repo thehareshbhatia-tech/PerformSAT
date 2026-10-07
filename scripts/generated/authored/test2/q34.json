@@ -6,24 +6,24 @@
   "domain": "craft-and-structure",
   "skill": "text-structure-and-purpose",
   "module": 2,
-  "passage": "Does health insurance make people healthier? Simply comparing insured and uninsured people cannot answer the question, because the two groups differ in many ways besides coverage. In 2008, Oregon offered a rare opening: able to extend Medicaid to only some eligible adults, the state chose recipients by lottery, creating by chance the groups a deliberate experiment would have assembled. Researchers found that coverage increased use of care and nearly eliminated catastrophic medical costs but produced no detectable improvement in blood pressure or cholesterol after two years, a mixed result that both sides of the insurance debate claimed as support.",
+  "passage": "Does health insurance make people healthier? Simply comparing insured and uninsured people cannot answer the question, because the two groups differ in many ways besides coverage. In 2008, Oregon offered a rare opening: able to extend Medicaid to only some eligible adults, the state chose recipients by lottery, creating by chance the groups a deliberate experiment would have assembled. Researchers found that coverage increased use of care and nearly eliminated catastrophic medical costs. After two years, however, it produced no detectable improvement in blood pressure or cholesterol, a mixed result that both sides of the insurance debate claimed as support.",
   "question": "Which choice best describes the overall structure of the text?",
   "choices": [
     {
       "id": "A",
-      "text": "It presents a policy question, reviews the history of a government program, and endorses one side of a long-running dispute."
+      "text": "It presents a policy question, reviews a government program's history, and endorses one side of a long-running dispute."
     },
     {
       "id": "B",
-      "text": "It describes an experiment researchers deliberately designed, details obstacles in recruiting participants, and summarizes results that settled a controversy."
+      "text": "It describes an experiment researchers deliberately designed, details problems in recruiting participants, and reports results that settled a controversy."
     },
     {
       "id": "C",
-      "text": "It poses a question, explains why simple comparisons fail to answer it, describes a chance event enabling a test, and reports findings both sides claimed."
+      "text": "It poses a question, explains why simple comparisons cannot answer it, describes a chance event that allowed a test, and reports mixed findings."
     },
     {
       "id": "D",
-      "text": "It poses a question, presents two competing answers to it, and concludes that the available evidence cannot distinguish between them."
+      "text": "It poses a question, presents two competing answers to it, and concludes that the evidence cannot decide between them."
     }
   ],
   "correctAnswer": "C",

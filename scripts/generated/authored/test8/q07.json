@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "text-structure-and-purpose",
  "module": 1,
- "passage": "In 1795 the French government offered a prize for a dependable way to preserve food for its army and navy. The confectioner Nicolas Appert claimed the award in 1810: he packed foods into stout glass bottles, corked them tightly, and held the sealed bottles in boiling water. Meats, vegetables, and even milk treated this way stayed wholesome for months. Appert could not say why the process worked, since the microbes that spoil food would not be understood until Louis Pasteur's experiments half a century later, yet his procedure was sound enough to be taken up in Britain within a few years.",
+ "passage": "In 1795 the French government offered a prize for a dependable way to preserve food for its army and navy. The confectioner Nicolas Appert claimed the award in 1810: he packed foods into stout glass bottles, corked them tightly, and held the sealed bottles in boiling water. Meats, vegetables, and even milk treated this way stayed wholesome for months. Appert could not say why the process worked, since the microbes that spoil food would not be understood until Louis Pasteur's experiments half a century later. Yet his procedure was sound enough to be taken up in Britain within a few years.",
  "question": "Which choice best states the main purpose of the text?",
  "choices": [
   {
@@ -19,11 +19,11 @@
   },
   {
    "id": "C",
-   "text": "To explain how Appert developed a way of preserving food that worked long before science could say why it worked."
+   "text": "To explain how Appert found a way to preserve food long before science could explain why it worked."
   },
   {
    "id": "D",
-   "text": "To trace how Appert's glass-bottling technique was gradually transformed into the tin-can machinery of modern preserving factories."
+   "text": "To trace how Appert's glass bottles gradually gave way to the tin cans used in modern canning factories."
   }
  ],
  "correctAnswer": "C",

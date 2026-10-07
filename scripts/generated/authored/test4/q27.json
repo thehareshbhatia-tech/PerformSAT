@@ -9,36 +9,36 @@
   "studentNotes": {
     "intro": "While researching a topic, a student has taken the following notes:",
     "bullets": [
-      "Batting average and on-base percentage are both used to evaluate baseball hitters.",
-      "Batting average is the share of a hitter's official at-bats that end in hits.",
-      "Walks do not count as official at-bats, so they do not affect batting average.",
-      "On-base percentage is the share of plate appearances in which a hitter reaches base by a hit, a walk, or being hit by a pitch.",
-      "Two hitters with equal batting averages can differ widely in on-base percentage."
+      "Venomous and poisonous animals both carry toxins.",
+      "A venomous animal delivers its toxin actively, through a bite or a sting.",
+      "Rattlesnakes and scorpions are venomous.",
+      "A poisonous animal's toxin harms only an animal that touches or eats it.",
+      "Poison dart frogs, which carry toxins in their skin, are poisonous."
     ],
-    "goal": "The student wants to emphasize a difference between batting average and on-base percentage."
+    "goal": "The student wants to emphasize a difference between venomous and poisonous animals."
   },
   "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
   "choices": [
     {
       "id": "A",
-      "text": "Batting average and on-base percentage are both statistics that analysts use to evaluate the performance of baseball hitters."
+      "text": "Both venomous animals, such as rattlesnakes and scorpions, and poisonous animals, such as poison dart frogs, carry toxins that can harm other animals."
     },
     {
       "id": "B",
-      "text": "Unlike batting average, which ignores walks, on-base percentage counts every time a hitter reaches base, walks included."
+      "text": "Unlike a venomous animal, which delivers its toxin through a bite or sting, a poisonous animal harms only animals that touch or eat it."
     },
     {
       "id": "C",
-      "text": "Batting average is the share of a hitter's official at-bats that end in hits, and a walk does not count as an official at-bat."
+      "text": "Venomous animals, such as rattlesnakes and scorpions, deliver their toxins through a bite or a sting."
     },
     {
       "id": "D",
-      "text": "Because hitters with equal batting averages can differ in on-base percentage, teams should never rely on either statistic alone."
+      "text": "Because poison dart frogs carry toxins in their skin, they are more dangerous than rattlesnakes."
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** The goal is to emphasize a difference, and B places the two statistics on either side of an explicit contrast: walks ignored by one, counted by the other.\n\n**The Full Solution:**\n- The notes locate the difference in walks: excluded from batting average (bullet 3), included in on-base percentage (bullet 4).\n- B frames exactly that contrast with \"Unlike batting average ...\" and names both statistics' treatment of walks.\n- Contrastive framing is what an emphasize-a-difference goal requires.\n\n**Why the other choices are wrong:**\n- A: It emphasizes what the statistics share, not how they differ.\n- C: It defines batting average alone; with one statistic on stage there is no difference to see.\n- D: It draws a recommendation about using the statistics rather than emphasizing how they differ, a conclusion the notes do not support.",
+  "explanation": "**Choice B is correct.** The goal is to emphasize a difference, and B sets the two kinds of animals on either side of an explicit contrast: one delivers its toxin by a bite or sting, the other harms only animals that touch or eat it.\n\n**The Full Solution:**\n- The notes place the difference in how the toxin reaches a victim (bullets 2 and 4).\n- B uses \"Unlike ...\" and names how each kind of animal does it.\n- A sentence that contrasts the two is what an emphasize-a-difference goal requires.\n\n**Why the other choices are wrong:**\n- A: It emphasizes what the two kinds of animals share, not how they differ.\n- C: It describes venomous animals only; with one kind of animal, no difference appears.\n- D: It compares how dangerous two animals are, a claim the notes never make.",
   "_meta": {
-    "anchor": "baseball statistics — batting average versus on-base percentage; difference goal"
+    "anchor": "venomous vs poisonous animals: difference goal"
   }
 }

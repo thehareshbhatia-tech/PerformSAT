@@ -6,28 +6,28 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 2,
- "passage": "In 1843, botanist Anna Atkins began photographing her collection of algae by placing each specimen directly onto light-sensitized paper, a cameraless technique that rendered the samples as ghostly white silhouettes on deep blue ______ the resulting volume, Photographs of British Algae, is widely regarded as the first book ever illustrated with photographs.",
+ "passage": "In 1843, botanist Anna Atkins began making images of her algae collection without a camera. She placed each specimen directly onto light-sensitive paper, which rendered it as a white silhouette on a deep blue ______ the resulting volume, Photographs of British Algae, is widely regarded as the first book illustrated with photographs.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "grounds,"
+   "text": "ground,"
   },
   {
    "id": "B",
-   "text": "grounds"
+   "text": "ground"
   },
   {
    "id": "C",
-   "text": "grounds;"
+   "text": "ground;"
   },
   {
    "id": "D",
-   "text": "grounds, however,"
+   "text": "ground, however,"
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** Two independent clauses meet at the blank, and the semicolon in \"grounds;\" is a conventional way to join them.\n\n**The Full Solution:**\n- Each side stands alone: \"In 1843, botanist Anna Atkins began photographing her collection of algae ... on deep blue grounds\" and \"the resulting volume ... is widely regarded as the first book ever illustrated with photographs.\"\n- Standard English joins two independent clauses with a period, a semicolon, or a comma plus coordinating conjunction; choice C supplies the semicolon.\n\n**Why the other choices are wrong:**\n- A: A comma alone between independent clauses — a comma splice.\n- B: No punctuation at all — a run-on.\n- D: The conjunctive adverb \"however\" cannot join independent clauses with commas alone (a semicolon would still be required before it), and the contrast it signals is illogical — the second clause extends the first rather than opposing it.",
+ "explanation": "**Choice C is correct.** Two independent clauses meet at the blank, and the semicolon in \"ground;\" is a conventional way to join them.\n\n**The Full Solution:**\n- Each side stands alone: \"She placed each specimen directly onto light-sensitive paper, which rendered it as a white silhouette on a deep blue ground\" and \"the resulting volume ... is widely regarded as the first book illustrated with photographs.\"\n- Standard English joins two independent clauses with a period, a semicolon, or a comma plus coordinating conjunction; choice C supplies the semicolon.\n\n**Why the other choices are wrong:**\n- A: A comma alone between independent clauses — a comma splice.\n- B: No punctuation at all — a run-on.\n- D: The conjunctive adverb \"however\" cannot join independent clauses with commas alone (a semicolon would still be required before it), and the contrast it signals is illogical — the second clause extends the first rather than opposing it.",
  "_meta": {
   "rule": "semicolon between two independent clauses (comma splice / run-on / conjunctive-adverb splice distractors)",
   "anchor": "Anna Atkins, Photographs of British Algae: Cyanotype Impressions (1843) — first photographically illustrated book",

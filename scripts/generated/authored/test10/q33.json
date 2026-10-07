@@ -6,26 +6,26 @@
  "domain": "craft-and-structure",
  "skill": "text-structure-and-purpose",
  "module": 2,
- "passage": "A bare boulder face looks like the last place anything could live: no soil, no shade, no standing water. Ecologists who study mosses on rock describe how these plants make such surfaces habitable, and not merely for themselves. A moss cushion traps windblown dust that becomes a first soil, holds rainwater like a sponge, and shelters rotifers, mites, and insect larvae that could not endure the exposed rock an inch away. What appears to be a simple green film, these researchers argue, is better understood as a functioning ecological community at a miniature scale.",
+ "passage": "A standing dead tree can look like waste, a hazard to be cleared from a healthy forest. Wildlife ecologists see it differently. Woodpeckers carve nest holes in the softened wood, and owls, bats, and squirrels later move into those cavities. Once the tree falls, the decaying log shelters salamanders, small mammals, and insects. By some estimates, about 20 percent of forest animals depend on dead and dying wood. These researchers argue that dead trees are not leftovers of a forest but working parts of it.",
  "question": "Which choice best states the main purpose of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "To present a case that moss growths, far from being mere surface coverings, operate as small-scale ecosystems that make bare rock habitable for other organisms."
+   "text": "To argue that dead trees, rather than being waste, are habitat many forest animals depend on."
   },
   {
    "id": "B",
-   "text": "To describe the physical conditions that prevent most plants from colonizing exposed boulder faces."
+   "text": "To describe the process by which a fallen log gradually decays into soil on the forest floor."
   },
   {
    "id": "C",
-   "text": "To trace how early fieldwork on mosses led ecologists to question established methods in their discipline."
+   "text": "To trace how wildlife ecologists came to disagree with foresters about clearing hazardous trees."
   },
   {
    "id": "D",
-   "text": "To catalog the animal species that depend on moss cushions at some stage of their life cycles."
+   "text": "To catalog the bird species that carve nest cavities in the trunks of standing dead trees."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The text moves from the apparent lifelessness of bare rock to the researchers' argument that a moss cushion is \"a functioning ecological community at a miniature scale,\" with the middle sentences supplying the supporting mechanisms.\n\n**The Full Solution:**\n- The opening establishes the puzzle: rock offers no soil, shade, or water.\n- The middle shows moss solving each lack, trapping dust that becomes soil, holding rainwater, sheltering small animals, which is habitability created for others.\n- The final sentence states the thesis the whole text serves: not a simple film but a small ecosystem. That is A's claim exactly.\n\n**Why the other choices are wrong:**\n- B: The harsh conditions occupy only the first sentence and exist to set up the moss's achievement, not as the text's subject.\n- C: The text presents the researchers' conclusion, not the history of their field; no account of methods being questioned appears.\n- D: Rotifers, mites, and larvae are cited as evidence of the cushion's role, not cataloged for their own sake."
+ "explanation": "**Choice A is correct.** The text opens with a common view of dead trees as waste, then presents ecologists' evidence that standing and fallen dead wood houses woodpeckers, owls, bats, salamanders, and many other animals, and closes with their conclusion that dead trees are \"working parts\" of a forest.\n\n**The Full Solution:**\n- The first sentence states the view the text will challenge.\n- The middle sentences give the evidence: the many animals that use dead trees and logs.\n- The last sentence states the claim, so the text's purpose is to make the case that dead trees are habitat, not waste.\n\n**Why the other choices are wrong:**\n- B: The text mentions a decaying log only as shelter for animals; it never explains how logs turn into soil.\n- C: Foresters are never mentioned, and the text presents no history of a disagreement.\n- D: Woodpeckers are one example among many animals, and the text lists no bird species in detail."
 }

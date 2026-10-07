@@ -6,7 +6,7 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 2,
- "passage": "The archive of glass photographic plates that the observatory accumulated between the 1880s and 1989 — about half a million exposures of the night sky — ______ a record that no instrument built today can duplicate, since no telescope, however powerful, can rephotograph the sky as it appeared a century ago.",
+ "passage": "The collection of Hudson's Bay Company records held in Winnipeg, which includes ledgers, trading-post journals, and ships' logs dating back to 1670, ______ one of the richest sources on the history of the North American fur trade.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
@@ -27,8 +27,8 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The subject is the singular noun \"archive,\" so the verb must be the singular \"constitutes,\" whatever plurals intervene.\n\n**The Full Solution:**\n- Reduced to its core, the sentence reads: \"The archive... constitutes a record that no instrument built today can duplicate.\"\n- Everything between subject and verb — \"of glass photographic plates,\" the dash-enclosed aside about half a million exposures — modifies the subject without changing its number.\n- Singular subject, singular verb: \"constitutes.\"\n\n**Why the other choices are wrong:**\n- A: \"Constitute\" is plural, agreeing with the nearby \"plates\" or \"exposures\" instead of the head noun \"archive.\"\n- C: \"Are constituting\" is plural and casts a standing fact as a temporary activity in progress.\n- D: \"Have constituted\" is plural in form for this subject, and its perfect aspect suggests a state now ended, contradicting the present-tense claim about what the record still is.",
+ "explanation": "**Choice B is correct.** The subject is the singular noun \"collection,\" so the verb must be the singular \"constitutes,\" whatever plural nouns come in between.\n\n**The Full Solution:**\n- Reduced to its core, the sentence reads: \"The collection... constitutes one of the richest sources on the history of the North American fur trade.\"\n- Everything between subject and verb, including \"of Hudson's Bay Company records\" and the clause listing \"ledgers, trading-post journals, and ships' logs,\" describes the collection without changing its number.\n- Singular subject, singular verb: \"constitutes.\"\n\n**Why the other choices are wrong:**\n- A: \"Constitute\" is plural, agreeing with a nearby plural such as \"records\" or \"logs\" instead of the subject \"collection.\"\n- C: \"Are constituting\" is plural and presents a lasting fact as a temporary activity in progress.\n- D: \"Have constituted\" is plural in form for this subject and suggests a state that may have ended, though the sentence describes what the collection is now.",
  "_meta": {
-  "anchor": "observatory glass-plate archive; singular head noun across intervening plurals"
+  "anchor": "Hudson's Bay Company records in Winnipeg; singular head noun across intervening plurals"
  }
 }

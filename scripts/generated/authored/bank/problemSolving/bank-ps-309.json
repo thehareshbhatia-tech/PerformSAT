@@ -1,21 +1,34 @@
 {
   "id": "bank-ps-309",
-  "question": "The box plot summarizes the wingspans, in centimeters, of $46$ birds. The range of the wingspans is how many centimeters greater than the interquartile range of the wingspans?",
+  "question": "The box plots summarize the wingspans, in centimeters, of the birds in two flocks, A and B. What is the positive difference, in centimeters, between the range of the wingspans for flock A and the range of the wingspans for flock B?",
   "diagram": {
     "type": "boxPlot",
     "params": {
-      "min": 96,
-      "q1": 118,
-      "median": 129,
-      "q3": 143,
-      "max": 168,
-      "xLabel": "Wingspan (cm)",
+      "distributions": [
+        {
+          "label": "Flock A",
+          "min": 96,
+          "q1": 118,
+          "median": 129,
+          "q3": 143,
+          "max": 168
+        },
+        {
+          "label": "Flock B",
+          "min": 104,
+          "q1": 120,
+          "median": 133,
+          "q3": 140,
+          "max": 158
+        }
+      ],
       "xMin": 90,
       "xMax": 175,
       "xGridStep": 5,
-      "xLabelStep": 10
+      "xLabelStep": 10,
+      "xLabel": "Wingspan (cm)"
     }
   },
-  "correctAnswer": "47",
-  "explanation": "**SAT Pattern: Box Plot Interpretation**\n\n**The correct answer is 47.**\n\n**The Fast Way (~15s):** Range $= 168 - 96 = 72$ and interquartile range $= 143 - 118 = 25$, so the difference is $72 - 25 = 47$.\n\n**The Full Solution:**\nStep 1: The range uses the ends of the whiskers: $168 - 96 = 72$ centimeters.\nStep 2: The interquartile range uses the edges of the box: $143 - 118 = 25$ centimeters.\nStep 3: The difference is $72 - 25 = 47$ centimeters. Check: this equals the two whisker lengths combined, $(118 - 96) + (168 - 143) = 22 + 25 = 47$ ✓\n\n**Common Mistakes:**\n* $72$ or $25$: computes only one of the two measures and stops.\n* $39$: uses the median as an endpoint, computing $168 - 129 = 39$.\n* $-47$: subtracts in the wrong order.\n\n**Test Day Takeaway:** The range minus the interquartile range is the total length of the two whiskers. Compute each measure, then subtract."
+  "correctAnswer": "18",
+  "explanation": "**SAT Pattern: Box Plot Interpretation**\n\n**The correct answer is $18$.**\n\n**The Fast Way (~20s):** Flock A: $168 - 96 = 72$. Flock B: $158 - 104 = 54$. The difference is $72 - 54 = 18$.\n\n**The Full Solution:**\nStep 1: The range of each data set is its maximum minus its minimum, the distance between the ends of the whiskers.\nStep 2: Flock A has a minimum of $96$ and a maximum of $168$, so its range is $168 - 96 = 72$ centimeters. Flock B has a minimum of $104$ and a maximum of $158$, so its range is $158 - 104 = 54$ centimeters.\nStep 3: The positive difference between the ranges is $72 - 54 = 18$ centimeters. Check: $54 + 18 = 72$. $\\checkmark$\n\n**Common Mistakes:**\n* Entering $10$, the difference between the maximums ($168 - 158$), or $8$, the difference between the minimums.\n* Entering $4$, the difference between the medians ($133 - 129$).\n* Entering $72$ or $54$, the range of only one flock.\n\n**Test Day Takeaway:** Find each range separately (maximum minus minimum), then subtract the two ranges."
 }

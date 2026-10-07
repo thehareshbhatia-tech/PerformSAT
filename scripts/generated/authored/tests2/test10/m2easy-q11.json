@@ -1,25 +1,34 @@
 {
  "id": 11,
- "question": "What is the distance between the two points shown in the $xy$-plane?",
+ "question": "The line shown in the $xy$-plane is parallel to the graph of $3x + ky = 24$, where $k$ is a constant. What is the value of $k$?",
  "diagram": {
-  "type": "coordinatePoints",
+  "type": "linearGraph",
   "params": {
-   "points": [
+   "slope": -0.75,
+   "yIntercept": 3,
+   "xRange": [
+    -2,
+    8
+   ],
+   "yRange": [
+    -4,
+    6
+   ],
+   "xTickInterval": 2,
+   "yTickInterval": 2,
+   "gridInterval": 1,
+   "showPoints": [
     [
-     2,
-     2
+     0,
+     3
     ],
     [
-     10,
-     8
+     4,
+     0
     ]
-   ],
-   "xMin": 0,
-   "xMax": 12,
-   "yMin": 0,
-   "yMax": 12
+   ]
   }
  },
- "correctAnswer": "10",
- "explanation": "**SAT Pattern: Distance Formula**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~20s):** The points are $(2, 2)$ and $(10, 8)$, which are $8$ units apart horizontally and $6$ units apart vertically, so the distance is $\\sqrt{8^{2} + 6^{2}} = 10$.\n\n**The Full Solution:**\nStep 1: Read the points from the grid: $(2, 2)$ and $(10, 8)$.\nStep 2: The horizontal change is $10 - 2 = 8$ and the vertical change is $8 - 2 = 6$.\nStep 3: By the distance formula, $d = \\sqrt{8^{2} + 6^{2}} = \\sqrt{64 + 36} = \\sqrt{100} = 10$. Check: $6$, $8$, $10$ is a multiple of the right triangle $3$, $4$, $5$, and $2(5) = 10$ ✓\n\n**Common Mistakes:**\n* $14$: adds the horizontal and vertical changes, $8 + 6$, instead of using the Pythagorean theorem.\n* $100$: stops at $d^{2}$ and forgets to take the square root.\n* $2$: subtracts the changes, $8 - 6$, instead of combining their squares.\n\n**Test Day Takeaway:** The distance between two points is the hypotenuse of a right triangle whose legs are the horizontal and vertical changes; square, add, then take the square root."
+ "correctAnswer": "4",
+ "explanation": "**SAT Pattern: Parallel Lines and Standard Form**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~25s):** The line shown passes through $(0, 3)$ and $(4, 0)$, so its slope is $-\\frac{3}{4}$. The graph of $3x + ky = 24$ has slope $-\\frac{3}{k}$, so $k = 4$.\n\n**The Full Solution:**\nStep 1: Read two points on the line shown: $(0, 3)$ and $(4, 0)$. Its slope is $\\frac{0 - 3}{4 - 0} = -\\frac{3}{4}$.\nStep 2: Solve $3x + ky = 24$ for $y$: $y = -\\frac{3}{k}x + \\frac{24}{k}$, so its slope is $-\\frac{3}{k}$.\nStep 3: Parallel lines have equal slopes: $-\\frac{3}{k} = -\\frac{3}{4}$, so $k = 4$. Check: $3x + 4y = 24$ is $y = -\\frac{3}{4}x + 6$, which has slope $-\\frac{3}{4}$ and a different $y$-intercept from the line shown ✓\n\n**Common Mistakes:**\n* $8$: substitutes the point $(0, 3)$ into $3x + ky = 24$, but that point is on the line shown, not on the parallel line.\n* $-4$: drops the negative sign when writing the slope of $3x + ky = 24$, solving $\\frac{3}{k} = -\\frac{3}{4}$.\n* $\\frac{9}{4}$: writes the slope of $3x + ky = 24$ as $-\\frac{k}{3}$ instead of $-\\frac{3}{k}$.\n\n**Test Day Takeaway:** The line $Ax + By = C$ has slope $-\\frac{A}{B}$; parallel lines share that slope, not their points."
 }

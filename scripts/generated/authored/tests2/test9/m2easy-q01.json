@@ -1,48 +1,58 @@
 {
  "id": 1,
- "question": "What is the distance between the two points shown in the $xy$-plane?",
+ "question": "The graph of line $k$ is shown in the $xy$-plane. Line $p$ is perpendicular to line $k$. What is the slope of line $p$?",
  "diagram": {
-  "type": "coordinatePoints",
+  "type": "linearGraph",
   "params": {
-   "points": [
+   "slope": 2,
+   "yIntercept": -2,
+   "xRange": [
+    -2,
+    5
+   ],
+   "yRange": [
+    -6,
+    8
+   ],
+   "xTickInterval": 2,
+   "yTickInterval": 2,
+   "gridInterval": 1,
+   "showPoints": [
     [
-     -2,
+     0,
      -2
     ],
     [
-     4,
-     6
+     2,
+     2
     ]
    ],
-   "xMin": -6,
-   "xMax": 6,
-   "yMin": -4,
-   "yMax": 8
+   "label": "k"
   }
  },
  "choices": [
   {
    "id": "A",
-   "text": "$6$"
+   "text": "$-2$"
   },
   {
    "id": "B",
-   "text": "$8$"
+   "text": "$-\\frac{1}{2}$"
   },
   {
    "id": "C",
-   "text": "$10$"
+   "text": "$\\frac{1}{2}$"
   },
   {
    "id": "D",
-   "text": "$14$"
+   "text": "$2$"
   }
  ],
  "distractorNotes": {
-  "A": "reports only the horizontal gap, 4 - (-2) = 6",
-  "B": "reports only the vertical gap, 6 - (-2) = 8",
-  "D": "adds the two gaps, 6 + 8 = 14, instead of using the Pythagorean theorem"
+  "A": "changes the sign of the slope of line k but does not take the reciprocal",
+  "C": "takes the reciprocal of the slope of line k but does not change the sign",
+  "D": "gives the slope of line k itself, which is the slope of a parallel line"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Distance Formula**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The points are $(-2, -2)$ and $(4, 6)$, so the horizontal and vertical gaps are $6$ and $8$, and the distance is $\\sqrt{6^{2} + 8^{2}} = 10$.\n\n**The Full Solution:**\nStep 1: Read the coordinates from the grid: the points are $(-2, -2)$ and $(4, 6)$.\nStep 2: Find the horizontal and vertical gaps: $4 - (-2) = 6$ and $6 - (-2) = 8$.\nStep 3: These gaps are the legs of a right triangle whose hypotenuse joins the points, so the distance is $\\sqrt{6^{2} + 8^{2}} = \\sqrt{36 + 64} = \\sqrt{100} = 10$. Check: $6^{2} + 8^{2} = 100 = 10^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): reports only the horizontal gap, $4 - (-2) = 6$, which is one leg of the right triangle, not the distance.\n* Choice B ($8$): reports only the vertical gap, $6 - (-2) = 8$, the other leg.\n* Choice D ($14$): adds the two gaps, $6 + 8 = 14$. That is the length of a path along the grid lines, not the straight-line distance.\n\n**Test Day Takeaway:** The distance between two points is the hypotenuse of the right triangle formed by their horizontal and vertical gaps; it is always less than the sum of the gaps."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Line $k$ passes through $(0, -2)$ and $(2, 2)$, so its slope is $\\frac{4}{2} = 2$; the perpendicular slope is the negative reciprocal, $-\\frac{1}{2}$.\n\n**The Full Solution:**\nStep 1: Read two points on line $k$ from the graph: $(0, -2)$ and $(2, 2)$.\nStep 2: The slope of line $k$ is $\\frac{2 - (-2)}{2 - 0} = \\frac{4}{2} = 2$.\nStep 3: Slopes of perpendicular lines multiply to $-1$, so the slope of line $p$ is $-\\frac{1}{2}$. Check: $(2)\\left(-\\frac{1}{2}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): changes the sign but does not take the reciprocal; $(2)(-2) = -4$, not $-1$.\n* Choice C ($\\frac{1}{2}$): takes the reciprocal but keeps it positive; $(2)\\left(\\frac{1}{2}\\right) = 1$, not $-1$.\n* Choice D ($2$): this is the slope of line $k$; a line with this slope is parallel to line $k$, not perpendicular.\n\n**Test Day Takeaway:** Find the slope from two grid points, then flip it and change its sign for a perpendicular line."
 }

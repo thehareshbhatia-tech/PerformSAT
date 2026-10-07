@@ -6,26 +6,26 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 2,
- "passage": "A novice learning the cast net rehearses the throw on dry land long before wading into the shallows — coiling the handline into the left hand, draping the lead line over one shoulder, and ____ the gathered mesh with the turn of the hips on which the whole cast depends.",
+ "passage": "Before modern machinery, olive oil was made in mills powered by people or animals. Traditional mills produced the oil in three main steps: crushing the olives into a paste under a heavy millstone, spreading the paste onto woven mats, and ____ the stacked mats to squeeze out the oil.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "they release"
+   "text": "they pressed"
   },
   {
    "id": "B",
-   "text": "to release"
+   "text": "to press"
   },
   {
    "id": "C",
-   "text": "the release of"
+   "text": "the pressing of"
   },
   {
    "id": "D",
-   "text": "releasing"
+   "text": "pressing"
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The sentence lists three rehearsed actions, and the first two are \"-ing\" forms — \"coiling\" and \"draping\" — so the third must match: \"releasing.\"\n\n**The Full Solution:**\n- The rule: items in a series must share the same grammatical form (parallel structure).\n- Read the series aloud: \"coiling the handline..., draping the lead line..., and ____ the gathered mesh.\" The established pattern is gerund, gerund — so the blank takes a gerund.\n- \"Releasing the gathered mesh\" completes the coordinated three-item list cleanly.\n\n**Why the other choices are wrong:**\n- A: \"They release\" injects a new subject and finite verb, breaking the pattern and clashing with the singular \"novice\" besides.\n- B: \"To release\" switches the third item to an infinitive after two gerunds.\n- C: \"The release of\" turns the action into a noun phrase, abandoning the verbal form of the first two items."
+ "explanation": "**Choice D is correct.** The steps are listed in a series, and items in a series must be parallel. The first two steps begin with \"-ing\" verbs (\"crushing,\" \"spreading\"), so the third must be \"pressing.\"\n\n**The Full Solution:**\n- The series is \"crushing the olives into a paste under a heavy millstone, spreading the paste onto woven mats, and ____ the stacked mats.\"\n- The first two items use the \"-ing\" form followed by an object.\n- To keep the series parallel, the third item must also be an \"-ing\" verb with an object: \"pressing the stacked mats.\"\n\n**Why the other choices are wrong:**\n- A: \"They pressed\" adds a subject and a past-tense verb, breaking the parallel pattern of the series.\n- B: \"To press\" is an infinitive, which does not match \"crushing\" and \"spreading.\"\n- C: \"The pressing of\" turns the step into a noun phrase, which is not parallel with the other two items."
 }

@@ -1,29 +1,29 @@
 {
  "id": "bank-am-052",
- "question": "$D(t) = \\dfrac{5{,}400}{3 + 24(0.5)^{t}}$\nThe function $D$ models the number of deer in a park $t$ years after $2015$. As $t$ increases, the value of $D(t)$ approaches which of the following?",
+ "question": "$D(t) = 500(1.2)^{\\frac{t}{3}}$\nThe function $D$ models the number of deer in a park $t$ years after 2015. According to the model, the number of deer increases by what percent every $6$ years?",
  "choices": [
   {
    "id": "A",
-   "text": "$200$"
+   "text": "$20\\%$"
   },
   {
    "id": "B",
-   "text": "$900$"
+   "text": "$40\\%$"
   },
   {
    "id": "C",
-   "text": "$1{,}800$"
+   "text": "$44\\%$"
   },
   {
    "id": "D",
-   "text": "$5{,}400$"
+   "text": "$144\\%$"
   }
  ],
  "distractorNotes": {
-  "A": "reports $D(0) = 200$, the number of deer in 2015",
-  "B": "stops at $D(3) = 900$, which is only half of the long-run value",
-  "D": "quotes the numerator, assuming the denominator's constant is $1$ rather than $3$"
+  "A": "gives the percent increase every 3 years, not every 6 years",
+  "B": "doubles the 3-year increase of 20% instead of multiplying the factors",
+  "D": "reads the growth factor 1.44 as a 144% increase"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Logistic Carrying Capacity**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** As $t$ increases, $(0.5)^{t}$ approaches $0$, so the denominator approaches $3$, not $1$. The value approaches $\\dfrac{5{,}400}{3} = 1{,}800$ deer.\n\n**The Full Solution:**\nStep 1: The only place $t$ appears is in $(0.5)^{t}$. Each increase of $1$ in $t$ halves this term, so it shrinks toward $0$.\nStep 2: The denominator $3 + 24(0.5)^{t}$ therefore approaches $3 + 24(0) = 3$.\nStep 3: So $D(t)$ approaches $\\dfrac{5{,}400}{3} = 1{,}800$ deer. Check the trend: $D(0) = \\dfrac{5{,}400}{27} = 200$, $D(3) = \\dfrac{5{,}400}{6} = 900$, and $D(10) \\approx 1{,}786$, rising toward $1{,}800$ but never reaching it ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($200$): this is $D(0) = \\dfrac{5{,}400}{3 + 24}$, the number of deer in $2015$, not the long-run number.\n* Choice B ($900$): this is $D(3)$, only half of the long-run value; the population keeps growing after year $3$.\n* Choice D ($5{,}400$): quotes the numerator, which is the long-run value only when the denominator's constant term is $1$; here it is $3$.\n\n**Test Day Takeaway:** In $\\dfrac{N}{c + Ab^{t}}$ with $0 < b < 1$, the term $Ab^{t}$ dies out, so the long-run value is $\\dfrac{N}{c}$. Read the denominator's constant before quoting the numerator."
+ "explanation": "**SAT Pattern: Exponential Growth Factor over a Period**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Every $6$ years the exponent $\\dfrac{t}{3}$ increases by $2$, so the number of deer is multiplied by $(1.2)^{2} = 1.44$, a $44\\%$ increase.\n\n**The Full Solution:**\nStep 1: When $t$ increases by $6$, the exponent $\\dfrac{t}{3}$ increases by $\\dfrac{6}{3} = 2$.\nStep 2: So $D(t + 6) = 500(1.2)^{\\frac{t}{3} + 2} = D(t)(1.2)^{2} = 1.44D(t)$.\nStep 3: Multiplying by $1.44$ is an increase of $1.44 - 1 = 0.44$, or $44\\%$. Check with numbers: $D(0) = 500$ and $D(6) = 500(1.44) = 720$, and $720 - 500 = 220$, which is $44\\%$ of $500$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20\\%$): gives the increase every $3$ years, not every $6$ years.\n* Choice B ($40\\%$): adds the two $3$-year increases of $20\\%$ instead of multiplying the factors.\n* Choice D ($144\\%$): reads the growth factor $1.44$ as the percent increase.\n\n**Test Day Takeaway:** For $a(b)^{\\frac{t}{n}}$, the factor over any time span $s$ is $b^{\\frac{s}{n}}$; subtract $1$ from the factor to get the percent increase."
 }

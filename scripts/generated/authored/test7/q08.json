@@ -9,7 +9,7 @@
  "passages": [
   {
    "label": "Text 1",
-   "text": "In experiments reported in the 1940s, the zoologist Karl von Frisch observed that a honeybee returning from a rich food source performs a figure-eight 'waggle dance' on the comb, and that the dance's angle and duration correspond to the direction and distance of the source. Hive mates that attended the dancer arrived at the advertised site far more often than chance would predict. Von Frisch concluded that the dance is a symbolic communication system through which a forager directs nest mates to food they have never seen."
+   "text": "In experiments reported in the 1940s, the zoologist Karl von Frisch observed that a honeybee returning from a rich food source performs a figure-eight 'waggle dance' on the comb. The dance's angle and duration correspond to the direction and distance of the source. Hive mates that attended the dancer arrived at the advertised site far more often than chance would predict. Von Frisch concluded that the dance is a symbolic communication system through which a forager directs nest mates to food they have never seen."
   },
   {
    "label": "Text 2",
@@ -20,7 +20,7 @@
  "choices": [
   {
    "id": "A",
-   "text": "He would argue that it outruns the evidence, since recruits' arrivals at food sources could be guided by odors they associate with the dancer rather than by a decoded dance."
+   "text": "He would argue that it goes beyond the evidence, since odor on the dancer could guide recruits without any decoding of the dance."
   },
   {
    "id": "B",

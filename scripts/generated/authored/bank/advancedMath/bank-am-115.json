@@ -1,29 +1,29 @@
 {
  "id": "bank-am-115",
- "question": "In the $xy$-plane, the graph of $y = f(x)$ has exactly one $x$-intercept, $(11, 0)$. What is the $x$-coordinate of the $x$-intercept of the graph of $y = f(3x - 4)$?",
+ "question": "$f(x) = (x - 6)(x + 2)$\nThe function $f$ is defined by the given equation. If $g(x) = f(x + 5)$, what is the $x$-coordinate of the positive $x$-intercept of the graph of $y = g(x)$ in the $xy$-plane?",
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{7}{3}$"
+   "text": "$-7$"
   },
   {
    "id": "B",
-   "text": "$5$"
+   "text": "$1$"
   },
   {
    "id": "C",
-   "text": "$15$"
+   "text": "$6$"
   },
   {
    "id": "D",
-   "text": "$29$"
+   "text": "$11$"
   }
  ],
  "distractorNotes": {
-  "A": "subtracts 4 instead of adding it before dividing: (11 - 4)/3",
-  "C": "adds 4 but never divides by 3: 11 + 4 = 15",
-  "D": "substitutes 11 into 3x - 4 instead of setting 3x - 4 equal to 11"
+  "A": "gives the other x-intercept of g, which is negative",
+  "C": "reports the positive x-intercept of f, without the shift",
+  "D": "moves the intercept 5 units right instead of left: 6 + 5"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f$ is $0$ only when its input is $11$, so $3x - 4 = 11$ and $x = 5$.\n\n**The Full Solution:**\nStep 1: The graph of $y = f(x)$ meets the $x$-axis only at $(11, 0)$, so $f(t) = 0$ exactly when $t = 11$.\nStep 2: The graph of $y = f(3x - 4)$ meets the $x$-axis where $f(3x - 4) = 0$, which happens exactly when $3x - 4 = 11$.\nStep 3: Solve: $3x = 15$, so $x = 5$. Check: $3(5) - 4 = 11$, and $f(11) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7}{3}$): subtracts $4$ from $11$ instead of adding it before dividing by $3$.\n* Choice C ($15$): adds $4$ but forgets to divide by the coefficient $3$.\n* Choice D ($29$): substitutes $11$ into $3x - 4$ instead of setting $3x - 4$ equal to $11$.\n\n**Test Day Takeaway:** For a function of an expression, set the whole inner expression equal to the input you know and solve, coefficient included."
+ "explanation": "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** $g(x) = (x + 5 - 6)(x + 5 + 2) = (x - 1)(x + 7)$, so the $x$-intercepts are at $x = 1$ and $x = -7$; the positive one is $1$.\n\n**The Full Solution:**\nStep 1: Replace $x$ with $x + 5$ in $f$: $g(x) = ((x + 5) - 6)((x + 5) + 2) = (x - 1)(x + 7)$.\nStep 2: The graph of $y = g(x)$ meets the $x$-axis where $g(x) = 0$: $x - 1 = 0$ or $x + 7 = 0$, so $x = 1$ or $x = -7$.\nStep 3: The positive $x$-intercept is $(1, 0)$, so its $x$-coordinate is $1$. Check: $g(1) = f(6) = (0)(8) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): is the other $x$-intercept of the graph of $g$, which is negative.\n* Choice C ($6$): is the positive $x$-intercept of $f$ itself; $g(6) = f(11) = 65$, not $0$.\n* Choice D ($11$): moves the intercept $5$ units right; replacing $x$ with $x + 5$ moves the graph $5$ units left.\n\n**Test Day Takeaway:** The graph of $y = f(x + c)$ is the graph of $f$ moved $c$ units left, so each $x$-intercept of $f$ decreases by $c$."
 }

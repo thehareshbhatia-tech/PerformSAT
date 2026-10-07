@@ -6,28 +6,28 @@
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-quantitative",
   "module": 2,
-  "passage": "Rather than photographing whole colonies, long-term seabird monitoring programs count the same small cliff plots year after year, so that changes in the numbers reflect the birds rather than the method. Ecologists reviewing four decades of plot counts at two island colonies of common guillemots caution that a species can decline steeply at one site while thriving at another, so a trend measured at a single colony should not be read as the species' overall trajectory. The plot counts bear out this caution because ______",
+  "passage": "Agricultural historians caution that the acreage history of one US crop should not be read as the trend for US farming in general. Over the same decades, the land planted in one crop can shrink sharply while the land planted in another grows even more sharply. Planting records for two crops bear out this caution because ______",
   "questionTable": {
     "type": "table",
-    "caption": "Breeding pairs counted in fixed study plots at two guillemot colonies",
+    "caption": "Area planted in two US crops, 1950–2020 (thousands of acres)",
     "headers": [
-      "Colony",
-      "Pairs, 1985",
-      "Pairs, 2005",
-      "Pairs, 2025"
+      "Crop",
+      "1950",
+      "1980",
+      "2020"
     ],
     "rows": [
       [
-        "Colony 1",
-        "1,240",
-        "980",
-        "610"
+        "Sorghum",
+        "16,055",
+        "15,639",
+        "5,880"
       ],
       [
-        "Colony 2",
-        "410",
-        "520",
-        "640"
+        "Soybeans",
+        "15,048",
+        "69,930",
+        "83,354"
       ]
     ]
   },
@@ -35,24 +35,28 @@
   "choices": [
     {
       "id": "A",
-      "text": "counts at both colonies changed by hundreds of pairs over the four decades of monitoring."
+      "text": "the area planted in sorghum and the area planted in soybeans each changed by millions of acres from 1950 to 2020."
     },
     {
       "id": "B",
-      "text": "Colony 1 supported more breeding pairs than Colony 2 did in both 1985 and 2005."
+      "text": "more acres were planted in soybeans than in sorghum in both 1980 and 2020."
     },
     {
       "id": "C",
-      "text": "the combined total of breeding pairs counted at the two colonies taken together was lower in 2025 than the corresponding combined total had been in 1985."
+      "text": "the combined area planted in the two crops was larger in 2020 than it had been in 1950."
     },
     {
       "id": "D",
-      "text": "plot counts at Colony 1 fell by roughly half between 1985 and 2025 while counts at Colony 2 rose by more than half over the same years."
+      "text": "sorghum acreage fell by nearly two-thirds from 1950 to 2020, while soybean acreage grew more than fivefold."
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The caution is about divergence — one site declining while another thrives — and D exhibits precisely that: Colony 1 down from 1,240 to 610 as Colony 2 climbed from 410 to 640.\n\n**The Full Solution:**\n- To \"bear out\" the caution, the data must show two colonies moving in opposite directions, so that either one alone would mislead.\n- D reads both rows across the full period and reports the opposing trends in comparable terms (down by half, up by more than half).\n\n**Why the other choices are wrong:**\n- A: \"Changed by hundreds of pairs\" hides direction — the crux of the caution is that the changes ran opposite ways.\n- B: Which colony is larger is irrelevant to whether single-site trends mislead.\n- C: The combined total is exactly the kind of aggregate the caution warns against; a summed decline conceals that one colony was thriving.",
+  "explanation": "**Choice D is correct.** The caution is that one crop's trend can run opposite to another's. Choice D shows exactly that: the area planted in sorghum fell by nearly two-thirds (16,055 to 5,880 thousand acres), while the area planted in soybeans grew from 15,048 to 83,354 thousand acres, more than five times its 1950 size.\n\n**The Full Solution:**\n- The claim needs two crops moving in opposite directions over the same years.\n- Sorghum: 16,055 thousand acres in 1950 to 5,880 thousand in 2020, a drop of about 63 percent.\n- Soybeans: 15,048 thousand acres in 1950 to 83,354 thousand in 2020, about 5.5 times larger.\n\n**Why the other choices are wrong:**\n- A: Large changes for both crops do not show that the changes went in opposite directions.\n- B: Comparing the crops' acreage in two years says nothing about the direction of each crop's trend.\n- C: The combined total hides the opposite trends that the caution is about.",
   "_meta": {
-    "anchor": "Unattributed, illustrative plot counts (2026-10-04 review replaced the real Norwegian place names Skarvholm and Fuglenes, which had invented data attached)."
+    "anchor": "US planted acreage, sorghum vs soybeans 1950/1980/2020 (USDA NASS track records) — CoE quant: opposite trends",
+    "sources": [
+      "https://esmis.nal.usda.gov/sites/default/release-files/c534fn92g/g158cn09g/zc77tv62q/croptr22.pdf",
+      "https://esmis.nal.usda.gov/sites/default/release-files/c534fn92g/9593tx78m/1j92gb29s/htrcp-04-27-2007.txt"
+    ]
   }
 }

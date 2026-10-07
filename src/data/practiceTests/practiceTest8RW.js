@@ -40,7 +40,7 @@ export const practiceTest8RW = {
           "band": 2,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Verdigris, the blue-green pigment scraped from copper plates exposed to vinegar fumes, gave Renaissance painters their most brilliant green. Because the pigment reacts slowly with oil and darkens in a characteristic way over centuries, a conservator examining a panel today can often ____ original passages of green from retouches added by later restorers, whose newer paint has not aged in the same manner.",
+          "passage": "Verdigris, the blue-green pigment scraped from copper plates exposed to vinegar fumes, gave Renaissance painters their most brilliant green. In oil, the pigment reacts slowly and darkens in a characteristic way over centuries. Retouches added by later restorers have not aged in the same manner, so a conservator examining a panel today can often ____ original passages of green from those retouches.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -70,7 +70,7 @@ export const practiceTest8RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Historical seismologists work not from instruments but from documents: monastic chronicles, tax relief granted to damaged towns, contracts for repairing cracked towers. Because a scribe might mention an earthquake only when it damaged his own abbey, researchers must ____ the size of a medieval shock from scattered testimony, weighing how many towns reported damage and how far apart they lay.",
+          "passage": "Historical seismologists work not from instruments but from documents: monastic chronicles, tax relief granted to damaged towns, contracts for repairing cracked towers. A scribe might mention an earthquake only when it damaged his own abbey. Researchers must therefore ____ the size of a medieval shock from scattered testimony, weighing how many towns reported damage and how far apart they lay.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -100,7 +100,7 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Celestial navigation, fixing a ship's position from the angles of the sun and stars, is often treated as obsolete in the satellite age. Yet in 2015 the US Naval Academy, which had dropped the subject in 1998, restored it amid concerns that satellite systems could be hacked, suggesting that officials saw the method not as a relic but as a ____ one.",
+          "passage": "Celestial navigation, fixing a ship's position from the angles of the sun and stars, is often treated as obsolete in the satellite age. Yet in 2015 the US Naval Academy, which had dropped the subject in 1998, restored it amid concerns that satellite systems could be hacked. Officials evidently saw the method not as a relic but as a ____ one.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -130,7 +130,7 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "A bell's note is cast into it: once the bronze has cooled, the founder can no longer add metal, only cut it away. Mounting the bell on a great lathe and shaving thin rings from its inner profile does not simply smooth the casting; each pass ____ the instrument, nudging its partial tones toward the musical intervals the founder intends.",
+          "passage": "A bell's note is cast into it: once the bronze has cooled, the founder can no longer add metal, only cut it away. Mounting the bell on a great lathe and shaving thin rings from its inner profile does not simply smooth the casting. Each pass ____ the instrument, nudging its partial tones toward the musical intervals the founder intends.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -190,28 +190,35 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "A cast bell seems the product of a single pour, but the pour is only one stage among many. First the founder builds the mold: an inner core of brick and loam and an outer cope, each shaped by a wooden template pivoting on a central spindle. The mold must then be thoroughly dried, since moisture left in it can ruin the casting. Only then is the bronze poured, and even a flawless pour leaves work to do: the bell is mounted on a lathe, and metal is shaved from its inner wall to bring its tones into tune.",
+          "passage": "A sheet of washi, the traditional handmade paper of Japan, can look like a simple thing, but making it takes a series of separate tasks. Papermakers first cut branches of the kozo shrub and steam them until the bark loosens enough to be stripped away. The inner bark is then boiled, rinsed, and beaten with mallets until its fibers fan apart. Only after this preparation are the fibers mixed with water and scooped up in a bamboo screen, layer by layer, to form sheets that are pressed and dried.",
           "question": "Which choice best states the main purpose of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "To compare bells cast at rival foundries and argue that the older workshops produced the finer-sounding instruments."
+              "text": "To compare papers made in different regions of Japan and argue that the oldest workshops made the finest sheets."
             },
             {
               "id": "B",
-              "text": "To explain that founding a bell is a sequence of distinct crafts rather than a single act of pouring metal."
+              "text": "To explain that making washi is a sequence of distinct tasks rather than a single step of forming sheets."
             },
             {
               "id": "C",
-              "text": "To argue that tuning a finished bell demands more skill than casting it does."
+              "text": "To argue that preparing the kozo bark demands more skill than forming the sheets does."
             },
             {
               "id": "D",
-              "text": "To describe how the high cost of bell metal shaped the decisions of medieval founders."
+              "text": "To describe how the high cost of kozo bark shaped the decisions of Japanese papermakers."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** Every sentence of the text advances one point: casting a bell proceeds through a sequence of specialized stages — mold building, drying, pouring, and tuning — rather than a single act of pouring.\n\n**The Full Solution:**\n- The text opens by rejecting the assumption that a bell is \"the product of a single pour.\"\n- It then walks through the stages in order: the loam mold shaped by a pivoting template, thorough drying, the pour itself, and the lathe-tuning afterward.\n- The purpose is to explain that sequence, which is what choice B states.\n\n**Why the other choices are wrong:**\n- A: The text never compares one foundry's bells with another's.\n- C: Only one sentence concerns tuning; the text does not argue tuning matters more than casting.\n- D: The cost of bell metal is never mentioned."
+          "explanation": "**Choice B is correct.** Every sentence of the text advances one point: making washi proceeds through a sequence of separate tasks (steaming and stripping the bark, boiling, rinsing, and beating it, then forming, pressing, and drying sheets) rather than a single act of forming paper.\n\n**The Full Solution:**\n- The text opens by saying that washi \"can look like a simple thing\" but that \"making it takes a series of separate tasks.\"\n- It then walks through the tasks in order: steaming and stripping the kozo bark, boiling, rinsing, and beating the inner bark, and finally scooping the fibers up in a bamboo screen to form sheets that are pressed and dried.\n- The purpose is to explain that sequence, which is what choice B states.\n\n**Why the other choices are wrong:**\n- A: The text never compares papers from different regions or ranks any workshops.\n- C: The text describes both the bark preparation and the sheet forming but never says which demands more skill.\n- D: The text says nothing about the cost of kozo bark.",
+          "_meta": {
+            "anchor": "washi papermaking from kozo bark — purpose: a craft is a sequence of distinct stages",
+            "sources": [
+              "https://paper.gatech.edu/index.php/washi/washi-fiber-preparation",
+              "https://en.wikipedia.org/wiki/Washi"
+            ]
+          }
         },
         {
           "id": 808,
@@ -223,11 +230,11 @@ export const practiceTest8RW = {
           "passages": [
             {
               "label": "Text 1",
-              "text": "Several cold lakes in Iceland hold not one kind of Arctic char but several: in Lake Thingvallavatn, a large fish-eating form, a smaller snail-crushing form with a blunt jaw, and two others share the same water. Ichthyologists studying the lake have explained these morphs as lineages that have genetically diverged within it, each form's distinctive jaw and body proportions reflecting a separate breeding pool adapted to its own food and depth."
+              "text": "Several cold lakes in Iceland hold not one kind of Arctic char but several. In Lake Thingvallavatn, four forms share the same water, including a large fish-eating form and a smaller snail-crushing form with a blunt jaw. Ichthyologists studying the lake have explained these morphs as lineages that diverged genetically within it. On this view, each form's distinctive jaw and body proportions reflect a separate breeding pool adapted to its own food and depth."
             },
             {
               "label": "Text 2",
-              "text": "The biologist Skúli Skúlason and colleagues have tested how fixed such differences are. In rearing experiments, young char from Icelandic lakes were raised on diets mimicking either bottom-dwelling or open-water prey, and their head shapes developed differently depending on what they ate. Development, the researchers argue, responds to what a young fish encounters, so a lake's food landscape can itself mold part of the difference between morphs."
+              "text": "The biologist Skúli Skúlason and colleagues have tested how fixed such differences are. In rearing experiments, young char from Icelandic lakes were raised on diets mimicking either bottom-dwelling or open-water prey. Their head shapes developed differently depending on what they ate. Development, the researchers argue, responds to what a young fish encounters, so a lake's food landscape can itself mold part of the difference between morphs."
             }
           ],
           "question": "Based on the texts, how would Skúli Skúlason (Text 2) most likely respond to the explanation presented in Text 1?",
@@ -238,7 +245,7 @@ export const practiceTest8RW = {
             },
             {
               "id": "B",
-              "text": "He would argue that the field measurements described in Text 1 were taken from too few fish in too small a part of the lake to be trusted."
+              "text": "He would argue that the forms described in Text 1 were measured on too few fish to be trusted."
             },
             {
               "id": "C",
@@ -250,7 +257,7 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** Skúlason's rearing experiments show that diet alone can change the head shape of young char, so he would grant the differences Text 1 describes while cautioning that they need not all reflect separate gene pools.\n\n**The Full Solution:**\n- Text 1 reads the morphs' distinct jaws and bodies as evidence of lineages that have genetically diverged within the lake.\n- Text 2 reports that young char raised on different diets developed different head shapes.\n- The natural response is the qualified one in choice D: the differences are real, but part of what Text 1 attributes to divergent inheritance can arise within a single generation.\n\n**Why the other choices are wrong:**\n- A: Skúlason never denies that the morphs differ; his experiments begin from those differences.\n- B: Nothing in Text 2 questions how the field measurements were taken.\n- C: Text 2 concerns development, not the age of the lake or its colonization history."
+          "explanation": "**Choice D is correct.** Skúlason's rearing experiments show that diet alone can change the head shape of young char, so he would grant the differences Text 1 describes while cautioning that they need not all reflect separate gene pools.\n\n**The Full Solution:**\n- Text 1 reads the morphs' distinct jaws and bodies as evidence of lineages that have genetically diverged within the lake.\n- Text 2 reports that young char raised on different diets developed different head shapes.\n- The natural response is the qualified one in choice D: the differences are real, but part of what Text 1 attributes to divergent inheritance can arise within a single generation.\n\n**Why the other choices are wrong:**\n- A: Skúlason never denies that the morphs differ; his experiments begin from those differences.\n- B: Nothing in Text 2 questions how many fish were measured; Skúlason's experiments address what causes the differences, not how they were recorded.\n- C: Text 2 concerns development, not the age of the lake or its colonization history."
         },
         {
           "id": 807,
@@ -259,7 +266,7 @@ export const practiceTest8RW = {
           "band": 2,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "In 1795 the French government offered a prize for a dependable way to preserve food for its army and navy. The confectioner Nicolas Appert claimed the award in 1810: he packed foods into stout glass bottles, corked them tightly, and held the sealed bottles in boiling water. Meats, vegetables, and even milk treated this way stayed wholesome for months. Appert could not say why the process worked, since the microbes that spoil food would not be understood until Louis Pasteur's experiments half a century later, yet his procedure was sound enough to be taken up in Britain within a few years.",
+          "passage": "In 1795 the French government offered a prize for a dependable way to preserve food for its army and navy. The confectioner Nicolas Appert claimed the award in 1810: he packed foods into stout glass bottles, corked them tightly, and held the sealed bottles in boiling water. Meats, vegetables, and even milk treated this way stayed wholesome for months. Appert could not say why the process worked, since the microbes that spoil food would not be understood until Louis Pasteur's experiments half a century later. Yet his procedure was sound enough to be taken up in Britain within a few years.",
           "question": "Which choice best states the main purpose of the text?",
           "choices": [
             {
@@ -272,11 +279,11 @@ export const practiceTest8RW = {
             },
             {
               "id": "C",
-              "text": "To explain how Appert developed a way of preserving food that worked long before science could say why it worked."
+              "text": "To explain how Appert found a way to preserve food long before science could explain why it worked."
             },
             {
               "id": "D",
-              "text": "To trace how Appert's glass-bottling technique was gradually transformed into the tin-can machinery of modern preserving factories."
+              "text": "To trace how Appert's glass bottles gradually gave way to the tin cans used in modern canning factories."
             }
           ],
           "correctAnswer": "C",
@@ -319,34 +326,34 @@ export const practiceTest8RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "Canning began as handwork: for decades after the tin can's introduction, each can was cut, formed, and soldered shut by a skilled tinsmith and his helper. Machines then took over the work piecemeal — first stamped bodies, later the automatic double-seam closing machines that needed no solder at all. A student preparing an exhibit panel wants to use the benchmark figures below to argue that mechanization did not raise canning output evenly but accelerated it, with the later innovations bringing far larger gains than the earlier refinements, because _______",
+          "passage": "The first planets orbiting stars like the Sun were confirmed in the mid-1990s, mostly by ground-based telescopes that detected the slight wobble a planet's pull causes in its star. Discoveries came slowly at first. In 2009 NASA launched the Kepler space telescope, which watched thousands of stars for the tiny dips in brightness caused by passing planets. A student wants to use the table to argue that the pace of discovery did not grow evenly but accelerated, with later years bringing far larger gains than earlier ones, because _______",
           "questionTable": {
             "type": "table",
-            "caption": "Cans sealed per hour by a two-person team, selected benchmark years",
+            "caption": "Confirmed exoplanets discovered by the end of selected years (cumulative)",
             "headers": [
-              "Benchmark year",
-              "Cans sealed per hour"
+              "Year",
+              "Confirmed exoplanets"
             ],
             "rows": [
               [
-                "1810",
-                "6"
+                "1995",
+                "4"
               ],
               [
-                "1840",
-                "12"
+                "2000",
+                "46"
               ],
               [
-                "1870",
-                "55"
+                "2005",
+                "172"
               ],
               [
-                "1900",
-                "320"
+                "2010",
+                "498"
               ],
               [
-                "1925",
-                "1,500"
+                "2015",
+                "1,938"
               ]
             ]
           },
@@ -354,23 +361,30 @@ export const practiceTest8RW = {
           "choices": [
             {
               "id": "A",
-              "text": "output rose from 6 cans per hour in 1810 to 12 in 1840, doubling within the method's first three decades."
+              "text": "the total rose from 4 planets in 1995 to 46 in 2000, more than ten times as many within five years."
             },
             {
               "id": "B",
-              "text": "output edged from 6 cans per hour in 1810 to 55 in 1870, then leapt to 320 by 1900 and 1,500 by 1925, the largest gains coming in the latest intervals."
+              "text": "the total grew from 4 planets in 1995 to 172 in 2005 but then climbed to 498 by 2010 and 1,938 by 2015, the largest gains coming last."
             },
             {
               "id": "C",
-              "text": "by 1925 a two-person team could seal 1,500 cans per hour, the highest rate recorded in the table."
+              "text": "by 2015 the total had reached 1,938 confirmed planets, the highest figure shown in the table."
             },
             {
               "id": "D",
-              "text": "output was higher at each benchmark year in the table than it had been at the benchmark before, rising without interruption across more than a century of canning."
+              "text": "the total in each year shown in the table was higher than the total in the year before it."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** An acceleration claim needs the whole span and the shape of the change, and B provides both: output crept from 6 to 55 cans per hour over the first six decades, then vaulted to 1,500 by 1925, the gains concentrated in the later intervals.\n\n**The Full Solution:**\n- The claim is not merely that output rose but that it rose unevenly, with later mechanization bringing far larger gains than earlier refinements.\n- Choice B traces the full sequence and points out where the big jumps fall — after 1870 — which is precisely the accelerating pattern the student wants to demonstrate.\n\n**Why the other choices are wrong:**\n- A: Comparing only 1810 with 1840 shows a modest early rise and says nothing about later acceleration.\n- C: The 1925 figure alone documents a high endpoint, not how the pace of change was distributed.\n- D: Noting that every interval shows an increase supports steady growth — the very reading the claim argues against."
+          "explanation": "**Choice B is correct.** An acceleration claim needs the whole span and the shape of the change, and B provides both: the total reached only 172 over the first decade, then jumped to 1,938 by 2015, with the gains concentrated in the later intervals.\n\n**The Full Solution:**\n- The claim is not merely that the total rose but that it rose unevenly, with later years bringing far larger gains than earlier ones.\n- Choice B traces the full sequence and points out where the big jumps fall, after 2005 and especially from 2010 to 2015 (an increase of 1,440 planets), which is the accelerating pattern the student wants to show.\n\n**Why the other choices are wrong:**\n- A: Comparing only 1995 with 2000 describes an early rise of 42 planets and says nothing about later acceleration.\n- C: The 2015 figure alone shows a high endpoint, not how the pace of discovery changed over time.\n- D: Noting that every total exceeds the one before shows steady growth, not the uneven, accelerating pattern the claim describes.",
+          "_meta": {
+            "anchor": "exoplanet discoveries (cumulative, NASA Exoplanet Archive) — CoE-quant: accelerating growth",
+            "sources": [
+              "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+disc_year,count(*)+from+pscomppars+group+by+disc_year&format=csv",
+              "https://science.nasa.gov/mission/kepler/"
+            ]
+          }
         },
         {
           "id": 815,
@@ -379,7 +393,7 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "inferences",
-          "passage": "The truffle is the fruiting body of an underground fungus that cannot photosynthesize; the fungus sheathes the fine roots of a partner tree and draws its sugars from them, trading mineral nutrients it gathers from the soil. Foresters have long observed that a productive truffle ground goes barren within a few seasons when its oaks are felled or die, even where the ground itself is left entirely undisturbed. Taken together, these observations suggest that ______",
+          "passage": "The truffle is the fruiting body of an underground fungus that cannot photosynthesize. The fungus sheathes the fine roots of a partner tree and draws its sugars from them, trading mineral nutrients it gathers from the soil. Foresters have long observed that a productive truffle ground goes barren within a few seasons when its oaks are felled or die, even where the ground itself is left entirely undisturbed. Taken together, these observations suggest that ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
@@ -388,7 +402,7 @@ export const practiceTest8RW = {
             },
             {
               "id": "B",
-              "text": "truffles form only in partnership with a few particular species of oak and cannot establish themselves on the roots of any other kind of tree."
+              "text": "truffles form only with a few particular species of oak and cannot grow on the roots of any other tree."
             },
             {
               "id": "C",
@@ -409,35 +423,35 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "Sockeye salmon occur both as anadromous populations, which migrate to the sea to feed before returning to fresh water to spawn, and as landlocked populations, called kokanee, that spend their entire lives in lakes. Biologists recorded the median length of mature adults in four populations. They concluded that the sea-run fish grow considerably larger than the landlocked ones, because _______",
+          "passage": "Chemists sort many compounds into two kinds. In ionic compounds, such as table salt, charged particles are held together by strong attractions throughout the solid. In molecular compounds, such as table sugar, separate molecules are held to one another by much weaker forces. A student concludes that the ionic compounds in the table melt at far higher temperatures than the molecular ones, because _______",
           "questionTable": {
             "type": "table",
-            "caption": "Median length of mature sockeye salmon in four populations",
+            "caption": "Melting points of four compounds",
             "headers": [
-              "Population",
-              "Life history",
-              "Median adult length (cm)"
+              "Compound",
+              "Type",
+              "Melting point (°C)"
             ],
             "rows": [
               [
-                "Population A",
-                "Anadromous (sea-run)",
-                "66"
+                "Magnesium oxide",
+                "Ionic",
+                "2,852"
               ],
               [
-                "Population B",
-                "Anadromous (sea-run)",
-                "61"
+                "Sodium chloride (table salt)",
+                "Ionic",
+                "801"
               ],
               [
-                "Population C",
-                "Landlocked (kokanee)",
-                "28"
+                "Sucrose (table sugar)",
+                "Molecular",
+                "186"
               ],
               [
-                "Population D",
-                "Landlocked (kokanee)",
-                "24"
+                "Water",
+                "Molecular",
+                "0"
               ]
             ]
           },
@@ -445,23 +459,32 @@ export const practiceTest8RW = {
           "choices": [
             {
               "id": "A",
-              "text": "the fish of Population A, which feed in the sea, reached a median length of 66 cm."
+              "text": "magnesium oxide, one of the two ionic compounds, melts at 2,852°C, the highest melting point in the table."
             },
             {
               "id": "B",
-              "text": "Population C's median length of 28 cm exceeded Population D's median length of 24 cm, even though both populations spend their entire lives in lakes."
+              "text": "sucrose melts at 186°C, a higher temperature than the 0°C at which water melts, even though both are molecular compounds."
             },
             {
               "id": "C",
-              "text": "Population A's median length of 66 cm was more than twice Population C's median length of 28 cm."
+              "text": "sodium chloride's melting point of 801°C is more than four times sucrose's melting point of 186°C."
             },
             {
               "id": "D",
-              "text": "the two sea-run populations reached median lengths of 66 and 61 cm, while the two landlocked populations reached only 28 and 24 cm."
+              "text": "the two ionic compounds melt at 2,852°C and 801°C, while the two molecular compounds melt at 186°C and 0°C."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** A claim comparing the two kinds of population needs figures from both, and D alone gives them all: median lengths of 66 and 61 cm for the sea-run populations against 28 and 24 cm for the landlocked ones.\n\n**The Full Solution:**\n- The conclusion is general: sea-run sockeye grow considerably larger than landlocked kokanee.\n- Supporting it requires the values for both anadromous populations and both landlocked populations.\n- Choice D supplies all four medians and shows the gap between the two kinds directly.\n\n**Why the other choices are wrong:**\n- A: It cites a single sea-run population, which cannot establish a comparison between the two kinds.\n- B: It compares the two landlocked populations with each other and never mentions the sea-run fish.\n- C: It compares only one population of each kind, leaving out half the table."
+          "explanation": "**Choice D is correct.** A claim comparing the two kinds of compound needs figures from both, and D alone gives them all: melting points of 2,852°C and 801°C for the ionic compounds against 186°C and 0°C for the molecular ones.\n\n**The Full Solution:**\n- The conclusion is general: the ionic compounds in the table melt at far higher temperatures than the molecular ones.\n- Supporting it requires the values for both ionic compounds and both molecular compounds.\n- Choice D supplies all four melting points and shows the gap between the two kinds directly.\n\n**Why the other choices are wrong:**\n- A: It cites a single ionic compound, which cannot establish a comparison between the two kinds.\n- B: It compares the two molecular compounds with each other and never mentions the ionic ones.\n- C: It compares only one compound of each kind, leaving out half the table.",
+          "_meta": {
+            "anchor": "ionic vs molecular compounds, melting points — CoE-quant: class comparison using all four values",
+            "sources": [
+              "https://en.wikipedia.org/wiki/Sodium_chloride",
+              "https://en.wikipedia.org/wiki/Magnesium_oxide",
+              "https://en.wikipedia.org/wiki/Sucrose",
+              "https://chem.libretexts.org/Bookshelves/Introductory_Chemistry/Introductory_Chemistry_(CK-12)/08%3A_Ionic_and_Metallic_Bonding/8.07%3A_Physical_Properties_of_Ionic_Compounds"
+            ]
+          }
         },
         {
           "id": 810,
@@ -470,28 +493,35 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "Nurseries now sell oak and hazel seedlings whose roots already carry the truffle fungus, and a grower who plants them has started a truffle orchard. What follows is the harder part. The fungus fruits only when its partnership with the tree stays in balance, so growers prune to control the light reaching the soil, water in summer on a schedule suited to the site, and keep the ground loose and alkaline. Even well-run orchards often wait seven to ten years for a first harvest.",
+          "passage": "Vanilla comes from the seed pods of a climbing orchid, and planting a vine is only the beginning of a long process. A young vine usually needs about three years before it flowers. Each flower opens for a single day, and on farms outside the plant's native Mexico, where its natural pollinators are absent, workers must pollinate every flower by hand on that day. The pods then take about nine months to mature, and after harvest they are cured for several more months before they develop their familiar flavor.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "The chief obstacle to truffle farming remains producing nursery seedlings whose roots reliably carry the truffle fungus."
+              "text": "The main difficulty in growing vanilla is obtaining young vines that will survive being planted."
             },
             {
               "id": "B",
-              "text": "Planting inoculated seedlings only begins a truffle orchard; harvests depend on years of careful management."
+              "text": "Planting a vanilla vine only begins the work; a harvest depends on years of careful labor."
             },
             {
               "id": "C",
-              "text": "Truffles raised in orchards are generally judged inferior to those gathered from wild woodlands."
+              "text": "Vanilla grown outside Mexico is generally judged inferior to vanilla grown in Mexico."
             },
             {
               "id": "D",
-              "text": "Truffle harvests are so dependent on weather that growers can do little to influence them."
+              "text": "Vanilla harvests depend so heavily on the weather that growers can do very little to influence them."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The text's sentences all serve one claim: planting inoculated seedlings begins a truffle orchard, but harvests depend on years of managing the partnership between tree, fungus, and soil.\n\n**The Full Solution:**\n- The text concedes what nurseries can now do: sell oak and hazel seedlings whose roots already carry the fungus.\n- It then calls what follows \"the harder part\" and lists what still determines success: pruning to control light, summer watering suited to the site, soil kept loose and alkaline.\n- The wait of seven to ten years for a first harvest underlines that planting is only the beginning, the main idea stated in choice B.\n\n**Why the other choices are wrong:**\n- A: The text says inoculated seedlings are already sold; producing them is not presented as the difficulty.\n- C: The text does not compare cultivated truffles' quality with wild ones'.\n- D: The text stresses what growers do to influence harvests, not that weather leaves them powerless."
+          "explanation": "**Choice B is correct.** The text's sentences all serve one claim: planting a vanilla vine is \"only the beginning of a long process,\" and a harvest depends on years of patient, hands-on work.\n\n**The Full Solution:**\n- The first sentence states the idea directly: planting a vine \"is only the beginning of a long process.\"\n- The rest of the text lists what follows: about three years before the vine flowers, hand pollination of every flower on the single day it is open, about nine months for the pods to mature, and several more months of curing.\n- Each detail supports the main idea stated in choice B.\n\n**Why the other choices are wrong:**\n- A: The text never says that getting young vines to survive is a problem.\n- C: The text does not compare the quality of vanilla from different places.\n- D: The text describes work that growers must do, not weather they cannot control.",
+          "_meta": {
+            "anchor": "growing vanilla — main idea: planting only begins the work; harvest depends on years of labor",
+            "sources": [
+              "https://www.davidvanille.com/en/content/18-how-vanilla-grows",
+              "https://journals.flvc.org/edis/article/download/132782/136926/242536"
+            ]
+          }
         },
         {
           "id": 809,
@@ -505,7 +535,7 @@ export const practiceTest8RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Smith found that a rock layer's color and texture were the most dependable means of recognizing it in a new district."
+              "text": "Smith found that a rock layer's color and texture were the most dependable means of recognizing that layer when it surfaced in a new district."
             },
             {
               "id": "B",
@@ -513,11 +543,11 @@ export const practiceTest8RW = {
             },
             {
               "id": "C",
-              "text": "Smith's insight that strata could be identified by their characteristic fossils enabled him to trace rock layers across the country and map them."
+              "text": "Smith's recognition that strata could be identified by their fossils let him trace and map rock layers across the country."
             },
             {
               "id": "D",
-              "text": "Smith's map found few buyers when it first appeared because the gentlemen of the scientific societies were unwilling to trust the work of a self-taught surveyor."
+              "text": "Smith's map found few buyers at first because scientific societies distrusted a self-taught surveyor."
             }
           ],
           "correctAnswer": "C",
@@ -530,28 +560,35 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-textual",
-          "passage": "Seen in cross-section under a microscope, desert varnish is not uniform: it is built of alternating microscopic layers, some darker and richer in manganese, others paler and dustier. A team of researchers has hypothesized that these microlaminations constitute a climate record, the darker layers forming during regionally wetter periods and the paler ones during drier times.",
+          "passage": "In many lakes, sediment settles in yearly pairs of layers called varves: a pale layer of silt washed in by spring snowmelt and a dark layer of organic matter laid down later in the year. Because varves differ in thickness from year to year, a team of researchers has hypothesized that sequences of varves record regional climate, with thicker layers forming in years of heavier snowfall or rain.",
           "question": "Which finding, if true, would most strongly support the researchers' hypothesis?",
           "choices": [
             {
               "id": "A",
-              "text": "Varnish samples collected from neighboring rocks in the same valley often show sequences of layers that differ markedly from one another, even when the rocks stand only a few meters apart."
+              "text": "Varve sequences from neighboring lakes in the same valley often differ markedly, even when the lakes lie only a few kilometers apart."
             },
             {
               "id": "B",
-              "text": "Varnish samples from rock faces many kilometers apart in the same region show matching sequences of layers, with corresponding layers dating to the same periods."
+              "text": "Varve sequences from lakes many kilometers apart in the same region show matching patterns of thick and thin layers in the same years."
             },
             {
               "id": "C",
-              "text": "Varnish accumulates several times faster on rock surfaces that are shaded than on surfaces in full sun."
+              "text": "Varves tend to be thinner at the centers of lakes than near the shores where streams flow in."
             },
             {
               "id": "D",
-              "text": "Communities of microbes can be found living on the surface of desert varnish at most of the sites studied."
+              "text": "Microbes living in lake sediment break down part of the organic matter in each dark layer."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** If varnish from widely separated rock faces in one region shows the same sequence of layers, the layering tracks something regional — like climate — rather than conditions peculiar to each rock, which is just what the hypothesis claims.\n\n**The Full Solution:**\n- The hypothesis: the alternating layers record regional swings between wetter and drier periods.\n- A regional cause should leave the same signature everywhere in the region at the same times.\n- Choice B reports exactly that pattern — matching layer sequences on separate outcrops — so it supports the hypothesis directly.\n\n**Why the other choices are wrong:**\n- A: Layering that varies from rock to rock within one region points to local causes, weakening the hypothesis rather than supporting it.\n- C: The rate of accumulation says nothing about whether the layers track climate.\n- D: Microbes' presence on the surface bears on how varnish forms, not on what its layers record."
+          "explanation": "**Choice B is correct.** If lakes far apart in one region show the same pattern of thick and thin varves in the same years, the layering tracks something regional, like climate, rather than conditions peculiar to each lake, which is just what the hypothesis claims.\n\n**The Full Solution:**\n- The hypothesis: varve sequences record regional climate, with thicker layers in years of heavier snowfall or rain.\n- A regional cause should leave the same signature in lakes across the region at the same times.\n- Choice B reports exactly that pattern, matching sequences in widely separated lakes, so it supports the hypothesis directly.\n\n**Why the other choices are wrong:**\n- A: Sequences that differ between nearby lakes point to local causes, which weakens the hypothesis rather than supporting it.\n- C: A difference in thickness within a single lake says nothing about whether varves track regional climate from year to year.\n- D: Microbes breaking down organic matter bears on how a layer changes, not on whether the sequence records climate.",
+          "_meta": {
+            "anchor": "lake varves as a climate record — support: matching sequences at distant sites",
+            "sources": [
+              "https://pubs.usgs.gov/pp/0158e/report.pdf",
+              "https://en.wikipedia.org/wiki/Varve"
+            ]
+          }
         },
         {
           "id": 816,
@@ -560,28 +597,35 @@ export const practiceTest8RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "inferences",
-          "passage": "Catalogs of medieval earthquakes are compiled from written sources, and the sources were not spread evenly across the land: monasteries, town chanceries, and notaries clustered in some regions and were nearly absent from others. Mapped directly, the catalogs show earthquakes thick where writing was thick, while mountainous districts that certainly shook across the centuries contribute barely a line. Researchers who study these catalogs have therefore concluded that they should ______",
+          "passage": "Maps of where bird species occur are increasingly built from sightings that volunteer birdwatchers report online. Those sightings are not spread evenly across the land: most come from places near cities, roads, and trails, while remote areas are visited far less often. Mapped directly, the records can make a species look absent from a region simply because few people went there to look. Researchers who study these records have therefore concluded that they should ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
               "id": "A",
-              "text": "read the catalogs as a reliable census of where medieval earthquakes actually struck."
+              "text": "read the volunteers' reports as a reliable and complete census of where each species actually lives."
             },
             {
               "id": "B",
-              "text": "set the documentary record entirely aside and rely on modern instrumental measurements instead."
+              "text": "set the volunteers' reports entirely aside and rely only on surveys carried out by professional scientists instead."
             },
             {
               "id": "C",
-              "text": "assume that chroniclers exaggerated or invented many of the earthquakes they described."
+              "text": "assume that volunteers misidentified many of the birds they reported."
             },
             {
               "id": "D",
-              "text": "adjust for where records were kept before treating any region's apparent calm as real."
+              "text": "adjust for where volunteers looked before treating a species' apparent absence from a region as real."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The premises establish that the record's gaps mirror where writers were, not necessarily where earthquakes were — so the reasonable course is to correct for that unevenness while continuing to use the record, exactly the measured conclusion D draws.\n\n**The Full Solution:**\n- The catalogs cluster where monasteries and notaries clustered; centuries of shaking in thinly documented uplands left barely a line.\n- An apparent quiet zone may therefore be a documentary shadow rather than a seismic fact.\n- The completion must neither trust the raw record nor discard it: researchers should weight it by where records were kept — choice D.\n\n**Why the other choices are wrong:**\n- A: Treating the record as a direct census is precisely the error the passage warns against.\n- B: Abandoning documents for instruments is impossible for pre-instrumental centuries, the record's whole value.\n- C: The passage gives no reason to think chroniclers invented earthquakes; the problem is silence, not fabrication."
+          "explanation": "**Choice D is correct.** The premises establish that the sighting records mirror where volunteers went, not necessarily where birds live, so the reasonable course is to correct for that unevenness while still using the records, exactly the measured conclusion D draws.\n\n**The Full Solution:**\n- Most sightings come from places near cities, roads, and trails; remote areas are visited far less often.\n- So a region where a species seems absent may simply be a region few people searched.\n- The completion must neither trust the raw records nor discard them: researchers should account for where volunteers looked, which is choice D.\n\n**Why the other choices are wrong:**\n- A: Treating the records as a reliable census is the very mistake the text warns against.\n- B: The text describes a bias to correct, not a reason to abandon the volunteers' records altogether.\n- C: The text questions where sightings were made, not whether the birds were identified correctly.",
+          "_meta": {
+            "anchor": "eBird/citizen-science bird records biased toward roads and cities — inference: correct for where observers looked",
+            "sources": [
+              "https://par.nsf.gov/servlets/purl/10331495",
+              "https://en.wikipedia.org/wiki/EBird"
+            ]
+          }
         },
         {
           "id": 820,
@@ -590,28 +634,35 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "The prize rules obliged Appert to make his discovery public, so his 1810 book withheld nothing: it specified the vessels, the temperatures, and ______ that his process required, down to the hours each food should stand in the boiling bath.",
+          "passage": "Many recipes of the 1800s called for \"butter the size of an egg,\" but a widely used 1896 cookbook from a Boston cooking school was exact: it gave level measurements, standard cup and spoon sizes, and ______ for its recipes.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "timing them"
+              "text": "cooking them"
             },
             {
               "id": "B",
-              "text": "to time it"
+              "text": "to cook it"
             },
             {
               "id": "C",
-              "text": "the timings"
+              "text": "the cooking times"
             },
             {
               "id": "D",
-              "text": "timed"
+              "text": "cooked"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The blank is the third item in a coordinated series of nouns — \"the vessels, the temperatures, and the timings\" — so it must be a noun matching the first two.\n\n**The Full Solution:**\n- The series lists what Appert's book had to disclose: \"the vessels, the temperatures, and ______ that his process required.\"\n- The first two items are nouns, so the third must be the noun \"timings\" to keep the series parallel.\n- Read it back: \"the vessels, the temperatures, and the timings that his process required\" — three matching nouns.\n\n**Why the other choices are wrong:**\n- A: \"Timing them\" swaps in a verb phrase, breaking the noun-noun-noun pattern.\n- B: \"To time it\" is an infinitive phrase, not a noun parallel to \"vessels\" and \"temperatures.\"\n- D: \"Timed\" is a bare verb form and cannot serve as the third noun in the series."
+          "explanation": "**Choice C is correct.** The blank is the third item in a coordinated series of noun phrases, \"level measurements, standard cup and spoon sizes, and the cooking times,\" so it must be a noun phrase matching the first two.\n\n**The Full Solution:**\n- The series lists what the cookbook gave: \"level measurements, standard cup and spoon sizes, and ______ for its recipes.\"\n- The first two items are noun phrases, so the third must be the noun phrase \"the cooking times\" to keep the series parallel.\n- Read it back: \"it gave level measurements, standard cup and spoon sizes, and the cooking times for its recipes.\"\n\n**Why the other choices are wrong:**\n- A: \"Cooking them\" swaps in a verb phrase, breaking the pattern of noun phrases.\n- B: \"To cook it\" is an infinitive phrase, not a noun phrase like the other two items.\n- D: \"Cooked\" is a participle and cannot serve as an item in a series of things the book gave.",
+          "_meta": {
+            "anchor": "1896 Boston Cooking-School Cook Book level measurements — parallel noun phrases in a series",
+            "sources": [
+              "https://archive.org/details/bostoncookingsc00collgoog",
+              "https://www.cooksinfo.com/fannie-farmer-cookbook"
+            ]
+          }
         },
         {
           "id": 817,
@@ -620,28 +671,35 @@ export const practiceTest8RW = {
           "band": 2,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "In 1815 the surveyor William Smith published the first geological map of England and Wales ______ its colors traced every major rock formation across the country, from the coal measures of the north to the chalk of the southern downs.",
+          "passage": "In 1869 workers completed the first transcontinental railroad in the United States at Promontory Summit, ______ a ceremonial golden spike marked the place where the eastern and western lines met.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "Wales;"
+              "text": "Utah;"
             },
             {
               "id": "B",
-              "text": "Wales,"
+              "text": "Utah,"
             },
             {
               "id": "C",
-              "text": "Wales"
+              "text": "Utah"
             },
             {
               "id": "D",
-              "text": "Wales, therefore"
+              "text": "Utah, therefore"
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** Two independent clauses meet at the blank, and a semicolon is a conventional boundary between them.\n\n**The Full Solution:**\n- The first clause is complete: \"In 1815 the surveyor William Smith published the first geological map of England and Wales.\"\n- The second is also complete: \"its colors traced every major rock formation across the country.\"\n- A semicolon joins two related independent clauses correctly.\n\n**Why the other choices are wrong:**\n- B: A comma alone between two independent clauses is a comma splice.\n- C: No punctuation at all fuses the two clauses into a run-on.\n- D: \"Wales, therefore\" still splices the clauses with only a comma; the conjunctive adverb does not repair the boundary."
+          "explanation": "**Choice A is correct.** Two independent clauses meet at the blank, and a semicolon is a conventional boundary between them.\n\n**The Full Solution:**\n- The first clause is complete: \"In 1869 workers completed the first transcontinental railroad in the United States at Promontory Summit, Utah.\"\n- The second is also complete: \"a ceremonial golden spike marked the place where the eastern and western lines met.\"\n- A semicolon joins two related independent clauses correctly.\n\n**Why the other choices are wrong:**\n- B: A comma alone between two independent clauses is a comma splice.\n- C: No punctuation at all fuses the two clauses into a run-on.\n- D: \"Utah, therefore\" still splices the clauses with only a comma; the conjunctive adverb does not make the comma a legal boundary.",
+          "_meta": {
+            "anchor": "transcontinental railroad, Promontory Summit 1869 — semicolon between independent clauses",
+            "sources": [
+              "https://historytogo.utah.gov/golden-spike/",
+              "https://en.wikipedia.org/wiki/First_transcontinental_railroad"
+            ]
+          }
         },
         {
           "id": 818,
@@ -680,28 +738,35 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "In eighteenth-century Montpellier, making verdigris was a patient process. Copper plates were stacked in clay pots filled with ______ over time, acid from the wine crusted the plates with green crystals, which workers scraped off once they had matured.",
+          "passage": "Making Parmigiano Reggiano cheese takes patience. After the fresh wheels are shaped, they are placed in tanks of ______ over about twenty days, salt slowly works its way into each wheel, which is then aged for at least a year.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "wine"
+              "text": "brine"
             },
             {
               "id": "B",
-              "text": "wine,"
+              "text": "brine,"
             },
             {
               "id": "C",
-              "text": "wine;"
+              "text": "brine;"
             },
             {
               "id": "D",
-              "text": "wine, which"
+              "text": "brine, which"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The blank falls between two independent clauses, and a semicolon is the conventional mark for joining them without a conjunction.\n\n**The Full Solution:**\n- \"Copper plates were stacked in clay pots filled with wine\" is a complete clause.\n- \"Over time, acid from the wine crusted the plates with green crystals...\" is also a complete clause, with its own subject (\"acid\") and verb (\"crusted\").\n- Two independent clauses with no coordinating conjunction between them must be joined by a semicolon.\n\n**Why the other choices are wrong:**\n- A: With no punctuation, the two clauses run together in a run-on sentence.\n- B: A comma alone between two independent clauses creates a comma splice.\n- D: \"Which\" would begin a relative clause, but the words that follow already have their own subject, \"acid,\" so the sentence becomes ungrammatical."
+          "explanation": "**Choice C is correct.** The blank falls between two independent clauses, and a semicolon is the conventional mark for joining them without a conjunction.\n\n**The Full Solution:**\n- \"After the fresh wheels are shaped, they are placed in tanks of brine\" is a complete clause.\n- \"Over about twenty days, salt slowly works its way into each wheel...\" is also a complete clause, with its own subject (\"salt\") and verb (\"works\").\n- Two independent clauses with no coordinating conjunction between them must be joined by a semicolon.\n\n**Why the other choices are wrong:**\n- A: With no punctuation, the two clauses run together in a run-on sentence.\n- B: A comma alone between two independent clauses creates a comma splice.\n- D: \"Brine, which\" turns the second part into a relative clause, but that clause already has its own subject (\"salt\"), so the sentence becomes ungrammatical.",
+          "_meta": {
+            "anchor": "Parmigiano Reggiano brining and aging — semicolon before a second independent clause opening with an adverbial",
+            "sources": [
+              "https://en.wikipedia.org/wiki/Parmesan",
+              "https://backend.parmigianoreggiano.com/uploads/0325_disciplinare_docx_EN_2eda3456af.pdf"
+            ]
+          }
         },
         {
           "id": 822,
@@ -710,7 +775,7 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "By the time the biologists sorting a single lake's catch of char had finished comparing jaw shapes, body sizes, and stomach contents, ______ had documented four distinct forms of the same species living together in one body of water.",
+          "passage": "By the time the divers excavating the Uluburun shipwreck off the coast of Turkey had finished their final season in 1994, ______ had recovered about ten tons of copper ingots along with tin, glass, and ivory.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -731,7 +796,14 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The pronoun refers to the plural \"biologists,\" so it must be the plural \"they.\"\n\n**The Full Solution:**\n- The opening clause names the antecedent: \"the biologists sorting a single lake's catch of char.\"\n- \"Biologists\" is plural, and the main clause reports what those same people had documented.\n- Only \"they\" agrees: \"they had documented four distinct forms of the same species.\"\n\n**Why the other choices are wrong:**\n- A: \"It\" is singular and impersonal; it cannot stand in for the plural \"biologists.\"\n- C: \"She\" is singular and pins the work on one unidentified woman when the antecedent names a team.\n- D: \"One\" is an indefinite singular pronoun and does not refer back to the biologists at all."
+          "explanation": "**Choice B is correct.** The pronoun refers to the plural \"divers,\" so it must be the plural \"they.\"\n\n**The Full Solution:**\n- The opening clause names the antecedent: \"the divers excavating the Uluburun shipwreck.\"\n- \"Divers\" is plural, and the main clause reports what those same people had recovered.\n- Only \"they\" agrees: \"they had recovered about ten tons of copper ingots.\"\n\n**Why the other choices are wrong:**\n- A: \"It\" is singular and impersonal; it cannot stand in for the plural \"divers.\"\n- C: \"She\" is singular and pins the work on one unidentified woman when the antecedent names a team.\n- D: \"One\" is an indefinite singular pronoun and does not refer back to the plural \"divers.\"",
+          "_meta": {
+            "anchor": "Uluburun shipwreck excavation 1984-1994 — plural pronoun they",
+            "sources": [
+              "https://en.wikipedia.org/wiki/Uluburun_shipwreck",
+              "https://nauticalarch.org/projects/uluburun-late-bronze-age-shipwreck-excavation/"
+            ]
+          }
         },
         {
           "id": 819,
@@ -740,28 +812,35 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "The mold for a great bell—two nested shells of clay and loam built up by hand around a brick ______ had to be dried thoroughly before the founders dared to pour, since moisture left in the loam could turn to steam and spoil the casting.",
+          "passage": "The Lewis chessmen—78 chess pieces carved mostly from walrus ivory, probably in the late twelfth ______ were found on the Isle of Lewis, in Scotland's Outer Hebrides, in 1831.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "core,"
+              "text": "century,"
             },
             {
               "id": "B",
-              "text": "core"
+              "text": "century"
             },
             {
               "id": "C",
-              "text": "core;"
+              "text": "century;"
             },
             {
               "id": "D",
-              "text": "core—"
+              "text": "century—"
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The interrupting description opens with a dash, so it must close with a matching dash before the main clause resumes.\n\n**The Full Solution:**\n- The core sentence is \"The mold for a great bell ... had to be dried thoroughly before the founders dared to pour.\"\n- The description \"two nested shells of clay and loam built up by hand around a brick core\" is an interruption introduced by a dash.\n- A paired punctuation mark must close as it opened: dash with dash.\n\n**Why the other choices are wrong:**\n- A: A comma cannot close an interruption that a dash opened; the marks must match.\n- B: With no closing mark, the interruption runs into the main verb and the sentence loses its boundary.\n- C: A semicolon would demand an independent clause before it, and the interrupting phrase is not one."
+          "explanation": "**Choice D is correct.** The interrupting description opens with a dash, so it must close with a matching dash before the main clause resumes.\n\n**The Full Solution:**\n- The core sentence is \"The Lewis chessmen ... were found on the Isle of Lewis, in Scotland's Outer Hebrides, in 1831.\"\n- The description \"78 chess pieces carved mostly from walrus ivory, probably in the late twelfth century\" is an interruption introduced by a dash.\n- A paired punctuation mark must close as it opened: dash with dash.\n\n**Why the other choices are wrong:**\n- A: A comma cannot close an interruption that a dash opened; the marks must match.\n- B: With no closing mark, the interruption runs into the main verb \"were found,\" and the sentence loses its structure.\n- C: A semicolon would separate the subject from its verb, leaving neither part a complete clause.",
+          "_meta": {
+            "anchor": "Lewis chessmen (walrus ivory, c. 1150-1200, found 1831) — dash closing a dash-opened interruption",
+            "sources": [
+              "https://en.wikipedia.org/wiki/Lewis_chessmen",
+              "https://www.britishmuseum.org/collection/death-and-memory/lewis-chessmen"
+            ]
+          }
         },
         {
           "id": 825,
@@ -770,7 +849,7 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Painters prized verdigris for its brilliant green but learned to handle it warily. In oil, the pigment tends to brown or darken as a painting ages. ______ its color can begin to change within the first month of exposure to air, which is why painters often sealed verdigris passages under varnish soon after applying them.",
+          "passage": "Linen, the cloth woven from fibers of the flax plant, has been valued for thousands of years for its strength. Flax fibers are among the strongest plant fibers used in textiles. ______ they become even stronger when wet, which made linen a good material for sailcloth and fishing nets.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -791,7 +870,14 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The passage adds a second, separate drawback of verdigris to the first, and \"Moreover,\" signals exactly that addition of a parallel point.\n\n**The Full Solution:**\n- The first drawback: in oil, verdigris tends to brown or darken as a painting ages.\n- The blank introduces a second, distinct drawback: its color can start changing within a month of exposure to air.\n- Both points run in the same direction, as reasons painters handled the pigment warily, so an additive transition fits.\n\n**Why the other choices are wrong:**\n- B: \"In contrast,\" would promise a point running against the first, but the second drawback reinforces it.\n- C: \"Therefore,\" would make the early color change a consequence of the slow browning, though the two are separate problems.\n- D: \"For instance,\" would offer the second point as an example of the first, but a change within the first month is not an example of darkening over a painting's lifetime."
+          "explanation": "**Choice A is correct.** The blank introduces a second point in the same direction as the first: flax fibers are already very strong, and on top of that they grow stronger when wet. \"Moreover,\" adds a further supporting point.\n\n**The Full Solution:**\n- The second sentence says flax fibers are \"among the strongest plant fibers used in textiles.\"\n- The third sentence adds another advantage: they become even stronger when wet.\n- Both facts support the opening claim about linen's strength, so the transition must signal addition.\n\n**Why the other choices are wrong:**\n- B: \"In contrast,\" signals an opposing point, but gaining strength when wet reinforces the claim rather than opposing it.\n- C: \"Therefore,\" would present the wet strength as a consequence of the fibers being strong, which the text does not claim.\n- D: \"For instance,\" would introduce an example of the general claim, but the third sentence adds a new property rather than illustrating the previous one.",
+          "_meta": {
+            "anchor": "linen/flax fiber strength — Moreover (adds a same-direction point)",
+            "sources": [
+              "https://handwovenmagazine.com/is-linen-really-stronger-when-wet/",
+              "https://cameo.mfa.org/wiki/Flax"
+            ]
+          }
         },
         {
           "id": 824,
@@ -800,7 +886,7 @@ export const practiceTest8RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "William Smith had no university training, and in 1819, after a stone-quarrying venture failed, he was imprisoned for debt and then spent years working as an itinerant surveyor. ______ his method of identifying strata by their fossils became standard geological practice, and in 1831 the Geological Society of London awarded him its first Wollaston Medal.",
+          "passage": "Digging a tunnel beneath the Thames in London proved far harder than expected. Work began in 1825, but the river flooded the tunnel in 1827 and again in 1828, and digging then stopped for seven years. ______ work resumed in 1835, and the Thames Tunnel opened in 1843, the first tunnel known to have been built successfully under a navigable river.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -821,7 +907,14 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The passage turns from Smith's setbacks to the eventual triumph of his method, a reversal that the concessive \"Even so,\" marks precisely.\n\n**The Full Solution:**\n- The first sentence piles up setbacks: no university training, a failed business venture, prison for debt, and years of itinerant work.\n- The final sentence runs the other way: his fossil-based method became standard practice, and the Geological Society honored him.\n- A contrast transition is needed to turn from misfortune to recognition: \"Even so.\"\n\n**Why the other choices are wrong:**\n- B: \"Accordingly,\" would present the honors as the logical outcome of the setbacks, inverting the passage's logic.\n- C: \"Likewise,\" promises another point in the same direction, but the final sentence reverses direction.\n- D: \"Previously,\" points backward in time, but the recognition came after the setbacks, not before."
+          "explanation": "**Choice A is correct.** The text first reports serious setbacks (two floods and a seven-year halt) and then reports that the work went on anyway, a concession-then-contrast that \"Even so,\" marks.\n\n**The Full Solution:**\n- The text lists setbacks: the river flooded the tunnel in 1827 and again in 1828, and digging then stopped for seven years.\n- The last sentence reports an outcome those setbacks would not lead a reader to expect: work resumed in 1835, and the tunnel opened in 1843.\n- \"Even so,\" grants the earlier setbacks and introduces a result that came about despite them.\n\n**Why the other choices are wrong:**\n- B: \"Accordingly,\" would present the resumed work as following from the floods and the long halt, but those setbacks point the other way.\n- C: \"Likewise,\" signals a similar point, but the last sentence reverses the pattern of setbacks rather than continuing it.\n- D: \"Previously,\" would place the 1835 resumption before the floods and the halt, scrambling the timeline.",
+          "_meta": {
+            "anchor": "Thames Tunnel (begun 1825, floods 1827/1828, halt, resumed 1835, opened 1843) - concession transition Even so",
+            "sources": [
+              "https://en.wikipedia.org/wiki/Thames_Tunnel",
+              "https://www.britannica.com/topic/Thames-Tunnel"
+            ]
+          }
         },
         {
           "id": 823,
@@ -830,7 +923,7 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "The pound lock enclosed boats in a chamber between two sets of gates, so that the water level around a vessel could be raised or lowered gradually, with the boat floating calmly the whole time. ______ a laden barge could descend a steep hillside in a series of measured steps, without ever riding the violent flush of water that older river weirs released.",
+          "passage": "A lightning rod is a metal rod mounted at the highest point of a building and connected by a heavy wire to a metal conductor buried in the ground. Metal carries electric current far more easily than wood, brick, or stone. ______ a bolt that strikes the rod follows the wire down into the earth instead of passing through the building's roof and walls.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -851,7 +944,14 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The second sentence states the consequence of the mechanism the first describes — controlled, gradual water levels made steep descents safe — so a cause-and-effect transition is required.\n\n**The Full Solution:**\n- Sentence one explains the pound lock's design: a chamber between two gates in which the water level rises or falls gradually.\n- Sentence two reports what that design achieved: a laden barge could descend a steep hillside safely in stages.\n- The outcome follows from the mechanism, and \"As a result,\" marks exactly that relation.\n\n**Why the other choices are wrong:**\n- A: \"For example,\" would make the descent an illustration of the design rather than its consequence.\n- B: \"Nevertheless,\" signals that the second sentence resists the first, but the sentences run in the same direction.\n- D: \"Meanwhile,\" implies two unrelated events happening at once, misstating the causal link."
+          "explanation": "**Choice C is correct.** The last sentence states the consequence of the setup the first two describe, a metal path to the ground that carries current more easily than the building does, so a cause-and-effect transition is required.\n\n**The Full Solution:**\n- The first two sentences explain the design: a metal rod wired to a conductor in the ground, and metal carries current far more easily than wood, brick, or stone.\n- The last sentence reports what that design achieves: a bolt follows the wire into the earth instead of passing through the building.\n- The outcome follows from the design, and \"As a result,\" marks exactly that relation.\n\n**Why the other choices are wrong:**\n- A: \"For example,\" would make the bolt's path an illustration of metal's conductivity rather than its consequence.\n- B: \"Nevertheless,\" signals a contrast, but the bolt's path is what the design leads one to expect.\n- D: \"Meanwhile,\" signals something happening at the same time, not a result.",
+          "_meta": {
+            "anchor": "lightning rod — As a result (mechanism -> consequence)",
+            "sources": [
+              "https://www.britannica.com/technology/lightning-rod",
+              "https://en.wikipedia.org/wiki/Lightning_rod"
+            ]
+          }
         },
         {
           "id": 827,
@@ -863,34 +963,41 @@ export const practiceTest8RW = {
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "Emanuela Guidoboni is an Italian historical seismologist who studies earthquakes recorded in historical documents.",
-              "Earlier Italian catalogs listed medieval Sicilian earthquakes based largely on local sources.",
-              "Guidoboni and a colleague re-examined those earthquakes using Byzantine, Latin, and Arab sources as well.",
-              "Their 1996 revision deleted six spurious earthquakes from the record and identified five previously unknown ones."
+              "Before the 1920s, ocean depths were usually measured by lowering a weighted line until it touched the seafloor.",
+              "From 1925 to 1927, Meteor, a German research ship, surveyed the South Atlantic Ocean.",
+              "Its crew used echo sounders, which measure depth by timing how long a sound pulse takes to return from the seafloor.",
+              "The expedition made about 67,000 depth measurements."
             ],
-            "goal": "The student wants to emphasize a difference between Guidoboni's method and the practice of earlier catalog compilers."
+            "goal": "The student wants to emphasize a difference between the Meteor expedition's method and earlier practice."
           },
           "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
           "choices": [
             {
               "id": "A",
-              "text": "Earlier Italian earthquake catalogs listed the earthquakes of medieval Sicily based largely on local sources."
+              "text": "Before the 1920s, ocean depths were usually measured by lowering a weighted line until it touched the seafloor."
             },
             {
               "id": "B",
-              "text": "Guidoboni's 1996 revision of the catalogs deleted six spurious earthquakes from the record of medieval Sicily and identified five earthquakes that had previously been unknown."
+              "text": "From 1925 to 1927, the German research ship Meteor surveyed the South Atlantic Ocean and made about 67,000 depth measurements there."
             },
             {
               "id": "C",
-              "text": "Emanuela Guidoboni is an Italian historical seismologist who studies earthquakes recorded in historical documents."
+              "text": "Meteor, a German research ship, surveyed the South Atlantic Ocean in the years between 1925 and 1927."
             },
             {
               "id": "D",
-              "text": "Whereas earlier catalogs relied largely on local sources, Guidoboni also drew on Byzantine, Latin, and Arab sources to revise the record of medieval Sicily's earthquakes."
+              "text": "Whereas earlier surveys lowered a weighted line to the seafloor, the Meteor's crew measured depth by timing sound echoes."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The goal is to set Guidoboni's method against the earlier compilers' practice, and D holds the two side by side: they relied largely on local sources; she also drew on Byzantine, Latin, and Arab sources.\n\n**The Full Solution:**\n- A difference is only emphasized when both approaches appear in one frame.\n- Choice D's \"Whereas\" construction does exactly that, pairing the old practice (local sources) with hers (a wider range of sources).\n\n**Why the other choices are wrong:**\n- A: It describes only the earlier catalogs and never presents Guidoboni's alternative.\n- B: It reports the results of her revision, not how her method differed from anyone's.\n- C: It identifies her field without contrasting her method with earlier practice."
+          "explanation": "**Choice D is correct.** The goal is a difference in method, and D sets the two methods side by side with \"Whereas\": earlier surveys lowered a weighted line, while the Meteor's crew timed sound echoes.\n\n**The Full Solution:**\n- To emphasize a difference, the sentence must name both methods and contrast them.\n- Earlier practice: lowering a weighted line until it touched the seafloor. The Meteor's method: echo sounders that time a sound pulse's return.\n- Choice D states both and links them with a contrast word, which is exactly what the goal requires.\n\n**Why the other choices are wrong:**\n- A: It describes only the earlier practice, with nothing to contrast it against.\n- B: It reports the expedition's dates and number of measurements but not how the measurements were made, so no difference in method appears.\n- C: It gives only background about the ship and its survey, not either method.",
+          "_meta": {
+            "anchor": "Meteor expedition echo sounding vs weighted-line soundings — RS emphasize a difference in method",
+            "sources": [
+              "https://en.wikipedia.org/wiki/German_Meteor_expedition",
+              "https://www.geomar.de/en/discover/100-years-meteor-expedition"
+            ]
+          }
         },
         {
           "id": 826,
@@ -902,35 +1009,42 @@ export const practiceTest8RW = {
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "Joseph Talon was a farmer near Apt, in Provence, in the early 1800s.",
-              "In his day, truffles could be gathered only where they happened to appear in the wild.",
-              "Talon noticed that truffles were found among the roots of certain oaks.",
-              "He collected young oak seedlings from beneath truffle-bearing oaks and planted them on his own land.",
-              "Years later, truffles appeared among the roots of the transplanted oaks, showing that truffles could be deliberately farmed."
+              "The Cave of the Crystals lies about 300 meters underground in a mine at Naica, in northern Mexico.",
+              "In April 2000, two miners drilling in the mine broke into the cave.",
+              "It holds gypsum crystals up to about 11 meters long, among the largest natural crystals ever found.",
+              "Temperatures in the cave reach about 58°C, so people could stay inside only briefly.",
+              "After mining there stopped, the cave was allowed to flood again in 2015."
             ],
-            "goal": "The student wants to explain Talon's discovery to an audience unfamiliar with truffle growing."
+            "goal": "The student wants to explain the discovery of the Cave of the Crystals to an audience unfamiliar with it."
           },
           "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
           "choices": [
             {
               "id": "A",
-              "text": "Joseph Talon was a farmer who lived near the town of Apt, in Provence, during the early years of the nineteenth century."
+              "text": "The Cave of the Crystals, which lies in a mine in northern Mexico, was allowed to flood again in 2015 after mining there stopped."
             },
             {
               "id": "B",
-              "text": "Joseph Talon, a Provençal farmer, showed that truffles could be farmed: oak seedlings he moved from beneath truffle-bearing oaks later bore truffles."
+              "text": "In 2000, miners drilling in a Mexican mine broke into the Cave of the Crystals, which holds some of the largest natural crystals ever found."
             },
             {
               "id": "C",
-              "text": "Talon noticed that truffles were found among the roots of certain oaks, an observation he made while farming in Provence."
+              "text": "Temperatures in the cave reach about 58°C, so people who entered it could stay inside only briefly."
             },
             {
               "id": "D",
-              "text": "Before Talon's time, truffles could be gathered only where they appeared in the wild, and even skilled gatherers knew no way to make new ground yield them."
+              "text": "The Cave of the Crystals holds gypsum crystals up to about 11 meters long, among the largest natural crystals that have ever been found anywhere."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The goal asks for Talon's discovery explained to readers who know nothing of truffle growing, and B does the whole job: who he was, what he did, and what it showed, namely that truffles could be deliberately farmed.\n\n**The Full Solution:**\n- The audience is unfamiliar, so the sentence must identify Talon and make the discovery itself plain.\n- Choice B compresses the method (moving seedlings from beneath truffle-bearing oaks) and the result (the young oaks later bore truffles), presenting the finding as a finding: truffles could be farmed.\n\n**Why the other choices are wrong:**\n- A: It gives biographical placement but never says what Talon discovered.\n- C: It reports only the observation that led to his experiment, not the experiment or its result.\n- D: It states only the problem Talon faced, not his answer to it."
+          "explanation": "**Choice B is correct.** The goal asks for the discovery explained to readers who know nothing of the cave, and B does the whole job: who found it, when and where, and why the find matters.\n\n**The Full Solution:**\n- The audience is unfamiliar, so the sentence must make the discovery itself plain and say what was found.\n- Choice B combines the finders (miners drilling in a mine), the time and place (2000, Mexico), and the find (a cave holding some of the largest natural crystals ever found).\n\n**Why the other choices are wrong:**\n- A: It tells where the cave is and what happened to it in 2015 but never mentions its discovery.\n- C: It describes conditions inside the cave but not who found it, when, or what it holds.\n- D: It explains what the cave holds but says nothing about how or when it was discovered.",
+          "_meta": {
+            "anchor": "Cave of the Crystals, Naica, Mexico (found by miners April 2000; gypsum crystals to ~11 m; ~58 C; reflooded 2015) - RS explain a discovery",
+            "sources": [
+              "https://en.wikipedia.org/wiki/Cave_of_the_Crystals",
+              "https://education.nationalgeographic.org/resource/naica-mine/"
+            ]
+          }
         }
       ]
     },
@@ -976,7 +1090,7 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "The shorthand systems that conquered the nineteenth-century courtroom were above all ____: a reporter's pen traced not letters but simple strokes standing for whole sounds, and a single curve, thickened or lightly flicked, might set down a syllable or an entire common word. What ordinary spelling spread across a dozen characters, a trained hand could catch in one.",
+          "passage": "The shorthand systems used in nineteenth-century courtrooms were above all ____: a reporter's pen traced not letters but simple strokes standing for whole sounds. A single curve, thickened or lightly flicked, might set down a syllable or an entire common word. What ordinary spelling spread across a dozen characters, a trained hand could catch in one.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -1006,7 +1120,7 @@ export const practiceTest8RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "An acrobat leaving a teeterboard gets all of a somersault's turning motion at launch, since nothing in midair can add more. By pulling arms and knees into a tight tuck, however, a performer can ____ the spin the takeoff supplied, trading a slow, open turn for a rapid, compact one, and can then open out again to slow the rotation for landing.",
+          "passage": "An acrobat leaving a teeterboard gets all of a somersault's turning motion at launch, since nothing in midair can add more. By pulling arms and knees into a tight tuck, however, a performer can ____ the spin the takeoff supplied, trading a slow, open turn for a rapid, compact one. Opening out again then slows the rotation for landing.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -1084,7 +1198,7 @@ export const practiceTest8RW = {
             },
             {
               "id": "B",
-              "text": "He would argue that the photographs were technically flawed and therefore misrepresented the positions of the horse's legs."
+              "text": "He would argue that Muybridge's photographs were technically flawed and therefore misrepresented the true positions of the horse's legs."
             },
             {
               "id": "C",
@@ -1092,7 +1206,7 @@ export const practiceTest8RW = {
             },
             {
               "id": "D",
-              "text": "He would insist that credit for the photographic sequences belongs to the wealthy patron who financed them rather than to Muybridge himself."
+              "text": "He would insist that credit for the photographs belongs to the patron who paid for them rather than to Muybridge."
             }
           ],
           "correctAnswer": "A",
@@ -1105,28 +1219,35 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "When the railways began carrying freight in the 1830s and 1840s, observers on both sides assumed the verdict was in: the canals, plodding at a horse's pace, would be empty within a generation. The boats' answer was not speed but thrift. __Boating families gave up lodgings ashore and moved into the cabins, working their craft as household crews, and their boats went on carrying coal, grain, and clay for decades after the railways came.__ A mode of transport that could not compete on time competed instead on cost, surviving longest in the heavy, patient cargoes where a day's delay mattered least.",
+          "passage": "When steamships took over most ocean trade in the late 1800s, many observers expected sailing ships to vanish from commerce entirely. Steamers were faster and kept to schedules, but they had to buy coal for every voyage, while the wind cost nothing. __Some owners of sailing ships responded by moving their large steel windjammers into long-distance bulk trades, such as carrying wheat from South Australia to Europe, where low cost mattered more than speed.__ These grain ships were still making the voyage in 1949, decades after steam had taken over most other routes.",
           "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
           "choices": [
             {
               "id": "A",
-              "text": "It explains how railway companies set freight rates deliberately low on routes where canal boats still carried traffic."
+              "text": "It explains how steamship companies lowered their freight rates on the routes where sailing ships still carried cargo."
             },
             {
               "id": "B",
-              "text": "It reports how boat operators adapted to railway competition, countering the expectation the passage has set up."
+              "text": "It reports how sailing-ship owners adapted to competition from steam, countering the expectation the text has set up."
             },
             {
               "id": "C",
-              "text": "It describes the engineering improvements that made the canals faster to travel."
+              "text": "It describes the engineering improvements that made sailing ships faster than steamships."
             },
             {
               "id": "D",
-              "text": "It concedes that the boat operators eventually abandoned the trade the railways had captured."
+              "text": "It concedes that sailing-ship owners eventually abandoned the trade that steamships had captured."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The underlined sentence reports how boat operators answered the railway threat — moving their families aboard and cutting shore costs — and the persistence of canal freight that resulted, which the passage frames against predictions of quick extinction.\n\n**The Full Solution:**\n- The text first sets up the expectation: observers assumed the railways would sweep canal carrying away within a generation.\n- The underlined sentence then supplies the adaptation (families living aboard, boats worked as household crews) and the outcome (coal and grain still moving by water decades later).\n- Its function is to present that adaptive response and its unexpected persistence — choice B.\n\n**Why the other choices are wrong:**\n- A: The sentence describes the boat operators' response, not the railways' pricing.\n- C: Nothing in the sentence concerns the construction or engineering of the canals.\n- D: The sentence shows canal carrying persisting, not the operators conceding defeat."
+          "explanation": "**Choice B is correct.** The text first sets up the expectation that sailing ships would vanish from commerce; the underlined sentence then reports how owners adapted by moving into bulk trades where cost mattered more than speed, which runs against that expectation.\n\n**The Full Solution:**\n- The opening sentence sets the expectation: observers thought sailing ships would \"vanish from commerce entirely.\"\n- The second sentence names steam's weak point: steamers had to buy coal for every voyage, while the wind cost nothing.\n- The underlined sentence shows owners using that weak point, carrying wheat from South Australia to Europe, a trade where low cost mattered more than speed.\n- The final sentence confirms the result: the grain ships were still making the voyage in 1949.\n\n**Why the other choices are wrong:**\n- A: The underlined sentence is about what sailing-ship owners did, not about steamship rates.\n- C: Nothing in the text says sailing ships became faster; the sentence says cost mattered more than speed.\n- D: The underlined sentence describes how owners stayed in business, not how they gave up.",
+          "_meta": {
+            "anchor": "windjammers in the grain trade after steam — TSP underlined: adaptation countering an expectation",
+            "sources": [
+              "https://en.wikipedia.org/wiki/Grain_race",
+              "https://collections.sea.museum/objects/90343/four-masted-barque-archibald-russell"
+            ]
+          }
         },
         {
           "id": 832,
@@ -1140,11 +1261,11 @@ export const practiceTest8RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The speaker describes the peace he imagines on the island, then reveals that its sounds reach him even as he stands on distant pavements."
+              "text": "The speaker describes the peace he imagines on the island, then reveals that he hears its sounds even on distant pavements."
             },
             {
               "id": "B",
-              "text": "The speaker remembers an island he visited long ago in childhood and mourns that both the place and he himself have since changed beyond recognition."
+              "text": "The speaker remembers an island he visited in childhood and mourns that it has changed beyond recognition."
             },
             {
               "id": "C",
@@ -1152,7 +1273,7 @@ export const practiceTest8RW = {
             },
             {
               "id": "D",
-              "text": "The speaker describes how an island looks at midnight, noon, and evening and then urges a companion to travel there with him."
+              "text": "The speaker describes the island at midnight, at noon, and in the evening and then urges a companion to travel there with him."
             }
           ],
           "correctAnswer": "A",
@@ -1182,7 +1303,7 @@ export const practiceTest8RW = {
             },
             {
               "id": "D",
-              "text": "It argues that the rocks of Racetrack Playa have traveled shorter distances than their long trails would seem to suggest."
+              "text": "It argues that the rocks of Racetrack Playa have actually traveled shorter distances than their long trails would seem to suggest."
             }
           ],
           "correctAnswer": "C",
@@ -1195,28 +1316,35 @@ export const practiceTest8RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "When phonographic shorthand entered the nineteenth-century courtroom, admirers marveled at its speed: a trained reporter could keep pace with the swiftest witness. One historian argues that the marveling misses what mattered. Before shorthand, the official memory of a trial was a clerk's summary, with testimony compressed and reworded. Once a reporter could take down every word, counsel could demand exact words read back and appellate courts could weigh them; a summary was no longer good enough. The lasting change, on this view, was not how fast the pen moved but what a court came to expect a record to be.",
+          "passage": "When printing spread through Europe in the late 1400s, admirers praised its speed: a press could produce copies of a book far faster than scribes could write them out by hand. One historian argues that this praise misses what mattered most. Every hand-copied manuscript differed slightly from the others, since scribes added errors with each new copy. Printed copies of an edition matched one another, so scholars in different cities could cite the same page and correct the same mistakes. The lasting change, on this view, was not how fast books were made but the expectation that a text would stay fixed.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "Courtroom shorthand's most important effect was not rapid writing itself but the new expectation that proceedings be preserved word for word."
+              "text": "Printing's most important effect was not faster production but the new expectation that a text would remain fixed."
             },
             {
               "id": "B",
-              "text": "Shorthand's chief contribution to the courtroom was allowing reporters to write as quickly as people speak."
+              "text": "Printing's chief contribution was allowing books to be produced far more quickly than scribes could ever copy them."
             },
             {
               "id": "C",
-              "text": "The summaries clerks once made of testimony were often more faithful to what witnesses meant than the verbatim transcripts that replaced them."
+              "text": "Hand-copied manuscripts were often more accurate than the printed editions that eventually replaced them."
             },
             {
               "id": "D",
-              "text": "Courtroom shorthand declined once machines could record testimony more quickly than reporters could write it."
+              "text": "Printing declined in importance once later technologies could produce copies of books more quickly."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The text grants the familiar praise — shorthand was fast — and then argues its deeper consequence: once verbatim capture was possible, the word-for-word transcript became the standard to which courts held themselves.\n\n**The Full Solution:**\n- The opening reports how contemporaries celebrated shorthand: as a marvel of speed.\n- The historian's correction follows: speed alone misses what changed — before shorthand, a summary was the best a court could expect; afterward, exact words could be demanded, quoted, and appealed to.\n- The main idea is that expectation shift, which choice A states.\n\n**Why the other choices are wrong:**\n- B: The text subordinates the speed claim rather than resting on it — speed is what the historian says mattered less.\n- C: The text never asserts that summaries were more accurate than transcripts.\n- D: Nothing in the text concerns the decline of shorthand or its replacement by machines."
+          "explanation": "**Choice A is correct.** The text sets the familiar praise of printing's speed against a historian's argument that the deeper change was fixity: identical copies that scholars everywhere could rely on. Choice A states that contrast.\n\n**The Full Solution:**\n- The text opens with the common view: printing was admired for its speed.\n- A historian argues that this \"misses what mattered most\": manuscripts varied from copy to copy, while printed copies of an edition matched.\n- The last sentence sums up the argument: the lasting change was \"not how fast books were made but the expectation that a text would stay fixed.\"\n\n**Why the other choices are wrong:**\n- B: This is the view the historian says misses what mattered most.\n- C: The text says scribes added errors with each copy, which is the opposite of this claim.\n- D: The text says nothing about printing declining or about later technologies.",
+          "_meta": {
+            "anchor": "printing and textual fixity (historian's argument) — CID H: real effect was not speed but a new expectation",
+            "sources": [
+              "https://aworkinglibrary.com/writing/typographical-fixity",
+              "https://www.eudaemonist.com/eisenstein1983/"
+            ]
+          }
         },
         {
           "id": 839,
@@ -1225,28 +1353,35 @@ export const practiceTest8RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-textual",
-          "passage": "Along cyclone-prone coasts, a team of coastal engineers has hypothesized that intact mangrove belts materially reduce the damage storms inflict on settlements behind them, the trees' dense trunks and roots absorbing wave energy before it reaches houses and fields. The team acknowledges an obstacle: villages with thriving mangroves might differ from others in many ways — in elevation, in exposure, in how storms happen to track — so simple comparisons of damage could mislead.",
+          "passage": "Heavy rainstorms can set off shallow landslides on steep hillsides. A team of researchers has hypothesized that tree roots help hold the soil in place, so that forested slopes produce fewer landslides than slopes where the trees have been cut. The team acknowledges a difficulty: forested and cleared slopes might differ in other ways, such as in steepness, in soil type, or in how much rain happened to fall on them, so simple comparisons could mislead.",
           "question": "Which finding, if true, would most strongly support the team's hypothesis?",
           "choices": [
             {
               "id": "A",
-              "text": "Mangrove belts tend to be widest and healthiest along stretches of coast that natural features already shelter from the heaviest seas a passing cyclone can raise against the shore."
+              "text": "Trees tend to be left standing on gentler slopes, which slide less often than steep ones whatever grows on them."
             },
             {
               "id": "B",
-              "text": "After a cyclone, villages behind intact belts suffered far less damage than villages of similar elevation, exposure, and distance from landfall whose belts had been cleared."
+              "text": "In the same storm, forested slopes had far fewer landslides than cleared slopes of similar steepness and soil."
             },
             {
               "id": "C",
-              "text": "Mangrove forests damaged by cyclones typically regrow to their former extent within a decade."
+              "text": "Trees planted on cleared slopes take several decades to grow roots as large as those of the trees that were cut."
             },
             {
               "id": "D",
-              "text": "Most residents of coastal villages surveyed believe that nearby mangrove forests protect their homes from storms."
+              "text": "Most residents of hillside towns who were surveyed said they believe that nearby forests protect their homes from landslides."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The hypothesis credits the belts themselves with the protection, so the strongest support compares villages that differ in belt condition while matching the other factors that could explain damage — and B reports exactly that controlled contrast.\n\n**The Full Solution:**\n- The team's claim is causal: intact mangrove belts reduce storm damage by absorbing wave energy.\n- The stated worry is confounding — sheltered coasts might both keep their mangroves and suffer gentler seas.\n- Choice B breaks the confound: villages alike in elevation, exposure, and distance from landfall diverged in damage according to the state of their belts.\n\n**Why the other choices are wrong:**\n- A: It reports the confound itself — belts thriving on naturally sheltered coasts — which undermines rather than supports the causal claim.\n- C: Faster regrowth after storms says nothing about whether belts protected the villages behind them.\n- D: Residents' beliefs about the belts are testimony, not a controlled measure of protection."
+          "explanation": "**Choice B is correct.** The team worries that forested and cleared slopes differ in steepness, soil, and rainfall; B compares slopes matched on steepness and soil and hit by the same storm, so the difference in landslides can be credited to the trees.\n\n**The Full Solution:**\n- The hypothesis: tree roots help hold soil in place, so forested slopes produce fewer landslides.\n- The obstacle: forested slopes might differ from cleared ones in steepness, soil type, or rainfall.\n- A finding that holds those factors constant isolates the effect of the trees, and B does exactly that.\n\n**Why the other choices are wrong:**\n- A: This raises the very problem the team worries about: forested slopes may slide less because they are gentler, not because of the trees.\n- C: How long new roots take to grow says nothing about whether the existing forests prevented landslides.\n- D: Residents' beliefs are not evidence about what happens to slopes during a storm.",
+          "_meta": {
+            "anchor": "root reinforcement: forested vs cleared slopes and shallow landslides — CoE-textual: matched comparison",
+            "sources": [
+              "https://www.usgs.gov/publications/modelling-root-reinforcement-shallow-forest-soils",
+              "https://pubs.usgs.gov/publication/70023764"
+            ]
+          }
         },
         {
           "id": 840,
@@ -1255,34 +1390,34 @@ export const practiceTest8RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "In the state's oldest cranberry-growing region, agricultural historians examining harvest records at twenty-year benchmarks have argued that although bog acreage contracted over the twentieth century as land values rose, the contraction was uneven: acreage did not shrink from every benchmark to the next. The record supports this characterization because _______",
+          "passage": "Satellites have measured Arctic sea ice since the late 1970s, and the ice reaches its smallest extent each September, at the end of the summer melt. A student examining the September record at ten-year benchmarks argues that the ice cover shrank over four decades but that the decline was uneven: extent did not fall from every benchmark to the next. The record supports this characterization because _______",
           "questionTable": {
             "type": "table",
-            "caption": "Harvested cranberry acreage at twenty-year benchmarks (thousand acres)",
+            "caption": "Average extent of Arctic sea ice in September (million square kilometers)",
             "headers": [
-              "Benchmark year",
-              "Harvested acreage (thousand acres)"
+              "Year",
+              "Sea ice extent (million sq km)"
             ],
             "rows": [
               [
-                "1930",
-                "14.2"
-              ],
-              [
-                "1950",
-                "13.1"
-              ],
-              [
-                "1970",
-                "11.6"
+                "1980",
+                "7.67"
               ],
               [
                 "1990",
-                "12.4"
+                "6.14"
+              ],
+              [
+                "2000",
+                "6.25"
               ],
               [
                 "2010",
-                "11.3"
+                "4.87"
+              ],
+              [
+                "2020",
+                "4.00"
               ]
             ]
           },
@@ -1290,23 +1425,30 @@ export const practiceTest8RW = {
           "choices": [
             {
               "id": "A",
-              "text": "harvested acreage fell from 14.2 thousand acres in 1930 to 11.3 thousand in 2010, a net loss of nearly three thousand acres over the eighty-year span of the record."
+              "text": "extent fell from 7.67 million square kilometers in 1980 to 4.00 million in 2020, a loss of nearly half over the forty-year span."
             },
             {
               "id": "B",
-              "text": "harvested acreage declined from 14.2 thousand acres in 1930 to 13.1 thousand in 1950."
+              "text": "extent declined from 7.67 million square kilometers in 1980 to 6.14 million in 1990."
             },
             {
               "id": "C",
-              "text": "the 2010 figure of 11.3 thousand acres was the lowest of the five benchmarks, and the 1930 figure of 14.2 thousand was the highest."
+              "text": "the 2020 figure of 4.00 million square kilometers was the lowest of the five benchmarks, and the 1980 figure of 7.67 million was the highest."
             },
             {
               "id": "D",
-              "text": "harvested acreage stood at 11.6 thousand acres in 1970 but at 12.4 thousand in 1990, a rise within a record whose overall course runs downward."
+              "text": "extent stood at 6.14 million square kilometers in 1990 but at 6.25 million in 2000, a rise within a record whose overall course runs downward."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The claim is that the contraction was uneven — the acreage did not fall at every benchmark — and D cites the one interval that shows it: acreage rose from 11.6 thousand acres in 1970 to 12.4 in 1990 even though the overall course of the table runs downward.\n\n**The Full Solution:**\n- The historians' characterization has two parts: a long decline, and unevenness within it.\n- Only the 1970-to-1990 comparison documents the unevenness, since it is the sole interval in which the figure increases.\n- Choice D pairs that reversal with the downward overall trend, matching the claim exactly.\n\n**Why the other choices are wrong:**\n- A: The first-to-last decline shows the trend but nothing about its unevenness.\n- B: The 1930-to-1950 drop is simply one declining interval and cannot show a reversal.\n- C: Identifying the lowest and highest values restates the decline's endpoints without addressing how the path between them behaved."
+          "explanation": "**Choice D is correct.** The claim has two parts, an overall decline and an exception to it, and D supplies the exception: extent rose from 6.14 million square kilometers in 1990 to 6.25 million in 2000, even though the record as a whole runs downward.\n\n**The Full Solution:**\n- The student argues that the ice \"did not fall from every benchmark to the next.\"\n- Supporting that requires at least one interval in which extent rose, set against the general decline.\n- From 1990 to 2000 extent rose from 6.14 to 6.25 million square kilometers, which is exactly the unevenness the claim describes.\n\n**Why the other choices are wrong:**\n- A: The overall loss from 1980 to 2020 confirms the decline but says nothing about unevenness.\n- B: A single falling interval fits a steady decline; it cannot show that extent sometimes rose.\n- C: Identifying the highest and lowest values describes the endpoints, not the path between them.",
+          "_meta": {
+            "anchor": "NSIDC Sea Ice Index, September Arctic extent 1980-2020 at decade benchmarks — CoE-quant H: uneven decline",
+            "sources": [
+              "https://noaadata.apps.nsidc.org/NOAA/G02135/north/monthly/data/N_09_extent_v4.0.csv",
+              "https://nsidc.org/data/g02135/versions/4"
+            ]
+          }
         },
         {
           "id": 841,
@@ -1315,30 +1457,34 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "Researchers measuring how mangrove forests damp incoming waves set wave gauges along four shore-normal transects, each crossing a belt of different width, and recorded the mean height of waves arriving at the landward edge during the same monsoon season. They argue that the data show a consistent relationship — the wider the belt a wave must cross, the smaller the wave that reaches the shore — because _______",
+          "passage": "Water boils when the pressure of its vapor matches the pressure of the air above it, and air pressure falls as elevation rises. A state university extension service, advising cooks who live at high elevations, lists the temperature at which water boils at several elevations. A student argues that the data show a consistent relationship (the higher the elevation, the lower the temperature at which water boils) because _______",
           "questionTable": {
             "type": "table",
-            "caption": "Mean wave height at the landward edge of four mangrove belts",
+            "caption": "Boiling point of water at selected elevations",
             "headers": [
-              "Belt width (m)",
-              "Mean wave height at shore (cm)"
+              "Elevation (feet)",
+              "Boiling point (°F)"
             ],
             "rows": [
               [
-                "50",
-                "42"
+                "Sea level",
+                "212"
               ],
               [
-                "100",
-                "31"
+                "2,000",
+                "208"
               ],
               [
-                "200",
-                "18"
+                "5,000",
+                "203"
               ],
               [
-                "400",
-                "9"
+                "7,500",
+                "198"
+              ],
+              [
+                "10,000",
+                "193"
               ]
             ]
           },
@@ -1346,23 +1492,30 @@ export const practiceTest8RW = {
           "choices": [
             {
               "id": "A",
-              "text": "waves crossing the 50-meter belt still averaged 42 centimeters in height when they reached the shore."
+              "text": "water at sea level boils at 212°F, the highest boiling point shown in the table."
             },
             {
               "id": "B",
-              "text": "as belt width increases from 50 to 100 to 200 to 400 meters, mean wave height at the shore falls from 42 to 31 to 18 to 9 centimeters."
+              "text": "as elevation increases from sea level to 2,000, 5,000, 7,500, and 10,000 feet, the boiling point falls from 212°F to 208, 203, 198, and 193°F."
             },
             {
               "id": "C",
-              "text": "mean wave height behind the 400-meter belt was 9 centimeters, well below the 42 centimeters recorded behind the 50-meter belt at the opposite end of the range."
+              "text": "water boils at 193°F at 10,000 feet, well below the 212°F at which it boils at sea level."
             },
             {
               "id": "D",
-              "text": "the four transects differed from one another in both belt width and mean wave height at the shore."
+              "text": "the five elevations in the table differ from one another in both height and boiling point."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The claim ties wave height to belt width across the range, and B traces the full relation: as width grows from 50 to 400 meters, mean wave height at the shore falls step by step from 42 to 9 centimeters.\n\n**The Full Solution:**\n- The researchers' claim is a relationship, not a single comparison: the wider the belt, the smaller the waves behind it.\n- Choice B walks the whole table in order, showing height falling at every step as width increases — the pattern the claim asserts.\n\n**Why the other choices are wrong:**\n- A: One transect's figures cannot establish a relationship across belt widths.\n- C: Comparing only the widest and narrowest belts skips the intermediate values that show the relation holds throughout.\n- D: Saying the transects differ from one another concedes variation without connecting it to belt width at all."
+          "explanation": "**Choice B is correct.** A consistent relationship has to hold at every step, not just at the ends, and B shows it does: each rise in elevation comes with a lower boiling point, from 212°F at sea level down to 193°F at 10,000 feet.\n\n**The Full Solution:**\n- The claim is about a consistent pattern across all the elevations: the higher the elevation, the lower the boiling point.\n- Choice B walks through every row in order, showing the boiling point dropping at each step.\n\n**Why the other choices are wrong:**\n- A: A single value cannot show a relationship between two quantities.\n- C: Comparing only the two extremes does not show that the pattern holds at the elevations in between.\n- D: Saying the values differ does not say in which direction they change, so it cannot support the claim.",
+          "_meta": {
+            "anchor": "boiling point of water vs elevation (CSU Extension) — CoE-quant: consistent inverse relationship",
+            "sources": [
+              "https://foodsmartcolorado.colostate.edu/recipes/cooking-and-baking/high-elevation-food-preparation-guide",
+              "https://routt.extension.colostate.edu/wp-content/uploads/sites/4/2018/05/High-Altitude-Food-Perperation-Guide.pdf"
+            ]
+          }
         },
         {
           "id": 838,
@@ -1371,28 +1524,35 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "An ordinary player-piano roll stored only the notes; loudness and shading were left to the person pumping the pedals. The reproducing piano, introduced in the early twentieth century, went further. Its rolls were made from a particular pianist's playing, and alongside the note slots ran additional perforations encoding that pianist's dynamics and pedaling. Played on a suitably equipped instrument, such a roll restored not just the notes of a performance but its individual character.",
-          "question": "According to the text, what allowed a reproducing roll to preserve an individual pianist's performance?",
+          "passage": "One day in September 1991, two hikers high in the Ötztal Alps, near the border between Austria and Italy, saw part of a human body sticking out of glacier ice. Scientists later found that the man had lived more than 5,300 years ago, and a copper axe, leather clothing, and other belongings lay with him. He is the oldest natural human mummy known in Europe. His remains survived for so long because they lay sealed in glacier ice, which kept them frozen and spared them the decay that destroys most remains.",
+          "question": "According to the text, what allowed the man's remains to survive for more than five thousand years?",
           "choices": [
             {
               "id": "A",
-              "text": "The owner of the instrument could adjust the roll's speed while it played."
+              "text": "People living nearby buried the man in a stone tomb high in the mountains."
             },
             {
               "id": "B",
-              "text": "Additional perforations on the roll encoded the pianist's dynamics and pedaling alongside the notes."
+              "text": "Glacier ice sealed the remains and kept them frozen, sparing them from decay."
             },
             {
               "id": "C",
-              "text": "The reproducing instruments used larger bellows that produced stronger suction than ordinary player pianos."
+              "text": "The dry desert air of the region slowly dried out the man's body."
             },
             {
               "id": "D",
-              "text": "Editors corrected the timing of each roll by hand after the pianist's recording session."
+              "text": "The man's leather clothing had been treated with substances that prevent rotting."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The text states it directly: alongside the note slots, reproducing rolls carried additional perforations that encoded the pianist's dynamics and pedaling, and that is what let a roll preserve an individual performance.\n\n**The Full Solution:**\n- The question asks what the text says allowed reproducing rolls to capture a particular pianist's playing.\n- The text contrasts ordinary rolls (notes only, expression left to the person pumping the pedals) with reproducing rolls.\n- The stated difference: extra perforations recording loudness and pedaling — choice B.\n\n**Why the other choices are wrong:**\n- A: The text never mentions adjusting a roll's speed.\n- C: The text does not attribute the capture to larger bellows or stronger suction.\n- D: The text says the rolls were made from a pianist's actual playing, not corrected afterward by editors."
+          "explanation": "**Choice B is correct.** The text explains that the man's remains survived because they lay sealed in glacier ice, which kept them frozen and spared them the decay that destroys most remains.\n\n**The Full Solution:**\n- The text reports that the man lived more than 5,300 years ago.\n- It then gives the cause of his remains' survival: they \"lay sealed in glacier ice, which kept them frozen and spared them the decay that destroys most remains.\"\n- Choice B names that cause.\n\n**Why the other choices are wrong:**\n- A: The text never says anyone buried the man; his body was found in glacier ice.\n- C: The text describes ice high in the Alps, not dry desert air.\n- D: The text mentions leather clothing but says nothing about any treatment that prevents rotting.",
+          "_meta": {
+            "anchor": "Iceman found 1991 in the Otztal Alps glacier (lived >5,300 years ago; Europe oldest natural human mummy) - CID detail: preserved by glacier ice",
+            "sources": [
+              "https://en.wikipedia.org/wiki/%C3%96tzi",
+              "https://www.iceman.it/en/the-iceman/"
+            ]
+          }
         },
         {
           "id": 843,
@@ -1406,7 +1566,7 @@ export const practiceTest8RW = {
           "choices": [
             {
               "id": "A",
-              "text": "harm only the farm whose turn immediately followed the violator's."
+              "text": "harm only the farm whose turn came immediately after the violator's, leaving every other farm's schedule unchanged."
             },
             {
               "id": "B",
@@ -1418,7 +1578,7 @@ export const practiceTest8RW = {
             },
             {
               "id": "D",
-              "text": "lead the community to abandon the rotation altogether and to divide the canal's water into fixed shares that individual farms could hold permanently."
+              "text": "lead the community to abandon the rotation and divide the canal's water into permanent fixed shares."
             }
           ],
           "correctAnswer": "C",
@@ -1431,28 +1591,35 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "A team of biomechanics researchers filmed circus acrobats through hundreds of practice somersaults, tracking each performer from takeoff to landing. The measurements taken at launch, including speed, angle, and initial spin, overlapped almost completely between somersaults that landed cleanly and those that failed. The two groups separated in the air: successful attempts showed the tuck drawn in within a consistent fraction of a second and the body opened out again at a repeatable point in the descent. Landing or falling, the researchers concluded, depends less on takeoff than on the precision of what follows it.",
+          "passage": "African wild dogs were long described as endurance hunters that run prey down over many kilometers. To test that view, researchers fitted dogs in northern Botswana with collars that recorded their position and movement, capturing 1,119 high-speed chases. Most chases were short, with a median distance of about 320 meters, and most did not end in a kill. Yet because the dogs hunted as a pack and shared their kills, the food they gained far outweighed the energy the many short chases cost. Success, the researchers concluded, came less from long pursuits than from frequent, opportunistic group hunting.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "The strength of an acrobat's initial jump is the best predictor of whether a somersault will succeed."
+              "text": "African wild dogs succeed mainly as endurance hunters that run their prey down over many kilometers."
             },
             {
               "id": "B",
-              "text": "Acrobats could avoid most failed landings by adopting training routines that concentrate on strengthening the legs and increasing the height and power of the initial jump."
+              "text": "The wild dogs of northern Botswana hunt alone more often than wild dogs elsewhere in Africa do."
             },
             {
               "id": "C",
-              "text": "Measurements of acrobats' somersaults indicate that success depends less on launch power than on precisely timed control of body position in the air."
+              "text": "Tracking data show that wild dogs succeed through frequent short group chases rather than long pursuits."
             },
             {
               "id": "D",
-              "text": "Circus acrobats complete somersaults with greater rotational speed than competitive divers achieve."
+              "text": "African wild dogs reach higher top speeds during their chases than any other predator living in Botswana."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** Every observation in the text converges on one conclusion, stated at the end: what separates successful somersaults is control of body shape in the air more than the raw power of the jump.\n\n**The Full Solution:**\n- The researchers filmed hundreds of practice somersaults and measured speed, angle, and spin at launch.\n- The key finding: launch measurements of successful and failed attempts overlapped almost completely, while the timing of the tuck and the opening-out did not.\n- The text's main idea is that airborne control, not launch power, distinguishes the successful attempts — choice C.\n\n**Why the other choices are wrong:**\n- A: The text reports that launch measurements barely differed between successful and failed attempts.\n- B: Training methods are never discussed, only measurements of performance.\n- D: The comparison with divers appears nowhere in the text."
+          "explanation": "**Choice C is correct.** The text tests an old view of wild dogs as long-distance hunters and reports tracking data showing that their success comes instead from many short chases made as a pack, the main idea stated in C.\n\n**The Full Solution:**\n- The text opens with the traditional view: wild dogs \"run prey down over many kilometers.\"\n- The collar data contradict it: chases were short (median about 320 meters) and mostly failed, yet group hunting and shared kills made the strategy pay off.\n- The last sentence states the conclusion: success came \"less from long pursuits than from frequent, opportunistic group hunting,\" which choice C restates.\n\n**Why the other choices are wrong:**\n- A: This is the older view that the tracking data challenge.\n- B: The text says the dogs hunted as a pack and never compares them with dogs elsewhere.\n- D: The text gives no comparison of top speeds with other predators.",
+          "_meta": {
+            "anchor": "African wild dog hunting (GPS collars, Botswana, 2016) — CID: success depends less on A than on B",
+            "sources": [
+              "https://pmc.ncbi.nlm.nih.gov/articles/PMC4820543",
+              "https://research.birmingham.ac.uk/en/publications/energy-cost-and-return-for-hunting-in-african-wild-dogs-and-cheet/"
+            ]
+          }
         },
         {
           "id": 842,
@@ -1461,12 +1628,12 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "inferences",
-          "passage": "A flooded taro terrace is engineered around moving water: the flow enters at the top of the hillside, threads down from terrace to terrace, and rejoins the stream below, so that the water standing over the plants is continually replaced and stays cool. Where the circulation fails and water merely pools, it warms in the sun, and rot spreads quickly through the submerged corms no matter how generously the terrace is supplied. Growers have long observed that terraces fed by quite modest flows stay healthy for season after season, provided the water never stops moving. These observations suggest that ______",
+          "passage": "A flooded taro terrace is engineered around moving water. The flow enters at the top of the hillside, threads down from terrace to terrace, and rejoins the stream below, so the water standing over the plants is continually replaced and stays cool. Where the circulation fails and water merely pools, it warms in the sun, and rot spreads quickly through the submerged corms no matter how generously the terrace is supplied. Growers have long observed that terraces fed by quite modest flows stay healthy for season after season, provided the water never stops moving. These observations suggest that ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
               "id": "A",
-              "text": "a terrace's health depends on the steady movement and coolness of its water rather than simply on how much water it receives."
+              "text": "a terrace's health depends on the steady movement and coolness of its water rather than on how much water it receives."
             },
             {
               "id": "B",
@@ -1478,7 +1645,7 @@ export const practiceTest8RW = {
             },
             {
               "id": "D",
-              "text": "only terraces supplied with large and steadily increasing volumes of water from their feeder streams can remain productive over many consecutive growing seasons."
+              "text": "only terraces supplied with large and steadily increasing volumes of water from their streams can stay productive for many seasons."
             }
           ],
           "correctAnswer": "A",
@@ -1491,28 +1658,35 @@ export const practiceTest8RW = {
           "band": 4,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "For generations the order of turns on the canal lived only in memory and custom. In 1435, after a season of quarrels, the town council ______ the rotation in a written ordinance, fixing each farm's hours by name; the document remained the authority for water disputes in the valley for more than two centuries.",
+          "passage": "For centuries Britain followed the Julian calendar, which had drifted out of step with the seasons. In 1752, under an act passed two years earlier, the country ______ the Gregorian calendar, and the day after Wednesday, September 2, became Thursday, September 14.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "records"
+              "text": "adopts"
             },
             {
               "id": "B",
-              "text": "has recorded"
+              "text": "has adopted"
             },
             {
               "id": "C",
-              "text": "recorded"
+              "text": "adopted"
             },
             {
               "id": "D",
-              "text": "will record"
+              "text": "will adopt"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The sentence reports a completed action at a stated past date — 1435 — so the verb must be the simple past \"recorded.\"\n\n**The Full Solution:**\n- The time marker \"In 1435\" fixes the action at a specific moment in the past.\n- The surrounding narrative is likewise past: the ordinance \"fixed\" each farm's hours and \"remained\" in force.\n- A single completed past action at a named date takes the simple past: \"the council recorded the rotation in a written ordinance.\"\n\n**Why the other choices are wrong:**\n- A: \"Records\" is present tense and clashes with the dated past event.\n- B: \"Has recorded\" is present perfect, which suits an unspecified time reaching the present, not an action pinned to 1435.\n- D: \"Will record\" points to the future and cannot report what happened at a past date."
+          "explanation": "**Choice C is correct.** The sentence reports a completed event in 1752, and the other verbs in the passage (\"followed,\" \"had drifted,\" \"became\") are in the past tense, so the simple past \"adopted\" is required.\n\n**The Full Solution:**\n- The time marker \"In 1752\" places the action in the past.\n- The same sentence continues with the past-tense \"became,\" so the verbs must match.\n- \"Adopted\" is the simple past and fits both the date and the surrounding verbs.\n\n**Why the other choices are wrong:**\n- A: \"Adopts\" is present tense, which clashes with \"In 1752\" and with \"became.\"\n- B: \"Has adopted\" is present perfect, which links the action to the present and cannot be used with a specific past date like 1752.\n- D: \"Will adopt\" is future tense, which contradicts the past setting of the passage.",
+          "_meta": {
+            "anchor": "Britain adopts the Gregorian calendar in 1752 — simple past tense",
+            "sources": [
+              "https://en.wikipedia.org/wiki/Calendar_(New_Style)_Act_1750",
+              "https://www.amusingplanet.com/2020/08/why-britain-lost-11-days-in-september.html"
+            ]
+          }
         },
         {
           "id": 848,
@@ -1521,28 +1695,35 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "Because a loaded boat traveled only as fast as the horse on the towpath could ______ canal carriers promised their customers delivery in days rather than hours, and the trade settled into the unhurried cargoes — coal, grain, brick, and clay — for which the calendar mattered more than the clock.",
+          "passage": "Because a sloth's coarse hair soaks up water ______ green algae can grow in its fur, giving the animal a greenish tint that may help it blend into the leaves of the rainforest canopy.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "walk,"
+              "text": "easily,"
             },
             {
               "id": "B",
-              "text": "walk"
+              "text": "easily"
             },
             {
               "id": "C",
-              "text": "walk;"
+              "text": "easily;"
             },
             {
               "id": "D",
-              "text": "walk:"
+              "text": "easily:"
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The sentence opens with a dependent \"Because...\" clause, which must be joined to the main clause with a comma.\n\n**The Full Solution:**\n- The opening clause — \"Because a loaded boat traveled only as fast as the horse on the towpath could walk\" — is dependent and cannot stand alone.\n- The main clause follows: \"canal carriers promised their customers delivery in days rather than hours.\"\n- The conventional boundary between an introductory dependent clause and the main clause is a comma.\n\n**Why the other choices are wrong:**\n- B: Omitting the comma runs the dependent clause straight into the main clause without a boundary.\n- C: A semicolon requires an independent clause on each side, and the \"Because\" clause is not one.\n- D: A colon likewise needs a complete clause before it; placing one after the fragment strands it."
+          "explanation": "**Choice A is correct.** The sentence opens with a dependent clause beginning with \"Because,\" and a comma conventionally separates such an introductory clause from the main clause that follows.\n\n**The Full Solution:**\n- \"Because a sloth's coarse hair soaks up water easily\" is a dependent clause; it cannot stand alone.\n- \"Green algae can grow in its fur...\" is the main clause.\n- A comma after \"easily\" marks where the introductory clause ends and the main clause begins.\n\n**Why the other choices are wrong:**\n- B: Without a comma, the introductory clause runs into the main clause, and the reader cannot tell where one ends.\n- C: A semicolon joins two independent clauses, but the \"Because\" clause cannot stand on its own.\n- D: A colon must follow a complete independent clause, and the \"Because\" clause is not one.",
+          "_meta": {
+            "anchor": "algae in sloth fur — comma after an introductory Because clause",
+            "sources": [
+              "https://pmc.ncbi.nlm.nih.gov/articles/PMC2858742",
+              "https://blogs.biomedcentral.com/on-biology/2010/04/14/sloth-fur-has-symbiotic-relationship-with-green-algae"
+            ]
+          }
         },
         {
           "id": 845,
@@ -1551,28 +1732,35 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "Cut into the hillside in stepped platforms and fed by water led down from mountain streams, the taro terraces ______ generations of farmers from a single engineered slope, their pondfields yielding harvests year after year where unterraced ground would have shed both water and soil.",
+          "passage": "Built up from the seafloor by eruptions that lasted from 1963 to 1967, the island of Surtsey, off the southern coast of Iceland, ______ a natural laboratory where scientists have watched plants and animals colonize new land.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "to support"
+              "text": "to become"
             },
             {
               "id": "B",
-              "text": "supporting"
+              "text": "becoming"
             },
             {
               "id": "C",
-              "text": "having supported"
+              "text": "having become"
             },
             {
               "id": "D",
-              "text": "supported"
+              "text": "became"
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The sentence's subject, \"the terraces,\" still needs its main verb, and only \"supported\" is a finite verb that can carry the sentence.\n\n**The Full Solution:**\n- The long opening is all modifier: \"Cut into the hillside in stepped platforms and fed by water led down from mountain streams\" describes the terraces but contains no main verb.\n- The frame \"the terraces ______ generations of farmers\" therefore requires a finite verb at the blank.\n- \"Supported\" completes a grammatical sentence: the terraces supported generations of farmers from a single engineered slope.\n\n**Why the other choices are wrong:**\n- A: \"To support\" is an infinitive; the sentence would be left with no main verb at all.\n- B: \"Supporting\" is a participle and likewise cannot serve as the sentence's main verb.\n- C: \"Having supported\" is a perfect participle — still not finite, so the sentence would remain a fragment."
+          "explanation": "**Choice D is correct.** The sentence's subject, \"the island of Surtsey,\" needs a main verb, and only the finite past-tense verb \"became\" supplies one.\n\n**The Full Solution:**\n- The opening phrase, \"Built up from the seafloor by eruptions that lasted from 1963 to 1967,\" is a modifier; it cannot serve as the sentence's verb.\n- The subject is \"the island of Surtsey,\" and the blank must give it a verb.\n- \"Became\" is a finite verb, so the sentence reads: \"the island of Surtsey ... became a natural laboratory.\"\n\n**Why the other choices are wrong:**\n- A: \"To become\" is an infinitive, which cannot serve as a sentence's main verb.\n- B: \"Becoming\" is a participle; without a helping verb it leaves the sentence with no main verb.\n- C: \"Having become\" is also a participle phrase and leaves the sentence without a main verb.",
+          "_meta": {
+            "anchor": "Surtsey (1963-1967 eruption, natural laboratory) — finite verb after a long participial opener",
+            "sources": [
+              "https://en.wikipedia.org/wiki/Surtsey",
+              "https://whc.unesco.org/en/list/1267/"
+            ]
+          }
         },
         {
           "id": 846,
@@ -1581,7 +1769,7 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "However high the flyer soars, the trick is caught at one point in space and one moment in time. The flyer's timing must answer to one constraint above ______ the catcher's hands reach the meeting point only once in each swing, and a release timed for any other instant finds them out of reach.",
+          "passage": "Each dry season, the shallow pools where the West African lungfish lives can disappear entirely. The fish survives by relying on one strategy above ______ it burrows into the mud and seals itself inside a hardened cocoon of mucus until the rains return.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1602,7 +1790,14 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The first clause is independent and announces something to be specified — a single constraint — and a colon is the conventional mark that introduces the specification.\n\n**The Full Solution:**\n- \"The flyer's timing must answer to one constraint above all\" is a complete clause that points forward: the reader now expects the constraint itself.\n- What follows names it — the catcher's hands reach the meeting point only once in each swing.\n- A colon after an independent clause introduces exactly this kind of elaboration.\n\n**Why the other choices are wrong:**\n- A: A comma cannot join two independent clauses; the result is a comma splice.\n- B: With no mark, the two clauses fuse into a run-on.\n- C: \"all, but\" inserts a contrast conjunction, yet the second clause specifies the constraint rather than opposing it."
+          "explanation": "**Choice D is correct.** The words before the blank form a complete independent clause that announces \"one strategy,\" and the words after it explain what that strategy is. A colon is the conventional mark for introducing such an explanation.\n\n**The Full Solution:**\n- \"The fish survives by relying on one strategy above all\" is a complete clause that points ahead to the strategy.\n- \"It burrows into the mud and seals itself inside a hardened cocoon of mucus until the rains return\" spells that strategy out.\n- A colon joins a complete clause to the explanation it introduces.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses creates a comma splice.\n- B: With no punctuation, the two clauses run together.\n- C: \"But\" signals a contrast, yet the second clause explains the strategy rather than contradicting it.",
+          "_meta": {
+            "anchor": "West African lungfish aestivation in a mucus cocoon — colon after an independent clause",
+            "sources": [
+              "https://en.wikipedia.org/wiki/West_African_lungfish",
+              "https://education.nationalgeographic.org/resource/west-african-lungfish"
+            ]
+          }
         },
         {
           "id": 847,
@@ -1611,28 +1806,35 @@ export const practiceTest8RW = {
           "band": 4,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "A court reporter's greatest asset was often a private one. Compiled stroke by stroke from years of courtroom practice, ______, and young reporters would copy such collections by hand, absorbing shortcuts that no published manual taught.",
+          "passage": "The first edition of the great Oxford dictionary of English relied on volunteer readers, who copied out examples of words in use onto paper slips. Assembled over seven decades from the quotation slips these readers mailed in, ______.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "the last reporters trained in the old pen systems inherited the stenographer's dictionary of brief forms"
+              "text": "the editors finally published the complete dictionary in 1928"
             },
             {
               "id": "B",
-              "text": "collecting the forms into a dictionary occupied the stenographer's final years"
+              "text": "completing the dictionary took its editors until 1928"
             },
             {
               "id": "C",
-              "text": "the stenographer's dictionary of brief forms preserved the accumulated speed of a working lifetime"
+              "text": "the dictionary was finally published in full in 1928"
             },
             {
               "id": "D",
-              "text": "there were hundreds of brief forms recorded in the stenographer's dictionary"
+              "text": "there were ten bound volumes in the finished dictionary"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The opening modifier — \"Compiled stroke by stroke from years of courtroom practice\" — must attach to the thing that was compiled, and only choice C makes that thing, the stenographer's dictionary of brief forms, the subject.\n\n**The Full Solution:**\n- An introductory participial phrase modifies the subject of the clause that follows.\n- What was compiled stroke by stroke? The dictionary of brief forms — so \"the stenographer's dictionary\" must stand immediately after the comma.\n- Choice C supplies it: \"the stenographer's dictionary of brief forms preserved the accumulated speed of a working lifetime.\"\n\n**Why the other choices are wrong:**\n- A: It makes \"the last reporters trained in the old pen systems\" the subject, absurdly casting them as what was compiled.\n- B: It hangs the modifier on the gerund phrase \"collecting the forms,\" leaving the compiled thing itself displaced from subject position.\n- D: The expletive \"there were\" gives the modifier no subject at all to attach to, leaving it dangling."
+          "explanation": "**Choice C is correct.** The opening modifier, \"Assembled over seven decades from the quotation slips these readers mailed in,\" must describe the noun that comes right after the comma. Only the dictionary was assembled from slips, so \"the dictionary\" must begin the main clause.\n\n**The Full Solution:**\n- Ask what was \"assembled over seven decades from the quotation slips\": the dictionary.\n- A modifying phrase like this attaches to the subject that immediately follows it.\n- Choice C places \"the dictionary\" right after the comma, so the modifier describes the right thing.\n\n**Why the other choices are wrong:**\n- A: This makes \"the editors\" the thing assembled from quotation slips, which is illogical.\n- B: This puts the phrase \"completing the dictionary\" in the subject position, so the modifier describes an action rather than the dictionary.\n- D: \"There\" is not a noun the modifier can describe, so the opening phrase is left dangling.",
+          "_meta": {
+            "anchor": "Oxford English Dictionary first edition (1857-1928, volunteer quotation slips) — dangling modifier",
+            "sources": [
+              "https://en.wikipedia.org/wiki/Oxford_English_Dictionary",
+              "https://archives.oup.com/featured-collection-1/"
+            ]
+          }
         },
         {
           "id": 844,
@@ -1641,7 +1843,7 @@ export const practiceTest8RW = {
           "band": 4,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "Early growers assumed a cranberry bog needed nothing more than acid peat and abundant ______ the great yields came only after growers began spreading a thin layer of sand over the vines every few winters, a practice that anchors new runners and buries the insects that overwinter in the leaf litter.",
+          "passage": "Many European maps of the 1600s showed California as an island, separated from the rest of North America by a long strait of ______ overland journeys made around 1700 showed that California was in fact joined to the continent.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1662,7 +1864,14 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** Two independent clauses meet at the blank, and the second opens with the conjunctive adverb \"however\" — the conventional boundary is a semicolon before \"however\" and a comma after it.\n\n**The Full Solution:**\n- Clause one is complete: \"Early growers assumed a cranberry bog needed nothing more than acid peat and abundant water.\"\n- Clause two is also complete: \"the great yields came only after growers began spreading sand over the vines.\"\n- \"However\" linking two independent clauses takes a semicolon before it and a comma after: \"water; however,\".\n\n**Why the other choices are wrong:**\n- A: \"water, however\" splices the two independent clauses with only a comma.\n- C: \"water however,\" runs the clauses together with no boundary before the adverb at all.\n- D: \"water, however;\" puts the marks in reverse order, stranding the semicolon where the clause has not yet ended."
+          "explanation": "**Choice B is correct.** Two independent clauses meet at the blank, and the second opens with the conjunctive adverb \"however.\" A semicolon must separate the clauses, and a comma follows \"however.\"\n\n**The Full Solution:**\n- Clause one: \"Many European maps of the 1600s showed California as an island, separated from the rest of North America by a long strait of water.\"\n- Clause two: \"however, overland journeys made around 1700 showed that California was in fact joined to the continent.\"\n- \"However\" is not a coordinating conjunction, so it cannot join the clauses with a comma; the semicolon does the joining, and the comma sets off \"however.\"\n\n**Why the other choices are wrong:**\n- A: A comma before \"however\" creates a comma splice between two independent clauses.\n- C: With no punctuation before \"however,\" the two clauses run together.\n- D: The semicolon after \"however\" attaches the adverb to the first clause, where it makes no sense, and leaves the contrast unmarked at the true boundary.",
+          "_meta": {
+            "anchor": "Island of California map myth — semicolon + however + comma",
+            "sources": [
+              "https://raremaps.com/gallery/detail/50639",
+              "https://en.wikipedia.org/wiki/Island_of_California"
+            ]
+          }
         },
         {
           "id": 850,
@@ -1671,7 +1880,7 @@ export const practiceTest8RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "The physiologist Étienne-Jules Marey wanted to analyze the flight of birds, but a single wingbeat passes far too quickly for the eye to follow. ______ in 1882 he built a \"chronophotographic gun,\" a camera shaped like a rifle that could take twelve photographs in one second as he tracked a bird across the sky.",
+          "passage": "Ordinary radio signals travel easily through air but are quickly absorbed by seawater, which conducts electricity. ______ navies that need to reach submerged submarines use very low frequency radio waves, which can penetrate seawater to depths of a few tens of meters.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1692,7 +1901,14 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** Marey built his camera because the wingbeat was too fast for the eye, so the final sentence reports a response to the problem just described, and a cause-and-effect transition is required.\n\n**The Full Solution:**\n- The first sentence sets out a problem: Marey wanted to study bird flight, but a wingbeat is too fast to see.\n- The final sentence gives his response: a rifle-shaped camera that took twelve photographs a second.\n- The camera is a consequence of the problem, marked by \"Consequently.\"\n\n**Why the other choices are wrong:**\n- A: \"In fact,\" introduces an intensification or correction of the previous claim, not a response to it.\n- C: \"Nevertheless,\" would signal an action taken despite the problem, but the camera was built because of it.\n- D: \"Similarly,\" promises a parallel point, but building the camera is not like the problem; it answers it."
+          "explanation": "**Choice B is correct.** The first sentence states a limitation (seawater quickly absorbs ordinary radio signals), and the second reports what navies do because of it, so a cause-and-effect transition is required.\n\n**The Full Solution:**\n- The first sentence sets up the problem: ordinary radio signals do not get far through seawater.\n- The second sentence gives the response that problem forces: a special kind of radio wave that can reach submarines below the surface.\n- \"Consequently,\" marks the second sentence as the result of the first.\n\n**Why the other choices are wrong:**\n- A: \"In fact,\" would introduce a sharper restatement of the previous point, but the second sentence reports a response to it.\n- C: \"Nevertheless,\" signals that something happens despite the previous point, but the navies' choice follows directly from the problem.\n- D: \"Similarly,\" signals a parallel example, but the second sentence is a consequence, not a comparison.",
+          "_meta": {
+            "anchor": "seawater absorbs radio -> VLF communication with submarines — Consequently",
+            "sources": [
+              "https://en.wikipedia.org/wiki/Communication_with_submarines",
+              "https://en.wikipedia.org/wiki/Very_low_frequency"
+            ]
+          }
         },
         {
           "id": 851,
@@ -1701,7 +1917,7 @@ export const practiceTest8RW = {
           "band": 4,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "Even at a walking pace, the canal boat held a great advantage over the road: on still water, one horse could move a load that would have needed many teams on land. ______ a horse that could draw only about five-eighths of a ton in a cart on a soft road could pull up to thirty tons in a boat on a canal.",
+          "passage": "The Arctic tern makes one of the longest migrations of any animal, flying each year between its Arctic breeding grounds and the waters around Antarctica. ______ when researchers fitted terns from Greenland and Iceland with tiny tracking devices in a study published in 2010, the birds' migrations averaged about 70,900 kilometers a year.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1722,7 +1938,14 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The second sentence moves from the general claim (one horse could move far more on water) to the precise figures behind it, and \"Specifically,\" is the transition that introduces exactly that sharpening.\n\n**The Full Solution:**\n- Sentence one makes a general point: on still water, one horse could move a load that would need many teams on land.\n- Sentence two supplies the particulars: about five-eighths of a ton in a cart on a soft road against up to thirty tons in a canal boat.\n- Moving from a claim to the exact detail behind it calls for \"Specifically.\"\n\n**Why the other choices are wrong:**\n- B: \"Alternatively,\" offers a different option, but the second sentence details the first rather than offering a substitute for it.\n- C: \"As a result,\" would make the figures a consequence of the claim, though they are its content.\n- D: \"By contrast,\" signals opposition, and no opposing idea appears between the two sentences."
+          "explanation": "**Choice A is correct.** The first sentence makes a general claim (the Arctic tern's migration is one of the longest of any animal), and the second supplies a precise measurement of that migration. \"Specifically,\" introduces exact detail that sharpens a general claim.\n\n**The Full Solution:**\n- Sentence one: the tern makes \"one of the longest migrations of any animal.\"\n- Sentence two: tracking showed the birds' migrations averaged about 70,900 kilometers a year.\n- The second sentence gives the exact figure behind the general statement, which is what \"Specifically,\" signals.\n\n**Why the other choices are wrong:**\n- B: \"Alternatively,\" introduces another option, but the tracking result measures the same migration rather than offering a different one.\n- C: \"As a result,\" would make the measured distance a consequence of the migration being long, when it is the evidence for that claim.\n- D: \"By contrast,\" signals an opposing point, but the measurement confirms the first sentence.",
+          "_meta": {
+            "anchor": "Arctic tern migration (geolocator study, PNAS 2010) — Specifically (general claim then precise figure)",
+            "sources": [
+              "https://www.pnas.org/doi/10.1073/pnas.0909493107",
+              "https://nora.nerc.ac.uk/id/eprint/14091/"
+            ]
+          }
         },
         {
           "id": 852,
@@ -1731,7 +1954,7 @@ export const practiceTest8RW = {
           "band": 3,
           "domain": "expression-of-ideas",
           "skill": "transitions",
-          "passage": "In the early 1920s the player piano was a fixture of American parlors, and sales of the instrument peaked in 1924. ______ improved phonograph records and the radio offered music that asked still less of listeners, and after the stock market crash of 1929, player-piano production all but ceased.",
+          "passage": "Drive-in movie theaters spread quickly across the United States after World War II, and by 1958 there were more than 4,000 of them. ______ color television, cable, and home video drew audiences away, and by the 2010s only a few hundred drive-ins were still showing films.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1752,7 +1975,14 @@ export const practiceTest8RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The passage moves from the player piano's peak to its later decline, a development unfolding over the following years, and \"Eventually,\" marks that passage of time.\n\n**The Full Solution:**\n- The first sentence establishes the height of the boom: sales peaked in 1924.\n- The final sentence reports what came afterward: phonograph records and radio offered easier music, and production all but ceased after 1929.\n- The relation is a later stage following an earlier one, so a time transition fits.\n\n**Why the other choices are wrong:**\n- A: \"Instead,\" would require the decline to replace some alternative just mentioned, but no alternative has been set up.\n- B: \"For example,\" would make the decline an illustration of the boom, which is incoherent.\n- D: \"In other words,\" promises a restatement of the boom, not the reversal that actually follows."
+          "explanation": "**Choice C is correct.** The first sentence describes drive-ins at their peak, and the second describes how they declined over the following decades. \"Eventually,\" signals that the decline came later in time.\n\n**The Full Solution:**\n- The first sentence gives the high point: more than 4,000 drive-ins by 1958.\n- The second sentence moves forward through later decades: television, cable, and home video drew audiences away, and only a few hundred drive-ins remained by the 2010s.\n- A time transition that marks a later outcome is needed, and \"Eventually,\" does that.\n\n**Why the other choices are wrong:**\n- A: \"Instead,\" signals a replacement for something just mentioned, but the decline follows the peak rather than replacing it.\n- B: \"For example,\" would make the decline an illustration of the drive-ins' spread, which it is not.\n- D: \"In other words,\" signals a restatement, but the second sentence reports a new development.",
+          "_meta": {
+            "anchor": "US drive-in theaters peak (1958) and decline — Eventually",
+            "sources": [
+              "https://en.wikipedia.org/wiki/Drive-in_theater",
+              "https://www.pilotguides.com/articles/last-from-the-past-the-drive-in-theatre/"
+            ]
+          }
         },
         {
           "id": 853,
@@ -1764,35 +1994,42 @@ export const practiceTest8RW = {
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "Eadweard Muybridge and Étienne-Jules Marey both photographed rapid motion in the late nineteenth century.",
-              "Muybridge lined up a row of cameras, each triggered in sequence as the subject passed.",
-              "Muybridge's method produced a series of separate pictures.",
-              "Marey, a physiologist, used a single camera that exposed the same plate several times in rapid succession.",
-              "Marey's method layered successive instants of a movement onto one overlapping image."
+              "Handsaws cut wood with a row of sharp teeth along a steel blade.",
+              "Most European handsaws cut on the push stroke.",
+              "Japanese saws cut on the pull stroke.",
+              "Japanese saw blades are often thinner than those of traditional European saws.",
+              "A thinner blade can leave a narrower cut in the wood."
             ],
-            "goal": "The student wants to emphasize a difference between Muybridge's and Marey's photographic methods."
+            "goal": "The student wants to emphasize a difference between European and Japanese handsaws."
           },
           "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
           "choices": [
             {
               "id": "A",
-              "text": "Whereas Muybridge used a row of cameras to produce a series of separate pictures, Marey used a single camera that layered successive instants on one plate."
+              "text": "Whereas most European handsaws cut on the push stroke, Japanese saws cut on the pull stroke and often have thinner blades."
             },
             {
               "id": "B",
-              "text": "Muybridge set up a row of cameras beside a track, each one triggered in turn as his subject passed."
+              "text": "Handsaws, whether European or Japanese, cut wood with a row of sharp teeth along a steel blade."
             },
             {
               "id": "C",
-              "text": "Muybridge's sequences of separate pictures suited public lectures, while Marey's overlapping single-plate records served the precise measurements his physiological studies required."
+              "text": "Japanese saws cut on the pull stroke and often have thin blades, and a thinner blade can leave a narrower cut in wood."
             },
             {
               "id": "D",
-              "text": "Both Muybridge and Marey were drawn to movements that happen too quickly for the human eye to follow."
+              "text": "Most European handsaws cut on the push stroke, using a row of sharp teeth along a steel blade."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The goal demands the two methods set against each other, and A does it in one frame: Muybridge's row of cameras producing a series of separate pictures, Marey's single camera layering successive instants on one plate.\n\n**The Full Solution:**\n- Emphasizing a difference requires both photographers' methods in the same sentence, framed as a contrast.\n- Choice A's \"Whereas\" construction pairs the defining features — many cameras, separate images versus one camera, one overlaid plate — exactly as the notes describe them.\n\n**Why the other choices are wrong:**\n- B: It describes only Muybridge's arrangement and never mentions Marey.\n- C: It reports what each man's method suited without stating how the methods themselves differed.\n- D: It emphasizes what the two shared — an interest in motion too fast for the eye — rather than a difference."
+          "explanation": "**Choice A is correct.** The goal is a difference, and A sets the two kinds of saw side by side with \"Whereas\": European saws cut on the push stroke, while Japanese saws cut on the pull stroke and often have thinner blades.\n\n**The Full Solution:**\n- To emphasize a difference, the sentence must describe both kinds of saw and contrast them.\n- European handsaws: cut on the push stroke. Japanese saws: cut on the pull stroke, often with thinner blades.\n- Choice A states both and links them with a contrast word, which is exactly what the goal requires.\n\n**Why the other choices are wrong:**\n- B: It states something the two kinds of saw share, a similarity rather than a difference.\n- C: It describes only Japanese saws, with nothing to contrast them against.\n- D: It describes only European saws, so no difference appears.",
+          "_meta": {
+            "anchor": "European push saws vs Japanese pull saws — RS emphasize a difference",
+            "sources": [
+              "https://en.wikipedia.org/wiki/Japanese_saw",
+              "https://en.wikipedia.org/wiki/Saw"
+            ]
+          }
         },
         {
           "id": 854,
@@ -1804,35 +2041,42 @@ export const practiceTest8RW = {
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "A lo'i is a flooded terrace used in Hawai'i to grow taro, a starchy root crop.",
-              "Lo'i are built as stepped platforms cut into a hillside.",
-              "Water diverted from a stream flows through the terraces from top to bottom and then returns to the stream.",
-              "The continuous flow keeps the water cool, which protects taro from rot.",
-              "Some lo'i complexes have been farmed for hundreds of years."
+              "The okapi is a hoofed mammal of the Ituri rainforest in the Democratic Republic of the Congo.",
+              "It is the only living close relative of the giraffe.",
+              "Its body is dark brown, and its legs have horizontal white stripes.",
+              "From a distance, the stripes make it resemble a zebra.",
+              "European scientists first described the okapi in 1901, though local people had long known it."
             ],
-            "goal": "The student wants to introduce the lo'i to an audience unfamiliar with it."
+            "goal": "The student wants to introduce the okapi to an audience unfamiliar with it."
           },
           "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
           "choices": [
             {
               "id": "A",
-              "text": "Some lo'i complexes in the Hawaiian Islands have remained in continuous cultivation for hundreds of years, tended by one generation of farming families after another."
+              "text": "European scientists first described the okapi in 1901, although people living in the Ituri rainforest of central Africa had long known the animal."
             },
             {
               "id": "B",
-              "text": "Water diverted from a stream passes through the terraces from top to bottom before returning to the stream below."
+              "text": "From a distance, the okapi's dark brown body and white-striped legs make it resemble a zebra."
             },
             {
               "id": "C",
-              "text": "Because the water flowing through the terraces stays cool, the taro growing in them is protected from rot."
+              "text": "The okapi lives in the Ituri rainforest of the Democratic Republic of the Congo, in central Africa."
             },
             {
               "id": "D",
-              "text": "A lo'i is a flooded hillside terrace where Hawaiian farmers grow taro, a starchy root crop, in stream water that flows through continuously."
+              "text": "The okapi, a hoofed mammal of a central African rainforest, is the giraffe's only living close relative, though it has zebra-like striped legs."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** For a reader meeting the term for the first time, D does the essential work in one sentence: it defines the lo'i, names the crop, and explains the flowing water that makes the system function.\n\n**The Full Solution:**\n- An introduction for an unfamiliar audience must define the concept, not assume it.\n- Choice D states what a lo'i is (a flooded hillside terrace in Hawai'i), what it grows (taro), and the mechanism that sustains it (stream water flowing through continuously).\n\n**Why the other choices are wrong:**\n- A: It presumes the reader already knows what a lo'i is and reports only its longevity.\n- B: It describes the water's path without ever saying what a lo'i is or what it grows.\n- C: It states the cool-water benefit but leaves the term itself undefined for a newcomer."
+          "explanation": "**Choice D is correct.** An introduction for readers who have never heard of the okapi must say what the animal is and give its defining features. D does that in one sentence: a hoofed mammal of a central African rainforest, the giraffe's only living close relative, with zebra-like stripes.\n\n**The Full Solution:**\n- An unfamiliar audience first needs to know what kind of thing an okapi is and where it lives.\n- Choice D identifies it as a hoofed mammal of a central African rainforest, links it to a familiar animal (the giraffe), and notes its most striking feature (its striped legs).\n\n**Why the other choices are wrong:**\n- A: It reports when scientists described the okapi but never says what kind of animal it is.\n- B: It describes the okapi's appearance but not what the animal is or where it lives.\n- C: It gives only the okapi's location, leaving readers with no idea what the animal is.",
+          "_meta": {
+            "anchor": "okapi — RS introduce to an unfamiliar audience",
+            "sources": [
+              "https://en.wikipedia.org/wiki/Okapi",
+              "https://ultimateungulate.com/Artiodactyla/Okapia_johnstoni.html"
+            ]
+          }
         }
       ]
     }

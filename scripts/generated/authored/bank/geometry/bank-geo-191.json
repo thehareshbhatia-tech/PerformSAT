@@ -1,29 +1,29 @@
 {
   "id": "bank-geo-191",
-  "question": "A rectangular tank is $6p$ inches long, $5p$ inches wide, and $q$ inches tall. Water fills the tank to a depth of $(q - 3)$ inches. Which expression represents the volume, in cubic inches, of the water in the tank?",
+  "question": "A rectangular tank is $6p$ inches long, $5p$ inches wide, and $q$ inches tall. The tank is filled with water to $3$ inches below its top. Which expression represents the volume, in cubic inches, of the water in the tank?",
   "choices": [
     {
       "id": "A",
-      "text": "$30p^{2}q$"
+      "text": "$11p(q - 3)$"
     },
     {
       "id": "B",
-      "text": "$30p^{2}q - 3$"
+      "text": "$30p(q - 3)$"
     },
     {
       "id": "C",
-      "text": "$30p^{2}q - 90p^{2}$"
+      "text": "$30p^{2}(q - 3)$"
     },
     {
       "id": "D",
-      "text": "$11pq - 33p$"
+      "text": "$30p^{2}q$"
     }
   ],
   "correctAnswer": "C",
   "distractorNotes": {
-    "A": "uses the full height q instead of the water depth q - 3, giving the volume of the whole tank",
-    "B": "subtracts 3 from the tank's volume instead of multiplying the base area by q - 3",
-    "D": "adds the length and width, 6p + 5p, instead of multiplying them for the base area"
+    "A": "adds the length and the width, 6p + 5p, instead of multiplying them",
+    "B": "writes (6p)(5p) as 30p instead of 30p^2",
+    "D": "uses the full height of the tank, q, instead of the depth of the water, q - 3"
   },
-  "explanation": "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Water volume is base area times water depth: $(6p)(5p)(q - 3) = 30p^{2}q - 90p^{2}$.\n\n**The Full Solution:**\nStep 1: The base of the tank has area $(6p)(5p) = 30p^{2}$ square inches.\nStep 2: The water forms a rectangular prism with that base and a height equal to the depth, $q - 3$, so its volume is $30p^{2}(q - 3)$.\nStep 3: Distribute: $30p^{2}q - 90p^{2}$. Check: with $p = 1$ and $q = 10$, the water is $6$ by $5$ by $7$, so the volume is $210$, and $30(10) - 90 = 210$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($30p^{2}q$): uses the full height $q$, which gives the volume of the whole tank, not of the water.\n* Choice B ($30p^{2}q - 3$): subtracts $3$ from the volume instead of from the height. Removing $3$ inches of depth removes $30p^{2} \\cdot 3$ cubic inches.\n* Choice D ($11pq - 33p$): adds the length and width, $6p + 5p = 11p$, instead of multiplying them for the base area.\n\n**Test Day Takeaway:** A partly filled prism is still base area times height; use the water's depth as the height and distribute the base area across it."
+  "explanation": "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The water fills a prism $6p$ by $5p$ by $(q - 3)$ inches, so its volume is $(6p)(5p)(q - 3) = 30p^{2}(q - 3)$.\n\n**The Full Solution:**\nStep 1: The water reaches $3$ inches below the top of a tank that is $q$ inches tall, so the water is $(q - 3)$ inches deep.\nStep 2: The water has the same base as the tank: $(6p)(5p) = 30p^{2}$ square inches.\nStep 3: The volume of the water is base area times depth: $30p^{2}(q - 3)$. Check: if $p = 1$ and $q = 5$, the water is $6$ by $5$ by $2$ inches, with volume $60 = 30(1)^{2}(5 - 3)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($11p(q - 3)$): adds the length and the width instead of multiplying them.\n* Choice B ($30p(q - 3)$): writes $(6p)(5p)$ as $30p$; the product of $p$ and $p$ is $p^{2}$.\n* Choice D ($30p^{2}q$): gives the volume of the full tank, using the height $q$ instead of the water's depth.\n\n**Test Day Takeaway:** The volume of water in a container uses the depth of the water, not the height of the container."
 }

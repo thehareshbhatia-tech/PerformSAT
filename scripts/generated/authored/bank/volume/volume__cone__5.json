@@ -1,30 +1,30 @@
 {
- "id": 5,
- "question": "A right circular cone of radius $6$ centimeters and height $12$ centimeters is held vertex down and filled with water to a depth of $4$ centimeters. What is the volume, in cubic centimeters, of the water?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$\\frac{16}{3}\\pi$"
+  "id": 5,
+  "question": "The base of a right circular cone has a diameter of $8$ centimeters, and the cone is $15$ centimeters tall. What is the volume, in cubic centimeters, of the cone?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$80\\pi$"
+    },
+    {
+      "id": "B",
+      "text": "$240\\pi$"
+    },
+    {
+      "id": "C",
+      "text": "$320\\pi$"
+    },
+    {
+      "id": "D",
+      "text": "$960\\pi$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "leaves out the 1/3 in the cone formula",
+    "C": "uses the diameter, 8, as the radius",
+    "D": "uses the diameter as the radius and leaves out the 1/3"
   },
-  {
-   "id": "B",
-   "text": "$16\\pi$"
-  },
-  {
-   "id": "C",
-   "text": "$48\\pi$"
-  },
-  {
-   "id": "D",
-   "text": "$144\\pi$"
-  }
- ],
- "distractorNotes": {
-  "B": "scales the full volume 144pi by (1/3)^2 instead of (1/3)^3",
-  "C": "uses the depth 4 but keeps the full radius 6, computing (1/3)(pi)(36)(4) = 48pi",
-  "D": "gives the volume of the entire cone"
- },
- "correctAnswer": "A",
- "hint": "The surface of the water is a smaller circle than the top of the cone.",
- "explanation": "**Choice A is correct.**\n\n**The Fast Way (~40s):** The water forms a cone similar to the container with scale factor $\\frac{4}{12} = \\frac{1}{3}$, so its volume is $\\left(\\frac{1}{3}\\right)^{3}(144\\pi) = \\frac{16}{3}\\pi$.\n\n**The Full Solution:**\nStep 1: The full cone has volume $\\frac{1}{3}\\pi(6)^{2}(12) = 144\\pi$ cubic centimeters.\nStep 2: The water forms a smaller cone similar to the container. Its height is $\\frac{4}{12} = \\frac{1}{3}$ of the full height, so its radius is $\\frac{1}{3}(6) = 2$ centimeters.\nStep 3: The water's volume is $\\frac{1}{3}\\pi(2)^{2}(4) = \\frac{16}{3}\\pi$ cubic centimeters. Check: $\\left(\\frac{1}{3}\\right)^{3}(144\\pi) = \\frac{144}{27}\\pi = \\frac{16}{3}\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($16\\pi$): scales the full volume by $\\left(\\frac{1}{3}\\right)^{2}$, the area factor, instead of the volume factor $\\left(\\frac{1}{3}\\right)^{3}$.\n* Choice C ($48\\pi$): uses the water's depth of $4$ but keeps the container's radius of $6$; the water's surface is a circle of radius $2$.\n* Choice D ($144\\pi$): gives the volume of the whole cone, not the water.\n\n**Test Day Takeaway:** Liquid in a cone held vertex down forms a similar cone, so every length shrinks by the same factor and the volume shrinks by the cube of that factor."
+  "correctAnswer": "A",
+  "hint": "Halve the diameter before using $V = \\frac{1}{3}\\pi r^{2}h$.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~20s):** $r = 4$, so $V = \\frac{1}{3}\\pi(4)^{2}(15) = 80\\pi$.\n\n**The Full Solution:**\nStep 1: The radius is half the diameter: $r = \\frac{8}{2} = 4$ centimeters.\nStep 2: $V = \\frac{1}{3}\\pi r^{2}h = \\frac{1}{3}\\pi(16)(15)$.\nStep 3: So $V = \\frac{1}{3}\\pi(240) = 80\\pi$ cubic centimeters. Check: a cylinder with the same base and height holds $240\\pi$, and $\\frac{240\\pi}{3} = 80\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($240\\pi$): this is the volume of a cylinder with the same base and height; a cone holds $\\frac{1}{3}$ of that.\n* Choice C ($320\\pi$): this uses $8$ as the radius: $\\frac{1}{3}\\pi(64)(15) = 320\\pi$.\n* Choice D ($960\\pi$): this uses $8$ as the radius and leaves out the $\\frac{1}{3}$.\n\n**Test Day Takeaway:** Check whether a cone's radius or diameter is given, and keep the $\\frac{1}{3}$ in $V = \\frac{1}{3}\\pi r^{2}h$."
 }

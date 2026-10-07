@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-352",
-  "question": "A data set of lengths, in inches, has a mean of $9.6$ and a range of $2.5$. Each length is multiplied by $2.54$ to convert it to centimeters. What is the new range?",
+  "question": "A data set gives the lengths, in yards, of several ropes. The shortest rope is $4$ yards long, and the longest rope is $11$ yards long. What is the range of the lengths, in feet? ($1$ yard $= 3$ feet)",
   "choices": [
     {
       "id": "A",
-      "text": "$2.5$"
+      "text": "$7$"
     },
     {
       "id": "B",
-      "text": "$5.04$"
+      "text": "$21$"
     },
     {
       "id": "C",
-      "text": "$6.35$"
+      "text": "$33$"
     },
     {
       "id": "D",
-      "text": "$24.384$"
+      "text": "$45$"
     }
   ],
+  "correctAnswer": "B",
   "distractorNotes": {
-    "A": "leaves the range unchanged, applying the rule for adding a constant rather than for multiplying.",
-    "B": "adds the conversion factor, $2.5 + 2.54$, instead of multiplying by it.",
-    "D": "converts the mean, $9.6 \\times 2.54$, rather than the range."
+    "A": "finds the range in yards and does not convert to feet",
+    "C": "converts the longest length, 11(3), instead of the range",
+    "D": "adds the two lengths before converting: (11 + 4)(3)"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Scaling a Data Set**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The range scales with the values: $2.5 \\times 2.54 = 6.35$ centimeters.\n\n**The Full Solution:**\nStep 1: The range is the maximum minus the minimum.\nStep 2: Multiplying every length by $2.54$ multiplies both the maximum and the minimum by $2.54$, so their difference is multiplied by $2.54$ as well.\nStep 3: The converted range is $2.54 \\times 2.5 = 6.35$ centimeters. Check: a spread of $2.5$ inches is the same physical spread as $6.35$ centimeters ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.5$): leaves the range unchanged, applying the rule for adding a constant rather than for multiplying.\n* Choice B ($5.04$): adds the conversion factor, $2.5 + 2.54$, instead of multiplying by it.\n* Choice D ($24.384$): converts the mean, $9.6 \\times 2.54$, rather than the range.\n\n**Test Day Takeaway:** A unit conversion is a multiplication, so it scales the range and the standard deviation by the same factor as the values. The mean given in the stem is a decoy."
+  "explanation": "**SAT Pattern: Scaling a Data Set**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The range is $11 - 4 = 7$ yards, and $7$ yards is $7(3) = 21$ feet.\n\n**The Full Solution:**\nStep 1: The range is the longest length minus the shortest length: $11 - 4 = 7$ yards.\nStep 2: Converting to feet multiplies every length by $3$, so it multiplies the range by $3$.\nStep 3: The range is $7(3) = 21$ feet. Check: in feet the lengths run from $12$ to $33$, and $33 - 12 = 21$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): is the range in yards; the question asks for feet.\n* Choice C ($33$): is the longest rope in feet, not the range.\n* Choice D ($45$): adds the two lengths instead of subtracting them.\n\n**Test Day Takeaway:** The range is a difference of two values, so a change of units multiplies it by the conversion factor."
 }

@@ -24,15 +24,14 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The first sentence reports a common assumption — that the bore's danger lies in its height. The second corrects and sharpens it: the bore's speed \"is just as dangerous,\" since the wave can outpace a running person. Adding a less obvious truth that corrects a popular view is the home ground of \"In fact.\"\n\n**The Full Solution:**\n- Sentence 1 frames a popular assumption, flagged by \"often assume.\"\n- Sentence 2 supplies the fuller picture: the danger is real, but height is not its only source — speed matters as much.\n- \"In fact\" performs precisely that move — introducing the actual state of things against an assumption.\n\n**Why the other choices are wrong:**\n- B: \"Consequently\" would make the bore's speed a result of what visitors assume, an absurd causal link.\n- C: \"Granted\" concedes a point to an opposing view, but the second sentence corrects the first rather than yielding anything to it.\n- D: \"Meanwhile\" cordons the sentences into parallel, unrelated happenings, erasing the correction that connects them.",
- "passage": "Visitors to China's Qiantang River often assume that the danger of its famous tidal bore lies in the wave's height. ______ the bore's speed is just as dangerous: the wave can travel upriver at up to 40 kilometers per hour, faster than most people can run, leaving onlookers on the bank little time to retreat.",
+ "explanation": "**Choice A is correct.** The first sentence states a popular belief; the second gives the real situation, which corrects it: lemmings do not seek death at all. \"In fact\" introduces a statement of what is actually true in response to a belief.\n\n**The Full Solution:**\n- Belief: lemmings jump off cliffs together in \"acts of mass suicide.\"\n- Reality: lemmings \"do not seek death at all\"; some drown only while moving to find food.\n- The second sentence sets the record straight, which is the job \"in fact\" does.\n\n**Why the other choices are wrong:**\n- B: \"Consequently\" would mean the popular belief caused lemmings not to seek death, which makes no sense.\n- C: \"Granted\" concedes a point before an argument continues, but the second sentence rejects the belief rather than conceding anything to it.\n- D: \"Meanwhile\" signals something happening at the same time, not a correction of a belief.",
+ "passage": "A popular belief holds that lemmings, small rodents of the far north, leap off cliffs together in acts of mass suicide. ______ lemmings do not seek death at all. When their numbers grow very large, many leave crowded areas in search of food, and some drown while trying to cross rivers or lakes.",
  "_meta": {
-  "anchor": "tidal bores — Qiantang bore: speed (up to 40 km/h — Wikipedia, Qiantang River) as well as height makes it dangerous",
-  "transitionBucket": "transitions-example-emphasis",
+  "anchor": "lemming mass-suicide myth — lemmings disperse when numbers peak and some drown crossing water (Alaska Department of Fish and Game, Alaska Fish & Wildlife News; National Geographic, animal myths)",
   "distractors": {
-   "B": "absurd causation",
-   "C": "concession where correction is needed",
-   "D": "parallel-events reading severs the link"
+   "B": "false causation",
+   "C": "false concession",
+   "D": "false simultaneity"
   }
  },
  "id": 1150,

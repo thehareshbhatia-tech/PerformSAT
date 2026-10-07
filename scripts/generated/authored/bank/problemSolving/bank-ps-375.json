@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-375",
-  "question": "$A = P(1 + rt)$\nThe given equation gives the balance $A$ of an account after $t$ years, where $P$ is the amount deposited and $r$ is the annual simple interest rate. Which equation correctly expresses $r$ in terms of $A$, $P$, and $t$?",
+  "question": "The balance of a savings account was $\\$1{,}200$ at the end of month $4$ and $\\$1{,}272$ at the end of month $10$. The account earns the same amount of interest each month, and no deposits or withdrawals are made. How much interest, in dollars, does the account earn each month?",
   "choices": [
     {
       "id": "A",
-      "text": "$r = \\frac{A - P}{t}$"
+      "text": "$7.20$"
     },
     {
       "id": "B",
-      "text": "$r = \\frac{A - P}{Pt}$"
+      "text": "$12$"
     },
     {
       "id": "C",
-      "text": "$r = \\frac{A}{Pt} - 1$"
+      "text": "$18$"
     },
     {
       "id": "D",
-      "text": "$r = \\frac{t(A - P)}{P}$"
+      "text": "$72$"
     }
   ],
-  "distractorNotes": {
-    "A": "subtracts P but never divides by P, the factor that multiplies rt after distributing",
-    "C": "treats the equation as A = Pt(1 + r), dividing both sides by Pt and then subtracting 1",
-    "D": "multiplies by t in the last step instead of dividing by t"
-  },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Simple Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Distribute to get $A = P + Prt$, so $A - P = Prt$ and $r = \\frac{A - P}{Pt}$.\n\n**The Full Solution:**\nStep 1: Distribute $P$: $A = P + Prt$.\nStep 2: Subtract $P$ from both sides: $A - P = Prt$.\nStep 3: Divide both sides by $Pt$: $r = \\frac{A - P}{Pt}$. Check: with $P = 1{,}000$, $r = 0.05$, and $t = 2$, the balance is $A = 1{,}000(1.1) = 1{,}100$, and $\\frac{1{,}100 - 1{,}000}{1{,}000(2)} = 0.05$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($r = \\frac{A - P}{t}$): stops after dividing by $t$. The term $Prt$ also carries a factor of $P$, so the test values give $\\frac{100}{2} = 50$, not $0.05$.\n* Choice C ($r = \\frac{A}{Pt} - 1$): divides by $Pt$ as though the equation were $A = Pt(1 + r)$. The test values give $\\frac{1{,}100}{2{,}000} - 1 = -0.45$.\n* Choice D ($r = \\frac{t(A - P)}{P}$): multiplies by $t$ instead of dividing by it. The test values give $\\frac{2(100)}{1{,}000} = 0.2$.\n\n**Test Day Takeaway:** To solve a formula for one variable, distribute first, move every term without that variable to the other side, then divide by its coefficient. Test a choice with easy numbers when in doubt."
+  "distractorNotes": {
+    "A": "divides the increase by 10, the later month number, instead of by the 6 months that passed",
+    "C": "divides the increase by 4, the earlier month number",
+    "D": "reports the total increase over the 6 months"
+  },
+  "explanation": "**SAT Pattern: Simple Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The balance rose $1{,}272 - 1{,}200 = 72$ dollars in $10 - 4 = 6$ months, which is $\\frac{72}{6} = 12$ dollars per month.\n\n**The Full Solution:**\nStep 1: Find the increase in the balance: $1{,}272 - 1{,}200 = 72$ dollars.\nStep 2: Find the time that passed: from month $4$ to month $10$ is $6$ months.\nStep 3: Divide: $\\frac{72}{6} = 12$ dollars per month. Check: $1{,}200 + 6(12) = 1{,}272$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7.20$): divides by $10$; the account had already been open $4$ months at the first reading.\n* Choice C ($18$): divides by $4$, the month of the first reading.\n* Choice D ($72$): is the total increase; it still has to be divided by the $6$ months.\n\n**Test Day Takeaway:** A rate from two readings is change in amount over change in time; subtract the times, do not use either one alone."
 }

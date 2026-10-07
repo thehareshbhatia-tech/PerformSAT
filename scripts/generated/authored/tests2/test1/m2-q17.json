@@ -1,29 +1,29 @@
 {
  "id": 17,
- "question": "A bag contains $18$ marbles, and $6$ of the marbles are red. Two marbles will be selected at random from the bag, one after the other, without replacement. What is the probability that exactly one of the two selected marbles is red?",
+ "question": "A bag contains $15$ red marbles and $35$ blue marbles. Of the red marbles, $40\\%$ are large, and of the blue marbles, $20\\%$ are large. One of the large marbles will be selected at random. What is the probability of selecting a red marble?",
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{4}{17}$"
+   "text": "$\\frac{3}{25}$"
   },
   {
    "id": "B",
-   "text": "$\\frac{1}{3}$"
+   "text": "$\\frac{3}{10}$"
   },
   {
    "id": "C",
-   "text": "$\\frac{4}{9}$"
+   "text": "$\\frac{2}{5}$"
   },
   {
    "id": "D",
-   "text": "$\\frac{8}{17}$"
+   "text": "$\\frac{6}{13}$"
   }
  ],
  "correctAnswer": "D",
  "distractorNotes": {
-  "A": "counts only the red-then-not-red order and never adds the not-red-then-red order",
-  "B": "reports 6/18, the probability that a single selected marble is red",
-  "C": "treats the selections as independent, as if the first marble were replaced, computing 2(1/3)(2/3) = 4/9"
+  "A": "divides the 6 large red marbles by all 50 marbles instead of by the 13 large marbles",
+  "B": "gives 15/50, the probability of selecting a red marble from the whole bag",
+  "C": "gives 40%, the probability that a red marble is large, which reverses the condition"
  },
- "explanation": "**SAT Pattern: Probability Without Replacement**\n\n**Choice D is correct.**\n\n**The Fast Way (~50s):** Exactly one red can happen in two orders, each with probability $\\frac{6}{18} \\cdot \\frac{12}{17} = \\frac{4}{17}$. Adding the two orders gives $\\frac{8}{17}$.\n\n**The Full Solution:**\nStep 1: Red first, then not red: $\\frac{6}{18} \\cdot \\frac{12}{17} = \\frac{72}{306} = \\frac{4}{17}$. After one red marble is removed, $17$ marbles remain and $12$ of them are not red.\nStep 2: Not red first, then red: $\\frac{12}{18} \\cdot \\frac{6}{17} = \\frac{72}{306} = \\frac{4}{17}$.\nStep 3: The two orders cannot both happen, so add them: $\\frac{4}{17} + \\frac{4}{17} = \\frac{8}{17}$. Check by counting pairs: $\\frac{6 \\cdot 12}{\\binom{18}{2}} = \\frac{72}{153} = \\frac{8}{17}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{4}{17}$): counts only the red-then-not-red order and leaves out the not-red-then-red order.\n* Choice B ($\\frac{1}{3}$): this is $\\frac{6}{18}$, the probability that one selected marble is red, not the probability for a pair.\n* Choice C ($\\frac{4}{9}$): computes $2 \\cdot \\frac{1}{3} \\cdot \\frac{2}{3}$, as if the first marble were put back. Without replacement, the second selection is out of $17$ marbles.\n\n**Test Day Takeaway:** For \"exactly one\" without replacement, list every order, shrink the total by one for the second selection, and add the orders."
+ "explanation": "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** There are $0.40(15) = 6$ large red marbles and $0.20(35) = 7$ large blue marbles, so $13$ large marbles in all. The probability is $\\frac{6}{13}$.\n\n**The Full Solution:**\nStep 1: Large red marbles: $0.40(15) = 6$. Large blue marbles: $0.20(35) = 7$.\nStep 2: The marble is selected from the large marbles only, and there are $6 + 7 = 13$ of them.\nStep 3: Of these $13$ large marbles, $6$ are red, so the probability is $\\frac{6}{13}$. Check: the probability of selecting a blue marble is $\\frac{7}{13}$, and $\\frac{6}{13} + \\frac{7}{13} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{25}$): is $\\frac{6}{50}$, which divides by all $50$ marbles. The selection is made only from the $13$ large marbles.\n* Choice B ($\\frac{3}{10}$): is $\\frac{15}{50}$, the probability of selecting a red marble from the whole bag.\n* Choice C ($\\frac{2}{5}$): is $40\\%$, the fraction of red marbles that are large, which reverses the condition.\n\n**Test Day Takeaway:** In a conditional probability, the group the item is selected from is the denominator; count that group first."
 }

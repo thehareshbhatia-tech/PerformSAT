@@ -27,7 +27,7 @@ export const practiceTest9RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "At a general store a century ago, the candy case held dozens of kinds of sweets, and nearly every one of them sold for a single cent. For a child at the counter, the uniform price ______ the decision that followed: with every jar costing the same, the choice turned entirely on taste, never on what the coin in hand could cover.",
+      "passage": "At a general store a century ago, the candy case held dozens of kinds of sweets, and nearly every one of them sold for a single cent. For a child at the counter, the uniform price ______ the decision: with every jar costing the same, the choice turned entirely on taste, never on what the coin could cover.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "simplified" },
@@ -36,8 +36,10 @@ export const practiceTest9RWM2Easy = {
         { "id": "D", "text": "inflated" }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** With price removed from the question, only taste is left to weigh, so the blank needs a verb meaning made easier - \"simplified.\"\n\n**The Full Solution:**\n- How to spot it: the colon after the blank re-explains it. Whatever the uniform price did to the decision, the second half of the sentence spells out.\n- That second half says the choice \"turned entirely on taste, never on what the coin in hand could cover\" - one thing to think about instead of two.\n- Cutting a decision down from two questions to one is simplifying it, so \"simplified\" fits.\n\n**Why the other choices are wrong:**\n- B: \"Postponed\" would mean the child put the decision off, but the passage describes how the decision was made, not delayed.\n- C: \"Reversed\" would mean the decision was turned around or undone, which nothing in the passage suggests.\n- D: \"Inflated\" would mean the decision was blown up into something bigger, the opposite of what a single fixed price does.",
-      "_meta": { "anchor": "one-cent pricing at the general-store candy counter" }
+      "explanation": "**Choice A is correct.** With price removed from the question, only taste is left to weigh, so the blank needs a verb meaning made easier - \"simplified.\"\n\n**The Full Solution:**\n- How to spot it: the colon after the blank re-explains it. Whatever the uniform price did to the decision, the second half of the sentence spells out.\n- That second half says the choice \"turned entirely on taste, never on what the coin could cover\" - one thing to think about instead of two.\n- Cutting a decision down from two questions to one is simplifying it, so \"simplified\" fits.\n\n**Why the other choices are wrong:**\n- B: \"Postponed\" would mean the child put the decision off, but the passage describes how the decision was made, not delayed.\n- C: \"Reversed\" would mean the decision was turned around or undone, which nothing in the passage suggests.\n- D: \"Inflated\" would mean the decision was blown up into something bigger, the opposite of what a single fixed price does.",
+      "_meta": {
+        "anchor": "one-cent pricing at the general-store candy counter"
+      }
     },
     {
       "id": 956,
@@ -65,7 +67,7 @@ export const practiceTest9RWM2Easy = {
       "band": 2,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "Which end of a seesaw sinks depends not only on how heavy each rider is but on how far from the support each one sits, so a rider who scoots forward a few inches can send the other end downward without anyone's weight changing at all. Because the balance is so ______, riders keep shifting in their seats until the plank floats level.",
+      "passage": "Which end of a seesaw sinks depends not only on how heavy each rider is but also on how far from the support each one sits. A rider who scoots forward a few inches can send the other end down without anyone's weight changing at all. Because the balance is so ______, riders keep shifting in their seats until the plank floats level.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "sturdy" },
@@ -75,7 +77,9 @@ export const practiceTest9RWM2Easy = {
       ],
       "correctAnswer": "B",
       "explanation": "**Choice B is correct.** The passage says a scoot of \"a few inches\" is enough to tip the plank, so the blank needs a word meaning easily disturbed - \"delicate.\"\n\n**The Full Solution:**\n- How to spot it: in a fill-in-the-blank, look for the nearby words that re-explain the blank. Here the small cause with the big effect - a few inches sending an end downward - tells you the balance is touchy.\n- The plank answers to two things at once, weight and distance from the support, so tiny changes in either one matter.\n- Ask yourself: what kind of balance makes riders keep shifting until the plank floats level? One that is easily upset - so \"delicate\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Sturdy\" describes how strongly the seesaw is built, not how easily its balance tips.\n- C: \"Colorful\" describes how the plank looks, which the passage never raises.\n- D: \"Slow\" is about speed, but the passage shows the plank responding to a small shift right away.",
-      "_meta": { "anchor": "seesaw balance sensitivity on the playground" }
+      "_meta": {
+        "anchor": "seesaw balance sensitivity on the playground"
+      }
     },
     {
       "id": 958,
@@ -117,12 +121,14 @@ export const practiceTest9RWM2Easy = {
       "choices": [
         { "id": "A", "text": "The author would deny that double-walled wagons and canvas wrapping actually slow the melting of a delivered block." },
         { "id": "B", "text": "The author would agree that better handling is the only workable improvement and would abandon the electric refrigerator as impractical." },
-        { "id": "C", "text": "The author would grant that careful handling slows the melt but argue that a refrigerator, by making cold in the kitchen, removes the need for delivered ice altogether." },
-        { "id": "D", "text": "The author would conclude that because electric refrigerators remain costly and slow to spread, ice dealers should simply stop their deliveries until every household can afford one of the machines." }
+        { "id": "C", "text": "The author would grant that careful handling slows the melt but argue that a refrigerator removes the need for delivered ice altogether." },
+        { "id": "D", "text": "The author would argue that ice dealers should stop their deliveries until every household can afford a refrigerator." }
       ],
       "correctAnswer": "C",
       "explanation": "**Choice C is correct.** Text 2 concedes that careful handling slows the melt but treats it as tending a doomed product, and it offers the refrigerator as the fix that ends delivery altogether.\n\n**The Full Solution:**\n- How to spot it: in a two-text question, pin down each author's core claim, then look for the answer that concedes a small point before raising the real objection. That admit-then-object shape is usually right.\n- Text 1 argues that the block's short life can be managed with better handling - double-walled wagons, canvas and sawdust, early routes - all available to any dealer now.\n- Text 2 opens \"Careful handling certainly slows the melt\" but answers that the block \"is always shrinking toward the day it must be replaced,\" while a refrigerator \"makes its own cold in the kitchen\" and does away with wagon, wrapping, and route together.\n\n**Why the other choices are wrong:**\n- A: Text 2 grants that handling slows the melt; it never denies the measures work.\n- B: This has the author endorse handling alone, contradicting the whole argument for the refrigerator.\n- D: Text 2 admits the machines are costly and slow to spread but never suggests dealers should stop delivering in the meantime.",
-      "_meta": { "anchor": "ice delivery handling vs. the electric refrigerator" }
+      "_meta": {
+        "anchor": "ice delivery handling vs. the electric refrigerator"
+      }
     },
     {
       "id": 960,
@@ -131,7 +137,7 @@ export const practiceTest9RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "text-structure-and-purpose",
-      "passage": "The first jigsaw puzzles were cut one at a time: a craftsman glued a picture to a thin wooden board and guided it through a fine saw, so every finished puzzle was a single, slow piece of handwork. In the twentieth century, manufacturers began bending sharpened steel ribbon into a die - a web of blades tracing every piece at once. Pressed through picture-covered cardboard, one die could stamp out a complete puzzle in a moment, and thousands of identical copies in a week.",
+      "passage": "The first jigsaw puzzles were cut one at a time. A craftsman glued a picture to a thin wooden board and guided it through a fine saw, so every puzzle was a single, slow piece of handwork. In the twentieth century, manufacturers began bending sharpened steel ribbon into a die, a web of blades tracing every piece at once. Pressed through picture-covered cardboard, one die could stamp out a complete puzzle in a moment, and thousands of identical copies in a week.",
       "question": "Which choice best describes the overall structure of the text?",
       "choices": [
         { "id": "A", "text": "It describes how early puzzles were cut singly by hand and then explains how a bladed die let makers stamp out identical copies quickly." },
@@ -141,7 +147,9 @@ export const practiceTest9RWM2Easy = {
       ],
       "correctAnswer": "A",
       "explanation": "**Choice A is correct.** The passage first describes one-at-a-time hand cutting, then explains the die that stamped out whole puzzles at once.\n\n**The Full Solution:**\n- How to spot it: for a structure question, split the passage into its jobs and put them in order. Job one here is the old method; job two is the invention that replaced it.\n- The old method comes first: a craftsman glued a picture to a board and guided it through a saw, so each puzzle was \"a single, slow piece of handwork.\"\n- Then comes the change: steel ribbon bent into a die - \"a web of blades tracing every piece at once\" - stamped a complete puzzle in a moment and thousands of identical copies in a week.\n\n**Why the other choices are wrong:**\n- B: No single puzzle is followed anywhere, and no family of solvers appears in the passage.\n- C: The pictures on puzzles are mentioned only in passing, and no audiences are compared.\n- D: The passage never judges quality; it reports a change in how puzzles were made.",
-      "_meta": { "anchor": "from hand-cut wooden puzzles to die-cut cardboard" }
+      "_meta": {
+        "anchor": "from hand-cut wooden puzzles to die-cut cardboard"
+      }
     },
     {
       "id": 959,
@@ -169,7 +177,7 @@ export const practiceTest9RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "text-structure-and-purpose",
-      "passage": "A one-room schoolhouse needed no more than a hand bell: with a single class on a single schedule, the teacher rang the day open from the doorstep, and everyone inside moved together from lesson to lesson. When towns built schools of a dozen classrooms, each running its own timetable, no swung bell could serve them all. Districts instead wired every room to a master clock that rang each period's change everywhere at once, and the crowded building kept a schedule no bell-ringer could have managed.",
+      "passage": "A one-room schoolhouse needed no more than a hand bell. With a single class on a single schedule, the teacher rang the day open from the doorstep, and everyone inside moved together from lesson to lesson. When towns built schools of a dozen classrooms, each running its own timetable, no swung bell could serve them all. Districts instead wired every room to a master clock that rang each period's change everywhere at once, and the crowded building kept a schedule no bell-ringer could have managed.",
       "question": "Which choice best describes the overall structure of the text?",
       "choices": [
         { "id": "A", "text": "It lists the subjects taught in a one-room schoolhouse and then describes how a teacher planned each day's lessons." },
@@ -179,7 +187,9 @@ export const practiceTest9RWM2Easy = {
       ],
       "correctAnswer": "D",
       "explanation": "**Choice D is correct.** The passage first explains why one hand bell was enough, then names the change - many classrooms on many timetables - that called for bells wired to a master clock.\n\n**The Full Solution:**\n- How to spot it: for a structure question, track the passage's before-and-after. Here \"When towns built schools of a dozen classrooms\" is the hinge between the two halves.\n- The first half gives the reason a hand bell sufficed: one class, one schedule, everyone moving \"together from lesson to lesson.\"\n- The second half gives the new need and its answer: separate timetables meant \"no swung bell could serve them all,\" so districts wired every room to a master clock that rang each change everywhere at once.\n\n**Why the other choices are wrong:**\n- A: No school subjects are listed, and no teacher's lesson planning is described.\n- B: The passage never describes how either kind of bell sounded; the comparison is about scheduling, not sound.\n- C: No teachers are said to resist anything; the change is presented as an answer to a practical problem.",
-      "_meta": { "anchor": "why one hand bell served a one-room school" }
+      "_meta": {
+        "anchor": "why one hand bell served a one-room school"
+      }
     },
     // ============================================================
     // Q9-Q16: Information and Ideas
@@ -210,17 +220,20 @@ export const practiceTest9RWM2Easy = {
       "band": 4,
       "domain": "information-and-ideas",
       "skill": "inferences",
-      "passage": "Hopscotch has no official rulebook, and a court lasts only until the next rain washes the chalk away. Folklorists who collected playground games across one city recorded hopscotch courts a few blocks apart that differed in their shapes, in their tossing rules, and in the words called out at each square - and they found that each street's own version held steady year after year, even as the children who played it grew up and were replaced by younger ones. From this it can be inferred that ______",
+      "passage": "Children in Britain have long used special words, called truce terms, to call a pause in a game. In the 1950s, the folklorists Iona and Peter Opie surveyed these terms across England, Scotland, and Wales. They found that the word a child used depended on where the child lived: \"barley\" prevailed in north-west England, east Scotland, and much of Wales, while \"fainites\" or \"fains\" prevailed in London and southern England. Some of the words were also very old; \"barlay\" appears as a truce term in a fourteenth-century poem. From this it can be inferred that ______",
       "question": "Which choice most logically completes the text?",
       "choices": [
-        { "id": "A", "text": "children who moved to a new street generally refused to learn the version of hopscotch already played there." },
-        { "id": "B", "text": "the game spread mainly from child to child, since versions learned from one shared printed source would have differed far less from block to block." },
-        { "id": "C", "text": "the versions of hopscotch played in different neighborhoods of the city were gradually converging on one shared set of rules by the time the folklorists began collecting." },
-        { "id": "D", "text": "the shape of a street's hopscotch court shows roughly when the game first reached that street." }
+        { "id": "A", "text": "children who moved to a new region generally refused to use the truce term that was already common there." },
+        { "id": "B", "text": "the terms passed mainly from child to child in each area, since terms learned from one shared printed source would have varied far less across regions." },
+        { "id": "C", "text": "the truce terms of different regions of Britain were gradually converging on one shared word for the whole country by the time the Opies began their survey." },
+        { "id": "D", "text": "the truce term used in a region shows roughly when children there first began to play games." }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** Rules that vary block by block yet persist across generations of players point to local, person-to-person teaching - a shared printed source would have kept the versions alike.\n\n**The Full Solution:**\n- How to spot it: when a passage reports a stable pattern of local differences, ask what way of passing the game along would produce exactly that patchwork.\n- The passage gives two facts: courts \"a few blocks apart\" differ in shape, tossing rules, and calls, and each street's version \"held steady year after year\" even as its players were replaced.\n- Persistence without any written rulebook means each street's children taught the next ones directly, and the block-to-block differences mean no single outside source was supplying the rules - which is what Choice B concludes.\n\n**Why the other choices are wrong:**\n- A: The passage says nothing about children who move between streets, and stubborn refusal is not needed to explain the pattern.\n- C: Convergence contradicts the finding that each street's distinct version held steady over the years.\n- D: Nothing in the passage links a court's shape to a date; that is the kind of claim the folklorists' data cannot support.",
-      "_meta": { "anchor": "street-to-street variation in hopscotch rules" }
+      "explanation": "**Choice B is correct.** Words that differ from region to region yet last for centuries point to children passing them on to one another locally; a shared printed source would have made the words alike everywhere.\n\n**The Full Solution:**\n- How to spot it: when a passage reports a stable pattern of local differences, ask what way of passing words along would produce exactly that patchwork.\n- The passage gives two facts: the truce term depended on where a child lived (\"barley\" in some regions, \"fainites\" or \"fains\" in others), and some terms were very old (\"barlay\" appears in a fourteenth-century poem).\n- Terms that survive for generations in one area, while differing from the next area, are being handed down among the children of each area, and the regional differences mean no single outside source was supplying them. That is what Choice B concludes.\n\n**Why the other choices are wrong:**\n- A: The passage says nothing about children who move between regions, and stubborn refusal is not needed to explain the pattern.\n- C: Nothing in the passage suggests the terms were becoming alike; the Opies found clear regional differences.\n- D: Nothing in the passage links a truce term to the date when games began in a region.",
+      "_meta": {
+        "anchor": "Iona and Peter Opie, truce terms in Britain (The Lore and Language of Schoolchildren, 1959): regional distribution; barlay in Sir Gawain. Replaces unattributed hopscotch folklorists study (2026-10-06 verifier).",
+        "sources": ["https://en.wikipedia.org/wiki/Truce_term", "https://en.wikipedia.org/wiki/Iona_and_Peter_Opie"]
+      }
     },
     {
       "id": 968,
@@ -229,32 +242,35 @@ export const practiceTest9RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "command-of-evidence-quantitative",
-      "passage": "A small city daily tracked its four home-delivery routes across a decade in which many readers drifted to radio and television news. Reviewing the circulation books, the publisher observed that the routes did not fare alike: only one of the four closed the decade with more subscribers than it opened with, which suggests that ______",
+      "passage": "Forest cover has not changed in the same way in every Southeast Asian country. Using estimates from the Food and Agriculture Organization of the United Nations, a student compared the share of land covered by forest in four countries of the region in 1990 and 2020. The student found that only one of the four countries had more of its land under forest at the end of the period than at the start, since ______",
       "questionTable": {
         "type": "table",
-        "caption": "Subscribers on four home-delivery routes of one daily newspaper, 1950 and 1960",
+        "caption": "Forest area as a percentage of land area in four Southeast Asian countries, 1990 and 2020",
         "headers": [
-          "Route",
-          "Subscribers, 1950",
-          "Subscribers, 1960"
+          "Country",
+          "Forest area, 1990 (%)",
+          "Forest area, 2020 (%)"
         ],
         "rows": [
-          ["Elm Street", "118", "131"],
-          ["Mill Road", "164", "139"],
-          ["Harbor", "96", "82"],
-          ["Fairgrounds", "203", "177"]
+          ["Indonesia", "65.4", "49.1"],
+          ["Malaysia", "62.8", "58.2"],
+          ["Myanmar", "60.0", "43.7"],
+          ["Vietnam", "28.8", "46.7"]
         ]
       },
       "question": "Which choice most effectively uses data from the table to complete the statement?",
       "choices": [
-        { "id": "A", "text": "Elm Street carried 118 subscribers in 1950, fewer than any other route recorded in the circulation books that year." },
-        { "id": "B", "text": "Elm Street rose from 118 subscribers to 131, while each of the other three routes recorded fewer subscribers in 1960 than in 1950." },
-        { "id": "C", "text": "Fairgrounds carried 203 subscribers in 1950 and 177 in 1960, the largest count on the books in both years." },
-        { "id": "D", "text": "Mill Road and Harbor both recorded fewer subscribers in 1960 than in 1950, a decline shared by every route on the paper's books." }
+        { "id": "A", "text": "Vietnam's forest share in 1990, 28.8 percent, was lower than that of any other country in the table." },
+        { "id": "B", "text": "Vietnam's share rose from 28.8 percent to 46.7 percent, while the other three countries each had a smaller share in 2020 than in 1990." },
+        { "id": "C", "text": "Indonesia had 65.4 percent of its land under forest in 1990, the highest share of any country in the table that year." },
+        { "id": "D", "text": "Malaysia and Myanmar both had a smaller share of their land under forest in 2020 than in 1990, a decline shared by every country in the table." }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The sentence says only one route closed the decade larger, and the table shows Elm Street rising from 118 to 131 subscribers while the other three fell.\n\n**The Full Solution:**\n- How to spot it: match the answer to the EXACT claim. The claim is about direction of change, so compare each route's 1950 figure with its 1960 figure rather than ranking the columns.\n- Elm Street goes up (118 to 131). Mill Road (164 to 139), Harbor (96 to 82), and Fairgrounds (203 to 177) all go down.\n- Choice B reports that one rise and the three declines, which is exactly the pattern the sentence describes.\n\n**Why the other choices are wrong:**\n- A: It misreads the 1950 column - Harbor's 96 subscribers is lower than Elm Street's 118 - and says nothing about change over the decade.\n- C: Fairgrounds's figures are read correctly, but being the biggest route is not the claim; the claim is about which route grew.\n- D: It is false as stated: Elm Street did not decline, so the pattern is not shared by every route.",
-      "_meta": { "anchor": "subscriber counts on four newspaper delivery routes" }
+      "explanation": "**Choice B is correct.** The student says only one country ended the period with more of its land under forest, and the table shows Vietnam rising from 28.8 to 46.7 percent while the other three fell.\n\n**The Full Solution:**\n- How to spot it: match the answer to the EXACT claim. The claim is about direction of change, so compare each country's 1990 figure with its 2020 figure rather than ranking the columns.\n- Vietnam goes up (28.8 to 46.7). Indonesia (65.4 to 49.1), Malaysia (62.8 to 58.2), and Myanmar (60.0 to 43.7) all go down.\n- Choice B reports that one rise and the three declines, which is exactly the pattern the student describes.\n\n**Why the other choices are wrong:**\n- A: It is true, but it compares the countries in 1990 only and says nothing about change over the period.\n- C: Indonesia's 1990 figure is read correctly, but having the most forest in 1990 is not the claim; the claim is about which country gained forest.\n- D: It is false as stated: Vietnam's share did not decline, so the pattern is not shared by every country.",
+      "_meta": {
+        "anchor": "Forest area (% of land area), FAO via World Bank AG.LND.FRST.ZS, 1990 vs 2020: Indonesia 65.44->49.07, Malaysia 62.76->58.18, Myanmar 60.01->43.73, Viet Nam 28.81->46.72. Replaces invented newspaper-route subscriber data (2026-10-06 verifier).",
+        "sources": ["https://api.worldbank.org/v2/country/VNM;IDN;MMR;MYS/indicator/AG.LND.FRST.ZS?date=1990:2020&format=json", "https://data.worldbank.org/indicator/AG.LND.FRST.ZS"]
+      }
     },
     {
       "id": 966,
@@ -263,17 +279,23 @@ export const practiceTest9RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "command-of-evidence-textual",
-      "passage": "Playground builders have long claimed that a seesaw obeys the simple law of the lever: what matters is not a rider's weight alone but that weight multiplied by the rider's distance from the pivot. On this account, two riders of very different sizes should balance whenever the lighter one sits proportionally farther out - and a plank pivoted off center should let a small child hold a much larger adult level. A park crew set out to test the claim.",
-      "question": "Which finding, if true, would most directly support the builders' claim?",
+      "passage": "Gardeners often spread a layer of mulch, such as wood chips or straw, over the soil around their plants. They claim that mulch keeps soil moist mainly by slowing evaporation: the layer shades the soil surface and shields it from the drying effects of sun and wind. A garden club set out to test the claim.",
+      "question": "Which finding, if true, would most directly support the gardeners' claim?",
       "choices": [
-        { "id": "A", "text": "On a plank pivoted off center, a small child at the long end held an adult level, while on a centered plank the pair balanced only after the child slid much farther out than the adult." },
-        { "id": "B", "text": "Two riders of equal weight, seated at equal distances from a centered pivot, held a plank level until one of them leaned back." },
-        { "id": "C", "text": "A freshly painted seesaw moved more smoothly than a weathered one, whatever the riders' weights happened to be." },
-        { "id": "D", "text": "Riders reported that the seats at the ends of a longer plank rose and fell farther than the seats of a short one." }
+        { "id": "A", "text": "Given equal water, bare beds lost about twice as much water to the air over a sunny, windy week as mulched beds did." },
+        { "id": "B", "text": "Plants grown in mulched beds were taller at the end of the season than plants of the same kind grown in bare beds." },
+        { "id": "C", "text": "Wood-chip mulch and straw mulch cost about the same amount for each square meter of garden bed they covered." },
+        { "id": "D", "text": "Mulched beds had fewer weeds than bare beds throughout the growing season, according to the club's records." }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** It reports exactly what the lever law predicts: unequal riders balancing once the lighter one gains extra distance, whether from an off-center pivot or from sliding outward.\n\n**The Full Solution:**\n- How to spot it: state the prediction in your own words first, then find the answer that would make it come true. The prediction here is that weight TIMES distance, not weight alone, decides which end sinks.\n- The claim's two test cases are given in the passage: different-sized riders balance when the lighter one sits \"proportionally farther out,\" and an off-center pivot lets a child hold an adult level.\n- Choice A delivers both: the child at the long end of an off-center plank holds the adult level, and on a centered plank balance comes only when the child slides much farther out. Each result turns on distance offsetting weight.\n\n**Why the other choices are wrong:**\n- B: Equal weights at equal distances balancing is consistent with weight alone mattering, so it cannot separate the lever law from the simpler idea.\n- C: How smoothly the plank moves is about friction and paint, not about what makes the two sides balance.\n- D: How far the seats travel concerns the plank's length, not the balance of weight and distance the claim is about.",
-      "_meta": { "anchor": "testing the lever law on an off-center seesaw" }
+      "explanation": "**Choice A is correct.** The claim is that mulch keeps soil moist by slowing evaporation. Choice A tests exactly that: with water supply held equal, bare soil lost about twice as much water to the air as mulched soil.\n\n**The Full Solution:**\n- How to spot it: state the claim in your own words first. Here: mulch keeps soil moist because less water evaporates from the covered surface.\n- A finding that supports it must compare mulched and bare soil and show a difference in water lost to the air.\n- Choice A does this and holds the water supply equal, so the difference can come only from evaporation.\n\n**Why the other choices are wrong:**\n- B: Taller plants could have many causes and do not show that mulch reduced evaporation.\n- C: The cost of mulch says nothing about how it keeps soil moist.\n- D: Fewer weeds is a different benefit and does not address evaporation.",
+      "_meta": {
+        "anchor": "Mulch conserves soil moisture by reducing evaporation — CoE textual",
+        "sources": [
+          "https://specialtycropgrower.com/mulch-improves-water-conservation-in-vegetable-production/",
+          "https://api.provenwinners.com/learn/mulching"
+        ]
+      }
     },
     {
       "id": 965,
@@ -301,17 +323,19 @@ export const practiceTest9RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "central-ideas-and-details",
-      "passage": "A common lawn sprinkler carries no motor. Water forced through the curved arms of a spinning head, or through the row of holes in a rocking brass tube, pushes back on the metal as it leaves - and that push is what drives the spinning or the rocking. The pressure in the hose thus waters the lawn twice over: it throws the spray, and it swings the spray from one edge of the yard to the other, so the whole stretch of grass is wetted evenly with no power beyond the tap.",
+      "passage": "A common lawn sprinkler carries no motor. Water forced through the curved arms of a spinning head, or through the row of holes in a rocking brass tube, pushes back on the metal as it leaves. That push is what drives the spinning or the rocking. The pressure in the hose thus waters the lawn twice over: it throws the spray, and it swings the spray from one edge of the yard to the other. The whole lawn is wetted evenly with no power beyond the tap.",
       "question": "Which choice best states the main idea of the text?",
       "choices": [
         { "id": "A", "text": "A lawn sprinkler must be connected to a garden hose before it can begin to distribute any water." },
         { "id": "B", "text": "The holes in a sprinkler's brass tube are drilled in a single straight row along its length." },
         { "id": "C", "text": "Lawns watered by hand tend to receive more water near the house than at the far fence." },
-        { "id": "D", "text": "By using the push of the water it sprays to drive its own motion, a sprinkler spreads water evenly across a lawn without any motor." }
+        { "id": "D", "text": "By using the push of its own spray to drive its motion, a sprinkler waters a lawn evenly without a motor." }
       ],
       "correctAnswer": "D",
       "explanation": "**Choice D is correct.** The passage builds to the point that the water's own push both throws the spray and moves it, so the lawn is watered evenly with no motor at all.\n\n**The Full Solution:**\n- How to spot it: for a main-idea question, look for the claim the whole passage builds toward rather than any single detail along the way.\n- The mechanism comes first: water leaving the curved arms or the row of holes \"pushes back on the metal,\" and that push \"is what drives the spinning or the rocking.\"\n- Then comes the payoff: the hose pressure \"waters the lawn twice over\" - throwing the spray and swinging it - so the grass is wetted evenly \"with no power beyond the tap.\" Choice D carries both the how and the result.\n\n**Why the other choices are wrong:**\n- A: Needing a hose is background the passage assumes, not the idea it develops.\n- B: The row of holes is one detail of one sprinkler design, not the central point.\n- C: Watering by hand is never discussed in the passage.",
-      "_meta": { "anchor": "water pressure as a lawn sprinkler's motor" }
+      "_meta": {
+        "anchor": "water pressure as a lawn sprinkler's motor"
+      }
     },
     {
       "id": 967,
@@ -320,33 +344,61 @@ export const practiceTest9RWM2Easy = {
       "band": 2,
       "domain": "information-and-ideas",
       "skill": "command-of-evidence-quantitative",
-      "passage": "Collectors of playground lore surveyed schoolchildren in four districts of one city about the marbles game they play most often. Three games dominated the answers - Ringer, Chase, and Holes - and the surveyors noted that one of the three came first in every district, since ______",
+      "passage": "Using National Weather Service climate averages for 1991 to 2020, a student compared the average daily high temperatures in June, July, and August for four US cities. The student noted that one of the three months was the warmest in every city, since ______",
       "questionTable": {
         "type": "table",
-        "caption": "Percentage of surveyed players naming each marbles game as the one they play most often, by district",
+        "caption": "Average daily high temperature (°F) in four US cities, 1991–2020",
         "headers": [
-          "District",
-          "Ringer",
-          "Chase",
-          "Holes"
+          "City",
+          "June",
+          "July",
+          "August"
         ],
         "rows": [
-          ["North Side", "54", "26", "20"],
-          ["Riverfront", "61", "18", "21"],
-          ["Hilltop", "52", "29", "19"],
-          ["Old Town", "57", "22", "21"]
+          [
+            "Atlanta",
+            "87.1",
+            "90.1",
+            "89.0"
+          ],
+          [
+            "Boston",
+            "76.2",
+            "82.1",
+            "80.4"
+          ],
+          [
+            "Chicago",
+            "80.4",
+            "84.5",
+            "82.5"
+          ],
+          [
+            "Minneapolis",
+            "79.0",
+            "83.4",
+            "80.7"
+          ]
         ]
       },
       "question": "Which choice most effectively uses data from the table to complete the statement?",
       "choices": [
-        { "id": "A", "text": "Chase was named by 29 percent of players in Hilltop, its highest share in any of the four districts surveyed." },
-        { "id": "B", "text": "Holes was named by 21 percent of players in both Riverfront and Old Town, more than in the other two districts." },
-        { "id": "C", "text": "Ringer was the most common answer in all four districts, from 52 percent in Hilltop to 61 percent in Riverfront." },
-        { "id": "D", "text": "Chase was named more often than Ringer in Hilltop, where 29 percent of players preferred it." }
+        { "id": "A", "text": "June's average high in Atlanta, 87.1°F, was higher than the June average high in any other city in the table." },
+        { "id": "B", "text": "August's average high in Boston was 80.4°F, lower than August's average high in the other three cities." },
+        { "id": "C", "text": "July had the highest average high of the three months in all four cities, from 82.1°F in Boston to 90.1°F in Atlanta." },
+        { "id": "D", "text": "August was warmer than July in Chicago, where August's average high reached 82.5°F." }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The sentence needs the game that \"came first in every district,\" and Ringer has the largest share in every row: 54, 61, 52, and 57 percent.\n\n**The Full Solution:**\n- How to spot it: for a table question, underline what the sentence is asking for BEFORE you read the choices. Here it wants one game that leads in all four districts.\n- Reading across each row, Ringer beats both Chase and Holes in North Side (54), Riverfront (61), Hilltop (52), and Old Town (57).\n- Choice C names Ringer and cites its lowest and highest shares, so it completes the sentence correctly.\n\n**Why the other choices are wrong:**\n- A: Chase's best showing, 29 percent in Hilltop, is still far behind Ringer's 52 percent there, so it does not name the leader.\n- B: Holes's 21 percent in two districts is likewise nowhere near the top of any row.\n- D: This misreads the table - in Hilltop, Ringer's 52 percent beats Chase's 29 percent.",
-      "_meta": { "anchor": "playground survey of favorite marbles games" }
+      "explanation": "**Choice C is correct.** The sentence needs the month that was warmest \"in every city,\" and July has the highest value in every row: 90.1, 82.1, 84.5, and 83.4°F.\n\n**The Full Solution:**\n- How to spot it: underline what the sentence asks for before reading the choices. Here it wants one month that is warmest in all four cities.\n- Reading across each row, July beats both June and August in Atlanta, Boston, Chicago, and Minneapolis.\n- Choice C names July and gives its lowest and highest values, so it completes the sentence.\n\n**Why the other choices are wrong:**\n- A: It compares June across cities, which does not show which month was warmest in each city.\n- B: It compares August across cities, which also does not identify the warmest month.\n- D: The table shows Chicago's July high (84.5°F) above its August high (82.5°F), so this claim is false.",
+      "_meta": {
+        "anchor": "NOAA 1991-2020 normals: average daily highs Jun/Jul/Aug for Atlanta, Boston, Chicago (O'Hare), Minneapolis-St. Paul — CoE quant",
+        "sources": [
+          "https://en.wikipedia.org/wiki/Atlanta",
+          "https://en.wikipedia.org/wiki/Boston",
+          "https://en.wikipedia.org/wiki/Climate_of_Chicago",
+          "https://en.wikipedia.org/wiki/Climate_of_Minneapolis%E2%80%93Saint_Paul"
+        ]
+      }
     },
     {
       "id": 969,
@@ -355,17 +407,23 @@ export const practiceTest9RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "inferences",
-      "passage": "Fresh milk sours within hours at room temperature, and for decades that clock ruled the trade: a household icebox held at most a day or two of milk safely, so dairies delivered every morning, and a missed round meant kitchens without milk by nightfall. The electric refrigerator changed the arithmetic, for a family could now keep the better part of a week's milk cold at home. It follows that as refrigerators spread through a city's kitchens, ______",
+      "passage": "With a film camera, a photographer could not see any pictures until the film had been developed. Most people took their film to a shop and waited an hour or more for prints. Digital cameras, and later phones with cameras, showed each picture the moment it was taken, and the pictures could be viewed and shared on a screen without being printed. It follows that as digital cameras spread, ______",
       "question": "Which choice most logically completes the text?",
       "choices": [
-        { "id": "A", "text": "daily milk delivery should have become more valuable to households than ever, since a refrigerated kitchen could safely accept a larger delivery than an icebox could." },
-        { "id": "B", "text": "milk itself would have stopped souring at room temperature once it had been stored in a refrigerator." },
-        { "id": "C", "text": "iceboxes would have disappeared from kitchens faster than refrigerators could be manufactured to replace them." },
-        { "id": "D", "text": "the daily delivery lost much of its point, since a family could buy several days' milk at once and keep it fresh at home." }
+        { "id": "A", "text": "film-developing shops should have become busier than ever, since people took far more pictures with digital cameras than with film." },
+        { "id": "B", "text": "pictures taken with digital cameras would have had to be developed in a shop before anyone could see them." },
+        { "id": "C", "text": "film cameras would have disappeared from stores faster than digital cameras could be manufactured to replace them." },
+        { "id": "D", "text": "film-developing shops lost much of their business, since people could see and share their pictures without prints." }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** Daily delivery existed because milk could not be kept at home; once a refrigerator could hold most of a week's milk, the reason for a round every morning fell away.\n\n**The Full Solution:**\n- How to spot it: a fill-the-blank conclusion must follow only from what is stated. Restate why the practice existed, then remove the condition the passage says is removed.\n- The passage ties the daily round to storage: an icebox held \"at most a day or two of milk safely,\" so dairies had to deliver every morning.\n- The refrigerator \"changed the arithmetic\" by letting a family keep \"the better part of a week's milk cold at home.\" With storage solved, buying several days' milk at once works, and the daily delivery loses its point.\n\n**Why the other choices are wrong:**\n- A: This is backward - the ability to store more milk at home makes frequent delivery less necessary, not more valuable.\n- B: Refrigeration keeps milk cold; nothing suggests it changes what happens to milk once it is back at room temperature.\n- C: How quickly iceboxes were discarded or refrigerators manufactured is not addressed anywhere in the passage.",
-      "_meta": { "anchor": "home refrigerators and the daily milk round" }
+      "explanation": "**Choice D is correct.** Film-developing shops existed because film pictures could not be seen until they were developed and printed. Digital pictures could be seen and shared on a screen at once, so as digital cameras spread, people needed the shops far less.\n\n**The Full Solution:**\n- How to spot it: find the reason the old service existed, then ask what happens when that reason goes away.\n- The reason: film had to be developed and printed before anyone could see the pictures.\n- Digital cameras removed that need, so the shops lost much of their business.\n\n**Why the other choices are wrong:**\n- A: More pictures does not mean more business for film shops, because digital pictures did not need developing.\n- B: The text says digital cameras showed each picture the moment it was taken.\n- C: The text says nothing about how quickly cameras were manufactured or sold.",
+      "_meta": {
+        "anchor": "Digital cameras made film-developing shops largely unnecessary — inference",
+        "sources": [
+          "https://www.spokanejournal.com/local-news/photo-labs-change-their-focus",
+          "https://www.photographyblog.com/news/new_jersey_photo_processors_adapt_to_digital_revolution_fewer_prints_made"
+        ]
+      }
     },
     // ============================================================
     // Q17-Q22: Standard English Conventions
@@ -377,7 +435,7 @@ export const practiceTest9RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "Over one long summer the children of the lane planked a floor across the broad limbs of the neighborhood's oldest ______ a platform of salvaged boards a dozen feet above the grass, and hauled the rest of their lumber up on a rope.",
+      "passage": "Over one summer the children of the lane built a floor across the limbs of the neighborhood's oldest ______ a platform of salvaged boards a dozen feet up, and hauled the rest of their lumber up on a rope.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
         { "id": "A", "text": "oak," },
@@ -386,8 +444,10 @@ export const practiceTest9RWM2Easy = {
         { "id": "D", "text": "oak" }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The phrase after the blank simply renames the floor the children built - extra information you could remove - so a comma sets it off.\n\n**The Full Solution:**\n- How to spot it: when a phrase re-describes a nearby noun (a renaming phrase, or appositive), fence it off with a comma. Test: could you drop it and still have a sentence? Yes.\n- \"A platform of salvaged boards a dozen feet above the grass\" renames the planked floor - added detail, not a new sentence.\n- A single comma after \"oak\" correctly introduces that phrase, and the sentence then continues with \"and hauled the rest of their lumber up on a rope.\"\n\n**Why the other choices are wrong:**\n- B: A semicolon needs a complete sentence after it, but the renaming phrase cannot stand on its own.\n- C: A colon would wrongly signal a formal lead-in or a list, and the sentence keeps going afterward.\n- D: No punctuation runs the phrase straight into the noun, which reads wrong.",
-      "_meta": { "anchor": "a treehouse platform in the old oak" }
+      "explanation": "**Choice A is correct.** The phrase after the blank simply renames the floor the children built - extra information you could remove - so a comma sets it off.\n\n**The Full Solution:**\n- How to spot it: when a phrase re-describes a nearby noun (a renaming phrase, or appositive), fence it off with a comma. Test: could you drop it and still have a sentence? Yes.\n- \"A platform of salvaged boards a dozen feet up\" renames the floor - added detail, not a new sentence.\n- A single comma after \"oak\" correctly introduces that phrase, and the sentence then continues with \"and hauled the rest of their lumber up on a rope.\"\n\n**Why the other choices are wrong:**\n- B: A semicolon needs a complete sentence after it, but the renaming phrase cannot stand on its own.\n- C: A colon would wrongly signal a formal lead-in or a list, and the sentence keeps going afterward.\n- D: No punctuation runs the phrase straight into the noun, which reads wrong.",
+      "_meta": {
+        "anchor": "a treehouse platform in the old oak"
+      }
     },
     {
       "id": 976,
@@ -396,17 +456,23 @@ export const practiceTest9RWM2Easy = {
       "band": 4,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "The gardener who came back to the plot in March found far less of the scarecrow than the photographs from October showed. By the time the spring beds were dug, a winter of wind and freezing rain ______ most of the straw out of the figure's frame, and the old coat hung slack on its crosspiece.",
+      "passage": "Carving on Mount Rushmore in South Dakota began in 1927 and ended in 1941. By the time the work stopped, the roughly 400 people who worked on the project ______ about 450,000 tons of rock from the mountain, most of it with dynamite.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "pulls" },
-        { "id": "B", "text": "will pull" },
-        { "id": "C", "text": "had pulled" },
-        { "id": "D", "text": "has pulled" }
+        { "id": "A", "text": "remove" },
+        { "id": "B", "text": "will remove" },
+        { "id": "C", "text": "had removed" },
+        { "id": "D", "text": "have removed" }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The damage was already finished before the spring digging began, and \"had pulled\" is the form that marks an action completed before a later past moment.\n\n**The Full Solution:**\n- How to spot it: \"By the time\" plus a past event is the signal for the had + verb form. The sentence names two past moments, and you need the earlier one to be marked as earlier.\n- The later past moment is the digging of the spring beds, when the gardener was back at the plot in March.\n- The earlier stretch is the winter of wind and freezing rain that came before it, so that damage takes \"had pulled\" - and the second half confirms the sequence, since the coat already \"hung slack\" when the gardener looked.\n\n**Why the other choices are wrong:**\n- A: The present \"pulls\" contradicts a sentence set entirely in the past.\n- B: \"Will pull\" is future and cannot describe damage the gardener already found in March.\n- D: \"Has pulled\" ties the action to the present moment, but the damage was complete before a past event, not before now.",
-      "_meta": { "anchor": "winter damage to a garden scarecrow" }
+      "explanation": "**Choice C is correct.** \"By the time the work stopped\" sets a point in the past, and the rock was removed before that point. The past perfect, \"had removed,\" shows an action completed before another past event.\n\n**The Full Solution:**\n- How to spot it: \"By the time\" + a past event usually calls for the past perfect.\n- The work stopped in 1941, a past event.\n- The rock was removed before that moment, so the earlier action takes \"had removed.\"\n\n**Why the other choices are wrong:**\n- A: \"Remove\" is present tense, which does not fit events that ended in 1941.\n- B: \"Will remove\" is future tense, which cannot describe work already finished in 1941.\n- D: \"Have removed\" connects the action to the present rather than to a moment in the past.",
+      "_meta": {
+        "anchor": "Mount Rushmore carving 1927-1941, ~450,000 tons of rock removed — past perfect after By the time",
+        "sources": [
+          "https://kids.britannica.com/kids/article/Mount-Rushmore/598958",
+          "https://matadornetwork.com/trips/75-surprising-facts-mount-rushmore/"
+        ]
+      }
     },
     {
       "id": 971,
@@ -415,17 +481,23 @@ export const practiceTest9RWM2Easy = {
       "band": 2,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "For generations the start of the school day was announced by hand, with a bell swung from the front ______ by the 1920s many town districts had wired every classroom to a master clock, and the old bell stayed on its shelf.",
+      "passage": "Built for the 1889 World's Fair in Paris, the Eiffel Tower was meant to stand for only twenty ______ the city kept it after it proved useful for sending radio signals.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "steps," },
-        { "id": "B", "text": "steps" },
-        { "id": "C", "text": "steps;" },
-        { "id": "D", "text": "steps:" }
+        { "id": "A", "text": "years," },
+        { "id": "B", "text": "years" },
+        { "id": "C", "text": "years;" },
+        { "id": "D", "text": "years:" }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** Each side of the blank is a complete sentence, and a semicolon is the right way to join two complete sentences.\n\n**The Full Solution:**\n- How to spot it: cover the blank and test each side. If BOTH sides could stand alone and there is no joining word like and or but at the seam, use a semicolon.\n- Before the blank is a complete sentence about the school day being announced with a hand-swung bell.\n- After the blank is a second complete sentence: \"by the 1920s many town districts had wired every classroom to a master clock, and the old bell stayed on its shelf.\" Two complete sentences with no joining word means a semicolon.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two complete sentences is too weak - it creates a run-on (a comma splice).\n- B: No punctuation at all jams the two sentences together into a run-on.\n- D: A colon would signal that what follows explains or lists out the first part, but here the second part is a separate later development.",
-      "_meta": { "anchor": "wiring classrooms to a master clock" }
+      "explanation": "**Choice C is correct.** Each side of the blank is a complete sentence, and a semicolon is the right way to join two complete sentences.\n\n**The Full Solution:**\n- How to spot it: cover the blank and test each side. If BOTH sides could stand alone and there is no joining word like and or but at the seam, use a semicolon.\n- Before the blank is a complete sentence: \"Built for the 1889 World's Fair in Paris, the Eiffel Tower was meant to stand for only twenty years.\"\n- After the blank is a second complete sentence: \"the city kept it after it proved useful for sending radio signals.\" Two complete sentences with no joining word means a semicolon.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two complete sentences creates a run-on (a comma splice).\n- B: No punctuation at all jams the two sentences together into a run-on.\n- D: A colon would signal that what follows explains or lists out the first part, but here the second part is a separate, later development.",
+      "_meta": {
+        "anchor": "Eiffel Tower built for 1889 fair, meant to stand 20 years, saved as a radio station — semicolon",
+        "sources": [
+          "https://www.toureiffel.paris/en/news/130-years/how-did-radio-save-tower",
+          "https://www.history.com/topics/landmarks/eiffel-tower"
+        ]
+      }
     },
     {
       "id": 972,
@@ -434,7 +506,7 @@ export const practiceTest9RWM2Easy = {
       "band": 2,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "A gutter system works only as well as its fall toward the downspout. The long metal troughs fitted under the edge of a roof ______ pitched by just a fraction of an inch per foot, a slope too slight for the eye to catch but enough to keep rainwater from standing.",
+      "passage": "A standard guitar has six strings, and most guitarists use a tuning known as standard tuning. From the lowest-sounding string to the highest, the strings ______ tuned to the notes E, A, D, G, B, and E.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
         { "id": "A", "text": "is" },
@@ -443,8 +515,14 @@ export const practiceTest9RWM2Easy = {
         { "id": "D", "text": "are" }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The thing doing the verb is \"troughs\" (plural), so the verb must be the plural \"are.\"\n\n**The Full Solution:**\n- How to spot it: find the real subject - who or what the sentence is about - and ignore the words in between. Ask: one thing or more than one?\n- The subject is \"The long metal troughs fitted under the edge of a roof\" - more than one, so plural.\n- The singular \"roof\" sits inside the description \"fitted under the edge of a roof\" and is not the subject, so use the plural \"are.\"\n\n**Why the other choices are wrong:**\n- A: \"Is\" is singular and does not match the plural \"troughs.\"\n- B: \"Was\" is singular and is also wrong in time for a general, ongoing practice.\n- C: \"Has been\" is singular and does not match \"troughs.\"",
-      "_meta": { "anchor": "the slight pitch of roof gutters" }
+      "explanation": "**Choice D is correct.** The subject of the verb is \"the strings,\" which is plural, so the verb must be plural: \"are.\"\n\n**The Full Solution:**\n- How to spot it: find the subject by skipping the opening phrase. \"From the lowest-sounding string to the highest\" tells where; the subject is \"the strings.\"\n- \"Strings\" is plural, so it needs a plural verb.\n- The text describes how guitars are tuned now, so the present-tense \"are\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Is\" is singular and does not agree with \"strings.\"\n- B: \"Was\" is singular and in the past tense.\n- C: \"Has been\" is singular and does not agree with \"strings.\"",
+      "_meta": {
+        "anchor": "Standard guitar tuning E A D G B E — plural subject, plural verb",
+        "sources": [
+          "https://en.wikipedia.org/wiki/Guitar_tunings",
+          "https://www.daddario.com/en-au/blogs/guitar/how-to-tune-a-guitar"
+        ]
+      }
     },
     {
       "id": 974,
@@ -453,17 +531,23 @@ export const practiceTest9RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "Wooden puzzles cut one at a time remained expensive luxuries. In the early 1930s, the larger puzzle publishers ______ die-cut cardboard, and a cardboard puzzle sold for a fraction of the price of a hand-cut wooden one.",
+      "passage": "Grocery shoppers once carried their purchases around the store in handheld baskets, which limited how much they could buy. In 1937, a supermarket chain in Oklahoma City ______ wheeled carts that each held two wire baskets, so customers could fill both without carrying anything.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "are adopting" },
-        { "id": "B", "text": "adopted" },
-        { "id": "C", "text": "will adopt" },
-        { "id": "D", "text": "has adopted" }
+        { "id": "A", "text": "are introducing" },
+        { "id": "B", "text": "introduced" },
+        { "id": "C", "text": "will introduce" },
+        { "id": "D", "text": "has introduced" }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The sentence pins the change to \"in the early 1930s\" - a finished stretch of past time - so the plain past \"adopted\" fits.\n\n**The Full Solution:**\n- How to spot it: let the time words choose the tense. \"In the early 1930s\" points to something that happened and finished long ago, which calls for the simple past.\n- The switch to die-cut cardboard is dated to that closed window, not to the present.\n- The second half, \"a cardboard puzzle sold for a fraction of the price,\" stays in the same finished past, and plain past \"adopted\" correctly marks that event.\n\n**Why the other choices are wrong:**\n- A: \"Are adopting\" describes something in progress now, which clashes with the past time window.\n- C: \"Will adopt\" is future and contradicts a change that happened decades ago.\n- D: \"Has adopted\" is singular and does not match the plural \"publishers.\"",
-      "_meta": { "anchor": "puzzle publishers' switch to die-cut cardboard" }
+      "explanation": "**Choice B is correct.** The phrase \"In 1937\" places the action at a specific time in the past, so the simple past tense, \"introduced,\" is needed.\n\n**The Full Solution:**\n- How to spot it: look for a time marker. \"In 1937\" names a finished moment in the past.\n- A completed action at a specific past time takes the simple past.\n- \"Introduced\" is the simple past and also agrees with the singular subject \"a supermarket chain.\"\n\n**Why the other choices are wrong:**\n- A: \"Are introducing\" is present tense and plural, so it clashes with both \"In 1937\" and the singular subject.\n- C: \"Will introduce\" is future tense, which cannot describe an event in 1937.\n- D: \"Has introduced\" links the action to the present, which does not fit a specific past date.",
+      "_meta": {
+        "anchor": "First shopping carts, 1937, Oklahoma City supermarket chain — simple past",
+        "sources": [
+          "https://en.wikipedia.org/wiki/Shopping_cart",
+          "https://www.smithsonianmag.com/history/industrious-grocer-1930s-wanted-make-easier-customers-buy-more-just-needed-push-180987633/"
+        ]
+      }
     },
     {
       "id": 975,
@@ -472,17 +556,22 @@ export const practiceTest9RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "Years of running the county spelling bee have left the head judge with one settled ______ the obligation to pronounce each word twice, and to use it in a sentence, before any contestant is asked to begin spelling.",
+      "passage": "Formally adopted by law in 1999, the national flag of Japan follows a strikingly simple ______ a single red disc centered on a plain white field.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "rule," },
-        { "id": "B", "text": "rule;" },
-        { "id": "C", "text": "rule" },
-        { "id": "D", "text": "rule:" }
+        { "id": "A", "text": "design," },
+        { "id": "B", "text": "design;" },
+        { "id": "C", "text": "design" },
+        { "id": "D", "text": "design:" }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The first part is a complete sentence that announces \"one settled rule,\" and a colon is the right mark to then deliver what that rule is.\n\n**The Full Solution:**\n- How to spot it: a colon works when a complete sentence sets up an announcement (\"one settled rule,\" \"a single lesson\") and what follows delivers it. Check that the part before the colon can stand alone - it can here.\n- Before the blank is a complete sentence: years of running the bee \"have left the head judge with one settled rule.\"\n- What follows - \"the obligation to pronounce each word twice\" - is that rule spelled out, exactly what a colon introduces.\n\n**Why the other choices are wrong:**\n- A: A comma would run the announcement into its content without marking the formal lead-in a colon gives.\n- B: A semicolon needs a complete sentence after it, but \"the obligation to pronounce each word twice...\" cannot stand on its own.\n- C: No punctuation jams the announcement straight into the rule it introduces.",
-      "_meta": { "anchor": "the pronouncer's rule at the county spelling bee" }
+      "explanation": "**Choice D is correct.** \"Formally adopted by law in 1999, the national flag of Japan follows a strikingly simple design\" is a complete sentence, and what follows describes that design. A colon after a complete sentence introduces an explanation or description of what came before.\n\n**The Full Solution:**\n- How to spot it: check whether the words before the blank make a complete sentence. They do.\n- The words after the blank, \"a single red disc centered on a plain white field,\" are not a sentence; they spell out what the simple design is.\n- A colon is the mark that introduces that kind of explanation.\n\n**Why the other choices are wrong:**\n- A: A comma does not signal that the following phrase explains \"design.\"\n- B: A semicolon must join two complete sentences, and the words after the blank are only a phrase.\n- C: With no punctuation, \"design a single red disc\" runs together confusingly.",
+      "_meta": {
+        "anchor": "Flag of Japan (Hinomaru), formalized 1999 — colon before explanatory noun phrase",
+        "sources": [
+          "https://en.wikipedia.org/wiki/Flag_of_Japan"
+        ]
+      }
     },
     // ============================================================
     // Q23-Q27: Expression of Ideas
@@ -494,7 +583,7 @@ export const practiceTest9RWM2Easy = {
       "band": 3,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "For the youngest customers of a general store, the penny was the coin that mattered, and a sweet priced at two cents might as well have been priced at ten. ______ candy makers designed to the coin rather than to the recipe, trimming a caramel's size or a licorice whip's length until the piece could sell for exactly one cent.",
+      "passage": "In 1945, Grand Rapids, Michigan, became the first US city to add small amounts of fluoride to its drinking water. Fluoride is a mineral that helps tooth enamel resist decay. ______ over the next fifteen years, the rate of cavities among the city's schoolchildren fell by more than 60 percent.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "Nevertheless," },
@@ -503,8 +592,14 @@ export const practiceTest9RWM2Easy = {
         { "id": "D", "text": "By comparison," }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** Designing candy to hit the one-cent price is the behavior that follows from the incentives just described, so the cause-and-effect phrase \"As a result\" fits.\n\n**The Full Solution:**\n- How to spot it: if the second idea HAPPENS BECAUSE of the first, you need a cause-and-effect transition like \"as a result\" or \"so.\"\n- Before the blank, the penny is the coin that matters to young customers, and anything priced above one cent \"might as well have been priced at ten\" - a plain business reason to hit that price.\n- After the blank comes the behavior that reason produces: makers trimmed a caramel's size or a whip's length \"until the piece could sell for exactly one cent.\" That is an outcome, so \"As a result\" is correct.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals opposition, but the makers' design habit follows naturally from the incentive rather than clashing with it.\n- B: \"For example\" would make the trimming an instance of something already stated, not the behavior the incentive causes.\n- D: \"By comparison\" would weigh one pricing approach against another, but the sentence reports an outcome, not a comparison.",
-      "_meta": { "anchor": "designing candy to the one-cent coin" }
+      "explanation": "**Choice C is correct.** The first two sentences describe a cause: the city added fluoride, a mineral that helps teeth resist decay. The last sentence gives the effect: cavities among schoolchildren fell sharply. \"As a result\" signals that what follows is a consequence of what came before.\n\n**The Full Solution:**\n- How to spot it: ask how the sentence after the blank relates to the ones before it.\n- Before the blank: fluoride is added to the water, and fluoride helps prevent decay.\n- After the blank: cavities fall by more than 60 percent, a consequence of the change.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" signals something that happens despite what came before, but fewer cavities is what fluoride would be expected to produce.\n- B: \"For example\" would make the drop in cavities an example of what fluoride is, but it is a result of adding it.\n- D: \"By comparison\" sets up a comparison, but the last sentence describes a result, not a contrast.",
+      "_meta": {
+        "anchor": "Grand Rapids water fluoridation 1945, cavities among children fell >60% — As a result",
+        "sources": [
+          "https://en.wikipedia.org/wiki/Water_fluoridation_in_the_United_States",
+          "https://www.newswise.com/articles/60th-anniversary-of-community-water-fluoridation"
+        ]
+      }
     },
     {
       "id": 979,
@@ -532,7 +627,7 @@ export const practiceTest9RWM2Easy = {
       "band": 2,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "A fresh pie set to cool on an open kitchen shelf drew flies within the hour, and in warm weather little could be done to keep them off. ______ a pie shut inside a pie safe cooled untouched: the cupboard's doors were panels of tin punched with hundreds of small holes, every one of them wide enough to let air through and too small for a fly.",
+      "passage": "A pie left to cool on an open kitchen shelf could draw flies within the hour. ______ a pie shut inside a pie safe cooled untouched. The cupboard's doors were panels of tin punched with many small holes, each wide enough to let air through but too small for a fly.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "However," },
@@ -541,8 +636,10 @@ export const practiceTest9RWM2Easy = {
         { "id": "D", "text": "Similarly," }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The passage flips from a pie the flies reach within an hour to a pie the flies cannot reach at all, so the contrast word \"However\" is needed.\n\n**The Full Solution:**\n- How to spot it: for a transition, read the idea before the blank and the idea after, then ask whether they agree, oppose, or cause each other. Opposite outcomes need a contrast word.\n- Before the blank, a pie on an open shelf \"drew flies within the hour,\" and little could be done about it.\n- After the blank, a pie inside the safe \"cooled untouched,\" because the punched-tin doors pass air but not flies. Swarmed versus untouched is an opposition, so \"However\" fits.\n\n**Why the other choices are wrong:**\n- B: \"As a result\" would make the safe pie's protection an outcome of the shelf pie's trouble, which it is not.\n- C: \"For example\" would make the protected pie an instance of flies reaching food, but it is the opposite case.\n- D: \"Similarly\" signals similarity, and the two outcomes are unlike each other.",
-      "_meta": { "anchor": "punched-tin pie safe doors" }
+      "explanation": "**Choice A is correct.** The passage flips from a pie the flies reach within an hour to a pie the flies cannot reach at all, so the contrast word \"However\" is needed.\n\n**The Full Solution:**\n- How to spot it: for a transition, read the idea before the blank and the idea after, then ask whether they agree, oppose, or cause each other. Opposite outcomes need a contrast word.\n- Before the blank, a pie on an open shelf \"could draw flies within the hour.\"\n- After the blank, a pie inside the safe \"cooled untouched,\" because the punched-tin doors pass air but not flies. Swarmed versus untouched is an opposition, so \"However\" fits.\n\n**Why the other choices are wrong:**\n- B: \"As a result\" would make the safe pie's protection an outcome of the shelf pie's trouble, which it is not.\n- C: \"For example\" would make the protected pie an instance of flies reaching food, but it is the opposite case.\n- D: \"Similarly\" signals similarity, and the two outcomes are unlike each other.",
+      "_meta": {
+        "anchor": "punched-tin pie safe doors"
+      }
     },
     {
       "id": 981,
@@ -554,25 +651,29 @@ export const practiceTest9RWM2Easy = {
       "studentNotes": {
         "intro": "While researching a topic, a student has taken the following notes:",
         "bullets": [
-          "In the late 1800s, many young collectors in the United States kept \"charm strings.\"",
-          "A charm string is a single long cord threaded with hundreds of buttons, with no two buttons alike.",
-          "Custom held that each button should come as a gift or a trade from a different person, not as a purchase.",
-          "Friends, schoolmates, and visiting relatives were all expected to contribute a button.",
-          "Popular lore said a finished string should hold one thousand buttons.",
-          "Several museums now display surviving charm strings in their costume collections."
+          "A haiku is a short form of poetry that began in Japan.",
+          "A traditional haiku has three phrases of five, seven, and five sound units.",
+          "A traditional haiku includes a word or phrase that points to a season.",
+          "Poets writing in English often count syllables in place of Japanese sound units.",
+          "Many schools teach students to write haiku."
         ],
-        "goal": "The student wants to explain what a charm string is to an audience unfamiliar with button collecting."
+        "goal": "The student wants to explain what a haiku is to an audience unfamiliar with Japanese poetry."
       },
       "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       "choices": [
-        { "id": "A", "text": "Friends, schoolmates, and visiting relatives were all expected to add a button to a young collector's string, so a long string recorded a wide circle of acquaintance." },
-        { "id": "B", "text": "Popular lore in the late 1800s said that a finished string should hold exactly one thousand buttons." },
-        { "id": "C", "text": "Several museums now display surviving charm strings from the late 1800s in their costume collections." },
-        { "id": "D", "text": "A charm string is a long cord threaded with hundreds of buttons, no two alike, each meant to come as a gift or trade from a different person." }
+        { "id": "A", "text": "Poets writing in English often count syllables in place of the Japanese sound units that traditional haiku use." },
+        { "id": "B", "text": "Many schools teach students to write haiku, a form of poetry that is known for being short." },
+        { "id": "C", "text": "A traditional haiku includes a word or phrase that points to a particular season of the year." },
+        { "id": "D", "text": "A haiku is a short Japanese form of poetry with three phrases of five, seven, and five sound units." }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The goal is to explain what a charm string is, and Choice D defines the object and adds the custom that made it distinctive.\n\n**The Full Solution:**\n- How to spot it: when the goal is to explain what something IS, the right answer has to define it. Look for the option built around the term itself.\n- Choice D gives the definition straight from the notes: a single long cord threaded with hundreds of buttons, no two alike.\n- It then adds the one detail a newcomer needs to understand the tradition - each button was meant to arrive as a gift or a trade from a different person, not as a purchase.\n\n**Why the other choices are wrong:**\n- A: It describes who contributed buttons and what a string came to record, but it never says what a charm string is.\n- B: It reports a piece of lore about finished strings without defining the term the goal asks about.\n- C: It tells where charm strings can be seen today, which does not explain the object to a newcomer.",
-      "_meta": { "anchor": "Victorian button charm strings" }
+      "explanation": "**Choice D is correct.** The goal is to explain what a haiku is, and Choice D defines the form: a short Japanese poem with three phrases of five, seven, and five sound units.\n\n**The Full Solution:**\n- How to spot it: when the goal is to explain what something IS, the right answer has to define it. Look for the option built around the term itself.\n- Choice D combines the first two notes: where the form comes from and how a haiku is built.\n- A reader who has never heard of haiku learns both what kind of thing it is and its basic shape.\n\n**Why the other choices are wrong:**\n- A: It describes how English-language poets adapt the form but never says what a haiku is.\n- B: It says haiku are taught in schools and are short, which is too vague to define the form.\n- C: It gives one feature of traditional haiku but assumes the reader already knows what a haiku is.",
+      "_meta": {
+        "anchor": "Haiku (5-7-5 sound units, season word) — RS explain what X is",
+        "sources": [
+          "https://en.wikipedia.org/wiki/Haiku"
+        ]
+      }
     },
     {
       "id": 980,
@@ -584,25 +685,31 @@ export const practiceTest9RWM2Easy = {
       "studentNotes": {
         "intro": "While researching a topic, a student has taken the following notes:",
         "bullets": [
-          "Before electric refrigeration, many households kept food in an icebox cooled by a block of delivered ice.",
-          "Customers set a printed card in the window to show how many pounds to leave.",
-          "A block on an open wagon melts fastest in the heat of the day.",
-          "Ice dealers commonly began their rounds before dawn.",
-          "Drivers covered the load with canvas and sawdust between stops.",
-          "A block that lost too much weight before arriving was of little use to the customer."
+          "In the United States, stop signs are octagons, shapes with eight sides.",
+          "The shape dates to 1923, when a group of state highway officials proposed rules for road signs.",
+          "The officials reasoned that the more sides a sign had, the greater the danger it should mark.",
+          "They judged railroad crossings the greatest danger and gave them round signs.",
+          "They judged a required stop at an intersection the next greatest danger.",
+          "Stop signs were therefore given eight sides."
         ],
-        "goal": "The student wants to explain to an audience unfamiliar with ice delivery why the wagons began their rounds before dawn."
+        "goal": "The student wants to explain to an audience unfamiliar with the history of road signs why stop signs are octagons."
       },
       "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       "choices": [
-        { "id": "A", "text": "Because ice on an open wagon melts fastest in the day's heat, dealers started their rounds before dawn so blocks reached customers nearly whole." },
-        { "id": "B", "text": "Before electric refrigeration, many households kept their food in an icebox that was cooled by a block of delivered ice." },
-        { "id": "C", "text": "Along an ice wagon's fixed route, each customer set a printed card in the front window to show the driver how many pounds of ice to leave that day." },
-        { "id": "D", "text": "Between stops, drivers kept their loads covered with canvas and a layer of sawdust to slow the melting of the blocks." }
+        { "id": "A", "text": "Because officials in 1923 linked more sides with greater danger and ranked a required stop second, stop signs got eight sides." },
+        { "id": "B", "text": "In the United States, stop signs are octagons, shapes that have eight sides." },
+        { "id": "C", "text": "In 1923, a group of state highway officials proposed a set of rules for the shapes of road signs." },
+        { "id": "D", "text": "Railroad crossings, which highway officials in 1923 judged the greatest danger a driver could face, were marked with round signs." }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The goal is to explain why the rounds began before dawn, and Choice A gives the reason: blocks melt fastest in daytime heat, so early starts got them to customers still nearly whole.\n\n**The Full Solution:**\n- How to spot it: in a notes question, the goal sentence is the whole assignment. This one asks specifically WHY the wagons started before dawn, so the answer must connect the early start to its cause.\n- Choice A links three notes: the block melts fastest in the heat of the day, dealers began before dawn, and a block that lost too much weight was of little use.\n- That gives a newcomer both the practice and the reason for it in one sentence.\n\n**Why the other choices are wrong:**\n- B: It explains what an icebox was, background that never mentions the timing of the rounds.\n- C: It describes how customers placed orders, which says nothing about why deliveries came early.\n- D: It reports a different precaution against melting but does not explain the pre-dawn start the goal asks about.",
-      "_meta": { "anchor": "pre-dawn ice delivery rounds" }
+      "explanation": "**Choice A is correct.** The goal is to explain why stop signs are octagons, and Choice A gives the reason: the 1923 officials linked more sides with greater danger, and a stop ranked just below railroad crossings, so stop signs got eight sides.\n\n**The Full Solution:**\n- How to spot it: in a notes question, the goal sentence is the whole assignment. This one asks WHY stop signs have eight sides, so the answer must connect the shape to its cause.\n- Choice A links three notes: the officials' rule about sides and danger, the ranking of a required stop, and the eight-sided result.\n- That gives a newcomer both the fact and the reason for it in one sentence.\n\n**Why the other choices are wrong:**\n- B: It states that stop signs are octagons but gives no reason.\n- C: It says when rules were proposed but not why stop signs got eight sides.\n- D: It explains the round railroad sign, not the octagonal stop sign.",
+      "_meta": {
+        "anchor": "Why US stop signs are octagons (1923 Mississippi Valley Association of State Highway Departments) — RS explain why",
+        "sources": [
+          "https://99percentinvisible.org/article/red-white-sometimes-blue-how-safety-shaped-the-octagonal-stop-sign/",
+          "https://interestingengineering.com/culture/the-real-reason-behind-why-stop-signs-are-red-and-octagonal"
+        ]
+      }
     }
   ]
 };

@@ -1,30 +1,30 @@
 {
  "id": 3,
- "question": "Point $M$ is the center of a circle, and point $N$ lies on the circle. If $MN = 9.5$, what is the length of a diameter of the circle?",
+ "question": "Point $M$ is the center of a circle, and point $N$ lies on the circle. The area of the circle is $169\\pi$ square units. What is the length of a diameter of the circle, in units?",
  "choices": [
   {
    "id": "A",
-   "text": "$4.75$"
+   "text": "$13$"
   },
   {
    "id": "B",
-   "text": "$9.5$"
+   "text": "$26$"
   },
   {
    "id": "C",
-   "text": "$19$"
+   "text": "$169$"
   },
   {
    "id": "D",
-   "text": "$90.25$"
+   "text": "$338$"
   }
  ],
- "correctAnswer": "C",
- "hint": "Decide what kind of segment $\\overline{MN}$ is before you convert anything.",
+ "correctAnswer": "B",
+ "hint": "Use the area to find the radius $MN$ first.",
  "distractorNotes": {
-  "A": "halves MN instead of doubling it",
-  "B": "reports the radius",
-  "D": "squares MN"
+  "A": "stops at the radius MN",
+  "C": "takes 169, the coefficient of pi in the area, as the diameter",
+  "D": "doubles 169 without taking its square root"
  },
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** $\\overline{MN}$ runs from the center to a point on the circle, so it is a radius; the diameter is $2(9.5) = 19$.\n\n**The Full Solution:**\nStep 1: A radius is a segment from the center to any point on the circle, so $MN = 9.5$ is a radius.\nStep 2: A diameter is twice a radius: $d = 2r = 2(9.5)$.\nStep 3: $d = 19$. Check: $\\frac{19}{2} = 9.5$, which matches $MN$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($4.75$): halves $MN$ instead of doubling it, converting in the wrong direction.\n* Choice B ($9.5$): reports the radius itself and skips the conversion the question asks for.\n* Choice D ($90.25$): squares $9.5$, importing the $r^2$ from the area formula into a length question.\n\n**Test Day Takeaway:** Center-to-circle is always a radius. Classify the segment first; the arithmetic afterwards is one step."
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** $\\pi r^2 = 169\\pi$ gives $r = 13$, so the diameter is $2(13) = 26$.\n\n**The Full Solution:**\nStep 1: The area of a circle is $\\pi r^2$, so $\\pi r^2 = 169\\pi$ and $r^2 = 169$.\nStep 2: The radius is positive, so $r = \\sqrt{169} = 13$. This is the length of $\\overline{MN}$.\nStep 3: A diameter is twice a radius: $d = 2(13) = 26$. Check: a diameter of $26$ gives a radius of $13$ and an area of $\\pi(13)^2 = 169\\pi$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($13$): is the radius $MN$, not the diameter.\n* Choice C ($169$): takes the number in front of $\\pi$ as the diameter; $169$ is $r^2$.\n* Choice D ($338$): doubles $169$ without taking its square root first.\n\n**Test Day Takeaway:** From an area, take the square root to get the radius, then double it for a diameter."
 }

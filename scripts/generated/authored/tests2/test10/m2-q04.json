@@ -1,29 +1,29 @@
 {
  "id": 4,
- "question": "The equation $y = 34x + 96$ estimates the number of students, $y$, enrolled in a school's coding course $x$ years after $2016$. In $2022$, $312$ students were enrolled in the course. How many more students were enrolled in $2022$ than the equation estimates?",
+ "question": "The equation $y = 34x + 96$ gives the estimated number of students, $y$, enrolled in a coding course $x$ years after the course was first offered. What is the best interpretation of $96$ in this context?",
  "choices": [
   {
    "id": "A",
-   "text": "$12$"
+   "text": "The estimated number of students enrolled when the course was first offered is $34$."
   },
   {
    "id": "B",
-   "text": "$34$"
+   "text": "The estimated number of students enrolled when the course was first offered is $96$."
   },
   {
    "id": "C",
-   "text": "$108$"
+   "text": "The estimated number of students enrolled $1$ year after the course was first offered is $96$."
   },
   {
    "id": "D",
-   "text": "$300$"
+   "text": "The estimated number of students enrolled increases by $96$ each year."
   }
  ],
  "distractorNotes": {
-  "B": "reports the slope, 34, the estimated increase per year, instead of the difference between actual and estimated",
-  "C": "drops the constant 96, estimating 34(6) = 204 and reporting 312 - 204 = 108",
-  "D": "reports the estimate for 2022, 34(6) + 96 = 300, instead of the difference"
+  "A": "takes the coefficient 34 as the starting value; 34 is the estimated increase in enrollment each year",
+  "C": "treats the first year as x = 1; the course was first offered at x = 0, and at x = 1 the estimate is 34(1) + 96 = 130",
+  "D": "reads the constant term as the rate of change; the estimated increase each year is the coefficient 34"
  },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Residual**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $2022$ is $6$ years after $2016$, so the estimate is $34(6) + 96 = 300$, and $312 - 300 = 12$.\n\n**The Full Solution:**\nStep 1: Since $x$ is the number of years after $2016$, the year $2022$ corresponds to $x = 2022 - 2016 = 6$.\nStep 2: Evaluate the equation at $x = 6$: $y = 34(6) + 96 = 204 + 96 = 300$ students.\nStep 3: The actual enrollment exceeds the estimate by $312 - 300 = 12$ students. Check: $300 + 12 = 312$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($34$): reports the slope, which is the estimated increase in enrollment each year, not the gap between the actual and estimated enrollment.\n* Choice C ($108$): uses only $34(6) = 204$ and forgets the constant $96$, giving $312 - 204 = 108$.\n* Choice D ($300$): stops at the estimate for $2022$ and never subtracts it from the actual enrollment.\n\n**Test Day Takeaway:** With a \"years after\" model, first turn the calendar year into $x$, then subtract the estimated value from the actual value."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Interpret Intercept of Best Fit**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** When the course was first offered, $x = 0$, and $y = 34(0) + 96 = 96$. So $96$ is the estimated number of students enrolled when the course was first offered.\n\n**The Full Solution:**\nStep 1: $x$ is the number of years after the course was first offered, so $x = 0$ is the year it was first offered.\nStep 2: Substitute $x = 0$: $y = 34(0) + 96 = 96$.\nStep 3: So $96$ is the estimated enrollment when the course was first offered. Check: the other number, $34$, multiplies $x$, so it is the estimated increase in enrollment each year, not a starting value ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: uses $34$ as the starting enrollment; $34$ is the estimated increase each year.\n* Choice C: treats the first year as $x = 1$; at $x = 1$ the estimate is $34(1) + 96 = 130$, not $96$.\n* Choice D: reads the constant as the yearly increase; the yearly increase is the coefficient of $x$, $34$.\n\n**Test Day Takeaway:** In $y = mx + b$, the constant $b$ is the estimated value of $y$ when $x = 0$, and $m$ is the estimated change in $y$ for each increase of $1$ in $x$."
 }

@@ -6,29 +6,29 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 2,
- "passage": "The Flemish painter Clara Peeters, one of the few women working professionally in still life in the early seventeenth century, planted herself inside her pictures. In the curved surfaces of pewter jugs and gilt goblets she painted tiny reflected self-portraits — in one panel, three in a goblet and four more on a jug. In a profession dominated by men, these reflections, like the signatures she often added, asserted that the pictures were her own work.",
+ "passage": "Since 1300, English law has required silver goods to meet a standard of purity now known as sterling: 92.5 percent pure silver. In London, officials of the Goldsmiths' Company tested each piece and, if it passed, struck it with a leopard's head mark. From 1363, each maker also had to add a personal mark. Together these stamps, called hallmarks, told a buyer both that the metal was genuine and who had made the piece.",
  "question": "Which choice best states the main idea of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "Peeters was admitted to her city's painters' guild only after the reflected self-portraits proved that her still lifes were her own work."
+   "text": "English silversmiths were allowed to sell their work only after joining London's Goldsmiths' Company."
   },
   {
    "id": "B",
-   "text": "Peeters embedded miniature self-portraits in the reflective objects of her still lifes, a device that asserted her authorship in a field dominated by men."
+   "text": "Marks struck on English silver guaranteed the purity of the metal and identified the maker of each piece."
   },
   {
    "id": "C",
-   "text": "Peeters painted the miniature reflections chiefly to show her skill at rendering light on polished metal surfaces."
+   "text": "The leopard's head was chosen as the testing mark because it was a symbol of the English crown."
   },
   {
    "id": "D",
-   "text": "Peeters's paintings were frequently credited to male painters because she declined to sign her panels."
+   "text": "English silver was often counterfeited because many makers refused to stamp their names on their work."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The text's arc runs from the device — tiny self-portraits mirrored in pewter and gilt — to its significance: an assertion of authorship by a woman working in a profession dominated by men.\n\n**The Full Solution:**\n- The first two sentences establish what Peeters did: she painted herself into the reflective surfaces of her still lifes, sometimes several times in a single panel.\n- The final sentence supplies the interpretation: in a male-dominated profession, the reflections, like her signatures, \"asserted that the pictures were her own work.\"\n- Choice B joins the device to that function, which is the text's central claim.\n\n**Why the other choices are wrong:**\n- A: The text never mentions a guild or any admission to one.\n- C: It reduces the reflections to technique, dropping the authorship point the final sentence makes.\n- D: It contradicts the text, which says she often added signatures; nothing says her works were credited to men.",
+ "explanation": "**Choice B is correct.** The text explains two marks, one showing that a piece passed the purity test and one naming its maker, and its last sentence sums up their purpose: hallmarks told buyers that the metal was genuine and who made the piece.\n\n**The Full Solution:**\n- How to spot it: the final sentence pulls the details together. The stamps \"told a buyer both that the metal was genuine and who had made the piece.\"\n- The earlier sentences supply the two parts: the leopard's head after a passed test, and the maker's personal mark from 1363.\n- Choice B states both functions, purity and maker, which is the text's main point.\n\n**Why the other choices are wrong:**\n- A: The text says the Company tested silver, not that makers had to join it before selling.\n- C: The text never explains why the leopard's head was chosen.\n- D: The text says makers were required to add their marks; it does not describe refusals or widespread counterfeiting.",
  "_meta": {
-  "anchor": "Clara Peeters — reflected self-portraits as indelible signatures in still life"
+  "anchor": "English silver hallmarks — purity test mark (1300) and maker's mark (1363)"
  }
 }

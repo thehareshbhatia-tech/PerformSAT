@@ -6,7 +6,7 @@
   "band": 4,
   "domain": "craft-and-structure",
   "skill": "words-in-context",
-  "passage": "The small white lumps of lime scattered through ancient Roman concrete were long taken as a sign of careless workmanship, evidence that builders had mixed their materials poorly. The chemistry of the lumps, however, ______ that assumption: analyses of 2,000-year-old Roman concrete indicate that the lumps formed when builders added quicklime to the hot mix, and that the lumps can later dissolve and refill cracks in the concrete.",
+  "passage": "The squat, plump dodo of seventeenth-century drawings was long taken as a sign that the bird was slow and clumsy, a creature poorly suited to survival. The bird's skeleton, however, ______ that image: studies of its bones indicate a leaner build than the drawings show and an exceptionally powerful tendon for closing the toes, like those of running and climbing birds alive today.",
   "question": "Which choice completes the text with the most logical and precise word or phrase?",
   "choices": [
     {
@@ -27,5 +27,13 @@
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** \"Belies\" means shows to be false, and that is the relation the sentence needs: if the lumps were produced deliberately and help the concrete repair itself, the assumption that they reveal careless mixing cannot stand.\n\n**The Full Solution:**\n- The blank governs the relation between the lumps' chemistry and \"that assumption\" — the view that the lumps were a sign of poor workmanship.\n- The colon explains that the lumps formed from quicklime added to the hot mix and that they can later refill cracks, which discredits the careless-mixing view; \"however\" confirms the blank must oppose it.\n- A word meaning contradicts or gives the lie to — \"belies\" — completes the logic.\n\n**Why the other choices are wrong:**\n- A: \"Echoes\" would have the chemistry repeating the assumption, but the evidence undermines it.\n- B: \"Predates\" states a chronological relation, while the sentence — flagged by \"however\" and the colon's reasoning — requires a logical one.\n- C: \"Conceals\" would mean the chemistry hides the assumption, an incoherent relation between evidence and a scholarly view."
+  "explanation": "**Choice D is correct.** \"Belies\" means shows to be false, and that is the relation the sentence needs: if the bones point to a lean, strong-footed bird like today's runners and climbers, the image of a slow, clumsy dodo cannot stand.\n\n**The Full Solution:**\n- The blank governs the relation between the dodo's skeleton and \"that image\": the view, drawn from old drawings, that the bird was slow and clumsy.\n- The colon explains that the bones show a leaner build and a powerful toe-closing tendon like those of running and climbing birds, which discredits the clumsy-bird view; \"however\" confirms the blank must oppose it.\n- A word meaning contradicts or gives the lie to, \"belies,\" completes the logic.\n\n**Why the other choices are wrong:**\n- A: \"Echoes\" would have the skeleton repeating the image, but the evidence undermines it.\n- B: \"Predates\" states a chronological relation, while the sentence, flagged by \"however\" and the colon's reasoning, requires a logical one.\n- C: \"Conceals\" would mean the skeleton hides the image, an incoherent relation between physical evidence and a popular picture of the bird.",
+  "_meta": {
+    "anchor": "dodo: plump, clumsy bird of 1600s drawings vs bone studies showing a leaner build and a powerful toe-closing tendon",
+    "sources": [
+      "https://www.mentalfloss.com/posts/dodos-fast-strong-study",
+      "https://www.iflscience.com/slow-fat-and-stupid-think-again-the-dodo-was-an-active-lean-bird-and-a-creature-of-the-night-84307",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5721909/"
+    ]
+  }
 }

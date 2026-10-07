@@ -6,7 +6,7 @@
   "domain": "expression-of-ideas",
   "skill": "transitions",
   "module": 2,
-  "passage": "Connoisseurs long treated a Renaissance master's name on an altarpiece as an assurance that every figure came from his own brush. The surviving commissioning contracts read differently. ______ many stipulate only that the master design the composition and paint the principal heads, expressly leaving draperies, backgrounds, and minor figures to the assistants of his shop.",
+  "passage": "Napoleon Bonaparte is often remembered as an unusually short man. Historians who have checked the records tell a different story. ______ he stood about 1.7 meters (roughly 5 feet 6 inches), close to the average height for men of his time; the image of a tiny Napoleon owes much to British cartoonists who mocked him.",
   "question": "Which choice completes the text with the most logical transition?",
   "choices": [
     {
@@ -27,8 +27,8 @@
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The passage announces that the contracts \"read differently\" from the connoisseurs' assumption, and the final sentence delivers the correcting detail. \"In fact\" is the transition that introduces the reality behind a mistaken belief.\n\n**The Full Solution:**\n- Sentence one: the belief — a master's name means every figure is his.\n- Sentence two: the pivot — the documents say otherwise.\n- Sentence three: the substance of the correction — contracts assign only the design and the principal heads to the master. \"In fact\" signals precisely this corrective specification.\n\n**Why the other choices are wrong:**\n- A: \"Similarly\" would liken the contracts' contents to the belief they overturn.\n- B: \"Meanwhile\" sets two developments side by side in time; there is only one thread here.\n- C: \"Consequently\" would make the contracts' stipulations a result of their reading differently, but the sentence is explaining what they say, not what followed from it.",
+  "explanation": "**Choice D is correct.** The second sentence says historians \"tell a different story\"; the third gives the evidence for it: Napoleon was about average height. \"In fact\" introduces information that backs up and sharpens the claim just made.\n\n**The Full Solution:**\n- Sentence 1: the popular view (Napoleon was unusually short).\n- Sentence 2: historians disagree, in general terms.\n- Sentence 3: the specific detail that shows what the historians mean, his measured height and where the myth came from.\n- \"In fact\" signals this move from a general statement to stronger, specific support.\n\n**Why the other choices are wrong:**\n- A: The third sentence does not describe something similar to the second; it explains it.\n- B: \"Meanwhile\" signals something happening at the same time, but the sentence supports the point just made.\n- C: Napoleon's height is not a result of historians telling a different story; it is the evidence for that story.",
   "_meta": {
-    "anchor": "Renaissance workshop contracts — divided authorship; corrective transition"
+    "anchor": "Napoleon height myth: ~1.7 m, average for era; British cartoonists (Wikipedia: Napoleon complex)"
   }
 }

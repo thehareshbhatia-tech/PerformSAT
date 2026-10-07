@@ -1,30 +1,30 @@
 {
   "id": 10,
-  "question": "The maximum value of the function $f$ is $86$, which occurs at $x = 300$. The function $g$ is defined by $g(x) = 12 - f(x - 40)$. Which of the following must be true?",
+  "question": "$f(x) = 7(2)^{x}$\nThe function $h$ is defined by $h(x) = f(x + 3)$. Which equation defines $h$?",
   "choices": [
     {
       "id": "A",
-      "text": "The maximum value of $g$ is $98$, which occurs at $x = 340$."
+      "text": "$h(x) = 7(5)^{x}$"
     },
     {
       "id": "B",
-      "text": "The minimum value of $g$ is $-98$, which occurs at $x = 340$."
+      "text": "$h(x) = 14(2)^{x}$"
     },
     {
       "id": "C",
-      "text": "The minimum value of $g$ is $-74$, which occurs at $x = 260$."
+      "text": "$h(x) = 21(2)^{x}$"
     },
     {
       "id": "D",
-      "text": "The minimum value of $g$ is $-74$, which occurs at $x = 340$."
+      "text": "$h(x) = 56(2)^{x}$"
     }
   ],
   "distractorNotes": {
-    "A": "ignores the negative sign in front of f",
-    "B": "negates the 12 as well, treating g as -(f(x - 40) + 12)",
-    "C": "shifts the x-value left 40 instead of right 40"
+    "A": "adds 3 to the base instead of to the exponent",
+    "B": "multiplies 7 by 2 only once, as if the input increased by 1",
+    "C": "multiplies 7 by the shift 3 instead of by 2^3"
   },
   "correctAnswer": "D",
-  "hint": "The negative sign turns the greatest value of $f$ into the least value of $g$.",
-  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~30s):** The greatest $f$ gives the least $g$: $12 - 86 = -74$, at $x = 300 + 40 = 340$.\n\n**The Full Solution:**\nStep 1: Because $f(x - 40)$ is subtracted from $12$, $g(x)$ is least when $f(x - 40)$ is greatest.\nStep 2: The greatest value of $f$ is $86$, so the least value of $g$ is $12 - 86 = -74$.\nStep 3: $f(x - 40) = 86$ when $x - 40 = 300$, so $x = 340$. Check: $g(340) = 12 - f(300) = 12 - 86 = -74$, and $g(x) \\ge 12 - 86$ for every $x$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (The maximum value of $g$ is $98$, which occurs at $x = 340$.): this adds $12$ to $86$ and ignores the negative sign, which reflects the graph and turns the maximum into a minimum.\n* Choice B (The minimum value of $g$ is $-98$, which occurs at $x = 340$.): this negates the $12$ too; $12 - 86$ is $-74$, not $-(86 + 12)$.\n* Choice C (The minimum value of $g$ is $-74$, which occurs at $x = 260$.): $f(x - 40)$ moves the graph right $40$, so the extreme moves from $300$ to $340$, not $260$.\n\n**Test Day Takeaway:** In $k - f(x - h)$, the maximum of $f$ becomes a minimum of $k - \\text{max}$, moved $h$ units right."
+  "hint": "Rewrite $(2)^{x + 3}$ as a product of two powers of $2$.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~25s):** $h(x) = 7(2)^{x + 3} = 7(2)^{3}(2)^{x} = 56(2)^{x}$.\n\n**The Full Solution:**\nStep 1: Replace $x$ with $x + 3$ in the rule for $f$: $h(x) = f(x + 3) = 7(2)^{x + 3}$.\nStep 2: By the product rule for exponents, $(2)^{x + 3} = (2)^{3}(2)^{x} = 8(2)^{x}$.\nStep 3: So $h(x) = 7(8)(2)^{x} = 56(2)^{x}$. Check: $h(0) = 56$, and $f(3) = 7(8) = 56$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($h(x) = 7(5)^{x}$): this adds $3$ to the base; the $3$ belongs in the exponent.\n* Choice B ($h(x) = 14(2)^{x}$): this multiplies by $2$ only once, which matches a shift of $1$, not $3$.\n* Choice C ($h(x) = 21(2)^{x}$): this multiplies $7$ by $3$; raising the exponent by $3$ multiplies by $2^{3} = 8$.\n\n**Test Day Takeaway:** For an exponential function, $f(x + k)$ multiplies the starting value by the base raised to the power $k$."
 }

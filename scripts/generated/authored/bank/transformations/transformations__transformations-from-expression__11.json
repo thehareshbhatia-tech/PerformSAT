@@ -1,30 +1,30 @@
 {
- "id": 11,
- "question": "$h(x) = af(x - 3) + 5$\nIn the given equation, $a$ is a positive constant. The minimum value of $f$ is $-2$, at $x = 4$, and the minimum value of $h$ is $-9$. What is the value of $a$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$-7$"
+  "id": 11,
+  "question": "$f(x) = (x + 4)(x - 2)^{2}$\nIn the $xy$-plane, the graph of $y = h(x)$ is the result of translating the graph of $y = f(x)$ down $5$ units. If the graph of $y = h(x)$ passes through the point $(1, k)$, where $k$ is a constant, what is the value of $k$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-15$"
+    },
+    {
+      "id": "B",
+      "text": "$0$"
+    },
+    {
+      "id": "C",
+      "text": "$5$"
+    },
+    {
+      "id": "D",
+      "text": "$10$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "evaluates (1 - 2)^2 as -2, so f(1) = -10, then subtracts 5",
+    "C": "finds f(1) = 5 and forgets the translation",
+    "D": "adds 5, which translates the graph up"
   },
-  {
-   "id": "B",
-   "text": "$2$"
-  },
-  {
-   "id": "C",
-   "text": "$7$"
-  },
-  {
-   "id": "D",
-   "text": "$14$"
-  }
- ],
- "distractorNotes": {
-  "A": "drops a sign when solving -2a = -14",
-  "B": "subtracts 5 instead of adding it, solving -2a - 5 = -9",
-  "D": "stops at -2a = -14 and reports 14, the value of 2a"
- },
- "correctAnswer": "C",
- "hint": "The horizontal shift does not change the minimum value.",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~40s):** With $a > 0$, the minimum of $h$ is $a(-2) + 5$, so $-2a + 5 = -9$ and $a = 7$.\n\n**The Full Solution:**\nStep 1: The shift $x - 3$ moves the minimum to $x = 7$ but does not change its value, and multiplying by a positive $a$ keeps the minimum a minimum.\nStep 2: So the minimum value of $h$ is $a(-2) + 5$, and $-2a + 5 = -9$.\nStep 3: Subtract $5$: $-2a = -14$, so $a = 7$. Check: $h(7) = 7f(4) + 5 = 7(-2) + 5 = -9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): drops a sign while dividing $-14$ by $-2$; $a$ must be positive.\n* Choice B ($2$): writes the constant as $-5$, solving $-2a - 5 = -9$.\n* Choice D ($14$): stops at $-2a = -14$ and reports the value of $2a$.\n\n**Test Day Takeaway:** Horizontal shifts move where an extreme value occurs, not how big it is; only the outside operations change the value."
+  "correctAnswer": "B",
+  "hint": "Find $f(1)$ first; the translation changes only the output.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** $f(1) = (5)(-1)^{2} = 5$, and moving down $5$ units gives $k = 5 - 5 = 0$.\n\n**The Full Solution:**\nStep 1: Translating the graph down $5$ units subtracts $5$ from every output, so $h(x) = f(x) - 5$.\nStep 2: $f(1) = (1 + 4)(1 - 2)^{2} = (5)(1) = 5$.\nStep 3: So $k = h(1) = 5 - 5 = 0$. Check: $(1, 5)$ is on the graph of $f$, and moving it down $5$ units gives $(1, 0)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-15$): this evaluates $(1 - 2)^{2}$ as $-2$; the square of $-1$ is $1$.\n* Choice C ($5$): this is $f(1)$; the translation down $5$ units still has to be applied.\n* Choice D ($10$): adding $5$ moves the graph up, not down.\n\n**Test Day Takeaway:** A vertical translation changes only the $y$-coordinates: evaluate $f$ at the given $x$, then shift the result."
 }

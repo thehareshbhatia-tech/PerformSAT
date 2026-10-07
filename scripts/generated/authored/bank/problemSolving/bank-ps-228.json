@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-228",
-  "question": "The number $x$ is $60\\%$ of the number $y$, and $y$ is $30\\%$ less than the positive number $z$. The number $x$ is what percent of $z$?",
+  "question": "The sale price of a coat is $30\\%$ less than its regular price. A store member pays $60\\%$ of the sale price. The price the member pays is what percent of the regular price?",
   "choices": [
     {
       "id": "A",
@@ -21,9 +21,9 @@
   ],
   "distractorNotes": {
     "A": "multiplies by 0.30 instead of 0.70, treating '30% less than' as '30% of'",
-    "B": "subtracts the percents, 60 − 30 = 30",
+    "B": "subtracts the percents, 60 - 30 = 30",
     "D": "adds the percents, 60 + 30 = 90"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Chained Percent Relationship**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $y = 0.70z$, so $x = 0.60(0.70z) = 0.42z$, which is $42\\%$ of $z$.\n\n**The Full Solution:**\nStep 1: \"$30\\%$ less than $z$\" means $y = z - 0.30z = 0.70z$.\nStep 2: Substitute into $x = 0.60y$: $x = 0.60(0.70z)$.\nStep 3: Multiply: $x = 0.42z$, so $x$ is $42\\%$ of $z$. Check with $z = 100$: $y = 70$ and $x = 0.60(70) = 42$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($18\\%$): uses $y = 0.30z$, reading \"$30\\%$ less than\" as \"$30\\%$ of.\"\n* Choice B ($30\\%$): subtracts the percents instead of combining the multipliers.\n* Choice D ($90\\%$): adds the percents; each percent is taken of a different number, so the multipliers combine by multiplication.\n\n**Test Day Takeaway:** Turn every percent phrase into a multiplier ($60\\%$ of $\\to 0.60$, $30\\%$ less than $\\to 0.70$), then multiply along the chain."
+  "explanation": "**SAT Pattern: Chained Percent Relationship**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The sale price is $0.70$ of the regular price, so the member pays $0.60(0.70) = 0.42$ of the regular price, or $42\\%$.\n\n**The Full Solution:**\nStep 1: \"$30\\%$ less than the regular price\" means the sale price is $1 - 0.30 = 0.70$ times the regular price.\nStep 2: The member pays $0.60$ times the sale price, or $0.60(0.70)$ times the regular price.\nStep 3: Multiply: $0.60 \\times 0.70 = 0.42$, so the member pays $42\\%$ of the regular price. Check with a regular price of $100$ dollars: sale price $70$ dollars, member price $0.60(70) = 42$ dollars ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($18\\%$): This uses $0.30$ for the sale price, reading \"$30\\%$ less than\" as \"$30\\%$ of.\"\n* Choice B ($30\\%$): This subtracts the percents instead of combining the multipliers.\n* Choice D ($90\\%$): This adds the percents; each percent is taken of a different price, so the multipliers combine by multiplication.\n\n**Test Day Takeaway:** Turn every percent phrase into a multiplier ($60\\%$ of $\\to 0.60$, $30\\%$ less than $\\to 0.70$), then multiply along the chain."
 }

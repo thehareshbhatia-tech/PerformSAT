@@ -1,30 +1,30 @@
 {
  "id": 1,
- "question": "Which of the following has the greatest value?",
+ "question": "Which expression is equivalent to $(2x^{3})(5x^{4})$?",
  "choices": [
   {
    "id": "A",
-   "text": "$2^{7}$"
+   "text": "$7x^{7}$"
   },
   {
    "id": "B",
-   "text": "$3^{4}$"
+   "text": "$7x^{12}$"
   },
   {
    "id": "C",
-   "text": "$5^{3}$"
+   "text": "$10x^{7}$"
   },
   {
    "id": "D",
-   "text": "$11^{2}$"
+   "text": "$10x^{12}$"
   }
  ],
- "correctAnswer": "A",
- "hint": "Evaluate each power before comparing.",
+ "correctAnswer": "C",
+ "hint": "Multiply the coefficients; add the exponents of x.",
  "distractorNotes": {
-  "B": "assumes the larger base 3 with exponent 4 must win over 2^7, but 3^4 is only 81",
-  "C": "estimates 5^3 = 125 as the largest without evaluating 2^7 = 128",
-  "D": "picks the largest base, 11, assuming base matters more than exponent"
+  "A": "adds the coefficients instead of multiplying them",
+  "B": "adds the coefficients and multiplies the exponents",
+  "D": "multiplies the exponents instead of adding them"
  },
- "explanation": "**Choice A is correct.**\n\n**The Fast Way (~20s):** $2^{7} = 128$, $3^{4} = 81$, $5^{3} = 125$, and $11^{2} = 121$, so $2^{7}$ is greatest.\n\n**The Full Solution:**\nStep 1: Evaluate the first two: $2^{7} = 128$ and $3^{4} = 81$.\nStep 2: Evaluate the other two: $5^{3} = 125$ and $11^{2} = 121$.\nStep 3: Compare: $128 > 125 > 121 > 81$, so $2^{7}$ has the greatest value. Check: $2^{7} = 2^{3} \\cdot 2^{4} = 8 \\cdot 16 = 128$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3^{4}$): has the largest exponent after $2^{7}$, but its value is only $81$.\n* Choice C ($5^{3}$): is close, at $125$, but $2^{7} = 128$ is greater; the values must be computed, not estimated.\n* Choice D ($11^{2}$): has the largest base, but a large base with a small exponent gives only $121$.\n\n**Test Day Takeaway:** Neither the largest base nor the largest exponent guarantees the largest power; when the values are small enough, evaluate each one."
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~10s):** $2 \\cdot 5 = 10$ and $x^{3} \\cdot x^{4} = x^{3 + 4} = x^{7}$.\n\n**The Full Solution:**\nStep 1: Group the numbers and the powers of $x$: $(2 \\cdot 5)(x^{3} \\cdot x^{4})$.\nStep 2: Multiply the coefficients: $2 \\cdot 5 = 10$.\nStep 3: Multiply powers with the same base by adding exponents: $x^{3} \\cdot x^{4} = x^{7}$. So the product is $10x^{7}$. Check: at $x = 1$, $(2)(5) = 10$ and $10(1)^{7} = 10$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7x^{7}$): adds the coefficients $2 + 5$ instead of multiplying them.\n* Choice B ($7x^{12}$): adds the coefficients and multiplies the exponents, reversing both rules.\n* Choice D ($10x^{12}$): multiplies the exponents $3 \\cdot 4$; exponents are added when the bases are multiplied.\n\n**Test Day Takeaway:** Product of monomials: coefficients multiply, exponents add."
 }

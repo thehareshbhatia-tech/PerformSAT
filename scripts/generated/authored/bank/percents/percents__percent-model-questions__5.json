@@ -1,30 +1,30 @@
 {
   "id": 5,
-  "question": "To pass a test with $150$ questions, a student must answer at least $68\\%$ of the questions correctly. The student answered $86$ of the first $110$ questions correctly. What is the least number of the remaining questions the student must answer correctly to pass?",
+  "question": "A store's price for a jacket is $50\\%$ greater than the store's cost. During a sale, the price of the jacket is reduced by $20\\%$. The sale price is $p\\%$ of the store's cost. What is the value of $p$?",
   "choices": [
     {
       "id": "A",
-      "text": "$16$"
-    },
-    {
-      "id": "B",
-      "text": "$24$"
-    },
-    {
-      "id": "C",
       "text": "$40$"
     },
     {
+      "id": "B",
+      "text": "$120$"
+    },
+    {
+      "id": "C",
+      "text": "$130$"
+    },
+    {
       "id": "D",
-      "text": "$102$"
+      "text": "$150$"
     }
   ],
   "distractorNotes": {
-    "B": "counts the remaining questions the student may still miss (48 misses allowed, 24 already used)",
-    "C": "assumes all 40 remaining questions must be correct",
-    "D": "reports the total number of correct answers needed"
+    "A": "takes 80% of the 50% markup alone, 0.80(50), instead of 80% of the whole price",
+    "C": "adds and subtracts the percents, 100 + 50 - 20",
+    "D": "uses the price before the sale"
   },
-  "correctAnswer": "A",
-  "hint": "Find the total number of correct answers required before looking at what is already earned.",
-  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~35s):** Passing needs $0.68 \\times 150 = 102$ correct, and $102 - 86 = 16$ more.\n\n**The Full Solution:**\nStep 1: Compute the passing requirement: $68\\%$ of $150$ is $0.68 \\times 150 = 102$ correct answers.\nStep 2: The student already has $86$ correct, so the shortfall is $102 - 86 = 16$.\nStep 3: There are $150 - 110 = 40$ questions left, and $16$ of them must be correct. Check: $86 + 16 = 102$, and $\\frac{102}{150} = 0.68$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($24$): counts the remaining questions the student may still answer INCORRECTLY, since $150 - 102 = 48$ misses are allowed and $110 - 86 = 24$ have already been used.\n* Choice C ($40$): assumes every one of the $40$ remaining questions must be answered correctly.\n* Choice D ($102$): reports the total number of correct answers needed rather than the additional number.\n\n**Test Day Takeaway:** Convert a passing percent into a raw count first; the question then becomes simple subtraction against what is already banked."
+  "correctAnswer": "B",
+  "hint": "Let the cost be $c$ and write each change as a multiplier.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~40s):** The sale price is $c(1.50)(0.80) = 1.20c$, which is $120\\%$ of the cost.\n\n**The Full Solution:**\nStep 1: Let the store's cost be $c$. A price $50\\%$ greater than $c$ is $1.50c$.\nStep 2: Reducing that price by $20\\%$ leaves $80\\%$ of it: $0.80(1.50c) = 1.20c$.\nStep 3: Since $1.20c = \\frac{120}{100}c$, the sale price is $120\\%$ of the cost, so $p = 120$.\n\nCheck: If the cost is \\$100, the price is \\$150, and $20\\%$ of \\$150 is \\$30, so the sale price is \\$120. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($40$): applies the $20\\%$ reduction only to the $50\\%$ markup.\n* Choice C ($130$): combines the percents by adding and subtracting, but the $20\\%$ is taken from the larger price.\n* Choice D ($150$): is the price before the sale as a percent of the cost.\n\n**Test Day Takeaway:** Chain percent changes by multiplying: $1.50 \\times 0.80 = 1.20$, then read the product as a percent."
 }

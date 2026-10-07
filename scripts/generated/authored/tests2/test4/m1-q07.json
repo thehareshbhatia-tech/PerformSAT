@@ -1,6 +1,6 @@
 {
  "id": 7,
- "question": "The mean of $6$ numbers is $44$. Five of the numbers are $41.2$, $44.8$, $39.6$, $46$, and $43.4$. What is the sixth number?",
+ "question": "The mean of $6$ numbers is $44$. Five of the numbers are $41$, $45$, $38$, $47$, and $44$. What is the sixth number?",
  "choices": [
   {
    "id": "A",
@@ -25,5 +25,5 @@
   "D": "adds 1 for each of the six numbers, 44 + 6 = 50, instead of for the five given numbers"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Mean from List**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Six numbers with mean $44$ total $6(44) = 264$; the five given numbers total $215$, so the sixth is $264 - 215 = 49$.\n\n**The Full Solution:**\nStep 1: Use the mean to find the total of all six numbers: $6(44) = 264$.\nStep 2: Add the five given numbers: $41.2 + 44.8 + 39.6 + 46 + 43.4 = 215$.\nStep 3: Subtract: the sixth number is $264 - 215 = 49$. Check: $\\frac{215 + 49}{6} = \\frac{264}{6} = 44$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($44$): assumes the missing number equals the mean, but the five given numbers average only $43$; a sixth number of $44$ gives a mean of $\\frac{259}{6} \\approx 43.2$, not $44$.\n* Choice B ($45$): notices that the five numbers average $43$, which is $1$ below $44$, but makes up that $1$ only once instead of once for each of the five numbers.\n* Choice D ($50$): makes up the shortfall of $1$ six times; only the five given numbers fall short.\n\n**Test Day Takeaway:** Convert a target mean into a target total, then subtract what you already have; the difference is the missing value."
+ "explanation": "**SAT Pattern: Mean from List**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Six numbers with mean $44$ total $6(44) = 264$; the five given numbers total $215$, so the sixth is $264 - 215 = 49$.\n\n**The Full Solution:**\nStep 1: Use the mean to find the total of all six numbers: $6(44) = 264$.\nStep 2: Add the five given numbers: $41 + 45 + 38 + 47 + 44 = 215$.\nStep 3: Subtract: the sixth number is $264 - 215 = 49$. Check: $\\frac{215 + 49}{6} = \\frac{264}{6} = 44$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($44$): assumes the missing number equals the mean, but the five given numbers average only $43$; a sixth number of $44$ gives a mean of $\\frac{259}{6} \\approx 43.2$, not $44$.\n* Choice B ($45$): notices that the five numbers average $43$, which is $1$ below $44$, but makes up that $1$ only once instead of once for each of the five numbers.\n* Choice D ($50$): makes up the shortfall of $1$ six times; only the five given numbers fall short.\n\n**Test Day Takeaway:** Convert a target mean into a target total, then subtract what you already have; the difference is the missing value."
 }

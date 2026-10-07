@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-388",
-  "question": "In a survey of $250$ adults, $40\\%$ own a bicycle, and $30\\%$ of the bicycle owners ride it to work. How many of the adults ride a bicycle to work?",
+  "question": "In a survey of $300$ adults, $35\\%$ own a bicycle, and $40\\%$ of the bicycle owners ride it to work. How many of the adults ride a bicycle to work?",
   "choices": [
     {
       "id": "A",
-      "text": "$30$"
+      "text": "$42$"
     },
     {
       "id": "B",
-      "text": "$70$"
+      "text": "$105$"
     },
     {
       "id": "C",
-      "text": "$75$"
+      "text": "$120$"
     },
     {
       "id": "D",
-      "text": "$100$"
+      "text": "$225$"
     }
   ],
-  "distractorNotes": {
-    "B": "counts the bicycle owners who do not ride to work, $70\\%$ of $100$",
-    "C": "applies $30\\%$ to all $250$ adults instead of to the bicycle owners",
-    "D": "stops after the first step and reports the number of bicycle owners"
-  },
   "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $0.40(250) = 100$ bicycle owners, and $0.30(100) = 30$ of them ride to work.\n\n**The Full Solution:**\nStep 1: Find the size of the subgroup: $40\\%$ of $250$ is $0.40(250) = 100$ bicycle owners.\nStep 2: The second percent applies to that subgroup, not to everyone surveyed: $30\\%$ of $100$ is $0.30(100) = 30$.\nStep 3: So $30$ of the adults surveyed ride a bicycle to work. Check: $0.40(0.30) = 0.12$, and $0.12(250) = 30$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($70$): counts the bicycle owners who do not ride to work, $0.70(100) = 70$.\n* Choice C ($75$): applies $30\\%$ to all $250$ adults, $0.30(250) = 75$, but the $30\\%$ describes only the bicycle owners.\n* Choice D ($100$): stops after the first step and reports the number of bicycle owners.\n\n**Test Day Takeaway:** A percent of a percent applies to the smaller group. Compute the subgroup first, then apply the second percent to it."
+  "distractorNotes": {
+    "B": "stops after the first step and reports the number of bicycle owners",
+    "C": "takes 40% of all 300 adults instead of 40% of the bicycle owners",
+    "D": "adds the two percents and takes 75% of 300"
+  },
+  "explanation": "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $35\\%$ of $300$ is $105$ owners, and $40\\%$ of $105$ is $42$.\n\n**The Full Solution:**\nStep 1: Bicycle owners: $0.35 \\times 300 = 105$.\nStep 2: Owners who ride to work: $0.40 \\times 105 = 42$.\nStep 3: So $42$ adults ride a bicycle to work. Check: $0.35 \\times 0.40 = 0.14$, and $14\\%$ of $300$ is $42$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($105$): is the number of bicycle owners; the second percent still has to be applied.\n* Choice C ($120$): applies $40\\%$ to all $300$ adults, but the $40\\%$ is of the owners only.\n* Choice D ($225$): adds $35\\%$ and $40\\%$; a percent of a percent multiplies.\n\n**Test Day Takeaway:** \"Of the owners\" means the second percent applies to the first group, so multiply the percents."
 }

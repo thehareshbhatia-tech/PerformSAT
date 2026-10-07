@@ -6,26 +6,34 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 2,
- "passage": "Why ice ages come and go was among the longest-standing puzzles in earth science: the rock record plainly showed ice sheets advancing and retreating, but no accepted cause explained their timing. Working through the 1920s and 1930s, the Serbian mathematician Milutin Milanković computed how three slow, overlapping astronomical cycles — in the shape of Earth's orbit, the tilt of its axis, and the direction the axis points — redistribute sunlight across latitudes and seasons. The critical quantity, he proposed, was summer sunlight at high northern latitudes: when the cycles align to weaken it, snow that fell in winter survives the melt season, and ice sheets begin to grow.",
- "question": "Based on the text, what did Milanković propose about the growth of ice sheets?",
+ "passage": "In the early 1900s, pellagra was common in the American South, and many physicians believed that a germ spread it. In 1914, a US Public Health Service physician sent to study the disease visited orphanages and hospitals for the mentally ill where it was widespread. He found that many of the children and patients had pellagra but that the doctors and nurses who cared for them did not, even though the staff were in constant contact with the sick. The inmates ate monotonous meals built on cornmeal, molasses, and fatback, while the staff ate more varied food. The physician then proposed a cause: the disease did not pass from person to person but came from a diet lacking some essential nutrient.",
+ "question": "Based on the text, what did the physician propose about the pellagra cases in these institutions?",
  "choices": [
   {
    "id": "A",
-   "text": "That ice sheets grow whenever winters across the whole planet become unusually cold and snowy."
+   "text": "That the disease spread mainly through the air of the crowded institutions."
   },
   {
    "id": "B",
-   "text": "That the timing of ice ages would remain unexplained until the rock record of glacial advances was far more complete."
+   "text": "That the cause could not be identified until many more institutions had been studied."
   },
   {
    "id": "C",
-   "text": "That Earth's orbit and axis change too slowly for astronomical cycles to alter how sunlight falls across the planet's latitudes."
+   "text": "That the doctors and nurses passed the disease to the people they cared for."
   },
   {
    "id": "D",
-   "text": "That ice sheets begin to grow when astronomical cycles align to weaken summer sunlight at high northern latitudes, letting winter snow survive the melt season."
+   "text": "That a diet lacking some essential nutrient, not contact with the sick, caused it."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The proposal is stated in the final sentence: the critical quantity is \"summer sunlight at high northern latitudes,\" and when the cycles align to weaken it, winter snow survives the melt season and ice sheets begin to grow — which D restates faithfully.\n\n**The Full Solution:**\n- Locate the proposal: the sentence beginning \"The critical quantity, he proposed...\" carries Milanković's actual claim.\n- Its mechanism has three links: aligned cycles, weakened summer sunlight in the high north, and snow persisting through the melt season.\n- D preserves all three links without adding or reversing any.\n\n**Why the other choices are wrong:**\n- A: It substitutes planet-wide cold winters for the proposal's actual driver — weak northern summers that fail to melt the snow.\n- B: It mistakes the opening puzzle for the proposal; Milanković offered a cause, not a call for more data.\n- C: It reverses the text — his computations showed the slow cycles do redistribute sunlight, slowness notwithstanding."
+ "explanation": "**Choice D is correct.** The proposal is stated in the final sentence: the disease \"did not pass from person to person but came from a diet lacking some essential nutrient,\" which D restates.\n\n**The Full Solution:**\n- Locate the proposal: the sentence beginning \"The physician then proposed a cause\" carries his actual claim.\n- The claim has two parts: it rules out spread from person to person, and it names a diet lacking an essential nutrient as the cause.\n- D keeps both parts and adds nothing.\n\n**Why the other choices are wrong:**\n- A: The text never mentions air or crowding; the proposed cause is diet, not anything carried through the air.\n- B: It mistakes his search for his answer; the physician proposed a cause rather than calling for more institutions to be studied.\n- C: It reverses the text; the staff stayed healthy, and the physician proposed that the disease did not pass from person to person at all.",
+ "_meta": {
+  "anchor": "1914 US Public Health Service pellagra study: institution inmates sick, staff in constant contact healthy; monotonous cornmeal/molasses/fatback diet; diet-deficiency cause proposed (no personal name) - CID",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Joseph_Goldberger",
+   "https://en.wikipedia.org/wiki/Pellagra",
+   "https://www.sciencehistory.org/stories/magazine/joseph-goldbergers-filth-parties/"
+  ]
+ }
 }

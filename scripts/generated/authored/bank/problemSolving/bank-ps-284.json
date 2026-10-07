@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-284",
-  "question": "Three surveys used the same method and differed only in sample size. The table shows the sample size and the margin of error, in percentage points, for each survey. What is the margin of error, in percentage points, for survey $3$?",
+  "question": "Three surveys of the same population used random samples and the same method. The table shows the sample size and the margin of error, in percentage points, for each survey, but the margin of error for survey $3$ is missing. Which of the following could be the margin of error, in percentage points, for survey $3$?",
   "questionTable": {
     "headers": [
       "Survey",
@@ -10,17 +10,17 @@
     "rows": [
       [
         "1",
-        "400",
-        "6.0"
+        "300",
+        "5.6"
       ],
       [
         "2",
-        "900",
-        "4.0"
+        "1,200",
+        "2.8"
       ],
       [
         "3",
-        "3,600",
+        "600",
         "?"
       ]
     ]
@@ -28,26 +28,26 @@
   "choices": [
     {
       "id": "A",
-      "text": "$0.67$"
-    },
-    {
-      "id": "B",
       "text": "$2.0$"
     },
     {
+      "id": "B",
+      "text": "$2.4$"
+    },
+    {
       "id": "C",
-      "text": "$3.0$"
+      "text": "$4.0$"
     },
     {
       "id": "D",
-      "text": "$18.0$"
+      "text": "$6.2$"
     }
   ],
   "distractorNotes": {
-    "A": "divides $6.0$ by the sample-size ratio $9$ instead of by $\\sqrt{9} = 3$",
-    "C": "pairs survey 1's margin of error with the ratio of survey 3's sample size to survey 2's",
-    "D": "multiplies by $3$ instead of dividing"
+    "A": "picks a margin smaller than 2.8, that of the largest sample",
+    "B": "picks a margin just below 2.8, still smaller than that of the largest sample",
+    "D": "picks a margin larger than that of the smallest sample"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** From survey $1$ to survey $3$, the sample size is multiplied by $\\frac{3600}{400} = 9$, so the margin of error is divided by $\\sqrt{9} = 3$: $\\frac{6.0}{3} = 2.0$.\n\n**The Full Solution:**\nStep 1: Confirm the rule with the two completed rows. Going from $400$ to $900$ multiplies the sample size by $\\frac{9}{4}$, so the margin of error is divided by $\\sqrt{\\frac{9}{4}} = \\frac{3}{2}$: $6.0 \\div \\frac{3}{2} = 4.0$, matching the table.\nStep 2: Apply the same rule from survey $1$ to survey $3$: $\\frac{3600}{400} = 9$, and $\\sqrt{9} = 3$, so the margin of error is $\\frac{6.0}{3} = 2.0$ percentage points.\nStep 3: Check from survey $2$: $\\frac{3600}{900} = 4$, $\\sqrt{4} = 2$, and $\\frac{4.0}{2} = 2.0$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.67$): $\\frac{6.0}{9}$, dividing by the sample-size ratio without taking its square root.\n* Choice C ($3.0$): $\\frac{6.0}{2}$, which uses the ratio $\\frac{3600}{900} = 4$ and its square root $2$ but keeps survey $1$'s margin of error, mixing rows.\n* Choice D ($18.0$): $6.0 \\times 3$; multiplying instead of dividing makes the largest sample the least precise.\n\n**Test Day Takeaway:** When a table gives two complete rows, use them to confirm the $\\frac{1}{\\sqrt{n}}$ rule before extending it to the missing entry."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Survey $3$ is larger than survey $1$ and smaller than survey $2$, so its margin of error must be between $2.8$ and $5.6$; only $4.0$ is.\n\n**The Full Solution:**\nStep 1: A larger random sample generally gives a smaller margin of error, so the margins of error should decrease as the sample size increases.\nStep 2: Survey $3$, with $600$ people, is larger than survey $1$ ($300$ people, margin $5.6$) and smaller than survey $2$ ($1{,}200$ people, margin $2.8$).\nStep 3: So the margin of error for survey $3$ should be less than $5.6$ and greater than $2.8$. Of the choices, only $4.0$ is in that range. Check: $2.8 < 4.0 < 5.6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.0$): this is less than $2.8$, the margin of the largest survey; a smaller survey cannot be expected to be more precise.\n* Choice B ($2.4$): this is also less than $2.8$, so it would make survey $3$ more precise than the larger survey $2$.\n* Choice D ($6.2$): this is greater than $5.6$, so it would make survey $3$ less precise than the smaller survey $1$.\n\n**Test Day Takeaway:** Order the surveys by sample size; the margins of error run in the opposite order. A middle-sized sample gets a middle-sized margin."
 }

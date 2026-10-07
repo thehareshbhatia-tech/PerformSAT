@@ -70,7 +70,7 @@ export const practiceTest2RW = {
           "band": 2,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Small raindrops are nearly perfect spheres: surface tension pulls the water into the shape with the least possible surface area. As drops grow larger, however, the pressure of the air they fall through begins to ______ that tidy geometry — the bottom of each drop flattens while the top stays rounded, producing a shape closer to a hamburger bun than to the teardrop of popular illustration.",
+          "passage": "Small raindrops are nearly perfect spheres: surface tension pulls the water into the shape with the least possible surface area. As drops grow larger, however, the pressure of the air they fall through begins to ______ that tidy geometry. The bottom of each drop flattens while the top stays rounded, producing a shape closer to a hamburger bun than to the teardrop of popular illustration.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -91,7 +91,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The text describes air pressure pushing a sphere out of shape — flattened bottom, rounded top — and \"distort\" means precisely to twist something out of its proper form.\n\n**The Full Solution:**\n- The first sentence establishes the starting shape: a near-perfect sphere, the \"tidy geometry\" the blank refers back to.\n- The clause after the dash spells out what air pressure does to that shape: it flattens the bottom while leaving the top rounded, changing the sphere into something bun-shaped.\n- A verb meaning to deform or push out of shape is required, and \"distort\" supplies exactly that meaning.\n\n**Why the other choices are wrong:**\n- B: \"restore\" reverses the direction of change — air pressure is destroying the spherical shape, not bringing it back.\n- C: \"imitate\" would mean the air pressure copies the geometry, but the text describes the shape being altered, not reproduced.\n- D: \"measure\" belongs to the vocabulary of observation; the sentence describes a physical force acting on the drop, not anyone quantifying it."
+          "explanation": "**Choice A is correct.** The text describes air pressure pushing a sphere out of shape — flattened bottom, rounded top — and \"distort\" means precisely to twist something out of its proper form.\n\n**The Full Solution:**\n- The first sentence establishes the starting shape: a near-perfect sphere, the \"tidy geometry\" the blank refers back to.\n- The next sentence spells out what air pressure does to that shape: it flattens the bottom while leaving the top rounded, changing the sphere into something bun-shaped.\n- A verb meaning to deform or push out of shape is required, and \"distort\" supplies exactly that meaning.\n\n**Why the other choices are wrong:**\n- B: \"restore\" reverses the direction of change — air pressure is destroying the spherical shape, not bringing it back.\n- C: \"imitate\" would mean the air pressure copies the geometry, but the text describes the shape being altered, not reproduced.\n- D: \"measure\" belongs to the vocabulary of observation; the sentence describes a physical force acting on the drop, not anyone quantifying it."
         },
         {
           "id": 201,
@@ -190,7 +190,7 @@ export const practiceTest2RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "More than a hundred small bronze objects of the same curious design — hollow twelve-sided shells, each face pierced by a round hole and each corner topped with a knob — have been found in the Roman Empire's northwestern provinces. Proposed functions abound: candlestick holder, surveying instrument, tool for knitting gloves. Yet every proposal stumbles on the same facts. The holes vary in size with no consistent pattern, the objects appear in no surviving Roman text or image, and several were buried with hoards of coins, as if treasured rather than used. Until an example surfaces in a context that reveals its purpose, the dodecahedra will remain a reminder that possessing artifacts is not the same as understanding them.",
+          "passage": "More than a hundred small bronze objects of the same curious design have been found in the Roman Empire's northwestern provinces. Each is a hollow twelve-sided shell, with a round hole in every face and a knob at every corner. Proposed functions abound: candlestick holder, surveying instrument, tool for knitting gloves. Yet every proposal stumbles on the same facts. The holes vary in size with no consistent pattern, the objects appear in no surviving Roman text or image, and several were buried with hoards of coins, as if treasured rather than used. Until an example surfaces in a context that reveals its purpose, the dodecahedra will remain a reminder that possessing artifacts is not the same as understanding them.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
@@ -298,11 +298,11 @@ export const practiceTest2RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Coffeehouse patrons regularly disrupted trade in the surrounding markets by gathering in large and unruly crowds at busy hours."
+              "text": "Crowds of coffeehouse patrons regularly disrupted trade in nearby markets."
             },
             {
               "id": "B",
-              "text": "Religious officials had ruled that coffee itself was a forbidden drink that no observant person could lawfully consume."
+              "text": "Religious officials had ruled that drinking coffee was forbidden."
             },
             {
               "id": "C",
@@ -310,11 +310,11 @@ export const practiceTest2RW = {
             },
             {
               "id": "D",
-              "text": "Coffeehouses drew paying customers away from the taverns that the government taxed."
+              "text": "Coffeehouses drew paying customers away from the taverns that the government taxed and depended on for revenue."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The text ties the government's hostility to one thing: patrons talked about politics, \"to the government's recurring alarm,\" and the closure orders follow directly in the next sentence.\n\n**The Full Solution:**\n- The text lists what patrons did — chess, storytellers, and \"above all\" talk.\n- The talk is itemized: business, poetry, and politics, with the political conversation explicitly flagged as the source of official alarm.\n- The final sentence reports the authorities' response — repeated closure orders — completing the cause-and-effect chain the question asks about.\n\n**Why the other choices are wrong:**\n- A: The text mentions no crowds, no disruption of markets, and no unruliness — patrons are shown lingering quietly over chess and conversation.\n- B: No religious ruling about coffee appears anywhere in the text; the alarm is the government's, and it concerns speech, not the drink.\n- D: Taverns are mentioned only as a contrasting kind of gathering place; nothing is said about their customers or about tax revenue."
+          "explanation": "**Choice C is correct.** The text ties the government's hostility to one thing: patrons talked about politics, \"to the government's recurring alarm,\" and the closure orders follow directly in the next sentence.\n\n**The Full Solution:**\n- The text lists what patrons did — chess, storytellers, and \"above all\" talk.\n- The talk is itemized: business, poetry, and politics, with the political conversation explicitly flagged as the source of official alarm.\n- The final sentence reports the authorities' response — repeated closure orders — completing the cause-and-effect chain the question asks about.\n\n**Why the other choices are wrong:**\n- A: The text mentions no crowds and no disruption of markets; patrons are shown lingering over chess and conversation.\n- B: No religious ruling about coffee appears anywhere in the text; the alarm is the government's, and it concerns speech, not the drink.\n- D: Taverns are mentioned only as a contrasting kind of gathering place; nothing is said about their customers or about tax revenue."
         },
         {
           "id": 216,
@@ -328,7 +328,7 @@ export const practiceTest2RW = {
           "choices": [
             {
               "id": "A",
-              "text": "the standard had to be imposed by an outside authority rather than emerging from the orchestras' rivalry, which rewarded each for tuning ever higher."
+              "text": "the standard had to be imposed by an outside authority rather than emerging from the orchestras' rivalry."
             },
             {
               "id": "B",
@@ -353,40 +353,40 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "Lightweight pedestrian bridges can sway noticeably when crowds cross them, so engineers sometimes retrofit them with tuned mass dampers — heavy pendulums that swing out of phase with the deck and absorb its motion. A city engineering office retrofitted five pedestrian bridges and measured peak lateral sway during comparable crowd events before and after installation. The office concludes that the retrofits reduced sway at every bridge tested because ______",
+          "passage": "In the decades after 1950, many industrial cities in the northeastern and midwestern United States lost residents as factory jobs disappeared and families moved to the suburbs. A student examining US Census counts for five such cities claims that every one of them lost population between 1950 and 2020. The census counts support this claim because ______",
           "questionTable": {
             "type": "table",
-            "caption": "Peak lateral sway at five pedestrian bridges before and after tuned-mass-damper retrofit",
+            "caption": "Population of five US cities, 1950 and 2020 (thousands of residents)",
             "headers": [
-              "Bridge",
-              "Sway before (cm)",
-              "Sway after (cm)"
+              "City",
+              "1950 population (thousands)",
+              "2020 population (thousands)"
             ],
             "rows": [
               [
-                "Millrace",
-                "6.8",
-                "2.1"
+                "Detroit",
+                "1,850",
+                "639"
               ],
               [
-                "Cannery",
-                "5.4",
-                "2.6"
+                "Cleveland",
+                "915",
+                "373"
               ],
               [
-                "Foundry",
-                "8.2",
-                "3.0"
+                "St. Louis",
+                "857",
+                "302"
               ],
               [
-                "Boathouse",
-                "4.9",
-                "2.2"
+                "Pittsburgh",
+                "677",
+                "303"
               ],
               [
-                "Ropewalk",
-                "7.5",
-                "3.9"
+                "Buffalo",
+                "580",
+                "278"
               ]
             ]
           },
@@ -394,23 +394,23 @@ export const practiceTest2RW = {
           "choices": [
             {
               "id": "A",
-              "text": "peak sway at Foundry fell from 8.2 centimeters before the retrofit to 3.0 centimeters after it, the largest reduction recorded at any of the bridges."
+              "text": "Detroit's population fell from about 1,850,000 in 1950 to about 639,000 in 2020, the largest decline of any city in the table."
             },
             {
               "id": "B",
-              "text": "peak sway decreased at all five bridges after the retrofit, falling, for example, from 8.2 to 3.0 centimeters at Foundry and from 4.9 to 2.2 centimeters at Boathouse."
+              "text": "all five cities had fewer residents in 2020 than in 1950, with Detroit falling from about 1,850,000 to 639,000 and Buffalo from about 580,000 to 278,000."
             },
             {
               "id": "C",
-              "text": "Ropewalk recorded the highest post-retrofit sway of the five bridges, at 3.9 centimeters."
+              "text": "Buffalo had the smallest population of the five cities in 2020, with about 278,000 residents."
             },
             {
               "id": "D",
-              "text": "the average peak sway across the five bridges was lower after the retrofits than before them."
+              "text": "the combined population of the five cities was lower in 2020 than in 1950."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** A conclusion about \"every bridge tested\" needs evidence spanning every row, and B alone supplies it: sway fell at all five bridges, with representative before-and-after figures.\n\n**The Full Solution:**\n- The office's claim is universal in scope — the retrofits \"reduced sway at every bridge tested.\"\n- Checking the table row by row confirms the pattern: 6.8 to 2.1, 5.4 to 2.6, 8.2 to 3.0, 4.9 to 2.2, and 7.5 to 3.9 centimeters. Every after-value is lower than its before-value.\n- Choice B asserts exactly that all-five pattern and anchors it with two correctly cited examples.\n\n**Why the other choices are wrong:**\n- A: It documents only Foundry — one bridge, however impressive its reduction, cannot establish a claim about all five.\n- C: It reports a ranking among post-retrofit values that says nothing about change; Ropewalk's 3.9 centimeters supports no before-versus-after comparison on its own.\n- D: An average can fall even if sway increased at one or two bridges, so aggregate improvement cannot establish the every-bridge claim the office actually makes."
+          "explanation": "**Choice B is correct.** A claim about every city in the table needs evidence that covers every row, and B alone supplies it: all five cities had fewer residents in 2020 than in 1950.\n\n**The Full Solution:**\n- The student's claim is universal: each of the five cities lost population between 1950 and 2020.\n- Check the table row by row (in thousands): Detroit 1,850 to 639, Cleveland 915 to 373, St. Louis 857 to 302, Pittsburgh 677 to 303, and Buffalo 580 to 278. Every 2020 count is lower than the 1950 count.\n- Choice B states that all-five pattern and cites two rows correctly as examples.\n\n**Why the other choices are wrong:**\n- A: It describes only Detroit. One city, however large its loss, cannot show that all five cities lost residents.\n- C: It ranks the cities by their 2020 populations, which says nothing about how any city changed since 1950.\n- D: A combined total can fall even if one city grew, so it cannot establish the every-city claim the student makes."
         },
         {
           "id": 214,
@@ -419,30 +419,30 @@ export const practiceTest2RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "Track-forecast error — the distance between a hurricane's predicted and actual positions — has fallen steadily for decades as observations and models have improved. A student examining the National Hurricane Center's average errors for Atlantic forecasts claims that the improvement between 1990 and 2020 was proportionally greatest at the longest lead time, so that forecasters gained the most ground exactly where their forecasts had once been least reliable. The claim is supported by the data because ______",
+          "passage": "Cigarette smoking among adults in the United States has declined for decades. A student examining survey data from the Centers for Disease Control and Prevention claims that from 2005 to 2020, smoking declined proportionally the most among the youngest adults. The claim is supported by the data because ______",
           "questionTable": {
             "type": "table",
-            "caption": "Average error of National Hurricane Center track forecasts for Atlantic tropical cyclones, by lead time, 1990 and 2020",
+            "caption": "Percentage of US adults who smoked cigarettes, by age group, 2005 and 2020",
             "headers": [
-              "Lead time",
-              "Error, 1990 (km)",
-              "Error, 2020 (km)"
+              "Age group",
+              "Smoked, 2005 (%)",
+              "Smoked, 2020 (%)"
             ],
             "rows": [
               [
-                "24 hours",
-                "199",
-                "66"
+                "18–24 years",
+                "24.4",
+                "7.4"
               ],
               [
-                "48 hours",
-                "379",
-                "120"
+                "25–44 years",
+                "24.1",
+                "14.1"
               ],
               [
-                "72 hours",
-                "578",
-                "148"
+                "45–64 years",
+                "21.9",
+                "14.9"
               ]
             ]
           },
@@ -450,23 +450,23 @@ export const practiceTest2RW = {
           "choices": [
             {
               "id": "A",
-              "text": "the 24-hour forecast error in 2020, at 66 kilometers, was the smallest error shown anywhere in the table."
+              "text": "the 2020 smoking rate among adults aged 18 to 24, at 7.4 percent, was the lowest rate shown in the table."
             },
             {
               "id": "B",
-              "text": "the 72-hour error fell by 430 kilometers between 1990 and 2020, a larger absolute drop than at either shorter lead time."
+              "text": "the smoking rate among adults aged 18 to 24 fell by 17 percentage points, a larger drop than in either older age group."
             },
             {
               "id": "C",
-              "text": "average error was smaller in 2020 than in 1990 at every lead time shown in the table."
+              "text": "the smoking rate was lower in 2020 than in 2005 in every age group shown in the table."
             },
             {
               "id": "D",
-              "text": "the 72-hour error fell by roughly 74 percent between 1990 and 2020, a proportionally larger decline than the roughly 68 percent at 48 hours or 67 percent at 24 hours."
+              "text": "the rate among adults aged 18 to 24 fell by about 70 percent, compared with about 41 percent for ages 25 to 44 and 32 percent for ages 45 to 64."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The claim is about proportional improvement ranked by lead time, and D performs exactly that computation: the percentage decline is largest at 72 hours.\n\n**The Full Solution:**\n- Convert each row to a percentage decline: 24 hours, (199 − 66)/199 ≈ 67%; 48 hours, (379 − 120)/379 ≈ 68%; 72 hours, (578 − 148)/578 ≈ 74%.\n- The improvement was proportionally greatest at 72 hours — the lead time where 1990 errors were largest and forecasts least reliable.\n- Choice D reports precisely this comparison, matching the claim's proportional framing.\n\n**Why the other choices are wrong:**\n- A: The 24-hour error is the smallest in either year simply because shorter forecasts are easier; that ranking exists in both columns and says nothing about how much any lead time improved.\n- B: It substitutes absolute change for proportional change — the very confusion the claim's wording (\"proportionally greatest\") rules out; a large starting error can shrink by many kilometers while improving less in percentage terms.\n- C: Universal improvement supports only the weaker point that forecasts got better everywhere; it cannot establish which lead time improved most."
+          "explanation": "**Choice D is correct.** The claim is about proportional decline by age group, and D gives exactly that comparison: the percentage drop was largest for adults aged 18 to 24.\n\n**The Full Solution:**\n- Convert each row to a percentage decline: ages 18–24, (24.4 − 7.4)/24.4 ≈ 70%; ages 25–44, (24.1 − 14.1)/24.1 ≈ 41%; ages 45–64, (21.9 − 14.9)/21.9 ≈ 32%.\n- The decline was proportionally greatest for the youngest group, which is what the student claims.\n- Choice D reports this comparison, matching the claim's proportional framing.\n\n**Why the other choices are wrong:**\n- A: The youngest group's 2020 rate is the lowest in the table, but a low ending rate says nothing about how much the rate fell relative to where it started.\n- B: It reports an absolute drop in percentage points, not a proportional one. Because the youngest group also started with the highest rate, a larger drop in points does not by itself show a larger proportional decline.\n- C: A decline in every group supports only the weaker point that smoking fell everywhere; it cannot show which group's decline was proportionally greatest."
         },
         {
           "id": 212,
@@ -475,7 +475,7 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-textual",
-          "passage": "Many households intend to save money and simply fail to follow through. Working with a bank, a team of economists enrolled clients who had recently opened savings accounts tied to a self-chosen goal — a roof repair, a school fee — and sent a randomly selected group of them monthly text-message reminders. The researchers hypothesize that reminders raise saving not by teaching clients anything new but by bringing the neglected goal to mind at moments when a deposit is possible.",
+          "passage": "Many households intend to save money and simply fail to follow through. Working with a bank, a team of economists studied clients who had recently opened savings accounts tied to a goal they chose, such as a roof repair or a school fee. The team sent monthly text-message reminders to a randomly selected group of these clients. The researchers hypothesize that reminders raise saving not by teaching clients anything new but by bringing the neglected goal to mind at moments when a deposit is possible.",
           "question": "Which finding from the study, if true, would most directly support the researchers' hypothesis?",
           "choices": [
             {
@@ -488,11 +488,11 @@ export const practiceTest2RW = {
             },
             {
               "id": "C",
-              "text": "Clients who opened their accounts with larger initial balances went on to save substantially more in the year that followed than other clients did, whether or not they received reminders."
+              "text": "Clients who opened their accounts with larger balances saved more over the following year, whether or not they received reminders."
             },
             {
               "id": "D",
-              "text": "Reminder messages increased deposits only among the clients who had also attended a workshop explaining how interest accumulates on savings."
+              "text": "Reminder messages increased deposits only among the clients who had also attended an earlier bank workshop explaining how interest accumulates on savings over time."
             }
           ],
           "correctAnswer": "A",
@@ -518,7 +518,7 @@ export const practiceTest2RW = {
             },
             {
               "id": "C",
-              "text": "Rope and walkway systems for reaching the canopy are more dangerous than the ground-based methods most biologists used before the 1980s."
+              "text": "Rope and walkway systems for reaching the canopy are more dangerous than the ground-based methods that most biologists used before the 1980s."
             },
             {
               "id": "D",
@@ -540,15 +540,15 @@ export const practiceTest2RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Supercomputers have largely replaced human forecasters in the production of modern weather predictions, a change that many meteorologists consider long overdue."
+              "text": "Supercomputers have largely replaced human forecasters in producing modern weather predictions."
             },
             {
               "id": "B",
-              "text": "Weather forecasts more than five days ahead remain too unreliable to guide important decisions in aviation, agriculture, and disaster preparedness."
+              "text": "Weather forecasts more than five days ahead remain too unreliable to guide important decisions in aviation, farming, and disaster preparedness."
             },
             {
               "id": "C",
-              "text": "Weather forecasting has improved substantially in recent decades, but because the gains came gradually from many interacting advances, the achievement has attracted little notice."
+              "text": "Weather forecasting has improved greatly in recent decades, but because the gains came gradually from many advances, they have drawn little notice."
             },
             {
               "id": "D",
@@ -556,7 +556,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The text makes two coordinated points — forecasts have gotten much better, and the improvement's gradual, many-sourced character kept it out of the spotlight — and choice C states both.\n\n**The Full Solution:**\n- The improvement itself: a five-day forecast now matches the old three-day forecast, with useful predictions extending a week or more.\n- Its character: \"no single breakthrough,\" but accumulating gains from satellites, computing, and mathematics that reinforced one another.\n- Its reception: arriving \"a little at a time,\" the revolution stayed \"quiet\" despite enormous practical effect. That is the full idea choice C compresses.\n\n**Why the other choices are wrong:**\n- A: The text never says computers replaced forecasters — supercomputers appear as one of several contributing advances, and no meteorologist's opinion on staffing is reported.\n- B: The text asserts the opposite: useful predictions \"now extend a week or more ahead,\" and the cumulative effect on those very fields has been enormous.\n- D: No disagreement is mentioned; the text presents the advances as complementary, \"each advance making the others more valuable.\""
+          "explanation": "**Choice C is correct.** The text makes two coordinated points — forecasts have gotten much better, and the improvement's gradual, many-sourced character kept it out of the spotlight — and choice C states both.\n\n**The Full Solution:**\n- The improvement itself: a five-day forecast now matches the old three-day forecast, with useful predictions extending a week or more.\n- Its character: \"no single breakthrough,\" but accumulating gains from satellites, computing, and mathematics that reinforced one another.\n- Its reception: arriving \"a little at a time,\" the revolution stayed \"quiet\" despite enormous practical effect. That is the full idea choice C compresses.\n\n**Why the other choices are wrong:**\n- A: The text never says computers replaced forecasters; supercomputers appear only as one of several contributing advances.\n- B: The text asserts the opposite: useful predictions \"now extend a week or more ahead,\" and the cumulative effect on those very fields has been enormous.\n- D: No disagreement is mentioned; the text presents the advances as complementary, \"each advance making the others more valuable.\""
         },
         {
           "id": 215,
@@ -595,7 +595,7 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "Around 1637, the French mathematician Pierre de Fermat wrote a note in the margin of his copy of an ancient arithmetic text, claiming that he ______ a marvelous proof of the theorem he had just stated, one that the margin was too narrow to contain. Most mathematicians now doubt that such a proof ever existed.",
+          "passage": "Around 1637, the French mathematician Pierre de Fermat wrote a note in the margin of his copy of an ancient arithmetic text. In the note, he claimed that he ______ a marvelous proof of the theorem he had just stated, one that the margin was too narrow to contain. Most mathematicians now doubt that such a proof ever existed.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -616,7 +616,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** Fermat's claim, reported in the past tense (\"wrote... claiming\"), concerns a discovery made before the moment of writing — a past within the past — which English marks with the past perfect \"had discovered.\"\n\n**The Full Solution:**\n- Establish the timeline: the note-writing happened around 1637 (past), and the discovery Fermat claimed had to precede the note — one cannot report possessing a proof one has not yet found.\n- Reported speech in a past-tense frame pushes the earlier event back one step: \"he claimed that he had discovered.\"\n- The past perfect \"had discovered\" is the only choice that places the discovery before the past-tense claiming.\n\n**Why the other choices are wrong:**\n- A: The present tense \"discovers\" clashes with the past-tense frame of \"wrote\" and \"claiming,\" producing an ungrammatical tense shift.\n- B: \"will discover\" makes Fermat promise a future discovery, contradicting the sentence's logic — the note asserts a proof already in hand that the margin cannot contain.\n- D: \"would have discovered\" is a conditional perfect, implying the discovery never happened under some unmet condition; the sentence reports what Fermat claimed did happen, not a hypothetical."
+          "explanation": "**Choice C is correct.** Fermat's claim, reported in the past tense (\"claimed\"), concerns a discovery made before the moment of writing — a past within the past — which English marks with the past perfect \"had discovered.\"\n\n**The Full Solution:**\n- Establish the timeline: the note-writing happened around 1637 (past), and the discovery Fermat claimed had to precede the note — one cannot report possessing a proof one has not yet found.\n- Reported speech in a past-tense frame pushes the earlier event back one step: \"he claimed that he had discovered.\"\n- The past perfect \"had discovered\" is the only choice that places the discovery before the past-tense claiming.\n\n**Why the other choices are wrong:**\n- A: The present tense \"discovers\" clashes with the past-tense frame of \"wrote\" and \"claimed,\" producing an ungrammatical tense shift.\n- B: \"will discover\" makes Fermat promise a future discovery, contradicting the sentence's logic — the note asserts a proof already in hand that the margin cannot contain.\n- D: \"would have discovered\" is a conditional perfect, implying the discovery never happened under some unmet condition; the sentence reports what Fermat claimed did happen, not a hypothetical."
         },
         {
           "id": 222,
@@ -880,7 +880,7 @@ export const practiceTest2RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Faith Ringgold, an American artist, published her memoir, We Flew Over the Bridge, in 1995."
+              "text": "Faith Ringgold, an American artist who lived from 1930 to 2024, finally published her memoir, We Flew Over the Bridge, in 1995."
             },
             {
               "id": "B",
@@ -924,7 +924,7 @@ export const practiceTest2RW = {
             },
             {
               "id": "B",
-              "text": "More than a century after Emmy Noether published it in 1918, physicists still use her theorem to identify conserved quantities in new theories."
+              "text": "More than a century after its 1918 publication, physicists still use Noether's theorem to identify conserved quantities in new theories."
             },
             {
               "id": "C",
@@ -936,7 +936,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The goal is lasting usefulness, and B is built around exactly that: \"more than a century after\" she published it, physicists \"still use\" the theorem for a working purpose.\n\n**The Full Solution:**\n- The goal has two parts to convey: the theorem endures, and physicists find it useful.\n- Choice B delivers both — the time span establishes endurance, and \"to identify conserved quantities in new theories\" establishes ongoing, practical use.\n\n**Why the other choices are wrong:**\n- A: It states the theorem's content accurately but stops in 1918 — nothing conveys that physicists still rely on it.\n- C: It reduces Noether to biography and calls the theorem \"important\" without evidence of use, present or past.\n- D: It describes the 1915 problem that preceded the theorem and never mentions the theorem's later usefulness at all."
+          "explanation": "**Choice B is correct.** The goal is lasting usefulness, and B is built around exactly that: \"more than a century after\" its publication, physicists \"still use\" the theorem for a working purpose.\n\n**The Full Solution:**\n- The goal has two parts to convey: the theorem endures, and physicists find it useful.\n- Choice B delivers both — the time span establishes endurance, and \"to identify conserved quantities in new theories\" establishes ongoing, practical use.\n\n**Why the other choices are wrong:**\n- A: It states the theorem's content accurately but stops in 1918 — nothing conveys that physicists still rely on it.\n- C: It reduces Noether to biography and calls the theorem \"important\" without evidence of use, present or past.\n- D: It describes the 1915 problem that preceded the theorem and never mentions the theorem's later usefulness at all."
         }
       ]
     },
@@ -952,7 +952,7 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Soon after carbon nanotubes were discovered in 1991, the physicist Mildred Dresselhaus and her colleagues calculated how electrons would move through them, predicting that a tube would conduct electricity like a metal or like a semiconductor depending on its diameter and the angle at which its sheet of carbon was rolled. Measurements on individual tubes in 1998 ______ the prediction.",
+          "passage": "Soon after carbon nanotubes were discovered in 1991, the physicist Mildred Dresselhaus and her colleagues calculated how electrons would move through them. They predicted that a tube would conduct electricity like a metal or like a semiconductor, depending on its diameter and the angle at which its sheet of carbon was rolled. Measurements on individual tubes in 1998 ______ the prediction.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -973,7 +973,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The calculations came first and the measurements came later, so the blank names what measurement does to a prediction it agrees with: it confirms it.\n\n**The Full Solution:**\n- The first sentence makes the order of events explicit — the calculations were done \"soon after carbon nanotubes were discovered in 1991.\"\n- The second sentence reports what happened when individual tubes were measured in 1998.\n- A measurement that arrives after a prediction and bears it out confirms it.\n\n**Why the other choices are wrong:**\n- A: To \"anticipate\" a prediction is to come before it, and the measurements came years after.\n- B: \"Complicated\" would mean the results made the prediction harder to maintain, which reverses the relationship the passage sets up.\n- D: \"Revised\" would mean the prediction had to be changed, again the opposite of agreement."
+          "explanation": "**Choice C is correct.** The calculations came first and the measurements came later, so the blank names what measurement does to a prediction it agrees with: it confirms it.\n\n**The Full Solution:**\n- The first sentence makes the order of events explicit — the calculations were done \"soon after carbon nanotubes were discovered in 1991.\"\n- The final sentence reports what happened when individual tubes were measured in 1998.\n- A measurement that arrives after a prediction and bears it out confirms it.\n\n**Why the other choices are wrong:**\n- A: To \"anticipate\" a prediction is to come before it, and the measurements came years after.\n- B: \"Complicated\" would mean the results made the prediction harder to maintain, which reverses the relationship the passage sets up.\n- D: \"Revised\" would mean the prediction had to be changed, again the opposite of agreement."
         },
         {
           "id": 230,
@@ -982,7 +982,7 @@ export const practiceTest2RW = {
           "band": 4,
           "domain": "craft-and-structure",
           "skill": "words-in-context",
-          "passage": "Following a single voice across a crowded room is harder than it seems. The sound reaching the ear is one merged waveform; nothing in the physics labels which frequencies belong to which speaker. To follow a conversation, the auditory system must ______ that mixture, grouping sounds that rise and fall together and assigning each strand to its probable source, and it must keep revising as speakers pause and interrupt one another.",
+          "passage": "Following a single voice across a crowded room is harder than it seems. The sound reaching the ear is one merged waveform; nothing in the physics labels which frequencies belong to which speaker. To follow a conversation, the auditory system must ______ that mixture, grouping sounds that rise and fall together and assigning each strand to its probable source. It must also keep revising as speakers pause and interrupt one another.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -1072,24 +1072,24 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
-          "passage": "Does health insurance make people healthier? Simply comparing insured and uninsured people cannot answer the question, because the two groups differ in many ways besides coverage. In 2008, Oregon offered a rare opening: able to extend Medicaid to only some eligible adults, the state chose recipients by lottery, creating by chance the groups a deliberate experiment would have assembled. Researchers found that coverage increased use of care and nearly eliminated catastrophic medical costs but produced no detectable improvement in blood pressure or cholesterol after two years, a mixed result that both sides of the insurance debate claimed as support.",
+          "passage": "Does health insurance make people healthier? Simply comparing insured and uninsured people cannot answer the question, because the two groups differ in many ways besides coverage. In 2008, Oregon offered a rare opening: able to extend Medicaid to only some eligible adults, the state chose recipients by lottery, creating by chance the groups a deliberate experiment would have assembled. Researchers found that coverage increased use of care and nearly eliminated catastrophic medical costs. After two years, however, it produced no detectable improvement in blood pressure or cholesterol, a mixed result that both sides of the insurance debate claimed as support.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "It presents a policy question, reviews the history of a government program, and endorses one side of a long-running dispute."
+              "text": "It presents a policy question, reviews a government program's history, and endorses one side of a long-running dispute."
             },
             {
               "id": "B",
-              "text": "It describes an experiment researchers deliberately designed, details obstacles in recruiting participants, and summarizes results that settled a controversy."
+              "text": "It describes an experiment researchers deliberately designed, details problems in recruiting participants, and reports results that settled a controversy."
             },
             {
               "id": "C",
-              "text": "It poses a question, explains why simple comparisons fail to answer it, describes a chance event enabling a test, and reports findings both sides claimed."
+              "text": "It poses a question, explains why simple comparisons cannot answer it, describes a chance event that allowed a test, and reports mixed findings."
             },
             {
               "id": "D",
-              "text": "It poses a question, presents two competing answers to it, and concludes that the available evidence cannot distinguish between them."
+              "text": "It poses a question, presents two competing answers to it, and concludes that the evidence cannot decide between them."
             }
           ],
           "correctAnswer": "C",
@@ -1205,7 +1205,7 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "Teotihuacan, one of the largest cities in the Americas in the first centuries CE, housed most of its residents in walled apartment compounds. The archaeologist Linda Manzanilla excavated Teopancazco, a compound at the center of one of the city's neighborhoods. Strontium isotope ratios in the bones and teeth of people buried there show that many had grown up outside the valley, some as far away as the Gulf Coast, and the compound's pottery and burial practices come from several regions. Manzanilla concludes that Teopancazco's population was multiethnic rather than a single local lineage.",
+          "passage": "Teotihuacan, one of the largest cities in the Americas in the first centuries CE, housed most of its residents in walled apartment compounds. The archaeologist Linda Manzanilla excavated Teopancazco, a compound at the center of one of the city's neighborhoods. Strontium isotope ratios in the bones and teeth of people buried there show that many had grown up outside the valley, some as far away as the Gulf Coast. The compound's pottery and burial practices also come from several regions. Manzanilla concludes that Teopancazco's population was multiethnic rather than a single local lineage.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
@@ -1235,28 +1235,28 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-textual",
-          "passage": "How large a hailstone grows depends on how long it can remain aloft inside a storm, riding the rising air while layers of ice accumulate. In a multiyear study of severe thunderstorms, meteorologists claim that the strength of a storm's updraft — the column of rising air that suspends growing hailstones — is the chief factor limiting maximum hailstone size, outweighing the storm's duration, its moisture supply, and the altitude of its cloud base.",
+          "passage": "During the Carboniferous and Permian periods, some insects grew far larger than any alive today: griffinflies, ancient relatives of dragonflies, had wingspans of up to 70 centimeters. Insects take in oxygen through tiny breathing tubes rather than lungs. Paleontologist Matthew Clapham and graduate student Jered Karr compiled measurements of more than 10,500 fossil insect wings. They claim that until birds appeared, about 150 million years ago, the level of oxygen in the atmosphere was the chief factor limiting how large insects could grow.",
           "question": "Which finding from the study, if true, would most strongly support the researchers' claim?",
           "choices": [
             {
               "id": "A",
-              "text": "Storms that lasted the longest produced the greatest total number of hailstones over their lifetimes."
+              "text": "The insects with the longest wings in the study lived mainly in warm, swampy forests where plant life was abundant."
             },
             {
               "id": "B",
-              "text": "Among storms with similar duration, moisture, and cloud-base altitude, maximum hailstone size rose consistently with measured updraft speed, and the largest stones fell only from storms with the fastest updrafts."
+              "text": "Before birds appeared, the maximum wing length of fossil insects rose and fell with atmospheric oxygen levels."
             },
             {
               "id": "C",
-              "text": "A few storms with unusually weak updrafts produced no hailstones of any measurable size at all."
+              "text": "Fossils of small insects were far more common in the study than fossils of large insects."
             },
             {
               "id": "D",
-              "text": "Hailstones from a single storm often contained different numbers of ice layers, indicating that individual stones had followed different paths through the storm."
+              "text": "The fossil insects with the longest wings were all close relatives of modern dragonflies."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The claim ranks updraft strength above duration, moisture, and altitude as the limit on hailstone size — and B tests exactly that ranking by holding the rival factors similar and showing size still tracks updraft speed.\n\n**The Full Solution:**\n- The claim has two parts: updraft strength governs maximum hailstone size, and it outweighs three named competitors.\n- Choice B controls for those competitors (\"similar duration, moisture, and cloud-base altitude\") so any size differences must come from what varies — updraft speed.\n- The consistent rise of size with updraft speed, capped by the largest stones falling only from the fastest updrafts, is the strongest possible signature of the claimed relationship.\n\n**Why the other choices are wrong:**\n- A: Total number of hailstones is a different quantity from maximum size, and tying it to duration supports one of the rival factors, not the claim.\n- C: Weak updrafts producing no hail is consistent with the claim but barely tests it — it involves no comparison of hailstone sizes and no control of the competing factors.\n- D: Varied layer counts show stones take different paths within a storm; the finding never connects updraft strength to size, so it leaves the claim untested."
+          "explanation": "**Choice B is correct.** The claim is that oxygen levels set the limit on insect size until birds appeared. If maximum wing length rose and fell along with oxygen during that time, size tracked oxygen just as the claim predicts.\n\n**The Full Solution:**\n- The claim names one factor, atmospheric oxygen, as the chief limit on how large insects could grow before birds appeared.\n- The strongest support would show the largest insect size changing whenever oxygen changed during that period.\n- Choice B reports exactly that pattern: maximum wing length rose when oxygen rose and fell when it fell.\n\n**Why the other choices are wrong:**\n- A: Linking the largest insects to warm, swampy forests points to climate or habitat, a rival factor, rather than to oxygen.\n- C: How common small fossils are says nothing about what limited the maximum size insects could reach.\n- D: The relationship of the largest insects to dragonflies is a fact about ancestry; it does not connect size to oxygen at all."
         },
         {
           "id": 237,
@@ -1265,7 +1265,7 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "Most lightning concentrates over warm continental land in summer, where strong updrafts build electrical charge inside towering storms. In a study drawing on years of data from a global lightning-detection network, atmospheric scientist Robert Holzworth and colleagues examined \"superbolts\" — rare strokes that release at least a thousand times more electrical energy than an average lightning stroke. The team found that superbolts follow nearly the opposite pattern from ordinary lightning: they strike most often over oceans rather than land, they cluster in regions such as the North Atlantic and the Mediterranean, and their frequency peaks in the months around the Northern Hemisphere's winter rather than its summer.",
+          "passage": "Most lightning concentrates over warm continental land in summer, where strong updrafts build electrical charge inside towering storms. Atmospheric scientist Robert Holzworth and colleagues used years of data from a global lightning-detection network to study \"superbolts.\" These rare strokes release at least a thousand times more electrical energy than an average lightning stroke. The team found that superbolts follow nearly the opposite pattern from ordinary lightning. They strike most often over oceans rather than land, cluster in regions such as the North Atlantic and the Mediterranean, and peak in the months around the Northern Hemisphere's winter rather than its summer.",
           "question": "According to the text, how does the occurrence of superbolts differ from that of most lightning?",
           "choices": [
             {
@@ -1274,7 +1274,7 @@ export const practiceTest2RW = {
             },
             {
               "id": "B",
-              "text": "Superbolts proved so rare that the detection network recorded too few of them for Holzworth and colleagues to identify any clear geographic or seasonal pattern."
+              "text": "Superbolts are so rare that the researchers could not identify any clear pattern in where or when they tend to occur."
             },
             {
               "id": "C",
@@ -1295,34 +1295,34 @@ export const practiceTest2RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "An acoustics laboratory tested five wall-lining materials for use in music practice rooms, mounting a panel of each between a noise source and a measurement chamber and recording the drop in sound level the panel produced. All panels were manufactured at the same 2-centimeter thickness so the materials could be compared directly. A student reviewing the results claims that cork provided the greatest noise reduction of the materials tested because ______",
+          "passage": "A substance's specific heat is the amount of energy needed to raise the temperature of one gram of it by one degree Celsius. The higher the specific heat, the more slowly a substance warms. A student consulting a reference table claims that water has the highest specific heat of the five substances listed because ______",
           "questionTable": {
             "type": "table",
-            "caption": "Measured noise reduction for five wall-lining materials at equal panel thickness (2 cm)",
+            "caption": "Specific heat of five common substances",
             "headers": [
-              "Material",
-              "Noise reduction (dB)"
+              "Substance",
+              "Specific heat (J/g·°C)"
             ],
             "rows": [
               [
-                "Cork",
-                "21"
+                "Water",
+                "4.18"
               ],
               [
-                "Mineral wool",
-                "18"
+                "Ethanol",
+                "2.44"
               ],
               [
-                "Recycled denim",
-                "17"
+                "Aluminum",
+                "0.897"
               ],
               [
-                "Gypsum board",
-                "13"
+                "Iron",
+                "0.449"
               ],
               [
-                "Plywood",
-                "9"
+                "Copper",
+                "0.385"
               ]
             ]
           },
@@ -1330,23 +1330,23 @@ export const practiceTest2RW = {
           "choices": [
             {
               "id": "A",
-              "text": "cork's measured reduction of 21 decibels exceeded that of every other material tested, including the next best, mineral wool, at 18 decibels."
+              "text": "water's specific heat, 4.18, is greater than that of every other substance listed, including the next highest, ethanol, at 2.44."
             },
             {
               "id": "B",
-              "text": "cork reduced noise by 21 decibels, while plywood reduced it by only 9 decibels."
+              "text": "water's specific heat is 4.18, while copper's is only 0.385."
             },
             {
               "id": "C",
-              "text": "all five materials were tested as panels manufactured at the same 2-centimeter thickness."
+              "text": "all five specific heats in the table are given in the same units."
             },
             {
               "id": "D",
-              "text": "the three fibrous materials in the table outperformed the two rigid ones."
+              "text": "the two liquids in the table have higher specific heats than the three metals do."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** A greatest-of-all claim needs cork compared against the whole field, and A supplies that: 21 decibels tops every other material, with the runner-up named and quantified.\n\n**The Full Solution:**\n- The student's claim is a superlative: cork provided \"the greatest noise reduction of the materials tested.\"\n- Establishing a superlative requires showing cork beat every alternative. Choice A asserts exactly that and cites the decisive comparison — cork's 21 decibels against mineral wool's 18, the closest competitor.\n- Scanning the table confirms it: 21 exceeds 18, 17, 13, and 9.\n\n**Why the other choices are wrong:**\n- B: Beating plywood, the weakest performer, leaves open whether cork beat mineral wool or recycled denim; a superlative cannot rest on comparison with the worst.\n- C: The equal thickness is a fact about the method that makes comparison fair, but it contains no measurement and so cannot show any material outperformed another.\n- D: A group-versus-group pattern never isolates cork; even if fibrous materials led as a class, mineral wool or denim, not cork, could have been the top performer."
+          "explanation": "**Choice A is correct.** A highest-of-all claim needs water compared with every other substance, and A does that: 4.18 is greater than every other value, including the runner-up, ethanol, at 2.44.\n\n**The Full Solution:**\n- The student's claim is a superlative: water has \"the highest specific heat of the five substances listed.\"\n- Supporting a superlative requires showing that water's value beats every alternative. Choice A states exactly that and names the closest competitor.\n- The table confirms it: 4.18 exceeds 2.44, 0.897, 0.449, and 0.385.\n\n**Why the other choices are wrong:**\n- B: Beating copper, the lowest value, leaves open whether water beat ethanol, aluminum, or iron; a superlative cannot rest on a comparison with the lowest value.\n- C: Shared units make the values comparable, but this fact compares no values and so cannot show which substance is highest.\n- D: A group comparison never isolates water; even if the liquids led as a group, ethanol rather than water could have had the highest value."
         },
         {
           "id": 238,
@@ -1355,16 +1355,16 @@ export const practiceTest2RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "passage": "In the fourteenth century, the mathematician Madhava founded a school in Kerala, in southern India, whose members derived infinite-series expressions for the sine, cosine, and arctangent — results usually credited to European mathematicians who arrived at them roughly 250 years later. The Kerala derivations were rigorous by the standards of their own tradition and were preserved and refined through generations of careful commentaries. What the school lacked, it appears, was not insight but circulation: no persuasive evidence has surfaced that its manuscripts reached Europe, and historians accordingly treat the two discoveries as independent. The episode has become a touchstone in the history of science for a sobering distinction — priority in discovery guarantees neither influence nor remembrance.",
+          "passage": "In the fourteenth century, the mathematician Madhava founded a school in Kerala, in southern India. Its members derived infinite-series expressions for the sine, cosine, and arctangent, results usually credited to European mathematicians who arrived at them roughly 250 years later. The Kerala derivations were rigorous by the standards of their own tradition and were preserved and refined through generations of careful commentaries. What the school lacked, it appears, was not insight but circulation: no persuasive evidence has surfaced that its manuscripts reached Europe, and historians accordingly treat the two discoveries as independent. Historians of science often cite the episode as a lesson: priority in discovery guarantees neither influence nor remembrance.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "Kerala mathematicians derived major results centuries before Europeans did, but because the work never circulated beyond its own tradition, the case shows that being first secures neither influence nor recognition."
+              "text": "Kerala mathematicians derived major results centuries before Europeans did, but because the work never circulated, the case shows that being first secures neither influence nor recognition."
             },
             {
               "id": "B",
-              "text": "European mathematicians of the seventeenth century quietly relied on manuscripts from the Kerala school when they developed their own infinite-series methods."
+              "text": "European mathematicians of the seventeenth century quietly relied on manuscripts from the Kerala school when they developed their own infinite-series methods for the sine, cosine, and arctangent."
             },
             {
               "id": "C",
@@ -1394,7 +1394,7 @@ export const practiceTest2RW = {
             },
             {
               "id": "B",
-              "text": "the bacteria in the worms' tissues consume hydrogen sulfide faster than the venting fluid can supply it."
+              "text": "the bacteria in the worms' tissues consume hydrogen sulfide faster than the venting fluid around the worms can supply it."
             },
             {
               "id": "C",
@@ -1415,35 +1415,30 @@ export const practiceTest2RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
-          "passage": "Economists ran a randomized experiment with small-business owners in four cities, offering a randomly selected treatment group an intensive business-training course while a control group received nothing. Because profits in such markets rise and fall with local conditions, the researchers caution that the treatment group's gains cannot be read on their own: any citywide trend would lift treated and untreated businesses alike. A student concludes that the training itself raised profits in every city studied because ______",
+          "passage": "In 2020, researchers tested a COVID-19 vaccine developed by Pfizer and BioNTech in a trial that randomly assigned volunteers to receive either the vaccine or a placebo, an injection with no active ingredient. In each country, the two groups were about the same size. Because the virus spread faster in some places than in others, a country's case count among vaccinated volunteers means little on its own: a local outbreak would expose both groups alike. A student concludes that the vaccine prevented illness in every country in the table because ______",
           "questionTable": {
             "type": "table",
-            "caption": "Average change in monthly profit one year after training, by city and group (percent)",
+            "caption": "COVID-19 cases among volunteers in the Pfizer-BioNTech vaccine trial, by country and group",
             "headers": [
-              "City",
-              "Treatment group",
-              "Control group"
+              "Country",
+              "Vaccine group (cases)",
+              "Placebo group (cases)"
             ],
             "rows": [
               [
-                "Northport",
-                "+14",
-                "+5"
+                "Argentina",
+                "1",
+                "35"
               ],
               [
-                "Eastvale",
-                "+9",
-                "+2"
+                "Brazil",
+                "1",
+                "8"
               ],
               [
-                "Riverton",
-                "+11",
-                "+6"
-              ],
-              [
-                "Southbay",
-                "+6",
-                "-1"
+                "United States",
+                "6",
+                "119"
               ]
             ]
           },
@@ -1451,23 +1446,23 @@ export const practiceTest2RW = {
           "choices": [
             {
               "id": "A",
-              "text": "treatment-group profits rose in all four cities, by as much as 14 percent in Northport."
+              "text": "vaccine-group cases were low in all three countries, with no more than 6 cases recorded in any one of them."
             },
             {
               "id": "B",
-              "text": "in each of the four cities, the treatment group's profit change exceeded the control group's, by margins ranging from 5 to 9 percentage points."
+              "text": "in each country, the vaccine group had far fewer cases than the placebo group, such as 1 versus 35 in Argentina."
             },
             {
               "id": "C",
-              "text": "control-group profits rose in three of the four cities over the year, confirming that local business conditions were generally improving during the study period."
+              "text": "placebo-group cases occurred in all three countries, suggesting that the virus was circulating in each of them."
             },
             {
               "id": "D",
-              "text": "Northport's treatment group gained 14 percent, the largest profit change recorded for any group in any city in the table."
+              "text": "the United States placebo group recorded 119 cases, the most for any group in any country in the table."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The researchers' own caution dictates the evidence: raw treatment gains are contaminated by citywide trends, so the training's effect shows up only in the treatment-minus-control gap — and B reports that gap as positive in every city.\n\n**The Full Solution:**\n- The passage rules out reading the treatment column alone: \"any citywide trend would lift treated and untreated businesses alike.\"\n- The control group measures the trend; the training's contribution in each city is the difference between columns: Northport 14 − 5 = 9, Eastvale 9 − 2 = 7, Riverton 11 − 6 = 5, Southbay 6 − (−1) = 7 percentage points.\n- Every difference is positive, and the margins run from 5 to 9 points — exactly what choice B states, supporting the claim for \"every city studied.\"\n\n**Why the other choices are wrong:**\n- A: It reads the treatment column on its own — the precise inference the researchers' caution forbids, since rising local conditions could explain those gains.\n- C: It documents the confound rather than the effect: improving conditions explain why controls rose, but say nothing about what the training added.\n- D: A single city's single-group maximum ignores both the control comparison and the every-city scope of the student's conclusion."
+          "explanation": "**Choice B is correct.** The passage warns that vaccine-group cases cannot be read alone, because a local outbreak would affect both groups. The vaccine's effect shows up in the comparison between the two equal-sized groups within each country, and B reports that comparison favoring the vaccine in every country.\n\n**The Full Solution:**\n- The passage rules out reading one column on its own: \"a local outbreak would expose both groups alike.\"\n- The placebo group shows how much illness local spread caused without the vaccine. Compare the groups country by country: Argentina 1 versus 35, Brazil 1 versus 8, United States 6 versus 119.\n- In every country the vaccine group had far fewer cases, which is what B states, so it supports the claim about every country in the table.\n\n**Why the other choices are wrong:**\n- A: It reads the vaccine column on its own, the very reading the passage warns against; low counts could simply reflect little local spread.\n- C: It shows only that the virus was present, which explains the placebo cases but says nothing about what the vaccine prevented.\n- D: One group's count in one country ignores the comparison between groups and the every-country scope of the student's conclusion."
         },
         {
           "id": 243,
@@ -1476,7 +1471,7 @@ export const practiceTest2RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "inferences",
-          "passage": "The papyrus scrolls carbonized by the eruption of Vesuvius in 79 CE are too fragile to unroll, so researchers scan them with X-rays and unwrap them virtually. For most ancient manuscripts, that would be enough: medieval inks carry iron, which absorbs X-rays and makes the letters stand out sharply against the page. But these scrolls were written in carbon-based ink — chemically almost indistinguishable from the carbonized papyrus beneath it — so the writing is nearly invisible in the scans, detectable at best as a minute difference in surface texture where ink sits atop the fibers. Recent successes in reading the scrolls have therefore depended on ______",
+          "passage": "The papyrus scrolls carbonized by the eruption of Vesuvius in 79 CE are too fragile to unroll, so researchers scan them with X-rays and unwrap them virtually. For most ancient manuscripts, that would be enough: medieval inks carry iron, which absorbs X-rays and makes the letters stand out sharply against the page. But these scrolls were written in carbon-based ink, which is chemically almost indistinguishable from the carbonized papyrus beneath it. In the scans, the writing is nearly invisible, detectable at best as a minute difference in surface texture where ink sits atop the fibers. Recent successes in reading the scrolls have therefore depended on ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
@@ -1489,7 +1484,7 @@ export const practiceTest2RW = {
             },
             {
               "id": "C",
-              "text": "training machine-learning models to recognize, across the scanned surfaces, textural traces of ink too subtle for human eyes to distinguish reliably from the papyrus itself."
+              "text": "training machine-learning models to recognize textural traces of ink too subtle for human eyes to detect in the scans."
             },
             {
               "id": "D",
@@ -1566,7 +1561,7 @@ export const practiceTest2RW = {
           "band": 4,
           "domain": "standard-english-conventions",
           "skill": "boundaries",
-          "passage": "In early September 1859, telegraph systems across Europe and North America failed almost in unison — operators reported sparking equipment, and some who disconnected their batteries found that their lines carried current ______ the cause was a solar storm so intense that auroras were reported near the tropics.",
+          "passage": "In early September 1859, a solar storm so intense that auroras were reported near the tropics struck Earth. Telegraph systems across Europe and North America failed almost in unison — some operators who disconnected their batteries found that their lines carried current ______ the storm itself was driving electricity through the wires.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1587,7 +1582,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The sentence's first half is an independent clause carrying a dash-opened supplement (\"— operators reported... carried current anyway\"), and \"the cause was a solar storm...\" is a second independent clause. A semicolon is the mark that can close off the whole first statement, supplement included, and join it to the second clause.\n\n**The Full Solution:**\n- Map the architecture: main clause (\"telegraph systems... failed almost in unison\"), then a dash introducing an elaborating supplement about the operators, which runs through \"carried current anyway.\"\n- What follows the blank — \"the cause was a solar storm so intense that auroras were reported near the tropics\" — is a fresh independent clause.\n- Joining two independent statements without a conjunction requires a semicolon (or a period); the semicolon in choice C provides the boundary while keeping the cause tightly linked to the event.\n\n**Why the other choices are wrong:**\n- A: A bare comma between the two independent statements is a comma splice, no matter how much structure precedes it.\n- B: A second dash would read as closing the supplement and resuming the opening clause — but \"telegraph systems... failed almost in unison the cause was a solar storm\" fuses two clauses with no boundary at all.\n- D: Inserting \"however\" between commas adds a contrastive adverb where no contrast exists — the cause explains the failures rather than opposing them — and still leaves the underlying comma splice unrepaired."
+          "explanation": "**Choice C is correct.** The second sentence begins with an independent clause carrying a dash-opened supplement (\"— some operators ... carried current anyway\"), and \"the storm itself was driving electricity through the wires\" is a second independent clause. A semicolon can close off the whole first statement, supplement included, and join it to the second clause.\n\n**The Full Solution:**\n- Map the sentence: main clause (\"Telegraph systems across Europe and North America failed almost in unison\"), then a dash introducing a supplement about the operators, which runs through \"carried current anyway.\"\n- What follows the blank, \"the storm itself was driving electricity through the wires,\" is a new independent clause.\n- Joining two independent clauses without a conjunction requires a semicolon (or a period); the semicolon in choice C provides that boundary while keeping the explanation tied to the event.\n\n**Why the other choices are wrong:**\n- A: A comma alone between the two independent clauses is a comma splice, no matter how much structure comes before it.\n- B: A second dash would read as closing the supplement and resuming the opening clause, producing \"Telegraph systems ... failed almost in unison the storm itself was driving electricity,\" which fuses two clauses with no boundary.\n- D: Adding \"however\" between commas inserts a contrast where none exists, since the storm explains the failures, and it still leaves a comma splice."
         },
         {
           "id": 246,
@@ -1626,7 +1621,7 @@ export const practiceTest2RW = {
           "band": 4,
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
-          "passage": "The Scottish mathematician John Napier spent some twenty years computing the logarithm tables he published in 1614. Astronomers prized logarithms for three things above all: shortening calculations that had once taken days, reducing the errors that crept into long chains of arithmetic, and ______ results that any colleague with the same tables could check.",
+          "passage": "The Scottish mathematician John Napier spent some twenty years computing the logarithm tables he published in 1614. Astronomers prized logarithms for three things above all: shortening calculations that had once taken days, reducing errors in long chains of arithmetic, and ______ results that any colleague with the same tables could check.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1647,7 +1642,7 @@ export const practiceTest2RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The blank is the third item in a list whose first two items are gerund phrases — \"shortening calculations...\" and \"reducing the errors...\" — so parallel structure requires a third gerund: \"producing.\"\n\n**The Full Solution:**\n- Identify the series introduced by the colon: item one, \"shortening calculations that had once taken days\"; item two, \"reducing the errors that crept into long chains of arithmetic.\"\n- Items in a series must share grammatical form. Both established items are gerund phrases, so the third must be as well.\n- \"Producing results that any colleague... could check\" matches the pattern exactly: gerund plus object plus modifying clause, mirroring its two predecessors.\n\n**Why the other choices are wrong:**\n- A: \"the production of\" swaps the gerund pattern for a noun-plus-preposition construction, breaking the -ing rhythm the first two items establish.\n- C: \"to produce\" is an infinitive; mixing an infinitive into a gerund series is precisely the faulty parallelism the convention forbids.\n- D: \"they produced\" introduces a subject and finite verb, turning the third list item into an independent clause that cannot sit in a series of phrases."
+          "explanation": "**Choice B is correct.** The blank is the third item in a list whose first two items are gerund phrases — \"shortening calculations...\" and \"reducing errors...\" — so parallel structure requires a third gerund: \"producing.\"\n\n**The Full Solution:**\n- Identify the series introduced by the colon: item one, \"shortening calculations that had once taken days\"; item two, \"reducing errors in long chains of arithmetic.\"\n- Items in a series must share grammatical form. Both established items are gerund phrases, so the third must be as well.\n- \"Producing results that any colleague... could check\" matches the pattern exactly: gerund plus object plus modifying clause, mirroring its two predecessors.\n\n**Why the other choices are wrong:**\n- A: \"the production of\" swaps the gerund pattern for a noun-plus-preposition construction, breaking the -ing rhythm the first two items establish.\n- C: \"to produce\" is an infinitive; mixing an infinitive into a gerund series is precisely the faulty parallelism the convention forbids.\n- D: \"they produced\" introduces a subject and finite verb, turning the third list item into an independent clause that cannot sit in a series of phrases."
         },
         {
           "id": 247,
@@ -1840,7 +1835,7 @@ export const practiceTest2RW = {
             },
             {
               "id": "C",
-              "text": "The octobass's three strings sound pitches near the lower limit of human hearing, which may explain why so few octobasses exist."
+              "text": "The octobass's three strings sound pitches near the lower limit of human hearing, which may help explain why so few octobasses exist today."
             },
             {
               "id": "D",

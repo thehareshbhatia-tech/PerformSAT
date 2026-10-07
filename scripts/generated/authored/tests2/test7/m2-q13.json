@@ -1,29 +1,29 @@
 {
  "id": 13,
- "question": "In the xy-plane, the distance between the points $(3, k)$ and $(11, 1)$ is $10$ units. If $k > 1$, what is the value of $k$?",
+ "question": "In the $xy$-plane, line $\\ell$ has a slope of $-\\frac{3}{4}$ and passes through the point $(15, 1)$. If the point $(3, k)$ lies on line $\\ell$, what is the value of $k$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-5$"
+   "text": "$-8$"
   },
   {
    "id": "B",
-   "text": "$3$"
+   "text": "$9$"
   },
   {
    "id": "C",
-   "text": "$6$"
+   "text": "$10$"
   },
   {
    "id": "D",
-   "text": "$7$"
+   "text": "$17$"
   }
  ],
  "distractorNotes": {
-  "A": "takes the negative square root, k - 1 = -6, ignoring the condition k > 1",
-  "B": "adds the coordinate differences instead of their squares, solving 8 + (k - 1) = 10",
-  "C": "solves (k - 1)^2 = 36 to get k - 1 = 6 and reports 6 instead of adding 1"
+  "A": "uses a slope of 3/4 instead of -3/4, so k = 1 + (3/4)(3 - 15) = -8",
+  "B": "finds the change in y, (-3/4)(3 - 15) = 9, and does not add the y-coordinate 1",
+  "D": "uses -4/3, the reciprocal of the slope, so k = 1 + (-4/3)(3 - 15) = 17"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Distance Formula**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The horizontal distance is $11 - 3 = 8$, so $8^{2} + (k - 1)^{2} = 10^{2}$; then $(k - 1)^{2} = 36$ and, since $k > 1$, $k = 7$.\n\n**The Full Solution:**\nStep 1: Apply the distance formula: $\\sqrt{(11 - 3)^{2} + (1 - k)^{2}} = 10$, so $64 + (1 - k)^{2} = 100$.\nStep 2: Isolate the squared term: $(1 - k)^{2} = 36$, so $1 - k = 6$ or $1 - k = -6$, which gives $k = -5$ or $k = 7$.\nStep 3: Only $k = 7$ satisfies $k > 1$. Check: the distance between $(3, 7)$ and $(11, 1)$ is $\\sqrt{8^{2} + 6^{2}} = \\sqrt{100} = 10$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): comes from the other root, $1 - k = 6$; it satisfies the distance equation but not the condition $k > 1$.\n* Choice B ($3$): adds the coordinate differences instead of their squares, solving $8 + (k - 1) = 10$.\n* Choice C ($6$): solves $(k - 1)^{2} = 36$ and reports $k - 1 = 6$ rather than $k$.\n\n**Test Day Takeaway:** A distance equation with an unknown coordinate has two roots. The condition in the question is there to choose between them, so apply it last."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Slope from Two Points**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Moving from $x = 15$ to $x = 3$ changes $x$ by $-12$, so $y$ changes by $\\left(-\\frac{3}{4}\\right)(-12) = 9$, and $k = 1 + 9 = 10$.\n\n**The Full Solution:**\nStep 1: The slope between $(15, 1)$ and $(3, k)$ is $\\frac{k - 1}{3 - 15} = \\frac{k - 1}{-12}$.\nStep 2: Set this equal to the slope of line $\\ell$: $\\frac{k - 1}{-12} = -\\frac{3}{4}$, so $k - 1 = 9$.\nStep 3: Add $1$: $k = 10$. Check: $\\frac{10 - 1}{3 - 15} = \\frac{9}{-12} = -\\frac{3}{4}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): drops the negative sign of the slope, so $y$ goes down $9$ instead of up $9$ as $x$ decreases.\n* Choice B ($9$): finds the change in $y$, $9$, and forgets to add it to the $y$-coordinate $1$.\n* Choice D ($17$): uses $-\\frac{4}{3}$, the reciprocal of the slope, giving $1 + \\left(-\\frac{4}{3}\\right)(-12) = 17$.\n\n**Test Day Takeaway:** Slope is the change in $y$ divided by the change in $x$. Multiply the slope by the change in $x$ to get the change in $y$, then add it to the known $y$-coordinate."
 }

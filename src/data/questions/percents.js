@@ -62,19 +62,19 @@ export const percentsQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "Of the material collected at a recycling center, $\\frac{7}{20}$ is glass, $0.28$ is paper, $12\\%$ is metal, and the rest is plastic. Which type of material makes up the greatest share of the material collected?",
+      question: "The number of members of a hiking club increased by $35\\%$ from $2022$ to $2023$. If the number of members in $2023$ is $k$ times the number of members in $2022$, what is the value of $k$?",
       choices: [
-        { id: "A", text: "Glass" },
-        // distractor: reads 7/20 as 7 percent and compares only the stated shares
-        { id: "B", text: "Paper" },
-        // distractor: compares raw numbers without converting
-        { id: "C", text: "Metal" },
-        // distractor: omits glass from the leftover subtraction
-        { id: "D", text: "Plastic" }
+        // distractor: gives the increase as a decimal, 0.35, without adding it to the original amount
+        { id: "A", text: "$0.35$" },
+        // distractor: subtracts 35% instead of adding it, which would describe a 35% decrease
+        { id: "B", text: "$0.65$" },
+        { id: "C", text: "$1.35$" },
+        // distractor: writes the percent 35 without converting it to a decimal or adding the original amount
+        { id: "D", text: "$35$" }
       ],
-      correctAnswer: "A",
-      hint: "Put all three given shares into one common form before comparing, and remember the leftover has to be found.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~30s):** As percents the shares are $35$, $28$, $12$, and the leftover $25$; glass is largest.\n\n**The Full Solution:**\nStep 1: Convert everything to percents. $\\frac{7}{20} = \\frac{35}{100} = 35\\%$ glass, and $0.28 = 28\\%$ paper. Metal is already $12\\%$.\nStep 2: The four shares total $100\\%$, so plastic is $100 - 35 - 28 - 12 = 25\\%$.\nStep 3: Comparing $35\\%$, $28\\%$, $12\\%$, and $25\\%$, the largest is glass. Check the sum: $35 + 28 + 12 + 25 = 100$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (Paper): reads $\\frac{7}{20}$ as $7\\%$ and compares only the three shares that are stated, where paper's $28\\%$ would be the largest.\n* Choice C (Metal): compares the raw numbers $\\frac{7}{20}$, $0.28$, and $12$ without converting, so $12$ looks biggest.\n* Choice D (Plastic): leaves glass out of the subtraction, computing $100 - 28 - 12 = 60$ for plastic.\n\n**Test Day Takeaway:** Comparisons across fractions, decimals, and percents are only safe after everything is in the same form, and a share described as the rest must be computed, not skipped.",
+      correctAnswer: "C",
+      hint: "An increase of $35\\%$ means the new amount is $100\\% + 35\\%$ of the old amount.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** A $35\\%$ increase makes the new amount $100\\% + 35\\% = 135\\%$ of the old amount, and $135\\% = 1.35$.\n\n**The Full Solution:**\nStep 1: Let $m$ be the number of members in $2022$. The increase is $35\\%$ of $m$, or $0.35m$.\nStep 2: The number of members in $2023$ is $m + 0.35m = 1.35m$.\nStep 3: So the number in $2023$ is $1.35$ times the number in $2022$, and $k = 1.35$.\n\nCheck: If the club had $80$ members in $2022$, it gained $0.35(80) = 28$ members, for $108$ in all, and $1.35(80) = 108$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.35$): is the increase alone; the original members must be added back.\n* Choice B ($0.65$): is the multiplier for a $35\\%$ decrease, not an increase.\n* Choice D ($35$): uses the percent as a whole number and leaves out the original amount.\n\n**Test Day Takeaway:** An increase of $p\\%$ multiplies an amount by $1 + \\frac{p}{100}$; a decrease of $p\\%$ multiplies it by $1 - \\frac{p}{100}$.",
       skills: ["percent-decimal-conversion"]
     },
     {
@@ -234,19 +234,19 @@ export const percentsQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "The enrollment in a training program increased by $20\\%$ from 2021 to 2022 and then decreased by $15\\%$ from 2022 to 2023. The enrollment was $500$ in 2021. What was the enrollment in 2023?",
+      question: "The price of a bicycle was \\$500. The price was increased by $20\\%$, and then the new price was decreased by $15\\%$. What was the final price, in dollars, of the bicycle?",
       choices: [
-        // distractor: applies only the decrease
+        // distractor: applies only the 15% decrease to the original price
         { id: "A", text: "$425$" },
         { id: "B", text: "$510$" },
-        // distractor: takes 15 percent of the original
+        // distractor: combines the changes into a single 5% increase of the original price
         { id: "C", text: "$525$" },
-        // distractor: stops after the increase
+        // distractor: applies only the 20% increase
         { id: "D", text: "$600$" }
       ],
       correctAnswer: "B",
-      hint: "The second percent is applied to the amount that exists after the first change.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~25s):** $500(1.20) = 600$, then $600(0.85) = 510$.\n\n**The Full Solution:**\nStep 1: An increase of $20\\%$ multiplies by $1.20$: the 2022 enrollment is $500(1.20) = 600$.\nStep 2: A decrease of $15\\%$ multiplies by $0.85$, and it applies to the 2022 enrollment: $600(0.85) = 510$.\nStep 3: The 2023 enrollment is $510$ students. Check: $15\\%$ of $600$ is $90$, and $600 - 90 = 510$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($425$): applies only the decrease, computing $500(0.85)$ and skipping the increase.\n* Choice C ($525$): takes $15\\%$ of the original $500$ instead of the new $600$, computing $600 - 75$.\n* Choice D ($600$): stops after the increase and never applies the decrease.\n\n**Test Day Takeaway:** Chain percent changes by multiplying scale factors in order; each factor acts on the result of the one before it.",
+      hint: "Apply the decrease to the increased price, not to the original price.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~30s):** Multiply by $1.20$ and then by $0.85$: $500(1.20)(0.85) = 510$.\n\n**The Full Solution:**\nStep 1: After the $20\\%$ increase, the price is $500(1.20) = 600$ dollars.\nStep 2: The $15\\%$ decrease is taken from $600$: $600(0.85) = 510$ dollars.\nStep 3: So the final price is $510$ dollars.\n\nCheck: $15\\%$ of $600$ is $90$, and $600 - 90 = 510$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($425$): takes $15\\%$ off the original $500$ and ignores the increase.\n* Choice C ($525$): treats $+20\\%$ then $-15\\%$ as a net $+5\\%$; the decrease applies to a larger amount, so the net change is only $+2\\%$.\n* Choice D ($600$): stops after the increase.\n\n**Test Day Takeaway:** Successive percent changes multiply: use one multiplier per change, each applied to the current amount.",
       skills: ["percent-change", "successive-percent-change"]
     },
     {
@@ -311,19 +311,19 @@ export const percentsQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "A solution contains only salt and water, and $8\\%$ of its mass is salt. The solution contains $276$ grams of water and $x$ grams of salt. What is the value of $x$?",
+      question: "A solution has a mass of $300$ grams, and $8\\%$ of its mass is salt. What is the mass, in grams, of the salt in the solution?",
       choices: [
-        // distractor: takes 8 percent of the water
-        { id: "A", text: "$22.08$" },
+        // distractor: writes 8% as 0.008 instead of 0.08
+        { id: "A", text: "$2.4$" },
         { id: "B", text: "$24$" },
-        // distractor: subtracts salt from water
-        { id: "C", text: "$252$" },
-        // distractor: reports the total mass
-        { id: "D", text: "$300$" }
+        // distractor: divides 300 by 8 instead of multiplying by 0.08
+        { id: "C", text: "$37.5$" },
+        // distractor: finds the mass of the rest of the solution, 300 - 24
+        { id: "D", text: "$276$" }
       ],
       correctAnswer: "B",
-      hint: "The water is $92\\%$ of the whole, so it can be used to recover the total mass first.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~30s):** Water is $92\\%$ of the solution, so the total is $276 \\div 0.92 = 300$ grams and the salt is $300 - 276 = 24$ grams.\n\n**The Full Solution:**\nStep 1: Salt is $8\\%$ of the solution by mass, so water is $100\\% - 8\\% = 92\\%$ of it.\nStep 2: Let $m$ be the total mass. Then $0.92m = 276$, so $m = \\frac{276}{0.92} = 300$ grams.\nStep 3: The salt is the rest: $300 - 276 = 24$ grams, so $x = 24$. Check: $0.08 \\times 300 = 24$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($22.08$): takes $8\\%$ of the WATER mass; the $8\\%$ refers to the whole solution.\n* Choice C ($252$): subtracts the salt mass from the water mass instead of reporting the salt mass.\n* Choice D ($300$): reports the total mass of the solution rather than the mass of the salt.\n\n**Test Day Takeaway:** When a percent is stated for one component, the other component carries the complementary percent; use whichever one is given a number.",
+      hint: "Write $8\\%$ as a decimal and multiply.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~30s):** $8\\%$ of $300$ is $0.08(300) = 24$.\n\n**The Full Solution:**\nStep 1: Write the percent as a decimal: $8\\% = 0.08$.\nStep 2: Multiply by the total mass: $0.08(300) = 24$.\nStep 3: So the solution contains $24$ grams of salt.\n\nCheck: $\\frac{24}{300} = 0.08 = 8\\%$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.4$): uses $0.008$ for $8\\%$, which is $0.8\\%$.\n* Choice C ($37.5$): divides $300$ by $8$ instead of finding $8$ hundredths of $300$.\n* Choice D ($276$): is the mass of the part of the solution that is not salt.\n\n**Test Day Takeaway:** Read $p\\%$ of $N$ as $\\frac{p}{100} \\cdot N$.",
       skills: ["percent-word-problems", "percent-of-value"]
     },
     {
@@ -366,19 +366,19 @@ export const percentsQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "To pass a test with $150$ questions, a student must answer at least $68\\%$ of the questions correctly. The student answered $86$ of the first $110$ questions correctly. What is the least number of the remaining questions the student must answer correctly to pass?",
+      question: "A store's price for a jacket is $50\\%$ greater than the store's cost. During a sale, the price of the jacket is reduced by $20\\%$. The sale price is $p\\%$ of the store's cost. What is the value of $p$?",
       choices: [
-        { id: "A", text: "$16$" },
-        // distractor: counts the remaining questions the student may still miss (48 misses allowed, 24 already used)
-        { id: "B", text: "$24$" },
-        // distractor: assumes all 40 remaining questions must be correct
-        { id: "C", text: "$40$" },
-        // distractor: reports the total number of correct answers needed
-        { id: "D", text: "$102$" }
+        // distractor: takes 80% of the 50% markup alone, 0.80(50), instead of 80% of the whole price
+        { id: "A", text: "$40$" },
+        { id: "B", text: "$120$" },
+        // distractor: adds and subtracts the percents, 100 + 50 - 20
+        { id: "C", text: "$130$" },
+        // distractor: uses the price before the sale
+        { id: "D", text: "$150$" }
       ],
-      correctAnswer: "A",
-      hint: "Find the total number of correct answers required before looking at what is already earned.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~35s):** Passing needs $0.68 \\times 150 = 102$ correct, and $102 - 86 = 16$ more.\n\n**The Full Solution:**\nStep 1: Compute the passing requirement: $68\\%$ of $150$ is $0.68 \\times 150 = 102$ correct answers.\nStep 2: The student already has $86$ correct, so the shortfall is $102 - 86 = 16$.\nStep 3: There are $150 - 110 = 40$ questions left, and $16$ of them must be correct. Check: $86 + 16 = 102$, and $\\frac{102}{150} = 0.68$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($24$): counts the remaining questions the student may still answer INCORRECTLY, since $150 - 102 = 48$ misses are allowed and $110 - 86 = 24$ have already been used.\n* Choice C ($40$): assumes every one of the $40$ remaining questions must be answered correctly.\n* Choice D ($102$): reports the total number of correct answers needed rather than the additional number.\n\n**Test Day Takeaway:** Convert a passing percent into a raw count first; the question then becomes simple subtraction against what is already banked.",
+      correctAnswer: "B",
+      hint: "Let the cost be $c$ and write each change as a multiplier.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~40s):** The sale price is $c(1.50)(0.80) = 1.20c$, which is $120\\%$ of the cost.\n\n**The Full Solution:**\nStep 1: Let the store's cost be $c$. A price $50\\%$ greater than $c$ is $1.50c$.\nStep 2: Reducing that price by $20\\%$ leaves $80\\%$ of it: $0.80(1.50c) = 1.20c$.\nStep 3: Since $1.20c = \\frac{120}{100}c$, the sale price is $120\\%$ of the cost, so $p = 120$.\n\nCheck: If the cost is \\$100, the price is \\$150, and $20\\%$ of \\$150 is \\$30, so the sale price is \\$120. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($40$): applies the $20\\%$ reduction only to the $50\\%$ markup.\n* Choice C ($130$): combines the percents by adding and subtracting, but the $20\\%$ is taken from the larger price.\n* Choice D ($150$): is the price before the sale as a percent of the cost.\n\n**Test Day Takeaway:** Chain percent changes by multiplying: $1.50 \\times 0.80 = 1.20$, then read the product as a percent.",
       skills: ["percent-word-problems", "percent-of-value"]
     }
   ]

@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-076",
- "question": "$x^{2} + y^{2} + 12x - 16y + 75 = 0$\nThe graph of the given equation in the $xy$-plane is a circle. What is the greatest distance between the origin and a point on the circle?",
+ "question": "$x^{2} + y^{2} + 12x - 16y + 75 = 0$\nThe graph of the given equation in the $xy$-plane is a circle. If the point $(a, b)$ is on the circle, which of the following is a possible value of $a$?",
  "choices": [
   {
    "id": "A",
-   "text": "$5$"
+   "text": "$-14$"
   },
   {
    "id": "B",
-   "text": "$10$"
+   "text": "$-3$"
   },
   {
    "id": "C",
-   "text": "$15$"
+   "text": "$1$"
   },
   {
    "id": "D",
-   "text": "$20$"
+   "text": "$8$"
   }
  ],
- "correctAnswer": "C",
+ "correctAnswer": "B",
  "distractorNotes": {
-  "A": "reports the radius of the circle, 5",
-  "B": "reports the distance from the origin to the center, 10",
-  "D": "adds the diameter instead of the radius to the center's distance, 10 + 2(5)"
+  "A": "forgets to subtract 75, so the radius becomes 10 and the x-values run from -16 to 4",
+  "C": "puts the center at x = 6 instead of x = -6, so the x-values run from 1 to 11",
+  "D": "uses the y-coordinate of the center, 8"
  },
- "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The center $(-6, 8)$ is $10$ from the origin and the radius is $5$, so the farthest point on the circle is $10 + 5 = 15$ away.\n\n**The Full Solution:**\nStep 1: Complete both squares: $(x + 6)^{2} + (y - 8)^{2} = 36 + 64 - 75 = 25$. The center is $(-6, 8)$ and the radius is $5$.\nStep 2: The distance from the origin to the center is $\\sqrt{(-6)^{2} + 8^{2}} = \\sqrt{100} = 10$. Since $10 > 5$, the origin lies outside the circle.\nStep 3: The farthest point on the circle lies on the line through the origin and the center, beyond the center, at distance $10 + 5 = 15$. Check: that point is $\\frac{15}{10}(-6, 8) = (-9, 12)$, and $(-9 + 6)^{2} + (12 - 8)^{2} = 9 + 16 = 25$, so it is on the circle, $\\sqrt{81 + 144} = 15$ from the origin ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): stops at the radius.\n* Choice B ($10$): reports the distance to the center, which is not on the circle.\n* Choice D ($20$): adds the diameter, $10 + 10$, instead of the radius.\n\n**Test Day Takeaway:** The farthest point of a circle from any outside point is (distance to the center) + (radius); the nearest is the difference."
+ "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The circle is $(x + 6)^{2} + (y - 8)^{2} = 25$, so $x$ runs from $-6 - 5 = -11$ to $-6 + 5 = -1$. Only $-3$ is in that range.\n\n**The Full Solution:**\nStep 1: Complete both squares: $(x^{2} + 12x + 36) + (y^{2} - 16y + 64) = -75 + 36 + 64$, which is $(x + 6)^{2} + (y - 8)^{2} = 25$.\nStep 2: The center is $(-6, 8)$ and the radius is $5$, so every point on the circle has an $x$-coordinate from $-11$ to $-1$.\nStep 3: Of the choices, only $-3$ is between $-11$ and $-1$. Check: with $a = -3$, $(-3 + 6)^{2} = 9$, so $(b - 8)^{2} = 16$ and $b = 4$ or $b = 12$; the point $(-3, 4)$ satisfies $9 + 16 - 36 - 64 + 75 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-14$): is in the range only if $r^{2} = 100$, which happens when the $75$ is left out.\n* Choice C ($1$): comes from a center at $(6, 8)$; the term $+12x$ means $(x + 6)^{2}$, so the center's $x$-coordinate is $-6$.\n* Choice D ($8$): is the center's $y$-coordinate, but the question asks about $x$-coordinates.\n\n**Test Day Takeaway:** A circle with center $(h, k)$ and radius $r$ contains only points with $h - r \\le x \\le h + r$."
 }

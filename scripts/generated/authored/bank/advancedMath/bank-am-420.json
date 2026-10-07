@@ -1,6 +1,6 @@
 {
   "id": "bank-am-420",
-  "question": "The table shows the number of members, $N$, of a library's book club $t$ years after the club started, where $N$ grows exponentially. Which of the following is closest to the percent increase in $N$ every $3$ months?",
+  "question": "The table shows the number of subscribers, $N$, to an online newsletter $t$ years after it was launched, where $N$ increases exponentially. What is the percent increase in $N$ every $6$ months?",
   "diagram": {
     "type": "dataTable",
     "params": {
@@ -11,19 +11,15 @@
       "rows": [
         [
           "0",
-          "500"
+          "10,000"
         ],
         [
           "1",
-          "600"
+          "12,100"
         ],
         [
           "2",
-          "720"
-        ],
-        [
-          "3",
-          "864"
+          "14,641"
         ]
       ]
     }
@@ -31,26 +27,26 @@
   "choices": [
     {
       "id": "A",
-      "text": "$4.7\\%$"
+      "text": "$10\\%$"
     },
     {
       "id": "B",
-      "text": "$5\\%$"
+      "text": "$10.5\\%$"
     },
     {
       "id": "C",
-      "text": "$20\\%$"
+      "text": "$21\\%$"
     },
     {
       "id": "D",
-      "text": "$60\\%$"
+      "text": "$42\\%$"
     }
   ],
   "distractorNotes": {
-    "B": "divides the annual $20\\%$ by the $4$ quarters in a year instead of taking a fourth root",
-    "C": "reports the annual increase of $20\\%$ as the quarterly increase",
-    "D": "multiplies the annual $20\\%$ by the $3$ months in a quarter"
+    "B": "halves the yearly $21\\%$ increase instead of taking a square root of the growth factor",
+    "C": "reports the yearly increase of $21\\%$ as the increase every $6$ months",
+    "D": "doubles the yearly $21\\%$ because a year has two $6$-month periods"
   },
   "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Rewriting Exponential Form — Equivalent Rate**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** $N$ is multiplied by $1.2$ each year, so each $3$-month period multiplies it by $(1.2)^{\\frac{1}{4}} \\approx 1.047$, an increase of about $4.7\\%$.\n\n**The Full Solution:**\nStep 1: Divide consecutive values: $\\frac{600}{500} = \\frac{720}{600} = \\frac{864}{720} = 1.2$, so $N = 500(1.2)^{t}$.\nStep 2: A year has four $3$-month periods, so the factor $q$ for each period satisfies $q^{4} = 1.2$, and $q = (1.2)^{\\frac{1}{4}} \\approx 1.0466$.\nStep 3: That is an increase of about $4.7\\%$ every $3$ months. Check: $(1.0466)^{4} \\approx 1.200$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($5\\%$): divides $20\\%$ by $4$; four increases of $5\\%$ compound to about $21.6\\%$, not $20\\%$.\n* Choice C ($20\\%$): is the yearly increase, not the increase every $3$ months.\n* Choice D ($60\\%$): multiplies $20\\%$ by $3$, treating months as years.\n\n**Test Day Takeaway:** To convert a growth factor to a shorter period, take a root of the factor; dividing the percent only approximates it, and the compounding makes the true rate a little smaller."
+  "explanation": "**SAT Pattern: Rewriting Exponential Form — Equivalent Rate**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $N$ is multiplied by $1.21$ each year, and $1.21 = (1.1)^{2}$, so $N$ is multiplied by $1.1$ every $6$ months, an increase of $10\\%$.\n\n**The Full Solution:**\nStep 1: Divide consecutive values: $\\frac{12{,}100}{10{,}000} = \\frac{14{,}641}{12{,}100} = 1.21$, so $N = 10{,}000(1.21)^{t}$.\nStep 2: A year has two $6$-month periods, so the factor $q$ for each period satisfies $q^{2} = 1.21$, and $q = 1.1$.\nStep 3: A factor of $1.1$ is an increase of $10\\%$ every $6$ months. Check: $10{,}000(1.1)^{2} = 12{,}100$ and $10{,}000(1.1)^{4} = 14{,}641$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($10.5\\%$): halves $21\\%$; two increases of $10.5\\%$ give $(1.105)^{2} \\approx 1.221$, an increase of about $22.1\\%$, not $21\\%$.\n* Choice C ($21\\%$): is the yearly increase, not the increase every $6$ months.\n* Choice D ($42\\%$): doubles $21\\%$, but a shorter period means a smaller increase, not a larger one.\n\n**Test Day Takeaway:** To convert a growth factor to a shorter period, take a root of the factor; for half a year, $N$ grows by the square root of the yearly factor."
 }

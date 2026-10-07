@@ -1,29 +1,29 @@
 {
- "id": 3,
- "question": "In the $xy$-plane, point $P$ has coordinates $(-6, 3)$ and point $Q$ has coordinates $(2, -9)$. Which expression represents the distance between points $P$ and $Q$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$\\sqrt{(2 - 6)^{2} + (-9 - 3)^{2}}$"
+  "id": 3,
+  "question": "A van traveled $240$ miles, driving at $30$ miles per hour for $c$ hours and at $60$ miles per hour for $h$ hours. The equation $30c + 60h = 240$ represents this situation. If $h = 3$, what is the value of $c$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$2.5$"
+    },
+    {
+      "id": "C",
+      "text": "$6$"
+    },
+    {
+      "id": "D",
+      "text": "$8$"
+    }
+  ],
+  "correctAnswer": "A",
+  "distractorNotes": {
+    "B": "substitutes 3 for c instead of h: 30(3) + 60h = 240 gives 2.5",
+    "C": "substitutes 3 for h but drops the 60: 30c + 60 = 240 gives c = 6",
+    "D": "ignores the miles driven at 60 miles per hour: 240/30 = 8"
   },
-  {
-   "id": "B",
-   "text": "$\\sqrt{(2 - 6)^{2} + (-9 + 3)^{2}}$"
-  },
-  {
-   "id": "C",
-   "text": "$\\sqrt{(2 + 6)^{2} + (-9 - 3)^{2}}$"
-  },
-  {
-   "id": "D",
-   "text": "$\\sqrt{(2 + 6)^{2} + (-9 + 3)^{2}}$"
-  }
- ],
- "correctAnswer": "C",
- "distractorNotes": {
-  "A": "treats P's x-coordinate as 6 instead of -6, writing 2 - 6 instead of 2 - (-6); the value is sqrt(160)",
-  "B": "drops the signs of both of P's coordinates, writing 2 - 6 and -9 + 3; the value is sqrt(52)",
-  "D": "adds P's y-coordinate instead of subtracting it, writing -9 + 3 instead of -9 - 3; the value is sqrt(100) = 10"
- },
- "explanation": "**SAT Pattern: Distance Formula**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Subtract coordinates in the same order: $2 - (-6) = 2 + 6$ and $-9 - 3$, so the distance is $\\sqrt{(2 + 6)^{2} + (-9 - 3)^{2}}$.\n\n**The Full Solution:**\nStep 1: The distance between $(x_1, y_1)$ and $(x_2, y_2)$ is $\\sqrt{(x_2 - x_1)^{2} + (y_2 - y_1)^{2}}$. Take $P(-6, 3)$ as the first point and $Q(2, -9)$ as the second.\nStep 2: The horizontal difference is $2 - (-6) = 2 + 6$, and the vertical difference is $-9 - 3$.\nStep 3: Substituting gives $\\sqrt{(2 + 6)^{2} + (-9 - 3)^{2}} = \\sqrt{64 + 144} = \\sqrt{208}$. Check: the points are $8$ units apart horizontally and $12$ units apart vertically, and $8^{2} + 12^{2} = 208$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: writes $2 - 6$, treating P's $x$-coordinate as $6$ instead of $-6$; the horizontal gap becomes $4$ instead of $8$.\n* Choice B: drops the signs on both of P's coordinates, writing $2 - 6$ and $-9 + 3$; both gaps come out too small.\n* Choice D: writes $-9 + 3$, adding P's $y$-coordinate instead of subtracting it; the vertical gap becomes $6$ instead of $12$.\n\n**Test Day Takeaway:** Subtracting a negative coordinate turns into addition; a quick sketch of how far apart the points are horizontally and vertically tells you which expression is right."
+  "explanation": "**SAT Pattern: Linear Equation in Context**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Substitute $h = 3$: $30c + 180 = 240$, so $30c = 60$ and $c = 2$.\n\n**The Full Solution:**\nStep 1: Substitute $h = 3$ into the equation: $30c + 60(3) = 240$.\nStep 2: Simplify: $30c + 180 = 240$, so $30c = 60$.\nStep 3: Divide by $30$: $c = 2$. Check: $30(2) + 60(3) = 60 + 180 = 240$ miles ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2.5$): substitutes $3$ for $c$ instead of $h$ and solves $90 + 60h = 240$.\n* Choice C ($6$): replaces $60h$ with $60$ instead of $60(3)$, solving $30c + 60 = 240$.\n* Choice D ($8$): divides the whole $240$ miles by $30$, ignoring the $180$ miles driven at $60$ miles per hour.\n\n**Test Day Takeaway:** Match each variable to its meaning before substituting; each term of $30c + 60h$ is a distance in miles."
 }

@@ -1,30 +1,30 @@
 {
   "id": 3,
-  "question": "In a data set of $20$ values, the value $5$ occurs $6$ times, the value $8$ occurs $6$ times, and no other value occurs more than $3$ times. Which of the following is true about the mode of the data set?",
+  "question": "$10, 12, 14, 15, 15, 17, 18, 61$\nThe value $61$ is removed from the data set shown. Which statement best describes the effect on the mean and the median?",
   "choices": [
     {
       "id": "A",
-      "text": "The only mode is $5$."
+      "text": "The mean decreases, and the median decreases."
     },
     {
       "id": "B",
-      "text": "The only mode is $8$."
+      "text": "The mean decreases, and the median does not change."
     },
     {
       "id": "C",
-      "text": "The data set has two modes, $5$ and $8$."
+      "text": "The mean does not change, and the median decreases."
     },
     {
       "id": "D",
-      "text": "The data set has no mode."
+      "text": "Neither the mean nor the median changes."
     }
   ],
   "distractorNotes": {
-    "A": "breaks the tie by choosing the smaller value, but the definition of mode does not favor smaller values.",
-    "B": "breaks the tie by choosing the larger value, which the definition of mode does not do either.",
-    "D": "treats a tie for the greatest frequency as no mode; a data set has no mode only when every value occurs the same number of times."
+    "A": "assumes the median must drop when the greatest value is removed, but the two middle values are both 15",
+    "C": "reverses the effects: the outlier strongly affects the mean, not the median",
+    "D": "thinks removing one value cannot change either measure"
   },
-  "correctAnswer": "C",
-  "hint": "Compare the highest frequency in the data set with how many values reach it.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~30s):** The greatest frequency is $6$, and two values reach it, so both $5$ and $8$ are modes.\n\n**The Full Solution:**\nStep 1: The mode is the value or values occurring most frequently.\nStep 2: The greatest frequency in this data set is $6$, since every other value occurs at most $3$ times.\nStep 3: Both $5$ and $8$ occur $6$ times, so the data set has two modes, $5$ and $8$. Check: no value occurs more than $6$ times, so neither can be excluded. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: breaks the tie by choosing the smaller value, but the definition of mode does not favor smaller values.\n* Choice B: breaks the tie by choosing the larger value, which the definition of mode does not do either.\n* Choice D: treats a tie for the greatest frequency as no mode; a data set has no mode only when every value occurs the same number of times.\n\n**Test Day Takeaway:** A tie for the highest frequency produces more than one mode. Only a data set with no repeats at all, or with every value equally frequent, has no mode."
+  "correctAnswer": "B",
+  "hint": "Find the median before and after; the outlier mainly affects the mean.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** Removing the outlier $61$ lowers the mean a lot, but the middle values are $15$ before and after, so the median stays $15$.\n\n**The Full Solution:**\nStep 1: Before: the mean is $\\frac{162}{8} = 20.25$, and the median is the average of the 4th and 5th values, $\\frac{15 + 15}{2} = 15$.\nStep 2: After removing $61$: the mean is $\\frac{101}{7} \\approx 14.4$, and the median is the 4th of $7$ values, $15$.\nStep 3: The mean decreases, and the median does not change.\n\nCheck: $162 - 61 = 101$, and $10, 12, 14, \\mathbf{15}, 15, 17, 18$ has middle value $15$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (both decrease): the median would drop only if the middle values changed, and here both middle values are $15$.\n* Choice C (mean unchanged, median decreases): reverses the roles; an extreme value pulls the mean, not the median.\n* Choice D (neither changes): the mean depends on every value, so removing $61$ must lower it.\n\n**Test Day Takeaway:** An outlier pulls the mean toward it; the median depends only on the middle of the ordered list."
 }

@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-058",
- "question": "In the circle shown, the center is $P$, the radius is $18$, and the measure of central angle $XPY$ is $\\frac{5\\pi}{6}$ radians. What is the area of the region of the circle outside sector $XPY$?",
+ "question": "In the circle shown, the center is $P$, the radius is $18$, and the measure of angle $XPY$ is $\\frac{5\\pi}{6}$ radians. Points $X$ and $Y$ divide the circle into two arcs. What is the length of the longer arc?",
  "diagram": {
   "type": "circleWithSector",
   "params": {
@@ -16,26 +16,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$54\\pi$"
+   "text": "$15\\pi$"
   },
   {
    "id": "B",
-   "text": "$135\\pi$"
+   "text": "$21\\pi$"
   },
   {
    "id": "C",
-   "text": "$189\\pi$"
+   "text": "$36\\pi$"
   },
   {
    "id": "D",
-   "text": "$324\\pi$"
+   "text": "$189\\pi$"
   }
  ],
  "distractorNotes": {
-  "A": "drops the 1/2 from A = (1/2)r^2 theta, making the sector 270 pi and the rest 54 pi",
-  "B": "gives the area of sector XPY itself instead of the region outside it",
-  "D": "gives the area of the whole circle without subtracting the sector"
+  "A": "finds the shorter arc, 18(5 pi/6) = 15 pi",
+  "C": "gives the whole circumference 2 pi (18) = 36 pi",
+  "D": "computes the area of the circle outside the angle, (7/12) pi (18^2), instead of an arc length"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Sector Area in Radians**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Sector $XPY$ is $\\frac{5\\pi/6}{2\\pi} = \\frac{5}{12}$ of the circle, so the rest is $\\frac{7}{12}$ of $\\pi(18)^2 = 324\\pi$, which is $189\\pi$.\n\n**The Full Solution:**\nStep 1: The whole circle has area $\\pi(18)^2 = 324\\pi$.\nStep 2: With the angle in radians, sector $XPY$ has area $\\frac{1}{2}r^2\\theta = \\frac{1}{2}(324)\\left(\\frac{5\\pi}{6}\\right) = 135\\pi$.\nStep 3: The region outside the sector has area $324\\pi - 135\\pi = 189\\pi$. Check: the remaining central angle is $2\\pi - \\frac{5\\pi}{6} = \\frac{7\\pi}{6}$, and $\\frac{1}{2}(324)\\left(\\frac{7\\pi}{6}\\right) = 189\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($54\\pi$): drops the $\\frac{1}{2}$, making the sector $324\\left(\\frac{5\\pi}{6}\\right) = 270\\pi$ and leaving $54\\pi$.\n* Choice B ($135\\pi$): is the area of sector $XPY$ itself.\n* Choice D ($324\\pi$): is the area of the whole circle, with the sector never subtracted.\n\n**Test Day Takeaway:** In radians, a sector's area is $\\frac{1}{2}r^2\\theta$; then read carefully whether the question wants the sector or the rest of the circle."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Arc Length in Radians**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The shorter arc is $\\frac{5\\pi}{6} \\div 2\\pi = \\frac{5}{12}$ of the circle, so the longer arc is $\\frac{7}{12}$ of $36\\pi$, which is $21\\pi$.\n\n**The Full Solution:**\nStep 1: A full circle is $2\\pi$ radians, so the arc inside angle $XPY$ is $\\frac{5\\pi/6}{2\\pi} = \\frac{5}{12}$ of the circle, and the longer arc is $1 - \\frac{5}{12} = \\frac{7}{12}$ of the circle.\nStep 2: The circumference is $2\\pi(18) = 36\\pi$.\nStep 3: The longer arc has length $\\frac{7}{12}(36\\pi) = 21\\pi$. Check: the shorter arc is $\\frac{5}{12}(36\\pi) = 15\\pi$, and $15\\pi + 21\\pi = 36\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($15\\pi$): is the length of the shorter arc, the one inside angle $XPY$.\n* Choice C ($36\\pi$): is the whole circumference, not one of the two arcs.\n* Choice D ($189\\pi$): takes $\\frac{7}{12}$ of the area $324\\pi$, which is an area, not a length.\n\n**Test Day Takeaway:** A full circle is $2\\pi$ radians or $360°$. Divide the angle by the full turn to get the fraction of the circumference."
 }

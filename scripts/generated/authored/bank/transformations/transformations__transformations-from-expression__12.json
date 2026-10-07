@@ -1,30 +1,30 @@
 {
- "id": 12,
- "question": "The function $f$ has a maximum value of $5$ at $x = 1$ and a minimum value of $-3$ at $x = 6$. The function $g$ is defined by $g(x) = -2f(x)$. Which of the following must be true?",
- "choices": [
-  {
-   "id": "A",
-   "text": "The maximum value of $g$ is $-10$, at $x = 1$."
+  "id": 12,
+  "question": "The function $f$ has a maximum value of $5$ at $x = 1$ and a minimum value of $-3$ at $x = 6$. The function $g$ is defined by $g(x) = f(x - 2) + 3$. Which of the following must be true?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "The maximum value of $g$ is $8$, at $x = -1$."
+    },
+    {
+      "id": "B",
+      "text": "The maximum value of $g$ is $8$, at $x = 3$."
+    },
+    {
+      "id": "C",
+      "text": "The minimum value of $g$ is $-3$, at $x = 8$."
+    },
+    {
+      "id": "D",
+      "text": "The minimum value of $g$ is $0$, at $x = 4$."
+    }
+  ],
+  "distractorNotes": {
+    "A": "moves the maximum 2 units left instead of right",
+    "C": "moves the minimum right but leaves out the +3",
+    "D": "moves the minimum 2 units left instead of right"
   },
-  {
-   "id": "B",
-   "text": "The maximum value of $g$ is $6$, at $x = 1$."
-  },
-  {
-   "id": "C",
-   "text": "The maximum value of $g$ is $6$, at $x = 6$."
-  },
-  {
-   "id": "D",
-   "text": "The maximum value of $g$ is $10$, at $x = 1$."
-  }
- ],
- "distractorNotes": {
-  "A": "applies -2 to the maximum of f, which gives the minimum of g",
-  "B": "finds the right value but places it where f is greatest",
-  "D": "ignores the negative sign and doubles the maximum of f"
- },
- "correctAnswer": "C",
- "hint": "Multiplying by a negative number turns the lowest point into the highest point.",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~35s):** Multiplying by $-2$ flips the graph, so the minimum of $f$ becomes the maximum of $g$: $-2(-3) = 6$, at $x = 6$.\n\n**The Full Solution:**\nStep 1: Because $-2$ is negative, $g$ is greatest where $f$ is least.\nStep 2: The least value of $f$ is $-3$, at $x = 6$, so the maximum value of $g$ is $g(6) = -2(-3) = 6$.\nStep 3: The maximum of $g$ is $6$, at $x = 6$. Check: $g(1) = -2(5) = -10$, the minimum of $g$, and $6 > -10$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$, at $x = 1$): applies $-2$ to the maximum of $f$; that gives the minimum of $g$.\n* Choice B ($6$, at $x = 1$): finds the right value but places it where $f$ is greatest.\n* Choice D ($10$, at $x = 1$): ignores the negative sign and doubles the maximum of $f$.\n\n**Test Day Takeaway:** A negative factor outside the function reflects the graph across the x-axis, so maximum and minimum trade places."
+  "correctAnswer": "B",
+  "hint": "Track the maximum and minimum points: the shift inside $f$ moves $x$, and the shift outside moves $y$.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** $g(x) = f(x - 2) + 3$ moves every point of the graph of $f$ right $2$ and up $3$, so the maximum $(1, 5)$ moves to $(3, 8)$.\n\n**The Full Solution:**\nStep 1: Replacing $x$ with $x - 2$ moves the graph of $f$ right $2$ units, and adding $3$ moves it up $3$ units.\nStep 2: The maximum of $f$, $5$ at $x = 1$, becomes a maximum of $5 + 3 = 8$ at $x = 1 + 2 = 3$.\nStep 3: The minimum of $f$, $-3$ at $x = 6$, becomes a minimum of $-3 + 3 = 0$ at $x = 6 + 2 = 8$, so only choice B matches. Check: $g(3) = f(1) + 3 = 5 + 3 = 8$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: the maximum value $8$ is right, but it moves left instead of right; it occurs at $x = 3$.\n* Choice C: this moves the minimum right but leaves out the $+3$, which raises every output; the minimum value of $g$ is $0$.\n* Choice D: the minimum value $0$ is right, but it moves left instead of right; it occurs at $x = 8$.\n\n**Test Day Takeaway:** Under $g(x) = f(x - h) + k$, every point $(a, b)$ on the graph of $f$ moves to $(a + h, b + k)$, including the maximum and the minimum."
 }

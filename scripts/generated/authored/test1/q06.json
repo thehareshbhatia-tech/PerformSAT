@@ -11,19 +11,19 @@
  "choices": [
   {
    "id": "A",
-   "text": "It describes a behavior shared by several deep-sea species, then explains how one species' version of the behavior differs."
+   "text": "It describes a behavior shared by several deep-sea species, then explains how one species differs."
   },
   {
    "id": "B",
-   "text": "It presents a scientific consensus about an unusual anatomical feature, then summarizes the evidence that overturned it."
+   "text": "It presents a scientific consensus about an unusual feature, then summarizes evidence that overturned it."
   },
   {
    "id": "C",
-   "text": "It explains how a research tool works, then lists several discoveries that the tool has made possible."
+   "text": "It explains how a research tool works, then lists discoveries the tool has made possible."
   },
   {
    "id": "D",
-   "text": "It poses a question about an unusual anatomical feature, then presents a possible explanation for that feature."
+   "text": "It poses a question about an unusual anatomical feature, then presents a possible explanation for it."
   }
  ],
  "correctAnswer": "D",

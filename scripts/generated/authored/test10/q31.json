@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 2,
- "passage": "The Bahamian sponge trade had survived overharvesting and hurricanes, but late in 1938 a blight destroyed nearly all of its sponges within two months. When the trade restarted in 1946, inexpensive synthetic sponges had captured much of the demand, and the partial recovery of the beds ______ little of the business it would once have restored.",
+ "passage": "Before the Second World War, the United States bought most of Japan's raw silk exports, chiefly to make women's stockings. Nylon stockings first went on sale in the United States in 1939. When trade resumed after the war, nylon had taken nearly the whole stocking market, and the return of Japanese silk ______ little of its old trade.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
@@ -19,7 +19,7 @@
   },
   {
    "id": "C",
-   "text": "displaced"
+   "text": "concealed"
   },
   {
    "id": "D",
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The sentence contrasts what the beds' recovery accomplished with what it \"would once have restored\"; the verb that pairs with \"restored\" and fits bringing back a trade is \"revived.\"\n\n**The Full Solution:**\n- The causal setup: the blight removed supply, and synthetic substitutes then absorbed demand, so recovering beds no longer translated into customers.\n- The final clause measures the recovery's effect on the trade. Since demand had moved on, the recovery brought back, revived, little of the old business, though in earlier times it would have restored it.\n\n**Why the other choices are wrong:**\n- A: \"Foretold\" makes the recovery a predictor of the trade rather than a potential cause of its return, which breaks the sentence's contrast with \"restored.\"\n- C: \"Displaced\" would mean the recovery pushed the business aside, but the synthetic sponges, not the recovering beds, did the displacing.\n- D: \"Endangered\" reverses the recovery's role; recovering beds threatened nothing about the trade, they simply could no longer rescue it."
+ "explanation": "**Choice B is correct.** By the time silk could be sold again, nylon had \"taken nearly the whole stocking market,\" so silk's return brought back only a small part of its former business. \"Revived\" means brought back to life.\n\n**The Full Solution:**\n- Before the war, stockings made the United States Japan's dominant silk buyer.\n- After the war, nylon held that market, so silk had little to return to.\n- \"Revived little of its old trade\" states that the comeback restored only a fraction of what had been lost.\n\n**Why the other choices are wrong:**\n- A: \"Foretold\" means predicted, but the sentence describes what the return of silk did, not what it predicted.\n- C: \"Concealed\" means hid, which has no logical relation to silk's lost trade.\n- D: \"Endangered\" means put at risk, but the old trade had already been lost to nylon; silk's return could not threaten it."
 }

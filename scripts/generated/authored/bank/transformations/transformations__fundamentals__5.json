@@ -1,30 +1,30 @@
 {
   "id": 5,
-  "question": "The graph of the function $d$ in the $xy$-plane lies entirely in quadrant IV. In which quadrant does the graph of $y = -d(-x)$ lie entirely?",
+  "question": "$f(x) = (x - 3)(x + 5)$\nWhen the graph of $y = f(x)$ is shifted up $9$ units in the $xy$-plane, the result is the graph of $y = g(x)$. What is the minimum value of $g(x)$?",
   "choices": [
     {
       "id": "A",
-      "text": "Quadrant I"
+      "text": "$-25$"
     },
     {
       "id": "B",
-      "text": "Quadrant II"
+      "text": "$-16$"
     },
     {
       "id": "C",
-      "text": "Quadrant III"
+      "text": "$-7$"
     },
     {
       "id": "D",
-      "text": "Quadrant IV"
+      "text": "$-1$"
     }
   ],
   "distractorNotes": {
-    "A": "applies only the reflection across the x-axis",
-    "C": "applies only the reflection across the y-axis",
-    "D": "assumes the two reflections cancel"
+    "A": "shifts the graph down 9 units instead of up",
+    "B": "finds the minimum value of f but forgets the shift",
+    "D": "reports the x-coordinate of the vertex instead of the minimum value"
   },
-  "correctAnswer": "B",
-  "hint": "Track where one point $(a, b)$ of the graph of $d$ is sent.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** Each point $(a, b)$ with $a > 0$ and $b < 0$ moves to $(-a, -b)$, which has $x < 0$ and $y > 0$: quadrant II.\n\n**The Full Solution:**\nStep 1: If $(a, b)$ is on the graph of $d$, then $a > 0$ and $b < 0$.\nStep 2: On $y = -d(-x)$, the input $x = -a$ gives $-d(a) = -b$, so the point $(-a, -b)$ is on the new graph.\nStep 3: $-a < 0$ and $-b > 0$, so every point is in quadrant II. Check with $(2, -3)$: it moves to $(-2, 3)$, in quadrant II ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Quadrant I): this uses only the outside negative sign, which reflects across the $x$-axis; the inside $-x$ also reflects across the $y$-axis.\n* Choice C (Quadrant III): this uses only the inside $-x$; the outside negative sign also flips every $y$-value.\n* Choice D (Quadrant IV): two reflections across different axes do not cancel; together they act like a half turn about the origin.\n\n**Test Day Takeaway:** $-f(-x)$ sends $(a, b)$ to $(-a, -b)$: both signs change, so the graph lands in the opposite quadrant."
+  "correctAnswer": "C",
+  "hint": "The vertex lies halfway between the $x$-intercepts.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~40s):** The vertex of $f$ is at $x = -1$, halfway between $3$ and $-5$, so the minimum of $f$ is $f(-1) = -16$ and the minimum of $g$ is $-16 + 9 = -7$.\n\n**The Full Solution:**\nStep 1: The $x$-intercepts of $f$ are $3$ and $-5$, so the vertex is at $x = \\frac{3 + (-5)}{2} = -1$.\nStep 2: The minimum value of $f$ is $f(-1) = (-4)(4) = -16$.\nStep 3: Shifting up $9$ units adds $9$ to every output, so the minimum value of $g$ is $-16 + 9 = -7$.\n\nCheck: $g(x) = (x - 3)(x + 5) + 9 = x^{2} + 2x - 6 = (x + 1)^{2} - 7$, whose minimum is $-7$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-25$): subtracts $9$, which is a shift down.\n* Choice B ($-16$): is the minimum of $f$, before the shift.\n* Choice D ($-1$): is the $x$-coordinate of the vertex, not the minimum value.\n\n**Test Day Takeaway:** From factored form, the vertex is halfway between the zeros; a vertical shift then moves the minimum value by the shift."
 }

@@ -17,7 +17,7 @@
     [
      "Q",
      "7",
-     "-12"
+     "4"
     ]
    ]
   }
@@ -25,27 +25,27 @@
  "choices": [
   {
    "id": "A",
-   "text": "$(x + 1)^{2} + (y - 4)^{2} = 100$"
+   "text": "$(x + 1)^{2} + (y + 4)^{2} = 36$"
   },
   {
    "id": "B",
-   "text": "$(x - 1)^{2} + (y + 4)^{2} = 400$"
+   "text": "$(x - 1)^{2} + (y - 4)^{2} = 6$"
   },
   {
    "id": "C",
-   "text": "$(x - 2)^{2} + (y + 8)^{2} = 100$"
+   "text": "$(x - 1)^{2} + (y - 4)^{2} = 36$"
   },
   {
    "id": "D",
-   "text": "$(x - 1)^{2} + (y + 4)^{2} = 100$"
+   "text": "$(x - 1)^{2} + (y - 4)^{2} = 144$"
   }
  ],
- "correctAnswer": "D",
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "uses the right center (1, -4) but writes the signs inside the squares backward",
-  "B": "uses the full diameter 20 as the radius, so r squared is 400",
-  "C": "adds the endpoint coordinates but forgets to divide by 2, giving the center (2, -8)"
+  "A": "uses the right center (1, 4) but writes the signs inside the squares backward",
+  "B": "uses the radius 6 on the right side without squaring it",
+  "D": "uses the full diameter 12 as the radius, so r squared is 144"
  },
- "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** The center is the midpoint $(1, -4)$, and the radius is half of $PQ = \\sqrt{12^{2} + 16^{2}} = 20$, so $r = 10$ and $r^{2} = 100$.\n\n**The Full Solution:**\nStep 1: The center is the midpoint of $\\overline{PQ}$: $\\left(\\frac{-5 + 7}{2}, \\frac{4 + (-12)}{2}\\right) = (1, -4)$.\nStep 2: The diameter is $\\sqrt{(7 - (-5))^{2} + (-12 - 4)^{2}} = \\sqrt{144 + 256} = 20$, so the radius is $10$.\nStep 3: The equation is $(x - 1)^{2} + (y + 4)^{2} = 100$. Check: $P$ gives $(-6)^{2} + 8^{2} = 100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: has the center $(-1, 4)$, which reverses the signs of the coordinates of the center.\n* Choice B: uses the diameter $20$ as the radius.\n* Choice C: adds the coordinates of $P$ and $Q$ but forgets to divide by $2$, giving the center $(2, -8)$.\n\n**Test Day Takeaway:** Midpoint for the center, half the endpoint distance for the radius, and square the radius on the right side.",
+ "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The center is halfway between $P$ and $Q$, at $(1, 4)$, and the diameter is $7 - (-5) = 12$, so $r = 6$ and $r^{2} = 36$.\n\n**The Full Solution:**\nStep 1: $P$ and $Q$ have the same $y$-coordinate, so the diameter is horizontal and its length is $7 - (-5) = 12$. The radius is $6$.\nStep 2: The center is the point halfway between $P$ and $Q$: $\\left(\\frac{-5 + 7}{2}, 4\\right) = (1, 4)$.\nStep 3: The equation is $(x - 1)^{2} + (y - 4)^{2} = 6^{2} = 36$. Check: $P$ gives $(-6)^{2} + 0^{2} = 36$ and $Q$ gives $6^{2} + 0^{2} = 36$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: has the center $(-1, -4)$, which reverses the signs of the coordinates of the center.\n* Choice B: puts the radius $6$ on the right side; the right side must be $r^{2}$.\n* Choice D: uses the diameter $12$ as the radius.\n\n**Test Day Takeaway:** The center of a circle is the middle of any diameter, the radius is half its length, and the right side of the equation is the radius squared.",
  "id": "bank-geo-290"
 }

@@ -1,53 +1,49 @@
 {
   "id": "bank-ps-028",
-  "question": "The table shows the weight of each category in a student's course grade and the student's score in each category. The course grade is the weighted mean of the three scores. What is the student's course grade?",
+  "question": "The table shows the scores of the $20$ students in a class on a quiz. What is the mean score of the $20$ students?",
   "questionTable": {
     "headers": [
-      "Category",
-      "Weight",
-      "Score"
+      "Score",
+      "Number of students"
     ],
     "rows": [
       [
-        "Tests",
-        "45%",
-        "82"
+        "70",
+        "4"
       ],
       [
-        "Homework",
-        "35%",
-        "90"
+        "80",
+        "10"
       ],
       [
-        "Project",
-        "20%",
-        "75"
+        "90",
+        "6"
       ]
     ]
   },
   "choices": [
     {
       "id": "A",
-      "text": "$68.4$"
+      "text": "$80$"
     },
     {
       "id": "B",
-      "text": "$82.3$"
+      "text": "$81$"
     },
     {
       "id": "C",
-      "text": "$83.4$"
+      "text": "$540$"
     },
     {
       "id": "D",
-      "text": "$84.2$"
+      "text": "$1{,}620$"
     }
   ],
   "distractorNotes": {
-    "A": "omits the project category, adding only $36.9 + 31.5$.",
-    "B": "takes the simple average $\\frac{82 + 90 + 75}{3}$, ignoring the weights.",
-    "D": "swaps the $45\\%$ and $35\\%$ weights, applying $0.45$ to the homework score and $0.35$ to the test score."
+    "A": "averages the three scores, $\\frac{70 + 80 + 90}{3}$, ignoring how many students earned each score.",
+    "C": "divides the total of $1{,}620$ points by the $3$ rows of the table instead of by the $20$ students.",
+    "D": "finds the total of all the scores but does not divide by the number of students."
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Weighted Average from Percentages**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Multiply each score by its weight and add: $0.45(82) + 0.35(90) + 0.20(75) = 36.9 + 31.5 + 15 = 83.4$.\n\n**The Full Solution:**\nStep 1: Convert the weights to decimals: $0.45$, $0.35$, $0.20$. They sum to $1$, so no further division is needed.\nStep 2: Weighted contributions: $0.45 \\times 82 = 36.9$; $0.35 \\times 90 = 31.5$; $0.20 \\times 75 = 15$.\nStep 3: Course grade $= 36.9 + 31.5 + 15 = 83.4$. Check: the result lies between the lowest score ($75$) and the highest ($90$), closest to the heavily weighted $82$ and $90$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($68.4$): omits the project category, adding only $36.9 + 31.5$.\n* Choice B ($82.3$): takes the simple average $\\frac{82 + 90 + 75}{3}$, ignoring the weights.\n* Choice D ($84.2$): swaps the $45\\%$ and $35\\%$ weights, applying $0.45$ to the homework score and $0.35$ to the test score.\n\n**Test Day Takeaway:** A weighted mean is $\\sum (\\text{weight} \\times \\text{score})$ when the weights sum to $100\\%$. Match each weight to its own row."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Weighted Average from Percentages**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Total the points: $70(4) + 80(10) + 90(6) = 1{,}620$. Divide by the $20$ students: $\\frac{1{,}620}{20} = 81$.\n\n**The Full Solution:**\nStep 1: Each score counts once for every student who earned it: $70(4) = 280$, $80(10) = 800$, and $90(6) = 540$.\nStep 2: The total is $280 + 800 + 540 = 1{,}620$ points for $4 + 10 + 6 = 20$ students, so the mean is $\\frac{1{,}620}{20} = 81$.\nStep 3: Check: more students scored $90$ than $70$, so the mean should sit a little above the middle score, $80$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($80$): averages the three scores, $\\frac{70 + 80 + 90}{3}$, ignoring how many students earned each score.\n* Choice C ($540$): divides the total of $1{,}620$ points by the $3$ rows of the table instead of by the $20$ students.\n* Choice D ($1{,}620$): finds the total of all the scores but does not divide by the number of students.\n\n**Test Day Takeaway:** For a frequency table, multiply each value by its frequency, add, and divide by the total frequency, not by the number of rows."
 }

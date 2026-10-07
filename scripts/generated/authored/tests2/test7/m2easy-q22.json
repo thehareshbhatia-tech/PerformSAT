@@ -1,29 +1,29 @@
 {
  "id": 22,
- "question": "At a school, $32\\%$ of the students take Spanish, and $24\\%$ of the students take both Spanish and chemistry. Of the students who take chemistry, $40\\%$ take Spanish. What percent of the students at the school take chemistry?",
+ "question": "Of the cars in a parking garage, $35\\%$ are red, $25\\%$ are blue, $15\\%$ are white, and $25\\%$ are black. If a car in the garage is selected at random, what is the probability of selecting a red car, given that the car is not blue?",
  "choices": [
   {
    "id": "A",
-   "text": "$8\\%$"
+   "text": "$\\frac{7}{20}$"
   },
   {
    "id": "B",
-   "text": "$9.6\\%$"
+   "text": "$\\frac{7}{15}$"
   },
   {
    "id": "C",
-   "text": "$60\\%$"
+   "text": "$\\frac{7}{13}$"
   },
   {
    "id": "D",
-   "text": "$75\\%$"
+   "text": "$\\frac{3}{4}$"
   }
  ],
  "distractorNotes": {
-  "A": "finds the percent who take Spanish but not chemistry, 32% - 24% = 8%",
-  "B": "multiplies the two percents, 0.24(0.40) = 0.096, instead of dividing",
-  "D": "reverses the condition, computing 24/32 = 75%, the percent of Spanish students who take chemistry"
+  "A": "ignores the condition and gives the probability of selecting a red car from all the cars, 35/100",
+  "C": "divides by the 65% of cars that are not red instead of the 75% that are not blue, 35/65",
+  "D": "gives the probability that the car is not blue, 75/100, instead of the probability that it is red"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The students who take both are $40\\%$ of the chemistry students, so $0.40c = 24$ and $c = 60$.\n\n**The Full Solution:**\nStep 1: Let $c\\%$ of the students take chemistry. The students who take both subjects are the chemistry students who take Spanish, which is $40\\%$ of the chemistry students.\nStep 2: So $0.40c = 24$, where both sides are percents of all students at the school.\nStep 3: Divide: $c = \\frac{24}{0.40} = 60$. Check: $40\\%$ of $60\\%$ is $24\\%$; and $32\\% + 60\\% - 24\\% = 68\\%$ take at least one subject, which is possible ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8\\%$): is the percent who take Spanish but not chemistry, $32\\% - 24\\%$.\n* Choice B ($9.6\\%$): multiplies $0.24$ by $0.40$ instead of dividing.\n* Choice D ($75\\%$): divides $24$ by $32$, which is the percent of Spanish students who take chemistry, the reverse of the given condition.\n\n**Test Day Takeaway:** A percent of the students who take chemistry is a percent of the chemistry group, not of the whole school; set that percent of the unknown group equal to the overlap and solve."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The cars that are not blue make up $100\\% - 25\\% = 75\\%$ of the garage, and red cars are $35\\%$, so the probability is $\\frac{35}{75} = \\frac{7}{15}$.\n\n**The Full Solution:**\nStep 1: The condition \"the car is not blue\" limits the selection to the red, white, and black cars: $35\\% + 15\\% + 25\\% = 75\\%$ of the cars.\nStep 2: All of the red cars are in this group, and they make up $35\\%$ of the cars.\nStep 3: The probability is $\\frac{35}{75} = \\frac{7}{15}$. Check: with $100$ cars, $75$ are not blue and $35$ of those are red, and $\\frac{35}{75} = \\frac{7}{15}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7}{20}$): is $\\frac{35}{100}$, the probability of a red car with no condition.\n* Choice C ($\\frac{7}{13}$): divides by the $65\\%$ of cars that are not red; the condition removes the blue cars, not the red ones.\n* Choice D ($\\frac{3}{4}$): is the probability that the car is not blue, which is the size of the group, not the answer.\n\n**Test Day Takeaway:** In a \"given that\" question, the condition sets the denominator. Here the denominator is the percent of cars that are not blue."
 }

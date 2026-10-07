@@ -1,87 +1,87 @@
 {
- "id": "bank-geo-020",
- "question": "In the figure shown, triangle $PQR$ is similar to triangle $STU$, where $P$, $Q$, and $R$ correspond to $S$, $T$, and $U$, respectively. What is the length of $\\overline{TU}$?",
- "diagram": {
-  "type": "similarTriangles",
-  "params": {
-   "triangle1": {
-    "vertices": [
-     [
-      0.75,
-      11.98
-     ],
-     [
-      0,
-      0
-     ],
-     [
-      18,
-      0
-     ]
-    ],
-    "labels": [
-     "P",
-     "Q",
-     "R"
-    ],
-    "sideLabels": [
-     "12",
-     "18",
-     "21"
-    ]
-   },
-   "triangle2": {
-    "vertices": [
-     [
-      1.25,
-      19.96
-     ],
-     [
-      0,
-      0
-     ],
-     [
-      30,
-      0
-     ]
-    ],
-    "labels": [
-     "S",
-     "T",
-     "U"
-    ],
-    "sideLabels": [
-     "20",
-     "",
-     ""
-    ]
-   },
-   "figureNote": true
-  }
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$10.8$"
+  "id": "bank-geo-020",
+  "question": "Triangle $FGH$ is similar to triangle $JKL$ in the figure shown, with $F$, $G$, and $H$ corresponding to $J$, $K$, and $L$, respectively. What is the length of $\\overline{KL}$?",
+  "diagram": {
+    "type": "similarTriangles",
+    "params": {
+      "triangle1": {
+        "vertices": [
+          [
+            0,
+            7.79
+          ],
+          [
+            4.5,
+            0
+          ],
+          [
+            19.5,
+            0
+          ]
+        ],
+        "labels": [
+          "F",
+          "G",
+          "H"
+        ],
+        "sideLabels": [
+          "9",
+          "15",
+          "21"
+        ]
+      },
+      "triangle2": {
+        "vertices": [
+          [
+            0,
+            10.39
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            26,
+            0
+          ]
+        ],
+        "labels": [
+          "J",
+          "K",
+          "L"
+        ],
+        "sideLabels": [
+          "12",
+          "",
+          ""
+        ]
+      },
+      "figureNote": true
+    }
   },
-  {
-   "id": "B",
-   "text": "$26$"
+  "choices": [
+    {
+      "id": "A",
+      "text": "$11.25$"
+    },
+    {
+      "id": "B",
+      "text": "$18$"
+    },
+    {
+      "id": "C",
+      "text": "$20$"
+    },
+    {
+      "id": "D",
+      "text": "$28$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "inverts the scale factor, multiplying 15 by 9/12",
+    "B": "adds the difference 12 - 9 = 3 to GH instead of multiplying by the scale factor",
+    "D": "scales HF = 21 instead of the corresponding side GH"
   },
-  {
-   "id": "C",
-   "text": "$30$"
-  },
-  {
-   "id": "D",
-   "text": "$35$"
-  }
- ],
- "distractorNotes": {
-  "A": "inverts the scale factor, multiplying 18 by 12/20",
-  "B": "adds the difference 20 - 12 = 8 to QR instead of multiplying by the scale factor",
-  "D": "scales RP = 21 instead of the corresponding side QR"
- },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\overline{ST}$ matches $\\overline{PQ}$, so the scale factor is $\\frac{20}{12} = \\frac{5}{3}$, and $TU = \\frac{5}{3}(18) = 30$.\n\n**The Full Solution:**\nStep 1: Because $P$, $Q$, $R$ correspond to $S$, $T$, $U$, side $\\overline{ST}$ corresponds to $\\overline{PQ}$ and side $\\overline{TU}$ corresponds to $\\overline{QR}$.\nStep 2: The scale factor from triangle $PQR$ to triangle $STU$ is $\\frac{ST}{PQ} = \\frac{20}{12} = \\frac{5}{3}$.\nStep 3: Then $TU = \\frac{5}{3} \\cdot QR = \\frac{5}{3}(18) = 30$. Check: $\\frac{TU}{QR} = \\frac{30}{18} = \\frac{5}{3} = \\frac{20}{12}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10.8$): uses the scale factor upside down, $\\frac{12}{20}$, which shrinks a side of the larger triangle.\n* Choice B ($26$): adds the difference $20 - 12 = 8$; similar figures scale by multiplying, not adding.\n* Choice D ($35$): scales $RP = 21$, which corresponds to $\\overline{US}$, not $\\overline{TU}$.\n\n**Test Day Takeaway:** Use the letter order of the similarity statement to pair sides, then multiply by one scale factor."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\overline{JK}$ matches $\\overline{FG}$, so the scale factor is $\\frac{12}{9} = \\frac{4}{3}$, and $KL = \\frac{4}{3}(15) = 20$.\n\n**The Full Solution:**\nStep 1: Because $F$, $G$, $H$ correspond to $J$, $K$, $L$, side $\\overline{JK}$ corresponds to $\\overline{FG}$ and side $\\overline{KL}$ corresponds to $\\overline{GH}$.\nStep 2: The scale factor from triangle $FGH$ to triangle $JKL$ is $\\frac{JK}{FG} = \\frac{12}{9} = \\frac{4}{3}$.\nStep 3: Then $KL = \\frac{4}{3} \\cdot GH = \\frac{4}{3}(15) = 20$. Check: $\\frac{KL}{GH} = \\frac{20}{15} = \\frac{4}{3} = \\frac{12}{9}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($11.25$): uses the scale factor upside down, $\\frac{9}{12}$, which shrinks a side of the larger triangle.\n* Choice B ($18$): adds the difference $12 - 9 = 3$; similar figures scale by multiplying, not adding.\n* Choice D ($28$): scales $HF = 21$, which corresponds to $\\overline{LJ}$, not $\\overline{KL}$.\n\n**Test Day Takeaway:** Use the letter order of the similarity statement to pair sides, then multiply by one scale factor."
 }

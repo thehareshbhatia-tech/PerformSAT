@@ -6,28 +6,25 @@
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-quantitative",
   "module": 1,
-  "passage": "When deep artesian wells were first bored into a confined aquifer beneath a growing city, water rose to the surface under natural pressure alone. Hydrologists note that each new borehole drew on the same body of pressurized groundwater, and they conclude that the aquifer's pressure fell steadily as more wells tapped it because ______",
+  "passage": "Economists have observed that a technology often becomes cheaper as more of it is built and its makers gain experience. Between 2010 and 2020, the world's installed solar and wind power capacity each more than tripled. Using estimates from the International Renewable Energy Agency, a student concludes that over that decade, electricity from newly built plants of both types became much cheaper because ______",
   "questionTable": {
     "type": "table",
-    "caption": "Flow of two artesian wells tapping the same confined aquifer",
+    "caption": "Global average cost of electricity from newly built solar and wind power plants, 2010 and 2020",
     "headers": [
-      "Well",
-      "Year completed",
-      "Initial flow (cubic meters per day)",
-      "Flow 40 years later (cubic meters per day)"
+      "Type of plant",
+      "Cost in 2010 (dollars per kilowatt-hour)",
+      "Cost in 2020 (dollars per kilowatt-hour)"
     ],
     "rows": [
       [
-        "Well 1",
-        "1880",
-        "3,600",
-        "800"
+        "Utility-scale solar",
+        "0.381",
+        "0.057"
       ],
       [
-        "Well 2",
-        "1900",
-        "17,000",
-        "5,900"
+        "Onshore wind",
+        "0.089",
+        "0.039"
       ]
     ]
   },
@@ -35,24 +32,30 @@
   "choices": [
     {
       "id": "A",
-      "text": "Well 2's initial flow, at 17,000 cubic meters per day, was nearly five times Well 1's initial flow, and Well 2 was completed two decades after Well 1."
+      "text": "in 2010, electricity from utility-scale solar plants cost more than four times as much as electricity from onshore wind plants, at $0.381 versus $0.089 per kilowatt-hour."
     },
     {
       "id": "B",
-      "text": "Well 1 was completed in 1880, twenty years before the drilling of Well 2 was finished."
+      "text": "electricity from onshore wind plants cost $0.039 per kilowatt-hour in 2020, the lowest cost shown in the table."
     },
     {
       "id": "C",
-      "text": "forty years after completion, Well 1's flow had fallen from 3,600 cubic meters per day to 800, and Well 2's from 17,000 to 5,900."
+      "text": "from 2010 to 2020, the cost fell from $0.381 to $0.057 per kilowatt-hour for utility-scale solar and from $0.089 to $0.039 for onshore wind."
     },
     {
       "id": "D",
-      "text": "Well 2 still delivered more water forty years after its completion than Well 1 had delivered when it was first completed in 1880."
+      "text": "electricity from utility-scale solar plants cost less in 2020 than electricity from onshore wind plants had cost in 2010."
     }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** A claim about steadily falling pressure needs evidence of decline over time at the wells drawing on the aquifer, and C alone provides it: both wells' flows fell to a fraction of their initial rates.\n\n**The Full Solution:**\n- Flow from an artesian well is driven by aquifer pressure, so falling flow is the table's proxy for falling pressure.\n- C reads the decline out of both rows — Well 1 down almost 80 percent, Well 2 down about two-thirds — matching the claim's scope (the aquifer, not one well).\n\n**Why the other choices are wrong:**\n- A: A comparison of the two wells' starting flows and completion dates describes their size and age, not any change in pressure over time.\n- B: The completion dates alone contain no information about flow or pressure.\n- D: True in the table, but it invites the wrong inference — highlighting how much Well 2 still produced obscures the fact that both wells' flows were falling sharply.",
+  "explanation": "**Choice C is correct.** The student concludes that electricity from BOTH kinds of plants became much cheaper over the decade, and C is the only choice that shows the cost falling for each one from 2010 to 2020.\n\n**The Full Solution:**\n- How to spot it: the conclusion is about change over time for two types of plants, so the evidence must compare each row's 2010 cost with its own 2020 cost.\n- Utility-scale solar fell from $0.381 to $0.057 per kilowatt-hour (about 85 percent), and onshore wind fell from $0.089 to $0.039 (about 56 percent).\n- C reports both declines, which matches the claim's scope: both types of plants, across the whole decade.\n\n**Why the other choices are wrong:**\n- A: It compares the two types of plants in 2010 only, so it shows nothing about how either cost changed.\n- B: It gives one 2020 figure for onshore wind; a single year's cost cannot show that the cost fell.\n- D: True in the table, but it compares solar's 2020 cost with wind's 2010 cost, mixing two types of plants and two years; it does not show that either cost fell.",
   "_meta": {
-    "anchor": "Unattributed, illustrative well data (2026-10-04 fact review: the earlier version attached invented flow figures to the real Grenelle and Passy wells in Paris; Grenelle's documented flow c. 1900 was about 430 m3/day, not 800)."
+    "anchor": "Falling cost of electricity from new solar and onshore wind plants, 2010-2020 (IRENA global weighted-average LCOE: solar PV 0.381 -> 0.057 USD/kWh, onshore wind 0.089 -> 0.039); capacity 2010->2020 solar 39 -> 714 GW, wind 197 -> 733 GW. Replaces unattributed illustrative artesian-well data (2026-10-06 verifier).",
+    "sources": [
+      "https://www.irena.org/publications/2021/Jun/Renewable-Power-Costs-in-2020",
+      "https://now.solar/2022/09/28/renewable-power-generation-costs-in-2020/",
+      "https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2021/Jun/IRENA_Power_Generation_Costs_2020_Summary.pdf",
+      "https://taiyangnews.info/business/irena-world-added-127-gw-new-solar-capacity-in-2020"
+    ]
   }
 }

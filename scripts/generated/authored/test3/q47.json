@@ -6,7 +6,7 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "type": "multiple-choice",
- "passage": "The archive's collection of interviews, which preserves the voices of shipyard workers, cannery hands, and railroad porters recorded across three decades, ______ researchers a firsthand account of industrial labor that official records rarely capture.",
+ "passage": "The Bayeux Tapestry, a nearly 70-meter-long embroidery depicting the events that led to the Norman conquest of England in 1066, ______ historians a detailed picture of eleventh-century ships, armor, and dress.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
@@ -27,9 +27,9 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The subject is the singular \"collection,\" so the verb must be the singular \"offers.\" The plural nouns stacked between subject and verb belong to modifying phrases, not to the subject.\n\n**The Full Solution:**\n- Strip the modifiers: \"The archive's collection... offers researchers a firsthand account.\"\n- \"Of interviews\" and the whole \"which preserves...\" clause describe the collection; none of their plural nouns (interviews, workers, hands, porters) governs the verb.\n- Note the text's own clue: the relative clause verb \"preserves\" already agrees with the singular \"collection.\"\n\n**Why the other choices are wrong:**\n- A: \"Offer\" agrees with the nearby plurals rather than with the head noun \"collection.\"\n- C: \"Are offering\" is plural and needlessly progressive for a standing property of the archive.\n- D: \"Have belonged\"-style perfect plural — \"have offered\" — both misses agreement and pushes into completed past what the sentence presents as the collection's ongoing value.",
+ "explanation": "**Choice B is correct.** The subject is the singular \"Bayeux Tapestry,\" so the verb must be the singular \"offers.\" The long phrase between subject and verb describes the tapestry but does not change the subject's number.\n\n**The Full Solution:**\n- Strip away the interrupting phrase: \"The Bayeux Tapestry... offers historians a detailed picture.\"\n- The phrase set off by commas contains plural nouns (\"events\") near the blank, but none of them is the subject.\n\n**Why the other choices are wrong:**\n- A: \"Offer\" is plural; it agrees with the nearby noun \"events\" rather than with the true subject.\n- C: \"Are offering\" is plural and also casts a lasting fact as a temporary ongoing action.\n- D: \"Have offered\" is plural, so it does not agree with the singular subject.",
  "_meta": {
-  "anchor": "Oral-history archive collection — singular head noun across stacked plural modifiers",
-  "rule": "subject-verb agreement across intervening prepositional and relative modifiers"
+  "anchor": "Bayeux Tapestry — singular head noun across a long appositive (https://en.wikipedia.org/wiki/Bayeux_Tapestry; https://www.britishmuseum.org/exhibitions/bayeux-tapestry)",
+  "rule": "subject-verb agreement across an intervening appositive phrase"
  }
 }

@@ -8,31 +8,31 @@
  "choices": [
   {
    "id": "A",
-   "text": "rainfall, agricultural scientists, however,"
+   "text": "ponds, a white stork found in northern Germany in 1822, however,"
   },
   {
    "id": "B",
-   "text": "rainfall; agricultural scientists, however"
+   "text": "ponds; a white stork found in northern Germany in 1822, however"
   },
   {
    "id": "C",
-   "text": "rainfall, agricultural scientists however"
+   "text": "ponds, a white stork found in northern Germany in 1822 however"
   },
   {
    "id": "D",
-   "text": "rainfall. Agricultural scientists, however,"
+   "text": "ponds. A white stork found in northern Germany in 1822, however,"
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** Two independent statements meet here — the promoters' promise, and the scientists' skeptical response — and D separates them with a period while setting off the interrupting \"however\" with the required pair of commas.\n\n**The Full Solution:**\n- Statement 1: \"Promoters of dry farming toured the Great Plains promising ... on almost any rainfall.\"\n- Statement 2: \"Agricultural scientists, however, questioned those promises ...\" — a full clause with \"however\" as a parenthetical interrupter.\n- A period is a legitimate boundary between independent clauses, and an interrupting \"however\" takes a comma on each side. D satisfies both conventions at once.\n\n**Why the other choices are wrong:**\n- A: The comma after \"rainfall\" splices the two independent statements together.\n- B: The semicolon boundary is sound, but \"however\" is fenced on only one side — the comma completing the pair is missing.\n- C: It both splices the clauses with a comma and leaves \"however\" entirely unfenced.",
- "passage": "Promoters of dry farming toured the Great Plains promising that deep plowing and careful tillage would let wheat thrive on almost any ______ questioned those promises and began testing the methods in controlled trials.",
+ "explanation": "**Choice D is correct.** \"For centuries, some European naturalists believed that birds that vanished each autumn spent the winter asleep at the bottom of ponds\" is a complete sentence, and \"A white stork found in northern Germany in 1822 ... carried a spear from central Africa lodged in its neck\" is another. A period separates them, and \"however\" — an interrupting word inside the second sentence — is set off by a pair of commas.\n\n**The Full Solution:**\n- Sentence 1 ends at \"ponds.\"\n- Sentence 2: \"A white stork found in northern Germany in 1822, however, carried a spear from central Africa lodged in its neck...\"\n- \"However\" signals the contrast between the naturalists' belief and the evidence of the stork, and as an interrupter between the subject and the verb \"carried\" it needs a comma on each side.\n\n**Why the other choices are wrong:**\n- A: A comma alone joins two independent clauses, creating a comma splice.\n- B: The semicolon correctly separates the clauses, but \"however\" is left without its closing comma before the verb \"carried.\"\n- C: A comma splice joins the clauses, and \"however\" is not set off at all.",
+ "passage": "For centuries, some European naturalists believed that birds that vanished each autumn spent the winter asleep at the bottom of ______ carried a spear from central Africa lodged in its neck, evidence that the bird had flown far south for the winter.",
  "_meta": {
-  "rule": "period between independent clauses + paired commas around interrupting 'however'",
-  "anchor": "dry farming — promoters' promises vs. agricultural scientists' skepticism (Encyclopedia of the Great Plains: scientists in the Dry Farming Congress questioned Campbell's methods)",
+  "rule": "sentence boundary + interrupting however set off by paired commas",
+  "anchor": "Pfeilstorch — white stork found near Klütz, Mecklenburg, in 1822 with a central African spear in its neck, evidence of migration vs. the belief that birds wintered underwater (Wikipedia: Pfeilstorch)",
   "distractors": {
    "A": "comma splice",
-   "B": "half-fenced 'however'",
-   "C": "splice plus unfenced 'however'"
+   "B": "missing closing comma",
+   "C": "comma splice, however unpunctuated"
   }
  },
  "id": 1148,

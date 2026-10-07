@@ -104,18 +104,18 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "In the $xy$-plane, line $j$ passes through the point $(6, -3)$ and is parallel to the line with equation $4x + 3y = 21$. Which equation defines line $j$?",
+  question: "In the $xy$-plane, line $j$ passes through the point $(0, 5)$ and is parallel to the line with equation $4x + 3y = 21$. Which equation defines line $j$?",
   choices: [
-    // distractor: swaps the coefficients of x and y, which changes the slope to -3/4, then fits the point (6, -3)
-    { id: "A", text: "$3x + 4y = 6$" },
+    // distractor: swaps the coefficients of x and y; the line passes through (0, 5) but has slope -3/4, not -4/3
+    { id: "A", text: "$3x + 4y = 20$" },
     { id: "B", text: "$4x + 3y = 15$" },
-    // distractor: repeats the given line itself and never uses the point (6, -3)
+    // distractor: gives the line with equation 4x + 3y = 21 itself, which does not pass through (0, 5)
     { id: "C", text: "$4x + 3y = 21$" },
-    // distractor: flips the sign of the y term, giving slope 4/3, then fits the point: 4(6) - 3(-3) = 33
-    { id: "D", text: "$4x - 3y = 33$" }
+    // distractor: changes the sign of the y-term; the line passes through (0, 5) but has slope 4/3, not -4/3
+    { id: "D", text: "$4x - 3y = -15$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** A line parallel to $4x + 3y = 21$ keeps the left side $4x + 3y$, so only the constant changes. Substituting $(6, -3)$ gives $4(6) + 3(-3) = 15$.\n\n**The Full Solution:**\nStep 1: Solve $4x + 3y = 21$ for $y$: $3y = -4x + 21$, so $y = -\\frac{4}{3}x + 7$. The given line has slope $-\\frac{4}{3}$.\nStep 2: Line $j$ is parallel, so it also has slope $-\\frac{4}{3}$, and any line with that slope can be written $4x + 3y = c$ for some constant $c$.\nStep 3: Line $j$ passes through $(6, -3)$, so $c = 4(6) + 3(-3) = 24 - 9 = 15$, and line $j$ is $4x + 3y = 15$. Check: $4(6) + 3(-3) = 15$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x + 4y = 6$): swaps the coefficients of $x$ and $y$, which changes the slope to $-\\frac{3}{4}$. Parallel means the slope is unchanged, so both coefficients must stay where they are.\n* Choice C ($4x + 3y = 21$): is the given line itself. It has the right slope, but $4(6) + 3(-3) = 15$, not $21$, so it does not pass through $(6, -3)$.\n* Choice D ($4x - 3y = 33$): passes through $(6, -3)$ but has slope $\\frac{4}{3}$, because the sign of the $y$ term was flipped. That line crosses the given line rather than running parallel to it.\n\n**Test Day Takeaway:** In standard form, two lines are parallel exactly when the $x$ and $y$ coefficients match; keep that side untouched and let the given point set the constant.",
+  explanation: "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** A parallel line keeps the same $x$- and $y$-coefficients, so line $j$ is $4x + 3y = C$. Substituting $(0, 5)$ gives $C = 4(0) + 3(5) = 15$.\n\n**The Full Solution:**\nStep 1: The line $4x + 3y = 21$ has slope $-\\frac{4}{3}$. Any line of the form $4x + 3y = C$ has the same slope, so line $j$ can be written as $4x + 3y = C$.\nStep 2: Line $j$ passes through $(0, 5)$, so $4(0) + 3(5) = C$, which gives $C = 15$.\nStep 3: Line $j$ is $4x + 3y = 15$. Check: $(0, 5)$ gives $0 + 15 = 15$ ✓, and the slope is $-\\frac{4}{3}$, the same as the given line ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x + 4y = 20$): passes through $(0, 5)$, but swapping the coefficients changes the slope to $-\\frac{3}{4}$, so the line is not parallel.\n* Choice C ($4x + 3y = 21$): is the given line. Substituting $(0, 5)$ gives $15$, not $21$.\n* Choice D ($4x - 3y = -15$): passes through $(0, 5)$, but its slope is $\\frac{4}{3}$, not $-\\frac{4}{3}$.\n\n**Test Day Takeaway:** A line parallel to $Ax + By = C$ has the form $Ax + By = D$; substitute the given point to find $D$.",
   skills: ["writing-parallel-equation"]
 },
 {
@@ -172,18 +172,18 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "Of the seeds in a bag, $60\\%$ are variety R and the rest are variety S. Of the variety R seeds, $85\\%$ germinate, and of the variety S seeds, $60\\%$ germinate. If a seed that germinated is selected at random, what is the probability that it is variety S?",
+  question: "Of the $200$ seeds a gardener planted, $60\\%$ were variety R and the rest were variety S. Of the variety S seeds, $48$ germinated. If a variety S seed is selected at random, what is the probability that it germinated?",
   choices: [
-    // distractor: reports the joint probability 0.40(0.60) = 0.24, the share of all seeds that are variety S and germinate, without dividing by the share that germinate
+    // distractor: divides the 48 seeds by all 200 seeds instead of by the 80 variety S seeds
     { id: "A", text: "$0.24$" },
-    { id: "B", text: "$0.32$" },
-    // distractor: reports 0.40, the share of all seeds that are variety S, ignoring the information that the seed germinated
-    { id: "C", text: "$0.40$" },
-    // distractor: reverses the condition and reports 0.60, the germination rate among variety S seeds
-    { id: "D", text: "$0.60$" }
+    // distractor: gives 0.40, the fraction of all seeds that were variety S
+    { id: "B", text: "$0.40$" },
+    { id: "C", text: "$0.60$" },
+    // distractor: divides 48 by 60, treating the 60% for variety R as the number of variety S seeds
+    { id: "D", text: "$0.80$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Out of $100$ seeds, $51$ are variety R seeds that germinate and $24$ are variety S seeds that germinate, so the probability is $\\frac{24}{75} = 0.32$.\n\n**The Full Solution:**\nStep 1: Imagine the bag holds $100$ seeds. Variety R accounts for $60$ of them and variety S for the other $40$.\nStep 2: Count the germinating seeds in each group: $0.85(60) = 51$ from variety R and $0.60(40) = 24$ from variety S, for $51 + 24 = 75$ germinating seeds in all.\nStep 3: The seed is selected from the $75$ that germinated, so the probability that it is variety S is $\\frac{24}{75} = 0.32$. Check: the probability that it is variety R is $\\frac{51}{75} = 0.68$, and $0.32 + 0.68 = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.24$): computes $0.40(0.60) = 0.24$, the share of all the seeds that are both variety S and germinate. The seed is chosen only from the germinating seeds, so divide by $0.75$, not by $1$.\n* Choice C ($0.40$): reports the share of all the seeds that are variety S, ignoring that the seed is known to have germinated. Variety R germinates more often, so it makes up more of the germinating seeds.\n* Choice D ($0.60$): reports the germination rate among variety S seeds, the probability of germinating given variety S, which is the reverse of what is asked.\n\n**Test Day Takeaway:** In a conditional probability, the denominator is the group the selection is made from (here, the germinating seeds), not the whole population.",
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Variety S is $40\\%$ of $200$, or $80$ seeds, so the probability is $\\frac{48}{80} = 0.60$.\n\n**The Full Solution:**\nStep 1: Variety S makes up $100\\% - 60\\% = 40\\%$ of the seeds.\nStep 2: There are $0.40(200) = 80$ variety S seeds.\nStep 3: The seed is selected from these $80$, and $48$ of them germinated, so the probability is $\\frac{48}{80} = 0.60$. Check: $0.60(80) = 48$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.24$): divides $48$ by all $200$ seeds, but the seed is selected only from the variety S seeds.\n* Choice B ($0.40$): is the fraction of all the seeds that were variety S, not the fraction of variety S seeds that germinated.\n* Choice D ($0.80$): divides $48$ by $60$, using the percent for variety R as if it were the number of variety S seeds.\n\n**Test Day Takeaway:** In a conditional probability, the condition names the group you divide by; find that group's size before dividing.",
   skills: ["conditional-probability"]
 },
 {
@@ -240,9 +240,9 @@ export const practiceTest2 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "A jar contains $6$ green marbles and $4$ purple marbles. If two of these marbles are selected at random without replacement, what is the probability that both are green? (Express your answer as a decimal or fraction, not as a percent.)",
-  correctAnswer: "1/3",
-  explanation: "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $\\frac{1}{3}$.**\n\n**The Fast Way (~25s):** $\\frac{6}{10} \\cdot \\frac{5}{9} = \\frac{30}{90} = \\frac{1}{3}$.\n\n**The Full Solution:**\nStep 1: The jar holds $6 + 4 = 10$ marbles, $6$ of them green, so the probability that the first marble selected is green is $\\frac{6}{10}$.\nStep 2: The first marble is not replaced. If it was green, $5$ green marbles remain among $9$ marbles, so the probability that the second is also green is $\\frac{5}{9}$.\nStep 3: Multiply the two probabilities: $\\frac{6}{10} \\cdot \\frac{5}{9} = \\frac{30}{90} = \\frac{1}{3}$. Check by counting ordered pairs: $\\frac{6 \\cdot 5}{10 \\cdot 9} = \\frac{30}{90} = \\frac{1}{3}$ ✓\n\n**Common Mistakes:**\n* $\\frac{9}{25}$: multiplies $\\frac{6}{10}$ by itself, treating the selection as if the first marble were returned to the jar.\n* $\\frac{3}{10}$: lowers the green count to $5$ but leaves the total at $10$, updating the numerator without the denominator.\n* $\\frac{3}{5}$: stops after the first selection and reports the probability for one marble instead of two.\n\n**Test Day Takeaway:** Without replacement, both counts drop by one before the second selection; update the numerator and the denominator together, then multiply.",
+  question: "A jar contains $6$ green marbles, $4$ purple marbles, and some white marbles. If one marble is selected at random, the probability that it is green is $\\frac{3}{10}$. What is the probability that a randomly selected marble is white? (Express your answer as a decimal or fraction, not as a percent.)",
+  correctAnswer: "1/2",
+  explanation: "**SAT Pattern: Basic Probability**\n\n**The correct answer is $\\frac{1}{2}$.**\n\n**The Fast Way (~25s):** Since $6$ marbles are $\\frac{3}{10}$ of the jar, there are $20$ marbles in all, and $20 - 6 - 4 = 10$ are white. The probability is $\\frac{10}{20} = \\frac{1}{2}$.\n\n**The Full Solution:**\nStep 1: If $n$ is the total number of marbles, $\\frac{6}{n} = \\frac{3}{10}$, so $n = 20$.\nStep 2: The number of white marbles is $20 - 6 - 4 = 10$.\nStep 3: The probability of selecting a white marble is $\\frac{10}{20} = \\frac{1}{2}$. Check: $\\frac{6}{20} + \\frac{4}{20} + \\frac{10}{20} = 1$ ✓\n\n**Common Mistakes:**\n* $\\frac{7}{10}$: $1 - \\frac{3}{10}$, the probability of not selecting a green marble, which still includes the purple marbles.\n* $10$: the number of white marbles rather than the probability of selecting one.\n* $\\frac{1}{5}$: $\\frac{4}{20}$, the probability of selecting a purple marble.\n\n**Test Day Takeaway:** When a probability and a count are given, use them to find the total first; every other probability follows from the total.",
   skills: ["probability-basics"]
 },
 {
@@ -386,10 +386,10 @@ export const practiceTest2 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "The function $h(t) = -5t^{2} + 180t$ gives the height, in meters, of a rocket $t$ seconds after it is launched. For how many seconds is the height of the rocket at least $1{,}375$ meters?",
-  correctAnswer: "14",
-  explanation: "**SAT Pattern: Quadratic Inequality from Context**\n\n**The correct answer is $14$.**\n\n**The Fast Way (~50s):** Solving $-5t^2 + 180t = 1{,}375$ reduces to $t^2 - 36t + 275 = 0$, whose roots are $t = 11$ and $t = 25$, so the rocket is at least $1{,}375$ meters high for $25 - 11 = 14$ seconds.\n\n**The Full Solution:**\nStep 1: The question asks when $-5t^2 + 180t \\ge 1{,}375$, so find the boundary times by solving the equation $-5t^2 + 180t = 1{,}375$.\nStep 2: Rearrange to $5t^2 - 180t + 1{,}375 = 0$ and divide every term by $5$: $t^2 - 36t + 275 = 0$. Factoring gives $(t - 11)(t - 25) = 0$, so $t = 11$ and $t = 25$.\nStep 3: The parabola opens downward, so the height is at least $1{,}375$ meters exactly between those two times, an interval $25 - 11 = 14$ seconds long. Check: $h(11) = -605 + 1{,}980 = 1{,}375$ and $h(18) = -1{,}620 + 3{,}240 = 1{,}620$, above $1{,}375$, so the times inside the interval do qualify ✓\n\n**Common Mistakes:**\n* $11$: reports the time when the rocket first reaches $1{,}375$ meters, not how long it stays at or above that height.\n* $25$: reports the time when the rocket falls back below $1{,}375$ meters, again a time rather than a length of time.\n* $36$: adds the two boundary times, $11 + 25$, instead of subtracting them.\n\n**Test Day Takeaway:** A \"for how many seconds\" question about a downward-opening quadratic asks for the width of the interval between the two boundary solutions, so solve the equation first and then subtract.",
-  skills: ["quadratics"]
+  question: "The function $h(t) = -5t^{2} + 180t$ gives the height, in meters, of a rocket $t$ seconds after it is launched. How many seconds after it is launched does the rocket first reach a height of $1{,}375$ meters?",
+  correctAnswer: "11",
+  explanation: "**SAT Pattern: Quadratic via Factoring**\n\n**The correct answer is $11$.**\n\n**The Fast Way (~25s):** Set $-5t^{2} + 180t = 1{,}375$ and divide by $-5$: $t^{2} - 36t + 275 = 0$, or $(t - 11)(t - 25) = 0$. The rocket first reaches $1{,}375$ meters at $t = 11$.\n\n**The Full Solution:**\nStep 1: Set the height equal to $1{,}375$: $-5t^{2} + 180t = 1{,}375$.\nStep 2: Divide every term by $-5$ and rearrange: $t^{2} - 36t + 275 = 0$, which factors as $(t - 11)(t - 25) = 0$, so $t = 11$ or $t = 25$.\nStep 3: The rocket rises to $1{,}375$ meters at $t = 11$ and falls back to that height at $t = 25$, so it first reaches the height at $11$ seconds. Check: $h(11) = -605 + 1{,}980 = 1{,}375$ ✓\n\n**Common Mistakes:**\n* $25$: the second time the rocket is at $1{,}375$ meters, on its way down.\n* $18$: the time at the vertex, when the rocket reaches its greatest height.\n* $14$: the number of seconds between the two times, $25 - 11$.\n\n**Test Day Takeaway:** A quadratic height model reaches most heights twice, once going up and once coming down; read the question to see which solution it wants.",
+  skills: ["finding-roots-factoring"]
 }
       ]
     },
@@ -412,20 +412,20 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "What is the distance between the two points shown in the $xy$-plane?",
-  diagram: { type: "coordinatePoints", params: { points: [[-3, -2], [5, 3]], xMin: -6, xMax: 8, yMin: -5, yMax: 7 } },
+  question: "Line $k$ passes through the two points shown in the $xy$-plane. Which equation defines line $k$?",
+  diagram: { type: "coordinatePoints", params: { points: [[-2, -1], [4, 8]], xMin: -5, xMax: 7, yMin: -4, yMax: 10 } },
   choices: [
-    // distractor: makes a sign slip on the x-coordinates, using 5 + (-3) = 2 instead of 5 - (-3) = 8 as the horizontal distance: sqrt(2^2 + 5^2) = sqrt(29)
-    { id: "A", text: "$\\sqrt{29}$" },
-    // distractor: subtracts the squared distances instead of adding them: sqrt(8^2 - 5^2) = sqrt(39)
-    { id: "B", text: "$\\sqrt{39}$" },
-    { id: "C", text: "$\\sqrt{89}$" },
-    // distractor: adds the horizontal and vertical distances, 8 + 5 = 13, instead of using the Pythagorean relationship
-    { id: "D", text: "$13$" }
+    // distractor: has the correct y-intercept but the opposite slope; the line through the two points rises from left to right, so its slope is positive
+    { id: "A", text: "$y = -\\frac{3}{2}x + 2$" },
+    // distractor: has the correct y-intercept but inverts the slope, dividing the change in x by the change in y
+    { id: "B", text: "$y = \\frac{2}{3}x + 2$" },
+    { id: "C", text: "$y = \\frac{3}{2}x + 2$" },
+    // distractor: uses 8, the y-coordinate of the point (4, 8), as the y-intercept
+    { id: "D", text: "$y = \\frac{3}{2}x + 8$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Distance Formula**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The points are $(-3, -2)$ and $(5, 3)$, which are $8$ units apart horizontally and $5$ units apart vertically, so the distance is $\\sqrt{8^2 + 5^2} = \\sqrt{89}$.\n\n**The Full Solution:**\nStep 1: Read the coordinates of the two points from the grid: $(-3, -2)$ and $(5, 3)$.\nStep 2: Find the horizontal and vertical distances: $5 - (-3) = 8$ and $3 - (-2) = 5$.\nStep 3: Apply the distance formula: $d = \\sqrt{8^2 + 5^2} = \\sqrt{64 + 25} = \\sqrt{89}$. Check: $\\sqrt{89} \\approx 9.4$, which is longer than the longer leg, $8$, and shorter than the sum of the legs, $13$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\sqrt{29}$): computes the horizontal distance as $5 + (-3) = 2$. Subtracting a negative coordinate means adding its absolute value: $5 - (-3) = 8$.\n* Choice B ($\\sqrt{39}$): subtracts the squares, $64 - 25 = 39$. The distance formula adds the squared legs.\n* Choice D ($13$): adds the two legs, $8 + 5 = 13$. That is the length of a path along the grid lines, which is always longer than the straight segment.\n\n**Test Day Takeaway:** Read both coordinates from the grid, subtract carefully when a coordinate is negative, and then add the squares of the two differences under a single square root.",
-  skills: ["coordinate-geometry"]
+  explanation: "**SAT Pattern: Line from Two Points**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The points are $(-2, -1)$ and $(4, 8)$, so the slope is $\\frac{8 - (-1)}{4 - (-2)} = \\frac{9}{6} = \\frac{3}{2}$. Then $-1 = \\frac{3}{2}(-2) + b$ gives $b = 2$.\n\n**The Full Solution:**\nStep 1: Read the two points from the grid: $(-2, -1)$ and $(4, 8)$.\nStep 2: The slope is $\\frac{8 - (-1)}{4 - (-2)} = \\frac{9}{6} = \\frac{3}{2}$.\nStep 3: Substitute $(-2, -1)$ into $y = \\frac{3}{2}x + b$: $-1 = -3 + b$, so $b = 2$ and line $k$ is $y = \\frac{3}{2}x + 2$. Check: $\\frac{3}{2}(4) + 2 = 8$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{3}{2}x + 2$): has the right $y$-intercept but the wrong sign on the slope. The line rises from left to right, so its slope is positive.\n* Choice B ($y = \\frac{2}{3}x + 2$): has the right $y$-intercept but inverts the slope, dividing the change in $x$ by the change in $y$. Slope is rise over run, $\\frac{9}{6}$.\n* Choice D ($y = \\frac{3}{2}x + 8$): uses $8$, the $y$-coordinate of $(4, 8)$, as the $y$-intercept. The $y$-intercept is where $x = 0$.\n\n**Test Day Takeaway:** Find the slope as rise over run from the two points, then substitute one point to find the $y$-intercept.",
+  skills: ["linear-functions", "slope", "coordinate-geometry"]
 },
 {
   id: 2,
@@ -500,20 +500,20 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "The table shows selected values of the functions $f$ and $g$. What is the value of $f(g(6))$?",
-  questionTable: { headers: ["$x$", "$f(x)$", "$g(x)$"], rows: [["$2$", "$15$", "$8$"], ["$4$", "$33$", "$2$"], ["$6$", "$21$", "$4$"], ["$8$", "$27$", "$6$"]] },
+  question: "For the quadratic function $f$, the table shows three values of $x$ and their corresponding values of $f(x)$. Which equation defines $f$?",
+  questionTable: { headers: ["$x$", "$f(x)$"], rows: [["$0$", "$5$"], ["$1$", "$4$"], ["$3$", "$14$"]] },
   choices: [
-    // distractor: stops at g(6) = 4 and never evaluates f at that output
-    { id: "A", text: "$4$" },
-    // distractor: evaluates f at 6 instead of at g(6), reading f(6) = 21
-    { id: "B", text: "$21$" },
-    // distractor: adds the two entries in the row x = 6, computing 21 + 4 = 25 instead of composing the functions
-    { id: "C", text: "$25$" },
-    { id: "D", text: "$33$" }
+    // distractor: checks only the first two rows of the table; at x = 3 this function gives 8, not 14
+    { id: "A", text: "$f(x) = x^{2} - 2x + 5$" },
+    // distractor: makes a sign error on the x-term; at x = 1 this function gives 10, not 4
+    { id: "B", text: "$f(x) = 2x^{2} + 3x + 5$" },
+    // distractor: switches the leading coefficient and the constant term; at x = 0 this function gives 2, not 5
+    { id: "C", text: "$f(x) = 5x^{2} - 3x + 2$" },
+    { id: "D", text: "$f(x) = 2x^{2} - 3x + 5$" }
   ],
   correctAnswer: "D",
-  explanation: "**SAT Pattern: Function Composition**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** From the table, $g(6) = 4$, and $f(4) = 33$, so $f(g(6)) = 33$.\n\n**The Full Solution:**\nStep 1: In $f(g(6))$ the inner function is evaluated first, so start with $g(6)$.\nStep 2: In the row $x = 6$, the $g(x)$ column gives $g(6) = 4$.\nStep 3: Evaluate $f$ at that output, using the row $x = 4$: $f(4) = 33$. Check: the second lookup uses the row $x = 4$ and the $f(x)$ column, not the row $x = 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): the value of $g(6)$. That is only the input to $f$.\n* Choice B ($21$): the value of $f(6)$. The input to $f$ is $g(6)$, not $6$.\n* Choice C ($25$): adds the two values in the row $x = 6$, $21 + 4 = 25$. Composition feeds one output into the other function; it does not add them.\n\n**Test Day Takeaway:** In a composition, the inner function's output becomes the outer function's input, so the second lookup is almost always in a different row of the table.",
-  skills: ["function-composition"]
+  explanation: "**SAT Pattern: Function Evaluation (Quadratic)**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** Write $f(x) = ax^{2} + bx + c$. From $f(0) = 5$, $c = 5$. Then $f(1) = 4$ gives $a + b = -1$ and $f(3) = 14$ gives $9a + 3b = 9$, so $a = 2$ and $b = -3$.\n\n**The Full Solution:**\nStep 1: Let $f(x) = ax^{2} + bx + c$. The table gives $f(0) = 5$, so $c = 5$.\nStep 2: The table gives $f(1) = 4$ and $f(3) = 14$, so $a + b + 5 = 4$ and $9a + 3b + 5 = 14$. These simplify to $a + b = -1$ and $3a + b = 3$.\nStep 3: Subtracting the first equation from the second gives $2a = 4$, so $a = 2$ and $b = -3$. Then $f(x) = 2x^{2} - 3x + 5$. Check: $f(3) = 18 - 9 + 5 = 14$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(x) = x^{2} - 2x + 5$): fits the first two rows, but $f(3) = 9 - 6 + 5 = 8$, not $14$.\n* Choice B ($f(x) = 2x^{2} + 3x + 5$): has the wrong sign on the $x$-term; $f(1) = 10$, not $4$.\n* Choice C ($f(x) = 5x^{2} - 3x + 2$): switches the leading coefficient and the constant; $f(0) = 2$, not $5$.\n\n**Test Day Takeaway:** The value of a quadratic at $x = 0$ is its constant term; check every row of the table before choosing an equation.",
+  skills: ["function-evaluation"]
 },
 {
   id: 7,
@@ -549,19 +549,19 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In the $xy$-plane, line $j$ is perpendicular to the line with equation $3x + 2y = 19$ and passes through the point $(12, 5)$. Which equation defines line $j$?",
+  question: "Line $\\ell$ is parallel to the line $3x + 2y = 19$ in the $xy$-plane. The points $(0, 0)$ and $(12, d)$ lie on line $\\ell$. What is the value of $d$?",
   choices: [
-    // distractor: uses the given line's own slope, -3/2, which gives a line parallel to it through (12, 5): 5 + 18 = 23
-    { id: "A", text: "$y = -\\frac{3}{2}x + 23$" },
-    // distractor: takes the reciprocal of the slope without changing its sign, using -2/3: 5 + 8 = 13
-    { id: "B", text: "$y = -\\frac{2}{3}x + 13$" },
-    { id: "C", text: "$y = \\frac{2}{3}x - 3$" },
-    // distractor: changes the sign of the slope without taking the reciprocal, using 3/2: 5 - 18 = -13
-    { id: "D", text: "$y = \\frac{3}{2}x - 13$" }
+    { id: "A", text: "$-18$" },
+    // distractor: uses -2/3 as the slope, dividing the coefficients in the wrong order
+    { id: "B", text: "$-8$" },
+    // distractor: uses 2/3, the slope of a line perpendicular to the given line
+    { id: "C", text: "$8$" },
+    // distractor: drops the negative sign and uses 3/2 as the slope
+    { id: "D", text: "$18$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The given line has slope $-\\frac{3}{2}$, so line $j$ has slope $\\frac{2}{3}$. Its $y$-intercept is $5 - \\frac{2}{3}(12) = 5 - 8 = -3$, so line $j$ is $y = \\frac{2}{3}x - 3$.\n\n**The Full Solution:**\nStep 1: Solve the given equation for $y$: $3x + 2y = 19$ gives $y = -\\frac{3}{2}x + \\frac{19}{2}$, so its slope is $-\\frac{3}{2}$.\nStep 2: Slopes of perpendicular lines are negative reciprocals, so the slope of line $j$ is $\\frac{2}{3}$.\nStep 3: Substitute $(12, 5)$ into $y = \\frac{2}{3}x + b$: $5 = 8 + b$, so $b = -3$ and line $j$ is $y = \\frac{2}{3}x - 3$. Check: $\\left(-\\frac{3}{2}\\right)\\left(\\frac{2}{3}\\right) = -1$, and $\\frac{2}{3}(12) - 3 = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{3}{2}x + 23$): uses the given line's slope, which makes line $j$ parallel to the given line instead of perpendicular.\n* Choice B ($y = -\\frac{2}{3}x + 13$): takes the reciprocal but keeps the negative sign.\n* Choice D ($y = \\frac{3}{2}x - 13$): changes the sign but does not take the reciprocal.\n\n**Test Day Takeaway:** Every choice passes through $(12, 5)$, so the point cannot decide the answer; the slope does. Read the slope from $Ax + By = C$ as $-\\frac{A}{B}$, then flip it and change its sign.",
-  skills: ["perpendicular-negative-reciprocal"]
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The given line has slope $-\\frac{3}{2}$, so line $\\ell$ through the origin is $y = -\\frac{3}{2}x$. At $x = 12$, $d = -\\frac{3}{2}(12) = -18$.\n\n**The Full Solution:**\nStep 1: Solve $3x + 2y = 19$ for $y$: $y = -\\frac{3}{2}x + \\frac{19}{2}$, so its slope is $-\\frac{3}{2}$.\nStep 2: Line $\\ell$ is parallel, so it also has slope $-\\frac{3}{2}$. It passes through $(0, 0)$, so its $y$-intercept is $0$ and its equation is $y = -\\frac{3}{2}x$.\nStep 3: Substitute $x = 12$: $d = -\\frac{3}{2}(12) = -18$. Check: the slope from $(0, 0)$ to $(12, -18)$ is $\\frac{-18 - 0}{12 - 0} = -\\frac{3}{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-8$): uses $-\\frac{2}{3}$ as the slope. For $Ax + By = C$ the slope is $-\\frac{A}{B} = -\\frac{3}{2}$, not $-\\frac{B}{A}$.\n* Choice C ($8$): uses $\\frac{2}{3}$, the negative reciprocal of $-\\frac{3}{2}$. That is the slope of a perpendicular line.\n* Choice D ($18$): drops the negative sign and uses a slope of $\\frac{3}{2}$.\n\n**Test Day Takeaway:** A line through the origin is $y = mx$; find $m$ from the parallel line, then substitute the given $x$-value.",
+  skills: ["writing-parallel-equation"]
 },
 {
   id: 10,
@@ -607,18 +607,18 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The graph of a linear model for a data set passes through the points $(4, 23)$ and $(16, 59)$ in the $xy$-plane. The data point $(10, k)$ is the same vertical distance above the graph as the data point $(22, 68)$ is below it. What is the value of $k$?",
+  question: "A linear model for data set E has a slope of $3$ and predicts a $y$-value of $23$ when $x = 4$. For each data point $(x, y)$ in data set E, data set F contains the point $(x, 2y)$. Which equation could represent a linear model for data set F?",
   choices: [
-    // distractor: subtracts the 9-unit distance from the model's value at x = 10, placing the point below the graph instead of above it: 41 - 9 = 32
-    { id: "A", text: "$32$" },
-    // distractor: reports the model's value at x = 10, 41, never applying the 9-unit distance
-    { id: "B", text: "$41$" },
-    { id: "C", text: "$50$" },
-    // distractor: reads 'the same vertical distance' as meaning the two data points have the same y-value, copying 68
-    { id: "D", text: "$68$" }
+    // distractor: gives the linear model for data set E without doubling anything
+    { id: "A", text: "$y = 3x + 11$" },
+    // distractor: doubles the y-intercept but not the slope
+    { id: "B", text: "$y = 3x + 22$" },
+    // distractor: doubles the slope but not the y-intercept
+    { id: "C", text: "$y = 6x + 11$" },
+    { id: "D", text: "$y = 6x + 22$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** The model is $y = 3x + 11$, which gives $77$ at $x = 22$, so $(22, 68)$ is $9$ below the graph. At $x = 10$ the model gives $41$, so $k = 41 + 9 = 50$.\n\n**The Full Solution:**\nStep 1: Find the model. Its slope is $\\frac{59 - 23}{16 - 4} = 3$, and $23 = 3(4) + b$ gives $b = 11$, so the model is $y = 3x + 11$.\nStep 2: At $x = 22$ the model gives $3(22) + 11 = 77$, so the data point $(22, 68)$ is $77 - 68 = 9$ units below the graph.\nStep 3: At $x = 10$ the model gives $3(10) + 11 = 41$. The data point $(10, k)$ is $9$ units above the graph, so $k = 41 + 9 = 50$. Check: $50 - 41 = 9$ and $77 - 68 = 9$, equal distances on opposite sides of the graph ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($32$): computes $41 - 9$, which places $(10, k)$ below the graph. The point is above it.\n* Choice B ($41$): the model's value at $x = 10$; a data point with that value would lie on the graph.\n* Choice D ($68$): copies the other point's $y$-value. The two points are the same distance from the graph, not the same height.\n\n**Test Day Takeaway:** Find the model's value at the given $x$-value first, then add the vertical distance for a point above the graph or subtract it for a point below.",
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The model for data set E is $y = 3x + 11$. Doubling every $y$-value doubles both the slope and the $y$-intercept, so a model for F is $y = 6x + 22$.\n\n**The Full Solution:**\nStep 1: Write the model for data set E: it has slope $3$ and passes through $(4, 23)$, so $y - 23 = 3(x - 4)$, or $y = 3x + 11$.\nStep 2: Each point of data set F has the same $x$-value and twice the $y$-value, so each value the model predicts is also doubled: $y = 2(3x + 11)$.\nStep 3: Distribute: $y = 6x + 22$. Check: at $x = 4$, the model for E predicts $23$ and the model for F predicts $6(4) + 22 = 46 = 2(23)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = 3x + 11$): is the model for data set E; the $y$-values were never doubled.\n* Choice B ($y = 3x + 22$): doubles only the $y$-intercept. At $x = 4$ it predicts $34$, not $46$.\n* Choice C ($y = 6x + 11$): doubles only the slope. At $x = 4$ it predicts $35$, not $46$.\n\n**Test Day Takeaway:** Multiplying every $y$-value of a data set by $k$ multiplies the whole equation of its linear model, slope and intercept, by $k$.",
   skills: ["scatterplots", "linear-functions"]
 },
 {
@@ -664,18 +664,18 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 6,
-  question: "The length of a rectangle is $1.5$ times its width. If the length were increased by $6$ centimeters and the width were decreased by $3$ centimeters, the area would stay the same. What is the area, in square centimeters, of the rectangle?",
+  question: "The length of a rectangle is $4$ centimeters greater than its width. If the length were increased by $6$ centimeters and the width were decreased by $3$ centimeters, the area would stay the same. What is the area, in square centimeters, of the rectangle?",
   choices: [
-    // distractor: applies the changes to the wrong sides, solving (1.5w - 3)(w + 6) = 1.5w^2 to get w = 3, a 4.5-by-3 rectangle with area 13.5
-    { id: "A", text: "$13.5$" },
-    // distractor: multiplies the -3 by w instead of by 1.5w when expanding, getting 3w - 18 = 0, so w = 6 and the area is 9(6) = 54
-    { id: "B", text: "$54$" },
-    // distractor: finds the correct 18-by-12 rectangle but reports its perimeter, 2(18 + 12) = 60, instead of its area
-    { id: "C", text: "$60$" },
-    { id: "D", text: "$216$" }
+    // distractor: squares the width, 10, instead of multiplying the width by the length
+    { id: "A", text: "$100$" },
+    { id: "B", text: "$140$" },
+    // distractor: squares the length, 14, instead of multiplying the length by the width
+    { id: "C", text: "$196$" },
+    // distractor: multiplies the new length, 20, by the original width, 10
+    { id: "D", text: "$200$" }
   ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Rectangle Area**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** With width $w$, the equation $(1.5w + 6)(w - 3) = 1.5w^{2}$ expands to $1.5w^{2} + 1.5w - 18 = 1.5w^{2}$, so $w = 12$. The rectangle is $18$ by $12$, and its area is $216$ square centimeters.\n\n**The Full Solution:**\nStep 1: Let $w$ be the width, so the length is $1.5w$ and the area is $1.5w^{2}$. The changed rectangle measures $1.5w + 6$ by $w - 3$, and its area is the same: $(1.5w + 6)(w - 3) = 1.5w^{2}$.\nStep 2: Expand the left side: $1.5w^{2} - 4.5w + 6w - 18 = 1.5w^{2} + 1.5w - 18$. Subtracting $1.5w^{2}$ from both sides leaves $1.5w - 18 = 0$, so $w = 12$.\nStep 3: The width is $12$ centimeters and the length is $1.5(12) = 18$ centimeters, so the area is $18 \\times 12 = 216$ square centimeters. Check: the changed rectangle is $18 + 6 = 24$ by $12 - 3 = 9$, and $24 \\times 9 = 216$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($13.5$): adds the $6$ centimeters to the width and takes the $3$ centimeters from the length, solving $(1.5w - 3)(w + 6) = 1.5w^{2}$. That gives $6w - 18 = 0$, $w = 3$, and a $4.5$ by $3$ rectangle.\n* Choice B ($54$): multiplies the $-3$ by $w$ instead of by $1.5w$ when expanding, which leaves $3w - 18 = 0$, so $w = 6$ and the area is $9 \\times 6 = 54$.\n* Choice C ($60$): finds the correct $18$ by $12$ rectangle but reports its perimeter, $2(18 + 12) = 60$, instead of its area.\n\n**Test Day Takeaway:** When a change to the sides leaves the area unchanged, set the new area equal to the old one; the squared terms cancel, leaving a linear equation for the width.",
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Rectangle Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** With width $w$, the condition is $(w + 10)(w - 3) = w(w + 4)$, which simplifies to $3w = 30$. So $w = 10$, the length is $14$, and the area is $140$.\n\n**The Full Solution:**\nStep 1: Let $w$ be the width. The length is $w + 4$, the new length is $w + 10$, and the new width is $w - 3$.\nStep 2: The areas are equal: $(w + 10)(w - 3) = w(w + 4)$, so $w^{2} + 7w - 30 = w^{2} + 4w$, which gives $3w = 30$ and $w = 10$.\nStep 3: The rectangle is $10$ by $14$ centimeters, so its area is $140$ square centimeters. Check: the new rectangle is $20$ by $7$, and $20(7) = 140$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($100$): squares the width, $10^{2}$, as if the rectangle were a square.\n* Choice C ($196$): squares the length, $14^{2}$.\n* Choice D ($200$): multiplies the new length, $20$, by the original width, $10$, mixing the two rectangles.\n\n**Test Day Takeaway:** When a change leaves an area the same, set the two area expressions equal; the squared terms cancel and a linear equation remains.",
   skills: ["triangle-area"]
 },
 {
@@ -779,19 +779,19 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The table shows the balance, in dollars, of a savings account at the end of each of the first four quarters after the account was opened. Interest is compounded quarterly. Which of the following equations represents the balance $B$, in dollars, $t$ years after the account was opened?",
-  questionTable: { headers: ["Quarter", "Balance (dollars)"], rows: [["$1$", "$8{,}120.00$"], ["$2$", "$8{,}241.80$"], ["$3$", "$8{,}365.43$"], ["$4$", "$8{,}490.91$"]] },
+  question: "The table shows the balance, in dollars, of a savings account at the end of each of the first three years after the account was opened. The balance increased by the same percentage each year. Which equation represents the balance $B$, in dollars, $m$ months after the account was opened?",
+  questionTable: { headers: ["Year", "Balance (dollars)"], rows: [["$1$", "$8{,}400$"], ["$2$", "$8{,}820$"], ["$3$", "$9{,}261$"]] },
   choices: [
-    // distractor: uses the quarterly factor 1.015 but applies it once per year instead of four times
-    { id: "A", text: "$B = 8000(1.015)^{t}$" },
-    // distractor: compounds a 6% annual rate once per year, which does not match the quarterly balances in the table
-    { id: "B", text: "$B = 8000(1.06)^{t}$" },
-    // distractor: applies the annual factor 1.06 in each of the 4t quarters
-    { id: "C", text: "$B = 8000(1.06)^{4t}$" },
-    { id: "D", text: "$B = 8000(1.015)^{4t}$" }
+    { id: "A", text: "$B = 8{,}000(1.05)^{\\frac{m}{12}}$" },
+    // distractor: finds the right starting balance but multiplies m by 12, treating each month as 12 years
+    { id: "B", text: "$B = 8{,}000(1.05)^{12m}$" },
+    // distractor: uses the year-1 balance as the starting balance
+    { id: "C", text: "$B = 8{,}400(1.05)^{\\frac{m}{12}}$" },
+    // distractor: uses the year-1 balance as the starting balance and multiplies m by 12
+    { id: "D", text: "$B = 8{,}400(1.05)^{12m}$" }
   ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Compound Interest**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** Each quarter multiplies the balance by $\\frac{8241.80}{8120} = 1.015$, and the starting balance was $\\frac{8120}{1.015} = 8000$. In $t$ years there are $4t$ quarters, so $B = 8000(1.015)^{4t}$.\n\n**The Full Solution:**\nStep 1: Divide consecutive balances: $\\frac{8241.80}{8120} = 1.015$ and $\\frac{8365.43}{8241.80} \\approx 1.015$, so the balance is multiplied by $1.015$ each quarter.\nStep 2: Find the starting balance: $\\frac{8120}{1.015} = 8000$ dollars.\nStep 3: There are $4$ quarters in a year, so after $t$ years the balance is $B = 8000(1.015)^{4t}$. Check at $t = 1$: $8000(1.015)^{4} \\approx 8490.91$, the balance at the end of quarter $4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($B = 8000(1.015)^{t}$): applies the quarterly factor once per year. At $t = 1$ it gives $8{,}120$, the balance after one quarter.\n* Choice B ($B = 8000(1.06)^{t}$): compounds $6\\%$ once per year, giving $8{,}480$ after one year instead of $8{,}490.91$.\n* Choice C ($B = 8000(1.06)^{4t}$): applies the annual factor every quarter, giving about $10{,}099.82$ after one year.\n\n**Test Day Takeaway:** Find the growth factor from the ratio of consecutive table values, then make the exponent count the number of those periods in the time unit the question uses.",
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Compound Interest**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Each year the balance is multiplied by $\\frac{8{,}820}{8{,}400} = 1.05$, so the starting balance was $\\frac{8{,}400}{1.05} = 8{,}000$. In $m$ months there are $\\frac{m}{12}$ years, so $B = 8{,}000(1.05)^{\\frac{m}{12}}$.\n\n**The Full Solution:**\nStep 1: Find the yearly growth factor: $\\frac{8{,}820}{8{,}400} = 1.05$ and $\\frac{9{,}261}{8{,}820} = 1.05$.\nStep 2: The table starts at the end of year $1$, so the balance when the account was opened was $\\frac{8{,}400}{1.05} = 8{,}000$.\nStep 3: In $m$ months there are $\\frac{m}{12}$ years, so $B = 8{,}000(1.05)^{\\frac{m}{12}}$. Check: $m = 24$ gives $8{,}000(1.05)^{2} = 8{,}820$, the year-2 balance ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($B = 8{,}000(1.05)^{12m}$): multiplies $m$ by $12$, so each month counts as $12$ years of growth.\n* Choice C ($B = 8{,}400(1.05)^{\\frac{m}{12}}$): uses the year-1 balance as the starting balance; at $m = 0$ it gives $8{,}400$, but the account had grown to $8{,}400$ only after one year.\n* Choice D ($B = 8{,}400(1.05)^{12m}$): makes both errors, the wrong starting balance and the wrong exponent.\n\n**Test Day Takeaway:** When time is measured in months but the growth happens yearly, the exponent is $\\frac{m}{12}$; and a table that starts at year $1$ does not show the starting value.",
   skills: ["exponential-functions"]
 },
 {

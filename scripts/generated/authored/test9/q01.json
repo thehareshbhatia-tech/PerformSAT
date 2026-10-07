@@ -6,13 +6,25 @@
   "domain": "craft-and-structure",
   "skill": "words-in-context",
   "module": 1,
-  "passage": "In the desert city of Yazd, in central Iran, tall towers rise above the rooftops of many older houses. Travelers sometimes take the structures to be purely ______, but each tower is a working device: openings at its top catch passing breezes and channel them down into the rooms below, keeping the house livable through the hottest months.",
+  "passage": "In the desert city of Yazd, in central Iran, tall towers rise above the rooftops of many older houses. Travelers sometimes take the structures to be purely ______, but each tower is a working device. Openings at its top catch passing breezes and channel them down into the rooms below, keeping the house livable in the hottest months.",
   "question": "Which choice completes the text with the most logical and precise word or phrase?",
   "choices": [
-    { "id": "A", "text": "practical" },
-    { "id": "B", "text": "traditional" },
-    { "id": "C", "text": "fragile" },
-    { "id": "D", "text": "decorative" }
+    {
+      "id": "A",
+      "text": "practical"
+    },
+    {
+      "id": "B",
+      "text": "traditional"
+    },
+    {
+      "id": "C",
+      "text": "fragile"
+    },
+    {
+      "id": "D",
+      "text": "decorative"
+    }
   ],
   "correctAnswer": "D",
   "explanation": "**Choice D is correct.** The sentence sets up a contrast with \"but\": what travelers assume must be the opposite of \"a working device,\" and \"decorative\" — for show rather than for use — is that opposite.\n\n**The Full Solution:**\n- The clause after \"but\" corrects the travelers' assumption: the towers actually do a job, catching breezes and cooling the house.\n- The blank therefore needs a word meaning \"for appearance only,\" and \"purely decorative\" delivers exactly that mistaken impression.\n\n**Why the other choices are wrong:**\n- A: \"Practical\" is what the towers really are — it destroys the contrast the sentence builds with \"but.\"\n- B: The towers may well be traditional, but that quality sets up no contrast with \"a working device\" — the sentence opposes appearance to function, not old to new.\n- C: Nothing in the text concerns the towers' sturdiness, and \"fragile\" sets up no contrast with \"a working device.\""

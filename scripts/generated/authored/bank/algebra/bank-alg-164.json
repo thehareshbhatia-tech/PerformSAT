@@ -1,29 +1,29 @@
 {
- "id": "bank-alg-164",
- "question": "For the linear function $f$, $f(3) = 40$ and $f(11) = 58$. What is the slope of the graph of $y = f(x)$ in the $xy$-plane?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$\\frac{4}{9}$"
+  "id": "bank-alg-164",
+  "question": "The values of the linear function $f$ at $x = 4$ and $x = 10$ are $23$ and $38$, respectively. What is the slope of the graph of $f$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\frac{2}{5}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\frac{3}{2}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\frac{5}{2}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\frac{61}{6}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "inverts the slope, computing (10 - 4)/(38 - 23) = 2/5",
+    "B": "divides the change in f(x) by 10 instead of by the change in x, 10 - 4",
+    "D": "adds the outputs, computing (38 + 23)/6 = 61/6"
   },
-  {
-   "id": "B",
-   "text": "$\\frac{18}{11}$"
-  },
-  {
-   "id": "C",
-   "text": "$\\frac{9}{4}$"
-  },
-  {
-   "id": "D",
-   "text": "$\\frac{49}{4}$"
-  }
- ],
- "distractorNotes": {
-  "A": "inverts the slope, computing (11 - 3)/(58 - 40) = 4/9",
-  "B": "divides the change in y by 11 instead of by the change in x, 11 - 3",
-  "D": "adds the outputs, computing (58 + 40)/8 = 49/4"
- },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Slope from Two Points**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The graph contains $(3, 40)$ and $(11, 58)$, so the slope is $\\frac{58 - 40}{11 - 3} = \\frac{18}{8} = \\frac{9}{4}$.\n\n**The Full Solution:**\nStep 1: Each function value gives a point on the graph: $f(3) = 40$ means $(3, 40)$, and $f(11) = 58$ means $(11, 58)$.\nStep 2: Apply the slope formula: $\\frac{58 - 40}{11 - 3} = \\frac{18}{8}$.\nStep 3: Simplify: $\\frac{18}{8} = \\frac{9}{4}$. Check: $40 + \\frac{9}{4}(8) = 40 + 18 = 58$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{4}{9}$): divides the change in $x$ by the change in $y$.\n* Choice B ($\\frac{18}{11}$): divides the change in $y$ by $11$, the second $x$-value, instead of the change in $x$.\n* Choice D ($\\frac{49}{4}$): adds the two outputs, $\\frac{58 + 40}{8}$, instead of subtracting them.\n\n**Test Day Takeaway:** Translate function notation into points first: $f(a) = b$ is the point $(a, b)$, and the slope comes from the differences of those points."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Slope from Two Points**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The graph contains $(4, 23)$ and $(10, 38)$, so the slope is $\\frac{38 - 23}{10 - 4} = \\frac{15}{6} = \\frac{5}{2}$.\n\n**The Full Solution:**\nStep 1: Each function value gives a point on the graph: $f(4) = 23$ means $(4, 23)$, and $f(10) = 38$ means $(10, 38)$.\nStep 2: Apply the slope formula: $\\frac{38 - 23}{10 - 4} = \\frac{15}{6}$.\nStep 3: Simplify: $\\frac{15}{6} = \\frac{5}{2}$. Check: $23 + \\frac{5}{2}(6) = 23 + 15 = 38$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2}{5}$): divides the change in $x$ by the change in $f(x)$.\n* Choice B ($\\frac{3}{2}$): divides the change in $f(x)$ by $10$, the second $x$-value, instead of the change in $x$.\n* Choice D ($\\frac{61}{6}$): adds the two outputs, $\\frac{38 + 23}{6}$, instead of subtracting them.\n\n**Test Day Takeaway:** Translate function values into points first: $f(a) = b$ is the point $(a, b)$, and the slope comes from the differences of those points."
 }

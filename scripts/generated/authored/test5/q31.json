@@ -6,12 +6,12 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 2,
- "passage": "In a trompe l'oeil painting, exactness serves deception. The letter-rack pictures popular in the seventeenth century show envelopes, quills, and combs tucked behind leather straps, all at life size, with shadows matched to the room's actual light — every device calibrated to ______ the viewer, if only for an instant, into reaching toward objects that are not there.",
+ "passage": "In the stage illusion known as Pepper's ghost, first shown in London in 1862, a large sheet of clear glass is angled across the stage. An actor hidden out of the audience's view is brightly lit, and his reflection appears in the glass. The arrangement is designed to ______ the audience into seeing a transparent ghost walking among the performers.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
    "id": "A",
-   "text": "beguile"
+   "text": "deceive"
   },
   {
    "id": "B",
@@ -19,7 +19,7 @@
   },
   {
    "id": "C",
-   "text": "alarm"
+   "text": "distract"
   },
   {
    "id": "D",
@@ -27,8 +27,8 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The passage is about pictures engineered to fool the eye, and \"beguile\" means to charm or lead someone astray by deception — exactly the effect of luring a viewer into reaching for painted objects.\n\n**The Full Solution:**\n- The opening sentence announces the theme: \"exactness serves deception.\"\n- The details that follow — life-size objects, shadows matched to the room's real light — are tricks of illusion.\n- The blank must name what those tricks do to the viewer: draw the viewer, however briefly, into a false belief acted on by reaching out. \"Beguile... into reaching\" captures both the deception and the enticement.\n\n**Why the other choices are wrong:**\n- B: \"Instruct\" would make the paintings lessons; nothing in the text assigns them a teaching purpose.\n- C: \"Alarm\" implies frightening the viewer, but the pictured envelopes and combs are ordinary, not menacing.\n- D: \"Flatter\" means to please with compliments, which has nothing to do with inducing a false perception.",
+ "explanation": "**Choice A is correct.** The illusion makes the audience see a ghost that is really a reflection, so it is designed to \"deceive\" them, that is, to make them believe something false.\n\n**The Full Solution:**\n- How to spot it: the blank is followed by \"the audience into seeing a transparent ghost.\" The verb must mean leading people into a false belief.\n- The text explains the trick: the \"ghost\" is only the reflection of a hidden actor in a sheet of glass.\n- Making viewers see something that is not there is deceiving them.\n\n**Why the other choices are wrong:**\n- B: \"Instruct\" means to teach; the illusion hides how it works rather than explaining it.\n- C: \"Distract\" means to draw attention away; the illusion draws attention to the ghost instead.\n- D: \"Flatter\" means to praise someone too much, which has nothing to do with a reflection on a stage.",
  "_meta": {
-  "anchor": "trompe l'oeil letter-rack paintings — precision calibrated to deceive the viewer"
+  "anchor": "Pepper's ghost — angled glass reflection designed to deceive an audience"
  }
 }

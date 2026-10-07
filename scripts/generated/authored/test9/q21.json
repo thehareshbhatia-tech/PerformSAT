@@ -6,27 +6,32 @@
   "domain": "standard-english-conventions",
   "skill": "boundaries",
   "module": 1,
-  "passage": "Inside a nineteenth-century salmon cannery, the contract system divided the season's work into a fixed sequence of ______ butchering, cleaning, filling, cooking, and labeling. The labor contractor was paid by the finished case, not by the hour, so speed at every station mattered.",
+  "passage": "A television or phone screen does not need a separate light for every color it shows. Each pixel is built from just three primary colors of ______ red, green, and blue. Varying the brightness of these three produces the full range of colors a viewer sees.",
   "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
   "choices": [
     {
       "id": "A",
-      "text": "operations,"
+      "text": "light,"
     },
     {
       "id": "B",
-      "text": "operations;"
+      "text": "light;"
     },
     {
       "id": "C",
-      "text": "operations"
+      "text": "light"
     },
     {
       "id": "D",
-      "text": "operations:"
+      "text": "light:"
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** A complete statement introduces a list of the operations, and the conventional mark before such a list is a colon.\n\n**The Full Solution:**\n- \"The contract system divided the season's work into a fixed sequence of operations\" is a full independent clause.\n- What follows — \"butchering, cleaning, filling, cooking, and labeling\" — itemizes the operations just announced.\n- A colon after a complete statement is the mark that formally introduces that itemization.\n\n**Why the other choices are wrong:**\n- A: A comma leaves the list dangling as if it were one more item in the sentence's own grammar, blurring where the announcement ends and the list begins.\n- B: A semicolon must join two independent clauses; the list of gerunds is not a clause.\n- C: With no mark at all, \"operations butchering\" collides — the list needs a boundary to introduce it.",
-  "_meta": {}
+  "explanation": "**Choice D is correct.** The words before the blank form a complete independent clause, and what follows is a list that names the three colors. A colon is the conventional mark for introducing such a list after a complete clause.\n\n**The Full Solution:**\n- \"Each pixel is built from just three primary colors of light\" is a complete sentence.\n- \"red, green, and blue\" is not a clause; it spells out which three colors are meant.\n- A colon after a complete clause signals that a list or explanation follows.\n\n**Why the other choices are wrong:**\n- A: A comma makes \"light, red, green, and blue\" read as a single run of four items rather than three colors introduced by the clause.\n- B: A semicolon must join two independent clauses, and \"red, green, and blue\" is not a clause.\n- C: With no punctuation, the list runs directly into \"light,\" making the sentence confusing.",
+  "_meta": {
+    "anchor": "RGB pixels on screens — colon before a list",
+    "sources": [
+      "https://en.wikipedia.org/wiki/RGB_color_model"
+    ]
+  }
 }

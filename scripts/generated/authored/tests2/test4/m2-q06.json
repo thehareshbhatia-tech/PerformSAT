@@ -1,49 +1,57 @@
 {
  "id": 6,
- "question": "The scatterplot shows the relationship between two variables, $x$ and $y$, and the line of best fit, $y = -1.8x + 46$. For the data point with $x = 15$, what is the actual $y$-value minus the $y$-value predicted by the line of best fit?",
+ "question": "The scatterplot shows the relationship between two variables, $x$ and $y$, for $12$ data points. A line of best fit for the data is also shown. How many of the data points have an actual $y$-value less than the $y$-value predicted by the line of best fit?",
  "diagram": {
   "type": "scatterplot",
   "params": {
    "points": [
     [
      1,
-     46
+     48
     ],
     [
-     3,
-     40
+     2,
+     38
+    ],
+    [
+     4,
+     44
     ],
     [
      5,
-     37
+     32
     ],
     [
      7,
-     31
+     38
     ],
     [
-     9,
-     30
+     8,
+     27
+    ],
+    [
+     10,
+     28
     ],
     [
      11,
-     24
+     30
     ],
     [
      13,
+     18
+    ],
+    [
+     14,
+     25
+    ],
+    [
+     16,
      22
     ],
     [
-     15,
-     26
-    ],
-    [
-     17,
-     14
-    ],
-    [
-     19,
-     11
+     18,
+     9
     ]
    ],
    "xMin": 0,
@@ -59,38 +67,32 @@
    "bestFitLine": {
     "slope": -1.8,
     "intercept": 46
-   },
-   "highlightPoint": [
-    15,
-    26
-   ],
-   "highlightLabel": "(15, 26)",
-   "showResidual": true
+   }
   }
  },
  "choices": [
   {
    "id": "A",
-   "text": "$-7$"
+   "text": "$5$"
   },
   {
    "id": "B",
-   "text": "$7$"
+   "text": "$6$"
   },
   {
    "id": "C",
-   "text": "$19$"
+   "text": "$7$"
   },
   {
    "id": "D",
-   "text": "$26$"
+   "text": "$11$"
   }
  ],
  "distractorNotes": {
-  "A": "subtracts in the wrong order, computing the predicted value minus the actual value, 19 - 26 = -7",
-  "C": "reports 19, the y-value the line of best fit predicts at x = 15, instead of the difference",
-  "D": "reports 26, the actual y-value at x = 15, instead of the difference"
+  "B": "counts the 6 points above the line, where the actual y-value is greater than the predicted value",
+  "C": "counts the 6 points above the line and also the point that lies on the line",
+  "D": "counts every point that is not on the line, ignoring whether it is above or below the line"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The line predicts $-1.8(15) + 46 = 19$, and the data point is at $y = 26$, so the difference is $26 - 19 = 7$.\n\n**The Full Solution:**\nStep 1: Read the data point with $x = 15$ from the scatterplot: its actual $y$-value is $26$.\nStep 2: Evaluate the line of best fit at $x = 15$: $y = -1.8(15) + 46 = -27 + 46 = 19$.\nStep 3: Actual minus predicted is $26 - 19 = 7$. Check: the point lies above the line of best fit, so the difference must be positive ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): this subtracts in the wrong order, $19 - 26$. A point above the line has a positive difference.\n* Choice C ($19$): this is the predicted $y$-value, one of the two numbers needed, not their difference.\n* Choice D ($26$): this is the actual $y$-value read from the graph, with the line never evaluated.\n\n**Test Day Takeaway:** Actual minus predicted, in that order; a point above the line of best fit always gives a positive result."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Residual**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** A data point whose actual $y$-value is less than the predicted value lies below the line of best fit. Five points lie below the line.\n\n**The Full Solution:**\nStep 1: For each data point, the predicted $y$-value is the $y$-value of the line at the same $x$-value. The actual $y$-value is less than the predicted value exactly when the point lies below the line.\nStep 2: Count the points below the line: the points at $x = 2$, $x = 5$, $x = 8$, $x = 13$, and $x = 18$. That is $5$ points.\nStep 3: The other $7$ points are $6$ above the line and $1$, $(10, 28)$, on the line. Check: $5 + 6 + 1 = 12$, the number of data points ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($6$): counts the points above the line, where the actual value is greater than the predicted value.\n* Choice C ($7$): counts the points above the line plus the point on the line.\n* Choice D ($11$): counts every point off the line without checking whether it is above or below.\n\n**Test Day Takeaway:** Actual less than predicted means the point is below the line; actual greater than predicted means it is above. A point on the line counts as neither."
 }

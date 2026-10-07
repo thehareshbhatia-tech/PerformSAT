@@ -8,30 +8,30 @@
  "choices": [
   {
    "id": "A",
-   "text": "Early modern guilds usually preferred to enroll apprentices from distant regions rather than from the cities and villages nearby."
+   "text": "Prehistoric people in Britain usually buried their dead with large collections of objects made of copper and gold."
   },
   {
    "id": "B",
-   "text": "Historians have found that most medieval apprentices failed to complete their terms of service."
+   "text": "Archaeologists have shown that the Amesbury Archer made the copper knives found in his grave."
   },
   {
    "id": "C",
-   "text": "Apprenticeship registers are too fragmentary to support broad conclusions about medieval society."
+   "text": "Chemical analysis of teeth is too unreliable to show where ancient people grew up."
   },
   {
    "id": "D",
-   "text": "Apprenticeship registers suggest that early modern young people traveled farther than is commonly assumed."
+   "text": "Evidence from one grave suggests that some prehistoric people traveled farther than is often assumed."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The text's pivot sentence announces it: the registers \"complicate the familiar image of a population rooted in place,\" and the evidence that follows — London's companies drawing apprentices from across England, apprenticeship as the longest journey of a young life — documents long-distance movement.\n\n**The Full Solution:**\n- The registers are introduced as a source that records where each apprentice came from.\n- The evidence sentence gives the substance: apprentices drawn from \"villages across the length of England.\"\n- The closing sentence generalizes to the apprentice's own experience — \"the longest journey of their lives\" — sealing mobility as the idea every part serves. That is choice D.\n\n**Why the other choices are wrong:**\n- A: The text says apprentices came from far away, not that guilds preferred distant recruits over local ones.\n- B: Completion rates are never mentioned.\n- C: It reverses the text's stance — the registers are presented as revealing information that overturns a familiar image, not as too broken to use.",
- "passage": "In early modern Europe, guilds kept careful rolls of the apprentices their masters enrolled, often recording each boy's name, birthplace, and term of service. Historians who have studied these registers find that they complicate the familiar image of a population rooted in place. In the 1500s and 1600s, London's companies drew apprentices from villages across the length of England. For many young people, an apprenticeship was not only training for a trade but the occasion for the longest journey of their lives.",
+ "explanation": "**Choice D is correct.** The text opens with a common assumption — prehistoric people stayed close to home — and then presents a grave that \"complicates that picture\": a man buried in southern England who grew up in the Alps.\n\n**The Full Solution:**\n- Claim being challenged: prehistoric Britons spent their lives near their birthplaces.\n- Evidence: tooth-enamel analysis shows the Amesbury Archer grew up in central Europe.\n- Main idea: this burial suggests some people traveled much farther than the familiar picture allows.\n\n**Why the other choices are wrong:**\n- A: The text describes the objects in one grave; it says nothing about what people usually buried.\n- B: The text lists copper knives among the objects in the grave but never says who made them.\n- C: The text relies on the tooth analysis as evidence; it does not question its reliability.",
+ "passage": "Archaeologists have often pictured the people of prehistoric Britain as spending their lives close to where they were born. A grave found in 2002 in southern England complicates that picture. The man buried there around 2300 BCE, known as the Amesbury Archer, was laid to rest with about 100 objects, including copper knives and gold ornaments. Chemical analysis of his tooth enamel, which preserves traces of the water a person drank in childhood, indicates that he grew up in the Alps of central Europe.",
  "_meta": {
-  "anchor": "early modern guild apprenticeships — registers as evidence of long-distance youth migration (London companies' recruitment across England, 1500s-1600s)",
+  "anchor": "Amesbury Archer — tooth-enamel isotopes show Alpine childhood (Wessex Archaeology; Wikipedia: Amesbury Archer)",
   "distractors": {
-   "A": "distorts distance evidence into a preference claim",
-   "B": "fabricated completion statistic",
-   "C": "reverses the text's stance on the source"
+   "A": "overgeneralizes a detail",
+   "B": "unsupported claim about a detail",
+   "C": "contradicts the evidence"
   }
  },
  "id": 1136,

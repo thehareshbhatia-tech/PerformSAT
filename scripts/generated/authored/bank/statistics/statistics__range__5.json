@@ -1,30 +1,30 @@
 {
   "id": 5,
-  "question": "A data set has a range of $24$. Each value in the data set is multiplied by $4$, and then $9$ is subtracted from each result. What is the range of the new data set?",
+  "question": "Data set P has $30$ values, a mean of $50$, and a range of $20$. Adding $6$ to each value in P creates data set Q. Which of the following must be true?\nI. The mean of Q is $56$.\nII. The range of Q is $26$.",
   "choices": [
     {
       "id": "A",
-      "text": "$15$"
+      "text": "I only"
     },
     {
       "id": "B",
-      "text": "$24$"
+      "text": "II only"
     },
     {
       "id": "C",
-      "text": "$87$"
+      "text": "I and II"
     },
     {
       "id": "D",
-      "text": "$96$"
+      "text": "Neither I nor II"
     }
   ],
   "distractorNotes": {
-    "A": "applies only the subtraction to the range, $24 - 9 = 15$, and ignores the multiplication.",
-    "B": "assumes neither operation changes the range, but multiplying every value by $4$ stretches all distances by $4$.",
-    "C": "multiplies the range by $4$ and then also subtracts $9$, but subtracting the same amount from every value does not change the range."
+    "B": "reverses which measure changes: the mean shifts by 6, the range does not",
+    "C": "thinks adding 6 to each value also adds 6 to the range",
+    "D": "thinks the mean cannot be found without the individual values"
   },
-  "correctAnswer": "D",
-  "hint": "Handle the multiplication and the subtraction separately.",
-  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~30s):** Multiplying by $4$ multiplies the range by $4$, and subtracting $9$ from every value does not change it: $4(24) = 96$.\n\n**The Full Solution:**\nStep 1: If the least and greatest values are $m$ and $M$, then $M - m = 24$.\nStep 2: The new least and greatest values are $4m - 9$ and $4M - 9$.\nStep 3: The new range is $(4M - 9) - (4m - 9) = 4(M - m) = 4(24) = 96$. Check: with original values $0$ and $24$, the new values are $-9$ and $87$, and $87 - (-9) = 96$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): applies only the subtraction to the range, $24 - 9 = 15$, and ignores the multiplication.\n* Choice B ($24$): assumes neither operation changes the range, but multiplying every value by $4$ stretches all distances by $4$.\n* Choice C ($87$): multiplies the range by $4$ and then also subtracts $9$, but subtracting the same amount from every value does not change the range.\n\n**Test Day Takeaway:** Multiplying every value by a constant multiplies the range by that constant; adding or subtracting a constant moves the data without changing the range."
+  "correctAnswer": "A",
+  "hint": "Adding the same number to every value shifts the whole data set without spreading it out.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~40s):** Adding $6$ to every value raises the mean by $6$ to $56$, but the maximum and minimum both rise by $6$, so the range stays $20$.\n\n**The Full Solution:**\nStep 1: Mean: the sum of P is $30(50) = 1{,}500$. Adding $6$ to each of the $30$ values adds $180$, so the mean of Q is $\\frac{1{,}680}{30} = 56$. Statement I is true.\nStep 2: Range: if P has maximum $M$ and minimum $m$, then Q has maximum $M + 6$ and minimum $m + 6$.\nStep 3: The range of Q is $(M + 6) - (m + 6) = M - m = 20$, not $26$. Statement II is false, so the answer is I only.\n\nCheck: For P $= \\{40, 50, 60\\}$ (mean $50$, range $20$), Q $= \\{46, 56, 66\\}$ has mean $56$ and range $20$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (II only): has the effects reversed.\n* Choice C (I and II): adds $6$ to the range as well; the range is a difference, and the $6$s cancel.\n* Choice D (Neither I nor II): the new mean follows from the old mean alone: it increases by exactly $6$.\n\n**Test Day Takeaway:** Adding a constant to every value shifts the measures of center by that constant and leaves the range unchanged."
 }

@@ -1,6 +1,6 @@
 {
   "id": "bank-am-326",
-  "question": "The table shows the mass, in grams, of a substance remaining in a sample $d$ days after an experiment began. If the mass continues to decrease in the same way, what is the value of $d$ when the mass is $\\frac{1}{25}$ gram?",
+  "question": "The table shows the mass, in grams, of a sample $d$ days after it was prepared. The mass decreases exponentially. For what value of $d$ is the mass $\\frac{1}{25}$ gram?",
   "diagram": {
     "type": "dataTable",
     "params": {

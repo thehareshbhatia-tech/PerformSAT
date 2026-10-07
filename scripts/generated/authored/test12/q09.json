@@ -6,26 +6,26 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 1,
- "passage": "Many settlers who reached the North American prairie in the early nineteenth century came from forested country, and some doubted that treeless land could be rich, reasoning that soil unable to support timber must be poor. Plowing revealed the opposite. Beneath the sod lay a thick layer of dark topsoil, built up over thousands of years by the growth and decay of dense grass roots. Prairie soils proved to be among the most fertile on the continent, and regions once passed over as barren became some of the most productive farmland in the world.",
+ "passage": "In the early 1840s, a British naturalist dredging the floor of the Aegean Sea found fewer kinds of animals the deeper he went. From those samples, he concluded that no life could exist below about 300 fathoms, or roughly 550 meters. Many scientists accepted the idea. Deeper dredging soon proved it wrong. By the late 1860s, researchers off the coast of Norway had found many kinds of animals living below that depth, and in 1869 living creatures were dredged from more than 2,300 fathoms. The deep sea, once thought empty, turned out to be full of life.",
  "question": "Which choice best states the main idea of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "Prairie grasslands, once assumed to be poor because they supported no trees, in fact held unusually thick and fertile soils."
+   "text": "The deep sea, once thought lifeless below a certain depth, turned out to hold many kinds of animals."
   },
   {
    "id": "B",
-   "text": "Settlers from forested country began moving onto the North American prairie in the early nineteenth century."
+   "text": "A British naturalist dredged the floor of the Aegean Sea in the early 1840s and studied what he found."
   },
   {
    "id": "C",
-   "text": "The prairie's dark topsoil was built up over thousands of years by the growth and decay of dense grass roots."
+   "text": "Animals that live deep in the sea are generally smaller than the animals that live near the surface."
   },
   {
    "id": "D",
-   "text": "Farmland carved from the former prairie ultimately became more valuable than farmland in any forested region on the continent."
+   "text": "By the late 1860s, scientists had stopped dredging the seafloor at depths below about 300 fathoms."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The passage is built around a reversal: some settlers expected treeless prairie land to be poor, and plowing \"revealed the opposite\" — thick, dark, exceptionally fertile topsoil. A captures both the expectation and its overturning.\n\n**The Full Solution:**\n- The setup: settlers from forested country reasoned that soil unable to support timber must be poor.\n- The finding: beneath the sod lay a thick layer of dark topsoil, among the most fertile on the continent.\n- The confirmation: land once passed over as barren became some of the world's most productive farmland. The main idea is that reversal, which only choice A states.\n\n**Why the other choices are wrong:**\n- B: It reports only who came to the prairie and when — the setup, not the point.\n- C: It gives the process that built the topsoil, a supporting detail rather than the central reversal.\n- D: It overshoots the text, which never compares the value of prairie farmland with that of every forested region."
+ "explanation": "**Choice A is correct.** The text describes a belief that no life could exist below about 300 fathoms and then shows that deeper dredging overturned it: \"The deep sea, once thought empty, turned out to be full of life.\"\n\n**The Full Solution:**\n- The setup: a naturalist concluded \"that no life could exist below about 300 fathoms,\" and \"many scientists accepted the idea.\"\n- The turn: \"Deeper dredging soon proved it wrong,\" revealing many kinds of animals below 300 fathoms and, in 1869, living creatures from more than 2,300 fathoms.\n- The whole text moves from an assumption of emptiness to the discovery of abundant life, which is what choice A states.\n\n**Why the other choices are wrong:**\n- B: This is the opening detail about where the idea began, not the main point of the text.\n- C: The text never compares the size of deep-sea animals with that of animals near the surface; its point is that the deep sea is full of life.\n- D: The text says the opposite: researchers kept dredging deeper and found life there."
 }

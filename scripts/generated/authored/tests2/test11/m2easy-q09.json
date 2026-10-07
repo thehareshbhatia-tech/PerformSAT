@@ -1,29 +1,29 @@
 {
  "id": 9,
- "question": "The equation $y = 0.85x + 14.2$ is a linear model for a data set. One of the data points is $(26, 37.7)$. Which statement about this data point is true?",
+ "question": "A linear model for the depth of a pond is $y = 36 - 0.5x$, where $y$ is the predicted depth, in inches, $x$ days after the start of a dry spell. What is the best interpretation of $36$ in this context?",
  "choices": [
   {
    "id": "A",
-   "text": "The model predicts a $y$-value that is $1.4$ greater than the actual $y$-value."
+   "text": "The predicted depth of the pond at the start of the dry spell is $36$ inches."
   },
   {
    "id": "B",
-   "text": "The model predicts a $y$-value that is $1.4$ less than the actual $y$-value."
+   "text": "The predicted depth of the pond $1$ day after the start of the dry spell is $36$ inches."
   },
   {
    "id": "C",
-   "text": "The model predicts a $y$-value that is $15.6$ less than the actual $y$-value."
+   "text": "The predicted depth of the pond decreases by $36$ inches each day."
   },
   {
    "id": "D",
-   "text": "The model predicts a $y$-value that is $23.5$ less than the actual $y$-value."
+   "text": "The predicted number of days until the pond is empty is $36$."
   }
  ],
  "distractorNotes": {
-  "A": "computes the correct difference of 1.4 but reverses which value is larger",
-  "C": "leaves out the intercept, predicting 0.85(26) = 22.1 and subtracting it from 37.7",
-  "D": "leaves out the slope term, subtracting only the intercept 14.2 from 37.7"
+  "B": "treats the first day as x = 1; at x = 1 the model predicts 36 - 0.5(1) = 35.5 inches",
+  "C": "reads the constant as the rate of change; the predicted depth decreases by 0.5 inch each day",
+  "D": "treats 36 as the x-value where y = 0; the model predicts a depth of 0 when 36 - 0.5x = 0, or x = 72"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** At $x = 26$ the model predicts $0.85(26) + 14.2 = 36.3$, which is $37.7 - 36.3 = 1.4$ less than the actual value.\n\n**The Full Solution:**\nStep 1: Substitute $x = 26$ into the model: $y = 0.85(26) + 14.2 = 22.1 + 14.2 = 36.3$.\nStep 2: Compare the prediction with the actual $y$-value of the data point: $37.7 - 36.3 = 1.4$.\nStep 3: The actual value is larger, so the predicted value is $1.4$ less than the actual value. Check: $36.3 + 1.4 = 37.7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: has the right difference, $1.4$, but the wrong direction; the prediction $36.3$ is below the actual $37.7$, so the model underestimates.\n* Choice C: leaves out the $14.2$, predicting $0.85(26) = 22.1$ and getting $37.7 - 22.1 = 15.6$.\n* Choice D: leaves out the $0.85x$ term, subtracting only $14.2$ from $37.7$.\n\n**Test Day Takeaway:** To compare a data point with a model, plug its $x$-value into the equation and subtract the prediction from the actual $y$-value; a positive result means the model predicts too low."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Interpret Intercept of Best Fit**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** At the start of the dry spell, $x = 0$, and $y = 36 - 0.5(0) = 36$. So $36$ is the predicted depth, in inches, at the start of the dry spell.\n\n**The Full Solution:**\nStep 1: $x$ is the number of days after the start of the dry spell, so the start of the dry spell is $x = 0$.\nStep 2: Substitute $x = 0$: $y = 36 - 0.5(0) = 36$.\nStep 3: So $36$ is the predicted depth, in inches, at the start of the dry spell. Check: the other number, $-0.5$, multiplies $x$, so it is the predicted change in depth each day ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: treats the first day as $x = 1$; at $x = 1$ the model predicts $35.5$ inches.\n* Choice C: reads $36$ as the daily change; the depth is predicted to drop $0.5$ inch each day.\n* Choice D: treats $36$ as the day the depth reaches $0$; that happens when $36 - 0.5x = 0$, at $x = 72$.\n\n**Test Day Takeaway:** The constant in a linear model is the predicted value of $y$ when $x = 0$; find what $x = 0$ means in the context first."
 }

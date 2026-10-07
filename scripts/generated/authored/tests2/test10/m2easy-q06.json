@@ -1,6 +1,6 @@
 {
  "id": 6,
- "question": "In right triangle $XYZ$ shown, the perimeter of the triangle is $40$. What is the value of $\\sin X$?",
+ "question": "In right triangle $PQR$ shown, $\\tan P = \\frac{8}{15}$. What is the perimeter of triangle $PQR$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -19,9 +19,9 @@
     ]
    ],
    "labels": [
-    "Z",
-    "X",
-    "Y"
+    "R",
+    "P",
+    "Q"
    ],
    "sideLabels": [
     "15",
@@ -34,26 +34,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{8}{17}$"
+   "text": "$23$"
   },
   {
    "id": "B",
-   "text": "$\\frac{8}{15}$"
+   "text": "$25$"
   },
   {
    "id": "C",
-   "text": "$\\frac{15}{17}$"
+   "text": "$40$"
   },
   {
    "id": "D",
-   "text": "$\\frac{15}{8}$"
+   "text": "$46$"
   }
  ],
  "distractorNotes": {
-  "B": "divides the leg opposite X by the leg adjacent to X, which is tan X",
-  "C": "divides the leg adjacent to X by the hypotenuse, which is cos X",
-  "D": "divides the adjacent leg by the opposite leg, the reciprocal of tan X"
+  "A": "adds only the two legs, 15 + 8, and leaves out the hypotenuse",
+  "B": "adds QR and PQ, 8 + 17, but leaves out the given side PR = 15",
+  "D": "takes the hypotenuse to be the sum of the legs, 15 + 8 = 23, giving 15 + 8 + 23 = 46"
  },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** The other two sides add to $40 - 15 = 25$, and their squares differ by $15^{2} = 225$, so they differ by $\\frac{225}{25} = 9$: $XY = 17$ and $YZ = 8$, giving $\\sin X = \\frac{8}{17}$.\n\n**The Full Solution:**\nStep 1: Let $YZ = a$ and $XY = h$, the hypotenuse. The perimeter gives $15 + a + h = 40$, so $h + a = 25$.\nStep 2: The Pythagorean theorem gives $h^{2} - a^{2} = 15^{2} = 225$. Since $h^{2} - a^{2} = (h + a)(h - a)$, it follows that $25(h - a) = 225$, so $h - a = 9$. Adding $h + a = 25$ and $h - a = 9$ gives $h = 17$ and $a = 8$.\nStep 3: The side opposite angle $X$ is $YZ = 8$, so $\\sin X = \\frac{8}{17}$. Check: $8^{2} + 15^{2} = 64 + 225 = 289 = 17^{2}$, and $8 + 15 + 17 = 40$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{8}{15}$): divides the opposite leg by the adjacent leg, which is $\\tan X$.\n* Choice C ($\\frac{15}{17}$): divides the adjacent leg by the hypotenuse, which is $\\cos X$.\n* Choice D ($\\frac{15}{8}$): divides the adjacent leg by the opposite leg, the reciprocal of $\\tan X$.\n\n**Test Day Takeaway:** When the perimeter is given with one leg, write the sum of the other two sides and use the difference of squares to find each side; then match sine to opposite over hypotenuse."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\tan P = \\frac{QR}{PR}$, so $QR = \\frac{8}{15}(15) = 8$; the hypotenuse is $\\sqrt{8^{2} + 15^{2}} = 17$, and the perimeter is $15 + 8 + 17 = 40$.\n\n**The Full Solution:**\nStep 1: The right angle is at $R$. For angle $P$, the opposite side is $QR$ and the adjacent side is $PR = 15$, so $\\frac{QR}{15} = \\frac{8}{15}$ and $QR = 8$.\nStep 2: The hypotenuse is $PQ = \\sqrt{15^{2} + 8^{2}} = \\sqrt{289} = 17$.\nStep 3: The perimeter is $15 + 8 + 17 = 40$. Check: $8^{2} + 15^{2} = 64 + 225 = 289 = 17^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($23$): adds only the two legs and leaves out the hypotenuse $PQ = 17$.\n* Choice B ($25$): adds $QR$ and $PQ$ but leaves out the side $PR = 15$ shown in the figure.\n* Choice D ($46$): takes the hypotenuse to be $15 + 8 = 23$ instead of using the Pythagorean theorem.\n\n**Test Day Takeaway:** Tangent is opposite over adjacent; use it to find the missing leg, then the Pythagorean theorem for the hypotenuse."
 }

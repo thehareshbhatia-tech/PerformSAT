@@ -6,30 +6,26 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 2,
- "passage": "Merchant ships trading between the Red Sea and the pepper ports of India's Malabar Coast sailed with the monsoon, which blows toward India in summer and back toward Africa and Arabia in winter. A maritime historian reconstructing the rhythm of these voyages from surviving accounts concludes that the winds, more than the ships, governed how long a trading venture lasted because ______",
+ "passage": "The 1969 Apollo 11 mission is remembered for the hours two astronauts spent on the Moon's surface. Yet the crew spent most of the mission elsewhere: flying to the Moon, orbiting it while the landing took place, and flying home. A space historian notes that the crew spent more than twice as long traveling between Earth and the Moon as they spent in orbit around the Moon. The data in the table support this observation because ______",
  "questionTable": {
   "type": "table",
-  "caption": "Reconstructed timings for a round-trip trading venture between the Red Sea and the Malabar Coast",
+  "caption": "Approximate duration of three phases of the Apollo 11 mission",
   "headers": [
-   "Stage of venture",
-   "Typical duration (weeks)"
+   "Mission phase",
+   "Duration (hours)"
   ],
   "rows": [
    [
-    "Outbound passage",
-    "6"
+    "Earth to lunar orbit",
+    "76"
    ],
    [
-    "Trading and loading in port",
-    "8"
+    "In lunar orbit (including the landing)",
+    "60"
    ],
    [
-    "Waiting for the return sailing window",
-    "14"
-   ],
-   [
-    "Return passage",
-    "7"
+    "Lunar orbit to splashdown on Earth",
+    "60"
    ]
   ]
  },
@@ -37,21 +33,21 @@
  "choices": [
   {
    "id": "A",
-   "text": "the outbound passage, at 6 weeks, was typically a week shorter than the return passage."
+   "text": "the trip from Earth to lunar orbit, at about 76 hours, was the longest of the three phases of the mission."
   },
   {
    "id": "B",
-   "text": "the 14-week wait for the return sailing window exceeded the outbound and return passages combined, which together took 13 weeks."
+   "text": "the trips to and from the Moon took about 136 hours combined, more than twice the 60 hours spent in lunar orbit."
   },
   {
    "id": "C",
-   "text": "a complete venture typically lasted 35 weeks, of which 8 were spent trading and loading in port."
+   "text": "the crew spent about 60 hours in lunar orbit and another 60 hours returning from lunar orbit to splashdown on Earth."
   },
   {
    "id": "D",
-   "text": "merchants could shorten their stay in India by completing their trading before the winds reversed direction."
+   "text": "the mission included a landing on the Moon's surface, which took place while the spacecraft was in lunar orbit."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The claim sets wind against ship: waiting imposed by the monsoon mattered more than sailing performance. B makes the comparison numerically: the 14-week wait for the winds outlasted all the actual sailing, 6 plus 7 equals 13 weeks, put together.\n\n**The Full Solution:**\n- \"The winds, more than the ships, governed how long a venture lasted\" is supported by showing wind-imposed time exceeding ship-dependent time.\n- The wait for the sailing window is pure wind time; the two passages are the ship time. Fourteen weeks against thirteen is precisely the historian's point in figures.\n\n**Why the other choices are wrong:**\n- A: Comparing the two passages with each other never brings in the wait, so the winds' dominance goes unshown.\n- C: The 35-week total with the port-trading share highlights commerce, not wind; the decisive 14-week row is left unused.\n- D: It offers advice about scheduling rather than data, and the table records typical durations, not what earlier trading might have changed."
+ "explanation": "**Choice B is correct.** The historian says travel time was more than twice the time in lunar orbit. B adds the two travel phases, 76 plus 60 equals 136 hours, and compares the total with the 60 hours in lunar orbit; 136 is more than twice 60.\n\n**The Full Solution:**\n- Travel between Earth and the Moon is two rows of the table: the outbound trip (76 hours) and the return (60 hours).\n- Time in orbit around the Moon is the remaining row: 60 hours.\n- Only the combined travel time, 136 hours, is more than twice 60 (that is, more than 120), so the observation needs the sum that B gives.\n\n**Why the other choices are wrong:**\n- A: The outbound trip alone, 76 hours, is longer than the time in orbit but not more than twice as long.\n- C: It reports two equal durations and makes no comparison between total travel time and time in orbit.\n- D: It mentions the landing but uses no durations, so it cannot support a claim about how long each phase lasted."
 }

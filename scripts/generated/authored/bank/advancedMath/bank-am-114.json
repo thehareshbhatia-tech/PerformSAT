@@ -1,6 +1,6 @@
 {
  "id": "bank-am-114",
- "question": "The graph of $y = f(x)$ is shown. If $g(x) = 2f(x - 3) + 4$, which of the following is the vertex of the graph of $y = g(x)$?",
+ "question": "The graph of the quadratic function $f$ is shown. If $g(x) = f(x + 3)$, which equation defines $g$?",
  "diagram": {
   "type": "quadraticVertex",
   "params": {
@@ -9,32 +9,42 @@
     1
    ],
    "a": 1,
+   "showPoints": [
+    [
+     2,
+     5
+    ],
+    [
+     6,
+     5
+    ]
+   ],
    "showVertex": true
   }
  },
  "choices": [
   {
    "id": "A",
-   "text": "$(1, 6)$"
+   "text": "$g(x) = (x - 7)^{2} + 1$"
   },
   {
    "id": "B",
-   "text": "$(7, 5)$"
+   "text": "$g(x) = (x - 4)^{2} + 4$"
   },
   {
    "id": "C",
-   "text": "$(7, 6)$"
+   "text": "$g(x) = (x - 1)^{2} + 1$"
   },
   {
    "id": "D",
-   "text": "$(7, 10)$"
+   "text": "$g(x) = (x + 1)^{2} + 1$"
   }
  ],
  "distractorNotes": {
-  "A": "shifts left 3 instead of right, computing 4 - 3",
-  "B": "applies the + 4 but not the factor 2, computing 1 + 4",
-  "D": "adds 4 before doubling, computing 2(1 + 4)"
+  "A": "replaces x with x - 3, moving the graph right instead of left",
+  "B": "adds 3 to the output, which is f(x) + 3, not f(x + 3)",
+  "D": "simplifies (x + 3) - 4 as x + 1"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Function Transformation**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The vertex of $f$ is $(4, 1)$. Inside, $x - 3 = 4$ gives $x = 7$; outside, $2(1) + 4 = 6$. The vertex of $g$ is $(7, 6)$.\n\n**The Full Solution:**\nStep 1: Read the vertex of $f$ from the graph: $(4, 1)$, so $f(4) = 1$ is the least output of $f$.\nStep 2: In $g(x) = 2f(x - 3) + 4$, the inside must equal $4$ to reach that point: $x - 3 = 4$, so $x = 7$.\nStep 3: The output is doubled and then raised by $4$: $g(7) = 2f(4) + 4 = 2(1) + 4 = 6$. The vertex of $g$ is $(7, 6)$. Check: doubling and adding $4$ keep the least output least, so $(7, 6)$ is still the lowest point ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(1, 6)$): computes $4 - 3$; replacing $x$ with $x - 3$ moves the graph $3$ units right, not left.\n* Choice B ($(7, 5)$): applies the $+4$ but not the factor $2$.\n* Choice D ($(7, 10)$): adds $4$ before doubling, computing $2(1 + 4)$.\n\n**Test Day Takeaway:** Handle the input and the output separately: solve the inside for the new $x$, then run the old $y$-value through the outside operations in order."
+ "explanation": "**SAT Pattern: Function Transformation**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The graph has vertex $(4, 1)$ and passes through $(2, 5)$, so $f(x) = (x - 4)^{2} + 1$. Then $g(x) = f(x + 3) = (x + 3 - 4)^{2} + 1 = (x - 1)^{2} + 1$.\n\n**The Full Solution:**\nStep 1: The vertex of the graph is $(4, 1)$, so $f(x) = a(x - 4)^{2} + 1$ for some constant $a$.\nStep 2: The point $(2, 5)$ is on the graph: $5 = a(2 - 4)^{2} + 1$, so $4a = 4$ and $a = 1$. Thus $f(x) = (x - 4)^{2} + 1$.\nStep 3: Replace $x$ with $x + 3$: $g(x) = ((x + 3) - 4)^{2} + 1 = (x - 1)^{2} + 1$. Check: $g(-1) = f(2) = 5$, and $(-1 - 1)^{2} + 1 = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($g(x) = (x - 7)^{2} + 1$): moves the vertex $3$ units right; replacing $x$ with $x + 3$ moves the graph $3$ units left.\n* Choice B ($g(x) = (x - 4)^{2} + 4$): adds $3$ to the output, which describes $f(x) + 3$, not $f(x + 3)$.\n* Choice D ($g(x) = (x + 1)^{2} + 1$): simplifies $(x + 3) - 4$ as $x + 1$ instead of $x - 1$.\n\n**Test Day Takeaway:** For $g(x) = f(x + c)$, substitute $x + c$ for every $x$ in $f$; the graph moves $c$ units left."
 }

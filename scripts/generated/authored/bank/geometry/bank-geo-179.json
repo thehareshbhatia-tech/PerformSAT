@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-179",
- "question": "$x^{2} + y^{2} = 45$\nIn the $xy$-plane, the graph of $y = 2x + c$, where $c$ is a positive constant, intersects the graph of the given equation at exactly one point. What is the value of $c$?",
+ "question": "$(x - 3)^{2} + (y + 6)^{2} = 16$\nIn the $xy$-plane, which of the following lines intersects the graph of the given equation at exactly one point?",
  "choices": [
   {
    "id": "A",
-   "text": "$3\\sqrt{5}$"
+   "text": "$x = 3$"
   },
   {
    "id": "B",
-   "text": "$\\frac{15}{2}$"
+   "text": "$x = 4$"
   },
   {
    "id": "C",
-   "text": "$15$"
+   "text": "$y = -2$"
   },
   {
    "id": "D",
-   "text": "$45$"
+   "text": "$y = 2$"
   }
  ],
  "distractorNotes": {
-  "A": "reports the radius of the circle, sqrt(45) = 3 sqrt(5), as the intercept",
-  "B": "divides the correct intercept by the slope 2",
-  "D": "uses r squared = 45 in place of the intercept"
+  "A": "passes through the center (3, -6), so it crosses the circle at two points",
+  "B": "uses the radius 4 as the line's position without the center; x = 4 is only 1 unit from the center, so it crosses the circle twice",
+  "D": "treats the center's y-coordinate as 6 instead of -6 and subtracts the radius; y = 2 is 8 units from the center and misses the circle"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** Substituting gives $5x^{2} + 4cx + c^{2} - 45 = 0$; exactly one point means the discriminant is $0$: $16c^{2} - 20(c^{2} - 45) = 0$, so $c^{2} = 225$ and $c = 15$.\n\n**The Full Solution:**\nStep 1: Substitute $y = 2x + c$ into $x^{2} + y^{2} = 45$: $x^{2} + (2x + c)^{2} = 45$, which expands to $5x^{2} + 4cx + c^{2} - 45 = 0$.\nStep 2: One intersection point means this quadratic has exactly one solution, so its discriminant is $0$: $(4c)^{2} - 4(5)(c^{2} - 45) = -4c^{2} + 900 = 0$.\nStep 3: $c^{2} = 225$, so $c = 15$, since $c$ is positive. Check: with $c = 15$ the quadratic is $5x^{2} + 60x + 180 = 5(x + 6)^{2} = 0$, whose only solution is $x = -6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3\\sqrt{5}$): this is the radius of the circle, not the $y$-intercept of the line.\n* Choice B ($\\frac{15}{2}$): divides the correct intercept by the slope $2$.\n* Choice D ($45$): uses $r^{2}$ where a single length belongs.\n\n**Test Day Takeaway:** Line meets circle at exactly one point: substitute, collect one quadratic, and set its discriminant equal to $0$."
+ "explanation": "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The circle has center $(3, -6)$ and radius $4$, so a horizontal line touches it once only at $y = -6 + 4 = -2$ or $y = -6 - 4 = -10$.\n\n**The Full Solution:**\nStep 1: The given equation is in the form $(x - h)^{2} + (y - k)^{2} = r^{2}$, so the center is $(3, -6)$ and the radius is $\\sqrt{16} = 4$.\nStep 2: A horizontal or vertical line meets the circle at exactly one point when its distance from the center equals the radius: $x = 3 \\pm 4$ gives $x = -1$ or $x = 7$, and $y = -6 \\pm 4$ gives $y = -10$ or $y = -2$.\nStep 3: Of the choices, only $y = -2$ is one of these lines. Check: substituting $y = -2$ gives $(x - 3)^{2} + 16 = 16$, so $(x - 3)^{2} = 0$ and $x = 3$; the only intersection point is $(3, -2)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x = 3$): passes through the center, so it crosses the circle at two points, $(3, -2)$ and $(3, -10)$.\n* Choice B ($x = 4$): is only $1$ unit from the center, less than the radius, so it crosses the circle at two points.\n* Choice D ($y = 2$): is $8$ units from the center, more than the radius, so it does not meet the circle at all.\n\n**Test Day Takeaway:** A horizontal or vertical line touches a circle at exactly one point when its distance from the center equals the radius."
 }

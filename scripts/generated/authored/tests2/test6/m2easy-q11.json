@@ -1,96 +1,90 @@
 {
-  "id": 11,
-  "question": "The scatterplot shows the elevation $x$, in hundreds of meters, and the average number of beetles per trap $y$ at $10$ sites. A line of best fit for the data is also shown, and its equation is $y = 40 - 3x$. What is the residual for the site at $x = 6$?",
-  "diagram": {
-    "type": "scatterplot",
-    "params": {
-      "points": [
-        [
-          1,
-          38
-        ],
-        [
-          2,
-          32
-        ],
-        [
-          3,
-          33
-        ],
-        [
-          4,
-          27
-        ],
-        [
-          5,
-          26
-        ],
-        [
-          6,
-          17
-        ],
-        [
-          7,
-          18
-        ],
-        [
-          8,
-          17
-        ],
-        [
-          9,
-          12
-        ],
-        [
-          10,
-          11
-        ]
-      ],
-      "xMin": 0,
-      "xMax": 10,
-      "yMin": 0,
-      "yMax": 44,
-      "xGridStep": 1,
-      "yGridStep": 4,
-      "xLabelStep": 2,
-      "yLabelStep": 8,
-      "xLabel": "Elevation (hundreds of meters)",
-      "yLabel": "Beetles per trap",
-      "bestFitLine": {
-        "slope": -3,
-        "intercept": 40
-      },
-      "highlightPoint": [
-        6,
-        17
-      ],
-      "highlightLabel": "(6, 17)",
-      "showResidual": true
-    }
+ "id": 11,
+ "question": "The scatterplot shows the elevation $x$, in hundreds of meters, and the average number of beetles per trap $y$ at $10$ sites. A line of best fit for the data, $y = 40 - 3x$, is also shown. Which of the following is the best interpretation of the slope of the line of best fit in this context?",
+ "diagram": {
+  "type": "scatterplot",
+  "params": {
+   "points": [
+    [
+     1,
+     38
+    ],
+    [
+     2,
+     32
+    ],
+    [
+     3,
+     33
+    ],
+    [
+     4,
+     27
+    ],
+    [
+     5,
+     26
+    ],
+    [
+     6,
+     17
+    ],
+    [
+     7,
+     18
+    ],
+    [
+     8,
+     17
+    ],
+    [
+     9,
+     12
+    ],
+    [
+     10,
+     11
+    ]
+   ],
+   "xMin": 0,
+   "xMax": 10,
+   "yMin": 0,
+   "yMax": 44,
+   "xGridStep": 1,
+   "yGridStep": 4,
+   "xLabelStep": 2,
+   "yLabelStep": 8,
+   "xLabel": "Elevation (hundreds of meters)",
+   "yLabel": "Beetles per trap",
+   "bestFitLine": {
+    "slope": -3,
+    "intercept": 40
+   }
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "The average number of beetles per trap is predicted to decrease by $3$ for every increase of $1$ meter in elevation."
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-5$"
-    },
-    {
-      "id": "B",
-      "text": "$5$"
-    },
-    {
-      "id": "C",
-      "text": "$17$"
-    },
-    {
-      "id": "D",
-      "text": "$22$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "subtracts the actual value from the predicted value (22 - 17) instead of predicted from actual",
-    "C": "reports the actual value 17 rather than its difference from the line",
-    "D": "reports the predicted value 40 - 3(6) = 22 rather than the difference"
+  {
+   "id": "B",
+   "text": "The average number of beetles per trap is predicted to decrease by $3$ for every increase of $100$ meters in elevation."
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Residual**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The line predicts $40 - 3(6) = 22$, and the data point is at $17$, so the residual is $17 - 22 = -5$.\n\n**The Full Solution:**\nStep 1: Read the actual value from the scatterplot: the site at $x = 6$ has $y = 17$.\nStep 2: Find the predicted value from the line of best fit: $y = 40 - 3(6) = 40 - 18 = 22$.\nStep 3: A residual is the actual value minus the predicted value: $17 - 22 = -5$. The negative sign matches the graph, since the point lies below the line ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($5$): subtracts in the wrong order, $22 - 17$, which loses the sign that shows the point is below the line.\n* Choice C ($17$): reports the actual value instead of its difference from the line.\n* Choice D ($22$): reports the predicted value and never compares it with the data point.\n\n**Test Day Takeaway:** A residual is always actual minus predicted. Points below the line have negative residuals, and points above the line have positive residuals."
+  {
+   "id": "C",
+   "text": "The average number of beetles per trap is predicted to decrease by $40$ for every increase of $100$ meters in elevation."
+  },
+  {
+   "id": "D",
+   "text": "The elevation is predicted to decrease by $300$ meters for every increase of $1$ in the average number of beetles per trap."
+  }
+ ],
+ "distractorNotes": {
+  "A": "ignores the units of x: x is in hundreds of meters, so an increase of 1 in x is an increase of 100 meters",
+  "C": "uses the constant 40, the predicted value at x = 0, as the rate of change instead of the slope -3",
+  "D": "switches the roles of the variables; the line predicts the number of beetles from the elevation, not the elevation from the number of beetles"
+ },
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Interpret Slope of Best Fit**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The slope is $-3$, so the predicted $y$-value decreases by $3$ for each increase of $1$ in $x$, and an increase of $1$ in $x$ is $100$ meters.\n\n**The Full Solution:**\nStep 1: In $y = 40 - 3x$, the slope is the coefficient of $x$, which is $-3$.\nStep 2: The slope is the predicted change in $y$ for each increase of $1$ in $x$, so the predicted average number of beetles per trap decreases by $3$ each time $x$ increases by $1$.\nStep 3: Since $x$ is measured in hundreds of meters, an increase of $1$ in $x$ is an increase of $100$ meters. Check: from $x = 2$ to $x = 3$ ($200$ to $300$ meters), the prediction drops from $40 - 3(2) = 34$ to $40 - 3(3) = 31$, a decrease of $3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: ignores the units: $x$ counts hundreds of meters, so $1$ unit of $x$ is $100$ meters, not $1$ meter.\n* Choice C: uses $40$, the predicted number at $x = 0$, as the rate of change.\n* Choice D: switches the variables; the line predicts beetles per trap from elevation, not the reverse.\n\n**Test Day Takeaway:** The slope of a line of best fit is the predicted change in $y$ for each increase of $1$ in $x$; say it in the units of the axes."
 }

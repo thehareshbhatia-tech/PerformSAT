@@ -1,29 +1,29 @@
 {
  "id": "bank-alg-290",
- "question": "Lena guessed that a jar contains $g$ marbles. The jar contains $92$ marbles, and her guess was off by $14$ marbles. Which equation represents this situation?",
+ "question": "$|2x - 9| = 15$\nWhat is the negative solution to the given equation?",
  "choices": [
   {
    "id": "A",
-   "text": "$|g - 14| = 92$"
+   "text": "$-12$"
   },
   {
    "id": "B",
-   "text": "$|g - 92| = 14$"
+   "text": "$-3$"
   },
   {
    "id": "C",
-   "text": "$|g + 92| = 14$"
+   "text": "$3$"
   },
   {
    "id": "D",
-   "text": "$g - 92 = 14$"
+   "text": "$12$"
   }
  ],
  "correctAnswer": "B",
  "distractorNotes": {
-  "A": "swaps the roles of 92 and 14, measuring the distance from 14 instead of from 92",
-  "C": "adds the actual count to the guess instead of subtracting it",
-  "D": "drops the absolute value, so it covers only a guess that was too high"
+  "A": "subtracts 9 instead of adding it in the negative case: 2x = -15 - 9",
+  "C": "drops the negative sign when dividing -6 by 2",
+  "D": "gives the positive solution, from 2x - 9 = 15"
  },
- "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** \"Off by $14$\" means the distance between $g$ and $92$ is $14$, in either direction: $|g - 92| = 14$.\n\n**The Full Solution:**\nStep 1: The error in the guess is the difference $g - 92$, which is positive if she guessed too high and negative if too low.\nStep 2: \"Off by $14$\" fixes the size of that difference, not its sign, so $|g - 92| = 14$.\nStep 3: Solving gives $g = 78$ or $g = 106$, the two possible guesses. Check: $92 - 78 = 14$ and $106 - 92 = 14$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($|g - 14| = 92$): swaps the two numbers; it measures how far the guess is from $14$.\n* Choice C ($|g + 92| = 14$): adds the actual count instead of subtracting it, which would force $g$ to be negative.\n* Choice D ($g - 92 = 14$): drops the absolute value, so it allows only a guess that was too high.\n\n**Test Day Takeaway:** \"Differs from $c$ by $d$\" with no direction is $|x - c| = d$."
+ "explanation": "**SAT Pattern: Absolute Value Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The negative solution comes from $2x - 9 = -15$, so $2x = -6$ and $x = -3$.\n\n**The Full Solution:**\nStep 1: An absolute value equal to $15$ means $2x - 9 = 15$ or $2x - 9 = -15$.\nStep 2: Solve each: $2x = 24$ gives $x = 12$, and $2x = -6$ gives $x = -3$.\nStep 3: The negative solution is $-3$. Check: $|2(-3) - 9| = |-15| = 15$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): subtracts $9$ instead of adding it in the negative case, so $2x = -24$.\n* Choice C ($3$): loses the negative sign when dividing $-6$ by $2$.\n* Choice D ($12$): is the positive solution, from $2x - 9 = 15$.\n\n**Test Day Takeaway:** Split $|\\text{expression}| = c$ into expression $= c$ and expression $= -c$, then read which solution the question asks for."
 }

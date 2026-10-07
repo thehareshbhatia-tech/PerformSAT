@@ -1,31 +1,31 @@
 {
-  "id": 210,
-  "type": "multiple-choice",
-  "difficulty": "medium",
-  "band": 3,
-  "domain": "information-and-ideas",
-  "skill": "central-ideas-and-details",
-  "module": 1,
-  "passage": "Meteorologists sometimes speak of a \"quiet revolution\" in their field. A modern five-day forecast is about as accurate as a three-day forecast was a few decades ago, and useful predictions now extend a week or more ahead. The gains came from no single breakthrough: they accumulated through steady improvements in satellite observations, faster supercomputers, and better mathematical representations of the atmosphere, with each advance making the others more valuable. Because the improvement arrived a little at a time, it drew none of the attention that a dramatic discovery commands — yet its cumulative effect on aviation, agriculture, and disaster preparedness has been enormous.",
-  "question": "Which choice best states the main idea of the text?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "Supercomputers have largely replaced human forecasters in the production of modern weather predictions, a change that many meteorologists consider long overdue."
-    },
-    {
-      "id": "B",
-      "text": "Weather forecasts more than five days ahead remain too unreliable to guide important decisions in aviation, agriculture, and disaster preparedness."
-    },
-    {
-      "id": "C",
-      "text": "Weather forecasting has improved substantially in recent decades, but because the gains came gradually from many interacting advances, the achievement has attracted little notice."
-    },
-    {
-      "id": "D",
-      "text": "Meteorologists disagree about whether satellites or supercomputers contributed more to the recent improvement in forecast accuracy."
-    }
-  ],
-  "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The text makes two coordinated points — forecasts have gotten much better, and the improvement's gradual, many-sourced character kept it out of the spotlight — and choice C states both.\n\n**The Full Solution:**\n- The improvement itself: a five-day forecast now matches the old three-day forecast, with useful predictions extending a week or more.\n- Its character: \"no single breakthrough,\" but accumulating gains from satellites, computing, and mathematics that reinforced one another.\n- Its reception: arriving \"a little at a time,\" the revolution stayed \"quiet\" despite enormous practical effect. That is the full idea choice C compresses.\n\n**Why the other choices are wrong:**\n- A: The text never says computers replaced forecasters — supercomputers appear as one of several contributing advances, and no meteorologist's opinion on staffing is reported.\n- B: The text asserts the opposite: useful predictions \"now extend a week or more ahead,\" and the cumulative effect on those very fields has been enormous.\n- D: No disagreement is mentioned; the text presents the advances as complementary, \"each advance making the others more valuable.\""
+ "id": 210,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "information-and-ideas",
+ "skill": "central-ideas-and-details",
+ "module": 1,
+ "passage": "Meteorologists sometimes speak of a \"quiet revolution\" in their field. A modern five-day forecast is about as accurate as a three-day forecast was a few decades ago, and useful predictions now extend a week or more ahead. The gains came from no single breakthrough: they accumulated through steady improvements in satellite observations, faster supercomputers, and better mathematical representations of the atmosphere, with each advance making the others more valuable. Because the improvement arrived a little at a time, it drew none of the attention that a dramatic discovery commands — yet its cumulative effect on aviation, agriculture, and disaster preparedness has been enormous.",
+ "question": "Which choice best states the main idea of the text?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Supercomputers have largely replaced human forecasters in producing modern weather predictions."
+  },
+  {
+   "id": "B",
+   "text": "Weather forecasts more than five days ahead remain too unreliable to guide important decisions in aviation, farming, and disaster preparedness."
+  },
+  {
+   "id": "C",
+   "text": "Weather forecasting has improved greatly in recent decades, but because the gains came gradually from many advances, they have drawn little notice."
+  },
+  {
+   "id": "D",
+   "text": "Meteorologists disagree about whether satellites or supercomputers contributed more to the recent improvement in forecast accuracy."
+  }
+ ],
+ "correctAnswer": "C",
+ "explanation": "**Choice C is correct.** The text makes two coordinated points — forecasts have gotten much better, and the improvement's gradual, many-sourced character kept it out of the spotlight — and choice C states both.\n\n**The Full Solution:**\n- The improvement itself: a five-day forecast now matches the old three-day forecast, with useful predictions extending a week or more.\n- Its character: \"no single breakthrough,\" but accumulating gains from satellites, computing, and mathematics that reinforced one another.\n- Its reception: arriving \"a little at a time,\" the revolution stayed \"quiet\" despite enormous practical effect. That is the full idea choice C compresses.\n\n**Why the other choices are wrong:**\n- A: The text never says computers replaced forecasters; supercomputers appear only as one of several contributing advances.\n- B: The text asserts the opposite: useful predictions \"now extend a week or more ahead,\" and the cumulative effect on those very fields has been enormous.\n- D: No disagreement is mentioned; the text presents the advances as complementary, \"each advance making the others more valuable.\""
 }

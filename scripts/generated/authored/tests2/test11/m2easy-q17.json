@@ -1,29 +1,29 @@
 {
  "id": 17,
- "question": "The monthly rate for renting a storage unit was reduced by $12\\%$. Then a \\$9.50 fee was added to the reduced rate, for a total monthly charge of \\$255.90. Which expression represents the monthly rate, in dollars, before it was reduced?",
+ "question": "The monthly rate for renting a storage unit was reduced by $20\\%$. Then a \\$15 fee was added to the reduced rate, for a total monthly charge of \\$255. What was the monthly rate, in dollars, before it was reduced?",
  "choices": [
   {
    "id": "A",
-   "text": "$\\dfrac{255.90 - 9.50}{1.12}$"
+   "text": "$200$"
   },
   {
    "id": "B",
-   "text": "$1.12(255.90 - 9.50)$"
+   "text": "$288$"
   },
   {
    "id": "C",
-   "text": "$\\dfrac{255.90 - 9.50}{0.88}$"
+   "text": "$300$"
   },
   {
    "id": "D",
-   "text": "$\\dfrac{255.90 + 9.50}{0.88}$"
+   "text": "$318.75$"
   }
  ],
  "distractorNotes": {
-  "A": "removes the fee correctly but divides by 1.12, treating the 12% reduction as an increase",
-  "B": "removes the fee but multiplies by 1.12, as though adding 12% back undoes a 12% reduction",
-  "D": "adds the fee to the total instead of subtracting it before undoing the reduction"
+  "A": "removes the fee but divides by 1.20, treating the 20% reduction as an increase: 240/1.20 = 200",
+  "B": "removes the fee but multiplies by 1.20, as though adding 20% back undoes a 20% reduction: 240(1.20) = 288",
+  "D": "undoes the reduction without first removing the fee: 255/0.80 = 318.75"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Undo the steps in reverse order: subtract the fee, then divide by $0.88$, the multiplier for a $12\\%$ reduction, giving $\\dfrac{255.90 - 9.50}{0.88}$.\n\n**The Full Solution:**\nStep 1: Let $r$ be the original monthly rate. A $12\\%$ reduction leaves $88\\%$ of the rate, so the reduced rate is $0.88r$.\nStep 2: Adding the fee gives the total: $0.88r + 9.50 = 255.90$, so $0.88r = 255.90 - 9.50$.\nStep 3: Divide by $0.88$: $r = \\dfrac{255.90 - 9.50}{0.88}$. Check: this equals $\\dfrac{246.40}{0.88} = 280$, and $0.88(280) + 9.50 = 246.40 + 9.50 = 255.90$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\dfrac{255.90 - 9.50}{1.12}$): divides by $1.12$, which would undo a $12\\%$ increase, not a reduction.\n* Choice B ($1.12(255.90 - 9.50)$): adds $12\\%$ of the reduced rate back, but the $12\\%$ was taken of the larger original rate, so this gives about $\\$275.97$ instead of $\\$280$.\n* Choice D ($\\dfrac{255.90 + 9.50}{0.88}$): adds the fee to the total; the fee was added to produce the total, so it must be subtracted to undo it.\n\n**Test Day Takeaway:** To reverse a chain of changes, undo the last change first, and undo a percent change by dividing by its multiplier ($0.88$ for a $12\\%$ decrease)."
+ "explanation": "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Undo the steps in reverse order: $255 - 15 = 240$, and $240$ is $80\\%$ of the original rate, so the rate was $\\frac{240}{0.80} = 300$ dollars.\n\n**The Full Solution:**\nStep 1: Let $r$ be the original monthly rate. A $20\\%$ reduction leaves $0.80r$, and adding the fee gives $0.80r + 15 = 255$.\nStep 2: Subtract the fee: $0.80r = 240$.\nStep 3: Divide by $0.80$: $r = 300$. Check: $300 - 0.20(300) = 240$, and $240 + 15 = 255$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($200$): divides by $1.20$ as though the rate had been increased by $20\\%$.\n* Choice B ($288$): multiplies by $1.20$; adding $20\\%$ of the reduced rate back does not undo a $20\\%$ reduction of the original rate.\n* Choice D ($318.75$): divides $255$ by $0.80$ without first removing the fee, which was added after the reduction.\n\n**Test Day Takeaway:** To reverse a percent change, divide by the multiplier ($0.80$ for a $20\\%$ decrease), and undo the last step (the fee) first."
 }

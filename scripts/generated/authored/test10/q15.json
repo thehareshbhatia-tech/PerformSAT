@@ -6,7 +6,7 @@
  "domain": "information-and-ideas",
  "skill": "inferences",
  "module": 1,
- "passage": "Sailing ships crossing the Arabian Sea timed their voyages to the monsoon: the winds blow steadily from the southwest all summer and reverse direction in winter, so a merchant could plan an outbound run and a return with unusual confidence. But the same regularity that made schedules dependable also made them rigid. A ship that missed the summer sailing could not simply depart a few weeks late; it waited in port, sometimes for months, until the winds turned again. For the merchants who financed these voyages, the monsoon system is therefore best understood as ______",
+ "passage": "Sailing ships crossing the Arabian Sea timed their voyages to the monsoon. Its winds blow steadily from the southwest all summer and reverse direction in winter, so a merchant could plan an outbound run and a return with unusual confidence. But the same regularity that made schedules dependable also made them rigid. A ship that missed the summer sailing could not simply depart a few weeks late; it waited in port, sometimes for months, until the winds turned again. For the merchants who financed these voyages, the monsoon system is therefore best understood as ______",
  "question": "Which choice most logically completes the text?",
  "choices": [
   {
@@ -19,11 +19,11 @@
   },
   {
    "id": "C",
-   "text": "a system so unreliable that prudent financiers preferred overland routes for their most valuable cargoes."
+   "text": "a system so unreliable that prudent financiers preferred to send their most valuable cargoes by overland routes instead."
   },
   {
    "id": "D",
-   "text": "a source of predictability that came at the price of flexibility, since the winds that guaranteed a passage also dictated when a passage could be attempted."
+   "text": "a source of predictability that came at the price of flexibility, since the winds also dictated when ships could sail."
   }
  ],
  "correctAnswer": "D",

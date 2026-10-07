@@ -334,6 +334,22 @@ export const PATTERN_TO_CB_SKILL = {
   'line-tangent-to-circle':                  'circles',
   'arc-length':                              'circles',
   'sector-area':                             'circles', // (θ/360) · π r²
+  'arc-length-in-radians':                   'circles',
+  'tangent-from-external-point':             'circles',
+  'tangent-slope-from-perpendicular-radius': 'circles',
+
+  // ── Titles introduced by the 2026-10 CB fidelity rebuilds ────────────────
+  'exponential-growth-factor-over-a-period': 'nonlinear-functions',
+  'function-evaluation-quadratic':           'nonlinear-functions',
+  'recover-parameter-from-known-root-then-evaluate': 'nonlinear-functions',
+  'match-coefficients-of-equivalent-polynomials': 'equivalent-expressions',
+  'vertical-shift-of-a-line-x-intercept':    'linear-equations-two-variables',
+  'point-on-a-line':                         'linear-equations-two-variables',
+  'linear-equation-in-context':              'linear-equations-two-variables',
+  'weighted-combined-mean':                  'one-variable-data',
+  'range-from-min-and-max':                  'one-variable-data',
+  'poll-scaling-margin-of-victory':          'inference-margin-of-error',
+  'chained-rate-conversion':                 'ratios-rates-proportions',
 };
 
 // ── Lookup helpers ───────────────────────────────────────────────────────────

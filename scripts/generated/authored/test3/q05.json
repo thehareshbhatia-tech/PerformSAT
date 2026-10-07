@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "text-structure-and-purpose",
  "type": "multiple-choice",
- "passage": "Lakes accumulate sediment year after year, and each layer traps pollen grains shed by the plants growing nearby at the time. Because pollen preserves well and differs in shape from species to species, researchers can extract a narrow core of mud from a lake bottom, identify the grains in each layer, and read the surrounding vegetation's history — which trees arrived, spread, or vanished — across thousands of years, reaching far beyond the oldest written records of any landscape.",
+ "passage": "Lakes accumulate sediment year after year, and each layer traps pollen grains shed by the plants growing nearby at the time. Pollen preserves well, and its shape differs from species to species. Researchers can therefore extract a narrow core of mud from a lake bottom and identify the grains in each layer. In this way they can read the history of the surrounding vegetation — which trees arrived, spread, or vanished — across thousands of years, far beyond the oldest written records of any landscape.",
  "question": "Which choice best states the main purpose of the text?",
  "choices": [
   {
@@ -27,7 +27,7 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** Every element of the text serves one explanatory job: showing how layered lake sediment plus identifiable pollen becomes a readable record of vegetation history.\n\n**The Full Solution:**\n- The first sentence establishes the archive (annual sediment layers trapping pollen).\n- The second explains the method built on it — coring, identifying grains layer by layer — and states the payoff: reading which trees arrived, spread, or vanished over thousands of years.\n- Purpose questions ask what the whole text is doing, and the whole text is explaining this reconstruction technique.\n\n**Why the other choices are wrong:**\n- B: The text notes that the record reaches beyond written accounts but never questions those accounts' trustworthiness — no argument is being made.\n- C: Distinctive pollen shapes are mentioned as what makes identification possible, not explained as an evolutionary development.\n- D: No particular forest is traced; the text describes the method in general terms.",
+ "explanation": "**Choice A is correct.** Every element of the text serves one explanatory job: showing how layered lake sediment plus identifiable pollen becomes a readable record of vegetation history.\n\n**The Full Solution:**\n- The first sentence establishes the archive (yearly sediment layers trapping pollen); the second explains why the grains are useful (they preserve well and differ by species).\n- The third describes the method built on it — coring and identifying grains layer by layer — and the last states the payoff: reading which trees arrived, spread, or vanished over thousands of years.\n- Purpose questions ask what the whole text is doing, and the whole text is explaining this reconstruction technique.\n\n**Why the other choices are wrong:**\n- B: The text notes that the record reaches beyond written accounts but never questions those accounts' trustworthiness — no argument is being made.\n- C: Distinctive pollen shapes are mentioned as what makes identification possible, not explained as an evolutionary development.\n- D: No particular forest is traced; the text describes the method in general terms.",
  "_meta": {
   "anchor": "Palynology — lake-sediment pollen cores as archives of vegetation history (unnamed researchers)"
  }

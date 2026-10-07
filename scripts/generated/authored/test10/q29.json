@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 2,
- "passage": "Whale oil served well enough in household lamps, though it burned with smoke and a persistent odor. Candles made from spermaceti, a waxy substance from the head of the sperm whale, were another article altogether: they gave a bright, steady, odorless flame, and buyers who could afford them came to regard ordinary tallow candles as a ______ to be tolerated only until something better could be had.",
+ "passage": "When the Union blockade cut the Confederacy off from imported coffee during the Civil War, Southerners brewed substitutes from chicory root, roasted grains, okra seeds, and sweet potatoes. To most drinkers, the brews were a ______ to be tolerated only until genuine coffee could be had again.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The sentence's own gloss defines the blank: something \"to be tolerated only until something better could be had\" is a stopgap, and \"makeshift\" names exactly that.\n\n**The Full Solution:**\n- The passage builds a contrast: spermaceti candles are \"another article altogether,\" bright, steady, odorless, while tallow candles occupy the inferior position.\n- From the vantage of buyers who had seen the superior product, the ordinary candle becomes a temporary substitute, a makeshift, kept only for want of the better thing.\n\n**Why the other choices are wrong:**\n- B: \"Luxury\" inverts the hierarchy; the passage makes spermaceti the premium article and tallow the lesser one.\n- C: \"Commonplace\" captures how ordinary tallow candles were, but not the defining clause's grudging, temporary tolerance of them while awaiting something better.\n- D: \"Standard\" clashes with the defining clause: a standard is what one settles on, not what one tolerates while awaiting something better."
+ "explanation": "**Choice A is correct.** The drinks were used only because real coffee was unavailable and were to be \"tolerated only until genuine coffee could be had again.\" A \"makeshift\" is a temporary substitute used until something better is available.\n\n**The Full Solution:**\n- The blockade created a shortage, and the substitutes filled the gap.\n- The phrase \"tolerated only until genuine coffee could be had again\" marks them as temporary and second-rate.\n- \"Makeshift\" captures both ideas: a stopgap that people accept for now.\n\n**Why the other choices are wrong:**\n- B: A \"luxury\" is something prized and desirable, not something merely tolerated.\n- C: A \"commonplace\" is something ordinary and familiar; the word says nothing about the drinks being temporary or inferior.\n- D: A \"standard\" is the normal or approved model, but the brews were measured against genuine coffee and found wanting."
 }

@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-371",
-  "question": "A deposit of $P$ dollars earns simple interest at an annual rate of $r$, expressed as a decimal. Which expression gives the balance after $t$ years?",
+  "question": "A savings account earns $m$ dollars in interest each month. Which expression represents the interest, in dollars, the account earns in $y$ years?",
   "choices": [
     {
       "id": "A",
-      "text": "$P + rt$"
+      "text": "$\\frac{my}{12}$"
     },
     {
       "id": "B",
-      "text": "$Prt$"
+      "text": "$12my$"
     },
     {
       "id": "C",
-      "text": "$P(1 + rt)$"
+      "text": "$m + 12y$"
     },
     {
       "id": "D",
-      "text": "$P(1 + r)^t$"
+      "text": "$\\frac{12y}{m}$"
     }
   ],
+  "correctAnswer": "B",
   "distractorNotes": {
-    "A": "adds the product $rt$ to the principal without scaling it by $P$, so the units are wrong",
-    "B": "gives the interest earned, not the balance, because the principal is never added back",
-    "D": "is the compound-interest balance; simple interest is never applied to interest already earned"
+    "A": "divides by 12 instead of multiplying, converting years to months the wrong way",
+    "C": "adds the monthly interest to the number of months instead of multiplying",
+    "D": "divides the number of months by the monthly interest, inverting the rate"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Simple Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The balance is the principal plus the simple interest: $P + Prt$, and factoring $P$ gives $P(1 + rt)$.\n\n**The Full Solution:**\nStep 1: Simple interest earned over $t$ years is $I = Prt$.\nStep 2: The balance is the principal plus that interest: $A = P + Prt$.\nStep 3: Factor the common $P$: $A = P(1 + rt)$. Check with $P = 1000$, $r = 0.05$, $t = 2$: the interest is $\\$100$ and the balance is $\\$1{,}100$, and $1000(1 + 0.05 \\cdot 2) = 1{,}100$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($P + rt$): adds the product $rt$ to the principal without scaling it by $P$, so the units are wrong\n* Choice B ($Prt$): gives the interest earned, not the balance, because the principal is never added back\n* Choice D ($P(1 + r)^t$): is the compound-interest balance; simple interest is never applied to interest already earned\n\n**Test Day Takeaway:** Test a symbolic answer with easy numbers. Simple interest grows linearly in $t$; only compound interest puts $t$ in an exponent."
+  "explanation": "**SAT Pattern: Simple Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $y$ years is $12y$ months, and $m$ dollars each month for $12y$ months is $12my$ dollars.\n\n**The Full Solution:**\nStep 1: Convert the time: $y$ years is $12y$ months.\nStep 2: Interest $=$ (interest per month) $\\times$ (number of months) $= m \\cdot 12y$.\nStep 3: So the interest is $12my$ dollars. Check with $m = 10$ and $y = 2$: $24$ months at $\\$10$ per month is $\\$240$, and $12(10)(2) = 240$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{my}{12}$): divides by $12$; there are more months than years, so multiply by $12$.\n* Choice C ($m + 12y$): adds a dollar amount to a number of months.\n* Choice D ($\\frac{12y}{m}$): divides by the rate; earnings grow when the rate grows, so $m$ belongs in the numerator.\n\n**Test Day Takeaway:** Test an expression with small numbers: if it gives the right answer for $m = 10$ and $y = 2$, the units are handled correctly."
 }

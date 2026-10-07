@@ -1,49 +1,49 @@
 {
- "id": "bank-alg-286",
- "question": "For the linear function $f$, the table shows three values of $x$ and their corresponding values of $f(x)$. In the equation $f(x) = 12x + b$, $b$ is a constant. If the equation has no solution, which of the following CANNOT be the value of $b$?",
- "questionTable": {
-  "headers": [
-   "$x$",
-   "$f(x)$"
+  "id": "bank-alg-286",
+  "question": "The table shows selected values of the linear function $f$. In the equation $f(x) = 7x + b$, $b$ is a constant. If this equation has no solution, which of the following CANNOT be the value of $b$?",
+  "questionTable": {
+    "headers": [
+      "$x$",
+      "$f(x)$"
+    ],
+    "rows": [
+      [
+        "$2$",
+        "$-1$"
+      ],
+      [
+        "$4$",
+        "$13$"
+      ],
+      [
+        "$7$",
+        "$34$"
+      ]
+    ]
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-29$"
+    },
+    {
+      "id": "B",
+      "text": "$-15$"
+    },
+    {
+      "id": "C",
+      "text": "$-1$"
+    },
+    {
+      "id": "D",
+      "text": "$7$"
+    }
   ],
-  "rows": [
-   [
-    "$3$",
-    "$8$"
-   ],
-   [
-    "$5$",
-    "$32$"
-   ],
-   [
-    "$8$",
-    "$68$"
-   ]
-  ]
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$-64$"
+  "correctAnswer": "B",
+  "distractorNotes": {
+    "A": "uses the change in f(x), 14, as the slope without dividing by the change in x, 2, so finds the intercept -1 - 14(2) = -29",
+    "C": "reads f(2) = -1 as the y-intercept of f",
+    "D": "reasons that b cannot equal the slope 7, mixing up the coefficient with the constant"
   },
-  {
-   "id": "B",
-   "text": "$-28$"
-  },
-  {
-   "id": "C",
-   "text": "$8$"
-  },
-  {
-   "id": "D",
-   "text": "$12$"
-  }
- ],
- "correctAnswer": "B",
- "distractorNotes": {
-  "A": "uses the change in f(x), 24, as the slope without dividing by the change in x, 2, so finds the intercept 8 - 24(3) = -64",
-  "C": "reads f(3) = 8 as the y-intercept of f",
-  "D": "reasons that b cannot equal the slope 12, mixing up the coefficient with the constant"
- },
- "explanation": "**SAT Pattern: Identifying Identity / Contradiction Equations**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The table gives $f(x) = 12x - 28$. With $b = -28$ the equation is an identity (infinitely many solutions), so $-28$ is the one value $b$ cannot be.\n\n**The Full Solution:**\nStep 1: The slope of $f$ is $\\frac{32 - 8}{5 - 3} = 12$, and $f(3) = 12(3) + c = 8$ gives $c = -28$, so $f(x) = 12x - 28$.\nStep 2: The equation $12x - 28 = 12x + b$ reduces to $-28 = b$ after subtracting $12x$. If $b \\neq -28$, that statement is false and there is no solution.\nStep 3: If $b = -28$, the statement is true for every $x$, so the equation has infinitely many solutions, not none. So $b$ cannot be $-28$. Check: $f(8) = 12(8) - 28 = 68$, matching the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-64$): uses $24$, the change in $f(x)$, as the slope without dividing by the change in $x$, which gives an intercept of $8 - 24(3) = -64$; with the true slope $12$, $b = -64$ does give no solution.\n* Choice C ($8$): treats $f(3) = 8$ as the $y$-intercept; $b = 8$ leaves $-28 = 8$, which is false, so it does give no solution.\n* Choice D ($12$): confuses the constant $b$ with the slope $12$; $b = 12$ leaves $-28 = 12$, so it also gives no solution.\n\n**Test Day Takeaway:** With equal slopes, every constant except one gives no solution; the one excluded value is the constant that makes the two sides identical."
+  "explanation": "**SAT Pattern: Identifying Identity / Contradiction Equations**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The table gives $f(x) = 7x - 15$. With $b = -15$ the equation is an identity (infinitely many solutions), so $-15$ is the one value $b$ cannot be.\n\n**The Full Solution:**\nStep 1: The slope of $f$ is $\\frac{13 - (-1)}{4 - 2} = 7$, and $f(2) = 7(2) + c = -1$ gives $c = -15$, so $f(x) = 7x - 15$.\nStep 2: The equation $7x - 15 = 7x + b$ reduces to $-15 = b$ after subtracting $7x$. If $b \\neq -15$, that statement is false and there is no solution.\nStep 3: If $b = -15$, the statement is true for every $x$, so the equation has infinitely many solutions, not none. So $b$ cannot be $-15$. Check: $f(7) = 7(7) - 15 = 34$, matching the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-29$): uses $14$, the change in $f(x)$, as the slope without dividing by the change in $x$, which gives an intercept of $-1 - 14(2) = -29$; with the true slope $7$, $b = -29$ does give no solution.\n* Choice C ($-1$): treats $f(2) = -1$ as the $y$-intercept; $b = -1$ leaves $-15 = -1$, which is false, so it does give no solution.\n* Choice D ($7$): confuses the constant $b$ with the slope $7$; $b = 7$ leaves $-15 = 7$, so it also gives no solution.\n\n**Test Day Takeaway:** With equal slopes, every constant except one gives no solution; the one excluded value is the constant that makes the two sides identical."
 }

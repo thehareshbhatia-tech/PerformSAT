@@ -62,19 +62,19 @@ export const statisticsQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "A data set of $12$ numbers has a mean of $4.5$. After one number is removed, the mean of the remaining numbers is $4.2$. What is the value of the removed number?",
+      question: "A data set of $12$ numbers has a mean of $15$. After one number is removed, the mean of the remaining numbers is $14$. What is the value of the removed number?",
       choices: [
-        // distractor: subtracts the two means, $4.5 - 4.2 = 0.3$, instead of the two totals.
-        { id: "A", text: "$0.3$" },
-        // distractor: multiplies both means by $12$, computing $12(4.5) - 12(4.2) = 3.6$.
-        { id: "B", text: "$3.6$" },
-        { id: "C", text: "$7.8$" },
-        // distractor: reports the total of the remaining $11$ numbers, $11(4.2) = 46.2$.
-        { id: "D", text: "$46.2$" }
+        // distractor: subtracts the two means, 15 - 14
+        { id: "A", text: "$1$" },
+        // distractor: multiplies both means by 12, as if no number had been removed
+        { id: "B", text: "$12$" },
+        { id: "C", text: "$26$" },
+        // distractor: gives the sum of the 11 remaining numbers
+        { id: "D", text: "$154$" }
       ],
       correctAnswer: "C",
-      hint: "Work with totals, not means.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~30s):** The totals are $12(4.5) = 54$ and $11(4.2) = 46.2$, so the removed number is $54 - 46.2 = 7.8$.\n\n**The Full Solution:**\nStep 1: The original $12$ numbers add to $12(4.5) = 54$.\nStep 2: The remaining $11$ numbers add to $11(4.2) = 46.2$.\nStep 3: The removed number is the difference of the totals: $54 - 46.2 = 7.8$. Check: $\\frac{54 - 7.8}{11} = \\frac{46.2}{11} = 4.2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.3$): subtracts the two means, $4.5 - 4.2 = 0.3$, instead of the two totals.\n* Choice B ($3.6$): multiplies both means by $12$, computing $12(4.5) - 12(4.2) = 3.6$.\n* Choice D ($46.2$): reports the total of the remaining $11$ numbers, $11(4.2) = 46.2$.\n\n**Test Day Takeaway:** When a value is added or removed, compare TOTALS (mean times count), each with its own count. Means cannot be subtracted directly.",
+      hint: "Turn each mean into a sum: sum = mean times count.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** The sum drops from $12(15) = 180$ to $11(14) = 154$, so the removed number is $180 - 154 = 26$.\n\n**The Full Solution:**\nStep 1: The sum of the original $12$ numbers is $12 \\times 15 = 180$.\nStep 2: After one number is removed, $11$ numbers remain with sum $11 \\times 14 = 154$.\nStep 3: The removed number is the difference of the sums: $180 - 154 = 26$.\n\nCheck: $\\frac{180 - 26}{11} = \\frac{154}{11} = 14$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): subtracts the means; the change in the mean is not the removed value.\n* Choice B ($12$): uses $12$ numbers for both sums, $12(15) - 12(14)$.\n* Choice D ($154$): is the sum of the numbers that remain, not the number removed.\n\n**Test Day Takeaway:** For a mean question with a value added or removed, work with sums: sum = mean $\\times$ count.",
       skills: ["calculate-mean"]
     },
     {
@@ -198,92 +198,92 @@ export const statisticsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "A survey asked each of $55$ households how many vehicles it owns. The bar graph shows the number of households that gave each response. What is the mode of the numbers of vehicles owned?",
-      diagram: { type: "barChart", params: { data: [{ label: "0", value: 4 }, { label: "1", value: 17 }, { label: "2", value: 23 }, { label: "3", value: 9 }, { label: "4", value: 2 }], xAxisLabel: "Number of vehicles", yAxisLabel: "Number of households", yMax: 25, yStep: 5 } },
+      question: "The bar graph shows the number of books borrowed from a library on each of $5$ days. What is the median of the numbers of books borrowed on these days?",
+      diagram: { type: "barChart", params: { data: [{ label: "Mon", value: 30 }, { label: "Tue", value: 50 }, { label: "Wed", value: 20 }, { label: "Thu", value: 70 }, { label: "Fri", value: 40 }], xAxisLabel: "Day", yAxisLabel: "Number of books borrowed", yMax: 80, yStep: 10 } },
       choices: [
-        // distractor: reads the second-tallest bar instead of the tallest.
-        { id: "A", text: "$1$" },
-        { id: "B", text: "$2$" },
-        // distractor: reports the greatest response shown on the axis rather than the most frequent one.
-        { id: "C", text: "$4$" },
-        // distractor: reports the height of the tallest bar, which is how often the mode occurs, not the mode itself.
-        { id: "D", text: "$23$" }
+        // distractor: takes the middle bar, Wednesday, without ordering the values
+        { id: "A", text: "$20$" },
+        { id: "B", text: "$40$" },
+        // distractor: computes the mean, 210/5, instead of the median
+        { id: "C", text: "$42$" },
+        // distractor: reports the greatest value
+        { id: "D", text: "$70$" }
       ],
       correctAnswer: "B",
-      hint: "The mode is a response, not a bar height.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** The tallest bar sits above $2$ vehicles, so $2$ is the response given most often.\n\n**The Full Solution:**\nStep 1: The horizontal axis lists the possible responses and each bar height is the number of households giving that response.\nStep 2: The bar heights are $4$, $17$, $23$, $9$, and $2$ households for $0$, $1$, $2$, $3$, and $4$ vehicles.\nStep 3: The greatest height, $23$, occurs above $2$ vehicles, so the mode is $2$ vehicles. Check: $4 + 17 + 23 + 9 + 2 = 55$ households, matching the survey size. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): reads the second-tallest bar instead of the tallest.\n* Choice C ($4$): reports the greatest response shown on the axis rather than the most frequent one.\n* Choice D ($23$): reports the height of the tallest bar, which is how often the mode occurs, not the mode itself.\n\n**Test Day Takeaway:** The mode is a data value. On a bar graph read across to the axis label under the tallest bar, never up to its height.",
+      hint: "List the five values in order before choosing the middle one.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** In order, the values are $20, 30, 40, 50, 70$, and the middle value is $40$.\n\n**The Full Solution:**\nStep 1: Read the bars: $30$, $50$, $20$, $70$, and $40$ books.\nStep 2: Order the values from least to greatest: $20, 30, 40, 50, 70$.\nStep 3: With $5$ values, the median is the third value, $40$.\n\nCheck: Two values ($20$ and $30$) are below $40$ and two ($50$ and $70$) are above it. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): is the middle bar of the graph, but the bars are in day order, not in order of size.\n* Choice C ($42$): is the mean, $\\frac{210}{5}$, not the median.\n* Choice D ($70$): is the greatest number of books borrowed on one day.\n\n**Test Day Takeaway:** Before finding a median, put the values in order; a graph's order is not numerical order.",
       skills: ["find-mode"]
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "$7, 2, 9, 2, 5, 9, 9, 4, 6$\nWhat is the mode of the data shown?",
+      question: "Data set A: $12, 15, 15, 18$\nData set B: $3, 12, 15, 15, 18$\nWhich statement correctly compares the means of data sets A and B?",
       choices: [
-        // distractor: picks $2$, which also repeats, but $2$ occurs only twice while $9$ occurs three times.
-        { id: "A", text: "$2$" },
-        // distractor: reports how many times the mode occurs, $3$, instead of the value that occurs most often.
-        { id: "B", text: "$3$" },
-        // distractor: reports the median, the fifth value of the ordered list $2, 2, 4, 5, 6, 7, 9, 9, 9$.
-        { id: "C", text: "$6$" },
-        { id: "D", text: "$9$" }
+        { id: "A", text: "The mean of data set B is less than the mean of data set A." },
+        // distractor: thinks that adding a value to a data set always increases its mean
+        { id: "B", text: "The mean of data set B is greater than the mean of data set A." },
+        // distractor: thinks one added value cannot change the mean, which is true of the median here but not the mean
+        { id: "C", text: "The means of data sets A and B are equal." },
+        // distractor: does not realize that both means can be computed from the listed values
+        { id: "D", text: "There is not enough information to compare the means." }
       ],
-      correctAnswer: "D",
-      hint: "Count how many times each value occurs.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~15s):** The value $9$ occurs $3$ times, more than any other value, so the mode is $9$.\n\n**The Full Solution:**\nStep 1: Count each value: $2$ occurs $2$ times, $9$ occurs $3$ times, and $4$, $5$, $6$, and $7$ each occur once.\nStep 2: The greatest frequency is $3$, and only the value $9$ has it.\nStep 3: So the mode is $9$. Check: the frequencies $2 + 3 + 1 + 1 + 1 + 1 = 9$ account for all $9$ values. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): picks $2$, which also repeats, but $2$ occurs only twice while $9$ occurs three times.\n* Choice B ($3$): reports how many times the mode occurs, $3$, instead of the value that occurs most often.\n* Choice C ($6$): reports the median, the fifth value of the ordered list $2, 2, 4, 5, 6, 7, 9, 9, 9$.\n\n**Test Day Takeaway:** The mode is a VALUE from the data set, the one with the greatest frequency; the frequency itself is not the answer.",
+      correctAnswer: "A",
+      hint: "Compare the added value with the mean of data set A.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** The added value, $3$, is less than the mean of data set A, $15$, so it pulls the mean down.\n\n**The Full Solution:**\nStep 1: The mean of data set A is $\\frac{12 + 15 + 15 + 18}{4} = \\frac{60}{4} = 15$.\nStep 2: The mean of data set B is $\\frac{3 + 12 + 15 + 15 + 18}{5} = \\frac{63}{5} = 12.6$.\nStep 3: Since $12.6 < 15$, the mean of data set B is less than the mean of data set A.\n\nCheck: The medians are both $15$, but the means differ: $12.6$ and $15$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (greater): assumes adding a value raises the mean; a value below the mean lowers it.\n* Choice C (equal): confuses the mean with the median, which stays $15$.\n* Choice D (not enough information): every value is listed, so both means can be found.\n\n**Test Day Takeaway:** Adding a value below the mean lowers the mean; adding a value above it raises the mean.",
       skills: ["find-mode"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "In a data set of $20$ values, the value $5$ occurs $6$ times, the value $8$ occurs $6$ times, and no other value occurs more than $3$ times. Which of the following is true about the mode of the data set?",
+      question: "$10, 12, 14, 15, 15, 17, 18, 61$\nThe value $61$ is removed from the data set shown. Which statement best describes the effect on the mean and the median?",
       choices: [
-        // distractor: breaks the tie by choosing the smaller value, but the definition of mode does not favor smaller values.
-        { id: "A", text: "The only mode is $5$." },
-        // distractor: breaks the tie by choosing the larger value, which the definition of mode does not do either.
-        { id: "B", text: "The only mode is $8$." },
-        { id: "C", text: "The data set has two modes, $5$ and $8$." },
-        // distractor: treats a tie for the greatest frequency as no mode; a data set has no mode only when every value occurs the same number of times.
-        { id: "D", text: "The data set has no mode." }
+        // distractor: assumes the median must drop when the greatest value is removed, but the two middle values are both 15
+        { id: "A", text: "The mean decreases, and the median decreases." },
+        { id: "B", text: "The mean decreases, and the median does not change." },
+        // distractor: reverses the effects: the outlier strongly affects the mean, not the median
+        { id: "C", text: "The mean does not change, and the median decreases." },
+        // distractor: thinks removing one value cannot change either measure
+        { id: "D", text: "Neither the mean nor the median changes." }
       ],
-      correctAnswer: "C",
-      hint: "Compare the highest frequency in the data set with how many values reach it.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~30s):** The greatest frequency is $6$, and two values reach it, so both $5$ and $8$ are modes.\n\n**The Full Solution:**\nStep 1: The mode is the value or values occurring most frequently.\nStep 2: The greatest frequency in this data set is $6$, since every other value occurs at most $3$ times.\nStep 3: Both $5$ and $8$ occur $6$ times, so the data set has two modes, $5$ and $8$. Check: no value occurs more than $6$ times, so neither can be excluded. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: breaks the tie by choosing the smaller value, but the definition of mode does not favor smaller values.\n* Choice B: breaks the tie by choosing the larger value, which the definition of mode does not do either.\n* Choice D: treats a tie for the greatest frequency as no mode; a data set has no mode only when every value occurs the same number of times.\n\n**Test Day Takeaway:** A tie for the highest frequency produces more than one mode. Only a data set with no repeats at all, or with every value equally frequent, has no mode.",
+      correctAnswer: "B",
+      hint: "Find the median before and after; the outlier mainly affects the mean.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~30s):** Removing the outlier $61$ lowers the mean a lot, but the middle values are $15$ before and after, so the median stays $15$.\n\n**The Full Solution:**\nStep 1: Before: the mean is $\\frac{162}{8} = 20.25$, and the median is the average of the 4th and 5th values, $\\frac{15 + 15}{2} = 15$.\nStep 2: After removing $61$: the mean is $\\frac{101}{7} \\approx 14.4$, and the median is the 4th of $7$ values, $15$.\nStep 3: The mean decreases, and the median does not change.\n\nCheck: $162 - 61 = 101$, and $10, 12, 14, \\mathbf{15}, 15, 17, 18$ has middle value $15$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (both decrease): the median would drop only if the middle values changed, and here both middle values are $15$.\n* Choice C (mean unchanged, median decreases): reverses the roles; an extreme value pulls the mean, not the median.\n* Choice D (neither changes): the mean depends on every value, so removing $61$ must lower it.\n\n**Test Day Takeaway:** An outlier pulls the mean toward it; the median depends only on the middle of the ordered list.",
       skills: ["find-mode"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "The paint color of each of $200$ cars in a parking lot was recorded. Which of the following measures of center can be determined from these data?",
+      question: "$18, 7, 25, 12, 30, 10$\nWhat is the median of the data shown?",
       choices: [
-        // distractor: the mean requires arithmetic on the values, which categorical labels do not support.
-        { id: "A", text: "The mean only" },
-        // distractor: the median requires an order on the values, and paint colors have no least-to-greatest order.
-        { id: "B", text: "The median only" },
-        { id: "C", text: "The mode only" },
-        // distractor: assumes every measure of center applies to every data set, but only the mode applies to categorical data.
-        { id: "D", text: "The mean, the median, and the mode" }
+        // distractor: orders the values but takes only the lower of the two middle values
+        { id: "A", text: "$12$" },
+        { id: "B", text: "$15$" },
+        // distractor: computes the mean, 102/6, instead of the median
+        { id: "C", text: "$17$" },
+        // distractor: averages the two middle values of the list as given, 25 and 12, without ordering it
+        { id: "D", text: "$18.5$" }
       ],
-      correctAnswer: "C",
-      hint: "Ask which of the three measures needs the data to be numbers you can order or add.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** Colors cannot be added or ordered, so only the most frequent color, the mode, can be found.\n\n**The Full Solution:**\nStep 1: The mean requires adding the values and dividing, which is impossible for color names.\nStep 2: The median requires arranging the values from least to greatest, and colors have no numerical order.\nStep 3: The mode requires only counting how often each value occurs, which works for colors, so the mode alone can be determined. Check: reporting that red occurs most often is meaningful, while an average color is not. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: the mean requires arithmetic on the values, which categorical labels do not support.\n* Choice B: the median requires an order on the values, and paint colors have no least-to-greatest order.\n* Choice D: assumes every measure of center applies to every data set, but only the mode applies to categorical data.\n\n**Test Day Takeaway:** Categorical data supports only the mode. Mean and median require values you can add or order.",
+      correctAnswer: "B",
+      hint: "Order the values first. With an even number of values, average the two in the middle.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~20s):** In order the values are $7, 10, 12, 18, 25, 30$, and the median is $\\frac{12 + 18}{2} = 15$.\n\n**The Full Solution:**\nStep 1: Order the six values: $7, 10, 12, 18, 25, 30$.\nStep 2: With $6$ values, the median is the average of the 3rd and 4th values, $12$ and $18$.\nStep 3: The median is $\\frac{12 + 18}{2} = 15$.\n\nCheck: Three values ($7$, $10$, $12$) are below $15$ and three ($18$, $25$, $30$) are above it. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): stops at the 3rd value; with an even count the two middle values must be averaged.\n* Choice C ($17$): is the mean, $\\frac{102}{6}$.\n* Choice D ($18.5$): averages $25$ and $12$, the middle of the unordered list.\n\n**Test Day Takeaway:** Median: order first; for an even number of values, average the two middle values.",
       skills: ["find-mode"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "A data set of $15$ integers has exactly one mode, $24$, which occurs $4$ times. The value $19$ occurs $3$ times. If one more $19$ is added, which of the following is true about the mode of the new data set?",
+      question: "Data set F has $35$ integer values, each between $60$ and $95$. Data set G is created by adding the value $100$ to data set F. Which of the following must be greater for data set G than for data set F?\nI. The mean\nII. The median",
       choices: [
-        // distractor: keeps $24$ as the only mode, overlooking that $19$ now occurs as often as $24$ does.
-        { id: "A", text: "The only mode is $24$." },
-        // distractor: assumes the value just added becomes the only mode, but $19$ only ties $24$; it does not pass it.
-        { id: "B", text: "The only mode is $19$." },
-        { id: "C", text: "The data set has two modes, $19$ and $24$." },
-        // distractor: treats a tie for the greatest frequency as no mode; both tied values are modes.
-        { id: "D", text: "The data set has no mode." }
+        { id: "A", text: "I only" },
+        // distractor: has the effects reversed: the mean must increase, while the median might not
+        { id: "B", text: "II only" },
+        // distractor: assumes the median must increase, but it stays the same if the 18th and 19th values of F are equal
+        { id: "C", text: "I and II" },
+        // distractor: overlooks that a value greater than every value in F must raise the mean
+        { id: "D", text: "Neither I nor II" }
       ],
-      correctAnswer: "C",
-      hint: "Update the frequency of 19 and compare it with the frequency of 24.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~35s):** After the addition, $19$ occurs $3 + 1 = 4$ times, the same as $24$, and no other value occurs more than $3$ times, so both are modes.\n\n**The Full Solution:**\nStep 1: Since $24$ is the only mode and occurs $4$ times, every other value in the original data set occurs at most $3$ times.\nStep 2: Adding one $19$ raises its frequency from $3$ to $4$; the frequency of $24$ stays $4$, and every other frequency stays at most $3$.\nStep 3: The greatest frequency is $4$, reached by both $19$ and $24$, so the new data set has two modes, $19$ and $24$. Check: the new data set has $16$ values, and no value occurs more than $4$ times. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (The only mode is $24$.): keeps $24$ as the only mode, overlooking that $19$ now occurs as often as $24$ does.\n* Choice B (The only mode is $19$.): assumes the value just added becomes the only mode, but $19$ only ties $24$; it does not pass it.\n* Choice D (The data set has no mode.): treats a tie for the greatest frequency as no mode; both tied values are modes.\n\n**Test Day Takeaway:** After values are added, recount the frequencies. A tie for the greatest frequency gives more than one mode, not a new single mode and not no mode.",
+      correctAnswer: "A",
+      hint: "Compare $100$ with the values in F, then ask whether the middle of the list must move.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~45s):** Since $100$ is greater than every value in F, the mean must rise; the median moves from the 18th value to the average of the 18th and 19th values, which can be equal.\n\n**The Full Solution:**\nStep 1: Mean: every value in F is less than $100$, so the mean of F is less than $100$, and adding $100$ must increase the mean.\nStep 2: Median: F has $35$ values, so its median is the 18th value. G has $36$ values, so its median is the average of the 18th and 19th values of F.\nStep 3: If the 18th and 19th values of F are equal, the median does not change, so it need not be greater. Only I must be true.\n\nCheck: For example, if the 18th and 19th values of F are both $80$, both data sets have median $80$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (II only): reverses the two results.\n* Choice C (I and II): assumes the median must increase; it can stay the same.\n* Choice D (Neither I nor II): a value greater than every value always raises the mean.\n\n**Test Day Takeaway:** For a must-be-true question, look for one case where the statement fails; for the median, try equal middle values.",
       skills: ["find-mode"]
     }
   ],
@@ -311,20 +311,20 @@ export const statisticsQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "The box plot summarizes the mass, in grams, of each of $45$ river stones collected from a streambed. What is the interquartile range, in grams, of the masses?",
+      question: "The box plot summarizes the mass, in grams, of each of $45$ river stones collected from a streambed. What is the range, in grams, of the masses?",
       diagram: { type: "boxPlot", params: { min: 22, q1: 31, median: 38, q3: 47, max: 58, xLabel: "Mass (g)", xMin: 20, xMax: 60, xGridStep: 5, xLabelStep: 10 } },
       choices: [
-        // distractor: subtracts the first quartile from the median, $38 - 31$, covering only the left half of the box.
-        { id: "A", text: "$7$" },
-        // distractor: subtracts the median from the third quartile, $47 - 38$, covering only the right half of the box.
-        { id: "B", text: "$9$" },
-        { id: "C", text: "$16$" },
-        // distractor: subtracts the whisker ends, $58 - 22$, which is the range rather than the interquartile range.
-        { id: "D", text: "$36$" }
+        // distractor: subtracts the quartiles, 47 - 31, instead of the minimum from the maximum
+        { id: "A", text: "$16$" },
+        // distractor: reports the minimum mass
+        { id: "B", text: "$22$" },
+        { id: "C", text: "$36$" },
+        // distractor: reports the maximum mass
+        { id: "D", text: "$58$" }
       ],
       correctAnswer: "C",
-      hint: "The interquartile range is the width of the box itself.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** The box runs from $31$ to $47$ grams, so the interquartile range is $47 - 31 = 16$.\n\n**The Full Solution:**\nStep 1: A box plot marks five values: the minimum and maximum at the whisker ends, the quartiles at the box edges, and the median inside the box.\nStep 2: The interquartile range is the third quartile minus the first quartile, so it uses only the two box edges, $47$ and $31$.\nStep 3: Interquartile range $= 47 - 31 = 16$ grams. Check: the middle half of the $45$ masses lies inside a $16$-gram-wide box. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): subtracts the first quartile from the median, $38 - 31$, covering only the left half of the box.\n* Choice B ($9$): subtracts the median from the third quartile, $47 - 38$, covering only the right half of the box.\n* Choice D ($36$): subtracts the whisker ends, $58 - 22$, which is the range rather than the interquartile range.\n\n**Test Day Takeaway:** Box edges give the interquartile range; whisker ends give the range. Decide which two marks the question wants before subtracting.",
+      hint: "The ends of the whiskers are the minimum and the maximum.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~15s):** The whiskers end at $22$ and $58$, so the range is $58 - 22 = 36$ grams.\n\n**The Full Solution:**\nStep 1: In a box plot, the left end of the left whisker is the minimum: $22$ grams.\nStep 2: The right end of the right whisker is the maximum: $58$ grams.\nStep 3: The range is the maximum minus the minimum: $58 - 22 = 36$ grams.\n\nCheck: $22 + 36 = 58$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($16$): uses the ends of the box, $47 - 31$, instead of the ends of the whiskers.\n* Choice B ($22$): is the minimum, not the range.\n* Choice D ($58$): is the maximum, not the range.\n\n**Test Day Takeaway:** In a box plot, the whisker ends give the minimum and maximum, and the range is their difference.",
       skills: ["range-calculation"]
     },
     {
@@ -348,37 +348,37 @@ export const statisticsQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "Data set Q is formed by adding one value to data set P, which has $30$ values. The added value is greater than every value in data set P. Which of the following must be greater for data set Q than for data set P?",
+      question: "Data set P has $30$ values. Data set Q is formed by adding to P one value that is less than every value in P. Which of the following must be greater for Q than for P?",
       choices: [
-        // distractor: the added value is above every value in P, so the least value of the data set does not move.
-        { id: "A", text: "The minimum" },
-        // distractor: the median shifts to the sixteenth ordered value, which is at least the old median but can equal it.
-        { id: "B", text: "The median" },
-        // distractor: one new value cannot outnumber an existing most frequent value, so the mode may be unchanged.
-        { id: "C", text: "The mode" },
+        // distractor: thinks adding a value raises the greatest value, but the added value is the new least value
+        { id: "A", text: "The maximum" },
+        // distractor: thinks adding a value always raises the mean, but a value below every value lowers it
+        { id: "B", text: "The mean" },
+        // distractor: thinks adding a value raises the median, but a low value can only lower it or leave it unchanged
+        { id: "C", text: "The median" },
         { id: "D", text: "The range" }
       ],
       correctAnswer: "D",
-      hint: "Ask which measure is guaranteed to change, not merely likely to.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~40s):** The added value raises the maximum and leaves the minimum alone, so the range must grow.\n\n**The Full Solution:**\nStep 1: The added value exceeds every value in data set P, so the maximum of Q is that new value and the minimum of Q equals the minimum of P.\nStep 2: Range equals maximum minus minimum, and only the maximum increased, so the range of Q is strictly greater than the range of P.\nStep 3: No other listed measure is guaranteed to increase. Check: the minimum is unchanged, the median can stay the same when the two central values of P are equal, and the mode need not change at all. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: the added value is above every value in P, so the least value of the data set does not move.\n* Choice B: the median shifts to the sixteenth ordered value, which is at least the old median but can equal it.\n* Choice C: one new value cannot outnumber an existing most frequent value, so the mode may be unchanged.\n\n**Test Day Takeaway:** On a \"must be\" question, look for the measure whose definition forces a change; a measure that merely usually changes is not the answer.",
+      hint: "The added value becomes the new minimum. What happens to the maximum?",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~25s):** The maximum stays the same and the minimum gets smaller, so the range, maximum minus minimum, must increase.\n\n**The Full Solution:**\nStep 1: The added value is less than every value in P, so it is the minimum of Q, and the minimum of Q is less than the minimum of P.\nStep 2: The maximum of Q is the same as the maximum of P.\nStep 3: Range = maximum $-$ minimum. The same maximum minus a smaller minimum is a greater range.\n\nCheck: If P is $10, 11, \\ldots, 39$ and the added value is $2$, the range goes from $39 - 10 = 29$ to $39 - 2 = 37$, while the mean and the median both decrease. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (The maximum): the added value is the smallest value, so the greatest value does not change.\n* Choice B (The mean): a value below every value in P is below the mean of P, so it pulls the mean down.\n* Choice C (The median): the median of Q is the 15th value of P, which is at most the median of P.\n\n**Test Day Takeaway:** A new value beyond either end of a data set always increases the range.",
       skills: ["range-calculation"]
     },
     {
       id: 5,
       difficulty: "hard",
-      question: "A data set has a range of $24$. Each value in the data set is multiplied by $4$, and then $9$ is subtracted from each result. What is the range of the new data set?",
+      question: "Data set P has $30$ values, a mean of $50$, and a range of $20$. Adding $6$ to each value in P creates data set Q. Which of the following must be true?\nI. The mean of Q is $56$.\nII. The range of Q is $26$.",
       choices: [
-        // distractor: applies only the subtraction to the range, $24 - 9 = 15$, and ignores the multiplication.
-        { id: "A", text: "$15$" },
-        // distractor: assumes neither operation changes the range, but multiplying every value by $4$ stretches all distances by $4$.
-        { id: "B", text: "$24$" },
-        // distractor: multiplies the range by $4$ and then also subtracts $9$, but subtracting the same amount from every value does not change the range.
-        { id: "C", text: "$87$" },
-        { id: "D", text: "$96$" }
+        { id: "A", text: "I only" },
+        // distractor: reverses which measure changes: the mean shifts by 6, the range does not
+        { id: "B", text: "II only" },
+        // distractor: thinks adding 6 to each value also adds 6 to the range
+        { id: "C", text: "I and II" },
+        // distractor: thinks the mean cannot be found without the individual values
+        { id: "D", text: "Neither I nor II" }
       ],
-      correctAnswer: "D",
-      hint: "Handle the multiplication and the subtraction separately.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~30s):** Multiplying by $4$ multiplies the range by $4$, and subtracting $9$ from every value does not change it: $4(24) = 96$.\n\n**The Full Solution:**\nStep 1: If the least and greatest values are $m$ and $M$, then $M - m = 24$.\nStep 2: The new least and greatest values are $4m - 9$ and $4M - 9$.\nStep 3: The new range is $(4M - 9) - (4m - 9) = 4(M - m) = 4(24) = 96$. Check: with original values $0$ and $24$, the new values are $-9$ and $87$, and $87 - (-9) = 96$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): applies only the subtraction to the range, $24 - 9 = 15$, and ignores the multiplication.\n* Choice B ($24$): assumes neither operation changes the range, but multiplying every value by $4$ stretches all distances by $4$.\n* Choice C ($87$): multiplies the range by $4$ and then also subtracts $9$, but subtracting the same amount from every value does not change the range.\n\n**Test Day Takeaway:** Multiplying every value by a constant multiplies the range by that constant; adding or subtracting a constant moves the data without changing the range.",
+      correctAnswer: "A",
+      hint: "Adding the same number to every value shifts the whole data set without spreading it out.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~40s):** Adding $6$ to every value raises the mean by $6$ to $56$, but the maximum and minimum both rise by $6$, so the range stays $20$.\n\n**The Full Solution:**\nStep 1: Mean: the sum of P is $30(50) = 1{,}500$. Adding $6$ to each of the $30$ values adds $180$, so the mean of Q is $\\frac{1{,}680}{30} = 56$. Statement I is true.\nStep 2: Range: if P has maximum $M$ and minimum $m$, then Q has maximum $M + 6$ and minimum $m + 6$.\nStep 3: The range of Q is $(M + 6) - (m + 6) = M - m = 20$, not $26$. Statement II is false, so the answer is I only.\n\nCheck: For P $= \\{40, 50, 60\\}$ (mean $50$, range $20$), Q $= \\{46, 56, 66\\}$ has mean $56$ and range $20$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (II only): has the effects reversed.\n* Choice C (I and II): adds $6$ to the range as well; the range is a difference, and the $6$s cancel.\n* Choice D (Neither I nor II): the new mean follows from the old mean alone: it increases by exactly $6$.\n\n**Test Day Takeaway:** Adding a constant to every value shifts the measures of center by that constant and leaves the range unchanged.",
       skills: ["range-calculation"]
     }
   ],
@@ -406,19 +406,19 @@ export const statisticsQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "Each of the $12$ values in a data set is equal to $47$. What is the standard deviation of the data set?",
+      question: "Data set A: $20, 20, 20, 20, 20$\nData set B: $16, 18, 20, 22, 24$\nWhich statement best compares the standard deviations of data sets A and B?",
       choices: [
-        { id: "A", text: "$0$" },
-        // distractor: confuses the standard deviation with the number of distinct values in the data set, which is $1$.
-        { id: "B", text: "$1$" },
-        // distractor: reports the number of values in the data set instead of a measure of spread.
-        { id: "C", text: "$12$" },
-        // distractor: reports the mean, $47$, instead of the standard deviation.
-        { id: "D", text: "$47$" }
+        { id: "A", text: "The standard deviation of data set A is less than the standard deviation of data set B." },
+        // distractor: reverses the comparison: data set A has no spread at all
+        { id: "B", text: "The standard deviation of data set A is greater than the standard deviation of data set B." },
+        // distractor: thinks equal means imply equal standard deviations
+        { id: "C", text: "The standard deviation of data set A is equal to the standard deviation of data set B." },
+        // distractor: does not realize the spreads can be compared from the listed values
+        { id: "D", text: "There is not enough information to compare the standard deviations." }
       ],
       correctAnswer: "A",
-      hint: "Standard deviation measures how far values are from the mean.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~10s):** Every value equals the mean, $47$, so no value is any distance from the mean and the standard deviation is $0$.\n\n**The Full Solution:**\nStep 1: The mean of $12$ values that each equal $47$ is $47$.\nStep 2: Each value is $47 - 47 = 0$ from the mean.\nStep 3: With every distance from the mean equal to $0$, the standard deviation is $0$. Check: a data set has no spread at all exactly when all of its values are equal. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($1$): confuses the standard deviation with the number of distinct values in the data set, which is $1$.\n* Choice C ($12$): reports the number of values in the data set instead of a measure of spread.\n* Choice D ($47$): reports the mean, $47$, instead of the standard deviation.\n\n**Test Day Takeaway:** Standard deviation is $0$ exactly when every value is the same. Any variation at all makes it positive.",
+      hint: "Standard deviation measures how far the values are from the mean.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** Every value in data set A equals the mean, so A has no spread, while the values in B are spread out from $20$.\n\n**The Full Solution:**\nStep 1: Both data sets have mean $20$.\nStep 2: In data set A, every value is $20$, so no value differs from the mean and the standard deviation is $0$.\nStep 3: In data set B, the values differ from $20$ by $4$, $2$, $0$, $2$, and $4$, so its standard deviation is greater than $0$.\n\nCheck: A data set with all values equal is the only kind with standard deviation $0$, and B's values are not all equal. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (A greater): reverses the comparison.\n* Choice C (equal): both data sets have mean $20$, but equal means say nothing about spread.\n* Choice D (not enough information): the lists show the spread directly.\n\n**Test Day Takeaway:** Standard deviation compares spread: the more the values are spread out from the mean, the greater it is.",
       skills: ["standard-deviation-concept"]
     },
     {
@@ -443,19 +443,19 @@ export const statisticsQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "Data set M has a mean of $58$ and a standard deviation of $9$. Data set N is formed by increasing each value in data set M by $12$. What is the standard deviation of data set N?",
+      question: "$31, 38, 40, 42, 49$\nIf the values $31$ and $49$ are removed from the data set shown, which statement best describes the effect on the mean and the standard deviation?",
       choices: [
-        { id: "A", text: "$9$" },
-        // distractor: reports the amount added to each value rather than the spread of the new data set.
-        { id: "B", text: "$12$" },
-        // distractor: adds $12$ to the standard deviation, treating spread the same way as center.
-        { id: "C", text: "$21$" },
-        // distractor: reports the mean of data set N instead of its standard deviation.
-        { id: "D", text: "$70$" }
+        { id: "A", text: "The mean does not change, and the standard deviation decreases." },
+        // distractor: reverses the effect on spread: removing the two values farthest from the mean makes the data less spread out
+        { id: "B", text: "The mean does not change, and the standard deviation increases." },
+        // distractor: thinks removing values always lowers the mean, but 31 and 49 are equally far below and above 40
+        { id: "C", text: "The mean decreases, and the standard deviation decreases." },
+        // distractor: thinks the standard deviation stays the same when the mean stays the same
+        { id: "D", text: "Neither the mean nor the standard deviation changes." }
       ],
       correctAnswer: "A",
-      hint: "Picture sliding every dot the same distance along the number line.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~30s):** Adding the same amount to every value slides the whole distribution without stretching it, so the standard deviation stays $9$.\n\n**The Full Solution:**\nStep 1: Each value of N is a value of M plus $12$, and the mean of N is $58 + 12 = 70$.\nStep 2: Each deviation from the mean is unchanged, since $(x + 12) - (58 + 12) = x - 58$.\nStep 3: Standard deviation is built entirely from those deviations, so it is still $9$. Check: the distances between values are unchanged by a shift, so the spread cannot change. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($12$): reports the amount added to each value rather than the spread of the new data set.\n* Choice C ($21$): adds $12$ to the standard deviation, treating spread the same way as center.\n* Choice D ($70$): reports the mean of data set N instead of its standard deviation.\n\n**Test Day Takeaway:** Adding a constant moves the center and leaves the spread alone. Only the mean and median shift by that constant.",
+      hint: "Compare $31$ and $49$ with the mean of the data set.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~30s):** The values $31$ and $49$ are $9$ below and $9$ above the mean $40$, so removing them keeps the mean at $40$ and leaves values closer to it.\n\n**The Full Solution:**\nStep 1: The mean of the data set is $\\frac{31 + 38 + 40 + 42 + 49}{5} = \\frac{200}{5} = 40$.\nStep 2: The remaining values are $38, 40, 42$, with mean $\\frac{120}{3} = 40$, so the mean does not change.\nStep 3: The removed values were the farthest from the mean, and the remaining values are within $2$ of $40$, so the standard deviation decreases.\n\nCheck: Before, the values lie between $31$ and $49$; after, they lie between $38$ and $42$, a much smaller spread around the same mean. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (SD increases): has the effect on spread reversed.\n* Choice C (mean decreases): removing two values equally far below and above the mean leaves the mean unchanged.\n* Choice D (neither changes): the spread shrinks even though the center stays the same.\n\n**Test Day Takeaway:** Removing values far from the mean lowers the standard deviation; removing a balanced pair leaves the mean unchanged.",
       skills: ["standard-deviation-concept"]
     },
     {

@@ -1,29 +1,29 @@
 {
  "id": 19,
- "question": "In the $xy$-plane, line $\\ell$ passes through the point $(-2, 7)$ and is perpendicular to the line that passes through the points $(0, 8)$ and $(15, 2)$. Which equation defines line $\\ell$?",
+ "question": "In the $xy$-plane, line $k$ is defined by $\\frac{1}{2}x + \\frac{1}{5}y = 3$. Line $\\ell$ is perpendicular to line $k$. What is the slope of line $\\ell$?",
  "choices": [
   {
    "id": "A",
-   "text": "$y = -\\frac{5}{2}x + 2$"
+   "text": "$-\\frac{5}{2}$"
   },
   {
    "id": "B",
-   "text": "$y = -\\frac{2}{5}x + \\frac{31}{5}$"
+   "text": "$-\\frac{2}{5}$"
   },
   {
    "id": "C",
-   "text": "$y = \\frac{2}{5}x + \\frac{39}{5}$"
+   "text": "$\\frac{2}{5}$"
   },
   {
    "id": "D",
-   "text": "$y = \\frac{5}{2}x + 12$"
+   "text": "$\\frac{5}{2}$"
   }
  ],
  "distractorNotes": {
-  "A": "takes the reciprocal of -2/5 but keeps the negative sign, using slope -5/2",
-  "B": "uses the slope -2/5 of the given line itself, which gives a parallel line",
-  "C": "changes the sign of -2/5 but does not take the reciprocal, using slope 2/5"
+  "A": "gives the slope of line k itself, -5/2, which is the slope of a parallel line",
+  "B": "takes the reciprocal of -5/2 but does not change the sign",
+  "D": "changes the sign of -5/2 but does not take the reciprocal"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** The given line has slope $\\frac{2 - 8}{15 - 0} = -\\frac{2}{5}$, so line $\\ell$ has slope $\\frac{5}{2}$. Then $7 = \\frac{5}{2}(-2) + b$ gives $b = 12$.\n\n**The Full Solution:**\nStep 1: Find the slope of the line through $(0, 8)$ and $(15, 2)$: $\\frac{2 - 8}{15 - 0} = \\frac{-6}{15} = -\\frac{2}{5}$.\nStep 2: Perpendicular slopes are negative reciprocals, so line $\\ell$ has slope $\\frac{5}{2}$ and equation $y = \\frac{5}{2}x + b$.\nStep 3: Substitute $(-2, 7)$: $7 = \\frac{5}{2}(-2) + b = -5 + b$, so $b = 12$ and $y = \\frac{5}{2}x + 12$. Check: $\\frac{5}{2} \\cdot \\left(-\\frac{2}{5}\\right) = -1$, and $\\frac{5}{2}(-2) + 12 = 7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{5}{2}x + 2$): takes the reciprocal but keeps the negative sign, so the slopes multiply to $1$, not $-1$.\n* Choice B ($y = -\\frac{2}{5}x + \\frac{31}{5}$): uses the slope of the given line itself, which makes line $\\ell$ parallel to it.\n* Choice C ($y = \\frac{2}{5}x + \\frac{39}{5}$): changes the sign but does not take the reciprocal.\n\n**Test Day Takeaway:** A perpendicular slope needs two changes, flip and negate; check that the two slopes multiply to $-1$, then use the given point to find the $y$-intercept."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Solving for $y$ gives $y = -\\frac{5}{2}x + 15$, so line $k$ has slope $-\\frac{5}{2}$ and line $\\ell$ has slope $\\frac{2}{5}$.\n\n**The Full Solution:**\nStep 1: Multiply $\\frac{1}{2}x + \\frac{1}{5}y = 3$ by $10$ to clear the fractions: $5x + 2y = 30$.\nStep 2: Solve for $y$: $2y = -5x + 30$, so $y = -\\frac{5}{2}x + 15$. The slope of line $k$ is $-\\frac{5}{2}$.\nStep 3: A perpendicular line has the negative reciprocal slope, so the slope of line $\\ell$ is $\\frac{2}{5}$. Check: $\\left(-\\frac{5}{2}\\right)\\left(\\frac{2}{5}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{5}{2}$): is the slope of line $k$, which would make line $\\ell$ parallel to line $k$.\n* Choice B ($-\\frac{2}{5}$): takes the reciprocal but keeps the negative sign, so the slopes multiply to $1$, not $-1$.\n* Choice D ($\\frac{5}{2}$): changes the sign of $-\\frac{5}{2}$ but does not take the reciprocal.\n\n**Test Day Takeaway:** Clear the fractions, solve for $y$ to read the slope, then flip it and change its sign for the perpendicular slope."
 }

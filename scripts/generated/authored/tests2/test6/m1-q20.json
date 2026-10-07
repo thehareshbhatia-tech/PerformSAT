@@ -1,6 +1,6 @@
 {
  "id": 20,
- "question": "$f(x) = x^{2} - 2x$\n$g(x) = x + 4$\nThe functions $f$ and $g$ are defined by the given equations. If $f(g(a)) = 35$ and $a > 0$, what is the value of $a$?",
+ "question": "$f(x) = x^{2} - 2x$\nThe function $g$ is defined by $g(x) = f(x + 4)$. If $g(a) = 35$ and $a > 0$, what is the value of $a$?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "B": "solves f(u) = 35 for u = g(a) = 7 and stops, reporting g(a) instead of a",
+  "B": "solves f(u) = 35 for u = a + 4 = 7 and stops, reporting a + 4 instead of a",
   "C": "takes the other root u = -5, finds a = -9, and drops the negative sign instead of rejecting it",
   "D": "adds 4 to u = 7 instead of subtracting it, solving a = u + 4 rather than a + 4 = u"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Function Composition**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** Let $u = g(a)$. Then $u^{2} - 2u = 35$, so $(u - 7)(u + 5) = 0$ and $u = 7$ or $u = -5$. Since $a + 4 = u$, $a = 3$ or $a = -9$, and the positive value is $3$.\n\n**The Full Solution:**\nStep 1: Write $f(g(a))$ in terms of $u = g(a) = a + 4$: $f(u) = u^{2} - 2u$, so $u^{2} - 2u = 35$.\nStep 2: Rearrange and factor: $u^{2} - 2u - 35 = 0$, so $(u - 7)(u + 5) = 0$, giving $u = 7$ or $u = -5$.\nStep 3: Solve $a + 4 = u$: $a = 3$ or $a = -9$. Since $a > 0$, $a = 3$. Check: $g(3) = 7$ and $f(7) = 49 - 14 = 35$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($7$): this is $g(a)$, the input to $f$; the question asks for $a$.\n* Choice C ($9$): comes from the root $u = -5$, which gives $a = -9$; that value is negative and is ruled out by $a > 0$, not turned positive.\n* Choice D ($11$): adds $4$ to $7$ instead of subtracting it, reversing $g$.\n\n**Test Day Takeaway:** For $f(g(a))$, solve for the inner output first, then undo $g$ to get $a$, and apply any condition on $a$ at the end."
+ "explanation": "**SAT Pattern: Horizontal Shift**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** Let $u = a + 4$. Then $g(a) = f(u) = u^{2} - 2u = 35$, so $(u - 7)(u + 5) = 0$ and $u = 7$ or $u = -5$. Then $a = 3$ or $a = -9$, and the positive value is $3$.\n\n**The Full Solution:**\nStep 1: By the definition of $g$, $g(a) = f(a + 4)$. Let $u = a + 4$, so $f(u) = u^{2} - 2u = 35$.\nStep 2: Rearrange and factor: $u^{2} - 2u - 35 = 0$, so $(u - 7)(u + 5) = 0$, giving $u = 7$ or $u = -5$.\nStep 3: Solve $a + 4 = u$: $a = 3$ or $a = -9$. Since $a > 0$, $a = 3$. Check: $g(3) = f(7) = 49 - 14 = 35$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($7$): this is $a + 4$, the input to $f$; the question asks for $a$.\n* Choice C ($9$): comes from the root $u = -5$, which gives $a = -9$; that value is ruled out by $a > 0$, not turned positive.\n* Choice D ($11$): adds $4$ to $7$ instead of subtracting it.\n\n**Test Day Takeaway:** For $g(x) = f(x + 4)$, solve for the input to $f$ first, then subtract $4$, and apply any condition on $a$ at the end."
 }

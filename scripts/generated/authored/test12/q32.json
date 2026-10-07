@@ -11,19 +11,19 @@
  "choices": [
   {
    "id": "A",
-   "text": "The speaker describes a storm growing stronger around her while repeating that she cannot leave, a refusal that finally becomes her own choice."
+   "text": "The speaker describes a growing storm while repeating that she cannot leave, a refusal that finally becomes her choice."
   },
   {
    "id": "B",
-   "text": "The speaker recalls being caught outdoors by a sudden storm, then describes the shelter where she waited for the storm to pass."
+   "text": "The speaker recalls being caught outdoors by a sudden storm, then describes the shelter where she waited until the storm had passed."
   },
   {
    "id": "C",
-   "text": "The speaker pleads with an unseen companion to leave before the storm arrives, then admits that the two have delayed too long."
+   "text": "The speaker urges an unseen companion to leave before the storm arrives, then admits they have waited too long."
   },
   {
    "id": "D",
-   "text": "The speaker surveys a wintry landscape from a safe distance, then recounts the storm that swept across it overnight and the damage it left behind."
+   "text": "The speaker views a wintry landscape from a safe distance, then recounts the damage a storm caused overnight."
   }
  ],
  "correctAnswer": "A",

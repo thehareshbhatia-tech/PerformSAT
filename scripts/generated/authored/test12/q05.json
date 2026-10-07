@@ -11,19 +11,19 @@
  "choices": [
   {
    "id": "A",
-   "text": "The speaker describes a creature's undisturbed sleep deep beneath the sea, then foretells the single event that will end both its sleep and its life."
+   "text": "The speaker describes a creature asleep deep beneath the sea, then foretells the event that will end its sleep and life."
   },
   {
    "id": "B",
-   "text": "The speaker recounts a long search for a legendary sea creature, then admits that the search has ended without the creature ever having been seen."
+   "text": "The speaker recounts a long search for a legendary sea creature, then admits that it was never found."
   },
   {
    "id": "C",
-   "text": "The speaker asks whether a fabled creature could truly survive in the deep sea, then weighs the evidence on either side without settling the question."
+   "text": "The speaker asks whether a fabled creature could survive in the deep sea, then weighs the evidence without deciding."
   },
   {
    "id": "D",
-   "text": "The speaker pictures a creature rising briefly from the depths to the surface, then follows it back down to the seafloor, where its long rest resumes."
+   "text": "The speaker pictures a creature rising briefly to the surface, then follows it back down to the seafloor to rest there again."
   }
  ],
  "correctAnswer": "A",
@@ -31,7 +31,7 @@
  "_meta": {
   "anchor": "Alfred, Lord Tennyson, \"The Kraken\" (1830) — genuine public-domain text, complete poem verbatim",
   "quoteVerify": true,
-  "source": "Alfred, Lord Tennyson, \"The Kraken,\" Poems, Chiefly Lyrical (1830); text verified verbatim against Project Gutenberg ebook 8601 (The Early Poems of Alfred, Lord Tennyson), including the 1830 printing's spellings \"antient\" and \"Unnumber'd\"",
+  "source": "Alfred, Lord Tennyson, \"The Kraken,\" first published in Poems, Chiefly Lyrical (1830); text matches the standard collected-edition text (\"ancient\"); the 1830 printing in Project Gutenberg ebook 8601 reads \"antient\" — all other words verified verbatim",
   "distractors": {
    "B": "invents a search narrative the poem lacks",
    "C": "imposes a debate structure on an assertive poem",

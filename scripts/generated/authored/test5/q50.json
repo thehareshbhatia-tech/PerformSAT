@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 2,
- "passage": "An animal's soft parts almost never fossilize: scavengers, bacteria, and exposure destroy skin, muscle, and organs within days of death. Preservation requires nearly instantaneous burial in sediment fine enough to seal out oxygen. ______ paleontologists have recovered entire communities of soft-bodied animals preserved so faithfully that eyes, gills, and even gut contents remain visible after half a billion years.",
+ "passage": "Wood exposed to air and moisture usually rots within a few decades, broken down by fungi and bacteria that need oxygen to survive. ______ many of the wooden piles that hold up the buildings of Venice, Italy, are still largely intact after centuries in the mud of the city's lagoon, which contains almost no oxygen.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,8 +27,8 @@
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The first two sentences establish how improbable soft-tissue preservation is; the final sentence reports that superb examples exist anyway. That concessive turn — despite the obstacles, the thing happened — is what \"Even so\" signals.\n\n**The Full Solution:**\n- Sentence one: soft parts are destroyed within days, so they almost never fossilize.\n- Sentence two: preservation requires rare burial conditions — nearly instantaneous, in oxygen-sealing sediment.\n- Sentence three: whole communities of soft-bodied animals have nevertheless been recovered in extraordinary detail. The logical relation is concession: the outcome defies the described odds, and \"Even so\" marks exactly that.\n\n**Why the other choices are wrong:**\n- A: \"Consequently\" would make the recoveries a result of the near-impossibility, inverting the logic.\n- B: \"For example\" would offer the recoveries as an instance of destruction and improbability, which they are not — they are the exception to it.\n- C: \"Similarly\" would present a parallel case, but the final sentence pushes against the preceding ones rather than echoing them.",
+ "explanation": "**Choice D is correct.** The first sentence says that wood usually rots within a few decades; the second reports wooden piles in Venice that are still largely intact after centuries. A fact that goes against what the first sentence would lead a reader to expect calls for the concessive \"Even so.\"\n\n**The Full Solution:**\n- Sentence one sets up the expectation: exposed to air and moisture, wood is broken down within a few decades by fungi and bacteria that need oxygen.\n- Sentence two runs against that expectation: Venice's wooden piles have lasted for centuries, because the lagoon mud around them contains almost no oxygen.\n- A surprising outcome that holds despite what came before is signaled by \"Even so.\"\n\n**Why the other choices are wrong:**\n- A: \"Consequently\" would make the piles' survival a result of wood's tendency to rot, which reverses the logic.\n- B: \"For example\" would present the intact piles as an instance of rotting wood, when they are an exception to it.\n- C: \"Similarly\" would introduce a parallel point, but the second sentence runs against the first rather than echoing it.",
  "_meta": {
-  "anchor": "soft-bodied fossil preservation — improbable conditions, yet exquisite deposits; concessive transition"
+  "anchor": "Venice's wooden foundation piles intact after centuries in oxygen-poor lagoon mud; concessive transition"
  }
 }

@@ -1,48 +1,48 @@
 {
   "id": "bank-ps-038",
-  "question": "The dot plot shows the number of points a basketball player scored in each of $13$ games. How much greater is the mode of the data than the median of the data?",
+  "question": "The dot plot shows the number of points a basketball player scored in each of $13$ games. How much greater is the mean of the data than the median of the data?",
   "diagram": {
     "type": "dotPlot",
     "params": {
       "data": [
         {
-          "value": 4,
-          "count": 1
-        },
-        {
-          "value": 5,
+          "value": 6,
           "count": 3
         },
         {
-          "value": 7,
-          "count": 1
-        },
-        {
           "value": 8,
-          "count": 2
-        },
-        {
-          "value": 10,
-          "count": 1
-        },
-        {
-          "value": 12,
           "count": 4
         },
         {
-          "value": 13,
+          "value": 10,
+          "count": 2
+        },
+        {
+          "value": 12,
+          "count": 1
+        },
+        {
+          "value": 14,
+          "count": 1
+        },
+        {
+          "value": 16,
+          "count": 1
+        },
+        {
+          "value": 18,
           "count": 1
         }
       ],
-      "xMin": 3,
-      "xMax": 14,
+      "xMin": 4,
+      "xMax": 20,
       "xLabel": "Points scored"
     }
   },
   "choices": [
     {
       "id": "A",
-      "text": "$3.3$"
+      "text": "$2$"
     },
     {
       "id": "B",
@@ -50,18 +50,18 @@
     },
     {
       "id": "C",
-      "text": "$7$"
+      "text": "$8$"
     },
     {
       "id": "D",
-      "text": "$9$"
+      "text": "$10$"
     }
   ],
   "distractorNotes": {
-    "A": "subtracts the mean, $\\frac{113}{13} \\approx 8.7$, from the mode instead of the median.",
-    "C": "uses the second-tallest stack, $5$, as if it were the median: $12 - 5$.",
-    "D": "computes the range, $13 - 4$, instead of mode minus median."
+    "B": "averages the seven values on the number line, $\\frac{6 + 8 + 10 + 12 + 14 + 16 + 18}{7} = 12$, ignoring the number of dots, and then subtracts the median: $12 - 8$.",
+    "C": "reports the median, $8$, rather than the difference.",
+    "D": "reports the mean, $10$, rather than the difference."
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Mode vs Median Comparison**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The mode is the tallest stack, $12$ points, and the median is the $7$th of the $13$ dots, which is $8$. The difference is $12 - 8 = 4$.\n\n**The Full Solution:**\nStep 1: The mode is the value with the most dots: $12$ has $4$ dots, more than any other value.\nStep 2: For $13$ values, the median is the $7$th in order. Counting from the left: $4$ (1), $5$ (2, 3, 4), $7$ (5), $8$ (6, 7). The median is $8$.\nStep 3: Mode $-$ median $= 12 - 8 = 4$. Check: six dots lie below the $7$th dot and six lie above it ($10, 12, 12, 12, 12, 13$). $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3.3$): subtracts the mean, $\\frac{113}{13} \\approx 8.7$, from the mode instead of the median.\n* Choice C ($7$): uses the second-tallest stack, $5$, as if it were the median: $12 - 5$.\n* Choice D ($9$): computes the range, $13 - 4$, instead of mode minus median.\n\n**Test Day Takeaway:** Mode comes from stack height; median comes from dot position. Find each separately, then subtract in the order the question states."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Mean-Median Comparison**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** The $13$ scores total $3(6) + 4(8) + 2(10) + 12 + 14 + 16 + 18 = 130$, so the mean is $\\frac{130}{13} = 10$. The median is the $7$th score in order, which is $8$. The difference is $10 - 8 = 2$.\n\n**The Full Solution:**\nStep 1: Each dot is one game. The total is $3(6) + 4(8) + 2(10) + 1(12) + 1(14) + 1(16) + 1(18) = 18 + 32 + 20 + 12 + 14 + 16 + 18 = 130$ points, so the mean is $\\frac{130}{13} = 10$.\nStep 2: For $13$ values, the median is the $7$th in order. Counting from the left, $6$ is the $1$st through $3$rd value and $8$ is the $4$th through $7$th, so the median is $8$.\nStep 3: The mean is $10 - 8 = 2$ points greater than the median. Check: $6$ values ($6, 6, 6, 8, 8, 8$) are below the $7$th value and $6$ values ($10, 10, 12, 14, 16, 18$) are above it ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($4$): averages the seven values on the number line, $\\frac{6 + 8 + 10 + 12 + 14 + 16 + 18}{7} = 12$, ignoring the number of dots, and then subtracts the median: $12 - 8$.\n* Choice C ($8$): reports the median, $8$, rather than the difference.\n* Choice D ($10$): reports the mean, $10$, rather than the difference.\n\n**Test Day Takeaway:** On a dot plot, weight each value by its number of dots for the mean, and count dots to the middle position for the median."
 }

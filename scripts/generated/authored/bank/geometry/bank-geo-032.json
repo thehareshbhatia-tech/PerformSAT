@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-032",
- "question": "In the figure shown, point $O$ is the center of the circle. What is the area of sector $AOB$?",
+ "question": "In the circle shown, $O$ is the center and the diameter is $56$. What is the length of arc $AB$?",
  "choices": [
   {
    "id": "A",
@@ -8,34 +8,32 @@
   },
   {
    "id": "B",
-   "text": "$98\\pi$"
+   "text": "$14\\pi$"
   },
   {
    "id": "C",
-   "text": "$196\\pi$"
+   "text": "$56\\pi$"
   },
   {
    "id": "D",
-   "text": "$784\\pi$"
+   "text": "$98\\pi$"
   }
  ],
  "distractorNotes": {
-  "A": "takes 1/8 of the circumference 56 pi, which is the arc length, not the area",
-  "C": "divides 45 by 180 instead of 360, doubling the fraction of the circle",
-  "D": "reports the area of the whole circle and never applies the fraction"
+  "B": "uses the diameter 56 as the radius",
+  "C": "gives the whole circumference and never applies the fraction 45/360",
+  "D": "computes the area of the sector, (45/360) pi (28^2), instead of the arc length"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Sector Area from Central Angle**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The radius is $28$, so the circle's area is $784\\pi$, and a $45^{\\circ}$ sector is $\\frac{45}{360} = \\frac{1}{8}$ of it: $98\\pi$.\n\n**The Full Solution:**\nStep 1: The figure shows a radius of $28$, so the whole circle has area $\\pi(28)^2 = 784\\pi$.\nStep 2: The central angle of sector $AOB$ is $45^{\\circ}$, so the sector is $\\frac{45}{360} = \\frac{1}{8}$ of the circle.\nStep 3: The sector's area is $\\frac{1}{8}(784\\pi) = 98\\pi$. Check: eight such sectors fill the circle, and $8(98\\pi) = 784\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7\\pi$): takes $\\frac{1}{8}$ of the circumference $2\\pi(28) = 56\\pi$, which is the length of arc $AB$, not the area.\n* Choice C ($196\\pi$): divides $45$ by $180$ instead of $360$, doubling the fraction.\n* Choice D ($784\\pi$): is the area of the whole circle, with no fraction applied.\n\n**Test Day Takeaway:** A sector is the central angle's fraction of $360^{\\circ}$ applied to $\\pi r^2$; the same fraction of $2\\pi r$ gives the arc length instead.",
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Arc Length**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The circumference is $56\\pi$, and a $45°$ arc is $\\frac{1}{8}$ of it: $7\\pi$.\n\n**The Full Solution:**\nStep 1: The diameter is $56$, so the circumference is $\\pi(56) = 56\\pi$.\nStep 2: The central angle is $45°$, so arc $AB$ is $\\frac{45}{360} = \\frac{1}{8}$ of the circle.\nStep 3: The arc length is $\\frac{1}{8}(56\\pi) = 7\\pi$. Check: eight such arcs make $8(7\\pi) = 56\\pi$, the whole circumference ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($14\\pi$): treats $56$ as the radius, which doubles the circumference to $112\\pi$.\n* Choice C ($56\\pi$): gives the whole circumference instead of the $45°$ part of it.\n* Choice D ($98\\pi$): takes $\\frac{1}{8}$ of the area $\\pi(28)^{2} = 784\\pi$, which is an area, not a length.\n\n**Test Day Takeaway:** Arc length is the central angle's fraction of $360°$ times the circumference, $\\pi d$.",
  "diagram": {
   "type": "circleWithSector",
   "params": {
    "centralAngle": 45,
    "angleLabel": "45°",
-   "radius": 28,
    "labelCenter": "O",
    "labelPoint1": "A",
-   "labelPoint2": "B",
-   "showRadiusLabel": true
+   "labelPoint2": "B"
   }
  }
 }

@@ -1,29 +1,29 @@
 {
-  "question": "The functions $f$ and $g$ are defined by $f(x) = 2x + 5$ and $g(x) = 3x - 4$. Which expression is equivalent to $g(f(x))$?",
-  "hint": "Replace $x$ in $g$ with the whole expression $2x + 5$.",
+  "question": "The function $f$ is defined by $f(x) = 5(2)^{x}$. What is the value of $f(3)$?",
+  "hint": "Evaluate the power before multiplying by 5.",
   "choices": [
     {
       "id": "A",
-      "text": "$6x - 3$"
+      "text": "$13$"
     },
     {
       "id": "B",
-      "text": "$6x + 1$"
+      "text": "$30$"
     },
     {
       "id": "C",
-      "text": "$6x + 11$"
+      "text": "$40$"
     },
     {
       "id": "D",
-      "text": "$6x + 15$"
+      "text": "$1{,}000$"
     }
   ],
   "distractorNotes": {
-    "A": "composes in the wrong order, computing f(g(x)) = 2(3x - 4) + 5",
-    "B": "multiplies only the x-term of f(x) by 3, giving 6x + 5 - 4",
-    "D": "distributes the 3 but drops the -4 from g"
+    "A": "adds 5 and 2^3 instead of multiplying",
+    "B": "multiplies 2 by 3 instead of raising 2 to the third power",
+    "D": "multiplies 5 by 2 first and then cubes 10"
   },
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~20s):** $g(f(x)) = 3(2x + 5) - 4 = 6x + 15 - 4 = 6x + 11$.\n\n**The Full Solution:**\nStep 1: In $g(f(x))$, the output of $f$ is the input of $g$, so replace $x$ in $g(x) = 3x - 4$ with $2x + 5$: $g(f(x)) = 3(2x + 5) - 4$.\nStep 2: Distribute: $3(2x + 5) = 6x + 15$.\nStep 3: Combine the constants: $6x + 15 - 4 = 6x + 11$. Check at $x = 1$: $f(1) = 7$ and $g(7) = 17$, while $6(1) + 11 = 17$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6x - 3$): composes in the wrong order, computing $f(g(x)) = 2(3x - 4) + 5$.\n* Choice B ($6x + 1$): multiplies only the $x$-term of $f(x)$ by $3$, giving $6x + 5 - 4$.\n* Choice D ($6x + 15$): distributes correctly but drops the $-4$ from $g$.\n\n**Test Day Takeaway:** Write the inner expression in parentheses inside the outer rule, then distribute; the outer function's constant still applies at the end."
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~10s):** $2^{3} = 8$, so $f(3) = 5 \\cdot 8 = 40$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 3$: $f(3) = 5(2)^{3}$.\nStep 2: The exponent applies only to $2$: $2^{3} = 8$.\nStep 3: Multiply: $5 \\cdot 8 = 40$. Check: $40 \\div 5 = 8 = 2 \\cdot 2 \\cdot 2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($13$): adds $5 + 2^{3}$ instead of multiplying.\n* Choice B ($30$): treats $2^{3}$ as $2 \\cdot 3$.\n* Choice D ($1{,}000$): multiplies $5 \\cdot 2$ first and cubes $10$; the exponent applies only to $2$.\n\n**Test Day Takeaway:** In $a(b)^{x}$, raise $b$ to the power first, then multiply by $a$."
 }

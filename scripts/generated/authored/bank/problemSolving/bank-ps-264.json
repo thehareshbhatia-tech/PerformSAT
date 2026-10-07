@@ -1,29 +1,29 @@
 {
  "id": "bank-ps-264",
- "question": "A box contains $40$ batteries, $5$ of which are defective. If $2$ batteries are selected at random from the box without replacement, what is the probability that both are defective?",
+ "question": "A box contains $40$ batteries, and each battery is brand X, brand Y, or brand Z. If one battery is selected at random, the probability that it is brand X is $0.35$, and the probability that it is brand Y is $0.4$. How many brand Z batteries are in the box?",
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{1}{78}$"
+   "text": "$10$"
   },
   {
    "id": "B",
-   "text": "$\\frac{1}{64}$"
+   "text": "$14$"
   },
   {
    "id": "C",
-   "text": "$\\frac{1}{8}$"
+   "text": "$16$"
   },
   {
    "id": "D",
-   "text": "$\\frac{1}{4}$"
+   "text": "$30$"
   }
  ],
  "distractorNotes": {
-  "B": "with replacement: (5/40)(5/40) = 25/1600",
-  "C": "stops after the first draw (5/40)",
-  "D": "adds 5/40 + 5/40 instead of multiplying"
+  "B": "number of brand X batteries, 0.35 times 40",
+  "C": "number of brand Y batteries, 0.4 times 40",
+  "D": "number of brand X and brand Y batteries together, 0.75 times 40"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Probability Without Replacement**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $\\frac{5}{40} \\times \\frac{4}{39} = \\frac{1}{8} \\times \\frac{4}{39} = \\frac{4}{312} = \\frac{1}{78}$.\n\n**The Full Solution:**\nStep 1: First draw: $5$ defective out of $40$, so $\\frac{5}{40} = \\frac{1}{8}$.\nStep 2: Second draw, after one defective battery is removed: $4$ defective out of $39$, so $\\frac{4}{39}$.\nStep 3: Multiply: $\\frac{1}{8} \\times \\frac{4}{39} = \\frac{4}{312} = \\frac{1}{78}$. Check: $\\frac{5 \\times 4}{40 \\times 39} = \\frac{20}{1{,}560} = \\frac{1}{78}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{1}{64}$): $\\frac{5}{40} \\times \\frac{5}{40} = \\frac{25}{1{,}600}$ assumes the first battery is returned before the second draw.\n* Choice C ($\\frac{1}{8}$): $\\frac{5}{40}$ is the probability that only the first battery is defective.\n* Choice D ($\\frac{1}{4}$): $\\frac{5}{40} + \\frac{5}{40}$ adds when the two draws must both happen, which calls for multiplying.\n\n**Test Day Takeaway:** \"Both\" means multiply; \"without replacement\" means the second fraction uses one fewer success and one fewer item."
+ "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The probability of brand Z is $1 - 0.35 - 0.4 = 0.25$, and $0.25 \\times 40 = 10$.\n\n**The Full Solution:**\nStep 1: Every battery is one of the three brands, so the three probabilities add to $1$.\nStep 2: The probability that a battery is brand Z is $1 - 0.35 - 0.4 = 0.25$.\nStep 3: The number of brand Z batteries is $0.25 \\times 40 = 10$. Check: $14 + 16 + 10 = 40$ batteries. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($14$): $0.35 \\times 40 = 14$ is the number of brand X batteries.\n* Choice C ($16$): $0.4 \\times 40 = 16$ is the number of brand Y batteries.\n* Choice D ($30$): $14 + 16 = 30$ counts brands X and Y; subtract from $40$ to finish.\n\n**Test Day Takeaway:** When every item is in exactly one group, the probabilities of the groups add to $1$. Find the missing probability, then multiply by the total."
 }

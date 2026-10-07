@@ -6,35 +6,35 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 1,
- "passage": "Sockeye salmon occur both as anadromous populations, which migrate to the sea to feed before returning to fresh water to spawn, and as landlocked populations, called kokanee, that spend their entire lives in lakes. Biologists recorded the median length of mature adults in four populations. They concluded that the sea-run fish grow considerably larger than the landlocked ones, because _______",
+ "passage": "Chemists sort many compounds into two kinds. In ionic compounds, such as table salt, charged particles are held together by strong attractions throughout the solid. In molecular compounds, such as table sugar, separate molecules are held to one another by much weaker forces. A student concludes that the ionic compounds in the table melt at far higher temperatures than the molecular ones, because _______",
  "questionTable": {
   "type": "table",
-  "caption": "Median length of mature sockeye salmon in four populations",
+  "caption": "Melting points of four compounds",
   "headers": [
-   "Population",
-   "Life history",
-   "Median adult length (cm)"
+   "Compound",
+   "Type",
+   "Melting point (°C)"
   ],
   "rows": [
    [
-    "Population A",
-    "Anadromous (sea-run)",
-    "66"
+    "Magnesium oxide",
+    "Ionic",
+    "2,852"
    ],
    [
-    "Population B",
-    "Anadromous (sea-run)",
-    "61"
+    "Sodium chloride (table salt)",
+    "Ionic",
+    "801"
    ],
    [
-    "Population C",
-    "Landlocked (kokanee)",
-    "28"
+    "Sucrose (table sugar)",
+    "Molecular",
+    "186"
    ],
    [
-    "Population D",
-    "Landlocked (kokanee)",
-    "24"
+    "Water",
+    "Molecular",
+    "0"
    ]
   ]
  },
@@ -42,21 +42,30 @@
  "choices": [
   {
    "id": "A",
-   "text": "the fish of Population A, which feed in the sea, reached a median length of 66 cm."
+   "text": "magnesium oxide, one of the two ionic compounds, melts at 2,852°C, the highest melting point in the table."
   },
   {
    "id": "B",
-   "text": "Population C's median length of 28 cm exceeded Population D's median length of 24 cm, even though both populations spend their entire lives in lakes."
+   "text": "sucrose melts at 186°C, a higher temperature than the 0°C at which water melts, even though both are molecular compounds."
   },
   {
    "id": "C",
-   "text": "Population A's median length of 66 cm was more than twice Population C's median length of 28 cm."
+   "text": "sodium chloride's melting point of 801°C is more than four times sucrose's melting point of 186°C."
   },
   {
    "id": "D",
-   "text": "the two sea-run populations reached median lengths of 66 and 61 cm, while the two landlocked populations reached only 28 and 24 cm."
+   "text": "the two ionic compounds melt at 2,852°C and 801°C, while the two molecular compounds melt at 186°C and 0°C."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** A claim comparing the two kinds of population needs figures from both, and D alone gives them all: median lengths of 66 and 61 cm for the sea-run populations against 28 and 24 cm for the landlocked ones.\n\n**The Full Solution:**\n- The conclusion is general: sea-run sockeye grow considerably larger than landlocked kokanee.\n- Supporting it requires the values for both anadromous populations and both landlocked populations.\n- Choice D supplies all four medians and shows the gap between the two kinds directly.\n\n**Why the other choices are wrong:**\n- A: It cites a single sea-run population, which cannot establish a comparison between the two kinds.\n- B: It compares the two landlocked populations with each other and never mentions the sea-run fish.\n- C: It compares only one population of each kind, leaving out half the table."
+ "explanation": "**Choice D is correct.** A claim comparing the two kinds of compound needs figures from both, and D alone gives them all: melting points of 2,852°C and 801°C for the ionic compounds against 186°C and 0°C for the molecular ones.\n\n**The Full Solution:**\n- The conclusion is general: the ionic compounds in the table melt at far higher temperatures than the molecular ones.\n- Supporting it requires the values for both ionic compounds and both molecular compounds.\n- Choice D supplies all four melting points and shows the gap between the two kinds directly.\n\n**Why the other choices are wrong:**\n- A: It cites a single ionic compound, which cannot establish a comparison between the two kinds.\n- B: It compares the two molecular compounds with each other and never mentions the ionic ones.\n- C: It compares only one compound of each kind, leaving out half the table.",
+ "_meta": {
+  "anchor": "ionic vs molecular compounds, melting points — CoE-quant: class comparison using all four values",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Sodium_chloride",
+   "https://en.wikipedia.org/wiki/Magnesium_oxide",
+   "https://en.wikipedia.org/wiki/Sucrose",
+   "https://chem.libretexts.org/Bookshelves/Introductory_Chemistry/Introductory_Chemistry_(CK-12)/08%3A_Ionic_and_Metallic_Bonding/8.07%3A_Physical_Properties_of_Ionic_Compounds"
+  ]
+ }
 }

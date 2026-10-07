@@ -1,56 +1,56 @@
 {
- "question": "The table shows four values of $x$ and their corresponding values of $f(x)$, where $f$ is a linear function. For what value of $x$ is $f(x) = 77$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$11$"
+  "question": "The table shows several inputs $x$ and the matching outputs $f(x)$ of the linear function $f$. For what value of $x$ does $f(x) = 61$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$7$"
+    },
+    {
+      "id": "B",
+      "text": "$9$"
+    },
+    {
+      "id": "C",
+      "text": "$14$"
+    },
+    {
+      "id": "D",
+      "text": "$15.25$"
+    }
+  ],
+  "correctAnswer": "C",
+  "distractorNotes": {
+    "A": "reports the largest input shown in the table",
+    "B": "adds one more step of 2 past x = 7, where f(9) = 41 rather than 61",
+    "D": "solves 4x = 61, ignoring the constant 5"
   },
-  {
-   "id": "B",
-   "text": "$14$"
+  "explanation": "**SAT Pattern: Solve for Input from Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The outputs rise $8$ for every $2$ in $x$, so $f(x) = 4x + 5$; setting $4x + 5 = 61$ gives $x = 14$.\n\n**The Full Solution:**\nStep 1: Two rows give the slope: $\\frac{17 - 9}{3 - 1} = \\frac{8}{2} = 4$.\nStep 2: Find the constant from $(1, 9)$: $9 = 4(1) + b$, so $b = 5$ and $f(x) = 4x + 5$.\nStep 3: Solve $4x + 5 = 61$: $4x = 56$, so $x = 14$. Check: $f(7) = 4(7) + 5 = 33$ matches the last row, and $f(14) = 56 + 5 = 61$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7$): reports the last input in the table instead of extending the pattern.\n* Choice B ($9$): adds one more step of $2$, but $f(9) = 41$, still short of $61$.\n* Choice D ($15.25$): solves $4x = 61$, dropping the constant $5$.\n\n**Test Day Takeaway:** Build the linear rule from the table before extending it; stepping row by row is slower and easy to stop at the wrong place.",
+  "diagram": {
+    "type": "dataTable",
+    "params": {
+      "headers": [
+        "x",
+        "f(x)"
+      ],
+      "rows": [
+        [
+          "1",
+          "9"
+        ],
+        [
+          "3",
+          "17"
+        ],
+        [
+          "5",
+          "25"
+        ],
+        [
+          "7",
+          "33"
+        ]
+      ]
+    }
   },
-  {
-   "id": "C",
-   "text": "$17$"
-  },
-  {
-   "id": "D",
-   "text": "$19.25$"
-  }
- ],
- "correctAnswer": "C",
- "distractorNotes": {
-  "A": "reports the largest input shown in the table",
-  "B": "adds one more step of 3 past x = 11, where f(14) = 65 rather than 77",
-  "D": "solves 4x = 77, ignoring the constant 9"
- },
- "explanation": "**SAT Pattern: Solve for Input from Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The outputs rise $12$ for every $3$ in $x$, so $f(x) = 4x + 9$; setting $4x + 9 = 77$ gives $x = 17$.\n\n**The Full Solution:**\nStep 1: Two rows give the slope: $\\frac{29 - 17}{5 - 2} = \\frac{12}{3} = 4$.\nStep 2: Find the constant from $(2, 17)$: $17 = 4(2) + b$, so $b = 9$ and $f(x) = 4x + 9$.\nStep 3: Solve $4x + 9 = 77$: $4x = 68$, so $x = 17$. Check: $f(11) = 4(11) + 9 = 53$ matches the last row, and $f(17) = 68 + 9 = 77$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: ($11$): reports the last input in the table instead of extending the pattern.\n* Choice B: ($14$): adds one more step of $3$, but $f(14) = 65$, still short of $77$.\n* Choice D: ($19.25$): solves $4x = 77$, dropping the constant $9$.\n\n**Test Day Takeaway:** Build the linear rule from the table before extending it; stepping row by row is slower and easy to stop at the wrong place.",
- "diagram": {
-  "type": "dataTable",
-  "params": {
-   "headers": [
-    "x",
-    "f(x)"
-   ],
-   "rows": [
-    [
-     "2",
-     "17"
-    ],
-    [
-     "5",
-     "29"
-    ],
-    [
-     "8",
-     "41"
-    ],
-    [
-     "11",
-     "53"
-    ]
-   ]
-  }
- },
- "id": "bank-alg-324"
+  "id": "bank-alg-324"
 }

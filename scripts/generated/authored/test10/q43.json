@@ -6,26 +6,26 @@
  "domain": "information-and-ideas",
  "skill": "inferences",
  "module": 2,
- "passage": "Some of the oldest living things in English woods are not tall standard trees but the broad, squat stools of long-coppiced ash and lime. The pattern has a mechanism. A tree left to grow tall carries an ever-heavier crown that wind can bring down, and its aging trunk becomes a column of slowly spreading decay. A coppiced tree is cut to the ground every decade or two: each felling removes the aging trunk before decay can claim it, and the stool answers with a flush of vigorous young shoots. If this mechanism is general, it implies that ______",
+ "passage": "Giant sequoias in California's Sierra Nevada keep many of their seeds in cones that can stay closed on the tree for years. The heat of a fire dries the cones so that they open and drop their seeds. Sequoia seedlings, in turn, take root mainly in bare mineral soil and need open sunlight, conditions that a fire creates by burning away fallen debris and shading undergrowth. Historically, low-intensity fires burned through the groves regularly. When such fires were suppressed in the twentieth century, few young sequoias became established. These observations imply that ______",
  "question": "Which choice most logically completes the text?",
  "choices": [
   {
    "id": "A",
-   "text": "standard timber trees would survive just as long as coppice stools do if foresters thinned their heavy crowns at regular intervals."
+   "text": "mature sequoias would produce more seedlings if fires, even low-intensity ones, were kept out of their groves entirely."
   },
   {
    "id": "B",
-   "text": "the age of a coppice stool can be determined by counting the annual rings of its largest shoot."
+   "text": "the age of a giant sequoia can be estimated by counting the fire scars on its trunk."
   },
   {
    "id": "C",
-   "text": "repeated harvesting of a coppiced tree, far from exhausting it, is what allows it to outlive trees left uncut."
+   "text": "periodic low-intensity fire, far from threatening sequoia groves, is what allows them to produce new trees."
   },
   {
    "id": "D",
-   "text": "woods that were never coppiced are unlikely to contain any trees of unusual age."
+   "text": "groves in which fires were suppressed are unlikely to contain any sequoias of unusual age."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The mechanism removes the two causes of death the passage names, toppling crowns and decaying trunks, every time the tree is cut, so the cutting itself is what confers the extraordinary lifespan. C draws precisely that conclusion.\n\n**The Full Solution:**\n- Premise: tall trees die by heavy crown and aging trunk.\n- Premise: felling on rotation removes the trunk \"before decay can claim it\" and provokes vigorous regrowth.\n- Generalized, harvesting is not a drain the stool endures but the intervention that resets its risks, letting it outlive uncut trees, as the opening observation about ancient stools already suggests.\n\n**Why the other choices are wrong:**\n- A: The mechanism turns on removing the aging trunk entirely, so mere crown-thinning is not shown to deliver the same result.\n- B: Ring-counting a young shoot would date the shoot, not the ancient stool, and the passage says nothing about measuring age.\n- D: The passage allows uncoppiced woods their old standard trees; the claim is that stools grow older still, not that old trees exist nowhere else."
+ "explanation": "**Choice C is correct.** Each step in the text links fire to sequoia reproduction: fire opens the cones, fire clears the soil and lets in sunlight for seedlings, and when fires were suppressed few young sequoias became established. The logical conclusion is that regular low-intensity fire is what lets the groves renew themselves.\n\n**The Full Solution:**\n- Fire releases the seeds by drying and opening the cones.\n- Fire creates the bare soil and sunlight that seedlings need.\n- Without fire, few young sequoias appeared. All three points support C.\n\n**Why the other choices are wrong:**\n- A: This contradicts the text, which says that suppressing fire left few young sequoias.\n- B: Fire scars and tree age are never discussed; the text concerns how new trees get started.\n- D: The text says fire suppression reduced young trees, not that it affected old ones; it gives no reason to doubt that old sequoias remain in those groves."
 }

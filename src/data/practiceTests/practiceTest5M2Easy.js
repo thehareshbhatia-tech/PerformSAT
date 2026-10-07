@@ -88,19 +88,19 @@ export const practiceTest5M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 4,
-      question: "In the $xy$-plane, the midpoint of segment $AB$ is $(4, 4)$. Point $A$ has coordinates $(-6, 10)$. What are the coordinates of point $B$?",
+      question: "Line $j$ is parallel to the line $y = -\\frac{1}{2}x + 3$ in the $xy$-plane and passes through the point $(0, 10)$. If line $j$ also passes through the point $(6, d)$, what is the value of $d$?",
       choices: [
-        // distractor: steps from the midpoint away from B, computing 2A - M instead of 2M - A
-        { id: "A", text: "$(-16, 16)$" },
-        // distractor: averages the two given points, which gives the midpoint of A and the midpoint of AB
-        { id: "B", text: "$(-1, 7)$" },
-        // distractor: reports the change from A to the midpoint, (10, -6), instead of the endpoint
-        { id: "C", text: "$(10, -6)$" },
-        { id: "D", text: "$(14, -2)$" }
+        // distractor: uses the y-intercept of the given line, 3, instead of the point (0, 10): -1/2(6) + 3 = 0
+        { id: "A", text: "$0$" },
+        { id: "B", text: "$7$" },
+        // distractor: uses slope +1/2 instead of -1/2: 1/2(6) + 10 = 13
+        { id: "C", text: "$13$" },
+        // distractor: uses the perpendicular slope 2 instead of the parallel slope -1/2: 2(6) + 10 = 22
+        { id: "D", text: "$22$" }
       ],
-      correctAnswer: "D",
-      explanation: "**SAT Pattern: Midpoint Formula**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Going from $A$ to the midpoint is $+10$ in $x$ and $-6$ in $y$, so repeat that step from the midpoint: $(4 + 10, 4 - 6) = (14, -2)$.\n\n**The Full Solution:**\nStep 1: Let $B = (x, y)$. The midpoint formula gives $\\frac{-6 + x}{2} = 4$ and $\\frac{10 + y}{2} = 4$.\nStep 2: Solve the first equation: $-6 + x = 8$, so $x = 14$.\nStep 3: Solve the second equation: $10 + y = 8$, so $y = -2$, and $B = (14, -2)$. Check: $\\left(\\frac{-6 + 14}{2}, \\frac{10 + (-2)}{2}\\right) = (4, 4)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-16, 16)$): steps from the midpoint through $A$ and beyond, computing $(2(-6) - 4, 2(10) - 4)$, which lands on the wrong side of $A$.\n* Choice B ($(-1, 7)$): averages $A$ and the midpoint, which gives a point halfway between them, not the other endpoint.\n* Choice C ($(10, -6)$): reports the change from $A$ to the midpoint instead of adding that change to the midpoint.\n\n**Test Day Takeaway:** The missing endpoint is the midpoint plus the same step it took to get from the known endpoint to the midpoint: $B = 2M - A$.",
-      skills: ["coordinate-geometry"]
+      correctAnswer: "B",
+      explanation: "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Line $j$ has slope $-\\frac{1}{2}$ and $y$-intercept $10$, so it is $y = -\\frac{1}{2}x + 10$, and $d = -\\frac{1}{2}(6) + 10 = 7$.\n\n**The Full Solution:**\nStep 1: Parallel lines have equal slopes, so line $j$ has slope $-\\frac{1}{2}$.\nStep 2: Line $j$ passes through $(0, 10)$, a point with $x$-coordinate $0$, so its $y$-intercept is $10$ and line $j$ is $y = -\\frac{1}{2}x + 10$.\nStep 3: Substitute $x = 6$: $d = -\\frac{1}{2}(6) + 10 = -3 + 10 = 7$. Check: the slope from $(0, 10)$ to $(6, 7)$ is $\\frac{7 - 10}{6 - 0} = -\\frac{1}{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): uses the $y$-intercept of the given line, $3$, instead of $10$. Parallel lines share a slope, not a $y$-intercept.\n* Choice C ($13$): drops the negative sign of the slope, computing $\\frac{1}{2}(6) + 10$.\n* Choice D ($22$): uses the perpendicular slope $2$, computing $2(6) + 10$.\n\n**Test Day Takeaway:** A parallel line keeps the slope; a given point with $x$-coordinate $0$ gives the new $y$-intercept.",
+      skills: ["writing-parallel-equation"]
     },
     {
       id: 6,
@@ -362,19 +362,19 @@ export const practiceTest5M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 7,
-      question: "The equation $y = 1.8x + 22.5$ models the height $y$, in centimeters, of a plant $x$ days after it sprouts. On day $25$, three plants had heights of $62.7$, $64.5$, and $64.5$ centimeters. Which of the following correctly compares the model's prediction for day $25$ with the mean of these heights?",
+      question: "The equation $y = 18x + 270$ is a linear model for data set A. Each point in data set B has the $x$-coordinate of a point in data set A and one-third of its $y$-coordinate. Which equation is the most appropriate linear model for data set B?",
       choices: [
-        // distractor: compares the prediction with the most common height, 64.5, instead of the mean 63.9
-        { id: "A", text: "The model overestimates the mean height by $3.0$ centimeters." },
-        { id: "B", text: "The model overestimates the mean height by $3.6$ centimeters." },
-        // distractor: compares the prediction with the smallest height, 62.7, instead of the mean
-        { id: "C", text: "The model overestimates the mean height by $4.8$ centimeters." },
-        // distractor: reverses the comparison, treating a measured mean below the prediction as an underestimate
-        { id: "D", text: "The model underestimates the mean height by $3.6$ centimeters." }
+        { id: "A", text: "$y = 6x + 90$" },
+        // distractor: divides only the slope by 3, leaving the constant 270 unchanged
+        { id: "B", text: "$y = 6x + 270$" },
+        // distractor: divides only the constant by 3, leaving the slope 18 unchanged
+        { id: "C", text: "$y = 18x + 90$" },
+        // distractor: multiplies the slope and the constant by 3 instead of dividing them by 3
+        { id: "D", text: "$y = 54x + 810$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The model predicts $1.8(25) + 22.5 = 67.5$ centimeters, the mean height is $\\frac{62.7 + 64.5 + 64.5}{3} = 63.9$ centimeters, and $67.5 - 63.9 = 3.6$, so the model is $3.6$ centimeters too high.\n\n**The Full Solution:**\nStep 1: Substitute $x = 25$: $y = 1.8(25) + 22.5 = 45 + 22.5 = 67.5$ centimeters.\nStep 2: Find the mean of the three heights: $\\frac{62.7 + 64.5 + 64.5}{3} = \\frac{191.7}{3} = 63.9$ centimeters.\nStep 3: The residual is actual minus predicted: $63.9 - 67.5 = -3.6$. A negative residual means the prediction is higher than the actual value, so the model overestimates by $3.6$ centimeters. Check: $63.9 + 3.6 = 67.5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3.0$): compares $67.5$ with $64.5$, the height that appears twice, instead of the mean.\n* Choice C ($4.8$): compares $67.5$ with the smallest height, $62.7$, instead of the mean.\n* Choice D: gets the size right but the direction wrong; the mean, $63.9$, is below the prediction, $67.5$, so the model overestimates.\n\n**Test Day Takeaway:** Average the measured values first, then subtract the prediction from the actual value; a negative residual means the model overestimates.",
-      skills: ["calculate-mean", "slope-intercept-form"]
+      correctAnswer: "A",
+      explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Every $y$-value is divided by $3$, so every predicted value is divided by $3$: $\\frac{1}{3}(18x + 270) = 6x + 90$.\n\n**The Full Solution:**\nStep 1: Each point $(x, y)$ in data set A becomes $\\left(x, \\frac{y}{3}\\right)$ in data set B.\nStep 2: So a model for data set B gives one-third of the model for data set A at every $x$: $\\frac{1}{3}(18x + 270)$.\nStep 3: Distribute: $\\frac{18}{3}x + \\frac{270}{3} = 6x + 90$. Check: at $x = 10$, model A predicts $18(10) + 270 = 450$ and model B predicts $6(10) + 90 = 150$, which is $\\frac{450}{3}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($y = 6x + 270$): divides the slope by $3$ but not the constant.\n* Choice C ($y = 18x + 90$): divides the constant by $3$ but not the slope.\n* Choice D ($y = 54x + 810$): multiplies by $3$ instead of dividing by $3$.\n\n**Test Day Takeaway:** When every $y$-value of a data set is multiplied or divided by a number, both the slope and the constant of its linear model change by that same factor.",
+      skills: ["scatterplots", "linear-functions"]
     }
   ]
 };

@@ -1,29 +1,29 @@
 {
  "id": "bank-ps-460",
- "question": "A cyclist's acceleration is $2.5$ meters per second squared. This rate is equivalent to $k$ kilometers per hour squared. What is the value of $k$? ($1$ kilometer $= 1{,}000$ meters)",
+ "question": "A machine polishes a floor at a rate of $0.6$ square meters per minute. What is this rate, in square centimeters per second? ($1$ meter $= 100$ centimeters)",
  "choices": [
   {
    "id": "A",
-   "text": "$9$"
+   "text": "$1$"
   },
   {
    "id": "B",
-   "text": "$32.4$"
+   "text": "$36$"
   },
   {
    "id": "C",
-   "text": "$9{,}000$"
+   "text": "$100$"
   },
   {
    "id": "D",
-   "text": "$32{,}400$"
+   "text": "$360{,}000$"
   }
  ],
- "correctAnswer": "D",
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "converts seconds to hours only once, 2.5(3,600)/1,000 = 9, though seconds are squared",
-  "B": "divides by 1,000 twice, treating meters as squared too",
-  "C": "converts seconds to hours once and never converts meters to kilometers"
+  "A": "converts square meters with 100 instead of 100 squared",
+  "B": "multiplies by 60 and never converts the area",
+  "D": "multiplies by 60 instead of dividing by 60 to change per minute to per second"
  },
- "explanation": "**SAT Pattern: Chained Unit Conversion — Squared Time**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** Seconds are squared, so multiply by $3{,}600^{2}$ and then divide by $1{,}000$: $k = \\frac{2.5(3{,}600)^{2}}{1{,}000} = 32{,}400$.\n\n**The Full Solution:**\nStep 1: One hour is $3{,}600$ seconds, so $1$ second squared is $\\left(\\frac{1}{3{,}600}\\right)^{2}$ hour squared. Dividing by that factor multiplies the rate by $3{,}600^{2} = 12{,}960{,}000$.\nStep 2: Convert the time: $2.5(12{,}960{,}000) = 32{,}400{,}000$ meters per hour squared.\nStep 3: Convert the distance: $\\frac{32{,}400{,}000}{1{,}000} = 32{,}400$ kilometers per hour squared, so $k = 32{,}400$. Check: $\\frac{32{,}400(1{,}000)}{3{,}600^{2}} = 2.5$ meters per second squared ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): uses the factor $3{,}600$ only once. The time unit is squared, so the factor must be applied twice.\n* Choice B ($32.4$): divides by $1{,}000$ twice. Only the time unit is squared; meters appear once.\n* Choice C ($9{,}000$): applies $3{,}600$ once and leaves the distance in meters.\n\n**Test Day Takeaway:** Count how many times each unit appears: a squared unit needs its conversion factor applied twice."
+ "explanation": "**SAT Pattern: Chained Rate Conversion**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** One square meter is $100^{2} = 10{,}000$ square centimeters, so the rate is $6{,}000$ square centimeters per minute, or $\\frac{6{,}000}{60} = 100$ per second.\n\n**The Full Solution:**\nStep 1: Square the length conversion: $1$ square meter $= (100)^{2} = 10{,}000$ square centimeters.\nStep 2: Convert the area: $0.6 \\times 10{,}000 = 6{,}000$ square centimeters per minute.\nStep 3: Convert the time: a minute is $60$ seconds, so $\\frac{6{,}000}{60} = 100$ square centimeters per second. Check: $100 \\times 60 = 6{,}000$ square centimeters per minute, which is $0.6$ square meters ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): uses $1$ square meter $= 100$ square centimeters; an area conversion squares the length factor.\n* Choice B ($36$): multiplies $0.6$ by $60$ and leaves the area in square meters.\n* Choice D ($360{,}000$): multiplies by $60$; there are fewer square centimeters in a second than in a minute.\n\n**Test Day Takeaway:** Square the length factor for area units, and check whether each time conversion should make the number larger or smaller."
 }

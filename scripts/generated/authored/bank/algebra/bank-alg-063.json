@@ -1,39 +1,50 @@
 {
   "id": "bank-alg-063",
-  "question": "$y = 2|x + 1| - 5$\n$y = 2x + 1$\nThe graph of the first equation in the given system is shown in the $xy$-plane. How many solutions does the given system of equations have?",
+  "question": "The parabola shown is the graph of $y = x^{2} + 4x + 7$ in the $xy$-plane. The line $y = -2x + c$, where $c$ is a constant, and the parabola have exactly one point in common. What is the value of $c$?",
   "diagram": {
-    "type": "absoluteValue",
+    "type": "quadraticVertex",
     "params": {
       "vertex": [
-        -1,
-        -5
+        -2,
+        3
       ],
-      "slope": 2
+      "a": 1,
+      "showPoints": [
+        [
+          -4,
+          7
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "showVertex": true
     }
   },
   "choices": [
     {
       "id": "A",
-      "text": "Zero"
+      "text": "$-2$"
     },
     {
       "id": "B",
-      "text": "Exactly one"
+      "text": "$2$"
     },
     {
       "id": "C",
-      "text": "Exactly two"
+      "text": "$3$"
     },
     {
       "id": "D",
-      "text": "Infinitely many"
+      "text": "$7$"
     }
   ],
   "distractorNotes": {
-    "A": "sees that the line is parallel to the right branch and concludes the graphs never meet, missing the left branch",
-    "C": "assumes a line always crosses both branches of an absolute value graph",
-    "D": "treats the line as lying on the right branch because the slopes are both 2"
+    "B": "makes a sign error with c, writing x^2 + 6x + 7 + c = 0, whose discriminant 36 - 4(7 + c) = 0 gives c = 2",
+    "C": "ignores the line's x-term and uses x^2 + 4x + 7 - c = 0, whose discriminant 16 - 4(7 - c) = 0 gives c = 3",
+    "D": "gives the y-intercept of the parabola, 7"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Absolute Value Intersection**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The right branch is $y = 2x - 3$, parallel to $y = 2x + 1$, so no solution there. The left branch is $y = -2x - 7$; setting $-2x - 7 = 2x + 1$ gives $x = -2$, which is on the left branch. Exactly one solution.\n\n**The Full Solution:**\nStep 1: Split the absolute value at $x = -1$. For $x \\ge -1$, $y = 2(x + 1) - 5 = 2x - 3$. For $x < -1$, $y = -2(x + 1) - 5 = -2x - 7$.\nStep 2: Right branch: $2x - 3 = 2x + 1$ gives $-3 = 1$, which is false, so the line never meets this branch (the two are parallel).\nStep 3: Left branch: $-2x - 7 = 2x + 1$ gives $x = -2$, and $-2 < -1$, so this solution is valid. Check: at $x = -2$, $2|-2 + 1| - 5 = -3$ and $2(-2) + 1 = -3$ ✓ The system has exactly one solution, $(-2, -3)$.\n\n**Why the wrong answers are tempting:**\n* Choice A (zero): checks only the right branch, which is parallel to the line, and misses the crossing on the left branch.\n* Choice C (exactly two): assumes a line crosses both arms of a V, but a line with the same slope as one arm can meet only the other arm.\n* Choice D (infinitely many): sees the slope $2$ in both equations and assumes the line lies along the right branch, but the intercepts $-3$ and $1$ differ.\n\n**Test Day Takeaway:** For an absolute value graph, solve each branch as its own linear equation and keep only the solutions that fall on that branch's side of the vertex."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Tangent Line and Discriminant**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** Setting $x^{2} + 4x + 7 = -2x + c$ gives $x^{2} + 6x + (7 - c) = 0$. One point in common means the discriminant is $0$: $36 - 4(7 - c) = 0$, so $c = -2$.\n\n**The Full Solution:**\nStep 1: A common point satisfies both equations, so $x^{2} + 4x + 7 = -2x + c$, or $x^{2} + 6x + (7 - c) = 0$.\nStep 2: The line and the parabola meet exactly once when this quadratic has exactly one real solution, which happens when its discriminant is $0$: $6^{2} - 4(1)(7 - c) = 0$.\nStep 3: Then $36 - 28 + 4c = 0$, so $8 + 4c = 0$ and $c = -2$. Check: with $c = -2$, the equation is $x^{2} + 6x + 9 = (x + 3)^{2} = 0$, so $x = -3$ only, and both equations give $y = 4$ at $x = -3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2$): writes the constant term as $7 + c$, so $36 - 4(7 + c) = 0$ gives $c = 2$.\n* Choice C ($3$): leaves out the line's $-2x$ and uses $x^{2} + 4x + 7 - c = 0$, whose discriminant $16 - 4(7 - c) = 0$ gives $c = 3$.\n* Choice D ($7$): reads the $y$-intercept of the parabola from its equation, which does not make the line touch the parabola.\n\n**Test Day Takeaway:** A line meets a parabola exactly once when the combined quadratic has a discriminant of $0$; move every term to one side before finding $b^{2} - 4ac$."
 }

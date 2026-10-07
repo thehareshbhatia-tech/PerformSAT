@@ -1,29 +1,29 @@
 {
  "id": 4,
- "question": "In the $xy$-plane, the midpoint of the line segment with endpoints $(-7, 4)$ and $(3, -12)$ is $(a, b)$. What is the value of $ab$?",
+ "question": "In the $xy$-plane, line $j$ is parallel to the graph of $3x - 5y = 8$. What is the slope of line $j$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-16$"
+   "text": "$-\\frac{5}{3}$"
   },
   {
    "id": "B",
-   "text": "$-4$"
+   "text": "$-\\frac{3}{5}$"
   },
   {
    "id": "C",
-   "text": "$-2$"
+   "text": "$\\frac{3}{5}$"
   },
   {
    "id": "D",
-   "text": "$8$"
+   "text": "$\\frac{5}{3}$"
   }
  ],
- "correctAnswer": "D",
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "drops the negative on -12 and averages 4 and 12 to get b = 8, giving (-2)(8) = -16",
-  "B": "reports b, the y-coordinate of the midpoint, instead of the product ab",
-  "C": "reports a, the x-coordinate of the midpoint, instead of the product ab"
+  "A": "gives the negative reciprocal of the slope of the graph of 3x - 5y = 8, which is the slope of a line perpendicular to it",
+  "B": "moves 3x to the right side as -3x but then divides by 5 instead of -5, losing the sign of the y-coefficient",
+  "D": "divides the coefficients in the wrong order, using 5/3 instead of 3/5"
  },
- "explanation": "**SAT Pattern: Midpoint Formula**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The midpoint is $\\left(\\frac{-7 + 3}{2}, \\frac{4 + (-12)}{2}\\right) = (-2, -4)$, so $ab = (-2)(-4) = 8$.\n\n**The Full Solution:**\nStep 1: The midpoint of the segment with endpoints $(x_1, y_1)$ and $(x_2, y_2)$ is $\\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$.\nStep 2: The x-coordinate is $a = \\frac{-7 + 3}{2} = \\frac{-4}{2} = -2$, and the y-coordinate is $b = \\frac{4 + (-12)}{2} = \\frac{-8}{2} = -4$.\nStep 3: The product is $ab = (-2)(-4) = 8$. Check: $(-2, -4)$ is $\\sqrt{5^{2} + 8^{2}} = \\sqrt{89}$ from $(-7, 4)$ and $\\sqrt{5^{2} + 8^{2}} = \\sqrt{89}$ from $(3, -12)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-16$): drops the negative sign on $-12$ and averages $4$ and $12$ to get $b = 8$, then multiplies $(-2)(8)$.\n* Choice B ($-4$): this is $b$, the y-coordinate of the midpoint, not the product $ab$.\n* Choice C ($-2$): this is $a$, the x-coordinate of the midpoint, again reported before the final multiplication.\n\n**Test Day Takeaway:** Average each coordinate separately and keep every sign, then reread the question: it asks for a value built from the midpoint, not the midpoint itself."
+ "explanation": "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Solve for $y$: $-5y = -3x + 8$, so $y = \\frac{3}{5}x - \\frac{8}{5}$. The graph has slope $\\frac{3}{5}$, and a parallel line has the same slope.\n\n**The Full Solution:**\nStep 1: Subtract $3x$ from both sides of $3x - 5y = 8$: $-5y = -3x + 8$.\nStep 2: Divide both sides by $-5$: $y = \\frac{3}{5}x - \\frac{8}{5}$, so the graph has slope $\\frac{3}{5}$.\nStep 3: Parallel lines have equal slopes, so line $j$ has slope $\\frac{3}{5}$. Check: the points $(1, -1)$ and $(6, 2)$ both satisfy $3x - 5y = 8$, and $\\frac{2 - (-1)}{6 - 1} = \\frac{3}{5}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{5}{3}$): is the negative reciprocal of $\\frac{3}{5}$, the slope of a line perpendicular to the graph of $3x - 5y = 8$.\n* Choice B ($-\\frac{3}{5}$): divides $-3x$ by $5$ instead of by $-5$. The coefficient of $y$ is $-5$, so both signs change.\n* Choice D ($\\frac{5}{3}$): divides the coefficients in the wrong order. For $Ax + By = C$, the slope is $-\\frac{A}{B} = -\\frac{3}{-5} = \\frac{3}{5}$.\n\n**Test Day Takeaway:** To read a slope from $Ax + By = C$, solve for $y$; the slope is $-\\frac{A}{B}$, and a parallel line has that same slope."
 }

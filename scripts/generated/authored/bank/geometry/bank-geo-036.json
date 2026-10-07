@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-036",
- "question": "In the $xy$-plane, the points $(-1, 5)$ and $(11, -3)$ are the endpoints of a diameter of a circle. Which equation represents this circle?",
+ "question": "In the $xy$-plane, the points $(-3, 5)$ and $(9, 5)$ are the endpoints of a diameter of a circle. Which equation represents this circle?",
  "choices": [
   {
    "id": "A",
-   "text": "$(x - 6)^{2} + (y + 4)^{2} = 52$"
+   "text": "$(x + 3)^{2} + (y + 5)^{2} = 36$"
   },
   {
    "id": "B",
-   "text": "$(x + 5)^{2} + (y + 1)^{2} = 52$"
+   "text": "$(x - 3)^{2} + (y - 5)^{2} = 6$"
   },
   {
    "id": "C",
-   "text": "$(x - 5)^{2} + (y - 1)^{2} = 52$"
+   "text": "$(x - 3)^{2} + (y - 5)^{2} = 36$"
   },
   {
    "id": "D",
-   "text": "$(x - 5)^{2} + (y - 1)^{2} = 208$"
+   "text": "$(x - 3)^{2} + (y - 5)^{2} = 144$"
   }
  ],
  "distractorNotes": {
-  "A": "takes half of each difference, (12/2, -8/2) = (6, -4), as the center instead of averaging the endpoints",
-  "B": "finds the center (5, 1) but writes the signs inside the parentheses backward",
-  "D": "uses the squared length of the whole diameter, 208, as r squared"
+  "A": "flips the signs of the center coordinates when writing (x - h) and (y - k)",
+  "B": "uses the radius 6 on the right side instead of 6^2",
+  "D": "uses the diameter 12 in place of the radius, 12^2 = 144"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Circle from Diameter Endpoints**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The center is the midpoint $(5, 1)$, and $r^2 = (5 - (-1))^2 + (1 - 5)^2 = 36 + 16 = 52$.\n\n**The Full Solution:**\nStep 1: The center of the circle is the midpoint of the diameter: $\\left(\\frac{-1 + 11}{2}, \\frac{5 + (-3)}{2}\\right) = (5, 1)$.\nStep 2: The radius is the distance from the center to an endpoint: $r^2 = (5 - (-1))^2 + (1 - 5)^2 = 6^2 + (-4)^2 = 52$.\nStep 3: A circle with center $(h, k)$ and radius $r$ has equation $(x - h)^2 + (y - k)^2 = r^2$, so the circle is $(x - 5)^2 + (y - 1)^2 = 52$. Check: the other endpoint gives $(11 - 5)^2 + (-3 - 1)^2 = 36 + 16 = 52$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: uses half of each difference, $\\left(\\frac{12}{2}, \\frac{-8}{2}\\right) = (6, -4)$, as the center instead of averaging the endpoints.\n* Choice B: finds the center $(5, 1)$ but flips the signs inside the parentheses.\n* Choice D: uses the squared length of the whole diameter, $12^2 + 8^2 = 208$, as $r^2$; the radius is half the diameter, so $r^2 = \\frac{208}{4} = 52$.\n\n**Test Day Takeaway:** Midpoint for the center, half the diameter for the radius; halving a length divides its square by $4$, not $2$."
+ "explanation": "**SAT Pattern: Circle from Diameter Endpoints**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The center is halfway between the endpoints, $(3, 5)$, and the diameter is $9 - (-3) = 12$, so $r = 6$ and $r^{2} = 36$.\n\n**The Full Solution:**\nStep 1: Both endpoints have $y$-coordinate $5$, so the diameter is horizontal with length $9 - (-3) = 12$. The radius is $6$.\nStep 2: The center is the point halfway between the endpoints: $\\left(\\frac{-3 + 9}{2}, 5\\right) = (3, 5)$.\nStep 3: With center $(3, 5)$ and $r^{2} = 36$, the equation is $(x - 3)^{2} + (y - 5)^{2} = 36$. Check: $(9, 5)$ gives $6^{2} + 0^{2} = 36$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x + 3)^{2} + (y + 5)^{2} = 36$): writes $(x + 3)$ and $(y + 5)$, which would put the center at $(-3, -5)$.\n* Choice B ($(x - 3)^{2} + (y - 5)^{2} = 6$): puts the radius $6$ on the right side; the equation needs $r^{2} = 36$.\n* Choice D ($(x - 3)^{2} + (y - 5)^{2} = 144$): squares the diameter $12$ instead of the radius $6$.\n\n**Test Day Takeaway:** From the endpoints of a diameter: the center is the halfway point, the radius is half the diameter, and the equation uses $r^{2}$."
 }

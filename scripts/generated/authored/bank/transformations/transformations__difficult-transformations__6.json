@@ -1,6 +1,6 @@
 {
  "id": 6,
- "question": "The graph of $y = f(x)$ consists of the four points shown. Which of the following is a point on the graph of $y = -f(x + 3) + 1$?",
+ "question": "The graph of $y = f(x)$ consists of the four points shown. Which of the following is a point on the graph of $y = f(x + 3) - 4$?",
  "diagram": {
   "type": "coordinatePoints",
   "params": {
@@ -31,27 +31,27 @@
  "choices": [
   {
    "id": "A",
-   "text": "$(-1, -6)$"
+   "text": "$(-2, 2)$"
   },
   {
    "id": "B",
-   "text": "$(-1, -4)$"
+   "text": "$(-1, 1)$"
   },
   {
    "id": "C",
-   "text": "$(-1, 6)$"
+   "text": "$(-1, 9)$"
   },
   {
    "id": "D",
-   "text": "$(5, -4)$"
+   "text": "$(5, 1)$"
   }
  ],
  "distractorNotes": {
-  "A": "subtracts 1 instead of adding it, computing -5 - 1",
-  "C": "drops the negative sign, computing 5 + 1",
-  "D": "shifts the point 3 units right instead of left"
+  "A": "moves the point (2, 5) left 4 and down 3, swapping the two shifts",
+  "C": "moves the point (2, 5) left 3 but up 4 instead of down",
+  "D": "moves the point (2, 5) right 3 instead of left"
  },
  "correctAnswer": "B",
- "hint": "Each point $(a, b)$ on the graph of $f$ moves to $(a - 3, -b + 1)$.",
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~40s):** The point $(2, 5)$ moves to $(2 - 3, -5 + 1) = (-1, -4)$.\n\n**The Full Solution:**\nStep 1: For $y = -f(x + 3) + 1$, a point $(a, b)$ on the graph of $f$ moves to $(a - 3, -b + 1)$, since the input $a - 3$ makes $x + 3 = a$.\nStep 2: Apply this to the four points: $(-4, 3) \\to (-7, -2)$, $(-1, -2) \\to (-4, 3)$, $(2, 5) \\to (-1, -4)$, and $(5, 1) \\to (2, 0)$.\nStep 3: Only $(-1, -4)$ is a choice. Check: at $x = -1$, $-f(-1 + 3) + 1 = -f(2) + 1 = -5 + 1 = -4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-1, -6)$): subtracts $1$ instead of adding it after negating.\n* Choice C ($(-1, 6)$): drops the negative sign and computes $5 + 1$.\n* Choice D ($(5, -4)$): shifts the point $3$ units right instead of left.\n\n**Test Day Takeaway:** Move the $x$-coordinate opposite to the number added inside, and apply the outside operations to the $y$-coordinate in order."
+ "hint": "Each point $(a, b)$ on the graph of $f$ moves to $(a - 3, b - 4)$.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~30s):** Move each point $3$ units left and $4$ units down: $(2, 5)$ moves to $(-1, 1)$.\n\n**The Full Solution:**\nStep 1: The graph of $y = f(x + 3) - 4$ is the graph of $y = f(x)$ moved $3$ units left and $4$ units down, so each point $(a, b)$ moves to $(a - 3, b - 4)$.\nStep 2: The four points move to $(-7, -1)$, $(-4, -6)$, $(-1, 1)$, and $(2, -3)$.\nStep 3: Of these, only $(-1, 1)$ is a choice. Check: at $x = -1$, $y = f(-1 + 3) - 4 = f(2) - 4 = 5 - 4 = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-2, 2)$): this moves $(2, 5)$ left $4$ and down $3$, swapping the two shifts.\n* Choice C ($(-1, 9)$): this moves $(2, 5)$ up $4$; subtracting $4$ outside $f$ moves the graph down.\n* Choice D ($(5, 1)$): this moves $(2, 5)$ right $3$; adding $3$ inside $f$ moves the graph left.\n\n**Test Day Takeaway:** Adding a number inside $f$ moves the graph left; subtracting a number outside $f$ moves it down."
 }

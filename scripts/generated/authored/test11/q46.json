@@ -8,31 +8,31 @@
  "choices": [
   {
    "id": "A",
-   "text": ", who published his own songs rather than selling them to established firms"
+   "text": ", who relayed her husband's instructions to the bridge's builders for years"
   },
   {
    "id": "B",
-   "text": " who published his own songs rather than selling them to established firms"
+   "text": " who relayed her husband's instructions to the bridge's builders for years"
   },
   {
    "id": "C",
-   "text": ", who published his own songs rather than selling them to established firms,"
+   "text": ", who relayed her husband's instructions to the bridge's builders for years,"
   },
   {
    "id": "D",
-   "text": " who published his own songs rather than selling them to established firms,"
+   "text": " who relayed her husband's instructions to the bridge's builders for years,"
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The \"who\" clause is nonrestrictive — Charles K. Harris is already fully identified by name — so it must be fenced off with a comma on both sides.\n\n**The Full Solution:**\n- Test the clause: removing \"who published his own songs rather than selling them to established firms\" leaves a complete, unambiguous sentence about Harris. The clause adds information; it does not identify.\n- Nonrestrictive elements take paired commas: one where the interruption begins, one where the main clause resumes (\"arranged for...\").\n- Only choice C supplies both commas.\n\n**Why the other choices are wrong:**\n- A: It opens the fence but never closes it, letting the aside crash into the main verb \"arranged.\"\n- B: With no commas, the clause reads as restrictive — as though some other Charles K. Harris had sold his songs to established firms.\n- D: It closes a fence that was never opened; the lone trailing comma has nothing to pair with.",
- "passage": "Placing a new song with a popular stage performer could turn it into a hit. The songwriter Charles K. Harris ______ arranged for his ballad \"After the Ball\" to be sung in a touring musical, and in 1892 the song sold more than two million copies of sheet music.",
+ "explanation": "**Choice C is correct.** The clause \"who relayed her husband's instructions to the bridge's builders for years\" adds information about Emily Warren Roebling but is not needed to identify her; her full name already does that. Such a nonessential clause must be set off with a comma on each side.\n\n**The Full Solution:**\n- The core sentence is \"Emily Warren Roebling was the first person to cross the finished bridge.\"\n- The \"who\" clause interrupts that sentence with extra detail.\n- A nonessential interruption needs matching commas before and after it, which C provides.\n\n**Why the other choices are wrong:**\n- A: It opens the clause with a comma but never closes it, so the clause runs into the main verb \"was.\"\n- B: With no commas, the clause wrongly reads as information needed to identify which Emily Warren Roebling is meant.\n- D: It closes the clause with a comma but never opens it; commas around a nonessential clause must come in pairs.",
+ "passage": "Washington Roebling, chief engineer of the Brooklyn Bridge, was confined to his home by illness for much of its construction. Emily Warren Roebling ______ was the first person to cross the finished bridge by carriage in 1883.",
  "_meta": {
-  "rule": "paired commas around a nonrestrictive relative clause",
-  "anchor": "Tin Pan Alley song plugging — Charles K. Harris self-published \"After the Ball\" and had it interpolated into the touring musical A Trip to Chinatown; 2 million+ copies in 1892 (Wikipedia, After the Ball)",
+  "rule": "nonessential relative clause set off by paired commas",
+  "anchor": "Emily Warren Roebling — liaison for Washington Roebling, first to cross the Brooklyn Bridge by carriage, 1883 (Wikipedia; New-York Historical Society, Women & the American Story)",
   "distractors": {
-   "A": "unclosed fence",
-   "B": "restrictive misreading",
-   "D": "unopened fence"
+   "A": "opening comma only",
+   "B": "no commas",
+   "D": "closing comma only"
   }
  },
  "id": 1146,

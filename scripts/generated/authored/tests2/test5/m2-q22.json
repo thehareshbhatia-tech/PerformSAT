@@ -1,29 +1,29 @@
 {
  "id": 22,
- "question": "The height, in feet, of an arch above the ground is modeled by $h(x)=-0.05x^{2}+2x$, where $x$ is the horizontal distance, in feet, from one end of the arch and $0\\le x\\le 40$. For which values of $x$ is the height of the arch at least $15$ feet?",
+ "question": "The function $h(x)=-0.05x^{2}+2x$ gives the height, in feet, of an arch $x$ feet from one end of the arch. The arch is $15$ feet high at exactly two values of $x$. What is the difference between these two values?",
  "choices": [
   {
    "id": "A",
-   "text": "$0\\le x\\le 10$"
+   "text": "$10$"
   },
   {
    "id": "B",
-   "text": "$10\\le x\\le 20$"
+   "text": "$20$"
   },
   {
    "id": "C",
-   "text": "$10\\le x\\le 30$"
+   "text": "$30$"
   },
   {
    "id": "D",
-   "text": "$30\\le x\\le 40$"
+   "text": "$40$"
   }
  ],
  "distractorNotes": {
-  "A": "reverses the inequality and takes the interval before the height first reaches 15 feet, where the arch is lower than 15 feet",
-  "B": "stops at the vertex x = 20, the highest point, as if the height dropped below 15 feet right after the maximum",
-  "D": "takes the interval after the second crossing at x = 30, where the height has already fallen below 15 feet"
+  "A": "reports the smaller value of x, 10, instead of the difference between the two values",
+  "C": "reports the larger value of x, 30, instead of the difference between the two values",
+  "D": "solves h(x) = 0 instead of h(x) = 15 and reports the width of the arch, 40"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~50s):** Solve $-0.05x^{2}+2x=15$: multiplying by $-20$ gives $x^{2}-40x+300=0$, so $x=10$ or $x=30$. The parabola opens downward, so the height is at least $15$ feet between those values.\n\n**The Full Solution:**\nStep 1: Write the condition as an inequality: $-0.05x^{2}+2x\\ge 15$. Multiply both sides by $-20$ and reverse the inequality sign: $x^{2}-40x\\le -300$, or $x^{2}-40x+300\\le 0$.\nStep 2: Factor: $x^{2}-40x+300=(x-10)(x-30)$, so the boundary values are $x=10$ and $x=30$.\nStep 3: The expression $(x-10)(x-30)$ is less than or equal to $0$ only between its zeros, so $10\\le x\\le 30$, which lies within $0\\le x\\le 40$. Check: $h(20)=-0.05(400)+40=20$, which is at least $15$, and $h(5)=-1.25+10=8.75$, which is not ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0\\le x\\le 10$): keeps the wrong side of the first boundary. At $x=5$, the height is only $8.75$ feet.\n* Choice B ($10\\le x\\le 20$): stops at the vertex, $x=20$. That is where the arch is highest; the height stays at least $15$ feet until $x=30$.\n* Choice D ($30\\le x\\le 40$): takes the interval after the second boundary. At $x=35$, the height is $8.75$ feet.\n\n**Test Day Takeaway:** Solve the related equation to find the boundary values, then use the direction the parabola opens to choose the interval. Test one value inside the interval to confirm."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Quadratic via Factoring**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** Solve $-0.05x^{2}+2x=15$: multiplying by $-20$ gives $x^{2}-40x+300=0$, so $x=10$ or $x=30$, and the difference is $30-10=20$.\n\n**The Full Solution:**\nStep 1: Set the height equal to $15$: $-0.05x^{2}+2x=15$.\nStep 2: Multiply both sides by $-20$ to clear the decimal: $x^{2}-40x=-300$, or $x^{2}-40x+300=0$. Factor: $(x-10)(x-30)=0$, so $x=10$ or $x=30$.\nStep 3: The difference between the two values is $30-10=20$. Check: $h(10)=-5+20=15$ and $h(30)=-45+60=15$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): reports the smaller solution instead of the difference between the solutions.\n* Choice C ($30$): reports the larger solution instead of the difference.\n* Choice D ($40$): solves $h(x)=0$, which gives $x=0$ and $x=40$, the two ends of the arch, instead of $h(x)=15$.\n\n**Test Day Takeaway:** Set the model equal to the given output, solve, and then answer the question that was asked: here, the distance between the two solutions."
 }

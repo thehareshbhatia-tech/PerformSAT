@@ -1,6 +1,6 @@
 {
  "id": 21,
- "question": "The graph shows the height $h(t)$, in feet, of a kite $t$ minutes after it was launched, where $h(t) = -3t^{2} + 30t$. For how many minutes was the kite at a height of at least $48$ feet?",
+ "question": "The graph shows the height $h(t)$, in feet, of a kite $t$ minutes after it was launched, where $h(t) = -3t^{2} + 30t$. The kite was at a height of $48$ feet at two different times. How many minutes passed between these two times?",
  "diagram": {
   "type": "parabola",
   "params": {
@@ -42,10 +42,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "gives t = 2, the time when the kite first reaches 48 feet, instead of the length of the interval",
-  "C": "gives t = 8, the time when the kite falls back to 48 feet, instead of the length of the interval",
-  "D": "uses all 10 minutes during which the height is positive, ignoring the 48-foot level"
+  "A": "gives t = 2, the first time the kite is at a height of 48 feet, instead of the time between the two times",
+  "C": "gives t = 8, the second time the kite is at a height of 48 feet, instead of the time between the two times",
+  "D": "adds the two times, 2 + 8 = 10, instead of subtracting them"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Solve $-3t^{2} + 30t \\ge 48$: dividing by $-3$ gives $t^{2} - 10t + 16 \\le 0$, or $(t - 2)(t - 8) \\le 0$, so $2 \\le t \\le 8$, which is $6$ minutes.\n\n**The Full Solution:**\nStep 1: The condition is $-3t^{2} + 30t \\ge 48$. Subtract $48$: $-3t^{2} + 30t - 48 \\ge 0$. Divide by $-3$ and reverse the inequality: $t^{2} - 10t + 16 \\le 0$.\nStep 2: Factor: $(t - 2)(t - 8) \\le 0$. The product is less than or equal to $0$ only between the zeros, so $2 \\le t \\le 8$; on the graph, this is where the curve is at or above a height of $48$.\nStep 3: The kite is at or above $48$ feet for $8 - 2 = 6$ minutes. Check: $h(2) = -12 + 60 = 48$, $h(8) = -192 + 240 = 48$, and $h(5) = -75 + 150 = 75 \\ge 48$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): the time when the kite first reaches $48$ feet, not how long it stays at or above that height.\n* Choice C ($8$): the time when the kite comes back down to $48$ feet. The length of the interval is $8 - 2$.\n* Choice D ($10$): the whole time the kite is above the ground, ignoring the $48$-foot level.\n\n**Test Day Takeaway:** A \"for how long\" question asks for the difference between the two times, not either time; dividing an inequality by a negative number reverses it."
+ "explanation": "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Set $-3t^{2} + 30t = 48$ and divide by $-3$: $t^{2} - 10t + 16 = 0$, or $(t - 2)(t - 8) = 0$. The kite is at $48$ feet at $t = 2$ and $t = 8$, which are $6$ minutes apart.\n\n**The Full Solution:**\nStep 1: The kite is at a height of $48$ feet when $-3t^{2} + 30t = 48$. Subtract $48$ and divide by $-3$: $t^{2} - 10t + 16 = 0$.\nStep 2: Factor: $(t - 2)(t - 8) = 0$, so $t = 2$ or $t = 8$. On the graph, these are the two times the curve is at a height of $48$, once rising and once falling.\nStep 3: The time between them is $8 - 2 = 6$ minutes. Check: $h(2) = -12 + 60 = 48$ and $h(8) = -192 + 240 = 48$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): the first time the kite is at $48$ feet, not the time between the two times.\n* Choice C ($8$): the second time the kite is at $48$ feet. The time between the two times is $8 - 2$.\n* Choice D ($10$): adds the two times instead of subtracting them; $10$ is also when the kite returns to the ground.\n\n**Test Day Takeaway:** Set the function equal to the given height to find both times, then subtract the smaller time from the larger one."
 }

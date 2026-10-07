@@ -110,18 +110,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "In the $xy$-plane, line $k$ is parallel to the line $5x - 2y = 18$ and passes through the point $(4, 5)$. What is the $y$-coordinate of the $y$-intercept of line $k$?",
+  question: "In the $xy$-plane, line $k$ is parallel to the line $5x - 2y = 18$ and passes through the point $(0, -5)$. Which equation defines line $k$?",
   choices: [
-    // distractor: keeps the given line's constant 18 and reports that line's y-intercept
-    { id: "A", text: "$-9$" },
-    { id: "B", text: "$-5$" },
-    // distractor: divides 10 by -2 but keeps the result positive
-    { id: "C", text: "$5$" },
-    // distractor: reports the constant term of the new equation instead of the y-coordinate
-    { id: "D", text: "$10$" }
+    // distractor: swaps the x- and y-coefficients, giving slope 2/5; the line passes through (0, -5) but is not parallel
+    { id: "A", text: "$2x - 5y = 25$" },
+    // distractor: changes the sign of the y-coefficient, giving slope -5/2; the line passes through (0, -5) but is not parallel
+    { id: "B", text: "$5x + 2y = -10$" },
+    // distractor: keeps the coefficients but makes a sign error in the constant: -2(-5) computed as -10
+    { id: "C", text: "$5x - 2y = -10$" },
+    { id: "D", text: "$5x - 2y = 10$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** A line parallel to $5x - 2y = 18$ can be written as $5x - 2y = c$, and $(4, 5)$ gives $c = 5(4) - 2(5) = 10$. Setting $x = 0$ gives $-2y = 10$, so $y = -5$.\n\n**The Full Solution:**\nStep 1: Parallel lines have the same slope, so line $k$ has the same $x$- and $y$-coefficients as $5x - 2y = 18$ and differs only in the constant: $5x - 2y = c$.\nStep 2: Line $k$ passes through $(4, 5)$, so $c = 5(4) - 2(5) = 20 - 10 = 10$, and line $k$ is $5x - 2y = 10$.\nStep 3: The $y$-intercept has $x = 0$: $-2y = 10$, so $y = -5$. Check: in slope-intercept form, line $k$ is $y = \\frac{5}{2}x - 5$, which has slope $\\frac{5}{2}$ like the given line, and $\\frac{5}{2}(4) - 5 = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-9$): keeps the constant $18$ and gives the $y$-intercept of the given line, $-2y = 18$, instead of line $k$.\n* Choice C ($5$): divides $10$ by $-2$ but drops the negative sign.\n* Choice D ($10$): reports the constant $c$ in $5x - 2y = 10$ instead of solving for $y$ when $x = 0$.\n\n**Test Day Takeaway:** For a line parallel to $Ax + By = C$, keep $A$ and $B$, find the new constant from the given point, and then solve for the intercept you need.",
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** A line parallel to $5x - 2y = 18$ has the form $5x - 2y = c$, and the point $(0, -5)$ gives $c = 5(0) - 2(-5) = 10$.\n\n**The Full Solution:**\nStep 1: Parallel lines have the same slope. Solving $5x - 2y = 18$ for $y$ gives $y = \\frac{5}{2}x - 9$, so line $k$ has slope $\\frac{5}{2}$, and any equation $5x - 2y = c$ has that slope.\nStep 2: Line $k$ passes through $(0, -5)$, so $c = 5(0) - 2(-5) = 0 + 10 = 10$.\nStep 3: Line $k$ is $5x - 2y = 10$. Check: solving for $y$ gives $y = \\frac{5}{2}x - 5$, which has slope $\\frac{5}{2}$ and $y$-intercept $-5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2x - 5y = 25$): swaps the coefficients. It contains $(0, -5)$, but its slope is $\\frac{2}{5}$.\n* Choice B ($5x + 2y = -10$): changes the sign of the $y$-term. It contains $(0, -5)$, but its slope is $-\\frac{5}{2}$.\n* Choice C ($5x - 2y = -10$): has the right slope, but $-2(-5)$ is $10$, not $-10$, so this line does not contain $(0, -5)$.\n\n**Test Day Takeaway:** A line parallel to $Ax + By = C$ keeps $A$ and $B$; only the constant changes, and the given point supplies it.",
   skills: ["writing-parallel-equation"]
 },
 {
@@ -140,18 +140,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 4,
-  question: "Data set B is created by multiplying each value in data set A by $3$. Which of the following correctly compares the means and the standard deviations of the two data sets?",
+  question: "Data set B is created by adding $15$ to each value in data set A. Which of the following correctly compares the means and the standard deviations of the two data sets?",
   choices: [
-    { id: "A", text: "The mean and the standard deviation of data set B are both $3$ times those of data set A." },
-    // distractor: treats spread as unaffected by a multiplier (that is what adding a constant does)
-    { id: "B", text: "The mean of data set B is $3$ times the mean of data set A, and the standard deviations are equal." },
-    // distractor: swaps the two measures, leaving the mean alone instead of the spread
-    { id: "C", text: "The standard deviation of data set B is $3$ times that of data set A, and the means are equal." },
-    // distractor: assumes a common factor has no effect on either summary measure
-    { id: "D", text: "The means of the two data sets are equal, and the standard deviations are equal." }
+    { id: "A", text: "The mean of data set B is $15$ greater than that of data set A, and the standard deviations are equal." },
+    // distractor: assumes the spread grows by the same 15 that is added to every value
+    { id: "B", text: "The mean and the standard deviation of data set B are both $15$ greater than those of data set A." },
+    // distractor: swaps the two effects, leaving the mean alone and shifting the spread
+    { id: "C", text: "The means are equal, and the standard deviation of data set B is $15$ greater than that of data set A." },
+    // distractor: assumes adding the same number to every value changes neither measure
+    { id: "D", text: "The means are equal, and the standard deviations are equal." }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Multiplying every value by $3$ multiplies the mean by $3$ and also multiplies every distance from the mean by $3$, so both the mean and the standard deviation are $3$ times as large.\n\n**The Full Solution:**\nStep 1: If data set A has values $a_{1}, a_{2}, \\ldots, a_{n}$ with mean $m$, then data set B has values $3a_{1}, 3a_{2}, \\ldots, 3a_{n}$, and its mean is $\\frac{3a_{1} + 3a_{2} + \\cdots + 3a_{n}}{n} = 3m$.\nStep 2: Each value of data set B is $3a_{i} - 3m = 3(a_{i} - m)$ from the mean of B, so every distance from the mean is $3$ times the corresponding distance in data set A. The standard deviation measures the typical distance from the mean, so it is also multiplied by $3$.\nStep 3: Both measures of data set B are $3$ times those of data set A. Check with the values $1$, $2$, $3$: the mean is $2$ and the distances from the mean are $1$, $0$, $1$; after multiplying by $3$, the values $3$, $6$, $9$ have mean $6$ and distances $3$, $0$, $3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: treats the standard deviation as unaffected, which is what happens when the same number is added to every value, not when every value is multiplied.\n* Choice C: switches the two effects, leaving the mean unchanged even though every value is $3$ times as large.\n* Choice D: assumes a common factor has no effect on either measure.\n\n**Test Day Takeaway:** Multiplying every value by $k$ multiplies both the mean and the standard deviation by $k$; adding $k$ to every value changes the mean but not the standard deviation.",
+  explanation: "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Adding $15$ to every value moves the whole data set $15$ units to the right: the mean goes up by $15$, but the distances between the values, and so the spread, do not change.\n\n**The Full Solution:**\nStep 1: If data set A has values $a_{1}, a_{2}, \\ldots, a_{n}$ with mean $m$, then data set B has values $a_{1} + 15, a_{2} + 15, \\ldots, a_{n} + 15$, and its mean is $\\frac{(a_{1} + a_{2} + \\cdots + a_{n}) + 15n}{n} = m + 15$.\nStep 2: Each value of data set B is $(a_{i} + 15) - (m + 15) = a_{i} - m$ from the mean of B, the same distance as the matching value of data set A. The standard deviation measures the typical distance from the mean, so it does not change.\nStep 3: The mean of B is $15$ greater, and the standard deviations are equal. Check with the values $1$, $2$, $3$: the mean is $2$ and the distances from the mean are $1$, $0$, $1$; the values $16$, $17$, $18$ have mean $17$ and the same distances $1$, $0$, $1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: adds $15$ to the standard deviation too, but shifting every value does not spread the values farther apart.\n* Choice C: switches the two effects; every value is $15$ greater, so the mean must be $15$ greater.\n* Choice D: the spread is unchanged, but the center moves with the values.\n\n**Test Day Takeaway:** Adding the same number to every value shifts the mean (and the median) by that number and leaves the standard deviation (and the range) unchanged.",
   skills: ["data-analysis"]
 },
 {
@@ -384,19 +384,19 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "$f(x) = 2x - 5$\n$g(x) = x^{2} + 3$\nThe functions $f$ and $g$ are defined by the given equations. Which expression is equivalent to $g(f(x)) - f(g(x))$?",
+  question: "$f(x) = x^{2} + 3$\n$g(x) = 2x - 5$\nThe functions $f$ and $g$ are defined by the given equations. If $h(x) = f(x - 3) + g(x)$, what is the minimum value of $h(x)$?",
   choices: [
-    { id: "A", text: "$2x^{2} - 20x + 27$" },
-    // distractor: subtracts in the reverse order, computing f(g(x)) - g(f(x))
-    { id: "B", text: "$-2x^{2} + 20x - 27$" },
-    // distractor: expands (2x - 5)^2 as 4x^2 + 25, dropping the -20x middle term
-    { id: "C", text: "$2x^{2} + 27$" },
-    // distractor: stops after computing g(f(x)) and never subtracts f(g(x))
-    { id: "D", text: "$4x^{2} - 20x + 28$" }
+    // distractor: uses f(x) - 3 instead of f(x - 3), giving h(x) = x^2 + 2x - 5 = (x + 1)^2 - 6
+    { id: "A", text: "$-6$" },
+    // distractor: gives the x-value where the minimum occurs, x = 2, instead of the minimum value
+    { id: "B", text: "$2$" },
+    { id: "C", text: "$3$" },
+    // distractor: gives h(0) = 7, the y-intercept, instead of the vertex value
+    { id: "D", text: "$7$" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Function Composition**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** $g(f(x)) = (2x - 5)^{2} + 3 = 4x^{2} - 20x + 28$ and $f(g(x)) = 2(x^{2} + 3) - 5 = 2x^{2} + 1$, so the difference is $2x^{2} - 20x + 27$.\n\n**The Full Solution:**\nStep 1: Substitute $f(x)$ into $g$: $g(f(x)) = (2x - 5)^{2} + 3 = 4x^{2} - 20x + 25 + 3 = 4x^{2} - 20x + 28$.\nStep 2: Substitute $g(x)$ into $f$: $f(g(x)) = 2(x^{2} + 3) - 5 = 2x^{2} + 6 - 5 = 2x^{2} + 1$.\nStep 3: Subtract: $(4x^{2} - 20x + 28) - (2x^{2} + 1) = 2x^{2} - 20x + 27$. Check with $x = 1$: $f(1) = -3$ and $g(-3) = 12$; $g(1) = 4$ and $f(4) = 3$; $12 - 3 = 9$, and $2 - 20 + 27 = 9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-2x^{2} + 20x - 27$): subtracts in the reverse order, computing $f(g(x)) - g(f(x))$.\n* Choice C ($2x^{2} + 27$): expands $(2x - 5)^{2}$ as $4x^{2} + 25$, dropping the middle term $-20x$.\n* Choice D ($4x^{2} - 20x + 28$): stops after finding $g(f(x))$ and never subtracts $f(g(x))$.\n\n**Test Day Takeaway:** Work from the inside out for each composition, keep the two results separate, and subtract in the order written.",
-  skills: ["function-composition"]
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Function Transformation**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** $h(x) = (x - 3)^{2} + 3 + 2x - 5 = x^{2} - 4x + 7 = (x - 2)^{2} + 3$, so the minimum value is $3$.\n\n**The Full Solution:**\nStep 1: Replace $x$ with $x - 3$ in $f$: $f(x - 3) = (x - 3)^{2} + 3 = x^{2} - 6x + 12$.\nStep 2: Add $g(x)$: $h(x) = x^{2} - 6x + 12 + 2x - 5 = x^{2} - 4x + 7$.\nStep 3: Complete the square: $h(x) = (x^{2} - 4x + 4) + 3 = (x - 2)^{2} + 3$. Because $(x - 2)^{2} \\ge 0$, the least value of $h(x)$ is $3$, at $x = 2$. Check: $h(2) = f(-1) + g(2) = 4 + (-1) = 3$, and $h(1) = f(-2) + g(1) = 7 - 3 = 4 > 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): subtracts $3$ from $f(x)$ instead of replacing $x$ with $x - 3$, which gives $x^{2} + 2x - 5 = (x + 1)^{2} - 6$.\n* Choice B ($2$): $2$ is the value of $x$ where the minimum occurs, not the minimum value of $h(x)$.\n* Choice D ($7$): $7$ is $h(0)$, the $y$-intercept of the graph of $h$, not its lowest point.\n\n**Test Day Takeaway:** $f(x - 3)$ means substitute $x - 3$ for every $x$ in $f$; then write the quadratic in vertex form, where the constant term is the minimum value.",
+  skills: ["function-transformations", "vertex-form"]
 }
       ]
     },
@@ -480,19 +480,19 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The function $P$ gives a bakery's daily profit, in dollars, from selling $x$ cakes, where $P(x) = -3x^{2} + 165x - 1{,}800$. For which values of $x$ is the daily profit positive?",
+  question: "The function $P$ gives a bakery's daily profit, in dollars, from selling $x$ cakes, where $P(x) = -3x^{2} + 165x - 1{,}800$. On one day, the bakery's profit was $\\$72$. What is the least possible number of cakes the bakery sold that day?",
   choices: [
-    { id: "A", text: "$15 < x < 40$" },
-    // distractor: reads the zeros from the factors (x - 15)(x - 40) with the wrong signs, giving -15 and -40
-    { id: "B", text: "$-40 < x < -15$" },
-    // distractor: chooses the intervals outside the zeros, where the downward-opening parabola is below the x-axis and the profit is negative
-    { id: "C", text: "$x < 15$ or $x > 40$" },
-    // distractor: keeps only the lower boundary and ignores that the profit becomes negative again after x = 40
-    { id: "D", text: "$x > 15$" }
+    // distractor: sets P(x) = 0 instead of 72 and gives the smaller zero, 15
+    { id: "A", text: "$15$" },
+    { id: "B", text: "$16$" },
+    // distractor: solves P(x) = 72 correctly but gives the greater solution, 39, instead of the least
+    { id: "C", text: "$39$" },
+    // distractor: sets P(x) = 0 instead of 72 and gives the larger zero, 40
+    { id: "D", text: "$40$" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** $P(x) = -3(x^{2} - 55x + 600) = -3(x - 15)(x - 40)$. The parabola opens downward, so $P(x) > 0$ between the zeros: $15 < x < 40$.\n\n**The Full Solution:**\nStep 1: Factor out $-3$: $P(x) = -3\\left(x^{2} - 55x + 600\\right)$. The numbers $15$ and $40$ have product $600$ and sum $55$, so $P(x) = -3(x - 15)(x - 40)$.\nStep 2: The zeros are $x = 15$ and $x = 40$. Because the leading coefficient $-3$ is negative, the graph opens downward and is above the x-axis only between its zeros.\nStep 3: So the daily profit is positive for $15 < x < 40$. Check $x = 20$: $P(20) = -3(400) + 165(20) - 1{,}800 = -1{,}200 + 3{,}300 - 1{,}800 = 300 > 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-40 < x < -15$): flips the signs when reading zeros from $(x - 15)(x - 40)$; the zeros are $15$ and $40$, not $-15$ and $-40$.\n* Choice C ($x < 15$ or $x > 40$): these are the values where a downward-opening parabola is below the x-axis, so the profit is negative there.\n* Choice D ($x > 15$): uses only the first zero; for example, $P(50) = -3(35)(10) = -1{,}050$, so the profit is negative again beyond $40$.\n\n**Test Day Takeaway:** For a quadratic inequality, find the zeros, then use the sign of the leading coefficient: a downward-opening parabola is positive between its zeros and negative outside them.",
-  skills: ["quadratics"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Quadratic via Factoring**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Set $-3x^{2} + 165x - 1{,}800 = 72$ and divide by $-3$: $x^{2} - 55x + 624 = 0$, so $(x - 16)(x - 39) = 0$. The lesser solution is $16$.\n\n**The Full Solution:**\nStep 1: A profit of $\\$72$ means $P(x) = 72$: $-3x^{2} + 165x - 1{,}800 = 72$.\nStep 2: Subtract $72$ from both sides: $-3x^{2} + 165x - 1{,}872 = 0$. Divide every term by $-3$: $x^{2} - 55x + 624 = 0$.\nStep 3: Find two numbers with product $624$ and sum $55$: $16$ and $39$. So $(x - 16)(x - 39) = 0$, and $x = 16$ or $x = 39$.\nStep 4: The least possible number of cakes is $16$. Check: $P(16) = -3(256) + 165(16) - 1{,}800 = -768 + 2{,}640 - 1{,}800 = 72$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): solves $P(x) = 0$ instead of $P(x) = 72$; at $15$ cakes the profit is $\\$0$.\n* Choice C ($39$): also gives a profit of $\\$72$, but it is the greater solution, not the least.\n* Choice D ($40$): the larger solution of $P(x) = 0$, where the profit is $\\$0$.\n\n**Test Day Takeaway:** When a model's output is given, set the function equal to that value, move everything to one side, and factor; then read which solution the question asks for.",
+  skills: ["finding-roots-factoring"]
 },
 {
   id: 5,
@@ -557,18 +557,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "$\\dfrac{9^{2x} \\cdot 3^{x - 4}}{27^{x + 1}}$\nWhich expression is equivalent to the given expression?",
+  question: "$\\dfrac{(x^{3})^{4} \\cdot x^{2}}{x^{6}}$\nWhich expression is equivalent to the given expression, where $x > 0$?",
   choices: [
-    { id: "A", text: "$3^{2x - 7}$" },
-    // distractor: rewrites 27^(x + 1) as 3^(3x + 1), multiplying only the x by 3 and leaving the 1 alone
-    { id: "B", text: "$3^{2x - 5}$" },
-    // distractor: rewrites 3^(x - 4) as 3^(x + 4), flipping the sign of the -4
-    { id: "C", text: "$3^{2x + 1}$" },
-    // distractor: adds the exponent of the denominator instead of subtracting it: 4x + (x - 4) + (3x + 3) = 8x - 1
-    { id: "D", text: "$3^{8x - 1}$" }
+    // distractor: adds the exponents in the power of a power, writing (x^3)^4 as x^7, so 7 + 2 - 6 = 3
+    { id: "A", text: "$x^{3}$" },
+    // distractor: multiplies the exponents in the numerator and divides by the denominator's exponent: (12)(2)/6 = 4
+    { id: "B", text: "$x^{4}$" },
+    { id: "C", text: "$x^{8}$" },
+    // distractor: adds the denominator's exponent instead of subtracting it: 12 + 2 + 6 = 20
+    { id: "D", text: "$x^{20}$" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Common-Base Exponent Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Write every base as a power of $3$: $\\frac{3^{4x} \\cdot 3^{x - 4}}{3^{3x + 3}} = 3^{4x + x - 4 - 3x - 3} = 3^{2x - 7}$.\n\n**The Full Solution:**\nStep 1: Rewrite each base as a power of $3$: $9^{2x} = (3^{2})^{2x} = 3^{4x}$ and $27^{x + 1} = (3^{3})^{x + 1} = 3^{3x + 3}$.\nStep 2: Multiply in the numerator by adding exponents: $3^{4x} \\cdot 3^{x - 4} = 3^{5x - 4}$.\nStep 3: Divide by subtracting exponents: $3^{(5x - 4) - (3x + 3)} = 3^{2x - 7}$. Check at $x = 4$: the original is $\\frac{9^{8} \\cdot 3^{0}}{27^{5}} = \\frac{3^{16}}{3^{15}} = 3$, and $3^{2(4) - 7} = 3^{1} = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3^{2x - 5}$): writes $27^{x + 1}$ as $3^{3x + 1}$; the factor $3$ multiplies the whole exponent $x + 1$.\n* Choice C ($3^{2x + 1}$): changes $3^{x - 4}$ to $3^{x + 4}$, a sign slip.\n* Choice D ($3^{8x - 1}$): adds the denominator's exponent instead of subtracting it.\n\n**Test Day Takeaway:** Convert to a common base first; a power of a power multiplies the entire exponent, and dividing powers subtracts the entire exponent, so keep parentheses around $x + 1$.",
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Common-Base Exponent Simplification**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $(x^{3})^{4} = x^{12}$, so the expression is $\\frac{x^{12} \\cdot x^{2}}{x^{6}} = x^{12 + 2 - 6} = x^{8}$.\n\n**The Full Solution:**\nStep 1: A power of a power multiplies the exponents: $(x^{3})^{4} = x^{3 \\cdot 4} = x^{12}$.\nStep 2: Multiplying powers of the same base adds the exponents: $x^{12} \\cdot x^{2} = x^{14}$.\nStep 3: Dividing powers of the same base subtracts the exponents: $\\frac{x^{14}}{x^{6}} = x^{8}$. Check with $x = 2$: $\\frac{(2^{3})^{4} \\cdot 2^{2}}{2^{6}} = \\frac{4{,}096 \\cdot 4}{64} = 256 = 2^{8}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{3}$): treats $(x^{3})^{4}$ as $x^{3 + 4} = x^{7}$, adding exponents where they should be multiplied.\n* Choice B ($x^{4}$): multiplies $x^{12} \\cdot x^{2}$ as $x^{24}$ and then divides the exponent by $6$.\n* Choice D ($x^{20}$): adds the exponent of the denominator instead of subtracting it.\n\n**Test Day Takeaway:** Power of a power: multiply exponents. Product of powers: add exponents. Quotient of powers: subtract exponents.",
   skills: ["exponent-laws"]
 },
 {
@@ -595,29 +595,29 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "$5, 3, 12, 2, 3, 7, 4, 3, 9, 2, 5$\nThe list shows the number of nights each of $11$ guests stayed at a hotel. Which statement about these data is true?",
+  question: "$6, 2, 13, 3, 4, 11, 3$\nThe list shows the number of nights each of $7$ guests stayed at a hotel. Which statement about these data is true?",
   choices: [
-    { id: "A", text: "The mode is $3$ and the median is $4$." },
-    // distractor: swaps the two measures: 3 is the most frequent value and 4 is the middle value, not the reverse
-    { id: "B", text: "The mode is $4$ and the median is $3$." },
-    // distractor: reports the mean, 55/11 = 5, as the median
-    { id: "C", text: "The mode is $3$ and the median is $5$." },
-    // distractor: takes the middle entry of the unsorted list, the 6th value 7, as the median
-    { id: "D", text: "The mode is $3$ and the median is $7$." }
+    // distractor: takes the middle entry of the unsorted list, the 4th value 3, as the median
+    { id: "A", text: "The median is $3$ and the range is $11$." },
+    { id: "B", text: "The median is $4$ and the range is $11$." },
+    // distractor: uses the greatest value, 13, as the range instead of 13 - 2
+    { id: "C", text: "The median is $4$ and the range is $13$." },
+    // distractor: reports the mean, 42/7 = 6, as the median
+    { id: "D", text: "The median is $6$ and the range is $11$." }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Mode of a Data Set**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Sorted, the list is $2, 2, 3, 3, 3, 4, 5, 5, 7, 9, 12$. The value $3$ appears most often, and the $6$th value is $4$.\n\n**The Full Solution:**\nStep 1: Order the $11$ values from least to greatest: $2, 2, 3, 3, 3, 4, 5, 5, 7, 9, 12$.\nStep 2: The mode is the most frequent value. The value $3$ appears $3$ times, more than any other value, so the mode is $3$.\nStep 3: With $11$ values, the median is the $6$th value in order, which is $4$. Check: there are $5$ values below it ($2, 2, 3, 3, 3$) and $5$ above it ($5, 5, 7, 9, 12$) ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: swaps the two measures; $4$ appears only once.\n* Choice C: $5$ is the mean, $\\frac{55}{11} = 5$, not the median.\n* Choice D: $7$ is the $6$th entry of the list as written, but the median must be found after the values are put in order.\n\n**Test Day Takeaway:** Sort the data before finding a median; the mode is the value that repeats most, and the mean is a separate measure.",
-  skills: ["find-mode"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Median Calculation**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Sorted, the list is $2, 3, 3, 4, 6, 11, 13$. The middle ($4$th) value is $4$, and the range is $13 - 2 = 11$.\n\n**The Full Solution:**\nStep 1: Order the $7$ values from least to greatest: $2, 3, 3, 4, 6, 11, 13$.\nStep 2: With $7$ values, the median is the $4$th value in order, which is $4$.\nStep 3: The range is the greatest value minus the least value: $13 - 2 = 11$. Check: there are $3$ values below the median ($2, 3, 3$) and $3$ above it ($6, 11, 13$) ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: $3$ is the $4$th entry of the list as written, but the median must be found after the values are put in order.\n* Choice C: $13$ is the greatest value; the range is the difference between the greatest and least values.\n* Choice D: $6$ is the mean, $\\frac{42}{7} = 6$, not the median.\n\n**Test Day Takeaway:** Sort the data before finding a median, and remember that the range is a difference, greatest minus least.",
+  skills: ["find-median"]
 },
 {
   id: 11,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "$p(x) = x^{3} + ax^{2} + bx + 30$\nIn the given function, $a$ and $b$ are constants. The table shows four values of $x$ and their corresponding values of $p(x)$. What is the greatest zero of $p$?",
-  questionTable: { headers: ["$x$", "$p(x)$"], rows: [["$-2$", "$0$"], ["$1$", "$24$"], ["$2$", "$12$"], ["$3$", "$0$"]] },
-  correctAnswer: "5",
-  explanation: "**SAT Pattern: Polynomial Factoring with Given Factor**\n\n**The correct answer is 5.**\n\n**The Fast Way (~45s):** The table shows $p(-2) = 0$ and $p(3) = 0$, so $p(x) = (x + 2)(x - 3)(x - r)$. The constant term is $(2)(-3)(-r) = 6r = 30$, so $r = 5$, which is greater than $3$.\n\n**The Full Solution:**\nStep 1: A zero of $p$ is an input with output $0$, so the table gives the zeros $-2$ and $3$. Since the leading coefficient is $1$, $p(x) = (x + 2)(x - 3)(x - r)$ for some third zero $r$.\nStep 2: Match constant terms: at $x = 0$, $(2)(-3)(-r) = 6r$, and $p(0) = 30$. So $6r = 30$ and $r = 5$.\nStep 3: The zeros are $-2$, $3$, and $5$, so the greatest zero is $5$. Check the row $x = 1$: $(3)(-2)(-4) = 24$ ✓\n\n**Common Mistakes:**\n* $3$: the greatest zero visible in the table; the third zero is not listed.\n* $-5$: writes the constant term as $-6r$ and solves $-6r = 30$, a sign slip in $(2)(-3)(-r)$.\n* $15$: divides out only the factor $x + 2$ and reports the constant term of the quotient, which is the product of the other two zeros, $3 \\cdot 5 = 15$.\n\n**Test Day Takeaway:** Each row with output $0$ gives a factor; once all but one factor is known, the constant term of the polynomial gives the last zero in one step.",
+  question: "$p(x) = 2x^{2} + bx - 24$\nIn the given function, $b$ is a constant. The table shows three values of $x$ and their corresponding values of $p(x)$. What is the positive solution to the equation $p(x) = 0$?",
+  questionTable: { headers: ["$x$", "$p(x)$"], rows: [["$-4$", "$0$"], ["$1$", "$-20$"], ["$2$", "$-12$"]] },
+  correctAnswer: "3",
+  explanation: "**SAT Pattern: Polynomial Factoring with Given Factor**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~40s):** The table shows $p(-4) = 0$, so $x + 4$ is a factor of $p(x)$. The product of the two solutions of $2x^{2} + bx - 24 = 0$ is $\\frac{-24}{2} = -12$, so the other solution is $\\frac{-12}{-4} = 3$.\n\n**The Full Solution:**\nStep 1: From the row $x = -4$: $2(-4)^{2} + b(-4) - 24 = 0$, so $32 - 4b - 24 = 0$, $8 = 4b$, and $b = 2$.\nStep 2: Factor: $p(x) = 2x^{2} + 2x - 24 = 2(x^{2} + x - 12) = 2(x + 4)(x - 3)$.\nStep 3: The solutions to $p(x) = 0$ are $x = -4$ and $x = 3$, so the positive solution is $3$. Check the other rows: $p(1) = 2(5)(-2) = -20$ ✓ and $p(2) = 2(6)(-1) = -12$ ✓\n\n**Common Mistakes:**\n* $4$: drops the negative sign of the zero shown in the table, $-4$.\n* $2$: stops after finding the constant $b = 2$.\n* $6$: divides $-24$ by $-4$ but forgets the leading coefficient $2$, giving a product of solutions of $-24$ instead of $-12$.\n\n**Test Day Takeaway:** An output of $0$ in a table gives a solution, and so a factor; with the constant found, factor (or use the product of the solutions) to get the other solution.",
   skills: ["finding-roots-factoring"]
 },
 {

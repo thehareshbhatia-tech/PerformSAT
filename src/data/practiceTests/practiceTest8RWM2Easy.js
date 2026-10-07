@@ -8,8 +8,8 @@
 // Recreated 2026-09-01 against the official Educator Question Bank register
 // (docs/TEST_RECREATION_SPEC.md). All passages are ORIGINAL prose written for
 // this variant. Nothing is taken or paraphrased from College Board materials,
-// prep books, or other copyrighted sources, and no specific published study
-// is cited.
+// prep books, or other copyrighted sources. Facts were checked against public
+// sources in 2026-10 (see each re-authored item's _meta.sources).
 
 export const practiceTest8RWM2Easy = {
   id: "rw-module-2-easy",
@@ -45,7 +45,7 @@ export const practiceTest8RWM2Easy = {
       "band": 2,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "A window box hangs against a wall that soaks up sun all day, and the shallow soil inside it dries out far faster than a bed at ground level. Gardeners who keep one learn to ____ their watering to the spot itself, checking a box on a south-facing sill every morning while letting a box on a shaded wall wait an extra day.",
+      "passage": "A window box hangs against a wall that soaks up sun all day, and the shallow soil inside it dries out far faster than a bed at ground level. Gardeners who keep one learn to ____ their watering to the spot itself. A box on a south-facing sill gets checked every morning, while a box on a shaded wall can wait an extra day.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "delay" },
@@ -102,22 +102,30 @@ export const practiceTest8RWM2Easy = {
       "passages": [
         {
           "label": "Text 1",
-          "text": "Economics teachers sometimes assign a lemonade stand as a first lesson in pricing. One class ran a stand outside a busy community center on four consecutive Saturdays, charging a different price each week. Sales climbed steadily as the price came down, and at the lowest price the stand sold out before noon. The students concluded that price is the main lever a small stand controls: set it low enough, they argued, and nearly any stand will sell its pitchers dry."
+          "text": "In 1993, a team of psychologists reported that college students scored higher on spatial reasoning tasks after listening to ten minutes of a Mozart sonata than after sitting in silence. One task asked them to picture how a folded and cut sheet of paper would look when unfolded. The finding spread quickly in the popular press. Many accounts concluded that Mozart's music in particular sharpens the mind."
         },
         {
           "label": "Text 2",
-          "text": "Two researchers studying children's roadside stands recorded prices, locations, and sales at dozens of stands across one county. Foot traffic overwhelmed every other factor: stands on busy corners sold several times more than stands on quiet streets no matter what either charged, and on streets with few passersby, cups offered for pennies went unsold. The researchers concluded that where a stand sits matters far more than what it charges."
+          "text": "Later researchers tested the idea by having listeners hear either a Mozart sonata or a passage from a story by a popular novelist before a paper-folding task. Both kinds of listening improved scores, but only for listeners who enjoyed what they heard. The researchers concluded that the boost came from being alert and in a good mood, not from Mozart's music itself."
         }
       ],
       "question": "Based on the texts, how would the researchers in Text 2 most likely respond to the conclusion presented in Text 1?",
       "choices": [
-        { "id": "A", "text": "They would insist that a stand's sales cannot be increased by any decision its operators make, since customers act on their own reasons." },
-        { "id": "B", "text": "They would argue that the class should have raised its price from week to week instead of lowering it, since a higher price signals better lemonade." },
-        { "id": "C", "text": "They would agree that price is the main lever for any stand and recommend charging even less than the class did." },
-        { "id": "D", "text": "They would note that the class sold from one busy spot and caution that on an empty street a low price by itself moves few cups." }
+        { "id": "A", "text": "They would insist that listening to music cannot affect performance on any kind of test." },
+        { "id": "B", "text": "They would argue that the students in the 1993 study should have listened to Mozart for longer than ten minutes." },
+        { "id": "C", "text": "They would agree that Mozart's music sharpens the mind and recommend that students listen to it more often." },
+        { "id": "D", "text": "They would caution that the improvement reflects listeners' enjoyment and alertness rather than anything special about Mozart." }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** Text 1's class drew its conclusion from a single stand at a busy community center, and Text 2 finds that on quiet streets sales stay low \"no matter what either charged,\" so the researchers would point out that limit.\n\n**The Full Solution:**\n- How to spot it: for a how-would-they-respond question, pin down each text's main claim first, then look for the detail in Text 1 that the other side would seize on.\n- Text 1's claim: price is the main lever, since sales climbed each week as the class charged less.\n- The detail: every one of those Saturdays was sold at the same busy community-center location.\n- Text 2's finding: location dominates, and on streets with few passersby, even cups offered for pennies went unsold.\n- So the researchers would accept the class's numbers but credit its location, which is what D says.\n\n**Why the other choices are wrong:**\n- A: Text 2 does not say operators are helpless; it says the choice of spot matters most, and a spot is something an operator picks.\n- B: Neither text suggests raising prices or says a higher price signals better lemonade.\n- C: This has the researchers agreeing that price rules, the opposite of their conclusion."
+      "explanation": "**Choice D is correct.** Text 1 reports the popular conclusion that Mozart's music in particular sharpens the mind, and Text 2 found that a story helped just as much for listeners who enjoyed it, so the researchers would credit mood and alertness, not Mozart.\n\n**The Full Solution:**\n- How to spot it: for a how-would-they-respond question, pin down each text's main claim first, then ask what Text 2's evidence says about Text 1's claim.\n- Text 1's conclusion: Mozart's music in particular sharpens the mind.\n- Text 2's evidence: a Mozart sonata and a story passage both raised scores, but only for listeners who enjoyed what they heard.\n- So the researchers would not deny the improvement; they would explain it differently, as D says.\n\n**Why the other choices are wrong:**\n- A: Text 2 reports that listening did improve scores, so the researchers would not claim it has no effect.\n- B: Text 2 never discusses how long listeners should hear the music.\n- C: Text 2 found that a story worked as well as Mozart, so the researchers would not agree that Mozart is special.",
+      "_meta": {
+        "anchor": "Mozart effect (Rauscher et al. 1993) vs arousal-and-mood account (Nantais & Schellenberg 1999; Thompson, Schellenberg & Husain 2001) — CTC",
+        "sources": [
+          "https://en.wikipedia.org/wiki/Mozart_effect",
+          "https://www.nature.com/articles/365611a0",
+          "https://sites.utm.utoronto.ca/sites/sites.utm.utoronto.ca.glenn_website/files/download/Nantais.pdf"
+        ]
+      }
     },
     {
       "id": 860,
@@ -129,10 +137,10 @@ export const practiceTest8RWM2Easy = {
       "passage": "Snow shoveled straight into a wall slumps under its own weight, because freshly fallen crystals barely touch one another. Packing changes that: pressing the snow shatters the crystals' points, and the broken fragments refreeze into a network of tiny ice bridges that stiffens over several hours. Builders of snow forts learn to work around the delay. They pack snow into buckets or bins, tip the blocks out in rows, and leave the wall alone overnight; by morning the bridges have locked the blocks into a single mass hard enough to carve.",
       "question": "Which choice best describes the overall structure of the text?",
       "choices": [
-        { "id": "A", "text": "It recounts the building of one particular snow fort from the season's first heavy snowfall to the warm afternoon it finally melted." },
+        { "id": "A", "text": "It recounts the building of one snow fort from the season's first snowfall until the day it melted." },
         { "id": "B", "text": "It lists the tools a builder needs and then ranks them from the most useful to the least." },
-        { "id": "C", "text": "It explains why loose snow makes a weak wall, describes how packing hardens it, and then shows how builders time their work around that hardening." },
-        { "id": "D", "text": "It argues that walls of packed snow are so much stronger than walls of stacked ice that builders should give up cutting ice blocks for their forts entirely." }
+        { "id": "C", "text": "It explains why loose snow makes a weak wall, how packing hardens it, and how builders time their work around that hardening." },
+        { "id": "D", "text": "It argues that builders should stop cutting ice blocks for forts because packed snow makes stronger walls." }
       ],
       "correctAnswer": "C",
       "explanation": "**Choice C is correct.** The passage explains why loose snow fails, describes how packing hardens it over hours, and ends with how builders arrange their work around that delay.\n\n**The Full Solution:**\n- How to spot it: label what each part of the passage DOES, then read the labels back in order.\n- Why loose snow fails: freshly fallen crystals barely touch, so a shoveled wall slumps.\n- How packing works: pressing shatters the crystal points, and the fragments refreeze into tiny ice bridges that stiffen for hours.\n- How builders use it: pack blocks, set them in rows, and let the wall lock up overnight. Reason, process, application, exactly what C says.\n\n**Why the other choices are wrong:**\n- A: No single fort's story is told from snowfall to melt.\n- B: The passage never lists tools, let alone ranks them.\n- D: Walls of stacked ice are never mentioned, so no comparison is being argued."
@@ -201,16 +209,23 @@ export const practiceTest8RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "command-of-evidence-textual",
-      "passage": "Why does a skipped stone sometimes carry across a dozen bounces and sometimes sink at the first? One research group filmed stones striking the water and noticed that the longest runs began with a strong flick of the wrist. *The group's hypothesis is that rapid spin, rather than sheer speed, is what keeps a stone from tipping over when it strikes the surface.*",
+      "passage": "Many drivers find that their tires look low on the first cold mornings of fall. Some assume the tires are leaking. *A group of tire engineers hypothesizes that the cold itself, rather than leaking air, lowers the pressure.* Air inside a tire takes up less space as it cools.",
       "question": "Which finding, if true, would most strongly support the group's hypothesis?",
       "choices": [
-        { "id": "A", "text": "Stones thrown by experienced skippers travel faster on average than stones thrown by beginners." },
-        { "id": "B", "text": "Stones with flat, even bottoms skip more readily than stones with rounded or uneven ones." },
-        { "id": "C", "text": "A stone's bounces grow shorter and lower as its run across the water continues." },
-        { "id": "D", "text": "Stones launched at identical speeds skipped repeatedly when spun rapidly but flipped and sank when given almost no spin." }
+        { "id": "A", "text": "Tires slowly lose a little air through tiny gaps around the valve stem over the course of many months." },
+        { "id": "B", "text": "Drivers check their tire pressure more often in the fall than in the summer." },
+        { "id": "C", "text": "Tires on cars parked outdoors through the winter wear out sooner than tires on cars kept in garages." },
+        { "id": "D", "text": "Tires that read low on a cold morning returned to normal pressure, with no air added, after warming in a heated garage." }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The hypothesis separates spin from speed, so the strongest support holds speed constant and varies only the spin, which is exactly the test in D.\n\n**The Full Solution:**\n- How to spot it: restate the claim, then ask what comparison would test it. The claim says spin, not speed, keeps the stone from tipping.\n- The right test keeps speed the same for every stone and changes only how fast each one spins.\n- D reports that test: at identical speeds, rapidly spun stones skipped again and again while barely spun ones flipped and sank.\n- Since the only difference between the stones was spin, the finding ties the tipping directly to it, just as the hypothesis predicts.\n\n**Why the other choices are wrong:**\n- A: Faster throws by experienced skippers mix speed and spin together, so the finding cannot separate the two.\n- B: The shape of a stone's bottom is a different variable and says nothing about spin versus speed.\n- C: How a run winds down describes every skipped stone and compares nothing, so it cannot favor spin over speed."
+      "explanation": "**Choice D is correct.** The hypothesis separates cold from leaking, so the strongest support keeps the amount of air the same and changes only the temperature, which is exactly the test in D.\n\n**The Full Solution:**\n- How to spot it: restate the claim, then ask what comparison would test it. The claim says cold, not leaking, lowers the pressure.\n- The right test keeps the air inside the tire the same and changes only how warm the tire is.\n- D reports that test: with no air added, the low tires returned to normal pressure once they warmed up.\n- If a leak had caused the drop, warming the tires would not have brought the pressure back.\n\n**Why the other choices are wrong:**\n- A: Slow leaks over many months, if anything, support the leaking explanation, not the cold one.\n- B: How often drivers check their tires says nothing about what lowers the pressure.\n- C: Tire wear is a different question from tire pressure, so this finding does not bear on the hypothesis.",
+      "_meta": {
+        "anchor": "tire pressure drops ~1 psi per 10°F (cold, not leaks) — CoE-textual: vary one factor, hold the other",
+        "sources": [
+          "https://www.kivitv.com/news/cold-weather-snap-finally-hits-and-takes-its-toll-on-car-tires-in-the-treasure-valley",
+          "https://www.nhtsa.gov/equipment/tires"
+        ]
+      }
     },
     {
       "id": 870,
@@ -219,16 +234,23 @@ export const practiceTest8RWM2Easy = {
       "band": 4,
       "domain": "information-and-ideas",
       "skill": "inferences",
-      "passage": "At street-painting festivals, artists work in chalk pastels on the pavement itself, and organizers long assumed that the drawings' short lives are set by the material: soft pastel, the thinking went, simply cannot hold color outdoors. Festival records complicate that view. On plazas paved with smooth polished granite, drawings blur after a single night's dew, while drawings made with the same pastels, by the same artists, on rough broomed concrete stay legible through several rainstorms. Taken together, these records suggest that how long a street painting lasts is best understood as ____",
+      "passage": "On Earth, footprints rarely last long: prints in fine, powdery soil are erased by the first strong wind or heavy rain. Yet the bootprints that astronauts left in the Moon's fine, powdery soil between 1969 and 1972 are expected to stay visible for millions of years. The Moon has no air to make wind and no water to wash its surface, and its soil is disturbed only slowly by the impacts of tiny meteorites. Taken together, these facts suggest that how long a footprint lasts is best understood as ____",
       "question": "Which choice most logically completes the text?",
       "choices": [
-        { "id": "A", "text": "proof that festival drawings can be preserved indefinitely if they are sheltered from rain." },
-        { "id": "B", "text": "a property of the surface that holds the pigment rather than of the pigment itself." },
-        { "id": "C", "text": "a sign that artists who work on granite are less careful than artists who work on concrete." },
-        { "id": "D", "text": "the result of festival rules that require every drawing to be washed away when the event closes." }
+        { "id": "A", "text": "proof that footprints in powdery soil last longer than footprints in any other material." },
+        { "id": "B", "text": "a result of the forces that act on the ground afterward rather than of the material that holds the print." },
+        { "id": "C", "text": "a sign that the astronauts pressed their boots down far harder than people do on Earth." },
+        { "id": "D", "text": "the result of the astronauts' boots, which were designed to leave unusually deep prints." }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The same pastels in the same hands last one night on polished granite and weeks on rough concrete, so what varies is the pavement, and the lasting must be the surface's doing.\n\n**The Full Solution:**\n- How to spot it: when a passage lays two cases side by side, find what DIFFERS between them and what CHANGES with it.\n- Case one: smooth polished granite, and the drawings blur after a single night's dew.\n- Case two: rough broomed concrete, and the drawings survive several rainstorms.\n- The pastels, the artists, and the weather are the same; only the surface differs, so how long a painting lasts is a property of the surface rather than of the pigment, which is what B says.\n\n**Why the other choices are wrong:**\n- A: Dew alone ruins the granite drawings, so shelter from rain would not preserve anything indefinitely.\n- C: The same artists appear in both cases, so carelessness cannot be the difference.\n- D: No festival rule about washing drawings away is mentioned in the passage."
+      "explanation": "**Choice B is correct.** Prints in the same kind of fine, powdery soil vanish quickly on Earth but last for millions of years on the Moon, so what differs is the wind, rain, and water acting on the ground, and the lasting must be their doing.\n\n**The Full Solution:**\n- How to spot it: when a passage lays two cases side by side, find what DIFFERS between them and what CHANGES with it.\n- Case one: fine, powdery soil on Earth, and prints are erased by the first strong wind or heavy rain.\n- Case two: fine, powdery soil on the Moon, with no wind or water, and prints are expected to last millions of years.\n- The soil is alike in both cases; only the forces acting on it differ, so how long a print lasts depends on those forces, as B says.\n\n**Why the other choices are wrong:**\n- A: On Earth, prints in powdery soil vanish quickly, so the material alone does not make them last.\n- C: The passage says nothing about how hard the astronauts pressed their boots down.\n- D: The passage never mentions the design of the boots.",
+      "_meta": {
+        "anchor": "Apollo bootprints last millions of years (no wind/water; slow micrometeorite erosion) — inference: environment, not material",
+        "sources": [
+          "https://www.space.com/12846-apollo-moon-landing-sites-flags-footprints.html",
+          "https://en.wikipedia.org/wiki/Lunar_regolith"
+        ]
+      }
     },
     {
       "id": 864,
@@ -255,29 +277,48 @@ export const practiceTest8RWM2Easy = {
       "band": 2,
       "domain": "information-and-ideas",
       "skill": "command-of-evidence-quantitative",
-      "passage": "In the late 1930s, many city school districts began selling milk to students at a subsidized price, and some cut the price further as outside funding grew. A student reviewing one district's records concludes that lowering the price brought milk to far more students, because _______",
+      "passage": "In October 2015, England began requiring large stores to charge 5 pence for each single-use plastic carrier bag. A student reviewing government figures for the country's seven main supermarket chains concludes that the charge was followed by a steep drop in the number of bags handed out, because _______",
       "question": "Which choice most effectively uses data from the table to support the claim?",
       "choices": [
-        { "id": "A", "text": "the district served 340 half-pints a day in 1938, when a half-pint cost 3 cents, and 890 a day in 1940, after the price fell to 1 cent." },
-        { "id": "B", "text": "the district's daily total rose from 310 half-pints in 1936 to 340 in 1938, while the price stayed at 3 cents." },
-        { "id": "C", "text": "the price of a half-pint in 1942 was 1 cent, the lowest price shown in the table." },
-        { "id": "D", "text": "the district's milk service was measured at four separate points between 1936 and 1942." }
+        { "id": "A", "text": "the chains issued 7.6 billion bags in 2014, before the charge, and only 1.3 billion in 2016–17, after it began." },
+        { "id": "B", "text": "the chains issued 1.3 billion bags in 2016–17 and 1.0 billion in 2017–18, while the charge stayed at 5 pence." },
+        { "id": "C", "text": "the charge in 2017–18 was 5 pence per bag, the same as in 2016–17." },
+        { "id": "D", "text": "the chains' bag use was measured in three separate periods between 2014 and 2018." }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The claim links the price cut to a jump in students served, so the support has to compare service before the cut with service after it, which is exactly what A does.\n\n**The Full Solution:**\n- How to spot it: underline the key words in the claim. Here they are \"lowering the price\" and \"far more students.\"\n- That means you need one number from the 3-cent years and one from the 1-cent years, with the later one much bigger.\n- The table gives 340 half-pints a day in 1938, at 3 cents, and 890 a day in 1940, at 1 cent.\n- A cites both, and 890 is well over twice 340, so the jump lines up with the price cut just as the claim says.\n\n**Why the other choices are wrong:**\n- B: Both of those years sit at the same 3-cent price, so the comparison says nothing about what lowering the price did.\n- C: One value from 1942 shows no change at all; a single number cannot show growth.\n- D: How many times the service was measured says nothing about whether it grew.",
+      "explanation": "**Choice A is correct.** The claim links the charge to a steep drop in bags, so the support has to compare bag use before the charge with bag use after it, which is exactly what A does.\n\n**The Full Solution:**\n- How to spot it: underline the key words in the claim. Here they are \"the charge\" and \"a steep drop.\"\n- That means you need one number from before the charge and one from after it, with the later one much smaller.\n- The table gives 7.6 billion bags in 2014, with no charge, and 1.3 billion in 2016–17, with a 5-pence charge.\n- A cites both, and 1.3 billion is less than a fifth of 7.6 billion, so the drop is steep.\n\n**Why the other choices are wrong:**\n- B: Both of these periods come after the charge began, so they cannot show what the charge changed.\n- C: It reports only the price, with no figures for how many bags were issued.\n- D: It says when the figures were collected but nothing about what they show.",
       "questionTable": {
         "type": "table",
-        "caption": "Milk service in one city school district",
+        "caption": "Single-use plastic bags issued by England's seven main supermarket chains",
         "headers": [
-          "Year",
-          "Price per half-pint (cents)",
-          "Half-pints served daily"
+          "Period",
+          "Charge per bag",
+          "Bags issued (billions)"
         ],
         "rows": [
-          ["1936", "3", "310"],
-          ["1938", "3", "340"],
-          ["1940", "1", "890"],
-          ["1942", "1", "950"]
+          [
+            "2014",
+            "none",
+            "7.6"
+          ],
+          [
+            "2016–17",
+            "5 pence",
+            "1.3"
+          ],
+          [
+            "2017–18",
+            "5 pence",
+            "1.0"
+          ]
+        ]
+      },
+      "_meta": {
+        "anchor": "England 5p carrier bag charge (Oct 2015): seven main retailers 7.6bn (2014) -> 1.3bn (2016-17) -> 1.04bn (2017-18) — CoE-quant E",
+        "sources": [
+          "https://www.gov.uk/government/publications/carrier-bag-charge-summary-of-data-in-england",
+          "https://www.gov.uk/government/news/plastic-bag-sales-down-90-since-introduction-of-5p-charge",
+          "https://www.letsrecycle.com/news/retailers-reduction-plastic-bags"
         ]
       }
     },
@@ -288,16 +329,24 @@ export const practiceTest8RWM2Easy = {
       "band": 2,
       "domain": "information-and-ideas",
       "skill": "central-ideas-and-details",
-      "passage": "Beach glass begins as trash: bottles and jars discarded near the shore, broken up by the surf, and tumbled smooth over decades. Collectors prize the frosted fragments, yet many report that good pieces grow harder to find each year. The reason lies onshore. Drinks now come mainly in plastic and aluminum, and the glass that is still used is far more likely to be recycled than thrown away. With less new glass entering the water, the supply of future beach glass is quietly running out.",
+      "passage": "For decades, pay phones stood on street corners, in train stations, and outside stores across the United States. Their number peaked in the mid-1990s at about 2.6 million. Then cell phones spread quickly, and as more people carried a phone of their own, fewer people needed a public one. With little use, many pay phones stopped earning money, and their owners took them out. Today only a small fraction of them remain.",
       "question": "Which choice best states the main idea of the text?",
       "choices": [
-        { "id": "A", "text": "Collectors disagree about which colors of beach glass are the most valuable to find." },
-        { "id": "B", "text": "The surf can tumble a broken bottle into a smooth fragment within a few seasons." },
-        { "id": "C", "text": "Beach glass is growing scarcer because less discarded glass now enters the sea." },
-        { "id": "D", "text": "Plastic and aluminum containers keep drinks fresher during shipping than glass bottles did." }
+        { "id": "A", "text": "Pay phones were most common in train stations, outside stores, and on busy street corners." },
+        { "id": "B", "text": "Pay phones cost very little to install, so many were placed on busy street corners." },
+        { "id": "C", "text": "Pay phones have grown scarce because fewer people need them now that most carry cell phones." },
+        { "id": "D", "text": "Cell phones work in many places where pay phones were never installed at all." }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The passage reports that collectors find fewer good pieces each year and traces the cause to shore: less glass is thrown away now, so less future beach glass is being made.\n\n**The Full Solution:**\n- How to spot it: for a main-idea question, look for the sentence that draws everything together. It is often the last one.\n- The last sentence says that \"with less new glass entering the water, the supply of future beach glass is quietly running out.\"\n- Every earlier detail feeds that point: beach glass begins as discarded bottles, collectors report scarcer finds, and drinks now come in plastic and aluminum.\n- So the main idea is the shrinking supply and its onshore cause, which is what C states.\n\n**Why the other choices are wrong:**\n- A: The passage never discusses colors or which ones collectors value.\n- B: The passage says the tumbling takes decades, not a few seasons.\n- D: How well each container keeps drinks fresh is never discussed."
+      "explanation": "**Choice C is correct.** The passage explains why pay phones are disappearing: as cell phones spread, fewer people needed public phones, so many were removed. Choice C states that idea.\n\n**The Full Solution:**\n- How to spot it: look for the sentence that explains a change, then check that the rest of the passage supports it.\n- The change: pay phones peaked at about 2.6 million in the mid-1990s, and only a small fraction remain today.\n- The reason: as more people carried their own phones, fewer needed a public one, so many pay phones stopped earning money and were taken out.\n- C joins the change and its reason, which is the main idea.\n\n**Why the other choices are wrong:**\n- A: The passage lists places pay phones stood but never says where they were most common.\n- B: The passage never discusses what pay phones cost to install.\n- D: The passage never compares where cell phones and pay phones work.",
+      "_meta": {
+        "anchor": "US pay phones peak ~2.6 million mid-1990s, decline as cell phones spread — CID E main idea",
+        "sources": [
+          "https://archive.seattletimes.com/archive/20030430/payphones30/old-fashioned-telephone-booths-are-quickly-becoming-obsolete",
+          "https://www.pymnts.com/commerce/2016/weird-commerce-payphones/",
+          "https://13newsnow.com/article/features/13news-now-vault-payphones/291-7ab62b08-2dfc-4daa-a5d2-a578672c092e"
+        ]
+      }
     },
     {
       "id": 868,
@@ -306,28 +355,41 @@ export const practiceTest8RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "command-of-evidence-quantitative",
-      "passage": "Municipal pools station lifeguards through the swimming season, and every assisted swimmer is logged as a rescue. As one city's pools drew bigger crowds, the yearly count of rescues climbed, and a local columnist cited the climb as proof that the pools were becoming more dangerous. A researcher examining the city's own attendance figures argues that the raw count gives a false impression, because _______",
+      "passage": "Every year, the National Center for Health Statistics counts the babies born in the United States. The count rose between 1990 and 2007, and in 2007 it reached the highest number ever recorded in the country. A student examining the center's figures argues that the rising count alone gives a misleading picture of how common births became in the population, because _______",
       "question": "Which choice most effectively uses data from the table to support the claim?",
       "choices": [
-        { "id": "A", "text": "the yearly count of rescues rose across the period shown, from 20 in 2013 to 28 in 2017 and then to 30 in 2021." },
-        { "id": "B", "text": "the pools drew 100,000 swimmers in 2021, two and a half times the 40,000 they had drawn in 2013." },
-        { "id": "C", "text": "although rescues rose from 20 to 30, the number of rescues for every 10,000 swimmers fell from 5 in 2013 to 3 in 2021." },
-        { "id": "D", "text": "the pools recorded 28 rescues in 2017, more than the 20 they had recorded in 2013." }
+        { "id": "A", "text": "the yearly number of births rose from 4,158,212 in 1990 to 4,316,233 in 2007." },
+        { "id": "B", "text": "there were 4,316,233 births in 2007, more than the 4,158,212 recorded in 1990." },
+        { "id": "C", "text": "although the number of births rose from 4,158,212 to 4,316,233, births per 1,000 people fell from 16.7 to 14.3." },
+        { "id": "D", "text": "the rate in 2007 was 14.3 births for every 1,000 people in the United States." }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The researcher says the raw count misleads, so the support has to set the rising number of rescues against the falling rate per swimmer, and only C reports both.\n\n**The Full Solution:**\n- How to spot it: when a claim says a count is \"misleading,\" the answer almost always converts counts into a share or rate.\n- Work the two ends of the table: 20 rescues among 40,000 swimmers in 2013 is 5 per 10,000, and 30 rescues among 100,000 swimmers in 2021 is 3 per 10,000.\n- So rescues went up while the chance that any one swimmer needed rescuing went down.\n- C states both halves, which is what shows the raw count on its own to be misleading.\n\n**Why the other choices are wrong:**\n- A: Citing only the rising count repeats the very number the researcher calls misleading.\n- B: Attendance alone leaves out rescues, so it proves nothing about the rate.\n- D: Comparing two rescue counts still ignores how many swimmers each was drawn from.",
+      "explanation": "**Choice C is correct.** The claim is that the rising count is misleading, so the support must show that births did not become more common relative to the population as the count rose. C does that: births per 1,000 people fell from 16.7 to 14.3.\n\n**The Full Solution:**\n- How to spot it: when a claim says a raw count misleads, look for a rate in the table.\n- The count rose from 4,158,212 to 4,316,233, but the population was growing too, so the count alone cannot show whether births became more common.\n- The rate answers that question: 16.7 births per 1,000 people in 1990 and 14.3 in 2007.\n- C sets the rising count beside the falling rate, which is exactly the point.\n\n**Why the other choices are wrong:**\n- A: It repeats the rising count, the very figure the student says is misleading.\n- B: It also relies only on the count, so it cannot show that the count misleads.\n- D: It gives the 2007 rate alone, with nothing to compare it to.",
       "questionTable": {
         "type": "table",
-        "caption": "Attendance and rescues at one city's outdoor pools",
+        "caption": "Births in the United States",
         "headers": [
           "Year",
-          "Season attendance",
-          "Rescues"
+          "Births",
+          "Births per 1,000 people"
         ],
         "rows": [
-          ["2013", "40,000", "20"],
-          ["2017", "70,000", "28"],
-          ["2021", "100,000", "30"]
+          [
+            "1990",
+            "4,158,212",
+            "16.7"
+          ],
+          [
+            "2007",
+            "4,316,233",
+            "14.3"
+          ]
+        ]
+      },
+      "_meta": {
+        "anchor": "NCHS births: 4,158,212 (16.7 per 1,000) in 1990 vs 4,316,233 (14.3) in 2007, the record count - CoE-quant: count vs rate",
+        "sources": [
+          "https://www.cdc.gov/nchs/data/nvsr/nvsr58/nvsr58_24.pdf"
         ]
       }
     },
@@ -377,16 +439,23 @@ export const practiceTest8RWM2Easy = {
       "band": 4,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "A nest box is a plain object, but its dimensions are anything but casual. The width of the entrance hole, along with the depth of the chamber beneath it, ______ which species will ever settle inside, so builders' plans give both figures to the eighth of an inch.",
+      "passage": "On a summer day, the number on a thermometer tells only part of the story. The temperature of the air, along with the amount of moisture in it, ______ how hot the day feels to the human body, which is why weather forecasters report a heat index.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "govern" },
-        { "id": "B", "text": "governing" },
-        { "id": "C", "text": "governs" },
-        { "id": "D", "text": "have governed" }
+        { "id": "A", "text": "determine" },
+        { "id": "B", "text": "determining" },
+        { "id": "C", "text": "determines" },
+        { "id": "D", "text": "have determined" }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The subject is the singular \"The width,\" and an \"along with\" phrase does not make a singular subject plural, so the singular \"governs\" is correct.\n\n**The Full Solution:**\n- How to spot it: cross out everything between the subject and the blank, then check what is left. Phrases beginning with along with, as well as, or together with never change the subject's number.\n- Crossing out \"along with the depth of the chamber beneath it\" leaves \"The width of the entrance hole ______ which species will ever settle inside.\"\n- \"The width\" is singular, so it takes the singular \"governs.\"\n- Read it back: \"The width of the entrance hole...governs which species will ever settle inside.\"\n\n**Why the other choices are wrong:**\n- A: \"govern\" is plural; it treats the width and the depth as a joined pair, but an \"along with\" phrase is an aside, not part of the subject.\n- B: \"governing\" cannot act as the sentence's working verb, so nothing would carry the statement.\n- D: \"have governed\" is plural as well, so it does not fit the singular subject."
+      "explanation": "**Choice C is correct.** The subject of the verb is the singular noun \"temperature,\" so the verb must be the singular \"determines.\"\n\n**The Full Solution:**\n- How to spot it: find the true subject and set aside any phrase that begins with \"along with.\"\n- The subject is \"The temperature of the air.\" The phrase \"along with the amount of moisture in it\" adds information but does not make the subject plural.\n- A singular subject takes a singular verb: \"The temperature of the air ... determines how hot the day feels.\"\n\n**Why the other choices are wrong:**\n- A: \"Determine\" is plural and does not agree with the singular subject \"temperature.\"\n- B: \"Determining\" is a participle; it leaves the sentence without a main verb.\n- D: \"Have determined\" is plural, and its tense also clashes with the present-tense description.",
+      "_meta": {
+        "anchor": "heat index combines air temperature and humidity — singular subject + along with -> singular verb",
+        "sources": [
+          "https://www.weather.gov/safety/heat-index",
+          "https://en.wikipedia.org/wiki/Heat_index"
+        ]
+      }
     },
     {
       "id": 871,
@@ -395,16 +464,23 @@ export const practiceTest8RWM2Easy = {
       "band": 2,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "Before mechanical sharpeners became common, a pencil was usually pointed with a ______ the user shaved the wood away one sliver at a time until enough lead was exposed.",
+      "passage": "Before matches came into wide use in the 1800s, many people lit fires with flint and ______ the sharp edge of the flint shaved tiny bits of metal from the steel, and those bits burned as sparks.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "knife. The" },
-        { "id": "B", "text": "knife, the" },
-        { "id": "C", "text": "knife the" },
-        { "id": "D", "text": "knife and the" }
+        { "id": "A", "text": "steel. The" },
+        { "id": "B", "text": "steel, the" },
+        { "id": "C", "text": "steel the" },
+        { "id": "D", "text": "steel and the" }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** Each side of the blank could stand alone as its own sentence, so the two need a full stop between them: \"...pointed with a knife. The user shaved the wood away....\"\n\n**The Full Solution:**\n- How to spot it: cover the blank and test each side. If both sides are complete sentences, they cannot be glued together with only a comma or with nothing at all.\n- Side 1: \"Before mechanical sharpeners became common, a pencil was usually pointed with a knife\" is a complete sentence.\n- Side 2: \"the user shaved the wood away one sliver at a time until enough lead was exposed\" is also a complete sentence.\n- A period ends the first and starts the second, so A is right.\n\n**Why the other choices are wrong:**\n- B: A comma alone between two complete sentences is a comma splice.\n- C: With no punctuation at all, the two sentences run together.\n- D: When \"and\" joins two complete sentences, it needs a comma in front of it, and there is none here."
+      "explanation": "**Choice A is correct.** Two complete sentences meet at the blank, and a period is a correct way to separate them.\n\n**The Full Solution:**\n- How to spot it: test the words on each side of the blank to see whether each could stand alone.\n- Before the blank: \"Before matches came into wide use in the 1800s, many people lit fires with flint and steel.\" That is a complete sentence.\n- After the blank: \"The sharp edge of the flint shaved tiny bits of metal from the steel, and those bits burned as sparks.\" That is also complete.\n- Two complete sentences need a strong boundary, and A supplies it with a period.\n\n**Why the other choices are wrong:**\n- B: A comma alone between two complete sentences creates a comma splice.\n- C: With no punctuation, the two sentences run together.\n- D: \"And\" with no comma before it runs the two long clauses together without a proper boundary.",
+      "_meta": {
+        "anchor": "flint and steel fire lighting (sparks are burning steel particles) — period between independent clauses",
+        "sources": [
+          "https://indianapublicmedia.org/amomentofscience/flaming-steel.php",
+          "https://en.wikipedia.org/wiki/Fire_striker"
+        ]
+      }
     },
     {
       "id": 875,
@@ -413,16 +489,23 @@ export const practiceTest8RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "Because a window box holds only a few inches of soil and hangs where the sun strikes it from morning until ______ the plants inside it can wilt in a single hot afternoon.",
+      "passage": "Because metal carries heat away from the hand far faster than wood ______ a metal railing feels colder to the touch than a wooden one, even when both are at the same temperature.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "evening," },
-        { "id": "B", "text": "evening" },
-        { "id": "C", "text": "evening;" },
-        { "id": "D", "text": "evening:" }
+        { "id": "A", "text": "does," },
+        { "id": "B", "text": "does" },
+        { "id": "C", "text": "does;" },
+        { "id": "D", "text": "does:" }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The sentence opens with a lead-in that starts with \"Because,\" which cannot stand on its own, so a comma sets it off before the main sentence begins.\n\n**The Full Solution:**\n- How to spot it: when a sentence starts with because, although, when, or since, that opening chunk is incomplete and gets a comma before the real sentence starts.\n- Test it: \"Because a window box holds only a few inches of soil and hangs where the sun strikes it from morning until evening\" cannot stand alone.\n- The main sentence follows: \"the plants inside it can wilt in a single hot afternoon.\"\n- A single comma joins the lead-in to that main sentence.\n\n**Why the other choices are wrong:**\n- B: With no mark at all, the lead-in runs straight into the main sentence.\n- C: A semicolon needs a complete sentence on both sides, and the \"Because\" chunk is not one.\n- D: A colon announces an explanation or a list, which is not the job being done here."
+      "explanation": "**Choice A is correct.** The sentence opens with a \"Because\" clause, and a comma conventionally separates such an introductory clause from the main clause that follows.\n\n**The Full Solution:**\n- How to spot it: a sentence that starts with \"Because\" usually needs a comma where the because-part ends.\n- \"Because metal carries heat away from the hand far faster than wood does\" cannot stand alone.\n- The main clause follows: \"a metal railing feels colder to the touch than a wooden one.\"\n- A comma after \"does\" marks where the introductory clause ends.\n\n**Why the other choices are wrong:**\n- B: Without a comma, the introductory clause runs into the main clause, and the reader cannot tell where one ends.\n- C: A semicolon joins two complete sentences, but the \"Because\" clause cannot stand on its own.\n- D: A colon must follow a complete sentence, and the \"Because\" clause is not one.",
+      "_meta": {
+        "anchor": "metal feels colder than wood (thermal conductivity) — comma after an introductory Because clause",
+        "sources": [
+          "https://thermtest.com/thermal-resources/thermal-conductivity-experiments/touch-metal-touch-wood",
+          "https://en.wikipedia.org/wiki/Thermal_conductivity_and_resistivity"
+        ]
+      }
     },
     {
       "id": 874,
@@ -431,16 +514,23 @@ export const practiceTest8RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "Chosen for their patience, trained to read the pace of oncoming cars, and posted at the same corner every morning for years at a stretch, the crossing guards of a mid-century school district ______ a small ceremony out of the walk to school, greeting each child by name while holding back the traffic.",
+      "passage": "Built from blocks of prairie sod cut from the ground around them, the thick-walled houses of many nineteenth-century Nebraska homesteaders ______ cool in summer and warm in winter.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "to make" },
-        { "id": "B", "text": "made" },
-        { "id": "C", "text": "making" },
-        { "id": "D", "text": "having made" }
+        { "id": "A", "text": "to stay" },
+        { "id": "B", "text": "stayed" },
+        { "id": "C", "text": "staying" },
+        { "id": "D", "text": "having stayed" }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** After the long opening description, the subject \"the crossing guards of a mid-century school district\" still has no real action word, and only the tensed \"made\" supplies one.\n\n**The Full Solution:**\n- How to spot it: every complete sentence needs a real, tensed action word. Forms like \"to make,\" \"making,\" and \"having made\" cannot do that job and leave you with a fragment.\n- The sentence opens with a long describing stretch: \"Chosen for their patience, trained to read the pace of oncoming cars, and posted at the same corner....\"\n- The subject is \"the crossing guards of a mid-century school district.\"\n- That subject needs a tensed action word, and \"made\" gives it one: \"the crossing guards...made a small ceremony out of the walk to school.\"\n\n**Why the other choices are wrong:**\n- A: \"to make\" is not tensed, so the sentence is left without a working action word.\n- C: \"making\" is an -ing word, which also cannot carry the sentence on its own.\n- D: \"having made\" is likewise untensed, so the fragment remains."
+      "explanation": "**Choice B is correct.** The sentence needs a main verb for its subject, \"the thick-walled houses,\" and only the past-tense verb \"stayed\" supplies one.\n\n**The Full Solution:**\n- How to spot it: skip the opening phrase and find the subject. \"Built from blocks of prairie sod cut from the ground around them\" only describes; the subject is \"the thick-walled houses.\"\n- The subject has no verb yet, so the blank must provide one.\n- Read it back: \"the thick-walled houses of many nineteenth-century Nebraska homesteaders stayed cool in summer and warm in winter.\"\n\n**Why the other choices are wrong:**\n- A: \"To stay\" is an infinitive, which cannot serve as a sentence's main verb.\n- C: \"Staying\" is a participle; without a helping verb it leaves the sentence with no main verb.\n- D: \"Having stayed\" is also a participle phrase and leaves the sentence without a main verb.",
+      "_meta": {
+        "anchor": "Nebraska sod houses (cool in summer, warm in winter) — finite past verb after a participial opener",
+        "sources": [
+          "https://usgennet.org/usa/ne/topic/resources/NSHS/EDLFT/edlft03.html",
+          "https://en.wikipedia.org/wiki/Sod_house"
+        ]
+      }
     },
     {
       "id": 873,
@@ -449,16 +539,23 @@ export const practiceTest8RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "The load a winter mail carrier hauled over the passes—a canvas sack stuffed with letters and newspapers at the start of each ______ rode high on the back, where it could not throw off a skier's balance on the long descents.",
+      "passage": "The first goalie masks worn regularly in the National Hockey League—thin shells of fiberglass molded to fit the wearer's ______ appeared in 1959 and within about a decade were worn by nearly every goalie in the league.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "trip," },
-        { "id": "B", "text": "trip;" },
-        { "id": "C", "text": "trip" },
-        { "id": "D", "text": "trip—" }
+        { "id": "A", "text": "face," },
+        { "id": "B", "text": "face;" },
+        { "id": "C", "text": "face" },
+        { "id": "D", "text": "face—" }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The extra description is opened with a dash after \"passes,\" so it has to be closed with a matching dash before the sentence goes on to \"rode high on the back.\"\n\n**The Full Solution:**\n- How to spot it: when extra information is set off in the middle of a sentence, whatever mark opens it must also close it. Look back for the opening mark before you choose.\n- The opening mark here is the dash right after \"over the passes.\"\n- The extra information is \"a canvas sack stuffed with letters and newspapers at the start of each trip.\"\n- So the matching dash closes it, and the main sentence continues: \"The load...rode high on the back.\"\n\n**Why the other choices are wrong:**\n- A: A comma cannot close a description that a dash opened; the marks have to match.\n- B: A semicolon separates complete sentences, and what comes before it here is not one.\n- C: With no closing mark at all, the extra description runs straight into the verb."
+      "explanation": "**Choice D is correct.** The description between the dashes interrupts the sentence, and an interruption that opens with a dash must close with a dash.\n\n**The Full Solution:**\n- How to spot it: find where the interruption begins. Here it starts with the dash after \"League.\"\n- The interruption is \"thin shells of fiberglass molded to fit the wearer's face.\"\n- Remove it and the sentence still works: \"The first goalie masks worn regularly in the National Hockey League appeared in 1959...\"\n- Paired punctuation must match, so the closing mark is a second dash.\n\n**Why the other choices are wrong:**\n- A: A comma cannot close an interruption that a dash opened; the marks must match.\n- B: A semicolon would cut the subject off from its verb, \"appeared.\"\n- C: With no closing mark, the interruption runs straight into the main verb.",
+      "_meta": {
+        "anchor": "fiberglass goalie masks, NHL 1959, standard within ~10 years — dash closing a dash-opened interruption",
+        "sources": [
+          "https://en.wikipedia.org/wiki/Goaltender_mask",
+          "https://www.nhl.com/news/jacques-plante-mask-mold-in-hockey-hall-of-fame-305427502"
+        ]
+      }
     },
     // ============================================================
     // Q23-Q27: Expression of Ideas
@@ -470,7 +567,7 @@ export const practiceTest8RWM2Easy = {
       "band": 2,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "Two siblings who ran a lemonade stand on summer weekends kept a notebook of each day's sales. Over the season, they noticed that the stand sold about twice as many cups when the town pool across the street was open as when it was closed. ______ the next summer, they set up the stand only on days when the pool was open.",
+      "passage": "Bacteria that cause food poisoning multiply fastest between 40°F and 140°F, and at those temperatures their numbers can double in as little as 20 minutes. ______ food safety experts advise putting leftovers in the refrigerator within two hours of cooking.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "However," },
@@ -479,7 +576,14 @@ export const practiceTest8RWM2Easy = {
         { "id": "D", "text": "Meanwhile," }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The last sentence reports what the siblings did because of the pattern they found, so the transition has to signal a conclusion drawn from evidence: \"Therefore.\"\n\n**The Full Solution:**\n- How to spot it: read the sentence before the blank and the sentence after it, then ask whether the second one FOLLOWS FROM the first, gives an example of it, or pushes against it.\n- Before the blank: a season of records shows the stand selling about twice as much on days the pool is open.\n- After the blank: the next summer, the siblings set up only on pool days.\n- The new schedule is what the pattern led them to do, so a conclusion word fits, and \"Therefore\" means \"for that reason.\"\n\n**Why the other choices are wrong:**\n- A: \"However\" signals a contrast, but the schedule follows from the pattern rather than opposing it.\n- C: \"For example\" would make the new schedule an instance of the pattern, when it is a response to it.\n- D: \"Meanwhile\" sets two things side by side in time, but the sentence is drawing a conclusion, not marking time."
+      "explanation": "**Choice B is correct.** The first sentence describes how quickly bacteria grow in warm food, and the second gives the advice that follows from that fact, so the transition must signal a result.\n\n**The Full Solution:**\n- How to spot it: decide how the second sentence relates to the first. Is it a contrast, an example, or a result?\n- First sentence: between 40°F and 140°F, bacteria can double in as little as 20 minutes.\n- Second sentence: experts advise refrigerating leftovers within two hours.\n- The advice is a direct response to the fast growth, so \"Therefore,\" fits.\n\n**Why the other choices are wrong:**\n- A: \"However,\" signals a contrast, but the advice agrees with the danger described.\n- C: \"For example,\" would make the advice an example of bacteria growing, which it is not.\n- D: \"Meanwhile,\" signals something happening at the same time, not a result.",
+      "_meta": {
+        "anchor": "USDA danger zone 40-140°F, bacteria double in ~20 min, refrigerate within 2 hours — Therefore",
+        "sources": [
+          "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/danger-zone-40f-140f",
+          "https://www.fsis.usda.gov/news-events/news-press-releases/usda-urges-consumers-keep-clear-danger-zone-summer"
+        ]
+      }
     },
     {
       "id": 879,
@@ -488,7 +592,7 @@ export const practiceTest8RWM2Easy = {
       "band": 4,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "Bicycle racks cost a ferry operator very little: a few lengths of pipe bolted to a bulkhead and a painted lane on the boarding ramp. Riders who pair a bicycle with the ferry also buy tickets year-round. ______ many ferry lines resisted the racks for years, arguing that every foot of deck given to bicycles was taken from cars that paid far more per crossing.",
+      "passage": "Beginning in 1968, federal rules required seat belts in every seating position of new passenger cars sold in the United States. The belts cost nothing extra to use and greatly reduced the risk of death or injury in a crash. ______ in 1983 only about 14 percent of Americans wore them. New York became the first state to require seat belt use in 1984.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "Even so," },
@@ -497,7 +601,15 @@ export const practiceTest8RWM2Easy = {
         { "id": "D", "text": "For instance," }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The passage stacks up reasons the racks are an easy win, cheap to install and good for year-round ticket sales, then reports that many lines resisted anyway, so the transition has to concede that turn: \"Even so.\"\n\n**The Full Solution:**\n- How to spot it: name the tone of each side of the blank. If one side is favorable and the other names a catch, you need a contrast or concession word.\n- Before the blank: the racks cost almost nothing, and the riders they attract buy tickets in every season.\n- After the blank: many lines resisted for years, guarding deck space for the cars that paid more per crossing.\n- \"Even so\" grants the favorable case and then introduces the resistance, which is exactly the turn the passage makes.\n\n**Why the other choices are wrong:**\n- B: \"As a result\" would mean the low cost CAUSED the resistance, and the passage draws no such cause.\n- C: \"Likewise\" claims the two halves match, but the second one cuts against the first.\n- D: \"For instance\" would make the resistance an example of the racks' advantages, and it is not."
+      "explanation": "**Choice A is correct.** The first sentences give every reason to expect people to wear seat belts, and the next reports that few did, a surprising contrast that \"Even so,\" marks.\n\n**The Full Solution:**\n- How to spot it: notice when a sentence goes against what the sentences before it lead you to expect.\n- Expectation: belts were in every new car, cost nothing to use, and greatly reduced the risk of death or injury.\n- Outcome: in 1983, only about 14 percent of Americans wore them.\n- \"Even so,\" grants the advantages and introduces a result that happened in spite of them.\n\n**Why the other choices are wrong:**\n- B: \"As a result,\" would make the low use a consequence of the belts' advantages, which makes no sense.\n- C: \"Likewise,\" signals a similar point, but low use is the opposite of what the advantages predict.\n- D: \"For instance,\" would make low use an example of the belts' advantages, which it is not.",
+      "_meta": {
+        "anchor": "US seat belts required in new cars 1968, 14% use in 1983, NY first law 1984 — Even so",
+        "sources": [
+          "https://en.wikipedia.org/wiki/Seat_belt_use_rates_in_the_United_States",
+          "https://www.ebsco.com/research-starters/law/new-york-state-imposes-first-mandatory-seat-belt-law",
+          "https://www.nhtsa.gov/vehicle-safety/seat-belts"
+        ]
+      }
     },
     {
       "id": 878,
@@ -506,7 +618,7 @@ export const practiceTest8RWM2Easy = {
       "band": 3,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "As a timekeeper, the sundial asks for almost nothing: it has no works to wind, no parts to oil, and nothing to break in the cold. ______ it demands one thing a clock never does—the sun itself—and so it stands silent through every overcast day and all of every night.",
+      "passage": "A wooden cutting board needs very little care: a wash with warm, soapy water after each use and an occasional coat of oil. ______ it should never be left to soak in a sink or run through a dishwasher, because long exposure to water and heat can make the wood warp or crack.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "Similarly," },
@@ -515,7 +627,14 @@ export const practiceTest8RWM2Easy = {
         { "id": "D", "text": "However," }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The passage first praises the sundial for asking nothing, then turns to the one thing it cannot do without, so the transition has to mark that turn: \"However.\"\n\n**The Full Solution:**\n- How to spot it: line up what each side of the blank describes and check whether they match or clash.\n- Before the blank: no winding, no oiling, nothing to break, a list of demands the sundial does not make.\n- After the blank: one demand a clock never makes, the sun itself, and silence on cloudy days and at night.\n- Praise followed by a drawback is a clash, and \"However\" is the word that signals it.\n\n**Why the other choices are wrong:**\n- A: \"Similarly\" says the second half matches the first, but it reverses it.\n- B: \"As a result\" would mean the drawback is caused by the low upkeep, and the passage draws no such cause.\n- C: \"In fact\" strengthens the point that came before, but the second half undercuts it instead."
+      "explanation": "**Choice D is correct.** The first sentence says the board needs very little care, and the second names something it must never be put through, so the transition must signal a contrast.\n\n**The Full Solution:**\n- How to spot it: compare the direction of the two sentences.\n- First sentence: the board asks for almost nothing, just washing and a little oil.\n- Second sentence: there are two things it can never handle, soaking and the dishwasher.\n- Easy care, then a strict limit: that turn is what \"However,\" signals.\n\n**Why the other choices are wrong:**\n- A: \"Similarly,\" signals a matching point, but the second sentence sets a limit rather than adding more easy care.\n- B: \"As a result,\" would make the warning a consequence of the easy care, which it is not.\n- C: \"In fact,\" introduces a stronger version of the same point, but the second sentence turns in a new direction.",
+      "_meta": {
+        "anchor": "wooden cutting board care: never soak or dishwasher (warp/crack) — However",
+        "sources": [
+          "https://www.chowhound.com/1919426/never-soak-wooden-cutting-board",
+          "https://blog.hellofresh.ca/how-to-care-for-wood-cutting-boards/"
+        ]
+      }
     },
     {
       "id": 880,
@@ -526,23 +645,30 @@ export const practiceTest8RWM2Easy = {
       "skill": "rhetorical-synthesis",
       "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       "choices": [
-        { "id": "A", "text": "Many garden sundials are sold as ornaments, and dials of bronze or stone can last outdoors for centuries." },
-        { "id": "B", "text": "Hobbyists who build their own sundials begin by looking up the latitude of their town." },
-        { "id": "C", "text": "Because a sundial reads correctly only when its gnomon is tilted to match its location's latitude, an ornament made for no place in particular often shows the wrong time." },
-        { "id": "D", "text": "A sundial tells time from the shadow that a fixed arm, called a gnomon, casts on a marked plate." }
+        { "id": "A", "text": "Water expands by about 9 percent when it freezes, and letting a faucet drip can relieve pressure in a pipe." },
+        { "id": "B", "text": "Pipes in unheated spaces such as attics, crawl spaces, and outside walls are the most likely to freeze." },
+        { "id": "C", "text": "Because pipes in unheated spaces freeze most easily, ice forming inside them can build enough pressure in the trapped water to split them open." },
+        { "id": "D", "text": "Letting a faucet drip during very cold weather can relieve the pressure that builds inside a freezing pipe." }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The goal is to explain why a store-bought sundial often reads wrong, and C gives both halves of the explanation, the latitude rule and the ornament that ignores it.\n\n**The Full Solution:**\n- How to spot it: read the GOAL first and mark exactly what it asks for. Here it asks why a store-bought garden sundial often shows the wrong time.\n- An answer to that has to supply two things: the rule a working dial must follow, and the way the ornament breaks it.\n- C states the rule, the gnomon's tilt must match the location's latitude, and the failure, an ornament made for no place in particular.\n- Rule plus violation is exactly the explanation the goal calls for.\n\n**Why the other choices are wrong:**\n- A: Being ornamental and lasting for centuries says nothing about why the time reads wrong.\n- B: What hobbyists look up hints at the answer but never states why the store-bought dial fails.\n- D: It describes how any sundial works without explaining why this kind shows the wrong time.",
+      "explanation": "**Choice C is correct.** The goal is to explain why pipes in unheated spaces often burst, and C gives both halves of the explanation: those pipes freeze most easily, and the ice builds pressure that splits them.\n\n**The Full Solution:**\n- How to spot it: read the GOAL first and mark exactly what it asks for. Here it asks why pipes in unheated spaces burst in cold weather.\n- An answer has to supply two things: why those pipes freeze, and how freezing breaks a pipe.\n- C states both: pipes in unheated spaces freeze most easily, and ice inside them builds pressure in the trapped water until the pipe splits.\n\n**Why the other choices are wrong:**\n- A: It pairs a fact about ice with a prevention tip but never explains why pipes burst.\n- B: It says which pipes freeze but not how freezing breaks them.\n- D: It explains how to prevent bursting, not why bursting happens.",
       "studentNotes": {
         "intro": "While researching a topic, a student has taken the following notes:",
         "bullets": [
-          "A sundial tells time from the shadow that a fixed arm, called a gnomon, casts on a marked plate.",
-          "A sundial reads correctly only when its gnomon is tilted to match the latitude of the place where it sits and aimed due north.",
-          "Many garden sundials are sold as ornaments, with a gnomon angle chosen for no place in particular.",
-          "Hobbyists who build their own dials begin by looking up the latitude of their town.",
-          "Dials of bronze or stone can last outdoors for centuries."
+          "Water expands by about 9 percent when it freezes.",
+          "Pipes in unheated spaces, such as attics, crawl spaces, and outside walls, are the most likely to freeze.",
+          "As ice forms inside a pipe, pressure builds in the water trapped between the ice and a closed faucet.",
+          "That pressure can split the pipe open.",
+          "Letting a faucet drip during very cold weather can relieve the pressure."
         ],
-        "goal": "The student wants to explain to an audience unfamiliar with sundials why a store-bought garden sundial often shows the wrong time."
+        "goal": "The student wants to explain to an audience unfamiliar with plumbing why pipes in unheated spaces often burst during very cold weather."
+      },
+      "_meta": {
+        "anchor": "frozen pipes burst (ice expands ~9%, pressure in trapped water; unheated spaces) — RS explain why X goes wrong",
+        "sources": [
+          "https://www.thisoldhouse.com/plumbing/how-a-frozen-pipe-bursts",
+          "https://cityofrobertsidaho.gov/frozen-water-prevention"
+        ]
       }
     },
     {
@@ -554,24 +680,30 @@ export const practiceTest8RWM2Easy = {
       "skill": "rhetorical-synthesis",
       "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       "choices": [
-        { "id": "A", "text": "A swing in steady use can put several times a rider's weight of downward force on the branch at the bottom of each pass." },
-        { "id": "B", "text": "Arborists recommend a living hardwood branch that is at least eight inches thick where the ropes attach." },
-        { "id": "C", "text": "Traditional tree swings hang from a single horizontal branch on two ropes or on chains." },
-        { "id": "D", "text": "Worn bark where the ropes attach is a sign that a swing should be moved to another branch." }
+        { "id": "A", "text": "The FDA recommends a broad-spectrum sunscreen with an SPF of 15 or higher for protection from UV rays." },
+        { "id": "B", "text": "According to the FDA, sunscreen should be reapplied at least every two hours, and more often by swimmers." },
+        { "id": "C", "text": "Sunscreen should be applied about 15 minutes before going outside, according to the FDA." },
+        { "id": "D", "text": "Sunscreen helps protect the skin from the ultraviolet rays given off by the sun." }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The goal asks for the thickness a branch must have, and B is the only choice that states it: a living hardwood branch at least eight inches thick where the ropes attach.\n\n**The Full Solution:**\n- How to spot it: read the GOAL first and find the words that pin it down. Here they are \"how thick.\"\n- That means the answer must contain the measurement itself.\n- B names the kind of branch and gives the figure: at least eight inches thick where the ropes attach.\n- Naming the requirement and measuring it is exactly what the goal asks for.\n\n**Why the other choices are wrong:**\n- A: It measures the load a swing puts on a branch, not how thick the branch must be.\n- C: It describes how swings hang but includes no measurement at all.\n- D: It tells when to move a swing, which says nothing about thickness.",
+      "explanation": "**Choice B is correct.** The goal asks how often to reapply sunscreen, and B is the only choice that gives that figure: at least every two hours, and more often for swimmers.\n\n**The Full Solution:**\n- How to spot it: read the GOAL first and find the words that pin it down. Here they are \"how often\" and \"reapplied.\"\n- That means the answer must contain the time between applications.\n- B gives it: at least every two hours, with more frequent reapplying for swimmers.\n\n**Why the other choices are wrong:**\n- A: It tells what kind of sunscreen to use, not how often to reapply it.\n- C: It gives a time, but it is how long before going outside to apply sunscreen, not how often to reapply it.\n- D: It explains what sunscreen does but includes no timing at all.",
       "studentNotes": {
         "intro": "While researching a topic, a student has taken the following notes:",
         "bullets": [
-          "Traditional tree swings hang from a single horizontal branch on two ropes or chains.",
-          "Arborists recommend hanging a swing only from a living hardwood branch.",
-          "The branch should be at least eight inches thick where the ropes attach.",
-          "The ropes should attach several feet out from the trunk so that the swing hangs clear.",
-          "A swing in steady use can put several times a rider's weight on the branch at the bottom of each pass.",
-          "Worn bark at the attachment point is a sign that the ropes should be moved."
+          "Sunscreen helps protect the skin from the sun's ultraviolet (UV) rays.",
+          "The US Food and Drug Administration (FDA) recommends a broad-spectrum sunscreen with an SPF of 15 or higher.",
+          "The FDA advises reapplying sunscreen at least every two hours.",
+          "People who are swimming or sweating should reapply it more often.",
+          "Sunscreen should be applied about 15 minutes before going outside."
         ],
-        "goal": "The student wants to specify how thick a branch must be to hold a swing safely."
+        "goal": "The student wants to specify how often sunscreen should be reapplied."
+      },
+      "_meta": {
+        "anchor": "FDA sunscreen: reapply at least every 2 hours — RS specify a measurement",
+        "sources": [
+          "https://www.fda.gov/sunscreen",
+          "https://www.cancer.org/cancer/risk-prevention/sun-and-uv/how-to-use-sunscreen.html"
+        ]
       }
     }
   ]

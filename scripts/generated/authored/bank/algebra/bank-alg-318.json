@@ -1,5 +1,5 @@
 {
- "question": "$3(2x + a) - (bx - 4) = 2x + 22$\nThe given equation is true for all values of $x$, where $a$ and $b$ are constants. What is the value of $ab$?",
+ "question": "$3(2x + a) - (bx - 4) = 2x + 22$\nIn the given equation, $a$ and $b$ are constants. If the equation has infinitely many solutions, what is the value of $ab$?",
  "choices": [
   {
    "id": "A",
@@ -24,6 +24,6 @@
   "B": "finds a = 6 and b = 4 but adds them instead of multiplying",
   "D": "multiplies only the 2x by 3, so a + 4 = 22 and a = 18"
  },
- "explanation": "**SAT Pattern: Polynomial Identity with Two Parameters**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** The left side is $(6 - b)x + (3a + 4)$, so $6 - b = 2$ and $3a + 4 = 22$, giving $b = 4$, $a = 6$, and $ab = 24$.\n\n**The Full Solution:**\nStep 1: Distribute: $6x + 3a - bx + 4 = (6 - b)x + (3a + 4)$.\nStep 2: Match the $x$-coefficients: $6 - b = 2$, so $b = 4$. Match the constants: $3a + 4 = 22$, so $a = 6$.\nStep 3: Multiply: $ab = 6 \\cdot 4 = 24$. Check: $3(2x + 6) - (4x - 4) = 6x + 18 - 4x + 4 = 2x + 22$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: ($-24$): subtracts the $bx$ term as $+bx$, so $6 + b = 2$ and $b = -4$.\n* Choice B: ($10$): finds $a = 6$ and $b = 4$ correctly but adds them instead of multiplying.\n* Choice D: ($72$): multiplies only the $2x$ by $3$, so the constants give $a + 4 = 22$ and $a = 18$.\n\n**Test Day Takeaway:** With two unknown constants, one coefficient match gives one constant and the other match gives the second; answer the quantity the question names.",
+ "explanation": "**SAT Pattern: Polynomial Identity with Two Parameters**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** The left side is $(6 - b)x + (3a + 4)$, so $6 - b = 2$ and $3a + 4 = 22$, giving $b = 4$, $a = 6$, and $ab = 24$.\n\n**The Full Solution:**\nStep 1: Distribute: $6x + 3a - bx + 4 = (6 - b)x + (3a + 4)$.\nStep 2: Match the $x$-coefficients: $6 - b = 2$, so $b = 4$. Match the constants: $3a + 4 = 22$, so $a = 6$.\nStep 3: Multiply: $ab = 6 \\cdot 4 = 24$. Check: $3(2x + 6) - (4x - 4) = 6x + 18 - 4x + 4 = 2x + 22$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-24$): subtracts the $bx$ term as $+bx$, so $6 + b = 2$ and $b = -4$.\n* Choice B ($10$): finds $a = 6$ and $b = 4$ correctly but adds them instead of multiplying.\n* Choice D ($72$): multiplies only the $2x$ by $3$, so the constants give $a + 4 = 22$ and $a = 18$.\n\n**Test Day Takeaway:** With two unknown constants, one coefficient match gives one constant and the other match gives the second; answer the quantity the question names.",
  "id": "bank-alg-318"
 }

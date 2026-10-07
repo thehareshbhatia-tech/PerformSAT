@@ -11,7 +11,7 @@
  "choices": [
   {
    "id": "A",
-   "text": "Smith found that a rock layer's color and texture were the most dependable means of recognizing it in a new district."
+   "text": "Smith found that a rock layer's color and texture were the most dependable means of recognizing that layer when it surfaced in a new district."
   },
   {
    "id": "B",
@@ -19,11 +19,11 @@
   },
   {
    "id": "C",
-   "text": "Smith's insight that strata could be identified by their characteristic fossils enabled him to trace rock layers across the country and map them."
+   "text": "Smith's recognition that strata could be identified by their fossils let him trace and map rock layers across the country."
   },
   {
    "id": "D",
-   "text": "Smith's map found few buyers when it first appeared because the gentlemen of the scientific societies were unwilling to trust the work of a self-taught surveyor."
+   "text": "Smith's map found few buyers at first because scientific societies distrusted a self-taught surveyor."
   }
  ],
  "correctAnswer": "C",

@@ -1,28 +1,42 @@
 {
   "id": "bank-am-259",
-  "question": "The graph of $y = f(x)$ is shown. If $g(x) = -f(x)$, what is the maximum value of $g(x)$?",
-  "correctAnswer": "6",
-  "explanation": "**SAT Pattern: Reflection of Graph**\n\n**The correct answer is 6.**\n\n**The Fast Way (~15s):** The minimum value of $f(x)$ is $-6$, at the vertex $(2, -6)$; negating every output turns that minimum into the maximum $6$.\n\n**The Full Solution:**\nStep 1: The graph shows a parabola that opens upward with vertex $(2, -6)$, so the minimum value of $f(x)$ is $-6$.\nStep 2: The graph of $y = -f(x)$ is the reflection across the $x$-axis, so it opens downward and its vertex is $(2, 6)$.\nStep 3: The maximum value of $g(x)$ is therefore $6$. Check: $g(2) = -f(2) = -(-6) = 6$, and every other value $f(x) \\ge -6$ gives $g(x) \\le 6$ ✓\n\n**Common Mistakes:**\n* $-6$: reports the minimum value of $f$ without negating it.\n* $2$: reports the $x$-coordinate of the vertex instead of the maximum value.\n* $-2$: negates the $x$-coordinate of the vertex instead of the $y$-coordinate.\n\n**Test Day Takeaway:** Negating a function swaps its minimum and maximum: the lowest output becomes the highest, with its sign changed.",
+  "question": "The graph of the quadratic function $f$ is shown. If $f(-4) = 27$, what is the value of $f(8)$?",
+  "correctAnswer": "27",
+  "explanation": "**SAT Pattern: Reflection of Graph**\n\n**The correct answer is $27$.**\n\n**The Fast Way (~25s):** The vertex is at $x = 2$; $-4$ and $8$ are each $6$ units from $2$, so $f(8) = f(-4) = 27$.\n\n**The Full Solution:**\nStep 1: From the graph, the vertex is $(2, -9)$, so the graph is symmetric about the line $x = 2$.\nStep 2: $-4$ is $6$ units to the left of $2$, and $8$ is $6$ units to the right of $2$.\nStep 3: Mirror inputs give the same output, so $f(8) = 27$. Check: the graph has $x$-intercepts $-1$ and $5$ and vertex $(2, -9)$, so $f(x) = (x - 2)^{2} - 9$; then $f(-4) = 36 - 9 = 27$ and $f(8) = 36 - 9 = 27$ ✓\n\n**Common Mistakes:**\n* $-27$: reflects across the $x$-axis instead of across the line $x = 2$.\n* $-5$: mirrors $-4$ across the $y$-axis and computes $f(4) = 4 - 9 = -5$.\n\n**Test Day Takeaway:** On a parabola, inputs equally far from the vertex's $x$-coordinate have equal outputs.",
   "diagram": {
     "type": "parabola",
     "params": {
       "vertex": {
         "h": 2,
-        "k": -6
+        "k": -9
       },
       "a": 1,
       "xRange": [
-        -1,
-        5
+        -2,
+        6
       ],
       "yRange": [
-        -8,
-        4
+        -10,
+        8
       ],
       "xTickInterval": 1,
       "yTickInterval": 2,
       "gridInterval": 1,
-      "showVertex": false
+      "showVertex": false,
+      "highlightPoints": [
+        [
+          -1,
+          0
+        ],
+        [
+          2,
+          -9
+        ],
+        [
+          5,
+          0
+        ]
+      ]
     }
   }
 }

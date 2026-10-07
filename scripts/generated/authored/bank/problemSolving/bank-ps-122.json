@@ -1,29 +1,29 @@
 {
- "id": "bank-ps-122",
- "question": "A garden has red, yellow, and white tulips in the ratio $5 : 3 : 2$, respectively. There are $90$ more red tulips than white tulips. How many tulips in the garden are not yellow?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$90$"
+  "id": "bank-ps-122",
+  "question": "A garden has only red tulips and white tulips, and the ratio of red tulips to white tulips is $5$ to $3$. There are $n$ tulips in the garden. Which expression represents how many more red tulips than white tulips there are?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$\\frac{n}{8}$"
+    },
+    {
+      "id": "B",
+      "text": "$\\frac{n}{4}$"
+    },
+    {
+      "id": "C",
+      "text": "$\\frac{3n}{8}$"
+    },
+    {
+      "id": "D",
+      "text": "$\\frac{5n}{8}$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "n/8 is the size of one part, not the 2 parts by which red exceeds white",
+    "C": "3n/8 is the number of white tulips",
+    "D": "5n/8 is the number of red tulips"
   },
-  {
-   "id": "B",
-   "text": "$150$"
-  },
-  {
-   "id": "C",
-   "text": "$210$"
-  },
-  {
-   "id": "D",
-   "text": "$300$"
-  }
- ],
- "distractorNotes": {
-  "A": "the yellow count, 3 parts x 30 = 90 (also equal to the given difference), when the question asks for tulips that are NOT yellow",
-  "B": "the red count alone (5 parts), dropping the white tulips",
-  "D": "the total of all 10 parts, never removing the yellow tulips"
- },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Sum of Parts Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Red minus white is $5 - 2 = 3$ parts, and that difference is $90$ tulips, so one part is $30$. Not yellow means red plus white, $5 + 2 = 7$ parts: $7(30) = 210$.\n\n**The Full Solution:**\nStep 1: Let one part be $k$ tulips. Then red $= 5k$, yellow $= 3k$, white $= 2k$.\nStep 2: The difference between red and white is given: $5k - 2k = 90$, so $3k = 90$ and $k = 30$.\nStep 3: The tulips that are not yellow are the red and white ones: $5k + 2k = 7k = 7(30) = 210$. Check: red $= 150$, white $= 60$, and $150 - 60 = 90$ ✓ Yellow $= 90$, and the total $150 + 90 + 60 = 300$ minus the $90$ yellow tulips is $210$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($90$): This is the number of yellow tulips, $3k = 90$ (it happens to equal the given difference), but the question asks for the tulips that are *not* yellow.\n* Choice B ($150$): This is the red count alone, $5k$; it leaves out the $60$ white tulips.\n* Choice D ($300$): This is the total of all three colors, $10k$; the $90$ yellow tulips were never removed.\n\n**Test Day Takeaway:** When a ratio problem gives a difference instead of a total, set the difference of the parts equal to it to find one part, then reread exactly which parts the question wants."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Sum of Parts Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The garden has $5 + 3 = 8$ parts, so one part is $\\dfrac{n}{8}$ tulips, and red exceeds white by $2$ parts: $\\dfrac{2n}{8} = \\dfrac{n}{4}$.\n\n**The Full Solution:**\nStep 1: Red tulips are $\\dfrac{5}{8}$ of the garden, or $\\dfrac{5n}{8}$; white tulips are $\\dfrac{3}{8}$ of it, or $\\dfrac{3n}{8}$.\nStep 2: Subtract: $\\dfrac{5n}{8} - \\dfrac{3n}{8} = \\dfrac{2n}{8}$.\nStep 3: Simplify: $\\dfrac{2n}{8} = \\dfrac{n}{4}$. Check with $n = 80$: $50$ red and $30$ white tulips, a difference of $20 = \\dfrac{80}{4}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{n}{8}$): This is one part; red exceeds white by $2$ parts.\n* Choice C ($\\frac{3n}{8}$): This is the number of white tulips, not the difference.\n* Choice D ($\\frac{5n}{8}$): This is the number of red tulips, not the difference.\n\n**Test Day Takeaway:** Turn each ratio term into a fraction of the whole (term over the sum of terms), then work with those fractions of $n$."
 }

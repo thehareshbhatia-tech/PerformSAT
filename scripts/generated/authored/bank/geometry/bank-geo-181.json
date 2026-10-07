@@ -1,29 +1,29 @@
 {
   "id": "bank-geo-181",
-  "question": "$x^{2} + y^{2} = 18$\n$y = x + b$\nIn the given system of equations, $b$ is a positive constant. If the system has exactly one real solution, what is the value of $b$?",
+  "question": "$x^{2} + (y + 1)^{2} = 49$\n$y = b$\nIn the given system of equations, $b$ is a positive constant. If the system has exactly one real solution, what is the value of $b$?",
   "choices": [
     {
       "id": "A",
-      "text": "$3$"
+      "text": "$1$"
     },
     {
       "id": "B",
-      "text": "$3\\sqrt{2}$"
-    },
-    {
-      "id": "C",
       "text": "$6$"
     },
     {
+      "id": "C",
+      "text": "$7$"
+    },
+    {
       "id": "D",
-      "text": "$36$"
+      "text": "$8$"
     }
   ],
-  "correctAnswer": "C",
+  "correctAnswer": "B",
   "distractorNotes": {
-    "A": "divides the radius 3 root 2 by root 2 instead of multiplying, so b = 3",
-    "B": "sets the constant term b^2 - 18 equal to zero instead of the discriminant, so b equals the radius",
-    "D": "stops at b^2 = 36 and reports b^2 instead of b"
+    "A": "uses the center's y-coordinate as 1 instead of -1; the line y = 1 gives x^2 = 45, which has two solutions",
+    "C": "uses the radius 7 without the center's shift; y = 7 gives x^2 = -15, which has no real solutions",
+    "D": "finds the other value, b = -8, and drops its negative sign; y = 8 gives x^2 = -32, which has no real solutions"
   },
-  "explanation": "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Substituting gives $2x^{2} + 2bx + b^{2} - 18 = 0$, and one solution means the discriminant $4b^{2} - 8(b^{2} - 18) = 144 - 4b^{2}$ is $0$, so $b^{2} = 36$ and $b = 6$.\n\n**The Full Solution:**\nStep 1: Substitute $x + b$ for $y$ in the first equation: $x^{2} + (x + b)^{2} = 18$, which expands to $2x^{2} + 2bx + b^{2} - 18 = 0$.\nStep 2: The system has exactly one solution when this quadratic has exactly one real root, so its discriminant is $0$: $(2b)^{2} - 4(2)(b^{2} - 18) = 4b^{2} - 8b^{2} + 144 = 144 - 4b^{2}$.\nStep 3: Solve $144 - 4b^{2} = 0$: $b^{2} = 36$, and since $b$ is positive, $b = 6$. Check: the quadratic becomes $2x^{2} + 12x + 18 = 2(x + 3)^{2}$, so $x = -3$ and $y = 3$, and $(-3)^{2} + 3^{2} = 18$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): divides the radius $\\sqrt{18} = 3\\sqrt{2}$ by $\\sqrt{2}$. The distance from the origin to the line is $\\frac{b}{\\sqrt{2}}$, so $b$ is the radius times $\\sqrt{2}$, not divided by it.\n* Choice B ($3\\sqrt{2}$): sets the constant term $b^{2} - 18$ equal to $0$ instead of the discriminant, which makes $b$ equal to the radius.\n* Choice D ($36$): stops at $b^{2} = 36$ and reports $b^{2}$ instead of $b$.\n\n**Test Day Takeaway:** A line and a circle meet at exactly one point when the quadratic you get from substitution has discriminant $0$; solve for the constant, then reread which quantity the question asks for."
+  "explanation": "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Substituting $y = b$ gives $x^{2} = 49 - (b + 1)^{2}$, which has exactly one solution only when $(b + 1)^{2} = 49$. So $b = 6$ or $b = -8$, and the positive value is $6$.\n\n**The Full Solution:**\nStep 1: Substitute $y = b$ into the first equation: $x^{2} + (b + 1)^{2} = 49$, so $x^{2} = 49 - (b + 1)^{2}$.\nStep 2: An equation $x^{2} = c$ has exactly one real solution only when $c = 0$. So $(b + 1)^{2} = 49$, which gives $b + 1 = 7$ or $b + 1 = -7$, that is, $b = 6$ or $b = -8$.\nStep 3: Since $b$ is positive, $b = 6$. Check: $y = 6$ gives $x^{2} = 49 - 49 = 0$, so the only solution is $(0, 6)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): treats the center's $y$-coordinate as $1$ instead of $-1$; the line $y = 1$ gives $x^{2} = 45$ and two solutions.\n* Choice C ($7$): uses the radius without the center's shift; $y = 7$ gives $x^{2} = -15$, which has no real solutions.\n* Choice D ($8$): drops the negative sign of the other value, $b = -8$; $y = 8$ gives $x^{2} = -32$, which has no real solutions.\n\n**Test Day Takeaway:** Substitute the line into the circle's equation; exactly one solution means the squared term must equal $0$."
 }

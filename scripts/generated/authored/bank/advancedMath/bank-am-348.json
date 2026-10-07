@@ -1,6 +1,6 @@
 {
   "id": "bank-am-348",
-  "question": "$f(x) = 3x^{2} - 9x + 5$\nThe table shows four values of $x$ and their corresponding values of $f(x)$ for the given function $f$. How many distinct real solutions does the equation $f(x) = 0$ have?",
+  "question": "$f(x) = 2x^{2} - 7x + 4$\nSome values of the given function $f$ are shown in the table. How many distinct real solutions does the equation $f(x) = 0$ have?",
   "questionTable": {
     "headers": [
       "$x$",
@@ -8,20 +8,20 @@
     ],
     "rows": [
       [
-        "$0$",
-        "$5$"
-      ],
-      [
         "$1$",
         "$-1$"
       ],
       [
         "$2$",
-        "$-1$"
+        "$-2$"
       ],
       [
         "$3$",
-        "$5$"
+        "$1$"
+      ],
+      [
+        "$4$",
+        "$8$"
       ]
     ]
   },
@@ -45,9 +45,9 @@
   ],
   "distractorNotes": {
     "A": "concludes that because no value of f(x) in the table is 0, the equation has no solutions",
-    "B": "counts only the sign change between x = 0 and x = 1",
+    "B": "counts only the one sign change shown in the table, between x = 2 and x = 3",
     "D": "confuses the infinitely many inputs of f with the solutions of f(x) = 0"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The discriminant of $3x^{2} - 9x + 5$ is $(-9)^{2} - 4(3)(5) = 81 - 60 = 21$, which is positive, so there are exactly two real solutions.\n\n**The Full Solution:**\nStep 1: The solutions of $f(x) = 0$ are the solutions of $3x^{2} - 9x + 5 = 0$, with $a = 3$, $b = -9$, and $c = 5$.\nStep 2: The discriminant is $b^{2} - 4ac = 81 - 60 = 21$.\nStep 3: A positive discriminant means exactly two distinct real solutions. Check: the table agrees, since $f(x)$ changes sign between $x = 0$ and $x = 1$ and again between $x = 2$ and $x = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Zero): no table value is $0$, but the solutions lie between the listed values of $x$.\n* Choice B (Exactly one): counts only the first sign change in the table.\n* Choice D (Infinitely many): $f$ has infinitely many inputs, but a quadratic equation has at most two solutions.\n\n**Test Day Takeaway:** The discriminant counts the real solutions; a table only shows a few points, so use it as a check, not as the answer."
+  "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The discriminant of $2x^{2} - 7x + 4$ is $(-7)^{2} - 4(2)(4) = 49 - 32 = 17$, which is positive, so there are exactly two real solutions.\n\n**The Full Solution:**\nStep 1: The solutions of $f(x) = 0$ are the solutions of $2x^{2} - 7x + 4 = 0$, with $a = 2$, $b = -7$, and $c = 4$.\nStep 2: The discriminant is $b^{2} - 4ac = 49 - 32 = 17$.\nStep 3: A positive discriminant means exactly two distinct real solutions. Check: $f(0) = 4$ and $f(1) = -1$, so $f(x)$ changes sign between $x = 0$ and $x = 1$, and the table shows a second sign change between $x = 2$ and $x = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Zero): no table value is $0$, but the solutions lie between values of $x$.\n* Choice B (Exactly one): the table shows only one sign change, but the other solution lies between $x = 0$ and $x = 1$, outside the listed rows.\n* Choice D (Infinitely many): $f$ has infinitely many inputs, but a quadratic equation has at most two solutions.\n\n**Test Day Takeaway:** The discriminant counts the real solutions; a table only shows a few points, so use it as a check, not as the answer."
 }

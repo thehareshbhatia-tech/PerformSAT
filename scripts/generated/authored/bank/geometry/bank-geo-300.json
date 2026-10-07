@@ -1,13 +1,13 @@
 {
- "question": "A circle in the $xy$-plane has center $(-2, 9)$ and passes through the point $(10, 0)$. What is the radius of the circle?",
+ "question": "A circle in the $xy$-plane has center $(-2, 9)$ and passes through the point $(-2, -6)$. What is the radius of the circle?",
  "choices": [
   {
    "id": "A",
-   "text": "$15$"
+   "text": "$3$"
   },
   {
    "id": "B",
-   "text": "$21$"
+   "text": "$15$"
   },
   {
    "id": "C",
@@ -18,12 +18,12 @@
    "text": "$225$"
   }
  ],
- "correctAnswer": "A",
+ "correctAnswer": "B",
  "distractorNotes": {
-  "B": "adds the horizontal and vertical changes, 12 + 9",
-  "C": "gives the diameter, twice the distance",
-  "D": "reports the radius squared, 225"
+  "A": "adds the y-coordinates, 9 + (-6) = 3, instead of finding the distance between them",
+  "C": "gives the diameter, 2 times 15",
+  "D": "gives r squared, 15 squared"
  },
- "explanation": "**SAT Pattern: Distance from Center as Radius**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The radius is the distance from the center to the point: $\\sqrt{12^{2} + 9^{2}} = \\sqrt{225} = 15$.\n\n**The Full Solution:**\nStep 1: The radius is the distance from $(-2, 9)$ to $(10, 0)$.\nStep 2: The horizontal change is $10 - (-2) = 12$, and the vertical change is $0 - 9 = -9$.\nStep 3: $r = \\sqrt{12^{2} + (-9)^{2}} = \\sqrt{144 + 81} = \\sqrt{225} = 15$. Check: $12$, $9$, $15$ is $3$ times the $4$-$3$-$5$ right triangle ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($21$): adds the horizontal and vertical changes instead of using the Pythagorean theorem.\n* Choice C ($30$): doubles the distance, giving the diameter.\n* Choice D ($225$): stops at $r^{2}$ without taking the square root.\n\n**Test Day Takeaway:** Center to a point on the circle is a radius; use the distance formula.",
+ "explanation": "**SAT Pattern: Distance from Center as Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The two points share the $x$-coordinate $-2$, so the radius is the vertical distance $9 - (-6) = 15$.\n\n**The Full Solution:**\nStep 1: Every point on a circle is one radius from the center, so the radius is the distance from $(-2, 9)$ to $(-2, -6)$.\nStep 2: The points have the same $x$-coordinate, so they lie on a vertical line.\nStep 3: The distance between them is $9 - (-6) = 15$. Check: $(x + 2)^{2} + (y - 9)^{2} = 225$ at $(-2, -6)$ gives $0 + (-15)^{2} = 225$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): adds the $y$-coordinates, $9 + (-6)$, instead of subtracting them.\n* Choice C ($30$): is the diameter, twice the radius.\n* Choice D ($225$): is $r^{2}$, the number on the right side of the circle's equation.\n\n**Test Day Takeaway:** The radius is the distance from the center to any point on the circle; when the two points line up vertically or horizontally, just subtract the coordinates that differ.",
  "id": "bank-geo-300"
 }

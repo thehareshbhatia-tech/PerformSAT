@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-044",
-  "question": "The temperatures of $25$ samples have a mean of $68^{\\circ}\\text{F}$ and a standard deviation of $9^{\\circ}\\text{F}$. Each temperature is converted to degrees Celsius using $C = \\frac{5}{9}(F - 32)$. What are the mean and the standard deviation, in degrees Celsius, of the converted temperatures?",
+  "question": "The $30$ values in data set A are positive integers that are not all equal. Data set B is created by multiplying each value in data set A by $3$. Which of the following must be greater for data set B than for data set A?\nI. The mean\nII. The standard deviation",
   "choices": [
     {
       "id": "A",
-      "text": "Mean $20$; standard deviation $5$"
+      "text": "I only"
     },
     {
       "id": "B",
-      "text": "Mean $20$; standard deviation $9$"
+      "text": "II only"
     },
     {
       "id": "C",
-      "text": "Mean $37.8$; standard deviation $5$"
+      "text": "I and II"
     },
     {
       "id": "D",
-      "text": "Mean $37.8$; standard deviation $9$"
+      "text": "Neither I nor II"
     }
   ],
   "distractorNotes": {
-    "B": "leaves the standard deviation unchanged; that is correct for the subtraction of $32$ but not for the multiplication by $\\frac{5}{9}$.",
-    "C": "multiplies the mean by $\\frac{5}{9}$ without first subtracting $32$, giving $\\frac{5}{9}(68) \\approx 37.8$.",
-    "D": "combines both errors: no subtraction for the mean and no scaling for the standard deviation."
+    "A": "treats multiplying like adding a constant, which leaves the spread unchanged; multiplying by $3$ also triples every distance from the mean.",
+    "B": "assumes the mean is unchanged; tripling every positive value triples the mean.",
+    "D": "assumes a change made to every value affects neither measure; multiplying by $3$ triples both."
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: SD Under Scaling**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The mean follows the full formula: $\\frac{5}{9}(68 - 32) = 20$. The standard deviation ignores the shift and follows only the scale factor: $\\frac{5}{9} \\times 9 = 5$.\n\n**The Full Solution:**\nStep 1: The conversion is a linear change: subtract $32$, then multiply by $\\frac{5}{9}$. The mean undergoes both steps: $\\frac{5}{9}(68 - 32) = \\frac{5}{9}(36) = 20$.\nStep 2: Subtracting $32$ from every value does not change the spread. Multiplying every value by $\\frac{5}{9}$ multiplies every distance from the mean by $\\frac{5}{9}$, so the standard deviation becomes $\\frac{5}{9} \\times 9 = 5$.\nStep 3: Check with two values one standard deviation apart in Fahrenheit, $68$ and $77$: they convert to $20$ and $25$, which are $5$ apart. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B (mean $20$; SD $9$): leaves the standard deviation unchanged; that is correct for the subtraction of $32$ but not for the multiplication by $\\frac{5}{9}$.\n* Choice C (mean $37.8$; SD $5$): multiplies the mean by $\\frac{5}{9}$ without first subtracting $32$, giving $\\frac{5}{9}(68) \\approx 37.8$.\n* Choice D (mean $37.8$; SD $9$): combines both errors: no subtraction for the mean and no scaling for the standard deviation.\n\n**Test Day Takeaway:** Under $y = a x + b$, the mean transforms fully ($a \\bar{x} + b$) but the standard deviation only scales ($|a| \\cdot s$); shifts never touch spread."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: SD Under Scaling**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Multiplying every value by $3$ multiplies the mean by $3$ and stretches every distance from the mean by a factor of $3$. The values are positive and not all equal, so both measures get larger.\n\n**The Full Solution:**\nStep 1: If the mean of data set A is $m$, each value $v$ becomes $3v$, so the mean of data set B is $3m$. The values are positive, so $m > 0$ and $3m > m$. Statement I must be true.\nStep 2: Each distance from the mean, $v - m$, becomes $3v - 3m = 3(v - m)$, so the standard deviation of data set B is $3$ times that of data set A. The values are not all equal, so the standard deviation of data set A is greater than $0$, and $3$ times it is greater still. Statement II must be true.\nStep 3: Check with a small list: $1, 2, 3$ becomes $3, 6, 9$. The mean goes from $2$ to $6$, and the values that were $1$ apart are now $3$ apart ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (I only): treats multiplying like adding a constant, which leaves the spread unchanged; multiplying by $3$ also triples every distance from the mean.\n* Choice B (II only): assumes the mean is unchanged; tripling every positive value triples the mean.\n* Choice D (Neither I nor II): assumes a change made to every value affects neither measure; multiplying by $3$ triples both.\n\n**Test Day Takeaway:** Adding a constant to every value shifts the mean but leaves the standard deviation unchanged; multiplying every value by a constant greater than $1$ increases both when the values are positive and not all equal."
 }

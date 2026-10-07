@@ -1,29 +1,29 @@
 {
  "id": 5,
- "question": "At a health fair, $45\\%$ of the visitors were over age $50$. Of these visitors, $30\\%$ had high blood pressure. If a visitor is selected at random, what is the probability that the visitor is over age $50$ and has high blood pressure?",
+ "question": "At a health fair, $126$ of the $180$ visitors over age $50$ did not have high blood pressure. If one of these $180$ visitors is selected at random, what is the probability of selecting a visitor who had high blood pressure?",
  "choices": [
   {
    "id": "A",
-   "text": "$13.5\\%$"
+   "text": "$\\frac{3}{10}$"
   },
   {
    "id": "B",
-   "text": "$15\\%$"
+   "text": "$\\frac{3}{7}$"
   },
   {
    "id": "C",
-   "text": "$30\\%$"
+   "text": "$\\frac{7}{10}$"
   },
   {
    "id": "D",
-   "text": "$75\\%$"
+   "text": "$\\frac{7}{3}$"
   }
  ],
  "correctAnswer": "A",
  "distractorNotes": {
-  "B": "subtracts the two percents, 45 - 30 = 15, instead of multiplying them",
-  "C": "reports the probability of high blood pressure given that the visitor is over age 50, not the probability of both",
-  "D": "adds the two percents, 45 + 30 = 75"
+  "B": "divides the 54 visitors with high blood pressure by the 126 without it instead of by all 180",
+  "C": "gives 126/180, the probability of selecting a visitor who did not have high blood pressure",
+  "D": "divides 126 by 54, inverting the part-to-part ratio"
  },
- "explanation": "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The $30\\%$ applies only to the visitors over age $50$, so multiply: $0.45 \\times 0.30 = 0.135$, which is $13.5\\%$.\n\n**The Full Solution:**\nStep 1: Suppose there were $1{,}000$ visitors. Then $45\\%$ of them, or $450$, were over age $50$.\nStep 2: The $30\\%$ is a percent of that group, not of all visitors, so the number who were over age $50$ and had high blood pressure is $0.30 \\times 450 = 135$.\nStep 3: The probability that a randomly selected visitor is in both groups is $\\frac{135}{1{,}000} = 0.135$, or $13.5\\%$. Check: $13.5\\%$ is less than both $45\\%$ and $30\\%$, as it must be for a share of a share ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($15\\%$): subtracts, $45 - 30 = 15$. Subtraction compares the two percents; it does not find the visitors in both groups.\n* Choice C ($30\\%$): this is the probability of high blood pressure given that the visitor is over age $50$, the conditional probability the question gives, not the one it asks for.\n* Choice D ($75\\%$): adds the two percents. That cannot be right, since only $45\\%$ of the visitors are over age $50$ at all.\n\n**Test Day Takeaway:** A percent \"of\" a subgroup is a rate inside that subgroup. To find the share of everyone, multiply the two rates, and confirm the result is smaller than either one."
+ "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Of the $180$ visitors, $180 - 126 = 54$ had high blood pressure, so the probability is $\\frac{54}{180} = \\frac{3}{10}$.\n\n**The Full Solution:**\nStep 1: Find how many of the visitors over age $50$ had high blood pressure: $180 - 126 = 54$.\nStep 2: The visitor is selected from the $180$ visitors over age $50$, so the probability is $\\frac{54}{180}$.\nStep 3: Simplify: $\\frac{54}{180} = \\frac{3}{10}$. Check: the probability of no high blood pressure is $\\frac{126}{180} = \\frac{7}{10}$, and $\\frac{3}{10} + \\frac{7}{10} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{3}{7}$): compares the $54$ visitors with high blood pressure to the $126$ without it, $\\frac{54}{126}$, instead of to all $180$.\n* Choice C ($\\frac{7}{10}$): is $\\frac{126}{180}$, the probability of selecting a visitor who did not have high blood pressure.\n* Choice D ($\\frac{7}{3}$): divides $126$ by $54$; a probability can never be greater than $1$.\n\n**Test Day Takeaway:** A probability is the number of favorable outcomes divided by the number of possible outcomes; find the missing count first if the question gives its complement."
 }

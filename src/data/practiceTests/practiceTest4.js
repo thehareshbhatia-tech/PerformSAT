@@ -34,19 +34,19 @@ export const practiceTest4 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "The table shows the total rainfall, in centimeters, at a weather station during a storm in which rain fell at a constant rate. At this rate, what was the total rainfall, in millimeters, after $12$ hours? ($1$ centimeter $= 10$ millimeters)",
+  question: "The table shows the total rainfall, in centimeters, at a weather station during a storm in which rain fell at a constant rate. At this rate, what was the total rainfall, in centimeters, after $12$ hours?",
   diagram: { type: "dataTable", params: { headers: ["Time (hours)", "Total rainfall (centimeters)"], rows: [["2", "1.4"], ["5", "3.5"], ["8", "5.6"]] } },
   choices: [
-    // distractor: finds the 12-hour total in centimeters, 0.7(12) = 8.4, and never converts to millimeters
     { id: "A", text: "$8.4$" },
-    // distractor: converts the last table entry, 5.6 centimeters after 8 hours, to 56 millimeters instead of extending to 12 hours
-    { id: "B", text: "$56$" },
-    { id: "C", text: "$84$" },
-    // distractor: multiplies 8.4 centimeters by 100 instead of 10 when converting to millimeters
-    { id: "D", text: "$840$" }
+    // distractor: adds the 4 extra hours to the 8-hour total of 5.6 centimeters, as if each hour added 1 centimeter
+    { id: "B", text: "$9.6$" },
+    // distractor: treats 1.4 centimeters, the rainfall in 2 hours, as the rainfall per hour, giving 1.4(12)
+    { id: "C", text: "$16.8$" },
+    // distractor: multiplies the 8-hour total, 5.6 centimeters, by 12 hours
+    { id: "D", text: "$67.2$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Proportion Solving**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The rain fell at $\\frac{1.4}{2} = 0.7$ centimeter per hour, so after $12$ hours the total was $0.7(12) = 8.4$ centimeters, or $8.4(10) = 84$ millimeters.\n\n**The Full Solution:**\nStep 1: Find the rate from any row of the table: $\\frac{1.4}{2} = 0.7$ centimeter per hour. The other rows agree: $\\frac{3.5}{5} = 0.7$ and $\\frac{5.6}{8} = 0.7$.\nStep 2: Extend to $12$ hours: $0.7(12) = 8.4$ centimeters.\nStep 3: Convert to millimeters: $8.4(10) = 84$ millimeters. Check: $12$ hours is $1.5$ times $8$ hours, and $1.5(5.6) = 8.4$ centimeters, which is $84$ millimeters ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8.4$): this is the 12-hour total in centimeters; the question asks for millimeters.\n* Choice B ($56$): converts the 8-hour entry, $5.6$ centimeters, to millimeters but never extends the rate to $12$ hours.\n* Choice D ($840$): multiplies by $100$ instead of $10$; there are $10$ millimeters in a centimeter, not $100$.\n\n**Test Day Takeaway:** Find the unit rate first, scale it to the requested time, and convert units as the last step; check which unit the question asks for before choosing.",
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Proportion Solving**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The rain fell at $\\frac{1.4}{2} = 0.7$ centimeter per hour, so after $12$ hours the total was $0.7(12) = 8.4$ centimeters.\n\n**The Full Solution:**\nStep 1: Find the rate from any row of the table: $\\frac{1.4}{2} = 0.7$ centimeter per hour. The other rows agree: $\\frac{3.5}{5} = 0.7$ and $\\frac{5.6}{8} = 0.7$.\nStep 2: The total rainfall is the rate times the time, so after $12$ hours it is $0.7(12)$ centimeters.\nStep 3: Multiply: $0.7(12) = 8.4$ centimeters. Check: $12$ hours is $1.5$ times $8$ hours, and $1.5(5.6) = 8.4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($9.6$): adds $4$ to the 8-hour total of $5.6$, as if each extra hour added $1$ centimeter. The rate is $0.7$ centimeter per hour.\n* Choice C ($16.8$): treats $1.4$ centimeters as the rainfall per hour, but $1.4$ centimeters fell in $2$ hours.\n* Choice D ($67.2$): multiplies the 8-hour total by $12$; the table entries are totals, not hourly amounts.\n\n**Test Day Takeaway:** Find the unit rate first, then scale it to the requested time; a second row of the table is a free check on the rate.",
   skills: ["unit-conversion"]
 },
 {
@@ -73,18 +73,18 @@ export const practiceTest4 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "A city had $38$ rainy days in 2019 and $46$ rainy days in 2024. Which expression represents the percent increase in the number of rainy days from 2019 to 2024?",
+  question: "A community garden had $40$ members in 2019. The number of members in 2024 was $15\\%$ greater than the number in 2019. How many members did the community garden have in 2024?",
   choices: [
-    // distractor: gives the 2019 count as a percent of the 2024 count, about 82.6%, rather than a percent change
-    { id: "A", text: "$\\frac{38}{46} \\cdot 100$" },
-    // distractor: gives the 2024 count as a percent of the 2019 count, about 121.1%, without subtracting the original 100%
-    { id: "B", text: "$\\frac{46}{38} \\cdot 100$" },
-    // distractor: divides the increase by the new value, 46, instead of the original value, 38
-    { id: "C", text: "$\\frac{46 - 38}{46} \\cdot 100$" },
-    { id: "D", text: "$\\frac{46 - 38}{38} \\cdot 100$" }
+    // distractor: finds the increase, 15% of 40, and stops before adding it to 40
+    { id: "A", text: "$6$" },
+    // distractor: subtracts the 6-member increase from 40 instead of adding it
+    { id: "B", text: "$34$" },
+    { id: "C", text: "$46$" },
+    // distractor: adds 15 members to 40 instead of 15% of 40
+    { id: "D", text: "$55$" }
   ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Percent Increase**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Percent increase is the change divided by the original amount, times $100$: $\\frac{46 - 38}{38} \\cdot 100$.\n\n**The Full Solution:**\nStep 1: Find the change: the number of rainy days went from $38$ to $46$, an increase of $46 - 38 = 8$.\nStep 2: Compare the change to the original (2019) value: $\\frac{46 - 38}{38}$.\nStep 3: Multiply by $100$ to write it as a percent: $\\frac{46 - 38}{38} \\cdot 100 \\approx 21.1\\%$. Check: $38$ increased by $21.1\\%$ is $38(1.211) \\approx 46$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{38}{46} \\cdot 100$): this is the 2019 count as a percent of the 2024 count, about $82.6\\%$, not a percent change.\n* Choice B ($\\frac{46}{38} \\cdot 100$): this is the 2024 count as a percent of the 2019 count, about $121.1\\%$; the increase is the part above $100\\%$.\n* Choice C ($\\frac{46 - 38}{46} \\cdot 100$): divides the change by the new value; percent change is always measured from the original value.\n\n**Test Day Takeaway:** Percent change $= \\frac{\\text{new} - \\text{original}}{\\text{original}} \\cdot 100$; the denominator is the starting value, which here is the 2019 count.",
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Percent Increase**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** A $15\\%$ increase multiplies the original by $1.15$: $40(1.15) = 46$.\n\n**The Full Solution:**\nStep 1: Find $15\\%$ of the 2019 count: $0.15(40) = 6$.\nStep 2: The 2024 count is greater by this amount, so add it to the 2019 count.\nStep 3: $40 + 6 = 46$ members. Check: $\\frac{46 - 40}{40} = \\frac{6}{40} = 0.15$, which is $15\\%$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): this is the increase, $15\\%$ of $40$, not the number of members in 2024.\n* Choice B ($34$): subtracts the increase; the 2024 count is greater than the 2019 count.\n* Choice D ($55$): adds $15$ members instead of $15\\%$ of $40$.\n\n**Test Day Takeaway:** \"$p\\%$ greater than\" means multiply by $1 + \\frac{p}{100}$; a quick check is that the new value minus the old, divided by the old, gives back the percent.",
   skills: ["percent-of-value", "percent-change"]
 },
 {
@@ -111,18 +111,18 @@ export const practiceTest4 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "Which expression is equivalent to $-3(x - 8)^{2} + 240$?",
+  question: "Which expression is equivalent to $(x - 6)^{2} + 5$?",
   choices: [
-    // distractor: drops the negative sign on the middle term when distributing -3 over -16x
-    { id: "A", text: "$-3x^{2} - 48x + 48$" },
-    { id: "B", text: "$-3x^{2} + 48x + 48$" },
-    // distractor: adds 240 to -64 without first multiplying the 64 by -3, giving 176
-    { id: "C", text: "$-3x^{2} + 48x + 176$" },
-    // distractor: multiplies 64 by +3 instead of -3, adding 192 to 240 to get 432
-    { id: "D", text: "$-3x^{2} + 48x + 432$" }
+    // distractor: squares each term inside the parentheses, writing (x - 6)^2 as x^2 + 36 and leaving out the middle term
+    { id: "A", text: "$x^{2} + 41$" },
+    // distractor: forgets to double the middle term, writing -6x instead of -12x
+    { id: "B", text: "$x^{2} - 6x + 41$" },
+    // distractor: writes the constant term of (x - 6)^2 as -36 instead of +36
+    { id: "C", text: "$x^{2} - 12x - 31$" },
+    { id: "D", text: "$x^{2} - 12x + 41$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $(x - 8)^{2} = x^{2} - 16x + 64$, so $-3(x^{2} - 16x + 64) + 240 = -3x^{2} + 48x - 192 + 240 = -3x^{2} + 48x + 48$.\n\n**The Full Solution:**\nStep 1: Expand the square: $(x - 8)^{2} = x^{2} - 16x + 64$.\nStep 2: Distribute $-3$ to each term: $-3x^{2} + 48x - 192$.\nStep 3: Add $240$: $-3x^{2} + 48x - 192 + 240 = -3x^{2} + 48x + 48$. Check at $x = 0$: the original gives $-3(64) + 240 = 48$, and the answer gives $48$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3x^{2} - 48x + 48$): the product of $-3$ and $-16x$ is $+48x$, not $-48x$.\n* Choice C ($-3x^{2} + 48x + 176$): adds $240$ to $-64$ without multiplying the $64$ by $-3$.\n* Choice D ($-3x^{2} + 48x + 432$): multiplies $64$ by $3$ instead of $-3$, so it adds $192$ rather than subtracting it.\n\n**Test Day Takeaway:** Expand the square before distributing the outside coefficient, and test the result at $x = 0$; the constant terms must match.",
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** $(x - 6)^{2} = x^{2} - 12x + 36$, so $(x - 6)^{2} + 5 = x^{2} - 12x + 41$.\n\n**The Full Solution:**\nStep 1: Write the square as a product: $(x - 6)^{2} = (x - 6)(x - 6)$.\nStep 2: Multiply: $x^{2} - 6x - 6x + 36 = x^{2} - 12x + 36$.\nStep 3: Add $5$: $x^{2} - 12x + 36 + 5 = x^{2} - 12x + 41$. Check at $x = 1$: the original gives $(-5)^{2} + 5 = 30$, and the answer gives $1 - 12 + 41 = 30$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{2} + 41$): squares each term separately. $(x - 6)^{2}$ also has the middle term $-12x$.\n* Choice B ($x^{2} - 6x + 41$): finds only one of the two $-6x$ terms; the middle term is $2(-6x) = -12x$.\n* Choice C ($x^{2} - 12x - 31$): uses $-36$ for the last term, but $(-6)(-6) = +36$.\n\n**Test Day Takeaway:** $(x - a)^{2} = x^{2} - 2ax + a^{2}$: the middle term is doubled and the last term is always positive. Test your answer at an easy value such as $x = 1$.",
   skills: ["distributive-property", "converting-quadratic-forms"]
 },
 
@@ -144,7 +144,7 @@ export const practiceTest4 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "The mean of $6$ numbers is $44$. Five of the numbers are $41.2$, $44.8$, $39.6$, $46$, and $43.4$. What is the sixth number?",
+  question: "The mean of $6$ numbers is $44$. Five of the numbers are $41$, $45$, $38$, $47$, and $44$. What is the sixth number?",
   choices: [
     // distractor: assumes the sixth number must equal the mean of 44
     { id: "A", text: "$44$" },
@@ -155,7 +155,7 @@ export const practiceTest4 = {
     { id: "D", text: "$50$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Mean from List**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Six numbers with mean $44$ total $6(44) = 264$; the five given numbers total $215$, so the sixth is $264 - 215 = 49$.\n\n**The Full Solution:**\nStep 1: Use the mean to find the total of all six numbers: $6(44) = 264$.\nStep 2: Add the five given numbers: $41.2 + 44.8 + 39.6 + 46 + 43.4 = 215$.\nStep 3: Subtract: the sixth number is $264 - 215 = 49$. Check: $\\frac{215 + 49}{6} = \\frac{264}{6} = 44$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($44$): assumes the missing number equals the mean, but the five given numbers average only $43$; a sixth number of $44$ gives a mean of $\\frac{259}{6} \\approx 43.2$, not $44$.\n* Choice B ($45$): notices that the five numbers average $43$, which is $1$ below $44$, but makes up that $1$ only once instead of once for each of the five numbers.\n* Choice D ($50$): makes up the shortfall of $1$ six times; only the five given numbers fall short.\n\n**Test Day Takeaway:** Convert a target mean into a target total, then subtract what you already have; the difference is the missing value.",
+  explanation: "**SAT Pattern: Mean from List**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Six numbers with mean $44$ total $6(44) = 264$; the five given numbers total $215$, so the sixth is $264 - 215 = 49$.\n\n**The Full Solution:**\nStep 1: Use the mean to find the total of all six numbers: $6(44) = 264$.\nStep 2: Add the five given numbers: $41 + 45 + 38 + 47 + 44 = 215$.\nStep 3: Subtract: the sixth number is $264 - 215 = 49$. Check: $\\frac{215 + 49}{6} = \\frac{264}{6} = 44$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($44$): assumes the missing number equals the mean, but the five given numbers average only $43$; a sixth number of $44$ gives a mean of $\\frac{259}{6} \\approx 43.2$, not $44$.\n* Choice B ($45$): notices that the five numbers average $43$, which is $1$ below $44$, but makes up that $1$ only once instead of once for each of the five numbers.\n* Choice D ($50$): makes up the shortfall of $1$ six times; only the five given numbers fall short.\n\n**Test Day Takeaway:** Convert a target mean into a target total, then subtract what you already have; the difference is the missing value.",
   skills: ["calculate-mean"]
 },
 {
@@ -370,20 +370,20 @@ export const practiceTest4 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The function $S$ is defined by $S(d) = -2d^{2} + 44d - 150$ and models the depth of snow, in centimeters, at a ski area on day $d$ of the season. The table shows the depth measured on four days. According to the model, on how many days is the depth at least $90$ centimeters?",
-  diagram: { type: "dataTable", params: { headers: ["Day", "Measured depth (centimeters)"], rows: [["5", "20"], ["8", "74"], ["14", "74"], ["17", "20"]] } },
+  question: "The function $S(d) = -2d^{2} + 44d - 150$ models the depth of snow, in centimeters, on day $d$ of a ski season. The table shows four values of $d$ and their corresponding values of $S(d)$. According to the model, on what day is the depth of snow first $90$ centimeters?",
+  diagram: { type: "dataTable", params: { headers: ["d", "S(d)"], rows: [["5", "20"], ["8", "74"], ["14", "74"], ["17", "20"]] } },
   choices: [
-    // distractor: solves S(d) = 90 and counts its two solutions, d = 10 and d = 12, instead of every day from 10 to 12
-    { id: "A", text: "$2$" },
-    { id: "B", text: "$3$" },
-    // distractor: reports the day on which the model's depth is greatest, d = 11, instead of a number of days
-    { id: "C", text: "$11$" },
-    // distractor: counts the days on which the model gives any snow, S(d) at least 0, which are days 5 through 17
-    { id: "D", text: "$13$" }
+    { id: "A", text: "$10$" },
+    // distractor: reports the day of greatest depth, d = 11, the axis of symmetry the table suggests, where the model gives 92 centimeters
+    { id: "B", text: "$11$" },
+    // distractor: reports the later of the two solutions to S(d) = 90 instead of the first
+    { id: "C", text: "$12$" },
+    // distractor: adds the two solutions, 10 + 12, instead of choosing the smaller one
+    { id: "D", text: "$22$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** $-2d^{2} + 44d - 150 \\ge 90$ simplifies to $d^{2} - 22d + 120 \\le 0$, or $(d - 10)(d - 12) \\le 0$, so $d = 10$, $11$, or $12$: three days.\n\n**The Full Solution:**\nStep 1: Set up the inequality: $-2d^{2} + 44d - 150 \\ge 90$, so $-2d^{2} + 44d - 240 \\ge 0$.\nStep 2: Divide by $-2$ and reverse the inequality: $d^{2} - 22d + 120 \\le 0$, which factors as $(d - 10)(d - 12) \\le 0$. This holds for $10 \\le d \\le 12$.\nStep 3: The days in that interval are $10$, $11$, and $12$, so there are $3$ days. Check: $S(10) = 90$, $S(11) = 92$, $S(12) = 90$, and $S(9) = S(13) = 84$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): counts only the two days on which the depth equals $90$, leaving out day $11$ between them.\n* Choice C ($11$): this is the day on which the model's depth is greatest, the axis of symmetry the table suggests, not a number of days.\n* Choice D ($13$): counts the days with any snow at all, $S(d) \\ge 0$, which are days $5$ through $17$.\n\n**Test Day Takeaway:** For a quadratic inequality, solve the related equation, then decide whether the answer lies between or outside the roots; count whole days inclusively.",
-  skills: ["quadratics"]
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Quadratic via Factoring**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** Set $-2d^{2} + 44d - 150 = 90$. This simplifies to $d^{2} - 22d + 120 = 0$, or $(d - 10)(d - 12) = 0$, so the depth is $90$ centimeters on days $10$ and $12$. The first of these is day $10$.\n\n**The Full Solution:**\nStep 1: Set the model equal to $90$: $-2d^{2} + 44d - 150 = 90$, so $-2d^{2} + 44d - 240 = 0$.\nStep 2: Divide each side by $-2$: $d^{2} - 22d + 120 = 0$, which factors as $(d - 10)(d - 12) = 0$. So $d = 10$ or $d = 12$.\nStep 3: The first day on which the depth is $90$ centimeters is day $10$. Check: $S(10) = -200 + 440 - 150 = 90$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($11$): the table is symmetric about $d = 11$, the day of greatest depth. The model gives $S(11) = 92$ centimeters, not $90$.\n* Choice C ($12$): this is the second solution. The depth is also $90$ centimeters on day $12$, but on the way down, after day $10$.\n* Choice D ($22$): this is the sum of the two solutions, $10 + 12$, not a day on which the depth is $90$.\n\n**Test Day Takeaway:** To find when a quadratic model reaches a value, set the model equal to that value, move everything to one side, and factor; a \"first\" question asks for the smaller solution.",
+  skills: ["finding-roots-factoring"]
 },
 {
   id: 22,
@@ -425,19 +425,19 @@ export const practiceTest4 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "The table shows the two solutions to the equation $|x - c| = d$, where $c$ and $d$ are positive constants. What is the value of $cd$?",
-  questionTable: { headers: ["Solution", "Value of $x$"], rows: [["Smaller solution", "$1.4$"], ["Larger solution", "$4.6$"]] },
+  question: "The table shows the two solutions to the equation $|x - c| = d$, where $c$ and $d$ are positive constants. What is the value of $c$?",
+  questionTable: { headers: ["Solution", "Value of $x$"], rows: [["Smaller solution", "$3$"], ["Larger solution", "$11$"]] },
   choices: [
-    // distractor: reports d alone, half the distance between the solutions, instead of the product cd
-    { id: "A", text: "$1.6$" },
-    // distractor: reports c alone, the midpoint of the two solutions, instead of the product cd
-    { id: "B", text: "$3$" },
-    { id: "C", text: "$4.8$" },
-    // distractor: uses the full distance 4.6 - 1.4 = 3.2 as d instead of half of it, giving 3(3.2) = 9.6
-    { id: "D", text: "$9.6$" }
+    // distractor: finds d, the distance from c to each solution, instead of c
+    { id: "A", text: "$4$" },
+    { id: "B", text: "$7$" },
+    // distractor: finds the distance between the two solutions, 11 - 3, instead of the value halfway between them
+    { id: "C", text: "$8$" },
+    // distractor: adds the two solutions, 3 + 11, without dividing by 2
+    { id: "D", text: "$14$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Absolute Value Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The solutions of $|x - c| = d$ lie $d$ units on either side of $c$, so $c$ is the midpoint, $3$, and $d$ is half the gap, $1.6$. Then $cd = 4.8$.\n\n**The Full Solution:**\nStep 1: The equation $|x - c| = d$ splits into $x = c + d$ and $x = c - d$, so $c + d = 4.6$ and $c - d = 1.4$.\nStep 2: Adding the two equations gives $2c = 6$, so $c = 3$. Subtracting them gives $2d = 3.2$, so $d = 1.6$.\nStep 3: $cd = 3(1.6) = 4.8$. Check: $|1.4 - 3| = 1.6$ and $|4.6 - 3| = 1.6$, so both values satisfy $|x - 3| = 1.6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.6$): this is $d$ alone. Finding $d$ is a middle step; the question asks for the product $cd$.\n* Choice B ($3$): this is $c$ alone, the midpoint of the two solutions, with the multiplication never carried out.\n* Choice D ($9.6$): this uses the full distance $4.6 - 1.4 = 3.2$ as $d$, giving $3(3.2) = 9.6$. The distance from $c$ to each solution is half of that.\n\n**Test Day Takeaway:** For $|x - c| = d$, the constant $c$ is the average of the two solutions and $d$ is half their difference.",
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Absolute Value Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The solutions of $|x - c| = d$ are the two numbers $d$ units from $c$, so $c$ is halfway between $3$ and $11$: $c = \\frac{3 + 11}{2} = 7$.\n\n**The Full Solution:**\nStep 1: The equation $|x - c| = d$ means $x - c = d$ or $x - c = -d$, so the solutions are $c + d$ and $c - d$.\nStep 2: The table gives $c + d = 11$ and $c - d = 3$. Adding these equations gives $2c = 14$.\nStep 3: So $c = 7$. Check: with $c = 7$, $d = 4$, and $|3 - 7| = 4$ and $|11 - 7| = 4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): this is $d$, the distance from $c$ to each solution.\n* Choice C ($8$): this is the distance between the two solutions, $11 - 3$, which equals $2d$.\n* Choice D ($14$): this is the sum of the two solutions, $2c$, before dividing by $2$.\n\n**Test Day Takeaway:** For $|x - c| = d$, the constant $c$ is the midpoint of the two solutions and $d$ is half the distance between them.",
   skills: ["combining-like-terms"]
 },
 {
@@ -521,19 +521,19 @@ export const practiceTest4 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "The scatterplot shows the relationship between two variables, $x$ and $y$, and the line of best fit, $y = -1.8x + 46$. For the data point with $x = 15$, what is the actual $y$-value minus the $y$-value predicted by the line of best fit?",
-  diagram: { type: "scatterplot", params: { points: [[1, 46], [3, 40], [5, 37], [7, 31], [9, 30], [11, 24], [13, 22], [15, 26], [17, 14], [19, 11]], xMin: 0, xMax: 20, yMin: 0, yMax: 50, xGridStep: 2, yGridStep: 5, xLabelStep: 4, yLabelStep: 10, xLabel: "x", yLabel: "y", bestFitLine: { slope: -1.8, intercept: 46 }, highlightPoint: [15, 26], highlightLabel: "(15, 26)", showResidual: true } },
+  question: "The scatterplot shows the relationship between two variables, $x$ and $y$, for $12$ data points. A line of best fit for the data is also shown. How many of the data points have an actual $y$-value less than the $y$-value predicted by the line of best fit?",
+  diagram: { type: "scatterplot", params: { points: [[1, 48], [2, 38], [4, 44], [5, 32], [7, 38], [8, 27], [10, 28], [11, 30], [13, 18], [14, 25], [16, 22], [18, 9]], xMin: 0, xMax: 20, yMin: 0, yMax: 50, xGridStep: 2, yGridStep: 5, xLabelStep: 4, yLabelStep: 10, xLabel: "x", yLabel: "y", bestFitLine: { slope: -1.8, intercept: 46 } } },
   choices: [
-    // distractor: subtracts in the wrong order, computing the predicted value minus the actual value, 19 - 26 = -7
-    { id: "A", text: "$-7$" },
-    { id: "B", text: "$7$" },
-    // distractor: reports 19, the y-value the line of best fit predicts at x = 15, instead of the difference
-    { id: "C", text: "$19$" },
-    // distractor: reports 26, the actual y-value at x = 15, instead of the difference
-    { id: "D", text: "$26$" }
+    { id: "A", text: "$5$" },
+    // distractor: counts the 6 points above the line, where the actual y-value is greater than the predicted value
+    { id: "B", text: "$6$" },
+    // distractor: counts the 6 points above the line and also the point that lies on the line
+    { id: "C", text: "$7$" },
+    // distractor: counts every point that is not on the line, ignoring whether it is above or below the line
+    { id: "D", text: "$11$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The line predicts $-1.8(15) + 46 = 19$, and the data point is at $y = 26$, so the difference is $26 - 19 = 7$.\n\n**The Full Solution:**\nStep 1: Read the data point with $x = 15$ from the scatterplot: its actual $y$-value is $26$.\nStep 2: Evaluate the line of best fit at $x = 15$: $y = -1.8(15) + 46 = -27 + 46 = 19$.\nStep 3: Actual minus predicted is $26 - 19 = 7$. Check: the point lies above the line of best fit, so the difference must be positive ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): this subtracts in the wrong order, $19 - 26$. A point above the line has a positive difference.\n* Choice C ($19$): this is the predicted $y$-value, one of the two numbers needed, not their difference.\n* Choice D ($26$): this is the actual $y$-value read from the graph, with the line never evaluated.\n\n**Test Day Takeaway:** Actual minus predicted, in that order; a point above the line of best fit always gives a positive result.",
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Residual**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** A data point whose actual $y$-value is less than the predicted value lies below the line of best fit. Five points lie below the line.\n\n**The Full Solution:**\nStep 1: For each data point, the predicted $y$-value is the $y$-value of the line at the same $x$-value. The actual $y$-value is less than the predicted value exactly when the point lies below the line.\nStep 2: Count the points below the line: the points at $x = 2$, $x = 5$, $x = 8$, $x = 13$, and $x = 18$. That is $5$ points.\nStep 3: The other $7$ points are $6$ above the line and $1$, $(10, 28)$, on the line. Check: $5 + 6 + 1 = 12$, the number of data points ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($6$): counts the points above the line, where the actual value is greater than the predicted value.\n* Choice C ($7$): counts the points above the line plus the point on the line.\n* Choice D ($11$): counts every point off the line without checking whether it is above or below.\n\n**Test Day Takeaway:** Actual less than predicted means the point is below the line; actual greater than predicted means it is above. A point on the line counts as neither.",
   skills: ["calculate-mean", "slope-intercept-form"]
 },
 {
@@ -541,18 +541,18 @@ export const practiceTest4 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "Line $j$ passes through the points $(2, -7)$ and $(10, 3)$. Line $k$ is parallel to line $j$ and passes through the point $(6, 1)$. An equation of line $k$ is $ax - 4y = c$, where $a$ and $c$ are constants. What is the value of $a + c$?",
+  question: "$ax - 4y = 12$\nIn the given equation, $a$ is a constant. In the $xy$-plane, the graph of the given equation is parallel to the line that passes through the points $(2, -7)$ and $(10, 3)$. What is the value of $a$?",
   choices: [
-    // distractor: reports a alone, stopping after matching the slope
-    { id: "A", text: "$5$" },
-    // distractor: reports c alone, stopping after substituting the point
-    { id: "B", text: "$26$" },
-    { id: "C", text: "$31$" },
-    // distractor: substitutes (2, -7), a point on line j, instead of (6, 1), getting c = 38 and a + c = 43
-    { id: "D", text: "$43$" }
+    // distractor: writes the slope of ax - 4y = 12 as -a/4 instead of a/4
+    { id: "A", text: "$-5$" },
+    // distractor: reports the common slope, 5/4, instead of the value of a
+    { id: "B", text: "$\\frac{5}{4}$" },
+    // distractor: finds the slope as run over rise, 8/10 = 4/5, and solves a/4 = 4/5
+    { id: "C", text: "$\\frac{16}{5}$" },
+    { id: "D", text: "$5$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** Line $j$ has slope $\\frac{10}{8} = \\frac{5}{4}$, and $ax - 4y = c$ has slope $\\frac{a}{4}$, so $a = 5$. Then $c = 5(6) - 4(1) = 26$, and $a + c = 31$.\n\n**The Full Solution:**\nStep 1: The slope of line $j$ is $\\frac{3 - (-7)}{10 - 2} = \\frac{10}{8} = \\frac{5}{4}$.\nStep 2: Solving $ax - 4y = c$ for $y$ gives $y = \\frac{a}{4}x - \\frac{c}{4}$. Parallel lines have equal slopes, so $\\frac{a}{4} = \\frac{5}{4}$ and $a = 5$.\nStep 3: Line $k$ passes through $(6, 1)$, so $5(6) - 4(1) = c$ and $c = 26$. Then $a + c = 31$. Check: $5x - 4y = 26$ has slope $\\frac{5}{4}$, and $5(6) - 4(1) = 26$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): this is $a$ alone; the question asks for $a + c$.\n* Choice B ($26$): this is $c$ alone, the other half of the sum.\n* Choice D ($43$): this substitutes $(2, -7)$, giving $c = 10 + 28 = 38$. That point is on line $j$, not on line $k$.\n\n**Test Day Takeaway:** In $Ax + By = C$, the slope is $-\\frac{A}{B}$; use the parallel condition to fix the coefficients, then substitute a point that is on the new line.",
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** The line through the two points has slope $\\frac{3 - (-7)}{10 - 2} = \\frac{5}{4}$. The graph of $ax - 4y = 12$ is $y = \\frac{a}{4}x - 3$, with slope $\\frac{a}{4}$. Parallel lines have equal slopes, so $\\frac{a}{4} = \\frac{5}{4}$ and $a = 5$.\n\n**The Full Solution:**\nStep 1: Find the slope of the line through $(2, -7)$ and $(10, 3)$: $\\frac{3 - (-7)}{10 - 2} = \\frac{10}{8} = \\frac{5}{4}$.\nStep 2: Solve the given equation for $y$: $-4y = -ax + 12$, so $y = \\frac{a}{4}x - 3$. Its slope is $\\frac{a}{4}$.\nStep 3: Parallel lines have equal slopes: $\\frac{a}{4} = \\frac{5}{4}$, so $a = 5$. Check: the graph of $5x - 4y = 12$ is $y = \\frac{5}{4}x - 3$, with slope $\\frac{5}{4}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): writes the slope of $ax - 4y = 12$ as $-\\frac{a}{4}$. Solving for $y$ divides $-ax$ by $-4$, which gives $+\\frac{a}{4}x$.\n* Choice B ($\\frac{5}{4}$): this is the slope the two lines share, not the value of $a$.\n* Choice C ($\\frac{16}{5}$): computes the slope as run over rise, $\\frac{8}{10} = \\frac{4}{5}$, and then solves $\\frac{a}{4} = \\frac{4}{5}$.\n\n**Test Day Takeaway:** For a line in the form $Ax + By = C$, the slope is $-\\frac{A}{B}$; set it equal to the slope of the parallel line and solve for the constant.",
   skills: ["writing-parallel-equation"]
 },
 {
@@ -617,11 +617,11 @@ export const practiceTest4 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "The table shows the frequency of each value in data set A and in data set B. Data set C consists of all $60$ values from data sets A and B. What is the mode of data set C?",
-  questionTable: { headers: ["Value", "Frequency in data set A", "Frequency in data set B"], rows: [["$1$", "$4$", "$3$"], ["$2$", "$11$", "$5$"], ["$3$", "$9$", "$10$"], ["$4$", "$6$", "$12$"]] },
+  question: "The table shows the frequency of each value in data set A and in data set B. Data set C consists of all $60$ values from data sets A and B. What is the median of data set C?",
+  questionTable: { headers: ["Value", "Frequency in data set A", "Frequency in data set B"], rows: [["$1$", "$9$", "$3$"], ["$2$", "$8$", "$5$"], ["$3$", "$7$", "$10$"], ["$4$", "$6$", "$12$"]] },
   correctAnswer: "3",
-  explanation: "**SAT Pattern: Mode of a Data Set**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~30s):** Add the two frequencies in each row: $7$, $16$, $19$, $18$. The greatest total, $19$, belongs to the value $3$.\n\n**The Full Solution:**\nStep 1: The mode of data set C is the value that occurs most often in the combined data, so the two frequency columns must be added before any comparison.\nStep 2: Combined frequencies: the value $1$ occurs $4 + 3 = 7$ times; $2$ occurs $11 + 5 = 16$ times; $3$ occurs $9 + 10 = 19$ times; $4$ occurs $6 + 12 = 18$ times.\nStep 3: The greatest frequency is $19$, for the value $3$, so the mode is $3$. Check: $7 + 16 + 19 + 18 = 60$, the number of values in data set C ✓\n\n**Common Mistakes:**\n* $2$: the mode of data set A alone (frequency $11$), which loses to $3$ once data set B is included.\n* $4$: the mode of data set B alone (frequency $12$), which also loses to $3$ in the combined data.\n* $19$: the frequency of the mode rather than the mode itself.\n\n**Test Day Takeaway:** For combined data sets, add the frequencies first; the mode of the combination need not be the mode of either part.",
-  skills: ["find-mode"]
+  explanation: "**SAT Pattern: Median Calculation**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~40s):** Add each row: data set C has $12$ ones, $13$ twos, $17$ threes, and $18$ fours. The median of $60$ values is the average of the $30$th and $31$st values, and both are $3$.\n\n**The Full Solution:**\nStep 1: Add the two frequencies for each value: $1$ occurs $9 + 3 = 12$ times, $2$ occurs $8 + 5 = 13$ times, $3$ occurs $7 + 10 = 17$ times, and $4$ occurs $6 + 12 = 18$ times. The total is $12 + 13 + 17 + 18 = 60$.\nStep 2: With $60$ values in order, the median is the average of the $30$th and $31$st values.\nStep 3: The first $12$ values are $1$ and the next $13$ are $2$, which accounts for the first $25$ values. The $26$th through $42$nd values are $3$, so the $30$th and $31$st values are both $3$, and the median is $3$. Check: $25$ values are less than $3$ and $18$ values are greater than $3$, so $3$ is in the middle ✓\n\n**Common Mistakes:**\n* $2.5$: averages the median of data set A, $2$, and the median of data set B, $3$. The medians of the parts do not combine this way; the frequencies must be added first.\n* $2$: the median of data set A alone.\n* $17$: the frequency of the value $3$ in data set C rather than the median itself.\n\n**Test Day Takeaway:** For combined data sets, add the frequencies first, then count to the middle position; the median of the combination is not the average of the two medians.",
+  skills: ["find-median"]
 },
 {
   id: 12,
@@ -647,10 +647,10 @@ export const practiceTest4 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "In the $xy$-plane, the distance between the points $(-3, 8)$ and $(9, b)$ is $20$. If $b > 8$, what is the value of $b$?",
-  correctAnswer: "24",
-  explanation: "**SAT Pattern: Distance Formula**\n\n**The correct answer is $24$.**\n\n**The Fast Way (~40s):** The horizontal distance is $9 - (-3) = 12$, so $12^{2} + (b - 8)^{2} = 20^{2}$. That gives $b - 8 = 16$ and $b = 24$.\n\n**The Full Solution:**\nStep 1: By the distance formula, $\\sqrt{(9 - (-3))^{2} + (b - 8)^{2}} = 20$, so $\\sqrt{144 + (b - 8)^{2}} = 20$.\nStep 2: Square both sides: $144 + (b - 8)^{2} = 400$, so $(b - 8)^{2} = 256$ and $b - 8 = 16$ or $b - 8 = -16$.\nStep 3: Since $b > 8$, $b - 8 = 16$ and $b = 24$. Check: $\\sqrt{12^{2} + 16^{2}} = \\sqrt{400} = 20$ ✓\n\n**Common Mistakes:**\n* $16$: the vertical distance $b - 8$, not the coordinate $b$.\n* $12$: the horizontal distance between the points.\n* $28$: treats $20$ as the vertical distance and computes $8 + 20$, ignoring the horizontal distance.\n\n**Test Day Takeaway:** A distance with one unknown coordinate is a right triangle with one unknown leg; solve for the leg, add back the known coordinate, and use the inequality to choose the sign.",
-  skills: ["coordinate-geometry"]
+  question: "$3x - 5y = 7$\nIn the $xy$-plane, line $\\ell$ is parallel to the graph of the given equation. Line $\\ell$ passes through the points $(0, 0)$ and $(10, d)$. What is the value of $d$?",
+  correctAnswer: "6",
+  explanation: "**SAT Pattern: Parallel Lines and Standard Form**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~30s):** The graph of $3x - 5y = 7$ has slope $\\frac{3}{5}$, so line $\\ell$ is $y = \\frac{3}{5}x$, and $d = \\frac{3}{5}(10) = 6$.\n\n**The Full Solution:**\nStep 1: Solve the given equation for $y$: $-5y = -3x + 7$, so $y = \\frac{3}{5}x - \\frac{7}{5}$. Its slope is $\\frac{3}{5}$.\nStep 2: Line $\\ell$ is parallel to this graph, so it also has slope $\\frac{3}{5}$. It passes through $(0, 0)$, so its equation is $y = \\frac{3}{5}x$.\nStep 3: Substitute $x = 10$: $d = \\frac{3}{5}(10) = 6$. Check: the slope from $(0, 0)$ to $(10, 6)$ is $\\frac{6}{10} = \\frac{3}{5}$ ✓\n\n**Common Mistakes:**\n* $-6$: writes the slope of $3x - 5y = 7$ as $-\\frac{3}{5}$. Dividing $-3x$ by $-5$ gives a positive slope.\n* $4.6$: substitutes $(10, d)$ into the given equation, $3(10) - 5d = 7$. Line $\\ell$ is a different line through the origin.\n* $\\frac{50}{3}$: uses the reciprocal slope, $\\frac{5}{3}$.\n\n**Test Day Takeaway:** Put the given equation in slope-intercept form to read its slope; a parallel line through the origin is $y = mx$ with that same slope.",
+  skills: ["writing-parallel-equation"]
 },
 {
   id: 14,

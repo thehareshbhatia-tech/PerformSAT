@@ -1,6 +1,6 @@
 {
  "id": 6,
- "question": "The table shows the number of pens of each color in a box. One blue pen is removed from the box and is not replaced. Then one of the remaining pens will be selected at random. What is the probability of selecting a blue pen? (Express your answer as a decimal or fraction, not as a percent.)",
+ "question": "The table shows the number of pens of each color in a box. If one of these pens is selected at random, what is the probability of selecting a pen that is not black? (Express your answer as a decimal or fraction, not as a percent.)",
  "questionTable": {
   "headers": [
    "Color",
@@ -21,6 +21,6 @@
    ]
   ]
  },
- "correctAnswer": "17/39",
- "explanation": "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $\\frac{17}{39}$.**\n\n**The Fast Way (~20s):** Removing one blue pen leaves $17$ blue pens among $39$ pens, so the probability is $\\frac{17}{39}$.\n\n**The Full Solution:**\nStep 1: Total the pens before any are removed: $18 + 14 + 8 = 40$ pens.\nStep 2: One blue pen is removed and not replaced, so both counts drop by one: $18 - 1 = 17$ blue pens remain out of $40 - 1 = 39$ pens.\nStep 3: The selection is made from those $39$ pens, so the probability is $\\frac{17}{39}$. Check: the $22$ pens that are not blue are unchanged, and $\\frac{17}{39} + \\frac{22}{39} = 1$ ✓\n\n**Common Mistakes:**\n* $\\frac{18}{40}$ ($= 0.45$): ignores the removal and uses the original counts.\n* $\\frac{18}{39}$ ($\\approx 0.46$): lowers the total to $39$ but forgets that the removed pen was blue, so the blue count must drop too.\n* $\\frac{17}{40}$ ($= 0.425$): lowers the blue count but leaves the total at $40$, counting a pen that is no longer in the box.\n\n**Test Day Takeaway:** \"Not replaced\" changes BOTH numbers. Subtract one from the total, and when the removed item is in the category asked about, subtract one from that category too."
+ "correctAnswer": "13/20",
+ "explanation": "**SAT Pattern: Basic Probability**\n\n**The correct answer is $\\frac{13}{20}$.**\n\n**The Fast Way (~20s):** There are $18 + 14 + 8 = 40$ pens, and $18 + 8 = 26$ of them are not black, so the probability is $\\frac{26}{40} = \\frac{13}{20}$.\n\n**The Full Solution:**\nStep 1: Add the table: $18 + 14 + 8 = 40$ pens in the box.\nStep 2: The pens that are not black are the blue and red pens: $18 + 8 = 26$.\nStep 3: The probability is $\\frac{26}{40} = \\frac{13}{20}$, or $0.65$. Check: the probability of selecting a black pen is $\\frac{14}{40} = \\frac{7}{20}$, and $\\frac{13}{20} + \\frac{7}{20} = 1$ ✓\n\n**Common Mistakes:**\n* $\\frac{7}{20}$: finds the probability of selecting a black pen, $\\frac{14}{40}$, instead of a pen that is not black.\n* $\\frac{9}{20}$: counts only the blue pens, $\\frac{18}{40}$, leaving out the red pens.\n* $\\frac{13}{7}$: compares the $26$ pens that are not black with the $14$ black pens instead of with all $40$ pens.\n\n**Test Day Takeaway:** A probability divides the favorable outcomes by all possible outcomes. For \"not\" questions, either count the other groups directly or subtract the probability of the named group from $1$."
 }

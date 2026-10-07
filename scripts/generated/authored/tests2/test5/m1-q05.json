@@ -1,6 +1,6 @@
 {
  "id": 5,
- "question": "Line $k$ is defined by $y = \\frac{3}{4}x - 2$. Line $j$ is perpendicular to line $k$ in the $xy$-plane and passes through the point $(6, -1)$. Which equation defines line $j$?",
+ "question": "Line $k$ is defined by $y = \\frac{3}{4}x - 2$. Line $j$ is perpendicular to line $k$ in the $xy$-plane and passes through the point $(0, 7)$. Which equation defines line $j$?",
  "choices": [
   {
    "id": "A",
@@ -8,22 +8,22 @@
   },
   {
    "id": "B",
-   "text": "$y = -\\frac{3}{4}x + \\frac{7}{2}$"
+   "text": "$y = -\\frac{3}{4}x + 7$"
   },
   {
    "id": "C",
-   "text": "$y = \\frac{3}{4}x - \\frac{11}{2}$"
+   "text": "$y = \\frac{3}{4}x + 7$"
   },
   {
    "id": "D",
-   "text": "$y = \\frac{4}{3}x - 9$"
+   "text": "$y = \\frac{4}{3}x + 7$"
   }
  ],
  "distractorNotes": {
-  "B": "negates the slope but does not take the reciprocal, using -3/4 through (6, -1)",
+  "B": "negates the slope but does not take the reciprocal, using -3/4",
   "C": "reuses line k's slope 3/4, which gives a line parallel to k, not perpendicular",
-  "D": "takes the reciprocal but does not negate, using 4/3 through (6, -1)"
+  "D": "takes the reciprocal but does not negate it, using 4/3"
  },
  "correctAnswer": "A",
- "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Line $k$ has slope $\\frac{3}{4}$, so line $j$ has slope $-\\frac{4}{3}$. Substituting $(6, -1)$ into $y = -\\frac{4}{3}x + b$ gives $-1 = -8 + b$, so $b = 7$.\n\n**The Full Solution:**\nStep 1: Line $k$ is in slope-intercept form, so its slope is $\\frac{3}{4}$. The slope of a perpendicular line is the negative reciprocal, $-\\frac{4}{3}$.\nStep 2: Write line $j$ as $y = -\\frac{4}{3}x + b$ and substitute the point $(6, -1)$: $-1 = -\\frac{4}{3}(6) + b = -8 + b$, so $b = 7$.\nStep 3: Line $j$ is $y = -\\frac{4}{3}x + 7$. Check: $-\\frac{4}{3}(6) + 7 = -1$, and $\\frac{3}{4} \\cdot \\left(-\\frac{4}{3}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: changes the sign of the slope but keeps $\\frac{3}{4}$ instead of flipping it. The line passes through $(6, -1)$, but $\\frac{3}{4} \\cdot \\left(-\\frac{3}{4}\\right) \\neq -1$.\n* Choice C: keeps the slope $\\frac{3}{4}$, which makes line $j$ parallel to line $k$.\n* Choice D: flips the slope to $\\frac{4}{3}$ but forgets to change its sign.\n\n**Test Day Takeaway:** Perpendicular slopes multiply to $-1$: flip the fraction and change the sign, then use the given point to find the $y$-intercept."
+ "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Line $k$ has slope $\\frac{3}{4}$, so line $j$ has slope $-\\frac{4}{3}$. The point $(0, 7)$ is on the $y$-axis, so the $y$-intercept of line $j$ is $7$.\n\n**The Full Solution:**\nStep 1: Line $k$ is in slope-intercept form, so its slope is $\\frac{3}{4}$. The slope of a perpendicular line is the negative reciprocal, $-\\frac{4}{3}$.\nStep 2: Line $j$ passes through $(0, 7)$, a point with $x$-coordinate $0$, so its $y$-intercept is $7$.\nStep 3: Line $j$ is $y = -\\frac{4}{3}x + 7$. Check: $-\\frac{4}{3}(0) + 7 = 7$, and $\\frac{3}{4} \\cdot \\left(-\\frac{4}{3}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: changes the sign of the slope but keeps $\\frac{3}{4}$ instead of flipping it, and $\\frac{3}{4} \\cdot \\left(-\\frac{3}{4}\\right) \\neq -1$.\n* Choice C: keeps the slope $\\frac{3}{4}$, which makes line $j$ parallel to line $k$.\n* Choice D: flips the slope to $\\frac{4}{3}$ but forgets to change its sign.\n\n**Test Day Takeaway:** Perpendicular slopes multiply to $-1$: flip the fraction and change the sign. A given point with $x$-coordinate $0$ is the $y$-intercept."
 }

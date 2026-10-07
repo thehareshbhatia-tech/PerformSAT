@@ -1,6 +1,6 @@
 {
   "id": 3,
-  "question": "The function $h(t) = -2t^{2} + 12t$ models the height, in meters, of a ball above the ground $t$ seconds after it is thrown upward. According to the model, what is the maximum height, in meters, of the ball?",
+  "question": "$h(t) = -2t^{2} + 12t$\nThe function $h$ gives the height, in meters, of a ball above the ground $t$ seconds after it is thrown upward. What is the maximum height, in meters, of the ball?",
   "choices": [
     {
       "id": "A",
@@ -26,5 +26,5 @@
   },
   "correctAnswer": "D",
   "hint": "A negative leading coefficient means the vertex is the highest point, so find the time first and then the height.",
-  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~25s):** The vertex is at $t = -\\frac{12}{2(-2)} = 3$, and $h(3) = -18 + 36 = 18$.\n\n**The Full Solution:**\nStep 1: The leading coefficient $-2$ is negative, so the parabola opens downward and the vertex gives the maximum height.\nStep 2: The vertex occurs at $t = -\\frac{b}{2a} = -\\frac{12}{2(-2)} = 3$ seconds.\nStep 3: Evaluate the model there: $h(3) = -2(3)^2 + 12(3) = -18 + 36 = 18$ meters. Check the symmetry: $h(0) = 0$ and $h(6) = -72 + 72 = 0$, and $3$ is the midpoint of $0$ and $6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports the TIME at which the maximum occurs rather than the height.\n* Choice B ($6$): reports the time at which the ball returns to the ground.\n* Choice C ($12$): reports the coefficient of $t$ instead of evaluating the model at the vertex.\n\n**Test Day Takeaway:** A maximum-value question has two steps: find the input at the vertex, then substitute it back to get the output the question actually asks for."
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~25s):** The vertex is at $t = -\\frac{12}{2(-2)} = 3$, and $h(3) = -18 + 36 = 18$.\n\n**The Full Solution:**\nStep 1: The leading coefficient $-2$ is negative, so the parabola opens downward and the vertex gives the maximum height.\nStep 2: The vertex occurs at $t = -\\frac{b}{2a} = -\\frac{12}{2(-2)} = 3$ seconds.\nStep 3: Evaluate the model there: $h(3) = -2(3)^2 + 12(3) = -18 + 36 = 18$ meters.\n\nCheck: $h(0) = 0$ and $h(6) = -72 + 72 = 0$, and $3$ is halfway between $0$ and $6$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): reports the time at which the maximum occurs rather than the height.\n* Choice B ($6$): reports the time at which the ball returns to the ground.\n* Choice C ($12$): reports the coefficient of $t$ instead of evaluating the model at the vertex.\n\n**Test Day Takeaway:** A maximum-value question has two steps: find the input at the vertex, then substitute it back to get the output the question actually asks for."
 }

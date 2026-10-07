@@ -6,7 +6,7 @@
   "domain": "craft-and-structure",
   "skill": "words-in-context",
   "module": 2,
-  "passage": "A traditional Chinese sheng bundles seventeen bamboo pipes upright in a single wind chest. Seeing so many pipes crowded together, a newcomer might expect them to sound ______ when played at once; instead, the free reeds blend so evenly that the instrument is commonly described as a mouth organ.",
+  "passage": "In a Balinese gamelan, many of the metal instruments are built in pairs, and the two instruments of each pair are deliberately tuned slightly apart. A newcomer might expect such mismatched pairs to sound ______ when struck together; instead, the small difference produces a steady, shimmering pulse, called ombak, that is central to the music.",
   "question": "Which choice completes the text with the most logical and precise word or phrase?",
   "choices": [
     {
@@ -27,8 +27,11 @@
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** \"Instead\" reverses the expectation, and what actually happens is a blend so even that the instrument is called a mouth organ. The expectation must therefore have been the opposite of an even blend — a harsh jumble of sounds, which is what \"cacophonous\" means.\n\n**The Full Solution:**\n- The newcomer reasons from looks: seventeen pipes crowded together suggest seventeen competing voices.\n- \"Instead\" tells us the actual sound contradicted that expectation; the actual sound was smooth and unified.\n- The blank must name the contradicted expectation: discordant noise — \"cacophonous.\"\n\n**Why the other choices are wrong:**\n- A: \"Resonant\" is a virtue, not the opposite of an even, organ-like blend — no contradiction for \"instead\" to signal.\n- C: \"Muted\" concerns volume; the surprise in the text is about blend and evenness, not loudness or softness.\n- D: \"Overwhelming\" concerns force rather than order; the reversal in the text is from expected disorder to an even blend, not from loudness to restraint.",
+  "explanation": "**Choice B is correct.** The newcomer's expectation is set against what actually happens (\"instead\"): pairs tuned slightly apart might seem likely to clash, but they produce a pleasing, shimmering pulse. \"Cacophonous\" means harsh and jarring, which is what one would expect from mismatched tuning.\n\n**The Full Solution:**\n- The instruments in each pair are \"tuned slightly apart,\" so a listener might expect them to sound out of tune together.\n- \"Instead\" signals that the expectation is wrong: the result is a steady, shimmering pulse central to the music.\n- The blank must name the opposite of that pleasing result, a harsh clash, which is what \"cacophonous\" means.\n\n**Why the other choices are wrong:**\n- A: \"Resonant\" describes a full, ringing sound, which is not an expectation the shimmering pulse would overturn.\n- C: \"Muted\" means quiet or softened, but the text contrasts a feared clash with a pleasing pulse, not loudness with softness.\n- D: \"Overwhelming\" concerns force or volume, while the expectation at issue comes from the mismatched tuning.",
   "_meta": {
-    "anchor": "Sheng (Wikipedia): traditional sheng generally has 17 pipes; a mouth-blown polyphonic free-reed instrument, commonly called the Chinese mouth organ. 2026-10-04 review removed an unverified anecdote about 18th-century European court listeners."
+    "anchor": "Balinese gamelan paired tuning (ombak) — WIC H cacophonous",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Gamelan"
+    ]
   }
 }

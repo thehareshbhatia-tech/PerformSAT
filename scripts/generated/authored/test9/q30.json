@@ -6,7 +6,7 @@
   "domain": "craft-and-structure",
   "skill": "words-in-context",
   "module": 2,
-  "passage": "Writers once claimed that a pair of gloves made of sea silk was so fine it could be folded into half a walnut shell. The objects that actually survive are considerably more ______ — mostly knitted gloves and caps about as thick as ordinary silk, treasured less for any marvelous fineness than for their natural golden sheen.",
+  "passage": "Ancient writers credited the Library of Alexandria with as many as half a million papyrus scrolls. Some modern historians doubt those totals, since a collection that large would have held far more ancient works than scholars know ever existed. In their view, the library's real holdings were considerably more ______.",
   "question": "Which choice completes the text with the most logical and precise word or phrase?",
   "choices": [
     {
@@ -27,8 +27,12 @@
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The text pivots from an extravagant claim about sea silk to what \"actually\" survives — ordinary-looking knitted objects — so the blank must run opposite to that extravagance: the surviving pieces are \"modest.\"\n\n**The Full Solution:**\n- The first sentence inflates: gloves fine enough to fit inside half a walnut shell.\n- The second deflates: gloves and caps about as thick as ordinary silk, prized for their sheen rather than any marvelous fineness.\n- \"Considerably more ______\" must carry the deflation, and \"modest\" — unassuming in scale and pretension — does.\n\n**Why the other choices are wrong:**\n- A: \"Elaborate\" would extend the extravagance, erasing the contrast the word \"actually\" sets up.\n- B: Survival might suggest durability, but the description that follows concerns the objects' ordinary thickness, not their toughness.\n- C: \"Valuable\" does not answer the claim about fineness; the contrast the text draws is between a marvelous legend and plain, ordinary-looking objects.",
+  "explanation": "**Choice D is correct.** The text sets ancient claims of up to half a million scrolls against modern historians' doubts about those totals, so the blank must describe holdings smaller than the ancient claims: \"modest.\"\n\n**The Full Solution:**\n- The first sentence gives a grand figure: as many as half a million scrolls.\n- The second sentence explains why historians doubt it: so many scrolls would mean far more ancient works than scholars know existed.\n- \"Considerably more ______\" must therefore mean smaller in scale, and \"modest\" means limited in size or amount.\n\n**Why the other choices are wrong:**\n- A: \"Elaborate\" suggests something more detailed or complex, which does not answer a doubt about the number of scrolls.\n- B: The text is about how many scrolls the library held, not about how long they lasted.\n- C: The historians question the size of the collection, not its worth; nothing suggests the real holdings were more valuable.",
   "_meta": {
-    "anchor": "Sea silk (Wikipedia): \"said to be so fine that a pair of women's gloves made from the fabric could fit into half a walnut shell\"; \"similar in thickness to other fibers such as silk\"; most surviving objects knitted, many gloves; oldest surviving object a 14th-century knit hat; natural color highly valued."
+    "anchor": "Library of Alexandria: ancient claims of up to half a million scrolls vs modern historians' smaller estimates (Bagnall 2002) — WIC modest",
+    "sources": [
+      "https://www.open.edu/openlearn/history-the-arts/library-alexandria/content-section-2.1",
+      "https://en.wikipedia.org/wiki/Library_of_Alexandria"
+    ]
   }
 }

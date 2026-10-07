@@ -1,29 +1,29 @@
 {
   "id": "bank-am-264",
-  "question": "The functions $f$ and $g$ are defined so that $g(x) = 4f(x)$ for all values of $x$. Which of the following must be true?",
+  "question": "The function $f$ is defined by $f(x) = ax^{2}$, where $a$ is a constant. In the $xy$-plane, the graph of $y = f(x)$ passes through the point $(2, 28)$. What is the value of $a$?",
   "choices": [
     {
       "id": "A",
-      "text": "Each output of $g$ is $4$ more than the corresponding output of $f$."
+      "text": "$7$"
     },
     {
       "id": "B",
-      "text": "Each output of $g$ is one fourth of the corresponding output of $f$."
+      "text": "$14$"
     },
     {
       "id": "C",
-      "text": "Each input of $g$ is $4$ times the corresponding input of $f$."
+      "text": "$26$"
     },
     {
       "id": "D",
-      "text": "Each output of $g$ is $4$ times the corresponding output of $f$."
+      "text": "$112$"
     }
   ],
   "distractorNotes": {
-    "A": "reads the multiplier as an addition, as in g(x) = f(x) + 4",
-    "B": "inverts the factor, as in g(x) = (1/4)f(x)",
-    "C": "applies the factor to the input rather than the output"
+    "B": "divides 28 by 2 instead of by 2^2",
+    "C": "subtracts 2 from 28",
+    "D": "multiplies 28 by 2^2 instead of dividing"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Vertical Stretch**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** The $4$ multiplies $f(x)$ after $f$ is evaluated, so each output of $g$ is $4$ times the output of $f$ at the same input.\n\n**The Full Solution:**\nStep 1: The rule $g(x) = 4f(x)$ evaluates $f$ at the input $x$ and then multiplies the result by $4$.\nStep 2: Because the $4$ is applied after $f$, it scales outputs, not inputs.\nStep 3: So each output of $g$ is $4$ times the corresponding output of $f$. Check: if $f(5) = 30$, then $g(5) = 4(30) = 120$, four times as large at the same input ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: reads the multiplier as an addition, which would be $g(x) = f(x) + 4$.\n* Choice B: inverts the factor, which would be $g(x) = \\frac{1}{4}f(x)$.\n* Choice C: applies the $4$ to the input, which would describe $g(x) = f\\left(\\frac{x}{4}\\right)$.\n\n**Test Day Takeaway:** A constant multiplying the whole function stretches outputs vertically; the inputs are untouched."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Vertical Stretch**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Substitute $(2, 28)$: $a(2)^{2} = 28$, so $4a = 28$ and $a = 7$.\n\n**The Full Solution:**\nStep 1: A point on the graph satisfies the equation, so substitute $x = 2$ and $f(x) = 28$.\nStep 2: This gives $a(2)^{2} = 28$, or $4a = 28$.\nStep 3: Divide by $4$: $a = 7$. Check: $f(2) = 7(4) = 28$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($14$): divides $28$ by $2$ instead of by $2^{2} = 4$.\n* Choice C ($26$): subtracts the input $2$ from the output $28$.\n* Choice D ($112$): multiplies $28$ by $4$ instead of dividing.\n\n**Test Day Takeaway:** Square the input before solving for the coefficient."
 }

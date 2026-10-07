@@ -1,29 +1,29 @@
 {
  "id": "bank-am-001",
- "question": "Which of the following is a quadratic equation?",
+ "question": "$x(3x - 4) = 7$\nWhich equation is equivalent to the given equation?",
  "choices": [
   {
    "id": "A",
-   "text": "$7x - 21 = 0$"
+   "text": "$3x^{2} + 4x - 7 = 0$"
   },
   {
    "id": "B",
-   "text": "$\\dfrac{5}{x} + 2 = 0$"
+   "text": "$3x^{2} - 4x - 7 = 0$"
   },
   {
    "id": "C",
-   "text": "$3x^{2} - 4x + 1 = 0$"
+   "text": "$3x^{2} - 4x + 7 = 0$"
   },
   {
    "id": "D",
-   "text": "$x^{3} - 9x = 0$"
+   "text": "$3x^{2} - 11 = 0$"
   }
  ],
- "correctAnswer": "C",
+ "correctAnswer": "B",
  "distractorNotes": {
-  "A": "the highest power of x is 1, so the equation is linear",
-  "B": "x is in a denominator, so the equation is not a polynomial equation",
-  "D": "the highest power of x is 3, so the equation is cubic"
+  "A": "multiplies x by +4 instead of -4",
+  "C": "moves 7 to the left side without changing its sign",
+  "D": "multiplies only 3x by x, giving 3x^2 - 4 = 7"
  },
- "explanation": "**SAT Pattern: Identify Quadratic Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Look for the equation whose highest power of $x$ is exactly $2$, with $x$ never in a denominator. Only $3x^{2} - 4x + 1 = 0$ qualifies.\n\n**The Full Solution:**\nStep 1: A quadratic equation in $x$ can be written as $ax^{2} + bx + c = 0$ with $a \\neq 0$: its highest power of $x$ is $2$, and every power of $x$ is a whole number.\nStep 2: Check the other choices. In $7x - 21 = 0$ the highest power is $1$. In $\\dfrac{5}{x} + 2 = 0$, $x$ is in a denominator, which is the power $x^{-1}$. In $x^{3} - 9x = 0$ the highest power is $3$.\nStep 3: $3x^{2} - 4x + 1 = 0$ has the form $ax^{2} + bx + c = 0$ with $a = 3$, $b = -4$, and $c = 1$, and $a \\neq 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7x - 21 = 0$): the highest power of $x$ is $1$, so this equation is linear.\n* Choice B ($\\dfrac{5}{x} + 2 = 0$): the variable is in a denominator, so this is a rational equation, not a polynomial one.\n* Choice D ($x^{3} - 9x = 0$): the highest power of $x$ is $3$, so this equation is cubic.\n\n**Test Day Takeaway:** Classify an equation by the HIGHEST power of the variable, and make sure the variable never sits in a denominator."
+ "explanation": "**SAT Pattern: Identify Quadratic Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Distribute $x$ to get $3x^{2} - 4x = 7$, then subtract $7$ from each side: $3x^{2} - 4x - 7 = 0$.\n\n**The Full Solution:**\nStep 1: Distribute $x$ over both terms in the parentheses: $x(3x) - x(4) = 3x^{2} - 4x$.\nStep 2: The equation becomes $3x^{2} - 4x = 7$.\nStep 3: Subtract $7$ from each side: $3x^{2} - 4x - 7 = 0$. Check with $x = -1$: the given equation gives $(-1)(-3 - 4) = 7$, and $3(1) + 4 - 7 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x^{2} + 4x - 7 = 0$): multiplies $x$ by $+4$ instead of $-4$.\n* Choice C ($3x^{2} - 4x + 7 = 0$): moves $7$ to the left side without changing its sign.\n* Choice D ($3x^{2} - 11 = 0$): multiplies only $3x$ by $x$, which gives $3x^{2} - 4 = 7$.\n\n**Test Day Takeaway:** To write a quadratic equation as $ax^{2} + bx + c = 0$, distribute to every term in the parentheses, then move every term to one side, changing its sign as it crosses."
 }

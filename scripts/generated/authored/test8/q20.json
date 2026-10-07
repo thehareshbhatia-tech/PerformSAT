@@ -6,26 +6,33 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 1,
- "passage": "The prize rules obliged Appert to make his discovery public, so his 1810 book withheld nothing: it specified the vessels, the temperatures, and ______ that his process required, down to the hours each food should stand in the boiling bath.",
+ "passage": "Many recipes of the 1800s called for \"butter the size of an egg,\" but a widely used 1896 cookbook from a Boston cooking school was exact: it gave level measurements, standard cup and spoon sizes, and ______ for its recipes.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "timing them"
+   "text": "cooking them"
   },
   {
    "id": "B",
-   "text": "to time it"
+   "text": "to cook it"
   },
   {
    "id": "C",
-   "text": "the timings"
+   "text": "the cooking times"
   },
   {
    "id": "D",
-   "text": "timed"
+   "text": "cooked"
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The blank is the third item in a coordinated series of nouns — \"the vessels, the temperatures, and the timings\" — so it must be a noun matching the first two.\n\n**The Full Solution:**\n- The series lists what Appert's book had to disclose: \"the vessels, the temperatures, and ______ that his process required.\"\n- The first two items are nouns, so the third must be the noun \"timings\" to keep the series parallel.\n- Read it back: \"the vessels, the temperatures, and the timings that his process required\" — three matching nouns.\n\n**Why the other choices are wrong:**\n- A: \"Timing them\" swaps in a verb phrase, breaking the noun-noun-noun pattern.\n- B: \"To time it\" is an infinitive phrase, not a noun parallel to \"vessels\" and \"temperatures.\"\n- D: \"Timed\" is a bare verb form and cannot serve as the third noun in the series."
+ "explanation": "**Choice C is correct.** The blank is the third item in a coordinated series of noun phrases, \"level measurements, standard cup and spoon sizes, and the cooking times,\" so it must be a noun phrase matching the first two.\n\n**The Full Solution:**\n- The series lists what the cookbook gave: \"level measurements, standard cup and spoon sizes, and ______ for its recipes.\"\n- The first two items are noun phrases, so the third must be the noun phrase \"the cooking times\" to keep the series parallel.\n- Read it back: \"it gave level measurements, standard cup and spoon sizes, and the cooking times for its recipes.\"\n\n**Why the other choices are wrong:**\n- A: \"Cooking them\" swaps in a verb phrase, breaking the pattern of noun phrases.\n- B: \"To cook it\" is an infinitive phrase, not a noun phrase like the other two items.\n- D: \"Cooked\" is a participle and cannot serve as an item in a series of things the book gave.",
+ "_meta": {
+  "anchor": "1896 Boston Cooking-School Cook Book level measurements — parallel noun phrases in a series",
+  "sources": [
+   "https://archive.org/details/bostoncookingsc00collgoog",
+   "https://www.cooksinfo.com/fannie-farmer-cookbook"
+  ]
+ }
 }

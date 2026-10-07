@@ -1,42 +1,56 @@
 {
- "id": 5,
- "question": "A solid block in the shape of a right rectangular prism measures $12$ inches by $6$ inches by $5$ inches. A groove is cut through the full $12$-inch length of the block, and each cross section of the groove is the right triangle shown. What is the volume, in cubic inches, of the remaining block?",
- "diagram": {
-  "type": "rightTriangle",
-  "params": {
-   "sideLabels": [
-    "4 in",
-    "2 in",
-    ""
-   ],
-   "rightAngleVertex": 1,
-   "figureNote": true
-  }
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$48$"
+  "id": 5,
+  "question": "Each base of a right prism is the right triangle shown. The height of the prism is $7$ inches. What is the volume, in cubic inches, of the prism?",
+  "diagram": {
+    "type": "rightTriangle",
+    "params": {
+      "vertices": [
+        [
+          0,
+          0
+        ],
+        [
+          15,
+          0
+        ],
+        [
+          15,
+          8
+        ]
+      ],
+      "sideLabels": [
+        "",
+        "8 in",
+        "17 in"
+      ],
+      "rightAngleVertex": 1,
+      "figureNote": true
+    }
   },
-  {
-   "id": "B",
-   "text": "$264$"
+  "choices": [
+    {
+      "id": "A",
+      "text": "$420$"
+    },
+    {
+      "id": "B",
+      "text": "$476$"
+    },
+    {
+      "id": "C",
+      "text": "$840$"
+    },
+    {
+      "id": "D",
+      "text": "$952$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "uses the hypotenuse, 17, as the second leg",
+    "C": "multiplies the legs without the 1/2",
+    "D": "multiplies 8, 17, and 7, using the hypotenuse and leaving out the 1/2"
   },
-  {
-   "id": "C",
-   "text": "$312$"
-  },
-  {
-   "id": "D",
-   "text": "$356$"
-  }
- ],
- "distractorNotes": {
-  "A": "finds the volume of the groove, 48, and reports it instead of subtracting it from the block",
-  "B": "leaves out the 1/2 for the triangle, so the groove is 96 and 360 - 96 = 264",
-  "D": "subtracts only the triangle's area, (1/2)(4)(2) = 4, without multiplying by the 12-inch length"
- },
- "correctAnswer": "C",
- "hint": "Find the whole block and the groove as two separate volumes.",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~40s):** The block is $12 \\cdot 6 \\cdot 5 = 360$ and the groove is $\\frac{1}{2}(4)(2)(12) = 48$, so $360 - 48 = 312$ cubic inches remain.\n\n**The Full Solution:**\nStep 1: The volume of the uncut block is $12 \\cdot 6 \\cdot 5 = 360$ cubic inches.\nStep 2: The groove is a triangular prism. Its cross section has area $\\frac{1}{2}(4)(2) = 4$ square inches, and it runs the full $12$ inches, so its volume is $4(12) = 48$ cubic inches.\nStep 3: Subtract: $360 - 48 = 312$ cubic inches. Check: $312 + 48 = 360$, the volume of the uncut block ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($48$): is the volume of the groove that was removed, not of the block that remains.\n* Choice B ($264$): leaves out the $\\frac{1}{2}$ in the triangle's area, so it removes $96$ cubic inches instead of $48$.\n* Choice D ($356$): subtracts the area of the triangle, $4$, as if it were a volume; the groove extends through all $12$ inches of the block.\n\n**Test Day Takeaway:** For a solid with a piece cut out, find the volume of the whole solid and of the removed piece separately, then subtract; a cut that runs the full length is a prism of its own."
+  "correctAnswer": "A",
+  "hint": "Find the missing leg first; the two legs are the base and height of the triangle.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~35s):** The missing leg is $\\sqrt{17^{2} - 8^{2}} = 15$, so the base area is $\\frac{1}{2}(8)(15) = 60$ and the volume is $60(7) = 420$.\n\n**The Full Solution:**\nStep 1: By the Pythagorean theorem, the unlabeled leg is $\\sqrt{17^{2} - 8^{2}} = \\sqrt{289 - 64} = \\sqrt{225} = 15$ inches.\nStep 2: The area of the triangular base is $\\frac{1}{2}(8)(15) = 60$ square inches.\nStep 3: The volume is the area of the base times the height of the prism: $60 \\cdot 7 = 420$ cubic inches. Check: $8^{2} + 15^{2} = 64 + 225 = 289 = 17^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($476$): this uses the hypotenuse, $17$, as a leg: $\\frac{1}{2}(8)(17)(7) = 476$.\n* Choice C ($840$): this leaves out the $\\frac{1}{2}$ in the area of the triangle.\n* Choice D ($952$): this multiplies $8$, $17$, and $7$, using the hypotenuse and leaving out the $\\frac{1}{2}$.\n\n**Test Day Takeaway:** The area of a right triangle uses its two legs; find a missing leg with the Pythagorean theorem first."
 }

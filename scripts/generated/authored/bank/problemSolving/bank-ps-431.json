@@ -1,6 +1,6 @@
 {
  "id": "bank-ps-431",
- "question": "The table shows the number of customers a café served on four days and the number of customers a model predicted for each day. On which day did the number of customers served exceed the predicted number by the greatest amount?",
+ "question": "The table shows the number of customers a café served on four days and the number of customers a model predicted for each of those days. On which day did the café serve more customers than the model predicted?",
  "diagram": {
   "type": "dataTable",
   "params": {
@@ -12,23 +12,23 @@
    "rows": [
     [
      "Monday",
-     "312",
-     "298"
+     "324",
+     "324"
     ],
     [
      "Tuesday",
-     "372",
-     "355"
+     "344",
+     "336"
     ],
     [
      "Wednesday",
-     "289",
-     "312"
+     "297",
+     "320"
     ],
     [
      "Thursday",
-     "366",
-     "348"
+     "362",
+     "371"
     ]
    ]
   }
@@ -51,11 +51,11 @@
    "text": "Thursday"
   }
  ],
- "correctAnswer": "D",
+ "correctAnswer": "B",
  "distractorNotes": {
-  "A": "Monday's excess is only 312 - 298 = 14",
-  "B": "Tuesday's excess is 372 - 355 = 17, one less than Thursday's",
-  "C": "Wednesday has the largest gap, 23, but the café served fewer customers than predicted that day"
+  "A": "on Monday the café served exactly the predicted number, 324, not more",
+  "C": "Wednesday has the largest gap between the two numbers, but the café served fewer customers than predicted that day",
+  "D": "Thursday has the most customers served, 362, but the model predicted 371, more than were served"
  },
- "explanation": "**SAT Pattern: Residual**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Served minus predicted is $14$, $17$, $-23$, and $18$; the greatest is $18$, on Thursday.\n\n**The Full Solution:**\nStep 1: Subtract predicted from served for each day: Monday $312 - 298 = 14$, Tuesday $372 - 355 = 17$, Wednesday $289 - 312 = -23$, Thursday $366 - 348 = 18$.\nStep 2: Only positive differences mean the café served more customers than predicted.\nStep 3: The greatest of $14$, $17$, and $18$ is $18$, on Thursday. Check: $348 + 18 = 366$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: has an excess of $14$, smaller than Tuesday's or Thursday's.\n* Choice B: has an excess of $17$, just short of Thursday's $18$.\n* Choice C: has the largest difference in size, but the café served $23$ fewer customers than predicted, so the number served did not exceed the prediction.\n\n**Test Day Takeaway:** \"Exceed\" fixes the direction: compute actual minus predicted and compare only the positive results."
+ "explanation": "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Only on Tuesday is the number served, $344$, greater than the number predicted, $336$.\n\n**The Full Solution:**\nStep 1: Compare the two numbers in each row: Monday $324$ and $324$; Tuesday $344$ and $336$; Wednesday $297$ and $320$; Thursday $362$ and $371$.\nStep 2: The number served is greater than the number predicted only on Tuesday: $344 > 336$.\nStep 3: On Monday the two numbers are equal, and on Wednesday and Thursday the café served fewer customers than predicted. Check: Tuesday is the only row where the number served is the larger number ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: the café served exactly the predicted number on Monday, not more.\n* Choice C: has the largest gap, but the café served fewer customers than predicted.\n* Choice D: has the most customers served, but the model predicted even more.\n\n**Test Day Takeaway:** \"Served more than predicted\" is about direction: the actual value must be the greater one. Do not pick a row just because its gap or its total is large."
 }

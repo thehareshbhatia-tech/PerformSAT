@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-349",
-  "question": "Each value in a data set is multiplied by $3$. Which statement about the new data set is true?",
+  "question": "Data set A has a mean of $24$. Data set B is created by adding $6$ to each value in data set A. What is the mean of data set B?",
   "choices": [
     {
       "id": "A",
-      "text": "Its mean is the same as the original mean, and its standard deviation is $3$ times the original standard deviation."
+      "text": "$4$"
     },
     {
       "id": "B",
-      "text": "Its mean is $3$ times the original mean, and its standard deviation is $3$ times the original standard deviation."
+      "text": "$18$"
     },
     {
       "id": "C",
-      "text": "Its mean is $3$ times the original mean, and its standard deviation is the same as the original standard deviation."
+      "text": "$30$"
     },
     {
       "id": "D",
-      "text": "Its mean is the same as the original mean, and its standard deviation is the same as the original standard deviation."
+      "text": "$144$"
     }
   ],
+  "correctAnswer": "C",
   "distractorNotes": {
-    "A": "scales the spread but not the center, as if multiplying moved every value away from a fixed mean",
-    "C": "applies the rule for adding a constant to the standard deviation; multiplying stretches the spread",
-    "D": "assumes that changing every value by the same factor leaves the summary statistics unchanged"
+    "A": "divides the mean by 6 instead of adding 6",
+    "B": "subtracts 6 from the mean instead of adding it",
+    "D": "multiplies the mean by 6 instead of adding 6"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Scaling a Data Set**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Multiplying every value by $3$ multiplies the mean by $3$ and stretches every distance from the mean by $3$, so the standard deviation is also multiplied by $3$.\n\n**The Full Solution:**\nStep 1: The mean is the sum divided by the count. Multiplying every value by $3$ multiplies the sum by $3$ and leaves the count alone, so the mean is multiplied by $3$.\nStep 2: Each value's distance from the mean is also multiplied by $3$, and the standard deviation measures those distances, so it is multiplied by $3$.\nStep 3: So both statistics are $3$ times the originals. Check: the values $2$ and $4$ have mean $3$ and lie $1$ from the mean; tripled they are $6$ and $12$, with mean $9$ and each $3$ from the mean ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: changes the spread but not the center. Every value moves, so the mean moves too.\n* Choice C: keeps the standard deviation fixed, which is what happens when a constant is added, not multiplied.\n* Choice D: treats the change as if it had no effect on either statistic.\n\n**Test Day Takeaway:** Multiplying every value by $a$ multiplies the mean by $a$ and the standard deviation by $|a|$; adding a constant moves only the mean."
+  "explanation": "**SAT Pattern: Scaling a Data Set**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Adding $6$ to every value adds $6$ to the mean, so the mean of data set B is $24 + 6 = 30$.\n\n**The Full Solution:**\nStep 1: If data set A has $n$ values, the sum of its values is $24n$.\nStep 2: Adding $6$ to each of the $n$ values adds $6n$ to the sum, so the sum of data set B is $24n + 6n = 30n$.\nStep 3: The mean of data set B is $\\frac{30n}{n} = 30$. Check: data set A $= 20, 28$ has mean $24$, and data set B $= 26, 34$ has mean $30$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): divides $24$ by $6$; nothing in the question divides the values.\n* Choice B ($18$): subtracts $6$, but each value was increased by $6$.\n* Choice D ($144$): multiplies $24$ by $6$, which would be the effect of multiplying each value by $6$.\n\n**Test Day Takeaway:** Adding the same number to every value shifts the mean and the median by that number and leaves the range unchanged."
 }

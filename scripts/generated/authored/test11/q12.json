@@ -8,15 +8,15 @@
  "choices": [
   {
    "id": "A",
-   "text": "Medieval chroniclers tended to record auroras only when displays were bright enough to alarm the public in towns and cities alike."
+   "text": "Medieval chroniclers tended to record auroras only when displays were bright enough to alarm the public."
   },
   {
    "id": "B",
-   "text": "Some chronicles describe other celestial events, such as comets, that modern astronomy can date precisely."
+   "text": "Some chronicles also describe other celestial events, such as comets and eclipses, that modern astronomy can date precisely."
   },
   {
    "id": "C",
-   "text": "Chronicles record auroras markedly more often in centuries when tree-ring isotopes independently indicate high solar activity."
+   "text": "Chronicles record auroras far more often in centuries when tree-ring isotopes indicate high solar activity."
   },
   {
    "id": "D",
@@ -25,7 +25,7 @@
  ],
  "correctAnswer": "C",
  "explanation": "**Choice C is correct.** The proposal is that chronicle sightings can stand in for direct measurements of solar activity. If chronicle counts rise exactly when an independent physical proxy — tree-ring isotopes — says solar activity was high, the stand-in is validated.\n\n**The Full Solution:**\n- A stand-in earns trust by agreeing with something already trusted. The team cannot check chronicles against instruments (none existed), so the test must be another independent record of solar activity.\n- Elevated radioactive isotopes in tree rings are such a record; a match between chronicle aurora counts and isotope-inferred activity directly supports using the chronicles to trace the solar cycle.\n\n**Why the other choices are wrong:**\n- A: A brightness threshold means faint displays went unrecorded — a limitation of the record, not evidence it tracks the solar cycle.\n- B: Accurate comet reports speak to chroniclers' general reliability, not to whether aurora counts follow solar activity.\n- D: Geographic spread describes the record's breadth; it says nothing about whether sighting frequency rises and falls with the Sun.",
- "passage": "The Sun's activity rises and falls on a roughly eleven-year cycle, but direct measurements of that cycle reach back only a few centuries. Auroras — the shimmering lights that appear when charged particles from the Sun strike the upper atmosphere — become more frequent when solar activity peaks. One team of researchers has proposed that the many aurora sightings recorded in medieval European and East Asian chronicles could serve as a stand-in for direct measurements, allowing the solar cycle to be traced through centuries that no instrument ever observed.",
+ "passage": "The Sun's activity rises and falls on a roughly eleven-year cycle, but direct measurements of that cycle reach back only a few centuries. Auroras — the shimmering lights that appear when charged particles from the Sun strike the upper atmosphere — become more frequent when solar activity peaks. One team of researchers has proposed that the many aurora sightings recorded in medieval European and East Asian chronicles could serve as a stand-in for direct measurements. The records would allow the solar cycle to be traced through centuries that no instrument ever observed.",
  "_meta": {
   "anchor": "aurora observation history — medieval chronicle sightings as solar-activity proxy",
   "distractors": {

@@ -11,21 +11,21 @@
  "choices": [
   {
    "id": "A",
-   "text": "It poses an economic question, explains why it is hard to answer, and describes how researchers designed a comparison to address that difficulty."
+   "text": "It poses a question, explains why it is hard to answer, and describes a study designed around that difficulty."
   },
   {
    "id": "B",
-   "text": "It states a widely accepted economic principle, then presents survey data that confirm the principle's predictions."
+   "text": "It states a widely accepted economic principle, then presents survey data that confirm it."
   },
   {
    "id": "C",
-   "text": "It summarizes a disagreement between two economists, then describes the study they conducted together to resolve it."
+   "text": "It summarizes a disagreement between two economists, then describes how they resolved it."
   },
   {
    "id": "D",
-   "text": "It describes a change in one state's employment laws, then weighs the strongest arguments for and against adopting the same change in every other state."
+   "text": "It describes a change in one state's wage law, then argues that other states should adopt it."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The text presents a question, an obstacle to answering it, and a research design that gets around the obstacle — exactly the sequence choice A describes.\n\n**The Full Solution:**\n- The three moves come in order: an opening question (does a minimum-wage increase reduce employment?), an obstacle (national statistics tangle too many factors together), and a design that isolates the policy (comparing restaurants across a state line where only one state raised its wage), ending with the result.\n\n**Why the other choices are wrong:**\n- B: It fails twice — no principle is stated as accepted, and the finding runs against the expectation the question implies rather than confirming one.\n- C: It invents a disagreement: Card and Krueger worked as a team throughout.\n- D: The text never weighs arguments about extending the policy."
+ "explanation": "**Choice A is correct.** The text presents a question, an obstacle to answering it, and a research design that gets around the obstacle — exactly the sequence choice A describes.\n\n**The Full Solution:**\n- The three moves come in order: an opening question (does a minimum-wage increase reduce employment?), an obstacle (national statistics tangle too many factors together), and a design that isolates the policy (comparing restaurants across a state line where only one state raised its wage), ending with the result.\n\n**Why the other choices are wrong:**\n- B: It fails twice — no principle is stated as accepted, and the finding runs against the expectation the question implies rather than confirming one.\n- C: It invents a disagreement: Card and Krueger worked as a team throughout.\n- D: The text never argues that other states should adopt the policy; it reports a study of one state's change."
 }

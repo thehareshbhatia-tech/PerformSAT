@@ -6,26 +6,26 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 2,
- "passage": "In the wool trade, sorting has long been a craft of its own, because a single fleece contains many wools: fibers from the shoulder are finer and more even than those from the britch, near the hindquarters, and the gap can span several quality grades. A lot sold unsorted must be priced as though it were all of its worst wool, since a buyer cannot risk paying fine-wool prices for a bale that is partly coarse. Sorters therefore break each fleece into matched portions before sale, a step that costs labor but lets the finest fibers earn what their quality deserves.",
+ "passage": "Recycled paper and plastic are sold to mills and factories in large compressed bales. A bale mixed with food waste, plastic bags, or the wrong kind of material is worth much less, because the buyer must pay to remove what cannot be used. When China, long the largest buyer, limited contamination in imported recyclables to 0.5 percent in 2018, many mixed bales lost their market. Recycling facilities therefore sort material before baling it, a step that costs labor but lets clean material earn the price it deserves.",
  "question": "Which choice best states the main idea of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "Wool taken from the shoulders of a sheep is finer, longer, and more valuable than the wool taken from any other part of the animal's fleece."
+   "text": "China's 2018 limits on contamination ended the international trade in recycled paper and plastic altogether."
   },
   {
    "id": "B",
-   "text": "Sorting a fleece into matched portions lets its best wool earn the price that selling the fleece whole would deny it."
+   "text": "Sorting recyclables before baling lets clean material earn a price that a mixed bale would not."
   },
   {
    "id": "C",
-   "text": "The labor that sorting requires has made sorted wool too expensive for most textile buyers."
+   "text": "The labor that sorting requires has made recycled material too expensive for most of the mills and factories that buy it."
   },
   {
    "id": "D",
-   "text": "Unsorted fleeces are usually bought by inexperienced buyers who cannot distinguish among grades of wool."
+   "text": "Mixed bales are usually bought by inexperienced buyers who cannot tell clean material from contaminated material."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The text's reasoning converges on its final sentence: because an unsorted lot is priced at its worst wool, breaking a fleece into matched portions is what lets the finest fibers \"earn what their quality deserves.\" B restates that conclusion.\n\n**The Full Solution:**\n- Premise one: a fleece spans several grades from shoulder to britch.\n- Premise two: unsorted lots are priced at the worst wool, since buyers cannot risk overpaying.\n- Conclusion: sorting recovers the value that whole-fleece selling forfeits, which is the main idea B captures.\n\n**Why the other choices are wrong:**\n- A: The shoulder-britch difference is a supporting fact, and the text never says shoulder wool beats every other part in length or value.\n- C: The text calls sorting a labor cost worth paying, never one that priced sorted wool out of the market.\n- D: Cautious pricing by buyers, not inexperience, is the text's explanation for how unsorted lots sell."
+ "explanation": "**Choice B is correct.** The text explains why mixed bales are worth less and ends with its point: sorting \"costs labor but lets clean material earn the price it deserves.\" B restates that main idea.\n\n**The Full Solution:**\n- First, the problem: a contaminated bale is worth much less because the buyer must pay to remove unusable material.\n- Next, an example of the stakes: after China's 0.5 percent limit, many mixed bales lost their market.\n- Finally, the response: facilities sort before baling so that clean material earns its full price, which is the idea B captures.\n\n**Why the other choices are wrong:**\n- A: The text says many mixed bales lost their market, not that the whole trade ended.\n- C: The text names labor as a cost of sorting but never says it made recycled material too expensive.\n- D: The text never describes who buys mixed bales; it says such bales are worth less or lose their market."
 }

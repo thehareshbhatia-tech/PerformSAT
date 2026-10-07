@@ -1,30 +1,30 @@
 {
  "id": 2,
- "question": "An angle has a measure of $\\frac{5\\pi}{9}$ radians. What is the measure of the angle, in degrees?",
+ "question": "What is the measure, in degrees, of an angle that measures $\\frac{7\\pi}{12}$ radians?",
  "choices": [
   {
    "id": "A",
-   "text": "$50$"
+   "text": "$15$"
   },
   {
    "id": "B",
-   "text": "$100$"
+   "text": "$105$"
   },
   {
    "id": "C",
-   "text": "$200$"
+   "text": "$210$"
   },
   {
    "id": "D",
-   "text": "$300$"
+   "text": "$315$"
   }
  ],
  "distractorNotes": {
-  "A": "uses 90 degrees in place of pi: 5(90)/9 = 50",
-  "C": "uses 360 degrees in place of pi: 5(360)/9 = 200",
-  "D": "divides by 3 instead of 9: 5(180)/3 = 300"
+  "A": "drops the 7 and converts pi/12 only: 180/12 = 15",
+  "C": "uses 360 degrees in place of pi: 7(360)/12 = 210",
+  "D": "divides by 4 instead of 12: 7(180)/4 = 315"
  },
  "correctAnswer": "B",
  "hint": "Replace $\\pi$ with $180^{\\circ}$ and simplify.",
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** Replace $\\pi$ with $180^{\\circ}$: $\\frac{5(180)}{9} = 100$.\n\n**The Full Solution:**\nStep 1: $\\pi$ radians equals $180^{\\circ}$, so multiply a radian measure by $\\frac{180}{\\pi}$ to get degrees.\nStep 2: Multiply: $\\frac{5\\pi}{9} \\cdot \\frac{180}{\\pi} = \\frac{5 \\cdot 180}{9}$.\nStep 3: Simplify: $\\frac{900}{9} = 100$. Check: $100 \\cdot \\frac{\\pi}{180} = \\frac{5\\pi}{9}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($50$): uses $90^{\\circ}$ in place of $\\pi$: $\\frac{5(90)}{9} = 50$.\n* Choice C ($200$): uses $360^{\\circ}$ in place of $\\pi$: $\\frac{5(360)}{9} = 200$.\n* Choice D ($300$): divides by $3$ instead of $9$: $\\frac{5(180)}{3} = 300$.\n\n**Test Day Takeaway:** Radians to degrees: multiply by $\\frac{180}{\\pi}$, which amounts to replacing $\\pi$ with $180$."
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** Replace $\\pi$ with $180^{\\circ}$: $\\frac{7(180)}{12} = 105$.\n\n**The Full Solution:**\nStep 1: $\\pi$ radians equals $180^{\\circ}$, so multiply a radian measure by $\\frac{180}{\\pi}$ to get degrees.\nStep 2: Multiply: $\\frac{7\\pi}{12} \\cdot \\frac{180}{\\pi} = \\frac{7 \\cdot 180}{12}$.\nStep 3: Simplify: $\\frac{1{,}260}{12} = 105$. Check: $105 \\cdot \\frac{\\pi}{180} = \\frac{105\\pi}{180} = \\frac{7\\pi}{12}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): converts only $\\frac{\\pi}{12}$, which is $15^{\\circ}$, and forgets to multiply by $7$.\n* Choice C ($210$): uses $360^{\\circ}$ in place of $\\pi$: $\\frac{7(360)}{12} = 210$.\n* Choice D ($315$): divides by $4$ instead of $12$: $\\frac{7(180)}{4} = 315$.\n\n**Test Day Takeaway:** Radians to degrees: multiply by $\\frac{180}{\\pi}$. Since $\\frac{7}{12}$ is a little more than $\\frac{1}{2}$, the answer must be a little more than $90$."
 }

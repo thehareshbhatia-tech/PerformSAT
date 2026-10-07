@@ -1,13 +1,13 @@
 {
  "id": "bank-geo-097",
- "question": "Which of the following correctly orders the lengths of the sides of triangle $ABC$ shown?",
+ "question": "In triangle $ABC$ shown, $AB = BC$. What is the measure, in degrees, of angle $B$?",
  "diagram": {
   "type": "triangleWithAngles",
   "params": {
    "angleLabels": [
-    "(x+10)°",
-    "(2x)°",
-    "(3x-40)°"
+    "(3x-20)°",
+    "",
+    "(x+30)°"
    ],
    "vertexLabels": [
     "A",
@@ -20,26 +20,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$BC < AB < CA$"
+   "text": "$25$"
   },
   {
    "id": "B",
-   "text": "$AB < BC < CA$"
+   "text": "$55$"
   },
   {
    "id": "C",
-   "text": "$BC < CA < AB$"
+   "text": "$70$"
   },
   {
    "id": "D",
-   "text": "$CA < AB < BC$"
+   "text": "$125$"
   }
  ],
  "distractorNotes": {
-  "B": "pairs angle B with side AB instead of the side opposite angle B",
-  "C": "swaps the two longest sides, pairing angle C with side CA",
-  "D": "reverses the rule, putting the shortest side opposite the largest angle"
+  "A": "stops at x = 25 instead of finding the angle",
+  "B": "gives the measure of angle A (and angle C) instead of angle B",
+  "D": "subtracts only one 55-degree angle from 180"
  },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Triangle Angle Sum**\n\n**Choice A is correct.**\n\n**The Fast Way (~50s):** $(x + 10) + 2x + (3x - 40) = 6x - 30 = 180$ gives $x = 35$, so $A = 45°$, $B = 70°$, and $C = 65°$; the sides opposite these angles rank $BC < AB < CA$.\n\n**The Full Solution:**\nStep 1: Set the angle sum equal to $180$: $(x + 10) + 2x + (3x - 40) = 180$, so $6x - 30 = 180$ and $x = 35$.\nStep 2: Evaluate the angles: $\\angle A = 35 + 10 = 45°$, $\\angle B = 2(35) = 70°$, and $\\angle C = 3(35) - 40 = 65°$.\nStep 3: The longest side is opposite the largest angle. Side $BC$ is opposite $\\angle A$, side $CA$ is opposite $\\angle B$, and side $AB$ is opposite $\\angle C$. Since $45 < 65 < 70$, the order is $BC < AB < CA$. Check: $45 + 70 + 65 = 180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($AB < BC < CA$): pairs $\\angle B$ with side $AB$, a side that touches $B$, instead of the side across from it.\n* Choice C ($BC < CA < AB$): swaps the two longest sides by matching $\\angle C$ with side $CA$.\n* Choice D ($CA < AB < BC$): reverses the rule, placing the shortest side opposite the largest angle.\n\n**Test Day Takeaway:** The side opposite an angle is named by the two OTHER vertices; write each angle-side pair down before ranking."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Triangle Angle Sum**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** $AB = BC$ makes angles $A$ and $C$ equal: $3x - 20 = x + 30$, so $x = 25$ and both measure $55°$. Then angle $B$ is $180 - 110 = 70°$.\n\n**The Full Solution:**\nStep 1: Since $AB = BC$, the angles opposite those sides are equal: angle $C$ (opposite $AB$) and angle $A$ (opposite $BC$). So $3x - 20 = x + 30$.\nStep 2: Solve: $2x = 50$, so $x = 25$, and each of angles $A$ and $C$ measures $25 + 30 = 55°$.\nStep 3: The angles add to $180°$, so angle $B$ measures $180 - 55 - 55 = 70°$. Check: $3(25) - 20 = 55$, and $55 + 70 + 55 = 180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($25$): is the value of $x$, not an angle measure.\n* Choice B ($55$): is the measure of angles $A$ and $C$; the question asks for angle $B$.\n* Choice D ($125$): subtracts only one of the two equal angles from $180$.\n\n**Test Day Takeaway:** In a triangle, equal sides sit across from equal angles. Set those angle expressions equal, then use the $180°$ sum."
 }

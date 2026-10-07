@@ -6,7 +6,7 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-textual",
  "module": 1,
- "passage": "On coral reefs, small cleaner wrasses pick parasites from the skin of larger \"client\" fish. The arrangement invites cheating: a cleaner can snatch a quick bite of the client's protective mucus, a food it prefers to parasites, at the cost of an annoyed client. Because reef fish waiting nearby can watch a cleaning station before deciding whether to visit it, a researcher studying the system claims that cleaner wrasses adjust their behavior strategically, cheating less when other potential clients are watching them work.",
+ "passage": "On coral reefs, small cleaner wrasses pick parasites from the skin of larger \"client\" fish. The arrangement invites cheating: a cleaner can snatch a quick bite of the client's protective mucus, a food it prefers to parasites, at the cost of an annoyed client. Reef fish waiting nearby can watch a cleaning station before deciding whether to visit it. A researcher studying the system therefore claims that cleaner wrasses adjust their behavior strategically, cheating less when other potential clients are watching.",
  "question": "Which finding, if true, would most directly support the researcher's claim?",
  "choices": [
   {
@@ -15,11 +15,11 @@
   },
   {
    "id": "B",
-   "text": "Client fish that are bitten during a cleaning often jolt away and end the interaction immediately."
+   "text": "Client fish that are bitten during a cleaning often jolt away and end the interaction immediately, sometimes chasing the cleaner as they go."
   },
   {
    "id": "C",
-   "text": "Individual cleaner wrasses take fewer mucus bites per interaction when bystander fish are present than the same individuals take when no bystanders are nearby."
+   "text": "The same cleaner wrasses take fewer mucus bites per interaction when bystander fish are present than when none are nearby."
   },
   {
    "id": "D",

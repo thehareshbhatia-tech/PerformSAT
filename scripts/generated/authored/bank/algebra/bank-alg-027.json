@@ -1,29 +1,29 @@
 {
   "id": "bank-alg-027",
-  "question": "$f(x) = 7x - 3$\nFor the given function $f$, $f(2a + 1) = f(a + 6)$, where $a$ is a constant. What is the value of $a$?",
+  "question": "The functions $f$ and $g$ are defined by $f(x) = 7x - 3$ and $g(x) = kx + 12$, where $k$ is a constant. The graphs of $y = f(x)$ and $y = g(x)$ in the $xy$-plane intersect at the point $(a, 32)$. What is the value of $k$?",
   "choices": [
     {
       "id": "A",
-      "text": "$\\frac{5}{3}$"
+      "text": "$-4$"
     },
     {
       "id": "B",
-      "text": "$5$"
+      "text": "$4$"
     },
     {
       "id": "C",
-      "text": "$11$"
+      "text": "$5$"
     },
     {
       "id": "D",
-      "text": "$74$"
+      "text": "$20$"
     }
   ],
   "distractorNotes": {
-    "A": "adds a to both sides instead of subtracting it, solving 3a = 5",
-    "C": "reports the common input 2a + 1 = a + 6 = 11 instead of a",
-    "D": "reports the common output f(11) = 74 instead of a"
+    "A": "makes a sign error when moving 12, solving 5k = 12 - 32",
+    "C": "reports the x-coordinate a of the intersection point instead of k",
+    "D": "finds 5k = 20 and stops before dividing by 5"
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Function Equality (One-to-One Linear)**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** A linear function with a nonzero slope never gives the same output for two different inputs, so the inputs must be equal: $2a + 1 = a + 6$, giving $a = 5$.\n\n**The Full Solution:**\nStep 1: Write out the two outputs: $f(2a + 1) = 7(2a + 1) - 3 = 14a + 4$ and $f(a + 6) = 7(a + 6) - 3 = 7a + 39$.\nStep 2: Set them equal: $14a + 4 = 7a + 39$, so $7a = 35$.\nStep 3: Then $a = 5$. Check: the inputs are $2(5) + 1 = 11$ and $5 + 6 = 11$, and $f(11) = 7(11) - 3 = 74$ either way ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{5}{3}$): adds $a$ to both sides of $2a + 1 = a + 6$ instead of subtracting it, getting $3a = 5$.\n* Choice C ($11$): reports the common input, $2a + 1 = 11$, rather than $a$.\n* Choice D ($74$): reports the common output, $f(11) = 74$, rather than $a$.\n\n**Test Day Takeaway:** A linear function with a nonzero slope takes each output exactly once, so equal outputs force equal inputs; set the inputs equal and answer the question that was asked."
+  "explanation": "**SAT Pattern: Solve for Input from Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The point $(a, 32)$ is on the graph of $f$, so $7a - 3 = 32$ and $a = 5$. It is also on the graph of $g$, so $5k + 12 = 32$ and $k = 4$.\n\n**The Full Solution:**\nStep 1: Because $(a, 32)$ lies on the graph of $y = f(x)$, $f(a) = 32$: $7a - 3 = 32$, so $7a = 35$ and $a = 5$.\nStep 2: The same point $(5, 32)$ lies on the graph of $y = g(x)$, so $g(5) = 32$: $5k + 12 = 32$.\nStep 3: Subtract $12$: $5k = 20$, so $k = 4$. Check: $f(5) = 35 - 3 = 32$ and $g(5) = 4(5) + 12 = 32$, so both graphs pass through $(5, 32)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): subtracts in the wrong order, $5k = 12 - 32 = -20$.\n* Choice C ($5$): finds the $x$-coordinate $a = 5$ and reports it as the answer.\n* Choice D ($20$): reaches $5k = 20$ but does not divide by $5$.\n\n**Test Day Takeaway:** An intersection point lies on both graphs. Use the function you know completely to find the missing coordinate, then substitute the point into the other function."
 }

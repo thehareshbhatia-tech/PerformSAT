@@ -9,33 +9,40 @@
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "Eadweard Muybridge and Étienne-Jules Marey both photographed rapid motion in the late nineteenth century.",
-   "Muybridge lined up a row of cameras, each triggered in sequence as the subject passed.",
-   "Muybridge's method produced a series of separate pictures.",
-   "Marey, a physiologist, used a single camera that exposed the same plate several times in rapid succession.",
-   "Marey's method layered successive instants of a movement onto one overlapping image."
+   "Handsaws cut wood with a row of sharp teeth along a steel blade.",
+   "Most European handsaws cut on the push stroke.",
+   "Japanese saws cut on the pull stroke.",
+   "Japanese saw blades are often thinner than those of traditional European saws.",
+   "A thinner blade can leave a narrower cut in the wood."
   ],
-  "goal": "The student wants to emphasize a difference between Muybridge's and Marey's photographic methods."
+  "goal": "The student wants to emphasize a difference between European and Japanese handsaws."
  },
  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
  "choices": [
   {
    "id": "A",
-   "text": "Whereas Muybridge used a row of cameras to produce a series of separate pictures, Marey used a single camera that layered successive instants on one plate."
+   "text": "Whereas most European handsaws cut on the push stroke, Japanese saws cut on the pull stroke and often have thinner blades."
   },
   {
    "id": "B",
-   "text": "Muybridge set up a row of cameras beside a track, each one triggered in turn as his subject passed."
+   "text": "Handsaws, whether European or Japanese, cut wood with a row of sharp teeth along a steel blade."
   },
   {
    "id": "C",
-   "text": "Muybridge's sequences of separate pictures suited public lectures, while Marey's overlapping single-plate records served the precise measurements his physiological studies required."
+   "text": "Japanese saws cut on the pull stroke and often have thin blades, and a thinner blade can leave a narrower cut in wood."
   },
   {
    "id": "D",
-   "text": "Both Muybridge and Marey were drawn to movements that happen too quickly for the human eye to follow."
+   "text": "Most European handsaws cut on the push stroke, using a row of sharp teeth along a steel blade."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The goal demands the two methods set against each other, and A does it in one frame: Muybridge's row of cameras producing a series of separate pictures, Marey's single camera layering successive instants on one plate.\n\n**The Full Solution:**\n- Emphasizing a difference requires both photographers' methods in the same sentence, framed as a contrast.\n- Choice A's \"Whereas\" construction pairs the defining features — many cameras, separate images versus one camera, one overlaid plate — exactly as the notes describe them.\n\n**Why the other choices are wrong:**\n- B: It describes only Muybridge's arrangement and never mentions Marey.\n- C: It reports what each man's method suited without stating how the methods themselves differed.\n- D: It emphasizes what the two shared — an interest in motion too fast for the eye — rather than a difference."
+ "explanation": "**Choice A is correct.** The goal is a difference, and A sets the two kinds of saw side by side with \"Whereas\": European saws cut on the push stroke, while Japanese saws cut on the pull stroke and often have thinner blades.\n\n**The Full Solution:**\n- To emphasize a difference, the sentence must describe both kinds of saw and contrast them.\n- European handsaws: cut on the push stroke. Japanese saws: cut on the pull stroke, often with thinner blades.\n- Choice A states both and links them with a contrast word, which is exactly what the goal requires.\n\n**Why the other choices are wrong:**\n- B: It states something the two kinds of saw share, a similarity rather than a difference.\n- C: It describes only Japanese saws, with nothing to contrast them against.\n- D: It describes only European saws, so no difference appears.",
+ "_meta": {
+  "anchor": "European push saws vs Japanese pull saws — RS emphasize a difference",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Japanese_saw",
+   "https://en.wikipedia.org/wiki/Saw"
+  ]
+ }
 }

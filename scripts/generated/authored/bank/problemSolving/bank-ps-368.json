@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-368",
-  "question": "$B = 4{,}500 + 180t$\nThe given equation models the balance $B$, in dollars, of a savings account that earns simple interest, $t$ years after the account was opened. What is the best interpretation of $180$ in this context?",
+  "question": "$B = 4{,}500 + 180t$\nThe given equation models the balance $B$, in dollars, of a savings account that earns interest, $t$ years after the account was opened. What is the best interpretation of $180$ in this context?",
   "choices": [
     {
       "id": "A",
@@ -19,11 +19,11 @@
       "text": "The balance, in dollars, after $t$ years"
     }
   ],
+  "correctAnswer": "B",
   "distractorNotes": {
     "A": "confuses the coefficient of t with the constant term 4,500, which is the balance when t = 0",
     "C": "mistakes the yearly interest in dollars for the interest rate; the rate is 180/4,500 = 4%",
     "D": "describes B, the output of the whole equation, rather than the coefficient 180"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Simple Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $180$ is the coefficient of $t$, so the balance grows by $\\$180$ each year: that is the interest the account earns per year.\n\n**The Full Solution:**\nStep 1: At $t = 0$, $B = 4{,}500$, so $4{,}500$ is the balance when the account was opened.\nStep 2: Each time $t$ increases by $1$, $B$ increases by $180$, so the balance grows by $\\$180$ per year.\nStep 3: Under simple interest the balance grows only by the interest earned, so $180$ is the interest, in dollars, the account earns each year. Check: $t = 1$ gives $4{,}680$ and $t = 2$ gives $4{,}860$; each year adds $180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (opening balance): the opening balance is the constant term, $4{,}500$, the value of $B$ when $t = 0$.\n* Choice C (interest rate): $180$ is a number of dollars, not a percent. The rate is $\\frac{180}{4{,}500} = 0.04$, or $4\\%$.\n* Choice D (balance after $t$ years): the balance after $t$ years is $B$ itself, $4{,}500 + 180t$, not the coefficient $180$.\n\n**Test Day Takeaway:** In a linear model, the constant term is the starting value and the coefficient of the time variable is the change per unit of time."
+  "explanation": "**SAT Pattern: Simple Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $180$ is the coefficient of $t$, so the balance grows by $\\$180$ each year, which is the interest the account earns per year.\n\n**The Full Solution:**\nStep 1: At $t = 0$, $B = 4{,}500$, so $4{,}500$ is the balance when the account was opened.\nStep 2: Each time $t$ increases by $1$, $B$ increases by $180$, so the balance grows by $\\$180$ per year.\nStep 3: So $180$ is the interest, in dollars, the account earns each year. Check: $t = 1$ gives $4{,}680$ and $t = 2$ gives $4{,}860$; each year adds $180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (opening balance): the opening balance is the constant term, $4{,}500$, the value of $B$ when $t = 0$.\n* Choice C (interest rate): $180$ is a number of dollars, not a percent. The rate would be $\\frac{180}{4{,}500} = 0.04$, or $4\\%$.\n* Choice D (balance after $t$ years): the balance after $t$ years is $B$ itself, $4{,}500 + 180t$, not the coefficient $180$.\n\n**Test Day Takeaway:** In a linear model, the constant term is the starting value and the coefficient of the time variable is the change per unit of time."
 }

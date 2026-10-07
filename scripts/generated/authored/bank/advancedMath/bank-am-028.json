@@ -1,29 +1,29 @@
 {
  "id": "bank-am-028",
- "question": "$3x^{2} + kx + 7 = 0$\nIn the given equation, $k$ is a constant. If the equation is written in the form $ax^{2} + bx + c = 0$, which expression is equal to $b^{2} - 4ac$?",
+ "question": "$x^{2} + 10x + 25 = 0$\nWhat is the solution to the given equation?",
  "choices": [
   {
    "id": "A",
-   "text": "$k^{2} - 84$"
+   "text": "$-10$"
   },
   {
    "id": "B",
-   "text": "$k^{2} - 42$"
+   "text": "$-5$"
   },
   {
    "id": "C",
-   "text": "$k^{2} - 21$"
+   "text": "$5$"
   },
   {
    "id": "D",
-   "text": "$k^{2} + 84$"
+   "text": "$25$"
   }
  ],
- "correctAnswer": "A",
+ "correctAnswer": "B",
  "distractorNotes": {
-  "B": "uses 2ac = 42 instead of 4ac",
-  "C": "uses ac = 21, leaving out the 4",
-  "D": "adds 4ac instead of subtracting it"
+  "A": "uses the coefficient of x, 10, with a negative sign",
+  "C": "sets x - 5 = 0, a sign error in the factor x + 5",
+  "D": "gives the constant term 25"
  },
- "explanation": "**SAT Pattern: Compute Discriminant**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Here $a = 3$, $b = k$, and $c = 7$, so $b^{2} - 4ac = k^{2} - 4(3)(7) = k^{2} - 84$.\n\n**The Full Solution:**\nStep 1: Match the equation to $ax^{2} + bx + c = 0$: $a = 3$, $b = k$, and $c = 7$.\nStep 2: Substitute: $b^{2} - 4ac = k^{2} - 4(3)(7)$.\nStep 3: Since $4 \\cdot 3 \\cdot 7 = 84$, the expression is $k^{2} - 84$. Check with $k = 10$: $b^{2} - 4ac = 100 - 84 = 16$, and $10^{2} - 84 = 16$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($k^{2} - 42$): multiplies by $2$ instead of $4$.\n* Choice C ($k^{2} - 21$): leaves out the $4$ entirely.\n* Choice D ($k^{2} + 84$): adds $4ac$ instead of subtracting it.\n\n**Test Day Takeaway:** Identify $a$, $b$, and $c$ first, including any constant standing in for a coefficient, then substitute into $b^{2} - 4ac$."
+ "explanation": "**SAT Pattern: Compute Discriminant**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The left side is a perfect square, $(x + 5)^{2}$, so $x + 5 = 0$ and $x = -5$.\n\n**The Full Solution:**\nStep 1: With $a = 1$, $b = 10$, and $c = 25$, the discriminant is $b^{2} - 4ac = 100 - 4(1)(25) = 0$, so the equation has exactly one real solution.\nStep 2: That matches a perfect square: $x^{2} + 10x + 25 = (x + 5)^{2}$, so $(x + 5)^{2} = 0$.\nStep 3: So $x + 5 = 0$ and $x = -5$. Check: $(-5)^{2} + 10(-5) + 25 = 25 - 50 + 25 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$): uses the coefficient of $x$ with a negative sign.\n* Choice C ($5$): solves $x - 5 = 0$, a sign error in the factor $x + 5$.\n* Choice D ($25$): gives the constant term instead of solving.\n\n**Test Day Takeaway:** When $b^{2} - 4ac = 0$, the quadratic is a perfect square, and its one solution is $x = -\\dfrac{b}{2a}$."
 }

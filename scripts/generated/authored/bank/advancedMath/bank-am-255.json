@@ -1,54 +1,50 @@
 {
   "id": "bank-am-255",
-  "question": "The table shows selected values of the function $f$. The function $g$ is given by $g(x) = -f(x)$. What is the value of $g(0)$?",
+  "question": "The graph of the quadratic function $f$ is shown. One $x$-intercept of the graph of $y = f(x)$ is $(-1, 0)$. What is the other $x$-intercept?",
   "choices": [
     {
       "id": "A",
-      "text": "$-7$"
+      "text": "$(0, -5)$"
     },
     {
       "id": "B",
-      "text": "$-3$"
+      "text": "$(1, 0)$"
     },
     {
       "id": "C",
-      "text": "$1$"
+      "text": "$(2, -9)$"
     },
     {
       "id": "D",
-      "text": "$3$"
+      "text": "$(5, 0)$"
     }
   ],
   "distractorNotes": {
-    "A": "takes the opposite of f(-2) instead of f(0)",
-    "C": "takes the opposite of f(1) instead of f(0)",
-    "D": "reports f(0) without taking its opposite"
+    "A": "gives the y-intercept, where the graph crosses the y-axis",
+    "B": "reflects (-1, 0) across the y-axis instead of across the line x = 2 through the vertex",
+    "C": "gives the vertex, which is not on the x-axis"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Reflection of Graph**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The table shows $f(0) = 3$, so $g(0) = -f(0) = -3$.\n\n**The Full Solution:**\nStep 1: The table shows that when $x = 0$, $f(x) = 3$.\nStep 2: By definition, $g(0) = -f(0)$.\nStep 3: So $g(0) = -3$. Check: the graph of $y = -f(x)$ is the reflection of the graph of $y = f(x)$ across the $x$-axis, so the point $(0, 3)$ becomes $(0, -3)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): takes the opposite of $f(-2) = 7$, the value in the wrong row.\n* Choice C ($1$): takes the opposite of $f(1) = -1$, the value in the wrong row.\n* Choice D ($3$): reads $f(0)$ from the table but never takes its opposite.\n\n**Test Day Takeaway:** A negative sign outside the function changes the sign of every output and leaves every input alone.",
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Reflection of Graph**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The graph meets the $x$-axis at $x = -1$ and again at $x = 5$, so the other $x$-intercept is $(5, 0)$.\n\n**The Full Solution:**\nStep 1: An $x$-intercept is a point where the graph meets the $x$-axis, so its $y$-coordinate is $0$.\nStep 2: The graph shown meets the $x$-axis at $x = -1$ and at $x = 5$.\nStep 3: The other $x$-intercept is $(5, 0)$. Check: the vertex is at $x = 2$, and $-1$ and $5$ are each $3$ units from $2$, as the two $x$-intercepts of a parabola must be ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(0, -5)$): this is where the graph crosses the $y$-axis, the $y$-intercept.\n* Choice B ($(1, 0)$): reflects $(-1, 0)$ across the $y$-axis, but the graph is symmetric about the line $x = 2$ through its vertex.\n* Choice C ($(2, -9)$): this is the vertex, the lowest point of the graph, and it is not on the $x$-axis.\n\n**Test Day Takeaway:** The two $x$-intercepts of a parabola are mirror images across the vertical line through the vertex.",
   "diagram": {
-    "type": "table",
+    "type": "quadraticVertex",
     "params": {
-      "xHeader": "x",
-      "yHeader": "f(x)",
-      "rows": [
+      "vertex": [
+        2,
+        -9
+      ],
+      "a": 1,
+      "showPoints": [
         [
-          "-2",
-          "7"
+          -1,
+          0
         ],
         [
-          "0",
-          "3"
-        ],
-        [
-          "1",
-          "-1"
-        ],
-        [
-          "4",
-          "5"
+          5,
+          0
         ]
-      ]
+      ],
+      "showVertex": true
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-230",
-  "question": "$x$ is $60\\%$ of $y$, and $y$ is $150\\%$ of $z$. If $z = 18$, what is the value of $x$?",
-  "correctAnswer": "16.2",
-  "explanation": "**SAT Pattern: Chained Percent Relationship**\n\n**The correct answer is $16.2$.**\n\n**The Fast Way (~20s):** $x = 0.60(1.50)(18) = 0.90(18) = 16.2$.\n\n**The Full Solution:**\nStep 1: Find $y$: $150\\%$ of $18$ is $1.50 \\times 18 = 27$.\nStep 2: Find $x$: $60\\%$ of $27$ is $0.60 \\times 27 = 16.2$.\nStep 3: Check with the combined multiplier: $0.60 \\times 1.50 = 0.90$, and $0.90 \\times 18 = 16.2$ ✓\n\n**Common Mistakes:**\n* $27$: stops at $y$.\n* $10.8$: skips the $150\\%$ link and takes $60\\%$ of $18$.\n* $7.2$: divides by $1.50$ instead of multiplying, computing $\\frac{0.60(18)}{1.50}$.\n\n**Test Day Takeaway:** A percent over $100\\%$ is a multiplier greater than $1$; multiply the links in order and the base takes care of itself."
+  "question": "$54$ is $60\\%$ of $150\\%$ of what number?",
+  "correctAnswer": "60",
+  "explanation": "**SAT Pattern: Chained Percent Relationship**\n\n**The correct answer is $60$.**\n\n**The Fast Way (~20s):** $60\\%$ of $150\\%$ is $0.60 \\times 1.50 = 0.90$, so the number is $\\frac{54}{0.90} = 60$.\n\n**The Full Solution:**\nStep 1: Let the number be $x$. Then $0.60(1.50x) = 54$.\nStep 2: Combine the multipliers: $0.60 \\times 1.50 = 0.90$, so $0.90x = 54$.\nStep 3: Divide: $x = \\frac{54}{0.90} = 60$. Check: $150\\%$ of $60$ is $90$, and $60\\%$ of $90$ is $54$ ✓\n\n**Common Mistakes:**\n* $90$: undoes only the $60\\%$, $\\frac{54}{0.60}$, and stops at $150\\%$ of the number.\n* $36$: undoes only the $150\\%$, $\\frac{54}{1.50}$.\n* $48.6$: multiplies $54$ by $0.90$ instead of dividing.\n\n**Test Day Takeaway:** Combine the percents into one multiplier, then divide to work backward to the original number."
 }

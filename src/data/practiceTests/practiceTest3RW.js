@@ -73,7 +73,7 @@ export const practiceTest3RW = {
           "domain": "craft-and-structure",
           "skill": "words-in-context",
           "type": "multiple-choice",
-          "passage": "In many mountain parks, wildlife biologists fit reintroduced bighorn sheep with lightweight radio collars. Each collar transmits a signal several times a day, allowing researchers to ______ the animals' movements across steep terrain that would be difficult to search on foot and to learn whether the herds are reaching the seasonal pastures they need.",
+          "passage": "In many mountain parks, wildlife biologists fit reintroduced bighorn sheep with lightweight radio collars. Each collar transmits a signal several times a day, allowing researchers to ______ the animals' movements across steep terrain that would be difficult to search on foot. The signals also show whether the herds are reaching the seasonal pastures they need.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -106,7 +106,7 @@ export const practiceTest3RW = {
           "domain": "craft-and-structure",
           "skill": "words-in-context",
           "type": "multiple-choice",
-          "passage": "Many oak species do not bear steady annual crops of acorns; instead, the oaks across a region produce almost nothing for several years and then release an enormous crop all at once. Ecologists argue that the value of these mast years lies in their ______: seed-eating animals, unable to build up their numbers during the lean years in between, are overwhelmed when the crop arrives, and many acorns escape them.",
+          "passage": "Many oak species do not bear steady annual crops of acorns; instead, the oaks across a region produce almost nothing for several years and then release an enormous crop all at once. Ecologists argue that the value of these mast years lies in their ______. Seed-eating animals cannot build up their numbers during the lean years, so they are overwhelmed when a crop arrives, and many acorns escape them.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -127,7 +127,7 @@ export const practiceTest3RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The mechanism the colon describes depends on the lean years as much as on the flood: because crops come only at intervals, predator populations stay small and are swamped when a crop arrives. That on-and-off rhythm is intermittency.\n\n**The Full Solution:**\n- The blank must name the feature of mast years in which their \"value... lies.\"\n- The explanation that follows credits the gap between crops — predators \"unable to build up their numbers during the lean years\" — so the valuable feature is the alternation itself, not any single year's size.\n\n**Why the other choices are wrong:**\n- A: \"Abundance\" is the surface trap: the crop is enormous, but a crop that was abundant every year would let predator populations grow to match it, defeating the strategy the text describes.\n- B: \"Duration\" points to how long a mast year lasts, which the text never discusses.\n- C: \"Regularity\" is closer to the opposite of the boom-and-bust pattern being described.",
+          "explanation": "**Choice D is correct.** The sentence after the blank explains where the value lies, and that explanation depends on the lean years as much as on the flood: because crops come only at intervals, predator populations stay small and are swamped when a crop arrives. That on-and-off rhythm is intermittency.\n\n**The Full Solution:**\n- The blank must name the feature of mast years in which their \"value... lies.\"\n- The next sentence credits the gap between crops — seed-eaters \"cannot build up their numbers during the lean years\" — so the valuable feature is the alternation itself, not any single year's size.\n\n**Why the other choices are wrong:**\n- A: \"Abundance\" is the surface trap: the crop is enormous, but a crop that was abundant every year would let predator populations grow to match it, defeating the strategy the text describes.\n- B: \"Duration\" points to how long a mast year lasts, which the text never discusses.\n- C: \"Regularity\" is closer to the opposite of the boom-and-bust pattern being described.",
           "_meta": {
             "anchor": "Mast seeding in oaks — predator satiation via intermittent acorn crops (unnamed ecologists)"
           }
@@ -208,30 +208,30 @@ export const practiceTest3RW = {
           "passages": [
             {
               "label": "Text 1",
-              "text": "In the 1930s, geneticist George Beadle crossed maize with teosinte, a wild Mexican grass whose hard, few-kerneled spikes look nothing like an ear of corn. The hybrids were fully fertile, and the chromosomes of the two plants paired normally, a sign of close kinship. Beadle concluded that teosinte was maize's direct wild ancestor and that ancient farmers in Mexico, by selecting a handful of favorable mutations, could have gradually transformed so unpromising a grass into a productive crop."
+              "text": "In the 1930s, geneticist George Beadle crossed maize with teosinte, a wild Mexican grass. Teosinte's hard, few-kerneled spikes look nothing like an ear of corn. Yet the hybrids were fully fertile, and the chromosomes of the two plants paired normally, a sign of close kinship. Beadle concluded that teosinte was maize's direct wild ancestor. Ancient farmers in Mexico, he argued, could have transformed this unpromising grass into a productive crop by selecting a handful of favorable mutations."
             },
             {
               "label": "Text 2",
-              "text": "Botanist Paul Mangelsdorf found the teosinte hypothesis difficult to accept. The seed-bearing structures of the two plants differ so radically, he argued, that early farmers would have seen nothing in teosinte worth cultivating, let alone remaking. Mangelsdorf proposed instead that maize descended from a wild maize, now extinct, and that teosinte was not the crop's ancestor at all but a later offshoot produced by crossing between cultivated maize and another wild grass."
+              "text": "Botanist Paul Mangelsdorf found the teosinte hypothesis difficult to accept. The seed-bearing structures of the two plants differ so radically, he argued, that early farmers would have seen nothing in teosinte worth cultivating. Mangelsdorf proposed instead that maize descended from a wild maize, now extinct. In his view, teosinte was not the crop's ancestor at all but a later offshoot of crosses between cultivated maize and another wild grass."
             }
           ],
           "question": "Based on the texts, how would Mangelsdorf (Text 2) most likely respond to the conclusion presented in Text 1?",
           "choices": [
             {
               "id": "A",
-              "text": "He would deny that crosses between maize and teosinte can yield fertile offspring, undermining the evidence at the center of Beadle's argument."
+              "text": "He would deny that crosses between maize and teosinte yield fertile offspring, rejecting the evidence at the center of Beadle's argument."
             },
             {
               "id": "B",
-              "text": "He would object that the two plants' seed-bearing structures differ too radically for teosinte to have struck ancient farmers as a plant worth cultivating in the first place."
+              "text": "He would object that the plants' seed-bearing structures differ too radically for teosinte to have seemed worth cultivating to ancient farmers."
             },
             {
               "id": "C",
-              "text": "He would accept that teosinte was maize's ancestor while arguing that the transformation must have required far more mutations than Beadle supposed."
+              "text": "He would accept that teosinte was maize's ancestor but argue that the transformation required far more mutations than Beadle supposed."
             },
             {
               "id": "D",
-              "text": "He would grant that teosinte is maize's closest wild relative but insist that the grass became a crop through natural crossing alone, without any selection by ancient farmers."
+              "text": "He would grant that teosinte is maize's closest wild relative but insist that it became a crop through natural crossing, without selection by farmers."
             }
           ],
           "correctAnswer": "B",
@@ -247,7 +247,7 @@ export const practiceTest3RW = {
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
           "type": "multiple-choice",
-          "passage": "Lakes accumulate sediment year after year, and each layer traps pollen grains shed by the plants growing nearby at the time. Because pollen preserves well and differs in shape from species to species, researchers can extract a narrow core of mud from a lake bottom, identify the grains in each layer, and read the surrounding vegetation's history — which trees arrived, spread, or vanished — across thousands of years, reaching far beyond the oldest written records of any landscape.",
+          "passage": "Lakes accumulate sediment year after year, and each layer traps pollen grains shed by the plants growing nearby at the time. Pollen preserves well, and its shape differs from species to species. Researchers can therefore extract a narrow core of mud from a lake bottom and identify the grains in each layer. In this way they can read the history of the surrounding vegetation — which trees arrived, spread, or vanished — across thousands of years, far beyond the oldest written records of any landscape.",
           "question": "Which choice best states the main purpose of the text?",
           "choices": [
             {
@@ -268,7 +268,7 @@ export const practiceTest3RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** Every element of the text serves one explanatory job: showing how layered lake sediment plus identifiable pollen becomes a readable record of vegetation history.\n\n**The Full Solution:**\n- The first sentence establishes the archive (annual sediment layers trapping pollen).\n- The second explains the method built on it — coring, identifying grains layer by layer — and states the payoff: reading which trees arrived, spread, or vanished over thousands of years.\n- Purpose questions ask what the whole text is doing, and the whole text is explaining this reconstruction technique.\n\n**Why the other choices are wrong:**\n- B: The text notes that the record reaches beyond written accounts but never questions those accounts' trustworthiness — no argument is being made.\n- C: Distinctive pollen shapes are mentioned as what makes identification possible, not explained as an evolutionary development.\n- D: No particular forest is traced; the text describes the method in general terms.",
+          "explanation": "**Choice A is correct.** Every element of the text serves one explanatory job: showing how layered lake sediment plus identifiable pollen becomes a readable record of vegetation history.\n\n**The Full Solution:**\n- The first sentence establishes the archive (yearly sediment layers trapping pollen); the second explains why the grains are useful (they preserve well and differ by species).\n- The third describes the method built on it — coring and identifying grains layer by layer — and the last states the payoff: reading which trees arrived, spread, or vanished over thousands of years.\n- Purpose questions ask what the whole text is doing, and the whole text is explaining this reconstruction technique.\n\n**Why the other choices are wrong:**\n- B: The text notes that the record reaches beyond written accounts but never questions those accounts' trustworthiness — no argument is being made.\n- C: Distinctive pollen shapes are mentioned as what makes identification possible, not explained as an evolutionary development.\n- D: No particular forest is traced; the text describes the method in general terms.",
           "_meta": {
             "anchor": "Palynology — lake-sediment pollen cores as archives of vegetation history (unnamed researchers)"
           }
@@ -280,30 +280,30 @@ export const practiceTest3RW = {
           "domain": "craft-and-structure",
           "skill": "text-structure-and-purpose",
           "type": "multiple-choice",
-          "passage": "Periodical cicadas spend thirteen or seventeen years underground and then emerge by the billions within a few weeks. Why surface all at once? A lone cicada is slow, conspicuous, and edible, and one appearing in an ordinary summer would almost certainly be eaten. When an entire brood emerges together, however, predators eat their fill long before they make a dent in the swarm, and most cicadas survive to reproduce. The density that makes an emergence so overwhelming is, in other words, the species' principal defense.",
+          "passage": "Zebras are among the most boldly patterned animals in Africa. Why would a grazing animal be covered in black and white stripes? A team of biologists filmed horseflies around captive zebras and horses. The flies approached both animals about equally often, but they landed on zebras less than a quarter as often, failing to slow down as they neared the stripes. When horses wore striped coats, flies landed on the coats far less often than on plain black or white ones. The stripes, in other words, appear to be a defense against biting flies.",
           "question": "Which choice best describes the overall structure of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "It presents a widely accepted explanation of an insect behavior, then describes an observation that has led researchers to doubt that explanation"
+              "text": "It presents a widely accepted explanation of an animal trait, then describes an observation that has led researchers to doubt that explanation"
             },
             {
               "id": "B",
-              "text": "It compares the life cycles of two closely related insect species and argues that one species is better adapted to escaping predators than the other"
+              "text": "It contrasts the coat patterns of several grassland animals and argues that the patterns help those animals hide from predators"
             },
             {
               "id": "C",
-              "text": "It describes a striking natural phenomenon, poses a question about it, and then explains the advantage that the phenomenon provides"
+              "text": "It describes a striking natural feature, poses a question about it, and then reports research suggesting what advantage the feature provides"
             },
             {
               "id": "D",
-              "text": "It recounts the history of scientific research on an insect species, ending with the questions about the species that remain unanswered"
+              "text": "It recounts the history of scientific research on an animal, ending with the questions about the animal that remain unanswered"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The text moves through exactly the three steps C names: a phenomenon (mass emergence after years underground), an explicit question (\"Why surface all at once?\"), and an answer (predators are swamped, so most cicadas survive).\n\n**The Full Solution:**\n- Sentence one states the phenomenon; sentence two asks the question outright.\n- The remainder answers it by contrasting a lone cicada's fate with a brood's, closing with the point that density itself is the defense.\n- Structure questions reward the choice that matches this sequence move for move.\n\n**Why the other choices are wrong:**\n- A: Nothing in the text is doubted or overturned; the explanation given is presented as the answer, not as a discarded view.\n- B: Only one kind of insect is discussed; no second species is compared.\n- D: The text is organized around a question and its answer, not a chronological history of research, and it ends with a conclusion rather than open questions.",
+          "explanation": "**Choice C is correct.** The text moves through exactly the three steps C names: a striking feature (the zebra's bold stripes), an explicit question (\"Why would a grazing animal be covered in black and white stripes?\"), and research that answers it (flies fail to land on stripes, so the stripes defend against biting flies).\n\n**The Full Solution:**\n- Sentence one states the feature; sentence two asks the question outright.\n- The remaining sentences report the study — flies landing on zebras less than a quarter as often, and avoiding striped coats on horses — and close with the conclusion that the stripes are a defense.\n- Structure questions reward the choice that matches this sequence move for move.\n\n**Why the other choices are wrong:**\n- A: Nothing in the text is doubted or overturned; the explanation given is presented as the answer, not as a discarded view.\n- B: Only the zebra's coat is discussed (horses appear only as a comparison in the experiment), and the text concerns biting flies, not hiding from predators.\n- D: The text is organized around a question and its answer, not a chronological history of research, and it ends with a conclusion rather than open questions.",
           "_meta": {
-            "anchor": "Periodical cicada mass emergence as predator satiation (unnamed researchers)"
+            "anchor": "Zebra stripes deter horsefly landings — Caro, How et al., PLOS ONE 2019 (https://www.eurekalert.org/news-releases/798118)"
           }
         },
         {
@@ -417,7 +417,7 @@ export const practiceTest3RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Genetic analysis shows that dormouse populations in hedgerow-linked woodlands are more closely related to one another than are populations in similar unlinked woodlands."
+              "text": "Dormouse populations in hedgerow-linked woodlands are genetically more closely related to one another than are populations in similar unlinked woodlands."
             },
             {
               "id": "B",
@@ -425,7 +425,7 @@ export const practiceTest3RW = {
             },
             {
               "id": "C",
-              "text": "Woodland patches that are connected by hedgerows tend to be somewhat larger on average than woodland patches that stand alone in open farmland."
+              "text": "Woodland patches that are connected by hedgerows tend to be somewhat larger on average than the woodland patches that stand alone in open farmland nearby."
             },
             {
               "id": "D",
@@ -445,7 +445,7 @@ export const practiceTest3RW = {
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
           "type": "multiple-choice",
-          "passage": "Poliomyelitis epidemics recurred in the United States through the first half of the twentieth century, peaking in the early 1950s. A student writing about the first widely used polio vaccine, introduced in 1955, claims that although reported cases did not vanish overnight, the decline that followed the vaccine's introduction was far too steep to be dismissed as the disease's ordinary year-to-year fluctuation, noting that ______",
+          "passage": "Poliomyelitis epidemics recurred in the United States through the first half of the twentieth century, peaking in the early 1950s. The first widely used polio vaccine was introduced in 1955. A student claims that although reported cases did not vanish overnight, the decline that followed was far too steep to be dismissed as ordinary year-to-year fluctuation, noting that ______",
           "questionTable": {
             "type": "table",
             "caption": "Reported cases of poliomyelitis in the United States, selected years",
@@ -512,40 +512,38 @@ export const practiceTest3RW = {
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
           "type": "multiple-choice",
-          "passage": "Marine reserves prohibit fishing within their boundaries, and ecologists expect fish populations inside them to recover as the years pass. Surveying five reserves along the Pacific coast, a research team compared the biomass of rockfish inside each reserve with the biomass in similar fished waters nearby. Summarizing the results, the team writes that protection appears to make a substantial difference everywhere and that the effect appears to strengthen as reserves age, noting that ______",
+          "passage": "Between 1880 and 1930, millions of Americans left farms for factory jobs, and millions of immigrants settled in the nation's growing cities. The US Census Bureau counted as urban anyone living in a town or city of at least 2,500 people. A student argues that the shift toward cities was steady throughout this period and that by 1920 most Americans lived in urban areas, noting that ______",
           "questionTable": {
             "type": "table",
-            "caption": "Rockfish biomass inside five Pacific marine reserves relative to nearby fished areas",
+            "caption": "Share of the US population living in urban areas, 1880-1930",
             "headers": [
-              "Reserve",
-              "Years since fishing ban",
-              "Biomass ratio (inside : outside)"
+              "Census year",
+              "Urban population (% of total)"
             ],
             "rows": [
               [
-                "Reserve A",
-                "6",
-                "1.4"
+                "1880",
+                "28.2"
               ],
               [
-                "Reserve B",
-                "9",
-                "1.7"
+                "1890",
+                "35.1"
               ],
               [
-                "Reserve C",
-                "14",
-                "2.1"
+                "1900",
+                "39.6"
               ],
               [
-                "Reserve D",
-                "21",
-                "2.6"
+                "1910",
+                "45.6"
               ],
               [
-                "Reserve E",
-                "26",
-                "3.2"
+                "1920",
+                "51.2"
+              ],
+              [
+                "1930",
+                "56.1"
               ]
             ]
           },
@@ -553,25 +551,25 @@ export const practiceTest3RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Reserve E, protected for 26 years, has the highest biomass ratio of the five reserves, at 3.2."
+              "text": "the urban share reached 56.1 percent in 1930, the highest share of any census year in the table."
             },
             {
               "id": "B",
-              "text": "rockfish biomass in Reserve A is 1.4 times as high inside the reserve as in the nearby fished waters."
+              "text": "35.1 percent of the US population lived in urban areas in 1890."
             },
             {
               "id": "C",
-              "text": "the two reserves protected for fewer than ten years have markedly lower biomass ratios than any of the three reserves whose fishing bans are more than a decade old."
+              "text": "the urban share was still below 50 percent in each census from 1880 through 1910 but was above 50 percent in both 1920 and 1930."
             },
             {
               "id": "D",
-              "text": "biomass ratios exceed 1.0 at every reserve and rise steadily with each reserve's age, from 1.4 after 6 years of protection to 3.2 after 26."
+              "text": "the urban share rose at every census, from 28.2 percent in 1880 to 56.1 percent in 1930, and first passed 50 percent in 1920."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The statement makes two claims — protection matters everywhere, and the effect strengthens with age — and D is the only choice that documents both: every ratio tops 1.0, and the ratios climb in step with years of protection across the whole table.\n\n**The Full Solution:**\n- \"A substantial difference everywhere\" needs evidence from all five reserves: ratios above 1.0 at each one.\n- \"Strengthens as reserves age\" needs the trend: 1.4, 1.7, 2.1, 2.6, 3.2 as the ban lengthens from 6 to 26 years. D cites both patterns with the correct endpoints.\n\n**Why the other choices are wrong:**\n- A: One reserve, however impressive, cannot support a claim about all five or about a trend.\n- B: A single ratio from the youngest reserve establishes neither the everywhere claim nor the age trend.\n- C: It supports only the age-trend half of the statement and never shows that biomass is higher inside every reserve.",
+          "explanation": "**Choice D is correct.** The student makes two claims: the shift toward cities was steady, and by 1920 most Americans lived in urban areas. D supports both: the urban share rises at every census in the table, and 1920 (51.2 percent) is the first year above 50 percent.\n\n**The Full Solution:**\n- \"Steady\" needs the whole trend: 28.2, 35.1, 39.6, 45.6, 51.2, and 56.1 percent, a rise at every census.\n- \"Most Americans by 1920\" needs a share above 50 percent in 1920: the table shows 51.2 percent, up from 45.6 percent in 1910.\n- D cites the trend with the correct endpoints and names the year the share first passed half.\n\n**Why the other choices are wrong:**\n- A: One year's figure shows neither a steady rise nor when the share passed half.\n- B: A single figure from 1890 supports neither part of the claim.\n- C: It supports only the second claim. Showing that the share was below half before 1920 and above it afterward does not show that the share rose at every census.",
           "_meta": {
-            "anchor": "Rockfish biomass recovery inside Pacific marine reserves vs. reserve age (unnamed research team)"
+            "anchor": "US urban population share by census, 1880-1930 (US Census Bureau; https://en.wikipedia.org/wiki/Urbanization_in_the_United_States) — two-part claim: steady rise + urban majority by 1920"
           }
         },
         {
@@ -598,7 +596,7 @@ export const practiceTest3RW = {
             },
             {
               "id": "D",
-              "text": "Physicians working in the 1971 refugee camps lacked the training needed to administer intravenous fluid safely."
+              "text": "Physicians working in the 1971 refugee camps lacked the training needed to administer intravenous fluid safely to the thousands of cholera patients they faced."
             }
           ],
           "correctAnswer": "A",
@@ -647,7 +645,7 @@ export const practiceTest3RW = {
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
           "type": "multiple-choice",
-          "passage": "The chambered nautilus, along with the octopuses and squids that are its distant relatives, ______ to a lineage of shelled animals that flourished hundreds of millions of years ago; unlike those relatives, however, the nautilus has kept its coiled external shell nearly unchanged.",
+          "passage": "The chambered nautilus, along with the octopuses and squids that are its distant relatives, ______ to a lineage of shelled animals that flourished hundreds of millions of years ago. Unlike those relatives, however, the nautilus has kept its coiled external shell nearly unchanged.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -681,7 +679,7 @@ export const practiceTest3RW = {
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
           "type": "multiple-choice",
-          "passage": "The network of burrows that a colony of alpine marmots digs and maintains over many generations ______ dozens of entrances, sleeping chambers lined with dried grass, and a deep hibernation den where the whole family passes the winter.",
+          "passage": "The network of burrows that a colony of alpine marmots digs and maintains over many generations ______ dozens of entrances, grass-lined sleeping chambers, and a deep den where the family hibernates.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -702,7 +700,7 @@ export const practiceTest3RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The subject is the singular \"network,\" so the verb must be the singular \"includes\" — everything between subject and verb is a modifying clause that does not change the subject's number.\n\n**The Full Solution:**\n- Find the head noun: \"The network... includes dozens of entrances...\"\n- The intervening clause \"that a colony of alpine marmots digs and maintains over many generations\" dangles plural nouns (marmots, generations) next to the verb, but none of them is the subject.\n\n**Why the other choices are wrong:**\n- A: \"Include\" agrees with the nearby plurals rather than with the true subject \"network.\"\n- B: \"Are including\" is plural and casts a permanent feature of the burrow system as a temporary ongoing action.\n- D: \"Have included\" is plural, and its perfect tense implies the den's features belong to the past when the sentence describes what the network contains now.",
+          "explanation": "**Choice C is correct.** The subject is the singular \"network,\" so the verb must be the singular \"includes\" — everything between subject and verb is a modifying clause that does not change the subject's number.\n\n**The Full Solution:**\n- Find the head noun: \"The network... includes dozens of entrances...\"\n- The intervening clause \"that a colony of alpine marmots digs and maintains over many generations\" places plural nouns (marmots, generations) next to the verb, but none of them is the subject.\n\n**Why the other choices are wrong:**\n- A: \"Include\" agrees with the nearby plurals rather than with the true subject \"network.\"\n- B: \"Are including\" is plural and casts a permanent feature of the burrow system as a temporary ongoing action.\n- D: \"Have included\" is plural, and its perfect tense implies the network's features belong to the past when the sentence describes what the network contains now.",
           "_meta": {
             "anchor": "Alpine marmot burrow network — agreement across a long relative clause",
             "rule": "subject-verb agreement across an intervening relative clause"
@@ -851,7 +849,7 @@ export const practiceTest3RW = {
           "domain": "expression-of-ideas",
           "skill": "transitions",
           "type": "multiple-choice",
-          "passage": "The gopher tortoise digs burrows up to twelve meters long in the sandy soils of the southeastern United States. More than three hundred other species, including indigo snakes, gopher frogs, and many insects, take refuge in these tunnels during wildfires and winter cold. ______ conservationists rank the tortoise among the region's most important animals: protecting it protects the many species that depend on its burrows.",
+          "passage": "Mangrove trees grow along tropical coasts in salty water that would kill most plants. Their dense tangles of roots slow incoming waves and trap sediment that the tides would otherwise carry away. ______ many coastal communities now plant mangroves as a living barrier against storm surges and erosion.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -872,9 +870,9 @@ export const practiceTest3RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The final sentence states a consequence of what came before: because hundreds of species shelter in the tortoise's burrows, conservationists rank the tortoise as critically important. \"For this reason\" is the transition that marks a conclusion drawn from the preceding facts.\n\n**The Full Solution:**\n- Map the logic: fact (many species depend on the burrows) leads to judgment (the tortoise is a conservation priority).\n- The colon in the final sentence even restates the causal link — protecting the tortoise protects its dependents — confirming that the blank must signal cause and effect.\n\n**Why the other choices are wrong:**\n- A: \"However\" requires a reversal, but the conservationists' ranking follows from the burrow facts rather than opposing them.\n- B: \"For example\" would make the ranking an illustration of the shelter-seeking species, which it is not — it is a response to them.\n- D: \"Meanwhile\" sets two developments side by side in time; the sentences here are linked by logic, not simultaneity.",
+          "explanation": "**Choice C is correct.** The planting described in the last sentence is a consequence of the facts before it: because mangrove roots slow waves and hold sediment in place, communities plant mangroves for protection. \"For this reason\" signals exactly that cause-and-effect link.\n\n**The Full Solution:**\n- The second sentence gives the cause: the roots weaken waves and keep sediment from washing away.\n- The final sentence gives a result that follows from it: communities use mangroves as a barrier against storm surges and erosion.\n- A cause followed by its consequence calls for a causal transition.\n\n**Why the other choices are wrong:**\n- A: \"However\" signals a contrast, but planting mangroves agrees with, rather than contradicts, the protective role just described.\n- B: \"For example\" would introduce an instance of the previous claim, but planting by communities is not an example of roots slowing waves; it is a response to that fact.\n- D: \"Meanwhile\" signals something happening at the same time, which misses the logical link between the roots' effects and the planting.",
           "_meta": {
-            "anchor": "Gopher tortoise burrows as keystone shelter — consequence transition"
+            "anchor": "Mangrove roots dissipate wave energy and trap sediment; planted for coastal protection (https://en.wikipedia.org/wiki/Mangrove_forest; https://www.nature.com/articles/s41598-020-61136-6) — consequence transition"
           }
         },
         {
@@ -884,7 +882,7 @@ export const practiceTest3RW = {
           "domain": "expression-of-ideas",
           "skill": "transitions",
           "type": "multiple-choice",
-          "passage": "Highway departments have long fenced roadsides to keep large animals off the pavement, and fencing does reduce collisions. Fences alone, however, seal animals off from the feeding grounds and migration routes that lie on the far side of the road. ______ many transportation agencies now pair fencing with wildlife overpasses and underpasses, which funnel animals toward safe crossing points instead of simply barring their way.",
+          "passage": "Early hoists hung from a single rope, and if the rope broke, the platform plunged. In 1852, Elisha Otis designed a safety brake: if the rope gave way, spring-loaded metal arms caught in toothed rails along the shaft and stopped the fall. ______ people grew willing to ride elevators, and buildings could rise far higher than anyone wanted to climb by stairs.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -905,9 +903,9 @@ export const practiceTest3RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The blank introduces the practical response to the problem just described: because fencing alone cuts animals off from what they need, agencies now combine it with crossings. \"Consequently\" marks exactly that cause-and-effect step.\n\n**The Full Solution:**\n- Sentence two identifies a drawback (fences isolate animals from feeding grounds and migration routes).\n- Sentence three reports what agencies do about it (add overpasses and underpasses). The second development happens because of the first, so the transition must carry consequence.\n\n**Why the other choices are wrong:**\n- A: \"In contrast\" would oppose the two sentences, but the crossings are a remedy for the fences' drawback, not a contrary case.\n- B: \"For instance\" would make the agencies' practice an example of the isolation problem rather than a solution to it.\n- D: \"Similarly\" claims the final sentence parallels the previous one, but the sentences stand in a problem-solution relationship, not a resemblance.",
+          "explanation": "**Choice C is correct.** The final sentence describes what followed from Otis's brake: once a broken rope no longer meant a fatal fall, people trusted elevators and buildings could grow taller. \"Consequently\" signals that this outcome results from the invention just described.\n\n**The Full Solution:**\n- The first sentence states the danger; the second describes the device that removed it.\n- The last sentence reports the effect of removing that danger, so the transition must mark a result.\n\n**Why the other choices are wrong:**\n- A: \"In contrast\" signals opposition, but greater trust in elevators follows from the safety brake rather than opposing it.\n- B: \"For instance\" would introduce an example of the brake, but the sentence reports the brake's effects, not an instance of it.\n- D: \"Similarly\" signals a parallel point, but the sentence does not describe something like the brake; it describes what the brake made possible.",
           "_meta": {
-            "anchor": "Wildlife overpasses paired with roadside fencing — consequence transition"
+            "anchor": "Elisha Otis safety brake (1852) and the rise of passenger elevators/taller buildings (https://en.wikipedia.org/wiki/Elisha_Otis; https://www.asme.org/topics-resources/content/elisha-graves-otis) — consequence transition"
           }
         },
         {
@@ -1009,7 +1007,7 @@ export const practiceTest3RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Camera traps, which are triggered by motion, photograph the animals that pass in front of them."
+              "text": "Camera traps, which are triggered by motion, automatically photograph the animals that pass in front of them at any hour of the day or night."
             },
             {
               "id": "B",
@@ -1021,7 +1019,7 @@ export const practiceTest3RW = {
             },
             {
               "id": "D",
-              "text": "Unlike costly field surveys that disturb animals, camera traps run unattended for months and often record shy species such as snow leopards."
+              "text": "Unlike costly, disruptive field surveys, camera traps run unattended for months and often capture shy species such as snow leopards."
             }
           ],
           "correctAnswer": "D",
@@ -1044,7 +1042,7 @@ export const practiceTest3RW = {
           "domain": "craft-and-structure",
           "skill": "words-in-context",
           "type": "multiple-choice",
-          "passage": "Cognitive scientists William Chase and Herbert Simon found that chess masters could reconstruct far more of a briefly glimpsed board position than novices could, yet when the pieces were placed at random, the masters' advantage nearly vanished. Their superior recall, Chase and Simon concluded, was not a general gift of memory but a ______ one: it worked only on positions that made chess sense, where familiar patterns could be grasped as wholes.",
+          "passage": "Cognitive scientists William Chase and Herbert Simon found that chess masters could reconstruct far more of a briefly glimpsed board position than novices could. When the pieces were placed at random, however, the masters' advantage nearly vanished. Their superior recall, Chase and Simon concluded, was not a general gift of memory but a ______ one: it worked only on positions that made chess sense, where familiar patterns could be grasped as wholes.",
           "question": "Which choice completes the text with the most logical and precise word or phrase?",
           "choices": [
             {
@@ -1245,30 +1243,30 @@ export const practiceTest3RW = {
           "passages": [
             {
               "label": "Text 1",
-              "text": "When people report picturing a scene in their heads, psychologist Stephen Kosslyn takes the report close to face value. In his experiments, participants asked to scan across a mental image of a memorized map took longer to reach distant locations than nearby ones, just as they would if moving their eyes across a physical map. Kosslyn argues that such results reveal mental imagery to be genuinely picture-like: a spatial representation whose parts preserve the distances of the scene it depicts."
+              "text": "When people say they are picturing a scene in their heads, psychologist Stephen Kosslyn takes the report close to face value. In his experiments, participants memorized a map and then scanned across a mental image of it. They took longer to reach distant locations than nearby ones, just as they would on a physical map. Kosslyn argues that such results show mental imagery to be genuinely picture-like: its parts preserve the distances of the scene it depicts."
             },
             {
               "label": "Text 2",
-              "text": "Psychologist Zenon Pylyshyn contends that imagery experiments reveal less than they seem to. Participants know from ordinary experience how looking works — that crossing a greater distance takes more time — and they can unwittingly make their responses conform to that knowledge. On Pylyshyn's account, the mind's underlying representation is more like a structured description than a picture, and scanning times reflect participants' tacit knowledge of the world rather than the spatial format of their thoughts."
+              "text": "Psychologist Zenon Pylyshyn contends that imagery experiments reveal less than they seem to. Participants know from ordinary experience that crossing a greater distance takes more time, and they can unwittingly make their responses fit that knowledge. On Pylyshyn's account, the mind's underlying representation is more like a structured description than a picture. Scanning times reflect participants' tacit knowledge of the world rather than the spatial format of their thoughts."
             }
           ],
           "question": "Based on the texts, how would Pylyshyn (Text 2) most likely respond to the argument presented in Text 1?",
           "choices": [
             {
               "id": "A",
-              "text": "He would contend that the scanning times reflect participants' knowledge of how visual inspection works rather than demonstrating that their mental representations are picture-like."
+              "text": "He would contend that the scanning times reflect participants' knowledge of how looking works, not picture-like mental representations."
             },
             {
               "id": "B",
-              "text": "He would deny that participants in Kosslyn's experiments actually took longer to scan to distant locations on their mental images than to nearby ones."
+              "text": "He would deny that participants actually took longer to scan to distant locations on their mental images than to nearby ones."
             },
             {
               "id": "C",
-              "text": "He would agree that mental images preserve the distances of remembered scenes but argue that they do so only for scenes participants have studied deliberately, such as memorized maps."
+              "text": "He would agree that mental images preserve distances but only for scenes that participants have studied deliberately, such as maps."
             },
             {
               "id": "D",
-              "text": "He would maintain that scanning experiments could establish the format of mental imagery if participants were prevented from learning the experiments' purpose."
+              "text": "He would maintain that scanning experiments could reveal the format of imagery if participants did not know the experiments' purpose."
             }
           ],
           "correctAnswer": "A",
@@ -1317,28 +1315,28 @@ export const practiceTest3RW = {
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
           "type": "multiple-choice",
-          "passage": "When the Framingham Heart Study began in 1948, heart disease was the leading cause of death in the United States, yet physicians could say little about why some people developed it and others did not. The study enrolled more than five thousand residents of one Massachusetts town and examined them every two years, recording blood pressure, cholesterol, smoking, and weight. Over the following decades, the records let researchers identify what they called risk factors: measurable traits that predict a person's chances of developing disease, a concept that now organizes preventive medicine well beyond cardiology.",
+          "passage": "When the Framingham Heart Study began in 1948, heart disease was the leading cause of death in the United States. Yet physicians could say little about why some people developed it and others did not. The study enrolled more than five thousand residents of one Massachusetts town and examined them every two years, recording blood pressure, cholesterol, smoking, and weight. Over the following decades, the records let researchers identify what they called risk factors: measurable traits that predict a person's chances of developing disease. The concept now organizes preventive medicine well beyond cardiology.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
               "id": "A",
-              "text": "The Framingham study succeeded because the residents of a single Massachusetts town happened to be unusually representative of the American population as a whole."
+              "text": "The Framingham study succeeded mainly because the residents of a single Massachusetts town happened to represent the whole country unusually well."
             },
             {
               "id": "B",
-              "text": "By tracking thousands of participants over decades, the Framingham study established the concept of risk factors on which preventive medicine still relies."
+              "text": "By tracking thousands of people for decades, the Framingham study established the risk-factor concept on which preventive medicine still relies."
             },
             {
               "id": "C",
-              "text": "Physicians in 1948 already suspected that blood pressure, cholesterol, smoking, and weight caused heart disease and designed the Framingham study primarily to confirm those suspicions."
+              "text": "Physicians in 1948 already knew what caused heart disease and designed the Framingham study mainly to confirm their views."
             },
             {
               "id": "D",
-              "text": "The Framingham study demonstrated that heart disease could be cured if its warning signs were detected early enough in a patient's life."
+              "text": "The Framingham study showed that heart disease could be cured if its warning signs were detected early enough."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The text moves from ignorance (no one knew why some people developed heart disease) through method (thousands of residents, examined for decades) to legacy (the risk-factor concept that now organizes preventive medicine) — the exact arc B compresses.\n\n**The Full Solution:**\n- The first sentence establishes the problem the study confronted; the second describes its long-haul design.\n- The final sentence names the study's lasting contribution and generalizes it beyond cardiology, which is what makes B's \"still relies\" the right emphasis for the main idea.\n\n**Why the other choices are wrong:**\n- A: The text never claims the town was representative, let alone credits the study's success to that.\n- C: It reverses the setup — the text says physicians \"could say little\" about causes in 1948; the measured traits emerged as predictors from the data, not as prior suspicions being confirmed.\n- D: The study produced prediction, not cure; \"risk factors\" forecast disease, and the text says nothing about curing it.",
+          "explanation": "**Choice B is correct.** The text moves from ignorance (no one knew why some people developed heart disease) through method (thousands of residents, examined for decades) to legacy (the risk-factor concept that now organizes preventive medicine) — the exact arc B compresses.\n\n**The Full Solution:**\n- The first two sentences establish the problem the study confronted; the third describes its long-haul design.\n- The last two sentences name the study's lasting contribution and generalize it beyond cardiology, which is what makes B's \"still relies\" the right emphasis for the main idea.\n\n**Why the other choices are wrong:**\n- A: The text never claims the town was representative, let alone credits the study's success to that.\n- C: It reverses the setup — the text says physicians \"could say little\" about causes in 1948; the measured traits emerged as predictors from the data, not as prior views being confirmed.\n- D: The study produced prediction, not cure; \"risk factors\" forecast disease, and the text says nothing about curing it.",
           "_meta": {
             "anchor": "Framingham Heart Study — origin of the risk-factor concept"
           }
@@ -1383,7 +1381,7 @@ export const practiceTest3RW = {
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
           "type": "multiple-choice",
-          "passage": "The grammatical machinery of a language is not designed; it condenses. Linguists have documented the process, called grammaticalization, in family after family: an ordinary content word is drafted into more abstract duty, its pronunciation erodes, and its old meaning fades until only a grammatical function remains. English speakers who say they are going to reconsider need not be going anywhere — a verb of motion has become a marker of future time, and its compressed spoken form has drifted still further from the original. What look like arbitrary particles and endings, on this view, are often the fossils of once-independent words.",
+          "passage": "The grammatical machinery of a language is not designed; it condenses. Linguists have documented the process, called grammaticalization, in family after family: an ordinary content word is drafted into more abstract duty, its pronunciation erodes, and its old meaning fades until only a grammatical function remains. English speakers who say they are going to reconsider need not be going anywhere: a verb of motion has become a marker of future time. Its compressed spoken form has drifted still further from the original. What look like arbitrary particles and endings, on this view, are often the fossils of once-independent words.",
           "question": "Which choice best states the main idea of the text?",
           "choices": [
             {
@@ -1416,7 +1414,7 @@ export const practiceTest3RW = {
           "domain": "information-and-ideas",
           "skill": "inferences",
           "type": "multiple-choice",
-          "passage": "A dance leaves thinner records than almost any other art. For works created before video recording became routine, dance historians attempting to reconstruct a piece must braid together whatever survives: a few minutes of silent film, production photographs, reviews, annotated programs, and the bodily memory of dancers who performed the work decades earlier — witnesses whose recollections are vivid but not always mutually consistent. Even the most careful reconstruction, then, ______",
+          "passage": "A dance leaves thinner records than almost any other art. For works created before video recording became routine, dance historians must piece together whatever survives: a few minutes of silent film, production photographs, reviews, and annotated programs. They also rely on the memories of dancers who performed the work decades earlier, witnesses whose recollections are vivid but do not always agree. Even the most careful reconstruction, then, ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
@@ -1449,35 +1447,35 @@ export const practiceTest3RW = {
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
           "type": "multiple-choice",
-          "passage": "Insect-eating bats forage where insects are abundant, and restoration ecologists predicted that converting former cropland back to native prairie would increase bat activity. Using acoustic detectors that record bats' echolocation calls, a research team monitored four paired sites, each pair consisting of a restored prairie and an adjacent field still planted in row crops. The team concluded that the restored prairies supported more bat activity than the croplands, noting that ______",
+          "passage": "In the 1850s and 1860s, Gregor Mendel crossed pea plants that differed in a single trait, such as seed shape. All of the first-generation offspring showed only one form of the trait, which Mendel called dominant. The other form, which he called recessive, reappeared when those offspring were self-pollinated. Mendel concluded that in this second generation the dominant form appears about three times as often as the recessive form, noting that ______",
           "questionTable": {
             "type": "table",
-            "caption": "Mean bat echolocation calls recorded per night at paired prairie and cropland sites",
+            "caption": "Second-generation offspring in four of Mendel's pea crosses",
             "headers": [
-              "Site pair",
-              "Restored prairie",
-              "Cropland"
+              "Trait",
+              "Dominant form",
+              "Recessive form"
             ],
             "rows": [
               [
-                "1",
-                "118",
-                "46"
+                "Seed shape",
+                "5,474 round",
+                "1,850 wrinkled"
               ],
               [
-                "2",
-                "87",
-                "51"
+                "Seed color",
+                "6,022 yellow",
+                "2,001 green"
               ],
               [
-                "3",
-                "203",
-                "88"
+                "Flower color",
+                "705 purple",
+                "224 white"
               ],
               [
-                "4",
-                "141",
-                "63"
+                "Stem length",
+                "787 tall",
+                "277 dwarf"
               ]
             ]
           },
@@ -1485,25 +1483,25 @@ export const practiceTest3RW = {
           "choices": [
             {
               "id": "A",
-              "text": "detectors recorded more calls per night at the restored prairie than at the adjacent cropland in every one of the four site pairs."
+              "text": "in each of the four crosses, offspring with the dominant form outnumbered those with the recessive form by roughly three to one."
             },
             {
               "id": "B",
-              "text": "the restored prairie at site pair 3 recorded 203 calls per night, the highest number at any site in the study."
+              "text": "the seed color cross produced 6,022 yellow seeds, the largest number of offspring in any category in the table."
             },
             {
               "id": "C",
-              "text": "the cropland at site pair 3 recorded more calls per night than the restored prairie at site pair 2 did."
+              "text": "more wrinkled seeds (1,850) were counted in the seed shape cross than purple-flowered plants (705) in the flower color cross."
             },
             {
               "id": "D",
-              "text": "the number of echolocation calls recorded per night varied considerably more among the four restored prairies than it did among the four adjacent croplands."
+              "text": "the number of offspring Mendel counted varied considerably from one cross to another, ranging from fewer than 1,000 to more than 8,000."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The conclusion compares prairies with croplands across the study, and the study's design makes that comparison pair by pair. A cites the decisive pattern: in all four pairs, the prairie side recorded more calls — 118 vs. 46, 87 vs. 51, 203 vs. 88, and 141 vs. 63.\n\n**The Full Solution:**\n- Paired sites exist so that each prairie is judged against its own neighboring cropland; consistent wins across every pair are exactly the evidence the conclusion needs.\n- A states that consistency, covering the entire table rather than any single site.\n\n**Why the other choices are wrong:**\n- B: One prairie's high count cannot support a conclusion about prairies versus croplands generally — it makes no comparison at all.\n- C: This cross-pair comparison is true (88 exceeds 87) but runs against the conclusion's grain, comparing sites that were never meant to be compared and muddying the pairwise pattern.\n- D: Variability among prairies says nothing about whether prairies outperform croplands.",
+          "explanation": "**Choice A is correct.** Mendel's conclusion covers every trait he studied: in the second generation, the dominant form appears about three times as often as the recessive form. A cites that pattern across all four crosses: 5,474 to 1,850, 6,022 to 2,001, 705 to 224, and 787 to 277 are each close to three to one.\n\n**The Full Solution:**\n- The conclusion is a general rule, so the evidence must hold for each cross, not just one.\n- Dividing each dominant count by its recessive count gives about 2.96, 3.01, 3.15, and 2.84, all near 3.\n\n**Why the other choices are wrong:**\n- B: One large count makes no comparison between the dominant and recessive forms, so it cannot show a three-to-one ratio.\n- C: The comparison is true (1,850 is greater than 705), but it sets counts from two different crosses against each other, which says nothing about the ratio within either cross.\n- D: The size of each sample says nothing about how often the dominant form appeared relative to the recessive form.",
           "_meta": {
-            "anchor": "Bat acoustic activity at paired restored-prairie vs. cropland sites (unnamed restoration ecologists)"
+            "anchor": "Mendel's pea crosses — F2 counts for seed shape, seed color, flower color, stem length (Mendel 1866; https://www.ndsu.edu/pubweb/~mcclean/plsc431/overheads/mendel/mend2.htm) — consistent 3:1 in every cross"
           }
         },
         {
@@ -1546,25 +1544,26 @@ export const practiceTest3RW = {
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-quantitative",
           "type": "multiple-choice",
-          "passage": "In change-detection experiments, an image and a slightly altered copy of it alternate on a screen. When the two versions alternate directly, viewers spot the difference almost at once, but when a brief blank screen interrupts each alternation, the change can go unnoticed for dozens of cycles. A team of cognitive scientists argued that the blank works by masking the motion signal that would otherwise drag attention straight to the changing region; attention must then search the scene piece by piece, guided by expectations about which parts of a scene matter. Their account predicts a specific pattern in the results: ______",
+          "passage": "In a 1997 study, psychologists Ronald Rensink, J. Kevin O'Regan, and James Clark showed viewers a photograph alternating with a slightly altered copy until they spotted the change. Some changes involved an object central to the scene's meaning; others involved a marginal detail. The researchers argued that a brief blank screen between the images masks the motion signal that normally draws attention to a change. Attention must then search the scene item by item, drawn first to what matters most. Their account predicts a specific pattern in the results: ______",
           "questionTable": {
             "type": "table",
-            "caption": "Mean alternation cycles before viewers detected the change",
+            "caption": "Average number of alternations before viewers identified the change",
             "headers": [
-              "Change location",
-              "No blank inserted",
-              "Blank inserted"
+              "Display condition",
+              "Average alternations"
             ],
             "rows": [
               [
-                "Central to the scene's meaning",
-                "1.2",
-                "4.1"
+                "No blank screen (all changes)",
+                "1.4"
               ],
               [
-                "Marginal to the scene's meaning",
-                "1.4",
-                "17.8"
+                "Blank screen, central change",
+                "7.3"
+              ],
+              [
+                "Blank screen, marginal change",
+                "17.1"
               ]
             ]
           },
@@ -1572,25 +1571,25 @@ export const practiceTest3RW = {
           "choices": [
             {
               "id": "A",
-              "text": "viewers detected central changes after an average of 1.2 cycles when no blank was inserted, the fastest detection in any condition."
+              "text": "without a blank screen, viewers identified changes after an average of only 1.4 alternations, the fastest result in the table."
             },
             {
               "id": "B",
-              "text": "marginal changes took longer to detect than central changes in both conditions, by roughly the same margin in each."
+              "text": "with a blank screen, viewers needed an average of 7.3 alternations to identify central changes, about five times as many as without one."
             },
             {
               "id": "C",
-              "text": "inserting the blank had little effect on the detection of central changes, which shows that motion signals matter only for marginal ones."
+              "text": "the blank screen had little effect on how quickly viewers identified central changes, which shows that motion signals matter only for marginal changes."
             },
             {
               "id": "D",
-              "text": "the blank slowed detection of both kinds of change, but far more for marginal changes (1.4 to 17.8 cycles) than for central ones (1.2 to 4.1)."
+              "text": "the blank screen slowed identification of both kinds of change, but far more for marginal changes (1.4 to 17.1) than central ones (1.4 to 7.3)."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The account makes a two-part prediction — masking the motion signal should slow everything, and expectation-guided search should then favor central content — and D reads both parts off the table: detection slows in each row, and the slowdown is far larger for marginal changes (1.4 to 17.8) than for central ones (1.2 to 4.1).\n\n**The Full Solution:**\n- Without the blank, location barely matters (1.2 vs. 1.4): the motion signal finds the change either way.\n- With the blank, the interaction appears: central changes cost a few extra cycles, marginal ones more than a dozen — the signature of a piece-by-piece search that starts with what the scene is about.\n\n**Why the other choices are wrong:**\n- A: A single cell, however fast, exhibits no pattern and tests no prediction.\n- B: The table contradicts it — the margins differ enormously between conditions (0.2 cycles vs. 13.7).\n- C: A jump from 1.2 to 4.1 cycles is more than a threefold slowing, not \"little effect,\" and the account says motion signals matter for both kinds of change.",
+          "explanation": "**Choice D is correct.** The account makes a two-part prediction. Masking the motion signal should slow the detection of every change, and a search guided by what matters in the scene should find central changes sooner than marginal ones. D reads both parts off the table: identification slowed from 1.4 alternations to 7.3 for central changes and to 17.1 for marginal changes.\n\n**The Full Solution:**\n- Without the blank, viewers found changes almost at once (1.4 alternations on average): the motion signal pointed straight to them.\n- With the blank, both kinds of change took longer, but marginal changes took more than twice as long as central ones (17.1 vs. 7.3), the signature of a search that starts with what the scene is about.\n\n**Why the other choices are wrong:**\n- A: A single result shows no pattern and does not compare central with marginal changes.\n- B: It shows that the blank slowed the detection of central changes but says nothing about marginal changes, so it supports only half of the prediction.\n- C: The table contradicts it: central changes slowed from 1.4 to 7.3 alternations, about a fivefold increase, and the account says the motion signal matters for both kinds of change.",
           "_meta": {
-            "anchor": "Change blindness — blank-interval slowing by change centrality (unnamed cognitive scientists)"
+            "anchor": "Change blindness — Rensink, O'Regan & Clark, Psychological Science 8:368-373 (1997): flicker CI 7.3 / MI 17.1 alternations; no-blank 1.4 (https://www.cs.ubc.ca/~rensink/publications/download/PsychSci97-RR.pdf)"
           }
         },
         {
@@ -1600,30 +1599,30 @@ export const practiceTest3RW = {
           "domain": "information-and-ideas",
           "skill": "inferences",
           "type": "multiple-choice",
-          "passage": "Packrats collect twigs, seeds, and bones from within about fifty meters of their dens, and they urinate on the refuse piles they accumulate; in arid climates the urine crystallizes as it dries, entombing the debris in a hard, varnish-like mass. Some of these middens, tucked into desert caves and rock shelters, are more than 40,000 years old, and the plant fragments inside them can be identified to species and dated with precision. Because each midden holds only what once grew within a single packrat's small foraging radius, a sequence of middens of different ages from one canyon offers something no lake-sediment pollen core can: ______",
+          "passage": "Chemical traces of the foods a person eats become part of the body's tissues as they form. Bone, however, is slowly broken down and rebuilt throughout life, so the traces in an adult's bone blend together many years of meals. Scalp hair grows about a centimeter a month, and once a section of hair has formed, its chemistry no longer changes. A long strand of hair preserved with an ancient burial therefore offers archaeologists something no bone sample can: ______",
           "question": "Which choice most logically completes the text?",
           "choices": [
             {
               "id": "A",
-              "text": "a way of estimating how far individual packrats were forced to travel from their dens as desert food plants grew scarce during dry periods."
+              "text": "a way of estimating how many people in an ancient community shared the same diet."
             },
             {
               "id": "B",
-              "text": "an archive of climate conditions integrated across an entire desert region rather than tied to any single location."
+              "text": "an average of the person's diet across many years rather than a record of any particular season."
             },
             {
               "id": "C",
-              "text": "a record of precisely which plants grew at a single spot at known moments across tens of thousands of years."
+              "text": "a month-by-month record of how one person's diet changed in the period before death."
             },
             {
               "id": "D",
-              "text": "evidence that desert plant communities have remained essentially unchanged for more than 40,000 years."
+              "text": "evidence that ancient people ate the same foods in every season of the year."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** Assemble the premises: fragments identifiable to species, datable with precision, and gathered only within fifty meters of a den. A dated series of such middens from one canyon therefore documents exactly what grew at that spot, time slice by time slice — the fine-grained local record C describes.\n\n**The Full Solution:**\n- The sentence's structure demands something a pollen core cannot supply. Pollen blows in from a whole region and blends sources; the midden's defining trait is the opposite — a tight, known collection radius.\n- Combine locality (fifty meters) with species-level identification and precise dates across a midden sequence, and the unique product is a site-specific vegetation history.\n\n**Why the other choices are wrong:**\n- A: The fifty-meter radius is a fixed premise of the argument, not a variable to be estimated — and travel distance is not something a pile of debris at the den records.\n- B: Regional integration is what pollen cores already provide; the passage is building toward what middens add, which is the reverse.\n- D: Nothing suggests stasis — dated middens of different ages are valuable precisely for revealing change.",
+          "explanation": "**Choice C is correct.** Hair grows at a steady pace and locks in its chemistry as it forms, so each centimeter along a strand holds the dietary traces of about one month. Reading along the strand therefore gives a month-by-month record of one person's recent diet — something bone, which blends many years together, cannot give.\n\n**The Full Solution:**\n- The text sets up a contrast. Bone is constantly rebuilt, so its traces average \"many years of meals.\"\n- Hair is different on both counts: it grows about a centimeter a month, and its chemistry \"no longer changes\" once formed.\n- Put those facts together: a long strand is a time line of meals, segment by segment. The strand ends at the time of death, so the record covers the months before death.\n\n**Why the other choices are wrong:**\n- A: A single strand comes from one person; the text says nothing about comparing a whole community.\n- B: This describes bone, not hair — a blended, many-year average is exactly what the text says bone provides.\n- D: The text offers no evidence about what ancient people ate; a month-by-month record could just as easily reveal seasonal changes.",
           "_meta": {
-            "anchor": "Packrat middens as site-specific dated vegetation archives vs. pollen cores"
+            "anchor": "Sequential stable-isotope record in hair (~1 cm/month, no remodeling) vs. bone turnover (https://www.sciencedirect.com/science/article/pii/S2352409X2200102X; https://royalsocietypublishing.org/doi/10.1098/rstb.1999.0360)"
           }
         },
         {
@@ -1633,7 +1632,7 @@ export const practiceTest3RW = {
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
           "type": "multiple-choice",
-          "passage": "The archive's collection of interviews, which preserves the voices of shipyard workers, cannery hands, and railroad porters recorded across three decades, ______ researchers a firsthand account of industrial labor that official records rarely capture.",
+          "passage": "The Bayeux Tapestry, a nearly 70-meter-long embroidery depicting the events that led to the Norman conquest of England in 1066, ______ historians a detailed picture of eleventh-century ships, armor, and dress.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
@@ -1654,10 +1653,10 @@ export const practiceTest3RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The subject is the singular \"collection,\" so the verb must be the singular \"offers.\" The plural nouns stacked between subject and verb belong to modifying phrases, not to the subject.\n\n**The Full Solution:**\n- Strip the modifiers: \"The archive's collection... offers researchers a firsthand account.\"\n- \"Of interviews\" and the whole \"which preserves...\" clause describe the collection; none of their plural nouns (interviews, workers, hands, porters) governs the verb.\n- Note the text's own clue: the relative clause verb \"preserves\" already agrees with the singular \"collection.\"\n\n**Why the other choices are wrong:**\n- A: \"Offer\" agrees with the nearby plurals rather than with the head noun \"collection.\"\n- C: \"Are offering\" is plural and needlessly progressive for a standing property of the archive.\n- D: \"Have belonged\"-style perfect plural — \"have offered\" — both misses agreement and pushes into completed past what the sentence presents as the collection's ongoing value.",
+          "explanation": "**Choice B is correct.** The subject is the singular \"Bayeux Tapestry,\" so the verb must be the singular \"offers.\" The long phrase between subject and verb describes the tapestry but does not change the subject's number.\n\n**The Full Solution:**\n- Strip away the interrupting phrase: \"The Bayeux Tapestry... offers historians a detailed picture.\"\n- The phrase set off by commas contains plural nouns (\"events\") near the blank, but none of them is the subject.\n\n**Why the other choices are wrong:**\n- A: \"Offer\" is plural; it agrees with the nearby noun \"events\" rather than with the true subject.\n- C: \"Are offering\" is plural and also casts a lasting fact as a temporary ongoing action.\n- D: \"Have offered\" is plural, so it does not agree with the singular subject.",
           "_meta": {
-            "anchor": "Oral-history archive collection — singular head noun across stacked plural modifiers",
-            "rule": "subject-verb agreement across intervening prepositional and relative modifiers"
+            "anchor": "Bayeux Tapestry — singular head noun across a long appositive (https://en.wikipedia.org/wiki/Bayeux_Tapestry; https://www.britishmuseum.org/exhibitions/bayeux-tapestry)",
+            "rule": "subject-verb agreement across an intervening appositive phrase"
           }
         },
         {
@@ -1667,31 +1666,31 @@ export const practiceTest3RW = {
           "domain": "standard-english-conventions",
           "skill": "form-structure-and-sense",
           "type": "multiple-choice",
-          "passage": "Working for a federal agency that documented the Depression's toll on farm families, ______ made photographs that gave economic catastrophe a human face and helped build public support for relief programs.",
+          "passage": "Programming some of the earliest computers in the 1940s and 1950s, ______ developed the A-0 system in 1952. It was one of the first compilers, programs that translate symbolic code into instructions a machine can carry out.",
           "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
           "choices": [
             {
               "id": "A",
-              "text": "Dorothea Lange's camera"
+              "text": "Grace Hopper's software"
             },
             {
               "id": "B",
-              "text": "the photographer Dorothea Lange"
+              "text": "the mathematician Grace Hopper"
             },
             {
               "id": "C",
-              "text": "Dorothea Lange's photographs"
+              "text": "Grace Hopper's research"
             },
             {
               "id": "D",
-              "text": "it was Dorothea Lange who"
+              "text": "it was Grace Hopper who"
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The opening modifier \"Working for a federal agency...\" must attach to whoever was doing the working, so the subject that follows the comma has to be the person herself: \"the photographer Dorothea Lange.\"\n\n**The Full Solution:**\n- Participial openers grab the nearest following subject. The sentence is only conventional if that subject names the worker.\n- B places Lange immediately after the modifier, and the rest of the sentence proceeds naturally: she \"made photographs that gave economic catastrophe a human face.\"\n\n**Why the other choices are wrong:**\n- A: It hands the modifier to her camera — the camera was not working for a federal agency — a classic dangling modifier.\n- C: It makes the photographs the workers, and doubly fails by having photographs make photographs.\n- D: The cleft \"it was... who\" puts the empty pronoun \"it\" in the modifier's grasp; \"it\" was not working for the agency, so the modifier still dangles.",
+          "explanation": "**Choice B is correct.** The sentence opens with a modifying phrase, \"Programming some of the earliest computers in the 1940s and 1950s.\" Whatever comes right after the comma must be the one doing the programming, and only a person can program. \"The mathematician Grace Hopper\" supplies that person.\n\n**The Full Solution:**\n- Ask who or what was \"programming some of the earliest computers.\" The answer is Hopper herself.\n- An introductory participial phrase must be followed immediately by the noun it describes, so the blank must begin with Hopper, not with something she owned or produced.\n\n**Why the other choices are wrong:**\n- A: This says Hopper's software was programming the computers, which is illogical; software does not program computers in the sense described.\n- C: This says Hopper's research was programming the computers; research cannot program anything.\n- D: \"It was Grace Hopper who\" places the pronoun \"it\" right after the phrase, so the phrase seems to describe \"it\" rather than Hopper.",
           "_meta": {
-            "anchor": "Dorothea Lange — Depression-era documentary photography; dangling modifier repair",
-            "rule": "introductory participial phrase must modify the main-clause subject"
+            "anchor": "Grace Hopper — A-0 compiler (1952); dangling modifier repair (https://en.wikipedia.org/wiki/A-0_System; https://www.computinghistory.org.uk/det/5487/Grace-Hopper-completes-the-A-0-Compiler/)",
+            "rule": "introductory participial phrase must modify the noun that follows it"
           }
         },
         {
@@ -1870,7 +1869,7 @@ export const practiceTest3RW = {
           "domain": "expression-of-ideas",
           "skill": "transitions",
           "type": "multiple-choice",
-          "passage": "On the high plain around Lake Titicaca, pre-Columbian farmers built waru waru: raised planting beds separated by water-filled canals. The canal water absorbs heat during the day and releases it through the freezing night, keeping the air above the beds a few degrees warmer than the surrounding plain. ______ crops on the raised beds can survive frosts that kill crops planted on open ground nearby.",
+          "passage": "Most substances are densest as solids, but ice is less dense than liquid water, so it floats. When a lake cools in winter, the ice stays at the surface and shields the water below from the frigid air. ______ most deep lakes in cold regions do not freeze solid, and fish survive the winter in the water beneath the ice.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
@@ -1891,9 +1890,9 @@ export const practiceTest3RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The passage lays out a mechanism — canal water banking daytime heat and releasing it at night — and the blank sentence states that mechanism's payoff: crops on the beds survive frosts that kill neighboring fields. Effect follows cause, so \"As a result\" is the logical connector.\n\n**The Full Solution:**\n- Sentence two explains the physics (a few degrees of nighttime warmth over the beds).\n- Sentence three reports the agricultural consequence of exactly those few degrees.\n\n**Why the other choices are wrong:**\n- B: \"Nevertheless\" would make frost survival happen despite the warming, inverting the causal link the passage establishes.\n- C: \"For instance\" would offer the frost outcome as one example of the warming, but it is the warming's consequence — the passage gives no list of effects to exemplify.\n- D: \"In comparison\" signals a measured likeness between two items; though the sentence mentions nearby fields, its work is to state an outcome of the mechanism, and the comparison is internal to that outcome.",
+          "explanation": "**Choice A is correct.** The last sentence reports the result of the process just described: because floating ice shields the water below from the cold, deep lakes stay liquid underneath and fish survive. \"As a result\" signals that cause-and-effect relationship.\n\n**The Full Solution:**\n- The first two sentences build the cause: ice floats, and a floating layer of ice protects the water beneath it from the cold air.\n- The final sentence states the effect of that protection, so the transition must mark a result.\n\n**Why the other choices are wrong:**\n- B: \"Nevertheless\" signals something that happens despite what came before, but the lakes stay liquid because of the floating ice, not in spite of it.\n- C: \"For instance\" would introduce an example of the previous point, but the sentence describes a consequence of the ice's shielding, not an example of it.\n- D: \"In comparison\" signals a comparison between two things, and no second thing is being compared.",
           "_meta": {
-            "anchor": "Waru waru raised-field frost protection on the Titicaca altiplano — cause-effect transition"
+            "anchor": "Ice ~9% less dense than water floats and insulates lakes; cause-effect transition (https://sciencenotes.org/why-does-ice-float-on-water/; https://www.lakescientist.com/temperature-and-ice/)"
           }
         },
         {
@@ -1903,12 +1902,12 @@ export const practiceTest3RW = {
           "domain": "expression-of-ideas",
           "skill": "transitions",
           "type": "multiple-choice",
-          "passage": "The spring phytoplankton bloom in northern seas was long explained by sunlight: as days lengthen, the surface water warms and settles into layers, holding the cells near the light. Satellite records, however, show some blooms beginning in midwinter, before the surface warms at all. ______ some oceanographers now argue that winter storms set the stage, mixing phytoplankton so deep that the grazers that eat them rarely find them.",
+          "passage": "Many nineteenth-century histories claimed that medieval Europeans believed the Earth was flat. Medieval sources, however, tell a different story. Sacrobosco's thirteenth-century treatise On the Sphere, which describes a round Earth, was required reading at European universities for some four hundred years. ______ historians now regard the medieval flat Earth as a myth invented long after the Middle Ages.",
           "question": "Which choice completes the text with the most logical transition?",
           "choices": [
             {
               "id": "A",
-              "text": "In contrast,"
+              "text": "Nevertheless,"
             },
             {
               "id": "B",
@@ -1924,9 +1923,9 @@ export const practiceTest3RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The final sentence is the response the awkward evidence demands: because satellites show blooms starting before the sunlight mechanism could operate, oceanographers propose a new account. \"Accordingly\" signals a step taken in line with what was just established.\n\n**The Full Solution:**\n- Sentence two undermines the old explanation with winter-start blooms.\n- Sentence three offers a hypothesis engineered to fit that very observation — storms, a winter phenomenon, as the trigger. The new argument follows from the complication, so the transition must mark consequence.\n\n**Why the other choices are wrong:**\n- A: \"In contrast\" would oppose the final sentence to the satellite findings, but the storm hypothesis is motivated by those findings, not set against them.\n- C: \"In the meantime\" implies simultaneous, unrelated developments; the relationship here is evidence-then-response.\n- D: \"Similarly\" claims the storm proposal parallels the satellite records, but one is data and the other is an explanation prompted by the data — sequence, not resemblance.",
+          "explanation": "**Choice B is correct.** The final sentence states the conclusion that the evidence before it supports: because medieval universities taught a round Earth for centuries, historians now treat the flat-Earth belief as a later myth. \"Accordingly\" signals a conclusion that follows from what was just shown.\n\n**The Full Solution:**\n- The first sentence gives the old claim; the next two sentences give evidence against it — a standard textbook describing a round Earth was taught for some four hundred years.\n- The last sentence draws the conclusion that evidence supports, so the transition must mark a logical consequence.\n\n**Why the other choices are wrong:**\n- A: \"Nevertheless\" would signal a conclusion reached in spite of the evidence, but the evidence supports calling the flat-Earth story a myth.\n- C: \"In the meantime\" signals something happening at the same time; the sentence is a conclusion, not a parallel event.\n- D: \"Similarly\" signals a comparable point, but the sentence draws a conclusion from the evidence rather than adding a similar piece of evidence.",
           "_meta": {
-            "anchor": "Winter onset of phytoplankton blooms — storm-dilution hypothesis; consequence transition"
+            "anchor": "Myth of the medieval flat Earth — Sacrobosco's De sphaera (c. 1230) as a university text; myth popularized in the 19th century (https://en.wikipedia.org/wiki/Myth_of_the_flat_Earth; https://en.wikipedia.org/wiki/Inventing_the_Flat_Earth) — consequence transition"
           }
         },
         {
@@ -1955,7 +1954,7 @@ export const practiceTest3RW = {
             },
             {
               "id": "B",
-              "text": "The Green Belt Movement planted trees to counter deforestation, which had dried up Kenyan streams and degraded farmland."
+              "text": "The Green Belt Movement, founded in 1977, planted trees to counter deforestation, which had dried up Kenyan streams and degraded farmland."
             },
             {
               "id": "C",
@@ -2007,7 +2006,7 @@ export const practiceTest3RW = {
             },
             {
               "id": "D",
-              "text": "Although lidar reveals structures beneath the forest, ground crews must still excavate to confirm what the laser images show."
+              "text": "Although lidar reveals structures beneath the forest canopy, ground crews must still excavate each site to confirm what the laser images actually show."
             }
           ],
           "correctAnswer": "C",

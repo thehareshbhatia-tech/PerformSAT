@@ -6,7 +6,7 @@
  "domain": "information-and-ideas",
  "skill": "inferences",
  "module": 1,
- "passage": "The truffle is the fruiting body of an underground fungus that cannot photosynthesize; the fungus sheathes the fine roots of a partner tree and draws its sugars from them, trading mineral nutrients it gathers from the soil. Foresters have long observed that a productive truffle ground goes barren within a few seasons when its oaks are felled or die, even where the ground itself is left entirely undisturbed. Taken together, these observations suggest that ______",
+ "passage": "The truffle is the fruiting body of an underground fungus that cannot photosynthesize. The fungus sheathes the fine roots of a partner tree and draws its sugars from them, trading mineral nutrients it gathers from the soil. Foresters have long observed that a productive truffle ground goes barren within a few seasons when its oaks are felled or die, even where the ground itself is left entirely undisturbed. Taken together, these observations suggest that ______",
  "question": "Which choice most logically completes the text?",
  "choices": [
   {
@@ -15,7 +15,7 @@
   },
   {
    "id": "B",
-   "text": "truffles form only in partnership with a few particular species of oak and cannot establish themselves on the roots of any other kind of tree."
+   "text": "truffles form only with a few particular species of oak and cannot grow on the roots of any other tree."
   },
   {
    "id": "C",

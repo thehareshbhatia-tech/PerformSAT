@@ -1,30 +1,30 @@
 {
- "id": 9,
- "question": "In the $xy$-plane, the graph of $y = g(x)$ is the result of reflecting the graph of $y = f(x)$ across the y-axis and then shifting it down $5$ units. Which equation defines $g$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$g(x) = -f(x) + 5$"
+  "id": 9,
+  "question": "$f(x) = \\dfrac{6}{x - 2}$\nThe function $f$ is defined by the given equation. If $g(x) = f(x + 4) - 1$, which equation defines $g$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$g(x) = \\dfrac{6}{x - 6} - 1$"
+    },
+    {
+      "id": "B",
+      "text": "$g(x) = \\dfrac{6}{x + 2} - 1$"
+    },
+    {
+      "id": "C",
+      "text": "$g(x) = \\dfrac{6}{x + 4} - 1$"
+    },
+    {
+      "id": "D",
+      "text": "$g(x) = \\dfrac{6}{x + 6} - 1$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "substitutes x - 4 for x instead of x + 4, getting (x - 4) - 2 = x - 6",
+    "C": "replaces the whole denominator x - 2 with x + 4 instead of substituting x + 4 for x",
+    "D": "adds 2 instead of subtracting it, getting (x + 4) + 2 = x + 6"
   },
-  {
-   "id": "B",
-   "text": "$g(x) = -f(x) - 5$"
-  },
-  {
-   "id": "C",
-   "text": "$g(x) = f(-x) + 5$"
-  },
-  {
-   "id": "D",
-   "text": "$g(x) = f(-x) - 5$"
-  }
- ],
- "distractorNotes": {
-  "A": "reflects across the x-axis and shifts up instead of down",
-  "B": "reflects across the x-axis instead of the y-axis",
-  "C": "shifts up instead of down"
- },
- "correctAnswer": "D",
- "hint": "Decide whether each change acts on the input or on the output.",
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~25s):** A reflection across the y-axis replaces $x$ with $-x$, and a shift down $5$ subtracts $5$: $g(x) = f(-x) - 5$.\n\n**The Full Solution:**\nStep 1: Reflecting across the y-axis sends each point $(a, b)$ to $(-a, b)$, which gives the graph of $y = f(-x)$.\nStep 2: Shifting down $5$ units subtracts $5$ from every output, which gives $y = f(-x) - 5$.\nStep 3: So $g(x) = f(-x) - 5$. Check: if $(2, 3)$ is on the graph of $f$, then $g(-2) = f(2) - 5 = -2$, so $(-2, -2)$ is on the graph of $g$, the reflected point moved down $5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($g(x) = -f(x) + 5$): reflects across the x-axis and shifts up.\n* Choice B ($g(x) = -f(x) - 5$): reflects across the x-axis; $-f(x)$ negates outputs, not inputs.\n* Choice C ($g(x) = f(-x) + 5$): reflects correctly but shifts up instead of down.\n\n**Test Day Takeaway:** A negative inside, $f(-x)$, reflects across the y-axis; a negative outside, $-f(x)$, reflects across the x-axis."
+  "correctAnswer": "B",
+  "hint": "Replace every $x$ in $f(x)$ with $x + 4$, simplify the denominator, then subtract $1$.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** $f(x + 4) = \\dfrac{6}{(x + 4) - 2} = \\dfrac{6}{x + 2}$, so $g(x) = \\dfrac{6}{x + 2} - 1$.\n\n**The Full Solution:**\nStep 1: Substitute $x + 4$ for $x$ in $f$: $f(x + 4) = \\dfrac{6}{(x + 4) - 2}$.\nStep 2: Simplify the denominator: $(x + 4) - 2 = x + 2$, so $f(x + 4) = \\dfrac{6}{x + 2}$.\nStep 3: Subtract $1$: $g(x) = \\dfrac{6}{x + 2} - 1$. Check: $g(1) = f(5) - 1 = \\dfrac{6}{3} - 1 = 1$, and $\\dfrac{6}{1 + 2} - 1 = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($g(x) = \\dfrac{6}{x - 6} - 1$): substitutes $x - 4$ instead of $x + 4$.\n* Choice C ($g(x) = \\dfrac{6}{x + 4} - 1$): replaces the whole denominator with $x + 4$, losing the $-2$ that is already there.\n* Choice D ($g(x) = \\dfrac{6}{x + 6} - 1$): adds $2$ to $x + 4$ instead of subtracting it.\n\n**Test Day Takeaway:** To find $f(x + h)$, substitute $x + h$ for every $x$ in $f$ and simplify; the constants already in the rule stay."
 }

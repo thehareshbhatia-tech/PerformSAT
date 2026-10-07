@@ -6,26 +6,33 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 2,
- "passage": "An ordinary player-piano roll stored only the notes; loudness and shading were left to the person pumping the pedals. The reproducing piano, introduced in the early twentieth century, went further. Its rolls were made from a particular pianist's playing, and alongside the note slots ran additional perforations encoding that pianist's dynamics and pedaling. Played on a suitably equipped instrument, such a roll restored not just the notes of a performance but its individual character.",
- "question": "According to the text, what allowed a reproducing roll to preserve an individual pianist's performance?",
+ "passage": "One day in September 1991, two hikers high in the Ötztal Alps, near the border between Austria and Italy, saw part of a human body sticking out of glacier ice. Scientists later found that the man had lived more than 5,300 years ago, and a copper axe, leather clothing, and other belongings lay with him. He is the oldest natural human mummy known in Europe. His remains survived for so long because they lay sealed in glacier ice, which kept them frozen and spared them the decay that destroys most remains.",
+ "question": "According to the text, what allowed the man's remains to survive for more than five thousand years?",
  "choices": [
   {
    "id": "A",
-   "text": "The owner of the instrument could adjust the roll's speed while it played."
+   "text": "People living nearby buried the man in a stone tomb high in the mountains."
   },
   {
    "id": "B",
-   "text": "Additional perforations on the roll encoded the pianist's dynamics and pedaling alongside the notes."
+   "text": "Glacier ice sealed the remains and kept them frozen, sparing them from decay."
   },
   {
    "id": "C",
-   "text": "The reproducing instruments used larger bellows that produced stronger suction than ordinary player pianos."
+   "text": "The dry desert air of the region slowly dried out the man's body."
   },
   {
    "id": "D",
-   "text": "Editors corrected the timing of each roll by hand after the pianist's recording session."
+   "text": "The man's leather clothing had been treated with substances that prevent rotting."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The text states it directly: alongside the note slots, reproducing rolls carried additional perforations that encoded the pianist's dynamics and pedaling, and that is what let a roll preserve an individual performance.\n\n**The Full Solution:**\n- The question asks what the text says allowed reproducing rolls to capture a particular pianist's playing.\n- The text contrasts ordinary rolls (notes only, expression left to the person pumping the pedals) with reproducing rolls.\n- The stated difference: extra perforations recording loudness and pedaling — choice B.\n\n**Why the other choices are wrong:**\n- A: The text never mentions adjusting a roll's speed.\n- C: The text does not attribute the capture to larger bellows or stronger suction.\n- D: The text says the rolls were made from a pianist's actual playing, not corrected afterward by editors."
+ "explanation": "**Choice B is correct.** The text explains that the man's remains survived because they lay sealed in glacier ice, which kept them frozen and spared them the decay that destroys most remains.\n\n**The Full Solution:**\n- The text reports that the man lived more than 5,300 years ago.\n- It then gives the cause of his remains' survival: they \"lay sealed in glacier ice, which kept them frozen and spared them the decay that destroys most remains.\"\n- Choice B names that cause.\n\n**Why the other choices are wrong:**\n- A: The text never says anyone buried the man; his body was found in glacier ice.\n- C: The text describes ice high in the Alps, not dry desert air.\n- D: The text mentions leather clothing but says nothing about any treatment that prevents rotting.",
+ "_meta": {
+  "anchor": "Iceman found 1991 in the Otztal Alps glacier (lived >5,300 years ago; Europe oldest natural human mummy) - CID detail: preserved by glacier ice",
+  "sources": [
+   "https://en.wikipedia.org/wiki/%C3%96tzi",
+   "https://www.iceman.it/en/the-iceman/"
+  ]
+ }
 }

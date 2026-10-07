@@ -1,6 +1,6 @@
 {
   "id": 5,
-  "question": "$3x^{2} + 12x + n = 0$\nIn the given equation, $n$ is a positive integer. For how many values of $n$ does the equation have two distinct real solutions?",
+  "question": "$3x^{2} + 12x + n = 0$\nIn the given equation, $n$ is a positive integer. The equation has two distinct real solutions. What is the greatest possible value of $n$?",
   "choices": [
     {
       "id": "A",
@@ -20,11 +20,11 @@
     }
   ],
   "distractorNotes": {
-    "B": "uses b^2 - 4ac >= 0, counting n = 12, where the discriminant is 0 and the equation has only one solution",
-    "C": "leaves a = 3 out of 4ac, solving 144 - 4n > 0 to get n < 36 and counting 35 values",
-    "D": "leaves the 4 out of 4ac, solving 144 - 3n > 0 to get n < 48 and counting 47 values"
+    "B": "uses the boundary value, where the discriminant is 0 and the equation has exactly one solution",
+    "C": "leaves out the leading coefficient 3, solving 144 - 4n > 0",
+    "D": "leaves out the 4 in b^2 - 4ac, solving 144 - 3n > 0"
   },
   "correctAnswer": "A",
-  "hint": "Two distinct real solutions require a positive discriminant; solve for n, then count the positive integers.",
-  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~30s):** Two solutions need $144 - 12n > 0$, so $n < 12$, and the positive integers $1$ through $11$ qualify: $11$ values.\n\n**The Full Solution:**\nStep 1: Write the condition. The equation has two distinct real solutions exactly when $12^{2} - 4(3)(n) > 0$, that is, $144 - 12n > 0$.\nStep 2: Solve the inequality: $12n < 144$, so $n < 12$.\nStep 3: Count the positive integers less than $12$: $1, 2, \\ldots, 11$, which is $11$ values. Check the boundary: at $n = 11$ the discriminant is $144 - 132 = 12 > 0$, and at $n = 12$ it is $0$, which gives only one solution. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($12$): uses $\\ge$ instead of $>$ and counts $n = 12$, where the equation $3(x + 2)^{2} = 0$ has only one solution.\n* Choice C ($35$): leaves $a = 3$ out of $4ac$, solving $144 - 4n > 0$.\n* Choice D ($47$): leaves the $4$ out of $4ac$, solving $144 - 3n > 0$.\n\n**Test Day Takeaway:** Translate \"two distinct real solutions\" into $b^{2} - 4ac > 0$, solve for the parameter, and test the boundary value before you count."
+  "hint": "Two distinct real solutions means the discriminant is positive.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~35s):** The discriminant $144 - 12n$ must be positive, so $n < 12$; the greatest integer value is $11$.\n\n**The Full Solution:**\nStep 1: For $3x^{2} + 12x + n = 0$, the discriminant is $b^{2} - 4ac = 12^{2} - 4(3)(n) = 144 - 12n$.\nStep 2: Two distinct real solutions require $144 - 12n > 0$, so $n < 12$.\nStep 3: The greatest integer less than $12$ is $11$.\n\nCheck: For $n = 11$ the discriminant is $144 - 132 = 12 > 0$; for $n = 12$ it is $0$, which gives only one solution. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($12$): makes the discriminant exactly $0$, which gives one solution, not two.\n* Choice C ($35$): drops the leading coefficient and solves $144 - 4n > 0$.\n* Choice D ($47$): drops the $4$ and solves $144 - 3n > 0$.\n\n**Test Day Takeaway:** Positive discriminant: two solutions; zero: one; negative: none. A strict inequality excludes the boundary value."
 }

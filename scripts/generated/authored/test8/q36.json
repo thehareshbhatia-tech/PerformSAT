@@ -6,26 +6,33 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 2,
- "passage": "A team of biomechanics researchers filmed circus acrobats through hundreds of practice somersaults, tracking each performer from takeoff to landing. The measurements taken at launch, including speed, angle, and initial spin, overlapped almost completely between somersaults that landed cleanly and those that failed. The two groups separated in the air: successful attempts showed the tuck drawn in within a consistent fraction of a second and the body opened out again at a repeatable point in the descent. Landing or falling, the researchers concluded, depends less on takeoff than on the precision of what follows it.",
+ "passage": "African wild dogs were long described as endurance hunters that run prey down over many kilometers. To test that view, researchers fitted dogs in northern Botswana with collars that recorded their position and movement, capturing 1,119 high-speed chases. Most chases were short, with a median distance of about 320 meters, and most did not end in a kill. Yet because the dogs hunted as a pack and shared their kills, the food they gained far outweighed the energy the many short chases cost. Success, the researchers concluded, came less from long pursuits than from frequent, opportunistic group hunting.",
  "question": "Which choice best states the main idea of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "The strength of an acrobat's initial jump is the best predictor of whether a somersault will succeed."
+   "text": "African wild dogs succeed mainly as endurance hunters that run their prey down over many kilometers."
   },
   {
    "id": "B",
-   "text": "Acrobats could avoid most failed landings by adopting training routines that concentrate on strengthening the legs and increasing the height and power of the initial jump."
+   "text": "The wild dogs of northern Botswana hunt alone more often than wild dogs elsewhere in Africa do."
   },
   {
    "id": "C",
-   "text": "Measurements of acrobats' somersaults indicate that success depends less on launch power than on precisely timed control of body position in the air."
+   "text": "Tracking data show that wild dogs succeed through frequent short group chases rather than long pursuits."
   },
   {
    "id": "D",
-   "text": "Circus acrobats complete somersaults with greater rotational speed than competitive divers achieve."
+   "text": "African wild dogs reach higher top speeds during their chases than any other predator living in Botswana."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** Every observation in the text converges on one conclusion, stated at the end: what separates successful somersaults is control of body shape in the air more than the raw power of the jump.\n\n**The Full Solution:**\n- The researchers filmed hundreds of practice somersaults and measured speed, angle, and spin at launch.\n- The key finding: launch measurements of successful and failed attempts overlapped almost completely, while the timing of the tuck and the opening-out did not.\n- The text's main idea is that airborne control, not launch power, distinguishes the successful attempts — choice C.\n\n**Why the other choices are wrong:**\n- A: The text reports that launch measurements barely differed between successful and failed attempts.\n- B: Training methods are never discussed, only measurements of performance.\n- D: The comparison with divers appears nowhere in the text."
+ "explanation": "**Choice C is correct.** The text tests an old view of wild dogs as long-distance hunters and reports tracking data showing that their success comes instead from many short chases made as a pack, the main idea stated in C.\n\n**The Full Solution:**\n- The text opens with the traditional view: wild dogs \"run prey down over many kilometers.\"\n- The collar data contradict it: chases were short (median about 320 meters) and mostly failed, yet group hunting and shared kills made the strategy pay off.\n- The last sentence states the conclusion: success came \"less from long pursuits than from frequent, opportunistic group hunting,\" which choice C restates.\n\n**Why the other choices are wrong:**\n- A: This is the older view that the tracking data challenge.\n- B: The text says the dogs hunted as a pack and never compares them with dogs elsewhere.\n- D: The text gives no comparison of top speeds with other predators.",
+ "_meta": {
+  "anchor": "African wild dog hunting (GPS collars, Botswana, 2016) — CID: success depends less on A than on B",
+  "sources": [
+   "https://pmc.ncbi.nlm.nih.gov/articles/PMC4820543",
+   "https://research.birmingham.ac.uk/en/publications/energy-cost-and-return-for-hunting-in-african-wild-dogs-and-cheet/"
+  ]
+ }
 }

@@ -1,10 +1,10 @@
 {
   "id": 2,
-  "question": "$f(x) = 0.5(x - 40)^{2} + 12$\nWhat is the minimum value of the given function?",
+  "question": "$f(x) = 3(x - 40)^{2} + 12$\nWhat is the minimum value of the given function?",
   "choices": [
     {
       "id": "A",
-      "text": "$0.5$"
+      "text": "$3$"
     },
     {
       "id": "B",
@@ -20,11 +20,11 @@
     }
   ],
   "distractorNotes": {
-    "A": "reports the leading coefficient 0.5, which sets the width of the parabola, not its lowest value",
+    "A": "reports the leading coefficient 3, which sets the width of the parabola, not its lowest value",
     "C": "reports 40, the x-value where the minimum occurs, instead of the minimum value itself",
     "D": "adds the two numbers in the vertex, 40 + 12, as if the minimum were their sum"
   },
   "correctAnswer": "B",
   "hint": "A squared term is never negative, so ask when it is smallest.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~10s):** $0.5(x - 40)^{2}$ is never negative and equals $0$ at $x = 40$, so the least value of $f$ is $0 + 12 = 12$.\n\n**The Full Solution:**\nStep 1: Look at the squared term. $(x - 40)^{2} \\ge 0$ for every $x$, and $0.5$ is positive, so $0.5(x - 40)^{2} \\ge 0$.\nStep 2: The squared term equals $0$ only when $x = 40$, so the smallest possible output is $f(40) = 0.5(0)^{2} + 12 = 12$.\nStep 3: The minimum value is $12$, reached at $x = 40$. Check a nearby input: $f(42) = 0.5(2)^{2} + 12 = 14$, which is larger. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.5$): is the leading coefficient. It controls how wide the parabola is, not how low it goes.\n* Choice C ($40$): is the $x$-coordinate of the vertex, the INPUT where the minimum occurs, not the minimum value.\n* Choice D ($52$): adds the two coordinates of the vertex $(40, 12)$; the value of the function is only the $y$-coordinate.\n\n**Test Day Takeaway:** In $f(x) = a(x - h)^{2} + k$ with $a > 0$, the minimum value is $k$ and it occurs at $x = h$; a question about the VALUE wants $k$."
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~10s):** $3(x - 40)^{2}$ is never negative and equals $0$ at $x = 40$, so the least value of $f$ is $0 + 12 = 12$.\n\n**The Full Solution:**\nStep 1: $(x - 40)^{2} \\ge 0$ for every $x$, and $3$ is positive, so $3(x - 40)^{2} \\ge 0$.\nStep 2: The squared term equals $0$ only when $x = 40$, so the smallest possible output is $f(40) = 3(0)^{2} + 12 = 12$.\nStep 3: The minimum value is $12$, reached at $x = 40$.\n\nCheck: A nearby input gives a larger value: $f(41) = 3(1)^{2} + 12 = 15$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): is the leading coefficient. It controls how wide the parabola is, not how low it goes.\n* Choice C ($40$): is the $x$-coordinate of the vertex, the input where the minimum occurs, not the minimum value.\n* Choice D ($52$): adds the two coordinates of the vertex $(40, 12)$; the value of the function is only the $y$-coordinate.\n\n**Test Day Takeaway:** In $f(x) = a(x - h)^{2} + k$ with $a > 0$, the minimum value is $k$ and it occurs at $x = h$."
 }

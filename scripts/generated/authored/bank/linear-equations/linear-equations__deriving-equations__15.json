@@ -1,21 +1,21 @@
 {
  "id": 15,
- "question": "The table shows three values of $x$ and their corresponding values of $f(x)$, where $f$ is a linear function. What is the x-intercept of the graph of $y = f(x)$ in the $xy$-plane?",
+ "question": "The points in the table lie on the graph of the linear function $f$. In the $xy$-plane, what is the x-intercept of the graph of $y = f(x)$?",
  "diagram": {
   "type": "table",
   "params": {
    "rows": [
     [
-     "−6",
-     20
+     "−3",
+     "−7"
     ],
     [
-     "−2",
-     14
+     3,
+     "−3"
     ],
     [
-     6,
-     2
+     12,
+     3
     ]
    ],
    "xHeader": "x",
@@ -25,27 +25,27 @@
  "choices": [
   {
    "id": "A",
-   "text": "$\\left(-\\frac{22}{3}, 0\\right)$"
+   "text": "$\\left(-\\frac{15}{2}, 0\\right)$"
   },
   {
    "id": "B",
-   "text": "$\\left(\\frac{22}{3}, 0\\right)$"
+   "text": "$(-5, 0)$"
   },
   {
    "id": "C",
-   "text": "$(0, 11)$"
+   "text": "$(0, -5)$"
   },
   {
    "id": "D",
-   "text": "$(11, 0)$"
+   "text": "$\\left(\\frac{15}{2}, 0\\right)$"
   }
  ],
  "distractorNotes": {
-  "A": "solves -1.5x + 11 = 0 with a sign error, getting x = -22/3",
-  "C": "gives the y-intercept instead of the x-intercept",
-  "D": "uses the y-intercept value, 11, as the x-coordinate of the x-intercept"
+  "A": "solves (2/3)x - 5 = 0 with a sign error, getting x = -15/2",
+  "B": "uses the y-intercept value, -5, as the x-coordinate of the x-intercept",
+  "C": "gives the y-intercept instead of the x-intercept"
  },
- "correctAnswer": "B",
+ "correctAnswer": "D",
  "hint": "The values of $x$ are not evenly spaced, so divide each change in $f(x)$ by the matching change in $x$.",
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~45s):** The slope is $\\frac{14 - 20}{-2 - (-6)} = -\\frac{3}{2}$, so $f(x) = -\\frac{3}{2}x + 11$, and $f(x) = 0$ when $x = \\frac{22}{3}$.\n\n**The Full Solution:**\nStep 1: Using $(-6, 20)$ and $(-2, 14)$, the slope is $\\frac{14 - 20}{-2 - (-6)} = \\frac{-6}{4} = -\\frac{3}{2}$.\nStep 2: Substitute $(-2, 14)$ into $f(x) = -\\frac{3}{2}x + b$: $14 = 3 + b$, so $b = 11$ and $f(x) = -\\frac{3}{2}x + 11$.\nStep 3: The $x$-intercept is where $f(x) = 0$: $-\\frac{3}{2}x + 11 = 0$, so $x = \\frac{22}{3}$, and the $x$-intercept is $\\left(\\frac{22}{3}, 0\\right)$. Check: $f(6) = -9 + 11 = 2$, matching the table, and $-\\frac{3}{2}\\left(\\frac{22}{3}\\right) + 11 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\left(-\\frac{22}{3}, 0\\right)$): makes a sign error when solving $-\\frac{3}{2}x + 11 = 0$.\n* Choice C ($(0, 11)$): is the $y$-intercept of the graph, not the $x$-intercept.\n* Choice D ($(11, 0)$): uses the $y$-intercept value, $11$, as the $x$-coordinate of the $x$-intercept.\n\n**Test Day Takeaway:** An $x$-intercept has a $y$-coordinate of $0$. Build the equation from the table, then set $f(x) = 0$ and solve."
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~45s):** The slope is $\\frac{-3 - (-7)}{3 - (-3)} = \\frac{2}{3}$, so $f(x) = \\frac{2}{3}x - 5$, and $f(x) = 0$ when $x = \\frac{15}{2}$.\n\n**The Full Solution:**\nStep 1: Using $(-3, -7)$ and $(3, -3)$, the slope is $\\frac{-3 - (-7)}{3 - (-3)} = \\frac{4}{6} = \\frac{2}{3}$.\nStep 2: Substitute $(3, -3)$ into $f(x) = \\frac{2}{3}x + b$: $-3 = 2 + b$, so $b = -5$ and $f(x) = \\frac{2}{3}x - 5$.\nStep 3: The $x$-intercept is where $f(x) = 0$: $\\frac{2}{3}x - 5 = 0$, so $x = \\frac{15}{2}$, and the $x$-intercept is $\\left(\\frac{15}{2}, 0\\right)$. Check: $f(12) = 8 - 5 = 3$, matching the table, and $\\frac{2}{3}\\left(\\frac{15}{2}\\right) - 5 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\left(-\\frac{15}{2}, 0\\right)$): makes a sign error when solving $\\frac{2}{3}x - 5 = 0$.\n* Choice B ($(-5, 0)$): uses the $y$-intercept value, $-5$, as the $x$-coordinate of the $x$-intercept.\n* Choice C ($(0, -5)$): is the $y$-intercept of the graph, not the $x$-intercept.\n\n**Test Day Takeaway:** An $x$-intercept has a $y$-coordinate of $0$. Build the equation from the table, then set $f(x) = 0$ and solve."
 }

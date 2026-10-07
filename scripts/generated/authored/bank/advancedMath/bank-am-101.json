@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-101",
-  "question": "$\\dfrac{x^{2} + x - 12}{x^{2} - 16}$\nFor which values of $x$ is the given expression undefined?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$x = -4$ and $x = 4$"
-    },
-    {
-      "id": "B",
-      "text": "$x = -4$ and $x = 3$"
-    },
-    {
-      "id": "C",
-      "text": "$x = 4$ only"
-    },
-    {
-      "id": "D",
-      "text": "$x = 3$ and $x = 4$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "uses the zeros of the numerator, (x + 4)(x - 3), instead of the zeros of the denominator",
-    "C": "simplifies to (x - 3)/(x - 4) first and uses only that denominator",
-    "D": "takes 3, a zero of the numerator, as an excluded value"
+ "id": "bank-am-101",
+ "question": "$\\dfrac{x^{2} + x - 12}{x - 3}$\nThe given expression is equivalent to $x + b$ for $x > 3$, where $b$ is a constant. What is the value of $b$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-4$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Rational Expression Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The denominator $x^{2} - 16 = (x - 4)(x + 4)$ is $0$ at $x = 4$ and $x = -4$, so the expression is undefined at both.\n\n**The Full Solution:**\nStep 1: Factor both parts: $x^{2} + x - 12 = (x + 4)(x - 3)$ and $x^{2} - 16 = (x - 4)(x + 4)$.\nStep 2: A fraction is undefined where its denominator is $0$, and $(x - 4)(x + 4) = 0$ at $x = 4$ and $x = -4$.\nStep 3: Cancelling $x + 4$ gives $\\frac{x - 3}{x - 4}$, but that rewrite does not remove the exclusion at $x = -4$ from the given expression. Check: at $x = -4$ the given expression is $\\frac{16 - 4 - 12}{16 - 16} = \\frac{0}{0}$, undefined ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($x = -4$ and $x = 3$): uses the zeros of the numerator, $(x + 4)(x - 3)$, instead of the zeros of the denominator.\n* Choice C ($x = 4$ only): simplifies first and uses only the simplified denominator $x - 4$.\n* Choice D ($x = 3$ and $x = 4$): treats $3$, a zero of the numerator, as an excluded value.\n\n**Test Day Takeaway:** Excluded values come from the denominator you are given, including any factor that later cancels."
+  {
+   "id": "B",
+   "text": "$-3$"
+  },
+  {
+   "id": "C",
+   "text": "$1$"
+  },
+  {
+   "id": "D",
+   "text": "$4$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "factors the numerator as (x - 4)(x + 3), a sign error",
+  "B": "copies the constant term of the denominator",
+  "C": "divides only the first two terms of the numerator by x, getting x + 1"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Rational Expression Simplification**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Factor the numerator: $x^{2} + x - 12 = (x + 4)(x - 3)$. Canceling $x - 3$ leaves $x + 4$, so $b = 4$.\n\n**The Full Solution:**\nStep 1: Find two numbers whose product is $-12$ and whose sum is $1$: $4$ and $-3$. So $x^{2} + x - 12 = (x + 4)(x - 3)$.\nStep 2: For $x > 3$, $x - 3 \\neq 0$, so $\\dfrac{(x + 4)(x - 3)}{x - 3} = x + 4$.\nStep 3: Matching $x + 4$ with $x + b$ gives $b = 4$. Check with $x = 5$: $\\dfrac{25 + 5 - 12}{5 - 3} = \\dfrac{18}{2} = 9$, and $5 + 4 = 9$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): factors the numerator as $(x - 4)(x + 3)$, which multiplies to $x^{2} - x - 12$.\n* Choice B ($-3$): copies the constant term of the denominator.\n* Choice C ($1$): divides only $x^{2}$ and $x$ by $x$, getting $x + 1$, and ignores the $-12$.\n\n**Test Day Takeaway:** To simplify a rational expression, factor the numerator completely and cancel the factor it shares with the denominator."
 }

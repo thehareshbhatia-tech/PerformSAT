@@ -6,26 +6,26 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 1,
- "passage": "A cast net is thrown by hand, and a good throw looks effortless. Observations of practiced net fishers show that the net's wide, circular spread does not come from the strength of the arm alone but ____ from the whole body, as a coiled rotation of the hips and shoulders releases the weighted mesh in one smooth, spinning arc.",
+ "passage": "Many people assume that summer comes when Earth is closest to the Sun. In fact, Earth is closest to the Sun in early January, during winter in the Northern Hemisphere. Earth's seasons do not come from changes in its distance from the Sun but ____ instead from the tilt of its axis. That tilt turns each hemisphere toward the Sun for part of every year.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
    "id": "A",
-   "text": "derives"
+   "text": "derive"
   },
   {
    "id": "B",
-   "text": "recovers"
+   "text": "recover"
   },
   {
    "id": "C",
-   "text": "departs"
+   "text": "depart"
   },
   {
    "id": "D",
-   "text": "benefits"
+   "text": "differ"
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The sentence contrasts two possible sources of the throw's power: not \"from the strength of the arm alone but ____ from the whole body.\" The blank must name where the spread truly comes from, and \"derives\" means to come from a source.\n\n**The Full Solution:**\n- The word \"but\" sets up a contrast between two origins for the net's spread — arm strength versus the whole body.\n- The clause after the blank explains the true origin: \"a coiled rotation of the hips and shoulders releases the weighted mesh.\"\n- So the blank needs a verb meaning to originate or come from, which is \"derives.\"\n\n**Why the other choices are wrong:**\n- B: \"Recovers\" means to get something back, but nothing here was lost.\n- C: \"Departs\" means to leave, which reverses the idea of the spread coming from the body.\n- D: \"Benefits\" would make the body merely a help to the throw, but the sentence names the body as the source of the spread, not an aid to it."
+ "explanation": "**Choice A is correct.** The sentence contrasts two possible sources of the seasons: they \"do not come from changes in its distance from the Sun\" but come instead from the tilt of Earth's axis. \"Derive from\" means \"come from,\" so it completes the contrast precisely.\n\n**The Full Solution:**\n- The first half of the contrast rules out one source: the seasons \"do not come from changes in its distance from the Sun.\"\n- The second half must name the real source with a verb that pairs with \"from\": \"the tilt of its axis.\"\n- \"Derive instead from the tilt of its axis\" means the seasons have their origin in the tilt, matching the final sentence's point that the tilt turns each hemisphere toward the Sun.\n\n**Why the other choices are wrong:**\n- B: To \"recover from\" something is to get better after it, which makes no sense for seasons and Earth's tilt.\n- C: To \"depart from\" something is to move away from it, the opposite of the idea that the seasons come from the tilt.\n- D: To \"differ from\" something is to be unlike it; the text is explaining where the seasons come from, not comparing the seasons with the tilt."
 }

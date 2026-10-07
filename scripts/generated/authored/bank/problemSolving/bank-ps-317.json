@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-317",
-  "question": "Data set V: $64$, $64$, $64$, $64$, $64$, $64$\nData set W: $58$, $58$, $64$, $64$, $70$, $70$\nWhich of the following correctly compares data sets V and W?",
+  "question": "Data set V: $64$, $64$, $64$, $64$\nData set W: $59$, $62$, $66$, $69$\nWhich of the following correctly compares data sets V and W?",
   "choices": [
     {
       "id": "A",
@@ -20,10 +20,10 @@
     }
   ],
   "distractorNotes": {
-    "A": "matches the means correctly but assumes equal means force equal spread",
-    "C": "reverses which measure differs: the means are equal, and only W has any spread",
-    "D": "sees the larger values 70 in W and assumes its mean is greater, missing the balancing 58s"
+    "A": "matches the means but overlooks that W varies while V does not",
+    "C": "reverses which measure differs",
+    "D": "thinks the spread in W raises its mean"
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Standard Deviation Comparison**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** W's values balance around $64$, so both means are $64$; every value in V equals $64$, so V has no spread, and W has the greater standard deviation.\n\n**The Full Solution:**\nStep 1: The mean of V is $64$, since every value is $64$. The mean of W is $\\frac{2(58) + 2(64) + 2(70)}{6} = \\frac{384}{6} = 64$.\nStep 2: Every value in V equals the mean, so the standard deviation of V is $0$. Four of the values in W are $6$ away from the mean, so the standard deviation of W is greater than $0$.\nStep 3: So the means are equal and W has the greater standard deviation. Check: the range of V is $0$ and the range of W is $12$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: the means are equal, but equal means do not force equal spread.\n* Choice C: reverses which measure differs.\n* Choice D: the $58$s balance the $70$s, so the mean of W is $64$, the same as V.\n\n**Test Day Takeaway:** A data set whose values are all equal has a standard deviation of $0$. Check the center and the spread separately; one can match while the other does not."
+  "explanation": "**SAT Pattern: Standard Deviation Comparison**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Both means are $64$; V has no spread at all, while W's values are spread around $64$, so W has the greater standard deviation.\n\n**The Full Solution:**\nStep 1: Mean of V: every value is $64$, so the mean is $64$. Mean of W: $\\frac{59 + 62 + 66 + 69}{4} = \\frac{256}{4} = 64$.\nStep 2: Every value in V equals the mean, so the standard deviation of V is $0$. The values in W are $5$, $2$, $2$ and $5$ away from the mean, so its standard deviation is greater than $0$.\nStep 3: The data sets have the same mean, and W has the greater standard deviation. Check: W is symmetric around $64$ ($59$ and $69$, $62$ and $66$), which confirms the mean of $64$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: the means are equal, but a data set whose values are all equal has a standard deviation of $0$, while W does not.\n* Choice C: the means are the same; it is the spread that differs.\n* Choice D: W's values are balanced around $64$, so spreading them out does not change the mean.\n\n**Test Day Takeaway:** Standard deviation measures how far the values are from the mean. A data set with every value equal has a standard deviation of $0$."
 }

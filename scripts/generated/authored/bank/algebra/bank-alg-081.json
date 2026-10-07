@@ -1,39 +1,50 @@
 {
   "id": "bank-alg-081",
-  "question": "The graph of the function $f$, shown in the $xy$-plane, is a translation of the graph of $y = |x|$. Which equation defines $f$?",
+  "question": "The graph of the function $f$, shown in the $xy$-plane, is a translation of the graph of $y = x^{2}$. Which equation defines $f$?",
   "diagram": {
-    "type": "absoluteValue",
+    "type": "quadraticVertex",
     "params": {
       "vertex": [
         3,
         0
       ],
-      "slope": 1
+      "a": 1,
+      "showPoints": [
+        [
+          1,
+          4
+        ],
+        [
+          5,
+          4
+        ]
+      ],
+      "showVertex": true
     }
   },
   "choices": [
     {
       "id": "A",
-      "text": "$f(x) = |x| - 3$"
+      "text": "$f(x) = x^{2} - 3$"
     },
     {
       "id": "B",
-      "text": "$f(x) = |x| + 3$"
+      "text": "$f(x) = x^{2} + 3$"
     },
     {
       "id": "C",
-      "text": "$f(x) = |x - 3|$"
+      "text": "$f(x) = (x - 3)^{2}$"
     },
     {
       "id": "D",
-      "text": "$f(x) = |x + 3|$"
+      "text": "$f(x) = (x + 3)^{2}$"
     }
   ],
   "distractorNotes": {
     "A": "treats the shift as vertical and moves the graph down 3",
     "B": "treats the shift as vertical and moves the graph up 3",
-    "D": "uses + 3 inside the absolute value, which shifts the graph left"
+    "D": "uses + 3 inside the parentheses, which shifts the graph left"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Horizontal Shift**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The vertex moved from $(0, 0)$ to $(3, 0)$, a shift of $3$ units right, so $f(x) = |x - 3|$.\n\n**The Full Solution:**\nStep 1: The graph of $y = |x|$ has its vertex at $(0, 0)$. The graph shown has its vertex at $(3, 0)$ and the same V shape.\nStep 2: Moving a graph $3$ units right replaces $x$ with $x - 3$.\nStep 3: So $f(x) = |x - 3|$. Check: $f(3) = |0| = 0$, matching the vertex, and $f(5) = 2$, matching the slope of $1$ on the right arm ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($|x| - 3$): moves the graph down $3$, putting the vertex at $(0, -3)$.\n* Choice B ($|x| + 3$): moves the graph up $3$, putting the vertex at $(0, 3)$.\n* Choice D ($|x + 3|$): uses the wrong sign inside; this vertex is at $(-3, 0)$.\n\n**Test Day Takeaway:** A shift right by $h$ is $f(x - h)$: the sign inside is the opposite of the direction you might guess. Check the vertex by substituting it."
+  "explanation": "**SAT Pattern: Horizontal Shift**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The vertex moved from $(0, 0)$ to $(3, 0)$, a shift of $3$ units right, so $f(x) = (x - 3)^{2}$.\n\n**The Full Solution:**\nStep 1: The graph of $y = x^{2}$ has its vertex at $(0, 0)$. The graph shown has its vertex at $(3, 0)$ and the same shape.\nStep 2: Moving a graph $3$ units right replaces $x$ with $x - 3$.\nStep 3: So $f(x) = (x - 3)^{2}$. Check: $f(3) = 0$, matching the vertex, and $f(5) = 2^{2} = 4$, matching the point $(5, 4)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{2} - 3$): moves the graph down $3$, putting the vertex at $(0, -3)$.\n* Choice B ($x^{2} + 3$): moves the graph up $3$, putting the vertex at $(0, 3)$.\n* Choice D ($(x + 3)^{2}$): uses the wrong sign inside; this vertex is at $(-3, 0)$.\n\n**Test Day Takeaway:** A shift right by $h$ is $f(x - h)$: the sign inside is the opposite of the direction you might guess. Check the vertex by substituting it."
 }

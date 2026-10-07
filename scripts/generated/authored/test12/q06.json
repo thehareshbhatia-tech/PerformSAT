@@ -6,26 +6,26 @@
  "domain": "craft-and-structure",
  "skill": "text-structure-and-purpose",
  "module": 1,
- "passage": "Many maps printed in Europe in the sixteenth and seventeenth centuries survive in both plain and hand-colored copies, and the colored ones raise a question catalogers cannot avoid: when was the color applied? Some scholars treat the coloring on such a map as original, pointing to publishers' workshops that employed professional colorists and advertised colored copies at higher prices. Others caution that color was added to many plain copies in the nineteenth century, when dealers found that tinted maps sold better, so a map's color may be centuries younger than its paper. The disagreement has proved productive: it has pushed catalogers to describe a map's printing and its coloring as separate events, each needing its own evidence and its own date.",
+ "passage": "Many of the smaller stones at Stonehenge, known as bluestones, are not native to the area. Most are believed to have come from the Preseli Hills of Wales, more than 200 kilometers away, which raises a question: how did stones weighing two tons or more each reach Salisbury Plain? Many archaeologists argue that people moved them. Some geologists counter that a glacier carried the stones most of the way during an ice age. The dispute has proved productive. In testing each side's claims, researchers have matched the makeup of particular stones to particular rock outcrops in the Preseli Hills.",
  "question": "Which choice best describes the overall structure of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "It defends the practice of coloring printed maps against modern critics, then concludes that the origin of any particular map's color can now be established with confidence."
+   "text": "It defends one side of a long dispute, then concludes that the origin of every stone has now been settled."
   },
   {
    "id": "B",
-   "text": "It traces the training that professional map colorists received in publishers' workshops, then ranks the pigments they used according to how well each has survived."
+   "text": "It describes how the stones were shaped, then ranks the tools that were used according to how well each worked."
   },
   {
    "id": "C",
-   "text": "It poses a question raised by a class of surviving objects, presents two competing answers, and then describes a productive effect the disagreement has had on cataloging."
+   "text": "It poses a question about some objects, presents two competing answers, and notes a productive effect of the dispute."
   },
   {
    "id": "D",
-   "text": "It describes a dispute between two collectors over the age of a single celebrated map, then explains in detail how scientific analysis of the paper and pigments finally resolved that dispute."
+   "text": "It describes a dispute between two researchers over a single stone, then explains how one laboratory test finally resolved it."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The passage opens with the catalogers' question (when was the color applied?), lays out the two scholarly answers (original workshop coloring versus nineteenth-century additions), and closes with what the disagreement accomplished — printing and coloring are now dated separately.\n\n**The Full Solution:**\n- First move: a question raised by a whole class of objects — colored copies of early printed maps.\n- Second move: two competing answers, each with its evidence — publishers' colorists and price lists on one side, dealers' later tinting on the other.\n- Third move: the payoff — the dispute \"has proved productive,\" pushing catalogers to treat printing and coloring as separate events with separate dates. That question-answers-effect sequence is exactly choice C.\n\n**Why the other choices are wrong:**\n- A: The passage takes no side and never claims a color's origin can now be established with confidence — it says each case needs its own evidence.\n- B: It invents a ranking of pigments by survival that appears nowhere in the text.\n- D: The disagreement is between groups of scholars over a whole category of maps, not two collectors over one map, and nothing in the passage says the dispute was resolved."
+ "explanation": "**Choice C is correct.** The text asks how the bluestones reached Salisbury Plain, gives two competing answers (people moved them; a glacier carried them), and ends by noting that the dispute \"has proved productive,\" since testing the claims has tied particular stones to particular outcrops.\n\n**The Full Solution:**\n- The question: stones from the Preseli Hills, \"more than 200 kilometers away,\" somehow reached Stonehenge, so \"how did [they] reach Salisbury Plain?\"\n- The two answers: \"archaeologists argue that people moved them,\" while \"some geologists counter that a glacier carried the stones.\"\n- The productive effect: researchers \"have matched the makeup of particular stones to particular rock outcrops in the Preseli Hills.\"\n\n**Why the other choices are wrong:**\n- A: The text takes no side and never says the dispute, or the origin of every stone, has been settled.\n- B: The text never discusses shaping the stones or the tools used to do it.\n- D: The dispute involves two broad groups of researchers and many stones, not two individuals and a single stone, and the text describes no single test that settled it."
 }

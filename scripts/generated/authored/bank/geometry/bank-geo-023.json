@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-023",
- "question": "A circle has a diameter of $20$ centimeters. A sector of the circle has a central angle of $72°$. What is the area, in square centimeters, of the sector?",
+ "question": "A circle has a radius of $9$ centimeters. Points $A$ and $B$ lie on the circle, and the length of arc $AB$ is $3\\pi$ centimeters. What is the measure, in degrees, of arc $AB$?",
  "choices": [
   {
    "id": "A",
-   "text": "$4\\pi$"
+   "text": "$30$"
   },
   {
    "id": "B",
-   "text": "$20\\pi$"
+   "text": "$60$"
   },
   {
    "id": "C",
-   "text": "$80\\pi$"
+   "text": "$120$"
   },
   {
    "id": "D",
-   "text": "$100\\pi$"
+   "text": "$300$"
   }
  ],
  "distractorNotes": {
-  "A": "computes the arc length, (72/360)(2 pi)(10) = 4 pi, instead of the area",
-  "C": "uses the diameter 20 as the radius, (72/360) pi (20^2) = 80 pi",
-  "D": "gives the area of the whole circle and never applies the fraction 72/360"
+  "A": "uses 18 as the radius, so the circumference becomes 36 pi and the arc 1/12 of the circle",
+  "C": "uses pi r = 9 pi as the circumference, so the arc becomes 1/3 of the circle",
+  "D": "gives the measure of the rest of the circle, 360 - 60"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Sector Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The radius is $10$, so the circle's area is $100\\pi$, and a $72°$ sector is $\\frac{72}{360} = \\frac{1}{5}$ of it: $20\\pi$.\n\n**The Full Solution:**\nStep 1: The radius is half the diameter, $r = 10$, so the whole circle has area $\\pi(10)^{2} = 100\\pi$.\nStep 2: The sector's central angle is $72°$, so the sector is $\\frac{72}{360} = \\frac{1}{5}$ of the circle.\nStep 3: The sector's area is $\\frac{1}{5}(100\\pi) = 20\\pi$ square centimeters. Check: five such sectors have central angles totaling $5(72°) = 360°$ and areas totaling $5(20\\pi) = 100\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4\\pi$): takes $\\frac{1}{5}$ of the circumference $20\\pi$, which gives the arc length, not the area.\n* Choice C ($80\\pi$): uses the diameter $20$ as the radius, taking $\\frac{1}{5}$ of $400\\pi$.\n* Choice D ($100\\pi$): finds the area of the whole circle but never applies the fraction $\\frac{72}{360}$.\n\n**Test Day Takeaway:** A sector's area is its central angle's share of $360°$ times $\\pi r^{2}$; halve a diameter before you square it."
+ "explanation": "**SAT Pattern: Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The circumference is $18\\pi$, and $3\\pi$ is $\\frac{1}{6}$ of it, so the arc measures $\\frac{1}{6}(360°) = 60°$.\n\n**The Full Solution:**\nStep 1: The circumference is $2\\pi(9) = 18\\pi$ centimeters.\nStep 2: Arc $AB$ is $\\frac{3\\pi}{18\\pi} = \\frac{1}{6}$ of the circle.\nStep 3: So the arc measures $\\frac{1}{6}(360) = 60$ degrees. Check: $\\frac{60}{360}(18\\pi) = 3\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($30$): doubles the radius to $18$, which makes the arc look like only $\\frac{1}{12}$ of the circle.\n* Choice C ($120$): uses $\\pi r = 9\\pi$ for the circumference, which makes the arc look like $\\frac{1}{3}$ of the circle.\n* Choice D ($300$): gives the measure of the other arc, $360 - 60 = 300$.\n\n**Test Day Takeaway:** An arc is the same fraction of the circumference as its measure is of $360°$."
 }

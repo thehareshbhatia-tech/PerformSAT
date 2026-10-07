@@ -9,34 +9,40 @@
   "studentNotes": {
     "intro": "While researching a topic, a student has taken the following notes:",
     "bullets": [
-      "A seabird monitoring program has counted breeding pairs in the same cliff plots every summer since the late 1950s.",
-      "Counts follow a written protocol fixing the date range, time of day, and plot boundaries used each year.",
-      "Because the method has never changed, differences between years reflect changes in the birds themselves.",
-      "The series now spans more than sixty years, longer than most instrument records of ocean conditions in the region.",
-      "Ecologists have used the series to link breeding numbers to shifts in the fish populations that seabirds depend on."
+      "Lake Suwa is a lake in the mountains of central Japan.",
+      "Since 1443, priests at a local Shinto shrine have recorded the date each winter when the lake freezes over.",
+      "The priests have recorded the same event at the same lake in nearly every year.",
+      "The record spans more than 570 years, far longer than modern weather records.",
+      "Scientists have used the record to show that the lake now freezes later, and fails to freeze more often, than before the Industrial Revolution."
     ],
-    "goal": "The student wants to emphasize the scientific value of the census's long, unbroken record."
+    "goal": "The student wants to emphasize the scientific value of the lake's long record."
   },
   "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
   "choices": [
     {
       "id": "A",
-      "text": "A seabird monitoring program has counted breeding pairs in the same cliff plots every summer since the late 1950s, following a fixed written protocol."
+      "text": "Since 1443, priests at a local Shinto shrine have recorded the date each winter when Lake Suwa, in the mountains of central Japan, freezes over."
     },
     {
       "id": "B",
-      "text": "Ecologists who use the census data are interested primarily in the populations of the small fish that cliff-nesting seabirds depend on for food."
+      "text": "Scientists who study climate are interested mainly in records of lakes in the mountains of central Japan."
     },
     {
       "id": "C",
-      "text": "Unchanged for over sixty years, the census records true trends in the birds, over a span long enough to link breeding numbers to shifts in fish."
+      "text": "Recorded the same way for over 570 years, the lake's freeze dates now show scientists that it freezes later and less often."
     },
     {
       "id": "D",
-      "text": "A written protocol fixes the date range, the time of day, and the plot boundaries to be used in each year's counts of breeding seabirds."
+      "text": "Lake Suwa, a lake in the mountains of central Japan, has frozen over in many winters since the fifteenth century."
     }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The value to be emphasized has two ingredients — length and unbrokenness — and C converts both into scientific payoff: trends that reflect the birds rather than the method, and a span long enough to reveal links to fish populations.\n\n**The Full Solution:**\n- \"Unchanged for over sixty years\" compresses the notes on constancy and duration.\n- \"Records true trends in the birds\" states why constancy matters scientifically.\n- The closing clause shows the record in use — the demonstrated payoff that makes the case for its value.\n\n**Why the other choices are wrong:**\n- A: It reports the counting arrangement without a word about why the record is scientifically valuable.\n- B: It drops the census entirely, mentioning only the fish.\n- D: The protocol detail alone establishes procedure, not the significance of six decades of consistent data.",
-  "_meta": {}
+  "explanation": "**Choice C is correct.** The goal is to emphasize the record's scientific value. Choice C combines the record's consistency (\"recorded the same way\"), its great length (over 570 years), and what scientists learned from it (the lake now freezes later and less often).\n\n**The Full Solution:**\n- Scientific value comes from three notes together: the same event recorded nearly every year, a span of more than 570 years, and the scientists' use of the record.\n- Choice C uses all three in one sentence.\n- It also states what the record revealed, which is what makes it valuable to science.\n\n**Why the other choices are wrong:**\n- A: It describes how the record began but not why it matters to scientists.\n- B: It makes a claim about climate scientists that the notes do not support and never mentions what the record shows.\n- D: It describes the lake, not the record or its scientific use.",
+  "_meta": {
+    "anchor": "Lake Suwa freeze records since 1443 (Sharma et al. 2016, Scientific Reports) — RS emphasize scientific value",
+    "sources": [
+      "https://www.smithsonianmag.com/smart-news/japanese-priests-collected-almost-seven-centuries-climate-data-180958929/",
+      "https://deenr.rutgers.edu/Batt_nature_paper_2016.html"
+    ]
+  }
 }

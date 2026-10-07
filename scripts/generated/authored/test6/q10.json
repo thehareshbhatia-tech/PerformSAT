@@ -6,26 +6,33 @@
   "band": 3,
   "domain": "information-and-ideas",
   "skill": "central-ideas-and-details",
-  "passage": "The cuttlefish is a master of disguise despite being colorblind. Its skin is packed with pigment-filled sacs called chromatophores, each ringed by muscles that stretch the sac into a visible dot of color or let it shrink to near invisibility; beneath these lie reflective cells that return ambient light. To break up its outline on rough surfaces, the animal can also raise small bumps called papillae, changing the texture of its skin from smooth to spiky in less than a second.",
-  "question": "According to the text, how does a cuttlefish change the texture of its skin?",
+  "passage": "The pufferfish is a slow swimmer, yet it is well defended against predators. When threatened, it sucks water into its highly elastic stomach, swelling to three or four times its usual size. Spines on its skin stick out as its body expands, and they also reinforce the stretched skin. Many species carry a powerful poison called tetrodotoxin, concentrated in the liver, ovaries, skin, and intestines. Inflating is costly, however: a swollen fish swims with difficulty and needs hours to recover.",
+  "question": "According to the text, how does a pufferfish make its body larger?",
   "choices": [
     {
       "id": "A",
-      "text": "It raises small bumps called papillae on the skin's surface."
+      "text": "It sucks water into its highly elastic stomach."
     },
     {
       "id": "B",
-      "text": "It contracts the muscles that ring each of its chromatophores."
+      "text": "It releases a poison stored in its liver and skin."
     },
     {
       "id": "C",
-      "text": "It releases pigment from sacs distributed across its skin."
+      "text": "It flattens its spines against its stretched skin."
     },
     {
       "id": "D",
-      "text": "It angles its reflective cells to return more ambient light."
+      "text": "It swims rapidly to draw air into its body."
     }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** The text ties texture change to one mechanism: the animal \"can also raise small bumps called papillae, changing the texture of its skin from smooth to spiky.\"\n\n**The Full Solution:**\n- The question asks specifically about texture, so the answer must come from the sentence about the skin's surface shape.\n- That sentence names the papillae as the feature raised to turn smooth skin spiky — choice A restates it directly.\n\n**Why the other choices are wrong:**\n- B: The chromatophore muscles control dots of color, not surface texture.\n- C: The pigment sacs are stretched or shrunk to show color; the text never says pigment is released, and color is not texture.\n- D: The reflective cells return ambient light; the text attributes no texture role to them and never mentions angling."
+  "explanation": "**Choice A is correct.** The text ties the change in size to one mechanism: when threatened, the fish \"sucks water into its highly elastic stomach, swelling to three or four times its usual size.\"\n\n**The Full Solution:**\n- The question asks specifically about growing larger, so the answer must come from the sentence about swelling.\n- That sentence names water drawn into the elastic stomach as the cause of the swelling; choice A restates it directly.\n\n**Why the other choices are wrong:**\n- B: The poison is stored in the fish's organs and skin; the text never says it is released, and poison has nothing to do with size.\n- C: The spines stick out as the body expands, the opposite of lying flat, and the text gives them no role in the swelling itself.\n- D: The text says the fish is a slow swimmer that takes in water, not air, and that swimming becomes harder once it is swollen.",
+  "_meta": {
+    "anchor": "pufferfish defenses: inflation by sucking water into an elastic stomach, spines, tetrodotoxin, cost of inflating",
+    "sources": [
+      "https://www.nhm.ac.uk/discover/pufferfish-underwater-balloon-of-death.html",
+      "https://en.wikipedia.org/wiki/Tetraodontidae"
+    ]
+  }
 }

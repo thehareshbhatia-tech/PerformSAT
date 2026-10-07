@@ -8,52 +8,56 @@
  "choices": [
   {
    "id": "A",
-   "text": "32 percent of Bell System telephones were on dial service by 1930."
+   "text": "3.6 percent of all US farms reported having tractors in the 1920 census."
   },
   {
    "id": "B",
-   "text": "the share of Bell System telephones on dial service rose from 32 percent in 1930 to 60 percent in 1940, nearly doubling in a single decade."
+   "text": "the share of farms reporting tractors rose from 23.1 percent in 1940 to 46.9 percent in 1950, more than doubling in ten years."
   },
   {
    "id": "C",
-   "text": "by 1978, every telephone in the Bell System was on dial service."
+   "text": "by the time of the 1954 census, about 60 percent of US farms reported tractors."
   },
   {
    "id": "D",
-   "text": "only 60 percent of Bell System telephones were on dial service by 1940, and the conversion was not complete until 1978."
+   "text": "only about 23 percent of US farms reported tractors in 1940, and the share did not pass half until the 1950s."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** \"Gradual rather than abrupt\" is a claim about the whole timeline, and D reads the whole table: two decades after dial adoption began, only 60 percent of telephones had been converted, and the last were not converted until 1978.\n\n**The Full Solution:**\n- The conclusion needs evidence that the changeover stretched over a long span, with manual service persisting alongside dial.\n- The table shows 60 percent on dial in 1940 — so 40 percent still manual — and 100 percent only in 1978, nearly six decades after the late-1910s start the passage mentions.\n- D cites both facts, tracking the conclusion exactly.\n\n**Why the other choices are wrong:**\n- A: A snapshot of 1930 shows where the conversion stood at one moment, not how long it took.\n- B: A near-doubling in a single decade stresses the speed of the change, which cuts against the claim that it was gradual.\n- C: The completion date alone says nothing about how much of the network remained manual along the way.",
- "passage": "The switch from manual to dial telephone service did not happen at a stroke. Economists studying the Bell System, which began adopting dial switching in the late 1910s, emphasize that each exchange required years of preparation and that manual service remained part of daily life long after the first dial offices opened. They conclude that the conversion was gradual rather than abrupt because ______",
+ "explanation": "**Choice D is correct.** The claim is that the tractor spread across American farms gradually. D shows that two decades after 1920, only about 23 percent of farms had tractors, and that a majority was not reached until the 1950s — a slow, drawn-out change.\n\n**The Full Solution:**\n- \"Gradual\" means the change took a long time to complete.\n- The table shows the share of farms with tractors climbing over more than thirty years: 3.6 percent in 1920, 23.1 percent in 1940, 46.9 percent in 1950, and 60.1 percent in 1954.\n- D cites both the still-small share in 1940 and the late date at which the share passed half, which together show the slow pace.\n\n**Why the other choices are wrong:**\n- A: A single starting figure says nothing about how fast the share changed.\n- B: Stressing that the share was \"more than doubling\" in ten years emphasizes rapid change, which works against the claim.\n- C: Reporting only the endpoint shows that a majority was reached but not how long it took.",
+ "passage": "Gasoline tractors were on sale to American farmers by the 1910s, but many farm families kept working their fields with horses and mules for decades. Horses ran on oats and hay that farmers could grow themselves, while tractors needed purchased fuel and repairs. The tractor's spread across the nation's farms was gradual rather than sudden, a claim supported by census figures showing that ______",
  "questionTable": {
   "type": "table",
-  "caption": "Share of Bell System telephones on dial service, selected years",
+  "caption": "Share of US farms reporting tractors, selected census years",
   "headers": [
    "Year",
-   "Share of telephones on dial service"
+   "Share of farms reporting tractors"
   ],
   "rows": [
    [
-    "1930",
-    "32%"
+    "1920",
+    "3.6%"
    ],
    [
     "1940",
-    "60%"
+    "23.1%"
    ],
    [
-    "1978",
-    "100%"
+    "1950",
+    "46.9%"
+   ],
+   [
+    "1954",
+    "60.1%"
    ]
   ]
  },
  "_meta": {
-  "anchor": "telephone switchboard operators — Bell System dial conversion timeline (Feigenbaum & Gross, NBER w28061: 32% of Bell telephones on dial by 1930, 60% by 1940, entire network by 1978)",
+  "anchor": "share of US farms reporting tractors 1920-1954 — gradual adoption: still 23% in 1940, past half only in the 1950s (USDA/Census of Agriculture 1954, Farm Facilities and Farm Equipment, Table 2: 3.6/13.5/23.1/34.2/46.9/60.1 for 1920/1930/1940/1945/1950/1954; 1954 Graphic Summary on horses fed with farm-grown oats and hay; Olmstead & Rhode NBER w7947)",
   "distractors": {
-   "A": "single-year snapshot",
-   "B": "speed of change, not gradualness",
-   "C": "endpoint without the span"
+   "A": "single value, no pace",
+   "B": "stresses speed, against claim",
+   "C": "endpoint only"
   }
  },
  "id": 1140,

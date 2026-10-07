@@ -1,18 +1,18 @@
 {
   "id": 5,
-  "question": "For the function $f$, $f(4) = 12$. The function $g$ is defined by $g(x) = f(2x - 6) + 1$. Which of the following must be true?",
+  "question": "For the function $f$, $f(4) = 12$. The function $g$ is defined by $g(x) = f(x - 6) - 1$. Which of the following must be true?",
   "choices": [
     {
       "id": "A",
-      "text": "$g(-1) = 13$"
+      "text": "$g(-2) = 11$"
     },
     {
       "id": "B",
-      "text": "$g(5) = 12$"
+      "text": "$g(-2) = 13$"
     },
     {
       "id": "C",
-      "text": "$g(5) = 13$"
+      "text": "$g(10) = 11$"
     },
     {
       "id": "D",
@@ -20,11 +20,11 @@
     }
   ],
   "distractorNotes": {
-    "A": "solves 2x - 6 = 4 by subtracting 6 instead of adding it",
-    "B": "finds the correct input but drops the +1",
-    "D": "adds 6 to 4 but forgets to divide by 2"
+    "A": "uses x = 4 - 6, shifting the input the wrong way",
+    "B": "shifts the input the wrong way and adds 1 instead of subtracting it",
+    "D": "uses the right input but adds 1 instead of subtracting it"
   },
   "correctAnswer": "C",
-  "hint": "Find the value of $x$ that makes $2x - 6 = 4$.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** $2x - 6 = 4$ when $x = 5$, so $g(5) = f(4) + 1 = 13$.\n\n**The Full Solution:**\nStep 1: The only value of $f$ that is known is $f(4) = 12$, so find the $x$ that sends $4$ into $f$: $2x - 6 = 4$.\nStep 2: $2x = 10$, so $x = 5$.\nStep 3: $g(5) = f(2(5) - 6) + 1 = f(4) + 1 = 12 + 1 = 13$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($g(-1) = 13$): this solves $2x - 6 = 4$ as $2x = -2$; the $6$ must be added to both sides.\n* Choice B ($g(5) = 12$): the input is right, but the $+1$ outside $f$ raises the output to $13$.\n* Choice D ($g(10) = 13$): this stops at $2x = 10$ and forgets to divide by $2$.\n\n**Test Day Takeaway:** To use a known value $f(a)$, set the whole inside expression equal to $a$ and solve for $x$."
+  "hint": "Find the value of $x$ that makes $x - 6 = 4$.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** $g$ uses $f(4)$ when $x - 6 = 4$, so $x = 10$, and $g(10) = 12 - 1 = 11$.\n\n**The Full Solution:**\nStep 1: The only known value of $f$ is $f(4) = 12$, so the input to $f$ must be $4$: $x - 6 = 4$, which gives $x = 10$.\nStep 2: Substitute $x = 10$: $g(10) = f(10 - 6) - 1 = f(4) - 1$.\nStep 3: So $g(10) = 12 - 1 = 11$. Check: $g(-2) = f(-8) - 1$, and $f(-8)$ is not given, so choices A and B need not be true ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($g(-2) = 11$): this uses $x = 4 - 6 = -2$; but $g(-2) = f(-8) - 1$, which uses $f(-8)$, not $f(4)$.\n* Choice B ($g(-2) = 13$): this uses the wrong input and also adds $1$ instead of subtracting it.\n* Choice D ($g(10) = 13$): the input is right, but the $-1$ outside $f$ lowers the output to $11$.\n\n**Test Day Takeaway:** Find the input that makes the expression inside $f$ equal the known input, then apply the operation outside $f$."
 }

@@ -1,29 +1,29 @@
 {
   "id": "bank-am-210",
-  "question": "$F(d) = 250d + 3{,}000$\nThe function $F$ gives the total amount of money, in dollars, a charity had raised $d$ days after a fundraiser began. What is the best interpretation of $3{,}000$ in this context?",
+  "question": "$F(d) = 2{,}400(1.25)^{\\frac{d}{7}}$\nThe function $F$ gives the number of members of an online gardening forum $d$ days after the forum was launched. What is the best interpretation of $2{,}400$ in this context?",
   "choices": [
     {
       "id": "A",
-      "text": "The charity had raised \\$250 when the fundraiser began."
+      "text": "The number of members increased by $2{,}400$ each day."
     },
     {
       "id": "B",
-      "text": "The charity raised \\$3,000 each day of the fundraiser."
+      "text": "The number of members increased by $2{,}400$ every $7$ days."
     },
     {
       "id": "C",
-      "text": "The charity had raised \\$3,000 when the fundraiser began."
+      "text": "The forum had $2{,}400$ members when it was launched."
     },
     {
       "id": "D",
-      "text": "The fundraiser lasted $3{,}000$ days."
+      "text": "The forum had $2{,}400$ members $7$ days after it was launched."
     }
   ],
   "distractorNotes": {
-    "A": "swaps the two constants, reading the daily rate 250 as the starting amount",
-    "B": "reads the constant term as a daily rate, the job of the coefficient of d",
-    "D": "reads the constant term as a number of days instead of a number of dollars"
+    "A": "reads the initial value as a daily increase",
+    "B": "reads the initial value as the change over each 7-day period; the growth is by a factor of 1.25, not by a fixed amount",
+    "D": "pairs 2,400 with d = 7; F(7) = 2,400(1.25) = 3,000"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $F(0) = 3{,}000$, so $3{,}000$ is the amount, in dollars, the charity had raised at $d = 0$, when the fundraiser began.\n\n**The Full Solution:**\nStep 1: The constant term of $F(d) = 250d + 3{,}000$ is the value of $F$ when $d = 0$.\nStep 2: $F(0) = 250(0) + 3{,}000 = 3{,}000$.\nStep 3: Since $F(d)$ is the total raised, in dollars, $d$ days after the fundraiser began, the charity had already raised $\\$3{,}000$ when it began. Check the other constant: $F(1) - F(0) = 250$, the amount raised each day ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (\\$250 when the fundraiser began): swaps the two constants; $250$ is the amount raised each day.\n* Choice B (\\$3,000 each day): gives the constant term the job of the coefficient of $d$; the charity raised \\$250 each day.\n* Choice D ($3{,}000$ days): $3{,}000$ is a number of dollars, the output of $F$, not a number of days.\n\n**Test Day Takeaway:** Attach units before choosing: the constant term carries the OUTPUT units (dollars), and the coefficient of $d$ carries output-per-input units (dollars per day)."
+  "explanation": "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $F(0) = 2{,}400(1.25)^{0} = 2{,}400$, so the forum had $2{,}400$ members when it was launched.\n\n**The Full Solution:**\nStep 1: The forum was launched at $d = 0$.\nStep 2: Substitute $0$ for $d$: $F(0) = 2{,}400(1.25)^{\\frac{0}{7}} = 2{,}400(1) = 2{,}400$.\nStep 3: So $2{,}400$ is the number of members at launch. Check: $F(7) = 2{,}400(1.25) = 3{,}000$, so $2{,}400$ is not the number after $7$ days ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (increase of $2{,}400$ each day): the model multiplies by a factor; it does not add a fixed amount each day.\n* Choice B (increase of $2{,}400$ every $7$ days): every $7$ days the number of members is multiplied by $1.25$; $2{,}400$ is the starting value.\n* Choice D ($2{,}400$ members after $7$ days): $F(7) = 3{,}000$; $2{,}400$ is the value at $d = 0$.\n\n**Test Day Takeaway:** In $a(b)^{\\frac{t}{k}}$, the coefficient $a$ is the value at $t = 0$."
 }

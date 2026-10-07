@@ -6,26 +6,26 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 1,
- "passage": "The modern revival of the harpsichord began with compromise instruments, built on piano-style frames so that they could survive concert touring. Performers of the early twentieth century recorded and toured with these sturdy ____ later builders carried the revival further, copying surviving eighteenth-century instruments plank by plank and finding that the light older construction produced a clearer, more speaking tone.",
+ "passage": "Early automobiles were started with a hand crank at the front of the engine. Cranking took real effort, and if the engine kicked back, the handle could jerk violently and injure the driver. In 1912, Cadillac began installing electric starters in its Model Thirty ____ the British carmaker Lanchester adopted a similar system that same year.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "hybrids"
+   "text": "cars"
   },
   {
    "id": "B",
-   "text": "hybrids,"
+   "text": "cars,"
   },
   {
    "id": "C",
-   "text": "hybrids;"
+   "text": "cars;"
   },
   {
    "id": "D",
-   "text": "hybrids, but"
+   "text": "cars, then"
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** Two independent clauses meet at the blank, and a semicolon joins them correctly without a conjunction.\n\n**The Full Solution:**\n- Test each side for independence: \"Performers of the early twentieth century recorded and toured with these sturdy hybrids\" stands alone, and so does \"later builders carried the revival further...\"\n- Two independent clauses require a period, a semicolon, or a comma plus a coordinating conjunction between them.\n- The second clause continues the revival's story rather than opposing the first — the builders \"carried the revival further\" — so the plain semicolon, which joins without forcing a relationship, is the right choice.\n\n**Why the other choices are wrong:**\n- A: With no punctuation, the two complete sentences collide (\"these sturdy hybrids later builders carried...\").\n- B: A comma alone between two independent clauses is a comma splice.\n- D: \"Hybrids, but\" is grammatical, yet \"but\" asserts a contrast, and the second clause extends the revival's progress rather than opposing it — the builders carried the same project further."
+ "explanation": "**Choice C is correct.** The text joins two independent clauses: \"In 1912, Cadillac began installing electric starters in its Model Thirty cars\" and \"the British carmaker Lanchester adopted a similar system that same year.\" A semicolon is the standard way to join two independent clauses without a conjunction.\n\n**The Full Solution:**\n- First clause: \"Cadillac began installing electric starters in its Model Thirty cars\" has its own subject and verb.\n- Second clause: \"the British carmaker Lanchester adopted a similar system that same year\" also has its own subject and verb.\n- Each could stand alone as a sentence, so a semicolon after \"cars\" correctly joins them.\n\n**Why the other choices are wrong:**\n- A: With no punctuation, the two independent clauses run together, creating a run-on sentence.\n- B: A comma alone cannot join two independent clauses; this creates a comma splice.\n- D: \"Then\" is an adverb, not a coordinating conjunction, so a comma followed by \"then\" still produces a comma splice."
 }

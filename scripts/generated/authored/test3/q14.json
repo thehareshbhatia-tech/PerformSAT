@@ -6,7 +6,7 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "type": "multiple-choice",
- "passage": "Poliomyelitis epidemics recurred in the United States through the first half of the twentieth century, peaking in the early 1950s. A student writing about the first widely used polio vaccine, introduced in 1955, claims that although reported cases did not vanish overnight, the decline that followed the vaccine's introduction was far too steep to be dismissed as the disease's ordinary year-to-year fluctuation, noting that ______",
+ "passage": "Poliomyelitis epidemics recurred in the United States through the first half of the twentieth century, peaking in the early 1950s. The first widely used polio vaccine was introduced in 1955. A student claims that although reported cases did not vanish overnight, the decline that followed was far too steep to be dismissed as ordinary year-to-year fluctuation, noting that ______",
  "questionTable": {
   "type": "table",
   "caption": "Reported cases of poliomyelitis in the United States, selected years",

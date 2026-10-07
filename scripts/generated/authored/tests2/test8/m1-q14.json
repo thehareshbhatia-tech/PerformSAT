@@ -1,29 +1,29 @@
 {
  "id": 14,
- "question": "In the $xy$-plane, line $m$ is the graph of $8x - 6y = 21$, and line $n$ is the graph of $y = \\frac{2c}{9}x - 4$, where $c$ is a constant. Lines $m$ and $n$ do not intersect. What is the value of $c$?",
+ "question": "In the $xy$-plane, the graphs of $8x - 6y = 21$ and $y = \\frac{c}{3}x - 4$, where $c$ is a constant, do not intersect. What is the value of $c$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-6$"
+   "text": "$-4$"
   },
   {
    "id": "B",
-   "text": "$6$"
+   "text": "$\\frac{9}{4}$"
   },
   {
    "id": "C",
-   "text": "$12$"
+   "text": "$4$"
   },
   {
    "id": "D",
-   "text": "$36$"
+   "text": "$24$"
   }
  ],
  "distractorNotes": {
-  "A": "drops the sign when dividing by -6, taking the first slope as -4/3 and getting c = -6",
-  "C": "ignores the factor of 2 in 2c/9, solving c/9 = 4/3 to get c = 12",
-  "D": "reads the first line's slope as 8, the coefficient of x, giving 2c/9 = 8 and c = 36"
+  "A": "drops the sign when dividing by -6, taking the first slope as -4/3 and getting c = -4",
+  "B": "uses the reciprocal 3/4 as the slope of the first graph, so c/3 = 3/4 and c = 9/4",
+  "D": "reads the slope of the first graph as 8, the coefficient of x, so c/3 = 8 and c = 24"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Solving $8x - 6y = 21$ for $y$ gives slope $\\frac{4}{3}$; setting $\\frac{2c}{9} = \\frac{4}{3}$ gives $c = 6$.\n\n**The Full Solution:**\nStep 1: Rewrite line $m$ in slope-intercept form: $-6y = -8x + 21$, so $y = \\frac{4}{3}x - \\frac{7}{2}$.\nStep 2: Two lines in the $xy$-plane that do not intersect are parallel and distinct, so their slopes are equal: $\\frac{2c}{9} = \\frac{4}{3}$.\nStep 3: Cross-multiply: $6c = 36$, so $c = 6$. Check: with $c = 6$, line $n$ is $y = \\frac{4}{3}x - 4$; the slopes match and the $y$-intercepts, $-4$ and $-\\frac{7}{2}$, differ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): divides by $-6$ without changing the sign of the $x$-term, getting slope $-\\frac{4}{3}$ and $c = -6$.\n* Choice C ($12$): sets $\\frac{c}{9} = \\frac{4}{3}$, overlooking the $2$ in the numerator.\n* Choice D ($36$): treats $8$, the coefficient of $x$, as the slope of line $m$.\n\n**Test Day Takeaway:** Put both equations in $y = mx + b$ form before comparing slopes, and watch the sign when dividing by a negative coefficient."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Solving $8x - 6y = 21$ for $y$ gives slope $\\frac{4}{3}$; graphs that do not intersect are parallel, so $\\frac{c}{3} = \\frac{4}{3}$ and $c = 4$.\n\n**The Full Solution:**\nStep 1: Rewrite the first equation in slope-intercept form: $-6y = -8x + 21$, so $y = \\frac{4}{3}x - \\frac{7}{2}$.\nStep 2: Two lines in the $xy$-plane that do not intersect are parallel and distinct, so their slopes are equal: $\\frac{c}{3} = \\frac{4}{3}$.\nStep 3: Multiply both sides by $3$: $c = 4$. Check: with $c = 4$, the second line is $y = \\frac{4}{3}x - 4$; the slopes match and the $y$-intercepts, $-\\frac{7}{2}$ and $-4$, differ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): divides by $-6$ without changing the sign of the $x$-term, getting slope $-\\frac{4}{3}$.\n* Choice B ($\\frac{9}{4}$): uses the reciprocal $\\frac{3}{4}$ as the slope of the first graph.\n* Choice D ($24$): treats $8$, the coefficient of $x$, as the slope of the first graph.\n\n**Test Day Takeaway:** Put both equations in $y = mx + b$ form before comparing slopes, and watch the sign when dividing by a negative coefficient."
 }

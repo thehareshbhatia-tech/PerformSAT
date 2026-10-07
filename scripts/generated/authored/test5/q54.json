@@ -9,36 +9,36 @@
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "George Ellery Hale (1868-1938) was an American astronomer and organizer of observatories.",
-   "In the 1890s he secured funding for Yerkes Observatory in Wisconsin, whose 40-inch refractor was the world's largest telescope when completed in 1897.",
-   "He founded the Mount Wilson Observatory in California in 1904.",
-   "There he oversaw the 60-inch reflector of 1908 and the 100-inch reflector of 1917, each the world's largest telescope when completed.",
-   "Observations with the 100-inch telescope reshaped astronomers' understanding of the scale of the universe."
+   "Much of the Netherlands lies below sea level and is protected from the North Sea by dikes and dams.",
+   "In 1932, the 32-kilometer Afsluitdijk dam closed off the Zuiderzee, a large inlet of the North Sea.",
+   "The closure turned the inlet into a freshwater lake, the IJsselmeer.",
+   "In 1953, a storm flood killed nearly 2,000 people in the southwestern Netherlands.",
+   "The Delta Works, built between the 1950s and 1997, used dams and storm-surge barriers to close off sea inlets in the southwest."
   ],
-  "goal": "The student wants to emphasize that Hale's work at Mount Wilson continued an approach he had already used at Yerkes."
+  "goal": "The student wants to emphasize that the Delta Works continued an approach the Netherlands had already used at the Afsluitdijk."
  },
  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
  "choices": [
   {
    "id": "A",
-   "text": "Having already secured the world's largest telescope for Yerkes, Hale repeated the feat at Mount Wilson, where the 60-inch and then the 100-inch reflectors each claimed that title."
+   "text": "Having closed off the Zuiderzee with the Afsluitdijk in 1932, the Netherlands did the same to southwestern inlets with the Delta Works."
   },
   {
    "id": "B",
-   "text": "In 1904, the American astronomer George Ellery Hale founded the Mount Wilson Observatory in California."
+   "text": "In 1953, a storm flood killed nearly 2,000 people in the low-lying southwestern provinces of the Netherlands."
   },
   {
    "id": "C",
-   "text": "Observations with the 100-inch telescope at Mount Wilson soon reshaped astronomers' understanding of the scale of the universe."
+   "text": "The Delta Works, built between the 1950s and 1997, used dams and storm-surge barriers to close off several sea inlets."
   },
   {
    "id": "D",
-   "text": "Yerkes Observatory's 40-inch refractor was the world's largest telescope when it was completed in 1897, and Hale, an American astronomer and organizer of observatories, had secured its funding."
+   "text": "The Afsluitdijk, a 32-kilometer dam completed in 1932, closed off the Zuiderzee, a North Sea inlet, and turned it into a freshwater lake."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The goal is continuity — Mount Wilson as a continuation of the Yerkes approach — and A binds the two explicitly: having secured the world's largest telescope once, Hale \"repeated the formula,\" producing successive record-holders at Mount Wilson.\n\n**The Full Solution:**\n- Emphasizing continuation requires both episodes and a link that presents the later one as the earlier one's extension.\n- Choice A supplies the earlier episode (\"the world's largest telescope for Yerkes\"), the connective logic (\"repeated the feat\"), and the later episodes (the 60-inch and 100-inch, \"each claimed that title in turn\").\n- The sentence's structure — \"Having already... repeated...\" — is itself the emphasis the goal demands.\n\n**Why the other choices are wrong:**\n- B: It records the founding of Mount Wilson without mentioning Yerkes, so no continuity is expressed.\n- C: It celebrates a result at Mount Wilson but connects it to nothing that came before.\n- D: It sets two facts side by side without any link presenting one project as continuing the other.",
+ "explanation": "**Choice A is correct.** The goal is continuity, the Delta Works as a continuation of the approach used at the Afsluitdijk, and A links the two explicitly: having closed off one sea inlet in 1932, the Netherlands \"did the same\" to the southwestern inlets.\n\n**The Full Solution:**\n- Emphasizing a continuation requires both projects and a link that presents the later one as extending the earlier one.\n- Choice A supplies the earlier project (the Afsluitdijk closing the Zuiderzee in 1932), the linking idea (\"did the same\"), and the later project (the Delta Works closing southwestern inlets).\n- The sentence's structure, \"Having closed off... did the same,\" is the emphasis the goal asks for.\n\n**Why the other choices are wrong:**\n- B: It reports the 1953 flood but mentions neither project's approach.\n- C: It describes the Delta Works without connecting them to the Afsluitdijk.\n- D: It describes the Afsluitdijk alone, so no continuation is expressed.",
  "_meta": {
-  "anchor": "George Ellery Hale — world's-largest-telescope strategy repeated from Yerkes to Mount Wilson"
+  "anchor": "Afsluitdijk (1932) and the Delta Works — closing sea inlets continued"
  }
 }

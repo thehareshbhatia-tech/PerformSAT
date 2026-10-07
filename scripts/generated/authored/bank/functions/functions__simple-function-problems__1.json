@@ -1,30 +1,30 @@
 {
   "id": 1,
-  "question": "The functions $h$ and $m$ are defined by $h(x) = 2x + 5$ and $m(x) = 3x - 1$. What is the value of $m(h(4))$?",
-  "hint": "Work from the inside out: the output of $h$ is the input of $m$.",
+  "question": "The function $h$ is defined by $h(x) = 3\\sqrt{x} - 2$. What is the value of $h(25)$?",
+  "hint": "Take the square root first, then multiply by 3 and subtract 2.",
   "choices": [
     {
       "id": "A",
-      "text": "$11$"
+      "text": "$5$"
     },
     {
       "id": "B",
-      "text": "$27$"
+      "text": "$13$"
     },
     {
       "id": "C",
-      "text": "$38$"
+      "text": "$15$"
     },
     {
       "id": "D",
-      "text": "$143$"
+      "text": "$73$"
     }
   ],
   "distractorNotes": {
-    "A": "evaluates m(4) and never applies h",
-    "B": "composes in the wrong order, computing h(m(4))",
-    "D": "multiplies h(4) by m(4) instead of composing"
+    "A": "reports only the square root of 25",
+    "C": "forgets to subtract 2",
+    "D": "multiplies 3 by 25 without taking the square root"
   },
-  "correctAnswer": "C",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~20s):** $h(4) = 13$, and $m(13) = 39 - 1 = 38$.\n\n**The Full Solution:**\nStep 1: Evaluate the inner function: $h(4) = 2(4) + 5 = 13$.\nStep 2: Use that output as the input of $m$: $m(h(4)) = m(13)$.\nStep 3: Evaluate: $m(13) = 3(13) - 1 = 38$. Check with the combined rule: $m(h(x)) = 3(2x + 5) - 1 = 6x + 14$, and $6(4) + 14 = 38$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($11$): evaluates $m(4)$ and skips the inner function.\n* Choice B ($27$): applies the functions in the wrong order: $m(4) = 11$ and $h(11) = 27$.\n* Choice D ($143$): multiplies $h(4) = 13$ by $m(4) = 11$ instead of feeding one into the other.\n\n**Test Day Takeaway:** In $m(h(4))$, $h$ acts first because it is innermost; its output becomes the input of $m$."
+  "correctAnswer": "B",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~10s):** $\\sqrt{25} = 5$, so $h(25) = 3(5) - 2 = 13$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 25$: $h(25) = 3\\sqrt{25} - 2$.\nStep 2: $\\sqrt{25} = 5$, so $3\\sqrt{25} = 15$.\nStep 3: $15 - 2 = 13$. Check: $13 + 2 = 15 = 3 \\cdot 5$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): stops after taking the square root of $25$.\n* Choice C ($15$): forgets to subtract $2$.\n* Choice D ($73$): computes $3(25) - 2$, skipping the square root.\n\n**Test Day Takeaway:** Substitute, then follow the order of operations: root, multiply, subtract."
 }

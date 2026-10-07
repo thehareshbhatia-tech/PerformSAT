@@ -1,5 +1,5 @@
 {
- "question": "$x^{2} + y^{2} - 14x - 15 = 0$\nThe given equation represents the circle shown in the $xy$-plane, where $\\overline{AB}$ is a diameter of the circle. What is the length of $\\overline{AB}$?",
+ "question": "$(x - 7)^{2} + y^{2} = 64$\nThe given equation represents the circle shown in the $xy$-plane, where $\\overline{AB}$ is a diameter of the circle. What is the length of $\\overline{AB}$?",
  "diagram": {
   "type": "circleWithInscribedTriangle",
   "params": {
@@ -18,11 +18,11 @@
  "choices": [
   {
    "id": "A",
-   "text": "$2\\sqrt{15}$"
+   "text": "$8$"
   },
   {
    "id": "B",
-   "text": "$8$"
+   "text": "$14$"
   },
   {
    "id": "C",
@@ -35,10 +35,10 @@
  ],
  "correctAnswer": "C",
  "distractorNotes": {
-  "A": "takes 15 as r squared without adding the 49 that completes the square",
-  "B": "reports the radius instead of the diameter",
+  "A": "reports the radius instead of the diameter",
+  "B": "doubles the center's x-coordinate, 7, instead of the radius",
   "D": "reports r squared instead of the diameter"
  },
- "explanation": "**SAT Pattern: Circle in General Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Completing the square gives $(x - 7)^{2} + y^{2} = 64$, so the radius is $8$ and the diameter $\\overline{AB}$ is $16$.\n\n**The Full Solution:**\nStep 1: Move the constant and group the $x$-terms: $(x^{2} - 14x) + y^{2} = 15$.\nStep 2: Add $49$ to both sides to complete the square: $(x - 7)^{2} + y^{2} = 64$.\nStep 3: The radius is $\\sqrt{64} = 8$, so $AB = 2(8) = 16$. Check: the endpoints $(-1, 0)$ and $(15, 0)$ of a horizontal diameter are $16$ apart, and $(-1)^{2} + 0 + 14 - 15 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2\\sqrt{15}$): treats $15$ as $r^{2}$ without adding the $49$ that completes the square.\n* Choice B ($8$): reports the radius, not the diameter.\n* Choice D ($64$): reports $r^{2}$.\n\n**Test Day Takeaway:** Complete the square, take the square root of the constant for the radius, and double it for a diameter.",
+ "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $r^{2} = 64$, so $r = 8$ and the diameter is $2(8) = 16$.\n\n**The Full Solution:**\nStep 1: The equation has the form $(x - h)^{2} + (y - k)^{2} = r^{2}$ with $r^{2} = 64$.\nStep 2: The radius is $\\sqrt{64} = 8$.\nStep 3: A diameter is twice the radius, so $AB = 2(8) = 16$. Check: the center is $(7, 0)$, and the points $(-1, 0)$ and $(15, 0)$ both satisfy the equation and are $16$ apart ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): is the radius, half of the diameter.\n* Choice B ($14$): doubles the $7$ from the center $(7, 0)$, which tells where the circle is, not how big it is.\n* Choice D ($64$): is $r^{2}$; take the square root before doubling.\n\n**Test Day Takeaway:** The number on the right side of a circle equation is $r^{2}$: take its square root for the radius, then double it for the diameter.",
  "id": "bank-geo-285"
 }

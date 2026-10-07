@@ -6,26 +6,26 @@
  "domain": "craft-and-structure",
  "skill": "text-structure-and-purpose",
  "module": 2,
- "passage": "A scratch in a car's paint or a crack in a phone case ordinarily marks permanent damage, because the polymer chains in conventional plastics, once severed, cannot rejoin. Materials chemists have engineered an alternative: polymers threaded with reversible bonds — hydrogen bonds or metal-ligand links — that break preferentially under stress and then re-form when the damaged surfaces are pressed together, restoring much of the material's original strength. Yet these self-healing plastics remain rare in commercial products, largely because the reversible bonds that permit repair also soften the material, and manufacturers have been unwilling to trade durability in daily use for recovery after damage.",
+ "passage": "A scratch in a car's paint or a crack in a phone case usually marks permanent damage. Once the long molecular chains in ordinary plastics are cut, they cannot rejoin. Materials chemists have engineered an alternative: plastics held together partly by reversible bonds. These bonds break first under stress and then re-form when the damaged surfaces are pressed together, restoring much of the material's strength. Yet such self-healing plastics remain rare in commercial products. The bonds that allow repair also soften the material, and manufacturers have been unwilling to give up everyday durability for the ability to recover from damage.",
  "question": "Which choice best describes the overall structure of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "It presents a debate among materials chemists, summarizes the evidence on each side, and indicates which position has prevailed."
+   "text": "It presents a debate among chemists, summarizes each side's evidence, and indicates which side prevailed."
   },
   {
    "id": "B",
-   "text": "It describes a widely used class of materials, traces how those materials are manufactured, and predicts how that process will change."
+   "text": "It describes widely used materials, explains how they are made, and predicts changes in that process."
   },
   {
    "id": "C",
-   "text": "It identifies a limitation of conventional plastics, describes a mechanism that overcomes it, and explains why the resulting materials remain commercially rare."
+   "text": "It identifies a flaw in ordinary plastics, describes a way around it, and explains why that solution remains rare."
   },
   {
    "id": "D",
-   "text": "It introduces a new class of polymers, lists the products that contain them, and questions whether those products perform as advertised."
+   "text": "It introduces new plastics, lists products that contain them, and questions whether those products work as claimed."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The text moves from a limitation of conventional plastics, to the engineered solution, to the trade-off that has kept the solution out of products — and C tracks all three movements in order.\n\n**The Full Solution:**\n- First move: conventional plastics' severed polymer chains \"cannot rejoin,\" so damage is permanent.\n- Second move: the engineered solution — polymers with reversible bonds that break under stress and re-form on contact.\n- Third move: the pivot \"Yet\" introduces why adoption is limited: the same bonds that permit repair soften the material, a trade-off manufacturers have refused.\n\n**Why the other choices are wrong:**\n- A: The text stages no debate between camps and weighs no competing evidence.\n- B: Self-healing polymers are described as \"rare in commercial products,\" not widely used, and no manufacturing process is traced.\n- D: The text catalogs no products containing the polymers — their absence from products is the point of the final sentence."
+ "explanation": "**Choice C is correct.** The text moves from a flaw in ordinary plastics, to the engineered solution, to the trade-off that has kept the solution out of products — and C tracks all three movements in order.\n\n**The Full Solution:**\n- First move: once the molecular chains in ordinary plastics are cut, they \"cannot rejoin,\" so damage is permanent.\n- Second move: the engineered solution — plastics with reversible bonds that break under stress and re-form when the surfaces are pressed together.\n- Third move: the pivot \"Yet\" introduces why adoption is limited: the same bonds that allow repair soften the material, a trade-off manufacturers have refused.\n\n**Why the other choices are wrong:**\n- A: The text stages no debate between camps and weighs no competing evidence.\n- B: Self-healing plastics are described as \"rare in commercial products,\" not widely used, and no manufacturing process is traced.\n- D: The text lists no products containing the plastics — their absence from products is the point of the final sentences."
 }

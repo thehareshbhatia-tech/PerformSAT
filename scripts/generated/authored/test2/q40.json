@@ -6,34 +6,34 @@
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-quantitative",
   "module": 2,
-  "passage": "An acoustics laboratory tested five wall-lining materials for use in music practice rooms, mounting a panel of each between a noise source and a measurement chamber and recording the drop in sound level the panel produced. All panels were manufactured at the same 2-centimeter thickness so the materials could be compared directly. A student reviewing the results claims that cork provided the greatest noise reduction of the materials tested because ______",
+  "passage": "A substance's specific heat is the amount of energy needed to raise the temperature of one gram of it by one degree Celsius. The higher the specific heat, the more slowly a substance warms. A student consulting a reference table claims that water has the highest specific heat of the five substances listed because ______",
   "questionTable": {
     "type": "table",
-    "caption": "Measured noise reduction for five wall-lining materials at equal panel thickness (2 cm)",
+    "caption": "Specific heat of five common substances",
     "headers": [
-      "Material",
-      "Noise reduction (dB)"
+      "Substance",
+      "Specific heat (J/g·°C)"
     ],
     "rows": [
       [
-        "Cork",
-        "21"
+        "Water",
+        "4.18"
       ],
       [
-        "Mineral wool",
-        "18"
+        "Ethanol",
+        "2.44"
       ],
       [
-        "Recycled denim",
-        "17"
+        "Aluminum",
+        "0.897"
       ],
       [
-        "Gypsum board",
-        "13"
+        "Iron",
+        "0.449"
       ],
       [
-        "Plywood",
-        "9"
+        "Copper",
+        "0.385"
       ]
     ]
   },
@@ -41,21 +41,21 @@
   "choices": [
     {
       "id": "A",
-      "text": "cork's measured reduction of 21 decibels exceeded that of every other material tested, including the next best, mineral wool, at 18 decibels."
+      "text": "water's specific heat, 4.18, is greater than that of every other substance listed, including the next highest, ethanol, at 2.44."
     },
     {
       "id": "B",
-      "text": "cork reduced noise by 21 decibels, while plywood reduced it by only 9 decibels."
+      "text": "water's specific heat is 4.18, while copper's is only 0.385."
     },
     {
       "id": "C",
-      "text": "all five materials were tested as panels manufactured at the same 2-centimeter thickness."
+      "text": "all five specific heats in the table are given in the same units."
     },
     {
       "id": "D",
-      "text": "the three fibrous materials in the table outperformed the two rigid ones."
+      "text": "the two liquids in the table have higher specific heats than the three metals do."
     }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** A greatest-of-all claim needs cork compared against the whole field, and A supplies that: 21 decibels tops every other material, with the runner-up named and quantified.\n\n**The Full Solution:**\n- The student's claim is a superlative: cork provided \"the greatest noise reduction of the materials tested.\"\n- Establishing a superlative requires showing cork beat every alternative. Choice A asserts exactly that and cites the decisive comparison — cork's 21 decibels against mineral wool's 18, the closest competitor.\n- Scanning the table confirms it: 21 exceeds 18, 17, 13, and 9.\n\n**Why the other choices are wrong:**\n- B: Beating plywood, the weakest performer, leaves open whether cork beat mineral wool or recycled denim; a superlative cannot rest on comparison with the worst.\n- C: The equal thickness is a fact about the method that makes comparison fair, but it contains no measurement and so cannot show any material outperformed another.\n- D: A group-versus-group pattern never isolates cork; even if fibrous materials led as a class, mineral wool or denim, not cork, could have been the top performer."
+  "explanation": "**Choice A is correct.** A highest-of-all claim needs water compared with every other substance, and A does that: 4.18 is greater than every other value, including the runner-up, ethanol, at 2.44.\n\n**The Full Solution:**\n- The student's claim is a superlative: water has \"the highest specific heat of the five substances listed.\"\n- Supporting a superlative requires showing that water's value beats every alternative. Choice A states exactly that and names the closest competitor.\n- The table confirms it: 4.18 exceeds 2.44, 0.897, 0.449, and 0.385.\n\n**Why the other choices are wrong:**\n- B: Beating copper, the lowest value, leaves open whether water beat ethanol, aluminum, or iron; a superlative cannot rest on a comparison with the lowest value.\n- C: Shared units make the values comparable, but this fact compares no values and so cannot show which substance is highest.\n- D: A group comparison never isolates water; even if the liquids led as a group, ethanol rather than water could have had the highest value."
 }

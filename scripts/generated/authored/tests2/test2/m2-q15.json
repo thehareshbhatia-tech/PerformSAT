@@ -1,29 +1,29 @@
 {
  "id": 15,
- "question": "The length of a rectangle is $1.5$ times its width. If the length were increased by $6$ centimeters and the width were decreased by $3$ centimeters, the area would stay the same. What is the area, in square centimeters, of the rectangle?",
+ "question": "The length of a rectangle is $4$ centimeters greater than its width. If the length were increased by $6$ centimeters and the width were decreased by $3$ centimeters, the area would stay the same. What is the area, in square centimeters, of the rectangle?",
  "choices": [
   {
    "id": "A",
-   "text": "$13.5$"
+   "text": "$100$"
   },
   {
    "id": "B",
-   "text": "$54$"
+   "text": "$140$"
   },
   {
    "id": "C",
-   "text": "$60$"
+   "text": "$196$"
   },
   {
    "id": "D",
-   "text": "$216$"
+   "text": "$200$"
   }
  ],
  "distractorNotes": {
-  "A": "applies the changes to the wrong sides, solving (1.5w - 3)(w + 6) = 1.5w^2 to get w = 3, a 4.5-by-3 rectangle with area 13.5",
-  "B": "multiplies the -3 by w instead of by 1.5w when expanding, getting 3w - 18 = 0, so w = 6 and the area is 9(6) = 54",
-  "C": "finds the correct 18-by-12 rectangle but reports its perimeter, 2(18 + 12) = 60, instead of its area"
+  "A": "squares the width, 10, instead of multiplying the width by the length",
+  "C": "squares the length, 14, instead of multiplying the length by the width",
+  "D": "multiplies the new length, 20, by the original width, 10"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Rectangle Area**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** With width $w$, the equation $(1.5w + 6)(w - 3) = 1.5w^{2}$ expands to $1.5w^{2} + 1.5w - 18 = 1.5w^{2}$, so $w = 12$. The rectangle is $18$ by $12$, and its area is $216$ square centimeters.\n\n**The Full Solution:**\nStep 1: Let $w$ be the width, so the length is $1.5w$ and the area is $1.5w^{2}$. The changed rectangle measures $1.5w + 6$ by $w - 3$, and its area is the same: $(1.5w + 6)(w - 3) = 1.5w^{2}$.\nStep 2: Expand the left side: $1.5w^{2} - 4.5w + 6w - 18 = 1.5w^{2} + 1.5w - 18$. Subtracting $1.5w^{2}$ from both sides leaves $1.5w - 18 = 0$, so $w = 12$.\nStep 3: The width is $12$ centimeters and the length is $1.5(12) = 18$ centimeters, so the area is $18 \\times 12 = 216$ square centimeters. Check: the changed rectangle is $18 + 6 = 24$ by $12 - 3 = 9$, and $24 \\times 9 = 216$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($13.5$): adds the $6$ centimeters to the width and takes the $3$ centimeters from the length, solving $(1.5w - 3)(w + 6) = 1.5w^{2}$. That gives $6w - 18 = 0$, $w = 3$, and a $4.5$ by $3$ rectangle.\n* Choice B ($54$): multiplies the $-3$ by $w$ instead of by $1.5w$ when expanding, which leaves $3w - 18 = 0$, so $w = 6$ and the area is $9 \\times 6 = 54$.\n* Choice C ($60$): finds the correct $18$ by $12$ rectangle but reports its perimeter, $2(18 + 12) = 60$, instead of its area.\n\n**Test Day Takeaway:** When a change to the sides leaves the area unchanged, set the new area equal to the old one; the squared terms cancel, leaving a linear equation for the width."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Rectangle Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** With width $w$, the condition is $(w + 10)(w - 3) = w(w + 4)$, which simplifies to $3w = 30$. So $w = 10$, the length is $14$, and the area is $140$.\n\n**The Full Solution:**\nStep 1: Let $w$ be the width. The length is $w + 4$, the new length is $w + 10$, and the new width is $w - 3$.\nStep 2: The areas are equal: $(w + 10)(w - 3) = w(w + 4)$, so $w^{2} + 7w - 30 = w^{2} + 4w$, which gives $3w = 30$ and $w = 10$.\nStep 3: The rectangle is $10$ by $14$ centimeters, so its area is $140$ square centimeters. Check: the new rectangle is $20$ by $7$, and $20(7) = 140$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($100$): squares the width, $10^{2}$, as if the rectangle were a square.\n* Choice C ($196$): squares the length, $14^{2}$.\n* Choice D ($200$): multiplies the new length, $20$, by the original width, $10$, mixing the two rectangles.\n\n**Test Day Takeaway:** When a change leaves an area the same, set the two area expressions equal; the squared terms cancel and a linear equation remains."
 }

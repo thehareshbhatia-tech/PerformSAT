@@ -1,30 +1,30 @@
 {
  "id": 20,
- "question": "For the linear function $f$, $f(-3) = 20$ and $f(5) = -4$. The graph of $y = f(x)$ in the $xy$-plane has an $x$-intercept at $(a, 0)$ and a $y$-intercept at $(0, b)$. What is the value of $\\frac{b}{a}$?",
+ "question": "In the $xy$-plane, the graph of the linear function $f$ has an $x$-intercept at $(a, 0)$ and a $y$-intercept at $(0, b)$. If $f(-2) = 18$ and $f(4) = -6$, what is the value of $\\frac{b}{a}$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-3$"
+   "text": "$-4$"
   },
   {
    "id": "B",
-   "text": "$\\frac{1}{3}$"
+   "text": "$\\frac{1}{4}$"
   },
   {
    "id": "C",
-   "text": "$3$"
+   "text": "$4$"
   },
   {
    "id": "D",
-   "text": "$11$"
+   "text": "$10$"
   }
  ],
  "distractorNotes": {
-  "A": "reports the slope of the graph, -3, as the value of b/a, missing that b/a is the opposite of the slope",
-  "B": "computes a/b = (11/3)/11 instead of b/a",
-  "D": "stops at the y-intercept, b = 11, and never finds a"
+  "A": "reports the slope of the graph, -4, as the value of b/a, missing that b/a is the opposite of the slope",
+  "B": "computes a/b = (5/2)/10 instead of b/a",
+  "D": "stops at the y-intercept, b = 10, and never finds a"
  },
  "correctAnswer": "C",
  "hint": "Find the slope from the two given values, then write $f(x)$ in slope-intercept form.",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~50s):** The slope is $\\frac{-4 - 20}{5 - (-3)} = -3$, so $f(x) = -3x + 11$; then $b = 11$, $a = \\frac{11}{3}$, and $\\frac{b}{a} = 3$.\n\n**The Full Solution:**\nStep 1: The graph passes through $(-3, 20)$ and $(5, -4)$, so its slope is $\\frac{-4 - 20}{5 - (-3)} = \\frac{-24}{8} = -3$.\nStep 2: Write $f(x) = -3x + b$ and substitute $(5, -4)$: $-4 = -15 + b$, so $b = 11$ and $f(x) = -3x + 11$. The $y$-intercept is $(0, 11)$.\nStep 3: Set $f(a) = 0$: $-3a + 11 = 0$, so $a = \\frac{11}{3}$. Then $\\frac{b}{a} = \\frac{11}{11/3} = 3$.\n\nCheck: $f(-3) = 9 + 11 = 20$, $f(5) = -15 + 11 = -4$, and $f\\left(\\frac{11}{3}\\right) = -11 + 11 = 0$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-3$): is the slope of the graph; the slope is $\\frac{0 - b}{a - 0} = -\\frac{b}{a}$, so $\\frac{b}{a}$ is its opposite.\n* Choice B ($\\frac{1}{3}$): divides in the wrong order, $\\frac{a}{b} = \\frac{11/3}{11}$.\n* Choice D ($11$): is the $y$-intercept $b$ alone; the question asks for $b$ divided by $a$.\n\n**Test Day Takeaway:** Two function values give the slope, the slope and one point give the equation, and the intercepts come straight from that equation; for any line through $(a, 0)$ and $(0, b)$, the slope is $-\\frac{b}{a}$."
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~50s):** The slope is $\\frac{-6 - 18}{4 - (-2)} = -4$, so $f(x) = -4x + 10$; then $b = 10$, $a = \\frac{5}{2}$, and $\\frac{b}{a} = 4$.\n\n**The Full Solution:**\nStep 1: The graph passes through $(-2, 18)$ and $(4, -6)$, so its slope is $\\frac{-6 - 18}{4 - (-2)} = \\frac{-24}{6} = -4$.\nStep 2: Write $f(x) = -4x + b$ and substitute $(4, -6)$: $-6 = -16 + b$, so $b = 10$ and $f(x) = -4x + 10$. The $y$-intercept is $(0, 10)$.\nStep 3: Set $f(a) = 0$: $-4a + 10 = 0$, so $a = \\frac{5}{2}$. Then $\\frac{b}{a} = \\frac{10}{5/2} = 4$.\n\nCheck: $f(-2) = 8 + 10 = 18$, $f(4) = -16 + 10 = -6$, and $f\\left(\\frac{5}{2}\\right) = -10 + 10 = 0$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): is the slope of the graph; the slope is $\\frac{0 - b}{a - 0} = -\\frac{b}{a}$, so $\\frac{b}{a}$ is its opposite.\n* Choice B ($\\frac{1}{4}$): divides in the wrong order, $\\frac{a}{b} = \\frac{5/2}{10}$.\n* Choice D ($10$): is the $y$-intercept $b$ alone; the question asks for $b$ divided by $a$.\n\n**Test Day Takeaway:** Two function values give the slope, the slope and one point give the equation, and the intercepts come straight from that equation; for any line through $(a, 0)$ and $(0, b)$, the slope is $-\\frac{b}{a}$."
 }

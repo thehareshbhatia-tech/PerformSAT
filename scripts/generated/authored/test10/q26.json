@@ -22,7 +22,7 @@
  "choices": [
   {
    "id": "A",
-   "text": "Cameras at two separate Czechoslovak observing stations photographed the same bright fireball on April 7, 1959, and searchers recovered fragments of the fallen meteorite from the ground soon afterward."
+   "text": "Cameras at two Czechoslovak observing stations photographed the same fireball on April 7, 1959, and fragments of the meteorite were later recovered."
   },
   {
    "id": "B",
@@ -30,13 +30,13 @@
   },
   {
    "id": "C",
-   "text": "Photographed from two stations at once, the Příbram fireball yielded a calculable orbit, making it the first recovered meteorite ever traced to a known path around the Sun."
+   "text": "Photographed from two stations at once, the Příbram fireball yielded a calculable orbit, making it the first recovered meteorite with a known orbit."
   },
   {
    "id": "D",
-   "text": "Meteors that are bright enough to drop meteorites to the ground, which astronomers refer to as fireballs, are sometimes photographed by more than one camera station."
+   "text": "Meteors bright enough to drop meteorites to the ground, called fireballs, are sometimes photographed by more than one camera station."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The goal is significance, and C states it: because the fireball was photographed from two stations, its orbit could be computed, a first in the field, ending the era in which no recovered meteorite had a known orbit.\n\n**The Full Solution:**\n- The notes' significance lives in the last bullet, first recovered meteorite with a precisely known orbit, combined with the second bullet's \"never before 1959.\"\n- C links the method (two-station photography) to that milestone, which is exactly what \"emphasize the significance of the photographs\" requires.\n\n**Why the other choices are wrong:**\n- A: It reports the event and the recovery but never says why either mattered to meteor science.\n- B: It credits Ceplecha's calculation without mentioning the result's unprecedented status, so the significance is lost.\n- D: It generalizes about fireballs and cameras, dropping Příbram and its milestone entirely."
+ "explanation": "**Choice C is correct.** The goal is significance, and C states it: because the fireball was photographed from two stations, its orbit could be computed, a first in the field, ending the era in which no recovered meteorite had a known orbit.\n\n**The Full Solution:**\n- The notes' significance lives in the last bullet, first recovered meteorite with a precisely known orbit, combined with the second bullet: \"Before 1959, no meteorite had ever been traced to a known orbit around the Sun.\"\n- C links the method (two-station photography) to that milestone, which is exactly what \"emphasize the significance of the Příbram photographs\" requires.\n\n**Why the other choices are wrong:**\n- A: It reports the event and the recovery but never says why either mattered to meteor science.\n- B: It credits Ceplecha's calculation without mentioning the result's unprecedented status, so the significance is lost.\n- D: It generalizes about fireballs and cameras, dropping Příbram and its milestone entirely."
 }

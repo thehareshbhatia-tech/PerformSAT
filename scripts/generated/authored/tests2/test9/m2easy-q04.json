@@ -1,29 +1,29 @@
 {
  "id": 4,
- "question": "In right triangle $ABC$, angle $B$ is the right angle. The perimeter of the triangle is $120$, $AB = 30$, and $AC = 50$. What is the value of $\\tan A$?",
+ "question": "In right triangle $ABC$, angle $B$ is the right angle, $AB = 30$, and $\\tan A = \\frac{4}{3}$. What is the perimeter of triangle $ABC$?",
  "choices": [
   {
    "id": "A",
-   "text": "$\\frac{3}{5}$"
+   "text": "$70$"
   },
   {
    "id": "B",
-   "text": "$\\frac{3}{4}$"
+   "text": "$90$"
   },
   {
    "id": "C",
-   "text": "$\\frac{4}{5}$"
+   "text": "$120$"
   },
   {
    "id": "D",
-   "text": "$\\frac{4}{3}$"
+   "text": "$140$"
   }
  ],
  "distractorNotes": {
-  "A": "gives cos A, adjacent over hypotenuse, 30/50 = 3/5",
-  "B": "inverts the tangent ratio to adjacent over opposite, 30/40 = 3/4",
-  "C": "gives sin A, opposite over hypotenuse, 40/50 = 4/5"
+  "A": "adds only the two legs, 30 + 40, and leaves out the hypotenuse",
+  "B": "treats tan A as AB/BC, so BC = 22.5 and AC = 37.5, giving 30 + 22.5 + 37.5 = 90",
+  "D": "uses the sum of the legs, 30 + 40 = 70, as the hypotenuse, giving 30 + 40 + 70 = 140"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The third side is $BC = 120 - 30 - 50 = 40$, and $\\tan A = \\frac{BC}{AB} = \\frac{40}{30} = \\frac{4}{3}$.\n\n**The Full Solution:**\nStep 1: Use the perimeter to find the missing side: $BC = 120 - 30 - 50 = 40$.\nStep 2: From angle $A$, the opposite side is $BC = 40$, the adjacent side is $AB = 30$, and the hypotenuse is $AC = 50$, since $AC$ is across from the right angle at $B$.\nStep 3: $\\tan A = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{40}{30} = \\frac{4}{3}$. Check: $30^{2} + 40^{2} = 900 + 1600 = 2500 = 50^{2}$, so the sides do form a right triangle ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{5}$): gives $\\cos A$, adjacent over hypotenuse, $\\frac{30}{50}$.\n* Choice B ($\\frac{3}{4}$): inverts the tangent ratio to adjacent over opposite, $\\frac{30}{40}$, which is $\\tan C$.\n* Choice C ($\\frac{4}{5}$): gives $\\sin A$, opposite over hypotenuse, $\\frac{40}{50}$.\n\n**Test Day Takeaway:** Find all three sides first, then label them opposite, adjacent, and hypotenuse from the angle named in the question before writing the ratio."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\tan A = \\frac{BC}{AB}$, so $BC = \\frac{4}{3}(30) = 40$; the sides $30$, $40$, $50$ form a $3$-$4$-$5$ triangle, and the perimeter is $120$.\n\n**The Full Solution:**\nStep 1: For angle $A$, the opposite side is $BC$ and the adjacent side is $AB$, so $\\frac{BC}{30} = \\frac{4}{3}$ and $BC = 40$.\nStep 2: The hypotenuse is $AC = \\sqrt{30^{2} + 40^{2}} = \\sqrt{2{,}500} = 50$.\nStep 3: The perimeter is $30 + 40 + 50 = 120$. Check: $\\frac{40}{30} = \\frac{4}{3}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($70$): adds only the two legs and leaves out the hypotenuse $AC = 50$.\n* Choice B ($90$): uses adjacent over opposite, $\\frac{AB}{BC} = \\frac{4}{3}$, which gives $BC = 22.5$ and $AC = 37.5$.\n* Choice D ($140$): takes the hypotenuse to be the sum of the legs, $70$, instead of using the Pythagorean theorem.\n\n**Test Day Takeaway:** Tangent is opposite over adjacent; once two sides are known, the Pythagorean theorem gives the third."
 }

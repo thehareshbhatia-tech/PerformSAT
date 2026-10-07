@@ -6,29 +6,33 @@
   "domain": "standard-english-conventions",
   "skill": "form-structure-and-sense",
   "module": 2,
-  "passage": "The free reed reached European workshops in the late eighteenth century. Since then, instrument makers ______ the mechanism to an astonishing range of forms, from the pocket-sized harmonica to the accordion and the parlor harmonium.",
+  "passage": "In 1963, the US Post Office Department introduced five-digit ZIP codes to speed the sorting and delivery of mail. Since then, businesses and researchers ______ the codes to many other uses, from setting insurance rates to studying the population of neighborhoods.",
   "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
   "choices": [
     {
       "id": "A",
-      "text": "adapt"
+      "text": "apply"
     },
     {
       "id": "B",
-      "text": "adapted"
+      "text": "applied"
     },
     {
       "id": "C",
-      "text": "were adapting"
+      "text": "were applying"
     },
     {
       "id": "D",
-      "text": "have adapted"
+      "text": "have applied"
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** A \"Since\" phrase marking the start of a period that runs to the present takes the present perfect: makers \"have adapted\" the mechanism from the late eighteenth century onward.\n\n**The Full Solution:**\n- \"Since then\" points back to the late eighteenth century and defines a span beginning in the past and continuing now.\n- Action distributed across such a span, still open at the present end, is expressed by the present perfect.\n\n**Why the other choices are wrong:**\n- A: The simple present states a general habit and cannot pair with a \"Since\" phrase anchored to a past starting point.\n- B: The simple past seals the action inside a finished period, contradicting the open span that \"Since\" establishes.\n- C: The past progressive \"were adapting\" describes an action in progress at some past moment, which breaks the from-then-until-now sense of \"Since then.\"",
+  "explanation": "**Choice D is correct.** \"Since then\" describes an action that began in the past and continues to the present, which calls for the present perfect: \"have applied.\"\n\n**The Full Solution:**\n- The first sentence sets a starting point in the past: 1963.\n- \"Since then\" stretches from that point up to now.\n- The present perfect (\"have applied\") is the tense for an action continuing from a past point to the present.\n\n**Why the other choices are wrong:**\n- A: The simple present \"apply\" does not connect the action to the period that began in 1963.\n- B: The simple past \"applied\" treats the action as finished, which clashes with \"since then.\"\n- C: \"Were applying\" places the action at some past moment, not over the period from 1963 to now.",
   "_meta": {
-    "anchor": "Free reed aerophone (Wikipedia): free-reed organ pipes in Europe from c. 1780; accordion patented 1829. 2026-10-04 review removed unverified \"first mouth-blown prototypes in the 1820s\" and \"concertinas sailors carried\"."
+    "anchor": "ZIP codes introduced 1963, later used for insurance rates and demographic study — present perfect after 'Since then'",
+    "sources": [
+      "https://en.wikipedia.org/wiki/ZIP_Code",
+      "https://blogs.loc.gov/inside_adams/2013/06/zip-a-dee-doo-dah-the-zip-code-is-50/"
+    ]
   }
 }

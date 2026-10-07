@@ -1,29 +1,29 @@
 {
  "id": 17,
- "question": "A data set of $30$ values has mean $m$ and standard deviation $s$. A new data set is created by multiplying each value by $\\frac{3}{4}$ and then subtracting $6$ from each product. Which statement about the new data set is true?",
+ "question": "Data set A has a mean of $m$. Data set B is created by multiplying each value in data set A by $\\frac{3}{4}$ and then subtracting $6$ from each product. Which of the following must be true?\nI. The mean of data set B is $\\frac{3}{4}m-6$.\nII. Data sets A and B have the same standard deviation.",
  "choices": [
   {
    "id": "A",
-   "text": "The mean is $\\dfrac{3}{4}m$ and the standard deviation is $\\dfrac{3}{4}s$."
+   "text": "I only"
   },
   {
    "id": "B",
-   "text": "The mean is $\\dfrac{3}{4}m-6$ and the standard deviation is $s$."
+   "text": "II only"
   },
   {
    "id": "C",
-   "text": "The mean is $\\dfrac{3}{4}m-6$ and the standard deviation is $\\dfrac{3}{4}s-6$."
+   "text": "I and II"
   },
   {
    "id": "D",
-   "text": "The mean is $\\dfrac{3}{4}m-6$ and the standard deviation is $\\dfrac{3}{4}s$."
+   "text": "Neither I nor II"
   }
  ],
  "distractorNotes": {
-  "A": "applies the multiplier to the mean but never subtracts the 6, leaving the mean 6 too high",
-  "B": "assumes multiplying every value leaves the spread unchanged, so the standard deviation stays s instead of becoming three-fourths of s",
-  "C": "subtracts the 6 from the standard deviation as well; subtracting a constant from every value leaves the spread unchanged"
+  "B": "rejects statement I by applying only the multiplication to the mean, and accepts II by assuming the spread never changes",
+  "C": "knows that subtracting 6 leaves the spread unchanged but forgets that multiplying by 3/4 shrinks it",
+  "D": "subtracts 6 before multiplying, getting a mean of (3/4)(m - 6), and so rejects statement I"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** Multiplying every value by $\\frac{3}{4}$ multiplies both the mean and the standard deviation by $\\frac{3}{4}$; subtracting $6$ lowers the mean by $6$ and leaves the standard deviation unchanged.\n\n**The Full Solution:**\nStep 1: Multiplying every value by $\\frac{3}{4}$ multiplies the sum by $\\frac{3}{4}$, so the mean becomes $\\frac{3}{4}m$. It also multiplies every distance between values by $\\frac{3}{4}$, so the standard deviation becomes $\\frac{3}{4}s$.\nStep 2: Subtracting $6$ from every value lowers the mean by $6$, to $\\frac{3}{4}m-6$. The distances between values do not change, so the standard deviation stays $\\frac{3}{4}s$.\nStep 3: The new data set has mean $\\frac{3}{4}m-6$ and standard deviation $\\frac{3}{4}s$. Check with two values: $\\{8,12\\}$ has mean $10$, and each value is $2$ from the mean; the new values are $\\{0,3\\}$, with mean $1.5=\\frac{3}{4}(10)-6$, and each is $1.5=\\frac{3}{4}(2)$ from the mean ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: multiplies both measures by $\\frac{3}{4}$ but forgets to subtract $6$ from the mean.\n* Choice B: treats the standard deviation as unaffected by the multiplication. Multiplying every value by $\\frac{3}{4}$ multiplies the spread by $\\frac{3}{4}$.\n* Choice C: subtracts $6$ from the standard deviation too. Subtracting the same number from every value moves the whole data set without changing its spread.\n\n**Test Day Takeaway:** Multiplying every value changes both the center and the spread; adding or subtracting a constant changes only the center. Apply the two rules one step at a time."
+ "correctAnswer": "A",
+ "explanation": "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** Multiplying every value by $\\frac{3}{4}$ and subtracting $6$ does the same to the mean, so I is true. Multiplying by $\\frac{3}{4}$ shrinks every distance between values, so the standard deviation changes and II need not be true.\n\n**The Full Solution:**\nStep 1: Statement I: multiplying every value by $\\frac{3}{4}$ multiplies the sum, and so the mean, by $\\frac{3}{4}$. Subtracting $6$ from every value lowers the mean by $6$. The mean of data set B is $\\frac{3}{4}m-6$, so I must be true.\nStep 2: Statement II: multiplying every value by $\\frac{3}{4}$ multiplies every distance between values by $\\frac{3}{4}$, and subtracting $6$ does not change those distances. Unless all the values are equal, data set B is less spread out than data set A, so II need not be true.\nStep 3: Only statement I must be true. Check with two values: $\\{8, 12\\}$ has mean $10$, with each value $2$ from the mean; the new values are $\\{0, 3\\}$, with mean $1.5=\\frac{3}{4}(10)-6$ and each value $1.5$ from the mean, so the spread changed ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (II only): applies only the multiplication to the mean and assumes the standard deviation can never change.\n* Choice C (I and II): remembers that subtracting a constant leaves the spread unchanged but overlooks that multiplying by $\\frac{3}{4}$ shrinks it.\n* Choice D (Neither I nor II): subtracts $6$ before multiplying, getting $\\frac{3}{4}(m-6)$ for the mean, which is not $\\frac{3}{4}m-6$.\n\n**Test Day Takeaway:** Adding or subtracting a constant moves the center but not the spread; multiplying every value by a constant changes both the center and the spread."
 }

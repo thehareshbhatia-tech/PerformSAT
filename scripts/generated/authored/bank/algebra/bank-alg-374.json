@@ -1,44 +1,44 @@
 {
  "id": "bank-alg-374",
- "question": "What is the length of the line segment that joins the origin and the point shown in the $xy$-plane?",
+ "question": "Line $p$ passes through the origin and the point shown in the $xy$-plane. Line $q$ is parallel to line $p$ and passes through the point $(0, 3)$. Which equation defines line $q$?",
  "diagram": {
   "type": "coordinatePoints",
   "params": {
    "points": [
     [
-     -9,
-     12
+     -3,
+     6
     ]
    ],
-   "xMin": -12,
-   "xMax": 6,
-   "yMin": -4,
-   "yMax": 14
+   "xMin": -6,
+   "xMax": 4,
+   "yMin": -2,
+   "yMax": 8
   }
  },
  "choices": [
   {
    "id": "A",
-   "text": "$3\\sqrt{7}$"
+   "text": "$y = -2x$"
   },
   {
    "id": "B",
-   "text": "$15$"
+   "text": "$y = -2x + 3$"
   },
   {
    "id": "C",
-   "text": "$21$"
+   "text": "$y = \\frac{1}{2}x + 3$"
   },
   {
    "id": "D",
-   "text": "$225$"
+   "text": "$y = 2x + 3$"
   }
  ],
  "correctAnswer": "B",
  "distractorNotes": {
-  "A": "subtracts the squares, 144 - 81 = 63, instead of adding them",
-  "C": "adds the coordinate distances, 9 + 12, instead of using the Pythagorean theorem",
-  "D": "computes 81 + 144 but forgets to take the square root"
+  "A": "gives line p, which passes through the origin, not (0, 3)",
+  "C": "uses the negative reciprocal of line p's slope, which gives a perpendicular line",
+  "D": "drops the negative sign from the slope"
  },
- "explanation": "**SAT Pattern: Distance Formula**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The point is $(-9, 12)$, so its distance from $(0, 0)$ is $\\sqrt{81 + 144} = \\sqrt{225} = 15$.\n\n**The Full Solution:**\nStep 1: Read the point from the graph: $(-9, 12)$.\nStep 2: Its horizontal distance from the origin is $9$ and its vertical distance is $12$.\nStep 3: Distance $= \\sqrt{9^{2} + 12^{2}} = \\sqrt{81 + 144} = \\sqrt{225} = 15$. Check: $9$, $12$, $15$ is $3$ times the $3$-$4$-$5$ triangle ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3\\sqrt{7}$): computes $\\sqrt{144 - 81} = \\sqrt{63}$, subtracting the squares instead of adding them.\n* Choice C ($21$): adds the legs, $9 + 12$, as if the path went along the grid lines.\n* Choice D ($225$): stops at $9^{2} + 12^{2}$ without taking the square root.\n\n**Test Day Takeaway:** For distance from the origin, the coordinates themselves are the legs: square them, add, and take the square root."
+ "explanation": "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** From $(0, 0)$ to $(-3, 6)$ the slope is $\\frac{6}{-3} = -2$. Line $q$ has the same slope and $y$-intercept $3$, so $y = -2x + 3$.\n\n**The Full Solution:**\nStep 1: Read the point from the graph: $(-3, 6)$. Line $p$ also passes through $(0, 0)$.\nStep 2: Slope of line $p$: $\\frac{6 - 0}{-3 - 0} = -2$. Parallel lines have equal slopes, so line $q$ has slope $-2$.\nStep 3: Line $q$ passes through $(0, 3)$, so its $y$-intercept is $3$ and its equation is $y = -2x + 3$. Check: at $x = 0$, $y = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -2x$): is line $p$ itself, which passes through the origin, not $(0, 3)$.\n* Choice C ($y = \\frac{1}{2}x + 3$): uses the negative reciprocal of the slope, which gives a perpendicular line.\n* Choice D ($y = 2x + 3$): drops the negative sign; the point $(-3, 6)$ is to the left of the $y$-axis and above the $x$-axis, so the slope is negative.\n\n**Test Day Takeaway:** A parallel line keeps the slope; the point $(0, b)$ it passes through gives its $y$-intercept."
 }

@@ -1,29 +1,29 @@
 {
  "id": "bank-alg-183",
- "question": "$4x - 9y = 36$\nIn the $xy$-plane, line $v$ is perpendicular to the graph of the given equation and passes through the point $(-6, 5)$. Which equation defines line $v$?",
+ "question": "$4x - 9y = 36$\nIn the $xy$-plane, line $v$ is perpendicular to the graph of the given equation. Which of the following could be an equation of line $v$?",
  "choices": [
   {
    "id": "A",
-   "text": "$4x - 9y = -69$"
+   "text": "$4x - 9y = 12$"
   },
   {
    "id": "B",
-   "text": "$9x - 4y = -74$"
+   "text": "$4x + 9y = 12$"
   },
   {
    "id": "C",
-   "text": "$9x + 4y = -34$"
+   "text": "$9x - 4y = 12$"
   },
   {
    "id": "D",
-   "text": "$9x + 4y = 21$"
+   "text": "$9x + 4y = 12$"
   }
  ],
- "correctAnswer": "C",
+ "correctAnswer": "D",
  "distractorNotes": {
-  "A": "keeps the slope 4/9 of the given line, producing a parallel line through (-6, 5)",
-  "B": "takes the reciprocal slope 9/4 without changing its sign",
-  "D": "uses the correct slope but substitutes the point with its coordinates swapped, as (5, -6)"
+  "A": "keeps the same coefficients, which gives slope $\\frac{4}{9}$, a line parallel to the given one",
+  "B": "changes only the sign of the $y$-term, which gives slope $-\\frac{4}{9}$ (sign changed but not the reciprocal)",
+  "C": "swaps the coefficients but keeps the minus sign, which gives slope $\\frac{9}{4}$ (reciprocal but no sign change)"
  },
- "explanation": "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** Swapping the coefficients and changing one sign gives a perpendicular line, $9x + 4y = C$; substituting $(-6, 5)$ gives $C = -54 + 20 = -34$.\n\n**The Full Solution:**\nStep 1: Solve the given equation for $y$: $y = \\frac{4}{9}x - 4$, so its slope is $\\frac{4}{9}$ and line $v$ has slope $-\\frac{9}{4}$.\nStep 2: Through $(-6, 5)$: $y - 5 = -\\frac{9}{4}(x + 6)$. Multiply by $4$: $4y - 20 = -9x - 54$.\nStep 3: Rearrange: $9x + 4y = -34$. Check: $9(-6) + 4(5) = -34$, and the slope of $9x + 4y = -34$ is $-\\frac{9}{4}$, with $\\frac{4}{9} \\cdot \\left(-\\frac{9}{4}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4x - 9y = -69$): keeps the slope $\\frac{4}{9}$, so this line is parallel to the given line, not perpendicular.\n* Choice B ($9x - 4y = -74$): has slope $\\frac{9}{4}$, the reciprocal without the sign change; the product of the slopes is $1$.\n* Choice D ($9x + 4y = 21$): has the right slope but uses the point as $(5, -6)$: $9(5) + 4(-6) = 21$.\n\n**Test Day Takeaway:** For $Ax + By = C$, a perpendicular line is $Bx - Ay = C'$ (swap the coefficients, change one sign); find $C'$ by substituting the given point."
+ "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The given line has slope $\\frac{4}{9}$, so line $v$ needs slope $-\\frac{9}{4}$. Solving $9x + 4y = 12$ for $y$ gives $y = -\\frac{9}{4}x + 3$.\n\n**The Full Solution:**\nStep 1: Solve the given equation for $y$: $-9y = -4x + 36$, so $y = \\frac{4}{9}x - 4$. Its slope is $\\frac{4}{9}$.\nStep 2: Perpendicular lines have slopes that are negative reciprocals, so line $v$ has slope $-\\frac{9}{4}$.\nStep 3: Find the slope of each choice with $-\\frac{A}{B}$: A gives $\\frac{4}{9}$, B gives $-\\frac{4}{9}$, C gives $\\frac{9}{4}$, and D gives $-\\frac{9}{4}$. Only D matches. Check: $\\left(\\frac{4}{9}\\right)\\left(-\\frac{9}{4}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4x - 9y = 12$): keeps the same coefficients, which gives slope $\\frac{4}{9}$, a line parallel to the given one\n* Choice B ($4x + 9y = 12$): changes only the sign of the $y$-term, which gives slope $-\\frac{4}{9}$ (sign changed but not the reciprocal)\n* Choice C ($9x - 4y = 12$): swaps the coefficients but keeps the minus sign, which gives slope $\\frac{9}{4}$ (reciprocal but no sign change)\n\n**Test Day Takeaway:** Convert every equation to a slope before comparing; for $Ax + By = C$ the slope is $-\\frac{A}{B}$."
 }

@@ -9,34 +9,34 @@
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "C. S. Orwin was an English agricultural economist.",
-   "For generations, scholars had described medieval open-field farming almost entirely from documents such as court rolls and estate surveys.",
-   "In the village of Laxton in Nottinghamshire, an open-field system of farming survived into the twentieth century.",
-   "With Christabel Orwin, he published The Open Fields (1938).",
-   "The Orwins studied Laxton's surviving open fields directly, observing how the system actually worked.",
-   "Their study treated the surviving system itself as evidence, clarifying details that documents alone had left unclear."
+   "Butser Ancient Farm is an open-air archaeology site in Hampshire, England, founded in 1972.",
+   "Excavated Iron Age houses in Britain often survive only as rings of post holes in the ground.",
+   "At Butser, archaeologists build full-size roundhouses on the ground plans of excavated houses.",
+   "They then use the houses and record how the buildings hold up to weather and wear over many years.",
+   "This approach is known as experimental archaeology.",
+   "Work at Butser has shaped how Iron Age settlements are pictured in books."
   ],
-  "goal": "The student wants to emphasize the methodological innovation of the Orwins' study."
+  "goal": "The student wants to emphasize what was new about the method used at Butser."
  },
  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
  "choices": [
   {
    "id": "A",
-   "text": "C. S. Orwin, an English agricultural economist, published The Open Fields in 1938 with Christabel Orwin, a detailed study of how open-field farming worked."
+   "text": "Butser Ancient Farm, an open-air archaeology site in Hampshire, England, was founded in 1972."
   },
   {
    "id": "B",
-   "text": "In the Nottinghamshire village of Laxton, an open-field system of farming remained in operation well into the twentieth century."
+   "text": "Excavated Iron Age houses in Britain often survive only as rings of post holes left in the ground."
   },
   {
    "id": "C",
-   "text": "The Orwins' study of Laxton clarified details of open-field farming that generations of document-based scholarship had left unclear."
+   "text": "Work at Butser Ancient Farm, an open-air archaeology site in Hampshire, England, has shaped how Iron Age settlements are pictured in books."
   },
   {
    "id": "D",
-   "text": "Rather than reconstruct open-field farming from documents alone, the Orwins studied a living example, observing how Laxton's open fields actually worked."
+   "text": "Instead of studying only post holes, archaeologists at Butser build full-size roundhouses and test how they perform."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The goal is to spotlight what was new about the Orwins' METHOD, and D is built around exactly that contrast: not documents alone, but a living system observed directly.\n\n**The Full Solution:**\n- The methodological innovation, per the notes, is the shift in evidence: earlier scholars worked \"almost entirely from documents,\" while the Orwins \"treated the surviving system itself as evidence.\"\n- D states the old method (reconstruction from documents), then the new one (observing how Laxton's open fields actually worked).\n- Foregrounding how the study was done, against the background of how such studies used to be done, is precisely what \"emphasize the methodological innovation\" requires.\n\n**Why the other choices are wrong:**\n- A: It announces the book and its subject but says nothing about how the study was carried out.\n- B: It states the fact that made the method possible — Laxton's survival — without mentioning the Orwins or their approach at all.\n- C: It reports the study's results (clarified details), but results are what the method produced, not the method itself."
+ "explanation": "**Choice D is correct.** The goal is to spotlight what was new about the METHOD used at Butser, and D is built around exactly that contrast: not post holes alone, but full-size houses built and tested.\n\n**The Full Solution:**\n- The notes say excavated Iron Age houses \"often survive only as rings of post holes.\"\n- At Butser, archaeologists instead \"build full-size roundhouses\" and \"record how the buildings hold up to weather and wear.\"\n- D states the older kind of evidence (post holes) and then the new practice (building and testing whole houses), which is what \"what was new about the method\" requires.\n\n**Why the other choices are wrong:**\n- A: It gives the site's location and founding date but says nothing about how the archaeologists work.\n- B: It describes the limited evidence that excavation leaves behind without mentioning Butser or its approach at all.\n- C: It reports the influence of the work at Butser, which is a result of the method, not the method itself."
 }

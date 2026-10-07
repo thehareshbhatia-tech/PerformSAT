@@ -6,12 +6,12 @@
  "domain": "information-and-ideas",
  "skill": "inferences",
  "module": 2,
- "passage": "A flooded taro terrace is engineered around moving water: the flow enters at the top of the hillside, threads down from terrace to terrace, and rejoins the stream below, so that the water standing over the plants is continually replaced and stays cool. Where the circulation fails and water merely pools, it warms in the sun, and rot spreads quickly through the submerged corms no matter how generously the terrace is supplied. Growers have long observed that terraces fed by quite modest flows stay healthy for season after season, provided the water never stops moving. These observations suggest that ______",
+ "passage": "A flooded taro terrace is engineered around moving water. The flow enters at the top of the hillside, threads down from terrace to terrace, and rejoins the stream below, so the water standing over the plants is continually replaced and stays cool. Where the circulation fails and water merely pools, it warms in the sun, and rot spreads quickly through the submerged corms no matter how generously the terrace is supplied. Growers have long observed that terraces fed by quite modest flows stay healthy for season after season, provided the water never stops moving. These observations suggest that ______",
  "question": "Which choice most logically completes the text?",
  "choices": [
   {
    "id": "A",
-   "text": "a terrace's health depends on the steady movement and coolness of its water rather than simply on how much water it receives."
+   "text": "a terrace's health depends on the steady movement and coolness of its water rather than on how much water it receives."
   },
   {
    "id": "B",
@@ -23,7 +23,7 @@
   },
   {
    "id": "D",
-   "text": "only terraces supplied with large and steadily increasing volumes of water from their feeder streams can remain productive over many consecutive growing seasons."
+   "text": "only terraces supplied with large and steadily increasing volumes of water from their streams can stay productive for many seasons."
   }
  ],
  "correctAnswer": "A",

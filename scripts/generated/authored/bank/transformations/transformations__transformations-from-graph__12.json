@@ -1,30 +1,30 @@
 {
   "id": 12,
-  "question": "$g(x) = 2f(x + 5) - 9$\nThe graph of $y = f(x)$ in the $xy$-plane is a parabola with vertex $(-3, 6)$. What is the vertex of the graph of $y = g(x)$?",
+  "question": "$f(x) = x^{2} + 6x + 2$\nThe function $g$ is defined by $g(x) = f(x + 4) - 9$. What is the vertex of the graph of $y = g(x)$ in the $xy$-plane?",
   "choices": [
     {
       "id": "A",
-      "text": "$(-8, -6)$"
+      "text": "$(-7, -16)$"
     },
     {
       "id": "B",
-      "text": "$(-8, 3)$"
+      "text": "$(-7, 2)$"
     },
     {
       "id": "C",
-      "text": "$(-8, 12)$"
+      "text": "$(-3, -16)$"
     },
     {
       "id": "D",
-      "text": "$(2, 3)$"
+      "text": "$(1, -16)$"
     }
   ],
   "distractorNotes": {
-    "A": "subtracts 9 before multiplying by 2",
-    "C": "multiplies by 2 but drops the -9",
-    "D": "moves the vertex right 5 instead of left 5"
+    "B": "adds 9 to the y-coordinate instead of subtracting it",
+    "C": "applies the vertical shift but not the horizontal shift",
+    "D": "moves the vertex 4 units right instead of left"
   },
-  "correctAnswer": "B",
-  "hint": "Move the $x$-coordinate with the inside change and the $y$-coordinate with the outside changes, in order.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** $x$: $-3 - 5 = -8$. $y$: $2(6) - 9 = 3$. The vertex is $(-8, 3)$.\n\n**The Full Solution:**\nStep 1: The inside $x + 5$ moves the graph left $5$, so the vertex's $x$-coordinate is $-3 - 5 = -8$.\nStep 2: The outside changes act on the output in order: double it, then subtract $9$: $2(6) - 9 = 3$.\nStep 3: The vertex of $y = g(x)$ is $(-8, 3)$. Check: $g(-8) = 2f(-3) - 9 = 2(6) - 9 = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-8, -6)$): this computes $2(6 - 9)$; the output is doubled first and then $9$ is subtracted.\n* Choice C ($(-8, 12)$): this doubles $6$ but leaves off the $-9$.\n* Choice D ($(2, 3)$): $f(x + 5)$ moves the graph left $5$, not right.\n\n**Test Day Takeaway:** For $af(x - h) + k$, the point $(p, q)$ moves to $(p + h, aq + k)$: multiply before you add."
+  "correctAnswer": "A",
+  "hint": "Find the vertex of the graph of $f$ first, then apply both shifts.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~35s):** The graph of $f$ has vertex $(-3, -7)$; $f(x + 4) - 9$ moves it left $4$ and down $9$, to $(-7, -16)$.\n\n**The Full Solution:**\nStep 1: The vertex of the graph of $y = x^{2} + 6x + 2$ has $x = -\\frac{6}{2(1)} = -3$, and $f(-3) = 9 - 18 + 2 = -7$, so the vertex is $(-3, -7)$.\nStep 2: Replacing $x$ with $x + 4$ moves the graph left $4$ units, and subtracting $9$ moves it down $9$ units.\nStep 3: The vertex of the graph of $g$ is $(-3 - 4, -7 - 9) = (-7, -16)$. Check: $g(x) = (x + 4)^{2} + 6(x + 4) + 2 - 9 = x^{2} + 14x + 33$, whose vertex has $x = -\\frac{14}{2} = -7$, and $g(-7) = 49 - 98 + 33 = -16$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($(-7, 2)$): this adds $9$ to $-7$; subtracting $9$ outside $f$ moves the graph down.\n* Choice C ($(-3, -16)$): this moves the vertex down but leaves out the shift of $4$ units left.\n* Choice D ($(1, -16)$): this moves the vertex $4$ units right; adding $4$ inside $f$ moves the graph left.\n\n**Test Day Takeaway:** Find the vertex of $f$, then move it: $x + 4$ inside $f$ means $4$ units left, and $-9$ outside means $9$ units down."
 }

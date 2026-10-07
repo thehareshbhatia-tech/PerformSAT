@@ -6,34 +6,35 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 1,
- "passage": "Molten glass does not snap from liquid to solid at a single temperature; it stiffens gradually as it cools, passing through a range in which it can be gathered, blown, and shaped. Timing is therefore everything in a glass shop. Removed from the furnace too soon, ______",
+ "passage": "Maple sap is mostly water, so producers boil about 40 gallons of it down to make a single gallon of syrup. Finished syrup must reach a sugar content of about 66 percent. Taken off the heat too soon, ______",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "the blower finds the gather too fluid to control."
+   "text": "the producer ends up with syrup that may ferment in storage."
   },
   {
    "id": "B",
-   "text": "there is too much fluidity in the gather for controlled shaping."
+   "text": "there is too much water in the syrup for it to keep."
   },
   {
    "id": "C",
-   "text": "controlling the gather becomes all but impossible."
+   "text": "storing the syrup safely becomes all but impossible."
   },
   {
    "id": "D",
-   "text": "the gather is too fluid to hold a shape."
+   "text": "the syrup is too watery to keep without spoiling."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The opening modifier \"Removed from the furnace too soon\" must describe the subject that immediately follows it, and only \"the gather\" is what gets removed from the furnace: \"Removed from the furnace too soon, the gather is too fluid to hold a shape.\"\n\n**The Full Solution:**\n- A participial phrase at the start of a sentence attaches to the subject of the main clause.\n- The thing removed from the furnace is the gather of glass, so \"the gather\" must stand in the subject position, as it does in D.\n\n**Why the other choices are wrong:**\n- A: It makes \"the blower\" the subject, so the modifier absurdly says the blower was removed from the furnace too soon.\n- B: The expletive \"there\" gives the modifier nothing sensible to attach to, leaving it dangling.\n- C: It makes the gerund phrase \"controlling the gather\" the subject, which was not removed from the furnace either.",
+ "explanation": "**Choice D is correct.** The opening modifier \"Taken off the heat too soon\" must describe the subject that immediately follows it, and only \"the syrup\" is what gets taken off the heat: \"Taken off the heat too soon, the syrup is too watery to keep without spoiling.\"\n\n**The Full Solution:**\n- A participial phrase at the start of a sentence attaches to the subject of the main clause.\n- The thing taken off the heat is the syrup, so \"the syrup\" must stand in the subject position, as it does in D.\n\n**Why the other choices are wrong:**\n- A: It makes \"the producer\" the subject, so the modifier absurdly says the producer was taken off the heat too soon.\n- B: The expletive \"there\" gives the modifier nothing sensible to attach to, leaving it dangling.\n- C: It makes the gerund phrase \"storing the syrup safely\" the subject, which was not taken off the heat either.",
  "_meta": {
   "rule": "introductory participial modifier must attach to the logical subject",
   "distractors": {
    "A": "dangling modifier (wrong agent as subject)",
    "B": "expletive subject leaves modifier dangling",
    "C": "gerund subject leaves modifier dangling"
-  }
+  },
+  "anchor": "maple syrup density — dangling participial modifier"
  }
 }

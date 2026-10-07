@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 2,
- "passage": "The physiologist Étienne-Jules Marey wanted to analyze the flight of birds, but a single wingbeat passes far too quickly for the eye to follow. ______ in 1882 he built a \"chronophotographic gun,\" a camera shaped like a rifle that could take twelve photographs in one second as he tracked a bird across the sky.",
+ "passage": "Ordinary radio signals travel easily through air but are quickly absorbed by seawater, which conducts electricity. ______ navies that need to reach submerged submarines use very low frequency radio waves, which can penetrate seawater to depths of a few tens of meters.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,5 +27,12 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** Marey built his camera because the wingbeat was too fast for the eye, so the final sentence reports a response to the problem just described, and a cause-and-effect transition is required.\n\n**The Full Solution:**\n- The first sentence sets out a problem: Marey wanted to study bird flight, but a wingbeat is too fast to see.\n- The final sentence gives his response: a rifle-shaped camera that took twelve photographs a second.\n- The camera is a consequence of the problem, marked by \"Consequently.\"\n\n**Why the other choices are wrong:**\n- A: \"In fact,\" introduces an intensification or correction of the previous claim, not a response to it.\n- C: \"Nevertheless,\" would signal an action taken despite the problem, but the camera was built because of it.\n- D: \"Similarly,\" promises a parallel point, but building the camera is not like the problem; it answers it."
+ "explanation": "**Choice B is correct.** The first sentence states a limitation (seawater quickly absorbs ordinary radio signals), and the second reports what navies do because of it, so a cause-and-effect transition is required.\n\n**The Full Solution:**\n- The first sentence sets up the problem: ordinary radio signals do not get far through seawater.\n- The second sentence gives the response that problem forces: a special kind of radio wave that can reach submarines below the surface.\n- \"Consequently,\" marks the second sentence as the result of the first.\n\n**Why the other choices are wrong:**\n- A: \"In fact,\" would introduce a sharper restatement of the previous point, but the second sentence reports a response to it.\n- C: \"Nevertheless,\" signals that something happens despite the previous point, but the navies' choice follows directly from the problem.\n- D: \"Similarly,\" signals a parallel example, but the second sentence is a consequence, not a comparison.",
+ "_meta": {
+  "anchor": "seawater absorbs radio -> VLF communication with submarines — Consequently",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Communication_with_submarines",
+   "https://en.wikipedia.org/wiki/Very_low_frequency"
+  ]
+ }
 }

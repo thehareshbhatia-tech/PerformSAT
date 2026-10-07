@@ -1,6 +1,6 @@
 {
  "id": 5,
- "question": "The graph of $y = f(x)$ is shown. The function $g$ is defined by $g(x) = 2f(x + 1) - 14$. If $g(a) = 0$, what is the value of $a$?",
+ "question": "The graph of $y = f(x)$ is shown. The function $g$ is defined by $g(x) = f(x + 1) - 7$. If $g(a) = 0$, what is the value of $a$?",
  "diagram": {
   "type": "piecewiseLinear",
   "params": {
@@ -60,5 +60,5 @@
  },
  "correctAnswer": "A",
  "hint": "First find the value of $f(a + 1)$, then read the graph.",
- "explanation": "**Choice A is correct.**\n\n**The Fast Way (~45s):** $2f(a + 1) = 14$ gives $f(a + 1) = 7$; the graph reaches $7$ only at $x = 2$, so $a + 1 = 2$ and $a = 1$.\n\n**The Full Solution:**\nStep 1: Set $g(a) = 0$: $2f(a + 1) - 14 = 0$, so $f(a + 1) = 7$.\nStep 2: On the graph, $f(x) = 7$ only at $x = 2$: the segment from $(0, 1)$ to $(3, 10)$ rises $3$ units per unit and passes through $(2, 7)$, and the rest of the graph stays at or above $8$.\nStep 3: So $a + 1 = 2$ and $a = 1$. Check: $g(1) = 2f(2) - 14 = 2(7) - 14 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2$): finds the input where $f(x) = 7$ but ignores the shift inside $f(a + 1)$.\n* Choice C ($3$): shifts the wrong way, adding $1$ to $2$.\n* Choice D ($7$): reports the needed output of $f$ instead of the input.\n\n**Test Day Takeaway:** Undo the outside operations to get a value of $f$, read its input from the graph, then undo the inside shift."
+ "explanation": "**Choice A is correct.**\n\n**The Fast Way (~40s):** $f(a + 1) - 7 = 0$ gives $f(a + 1) = 7$; the graph reaches $7$ only at $x = 2$, so $a + 1 = 2$ and $a = 1$.\n\n**The Full Solution:**\nStep 1: Set $g(a) = 0$: $f(a + 1) - 7 = 0$, so $f(a + 1) = 7$.\nStep 2: On the graph, $f(x) = 7$ only at $x = 2$: the segment from $(0, 1)$ to $(3, 10)$ rises $3$ units per unit and passes through $(2, 7)$, and the rest of the graph stays at or above $8$.\nStep 3: So $a + 1 = 2$ and $a = 1$. Check: $g(1) = f(2) - 7 = 7 - 7 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2$): finds the input where $f(x) = 7$ but ignores the shift inside $f(a + 1)$.\n* Choice C ($3$): shifts the wrong way, adding $1$ to $2$.\n* Choice D ($7$): reports the needed output of $f$ instead of the input.\n\n**Test Day Takeaway:** Undo the operation outside $f$ to get a value of $f$, read its input from the graph, then undo the shift inside $f$."
 }

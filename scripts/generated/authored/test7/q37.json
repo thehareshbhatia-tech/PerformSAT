@@ -6,7 +6,7 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 2,
- "passage": "In the wet uplands of Meghalaya, in northeastern India, Khasi villagers train the aerial roots of rubber fig trees across streams, threading young roots through hollowed palm trunks until they take hold on the far bank. Over decades the roots thicken, fuse, and stiffen into a bridge that carries foot traffic through monsoon floods capable of sweeping away timber spans. Unlike built structures, a root bridge grows stronger with age — and because a crossing can take fifteen years or more to become usable, the guiding of new roots is work that one generation begins largely for the benefit of the next.",
+ "passage": "In the wet uplands of Meghalaya, in northeastern India, Khasi villagers train the aerial roots of rubber fig trees across streams, threading young roots through hollowed palm trunks until they take hold on the far bank. Over decades the roots thicken, fuse, and stiffen into a bridge that carries foot traffic through monsoon floods capable of sweeping away timber spans. Unlike built structures, a root bridge grows stronger with age. Because a crossing can take fifteen years or more to become usable, guiding new roots is work that one generation begins largely for the benefit of the next.",
  "question": "Which choice best states the main idea of the text?",
  "choices": [
   {
@@ -15,7 +15,7 @@
   },
   {
    "id": "B",
-   "text": "Timber bridges generally outlast root bridges in Meghalaya but are considerably more expensive for villages to build."
+   "text": "Timber bridges generally outlast root bridges in Meghalaya but are considerably more expensive for villages to build and to maintain over time."
   },
   {
    "id": "C",
@@ -23,7 +23,7 @@
   },
   {
    "id": "D",
-   "text": "The hollowed palm trunks through which young fig roots are threaded remain part of a root bridge's structure permanently, bearing much of its weight."
+   "text": "The hollowed palm trunks used to guide young roots stay in the finished bridge and bear much of its weight."
   }
  ],
  "correctAnswer": "C",

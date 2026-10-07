@@ -119,7 +119,7 @@ export const practiceTest7RWM2Easy = {
       "passages": [
         {
           "label": "Text 1",
-          "text": "At most county fairs, entries in baking, canning, and needlework are judged against a printed scorecard that assigns points to specific qualities — the flakiness of a pie crust, the seal on a jar, the evenness of a quilt's stitches. Advocates of the system argue that it turns judging into teaching. Because every entry comes back with a marked card rather than a bare ribbon, an exhibitor learns exactly where points were lost and what to practice before next year's fair."
+          "text": "At most county fairs, baking, canning, and needlework entries are judged with a printed scorecard. The card assigns points to specific qualities, such as the flakiness of a pie crust, the seal on a jar, or the evenness of embroidered stitches. Advocates of the system argue that it turns judging into teaching. Because every entry comes back with a marked card rather than a bare ribbon, an exhibitor learns exactly where points were lost and what to practice before next year's fair."
         },
         {
           "label": "Text 2",
@@ -128,7 +128,7 @@ export const practiceTest7RWM2Easy = {
       ],
       "question": "Based on the texts, how would the author of Text 2 most likely respond to the argument presented in Text 1?",
       "choices": [
-        { "id": "A", "text": "The author of Text 2 would agree that marked scorecards teach exhibitors effectively but would add that fairs should also explain the cards in printed guides." },
+        { "id": "A", "text": "The author of Text 2 would agree that scorecards teach exhibitors well but would add that fairs should also explain the cards in printed guides." },
         { "id": "B", "text": "Entries in baking and needlework, Text 2's author would insist, should not be judged at competitive fairs at all." },
         { "id": "C", "text": "By noting that most exhibitors never read their marked cards, the author of Text 2 would set the disagreement aside." },
         { "id": "D", "text": "The author of Text 2 would object that a scorecard's lessons come at a cost, steering exhibitors toward sameness and away from distinctive work." }
@@ -143,16 +143,16 @@ export const practiceTest7RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "text-structure-and-purpose",
-      "passage": "Maple syrup makers face an unfavorable ratio: the sap they collect is roughly two percent sugar, so about forty gallons of it must be boiled away to yield a single gallon of syrup, at a heavy cost in fuel and time. Many producers now pump sap through reverse-osmosis membranes before it ever reaches the evaporator. The membranes pass water molecules while holding back sugar, removing much of the water without any heat at all. Sap that enters the pan already concentrated boils down in a fraction of the time.",
+      "passage": "Watering crops by flooding fields or spraying them from above wastes water. Much of it evaporates or runs off before plant roots can take it up, a serious cost where water is scarce. Drip irrigation instead carries water through plastic tubing laid along the rows of crops. Small outlets called emitters release the water a few drops at a time onto the soil directly above each plant's roots. Because the water soaks in slowly where it is needed, far less of it is lost.",
       "question": "Which choice best describes the overall structure of the text?",
       "choices": [
-        { "id": "A", "text": "It describes a costly problem in syrup production, introduces a technology that reduces the cost, and explains how that technology works." },
-        { "id": "B", "text": "It traces the full history of maple sugaring from the earliest springtime harvests through the large commercial operations of the present day." },
-        { "id": "C", "text": "It presents two competing recipes for syrup and argues that one produces a better flavor." },
+        { "id": "A", "text": "It describes a costly problem in irrigation, introduces a technology that reduces it, and explains how that technology works." },
+        { "id": "B", "text": "It traces the history of irrigation from the earliest canals to the large commercial farms of the present day." },
+        { "id": "C", "text": "It compares two crops and argues that one of them needs far less water." },
         { "id": "D", "text": "It questions whether a widely adopted technology performs as well as its manufacturers claim." }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The text moves from a costly problem (boiling away forty gallons of water) to a technology (reverse osmosis) to an explanation of how it works and what it saves.\n\n**The Full Solution:**\n- How to spot it: label what each sentence DOES, not what it says. Sentence 1 = a problem and its cost; sentence 2 = a technology producers adopted; sentences 3-4 = how it works and the payoff.\n- The problem: sap is only about two percent sugar, so boiling it down burns heavy amounts of fuel and time.\n- The technology: membranes that pass water and hold back sugar, removing water with no heat, so the sap boils down far faster.\n\n**Why the other choices are wrong:**\n- B: No history is traced — the passage jumps straight from the problem to a present-day method.\n- C: Recipes and flavor are never discussed; the passage is about removing water, not seasoning syrup.\n- D: The passage reports that the membranes work as described and never casts doubt on them."
+      "explanation": "**Choice A is correct.** The text moves in three steps: it names a costly problem (flooding and spraying waste water where water is scarce), introduces drip irrigation as the fix, and explains how the tubing and emitters cut the waste.\n\n**The Full Solution:**\n- How to spot it: label what each sentence DOES, not what it says. Sentences 1-2 = a problem and its cost; sentence 3 = a technology; sentences 4-5 = how it works and the payoff.\n- The problem: much of the water evaporates or runs off before roots can use it.\n- The technology: tubing and emitters that release water a few drops at a time above the roots, so far less is lost.\n\n**Why the other choices are wrong:**\n- B: No history is traced — the passage describes one present-day method.\n- C: No crops are compared; the passage contrasts ways of watering, not kinds of plants.\n- D: The passage never casts doubt on drip irrigation; it explains why it saves water."
     },
     {
       "id": 759,
@@ -161,16 +161,17 @@ export const practiceTest7RWM2Easy = {
       "band": 2,
       "domain": "craft-and-structure",
       "skill": "text-structure-and-purpose",
-      "passage": "The clock in a town hall tower runs without electricity. Its power comes from a heavy weight hung on a long cable inside the tower. As the weight sinks a little at a time, it turns a drum, and gears carry that motion up to the hands on the dial. A device called an escapement lets the gears advance only in small, regular steps, which is what keeps the hands moving at a steady pace. Once or twice a week, someone cranks the weight back to the top, and the clock is ready to run again.",
+      "passage": "A hydraulic ram is a pump that runs without electricity or fuel. Its power comes from water flowing downhill from a stream or spring through a long pipe. As the water speeds up, it pushes shut a valve at the bottom of the pipe. The sudden stop sends a surge of pressure back through the water, and that surge forces a small share of it through a second valve and up another pipe to a tank on higher ground. The first valve then drops open, the water speeds up again, and the cycle repeats on its own.",
       "question": "Which choice best states the main purpose of the text?",
       "choices": [
-        { "id": "A", "text": "To argue that mechanical tower clocks keep better time than modern electric ones." },
-        { "id": "B", "text": "To explain how a falling weight and a set of gears keep a tower clock running." },
-        { "id": "C", "text": "To describe the career of a clockmaker famous for building tower clocks." },
-        { "id": "D", "text": "To trace the steps by which one town raised the money to repair its aging clock tower." }
+        { "id": "A", "text": "To argue that hydraulic rams lift water more efficiently than electric pumps do." },
+        { "id": "B", "text": "To explain how flowing water and a pair of valves keep a hydraulic ram pumping." },
+        { "id": "C", "text": "To describe the career of an engineer famous for building hydraulic rams." },
+        { "id": "D", "text": "To trace the steps by which one farm raised the money to replace its aging water pump." }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** Every sentence describes one part of the mechanism — the weight, the drum and gears, the escapement, the weekly winding — so the purpose is to explain how the clock runs.\n\n**The Full Solution:**\n- How to spot it: for a main-purpose question, ask what the WHOLE passage is doing. Here each sentence adds a step in a single process.\n- The passage opens with the surprising fact that the clock needs no electricity, then names its real power source: a sinking weight.\n- It follows the motion from weight to drum to gears to hands, explains how the escapement keeps the pace steady, and ends with the winding that restarts the cycle.\n\n**Why the other choices are wrong:**\n- A: Electric clocks are never compared with mechanical ones; electricity is mentioned only to say the clock does without it.\n- C: No clockmaker — famous or otherwise — appears in the text.\n- D: The passage describes how the clock works, not a repair project or fundraising."
+      "explanation": "**Choice B is correct.** Every sentence describes one part of the pump's working cycle (the falling water, the valve that slams shut, the pressure surge, the second valve, the reset), so the purpose is to explain how the pump runs.\n\n**The Full Solution:**\n- How to spot it: for a main-purpose question, ask what the WHOLE passage is doing. Here each sentence adds a step in a single process.\n- The passage opens with the surprising fact that the pump needs no electricity or fuel, then names its real power source: water flowing downhill.\n- It follows the water from the pipe to the first valve, explains how the sudden stop pushes some water through the second valve and uphill, and ends with the valve reopening so the cycle starts again.\n\n**Why the other choices are wrong:**\n- A: Electric pumps are never compared with the ram; electricity is mentioned only to say the ram does without it.\n- C: No engineer, famous or otherwise, appears in the text.\n- D: The passage describes how the pump works, not a farm's fundraising or a replacement project.",
+      "_meta": { "anchor": "hydraulic ram pump: water-hammer cycle with waste valve and delivery valve, no electricity", "sources": ["https://en.wikipedia.org/wiki/Hydraulic_ram"] }
     },
     // ============================================================
     // Q9-Q16: Information and Ideas
@@ -200,27 +201,27 @@ export const practiceTest7RWM2Easy = {
       "band": 2,
       "domain": "information-and-ideas",
       "skill": "command-of-evidence-quantitative",
-      "passage": "For a science project, a student folded four paper airplane designs from identical sheets of paper and threw each one ten times with the same motion, recording the average distance it flew. Reviewing the results, the student concludes that the choice of design has a large effect on how far a plane flies because _______",
+      "passage": "For a science report, a student looked up published measurements of how fast sound travels through four materials. Reviewing the values, the student concludes that the material sound passes through has a large effect on how fast it travels because _______",
       "questionTable": {
         "type": "table",
-        "caption": "Average flight distance for four paper airplane designs, each thrown ten times",
-        "headers": ["Design", "Average distance flown (feet)"],
+        "caption": "Speed of sound in four materials (meters per second)",
+        "headers": ["Material", "Speed of sound (meters per second)"],
         "rows": [
-          ["Narrow dart", "26"],
-          ["Standard glider", "21"],
-          ["Wide wing", "17"],
-          ["Ring wing", "11"]
+          ["Air (20°C)", "343"],
+          ["Fresh water (20°C)", "1,481"],
+          ["Iron", "5,120"],
+          ["Diamond", "12,000"]
         ]
       },
       "question": "Which choice most effectively uses data from the table to complete the statement?",
       "choices": [
-        { "id": "A", "text": "the narrow dart's average distance of 26 feet was recorded across ten separate throws." },
-        { "id": "B", "text": "the ring wing flew an average of 17 feet, the shortest distance of the four designs." },
-        { "id": "C", "text": "average distance ranged from 26 feet for the narrow dart down to 11 feet for the ring wing, with the best design flying more than twice as far as the worst." },
-        { "id": "D", "text": "every design was folded from an identical sheet of paper and thrown with the same motion, so the comparison between the four designs was fair." }
+        { "id": "A", "text": "sound travels through fresh water at 1,481 meters per second when the water is at 20°C." },
+        { "id": "B", "text": "sound travels through iron at 1,481 meters per second, the slowest speed of the four materials." },
+        { "id": "C", "text": "speeds ranged from 343 meters per second in air to 12,000 in diamond, more than a thirtyfold difference." },
+        { "id": "D", "text": "every speed in the table was taken from a published measurement, so the comparison between materials was fair." }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The claim is that design has a large effect, and C compares the best design with the worst to show how big that effect is.\n\n**The Full Solution:**\n- How to spot it: read the claim, then ask what numbers would prove it. A claim about a large effect needs two readings compared — ideally the biggest and the smallest.\n- The table's longest average is 26 feet for the narrow dart; the shortest is 11 feet for the ring wing.\n- C reports both and states the size of the gap — the best design flew more than twice as far — which is exactly what \"a large effect\" means.\n\n**Why the other choices are wrong:**\n- A: One design's distance on its own shows nothing about how much design changes the outcome.\n- B: This misreads the table — the ring wing averaged 11 feet, not 17.\n- D: This describes how the test was run instead of using the distance data at all."
+      "explanation": "**Choice C is correct.** The claim is that the material has a large effect, and C compares the fastest material with the slowest to show how big that effect is.\n\n**The Full Solution:**\n- How to spot it: read the claim, then ask what numbers would prove it. A claim about a large effect needs two readings compared — ideally the biggest and the smallest.\n- The table's highest speed is 12,000 meters per second in diamond; the lowest is 343 meters per second in air.\n- C reports both and states the size of the gap — sound moves more than thirty times as fast in diamond as in air — which is exactly what \"a large effect\" means.\n\n**Why the other choices are wrong:**\n- A: One material's speed on its own shows nothing about how much the material changes the speed.\n- B: This misreads the table — 1,481 meters per second is the speed in fresh water, and the slowest speed is in air.\n- D: This describes where the numbers came from instead of using the speed data at all."
     },
     {
       "id": 764,
@@ -247,7 +248,7 @@ export const practiceTest7RWM2Easy = {
       "band": 4,
       "domain": "information-and-ideas",
       "skill": "inferences",
-      "passage": "In old buildings, stone staircases keep a record of their own use. Each footstep removes an invisibly small amount of stone, and the loss adds up only where feet actually land, so after a few centuries the treads are hollowed deepest along the route people really took — which is not always the route the builder's tidy symmetry assumed they would take. The record has gaps, however: badly worn treads were often flipped over or replaced, and every such repair erased the wear at that spot. Taken together, these observations suggest that the wear on an old staircase is best understood as ______",
+      "passage": "In old buildings, stone staircases keep a record of their own use. Each footstep removes an invisibly small amount of stone, and the loss adds up only where feet actually land. After a few centuries, the treads are hollowed deepest along the route people really took, which is not always the route the builder's tidy symmetry assumed they would take. The record has gaps, however: badly worn treads were often flipped over or replaced, and every such repair erased the wear at that spot. Taken together, these observations suggest that the wear on an old staircase is best understood as ______",
       "question": "Which choice most logically completes the text?",
       "choices": [
         { "id": "A", "text": "proof that the building's architect failed to anticipate how the staircase would be used." },
@@ -265,7 +266,7 @@ export const practiceTest7RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "command-of-evidence-textual",
-      "passage": "The chirping of tree crickets speeds up on warm evenings and slows on cool ones — so reliably that listeners can estimate the temperature by counting chirps. Researchers have proposed that the rate is set by the temperature of the cricket's own body, which governs how quickly its chirping muscles can contract: on this account, the surrounding air matters only insofar as it warms or cools the insect itself. A team is testing the proposal by gently warming individual crickets while keeping the air around them cool.",
+      "passage": "The chirping of tree crickets speeds up on warm evenings and slows on cool ones — so reliably that listeners can estimate the temperature by counting chirps. Researchers have proposed that the rate is set by the temperature of the cricket's own body, which governs how quickly its chirping muscles can contract. On this account, the surrounding air matters only insofar as it warms or cools the insect itself. A team is testing the proposal by gently warming individual crickets while keeping the air around them cool.",
       "question": "Which finding from the study, if true, would most strongly support the researchers' proposal?",
       "choices": [
         { "id": "A", "text": "Crickets chirped at their usual evening rate whether or not other crickets were audible nearby." },
@@ -289,7 +290,7 @@ export const practiceTest7RWM2Easy = {
         { "id": "A", "text": "Sledding is fastest on hills that have been packed down by many earlier riders." },
         { "id": "B", "text": "A sled glides on a film of meltwater created by friction, so snow too cold to melt makes a slow ride." },
         { "id": "C", "text": "Snow crystals cling to a sled's runners more strongly when the temperature rises above freezing." },
-        { "id": "D", "text": "The design and material of a sled's runners matter more to its speed than the condition of the snow on the hill it crosses." }
+        { "id": "D", "text": "The design and material of a sled's runners matter more to its speed than the condition of the snow it crosses." }
       ],
       "correctAnswer": "B",
       "explanation": "**Choice B is correct.** The passage explains both halves: friction melts a hair-thin water film that the sled glides on, and when snow is too cold to melt, the film never forms and the sled drags.\n\n**The Full Solution:**\n- How to spot it: the main idea has to include the mechanism AND its limit, because the passage spends time on both.\n- The mechanism: rubbing runners warm the top layer of snow, the melt becomes a thin film, and water clings to the runners far less than snow crystals do.\n- The limit: the passage flags it with \"The effect has a limit, though\" — in severe cold no film forms, and the same hill turns slow.\n- B states the mechanism and the cold-weather limit in one sentence.\n\n**Why the other choices are wrong:**\n- A: Packed snow and earlier riders are never mentioned in the text.\n- C: The passage compares water and snow crystals, but it never says crystals grip harder above freezing.\n- D: Runner design is never weighed against snow conditions — the passage is entirely about the snow and the film."
@@ -301,27 +302,29 @@ export const practiceTest7RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "command-of-evidence-quantitative",
-      "passage": "Apples keep ripening after harvest: they take in oxygen, soften, and lose their crispness in storage. Warehouses slow the process by chilling the fruit, and some go further, sealing their storage rooms and lowering the oxygen inside. Comparing the two methods across a storage season, a grower argues that the sealed rooms' advantage shows up most clearly late in the season because _______",
+      "passage": "In 1995, airlines registered in China already carried more passengers than airlines registered in India. Over the following two decades, China's total grew much faster. Reviewing international aviation data, an analyst argues that China's lead over India became most pronounced late in the period because _______",
       "questionTable": {
         "type": "table",
-        "caption": "Percentage of stored apples still rated crisp, by storage method and months in storage",
-        "headers": ["Months in storage", "Chilled only", "Chilled, low-oxygen"],
+        "caption": "Passengers carried by airlines registered in China and India, selected years (millions, approximate)",
+        "headers": ["Year", "China", "India"],
         "rows": [
-          ["2", "94%", "97%"],
-          ["4", "81%", "93%"],
-          ["6", "62%", "88%"],
-          ["8", "35%", "79%"]
+          ["1995", "48", "14"],
+          ["2000", "62", "17"],
+          ["2005", "137", "28"],
+          ["2010", "266", "64"],
+          ["2015", "436", "99"]
         ]
       },
       "question": "Which choice most effectively uses data from the table to complete the statement?",
       "choices": [
-        { "id": "A", "text": "at eight months the sealed rooms kept 79 percent of their apples crisp to the chilled-only rooms' 35 percent, a gap of 44 percentage points, while at two months the gap was only 3 points." },
-        { "id": "B", "text": "the low-oxygen rooms held 97 percent of their apples crisp at two months, the highest figure recorded anywhere in the table." },
-        { "id": "C", "text": "both storage methods kept a smaller share of apples crisp at eight months than at two months." },
-        { "id": "D", "text": "the chilled-only rooms kept 81 percent of their apples crisp at four months, more than they kept at six or eight months." }
+        { "id": "A", "text": "the gap between the two countries grew from about 34 million passengers in 1995 to about 337 million in 2015." },
+        { "id": "B", "text": "China's airlines carried about 436 million passengers in 2015, the highest figure recorded anywhere in the table." },
+        { "id": "C", "text": "airlines in both countries carried more passengers in 2015 than they had in 1995." },
+        { "id": "D", "text": "India's airlines carried about 64 million passengers in 2010, more than they had in 1995 or in 2005." }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The claim is about where the sealed rooms' advantage is clearest, so the answer must compare the size of the gap late in the season with the gap early on — which is what A does.\n\n**The Full Solution:**\n- How to spot it: the claim says the advantage \"shows up most clearly late in the season,\" so you need the difference between the two methods at two different points in time, not one method's numbers alone.\n- At eight months the gap is 79 percent versus 35 percent — 44 percentage points.\n- At two months the gap is 97 percent versus 94 percent — only 3 points.\n- The far larger late-season gap is exactly the pattern the grower describes.\n\n**Why the other choices are wrong:**\n- B: The single highest figure in the table says nothing about how the two methods compare over time.\n- C: Both methods declining is true but works against no one — it never contrasts the two methods.\n- D: This tracks one method against itself at different months, so it cannot show the sealed rooms' advantage."
+      "explanation": "**Choice A is correct.** The claim is about when China's lead was most pronounced, so the answer must compare the size of the gap late in the period with the gap early on, which is what A does.\n\n**The Full Solution:**\n- How to spot it: the claim says the lead became \"most pronounced late in the period,\" so you need the difference between the two countries at two different points in time, not one country's numbers alone.\n- In 2015 the gap is 436 million versus 99 million, or about 337 million passengers.\n- In 1995 the gap is 48 million versus 14 million, only about 34 million.\n- The far larger late gap is exactly the pattern the analyst describes.\n\n**Why the other choices are wrong:**\n- B: The single highest figure in the table says nothing about how the two countries compare over time.\n- C: Both countries growing is true but never contrasts the two countries.\n- D: This tracks one country against itself at different times, so it cannot show China's lead.",
+      "_meta": { "anchor": "air passengers carried by airlines registered in China vs India, 1995-2015 (World Bank IS.AIR.PSGR, ICAO data)", "sources": ["https://data.worldbank.org/indicator/IS.AIR.PSGR", "https://api.worldbank.org/v2/country/CHN;IND/indicator/IS.AIR.PSGR?format=json&date=1995:2015"] }
     },
     {
       "id": 769,
@@ -387,16 +390,17 @@ export const practiceTest7RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "A dry stone wall contains no mortar; nothing but the placement of the stones holds it together. Builders therefore follow one strict ______ a bond in which every stone rests on two stones below and is crossed by two above, so that no straight seam can run from the top of the wall to the ground.",
+      "passage": "A sudoku puzzle involves no arithmetic; its digits serve only as symbols and could be swapped for letters or shapes. Solvers rely on logic alone to reach one fixed ______ nine-by-nine grid in which each digit from 1 to 9 appears exactly once in every row, every column, and every three-by-three box.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "rule," },
-        { "id": "B", "text": "rule:" },
-        { "id": "C", "text": "rule;" },
-        { "id": "D", "text": "rule" }
+        { "id": "A", "text": "goal. A" },
+        { "id": "B", "text": "goal: a" },
+        { "id": "C", "text": "goal; a" },
+        { "id": "D", "text": "goal a" }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** What follows the blank spells out the rule just announced, and a colon is the mark that introduces an explanation like that.\n\n**The Full Solution:**\n- How to spot it: a colon works when the part before it is a complete sentence and the part after it explains or unpacks something in it. Check both sides.\n- \"Builders therefore follow one strict rule\" stands on its own as a sentence.\n- What follows — \"a bond in which every stone rests on two stones below...\" — is a phrase naming that rule, not a second sentence.\n- The colon introduces it cleanly.\n\n**Why the other choices are wrong:**\n- A: A comma is too weak to introduce an explanation of this kind.\n- C: A semicolon must join two complete sentences, and what follows the blank is only a phrase.\n- D: With no punctuation at all, the phrase collides with the sentence in front of it."
+      "explanation": "**Choice B is correct.** What follows the blank spells out the goal just announced, and a colon is the mark that introduces an explanation like that.\n\n**The Full Solution:**\n- How to spot it: a colon works when the part before it is a complete sentence and the part after it explains or unpacks something in it. Check both sides.\n- \"Solvers rely on logic alone to reach one fixed goal\" stands on its own as a sentence.\n- What follows, \"a nine-by-nine grid in which each digit from 1 to 9 appears exactly once...,\" is a phrase naming that goal, not a second sentence.\n- The colon introduces it cleanly.\n\n**Why the other choices are wrong:**\n- A: A period would leave \"A nine-by-nine grid in which each digit from 1 to 9 appears exactly once...\" standing alone as a sentence fragment, since it has no main verb.\n- C: A semicolon must join two complete sentences, and what follows the blank is only a phrase.\n- D: With no punctuation at all, the phrase collides with the sentence in front of it.",
+      "_meta": { "anchor": "sudoku rules: digits as symbols, each digit once per row, column and 3x3 box; colon introducing a specifying phrase", "sources": ["https://en.wikipedia.org/wiki/Sudoku"] }
     },
     {
       "id": 772,
@@ -423,7 +427,7 @@ export const practiceTest7RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "By the time the steel highway bridge opened in 1938, a cable ferry ______ wagons, livestock, and finally automobiles across the river at the same crossing for more than eighty years, hauled from bank to bank along a heavy cable anchored on each shore.",
+      "passage": "By the time the steel highway bridge opened in 1938, a cable ferry ______ wagons, livestock, and finally automobiles across the river at the same crossing for more than eighty years. The ferry was hauled from bank to bank along a heavy cable anchored on each shore.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
         { "id": "A", "text": "is carrying" },
@@ -441,7 +445,7 @@ export const practiceTest7RWM2Easy = {
       "band": 4,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "Before iceboxes were common, a farmhouse kept its vegetables through the winter in a cellar dug below the frost line. Along the coolest wall of a well-planned root cellar ______ several bins of damp sand, and in them carrots, beets, and parsnips stayed crisp for months after the garden had frozen.",
+      "passage": "Below the waterline, a wooden ship's hull was open to attack by shipworms, which bored through the planks, and by weeds and barnacles, which slowed the ship down. Covering the hull of many late eighteenth-century warships ______ thin plates of copper, which protected the wood and kept the hull far cleaner, so the ships stayed faster at sea.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
         { "id": "A", "text": "was" },
@@ -450,7 +454,8 @@ export const practiceTest7RWM2Easy = {
         { "id": "D", "text": "being" }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The subject comes after the verb here — \"several bins\" — and it is plural and set in the past, so the verb is \"were.\"\n\n**The Full Solution:**\n- How to spot it: when a sentence begins with a place phrase like \"Along the coolest wall...,\" the subject usually follows the verb. Flip the sentence around to find it: \"several bins of damp sand were along the coolest wall.\"\n- The words closest to the blank — \"wall\" and \"cellar\" — are singular and can pull you toward a singular verb, but neither is the subject.\n- The subject is \"several bins,\" which is plural, and the surrounding sentence is in the past tense (\"stayed crisp,\" \"had frozen\"), so \"were\" is right.\n\n**Why the other choices are wrong:**\n- A: \"Was\" is singular and would agree with \"wall\" or \"cellar\" rather than with the real subject.\n- C: \"Is\" is both singular and present tense, clashing with the past-tense sentence around it.\n- D: \"Being\" is not a complete verb, so the sentence would have no main verb at all."
+      "explanation": "**Choice B is correct.** The sentence is inverted: the subject, \"thin plates of copper,\" comes after the verb. The subject is plural and the passage describes the past, so the plural past-tense verb \"were\" is right.\n\n**The Full Solution:**\n- How to spot it: when a sentence opens with a phrase like \"Covering the hull...,\" the subject usually follows the verb. Flip the sentence around to find it: \"thin plates of copper were covering the hull.\"\n- The singular noun \"hull\" sits right after \"Covering\" and can pull you toward \"was,\" but it is not the subject.\n- The subject is \"plates,\" which is plural, and the sentence is in the past tense (\"protected,\" \"kept\"), so \"were\" is right.\n\n**Why the other choices are wrong:**\n- A: \"Was\" is singular and does not agree with the plural subject \"plates.\"\n- C: \"Is\" is both singular and present tense, clashing with the past-tense sentence around it.\n- D: \"Being\" is not a complete verb, so the sentence would have no main verb at all.",
+      "_meta": { "anchor": "copper sheathing on wooden warship hulls against shipworm and fouling (Royal Navy, 1760s-1780s); inverted subject-verb agreement", "sources": ["https://en.wikipedia.org/wiki/Copper_sheathing", "https://en.wikipedia.org/wiki/Shipworms"] }
     },
     // ============================================================
     // Q23-Q27: Expression of Ideas
@@ -462,7 +467,7 @@ export const practiceTest7RWM2Easy = {
       "band": 3,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "Evergreen trees keep their needles through the winter, and the habit has clear advantages: the tree spends nothing on a whole new set of leaves each spring and can begin making food on the first mild day, while its bare-branched neighbors are still budding. ______ needles carry a cost in high summer, when their small surface gathers far less light than a broad leaf spread flat to the sun.",
+      "passage": "Evergreen trees keep their needles through the winter, and the habit has clear advantages. The tree spends nothing on a new set of leaves each spring, and it can begin making food on the first mild day, while its bare-branched neighbors are still budding. ______ needles carry a cost in high summer, when their small surface gathers far less light than a broad leaf.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "As a result," },

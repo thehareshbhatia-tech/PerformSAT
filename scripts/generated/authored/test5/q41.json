@@ -6,30 +6,30 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 2,
- "passage": "Children's early word learning does not proceed at a steady clip. Tracking the number of distinct words children produce, researchers following one longitudinal sample recorded medians at four ages between the first and second birthdays. A student examining the results claims that toddlers' productive vocabularies not only grow across the second year but accelerate, with each interval adding more new words than the interval before it.",
+ "passage": "For most of human history, world population grew very slowly. Using historical estimates, a student claims that after 1850 growth not only continued but sped up, with each fifty-year period adding more people than the period before it. Demographers link the change largely to falling death rates, as better food supplies, sanitation, and medicine allowed more children to survive to adulthood.",
  "questionTable": {
   "type": "table",
-  "caption": "Median productive vocabulary of children in one longitudinal sample",
+  "caption": "Estimated world population, 1850-2000",
   "headers": [
-   "Age (months)",
-   "Median words produced"
+   "Year",
+   "Estimated population (billions)"
   ],
   "rows": [
    [
-    "12",
-    "5"
+    "1850",
+    "1.3"
    ],
    [
-    "16",
-    "40"
+    "1900",
+    "1.7"
    ],
    [
-    "20",
-    "160"
+    "1950",
+    "2.5"
    ],
    [
-    "24",
-    "320"
+    "2000",
+    "6.1"
    ]
   ]
  },
@@ -37,24 +37,24 @@
  "choices": [
   {
    "id": "A",
-   "text": "At every age listed, the sample's median child produced more words than at the age before."
+   "text": "World population was larger at each date listed in the table than it had been at the date listed before it."
   },
   {
    "id": "B",
-   "text": "By the time the children reached 24 months, the sample's median child produced 320 distinct words, fully 64 times the median of only 5 words that had been recorded at the 12-month visit."
+   "text": "By 2000, world population had reached about 6.1 billion, which is more than four times the estimate of 1.3 billion for 1850."
   },
   {
    "id": "C",
-   "text": "Between 12 and 24 months, the sample's median productive vocabulary increased by a total of 315 words."
+   "text": "Between 1850 and 2000, estimated world population increased by a total of about 4.8 billion people, from 1.3 to 6.1 billion."
   },
   {
    "id": "D",
-   "text": "The sample's median vocabulary grew by 35 words between 12 and 16 months, by 120 words between 16 and 20 months, and by 160 words between 20 and 24 months."
+   "text": "Population grew by about 0.4 billion from 1850 to 1900, 0.8 billion from 1900 to 1950, and 3.6 billion from 1950 to 2000."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** Acceleration is a claim about successive increments, and D lays the three increments side by side — 35, then 120, then 160 words — showing each interval adding more than the one before.\n\n**The Full Solution:**\n- The claim has two parts: vocabularies grow, and the growth itself speeds up interval by interval.\n- Only interval-over-interval comparisons can show speeding up; totals and endpoints cannot.\n- D computes each successive gain from the table and the sequence rises monotonically (35 < 120 < 160), which is the accelerating pattern the student asserts.\n\n**Why the other choices are wrong:**\n- A: Monotonic growth supports only the first half of the claim; steady growth would satisfy A's statement without any acceleration.\n- B: A 64-fold endpoint ratio compresses the whole period into one number and reveals nothing about how the gains were distributed across intervals.\n- C: The 315-word total likewise erases the interval structure on which the acceleration claim depends.",
+ "explanation": "**Choice D is correct.** The claim is that growth sped up, with each fifty-year period adding more people than the one before. Choice D gives the amount added in each period, 0.4, 0.8, and 3.6 billion, and each is larger than the last.\n\n**The Full Solution:**\n- How to spot it: \"sped up\" is a claim about the size of each period's increase, so the evidence must compare the increases.\n- From the table: 1.7 - 1.3 = 0.4 billion, 2.5 - 1.7 = 0.8 billion, and 6.1 - 2.5 = 3.6 billion.\n- Each increase is larger than the one before it, which is exactly the claimed pattern. Only Choice D reports those increases.\n\n**Why the other choices are wrong:**\n- A: Population rising at each date shows growth, but steady growth would fit that statement too; it does not show the growth speeding up.\n- B: Comparing the first and last values shows overall growth, not whether each period added more than the one before.\n- C: A single total for the whole span cannot show how the increases changed from period to period.",
  "_meta": {
-  "anchor": "toddler vocabulary growth — accelerating gains across the second year"
+  "anchor": "estimated world population 1850-2000 — per-period increases show acceleration"
  }
 }

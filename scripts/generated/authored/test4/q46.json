@@ -6,29 +6,30 @@
   "domain": "standard-english-conventions",
   "skill": "boundaries",
   "module": 2,
-  "passage": "Rain that falls on the limestone plateau does not linger at the ______ it slips into sinkholes, threads through caverns dissolved out of the rock, and emerges days later, filtered and cold, at springs in the valleys below.",
+  "passage": "The peacock mantis shrimp does not pry open the shells of its ______ it smashes snails and crabs with a pair of club-shaped limbs that strike at more than 20 meters per second.",
   "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
   "choices": [
     {
       "id": "A",
-      "text": "surface, it"
+      "text": "prey, it"
     },
     {
       "id": "B",
-      "text": "surface; it"
+      "text": "prey; it"
     },
     {
       "id": "C",
-      "text": "surface it"
+      "text": "prey it"
     },
     {
       "id": "D",
-      "text": "surface and, it"
+      "text": "prey and, it"
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** \"Rain ... does not linger at the surface\" and \"it slips into sinkholes ...\" are both independent clauses, and a semicolon is a standard way to join two closely related independent clauses.\n\n**The Full Solution:**\n- Clause one is complete: \"Rain that falls on the limestone plateau does not linger at the surface.\"\n- Clause two is complete: \"it slips into sinkholes, threads through caverns ..., and emerges ... at springs.\"\n- The second clause elaborates the first, so a semicolon joins them correctly.\n\n**Why the other choices are wrong:**\n- A: A comma alone between the two independent clauses creates a comma splice.\n- C: No punctuation fuses the clauses into a run-on.\n- D: \"And\" would need a comma before it to join the clauses; a comma after it is not a conventional joining.",
+  "explanation": "**Choice B is correct.** \"The peacock mantis shrimp does not pry open the shells of its prey\" and \"it smashes snails and crabs ...\" are both independent clauses, and a semicolon is a standard way to join two closely related independent clauses.\n\n**The Full Solution:**\n- Clause one is complete: \"The peacock mantis shrimp does not pry open the shells of its prey.\"\n- Clause two is complete: \"it smashes snails and crabs with a pair of club-shaped limbs ...\"\n- The second clause explains the first, so a semicolon joins them correctly.\n\n**Why the other choices are wrong:**\n- A: A comma alone between the two independent clauses creates a comma splice.\n- C: No punctuation fuses the clauses into a run-on.\n- D: \"And\" would need a comma before it to join the clauses; a comma after it is not a conventional joining.",
   "_meta": {
-    "anchor": "karst drainage; semicolon between independent clauses"
+    "anchor": "peacock mantis shrimp club strike >20 m/s on snails and crabs; semicolon between independent clauses",
+    "source": "https://en.wikipedia.org/wiki/Odontodactylus_scyllarus"
   }
 }

@@ -6,16 +6,16 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 1,
- "passage": "Two lighthouses on the same stretch of coast can look nearly identical from a ship, and by day their lamps are of little help. Maritime authorities therefore paint each tower with its own pattern of stripes, bands, or checks, called a daymark. Because no two nearby towers share a pattern, a sailor with a chart can ____ any lighthouse at a glance and fix the ship's position from it.",
+ "passage": "To learn how long wild birds live and where they travel, researchers fit them with small metal leg bands. Each band is stamped with its own number, and no two bands share the same one. When a banded bird is caught again or found, researchers can read the number and ____ the individual bird, learning where and when it was first banded.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
    "id": "A",
-   "text": "admire"
+   "text": "imagine"
   },
   {
    "id": "B",
-   "text": "approach"
+   "text": "feed"
   },
   {
    "id": "C",
@@ -23,9 +23,9 @@
   },
   {
    "id": "D",
-   "text": "restore"
+   "text": "train"
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The whole point of the daymark system is telling towers apart: no two nearby towers share a pattern, so a sailor with a chart can recognize which lighthouse is which. \"Identify\" means exactly that.\n\n**The Full Solution:**\n- The problem the passage sets up is confusion — two lighthouses \"can look nearly identical\" from a ship.\n- The solution is a unique painted pattern per tower, and the payoff is that a sailor \"can ____ any lighthouse at a glance and fix the ship's position from it.\"\n- Fixing a position from a lighthouse only works if the sailor knows which lighthouse it is, so the blank must mean recognizing or naming it: \"identify.\"\n\n**Why the other choices are wrong:**\n- A: \"Admire\" is about appreciating the tower's looks, which does nothing to fix a position.\n- B: \"Approach\" means to move toward the lighthouse, but the sailor is reading it from a distance, not sailing at it.\n- D: \"Restore\" means to repair the tower, an activity that has nothing to do with the patterns or the chart."
+ "explanation": "**Choice C is correct.** Because every band carries a number that no other band shares, reading that number tells researchers exactly which bird they have. \"Identify\" means to recognize or establish who or what something is.\n\n**The Full Solution:**\n- The text says each band is stamped with \"its own number\" and that \"no two bands share the same one.\"\n- A number that belongs to only one band works like a name tag for one bird.\n- Reading it lets researchers recognize the individual bird and look up \"where and when it was first banded,\" so the blank must mean \"identify.\"\n\n**Why the other choices are wrong:**\n- A: Researchers are reading a real number on a band, not picturing a bird in their minds.\n- B: Giving the bird food has nothing to do with reading its band number or learning its history.\n- D: Nothing in the text describes teaching the bird; reading a band number tells researchers only which bird it is."
 }

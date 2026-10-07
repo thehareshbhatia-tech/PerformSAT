@@ -1,29 +1,29 @@
 {
  "id": 5,
- "question": "In the $xy$-plane, the midpoint of the line segment with endpoints $(-4, 3)$ and $(k, 11)$ is $(5, 7)$. What is the value of $k$?",
+ "question": "In the $xy$-plane, line $\\ell$ passes through the points $(-4, 3)$ and $(k, 11)$. The slope of line $\\ell$ is $\\frac{1}{2}$. What is the value of $k$?",
  "choices": [
   {
    "id": "A",
-   "text": "$6$"
+   "text": "$0$"
   },
   {
    "id": "B",
-   "text": "$9$"
+   "text": "$12$"
   },
   {
    "id": "C",
-   "text": "$11$"
+   "text": "$16$"
   },
   {
    "id": "D",
-   "text": "$14$"
+   "text": "$20$"
   }
  ],
  "distractorNotes": {
-  "A": "drops the sign of the -4, solving 2(5) - 4 = 6 instead of 2(5) - (-4)",
-  "B": "forgets to double the midpoint coordinate, computing 5 - (-4) = 9",
-  "C": "applies the midpoint relation to the y-coordinates, computing 2(7) - 3 = 11"
+  "A": "inverts the slope formula, setting (k + 4)/8 = 1/2, so k + 4 = 4 and k = 0",
+  "C": "finds the change in x, k + 4 = 16, and reports 16 instead of subtracting 4",
+  "D": "writes the change in x as k - 4 instead of k - (-4), so k - 4 = 16 and k = 20"
  },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: Midpoint Formula**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The midpoint's $x$-coordinate is the average of the endpoints' $x$-coordinates: $\\frac{-4 + k}{2} = 5$, so $k = 14$.\n\n**The Full Solution:**\nStep 1: The $x$-coordinate of a midpoint is the average of the endpoints' $x$-coordinates, so $\\frac{-4 + k}{2} = 5$.\nStep 2: Multiply both sides by $2$: $-4 + k = 10$.\nStep 3: Add $4$: $k = 14$. Check: $\\frac{-4 + 14}{2} = 5$, and the $y$-coordinate $\\frac{3 + 11}{2} = 7$ also matches ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): computes $2(5) - 4$, dropping the negative sign on $-4$.\n* Choice B ($9$): computes $5 - (-4)$, forgetting that the midpoint coordinate is half the sum, so it must be doubled first.\n* Choice C ($11$): works with the $y$-coordinates, computing $2(7) - 3 = 11$, which is the given $y$-coordinate of the second endpoint, not $k$.\n\n**Test Day Takeaway:** Midpoint coordinates are averages; to find a missing endpoint, double the midpoint coordinate and subtract the known endpoint coordinate."
+ "correctAnswer": "B",
+ "explanation": "**SAT Pattern: Slope from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The change in $y$ is $11 - 3 = 8$. With a slope of $\\frac{1}{2}$, the change in $x$ must be $16$, so $k = -4 + 16 = 12$.\n\n**The Full Solution:**\nStep 1: The slope of the line through $(-4, 3)$ and $(k, 11)$ is $\\frac{11 - 3}{k - (-4)} = \\frac{8}{k + 4}$.\nStep 2: Set it equal to $\\frac{1}{2}$: $\\frac{8}{k + 4} = \\frac{1}{2}$, so $k + 4 = 16$.\nStep 3: Subtract $4$: $k = 12$. Check: $\\frac{11 - 3}{12 - (-4)} = \\frac{8}{16} = \\frac{1}{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): puts the change in $x$ on top, $\\frac{k + 4}{8} = \\frac{1}{2}$, which gives $k = 0$.\n* Choice C ($16$): finds the change in $x$, $16$, and stops before subtracting $4$.\n* Choice D ($20$): writes $k - 4$ for the change in $x$, losing the double negative in $k - (-4)$.\n\n**Test Day Takeaway:** Slope is the change in $y$ over the change in $x$. When a coordinate is negative, write the subtraction with parentheses so the sign is not lost."
 }

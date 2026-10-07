@@ -1,30 +1,30 @@
 {
   "id": 5,
-  "question": "$x^{2} + bx + 45 = 0$\nIn the given equation, $b$ is a constant. The equation has two positive solutions that differ by $4$. What is the value of $b$?",
+  "question": "$x^{2} - 6x - 11 = 0$\nOne solution to the given equation can be written as $x = 3 + \\sqrt{k}$, where $k$ is a constant. What is the value of $k$?",
   "choices": [
     {
       "id": "A",
-      "text": "$-14$"
+      "text": "$2$"
     },
     {
       "id": "B",
-      "text": "$-9$"
+      "text": "$11$"
     },
     {
       "id": "C",
-      "text": "$9$"
+      "text": "$20$"
     },
     {
       "id": "D",
-      "text": "$14$"
+      "text": "$80$"
     }
   ],
   "distractorNotes": {
-    "B": "negates the larger solution, 9, instead of negating the sum of the two solutions",
-    "C": "reports the larger solution, 9, rather than a value of b",
-    "D": "reports the sum of the solutions, 14, without the minus sign that b carries"
+    "A": "subtracts 9 from 11 instead of adding 9 when completing the square",
+    "B": "moves 11 to the right side but forgets to add 9 to complete the square",
+    "D": "uses the discriminant, 36 + 44, without dividing the square root by 2"
   },
-  "correctAnswer": "A",
-  "hint": "The two solutions multiply to 45 and their sum is tied to b.",
-  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~30s):** The two solutions multiply to $45$ and differ by $4$, so they are $5$ and $9$; their sum is $14$, and $b = -14$.\n\n**The Full Solution:**\nStep 1: Use the product. For $x^2 + bx + 45 = 0$, the two solutions multiply to $45$. Positive pairs are $1$ and $45$, $3$ and $15$, $5$ and $9$.\nStep 2: Use the gap. Only $5$ and $9$ differ by $4$.\nStep 3: Convert the sum to $b$ and check. The solutions sum to $-b$, so $5 + 9 = 14$ gives $b = -14$. Then $x^2 - 14x + 45 = (x - 5)(x - 9)$, with solutions $5$ and $9$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-9$): negates the larger solution instead of the sum of the two.\n* Choice C ($9$): is the larger solution, not the coefficient $b$.\n* Choice D ($14$): is the sum of the two solutions. For $x^2 + bx + c$ the sum equals $-b$, so the sign flips.\n\n**Test Day Takeaway:** For $x^2 + bx + c = 0$: the solutions multiply to $c$ and sum to $-b$. Two positive solutions force $b$ to be negative."
+  "correctAnswer": "C",
+  "hint": "Complete the square, or use the quadratic formula and simplify.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~40s):** Completing the square gives $(x - 3)^{2} = 20$, so $x = 3 \\pm \\sqrt{20}$ and $k = 20$.\n\n**The Full Solution:**\nStep 1: Add $11$ to both sides: $x^{2} - 6x = 11$.\nStep 2: Add $9$ to both sides to complete the square: $x^{2} - 6x + 9 = 20$, so $(x - 3)^{2} = 20$.\nStep 3: Then $x - 3 = \\pm\\sqrt{20}$, so $x = 3 + \\sqrt{20}$ is a solution and $k = 20$.\n\nCheck: The quadratic formula gives $x = \\frac{6 \\pm \\sqrt{36 + 44}}{2} = \\frac{6 \\pm \\sqrt{80}}{2} = 3 \\pm \\sqrt{20}$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): computes $11 - 9$ instead of $11 + 9$ when completing the square.\n* Choice B ($11$): stops at $x^{2} - 6x = 11$ without adding $9$ to both sides.\n* Choice D ($80$): is the discriminant; the formula gives $\\frac{\\sqrt{80}}{2} = \\sqrt{20}$, not $\\sqrt{80}$.\n\n**Test Day Takeaway:** Match the form the question gives: here $x = 3 + \\sqrt{k}$ comes straight from completing the square."
 }

@@ -9,32 +9,32 @@
  "passages": [
   {
    "label": "Text 1",
-   "text": "When an extraordinary storm of shooting stars filled North American skies in November 1833, many observers reached for the era's standard account of meteors. Shooting stars were widely held to be an atmospheric phenomenon, kin to lightning: vapors risen from the earth that ignited in the upper air. On this view the night's display, however astonishing in scale, was weather, generated within the atmosphere itself."
+   "text": "For centuries, many people believed that some living things arise directly from nonliving matter. Maggots seemed a clear example. They appeared on meat left out to rot, apparently produced by the decaying flesh itself. On this view, rotting meat did not need flies in order to produce maggots. The meat generated them on its own."
   },
   {
    "label": "Text 2",
-   "text": "The astronomer Denison Olmsted gathered eyewitness reports of the 1833 display from across the country and noticed that the meteors' paths, traced backward, converged on a single point among the stars of the constellation Leo, and that this point held its place relative to the stars as the sky turned through the night. A source that stays fixed among the stars, he reasoned, cannot be riding along with the earth's atmosphere; the shower's origin had to lie beyond the earth entirely."
+   "text": "In 1668, an Italian physician placed pieces of meat in a set of jars. He left some jars open and covered others with fine gauze, which let in air but kept out flies. Flies landed on the uncovered meat, and maggots soon appeared there. In the covered jars, flies could not reach the meat, and no maggots formed on it. Maggots, he concluded, come from eggs laid by flies."
   }
  ],
- "question": "Based on the texts, how would Olmsted (Text 2) most likely respond to the explanation presented in Text 1?",
+ "question": "Based on the texts, how would the author of Text 2 most likely respond to the explanation presented in Text 1?",
  "choices": [
   {
    "id": "A",
-   "text": "The meteors of November 1833 were altogether exceptional, and conclusions drawn from that single display should not be extended to ordinary shooting stars."
+   "text": "The view holds for meat but not for other decaying materials, so it should be narrowed in scope rather than abandoned altogether."
   },
   {
    "id": "B",
-   "text": "The display's fixed point of origin among the stars is incompatible with any account that generates meteors inside the atmosphere."
+   "text": "The covered jars, where meat rotted without producing maggots, are incompatible with the idea that meat generates them."
   },
   {
    "id": "C",
-   "text": "Eyewitness reports collected from untrained observers are too inconsistent to settle the question of where meteors originate."
+   "text": "Observations of meat left in open jars are too unreliable to settle the question of where maggots come from."
   },
   {
    "id": "D",
-   "text": "Meteors may resemble lightning in appearance, but the two phenomena occur at very different heights above the ground."
+   "text": "Maggots may appear on rotting meat, but only after far more time has passed than Text 1 suggests."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** Olmsted's argument is built precisely to rule out atmospheric accounts: anything generated within the atmosphere would share the atmosphere's motion, yet the shower's radiant point stayed fixed among the stars, so the source \"had to lie beyond the earth entirely.\"\n\n**The Full Solution:**\n- Text 1's explanation locates the meteors' origin inside the atmosphere, as ignited vapors, a kind of weather.\n- Text 2's key observation is the radiant's fixity relative to the stars through the night, from which Olmsted infers an origin beyond the earth.\n- Confronted with Text 1, he would deploy exactly that observation as a refutation, which is what B states.\n\n**Why the other choices are wrong:**\n- A: Olmsted treats the 1833 display as evidence about meteors' nature, not as an exception to be quarantined.\n- C: Far from distrusting the eyewitness reports, Olmsted's reasoning depends on the collected reports he gathered.\n- D: Neither text measures heights, and Olmsted's argument turns on the radiant's fixity, not on where in the sky meteors burn."
+ "explanation": "**Choice B is correct.** Text 1 claims that rotting meat produces maggots on its own. In Text 2's experiment, meat in the gauze-covered jars rotted with air reaching it, yet no maggots formed on it, which is exactly what the Text 1 view cannot explain.\n\n**The Full Solution:**\n- Text 1: maggots arise from the decaying meat itself; flies are not needed.\n- Text 2: when flies were kept off the meat (but air was not), no maggots appeared on it, while maggots did appear on the uncovered meat.\n- The author of Text 2 would therefore point to the covered jars as evidence against Text 1's explanation, as B states.\n\n**Why the other choices are wrong:**\n- A: Text 2 tests only meat and concludes that maggots come from flies' eggs; it does not save the old view for any material.\n- C: Text 2 relies on the open jars as its comparison; it does not call those observations unreliable.\n- D: Text 2 says nothing about how long maggots take to develop; its point concerns where they come from."
 }

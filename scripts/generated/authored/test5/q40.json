@@ -6,34 +6,30 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 2,
- "passage": "The larger a telescope's main mirror or lens, the more light it gathers and the fainter the stars it can reveal. Astronomers gauge faintness in magnitudes, a scale on which larger numbers mean fainter objects. Reviewing records from an observatory's historical instrument collection, a student claims that each doubling of telescope aperture extended observations to substantially fainter stars.",
+ "passage": "Commercial television broadcasting expanded quickly in the United States after the Second World War, and families bought sets in large numbers. Using industry estimates, a student claims that the share of US households with a television rose in every five-year period from 1950 to 1965. The student also claims that the largest rise came in the first of those periods.",
  "questionTable": {
   "type": "table",
-  "caption": "Aperture and faintest observable star for five telescopes in one collection",
+  "caption": "Estimated percentage of US households with a television, 1950-1965",
   "headers": [
-   "Telescope aperture (inches)",
-   "Faintest observable magnitude"
+   "Year",
+   "Households with a television (%)"
   ],
   "rows": [
    [
-    "3",
-    "11.5"
+    "1950",
+    "9.0"
    ],
    [
-    "6",
-    "13.0"
+    "1955",
+    "64.5"
    ],
    [
-    "12",
-    "14.5"
+    "1960",
+    "87.1"
    ],
    [
-    "24",
-    "16.0"
-   ],
-   [
-    "48",
-    "17.5"
+    "1965",
+    "92.6"
    ]
   ]
  },
@@ -41,24 +37,24 @@
  "choices": [
   {
    "id": "A",
-   "text": "Each doubling of aperture listed, from 3 inches up to 48, raised the faintest observable magnitude by 1.5, from 11.5 with the smallest telescope to 17.5 with the largest."
+   "text": "The share rose from 9.0 percent in 1950 to 64.5 in 1955, then to 87.1 in 1960 and 92.6 in 1965."
   },
   {
    "id": "B",
-   "text": "The 48-inch telescope could observe the faintest stars of any instrument in the collection, reaching magnitude 17.5."
+   "text": "By 1965, an estimated 92.6 percent of US households had a television, the highest share shown anywhere in the table."
   },
   {
    "id": "C",
-   "text": "The 3-inch telescope was limited to stars of magnitude 11.5 or brighter, a smaller reach than that of any other telescope listed."
+   "text": "In 1950, only about 9.0 percent of US households had a television, the lowest share shown anywhere in the table."
   },
   {
    "id": "D",
-   "text": "The collection's five telescopes span apertures from 3 inches to 48 inches, a sixteenfold range."
+   "text": "By 1960, more than four out of every five US households had a television set, according to industry estimates."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The claim concerns what each doubling of aperture accomplished, and A tracks exactly that: at every doubling in the table, the limiting magnitude climbs by 1.5 — a consistent, substantial gain in faintness reached.\n\n**The Full Solution:**\n- The claim is about a relationship — doubling aperture yields substantially fainter reachable stars — so the evidence must pair aperture steps with magnitude gains.\n- The table's apertures form a doubling sequence (3, 6, 12, 24, 48), and A reads off the magnitude gain at each step: +1.5 every time, from 11.5 to 17.5.\n- Since larger magnitudes mean fainter stars, that uniform climb is precisely the claimed pattern, demonstrated across the whole sequence.\n\n**Why the other choices are wrong:**\n- B: A single endpoint shows which telescope sees faintest but not what doubling contributes.\n- C: The smallest telescope's limit, alone, likewise establishes no per-doubling gain.\n- D: The sixteenfold aperture range mentions no magnitudes at all, so faintness never enters the evidence.",
+ "explanation": "**Choice A is correct.** The claim has two parts: the share rose in every five-year period, and the first period saw the largest rise. Choice A gives all four values, showing a rise each time and a jump of 55.5 points from 1950 to 1955, far larger than the later rises of 22.6 and 5.5 points.\n\n**The Full Solution:**\n- How to spot it: a claim about every period needs data from every period, not a single year.\n- The table shows 9.0, 64.5, 87.1, and 92.6 percent, so the share rose in each period.\n- The rises were about 55.5, 22.6, and 5.5 points, so the first was the largest. Only Choice A reports the full series that shows both parts.\n\n**Why the other choices are wrong:**\n- B: The 1965 value alone shows neither a rise in every period nor which rise was largest.\n- C: The 1950 value alone is just the starting point.\n- D: The 1960 value alone says nothing about the changes from one period to the next.",
  "_meta": {
-  "anchor": "telescope aperture and limiting magnitude — doubling series in an instrument collection"
+  "anchor": "US television ownership 1950-1965 — full series beats single-year choices"
  }
 }

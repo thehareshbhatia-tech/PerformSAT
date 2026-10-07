@@ -1,29 +1,29 @@
 {
-  "question": "$2x - 5y = 7$\n$6x + ky = 44$\nIn the given system of equations, $k$ is a constant. Adding twice the first equation to the second equation yields $10x - 2y = 58$. What is the value of $k$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-2$"
-    },
-    {
-      "id": "B",
-      "text": "$3$"
-    },
-    {
-      "id": "C",
-      "text": "$8$"
-    },
-    {
-      "id": "D",
-      "text": "$12$"
-    }
-  ],
-  "correctAnswer": "C",
-  "distractorNotes": {
-    "A": "copies the $y$-coefficient of the resulting equation, $-2$",
-    "B": "doubles only the $x$-term of the first equation, solving $k - 5 = -2$",
-    "D": "reads the resulting $y$-coefficient as $+2$, solving $k - 10 = 2$"
+ "question": "$\\frac{x}{3} + \\frac{y}{2} = 1$\n$\\frac{x}{2} + \\frac{y}{3} = 4$\nIf $(x, y)$ satisfies the given system of equations, what is the value of $x + y$?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$5$"
   },
-  "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Twice the first equation has $y$-term $-10y$, so $k - 10 = -2$ and $k = 8$.\n\n**The Full Solution:**\nStep 1: Twice the first equation is $4x - 10y = 14$.\nStep 2: Add the second equation: $(4x + 6x) + (-10y + ky) = 14 + 44$, or $10x + (k - 10)y = 58$.\nStep 3: Match with $10x - 2y = 58$: $k - 10 = -2$, so $k = 8$. Check: $(4x - 10y) + (6x + 8y) = 10x - 2y$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): copies the $y$-coefficient of the resulting equation, $-2$\n* Choice B ($3$): doubles only the $x$-term of the first equation, solving $k - 5 = -2$\n* Choice D ($12$): reads the resulting $y$-coefficient as $+2$, solving $k - 10 = 2$\n\n**Test Day Takeaway:** Scale every term of an equation, not just the first one, before you add; then match coefficients with the stated result.",
-  "id": "bank-alg-466"
+  {
+   "id": "B",
+   "text": "$6$"
+  },
+  {
+   "id": "C",
+   "text": "$12$"
+  },
+  {
+   "id": "D",
+   "text": "$30$"
+  }
+ ],
+ "correctAnswer": "B",
+ "distractorNotes": {
+  "A": "adds the right sides, 1 + 4, without accounting for the fractional coefficients",
+  "C": "solves the system and reports x = 12",
+  "D": "clears the fractions, adds to get 5x + 5y = 30, and stops before dividing by 5"
+ },
+ "explanation": "**SAT Pattern: Solve for a Combination**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Adding the equations gives $\\frac{5}{6}x + \\frac{5}{6}y = 5$, so $\\frac{5}{6}(x + y) = 5$ and $x + y = 6$.\n\n**The Full Solution:**\nStep 1: Multiply each equation by $6$ to clear the fractions: $2x + 3y = 6$ and $3x + 2y = 24$.\nStep 2: Add the two equations: $5x + 5y = 30$.\nStep 3: Divide by $5$: $x + y = 6$. Check: the solution is $(12, -6)$, since $\\frac{12}{3} + \\frac{-6}{2} = 4 - 3 = 1$ and $\\frac{12}{2} + \\frac{-6}{3} = 6 - 2 = 4$, and $12 + (-6) = 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): adds the right sides, $1 + 4$, as if the coefficients of $x + y$ were $1$.\n* Choice C ($12$): solves the system and reports $x$, not $x + y$.\n* Choice D ($30$): stops at $5x + 5y = 30$ without dividing by $5$.\n\n**Test Day Takeaway:** When the coefficients of $x$ and $y$ trade places between the equations, add them: the sum isolates a multiple of $x + y$.",
+ "id": "bank-alg-466"
 }

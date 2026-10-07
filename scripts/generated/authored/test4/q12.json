@@ -6,12 +6,12 @@
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-textual",
   "module": 1,
-  "passage": "Female paper wasps of the species Polistes dominula bear black facial patches that vary strikingly from individual to individual. Behavioral ecologist Elizabeth Tibbetts has proposed that these markings serve as status signals: by advertising a wasp's fighting ability, the patches let rivals size each other up and settle contests over resources without paying the costs of an actual fight.",
+  "passage": "Female paper wasps of the species Polistes dominula bear black facial patches that vary strikingly from individual to individual. Behavioral ecologist Elizabeth Tibbetts has proposed that these markings serve as status signals. By advertising a wasp's fighting ability, the patches let rivals size each other up and settle contests over resources without the costs of an actual fight.",
   "question": "Which finding, if true, would most directly support the researcher's hypothesis?",
   "choices": [
     {
       "id": "A",
-      "text": "The size and shape of a wasp's black facial patches are determined mainly by the quantity and quality of the nutrition the wasp happened to receive while developing as a larva in the nest."
+      "text": "The size and shape of a wasp's facial patches depend mainly on how well the wasp was fed as a larva."
     },
     {
       "id": "B",
@@ -19,7 +19,7 @@
     },
     {
       "id": "C",
-      "text": "Wasps with heavily broken-up facial patches spend more of the day foraging away from the nest than wasps with plain faces do."
+      "text": "Wasps with heavily broken-up facial patches spend more of the day foraging away from the nest than wasps with plain faces do, and they return with larger loads of food."
     },
     {
       "id": "D",
@@ -27,7 +27,7 @@
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** The hypothesis says the patches let rivals assess fighting ability and avoid combat; rivals retreating from strong-fighter markings without a fight is that mechanism observed in action.\n\n**The Full Solution:**\n- The hypothesis has two parts: patches advertise fighting ability, and the advertisement lets contests end without fighting.\n- Choice B supplies both: wasps read the strong-fighter pattern on a rival's face and yield before combat begins.\n- That is a direct behavioral confirmation of the signaling function.\n\n**Why the other choices are wrong:**\n- A: It explains where patches come from, not whether rivals use them to settle contests.\n- C: Foraging time has no bearing on whether patches function as signals in contests.\n- D: It pairs two facts about aging without showing that any wasp responds to another's markings.",
+  "explanation": "**Choice B is correct.** The hypothesis says the patches let rivals assess fighting ability and avoid combat; rivals retreating from strong-fighter markings without a fight is that mechanism observed in action.\n\n**The Full Solution:**\n- The hypothesis has two parts: patches advertise fighting ability, and the advertisement lets contests end without fighting.\n- Choice B supplies both: wasps read the strong-fighter pattern on a rival's face and yield before combat begins.\n- That is a direct behavioral confirmation of the signaling function.\n\n**Why the other choices are wrong:**\n- A: It explains where patches come from, not whether rivals use them to settle contests.\n- C: Foraging time and food loads have no bearing on whether patches function as signals in contests.\n- D: It pairs two facts about aging without showing that any wasp responds to another's markings.",
   "_meta": {
     "anchor": "Elizabeth Tibbetts — paper wasp facial badges as status signals; finding-if-true form"
   }

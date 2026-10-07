@@ -6,26 +6,26 @@
   "band": 3,
   "domain": "standard-english-conventions",
   "skill": "boundaries",
-  "passage": "Investigations of nineteenth-century mill disasters kept returning to a hazard that outsiders were inclined to ______ the flour dust suspended in a mill's air is explosive, and a stray spark could — as it famously did in Minneapolis in 1878 — level an entire mill in seconds.",
+  "passage": "Investigations of nineteenth-century mill disasters kept returning to a hazard that outsiders were inclined to ______ flour dust suspended in a mill's air is explosive. In Minneapolis in 1878, a stray spark leveled an entire mill in seconds.",
   "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
   "choices": [
     {
       "id": "A",
-      "text": "dismiss:"
+      "text": "dismiss: the"
     },
     {
       "id": "B",
-      "text": "dismiss"
+      "text": "dismiss, the"
     },
     {
       "id": "C",
-      "text": "dismiss,"
+      "text": "dismiss the"
     },
     {
       "id": "D",
-      "text": "dismiss;"
+      "text": "dismiss and the"
     }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** The first clause promises a specification — a hazard outsiders dismissed — and what follows delivers it. A colon after the independent opening clause is the mark that introduces that explanation.\n\n**The Full Solution:**\n- The clause before the blank is independent and ends on a noun phrase (\"a hazard that outsiders were inclined to dismiss\") that begs to be spelled out.\n- Everything after the blank is the spelling-out: what the hazard is (explosive dust) and what it could do.\n- An independent clause followed by its own elaboration takes a colon.\n\n**Why the other choices are wrong:**\n- B: With nothing at the boundary, two complete clauses fuse into a run-on.\n- C: A comma between the two independent clauses is a comma splice.\n- D: A semicolon merely coordinates two related statements; it fails to signal that the second clause is the promised content of the first — the announcing relationship the sentence is built on."
+  "explanation": "**Choice A is correct.** The first clause promises a specification — a hazard outsiders dismissed — and what follows delivers it. A colon after the independent opening clause is the mark that introduces that explanation.\n\n**The Full Solution:**\n- The clause before the blank is independent and ends on a noun phrase (\"a hazard that outsiders were inclined to dismiss\") that begs to be spelled out.\n- What follows the blank, \"the flour dust suspended in a mill's air is explosive,\" is also an independent clause, and it names the hazard.\n- An independent clause followed by its own elaboration takes a colon.\n\n**Why the other choices are wrong:**\n- B: A comma between the two independent clauses is a comma splice.\n- C: With nothing at the boundary, two complete clauses fuse into a run-on.\n- D: Joining two independent clauses with \"and\" alone, without a comma before it, also produces a run-on — and \"and\" would hide the fact that the second clause explains the first."
 }

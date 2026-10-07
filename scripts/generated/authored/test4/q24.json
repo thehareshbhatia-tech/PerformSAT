@@ -6,7 +6,7 @@
   "domain": "expression-of-ideas",
   "skill": "transitions",
   "module": 1,
-  "passage": "Medieval scribes had more than one way to fix a slip of the pen. A copyist could scrape the dried ink from the parchment with a knife and write the word afresh. ______ a corrector could leave the faulty word in place and set a row of dots beneath it, a signal that readers should skip it.",
+  "passage": "Norwegian fishers have long had two ways to preserve cod. They can salt the fish heavily and then dry it, producing what is called clipfish. ______ they can skip the salt entirely and hang the cod on wooden racks to dry in the cold winter air, producing stockfish.",
   "question": "Which choice completes the text with the most logical transition?",
   "choices": [
     {
@@ -27,8 +27,8 @@
     }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** The passage promises \"more than one way\" to fix an error and then gives two: scraping the ink away, or dotting the word for readers to skip. The second is an alternative to the first.\n\n**The Full Solution:**\n- The opening sentence frames a menu of options.\n- Option one: physical erasure with a knife.\n- Option two: leaving the word but marking it to be passed over — a different route to the same end, which \"Alternatively\" introduces.\n\n**Why the other choices are wrong:**\n- B: \"Therefore\" would make the dotting a consequence of the scraping; the two are independent options.\n- C: \"For example\" would make dotting an instance of scraping, but it is a different technique altogether.\n- D: \"Similarly\" notes likeness of manner, yet the two methods work in opposite ways — one removes the word, the other preserves and cancels it.",
+  "explanation": "**Choice A is correct.** The text promises two ways to preserve cod and then describes them one after the other. \"Alternatively\" introduces the second option.\n\n**The Full Solution:**\n- Setup: \"two ways to preserve cod.\"\n- Way 1: salt the fish, then dry it (clipfish).\n- Way 2: skip the salt and dry the fish on racks (stockfish).\n- The second method is a different choice from the first, so \"Alternatively\" fits.\n\n**Why the other choices are wrong:**\n- B: Drying without salt is not a result of salting the fish.\n- C: The second method is not an example of the first; it is a different method.\n- D: \"Similarly\" would signal a likeness, but the second method differs from the first by leaving out the salt.",
   "_meta": {
-    "anchor": "scribal error correction — erasure versus expunction; alternative transition"
+    "anchor": "Norwegian cod preservation: clipfish (salted, dried) vs stockfish (unsalted, rack-dried)"
   }
 }

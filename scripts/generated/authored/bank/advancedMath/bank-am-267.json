@@ -1,31 +1,31 @@
 {
   "id": "bank-am-267",
-  "question": "The graph of $y = f(x)$ is shown. The function $g$ is defined by $g(x) = 4f(x)$. What is the $y$-coordinate of the vertex of the graph of $y = g(x)$?",
+  "question": "The graph of $y = a(x - 3)^{2} - 2$, where $a$ is a constant, is shown. What is the value of $a$?",
   "choices": [
     {
       "id": "A",
-      "text": "$-8$"
+      "text": "$-4$"
     },
     {
       "id": "B",
-      "text": "$-6$"
+      "text": "$\\frac{3}{2}$"
     },
     {
       "id": "C",
-      "text": "$-2$"
+      "text": "$2$"
     },
     {
       "id": "D",
-      "text": "$12$"
+      "text": "$6$"
     }
   ],
   "distractorNotes": {
-    "B": "subtracts 4 from the vertex's y-coordinate instead of multiplying",
-    "C": "reports the y-coordinate of the vertex of f without stretching it",
-    "D": "multiplies the x-coordinate of the vertex by 4"
+    "A": "drops the square, solving a(1 - 3) - 2 = 6",
+    "B": "drops the - 2, solving 4a = 6",
+    "D": "reports the y-coordinate of a marked point"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Vertical Stretch**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The vertex of the graph shown is $(3, -2)$; multiplying every output by $4$ moves it to $(3, -8)$.\n\n**The Full Solution:**\nStep 1: The graph shows the vertex of $y = f(x)$ at $(3, -2)$.\nStep 2: A vertical stretch by $4$ keeps each $x$-coordinate and multiplies each $y$-coordinate by $4$, so the vertex moves to $(3, 4(-2)) = (3, -8)$.\nStep 3: The $y$-coordinate of the vertex of the graph of $y = g(x)$ is $-8$. Check: the graph passes through $(1, 2)$ and $(5, 2)$, which become $(1, 8)$ and $(5, 8)$; the vertex is still midway between them, at $x = 3$, with $g(3) = 4f(3) = -8$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-6$): subtracts $4$ from the $y$-coordinate, treating the stretch as a shift down.\n* Choice C ($-2$): reports the vertex of the graph of $y = f(x)$ without stretching it.\n* Choice D ($12$): multiplies the $x$-coordinate of the vertex by $4$ instead of the $y$-coordinate.\n\n**Test Day Takeaway:** A vertical stretch scales $y$-coordinates only, so the vertex keeps its $x$-coordinate.",
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Vertical Stretch**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The graph passes through $(1, 6)$, so $a(1 - 3)^{2} - 2 = 6$, which gives $4a = 8$ and $a = 2$.\n\n**The Full Solution:**\nStep 1: The graph passes through the marked point $(1, 6)$, so substitute $x = 1$ and $y = 6$.\nStep 2: $6 = a(1 - 3)^{2} - 2 = 4a - 2$, so $4a = 8$.\nStep 3: Solve: $a = 2$. Check: the other marked point, $(5, 6)$, gives $2(5 - 3)^{2} - 2 = 8 - 2 = 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): drops the square, solving $a(1 - 3) - 2 = 6$, or $-2a = 8$.\n* Choice B ($\\frac{3}{2}$): drops the $-2$, solving $4a = 6$.\n* Choice D ($6$): reports the $y$-coordinate of the marked point instead of solving for $a$.\n\n**Test Day Takeaway:** Read one exact point off the graph and substitute it to find the missing constant.",
   "diagram": {
     "type": "quadraticVertex",
     "params": {
@@ -33,15 +33,15 @@
         3,
         -2
       ],
-      "a": 1,
+      "a": 2,
       "showPoints": [
         [
           1,
-          2
+          6
         ],
         [
           5,
-          2
+          6
         ]
       ],
       "showVertex": true

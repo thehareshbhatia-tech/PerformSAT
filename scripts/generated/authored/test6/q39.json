@@ -6,16 +6,16 @@
   "band": 3,
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-textual",
-  "passage": "Nacre, the iridescent lining of some mollusk shells, is about ninety-five percent aragonite, a brittle mineral that shatters easily in bulk form. Yet nacre itself is remarkably tough. Materials scientists attribute the difference to architecture: nacre stacks microscopic mineral tablets in staggered layers, mortared with thin sheets of pliable protein, so that a crack spreading through the material is repeatedly deflected at the soft joints instead of running straight through. On this account, the toughness comes from the arrangement, not the ingredients.",
+  "passage": "Nacre, the iridescent lining of some mollusk shells, is about ninety-five percent aragonite, a brittle mineral that shatters easily in bulk form. Yet nacre itself is remarkably tough. Materials scientists attribute the difference to architecture. Nacre stacks microscopic mineral tablets in staggered layers, mortared with thin sheets of pliable protein, so that a spreading crack is repeatedly deflected at the soft joints instead of running straight through. On this account, the toughness comes from the arrangement, not the ingredients.",
   "question": "Which finding from a materials-science study, if true, would most directly support the claim?",
   "choices": [
     {
       "id": "A",
-      "text": "A synthetic composite built from a brittle ceramic arranged in staggered, polymer-mortared layers proved many times tougher than a solid block of the same ceramic."
+      "text": "A synthetic composite made of a brittle ceramic in staggered, polymer-mortared layers proved many times tougher than a solid block of that ceramic."
     },
     {
       "id": "B",
-      "text": "Aragonite crystals grown in a laboratory and compressed into solid blocks shattered just as easily under testing as crystals of aragonite extracted from natural mollusk shells."
+      "text": "Aragonite crystals grown in a laboratory and compressed into solid blocks shattered just as easily under testing as aragonite taken from natural mollusk shells."
     },
     {
       "id": "C",

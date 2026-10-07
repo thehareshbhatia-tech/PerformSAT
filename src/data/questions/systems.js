@@ -7,19 +7,19 @@ export const systemsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "$y = 3x - 4$\n$y = -x + 8$\nHow many solutions does the given system of equations have?",
+      question: "$x + 4y = 10$\n$2x + 8y = 15$\nHow many solutions does the given system of equations have?",
       choices: [
-        // distractor: zero solutions requires parallel, distinct lines, but the slopes $3$ and $-1$ are not equal.
         { id: "A", text: "Zero" },
+        // distractor: sees two different equations and assumes their lines cross once, without comparing the coefficients
         { id: "B", text: "Exactly one" },
-        // distractor: two distinct lines meet at most once, so a system of two linear equations can never have exactly two solutions.
+        // distractor: thinks two equations give two solutions; two distinct lines meet at most once
         { id: "C", text: "Exactly two" },
-        // distractor: infinitely many solutions requires the two equations to describe the same line, which would force equal slopes and equal $y$-intercepts.
+        // distractor: notices that 2x + 8y is twice x + 4y and stops without comparing the constants: 2(10) = 20, not 15
         { id: "D", text: "Infinitely many" }
       ],
-      correctAnswer: "B",
-      hint: "Compare the slopes of the two lines before counting anything.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** The slopes $3$ and $-1$ are different, so the lines cross exactly once and the system has exactly one solution.\n\n**The Full Solution:**\nStep 1: Both equations are in slope-intercept form, with slopes $3$ and $-1$.\nStep 2: Two lines with different slopes are not parallel, so they intersect at exactly one point in the $xy$-plane.\nStep 3: That intersection point is the only ordered pair that satisfies both equations, so the system has exactly one solution. Check: $3x - 4 = -x + 8$ gives $4x = 12$, so $x = 3$ and $y = 5$, a single ordered pair ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: zero solutions requires parallel, distinct lines, but the slopes $3$ and $-1$ are not equal.\n* Choice C: two distinct lines meet at most once, so a system of two linear equations can never have exactly two solutions.\n* Choice D: infinitely many solutions requires the two equations to describe the same line, which would force equal slopes and equal $y$-intercepts.\n\n**Test Day Takeaway:** Count solutions from the slopes first: different slopes give one solution, and equal slopes give either none or infinitely many.",
+      correctAnswer: "A",
+      hint: "Multiply the first equation by $2$ and compare it with the second.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** Doubling the first equation gives $2x + 8y = 20$, but the second equation says $2x + 8y = 15$. The same expression cannot equal both, so there are no solutions.\n\n**The Full Solution:**\nStep 1: Multiply both sides of $x + 4y = 10$ by $2$: $2x + 8y = 20$.\nStep 2: The second equation is $2x + 8y = 15$. No ordered pair can make $2x + 8y$ equal to both $20$ and $15$.\nStep 3: So the system has zero solutions; its graphs are parallel lines. Check: both lines have slope $-\\frac{1}{4}$, but their $y$-intercepts are $\\frac{10}{4} = 2.5$ and $\\frac{15}{8} = 1.875$, which are different ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly one): two different-looking equations usually meet once, but these have the same slope, so their lines never cross.\n* Choice C (Exactly two): two distinct lines meet at most once, so a system of two linear equations can never have exactly two solutions.\n* Choice D (Infinitely many): the left sides are proportional, but the constants are not: $2(10) = 20$, not $15$.\n\n**Test Day Takeaway:** When one equation's $x$ and $y$ coefficients are a multiple of the other's, compare the constants: the same multiple means infinitely many solutions, a different one means none.",
       skills: ["system-solution-types"]
     },
     {
@@ -158,19 +158,19 @@ export const systemsQuestions = {
     {
       id: 4,
       difficulty: "medium",
-      question: "A cyclist rode $66$ kilometers with the wind in $2$ hours and then $42$ kilometers against the wind in $2$ hours. The cyclist's speed without wind is $c$ kilometers per hour and the wind's speed is $w$ kilometers per hour. Which of the following systems of equations represents this situation?",
+      question: "The perimeter of a rectangular garden is $64$ meters. The length $\\ell$ of the garden is $8$ meters more than its width $w$. Which of the following systems of equations represents this situation?",
       choices: [
-        { id: "A", text: "$2(c + w) = 66$ and $2(c - w) = 42$" },
-        // distractor: assigns the longer distance to the trip against the wind, which would make the wind slow the cyclist down over the greater distance.
-        { id: "B", text: "$2(c + w) = 42$ and $2(c - w) = 66$" },
-        // distractor: omits the $2$ hours, equating a speed with a distance.
-        { id: "C", text: "$c + w = 66$ and $c - w = 42$" },
-        // distractor: multiplies only the cyclist’s speed by the time, leaving the wind term untimed.
-        { id: "D", text: "$2c + w = 66$ and $2c - w = 42$" }
+        { id: "A", text: "$2\\ell + 2w = 64$ and $\\ell = w + 8$" },
+        // distractor: uses the sum of one length and one width as the perimeter
+        { id: "B", text: "$\\ell + w = 64$ and $\\ell = w + 8$" },
+        // distractor: reverses the comparison, making the width 8 meters more than the length
+        { id: "C", text: "$2\\ell + 2w = 64$ and $w = \\ell + 8$" },
+        // distractor: writes 8 times the width instead of 8 more than the width
+        { id: "D", text: "$2\\ell + 2w = 64$ and $\\ell = 8w$" }
       ],
       correctAnswer: "A",
-      hint: "Wind adds to the cyclist’s speed one way and subtracts from it the other way; distance is speed times time.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~35s):** With the wind the speed is $c + w$ and with $2$ hours of riding the distance is $2(c + w) = 66$; against the wind it is $2(c - w) = 42$.\n\n**The Full Solution:**\nStep 1: Riding with the wind, the cyclist's effective speed is $c + w$; riding against it, the effective speed is $c - w$.\nStep 2: Distance equals speed times time, and each ride lasts $2$ hours, so the distances are $2(c + w)$ and $2(c - w)$.\nStep 3: Setting those equal to the given distances yields $2(c + w) = 66$ and $2(c - w) = 42$. Check: $c = 27$ and $w = 6$ give $2(33) = 66$ and $2(21) = 42$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: assigns the longer distance to the trip against the wind, which would make the wind slow the cyclist down over the greater distance.\n* Choice C: omits the $2$ hours, equating a speed with a distance.\n* Choice D: multiplies only the cyclist's speed by the time, leaving the wind term untimed.\n\n**Test Day Takeaway:** For with-and-against problems, write the two combined speeds first, then multiply each by its own time before setting it equal to a distance.",
+      hint: "A rectangle has two lengths and two widths; '$8$ more than' means add $8$.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~30s):** The perimeter gives $2\\ell + 2w = 64$, and '$8$ more than the width' gives $\\ell = w + 8$.\n\n**The Full Solution:**\nStep 1: The perimeter of a rectangle is the sum of all four sides: $2\\ell + 2w = 64$.\nStep 2: 'The length is $8$ meters more than the width' translates to $\\ell = w + 8$.\nStep 3: Together, the system is $2\\ell + 2w = 64$ and $\\ell = w + 8$.\n\nCheck: Solving gives $w = 12$ and $\\ell = 20$: $2(20) + 2(12) = 64$ and $20 = 12 + 8$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\ell + w = 64$): counts only one length and one width, which is half the perimeter.\n* Choice C ($w = \\ell + 8$): makes the width the longer side.\n* Choice D ($\\ell = 8w$): translates '$8$ more than' as '$8$ times.'\n\n**Test Day Takeaway:** Translate one sentence at a time, and check whether each phrase means add or multiply.",
       skills: ["setting-up-systems", "word-problem-to-equation"]
     },
     {
@@ -407,19 +407,19 @@ export const systemsQuestions = {
     {
       id: 2,
       difficulty: "easy",
-      question: "$2x + 3y = 6$\n$y = -\\frac{2}{3}x + 5$\nAt how many points do the graphs of the given equations intersect in the $xy$-plane?",
+      question: "$y = -\\frac{2}{3}x + 2$\n$y = -\\frac{2}{3}x + 5$\nAt how many points do the graphs of the given equations intersect in the $xy$-plane?",
       choices: [
         { id: "A", text: "Zero" },
-        // distractor: assumes any two distinct lines must cross, but lines with equal slopes never do.
+        // distractor: assumes any two different lines must cross, but lines with equal slopes never do
         { id: "B", text: "Exactly one" },
-        // distractor: two distinct lines can share at most one point, so exactly two is impossible.
+        // distractor: two different lines can share at most one point, so exactly two is impossible
         { id: "C", text: "Exactly two" },
-        // distractor: this happens only when the two equations describe the same line, which would require equal $y$-intercepts as well as equal slopes.
+        // distractor: would require the same line, with equal y-intercepts as well as equal slopes
         { id: "D", text: "Infinitely many" }
       ],
       correctAnswer: "A",
-      hint: "Rewrite the first equation in slope-intercept form before comparing the two lines.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~25s):** Both lines have slope $-\\frac{2}{3}$ but $y$-intercepts $2$ and $5$, so they are parallel and never meet.\n\n**The Full Solution:**\nStep 1: Solve $2x + 3y = 6$ for $y$: $3y = -2x + 6$, so $y = -\\frac{2}{3}x + 2$.\nStep 2: The second line is $y = -\\frac{2}{3}x + 5$. The slopes are equal, $-\\frac{2}{3}$, but the $y$-intercepts $2$ and $5$ are different.\nStep 3: Parallel and distinct lines never intersect, so the two lines share zero points. Check: setting the right sides equal gives $2 = 5$, which is never true ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: assumes any two distinct lines must cross, but lines with equal slopes never do.\n* Choice C: two distinct lines can share at most one point, so exactly two is impossible.\n* Choice D: this happens only when the two equations describe the same line, which would require equal $y$-intercepts as well as equal slopes.\n\n**Test Day Takeaway:** Convert to slope-intercept form before judging a graph. Equal slopes with different intercepts always means no points in common.",
+      hint: "Compare the slopes and the $y$-intercepts of the two lines.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~10s):** Both lines have slope $-\\frac{2}{3}$ but different $y$-intercepts, $2$ and $5$, so they are parallel and never meet.\n\n**The Full Solution:**\nStep 1: Both equations are in slope-intercept form, and both slopes are $-\\frac{2}{3}$.\nStep 2: The $y$-intercepts are $2$ and $5$, which are different, so the lines are parallel and distinct.\nStep 3: Parallel, distinct lines do not intersect, so there are zero intersection points.\n\nCheck: Setting the right sides equal gives $-\\frac{2}{3}x + 2 = -\\frac{2}{3}x + 5$, or $2 = 5$, which is never true. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly one): assumes any two different lines cross, but lines with equal slopes do not.\n* Choice C (Exactly two): two different lines can share at most one point.\n* Choice D (Infinitely many): would need the same line, with the same $y$-intercept.\n\n**Test Day Takeaway:** Equal slopes with different $y$-intercepts means parallel lines and no solution.",
       skills: ["graphing-systems", "system-solution-types", "parallel-line-slope"]
     },
     {
@@ -484,19 +484,19 @@ export const systemsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "$y = 3x - 5$\n$9x - 3y = 15$\nWhich statement about the graphs of the given equations in the $xy$-plane is true?",
+      question: "$y = 3x - 5$\n$2y = 6x - 10$\nWhich statement about the graphs of the given equations in the $xy$-plane is true?",
       choices: [
-        // distractor: notices the equal slopes but stops there; the $y$-intercepts also match, so the lines coincide instead of running parallel.
+        // distractor: notices the equal slopes but not the equal y-intercepts, so treats the lines as parallel instead of the same line
         { id: "A", text: "They are parallel and distinct." },
-        // distractor: assumes two equations always describe two crossing lines, which fails when the equations are multiples of each other.
+        // distractor: assumes two equations always describe two lines that cross at one point
         { id: "B", text: "They intersect at exactly one point." },
-        // distractor: two lines can share at most one point unless they coincide entirely, so exactly two shared points is impossible.
+        // distractor: two distinct lines can share at most one point, so exactly two is impossible
         { id: "C", text: "They intersect at exactly two points." },
         { id: "D", text: "They are the same line." }
       ],
       correctAnswer: "D",
-      hint: "Rewrite the second equation in slope-intercept form and compare it with the first.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~20s):** Dividing $9x - 3y = 15$ by $3$ gives $3x - y = 5$, or $y = 3x - 5$, which is the first equation.\n\n**The Full Solution:**\nStep 1: Solve $9x - 3y = 15$ for $y$: $-3y = -9x + 15$, so $y = 3x - 5$.\nStep 2: That is exactly the first equation, so the two equations are equivalent.\nStep 3: Equivalent equations have identical graphs, so the two lines coincide and every point on one lies on the other. Check: the second equation is $3$ times the equation $3x - y = 5$, so it adds no new information ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: notices the equal slopes but stops there; the $y$-intercepts also match, so the lines coincide instead of running parallel.\n* Choice B: assumes two equations always describe two crossing lines, which fails when the equations are multiples of each other.\n* Choice C: two lines can share at most one point unless they coincide entirely, so exactly two shared points is impossible.\n\n**Test Day Takeaway:** Before counting intersections, reduce each equation to slope-intercept form. Matching slope and intercept means one line, not two.",
+      hint: "Divide the second equation by $2$ and compare it with the first.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~15s):** Dividing $2y = 6x - 10$ by $2$ gives $y = 3x - 5$, which is the first equation.\n\n**The Full Solution:**\nStep 1: Divide each side of $2y = 6x - 10$ by $2$: $y = 3x - 5$.\nStep 2: This is exactly the first equation, so the two equations have the same slope, $3$, and the same $y$-intercept, $-5$.\nStep 3: The graphs are the same line.\n\nCheck: The point $(0, -5)$ satisfies both equations, and so does $(1, -2)$: $2(-2) = 6(1) - 10 = -4$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: sees the equal slopes but misses that the $y$-intercepts are equal too.\n* Choice B: assumes two equations always describe two lines that cross once.\n* Choice C: two different lines can share at most one point.\n\n**Test Day Takeaway:** If one equation is a multiple of the other, the graphs are the same line and the system has infinitely many solutions.",
       skills: ["infinite-solutions-condition", "system-solution-types"]
     },
     {

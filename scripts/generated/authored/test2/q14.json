@@ -6,30 +6,30 @@
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-quantitative",
   "module": 1,
-  "passage": "Track-forecast error — the distance between a hurricane's predicted and actual positions — has fallen steadily for decades as observations and models have improved. A student examining the National Hurricane Center's average errors for Atlantic forecasts claims that the improvement between 1990 and 2020 was proportionally greatest at the longest lead time, so that forecasters gained the most ground exactly where their forecasts had once been least reliable. The claim is supported by the data because ______",
+  "passage": "Cigarette smoking among adults in the United States has declined for decades. A student examining survey data from the Centers for Disease Control and Prevention claims that from 2005 to 2020, smoking declined proportionally the most among the youngest adults. The claim is supported by the data because ______",
   "questionTable": {
     "type": "table",
-    "caption": "Average error of National Hurricane Center track forecasts for Atlantic tropical cyclones, by lead time, 1990 and 2020",
+    "caption": "Percentage of US adults who smoked cigarettes, by age group, 2005 and 2020",
     "headers": [
-      "Lead time",
-      "Error, 1990 (km)",
-      "Error, 2020 (km)"
+      "Age group",
+      "Smoked, 2005 (%)",
+      "Smoked, 2020 (%)"
     ],
     "rows": [
       [
-        "24 hours",
-        "199",
-        "66"
+        "18–24 years",
+        "24.4",
+        "7.4"
       ],
       [
-        "48 hours",
-        "379",
-        "120"
+        "25–44 years",
+        "24.1",
+        "14.1"
       ],
       [
-        "72 hours",
-        "578",
-        "148"
+        "45–64 years",
+        "21.9",
+        "14.9"
       ]
     ]
   },
@@ -37,21 +37,21 @@
   "choices": [
     {
       "id": "A",
-      "text": "the 24-hour forecast error in 2020, at 66 kilometers, was the smallest error shown anywhere in the table."
+      "text": "the 2020 smoking rate among adults aged 18 to 24, at 7.4 percent, was the lowest rate shown in the table."
     },
     {
       "id": "B",
-      "text": "the 72-hour error fell by 430 kilometers between 1990 and 2020, a larger absolute drop than at either shorter lead time."
+      "text": "the smoking rate among adults aged 18 to 24 fell by 17 percentage points, a larger drop than in either older age group."
     },
     {
       "id": "C",
-      "text": "average error was smaller in 2020 than in 1990 at every lead time shown in the table."
+      "text": "the smoking rate was lower in 2020 than in 2005 in every age group shown in the table."
     },
     {
       "id": "D",
-      "text": "the 72-hour error fell by roughly 74 percent between 1990 and 2020, a proportionally larger decline than the roughly 68 percent at 48 hours or 67 percent at 24 hours."
+      "text": "the rate among adults aged 18 to 24 fell by about 70 percent, compared with about 41 percent for ages 25 to 44 and 32 percent for ages 45 to 64."
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The claim is about proportional improvement ranked by lead time, and D performs exactly that computation: the percentage decline is largest at 72 hours.\n\n**The Full Solution:**\n- Convert each row to a percentage decline: 24 hours, (199 − 66)/199 ≈ 67%; 48 hours, (379 − 120)/379 ≈ 68%; 72 hours, (578 − 148)/578 ≈ 74%.\n- The improvement was proportionally greatest at 72 hours — the lead time where 1990 errors were largest and forecasts least reliable.\n- Choice D reports precisely this comparison, matching the claim's proportional framing.\n\n**Why the other choices are wrong:**\n- A: The 24-hour error is the smallest in either year simply because shorter forecasts are easier; that ranking exists in both columns and says nothing about how much any lead time improved.\n- B: It substitutes absolute change for proportional change — the very confusion the claim's wording (\"proportionally greatest\") rules out; a large starting error can shrink by many kilometers while improving less in percentage terms.\n- C: Universal improvement supports only the weaker point that forecasts got better everywhere; it cannot establish which lead time improved most."
+  "explanation": "**Choice D is correct.** The claim is about proportional decline by age group, and D gives exactly that comparison: the percentage drop was largest for adults aged 18 to 24.\n\n**The Full Solution:**\n- Convert each row to a percentage decline: ages 18–24, (24.4 − 7.4)/24.4 ≈ 70%; ages 25–44, (24.1 − 14.1)/24.1 ≈ 41%; ages 45–64, (21.9 − 14.9)/21.9 ≈ 32%.\n- The decline was proportionally greatest for the youngest group, which is what the student claims.\n- Choice D reports this comparison, matching the claim's proportional framing.\n\n**Why the other choices are wrong:**\n- A: The youngest group's 2020 rate is the lowest in the table, but a low ending rate says nothing about how much the rate fell relative to where it started.\n- B: It reports an absolute drop in percentage points, not a proportional one. Because the youngest group also started with the highest rate, a larger drop in points does not by itself show a larger proportional decline.\n- C: A decline in every group supports only the weaker point that smoking fell everywhere; it cannot show which group's decline was proportionally greatest."
 }

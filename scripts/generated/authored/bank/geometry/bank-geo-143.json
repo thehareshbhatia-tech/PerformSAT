@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-143",
- "question": "A concrete block is a rectangular prism that measures $1.5$ meters by $0.8$ meters by $0.4$ meters. If concrete costs \\$250 per cubic meter, what is the cost of the concrete in the block?",
+ "question": "A sandbox in the shape of a rectangular prism is $6$ feet long, $4$ feet wide, and $2$ feet deep. Sand costs \\$3 per cubic foot. What is the cost of the sand needed to fill the sandbox?",
  "choices": [
   {
    "id": "A",
-   "text": "\\$120"
+   "text": "\\$36"
   },
   {
    "id": "B",
-   "text": "\\$150"
+   "text": "\\$72"
   },
   {
    "id": "C",
-   "text": "\\$300"
+   "text": "\\$144"
   },
   {
    "id": "D",
-   "text": "\\$675"
+   "text": "\\$264"
   }
  ],
  "distractorNotes": {
-  "B": "drops the 0.8 factor and prices 1.5 times 0.4 = 0.6 cubic meter",
-  "C": "drops the 0.4 factor and prices 1.5 times 0.8 = 1.2 cubic meters",
-  "D": "adds the three dimensions to get 2.7 and prices that sum as a volume"
+  "A": "adds the three dimensions, 6 + 4 + 2 = 12, and multiplies that sum by 3",
+  "B": "uses the area of the base, (6)(4) = 24 square feet, without the depth",
+  "D": "uses the surface area, 2(24 + 12 + 8) = 88 square feet, instead of the volume"
  },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Volume of a Rectangular Prism**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The block's volume is $(1.5)(0.8)(0.4) = 0.48$ cubic meter, and $0.48 \\times 250 = 120$.\n\n**The Full Solution:**\nStep 1: The volume of a rectangular prism is the product of its three dimensions: $(1.5)(0.8)(0.4)$.\nStep 2: $(1.5)(0.8) = 1.2$, and $(1.2)(0.4) = 0.48$ cubic meter.\nStep 3: At \\$250 per cubic meter, the cost is $0.48 \\times 250 = 120$ dollars. Check: $\\frac{120}{250} = 0.48$, the volume of the block ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (\\$150): drops the $0.8$ factor and prices $(1.5)(0.4) = 0.6$ cubic meter.\n* Choice C (\\$300): drops the $0.4$ factor and prices $(1.5)(0.8) = 1.2$ cubic meters, the area of one face.\n* Choice D (\\$675): adds the dimensions to get $2.7$ and treats that sum as a volume.\n\n**Test Day Takeaway:** Compute the complete volume before applying a unit rate; a missing factor changes the answer even though the units still look right."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Volume of a Rectangular Prism**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The sandbox holds $(6)(4)(2) = 48$ cubic feet of sand, and $48 \\times 3 = 144$, so the sand costs \\$144.\n\n**The Full Solution:**\nStep 1: The volume of a rectangular prism is the product of its three dimensions: $(6)(4)(2)$.\nStep 2: $(6)(4)(2) = 48$ cubic feet.\nStep 3: At \\$3 per cubic foot, the cost is $48 \\times 3 = 144$ dollars. Check: $\\frac{144}{3} = 48 = (6)(4)(2)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (\\$36): adds the dimensions, $6 + 4 + 2 = 12$, and multiplies that sum by $3$.\n* Choice B (\\$72): uses the area of the base, $(6)(4) = 24$ square feet, and ignores the depth.\n* Choice D (\\$264): uses the surface area, $2(24 + 12 + 8) = 88$ square feet, instead of the volume.\n\n**Test Day Takeaway:** Filling a container is a volume question: multiply all three dimensions before applying a price per cubic unit."
 }

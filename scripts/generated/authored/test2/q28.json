@@ -6,7 +6,7 @@
   "domain": "craft-and-structure",
   "skill": "words-in-context",
   "module": 2,
-  "passage": "Soon after carbon nanotubes were discovered in 1991, the physicist Mildred Dresselhaus and her colleagues calculated how electrons would move through them, predicting that a tube would conduct electricity like a metal or like a semiconductor depending on its diameter and the angle at which its sheet of carbon was rolled. Measurements on individual tubes in 1998 ______ the prediction.",
+  "passage": "Soon after carbon nanotubes were discovered in 1991, the physicist Mildred Dresselhaus and her colleagues calculated how electrons would move through them. They predicted that a tube would conduct electricity like a metal or like a semiconductor, depending on its diameter and the angle at which its sheet of carbon was rolled. Measurements on individual tubes in 1998 ______ the prediction.",
   "question": "Which choice completes the text with the most logical and precise word or phrase?",
   "choices": [
     {
@@ -27,5 +27,5 @@
     }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The calculations came first and the measurements came later, so the blank names what measurement does to a prediction it agrees with: it confirms it.\n\n**The Full Solution:**\n- The first sentence makes the order of events explicit — the calculations were done \"soon after carbon nanotubes were discovered in 1991.\"\n- The second sentence reports what happened when individual tubes were measured in 1998.\n- A measurement that arrives after a prediction and bears it out confirms it.\n\n**Why the other choices are wrong:**\n- A: To \"anticipate\" a prediction is to come before it, and the measurements came years after.\n- B: \"Complicated\" would mean the results made the prediction harder to maintain, which reverses the relationship the passage sets up.\n- D: \"Revised\" would mean the prediction had to be changed, again the opposite of agreement."
+  "explanation": "**Choice C is correct.** The calculations came first and the measurements came later, so the blank names what measurement does to a prediction it agrees with: it confirms it.\n\n**The Full Solution:**\n- The first sentence makes the order of events explicit — the calculations were done \"soon after carbon nanotubes were discovered in 1991.\"\n- The final sentence reports what happened when individual tubes were measured in 1998.\n- A measurement that arrives after a prediction and bears it out confirms it.\n\n**Why the other choices are wrong:**\n- A: To \"anticipate\" a prediction is to come before it, and the measurements came years after.\n- B: \"Complicated\" would mean the results made the prediction harder to maintain, which reverses the relationship the passage sets up.\n- D: \"Revised\" would mean the prediction had to be changed, again the opposite of agreement."
 }

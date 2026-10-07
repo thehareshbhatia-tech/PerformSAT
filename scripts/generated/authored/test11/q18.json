@@ -24,15 +24,15 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The subject of the sentence is the singular noun \"catalog,\" so the verb must be the singular \"reveals.\"\n\n**The Full Solution:**\n- Strip the modifiers to find the core sentence: \"An iron founder's illustrated catalog ... reveals how thoroughly the components had been standardized.\"\n- The phrase \"with its numbered columns, window caps, and cornices\" sits between subject and verb, but a prepositional phrase never changes the subject's number.\n- Singular subject, singular verb: \"reveals.\"\n\n**Why the other choices are wrong:**\n- A: \"Reveal\" is plural, agreeing with the nearby \"columns, window caps, and cornices\" instead of the true subject, \"catalog.\"\n- B: \"Are revealing\" is likewise plural — the same attraction error in progressive form.\n- D: \"Have revealed\" is plural as well; the auxiliary \"have\" cannot pair with the singular \"catalog.\"",
- "passage": "An iron founder's illustrated catalog of storefront parts, with its numbered columns, window caps, and cornices, ______ how thoroughly the components of a commercial facade had been standardized by the 1870s.",
+ "explanation": "**Choice C is correct.** The subject of the second sentence is the singular noun \"map,\" so the verb must be the singular \"reveals.\"\n\n**The Full Solution:**\n- Strip away the phrase set off by commas (\"with its more than 500 drawings of cities, animals, and peoples\"): \"The map ______ how scholars in medieval Europe pictured the world.\"\n- \"Map\" is singular, so it takes a singular verb: \"reveals.\"\n- The plural nouns inside the \"with\" phrase (drawings, cities, animals, peoples) are not the subject.\n\n**Why the other choices are wrong:**\n- A: \"Reveal\" is a plural verb; it agrees with \"drawings\" or \"peoples,\" not with the subject \"map.\"\n- B: \"Are revealing\" is plural and does not agree with \"map.\"\n- D: \"Have revealed\" is plural and does not agree with \"map.\"",
+ "passage": "Drawn on a single calfskin around 1300, the Hereford Mappa Mundi is the largest medieval world map that survives. The map, with its more than 500 drawings of cities, animals, and peoples, ______ how scholars in medieval Europe pictured the world.",
  "_meta": {
-  "rule": "subject-verb agreement across intervening prepositional phrase",
-  "anchor": "cast-iron storefront architecture — foundry parts catalogs",
+  "rule": "subject-verb agreement across an intervening with-phrase",
+  "anchor": "Hereford Mappa Mundi — c. 1300 world map on one calfskin, 500+ drawings (Hereford Cathedral Mappa Mundi site; Guinness World Records)",
   "distractors": {
-   "A": "plural verb attracted to nearby plural nouns",
-   "B": "plural progressive, same attraction error",
-   "D": "plural auxiliary"
+   "A": "plural verb, attracts to drawings",
+   "B": "plural progressive",
+   "D": "plural perfect"
   }
  },
  "id": 1118,

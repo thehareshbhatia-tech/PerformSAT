@@ -6,7 +6,7 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 1,
- "passage": "Star catalogs record the measured positions of stars, and their precision depends on the instruments behind them, from open-sighted quadrants to telescopes and, eventually, an observatory in space. A student reviewing the history of positional astronomy claims that each generation of instruments sharpened astronomers' measurements and that the move from ground-based telescopes to a satellite produced the largest single improvement.",
+ "passage": "Star catalogs record the measured positions of stars. Their precision depends on the instruments behind them, from open-sighted quadrants to telescopes and, eventually, an observatory in space. A student reviewing this history claims that each generation of instruments sharpened astronomers' measurements. The student also claims that the move from ground-based telescopes to a satellite produced the largest single improvement.",
  "questionTable": {
   "type": "table",
   "caption": "Typical uncertainty of star positions from selected sources",
@@ -41,7 +41,7 @@
  "choices": [
   {
    "id": "A",
-   "text": "Uncertainty shrank at every step listed, from about 60 arcseconds in 1598 to about 0.1 arcsecond in the late 1980s, and then fell a hundredfold with the Hipparcos satellite catalog."
+   "text": "Uncertainty shrank at every step, from about 60 arcseconds in 1598 to about 0.1 in the late 1980s, then fell a hundredfold with Hipparcos."
   },
   {
    "id": "B",

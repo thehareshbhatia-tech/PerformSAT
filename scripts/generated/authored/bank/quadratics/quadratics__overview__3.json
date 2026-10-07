@@ -1,6 +1,6 @@
 {
   "id": 3,
-  "question": "The graph of $y = f(x)$ is shown, where $f(x) = ax^{2} + bx + c$ and $a$, $b$, and $c$ are constants. Which of the following must be true?",
+  "question": "The graph of the quadratic function $f$ is shown, where $y = f(x)$. Which equation could define $f$?",
   "diagram": {
     "type": "quadraticVertex",
     "params": {
@@ -15,27 +15,27 @@
   "choices": [
     {
       "id": "A",
-      "text": "$a > 0$, and the minimum value of $f$ is $3$."
+      "text": "$f(x) = -(x - 6)^{2} + 3$"
     },
     {
       "id": "B",
-      "text": "$a > 0$, and the minimum value of $f$ is $6$."
+      "text": "$f(x) = -(x - 3)^{2} + 6$"
     },
     {
       "id": "C",
-      "text": "$a < 0$, and the maximum value of $f$ is $3$."
+      "text": "$f(x) = -(x + 3)^{2} + 6$"
     },
     {
       "id": "D",
-      "text": "$a < 0$, and the maximum value of $f$ is $6$."
+      "text": "$f(x) = (x - 3)^{2} + 6$"
     }
   ],
   "distractorNotes": {
-    "A": "reads the downward parabola as opening upward and reports the x-coordinate of the vertex, 3, as the extreme value",
-    "B": "gets the extreme value 6 right but reverses the direction, treating the top of the curve as a minimum with a > 0",
-    "C": "gets the direction right but reports the x-coordinate of the vertex, 3, instead of its y-coordinate, 6"
+    "A": "swaps the coordinates of the vertex (3, 6)",
+    "C": "uses x + 3 for a vertex with x-coordinate 3, which would put the vertex at (-3, 6)",
+    "D": "has the correct vertex but a positive leading coefficient, so the graph would open upward"
   },
-  "correctAnswer": "D",
-  "hint": "Decide the direction of the parabola first, then read which coordinate of the vertex is the function's value.",
-  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~20s):** The parabola opens downward, so $a < 0$, and its highest point is the vertex $(3, 6)$, so the maximum value of $f$ is $6$.\n\n**The Full Solution:**\nStep 1: The arms of the parabola point downward, so the coefficient of $x^{2}$ is negative: $a < 0$.\nStep 2: A parabola that opens downward has a highest point, its vertex, so $f$ has a maximum value rather than a minimum value.\nStep 3: The vertex is at $(3, 6)$. The value of a function is its $y$-coordinate, so the maximum value of $f$ is $6$, reached at $x = 3$. Check: every other point on the graph lies below the line $y = 6$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: reverses the direction and also reports $3$, the $x$-coordinate of the vertex, as the value of $f$.\n* Choice B: has the right number, $6$, but a parabola that opens downward has no minimum value, and its leading coefficient is negative.\n* Choice C: has the right direction but reports $3$. The maximum VALUE of $f$ is the output $f(3) = 6$, not the input $3$.\n\n**Test Day Takeaway:** Read a parabola in two steps: the direction gives the sign of $a$ (down means $a < 0$ and a maximum), and the $y$-coordinate of the vertex gives that maximum or minimum value."
+  "correctAnswer": "B",
+  "hint": "Read the vertex from the graph, then decide whether the parabola opens up or down.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** The vertex is $(3, 6)$ and the parabola opens downward, so $f(x) = -(x - 3)^{2} + 6$.\n\n**The Full Solution:**\nStep 1: The highest point of the graph, the vertex, is at $(3, 6)$.\nStep 2: A parabola with vertex $(h, k)$ can be written as $f(x) = a(x - h)^{2} + k$, so $f(x) = a(x - 3)^{2} + 6$.\nStep 3: The graph opens downward, so $a$ is negative. Of the choices, only $f(x) = -(x - 3)^{2} + 6$ fits.\n\nCheck: $f(2) = -(-1)^{2} + 6 = 5$ and $f(4) = -(1)^{2} + 6 = 5$, and the graph passes through $(2, 5)$ and $(4, 5)$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-(x - 6)^{2} + 3$): swaps the coordinates; its vertex is $(6, 3)$.\n* Choice C ($-(x + 3)^{2} + 6$): has its vertex at $(-3, 6)$; the sign inside the parentheses is the opposite of the $x$-coordinate.\n* Choice D ($(x - 3)^{2} + 6$): has the right vertex, but a positive leading coefficient makes the graph open upward.\n\n**Test Day Takeaway:** In $f(x) = a(x - h)^{2} + k$, the vertex is $(h, k)$, and $a < 0$ means the graph opens downward."
 }

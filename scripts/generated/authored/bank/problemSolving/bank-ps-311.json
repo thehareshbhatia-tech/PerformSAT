@@ -1,44 +1,44 @@
 {
   "id": "bank-ps-311",
-  "question": "The box plot summarizes the diameters, in millimeters, of $60$ ball bearings. Approximately how many of the ball bearings have a diameter greater than $12.4$ millimeters?",
+  "question": "The box plot summarizes the lengths, in millimeters, of the $60$ bolts in data set A. Data set B is created by adding $6$ millimeters to each length in data set A. What are the median and the range of data set B?",
   "diagram": {
     "type": "boxPlot",
     "params": {
-      "min": 11.2,
-      "q1": 11.8,
-      "median": 12.1,
-      "q3": 12.4,
-      "max": 13.0,
-      "xLabel": "Diameter (mm)",
-      "xMin": 11.0,
-      "xMax": 13.2,
-      "xGridStep": 0.2,
-      "xLabelStep": 0.4
+      "min": 42,
+      "q1": 48,
+      "median": 51,
+      "q3": 55,
+      "max": 63,
+      "xLabel": "Bolt length (mm)",
+      "xMin": 40,
+      "xMax": 66,
+      "xGridStep": 1,
+      "xLabelStep": 5
     }
   },
   "choices": [
     {
       "id": "A",
-      "text": "$15$"
+      "text": "Median: $51$; range: $21$"
     },
     {
       "id": "B",
-      "text": "$30$"
+      "text": "Median: $57$; range: $21$"
     },
     {
       "id": "C",
-      "text": "$45$"
+      "text": "Median: $57$; range: $27$"
     },
     {
       "id": "D",
-      "text": "$60$"
+      "text": "Median: $51$; range: $27$"
     }
   ],
   "distractorNotes": {
-    "B": "uses the half of the data above the median, 0.50(60), instead of the quarter above the third quartile",
-    "C": "counts the bearings at or below 12.4 millimeters, 0.75(60), the opposite of what was asked",
-    "D": "counts the whole sample"
+    "A": "keeps the median of data set A, but adding 6 to every value moves the median up by 6",
+    "C": "adds 6 to the range too, but the minimum and maximum both move up by 6",
+    "D": "leaves the median unchanged and adds 6 to the range, both backward"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Box Plot Interpretation**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $12.4$ is the third quartile, so about $25\\%$ of the data lie above it: $0.25(60) = 15$.\n\n**The Full Solution:**\nStep 1: The right edge of the box is at $12.4$ millimeters, so $12.4$ is the third quartile.\nStep 2: About $25\\%$ of the values in a data set lie above the third quartile.\nStep 3: So about $0.25(60) = 15$ bearings have a diameter greater than $12.4$ millimeters. Check: about $75\\%$, or $45$ bearings, are at or below $12.4$, and $15 + 45 = 60$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($30$): uses the median, so it counts the half of the data above $12.1$ instead of the quarter above $12.4$.\n* Choice C ($45$): counts the bearings at or below the third quartile, the opposite of what was asked.\n* Choice D ($60$): counts every bearing in the sample.\n\n**Test Day Takeaway:** Each of the four sections of a box plot holds about a quarter of the data. Find which edge the given value sits on, then count the quarters beyond it."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Box Plot Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Adding $6$ to every value moves the median up $6$, from $51$ to $57$, and leaves the range, $63 - 42 = 21$, unchanged.\n\n**The Full Solution:**\nStep 1: From the box plot, data set A has a median of $51$, a minimum of $42$ and a maximum of $63$, so its range is $63 - 42 = 21$.\nStep 2: Adding $6$ to every value shifts the whole data set $6$ to the right: the median becomes $51 + 6 = 57$.\nStep 3: The minimum becomes $48$ and the maximum becomes $69$, so the range is $69 - 48 = 21$, the same as before. Check: the spread does not change when every value moves the same distance. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: $51$ is the median of data set A; every value, including the middle one, increased by $6$.\n* Choice C: the range is a difference, and adding $6$ to both the maximum and the minimum cancels in the subtraction.\n* Choice D: this has both effects backward: the median changes and the range does not.\n\n**Test Day Takeaway:** Adding the same number to every value shifts the center by that number and leaves the spread alone."
 }

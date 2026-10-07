@@ -67,19 +67,19 @@ export const practiceTest3M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 4,
-      question: "The scatterplot shows the relationship between two variables, $x$ and $y$. A line of best fit for the data, $y = 3.5x + 18$, is also shown. For the data point with $x = 8$, how much greater is the actual $y$-value than the $y$-value predicted by the line of best fit?",
-      diagram: { type: "scatterplot", params: { points: [[1, 20], [2, 27], [4, 30], [5, 38], [6, 36], [8, 53], [10, 50], [11, 59], [13, 61], [14, 70], [16, 72]], xMin: 0, xMax: 16, yMin: 0, yMax: 80, xGridStep: 2, yGridStep: 10, xLabelStep: 4, yLabelStep: 20, xLabel: "x", yLabel: "y", bestFitLine: { slope: 3.5, intercept: 18 }, highlightPoint: [8, 53], highlightLabel: "(8, 53)", showResidual: true } },
+      question: "The scatterplot shows $11$ data points and a line of best fit for the data. Based on the line, which of the following is closest to the predicted value of $y$ when $x = 12$?",
+      diagram: { type: "scatterplot", params: { points: [[1, 24], [2, 22], [4, 36], [5, 31], [7, 46], [8, 42], [10, 58], [12, 66], [13, 59], [15, 74], [16, 70]], xMin: 0, xMax: 16, yMin: 0, yMax: 80, xGridStep: 2, yGridStep: 10, xLabelStep: 4, yLabelStep: 20, xLabel: "x", yLabel: "y", bestFitLine: { slope: 3.5, intercept: 18 } } },
       choices: [
-        { id: "A", text: "$7$" },
-        // distractor: drops the intercept, predicting 3.5(8) = 28 and reporting 53 - 28
-        { id: "B", text: "$25$" },
-        // distractor: reports the predicted y-value instead of the difference
-        { id: "C", text: "$46$" },
-        // distractor: reports the actual y-value instead of the difference
-        { id: "D", text: "$53$" }
+        // distractor: gives how far the data point at x = 12 lies above the line, 66 - 60 = 6, instead of the predicted value
+        { id: "A", text: "$6$" },
+        // distractor: reads the line where it meets the y-axis, at x = 0, instead of at x = 12
+        { id: "B", text: "$18$" },
+        { id: "C", text: "$60$" },
+        // distractor: reads the data point at x = 12, the actual y-value 66, instead of the line
+        { id: "D", text: "$66$" }
       ],
-      correctAnswer: "A",
-      explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** At $x = 8$ the line predicts $3.5(8) + 18 = 46$, and the data point is at $(8, 53)$, so the difference is $53 - 46 = 7$.\n\n**The Full Solution:**\nStep 1: Evaluate the line of best fit at $x = 8$. Substituting into $y = 3.5x + 18$ gives $y = 28 + 18 = 46$.\nStep 2: Read the actual value. The data point with $x = 8$ is $(8, 53)$, so the actual $y$-value is $53$.\nStep 3: Subtract in the order the question asks. The actual value exceeds the predicted value by $53 - 46 = 7$. Check: $46 + 7 = 53$, the actual value ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($25$): uses $3.5(8) = 28$ as the prediction and computes $53 - 28 = 25$, dropping the intercept $18$.\n* Choice C ($46$): stops at the predicted $y$-value, which is only the middle of the calculation.\n* Choice D ($53$): reports the actual $y$-value without comparing it to the line.\n\n**Test Day Takeaway:** The vertical gap between a data point and the line of best fit is the actual value minus the predicted value. Substitute $x$ into the whole equation, intercept included, before subtracting.",
+      correctAnswer: "C",
+      explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Go up from $x = 12$ to the line of best fit and read across: the line passes through $(12, 60)$.\n\n**The Full Solution:**\nStep 1: Find $x = 12$ on the $x$-axis.\nStep 2: Move straight up to the line of best fit, not to the data point. The line crosses $x = 12$ where it meets the gridline $y = 60$.\nStep 3: The predicted value of $y$ is about $60$. Check: the data point at $x = 12$ is $(12, 66)$, which lies above the line, so the prediction must be less than $66$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): is the vertical distance from the data point $(12, 66)$ down to the line, not the predicted value.\n* Choice B ($18$): is where the line meets the $y$-axis, the predicted value at $x = 0$.\n* Choice D ($66$): is the actual $y$-value of the data point at $x = 12$; the question asks for the value on the line.\n\n**Test Day Takeaway:** A predicted value comes from the line of best fit, not from a data point: go up from the given $x$-value to the line and read across.",
       skills: ["scatterplots", "linear-functions"]
     },
     {
@@ -117,18 +117,18 @@ export const practiceTest3M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "Of the $640$ students at a school, $44$ are in the band, $36$ are in the choir, and $16$ are in both. What is the probability that a student selected at random is in the band, the choir, or both?",
+      question: "A bakery made $640$ cookies: $160$ oatmeal, $288$ chocolate chip, and the rest sugar. If one of these cookies is selected at random, what is the probability of selecting a cookie that is not chocolate chip?",
       choices: [
-        // distractor: counts only the 16 students who are in both groups
-        { id: "A", text: "$\\frac{1}{40}$" },
-        // distractor: removes the 16 students in both groups twice, using 44 + 36 - 32 = 48
-        { id: "B", text: "$\\frac{3}{40}$" },
-        { id: "C", text: "$\\frac{1}{10}$" },
-        // distractor: adds 44 and 36 without removing the 16 students counted in both groups
-        { id: "D", text: "$\\frac{1}{8}$" }
+        // distractor: counts only the 160 oatmeal cookies as not chocolate chip, leaving out the sugar cookies
+        { id: "A", text: "$\\frac{1}{4}$" },
+        // distractor: counts only the 192 sugar cookies as not chocolate chip, leaving out the oatmeal cookies
+        { id: "B", text: "$\\frac{3}{10}$" },
+        // distractor: finds the probability of selecting a chocolate chip cookie, 288/640, instead of a cookie that is not chocolate chip
+        { id: "C", text: "$\\frac{9}{20}$" },
+        { id: "D", text: "$\\frac{11}{20}$" }
       ],
-      correctAnswer: "C",
-      explanation: "**SAT Pattern: Basic Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The $16$ students in both groups are counted twice, so remove them once: $44 + 36 - 16 = 64$ students, and $\\frac{64}{640} = \\frac{1}{10}$.\n\n**The Full Solution:**\nStep 1: Adding $44$ and $36$ counts the $16$ students who are in both the band and the choir twice.\nStep 2: Remove the double count once. The number of students in the band, the choir, or both is $44 + 36 - 16 = 64$.\nStep 3: Divide by the total number of students. The probability is $\\frac{64}{640} = \\frac{1}{10}$. Check: $28$ are in the band only, $20$ are in the choir only, and $16$ are in both, and $28 + 20 + 16 = 64$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{40}$): uses only the $16$ students in both groups, giving $\\frac{16}{640}$. That is the probability of being in both, not in at least one.\n* Choice B ($\\frac{3}{40}$): subtracts the overlap from each group, using $44 + 36 - 32 = 48$ and giving $\\frac{48}{640}$.\n* Choice D ($\\frac{1}{8}$): adds the two counts as if no student were in both, giving $\\frac{80}{640}$.\n\n**Test Day Takeaway:** When two groups share members, the count for \"one or the other or both\" is the first group plus the second group minus the overlap. Subtract the overlap exactly once, then divide by the total.",
+      correctAnswer: "D",
+      explanation: "**SAT Pattern: Basic Probability**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The cookies that are not chocolate chip number $640 - 288 = 352$, so the probability is $\\frac{352}{640} = \\frac{11}{20}$.\n\n**The Full Solution:**\nStep 1: The cookies that are not chocolate chip are the oatmeal cookies and the sugar cookies. There are $640 - 160 - 288 = 192$ sugar cookies.\nStep 2: The number of cookies that are not chocolate chip is $160 + 192 = 352$, which is the same as $640 - 288$.\nStep 3: Divide by the total: $\\frac{352}{640} = \\frac{11}{20}$. Check: the probability of selecting a chocolate chip cookie is $\\frac{288}{640} = \\frac{9}{20}$, and $\\frac{9}{20} + \\frac{11}{20} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{4}$): this is $\\frac{160}{640}$, which counts only the oatmeal cookies. The sugar cookies are also not chocolate chip.\n* Choice B ($\\frac{3}{10}$): this is $\\frac{192}{640}$, which counts only the sugar cookies and leaves out the oatmeal cookies.\n* Choice C ($\\frac{9}{20}$): this is $\\frac{288}{640}$, the probability of selecting a chocolate chip cookie, the opposite of what the question asks.\n\n**Test Day Takeaway:** For \"not\" a category, subtract that category from the total, or subtract its probability from $1$; then check that the two probabilities add to $1$.",
       skills: ["probability-basics"]
     },
     {
@@ -155,9 +155,9 @@ export const practiceTest3M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "Based on a random sample of loaves from a bakery, a $95\\%$ confidence interval for the mean mass of the bakery's loaves is $412.6$ grams to $419.4$ grams. What is the margin of error, in grams, for this estimate?",
+      question: "Based on a random sample of loaves from a bakery, it is estimated that the mean mass of all the bakery's loaves is between $412.6$ grams and $419.4$ grams. What is the margin of error, in grams, for this estimate?",
       correctAnswer: "3.4",
-      explanation: "**SAT Pattern: Margin of Error**\n\n**The correct answer is 3.4.**\n\n**The Fast Way (~15s):** The interval is the sample mean plus or minus the margin of error, so the margin of error is half the width: $\\frac{419.4 - 412.6}{2} = 3.4$ grams.\n\n**The Full Solution:**\nStep 1: A confidence interval runs from (sample mean $-$ margin of error) to (sample mean $+$ margin of error), so its width is twice the margin of error.\nStep 2: Find the width: $419.4 - 412.6 = 6.8$ grams.\nStep 3: Halve the width: $\\frac{6.8}{2} = 3.4$ grams. Check: the midpoint is $\\frac{412.6 + 419.4}{2} = 416$, and $416 - 3.4 = 412.6$ and $416 + 3.4 = 419.4$ ✓\n\n**Common Mistakes:**\n* $6.8$: reports the full width of the interval, which is twice the margin of error.\n* $416$: reports the midpoint, which is the sample mean, not the margin of error.\n* $1.7$: halves the width twice, dividing $6.8$ by $4$.\n\n**Test Day Takeaway:** The margin of error is half the width of the interval, and the sample mean is the midpoint. Given the endpoints, subtract and divide by $2$.",
+      explanation: "**SAT Pattern: Margin of Error**\n\n**The correct answer is 3.4.**\n\n**The Fast Way (~15s):** The interval is the sample mean plus or minus the margin of error, so the margin of error is half the width: $\\frac{419.4 - 412.6}{2} = 3.4$ grams.\n\n**The Full Solution:**\nStep 1: An estimate like this runs from (sample mean $-$ margin of error) to (sample mean $+$ margin of error), so its width is twice the margin of error.\nStep 2: Find the width: $419.4 - 412.6 = 6.8$ grams.\nStep 3: Halve the width: $\\frac{6.8}{2} = 3.4$ grams. Check: the midpoint is $\\frac{412.6 + 419.4}{2} = 416$, and $416 - 3.4 = 412.6$ and $416 + 3.4 = 419.4$ ✓\n\n**Common Mistakes:**\n* $6.8$: reports the full width of the interval, which is twice the margin of error.\n* $416$: reports the midpoint, which is the sample mean, not the margin of error.\n* $1.7$: halves the width twice, dividing $6.8$ by $4$.\n\n**Test Day Takeaway:** The margin of error is half the width of the interval, and the sample mean is the midpoint. Given the endpoints, subtract and divide by $2$.",
       skills: ["margin-of-error"]
     },
     {
@@ -214,37 +214,37 @@ export const practiceTest3M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "In the $xy$-plane, the distance between the points $(m, 5)$ and $(4, -3)$ is $17$ units. Which of the following could be the value of $m$?",
+      question: "Line $\\ell$ is parallel to the graph of $y = \\frac{5}{2}x - 3$ in the $xy$-plane. Line $\\ell$ passes through the points $(0, 0)$ and $(6, d)$. What is the value of $d$?",
       choices: [
-        // distractor: adds the legs instead of their squares, solving |m - 4| + 8 = 17
-        { id: "A", text: "$13$" },
-        // distractor: reports the horizontal distance 15 rather than solving m - 4 = 15
-        { id: "B", text: "$15$" },
-        { id: "C", text: "$19$" },
-        // distractor: sets (m - 4)^2 = 289, ignoring the vertical distance of 8
-        { id: "D", text: "$21$" }
+        // distractor: uses the reciprocal of the slope, 2/5, giving (2/5)(6)
+        { id: "A", text: "$\\frac{12}{5}$" },
+        // distractor: substitutes x = 6 into the given equation, which describes a different line, giving (5/2)(6) - 3
+        { id: "B", text: "$12$" },
+        { id: "C", text: "$15$" },
+        // distractor: writes line l as y = (5/2)x + 3, giving (5/2)(6) + 3, but line l passes through the origin
+        { id: "D", text: "$18$" }
       ],
       correctAnswer: "C",
-      explanation: "**SAT Pattern: Distance Formula**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The vertical distance is $5 - (-3) = 8$, so $(m - 4)^{2} + 8^{2} = 17^{2}$. That gives $(m - 4)^{2} = 225$, so $m - 4 = \\pm 15$ and $m = 19$ is one possibility.\n\n**The Full Solution:**\nStep 1: Write the distance formula for the two points: $\\sqrt{(m - 4)^{2} + (5 - (-3))^{2}} = 17$.\nStep 2: Square both sides: $(m - 4)^{2} + 64 = 289$, so $(m - 4)^{2} = 225$.\nStep 3: Take both square roots: $m - 4 = 15$ or $m - 4 = -15$, so $m = 19$ or $m = -11$. Only $19$ is a choice. Check: from $(19, 5)$ to $(4, -3)$ the differences are $15$ and $8$, and $\\sqrt{225 + 64} = \\sqrt{289} = 17$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($13$): adds the distances instead of their squares, solving $|m - 4| + 8 = 17$ to get $m - 4 = 9$.\n* Choice B ($15$): stops at the horizontal distance. Since $m - 4 = 15$, $m$ is $4 + 15 = 19$, not $15$.\n* Choice D ($21$): sets $(m - 4)^{2} = 289$, ignoring the vertical distance of $8$.\n\n**Test Day Takeaway:** The distance between two points is the hypotenuse of a right triangle whose legs are the differences in the coordinates. Subtract the known leg's square before taking a root, and remember that the root can be positive or negative.",
-      skills: ["coordinate-geometry"]
+      explanation: "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Line $\\ell$ has slope $\\frac{5}{2}$ and passes through the origin, so its equation is $y = \\frac{5}{2}x$, and $d = \\frac{5}{2}(6) = 15$.\n\n**The Full Solution:**\nStep 1: The given line has slope $\\frac{5}{2}$, and parallel lines have the same slope, so line $\\ell$ has slope $\\frac{5}{2}$.\nStep 2: Line $\\ell$ passes through $(0, 0)$, so its $y$-intercept is $0$ and its equation is $y = \\frac{5}{2}x$.\nStep 3: Substitute $x = 6$: $d = \\frac{5}{2}(6) = 15$. Check: the slope from $(0, 0)$ to $(6, 15)$ is $\\frac{15 - 0}{6 - 0} = \\frac{5}{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{12}{5}$): uses the reciprocal slope, $\\frac{2}{5}$, so $\\frac{2}{5}(6) = \\frac{12}{5}$.\n* Choice B ($12$): substitutes $x = 6$ into the given equation, $\\frac{5}{2}(6) - 3 = 12$. Line $\\ell$ is a different line through the origin.\n* Choice D ($18$): uses $+3$ as the $y$-intercept, $\\frac{5}{2}(6) + 3$. Line $\\ell$ passes through $(0, 0)$, so its $y$-intercept is $0$.\n\n**Test Day Takeaway:** A line parallel to $y = mx + b$ through the origin is $y = mx$; multiply the slope by the $x$-coordinate to get the $y$-coordinate.",
+      skills: ["writing-parallel-equation"]
     },
     {
       id: 14,
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "$2x^{2} - 22x + 48 = 0$\nOne solution to the given equation is $3$. What is the other solution?",
+      question: "$3x^{2} + kx + 6$\nIn the given expression, $k$ is a constant. If $x - 3$ is a factor of the expression, what is the value of $k$?",
       choices: [
-        // distractor: sign slip in factoring, writing 2(x - 3)(x + 8) instead of 2(x - 3)(x - 8)
-        { id: "A", text: "$-8$" },
-        { id: "B", text: "$8$" },
-        // distractor: uses 22/2 = 11, the sum of the two solutions, as the second solution
-        { id: "C", text: "$11$" },
-        // distractor: uses 48 as the product of the solutions without dividing by the leading coefficient 2, computing 48/3 = 16
-        { id: "D", text: "$16$" }
+        { id: "A", text: "$-11$" },
+        // distractor: multiplies (x - 3)(3x - 2) but keeps only the -9x term, leaving out the -2x term
+        { id: "B", text: "$-9$" },
+        // distractor: substitutes x = 3 but uses x^2 instead of 3x^2, solving 9 + 3k + 6 = 0
+        { id: "C", text: "$-5$" },
+        // distractor: substitutes x = -3 instead of x = 3, solving 27 - 3k + 6 = 0
+        { id: "D", text: "$11$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: Polynomial Factoring with Given Factor**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Since $3$ is a solution, $x - 3$ is a factor. Factoring out $2$ gives $2(x^{2} - 11x + 24) = 2(x - 3)(x - 8)$, so the other solution is $8$.\n\n**The Full Solution:**\nStep 1: Because $x = 3$ is a solution, $x - 3$ is a factor of $2x^{2} - 22x + 48$.\nStep 2: Factor out $2$: $2(x^{2} - 11x + 24) = 0$. The numbers with product $24$ and sum $-11$ are $-3$ and $-8$, so the equation is $2(x - 3)(x - 8) = 0$.\nStep 3: The solutions are $x = 3$ and $x = 8$, so the other solution is $8$. Check: $2(8)^{2} - 22(8) + 48 = 128 - 176 + 48 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): flips a sign while factoring, writing $2(x - 3)(x + 8)$. That product has middle term $+10x$, not $-22x$.\n* Choice C ($11$): computes $\\frac{22}{2} = 11$, which is the sum of the two solutions, not the second solution. Subtracting the known solution gives $11 - 3 = 8$.\n* Choice D ($16$): treats $48$ as the product of the solutions and computes $\\frac{48}{3} = 16$. The product of the solutions is $\\frac{48}{2} = 24$, because the leading coefficient is $2$.\n\n**Test Day Takeaway:** One known solution turns a quadratic into a quick factoring problem. Factor out the leading coefficient first, then find the pair of numbers whose product is the constant and whose sum is the middle coefficient.",
+      correctAnswer: "A",
+      explanation: "**SAT Pattern: Polynomial Factoring with Given Factor**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** If $x - 3$ is a factor, the expression equals $0$ when $x = 3$: $3(3)^{2} + 3k + 6 = 0$, so $33 + 3k = 0$ and $k = -11$.\n\n**The Full Solution:**\nStep 1: If $x - 3$ is a factor of the expression, then the expression equals $0$ when $x - 3 = 0$, that is, when $x = 3$.\nStep 2: Substitute $x = 3$: $3(9) + 3k + 6 = 0$, which gives $33 + 3k = 0$.\nStep 3: Solve: $3k = -33$, so $k = -11$. Check: $(x - 3)(3x - 2) = 3x^{2} - 2x - 9x + 6 = 3x^{2} - 11x + 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-9$): multiplies $(x - 3)(3x - 2)$ but keeps only the $-9x$ term. The $-2x$ term also belongs to the middle term.\n* Choice C ($-5$): drops the coefficient $3$ on $x^{2}$, solving $9 + 3k + 6 = 0$.\n* Choice D ($11$): substitutes $x = -3$. The factor $x - 3$ is zero when $x = 3$, not $-3$.\n\n**Test Day Takeaway:** $x - a$ is a factor exactly when the expression equals $0$ at $x = a$; substitute $a$ and solve for the unknown constant.",
       skills: ["finding-roots-factoring"]
     },
     {
@@ -271,10 +271,10 @@ export const practiceTest3M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "The table shows the number of marbles of each color in a bag. Two marbles will be selected from the bag at random, one at a time, without replacement. What is the probability that both marbles selected are red?",
+      question: "The table shows the number of marbles of each color in a bag. One red marble is removed from the bag and not replaced. If one of the remaining marbles is then selected at random, what is the probability of selecting a red marble? (Express your answer as a decimal or fraction, not as a percent.)",
       diagram: { type: "dataTable", params: { headers: ["Color", "Number of marbles"], rows: [["Red", "10"], ["Blue", "9"], ["Green", "6"], ["Total", "25"]] } },
-      correctAnswer: "3/20",
-      explanation: "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $\\frac{3}{20}$.**\n\n**The Fast Way (~25s):** The first marble is red with probability $\\frac{10}{25}$; with that marble removed, the second is red with probability $\\frac{9}{24}$. The product is $\\frac{90}{600} = \\frac{3}{20}$.\n\n**The Full Solution:**\nStep 1: The bag has $10$ red marbles out of $25$, so the first marble is red with probability $\\frac{10}{25} = \\frac{2}{5}$.\nStep 2: After one red marble is removed, $9$ red marbles remain among $24$, so the second marble is red with probability $\\frac{9}{24} = \\frac{3}{8}$.\nStep 3: Multiply: $\\frac{2}{5} \\times \\frac{3}{8} = \\frac{6}{40} = \\frac{3}{20}$. Check: $\\frac{10}{25} \\times \\frac{9}{24} = \\frac{90}{600} = \\frac{3}{20}$ ✓\n\n**Common Mistakes:**\n* $\\frac{4}{25}$: uses $\\frac{10}{25} \\times \\frac{10}{25}$, as if the first marble were put back.\n* $\\frac{1}{6}$: uses $\\frac{10}{25} \\times \\frac{10}{24}$, reducing the total to $24$ but forgetting that only $9$ red marbles remain.\n* $\\frac{2}{5}$: finds the probability for one marble only.\n\n**Test Day Takeaway:** Without replacement, both the number of favorable outcomes and the total drop by one before the second selection. Multiply the two fractions.",
+      correctAnswer: "3/8",
+      explanation: "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $\\frac{3}{8}$.**\n\n**The Fast Way (~20s):** After one red marble is removed, $9$ red marbles remain among $24$ marbles, so the probability is $\\frac{9}{24} = \\frac{3}{8}$.\n\n**The Full Solution:**\nStep 1: The bag starts with $10$ red marbles and $25$ marbles in all.\nStep 2: Removing one red marble lowers both counts by $1$: $10 - 1 = 9$ red marbles and $25 - 1 = 24$ marbles in all.\nStep 3: The probability of selecting a red marble from the remaining marbles is $\\frac{9}{24} = \\frac{3}{8}$. Check: $\\frac{3}{8} = 0.375$, and $9 \\div 24 = 0.375$ ✓\n\n**Common Mistakes:**\n* $\\frac{2}{5}$: uses the original counts, $\\frac{10}{25}$, as if the red marble had not been removed.\n* $\\frac{5}{12}$: lowers the total to $24$ but keeps $10$ red marbles, giving $\\frac{10}{24}$.\n* $\\frac{9}{25}$: lowers the number of red marbles to $9$ but keeps the total at $25$.\n\n**Test Day Takeaway:** When an item is removed and not replaced, both the number of favorable outcomes and the total change before the next selection; update both counts, then divide.",
       skills: ["probability-basics"]
     },
     {
@@ -349,10 +349,10 @@ export const practiceTest3M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 7,
-      question: "The table shows the number of square feet that $1$ gallon of each of three types of paint covers. Ana will apply two coats of paint Y to walls with a total area of $1{,}600$ square feet. Paint Y is sold only in $1$-quart cans, and $1$ gallon is equal to $4$ quarts. What is the least number of cans of paint Y Ana needs?",
+      question: "The table shows the number of square feet that $1$ gallon of each of three types of paint covers. Ana will use paint Y to cover walls with a total area of $1{,}600$ square feet. Paint Y is sold only in $1$-quart cans, and $1$ gallon is equal to $4$ quarts. What is the least number of cans of paint Y Ana needs?",
       diagram: { type: "dataTable", params: { headers: ["Paint", "Area covered per gallon (square feet)"], rows: [["X", "425"], ["Y", "340"], ["Z", "510"]] } },
-      correctAnswer: "38",
-      explanation: "**SAT Pattern: Proportion Solving**\n\n**The correct answer is $38$.**\n\n**The Fast Way (~45s):** Two coats cover $2(1{,}600) = 3{,}200$ square feet, and one quart of paint Y covers $\\frac{340}{4} = 85$ square feet, so Ana needs $\\frac{3{,}200}{85} \\approx 37.6$ quarts. She can buy only whole cans, so she needs $38$ cans.\n\n**The Full Solution:**\nStep 1: Find the total area to be painted. Each coat covers the whole $1{,}600$ square feet, so two coats require paint for $2 \\times 1{,}600 = 3{,}200$ square feet.\nStep 2: Convert the coverage rate to quarts. Paint Y covers $340$ square feet per gallon, and $1$ gallon is $4$ quarts, so one quart covers $\\frac{340}{4} = 85$ square feet. Ana needs $\\frac{3{,}200}{85} \\approx 37.6$ quarts.\nStep 3: Paint is sold only in whole $1$-quart cans, so round up: $37$ cans are not enough and $38$ cans are. Check: $37$ cans cover $37 \\times 85 = 3{,}145$ square feet, which is less than $3{,}200$, while $38$ cans cover $38 \\times 85 = 3{,}230$ square feet ✓\n\n**Common Mistakes:**\n* $37$: rounds $37.6$ down. Thirty-seven cans cover only $3{,}145$ square feet, so the second coat would not be finished.\n* $40$: rounds $9.41$ gallons up to $10$ gallons before converting to quarts. Forty cans are enough, but fewer cans also work.\n* $19$: applies a single coat, computing $\\frac{1{,}600}{85} \\approx 18.8$ quarts.\n\n**Test Day Takeaway:** Track the units at every step of a rate chain, account for repeated coats before dividing, and round only at the end: when an item comes in whole units, the least number that is enough is the next whole number up.",
+      correctAnswer: "19",
+      explanation: "**SAT Pattern: Proportion Solving**\n\n**The correct answer is $19$.**\n\n**The Fast Way (~30s):** One quart of paint Y covers $\\frac{340}{4} = 85$ square feet, so Ana needs $\\frac{1{,}600}{85} \\approx 18.8$ quarts. She can buy only whole cans, so she needs $19$ cans.\n\n**The Full Solution:**\nStep 1: From the table, paint Y covers $340$ square feet per gallon. Since $1$ gallon is $4$ quarts, one quart covers $\\frac{340}{4} = 85$ square feet.\nStep 2: Divide the area by the coverage per quart: $\\frac{1{,}600}{85} \\approx 18.8$ quarts.\nStep 3: Paint is sold only in whole $1$-quart cans, so round up to $19$ cans. Check: $18$ cans cover $18 \\times 85 = 1{,}530$ square feet, which is less than $1{,}600$, while $19$ cans cover $19 \\times 85 = 1{,}615$ square feet ✓\n\n**Common Mistakes:**\n* $18$: rounds $18.8$ down. Eighteen cans cover only $1{,}530$ square feet, which is not enough.\n* $5$: finds the number of gallons, $\\frac{1{,}600}{340} \\approx 4.7$, rounds up to $5$, and never converts gallons to quarts.\n* $20$: rounds $4.7$ gallons up to $5$ gallons before converting, giving $20$ quarts. Twenty cans are enough, but fewer also work.\n\n**Test Day Takeaway:** Convert the rate to the unit the item is sold in before dividing, and round only at the end: when an item comes in whole units, the least number that is enough is the next whole number up.",
       skills: ["unit-conversion"]
     },
     {
@@ -360,18 +360,18 @@ export const practiceTest3M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 7,
-      question: "At a company, $60\\%$ of phones are made at factory A and $40\\%$ at factory B. The defect rate is $8\\%$ at factory A and $3\\%$ at factory B. If a defective phone is selected at random, what is the probability that it was made at factory A?",
+      question: "A company made $600$ phones at factory A and $400$ phones at factory B. Of these, $8\\%$ of factory A's phones and $3\\%$ of factory B's phones were defective. If one of the defective phones is selected at random, what is the probability that it was made at factory A?",
       choices: [
-        // distractor: reports 0.60 x 0.08 = 0.048, the share of ALL phones that are defective and from factory A
+        // distractor: divides the 48 defective phones from factory A by all 1,000 phones instead of by the 60 defective phones
         { id: "A", text: "$0.048$" },
-        // distractor: reports the overall defect rate, 0.048 + 0.012 = 0.06
+        // distractor: reports the share of all 1,000 phones that are defective, 60/1,000
         { id: "B", text: "$0.06$" },
-        // distractor: reports factory A's share of production, ignoring the two different defect rates
+        // distractor: reports factory A's share of all phones made, 600/1,000, ignoring the two different defect rates
         { id: "C", text: "$0.6$" },
         { id: "D", text: "$0.8$" }
       ],
       correctAnswer: "D",
-      explanation: "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** Take $1{,}000$ phones: $600$ from factory A give $48$ defective phones, and $400$ from factory B give $12$, for $60$ defective phones in all. Then $\\frac{48}{60} = 0.8$.\n\n**The Full Solution:**\nStep 1: Count the defective phones from each factory. Out of $1{,}000$ phones, factory A makes $600$, of which $0.08(600) = 48$ are defective, and factory B makes $400$, of which $0.03(400) = 12$ are defective.\nStep 2: The phone selected is known to be defective, so the group to choose from is the $48 + 12 = 60$ defective phones.\nStep 3: Divide: $\\frac{48}{60} = 0.8$. Check: $\\frac{12}{60} = 0.2$ of the defective phones are from factory B, and $0.8 + 0.2 = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.048$): computes $0.60 \\times 0.08$, the share of all phones that are defective and from factory A. That is the numerator, divided by the wrong total.\n* Choice B ($0.06$): adds $0.048$ and $0.012$ to get the company's overall defect rate. That is the denominator, not the answer.\n* Choice C ($0.6$): reports factory A's share of all phones. Defective phones are not split in the same ratio, because factory A has the higher defect rate.\n\n**Test Day Takeaway:** A \"given\" condition shrinks the group you divide by. Once you know the phone is defective, divide by the number of defective phones, and choosing a round total such as $1{,}000$ turns the percents into counts.",
+      explanation: "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Factory A made $0.08(600) = 48$ defective phones and factory B made $0.03(400) = 12$, for $60$ defective phones in all, so the probability is $\\frac{48}{60} = 0.8$.\n\n**The Full Solution:**\nStep 1: Count the defective phones from each factory: $0.08(600) = 48$ from factory A and $0.03(400) = 12$ from factory B.\nStep 2: The phone is selected from the defective phones, so the total to divide by is $48 + 12 = 60$.\nStep 3: Divide: $\\frac{48}{60} = 0.8$. Check: $\\frac{12}{60} = 0.2$ of the defective phones are from factory B, and $0.8 + 0.2 = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.048$): this is $\\frac{48}{1{,}000}$, which divides by all the phones instead of by the defective phones.\n* Choice B ($0.06$): this is $\\frac{60}{1{,}000}$, the share of all phones that are defective. That is a total, not the answer.\n* Choice C ($0.6$): this is $\\frac{600}{1{,}000}$, factory A's share of all phones. Defective phones are not split in the same ratio, because factory A has the higher defect rate.\n\n**Test Day Takeaway:** When the selection is made from one group, such as the defective phones, that group's total is the denominator. Turn each percent into a count first, then divide.",
       skills: ["conditional-probability"]
     }
   ]

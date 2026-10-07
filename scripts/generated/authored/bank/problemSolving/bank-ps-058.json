@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-058",
-  "question": "Two boats leave a dock at the same time and travel in the same direction, one at a constant speed of $22$ miles per hour and the other at $14$ miles per hour. How many miles apart are the boats after $1.5$ hours?",
+  "question": "Two boats leave a dock at the same time. Boat A travels at a constant speed of $22$ miles per hour, and boat B travels at a constant speed of $14$ miles per hour. After $1.5$ hours, how many more miles has boat A traveled than boat B?",
   "choices": [
     {
       "id": "A",
@@ -16,14 +16,14 @@
     },
     {
       "id": "D",
-      "text": "$54$"
+      "text": "$33$"
     }
   ],
   "distractorNotes": {
     "A": "reports the difference in speeds, in miles per hour, without multiplying by the $1.5$ hours.",
-    "C": "reports the distance the slower boat traveled rather than the gap between the boats.",
-    "D": "adds the speeds, $22 + 14 = 36$, and multiplies by $1.5$, as if the boats moved in opposite directions."
+    "C": "reports the distance boat B traveled, $14 \\times 1.5$, rather than the difference in distances.",
+    "D": "reports the distance boat A traveled, $22 \\times 1.5$, rather than the difference in distances."
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Relative Rate (Same Direction)**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Same direction, so the gap grows at the difference of the speeds: $22 - 14 = 8$ miles per hour. After $1.5$ hours the gap is $8 \\times 1.5 = 12$ miles.\n\n**The Full Solution:**\nStep 1: Distances after $1.5$ hours: faster boat $22 \\times 1.5 = 33$ miles; slower boat $14 \\times 1.5 = 21$ miles.\nStep 2: The distance between them is $33 - 21 = 12$ miles.\nStep 3: Check with the relative speed: $(22 - 14) \\times 1.5 = 8 \\times 1.5 = 12$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): reports the difference in speeds, in miles per hour, without multiplying by the $1.5$ hours.\n* Choice C ($21$): reports the distance the slower boat traveled rather than the gap between the boats.\n* Choice D ($54$): adds the speeds, $22 + 14 = 36$, and multiplies by $1.5$, as if the boats moved in opposite directions.\n\n**Test Day Takeaway:** Same direction: separation rate is the difference of the speeds; opposite directions: the sum. Then multiply by time."
+  "explanation": "**SAT Pattern: Relative Rate (Same Direction)**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Boat A gains $22 - 14 = 8$ miles on boat B every hour, so after $1.5$ hours it has traveled $8 \\times 1.5 = 12$ more miles.\n\n**The Full Solution:**\nStep 1: Boat A travels $22 \\times 1.5 = 33$ miles in $1.5$ hours.\nStep 2: Boat B travels $14 \\times 1.5 = 21$ miles in $1.5$ hours.\nStep 3: The difference is $33 - 21 = 12$ miles. Check: $(22 - 14) \\times 1.5 = 8 \\times 1.5 = 12$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): reports the difference in speeds, in miles per hour, without multiplying by the $1.5$ hours.\n* Choice C ($21$): reports the distance boat B traveled, $14 \\times 1.5$, rather than the difference in distances.\n* Choice D ($33$): reports the distance boat A traveled, $22 \\times 1.5$, rather than the difference in distances.\n\n**Test Day Takeaway:** Distance is rate times time. To compare two travelers over the same time, multiply the difference in rates by the time."
 }

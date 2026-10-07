@@ -24,15 +24,14 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The first sentence makes a general claim — a new kind of hedge maze, built as a puzzle with dead ends, reached England under William III; the second describes one specific maze from those years doing exactly that. A general statement followed by a particular instance calls for \"For example.\"\n\n**The Full Solution:**\n- Sentence 1: puzzle mazes \"with tall hedges and dead ends\" arrived in England — a claim about a type.\n- Sentence 2: a dated, named maze — Hampton Court — with branching paths, \"several of which end abruptly.\"\n- The second sentence is an instance of the first, and \"For example\" announces that illustrative relation.\n\n**Why the other choices are wrong:**\n- B: \"However\" signals opposition, but the Hampton Court maze confirms rather than resists the opening claim.\n- C: \"In turn\" marks the next link in a causal chain, and no chain of consequences connects the two sentences.\n- D: \"Nonetheless\" likewise signals opposition pressed past an obstacle, but the example supports the opening claim rather than resisting it.",
- "passage": "During the reign of William III, a new kind of hedge maze reached England: a puzzle with tall hedges and dead ends rather than a single winding path. ______ the maze planted at Hampton Court Palace between 1689 and 1695, now Britain's oldest surviving hedge maze, makes visitors choose among branching paths, several of which end abruptly.",
+ "explanation": "**Choice A is correct.** The first sentence makes a general claim — many bog plants get nutrients by trapping insects — and the second describes one such plant. \"For example\" introduces that specific case.\n\n**The Full Solution:**\n- Sentence 1: a general pattern among bog plants.\n- Sentence 2: the purple pitcher plant, which drowns insects in rainwater held in its leaves and absorbs nutrients from them.\n- A specific instance of a general claim calls for an exemplifying transition.\n\n**Why the other choices are wrong:**\n- B: \"However\" signals a contrast, but the pitcher plant fits the pattern rather than breaking it.\n- C: \"In turn\" signals a consequence or next step, but the pitcher plant is not a result of the first sentence.\n- D: \"Nonetheless\" signals that something holds despite an obstacle, but no obstacle is described.",
+ "passage": "Many plants that grow in bogs, where the soil holds little nitrogen, make up for the shortage by trapping insects. ______ the purple pitcher plant collects rainwater in its tube-shaped leaves; insects that slip inside drown, and the plant absorbs nutrients from their remains.",
  "_meta": {
-  "anchor": "hedge mazes — puzzle mazes reach England under William III; Hampton Court (planted 1689-1695) as the instance (Wikipedia, Hedge maze; Hampton Court Maze)",
-  "transitionBucket": "transitions-example-emphasis",
+  "anchor": "carnivorous bog plants — purple pitcher plant Sarracenia purpurea (Missouri Botanical/University botany texts; lakeandwetlandecosystems.com)",
   "distractors": {
-   "B": "opposition where illustration is needed",
-   "C": "causal chain absent",
-   "D": "opposition where illustration is needed"
+   "B": "false contrast",
+   "C": "false consequence",
+   "D": "false concession"
   }
  },
  "id": 1125,

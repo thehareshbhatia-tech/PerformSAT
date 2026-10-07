@@ -1,30 +1,30 @@
 {
  "id": 3,
- "question": "In the $xy$-plane, line $\\ell$ passes through the point $(6, 7)$ and is perpendicular to the line $y = -\\frac{2}{3}x + 1$. Which equation defines line $\\ell$?",
+ "question": "In the $xy$-plane, line $\\ell$ is perpendicular to the graph of $6y + 9x = 4$. What is the slope of line $\\ell$?",
  "choices": [
   {
    "id": "A",
-   "text": "$y = -\\frac{3}{2}x + 16$"
+   "text": "$-\\frac{3}{2}$"
   },
   {
    "id": "B",
-   "text": "$y = \\frac{2}{3}x + 3$"
+   "text": "$-\\frac{2}{3}$"
   },
   {
    "id": "C",
-   "text": "$y = \\frac{3}{2}x - 2$"
+   "text": "$\\frac{2}{3}$"
   },
   {
    "id": "D",
-   "text": "$y = \\frac{3}{2}x + 16$"
+   "text": "$\\frac{3}{2}$"
   }
  ],
  "distractorNotes": {
-  "A": "takes the reciprocal of -2/3 but keeps the negative sign",
-  "B": "changes the sign of -2/3 but does not take the reciprocal",
-  "D": "uses the correct slope but adds 9 to 7 instead of subtracting when finding the y-intercept"
+  "A": "gives the slope of the given line, not of a line perpendicular to it",
+  "B": "takes the reciprocal of -3/2 but keeps the negative sign",
+  "D": "changes the sign of -3/2 but does not take the reciprocal"
  },
  "correctAnswer": "C",
- "hint": "Find the perpendicular slope first, then use the point to find the $y$-intercept.",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~35s):** The perpendicular slope is $\\frac{3}{2}$, and $7 = \\frac{3}{2}(6) + b$ gives $b = -2$.\n\n**The Full Solution:**\nStep 1: The given line has slope $-\\frac{2}{3}$, so line $\\ell$ has the negative reciprocal slope, $\\frac{3}{2}$.\nStep 2: Substitute $(6, 7)$ into $y = \\frac{3}{2}x + b$: $7 = 9 + b$.\nStep 3: So $b = -2$, and line $\\ell$ is $y = \\frac{3}{2}x - 2$.\n\nCheck: $\\frac{3}{2}(6) - 2 = 9 - 2 = 7$, and $-\\frac{2}{3} \\cdot \\frac{3}{2} = -1$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{3}{2}x + 16$): passes through $(6, 7)$ but keeps the negative sign, so it is not perpendicular.\n* Choice B ($y = \\frac{2}{3}x + 3$): passes through $(6, 7)$ but only changes the sign of the slope.\n* Choice D ($y = \\frac{3}{2}x + 16$): has the right slope but adds $9$ to $7$; at $x = 6$ it gives $y = 25$.\n\n**Test Day Takeaway:** Perpendicular line through a point: negative reciprocal slope first, then substitute the point to find $b$."
+ "hint": "Solve the given equation for $y$ to read its slope, then take the negative reciprocal.",
+ "explanation": "**Choice C is correct.**\n\n**The Fast Way (~30s):** Solving for $y$ gives $y = -\\frac{3}{2}x + \\frac{2}{3}$, so the given slope is $-\\frac{3}{2}$ and the perpendicular slope is $\\frac{2}{3}$.\n\n**The Full Solution:**\nStep 1: Subtract $9x$ from both sides: $6y = -9x + 4$.\nStep 2: Divide by $6$: $y = -\\frac{3}{2}x + \\frac{2}{3}$, so the given line has slope $-\\frac{3}{2}$.\nStep 3: The slope of line $\\ell$ is the negative reciprocal of $-\\frac{3}{2}$, which is $\\frac{2}{3}$.\n\nCheck: $\\left(-\\frac{3}{2}\\right)\\left(\\frac{2}{3}\\right) = -1$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{3}{2}$): is the slope of the given line itself.\n* Choice B ($-\\frac{2}{3}$): flips the fraction but keeps the negative sign.\n* Choice D ($\\frac{3}{2}$): changes the sign but does not flip the fraction.\n\n**Test Day Takeaway:** When a line is given in the form $ax + by = c$, solve for $y$ first; the slope is $-\\frac{a}{b}$."
 }

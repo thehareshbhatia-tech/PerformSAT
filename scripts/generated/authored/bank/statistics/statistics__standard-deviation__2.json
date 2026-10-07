@@ -1,30 +1,30 @@
 {
   "id": 2,
-  "question": "Each of the $12$ values in a data set is equal to $47$. What is the standard deviation of the data set?",
+  "question": "Data set A: $20, 20, 20, 20, 20$\nData set B: $16, 18, 20, 22, 24$\nWhich statement best compares the standard deviations of data sets A and B?",
   "choices": [
     {
       "id": "A",
-      "text": "$0$"
+      "text": "The standard deviation of data set A is less than the standard deviation of data set B."
     },
     {
       "id": "B",
-      "text": "$1$"
+      "text": "The standard deviation of data set A is greater than the standard deviation of data set B."
     },
     {
       "id": "C",
-      "text": "$12$"
+      "text": "The standard deviation of data set A is equal to the standard deviation of data set B."
     },
     {
       "id": "D",
-      "text": "$47$"
+      "text": "There is not enough information to compare the standard deviations."
     }
   ],
   "distractorNotes": {
-    "B": "confuses the standard deviation with the number of distinct values in the data set, which is $1$.",
-    "C": "reports the number of values in the data set instead of a measure of spread.",
-    "D": "reports the mean, $47$, instead of the standard deviation."
+    "B": "reverses the comparison: data set A has no spread at all",
+    "C": "thinks equal means imply equal standard deviations",
+    "D": "does not realize the spreads can be compared from the listed values"
   },
   "correctAnswer": "A",
-  "hint": "Standard deviation measures how far values are from the mean.",
-  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~10s):** Every value equals the mean, $47$, so no value is any distance from the mean and the standard deviation is $0$.\n\n**The Full Solution:**\nStep 1: The mean of $12$ values that each equal $47$ is $47$.\nStep 2: Each value is $47 - 47 = 0$ from the mean.\nStep 3: With every distance from the mean equal to $0$, the standard deviation is $0$. Check: a data set has no spread at all exactly when all of its values are equal. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($1$): confuses the standard deviation with the number of distinct values in the data set, which is $1$.\n* Choice C ($12$): reports the number of values in the data set instead of a measure of spread.\n* Choice D ($47$): reports the mean, $47$, instead of the standard deviation.\n\n**Test Day Takeaway:** Standard deviation is $0$ exactly when every value is the same. Any variation at all makes it positive."
+  "hint": "Standard deviation measures how far the values are from the mean.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~15s):** Every value in data set A equals the mean, so A has no spread, while the values in B are spread out from $20$.\n\n**The Full Solution:**\nStep 1: Both data sets have mean $20$.\nStep 2: In data set A, every value is $20$, so no value differs from the mean and the standard deviation is $0$.\nStep 3: In data set B, the values differ from $20$ by $4$, $2$, $0$, $2$, and $4$, so its standard deviation is greater than $0$.\n\nCheck: A data set with all values equal is the only kind with standard deviation $0$, and B's values are not all equal. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (A greater): reverses the comparison.\n* Choice C (equal): both data sets have mean $20$, but equal means say nothing about spread.\n* Choice D (not enough information): the lists show the spread directly.\n\n**Test Day Takeaway:** Standard deviation compares spread: the more the values are spread out from the mean, the greater it is."
 }

@@ -1,50 +1,50 @@
 {
-  "id": "bank-am-176",
-  "question": "The graph of the quadratic function $f$ is shown. If $g(x) = 2x - 6$, what is the value of $f(g(5))$?",
-  "diagram": {
-    "type": "quadraticVertex",
-    "params": {
-      "vertex": [
-        1,
-        -4
-      ],
-      "a": 1,
-      "showPoints": [
-        [
-          -1,
-          0
-        ],
-        [
-          3,
-          0
-        ]
-      ],
-      "showVertex": true
-    }
+ "id": "bank-am-176",
+ "question": "The graph of the quadratic function $f$ is shown. If $g(x) = 2x - 6$ and $h(x) = f(x) + g(x)$, what is the value of $h(4)$?",
+ "diagram": {
+  "type": "quadraticVertex",
+  "params": {
+   "vertex": [
+    1,
+    -4
+   ],
+   "a": 1,
+   "showPoints": [
+    [
+     -1,
+     0
+    ],
+    [
+     3,
+     0
+    ]
+   ],
+   "showVertex": true
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$2$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-4$"
-    },
-    {
-      "id": "B",
-      "text": "$1$"
-    },
-    {
-      "id": "C",
-      "text": "$4$"
-    },
-    {
-      "id": "D",
-      "text": "$5$"
-    }
-  ],
-  "correctAnswer": "D",
-  "distractorNotes": {
-    "A": "reports the minimum value of f, read off the vertex, instead of f(4)",
-    "B": "reports the x-coordinate of the vertex rather than a value of f",
-    "C": "stops at the inner value g(5) = 4 without applying f"
+  {
+   "id": "B",
+   "text": "$3$"
   },
-  "explanation": "**SAT Pattern: Function Composition**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** $g(5) = 4$. The graph has vertex $(1, -4)$ and passes through $(3, 0)$, so $f(x) = (x - 1)^{2} - 4$ and $f(4) = 9 - 4 = 5$.\n\n**The Full Solution:**\nStep 1: Evaluate the inner function: $g(5) = 2(5) - 6 = 4$, so the question asks for $f(4)$.\nStep 2: The point $x = 4$ is not marked, so find $f$. The vertex is $(1, -4)$, so $f(x) = a(x - 1)^{2} - 4$. The $x$-intercept $(3, 0)$ gives $0 = a(2)^{2} - 4$, so $a = 1$.\nStep 3: Then $f(4) = (4 - 1)^{2} - 4 = 9 - 4 = 5$. Check: $f(-1) = 4 - 4 = 0$, matching the other marked $x$-intercept ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): reports the minimum value of $f$, read off the vertex, instead of $f(4)$.\n* Choice B ($1$): reports the $x$-coordinate of the vertex rather than a value of $f$.\n* Choice C ($4$): stops at the inner value $g(5) = 4$ without applying $f$.\n\n**Test Day Takeaway:** When the input you need is not marked on the graph, use the marked points to write the function, then evaluate it."
+  {
+   "id": "C",
+   "text": "$5$"
+  },
+  {
+   "id": "D",
+   "text": "$7$"
+  }
+ ],
+ "correctAnswer": "D",
+ "distractorNotes": {
+  "A": "reports g(4) and leaves out f(4)",
+  "B": "subtracts g(4) from f(4) instead of adding: 5 - 2",
+  "C": "reports f(4) and leaves out g(4)"
+ },
+ "explanation": "**SAT Pattern: Function Composition**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** The graph gives $f(x) = (x + 1)(x - 3)$, so $f(4) = 5$; also $g(4) = 2$, so $h(4) = 5 + 2 = 7$.\n\n**The Full Solution:**\nStep 1: The graph has $x$-intercepts $-1$ and $3$ and vertex $(1, -4)$, so $f(x) = (x + 1)(x - 3)$; check: $f(1) = (2)(-2) = -4$. Then $f(4) = (5)(1) = 5$.\nStep 2: Find $g(4)$: $2(4) - 6 = 2$.\nStep 3: So $h(4) = f(4) + g(4) = 5 + 2 = 7$. Check: in vertex form, $f(4) = (4 - 1)^{2} - 4 = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reports $g(4)$ and leaves out $f(4)$.\n* Choice B ($3$): subtracts, $5 - 2$, instead of adding.\n* Choice C ($5$): reports $f(4)$ and leaves out $g(4)$.\n\n**Test Day Takeaway:** Read or build $f$ from the graph, evaluate both functions at the same input, then combine as the definition says."
 }

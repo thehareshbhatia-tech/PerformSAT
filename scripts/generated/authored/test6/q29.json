@@ -6,7 +6,7 @@
   "band": 3,
   "domain": "craft-and-structure",
   "skill": "words-in-context",
-  "passage": "Time-lapse footage of young sunflowers has fixed the popular image of a flower that follows the sun across the sky from dawn to dusk. Mature sunflowers, however, are essentially ______: once the head opens, the stem stiffens and the bloom settles into a permanent eastward orientation, warming quickly in the morning light — a position that, researchers have found, draws more pollinators than a cooler, west-facing bloom does.",
+  "passage": "A young sea squirt looks like a tiny tadpole and swims freely through the water for hours, sometimes for more than a day, driven by a muscular tail. Adult sea squirts, however, are essentially ______: once a larva finds a suitable surface, it glues itself head-first to the spot, absorbs its tail, and spends the rest of its life there, drawing seawater through its body to filter out food.",
   "question": "Which choice completes the text with the most logical and precise word or phrase?",
   "choices": [
     {
@@ -27,5 +27,12 @@
     }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** The \"however\" opposes the sun-following image, and the colon explains the opposite condition: the stem stiffens and the bloom settles into one permanent orientation — that is, the mature flower is \"stationary.\"\n\n**The Full Solution:**\n- Before the blank: the popular image of constant motion, tracking the sun.\n- \"However\" reverses that image for mature plants, and the elaboration — stiffened stem, \"permanent eastward orientation\" — restates the blank as fixed in place.\n\n**Why the other choices are wrong:**\n- B: \"Symmetrical\" describes shape, not the motion-versus-fixity contrast the sentence is built on.\n- C: \"Dormant\" means inactive or asleep, but the mature bloom is busily warming and attracting pollinators — only its movement has stopped.\n- D: \"Fragile\" contradicts the stiffened stem and has no support elsewhere."
+  "explanation": "**Choice A is correct.** The \"however\" opposes the free-swimming larva, and the colon explains the opposite condition: the animal glues itself to one spot and stays there for the rest of its life, so the adult is \"stationary.\"\n\n**The Full Solution:**\n- Before the blank: the young sea squirt's free movement, swimming with a muscular tail.\n- \"However\" reverses that picture for adults, and the elaboration (glued head-first to the spot, tail absorbed, staying there for life) restates the blank as fixed in place.\n\n**Why the other choices are wrong:**\n- B: \"Symmetrical\" describes shape, not the motion-versus-fixity contrast the sentence is built on.\n- C: \"Dormant\" means inactive or asleep, but the adult is busily drawing in seawater and filtering out food; only its movement has stopped.\n- D: \"Fragile\" describes how easily something breaks, and nothing in the text concerns the adult's strength or delicacy.",
+  "_meta": {
+    "anchor": "sea squirt life cycle: free-swimming tadpole larva vs sessile filter-feeding adult",
+    "sources": [
+      "https://encyclopedia.pub/entry/17640",
+      "https://en.wikipedia.org/wiki/Ascidiacea"
+    ]
+  }
 }

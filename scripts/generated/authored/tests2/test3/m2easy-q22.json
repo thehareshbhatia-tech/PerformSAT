@@ -1,6 +1,6 @@
 {
  "id": 22,
- "question": "At a company, $60\\%$ of phones are made at factory A and $40\\%$ at factory B. The defect rate is $8\\%$ at factory A and $3\\%$ at factory B. If a defective phone is selected at random, what is the probability that it was made at factory A?",
+ "question": "A company made $600$ phones at factory A and $400$ phones at factory B. Of these, $8\\%$ of factory A's phones and $3\\%$ of factory B's phones were defective. If one of the defective phones is selected at random, what is the probability that it was made at factory A?",
  "choices": [
   {
    "id": "A",
@@ -20,10 +20,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "reports 0.60 x 0.08 = 0.048, the share of ALL phones that are defective and from factory A",
-  "B": "reports the overall defect rate, 0.048 + 0.012 = 0.06",
-  "C": "reports factory A's share of production, ignoring the two different defect rates"
+  "A": "divides the 48 defective phones from factory A by all 1,000 phones instead of by the 60 defective phones",
+  "B": "reports the share of all 1,000 phones that are defective, 60/1,000",
+  "C": "reports factory A's share of all phones made, 600/1,000, ignoring the two different defect rates"
  },
  "correctAnswer": "D",
- "explanation": "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** Take $1{,}000$ phones: $600$ from factory A give $48$ defective phones, and $400$ from factory B give $12$, for $60$ defective phones in all. Then $\\frac{48}{60} = 0.8$.\n\n**The Full Solution:**\nStep 1: Count the defective phones from each factory. Out of $1{,}000$ phones, factory A makes $600$, of which $0.08(600) = 48$ are defective, and factory B makes $400$, of which $0.03(400) = 12$ are defective.\nStep 2: The phone selected is known to be defective, so the group to choose from is the $48 + 12 = 60$ defective phones.\nStep 3: Divide: $\\frac{48}{60} = 0.8$. Check: $\\frac{12}{60} = 0.2$ of the defective phones are from factory B, and $0.8 + 0.2 = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.048$): computes $0.60 \\times 0.08$, the share of all phones that are defective and from factory A. That is the numerator, divided by the wrong total.\n* Choice B ($0.06$): adds $0.048$ and $0.012$ to get the company's overall defect rate. That is the denominator, not the answer.\n* Choice C ($0.6$): reports factory A's share of all phones. Defective phones are not split in the same ratio, because factory A has the higher defect rate.\n\n**Test Day Takeaway:** A \"given\" condition shrinks the group you divide by. Once you know the phone is defective, divide by the number of defective phones, and choosing a round total such as $1{,}000$ turns the percents into counts."
+ "explanation": "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Factory A made $0.08(600) = 48$ defective phones and factory B made $0.03(400) = 12$, for $60$ defective phones in all, so the probability is $\\frac{48}{60} = 0.8$.\n\n**The Full Solution:**\nStep 1: Count the defective phones from each factory: $0.08(600) = 48$ from factory A and $0.03(400) = 12$ from factory B.\nStep 2: The phone is selected from the defective phones, so the total to divide by is $48 + 12 = 60$.\nStep 3: Divide: $\\frac{48}{60} = 0.8$. Check: $\\frac{12}{60} = 0.2$ of the defective phones are from factory B, and $0.8 + 0.2 = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.048$): this is $\\frac{48}{1{,}000}$, which divides by all the phones instead of by the defective phones.\n* Choice B ($0.06$): this is $\\frac{60}{1{,}000}$, the share of all phones that are defective. That is a total, not the answer.\n* Choice C ($0.6$): this is $\\frac{600}{1{,}000}$, factory A's share of all phones. Defective phones are not split in the same ratio, because factory A has the higher defect rate.\n\n**Test Day Takeaway:** When the selection is made from one group, such as the defective phones, that group's total is the denominator. Turn each percent into a count first, then divide."
 }

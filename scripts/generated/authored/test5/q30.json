@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 2,
- "passage": "At the bottom of an ocean trench, seawater presses on every surface with a force of more than a thousand atmospheres. Instruments sent to such depths ride inside housings of thick titanium or glass shaped as spheres or cylinders, forms chosen because they ______ the crushing load evenly across their entire surfaces rather than concentrating it at corners, edges, or seams.",
+ "passage": "At the bottom of an ocean trench, seawater presses on every surface with a force of more than a thousand atmospheres. Instruments sent to such depths ride inside thick housings of titanium or glass shaped as spheres or cylinders. These forms are chosen because they ______ the crushing load evenly across their surfaces rather than concentrating it at corners, edges, or seams.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
@@ -27,7 +27,7 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The sentence contrasts spreading the load \"evenly across their entire surfaces\" with \"concentrating it\" at weak points, and \"distribute\" is the verb that means to spread across.\n\n**The Full Solution:**\n- The blank's meaning is pinned by its own sentence: whatever the shapes do to the load happens \"evenly across their entire surfaces.\"\n- The explicit alternative — concentrating the load at corners, edges, or seams — is the opposite of spreading it.\n- \"Distribute\" is precisely the term for spreading a force over an area instead of letting it gather at points.\n\n**Why the other choices are wrong:**\n- A: \"Resist\" says the housings withstand pressure but cannot take the modifier \"evenly across their surfaces... rather than concentrating it\"; the sentence describes how the load is arranged, not merely opposed.\n- B: \"Reduce\" is false to the physics and the text; the pressure is undiminished — it is spread, not lessened.\n- D: \"Measure\" belongs to the instruments inside, not to what the housing's shape does with the load.",
+ "explanation": "**Choice C is correct.** The sentence contrasts spreading the load \"evenly across their surfaces\" with \"concentrating it\" at weak points, and \"distribute\" is the verb that means to spread across.\n\n**The Full Solution:**\n- The blank's meaning is pinned by its own sentence: whatever the shapes do to the load happens \"evenly across their surfaces.\"\n- The explicit alternative — concentrating the load at corners, edges, or seams — is the opposite of spreading it.\n- \"Distribute\" is precisely the term for spreading a force over an area instead of letting it gather at points.\n\n**Why the other choices are wrong:**\n- A: \"Resist\" says the housings withstand pressure but cannot take the modifier \"evenly across their surfaces... rather than concentrating it\"; the sentence describes how the load is arranged, not merely opposed.\n- B: \"Reduce\" is false to the physics and the text; the pressure is undiminished — it is spread, not lessened.\n- D: \"Measure\" belongs to the instruments inside, not to what the housing's shape does with the load.",
  "_meta": {
   "anchor": "deep-sea pressure housings — spheres and cylinders spreading load evenly"
  }

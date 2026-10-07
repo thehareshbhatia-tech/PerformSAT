@@ -1,29 +1,29 @@
 {
  "id": 19,
- "question": "$f(x) = x^{2} - 3$\n$g(x) = 2x + k$\nThe functions $f$ and $g$ are defined as shown, where $k$ is a negative constant. If $f(g(1)) = 46$, what is the value of $k$?",
+ "question": "$f(x) = 2x^{2} + kx - 3$\nIn the given function, $k$ is a constant. If $f(-3) = 6$, what is the value of $f(3)$?",
  "choices": [
   {
    "id": "A",
-   "text": "$-9$"
+   "text": "$-12$"
   },
   {
    "id": "B",
-   "text": "$-7$"
+   "text": "$3$"
   },
   {
    "id": "C",
-   "text": "$5$"
+   "text": "$6$"
   },
   {
    "id": "D",
-   "text": "$50$"
+   "text": "$24$"
   }
  ],
  "distractorNotes": {
-  "B": "solves (2 + k)^2 = 49 and reports 2 + k = -7 instead of k",
-  "C": "takes only the positive square root, 2 + k = 7, ignoring that k is negative",
-  "D": "composes the functions in the wrong order, solving g(f(1)) = 46"
+  "A": "treats (-3)^2 as -9, so -18 - 3k - 3 = 6 gives k = -9 and f(3) = 18 - 27 - 3 = -12",
+  "B": "finds k = 3 and reports k instead of f(3)",
+  "C": "assumes f(3) = f(-3), but the kx term changes sign when x changes sign"
  },
- "correctAnswer": "A",
- "explanation": "**SAT Pattern: Function Composition**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $g(1) = 2 + k$, so $(2 + k)^{2} - 3 = 46$ and $(2 + k)^{2} = 49$. Since $k < 0$, $2 + k = -7$ and $k = -9$.\n\n**The Full Solution:**\nStep 1: Evaluate the inner function first: $g(1) = 2(1) + k = 2 + k$.\nStep 2: Apply $f$: $f(2 + k) = (2 + k)^{2} - 3 = 46$, so $(2 + k)^{2} = 49$ and $2 + k = 7$ or $2 + k = -7$.\nStep 3: These give $k = 5$ or $k = -9$. Because $k$ is negative, $k = -9$. Check: $g(1) = 2 - 9 = -7$ and $f(-7) = 49 - 3 = 46$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-7$): this is the value of $g(1) = 2 + k$, not $k$.\n* Choice C ($5$): uses only the positive square root, $2 + k = 7$, but $k$ must be negative.\n* Choice D ($50$): reverses the order, computing $g(f(1)) = 2(-2) + k = -4 + k = 46$.\n\n**Test Day Takeaway:** In $f(g(x))$, evaluate $g$ first. When you take a square root, keep both signs, then use the given condition to choose."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Function Evaluation with Negative Input**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** $f(-3) = 18 - 3k - 3 = 15 - 3k = 6$, so $k = 3$. Then $f(3) = 18 + 9 - 3 = 24$.\n\n**The Full Solution:**\nStep 1: Substitute $x = -3$: $f(-3) = 2(-3)^{2} + k(-3) - 3 = 18 - 3k - 3 = 15 - 3k$.\nStep 2: Set this equal to $6$: $15 - 3k = 6$, so $3k = 9$ and $k = 3$.\nStep 3: With $f(x) = 2x^{2} + 3x - 3$, $f(3) = 2(9) + 3(3) - 3 = 24$. Check: $f(-3) = 18 - 9 - 3 = 6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-12$): evaluates $(-3)^{2}$ as $-9$, which gives $k = -9$ and $f(3) = -12$.\n* Choice B ($3$): this is the value of $k$, not $f(3)$.\n* Choice C ($6$): assumes the function has the same value at $3$ and $-3$; only the $2x^{2}$ and $-3$ terms are unchanged, while $kx$ changes sign.\n\n**Test Day Takeaway:** Use the given function value to find the constant first, then evaluate at the new input; a negative input squared is positive."
 }

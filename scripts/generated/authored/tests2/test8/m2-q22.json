@@ -1,29 +1,29 @@
 {
   "id": 22,
-  "question": "An account earns $4.8\\%$ annual interest, compounded quarterly. Its balance $t$ years after a deposit of \\$45,000 is $45{,}000b^{t}$ dollars, where $b$ is a constant. Which of the following is closest to the value of $b$?",
+  "question": "A savings account had a balance of \\$5,000 when it was opened. The balance increases by $6\\%$ every $2$ years. Which equation gives the balance $B$, in dollars, $t$ years after the account was opened?",
   "choices": [
     {
       "id": "A",
-      "text": "$1.012$"
+      "text": "$B = 5{,}000(0.94)^{\\frac{t}{2}}$"
     },
     {
       "id": "B",
-      "text": "$1.048$"
+      "text": "$B = 5{,}000(1.03)^{t}$"
     },
     {
       "id": "C",
-      "text": "$1.049$"
+      "text": "$B = 5{,}000(1.06)^{\\frac{t}{2}}$"
     },
     {
       "id": "D",
-      "text": "$1.206$"
+      "text": "$B = 5{,}000(1.06)^{2t}$"
     }
   ],
   "distractorNotes": {
-    "A": "reports the quarterly growth factor 1.012 as though the exponent counted years",
-    "B": "uses the annual rate as 1 + 0.048, ignoring that interest compounds four times a year",
-    "D": "raises the annual factor 1.048 to the fourth power, compounding a full year four times"
+    "A": "uses 0.94, which would model a 6% decrease every 2 years",
+    "B": "splits the 6% evenly over the 2 years and uses 3% per year, ignoring that the growth compounds",
+    "D": "multiplies t by 2 in the exponent, which would model a 6% increase every half year"
   },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Compound Interest**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Each quarter multiplies the balance by $1 + \\frac{0.048}{4} = 1.012$, and there are four quarters a year, so $b = 1.012^{4} \\approx 1.049$.\n\n**The Full Solution:**\nStep 1: With quarterly compounding, the quarterly rate is $\\frac{4.8\\%}{4} = 1.2\\%$, so each quarter multiplies the balance by $1.012$.\nStep 2: After $t$ years there have been $4t$ quarters: $45{,}000(1.012)^{4t} = 45{,}000\\left(1.012^{4}\\right)^{t}$.\nStep 3: So $b = 1.012^{4} \\approx 1.04887$, which is closest to $1.049$. Check: after one year, $45{,}000(1.04887) \\approx 47{,}199$ dollars, slightly more than the $45{,}000(1.048) = 47{,}160$ dollars that simple annual interest would give ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.012$): is the factor for one quarter, not for one year.\n* Choice B ($1.048$): uses the annual rate as if interest were compounded once a year.\n* Choice D ($1.206$): computes $1.048^{4}$, applying the full annual rate four times in one year.\n\n**Test Day Takeaway:** For interest compounded $n$ times a year, the yearly factor is $\\left(1 + \\frac{r}{n}\\right)^{n}$; quarterly compounding always gives a yearly factor slightly greater than $1 + r$."
+  "explanation": "**SAT Pattern: Exponential Growth Model**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The balance is multiplied by $1.06$ once every $2$ years, which happens $\\frac{t}{2}$ times in $t$ years, so $B = 5{,}000(1.06)^{\\frac{t}{2}}$.\n\n**The Full Solution:**\nStep 1: An increase of $6\\%$ multiplies the balance by $1 + 0.06 = 1.06$.\nStep 2: The increase happens once every $2$ years, so in $t$ years it happens $\\frac{t}{2}$ times.\nStep 3: Starting from $5{,}000$, the balance is $B = 5{,}000(1.06)^{\\frac{t}{2}}$. Check: at $t = 2$, $B = 5{,}000(1.06) = 5{,}300$, which is $6\\%$ more than $5{,}000$; at $t = 4$, $B = 5{,}300(1.06) = 5{,}618$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: uses the factor $0.94$, which describes a $6\\%$ decrease, not an increase.\n* Choice B: spreads the $6\\%$ over two years as $3\\%$ per year. That gives $5{,}000(1.03)^{2} = 5{,}304.50$ after $2$ years, not $5{,}300$.\n* Choice D: the exponent $2t$ applies the factor $1.06$ twice each year, so the balance would grow by $6\\%$ every half year.\n\n**Test Day Takeaway:** For a change of $r\\%$ every $k$ years, the model is $a\\left(1 \\pm \\frac{r}{100}\\right)^{\\frac{t}{k}}$: the factor comes from the percent, and the exponent counts the $k$-year periods."
 }

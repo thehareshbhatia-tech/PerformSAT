@@ -8,30 +8,30 @@
  "choices": [
   {
    "id": "A",
-   "text": "gives mycelium materials their durability advantage over animal hide."
+   "text": "gave the Toronto team a supply of insulin large enough to treat most people with diabetes."
   },
   {
    "id": "B",
-   "text": "matters little while the finishing processes that set the material's working properties remain unsettled."
+   "text": "could help few patients until a way to make insulin in large amounts was found."
   },
   {
    "id": "C",
-   "text": "could likely be increased still further by fine-tuning the temperature and the humidity of the growing trays."
+   "text": "could likely be increased further by giving patients larger doses over shorter periods."
   },
   {
    "id": "D",
-   "text": "has already persuaded most shoemakers to abandon animal leather for mycelium sheets."
+   "text": "had already persuaded most doctors to give up other treatments for diabetes."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The passage grants the growing stage its speed, then relocates what \"matters to a shoemaker\" — flex, stitching, wear — to the post-harvest treatments, which \"are still being worked out.\" A two-week head start counts for little while the step that determines usefulness is unresolved.\n\n**The Full Solution:**\n- Premise 1: growth is fast and controllable (weeks, tunable thickness and texture).\n- Premise 2: the properties buyers care about depend \"heavily\" on finishing, not growing.\n- Premise 3: finishing is immature. \"It follows that\" demands the conclusion these premises jointly force: the speed advantage is not yet decisive — choice B.\n\n**Why the other choices are wrong:**\n- A: The passage ties working properties to finishing, not to growing speed, and claims no durability advantage over hide.\n- C: Whether growth could be made even faster is beside the argument, which is about speed's current irrelevance.\n- D: It overshoots into a mass conversion the passage nowhere reports — and finishing's immaturity argues against it.",
- "passage": "Mycelium grows into a harvestable sheet in about two weeks, while raising a hide-bearing animal takes years, and growers can tune a sheet's thickness and texture by adjusting temperature, humidity, and the material the fungus feeds on. But the properties that matter to a shoemaker — how the material flexes, takes stitching, and wears at the toe — depend heavily on the treatments applied after harvest, and those finishing processes are still being worked out. It follows that the speed of the growing stage ______",
+ "explanation": "**Choice B is correct.** The text pairs a strength (insulin worked) with a severe limit (the team could not make it reliably, and one patient died when the supply ran out). It follows that insulin could help only a few patients until large-scale production became possible.\n\n**The Full Solution:**\n- Strength: the extract lowered a patient's \"dangerously high blood sugar\" and \"clearly worked.\"\n- Limit: the team \"struggled to produce batches of steady strength\" and for two months \"could make almost no usable insulin at all.\"\n- Consequence: a patient died \"after the supply ran out,\" showing that supply, not effectiveness, was the bottleneck.\n- So insulin's power could reach few patients until a way to make it in large amounts was found.\n\n**Why the other choices are wrong:**\n- A: The text says the opposite — the supply was so small that it ran out and a patient died.\n- C: The text never discusses dose sizes or schedules, and the problem was having too little of the drug at all.\n- D: The text says nothing about how doctors in general responded to insulin.",
+ "passage": "In January 1922, doctors in Toronto treated a 14-year-old boy who had diabetes with an extract from animal pancreases, and his dangerously high blood sugar fell. The extract, later called insulin, clearly worked. Making it was another matter. The research team struggled to produce batches of steady strength, and from March to mid-May 1922, it could make almost no usable insulin at all. During that shortage, one patient died after the supply ran out. It follows that, at that stage, insulin's proven power ______",
  "_meta": {
-  "anchor": "fungal leather alternatives — growth speed vs. unresolved finishing processes",
+  "anchor": "insulin 1922 Toronto — proven extract limited by production: first patient Jan 1922, spring 1922 \"insulin famine\" (Mar to mid-May), one patient died when supply gave out; large-scale production 1923 (University of Toronto Fisher Library, Insulin 100 exhibit; Connaught Fund history, connaught.research.utoronto.ca)",
   "distractors": {
-   "A": "mislocates the source of working properties",
-   "C": "answers a question the argument does not ask",
-   "D": "overshoot contradicted by the premises"
+   "A": "contradicts scarcity",
+   "C": "unsupported dosing claim",
+   "D": "unsupported adoption claim"
   }
  },
  "id": 1142,

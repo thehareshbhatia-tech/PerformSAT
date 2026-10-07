@@ -38,9 +38,9 @@ export const practiceTest4M2Easy = {
       type: "fill-in",
       difficulty: "easy",
       band: 2,
-      question: "The mean of a data set of $12$ numbers is $8.5$. If each number in the data set is multiplied by $4$, what is the mean of the new data set?",
-      correctAnswer: "34",
-      explanation: "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**The correct answer is $34$.**\n\n**The Fast Way (~15s):** Multiplying every value in a data set by $4$ multiplies the mean by $4$, so the new mean is $4(8.5) = 34$.\n\n**The Full Solution:**\nStep 1: A mean of $8.5$ for $12$ numbers means the numbers have a sum of $12(8.5) = 102$.\nStep 2: Multiplying each of the $12$ numbers by $4$ multiplies the sum by $4$: $4(102) = 408$.\nStep 3: There are still $12$ numbers, so the new mean is $\\frac{408}{12} = 34$, which equals $4(8.5)$ ✓\n\n**Common Mistakes:**\n* $12.5$: adding $4$ to the mean instead of multiplying. Adding $4$ to every number would shift the mean to $12.5$, but here every number is scaled.\n* $48$: multiplying the count, $12$, by $4$. That is not a mean of anything in the data set.\n* $2.125$: dividing $8.5$ by $4$, which reverses the operation applied to the data.\n\n**Test Day Takeaway:** Multiplying every value by $k$ multiplies the mean, the median, and the standard deviation by $k$; adding $k$ to every value moves the mean and median but leaves the spread unchanged.",
+      question: "The mean of a data set of $12$ numbers is $9$. If each number in the data set is multiplied by $4$, what is the mean of the new data set?",
+      correctAnswer: "36",
+      explanation: "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**The correct answer is $36$.**\n\n**The Fast Way (~15s):** Multiplying every value in a data set by $4$ multiplies the mean by $4$, so the new mean is $4(9) = 36$.\n\n**The Full Solution:**\nStep 1: A mean of $9$ for $12$ numbers means the numbers have a sum of $12(9) = 108$.\nStep 2: Multiplying each of the $12$ numbers by $4$ multiplies the sum by $4$: $4(108) = 432$.\nStep 3: There are still $12$ numbers, so the new mean is $\\frac{432}{12} = 36$, which equals $4(9)$ ✓\n\n**Common Mistakes:**\n* $13$: adds $4$ to the mean instead of multiplying. Adding $4$ to every number would give a mean of $13$, but here every number is multiplied by $4$.\n* $48$: multiplies the count, $12$, by $4$. The number of values in the data set does not change.\n* $2.25$: divides $9$ by $4$, which reverses the operation applied to the data.\n\n**Test Day Takeaway:** Multiplying every value by $k$ multiplies the mean, the median, and the range by $k$; adding $k$ to every value moves the mean and median by $k$ but leaves the range unchanged.",
       skills: ["data-analysis"]
     },
     {
@@ -301,9 +301,9 @@ export const practiceTest4M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 6,
-      question: "In the $xy$-plane, a triangle has vertices at $(1, 2)$, $(8, 3)$, and $(4, 9)$. What is the area, in square units, of the triangle?",
-      correctAnswer: "23",
-      explanation: "**SAT Pattern: Area of Triangle from Coordinates**\n\n**The correct answer is $23$.**\n\n**The Fast Way (~45s):** The triangle fits inside the $7$ by $7$ rectangle from $(1, 2)$ to $(8, 9)$, which has area $49$. Subtracting the three right triangles in the corners, $3.5 + 12 + 10.5 = 26$, leaves $23$.\n\n**The Full Solution:**\nStep 1: No side of the triangle is horizontal or vertical, so enclose it in a rectangle: $x$ runs from $1$ to $8$ and $y$ runs from $2$ to $9$, giving a $7$ by $7$ rectangle with area $49$.\nStep 2: Three right triangles lie inside the rectangle but outside the triangle: legs $7$ and $1$ give $3.5$; legs $4$ and $6$ give $12$; legs $3$ and $7$ give $10.5$. Their total area is $26$.\nStep 3: Subtract: $49 - 26 = 23$ square units. Check with the coordinate formula: $\\frac{1}{2}|1(3 - 9) + 8(9 - 2) + 4(2 - 3)| = \\frac{1}{2}|-6 + 56 - 4| = 23$ ✓\n\n**Common Mistakes:**\n* $49$: reporting the area of the enclosing rectangle.\n* $26$: reporting the total area of the three corner triangles, which is the part to remove.\n* $24.5$: using the horizontal extent $7$ as a base and the vertical extent $7$ as a height, $\\frac{1}{2}(7)(7)$. Neither is a side and its height for this triangle.\n\n**Test Day Takeaway:** When no side of a coordinate triangle is horizontal or vertical, enclose it in a rectangle and subtract the corner right triangles.",
+      question: "In the $xy$-plane, the graph of $3x + 4y = 48$, the $x$-axis, and the $y$-axis form a triangle. What is the area, in square units, of the triangle?",
+      correctAnswer: "96",
+      explanation: "**SAT Pattern: Area of Triangle from Coordinates**\n\n**The correct answer is $96$.**\n\n**The Fast Way (~30s):** The line crosses the axes at $(16, 0)$ and $(0, 12)$, so the triangle is a right triangle with legs $16$ and $12$ and area $\\frac{1}{2}(16)(12) = 96$.\n\n**The Full Solution:**\nStep 1: Find the $x$-intercept by setting $y = 0$: $3x = 48$, so $x = 16$. Find the $y$-intercept by setting $x = 0$: $4y = 48$, so $y = 12$.\nStep 2: The triangle has vertices $(0, 0)$, $(16, 0)$, and $(0, 12)$. Its legs lie along the axes, so they are perpendicular, with lengths $16$ and $12$.\nStep 3: The area is $\\frac{1}{2}(16)(12) = 96$ square units. Check: both intercepts satisfy the equation, since $3(16) + 4(0) = 48$ and $3(0) + 4(12) = 48$ ✓\n\n**Common Mistakes:**\n* $192$: multiplies the legs, $16 \\times 12$, and forgets the $\\frac{1}{2}$ in the area of a triangle.\n* $28$: adds the two intercepts, $16 + 12$, instead of using them as the base and height of the triangle.\n* $48$: reports the constant in the equation; the area comes from the intercepts, not from the constant itself.\n\n**Test Day Takeaway:** A line and the two axes form a right triangle whose legs are the intercepts. Set $y = 0$ and then $x = 0$ to find them, then use $\\frac{1}{2}bh$.",
       skills: ["triangle-area"]
     },
     {
@@ -330,19 +330,19 @@ export const practiceTest4M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 6,
-      question: "In the $xy$-plane, line $\\ell$ passes through the midpoint of the segment with endpoints $(-9, 4)$ and $(5, -12)$. Line $\\ell$ is parallel to the line $y = 3x + 7$. Which equation defines line $\\ell$?",
+      question: "$2x + 5y = 30$\nIn the $xy$-plane, the graph of the given equation is shifted down $4$ units. What is the $x$-intercept of the resulting graph?",
       choices: [
-        // distractor: finds the midpoint (-2, -4) but makes a sign error solving for b, computing -4 + 3(-2) = -10
-        { id: "A", text: "$y = 3x - 10$" },
-        // distractor: uses the midpoint's y-coordinate, -4, as the y-intercept
-        { id: "B", text: "$y = 3x - 4$" },
-        { id: "C", text: "$y = 3x + 2$" },
-        // distractor: adds the endpoint coordinates without dividing by 2, using (-4, -8) as the midpoint
-        { id: "D", text: "$y = 3x + 4$" }
+        { id: "A", text: "$(5, 0)$" },
+        // distractor: moves the original x-intercept, (15, 0), 4 units to the left instead of shifting the whole graph down
+        { id: "B", text: "$(11, 0)$" },
+        // distractor: gives the x-intercept of the original graph, before the shift
+        { id: "C", text: "$(15, 0)$" },
+        // distractor: shifts the graph up 4 units instead of down, giving 2x + 5y = 50
+        { id: "D", text: "$(25, 0)$" }
       ],
-      correctAnswer: "C",
-      explanation: "**SAT Pattern: Midpoint Formula**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The midpoint is $\\left(\\frac{-9 + 5}{2}, \\frac{4 + (-12)}{2}\\right) = (-2, -4)$, and line $\\ell$ has slope $3$. Then $-4 = 3(-2) + b$ gives $b = 2$, so $y = 3x + 2$.\n\n**The Full Solution:**\nStep 1: Find the midpoint by averaging the coordinates: $\\frac{-9 + 5}{2} = -2$ and $\\frac{4 + (-12)}{2} = -4$, so the midpoint is $(-2, -4)$.\nStep 2: Parallel lines have equal slopes, so line $\\ell$ has slope $3$ and an equation of the form $y = 3x + b$.\nStep 3: Substitute $(-2, -4)$: $-4 = 3(-2) + b$, so $b = -4 + 6 = 2$, and line $\\ell$ is $y = 3x + 2$. Check: $3(-2) + 2 = -4$, so the line passes through the midpoint ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = 3x - 10$): this solves $-4 = -6 + b$ incorrectly as $b = -4 - 6$. At $x = -2$ this line gives $y = -16$, not $-4$.\n* Choice B ($y = 3x - 4$): this uses the midpoint's $y$-coordinate as the $y$-intercept. The $y$-intercept is the value of $y$ at $x = 0$, and the midpoint has $x = -2$.\n* Choice D ($y = 3x + 4$): this adds the coordinates without dividing by $2$, using $(-4, -8)$. That point is not the midpoint, so the line misses $(-2, -4)$: $3(-2) + 4 = -2$.\n\n**Test Day Takeaway:** For a line through a midpoint, find the midpoint first by averaging the coordinates, then substitute it into $y = mx + b$ with the given slope.",
-      skills: ["coordinate-geometry"]
+      correctAnswer: "A",
+      explanation: "**SAT Pattern: Vertical Shift of a Line — $x$-intercept**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** The given graph is $y = -\\frac{2}{5}x + 6$. Shifting it down $4$ units gives $y = -\\frac{2}{5}x + 2$. Setting $y = 0$ gives $\\frac{2}{5}x = 2$, so $x = 5$, and the $x$-intercept is $(5, 0)$.\n\n**The Full Solution:**\nStep 1: Solve the given equation for $y$: $5y = -2x + 30$, so $y = -\\frac{2}{5}x + 6$.\nStep 2: Shifting a graph down $4$ units subtracts $4$ from every $y$-value: $y = -\\frac{2}{5}x + 6 - 4 = -\\frac{2}{5}x + 2$.\nStep 3: At the $x$-intercept, $y = 0$: $0 = -\\frac{2}{5}x + 2$, so $x = 5$. The $x$-intercept is $(5, 0)$. Check: the point $(5, 4)$, which is $4$ units above $(5, 0)$, is on the original graph, since $2(5) + 5(4) = 30$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($(11, 0)$): subtracts $4$ from the original $x$-intercept, $(15, 0)$. A downward shift moves every point down, not the intercept left by $4$.\n* Choice C ($(15, 0)$): this is the $x$-intercept of the original graph, before the shift.\n* Choice D ($(25, 0)$): shifts the graph up instead of down, which gives $y = -\\frac{2}{5}x + 10$ and $x$-intercept $(25, 0)$.\n\n**Test Day Takeaway:** A vertical shift changes the $y$-intercept by the shift amount; write the new equation first, then set $y = 0$ to find the new $x$-intercept.",
+      skills: ["slope-from-points", "function-transformations"]
     },
     {
       id: 21,

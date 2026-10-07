@@ -1,67 +1,67 @@
 {
-  "id": 213,
-  "type": "multiple-choice",
-  "difficulty": "medium",
-  "band": 3,
-  "domain": "information-and-ideas",
-  "skill": "command-of-evidence-quantitative",
-  "module": 1,
-  "passage": "Lightweight pedestrian bridges can sway noticeably when crowds cross them, so engineers sometimes retrofit them with tuned mass dampers — heavy pendulums that swing out of phase with the deck and absorb its motion. A city engineering office retrofitted five pedestrian bridges and measured peak lateral sway during comparable crowd events before and after installation. The office concludes that the retrofits reduced sway at every bridge tested because ______",
-  "questionTable": {
-    "type": "table",
-    "caption": "Peak lateral sway at five pedestrian bridges before and after tuned-mass-damper retrofit",
-    "headers": [
-      "Bridge",
-      "Sway before (cm)",
-      "Sway after (cm)"
-    ],
-    "rows": [
-      [
-        "Millrace",
-        "6.8",
-        "2.1"
-      ],
-      [
-        "Cannery",
-        "5.4",
-        "2.6"
-      ],
-      [
-        "Foundry",
-        "8.2",
-        "3.0"
-      ],
-      [
-        "Boathouse",
-        "4.9",
-        "2.2"
-      ],
-      [
-        "Ropewalk",
-        "7.5",
-        "3.9"
-      ]
-    ]
-  },
-  "question": "Which choice most effectively uses data from the table to complete the statement?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "peak sway at Foundry fell from 8.2 centimeters before the retrofit to 3.0 centimeters after it, the largest reduction recorded at any of the bridges."
-    },
-    {
-      "id": "B",
-      "text": "peak sway decreased at all five bridges after the retrofit, falling, for example, from 8.2 to 3.0 centimeters at Foundry and from 4.9 to 2.2 centimeters at Boathouse."
-    },
-    {
-      "id": "C",
-      "text": "Ropewalk recorded the highest post-retrofit sway of the five bridges, at 3.9 centimeters."
-    },
-    {
-      "id": "D",
-      "text": "the average peak sway across the five bridges was lower after the retrofits than before them."
-    }
+ "id": 213,
+ "type": "multiple-choice",
+ "difficulty": "medium",
+ "band": 3,
+ "domain": "information-and-ideas",
+ "skill": "command-of-evidence-quantitative",
+ "module": 1,
+ "passage": "In the decades after 1950, many industrial cities in the northeastern and midwestern United States lost residents as factory jobs disappeared and families moved to the suburbs. A student examining US Census counts for five such cities claims that every one of them lost population between 1950 and 2020. The census counts support this claim because ______",
+ "questionTable": {
+  "type": "table",
+  "caption": "Population of five US cities, 1950 and 2020 (thousands of residents)",
+  "headers": [
+   "City",
+   "1950 population (thousands)",
+   "2020 population (thousands)"
   ],
-  "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** A conclusion about \"every bridge tested\" needs evidence spanning every row, and B alone supplies it: sway fell at all five bridges, with representative before-and-after figures.\n\n**The Full Solution:**\n- The office's claim is universal in scope — the retrofits \"reduced sway at every bridge tested.\"\n- Checking the table row by row confirms the pattern: 6.8 to 2.1, 5.4 to 2.6, 8.2 to 3.0, 4.9 to 2.2, and 7.5 to 3.9 centimeters. Every after-value is lower than its before-value.\n- Choice B asserts exactly that all-five pattern and anchors it with two correctly cited examples.\n\n**Why the other choices are wrong:**\n- A: It documents only Foundry — one bridge, however impressive its reduction, cannot establish a claim about all five.\n- C: It reports a ranking among post-retrofit values that says nothing about change; Ropewalk's 3.9 centimeters supports no before-versus-after comparison on its own.\n- D: An average can fall even if sway increased at one or two bridges, so aggregate improvement cannot establish the every-bridge claim the office actually makes."
+  "rows": [
+   [
+    "Detroit",
+    "1,850",
+    "639"
+   ],
+   [
+    "Cleveland",
+    "915",
+    "373"
+   ],
+   [
+    "St. Louis",
+    "857",
+    "302"
+   ],
+   [
+    "Pittsburgh",
+    "677",
+    "303"
+   ],
+   [
+    "Buffalo",
+    "580",
+    "278"
+   ]
+  ]
+ },
+ "question": "Which choice most effectively uses data from the table to complete the statement?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "Detroit's population fell from about 1,850,000 in 1950 to about 639,000 in 2020, the largest decline of any city in the table."
+  },
+  {
+   "id": "B",
+   "text": "all five cities had fewer residents in 2020 than in 1950, with Detroit falling from about 1,850,000 to 639,000 and Buffalo from about 580,000 to 278,000."
+  },
+  {
+   "id": "C",
+   "text": "Buffalo had the smallest population of the five cities in 2020, with about 278,000 residents."
+  },
+  {
+   "id": "D",
+   "text": "the combined population of the five cities was lower in 2020 than in 1950."
+  }
+ ],
+ "correctAnswer": "B",
+ "explanation": "**Choice B is correct.** A claim about every city in the table needs evidence that covers every row, and B alone supplies it: all five cities had fewer residents in 2020 than in 1950.\n\n**The Full Solution:**\n- The student's claim is universal: each of the five cities lost population between 1950 and 2020.\n- Check the table row by row (in thousands): Detroit 1,850 to 639, Cleveland 915 to 373, St. Louis 857 to 302, Pittsburgh 677 to 303, and Buffalo 580 to 278. Every 2020 count is lower than the 1950 count.\n- Choice B states that all-five pattern and cites two rows correctly as examples.\n\n**Why the other choices are wrong:**\n- A: It describes only Detroit. One city, however large its loss, cannot show that all five cities lost residents.\n- C: It ranks the cities by their 2020 populations, which says nothing about how any city changed since 1950.\n- D: A combined total can fall even if one city grew, so it cannot establish the every-city claim the student makes."
 }

@@ -1,29 +1,29 @@
 {
  "id": "bank-ps-433",
- "question": "The table shows the number of vehicles $v$, in thousands, that crossed a bridge on day $d$ of a study. A model predicts $\\hat{v} = 0.5d + 21$. What is the value of $v - \\hat{v}$ for day $6$?",
+ "question": "The table shows the number of visitors to a museum on four days of a study. A model predicts $3d + 20$ visitors on day $d$. For which day in the table does the model predict more visitors than the actual number of visitors?",
  "diagram": {
   "type": "dataTable",
   "params": {
    "headers": [
     "Day (d)",
-    "Vehicles (thousands)"
+    "Number of visitors"
    ],
    "rows": [
     [
      "2",
-     "22.9"
+     "27"
     ],
     [
      "4",
-     "22.6"
+     "31"
     ],
     [
      "6",
-     "24.5"
+     "41"
     ],
     [
      "8",
-     "26.2"
+     "44"
     ]
    ]
   }
@@ -31,26 +31,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$0.5$"
+   "text": "Day $2$"
   },
   {
    "id": "B",
-   "text": "$3.5$"
+   "text": "Day $4$"
   },
   {
    "id": "C",
-   "text": "$24$"
+   "text": "Day $6$"
   },
   {
    "id": "D",
-   "text": "$24.5$"
+   "text": "Day $8$"
   }
  ],
- "correctAnswer": "A",
+ "correctAnswer": "B",
  "distractorNotes": {
-  "B": "subtracts only the constant 21 from 24.5 and leaves out the 0.5d term",
-  "C": "reports the predicted value for day 6 instead of the difference",
-  "D": "reports the actual value for day 6 instead of the difference"
+  "A": "picks the day with the fewest visitors; the model predicts 3(2) + 20 = 26, fewer than the actual 27",
+  "C": "reverses the comparison: on day 6 the actual number, 41, is greater than the predicted 38",
+  "D": "the model predicts 3(8) + 20 = 44, equal to the actual number, not more"
  },
- "explanation": "**SAT Pattern: Residual**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The model predicts $0.5(6) + 21 = 24$ for day $6$, the table shows $24.5$, and $24.5 - 24 = 0.5$.\n\n**The Full Solution:**\nStep 1: Evaluate the model at $d = 6$: $\\hat{v} = 0.5(6) + 21 = 24$.\nStep 2: Read the actual value for day $6$ from the table: $v = 24.5$.\nStep 3: Subtract: $v - \\hat{v} = 24.5 - 24 = 0.5$. Check: $24 + 0.5 = 24.5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3.5$): subtracts $21$ but forgets the $0.5d$ term, which adds $3$ for day $6$.\n* Choice C ($24$): is the model's prediction, the first step of the calculation.\n* Choice D ($24.5$): is the number from the table, the second ingredient of the difference.\n\n**Test Day Takeaway:** A residual needs two numbers, the actual value and the model's value at the same input; subtract only after you have both."
+ "explanation": "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The model predicts $26$, $32$, $38$, and $44$ visitors on days $2$, $4$, $6$, and $8$. Only on day $4$ is the prediction, $32$, more than the actual $31$.\n\n**The Full Solution:**\nStep 1: Evaluate the model for each day: $3(2) + 20 = 26$, $3(4) + 20 = 32$, $3(6) + 20 = 38$, and $3(8) + 20 = 44$.\nStep 2: Compare each prediction with the table: $26 < 27$, $32 > 31$, $38 < 41$, and $44 = 44$.\nStep 3: Only on day $4$ does the model predict more visitors than came. Check: $3(4) + 20 = 32$, and the table shows $31$ visitors on day $4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: has the fewest visitors, but the model predicts $26$, fewer than the actual $27$.\n* Choice C: reverses the comparison: the actual $41$ is more than the predicted $38$.\n* Choice D: the model predicts exactly $44$, the actual number, not more.\n\n**Test Day Takeaway:** Evaluate the model at each day, then compare in the direction the question asks; an equal prediction is not \"more.\""
 }

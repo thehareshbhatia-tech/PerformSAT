@@ -1,51 +1,51 @@
 {
- "id": "bank-am-337",
- "question": "The graph of the quadratic function $f$ is shown, with its vertex labeled. The function $h$ is defined by $h(x) = f(2x)$. The graph of $y = h(x)$ intersects the $x$-axis at $(p, 0)$ and $(q, 0)$, where $p < q$. What is the value of $q - p$?",
- "diagram": {
-  "type": "parabola",
-  "params": {
-   "vertex": {
-    "h": 2,
-    "k": -18
-   },
-   "a": 2,
-   "xRange": [
-    -3,
-    7
-   ],
-   "yRange": [
-    -20,
-    5
-   ],
-   "xTickInterval": 2,
-   "yTickInterval": 4,
-   "gridInterval": 1,
-   "showVertex": true
-  }
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$1.5$"
+  "id": "bank-am-337",
+  "question": "The graph of the quadratic function $f$ is shown, with its vertex labeled. The function $g$ is defined by $g(x) = f(x) + k$, where $k$ is a constant. The graph of $y = g(x)$ intersects the $x$-axis at two points that are $4$ units apart. What is the value of $k$?",
+  "diagram": {
+    "type": "parabola",
+    "params": {
+      "vertex": {
+        "h": 2,
+        "k": -18
+      },
+      "a": 2,
+      "xRange": [
+        -3,
+        7
+      ],
+      "yRange": [
+        -20,
+        5
+      ],
+      "xTickInterval": 2,
+      "yTickInterval": 4,
+      "gridInterval": 1,
+      "showVertex": true
+    }
   },
-  {
-   "id": "B",
-   "text": "$3$"
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-14$"
+    },
+    {
+      "id": "B",
+      "text": "$2$"
+    },
+    {
+      "id": "C",
+      "text": "$10$"
+    },
+    {
+      "id": "D",
+      "text": "$14$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "uses $4$ as the distance from the axis of symmetry to each intercept: $2(4)^{2} = 32$, so $k = 18 - 32$",
+    "B": "uses $4$ as the distance from the axis to each intercept and ignores $a = 2$: $4^{2} = 16$, so $k = 18 - 16$",
+    "D": "uses the correct half-distance $2$ but ignores $a = 2$: $2^{2} = 4$, so $k = 18 - 4$"
   },
-  {
-   "id": "C",
-   "text": "$6$"
-  },
-  {
-   "id": "D",
-   "text": "$12$"
-  }
- ],
- "distractorNotes": {
-  "A": "halves the distance between the intercepts of f twice instead of once",
-  "C": "gives the distance for f itself, as if h and f had the same x-intercepts",
-  "D": "doubles the distance for f instead of halving it, treating f(2x) as a horizontal stretch"
- },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The graph of $f$ crosses the $x$-axis at $x = -1$ and $x = 5$, and $h(x) = f(2x)$ is $0$ when $2x = -1$ or $2x = 5$, so $p = -0.5$, $q = 2.5$, and $q - p = 3$.\n\n**The Full Solution:**\nStep 1: From the graph, $f(x) = 0$ at $x = -1$ and $x = 5$.\nStep 2: $h(x) = f(2x)$, so $h(x) = 0$ exactly when $2x = -1$ or $2x = 5$. That gives $x = -0.5$ and $x = 2.5$, so $p = -0.5$ and $q = 2.5$.\nStep 3: $q - p = 2.5 - (-0.5) = 3$. Check: with the labeled vertex $(2, -18)$, $f(x) = 2(x - 2)^{2} - 18$, and $h(2.5) = f(5) = 2(9) - 18 = 0$ and $h(-0.5) = f(-1) = 2(9) - 18 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.5$): halves the original distance of $6$ twice.\n* Choice C ($6$): the distance for $f$, as if replacing $x$ with $2x$ changed nothing.\n* Choice D ($12$): doubles the distance, treating $f(2x)$ as a horizontal stretch instead of a compression.\n\n**Test Day Takeaway:** In $f(2x)$, each $x$-intercept is half the corresponding intercept of $f$, so every horizontal distance is cut in half."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** From the graph, $f(x) = 2(x - 2)^{2} - 18$. The intercepts of $g$ are $2$ units on each side of $x = 2$, so $2(2)^{2} - 18 + k = 0$ and $k = 10$.\n\n**The Full Solution:**\nStep 1: The vertex is $(2, -18)$ and the graph crosses the $x$-axis at $(-1, 0)$ and $(5, 0)$, so $f(x) = a(x - 2)^{2} - 18$ with $a(5 - 2)^{2} - 18 = 0$, which gives $a = 2$.\nStep 2: Adding $k$ shifts the graph vertically, so the axis of symmetry stays $x = 2$. Intercepts $4$ units apart are $2$ units on each side of it: $x = 0$ and $x = 4$.\nStep 3: $g(4) = 2(4 - 2)^{2} - 18 + k = 8 - 18 + k = 0$, so $k = 10$. Check: $g(x) = 2(x - 2)^{2} - 8$ is $0$ when $(x - 2)^{2} = 4$, at $x = 0$ and $x = 4$, which are $4$ units apart ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-14$): places each intercept $4$ units from the axis instead of $2$, giving $2(4)^{2} - 18 + k = 0$.\n* Choice B ($2$): places each intercept $4$ units from the axis and also drops the factor $a = 2$.\n* Choice D ($14$): uses the correct half-distance $2$ but forgets that $a = 2$, so it solves $2^{2} - 18 + k = 0$.\n\n**Test Day Takeaway:** A vertical shift keeps the axis of symmetry; split the distance between the intercepts in half on each side of it, and read $a$ from a second point on the graph."
 }

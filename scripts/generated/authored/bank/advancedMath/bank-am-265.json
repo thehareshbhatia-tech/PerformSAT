@@ -1,29 +1,29 @@
 {
   "id": "bank-am-265",
-  "question": "$f(x) = \\sqrt{x} + 2$\nThe graph of $y = g(x)$ is the graph of $y = f(x)$ stretched vertically by a factor of $4$. Which equation defines $g$?",
+  "question": "$f(x) = a\\sqrt{x} + 2$\nIn the given function, $a$ is a constant. If $f(9) = 14$, what is the value of $f(25)$?",
   "choices": [
     {
       "id": "A",
-      "text": "$g(x) = 4\\sqrt{x} + 2$"
+      "text": "$20$"
     },
     {
       "id": "B",
-      "text": "$g(x) = 4\\sqrt{x} + 8$"
+      "text": "$22$"
     },
     {
       "id": "C",
-      "text": "$g(x) = \\sqrt{4x} + 2$"
+      "text": "$30$"
     },
     {
       "id": "D",
-      "text": "$g(x) = \\sqrt{x} + 8$"
+      "text": "$102$"
     }
   ],
   "distractorNotes": {
-    "A": "multiplies only the square root term and leaves the +2 unscaled",
-    "C": "multiplies the input by 4 instead of the output",
-    "D": "multiplies only the constant term"
+    "A": "finds a = 4 but drops the + 2 when computing f(25)",
+    "C": "adds the change in x, 16, to 14 as if f increased 1 for each unit of x",
+    "D": "uses 25 instead of the square root of 25"
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Vertical Stretch**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** A vertical stretch by $4$ multiplies the whole output: $g(x) = 4(\\sqrt{x} + 2) = 4\\sqrt{x} + 8$.\n\n**The Full Solution:**\nStep 1: A vertical stretch by a factor of $4$ multiplies every output by $4$, so $g(x) = 4f(x)$.\nStep 2: Substitute: $g(x) = 4(\\sqrt{x} + 2)$.\nStep 3: Distribute: $g(x) = 4\\sqrt{x} + 8$. Check: $f(9) = 3 + 2 = 5$ and $g(9) = 4(3) + 8 = 20 = 4(5)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4\\sqrt{x} + 2$): multiplies the square root term but not the constant, so outputs are not all multiplied by $4$.\n* Choice C ($\\sqrt{4x} + 2$): multiplies the input by $4$, which changes the graph horizontally.\n* Choice D ($\\sqrt{x} + 8$): multiplies only the constant, which shifts the graph up $6$ units.\n\n**Test Day Takeaway:** A vertical stretch multiplies the entire function, so distribute the factor to every term."
+  "explanation": "**SAT Pattern: Vertical Stretch**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** $3a + 2 = 14$ gives $a = 4$, so $f(25) = 4(5) + 2 = 22$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 9$: $a\\sqrt{9} + 2 = 14$, so $3a + 2 = 14$.\nStep 2: Solve: $3a = 12$, so $a = 4$ and $f(x) = 4\\sqrt{x} + 2$.\nStep 3: Then $f(25) = 4\\sqrt{25} + 2 = 4(5) + 2 = 22$. Check: $f(9) = 4(3) + 2 = 14$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): finds $a = 4$ but forgets to add $2$ when computing $f(25)$.\n* Choice C ($30$): adds $25 - 9 = 16$ to $14$, as if $f$ increased by $1$ for each unit of $x$.\n* Choice D ($102$): computes $4(25) + 2$, using $25$ instead of $\\sqrt{25} = 5$.\n\n**Test Day Takeaway:** Find the constant from the given value first, then evaluate the function at the new input."
 }

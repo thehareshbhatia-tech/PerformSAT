@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-008",
- "question": "An angle measures $\\frac{5\\pi}{6}$ radians. What is the measure of this angle in degrees?",
+ "question": "An angle measures $\\frac{5\\pi}{9}$ radians. What is the measure of this angle in degrees?",
  "choices": [
   {
    "id": "A",
-   "text": "$75$"
+   "text": "$20$"
   },
   {
    "id": "B",
-   "text": "$150$"
+   "text": "$50$"
   },
   {
    "id": "C",
-   "text": "$216$"
+   "text": "$100$"
   },
   {
    "id": "D",
-   "text": "$300$"
+   "text": "$200$"
   }
  ],
  "distractorNotes": {
-  "A": "uses 90 degrees for pi radians, computing (5/6)(90) = 75",
-  "C": "inverts the fraction, computing (6/5)(180) = 216",
-  "D": "uses 360 degrees for pi radians, computing (5/6)(360) = 300"
+  "A": "drops the 5 and converts pi/9, computing 180/9 = 20",
+  "B": "uses 90 degrees for pi radians, computing (5/9)(90) = 50",
+  "D": "uses 360 degrees for pi radians, computing (5/9)(360) = 200"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Radians to Degrees**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Replace $\\pi$ with $180°$: $\\frac{5(180)}{6} = 150$.\n\n**The Full Solution:**\nStep 1: Since $\\pi$ radians $= 180°$, multiply a radian measure by $\\frac{180}{\\pi}$ to convert it to degrees.\nStep 2: $\\frac{5\\pi}{6} \\cdot \\frac{180}{\\pi} = \\frac{5 \\cdot 180}{6}$.\nStep 3: Compute: $\\frac{900}{6} = 150$, so the angle measures $150°$. Check: $150 \\cdot \\frac{\\pi}{180} = \\frac{5\\pi}{6}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($75$): replaces $\\pi$ with $90$ instead of $180$.\n* Choice C ($216$): flips the fraction to $\\frac{6}{5}$ before multiplying by $180$.\n* Choice D ($300$): replaces $\\pi$ with $360$, the degree measure of a full turn, which is $2\\pi$ radians.\n\n**Test Day Takeaway:** Radians to degrees: replace $\\pi$ with $180$. Since $\\frac{5}{6}$ is a little less than $1$, the answer must be a little less than $180$."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Radians to Degrees**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Replace $\\pi$ with $180°$: $\\frac{5(180)}{9} = 100$.\n\n**The Full Solution:**\nStep 1: Since $\\pi$ radians $= 180°$, multiply a radian measure by $\\frac{180}{\\pi}$ to convert it to degrees.\nStep 2: $\\frac{5\\pi}{9} \\cdot \\frac{180}{\\pi} = \\frac{5 \\cdot 180}{9}$.\nStep 3: Compute: $\\frac{900}{9} = 100$, so the angle measures $100°$. Check: $100 \\cdot \\frac{\\pi}{180} = \\frac{100\\pi}{180} = \\frac{5\\pi}{9}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): converts only $\\frac{\\pi}{9}$, which is $20°$, and forgets to multiply by $5$.\n* Choice B ($50$): replaces $\\pi$ with $90$ instead of $180$.\n* Choice D ($200$): replaces $\\pi$ with $360$, the degree measure of a full turn, which is $2\\pi$ radians.\n\n**Test Day Takeaway:** Radians to degrees: replace $\\pi$ with $180$. Since $\\frac{5}{9}$ is a little more than $\\frac{1}{2}$, the answer must be a little more than $90$."
 }

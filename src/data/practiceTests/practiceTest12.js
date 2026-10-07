@@ -50,18 +50,18 @@ export const practiceTest12 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "A wetland had $1{,}240$ swans in 2024, which was $20\\%$ fewer than in 2018. How many swans did the wetland have in 2018?",
+  question: "This year, a wetland has $1{,}240$ swans, which is $20\\%$ fewer than it had last year. How many swans did the wetland have last year?",
   choices: [
-    // distractor: applies the 20% decrease to the 2024 count instead of reversing it: 1240 x 0.80 = 992
+    // distractor: applies the 20% decrease to this year's count instead of reversing it: 1240 x 0.80 = 992
     { id: "A", text: "$992$" },
     // distractor: adds 20 swans rather than reversing a 20 percent decrease: 1240 + 20 = 1260
     { id: "B", text: "$1{,}260$" },
-    // distractor: increases the 2024 count by 20% instead of dividing by 0.80: 1240 x 1.20 = 1488
+    // distractor: increases this year's count by 20% instead of dividing by 0.80: 1240 x 1.20 = 1488
     { id: "C", text: "$1{,}488$" },
     { id: "D", text: "$1{,}550$" }
   ],
   correctAnswer: "D",
-  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice D is correct.** The 2024 count is $20\\%$ less than the 2018 count, so it is $80\\%$ of the 2018 count: $0.80p = 1{,}240$, which gives $p = 1{,}240 \\div 0.80 = 1{,}550$ swans.\n\n**The Fast Way (~20s):** The 2024 count is $80\\%$ of the 2018 count, so divide: $1{,}240 \\div 0.8 = 1{,}550$.\n\n**The Full Solution:**\nStep 1: Let $p$ be the number of swans in 2018. A count that is $20\\%$ less is $100\\% - 20\\% = 80\\%$ of $p$.\nStep 2: Translate: $0.80p = 1{,}240$.\nStep 3: Divide both sides by $0.80$ to get $p = 1{,}550$. Check: $20\\%$ of $1{,}550$ is $310$, and $1{,}550 - 310 = 1{,}240$, the 2024 count ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($992$): takes another $20\\%$ off the 2024 count, $1{,}240 \\times 0.80 = 992$. That moves forward in time again instead of backward.\n* Choice B ($1{,}260$): reads the $20\\%$ as $20$ swans and adds them, giving $1{,}240 + 20 = 1{,}260$. A percent is a fraction of the whole, not a count.\n* Choice C ($1{,}488$): adds $20\\%$ to the 2024 count, $1{,}240 \\times 1.20 = 1{,}488$. The $20\\%$ is a percent of the 2018 count, so undoing it requires dividing by $0.80$, not multiplying by $1.20$.\n\n**Test Day Takeaway:** To undo a percent change, divide by the multiplier that produced it; adding the same percent back always lands short.",
+  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** This year's count is $80\\%$ of last year's count, so last year's count is $1{,}240 \\div 0.80 = 1{,}550$.\n\n**The Full Solution:**\nStep 1: Let $p$ be last year's count. A count that is $20\\%$ fewer is $100\\% - 20\\% = 80\\%$ of $p$, or $0.80p$.\nStep 2: Set up the equation $0.80p = 1{,}240$.\nStep 3: Divide: $p = \\frac{1{,}240}{0.80} = 1{,}550$. Check: $20\\%$ of $1{,}550$ is $310$, and $1{,}550 - 310 = 1{,}240$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($992$): takes $20\\%$ off this year's count, $1{,}240 \\times 0.80$, instead of reversing the decrease.\n* Choice B ($1{,}260$): adds $20$ swans, treating $20\\%$ as a count.\n* Choice C ($1{,}488$): adds $20\\%$ of this year's count, $1{,}240 \\times 1.20$; the $20\\%$ is a percent of last year's count, not this year's.\n\n**Test Day Takeaway:** When the new amount is given, divide by the multiplier ($0.80$ for a $20\\%$ decrease) instead of applying the percent to the new amount.",
   skills: ["percent-word-problems", "percent-of-value"]
 },
 {
@@ -126,19 +126,19 @@ export const practiceTest12 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "Line $\\ell$ is shown in the $xy$-plane. Line $t$ is parallel to line $\\ell$ and passes through the point $(-2, 5)$. Which equation defines line $t$?",
+  question: "Line $\\ell$ is shown in the $xy$-plane. Line $t$ is parallel to line $\\ell$ and passes through the point $(0, 0)$. Which equation defines line $t$?",
   diagram: { type: "linearGraph", params: { slope: 1.5, yIntercept: -3, xRange: [-6, 6], yRange: [-12, 6], gridInterval: 1, xTickInterval: 2, yTickInterval: 3, label: "ℓ" } },
   choices: [
-    // distractor: uses the reciprocal of the slope, 2/3 instead of 3/2, though it does pass through (-2, 5)
-    { id: "A", text: "$2x - 3y = -19$" },
-    { id: "B", text: "$3x - 2y = -16$" },
-    // distractor: uses the opposite of the slope, -3/2 instead of 3/2, though it does pass through (-2, 5)
-    { id: "C", text: "$3x + 2y = 4$" },
-    // distractor: gives line l itself, which has the right slope but does not pass through (-2, 5)
+    // distractor: uses the reciprocal of the slope, 2/3 instead of 3/2
+    { id: "A", text: "$2x - 3y = 0$" },
+    { id: "B", text: "$3x - 2y = 0$" },
+    // distractor: uses the opposite of the slope, -3/2 instead of 3/2
+    { id: "C", text: "$3x + 2y = 0$" },
+    // distractor: gives line l itself, which has the right slope but does not pass through (0, 0)
     { id: "D", text: "$3x - 2y = 6$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice B is correct.** Line $\\ell$ passes through $(0, -3)$ and $(2, 0)$, so its slope is $\\frac{3}{2}$. The line through $(-2, 5)$ with slope $\\frac{3}{2}$ is $y = \\frac{3}{2}x + 8$, or $3x - 2y = -16$.\n\n**The Fast Way (~30s):** Parallel lines have the same slope, $\\frac{3}{2}$, so line $t$ has the form $3x - 2y = k$; substituting $(-2, 5)$ gives $k = -6 - 10 = -16$.\n\n**The Full Solution:**\nStep 1: Read two points off the graph, $(0, -3)$ and $(2, 0)$. The slope of line $\\ell$ is $\\frac{0 - (-3)}{2 - 0} = \\frac{3}{2}$.\nStep 2: Line $t$ is parallel to line $\\ell$, so it also has slope $\\frac{3}{2}$. Through $(-2, 5)$: $y - 5 = \\frac{3}{2}(x + 2)$, which simplifies to $y = \\frac{3}{2}x + 8$.\nStep 3: Clear the fraction and rearrange: $2y = 3x + 16$, so $3x - 2y = -16$. Check: $3(-2) - 2(5) = -6 - 10 = -16$, and the coefficients $3$ and $-2$ give slope $\\frac{3}{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2x - 3y = -19$): passes through $(-2, 5)$ but has slope $\\frac{2}{3}$, the reciprocal of $\\frac{3}{2}$. Reading rise over run backward produces this line.\n* Choice C ($3x + 2y = 4$): also passes through $(-2, 5)$, but its slope is $-\\frac{3}{2}$; a sign slip turns an increasing line into a decreasing one.\n* Choice D ($3x - 2y = 6$): is line $\\ell$ itself. It has the right slope but does not contain $(-2, 5)$, since $3(-2) - 2(5) = -16 \\neq 6$.\n\n**Test Day Takeaway:** For a parallel line in standard form, keep the $x$ and $y$ coefficients exactly as they are and recompute only the constant from the given point.",
+  explanation: "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Line $\\ell$ rises $3$ units for every $2$ units to the right, so its slope is $\\frac{3}{2}$. The line through the origin with that slope is $y = \\frac{3}{2}x$, or $3x - 2y = 0$.\n\n**The Full Solution:**\nStep 1: Read two points off the graph of line $\\ell$, $(0, -3)$ and $(2, 0)$. Its slope is $\\frac{0 - (-3)}{2 - 0} = \\frac{3}{2}$.\nStep 2: Line $t$ is parallel to line $\\ell$, so it also has slope $\\frac{3}{2}$. It passes through $(0, 0)$, so its $y$-intercept is $0$ and $y = \\frac{3}{2}x$.\nStep 3: Multiply by $2$ and rearrange: $2y = 3x$, so $3x - 2y = 0$. Check: $(0, 0)$ satisfies $3(0) - 2(0) = 0$, and solving for $y$ gives slope $\\frac{3}{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2x - 3y = 0$): passes through the origin, but its slope is $\\frac{2}{3}$; reading the run over the rise gives this line.\n* Choice C ($3x + 2y = 0$): passes through the origin, but its slope is $-\\frac{3}{2}$, so it falls from left to right.\n* Choice D ($3x - 2y = 6$): is line $\\ell$ itself. It has the right slope, but $3(0) - 2(0) = 0 \\neq 6$, so it does not pass through $(0, 0)$.\n\n**Test Day Takeaway:** Parallel lines in standard form share their $x$- and $y$-coefficients; the point the line passes through fixes the constant.",
   skills: ["writing-parallel-equation"]
 },
 {
@@ -341,9 +341,9 @@ export const practiceTest12 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "$\\frac{25^{x + 4}}{5^{x}} = 125^{x - 2}$\nWhat value of $x$ is the solution to the given equation?",
-  correctAnswer: "7",
-  explanation: "**SAT Pattern: Exponential Equation with Common Base**\n\n**The correct answer is $7$.** Writing every base as a power of $5$ gives $\\frac{5^{2x + 8}}{5^{x}} = 5^{3x - 6}$, or $5^{x + 8} = 5^{3x - 6}$. Setting the exponents equal gives $x + 8 = 3x - 6$, so $x = 7$.\n\n**The Fast Way (~40s):** In base $5$ the left exponent is $2(x + 4) - x = x + 8$ and the right exponent is $3(x - 2) = 3x - 6$; $x + 8 = 3x - 6$ gives $x = 7$.\n\n**The Full Solution:**\nStep 1: Write each base as a power of $5$: $25 = 5^{2}$ and $125 = 5^{3}$. The equation becomes $\\frac{\\left(5^{2}\\right)^{x + 4}}{5^{x}} = \\left(5^{3}\\right)^{x - 2}$, or $\\frac{5^{2x + 8}}{5^{x}} = 5^{3x - 6}$.\nStep 2: Divide powers of the same base by subtracting exponents: $5^{(2x + 8) - x} = 5^{x + 8}$. So $5^{x + 8} = 5^{3x - 6}$, and the exponents must be equal: $x + 8 = 3x - 6$.\nStep 3: Solve: $14 = 2x$, so $x = 7$. Check: the left side is $\\frac{25^{11}}{5^{7}} = \\frac{5^{22}}{5^{7}} = 5^{15}$, and the right side is $125^{5} = 5^{15}$ ✓\n\n**Common Mistakes:**\n* $5$: writes $3(x - 2)$ as $3x - 2$, solving $x + 8 = 3x - 2$.\n* $6$: sets the exponents equal without first rewriting the bases as powers of $5$, solving $(x + 4) - x = x - 2$.\n* $-1/2$: subtracts the exponents in the wrong order, solving $x - (2x + 8) = 3x - 6$.\n\n**Test Day Takeaway:** Exponents can be compared only after every base is the same; rewrite each base as a power of one prime, apply the exponent rules, and then set the exponents equal.",
+  question: "$\\left(7^{x}\\right)^{3} = \\sqrt{7^{2x + 16}}$\nWhat value of $x$ is the solution to the given equation?",
+  correctAnswer: "4",
+  explanation: "**SAT Pattern: Exponential Equation with Common Base**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~30s):** The left side is $7^{3x}$, and the square root halves the exponent on the right: $7^{x + 8}$. So $3x = x + 8$, and $x = 4$.\n\n**The Full Solution:**\nStep 1: A power of a power multiplies the exponents: $\\left(7^{x}\\right)^{3} = 7^{3x}$.\nStep 2: A square root is the $\\frac{1}{2}$ power: $\\sqrt{7^{2x + 16}} = 7^{\\frac{2x + 16}{2}} = 7^{x + 8}$.\nStep 3: Both sides have base $7$, so the exponents are equal: $3x = x + 8$, which gives $2x = 8$ and $x = 4$. Check: the left side is $7^{12}$, and the right side is $\\sqrt{7^{24}} = 7^{12}$ ✓\n\n**Common Mistakes:**\n* $8$: halves only the $16$ in the exponent and solves $3x = 2x + 8$.\n* $16$: ignores the square root and solves $3x = 2x + 16$.\n* $-32$: doubles the exponent instead of halving it, solving $3x = 4x + 32$.\n\n**Test Day Takeaway:** Rewrite both sides as powers of the same base (a root is a fractional power), then set the exponents equal.",
   skills: ["exponential-functions"]
 },
 {
@@ -351,18 +351,18 @@ export const practiceTest12 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "Ana deposited $\\$8{,}000$ into a savings account that earns $6\\%$ annual interest compounded semiannually. She made no other deposits or withdrawals. To the nearest dollar, how much interest will the account earn in $4$ years?",
+  question: "Ana deposited \\$8,000 into a savings account. The value of the account increases by $6\\%$ each year. Which equation gives the value $V$, in dollars, of the account $m$ months after Ana made the deposit?",
   choices: [
-    // distractor: uses simple interest, 8000 x 0.06 x 4 = 1920, so earned interest never earns interest
-    { id: "A", text: "$1{,}920$" },
-    // distractor: compounds once a year instead of twice: 8000(1.06)^4 - 8000 is about 2099.82, or 2,100
-    { id: "B", text: "$2{,}100$" },
-    { id: "C", text: "$2{,}134$" },
-    // distractor: uses 8 compounding periods but keeps the full 6% rate in each: 8000(1.06)^8 - 8000 is about 4750.78
-    { id: "D", text: "$4{,}751$" }
+    // distractor: uses the rate 0.06 as the growth factor instead of 1 + 0.06 = 1.06
+    { id: "A", text: "$V = 8{,}000(0.06)^{\\frac{m}{12}}$" },
+    // distractor: splits 6% into 0.5% each month, but (1.005)^12 is about 1.0617, more than a 6% increase per year
+    { id: "B", text: "$V = 8{,}000(1.005)^{m}$" },
+    // distractor: multiplies the number of months by 12 instead of dividing by 12 to get years
+    { id: "C", text: "$V = 8{,}000(1.06)^{12m}$" },
+    { id: "D", text: "$V = 8{,}000(1.06)^{\\frac{m}{12}}$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Compound Interest**\n\n**Choice C is correct.** Semiannual compounding pays $\\frac{6\\%}{2} = 3\\%$ in each of $2(4) = 8$ periods, so the balance after $4$ years is $8{,}000(1.03)^8 \\approx 10{,}134.16$ dollars, and the interest earned is about $2{,}134$ dollars.\n\n**The Fast Way (~45s):** Rate per period $0.03$, number of periods $8$: $8{,}000(1.03)^8 \\approx 10{,}134$, and subtracting the original $8{,}000$ leaves about $2{,}134$.\n\n**The Full Solution:**\nStep 1: Convert the annual rate to a rate per period. Compounded semiannually, each period pays $\\frac{0.06}{2} = 0.03$.\nStep 2: Count the periods: $4$ years at $2$ periods per year is $8$ periods, so the balance is $8{,}000(1 + 0.03)^8 = 8{,}000(1.03)^8 \\approx 10{,}134.16$ dollars.\nStep 3: The question asks for the interest, not the balance, so subtract the deposit: $10{,}134.16 - 8{,}000 = 2{,}134.16$, or about $2{,}134$ dollars. Check: $(1.03)^8 \\approx 1.2668$, and $8{,}000 \\times 1.2668 \\approx 10{,}134$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1{,}920$): uses simple interest, $8{,}000(0.06)(4) = 1{,}920$. Simple interest never lets earned interest earn interest, so it is too small.\n* Choice B ($2{,}100$): compounds annually instead of semiannually, $8{,}000(1.06)^4 - 8{,}000 \\approx 2{,}099.82$. Compounding more often at the same annual rate earns a little more.\n* Choice D ($4{,}751$): uses $8$ periods but applies the full $6\\%$ in each, $8{,}000(1.06)^8 - 8{,}000 \\approx 4{,}750.78$. Splitting the year into two periods doubles the number of periods and halves the rate.\n\n**Test Day Takeaway:** Divide the annual rate by the number of periods per year and multiply the years by that same number; then re-read whether the question asks for the balance or only the interest.",
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Compound Interest**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** A $6\\%$ increase each year is a factor of $1.06$ per year, and $m$ months is $\\frac{m}{12}$ years, so $V = 8{,}000(1.06)^{\\frac{m}{12}}$.\n\n**The Full Solution:**\nStep 1: Increasing by $6\\%$ multiplies the value by $1 + 0.06 = 1.06$ each year, so after $t$ years the value is $8{,}000(1.06)^{t}$.\nStep 2: There are $12$ months in a year, so $m$ months is $t = \\frac{m}{12}$ years.\nStep 3: Substitute: $V = 8{,}000(1.06)^{\\frac{m}{12}}$. Check: after $m = 12$ months, $V = 8{,}000(1.06)^{1} = 8{,}480$, which is $6\\%$ more than $8{,}000$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: uses $0.06$ as the base; a base less than $1$ would make the value shrink each year.\n* Choice B: divides $6\\%$ evenly among $12$ months, but after $12$ months this gives $8{,}000(1.005)^{12} \\approx 8{,}494$, an increase of about $6.2\\%$, not $6\\%$.\n* Choice C: after $12$ months the exponent would be $144$, as though $144$ years had passed.\n\n**Test Day Takeaway:** Write the growth factor per year first, then convert the time variable into years (here $\\frac{m}{12}$) in the exponent.",
   skills: ["exponential-functions"]
 },
 {
@@ -463,18 +463,18 @@ export const practiceTest12 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "In the $xy$-plane, point $P$ has coordinates $(-6, 3)$ and point $Q$ has coordinates $(2, -9)$. Which expression represents the distance between points $P$ and $Q$?",
+  question: "A van traveled $240$ miles, driving at $30$ miles per hour for $c$ hours and at $60$ miles per hour for $h$ hours. The equation $30c + 60h = 240$ represents this situation. If $h = 3$, what is the value of $c$?",
   choices: [
-    // distractor: treats P's x-coordinate as 6 instead of -6, writing 2 - 6 instead of 2 - (-6); the value is sqrt(160)
-    { id: "A", text: "$\\sqrt{(2 - 6)^{2} + (-9 - 3)^{2}}$" },
-    // distractor: drops the signs of both of P's coordinates, writing 2 - 6 and -9 + 3; the value is sqrt(52)
-    { id: "B", text: "$\\sqrt{(2 - 6)^{2} + (-9 + 3)^{2}}$" },
-    { id: "C", text: "$\\sqrt{(2 + 6)^{2} + (-9 - 3)^{2}}$" },
-    // distractor: adds P's y-coordinate instead of subtracting it, writing -9 + 3 instead of -9 - 3; the value is sqrt(100) = 10
-    { id: "D", text: "$\\sqrt{(2 + 6)^{2} + (-9 + 3)^{2}}$" }
+    { id: "A", text: "$2$" },
+    // distractor: substitutes 3 for c instead of h: 30(3) + 60h = 240 gives 2.5
+    { id: "B", text: "$2.5$" },
+    // distractor: substitutes 3 for h but drops the 60: 30c + 60 = 240 gives c = 6
+    { id: "C", text: "$6$" },
+    // distractor: ignores the miles driven at 60 miles per hour: 240/30 = 8
+    { id: "D", text: "$8$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Distance Formula**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Subtract coordinates in the same order: $2 - (-6) = 2 + 6$ and $-9 - 3$, so the distance is $\\sqrt{(2 + 6)^{2} + (-9 - 3)^{2}}$.\n\n**The Full Solution:**\nStep 1: The distance between $(x_1, y_1)$ and $(x_2, y_2)$ is $\\sqrt{(x_2 - x_1)^{2} + (y_2 - y_1)^{2}}$. Take $P(-6, 3)$ as the first point and $Q(2, -9)$ as the second.\nStep 2: The horizontal difference is $2 - (-6) = 2 + 6$, and the vertical difference is $-9 - 3$.\nStep 3: Substituting gives $\\sqrt{(2 + 6)^{2} + (-9 - 3)^{2}} = \\sqrt{64 + 144} = \\sqrt{208}$. Check: the points are $8$ units apart horizontally and $12$ units apart vertically, and $8^{2} + 12^{2} = 208$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: writes $2 - 6$, treating P's $x$-coordinate as $6$ instead of $-6$; the horizontal gap becomes $4$ instead of $8$.\n* Choice B: drops the signs on both of P's coordinates, writing $2 - 6$ and $-9 + 3$; both gaps come out too small.\n* Choice D: writes $-9 + 3$, adding P's $y$-coordinate instead of subtracting it; the vertical gap becomes $6$ instead of $12$.\n\n**Test Day Takeaway:** Subtracting a negative coordinate turns into addition; a quick sketch of how far apart the points are horizontally and vertically tells you which expression is right.",
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Linear Equation in Context**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Substitute $h = 3$: $30c + 180 = 240$, so $30c = 60$ and $c = 2$.\n\n**The Full Solution:**\nStep 1: Substitute $h = 3$ into the equation: $30c + 60(3) = 240$.\nStep 2: Simplify: $30c + 180 = 240$, so $30c = 60$.\nStep 3: Divide by $30$: $c = 2$. Check: $30(2) + 60(3) = 60 + 180 = 240$ miles ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2.5$): substitutes $3$ for $c$ instead of $h$ and solves $90 + 60h = 240$.\n* Choice C ($6$): replaces $60h$ with $60$ instead of $60(3)$, solving $30c + 60 = 240$.\n* Choice D ($8$): divides the whole $240$ miles by $30$, ignoring the $180$ miles driven at $60$ miles per hour.\n\n**Test Day Takeaway:** Match each variable to its meaning before substituting; each term of $30c + 60h$ is a distance in miles.",
   skills: ["coordinate-geometry"]
 },
 {
@@ -598,19 +598,19 @@ export const practiceTest12 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The table shows the price of a ticket in each of three sections of a theater. For one show, no mezzanine tickets were sold, and the theater sold $610$ tickets for a total of $\\$19{,}060$. How many more balcony tickets than orchestra tickets were sold?",
-  questionTable: { headers: ["Section", "Ticket price (dollars)"], rows: [["Balcony", "$24$"], ["Mezzanine", "$33$"], ["Orchestra", "$41$"]] },
+  question: "The table shows the price of a ticket in each of two sections of a theater. For one show, the theater sold $280$ tickets in these sections for a total of \\$8,200. How many more balcony tickets than orchestra tickets were sold?",
+  questionTable: { headers: ["Section", "Ticket price (dollars)"], rows: [["Balcony", "$25$"], ["Orchestra", "$40$"]] },
   choices: [
-    { id: "A", text: "$90$" },
-    // distractor: stops at the number of orchestra tickets, 260, instead of the difference
-    { id: "B", text: "$260$" },
-    // distractor: stops at the number of balcony tickets, 350, instead of the difference
-    { id: "C", text: "$350$" },
-    // distractor: reports the total number of tickets sold instead of the difference between the two sections
-    { id: "D", text: "$610$" }
+    // distractor: gives the number of orchestra tickets, 80, instead of the difference
+    { id: "A", text: "$80$" },
+    { id: "B", text: "$120$" },
+    // distractor: gives the number of balcony tickets, 200, instead of the difference
+    { id: "C", text: "$200$" },
+    // distractor: gives the total number of tickets sold
+    { id: "D", text: "$280$" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice A is correct.**\n\n**The Fast Way (~50s):** If all $610$ tickets were balcony tickets, the total would be $24(610) = \\$14{,}640$. The extra $\\$4{,}420$ comes from orchestra tickets at $\\$17$ more each, so there were $\\frac{4420}{17} = 260$ orchestra tickets and $350$ balcony tickets, a difference of $90$.\n\n**The Full Solution:**\nStep 1: Let $b$ and $r$ be the numbers of balcony and orchestra tickets. Then $b + r = 610$ and $24b + 41r = 19{,}060$.\nStep 2: Substitute $b = 610 - r$: $24(610 - r) + 41r = 19{,}060$, so $14{,}640 + 17r = 19{,}060$, $17r = 4{,}420$, and $r = 260$.\nStep 3: Then $b = 610 - 260 = 350$, and $350 - 260 = 90$. Check: $24(350) + 41(260) = 8{,}400 + 10{,}660 = 19{,}060$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($260$): is the number of orchestra tickets, one of the two values needed for the difference.\n* Choice C ($350$): is the number of balcony tickets, the other value needed for the difference.\n* Choice D ($610$): is the total number of tickets, which the question gives.\n\n**Test Day Takeaway:** Write one equation for the count and one for the money, solve the system, and then reread the question; it often asks for a combination of the two values rather than either one.",
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** If all $280$ tickets were balcony tickets, the total would be $25(280) = 7{,}000$ dollars. Each orchestra ticket adds $15$ dollars, and $8{,}200 - 7{,}000 = 1{,}200 = 15(80)$, so $80$ orchestra and $200$ balcony tickets were sold; $200 - 80 = 120$.\n\n**The Full Solution:**\nStep 1: Let $b$ and $r$ be the numbers of balcony and orchestra tickets. Then $b + r = 280$ and $25b + 40r = 8{,}200$.\nStep 2: Substitute $b = 280 - r$: $25(280 - r) + 40r = 8{,}200$, so $7{,}000 + 15r = 8{,}200$, $15r = 1{,}200$, and $r = 80$. Then $b = 200$.\nStep 3: The difference is $200 - 80 = 120$. Check: $200 + 80 = 280$ tickets and $25(200) + 40(80) = 5{,}000 + 3{,}200 = 8{,}200$ dollars ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($80$): this is the number of orchestra tickets, one of the two unknowns.\n* Choice C ($200$): this is the number of balcony tickets, the other unknown.\n* Choice D ($280$): this is the total number of tickets given in the question.\n\n**Test Day Takeaway:** Solve for both unknowns, then reread the question: it asks for the difference between them.",
   skills: ["word-problem-to-equation", "setting-up-systems"]
 },
 {
@@ -685,19 +685,19 @@ export const practiceTest12 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The graph of $y = f(x)$ is shown in the $xy$-plane. The function $g$ is defined by $g(x) = -3f(x + 1) + 2$. What is the value of $g(1)$?",
+  question: "The graph of $y = f(x)$ is shown in the $xy$-plane. The function $g$ is defined by $g(x) = f(x + 3) + 5$. For what value of $x$ does $g(x)$ reach its minimum?",
   diagram: { type: "parabola", params: { vertex: { h: 2, k: -4 }, a: 1, xRange: [-2, 6], yRange: [-6, 10], xTickInterval: 2, yTickInterval: 2, gridInterval: 1, showVertex: false } },
   choices: [
-    // distractor: multiplies by 3 instead of -3: 3(-4) + 2 = -10
-    { id: "A", text: "$-10$" },
-    // distractor: drops the factor of -3 and computes f(2) + 2 = -2
-    { id: "B", text: "$-2$" },
-    // distractor: evaluates f at 1 instead of at 1 + 1 = 2: -3(-3) + 2 = 11
-    { id: "C", text: "$11$" },
-    { id: "D", text: "$14$" }
+    { id: "A", text: "$-1$" },
+    // distractor: gives the minimum value of g, -4 + 5 = 1, instead of the x-value where it occurs
+    { id: "B", text: "$1$" },
+    // distractor: gives the x-value where f reaches its minimum, ignoring the shift
+    { id: "C", text: "$2$" },
+    // distractor: shifts the graph right 3 units instead of left: 2 + 3 = 5
+    { id: "D", text: "$5$" }
   ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Function Transformation**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** $g(1) = -3f(2) + 2$. The graph shows $f(2) = -4$, so $g(1) = -3(-4) + 2 = 14$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 1$ into the definition of $g$: $g(1) = -3f(1 + 1) + 2 = -3f(2) + 2$.\nStep 2: Read $f(2)$ from the graph: the point on the graph with $x$-coordinate $2$ is its lowest point, $(2, -4)$, so $f(2) = -4$.\nStep 3: Compute: $g(1) = -3(-4) + 2 = 12 + 2 = 14$. Check: the graph passes through $(0, 0)$ and $(4, 0)$ with vertex $(2, -4)$, so $f(x) = (x - 2)^{2} - 4$ and $f(2) = -4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$): multiplies $f(2)$ by $3$ instead of $-3$.\n* Choice B ($-2$): ignores the factor of $-3$ and computes $f(2) + 2$.\n* Choice C ($11$): evaluates $f$ at $1$ instead of at $1 + 1 = 2$, using $f(1) = -3$.\n\n**Test Day Takeaway:** Evaluate a transformed function from the inside out: compute the input to $f$ first, read that value from the graph, then apply the outside multiplication and addition.",
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Function Transformation**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The graph of $f$ has its lowest point at $x = 2$. The function $g$ reaches its minimum when the input to $f$ is $2$: $x + 3 = 2$, so $x = -1$.\n\n**The Full Solution:**\nStep 1: Read the vertex of the graph of $f$: the lowest point is $(2, -4)$, so $f(x)$ reaches its minimum, $-4$, when $x = 2$.\nStep 2: $g(x) = f(x + 3) + 5$ is smallest when $f(x + 3)$ is smallest, which happens when $x + 3 = 2$.\nStep 3: Solve: $x = -1$. Check: the graph of $g$ is the graph of $f$ shifted left $3$ units and up $5$ units, so its vertex is $(2 - 3, -4 + 5) = (-1, 1)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($1$): is the minimum value of $g$, $-4 + 5$, not the $x$-value where it occurs.\n* Choice C ($2$): is where $f$ reaches its minimum; the $+3$ inside the parentheses moves that point.\n* Choice D ($5$): shifts right instead of left; $f(x + 3)$ moves the graph $3$ units to the left.\n\n**Test Day Takeaway:** For $g(x) = f(x + h) + k$, the vertex moves left $h$ units and up $k$ units; set the inside expression equal to the old $x$-value to find the new one.",
   skills: ["function-transformations", "vertex-form"]
 },
 {

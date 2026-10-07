@@ -9,36 +9,42 @@
   "passages": [
     {
       "label": "Text 1",
-      "text": "The multi-ton stone figures of Rapa Nui, the moai, were carved at a single quarry and moved as far as eighteen kilometers to platforms along the coast. Drawing on Polynesian methods for moving canoes and on trials with replicas, the archaeologist Jo Anne Van Tilburg has argued that work crews lashed each statue horizontally to a wooden sledge and hauled it over log rollers or rails — a method her team tested in 1998 by moving a ten-ton concrete replica with several dozen islanders."
+      "text": "Outlines of human hands, known as hand stencils, appear beside paintings of horses, bison, and other large animals in caves in southern France and northern Spain, some of them made tens of thousands of years ago. Because so much of this art depicts game animals, many researchers have proposed that it was made by male hunters, perhaps to record their kills or as a kind of hunting magic."
     },
     {
       "label": "Text 2",
-      "text": "Archaeologists Terry Hunt and Carl Lipo note that moai abandoned along the island's ancient roads lean forward, with wide D-shaped bases — features that would be liabilities for a statue dragged on its back but assets for one moved upright. In their experiments, a crew of eighteen people used ropes to rock an upright replica weighing more than four tons from side to side and \"walked\" it 100 meters in 40 minutes. The statues' own design, they conclude, records the transport method."
+      "text": "An archaeologist studying the cave art has looked closely at the hands themselves. In men, the ring finger tends to be longer than the index finger, while in women the two fingers tend to be about the same length. Measuring 32 of the clearest stencils from caves in France and Spain, the archaeologist classified 24 of them, or 75 percent, as female. The stencils' own proportions, the archaeologist concludes, identify their makers."
     }
   ],
-  "question": "Based on the texts, how would Hunt and Lipo (Text 2) most likely respond to the argument presented in Text 1?",
+  "question": "Based on the texts, how would the archaeologist in Text 2 most likely respond to the argument presented in Text 1?",
   "choices": [
     {
       "id": "A",
-      "text": "They would deny that experiments with replicas can reveal how the actual statues were moved."
+      "text": "The archaeologist would deny that the stencils themselves can reveal anything about who made the cave art."
     },
     {
       "id": "B",
-      "text": "They would counter that the statues' own design features point to upright transport rather than hauling on a sledge."
+      "text": "The archaeologist would counter that the stencils' finger proportions point to women, not male hunters, as the makers."
     },
     {
       "id": "C",
-      "text": "They would accept that sledges were used but insist that moving each statue demanded far larger crews than Text 1 suggests."
+      "text": "The archaeologist would accept that hunters made the art but insist that far more people took part than Text 1 suggests."
     },
     {
       "id": "D",
-      "text": "They would object that Text 1 overstates the distance that the statues traveled from the quarry to the coast."
+      "text": "The archaeologist would object that Text 1 overstates how long ago the stencils in the caves were made."
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** Hunt and Lipo's case rests on the statues themselves — the forward lean and wide bases that suit upright \"walking\" but would hinder a statue dragged on its back — so they would answer Text 1's sledge argument by pointing to those design features.\n\n**The Full Solution:**\n- Text 1's method is horizontal: statue lashed to a sledge, hauled over rollers or rails.\n- Text 2 argues the physical evidence cuts the other way: the road moai's lean and base shape are \"liabilities for a statue dragged on its back but assets for one moved upright,\" and their walking experiment showed the upright method works.\n- Their concluding claim — the design \"records the transport method\" — is exactly the rejoinder choice B attributes to them.\n\n**Why the other choices are wrong:**\n- A: Hunt and Lipo ran replica experiments themselves, so they could hardly dismiss the approach.\n- C: They do not accept sledges at all; their objection is to the method, not the crew size.\n- D: Text 2 never disputes how far the statues traveled — its evidence is the statues' design, not the route.",
+  "explanation": "**Choice B is correct.** The archaeologist's case rests on the stencils themselves, whose finger proportions mostly match women's hands, so the archaeologist would answer Text 1's male-hunter argument by pointing to those proportions.\n\n**The Full Solution:**\n- Text 1's view rests on subject matter: the art shows game animals, so researchers credit it to male hunters.\n- Text 2 argues the physical evidence cuts the other way: 24 of the 32 measured stencils match the finger proportions typical of women.\n- The concluding claim, that the stencils' \"own proportions\" identify their makers, is exactly the rejoinder choice B attributes to the archaeologist.\n\n**Why the other choices are wrong:**\n- A: The archaeologist's whole method is to read the makers from the stencils, so the archaeologist could hardly dismiss that approach.\n- C: The archaeologist does not accept that hunters made the art at all; the objection concerns who the makers were, not how many there were.\n- D: Text 2 never disputes the age of the stencils; its evidence is the shape of the hands, not their date.",
   "_meta": {
-    "source_pair": "moai transport (horizontal sledge-hauling vs upright walking)",
-    "crossTextRelationship": "alternative-explanation"
+    "source_pair": "Paleolithic cave hand stencils (assumed male hunters vs finger-ratio evidence for women makers)",
+    "crossTextRelationship": "alternative-explanation",
+    "anchor": "cave hand stencils in France and Spain: male-hunter assumption vs finger-length ratios (24 of 32 stencils female)",
+    "sources": [
+      "https://www.nationalgeographic.com/adventure/article/131008-women-handprints-oldest-neolithic-cave-art",
+      "https://m.csmonitor.com/Science/2013/1016/Were-most-cave-painters-women-Their-hand-prints-say-yes",
+      "https://www.sci.news/othersciences/anthropology/science-paleolithic-cave-painters-europe-women-01467.html"
+    ]
   }
 }

@@ -9,32 +9,38 @@
  "passages": [
   {
    "label": "Text 1",
-   "text": "Pianists who perform music of the late eighteenth century usually play an instrument its composers never heard: the modern concert grand, with its iron frame and powerful sound. Some performers argue that this music belongs on the fortepiano, the lighter, wooden-framed instrument of the composers' own day. On its quick action and fast-fading notes, rapid passagework that blurs on a modern grand stays articulate, and inner voices remain audible. To hear these works as their composers conceived them, the argument runs, we should hear them on the instrument they wrote for."
+   "text": "Many brick walls built before the late nineteenth century are now repointed with hard mortar made largely of portland cement. Some preservationists argue that these walls belong with lime mortar, the soft material their builders used. Because lime mortar is softer and more permeable than the bricks, trapped moisture escapes through the joints rather than through the bricks, and stresses in the wall are absorbed by the joints instead of the bricks. To protect these walls, we should repoint them with the mortar they were built with."
   },
   {
    "label": "Text 2",
-   "text": "The fortepiano undeniably clarifies certain textures, and performers have learned much from it. But the composers' instrument was a constraint as well as a choice: composers of the period welcomed larger, louder pianos as builders produced them. What the music requires is not a particular machine but transparency and balance, and a pianist who has absorbed the fortepiano's lessons can achieve those qualities on a modern grand through touch, pacing, and restraint."
+   "text": "Lime mortar undeniably protects soft old brick, and preservationists have learned much from it. But the builders' choice was also a necessity: portland cement was not in common use in the United States until the early twentieth century. What the wall requires is not a particular recipe but a mortar softer and more permeable than its bricks. Modern mixes containing a little portland cement can meet that standard."
   }
  ],
  "question": "Based on the texts, how would the author of Text 2 most likely respond to the argument presented in Text 1?",
  "choices": [
   {
    "id": "A",
-   "text": "The author would agree that this music should be played only on period instruments, adding that most pianists would need retraining to play them well."
+   "text": "The author would agree that these walls belong only with lime mortar and add that most masons would need retraining to mix and apply it."
   },
   {
    "id": "B",
-   "text": "The author would dismiss the fortepiano as a primitive stage in the piano's development, of interest to collectors and historians but with nothing to teach performers."
+   "text": "The author would dismiss lime mortar as an outdated material with nothing to teach preservationists."
   },
   {
    "id": "C",
-   "text": "The author would accept the argument without reservation, since concert audiences have repeatedly shown that they prefer the fortepiano's sound in this repertoire."
+   "text": "The author would accept the argument fully, since building owners have shown that they prefer lime mortar on old walls."
   },
   {
    "id": "D",
-   "text": "The author would grant that the fortepiano reveals textures a modern grand can obscure but deny that this settles which instrument should be used."
+   "text": "The author would grant that lime mortar spares old bricks that a hard mortar can damage but deny that this decides the material."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** Text 2 concedes the fortepiano's revelations — it \"undeniably clarifies certain textures\" — but rejects the conclusion that the music therefore belongs on it, arguing that transparency and balance can be achieved \"on a modern grand through touch, pacing, and restraint.\" D preserves both the concession and the refusal.\n\n**The Full Solution:**\n- Text 1's argument moves from evidence (clearer passagework, audible inner voices on the fortepiano) to a prescription (perform these works on the composers' instrument).\n- Text 2 accepts the evidence but attacks the inference twice: historically, composers of the period welcomed larger, louder pianos as builders produced them; practically, what the music needs is qualities, not a machine, and those qualities transfer.\n- So the response grants what the fortepiano shows while denying that it dictates the instrument — exactly choice D.\n\n**Why the other choices are wrong:**\n- A: It signs the author onto the period-instrument prescription that Text 2 exists to resist.\n- B: It overshoots the author's respect for the fortepiano, from which performers \"have learned much.\"\n- C: It invents audience preferences neither text mentions and concedes the whole argument besides."
+ "explanation": "**Choice D is correct.** Text 2 concedes lime mortar's benefits (it \"undeniably protects soft old brick\") but rejects the conclusion that the walls therefore belong with it, arguing that the real standard, a mortar \"softer and more permeable than its bricks,\" can be met by \"modern mixes containing a little portland cement.\" D preserves both the concession and the refusal.\n\n**The Full Solution:**\n- Text 1's argument moves from evidence (lime mortar lets moisture and stress pass through the joints instead of the bricks) to a prescription (repoint these walls with the mortar they were built with).\n- Text 2 accepts the evidence but attacks the inference twice: historically, the builders used lime partly because portland cement was not yet in common use; practically, what the wall needs is a set of properties, not a recipe, and modern mixes can supply those properties.\n- So the response grants what lime mortar does while denying that it dictates the material, exactly choice D.\n\n**Why the other choices are wrong:**\n- A: It signs the author onto the lime-only prescription that Text 2 exists to resist.\n- B: It overshoots the author's respect for lime mortar, from which preservationists \"have learned much.\"\n- C: It invents owner preferences neither text mentions and concedes the whole argument besides.",
+ "_meta": {
+  "anchor": "Repointing pre-late-19th-century brick: lime mortar vs mixes with some portland cement (NPS Preservation Brief 2 criteria)",
+  "sources": [
+   "https://www.nps.gov/orgs/1739/upload/preservation-brief-02-repointing.pdf"
+  ]
+ }
 }

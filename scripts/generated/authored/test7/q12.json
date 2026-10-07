@@ -6,20 +6,20 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-textual",
  "module": 1,
- "passage": "Before magma reaches the surface, the gases dissolved in it begin to escape, and different gases leave at different depths: carbon dioxide comes out of solution while magma is still deep, sulfur dioxide only much nearer the surface. Volcanologists have proposed that a rising ratio of carbon dioxide to sulfur dioxide in a volcano's emissions can therefore serve as an early warning, since it signals fresh magma beginning to move up from depth. A monitoring team plans to evaluate the proposal using continuous gas-sensor records from several frequently active volcanoes.",
+ "passage": "As magma rises toward the surface, the gases dissolved in it escape at different depths. Carbon dioxide comes out of solution while the magma is still deep, but sulfur dioxide escapes only much nearer the surface. Volcanologists have proposed that a rising ratio of carbon dioxide to sulfur dioxide in a volcano's emissions can therefore serve as an early warning, since it signals fresh magma beginning to move up from depth. A monitoring team plans to evaluate the proposal using continuous gas-sensor records from several frequently active volcanoes.",
  "question": "Which finding from the team's evaluation, if true, would most directly support the proposal?",
  "choices": [
   {
    "id": "A",
-   "text": "At volcanoes that erupted during the study, the carbon dioxide-to-sulfur dioxide ratio climbed in the weeks before each eruption, while at volcanoes that stayed quiet it held roughly steady."
+   "text": "At volcanoes that erupted, the carbon dioxide-to-sulfur dioxide ratio climbed in the weeks before each eruption but held steady at volcanoes that stayed quiet."
   },
   {
    "id": "B",
-   "text": "The ratio rose sharply at several volcanoes during the study, but such rises occurred about as often in ordinary quiet months as they did in the weeks immediately leading up to an eruption."
+   "text": "The ratio rose sharply at several volcanoes, but such rises were about as common in quiet months as in the weeks before an eruption."
   },
   {
    "id": "C",
-   "text": "The gas sensors recorded sulfur dioxide reliably in all weather but often failed to register carbon dioxide during periods of heavy rain."
+   "text": "The gas sensors recorded sulfur dioxide reliably in all weather but often failed to register carbon dioxide during periods of heavy rain, leaving long gaps in the record."
   },
   {
    "id": "D",

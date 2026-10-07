@@ -6,24 +6,24 @@
  "domain": "information-and-ideas",
  "skill": "inferences",
  "module": 2,
- "passage": "Roman harbor concrete has survived two millennia of pounding surf that destroys modern marine concrete within decades. Analyzing drill cores from breakwaters at Portus Cosanus and elsewhere, geologists found that seawater percolating through the Roman material for centuries dissolved parts of its volcanic ash and lime and, in the voids left behind, grew interlocking mineral crystals that knit the concrete more tightly together over time. Engineers who mix chemically faithful reproductions of the Roman recipe, however, should not expect their samples to match the ancient breakwaters' strength right away, since ______",
+ "passage": "Roman harbor concrete has survived two millennia of pounding surf that destroys modern marine concrete within decades. Geologists analyzed drill cores from breakwaters at Portus Cosanus and elsewhere. They found that seawater percolating through the Roman material for centuries dissolved parts of its volcanic ash and lime. In the voids left behind, interlocking mineral crystals grew and knit the concrete more tightly together over time. Engineers who mix chemically faithful reproductions of the Roman recipe, however, should not expect them to match the ancient breakwaters' strength right away, since ______",
  "question": "Which choice most logically completes the text?",
  "choices": [
   {
    "id": "A",
-   "text": "modern testing standards measure the strength of concrete samples far more precisely than any method available to Roman builders."
+   "text": "modern tests measure the strength of concrete far more precisely than any method Roman builders had."
   },
   {
    "id": "B",
-   "text": "the volcanic ash the Romans used came from deposits near the Bay of Naples that modern engineers cannot access in large quantities."
+   "text": "the Romans' volcanic ash came from deposits near the Bay of Naples that modern engineers cannot easily access today."
   },
   {
    "id": "C",
-   "text": "the reinforcing crystals are not an original ingredient of the concrete but the product of centuries of seawater exposure that new samples have not yet undergone."
+   "text": "the reinforcing crystals formed only during centuries of seawater exposure, which new samples have not undergone."
   },
   {
    "id": "D",
-   "text": "Roman builders reserved their most durable concrete formulations for harbors and used weaker mixtures in structures on land."
+   "text": "Roman builders used their most durable concrete for harbors and weaker mixtures for structures on land."
   }
  ],
  "correctAnswer": "C",

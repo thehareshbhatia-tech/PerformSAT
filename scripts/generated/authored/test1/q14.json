@@ -23,7 +23,7 @@
    ],
    [
     "Saturn",
-    "95.1",
+    "95.2",
     "0.69"
    ],
    [
@@ -58,7 +58,7 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The claim has two parts — the ice giants are far less massive than the gas giants, and they are not correspondingly less dense — and A is the only choice that uses the table to show both.\n\n**The Full Solution:**\n- Neptune's mass is 17.1 Earth masses, compared with Saturn's 95.1, so Neptune has less than one-fifth of Saturn's mass.\n- Neptune's density, 1.64 g/cm³, is more than twice Saturn's 0.69 g/cm³.\n- A planet with far less mass but much greater density shows that size alone does not set density, which is exactly what the student claims.\n\n**Why the other choices are wrong:**\n- B: It describes Jupiter alone, so it makes no comparison between the gas giants and the ice giants.\n- C: It compares the masses of the two ice giants with each other and says nothing about density.\n- D: The table contradicts it. Saturn, not Uranus, is the least dense planet, at 0.69 g/cm³.",
+ "explanation": "**Choice A is correct.** The claim has two parts — the ice giants are far less massive than the gas giants, and they are not correspondingly less dense — and A is the only choice that uses the table to show both.\n\n**The Full Solution:**\n- Neptune's mass is 17.1 Earth masses, compared with Saturn's 95.2, so Neptune has less than one-fifth of Saturn's mass.\n- Neptune's density, 1.64 g/cm³, is more than twice Saturn's 0.69 g/cm³.\n- A planet with far less mass but much greater density shows that size alone does not set density, which is exactly what the student claims.\n\n**Why the other choices are wrong:**\n- B: It describes Jupiter alone, so it makes no comparison between the gas giants and the ice giants.\n- C: It compares the masses of the two ice giants with each other and says nothing about density.\n- D: The table contradicts it. Saturn, not Uranus, is the least dense planet, at 0.69 g/cm³.",
  "_meta": {
   "source": "NASA NSSDC Planetary Fact Sheet (mass 10^24 kg: Earth 5.97, Jupiter 1898, Saturn 568, Uranus 86.8, Neptune 102; density kg/m3: 1326, 687, 1270, 1638); ice-giant composition per NASA. Replaces a table wrongly attributed to IPCC AR6."
  }

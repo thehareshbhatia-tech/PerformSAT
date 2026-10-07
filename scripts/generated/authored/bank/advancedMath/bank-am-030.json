@@ -1,29 +1,29 @@
 {
  "id": "bank-am-030",
- "question": "$3x^{2} + kx + 12 = 0$\nIn the given equation, $k$ is a constant. The equation has two distinct real solutions. Which of the following must be true?",
+ "question": "$2x^{2} + kx + 18 = 0$\nIn the given equation, $k$ is a constant. The equation has two distinct real solutions. Which of the following could be the value of $k$?",
  "choices": [
   {
    "id": "A",
-   "text": "$|k| < 12$"
+   "text": "$-6$"
   },
   {
    "id": "B",
-   "text": "$|k| \\leq 12$"
+   "text": "$0$"
   },
   {
    "id": "C",
-   "text": "$|k| > 12$"
+   "text": "$12$"
   },
   {
    "id": "D",
-   "text": "$|k| \\geq 12$"
+   "text": "$15$"
   }
  ],
- "correctAnswer": "C",
+ "correctAnswer": "D",
  "distractorNotes": {
-  "A": "reverses the inequality, which is the condition for no real solutions",
-  "B": "reverses the inequality and includes |k| = 12, which gives one solution",
-  "D": "includes |k| = 12, where the discriminant is 0 and there is only one solution"
+  "A": "gives a discriminant of 36 - 144 = -108 < 0, so there are no real solutions",
+  "B": "gives a discriminant of -144 < 0, so there are no real solutions",
+  "C": "gives a discriminant of 144 - 144 = 0, so there is only one real solution"
  },
- "explanation": "**SAT Pattern: Discriminant Inequality**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Two distinct real solutions need $k^{2} - 4(3)(12) > 0$, so $k^{2} > 144$, which means $|k| > 12$.\n\n**The Full Solution:**\nStep 1: A quadratic equation has two distinct real solutions exactly when its discriminant is positive: $k^{2} - 4(3)(12) > 0$.\nStep 2: Simplify: $k^{2} - 144 > 0$, so $k^{2} > 144$.\nStep 3: Taking square roots gives $|k| > 12$. Check: $k = 13$ gives $169 - 144 = 25 > 0$ (two solutions), and $k = 12$ gives $144 - 144 = 0$ (one solution), so $12$ must be excluded ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($|k| < 12$): this makes the discriminant negative, so there are no real solutions.\n* Choice B ($|k| \\leq 12$): reverses the inequality and also allows the one-solution case $|k| = 12$.\n* Choice D ($|k| \\geq 12$): at $|k| = 12$ the discriminant is $0$, which gives only one solution.\n\n**Test Day Takeaway:** \"Two distinct real solutions\" means a STRICT inequality, $b^{2} - 4ac > 0$. Then $k^{2} > m$ becomes $|k| > \\sqrt{m}$."
+ "explanation": "**SAT Pattern: Discriminant Inequality**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Two distinct real solutions need $k^{2} - 4(2)(18) > 0$, or $k^{2} > 144$. Of the choices, only $15^{2} = 225$ is greater than $144$.\n\n**The Full Solution:**\nStep 1: A quadratic equation has two distinct real solutions exactly when its discriminant is positive: $k^{2} - 4(2)(18) > 0$.\nStep 2: Simplify: $k^{2} - 144 > 0$, so $k^{2} > 144$, which means $k < -12$ or $k > 12$.\nStep 3: Only $15$ satisfies this. Check: $k = 15$ gives $225 - 144 = 81 > 0$, so there are two solutions; in fact $2x^{2} + 15x + 18 = (2x + 3)(x + 6)$, with solutions $-\\dfrac{3}{2}$ and $-6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): the discriminant is $36 - 144 = -108$, so there are no real solutions.\n* Choice B ($0$): the discriminant is $-144$, so there are no real solutions.\n* Choice C ($12$): the discriminant is $144 - 144 = 0$, which gives only one real solution.\n\n**Test Day Takeaway:** \"Two distinct real solutions\" means a STRICT inequality, $b^{2} - 4ac > 0$; a value that makes the discriminant exactly $0$ gives only one solution."
 }

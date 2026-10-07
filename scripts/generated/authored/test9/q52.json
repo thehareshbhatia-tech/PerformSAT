@@ -6,7 +6,7 @@
   "domain": "expression-of-ideas",
   "skill": "transitions",
   "module": 2,
-  "passage": "Pacific Coast salmon canneries once relied on crews of skilled hand butchers, and an experienced crew set the pace for the entire line. In the early 1900s, inventors introduced a machine that could butcher salmon mechanically. ______ the machine spread from cannery to cannery, and the large butchering crews it replaced dwindled.",
+  "passage": "In the nineteenth century, many city streets were lit by gas lamps, and each evening lamplighters walked their routes, lighting every lamp by hand with a long pole. In the late 1800s, electric street lights began to appear in some cities. ______ electric lighting spread from city to city, and the work of the lamplighters dwindled away.",
   "question": "Which choice completes the text with the most logical transition?",
   "choices": [
     {
@@ -27,8 +27,12 @@
     }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** The passage is a sequence in time — skilled hand crews, then the machine's introduction in the early 1900s — and the final sentence is the endpoint that sequence was building toward. \"Eventually\" places it there.\n\n**The Full Solution:**\n- The text moves from the era of hand butchering to the arrival of a machine in the early 1900s.\n- The last sentence describes what happened over the following years: the machine spread and the crews dwindled.\n- A closing state reached at the end of a sequence is introduced by a transition of time.\n\n**Why the other choices are wrong:**\n- B: \"However\" would set the machine's spread against its introduction, but the spread is that introduction's direct result, not a reversal of it.\n- C: \"In other words\" restates; the final sentence adds a new development rather than rephrasing the previous one.\n- D: \"In addition\" flattens the sequence into a list, losing the temporal arc from hand work to machine that the passage establishes.",
+  "explanation": "**Choice A is correct.** The text moves through time: gas lamps lit by hand, then the first electric street lights, then the spread of electric lighting and the end of the lamplighters' work. \"Eventually\" signals that the last development came after a period of time.\n\n**The Full Solution:**\n- First sentence: gas lamps and the lamplighters who lit them.\n- Second sentence: electric street lights begin to appear in some cities.\n- Third sentence: over time, electric lighting spreads and the lamplighters' work fades, a later stage in the same sequence.\n\n**Why the other choices are wrong:**\n- B: \"However\" signals a contrast, but the spread of electric lights continues the change the second sentence began.\n- C: \"In other words\" signals a restatement, but the last sentence describes a new, later development.\n- D: \"In addition\" adds a separate point, but the last sentence is the outcome of the change over time.",
   "_meta": {
-    "anchor": "Mechanical salmon butchering machine invented c. 1903 by Edmund A. Smith (patented 1905), replacing hand-butchering crews in Pacific Coast canneries. 2026-10-04 review removed unverified 1880s soldering / filling-machine dates."
+    "anchor": "Gas street lamps and lamplighters replaced by electric street lighting — Eventually",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Lamplighter",
+      "https://harteoutdoorlighting.ie/blogs/news/the-legacy-of-lamplighters"
+    ]
   }
 }

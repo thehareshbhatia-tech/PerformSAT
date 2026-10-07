@@ -8,30 +8,30 @@
  "choices": [
   {
    "id": "A",
-   "text": "the astronomers who copied the tables out rarely understood the planetary models behind them."
+   "text": "the naturalists who accepted evolution rarely understood the details of Darwin's theory."
   },
   {
    "id": "B",
-   "text": "criticism of the tables' underlying models was largely confined to astronomers working outside the universities."
+   "text": "criticism of natural selection came mainly from naturalists who worked outside the major universities of the time."
   },
   {
    "id": "C",
-   "text": "an astronomer could adopt the tables as a working tool without endorsing the models behind them."
+   "text": "a naturalist could accept that species evolve without accepting Darwin's account of how they evolve."
   },
   {
    "id": "D",
-   "text": "the tables spread chiefly because university statutes required students to copy them by hand."
+   "text": "evolution spread chiefly because universities required students to read Darwin's writings."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** Each strand of evidence separates use from belief: the canons teach only how to compute, never why the models are true, and the tables served practical tasks that needed accurate positions but \"no commitment to any particular account of the heavens.\" Together they license exactly one conclusion — the tables could be adopted as a tool without endorsing their models.\n\n**The Full Solution:**\n- The passage opens with the inference under review: spread of the tables seems to show acceptance of the models.\n- Evidence 1 (how-to canons without justification) shows that using the tables did not require being persuaded of the models; evidence 2 (calendars and horoscopes) shows that the work the tables were used for demanded competence, not doctrine.\n- The modest common conclusion is the tool-belief separation, and choice C claims no more than that.\n\n**Why the other choices are wrong:**\n- A: It overshoots — the evidence shows that use was independent of belief, not that the copyists failed to understand the models.\n- B: The passage never says where criticism of the models came from, inside or outside the universities.\n- D: No university statutes or copying requirements are mentioned; the passage explains how the tables were used, not what drove their spread.",
- "passage": "It might seem that the spread of the Alfonsine Tables through fourteenth-century Europe shows that astronomers everywhere had accepted the planetary models behind them. The manuscripts tell a more complicated story. Many copies transmit the numbers alongside canons that explain only how to compute with the tables, never why their models should be believed. And the tables were put largely to practical uses, such as drawing up calendars and casting horoscopes, tasks that required accurate positions but no commitment to any particular account of the heavens. Taken together, the evidence suggests that ______",
+ "explanation": "**Choice C is correct.** The text separates two ideas: that species evolve (widely accepted by the 1880s) and that natural selection causes evolution (doubted by many until the 1930s and 1940s). Many naturalists held the first without the second, so accepting evolution did not require accepting Darwin's mechanism.\n\n**The Full Solution:**\n- The text sets up a tempting conclusion: wide acceptance of evolution means Darwin's theory triumphed.\n- It then shows that most naturalists accepted evolution while many rejected natural selection and proposed other causes.\n- The only conclusion that fits both facts is that one could accept evolution without accepting Darwin's explanation of it.\n\n**Why the other choices are wrong:**\n- A: The text says naturalists doubted natural selection, not that they misunderstood Darwin's theory.\n- B: The text never says where the critics of natural selection worked.\n- D: The text says nothing about university requirements or how students learned about evolution.",
+ "passage": "It might seem that by the 1880s, the wide acceptance of evolution among naturalists meant that Charles Darwin's theory had triumphed. The record is more complicated. Most naturalists by then agreed that species change over time and descend from common ancestors. But many doubted that natural selection, the process Darwin had proposed, could produce those changes. They offered other explanations instead, such as the inheritance of traits that animals acquired during their lives. Natural selection itself won general acceptance only in the 1930s and 1940s. Taken together, this history suggests that ______",
  "_meta": {
-  "anchor": "medieval astronomical tables — canons and practical uses separate computational use from doctrinal acceptance",
+  "anchor": "\"eclipse of Darwinism\" — evolution accepted, natural selection doubted until the Modern Synthesis (Bowler, The Eclipse of Darwinism, 1983; Wikipedia: The eclipse of Darwinism)",
   "distractors": {
-   "A": "overshoot — independence misread as ignorance",
-   "B": "location claim without support",
-   "D": "invented causal mechanism"
+   "A": "confuses doubt with ignorance",
+   "B": "fabricated location",
+   "D": "fabricated cause"
   }
  },
  "id": 1143,

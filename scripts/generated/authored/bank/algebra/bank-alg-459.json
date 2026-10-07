@@ -27,22 +27,22 @@
     },
     {
       "id": "B",
-      "text": "$5$"
+      "text": "$\\frac{10}{7}$"
     },
     {
       "id": "C",
-      "text": "$7$"
+      "text": "$5$"
     },
     {
       "id": "D",
-      "text": "The slope of line $\\ell$ is undefined."
+      "text": "$7$"
     }
   ],
   "distractorNotes": {
-    "B": "reports the shared y-coordinate instead of the slope.",
-    "C": "reports the run 4 - (-3) = 7 instead of rise over run.",
-    "D": "confuses a horizontal line (slope 0) with a vertical line, whose slope is undefined because the run is 0."
+    "B": "adds the y-coordinates instead of subtracting them, computing (5 + 5)/(4 - (-3)) = 10/7",
+    "C": "reports the shared y-coordinate instead of the slope",
+    "D": "reports the run 4 - (-3) = 7 instead of rise over run"
   },
   "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Slope from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Both points have $y = 5$, so the line is horizontal: rise $0$, slope $0$.\n\n**The Full Solution:**\nStep 1: Slope $= \\frac{5 - 5}{4 - (-3)} = \\frac{0}{7}$.\nStep 2: A fraction with numerator $0$ and nonzero denominator equals $0$, so the slope is $0$.\nStep 3: Check: the two points shown are at the same height, so the line through them is horizontal, and horizontal lines have slope $0$ (the equation is $y = 5$). $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($5$): reports the shared $y$-coordinate instead of the slope.\n* Choice C ($7$): reports the run $4 - (-3) = 7$ instead of rise over run.\n* Choice D (The slope of line $\\ell$ is undefined.): confuses a horizontal line (slope $0$) with a vertical line, whose slope is undefined because the run is $0$.\n\n**Test Day Takeaway:** Same $y$-values means horizontal and slope $0$; same $x$-values means vertical and undefined slope. Zero on top is fine; zero on the bottom is not."
+  "explanation": "**SAT Pattern: Slope from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Both points have $y = 5$, so the line is horizontal: the rise is $0$ and the slope is $0$.\n\n**The Full Solution:**\nStep 1: Slope $= \\frac{5 - 5}{4 - (-3)} = \\frac{0}{7}$.\nStep 2: A fraction with numerator $0$ and a nonzero denominator equals $0$, so the slope is $0$.\nStep 3: Check: the two points are at the same height, so the line through them is $y = 5$, which has slope $0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{10}{7}$): adds the $y$-coordinates instead of subtracting them, computing $\\frac{5 + 5}{4 - (-3)}$.\n* Choice C ($5$): reports the shared $y$-coordinate instead of the slope.\n* Choice D ($7$): reports the run $4 - (-3) = 7$ instead of rise over run.\n\n**Test Day Takeaway:** When two points share a $y$-coordinate, the rise is $0$, so the slope is $0$."
 }

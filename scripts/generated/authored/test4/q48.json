@@ -6,29 +6,29 @@
   "domain": "standard-english-conventions",
   "skill": "boundaries",
   "module": 2,
-  "passage": "At many nineteenth-century opera houses, the waves of applause that greeted a favored singer were rarely ______ instead, they were organized in advance by the chef de claque, who seated his hired clappers throughout the hall and cued their bravos on schedule.",
+  "passage": "Young sunflowers turn to follow the sun across the sky each day. Mature sunflower heads, however, stop ______ they stay facing east, which warms them quickly in the morning and draws more visits from pollinating insects.",
   "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
   "choices": [
     {
       "id": "A",
-      "text": "spontaneous, instead"
+      "text": "moving, instead"
     },
     {
       "id": "B",
-      "text": "spontaneous; instead,"
+      "text": "moving; instead,"
     },
     {
       "id": "C",
-      "text": "spontaneous, instead,"
+      "text": "moving, instead,"
     },
     {
       "id": "D",
-      "text": "spontaneous instead"
+      "text": "moving instead"
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** Two independent clauses meet at the blank, and the second begins with the conjunctive adverb \"instead\" — a joining that requires a semicolon before the adverb and a comma after it.\n\n**The Full Solution:**\n- Clause one: \"the waves of applause ... were rarely spontaneous.\"\n- Clause two: \"they were organized in advance by the chef de claque ...\"\n- A conjunctive adverb like \"instead\" cannot join clauses by itself; the pattern is \"; instead,\" — semicolon, adverb, comma.\n\n**Why the other choices are wrong:**\n- A: A comma before \"instead\" splices the clauses, and the missing comma after the adverb compounds the error.\n- C: Even with the comma after \"instead,\" the comma before it still splices two independent clauses.\n- D: No punctuation at all fuses the clauses into a run-on.",
+  "explanation": "**Choice B is correct.** \"Mature sunflower heads, however, stop moving\" and \"instead, they stay facing east ...\" are independent clauses. A semicolon joins them, and the comma after \"instead\" sets off the transition at the start of the second clause.\n\n**The Full Solution:**\n- Clause 1 ends at \"stop moving.\"\n- Clause 2 begins with the transition \"instead\" and has its own subject and verb (\"they stay\").\n- A transition word such as \"instead\" cannot join two clauses by itself; a semicolon must come before it.\n\n**Why the other choices are wrong:**\n- A: A comma before \"instead\" creates a comma splice.\n- C: Two commas still leave the clauses spliced together.\n- D: With no punctuation, the clauses run together.",
   "_meta": {
-    "anchor": "the opera claque; semicolon with conjunctive adverb"
+    "anchor": "sunflower heliotropism: mature heads face east (Atamian et al. 2016, Science); semicolon + instead"
   }
 }

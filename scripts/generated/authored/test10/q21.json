@@ -6,34 +6,38 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 1,
- "passage": "To build the Oxford English Dictionary, the editor James Murray relied on an army of volunteer readers, each instructed to copy onto a paper slip any sentence that showed a word in use. Millions of slips accumulated in Murray's iron workroom, and every one of them was filed according to a single organizing ______ the word it was meant to illustrate.",
+ "passage": "Tatami are thick floor mats of rice straw covered with woven rush, long used in Japanese homes. Room sizes in Japan are still often measured in a single basic ______ the area of one tatami mat, a rectangle about twice as long as it is wide.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "principle, including"
+   "text": "unit;"
   },
   {
    "id": "B",
-   "text": "principle,"
+   "text": "unit."
   },
   {
    "id": "C",
-   "text": "principle:"
+   "text": "unit:"
   },
   {
    "id": "D",
-   "text": "principle"
+   "text": "unit"
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** An independent clause ends at \"principle,\" and what follows names that principle, so a colon, which introduces an explanation or specification after a complete clause, is the conventional mark: \"...filed according to a single organizing principle: the word it was meant to illustrate.\"\n\n**The Full Solution:**\n- Everything before the blank stands alone as a sentence, satisfying the colon's requirement of a preceding independent clause.\n- \"The word it was meant to illustrate\" is an appositive that specifies \"a single organizing principle,\" the classic job of a colon.\n\n**Why the other choices are wrong:**\n- A: \"Including\" introduces examples drawn from a set, but the phrase names the one principle itself, not an example of it.\n- B: A comma leaves the relationship between clause and appositive unmarked and reads as a stray pause after a complete statement.\n- D: With no punctuation, \"principle the word\" runs two noun phrases together ungrammatically.",
+ "explanation": "**Choice C is correct.** The first part of the sentence is a complete independent clause, and what follows the blank names exactly what that \"basic unit\" is. A colon is the conventional mark for introducing such a specification: \"measured in a single basic unit: the area of one tatami mat.\"\n\n**The Full Solution:**\n- \"Room sizes in Japan are still often measured in a single basic unit\" can stand alone as a sentence.\n- The words after the blank are not a clause; they form a noun phrase that names the unit itself.\n- A colon after an independent clause can introduce such a phrase.\n\n**Why the other choices are wrong:**\n- A: A semicolon must join two independent clauses, but \"the area of one tatami mat, a rectangle about twice as long as it is wide\" is a noun phrase with no main verb.\n- B: A period would leave \"The area of one tatami mat, a rectangle about twice as long as it is wide\" standing alone as a sentence fragment.\n- D: With no punctuation, \"unit the area\" runs two noun phrases together.",
  "_meta": {
   "rule": "colon introducing a specifying appositive after an independent clause",
   "distractors": {
-   "A": "wrong connector (example-marker for an identity)",
-   "B": "comma cannot introduce the appositive here",
+   "A": "semicolon before a phrase that is not an independent clause",
+   "B": "period leaves the appositive as a fragment",
    "D": "missing boundary"
-  }
+  },
+  "anchor": "tatami mat as the unit for Japanese room sizes — colon introducing a specifying phrase",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Tatami"
+  ]
  }
 }

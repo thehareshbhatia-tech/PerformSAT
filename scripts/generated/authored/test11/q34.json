@@ -8,30 +8,30 @@
  "choices": [
   {
    "id": "A",
-   "text": "To describe the engineering tests that first revealed cast iron's weakness in intense heat"
+   "text": "To describe the technical improvements that Edison made to the phonograph during the late 1880s"
   },
   {
    "id": "B",
-   "text": "To argue that masonry construction deserved the reputation for fire safety that cast-iron fronts wrongly claimed"
+   "text": "To argue that stenographers were right to resist the use of phonographs in offices"
   },
   {
    "id": "C",
-   "text": "To trace the spread of cast-iron construction from warehouses into shops and lofts"
+   "text": "To trace how coin-operated machines spread from one city to another"
   },
   {
    "id": "D",
-   "text": "To explain why a building technology stayed popular after one of its advertised advantages was discredited"
+   "text": "To explain how a technology found success after the use it was first promoted for failed"
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The text sets up a puzzle — the fireproof claim was exposed as exaggeration, \"yet the fronts survived the embarrassment\" — and resolves it: the real appeal was daylight, and \"merchants kept ordering them for the light rather than the safety.\"\n\n**The Full Solution:**\n- First movement: the fireproof selling point and its public failure in the great city fires of the 1870s.\n- Pivot: \"Yet the fronts survived the embarrassment, because their real appeal lay elsewhere.\"\n- Second movement: slender columns, near-continuous windows, unmatched daylight — the surviving advantage. Explaining continued popularity after a discredited claim is precisely choice D.\n\n**Why the other choices are wrong:**\n- A: The weakness was revealed by actual fires, not engineering tests, and that revelation is the setup, not the point.\n- B: Stone walls appear only as a point of comparison for daylight; the text mounts no case on masonry's behalf.\n- C: The path of cast iron's spread between building types is never traced.",
- "passage": "Cast-iron fronts were sold as fireproof, and that claim helped fill the commercial districts of nineteenth-century American cities with them. Fire itself exposed the exaggeration: unprotected iron softens and buckles in intense heat, and in the great city fires of the 1870s, iron fronts warped and collapsed. Yet the fronts survived the embarrassment, because their real appeal lay elsewhere. Iron columns were slender enough to open a ground floor into an almost continuous window, flooding shops and lofts with daylight no load-bearing stone wall could admit, and merchants kept ordering the fronts for the light rather than the safety.",
+ "explanation": "**Choice D is correct.** The text first reports that the phonograph's promoted use — dictation in offices — \"largely failed,\" then turns (\"Yet\") to its success as a coin-operated entertainment machine.\n\n**The Full Solution:**\n- First half: the phonograph was marketed as an office machine, and that plan failed.\n- Turning point: \"Yet the phonograph found success elsewhere.\"\n- Second half: coin-operated phonographs played songs, and by 1891 about a third of machines were used for entertainment.\n- The text therefore explains how the technology succeeded after its original purpose disappointed.\n\n**Why the other choices are wrong:**\n- A: The text mentions an \"improved phonograph\" but never describes the improvements.\n- B: The text reports that stenographers resisted the machines but does not judge whether they were right.\n- C: The text does not describe the machines spreading from place to place.",
+ "passage": "When Thomas Edison's improved phonograph went on the market in the late 1880s, its backers promoted it as an office machine. Businesses leased phonographs so that managers could dictate letters for typists to copy. The plan largely failed, partly because stenographers resisted the machines. Yet the phonograph found success elsewhere. Beginning in 1889, coin-operated phonographs let customers hear a recorded song for a nickel, and by 1891 about a third of the phonographs in use were played for entertainment.",
  "_meta": {
-  "anchor": "cast-iron storefront architecture — fireproof claim discredited, daylight advantage sustained demand",
+  "anchor": "Edison phonograph — failed as leased dictation machine (North American Phonograph Co.), succeeded as nickel-in-the-slot entertainment from 1889 (Wikipedia: Edison Records; Sound & Vision, Flashback 1889)",
   "distractors": {
-   "A": "wrong revelation mechanism, setup mistaken for point",
-   "B": "supporting detail inflated into thesis",
-   "C": "spread never traced"
+   "A": "mentioned, not described",
+   "B": "judgment not made",
+   "C": "absent topic"
   }
  },
  "id": 1134,

@@ -1,6 +1,6 @@
 {
  "id": 3,
- "question": "In the $xy$-plane, a circle with center $(0, 0)$ and radius $4$ is dilated about the origin by a scale factor of $3$. Which of the following equations represents the image of the circle?",
+ "question": "Circle $A$ in the $xy$-plane has center $(0, 0)$ and radius $4$. Circle $B$ has the same center as circle $A$, and the radius of circle $B$ is $3$ times the radius of circle $A$. Which equation represents circle $B$?",
  "choices": [
   {
    "id": "A",
@@ -20,11 +20,11 @@
   }
  ],
  "correctAnswer": "D",
- "hint": "A dilation scales the radius, but the equation stores the radius squared.",
+ "hint": "Find the new radius first, then square it.",
  "distractorNotes": {
-  "A": "substitutes 3x and 3y",
-  "B": "writes r where r squared belongs",
-  "C": "scales r squared only once"
+  "A": "divides r^2 = 16 by 9 instead of multiplying",
+  "B": "sets the right side equal to the new radius, 12, without squaring",
+  "C": "multiplies r^2 = 16 by 3 instead of by 3^2"
  },
- "explanation": "**Choice D is correct.**\n\n**The Fast Way (~25s):** The radius becomes $3(4) = 12$, so $r^2 = 144$ and the image is $x^2 + y^2 = 144$.\n\n**The Full Solution:**\nStep 1: A dilation centered at the origin with scale factor $3$ multiplies every distance from the origin by $3$, so the radius becomes $12$.\nStep 2: The center stays at the origin, so the equation is $x^2 + y^2 = r^2$ with $r = 12$.\nStep 3: $x^2 + y^2 = 144$. Check: the point $(4, 0)$ maps to $(12, 0)$, and $12^2 + 0 = 144$.\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^2 + y^2 = \\frac{16}{9}$): substitutes $3x$ and $3y$ into the original equation, which shrinks the circle by a factor of $3$ instead of enlarging it.\n* Choice B ($x^2 + y^2 = 12$): writes the new radius $12$ on the right side where $r^2$ belongs.\n* Choice C ($x^2 + y^2 = 48$): multiplies $r^2 = 16$ by the scale factor once, giving $48$, instead of by the scale factor squared.\n\n**Test Day Takeaway:** Scale the radius, then square it. Multiplying $r^2$ by $k$ instead of $k^2$ is the classic dilation slip."
+ "explanation": "**Choice D is correct.**\n\n**The Fast Way (~20s):** The radius of circle $B$ is $3(4) = 12$, so its equation is $x^2 + y^2 = 12^2 = 144$.\n\n**The Full Solution:**\nStep 1: A circle with center $(0, 0)$ and radius $r$ has equation $x^2 + y^2 = r^2$.\nStep 2: The radius of circle $B$ is $3 \\times 4 = 12$, and the center stays at $(0, 0)$.\nStep 3: So circle $B$ is $x^2 + y^2 = 12^2 = 144$. Check: $\\sqrt{144} = 12 = 3 \\times 4$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^2 + y^2 = \\frac{16}{9}$): divides $16$ by $3^2$ instead of multiplying, which shrinks the circle.\n* Choice B ($x^2 + y^2 = 12$): puts the new radius on the right side without squaring it.\n* Choice C ($x^2 + y^2 = 48$): multiplies $r^2 = 16$ by $3$; the right side grows by $3^2 = 9$, not $3$.\n\n**Test Day Takeaway:** When a radius is multiplied by $k$, the right side of the circle equation is multiplied by $k^2$."
 }

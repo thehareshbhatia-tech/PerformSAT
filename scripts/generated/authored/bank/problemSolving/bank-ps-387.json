@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-387",
-  "question": "Of the $80$ students in a club, $46$ play soccer, $38$ play basketball, and $14$ play both. A student from the club will be selected at random. What is the probability of selecting a student who plays exactly one of these sports?",
+  "question": "A bag contains only red, blue, and green marbles. If one marble is selected at random, the probability of selecting a red marble is $\\frac{1}{4}$, and the probability of selecting a blue marble is $\\frac{2}{5}$. The bag contains $21$ green marbles. How many marbles are in the bag?",
   "choices": [
     {
       "id": "A",
-      "text": "$\\frac{1}{8}$"
+      "text": "$28$"
     },
     {
       "id": "B",
-      "text": "$\\frac{7}{40}$"
+      "text": "$35$"
     },
     {
       "id": "C",
-      "text": "$\\frac{7}{10}$"
+      "text": "$60$"
     },
     {
       "id": "D",
-      "text": "$\\frac{7}{8}$"
+      "text": "$84$"
     }
   ],
-  "distractorNotes": {
-    "A": "gives the probability that the student plays neither sport",
-    "B": "gives the probability that the student plays both sports",
-    "D": "gives the probability that the student plays at least one of the sports, which still includes the 14 who play both"
-  },
   "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Soccer only: $46 - 14 = 32$. Basketball only: $38 - 14 = 24$. Exactly one sport: $32 + 24 = 56$, so the probability is $\\frac{56}{80} = \\frac{7}{10}$.\n\n**The Full Solution:**\nStep 1: The $46$ soccer players include the $14$ who play both, so $46 - 14 = 32$ play only soccer.\nStep 2: Likewise, $38 - 14 = 24$ play only basketball, so $32 + 24 = 56$ students play exactly one sport.\nStep 3: The probability is $\\frac{56}{80} = \\frac{7}{10}$. Check: $56$ play exactly one sport, $14$ play both, and $80 - 70 = 10$ play neither, for a total of $56 + 14 + 10 = 80$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{1}{8}$): is $\\frac{10}{80}$, the probability that the student plays neither sport.\n* Choice B ($\\frac{7}{40}$): is $\\frac{14}{80}$, the probability that the student plays both sports.\n* Choice D ($\\frac{7}{8}$): is $\\frac{46 + 38 - 14}{80} = \\frac{70}{80}$, the probability of playing at least one sport. That count still includes the $14$ students who play both.\n\n**Test Day Takeaway:** With overlapping groups, split the counts into 'only' pieces and 'both' before counting; 'exactly one' and 'at least one' differ by the overlap."
+  "distractorNotes": {
+    "A": "uses only the red probability: 21 divided by 3/4",
+    "B": "uses only the blue probability: 21 divided by 3/5",
+    "D": "treats the green probability as 1/4, the red probability: 21 times 4"
+  },
+  "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The probability of green is $1 - \\frac{1}{4} - \\frac{2}{5} = \\frac{7}{20}$, so the bag holds $21 \\div \\frac{7}{20} = 60$ marbles.\n\n**The Full Solution:**\nStep 1: The three probabilities add to $1$, so the probability of green is $1 - \\frac{5}{20} - \\frac{8}{20} = \\frac{7}{20}$.\nStep 2: If the bag holds $n$ marbles, then $\\frac{7}{20}n = 21$.\nStep 3: $n = 21 \\cdot \\frac{20}{7} = 60$. Check: $60$ marbles give $15$ red, $24$ blue, and $21$ green, and $15 + 24 + 21 = 60$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($28$): takes green as $1 - \\frac{1}{4} = \\frac{3}{4}$ of the bag, forgetting the blue marbles.\n* Choice B ($35$): takes green as $1 - \\frac{2}{5} = \\frac{3}{5}$ of the bag, forgetting the red marbles.\n* Choice D ($84$): uses $\\frac{1}{4}$, the red probability, for green.\n\n**Test Day Takeaway:** Probabilities of all the possible outcomes add to $1$; find the missing one first, then scale up to the whole."
 }

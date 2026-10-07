@@ -1,6 +1,6 @@
 {
  "id": "bank-geo-348",
- "question": "In triangle $LMN$ shown, angle $N$ is a right angle, $LM = 50$, and $\\sin M = \\frac{24}{25}$. What is the value of $\\tan L$?",
+ "question": "In triangle $LMN$ shown, angle $N$ is a right angle and $\\sin M = \\frac{24}{25}$. What is the value of $\\tan L$?",
  "diagram": {
   "type": "rightTriangle",
   "params": {
@@ -26,12 +26,12 @@
    "sideLabels": [
     "",
     "",
-    "50"
+    ""
    ],
    "rightAngleVertex": 1,
    "figureNote": true
   }
  },
  "correctAnswer": "7/24",
- "explanation": "**SAT Pattern: Direct Trig Ratio**\n\n**The correct answer is $\\frac{7}{24}$.**\n\n**The Fast Way (~50s):** $\\sin M = \\frac{LN}{LM}$ gives $LN = 48$, so $MN = \\sqrt{50^2 - 48^2} = 14$ and $\\tan L = \\frac{14}{48} = \\frac{7}{24}$.\n\n**The Full Solution:**\nStep 1: The leg opposite angle $M$ is $\\overline{LN}$, so $\\sin M = \\frac{LN}{50} = \\frac{24}{25}$ and $LN = 48$.\nStep 2: By the Pythagorean theorem, $MN^2 = 50^2 - 48^2 = 2{,}500 - 2{,}304 = 196$, so $MN = 14$.\nStep 3: From angle $L$, the opposite leg is $\\overline{MN}$ and the adjacent leg is $\\overline{LN}$, so $\\tan L = \\frac{14}{48} = \\frac{7}{24}$.\n\nCheck: $14^2 + 48^2 = 196 + 2{,}304 = 2{,}500 = 50^2$. Equivalent entries: $7/24$, $.2916$, or $.2917$. ✓\n\n**Common Mistakes:**\n* $\\frac{24}{7}$: this is $\\frac{48}{14} = \\tan M$, the tangent of the other acute angle.\n* $\\frac{7}{25}$: this is $\\frac{14}{50} = \\sin L$, opposite over hypotenuse instead of opposite over adjacent.\n* $\\frac{24}{25}$: this copies $\\sin M$; since $\\sin M = \\cos L$, it is the cosine of $L$, not the tangent.\n\n**Test Day Takeaway:** Turn the given ratio into a side length using the hypotenuse, recover the last side with the Pythagorean theorem, and only then write the ratio the question asks for."
+ "explanation": "**SAT Pattern: Direct Trig Ratio**\n\n**The correct answer is $\\frac{7}{24}$.**\n\n**The Fast Way (~40s):** $\\sin M = \\frac{LN}{LM} = \\frac{24}{25}$, so take $LN = 24$ and $LM = 25$; then $MN = \\sqrt{25^2 - 24^2} = 7$ and $\\tan L = \\frac{MN}{LN} = \\frac{7}{24}$.\n\n**The Full Solution:**\nStep 1: The leg opposite angle $M$ is $\\overline{LN}$ and the hypotenuse is $\\overline{LM}$, so $LN = 24k$ and $LM = 25k$ for some positive number $k$.\nStep 2: By the Pythagorean theorem, $MN^2 = (25k)^2 - (24k)^2 = 49k^2$, so $MN = 7k$.\nStep 3: From angle $L$, the opposite leg is $\\overline{MN}$ and the adjacent leg is $\\overline{LN}$, so $\\tan L = \\frac{7k}{24k} = \\frac{7}{24}$.\n\nCheck: $7^2 + 24^2 = 49 + 576 = 625 = 25^2$. Equivalent entries: $7/24$, $.2916$, or $.2917$. ✓\n\n**Common Mistakes:**\n* $\\frac{24}{7}$: this is $\\frac{LN}{MN} = \\tan M$, the tangent of the other acute angle.\n* $\\frac{7}{25}$: this is $\\frac{MN}{LM} = \\sin L$, opposite over hypotenuse instead of opposite over adjacent.\n* $\\frac{24}{25}$: this copies $\\sin M$; since $\\sin M = \\cos L$, it is the cosine of $L$, not the tangent.\n\n**Test Day Takeaway:** A trig ratio fixes the shape of a right triangle, not its size: write the sides as multiples of $k$, find the third side, and the $k$ cancels in the ratio the question asks for."
 }

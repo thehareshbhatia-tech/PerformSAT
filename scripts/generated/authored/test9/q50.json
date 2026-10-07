@@ -6,7 +6,7 @@
   "domain": "expression-of-ideas",
   "skill": "transitions",
   "module": 2,
-  "passage": "Visitors to Chavín de Huántar in the first millennium BCE did not merely look at the temple; ceremonies there were engineered for the ear as much as for the eye, archaeologists argue, with sound at the center of the experience. ______ excavations at the temple have recovered more than twenty conch-shell trumpets, each with a carefully cut mouthpiece and a surface polished by use.",
+  "passage": "Bamboo, a giant grass, grows faster than almost any other plant on Earth, and its new shoots can rise visibly from one day to the next. ______ some species have been recorded growing as much as 91 centimeters, nearly three feet, in a single day.",
   "question": "Which choice completes the text with the most logical transition?",
   "choices": [
     {
@@ -27,8 +27,12 @@
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The second sentence delivers striking confirmation of the first — more than twenty trumpets, polished by use — and \"In fact\" is the transition that presents evidence as emphatic support for a claim just made.\n\n**The Full Solution:**\n- Sentence one advances the archaeologists' claim: sound was central to the temple's ceremonies.\n- Sentence two does not merely continue the thought; it intensifies it with hard evidence — instruments in quantity, worn by playing.\n- A claim followed by its most arresting piece of support takes an emphasizing transition.\n\n**Why the other choices are wrong:**\n- A: \"Nonetheless\" concedes an obstacle, but the trumpet find supports rather than resists the claim.\n- B: \"Meanwhile\" implies a second, parallel scene; both sentences concern the same site and argument.\n- C: \"By contrast\" needs two things set against each other, and the discovery agrees with the claim instead of opposing it.",
+  "explanation": "**Choice D is correct.** The second sentence gives a striking figure that strengthens the first sentence's claim about how fast bamboo grows. \"In fact\" introduces information that confirms and intensifies a preceding statement.\n\n**The Full Solution:**\n- First sentence: bamboo grows faster than almost any other plant.\n- Second sentence: some species grow up to 91 centimeters in a day.\n- The second sentence backs up and sharpens the first, so an emphasizing transition fits.\n\n**Why the other choices are wrong:**\n- A: \"Nonetheless\" signals a result that runs against what came before, but the second sentence agrees with the first.\n- B: \"Meanwhile\" signals something happening at the same time or a shift to another topic, not support for the same claim.\n- C: \"By contrast\" signals a difference, but the two sentences make the same point.",
   "_meta": {
-    "anchor": "Stanford CCRMA Chavín project (Pututus page): 21 intact pututus excavated (2001, 2018), with mouthpieces cut at the spire and use-polished surfaces."
+    "anchor": "Bamboo growth up to 91 cm per day (Guinness World Records) — In fact",
+    "sources": [
+      "https://www.guinnessworldrecords.com/world-records/fastest-growing-plant",
+      "https://www.discoverwildlife.com/plant-facts/fastest-growing-plant"
+    ]
   }
 }

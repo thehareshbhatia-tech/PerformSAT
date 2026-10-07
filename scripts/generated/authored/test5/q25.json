@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 1,
- "passage": "Interpreters of Dutch still life long read the genre as a gallery of moral warnings: the skull, the guttering candle, and the fly on the fruit were reminders of mortality. ______ some recent scholars point out that inventories and sale prices show buyers prizing these pictures as showcases of painterly skill and of abundance itself, and they argue that the moralizing reading may say more about later critics.",
+ "passage": "Many twentieth-century textbooks showed a \"tongue map\" that gave each basic taste its own zone: sweet at the tip, bitter at the back, and sour and salty along the sides. ______ researchers have found that every part of the tongue with taste buds can detect all of these tastes, and they trace the map to a misreading of a 1901 German study.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,8 +27,8 @@
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The second sentence pushes back against the long-standing moralizing interpretation described in the first, so a contrast transition is needed.\n\n**The Full Solution:**\n- Sentence one presents the established reading: still lifes as moral warnings, reminders of mortality.\n- Sentence two presents evidence and an argument against it: buyers prized the pictures for skill and abundance, and the moralizing reading may say more about later critics.\n- A sentence that challenges the position just described takes an adversative transition, and \"However\" marks exactly that turn.\n\n**Why the other choices are wrong:**\n- A: \"Likewise\" would make the scholars' view an extension of the moral reading, when it is a challenge to it.\n- B: \"Therefore\" would present the challenge as a conclusion drawn from the moral reading, reversing the actual logic.\n- C: \"Specifically\" would promise a more detailed version of the first sentence's claim, not evidence against it.",
+ "explanation": "**Choice D is correct.** The second sentence contradicts the tongue map described in the first, so a contrast transition is needed.\n\n**The Full Solution:**\n- Sentence one presents the familiar claim: each basic taste has its own zone on the tongue.\n- Sentence two presents evidence against it: every part of the tongue with taste buds can detect all of the tastes, and the map came from a misreading of an old study.\n- A sentence that rejects the view just described takes a contrasting transition, and \"However\" marks exactly that turn.\n\n**Why the other choices are wrong:**\n- A: \"Likewise\" would present the researchers' finding as agreeing with the tongue map, when it contradicts it.\n- B: \"Therefore\" would present the finding as a conclusion drawn from the tongue map, reversing the actual logic.\n- C: \"Specifically\" would promise a more detailed version of the tongue map, not evidence against it.",
  "_meta": {
-  "anchor": "vanitas interpretation of Dutch still life vs. market-based rereading; contrast transition"
+  "anchor": "tongue map myth vs. taste buds detecting every taste; contrast transition"
  }
 }

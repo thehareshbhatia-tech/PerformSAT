@@ -1,29 +1,29 @@
 {
- "question": "A circle has a diameter of $2.8$ meters. What is the circumference of the circle, in meters?",
- "hint": "Decide whether the given length is a radius or a diameter before choosing a formula.",
+ "question": "A circle has a diameter of $14$ meters. What is the circumference of the circle, in meters?",
+ "hint": "Circumference equals pi times the diameter.",
  "choices": [
   {
    "id": "A",
-   "text": "$1.4\\pi$"
+   "text": "$7\\pi$"
   },
   {
    "id": "B",
-   "text": "$1.96\\pi$"
+   "text": "$14\\pi$"
   },
   {
    "id": "C",
-   "text": "$2.8\\pi$"
+   "text": "$28\\pi$"
   },
   {
    "id": "D",
-   "text": "$5.6\\pi$"
+   "text": "$49\\pi$"
   }
  ],
  "distractorNotes": {
-  "A": "multiplies pi by the radius 1.4 instead of the diameter",
-  "B": "computes the area pi(1.4)^2 = 1.96pi",
-  "D": "doubles the diameter before multiplying by pi"
+  "A": "multiplies the radius, 7, by pi",
+  "C": "uses 2 times pi times the diameter",
+  "D": "computes the area, pi r^2"
  },
- "correctAnswer": "C",
- "explanation": "**Choice C is correct.**\n\n**The Fast Way (~10s):** Circumference is $\\pi d$, so the circumference is $\\pi(2.8) = 2.8\\pi$ meters.\n\n**The Full Solution:**\nStep 1: The circumference of a circle with diameter $d$ is $C = \\pi d$.\nStep 2: Substitute $d = 2.8$: $C = \\pi(2.8)$.\nStep 3: $C = 2.8\\pi$ meters. Check: the radius is $1.4$, and $2\\pi(1.4) = 2.8\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.4\\pi$): multiplies $\\pi$ by the radius $1.4$, which gives only half the circumference.\n* Choice B ($1.96\\pi$): computes the area $\\pi(1.4)^2 = 1.96\\pi$, which is not a length.\n* Choice D ($5.6\\pi$): doubles the diameter as if the given number were the radius.\n\n**Test Day Takeaway:** Check whether the number given is a radius or a diameter before choosing between $2\\pi r$ and $\\pi d$."
+ "correctAnswer": "B",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~10s):** $C = \\pi d = 14\\pi$.\n\n**The Full Solution:**\nStep 1: The circumference of a circle is $C = \\pi d$, or equivalently $C = 2\\pi r$.\nStep 2: The diameter is $14$ meters, so the radius is $7$ meters.\nStep 3: $C = \\pi(14) = 14\\pi$ meters. Check: $2\\pi r = 2\\pi(7) = 14\\pi$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7\\pi$): multiplies the radius by $\\pi$, which gives half the circumference.\n* Choice C ($28\\pi$): uses $2\\pi$ times the diameter instead of the radius.\n* Choice D ($49\\pi$): computes the area, $\\pi r^2 = 49\\pi$, not the circumference.\n\n**Test Day Takeaway:** $C = \\pi d = 2\\pi r$; read whether you were given $d$ or $r$ before you multiply."
 }

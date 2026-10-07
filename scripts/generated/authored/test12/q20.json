@@ -6,26 +6,26 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 1,
- "passage": "Cast nets, weighted circles of mesh thrown by hand, are among the oldest fishing tools still in use. Ancient writers knew them well: in the second century CE, the Greek poet Oppian ____ the Halieutica, a five-book poem on fishing that describes, among many other methods, nets cast from boats.",
+ "passage": "By the mid-1800s, London's streets were crowded with horse-drawn traffic, and engineers proposed moving some travelers underground. Construction began in 1860. In 1863, the Metropolitan Railway ____ to passengers between Paddington and Farringdon, becoming the world's first underground railway.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "writes"
+   "text": "opens"
   },
   {
    "id": "B",
-   "text": "has written"
+   "text": "has opened"
   },
   {
    "id": "C",
-   "text": "had written"
+   "text": "had opened"
   },
   {
    "id": "D",
-   "text": "wrote"
+   "text": "opened"
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The action happened at a finished time in the past — \"in the second century CE\" — so the simple past tense \"wrote\" is required.\n\n**The Full Solution:**\n- The rule: a verb's tense must match the time frame the sentence establishes.\n- The phrase \"in the second century CE\" places the writing of the poem at a finished point in the past, and a completed past event takes the simple past.\n- \"In the second century CE, the Greek poet Oppian wrote the Halieutica\" states the finished event plainly.\n\n**Why the other choices are wrong:**\n- A: \"Writes\" is present tense, which contradicts the second-century time frame.\n- B: \"Has written\" is the present perfect, used for actions connected to the present and incompatible with a specific past time like \"in the second century CE.\"\n- C: \"Had written\" is the past perfect, which requires a second, later past event for the writing to have happened before — and the sentence supplies none."
+ "explanation": "**Choice D is correct.** The sentence reports a single completed event at a specific past time, \"in 1863,\" so the simple past tense \"opened\" is needed.\n\n**The Full Solution:**\n- The time marker \"in 1863\" places the action at one finished point in the past.\n- The simple past is the tense used for a completed action at a stated past time.\n- \"In 1863, the Metropolitan Railway opened to passengers\" is therefore correct.\n\n**Why the other choices are wrong:**\n- A: The present tense \"opens\" does not fit an event that took place in 1863.\n- B: The present perfect \"has opened\" cannot be used with a specific past date such as \"in 1863.\"\n- C: The past perfect \"had opened\" signals an action completed before another past event, but the opening came after construction began in 1860, not before it."
 }

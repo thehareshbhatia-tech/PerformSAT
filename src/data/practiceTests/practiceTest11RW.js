@@ -59,8 +59,8 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The sentence describes \"bolting together\" a facade from numbered, factory-made parts — the builder could \"assemble\" a storefront.\n\n**The Full Solution:**\n- The contrast is between carving ornament by hand and putting together prefabricated pieces.\n- The clause after the blank spells out the action: \"bolting the pieces together\" from the catalog's parts.\n- \"Assemble\" — to construct by fitting parts together — names exactly that process.\n\n**Why the other choices are wrong:**\n- A: \"Sketch\" describes drawing a design, but the builder is physically erecting the facade, not drafting it.\n- C: \"Renovate\" means to restore something that already exists; these storefronts are being built new from parts.\n- D: \"Imagine\" describes mental picturing, which leaves the bolting and building unexplained.",
-          "passage": "In the mid-1800s, New York foundries sold cast-iron building fronts, with columns, lintels, and ornaments poured in standard molds and listed in catalogs. A merchant did not need to hire a stonecutter to carve each ornament by hand; instead, a builder could simply ______ a storefront from the catalog's numbered parts, bolting the pieces together at a fraction of the cost of carved stone.",
+          "explanation": "**Choice B is correct.** The sentence describes \"bolting the pieces together\" to make a facade from numbered, factory-made parts — the builder could \"assemble\" a storefront.\n\n**The Full Solution:**\n- The contrast is between carving ornament by hand and putting together prefabricated pieces.\n- The clause after the blank spells out the action: \"bolting the pieces together\" from the catalog's parts.\n- \"Assemble\" — to construct by fitting parts together — names exactly that process.\n\n**Why the other choices are wrong:**\n- A: \"Sketch\" describes drawing a design, but the builder is physically erecting the facade, not drafting it.\n- C: \"Renovate\" means to restore something that already exists; these storefronts are being built new from parts.\n- D: \"Imagine\" describes mental picturing, which leaves the bolting and building unexplained.",
+          "passage": "In the mid-1800s, New York foundries sold cast-iron building fronts, with columns, lintels, and ornaments poured in standard molds and listed in catalogs. A merchant did not need to hire a stonecutter to carve each ornament by hand. Instead, a builder could simply ______ a storefront from the catalog's numbered parts, bolting the pieces together at a fraction of the cost of carved stone.",
           "_meta": {
             "anchor": "cast-iron storefront architecture — catalog prefabrication, mid-1800s New York foundries (Bogardus/Badger era; facades far cheaper than carved stone — Wikipedia, Cast-iron architecture)",
             "distractors": {
@@ -235,11 +235,11 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "The speaker recounts a late-night walk through the city's streets and then regrets having abandoned the quiet countryside for an unfamiliar and glittering capital."
+              "text": "The speaker recounts a late-night walk through the city's streets and then regrets having left the quiet countryside."
             },
             {
               "id": "B",
-              "text": "The speaker describes the city and its street at night, sets the moon against the city's glare, and closes by siding with the moon."
+              "text": "The speaker describes the city at night, contrasts the moon with the city's glare, and ends by siding with the moon."
             },
             {
               "id": "C",
@@ -247,11 +247,11 @@ export const practiceTest11RW = {
             },
             {
               "id": "D",
-              "text": "The speaker celebrates the brilliance of the lamplit city and then wonders whether the moon will ever be bright enough to outshine it."
+              "text": "The speaker celebrates the lamplit city and then wonders whether the moon could ever outshine its glare."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The excerpt moves in three steps: the \"squalid and sinister\" city with its silver-barred street, then the moon opposite the window, outshone by the city's white lamps, and finally the speaker's declaration — \"She is thin and lustreless, / But I love her. / I know the moon, / And this is an alien city.\"\n\n**The Full Solution:**\n- The first stanza is description: the city and the street that runs through it \"Like\" a river \"leading nowhere.\"\n- The second stanza raises the eyes to the moon and stages the contest — \"She cannot light the city; / It is too bright.\"\n- The third stanza resolves it in the moon's favor on grounds of familiarity, not brightness. Description, contrast, allegiance: that is choice B's sequence.\n\n**Why the other choices are wrong:**\n- A: The speaker never walks — she watches from a window — and no countryside appears anywhere in the excerpt.\n- C: The excerpt contains no daytime scene to compare against; everything happens at night.\n- D: It reverses the speaker's attitude — the city is \"squalid and sinister,\" not celebrated, and the moon is loved despite being outshone.",
+          "explanation": "**Choice B is correct.** The excerpt moves in three steps: the \"squalid and sinister\" city with its silver-barred street, then the moon opposite the window, outshone by the city's white lamps, and finally the speaker's declaration — \"She is thin and lustreless, / But I love her. / I know the moon, / And this is an alien city.\"\n\n**The Full Solution:**\n- The first stanza is description: the city and the street that runs through it, \"A river leading nowhere.\"\n- The second stanza raises the eyes to the moon and stages the contest — \"She cannot light the city; / It is too bright.\"\n- The third stanza resolves it in the moon's favor on grounds of familiarity, not brightness. Description, contrast, allegiance: that is choice B's sequence.\n\n**Why the other choices are wrong:**\n- A: The speaker never walks — she watches from a window — and no countryside appears anywhere in the excerpt.\n- C: The excerpt contains no daytime scene to compare against; everything happens at night.\n- D: It reverses the speaker's attitude — the city is \"squalid and sinister,\" not celebrated, and the moon is loved despite being outshone.",
           "passage": "The following text is from Amy Lowell's 1914 poem \"A London Thoroughfare. 2 A.M.\"\n\nThe city is squalid and sinister,\nWith the silver-barred street in the midst,\nSlow-moving,\nA river leading nowhere.\n\nOpposite my window,\nThe moon cuts,\nClear and round,\nThrough the plum-coloured night.\nShe cannot light the city;\nIt is too bright.\nIt has white lamps,\nAnd glitters coldly.\n\nI stand in the window and watch the moon.\nShe is thin and lustreless,\nBut I love her.\nI know the moon,\nAnd this is an alien city.",
           "_meta": {
             "anchor": "Amy Lowell, \"A London Thoroughfare. 2 A.M.\" (1914) — genuine public-domain text, final 19 lines verbatim",
@@ -274,7 +274,7 @@ export const practiceTest11RW = {
           "passages": [
             {
               "label": "Text 1",
-              "text": "Craft guilds regulated much of European manufacturing for centuries, and the economic historian S. R. Epstein argued that their endurance rested on a genuine service: training. A guild apprenticeship bound a young worker to a master for a term of years, and because the guild itself enforced those terms, the master had reason to teach rather than merely extract labor. In Epstein's account, guilds persisted because they solved a real problem — sustaining the costly transmission of skills from one generation to the next."
+              "text": "Craft guilds regulated much of European manufacturing for centuries, and the economic historian S. R. Epstein argued that their endurance rested on a genuine service: training. A guild apprenticeship bound a young worker to a master for a term of years. Because the guild itself enforced those terms, the master had reason to teach rather than merely extract labor. In Epstein's account, guilds persisted because they solved a real problem — sustaining the costly transmission of skills from one generation to the next."
             },
             {
               "label": "Text 2",
@@ -339,7 +339,7 @@ export const practiceTest11RW = {
           ],
           "correctAnswer": "D",
           "explanation": "**Choice D is correct.** The text presents mycelium sheets — how they are grown and finished — then closes by balancing early promise (\"resist tearing well for their weight\") against an unresolved issue (\"must still prove the material's durability at scale\").\n\n**The Full Solution:**\n- The opening gives the motivation: plastic substitutes wear poorly, so scientists sought an alternative.\n- The middle describes the material's production, from trays of sawdust to a supple, dyeable sheet.\n- The final sentence explicitly pairs an open question with encouraging early results — the hallmark of an introduction to a technology still in development, which is what choice D captures.\n\n**Why the other choices are wrong:**\n- A: The text predicts no replacement of leather; it reports early tests and an unproven property, not a coming triumph.\n- B: The shedding of plastic fragments is a one-sentence premise, not the subject the text develops.\n- C: Cost is never mentioned anywhere in the text.",
-          "passage": "Leather substitutes made from plastic have long been criticized for wearing poorly and for shedding synthetic fragments as they age. Materials scientists have therefore turned to an unlikely source: the root-like web of threads, called mycelium, that a fungus spreads through whatever it feeds on. Grown in trays of sawdust or agricultural waste, the mat of threads can be harvested in weeks, then compressed and treated to yield a supple sheet that can be dyed, embossed, and stitched like animal hide. Manufacturers must still prove the material's durability at scale, but early tests suggest the sheets resist tearing well for their weight.",
+          "passage": "Leather substitutes made from plastic have long been criticized for wearing poorly and for shedding synthetic fragments as they age. Materials scientists have therefore turned to an unlikely source: the root-like web of threads, called mycelium, that a fungus spreads through whatever it feeds on. Grown in trays of sawdust or agricultural waste, the mat of threads can be harvested in weeks. It is then compressed and treated to yield a supple sheet that can be dyed, embossed, and stitched like animal hide. Manufacturers must still prove the material's durability at scale, but early tests suggest the sheets resist tearing well for their weight.",
           "_meta": {
             "anchor": "fungal leather alternatives — mycelium sheet production and open durability question",
             "distractors": {
@@ -372,12 +372,12 @@ export const practiceTest11RW = {
             },
             {
               "id": "D",
-              "text": "Tidal bores were once common around the world but have gradually disappeared from most rivers as coastlines have changed."
+              "text": "Tidal bores were once common around the world but have disappeared from most rivers as coastlines changed."
             }
           ],
           "correctAnswer": "A",
           "explanation": "**Choice A is correct.** The text's through-line is a requirement and its consequence: a bore needs \"an unusual combination of conditions,\" and \"because few coastlines meet both requirements, bores are rare.\"\n\n**The Full Solution:**\n- The text first contrasts the usual gradual tide with the bore's single upstream wave.\n- It then names the two conditions a bore demands — a large tidal range and a funnel-shaped bay or river mouth.\n- The final sentence draws the conclusion choice A restates: the rarity of the combination explains the rarity of the phenomenon.\n\n**Why the other choices are wrong:**\n- B: The text does explain the difference — it lists the exact conditions required — so unsolved mystery is the opposite of its point.\n- C: The text requires both conditions together; a large tidal range alone is never said to be sufficient.\n- D: No historical decline appears anywhere in the text.",
-          "passage": "In most rivers, the tide comes in as a gradual swelling. But in some rivers, the leading edge of the incoming tide arrives all at once, as a wave that travels upstream against the current. This phenomenon, called a tidal bore, requires an unusual combination of conditions: a large tidal range, typically more than six meters, and a funnel-shaped bay or river mouth that squeezes the rising water into an ever narrower, shallower channel. Because few coastlines meet both requirements, bores are rare, and rivers with reliable ones draw scientists and surfers alike.",
+          "passage": "In most rivers, the tide comes in as a gradual swelling. But in some rivers, the leading edge of the incoming tide arrives all at once, as a wave that travels upstream against the current. This phenomenon, called a tidal bore, requires an unusual combination of conditions. The tidal range must be large, typically more than six meters, and a funnel-shaped bay or river mouth must squeeze the rising water into an ever narrower, shallower channel. Because few coastlines meet both requirements, bores are rare, and rivers with reliable ones draw scientists and surfers alike.",
           "_meta": {
             "anchor": "tidal bores — required conditions (tidal range > ~6 m + funnel mouth) explain rarity (Wikipedia, Tidal bore, citing Chanson 2011: 'relatively few locations worldwide')",
             "distractors": {
@@ -436,15 +436,15 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Medieval chroniclers tended to record auroras only when displays were bright enough to alarm the public in towns and cities alike."
+              "text": "Medieval chroniclers tended to record auroras only when displays were bright enough to alarm the public."
             },
             {
               "id": "B",
-              "text": "Some chronicles describe other celestial events, such as comets, that modern astronomy can date precisely."
+              "text": "Some chronicles also describe other celestial events, such as comets and eclipses, that modern astronomy can date precisely."
             },
             {
               "id": "C",
-              "text": "Chronicles record auroras markedly more often in centuries when tree-ring isotopes independently indicate high solar activity."
+              "text": "Chronicles record auroras far more often in centuries when tree-ring isotopes indicate high solar activity."
             },
             {
               "id": "D",
@@ -453,7 +453,7 @@ export const practiceTest11RW = {
           ],
           "correctAnswer": "C",
           "explanation": "**Choice C is correct.** The proposal is that chronicle sightings can stand in for direct measurements of solar activity. If chronicle counts rise exactly when an independent physical proxy — tree-ring isotopes — says solar activity was high, the stand-in is validated.\n\n**The Full Solution:**\n- A stand-in earns trust by agreeing with something already trusted. The team cannot check chronicles against instruments (none existed), so the test must be another independent record of solar activity.\n- Elevated radioactive isotopes in tree rings are such a record; a match between chronicle aurora counts and isotope-inferred activity directly supports using the chronicles to trace the solar cycle.\n\n**Why the other choices are wrong:**\n- A: A brightness threshold means faint displays went unrecorded — a limitation of the record, not evidence it tracks the solar cycle.\n- B: Accurate comet reports speak to chroniclers' general reliability, not to whether aurora counts follow solar activity.\n- D: Geographic spread describes the record's breadth; it says nothing about whether sighting frequency rises and falls with the Sun.",
-          "passage": "The Sun's activity rises and falls on a roughly eleven-year cycle, but direct measurements of that cycle reach back only a few centuries. Auroras — the shimmering lights that appear when charged particles from the Sun strike the upper atmosphere — become more frequent when solar activity peaks. One team of researchers has proposed that the many aurora sightings recorded in medieval European and East Asian chronicles could serve as a stand-in for direct measurements, allowing the solar cycle to be traced through centuries that no instrument ever observed.",
+          "passage": "The Sun's activity rises and falls on a roughly eleven-year cycle, but direct measurements of that cycle reach back only a few centuries. Auroras — the shimmering lights that appear when charged particles from the Sun strike the upper atmosphere — become more frequent when solar activity peaks. One team of researchers has proposed that the many aurora sightings recorded in medieval European and East Asian chronicles could serve as a stand-in for direct measurements. The records would allow the solar cycle to be traced through centuries that no instrument ever observed.",
           "_meta": {
             "anchor": "aurora observation history — medieval chronicle sightings as solar-activity proxy",
             "distractors": {
@@ -490,8 +490,8 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The text states it directly: the weave count \"is set by how thinly the weaver splits the straw before weaving begins.\"\n\n**The Full Solution:**\n- The question asks for a stated detail, so the answer must be located in the text, not inferred beyond it.\n- The sentence defining weave count — the number of weaves per square inch — continues immediately with its determinant: the thinness of the split straw (\"the thinner the strands, the more weaves fit into each inch\").\n- Choice B restates that sentence and nothing more.\n\n**Why the other choices are wrong:**\n- A: It reverses cause and effect — weaving at a high count is why a hat can take months, not the other way around.\n- C: The text never mentions a wooden block or connects any form to fineness.\n- D: The palm's age is never mentioned in the text.",
-          "passage": "The finest so-called panama hats are woven not in Panama but in Ecuador, in villages around the town of Montecristi, from fibers of the toquilla palm. A hat's fineness is judged by its weave count, the number of weaves per square inch, and that count is set by how thinly the weaver splits the straw before weaving begins: the thinner the strands, the more weaves fit into each inch. Weaving at the highest counts is so slow that a master weaver can spend as long as eight months on a single hat.",
+          "explanation": "**Choice B is correct.** The text states it directly: the weave count is \"set by how thinly the weaver splits the straw before weaving begins.\"\n\n**The Full Solution:**\n- The question asks for a stated detail, so the answer must be located in the text, not inferred beyond it.\n- The sentence defining weave count — the number of weaves per square inch — continues immediately with its determinant: the thinness of the split straw (\"the thinner the strands, the more weaves fit into each inch\").\n- Choice B restates that sentence and nothing more.\n\n**Why the other choices are wrong:**\n- A: It reverses cause and effect — weaving at a high count is why a hat can take months, not the other way around.\n- C: The text never mentions a wooden block or connects any form to fineness.\n- D: The palm's age is never mentioned in the text.",
+          "passage": "The finest so-called panama hats are woven not in Panama but in Ecuador, in villages around the town of Montecristi, from fibers of the toquilla palm. A hat's fineness is judged by its weave count, the number of weaves per square inch. That count is set by how thinly the weaver splits the straw before weaving begins: the thinner the strands, the more weaves fit into each inch. Weaving at the highest counts is so slow that a master weaver can spend as long as eight months on a single hat.",
           "_meta": {
             "anchor": "panama-hat weaving — Montecristi weave count (weaves per square inch) set by straw fineness; up to eight months per hat (Wikipedia, Panama hat; NPR 2015 on Montecristi weaving)",
             "distractors": {
@@ -512,66 +512,66 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "91% of shipments on the Chicago route arrived in good condition, the highest share of any route in the table."
+              "text": "Syracuse received about 128 inches of snow per year, the most of any city in the table."
             },
             {
               "id": "B",
-              "text": "shipments traveled as far as 3,200 miles, and three of the four routes covered more than 2,000 miles."
+              "text": "average January temperatures ranged from about −12°F in Utqiagvik to about 24°F in Syracuse, a difference of 36 degrees."
             },
             {
               "id": "C",
-              "text": "the Boston route, the longest shown, saw 89% of shipments arrive in good condition, while the shorter Atlanta route, with the widest station spacing, saw only 64%."
+              "text": "Syracuse, the warmest city, had the most precipitation and snow, while Utqiagvik, the coldest, had the least of both."
             },
             {
               "id": "D",
-              "text": "shipments to Atlanta arrived in good condition less often than shipments to New Orleans, even though the two routes differed in length by only several hundred miles."
+              "text": "Duluth received about 25 more inches of snow per year than Fairbanks, though Duluth averaged about 19 degrees warmer in January."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The historian's claim pits two variables against each other — distance versus station spacing — and C cites the pair of routes that separates them: the longest route (Boston, stations every 260 miles) succeeded, while a shorter route (Atlanta, stations every 610 miles) failed.\n\n**The Full Solution:**\n- If distance set the limits of the trade, the 3,200-mile Boston route should fare worst. It did not: 89% arrived in good condition.\n- If station spacing set the limits, Atlanta — 800 miles shorter but with intervals more than twice as wide — should fare worst. It did: 64%.\n- Only that cross-comparison isolates the icing network as the operative constraint, which is exactly what the conclusion asserts.\n\n**Why the other choices are wrong:**\n- A: A single route's success rate, with no reference to spacing or distance, cannot arbitrate between the two variables.\n- B: It reports distances alone and never touches the outcome the claim is about.\n- D: The Atlanta-New Orleans contrast never mentions station spacing, so it leaves open the possibility that some other difference explains the gap.",
-          "passage": "Before mechanical refrigeration, a refrigerated rail car was an insulated box cooled by blocks of ice, which had to be replenished at icing stations along the route. A historian of the produce trade argues that the system's reach was limited less by how much ice a car could carry than by where the icing stations stood. The historian concludes that the icing network, rather than car design, set the geography of the trade because ______",
+          "explanation": "**Choice C is correct.** The claim sets moisture against cold, so the evidence must separate the two. C does: Syracuse, the warmest city (about 24°F in January), had the most precipitation (about 39.9 inches) and the most snow (about 128 inches), while Utqiagvik, the coldest (about −12°F), had the least precipitation (about 5.4 inches) and the least snow (about 46 inches).\n\n**The Full Solution:**\n- If cold set snowfall, the coldest city, Utqiagvik, should get the most snow. It gets the least: about 46 inches.\n- If moisture set snowfall, the city with the most precipitation, Syracuse, should get the most snow even though it is the warmest city. It does: about 128 inches.\n- Only that cross-comparison shows snowfall following moisture rather than cold, which is exactly what the idea asserts.\n\n**Why the other choices are wrong:**\n- A: A single city's snowfall, with no reference to temperature or precipitation, cannot decide between the two factors.\n- B: It reports temperatures alone and never mentions snowfall, the outcome the claim is about.\n- D: The Duluth-Fairbanks contrast shows a warmer city getting more snow, but it never mentions precipitation, so it does not show that moisture is the factor that matters.",
+          "passage": "Many people assume that the coldest places get the most snow. Scientists at the National Snow and Ice Data Center explain that this is not the case. Snow requires moisture, and very cold air usually holds little water vapor. In fact, most heavy snowfalls occur when the air near the ground is about 15°F or warmer. Data from four US cities support the idea that a place's snowfall depends more on its supply of moisture than on how cold it gets, because ______",
           "questionTable": {
             "type": "table",
-            "caption": "Lettuce shipments from California arriving in good condition, by route",
+            "caption": "Climate averages for four US cities, 1991–2020 (source: NOAA)",
             "headers": [
-              "Route",
-              "Distance (miles)",
-              "Average interval between icing stations (miles)",
-              "Shipments arriving in good condition (%)"
+              "City",
+              "Average January temperature (°F)",
+              "Average yearly precipitation (inches)",
+              "Average yearly snowfall (inches)"
             ],
             "rows": [
               [
-                "To Chicago",
-                "2,200",
-                "250",
-                "91"
+                "Utqiagvik, Alaska",
+                "−12",
+                "5.4",
+                "46"
               ],
               [
-                "To New Orleans",
-                "2,000",
-                "320",
-                "88"
+                "Fairbanks, Alaska",
+                "−8",
+                "11.7",
+                "65"
               ],
               [
-                "To Atlanta",
-                "2,400",
-                "610",
-                "64"
+                "Duluth, Minnesota",
+                "11",
+                "31.2",
+                "90"
               ],
               [
-                "To Boston",
-                "3,200",
-                "260",
-                "89"
+                "Syracuse, New York",
+                "24",
+                "39.9",
+                "128"
               ]
             ]
           },
           "_meta": {
-            "anchor": "refrigerated rail cars — icing-station spacing vs. distance as the constraint on the produce trade",
+            "anchor": "snowfall vs. coldness in four US cities — moisture supply, not cold, sets snowfall (NSIDC, Science of Snow; NOAA 1991–2020 normals via Wikipedia climate tables)",
             "distractors": {
-              "A": "single row, no variable isolation",
-              "B": "distance only, outcome ignored",
-              "D": "comparison that omits the station-spacing variable"
+              "A": "single row, no factor isolation",
+              "B": "temperature only, outcome ignored",
+              "D": "comparison that omits the moisture (precipitation) factor"
             }
           },
           "id": 1114
@@ -602,8 +602,8 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The text's controlling claim is that publishers \"did not wait for the public to discover a new song\" — success \"was manufactured as much as it was written.\"\n\n**The Full Solution:**\n- The opening sentence states the thesis directly: publishers made their money on sheet music and did not leave discovery to chance.\n- The middle supplies the mechanism — pluggers performing in stores, paying stars, leading rehearsed singalongs — all deliberate demand-building.\n- The closing sentence generalizes: melody mattered, \"but so did the machinery,\" confirming that engineered promotion is the idea the details serve.\n\n**Why the other choices are wrong:**\n- A: No decline in sales is reported; paying performers is presented as a promotion tactic, not a cause of falling sales.\n- B: The text says pluggers were pianists and singers; nothing marks them as failed songwriters.\n- D: It reverses the final sentence, which insists the machinery mattered alongside the melody.",
-          "passage": "Around 1900, the music publishers clustered on New York's West 28th Street — nicknamed Tin Pan Alley — made their money selling sheet music, and they did not wait for the public to discover a new song. Each firm employed \"song pluggers,\" pianists and singers whose job was to make a tune inescapable: they performed it in department stores, planted it in vaudeville acts by paying star performers to sing it, and led theater audiences in rehearsed singalongs. A song's success, publishers understood, was manufactured as much as it was written; a catchy melody mattered, but so did the machinery that put it before the public again and again.",
+          "explanation": "**Choice C is correct.** The text's controlling claim is that publishers \"did not wait for the public to discover a new song\"; they built demand for it.\n\n**The Full Solution:**\n- The opening sentences state the thesis directly: publishers made their money on sheet music and did not leave discovery to chance.\n- The middle supplies the mechanism — pluggers performing in stores, paying stars, leading rehearsed singalongs — all deliberate demand-building.\n- The closing sentence generalizes: melody mattered, \"but so did the machinery,\" confirming that engineered promotion is the idea the details serve.\n\n**Why the other choices are wrong:**\n- A: No decline in sales is reported; paying performers is presented as a promotion tactic, not a cause of falling sales.\n- B: The text says pluggers were pianists and singers; nothing marks them as failed songwriters.\n- D: It reverses the final sentence, which insists the machinery mattered alongside the melody.",
+          "passage": "Around 1900, the music publishers on New York's West 28th Street, nicknamed Tin Pan Alley, made their money selling sheet music. They did not wait for the public to discover a new song. Each firm employed \"song pluggers,\" pianists and singers whose job was to make a tune inescapable. Pluggers performed songs in department stores, paid star performers to sing them in vaudeville acts, and led theater audiences in rehearsed singalongs. A catchy melody mattered, publishers understood, but so did the machinery that put a song before the public again and again.",
           "_meta": {
             "anchor": "Tin Pan Alley song plugging — engineered demand for sheet music",
             "distractors": {
@@ -624,56 +624,56 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "the western tropical Pacific, at 4.6 millimeters per year, rose faster than any other region shown in the table."
+              "text": "grassland birds, with a decrease of 53.3 percent, declined more than birds in any other habitat shown."
             },
             {
               "id": "B",
-              "text": "the eastern Pacific's average rate of 2.2 millimeters per year was the lowest recorded among the four regions."
+              "text": "the eastern forest decrease of 17.4 percent was the smallest among the four habitats."
             },
             {
               "id": "C",
-              "text": "the North Atlantic and the southeast Indian Ocean differ in average rate by less than a millimeter per year."
+              "text": "the boreal forest and western forest decreases differ by less than four percentage points."
             },
             {
               "id": "D",
-              "text": "every region shows a positive average rate, but the rates range from 2.2 to 4.6 millimeters per year."
+              "text": "every habitat shows a decrease, but the decreases range from 17.4 to 53.3 percent."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The conclusion has two halves — a shared upward direction and important regional differences — and D alone documents both: all four rates are positive, and they span more than a twofold range.\n\n**The Full Solution:**\n- The researchers' claim: the trend is \"upward across all of the regions studied,\" yet the rate differs \"substantially from one region to another.\"\n- Supporting that claim requires citing the whole table twice over — direction everywhere, plus spread. \"Every region shows a positive average rate\" covers the first half; \"from 2.2 to 4.6 millimeters per year\" quantifies the second.\n\n**Why the other choices are wrong:**\n- A: It isolates the fastest region, showing neither the shared direction nor the full spread.\n- B: It likewise cites a single region — the slowest — and cannot establish a claim about all four.\n- C: A near-tie between two regions actually understates the differences the conclusion asserts, and it ignores direction entirely.",
-          "passage": "Satellite altimeters have measured the height of the sea surface across nearly the entire global ocean since the early 1990s. Researchers analyzing three decades of these measurements emphasize that the ocean does not rise like water filling a bathtub: winds, currents, and uneven warming make the rate of sea-level rise differ substantially from one region to another, even though the trend is upward across all of the regions studied. The researchers conclude that the altimetry record shows both a shared direction and important regional differences because ______",
+          "explanation": "**Choice D is correct.** The researchers' finding has two halves, declines in all four habitats and very different amounts, and D alone documents both: all four values are decreases, and they range from 17.4 to 53.3 percent.\n\n**The Full Solution:**\n- The finding: birds \"declined in all of them but by very different amounts.\"\n- Supporting it requires the whole table: every value is negative (declines everywhere), and the largest decrease is about three times the smallest (very different amounts).\n- D states both facts in one clause.\n\n**Why the other choices are wrong:**\n- A: It reports only the grassland decrease, which says nothing about whether birds of every habitat declined.\n- B: It reports only the smallest decrease; it never shows the spread across habitats.\n- C: It points to the two most similar habitats, which undercuts rather than supports the claim of very different amounts.",
+          "passage": "Since 1970, North America has lost nearly 3 billion breeding birds, according to a 2019 study led by researchers at the Cornell Lab of Ornithology. The researchers also sorted bird species by the type of habitat in which they breed. For the four habitats shown, they found that birds declined in all of them but by very different amounts because ______",
           "questionTable": {
             "type": "table",
-            "caption": "Average rate of sea-level rise measured by satellite altimetry in four ocean regions, 1993-2023",
+            "caption": "Change in number of breeding birds since 1970 in four North American habitats",
             "headers": [
-              "Region",
-              "Average rise (millimeters per year)"
+              "Habitat",
+              "Change in number of birds (%)"
             ],
             "rows": [
               [
-                "Western tropical Pacific",
-                "4.6"
+                "Grassland",
+                "-53.3"
               ],
               [
-                "Southeast Indian Ocean",
-                "3.9"
+                "Boreal forest",
+                "-33.1"
               ],
               [
-                "North Atlantic",
-                "3.1"
+                "Western forest",
+                "-29.5"
               ],
               [
-                "Eastern Pacific",
-                "2.2"
+                "Eastern forest",
+                "-17.4"
               ]
             ]
           },
           "_meta": {
-            "anchor": "satellite altimetry of oceans — regional sea-level-rise rates, shared direction with spread",
+            "anchor": "North American bird declines by breeding habitat — losses everywhere with wide spread (Rosenberg et al. 2019, Science, Table 1)",
             "distractors": {
-              "A": "single strongest region",
-              "B": "single weakest region",
-              "C": "understates differences, omits direction"
+              "A": "single largest decrease",
+              "B": "single smallest decrease",
+              "C": "smallest gap, omits losses everywhere"
             }
           },
           "id": 1113
@@ -705,7 +705,7 @@ export const practiceTest11RW = {
           ],
           "correctAnswer": "A",
           "explanation": "**Choice A is correct.** The passage's premises all point one way: the design is fixed on paper, the living walls drift from it, and the gardeners must \"clip the walls back to their intended lines\" — that is, restoring the puzzle, not just grooming plants.\n\n**The Full Solution:**\n- The opening frames the maze as \"a puzzle whose walls are alive.\"\n- Untended growth changes the puzzle in both directions: thickening narrows passages, and gaps \"open shortcuts.\"\n- The maintenance described is aimed at the intended lines and at weaving growth into holes — work whose object is the integrity of the design. \"In an important sense, then\" asks for that reframing, which A supplies.\n\n**Why the other choices are wrong:**\n- B: The passage cuts against inevitability — gaps open shortcuts, which would make an untrimmed maze easier in places, not uniformly harder.\n- C: The designers' expectations are never discussed, and the gardeners restore the plan rather than alter it.\n- D: Visitor numbers and species growth rates are never compared in the text.",
-          "passage": "A hedge maze is a puzzle whose walls are alive. The plan a designer lays out on paper fixes the corridors and junctions, but the hedges themselves keep growing: left untrimmed, yew and hornbeam thicken until passages narrow, and gaps at eye level open shortcuts where branches thin or die. Gardeners at historic mazes must regularly clip the walls back to their intended lines and weave new growth into holes. In an important sense, then, ______",
+          "passage": "A hedge maze is a puzzle whose walls are alive. The plan a designer lays out on paper fixes the corridors and junctions, but the hedges themselves keep growing. Left untrimmed, yew and hornbeam thicken until passages narrow, and gaps at eye level open shortcuts where branches thin or die. Gardeners at historic mazes must regularly clip the walls back to their intended lines and weave new growth into holes. In an important sense, then, ______",
           "_meta": {
             "anchor": "hedge mazes — living walls drift from the fixed design; maintenance as puzzle restoration",
             "distractors": {
@@ -726,31 +726,31 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "tasks;"
+              "text": "steps;"
             },
             {
               "id": "B",
-              "text": "tasks,"
+              "text": "steps,"
             },
             {
               "id": "C",
-              "text": "tasks"
+              "text": "steps"
             },
             {
               "id": "D",
-              "text": "tasks:"
+              "text": "steps:"
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** An independent clause ends at \"tasks,\" and what follows is a list spelling those tasks out — the conventional mark to introduce it is a colon.\n\n**The Full Solution:**\n- Before the blank: \"Manuals for early telephone operators broke the job into a strict sequence of tasks\" — a complete clause.\n- After the blank: a series of gerund phrases (\"answering ... asking ... testing ... connecting\") that names the tasks just promised.\n- A colon after an independent clause is exactly the device for introducing such an elaborating list.\n\n**Why the other choices are wrong:**\n- A: A semicolon must join two independent clauses; the list of gerund phrases that follows cannot stand alone.\n- B: A comma leaves the boundary between the claim and its elaborating list unmarked in kind — it reads as a stray series comma rather than an introduction.\n- C: No punctuation at all runs the clause straight into the list, obscuring where the promise ends and the enumeration begins.",
-          "passage": "Manuals for early telephone operators broke the job into a strict sequence of ______ answering the calling lamp, asking for the number requested, testing whether the called line was busy, and connecting the cords in the proper order.",
+          "explanation": "**Choice D is correct.** The words before the blank form a complete main clause, and what follows is a list that spells out the \"sequence of steps.\" A colon is the conventional punctuation for introducing such a list.\n\n**The Full Solution:**\n- \"Making it requires a strict sequence of steps\" can stand alone as a sentence.\n- The four -ing phrases that follow (peeling, soaking, beating, joining) name the steps themselves.\n- A colon after a complete clause signals that a list or explanation follows, so \"steps:\" is correct.\n\n**Why the other choices are wrong:**\n- A: A semicolon must join two independent clauses, but the list that follows is not an independent clause.\n- B: A comma here makes the list read as if it were part of the phrase \"sequence of steps\" and blurs where the list begins.\n- C: With no punctuation, the list runs directly into \"steps,\" producing an ungrammatical sequence of words.",
+          "passage": "Tapa is a cloth made from tree bark on many Pacific islands. Making it requires a strict sequence of ______ peeling the inner bark from paper mulberry trees, soaking the strips in water, beating them thin with wooden mallets, and joining several strips into one large sheet.",
           "_meta": {
-            "rule": "colon introducing an elaborating list after an independent clause",
-            "anchor": "telephone switchboard operators — procedure manuals",
+            "rule": "colon after a complete clause to introduce a list",
+            "anchor": "tapa barkcloth — peel inner bark of paper mulberry, soak, beat with mallets, join strips into sheets (Wikipedia: Tapa cloth; Peabody Museum, Harvard)",
             "distractors": {
               "A": "semicolon before a non-clause",
-              "B": "comma too weak to introduce the list",
-              "C": "missing boundary"
+              "B": "comma blurs the list",
+              "C": "no punctuation"
             }
           },
           "id": 1119
@@ -781,11 +781,11 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The decisions belong to the weavers, plural — the sentence has already put \"generations of weavers\" at the loom — so the plural possessive \"weavers'\" is required.\n\n**The Full Solution:**\n- The possessor is plural: the town's weavers collectively, across generations.\n- A regular plural noun ending in -s forms its possessive with an apostrophe alone: weavers → weavers'.\n- \"The weavers' decisions about splitting, moisture, and tension\" correctly marks plural possession.\n\n**Why the other choices are wrong:**\n- A: \"Weaver's\" is the singular possessive, but the sentence attributes the decisions to weavers generally, not to one weaver.\n- B: \"Weavers\" is a bare plural with no possessive marking, yet the noun must possess \"decisions.\"\n- D: \"Weavers's\" is a malformed possessive — a plural already ending in -s never adds another 's.",
-          "passage": "Generations of weavers in Montecristi have produced hats of a fineness no factory has matched, and it was the ______ decisions about splitting, moisture, and tension, made hour by hour at the crown, that determined how fine each hat could become.",
+          "explanation": "**Choice C is correct.** The nest belongs to the weavers, plural: the first sentence says the birds \"work together to build one huge nest,\" so the plural possessive \"weavers'\" is required.\n\n**The Full Solution:**\n- The possessor is plural: the many sociable weavers that build the nest together.\n- A regular plural noun ending in -s forms its possessive with an apostrophe alone: weavers → weavers'.\n- \"The weavers' nest\" correctly marks plural possession.\n\n**Why the other choices are wrong:**\n- A: \"Weaver's\" is the singular possessive, but the text describes many birds building the nest, not one.\n- B: \"Weavers\" is a plain plural with no possessive marking, so it cannot show that the nest belongs to the birds.\n- D: \"Weavers's\" is not a standard form; a plural ending in -s takes only an apostrophe.",
+          "passage": "Sociable weavers, small birds of southern Africa, work together to build one huge nest of twigs and dry grass in a tree. The ______ nest can contain dozens of separate chambers, and its well-insulated central chambers help the birds stay warm on freezing winter nights.",
           "_meta": {
             "rule": "plural possessive of a regular -s plural",
-            "anchor": "panama-hat weaving — Montecristi weavers' judgment",
+            "anchor": "sociable weavers — one communal grass nest, dozens of chambers, insulated central chambers (San Diego Zoo Wildlife Alliance; Frontiers in Ecology and Evolution 2020)",
             "distractors": {
               "A": "singular possessive",
               "B": "no possessive marking",
@@ -820,15 +820,15 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The subject of the sentence is the singular noun \"catalog,\" so the verb must be the singular \"reveals.\"\n\n**The Full Solution:**\n- Strip the modifiers to find the core sentence: \"An iron founder's illustrated catalog ... reveals how thoroughly the components had been standardized.\"\n- The phrase \"with its numbered columns, window caps, and cornices\" sits between subject and verb, but a prepositional phrase never changes the subject's number.\n- Singular subject, singular verb: \"reveals.\"\n\n**Why the other choices are wrong:**\n- A: \"Reveal\" is plural, agreeing with the nearby \"columns, window caps, and cornices\" instead of the true subject, \"catalog.\"\n- B: \"Are revealing\" is likewise plural — the same attraction error in progressive form.\n- D: \"Have revealed\" is plural as well; the auxiliary \"have\" cannot pair with the singular \"catalog.\"",
-          "passage": "An iron founder's illustrated catalog of storefront parts, with its numbered columns, window caps, and cornices, ______ how thoroughly the components of a commercial facade had been standardized by the 1870s.",
+          "explanation": "**Choice C is correct.** The subject of the second sentence is the singular noun \"map,\" so the verb must be the singular \"reveals.\"\n\n**The Full Solution:**\n- Strip away the phrase set off by commas (\"with its more than 500 drawings of cities, animals, and peoples\"): \"The map ______ how scholars in medieval Europe pictured the world.\"\n- \"Map\" is singular, so it takes a singular verb: \"reveals.\"\n- The plural nouns inside the \"with\" phrase (drawings, cities, animals, peoples) are not the subject.\n\n**Why the other choices are wrong:**\n- A: \"Reveal\" is a plural verb; it agrees with \"drawings\" or \"peoples,\" not with the subject \"map.\"\n- B: \"Are revealing\" is plural and does not agree with \"map.\"\n- D: \"Have revealed\" is plural and does not agree with \"map.\"",
+          "passage": "Drawn on a single calfskin around 1300, the Hereford Mappa Mundi is the largest medieval world map that survives. The map, with its more than 500 drawings of cities, animals, and peoples, ______ how scholars in medieval Europe pictured the world.",
           "_meta": {
-            "rule": "subject-verb agreement across intervening prepositional phrase",
-            "anchor": "cast-iron storefront architecture — foundry parts catalogs",
+            "rule": "subject-verb agreement across an intervening with-phrase",
+            "anchor": "Hereford Mappa Mundi — c. 1300 world map on one calfskin, 500+ drawings (Hereford Cathedral Mappa Mundi site; Guinness World Records)",
             "distractors": {
-              "A": "plural verb attracted to nearby plural nouns",
-              "B": "plural progressive, same attraction error",
-              "D": "plural auxiliary"
+              "A": "plural verb, attracts to drawings",
+              "B": "plural progressive",
+              "D": "plural perfect"
             }
           },
           "id": 1118
@@ -843,31 +843,31 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "strive"
+              "text": "try"
             },
             {
               "id": "B",
-              "text": "are striving"
+              "text": "are trying"
             },
             {
               "id": "C",
-              "text": "had been striving"
+              "text": "had been trying"
             },
             {
               "id": "D",
-              "text": "have been striving"
+              "text": "have been trying"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The sentence describes effort that was already underway before a past reference point — \"By the time the phonograph, radio, and motion pictures supplanted sheet music\" — so the past perfect progressive \"had been striving\" is required.\n\n**The Full Solution:**\n- \"By the time X happened\" anchors the sentence at a moment in the past (the 1930s).\n- The publishers' campaign (\"for decades\") stretches back before that anchor and continues up to it — the textbook territory of the past perfect progressive.\n- \"Had been striving ... for decades\" places the ongoing effort correctly before the past milestone.\n\n**Why the other choices are wrong:**\n- A: The simple present \"strive\" cannot sit inside a sentence anchored to a past decade.\n- B: The present progressive \"are striving\" likewise clashes with the past time frame.\n- D: The present perfect progressive \"have been striving\" measures duration up to now, but the sentence measures duration up to a point in the past.",
-          "passage": "By the time the phonograph, radio, and motion pictures supplanted sheet music in the 1930s, Tin Pan Alley's publishers ______ for decades to place their newest songs with star performers, and the pluggers simply carried the same methods into the new media.",
+          "explanation": "**Choice C is correct.** The sentence describes an effort that continued up to a past moment (\"By the time ... reached the summit ... in 1953\"), so the past perfect progressive \"had been trying\" is required.\n\n**The Full Solution:**\n- \"By the time\" plus a past-tense event sets a reference point in the past: 1953.\n- The British attempts began earlier (1921) and continued up to that point, for \"more than three decades.\"\n- An ongoing action that ran up to a past reference point takes the past perfect progressive: \"had been trying.\"\n\n**Why the other choices are wrong:**\n- A: \"Try\" is present tense and cannot describe attempts that ended in 1953.\n- B: \"Are trying\" describes an action happening now, not one completed before 1953.\n- D: \"Have been trying\" runs up to the present, not to a moment in the past.",
+          "passage": "By the time Edmund Hillary and Tenzing Norgay reached the summit of Mount Everest in 1953, British climbers ______ for more than three decades to reach the top, beginning with a reconnaissance expedition in 1921.",
           "_meta": {
-            "rule": "past perfect progressive before a past reference point",
-            "anchor": "Tin Pan Alley song plugging — phonograph, radio and film supplant sheet music in the 1930s (Wikipedia, Tin Pan Alley)",
+            "rule": "past perfect progressive for action continuing to a past reference point",
+            "anchor": "British Everest expeditions 1921-1953 (Wikipedia: List of Mount Everest expeditions)",
             "distractors": {
-              "A": "simple present in past frame",
-              "B": "present progressive in past frame",
-              "D": "present perfect measures to now, not to a past point"
+              "A": "simple present",
+              "B": "present progressive",
+              "D": "present perfect progressive"
             }
           },
           "id": 1122
@@ -898,8 +898,8 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** Two independent clauses meet at the blank — \"some farmers adopted a technique called dry farming\" and \"they left half their land unplanted each season...\" — and a comma plus a coordinating conjunction is the conventional way to join them.\n\n**The Full Solution:**\n- Each side of the blank could stand alone as a sentence: both have a subject (\"farmers\" / \"they\") and a full verb (\"adopted\" / \"left\").\n- Joining two independent clauses requires either a semicolon or a comma with a coordinating conjunction such as \"and.\" Choice A supplies the comma-plus-conjunction pattern.\n\n**Why the other choices are wrong:**\n- B: A semicolon may join the clauses on its own, but pairing it with \"and,\" — conjunction plus stray comma — doubles up the boundary machinery unconventionally.\n- C: \"And\" without the comma fuses two full clauses with no boundary mark at all.\n- D: A comma alone between independent clauses is a comma splice.",
-          "passage": "In regions once considered too dry for ordinary agriculture, some early twentieth-century farmers adopted a technique called dry farming ______ they left half their land unplanted each season so that two years of scarce rainfall could accumulate in the soil to support a single crop.",
+          "explanation": "**Choice A is correct.** Two independent clauses meet at the blank — \"some early twentieth-century farmers in dry regions adopted a technique called dry farming\" and \"they left half their land unplanted each season...\" — and a comma plus a coordinating conjunction is the conventional way to join them.\n\n**The Full Solution:**\n- Each side of the blank could stand alone as a sentence: both have a subject (\"farmers\" / \"they\") and a full verb (\"adopted\" / \"left\").\n- Joining two independent clauses requires either a semicolon or a comma with a coordinating conjunction such as \"and.\" Choice A supplies the comma-plus-conjunction pattern.\n\n**Why the other choices are wrong:**\n- B: A semicolon may join the clauses on its own, but pairing it with \"and,\" — conjunction plus stray comma — doubles up the boundary machinery unconventionally.\n- C: \"And\" without the comma fuses two full clauses with no boundary mark at all.\n- D: A comma alone between independent clauses is a comma splice.",
+          "passage": "Some early twentieth-century farmers in dry regions adopted a technique called dry farming ______ they left half their land unplanted each season so that two years of rainfall could support a single crop.",
           "_meta": {
             "rule": "comma + coordinating conjunction between independent clauses",
             "anchor": "dry farming — alternate-year planting to accumulate rainfall",
@@ -921,29 +921,29 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": ", wave troughs reflect radar more strongly than crests do, which skews each reading slightly low, "
+              "text": ", a compass needle points to magnetic north, which can lie more than ten degrees from true north, "
             },
             {
               "id": "B",
-              "text": "—wave troughs reflect radar more strongly than crests do, which skews each reading slightly low—"
+              "text": "—a compass needle points to magnetic north, which can lie more than ten degrees from true north—"
             },
             {
               "id": "C",
-              "text": " wave troughs reflect radar more strongly than crests do, which skews each reading slightly low "
+              "text": " a compass needle points to magnetic north, which can lie more than ten degrees from true north "
             },
             {
               "id": "D",
-              "text": "—wave troughs reflect radar more strongly than crests do, which skews each reading slightly low,"
+              "text": "—a compass needle points to magnetic north, which can lie more than ten degrees from true north,"
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The explanation of sea state bias is a full clause interrupting the main sentence, and a matched pair of dashes is the conventional way to set off such an interruption.\n\n**The Full Solution:**\n- Remove the insertion and the frame reads cleanly: \"researchers must first correct for what oceanographers call sea state bias ... before the measurements can be compared.\"\n- The inserted material contains its own subject and verb plus a trailing \"which\" clause — an interruption this heavy needs strong, matching fences.\n- Choice B opens with a dash and closes with a dash: the pair must match.\n\n**Why the other choices are wrong:**\n- A: Commas around an insertion that itself contains internal commas and a full clause leave the boundaries ambiguous — the reader cannot tell which commas fence the interruption.\n- C: With no punctuation at all, the inserted clause collides with the frame sentence in an unreadable run-on.\n- D: It opens with a dash but closes with a comma; mismatched fences around a single interruption violate the pairing convention.",
-          "passage": "Researchers converting a satellite's radar echoes into sea-surface heights must first correct for what oceanographers call sea state bias ______ before the measurements from one pass can be compared with those from the next.",
+          "explanation": "**Choice B is correct.** The explanation of magnetic declination is a full clause interrupting the main sentence, and a matched pair of dashes is the conventional way to set off such an interruption.\n\n**The Full Solution:**\n- Remove the insertion and the frame reads cleanly: \"Hikers using a map and compass must correct for magnetic declination before matching a compass bearing to the map.\"\n- The inserted material has its own subject and verb (\"a compass needle points\") plus a trailing \"which\" clause, so it needs strong, matching marks on both sides.\n- Choice B opens with a dash and closes with a dash.\n\n**Why the other choices are wrong:**\n- A: Commas around an insertion that itself contains a comma make it impossible to tell where the interruption ends, and they splice the independent clause \"a compass needle points to magnetic north\" onto the main sentence.\n- C: With no punctuation at all, the inserted clause runs into the main sentence, creating a run-on.\n- D: The insertion opens with a dash but closes with a comma; paired marks must match.",
+          "passage": "Hikers using a map and compass must correct for magnetic declination ______ before matching a compass bearing to the map.",
           "_meta": {
             "rule": "paired em-dashes around an interrupting clause",
-            "anchor": "satellite altimetry of oceans — sea state bias correction",
+            "anchor": "magnetic declination — compass points to magnetic north, offset from true north by location (NOAA NCEI; NWCG declination lesson)",
             "distractors": {
-              "A": "comma fences ambiguous around comma-bearing insertion",
+              "A": "comma fences around comma-bearing clause",
               "C": "no fences, run-on",
               "D": "mismatched dash-comma pair"
             }
@@ -976,15 +976,14 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The first sentence makes a general claim — a new kind of hedge maze, built as a puzzle with dead ends, reached England under William III; the second describes one specific maze from those years doing exactly that. A general statement followed by a particular instance calls for \"For example.\"\n\n**The Full Solution:**\n- Sentence 1: puzzle mazes \"with tall hedges and dead ends\" arrived in England — a claim about a type.\n- Sentence 2: a dated, named maze — Hampton Court — with branching paths, \"several of which end abruptly.\"\n- The second sentence is an instance of the first, and \"For example\" announces that illustrative relation.\n\n**Why the other choices are wrong:**\n- B: \"However\" signals opposition, but the Hampton Court maze confirms rather than resists the opening claim.\n- C: \"In turn\" marks the next link in a causal chain, and no chain of consequences connects the two sentences.\n- D: \"Nonetheless\" likewise signals opposition pressed past an obstacle, but the example supports the opening claim rather than resisting it.",
-          "passage": "During the reign of William III, a new kind of hedge maze reached England: a puzzle with tall hedges and dead ends rather than a single winding path. ______ the maze planted at Hampton Court Palace between 1689 and 1695, now Britain's oldest surviving hedge maze, makes visitors choose among branching paths, several of which end abruptly.",
+          "explanation": "**Choice A is correct.** The first sentence makes a general claim — many bog plants get nutrients by trapping insects — and the second describes one such plant. \"For example\" introduces that specific case.\n\n**The Full Solution:**\n- Sentence 1: a general pattern among bog plants.\n- Sentence 2: the purple pitcher plant, which drowns insects in rainwater held in its leaves and absorbs nutrients from them.\n- A specific instance of a general claim calls for an exemplifying transition.\n\n**Why the other choices are wrong:**\n- B: \"However\" signals a contrast, but the pitcher plant fits the pattern rather than breaking it.\n- C: \"In turn\" signals a consequence or next step, but the pitcher plant is not a result of the first sentence.\n- D: \"Nonetheless\" signals that something holds despite an obstacle, but no obstacle is described.",
+          "passage": "Many plants that grow in bogs, where the soil holds little nitrogen, make up for the shortage by trapping insects. ______ the purple pitcher plant collects rainwater in its tube-shaped leaves; insects that slip inside drown, and the plant absorbs nutrients from their remains.",
           "_meta": {
-            "anchor": "hedge mazes — puzzle mazes reach England under William III; Hampton Court (planted 1689-1695) as the instance (Wikipedia, Hedge maze; Hampton Court Maze)",
-            "transitionBucket": "transitions-example-emphasis",
+            "anchor": "carnivorous bog plants — purple pitcher plant Sarracenia purpurea (Missouri Botanical/University botany texts; lakeandwetlandecosystems.com)",
             "distractors": {
-              "B": "opposition where illustration is needed",
-              "C": "causal chain absent",
-              "D": "opposition where illustration is needed"
+              "B": "false contrast",
+              "C": "false consequence",
+              "D": "false concession"
             }
           },
           "id": 1125
@@ -1015,15 +1014,14 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The skeptics' objection stands in the first sentence; the second sentence reports that the registers delivered valuable findings anyway. Proceeding in the face of a stated objection calls for a concessive contrast — \"Nevertheless.\"\n\n**The Full Solution:**\n- Sentence 1 raises a doubt: the registers cover only a narrow slice of the population.\n- Sentence 2 does not answer the doubt point by point; it reports that, doubt notwithstanding, the registers revealed patterns \"no other source preserved.\"\n- \"Nevertheless\" concedes the objection while asserting the outcome that defied it — exactly the relation between the two sentences.\n\n**Why the other choices are wrong:**\n- A: \"As a result\" would make the discoveries a consequence of the skeptics' objection, inverting the logic.\n- B: \"Moreover\" stacks a second point on top of a first, but the second sentence opposes the first rather than extending it.\n- D: \"Subsequently\" marks bare temporal sequence, missing the tension between doubt and result that the sentences turn on.",
-          "passage": "When historians first proposed tracing early modern migration through guild apprenticeship registers, skeptics objected that the registers recorded only a narrow slice of the population. ______ as the registers were transcribed and analyzed, patterns emerged that no other source preserved: boys traveling hundreds of miles to enter a trade, and recruitment ranges that widened and narrowed over the centuries.",
+          "explanation": "**Choice C is correct.** The first sentence describes the desert as nearly rainless and bare; the next states something true despite that appearance: the soil holds dormant seeds and bulbs. \"Nevertheless\" signals a point that holds in spite of what came before.\n\n**The Full Solution:**\n- Before the blank: very little rain, and ground that looks almost completely bare.\n- After the blank: the soil is \"far from lifeless,\" holding seeds and bulbs that sprout and flower after heavy rains.\n- The second point stands in spite of the first, which is exactly what \"nevertheless\" expresses.\n\n**Why the other choices are wrong:**\n- A: \"As a result\" would mean the lack of rain caused the soil to hold seeds and bulbs, which the text does not say.\n- B: \"Moreover\" adds a point in the same direction, but the hidden seeds and bulbs cut against the picture of a bare, lifeless desert.\n- D: \"Subsequently\" marks a later event, but the seeds and bulbs are in the soil all along; the text contrasts appearance with reality rather than describing a sequence of events.",
+          "passage": "Parts of Chile's Atacama Desert receive only a few millimeters of rain in a typical year, and for long stretches the ground looks almost completely bare. ______ the soil is far from lifeless: it holds seeds and bulbs that can lie dormant for years. When unusually heavy rains fall, they sprout and flower, covering the desert in a bloom known as the desierto florido.",
           "_meta": {
-            "anchor": "early modern guild apprenticeships — registers as migration evidence despite selectivity objection (e.g., London company registers 1486-1750)",
-            "transitionBucket": "transitions-contrast",
+            "anchor": "Atacama Desert flowering (desierto florido) — bare, nearly rainless ground holds dormant seeds and bulbs that bloom after unusually heavy rain (Wikipedia: Atacama Desert; Flowering desert)",
             "distractors": {
-              "A": "inverted causation",
-              "B": "addition where concession is needed",
-              "D": "bare sequence misses the tension"
+              "A": "false causation",
+              "B": "false addition",
+              "D": "false sequence"
             }
           },
           "id": 1124
@@ -1054,15 +1052,14 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The first sentence carries the growers' like-for-like claim; the second reports independent tests finding the material \"falls short of leather in tensile strength.\" The second sentence pushes against the first, so a contrast transition — \"However,\" — is needed.\n\n**The Full Solution:**\n- Sentence 1: growers describe mycelium sheets as a like-for-like replacement, and the sheets do handle like hide in the workshop.\n- Sentence 2: testing reveals a shortfall in strength — a complication for the like-for-like claim.\n- Moving from a favorable claim to evidence that undercuts it is a contrastive move; \"However,\" signals it precisely.\n\n**Why the other choices are wrong:**\n- A: \"As a result\" would make the strength shortfall a consequence of the growers' marketing, a causal link the text does not draw.\n- B: \"In other words\" promises a restatement, but the test findings say something new — and opposed — rather than rephrasing the claim.\n- C: \"For example\" would offer the tests as an illustration of the like-for-like claim, when they in fact challenge it.",
-          "passage": "Growers of mycelium-based materials often describe their product as a like-for-like replacement for animal hide, and the sheets can indeed be dyed and stitched with standard workshop equipment. ______ independent tests have found that many early mycelium materials fall short of leather in tensile strength, suggesting that matching hide's feel has proved easier than matching its toughness.",
+          "explanation": "**Choice D is correct.** The first two sentences present the H-4 Hercules as an enormous, ambitious aircraft; the third presents a fact that works against that picture: the plane flew only once, for about a mile. \"However\" marks that contrast.\n\n**The Full Solution:**\n- Sentences 1-2: the plane was designed to carry 750 soldiers, and its wingspan was the largest of any aircraft flown until 2019.\n- Sentence 3: it flew only once, in 1947, rising about 70 feet and traveling roughly one mile.\n- The third sentence turns from the plane's size and purpose to its very limited use, so a contrasting transition is needed.\n\n**Why the other choices are wrong:**\n- A: \"As a result\" would mean the plane's size and purpose caused it to fly only once, which the text does not say.\n- B: \"In other words\" would mean the third sentence restates the first two, but it introduces a new and opposing point.\n- C: \"For example\" would make the single short flight an example of the plane's impressive size, but it is a limitation.",
+          "passage": "Built in the United States during the 1940s, the H-4 Hercules was a wooden flying boat designed to carry 750 soldiers. Its wingspan of about 320 feet was the largest of any aircraft ever flown until 2019. ______ the giant plane flew only once: in 1947, it rose about 70 feet above the water and traveled roughly one mile.",
           "_meta": {
-            "anchor": "fungal leather alternatives — marketing claim vs. tensile-strength tests",
-            "transitionBucket": "transitions-contrast",
+            "anchor": "H-4 Hercules flying boat — designed for 750 troops, largest wingspan flown until 2019, yet flew only once (1947, about 70 ft, about 1 mile) (Wikipedia: Hughes H-4 Hercules)",
             "distractors": {
               "A": "false causation",
-              "B": "restatement where opposition is needed",
-              "C": "illustration where opposition is needed"
+              "B": "false restatement",
+              "C": "false exemplification"
             }
           },
           "id": 1123
@@ -1077,40 +1074,40 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Launched in 1992, the TOPEX/Poseidon mission measured the height of the sea surface by timing a radar pulse's round trip from orbit to the ocean and back."
+              "text": "Launched in 1972, the first Landsat satellite began a record of images of Earth that later satellites have extended."
             },
             {
               "id": "B",
-              "text": "A single continuous record of sea-surface height lets researchers track everything from global sea-level rise to ocean currents and El Niño."
+              "text": "A single continuous record of images lets researchers track changes from forest loss to the growth of cities."
             },
             {
               "id": "C",
-              "text": "The global average sea level has risen about 3 millimeters per year over the past three decades."
+              "text": "Researchers have used Landsat images to track deforestation in the Amazon rainforest."
             },
             {
               "id": "D",
-              "text": "Regional rates of sea-level rise range from under 2 millimeters per year to more than 4."
+              "text": "The Landsat program is run jointly by NASA and the US Geological Survey."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** A generalization must rise above any single finding, and B does: it characterizes the record's value as a whole — one continuous measurement stream serving several distinct lines of research named in the notes.\n\n**The Full Solution:**\n- The goal asks for a generalization about the record's scientific value, not a report of one result.\n- The notes list separate uses: the sea-level trend, the regional rates, and the tracking of currents and El Niño.\n- B gathers those uses under a single claim about the record — the shape a generalization takes.\n\n**Why the other choices are wrong:**\n- A: It explains how one mission measured, a description of method rather than a general claim about value.\n- C: It reports a single finding — the global trend — not the record's overall usefulness.\n- D: It likewise cites one finding, the regional spread, and generalizes nothing.",
+          "explanation": "**Choice B is correct.** A generalization must rise above any single fact, and B does: it describes the value of the record as a whole — one continuous set of images serving several different kinds of research named in the notes.\n\n**The Full Solution:**\n- The goal asks for a generalization about the record's scientific value, not a report of one use.\n- The notes list separate uses: tracking deforestation, monitoring farmland, and following the growth of cities.\n- B gathers those uses under a single claim about the record, which is the shape a generalization takes.\n\n**Why the other choices are wrong:**\n- A: It describes when the record began, a historical detail rather than a general claim about its value.\n- C: It reports a single use of the images, not the record's overall usefulness.\n- D: It states who runs the program and says nothing about the record's scientific value.",
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "Satellite altimeters measure sea-surface height by timing a radar pulse's round trip from orbit to the ocean and back.",
-              "The TOPEX/Poseidon mission, launched in 1992, began a continuous altimetry record that successor missions have extended.",
-              "The record shows the global average sea level rising about 3 millimeters per year over three decades.",
-              "It also shows regional rates ranging from under 2 millimeters per year to more than 4.",
-              "Researchers use the same measurements to track ocean currents and to monitor the El Niño cycle."
+              "The Landsat program is run by NASA and the US Geological Survey.",
+              "Its first satellite was launched in 1972, and later satellites have extended its record of images ever since.",
+              "The record is the longest continuous record of Earth's land surface as seen from space.",
+              "Researchers have used it to track deforestation in the Amazon rainforest.",
+              "Researchers also use it to monitor farmland and the growth of cities."
             ],
-            "goal": "The student wants to make a generalization about the altimetry record's scientific value."
+            "goal": "The student wants to make a generalization about the Landsat record's scientific value."
           },
           "_meta": {
-            "anchor": "satellite altimetry of oceans — one record serving many research uses",
+            "anchor": "Landsat program since 1972 — one record serving many research uses (NASA Landsat Science; USGS)",
             "distractors": {
-              "A": "method description, not generalization",
-              "C": "single finding",
-              "D": "single finding"
+              "A": "history, not generalization",
+              "C": "single use",
+              "D": "administration, not value"
             }
           },
           "id": 1127
@@ -1125,40 +1122,40 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "A Montecristi superfino can be woven with as many as 3,000 weaves per square inch."
+              "text": "Experts estimate that 5,000 to 8,000 impressions of The Great Wave were printed."
             },
             {
               "id": "B",
-              "text": "Toquilla-straw weaving was added to UNESCO's list of Intangible Cultural Heritage in 2012."
+              "text": "Under the Wave off Kanagawa, a print by Katsushika Hokusai, is often called The Great Wave."
             },
             {
               "id": "C",
-              "text": "So-called panama hats are actually woven in Ecuador rather than in Panama, from straw that weavers prepare from the leaves of the toquilla palm."
+              "text": "Katsushika Hokusai, a Japanese artist, designed The Great Wave around 1831 as part of a series of views of Mount Fuji."
             },
             {
               "id": "D",
-              "text": "A hat's fineness is measured by its weave count, and the town of Montecristi is located in Ecuador."
+              "text": "The Great Wave belongs to the series Thirty-six Views of Mount Fuji, and Hokusai was a Japanese artist."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The goal is to emphasize the fineness that sets a Montecristi superfino apart, and A delivers the notes' most striking measure of that fineness: as many as 3,000 weaves in a single square inch.\n\n**The Full Solution:**\n- The goal word is \"fineness\" — the sentence must make the quality of the weave itself the star.\n- The third note defines fineness as weave count; the fourth supplies the superfino's extraordinary count.\n- Choice A converts that note into a single claim about the superfino, accomplishing the emphasis directly.\n\n**Why the other choices are wrong:**\n- B: The UNESCO listing honors the craft tradition but conveys nothing about how fine a superfino's weave is.\n- C: The Ecuador-not-Panama correction is geography, not fineness.\n- D: It defines the measurement and locates the town but never says what makes a superfino's weave remarkable.",
+          "explanation": "**Choice A is correct.** The goal is to emphasize how many copies of The Great Wave were made, and A gives the notes' direct measure of that number: an estimated 5,000 to 8,000 impressions.\n\n**The Full Solution:**\n- The goal is about quantity: how many copies of one print existed.\n- The fifth note supplies the figure (an estimated 5,000 to 8,000 impressions).\n- Choice A turns that note into a single sentence about The Great Wave, accomplishing the goal directly.\n\n**Why the other choices are wrong:**\n- B: It gives the print's two titles but says nothing about how many copies were made.\n- C: It identifies the artist, his dates, and the series, but gives no number of copies.\n- D: It names the series and the artist's nationality, neither of which conveys how many copies were printed.",
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "So-called panama hats are woven in Ecuador from straw of the toquilla palm.",
-              "The town of Montecristi is known for the finest examples, called superfinos.",
-              "A hat's fineness is measured by its weave count, the number of weaves per square inch.",
-              "The rarest superfinos are woven with as many as 3,000 weaves per square inch.",
-              "In 2012, UNESCO added the weaving of the traditional toquilla straw hat to its Intangible Cultural Heritage lists."
+              "Katsushika Hokusai (1760-1849) was a Japanese artist known for his woodblock prints.",
+              "Around 1831, he designed Under the Wave off Kanagawa, often called The Great Wave.",
+              "The print belongs to his series Thirty-six Views of Mount Fuji.",
+              "In a woodblock print, a carved wooden block is inked and pressed onto paper, so one design can be printed many times.",
+              "Experts estimate that 5,000 to 8,000 impressions of The Great Wave were printed."
             ],
-            "goal": "The student wants to emphasize the fineness that distinguishes a Montecristi superfino."
+            "goal": "The student wants to emphasize how many copies of The Great Wave were made."
           },
           "_meta": {
-            "anchor": "panama-hat weaving — Montecristi superfino fineness (up to 3,000 weaves per square inch — Wikipedia, Panama hat; UNESCO inscription 5 Dec 2012)",
+            "anchor": "Hokusai, The Great Wave — an estimated 5,000-8,000 impressions (Mental Floss; Wikipedia: The Great Wave off Kanagawa)",
             "distractors": {
-              "B": "honor, not fineness",
-              "C": "geography, not fineness",
-              "D": "definition without the distinguishing quality"
+              "B": "titles, not quantity",
+              "C": "biography, not quantity",
+              "D": "series + nationality, not quantity"
             }
           },
           "id": 1126
@@ -1196,14 +1193,14 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The passage contrasts an old, surface-bound method with a new one that finally reaches where \"the real work is done\" — a change of kind, not degree. The sensors have \"transformed\" the study of bores.\n\n**The Full Solution:**\n- Before: watching from a riverbank, while the most interesting behavior \"happens below the surface.\"\n- After: anchored sensors record bores from the riverbed itself.\n- Opening a previously inaccessible domain remakes the research rather than merely adding to it; \"transformed\" carries that weight, and the sentence's \"letting researchers...\" clause confirms the change is enabling, not obstructing.\n\n**Why the other choices are wrong:**\n- A: \"Complicated\" is negative — the sentence describes new capability, not new difficulty.\n- B: \"Imperiled\" would mean the sensors endangered the field, the opposite of what follows the blank.\n- C: \"Predicted\" is something done to future events, not to a field of study; instruments cannot predict \"the study\" of waves.",
-          "passage": "Studying a tidal bore once meant standing on a riverbank as the wave swept past, though the bore's most interesting behavior happens below the surface. The spread of rugged, inexpensive sensors that can be anchored to the riverbed has ______ the study of these waves, letting researchers record bores from within the very layer where the real work is done.",
+          "explanation": "**Choice D is correct.** The text contrasts listening with \"an ear directly against the patient's chest\" with listening through a tube that let doctors \"hear chest sounds more clearly\" and \"link particular sounds to particular diseases.\" The stethoscope changed that work completely, which is what \"transformed\" means.\n\n**The Full Solution:**\n- Before: doctors \"usually pressed an ear directly against the patient's chest.\"\n- After: doctors could \"hear chest sounds more clearly\" and connect sounds to diseases.\n- A change that makes a whole new kind of diagnosis possible is a transformation.\n\n**Why the other choices are wrong:**\n- A: \"Complicated\" means made more difficult, but the text describes listening becoming clearer and more useful.\n- B: \"Imperiled\" means put in danger, which nothing in the text suggests.\n- C: \"Predicted\" means said in advance what would happen, but the stethoscope changed the work; it did not foretell it.",
+          "passage": "For centuries, a doctor who wanted to hear a patient's heart or lungs usually pressed an ear directly against the patient's chest. The stethoscope, a simple tube first made by a French physician in 1816, ______ that work. With it, doctors could hear chest sounds more clearly and learn to link particular sounds to particular diseases.",
           "_meta": {
-            "anchor": "tidal bores — riverbed sensors opening subsurface study",
+            "anchor": "stethoscope — 1816 wooden tube replaced ear-on-chest listening, sounds linked to diseases (Wikipedia: Rene Laennec; Lemelson-MIT)",
             "distractors": {
-              "A": "wrong valence — difficulty vs. capability",
-              "B": "wrong valence — danger",
-              "C": "wrong object — fields are not predicted"
+              "A": "opposite effect",
+              "B": "unsupported danger",
+              "C": "wrong action"
             }
           },
           "id": 1129
@@ -1272,14 +1269,14 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The colon's explanation — ordinary boxcars fitted with bins of ice — describes making do with \"the equipment at hand\" for a problem \"no purpose-built car yet existed to solve.\" That is an \"improvisation.\"\n\n**The Full Solution:**\n- The frame \"less an invention than an ______\" demands a noun that contrasts with \"invention\": something put together from what was available rather than designed from scratch.\n- The detail after the colon is adaptation of existing things — ordinary boxcars and bins of ice — pressed into a new role.\n- \"Improvisation\" names exactly that mode of solving a problem with whatever is available.\n\n**Why the other choices are wrong:**\n- A: \"Embarrassment\" imports a negative judgment, but the passage presents the improvised shipment as a practical solution, not a source of shame.\n- C: \"Afterthought\" implies neglect or low priority, while the passage shows a deliberate effort to solve a problem.\n- D: \"Imitation\" requires an original being copied, and the text says no purpose-built car yet existed.",
-          "passage": "The first refrigerated rail shipments of beef in the United States were less an invention than an ______: in 1857, dressed beef left the Chicago stockyards in ordinary boxcars fitted with bins of ice, adapting the equipment at hand to a problem no purpose-built car yet existed to solve.",
+          "explanation": "**Choice B is correct.** The fix was assembled on the spot from \"items already on board\" to solve an unexpected problem. Something made quickly from whatever is at hand is an improvisation.\n\n**The Full Solution:**\n- \"Less an invention than an ______\" asks what the device was instead of a planned invention.\n- The text explains: a sudden emergency, mismatched parts, and a fix built from plastic bags, cardboard, and duct tape.\n- \"Improvisation\" names exactly that kind of on-the-spot solution.\n\n**Why the other choices are wrong:**\n- A: \"Embarrassment\" suggests something shameful, but the device kept the crew safe.\n- C: \"Afterthought\" suggests something added carelessly later, but the fix was the urgent center of the rescue effort.\n- D: \"Imitation\" means a copy of something else, but the device was a new arrangement of materials, not a copy.",
+          "passage": "The device that kept the Apollo 13 astronauts breathing safely in 1970 was less an invention than an ______. After an explosion crippled their spacecraft, the crew had to clean carbon dioxide from the air with square filters, but the sockets in the lunar module were round. Engineers on the ground worked out a fix the crew could build from items already on board: plastic bags, cardboard, and duct tape.",
           "_meta": {
-            "anchor": "refrigerated rail cars — 1857 dressed beef shipped from Chicago in ordinary boxcars retrofitted with ice bins (Wikipedia, Refrigerator car)",
+            "anchor": "Apollo 13 CO2 filter adapter built from bags, cardboard, duct tape (NASA ALSJ, Apollo 13 LiOH adapter)",
             "distractors": {
-              "A": "imported negative judgment",
-              "C": "wrong attitude — neglect vs. effort",
-              "D": "requires an original the text rules out"
+              "A": "wrong tone",
+              "C": "wrong role",
+              "D": "wrong relation"
             }
           },
           "id": 1131
@@ -1310,14 +1307,14 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The colon's explanation defines the blank: \"one of the most common jobs for young American women was disappearing.\" Demand for new operators shrank — it \"contracted.\"\n\n**The Full Solution:**\n- The subject is \"the demand for new operators\" in cities converted to dial — the machines were absorbing the local-call work operators had done.\n- The clause after the colon describes a job disappearing, and the adverb \"steadily\" requires a single sustained direction, not a wobble.\n- \"Contracted\" — steadily diminished — matches both the mechanism and the adverb.\n\n**Why the other choices are wrong:**\n- A: \"Recovered\" implies demand had earlier fallen and was rebounding; the text describes the opposite arc.\n- B: \"Fluctuated\" means moved up and down, which contradicts \"steadily\" and the one-way spread of dial service.\n- C: \"Intensified\" reverses the logic — machines taking over connections would not raise the need for new operators.",
-          "passage": "Between 1920 and 1940, AT&T converted more than half of the U.S. telephone network to dial service, letting subscribers place local calls themselves. Operators were still needed for long-distance and information calls. But in each city converted to dial, the demand for new operators steadily ______: one of the most common jobs for young American women was disappearing.",
+          "explanation": "**Choice D is correct.** Cheaper quartz watches \"flooded the market,\" and Swiss watch employment fell \"from about 90,000 workers in 1970 to about 28,000 by 1988,\" so the industry's workforce was shrinking. \"Contracted\" means became smaller.\n\n**The Full Solution:**\n- The text describes a cheaper, more accurate rival product taking over the market for Swiss mechanical watches.\n- \"Steadily\" signals a change in one direction over time, and \"falling\" names that direction.\n- A steady shrinking of employment is a contraction, so \"contracted\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Recovered\" means returned to an earlier, higher level, but the text describes only a fall.\n- B: \"Fluctuated\" means rose and fell irregularly, which conflicts with \"steadily\" and with the one-way drop from 90,000 to 28,000.\n- C: \"Intensified\" means grew stronger, the opposite of what the falling numbers show.",
+          "passage": "For decades, Swiss companies led the world in making mechanical watches, which keep time with springs and gears. In the 1970s, however, cheaper and more accurate watches run by quartz crystals, many of them made in Japan, flooded the market. Employment in the Swiss watch industry steadily ______, falling from about 90,000 workers in 1970 to about 28,000 by 1988.",
           "_meta": {
-            "anchor": "telephone switchboard operators — AT&T dial conversion 1920-1940 and shrinking demand (Feigenbaum & Gross, NBER w28061 / QJE 2024: AT&T replaced operators with mechanical switching in over half the U.S. network, 1920-1940)",
+            "anchor": "Swiss watch industry and the quartz crisis — employment 90,000 (1970) to 28,000 (1988) (Wikipedia: Quartz crisis; Gear Patrol)",
             "distractors": {
-              "A": "reversed arc — implies rebound",
-              "B": "contradicts 'steadily'",
-              "C": "reversed direction"
+              "A": "implies rebound",
+              "B": "contradicts steadily",
+              "C": "opposite direction"
             }
           },
           "id": 1128
@@ -1332,30 +1329,30 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "To describe the engineering tests that first revealed cast iron's weakness in intense heat"
+              "text": "To describe the technical improvements that Edison made to the phonograph during the late 1880s"
             },
             {
               "id": "B",
-              "text": "To argue that masonry construction deserved the reputation for fire safety that cast-iron fronts wrongly claimed"
+              "text": "To argue that stenographers were right to resist the use of phonographs in offices"
             },
             {
               "id": "C",
-              "text": "To trace the spread of cast-iron construction from warehouses into shops and lofts"
+              "text": "To trace how coin-operated machines spread from one city to another"
             },
             {
               "id": "D",
-              "text": "To explain why a building technology stayed popular after one of its advertised advantages was discredited"
+              "text": "To explain how a technology found success after the use it was first promoted for failed"
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The text sets up a puzzle — the fireproof claim was exposed as exaggeration, \"yet the fronts survived the embarrassment\" — and resolves it: the real appeal was daylight, and \"merchants kept ordering them for the light rather than the safety.\"\n\n**The Full Solution:**\n- First movement: the fireproof selling point and its public failure in the great city fires of the 1870s.\n- Pivot: \"Yet the fronts survived the embarrassment, because their real appeal lay elsewhere.\"\n- Second movement: slender columns, near-continuous windows, unmatched daylight — the surviving advantage. Explaining continued popularity after a discredited claim is precisely choice D.\n\n**Why the other choices are wrong:**\n- A: The weakness was revealed by actual fires, not engineering tests, and that revelation is the setup, not the point.\n- B: Stone walls appear only as a point of comparison for daylight; the text mounts no case on masonry's behalf.\n- C: The path of cast iron's spread between building types is never traced.",
-          "passage": "Cast-iron fronts were sold as fireproof, and that claim helped fill the commercial districts of nineteenth-century American cities with them. Fire itself exposed the exaggeration: unprotected iron softens and buckles in intense heat, and in the great city fires of the 1870s, iron fronts warped and collapsed. Yet the fronts survived the embarrassment, because their real appeal lay elsewhere. Iron columns were slender enough to open a ground floor into an almost continuous window, flooding shops and lofts with daylight no load-bearing stone wall could admit, and merchants kept ordering the fronts for the light rather than the safety.",
+          "explanation": "**Choice D is correct.** The text first reports that the phonograph's promoted use — dictation in offices — \"largely failed,\" then turns (\"Yet\") to its success as a coin-operated entertainment machine.\n\n**The Full Solution:**\n- First half: the phonograph was marketed as an office machine, and that plan failed.\n- Turning point: \"Yet the phonograph found success elsewhere.\"\n- Second half: coin-operated phonographs played songs, and by 1891 about a third of machines were used for entertainment.\n- The text therefore explains how the technology succeeded after its original purpose disappointed.\n\n**Why the other choices are wrong:**\n- A: The text mentions an \"improved phonograph\" but never describes the improvements.\n- B: The text reports that stenographers resisted the machines but does not judge whether they were right.\n- C: The text does not describe the machines spreading from place to place.",
+          "passage": "When Thomas Edison's improved phonograph went on the market in the late 1880s, its backers promoted it as an office machine. Businesses leased phonographs so that managers could dictate letters for typists to copy. The plan largely failed, partly because stenographers resisted the machines. Yet the phonograph found success elsewhere. Beginning in 1889, coin-operated phonographs let customers hear a recorded song for a nickel, and by 1891 about a third of the phonographs in use were played for entertainment.",
           "_meta": {
-            "anchor": "cast-iron storefront architecture — fireproof claim discredited, daylight advantage sustained demand",
+            "anchor": "Edison phonograph — failed as leased dictation machine (North American Phonograph Co.), succeeded as nickel-in-the-slot entertainment from 1889 (Wikipedia: Edison Records; Sound & Vision, Flashback 1889)",
             "distractors": {
-              "A": "wrong revelation mechanism, setup mistaken for point",
-              "B": "supporting detail inflated into thesis",
-              "C": "spread never traced"
+              "A": "mentioned, not described",
+              "B": "judgment not made",
+              "C": "absent topic"
             }
           },
           "id": 1134
@@ -1369,40 +1366,40 @@ export const practiceTest11RW = {
           "passages": [
             {
               "label": "Text 1",
-              "text": "To many eighteenth-century naturalists, the aurora borealis was a weather phenomenon like fog or lightning. Some proposed that its light was sunlight reflected from ice crystals drifting at great height; others, that it came from luminous vapors rising from the earth and kindling in the upper air. Whatever the mechanism, these accounts agreed on the essential point: the aurora was a product of the atmosphere, no different in kind from the other lights and hazes the sky occasionally produces."
+              "text": "In the late 1700s, many scientists held that heat is caloric, a weightless fluid that flows from hotter bodies to colder ones and is never created or destroyed. On this view, every body contains a store of caloric between its particles. When metal is rubbed or bored, some of that stored caloric is released, which is why the metal grows warm."
             },
             {
               "label": "Text 2",
-              "text": "In the early 1740s, the astronomer Anders Celsius and his assistant Olof Hiorter kept a compass needle under regular watch in Uppsala. Hiorter found that when auroras blazed overhead, the needle swung away from its usual bearing, and that the stronger the display, the larger the swing. A correspondence of that regularity, he argued, could not be coincidence: whatever produced the aurora also disturbed the magnetic force — something no fog, cloud, or vapor was known to do."
+              "text": "In 1798, a physicist supervising the boring of cannons at an arsenal in Munich tested this account. He placed a cannon barrel in water and turned a deliberately blunted borer against it, and within about two and a half hours the water boiled. The heat kept coming for as long as the boring continued, and the metal showed no physical change. He concluded that heat could not be a stored fluid and must instead be a form of motion."
             }
           ],
-          "question": "Based on the texts, how would Hiorter (Text 2) most likely respond to the accounts presented in Text 1?",
+          "question": "Based on the texts, how would the physicist in Text 2 most likely respond to the account presented in Text 1?",
           "choices": [
             {
               "id": "A",
-              "text": "He would agree that the aurora arises within the atmosphere but insist that drifting ice crystals rather than rising vapors produce its light."
+              "text": "He would agree that boring releases a stored fluid but would insist that cannon metal holds an unusually large supply of it."
             },
             {
               "id": "B",
-              "text": "He would argue that the aurora's magnetic effects set it apart from the ordinary atmospheric phenomena those accounts liken it to."
+              "text": "He would argue that the seemingly endless heat produced by boring shows that the heat was not a fluid stored in the metal."
             },
             {
               "id": "C",
-              "text": "He would object that eighteenth-century naturalists lacked instruments precise enough to observe the aurora in any detail."
+              "text": "He would object that eighteenth-century scientists lacked thermometers precise enough to measure the heat produced by boring."
             },
             {
               "id": "D",
-              "text": "He would deny that auroral displays ever coincide with the other lights and hazes the sky occasionally produces."
+              "text": "He would deny that rubbing or boring metal actually makes the metal grow any warmer than it was before."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** Text 1's accounts converge on one essential claim: the aurora is \"no different in kind\" from ordinary atmospheric lights. Hiorter's needle evidence attacks exactly that classification — the aurora disturbs the magnetic force, \"something no fog, cloud, or vapor was known to do.\"\n\n**The Full Solution:**\n- The disagreement is not over any particular mechanism (crystals versus vapors) but over the aurora's kind: weather, or something else.\n- Hiorter's argument form is an exclusion: regular magnetic disturbance accompanies auroras; ordinary weather produces no such disturbance; therefore the aurora cannot be ordinary weather.\n- Applied to Text 1, that argument says the accounts' shared premise fails — which is what choice B states.\n\n**Why the other choices are wrong:**\n- A: It keeps Hiorter inside Text 1's framework, merely picking a side in the crystals-versus-vapors dispute his evidence bypasses.\n- C: He would not fault their instruments — his own case rests on a simple compass needle, patiently watched.\n- D: Coincidence in time with other sky phenomena is not at issue; the needle's behavior, not the sky's appearance, carries his argument.",
+          "explanation": "**Choice B is correct.** Text 1 explains the warmth of bored metal as caloric, a stored fluid, being released. The physicist in Text 2 found that boring produced heat for as long as it continued, without changing the metal, and concluded that heat \"could not be a stored fluid,\" so he would reject Text 1's account on exactly that ground.\n\n**The Full Solution:**\n- Text 1's key claim: a body holds a store of caloric, and rubbing or boring releases some of it.\n- Text 2's evidence: the boring kept producing heat, enough to boil water, for as long as it went on, and the metal itself did not change.\n- A limited store cannot supply heat without end, so the physicist would argue that the heat did not come from a fluid stored in the metal.\n\n**Why the other choices are wrong:**\n- A: The physicist concluded that heat \"could not be a stored fluid,\" so he would not accept the stored-fluid account even with a larger supply.\n- C: Text 2 bases his argument on the water boiling and the heat continuing, not on any complaint about thermometers.\n- D: His own experiment showed boring producing heat; denying that boring warms metal would contradict his evidence.",
           "_meta": {
-            "anchor": "aurora observation history — Celsius/Hiorter early-1740s compass-needle observations (larger deflections with stronger auroras; Wikipedia, Anders Celsius / Olof Hiorter; Uppsala Astronomical Observatory history page) vs. atmospheric accounts",
+            "anchor": "caloric theory vs. Count Rumford's 1798 cannon-boring experiment in Munich — seemingly inexhaustible frictional heat, heat as motion (Wikipedia: Benjamin Thompson; Caloric theory)",
             "distractors": {
               "A": "keeps him inside the framework he rejects",
-              "C": "faults instruments his own method contradicts",
-              "D": "misplaces the issue onto co-occurrence"
+              "C": "unsupported instrument complaint",
+              "D": "contradicts his evidence"
             }
           },
           "id": 1135
@@ -1417,30 +1414,30 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "To argue that the chasqui system moved messages more efficiently than any postal service that came after it"
+              "text": "To argue that the moving assembly line was the most important invention of the twentieth century"
             },
             {
               "id": "B",
-              "text": "To describe the training that prepared young runners for service in the chasqui system"
+              "text": "To describe the training that Ford's workers received before they joined the assembly line"
             },
             {
               "id": "C",
-              "text": "To explain how a communication system achieved its speed by dividing one long journey among many runners"
+              "text": "To explain how a production method achieved its speed by dividing one job among many workers"
             },
             {
               "id": "D",
-              "text": "To recount how a Spanish chronicler came to witness the chasqui relays at first hand"
+              "text": "To recount how Henry Ford first came up with the idea for a moving assembly line"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The text poses the problem (news had to outrun any single messenger), presents the design (stations a few miles apart, fresh runners), and closes with the principle: \"By breaking one immense journey into many short sprints, the system turned ordinary human endurance into a speed no individual could match.\"\n\n**The Full Solution:**\n- Purpose questions ask what the whole text is doing; here every sentence serves the how-it-worked explanation.\n- The need, the mechanism, and the closing principle form one explanatory arc — the division of a long journey into short relays as the source of speed.\n- Choice C states that arc; the chroniclers' astonishment is one supporting detail within it.\n\n**Why the other choices are wrong:**\n- A: No later postal service is mentioned, so no such comparison can be the purpose.\n- B: Training is never discussed; the runners appear already stationed and ready.\n- D: The Spanish chroniclers appear only as witnesses to the relays' speed; how any one of them came to see the relays is never told.",
-          "passage": "The Inca empire stretched along the spine of the Andes, and its rulers needed news to travel faster than any single messenger could carry it. The solution was the chasqui system: relay stations placed about every two and a half kilometers along the royal roads, each housing runners ready to sprint to the next post. The relays could carry a message as far as 300 kilometers in a single day, a speed that astonished the first Spanish chroniclers. By breaking one immense journey into many short sprints, the system turned ordinary human endurance into a speed no individual could match.",
+          "explanation": "**Choice C is correct.** The text describes how the moving line worked — each worker doing \"one small task again and again\" as the cars moved past — and then reports the result: assembly time fell from about twelve and a half hours to about an hour and a half.\n\n**The Full Solution:**\n- The text contrasts the old method (building each car in one spot) with the new one.\n- It explains the new method's key feature: the work was split into small, repeated tasks along a moving line.\n- It ends with the dramatic speedup, so the text as a whole explains how dividing the work produced speed.\n\n**Why the other choices are wrong:**\n- A: The text never compares the assembly line with other inventions or ranks its importance.\n- B: The text does not mention any training of workers.\n- D: The text describes how the line worked, not how Ford got the idea for it.",
+          "passage": "In 1913, Henry Ford's company began building its Model T cars on a moving assembly line at its plant in Highland Park, Michigan. Before then, workers built each car in one spot, carrying parts to it. On the new line, a rope and later a powered chain pulled each car's frame past a row of workers, and each worker did one small task again and again. By 1914, the time needed to assemble a Model T had fallen from about twelve and a half hours to about an hour and a half.",
           "_meta": {
-            "anchor": "chasqui relay runners — relay division as the source of speed (Wikipedia, Chasqui: stations ~2.5 km apart; up to 300 km per day; speed noted by the first Spanish chroniclers)",
+            "anchor": "Ford's moving assembly line, Highland Park 1913 — 12.5 hours to about 1.5 hours (The Henry Ford; History.com)",
             "distractors": {
-              "A": "comparison never made",
-              "B": "topic never discussed",
-              "D": "evidence mistaken for purpose"
+              "A": "unsupported ranking",
+              "B": "absent topic",
+              "D": "origin story not given"
             }
           },
           "id": 1132
@@ -1491,34 +1488,34 @@ export const practiceTest11RW = {
           "band": 4,
           "domain": "information-and-ideas",
           "skill": "central-ideas-and-details",
-          "question": "Based on the text, what is true of astronomers who used the Alfonsine Tables outside Toledo?",
+          "question": "Based on the text, what is true of Alice Kober's work on Linear B?",
           "choices": [
             {
               "id": "A",
-              "text": "They had to adjust the tables' values using a longitude difference that was itself only roughly known."
+              "text": "It revealed patterns in the script's words without determining what sounds the signs stood for."
             },
             {
               "id": "B",
-              "text": "They produced planetary predictions that were less accurate than those made by astronomers working in Toledo itself."
+              "text": "It showed that the tablets from Knossos recorded an early form of the Greek language."
             },
             {
               "id": "C",
-              "text": "They completed most computations quickly once the proper instructional canons were consulted."
+              "text": "It was completed only after Michael Ventris had already identified the language recorded on the tablets."
             },
             {
               "id": "D",
-              "text": "They preferred fresh observations of the sky to the values the tables provided."
+              "text": "It relied mainly on comparing Linear B with scripts that were used in ancient Egypt."
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The text states both halves: a user \"in Paris or Kraków first had to correct every time value for the difference in longitude,\" and that difference was \"itself a quantity known only roughly.\"\n\n**The Full Solution:**\n- The question restricts attention to users outside Toledo, and the second sentence addresses exactly them — the tables' base values were tied to Toledo's meridian.\n- The required correction (longitude difference) and its unreliability (known only roughly) are asserted in the same sentence, so choice A stays entirely inside the text.\n\n**Why the other choices are wrong:**\n- B: Tempting as an inference from the rough correction, but the text never compares the accuracy of anyone's predictions — that step goes beyond what is stated.\n- C: It contradicts the text, where the arithmetic runs through \"long sexagesimal multiplications\" and the canons are instructions, not shortcuts.\n- D: The users in the text labor to apply the tables' values; no preference for fresh observation is attributed to them.",
-          "passage": "The Alfonsine Tables gave a medieval astronomer the means to compute the position of a planet for any date, but only after considerable labor. The tables' base values were tied to the meridian of Toledo, so a user in Paris or Kraków first had to correct every time value for the difference in longitude, itself a quantity known only roughly. The arithmetic then ran through long sexagesimal multiplications, and teachers wrote entire treatises, called canons, devoted to instructions for using the tables correctly.",
+          "explanation": "**Choice A is correct.** The text says Kober showed that the language changed word endings and sorted signs into a grid \"all without assigning a sound to any sign.\" Her work found patterns while the sounds stayed unknown.\n\n**The Full Solution:**\n- Kober compared words that differed only in their final signs and found grammatical endings.\n- She grouped signs by the sounds they seemed to share.\n- The text stresses that she did this \"without assigning a sound to any sign,\" which matches A.\n\n**Why the other choices are wrong:**\n- B: The text credits Ventris, not Kober, with showing in 1952 that the language was Greek.\n- C: The text says Ventris \"later built on her grid,\" so her work came before his discovery, not after it.\n- D: The text describes Kober comparing Linear B words with one another, not with Egyptian scripts.",
+          "passage": "Linear B, a script found on clay tablets at Knossos on Crete, resisted decipherment for decades after the tablets were dug up in 1900. No one knew what sounds its signs stood for or even what language they recorded. In the 1940s, the classicist Alice Kober compared words that differed only in their last signs. She showed that the language changed word endings to mark grammar, and she sorted signs into a grid by the sounds they seemed to share, all without assigning a sound to any sign. Michael Ventris later built on her grid, and in 1952 he showed that the language was an early form of Greek.",
           "_meta": {
-            "anchor": "medieval astronomical tables — Alfonsine Tables in use: meridian correction, sexagesimal labor, canons (e.g., John of Lignères, John of Saxony — Wikipedia, Alfonsine tables)",
+            "anchor": "Linear B — Alice Kober's inflection analysis and grid before Ventris's 1952 decipherment (Cambridge Classics; Wesleyan Classics; NYRB)",
             "distractors": {
-              "B": "unstated accuracy comparison",
-              "C": "contradicts the labor evidence",
-              "D": "fabricated preference"
+              "B": "Ventris's result misattributed",
+              "C": "reverses the sequence",
+              "D": "fabricated method"
             }
           },
           "id": 1138
@@ -1533,56 +1530,56 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "fallowed land produced higher per-acre yields than continuously cropped land in every one of the season types shown in the table."
+              "text": "helmet use was associated with lower odds of injury for every type of injury shown in the table."
             },
             {
               "id": "B",
-              "text": "fallowing's advantage swelled from 3 bushels per acre in wet seasons to 9 in dry ones, when continuous cropping neared failure."
+              "text": "helmet use cut the odds of serious head injury by 69 percent and of neck injury by only 4 percent."
             },
             {
               "id": "C",
-              "text": "continuous cropping produced 21 bushels per acre in wet seasons, its highest figure anywhere in the table."
+              "text": "helmet use cut the odds of head injury by 51 percent, a reduction of more than half."
             },
             {
               "id": "D",
-              "text": "yields under both practices fell as growing seasons became drier, with the lowest figures coming in dry seasons."
+              "text": "the reductions in the odds of head injury and of serious head injury were both greater than 50 percent."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The claim is that fallowing works as drought insurance \"specifically, rather than as a means of raising yields generally.\" B cites the pattern that makes the distinction: a modest 3-bushel edge in wet seasons versus a 9-bushel edge in dry ones — 13 against a near-failure 4.\n\n**The Full Solution:**\n- Since fallowing halves the harvested acreage, the passage notes, a small per-acre edge is not worth much; the case for the practice must rest on where its edge is large.\n- The table concentrates the advantage in dry seasons: 24 vs. 21 (wet), 19 vs. 14 (average), 13 vs. 4 (dry) — the gap triples exactly when continuous cropping collapses.\n- That asymmetry is the signature of insurance — the payoff arrives in the bad state — and B is the choice that reports it.\n\n**Why the other choices are wrong:**\n- A: True but fatal to the argument's precision — a uniform advantage is what \"raising yields generally\" would look like; the claim turns on where the advantage concentrates.\n- C: A single cell about the rival practice's best year supports nothing about fallowing's role.\n- D: The shared downward slope ignores the comparison between practices entirely.",
-          "passage": "Agricultural experiment stations in the early twentieth century ran long trials comparing continuous wheat cropping with alternate-year fallow, in which land rests unplanted every other season so that two years of moisture can feed one crop. Analysts reviewing one station's records note that fallowing means harvesting only half the acreage in any year, so the practice pays only where its per-acre advantage is large. They argue that the records support fallowing as insurance against drought specifically, rather than as a means of raising yields generally, because ______",
+          "explanation": "**Choice B is correct.** To show that protection is concentrated on the head, the evidence must contrast a large effect on the head with a small effect elsewhere. B does: a 69 percent reduction for serious head injury against only 4 percent for neck injury.\n\n**The Full Solution:**\n- The claim is comparative: the helmet's benefit is focused on the head rather than spread across the body.\n- The table shows large reductions for head injuries (51 and 69 percent) and almost none for neck injury (4 percent).\n- Only B sets a head figure against a non-head figure, which is the comparison the claim requires.\n\n**Why the other choices are wrong:**\n- A: Even if every figure in the table shows some reduction, a reduction for every injury type suggests broad protection, which undercuts the idea that protection is concentrated on the head.\n- C: A single head-injury figure shows that helmets help the head but gives nothing to compare it with.\n- D: It reports two head-injury figures only, so it never shows that protection is weaker elsewhere.",
+          "passage": "Bicycle helmets are built to protect the head, but some critics have suggested that wearing one might raise the risk of neck injury. In 2017, researchers Jake Olivier and Prudence Creighton combined data from 40 studies covering more than 64,000 injured cyclists, comparing riders who wore helmets with riders who did not. The results suggest that a helmet's protection is concentrated on the head it covers, since ______",
           "questionTable": {
             "type": "table",
-            "caption": "Wheat yields at a Great Plains experiment station, by practice and season type (bushels per acre)",
+            "caption": "Reduction in odds of injury for injured cyclists wearing helmets, by type of injury (Olivier and Creighton, 2017)",
             "headers": [
-              "Season type",
-              "Continuous cropping",
-              "Alternate-year fallow"
+              "Type of injury",
+              "Reduction in odds of injury"
             ],
             "rows": [
               [
-                "Wet seasons",
-                "21",
-                "24"
+                "Head injury",
+                "51%"
               ],
               [
-                "Average seasons",
-                "14",
-                "19"
+                "Serious head injury",
+                "69%"
               ],
               [
-                "Dry seasons",
-                "4",
-                "13"
+                "Face injury",
+                "33%"
+              ],
+              [
+                "Neck injury",
+                "4%"
               ]
             ]
           },
           "_meta": {
-            "anchor": "dry farming techniques — alternate-year fallow as drought insurance in station trials",
+            "anchor": "bicycle helmets meta-analysis — Olivier & Creighton 2017, Int J Epidemiol 46(1):278 (ORs 0.49 head, 0.31 serious head, 0.67 face, 0.96 neck)",
             "distractors": {
-              "A": "true-but-general, misses the asymmetry the claim needs",
-              "C": "single cell, wrong practice",
-              "D": "shared trend without the comparison"
+              "A": "true but supports general protection",
+              "C": "single cell, no contrast",
+              "D": "head-only, no contrast"
             }
           },
           "id": 1141
@@ -1597,30 +1594,30 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "the astronomers who copied the tables out rarely understood the planetary models behind them."
+              "text": "the naturalists who accepted evolution rarely understood the details of Darwin's theory."
             },
             {
               "id": "B",
-              "text": "criticism of the tables' underlying models was largely confined to astronomers working outside the universities."
+              "text": "criticism of natural selection came mainly from naturalists who worked outside the major universities of the time."
             },
             {
               "id": "C",
-              "text": "an astronomer could adopt the tables as a working tool without endorsing the models behind them."
+              "text": "a naturalist could accept that species evolve without accepting Darwin's account of how they evolve."
             },
             {
               "id": "D",
-              "text": "the tables spread chiefly because university statutes required students to copy them by hand."
+              "text": "evolution spread chiefly because universities required students to read Darwin's writings."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** Each strand of evidence separates use from belief: the canons teach only how to compute, never why the models are true, and the tables served practical tasks that needed accurate positions but \"no commitment to any particular account of the heavens.\" Together they license exactly one conclusion — the tables could be adopted as a tool without endorsing their models.\n\n**The Full Solution:**\n- The passage opens with the inference under review: spread of the tables seems to show acceptance of the models.\n- Evidence 1 (how-to canons without justification) shows that using the tables did not require being persuaded of the models; evidence 2 (calendars and horoscopes) shows that the work the tables were used for demanded competence, not doctrine.\n- The modest common conclusion is the tool-belief separation, and choice C claims no more than that.\n\n**Why the other choices are wrong:**\n- A: It overshoots — the evidence shows that use was independent of belief, not that the copyists failed to understand the models.\n- B: The passage never says where criticism of the models came from, inside or outside the universities.\n- D: No university statutes or copying requirements are mentioned; the passage explains how the tables were used, not what drove their spread.",
-          "passage": "It might seem that the spread of the Alfonsine Tables through fourteenth-century Europe shows that astronomers everywhere had accepted the planetary models behind them. The manuscripts tell a more complicated story. Many copies transmit the numbers alongside canons that explain only how to compute with the tables, never why their models should be believed. And the tables were put largely to practical uses, such as drawing up calendars and casting horoscopes, tasks that required accurate positions but no commitment to any particular account of the heavens. Taken together, the evidence suggests that ______",
+          "explanation": "**Choice C is correct.** The text separates two ideas: that species evolve (widely accepted by the 1880s) and that natural selection causes evolution (doubted by many until the 1930s and 1940s). Many naturalists held the first without the second, so accepting evolution did not require accepting Darwin's mechanism.\n\n**The Full Solution:**\n- The text sets up a tempting conclusion: wide acceptance of evolution means Darwin's theory triumphed.\n- It then shows that most naturalists accepted evolution while many rejected natural selection and proposed other causes.\n- The only conclusion that fits both facts is that one could accept evolution without accepting Darwin's explanation of it.\n\n**Why the other choices are wrong:**\n- A: The text says naturalists doubted natural selection, not that they misunderstood Darwin's theory.\n- B: The text never says where the critics of natural selection worked.\n- D: The text says nothing about university requirements or how students learned about evolution.",
+          "passage": "It might seem that by the 1880s, the wide acceptance of evolution among naturalists meant that Charles Darwin's theory had triumphed. The record is more complicated. Most naturalists by then agreed that species change over time and descend from common ancestors. But many doubted that natural selection, the process Darwin had proposed, could produce those changes. They offered other explanations instead, such as the inheritance of traits that animals acquired during their lives. Natural selection itself won general acceptance only in the 1930s and 1940s. Taken together, this history suggests that ______",
           "_meta": {
-            "anchor": "medieval astronomical tables — canons and practical uses separate computational use from doctrinal acceptance",
+            "anchor": "\"eclipse of Darwinism\" — evolution accepted, natural selection doubted until the Modern Synthesis (Bowler, The Eclipse of Darwinism, 1983; Wikipedia: The eclipse of Darwinism)",
             "distractors": {
-              "A": "overshoot — independence misread as ignorance",
-              "B": "location claim without support",
-              "D": "invented causal mechanism"
+              "A": "confuses doubt with ignorance",
+              "B": "fabricated location",
+              "D": "fabricated cause"
             }
           },
           "id": 1143
@@ -1631,34 +1628,34 @@ export const practiceTest11RW = {
           "band": 3,
           "domain": "information-and-ideas",
           "skill": "command-of-evidence-textual",
-          "question": "Which finding, if true, would most directly support the historian's argument?",
+          "question": "Which finding, if true, would most directly support the biologists' argument?",
           "choices": [
             {
               "id": "A",
-              "text": "Songs that became the era's biggest hits were frequently praised by newspaper critics of the day for their unusually memorable melodies and clever lyrics."
+              "text": "Dark peppered moths were more common in industrial areas in years when pollution was heavier."
             },
             {
               "id": "B",
-              "text": "Several vaudeville stars refused publishers' payments for songs they personally admired and sang anyway."
+              "text": "Peppered moths of both forms were eaten by several kinds of birds, such as robins and thrushes."
             },
             {
               "id": "C",
-              "text": "Comparable new songs given sharply different plugging budgets sold in proportion to those budgets, not to the publishers' own rankings of their quality."
+              "text": "On the same soot-darkened trunks, birds ate a much larger share of pale moths than of dark moths."
             },
             {
               "id": "D",
-              "text": "Publishers spent more money on plugging in years when overall sheet-music sales were rising."
+              "text": "The dark form of the peppered moth also became common near industrial cities in other countries."
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The historian claims promotion, not song quality, drove sales; the skeptics reply that plugging money simply followed quality. C breaks the tie: when comparable songs got different budgets, sales tracked the budgets and ignored the publishers' own quality rankings — promotion moving sales on its own.\n\n**The Full Solution:**\n- The dispute is about direction: does plugging cause success, or does expected success attract plugging?\n- Evidence must therefore hold quality roughly constant while promotion varies. \"Comparable new songs\" with \"sharply different plugging budgets\" is that setup.\n- Sales proportional to budget, and decoupled from ranked quality, is the outcome the historian's argument predicts.\n\n**Why the other choices are wrong:**\n- A: Critical praise for hits' melodies is what the skeptics would predict — quality showing through.\n- B: Stars singing admired songs unpaid ties performance to merit, again favoring the skeptics.\n- D: Total spending rising with total sales fits either causal story and cannot distinguish them.",
-          "passage": "Publishers on Tin Pan Alley kept ledgers of their sheet-music sales, and a music historian has used the ledgers to press a claim about how hits were made. The biggest sellers, the historian argues, owed their success less to any measurable quality of the songs themselves than to plugging — the publishers' paid campaigns to place songs with star vaudeville performers. Skeptics respond that plugging money naturally flowed toward the catchiest songs, so promotion merely amplified merit that was already there.",
+          "explanation": "**Choice C is correct.** The biologists' claim is that birds removed pale moths more than dark moths on darkened bark. A finding that birds ate a much larger share of pale moths than dark moths on the same soot-darkened trunks shows exactly that difference.\n\n**The Full Solution:**\n- The claim has a specific mechanism: selective predation by birds, based on how visible each form is on dark bark.\n- To support it, a finding must show birds taking pale moths more often than dark ones in polluted woods.\n- C provides that comparison directly, with both forms on the same trunks.\n\n**Why the other choices are wrong:**\n- A: More dark moths in heavily polluted years fits both explanations, including the idea that pollution itself darkened the moths.\n- B: That birds ate both forms says nothing about whether they ate one form more than the other.\n- D: The spread of the dark form near other industrial cities is consistent with either explanation and does not point to birds.",
+          "passage": "In the 1800s, a dark form of the peppered moth, once rare in England, became common in woods near industrial cities, where soot had blackened the tree trunks. Many biologists have argued that birds drove this change: against dark bark, pale moths were easier for birds to spot and eat than dark moths were. Some early researchers proposed instead that pollution itself caused moths to turn dark.",
           "_meta": {
-            "anchor": "Tin Pan Alley song plugging — promotion vs. merit as the driver of hits",
+            "anchor": "peppered moth industrial melanism — bird predation claim (Kettlewell's experiment, Wikipedia; Evolution: Education and Outreach 2008)",
             "distractors": {
-              "A": "supports the skeptics",
-              "B": "supports the skeptics",
-              "D": "consistent with both stories"
+              "A": "fits both hypotheses",
+              "B": "no differential",
+              "D": "fits both hypotheses"
             }
           },
           "id": 1139
@@ -1673,30 +1670,30 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Early modern guilds usually preferred to enroll apprentices from distant regions rather than from the cities and villages nearby."
+              "text": "Prehistoric people in Britain usually buried their dead with large collections of objects made of copper and gold."
             },
             {
               "id": "B",
-              "text": "Historians have found that most medieval apprentices failed to complete their terms of service."
+              "text": "Archaeologists have shown that the Amesbury Archer made the copper knives found in his grave."
             },
             {
               "id": "C",
-              "text": "Apprenticeship registers are too fragmentary to support broad conclusions about medieval society."
+              "text": "Chemical analysis of teeth is too unreliable to show where ancient people grew up."
             },
             {
               "id": "D",
-              "text": "Apprenticeship registers suggest that early modern young people traveled farther than is commonly assumed."
+              "text": "Evidence from one grave suggests that some prehistoric people traveled farther than is often assumed."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** The text's pivot sentence announces it: the registers \"complicate the familiar image of a population rooted in place,\" and the evidence that follows — London's companies drawing apprentices from across England, apprenticeship as the longest journey of a young life — documents long-distance movement.\n\n**The Full Solution:**\n- The registers are introduced as a source that records where each apprentice came from.\n- The evidence sentence gives the substance: apprentices drawn from \"villages across the length of England.\"\n- The closing sentence generalizes to the apprentice's own experience — \"the longest journey of their lives\" — sealing mobility as the idea every part serves. That is choice D.\n\n**Why the other choices are wrong:**\n- A: The text says apprentices came from far away, not that guilds preferred distant recruits over local ones.\n- B: Completion rates are never mentioned.\n- C: It reverses the text's stance — the registers are presented as revealing information that overturns a familiar image, not as too broken to use.",
-          "passage": "In early modern Europe, guilds kept careful rolls of the apprentices their masters enrolled, often recording each boy's name, birthplace, and term of service. Historians who have studied these registers find that they complicate the familiar image of a population rooted in place. In the 1500s and 1600s, London's companies drew apprentices from villages across the length of England. For many young people, an apprenticeship was not only training for a trade but the occasion for the longest journey of their lives.",
+          "explanation": "**Choice D is correct.** The text opens with a common assumption — prehistoric people stayed close to home — and then presents a grave that \"complicates that picture\": a man buried in southern England who grew up in the Alps.\n\n**The Full Solution:**\n- Claim being challenged: prehistoric Britons spent their lives near their birthplaces.\n- Evidence: tooth-enamel analysis shows the Amesbury Archer grew up in central Europe.\n- Main idea: this burial suggests some people traveled much farther than the familiar picture allows.\n\n**Why the other choices are wrong:**\n- A: The text describes the objects in one grave; it says nothing about what people usually buried.\n- B: The text lists copper knives among the objects in the grave but never says who made them.\n- C: The text relies on the tooth analysis as evidence; it does not question its reliability.",
+          "passage": "Archaeologists have often pictured the people of prehistoric Britain as spending their lives close to where they were born. A grave found in 2002 in southern England complicates that picture. The man buried there around 2300 BCE, known as the Amesbury Archer, was laid to rest with about 100 objects, including copper knives and gold ornaments. Chemical analysis of his tooth enamel, which preserves traces of the water a person drank in childhood, indicates that he grew up in the Alps of central Europe.",
           "_meta": {
-            "anchor": "early modern guild apprenticeships — registers as evidence of long-distance youth migration (London companies' recruitment across England, 1500s-1600s)",
+            "anchor": "Amesbury Archer — tooth-enamel isotopes show Alpine childhood (Wessex Archaeology; Wikipedia: Amesbury Archer)",
             "distractors": {
-              "A": "distorts distance evidence into a preference claim",
-              "B": "fabricated completion statistic",
-              "C": "reverses the text's stance on the source"
+              "A": "overgeneralizes a detail",
+              "B": "unsupported claim about a detail",
+              "C": "contradicts the evidence"
             }
           },
           "id": 1136
@@ -1711,30 +1708,30 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Antarctic notothenioid fish avoid freezing chiefly by keeping to pockets of water warmer than their blood's ordinary freezing point."
+              "text": "Geckos cling to smooth surfaces mainly by giving off a sticky liquid from their toes."
             },
             {
               "id": "B",
-              "text": "Antifreeze proteins protect notothenioids not by excluding ice but by arresting the growth of crystals that enter the body."
+              "text": "Geckos cling not by suction or glue but by molecular attraction from countless tiny hairs."
             },
             {
               "id": "C",
-              "text": "Arthur DeVries was the first scientist to observe ice crystals inside the bodies of living fish."
+              "text": "The biologists who reported their findings in 2002 were the first to see the tiny hairs on a gecko's toes."
             },
             {
               "id": "D",
-              "text": "Antifreeze glycoproteins lower the temperature at which a notothenioid's blood begins to cool."
+              "text": "The hairs on a gecko's toes work only on surfaces as smooth as glass."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The text's central contrast is between two protective strategies: the proteins \"do not keep the blood from cooling\" or ice from appearing — they act \"by surface action,\" locking onto crystals so that each one \"simply stops growing.\"\n\n**The Full Solution:**\n- The second sentence rules out the intuitive mechanism: the fish swims below its blood's ordinary freezing point, so cold and ice cannot be excluded.\n- The third sentence supplies the real mechanism — adhesion to crystal faces, blocking water molecules from joining the lattice.\n- The final sentence names the result: ice is tolerated \"in a kind of arrested state.\" Choice B is that idea in one sentence.\n\n**Why the other choices are wrong:**\n- A: It contradicts the text, which puts the fish in water below the blood's ordinary freezing point.\n- C: DeVries discovered the proteins; the text never credits him with first observing internal ice crystals, and no such priority claim is its point.\n- D: It garbles the mechanism — the proteins stop crystal growth; nothing in the text says they change when blood \"begins to cool.\"",
-          "passage": "The biologist Arthur DeVries discovered in the late 1960s that Antarctic notothenioid fish carry antifreeze glycoproteins in their blood. The proteins do not keep the blood from cooling; a notothenioid swims at temperatures below its blood's ordinary freezing point. Instead, the proteins work by surface action: they adhere to the faces of any minute ice crystal that enters the body and block water molecules from joining the crystal's lattice, so the crystal simply stops growing. The fish thus tolerates the ice it cannot avoid, holding internal crystals in a kind of arrested state through the long polar winter.",
+          "explanation": "**Choice B is correct.** The text rejects the old explanations (suction cups or glue) and replaces them with a new one: hundreds of thousands of tiny hairs whose tips come close enough to a surface for van der Waals forces to produce a strong grip.\n\n**The Full Solution:**\n- Old view: gecko feet worked by suction or by a glue.\n- New evidence (a team of biologists, 2002): the grip comes from weak molecular attractions multiplied across millions of fine hair tips.\n- B states both halves: not suction or glue, but molecular attraction from the hairs.\n\n**Why the other choices are wrong:**\n- A: The glue idea is the explanation the text says was replaced.\n- C: The text says the 2002 team explained the grip, not that it was the first to see the hairs.\n- D: The text mentions glass as one example of what geckos can climb; it never limits the hairs to smooth surfaces.",
+          "passage": "A gecko can run up a pane of glass and hang from a ceiling by a single toe. Its feet were once thought to work like suction cups or to give off a kind of glue. In 2002, a team of biologists reported evidence for a different explanation. Each foot carries hundreds of thousands of tiny hairs whose tips split into even finer branches. These tips get so close to a surface that weak attractions between molecules, called van der Waals forces, add up to a strong grip.",
           "_meta": {
-            "anchor": "Antarctic fish antifreeze proteins — DeVries discovery; adsorption arrests crystal growth",
+            "anchor": "gecko adhesion — van der Waals forces from setae, not suction or glue (Autumn et al. 2002, PNAS 99:12252)",
             "distractors": {
-              "A": "contradicts the below-freezing habitat",
-              "C": "fabricated priority claim",
-              "D": "garbled mechanism"
+              "A": "rejected view",
+              "C": "unsupported first",
+              "D": "distorted limit"
             }
           },
           "id": 1137
@@ -1749,52 +1746,56 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "32 percent of Bell System telephones were on dial service by 1930."
+              "text": "3.6 percent of all US farms reported having tractors in the 1920 census."
             },
             {
               "id": "B",
-              "text": "the share of Bell System telephones on dial service rose from 32 percent in 1930 to 60 percent in 1940, nearly doubling in a single decade."
+              "text": "the share of farms reporting tractors rose from 23.1 percent in 1940 to 46.9 percent in 1950, more than doubling in ten years."
             },
             {
               "id": "C",
-              "text": "by 1978, every telephone in the Bell System was on dial service."
+              "text": "by the time of the 1954 census, about 60 percent of US farms reported tractors."
             },
             {
               "id": "D",
-              "text": "only 60 percent of Bell System telephones were on dial service by 1940, and the conversion was not complete until 1978."
+              "text": "only about 23 percent of US farms reported tractors in 1940, and the share did not pass half until the 1950s."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** \"Gradual rather than abrupt\" is a claim about the whole timeline, and D reads the whole table: two decades after dial adoption began, only 60 percent of telephones had been converted, and the last were not converted until 1978.\n\n**The Full Solution:**\n- The conclusion needs evidence that the changeover stretched over a long span, with manual service persisting alongside dial.\n- The table shows 60 percent on dial in 1940 — so 40 percent still manual — and 100 percent only in 1978, nearly six decades after the late-1910s start the passage mentions.\n- D cites both facts, tracking the conclusion exactly.\n\n**Why the other choices are wrong:**\n- A: A snapshot of 1930 shows where the conversion stood at one moment, not how long it took.\n- B: A near-doubling in a single decade stresses the speed of the change, which cuts against the claim that it was gradual.\n- C: The completion date alone says nothing about how much of the network remained manual along the way.",
-          "passage": "The switch from manual to dial telephone service did not happen at a stroke. Economists studying the Bell System, which began adopting dial switching in the late 1910s, emphasize that each exchange required years of preparation and that manual service remained part of daily life long after the first dial offices opened. They conclude that the conversion was gradual rather than abrupt because ______",
+          "explanation": "**Choice D is correct.** The claim is that the tractor spread across American farms gradually. D shows that two decades after 1920, only about 23 percent of farms had tractors, and that a majority was not reached until the 1950s — a slow, drawn-out change.\n\n**The Full Solution:**\n- \"Gradual\" means the change took a long time to complete.\n- The table shows the share of farms with tractors climbing over more than thirty years: 3.6 percent in 1920, 23.1 percent in 1940, 46.9 percent in 1950, and 60.1 percent in 1954.\n- D cites both the still-small share in 1940 and the late date at which the share passed half, which together show the slow pace.\n\n**Why the other choices are wrong:**\n- A: A single starting figure says nothing about how fast the share changed.\n- B: Stressing that the share was \"more than doubling\" in ten years emphasizes rapid change, which works against the claim.\n- C: Reporting only the endpoint shows that a majority was reached but not how long it took.",
+          "passage": "Gasoline tractors were on sale to American farmers by the 1910s, but many farm families kept working their fields with horses and mules for decades. Horses ran on oats and hay that farmers could grow themselves, while tractors needed purchased fuel and repairs. The tractor's spread across the nation's farms was gradual rather than sudden, a claim supported by census figures showing that ______",
           "questionTable": {
             "type": "table",
-            "caption": "Share of Bell System telephones on dial service, selected years",
+            "caption": "Share of US farms reporting tractors, selected census years",
             "headers": [
               "Year",
-              "Share of telephones on dial service"
+              "Share of farms reporting tractors"
             ],
             "rows": [
               [
-                "1930",
-                "32%"
+                "1920",
+                "3.6%"
               ],
               [
                 "1940",
-                "60%"
+                "23.1%"
               ],
               [
-                "1978",
-                "100%"
+                "1950",
+                "46.9%"
+              ],
+              [
+                "1954",
+                "60.1%"
               ]
             ]
           },
           "_meta": {
-            "anchor": "telephone switchboard operators — Bell System dial conversion timeline (Feigenbaum & Gross, NBER w28061: 32% of Bell telephones on dial by 1930, 60% by 1940, entire network by 1978)",
+            "anchor": "share of US farms reporting tractors 1920-1954 — gradual adoption: still 23% in 1940, past half only in the 1950s (USDA/Census of Agriculture 1954, Farm Facilities and Farm Equipment, Table 2: 3.6/13.5/23.1/34.2/46.9/60.1 for 1920/1930/1940/1945/1950/1954; 1954 Graphic Summary on horses fed with farm-grown oats and hay; Olmstead & Rhode NBER w7947)",
             "distractors": {
-              "A": "single-year snapshot",
-              "B": "speed of change, not gradualness",
-              "C": "endpoint without the span"
+              "A": "single value, no pace",
+              "B": "stresses speed, against claim",
+              "C": "endpoint only"
             }
           },
           "id": 1140
@@ -1809,30 +1810,30 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "gives mycelium materials their durability advantage over animal hide."
+              "text": "gave the Toronto team a supply of insulin large enough to treat most people with diabetes."
             },
             {
               "id": "B",
-              "text": "matters little while the finishing processes that set the material's working properties remain unsettled."
+              "text": "could help few patients until a way to make insulin in large amounts was found."
             },
             {
               "id": "C",
-              "text": "could likely be increased still further by fine-tuning the temperature and the humidity of the growing trays."
+              "text": "could likely be increased further by giving patients larger doses over shorter periods."
             },
             {
               "id": "D",
-              "text": "has already persuaded most shoemakers to abandon animal leather for mycelium sheets."
+              "text": "had already persuaded most doctors to give up other treatments for diabetes."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The passage grants the growing stage its speed, then relocates what \"matters to a shoemaker\" — flex, stitching, wear — to the post-harvest treatments, which \"are still being worked out.\" A two-week head start counts for little while the step that determines usefulness is unresolved.\n\n**The Full Solution:**\n- Premise 1: growth is fast and controllable (weeks, tunable thickness and texture).\n- Premise 2: the properties buyers care about depend \"heavily\" on finishing, not growing.\n- Premise 3: finishing is immature. \"It follows that\" demands the conclusion these premises jointly force: the speed advantage is not yet decisive — choice B.\n\n**Why the other choices are wrong:**\n- A: The passage ties working properties to finishing, not to growing speed, and claims no durability advantage over hide.\n- C: Whether growth could be made even faster is beside the argument, which is about speed's current irrelevance.\n- D: It overshoots into a mass conversion the passage nowhere reports — and finishing's immaturity argues against it.",
-          "passage": "Mycelium grows into a harvestable sheet in about two weeks, while raising a hide-bearing animal takes years, and growers can tune a sheet's thickness and texture by adjusting temperature, humidity, and the material the fungus feeds on. But the properties that matter to a shoemaker — how the material flexes, takes stitching, and wears at the toe — depend heavily on the treatments applied after harvest, and those finishing processes are still being worked out. It follows that the speed of the growing stage ______",
+          "explanation": "**Choice B is correct.** The text pairs a strength (insulin worked) with a severe limit (the team could not make it reliably, and one patient died when the supply ran out). It follows that insulin could help only a few patients until large-scale production became possible.\n\n**The Full Solution:**\n- Strength: the extract lowered a patient's \"dangerously high blood sugar\" and \"clearly worked.\"\n- Limit: the team \"struggled to produce batches of steady strength\" and for two months \"could make almost no usable insulin at all.\"\n- Consequence: a patient died \"after the supply ran out,\" showing that supply, not effectiveness, was the bottleneck.\n- So insulin's power could reach few patients until a way to make it in large amounts was found.\n\n**Why the other choices are wrong:**\n- A: The text says the opposite — the supply was so small that it ran out and a patient died.\n- C: The text never discusses dose sizes or schedules, and the problem was having too little of the drug at all.\n- D: The text says nothing about how doctors in general responded to insulin.",
+          "passage": "In January 1922, doctors in Toronto treated a 14-year-old boy who had diabetes with an extract from animal pancreases, and his dangerously high blood sugar fell. The extract, later called insulin, clearly worked. Making it was another matter. The research team struggled to produce batches of steady strength, and from March to mid-May 1922, it could make almost no usable insulin at all. During that shortage, one patient died after the supply ran out. It follows that, at that stage, insulin's proven power ______",
           "_meta": {
-            "anchor": "fungal leather alternatives — growth speed vs. unresolved finishing processes",
+            "anchor": "insulin 1922 Toronto — proven extract limited by production: first patient Jan 1922, spring 1922 \"insulin famine\" (Mar to mid-May), one patient died when supply gave out; large-scale production 1923 (University of Toronto Fisher Library, Insulin 100 exhibit; Connaught Fund history, connaught.research.utoronto.ca)",
             "distractors": {
-              "A": "mislocates the source of working properties",
-              "C": "answers a question the argument does not ask",
-              "D": "overshoot contradicted by the premises"
+              "A": "contradicts scarcity",
+              "C": "unsupported dosing claim",
+              "D": "unsupported adoption claim"
             }
           },
           "id": 1142
@@ -1847,31 +1848,31 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "rainfall, agricultural scientists, however,"
+              "text": "ponds, a white stork found in northern Germany in 1822, however,"
             },
             {
               "id": "B",
-              "text": "rainfall; agricultural scientists, however"
+              "text": "ponds; a white stork found in northern Germany in 1822, however"
             },
             {
               "id": "C",
-              "text": "rainfall, agricultural scientists however"
+              "text": "ponds, a white stork found in northern Germany in 1822 however"
             },
             {
               "id": "D",
-              "text": "rainfall. Agricultural scientists, however,"
+              "text": "ponds. A white stork found in northern Germany in 1822, however,"
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** Two independent statements meet here — the promoters' promise, and the scientists' skeptical response — and D separates them with a period while setting off the interrupting \"however\" with the required pair of commas.\n\n**The Full Solution:**\n- Statement 1: \"Promoters of dry farming toured the Great Plains promising ... on almost any rainfall.\"\n- Statement 2: \"Agricultural scientists, however, questioned those promises ...\" — a full clause with \"however\" as a parenthetical interrupter.\n- A period is a legitimate boundary between independent clauses, and an interrupting \"however\" takes a comma on each side. D satisfies both conventions at once.\n\n**Why the other choices are wrong:**\n- A: The comma after \"rainfall\" splices the two independent statements together.\n- B: The semicolon boundary is sound, but \"however\" is fenced on only one side — the comma completing the pair is missing.\n- C: It both splices the clauses with a comma and leaves \"however\" entirely unfenced.",
-          "passage": "Promoters of dry farming toured the Great Plains promising that deep plowing and careful tillage would let wheat thrive on almost any ______ questioned those promises and began testing the methods in controlled trials.",
+          "explanation": "**Choice D is correct.** \"For centuries, some European naturalists believed that birds that vanished each autumn spent the winter asleep at the bottom of ponds\" is a complete sentence, and \"A white stork found in northern Germany in 1822 ... carried a spear from central Africa lodged in its neck\" is another. A period separates them, and \"however\" — an interrupting word inside the second sentence — is set off by a pair of commas.\n\n**The Full Solution:**\n- Sentence 1 ends at \"ponds.\"\n- Sentence 2: \"A white stork found in northern Germany in 1822, however, carried a spear from central Africa lodged in its neck...\"\n- \"However\" signals the contrast between the naturalists' belief and the evidence of the stork, and as an interrupter between the subject and the verb \"carried\" it needs a comma on each side.\n\n**Why the other choices are wrong:**\n- A: A comma alone joins two independent clauses, creating a comma splice.\n- B: The semicolon correctly separates the clauses, but \"however\" is left without its closing comma before the verb \"carried.\"\n- C: A comma splice joins the clauses, and \"however\" is not set off at all.",
+          "passage": "For centuries, some European naturalists believed that birds that vanished each autumn spent the winter asleep at the bottom of ______ carried a spear from central Africa lodged in its neck, evidence that the bird had flown far south for the winter.",
           "_meta": {
-            "rule": "period between independent clauses + paired commas around interrupting 'however'",
-            "anchor": "dry farming — promoters' promises vs. agricultural scientists' skepticism (Encyclopedia of the Great Plains: scientists in the Dry Farming Congress questioned Campbell's methods)",
+            "rule": "sentence boundary + interrupting however set off by paired commas",
+            "anchor": "Pfeilstorch — white stork found near Klütz, Mecklenburg, in 1822 with a central African spear in its neck, evidence of migration vs. the belief that birds wintered underwater (Wikipedia: Pfeilstorch)",
             "distractors": {
               "A": "comma splice",
-              "B": "half-fenced 'however'",
-              "C": "splice plus unfenced 'however'"
+              "B": "missing closing comma",
+              "C": "comma splice, however unpunctuated"
             }
           },
           "id": 1148
@@ -1886,31 +1887,31 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "maintaining"
+              "text": "attaching"
             },
             {
               "id": "B",
-              "text": "to maintain"
+              "text": "to attach"
             },
             {
               "id": "C",
-              "text": "maintained"
+              "text": "attached"
             },
             {
               "id": "D",
-              "text": "the maintenance of"
+              "text": "the attachment of"
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The blank is the third item in a list whose first two items are gerund phrases — \"stocking the roadside stations...\" and \"staffing them with runners...\" — so the third must be a gerund as well: \"maintaining.\"\n\n**The Full Solution:**\n- Items in a coordinated series must share grammatical form (parallel structure).\n- The established pattern is gerund + object: \"stocking ... , staffing ... , and ______ the roads and rope bridges.\"\n- \"Maintaining\" continues the gerund-gerund-gerund series exactly.\n\n**Why the other choices are wrong:**\n- B: \"To maintain\" switches the series to an infinitive midstream, breaking parallelism.\n- C: \"Maintained\" is a past-tense or participial form that cannot follow \"and\" as the third item of a gerund list.\n- D: \"The maintenance of\" swaps in a noun phrase, again mismatching the two gerunds that set the pattern.",
-          "passage": "To keep the relay network running, Inca administrators drew on several kinds of labor: stocking the roadside stations with food and fuel, staffing them with runners drawn from nearby villages, and ______ the roads and rope bridges on which the whole system depended.",
+          "explanation": "**Choice A is correct.** The blank completes a list of three steps, and the first two are -ing phrases (\"folding the printed sheets,\" \"sewing the signatures together\"). Items in a list must share the same form, so the third must be \"attaching.\"\n\n**The Full Solution:**\n- The colon introduces a list of the \"three main tasks.\"\n- Item 1: \"folding the printed sheets...\" Item 2: \"sewing the signatures together...\"\n- Item 3 must match: \"attaching a protective cover...\"\n\n**Why the other choices are wrong:**\n- B: \"To attach\" is an infinitive, which breaks the -ing pattern of the list.\n- C: \"Attached\" is a past-tense verb, which does not match the -ing phrases.\n- D: \"The attachment of\" is a noun phrase, which also breaks the parallel structure.",
+          "passage": "Binding a book by hand involves three main tasks: folding the printed sheets into groups called signatures, sewing the signatures together along their folds, and ______ a protective cover to the sewn pages.",
           "_meta": {
-            "rule": "parallel structure in a gerund series",
-            "anchor": "chasqui relay runners — station provisioning and road upkeep",
+            "rule": "parallel -ing phrases in a series",
+            "anchor": "hand bookbinding — fold sheets into signatures, sew through the folds, attach a cover (Wikipedia, Bookbinding; Talas, A Comprehensive Guide to Bookbinding)",
             "distractors": {
-              "B": "infinitive breaks the series",
-              "C": "past form cannot serve as list item",
-              "D": "noun phrase breaks the series"
+              "B": "infinitive",
+              "C": "past tense",
+              "D": "noun phrase"
             }
           },
           "id": 1145
@@ -1925,31 +1926,31 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "the antifreeze gene's origin was traced by Christina Cheng, who"
+              "text": "Marie Curie's research"
             },
             {
               "id": "B",
-              "text": "Christina Cheng"
+              "text": "Marie Curie"
             },
             {
               "id": "C",
-              "text": "it was Christina Cheng who"
+              "text": "it was Marie Curie who"
             },
             {
               "id": "D",
-              "text": "Christina Cheng's analysis"
+              "text": "the work of Marie Curie"
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The opening modifier — \"Working with Arthur DeVries at the University of Illinois in the 1990s\" — describes a person, so the person must stand immediately after the comma as the sentence's subject: \"Christina Cheng traced...\"\n\n**The Full Solution:**\n- An introductory participial phrase attaches to the subject that follows it; whoever was \"working with Arthur DeVries\" must be the first noun after the comma.\n- Only Cheng herself can have worked with DeVries. With choice B, the modifier lands on her, and \"traced\" gets its proper subject.\n\n**Why the other choices are wrong:**\n- A: It makes \"the antifreeze gene's origin\" the subject — an origin did not work with anyone. The modifier dangles.\n- C: The cleft \"it was ... who\" puts the empty pronoun \"it\" in the modifier's landing spot; \"it\" did not work with DeVries.\n- D: \"Christina Cheng's analysis\" makes the analysis the subject, but an analysis cannot work with a colleague — the modifier dangles again.",
-          "passage": "Working with Arthur DeVries at the University of Illinois in the 1990s, ______ traced the notothenioids' antifreeze gene to an unlikely source: a gene for the digestive enzyme trypsinogen, recruited roughly 5 to 14 million years ago into an entirely new role.",
+          "explanation": "**Choice B is correct.** The sentence opens with a modifier, \"Working with her husband, Pierre, in Paris,\" which must be followed immediately by the person doing that work. Marie Curie is that person, and she is also the one who \"identified\" the elements and \"named\" polonium after \"her native Poland.\"\n\n**The Full Solution:**\n- An introductory -ing phrase describes the subject that comes right after the comma.\n- Only a person can work with her husband and name an element after her native country.\n- \"Marie Curie identified two new radioactive elements\" places the right subject next to the modifier.\n\n**Why the other choices are wrong:**\n- A: It makes \"research\" the subject, so the sentence says the research worked with her husband and had a native Poland.\n- C: It makes the empty word \"it\" the subject that the opening phrase describes, leaving the modifier dangling.\n- D: It makes \"the work\" the subject, so the opening phrase wrongly describes work rather than a person.",
+          "passage": "Working with her husband, Pierre, in Paris, ______ identified two new radioactive elements in 1898 and named the first one polonium after her native Poland.",
           "_meta": {
-            "rule": "introductory participial modifier must attach to the human subject",
-            "anchor": "Antarctic fish antifreeze proteins — antifreeze-gene evolution from a trypsinogen gene, 5-14 million years ago (Chen, DeVries & Cheng, PNAS 1997, PMID 9108060; University of Illinois)",
+            "rule": "introductory participial phrase must modify the subject (dangling modifier)",
+            "anchor": "Marie and Pierre Curie — polonium and radium, 1898, polonium named for Poland (Franklin Institute; History Today)",
             "distractors": {
-              "A": "dangling modifier onto 'origin'",
-              "C": "cleft strands the modifier on 'it'",
-              "D": "dangling modifier onto 'research'"
+              "A": "possessive noun subject — dangling",
+              "C": "expletive it — dangling",
+              "D": "abstract noun subject — dangling"
             }
           },
           "id": 1149
@@ -1964,31 +1965,31 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "1960s,"
+              "text": "51,"
             },
             {
               "id": "B",
-              "text": "1960s;"
+              "text": "51;"
             },
             {
               "id": "C",
-              "text": "1960s"
+              "text": "51"
             },
             {
               "id": "D",
-              "text": "1960s:"
+              "text": "51:"
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** Two independent clauses meet at the blank, and with no coordinating conjunction between them, a semicolon is the conventional joint.\n\n**The Full Solution:**\n- Clause 1: \"The biologist Arthur DeVries first isolated antifreeze glycoproteins ... in the late 1960s\" — complete.\n- Clause 2: \"nearly identical proteins were later found in Arctic cod, which had evolved them independently\" — also complete.\n- Related independent clauses joined without \"and,\" \"but,\" or another coordinator take a semicolon.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses is a comma splice.\n- C: No punctuation at all fuses the clauses into a run-on.\n- D: A colon signals that what follows explains or specifies what precedes; the second clause reports a later, separate discovery, not an explanation of DeVries's isolation of the proteins.",
-          "passage": "The biologist Arthur DeVries first isolated antifreeze glycoproteins from the blood of Antarctic notothenioid fish in the late ______ nearly identical proteins were later found in Arctic cod, which had evolved them independently.",
+          "explanation": "**Choice B is correct.** The sentence joins two independent clauses: \"Rosalind Franklin and Raymond Gosling recorded an X-ray image of DNA known as Photo 51\" and \"less than a year later, James Watson and Francis Crick published their double-helix model of DNA.\" A semicolon is the conventional way to join two independent clauses without a conjunction.\n\n**The Full Solution:**\n- Clause 1 has a subject (Franklin and Gosling) and a verb (recorded).\n- Clause 2 has its own subject (Watson and Crick) and verb (published).\n- With no coordinating conjunction between them, a semicolon is required.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses creates a comma splice.\n- C: With no punctuation, the two clauses run together as a fused sentence.\n- D: A colon introduces an explanation or elaboration of the first clause, but the second clause reports a separate, later event.",
+          "passage": "In May 1952, Rosalind Franklin and Raymond Gosling recorded an X-ray image of DNA known as Photo ______ less than a year later, James Watson and Francis Crick published their double-helix model of DNA.",
           "_meta": {
-            "rule": "semicolon between independent clauses without a coordinator",
-            "anchor": "Antarctic fish antifreeze proteins — DeVries isolation (late 1960s); convergent AFGPs in Arctic cod (Chen, DeVries & Cheng, PNAS 1997, PMID 9108061)",
+            "rule": "semicolon between two independent clauses",
+            "anchor": "Photo 51 (6 May 1952, Franklin and Gosling, King's College London; Watson-Crick model April 1953) — Embryo Project ASU; KCL",
             "distractors": {
               "A": "comma splice",
-              "C": "fused run-on",
-              "D": "colon without elaborating relation"
+              "C": "fused sentence",
+              "D": "colon without elaboration"
             }
           },
           "id": 1144
@@ -2003,31 +2004,31 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": ", who published his own songs rather than selling them to established firms"
+              "text": ", who relayed her husband's instructions to the bridge's builders for years"
             },
             {
               "id": "B",
-              "text": " who published his own songs rather than selling them to established firms"
+              "text": " who relayed her husband's instructions to the bridge's builders for years"
             },
             {
               "id": "C",
-              "text": ", who published his own songs rather than selling them to established firms,"
+              "text": ", who relayed her husband's instructions to the bridge's builders for years,"
             },
             {
               "id": "D",
-              "text": " who published his own songs rather than selling them to established firms,"
+              "text": " who relayed her husband's instructions to the bridge's builders for years,"
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The \"who\" clause is nonrestrictive — Charles K. Harris is already fully identified by name — so it must be fenced off with a comma on both sides.\n\n**The Full Solution:**\n- Test the clause: removing \"who published his own songs rather than selling them to established firms\" leaves a complete, unambiguous sentence about Harris. The clause adds information; it does not identify.\n- Nonrestrictive elements take paired commas: one where the interruption begins, one where the main clause resumes (\"arranged for...\").\n- Only choice C supplies both commas.\n\n**Why the other choices are wrong:**\n- A: It opens the fence but never closes it, letting the aside crash into the main verb \"arranged.\"\n- B: With no commas, the clause reads as restrictive — as though some other Charles K. Harris had sold his songs to established firms.\n- D: It closes a fence that was never opened; the lone trailing comma has nothing to pair with.",
-          "passage": "Placing a new song with a popular stage performer could turn it into a hit. The songwriter Charles K. Harris ______ arranged for his ballad \"After the Ball\" to be sung in a touring musical, and in 1892 the song sold more than two million copies of sheet music.",
+          "explanation": "**Choice C is correct.** The clause \"who relayed her husband's instructions to the bridge's builders for years\" adds information about Emily Warren Roebling but is not needed to identify her; her full name already does that. Such a nonessential clause must be set off with a comma on each side.\n\n**The Full Solution:**\n- The core sentence is \"Emily Warren Roebling was the first person to cross the finished bridge.\"\n- The \"who\" clause interrupts that sentence with extra detail.\n- A nonessential interruption needs matching commas before and after it, which C provides.\n\n**Why the other choices are wrong:**\n- A: It opens the clause with a comma but never closes it, so the clause runs into the main verb \"was.\"\n- B: With no commas, the clause wrongly reads as information needed to identify which Emily Warren Roebling is meant.\n- D: It closes the clause with a comma but never opens it; commas around a nonessential clause must come in pairs.",
+          "passage": "Washington Roebling, chief engineer of the Brooklyn Bridge, was confined to his home by illness for much of its construction. Emily Warren Roebling ______ was the first person to cross the finished bridge by carriage in 1883.",
           "_meta": {
-            "rule": "paired commas around a nonrestrictive relative clause",
-            "anchor": "Tin Pan Alley song plugging — Charles K. Harris self-published \"After the Ball\" and had it interpolated into the touring musical A Trip to Chinatown; 2 million+ copies in 1892 (Wikipedia, After the Ball)",
+            "rule": "nonessential relative clause set off by paired commas",
+            "anchor": "Emily Warren Roebling — liaison for Washington Roebling, first to cross the Brooklyn Bridge by carriage, 1883 (Wikipedia; New-York Historical Society, Women & the American Story)",
             "distractors": {
-              "A": "unclosed fence",
-              "B": "restrictive misreading",
-              "D": "unopened fence"
+              "A": "opening comma only",
+              "B": "no commas",
+              "D": "closing comma only"
             }
           },
           "id": 1146
@@ -2042,29 +2043,29 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "operators'"
+              "text": "sergeants'"
             },
             {
               "id": "B",
-              "text": "operator's"
+              "text": "sergeant's"
             },
             {
               "id": "C",
-              "text": "operators"
+              "text": "sergeants"
             },
             {
               "id": "D",
-              "text": "operators's"
+              "text": "sergeants's"
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The tallies belong to the operators as a group — the whole passage concerns an exchange's staff — so the plural possessive \"operators'\" is required before \"own tallies.\"\n\n**The Full Solution:**\n- The parallel later in the sentence confirms the pattern: \"their supervisors' estimates\" is a plural possessive of the same shape.\n- A regular plural ending in -s takes only an apostrophe to form its possessive: operators → operators'.\n- \"The operators' own tallies\" marks plural possession correctly.\n\n**Why the other choices are wrong:**\n- B: \"Operator's\" is singular, but the sentence contrasts the workforce's records with their supervisors' — both possessors are plural.\n- C: \"Operators\" carries no possessive marking, yet the noun must possess \"own tallies\"; \"own\" cannot attach to a bare plural.\n- D: \"Operators's\" adds an extra 's to a plural already ending in -s — a malformed possessive.",
-          "passage": "Telephone companies kept meticulous records of switchboard work, and labor historians mining them can often reconstruct an exchange's daily rhythm by sorting out which surviving entries reflect the ______ own tallies of calls handled rather than their supervisors' estimates.",
+          "explanation": "**Choice A is correct.** The records belong to more than one sergeant — the sentence says \"three of the expedition's sergeants\" kept journals — so the plural possessive \"sergeants'\" is required.\n\n**The Full Solution:**\n- The possessor is plural: the three sergeants who kept journals.\n- A regular plural noun ending in -s forms its possessive with an apostrophe alone: sergeants → sergeants'.\n- \"The sergeants' own records\" correctly marks plural possession.\n\n**Why the other choices are wrong:**\n- B: \"Sergeant's\" is the singular possessive, but three sergeants kept records.\n- C: \"Sergeants\" is a plain plural with no possessive marking, so it cannot show ownership of the records.\n- D: \"Sergeants's\" is not a standard form; a plural ending in -s takes only an apostrophe.",
+          "passage": "Historians of the Lewis and Clark expedition draw not only on the journals of Meriwether Lewis and William Clark but also on the ______ own records, since three of the expedition's sergeants also kept journals.",
           "_meta": {
-            "rule": "plural possessive of a regular -s plural",
-            "anchor": "telephone switchboard operators — call tallies vs. supervisors' estimates",
+            "rule": "plural possessive of a regular -s plural (cue after the blank)",
+            "anchor": "Lewis and Clark expedition — sergeants Ordway, Floyd, Gass kept journals (Journals of the Lewis and Clark Expedition, Univ. of Nebraska, vols. 9-10)",
             "distractors": {
-              "B": "singular possessive against plural context",
+              "B": "singular possessive",
               "C": "no possessive marking",
               "D": "double-s malformed possessive"
             }
@@ -2097,15 +2098,14 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** The passage builds a causal chain: slender iron columns made plate-glass fronts possible; glass fronts made display windows into showpieces; and the blank introduces the chain's next link — sidewalks becoming evening promenades. \"In turn\" marks exactly that next-consequence step.\n\n**The Full Solution:**\n- Link 1: cast iron frees the ground floor for \"broad sheets of plate glass.\"\n- Link 2: display windows become \"showpieces,\" with their own professional trade.\n- Link 3: crowds promenade past the lit windows at night — a development caused by link 2, just as link 2 was caused by link 1. \"In turn\" is the connective built for chained consequences.\n\n**Why the other choices are wrong:**\n- A: \"Instead\" substitutes one outcome for a rejected alternative, but no alternative has been rejected.\n- C: \"Nevertheless\" concedes an obstacle before pressing on; nothing in the sequence resists the promenades.\n- D: \"For instance\" would make the promenades an example of the window-trimming trade, rather than a further effect of the lit windows.",
-          "passage": "Cast-iron construction let a storefront's weight rest on a few slender columns, so ground floors could open into broad sheets of plate glass. Display windows became showpieces, dressed by a new trade of professional window trimmers. ______ the sidewalks in front of the cast-iron blocks became evening promenades, where crowds came to see goods lit up behind glass.",
+          "explanation": "**Choice B is correct.** The text describes a chain of effects: the disease disappears, so the wildebeest herds grow; the larger herds eat much of the grass; with less grass to burn, fires shrink and trees return. \"In turn\" signals the next link in such a chain.\n\n**The Full Solution:**\n- Link 1: cattle vaccination wipes out rinderpest.\n- Link 2: freed from the disease, the wildebeest herds grow to more than a million and graze down the grass.\n- Link 3: less dry grass means less fuel, so fires burn smaller areas and trees return.\n- The last sentence follows from the one before it as the next step in the chain, so \"in turn\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Instead\" signals a replacement or alternative, but the smaller supply of dry grass is a result of the grazing, not an alternative to it.\n- C: \"Nevertheless\" signals that something happens despite what came before, but the grazing causes the drop in fuel rather than working against it.\n- D: \"For instance\" introduces an example, but less fuel for fires is not an example of grazing; it is its result.",
+          "passage": "During the 1950s and 1960s, the vaccination of cattle wiped out rinderpest, a viral disease that had also kept wildebeest numbers low in East Africa's Serengeti. The wildebeest herds grew to more than a million animals, and they grazed down much of the region's grass. ______ less dry grass was left to fuel fires, so fires burned smaller areas and trees began to return.",
           "_meta": {
-            "anchor": "cast-iron storefront architecture — chained consequences: columns, plate glass, window displays, promenades",
-            "transitionBucket": "transitions-cause-effect",
+            "anchor": "rinderpest eradication -> Serengeti wildebeest irruption (~250,000 in 1961 to >1 million by late 1970s) -> less grass fuel -> less fire -> tree recovery (Holdo et al. 2009, PLoS Biology 7:e1000210; HHMI BioInteractive, Serengeti wildebeest population regulation)",
             "distractors": {
-              "A": "substitution without a rejected alternative",
-              "C": "concession without an obstacle",
-              "D": "example relation misreads the chain"
+              "A": "false alternative",
+              "C": "false concession",
+              "D": "false exemplification"
             }
           },
           "id": 1151
@@ -2136,15 +2136,14 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "A",
-          "explanation": "**Choice A is correct.** The first sentence reports a common assumption — that the bore's danger lies in its height. The second corrects and sharpens it: the bore's speed \"is just as dangerous,\" since the wave can outpace a running person. Adding a less obvious truth that corrects a popular view is the home ground of \"In fact.\"\n\n**The Full Solution:**\n- Sentence 1 frames a popular assumption, flagged by \"often assume.\"\n- Sentence 2 supplies the fuller picture: the danger is real, but height is not its only source — speed matters as much.\n- \"In fact\" performs precisely that move — introducing the actual state of things against an assumption.\n\n**Why the other choices are wrong:**\n- B: \"Consequently\" would make the bore's speed a result of what visitors assume, an absurd causal link.\n- C: \"Granted\" concedes a point to an opposing view, but the second sentence corrects the first rather than yielding anything to it.\n- D: \"Meanwhile\" cordons the sentences into parallel, unrelated happenings, erasing the correction that connects them.",
-          "passage": "Visitors to China's Qiantang River often assume that the danger of its famous tidal bore lies in the wave's height. ______ the bore's speed is just as dangerous: the wave can travel upriver at up to 40 kilometers per hour, faster than most people can run, leaving onlookers on the bank little time to retreat.",
+          "explanation": "**Choice A is correct.** The first sentence states a popular belief; the second gives the real situation, which corrects it: lemmings do not seek death at all. \"In fact\" introduces a statement of what is actually true in response to a belief.\n\n**The Full Solution:**\n- Belief: lemmings jump off cliffs together in \"acts of mass suicide.\"\n- Reality: lemmings \"do not seek death at all\"; some drown only while moving to find food.\n- The second sentence sets the record straight, which is the job \"in fact\" does.\n\n**Why the other choices are wrong:**\n- B: \"Consequently\" would mean the popular belief caused lemmings not to seek death, which makes no sense.\n- C: \"Granted\" concedes a point before an argument continues, but the second sentence rejects the belief rather than conceding anything to it.\n- D: \"Meanwhile\" signals something happening at the same time, not a correction of a belief.",
+          "passage": "A popular belief holds that lemmings, small rodents of the far north, leap off cliffs together in acts of mass suicide. ______ lemmings do not seek death at all. When their numbers grow very large, many leave crowded areas in search of food, and some drown while trying to cross rivers or lakes.",
           "_meta": {
-            "anchor": "tidal bores — Qiantang bore: speed (up to 40 km/h — Wikipedia, Qiantang River) as well as height makes it dangerous",
-            "transitionBucket": "transitions-example-emphasis",
+            "anchor": "lemming mass-suicide myth — lemmings disperse when numbers peak and some drown crossing water (Alaska Department of Fish and Game, Alaska Fish & Wildlife News; National Geographic, animal myths)",
             "distractors": {
-              "B": "absurd causation",
-              "C": "concession where correction is needed",
-              "D": "parallel-events reading severs the link"
+              "B": "false causation",
+              "C": "false concession",
+              "D": "false simultaneity"
             }
           },
           "id": 1150
@@ -2175,15 +2174,14 @@ export const practiceTest11RW = {
             }
           ],
           "correctAnswer": "C",
-          "explanation": "**Choice C is correct.** The passage sets two freights against each other: grain, which \"could wait in a siding for days without losing value,\" and fresh produce, which \"began deteriorating the moment it was harvested.\" Opposed cases introduced in sequence take \"by contrast.\"\n\n**The Full Solution:**\n- Sentence 1 establishes the tolerant cargo and the leisurely handling it permitted.\n- Sentence 2 presents the opposite cargo — time-critical, value-bleeding — and its opposite consequences for the shipper.\n- The blank sits where produce is measured against grain, and \"by contrast\" announces exactly that opposition.\n\n**Why the other choices are wrong:**\n- A: \"For instance\" would make perishable produce an example of patient grain freight — the reverse of the relationship.\n- B: \"In addition\" stacks like upon like, but the sentences are built as opposites, not as accumulating points.\n- D: \"Therefore\" would derive produce's perishability from grain's patience, a causal link that does not exist.",
-          "passage": "A carload of grain could wait in a siding for days without losing value, so railroads moved it whenever traffic allowed. Fresh produce, ______ began deteriorating the moment it was harvested: every hour spent waiting cost the shipper money, and a delayed lettuce car might arrive worthless.",
+          "explanation": "**Choice C is correct.** The text sets the coqui against most frogs: most frogs lay eggs in water that hatch into tadpoles, while the coqui lays its eggs on land and its young skip the tadpole stage. \"By contrast\" marks that difference.\n\n**The Full Solution:**\n- Sentence 1: the usual pattern — eggs in water, then swimming tadpoles.\n- Sentence 2: the coqui's eggs are laid on land, and its young hatch as \"tiny froglets.\"\n- The two facts are opposed, so a contrasting transition is needed.\n\n**Why the other choices are wrong:**\n- A: \"For instance\" would make the coqui an example of the usual pattern, but it breaks that pattern.\n- B: \"In addition\" would add a similar point, but the second sentence presents an opposite one.\n- D: \"Therefore\" would mean that most frogs' habits cause the coqui's, which makes no sense.",
+          "passage": "Most frogs lay their eggs in water, where the eggs hatch into swimming tadpoles. The coqui, a small frog of Puerto Rico, ______ lays its eggs on land, and its young hatch as tiny froglets, skipping the tadpole stage entirely.",
           "_meta": {
-            "anchor": "refrigerated rail cars — grain's patience vs. produce's urgency",
-            "transitionBucket": "transitions-contrast",
+            "anchor": "coqui (Eleutherodactylus coqui) direct development — terrestrial eggs hatch as froglets, no tadpole, vs. aquatic tadpoles of most frogs (Elinson et al., PMC514616; eLife 2021 \"The big potential of the small frog Eleutherodactylus coqui\")",
             "distractors": {
-              "A": "example relation reversed",
-              "B": "addition where opposition is needed",
-              "D": "false derivation"
+              "A": "false exemplification",
+              "B": "false addition",
+              "D": "false causation"
             }
           },
           "id": 1152
@@ -2198,40 +2196,40 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "In his 1881 book Das Polarlicht, Fritz mapped the zone around the geomagnetic pole where auroras appear most often."
+              "text": "On Wikipedia, which began in January 2001 as a side project of Nupedia, any visitor could write or edit an article."
             },
             {
               "id": "B",
-              "text": "Whereas Fritz's 1873 catalog simply listed aurora sightings, his 1881 book used such records to argue for conclusions."
+              "text": "Whereas Nupedia's articles were written by experts and reviewed in seven steps, Wikipedia let any visitor write or edit an article."
             },
             {
               "id": "C",
-              "text": "Fritz's 1873 Verzeichniss beobachteter Polarlichter lists reported aurora sightings by date and place, without interpretation."
+              "text": "For Nupedia, a free online encyclopedia launched in March 2000, articles were written by experts and then passed a seven-step review."
             },
             {
               "id": "D",
-              "text": "Hermann Fritz, a German-born professor in Zurich, studied historical records of the aurora and published two works about them."
+              "text": "Nupedia and Wikipedia were both free online encyclopedias that began in 2000 and 2001."
             }
           ],
           "correctAnswer": "B",
-          "explanation": "**Choice B is correct.** Comparing the aims of two works means stating each work's aim and setting them against each other. B does exactly that: the 1873 catalog lists sightings; the 1881 book uses such records to argue — with the \"Whereas\" frame making the comparison explicit.\n\n**The Full Solution:**\n- The notes assign each work a distinct character: the catalog \"lists the sightings by date and place without interpreting them\"; the 1881 book \"uses such records to argue for conclusions.\"\n- A comparison must carry both characterizations in one sentence and mark their relation; B's whereas-construction does so.\n- The choice also preserves the works' order and dependency — the second book builds on records like those in the first — matching the notes.\n\n**Why the other choices are wrong:**\n- A: It characterizes only Das Polarlicht; with one work absent, no comparison occurs.\n- C: It characterizes only the Verzeichniss — the same failure from the other side.\n- D: It says two works exist but never distinguishes their aims, which is the entire goal.",
+          "explanation": "**Choice B is correct.** To contrast the methods of the two encyclopedias, a sentence must describe how each produced its articles and set them against each other. B does both: Nupedia's articles were written by experts and reviewed in seven steps, \"whereas\" Wikipedia let any visitor write or edit an article.\n\n**The Full Solution:**\n- Method of Nupedia: expert authors and a seven-step review before publication.\n- Method of Wikipedia: any visitor could write or edit an article.\n- \"Whereas\" places the two methods side by side, which is what a contrast requires.\n\n**Why the other choices are wrong:**\n- A: It describes the method of only Wikipedia; Nupedia is named only as Wikipedia's origin, so there is no contrast.\n- C: It describes the method of only one encyclopedia, so there is no contrast.\n- D: It names both encyclopedias but says nothing about how either produced its articles.",
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "Hermann Fritz (1830-1893), a German-born professor in Zurich, studied historical records of the aurora.",
-              "His 1873 work Verzeichniss beobachteter Polarlichter is a catalog of reported aurora sightings.",
-              "The catalog lists the sightings by date and place without interpreting them.",
-              "His 1881 book Das Polarlicht uses such records to argue for conclusions about the aurora.",
-              "In it, Fritz mapped where auroras appear most often: a zone circling the geomagnetic pole."
+              "Nupedia was a free online encyclopedia that went online in March 2000.",
+              "Its articles were written by experts and had to pass a seven-step review before publication.",
+              "Few articles completed the review before the project ended in 2003.",
+              "Wikipedia began in January 2001 as a side project of Nupedia.",
+              "On Wikipedia, any visitor could write or edit an article."
             ],
-            "goal": "The student wants to compare the aims of the two works."
+            "goal": "The student wants to contrast the methods of the two encyclopedias."
           },
           "_meta": {
-            "anchor": "aurora observation history — Hermann Fritz (1830-1893; ETH Zurich): 1873 catalog vs. 1881 Das Polarlicht and the auroral zone (de.wikipedia, Hermann Fritz (Polarlichtforscher); en.wikipedia, Aurora)",
+            "anchor": "Nupedia (2000, expert authors + seven-step review, 24 finished articles, ended 2003) vs. Wikipedia (Jan 2001 side project, open editing) (Wikipedia: Nupedia; Wikipedia: History of Wikipedia)",
             "distractors": {
-              "A": "one work only",
+              "A": "one work, not contrasted",
               "C": "one work only",
-              "D": "two works named, aims undistinguished"
+              "D": "no methods"
             }
           },
           "id": 1154
@@ -2246,40 +2244,41 @@ export const practiceTest11RW = {
           "choices": [
             {
               "id": "A",
-              "text": "Campbell, who homesteaded in Dakota Territory in 1879, became the best-known promoter of dry farming on the Great Plains."
+              "text": "Rachel Carson, who worked for the US Fish and Wildlife Service, was a marine biologist."
             },
             {
               "id": "B",
-              "text": "The Dry Farming Congress, founded in Denver in 1907 to promote Campbell's methods, was soon joined by agricultural scientists."
+              "text": "Published in 1962, Silent Spring documented harm to wildlife caused by the spraying of pesticides such as DDT."
             },
             {
               "id": "C",
-              "text": "Campbell's Soil Culture Manual (1902) taught deep fall plowing, subsurface packing, and summer fallowing."
+              "text": "The United States banned DDT for most uses in 1972, ten years after Silent Spring was published."
             },
             {
               "id": "D",
-              "text": "Campbell saw his methods as the key to family farming on the Plains, but agricultural scientists questioned them."
+              "text": "Carson argued against careless pesticide use, but the chemical industry attacked her conclusions."
             }
           ],
           "correctAnswer": "D",
-          "explanation": "**Choice D is correct.** A point of disagreement requires both parties on the page, taking opposed positions on the same thing — and D delivers the collision: Campbell's confidence in his methods set directly against the scientists' doubts about those same methods.\n\n**The Full Solution:**\n- The goal names two sides: Campbell and the agricultural scientists.\n- The notes give each side a stance on the same subject — Campbell's tillage methods: he believed they would make family farming possible on the Plains; the scientists questioned them.\n- D pairs those stances in one sentence with an adversative \"but,\" which is precisely how a disagreement is emphasized.\n\n**Why the other choices are wrong:**\n- A: It introduces Campbell's background and fame and says nothing of what anyone disputed.\n- B: It reports that scientists joined the Congress but not that they questioned anything, so no disagreement appears.\n- C: It presents Campbell's teaching alone; with no answering position, no disagreement appears.",
+          "explanation": "**Choice D is correct.** The goal is to emphasize a disagreement between Carson and the chemical industry, and D sets the two sides against each other: Carson argued against careless pesticide use, \"but\" the industry attacked her conclusions.\n\n**The Full Solution:**\n- A disagreement needs both positions in view.\n- The fourth note gives Carson's position; the fifth gives the industry's response.\n- D joins them with \"but,\" which makes the conflict the focus of the sentence.\n\n**Why the other choices are wrong:**\n- A: It describes Carson's job and mentions no disagreement.\n- B: It summarizes what Silent Spring documented but leaves out the industry's response.\n- C: It reports a later government action and does not mention the chemical industry at all.",
           "studentNotes": {
             "intro": "While researching a topic, a student has taken the following notes:",
             "bullets": [
-              "Hardy Webster Campbell homesteaded in Dakota Territory in 1879 and became the best-known promoter of dry farming on the Great Plains.",
-              "His Soil Culture Manual (1902) taught deep fall plowing, subsurface packing, and summer fallowing.",
-              "Campbell believed his system would make family farming possible on the Plains.",
-              "In 1907, the Dry Farming Congress was founded in Denver to promote his methods.",
-              "Agricultural scientists who joined the Congress began questioning those methods."
+              "Rachel Carson was a marine biologist who worked for the US Fish and Wildlife Service.",
+              "Her book Silent Spring was published in 1962.",
+              "It documented harm to wildlife caused by the widespread spraying of pesticides such as DDT.",
+              "Carson argued against the careless use of such chemicals.",
+              "Representatives of the chemical industry attacked the book and Carson's conclusions.",
+              "The United States banned DDT for most uses in 1972."
             ],
-            "goal": "The student wants to emphasize a point of disagreement between Campbell and agricultural scientists."
+            "goal": "The student wants to emphasize a point of disagreement between Carson and the chemical industry."
           },
           "_meta": {
-            "anchor": "dry farming — Hardy Webster Campbell (Encyclopedia of the Great Plains: homesteaded Dakota Territory 1879; Soil Culture Manual 1902; Dry Farming Congress, Denver 1907, where agricultural scientists questioned his methods)",
+            "anchor": "Rachel Carson, Silent Spring (1962) — industry attacks, DDT ban 1972 (Wikipedia: Silent Spring; History.com; Britannica)",
             "distractors": {
-              "A": "background without dispute",
-              "B": "scientists present, dispute absent",
-              "C": "one side only"
+              "A": "biography only",
+              "B": "one side only",
+              "C": "outcome, no disagreement"
             }
           },
           "id": 1153

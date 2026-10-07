@@ -21,8 +21,8 @@ difficulty?) and **scope** (does CB ever ask this at all?). Every rule in the v3
 ```
 node scripts/qbankExemplars.mjs --section=math --skill="<CB skill label>" --difficulty=E|M|H --n=4
 node scripts/cbSearch.mjs --q="<regex>" [--section=math|rw] [--difficulty=E|M|H] [--n=4]   # does CB ever ask this?
-node scripts/complexityAudit.mjs --json=<file>      # math: per-item features vs QBank p95 for skill×difficulty
-node scripts/rwComplexityAudit.mjs --json=<file>    # R&W: sentence length, hard words, choice length vs QBank
+node scripts/complexityAudit.mjs --json=<scratch output path>   # math: per-item features vs QBank p95 for skill×difficulty
+node scripts/rwComplexityAudit.mjs --json=<scratch output path> # R&W: sentence length, hard words, choice length vs QBank
 node scripts/copyrightGate.mjs probe --text="<stem>"  # copyright check for one stem
 node scripts/copyrightGate.mjs census                 # whole corpus (3,926 items incl. topic drills + R&W fills)
 ```
@@ -109,3 +109,29 @@ Frozen per item: `id`, `type`, `difficulty`, `band`, `skills`, SAT Pattern heade
 Each reviewer writes `review/<unit>.json` in the session scratchpad:
 `[{ "id": "...", "verdict": "keep|reworded|simplified|rebuilt|key-fixed|trimmed|resubjected", "reason": "..." }]`
 covering EVERY item in the unit (keeps too), so coverage is provable.
+
+## Round 4 rulings (2026-10-07) — established by `cbSearch` over the QBank caches + Bluebook PT text
+
+**Off-test math archetypes (0 official hits — rebuild on a CB archetype of the same skill/difficulty):**
+the mode; IQR; computing a standard deviation (comparing spreads is fine); "in both" / overlapping-group
+probability; draws without replacement; weighted / two-group total-probability means; the margin-of-error
+FORMULA (CB asks only direction: bigger sample → smaller margin; plausible range from estimate ± margin);
+"compounded" anything; quadratic inequalities; polynomial division / other zeros of a cubic; "one solution
+is k times the other"; function composition f(g(x)) / f(f(x)); inverse functions; graph reflections,
+stretches, a·f(x), −f(x), f(−x), f(kx) (CB transformations are translations only: f(x+h), f(x)+k);
+domain / "undefined"; asymptotes; residuals and any actual-minus-predicted gap (CB only COUNTS points
+above/below a best-fit line); multiplying every value of a data set (CB only adds/subtracts a constant);
+sector area (arc length / central angle is on the test); the standalone coordinate midpoint or distance
+formula; triangle inequality; naming a triangle type; angle of depression; regular hexagons; space
+diagonals; slanted tangent lines solved by discriminant (CB tangent items: perpendicular radius slope,
+horizontal/vertical lines, tangent segments).
+**Lines:** CB perpendicular items ask only for the SLOPE; parallel-line-through-a-point items use (0, b)
+or the origin. Writing a perpendicular/parallel line through a general point is beyond CB.
+**R&W:** no invented data tables or unnamed studies — every Command-of-Evidence table and every cited study
+must be real and sourced; no subject that an official CB item already uses; no subject repeated within a
+test or across the 12 tests; keep the longest-choice-is-key rate inside `rwPredictabilityGuards`.
+**Drills vs tests:** after rebuilding both onto the same archetypes, run `recreateBank.mjs verify --all`
+(drill stems must not read close to any practice-test stem) and `check --all` (cross-source near-dups).
+**Pattern headers:** when a rebuild changes what an item tests, log `newPatternTitle`; the orchestrator
+applies them centrally (bank: live src header + skills + authored; tests: chunk row + authored) and maps
+any new title in `PATTERN_TO_CB_SKILL`.

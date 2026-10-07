@@ -1,29 +1,29 @@
 {
-  "id": "bank-am-194",
-  "question": "$x^{2} + bx + 48 = 0$\nIn the given equation, $b$ is a negative constant. One solution is $3$ times the other. What is the value of $b$?",
-  "choices": [
-    {
-      "id": "A",
-      "text": "$-16$"
-    },
-    {
-      "id": "B",
-      "text": "$-8$"
-    },
-    {
-      "id": "C",
-      "text": "$8$"
-    },
-    {
-      "id": "D",
-      "text": "$16$"
-    }
-  ],
-  "distractorNotes": {
-    "B": "adds the solutions as 2r instead of 4r, giving -8",
-    "C": "makes the 2r slip and also drops the sign, giving 8",
-    "D": "takes r = -4 and ignores that b must be negative, giving 16"
+ "id": "bank-am-194",
+ "question": "$2x(x - 5) = x^{2} + 3x - 7$\nWhat is the sum of the solutions to the given equation?",
+ "choices": [
+  {
+   "id": "A",
+   "text": "$-13$"
   },
-  "correctAnswer": "A",
-  "explanation": "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** Let the solutions be $r$ and $3r$: their product $3r^2=48$ gives $r=\\pm4$, and their sum $4r=-b$; $b<0$ forces $r=4$, so $b=-16$.\n\n**The Full Solution:**\nStep 1: Name the solutions $r$ and $3r$. Their product is $\\frac{c}{a}=48$, so $3r^2=48$ and $r^2=16$, giving $r=4$ or $r=-4$.\nStep 2: Their sum is $r+3r=4r$, and Vieta's says that sum equals $-\\frac{b}{1}=-b$.\nStep 3: $b<0$ means $-b>0$, so $4r>0$ and $r=4$; then $-b=16$ and $b=-16$. Check: $x^2-16x+48=(x-4)(x-12)$, and $12=3\\cdot4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-8$): adds the solutions as $r+r=2r$ instead of $r+3r=4r$.\n* Choice C ($8$): makes that same $2r$ slip and then drops the negative sign.\n* Choice D ($16$): takes $r=-4$ and ignores the requirement that $b$ be negative.\n\n**Test Day Takeaway:** When one solution is a multiple of the other, name them $r$ and $mr$ — the product pins $r$ and the sum pins the coefficient."
+  {
+   "id": "B",
+   "text": "$7$"
+  },
+  {
+   "id": "C",
+   "text": "$8$"
+  },
+  {
+   "id": "D",
+   "text": "$13$"
+  }
+ ],
+ "distractorNotes": {
+  "A": "uses b/a instead of -b/a",
+  "B": "reports the product of the solutions, 7",
+  "C": "expands 2x(x - 5) as 2x^2 - 5x, which leads to x^2 - 8x + 7 = 0"
+ },
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** Expanding and collecting gives $x^{2} - 13x + 7 = 0$, so the sum of the solutions is $13$.\n\n**The Full Solution:**\nStep 1: Expand the left side: $2x^{2} - 10x = x^{2} + 3x - 7$.\nStep 2: Collect every term on the left: $x^{2} - 13x + 7 = 0$. Its discriminant, $169 - 28 = 141$, is positive, so there are two real solutions (not integers).\nStep 3: The sum of the solutions is $-\\frac{-13}{1} = 13$. Check: the solutions are $\\frac{13 \\pm \\sqrt{141}}{2}$, which add to $\\frac{26}{2} = 13$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-13$): uses $\\frac{b}{a}$ instead of $-\\frac{b}{a}$.\n* Choice B ($7$): reports the product of the solutions, $\\frac{7}{1}$, instead of the sum.\n* Choice C ($8$): expands $2x(x - 5)$ as $2x^{2} - 5x$, which leads to $x^{2} - 8x + 7 = 0$.\n\n**Test Day Takeaway:** When the solutions are messy, do not solve; write the equation in standard form and read the sum as $-\\frac{b}{a}$."
 }

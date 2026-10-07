@@ -1,18 +1,18 @@
 {
   "id": 4,
-  "question": "Data set Q is formed by adding one value to data set P, which has $30$ values. The added value is greater than every value in data set P. Which of the following must be greater for data set Q than for data set P?",
+  "question": "Data set P has $30$ values. Data set Q is formed by adding to P one value that is less than every value in P. Which of the following must be greater for Q than for P?",
   "choices": [
     {
       "id": "A",
-      "text": "The minimum"
+      "text": "The maximum"
     },
     {
       "id": "B",
-      "text": "The median"
+      "text": "The mean"
     },
     {
       "id": "C",
-      "text": "The mode"
+      "text": "The median"
     },
     {
       "id": "D",
@@ -20,11 +20,11 @@
     }
   ],
   "distractorNotes": {
-    "A": "the added value is above every value in P, so the least value of the data set does not move.",
-    "B": "the median shifts to the sixteenth ordered value, which is at least the old median but can equal it.",
-    "C": "one new value cannot outnumber an existing most frequent value, so the mode may be unchanged."
+    "A": "thinks adding a value raises the greatest value, but the added value is the new least value",
+    "B": "thinks adding a value always raises the mean, but a value below every value lowers it",
+    "C": "thinks adding a value raises the median, but a low value can only lower it or leave it unchanged"
   },
   "correctAnswer": "D",
-  "hint": "Ask which measure is guaranteed to change, not merely likely to.",
-  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~40s):** The added value raises the maximum and leaves the minimum alone, so the range must grow.\n\n**The Full Solution:**\nStep 1: The added value exceeds every value in data set P, so the maximum of Q is that new value and the minimum of Q equals the minimum of P.\nStep 2: Range equals maximum minus minimum, and only the maximum increased, so the range of Q is strictly greater than the range of P.\nStep 3: No other listed measure is guaranteed to increase. Check: the minimum is unchanged, the median can stay the same when the two central values of P are equal, and the mode need not change at all. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: the added value is above every value in P, so the least value of the data set does not move.\n* Choice B: the median shifts to the sixteenth ordered value, which is at least the old median but can equal it.\n* Choice C: one new value cannot outnumber an existing most frequent value, so the mode may be unchanged.\n\n**Test Day Takeaway:** On a \"must be\" question, look for the measure whose definition forces a change; a measure that merely usually changes is not the answer."
+  "hint": "The added value becomes the new minimum. What happens to the maximum?",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~25s):** The maximum stays the same and the minimum gets smaller, so the range, maximum minus minimum, must increase.\n\n**The Full Solution:**\nStep 1: The added value is less than every value in P, so it is the minimum of Q, and the minimum of Q is less than the minimum of P.\nStep 2: The maximum of Q is the same as the maximum of P.\nStep 3: Range = maximum $-$ minimum. The same maximum minus a smaller minimum is a greater range.\n\nCheck: If P is $10, 11, \\ldots, 39$ and the added value is $2$, the range goes from $39 - 10 = 29$ to $39 - 2 = 37$, while the mean and the median both decrease. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (The maximum): the added value is the smallest value, so the greatest value does not change.\n* Choice B (The mean): a value below every value in P is below the mean of P, so it pulls the mean down.\n* Choice C (The median): the median of Q is the 15th value of P, which is at most the median of P.\n\n**Test Day Takeaway:** A new value beyond either end of a data set always increases the range."
 }

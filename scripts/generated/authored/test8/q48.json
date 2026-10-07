@@ -6,26 +6,33 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 2,
- "passage": "Because a loaded boat traveled only as fast as the horse on the towpath could ______ canal carriers promised their customers delivery in days rather than hours, and the trade settled into the unhurried cargoes — coal, grain, brick, and clay — for which the calendar mattered more than the clock.",
+ "passage": "Because a sloth's coarse hair soaks up water ______ green algae can grow in its fur, giving the animal a greenish tint that may help it blend into the leaves of the rainforest canopy.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "walk,"
+   "text": "easily,"
   },
   {
    "id": "B",
-   "text": "walk"
+   "text": "easily"
   },
   {
    "id": "C",
-   "text": "walk;"
+   "text": "easily;"
   },
   {
    "id": "D",
-   "text": "walk:"
+   "text": "easily:"
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The sentence opens with a dependent \"Because...\" clause, which must be joined to the main clause with a comma.\n\n**The Full Solution:**\n- The opening clause — \"Because a loaded boat traveled only as fast as the horse on the towpath could walk\" — is dependent and cannot stand alone.\n- The main clause follows: \"canal carriers promised their customers delivery in days rather than hours.\"\n- The conventional boundary between an introductory dependent clause and the main clause is a comma.\n\n**Why the other choices are wrong:**\n- B: Omitting the comma runs the dependent clause straight into the main clause without a boundary.\n- C: A semicolon requires an independent clause on each side, and the \"Because\" clause is not one.\n- D: A colon likewise needs a complete clause before it; placing one after the fragment strands it."
+ "explanation": "**Choice A is correct.** The sentence opens with a dependent clause beginning with \"Because,\" and a comma conventionally separates such an introductory clause from the main clause that follows.\n\n**The Full Solution:**\n- \"Because a sloth's coarse hair soaks up water easily\" is a dependent clause; it cannot stand alone.\n- \"Green algae can grow in its fur...\" is the main clause.\n- A comma after \"easily\" marks where the introductory clause ends and the main clause begins.\n\n**Why the other choices are wrong:**\n- B: Without a comma, the introductory clause runs into the main clause, and the reader cannot tell where one ends.\n- C: A semicolon joins two independent clauses, but the \"Because\" clause cannot stand on its own.\n- D: A colon must follow a complete independent clause, and the \"Because\" clause is not one.",
+ "_meta": {
+  "anchor": "algae in sloth fur — comma after an introductory Because clause",
+  "sources": [
+   "https://pmc.ncbi.nlm.nih.gov/articles/PMC2858742",
+   "https://blogs.biomedcentral.com/on-biology/2010/04/14/sloth-fur-has-symbiotic-relationship-with-green-algae"
+  ]
+ }
 }

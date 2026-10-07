@@ -6,14 +6,32 @@
   "domain": "expression-of-ideas",
   "skill": "transitions",
   "module": 1,
-  "passage": "Chappe's optical telegraph could pass a short signal from Paris to Lille in well under an hour, a journey that took a courier on horseback more than a day. ______ the relay imposed a kind of security: each tower's operators merely copied the arm positions they saw through the telescope, so a message could cross the whole line without any single operator knowing what it said.",
+  "passage": "Compared with traditional incandescent bulbs, LED bulbs that meet ENERGY STAR standards use at least 75 percent less energy to produce the same light. ______ they last up to 25 times longer, so a household that switches to LEDs buys far fewer replacement bulbs.",
   "question": "Which choice completes the text with the most logical transition?",
   "choices": [
-    { "id": "A", "text": "Moreover," },
-    { "id": "B", "text": "Instead," },
-    { "id": "C", "text": "Specifically," },
-    { "id": "D", "text": "Subsequently," }
+    {
+      "id": "A",
+      "text": "Moreover,"
+    },
+    {
+      "id": "B",
+      "text": "Instead,"
+    },
+    {
+      "id": "C",
+      "text": "Specifically,"
+    },
+    {
+      "id": "D",
+      "text": "Subsequently,"
+    }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** The passage stacks a second advantage on top of a first — speed, and then security — so the blank needs an additive transition: \"Moreover.\"\n\n**The Full Solution:**\n- Sentence one establishes one benefit of the system: startling speed compared with a courier.\n- Sentence two introduces a different, independent benefit: operators relayed positions without reading content.\n- Two parallel advantages of the same system are joined by addition, not contrast, illustration, or sequence.\n\n**Why the other choices are wrong:**\n- B: \"Instead\" would replace the first advantage with the second, but both hold at once.\n- C: \"Specifically\" promises a narrower restatement of the speed claim, and the security point is a new idea, not a restatement.\n- D: \"Subsequently\" imposes a time order on two features that coexisted from the start."
+  "explanation": "**Choice A is correct.** The first sentence gives one advantage of LED bulbs (they use far less energy), and the second adds a separate advantage (they last much longer). \"Moreover\" signals that a further point is being added in support of the same idea.\n\n**The Full Solution:**\n- Sentence one: LEDs use at least 75 percent less energy than incandescent bulbs.\n- Sentence two: LEDs also last up to 25 times longer.\n- Two separate benefits pointing the same way call for an additive transition.\n\n**Why the other choices are wrong:**\n- B: \"Instead\" signals a replacement or alternative, but the longer life does not replace the energy savings; it adds to them.\n- C: \"Specifically\" would introduce a detail of the energy savings, but a bulb's life span is a different benefit.\n- D: \"Subsequently\" signals a later event in time, but the two sentences describe features that hold at the same time.",
+  "_meta": {
+    "anchor": "LED bulbs vs incandescent — Moreover adds a second advantage",
+    "sources": [
+      "https://www.energy.gov/energysaver/led-lighting"
+    ]
+  }
 }

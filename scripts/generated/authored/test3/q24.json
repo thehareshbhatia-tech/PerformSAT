@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "type": "multiple-choice",
- "passage": "Highway departments have long fenced roadsides to keep large animals off the pavement, and fencing does reduce collisions. Fences alone, however, seal animals off from the feeding grounds and migration routes that lie on the far side of the road. ______ many transportation agencies now pair fencing with wildlife overpasses and underpasses, which funnel animals toward safe crossing points instead of simply barring their way.",
+ "passage": "Early hoists hung from a single rope, and if the rope broke, the platform plunged. In 1852, Elisha Otis designed a safety brake: if the rope gave way, spring-loaded metal arms caught in toothed rails along the shaft and stopped the fall. ______ people grew willing to ride elevators, and buildings could rise far higher than anyone wanted to climb by stairs.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,8 +27,8 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The blank introduces the practical response to the problem just described: because fencing alone cuts animals off from what they need, agencies now combine it with crossings. \"Consequently\" marks exactly that cause-and-effect step.\n\n**The Full Solution:**\n- Sentence two identifies a drawback (fences isolate animals from feeding grounds and migration routes).\n- Sentence three reports what agencies do about it (add overpasses and underpasses). The second development happens because of the first, so the transition must carry consequence.\n\n**Why the other choices are wrong:**\n- A: \"In contrast\" would oppose the two sentences, but the crossings are a remedy for the fences' drawback, not a contrary case.\n- B: \"For instance\" would make the agencies' practice an example of the isolation problem rather than a solution to it.\n- D: \"Similarly\" claims the final sentence parallels the previous one, but the sentences stand in a problem-solution relationship, not a resemblance.",
+ "explanation": "**Choice C is correct.** The final sentence describes what followed from Otis's brake: once a broken rope no longer meant a fatal fall, people trusted elevators and buildings could grow taller. \"Consequently\" signals that this outcome results from the invention just described.\n\n**The Full Solution:**\n- The first sentence states the danger; the second describes the device that removed it.\n- The last sentence reports the effect of removing that danger, so the transition must mark a result.\n\n**Why the other choices are wrong:**\n- A: \"In contrast\" signals opposition, but greater trust in elevators follows from the safety brake rather than opposing it.\n- B: \"For instance\" would introduce an example of the brake, but the sentence reports the brake's effects, not an instance of it.\n- D: \"Similarly\" signals a parallel point, but the sentence does not describe something like the brake; it describes what the brake made possible.",
  "_meta": {
-  "anchor": "Wildlife overpasses paired with roadside fencing — consequence transition"
+  "anchor": "Elisha Otis safety brake (1852) and the rise of passenger elevators/taller buildings (https://en.wikipedia.org/wiki/Elisha_Otis; https://www.asme.org/topics-resources/content/elisha-graves-otis) — consequence transition"
  }
 }

@@ -72,7 +72,7 @@ const TOPIC_SECTION_TO_PATTERN = {
   'exponents::exponential-functions':       { pattern: 'exponential-growth-decay',    style: 'exponential-growth-decay' },
   // ── linear-equations ──────────────────────────────────────────────────────
   'linear-equations::parallel-lines':       { pattern: 'parallel-line-through-a-point',     style: 'parallel-line-through-a-point' },
-  'linear-equations::perpendicular-lines':  { pattern: 'perpendicular-line-through-point',  style: 'perpendicular-line-through-point' },
+  'linear-equations::perpendicular-lines':  { pattern: 'perpendicular-slope',               style: 'perpendicular-slope' },
   // ── systems ───────────────────────────────────────────────────────────────
   'systems::substitution-method':           { pattern: 'system-of-equations-substitution',  style: 'system-of-equations-substitution' },
   'systems::elimination-method':            { pattern: 'system-of-equations-elimination',   style: 'system-of-equations-elimination' },

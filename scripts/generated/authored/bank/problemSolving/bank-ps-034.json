@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-034",
-  "question": "The table shows how many matches a volleyball player served each number of aces, for $24$ matches in all. What is the median number of aces per match?",
+  "question": "The table shows the number of aces a volleyball player served in each of $24$ matches. What is the median number of aces per match?",
   "questionTable": {
     "headers": [
       "Aces in a match",

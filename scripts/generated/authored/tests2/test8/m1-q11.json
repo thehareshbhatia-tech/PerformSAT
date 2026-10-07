@@ -1,6 +1,6 @@
 {
  "id": 11,
- "question": "The table shows the number of songs on each of $26$ albums. Four more albums, each with $11$ songs, are added to the data. What is the mode of the number of songs on the $30$ albums?",
+ "question": "The table shows the number of songs on each of $26$ albums. What is the median number of songs on these albums?",
  "questionTable": {
   "headers": [
    "Number of songs",
@@ -9,11 +9,11 @@
   "rows": [
    [
     "8",
-    "3"
+    "2"
    ],
    [
     "9",
-    "8"
+    "4"
    ],
    [
     "10",
@@ -25,14 +25,14 @@
    ],
    [
     "12",
-    "4"
+    "9"
    ]
   ]
  },
  "choices": [
   {
    "id": "A",
-   "text": "$9$"
+   "text": "$5$"
   },
   {
    "id": "B",
@@ -48,10 +48,10 @@
   }
  ],
  "distractorNotes": {
-  "A": "gives the mode of the original 26 albums, ignoring the four albums added",
-  "B": "reports the median of the 30 albums instead of the mode",
-  "D": "reports the greatest number of songs in the table rather than the most frequent"
+  "A": "finds the median of the Number of albums column, 2, 4, 5, 6, 9, instead of the median number of songs",
+  "B": "picks the middle row of the table, 10 songs, without using the number of albums in each row",
+  "D": "picks the number of songs with the most albums, 12"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Mode of a Data Set**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The four added albums raise the count for $11$ songs from $6$ to $10$, which is more than the $8$ albums with $9$ songs, so the mode is $11$.\n\n**The Full Solution:**\nStep 1: Read the frequencies: $8$ songs occurs $3$ times, $9$ occurs $8$ times, $10$ occurs $5$ times, $11$ occurs $6$ times, and $12$ occurs $4$ times, for $26$ albums.\nStep 2: Update the row that changes. Four albums with $11$ songs raise that frequency from $6$ to $6 + 4 = 10$.\nStep 3: The new frequencies are $3$, $8$, $5$, $10$, and $4$; the greatest is $10$, for $11$ songs. Check: $3 + 8 + 5 + 10 + 4 = 30$ albums ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): the mode before the four albums are added. Now $11$ songs occurs $10$ times, more than the $8$ times for $9$ songs.\n* Choice B ($10$): the median. The $15$th and $16$th values of the $30$ ordered values are both $10$.\n* Choice D ($12$): the greatest value in the table. The mode is the most frequent value, not the largest.\n\n**Test Day Takeaway:** In a frequency table, the mode is the value with the greatest frequency. Update the frequencies first, then compare."
+ "explanation": "**SAT Pattern: Median Calculation**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** With $26$ albums, the median is the mean of the $13$th and $14$th values. Counting up, $2 + 4 + 5 = 11$ albums have $10$ or fewer songs, and the next $6$ (the $12$th through $17$th) have $11$ songs, so the median is $11$.\n\n**The Full Solution:**\nStep 1: There are $2 + 4 + 5 + 6 + 9 = 26$ albums, an even number, so the median is the mean of the $13$th and $14$th values in order.\nStep 2: Count from the least value: $2$ albums have $8$ songs (values $1$ to $2$), $4$ have $9$ (values $3$ to $6$), $5$ have $10$ (values $7$ to $11$), and $6$ have $11$ (values $12$ to $17$).\nStep 3: The $13$th and $14$th values are both $11$, so the median is $11$. Check: $11$ albums have fewer than $11$ songs and $9$ have more, so the $13$th and $14$th values both fall among the $6$ albums with $11$ songs ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): is the median of the Number of albums column, not of the numbers of songs.\n* Choice B ($10$): is the middle row of the table, but the rows hold different numbers of albums.\n* Choice D ($12$): is the number of songs with the most albums, not the middle value.\n\n**Test Day Takeaway:** In a frequency table, count through the frequencies to find where the middle value falls; the middle row of the table is not the median."
 }

@@ -1,30 +1,30 @@
 {
- "id": 2,
- "question": "Triangle $ABC$ has side lengths $AB = 13$, $BC = 13$, and $AC = 20$. Which of the following best describes triangle $ABC$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "Equilateral"
+  "id": 2,
+  "question": "In triangle $ABC$, $AB = AC$, and the measure of angle $A$ is $50^{\\circ}$. What is the measure, in degrees, of angle $B$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$25$"
+    },
+    {
+      "id": "B",
+      "text": "$50$"
+    },
+    {
+      "id": "C",
+      "text": "$65$"
+    },
+    {
+      "id": "D",
+      "text": "$130$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "halves the measure of angle A",
+    "B": "assumes angle B is equal to angle A",
+    "D": "finds the combined measure of angles B and C and does not split it"
   },
-  {
-   "id": "B",
-   "text": "Isosceles"
-  },
-  {
-   "id": "C",
-   "text": "Right"
-  },
-  {
-   "id": "D",
-   "text": "Scalene"
-  }
- ],
- "distractorNotes": {
-  "A": "requires all three sides to be equal, but AC = 20 is not 13",
-  "C": "would require 13 squared + 13 squared = 20 squared, but 338 is not 400",
-  "D": "requires no two sides to be equal, but AB = BC = 13"
- },
- "correctAnswer": "B",
- "hint": "Count how many of the three lengths are equal.",
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~10s):** Two sides, $AB$ and $BC$, are both $13$ and the third is $20$, so the triangle is isosceles.\n\n**The Full Solution:**\nStep 1: Compare the lengths: $AB = BC = 13$, and $AC = 20$ is different.\nStep 2: A triangle with exactly two equal sides is isosceles.\nStep 3: Rule out a right triangle: $13^{2} + 13^{2} = 169 + 169 = 338$, and $20^{2} = 400$. Since $338 \\ne 400$, the triangle is not a right triangle. Check: two equal sides and $338 \\ne 400$, so isosceles is the description that fits ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Equilateral): needs all three sides equal, but $AC = 20$ while the other two sides are $13$.\n* Choice C (Right): needs $13^{2} + 13^{2} = 20^{2}$, but $338 \\ne 400$.\n* Choice D (Scalene): needs three different side lengths, but two sides are both $13$.\n\n**Test Day Takeaway:** Classify a triangle by its sides by counting equal lengths, and test for a right triangle only with the Pythagorean theorem."
+  "correctAnswer": "C",
+  "hint": "The angles opposite the two equal sides are equal.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~15s):** Angles $B$ and $C$ are equal, so each measures $\\frac{180 - 50}{2} = 65$ degrees.\n\n**The Full Solution:**\nStep 1: Since $AB = AC$, the angles opposite those sides, angles $C$ and $B$, have equal measures.\nStep 2: The three angles sum to $180^{\\circ}$, so angles $B$ and $C$ together measure $180 - 50 = 130$ degrees.\nStep 3: Each of them measures $\\frac{130}{2} = 65$ degrees. Check: $50 + 65 + 65 = 180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($25$): this halves $50$; the $130$ degrees left over is what is split between the two equal angles.\n* Choice B ($50$): the equal angles are $B$ and $C$, not $A$ and $B$.\n* Choice D ($130$): this is the combined measure of angles $B$ and $C$; each one is half of it.\n\n**Test Day Takeaway:** In an isosceles triangle, the angles opposite the equal sides are equal; split what is left of $180^{\\circ}$ between them."
 }

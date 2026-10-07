@@ -1,61 +1,61 @@
 {
-  "id": "bank-am-174",
-  "question": "The table shows some values of the functions $p$ and $q$. What is the value of $q(p(3)) + p(q(2))$?",
-  "diagram": {
-    "type": "dataTable",
-    "params": {
-      "headers": [
-        "x",
-        "p(x)",
-        "q(x)"
-      ],
-      "rows": [
-        [
-          "0",
-          "3",
-          "6"
-        ],
-        [
-          "1",
-          "0",
-          "2"
-        ],
-        [
-          "2",
-          "5",
-          "0"
-        ],
-        [
-          "3",
-          "1",
-          "5"
-        ]
-      ]
-    }
+ "id": "bank-am-174",
+ "question": "The table shows some values of the functions $p$ and $q$. If $h(x) = p(x) - q(x)$, for what value of $x$ does $h(x) = 4$?",
+ "diagram": {
+  "type": "dataTable",
+  "params": {
+   "headers": [
+    "x",
+    "p(x)",
+    "q(x)"
+   ],
+   "rows": [
+    [
+     "0",
+     "7",
+     "3"
+    ],
+    [
+     "1",
+     "2",
+     "6"
+    ],
+    [
+     "2",
+     "4",
+     "5"
+    ],
+    [
+     "3",
+     "1",
+     "3"
+    ]
+   ]
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "$0$"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "$2$"
-    },
-    {
-      "id": "B",
-      "text": "$3$"
-    },
-    {
-      "id": "C",
-      "text": "$5$"
-    },
-    {
-      "id": "D",
-      "text": "$10$"
-    }
-  ],
-  "correctAnswer": "C",
-  "distractorNotes": {
-    "A": "reports only the first term, q(p(3)) = 2",
-    "B": "reports only the second term, p(q(2)) = 3",
-    "D": "computes q(3) + p(2) = 5 + 5, applying each outer function to the original input"
+  {
+   "id": "B",
+   "text": "$1$"
   },
-  "explanation": "**SAT Pattern: Function Composition**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $p(3) = 1$, so $q(p(3)) = q(1) = 2$; $q(2) = 0$, so $p(q(2)) = p(0) = 3$. The sum is $5$.\n\n**The Full Solution:**\nStep 1: First term: in the row $x = 3$, $p(3) = 1$; in the row $x = 1$, $q(1) = 2$. So $q(p(3)) = 2$.\nStep 2: Second term: in the row $x = 2$, $q(2) = 0$; in the row $x = 0$, $p(0) = 3$. So $p(q(2)) = 3$.\nStep 3: Add: $2 + 3 = 5$. Check: each inner output ($1$ and $0$) is itself an input listed in the table ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reports only the first term, $q(p(3))$.\n* Choice B ($3$): reports only the second term, $p(q(2))$.\n* Choice D ($10$): computes $q(3) + p(2) = 5 + 5$, applying each outer function to the original input.\n\n**Test Day Takeaway:** Evaluate each composition separately from the inside out, writing down each inner output before you look up the outer function."
+  {
+   "id": "C",
+   "text": "$2$"
+  },
+  {
+   "id": "D",
+   "text": "$3$"
+  }
+ ],
+ "correctAnswer": "A",
+ "distractorNotes": {
+  "B": "subtracts in the wrong order: q(1) - p(1) = 6 - 2 = 4",
+  "C": "finds the row where p(x) = 4 and ignores q",
+  "D": "adds instead of subtracting: p(3) + q(3) = 1 + 3 = 4"
+ },
+ "explanation": "**SAT Pattern: Function Composition**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Compute $p(x) - q(x)$ in each row: $4$, $-4$, $-1$, $-2$. Only $x = 0$ gives $4$.\n\n**The Full Solution:**\nStep 1: $h(x) = 4$ means $p(x) - q(x) = 4$, so check each row of the table.\nStep 2: $x = 0$: $7 - 3 = 4$. $x = 1$: $2 - 6 = -4$. $x = 2$: $4 - 5 = -1$. $x = 3$: $1 - 3 = -2$.\nStep 3: Only $x = 0$ gives $h(x) = 4$. Check: $h(0) = p(0) - q(0) = 7 - 3 = 4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($1$): subtracts in the wrong order, $q(1) - p(1) = 6 - 2 = 4$; in fact $h(1) = -4$.\n* Choice C ($2$): finds the row where $p(x) = 4$ and ignores $q$; $h(2) = -1$.\n* Choice D ($3$): adds instead of subtracting, $1 + 3 = 4$; $h(3) = -2$.\n\n**Test Day Takeaway:** When a function is built from table values, compute it row by row and keep the order of subtraction."
 }

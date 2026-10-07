@@ -1,30 +1,30 @@
 {
- "id": 5,
- "question": "A box has interior dimensions of $18$ inches by $12$ inches by $10$ inches. Cubes with edge length $3$ inches are stacked in the box in straight rows. What is the greatest number of these cubes that can fit?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$72$"
+  "id": 5,
+  "question": "What is the surface area, in square centimeters, of a right rectangular prism that is $9$ centimeters long, $5$ centimeters wide, and $4$ centimeters tall?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$101$"
+    },
+    {
+      "id": "B",
+      "text": "$130$"
+    },
+    {
+      "id": "C",
+      "text": "$180$"
+    },
+    {
+      "id": "D",
+      "text": "$202$"
+    }
+  ],
+  "distractorNotes": {
+    "A": "adds the areas of only three faces, one from each matching pair",
+    "B": "leaves out the pair of 9 by 4 faces",
+    "C": "finds the volume, 9 times 5 times 4"
   },
-  {
-   "id": "B",
-   "text": "$80$"
-  },
-  {
-   "id": "C",
-   "text": "$240$"
-  },
-  {
-   "id": "D",
-   "text": "$720$"
-  }
- ],
- "correctAnswer": "A",
- "distractorNotes": {
-  "B": "divides the box volume by the cube volume, ignoring that 10 is not a multiple of 3",
-  "C": "divides the box volume by 3^2 instead of 3^3",
-  "D": "divides the box volume by 3 instead of 3^3"
- },
- "hint": "Check each dimension on its own; one of them does not divide evenly.",
- "explanation": "**Choice A is correct.**\n\n**The Fast Way (~40s):** $18 \\div 3 = 6$ and $12 \\div 3 = 4$, but only $3$ layers fit in $10$ inches, so $6 \\cdot 4 \\cdot 3 = 72$.\n\n**The Full Solution:**\nStep 1: The cubes line up in whole rows, so count how many fit along each dimension separately.\nStep 2: Along $18$ inches, $6$ cubes fit; along $12$ inches, $4$ fit; along $10$ inches, only $3$ fit, since a fourth layer would need $12$ inches.\nStep 3: The total is $6 \\cdot 4 \\cdot 3 = 72$ cubes. Check: they fill $72(27) = 1{,}944$ cubic inches of the box's $2{,}160$ cubic inches, leaving a $1$-inch gap at the top ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($80$): divides the volume of the box, $2{,}160$, by the volume of a cube, $27$, ignoring that $10$ is not a multiple of $3$.\n* Choice C ($240$): divides the volume of the box by $3^2 = 9$ instead of $3^3 = 27$.\n* Choice D ($720$): divides the volume of the box by $3$ instead of by $3^3$.\n\n**Test Day Takeaway:** Packing questions count cubes along each edge and round each count down; dividing the volumes overcounts whenever a dimension does not divide evenly."
+  "correctAnswer": "D",
+  "hint": "A rectangular prism has three pairs of matching faces.",
+  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~25s):** The faces come in pairs with areas $45$, $36$, and $20$, so the surface area is $2(45 + 36 + 20) = 202$.\n\n**The Full Solution:**\nStep 1: The six faces of the prism come in three matching pairs: $9$ by $5$, $9$ by $4$, and $5$ by $4$.\nStep 2: Their areas are $45$, $36$, and $20$ square centimeters, which sum to $101$.\nStep 3: Each pair has two faces, so the surface area is $2(101) = 202$ square centimeters. Check: $2(45) + 2(36) + 2(20) = 90 + 72 + 40 = 202$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($101$): this counts only one face from each pair; the prism has six faces.\n* Choice B ($130$): this is $2(45 + 20)$, which leaves out the two $9$ by $4$ faces.\n* Choice C ($180$): this is the volume, $9 \\cdot 5 \\cdot 4$, in cubic centimeters, not the surface area.\n\n**Test Day Takeaway:** The surface area of a rectangular prism adds the areas of all six faces: $2(lw + lh + wh)$."
 }

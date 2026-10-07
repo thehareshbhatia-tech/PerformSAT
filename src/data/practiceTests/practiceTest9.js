@@ -107,57 +107,57 @@ export const practiceTest9 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "In the $xy$-plane, point $M$ is the midpoint of the line segment with endpoints $(-6, 11)$ and $(14, 1)$. What are the coordinates of point $M$?",
+  question: "In the $xy$-plane, line $j$ passes through the point $(0, 2)$ and is parallel to the graph of $y = 4x - 7$. Which equation defines line $j$?",
   choices: [
-    // distractor: averages the x-coordinates correctly but halves the difference of the y-coordinates, (1 - 11)/2 = -5
-    { id: "A", text: "$(4, -5)$" },
-    { id: "B", text: "$(4, 6)$" },
-    // distractor: adds the coordinates without dividing either sum by 2
-    { id: "C", text: "$(8, 12)$" },
-    // distractor: halves the differences instead of the sums in both coordinates
-    { id: "D", text: "$(10, -5)$" }
+    // distractor: changes the sign of the slope; a parallel line keeps the same slope, 4
+    { id: "A", text: "$y = -4x + 2$" },
+    // distractor: swaps the roles of the numbers, using 2 as the slope and 4 as the y-intercept
+    { id: "B", text: "$y = 2x + 4$" },
+    // distractor: copies the given line, which has the right slope but crosses the y-axis at (0, -7), not (0, 2)
+    { id: "C", text: "$y = 4x - 7$" },
+    { id: "D", text: "$y = 4x + 2$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Midpoint Formula**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Average each coordinate: $\\frac{-6 + 14}{2} = 4$ and $\\frac{11 + 1}{2} = 6$, so $M$ is $(4, 6)$.\n\n**The Full Solution:**\nStep 1: The midpoint of the segment with endpoints $(x_1, y_1)$ and $(x_2, y_2)$ is $\\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$.\nStep 2: Average the $x$-coordinates: $\\frac{-6 + 14}{2} = \\frac{8}{2} = 4$. Average the $y$-coordinates: $\\frac{11 + 1}{2} = \\frac{12}{2} = 6$.\nStep 3: So $M = (4, 6)$. Check: from $(-6, 11)$ to $(4, 6)$ the change is $(+10, -5)$, and from $(4, 6)$ to $(14, 1)$ it is also $(+10, -5)$, so $M$ is exactly halfway ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(4, -5)$): gets the $x$-coordinate right but computes $\\frac{1 - 11}{2} = -5$ for $y$, halving a difference instead of a sum.\n* Choice C ($(8, 12)$): adds the coordinates, $-6 + 14 = 8$ and $11 + 1 = 12$, but never divides by $2$.\n* Choice D ($(10, -5)$): halves the differences, $\\frac{14 - (-6)}{2} = 10$ and $\\frac{1 - 11}{2} = -5$. Those give half the distance between the endpoints, not the midpoint.\n\n**Test Day Takeaway:** A midpoint is an average: add the two $x$-coordinates and divide by $2$, then do the same for $y$. A midpoint always lies between the endpoints' coordinates.",
-  skills: ["coordinate-geometry"]
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Parallel lines have the same slope, so line $j$ has slope $4$, and the point $(0, 2)$ makes its $y$-intercept $2$: $y = 4x + 2$.\n\n**The Full Solution:**\nStep 1: The graph of $y = 4x - 7$ has slope $4$.\nStep 2: Parallel lines have equal slopes, so line $j$ can be written as $y = 4x + b$.\nStep 3: Line $j$ passes through $(0, 2)$, a point on the $y$-axis, so $b = 2$ and line $j$ is $y = 4x + 2$. Check: $4(0) + 2 = 2$, and both lines have slope $4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -4x + 2$): passes through $(0, 2)$, but its slope is $-4$; a parallel line keeps the slope $4$.\n* Choice B ($y = 2x + 4$): swaps the slope and the $y$-intercept.\n* Choice C ($y = 4x - 7$): this is the given line itself; it has the right slope but passes through $(0, -7)$, not $(0, 2)$.\n\n**Test Day Takeaway:** A parallel line keeps the slope; a point of the form $(0, b)$ gives the $y$-intercept directly.",
+  skills: ["writing-parallel-equation"]
 },
 {
   id: 6,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "The table shows some values of the functions $f$ and $g$. What is the value of $f(g(2))$?",
-  questionTable: { headers: ["$x$", "$f(x)$", "$g(x)$"], rows: [["1", "7", "4"], ["2", "3", "5"], ["3", "5", "1"], ["4", "2", "3"], ["5", "9", "2"]] },
+  question: "The table shows three values of $x$ and their corresponding values of $y$ for the equation $y = f(x) + 7$, where $f$ is a quadratic function. What is the maximum value of $f(x)$?",
+  questionTable: { headers: ["$x$", "$y$"], rows: [["$0$", "$11$"], ["$2$", "$15$"], ["$4$", "$11$"]] },
   choices: [
-    // distractor: composes in the wrong order and computes g(f(2)) = g(3) = 1
-    { id: "A", text: "$1$" },
-    // distractor: reads f(2) = 3 and stops, never applying g first
-    { id: "B", text: "$3$" },
-    // distractor: stops at the inner value g(2) = 5 without applying f
-    { id: "C", text: "$5$" },
-    { id: "D", text: "$9$" }
+    // distractor: gives the x-coordinate of the vertex, 2, instead of the maximum value
+    { id: "A", text: "$2$" },
+    { id: "B", text: "$8$" },
+    // distractor: gives the maximum value of y = f(x) + 7 without subtracting 7
+    { id: "C", text: "$15$" },
+    // distractor: adds 7 to the greatest y-value instead of subtracting it
+    { id: "D", text: "$22$" }
   ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Function Composition**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Work from the inside out: $g(2) = 5$, and then $f(5) = 9$.\n\n**The Full Solution:**\nStep 1: $f(g(2))$ means evaluate $g$ at $2$ first, then use that output as the input of $f$.\nStep 2: In the row $x = 2$, the $g(x)$ column shows $g(2) = 5$.\nStep 3: In the row $x = 5$, the $f(x)$ column shows $f(5) = 9$, so $f(g(2)) = 9$. Check: the order is $2 \\to g \\to 5 \\to f \\to 9$, inner function first ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): applies $f$ first, $f(2) = 3$, then $g(3) = 1$. That is $g(f(2))$, the reverse composition.\n* Choice B ($3$): reads $f(2) = 3$ directly and skips $g$ entirely.\n* Choice C ($5$): finds $g(2) = 5$ correctly but stops before applying $f$.\n\n**Test Day Takeaway:** In $f(g(x))$ the inner function acts first; read one row of the table for $g$, then a second row for $f$ at that output.",
-  skills: ["function-composition"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Vertical Shift**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The $y$-values at $x = 0$ and $x = 4$ are equal, so the vertex is at $x = 2$, where $y = 15$; then $f(2) = 15 - 7 = 8$.\n\n**The Full Solution:**\nStep 1: A parabola is symmetric about its vertex. Since $y = 11$ at both $x = 0$ and $x = 4$, the vertex is at $x = \\frac{0 + 4}{2} = 2$.\nStep 2: At $x = 2$, $y = 15$, which is greater than $11$, so the parabola opens downward and $15$ is the maximum value of $y$.\nStep 3: Since $y = f(x) + 7$, $f(x) = y - 7$, so the maximum value of $f(x)$ is $15 - 7 = 8$. Check: $f(0) = 11 - 7 = 4 < 8$ and $f(4) = 4 < 8$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): this is the $x$-coordinate of the vertex, not the maximum value of $f(x)$.\n* Choice C ($15$): this is the maximum value of $y = f(x) + 7$; the $7$ still has to be subtracted.\n* Choice D ($22$): adds $7$ to $15$ instead of subtracting it.\n\n**Test Day Takeaway:** Equal outputs mark points symmetric about the vertex; when the table gives $f(x) + c$, subtract $c$ to get $f(x)$.",
+  skills: ["function-transformations"]
 },
 {
   id: 7,
   type: "multiple-choice",
   difficulty: "medium",
   band: 4,
-  question: "A data set has a mean of $8.4$ and a standard deviation of $1.2$. When each value in the data set is multiplied by the same positive constant, the standard deviation becomes $4.2$. What is the new mean?",
+  question: "Data set A: $6, 8, 10, 12, 14$\nData set B: $18, 24, 30, 36, 42$\nThe lists give the values in data sets A and B. Which statement best compares the standard deviations of the two data sets?",
   choices: [
-    // distractor: inverts the scale factor and multiplies the mean by 1.2/4.2 instead of 4.2/1.2
-    { id: "A", text: "$2.4$" },
-    // distractor: adds the change of 3 in the standard deviation to the mean instead of scaling
-    { id: "B", text: "$11.4$" },
-    // distractor: uses the difference 4.2 - 1.2 = 3 as the constant instead of the ratio 3.5
-    { id: "C", text: "$25.2$" },
-    { id: "D", text: "$29.4$" }
+    { id: "A", text: "The standard deviation of data set A is less than the standard deviation of data set B." },
+    // distractor: sees that both lists have five evenly spaced values and assumes the spreads are the same, ignoring that B's values are 6 apart instead of 2
+    { id: "B", text: "The standard deviation of data set A is equal to the standard deviation of data set B." },
+    // distractor: reverses the comparison
+    { id: "C", text: "The standard deviation of data set A is greater than the standard deviation of data set B." },
+    // distractor: thinks a standard deviation must be calculated exactly before two data sets can be compared
+    { id: "D", text: "There is not enough information to compare the standard deviations." }
   ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Multiplying every value by $c$ multiplies both the mean and the standard deviation by $c$, so $c = \\frac{4.2}{1.2} = 3.5$ and the new mean is $3.5(8.4) = 29.4$.\n\n**The Full Solution:**\nStep 1: Let $c$ be the constant. Multiplying every value by $c$ multiplies the standard deviation by $c$, so $1.2c = 4.2$.\nStep 2: Solve for the constant: $c = \\frac{4.2}{1.2} = 3.5$.\nStep 3: The mean is multiplied by the same constant: $3.5(8.4) = 29.4$. Check: the ratio of the new mean to the old mean, $\\frac{29.4}{8.4} = 3.5$, equals the ratio of the standard deviations, $\\frac{4.2}{1.2} = 3.5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.4$): uses the reciprocal factor, $8.4 \\cdot \\frac{1.2}{4.2} = 2.4$. The standard deviation grew, so the mean must grow too.\n* Choice B ($11.4$): adds the increase in the standard deviation, $4.2 - 1.2 = 3$, to the mean. Multiplying by a constant scales the mean; it does not shift it by a fixed amount.\n* Choice C ($25.2$): multiplies the mean by $3$, the difference of the standard deviations, instead of by their ratio, $3.5$.\n\n**Test Day Takeaway:** Multiplying every value by $c$ multiplies the mean and the standard deviation by $c$; adding a constant shifts the mean but leaves the standard deviation unchanged.",
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Each value in data set B is $3$ times the matching value in data set A, so B's values are spread $3$ times as far from their mean; B has the greater standard deviation.\n\n**The Full Solution:**\nStep 1: Find each mean. Data set A is centered at $10$, and data set B is centered at $30$.\nStep 2: Compare distances from the mean. In A the values are $4$, $2$, $0$, $2$, and $4$ away from $10$; in B they are $12$, $6$, $0$, $6$, and $12$ away from $30$.\nStep 3: Every distance in B is $3$ times the matching distance in A, so the values in B are more spread out and the standard deviation of A is less than that of B. Check: the range of A is $14 - 6 = 8$ and the range of B is $42 - 18 = 24$, three times as large ✓\n\n**Why the wrong answers are tempting:**\n* Choice B: both lists have five evenly spaced values, so they can look equally spread out, but B's values are $6$ apart while A's are only $2$ apart.\n* Choice C: reverses the comparison; the larger distances from the mean belong to data set B.\n* Choice D: the standard deviation does not need to be computed; comparing the distances from the mean is enough.\n\n**Test Day Takeaway:** Standard deviation measures how far values sit from the mean, so compare the spread of the lists, not the size of the values.",
   skills: ["data-analysis"]
 },
 {
@@ -233,18 +233,18 @@ export const practiceTest9 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "A bag contains $5$ red marbles and $n$ blue marbles. If two marbles are selected at random without replacement, the probability that both are red is $\\frac{5}{33}$. What is the value of $n$?",
+  question: "A bag contains $5$ red marbles and $n$ blue marbles. After one red marble is removed, one of the remaining marbles will be selected at random. The probability of selecting a red marble is $\\frac{1}{3}$. What is the value of $n$?",
   choices: [
-    { id: "A", text: "$7$" },
-    // distractor: matches 132 = 12 x 11 to the wrong factor, setting n + 4 = 12 instead of n + 5 = 12
-    { id: "B", text: "$8$" },
-    // distractor: reports the total number of marbles, 12, rather than the number of blue marbles
-    { id: "C", text: "$12$" },
-    // distractor: treats 5/33 as a one-draw probability and solves 5/(5 + n) = 5/33
-    { id: "D", text: "$28$" }
+    { id: "A", text: "$8$" },
+    // distractor: ignores the removed marble and solves 5/(5 + n) = 1/3
+    { id: "B", text: "$10$" },
+    // distractor: removes the marble from the total but not from the red count, solving 5/(4 + n) = 1/3
+    { id: "C", text: "$11$" },
+    // distractor: reports the number of marbles left in the bag, 4 + n = 12, rather than the number of blue marbles
+    { id: "D", text: "$12$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Probability Without Replacement**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** With $T = n + 5$ marbles, $\\frac{5}{T} \\cdot \\frac{4}{T - 1} = \\frac{5}{33}$ forces $T(T - 1) = 132 = 12 \\cdot 11$, so $T = 12$ and $n = 7$.\n\n**The Full Solution:**\nStep 1: Let $T = n + 5$ be the total number of marbles. The first marble is red with probability $\\frac{5}{T}$; then $4$ red marbles remain among $T - 1$, so the second is red with probability $\\frac{4}{T - 1}$.\nStep 2: Set the product equal to the given probability: $\\frac{20}{T(T - 1)} = \\frac{5}{33}$, so $5T(T - 1) = 660$ and $T(T - 1) = 132$.\nStep 3: Consecutive whole numbers with product $132$ are $12$ and $11$, so $T = 12$ and $n = 12 - 5 = 7$. Check: $\\frac{5}{12} \\cdot \\frac{4}{11} = \\frac{20}{132} = \\frac{5}{33}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($8$): sets $n + 4 = 12$, matching the second-draw count to $12$ instead of the total $n + 5$.\n* Choice C ($12$): this is the total number of marbles, $T$. The question asks for the number of blue marbles.\n* Choice D ($28$): treats $\\frac{5}{33}$ as the chance that one marble is red, solving $\\frac{5}{5 + n} = \\frac{5}{33}$. The stem describes two draws without replacement.\n\n**Test Day Takeaway:** Without replacement, the second fraction loses one from both the top and the bottom; multiply the two fractions, then solve.",
+  explanation: "**SAT Pattern: Probability Without Replacement**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** After the removal there are $4$ red marbles out of $4 + n$, so $\\frac{4}{4 + n} = \\frac{1}{3}$, which gives $4 + n = 12$ and $n = 8$.\n\n**The Full Solution:**\nStep 1: Removing one red marble leaves $4$ red marbles and $n$ blue marbles, or $4 + n$ marbles in all.\nStep 2: The probability of selecting a red marble is $\\frac{4}{4 + n}$, so $\\frac{4}{4 + n} = \\frac{1}{3}$.\nStep 3: Cross-multiply: $12 = 4 + n$, so $n = 8$. Check: with $4$ red and $8$ blue marbles, the probability of red is $\\frac{4}{12} = \\frac{1}{3}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($10$): ignores the removed marble and solves $\\frac{5}{5 + n} = \\frac{1}{3}$.\n* Choice C ($11$): subtracts the removed marble from the total but still counts $5$ red marbles, solving $\\frac{5}{4 + n} = \\frac{1}{3}$.\n* Choice D ($12$): reports the number of marbles left in the bag, $4 + n$, instead of the number of blue marbles.\n\n**Test Day Takeaway:** When an item is removed before the selection, update both the favorable count and the total before writing the probability.",
   skills: ["probability-basics"]
 },
 {
@@ -320,18 +320,18 @@ export const practiceTest9 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "$3x^{2} + kx + 12 = 0$\nIn the given equation, $k$ is a positive even integer. For how many values of $k$ does the equation have no real solution?",
+  question: "$3x^{2} + kx + 12 = 0$\nIn the given equation, $k$ is a positive integer. If the equation has no real solution, how many possible values of $k$ are there?",
   choices: [
-    // distractor: drops the leading coefficient and uses k^2 < 48 instead of k^2 < 144, leaving the even values 2, 4, 6
-    { id: "A", text: "$3$" },
-    { id: "B", text: "$5$" },
-    // distractor: includes k = 12, where the discriminant is 0 and there is one real solution
-    { id: "C", text: "$6$" },
-    // distractor: counts every positive integer from 1 to 11 and ignores the restriction to even values
-    { id: "D", text: "$11$" }
+    // distractor: drops the 4 from the discriminant, solving k^2 - 36 < 0 to get k = 1 through 5
+    { id: "A", text: "$5$" },
+    // distractor: drops the 4 from the discriminant and also allows k^2 - 36 = 0, counting k = 1 through 6
+    { id: "B", text: "$6$" },
+    { id: "C", text: "$11$" },
+    // distractor: allows the discriminant to equal 0 and counts k = 12, which gives exactly one real solution
+    { id: "D", text: "$12$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** No real solution means $k^{2} - 4(3)(12) < 0$, so $k^{2} < 144$ and $0 < k < 12$; the even values are $2, 4, 6, 8, 10$, five of them.\n\n**The Full Solution:**\nStep 1: A quadratic equation $ax^{2} + bx + c = 0$ has no real solution when its discriminant $b^{2} - 4ac$ is negative. Here that is $k^{2} - 4(3)(12) < 0$.\nStep 2: Simplify: $k^{2} < 144$. Since $k$ is positive, $0 < k < 12$; $k = 12$ is excluded because it makes the discriminant $0$.\nStep 3: The positive even integers less than $12$ are $2, 4, 6, 8, 10$, so there are $5$ values. Check: $k = 10$ gives $100 - 144 = -44 < 0$, and $k = 12$ gives $144 - 144 = 0$, one real solution ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): leaves out the $3$ in $4ac$, solving $k^{2} < 48$, which keeps only $2$, $4$, and $6$.\n* Choice C ($6$): includes $k = 12$. With a discriminant of $0$, the equation has exactly one real solution, so it does have a real solution.\n* Choice D ($11$): counts every positive integer from $1$ to $11$, ignoring the condition that $k$ is even.\n\n**Test Day Takeaway:** No real solution means a negative discriminant, and the inequality is strict; after solving for the range, apply every restriction in the stem before you count.",
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** No real solution means $k^{2} - 4(3)(12) < 0$, so $k^{2} < 144$ and $k < 12$; the positive integers $1$ through $11$ work, which is $11$ values.\n\n**The Full Solution:**\nStep 1: A quadratic equation $ax^{2} + bx + c = 0$ has no real solution when its discriminant $b^{2} - 4ac$ is negative. Here $a = 3$, $b = k$, and $c = 12$.\nStep 2: Set up the inequality: $k^{2} - 4(3)(12) < 0$, or $k^{2} < 144$.\nStep 3: Since $k$ is a positive integer, $k < 12$, so $k$ can be $1, 2, 3, \\ldots, 11$, which is $11$ values. Check: $11^{2} - 144 = -23 < 0$, while $12^{2} - 144 = 0$, which gives one real solution ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): forgets the $4$ in the discriminant and solves $k^{2} - 3(12) < 0$, which allows only $k = 1$ through $5$.\n* Choice B ($6$): forgets the $4$ and also lets the discriminant equal $0$, counting $k = 1$ through $6$.\n* Choice D ($12$): counts $k = 12$, but that makes the discriminant exactly $0$, which gives one real solution, not zero.\n\n**Test Day Takeaway:** \"No real solution\" means the discriminant is strictly less than $0$; a discriminant of $0$ still gives one solution.",
   skills: ["discriminant-analysis"]
 },
 {
@@ -407,9 +407,9 @@ export const practiceTest9 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "$p(x) = 2x^{3} + kx^{2} - 23x + 12$\nIn the given function, $k$ is a constant, and $p(4) = 0$. What is the sum of the other two zeros of $p$?",
-  correctAnswer: "-2.5",
-  explanation: "**SAT Pattern: Polynomial Factoring with Given Factor**\n\n**The correct answer is -2.5.**\n\n**The Fast Way (~50s):** $p(4) = 0$ gives $16k + 48 = 0$, so $k = -3$; dividing $2x^{3} - 3x^{2} - 23x + 12$ by $x - 4$ leaves $2x^{2} + 5x - 3$, whose zeros sum to $-\\frac{5}{2} = -2.5$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 4$: $2(64) + 16k - 92 + 12 = 16k + 48 = 0$, so $k = -3$.\nStep 2: Since $4$ is a zero, $x - 4$ is a factor: $2x^{3} - 3x^{2} - 23x + 12 = (x - 4)(2x^{2} + 5x - 3)$.\nStep 3: Factor the quadratic: $2x^{2} + 5x - 3 = (2x - 1)(x + 3)$, so the other zeros are $\\frac{1}{2}$ and $-3$, and their sum is $-2.5$. Check: the sum of all three zeros is $4 + \\frac{1}{2} - 3 = 1.5 = -\\frac{-3}{2}$ ✓\n\n**Common Mistakes:**\n* $2.5$: drops the negative sign from $-\\frac{b}{a}$ for the quadratic $2x^{2} + 5x - 3$.\n* $1.5$: adds all three zeros, including $4$; the question asks for the other two.\n* $-5$: uses $-b$ without dividing by the leading coefficient $2$.\n\n**Test Day Takeaway:** A given zero gives an equation for the unknown constant and a factor to divide out; the zeros of the quotient $ax^{2} + bx + c$ sum to $-\\frac{b}{a}$.",
+  question: "$6x^{2} + kx - 20$\nIn the given expression, $k$ is a constant. If $2x - 5$ is a factor of the expression, what is the value of $k$?",
+  correctAnswer: "-7",
+  explanation: "**SAT Pattern: Polynomial Factoring with Given Factor**\n\n**The correct answer is $-7$.**\n\n**The Fast Way (~30s):** Since $2x - 5$ is a factor, the expression equals $0$ when $x = \\frac{5}{2}$: $6\\left(\\frac{25}{4}\\right) + \\frac{5}{2}k - 20 = 0$, so $\\frac{5}{2}k = -\\frac{35}{2}$ and $k = -7$.\n\n**The Full Solution:**\nStep 1: If $2x - 5$ is a factor, the expression is $0$ when $2x - 5 = 0$, that is, when $x = \\frac{5}{2}$.\nStep 2: Substitute: $6\\left(\\frac{5}{2}\\right)^{2} + k\\left(\\frac{5}{2}\\right) - 20 = 0$, or $\\frac{75}{2} + \\frac{5}{2}k - 20 = 0$, which simplifies to $\\frac{5}{2}k = -\\frac{35}{2}$.\nStep 3: Multiply both sides by $\\frac{2}{5}$: $k = -7$. Check: $(2x - 5)(3x + 4) = 6x^{2} + 8x - 15x - 20 = 6x^{2} - 7x - 20$ ✓\n\n**Common Mistakes:**\n* $7$: substitutes $x = -\\frac{5}{2}$, the value that makes $2x + 5$ equal to $0$.\n* $-26$: substitutes $x = 5$, treating $2x - 5$ as if it were $x - 5$.\n* $-\\frac{35}{2}$: reaches $\\frac{5}{2}k = -\\frac{35}{2}$ but reports the right side without dividing by $\\frac{5}{2}$.\n\n**Test Day Takeaway:** If $ax - b$ is a factor of an expression, the expression equals $0$ at $x = \\frac{b}{a}$; substitute that value to find a missing constant.",
   skills: ["finding-roots-factoring"]
 }
       ]
@@ -637,20 +637,20 @@ export const practiceTest9 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "The graph of the function $N$, where $N(w) = -w^{2} + 14w + 15$, is shown. The function models the number of tadpoles, in hundreds, in a pond $w$ weeks after May $1$. For which values of $w$ does the model estimate at least $5{,}500$ tadpoles in the pond?",
+  question: "The graph shown models the number of tadpoles $N(w)$, in hundreds, in a pond $w$ weeks after May $1$, where $N(w) = -w^{2} + 14w + 15$. What is the least value of $w$ for which $N(w) = 55$?",
   diagram: { type: "parabola", params: { vertex: { h: 7, k: 64 }, a: -1, xRange: [0, 15], yRange: [0, 70], xTickInterval: 5, yTickInterval: 20, gridInterval: 5, showVertex: false, label: "N(w)" } },
   choices: [
-    // distractor: solves N(w) >= 0 instead of N(w) >= 55, returning the zeros -1 and 15
-    { id: "A", text: "$-1 \\le w \\le 15$" },
-    // distractor: stops at the vertex w = 7 rather than continuing to the second solution w = 10
-    { id: "B", text: "$4 \\le w \\le 7$" },
-    { id: "C", text: "$4 \\le w \\le 10$" },
-    // distractor: takes the interval from the larger root to the larger zero, where the model is below 5,500
-    { id: "D", text: "$10 \\le w \\le 15$" }
+    { id: "A", text: "$4$" },
+    // distractor: gives the w-coordinate of the vertex, where the model reaches its greatest value
+    { id: "B", text: "$7$" },
+    // distractor: gives the greater of the two solutions to N(w) = 55 instead of the lesser
+    { id: "C", text: "$10$" },
+    // distractor: gives the positive solution to N(w) = 0, where the model reaches 0 tadpoles
+    { id: "D", text: "$15$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** At least $5{,}500$ tadpoles means $N(w) \\ge 55$, so $w^{2} - 14w + 40 \\le 0$, or $(w - 4)(w - 10) \\le 0$. That holds for $4 \\le w \\le 10$.\n\n**The Full Solution:**\nStep 1: Since $N$ counts hundreds, $5{,}500$ tadpoles corresponds to $N(w) = 55$, so solve $-w^{2} + 14w + 15 \\ge 55$.\nStep 2: Rearrange: $-w^{2} + 14w - 40 \\ge 0$, or $w^{2} - 14w + 40 \\le 0$, which factors as $(w - 4)(w - 10) \\le 0$.\nStep 3: The product is at most $0$ between the roots, so $4 \\le w \\le 10$. Check: $N(4) = -16 + 56 + 15 = 55$ and $N(10) = -100 + 140 + 15 = 55$, and the graph is above $55$ between them ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-1 \\le w \\le 15$): solves $N(w) \\ge 0$, returning the zeros $-1$ and $15$ instead of the points where $N(w) = 55$.\n* Choice B ($4 \\le w \\le 7$): stops at the vertex $w = 7$, but the model stays above $55$ until $w = 10$.\n* Choice D ($10 \\le w \\le 15$): uses the interval from the larger root to the larger zero, where the model is below $55$.\n\n**Test Day Takeaway:** Convert the threshold into the model's units first, then solve the quadratic inequality by finding where the graph crosses that level.",
-  skills: ["quadratics"]
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Quadratic via Factoring**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** $-w^{2} + 14w + 15 = 55$ becomes $w^{2} - 14w + 40 = 0$, or $(w - 4)(w - 10) = 0$; the lesser solution is $4$.\n\n**The Full Solution:**\nStep 1: Set the function equal to $55$: $-w^{2} + 14w + 15 = 55$.\nStep 2: Rearrange: $w^{2} - 14w + 40 = 0$, which factors as $(w - 4)(w - 10) = 0$.\nStep 3: The solutions are $w = 4$ and $w = 10$, so the least value is $4$. Check: $N(4) = -16 + 56 + 15 = 55$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($7$): the vertex of the graph is at $w = 7$, where the model is greatest, $N(7) = 64$, not $55$.\n* Choice C ($10$): $N(10) = 55$ as well, but $10$ is the greater solution.\n* Choice D ($15$): $N(15) = 0$; this is where the graph meets the $x$-axis, not where $N(w) = 55$.\n\n**Test Day Takeaway:** To find when a quadratic model reaches a value, set it equal to that value, move everything to one side, and factor.",
+  skills: ["finding-roots-factoring"]
 },
 {
   id: 17,
@@ -676,9 +676,9 @@ export const practiceTest9 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "$3x + 4y = 36$\nIn the $xy$-plane, line $k$ is perpendicular to the graph of the given equation and intersects it at the point $(4, 6)$. Line $k$ also passes through the point $(m, 18)$. What is the value of $m$?",
-  correctAnswer: "13",
-  explanation: "**SAT Pattern: Perpendicular Slope**\n\n**The correct answer is 13.**\n\n**The Fast Way (~35s):** The given line has slope $-\\frac{3}{4}$, so line $k$ has slope $\\frac{4}{3}$. A rise of $18 - 6 = 12$ takes a run of $9$, so $m = 4 + 9 = 13$.\n\n**The Full Solution:**\nStep 1: Solve the given equation for $y$: $y = -\\frac{3}{4}x + 9$, so its slope is $-\\frac{3}{4}$.\nStep 2: Perpendicular slopes are negative reciprocals, so line $k$ has slope $\\frac{4}{3}$ and passes through $(4, 6)$.\nStep 3: Use the slope between $(4, 6)$ and $(m, 18)$: $\\frac{18 - 6}{m - 4} = \\frac{4}{3}$, so $m - 4 = 9$ and $m = 13$. Check: $\\frac{12}{9} = \\frac{4}{3}$, and $\\left(-\\frac{3}{4}\\right)\\left(\\frac{4}{3}\\right) = -1$ ✓\n\n**Common Mistakes:**\n* $-5$: takes the reciprocal $\\frac{4}{3}$ but keeps the negative sign, solving $\\frac{12}{m - 4} = -\\frac{4}{3}$.\n* $9$: finds the run of $9$ but forgets to add it to the starting $x$-coordinate $4$.\n* $-12$: uses the given line's slope, $-\\frac{3}{4}$, instead of the perpendicular slope, so the run is $-16$.\n\n**Test Day Takeaway:** A negative reciprocal flips the fraction and the sign. Then work in rise and run from the known point, and add the run to that point's $x$-coordinate.",
+  question: "$\\frac{1}{3}x + \\frac{1}{8}y = 12$\nIn the $xy$-plane, line $n$ is perpendicular to the graph of the given equation. What is the slope of line $n$?",
+  correctAnswer: "3/8",
+  explanation: "**SAT Pattern: Perpendicular Slope**\n\n**The correct answer is $\\frac{3}{8}$.**\n\n**The Fast Way (~25s):** Multiply by $24$: $8x + 3y = 288$, so the given line has slope $-\\frac{8}{3}$ and line $n$ has slope $\\frac{3}{8}$.\n\n**The Full Solution:**\nStep 1: Clear the fractions by multiplying each side by $24$: $8x + 3y = 288$.\nStep 2: Solve for $y$: $y = -\\frac{8}{3}x + 96$, so the given line has slope $-\\frac{8}{3}$.\nStep 3: Slopes of perpendicular lines multiply to $-1$, so the slope of line $n$ is $\\frac{3}{8}$. Check: $\\left(-\\frac{8}{3}\\right)\\left(\\frac{3}{8}\\right) = -1$ ✓\n\n**Common Mistakes:**\n* $-\\frac{8}{3}$: gives the slope of the given line instead of the perpendicular slope.\n* $-\\frac{3}{8}$: takes the reciprocal of $-\\frac{8}{3}$ but keeps the negative sign.\n* $\\frac{8}{3}$: changes the sign of the given line's slope but does not take the reciprocal.\n\n**Test Day Takeaway:** For $Ax + By = C$ the slope is $-\\frac{A}{B}$, even when $A$ and $B$ are fractions; then flip and change the sign for a perpendicular line.",
   skills: ["perpendicular-negative-reciprocal"]
 },
 {

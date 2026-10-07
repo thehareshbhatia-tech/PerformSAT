@@ -1,6 +1,6 @@
 {
  "id": "bank-am-239",
- "question": "The table shows four values of $x$ and their corresponding values of $f(x)$. The function $g$ is defined by $g(x) = f(x) + 6$. What is the value of $g(2)$?",
+ "question": "$g(x) = f(x) + 6$\nThe function $g$ is defined by the given equation, and selected values of $f(x)$ are shown in the table. What is the value of $g(2)$?",
  "choices": [
   {
    "id": "A",

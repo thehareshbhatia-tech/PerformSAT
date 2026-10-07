@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 1,
- "passage": "Painters prized verdigris for its brilliant green but learned to handle it warily. In oil, the pigment tends to brown or darken as a painting ages. ______ its color can begin to change within the first month of exposure to air, which is why painters often sealed verdigris passages under varnish soon after applying them.",
+ "passage": "Linen, the cloth woven from fibers of the flax plant, has been valued for thousands of years for its strength. Flax fibers are among the strongest plant fibers used in textiles. ______ they become even stronger when wet, which made linen a good material for sailcloth and fishing nets.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,5 +27,12 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The passage adds a second, separate drawback of verdigris to the first, and \"Moreover,\" signals exactly that addition of a parallel point.\n\n**The Full Solution:**\n- The first drawback: in oil, verdigris tends to brown or darken as a painting ages.\n- The blank introduces a second, distinct drawback: its color can start changing within a month of exposure to air.\n- Both points run in the same direction, as reasons painters handled the pigment warily, so an additive transition fits.\n\n**Why the other choices are wrong:**\n- B: \"In contrast,\" would promise a point running against the first, but the second drawback reinforces it.\n- C: \"Therefore,\" would make the early color change a consequence of the slow browning, though the two are separate problems.\n- D: \"For instance,\" would offer the second point as an example of the first, but a change within the first month is not an example of darkening over a painting's lifetime."
+ "explanation": "**Choice A is correct.** The blank introduces a second point in the same direction as the first: flax fibers are already very strong, and on top of that they grow stronger when wet. \"Moreover,\" adds a further supporting point.\n\n**The Full Solution:**\n- The second sentence says flax fibers are \"among the strongest plant fibers used in textiles.\"\n- The third sentence adds another advantage: they become even stronger when wet.\n- Both facts support the opening claim about linen's strength, so the transition must signal addition.\n\n**Why the other choices are wrong:**\n- B: \"In contrast,\" signals an opposing point, but gaining strength when wet reinforces the claim rather than opposing it.\n- C: \"Therefore,\" would present the wet strength as a consequence of the fibers being strong, which the text does not claim.\n- D: \"For instance,\" would introduce an example of the general claim, but the third sentence adds a new property rather than illustrating the previous one.",
+ "_meta": {
+  "anchor": "linen/flax fiber strength — Moreover (adds a same-direction point)",
+  "sources": [
+   "https://handwovenmagazine.com/is-linen-really-stronger-when-wet/",
+   "https://cameo.mfa.org/wiki/Flax"
+  ]
+ }
 }

@@ -138,19 +138,19 @@ export const volumeQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "A rectangular tank with a base that measures $12$ feet by $8$ feet contains $480$ cubic feet of water. If $288$ cubic feet of water is added, by how many feet will the water level rise?",
+      question: "A right rectangular prism has a height of $5$ centimeters. Its base has a width of $4$ centimeters and a length that is $3$ times its width. What is the volume, in cubic centimeters, of the prism?",
       choices: [
-        { id: "A", text: "$3$" },
-        // distractor: gives the original depth of the water rather than the rise
-        { id: "B", text: "$5$" },
-        // distractor: gives the new depth rather than the increase
-        { id: "C", text: "$8$" },
-        // distractor: divides the added volume by the length only
-        { id: "D", text: "$24$" }
+        // distractor: finds the area of the base, 12 times 4, and stops
+        { id: "A", text: "$48$" },
+        // distractor: uses 3 as the length instead of 3 times 4
+        { id: "B", text: "$60$" },
+        // distractor: uses 4 for both the width and the length
+        { id: "C", text: "$80$" },
+        { id: "D", text: "$240$" }
       ],
-      correctAnswer: "A",
-      hint: "Only the added water affects the rise.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~25s):** The base area is $12(8) = 96$ square feet, so the rise is $\\frac{288}{96} = 3$ feet.\n\n**The Full Solution:**\nStep 1: The water fills a rectangular prism whose base area is $12(8) = 96$ square feet.\nStep 2: The added volume equals the base area times the rise $r$: $288 = 96r$.\nStep 3: So $r = \\frac{288}{96} = 3$ feet. Check: the depth goes from $\\frac{480}{96} = 5$ feet to $\\frac{768}{96} = 8$ feet, a rise of $3$ feet ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($5$): gives the original depth of the water, $\\frac{480}{96} = 5$ feet, rather than the rise.\n* Choice C ($8$): gives the new depth, $\\frac{768}{96} = 8$ feet, rather than the increase.\n* Choice D ($24$): divides the added volume by the length only, $\\frac{288}{12} = 24$.\n\n**Test Day Takeaway:** When the base stays the same, a change in volume is only a change in height: divide the added volume by the base area.",
+      correctAnswer: "D",
+      hint: "Find the length of the base first.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~20s):** The length is $3(4) = 12$ centimeters, so $V = 12 \\cdot 4 \\cdot 5 = 240$.\n\n**The Full Solution:**\nStep 1: The length of the base is $3$ times the width: $3(4) = 12$ centimeters.\nStep 2: The area of the base is $12 \\cdot 4 = 48$ square centimeters.\nStep 3: The volume is the area of the base times the height: $48 \\cdot 5 = 240$ cubic centimeters. Check: $240 \\div (12 \\cdot 5) = 4$, the given width ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($48$): this is the area of the base; it still has to be multiplied by the height, $5$.\n* Choice B ($60$): this uses $3$ as the length; the length is $3$ times the width, or $12$.\n* Choice C ($80$): this uses $4$ as both the width and the length.\n\n**Test Day Takeaway:** Find every dimension first, then multiply the length, width, and height.",
       skills: ["volume-prism"]
     },
     {
@@ -175,19 +175,19 @@ export const volumeQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "A box has interior dimensions of $18$ inches by $12$ inches by $10$ inches. Cubes with edge length $3$ inches are stacked in the box in straight rows. What is the greatest number of these cubes that can fit?",
+      question: "What is the surface area, in square centimeters, of a right rectangular prism that is $9$ centimeters long, $5$ centimeters wide, and $4$ centimeters tall?",
       choices: [
-        { id: "A", text: "$72$" },
-        // distractor: divides the box volume by the cube volume, ignoring that 10 is not a multiple of 3
-        { id: "B", text: "$80$" },
-        // distractor: divides the box volume by 3^2 instead of 3^3
-        { id: "C", text: "$240$" },
-        // distractor: divides the box volume by 3 instead of 3^3
-        { id: "D", text: "$720$" }
+        // distractor: adds the areas of only three faces, one from each matching pair
+        { id: "A", text: "$101$" },
+        // distractor: leaves out the pair of 9 by 4 faces
+        { id: "B", text: "$130$" },
+        // distractor: finds the volume, 9 times 5 times 4
+        { id: "C", text: "$180$" },
+        { id: "D", text: "$202$" }
       ],
-      correctAnswer: "A",
-      hint: "Check each dimension on its own; one of them does not divide evenly.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~40s):** $18 \\div 3 = 6$ and $12 \\div 3 = 4$, but only $3$ layers fit in $10$ inches, so $6 \\cdot 4 \\cdot 3 = 72$.\n\n**The Full Solution:**\nStep 1: The cubes line up in whole rows, so count how many fit along each dimension separately.\nStep 2: Along $18$ inches, $6$ cubes fit; along $12$ inches, $4$ fit; along $10$ inches, only $3$ fit, since a fourth layer would need $12$ inches.\nStep 3: The total is $6 \\cdot 4 \\cdot 3 = 72$ cubes. Check: they fill $72(27) = 1{,}944$ cubic inches of the box's $2{,}160$ cubic inches, leaving a $1$-inch gap at the top ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($80$): divides the volume of the box, $2{,}160$, by the volume of a cube, $27$, ignoring that $10$ is not a multiple of $3$.\n* Choice C ($240$): divides the volume of the box by $3^2 = 9$ instead of $3^3 = 27$.\n* Choice D ($720$): divides the volume of the box by $3$ instead of by $3^3$.\n\n**Test Day Takeaway:** Packing questions count cubes along each edge and round each count down; dividing the volumes overcounts whenever a dimension does not divide evenly.",
+      correctAnswer: "D",
+      hint: "A rectangular prism has three pairs of matching faces.",
+      explanation: "**Choice D is correct.**\n\n**The Fast Way (~25s):** The faces come in pairs with areas $45$, $36$, and $20$, so the surface area is $2(45 + 36 + 20) = 202$.\n\n**The Full Solution:**\nStep 1: The six faces of the prism come in three matching pairs: $9$ by $5$, $9$ by $4$, and $5$ by $4$.\nStep 2: Their areas are $45$, $36$, and $20$ square centimeters, which sum to $101$.\nStep 3: Each pair has two faces, so the surface area is $2(101) = 202$ square centimeters. Check: $2(45) + 2(36) + 2(20) = 90 + 72 + 40 = 202$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($101$): this counts only one face from each pair; the prism has six faces.\n* Choice B ($130$): this is $2(45 + 20)$, which leaves out the two $9$ by $4$ faces.\n* Choice C ($180$): this is the volume, $9 \\cdot 5 \\cdot 4$, in cubic centimeters, not the surface area.\n\n**Test Day Takeaway:** The surface area of a rectangular prism adds the areas of all six faces: $2(lw + lh + wh)$.",
       skills: ["volume-prism"]
     }
   ],
@@ -365,19 +365,19 @@ export const volumeQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "Water is $5$ feet deep in a right circular cylinder of radius $6$ feet. All of it is poured into an empty right circular cylinder of radius $3$ feet. How deep, in feet, is the water in the second cylinder?",
+      question: "The circumference of the base of a right circular cylinder is $14\\pi$ inches, and the volume of the cylinder is $490\\pi$ cubic inches. What is the height, in inches, of the cylinder?",
       choices: [
-        // distractor: multiplies the depth by (3/6)^2 = 1/4 instead of dividing by it, so the water gets shallower in the narrower cylinder
-        { id: "A", text: "$1.25$" },
-        // distractor: uses the radius ratio 6/3 = 2 once instead of squaring it, giving 5(2) = 10
+        // distractor: uses the diameter, 14, as the radius
+        { id: "A", text: "$2.5$" },
         { id: "B", text: "$10$" },
-        { id: "C", text: "$20$" },
-        // distractor: cubes the radius ratio, giving 5(2^3) = 40, as if depth scaled like a volume
-        { id: "D", text: "$40$" }
+        // distractor: divides the volume by the circumference
+        { id: "C", text: "$35$" },
+        // distractor: divides by the radius, 7, instead of by the square of the radius
+        { id: "D", text: "$70$" }
       ],
-      correctAnswer: "C",
-      hint: "The volume of water stays the same; only the base it sits on changes.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~30s):** The second base has $\\left(\\frac{3}{6}\\right)^{2} = \\frac{1}{4}$ the area of the first, so the same water stands $4$ times as deep: $4(5) = 20$ feet.\n\n**The Full Solution:**\nStep 1: The volume of the water in the first cylinder is $\\pi(6)^{2}(5) = 180\\pi$ cubic feet.\nStep 2: In the second cylinder the same volume has a base of radius $3$, so $\\pi(3)^{2}d = 180\\pi$, or $9d = 180$.\nStep 3: Divide: $d = 20$ feet. Check: $\\pi(3)^{2}(20) = 180\\pi$, the same volume of water ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1.25$): multiplies the depth by $\\frac{1}{4}$ instead of dividing by it. A narrower cylinder makes the water deeper, not shallower.\n* Choice B ($10$): uses the radius ratio $\\frac{6}{3} = 2$ once, but the base area depends on the radius squared, so the ratio of base areas is $4$.\n* Choice D ($40$): cubes the ratio $2$, treating depth as if it scaled like a volume. Only the base area changes between the two cylinders.\n\n**Test Day Takeaway:** When liquid moves between containers, set the two volumes equal; for cylinders, the depth changes by the inverse of the ratio of the base areas, which is the square of the ratio of the radii.",
+      correctAnswer: "B",
+      hint: "Use the circumference to find the radius first.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~30s):** $2\\pi r = 14\\pi$ gives $r = 7$, so $490\\pi = \\pi(7)^{2}h$ and $h = \\frac{490}{49} = 10$.\n\n**The Full Solution:**\nStep 1: The circumference is $2\\pi r = 14\\pi$, so $r = 7$ inches.\nStep 2: The volume is $V = \\pi r^{2}h$: $490\\pi = \\pi(7)^{2}h = 49\\pi h$.\nStep 3: So $h = \\frac{490}{49} = 10$ inches. Check: $\\pi(7)^{2}(10) = 490\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.5$): this uses the diameter, $14$, as the radius: $\\frac{490}{196} = 2.5$.\n* Choice C ($35$): this divides $490\\pi$ by the circumference, $14\\pi$; the volume formula uses the area of the base, $49\\pi$.\n* Choice D ($70$): this divides by $7$ instead of by $7^{2}$.\n\n**Test Day Takeaway:** From a circumference, get the radius first, $r = \\frac{C}{2\\pi}$; then use $V = \\pi r^{2}h$.",
       skills: ["volume-prism"]
     }
   ],
@@ -423,19 +423,19 @@ export const volumeQuestions = {
     {
       id: 3,
       difficulty: "medium",
-      question: "All $288\\pi$ cubic centimeters of wax in a block are used to make $8$ identical spherical candles. What is the radius, in centimeters, of each candle?",
+      question: "A sphere has a volume of $288\\pi$ cubic centimeters. What is the radius, in centimeters, of the sphere?",
       choices: [
-        { id: "A", text: "$3$" },
-        // distractor: sets the volume of a single candle equal to all 288pi of wax, so (4/3)r^3 = 288 and r = 6
-        { id: "B", text: "$6$" },
-        // distractor: reaches r^3 = 27 and divides by 3 instead of taking the cube root
-        { id: "C", text: "$9$" },
-        // distractor: reaches r^3 = 27 and stops, reporting r^3 instead of r
-        { id: "D", text: "$27$" }
+        { id: "A", text: "$6$" },
+        // distractor: gives the diameter, twice the radius
+        { id: "B", text: "$12$" },
+        // distractor: divides 216 by 3 instead of taking the cube root
+        { id: "C", text: "$72$" },
+        // distractor: stops at r^3 = 216 without taking the cube root
+        { id: "D", text: "$216$" }
       ],
       correctAnswer: "A",
-      hint: "Find the volume of one candle before using the sphere formula.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~30s):** Each candle holds $\\frac{288\\pi}{8} = 36\\pi$, so $\\frac{4}{3}r^{3} = 36$, $r^{3} = 27$, and $r = 3$.\n\n**The Full Solution:**\nStep 1: Divide the wax equally: each candle has volume $\\frac{288\\pi}{8} = 36\\pi$ cubic centimeters.\nStep 2: Set this equal to the volume of a sphere: $\\frac{4}{3}\\pi r^{3} = 36\\pi$, so $r^{3} = 36 \\cdot \\frac{3}{4} = 27$.\nStep 3: Take the cube root: $r = 3$ centimeters. Check: $8 \\cdot \\frac{4}{3}\\pi(3)^{3} = 8 \\cdot 36\\pi = 288\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($6$): uses all $288\\pi$ cubic centimeters for one candle, so $r^{3} = 216$ and $r = 6$. The wax is shared among $8$ candles.\n* Choice C ($9$): reaches $r^{3} = 27$ and divides by $3$; undoing a cube requires a cube root, not division.\n* Choice D ($27$): stops at $r^{3} = 27$ and reports that value as the radius.\n\n**Test Day Takeaway:** When a total amount is split into identical solids, divide first to get one solid's volume, then solve the volume formula for the missing length.",
+      hint: "Set $\\frac{4}{3}\\pi r^{3}$ equal to $288\\pi$ and solve for $r^{3}$ first.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~25s):** $\\frac{4}{3}\\pi r^{3} = 288\\pi$ gives $r^{3} = 216$, so $r = 6$.\n\n**The Full Solution:**\nStep 1: The volume of a sphere is $V = \\frac{4}{3}\\pi r^{3}$, so $\\frac{4}{3}\\pi r^{3} = 288\\pi$.\nStep 2: Divide both sides by $\\pi$ and multiply by $\\frac{3}{4}$: $r^{3} = 216$.\nStep 3: So $r = \\sqrt[3]{216} = 6$ centimeters. Check: $\\frac{4}{3}\\pi(6)^{3} = \\frac{4}{3}\\pi(216) = 288\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($12$): this is the diameter, $2(6)$.\n* Choice C ($72$): this divides $216$ by $3$; the radius is the cube root of $216$.\n* Choice D ($216$): this is $r^{3}$; the cube root still has to be taken.\n\n**Test Day Takeaway:** To find a radius from a sphere's volume, isolate $r^{3}$, then take the cube root.",
       skills: ["volume-sphere"]
     },
     {
@@ -459,19 +459,19 @@ export const volumeQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "A solid metal sphere with a radius of $9$ centimeters is melted and recast as a solid right circular cylinder with a base diameter of $12$ centimeters. What is the height, in centimeters, of the cylinder?",
+      question: "A sphere fits exactly inside a cube, touching each of the cube's six faces. The volume of the cube is $216$ cubic inches. What is the volume, in cubic inches, of the sphere?",
       choices: [
-        // distractor: squares the sphere's radius instead of cubing it, so the sphere's volume becomes (4/3)(81)pi = 108pi and h = 108/36 = 3
-        { id: "A", text: "$3$" },
-        // distractor: uses the diameter 12 as the cylinder's radius, so 144h = 972 and h = 6.75
-        { id: "B", text: "$6.75$" },
-        // distractor: leaves out the 4/3 in the sphere formula, so 36h = 729 and h = 20.25
-        { id: "C", text: "$20.25$" },
-        { id: "D", text: "$27$" }
+        // distractor: computes pi times r^3, leaving out the 4/3
+        { id: "A", text: "$27\\pi$" },
+        { id: "B", text: "$36\\pi$" },
+        // distractor: computes 4 pi r^3, leaving out the division by 3
+        { id: "C", text: "$108\\pi$" },
+        // distractor: uses the edge length, 6, as the radius
+        { id: "D", text: "$288\\pi$" }
       ],
-      correctAnswer: "D",
-      hint: "No metal is lost, so the two solids have the same volume.",
-      explanation: "**Choice D is correct.**\n\n**The Fast Way (~45s):** Set the volumes equal: $\\frac{4}{3}\\pi(9)^{3} = \\pi(6)^{2}h$, so $972 = 36h$ and $h = 27$.\n\n**The Full Solution:**\nStep 1: The sphere's volume is $\\frac{4}{3}\\pi(9)^{3} = \\frac{4}{3}\\pi(729) = 972\\pi$ cubic centimeters.\nStep 2: The cylinder's base diameter is $12$, so its radius is $6$ and its volume is $\\pi(6)^{2}h = 36\\pi h$.\nStep 3: Set the volumes equal: $36\\pi h = 972\\pi$, so $h = 27$ centimeters. Check: $\\pi(6)^{2}(27) = 972\\pi$, the sphere's volume ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): squares the radius $9$ instead of cubing it, so the sphere's volume comes out as $108\\pi$ instead of $972\\pi$.\n* Choice B ($6.75$): uses the diameter $12$ as the cylinder's radius, making its base area $144\\pi$ instead of $36\\pi$.\n* Choice C ($20.25$): drops the $\\frac{4}{3}$ from the sphere's volume, using $729\\pi$ instead of $972\\pi$.\n\n**Test Day Takeaway:** When a solid is melted and recast, write the two volume formulas, set them equal, and convert every diameter to a radius before substituting.",
+      correctAnswer: "B",
+      hint: "The diameter of the sphere equals the edge length of the cube.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~30s):** The cube's edge is $\\sqrt[3]{216} = 6$, so the sphere's radius is $3$ and its volume is $\\frac{4}{3}\\pi(3)^{3} = 36\\pi$.\n\n**The Full Solution:**\nStep 1: The edge length of the cube is $\\sqrt[3]{216} = 6$ inches.\nStep 2: The sphere touches opposite faces of the cube, so its diameter is $6$ inches and its radius is $3$ inches.\nStep 3: $V = \\frac{4}{3}\\pi(3)^{3} = \\frac{4}{3}\\pi(27) = 36\\pi$ cubic inches. Check: $36\\pi \\approx 113$, which is less than the cube's $216$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($27\\pi$): this leaves the $\\frac{4}{3}$ out of the sphere formula.\n* Choice C ($108\\pi$): this multiplies by $4$ but does not divide by $3$.\n* Choice D ($288\\pi$): this uses the edge length, $6$, as the radius; the edge is the diameter.\n\n**Test Day Takeaway:** When a sphere fits exactly inside a cube, the cube's edge length is the sphere's diameter.",
       skills: ["volume-sphere"]
     }
   ],
@@ -553,19 +553,19 @@ export const volumeQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "A right circular cone of radius $6$ centimeters and height $12$ centimeters is held vertex down and filled with water to a depth of $4$ centimeters. What is the volume, in cubic centimeters, of the water?",
+      question: "The base of a right circular cone has a diameter of $8$ centimeters, and the cone is $15$ centimeters tall. What is the volume, in cubic centimeters, of the cone?",
       choices: [
-        { id: "A", text: "$\\frac{16}{3}\\pi$" },
-        // distractor: scales the full volume 144pi by (1/3)^2 instead of (1/3)^3
-        { id: "B", text: "$16\\pi$" },
-        // distractor: uses the depth 4 but keeps the full radius 6, computing (1/3)(pi)(36)(4) = 48pi
-        { id: "C", text: "$48\\pi$" },
-        // distractor: gives the volume of the entire cone
-        { id: "D", text: "$144\\pi$" }
+        { id: "A", text: "$80\\pi$" },
+        // distractor: leaves out the 1/3 in the cone formula
+        { id: "B", text: "$240\\pi$" },
+        // distractor: uses the diameter, 8, as the radius
+        { id: "C", text: "$320\\pi$" },
+        // distractor: uses the diameter as the radius and leaves out the 1/3
+        { id: "D", text: "$960\\pi$" }
       ],
       correctAnswer: "A",
-      hint: "The surface of the water is a smaller circle than the top of the cone.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~40s):** The water forms a cone similar to the container with scale factor $\\frac{4}{12} = \\frac{1}{3}$, so its volume is $\\left(\\frac{1}{3}\\right)^{3}(144\\pi) = \\frac{16}{3}\\pi$.\n\n**The Full Solution:**\nStep 1: The full cone has volume $\\frac{1}{3}\\pi(6)^{2}(12) = 144\\pi$ cubic centimeters.\nStep 2: The water forms a smaller cone similar to the container. Its height is $\\frac{4}{12} = \\frac{1}{3}$ of the full height, so its radius is $\\frac{1}{3}(6) = 2$ centimeters.\nStep 3: The water's volume is $\\frac{1}{3}\\pi(2)^{2}(4) = \\frac{16}{3}\\pi$ cubic centimeters. Check: $\\left(\\frac{1}{3}\\right)^{3}(144\\pi) = \\frac{144}{27}\\pi = \\frac{16}{3}\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($16\\pi$): scales the full volume by $\\left(\\frac{1}{3}\\right)^{2}$, the area factor, instead of the volume factor $\\left(\\frac{1}{3}\\right)^{3}$.\n* Choice C ($48\\pi$): uses the water's depth of $4$ but keeps the container's radius of $6$; the water's surface is a circle of radius $2$.\n* Choice D ($144\\pi$): gives the volume of the whole cone, not the water.\n\n**Test Day Takeaway:** Liquid in a cone held vertex down forms a similar cone, so every length shrinks by the same factor and the volume shrinks by the cube of that factor.",
+      hint: "Halve the diameter before using $V = \\frac{1}{3}\\pi r^{2}h$.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~20s):** $r = 4$, so $V = \\frac{1}{3}\\pi(4)^{2}(15) = 80\\pi$.\n\n**The Full Solution:**\nStep 1: The radius is half the diameter: $r = \\frac{8}{2} = 4$ centimeters.\nStep 2: $V = \\frac{1}{3}\\pi r^{2}h = \\frac{1}{3}\\pi(16)(15)$.\nStep 3: So $V = \\frac{1}{3}\\pi(240) = 80\\pi$ cubic centimeters. Check: a cylinder with the same base and height holds $240\\pi$, and $\\frac{240\\pi}{3} = 80\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($240\\pi$): this is the volume of a cylinder with the same base and height; a cone holds $\\frac{1}{3}$ of that.\n* Choice C ($320\\pi$): this uses $8$ as the radius: $\\frac{1}{3}\\pi(64)(15) = 320\\pi$.\n* Choice D ($960\\pi$): this uses $8$ as the radius and leaves out the $\\frac{1}{3}$.\n\n**Test Day Takeaway:** Check whether a cone's radius or diameter is given, and keep the $\\frac{1}{3}$ in $V = \\frac{1}{3}\\pi r^{2}h$.",
       skills: ["volume-pyramid-cone"]
     }
   ],
@@ -651,20 +651,20 @@ export const volumeQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "A solid block in the shape of a right rectangular prism measures $12$ inches by $6$ inches by $5$ inches. A groove is cut through the full $12$-inch length of the block, and each cross section of the groove is the right triangle shown. What is the volume, in cubic inches, of the remaining block?",
-      diagram: { type: "rightTriangle", params: { sideLabels: ["4 in", "2 in", ""], rightAngleVertex: 1, figureNote: true } },
+      question: "Each base of a right prism is the right triangle shown. The height of the prism is $7$ inches. What is the volume, in cubic inches, of the prism?",
+      diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [15, 0], [15, 8]], sideLabels: ["", "8 in", "17 in"], rightAngleVertex: 1, figureNote: true } },
       choices: [
-        // distractor: finds the volume of the groove, 48, and reports it instead of subtracting it from the block
-        { id: "A", text: "$48$" },
-        // distractor: leaves out the 1/2 for the triangle, so the groove is 96 and 360 - 96 = 264
-        { id: "B", text: "$264$" },
-        { id: "C", text: "$312$" },
-        // distractor: subtracts only the triangle's area, (1/2)(4)(2) = 4, without multiplying by the 12-inch length
-        { id: "D", text: "$356$" }
+        { id: "A", text: "$420$" },
+        // distractor: uses the hypotenuse, 17, as the second leg
+        { id: "B", text: "$476$" },
+        // distractor: multiplies the legs without the 1/2
+        { id: "C", text: "$840$" },
+        // distractor: multiplies 8, 17, and 7, using the hypotenuse and leaving out the 1/2
+        { id: "D", text: "$952$" }
       ],
-      correctAnswer: "C",
-      hint: "Find the whole block and the groove as two separate volumes.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~40s):** The block is $12 \\cdot 6 \\cdot 5 = 360$ and the groove is $\\frac{1}{2}(4)(2)(12) = 48$, so $360 - 48 = 312$ cubic inches remain.\n\n**The Full Solution:**\nStep 1: The volume of the uncut block is $12 \\cdot 6 \\cdot 5 = 360$ cubic inches.\nStep 2: The groove is a triangular prism. Its cross section has area $\\frac{1}{2}(4)(2) = 4$ square inches, and it runs the full $12$ inches, so its volume is $4(12) = 48$ cubic inches.\nStep 3: Subtract: $360 - 48 = 312$ cubic inches. Check: $312 + 48 = 360$, the volume of the uncut block ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($48$): is the volume of the groove that was removed, not of the block that remains.\n* Choice B ($264$): leaves out the $\\frac{1}{2}$ in the triangle's area, so it removes $96$ cubic inches instead of $48$.\n* Choice D ($356$): subtracts the area of the triangle, $4$, as if it were a volume; the groove extends through all $12$ inches of the block.\n\n**Test Day Takeaway:** For a solid with a piece cut out, find the volume of the whole solid and of the removed piece separately, then subtract; a cut that runs the full length is a prism of its own.",
+      correctAnswer: "A",
+      hint: "Find the missing leg first; the two legs are the base and height of the triangle.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~35s):** The missing leg is $\\sqrt{17^{2} - 8^{2}} = 15$, so the base area is $\\frac{1}{2}(8)(15) = 60$ and the volume is $60(7) = 420$.\n\n**The Full Solution:**\nStep 1: By the Pythagorean theorem, the unlabeled leg is $\\sqrt{17^{2} - 8^{2}} = \\sqrt{289 - 64} = \\sqrt{225} = 15$ inches.\nStep 2: The area of the triangular base is $\\frac{1}{2}(8)(15) = 60$ square inches.\nStep 3: The volume is the area of the base times the height of the prism: $60 \\cdot 7 = 420$ cubic inches. Check: $8^{2} + 15^{2} = 64 + 225 = 289 = 17^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($476$): this uses the hypotenuse, $17$, as a leg: $\\frac{1}{2}(8)(17)(7) = 476$.\n* Choice C ($840$): this leaves out the $\\frac{1}{2}$ in the area of the triangle.\n* Choice D ($952$): this multiplies $8$, $17$, and $7$, using the hypotenuse and leaving out the $\\frac{1}{2}$.\n\n**Test Day Takeaway:** The area of a right triangle uses its two legs; find a missing leg with the Pythagorean theorem first.",
       skills: ["volume-prism"]
     }
   ]

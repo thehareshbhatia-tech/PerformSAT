@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-219",
- "question": "The graph of line $r$ is shown in the $xy$-plane. Line $s$ is perpendicular to line $r$ and passes through the point $(-1, -2)$. Which equation defines line $s$?",
+ "question": "The graph of line $r$ is shown in the $xy$-plane. Line $s$ is perpendicular to line $r$ and has a $y$-intercept of $(0, -2)$. Which equation defines line $s$?",
  "diagram": {
   "type": "linearGraph",
   "params": {
@@ -33,26 +33,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$y = -\\frac{1}{3}x - \\frac{7}{3}$"
+   "text": "$y = -3x - 2$"
   },
   {
    "id": "B",
-   "text": "$y = 3x - 5$"
+   "text": "$y = -\\frac{1}{3}x - 2$"
   },
   {
    "id": "C",
-   "text": "$y = -3x - 5$"
+   "text": "$y = 3x - 2$"
   },
   {
    "id": "D",
-   "text": "$y = 3x + 1$"
+   "text": "$y = 3x + 2$"
   }
  ],
- "correctAnswer": "D",
+ "correctAnswer": "C",
  "distractorNotes": {
-  "A": "keeps line $r$'s slope, which gives a line parallel to line $r$",
-  "B": "computes the $y$-intercept as $y + mx = -2 + 3(-1) = -5$",
-  "C": "uses slope $-3$, negating line $r$'s reciprocal twice, and gets $-2 = 3 + b$, so $b = -5$"
+  "A": "takes the reciprocal of line $r$'s slope but keeps the negative sign",
+  "B": "uses the slope of line $r$ itself, which gives a line parallel to line $r$",
+  "D": "uses the correct slope but takes the $y$-intercept of line $r$ instead of $(0, -2)$"
  },
- "explanation": "**SAT Pattern: Perpendicular Line Through a Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Line $r$ has slope $-\\frac{1}{3}$, so line $s$ has slope $3$, and $-2 = 3(-1) + b$ gives $b = 1$.\n\n**The Full Solution:**\nStep 1: Line $r$ passes through $(0, 2)$ and $(3, 1)$, so its slope is $\\frac{1 - 2}{3 - 0} = -\\frac{1}{3}$.\nStep 2: Line $s$ is perpendicular to line $r$, so its slope is the negative reciprocal, $3$.\nStep 3: Substituting $(-1, -2)$ into $y = 3x + b$ gives $-2 = -3 + b$, so $b = 1$ and line $s$ is $y = 3x + 1$. Check: $3(-1) + 1 = -2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -\\frac{1}{3}x - \\frac{7}{3}$): keeps line $r$'s slope, so this line through $(-1, -2)$ is parallel to line $r$.\n* Choice B ($y = 3x - 5$): has the right slope but computes the intercept as $y + mx = -2 + 3(-1) = -5$ instead of $y - mx$.\n* Choice C ($y = -3x - 5$): uses slope $-3$, which is the reciprocal of line $r$'s slope without the sign change.\n\n**Test Day Takeaway:** Read the slope from two clear points on the graph, take the negative reciprocal, then solve for the intercept with $b = y - mx$."
+ "explanation": "**SAT Pattern: Perpendicular Line Through a Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Line $r$ falls $1$ unit for every $3$ units to the right, so its slope is $-\\frac{1}{3}$. Line $s$ has slope $3$ and $y$-intercept $-2$: $y = 3x - 2$.\n\n**The Full Solution:**\nStep 1: Read two points on line $r$ from the graph: $(0, 2)$ and $(3, 1)$. The slope of line $r$ is $\\frac{1 - 2}{3 - 0} = -\\frac{1}{3}$.\nStep 2: Perpendicular lines have slopes that are negative reciprocals, so line $s$ has slope $3$.\nStep 3: Line $s$ has $y$-intercept $(0, -2)$, so in slope-intercept form it is $y = 3x - 2$. Check: $\\left(-\\frac{1}{3}\\right)(3) = -1$, and $3(0) - 2 = -2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -3x - 2$): takes the reciprocal of line $r$'s slope but keeps the negative sign\n* Choice B ($y = -\\frac{1}{3}x - 2$): uses the slope of line $r$ itself, which gives a line parallel to line $r$\n* Choice D ($y = 3x + 2$): uses the correct slope but takes the $y$-intercept of line $r$ instead of $(0, -2)$\n\n**Test Day Takeaway:** With a slope and a $y$-intercept in hand, write $y = mx + b$ directly."
 }

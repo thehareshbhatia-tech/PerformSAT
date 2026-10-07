@@ -6,26 +6,33 @@
  "domain": "information-and-ideas",
  "skill": "inferences",
  "module": 1,
- "passage": "Catalogs of medieval earthquakes are compiled from written sources, and the sources were not spread evenly across the land: monasteries, town chanceries, and notaries clustered in some regions and were nearly absent from others. Mapped directly, the catalogs show earthquakes thick where writing was thick, while mountainous districts that certainly shook across the centuries contribute barely a line. Researchers who study these catalogs have therefore concluded that they should ______",
+ "passage": "Maps of where bird species occur are increasingly built from sightings that volunteer birdwatchers report online. Those sightings are not spread evenly across the land: most come from places near cities, roads, and trails, while remote areas are visited far less often. Mapped directly, the records can make a species look absent from a region simply because few people went there to look. Researchers who study these records have therefore concluded that they should ______",
  "question": "Which choice most logically completes the text?",
  "choices": [
   {
    "id": "A",
-   "text": "read the catalogs as a reliable census of where medieval earthquakes actually struck."
+   "text": "read the volunteers' reports as a reliable and complete census of where each species actually lives."
   },
   {
    "id": "B",
-   "text": "set the documentary record entirely aside and rely on modern instrumental measurements instead."
+   "text": "set the volunteers' reports entirely aside and rely only on surveys carried out by professional scientists instead."
   },
   {
    "id": "C",
-   "text": "assume that chroniclers exaggerated or invented many of the earthquakes they described."
+   "text": "assume that volunteers misidentified many of the birds they reported."
   },
   {
    "id": "D",
-   "text": "adjust for where records were kept before treating any region's apparent calm as real."
+   "text": "adjust for where volunteers looked before treating a species' apparent absence from a region as real."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The premises establish that the record's gaps mirror where writers were, not necessarily where earthquakes were — so the reasonable course is to correct for that unevenness while continuing to use the record, exactly the measured conclusion D draws.\n\n**The Full Solution:**\n- The catalogs cluster where monasteries and notaries clustered; centuries of shaking in thinly documented uplands left barely a line.\n- An apparent quiet zone may therefore be a documentary shadow rather than a seismic fact.\n- The completion must neither trust the raw record nor discard it: researchers should weight it by where records were kept — choice D.\n\n**Why the other choices are wrong:**\n- A: Treating the record as a direct census is precisely the error the passage warns against.\n- B: Abandoning documents for instruments is impossible for pre-instrumental centuries, the record's whole value.\n- C: The passage gives no reason to think chroniclers invented earthquakes; the problem is silence, not fabrication."
+ "explanation": "**Choice D is correct.** The premises establish that the sighting records mirror where volunteers went, not necessarily where birds live, so the reasonable course is to correct for that unevenness while still using the records, exactly the measured conclusion D draws.\n\n**The Full Solution:**\n- Most sightings come from places near cities, roads, and trails; remote areas are visited far less often.\n- So a region where a species seems absent may simply be a region few people searched.\n- The completion must neither trust the raw records nor discard them: researchers should account for where volunteers looked, which is choice D.\n\n**Why the other choices are wrong:**\n- A: Treating the records as a reliable census is the very mistake the text warns against.\n- B: The text describes a bias to correct, not a reason to abandon the volunteers' records altogether.\n- C: The text questions where sightings were made, not whether the birds were identified correctly.",
+ "_meta": {
+  "anchor": "eBird/citizen-science bird records biased toward roads and cities — inference: correct for where observers looked",
+  "sources": [
+   "https://par.nsf.gov/servlets/purl/10331495",
+   "https://en.wikipedia.org/wiki/EBird"
+  ]
+ }
 }

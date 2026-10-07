@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 2,
- "passage": "Coastal engineers reviewing the record of marsh drainage describe a practice that worked against its own purpose. To dry the surface of the marsh for haying, crews cut grids of narrow ditches; over the decades the program proved ____: as the peat drained, it compacted and sank, the lowered surface pooled and flooded more than before, and each new round of subsidence was answered with another round of ditching.",
+ "passage": "In 1902, officials in Hanoi, then under French colonial rule, offered a small bounty for every rat tail turned in, hoping to shrink the city's rat population. The program proved ____. Hunters cut the tails off live rats and released them to breed, and some people even began raising rats, so the bounty encouraged the very breeding it was meant to curb.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
@@ -27,5 +27,12 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The opening sentence gives the thesis — a practice \"that worked against its own purpose\" — and the colon shows the loop: ditching sank the peat, the sunken surface flooded MORE, and the response was more ditching. A program that worsens the very condition it exists to cure is \"self-defeating.\"\n\n**The Full Solution:**\n- The purpose of the ditches was to dry the marsh surface.\n- The colon traces the actual chain: drained peat compacts and sinks, the lower surface pools and floods more than before, and more ditching follows.\n- So the program produced wetter ground, the opposite of its aim, and then demanded its own repetition — the definition of a self-defeating effort, and an echo of the first sentence's \"worked against its own purpose.\"\n\n**Why the other choices are wrong:**\n- A: \"Irreversible\" is tempting, since sunken peat is hard to restore, but the colon describes the program undermining its aim, not the permanence of the damage.\n- B: \"Uncontrollable\" would mean no one could stop the ditching, yet the crews chose each new round; the problem was the choice defeating itself, not a loss of control.\n- D: \"Methodical\" praises the grid-cutting's orderliness and ignores the failure the sentence is built to describe."
+ "explanation": "**Choice C is correct.** The bounty was meant to reduce Hanoi's rats, but because hunters released tailless rats \"to breed\" and some people \"began raising rats,\" it \"encouraged the very breeding it was meant to curb.\" A program that works against its own goal is \"self-defeating.\"\n\n**The Full Solution:**\n- The goal of the program was to shrink the city's rat population.\n- The next sentence gives the result: the bounty \"encouraged the very breeding it was meant to curb.\"\n- When an action produces the very outcome it was meant to stop, it is self-defeating.\n\n**Why the other choices are wrong:**\n- A: The text does not say the program or its effects could never be undone; its point is that the program undermined its own purpose.\n- B: Nothing suggests officials lost control of the program; hunters simply followed its rules in a way that defeated its aim.\n- D: \"Methodical\" describes how carefully something is done, but the text is about the program's unintended result.",
+ "_meta": {
+  "anchor": "1902 Hanoi rat-tail bounty that encouraged rat breeding (perverse incentive)",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Great_Hanoi_Rat_Massacre",
+   "https://www.atlasobscura.com/articles/hanoi-rat-massacre-1902"
+  ]
+ }
 }

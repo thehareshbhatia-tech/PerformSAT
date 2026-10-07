@@ -4,34 +4,34 @@
  "band": 4,
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
- "question": "Based on the text, what is true of astronomers who used the Alfonsine Tables outside Toledo?",
+ "question": "Based on the text, what is true of Alice Kober's work on Linear B?",
  "choices": [
   {
    "id": "A",
-   "text": "They had to adjust the tables' values using a longitude difference that was itself only roughly known."
+   "text": "It revealed patterns in the script's words without determining what sounds the signs stood for."
   },
   {
    "id": "B",
-   "text": "They produced planetary predictions that were less accurate than those made by astronomers working in Toledo itself."
+   "text": "It showed that the tablets from Knossos recorded an early form of the Greek language."
   },
   {
    "id": "C",
-   "text": "They completed most computations quickly once the proper instructional canons were consulted."
+   "text": "It was completed only after Michael Ventris had already identified the language recorded on the tablets."
   },
   {
    "id": "D",
-   "text": "They preferred fresh observations of the sky to the values the tables provided."
+   "text": "It relied mainly on comparing Linear B with scripts that were used in ancient Egypt."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The text states both halves: a user \"in Paris or Kraków first had to correct every time value for the difference in longitude,\" and that difference was \"itself a quantity known only roughly.\"\n\n**The Full Solution:**\n- The question restricts attention to users outside Toledo, and the second sentence addresses exactly them — the tables' base values were tied to Toledo's meridian.\n- The required correction (longitude difference) and its unreliability (known only roughly) are asserted in the same sentence, so choice A stays entirely inside the text.\n\n**Why the other choices are wrong:**\n- B: Tempting as an inference from the rough correction, but the text never compares the accuracy of anyone's predictions — that step goes beyond what is stated.\n- C: It contradicts the text, where the arithmetic runs through \"long sexagesimal multiplications\" and the canons are instructions, not shortcuts.\n- D: The users in the text labor to apply the tables' values; no preference for fresh observation is attributed to them.",
- "passage": "The Alfonsine Tables gave a medieval astronomer the means to compute the position of a planet for any date, but only after considerable labor. The tables' base values were tied to the meridian of Toledo, so a user in Paris or Kraków first had to correct every time value for the difference in longitude, itself a quantity known only roughly. The arithmetic then ran through long sexagesimal multiplications, and teachers wrote entire treatises, called canons, devoted to instructions for using the tables correctly.",
+ "explanation": "**Choice A is correct.** The text says Kober showed that the language changed word endings and sorted signs into a grid \"all without assigning a sound to any sign.\" Her work found patterns while the sounds stayed unknown.\n\n**The Full Solution:**\n- Kober compared words that differed only in their final signs and found grammatical endings.\n- She grouped signs by the sounds they seemed to share.\n- The text stresses that she did this \"without assigning a sound to any sign,\" which matches A.\n\n**Why the other choices are wrong:**\n- B: The text credits Ventris, not Kober, with showing in 1952 that the language was Greek.\n- C: The text says Ventris \"later built on her grid,\" so her work came before his discovery, not after it.\n- D: The text describes Kober comparing Linear B words with one another, not with Egyptian scripts.",
+ "passage": "Linear B, a script found on clay tablets at Knossos on Crete, resisted decipherment for decades after the tablets were dug up in 1900. No one knew what sounds its signs stood for or even what language they recorded. In the 1940s, the classicist Alice Kober compared words that differed only in their last signs. She showed that the language changed word endings to mark grammar, and she sorted signs into a grid by the sounds they seemed to share, all without assigning a sound to any sign. Michael Ventris later built on her grid, and in 1952 he showed that the language was an early form of Greek.",
  "_meta": {
-  "anchor": "medieval astronomical tables — Alfonsine Tables in use: meridian correction, sexagesimal labor, canons (e.g., John of Lignères, John of Saxony — Wikipedia, Alfonsine tables)",
+  "anchor": "Linear B — Alice Kober's inflection analysis and grid before Ventris's 1952 decipherment (Cambridge Classics; Wesleyan Classics; NYRB)",
   "distractors": {
-   "B": "unstated accuracy comparison",
-   "C": "contradicts the labor evidence",
-   "D": "fabricated preference"
+   "B": "Ventris's result misattributed",
+   "C": "reverses the sequence",
+   "D": "fabricated method"
   }
  },
  "id": 1138,

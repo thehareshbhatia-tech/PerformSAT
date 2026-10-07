@@ -6,7 +6,7 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 2,
- "passage": "In 1883, drought left Texas cattle short of water and grass, and bands calling themselves names such as the Owls and the Blue Devils began cutting the new barbed wire fences. The fences were only the nearest target: the cutters' anger was directed at ______ owners, the large cattlemen who had fenced off roads, water, and public land.",
+ "passage": "On January 1, 1912, a Massachusetts law cut the workweek in the textile mills of Lawrence from 56 hours to 54. When workers found that their pay had been cut along with their hours, thousands walked out. The strikers' anger was directed at ______ employers, the mill owners who had reduced their wages.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
@@ -27,7 +27,7 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The blank needs the possessive determiner referring to the plural noun \"fences\": the anger was directed at their owners, the owners of the fences.\n\n**The Full Solution:**\n- The sentence contrasts target and true object: the fences were cut, but the anger aimed at the people who owned them.\n- A possessive is required before \"owners,\" and the antecedent \"fences\" is plural, so the standard form is \"their.\"\n\n**Why the other choices are wrong:**\n- B: \"They're\" is the contraction of \"they are,\" which would read \"directed at they are owners.\"\n- C: \"There\" is an adverb of place, not a possessive, and \"there owners\" is not a standard construction.\n- D: \"It's\" is the contraction of \"it is\"; besides not being a possessive, it would mismatch the plural antecedent \"fences.\"",
+ "explanation": "**Choice A is correct.** The blank needs the possessive determiner referring to the plural noun \"strikers\": the anger was directed at their employers, the strikers' own employers.\n\n**The Full Solution:**\n- A possessive word is required before \"employers\" to say whose employers they were.\n- The owner is \"the strikers,\" which is plural, so the plural possessive \"their\" is correct.\n\n**Why the other choices are wrong:**\n- B: \"They're\" is a contraction of \"they are,\" which makes no sense before \"employers.\"\n- C: \"There\" indicates a place and cannot show possession.\n- D: \"It's\" is a contraction of \"it is,\" and \"it\" would not agree with the plural \"strikers\" in any case.",
  "_meta": {
   "rule": "possessive determiner their vs. they're/there/it's",
   "distractors": {

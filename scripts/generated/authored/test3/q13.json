@@ -6,40 +6,38 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "type": "multiple-choice",
- "passage": "Marine reserves prohibit fishing within their boundaries, and ecologists expect fish populations inside them to recover as the years pass. Surveying five reserves along the Pacific coast, a research team compared the biomass of rockfish inside each reserve with the biomass in similar fished waters nearby. Summarizing the results, the team writes that protection appears to make a substantial difference everywhere and that the effect appears to strengthen as reserves age, noting that ______",
+ "passage": "Between 1880 and 1930, millions of Americans left farms for factory jobs, and millions of immigrants settled in the nation's growing cities. The US Census Bureau counted as urban anyone living in a town or city of at least 2,500 people. A student argues that the shift toward cities was steady throughout this period and that by 1920 most Americans lived in urban areas, noting that ______",
  "questionTable": {
   "type": "table",
-  "caption": "Rockfish biomass inside five Pacific marine reserves relative to nearby fished areas",
+  "caption": "Share of the US population living in urban areas, 1880-1930",
   "headers": [
-   "Reserve",
-   "Years since fishing ban",
-   "Biomass ratio (inside : outside)"
+   "Census year",
+   "Urban population (% of total)"
   ],
   "rows": [
    [
-    "Reserve A",
-    "6",
-    "1.4"
+    "1880",
+    "28.2"
    ],
    [
-    "Reserve B",
-    "9",
-    "1.7"
+    "1890",
+    "35.1"
    ],
    [
-    "Reserve C",
-    "14",
-    "2.1"
+    "1900",
+    "39.6"
    ],
    [
-    "Reserve D",
-    "21",
-    "2.6"
+    "1910",
+    "45.6"
    ],
    [
-    "Reserve E",
-    "26",
-    "3.2"
+    "1920",
+    "51.2"
+   ],
+   [
+    "1930",
+    "56.1"
    ]
   ]
  },
@@ -47,24 +45,24 @@
  "choices": [
   {
    "id": "A",
-   "text": "Reserve E, protected for 26 years, has the highest biomass ratio of the five reserves, at 3.2."
+   "text": "the urban share reached 56.1 percent in 1930, the highest share of any census year in the table."
   },
   {
    "id": "B",
-   "text": "rockfish biomass in Reserve A is 1.4 times as high inside the reserve as in the nearby fished waters."
+   "text": "35.1 percent of the US population lived in urban areas in 1890."
   },
   {
    "id": "C",
-   "text": "the two reserves protected for fewer than ten years have markedly lower biomass ratios than any of the three reserves whose fishing bans are more than a decade old."
+   "text": "the urban share was still below 50 percent in each census from 1880 through 1910 but was above 50 percent in both 1920 and 1930."
   },
   {
    "id": "D",
-   "text": "biomass ratios exceed 1.0 at every reserve and rise steadily with each reserve's age, from 1.4 after 6 years of protection to 3.2 after 26."
+   "text": "the urban share rose at every census, from 28.2 percent in 1880 to 56.1 percent in 1930, and first passed 50 percent in 1920."
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The statement makes two claims — protection matters everywhere, and the effect strengthens with age — and D is the only choice that documents both: every ratio tops 1.0, and the ratios climb in step with years of protection across the whole table.\n\n**The Full Solution:**\n- \"A substantial difference everywhere\" needs evidence from all five reserves: ratios above 1.0 at each one.\n- \"Strengthens as reserves age\" needs the trend: 1.4, 1.7, 2.1, 2.6, 3.2 as the ban lengthens from 6 to 26 years. D cites both patterns with the correct endpoints.\n\n**Why the other choices are wrong:**\n- A: One reserve, however impressive, cannot support a claim about all five or about a trend.\n- B: A single ratio from the youngest reserve establishes neither the everywhere claim nor the age trend.\n- C: It supports only the age-trend half of the statement and never shows that biomass is higher inside every reserve.",
+ "explanation": "**Choice D is correct.** The student makes two claims: the shift toward cities was steady, and by 1920 most Americans lived in urban areas. D supports both: the urban share rises at every census in the table, and 1920 (51.2 percent) is the first year above 50 percent.\n\n**The Full Solution:**\n- \"Steady\" needs the whole trend: 28.2, 35.1, 39.6, 45.6, 51.2, and 56.1 percent, a rise at every census.\n- \"Most Americans by 1920\" needs a share above 50 percent in 1920: the table shows 51.2 percent, up from 45.6 percent in 1910.\n- D cites the trend with the correct endpoints and names the year the share first passed half.\n\n**Why the other choices are wrong:**\n- A: One year's figure shows neither a steady rise nor when the share passed half.\n- B: A single figure from 1890 supports neither part of the claim.\n- C: It supports only the second claim. Showing that the share was below half before 1920 and above it afterward does not show that the share rose at every census.",
  "_meta": {
-  "anchor": "Rockfish biomass recovery inside Pacific marine reserves vs. reserve age (unnamed research team)"
+  "anchor": "US urban population share by census, 1880-1930 (US Census Bureau; https://en.wikipedia.org/wiki/Urbanization_in_the_United_States) — two-part claim: steady rise + urban majority by 1920"
  }
 }

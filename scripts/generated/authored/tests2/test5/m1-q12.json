@@ -1,29 +1,29 @@
 {
  "id": 12,
- "question": "In the $xy$-plane, line $p$ passes through the points $(-4, 1)$ and $(4, 13)$. Line $q$ is parallel to line $p$ and passes through the point $(-2, 7)$. Which of the following equations represents line $q$?",
+ "question": "In the $xy$-plane, line $p$ passes through the points $(-4, 1)$ and $(4, 13)$. Line $q$ is parallel to line $p$ and passes through the point $(0, -3)$. Which of the following equations represents line $q$?",
  "choices": [
   {
    "id": "A",
-   "text": "$2x + 3y = 17$"
+   "text": "$2x - 3y = 9$"
   },
   {
    "id": "B",
-   "text": "$3x - 2y = -20$"
+   "text": "$3x - 2y = 6$"
   },
   {
    "id": "C",
-   "text": "$3x - 2y = 25$"
+   "text": "$3x - 2y = -6$"
   },
   {
    "id": "D",
-   "text": "$3x + 2y = 8$"
+   "text": "$3x + 2y = -6$"
   }
  ],
  "distractorNotes": {
-  "A": "uses the perpendicular slope -2/3 instead of the parallel slope 3/2, through (-2, 7)",
-  "C": "uses the correct slope but substitutes the point with its coordinates reversed, as (7, -2)",
-  "D": "uses slope -3/2, a sign error on the parallel slope, through (-2, 7)"
+  "A": "inverts the slope, using 2/3: y = (2/3)x - 3 gives 2x - 3y = 9",
+  "C": "uses +3 as the y-intercept: y = (3/2)x + 3 gives 3x - 2y = -6",
+  "D": "uses the slope -3/2: y = (-3/2)x - 3 gives 3x + 2y = -6"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Line $p$ has slope $\\frac{13 - 1}{4 - (-4)} = \\frac{3}{2}$. Every line with slope $\\frac{3}{2}$ can be written $3x - 2y = C$, and $(-2, 7)$ gives $C = -6 - 14 = -20$.\n\n**The Full Solution:**\nStep 1: The slope of line $p$ is $\\frac{13 - 1}{4 - (-4)} = \\frac{12}{8} = \\frac{3}{2}$. Parallel lines have equal slopes, so line $q$ also has slope $\\frac{3}{2}$.\nStep 2: Use point-slope form with $(-2, 7)$: $y - 7 = \\frac{3}{2}(x + 2)$. Multiply both sides by $2$: $2y - 14 = 3x + 6$.\nStep 3: Rearrange: $3x - 2y = -20$. Check: $3(-2) - 2(7) = -6 - 14 = -20$, and solving for $y$ gives $y = \\frac{3}{2}x + 10$, slope $\\frac{3}{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2x + 3y = 17$): has slope $-\\frac{2}{3}$, the negative reciprocal, which gives a line perpendicular to line $p$.\n* Choice C ($3x - 2y = 25$): has the right slope but passes through $(7, -2)$, the given point with its coordinates swapped.\n* Choice D ($3x + 2y = 8$): passes through $(-2, 7)$ but has slope $-\\frac{3}{2}$, a sign error.\n\n**Test Day Takeaway:** For a line in standard form $Ax + By = C$, the slope is $-\\frac{A}{B}$; check both the slope and the given point before choosing."
+ "explanation": "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Line $p$ has slope $\\frac{13 - 1}{4 - (-4)} = \\frac{3}{2}$, so line $q$ is $y = \\frac{3}{2}x - 3$. Multiplying by $2$ gives $2y = 3x - 6$, or $3x - 2y = 6$.\n\n**The Full Solution:**\nStep 1: The slope of line $p$ is $\\frac{13 - 1}{4 - (-4)} = \\frac{12}{8} = \\frac{3}{2}$. Parallel lines have equal slopes, so line $q$ also has slope $\\frac{3}{2}$.\nStep 2: Line $q$ passes through $(0, -3)$, so its $y$-intercept is $-3$ and line $q$ is $y = \\frac{3}{2}x - 3$.\nStep 3: Multiply both sides by $2$: $2y = 3x - 6$, so $3x - 2y = 6$. Check: $(0, -3)$ gives $3(0) - 2(-3) = 6$ ✓, and solving $3x - 2y = 6$ for $y$ gives slope $\\frac{3}{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2x - 3y = 9$): has slope $\\frac{2}{3}$, the reciprocal of the correct slope, from dividing the change in $x$ by the change in $y$.\n* Choice C ($3x - 2y = -6$): has the correct slope but $y$-intercept $3$ instead of $-3$.\n* Choice D ($3x + 2y = -6$): has slope $-\\frac{3}{2}$, from a sign error in the slope.\n\n**Test Day Takeaway:** Find the slope from the two points, use the point with $x$-coordinate $0$ as the $y$-intercept, and then rearrange to match the form of the choices."
 }

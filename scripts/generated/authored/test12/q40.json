@@ -6,34 +6,26 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 2,
- "passage": "Historians of coastal shipping trace the sailing coaster's decline through customs records, which report the share of arriving cargo tonnage carried by sailing vessels at individual ports. At one stone-shipping port studied in detail, the records show that sail gave way to steam and rail not in a steady slide across the whole period but in an abrupt collapse late in the record — between 1900 and 1910 — rather than during the earlier decades, since ______",
+ "passage": "Kirtland's warbler, a small songbird that nests mainly in young jack pine forests in northern Michigan, nearly disappeared in the twentieth century. Researchers estimate its population by counting singing males, each of which is presumed to have a mate. A student argues that the species' recovery between 1974 and 2021 was not steady but came entirely after 1987, since ______",
  "questionTable": {
   "type": "table",
-  "caption": "Share of arriving cargo tonnage carried by sailing vessels at one stone-shipping port",
+  "caption": "Estimated number of breeding pairs of Kirtland's warblers in three census years",
   "headers": [
-   "Cargo",
-   "1880",
-   "1900",
-   "1910"
+   "Year",
+   "Estimated breeding pairs"
   ],
   "rows": [
    [
-    "Granite",
-    "94%",
-    "88%",
-    "41%"
+    "1974",
+    "167"
    ],
    [
-    "Lumber",
-    "89%",
-    "81%",
-    "35%"
+    "1987",
+    "167"
    ],
    [
-    "Firewood",
-    "78%",
-    "71%",
-    "30%"
+    "2021",
+    "2,245"
    ]
   ]
  },
@@ -41,21 +33,21 @@
  "choices": [
   {
    "id": "A",
-   "text": "the share of granite tonnage carried by sail stood at 94 percent in 1880, the highest figure recorded for any cargo in any year shown in the table."
+   "text": "the estimated population was 167 breeding pairs in 1974 and was again 167 breeding pairs in 1987."
   },
   {
    "id": "B",
-   "text": "between 1880 and 1900, the sail-carried share of granite tonnage fell gradually from 94 to 88 percent and that of lumber from 89 to 81 percent, the first sustained declines anywhere in the record."
+   "text": "the estimated population in 2021 was 2,245 breeding pairs, the largest number in the three census years shown."
   },
   {
    "id": "C",
-   "text": "between 1900 and 1910, the sail-carried share fell from 88 to 41 percent for granite and from 81 to 35 percent for lumber — drops several times larger than any recorded between 1880 and 1900."
+   "text": "the estimate stayed at 167 pairs from 1974 to 1987, then rose by more than 2,000 by 2021."
   },
   {
    "id": "D",
-   "text": "even in 1910, sailing vessels still carried more than a third of the granite and lumber tonnage arriving at the port."
+   "text": "the estimated population in 1974 was less than one-tenth as large as the estimated population recorded in 2021."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The claim to support is about timing — an abrupt collapse between 1900 and 1910, not before — and C supplies exactly the comparison that proves it: drops of 47, 46, and 41 points in the final decade against drops of only 6 to 8 points across the previous twenty years.\n\n**The Full Solution:**\n- Reread what the blank must establish: the collapse came LATE, between 1900 and 1910, \"rather than during the earlier decades.\"\n- Compute the changes per cargo: 1880 to 1900 loses 6 points (granite), 8 (lumber), 7 (firewood); 1900 to 1910 loses 47, 46, and 41.\n- A timing claim needs both periods on the table — the small early declines and the huge late ones — and C is the only choice that presents the contrast.\n\n**Why the other choices are wrong:**\n- A: A high starting share in 1880 says nothing about when the decline happened.\n- B: It cites only the early, gentle declines — evidence for the gradual story the sentence rejects.\n- D: The share remaining in 1910 describes where the collapse stopped, not when it occurred."
+ "explanation": "**Choice C is correct.** To show that the recovery came entirely after 1987, a choice must compare the two periods. Choice C does: the estimate did not change at all between 1974 and 1987 (167 pairs both years), then rose by more than 2,000 pairs, to 2,245, by 2021.\n\n**The Full Solution:**\n- The claim is about timing: the recovery was not spread evenly over the whole period but came after 1987.\n- From 1974 to 1987, the estimate stayed at 167 breeding pairs, a change of zero.\n- From 1987 to 2021, it rose from 167 to 2,245, a gain of more than 2,000 pairs, so all of the growth came in the later period, as choice C states.\n\n**Why the other choices are wrong:**\n- A: It describes only the years before 1987 and never shows that the population grew afterward.\n- B: It gives only the 2021 estimate, which cannot show when the growth took place.\n- D: Comparing 1974 with 2021 shows that the population grew overall, but not that the growth came after 1987."
 }

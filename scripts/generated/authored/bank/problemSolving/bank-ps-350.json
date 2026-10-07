@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-350",
-  "question": "The mean of $16$ masses is $2.4$ kilograms. What is the mean of the masses, in grams? ($1$ kilogram $= 1{,}000$ grams)",
+  "question": "The mean length of the boards in a stack is $8$ feet. What is the mean length of the boards, in inches? ($1$ foot $= 12$ inches)",
   "choices": [
     {
       "id": "A",
-      "text": "$24$"
+      "text": "$\\frac{2}{3}$"
     },
     {
       "id": "B",
-      "text": "$240$"
+      "text": "$4$"
     },
     {
       "id": "C",
-      "text": "$2{,}400$"
+      "text": "$20$"
     },
     {
       "id": "D",
-      "text": "$38{,}400$"
+      "text": "$96$"
     }
   ],
+  "correctAnswer": "D",
   "distractorNotes": {
-    "A": "multiplies by $10$ instead of $1{,}000$",
-    "B": "multiplies by $100$, the factor for meters to centimeters, instead of $1{,}000$",
-    "D": "finds the total mass of all $16$ masses in grams, $16(2{,}400)$, instead of the mean"
+    "A": "divides 8 by 12, converting in the wrong direction",
+    "B": "subtracts 8 from 12",
+    "C": "adds 12 to 8 instead of multiplying"
   },
-  "correctAnswer": "C",
-  "explanation": "**SAT Pattern: Scaling a Data Set**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Converting each mass to grams multiplies it by $1{,}000$, so the mean is $2.4 \\times 1{,}000 = 2{,}400$ grams.\n\n**The Full Solution:**\nStep 1: Each mass in grams is $1{,}000$ times the same mass in kilograms.\nStep 2: Multiplying every value in a data set by $1{,}000$ multiplies the mean by $1{,}000$.\nStep 3: The mean is $2.4 \\times 1{,}000 = 2{,}400$ grams. Check: the total is $16 \\times 2.4 = 38.4$ kilograms, or $38{,}400$ grams, and $\\frac{38{,}400}{16} = 2{,}400$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($24$): multiplies by $10$ instead of $1{,}000$.\n* Choice B ($240$): multiplies by $100$, the factor for meters to centimeters.\n* Choice D ($38{,}400$): gives the total mass of the $16$ masses in grams, not the mean.\n\n**Test Day Takeaway:** A unit conversion multiplies every value by the same factor, so the mean converts exactly like a single value; the number of values does not matter."
+  "explanation": "**SAT Pattern: Scaling a Data Set**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Each length in inches is $12$ times its length in feet, so the mean is $12(8) = 96$ inches.\n\n**The Full Solution:**\nStep 1: Converting every length from feet to inches multiplies every length by $12$.\nStep 2: When every value is multiplied by $12$, the sum is multiplied by $12$, so the mean is multiplied by $12$.\nStep 3: The mean length is $12(8) = 96$ inches. Check: boards of $6$ and $10$ feet have mean $8$ feet; in inches they are $72$ and $120$, with mean $96$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{2}{3}$): divides by $12$; inches are smaller units, so the number of inches must be larger.\n* Choice B ($4$): subtracts the two numbers given.\n* Choice C ($20$): adds $12$ instead of multiplying by $12$.\n\n**Test Day Takeaway:** Changing units multiplies every value, and therefore the mean, by the conversion factor."
 }

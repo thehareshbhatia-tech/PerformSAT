@@ -8,40 +8,40 @@
  "choices": [
   {
    "id": "A",
-   "text": "In his 1881 book Das Polarlicht, Fritz mapped the zone around the geomagnetic pole where auroras appear most often."
+   "text": "On Wikipedia, which began in January 2001 as a side project of Nupedia, any visitor could write or edit an article."
   },
   {
    "id": "B",
-   "text": "Whereas Fritz's 1873 catalog simply listed aurora sightings, his 1881 book used such records to argue for conclusions."
+   "text": "Whereas Nupedia's articles were written by experts and reviewed in seven steps, Wikipedia let any visitor write or edit an article."
   },
   {
    "id": "C",
-   "text": "Fritz's 1873 Verzeichniss beobachteter Polarlichter lists reported aurora sightings by date and place, without interpretation."
+   "text": "For Nupedia, a free online encyclopedia launched in March 2000, articles were written by experts and then passed a seven-step review."
   },
   {
    "id": "D",
-   "text": "Hermann Fritz, a German-born professor in Zurich, studied historical records of the aurora and published two works about them."
+   "text": "Nupedia and Wikipedia were both free online encyclopedias that began in 2000 and 2001."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** Comparing the aims of two works means stating each work's aim and setting them against each other. B does exactly that: the 1873 catalog lists sightings; the 1881 book uses such records to argue — with the \"Whereas\" frame making the comparison explicit.\n\n**The Full Solution:**\n- The notes assign each work a distinct character: the catalog \"lists the sightings by date and place without interpreting them\"; the 1881 book \"uses such records to argue for conclusions.\"\n- A comparison must carry both characterizations in one sentence and mark their relation; B's whereas-construction does so.\n- The choice also preserves the works' order and dependency — the second book builds on records like those in the first — matching the notes.\n\n**Why the other choices are wrong:**\n- A: It characterizes only Das Polarlicht; with one work absent, no comparison occurs.\n- C: It characterizes only the Verzeichniss — the same failure from the other side.\n- D: It says two works exist but never distinguishes their aims, which is the entire goal.",
+ "explanation": "**Choice B is correct.** To contrast the methods of the two encyclopedias, a sentence must describe how each produced its articles and set them against each other. B does both: Nupedia's articles were written by experts and reviewed in seven steps, \"whereas\" Wikipedia let any visitor write or edit an article.\n\n**The Full Solution:**\n- Method of Nupedia: expert authors and a seven-step review before publication.\n- Method of Wikipedia: any visitor could write or edit an article.\n- \"Whereas\" places the two methods side by side, which is what a contrast requires.\n\n**Why the other choices are wrong:**\n- A: It describes the method of only Wikipedia; Nupedia is named only as Wikipedia's origin, so there is no contrast.\n- C: It describes the method of only one encyclopedia, so there is no contrast.\n- D: It names both encyclopedias but says nothing about how either produced its articles.",
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "Hermann Fritz (1830-1893), a German-born professor in Zurich, studied historical records of the aurora.",
-   "His 1873 work Verzeichniss beobachteter Polarlichter is a catalog of reported aurora sightings.",
-   "The catalog lists the sightings by date and place without interpreting them.",
-   "His 1881 book Das Polarlicht uses such records to argue for conclusions about the aurora.",
-   "In it, Fritz mapped where auroras appear most often: a zone circling the geomagnetic pole."
+   "Nupedia was a free online encyclopedia that went online in March 2000.",
+   "Its articles were written by experts and had to pass a seven-step review before publication.",
+   "Few articles completed the review before the project ended in 2003.",
+   "Wikipedia began in January 2001 as a side project of Nupedia.",
+   "On Wikipedia, any visitor could write or edit an article."
   ],
-  "goal": "The student wants to compare the aims of the two works."
+  "goal": "The student wants to contrast the methods of the two encyclopedias."
  },
  "_meta": {
-  "anchor": "aurora observation history — Hermann Fritz (1830-1893; ETH Zurich): 1873 catalog vs. 1881 Das Polarlicht and the auroral zone (de.wikipedia, Hermann Fritz (Polarlichtforscher); en.wikipedia, Aurora)",
+  "anchor": "Nupedia (2000, expert authors + seven-step review, 24 finished articles, ended 2003) vs. Wikipedia (Jan 2001 side project, open editing) (Wikipedia: Nupedia; Wikipedia: History of Wikipedia)",
   "distractors": {
-   "A": "one work only",
+   "A": "one work, not contrasted",
    "C": "one work only",
-   "D": "two works named, aims undistinguished"
+   "D": "no methods"
   }
  },
  "id": 1154,

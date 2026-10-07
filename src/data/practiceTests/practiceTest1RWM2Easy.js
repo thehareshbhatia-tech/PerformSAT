@@ -98,7 +98,7 @@ export const practiceTest1RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "text-structure-and-purpose",
-      "passage": "On a summer afternoon, a dark asphalt roof can be sixty degrees hotter than the air above it, and a city full of such roofs bakes: heat soaks into buildings by day and radiates back out all night, driving up both temperatures and air-conditioning bills. One response requires no new technology at all. In trials across several cities, coating roofs with a bright reflective layer lowered rooftop surface temperatures by dozens of degrees and measurably cut the electricity the buildings beneath them used for cooling.",
+      "passage": "On a summer afternoon, a dark asphalt roof can be sixty degrees hotter than the air above it. A city full of such roofs bakes: heat soaks into buildings by day and radiates back out all night, driving up both temperatures and air-conditioning bills. One response requires no new technology at all. In trials across several cities, coating roofs with a bright reflective layer lowered rooftop surface temperatures by dozens of degrees and measurably cut the electricity the buildings beneath them used for cooling.",
       "question": "Which choice best describes the overall structure of the text?",
       "choices": [
         { "id": "A", "text": "It describes a newly invented technology, then explains why most cities have so far been slow to adopt it." },
@@ -107,7 +107,7 @@ export const practiceTest1RWM2Easy = {
         { "id": "D", "text": "It makes a prediction about future city temperatures, then presents data that call the prediction into question." }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The text moves from a problem (hot roofs heating cities) to a simple response (reflective coatings) to trial evidence that the response works.\n\n**The Full Solution:**\n- How to spot it: structure questions are about the order of jobs the sentences do, not the topic. Label each part: sentence 1 = the problem; sentence 2 = a pivot to a response; sentence 3 = trial results.\n- That sequence — problem, response, evidence — is exactly what choice B describes.\n- Check the fit of every phrase: \"inexpensive\" matches \"no new technology at all,\" and \"evidence of that response's effect\" matches the measured temperature and electricity results.\n\n**Why the other choices are wrong:**\n- A: The passage stresses that the coating is NOT new technology, and adoption speed is never discussed.\n- C: No competing explanations appear — the cause of hot roofs is never in dispute.\n- D: The text reports trial results that already happened; it makes no prediction and nothing is called into question."
+      "explanation": "**Choice B is correct.** The text moves from a problem (hot roofs heating cities) to a simple response (reflective coatings) to trial evidence that the response works.\n\n**The Full Solution:**\n- How to spot it: structure questions are about the order of jobs the sentences do, not the topic. Label each part: sentences 1-2 = the problem; sentence 3 = a pivot to a response; sentence 4 = trial results.\n- That sequence — problem, response, evidence — is exactly what choice B describes.\n- Check the fit of every phrase: \"inexpensive\" matches \"no new technology at all,\" and \"evidence of that response's effect\" matches the measured temperature and electricity results.\n\n**Why the other choices are wrong:**\n- A: The passage stresses that the coating is NOT new technology, and adoption speed is never discussed.\n- C: No competing explanations appear — the cause of hot roofs is never in dispute.\n- D: The text reports trial results that already happened; it makes no prediction and nothing is called into question."
     },
     {
       "id": 161,
@@ -137,11 +137,11 @@ export const practiceTest1RWM2Easy = {
       "passages": [
         {
           "label": "Text 1",
-          "text": "Monarch butterfly numbers in North America have fallen steeply over three decades, and many ecologists who study the butterflies' summer range locate the cause on the breeding grounds. Milkweed — the only plant on which monarchs lay eggs — has been pushed out of millions of acres of Midwestern farmland by modern herbicide use. On this view, recovery depends on one intervention above all: restoring corridors of milkweed through the agricultural heart of the monarchs' summer range."
+          "text": "Monarch butterfly numbers in North America have fallen steeply over three decades. Many ecologists who study the butterflies' summer range locate the cause there. Milkweed is the only plant on which monarchs lay eggs, and modern herbicide use has pushed it out of millions of acres of Midwestern farmland. On this view, recovery depends on one step above all: restoring milkweed corridors across the farmland of the monarchs' summer range."
         },
         {
           "label": "Text 2",
-          "text": "Other researchers argue that the winter, not the summer, sets the species' fate. Nearly the entire eastern population crowds each winter into a few mountain forests in central Mexico, where thinning tree canopies — degraded by logging and storms — expose the butterflies to lethal cold and wet. In years when winter mortality is high, abundant summer habitat goes unused; the population that returns north is simply too small to fill it."
+          "text": "Other researchers argue that the winter, not the summer, sets the species' fate. Nearly the entire eastern population spends the winter crowded into a few mountain forests in central Mexico. There, tree canopies thinned by logging and storms expose the butterflies to lethal cold and wet. In years when winter mortality is high, abundant summer habitat goes unused. The population that returns north is simply too small to fill it."
         }
       ],
       "question": "Based on the texts, how would the author of Text 2 most likely respond to the recommendation presented in Text 1?",
@@ -218,26 +218,27 @@ export const practiceTest1RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "command-of-evidence-quantitative",
-      "passage": "In a six-month trial, a city gave 120 households free composting bins of three different designs — 40 households per design — and weighed the food waste each household diverted from the trash. Because dropout can distort such comparisons, the researchers also recorded how many households in each group were still composting when the trial ended. The researchers argue that the tumbling drum's advantage reflects the design itself rather than unusually committed participants because _______",
+      "passage": "Lake Malawi lies in a rift valley in southeastern Africa, where the earth's crust is pulling apart, and Great Bear Lake lies in northern Canada. Both rank among the ten largest lakes on Earth by surface area. A student argues that Lake Malawi holds more water than Great Bear Lake because it is deeper, not because it covers more area. The data in the table support the student's argument because ______",
       "questionTable": {
         "type": "table",
-        "caption": "Results of a six-month home-composting trial, by bin design",
-        "headers": ["Bin design", "Households", "Food waste diverted (kg per household per week)", "Still participating at six months"],
+        "caption": "Approximate surface area, average depth, and volume of three large freshwater lakes",
+        "headers": ["Lake", "Surface area (km²)", "Average depth (m)", "Volume (km³)"],
         "rows": [
-          ["Tumbling drum", "40", "3.9", "78%"],
-          ["Open bay", "40", "2.6", "74%"],
-          ["Worm bin", "40", "3.1", "52%"]
+          ["Malawi", "29,600", "292", "8,640"],
+          ["Great Bear", "31,200", "72", "2,230"],
+          ["Victoria", "59,900", "40", "2,420"]
         ]
       },
       "question": "Which choice most effectively uses data from the table to complete the statement?",
       "choices": [
-        { "id": "A", "text": "only 52% of worm-bin households were still composting when the six-month trial ended." },
-        { "id": "B", "text": "tumbling-drum households had the highest participation rate in the trial, which shows that they were the most committed of the three groups." },
-        { "id": "C", "text": "tumbling-drum households diverted the most waste per week (3.9 kilograms) while participating at nearly the same rate (78%) as open-bay households (74%)." },
-        { "id": "D", "text": "tumbling-drum households diverted an average of 3.9 kilograms of food waste per household per week over the six months, more than either of the other two groups managed." }
+        { "id": "A", "text": "Lake Victoria covers 59,900 square kilometers, the largest surface area of the three lakes in the table." },
+        { "id": "B", "text": "Lake Malawi holds about 8,640 cubic kilometers of water, the greatest volume of the three lakes in the table." },
+        { "id": "C", "text": "Malawi is deeper on average than Great Bear (292 vs. 72 meters) and holds more water, though its area is slightly smaller." },
+        { "id": "D", "text": "Lake Victoria's surface area, 59,900 square kilometers, is about twice the surface area of either Lake Malawi or Great Bear Lake." }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** To show the design — not commitment — explains the advantage, the evidence must pair the diversion numbers with participation rates that are roughly equal, and choice C does exactly that.\n\n**The Full Solution:**\n- The claim is a comparison with a built-in objection: maybe tumbling-drum households just tried harder. Effective evidence has to rule that out.\n- Participation is the table's measure of staying power. Tumbling drum (78%) and open bay (74%) are nearly level — yet the drum households diverted 3.9 kg per week to the open bay's 2.6.\n- Similar commitment, different results: the difference must come from the design. Choice C is the only option that makes this two-variable argument.\n\n**Why the other choices are wrong:**\n- A: The worm-bin dropout rate is real but supports a different point (worm bins lose participants); it says nothing about why tumbling drums outperformed.\n- B: This choice argues AGAINST the researchers, attributing the result to commitment — and 78% versus 74% is far too small a gap to carry that argument.\n- D: The diversion number alone restates the advantage without addressing the commitment objection, which is the entire point of the sentence being completed."
+      "explanation": "**Choice C is correct.** The argument has two parts: Lake Malawi holds more water than Great Bear Lake, and the reason is depth rather than area. C is the only choice that uses the table to show both.\n\n**The Full Solution:**\n- To show that area is not the reason, the evidence must compare the two lakes' areas: Malawi's 29,600 km² is slightly smaller than Great Bear's 31,200 km².\n- To show that depth is the reason, it must compare their depths: Malawi averages 292 meters, Great Bear 72.\n- Malawi still holds far more water (8,640 km³ vs. 2,230 km³). Similar area, greater depth, more water: that is the student's argument, and C states it.\n\n**Why the other choices are wrong:**\n- A: It describes Lake Victoria, which the argument does not concern, and says nothing about depth or volume.\n- B: It shows that Malawi holds the most water but gives no data on depth or area, so it cannot show why.\n- D: It compares surface areas only and never mentions depth or the volumes of Malawi and Great Bear.",
+      "_meta": {"anchor": "Lake Malawi vs. Great Bear Lake (plus Lake Victoria): similar area, depth drives volume", "sources": ["https://en.wikipedia.org/wiki/Lake_Malawi", "https://en.wikipedia.org/wiki/Great_Bear_Lake", "https://en.wikipedia.org/wiki/Lake_Victoria", "https://en.wikipedia.org/wiki/List_of_lakes_by_area"]}
     },
     {
       "id": 167,
@@ -246,27 +247,29 @@ export const practiceTest1RWM2Easy = {
       "band": 2,
       "domain": "information-and-ideas",
       "skill": "command-of-evidence-quantitative",
-      "passage": "Marlow County's library system kept its four branches open only until 5 p.m. for years. In 2023, the county extended hours at every branch to 8 p.m. on weekdays and tracked monthly visits before and after the change. Library administrators concluded that the later hours drew more visitors systemwide and that the effect was strongest at the Riverside branch because _______",
+      "passage": "Each year, the US National Park Service counts recreation visits to the parks it manages. Great Smoky Mountains National Park, on the border between Tennessee and North Carolina, is the most visited of the national parks. A student claims that in 2019 Great Smoky Mountains drew more visits than the next two most visited national parks combined. The data in the table support the student's claim because ______",
       "questionTable": {
         "type": "table",
-        "caption": "Average monthly visits at Marlow County library branches before and after extended evening hours (2023)",
-        "headers": ["Branch", "Visits before", "Visits after", "Change"],
+        "caption": "Recreation visits to the five most visited US national parks, 2019",
+        "headers": ["National park", "Recreation visits (millions)"],
         "rows": [
-          ["Cedar Park", "2,100", "2,570", "+470"],
-          ["Fairground", "1,850", "2,210", "+360"],
-          ["Riverside", "1,600", "2,340", "+740"],
-          ["Walnut Street", "1,980", "2,150", "+170"]
+          ["Great Smoky Mountains", "12.5"],
+          ["Grand Canyon", "6.0"],
+          ["Rocky Mountain", "4.7"],
+          ["Zion", "4.5"],
+          ["Yosemite", "4.4"]
         ]
       },
       "question": "Which choice most effectively uses data from the table to complete the statement?",
       "choices": [
-        { "id": "A", "text": "monthly visits rose at all four branches, and Riverside's gain of 740 visits was the largest in the table." },
-        { "id": "B", "text": "Cedar Park recorded the highest total number of monthly visits of any branch in the county after the change to evening hours." },
-        { "id": "C", "text": "monthly visits rose at two of the four branches, with Riverside showing the smaller of the two gains." },
-        { "id": "D", "text": "Walnut Street's monthly visits changed more than those of any other branch." }
+        { "id": "A", "text": "Great Smoky Mountains had 12.5 million visits, more than Grand Canyon's 6.0 million and Rocky Mountain's 4.7 million combined." },
+        { "id": "B", "text": "Grand Canyon had 6.0 million visits, more than any other park in the table except Great Smoky Mountains, which had 12.5 million." },
+        { "id": "C", "text": "Zion and Yosemite had nearly the same number of visits that year, 4.5 million and 4.4 million." },
+        { "id": "D", "text": "each of the five parks in the table had more than 4 million visits in 2019." }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The claim has two parts — more visitors systemwide, strongest effect at Riverside — and choice A supplies the data for both.\n\n**The Full Solution:**\n- Break the administrators' conclusion into its claims: (1) later hours drew more visitors at every branch, and (2) Riverside felt the effect most.\n- Now check choice A against the Change column: every branch shows a positive change (+470, +360, +740, +170), and Riverside's +740 is the biggest number in the column.\n- One choice, both claims covered, every number checkable in the table — that is what \"most effectively uses data\" means.\n\n**Why the other choices are wrong:**\n- B: Cedar Park's 2,570 is indeed the highest \"after\" total, but the claim is about the size of the CHANGE, not the size of the branch — and this choice ignores the systemwide claim entirely.\n- C: The table contradicts this twice: all four branches rose, not two, and Riverside's gain was the largest, not the smaller.\n- D: Walnut Street's +170 is the smallest change in the table, not the largest."
+      "explanation": "**Choice A is correct.** The claim compares Great Smoky Mountains with the next two parks added together, and A makes exactly that comparison with the table's numbers.\n\n**The Full Solution:**\n- The next two most visited parks are Grand Canyon (6.0 million) and Rocky Mountain (4.7 million).\n- Together they had 6.0 + 4.7 = 10.7 million visits.\n- Great Smoky Mountains had 12.5 million, which is more than 10.7 million. Choice A states this comparison.\n\n**Why the other choices are wrong:**\n- B: It ranks Grand Canyon second but never compares Great Smoky Mountains with the next two parks combined.\n- C: It compares Zion and Yosemite, two parks the claim is not about.\n- D: It is true of the table, but it says nothing about how Great Smoky Mountains compares with the other parks.",
+      "_meta": {"source": "National Park Service news release '2019 visitation numbers' (https://www.nps.gov/orgs/1207/2019-visitation-numbers.htm): Great Smoky Mountains 12.5 million (12,547,743), Grand Canyon 5.97 million, Rocky Mountain 4.7 million, Zion 4.5 million, Yosemite 4.4 million — the five most visited national parks. Replaces an invented county-library table (verify 2026-10-06)."}
     },
     {
       "id": 164,
@@ -275,7 +278,7 @@ export const practiceTest1RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "central-ideas-and-details",
-      "passage": "In 1843, the mathematician Ada Lovelace published an English translation of a paper, written in French, describing Charles Babbage's proposed Analytical Engine. What made the publication remarkable was not the translation but the notes Lovelace appended to it, which ran nearly three times the length of the original. In them she worked out, step by step, how the machine could be instructed to compute a series of numbers — and then went further, observing that a device that manipulated symbols according to rules need not confine itself to arithmetic. Such an engine, she suggested, might one day compose music.",
+      "passage": "In 1843, the mathematician Ada Lovelace published an English translation of a paper, written in French, describing Charles Babbage's proposed Analytical Engine. What made the publication remarkable was not the translation but the notes Lovelace appended to it, which ran nearly three times the length of the original. In them she worked out, step by step, how the machine could be instructed to compute a series of numbers. She then went further, observing that a device that manipulated symbols according to rules need not confine itself to arithmetic. Such an engine, she suggested, might one day compose music.",
       "question": "Which choice best states the main idea of the text?",
       "choices": [
         { "id": "A", "text": "Lovelace's notes on the Analytical Engine went beyond translation to offer original insight into what such a machine might do" },
@@ -311,7 +314,7 @@ export const practiceTest1RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "command-of-evidence-textual",
-      "passage": "The Amazon rain forest grows on soils that are, by geological standards, ancient and nutrient-poor: rain has been leaching phosphorus out of them for millions of years. Atmospheric scientists tracking dust with satellites have proposed a claim that ties the forest's continued fertility to a desert an ocean away: dust lifted from dry lakebeds in the Sahara, they argue, rides the trade winds across the Atlantic and delivers enough nutrients to help offset what Amazonian rains continually wash away.",
+      "passage": "The Amazon rain forest grows on soils that are, by geological standards, ancient and nutrient-poor: rain has been leaching phosphorus out of them for millions of years. Atmospheric scientists tracking dust with satellites have proposed a claim that ties the forest's fertility to a desert an ocean away. Dust lifted from dry lakebeds in the Sahara, they argue, rides the trade winds across the Atlantic. It delivers enough nutrients to help offset what Amazonian rains continually wash away.",
       "question": "Which finding, if true, would most directly support the researchers' claim?",
       "choices": [
         { "id": "A", "text": "Satellite images show that plumes of Saharan dust are visible over the Atlantic Ocean during most months of the year" },
@@ -329,16 +332,16 @@ export const practiceTest1RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "inferences",
-      "passage": "Cliff swallows build their gourd-shaped mud nests on vertical faces sheltered by an overhang, a combination that natural cliffs provide only patchily across the landscape. Highway bridges and concrete culverts offer both features in abundance, and the birds have moved in: colonies numbering in the thousands now cluster under bridges spanning open farmland and prairie — country that offers the flying insects swallows eat in quantity, but little in the way of natural rock. This suggests that ______",
+      "passage": "Cliff swallows build their gourd-shaped mud nests on vertical faces sheltered by an overhang, a combination that natural cliffs provide only patchily. Highway bridges and concrete culverts offer both features in abundance, and the birds have moved in. Colonies numbering in the thousands now cluster under bridges spanning open farmland and prairie. That country offers the flying insects swallows eat in quantity, but little in the way of natural rock. This suggests that ______",
       "question": "Which choice most logically completes the text?",
       "choices": [
         { "id": "A", "text": "flying insect populations are larger near highway bridges than near natural cliffs." },
         { "id": "B", "text": "bridges and culverts have allowed cliff swallows to breed in regions that historically offered them few natural nesting sites." },
         { "id": "C", "text": "cliff swallows now prefer artificial structures to natural cliffs wherever both are available." },
-        { "id": "D", "text": "cliff swallow colonies on natural cliff faces have been abandoned as the birds have shifted to nesting under bridges throughout their range." }
+        { "id": "D", "text": "cliff swallows throughout their range have abandoned the natural cliff faces where they once nested and have moved to bridges." }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The passage sets up exactly this conclusion: the birds need two features natural cliffs supply only \"patchily,\" bridges supply both, and colonies now thrive in food-rich country with \"little in the way of natural rock.\"\n\n**The Full Solution:**\n- Gather the given facts: (1) nesting requires vertical faces plus overhangs; (2) natural cliffs offer that combination unevenly; (3) bridges offer it abundantly; (4) huge colonies now sit over insect-rich land that lacks rock.\n- The gap the inference must fill: what do these facts, together, show? That artificial structures opened up breeding territory the birds could not have used before — places with plenty of food but no place to build.\n- Choice B states that and nothing more. It stays within the evidence: \"few natural nesting sites\" mirrors \"little in the way of natural rock.\"\n\n**Why the other choices are wrong:**\n- A: The passage says the farmland offers abundant insects — it never compares insect numbers near bridges versus near cliffs.\n- C: Preference would require comparing what swallows do when both options are available, and the passage describes no such comparison.\n- D: \"Abandoned... throughout their range\" goes far beyond the evidence; new colonies under bridges say nothing about old colonies on cliffs."
+      "explanation": "**Choice B is correct.** The passage sets up exactly this conclusion: the birds need two features natural cliffs supply only \"patchily,\" bridges supply both, and colonies now thrive in food-rich country with \"little in the way of natural rock.\"\n\n**The Full Solution:**\n- Gather the given facts: (1) nesting requires vertical faces plus overhangs; (2) natural cliffs offer that combination unevenly; (3) bridges offer it abundantly; (4) huge colonies now sit over insect-rich land that lacks rock.\n- The gap the inference must fill: what do these facts, together, show? That artificial structures opened up breeding territory the birds could not have used before — places with plenty of food but no place to build.\n- Choice B states that and nothing more. It stays within the evidence: \"few natural nesting sites\" mirrors \"little in the way of natural rock.\"\n\n**Why the other choices are wrong:**\n- A: The passage says the farmland offers abundant insects — it never compares insect numbers near bridges versus near cliffs.\n- C: Preference would require comparing what swallows do when both options are available, and the passage describes no such comparison.\n- D: Abandonment of cliff nests \"throughout their range\" goes far beyond the evidence; new colonies under bridges say nothing about old colonies on cliffs."
     },
     // ============================================================
     // Q17-Q22: Standard English Conventions
@@ -368,7 +371,7 @@ export const practiceTest1RWM2Easy = {
       "band": 2,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "Comets are often described as dirty snowballs: loose masses of ice and dust. Each time a comet swings near the sun, heat boils some of its ice away, and gas and dust stream off the ______ the released dust does not vanish but spreads slowly along the comet's entire orbit.",
+      "passage": "Comets are often described as dirty snowballs: loose masses of ice and dust. Each time a comet nears the sun, heat boils away some of its ice, and gas and dust stream off the ______ the dust does not vanish but spreads slowly along the comet's orbit.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
         { "id": "A", "text": "nucleus, the" },
@@ -377,7 +380,7 @@ export const practiceTest1RWM2Easy = {
         { "id": "D", "text": "nucleus and, the" }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** Two complete sentences meet at the blank, and a period is a correct way to separate them.\n\n**The Full Solution:**\n- Test what stands on each side of the blank. Before: \"heat boils some of its ice away, and gas and dust stream off the nucleus\" — a complete sentence. After: \"the released dust does not vanish but spreads slowly...\" — also a complete sentence.\n- Two independent clauses need a real boundary: a period, a semicolon, or a comma plus a coordinating conjunction.\n- Choice C supplies the period. Reading the result aloud confirms two clean sentences.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses is a comma splice.\n- B: No punctuation at all runs the two sentences together.\n- D: \"And\" could join the clauses only with a comma BEFORE it (\"nucleus, and the\"); placing the comma after \"and\" breaks the conjunction away from the clause it introduces."
+      "explanation": "**Choice C is correct.** Two complete sentences meet at the blank, and a period is a correct way to separate them.\n\n**The Full Solution:**\n- Test what stands on each side of the blank. Before: \"heat boils away some of its ice, and gas and dust stream off the nucleus\" — a complete sentence. After: \"the dust does not vanish but spreads slowly...\" — also a complete sentence.\n- Two independent clauses need a real boundary: a period, a semicolon, or a comma plus a coordinating conjunction.\n- Choice C supplies the period. Reading the result aloud confirms two clean sentences.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses is a comma splice.\n- B: No punctuation at all runs the two sentences together.\n- D: \"And\" could join the clauses only with a comma BEFORE it (\"nucleus, and the\"); placing the comma after \"and\" breaks the conjunction away from the clause it introduces."
     },
     {
       "id": 174,
@@ -386,16 +389,16 @@ export const practiceTest1RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "To learn where meltwater goes after it disappears from a glacier's surface, the research team drilled boreholes hundreds of feet into the ice, lowered waterproof pressure sensors into them, and ______ pulses of harmless dye released into streams upstream.",
+      "passage": "In 1947, Norwegian explorer Thor Heyerdahl set out to show that people from South America could have traveled to Polynesia by sea in ancient times. He and five crewmates built a raft of balsa logs, sailed it west from Peru for 101 days, and ______ the Tuamotu Islands, where the raft struck a reef.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "tracking" },
-        { "id": "B", "text": "to track" },
-        { "id": "C", "text": "have tracked" },
-        { "id": "D", "text": "tracked" }
+        { "id": "A", "text": "reaching" },
+        { "id": "B", "text": "to reach" },
+        { "id": "C", "text": "have reached" },
+        { "id": "D", "text": "reached" }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The blank is the third item in a list of past-tense verbs — \"drilled,\" \"lowered,\" and \"tracked\" — and list items must match in form.\n\n**The Full Solution:**\n- Map the sentence's skeleton: the team did three things — drilled boreholes, lowered sensors, and ______ dye pulses.\n- The first two verbs are simple past. Parallel structure requires the third to be simple past as well.\n- \"Tracked\" completes the matched series; read the three verbs in a row to hear the parallelism.\n\n**Why the other choices are wrong:**\n- A: \"Tracking\" breaks the series with an -ing form: \"drilled, lowered, and tracking.\"\n- B: \"To track\" turns the third item into an infinitive of purpose, leaving \"and\" joining a verb to a purpose phrase — the list falls apart.\n- C: \"Have tracked\" shifts into the present perfect mid-list, clashing with the simple past of \"drilled\" and \"lowered.\""
+      "explanation": "**Choice D is correct.** The blank is the third item in a list of past-tense verbs — \"built,\" \"sailed,\" and \"reached\" — and list items must match in form.\n\n**The Full Solution:**\n- Map the sentence's skeleton: the crew did three things — built a raft, sailed it west, and ______ the Tuamotu Islands.\n- The first two verbs are simple past. Parallel structure requires the third to be simple past as well.\n- \"Reached\" completes the matched series; read the three verbs in a row to hear the parallelism.\n\n**Why the other choices are wrong:**\n- A: \"Reaching\" breaks the series with an -ing form: \"built, sailed, and reaching.\"\n- B: \"To reach\" turns the third item into an infinitive of purpose, leaving \"and\" joining a verb to a purpose phrase — the list falls apart.\n- C: \"Have reached\" shifts into the present perfect mid-list, clashing with the simple past of \"built\" and \"sailed.\""
     },
     {
       "id": 175,
@@ -422,16 +425,17 @@ export const practiceTest1RWM2Easy = {
       "band": 4,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "Over the past decade, dozens of cities have built monitoring stations into their sewer systems — networks of samplers that draw wastewater on a fixed schedule, screen it for traces of circulating viruses, and in doing so ______ health officials days of warning before an outbreak surfaces in clinics.",
+      "passage": "Marram grass grows on coastal sand dunes, where strong winds blow loose sand inland from the beach. The stiff leaves that rise from a clump of marram grass on the dune ______ the wind near the ground, causing blowing sand to drop and pile up around the plant. In this way, marram grass helps dunes grow and stay in place.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "gives" },
-        { "id": "B", "text": "give" },
-        { "id": "C", "text": "giving" },
-        { "id": "D", "text": "has given" }
+        { "id": "A", "text": "slows" },
+        { "id": "B", "text": "slow" },
+        { "id": "C", "text": "slowing" },
+        { "id": "D", "text": "has slowed" }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The blank is the third verb in the relative clause \"that draw..., screen..., and give...,\" whose subject is the plural \"networks.\"\n\n**The Full Solution:**\n- Untangle the structure. After the dash, everything describes \"networks of samplers that\" do three things: \"draw wastewater,\" \"screen it,\" and \"______ health officials days of warning.\"\n- The relative pronoun \"that\" stands for \"networks\" — plural — so every verb in the series must be plural: draw, screen, give.\n- The interrupter \"in doing so\" is just a modifier between the conjunction and the verb; it does not change the series. Plural \"give\" completes the parallel chain.\n\n**Why the other choices are wrong:**\n- A: \"Gives\" is singular; it wrongly agrees with a nearby singular noun like \"wastewater\" or \"schedule\" instead of the true subject, \"networks.\"\n- C: \"Giving\" breaks the three-verb series, leaving \"and\" with nothing parallel to join — the sentence loses its third verb entirely.\n- D: \"Has given\" is both singular and a tense shift; the series is in the simple present (\"draw,\" \"screen\")."
+      "explanation": "**Choice B is correct.** The blank is the main verb of the second sentence, and its subject is the plural noun \"leaves,\" so the verb must be the plural \"slow.\"\n\n**The Full Solution:**\n- Find the subject by stripping away the modifiers: \"The stiff leaves [that rise from a clump of marram grass on the dune] ______ the wind near the ground.\"\n- The relative clause \"that rise from a clump of marram grass on the dune\" describes the leaves; it contains the singular nouns \"clump,\" \"grass,\" and \"dune,\" but none of them is the subject.\n- The plural subject \"leaves\" takes the plural present-tense verb \"slow,\" which matches the present tense of the rest of the text (\"grows,\" \"blow,\" \"helps\").\n\n**Why the other choices are wrong:**\n- A: \"Slows\" is singular; it wrongly agrees with a nearby singular noun like \"clump\" or \"dune\" instead of the true subject, \"leaves.\"\n- C: \"Slowing\" is not a main verb, so the sentence would be left without one and become a fragment.\n- D: \"Has slowed\" is singular and shifts away from the present tense that the text uses to describe how marram grass works.",
+      "_meta": {"anchor": "marram grass (Ammophila arenaria) slowing wind and trapping blown sand on coastal dunes", "sources": ["https://en.wikipedia.org/wiki/Ammophila_(plant)", "https://agris.fao.org/search/ar/records/6511ae44e68ef18e2c797f5b", "https://naturalresourceswales.gov.uk/media/r4tawyj5/information-note-marram.pdf"]}
     },
     {
       "id": 173,
@@ -497,7 +501,7 @@ export const practiceTest1RWM2Easy = {
       "band": 3,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "The earliest daguerreotype portraits required a sitter to hold perfectly still for a minute or longer, since even a small shift of the head left the finished image blurred. ______ portrait studios of the 1840s fitted their chairs with discreet iron clamps that braced each customer's head for the full length of the exposure.",
+      "passage": "In the early 1900s, goiter, a swelling of the thyroid gland caused by too little iodine in the diet, was especially common in the region around the Great Lakes. ______ University of Michigan professor David Murray Cowie led an effort to add iodine to table salt, and in 1924 iodized salt went on sale in Michigan.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "As a result," },
@@ -506,7 +510,7 @@ export const practiceTest1RWM2Easy = {
         { "id": "D", "text": "In any case," }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The head clamps are a direct consequence of the problem in the first sentence — long exposures ruined by small movements.\n\n**The Full Solution:**\n- Identify the relationship: sentence one states a problem (any movement over a minute-long exposure blurs the image); sentence two describes what studios did about it (clamps that braced the head).\n- Problem, then response to that problem, is a cause-and-effect relationship.\n- \"As a result\" marks the second sentence as the consequence of the first — studios installed clamps BECAUSE stillness was required.\n\n**Why the other choices are wrong:**\n- B: \"For instance\" would make the clamps an example of blurred portraits, but they are a response to the blurring, not a case of it.\n- C: \"Similarly\" needs two parallel situations; here the second sentence answers the first rather than resembling it.\n- D: \"In any case\" waves the previous sentence aside, but the clamps only make sense because of it."
+      "explanation": "**Choice A is correct.** The effort to add iodine to salt is a direct response to the problem in the first sentence: goiter, caused by too little iodine, was common around the Great Lakes.\n\n**The Full Solution:**\n- Identify the relationship: sentence one states a problem (a disease caused by too little iodine was widespread in one region); sentence two describes what was done about it (iodine was added to table salt, which went on sale in Michigan).\n- Problem, then response to that problem, is a cause-and-effect relationship.\n- \"As a result\" marks the second sentence as the consequence of the first — Cowie pushed for iodized salt BECAUSE iodine deficiency was causing goiter.\n\n**Why the other choices are wrong:**\n- B: \"For instance\" would make the iodized salt an example of goiter, but it is a response to the disease, not a case of it.\n- C: \"Similarly\" needs two parallel situations; here the second sentence answers the first rather than resembling it.\n- D: \"In any case\" waves the previous sentence aside, but the salt campaign only makes sense because of it."
     },
     {
       "id": 180,

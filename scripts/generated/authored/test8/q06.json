@@ -6,26 +6,33 @@
  "domain": "craft-and-structure",
  "skill": "text-structure-and-purpose",
  "module": 1,
- "passage": "A cast bell seems the product of a single pour, but the pour is only one stage among many. First the founder builds the mold: an inner core of brick and loam and an outer cope, each shaped by a wooden template pivoting on a central spindle. The mold must then be thoroughly dried, since moisture left in it can ruin the casting. Only then is the bronze poured, and even a flawless pour leaves work to do: the bell is mounted on a lathe, and metal is shaved from its inner wall to bring its tones into tune.",
+ "passage": "A sheet of washi, the traditional handmade paper of Japan, can look like a simple thing, but making it takes a series of separate tasks. Papermakers first cut branches of the kozo shrub and steam them until the bark loosens enough to be stripped away. The inner bark is then boiled, rinsed, and beaten with mallets until its fibers fan apart. Only after this preparation are the fibers mixed with water and scooped up in a bamboo screen, layer by layer, to form sheets that are pressed and dried.",
  "question": "Which choice best states the main purpose of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "To compare bells cast at rival foundries and argue that the older workshops produced the finer-sounding instruments."
+   "text": "To compare papers made in different regions of Japan and argue that the oldest workshops made the finest sheets."
   },
   {
    "id": "B",
-   "text": "To explain that founding a bell is a sequence of distinct crafts rather than a single act of pouring metal."
+   "text": "To explain that making washi is a sequence of distinct tasks rather than a single step of forming sheets."
   },
   {
    "id": "C",
-   "text": "To argue that tuning a finished bell demands more skill than casting it does."
+   "text": "To argue that preparing the kozo bark demands more skill than forming the sheets does."
   },
   {
    "id": "D",
-   "text": "To describe how the high cost of bell metal shaped the decisions of medieval founders."
+   "text": "To describe how the high cost of kozo bark shaped the decisions of Japanese papermakers."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** Every sentence of the text advances one point: casting a bell proceeds through a sequence of specialized stages — mold building, drying, pouring, and tuning — rather than a single act of pouring.\n\n**The Full Solution:**\n- The text opens by rejecting the assumption that a bell is \"the product of a single pour.\"\n- It then walks through the stages in order: the loam mold shaped by a pivoting template, thorough drying, the pour itself, and the lathe-tuning afterward.\n- The purpose is to explain that sequence, which is what choice B states.\n\n**Why the other choices are wrong:**\n- A: The text never compares one foundry's bells with another's.\n- C: Only one sentence concerns tuning; the text does not argue tuning matters more than casting.\n- D: The cost of bell metal is never mentioned."
+ "explanation": "**Choice B is correct.** Every sentence of the text advances one point: making washi proceeds through a sequence of separate tasks (steaming and stripping the bark, boiling, rinsing, and beating it, then forming, pressing, and drying sheets) rather than a single act of forming paper.\n\n**The Full Solution:**\n- The text opens by saying that washi \"can look like a simple thing\" but that \"making it takes a series of separate tasks.\"\n- It then walks through the tasks in order: steaming and stripping the kozo bark, boiling, rinsing, and beating the inner bark, and finally scooping the fibers up in a bamboo screen to form sheets that are pressed and dried.\n- The purpose is to explain that sequence, which is what choice B states.\n\n**Why the other choices are wrong:**\n- A: The text never compares papers from different regions or ranks any workshops.\n- C: The text describes both the bark preparation and the sheet forming but never says which demands more skill.\n- D: The text says nothing about the cost of kozo bark.",
+ "_meta": {
+  "anchor": "washi papermaking from kozo bark — purpose: a craft is a sequence of distinct stages",
+  "sources": [
+   "https://paper.gatech.edu/index.php/washi/washi-fiber-preparation",
+   "https://en.wikipedia.org/wiki/Washi"
+  ]
+ }
 }

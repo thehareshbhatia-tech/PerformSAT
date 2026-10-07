@@ -6,29 +6,29 @@
   "domain": "standard-english-conventions",
   "skill": "boundaries",
   "module": 1,
-  "passage": "The pigment ultramarine — ground from lapis lazuli that reached European scriptoria along trade routes beginning in the mountain mines of ______ was so costly that illuminators reserved it for a manuscript's most honored pages: full-page miniatures and the robes of central figures.",
+  "passage": "The Great Basin bristlecone pine — a species whose oldest known living tree, in California's White Mountains, has been dated to more than 4,800 ______ grows on high, dry slopes where few other trees can survive.",
   "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
   "choices": [
     {
       "id": "A",
-      "text": "Afghanistan:"
+      "text": "years:"
     },
     {
       "id": "B",
-      "text": "Afghanistan —"
+      "text": "years —"
     },
     {
       "id": "C",
-      "text": "Afghanistan,"
+      "text": "years,"
     },
     {
       "id": "D",
-      "text": "Afghanistan"
+      "text": "years"
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** The interrupting phrase that begins with the dash after \"ultramarine\" must be closed by a matching dash before the sentence resumes at \"was so costly.\"\n\n**The Full Solution:**\n- The frame sentence is \"The pigment ultramarine ... was so costly that ...\"\n- \"— ground from lapis lazuli ... Afghanistan\" is an interruption opened with an em dash.\n- Paired punctuation must match: an interruption opened with a dash is closed with a dash.\n\n**Why the other choices are wrong:**\n- A: A colon cannot close an interruption that a dash opened, and nothing after the blank is being introduced as a list or explanation.\n- C: A comma mismatches the opening dash, leaving the pair unbalanced.\n- D: With no punctuation, the interruption never closes, and the frame sentence's subject and verb collide with the modifier.",
+  "explanation": "**Choice B is correct.** The phrase beginning \"a species whose oldest known living tree\" is set off by a dash after \"pine,\" so it must close with a matching dash before the sentence continues with \"grows.\"\n\n**The Full Solution:**\n- Main sentence: \"The Great Basin bristlecone pine ... grows on high, dry slopes.\"\n- The interruption opens with a dash, so it must close with a dash.\n- \"years —\" closes the interruption and returns the reader to the verb \"grows.\"\n\n**Why the other choices are wrong:**\n- A: A colon cannot close an interruption that a dash opened.\n- C: A comma cannot close a dash-opened interruption; the marks must match.\n- D: Without closing punctuation, the interruption runs into the main verb.",
   "_meta": {
-    "anchor": "ultramarine in manuscript illumination; paired em-dashes"
+    "anchor": "Great Basin bristlecone pine; Methuselah >4,800 years, White Mountains"
   }
 }

@@ -1,29 +1,29 @@
 {
- "id": 20,
- "question": "A school has $900$ students. If one student is selected at random, the probability of selecting a student who plays a sport is $0.86$, and the probability of selecting a student who plays a sport and is a senior is $0.22$. Which of the following must be true?",
- "choices": [
-  {
-   "id": "A",
-   "text": "Exactly $126$ students play a sport and are seniors."
+  "id": 20,
+  "question": "A school has $900$ students. If one student is selected at random, the probability of selecting a student who plays a sport is $0.86$, and the probability of selecting a student who plays a sport and is a senior is $0.22$. Which of the following must be true?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "Exactly $198$ students are seniors."
+    },
+    {
+      "id": "B",
+      "text": "Exactly $576$ students play a sport and are not seniors."
+    },
+    {
+      "id": "C",
+      "text": "Exactly $702$ students are not seniors."
+    },
+    {
+      "id": "D",
+      "text": "Exactly $774$ students play a sport and are not seniors."
+    }
+  ],
+  "distractorNotes": {
+    "A": "treats 0.22 as the probability of selecting a senior, but some seniors may not play a sport",
+    "C": "treats 0.22 as the probability of selecting a senior and subtracts: 900 - 198 = 702",
+    "D": "uses 0.86(900) = 774, every student who plays a sport, without removing the seniors"
   },
-  {
-   "id": "B",
-   "text": "Exactly $198$ students play a sport and are seniors."
-  },
-  {
-   "id": "C",
-   "text": "Exactly $576$ students are seniors."
-  },
-  {
-   "id": "D",
-   "text": "Exactly $774$ students play a sport and are seniors."
-  }
- ],
- "distractorNotes": {
-  "A": "uses 1 - 0.86 = 0.14, the probability of not playing a sport, giving 0.14(900) = 126",
-  "C": "subtracts 0.22 from 0.86 and treats 0.64(900) = 576 as the number of seniors",
-  "D": "uses 0.86, the probability of playing a sport, giving 0.86(900) = 774"
- },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** A probability times the total gives a count, so $0.22(900) = 198$ students play a sport and are seniors.\n\n**The Full Solution:**\nStep 1: For a random selection, probability equals (number of students in the group) divided by $900$.\nStep 2: The group \"plays a sport and is a senior\" has probability $0.22$, so it contains $0.22(900) = 198$ students.\nStep 3: Only this count is fixed by the given information; the total number of seniors is not given, because some seniors may not play a sport. Check: $\\frac{198}{900} = 0.22$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($126$): $0.14(900)$, or $126$, is the number of students who do not play a sport, not the number who play a sport and are seniors.\n* Choice C ($576$): subtracting $0.22$ from $0.86$ leaves $0.64$, and $0.64(900) = 576$ is the number of students who play a sport and are not seniors; the number of seniors cannot be found from the information given.\n* Choice D ($774$): $0.86(900)$, or $774$, counts every student who plays a sport, seniors or not.\n\n**Test Day Takeaway:** Multiply a probability by the total to get a count, and match each probability to exactly the group it describes."
+  "correctAnswer": "B",
+  "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The students who play a sport are either seniors or not seniors, so the probability of selecting a student who plays a sport and is not a senior is $0.86-0.22=0.64$, and $0.64(900) = 576$.\n\n**The Full Solution:**\nStep 1: Multiply each probability by $900$: $0.86(900) = 774$ students play a sport, and $0.22(900) = 198$ students play a sport and are seniors.\nStep 2: Every student who plays a sport either is or is not a senior, so $774 - 198 = 576$ students play a sport and are not seniors. This number is fixed by the given information.\nStep 3: The total number of seniors is not fixed, because some seniors may not play a sport. Check: $198 + 576 = 774$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($198$ seniors): $198$ counts only the seniors who play a sport; there may be other seniors who do not play a sport.\n* Choice C ($702$ not seniors): subtracts $198$ from $900$ as if $198$ were all the seniors.\n* Choice D ($774$): counts every student who plays a sport, including the $198$ seniors.\n\n**Test Day Takeaway:** Multiply a probability by the total to get a count, and match each count to exactly the group it describes; a group split into two parts gives the second part by subtraction."
 }

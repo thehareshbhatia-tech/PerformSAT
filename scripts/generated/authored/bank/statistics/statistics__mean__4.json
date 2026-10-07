@@ -1,30 +1,30 @@
 {
   "id": 4,
-  "question": "A data set of $12$ numbers has a mean of $4.5$. After one number is removed, the mean of the remaining numbers is $4.2$. What is the value of the removed number?",
+  "question": "A data set of $12$ numbers has a mean of $15$. After one number is removed, the mean of the remaining numbers is $14$. What is the value of the removed number?",
   "choices": [
     {
       "id": "A",
-      "text": "$0.3$"
+      "text": "$1$"
     },
     {
       "id": "B",
-      "text": "$3.6$"
+      "text": "$12$"
     },
     {
       "id": "C",
-      "text": "$7.8$"
+      "text": "$26$"
     },
     {
       "id": "D",
-      "text": "$46.2$"
+      "text": "$154$"
     }
   ],
   "distractorNotes": {
-    "A": "subtracts the two means, $4.5 - 4.2 = 0.3$, instead of the two totals.",
-    "B": "multiplies both means by $12$, computing $12(4.5) - 12(4.2) = 3.6$.",
-    "D": "reports the total of the remaining $11$ numbers, $11(4.2) = 46.2$."
+    "A": "subtracts the two means, 15 - 14",
+    "B": "multiplies both means by 12, as if no number had been removed",
+    "D": "gives the sum of the 11 remaining numbers"
   },
   "correctAnswer": "C",
-  "hint": "Work with totals, not means.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~30s):** The totals are $12(4.5) = 54$ and $11(4.2) = 46.2$, so the removed number is $54 - 46.2 = 7.8$.\n\n**The Full Solution:**\nStep 1: The original $12$ numbers add to $12(4.5) = 54$.\nStep 2: The remaining $11$ numbers add to $11(4.2) = 46.2$.\nStep 3: The removed number is the difference of the totals: $54 - 46.2 = 7.8$. Check: $\\frac{54 - 7.8}{11} = \\frac{46.2}{11} = 4.2$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.3$): subtracts the two means, $4.5 - 4.2 = 0.3$, instead of the two totals.\n* Choice B ($3.6$): multiplies both means by $12$, computing $12(4.5) - 12(4.2) = 3.6$.\n* Choice D ($46.2$): reports the total of the remaining $11$ numbers, $11(4.2) = 46.2$.\n\n**Test Day Takeaway:** When a value is added or removed, compare TOTALS (mean times count), each with its own count. Means cannot be subtracted directly."
+  "hint": "Turn each mean into a sum: sum = mean times count.",
+  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~25s):** The sum drops from $12(15) = 180$ to $11(14) = 154$, so the removed number is $180 - 154 = 26$.\n\n**The Full Solution:**\nStep 1: The sum of the original $12$ numbers is $12 \\times 15 = 180$.\nStep 2: After one number is removed, $11$ numbers remain with sum $11 \\times 14 = 154$.\nStep 3: The removed number is the difference of the sums: $180 - 154 = 26$.\n\nCheck: $\\frac{180 - 26}{11} = \\frac{154}{11} = 14$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): subtracts the means; the change in the mean is not the removed value.\n* Choice B ($12$): uses $12$ numbers for both sums, $12(15) - 12(14)$.\n* Choice D ($154$): is the sum of the numbers that remain, not the number removed.\n\n**Test Day Takeaway:** For a mean question with a value added or removed, work with sums: sum = mean $\\times$ count."
 }

@@ -6,29 +6,29 @@
   "domain": "information-and-ideas",
   "skill": "central-ideas-and-details",
   "module": 2,
-  "passage": "A terminal lake has no outlet to the sea; its level is set by the balance between the water flowing in and the water evaporating from its surface. When one large terminal lake in the arid West fell to record lows, public discussion blamed drought. Hydrologists who reconstructed a century of the basin's water budget reached a different conclusion. Precipitation over the period swings widely but shows no sustained decline. What has grown steadily is the share of river flow withdrawn for farms and cities before it reaches the lake. The lake is shrinking chiefly because its inflow is being used upstream.",
+  "passage": "Rapa Nui (Easter Island) is often told as a story of collapse: a population of as many as 17,500 people, the story goes, used up the island's resources and then crashed. When Europeans arrived in 1722, they found only a few thousand residents. In 2024 a team of archaeologists tested the story by mapping the island's rock gardens, stone-covered plots where islanders grew sweet potatoes. Satellite images showed that the gardens covered less than half a percent of the island, enough, along with seafood, to feed only about 3,900 people. The population, the researchers concluded, was probably never much larger than the one Europeans met.",
   "question": "Which choice best states the main idea of the text?",
   "choices": [
     {
       "id": "A",
-      "text": "Precipitation in the basin has declined so steadily over the past century that the lake can no longer be sustained at its former level."
+      "text": "The islanders' rock gardens covered most of the island's land but still could not feed its growing population."
     },
     {
       "id": "B",
-      "text": "Terminal lakes are unusually sensitive to drought because evaporation is the only way water leaves them."
+      "text": "Rock gardens were the most productive farming method that any Pacific island society ever developed."
     },
     {
       "id": "C",
-      "text": "Although public discussion blames drought, the water budget shows the lake is shrinking mainly because its inflow is diverted upstream."
+      "text": "Although Rapa Nui is often said to have collapsed, its gardens suggest that its population was never much larger than the one Europeans found."
     },
     {
       "id": "D",
-      "text": "Wet years and dry years alternate so unpredictably in the basin that no single cause of the lake's decline can be identified."
+      "text": "The earlier estimate of 17,500 people was accurate, since the study found that most islanders lived on seafood rather than on sweet potatoes from the gardens."
     }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The text sets the popular explanation (drought) against the hydrologists' accounting (steadily growing upstream withdrawals) and sides with the accounting — which is what C states.\n\n**The Full Solution:**\n- The public story: public discussion \"blamed drought.\"\n- The evidence: precipitation swings but does not decline; withdrawals for farms and cities have grown steadily.\n- The verdict: \"The lake is shrinking chiefly because its inflow is being used upstream.\" C compresses the contrast and the conclusion.\n\n**Why the other choices are wrong:**\n- A: It contradicts the text, which says precipitation \"shows no sustained decline.\"\n- B: A general fact about terminal lakes from the opening sentence — background, not the point.\n- D: The text identifies a chief cause; it does not throw up its hands at variability.",
+  "explanation": "**Choice C is correct.** The text presents a popular story (a large population used up the island and collapsed), then a study whose evidence points the other way: the gardens could feed only about 3,900 people, close to the number Europeans found. Choice C states both the story and the study's conclusion.\n\n**The Full Solution:**\n- The popular account: as many as 17,500 people, followed by a crash.\n- The test: the researchers mapped the rock gardens where sweet potatoes were grown.\n- The finding: the gardens covered less than half a percent of the island, enough (with seafood) for only about 3,900 people.\n- The conclusion: the population was probably never much larger than the few thousand Europeans met in 1722. C sets this against the collapse story.\n\n**Why the other choices are wrong:**\n- A: The text says the gardens covered less than half a percent of the island, not most of it.\n- B: The text never compares Rapa Nui's gardens with farming on other Pacific islands.\n- D: The text never says most islanders lived on seafood. The study counts seafood and still arrives at only about 3,900 people, so it rejects the large estimate rather than supporting it.",
   "_meta": {
-    "anchor": "terminal-lake water budget — upstream diversion versus drought"
+    "anchor": "Rapa Nui rock gardens and population size (Davis et al. 2024, Science Advances): <0.5% of island in gardens, ~3,900 people with seafood (archaeology.org); earlier estimates as high as 17,500 (Columbia Climate School news, 2024-06-21)"
   }
 }

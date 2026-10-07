@@ -1,29 +1,29 @@
 {
   "id": "bank-alg-038",
-  "question": "Line $\\ell$ is defined by $4x + 10y = 15$. Line $m$ is perpendicular to line $\\ell$ in the $xy$-plane and passes through the point $(-2, 6)$. Which equation defines line $m$?",
+  "question": "Line $\\ell$ is defined by $\\frac{1}{4}x + \\frac{1}{6}y = 3$. Line $m$ is perpendicular to line $\\ell$ in the $xy$-plane. What is the slope of line $m$?",
   "choices": [
     {
       "id": "A",
-      "text": "$2x + 5y = 26$"
+      "text": "$-\\frac{3}{2}$"
     },
     {
       "id": "B",
-      "text": "$2x - 5y = -34$"
+      "text": "$-\\frac{2}{3}$"
     },
     {
       "id": "C",
-      "text": "$5x + 2y = 2$"
+      "text": "$\\frac{2}{3}$"
     },
     {
       "id": "D",
-      "text": "$5x - 2y = -22$"
+      "text": "$\\frac{3}{2}$"
     }
   ],
   "distractorNotes": {
-    "A": "parallel to l (slope -2/5) through the point",
-    "B": "slope 2/5: sign changed but fraction not flipped",
-    "C": "slope -5/2: fraction flipped but sign not changed"
+    "A": "gives the slope of line l instead of the perpendicular slope",
+    "B": "takes the reciprocal of the slope of line l but does not change its sign",
+    "D": "divides the coefficients in the wrong order, getting -2/3 for line l, then takes its negative reciprocal"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Perpendicular from Standard Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Slope of $\\ell$ is $-\\frac{4}{10} = -\\frac{2}{5}$, so $m$ has slope $\\frac{5}{2}$. Every choice passes through $(-2, 6)$, so only the slope decides: $5x - 2y = -22$ has slope $-\\frac{5}{-2} = \\frac{5}{2}$.\n\n**The Full Solution:**\nStep 1: Slope of $\\ell$: from $Ax + By = C$, slope $= -\\frac{A}{B} = -\\frac{4}{10} = -\\frac{2}{5}$. The perpendicular slope is the negative reciprocal, $\\frac{5}{2}$.\nStep 2: Line $m$: $y = \\frac{5}{2}x + b$ with $6 = \\frac{5}{2}(-2) + b = -5 + b$, so $b = 11$ and $y = \\frac{5}{2}x + 11$.\nStep 3: Convert to standard form: $2y = 5x + 22$, or $5x - 2y = -22$. Check the point: $5(-2) - 2(6) = -10 - 12 = -22$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($2x + 5y = 26$): has slope $-\\frac{2}{5}$, the same as $\\ell$; it is the PARALLEL line through $(-2, 6)$.\n* Choice B ($2x - 5y = -34$): has slope $\\frac{2}{5}$, the sign changed but the fraction never flipped.\n* Choice C ($5x + 2y = 2$): has slope $-\\frac{5}{2}$, the fraction flipped but the sign unchanged.\n\n**Test Day Takeaway:** When every choice passes through the given point, the point cannot discriminate; compute each choice's slope as $-\\frac{A}{B}$ and match it to the required negative reciprocal."
+  "correctAnswer": "C",
+  "explanation": "**SAT Pattern: Perpendicular from Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Multiply by $12$: $3x + 2y = 36$, so $y = -\\frac{3}{2}x + 18$. Line $\\ell$ has slope $-\\frac{3}{2}$, and line $m$ has slope $\\frac{2}{3}$.\n\n**The Full Solution:**\nStep 1: Clear the fractions by multiplying both sides by $12$: $3x + 2y = 36$.\nStep 2: Solve for $y$: $2y = -3x + 36$, so $y = -\\frac{3}{2}x + 18$. The slope of line $\\ell$ is $-\\frac{3}{2}$.\nStep 3: A perpendicular line has the negative reciprocal slope: $\\frac{2}{3}$. Check: $\\left(-\\frac{3}{2}\\right)\\left(\\frac{2}{3}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{3}{2}$): is the slope of line $\\ell$ itself, not of a line perpendicular to it.\n* Choice B ($-\\frac{2}{3}$): flips the fraction but keeps the negative sign; the product $\\left(-\\frac{3}{2}\\right)\\left(-\\frac{2}{3}\\right) = 1$, not $-1$.\n* Choice D ($\\frac{3}{2}$): divides the coefficients in the wrong order, $-\\frac{1/6}{1/4} = -\\frac{2}{3}$, for the slope of $\\ell$, then takes its negative reciprocal.\n\n**Test Day Takeaway:** With fraction coefficients, clear the fractions first and then solve for $y$; for $Ax + By = C$ the slope is $-\\frac{A}{B}$, never $-\\frac{B}{A}$."
 }

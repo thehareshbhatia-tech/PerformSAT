@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "module": 2,
- "passage": "The great market halls of the nineteenth century were framed largely in cast iron, and the material shaped their later fates. A cast-iron frame cannot easily be ____: unlike timber, which a carpenter can cut, splice, and extend on site, cast-iron columns and girders left the foundry in their final shape, so a hall that outgrew its trade needed new parts ordered as though a second building were being begun.",
+ "passage": "Tempered glass is made by heating a pane of ordinary glass and then cooling its surfaces very quickly. The process makes the pane much stronger, but a tempered pane cannot easily be ____: any attempt to cut or drill it can cause the whole pane to shatter. For this reason, manufacturers cut panes to size and drill any holes before the glass is tempered.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The colon defines the blank: timber can be \"cut, splice[d], and extend[ed] on site,\" but cast-iron members \"left the foundry in their final shape\", so changing the building meant ordering new parts. The missing word must mean changed or modified — \"altered.\"\n\n**The Full Solution:**\n- A colon after a blank typically explains it, so read on and let the explanation fix the meaning.\n- The contrast is with timber, whose advantage is easy physical modification — cutting, splicing, extending.\n- Cast-iron columns and girders \"left the foundry in their final shape,\" so enlarging or reshaping a hall required what amounted to a second building. The blocked activity is alteration.\n\n**Why the other choices are wrong:**\n- B: \"Inspected\" has nothing to do with the colon's contrast about cutting and splicing.\n- C: \"Imitated\" means copied, but the sentence concerns changing the building itself, not reproducing it.\n- D: \"Maintained\" is tempting — old buildings do need upkeep — but the colon is about reshaping outgrown structures, not keeping them in repair."
+ "explanation": "**Choice A is correct.** Because cutting or drilling a tempered pane can shatter it, manufacturers must shape the glass before tempering. A tempered pane therefore cannot easily be \"altered,\" or changed.\n\n**The Full Solution:**\n- The text explains that tempering makes the pane \"much stronger.\"\n- The colon introduces the consequence: \"any attempt to cut or drill it can cause the whole pane to shatter.\"\n- That consequence describes how hard it is to change a finished pane, so the blank must mean \"changed\": \"altered.\"\n\n**Why the other choices are wrong:**\n- B: Nothing in the text suggests that tempered glass is hard to look at or examine.\n- C: The text is about changing a pane's size and shape, not about other makers copying it.\n- D: The text does not discuss caring for or keeping up the glass; it explains why a finished pane cannot be cut or drilled."
 }

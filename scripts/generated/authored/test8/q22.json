@@ -6,7 +6,7 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 1,
- "passage": "By the time the biologists sorting a single lake's catch of char had finished comparing jaw shapes, body sizes, and stomach contents, ______ had documented four distinct forms of the same species living together in one body of water.",
+ "passage": "By the time the divers excavating the Uluburun shipwreck off the coast of Turkey had finished their final season in 1994, ______ had recovered about ten tons of copper ingots along with tin, glass, and ivory.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
@@ -27,5 +27,12 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The pronoun refers to the plural \"biologists,\" so it must be the plural \"they.\"\n\n**The Full Solution:**\n- The opening clause names the antecedent: \"the biologists sorting a single lake's catch of char.\"\n- \"Biologists\" is plural, and the main clause reports what those same people had documented.\n- Only \"they\" agrees: \"they had documented four distinct forms of the same species.\"\n\n**Why the other choices are wrong:**\n- A: \"It\" is singular and impersonal; it cannot stand in for the plural \"biologists.\"\n- C: \"She\" is singular and pins the work on one unidentified woman when the antecedent names a team.\n- D: \"One\" is an indefinite singular pronoun and does not refer back to the biologists at all."
+ "explanation": "**Choice B is correct.** The pronoun refers to the plural \"divers,\" so it must be the plural \"they.\"\n\n**The Full Solution:**\n- The opening clause names the antecedent: \"the divers excavating the Uluburun shipwreck.\"\n- \"Divers\" is plural, and the main clause reports what those same people had recovered.\n- Only \"they\" agrees: \"they had recovered about ten tons of copper ingots.\"\n\n**Why the other choices are wrong:**\n- A: \"It\" is singular and impersonal; it cannot stand in for the plural \"divers.\"\n- C: \"She\" is singular and pins the work on one unidentified woman when the antecedent names a team.\n- D: \"One\" is an indefinite singular pronoun and does not refer back to the plural \"divers.\"",
+ "_meta": {
+  "anchor": "Uluburun shipwreck excavation 1984-1994 — plural pronoun they",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Uluburun_shipwreck",
+   "https://nauticalarch.org/projects/uluburun-late-bronze-age-shipwreck-excavation/"
+  ]
+ }
 }

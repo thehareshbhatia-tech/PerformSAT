@@ -9,11 +9,11 @@
   "passages": [
     {
       "label": "Text 1",
-      "text": "Human footprints preserved in an ancient lakebed at White Sands, New Mexico, have been dated by researchers led by Matthew Bennett to between 21,000 and 23,000 years ago — thousands of years earlier than many archaeologists thought people had reached the interior of North America. The dates come from radiocarbon analysis of ditchgrass seeds found in the same sediment layers as the prints. If they hold, the standard account of the continent's peopling must be rewritten."
+      "text": "Human footprints preserved in an ancient lakebed at White Sands, New Mexico, have been dated by researchers led by Matthew Bennett to between 21,000 and 23,000 years ago. That is thousands of years earlier than many archaeologists thought people had reached the interior of North America. The dates come from radiocarbon analysis of ditchgrass seeds found in the same sediment layers as the prints. If they hold, the standard account of the continent's peopling must be rewritten."
     },
     {
       "label": "Text 2",
-      "text": "Some researchers urge caution. Ditchgrass is an aquatic plant, and aquatic plants can take up carbon from lake water that is far older than the plants themselves — a reservoir effect that can make radiocarbon ages run thousands of years too old. Until the seed dates are confirmed by materials immune to that effect, such as pollen from land plants or quartz grains dated by other methods, they argue, so consequential a revision should not be treated as settled."
+      "text": "Some researchers urge caution. Ditchgrass is an aquatic plant, and aquatic plants can take up old carbon dissolved in lake water. This reservoir effect can make radiocarbon ages run thousands of years too old. These researchers argue that until the dates are confirmed by materials immune to that effect, such as pollen from land plants, so consequential a revision should not be treated as settled."
     }
   ],
   "question": "Based on the texts, how would the author of Text 2 most likely respond to the argument presented in Text 1?",
@@ -32,7 +32,7 @@
     },
     {
       "id": "D",
-      "text": "People could not have reached the interior of North America before the ice-free corridor opened, so the prints must be far younger than the team reported."
+      "text": "People could not have reached the interior of North America so early, so the prints must be far younger than the team reported."
     }
   ],
   "correctAnswer": "B",

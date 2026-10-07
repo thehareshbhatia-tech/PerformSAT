@@ -46,19 +46,19 @@ export const practiceTest3 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "$13$, $22$, $13$, $19$, $16$, $13$, $24$, $18$, $21$\nWhat is the mode of the data shown?",
+  question: "$14$, $23$, $9$, $17$, $30$, $11$, $20$, $16$, $25$\nWhat is the median of the data shown?",
   choices: [
-    // distractor: reports the range, 24 - 13 = 11, instead of the most frequent value
-    { id: "A", text: "$11$" },
-    { id: "B", text: "$13$" },
-    // distractor: reports the median, the fifth value of the ordered list, instead of the mode
-    { id: "C", text: "$18$" },
-    // distractor: reports the largest value in the data set instead of the most frequent one
-    { id: "D", text: "$24$" }
+    { id: "A", text: "$17$" },
+    // distractor: averages the least and greatest values, (9 + 30)/2, instead of finding the middle value
+    { id: "B", text: "$19.5$" },
+    // distractor: finds the range, 30 - 9, instead of the median
+    { id: "C", text: "$21$" },
+    // distractor: takes the middle value of the list as written, without putting the values in order
+    { id: "D", text: "$30$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Mode of a Data Set**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Scan for a repeat. Only $13$ appears more than once, and it appears three times, so the mode is $13$.\n\n**The Full Solution:**\nStep 1: The mode of a data set is the value that occurs most often, so count how many times each value appears.\nStep 2: The value $13$ appears three times, and $16$, $18$, $19$, $21$, $22$, and $24$ appear once each.\nStep 3: Three is the largest count, so the mode is $13$. Check: the counts total $3 + 1 + 1 + 1 + 1 + 1 + 1 = 9$, one for each value shown, and no other value repeats ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($11$): this is the range, $24 - 13 = 11$. The range measures spread; the mode is a value in the data set.\n* Choice C ($18$): ordering the data gives $13$, $13$, $13$, $16$, $18$, $19$, $21$, $22$, $24$, whose middle value is $18$. That is the median, not the mode.\n* Choice D ($24$): this is the greatest value. The greatest value and the most frequent value are different statistics, and here they are different numbers.\n\n**Test Day Takeaway:** Mode means \"most often,\" so count repeats before you order or average anything; ordering the list is what leads students to the median by mistake.",
-  skills: ["find-mode"]
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Median Calculation**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** In order, the values are $9, 11, 14, 16, 17, 20, 23, 25, 30$. With $9$ values, the median is the $5$th value, $17$.\n\n**The Full Solution:**\nStep 1: List the values from least to greatest: $9, 11, 14, 16, 17, 20, 23, 25, 30$.\nStep 2: There are $9$ values, an odd number, so the median is the single middle value, the $\\frac{9 + 1}{2} = 5$th value.\nStep 3: The $5$th value in the ordered list is $17$. Check: $4$ values ($9, 11, 14, 16$) are less than $17$ and $4$ values ($20, 23, 25, 30$) are greater ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($19.5$): averages the least and greatest values, $\\frac{9 + 30}{2}$. That is the midpoint of the range, not the middle value of the data.\n* Choice C ($21$): this is the range, $30 - 9$, a measure of spread rather than center.\n* Choice D ($30$): this is the middle value of the list as it is written. The values must be put in order first.\n\n**Test Day Takeaway:** Always sort before finding a median. For an odd number of values, the median is the one value with as many values below it as above it.",
+  skills: ["find-median"]
 },
 {
   id: 3,
@@ -103,7 +103,7 @@ export const practiceTest3 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "$6y = 15 - 4x$\nIn the $xy$-plane, line $k$ is perpendicular to the graph of the given equation. What is the slope of line $k$?",
+  question: "$y = -\\frac{2}{3}x + 5$\nIn the $xy$-plane, line $k$ is perpendicular to the graph of the given equation. What is the slope of line $k$?",
   choices: [
     // distractor: takes the reciprocal of the given line's slope but keeps the negative sign
     { id: "A", text: "$-\\frac{3}{2}$" },
@@ -114,7 +114,7 @@ export const practiceTest3 = {
     { id: "D", text: "$\\frac{3}{2}$" }
   ],
   correctAnswer: "D",
-  explanation: "**SAT Pattern: Perpendicular Slope**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The given line has slope $-\\frac{4}{6} = -\\frac{2}{3}$, and a perpendicular line has the negative reciprocal slope, $\\frac{3}{2}$.\n\n**The Full Solution:**\nStep 1: Write the given equation in slope-intercept form. Dividing each side of $6y = 15 - 4x$ by $6$ gives $y = -\\frac{2}{3}x + \\frac{5}{2}$.\nStep 2: The graph of the given equation has slope $-\\frac{2}{3}$. The slopes of two perpendicular lines have a product of $-1$.\nStep 3: The negative reciprocal of $-\\frac{2}{3}$ is $\\frac{3}{2}$, so line $k$ has slope $\\frac{3}{2}$. Check: $\\left(-\\frac{2}{3}\\right)\\left(\\frac{3}{2}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{3}{2}$): flips $-\\frac{2}{3}$ but keeps the negative sign. The product of the slopes would then be $1$, not $-1$.\n* Choice B ($-\\frac{2}{3}$): this is the slope of the given line itself. A line with this slope would be parallel to the given line.\n* Choice C ($\\frac{2}{3}$): changes the sign only. The product of the slopes would be $-\\frac{4}{9}$, not $-1$.\n\n**Test Day Takeaway:** Perpendicular means two changes, not one: flip the fraction and change the sign. Your answer times the original slope should be exactly $-1$.",
+  explanation: "**SAT Pattern: Perpendicular Slope**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** The given line has slope $-\\frac{2}{3}$, and a perpendicular line has the negative reciprocal slope, $\\frac{3}{2}$.\n\n**The Full Solution:**\nStep 1: The given equation is in slope-intercept form, $y = mx + b$, so the slope of its graph is $m = -\\frac{2}{3}$.\nStep 2: The slopes of two perpendicular lines have a product of $-1$, so the slope of line $k$ is the negative reciprocal of $-\\frac{2}{3}$.\nStep 3: The reciprocal of $-\\frac{2}{3}$ is $-\\frac{3}{2}$; changing its sign gives $\\frac{3}{2}$. Check: $\\left(-\\frac{2}{3}\\right)\\left(\\frac{3}{2}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{3}{2}$): flips $-\\frac{2}{3}$ but keeps the negative sign. The product of the slopes would then be $1$, not $-1$.\n* Choice B ($-\\frac{2}{3}$): this is the slope of the given line itself. A line with this slope would be parallel to the given line.\n* Choice C ($\\frac{2}{3}$): changes the sign only. The product of the slopes would be $-\\frac{4}{9}$, not $-1$.\n\n**Test Day Takeaway:** Perpendicular means two changes, not one: flip the fraction and change the sign. Your answer times the original slope should be exactly $-1$.",
   skills: ["perpendicular-negative-reciprocal"]
 },
 {
@@ -191,19 +191,19 @@ export const practiceTest3 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "The table shows three unit equivalences. A computer downloads data at a constant rate of $320$ megabits per second. At this rate, how many gigabytes of data does the computer download in $1$ hour?",
-  questionTable: { headers: ["Quantity", "Equivalent"], rows: [["1 byte", "8 bits"], ["1 gigabyte", "1,000 megabytes"], ["1 hour", "3,600 seconds"]] },
+  question: "The table shows two unit equivalences. A conveyor belt moves at a constant speed of $2$ feet per second. What is the speed of the conveyor belt, in yards per minute?",
+  questionTable: { headers: ["Quantity", "Equivalent"], rows: [["1 yard", "3 feet"], ["1 minute", "60 seconds"]] },
   choices: [
-    // distractor: stops after converting 320 megabits per second to 40 megabytes per second and never multiplies by 3,600
-    { id: "A", text: "$40$" },
-    { id: "B", text: "$144$" },
-    // distractor: multiplies by 8 instead of dividing, treating 1 megabit as 8 megabytes
-    { id: "C", text: "$9{,}216$" },
-    // distractor: gives the number of megabytes downloaded in 1 hour and never divides by 1,000 to reach gigabytes
-    { id: "D", text: "$144{,}000$" }
+    // distractor: multiplies 2 by 3 instead of dividing and never converts seconds to minutes
+    { id: "A", text: "$6$" },
+    { id: "B", text: "$40$" },
+    // distractor: converts seconds to minutes but leaves the speed in feet, 2 times 60
+    { id: "C", text: "$120$" },
+    // distractor: converts seconds to minutes but multiplies by 3 instead of dividing, treating 1 foot as 3 yards
+    { id: "D", text: "$360$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Unit Conversion**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $320 \\div 8 = 40$ megabytes per second; $40 \\times 3{,}600 = 144{,}000$ megabytes per hour; $144{,}000 \\div 1{,}000 = 144$ gigabytes.\n\n**The Full Solution:**\nStep 1: Convert bits to bytes. Since $1$ byte is $8$ bits, $320$ megabits is $\\frac{320}{8} = 40$ megabytes, so the computer downloads $40$ megabytes each second.\nStep 2: Convert seconds to hours. In $3{,}600$ seconds the computer downloads $40 \\times 3{,}600 = 144{,}000$ megabytes.\nStep 3: Convert megabytes to gigabytes: $\\frac{144{,}000}{1{,}000} = 144$ gigabytes. Check the units: $\\frac{\\text{megabits}}{\\text{second}} \\times \\frac{\\text{byte}}{8\\ \\text{bits}} \\times \\frac{3{,}600\\ \\text{seconds}}{\\text{hour}} \\times \\frac{\\text{gigabyte}}{1{,}000\\ \\text{megabytes}}$ leaves gigabytes per hour ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($40$): this is the rate in megabytes per second, the result of only the first conversion.\n* Choice C ($9{,}216$): multiplying by $8$ instead of dividing gives $2{,}560$ megabytes per second and $9{,}216$ gigabytes per hour. A byte is larger than a bit, so the number of bytes must be smaller.\n* Choice D ($144{,}000$): this is the number of megabytes downloaded in $1$ hour. Converting to gigabytes takes one more division by $1{,}000$.\n\n**Test Day Takeaway:** Write a conversion as a chain of fractions and cancel units as you go; the unit that remains should be the one the question asks for.",
+  explanation: "**SAT Pattern: Unit Conversion**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** In $1$ minute the belt moves $2 \\times 60 = 120$ feet, and $120$ feet is $\\frac{120}{3} = 40$ yards.\n\n**The Full Solution:**\nStep 1: Convert seconds to minutes. There are $60$ seconds in $1$ minute, so the belt moves $2 \\times 60 = 120$ feet each minute.\nStep 2: Convert feet to yards. Since $1$ yard is $3$ feet, $120$ feet is $\\frac{120}{3} = 40$ yards.\nStep 3: The speed is $40$ yards per minute. Check the units: $\\frac{2\\ \\text{feet}}{\\text{second}} \\times \\frac{60\\ \\text{seconds}}{\\text{minute}} \\times \\frac{1\\ \\text{yard}}{3\\ \\text{feet}} = 40$ yards per minute ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): multiplies $2$ by $3$ and stops. A yard is longer than a foot, so the number of yards must be smaller, and the seconds were never converted.\n* Choice C ($120$): this is the speed in feet per minute. Converting to yards takes one more division by $3$.\n* Choice D ($360$): multiplies by $3$ instead of dividing by $3$, giving $2 \\times 60 \\times 3$.\n\n**Test Day Takeaway:** Write a conversion as a chain of fractions and cancel units as you go; the unit that remains should be the one the question asks for.",
   skills: ["unit-conversion"]
 },
 {
@@ -519,19 +519,19 @@ export const practiceTest3 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The equation $y = 18x + 270$ models the number of hotel rooms booked in a town during a week, $y$, where $x$ is the number of flights that arrived that week. In one week, $1{,}350$ rooms were booked, which was $90$ more than the model predicts. How many flights arrived that week?",
+  question: "The equation $y = 1.5x + 9$ is a linear model for the height $y$, in centimeters, of a plant $x$ days after it sprouts. Which of the following is the best interpretation of the model in this context?",
   choices: [
-    { id: "A", text: "$55$" },
-    // distractor: ignores the 90-room difference and solves 18x + 270 = 1350
-    { id: "B", text: "$60$" },
-    // distractor: adds the 90-room difference to the actual value instead of subtracting it, solving 18x + 270 = 1440
-    { id: "C", text: "$65$" },
-    // distractor: subtracts the 90-room difference but drops the constant 270, solving 18x = 1260
-    { id: "D", text: "$70$" }
+    // distractor: uses the daily increase, 1.5 centimeters, as the weekly increase; x is measured in days
+    { id: "A", text: "The predicted height of the plant increases by $1.5$ centimeters each week." },
+    // distractor: uses the constant 9, the predicted height when the plant sprouts, as the weekly increase
+    { id: "B", text: "The predicted height of the plant increases by $9$ centimeters each week." },
+    { id: "C", text: "The predicted height of the plant increases by $10.5$ centimeters each week." },
+    // distractor: gives the predicted height after 7 days, 1.5(7) + 9 = 19.5, instead of the increase over 7 days
+    { id: "D", text: "The predicted height of the plant increases by $19.5$ centimeters each week." }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Residual**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** The model predicted $1{,}350 - 90 = 1{,}260$ rooms, so $18x + 270 = 1{,}260$, which gives $18x = 990$ and $x = 55$.\n\n**The Full Solution:**\nStep 1: The actual number of rooms was $90$ more than the predicted number, so the model's prediction for that week was $1{,}350 - 90 = 1{,}260$.\nStep 2: The model's prediction is $18x + 270$, so $18x + 270 = 1{,}260$.\nStep 3: Subtract $270$ and divide by $18$: $18x = 990$, so $x = 55$. Check: $18(55) + 270 = 990 + 270 = 1{,}260$, and $1{,}350 - 1{,}260 = 90$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($60$): sets the model equal to the actual $1{,}350$ rooms. The model's value is the prediction, which was $90$ less than the actual number.\n* Choice C ($65$): adds $90$ to the actual number, using $1{,}440$ as the prediction. The prediction is below the actual value, not above it.\n* Choice D ($70$): finds the predicted $1{,}260$ correctly but solves $18x = 1{,}260$, leaving out the constant $270$.\n\n**Test Day Takeaway:** Actual minus predicted is the residual; when the actual value is above the model, subtract the difference to get the prediction, then solve the model's equation.",
-  skills: ["calculate-mean", "slope-intercept-form"]
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Interpret Slope of Best Fit**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The slope, $1.5$, is the predicted increase in height each day, so each week the predicted height increases by $7(1.5) = 10.5$ centimeters.\n\n**The Full Solution:**\nStep 1: In $y = 1.5x + 9$, the slope is $1.5$: for each increase of $1$ in $x$, one more day, the predicted height increases by $1.5$ centimeters.\nStep 2: A week is $7$ days, so over a week $x$ increases by $7$ and the predicted height increases by $7(1.5)$.\nStep 3: $7(1.5) = 10.5$, so the predicted height increases by $10.5$ centimeters each week. Check: from day $0$ to day $7$ the prediction goes from $9$ to $1.5(7) + 9 = 19.5$, and $19.5 - 9 = 10.5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: gives the increase per day; $x$ counts days, not weeks.\n* Choice B: uses $9$, the predicted height on the day the plant sprouts, as a rate.\n* Choice D: gives the predicted height on day $7$, which includes the starting height of $9$ centimeters.\n\n**Test Day Takeaway:** The slope is the predicted change for an increase of $1$ in $x$; for a different unit of time, multiply the slope by the number of $x$-units in that unit.",
+  skills: ["slope-from-points", "scatterplots"]
 },
 {
   id: 8,
@@ -674,10 +674,10 @@ export const practiceTest3 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "Each of the quadratic functions $f$, $g$, and $h$ is defined by an equation of the form $p(x) = ax^{2} + bx + c$. The table shows the values of the constants $a$, $b$, and $c$ for each function. What is the sum of the solutions to $g(x) = 0$?",
-  diagram: { type: "dataTable", params: { headers: ["Function", "a", "b", "c"], rows: [["f", "2", "-18", "36"], ["g", "3", "-24", "36"], ["h", "5", "-35", "60"]] } },
+  question: "For the quadratic function $g$, the table shows three values of $x$ and their corresponding values of $g(x)$. What is the sum of the solutions to $g(x) = 0$?",
+  diagram: { type: "dataTable", params: { headers: ["x", "g(x)"], rows: [["0", "36"], ["2", "0"], ["8", "36"]] } },
   correctAnswer: "8",
-  explanation: "**SAT Pattern: Quadratic — Vieta's Sum/Product**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~30s):** From the table, $g(x) = 3x^{2} - 24x + 36$, and the sum of the solutions of $ax^{2} + bx + c = 0$ is $-\\frac{b}{a} = -\\frac{-24}{3} = 8$.\n\n**The Full Solution:**\nStep 1: Read the row for $g$: $a = 3$, $b = -24$, and $c = 36$, so the equation is $3x^{2} - 24x + 36 = 0$.\nStep 2: Divide every term by $3$: $x^{2} - 8x + 12 = 0$, which factors as $(x - 2)(x - 6) = 0$.\nStep 3: The solutions are $x = 2$ and $x = 6$, and their sum is $8$. Check: $-\\frac{b}{a} = -\\frac{-24}{3} = 8$ gives the same sum ✓\n\n**Common Mistakes:**\n* $-8$: computes $\\frac{b}{a}$ and forgets the negative sign in $-\\frac{b}{a}$.\n* $12$: finds the product of the solutions, $\\frac{c}{a} = \\frac{36}{3}$, instead of the sum.\n* $9$: uses the row for $f$, where $-\\frac{-18}{2} = 9$, instead of the row for $g$.\n\n**Test Day Takeaway:** For $ax^{2} + bx + c = 0$, the solutions add to $-\\frac{b}{a}$ and multiply to $\\frac{c}{a}$; you do not need to solve the equation to find either.",
+  explanation: "**SAT Pattern: Quadratic — Vieta's Sum/Product**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~30s):** Since $g(0) = g(8)$, the graph of $y = g(x)$ is symmetric about $x = 4$, so the solutions to $g(x) = 0$ are the same distance from $4$ on each side and their sum is $2 \\times 4 = 8$.\n\n**The Full Solution:**\nStep 1: The graph of a quadratic function is symmetric about the vertical line through its vertex. Because $g(0) = 36$ and $g(8) = 36$, that line is halfway between $0$ and $8$: $x = 4$.\nStep 2: The table shows $g(2) = 0$, so $2$ is one solution. It is $2$ units to the left of $x = 4$, so the other solution is $2$ units to the right: $x = 6$.\nStep 3: The sum of the solutions is $2 + 6 = 8$. Check: $g(x) = 3(x - 2)(x - 6)$ fits the table, since $3(-2)(-6) = 36$, $3(0)(-4) = 0$, and $3(6)(2) = 36$ ✓\n\n**Common Mistakes:**\n* $2$: reports the one solution shown in the table instead of the sum of both solutions.\n* $4$: finds the line of symmetry, $x = 4$, and stops before using it to find the other solution.\n* $10$: treats $x = 8$ as a solution and adds $2 + 8$, but $g(8) = 36$, not $0$.\n\n**Test Day Takeaway:** Two inputs with the same output sit the same distance from the vertex, so the axis of symmetry is their midpoint; the two zeros of a quadratic always add to twice that value.",
   skills: ["quadratic-factoring"]
 },
 {
@@ -685,9 +685,9 @@ export const practiceTest3 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "A container holds $30$ liters of a salt solution with $k$ grams of salt per liter. After $12$ liters of water are mixed in, $6$ liters of the mixture are poured out. The remaining mixture contains $180$ grams of salt. What is the value of $k$?",
-  correctAnswer: "7",
-  explanation: "**SAT Pattern: Word-to-Expression Translation**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~45s):** After the water is added, $42$ liters hold $30k$ grams of salt; keeping $36$ of the $42$ liters keeps $\\frac{36}{42}$ of the salt, so $\\frac{36}{42}(30k) = 180$, which gives $k = 7$.\n\n**The Full Solution:**\nStep 1: The container starts with $30k$ grams of salt. Adding $12$ liters of water changes the volume to $42$ liters but adds no salt, so the mixture has $\\frac{30k}{42}$ grams of salt per liter.\nStep 2: Pouring out $6$ liters leaves $36$ liters at that same concentration, so the salt remaining is $36 \\cdot \\frac{30k}{42} = \\frac{180k}{7}$ grams.\nStep 3: Set this equal to $180$: $\\frac{180k}{7} = 180$, so $k = 7$. Check: the container starts with $210$ grams; in $42$ liters that is $5$ grams per liter, and $6$ liters remove $30$ grams, leaving $180$ grams ✓\n\n**Common Mistakes:**\n* $6$: ignores the $6$ liters poured out and solves $30k = 180$.\n* $7.5$: removes the $6$ liters at the original concentration, solving $30k - 6k = 180$, even though the water had already diluted the solution.\n* $5$: uses the final volume of $36$ liters with the original concentration, solving $36k = 180$.\n\n**Test Day Takeaway:** Adding water changes the concentration but not the amount of salt; pouring out part of a mixture removes the same fraction of the salt as of the volume.",
+  question: "A florist sold $96$ flowers: roses, tulips, and lilies. The florist sold $4$ times as many roses as tulips and $6$ more lilies than tulips. How many tulips did the florist sell?",
+  correctAnswer: "15",
+  explanation: "**SAT Pattern: Word-to-Expression Translation**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~30s):** If $t$ tulips were sold, then $4t$ roses and $t + 6$ lilies were sold, so $t + 4t + (t + 6) = 96$, which gives $6t = 90$ and $t = 15$.\n\n**The Full Solution:**\nStep 1: Let $t$ be the number of tulips sold. Then the number of roses is $4t$ and the number of lilies is $t + 6$.\nStep 2: The three kinds of flowers make up all $96$ flowers: $t + 4t + (t + 6) = 96$, or $6t + 6 = 96$.\nStep 3: Subtract $6$ and divide by $6$: $6t = 90$, so $t = 15$. Check: $15$ tulips, $60$ roses, and $21$ lilies give $15 + 60 + 21 = 96$ flowers ✓\n\n**Common Mistakes:**\n* $16$: writes the equation without the $6$ extra lilies, solving $6t = 96$.\n* $18$: leaves out the lilies' own count of $t$, solving $5t + 6 = 96$.\n* $60$: solves correctly but reports the number of roses, $4t$, instead of the number of tulips.\n\n**Test Day Takeaway:** Name the quantity that every other quantity is described in terms of, write each count as an expression in that variable, and set the sum equal to the total.",
   skills: ["word-problem-to-equation"]
 },
 {
@@ -695,19 +695,19 @@ export const practiceTest3 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "The endpoints of line segment $PQ$ in the $xy$-plane are $P(-6, 11)$ and $Q(14, -3)$. Which of the following is the midpoint of line segment $PQ$?",
+  question: "$y = 6x - 5$\nIn the $xy$-plane, line $j$ is parallel to the graph of the given equation and has a $y$-intercept of $(0, 2)$. Which equation defines line $j$?",
   choices: [
-    // distractor: halves the differences of the coordinates instead of their sums: ((-6 - 14)/2, (11 + 3)/2)
-    { id: "A", text: "$(-10, 7)$" },
-    { id: "B", text: "$(4, 4)$" },
-    // distractor: adds the coordinates but forgets to divide each sum by 2
-    { id: "C", text: "$(8, 8)$" },
-    // distractor: subtracts the coordinates of P from those of Q, giving the change from P to Q rather than a point
-    { id: "D", text: "$(20, -14)$" }
+    // distractor: changes the sign of the slope; parallel lines have the same slope
+    { id: "A", text: "$y = -6x + 2$" },
+    // distractor: uses the y-intercept 2 as the slope and keeps the given line's y-intercept
+    { id: "B", text: "$y = 2x - 5$" },
+    // distractor: gives the equation of the given line itself, which has y-intercept (0, -5), not (0, 2)
+    { id: "C", text: "$y = 6x - 5$" },
+    { id: "D", text: "$y = 6x + 2$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Midpoint Formula**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Average the coordinates: $\\left(\\frac{-6 + 14}{2}, \\frac{11 + (-3)}{2}\\right) = (4, 4)$.\n\n**The Full Solution:**\nStep 1: The midpoint of a segment has coordinates equal to the averages of the endpoints' coordinates.\nStep 2: The $x$-coordinate is $\\frac{-6 + 14}{2} = \\frac{8}{2} = 4$, and the $y$-coordinate is $\\frac{11 + (-3)}{2} = \\frac{8}{2} = 4$.\nStep 3: The midpoint is $(4, 4)$. Check: from $P$ to $(4, 4)$ the coordinates change by $(10, -7)$, and from $(4, 4)$ to $Q$ they also change by $(10, -7)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(-10, 7)$): halves the differences of the coordinates instead of the sums, computing $\\frac{-6 - 14}{2}$ and $\\frac{11 + 3}{2}$.\n* Choice C ($(8, 8)$): adds the coordinates but does not divide by $2$.\n* Choice D ($(20, -14)$): subtracts the coordinates of $P$ from those of $Q$, which gives the change from $P$ to $Q$, not a point on the segment.\n\n**Test Day Takeaway:** A midpoint is an average: add the two $x$-coordinates and divide by $2$, then do the same for the $y$-coordinates.",
-  skills: ["coordinate-geometry"]
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Line $j$ has the same slope as the given line, $6$, and its $y$-intercept is $(0, 2)$, so $y = 6x + 2$.\n\n**The Full Solution:**\nStep 1: The given equation is in slope-intercept form, $y = mx + b$, so the slope of its graph is $6$.\nStep 2: Parallel lines have the same slope, so line $j$ has slope $6$. Its $y$-intercept is $(0, 2)$, so $b = 2$.\nStep 3: An equation of line $j$ is $y = 6x + 2$. Check: at $x = 0$ the equation gives $y = 2$, and its slope matches the given line's slope ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -6x + 2$): has the right $y$-intercept but the opposite slope. Parallel lines have equal slopes.\n* Choice B ($y = 2x - 5$): swaps the roles of the numbers, using $2$ as the slope and keeping the given line's $y$-intercept.\n* Choice C ($y = 6x - 5$): this is the given line itself. Its $y$-intercept is $(0, -5)$, not $(0, 2)$.\n\n**Test Day Takeaway:** A parallel line keeps the slope and changes only the $y$-intercept: copy $m$, then use the new intercept for $b$.",
+  skills: ["writing-parallel-equation"]
 },
 {
   id: 19,

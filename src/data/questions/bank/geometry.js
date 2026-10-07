@@ -168,18 +168,18 @@ export const geometryBank = [
     skills: ["radians-to-degrees"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "An angle measures $\\frac{5\\pi}{6}$ radians. What is the measure of this angle in degrees?",
+    question: "An angle measures $\\frac{5\\pi}{9}$ radians. What is the measure of this angle in degrees?",
     choices: [
-      // distractor: uses 90 degrees for pi radians, computing (5/6)(90) = 75
-      { id: "A", text: "$75$" },
-      { id: "B", text: "$150$" },
-      // distractor: inverts the fraction, computing (6/5)(180) = 216
-      { id: "C", text: "$216$" },
-      // distractor: uses 360 degrees for pi radians, computing (5/6)(360) = 300
-      { id: "D", text: "$300$" }
+      // distractor: drops the 5 and converts pi/9, computing 180/9 = 20
+      { id: "A", text: "$20$" },
+      // distractor: uses 90 degrees for pi radians, computing (5/9)(90) = 50
+      { id: "B", text: "$50$" },
+      { id: "C", text: "$100$" },
+      // distractor: uses 360 degrees for pi radians, computing (5/9)(360) = 200
+      { id: "D", text: "$200$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Radians to Degrees**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Replace $\\pi$ with $180°$: $\\frac{5(180)}{6} = 150$.\n\n**The Full Solution:**\nStep 1: Since $\\pi$ radians $= 180°$, multiply a radian measure by $\\frac{180}{\\pi}$ to convert it to degrees.\nStep 2: $\\frac{5\\pi}{6} \\cdot \\frac{180}{\\pi} = \\frac{5 \\cdot 180}{6}$.\nStep 3: Compute: $\\frac{900}{6} = 150$, so the angle measures $150°$. Check: $150 \\cdot \\frac{\\pi}{180} = \\frac{5\\pi}{6}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($75$): replaces $\\pi$ with $90$ instead of $180$.\n* Choice C ($216$): flips the fraction to $\\frac{6}{5}$ before multiplying by $180$.\n* Choice D ($300$): replaces $\\pi$ with $360$, the degree measure of a full turn, which is $2\\pi$ radians.\n\n**Test Day Takeaway:** Radians to degrees: replace $\\pi$ with $180$. Since $\\frac{5}{6}$ is a little less than $1$, the answer must be a little less than $180$.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Radians to Degrees**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Replace $\\pi$ with $180°$: $\\frac{5(180)}{9} = 100$.\n\n**The Full Solution:**\nStep 1: Since $\\pi$ radians $= 180°$, multiply a radian measure by $\\frac{180}{\\pi}$ to convert it to degrees.\nStep 2: $\\frac{5\\pi}{9} \\cdot \\frac{180}{\\pi} = \\frac{5 \\cdot 180}{9}$.\nStep 3: Compute: $\\frac{900}{9} = 100$, so the angle measures $100°$. Check: $100 \\cdot \\frac{\\pi}{180} = \\frac{100\\pi}{180} = \\frac{5\\pi}{9}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): converts only $\\frac{\\pi}{9}$, which is $20°$, and forgets to multiply by $5$.\n* Choice B ($50$): replaces $\\pi$ with $90$ instead of $180$.\n* Choice D ($200$): replaces $\\pi$ with $360$, the degree measure of a full turn, which is $2\\pi$ radians.\n\n**Test Day Takeaway:** Radians to degrees: replace $\\pi$ with $180$. Since $\\frac{5}{9}$ is a little more than $\\frac{1}{2}$, the answer must be a little more than $90$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "unit-conversion",
@@ -192,18 +192,18 @@ export const geometryBank = [
     skills: ["triangle-types"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A triangle has side lengths of $14$, $14$, and $22$. Which of the following best describes the triangle?",
+    question: "In triangle $PQR$, $PQ = 16$ centimeters and $QR = 16$ centimeters. Which additional fact would show that triangle $PQR$ is equilateral?",
     choices: [
-      // distractor: sees two equal sides and assumes all three are equal
-      { id: "A", text: "Equilateral" },
-      { id: "B", text: "Isosceles but not equilateral" },
-      // distractor: focuses on the different third side and overlooks the pair of equal sides
-      { id: "C", text: "Scalene" },
-      // distractor: assumes the triangle has a right angle without checking 14^2 + 14^2 against 22^2
-      { id: "D", text: "Right" }
+      // distractor: angles P and R are already equal because PQ = QR, so this says nothing new about PR
+      { id: "A", text: "Angle $P$ and angle $R$ have equal measures." },
+      // distractor: a right angle at Q makes PR = 16 sqrt(2), so the triangle is isosceles but not equilateral
+      { id: "B", text: "Angle $Q$ is a right angle." },
+      // distractor: halves the given side length instead of matching it
+      { id: "C", text: "$PR = 8$ centimeters" },
+      { id: "D", text: "$PR = 16$ centimeters" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Triangle Classification by Sides**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Exactly two sides are equal ($14$ and $14$), so the triangle is isosceles but not equilateral.\n\n**The Full Solution:**\nStep 1: A triangle with all three sides equal is equilateral, one with at least two equal sides is isosceles, and one with no equal sides is scalene.\nStep 2: Here two sides measure $14$ and the third measures $22$, so exactly two sides are equal.\nStep 3: Rule out a right triangle: $14^{2} + 14^{2} = 392$, but $22^{2} = 484$, so the Pythagorean relationship fails. Check: the sides form a triangle at all, since $14 + 14 = 28 > 22$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Equilateral): would need all three sides equal, but $22 \\ne 14$.\n* Choice C (Scalene): would need all three sides different, but two sides are both $14$.\n* Choice D (Right): $14^{2} + 14^{2} = 392 \\ne 484 = 22^{2}$, so there is no right angle.\n\n**Test Day Takeaway:** Count the equal sides: three means equilateral, exactly two means isosceles, none means scalene. Test for a right angle only with the Pythagorean theorem.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Triangle Classification by Sides**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** An equilateral triangle has three equal sides. Two sides are already $16$, so the third side must also be $16$ centimeters.\n\n**The Full Solution:**\nStep 1: Triangle $PQR$ is equilateral exactly when $PQ = QR = PR$.\nStep 2: It is given that $PQ = QR = 16$, so the only missing condition is $PR = 16$.\nStep 3: Choice D states that $PR = 16$ centimeters, which makes all three sides equal. Check: the sides are $16$, $16$, and $16$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Angle $P$ and angle $R$ have equal measures.): since $PQ = QR$, the angles opposite those sides, angle $R$ and angle $P$, are already equal. This is true of every triangle with these two sides, so it cannot force $PR = 16$.\n* Choice B (Angle $Q$ is a right angle.): a right angle at $Q$ gives $PR = \\sqrt{16^{2} + 16^{2}} = 16\\sqrt{2}$, so the triangle is isosceles but not equilateral.\n* Choice C ($PR = 8$ centimeters): gives side lengths $16$, $16$, and $8$, which is isosceles but not equilateral.\n\n**Test Day Takeaway:** Equilateral means all three sides are equal. A statement proves it only if it forces the third side to match the other two.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "classification",
@@ -217,18 +217,18 @@ export const geometryBank = [
     difficulty: "easy",
     type: "multiple-choice",
     question: "What is the value of $x$ in the triangle shown?",
-    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [11.314, 0], [11.314, 11.314]], rightAngleVertex: 1, labels: ["45°", "", ""], sideLabels: ["x", "", "16"], figureNote: true } },
+    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [16, 0], [16, 16]], rightAngleVertex: 1, labels: ["45°", "", ""], sideLabels: ["16", "", "x"], figureNote: true } },
     choices: [
-      // distractor: halves the hypotenuse, as if each leg were half of it
-      { id: "A", text: "$8$" },
-      { id: "B", text: "$8\\sqrt{2}$" },
-      // distractor: sets the leg equal to the hypotenuse
-      { id: "C", text: "$16$" },
-      // distractor: multiplies the hypotenuse by the square root of 2 instead of dividing
-      { id: "D", text: "$16\\sqrt{2}$" }
+      // distractor: divides the leg by sqrt(2) instead of multiplying
+      { id: "A", text: "$8\\sqrt{2}$" },
+      // distractor: assumes the hypotenuse is equal to the leg
+      { id: "B", text: "$16$" },
+      { id: "C", text: "$16\\sqrt{2}$" },
+      // distractor: doubles the leg instead of multiplying it by sqrt(2)
+      { id: "D", text: "$32$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: 45-45-90 Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** In a $45°$-$45°$-$90°$ triangle the hypotenuse is $\\sqrt{2}$ times a leg, so $x = \\frac{16}{\\sqrt{2}} = 8\\sqrt{2}$.\n\n**The Full Solution:**\nStep 1: The triangle has a right angle and a $45°$ angle, so its third angle is $45°$ and it is a $45°$-$45°$-$90°$ triangle with two equal legs.\nStep 2: In such a triangle, the hypotenuse is $\\sqrt{2}$ times each leg: $x\\sqrt{2} = 16$.\nStep 3: Solve: $x = \\frac{16}{\\sqrt{2}} = \\frac{16\\sqrt{2}}{2} = 8\\sqrt{2}$. Check: $(8\\sqrt{2})^{2} + (8\\sqrt{2})^{2} = 128 + 128 = 256 = 16^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): halves the hypotenuse; that ratio belongs to the short leg of a $30°$-$60°$-$90°$ triangle.\n* Choice C ($16$): makes the leg as long as the hypotenuse, which is impossible in a right triangle.\n* Choice D ($16\\sqrt{2}$): multiplies by $\\sqrt{2}$ instead of dividing, making the leg longer than the hypotenuse.\n\n**Test Day Takeaway:** In a $45°$-$45°$-$90°$ triangle, leg $\\times \\sqrt{2}$ = hypotenuse; going from hypotenuse to leg, divide by $\\sqrt{2}$.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: 45-45-90 Triangle**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** In a $45°$-$45°$-$90°$ triangle, the hypotenuse is $\\sqrt{2}$ times a leg, so $x = 16\\sqrt{2}$.\n\n**The Full Solution:**\nStep 1: The triangle has a right angle and a $45°$ angle, so its third angle is $45°$ and its legs are equal: both legs are $16$.\nStep 2: In a $45°$-$45°$-$90°$ triangle, the hypotenuse is $\\sqrt{2}$ times the length of a leg.\nStep 3: So $x = 16\\sqrt{2}$. Check: $16^{2} + 16^{2} = 512$ and $(16\\sqrt{2})^{2} = 256 \\cdot 2 = 512$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8\\sqrt{2}$): divides the leg by $\\sqrt{2}$; that move finds a leg from the hypotenuse, not the hypotenuse from a leg.\n* Choice B ($16$): treats the hypotenuse as equal to the leg, but the hypotenuse is always the longest side.\n* Choice D ($32$): doubles the leg. The hypotenuse is $\\sqrt{2} \\approx 1.41$ times a leg, not $2$ times.\n\n**Test Day Takeaway:** In a $45°$-$45°$-$90°$ triangle, leg to hypotenuse: multiply by $\\sqrt{2}$. Hypotenuse to leg: divide by $\\sqrt{2}$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "special-triangle-ratio",
@@ -241,7 +241,7 @@ export const geometryBank = [
     skills: ["circle-parts"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "In a circle with center $O$, chord $\\overline{AB}$ passes through $O$. If $OA = 7$, what is the length of $\\overline{AB}$?",
+    question: "Points $A$ and $B$ lie on a circle with center $O$, and $\\overline{AB}$ passes through $O$. If $OA = 7$, what is the length of $\\overline{AB}$?",
     choices: [
       // distractor: halves the radius instead of doubling it
       { id: "A", text: "$3.5$" },
@@ -252,7 +252,7 @@ export const geometryBank = [
       { id: "D", text: "$44$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Circle Vocabulary**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** A chord through the center is a diameter, and $OA$ is a radius, so $AB = 2(7) = 14$.\n\n**The Full Solution:**\nStep 1: $O$ is the center and $A$ is on the circle, so $\\overline{OA}$ is a radius: the radius is $7$.\nStep 2: A chord that passes through the center of a circle is a diameter, so $\\overline{AB}$ is a diameter.\nStep 3: A diameter is twice the radius: $AB = 2(7) = 14$. Check: $AB = AO + OB = 7 + 7 = 14$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3.5$): halves the radius, mixing up which of radius and diameter is the longer one.\n* Choice B ($7$): treats $\\overline{AB}$ as a radius, but it runs all the way across the circle.\n* Choice D ($44$): computes the circumference $2\\pi(7) \\approx 44$, the distance around the circle, not across it.\n\n**Test Day Takeaway:** Any chord through the center is a diameter, and a diameter is two radii laid end to end.",
+    explanation: "**SAT Pattern: Circle Vocabulary**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** A segment that joins two points of the circle through the center is a diameter, and $OA$ is a radius, so $AB = 2(7) = 14$.\n\n**The Full Solution:**\nStep 1: $O$ is the center and $A$ is on the circle, so $\\overline{OA}$ is a radius: the radius is $7$.\nStep 2: $\\overline{AB}$ joins two points of the circle and passes through the center, so $\\overline{AB}$ is a diameter.\nStep 3: A diameter is twice the radius: $AB = 2(7) = 14$. Check: $AB = AO + OB = 7 + 7 = 14$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3.5$): halves the radius, mixing up which of radius and diameter is the longer one.\n* Choice B ($7$): treats $\\overline{AB}$ as a radius, but it runs all the way across the circle.\n* Choice D ($44$): computes the circumference $2\\pi(7) \\approx 44$, the distance around the circle, not across it.\n\n**Test Day Takeaway:** A segment through the center with both endpoints on the circle is a diameter, and a diameter is two radii laid end to end.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "definition-recall",
@@ -287,21 +287,21 @@ export const geometryBank = [
   {
     id: "bank-geo-013",
     domain: "geometry",
-    skills: ["triangle-inequality"],
+    skills: ["triangle-angle-sum"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "Which of the following could be the side lengths of a triangle?",
+    question: "Two angles of a triangle have measures $38°$ and $x°$. Which of the following could be the value of $x$?",
     choices: [
-      // distractor: checks only a pair that works, such as 6 + 11 > 4, and misses 4 + 6 < 11
-      { id: "A", text: "$4$, $6$, and $11$" },
-      // distractor: accepts a sum equal to the third side, 5 + 9 = 14, which gives a flat segment, not a triangle
-      { id: "B", text: "$5$, $9$, and $14$" },
-      // distractor: checks only a pair that works, such as 8 + 15 > 6, and misses 6 + 8 < 15
-      { id: "C", text: "$6$, $8$, and $15$" },
-      { id: "D", text: "$7$, $10$, and $16$" }
+      { id: "A", text: "$135$" },
+      // distractor: uses 180 - 38 = 142, which leaves 0 degrees for the third angle
+      { id: "B", text: "$142$" },
+      // distractor: ignores the 180-degree total once x looks less than 180
+      { id: "C", text: "$160$" },
+      // distractor: adds 38 to 180 instead of subtracting
+      { id: "D", text: "$218$" }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Triangle Inequality**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The two shorter sides must add to more than the longest side; only $7 + 10 = 17 > 16$ works.\n\n**The Full Solution:**\nStep 1: Three lengths form a triangle only if the sum of the two shorter lengths is greater than the longest length.\nStep 2: Test each choice: $4 + 6 = 10 < 11$, $5 + 9 = 14 = 14$, $6 + 8 = 14 < 15$, and $7 + 10 = 17 > 16$.\nStep 3: Only $7$, $10$, and $16$ passes. Check: the other two sums also hold, $7 + 16 > 10$ and $10 + 16 > 7$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$, $6$, and $11$): $4 + 6 = 10$ is less than $11$, so the two short sides cannot meet.\n* Choice B ($5$, $9$, and $14$): $5 + 9$ equals $14$ exactly, so the sides would lie flat along one segment.\n* Choice C ($6$, $8$, and $15$): $6 + 8 = 14$ is less than $15$.\n\n**Test Day Takeaway:** Test only the two shortest sides against the longest; the sum must be strictly greater, and equal is not enough.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Triangle Angle Sum**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The third angle is $180 - 38 - x = 142 - x$, which must be positive, so $x < 142$. Only $135$ works.\n\n**The Full Solution:**\nStep 1: The three angles of a triangle add to $180°$, so the third angle measures $180 - 38 - x = 142 - x$ degrees.\nStep 2: Every angle of a triangle has a positive measure, so $142 - x > 0$, which means $x < 142$.\nStep 3: Of the choices, only $135$ is less than $142$. Check: the angles would be $38°$, $135°$, and $7°$, and $38 + 135 + 7 = 180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($142$): makes the third angle $142 - 142 = 0°$, which is not a triangle.\n* Choice C ($160$): makes the third angle $142 - 160 = -18°$, which is impossible.\n* Choice D ($218$): adds $38$ to $180$; no angle of a triangle can be greater than $180°$.\n\n**Test Day Takeaway:** The angles of a triangle add to $180°$, and each one is positive, so any two angles must add to less than $180°$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "constraint-check",
@@ -338,7 +338,7 @@ export const geometryBank = [
     skills: ["radian-measure-understanding"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A circle is divided into $8$ congruent sectors. What is the measure, in radians, of the central angle of each sector?",
+    question: "A circle is divided into $8$ arcs of equal length. What is the measure, in radians, of the central angle of each arc?",
     choices: [
       // distractor: uses pi radians for a full turn, computing pi/8
       { id: "A", text: "$\\frac{\\pi}{8}$" },
@@ -349,7 +349,7 @@ export const geometryBank = [
       { id: "D", text: "$16\\pi$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Radian Measure of a Full Circle**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** A full circle is $2\\pi$ radians, and $\\frac{2\\pi}{8} = \\frac{\\pi}{4}$.\n\n**The Full Solution:**\nStep 1: The central angles of the sectors together make one full turn, which measures $2\\pi$ radians.\nStep 2: The $8$ sectors are congruent, so each central angle is $\\frac{2\\pi}{8}$.\nStep 3: Simplify: $\\frac{2\\pi}{8} = \\frac{\\pi}{4}$. Check: $\\frac{\\pi}{4}$ radians is $45°$, and $8(45°) = 360°$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{\\pi}{8}$): treats a full turn as $\\pi$ radians, which is only half a circle.\n* Choice C ($2\\pi$): gives the measure of the whole circle and never divides it among the sectors.\n* Choice D ($16\\pi$): multiplies by $8$ instead of dividing.\n\n**Test Day Takeaway:** A full turn is $2\\pi$ radians, the same as $360°$; split it evenly when a circle is cut into congruent sectors.",
+    explanation: "**SAT Pattern: Radian Measure of a Full Circle**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** A full circle is $2\\pi$ radians, and $\\frac{2\\pi}{8} = \\frac{\\pi}{4}$.\n\n**The Full Solution:**\nStep 1: The central angles of the $8$ arcs together make one full turn, which measures $2\\pi$ radians.\nStep 2: The arcs have equal length, so their central angles are equal, and each one is $\\frac{2\\pi}{8}$.\nStep 3: Simplify: $\\frac{2\\pi}{8} = \\frac{\\pi}{4}$. Check: $\\frac{\\pi}{4}$ radians is $45°$, and $8(45°) = 360°$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{\\pi}{8}$): treats a full turn as $\\pi$ radians, which is only half a circle.\n* Choice C ($2\\pi$): gives the measure of the whole circle and never divides it among the arcs.\n* Choice D ($16\\pi$): multiplies by $8$ instead of dividing.\n\n**Test Day Takeaway:** A full turn is $2\\pi$ radians, the same as $360°$; split it evenly when a circle is cut into equal arcs.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "definition-recall",
@@ -428,19 +428,19 @@ export const geometryBank = [
     skills: ["pythagorean-theorem"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A ladder $26$ feet long leans against a wall that is $30$ feet tall, with the bottom of the ladder $10$ feet from the wall, as shown. How many feet below the top of the wall is the top of the ladder?",
-    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [10, 0], [10, 24]], sideLabels: ["10 ft", "", "26 ft"], rightAngleVertex: 1 } },
+    question: "A $17$-foot ladder leans against a vertical wall, and the bottom of the ladder is $8$ feet from the wall, as shown. How many feet up the wall does the top of the ladder reach?",
+    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [8, 0], [8, 15]], sideLabels: ["8 ft", "", "17 ft"], rightAngleVertex: 1 } },
     choices: [
-      // distractor: subtracts the ladder length from the wall height, 30 - 26, as if the ladder stood straight up
-      { id: "A", text: "$4$" },
-      { id: "B", text: "$6$" },
-      // distractor: subtracts the 10-foot ground distance from the wall height, 30 - 10
-      { id: "C", text: "$20$" },
-      // distractor: reports the height the ladder reaches, 24, without comparing it to the 30-foot wall
-      { id: "D", text: "$24$" }
+      // distractor: subtracts the side lengths, 17 - 8 = 9, instead of their squares
+      { id: "A", text: "$9$" },
+      { id: "B", text: "$15$" },
+      // distractor: adds the side lengths, 17 + 8 = 25
+      { id: "C", text: "$25$" },
+      // distractor: finds 17^2 - 8^2 = 225 and forgets to take the square root
+      { id: "D", text: "$225$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Ladder Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The ladder reaches $\\sqrt{26^{2} - 10^{2}} = 24$ feet up the wall, and $30 - 24 = 6$.\n\n**The Full Solution:**\nStep 1: The ladder, the ground, and the wall form a right triangle with hypotenuse $26$ and one leg $10$.\nStep 2: The height the ladder reaches is the other leg: $\\sqrt{26^{2} - 10^{2}} = \\sqrt{676 - 100} = \\sqrt{576} = 24$ feet.\nStep 3: The wall is $30$ feet tall, so the top of the ladder is $30 - 24 = 6$ feet below the top of the wall. Check: $10^{2} + 24^{2} = 100 + 576 = 676 = 26^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): subtracts the ladder's length from the wall height, treating the slanted ladder as vertical.\n* Choice C ($20$): subtracts the $10$-foot ground distance from the wall height; that distance is horizontal.\n* Choice D ($24$): finds how high the ladder reaches but stops before comparing it with the $30$-foot wall.\n\n**Test Day Takeaway:** Find the missing leg with the Pythagorean theorem, then reread the question: here it asks for the gap to the top of the wall, not the height reached.",
+    explanation: "**SAT Pattern: Ladder Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The ladder is the hypotenuse: $\\sqrt{17^{2} - 8^{2}} = \\sqrt{225} = 15$.\n\n**The Full Solution:**\nStep 1: The wall, the ground, and the ladder form a right triangle with the ladder, $17$ feet, as the hypotenuse and the ground distance, $8$ feet, as one leg.\nStep 2: Let $h$ be the height the ladder reaches. By the Pythagorean theorem, $8^{2} + h^{2} = 17^{2}$, so $h^{2} = 289 - 64 = 225$.\nStep 3: $h = \\sqrt{225} = 15$ feet. Check: $8^{2} + 15^{2} = 64 + 225 = 289 = 17^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): subtracts the lengths themselves; the Pythagorean theorem works with their squares.\n* Choice C ($25$): adds the two lengths, but a leg must be shorter than the hypotenuse.\n* Choice D ($225$): is $h^{2}$, not $h$; the last step is the square root.\n\n**Test Day Takeaway:** In a right triangle, the side across from the right angle is the hypotenuse. To find a leg, subtract squares: $b = \\sqrt{c^{2} - a^{2}}$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "real-world-pythagorean",
@@ -453,19 +453,19 @@ export const geometryBank = [
     skills: ["similar-triangles"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "In the figure shown, triangle $PQR$ is similar to triangle $STU$, where $P$, $Q$, and $R$ correspond to $S$, $T$, and $U$, respectively. What is the length of $\\overline{TU}$?",
-    diagram: { type: "similarTriangles", params: { triangle1: { vertices: [[0.75, 11.98], [0, 0], [18, 0]], labels: ["P", "Q", "R"], sideLabels: ["12", "18", "21"] }, triangle2: { vertices: [[1.25, 19.96], [0, 0], [30, 0]], labels: ["S", "T", "U"], sideLabels: ["20", "", ""] }, figureNote: true } },
+    question: "Triangle $FGH$ is similar to triangle $JKL$ in the figure shown, with $F$, $G$, and $H$ corresponding to $J$, $K$, and $L$, respectively. What is the length of $\\overline{KL}$?",
+    diagram: { type: "similarTriangles", params: { triangle1: { vertices: [[0, 7.79], [4.5, 0], [19.5, 0]], labels: ["F", "G", "H"], sideLabels: ["9", "15", "21"] }, triangle2: { vertices: [[0, 10.39], [6, 0], [26, 0]], labels: ["J", "K", "L"], sideLabels: ["12", "", ""] }, figureNote: true } },
     choices: [
-      // distractor: inverts the scale factor, multiplying 18 by 12/20
-      { id: "A", text: "$10.8$" },
-      // distractor: adds the difference 20 - 12 = 8 to QR instead of multiplying by the scale factor
-      { id: "B", text: "$26$" },
-      { id: "C", text: "$30$" },
-      // distractor: scales RP = 21 instead of the corresponding side QR
-      { id: "D", text: "$35$" }
+      // distractor: inverts the scale factor, multiplying 15 by 9/12
+      { id: "A", text: "$11.25$" },
+      // distractor: adds the difference 12 - 9 = 3 to GH instead of multiplying by the scale factor
+      { id: "B", text: "$18$" },
+      { id: "C", text: "$20$" },
+      // distractor: scales HF = 21 instead of the corresponding side GH
+      { id: "D", text: "$28$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\overline{ST}$ matches $\\overline{PQ}$, so the scale factor is $\\frac{20}{12} = \\frac{5}{3}$, and $TU = \\frac{5}{3}(18) = 30$.\n\n**The Full Solution:**\nStep 1: Because $P$, $Q$, $R$ correspond to $S$, $T$, $U$, side $\\overline{ST}$ corresponds to $\\overline{PQ}$ and side $\\overline{TU}$ corresponds to $\\overline{QR}$.\nStep 2: The scale factor from triangle $PQR$ to triangle $STU$ is $\\frac{ST}{PQ} = \\frac{20}{12} = \\frac{5}{3}$.\nStep 3: Then $TU = \\frac{5}{3} \\cdot QR = \\frac{5}{3}(18) = 30$. Check: $\\frac{TU}{QR} = \\frac{30}{18} = \\frac{5}{3} = \\frac{20}{12}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10.8$): uses the scale factor upside down, $\\frac{12}{20}$, which shrinks a side of the larger triangle.\n* Choice B ($26$): adds the difference $20 - 12 = 8$; similar figures scale by multiplying, not adding.\n* Choice D ($35$): scales $RP = 21$, which corresponds to $\\overline{US}$, not $\\overline{TU}$.\n\n**Test Day Takeaway:** Use the letter order of the similarity statement to pair sides, then multiply by one scale factor.",
+    explanation: "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\overline{JK}$ matches $\\overline{FG}$, so the scale factor is $\\frac{12}{9} = \\frac{4}{3}$, and $KL = \\frac{4}{3}(15) = 20$.\n\n**The Full Solution:**\nStep 1: Because $F$, $G$, $H$ correspond to $J$, $K$, $L$, side $\\overline{JK}$ corresponds to $\\overline{FG}$ and side $\\overline{KL}$ corresponds to $\\overline{GH}$.\nStep 2: The scale factor from triangle $FGH$ to triangle $JKL$ is $\\frac{JK}{FG} = \\frac{12}{9} = \\frac{4}{3}$.\nStep 3: Then $KL = \\frac{4}{3} \\cdot GH = \\frac{4}{3}(15) = 20$. Check: $\\frac{KL}{GH} = \\frac{20}{15} = \\frac{4}{3} = \\frac{12}{9}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($11.25$): uses the scale factor upside down, $\\frac{9}{12}$, which shrinks a side of the larger triangle.\n* Choice B ($18$): adds the difference $12 - 9 = 3$; similar figures scale by multiplying, not adding.\n* Choice D ($28$): scales $HF = 21$, which corresponds to $\\overline{LJ}$, not $\\overline{KL}$.\n\n**Test Day Takeaway:** Use the letter order of the similarity statement to pair sides, then multiply by one scale factor.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "proportion-setup",
@@ -475,22 +475,22 @@ export const geometryBank = [
   {
     id: "bank-geo-021",
     domain: "geometry",
-    skills: ["soh-cah-toa"],
+    skills: ["soh-cah-toa", "pythagorean-theorem"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "Point $P$ is $8$ meters above level ground, and point $Q$ is on the ground, as shown. The angle of depression from $P$ to $Q$ is $28°$. To the nearest meter, what is the distance between $P$ and $Q$?",
-    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [15.046, 0], [0, 8]], rightAngleVertex: 0, labels: ["", "Q", "P"], sideLabels: ["", "", "8"] } },
+    question: "In the right triangle shown, which expression represents the value of $x$?",
+    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [15.046, 0], [0, 8]], rightAngleVertex: 0, labels: ["", "28°", ""], sideLabels: ["", "x", "8"] } },
     choices: [
-      // distractor: multiplies by sin 28 instead of dividing, giving 8 sin 28 about 3.8
-      { id: "A", text: "$4$" },
-      // distractor: reports the 8-meter height
-      { id: "B", text: "$8$" },
-      // distractor: gives the horizontal distance along the ground, 8 / tan 28 about 15.0
-      { id: "C", text: "$15$" },
-      { id: "D", text: "$17$" }
+      // distractor: sets x/8 = sin 28 degrees, putting the hypotenuse in the numerator
+      { id: "A", text: "$8\\sin 28°$" },
+      // distractor: treats the side of length 8 as the hypotenuse and x as the adjacent side
+      { id: "B", text: "$8\\cos 28°$" },
+      // distractor: treats the side of length 8 as adjacent to the 28-degree angle
+      { id: "C", text: "$\\frac{8}{\\cos 28°}$" },
+      { id: "D", text: "$\\frac{8}{\\sin 28°}$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Angle of Depression**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** The angle at $Q$ equals the $28°$ angle of depression, and the $8$-meter height is opposite it, so $PQ = \\frac{8}{\\sin 28°} \\approx 17$ meters.\n\n**The Full Solution:**\nStep 1: The angle of depression is measured down from a horizontal line through $P$. The ground is also horizontal, so the angle of elevation from $Q$ up to $P$ is also $28°$ (alternate interior angles).\nStep 2: In the right triangle, the $8$-meter height is opposite the $28°$ angle at $Q$, and $\\overline{PQ}$ is the hypotenuse, so $\\sin 28° = \\frac{8}{PQ}$.\nStep 3: Solve: $PQ = \\frac{8}{\\sin 28°} \\approx \\frac{8}{0.4695} \\approx 17.0$, so the distance is about $17$ meters. Check: the ground distance is $\\frac{8}{\\tan 28°} \\approx 15.0$, and $15.05^{2} + 8^{2} \\approx 290.5 \\approx 17.04^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): multiplies by $\\sin 28°$ instead of dividing, giving $8\\sin 28° \\approx 3.8$.\n* Choice B ($8$): reports the height, a leg of the triangle, rather than the slanted distance.\n* Choice C ($15$): finds the distance along the ground, $\\frac{8}{\\tan 28°}$, instead of the straight-line distance from $P$ to $Q$.\n\n**Test Day Takeaway:** An angle of depression from above equals the angle of elevation from below; then decide whether the question wants a leg or the hypotenuse before choosing sine, cosine, or tangent.",
+    explanation: "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** The side of length $8$ is opposite the $28°$ angle and $x$ is the hypotenuse, so $\\sin 28° = \\frac{8}{x}$ and $x = \\frac{8}{\\sin 28°}$.\n\n**The Full Solution:**\nStep 1: The side of length $8$ is across from the $28°$ angle, and $x$ is across from the right angle, so $x$ is the hypotenuse.\nStep 2: Sine relates the opposite side and the hypotenuse: $\\sin 28° = \\frac{8}{x}$.\nStep 3: Multiply both sides by $x$ and divide by $\\sin 28°$: $x = \\frac{8}{\\sin 28°}$. Check: $\\sin 28° \\approx 0.469$, so $x \\approx 17.0$, which is longer than $8$, as a hypotenuse must be ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8\\sin 28°$): gives $8\\sin 28° \\approx 3.8$, shorter than the leg of length $8$, so it cannot be the hypotenuse.\n* Choice B ($8\\cos 28°$): treats $8$ as the hypotenuse and $x$ as the side next to the $28°$ angle.\n* Choice C ($\\frac{8}{\\cos 28°}$): uses cosine, which would require the side of length $8$ to be next to the $28°$ angle, not across from it.\n\n**Test Day Takeaway:** Label the sides from the given angle first (opposite, adjacent, hypotenuse), then pick the ratio that uses the side you know and the side you want.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "angle-of-elevation-depression",
@@ -503,7 +503,7 @@ export const geometryBank = [
     skills: ["arc-length"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "In the figure shown, point $O$ is the center of the circle. What is the length of arc $AB$?",
+    question: "The circle shown has center $O$. What is the length of arc $AB$?",
     diagram: { type: "circleWithSector", params: { centralAngle: 80, angleLabel: "80°", radius: 27, labelCenter: "O", labelPoint1: "A", labelPoint2: "B", showRadiusLabel: true, figureNote: true } },
     choices: [
       // distractor: uses pi r instead of 2 pi r for the circumference, giving 6 pi
@@ -525,21 +525,21 @@ export const geometryBank = [
   {
     id: "bank-geo-023",
     domain: "geometry",
-    skills: ["sector-area"],
+    skills: ["arc-length"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A circle has a diameter of $20$ centimeters. A sector of the circle has a central angle of $72°$. What is the area, in square centimeters, of the sector?",
+    question: "A circle has a radius of $9$ centimeters. Points $A$ and $B$ lie on the circle, and the length of arc $AB$ is $3\\pi$ centimeters. What is the measure, in degrees, of arc $AB$?",
     choices: [
-      // distractor: computes the arc length, (72/360)(2 pi)(10) = 4 pi, instead of the area
-      { id: "A", text: "$4\\pi$" },
-      { id: "B", text: "$20\\pi$" },
-      // distractor: uses the diameter 20 as the radius, (72/360) pi (20^2) = 80 pi
-      { id: "C", text: "$80\\pi$" },
-      // distractor: gives the area of the whole circle and never applies the fraction 72/360
-      { id: "D", text: "$100\\pi$" }
+      // distractor: uses 18 as the radius, so the circumference becomes 36 pi and the arc 1/12 of the circle
+      { id: "A", text: "$30$" },
+      { id: "B", text: "$60$" },
+      // distractor: uses pi r = 9 pi as the circumference, so the arc becomes 1/3 of the circle
+      { id: "C", text: "$120$" },
+      // distractor: gives the measure of the rest of the circle, 360 - 60
+      { id: "D", text: "$300$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Sector Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The radius is $10$, so the circle's area is $100\\pi$, and a $72°$ sector is $\\frac{72}{360} = \\frac{1}{5}$ of it: $20\\pi$.\n\n**The Full Solution:**\nStep 1: The radius is half the diameter, $r = 10$, so the whole circle has area $\\pi(10)^{2} = 100\\pi$.\nStep 2: The sector's central angle is $72°$, so the sector is $\\frac{72}{360} = \\frac{1}{5}$ of the circle.\nStep 3: The sector's area is $\\frac{1}{5}(100\\pi) = 20\\pi$ square centimeters. Check: five such sectors have central angles totaling $5(72°) = 360°$ and areas totaling $5(20\\pi) = 100\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4\\pi$): takes $\\frac{1}{5}$ of the circumference $20\\pi$, which gives the arc length, not the area.\n* Choice C ($80\\pi$): uses the diameter $20$ as the radius, taking $\\frac{1}{5}$ of $400\\pi$.\n* Choice D ($100\\pi$): finds the area of the whole circle but never applies the fraction $\\frac{72}{360}$.\n\n**Test Day Takeaway:** A sector's area is its central angle's share of $360°$ times $\\pi r^{2}$; halve a diameter before you square it.",
+    explanation: "**SAT Pattern: Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The circumference is $18\\pi$, and $3\\pi$ is $\\frac{1}{6}$ of it, so the arc measures $\\frac{1}{6}(360°) = 60°$.\n\n**The Full Solution:**\nStep 1: The circumference is $2\\pi(9) = 18\\pi$ centimeters.\nStep 2: Arc $AB$ is $\\frac{3\\pi}{18\\pi} = \\frac{1}{6}$ of the circle.\nStep 3: So the arc measures $\\frac{1}{6}(360) = 60$ degrees. Check: $\\frac{60}{360}(18\\pi) = 3\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($30$): doubles the radius to $18$, which makes the arc look like only $\\frac{1}{12}$ of the circle.\n* Choice C ($120$): uses $\\pi r = 9\\pi$ for the circumference, which makes the arc look like $\\frac{1}{3}$ of the circle.\n* Choice D ($300$): gives the measure of the other arc, $360 - 60 = 300$.\n\n**Test Day Takeaway:** An arc is the same fraction of the circumference as its measure is of $360°$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "real-world-sector",
@@ -615,18 +615,18 @@ export const geometryBank = [
     skills: ["completing-square-circles"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "$x^{2} + y^{2} + 10x - 24y + 120 = 0$\nIn the $xy$-plane, the graph of the given equation is a circle. What is the length of the radius of the circle?",
+    question: "$x^{2} - 12x + y^{2} + 16y + 96 = 0$\nThe given equation defines a circle in the $xy$-plane. What is the radius of the circle?",
     choices: [
-      { id: "A", text: "$7$" },
-      // distractor: completes both squares but forgets to move the constant 120, giving the square root of 169
-      { id: "B", text: "$13$" },
-      // distractor: adds 120 to the right side instead of subtracting it, giving the square root of 289
-      { id: "C", text: "$17$" },
-      // distractor: finds r^2 = 49 and does not take the square root
-      { id: "D", text: "$49$" }
+      { id: "A", text: "$2$" },
+      // distractor: finds r^2 = 4 and does not take the square root
+      { id: "B", text: "$4$" },
+      // distractor: completes both squares but forgets to move the constant 96, giving the square root of 100
+      { id: "C", text: "$10$" },
+      // distractor: adds 96 to the right side instead of subtracting it, giving the square root of 196
+      { id: "D", text: "$14$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Complete the Square for Circle**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** Completing both squares gives $(x + 5)^{2} + (y - 12)^{2} = 25 + 144 - 120 = 49$, so $r = 7$.\n\n**The Full Solution:**\nStep 1: Group the terms and move the constant: $(x^{2} + 10x) + (y^{2} - 24y) = -120$.\nStep 2: Complete each square by adding $\\left(\\frac{10}{2}\\right)^{2} = 25$ and $\\left(\\frac{-24}{2}\\right)^{2} = 144$ to both sides: $(x + 5)^{2} + (y - 12)^{2} = -120 + 25 + 144 = 49$.\nStep 3: So $r^{2} = 49$ and the radius is $7$. Check: expanding $(x + 5)^{2} + (y - 12)^{2} - 49$ gives $x^{2} + 10x + 25 + y^{2} - 24y + 144 - 49$, and $25 + 144 - 49 = 120$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($13$): completes the squares but leaves out the constant $120$, using $25 + 144 = 169$.\n* Choice C ($17$): moves $120$ to the right side with the wrong sign, using $25 + 144 + 120 = 289$.\n* Choice D ($49$): finds $r^{2}$ but stops before taking the square root.\n\n**Test Day Takeaway:** After completing the square, the right side is $r^{2}$: add the two completing constants and subtract the original constant, then take the square root.",
+    explanation: "**SAT Pattern: Complete the Square for Circle**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** Completing both squares gives $(x - 6)^{2} + (y + 8)^{2} = 36 + 64 - 96 = 4$, so $r = 2$.\n\n**The Full Solution:**\nStep 1: Group the terms and move the constant: $(x^{2} - 12x) + (y^{2} + 16y) = -96$.\nStep 2: Complete each square by adding $\\left(\\frac{-12}{2}\\right)^{2} = 36$ and $\\left(\\frac{16}{2}\\right)^{2} = 64$ to both sides: $(x - 6)^{2} + (y + 8)^{2} = -96 + 36 + 64 = 4$.\nStep 3: So $r^{2} = 4$ and the radius is $2$. Check: expanding $(x - 6)^{2} + (y + 8)^{2} - 4$ gives $x^{2} - 12x + 36 + y^{2} + 16y + 64 - 4$, and $36 + 64 - 4 = 96$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($4$): finds $r^{2}$ but stops before taking the square root.\n* Choice C ($10$): completes the squares but leaves out the constant $96$, using $36 + 64 = 100$.\n* Choice D ($14$): moves $96$ to the right side with the wrong sign, using $36 + 64 + 96 = 196$.\n\n**Test Day Takeaway:** After completing the square, the right side is $r^{2}$: add the two completing constants and subtract the original constant, then take the square root.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "complete-the-square",
@@ -666,7 +666,7 @@ export const geometryBank = [
     type: "fill-in",
     question: "An isosceles triangle has two sides of length $25$ centimeters and a third side of length $14$ centimeters. What is the area, in square centimeters, of the triangle?",
     correctAnswer: "168",
-    explanation: "**SAT Pattern: Isosceles Triangle Area**\n\n**The correct answer is 168.**\n\n**The Fast Way (~40s):** The height to the $14$-centimeter side is $\\sqrt{25^{2} - 7^{2}} = 24$, so the area is $\\frac{1}{2}(14)(24) = 168$.\n\n**The Full Solution:**\nStep 1: The altitude to the base of an isosceles triangle splits the base in half, making two right triangles with hypotenuse $25$ and one leg $7$.\nStep 2: The altitude is $\\sqrt{25^{2} - 7^{2}} = \\sqrt{625 - 49} = \\sqrt{576} = 24$ centimeters.\nStep 3: Area $= \\frac{1}{2}(14)(24) = 168$ square centimeters. Check: each half is a $7$-$24$-$25$ right triangle with area $\\frac{1}{2}(7)(24) = 84$, and $2(84) = 168$ ✓\n\n**Common Mistakes:**\n* $175$: uses the slanted side $25$ as the height, computing $\\frac{1}{2}(14)(25)$.\n* $336$: finds the height $24$ but forgets the $\\frac{1}{2}$, computing $14(24)$.\n* $\\approx 145$: uses the whole base $14$ instead of half of it in the Pythagorean theorem, getting a height of about $20.8$.\n\n**Test Day Takeaway:** An altitude of an isosceles triangle bisects the base; build the right triangle with half the base before using the Pythagorean theorem.",
+    explanation: "**SAT Pattern: Isosceles Triangle Area**\n\n**The correct answer is 168.**\n\n**The Fast Way (~40s):** The height to the $14$-centimeter side is $\\sqrt{25^{2} - 7^{2}} = 24$, so the area is $\\frac{1}{2}(14)(24) = 168$.\n\n**The Full Solution:**\nStep 1: The altitude to the base of an isosceles triangle splits the base in half, making two right triangles with hypotenuse $25$ and one leg $7$.\nStep 2: The altitude is $\\sqrt{25^{2} - 7^{2}} = \\sqrt{625 - 49} = \\sqrt{576} = 24$ centimeters.\nStep 3: Area $= \\frac{1}{2}(14)(24) = 168$ square centimeters. Check: each half is a $7$-$24$-$25$ right triangle with area $\\frac{1}{2}(7)(24) = 84$, and $2(84) = 168$ ✓\n\n**Common Mistakes:**\n* $175$: uses the slanted side $25$ as the height, computing $\\frac{1}{2}(14)(25)$.\n* $336$: finds the height $24$ but forgets the $\\frac{1}{2}$, computing $14(24)$.\n* $\\approx 145$: uses the whole base $14$ instead of half of it in the Pythagorean theorem, getting a height of about $20.7$.\n\n**Test Day Takeaway:** An altitude of an isosceles triangle bisects the base; build the right triangle with half the base before using the Pythagorean theorem.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "multi-step-geometry",
@@ -704,18 +704,18 @@ export const geometryBank = [
     skills: ["volume-scaling"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The edge length of cube $B$ is $2.5$ times the edge length of cube $A$. The volume of cube $A$ is $96$ cubic inches. What is the volume, in cubic inches, of cube $B$?",
+    question: "The edge length of cube $B$ is $4$ times the edge length of cube $A$. The volume of cube $A$ is $15$ cubic inches. What is the volume, in cubic inches, of cube $B$?",
     choices: [
-      // distractor: multiplies the volume by 2.5 once, as if volume scaled like a single length
-      { id: "A", text: "$240$" },
-      // distractor: multiplies the volume by 2.5 squared = 6.25, the factor for area
-      { id: "B", text: "$600$" },
-      { id: "C", text: "$1{,}500$" },
-      // distractor: multiplies by 2.5 a fourth time, giving 1,500 x 2.5
-      { id: "D", text: "$3{,}750$" }
+      // distractor: multiplies the volume by the edge factor 4 instead of 4^3
+      { id: "A", text: "$60$" },
+      // distractor: multiplies by 4 x 3 = 12 instead of 4^3
+      { id: "B", text: "$180$" },
+      // distractor: multiplies by 4^2 = 16, the factor for area
+      { id: "C", text: "$240$" },
+      { id: "D", text: "$960$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Volume Scaling by Cube of Linear Factor**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Volume scales by the cube of the length factor: $96(2.5)^3 = 96(15.625) = 1{,}500$.\n\n**The Full Solution:**\nStep 1: The edge of cube $B$ is $2.5$ times the edge of cube $A$, so each of the three dimensions is multiplied by $2.5$.\nStep 2: Volume is a product of three lengths, so it is multiplied by $(2.5)^3 = 15.625$.\nStep 3: The volume of cube $B$ is $96 \\times 15.625 = 1{,}500$ cubic inches. Check: if cube $A$ has edge $a$, then $a^3 = 96$, and cube $B$ has volume $(2.5a)^3 = 15.625a^3 = 15.625(96) = 1{,}500$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($240$): multiplies by $2.5$ once, the factor for a single length.\n* Choice B ($600$): multiplies by $2.5^2 = 6.25$, the factor for area.\n* Choice D ($3{,}750$): applies the factor a fourth time, multiplying the correct volume by $2.5$ again.\n\n**Test Day Takeaway:** Lengths scale by $k$, areas by $k^2$, and volumes by $k^3$; count the dimensions before choosing the exponent.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Volume Scaling by Cube of Linear Factor**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Volume scales by the cube of the edge factor: $15 \\cdot 4^{3} = 15 \\cdot 64 = 960$.\n\n**The Full Solution:**\nStep 1: If cube $A$ has edge $s$, then cube $B$ has edge $4s$.\nStep 2: The volume of cube $B$ is $(4s)^{3} = 64s^{3}$, which is $64$ times the volume of cube $A$, $s^{3}$.\nStep 3: So the volume of cube $B$ is $64 \\cdot 15 = 960$ cubic inches. Check: $\\frac{960}{15} = 64 = 4^{3}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($60$): multiplies by the edge factor $4$, as if volume grew at the same rate as length.\n* Choice B ($180$): multiplies by $4 \\cdot 3$ instead of raising $4$ to the third power.\n* Choice C ($240$): multiplies by $4^{2} = 16$, which is how area scales, not volume.\n\n**Test Day Takeaway:** Scale lengths by $k$: areas scale by $k^{2}$ and volumes by $k^{3}$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "scaling-factor",
@@ -725,22 +725,22 @@ export const geometryBank = [
   {
     id: "bank-geo-032",
     domain: "geometry",
-    skills: ["circle-area", "sector-area"],
+    skills: ["arc-length"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "In the figure shown, point $O$ is the center of the circle. What is the area of sector $AOB$?",
-    diagram: { type: "circleWithSector", params: { centralAngle: 45, angleLabel: "45°", radius: 28, labelCenter: "O", labelPoint1: "A", labelPoint2: "B", showRadiusLabel: true } },
+    question: "In the circle shown, $O$ is the center and the diameter is $56$. What is the length of arc $AB$?",
+    diagram: { type: "circleWithSector", params: { centralAngle: 45, angleLabel: "45°", labelCenter: "O", labelPoint1: "A", labelPoint2: "B" } },
     choices: [
-      // distractor: takes 1/8 of the circumference 56 pi, which is the arc length, not the area
       { id: "A", text: "$7\\pi$" },
-      { id: "B", text: "$98\\pi$" },
-      // distractor: divides 45 by 180 instead of 360, doubling the fraction of the circle
-      { id: "C", text: "$196\\pi$" },
-      // distractor: reports the area of the whole circle and never applies the fraction
-      { id: "D", text: "$784\\pi$" }
+      // distractor: uses the diameter 56 as the radius
+      { id: "B", text: "$14\\pi$" },
+      // distractor: gives the whole circumference and never applies the fraction 45/360
+      { id: "C", text: "$56\\pi$" },
+      // distractor: computes the area of the sector, (45/360) pi (28^2), instead of the arc length
+      { id: "D", text: "$98\\pi$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Sector Area from Central Angle**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The radius is $28$, so the circle's area is $784\\pi$, and a $45^{\\circ}$ sector is $\\frac{45}{360} = \\frac{1}{8}$ of it: $98\\pi$.\n\n**The Full Solution:**\nStep 1: The figure shows a radius of $28$, so the whole circle has area $\\pi(28)^2 = 784\\pi$.\nStep 2: The central angle of sector $AOB$ is $45^{\\circ}$, so the sector is $\\frac{45}{360} = \\frac{1}{8}$ of the circle.\nStep 3: The sector's area is $\\frac{1}{8}(784\\pi) = 98\\pi$. Check: eight such sectors fill the circle, and $8(98\\pi) = 784\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($7\\pi$): takes $\\frac{1}{8}$ of the circumference $2\\pi(28) = 56\\pi$, which is the length of arc $AB$, not the area.\n* Choice C ($196\\pi$): divides $45$ by $180$ instead of $360$, doubling the fraction.\n* Choice D ($784\\pi$): is the area of the whole circle, with no fraction applied.\n\n**Test Day Takeaway:** A sector is the central angle's fraction of $360^{\\circ}$ applied to $\\pi r^2$; the same fraction of $2\\pi r$ gives the arc length instead.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Arc Length**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The circumference is $56\\pi$, and a $45°$ arc is $\\frac{1}{8}$ of it: $7\\pi$.\n\n**The Full Solution:**\nStep 1: The diameter is $56$, so the circumference is $\\pi(56) = 56\\pi$.\nStep 2: The central angle is $45°$, so arc $AB$ is $\\frac{45}{360} = \\frac{1}{8}$ of the circle.\nStep 3: The arc length is $\\frac{1}{8}(56\\pi) = 7\\pi$. Check: eight such arcs make $8(7\\pi) = 56\\pi$, the whole circumference ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($14\\pi$): treats $56$ as the radius, which doubles the circumference to $112\\pi$.\n* Choice C ($56\\pi$): gives the whole circumference instead of the $45°$ part of it.\n* Choice D ($98\\pi$): takes $\\frac{1}{8}$ of the area $\\pi(28)^{2} = 784\\pi$, which is an area, not a length.\n\n**Test Day Takeaway:** Arc length is the central angle's fraction of $360°$ times the circumference, $\\pi d$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "real-world-sector",
@@ -816,18 +816,18 @@ export const geometryBank = [
     skills: ["circle-equation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "In the $xy$-plane, the points $(-1, 5)$ and $(11, -3)$ are the endpoints of a diameter of a circle. Which equation represents this circle?",
+    question: "In the $xy$-plane, the points $(-3, 5)$ and $(9, 5)$ are the endpoints of a diameter of a circle. Which equation represents this circle?",
     choices: [
-      // distractor: takes half of each difference, (12/2, -8/2) = (6, -4), as the center instead of averaging the endpoints
-      { id: "A", text: "$(x - 6)^{2} + (y + 4)^{2} = 52$" },
-      // distractor: finds the center (5, 1) but writes the signs inside the parentheses backward
-      { id: "B", text: "$(x + 5)^{2} + (y + 1)^{2} = 52$" },
-      { id: "C", text: "$(x - 5)^{2} + (y - 1)^{2} = 52$" },
-      // distractor: uses the squared length of the whole diameter, 208, as r squared
-      { id: "D", text: "$(x - 5)^{2} + (y - 1)^{2} = 208$" }
+      // distractor: flips the signs of the center coordinates when writing (x - h) and (y - k)
+      { id: "A", text: "$(x + 3)^{2} + (y + 5)^{2} = 36$" },
+      // distractor: uses the radius 6 on the right side instead of 6^2
+      { id: "B", text: "$(x - 3)^{2} + (y - 5)^{2} = 6$" },
+      { id: "C", text: "$(x - 3)^{2} + (y - 5)^{2} = 36$" },
+      // distractor: uses the diameter 12 in place of the radius, 12^2 = 144
+      { id: "D", text: "$(x - 3)^{2} + (y - 5)^{2} = 144$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Circle from Diameter Endpoints**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The center is the midpoint $(5, 1)$, and $r^2 = (5 - (-1))^2 + (1 - 5)^2 = 36 + 16 = 52$.\n\n**The Full Solution:**\nStep 1: The center of the circle is the midpoint of the diameter: $\\left(\\frac{-1 + 11}{2}, \\frac{5 + (-3)}{2}\\right) = (5, 1)$.\nStep 2: The radius is the distance from the center to an endpoint: $r^2 = (5 - (-1))^2 + (1 - 5)^2 = 6^2 + (-4)^2 = 52$.\nStep 3: A circle with center $(h, k)$ and radius $r$ has equation $(x - h)^2 + (y - k)^2 = r^2$, so the circle is $(x - 5)^2 + (y - 1)^2 = 52$. Check: the other endpoint gives $(11 - 5)^2 + (-3 - 1)^2 = 36 + 16 = 52$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: uses half of each difference, $\\left(\\frac{12}{2}, \\frac{-8}{2}\\right) = (6, -4)$, as the center instead of averaging the endpoints.\n* Choice B: finds the center $(5, 1)$ but flips the signs inside the parentheses.\n* Choice D: uses the squared length of the whole diameter, $12^2 + 8^2 = 208$, as $r^2$; the radius is half the diameter, so $r^2 = \\frac{208}{4} = 52$.\n\n**Test Day Takeaway:** Midpoint for the center, half the diameter for the radius; halving a length divides its square by $4$, not $2$.",
+    explanation: "**SAT Pattern: Circle from Diameter Endpoints**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The center is halfway between the endpoints, $(3, 5)$, and the diameter is $9 - (-3) = 12$, so $r = 6$ and $r^{2} = 36$.\n\n**The Full Solution:**\nStep 1: Both endpoints have $y$-coordinate $5$, so the diameter is horizontal with length $9 - (-3) = 12$. The radius is $6$.\nStep 2: The center is the point halfway between the endpoints: $\\left(\\frac{-3 + 9}{2}, 5\\right) = (3, 5)$.\nStep 3: With center $(3, 5)$ and $r^{2} = 36$, the equation is $(x - 3)^{2} + (y - 5)^{2} = 36$. Check: $(9, 5)$ gives $6^{2} + 0^{2} = 36$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x + 3)^{2} + (y + 5)^{2} = 36$): writes $(x + 3)$ and $(y + 5)$, which would put the center at $(-3, -5)$.\n* Choice B ($(x - 3)^{2} + (y - 5)^{2} = 6$): puts the radius $6$ on the right side; the equation needs $r^{2} = 36$.\n* Choice D ($(x - 3)^{2} + (y - 5)^{2} = 144$): squares the diameter $12$ instead of the radius $6$.\n\n**Test Day Takeaway:** From the endpoints of a diameter: the center is the halfway point, the radius is half the diameter, and the equation uses $r^{2}$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "multi-step-circle",
@@ -903,18 +903,18 @@ export const geometryBank = [
     skills: ["volume-sphere"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A sphere has a diameter of $2.4$. Which of the following is closest to the volume of the sphere?",
+    question: "A sphere has a radius of $5$ centimeters. Which of the following is closest to the volume, in cubic centimeters, of the sphere?",
     choices: [
-      // distractor: squares the radius instead of cubing it: (4/3)(pi)(1.44)
-      { id: "A", text: "$6.0$" },
-      { id: "B", text: "$7.2$" },
-      // distractor: computes the surface area 4(pi)(1.2)^2
-      { id: "C", text: "$18.1$" },
-      // distractor: uses the diameter 2.4 as the radius
-      { id: "D", text: "$57.9$" }
+      // distractor: squares the radius instead of cubing it, (4/3) pi (5^2)
+      { id: "A", text: "$105$" },
+      // distractor: computes 4 pi r^2, the surface area, instead of the volume
+      { id: "B", text: "$314$" },
+      { id: "C", text: "$524$" },
+      // distractor: drops the 1/3 from 4/3, computing 4 pi (5^3)
+      { id: "D", text: "$1{,}571$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Sphere Volume Approximation**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The radius is $1.2$, so $V = \\frac{4}{3}\\pi(1.2)^3 = \\frac{4}{3}\\pi(1.728) \\approx 7.2$.\n\n**The Full Solution:**\nStep 1: Halve the diameter: $r = \\frac{2.4}{2} = 1.2$.\nStep 2: Cube the radius: $1.2^3 = 1.728$.\nStep 3: $V = \\frac{4}{3}\\pi(1.728) = 2.304\\pi \\approx 7.24$, so the volume is about $7.2$. Check: a cube with edge $2.4$ holds $2.4^3 = 13.824$, and a sphere fills about $52\\%$ of the cube around it: $\\frac{7.24}{13.824} \\approx 0.52$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6.0$): squares the radius instead of cubing it, computing $\\frac{4}{3}\\pi(1.44)$.\n* Choice C ($18.1$): computes the surface area $4\\pi r^2 = 4\\pi(1.44)$.\n* Choice D ($57.9$): uses the diameter $2.4$ as the radius, making the volume $8$ times too large.\n\n**Test Day Takeaway:** Halve the diameter before any sphere calculation; because the radius is cubed, skipping that step multiplies the answer by $8$.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Sphere Volume Approximation**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $V = \\frac{4}{3}\\pi(5)^{3} = \\frac{500\\pi}{3} \\approx 523.6$, closest to $524$.\n\n**The Full Solution:**\nStep 1: The volume of a sphere is $V = \\frac{4}{3}\\pi r^{3}$.\nStep 2: With $r = 5$: $V = \\frac{4}{3}\\pi(125) = \\frac{500\\pi}{3}$.\nStep 3: $\\frac{500\\pi}{3} \\approx 523.6$, so the closest choice is $524$. Check: a cube with edge $10$ holds this sphere and has volume $1{,}000$, and $523.6$ is a little more than half of that ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($105$): uses $r^{2} = 25$ instead of $r^{3} = 125$.\n* Choice B ($314$): is $4\\pi r^{2} \\approx 314$, the surface area of the sphere, not its volume.\n* Choice D ($1{,}571$): uses $4\\pi r^{3}$, leaving out the division by $3$.\n\n**Test Day Takeaway:** Sphere volume: $\\frac{4}{3}\\pi r^{3}$. Cube the radius, and do not drop the $\\frac{1}{3}$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "real-world-volume",
@@ -927,19 +927,19 @@ export const geometryBank = [
     skills: ["triangle-types", "pythagorean-theorem"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "Which of the following is true about the largest angle of the triangle shown?",
-    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [21, 0], [13.167, 9.091]], sideLabels: ["21", "12", "16"], showRightAngle: false, rightAngleVertex: 1, figureNote: true } },
+    question: "What is the area of the triangle shown?",
+    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [15, 0], [9.6, 7.2]], sideLabels: ["15", "9", "12"], showRightAngle: false, rightAngleVertex: 2, figureNote: true } },
     choices: [
-      // distractor: computes 144 + 256 = 400 but reads it as greater than 441
-      { id: "A", text: "$12^2 + 16^2 > 21^2$, so the largest angle is acute." },
-      // distractor: assumes the triangle must be a right triangle
-      { id: "B", text: "$12^2 + 16^2 = 21^2$, so the largest angle is a right angle." },
-      { id: "C", text: "$12^2 + 16^2 < 21^2$, so the largest angle is obtuse." },
-      // distractor: tests the shortest and longest sides against the middle side, comparing 12^2 + 21^2 with 16^2
-      { id: "D", text: "$12^2 + 21^2 > 16^2$, so the largest angle is acute." }
+      { id: "A", text: "$54$" },
+      // distractor: uses the sides 9 and 15 as base and height, computing (1/2)(9)(15)
+      { id: "B", text: "$67.5$" },
+      // distractor: uses the sides 12 and 15 as base and height, computing (1/2)(12)(15)
+      { id: "C", text: "$90$" },
+      // distractor: multiplies the legs 9 and 12 and forgets the 1/2
+      { id: "D", text: "$108$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Classify Triangle by Pythagorean Test**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Compare the squares of the two shorter sides with the square of the longest: $144 + 256 = 400 < 441$, so the largest angle is obtuse.\n\n**The Full Solution:**\nStep 1: The largest angle lies opposite the longest side, which has length $21$.\nStep 2: Compare $a^2 + b^2$ for the two shorter sides with $c^2$ for the longest side: $12^2 + 16^2 = 144 + 256 = 400$ and $21^2 = 441$.\nStep 3: Since $400 < 441$, the angle opposite the side of length $21$ is obtuse. Check: $12 + 16 = 28 > 21$, so the three lengths do form a triangle ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: gets $400$ and $441$ but reverses the comparison.\n* Choice B: assumes a right triangle, which would require $400 = 441$.\n* Choice D: puts the shortest and longest sides against the middle one; the test must compare the two shortest sides with the longest.\n\n**Test Day Takeaway:** $a^2 + b^2$ versus $c^2$ classifies the angle opposite $c$: greater means acute, equal means right, less means obtuse.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Classify Triangle by Pythagorean Test**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Since $9^{2} + 12^{2} = 15^{2}$, the triangle is a right triangle with legs $9$ and $12$, so its area is $\\frac{1}{2}(9)(12) = 54$.\n\n**The Full Solution:**\nStep 1: Test the side lengths: $9^{2} + 12^{2} = 81 + 144 = 225 = 15^{2}$.\nStep 2: Because the squares of the two shorter sides add to the square of the longest side, the triangle is a right triangle, and the sides of length $9$ and $12$ are its legs.\nStep 3: The legs are a base and its height, so the area is $\\frac{1}{2}(9)(12) = 54$. Check: the height to the side of length $15$ is $\\frac{9 \\cdot 12}{15} = 7.2$, and $\\frac{1}{2}(15)(7.2) = 54$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($67.5$): uses the sides of length $9$ and $15$, but they do not meet at a right angle, so $15$ is not the height to the side of length $9$.\n* Choice C ($90$): uses the sides of length $12$ and $15$, which also do not meet at a right angle.\n* Choice D ($108$): multiplies the legs correctly but forgets the $\\frac{1}{2}$ in the triangle area formula.\n\n**Test Day Takeaway:** If $a^{2} + b^{2} = c^{2}$ for the side lengths, the triangle is a right triangle and the two shorter sides are a base and height.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "classification-via-computation",
@@ -973,21 +973,21 @@ export const geometryBank = [
   {
     id: "bank-geo-043",
     domain: "geometry",
-    skills: ["circle-area"],
+    skills: ["circle-equation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "Two circles have the same center and have radii of $8$ meters and $11$ meters. What is the area, in square meters, of the region between the two circles?",
+    question: "The radius of a circle is $2.5$ meters. What is the area, in square meters, of the circle?",
     choices: [
-      // distractor: subtracts the radii first, 11 - 8 = 3, and squares the difference
-      { id: "A", text: "$9\\pi$" },
-      { id: "B", text: "$57\\pi$" },
-      // distractor: gives the area of the larger circle and never removes the smaller one
-      { id: "C", text: "$121\\pi$" },
-      // distractor: adds the two areas instead of subtracting them
-      { id: "D", text: "$185\\pi$" }
+      // distractor: computes the circumference 2 pi (2.5) = 5 pi instead of the area
+      { id: "A", text: "$5\\pi$" },
+      { id: "B", text: "$6.25\\pi$" },
+      // distractor: multiplies the radius by the diameter, pi (2.5)(5), instead of squaring the radius
+      { id: "C", text: "$12.5\\pi$" },
+      // distractor: squares the diameter 5 instead of the radius 2.5
+      { id: "D", text: "$25\\pi$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Annulus (Ring) Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The region's area is the larger circle's area minus the smaller one's: $121\\pi - 64\\pi = 57\\pi$.\n\n**The Full Solution:**\nStep 1: The larger circle has area $\\pi(11)^2 = 121\\pi$ square meters.\nStep 2: The smaller circle has area $\\pi(8)^2 = 64\\pi$ square meters, and it lies entirely inside the larger circle because the circles share a center.\nStep 3: The region between the circles has area $121\\pi - 64\\pi = 57\\pi$ square meters. Check: $\\pi(11^2 - 8^2) = \\pi(11 - 8)(11 + 8) = \\pi(3)(19) = 57\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9\\pi$): subtracts the radii, $11 - 8 = 3$, and squares the difference; $11^2 - 8^2$ is not $(11 - 8)^2$.\n* Choice C ($121\\pi$): is the area of the larger circle with nothing removed.\n* Choice D ($185\\pi$): adds the two areas instead of subtracting them.\n\n**Test Day Takeaway:** For a ring, subtract whole areas, $\\pi R^2 - \\pi r^2$; never square the difference of the radii.",
+    explanation: "**SAT Pattern: Area of a Circle**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $A = \\pi r^{2} = \\pi(2.5)^{2} = 6.25\\pi$.\n\n**The Full Solution:**\nStep 1: The area of a circle with radius $r$ is $A = \\pi r^{2}$.\nStep 2: Substitute $r = 2.5$: $A = \\pi(2.5)^{2}$.\nStep 3: $(2.5)^{2} = 2.5 \\cdot 2.5 = 6.25$, so the area is $6.25\\pi$ square meters. Check: $\\frac{6.25\\pi}{\\pi} = 6.25$ and $\\sqrt{6.25} = 2.5$, the given radius ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5\\pi$): is $2\\pi(2.5)$, the circumference of the circle, not its area.\n* Choice C ($12.5\\pi$): multiplies the radius $2.5$ by the diameter $5$ instead of multiplying the radius by itself.\n* Choice D ($25\\pi$): squares the diameter $5$ instead of the radius $2.5$.\n\n**Test Day Takeaway:** Area uses the radius squared, $\\pi r^{2}$; circumference uses the radius once, $2\\pi r$. With a decimal radius, square it carefully: $(2.5)^{2} = 6.25$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "annulus-area",
@@ -997,21 +997,21 @@ export const geometryBank = [
   {
     id: "bank-geo-044",
     domain: "geometry",
-    skills: ["triangle-inequality"],
+    skills: ["triangle-angle-sum"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "Two sides of a triangle have lengths $26$ and $41$. Which of the following could be the length of the third side?",
+    question: "In triangle $PQR$, the measure of angle $P$ is $34°$, and angle $Q$ is obtuse. Which of the following could be the measure, in degrees, of angle $R$?",
     choices: [
-      // distractor: is below the lower bound 41 - 26 = 15
-      { id: "A", text: "$12$" },
-      // distractor: equals the difference 41 - 26 exactly, which would make the three sides lie flat
-      { id: "B", text: "$15$" },
-      { id: "C", text: "$40$" },
-      // distractor: is above the upper bound 41 + 26 = 67
-      { id: "D", text: "$70$" }
+      { id: "A", text: "$50$" },
+      // distractor: treats angle Q as exactly 90 degrees, but a right angle is not obtuse
+      { id: "B", text: "$56$" },
+      // distractor: splits 180 - 34 = 146 evenly between Q and R, which makes Q acute
+      { id: "C", text: "$73$" },
+      // distractor: uses 180 - 34 = 146 and forgets that angle Q also takes part of the 180 degrees
+      { id: "D", text: "$146$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Triangle Inequality Range**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The third side must be strictly between $41 - 26 = 15$ and $41 + 26 = 67$, and only $40$ is.\n\n**The Full Solution:**\nStep 1: Let $x$ be the third side. The triangle inequality requires $26 + x > 41$, so $x > 15$.\nStep 2: It also requires $26 + 41 > x$, so $x < 67$.\nStep 3: The third side satisfies $15 < x < 67$, and among the choices only $40$ is in that interval. Check: $26 + 40 = 66 > 41$, $26 + 41 = 67 > 40$, and $40 + 41 = 81 > 26$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): is less than $15$, so the sides of lengths $12$ and $26$ cannot reach across $41$.\n* Choice B ($15$): equals $41 - 26$ exactly; then $26 + 15 = 41$, and the three sides lie flat instead of forming a triangle.\n* Choice D ($70$): is greater than $67$, so the other two sides are too short to close the triangle.\n\n**Test Day Takeaway:** The third side of a triangle is always strictly between the difference and the sum of the other two sides.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Triangle Angle Sum**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Angles $Q$ and $R$ share $180 - 34 = 146$ degrees, and $Q > 90$, so $R < 56$. Only $50$ works.\n\n**The Full Solution:**\nStep 1: The angles of a triangle add to $180°$, so $Q + R = 180 - 34 = 146$.\nStep 2: Angle $Q$ is obtuse, so $Q > 90$. Then $R = 146 - Q < 146 - 90 = 56$.\nStep 3: Of the choices, only $50$ is less than $56$. Check: if $R = 50$, then $Q = 96$, which is obtuse, and $34 + 96 + 50 = 180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($56$): gives $Q = 146 - 56 = 90$, a right angle, which is not obtuse.\n* Choice C ($73$): gives $Q = 146 - 73 = 73$, which is acute.\n* Choice D ($146$): leaves $0°$ for angle $Q$.\n\n**Test Day Takeaway:** Turn each condition into an inequality: the angle sum fixes $Q + R$, and \"obtuse\" means greater than $90°$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "constraint-check",
@@ -1024,9 +1024,9 @@ export const geometryBank = [
     skills: ["volume-prism"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A right circular cylinder has a volume of $320\\pi$ cubic centimeters. The height of the cylinder is $5$ times its radius. What is the radius, in centimeters, of the cylinder?",
+    question: "The height of a right circular cylinder is $3$ times its radius, and the volume of the cylinder is $192\\pi$ cubic centimeters. What is the radius, in centimeters, of the cylinder?",
     correctAnswer: "4",
-    explanation: "**SAT Pattern: Cylinder Volume**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~30s):** With $h = 5r$, the volume is $\\pi r^2(5r) = 5\\pi r^3$, so $5r^3 = 320$, $r^3 = 64$, and $r = 4$.\n\n**The Full Solution:**\nStep 1: Write the height in terms of the radius: $h = 5r$.\nStep 2: Substitute into $V = \\pi r^2 h$: $\\pi r^2(5r) = 5\\pi r^3 = 320\\pi$.\nStep 3: Divide by $5\\pi$ to get $r^3 = 64$, so $r = 4$ centimeters. Check: $h = 20$, and $\\pi(4^2)(20) = 320\\pi$ ✓\n\n**Common Mistakes:**\n* $64$: stops at $r^3$ without taking the cube root.\n* $8$: writes $5r^2 = 320$, losing the factor of $r$ that comes from the height.\n* $20$: reports the height $5r$ instead of the radius.\n\n**Test Day Takeaway:** When the height is a multiple of the radius, $\\pi r^2 h$ becomes a multiple of $r^3$; solve for $r^3$, then take the cube root.",
+    explanation: "**SAT Pattern: Cylinder Volume**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~30s):** With $h = 3r$, the volume is $\\pi r^{2}(3r) = 3\\pi r^{3}$, so $3r^{3} = 192$, $r^{3} = 64$, and $r = 4$.\n\n**The Full Solution:**\nStep 1: Write the height in terms of the radius: $h = 3r$.\nStep 2: Substitute into $V = \\pi r^{2}h$: $\\pi r^{2}(3r) = 3\\pi r^{3} = 192\\pi$.\nStep 3: Divide by $3\\pi$ to get $r^{3} = 64$, so $r = 4$ centimeters. Check: $h = 12$, and $\\pi(4^{2})(12) = 192\\pi$ ✓\n\n**Common Mistakes:**\n* $64$: stops at $r^{3}$ without taking the cube root.\n* $8$: writes $3r^{2} = 192$, losing the factor of $r$ that comes from the height.\n* $12$: reports the height $3r$ instead of the radius.\n\n**Test Day Takeaway:** When the height is a multiple of the radius, $\\pi r^{2}h$ becomes a multiple of $r^{3}$; solve for $r^{3}$, then take the cube root.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "direct-formula",
@@ -1152,21 +1152,21 @@ export const geometryBank = [
   {
     id: "bank-geo-051",
     domain: "geometry",
-    skills: ["special-right-triangles", "soh-cah-toa"],
+    skills: ["right-triangles"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "Two opposite vertices of a regular hexagon are $16$ units apart. What is the area, in square units, of the hexagon?",
+    question: "The perimeter of an equilateral triangle is $96$ inches. What is the area, in square inches, of the triangle?",
     choices: [
-      // distractor: finds the area of one of the six equilateral triangles and stops
-      { id: "A", text: "$16\\sqrt{3}$" },
-      // distractor: counts only three of the six equilateral triangles
-      { id: "B", text: "$48\\sqrt{3}$" },
-      { id: "C", text: "$96\\sqrt{3}$" },
-      // distractor: uses 16 as the side length instead of half of it
-      { id: "D", text: "$384\\sqrt{3}$" }
+      // distractor: uses half the side length, 16, as the side of the triangle
+      { id: "A", text: "$64\\sqrt{3}$" },
+      // distractor: uses half the side length, 16, as the base with the correct height
+      { id: "B", text: "$128\\sqrt{3}$" },
+      { id: "C", text: "$256\\sqrt{3}$" },
+      // distractor: multiplies the base by the height and forgets the 1/2
+      { id: "D", text: "$512\\sqrt{3}$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Regular Hexagon Area via Equilateral Triangles**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The opposite-vertex distance is $2s$, so $s = 8$; six equilateral triangles of area $\\frac{\\sqrt{3}}{4}(8^2) = 16\\sqrt{3}$ give $96\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: Segments from the center to the six vertices split a regular hexagon into six equilateral triangles, so the distance from the center to a vertex equals the side length $s$. Opposite vertices are $2s$ apart: $2s = 16$, so $s = 8$.\nStep 2: Each equilateral triangle has area $\\frac{\\sqrt{3}}{4}s^2 = \\frac{\\sqrt{3}}{4}(64) = 16\\sqrt{3}$.\nStep 3: The hexagon's area is $6(16\\sqrt{3}) = 96\\sqrt{3}$ square units. Check: the formula $\\frac{3\\sqrt{3}}{2}s^2 = \\frac{3\\sqrt{3}}{2}(64) = 96\\sqrt{3}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($16\\sqrt{3}$): the area of one equilateral triangle, not the whole hexagon.\n* Choice B ($48\\sqrt{3}$): counts three triangles, which covers only half the hexagon.\n* Choice D ($384\\sqrt{3}$): uses $16$ as the side length; the distance between opposite vertices is twice the side.\n\n**Test Day Takeaway:** In a regular hexagon, the center-to-vertex distance equals the side length, so the distance between opposite vertices is $2s$.",
+    explanation: "**SAT Pattern: 30-60-90 Triangle**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Each side is $\\frac{96}{3} = 32$, the height is $16\\sqrt{3}$, and the area is $\\frac{1}{2}(32)(16\\sqrt{3}) = 256\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: The three sides are equal, so each side is $\\frac{96}{3} = 32$ inches.\nStep 2: The height splits the triangle into two $30°$-$60°$-$90°$ triangles with short leg $16$ and hypotenuse $32$, so the height is $16\\sqrt{3}$.\nStep 3: The area is $\\frac{1}{2}(32)(16\\sqrt{3}) = 256\\sqrt{3}$ square inches. Check: $16^{2} + (16\\sqrt{3})^{2} = 256 + 768 = 1{,}024 = 32^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($64\\sqrt{3}$): treats $16$ as the side length, giving $\\frac{1}{2}(16)(8\\sqrt{3}) = 64\\sqrt{3}$.\n* Choice B ($128\\sqrt{3}$): uses $16$, half of a side, as the base: $\\frac{1}{2}(16)(16\\sqrt{3}) = 128\\sqrt{3}$.\n* Choice D ($512\\sqrt{3}$): computes $32 \\cdot 16\\sqrt{3}$ and forgets the $\\frac{1}{2}$.\n\n**Test Day Takeaway:** The height of an equilateral triangle with side $s$ is $\\frac{s\\sqrt{3}}{2}$, from the $30°$-$60°$-$90°$ triangle it cuts off.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "composite-geometry",
@@ -1176,21 +1176,21 @@ export const geometryBank = [
   {
     id: "bank-geo-052",
     domain: "geometry",
-    skills: ["sector-area", "arc-length"],
+    skills: ["arc-length"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A sector of a circle has a perimeter of $64$ centimeters, and the arc of the sector has a length of $24$ centimeters. What is the area, in square centimeters, of the sector?",
+    question: "Points $A$ and $B$ lie on a circle with center $O$. Arc $AB$ has a measure of $40°$ and a length of $6\\pi$ centimeters. What is the radius, in centimeters, of the circle?",
     choices: [
-      // distractor: halves the whole perimeter before removing the arc, getting r = 32 - 24 = 8, then (1/2)(24)(8) = 96
-      { id: "A", text: "$96$" },
-      { id: "B", text: "$240$" },
-      // distractor: finds r = 20 but drops the 1/2 in A = (1/2)sr: 24 x 20 = 480
-      { id: "C", text: "$480$" },
-      // distractor: uses the whole perimeter 64 as the arc length: (1/2)(64)(20) = 640
-      { id: "D", text: "$640$" }
+      // distractor: finds 360/40 = 9 and stops before using the arc length
+      { id: "A", text: "$9$" },
+      // distractor: uses 180 degrees instead of 360 degrees for the whole circle
+      { id: "B", text: "$13.5$" },
+      { id: "C", text: "$27$" },
+      // distractor: finds the circumference 54 pi and reports 54, which is the diameter
+      { id: "D", text: "$54$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Sector Area from Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The perimeter is two radii plus the arc, so $2r = 64 - 24 = 40$ and $r = 20$; then $A = \\frac{1}{2}sr = \\frac{1}{2}(24)(20) = 240$.\n\n**The Full Solution:**\nStep 1: The boundary of a sector is the arc plus two radii, so $2r + 24 = 64$, which gives $r = 20$ centimeters.\nStep 2: The central angle in radians is $\\theta = \\frac{s}{r} = \\frac{24}{20} = 1.2$.\nStep 3: The sector's area is $\\frac{1}{2}r^2\\theta = \\frac{1}{2}(400)(1.2) = 240$ square centimeters. Check: $\\frac{1}{2}sr = \\frac{1}{2}(24)(20) = 240$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($96$): halves the whole perimeter before removing the arc, getting $r = 32 - 24 = 8$, then $\\frac{1}{2}(24)(8) = 96$.\n* Choice C ($480$): finds $r = 20$ but drops the $\\frac{1}{2}$, computing $24(20)$.\n* Choice D ($640$): treats the whole perimeter, $64$, as the arc: $\\frac{1}{2}(64)(20) = 640$.\n\n**Test Day Takeaway:** A sector's perimeter is the arc plus two radii; remove the arc, halve what is left to get $r$, then use $A = \\frac{1}{2}sr$.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Arc Length**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** A $40°$ arc is $\\frac{1}{9}$ of the circle, so the circumference is $9(6\\pi) = 54\\pi$ and the radius is $27$.\n\n**The Full Solution:**\nStep 1: The arc measures $40°$, so it is $\\frac{40}{360} = \\frac{1}{9}$ of the circle.\nStep 2: The arc length is $\\frac{1}{9}$ of the circumference, so the circumference is $9(6\\pi) = 54\\pi$ centimeters.\nStep 3: Since $2\\pi r = 54\\pi$, the radius is $r = 27$ centimeters. Check: $\\frac{40}{360}(2\\pi \\cdot 27) = \\frac{1}{9}(54\\pi) = 6\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): is how many $40°$ arcs fit in the circle, not a length.\n* Choice B ($13.5$): uses $180°$ for the whole circle, which makes the arc look like $\\frac{2}{9}$ of the circle.\n* Choice D ($54$): is the diameter: $54\\pi = \\pi d$ gives $d = 54$, and the radius is half of that.\n\n**Test Day Takeaway:** An arc's length is the same fraction of the circumference as its measure is of $360°$. Find the circumference first, then the radius.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "multi-step-sector",
@@ -1203,18 +1203,18 @@ export const geometryBank = [
     skills: ["volume-pyramid-cone", "volume-prism"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A right square pyramid sits on top of a right rectangular prism, and the two share a square base with side length $9$ meters. The prism has height $4$ meters, and the pyramid has slant height $7.5$ meters. What is the volume, in cubic meters, of the solid?",
+    question: "A right square pyramid sits on top of a right rectangular prism, and the two share a square base with side length $6$ meters. The prism has height $7$ meters, and the pyramid has slant height $5$ meters. What is the volume, in cubic meters, of the solid?",
     choices: [
-      // distractor: gives only the pyramid volume and forgets the prism
-      { id: "A", text: "$162$" },
-      // distractor: applies the 1/3 to the whole solid: (324 + 486)/3 = 270
-      { id: "B", text: "$270$" },
-      { id: "C", text: "$486$" },
-      // distractor: leaves the 1/3 off the pyramid: 324 + 486 = 810
-      { id: "D", text: "$810$" }
+      // distractor: finds only the volume of the prism
+      { id: "A", text: "$252$" },
+      { id: "B", text: "$300$" },
+      // distractor: uses the slant height 5 as the height of the pyramid
+      { id: "C", text: "$312$" },
+      // distractor: drops the 1/3 from the pyramid volume formula
+      { id: "D", text: "$396$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Composite Solid Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** The slant height $7.5$ and half the base edge $4.5$ give a pyramid height of $6$, so the volume is $81(4) + \\frac{1}{3}(81)(6) = 324 + 162 = 486$.\n\n**The Full Solution:**\nStep 1: The base has area $9^2 = 81$ square meters, so the prism's volume is $81(4) = 324$ cubic meters.\nStep 2: The slant height runs from the apex to the midpoint of a base edge, which is $\\frac{9}{2} = 4.5$ meters from the center of the base. The pyramid's height is $\\sqrt{7.5^2 - 4.5^2} = \\sqrt{56.25 - 20.25} = \\sqrt{36} = 6$ meters.\nStep 3: The pyramid's volume is $\\frac{1}{3}(81)(6) = 162$, so the solid's volume is $324 + 162 = 486$ cubic meters. Check: $4.5$, $6$, $7.5$ is $1.5$ times the $3$-$4$-$5$ triangle ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($162$): gives the pyramid's volume and forgets the prism.\n* Choice B ($270$): applies $\\frac{1}{3}$ to the whole solid instead of only to the pyramid.\n* Choice D ($810$): leaves the $\\frac{1}{3}$ off the pyramid, treating it as a second prism.\n\n**Test Day Takeaway:** A slant height is a hypotenuse, not the height; find the true height first, and give the $\\frac{1}{3}$ only to the pyramid.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Composite Solid Volume**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** The pyramid's height is $\\sqrt{5^{2} - 3^{2}} = 4$, so the volume is $36(7) + \\frac{1}{3}(36)(4) = 252 + 48 = 300$.\n\n**The Full Solution:**\nStep 1: The prism has base area $6^{2} = 36$ and height $7$, so its volume is $36 \\cdot 7 = 252$ cubic meters.\nStep 2: The slant height runs from the top of the pyramid to the middle of a base edge, which is $3$ meters from the center of the base. So the pyramid's height is $\\sqrt{5^{2} - 3^{2}} = \\sqrt{16} = 4$ meters.\nStep 3: The pyramid's volume is $\\frac{1}{3}(36)(4) = 48$, so the solid's volume is $252 + 48 = 300$ cubic meters. Check: $3^{2} + 4^{2} = 5^{2}$, so the height $4$ fits the slant height $5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($252$): stops after the prism and leaves out the pyramid.\n* Choice C ($312$): uses the slant height $5$ as the pyramid's height, giving $\\frac{1}{3}(36)(5) = 60$ and a total of $312$.\n* Choice D ($396$): uses $36 \\cdot 4 = 144$ for the pyramid, forgetting the $\\frac{1}{3}$.\n\n**Test Day Takeaway:** A pyramid's volume uses its height, not its slant height. The two are linked by a right triangle with half the base edge.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "composite-solid",
@@ -1239,12 +1239,12 @@ export const geometryBank = [
   {
     id: "bank-geo-055",
     domain: "geometry",
-    skills: ["completing-square-circles", "circle-area"],
+    skills: ["circle-equation", "completing-square-circles"],
     difficulty: "hard",
     type: "fill-in",
-    question: "$2x^{2} + 2y^{2} - 12x - 20y - 382 = 0$\nThe given equation defines a circle in the $xy$-plane. What is the greatest $y$-coordinate of any point on the circle?",
+    question: "$x^{2} - 6x + y^{2} = 10y + 191$\nThe graph of the given equation in the $xy$-plane is a circle. What is the greatest $y$-coordinate of any point on the circle?",
     correctAnswer: "20",
-    explanation: "**SAT Pattern: Normalize Circle Equation Before Completing**\n\n**The correct answer is $20$.**\n\n**The Fast Way (~45s):** Divide by $2$, complete both squares to get $(x - 3)^2 + (y - 5)^2 = 225$, then add the radius to the center's $y$-coordinate: $5 + 15 = 20$.\n\n**The Full Solution:**\nStep 1: The squared terms have coefficient $2$, so divide every term by $2$: $x^2 + y^2 - 6x - 10y - 191 = 0$.\nStep 2: Complete the square in each variable: $(x^2 - 6x + 9) + (y^2 - 10y + 25) = 191 + 9 + 25$, so $(x - 3)^2 + (y - 5)^2 = 225$. The center is $(3, 5)$ and the radius is $15$.\nStep 3: The highest point of the circle is directly above the center, at $y = 5 + 15 = 20$. Check: $(3, 20)$ satisfies $(3 - 3)^2 + (20 - 5)^2 = 225$ ✓\n\n**Common Mistakes:**\n* $15$: reports the radius instead of a coordinate.\n* $5$: reports the center's $y$-coordinate without moving up by the radius.\n* $230$: adds $r^2 = 225$ to the center's $y$-coordinate instead of $r = 15$.\n\n**Test Day Takeaway:** Make the coefficients of $x^2$ and $y^2$ equal to $1$ before completing the square; otherwise every constant you add is wrong.",
+    explanation: "**SAT Pattern: Circle in General Form**\n\n**The correct answer is $20$.**\n\n**The Fast Way (~40s):** Move $10y$ to the left and complete both squares: $(x - 3)^{2} + (y - 5)^{2} = 225$. The top of the circle is $15$ above the center: $5 + 15 = 20$.\n\n**The Full Solution:**\nStep 1: Subtract $10y$ from both sides so every variable term is on the left: $x^{2} - 6x + y^{2} - 10y = 191$.\nStep 2: Complete the square in each variable: $(x^{2} - 6x + 9) + (y^{2} - 10y + 25) = 191 + 9 + 25$, so $(x - 3)^{2} + (y - 5)^{2} = 225$. The center is $(3, 5)$ and the radius is $15$.\nStep 3: The highest point of the circle is directly above the center, at $y = 5 + 15 = 20$. Check: $(3, 20)$ gives $9 - 18 + 400 = 391$ and $10(20) + 191 = 391$ ✓\n\n**Common Mistakes:**\n* $15$: reports the radius instead of a coordinate.\n* $5$: reports the center's $y$-coordinate without moving up by the radius.\n* $10$: moves $10y$ to the left without changing its sign, so the center becomes $(3, -5)$ and the top of the circle $-5 + 15 = 10$.\n* $-10$: gives the lowest point of the circle, $5 - 15$, instead of the highest.\n\n**Test Day Takeaway:** Before completing the square, collect every $x$ and $y$ term on one side of the equation; the radius then moves you from the center to the highest point.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "non-standard-circle-equation",
@@ -1303,22 +1303,22 @@ export const geometryBank = [
   {
     id: "bank-geo-058",
     domain: "geometry",
-    skills: ["radians-to-degrees", "sector-area"],
+    skills: ["arc-length"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "In the circle shown, the center is $P$, the radius is $18$, and the measure of central angle $XPY$ is $\\frac{5\\pi}{6}$ radians. What is the area of the region of the circle outside sector $XPY$?",
+    question: "In the circle shown, the center is $P$, the radius is $18$, and the measure of angle $XPY$ is $\\frac{5\\pi}{6}$ radians. Points $X$ and $Y$ divide the circle into two arcs. What is the length of the longer arc?",
     diagram: { type: "circleWithSector", params: { centralAngle: 150, angleLabel: "5π/6", radius: "18", showRadiusLabel: true, labelCenter: "P", labelPoint1: "X", labelPoint2: "Y" } },
     choices: [
-      // distractor: drops the 1/2 from A = (1/2)r^2 theta, making the sector 270 pi and the rest 54 pi
-      { id: "A", text: "$54\\pi$" },
-      // distractor: gives the area of sector XPY itself instead of the region outside it
-      { id: "B", text: "$135\\pi$" },
-      { id: "C", text: "$189\\pi$" },
-      // distractor: gives the area of the whole circle without subtracting the sector
-      { id: "D", text: "$324\\pi$" }
+      // distractor: finds the shorter arc, 18(5 pi/6) = 15 pi
+      { id: "A", text: "$15\\pi$" },
+      { id: "B", text: "$21\\pi$" },
+      // distractor: gives the whole circumference 2 pi (18) = 36 pi
+      { id: "C", text: "$36\\pi$" },
+      // distractor: computes the area of the circle outside the angle, (7/12) pi (18^2), instead of an arc length
+      { id: "D", text: "$189\\pi$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Sector Area in Radians**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Sector $XPY$ is $\\frac{5\\pi/6}{2\\pi} = \\frac{5}{12}$ of the circle, so the rest is $\\frac{7}{12}$ of $\\pi(18)^2 = 324\\pi$, which is $189\\pi$.\n\n**The Full Solution:**\nStep 1: The whole circle has area $\\pi(18)^2 = 324\\pi$.\nStep 2: With the angle in radians, sector $XPY$ has area $\\frac{1}{2}r^2\\theta = \\frac{1}{2}(324)\\left(\\frac{5\\pi}{6}\\right) = 135\\pi$.\nStep 3: The region outside the sector has area $324\\pi - 135\\pi = 189\\pi$. Check: the remaining central angle is $2\\pi - \\frac{5\\pi}{6} = \\frac{7\\pi}{6}$, and $\\frac{1}{2}(324)\\left(\\frac{7\\pi}{6}\\right) = 189\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($54\\pi$): drops the $\\frac{1}{2}$, making the sector $324\\left(\\frac{5\\pi}{6}\\right) = 270\\pi$ and leaving $54\\pi$.\n* Choice B ($135\\pi$): is the area of sector $XPY$ itself.\n* Choice D ($324\\pi$): is the area of the whole circle, with the sector never subtracted.\n\n**Test Day Takeaway:** In radians, a sector's area is $\\frac{1}{2}r^2\\theta$; then read carefully whether the question wants the sector or the rest of the circle.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Arc Length in Radians**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** The shorter arc is $\\frac{5\\pi}{6} \\div 2\\pi = \\frac{5}{12}$ of the circle, so the longer arc is $\\frac{7}{12}$ of $36\\pi$, which is $21\\pi$.\n\n**The Full Solution:**\nStep 1: A full circle is $2\\pi$ radians, so the arc inside angle $XPY$ is $\\frac{5\\pi/6}{2\\pi} = \\frac{5}{12}$ of the circle, and the longer arc is $1 - \\frac{5}{12} = \\frac{7}{12}$ of the circle.\nStep 2: The circumference is $2\\pi(18) = 36\\pi$.\nStep 3: The longer arc has length $\\frac{7}{12}(36\\pi) = 21\\pi$. Check: the shorter arc is $\\frac{5}{12}(36\\pi) = 15\\pi$, and $15\\pi + 21\\pi = 36\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($15\\pi$): is the length of the shorter arc, the one inside angle $XPY$.\n* Choice C ($36\\pi$): is the whole circumference, not one of the two arcs.\n* Choice D ($189\\pi$): takes $\\frac{7}{12}$ of the area $324\\pi$, which is an area, not a length.\n\n**Test Day Takeaway:** A full circle is $2\\pi$ radians or $360°$. Divide the angle by the full turn to get the fraction of the circumference.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "radian-sector-area",
@@ -1344,22 +1344,22 @@ export const geometryBank = [
   {
     id: "bank-geo-060",
     domain: "geometry",
-    skills: ["circle-parts", "arc-length", "sector-area"],
+    skills: ["arc-length"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "The circle shown has center $O$ and a circumference of $30\\pi$. What is the area of sector $AOB$?",
+    question: "The circle shown has center $O$, and the length of arc $AB$ is $12\\pi$. What is the area of the circle?",
     diagram: { type: "circleWithSector", params: { centralAngle: 144, angleLabel: "144°", labelCenter: "O", labelPoint1: "A", labelPoint2: "B", figureNote: true } },
     choices: [
-      // distractor: takes 2/5 of the circumference, which is the arc length, not the area
-      { id: "A", text: "$12\\pi$" },
-      { id: "B", text: "$90\\pi$" },
-      // distractor: divides 144 by 180 instead of 360, doubling the fraction
-      { id: "C", text: "$180\\pi$" },
-      // distractor: gives the area of the whole circle
-      { id: "D", text: "$225\\pi$" }
+      // distractor: stops at the circumference, 30 pi
+      { id: "A", text: "$30\\pi$" },
+      // distractor: treats 12 pi as the whole circumference, so r = 6
+      { id: "B", text: "$36\\pi$" },
+      { id: "C", text: "$225\\pi$" },
+      // distractor: uses the diameter 30 as the radius
+      { id: "D", text: "$900\\pi$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Circumference → Radius → Sector**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** From $2\\pi r = 30\\pi$, the radius is $15$; sector $AOB$ is $\\frac{144}{360} = \\frac{2}{5}$ of the circle's area $225\\pi$, which is $90\\pi$.\n\n**The Full Solution:**\nStep 1: The circumference is $2\\pi r = 30\\pi$, so $r = 15$.\nStep 2: The whole circle has area $\\pi r^2 = 225\\pi$.\nStep 3: Sector $AOB$ has a central angle of $144^{\\circ}$, which is $\\frac{144}{360} = \\frac{2}{5}$ of the circle, so its area is $\\frac{2}{5}(225\\pi) = 90\\pi$. Check: $90\\pi$ is less than half of $225\\pi$, as it should be for an angle less than $180^{\\circ}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($12\\pi$): takes $\\frac{2}{5}$ of the circumference, which is the arc length, not the area.\n* Choice C ($180\\pi$): divides $144$ by $180$ instead of $360$, doubling the fraction.\n* Choice D ($225\\pi$): is the area of the whole circle.\n\n**Test Day Takeaway:** Circumference gives the radius; the angle fraction then scales arc length from $2\\pi r$ or area from $\\pi r^2$, so use the one the question asks for.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Arc Length**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** A $144°$ arc is $\\frac{2}{5}$ of the circle, so the circumference is $\\frac{5}{2}(12\\pi) = 30\\pi$, the radius is $15$, and the area is $225\\pi$.\n\n**The Full Solution:**\nStep 1: The central angle is $144°$, so arc $AB$ is $\\frac{144}{360} = \\frac{2}{5}$ of the circle.\nStep 2: The circumference is $12\\pi \\div \\frac{2}{5} = 30\\pi$, so $2\\pi r = 30\\pi$ and $r = 15$.\nStep 3: The area is $\\pi(15)^{2} = 225\\pi$. Check: $\\frac{2}{5}(2\\pi \\cdot 15) = \\frac{2}{5}(30\\pi) = 12\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($30\\pi$): is the circumference; the question asks for the area.\n* Choice B ($36\\pi$): treats $12\\pi$ as the whole circumference, ignoring the $144°$ angle, so $r = 6$ and the area is $36\\pi$.\n* Choice D ($900\\pi$): squares the diameter $30$ instead of the radius $15$.\n\n**Test Day Takeaway:** From an arc: angle fraction gives the circumference, the circumference gives the radius, and the radius gives the area.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "multi-step-track-problem",
@@ -1502,19 +1502,19 @@ export const geometryBank = [
     skills: ["soh-cah-toa", "triangle-area"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "In the triangle shown, $\\sin\\theta = 0.28$. What is the area, in square units, of the triangle?",
-    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [168, 0], [168, 49]], labels: ["θ", "", ""], sideLabels: ["", "", "175"], rightAngleVertex: 1, figureNote: true } },
+    question: "In the triangle shown, $\\sin\\theta = \\frac{3}{5}$. What is the area, in square units, of the triangle?",
+    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [24, 0], [24, 18]], labels: ["θ", "", ""], sideLabels: ["", "", "30"], rightAngleVertex: 1, figureNote: true } },
     choices: [
-      // distractor: stops at the leg opposite theta, 175(0.28) = 49
-      { id: "A", text: "$49$" },
-      // distractor: stops at the leg adjacent to theta, 168
-      { id: "B", text: "$168$" },
-      { id: "C", text: "$4{,}116$" },
-      // distractor: multiplies the legs but forgets the factor of 1/2 in the area formula
-      { id: "D", text: "$8{,}232$" }
+      { id: "A", text: "$216$" },
+      // distractor: uses the hypotenuse 30 and the leg 18 as base and height
+      { id: "B", text: "$270$" },
+      // distractor: uses the hypotenuse 30 and the leg 24 as base and height
+      { id: "C", text: "$360$" },
+      // distractor: multiplies the legs 18 and 24 and forgets the 1/2
+      { id: "D", text: "$432$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The leg opposite $\\theta$ is $175(0.28) = 49$ and the other leg is $\\sqrt{175^{2} - 49^{2}} = 168$, so the area is $\\frac{1}{2}(49)(168) = 4{,}116$.\n\n**The Full Solution:**\nStep 1: The side of length $175$ is across from the right angle, so it is the hypotenuse. Since $\\sin\\theta = \\frac{\\text{opposite}}{175} = 0.28$, the leg opposite $\\theta$ is $175(0.28) = 49$.\nStep 2: By the Pythagorean theorem, the leg adjacent to $\\theta$ is $\\sqrt{175^{2} - 49^{2}} = \\sqrt{30{,}625 - 2{,}401} = \\sqrt{28{,}224} = 168$.\nStep 3: The legs are the base and height, so the area is $\\frac{1}{2}(49)(168) = 4{,}116$ square units. Check: $\\cos\\theta = \\frac{168}{175} = 0.96$ and $0.28^{2} + 0.96^{2} = 0.0784 + 0.9216 = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($49$): stops after finding the leg opposite $\\theta$.\n* Choice B ($168$): stops after finding the leg adjacent to $\\theta$.\n* Choice D ($8{,}232$): multiplies the two legs and forgets the $\\frac{1}{2}$ in the triangle area formula.\n\n**Test Day Takeaway:** For the area of a right triangle you need both legs; a trig ratio gives one leg, and the Pythagorean theorem gives the other.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** $\\sin\\theta = \\frac{3}{5}$ with hypotenuse $30$ gives legs $18$ and $24$, so the area is $\\frac{1}{2}(18)(24) = 216$.\n\n**The Full Solution:**\nStep 1: The hypotenuse is $30$, and $\\sin\\theta = \\frac{\\text{opposite}}{30} = \\frac{3}{5}$, so the side opposite $\\theta$ is $18$.\nStep 2: By the Pythagorean theorem, the other leg is $\\sqrt{30^{2} - 18^{2}} = \\sqrt{576} = 24$.\nStep 3: The legs are a base and its height, so the area is $\\frac{1}{2}(18)(24) = 216$ square units. Check: the sides $18$, $24$, $30$ are $6$ times $3$, $4$, $5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($270$): uses the hypotenuse as a height, but the hypotenuse is not perpendicular to either leg.\n* Choice C ($360$): also uses the hypotenuse with a leg; only the two legs meet at the right angle.\n* Choice D ($432$): multiplies the legs correctly but forgets the $\\frac{1}{2}$.\n\n**Test Day Takeaway:** A trig ratio and one side give a second side; the Pythagorean theorem gives the third. A right triangle's area is half the product of its legs.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "right-triangle-trig-ratios",
@@ -1572,18 +1572,18 @@ export const geometryBank = [
     skills: ["circle-equation", "completing-square-circles"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "$x^{2} + y^{2} - 16x - 30y = 0$\nThe graph of the given equation in the $xy$-plane is a circle. Which of the following gives the center of the circle and its radius?",
+    question: "$x^{2} + y^{2} - 12y = 0$\nThe graph of the given equation in the $xy$-plane is a circle. Which of the following gives the center of the circle and its radius?",
     choices: [
-      // distractor: keeps the signs of the coefficients -16 and -30 when halving them, reversing the center
-      { id: "A", text: "The center is at $(-8, -15)$ and the radius is $17$." },
-      { id: "B", text: "The center is at $(8, 15)$ and the radius is $17$." },
-      // distractor: finds the center correctly but reports r squared, 289, as the radius
-      { id: "C", text: "The center is at $(8, 15)$ and the radius is $289$." },
-      // distractor: uses the full coefficients 16 and 30 as the center instead of half of each
-      { id: "D", text: "The center is at $(16, 30)$ and the radius is $17$." }
+      // distractor: takes the sign of -12y directly, putting the center at y = -6
+      { id: "A", text: "The center is at $(0, -6)$ and the radius is $6$." },
+      { id: "B", text: "The center is at $(0, 6)$ and the radius is $6$." },
+      // distractor: reports r^2 = 36 as the radius
+      { id: "C", text: "The center is at $(0, 6)$ and the radius is $36$." },
+      // distractor: puts the 6 in the x-coordinate even though only y was completed
+      { id: "D", text: "The center is at $(6, 0)$ and the radius is $6$." }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Circle in General Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Halving $-16$ and $-30$ and flipping the signs puts the center at $(8, 15)$, and $r^{2} = 8^{2} + 15^{2} = 289$, so $r = 17$.\n\n**The Full Solution:**\nStep 1: Complete the square in $x$: $x^{2} - 16x = (x - 8)^{2} - 64$.\nStep 2: Complete the square in $y$: $y^{2} - 30y = (y - 15)^{2} - 225$. The equation becomes $(x - 8)^{2} + (y - 15)^{2} = 64 + 225 = 289$.\nStep 3: The center is $(8, 15)$ and the radius is $\\sqrt{289} = 17$. Check: the origin satisfies the original equation, and its distance from $(8, 15)$ is $\\sqrt{64 + 225} = 17$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (center $(-8, -15)$): halves the coefficients but keeps their signs; $(x - 8)^{2}$ means the center's $x$-coordinate is $+8$.\n* Choice C (radius $289$): stops at $r^{2}$ and forgets the square root.\n* Choice D (center $(16, 30)$): uses the whole coefficients; the center comes from half of each one.\n\n**Test Day Takeaway:** In $x^{2} + y^{2} + Dx + Ey + F = 0$, the center is $\\left(-\\frac{D}{2}, -\\frac{E}{2}\\right)$; the radius still needs a square root at the end.",
+    explanation: "**SAT Pattern: Circle in General Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Add $36$ to both sides: $x^{2} + (y - 6)^{2} = 36$, so the center is $(0, 6)$ and the radius is $6$.\n\n**The Full Solution:**\nStep 1: There is no $x$ term, so $x^{2}$ is already $(x - 0)^{2}$.\nStep 2: Complete the square in $y$: half of $-12$ is $-6$, and $(-6)^{2} = 36$. Adding $36$ to both sides gives $x^{2} + (y - 6)^{2} = 36$.\nStep 3: The center is $(0, 6)$ and $r^{2} = 36$, so $r = 6$. Check: $(0, 12)$ is $6$ units above the center, and $0^{2} + 12^{2} - 12(12) = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (The center is at $(0, -6)$ and the radius is $6$.): reads the center straight from $-12y$; in $(y - 6)^{2}$ the center's $y$-coordinate is $+6$.\n* Choice C (The center is at $(0, 6)$ and the radius is $36$.): stops at $r^{2} = 36$; the radius is its square root, $6$.\n* Choice D (The center is at $(6, 0)$ and the radius is $6$.): swaps the coordinates; the completed square is in $y$, so the $6$ belongs to the $y$-coordinate.\n\n**Test Day Takeaway:** To read a circle written as $x^{2} + y^{2} + \\dots = 0$, complete the square in each variable that has a linear term.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "circle-in-general-form",
@@ -1596,9 +1596,9 @@ export const geometryBank = [
     skills: ["circle-equation", "completing-square-circles"],
     difficulty: "easy",
     type: "fill-in",
-    question: "$x^{2} + y^{2} + 16x - 12y + 51 = 0$\nIn the $xy$-plane, the graph of the given equation is a circle. What is the radius of the circle?",
-    correctAnswer: "7",
-    explanation: "**SAT Pattern: Circle in General Form**\n\n**The correct answer is 7.**\n\n**The Fast Way (~35s):** $r^{2} = 8^{2} + 6^{2} - 51 = 49$, so $r = 7$.\n\n**The Full Solution:**\nStep 1: Complete the square in $x$: $x^{2} + 16x = (x + 8)^{2} - 64$.\nStep 2: Complete the square in $y$: $y^{2} - 12y = (y - 6)^{2} - 36$.\nStep 3: Substitute and collect constants: $(x + 8)^{2} + (y - 6)^{2} = 64 + 36 - 51 = 49$, so $r = \\sqrt{49} = 7$. Check: expanding $(x + 8)^{2} + (y - 6)^{2} = 49$ gives $x^{2} + y^{2} + 16x - 12y + 51 = 0$ ✓\n\n**Common Mistakes:**\n* $49$: reports $r^{2}$ instead of taking the square root.\n* $10$: leaves out the constant $51$, using $r^{2} = 64 + 36 = 100$.\n* $\\sqrt{151}$: adds the $51$ instead of moving it across the equals sign, using $r^{2} = 64 + 36 + 51$.\n\n**Test Day Takeaway:** Move the equation's constant to the right side before reading $r^{2}$; it is subtracted from the two completed-square terms.",
+    question: "$x^{2} + y^{2} + 10x = 39$\nIn the $xy$-plane, the graph of the given equation is a circle. What is the radius of the circle?",
+    correctAnswer: "8",
+    explanation: "**SAT Pattern: Circle in General Form**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~20s):** Add $25$ to both sides: $(x + 5)^{2} + y^{2} = 64$, so the radius is $8$.\n\n**The Full Solution:**\nStep 1: Complete the square in $x$: half of $10$ is $5$, and $5^{2} = 25$.\nStep 2: Add $25$ to both sides: $x^{2} + 10x + 25 + y^{2} = 39 + 25$, which is $(x + 5)^{2} + y^{2} = 64$.\nStep 3: So $r^{2} = 64$ and $r = 8$. Check: the point $(3, 0)$ is $8$ units from the center $(-5, 0)$, and $3^{2} + 0^{2} + 10(3) = 39$ ✓\n\n**Common Mistakes:**\n* $64$: reports $r^{2}$ instead of $r$.\n* $\\sqrt{39}$: forgets to add $25$ to the right side when completing the square.\n* $5$: gives the distance from the center to the $y$-axis instead of the radius.\n\n**Test Day Takeaway:** Whatever you add to complete the square on the left, add to the right too; the right side is then $r^{2}$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "circle-in-general-form",
@@ -1704,18 +1704,18 @@ export const geometryBank = [
     skills: ["circle-equation", "completing-square-circles"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "$x^{2} + y^{2} + 12x - 16y + 75 = 0$\nThe graph of the given equation in the $xy$-plane is a circle. What is the greatest distance between the origin and a point on the circle?",
+    question: "$x^{2} + y^{2} + 12x - 16y + 75 = 0$\nThe graph of the given equation in the $xy$-plane is a circle. If the point $(a, b)$ is on the circle, which of the following is a possible value of $a$?",
     choices: [
-      // distractor: reports the radius of the circle, 5
-      { id: "A", text: "$5$" },
-      // distractor: reports the distance from the origin to the center, 10
-      { id: "B", text: "$10$" },
-      { id: "C", text: "$15$" },
-      // distractor: adds the diameter instead of the radius to the center's distance, 10 + 2(5)
-      { id: "D", text: "$20$" }
+      // distractor: forgets to subtract 75, so the radius becomes 10 and the x-values run from -16 to 4
+      { id: "A", text: "$-14$" },
+      { id: "B", text: "$-3$" },
+      // distractor: puts the center at x = 6 instead of x = -6, so the x-values run from 1 to 11
+      { id: "C", text: "$1$" },
+      // distractor: uses the y-coordinate of the center, 8
+      { id: "D", text: "$8$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Circle in General Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The center $(-6, 8)$ is $10$ from the origin and the radius is $5$, so the farthest point on the circle is $10 + 5 = 15$ away.\n\n**The Full Solution:**\nStep 1: Complete both squares: $(x + 6)^{2} + (y - 8)^{2} = 36 + 64 - 75 = 25$. The center is $(-6, 8)$ and the radius is $5$.\nStep 2: The distance from the origin to the center is $\\sqrt{(-6)^{2} + 8^{2}} = \\sqrt{100} = 10$. Since $10 > 5$, the origin lies outside the circle.\nStep 3: The farthest point on the circle lies on the line through the origin and the center, beyond the center, at distance $10 + 5 = 15$. Check: that point is $\\frac{15}{10}(-6, 8) = (-9, 12)$, and $(-9 + 6)^{2} + (12 - 8)^{2} = 9 + 16 = 25$, so it is on the circle, $\\sqrt{81 + 144} = 15$ from the origin ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): stops at the radius.\n* Choice B ($10$): reports the distance to the center, which is not on the circle.\n* Choice D ($20$): adds the diameter, $10 + 10$, instead of the radius.\n\n**Test Day Takeaway:** The farthest point of a circle from any outside point is (distance to the center) + (radius); the nearest is the difference.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Circle in General Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The circle is $(x + 6)^{2} + (y - 8)^{2} = 25$, so $x$ runs from $-6 - 5 = -11$ to $-6 + 5 = -1$. Only $-3$ is in that range.\n\n**The Full Solution:**\nStep 1: Complete both squares: $(x^{2} + 12x + 36) + (y^{2} - 16y + 64) = -75 + 36 + 64$, which is $(x + 6)^{2} + (y - 8)^{2} = 25$.\nStep 2: The center is $(-6, 8)$ and the radius is $5$, so every point on the circle has an $x$-coordinate from $-11$ to $-1$.\nStep 3: Of the choices, only $-3$ is between $-11$ and $-1$. Check: with $a = -3$, $(-3 + 6)^{2} = 9$, so $(b - 8)^{2} = 16$ and $b = 4$ or $b = 12$; the point $(-3, 4)$ satisfies $9 + 16 - 36 - 64 + 75 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-14$): is in the range only if $r^{2} = 100$, which happens when the $75$ is left out.\n* Choice C ($1$): comes from a center at $(6, 8)$; the term $+12x$ means $(x + 6)^{2}$, so the center's $x$-coordinate is $-6$.\n* Choice D ($8$): is the center's $y$-coordinate, but the question asks about $x$-coordinates.\n\n**Test Day Takeaway:** A circle with center $(h, k)$ and radius $r$ contains only points with $h - r \\le x \\le h + r$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "circle-in-general-form",
@@ -1926,9 +1926,9 @@ export const geometryBank = [
     skills: ["volume-prism"],
     difficulty: "easy",
     type: "fill-in",
-    question: "The diameter of a right circular cylinder is $14$ inches, and its height is $6$ inches. The cylinder has a volume of $k\\pi$ cubic inches. What is the value of $k$?",
+    question: "A right circular cylinder has a radius of $7$ inches and a height of $6$ inches. The volume of the cylinder is $k\\pi$ cubic inches. What is the value of $k$?",
     correctAnswer: "294",
-    explanation: "**SAT Pattern: Cylinder Volume**\n\n**The correct answer is 294.**\n\n**The Fast Way (~20s):** The radius is $7$, so $V = \\pi(7)^{2}(6) = 294\\pi$ and $k = 294$.\n\n**The Full Solution:**\nStep 1: The radius is half the diameter: $r = \\frac{14}{2} = 7$ inches.\nStep 2: The volume is $V = \\pi r^{2}h = \\pi(7)^{2}(6) = \\pi(49)(6)$.\nStep 3: So $V = 294\\pi$ cubic inches and $k = 294$. Check: $49 \\times 6 = 294$ ✓\n\n**Common Mistakes:**\n* $1176$: uses the diameter $14$ as the radius: $14^{2}(6) = 1{,}176$.\n* $84$: forgets to square the radius: $14 \\times 6 = 84$.\n* $42$: multiplies the radius by the height without squaring: $7 \\times 6$.\n\n**Test Day Takeaway:** Halve the diameter first, then square the radius; using the diameter makes a cylinder's volume four times too large.",
+    explanation: "**SAT Pattern: Cylinder Volume**\n\n**The correct answer is $294$.**\n\n**The Fast Way (~10s):** $V = \\pi(7)^{2}(6) = 294\\pi$, so $k = 294$.\n\n**The Full Solution:**\nStep 1: The volume of a right circular cylinder is $V = \\pi r^{2}h$.\nStep 2: Substitute $r = 7$ and $h = 6$: $V = \\pi(49)(6)$.\nStep 3: $49 \\cdot 6 = 294$, so $V = 294\\pi$ and $k = 294$. Check: $\\frac{294}{6} = 49 = 7^{2}$ ✓\n\n**Common Mistakes:**\n* $42$: multiplies $7 \\cdot 6$ without squaring the radius.\n* $84$: uses $2r = 14$ in place of $r^{2}$, computing $14 \\cdot 6$.\n* $1{,}176$: uses the diameter $14$ as the radius, computing $14^{2} \\cdot 6$.\n\n**Test Day Takeaway:** Cylinder volume is base area times height: $\\pi r^{2}h$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "cylinder-volume",
@@ -1941,18 +1941,18 @@ export const geometryBank = [
     skills: ["volume-prism"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "Right circular cylinder $B$ has $3$ times the radius and half the height of right circular cylinder $A$. The volume of cylinder $A$ is $V$. Which expression represents the volume of cylinder $B$?",
+    question: "Right circular cylinder $B$ has $2$ times the radius and $3$ times the height of right circular cylinder $A$. The volume of cylinder $A$ is $V$. Which expression represents the volume of cylinder $B$?",
     choices: [
-      // distractor: scales the volume by the radius factor 3 without squaring it, then halves
-      { id: "A", text: "$\\frac{3V}{2}$" },
-      // distractor: triples the volume for the radius and ignores the change in height
-      { id: "B", text: "$3V$" },
-      { id: "C", text: "$\\frac{9V}{2}$" },
-      // distractor: squares the radius factor but ignores the halved height
-      { id: "D", text: "$9V$" }
+      // distractor: multiplies the two scale factors, 2 x 3, without squaring the radius factor
+      { id: "A", text: "$6V$" },
+      { id: "B", text: "$12V$" },
+      // distractor: squares the height factor instead of the radius factor, 2 x 3^2
+      { id: "C", text: "$18V$" },
+      // distractor: squares both factors, 2^2 x 3^2
+      { id: "D", text: "$36V$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Cylinder Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Volume scales with $r^{2}h$, so cylinder $B$ has $3^{2} \\cdot \\frac{1}{2} = \\frac{9}{2}$ times the volume of $A$: $\\frac{9V}{2}$.\n\n**The Full Solution:**\nStep 1: Let cylinder $A$ have radius $r$ and height $h$, so $V = \\pi r^{2}h$.\nStep 2: Cylinder $B$ has radius $3r$ and height $\\frac{h}{2}$, so its volume is $\\pi(3r)^{2}\\left(\\frac{h}{2}\\right) = \\pi(9r^{2})\\left(\\frac{h}{2}\\right)$.\nStep 3: That equals $\\frac{9}{2}\\pi r^{2}h = \\frac{9V}{2}$. Check: with $r = 1$ and $h = 2$, $V = 2\\pi$ and cylinder $B$ has volume $\\pi(3)^{2}(1) = 9\\pi = \\frac{9}{2}(2\\pi)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3V}{2}$): multiplies by $3$ for the radius instead of $3^{2} = 9$.\n* Choice B ($3V$): triples the volume and ignores the halved height.\n* Choice D ($9V$): squares the radius factor but forgets that the height was cut in half.\n\n**Test Day Takeaway:** Volume scales by (radius factor)$^{2}$ times (height factor); square only the radius factor.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Cylinder Volume**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The radius is squared in $\\pi r^{2}h$, so the volume changes by $2^{2} \\cdot 3 = 12$: $12V$.\n\n**The Full Solution:**\nStep 1: Let cylinder $A$ have radius $r$ and height $h$, so $V = \\pi r^{2}h$.\nStep 2: Cylinder $B$ has radius $2r$ and height $3h$, so its volume is $\\pi(2r)^{2}(3h) = \\pi(4r^{2})(3h) = 12\\pi r^{2}h$.\nStep 3: Since $\\pi r^{2}h = V$, the volume of cylinder $B$ is $12V$. Check: with $r = 1$ and $h = 1$, $V = \\pi$ and cylinder $B$ has volume $\\pi(2)^{2}(3) = 12\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6V$): treats both dimensions the same way; the radius is squared in the formula, so its factor becomes $2^{2} = 4$.\n* Choice C ($18V$): squares the height factor, but height appears to the first power in $\\pi r^{2}h$.\n* Choice D ($36V$): squares the height factor as well as the radius factor.\n\n**Test Day Takeaway:** In $\\pi r^{2}h$, a radius factor of $k$ multiplies the volume by $k^{2}$, and a height factor of $m$ multiplies it by $m$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "cylinder-volume",
@@ -2028,9 +2028,9 @@ export const geometryBank = [
     skills: ["volume-prism"],
     difficulty: "hard",
     type: "fill-in",
-    question: "A right circular cylinder has a volume of $375\\pi$ cubic centimeters. The height of the cylinder is $10$ centimeters greater than its radius. What is the height, in centimeters, of the cylinder?",
+    question: "A right circular cylinder has a volume of $375\\pi$ cubic centimeters, and the circumference of its base is $10\\pi$ centimeters. What is the height, in centimeters, of the cylinder?",
     correctAnswer: "15",
-    explanation: "**SAT Pattern: Cylinder Volume**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~50s):** With radius $r$, the volume is $\\pi r^{2}(r + 10) = 375\\pi$, so $r^{2}(r + 10) = 375$. Trying $r = 5$ gives $25 \\cdot 15 = 375$, so the height is $5 + 10 = 15$.\n\n**The Full Solution:**\nStep 1: Write the volume formula $V = \\pi r^{2}h$ with $h = r + 10$: $\\pi r^{2}(r + 10) = 375\\pi$.\nStep 2: Divide both sides by $\\pi$: $r^{2}(r + 10) = 375$. The left side increases as $r$ increases, so there is only one positive solution, and $r = 5$ works because $5^{2}(15) = 25 \\cdot 15 = 375$.\nStep 3: The height is $r + 10 = 5 + 10 = 15$ centimeters. Check: $\\pi(5)^{2}(15) = 375\\pi$ ✓\n\n**Common Mistakes:**\n* $5$: reports the radius instead of the height.\n* $25$: forgets to square the radius, solving $r(r + 10) = 375$ to get $r = 15$ and then adding $10$.\n* $10$: reads the $10$ in the stem as the height itself.\n\n**Test Day Takeaway:** When the height is written in terms of the radius, substitute it into $V = \\pi r^{2}h$ first, then solve for $r$ and finish by computing the quantity the question asks for.",
+    explanation: "**SAT Pattern: Cylinder Volume**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~30s):** From $2\\pi r = 10\\pi$, $r = 5$, so the base area is $25\\pi$ and the height is $\\frac{375\\pi}{25\\pi} = 15$.\n\n**The Full Solution:**\nStep 1: The circumference of the base is $2\\pi r = 10\\pi$, so the radius is $r = 5$ centimeters.\nStep 2: The base area is $\\pi r^{2} = \\pi(5)^{2} = 25\\pi$ square centimeters.\nStep 3: Since $V = \\pi r^{2}h$, $25\\pi h = 375\\pi$, so $h = 15$ centimeters. Check: $\\pi(5)^{2}(15) = 375\\pi$ ✓\n\n**Common Mistakes:**\n* $3.75$: treats $10$ as the radius, so the base area is $100\\pi$ and $h = \\frac{375}{100}$.\n* $37.5$: divides the volume by the circumference, $\\frac{375\\pi}{10\\pi}$, instead of by the base area.\n* $5$: reports the radius instead of the height.\n\n**Test Day Takeaway:** Circumference gives the radius, the radius gives the base area, and volume divided by base area gives the height.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "cylinder-volume",
@@ -2154,19 +2154,19 @@ export const geometryBank = [
     skills: ["triangle-angle-sum"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "Which of the following correctly orders the lengths of the sides of triangle $ABC$ shown?",
-    diagram: { type: "triangleWithAngles", params: { angleLabels: ["(x+10)°", "(2x)°", "(3x-40)°"], vertexLabels: ["A", "B", "C"], figureNote: true } },
+    question: "In triangle $ABC$ shown, $AB = BC$. What is the measure, in degrees, of angle $B$?",
+    diagram: { type: "triangleWithAngles", params: { angleLabels: ["(3x-20)°", "", "(x+30)°"], vertexLabels: ["A", "B", "C"], figureNote: true } },
     choices: [
-      { id: "A", text: "$BC < AB < CA$" },
-      // distractor: pairs angle B with side AB instead of the side opposite angle B
-      { id: "B", text: "$AB < BC < CA$" },
-      // distractor: swaps the two longest sides, pairing angle C with side CA
-      { id: "C", text: "$BC < CA < AB$" },
-      // distractor: reverses the rule, putting the shortest side opposite the largest angle
-      { id: "D", text: "$CA < AB < BC$" }
+      // distractor: stops at x = 25 instead of finding the angle
+      { id: "A", text: "$25$" },
+      // distractor: gives the measure of angle A (and angle C) instead of angle B
+      { id: "B", text: "$55$" },
+      { id: "C", text: "$70$" },
+      // distractor: subtracts only one 55-degree angle from 180
+      { id: "D", text: "$125$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Triangle Angle Sum**\n\n**Choice A is correct.**\n\n**The Fast Way (~50s):** $(x + 10) + 2x + (3x - 40) = 6x - 30 = 180$ gives $x = 35$, so $A = 45°$, $B = 70°$, and $C = 65°$; the sides opposite these angles rank $BC < AB < CA$.\n\n**The Full Solution:**\nStep 1: Set the angle sum equal to $180$: $(x + 10) + 2x + (3x - 40) = 180$, so $6x - 30 = 180$ and $x = 35$.\nStep 2: Evaluate the angles: $\\angle A = 35 + 10 = 45°$, $\\angle B = 2(35) = 70°$, and $\\angle C = 3(35) - 40 = 65°$.\nStep 3: The longest side is opposite the largest angle. Side $BC$ is opposite $\\angle A$, side $CA$ is opposite $\\angle B$, and side $AB$ is opposite $\\angle C$. Since $45 < 65 < 70$, the order is $BC < AB < CA$. Check: $45 + 70 + 65 = 180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($AB < BC < CA$): pairs $\\angle B$ with side $AB$, a side that touches $B$, instead of the side across from it.\n* Choice C ($BC < CA < AB$): swaps the two longest sides by matching $\\angle C$ with side $CA$.\n* Choice D ($CA < AB < BC$): reverses the rule, placing the shortest side opposite the largest angle.\n\n**Test Day Takeaway:** The side opposite an angle is named by the two OTHER vertices; write each angle-side pair down before ranking.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Triangle Angle Sum**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** $AB = BC$ makes angles $A$ and $C$ equal: $3x - 20 = x + 30$, so $x = 25$ and both measure $55°$. Then angle $B$ is $180 - 110 = 70°$.\n\n**The Full Solution:**\nStep 1: Since $AB = BC$, the angles opposite those sides are equal: angle $C$ (opposite $AB$) and angle $A$ (opposite $BC$). So $3x - 20 = x + 30$.\nStep 2: Solve: $2x = 50$, so $x = 25$, and each of angles $A$ and $C$ measures $25 + 30 = 55°$.\nStep 3: The angles add to $180°$, so angle $B$ measures $180 - 55 - 55 = 70°$. Check: $3(25) - 20 = 55$, and $55 + 70 + 55 = 180$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($25$): is the value of $x$, not an angle measure.\n* Choice B ($55$): is the measure of angles $A$ and $C$; the question asks for angle $B$.\n* Choice D ($125$): subtracts only one of the two equal angles from $180$.\n\n**Test Day Takeaway:** In a triangle, equal sides sit across from equal angles. Set those angle expressions equal, then use the $180°$ sum.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "triangle-angle-sum",
@@ -2274,18 +2274,18 @@ export const geometryBank = [
     skills: ["circle-equation"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "In the $xy$-plane, the points $(3, -4)$ and $(15, 12)$ are the endpoints of a diameter of a circle. Which equation represents the circle?",
+    question: "In the $xy$-plane, the points $(4, -7)$ and $(4, 3)$ are the endpoints of a diameter of a circle. Which equation represents the circle?",
     choices: [
       // distractor: flips the signs of the center coordinates
-      { id: "A", text: "$(x + 9)^2 + (y + 4)^2 = 100$" },
-      // distractor: uses the radius, 10, on the right side instead of the radius squared
-      { id: "B", text: "$(x - 9)^2 + (y - 4)^2 = 10$" },
-      { id: "C", text: "$(x - 9)^2 + (y - 4)^2 = 100$" },
-      // distractor: uses the length of the diameter, 20, as the radius, giving 20 squared = 400
-      { id: "D", text: "$(x - 9)^2 + (y - 4)^2 = 400$" }
+      { id: "A", text: "$(x + 4)^2 + (y - 2)^2 = 25$" },
+      // distractor: uses the radius 5 on the right side instead of 5^2
+      { id: "B", text: "$(x - 4)^2 + (y + 2)^2 = 5$" },
+      { id: "C", text: "$(x - 4)^2 + (y + 2)^2 = 25$" },
+      // distractor: uses the diameter 10 in place of the radius, 10^2 = 100
+      { id: "D", text: "$(x - 4)^2 + (y + 2)^2 = 100$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Circle in Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The center is the midpoint of the diameter, $\\left(\\frac{3 + 15}{2}, \\frac{-4 + 12}{2}\\right) = (9, 4)$, and the radius is half of $\\sqrt{12^2 + 16^2} = 20$, so $r^2 = 100$.\n\n**The Full Solution:**\nStep 1: The center of a circle is the midpoint of any diameter: $\\left(\\frac{3 + 15}{2}, \\frac{-4 + 12}{2}\\right) = (9, 4)$.\nStep 2: The diameter has length $\\sqrt{(15 - 3)^2 + (12 - (-4))^2} = \\sqrt{144 + 256} = \\sqrt{400} = 20$, so the radius is $10$ and $r^2 = 100$.\nStep 3: The equation is $(x - 9)^2 + (y - 4)^2 = 100$. Check: the endpoint $(15, 12)$ gives $6^2 + 8^2 = 36 + 64 = 100$, and $(3, -4)$ gives $(-6)^2 + (-8)^2 = 100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: flips the signs of the center, which would place it at $(-9, -4)$.\n* Choice B: puts the radius, $10$, on the right side instead of $r^2 = 100$.\n* Choice D: uses the whole diameter, $20$, as the radius, so the right side becomes $20^2 = 400$.\n\n**Test Day Takeaway:** The midpoint of a diameter is the center and half its length is the radius; the right side of standard form is the radius squared.",
+    explanation: "**SAT Pattern: Circle in Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The center is halfway between the endpoints, $(4, -2)$, and the diameter is $3 - (-7) = 10$, so $r = 5$ and $r^{2} = 25$.\n\n**The Full Solution:**\nStep 1: Both endpoints have $x$-coordinate $4$, so the diameter is vertical with length $3 - (-7) = 10$. The radius is $5$.\nStep 2: The center is halfway between the endpoints: $\\left(4, \\frac{-7 + 3}{2}\\right) = (4, -2)$.\nStep 3: With center $(4, -2)$ and $r^{2} = 25$, the equation is $(x - 4)^2 + (y + 2)^2 = 25$. Check: $(4, 3)$ gives $0^{2} + 5^{2} = 25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(x + 4)^2 + (y - 2)^2 = 25$): writes $(x + 4)$ and $(y - 2)$, which would put the center at $(-4, 2)$.\n* Choice B ($(x - 4)^2 + (y + 2)^2 = 5$): puts the radius $5$ on the right side; the equation needs $r^{2} = 25$.\n* Choice D ($(x - 4)^2 + (y + 2)^2 = 100$): squares the diameter $10$ instead of the radius $5$.\n\n**Test Day Takeaway:** From the endpoints of a diameter: the center is the halfway point, the radius is half the diameter, and the equation uses $r^{2}$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "circle-in-standard-form",
@@ -2835,18 +2835,18 @@ export const geometryBank = [
     skills: ["circle-equation"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "In the $xy$-plane, a circle has center $(0, 0)$ and passes through the point $(-20, 21)$. What is the radius of the circle?",
+    question: "In the $xy$-plane, a circle has center $(-3, 2)$ and passes through the point $(5, 2)$. What is the radius of the circle?",
     choices: [
-      // distractor: adds the coordinates, -20 + 21 = 1, instead of using the distance formula
-      { id: "A", text: "$1$" },
-      { id: "B", text: "$29$" },
-      // distractor: adds the distances along each axis, 20 + 21 = 41, instead of using the distance formula
-      { id: "C", text: "$41$" },
-      // distractor: stops at r squared = 841 without taking the square root
-      { id: "D", text: "$841$" }
+      // distractor: subtracts 5 - 3 = 2, dropping the negative sign of the center's x-coordinate
+      { id: "A", text: "$2$" },
+      // distractor: halves the distance 8, as if the segment from the center to the point were a diameter
+      { id: "B", text: "$4$" },
+      { id: "C", text: "$8$" },
+      // distractor: doubles the distance 8, giving the diameter instead of the radius
+      { id: "D", text: "$16$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Distance from Center as Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The radius is the distance from the origin to the point: $\\sqrt{(-20)^{2} + 21^{2}} = \\sqrt{841} = 29$.\n\n**The Full Solution:**\nStep 1: Every point on a circle is one radius from the center, so $r$ is the distance from $(0, 0)$ to $(-20, 21)$.\nStep 2: By the distance formula, $r^{2} = (-20 - 0)^{2} + (21 - 0)^{2} = 400 + 441 = 841$.\nStep 3: $r = \\sqrt{841} = 29$. Check: $29^{2} = 841 = 400 + 441$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): adds the coordinates, $-20 + 21 = 1$, instead of using the distance formula.\n* Choice C ($41$): adds the distances along each axis, $20 + 21$; the straight-line distance is shorter than that path.\n* Choice D ($841$): stops at $r^{2}$ without taking the square root.\n\n**Test Day Takeaway:** The radius is the distance from the center to any point on the circle, so the distance formula from the center to a given point gives it directly.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Distance from Center as Radius**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The center $(-3, 2)$ and the point $(5, 2)$ have the same $y$-coordinate, so the radius is $5 - (-3) = 8$.\n\n**The Full Solution:**\nStep 1: Every point on a circle is one radius from the center, so the radius is the distance from $(-3, 2)$ to $(5, 2)$.\nStep 2: Both points lie on the horizontal line $y = 2$, so the distance between them is the difference of their $x$-coordinates.\nStep 3: The radius is $5 - (-3) = 8$. Check: moving $8$ units to the right of $(-3, 2)$ gives $(5, 2)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): computes $5 - 3$, dropping the negative sign of $-3$.\n* Choice B ($4$): halves the distance, as if the segment from the center to the point were a diameter.\n* Choice D ($16$): doubles the distance, giving the diameter instead of the radius.\n\n**Test Day Takeaway:** The radius is the distance from the center to any point on the circle; when the two points share a coordinate, subtract the other coordinates.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "distance-from-center-as-radius",
@@ -2859,9 +2859,9 @@ export const geometryBank = [
     skills: ["circle-equation"],
     difficulty: "easy",
     type: "fill-in",
-    question: "In the $xy$-plane, a circle has center $(3, -4)$ and passes through the point $(-5, 2)$. What is the radius of the circle?",
-    correctAnswer: "10",
-    explanation: "**SAT Pattern: Distance from Center as Radius**\n\n**The correct answer is 10.**\n\n**The Fast Way (~20s):** The coordinate differences are $8$ and $6$, so the radius is $\\sqrt{64 + 36} = 10$.\n\n**The Full Solution:**\nStep 1: The radius is the distance from the center $(3, -4)$ to the point $(-5, 2)$ on the circle.\nStep 2: The differences are $-5 - 3 = -8$ and $2 - (-4) = 6$.\nStep 3: The distance is $\\sqrt{(-8)^{2} + 6^{2}} = \\sqrt{64 + 36} = \\sqrt{100} = 10$. Check: $(-5 - 3)^{2} + (2 + 4)^{2} = 100 = 10^{2}$ ✓\n\n**Common Mistakes:**\n* $14$: adds the differences along each axis, $8 + 6$, instead of using the distance formula.\n* $100$: stops at the square of the radius.\n* $8.25$: subtracts the $y$-coordinates as $2 - 4 = -2$ instead of $2 - (-4) = 6$, which gives $\\sqrt{64 + 4} \\approx 8.25$.\n\n**Test Day Takeaway:** The radius is the distance from the center to any point on the circle; the coordinate differences here form a $6$-$8$-$10$ right triangle.",
+    question: "Point $(3, -7)$ lies on a circle in the $xy$-plane with center $(3, 5)$. What is the radius of the circle?",
+    correctAnswer: "12",
+    explanation: "**SAT Pattern: Distance from Center as Radius**\n\n**The correct answer is 12.**\n\n**The Fast Way (~15s):** The point and the center have the same $x$-coordinate, so the radius is $5 - (-7) = 12$.\n\n**The Full Solution:**\nStep 1: The radius is the distance from the center $(3, 5)$ to the point $(3, -7)$ on the circle.\nStep 2: Both points lie on the vertical line $x = 3$, so the distance between them is the difference of their $y$-coordinates.\nStep 3: The radius is $5 - (-7) = 12$. Check: moving $12$ units down from $(3, 5)$ gives $(3, -7)$ ✓\n\n**Common Mistakes:**\n* $2$: computes $7 - 5$, dropping the negative sign of $-7$.\n* $24$: doubles the distance, giving the diameter instead of the radius.\n* $6$: halves the distance, as if the segment were a diameter.\n\n**Test Day Takeaway:** The radius is the distance from the center to any point on the circle; when the two points share a coordinate, subtract the other coordinates.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "distance-from-center-as-radius",
@@ -2937,9 +2937,9 @@ export const geometryBank = [
     skills: ["circle-equation"],
     difficulty: "medium",
     type: "fill-in",
-    question: "In the $xy$-plane, the points $(-6, 2)$ and $(10, 32)$ are the endpoints of a diameter of a circle. What is the radius of the circle?",
-    correctAnswer: "17",
-    explanation: "**SAT Pattern: Distance from Center as Radius**\n\n**The correct answer is 17.**\n\n**The Fast Way (~30s):** The center is the midpoint $(2, 17)$, and its distance to $(10, 32)$ is $\\sqrt{8^{2} + 15^{2}} = 17$.\n\n**The Full Solution:**\nStep 1: The center of a circle is the midpoint of any diameter: $\\left(\\frac{-6 + 10}{2}, \\frac{2 + 32}{2}\\right) = (2, 17)$.\nStep 2: The radius is the distance from the center to an endpoint: $\\sqrt{(10 - 2)^{2} + (32 - 17)^{2}} = \\sqrt{64 + 225} = \\sqrt{289}$.\nStep 3: $r = \\sqrt{289} = 17$. Check: the whole diameter is $\\sqrt{16^{2} + 30^{2}} = \\sqrt{1{,}156} = 34 = 2(17)$ ✓\n\n**Common Mistakes:**\n* $34$: reports the length of the diameter instead of the radius.\n* $289$: stops at $r^{2}$ without taking the square root.\n* $23$: adds the coordinate differences from the center, $8 + 15$, instead of using the distance formula.\n\n**Test Day Takeaway:** The center is the midpoint of a diameter, and the radius is the distance from the center to any point on the circle, which is half the diameter.",
+    question: "In the $xy$-plane, the points $(4, -7)$ and $(4, 15)$ are the endpoints of a diameter of a circle. What is the radius of the circle?",
+    correctAnswer: "11",
+    explanation: "**SAT Pattern: Distance from Center as Radius**\n\n**The correct answer is 11.**\n\n**The Fast Way (~20s):** The endpoints share the $x$-coordinate $4$, so the diameter is $15 - (-7) = 22$ and the radius is $\\frac{22}{2} = 11$.\n\n**The Full Solution:**\nStep 1: Both endpoints have $x$-coordinate $4$, so the diameter is vertical and its length is the difference of the $y$-coordinates: $15 - (-7) = 22$.\nStep 2: The radius is half the diameter: $\\frac{22}{2} = 11$.\nStep 3: The center is the midpoint of the diameter, $(4, 4)$. Check: $15 - 4 = 11$ and $4 - (-7) = 11$, so both endpoints are $11$ units from the center ✓\n\n**Common Mistakes:**\n* $22$: reports the diameter instead of the radius.\n* $4$: computes $15 - 7 = 8$, dropping the negative sign of $-7$, and then halves it.\n\n**Test Day Takeaway:** A diameter's endpoints are two radii apart; find the length of the diameter, then halve it.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "distance-from-center-as-radius",
@@ -2952,18 +2952,18 @@ export const geometryBank = [
     skills: ["circle-equation"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "In the $xy$-plane, circles $A$ and $B$ both have center $(4, -1)$. Circle $A$ passes through the point $(-4, 5)$, and circle $B$ passes through the point $(9, 11)$. What is the area of the region inside circle $B$ and outside circle $A$?",
+    question: "$(x - 4)^{2} + (y + 1)^{2} = 100$\nIn the $xy$-plane, the graph of the given equation is circle $A$. Circle $B$ has the same center as circle $A$ and passes through the point $(9, 11)$. What is the area of the region inside circle $B$ and outside circle $A$?",
     choices: [
-      // distractor: squares the difference of the radii, (13 - 10) squared
+      // distractor: squares the difference of the radii, (13 - 10) squared, instead of subtracting the areas
       { id: "A", text: "$9\\pi$" },
       { id: "B", text: "$69\\pi$" },
       // distractor: gives the area of circle B only
       { id: "C", text: "$169\\pi$" },
-      // distractor: adds the two squared radii, 169 + 100
+      // distractor: adds the two areas, 169 pi + 100 pi, instead of subtracting
       { id: "D", text: "$269\\pi$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Distance from Center as Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** The radii are $\\sqrt{64 + 36} = 10$ and $\\sqrt{25 + 144} = 13$, so the region's area is $\\pi(169 - 100) = 69\\pi$.\n\n**The Full Solution:**\nStep 1: The radius of circle $A$ is the distance from $(4, -1)$ to $(-4, 5)$: $\\sqrt{(-8)^{2} + 6^{2}} = \\sqrt{100} = 10$.\nStep 2: The radius of circle $B$ is the distance from $(4, -1)$ to $(9, 11)$: $\\sqrt{5^{2} + 12^{2}} = \\sqrt{169} = 13$.\nStep 3: Circle $A$ lies inside circle $B$, so the region's area is $\\pi(13^{2}) - \\pi(10^{2}) = 169\\pi - 100\\pi = 69\\pi$. Check: $69\\pi + 100\\pi = 169\\pi$, the area of circle $B$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9\\pi$): squares the difference of the radii; $(13 - 10)^{2}$ is not $13^{2} - 10^{2}$.\n* Choice C ($169\\pi$): gives the area of circle $B$ and never removes circle $A$.\n* Choice D ($269\\pi$): adds the two areas instead of subtracting.\n\n**Test Day Takeaway:** The region between two circles with the same center is a difference of areas, so subtract the squares of the radii; never square the difference of the radii.",
+    explanation: "**SAT Pattern: Distance from Center as Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Circle $A$ has center $(4, -1)$ and radius $10$, and circle $B$'s radius is the distance from $(4, -1)$ to $(9, 11)$, $\\sqrt{25 + 144} = 13$. The region's area is $169\\pi - 100\\pi = 69\\pi$.\n\n**The Full Solution:**\nStep 1: From the given equation, circle $A$ has center $(4, -1)$ and radius $\\sqrt{100} = 10$, so its area is $100\\pi$.\nStep 2: Circle $B$ has center $(4, -1)$ and passes through $(9, 11)$, so its radius squared is $(9 - 4)^{2} + (11 - (-1))^{2} = 25 + 144 = 169$. Its radius is $13$ and its area is $169\\pi$.\nStep 3: The region inside circle $B$ and outside circle $A$ has area $169\\pi - 100\\pi = 69\\pi$. Check: $69\\pi + 100\\pi = 169\\pi$, the area of circle $B$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9\\pi$): squares the difference of the radii, $(13 - 10)^{2} = 9$, instead of subtracting the areas.\n* Choice C ($169\\pi$): gives the area of circle $B$ without removing circle $A$.\n* Choice D ($269\\pi$): adds the two areas instead of subtracting them.\n\n**Test Day Takeaway:** The area between two circles with the same center is the larger area minus the smaller area; subtract the areas, not the radii.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "distance-from-center-as-radius",
@@ -2976,9 +2976,9 @@ export const geometryBank = [
     skills: ["circle-equation"],
     difficulty: "hard",
     type: "fill-in",
-    question: "In the $xy$-plane, a circle has center $(a, 6)$, where $a$ is a constant, and passes through the points $(1, 2)$ and $(9, 14)$. What is the value of $a$?",
-    correctAnswer: "8",
-    explanation: "**SAT Pattern: Distance from Center as Radius**\n\n**The correct answer is 8.**\n\n**The Fast Way (~50s):** Both points are $r$ from the center $(a, 6)$, so $(1 - a)^{2} + 16 = (9 - a)^{2} + 64$, which simplifies to $16a = 128$ and $a = 8$.\n\n**The Full Solution:**\nStep 1: Let $r$ be the radius. Each point is $r$ from the center $(a, 6)$, so by the distance formula $(1 - a)^{2} + (2 - 6)^{2} = r^{2}$ and $(9 - a)^{2} + (14 - 6)^{2} = r^{2}$.\nStep 2: Set the left sides equal: $(1 - a)^{2} + 16 = (9 - a)^{2} + 64$. Expanding, $a^{2} - 2a + 17 = a^{2} - 18a + 145$.\nStep 3: The $a^{2}$ terms cancel, so $16a = 128$ and $a = 8$. Check: $(1 - 8)^{2} + 16 = 65$ and $(9 - 8)^{2} + 64 = 65$, so both points are $\\sqrt{65}$ from $(8, 6)$ ✓\n\n**Common Mistakes:**\n* $5$: takes the center to be the midpoint of the two points, $\\left(5, 8\\right)$; that midpoint's $y$-coordinate is $8$, not $6$, so the two points are not endpoints of a diameter.\n* $16$: forgets to double the middle terms, expanding the squares as $a^{2} - a + 1$ and $a^{2} - 9a + 81$, which gives $8a = 128$.\n* $65$: reports $r^{2}$ instead of $a$.\n\n**Test Day Takeaway:** Every point on a circle is the same distance from the center, so two points on the circle give two expressions for $r^{2}$; set them equal and the squared unknown cancels.",
+    question: "In the $xy$-plane, a circle has center $(3, -2)$ and passes through the point $(9, 6)$. The point $(k, -2)$, where $k > 3$, also lies on the circle. What is the value of $k$?",
+    correctAnswer: "13",
+    explanation: "**SAT Pattern: Distance from Center as Radius**\n\n**The correct answer is 13.**\n\n**The Fast Way (~40s):** The radius is $\\sqrt{(9 - 3)^{2} + (6 - (-2))^{2}} = \\sqrt{100} = 10$. The point $(k, -2)$ is on the horizontal line through the center, so $k = 3 + 10 = 13$.\n\n**The Full Solution:**\nStep 1: The radius is the distance from the center $(3, -2)$ to $(9, 6)$: $\\sqrt{6^{2} + 8^{2}} = \\sqrt{100} = 10$.\nStep 2: The point $(k, -2)$ has the same $y$-coordinate as the center, so it is $10$ units to the left or right of the center: $k = 3 - 10 = -7$ or $k = 3 + 10 = 13$.\nStep 3: Since $k > 3$, $k = 13$. Check: $(13 - 3)^{2} + (-2 - (-2))^{2} = 100 = 10^{2}$ ✓\n\n**Common Mistakes:**\n* $-7$: takes the point to the left of the center, which the condition $k > 3$ rules out.\n* $10$: reports the radius instead of the $x$-coordinate of the point.\n* $9$: copies the $x$-coordinate of the given point $(9, 6)$.\n\n**Test Day Takeaway:** Find the radius from the center and the given point, then move one radius along the horizontal or vertical line through the center.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "distance-from-center-as-radius",
@@ -3071,18 +3071,18 @@ export const geometryBank = [
     skills: ["volume-prism"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A concrete block is a rectangular prism that measures $1.5$ meters by $0.8$ meters by $0.4$ meters. If concrete costs \\$250 per cubic meter, what is the cost of the concrete in the block?",
+    question: "A sandbox in the shape of a rectangular prism is $6$ feet long, $4$ feet wide, and $2$ feet deep. Sand costs \\$3 per cubic foot. What is the cost of the sand needed to fill the sandbox?",
     choices: [
-      { id: "A", text: "\\$120" },
-      // distractor: drops the 0.8 factor and prices 1.5 times 0.4 = 0.6 cubic meter
-      { id: "B", text: "\\$150" },
-      // distractor: drops the 0.4 factor and prices 1.5 times 0.8 = 1.2 cubic meters
-      { id: "C", text: "\\$300" },
-      // distractor: adds the three dimensions to get 2.7 and prices that sum as a volume
-      { id: "D", text: "\\$675" }
+      // distractor: adds the three dimensions, 6 + 4 + 2 = 12, and multiplies that sum by 3
+      { id: "A", text: "\\$36" },
+      // distractor: uses the area of the base, (6)(4) = 24 square feet, without the depth
+      { id: "B", text: "\\$72" },
+      { id: "C", text: "\\$144" },
+      // distractor: uses the surface area, 2(24 + 12 + 8) = 88 square feet, instead of the volume
+      { id: "D", text: "\\$264" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Volume of a Rectangular Prism**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The block's volume is $(1.5)(0.8)(0.4) = 0.48$ cubic meter, and $0.48 \\times 250 = 120$.\n\n**The Full Solution:**\nStep 1: The volume of a rectangular prism is the product of its three dimensions: $(1.5)(0.8)(0.4)$.\nStep 2: $(1.5)(0.8) = 1.2$, and $(1.2)(0.4) = 0.48$ cubic meter.\nStep 3: At \\$250 per cubic meter, the cost is $0.48 \\times 250 = 120$ dollars. Check: $\\frac{120}{250} = 0.48$, the volume of the block ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (\\$150): drops the $0.8$ factor and prices $(1.5)(0.4) = 0.6$ cubic meter.\n* Choice C (\\$300): drops the $0.4$ factor and prices $(1.5)(0.8) = 1.2$ cubic meters, the area of one face.\n* Choice D (\\$675): adds the dimensions to get $2.7$ and treats that sum as a volume.\n\n**Test Day Takeaway:** Compute the complete volume before applying a unit rate; a missing factor changes the answer even though the units still look right.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Volume of a Rectangular Prism**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The sandbox holds $(6)(4)(2) = 48$ cubic feet of sand, and $48 \\times 3 = 144$, so the sand costs \\$144.\n\n**The Full Solution:**\nStep 1: The volume of a rectangular prism is the product of its three dimensions: $(6)(4)(2)$.\nStep 2: $(6)(4)(2) = 48$ cubic feet.\nStep 3: At \\$3 per cubic foot, the cost is $48 \\times 3 = 144$ dollars. Check: $\\frac{144}{3} = 48 = (6)(4)(2)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (\\$36): adds the dimensions, $6 + 4 + 2 = 12$, and multiplies that sum by $3$.\n* Choice B (\\$72): uses the area of the base, $(6)(4) = 24$ square feet, and ignores the depth.\n* Choice D (\\$264): uses the surface area, $2(24 + 12 + 8) = 88$ square feet, instead of the volume.\n\n**Test Day Takeaway:** Filling a container is a volume question: multiply all three dimensions before applying a price per cubic unit.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "volume-of-a-rectangular-prism",
@@ -3095,9 +3095,9 @@ export const geometryBank = [
     skills: ["volume-prism"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A rectangular prism has a length of $60$ centimeters and a volume of $108{,}000$ cubic centimeters. The height of the prism is twice its width. What is the width, in centimeters, of the prism?",
-    correctAnswer: "30",
-    explanation: "**SAT Pattern: Volume of a Rectangular Prism**\n\n**The correct answer is 30.**\n\n**The Fast Way (~35s):** With width $w$ and height $2w$, $60(w)(2w) = 120w^{2} = 108{,}000$, so $w^{2} = 900$ and $w = 30$.\n\n**The Full Solution:**\nStep 1: Let the width be $w$ centimeters, so the height is $2w$ centimeters.\nStep 2: Volume is length times width times height: $60 \\cdot w \\cdot 2w = 120w^{2} = 108{,}000$.\nStep 3: $w^{2} = \\frac{108{,}000}{120} = 900$, so $w = 30$, since a width is positive. Check: the height is $60$, and $(60)(30)(60) = 108{,}000$ ✓\n\n**Common Mistakes:**\n* $60$: reports the height, $2w$, instead of the width.\n* $900$: stops at $w^{2}$ without taking the square root.\n* $42.43$: drops the factor of $2$, solving $60w^{2} = 108{,}000$ so that $w^{2} = 1{,}800$.\n\n**Test Day Takeaway:** When one dimension is given in terms of another, write both with one variable; the volume equation becomes a single quadratic in that variable.",
+    question: "A rectangular prism has a length of $8$ centimeters and a volume of $400$ cubic centimeters. The height of the prism is twice its width. What is the width, in centimeters, of the prism?",
+    correctAnswer: "5",
+    explanation: "**SAT Pattern: Volume of a Rectangular Prism**\n\n**The correct answer is 5.**\n\n**The Fast Way (~25s):** With width $w$ and height $2w$, $8(w)(2w) = 16w^{2} = 400$, so $w^{2} = 25$ and $w = 5$.\n\n**The Full Solution:**\nStep 1: Let the width be $w$ centimeters, so the height is $2w$ centimeters.\nStep 2: The volume is length times width times height: $8 \\cdot w \\cdot 2w = 16w^{2}$, so $16w^{2} = 400$.\nStep 3: Then $w^{2} = 25$, and since a width is positive, $w = 5$. Check: $8 \\cdot 5 \\cdot 10 = 400$ ✓\n\n**Common Mistakes:**\n* $25$: stops at $w^{2}$ without taking the square root.\n* $10$: gives the height, $2w$, instead of the width.\n* About $7.07$: forgets the factor of $2$ and solves $8w^{2} = 400$.\n\n**Test Day Takeaway:** Write every dimension in terms of one variable, then solve the volume equation for that variable.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "volume-of-a-rectangular-prism",
@@ -3674,19 +3674,19 @@ export const geometryBank = [
     skills: ["soh-cah-toa"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "In the right triangle shown, $\\tan\\theta = \\frac{8}{15}$. If the perimeter of the triangle is $120$, what is the length of the hypotenuse?",
-    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [45, 0], [45, 24]], labels: ["θ", "", ""], sideLabels: ["", "", ""], rightAngleVertex: 1, figureNote: true } },
+    question: "The perimeter of the right triangle shown is $90$, and $\\tan\\theta = \\frac{5}{12}$. What is the length of the hypotenuse of the triangle?",
+    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [36, 0], [36, 15]], labels: ["θ", "", ""], sideLabels: ["", "", ""], rightAngleVertex: 1, figureNote: true } },
     choices: [
-      // distractor: uses 8, 15, and 17 as the side lengths without scaling them to the perimeter of 120
-      { id: "A", text: "$17$" },
-      // distractor: reports the leg opposite theta, 8k = 24
-      { id: "B", text: "$24$" },
-      // distractor: reports the leg adjacent to theta, 15k = 45
-      { id: "C", text: "$45$" },
-      { id: "D", text: "$51$" }
+      // distractor: uses 5, 12, and 13 as the side lengths without scaling them to the perimeter of 90
+      { id: "A", text: "$13$" },
+      // distractor: reports the leg opposite theta, 5k = 15
+      { id: "B", text: "$15$" },
+      // distractor: reports the leg adjacent to theta, 12k = 36
+      { id: "C", text: "$36$" },
+      { id: "D", text: "$39$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** $\\tan\\theta = \\frac{8}{15}$ makes the sides $8k$, $15k$, and $17k$; the perimeter $40k = 120$ gives $k = 3$, so the hypotenuse is $17(3) = 51$.\n\n**The Full Solution:**\nStep 1: $\\tan\\theta = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{8}{15}$, so the leg opposite $\\theta$ is $8k$ and the leg adjacent to $\\theta$ is $15k$ for some positive $k$. The hypotenuse is $\\sqrt{(8k)^{2} + (15k)^{2}} = \\sqrt{289k^{2}} = 17k$.\nStep 2: The perimeter is $8k + 15k + 17k = 40k$, so $40k = 120$ and $k = 3$.\nStep 3: The hypotenuse is $17(3) = 51$. Check: the sides $24$, $45$, and $51$ sum to $120$, and $\\frac{24}{45} = \\frac{8}{15}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($17$): uses $8$, $15$, and $17$ as the actual side lengths, but those sides have a perimeter of only $40$.\n* Choice B ($24$): reports the leg opposite $\\theta$, $8k$.\n* Choice C ($45$): reports the leg adjacent to $\\theta$, $15k$.\n\n**Test Day Takeaway:** A trig ratio fixes the shape of a right triangle, not its size; write each side as a multiple of $k$, and let the perimeter find $k$.",
+    explanation: "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice D is correct.**\n\n**The Fast Way (~35s):** $\\tan\\theta = \\frac{5}{12}$ makes the sides $5k$, $12k$, and $13k$; the perimeter $30k = 90$ gives $k = 3$, so the hypotenuse is $13(3) = 39$.\n\n**The Full Solution:**\nStep 1: $\\tan\\theta = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{5}{12}$, so the leg opposite $\\theta$ is $5k$ and the leg adjacent to $\\theta$ is $12k$ for some positive $k$. The hypotenuse is $\\sqrt{(5k)^{2} + (12k)^{2}} = \\sqrt{169k^{2}} = 13k$.\nStep 2: The perimeter is $5k + 12k + 13k = 30k$, so $30k = 90$ and $k = 3$.\nStep 3: The hypotenuse is $13(3) = 39$. Check: the sides $15$, $36$, and $39$ sum to $90$, and $\\frac{15}{36} = \\frac{5}{12}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($13$): uses $5$, $12$, and $13$ as the actual side lengths, but those sides have a perimeter of only $30$.\n* Choice B ($15$): reports the leg opposite $\\theta$, $5k$.\n* Choice C ($36$): reports the leg adjacent to $\\theta$, $12k$.\n\n**Test Day Takeaway:** A trig ratio fixes the shape of a right triangle, not its size; write each side as a multiple of $k$, and let the perimeter find $k$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "right-triangle-trigonometry-with-perimeter",
@@ -3742,9 +3742,9 @@ export const geometryBank = [
     skills: ["soh-cah-toa"],
     difficulty: "hard",
     type: "fill-in",
-    question: "A right triangle has a perimeter of $30$ and an area of $30$. What is the sine of the smallest angle of the triangle?",
+    question: "A right triangle has a hypotenuse of length $26$ and a perimeter of $60$. What is the sine of the smallest angle of the triangle?",
     correctAnswer: "5/13",
-    explanation: "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**The correct answer is $\\frac{5}{13}$.**\n\n**The Fast Way (~60s):** With legs $a$ and $b$ and hypotenuse $c$, $ab = 60$ and $a + b = 30 - c$; squaring gives $(30 - c)^{2} = c^{2} + 120$, so $c = 13$, the legs are $5$ and $12$, and the sine of the smallest angle is $\\frac{5}{13}$.\n\n**The Full Solution:**\nStep 1: The area gives $\\frac{1}{2}ab = 30$, so $ab = 60$, and the perimeter gives $a + b = 30 - c$.\nStep 2: Square the second equation: $(a + b)^{2} = a^{2} + b^{2} + 2ab = c^{2} + 120$. So $(30 - c)^{2} = c^{2} + 120$, which expands to $900 - 60c = 120$, giving $c = 13$.\nStep 3: Then $a + b = 17$ and $ab = 60$, so the legs are $5$ and $12$. The smallest angle is opposite the shortest side, so its sine is $\\frac{5}{13}$. Check: $5 + 12 + 13 = 30$ and $\\frac{1}{2}(5)(12) = 30$ ✓\n\n**Common Mistakes:**\n* $\\frac{12}{13}$: uses the longer leg; the smallest angle faces the shortest side.\n* $\\frac{5}{12}$: gives the tangent of the smallest angle instead of the sine.\n* Using $ab = 30$ instead of $ab = 60$ by forgetting the $\\frac{1}{2}$ in the area formula.\n\n**Test Day Takeaway:** Perimeter and area together pin down a right triangle: square the sum of the legs so that $a^{2} + b^{2}$ becomes $c^{2}$.",
+    explanation: "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**The correct answer is $\\frac{5}{13}$.** Note that 5/13 and .3846 are examples of ways to enter a correct answer.\n\n**The Fast Way (~60s):** The legs satisfy $a + b = 34$ and $a^{2} + b^{2} = 676$, so $2ab = 34^{2} - 676 = 480$ and the legs are $10$ and $24$. The smallest angle is opposite the leg of length $10$, so its sine is $\\frac{10}{26} = \\frac{5}{13}$.\n\n**The Full Solution:**\nStep 1: Let the legs be $a$ and $b$. The perimeter gives $a + b = 60 - 26 = 34$, and the Pythagorean theorem gives $a^{2} + b^{2} = 26^{2} = 676$.\nStep 2: Squaring the first equation: $(a + b)^{2} = a^{2} + 2ab + b^{2}$, so $1{,}156 = 676 + 2ab$ and $ab = 240$.\nStep 3: Two numbers with sum $34$ and product $240$ are $10$ and $24$. The smallest angle is opposite the shortest side, so its sine is $\\frac{10}{26} = \\frac{5}{13}$. Check: $10 + 24 + 26 = 60$ and $10^{2} + 24^{2} = 676 = 26^{2}$ ✓\n\n**Common Mistakes:**\n* $\\frac{12}{13}$: uses the longer leg; the smallest angle is opposite the shortest side.\n* $\\frac{5}{12}$: gives the tangent of the smallest angle instead of the sine.\n\n**Test Day Takeaway:** Squaring the sum of the legs turns a perimeter condition into one about $a^{2} + b^{2}$, which the Pythagorean theorem replaces with $c^{2}$.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "right-triangle-trigonometry-with-perimeter",
@@ -3758,19 +3758,19 @@ export const geometryBank = [
     skills: ["soh-cah-toa"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "In the right triangle shown, the perimeter of the triangle is $126$. Which of the following is closest to the value of $\\tan\\theta$?",
+    question: "In the right triangle shown, the perimeter of the triangle is $126$. What is the value of $\\tan\\theta$?",
     diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [45, 0], [45, 28]], labels: ["θ", "", ""], sideLabels: ["45", "", "53"], rightAngleVertex: 1, figureNote: true } },
     choices: [
       // distractor: gives sin theta, 28/53, instead of tan theta
-      { id: "A", text: "$0.53$" },
-      { id: "B", text: "$0.62$" },
+      { id: "A", text: "$\\frac{28}{53}$" },
+      { id: "B", text: "$\\frac{28}{45}$" },
       // distractor: gives cos theta, 45/53, instead of tan theta
-      { id: "C", text: "$0.85$" },
+      { id: "C", text: "$\\frac{45}{53}$" },
       // distractor: inverts the tangent ratio, using adjacent over opposite, 45/28
-      { id: "D", text: "$1.61$" }
+      { id: "D", text: "$\\frac{45}{28}$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The missing leg is $126 - 45 - 53 = 28$, and it is opposite $\\theta$, so $\\tan\\theta = \\frac{28}{45} \\approx 0.62$.\n\n**The Full Solution:**\nStep 1: The three sides sum to the perimeter, so the unlabeled leg is $126 - 45 - 53 = 28$.\nStep 2: In the figure, $\\theta$ is opposite the leg of length $28$ and adjacent to the leg of length $45$.\nStep 3: $\\tan\\theta = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{28}{45} \\approx 0.622$, which is closest to $0.62$. Check: $28^{2} + 45^{2} = 784 + 2{,}025 = 2{,}809 = 53^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.53$): this is $\\frac{28}{53}$, which is $\\sin\\theta$.\n* Choice C ($0.85$): this is $\\frac{45}{53}$, which is $\\cos\\theta$.\n* Choice D ($1.61$): this is $\\frac{45}{28}$, adjacent over opposite.\n\n**Test Day Takeaway:** When the perimeter and two sides are given, subtract to get the third side first, then pick the two sides the ratio needs.",
+    explanation: "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The missing leg is $126 - 45 - 53 = 28$, and it is opposite $\\theta$, so $\\tan\\theta = \\frac{28}{45}$.\n\n**The Full Solution:**\nStep 1: The three sides sum to the perimeter, so the unlabeled leg is $126 - 45 - 53 = 28$.\nStep 2: In the figure, $\\theta$ is opposite the leg of length $28$ and adjacent to the leg of length $45$.\nStep 3: $\\tan\\theta = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{28}{45}$. Check: $28^{2} + 45^{2} = 784 + 2{,}025 = 2{,}809 = 53^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{28}{53}$): this is opposite over hypotenuse, which is $\\sin\\theta$.\n* Choice C ($\\frac{45}{53}$): this is adjacent over hypotenuse, which is $\\cos\\theta$.\n* Choice D ($\\frac{45}{28}$): this is adjacent over opposite, the tangent ratio inverted.\n\n**Test Day Takeaway:** When the perimeter and two sides are given, subtract to get the third side first, then pick the two sides the ratio needs.",
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: "right-triangle-trigonometry-with-perimeter",
@@ -3805,18 +3805,18 @@ export const geometryBank = [
     skills: ["tangent-lines"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "$x^{2} + y^{2} = 45$\nIn the $xy$-plane, the graph of $y = 2x + c$, where $c$ is a positive constant, intersects the graph of the given equation at exactly one point. What is the value of $c$?",
+    question: "$(x - 3)^{2} + (y + 6)^{2} = 16$\nIn the $xy$-plane, which of the following lines intersects the graph of the given equation at exactly one point?",
     choices: [
-      // distractor: reports the radius of the circle, sqrt(45) = 3 sqrt(5), as the intercept
-      { id: "A", text: "$3\\sqrt{5}$" },
-      // distractor: divides the correct intercept by the slope 2
-      { id: "B", text: "$\\frac{15}{2}$" },
-      { id: "C", text: "$15$" },
-      // distractor: uses r squared = 45 in place of the intercept
-      { id: "D", text: "$45$" }
+      // distractor: passes through the center (3, -6), so it crosses the circle at two points
+      { id: "A", text: "$x = 3$" },
+      // distractor: uses the radius 4 as the line's position without the center; x = 4 is only 1 unit from the center, so it crosses the circle twice
+      { id: "B", text: "$x = 4$" },
+      { id: "C", text: "$y = -2$" },
+      // distractor: treats the center's y-coordinate as 6 instead of -6 and subtracts the radius; y = 2 is 8 units from the center and misses the circle
+      { id: "D", text: "$y = 2$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** Substituting gives $5x^{2} + 4cx + c^{2} - 45 = 0$; exactly one point means the discriminant is $0$: $16c^{2} - 20(c^{2} - 45) = 0$, so $c^{2} = 225$ and $c = 15$.\n\n**The Full Solution:**\nStep 1: Substitute $y = 2x + c$ into $x^{2} + y^{2} = 45$: $x^{2} + (2x + c)^{2} = 45$, which expands to $5x^{2} + 4cx + c^{2} - 45 = 0$.\nStep 2: One intersection point means this quadratic has exactly one solution, so its discriminant is $0$: $(4c)^{2} - 4(5)(c^{2} - 45) = -4c^{2} + 900 = 0$.\nStep 3: $c^{2} = 225$, so $c = 15$, since $c$ is positive. Check: with $c = 15$ the quadratic is $5x^{2} + 60x + 180 = 5(x + 6)^{2} = 0$, whose only solution is $x = -6$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3\\sqrt{5}$): this is the radius of the circle, not the $y$-intercept of the line.\n* Choice B ($\\frac{15}{2}$): divides the correct intercept by the slope $2$.\n* Choice D ($45$): uses $r^{2}$ where a single length belongs.\n\n**Test Day Takeaway:** Line meets circle at exactly one point: substitute, collect one quadratic, and set its discriminant equal to $0$.",
+    explanation: "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The circle has center $(3, -6)$ and radius $4$, so a horizontal line touches it once only at $y = -6 + 4 = -2$ or $y = -6 - 4 = -10$.\n\n**The Full Solution:**\nStep 1: The given equation is in the form $(x - h)^{2} + (y - k)^{2} = r^{2}$, so the center is $(3, -6)$ and the radius is $\\sqrt{16} = 4$.\nStep 2: A horizontal or vertical line meets the circle at exactly one point when its distance from the center equals the radius: $x = 3 \\pm 4$ gives $x = -1$ or $x = 7$, and $y = -6 \\pm 4$ gives $y = -10$ or $y = -2$.\nStep 3: Of the choices, only $y = -2$ is one of these lines. Check: substituting $y = -2$ gives $(x - 3)^{2} + 16 = 16$, so $(x - 3)^{2} = 0$ and $x = 3$; the only intersection point is $(3, -2)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x = 3$): passes through the center, so it crosses the circle at two points, $(3, -2)$ and $(3, -10)$.\n* Choice B ($x = 4$): is only $1$ unit from the center, less than the radius, so it crosses the circle at two points.\n* Choice D ($y = 2$): is $8$ units from the center, more than the radius, so it does not meet the circle at all.\n\n**Test Day Takeaway:** A horizontal or vertical line touches a circle at exactly one point when its distance from the center equals the radius.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "tangent-line-to-circle",
@@ -3846,18 +3846,18 @@ export const geometryBank = [
     skills: ["tangent-lines"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "$x^{2} + y^{2} = 18$\n$y = x + b$\nIn the given system of equations, $b$ is a positive constant. If the system has exactly one real solution, what is the value of $b$?",
+    question: "$x^{2} + (y + 1)^{2} = 49$\n$y = b$\nIn the given system of equations, $b$ is a positive constant. If the system has exactly one real solution, what is the value of $b$?",
     choices: [
-      // distractor: divides the radius 3 root 2 by root 2 instead of multiplying, so b = 3
-      { id: "A", text: "$3$" },
-      // distractor: sets the constant term b^2 - 18 equal to zero instead of the discriminant, so b equals the radius
-      { id: "B", text: "$3\\sqrt{2}$" },
-      { id: "C", text: "$6$" },
-      // distractor: stops at b^2 = 36 and reports b^2 instead of b
-      { id: "D", text: "$36$" }
+      // distractor: uses the center's y-coordinate as 1 instead of -1; the line y = 1 gives x^2 = 45, which has two solutions
+      { id: "A", text: "$1$" },
+      { id: "B", text: "$6$" },
+      // distractor: uses the radius 7 without the center's shift; y = 7 gives x^2 = -15, which has no real solutions
+      { id: "C", text: "$7$" },
+      // distractor: finds the other value, b = -8, and drops its negative sign; y = 8 gives x^2 = -32, which has no real solutions
+      { id: "D", text: "$8$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Substituting gives $2x^{2} + 2bx + b^{2} - 18 = 0$, and one solution means the discriminant $4b^{2} - 8(b^{2} - 18) = 144 - 4b^{2}$ is $0$, so $b^{2} = 36$ and $b = 6$.\n\n**The Full Solution:**\nStep 1: Substitute $x + b$ for $y$ in the first equation: $x^{2} + (x + b)^{2} = 18$, which expands to $2x^{2} + 2bx + b^{2} - 18 = 0$.\nStep 2: The system has exactly one solution when this quadratic has exactly one real root, so its discriminant is $0$: $(2b)^{2} - 4(2)(b^{2} - 18) = 4b^{2} - 8b^{2} + 144 = 144 - 4b^{2}$.\nStep 3: Solve $144 - 4b^{2} = 0$: $b^{2} = 36$, and since $b$ is positive, $b = 6$. Check: the quadratic becomes $2x^{2} + 12x + 18 = 2(x + 3)^{2}$, so $x = -3$ and $y = 3$, and $(-3)^{2} + 3^{2} = 18$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): divides the radius $\\sqrt{18} = 3\\sqrt{2}$ by $\\sqrt{2}$. The distance from the origin to the line is $\\frac{b}{\\sqrt{2}}$, so $b$ is the radius times $\\sqrt{2}$, not divided by it.\n* Choice B ($3\\sqrt{2}$): sets the constant term $b^{2} - 18$ equal to $0$ instead of the discriminant, which makes $b$ equal to the radius.\n* Choice D ($36$): stops at $b^{2} = 36$ and reports $b^{2}$ instead of $b$.\n\n**Test Day Takeaway:** A line and a circle meet at exactly one point when the quadratic you get from substitution has discriminant $0$; solve for the constant, then reread which quantity the question asks for.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Substituting $y = b$ gives $x^{2} = 49 - (b + 1)^{2}$, which has exactly one solution only when $(b + 1)^{2} = 49$. So $b = 6$ or $b = -8$, and the positive value is $6$.\n\n**The Full Solution:**\nStep 1: Substitute $y = b$ into the first equation: $x^{2} + (b + 1)^{2} = 49$, so $x^{2} = 49 - (b + 1)^{2}$.\nStep 2: An equation $x^{2} = c$ has exactly one real solution only when $c = 0$. So $(b + 1)^{2} = 49$, which gives $b + 1 = 7$ or $b + 1 = -7$, that is, $b = 6$ or $b = -8$.\nStep 3: Since $b$ is positive, $b = 6$. Check: $y = 6$ gives $x^{2} = 49 - 49 = 0$, so the only solution is $(0, 6)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): treats the center's $y$-coordinate as $1$ instead of $-1$; the line $y = 1$ gives $x^{2} = 45$ and two solutions.\n* Choice C ($7$): uses the radius without the center's shift; $y = 7$ gives $x^{2} = -15$, which has no real solutions.\n* Choice D ($8$): drops the negative sign of the other value, $b = -8$; $y = 8$ gives $x^{2} = -32$, which has no real solutions.\n\n**Test Day Takeaway:** Substitute the line into the circle's equation; exactly one solution means the squared term must equal $0$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "tangent-line-to-circle",
@@ -3871,9 +3871,9 @@ export const geometryBank = [
     skills: ["tangent-lines"],
     difficulty: "hard",
     type: "fill-in",
-    question: "$x^{2} + y^{2} = r^{2}$\nIn the given equation, $r$ is a positive constant. In the $xy$-plane, the line $y = 2x + 15$ is tangent to the graph of the given equation. What is the value of $r^{2}$?",
-    correctAnswer: "45",
-    explanation: "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**The correct answer is 45.**\n\n**The Fast Way (~45s):** Substituting gives $5x^{2} + 60x + 225 - r^{2} = 0$; tangency forces the discriminant $3{,}600 - 20(225 - r^{2})$ to be $0$, so $20r^{2} = 900$ and $r^{2} = 45$.\n\n**The Full Solution:**\nStep 1: Substitute $2x + 15$ for $y$: $x^{2} + (2x + 15)^{2} = r^{2}$, which expands to $5x^{2} + 60x + 225 - r^{2} = 0$.\nStep 2: A tangent line meets the circle at exactly one point, so this quadratic has one real root and its discriminant is $0$: $60^{2} - 4(5)(225 - r^{2}) = 3{,}600 - 4{,}500 + 20r^{2} = 20r^{2} - 900$.\nStep 3: Solve $20r^{2} - 900 = 0$: $r^{2} = 45$. Check: the quadratic becomes $5x^{2} + 60x + 180 = 5(x + 6)^{2}$, so the only point is $(-6, 3)$, and $(-6)^{2} + 3^{2} = 45$ ✓\n\n**Common Mistakes:**\n* $225$: sets the constant term $225 - r^{2}$ equal to $0$ instead of the discriminant, or reads the $y$-intercept $15$ as the radius.\n* $3\\sqrt{5}$ (about $6.71$): reports the radius $r$ instead of $r^{2}$.\n* $9$: divides $15$ by $1 + 2^{2} = 5$ instead of by $\\sqrt{5}$ when finding the distance from the center to the line, so $r = 3$.\n\n**Test Day Takeaway:** Substitute the line into the circle, collect one quadratic, and set its discriminant to $0$; check whether the question wants $r$ or $r^{2}$.",
+    question: "From point $P$, two segments are drawn tangent to a circle with center $O$, touching the circle at points $A$ and $B$. The radius of the circle is $20$, and $OP = 29$. What is the perimeter of quadrilateral $OAPB$?",
+    correctAnswer: "82",
+    explanation: "**SAT Pattern: Tangent from External Point**\n\n**The correct answer is 82.**\n\n**The Fast Way (~40s):** A tangent segment is perpendicular to the radius at the point of tangency, so $PA = \\sqrt{29^{2} - 20^{2}} = 21$, and $PB = 21$ as well. The perimeter is $20 + 21 + 21 + 20 = 82$.\n\n**The Full Solution:**\nStep 1: Radius $\\overline{OA}$ is perpendicular to tangent segment $\\overline{PA}$, so triangle $OAP$ is a right triangle with hypotenuse $\\overline{OP}$.\nStep 2: By the Pythagorean theorem, $PA = \\sqrt{29^{2} - 20^{2}} = \\sqrt{841 - 400} = \\sqrt{441} = 21$.\nStep 3: In the same way, triangle $OBP$ has $OB = 20$ and $PB = 21$. The perimeter of $OAPB$ is $OA + AP + PB + BO = 20 + 21 + 21 + 20 = 82$. Check: $20^{2} + 21^{2} = 400 + 441 = 841 = 29^{2}$ ✓\n\n**Common Mistakes:**\n* $98$: uses $OP = 29$ as the length of each tangent segment.\n* $70$: gives the perimeter of triangle $OAP$, $20 + 21 + 29$, instead of the quadrilateral.\n* $41$: adds only one radius and one tangent segment.\n\n**Test Day Takeaway:** A radius drawn to a point of tangency meets the tangent at a right angle, and the two tangent segments from one outside point are equal.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "tangent-line-to-circle",
@@ -3909,21 +3909,21 @@ export const geometryBank = [
   {
     id: "bank-geo-184",
     domain: "geometry",
-    skills: ["tangent-lines"],
+    skills: ["circle-equation", "tangent-lines"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "$(x - 10)^{2} + y^{2} = 36$\nIn the $xy$-plane, the line $y = kx$ is tangent to the graph of the given equation. If $k > 0$, what is the value of $k$?",
+    question: "$(x + 1)^{2} + (y - 4)^{2} = 169$\nIn the $xy$-plane, line $t$ is tangent to the graph of the given equation at the point $(4, 16)$. What is the slope of line $t$?",
     choices: [
-      // distractor: solves the discriminant equation correctly but reports k^2 = 9/16 instead of k
-      { id: "A", text: "$\\frac{9}{16}$" },
-      // distractor: uses the radius over the distance to the center, 6/10, which is a sine ratio, not the slope
-      { id: "B", text: "$\\frac{3}{5}$" },
-      { id: "C", text: "$\\frac{3}{4}$" },
-      // distractor: inverts the slope, using 8/6 instead of 6/8
-      { id: "D", text: "$\\frac{4}{3}$" }
+      // distractor: negates the slope of the radius without taking the reciprocal
+      { id: "A", text: "$-\\frac{12}{5}$" },
+      { id: "B", text: "$-\\frac{5}{12}$" },
+      // distractor: takes the reciprocal of the radius's slope without changing its sign
+      { id: "C", text: "$\\frac{5}{12}$" },
+      // distractor: gives the slope of the radius to (4, 16) instead of the tangent line
+      { id: "D", text: "$\\frac{12}{5}$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice C is correct.**\n\n**The Fast Way (~50s):** Substituting gives $(1 + k^{2})x^{2} - 20x + 64 = 0$; setting the discriminant $400 - 256(1 + k^{2})$ equal to $0$ gives $k^{2} = \\frac{9}{16}$, so $k = \\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: Substitute $kx$ for $y$: $(x - 10)^{2} + k^{2}x^{2} = 36$, which simplifies to $(1 + k^{2})x^{2} - 20x + 64 = 0$.\nStep 2: Tangency means exactly one intersection point, so the discriminant is $0$: $(-20)^{2} - 4(1 + k^{2})(64) = 0$, so $256(1 + k^{2}) = 400$ and $1 + k^{2} = \\frac{25}{16}$.\nStep 3: Then $k^{2} = \\frac{9}{16}$, and since $k > 0$, $k = \\frac{3}{4}$. Check: the quadratic becomes $\\frac{25}{16}x^{2} - 20x + 64 = \\frac{1}{16}(5x - 32)^{2}$, so the only point is $(6.4, 4.8)$, and $(6.4 - 10)^{2} + 4.8^{2} = 12.96 + 23.04 = 36$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{9}{16}$): is the value of $k^{2}$. The last step, taking the square root, is skipped.\n* Choice B ($\\frac{3}{5}$): divides the radius $6$ by the distance $10$ from the origin to the center. That ratio is the sine of the angle the line makes with the $x$-axis, not its slope.\n* Choice D ($\\frac{4}{3}$): inverts the slope. The tangent segment from the origin has length $\\sqrt{100 - 36} = 8$, so the slope is $\\frac{6}{8}$, not $\\frac{8}{6}$.\n\n**Test Day Takeaway:** For a line through the origin tangent to a circle, substitute $y = kx$, set the discriminant to $0$, and remember the result is usually $k^{2}$ before you take the square root.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Tangent Slope from Perpendicular Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The radius from the center $(-1, 4)$ to $(4, 16)$ has slope $\\frac{16 - 4}{4 - (-1)} = \\frac{12}{5}$, and the tangent line is perpendicular to it, so its slope is $-\\frac{5}{12}$.\n\n**The Full Solution:**\nStep 1: The given equation is in the form $(x - h)^{2} + (y - k)^{2} = r^{2}$, so the center of the circle is $(-1, 4)$.\nStep 2: The slope of the radius from $(-1, 4)$ to the point of tangency $(4, 16)$ is $\\frac{16 - 4}{4 - (-1)} = \\frac{12}{5}$.\nStep 3: A tangent line is perpendicular to the radius at the point of tangency, so its slope is the negative reciprocal of $\\frac{12}{5}$, which is $-\\frac{5}{12}$. Check: $\\left(\\frac{12}{5}\\right)\\left(-\\frac{5}{12}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{12}{5}$): changes the sign of the radius's slope but does not take the reciprocal.\n* Choice C ($\\frac{5}{12}$): takes the reciprocal but does not change the sign.\n* Choice D ($\\frac{12}{5}$): is the slope of the radius, not of the tangent line.\n\n**Test Day Takeaway:** A tangent line is perpendicular to the radius at the point of tangency, so its slope is the negative reciprocal of the radius's slope.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "tangent-line-to-circle",
@@ -3937,9 +3937,9 @@ export const geometryBank = [
     skills: ["tangent-lines"],
     difficulty: "hard",
     type: "fill-in",
-    question: "$(x - 3)^{2} + (y + 1)^{2} = 18$\nIf the line $y = -x + c$ is tangent to the graph of the given equation, what is the greatest possible value of $c$?",
+    question: "$(x - h)^{2} + (y + 3)^{2} = 64$\nIn the given equation, $h$ is a positive constant. In the $xy$-plane, the graph of the given equation and the $y$-axis have exactly one point in common. What is the value of $h$?",
     correctAnswer: "8",
-    explanation: "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**The correct answer is 8.**\n\n**The Fast Way (~50s):** Substituting gives $2x^{2} - (2c + 8)x + c^{2} + 2c - 8 = 0$; setting the discriminant to $0$ gives $c^{2} - 4c - 32 = 0$, so $c = 8$ or $c = -4$, and the greatest is $8$.\n\n**The Full Solution:**\nStep 1: Substitute $-x + c$ for $y$: $(x - 3)^{2} + (-x + c + 1)^{2} = 18$, which expands to $2x^{2} - (2c + 8)x + c^{2} + 2c - 8 = 0$.\nStep 2: Tangency means one real root, so the discriminant is $0$: $(2c + 8)^{2} - 8(c^{2} + 2c - 8) = -4c^{2} + 16c + 128 = 0$, or $c^{2} - 4c - 32 = 0$.\nStep 3: Factor: $(c - 8)(c + 4) = 0$, so $c = 8$ or $c = -4$, and the greatest possible value is $8$. Check: with $c = 8$ the quadratic is $2x^{2} - 24x + 72 = 2(x - 6)^{2}$, so the only point is $(6, 2)$, and $(6 - 3)^{2} + (2 + 1)^{2} = 18$ ✓\n\n**Common Mistakes:**\n* $-4$: is the other tangent line, on the opposite side of the circle; it is the least possible value of $c$.\n* $2$: finds the line $y = -x + c$ through the center $(3, -1)$, which cuts the circle at two points instead of touching it.\n* $2 + 3\\sqrt{2}$ (about $6.24$): adds the radius $\\sqrt{18}$ to $2$ directly. The vertical shift between two parallel lines a distance $3\\sqrt{2}$ apart is $3\\sqrt{2} \\cdot \\sqrt{2} = 6$, not $3\\sqrt{2}$.\n\n**Test Day Takeaway:** A slanted line has two tangent positions on a circle; set the discriminant to $0$, find both values of the constant, and pick the one the question asks for.",
+    explanation: "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**The correct answer is 8.**\n\n**The Fast Way (~30s):** On the $y$-axis, $x = 0$, so $h^{2} + (y + 3)^{2} = 64$, or $(y + 3)^{2} = 64 - h^{2}$. This has exactly one solution only when $64 - h^{2} = 0$, so $h = 8$.\n\n**The Full Solution:**\nStep 1: Every point on the $y$-axis has $x = 0$. Substituting gives $(0 - h)^{2} + (y + 3)^{2} = 64$, so $(y + 3)^{2} = 64 - h^{2}$.\nStep 2: An equation of the form $(y + 3)^{2} = c$ has exactly one solution only when $c = 0$, so $64 - h^{2} = 0$ and $h^{2} = 64$.\nStep 3: Since $h$ is positive, $h = 8$. Check: the center $(8, -3)$ is $8$ units from the $y$-axis, which equals the radius $\\sqrt{64} = 8$, so the circle touches the $y$-axis only at $(0, -3)$ ✓\n\n**Common Mistakes:**\n* $3$: uses the distance from the center to the $x$-axis instead of to the $y$-axis.\n* $64$: reports $h^{2}$ instead of $h$.\n\n**Test Day Takeaway:** A circle touches the $y$-axis at exactly one point when the distance from its center to the $y$-axis equals its radius.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "tangent-line-to-circle",
@@ -3953,18 +3953,18 @@ export const geometryBank = [
     skills: ["tangent-lines"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "$x^{2} + y^{2} = 144$\nIn the $xy$-plane, the graph of the given equation is a circle. The line $y = \\frac{5}{12}x + b$, where $b$ is a positive constant, is tangent to the circle. What is the value of $b$?",
+    question: "In the $xy$-plane, a circle has center $(-3, 8)$ and intersects the $x$-axis at exactly one point. Which equation represents this circle?",
     choices: [
-      // distractor: divides the radius by 13/12 instead of multiplying, so b = 12(12/13) = 144/13
-      { id: "A", text: "$\\frac{144}{13}$" },
-      // distractor: sets the constant term b^2 - 144 to zero instead of the discriminant, so b equals the radius
-      { id: "B", text: "$12$" },
-      { id: "C", text: "$13$" },
-      // distractor: multiplies the radius by 1 + 5/12 = 17/12 instead of by the square root of 1 + (5/12)^2
-      { id: "D", text: "$17$" }
+      // distractor: uses the radius 8 on the right side instead of the radius squared, 64
+      { id: "A", text: "$(x + 3)^{2} + (y - 8)^{2} = 8$" },
+      // distractor: uses the distance from the center to the y-axis, 3, as the radius
+      { id: "B", text: "$(x + 3)^{2} + (y - 8)^{2} = 9$" },
+      { id: "C", text: "$(x + 3)^{2} + (y - 8)^{2} = 64$" },
+      // distractor: reverses the signs of the center's coordinates
+      { id: "D", text: "$(x - 3)^{2} + (y + 8)^{2} = 64$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice C is correct.**\n\n**The Fast Way (~50s):** Tangency means the discriminant of $\\frac{169}{144}x^{2} + \\frac{5b}{6}x + b^{2} - 144 = 0$ is $0$, which simplifies to $b^{2} = 169$, so $b = 13$.\n\n**The Full Solution:**\nStep 1: Substitute $\\frac{5}{12}x + b$ for $y$: $x^{2} + \\left(\\frac{5}{12}x + b\\right)^{2} = 144$, which simplifies to $\\frac{169}{144}x^{2} + \\frac{5b}{6}x + b^{2} - 144 = 0$.\nStep 2: Set the discriminant equal to $0$: $\\left(\\frac{5b}{6}\\right)^{2} - 4\\left(\\frac{169}{144}\\right)(b^{2} - 144) = \\frac{25b^{2}}{36} - \\frac{169b^{2}}{36} + 676 = 676 - 4b^{2} = 0$.\nStep 3: So $b^{2} = 169$, and since $b > 0$, $b = 13$. Check: with $b = 13$, multiplying the quadratic by $144$ gives $169x^{2} + 1{,}560x + 3{,}600 = (13x + 60)^{2}$, a single root at $x = -\\frac{60}{13}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{144}{13}$): divides the radius by $\\frac{13}{12}$. The distance from the center to the line is $\\frac{b}{13/12}$, so $b$ is the radius times $\\frac{13}{12}$.\n* Choice B ($12$): sets the constant term $b^{2} - 144$ equal to $0$, which makes $b$ the radius. That is the condition for the line to pass through a point of the circle on the $y$-axis, not for tangency.\n* Choice D ($17$): multiplies the radius by $1 + \\frac{5}{12} = \\frac{17}{12}$ instead of by $\\sqrt{1 + \\left(\\frac{5}{12}\\right)^{2}} = \\frac{13}{12}$.\n\n**Test Day Takeaway:** Fractional slopes make the discriminant look messy, but the $b^{2}$ terms combine cleanly; for a circle centered at the origin, $b = r\\sqrt{1 + m^{2}}$ is a fast cross-check.",
+    explanation: "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The center is $8$ units above the $x$-axis, so a circle that meets the $x$-axis at exactly one point has radius $8$. Its equation is $(x + 3)^{2} + (y - 8)^{2} = 64$.\n\n**The Full Solution:**\nStep 1: A circle meets the $x$-axis at exactly one point when the distance from its center to the $x$-axis equals the radius. The center $(-3, 8)$ is $8$ units from the $x$-axis, so $r = 8$.\nStep 2: A circle with center $(h, k)$ and radius $r$ has equation $(x - h)^{2} + (y - k)^{2} = r^{2}$.\nStep 3: With $h = -3$, $k = 8$, and $r = 8$: $(x + 3)^{2} + (y - 8)^{2} = 64$. Check: $y = 0$ gives $(x + 3)^{2} + 64 = 64$, so $(x + 3)^{2} = 0$ and the only point on the $x$-axis is $(-3, 0)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: puts the radius, $8$, on the right side instead of the radius squared.\n* Choice B: uses $3$, the distance from the center to the $y$-axis, as the radius; that circle meets the $y$-axis at one point, not the $x$-axis.\n* Choice D: reverses the signs, giving a circle centered at $(3, -8)$.\n\n**Test Day Takeaway:** A circle meets the $x$-axis at exactly one point when its radius equals the distance from its center to the $x$-axis, which is the absolute value of the center's $y$-coordinate.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "tangent-line-to-circle",
@@ -3982,18 +3982,18 @@ export const geometryBank = [
     skills: ["volume-prism", "algebraic-expressions"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A right rectangular prism has a square base with side length $x$ and a height of $x + 4$. Which expression represents the volume of the prism?",
+    question: "A right rectangular prism has a square base with side length $x$ and a height of $4$. Which expression represents the volume of the prism?",
     choices: [
-      // distractor: multiplies only one side of the base by the height, x(x + 4)
-      { id: "A", text: "$x^{2} + 4x$" },
-      // distractor: computes x cubed and then adds the 4 instead of multiplying the base area by x + 4
-      { id: "B", text: "$x^{3} + 4$" },
-      { id: "C", text: "$x^{3} + 4x^{2}$" },
-      // distractor: adds the three dimensions x + x + (x + 4) instead of multiplying them
-      { id: "D", text: "$3x + 4$" }
+      // distractor: multiplies one side of the base by the height and skips the other side
+      { id: "A", text: "$4x$" },
+      // distractor: multiplies the perimeter of the base, 4x, by the height, which gives the area of the four side faces
+      { id: "B", text: "$16x$" },
+      { id: "C", text: "$4x^{2}$" },
+      // distractor: squares the height along with the side length
+      { id: "D", text: "$16x^{2}$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Volume is base area times height: $x^{2}(x + 4) = x^{3} + 4x^{2}$.\n\n**The Full Solution:**\nStep 1: The base is a square with side length $x$, so its area is $x^{2}$.\nStep 2: The volume of a right prism is base area times height: $V = x^{2}(x + 4)$.\nStep 3: Distribute: $V = x^{3} + 4x^{2}$. Check: with $x = 2$, the prism is $2$ by $2$ by $6$, so $V = 24$, and $2^{3} + 4(2^{2}) = 8 + 16 = 24$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{2} + 4x$): multiplies one base edge by the height, $x(x + 4)$, which is the area of one side face, not the volume.\n* Choice B ($x^{3} + 4$): treats the prism as a cube of side $x$ and then adds $4$, instead of multiplying the base area by the whole height $x + 4$.\n* Choice D ($3x + 4$): adds the three dimensions instead of multiplying them.\n\n**Test Day Takeaway:** Volume of a prism is base area times height; distribute the base area across every term of the height.",
+    explanation: "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Volume is base area times height: $x^{2} \\cdot 4 = 4x^{2}$.\n\n**The Full Solution:**\nStep 1: The base is a square with side length $x$, so its area is $x \\cdot x = x^{2}$.\nStep 2: The volume of a prism is the area of its base times its height: $x^{2} \\cdot 4$.\nStep 3: So the volume is $4x^{2}$. Check: if $x = 2$, the prism is $2$ by $2$ by $4$, with volume $16 = 4(2)^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4x$): multiplies only one side of the base by the height.\n* Choice B ($16x$): multiplies the perimeter of the base, $4x$, by the height, which gives the area of the four side faces, not the volume.\n* Choice D ($16x^{2}$): squares the height as well as the side length.\n\n**Test Day Takeaway:** The volume of a prism is the area of its base times its height; a square base with side $x$ has area $x^{2}$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "symbolic-area-or-volume",
@@ -4007,18 +4007,18 @@ export const geometryBank = [
     skills: ["triangle-area", "algebraic-expressions"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A rectangle has a length of $x + 6$ and a width of $x + 5$. Which expression represents the area of the rectangle?",
+    question: "A rectangle has a length of $x + 6$ and a width of $5$. Which expression represents the area of the rectangle?",
     choices: [
-      // distractor: multiplies only the first terms and the last terms, skipping the middle terms 6x and 5x
-      { id: "A", text: "$x^{2} + 30$" },
-      // distractor: adds 6 and 5 for the constant term instead of multiplying them
-      { id: "B", text: "$x^{2} + 11x + 11$" },
-      { id: "C", text: "$x^{2} + 11x + 30$" },
-      // distractor: computes the perimeter, 2(x + 6) + 2(x + 5), instead of the area
-      { id: "D", text: "$4x + 22$" }
+      // distractor: adds the length and the width instead of multiplying
+      { id: "A", text: "$x + 11$" },
+      // distractor: gives the perimeter, 2(x + 6) + 2(5), instead of the area
+      { id: "B", text: "$2x + 22$" },
+      // distractor: multiplies only the x term by 5 and leaves the 6 unchanged
+      { id: "C", text: "$5x + 6$" },
+      { id: "D", text: "$5x + 30$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Area is length times width: $(x + 6)(x + 5) = x^{2} + 11x + 30$.\n\n**The Full Solution:**\nStep 1: The area of a rectangle is its length times its width: $A = (x + 6)(x + 5)$.\nStep 2: Multiply each term of the first factor by each term of the second: $x^{2} + 5x + 6x + 30$.\nStep 3: Combine like terms: $A = x^{2} + 11x + 30$. Check: with $x = 1$, the rectangle is $7$ by $6$, so $A = 42$, and $1 + 11 + 30 = 42$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{2} + 30$): multiplies $x \\cdot x$ and $6 \\cdot 5$ but drops the middle terms $5x$ and $6x$.\n* Choice B ($x^{2} + 11x + 11$): gets the middle term right but adds $6 + 5$ for the constant instead of multiplying.\n* Choice D ($4x + 22$): finds the perimeter, $2(x + 6) + 2(x + 5)$, not the area.\n\n**Test Day Takeaway:** When both dimensions are binomials, multiply every term by every term; testing one value of $x$ catches a dropped middle term.",
+    correctAnswer: "D",
+    explanation: "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Area is length times width: $5(x + 6) = 5x + 30$.\n\n**The Full Solution:**\nStep 1: The area of a rectangle is its length times its width: $5(x + 6)$.\nStep 2: Distribute the $5$ to both terms: $5 \\cdot x + 5 \\cdot 6$.\nStep 3: So the area is $5x + 30$. Check: if $x = 2$, the rectangle is $8$ by $5$, with area $40 = 5(2) + 30$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x + 11$): adds the length and the width instead of multiplying them.\n* Choice B ($2x + 22$): gives the perimeter, $2(x + 6) + 2(5)$, instead of the area.\n* Choice C ($5x + 6$): multiplies only $x$ by $5$ and forgets to multiply the $6$.\n\n**Test Day Takeaway:** Area is length times width; distribute the width to every term of the length.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "symbolic-area-or-volume",
@@ -4082,18 +4082,18 @@ export const geometryBank = [
     skills: ["volume-prism", "algebraic-expressions"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "A rectangular tank is $6p$ inches long, $5p$ inches wide, and $q$ inches tall. Water fills the tank to a depth of $(q - 3)$ inches. Which expression represents the volume, in cubic inches, of the water in the tank?",
+    question: "A rectangular tank is $6p$ inches long, $5p$ inches wide, and $q$ inches tall. The tank is filled with water to $3$ inches below its top. Which expression represents the volume, in cubic inches, of the water in the tank?",
     choices: [
-      // distractor: uses the full height q instead of the water depth q - 3, giving the volume of the whole tank
-      { id: "A", text: "$30p^{2}q$" },
-      // distractor: subtracts 3 from the tank's volume instead of multiplying the base area by q - 3
-      { id: "B", text: "$30p^{2}q - 3$" },
-      { id: "C", text: "$30p^{2}q - 90p^{2}$" },
-      // distractor: adds the length and width, 6p + 5p, instead of multiplying them for the base area
-      { id: "D", text: "$11pq - 33p$" }
+      // distractor: adds the length and the width, 6p + 5p, instead of multiplying them
+      { id: "A", text: "$11p(q - 3)$" },
+      // distractor: writes (6p)(5p) as 30p instead of 30p^2
+      { id: "B", text: "$30p(q - 3)$" },
+      { id: "C", text: "$30p^{2}(q - 3)$" },
+      // distractor: uses the full height of the tank, q, instead of the depth of the water, q - 3
+      { id: "D", text: "$30p^{2}q$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Water volume is base area times water depth: $(6p)(5p)(q - 3) = 30p^{2}q - 90p^{2}$.\n\n**The Full Solution:**\nStep 1: The base of the tank has area $(6p)(5p) = 30p^{2}$ square inches.\nStep 2: The water forms a rectangular prism with that base and a height equal to the depth, $q - 3$, so its volume is $30p^{2}(q - 3)$.\nStep 3: Distribute: $30p^{2}q - 90p^{2}$. Check: with $p = 1$ and $q = 10$, the water is $6$ by $5$ by $7$, so the volume is $210$, and $30(10) - 90 = 210$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($30p^{2}q$): uses the full height $q$, which gives the volume of the whole tank, not of the water.\n* Choice B ($30p^{2}q - 3$): subtracts $3$ from the volume instead of from the height. Removing $3$ inches of depth removes $30p^{2} \\cdot 3$ cubic inches.\n* Choice D ($11pq - 33p$): adds the length and width, $6p + 5p = 11p$, instead of multiplying them for the base area.\n\n**Test Day Takeaway:** A partly filled prism is still base area times height; use the water's depth as the height and distribute the base area across it.",
+    explanation: "**SAT Pattern: Symbolic Area or Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The water fills a prism $6p$ by $5p$ by $(q - 3)$ inches, so its volume is $(6p)(5p)(q - 3) = 30p^{2}(q - 3)$.\n\n**The Full Solution:**\nStep 1: The water reaches $3$ inches below the top of a tank that is $q$ inches tall, so the water is $(q - 3)$ inches deep.\nStep 2: The water has the same base as the tank: $(6p)(5p) = 30p^{2}$ square inches.\nStep 3: The volume of the water is base area times depth: $30p^{2}(q - 3)$. Check: if $p = 1$ and $q = 5$, the water is $6$ by $5$ by $2$ inches, with volume $60 = 30(1)^{2}(5 - 3)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($11p(q - 3)$): adds the length and the width instead of multiplying them.\n* Choice B ($30p(q - 3)$): writes $(6p)(5p)$ as $30p$; the product of $p$ and $p$ is $p^{2}$.\n* Choice D ($30p^{2}q$): gives the volume of the full tank, using the height $q$ instead of the water's depth.\n\n**Test Day Takeaway:** The volume of water in a container uses the depth of the water, not the height of the container.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "symbolic-area-or-volume",
@@ -4107,9 +4107,9 @@ export const geometryBank = [
     skills: ["volume-prism", "algebraic-expressions"],
     difficulty: "medium",
     type: "fill-in",
-    question: "A right rectangular prism has a volume of $8w^{3} + 36w^{2}$, a width of $4w$, and a height of $w$. If the length of the prism is $2w + n$, where $n$ is a constant, what is the value of $n$?",
+    question: "A right rectangular prism has a volume of $8w^{3} + 36w^{2}$ cubic units, and the area of its base is $4w^{2}$ square units. The height of the prism is $(2w + n)$ units, where $n$ is a constant. What is the value of $n$?",
     correctAnswer: "9",
-    explanation: "**SAT Pattern: Symbolic Area or Volume**\n\n**The correct answer is 9.**\n\n**The Fast Way (~25s):** Length is volume divided by width times height: $\\frac{8w^{3} + 36w^{2}}{4w^{2}} = 2w + 9$, so $n = 9$.\n\n**The Full Solution:**\nStep 1: Volume equals length times width times height, so length $= \\frac{V}{(4w)(w)} = \\frac{8w^{3} + 36w^{2}}{4w^{2}}$.\nStep 2: Divide each term by $4w^{2}$: $\\frac{8w^{3}}{4w^{2}} = 2w$ and $\\frac{36w^{2}}{4w^{2}} = 9$, so the length is $2w + 9$.\nStep 3: Match $2w + 9$ with $2w + n$: $n = 9$. Check: $(2w + 9)(4w)(w) = 4w^{2}(2w + 9) = 8w^{3} + 36w^{2}$ ✓\n\n**Common Mistakes:**\n* $36$: reads the coefficient of $w^{2}$ in the volume as $n$ without dividing by the base area.\n* $18$: divides the volume by $2w^{2}$ instead of by $(4w)(w) = 4w^{2}$, getting $4w + 18$, and reports the constant term.\n* $4.5$: divides the $w^{2}$ term by $8w^{2}$ instead of by the base area $(4w)(w) = 4w^{2}$.\n\n**Test Day Takeaway:** Divide the volume by the product of the known dimensions term by term, then match the result to the given form.",
+    explanation: "**SAT Pattern: Symbolic Area or Volume**\n\n**The correct answer is 9.**\n\n**The Fast Way (~25s):** Height is volume divided by base area: $\\frac{8w^{3} + 36w^{2}}{4w^{2}} = 2w + 9$, so $n = 9$.\n\n**The Full Solution:**\nStep 1: The volume of a prism is the area of its base times its height: $8w^{3} + 36w^{2} = 4w^{2}(2w + n)$.\nStep 2: Expand the right side: $4w^{2}(2w + n) = 8w^{3} + 4nw^{2}$.\nStep 3: Matching the $w^{2}$ terms gives $4n = 36$, so $n = 9$. Check: $4w^{2}(2w + 9) = 8w^{3} + 36w^{2}$ ✓\n\n**Common Mistakes:**\n* $36$: matches the $w^{2}$ coefficient without dividing by the $4$ in the base area.\n* $18$: divides $36$ by $2$ instead of by $4$.\n\n**Test Day Takeaway:** When volume and base area are both expressions, divide each term of the volume by the base area to get the height.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "symbolic-area-or-volume",
@@ -4242,9 +4242,9 @@ export const geometryBank = [
     skills: ["similar-triangles"],
     difficulty: "medium",
     type: "fill-in",
-    question: "Hexagon $Q$ is similar to hexagon $P$. The area of hexagon $Q$ is $1.96$ times the area of hexagon $P$, and the perimeter of hexagon $Q$ is $k$ times the perimeter of hexagon $P$. What is the value of $k$?",
-    correctAnswer: "1.4",
-    explanation: "**SAT Pattern: Similar Figures Area Ratio**\n\n**The correct answer is 1.4.** Note that 1.4 and 7/5 are examples of ways to enter a correct answer.\n\n**The Fast Way (~15s):** Areas scale by $k^{2}$, so $k^{2} = 1.96$ and $k = 1.4$.\n\n**The Full Solution:**\nStep 1: Perimeter is a length, so the perimeter ratio $k$ is the scale factor between the hexagons.\nStep 2: Areas of similar figures scale by the square of the scale factor, so $k^{2} = 1.96$.\nStep 3: Take the positive square root: $k = 1.4$. Check: $1.4^{2} = 1.96$ ✓\n\n**Common Mistakes:**\n* $1.96$: treats the area factor as the perimeter factor without taking a square root.\n* $0.98$: halves the area factor instead of taking its square root.\n* $3.8416$: squares the area factor instead of taking its square root.\n\n**Test Day Takeaway:** Going from areas back to lengths means taking a square root; perimeter follows lengths, not areas.",
+    question: "Hexagon $Q$ is similar to hexagon $P$. The area of hexagon $Q$ is $\\frac{9}{4}$ times the area of hexagon $P$, and the perimeter of hexagon $Q$ is $k$ times the perimeter of hexagon $P$. What is the value of $k$?",
+    correctAnswer: "3/2",
+    explanation: "**SAT Pattern: Similar Figures Area Ratio**\n\n**The correct answer is $\\frac{3}{2}$.** Note that 3/2 and 1.5 are examples of ways to enter a correct answer.\n\n**The Fast Way (~15s):** Areas scale by the square of the ratio of corresponding lengths, so $k^{2} = \\frac{9}{4}$ and $k = \\frac{3}{2}$.\n\n**The Full Solution:**\nStep 1: If each length of hexagon $Q$ is $k$ times the corresponding length of hexagon $P$, then the perimeter of $Q$ is $k$ times the perimeter of $P$, and the area of $Q$ is $k^{2}$ times the area of $P$.\nStep 2: So $k^{2} = \\frac{9}{4}$.\nStep 3: Since $k$ is positive, $k = \\sqrt{\\frac{9}{4}} = \\frac{3}{2}$. Check: $\\left(\\frac{3}{2}\\right)^{2} = \\frac{9}{4}$ ✓\n\n**Common Mistakes:**\n* $\\frac{9}{4}$: uses the area ratio as the perimeter ratio.\n* $\\frac{81}{16}$: squares the area ratio instead of taking its square root.\n\n**Test Day Takeaway:** For similar figures, perimeters scale by the length ratio and areas by its square; take the square root of an area ratio to get the length ratio.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "similar-figures-area-ratio",
@@ -4258,18 +4258,18 @@ export const geometryBank = [
     skills: ["similar-triangles"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The length and the width of a rectangle are each multiplied by $2.5$. The area of the new rectangle is $k$ times the area of the original rectangle. What is the value of $k$?",
+    question: "The length and the width of a rectangle are each multiplied by $4$. The area of the new rectangle is $k$ times the area of the original rectangle. What is the value of $k$?",
     choices: [
-      // distractor: uses the length factor as the area factor without squaring
-      { id: "A", text: "$2.5$" },
-      // distractor: adds the factor for the length and the factor for the width, 2.5 + 2.5
-      { id: "B", text: "$5$" },
-      { id: "C", text: "$6.25$" },
-      // distractor: cubes the factor, which is the rule for volume
-      { id: "D", text: "$15.625$" }
+      // distractor: assumes the area changes by the same factor as each side
+      { id: "A", text: "$4$" },
+      // distractor: adds the two factors, 4 + 4, instead of multiplying them
+      { id: "B", text: "$8$" },
+      { id: "C", text: "$16$" },
+      // distractor: cubes the factor, as for a volume, instead of squaring it
+      { id: "D", text: "$64$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Similar Figures Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Both dimensions are multiplied by $2.5$, so the area is multiplied by $2.5 \\cdot 2.5 = 6.25$.\n\n**The Full Solution:**\nStep 1: If the original rectangle has length $L$ and width $W$, its area is $LW$.\nStep 2: The enlarged rectangle has length $2.5L$ and width $2.5W$, so its area is $(2.5L)(2.5W) = 6.25LW$.\nStep 3: The enlarged area is $6.25$ times the original. Check: a $2$ by $4$ rectangle (area $8$) becomes $5$ by $10$ (area $50$), and $\\frac{50}{8} = 6.25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2.5$): uses the length factor as the area factor. Both the length and the width grow, so the factor is applied twice.\n* Choice B ($5$): adds the two factors instead of multiplying them.\n* Choice D ($15.625$): cubes the factor, $2.5^{3}$, which applies to volume, not area.\n\n**Test Day Takeaway:** When every length is multiplied by $k$, area is multiplied by $k^{2}$.",
+    explanation: "**SAT Pattern: Similar Figures Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Both dimensions are multiplied by $4$, so the area is multiplied by $4 \\cdot 4 = 16$.\n\n**The Full Solution:**\nStep 1: Let the original rectangle have length $l$ and width $w$, so its area is $lw$.\nStep 2: The new rectangle has length $4l$ and width $4w$, so its area is $(4l)(4w) = 16lw$.\nStep 3: So the new area is $16$ times the original area, and $k = 16$. Check: a $1$ by $2$ rectangle (area $2$) becomes a $4$ by $8$ rectangle (area $32 = 16 \\cdot 2$) ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): assumes the area grows by the same factor as each side.\n* Choice B ($8$): adds the factors, $4 + 4$, instead of multiplying them.\n* Choice D ($64$): cubes the factor, as for a volume.\n\n**Test Day Takeaway:** When every length is multiplied by $k$, area is multiplied by $k^{2}$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "similar-figures-area-ratio",
@@ -4283,18 +4283,18 @@ export const geometryBank = [
     skills: ["similar-triangles"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "Triangle $ABC$ is similar to triangle $DEF$, where $A$, $B$, and $C$ correspond to $D$, $E$, and $F$, respectively. The area of triangle $DEF$ is $2.25$ times the area of triangle $ABC$, and $AB = 18$. What is the length of $\\overline{DE}$?",
+    question: "Triangles $JKL$ and $PQR$ are similar, and side $\\overline{JK}$ corresponds to side $\\overline{PQ}$. The area of triangle $PQR$ is $16$ times the area of triangle $JKL$. If $JK = 5$, what is the length of $\\overline{PQ}$?",
     choices: [
-      // distractor: divides 18 by the area factor 2.25 instead of multiplying by its square root
-      { id: "A", text: "$8$" },
-      // distractor: divides 18 by the scale factor 1.5, scaling the side down instead of up
-      { id: "B", text: "$12$" },
-      { id: "C", text: "$27$" },
-      // distractor: multiplies 18 by the area factor 2.25 instead of by its square root 1.5
-      { id: "D", text: "$40.5$" }
+      // distractor: divides JK by the area ratio 16, scaling down and skipping the square root
+      { id: "A", text: "$\\frac{5}{16}$" },
+      // distractor: divides JK by the scale factor 4 instead of multiplying
+      { id: "B", text: "$\\frac{5}{4}$" },
+      { id: "C", text: "$20$" },
+      // distractor: multiplies JK by the area ratio 16 instead of by its square root
+      { id: "D", text: "$80$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Similar Figures Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The scale factor is $\\sqrt{2.25} = 1.5$, so $DE = 1.5(18) = 27$.\n\n**The Full Solution:**\nStep 1: Areas of similar triangles scale by the square of the scale factor, so the scale factor from $ABC$ to $DEF$ is $\\sqrt{2.25} = 1.5$.\nStep 2: Side $\\overline{DE}$ corresponds to side $\\overline{AB}$, so $DE = 1.5 \\cdot AB$.\nStep 3: Compute: $DE = 1.5(18) = 27$. Check: $\\left(\\frac{27}{18}\\right)^{2} = 1.5^{2} = 2.25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): divides $18$ by the area factor $2.25$. Triangle $DEF$ is the larger triangle, and lengths scale by the square root of the area factor.\n* Choice B ($12$): finds the scale factor $1.5$ but divides by it, as if $DEF$ were the smaller triangle.\n* Choice D ($40.5$): multiplies $18$ by the area factor $2.25$ instead of by its square root.\n\n**Test Day Takeaway:** Convert an area factor to a length factor with a square root before scaling a side, and check which triangle is the larger one.",
+    explanation: "**SAT Pattern: Similar Figures Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The ratio of the areas is $16$, so the ratio of corresponding sides is $\\sqrt{16} = 4$, and $PQ = 4(5) = 20$.\n\n**The Full Solution:**\nStep 1: For similar triangles, the ratio of the areas is the square of the ratio of corresponding sides.\nStep 2: The area ratio is $16$, so the side ratio is $\\sqrt{16} = 4$; each side of triangle $PQR$ is $4$ times the corresponding side of triangle $JKL$.\nStep 3: $\\overline{PQ}$ corresponds to $\\overline{JK}$, so $PQ = 4(5) = 20$. Check: $\\left(\\frac{20}{5}\\right)^{2} = 16$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{5}{16}$): divides $5$ by the area ratio, $16$, which both scales the wrong way and skips the square root.\n* Choice B ($\\frac{5}{4}$): divides $5$ by $4$; triangle $PQR$ is the larger triangle, so its sides are longer.\n* Choice D ($80$): multiplies $5$ by the area ratio, $16$, instead of by its square root.\n\n**Test Day Takeaway:** Take the square root of an area ratio to get the side ratio, then scale the given side.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "similar-figures-area-ratio",
@@ -4443,18 +4443,18 @@ export const geometryBank = [
     skills: ["triangle-area"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "In the $xy$-plane, a triangle has vertices at $(3, -2)$, $(3, 10)$, and $(-5, 1)$. What is the area, in square units, of the triangle?",
+    question: "Triangle $ABC$ in the $xy$-plane has vertices $A(-5, 5)$, $B(9, 5)$, and $C(2, -4)$. What is the area, in square units, of triangle $ABC$?",
     choices: [
-      // distractor: uses 5, the distance from (-5, 1) to the y-axis, as the height instead of the distance to the line x = 3
-      { id: "A", text: "$30$" },
-      // distractor: computes the base as 10 - 2 = 8, dropping the negative sign of -2
-      { id: "B", text: "$32$" },
-      { id: "C", text: "$48$" },
+      // distractor: computes the base as 9 - 5 = 4, dropping the negative sign of -5
+      { id: "A", text: "$18$" },
+      // distractor: uses 4, the distance from C to the x-axis, as the height instead of the distance to the line y = 5
+      { id: "B", text: "$28$" },
+      { id: "C", text: "$63$" },
       // distractor: multiplies base and height but forgets the factor of 1/2
-      { id: "D", text: "$96$" }
+      { id: "D", text: "$126$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The vertical base along $x = 3$ has length $12$, and $(-5, 1)$ is $8$ units from that line, so the area is $\\frac{1}{2}(12)(8) = 48$.\n\n**The Full Solution:**\nStep 1: The vertices $(3, -2)$ and $(3, 10)$ share the $x$-coordinate $3$, so they form a vertical base of length $10 - (-2) = 12$.\nStep 2: The height is the horizontal distance from $(-5, 1)$ to the line $x = 3$: $3 - (-5) = 8$.\nStep 3: Area $= \\frac{1}{2}(12)(8) = 48$ square units. Check: the shoelace formula gives $\\frac{1}{2}\\left|3(10 - 1) + 3(1 + 2) + (-5)(-2 - 10)\\right| = \\frac{1}{2}|27 + 9 + 60| = 48$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($30$): uses $5$, the distance from $(-5, 1)$ to the $y$-axis, as the height. The base lies on $x = 3$, so the height is $3 - (-5) = 8$.\n* Choice B ($32$): computes the base as $10 - 2 = 8$, dropping the negative sign, and gets $\\frac{1}{2}(8)(8)$.\n* Choice D ($96$): multiplies base and height without the factor of $\\frac{1}{2}$.\n\n**Test Day Takeaway:** A vertical side works as a base just as well as a horizontal one; the height is then the horizontal distance to that side's line.",
+    explanation: "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The horizontal base $\\overline{AB}$ along $y = 5$ has length $14$, and $C(2, -4)$ is $9$ units below that line, so the area is $\\frac{1}{2}(14)(9) = 63$.\n\n**The Full Solution:**\nStep 1: $A(-5, 5)$ and $B(9, 5)$ share the $y$-coordinate $5$, so they form a horizontal base of length $9 - (-5) = 14$.\nStep 2: The height is the vertical distance from $C(2, -4)$ to the line $y = 5$: $5 - (-4) = 9$.\nStep 3: Area $= \\frac{1}{2}(14)(9) = 63$ square units. Check: the shoelace formula gives $\\frac{1}{2}\\left|(-5)(5 - (-4)) + 9(-4 - 5) + 2(5 - 5)\\right| = \\frac{1}{2}|-45 - 81 + 0| = 63$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($18$): computes the base as $9 - 5 = 4$, dropping the negative sign, and gets $\\frac{1}{2}(4)(9)$.\n* Choice B ($28$): uses $4$, the distance from $C$ to the $x$-axis, as the height. The base lies on $y = 5$, so the height is $5 - (-4) = 9$.\n* Choice D ($126$): multiplies base and height without the factor of $\\frac{1}{2}$.\n\n**Test Day Takeaway:** When two vertices share a coordinate, use that side as the base; the height is the distance from the third vertex to that side's line, not to an axis.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "area-of-triangle-from-coordinates",
@@ -4536,18 +4536,18 @@ export const geometryBank = [
     skills: ["triangles"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "In a triangle, two of the interior angles measure $x^{\\circ}$ and $y^{\\circ}$. An exterior angle at the third vertex measures $z^{\\circ}$. Which equation must be true?",
+    question: "In triangle $ABC$, side $\\overline{AC}$ is extended through $C$ to point $D$. The measure of angle $BCD$ is $118^{\\circ}$, and the measure of angle $A$ is $46^{\\circ}$. What is the measure of angle $B$?",
     choices: [
-      { id: "A", text: "$z = x + y$" },
-      // distractor: gives the interior angle at the third vertex, 180 - x - y, instead of the exterior angle
-      { id: "B", text: "$z = 180 - x - y$" },
-      // distractor: distributes the minus sign over only one of the two angles: 180 - (x - y)
-      { id: "C", text: "$z = 180 - x + y$" },
-      // distractor: averages the two remote interior angles instead of adding them
-      { id: "D", text: "$z = \\frac{x + y}{2}$" }
+      // distractor: gives the interior angle ACB, 180 - 118 = 62, instead of angle B
+      { id: "A", text: "$62^{\\circ}$" },
+      { id: "B", text: "$72^{\\circ}$" },
+      // distractor: subtracts angle A from 180: 180 - 46 = 134
+      { id: "C", text: "$134^{\\circ}$" },
+      // distractor: adds the two given angles, 118 + 46 = 164, instead of subtracting
+      { id: "D", text: "$164^{\\circ}$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** An exterior angle of a triangle equals the sum of the two interior angles that are not next to it, so $z = x + y$.\n\n**The Full Solution:**\nStep 1: Call the interior angle at the third vertex $w^{\\circ}$. The angles of a triangle add to $180^{\\circ}$, so $x + y + w = 180$.\nStep 2: The exterior angle and the interior angle at the same vertex form a straight line, so $z + w = 180$.\nStep 3: Both sums equal $180$, so $x + y + w = z + w$, which gives $z = x + y$. Check: if $x = 50$ and $y = 60$, then $w = 70$ and $z = 180 - 70 = 110 = 50 + 60$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($z = 180 - x - y$): $180 - x - y$ is the interior angle at the third vertex. The exterior angle is its supplement.\n* Choice C ($z = 180 - x + y$): $180 - x + y$ comes from writing $180 - (x - y)$; the subtraction has to apply to both angles, and even then it gives the interior angle.\n* Choice D ($z = \\frac{x + y}{2}$): halving the sum treats the exterior angle as an average. With $x = 50$ and $y = 60$ it gives $55$, not the true $110$.\n\n**Test Day Takeaway:** Exterior angle = sum of the two remote interior angles. No $180$ appears in the final relationship.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Angle $BCD$ is the exterior angle at $C$, so it equals angle $A$ plus angle $B$: $118 = 46 + B$, and angle $B$ measures $72^{\\circ}$.\n\n**The Full Solution:**\nStep 1: Angle $BCD$ is formed by side $\\overline{BC}$ and the extension of $\\overline{AC}$, so it is an exterior angle of the triangle at $C$. The interior angles not next to it are angle $A$ and angle $B$.\nStep 2: An exterior angle equals the sum of the two remote interior angles: $118^{\\circ} = 46^{\\circ} + B$.\nStep 3: So angle $B$ measures $118^{\\circ} - 46^{\\circ} = 72^{\\circ}$. Check: angle $ACB = 180^{\\circ} - 118^{\\circ} = 62^{\\circ}$, and $46^{\\circ} + 72^{\\circ} + 62^{\\circ} = 180^{\\circ}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($62^{\\circ}$): $62^{\\circ}$ is angle $ACB$, the interior angle at $C$, not angle $B$.\n* Choice C ($134^{\\circ}$): $180 - 46$ subtracts only angle $A$ from $180$ and ignores angle $BCD$.\n* Choice D ($164^{\\circ}$): $118 + 46$ adds the given angles; angle $A$ and angle $B$ together make up angle $BCD$, so subtract.\n\n**Test Day Takeaway:** When a side of a triangle is extended, the outside angle equals the sum of the two far interior angles; if one of them is missing, subtract.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "exterior-angle-theorem",
@@ -4936,7 +4936,7 @@ export const geometryBank = [
     skills: ["arc-length"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The circle shown has center $O$ and a diameter of $32$. What is the length of minor arc $AB$?",
+    question: "Points $A$ and $B$ lie on the circle shown with center $O$. If the diameter of the circle is $32$, what is the length of minor arc $AB$?",
     diagram: { type: "circleWithSector", params: { centralAngle: 45, angleLabel: "45°", labelCenter: "O", labelPoint1: "A", labelPoint2: "B", figureNote: true } },
     choices: [
       // distractor: uses pi r instead of 2 pi r: (45/360)(16 pi)
@@ -5283,22 +5283,22 @@ export const geometryBank = [
   {
     id: "bank-geo-243",
     domain: "geometry",
-    skills: ["sector-area"],
+    skills: ["arc-length"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "The circle shown has center $C$. What is the area, in square centimeters, of sector $MCN$?",
-    diagram: { type: "circleWithSector", params: { centralAngle: 120, angleLabel: "120°", radius: "6 cm", showRadiusLabel: true, labelCenter: "C", labelPoint1: "M", labelPoint2: "N" } },
+    question: "In the circle shown, $C$ is the center. What is the length, in centimeters, of minor arc $MN$?",
+    diagram: { type: "circleWithSector", params: { centralAngle: 40, angleLabel: "40°", radius: "9 cm", showRadiusLabel: true, labelCenter: "C", labelPoint1: "M", labelPoint2: "N" } },
     choices: [
-      // distractor: computes the arc length (120/360)(2 pi)(6) = 4 pi instead of the area
-      { id: "A", text: "$4\\pi$" },
-      { id: "B", text: "$12\\pi$" },
-      // distractor: gives the area of the whole circle, ignoring the 120-degree central angle
-      { id: "C", text: "$36\\pi$" },
-      // distractor: squares the diameter 12 instead of the radius: (1/3) pi (12)^2 = 48 pi
-      { id: "D", text: "$48\\pi$" }
+      // distractor: uses pi r instead of 2 pi r for the circumference: (40/360)(9 pi) = pi
+      { id: "A", text: "$\\pi$" },
+      { id: "B", text: "$2\\pi$" },
+      // distractor: computes the sector area (40/360)(81 pi) = 9 pi instead of the arc length
+      { id: "C", text: "$9\\pi$" },
+      // distractor: gives the circumference of the whole circle, ignoring the 40-degree angle
+      { id: "D", text: "$18\\pi$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Sector Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The sector is $\\frac{120}{360} = \\frac{1}{3}$ of a circle with area $\\pi(6)^{2} = 36\\pi$, so its area is $12\\pi$.\n\n**The Full Solution:**\nStep 1: Read the figure: the radius is $6$ centimeters and the central angle of sector $MCN$ is $120^{\\circ}$.\nStep 2: Find the area of the whole circle: $\\pi(6)^{2} = 36\\pi$ square centimeters.\nStep 3: Take the sector's share: $\\frac{120}{360}(36\\pi) = 12\\pi$ square centimeters. Check: three such sectors fill the circle, and $3(12\\pi) = 36\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4\\pi$): this is the arc length $\\frac{120}{360}(2\\pi)(6) = 4\\pi$, a length rather than an area.\n* Choice C ($36\\pi$): this is the area of the entire circle, ignoring the $120^{\\circ}$ angle.\n* Choice D ($48\\pi$): squares the diameter $12$ instead of the radius, giving $\\frac{1}{3}\\pi(12)^{2} = 48\\pi$.\n\n**Test Day Takeaway:** Sector area is the circle's area times $\\frac{\\text{central angle}}{360^{\\circ}}$. Square the radius, never the diameter.",
+    explanation: "**SAT Pattern: Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The arc is $\\frac{40}{360} = \\frac{1}{9}$ of a circumference of $2\\pi(9) = 18\\pi$, so its length is $2\\pi$.\n\n**The Full Solution:**\nStep 1: Read the figure: the radius is $9$ centimeters and the central angle $MCN$ is $40^{\\circ}$.\nStep 2: Find the circumference of the circle: $2\\pi(9) = 18\\pi$ centimeters.\nStep 3: Take the arc's share: $\\frac{40}{360}(18\\pi) = 2\\pi$ centimeters. Check: nine such arcs go around the circle, and $9(2\\pi) = 18\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\pi$): uses $\\pi r$ for the circumference instead of $2\\pi r$.\n* Choice C ($9\\pi$): this is the area of the sector, $\\frac{40}{360}\\pi(9)^{2}$, not a length.\n* Choice D ($18\\pi$): this is the circumference of the entire circle, ignoring the $40^{\\circ}$ angle.\n\n**Test Day Takeaway:** Arc length is the circumference times $\\frac{\\text{central angle}}{360^{\\circ}}$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "sector-area",
@@ -5309,13 +5309,13 @@ export const geometryBank = [
   {
     id: "bank-geo-244",
     domain: "geometry",
-    skills: ["sector-area"],
+    skills: ["arc-length"],
     difficulty: "medium",
     type: "fill-in",
-    question: "In the circle shown with center $O$, the area of sector $AOB$ is $k\\pi$ square inches, where $k$ is a constant. What is the value of $k$?",
-    diagram: { type: "circleWithSector", params: { centralAngle: 150, angleLabel: "150°", radius: "12 in", showRadiusLabel: true, labelCenter: "O", labelPoint1: "A", labelPoint2: "B" } },
-    correctAnswer: "60",
-    explanation: "**SAT Pattern: Sector Area**\n\n**The correct answer is $60$.**\n\n**The Fast Way (~25s):** The sector is $\\frac{150}{360} = \\frac{5}{12}$ of a circle with area $144\\pi$, and $\\frac{5}{12}(144\\pi) = 60\\pi$, so $k = 60$.\n\n**The Full Solution:**\nStep 1: Read the figure: the radius is $12$ inches and the central angle of sector $AOB$ is $150^{\\circ}$.\nStep 2: Find the area of the whole circle: $\\pi(12)^{2} = 144\\pi$ square inches.\nStep 3: Take the sector's share: $\\frac{150}{360}(144\\pi) = \\frac{5}{12}(144\\pi) = 60\\pi$, so $k\\pi = 60\\pi$ and $k = 60$. Check: $\\frac{60}{144} = \\frac{5}{12}$, the same fraction as $\\frac{150}{360}$ ✓\n\n**Common Mistakes:**\n* $10$: uses the arc length $\\frac{150}{360}(24\\pi) = 10\\pi$, a length rather than an area.\n* $144$: gives the area of the whole circle and never scales by the angle.\n* $240$: squares the diameter $24$ instead of the radius, $\\frac{5}{12}(576\\pi) = 240\\pi$.\n\n**Test Day Takeaway:** When the area is written as $k\\pi$, carry $\\pi$ along symbolically and read $k$ off the coefficient at the end.",
+    question: "In the circle shown with center $O$, the length of minor arc $AB$ is $10\\pi$ inches. What is the value of $x$?",
+    diagram: { type: "circleWithSector", params: { centralAngle: 150, angleLabel: "x°", radius: "12 in", showRadiusLabel: true, labelCenter: "O", labelPoint1: "A", labelPoint2: "B" } },
+    correctAnswer: "150",
+    explanation: "**SAT Pattern: Arc Length**\n\n**The correct answer is $150$.**\n\n**The Fast Way (~30s):** The circumference is $2\\pi(12) = 24\\pi$, and the arc is $\\frac{10\\pi}{24\\pi} = \\frac{5}{12}$ of it, so $x = \\frac{5}{12}(360) = 150$.\n\n**The Full Solution:**\nStep 1: Read the figure: the radius is $12$ inches, so the circumference is $2\\pi(12) = 24\\pi$ inches.\nStep 2: The arc's share of the circle is $\\frac{10\\pi}{24\\pi} = \\frac{5}{12}$.\nStep 3: The central angle is the same share of $360^{\\circ}$: $x = \\frac{5}{12}(360) = 150$. Check: $\\frac{150}{360}(24\\pi) = 10\\pi$ ✓\n\n**Common Mistakes:**\n* $300$: uses $\\pi r = 12\\pi$ as the circumference, so the share looks like $\\frac{10}{12}$.\n* $75$: finds the share $\\frac{5}{12}$ but multiplies by $180$ instead of $360$.\n* $210$: gives the angle of the major arc, $360 - 150$.\n\n**Test Day Takeaway:** An arc and its central angle are the same fraction of the whole: arc over circumference equals angle over $360^{\\circ}$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "sector-area",
@@ -5326,22 +5326,22 @@ export const geometryBank = [
   {
     id: "bank-geo-245",
     domain: "geometry",
-    skills: ["sector-area"],
+    skills: ["arc-length"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "In the circle shown with center $O$, the circumference of the circle is $8\\sqrt{5}\\pi$ and the area of sector $AOB$ is $30\\pi$. What is the value of $\\theta$?",
-    diagram: { type: "circleWithSector", params: { centralAngle: 135, angleLabel: "θ°", labelCenter: "O", labelPoint1: "A", labelPoint2: "B", figureNote: true } },
+    question: "In the circle shown with center $O$, the area of the circle is $144\\pi$ and the length of minor arc $AB$ is $4\\pi$. What is the value of $\\theta$?",
+    diagram: { type: "circleWithSector", params: { centralAngle: 60, angleLabel: "θ°", labelCenter: "O", labelPoint1: "A", labelPoint2: "B", figureNote: true } },
     choices: [
-      // distractor: reads the circumference as pi times the radius, so r = 8 sqrt 5, the circle's area is 320 pi, and theta = (30/320)(360) = 33.75
-      { id: "A", text: "$33.75$" },
-      // distractor: finds the correct fraction 30/80 = 3/8 of the circle but multiplies by 180 instead of 360
-      { id: "B", text: "$67.5$" },
-      { id: "C", text: "$135$" },
-      // distractor: finds the angle of the rest of the circle, 360 - 135 = 225, instead of the sector's angle
-      { id: "D", text: "$225$" }
+      // distractor: treats 144 pi as the circumference, so the arc's share is 4/144 and theta = 10
+      { id: "A", text: "$10$" },
+      // distractor: finds the correct share 1/6 but multiplies by 180 instead of 360
+      { id: "B", text: "$30$" },
+      { id: "C", text: "$60$" },
+      // distractor: finds the angle of the major arc, 360 - 60 = 300, instead of the minor arc
+      { id: "D", text: "$300$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Sector Area**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** $2\\pi r = 8\\sqrt{5}\\pi$ gives $r = 4\\sqrt{5}$, so the circle's area is $80\\pi$; the sector is $\\frac{30}{80} = \\frac{3}{8}$ of it, and $\\frac{3}{8}(360) = 135$.\n\n**The Full Solution:**\nStep 1: Find the radius from the circumference: $2\\pi r = 8\\sqrt{5}\\pi$, so $r = 4\\sqrt{5}$.\nStep 2: Find the area of the circle: $\\pi\\left(4\\sqrt{5}\\right)^{2} = 80\\pi$. The sector's share of the circle is $\\frac{30\\pi}{80\\pi} = \\frac{3}{8}$.\nStep 3: The central angle has the same share of $360^{\\circ}$: $\\theta = \\frac{3}{8}(360) = 135$. Check: $\\frac{135}{360}(80\\pi) = 30\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($33.75$): uses $\\pi r$ for the circumference, so $r = 8\\sqrt{5}$ and the area is $320\\pi$, which makes the share $\\frac{30}{320}$.\n* Choice B ($67.5$): finds the share $\\frac{3}{8}$ correctly but multiplies by $180$ instead of $360$.\n* Choice D ($225$): this is the angle of the unshaded part of the circle, $360 - 135$.\n\n**Test Day Takeaway:** A sector's area, arc length and central angle are all the same fraction of the whole circle. Get the circle's area first, then match the fractions.",
+    explanation: "**SAT Pattern: Arc Length**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** $\\pi r^{2} = 144\\pi$ gives $r = 12$, so the circumference is $24\\pi$; the arc is $\\frac{4\\pi}{24\\pi} = \\frac{1}{6}$ of it, and $\\frac{1}{6}(360) = 60$.\n\n**The Full Solution:**\nStep 1: Find the radius from the area: $\\pi r^{2} = 144\\pi$, so $r^{2} = 144$ and $r = 12$.\nStep 2: Find the circumference: $2\\pi(12) = 24\\pi$. The arc's share of the circle is $\\frac{4\\pi}{24\\pi} = \\frac{1}{6}$.\nStep 3: The central angle has the same share of $360^{\\circ}$: $\\theta = \\frac{1}{6}(360) = 60$. Check: $\\frac{60}{360}(24\\pi) = 4\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): divides the arc length by the area, $\\frac{4\\pi}{144\\pi}$, as if $144\\pi$ were the circumference.\n* Choice B ($30$): finds the share $\\frac{1}{6}$ correctly but multiplies by $180$ instead of $360$.\n* Choice D ($300$): this is the angle of the major arc, $360 - 60$.\n\n**Test Day Takeaway:** Arc length is a fraction of the circumference, not of the area; get the radius first, then compare the arc to $2\\pi r$.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "sector-area",
@@ -6176,19 +6176,19 @@ export const geometryBank = [
     skills: ["arc-length"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "In the circle with center $O$ shown, sector $AOB$ has a central angle of $\\frac{5\\pi}{6}$ radians and an arc length of $35\\pi$ centimeters. What is the area, in square centimeters, of sector $AOB$?",
-    diagram: { type: "circleWithSector", params: { centralAngle: 150, angleLabel: "5π/6", labelCenter: "O", labelPoint1: "A", labelPoint2: "B", figureNote: true } },
+    question: "In the circle with center $O$ shown, angle $AOB$ measures $\\frac{2\\pi}{3}$ radians and minor arc $AB$ has a length of $14\\pi$ centimeters. What is the circumference, in centimeters, of the circle?",
+    diagram: { type: "circleWithSector", params: { centralAngle: 120, angleLabel: "2π/3", labelCenter: "O", labelPoint1: "A", labelPoint2: "B", figureNote: true } },
     choices: [
-      // distractor: computes one half times the arc length, leaving out the radius
-      { id: "A", text: "$17.5\\pi$" },
-      { id: "B", text: "$735\\pi$" },
-      // distractor: uses r squared theta without the factor one half
-      { id: "C", text: "$1{,}470\\pi$" },
-      // distractor: gives the area of the whole circle, pi times 42 squared
-      { id: "D", text: "$1{,}764\\pi$" }
+      // distractor: finds the radius 21 and writes it as pi r instead of 2 pi r
+      { id: "A", text: "$21\\pi$" },
+      // distractor: gives the length of the major arc, 42 pi - 14 pi
+      { id: "B", text: "$28\\pi$" },
+      { id: "C", text: "$42\\pi$" },
+      // distractor: gives the area of the circle, pi times 21 squared
+      { id: "D", text: "$441\\pi$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** $r = \\frac{s}{\\theta} = \\frac{35\\pi}{5\\pi/6} = 42$, and the sector area is $\\frac{1}{2}rs = \\frac{1}{2}(42)(35\\pi) = 735\\pi$.\n\n**The Full Solution:**\nStep 1: For a radian angle, $s = r\\theta$, so $r = \\frac{35\\pi}{\\frac{5\\pi}{6}} = 35\\pi \\cdot \\frac{6}{5\\pi} = 42$ centimeters.\nStep 2: The area of a sector with a radian angle is $A = \\frac{1}{2}r^{2}\\theta$.\nStep 3: $A = \\frac{1}{2}(42)^{2}\\left(\\frac{5\\pi}{6}\\right) = \\frac{1}{2}(1{,}764)\\left(\\frac{5\\pi}{6}\\right) = 735\\pi$ square centimeters. Check: $\\frac{5\\pi}{6}$ is $\\frac{5}{12}$ of a full turn, and $\\frac{5}{12}(1{,}764\\pi) = 735\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($17.5\\pi$): takes $\\frac{1}{2}s$ and never brings in the radius.\n* Choice C ($1{,}470\\pi$): uses $r^{2}\\theta$ without the factor $\\frac{1}{2}$.\n* Choice D ($1{,}764\\pi$): reports $\\pi r^{2}$, the area of the entire circle rather than the sector.\n\n**Test Day Takeaway:** Arc length gives the radius; the radius gives the area. Pair the radian formulas $s = r\\theta$ and $A = \\frac{1}{2}r^{2}\\theta$.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Arc Length**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** An angle of $\\frac{2\\pi}{3}$ radians is $\\frac{2\\pi/3}{2\\pi} = \\frac{1}{3}$ of a full turn, so the circumference is $3(14\\pi) = 42\\pi$.\n\n**The Full Solution:**\nStep 1: For an angle in radians, arc length is $s = r\\theta$, so $14\\pi = r\\left(\\frac{2\\pi}{3}\\right)$.\nStep 2: Solve for the radius: $r = 14\\pi \\cdot \\frac{3}{2\\pi} = 21$ centimeters.\nStep 3: The circumference is $2\\pi(21) = 42\\pi$ centimeters. Check: $\\frac{1}{3}(42\\pi) = 14\\pi$, the given arc length ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($21\\pi$): finds $r = 21$ but uses $\\pi r$ instead of $2\\pi r$.\n* Choice B ($28\\pi$): this is the major arc, $42\\pi - 14\\pi$, not the whole circle.\n* Choice D ($441\\pi$): this is $\\pi r^{2}$, the area of the circle.\n\n**Test Day Takeaway:** A radian angle over $2\\pi$ is the arc's share of the circumference; divide the arc length by that share to get the whole circle.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "arc-length",
@@ -6279,19 +6279,19 @@ export const geometryBank = [
     skills: ["circle-equation", "completing-square-circles"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "The table shows equations of circle $A$ and circle $B$ in the $xy$-plane. What is the distance between the centers of the two circles?",
-    questionTable: { headers: ["Circle", "Equation"], rows: [["$A$", "$x^{2} + y^{2} - 8x + 6y + 16 = 0$"], ["$B$", "$x^{2} + y^{2} + 8x - 6y + 21 = 0$"]] },
+    question: "The table shows equations of circle $A$ and circle $B$ in the $xy$-plane. Which statement about the two circles is true?",
+    questionTable: { headers: ["Circle", "Equation"], rows: [["$A$", "$x^{2} + y^{2} - 8x + 6y + 16 = 0$"], ["$B$", "$x^{2} + y^{2} - 8x + 6y - 11 = 0$"]] },
     choices: [
-      // distractor: reports the radius of circle B, 2, instead of the distance between the centers
-      { id: "A", text: "$2$" },
-      // distractor: adds the two radii, 3 + 2 = 5
-      { id: "B", text: "$5$" },
-      // distractor: uses only the difference of the x-coordinates, 4 - (-4) = 8
-      { id: "C", text: "$8$" },
-      { id: "D", text: "$10$" }
+      // distractor: compares r squared (36 and 9) instead of the radii
+      { id: "A", text: "The circles have the same center, and the radius of circle $B$ is $4$ times the radius of circle $A$." },
+      // distractor: reads the constant terms 16 and -11 as the sizes, so circle A looks larger
+      { id: "B", text: "The circles have the same center, and the radius of circle $A$ is $2$ times the radius of circle $B$." },
+      { id: "C", text: "The circles have the same center, and the radius of circle $B$ is $2$ times the radius of circle $A$." },
+      // distractor: assumes different constant terms mean different centers
+      { id: "D", text: "The circles have different centers, and the radius of circle $B$ is $2$ times the radius of circle $A$." }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Circle in General Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~45s):** The centers are $(4, -3)$ and $(-4, 3)$, so the distance is $\\sqrt{8^{2} + 6^{2}} = 10$.\n\n**The Full Solution:**\nStep 1: Circle $A$: $(x - 4)^{2} + (y + 3)^{2} = 16 + 9 - 16 = 9$, so its center is $(4, -3)$ and its radius is $3$.\nStep 2: Circle $B$: $(x + 4)^{2} + (y - 3)^{2} = 16 + 9 - 21 = 4$, so its center is $(-4, 3)$ and its radius is $2$.\nStep 3: The distance between the centers is $\\sqrt{(4 - (-4))^{2} + (-3 - 3)^{2}} = \\sqrt{64 + 36} = \\sqrt{100} = 10$. Check: the legs $8$ and $6$ form a $6$-$8$-$10$ right triangle ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): reports the radius of circle $B$, not a distance between centers.\n* Choice B ($5$): adds the two radii, $3 + 2$, which would be the distance only if the circles touched.\n* Choice C ($8$): uses only the horizontal change between the centers and ignores the vertical change of $6$.\n\n**Test Day Takeaway:** Read each center as $\\left(-\\frac{D}{2}, -\\frac{E}{2}\\right)$, then use the distance formula.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Circle in General Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** Both equations have $-8x + 6y$, so both circles have center $(4, -3)$; completing the square gives $r^{2} = 9$ for circle $A$ and $r^{2} = 36$ for circle $B$, so the radii are $3$ and $6$.\n\n**The Full Solution:**\nStep 1: Circle $A$: $(x - 4)^{2} + (y + 3)^{2} = 16 + 9 - 16 = 9$, so its center is $(4, -3)$ and its radius is $3$.\nStep 2: Circle $B$: $(x - 4)^{2} + (y + 3)^{2} = 16 + 9 + 11 = 36$, so its center is $(4, -3)$ and its radius is $6$.\nStep 3: The centers are the same, and $6 = 2(3)$, so the radius of circle $B$ is $2$ times the radius of circle $A$. Check: $(x - 4)^{2} + (y + 3)^{2} = 36$ expands to $x^{2} - 8x + y^{2} + 6y + 25 = 36$, which is $x^{2} + y^{2} - 8x + 6y - 11 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: compares $r^{2}$ values, $\\frac{36}{9} = 4$, instead of the radii, $\\frac{6}{3} = 2$.\n* Choice B: reads the constant terms $16$ and $-11$ as if they measured size; a smaller constant on the left means a larger $r^{2}$.\n* Choice D: the $x$ and $y$ terms set the center, and they match, so the centers are the same.\n\n**Test Day Takeaway:** In $x^{2} + y^{2} + Dx + Ey + F = 0$, the $x$ and $y$ terms fix the center; complete the square to find $r^{2}$, then take the square root before comparing radii.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "circle-in-general-form",
@@ -6302,22 +6302,22 @@ export const geometryBank = [
   {
     id: "bank-geo-285",
     domain: "geometry",
-    skills: ["circle-equation", "completing-square-circles"],
+    skills: ["circle-equation"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "$x^{2} + y^{2} - 14x - 15 = 0$\nThe given equation represents the circle shown in the $xy$-plane, where $\\overline{AB}$ is a diameter of the circle. What is the length of $\\overline{AB}$?",
+    question: "$(x - 7)^{2} + y^{2} = 64$\nThe given equation represents the circle shown in the $xy$-plane, where $\\overline{AB}$ is a diameter of the circle. What is the length of $\\overline{AB}$?",
     diagram: { type: "circleWithInscribedTriangle", params: { labels: { A: "A", B: "B", C: "C", O: "O" }, angleAtAValue: 35, showDiameter: true, showCenter: true, showRightAngleAtC: true } },
     choices: [
-      // distractor: takes 15 as r squared without adding the 49 that completes the square
-      { id: "A", text: "$2\\sqrt{15}$" },
       // distractor: reports the radius instead of the diameter
-      { id: "B", text: "$8$" },
+      { id: "A", text: "$8$" },
+      // distractor: doubles the center's x-coordinate, 7, instead of the radius
+      { id: "B", text: "$14$" },
       { id: "C", text: "$16$" },
       // distractor: reports r squared instead of the diameter
       { id: "D", text: "$64$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Circle in General Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Completing the square gives $(x - 7)^{2} + y^{2} = 64$, so the radius is $8$ and the diameter $\\overline{AB}$ is $16$.\n\n**The Full Solution:**\nStep 1: Move the constant and group the $x$-terms: $(x^{2} - 14x) + y^{2} = 15$.\nStep 2: Add $49$ to both sides to complete the square: $(x - 7)^{2} + y^{2} = 64$.\nStep 3: The radius is $\\sqrt{64} = 8$, so $AB = 2(8) = 16$. Check: the endpoints $(-1, 0)$ and $(15, 0)$ of a horizontal diameter are $16$ apart, and $(-1)^{2} + 0 + 14 - 15 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2\\sqrt{15}$): treats $15$ as $r^{2}$ without adding the $49$ that completes the square.\n* Choice B ($8$): reports the radius, not the diameter.\n* Choice D ($64$): reports $r^{2}$.\n\n**Test Day Takeaway:** Complete the square, take the square root of the constant for the radius, and double it for a diameter.",
+    explanation: "**SAT Pattern: Circle in Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $r^{2} = 64$, so $r = 8$ and the diameter is $2(8) = 16$.\n\n**The Full Solution:**\nStep 1: The equation has the form $(x - h)^{2} + (y - k)^{2} = r^{2}$ with $r^{2} = 64$.\nStep 2: The radius is $\\sqrt{64} = 8$.\nStep 3: A diameter is twice the radius, so $AB = 2(8) = 16$. Check: the center is $(7, 0)$, and the points $(-1, 0)$ and $(15, 0)$ both satisfy the equation and are $16$ apart ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): is the radius, half of the diameter.\n* Choice B ($14$): doubles the $7$ from the center $(7, 0)$, which tells where the circle is, not how big it is.\n* Choice D ($64$): is $r^{2}$; take the square root before doubling.\n\n**Test Day Takeaway:** The number on the right side of a circle equation is $r^{2}$: take its square root for the radius, then double it for the diameter.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "circle-in-general-form",
@@ -6437,18 +6437,18 @@ export const geometryBank = [
     difficulty: "medium",
     type: "multiple-choice",
     question: "The table shows the coordinates of points $P$ and $Q$, the endpoints of a diameter of a circle in the $xy$-plane. Which equation represents the circle?",
-    diagram: { type: "dataTable", params: { headers: ["Point", "x", "y"], rows: [["P", "-5", "4"], ["Q", "7", "-12"]] } },
+    diagram: { type: "dataTable", params: { headers: ["Point", "x", "y"], rows: [["P", "-5", "4"], ["Q", "7", "4"]] } },
     choices: [
-      // distractor: uses the right center (1, -4) but writes the signs inside the squares backward
-      { id: "A", text: "$(x + 1)^{2} + (y - 4)^{2} = 100$" },
-      // distractor: uses the full diameter 20 as the radius, so r squared is 400
-      { id: "B", text: "$(x - 1)^{2} + (y + 4)^{2} = 400$" },
-      // distractor: adds the endpoint coordinates but forgets to divide by 2, giving the center (2, -8)
-      { id: "C", text: "$(x - 2)^{2} + (y + 8)^{2} = 100$" },
-      { id: "D", text: "$(x - 1)^{2} + (y + 4)^{2} = 100$" }
+      // distractor: uses the right center (1, 4) but writes the signs inside the squares backward
+      { id: "A", text: "$(x + 1)^{2} + (y + 4)^{2} = 36$" },
+      // distractor: uses the radius 6 on the right side without squaring it
+      { id: "B", text: "$(x - 1)^{2} + (y - 4)^{2} = 6$" },
+      { id: "C", text: "$(x - 1)^{2} + (y - 4)^{2} = 36$" },
+      // distractor: uses the full diameter 12 as the radius, so r squared is 144
+      { id: "D", text: "$(x - 1)^{2} + (y - 4)^{2} = 144$" }
     ],
-    correctAnswer: "D",
-    explanation: "**SAT Pattern: Circle in Standard Form**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** The center is the midpoint $(1, -4)$, and the radius is half of $PQ = \\sqrt{12^{2} + 16^{2}} = 20$, so $r = 10$ and $r^{2} = 100$.\n\n**The Full Solution:**\nStep 1: The center is the midpoint of $\\overline{PQ}$: $\\left(\\frac{-5 + 7}{2}, \\frac{4 + (-12)}{2}\\right) = (1, -4)$.\nStep 2: The diameter is $\\sqrt{(7 - (-5))^{2} + (-12 - 4)^{2}} = \\sqrt{144 + 256} = 20$, so the radius is $10$.\nStep 3: The equation is $(x - 1)^{2} + (y + 4)^{2} = 100$. Check: $P$ gives $(-6)^{2} + 8^{2} = 100$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: has the center $(-1, 4)$, which reverses the signs of the coordinates of the center.\n* Choice B: uses the diameter $20$ as the radius.\n* Choice C: adds the coordinates of $P$ and $Q$ but forgets to divide by $2$, giving the center $(2, -8)$.\n\n**Test Day Takeaway:** Midpoint for the center, half the endpoint distance for the radius, and square the radius on the right side.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Circle in Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The center is halfway between $P$ and $Q$, at $(1, 4)$, and the diameter is $7 - (-5) = 12$, so $r = 6$ and $r^{2} = 36$.\n\n**The Full Solution:**\nStep 1: $P$ and $Q$ have the same $y$-coordinate, so the diameter is horizontal and its length is $7 - (-5) = 12$. The radius is $6$.\nStep 2: The center is the point halfway between $P$ and $Q$: $\\left(\\frac{-5 + 7}{2}, 4\\right) = (1, 4)$.\nStep 3: The equation is $(x - 1)^{2} + (y - 4)^{2} = 6^{2} = 36$. Check: $P$ gives $(-6)^{2} + 0^{2} = 36$ and $Q$ gives $6^{2} + 0^{2} = 36$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: has the center $(-1, -4)$, which reverses the signs of the coordinates of the center.\n* Choice B: puts the radius $6$ on the right side; the right side must be $r^{2}$.\n* Choice D: uses the diameter $12$ as the radius.\n\n**Test Day Takeaway:** The center of a circle is the middle of any diameter, the radius is half its length, and the right side of the equation is the radius squared.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "circle-in-standard-form",
@@ -6487,18 +6487,18 @@ export const geometryBank = [
     skills: ["circle-equation"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "$(x - 6)^{2} + (y + 15)^{2} = k$\nIn the given equation, $k$ is a positive constant. The graph of the equation in the $xy$-plane is a circle that is tangent to the line $y = -7$. What is the value of $k$?",
+    question: "$(x - 6)^{2} + (y + 15)^{2} = k$\nIn the given equation, $k$ is a positive constant. The graph of the equation in the $xy$-plane is a circle. The points $(6, -23)$ and $(6, -7)$ are the endpoints of a diameter of the circle. What is the value of $k$?",
     choices: [
-      // distractor: finds the radius 8 but forgets that k is r squared
+      // distractor: finds the radius, 8, but does not square it
       { id: "A", text: "$8$" },
-      { id: "B", text: "$64$" },
-      // distractor: uses the distance from the center to the x-axis, 15, as the radius
-      { id: "C", text: "$225$" },
-      // distractor: adds 15 and 7 instead of finding the distance between y = -15 and y = -7
-      { id: "D", text: "$484$" }
+      // distractor: uses the diameter, 16, as k
+      { id: "B", text: "$16$" },
+      { id: "C", text: "$64$" },
+      // distractor: squares the diameter, 16 squared, instead of the radius
+      { id: "D", text: "$256$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Circle in Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The center is $(6, -15)$, and the horizontal line $y = -7$ is $8$ units above it, so $r = 8$ and $k = r^{2} = 64$.\n\n**The Full Solution:**\nStep 1: The center of the circle is $(6, -15)$, and $k = r^{2}$.\nStep 2: A circle tangent to a horizontal line has a radius equal to the vertical distance from the center to the line: $r = -7 - (-15) = 8$.\nStep 3: So $k = 8^{2} = 64$. Check: with $y = -7$, $(x - 6)^{2} + 8^{2} = 64$ gives $(x - 6)^{2} = 0$, so the line meets the circle only at $(6, -7)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): finds the radius but forgets that the right side is $r^{2}$.\n* Choice C ($225$): uses $15$, the distance from the center to the $x$-axis, as the radius.\n* Choice D ($484$): adds $15 + 7 = 22$ instead of subtracting to find the distance between $y = -15$ and $y = -7$.\n\n**Test Day Takeaway:** Tangent to a horizontal line means the radius equals the vertical distance from the center to that line; then square it.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Circle in Standard Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The diameter runs from $y = -23$ to $y = -7$, so it is $16$ long; the radius is $8$, and $k = r^{2} = 64$.\n\n**The Full Solution:**\nStep 1: In $(x - h)^{2} + (y - k)^{2} = r^{2}$ form, the right side $k$ is the square of the radius.\nStep 2: The endpoints $(6, -23)$ and $(6, -7)$ share an $x$-coordinate, so the diameter is $-7 - (-23) = 16$ and the radius is $8$.\nStep 3: $k = 8^{2} = 64$. Check: $(6, -7)$ gives $0^{2} + (-7 + 15)^{2} = 64$, and $(6, -23)$ gives $0^{2} + (-8)^{2} = 64$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($8$): is the radius; the right side of the equation is the radius squared.\n* Choice B ($16$): is the length of the diameter.\n* Choice D ($256$): squares the diameter instead of the radius.\n\n**Test Day Takeaway:** The constant on the right side of a circle's equation is $r^{2}$; halve the diameter first, then square.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "circle-in-standard-form",
@@ -6638,18 +6638,18 @@ export const geometryBank = [
     skills: ["volume-prism"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A pipe is a hollow right circular cylinder that is $40$ centimeters long. Its outer radius is $3$ centimeters, and its inner radius is $2.5$ centimeters. What is the volume, in cubic centimeters, of the material that makes up the pipe?",
+    question: "A pipe is a hollow right circular cylinder that is $20$ centimeters long. Its outer radius is $6$ centimeters, and its inner radius is $5$ centimeters. What is the volume, in cubic centimeters, of the material that makes up the pipe?",
     choices: [
-      // distractor: squares the wall thickness, computing pi times 0.5 squared times 40
-      { id: "A", text: "$10\\pi$" },
-      { id: "B", text: "$110\\pi$" },
+      // distractor: squares the wall thickness, computing pi times 1 squared times 20
+      { id: "A", text: "$20\\pi$" },
+      { id: "B", text: "$220\\pi$" },
       // distractor: multiplies the outer curved surface 2 pi r h by the thickness
-      { id: "C", text: "$120\\pi$" },
-      // distractor: reports the volume of the whole outer cylinder, pi times 9 times 40
-      { id: "D", text: "$360\\pi$" }
+      { id: "C", text: "$240\\pi$" },
+      // distractor: reports the volume of the whole outer cylinder, pi times 36 times 20
+      { id: "D", text: "$720\\pi$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Cylinder Volume**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The material is the outer cylinder minus the hollow: $\\pi(3^{2} - 2.5^{2})(40) = \\pi(2.75)(40) = 110\\pi$.\n\n**The Full Solution:**\nStep 1: The outer cylinder has volume $\\pi(3)^{2}(40) = 360\\pi$ cubic centimeters.\nStep 2: The hollow center has volume $\\pi(2.5)^{2}(40) = \\pi(6.25)(40) = 250\\pi$ cubic centimeters.\nStep 3: The material is the difference: $360\\pi - 250\\pi = 110\\pi$ cubic centimeters. Check: the ring's cross section is $\\pi(9 - 6.25) = 2.75\\pi$, and $2.75\\pi(40) = 110\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10\\pi$): squares the thickness $0.5$, as if the wall were a solid cylinder of radius $0.5$.\n* Choice C ($120\\pi$): multiplies the outer curved surface $2\\pi(3)(40)$ by the thickness, which overstates the volume because the inner surface is smaller.\n* Choice D ($360\\pi$): gives the volume of the whole outer cylinder and ignores the hollow center.\n\n**Test Day Takeaway:** A pipe wall is a difference of two cylinders: subtract the inner volume from the outer volume.",
+    explanation: "**SAT Pattern: Cylinder Volume**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The material is the outer cylinder minus the hollow: $\\pi(6^{2} - 5^{2})(20) = \\pi(11)(20) = 220\\pi$.\n\n**The Full Solution:**\nStep 1: The outer cylinder has volume $\\pi(6)^{2}(20) = 720\\pi$ cubic centimeters.\nStep 2: The hollow center has volume $\\pi(5)^{2}(20) = 500\\pi$ cubic centimeters.\nStep 3: The material is the difference: $720\\pi - 500\\pi = 220\\pi$ cubic centimeters. Check: the ring's cross section is $\\pi(36 - 25) = 11\\pi$, and $11\\pi(20) = 220\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20\\pi$): squares the thickness $6 - 5 = 1$, as if the wall were a solid cylinder of radius $1$.\n* Choice C ($240\\pi$): multiplies the outer curved surface $2\\pi(6)(20)$ by the thickness, which overstates the volume because the inner surface is smaller.\n* Choice D ($720\\pi$): gives the volume of the whole outer cylinder and ignores the hollow center.\n\n**Test Day Takeaway:** A pipe wall is a difference of two cylinders: subtract the inner volume from the outer volume.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "cylinder-volume",
@@ -6689,18 +6689,18 @@ export const geometryBank = [
     skills: ["circle-equation"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A circle in the $xy$-plane has center $(-2, 9)$ and passes through the point $(10, 0)$. What is the radius of the circle?",
+    question: "A circle in the $xy$-plane has center $(-2, 9)$ and passes through the point $(-2, -6)$. What is the radius of the circle?",
     choices: [
-      { id: "A", text: "$15$" },
-      // distractor: adds the horizontal and vertical changes, 12 + 9
-      { id: "B", text: "$21$" },
-      // distractor: gives the diameter, twice the distance
+      // distractor: adds the y-coordinates, 9 + (-6) = 3, instead of finding the distance between them
+      { id: "A", text: "$3$" },
+      { id: "B", text: "$15$" },
+      // distractor: gives the diameter, 2 times 15
       { id: "C", text: "$30$" },
-      // distractor: reports the radius squared, 225
+      // distractor: gives r squared, 15 squared
       { id: "D", text: "$225$" }
     ],
-    correctAnswer: "A",
-    explanation: "**SAT Pattern: Distance from Center as Radius**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The radius is the distance from the center to the point: $\\sqrt{12^{2} + 9^{2}} = \\sqrt{225} = 15$.\n\n**The Full Solution:**\nStep 1: The radius is the distance from $(-2, 9)$ to $(10, 0)$.\nStep 2: The horizontal change is $10 - (-2) = 12$, and the vertical change is $0 - 9 = -9$.\nStep 3: $r = \\sqrt{12^{2} + (-9)^{2}} = \\sqrt{144 + 81} = \\sqrt{225} = 15$. Check: $12$, $9$, $15$ is $3$ times the $4$-$3$-$5$ right triangle ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($21$): adds the horizontal and vertical changes instead of using the Pythagorean theorem.\n* Choice C ($30$): doubles the distance, giving the diameter.\n* Choice D ($225$): stops at $r^{2}$ without taking the square root.\n\n**Test Day Takeaway:** Center to a point on the circle is a radius; use the distance formula.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Distance from Center as Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The two points share the $x$-coordinate $-2$, so the radius is the vertical distance $9 - (-6) = 15$.\n\n**The Full Solution:**\nStep 1: Every point on a circle is one radius from the center, so the radius is the distance from $(-2, 9)$ to $(-2, -6)$.\nStep 2: The points have the same $x$-coordinate, so they lie on a vertical line.\nStep 3: The distance between them is $9 - (-6) = 15$. Check: $(x + 2)^{2} + (y - 9)^{2} = 225$ at $(-2, -6)$ gives $0 + (-15)^{2} = 225$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): adds the $y$-coordinates, $9 + (-6)$, instead of subtracting them.\n* Choice C ($30$): is the diameter, twice the radius.\n* Choice D ($225$): is $r^{2}$, the number on the right side of the circle's equation.\n\n**Test Day Takeaway:** The radius is the distance from the center to any point on the circle; when the two points line up vertically or horizontally, just subtract the coordinates that differ.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "distance-from-center-as-radius",
@@ -6739,18 +6739,18 @@ export const geometryBank = [
     skills: ["circle-equation"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "A circle in the $xy$-plane has center $(-8, 1)$ and passes through $(-4, -2)$. What is the radius of the circle?",
+    question: "A circle in the $xy$-plane has center $(-8, 1)$ and passes through the point $(-3, 1)$. What is the radius of the circle?",
     choices: [
-      // distractor: uses only the vertical difference, 1 - (-2) = 3, as the radius
-      { id: "A", text: "$3$" },
-      { id: "B", text: "$5$" },
-      // distractor: adds the horizontal and vertical differences, 4 + 3, instead of using the distance formula
-      { id: "C", text: "$7$" },
-      // distractor: stops at r squared, 4^2 + 3^2 = 25, without taking the square root
+      { id: "A", text: "$5$" },
+      // distractor: gives the diameter, 2 times 5
+      { id: "B", text: "$10$" },
+      // distractor: adds the sizes of the x-coordinates, 8 + 3, instead of finding the distance between them
+      { id: "C", text: "$11$" },
+      // distractor: gives r squared, 5 squared
       { id: "D", text: "$25$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Distance from Center as Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The differences are $4$ and $3$, a $3$-$4$-$5$ triangle, so the radius is $5$.\n\n**The Full Solution:**\nStep 1: The radius is the distance from the center $(-8, 1)$ to the point $(-4, -2)$ on the circle.\nStep 2: The horizontal difference is $-4 - (-8) = 4$ and the vertical difference is $-2 - 1 = -3$.\nStep 3: The distance is $\\sqrt{4^2 + (-3)^2} = \\sqrt{16 + 9} = \\sqrt{25} = 5$. Check: $(-4 + 8)^2 + (-2 - 1)^2 = 16 + 9 = 25 = 5^2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): uses only the vertical difference between the two points.\n* Choice C ($7$): adds the two differences, $4 + 3$; distances combine through squares, not by simple addition.\n* Choice D ($25$): is $r^2$; the square root was never taken.\n\n**Test Day Takeaway:** Any point on a circle is exactly one radius from the center, so the radius is the distance formula applied to the center and that point.",
+    correctAnswer: "A",
+    explanation: "**SAT Pattern: Distance from Center as Radius**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The two points share the $y$-coordinate $1$, so the radius is the horizontal distance $-3 - (-8) = 5$.\n\n**The Full Solution:**\nStep 1: Every point on a circle is one radius from the center, so the radius is the distance from $(-8, 1)$ to $(-3, 1)$.\nStep 2: The points have the same $y$-coordinate, so they lie on a horizontal line.\nStep 3: The distance between them is $-3 - (-8) = 5$. Check: $(x + 8)^{2} + (y - 1)^{2} = 25$ at $(-3, 1)$ gives $5^{2} + 0 = 25$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($10$): is the diameter, twice the radius.\n* Choice C ($11$): adds $8$ and $3$, treating points on the same side of the $y$-axis as if they were on opposite sides.\n* Choice D ($25$): is $r^{2}$, the number on the right side of the circle's equation.\n\n**Test Day Takeaway:** The radius is the distance from the center to any point on the circle; for two points on a horizontal line, subtract the $x$-coordinates.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "distance-from-center-as-radius",
@@ -7022,18 +7022,18 @@ export const geometryBank = [
     skills: ["triangle-area"],
     difficulty: "easy",
     type: "multiple-choice",
-    question: "What is the area, in square centimeters, of a rectangle with a length of $6.5$ centimeters and a width of $4$ centimeters?",
+    question: "A rectangle has a length of $9$ centimeters and a width of $5$ centimeters. What is the area, in square centimeters, of the rectangle?",
     choices: [
-      // distractor: adds the length and the width, 6.5 + 4
-      { id: "A", text: "$10.5$" },
-      // distractor: uses the triangle formula, one half times 6.5 times 4
-      { id: "B", text: "$13$" },
-      // distractor: computes the perimeter, 2(6.5) + 2(4)
-      { id: "C", text: "$21$" },
-      { id: "D", text: "$26$" }
+      // distractor: adds the length and the width, 9 + 5
+      { id: "A", text: "$14$" },
+      // distractor: uses the triangle formula, one half times 9 times 5
+      { id: "B", text: "$22.5$" },
+      // distractor: computes the perimeter, 2(9) + 2(5)
+      { id: "C", text: "$28$" },
+      { id: "D", text: "$45$" }
     ],
     correctAnswer: "D",
-    explanation: "**SAT Pattern: Rectangle Area**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Area is length times width: $6.5 \\times 4 = 26$.\n\n**The Full Solution:**\nStep 1: The area of a rectangle is length times width.\nStep 2: Here that is $6.5 \\times 4$.\nStep 3: $6.5 \\times 4 = 26$ square centimeters. Check: $6 \\times 4 = 24$ and $0.5 \\times 4 = 2$, and $24 + 2 = 26$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10.5$): adds the two dimensions instead of multiplying them.\n* Choice B ($13$): includes a factor of $\\frac{1}{2}$, which belongs to the area of a triangle.\n* Choice C ($21$): is the perimeter, $2(6.5) + 2(4)$, not the area.\n\n**Test Day Takeaway:** Area multiplies the two dimensions and is measured in square units; perimeter adds all four sides.",
+    explanation: "**SAT Pattern: Rectangle Area**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Area is length times width: $9 \\times 5 = 45$.\n\n**The Full Solution:**\nStep 1: The area of a rectangle is length times width.\nStep 2: Here that is $9 \\times 5$.\nStep 3: $9 \\times 5 = 45$ square centimeters. Check: $45 \\div 9 = 5$, the width ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($14$): adds the two dimensions instead of multiplying them.\n* Choice B ($22.5$): includes a factor of $\\frac{1}{2}$, which belongs to the area of a triangle.\n* Choice C ($28$): is the perimeter, $2(9) + 2(5)$, not the area.\n\n**Test Day Takeaway:** Area multiplies the two dimensions and is measured in square units; perimeter adds all four sides.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "rectangle-area",
@@ -7253,18 +7253,18 @@ export const geometryBank = [
     skills: ["pythagorean-theorem"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "A rectangular box has dimensions $12$ inches by $16$ inches by $21$ inches. What is the length, in inches, of the longest line segment that can be drawn between two vertices of the box?",
+    question: "A rectangle has a diagonal of length $4\\sqrt{10}$ centimeters. The length of the rectangle is $3$ times its width. What is the area, in square centimeters, of the rectangle?",
     choices: [
-      // distractor: finds the diagonal of the 12 by 16 face and stops
-      { id: "A", text: "$20$" },
-      { id: "B", text: "$29$" },
-      // distractor: adds the three edge lengths, 12 + 16 + 21
-      { id: "C", text: "$49$" },
-      // distractor: stops at the square of the diagonal, 144 + 256 + 441 = 841
-      { id: "D", text: "$841$" }
+      // distractor: finds the length, 12, and stops before multiplying by the width
+      { id: "A", text: "$12$" },
+      // distractor: finds w squared = 16 and stops, which is the area of a square with the width as its side
+      { id: "B", text: "$16$" },
+      { id: "C", text: "$48$" },
+      // distractor: squares the diagonal, (4 sqrt 10) squared = 160, and reports it as the area
+      { id: "D", text: "$160$" }
     ],
-    correctAnswer: "B",
-    explanation: "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $d = \\sqrt{12^2 + 16^2 + 21^2} = \\sqrt{841} = 29$.\n\n**The Full Solution:**\nStep 1: The diagonal of the $12$ by $16$ face is $\\sqrt{144 + 256} = 20$.\nStep 2: That face diagonal and the $21$-inch edge are perpendicular legs of a right triangle whose hypotenuse joins opposite corners of the box.\nStep 3: So the longest segment is $\\sqrt{20^2 + 21^2} = \\sqrt{400 + 441} = \\sqrt{841} = 29$ inches. Check: $12^2 + 16^2 + 21^2 = 841 = 29^2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): is the diagonal of one face; the longest segment also climbs the third dimension.\n* Choice C ($49$): adds the three edges, a path along the outside of the box.\n* Choice D ($841$): is $d^2$; take the square root.\n\n**Test Day Takeaway:** Apply the Pythagorean theorem twice: once across a face, then from that face diagonal up the remaining edge.",
+    correctAnswer: "C",
+    explanation: "**SAT Pattern: Right Triangle Pythagorean**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** With width $w$ and length $3w$, $w^{2} + (3w)^{2} = (4\\sqrt{10})^{2}$ gives $10w^{2} = 160$, so $w = 4$, the length is $12$, and the area is $4(12) = 48$.\n\n**The Full Solution:**\nStep 1: The diagonal splits the rectangle into two right triangles with legs $w$ and $3w$ and hypotenuse $4\\sqrt{10}$.\nStep 2: By the Pythagorean theorem, $w^{2} + 9w^{2} = 16(10)$, so $10w^{2} = 160$, $w^{2} = 16$, and $w = 4$. The length is $3(4) = 12$.\nStep 3: The area is $12(4) = 48$ square centimeters. Check: $4^{2} + 12^{2} = 16 + 144 = 160 = (4\\sqrt{10})^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($12$): is the length of the rectangle, not its area.\n* Choice B ($16$): is $w^{2}$; the area is $w(3w) = 3w^{2}$, not $w^{2}$.\n* Choice D ($160$): is the square of the diagonal, which is the sum of the squares of the sides, not their product.\n\n**Test Day Takeaway:** A rectangle's diagonal is the hypotenuse of a right triangle whose legs are the sides; write both sides in one variable, solve, then multiply for the area.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "right-triangle-pythagorean",
@@ -7457,8 +7457,8 @@ export const geometryBank = [
     skills: ["soh-cah-toa"],
     difficulty: "medium",
     type: "multiple-choice",
-    question: "Triangle $ABC$ shown has a perimeter of $40$, and $BC < AC$. What is the value of $\\tan A$?",
-    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [15, 0], [15, 8]], labels: ["A", "C", "B"], sideLabels: ["", "", "17"], rightAngleVertex: 1, figureNote: true } },
+    question: "Triangle $ABC$ shown has a perimeter of $40$. What is the value of $\\tan A$?",
+    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [15, 0], [15, 8]], labels: ["A", "C", "B"], sideLabels: ["15", "", "17"], rightAngleVertex: 1, figureNote: true } },
     choices: [
       // distractor: uses BC/AB = 8/17, which is sin A
       { id: "A", text: "$\\frac{8}{17}$" },
@@ -7469,7 +7469,7 @@ export const geometryBank = [
       { id: "D", text: "$\\frac{15}{8}$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** The legs add to $40 - 17 = 23$ and their squares add to $17^2 = 289$, which fits $8$ and $15$; with $BC < AC$, $\\tan A = \\frac{BC}{AC} = \\frac{8}{15}$.\n\n**The Full Solution:**\nStep 1: The hypotenuse is $\\overline{AB}$, with length $17$, so the legs satisfy $AC + BC = 40 - 17 = 23$ and $AC^2 + BC^2 = 17^2 = 289$.\nStep 2: Squaring the sum gives $(AC + BC)^2 = 529$, so $2(AC)(BC) = 529 - 289 = 240$ and $(AC)(BC) = 120$. Two numbers with sum $23$ and product $120$ are $8$ and $15$. Since $BC < AC$, $BC = 8$ and $AC = 15$.\nStep 3: For angle $A$, the opposite leg is $\\overline{BC}$ and the adjacent leg is $\\overline{AC}$, so $\\tan A = \\frac{8}{15}$.\n\nCheck: $8 + 15 + 17 = 40$ and $8^2 + 15^2 = 64 + 225 = 289 = 17^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{8}{17}$): divides the opposite leg by the hypotenuse, which is $\\sin A$.\n* Choice C ($\\frac{15}{17}$): divides the adjacent leg by the hypotenuse, which is $\\cos A$.\n* Choice D ($\\frac{15}{8}$): divides the adjacent leg by the opposite leg, which is $\\tan B$, not $\\tan A$.\n\n**Test Day Takeaway:** When only the hypotenuse is labeled, the perimeter gives the sum of the legs; pair that with the Pythagorean theorem, then use the stated inequality to decide which leg is which.",
+    explanation: "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $BC = 40 - 15 - 17 = 8$, so $\\tan A = \\frac{BC}{AC} = \\frac{8}{15}$.\n\n**The Full Solution:**\nStep 1: The perimeter is $AC + BC + AB = 40$, so $15 + BC + 17 = 40$ and $BC = 8$.\nStep 2: The right angle is at $C$, so $\\overline{AB}$ is the hypotenuse; for angle $A$, the opposite leg is $\\overline{BC}$ and the adjacent leg is $\\overline{AC}$.\nStep 3: $\\tan A = \\frac{BC}{AC} = \\frac{8}{15}$.\n\nCheck: $8^2 + 15^2 = 64 + 225 = 289 = 17^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{8}{17}$): divides the opposite leg by the hypotenuse, which is $\\sin A$.\n* Choice C ($\\frac{15}{17}$): divides the adjacent leg by the hypotenuse, which is $\\cos A$.\n* Choice D ($\\frac{15}{8}$): divides the adjacent leg by the opposite leg, which is $\\tan B$, not $\\tan A$.\n\n**Test Day Takeaway:** Use the perimeter to find the missing side, then read the ratio from angle $A$: tangent is opposite over adjacent.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "trig-ratio-from-perimeter",
@@ -7536,7 +7536,7 @@ export const geometryBank = [
     difficulty: "hard",
     type: "multiple-choice",
     question: "The perimeter of the right triangle shown is $70$. What is the value of $\\cos C$?",
-    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [21, 0], [21, 20]], labels: ["A", "B", "C"], sideLabels: ["x + 1", "x", ""], rightAngleVertex: 1, figureNote: true } },
+    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [21, 0], [21, 20]], labels: ["A", "B", "C"], sideLabels: ["21", "", ""], rightAngleVertex: 1, figureNote: true } },
     choices: [
       { id: "A", text: "$\\frac{20}{29}$" },
       // distractor: uses AB/CA = 21/29, which is sin C
@@ -7547,7 +7547,7 @@ export const geometryBank = [
       { id: "D", text: "$\\frac{21}{20}$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~75s):** The hypotenuse is $70 - x - (x + 1) = 69 - 2x$, and $x^2 + (x + 1)^2 = (69 - 2x)^2$ gives $x = 20$, so the sides are $20$, $21$, and $29$ and $\\cos C = \\frac{20}{29}$.\n\n**The Full Solution:**\nStep 1: The hypotenuse $\\overline{CA}$ has length $70 - x - (x + 1) = 69 - 2x$.\nStep 2: By the Pythagorean theorem, $x^2 + (x + 1)^2 = (69 - 2x)^2$, so $2x^2 + 2x + 1 = 4x^2 - 276x + 4{,}761$, which simplifies to $x^2 - 139x + 2{,}380 = 0$, or $(x - 20)(x - 119) = 0$. The value $x = 119$ would make the hypotenuse $69 - 238 < 0$, so $x = 20$: $BC = 20$, $AB = 21$, and $CA = 29$.\nStep 3: From angle $C$, the adjacent leg is $\\overline{BC}$, so $\\cos C = \\frac{BC}{CA} = \\frac{20}{29}$.\n\nCheck: $20 + 21 + 29 = 70$ and $20^2 + 21^2 = 400 + 441 = 841 = 29^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{21}{29}$): divides the leg opposite $C$ by the hypotenuse, which is $\\sin C$.\n* Choice C ($\\frac{20}{21}$): divides the adjacent leg by the opposite leg and never uses the hypotenuse.\n* Choice D ($\\frac{21}{20}$): divides the opposite leg by the adjacent leg, which is $\\tan C$.\n\n**Test Day Takeaway:** Write the unknown side as perimeter minus the other two, set up the Pythagorean equation, and reject any root that makes a length negative.",
+    explanation: "**SAT Pattern: Trig Ratio from Perimeter**\n\n**Choice A is correct.**\n\n**The Fast Way (~60s):** With $BC = x$, the hypotenuse is $70 - 21 - x = 49 - x$, and $(49 - x)^2 = 21^2 + x^2$ gives $x = 20$, so the sides are $20$, $21$, and $29$ and $\\cos C = \\frac{20}{29}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $B$, so $\\overline{AC}$ is the hypotenuse. Let $BC = x$; then $AC = 70 - 21 - x = 49 - x$.\nStep 2: By the Pythagorean theorem, $21^2 + x^2 = (49 - x)^2$, so $441 + x^2 = 2{,}401 - 98x + x^2$. Then $98x = 1{,}960$ and $x = 20$, so $BC = 20$ and $AC = 29$.\nStep 3: From angle $C$, the adjacent leg is $\\overline{BC}$, so $\\cos C = \\frac{BC}{AC} = \\frac{20}{29}$.\n\nCheck: $20 + 21 + 29 = 70$ and $20^2 + 21^2 = 400 + 441 = 841 = 29^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{21}{29}$): divides the leg opposite $C$ by the hypotenuse, which is $\\sin C$.\n* Choice C ($\\frac{20}{21}$): divides the adjacent leg by the opposite leg and never uses the hypotenuse.\n* Choice D ($\\frac{21}{20}$): divides the opposite leg by the adjacent leg, which is $\\tan C$.\n\n**Test Day Takeaway:** Write the hypotenuse as the perimeter minus the two legs; the $x^2$ terms cancel in the Pythagorean equation, leaving a linear equation.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "trig-ratio-from-perimeter",
@@ -7718,19 +7718,19 @@ export const geometryBank = [
     skills: ["soh-cah-toa"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "In right triangle $XYZ$ shown, $XY$ is $41$ greater than $YZ$. What is the value of $\\cos Z$?",
-    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [80, 0], [80, 39]], labels: ["X", "Y", "Z"], sideLabels: ["", "", "89"], rightAngleVertex: 1, figureNote: true } },
+    question: "In right triangle $XYZ$ shown, $XY$ is $31$ greater than $YZ$. What is the value of $\\cos Z$?",
+    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [40, 0], [40, 9]], labels: ["X", "Y", "Z"], sideLabels: ["", "", "41"], rightAngleVertex: 1, figureNote: true } },
     choices: [
-      { id: "A", text: "$\\frac{39}{89}$" },
-      // distractor: uses YZ/XY = 39/80, adjacent over opposite for angle Z
-      { id: "B", text: "$\\frac{39}{80}$" },
-      // distractor: uses XY/XZ = 80/89, which is sin Z
-      { id: "C", text: "$\\frac{80}{89}$" },
-      // distractor: uses XY/YZ = 80/39, which is tan Z
-      { id: "D", text: "$\\frac{80}{39}$" }
+      { id: "A", text: "$\\frac{9}{41}$" },
+      // distractor: uses YZ/XY = 9/40, adjacent over opposite for angle Z
+      { id: "B", text: "$\\frac{9}{40}$" },
+      // distractor: uses XY/XZ = 40/41, which is sin Z
+      { id: "C", text: "$\\frac{40}{41}$" },
+      // distractor: uses XY/YZ = 40/9, which is tan Z
+      { id: "D", text: "$\\frac{40}{9}$" }
     ],
     correctAnswer: "A",
-    explanation: "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice A is correct.**\n\n**The Fast Way (~70s):** With $YZ = y$, $y^2 + (y + 41)^2 = 89^2$ gives $y = 39$, so $\\cos Z = \\frac{YZ}{XZ} = \\frac{39}{89}$.\n\n**The Full Solution:**\nStep 1: Let $YZ = y$, so $XY = y + 41$. The right angle is at $Y$, so $\\overline{XZ}$, with length $89$, is the hypotenuse.\nStep 2: $y^2 + (y + 41)^2 = 89^2$ gives $2y^2 + 82y + 1{,}681 = 7{,}921$, so $y^2 + 41y - 3{,}120 = 0$, or $(y - 39)(y + 80) = 0$. A length is positive, so $y = 39$ and $XY = 80$.\nStep 3: The leg adjacent to angle $Z$ is $\\overline{YZ}$, so $\\cos Z = \\frac{39}{89}$.\n\nCheck: $80 - 39 = 41$ and $39^2 + 80^2 = 1{,}521 + 6{,}400 = 7{,}921 = 89^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{39}{80}$): divides the adjacent leg by the opposite leg and never uses the hypotenuse.\n* Choice C ($\\frac{80}{89}$): uses the leg opposite $Z$, which gives $\\sin Z$.\n* Choice D ($\\frac{80}{39}$): divides the opposite leg by the adjacent leg, which is $\\tan Z$.\n\n**Test Day Takeaway:** A relation between the legs plus the hypotenuse is a quadratic; factor it, keep the positive root, and only then pick the ratio.",
+    explanation: "**SAT Pattern: Trig Ratio with Known Triple**\n\n**Choice A is correct.**\n\n**The Fast Way (~60s):** With $YZ = y$, $y^2 + (y + 31)^2 = 41^2$ gives $y = 9$, so $\\cos Z = \\frac{YZ}{XZ} = \\frac{9}{41}$.\n\n**The Full Solution:**\nStep 1: Let $YZ = y$, so $XY = y + 31$. The right angle is at $Y$, so $\\overline{XZ}$, with length $41$, is the hypotenuse.\nStep 2: $y^2 + (y + 31)^2 = 41^2$ gives $2y^2 + 62y + 961 = 1{,}681$, so $y^2 + 31y - 360 = 0$, or $(y - 9)(y + 40) = 0$. A length is positive, so $y = 9$ and $XY = 40$.\nStep 3: The leg adjacent to angle $Z$ is $\\overline{YZ}$, so $\\cos Z = \\frac{9}{41}$.\n\nCheck: $40 - 9 = 31$ and $9^2 + 40^2 = 81 + 1{,}600 = 1{,}681 = 41^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{9}{40}$): divides the adjacent leg by the opposite leg and never uses the hypotenuse.\n* Choice C ($\\frac{40}{41}$): uses the leg opposite $Z$, which gives $\\sin Z$.\n* Choice D ($\\frac{40}{9}$): divides the opposite leg by the adjacent leg, which is $\\tan Z$.\n\n**Test Day Takeaway:** A relation between the legs plus the hypotenuse is a quadratic; factor it, keep the positive root, and only then pick the ratio.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "trig-ratio-with-known-triple",
@@ -7921,10 +7921,10 @@ export const geometryBank = [
     skills: ["soh-cah-toa", "triangle-types"],
     difficulty: "hard",
     type: "fill-in",
-    question: "In triangle $LMN$ shown, angle $N$ is a right angle, $LM = 50$, and $\\sin M = \\frac{24}{25}$. What is the value of $\\tan L$?",
-    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [48, 0], [48, 14]], labels: ["L", "N", "M"], sideLabels: ["", "", "50"], rightAngleVertex: 1, figureNote: true } },
+    question: "In triangle $LMN$ shown, angle $N$ is a right angle and $\\sin M = \\frac{24}{25}$. What is the value of $\\tan L$?",
+    diagram: { type: "rightTriangle", params: { vertices: [[0, 0], [48, 0], [48, 14]], labels: ["L", "N", "M"], sideLabels: ["", "", ""], rightAngleVertex: 1, figureNote: true } },
     correctAnswer: "7/24",
-    explanation: "**SAT Pattern: Direct Trig Ratio**\n\n**The correct answer is $\\frac{7}{24}$.**\n\n**The Fast Way (~50s):** $\\sin M = \\frac{LN}{LM}$ gives $LN = 48$, so $MN = \\sqrt{50^2 - 48^2} = 14$ and $\\tan L = \\frac{14}{48} = \\frac{7}{24}$.\n\n**The Full Solution:**\nStep 1: The leg opposite angle $M$ is $\\overline{LN}$, so $\\sin M = \\frac{LN}{50} = \\frac{24}{25}$ and $LN = 48$.\nStep 2: By the Pythagorean theorem, $MN^2 = 50^2 - 48^2 = 2{,}500 - 2{,}304 = 196$, so $MN = 14$.\nStep 3: From angle $L$, the opposite leg is $\\overline{MN}$ and the adjacent leg is $\\overline{LN}$, so $\\tan L = \\frac{14}{48} = \\frac{7}{24}$.\n\nCheck: $14^2 + 48^2 = 196 + 2{,}304 = 2{,}500 = 50^2$. Equivalent entries: $7/24$, $.2916$, or $.2917$. ✓\n\n**Common Mistakes:**\n* $\\frac{24}{7}$: this is $\\frac{48}{14} = \\tan M$, the tangent of the other acute angle.\n* $\\frac{7}{25}$: this is $\\frac{14}{50} = \\sin L$, opposite over hypotenuse instead of opposite over adjacent.\n* $\\frac{24}{25}$: this copies $\\sin M$; since $\\sin M = \\cos L$, it is the cosine of $L$, not the tangent.\n\n**Test Day Takeaway:** Turn the given ratio into a side length using the hypotenuse, recover the last side with the Pythagorean theorem, and only then write the ratio the question asks for.",
+    explanation: "**SAT Pattern: Direct Trig Ratio**\n\n**The correct answer is $\\frac{7}{24}$.**\n\n**The Fast Way (~40s):** $\\sin M = \\frac{LN}{LM} = \\frac{24}{25}$, so take $LN = 24$ and $LM = 25$; then $MN = \\sqrt{25^2 - 24^2} = 7$ and $\\tan L = \\frac{MN}{LN} = \\frac{7}{24}$.\n\n**The Full Solution:**\nStep 1: The leg opposite angle $M$ is $\\overline{LN}$ and the hypotenuse is $\\overline{LM}$, so $LN = 24k$ and $LM = 25k$ for some positive number $k$.\nStep 2: By the Pythagorean theorem, $MN^2 = (25k)^2 - (24k)^2 = 49k^2$, so $MN = 7k$.\nStep 3: From angle $L$, the opposite leg is $\\overline{MN}$ and the adjacent leg is $\\overline{LN}$, so $\\tan L = \\frac{7k}{24k} = \\frac{7}{24}$.\n\nCheck: $7^2 + 24^2 = 49 + 576 = 625 = 25^2$. Equivalent entries: $7/24$, $.2916$, or $.2917$. ✓\n\n**Common Mistakes:**\n* $\\frac{24}{7}$: this is $\\frac{LN}{MN} = \\tan M$, the tangent of the other acute angle.\n* $\\frac{7}{25}$: this is $\\frac{MN}{LM} = \\sin L$, opposite over hypotenuse instead of opposite over adjacent.\n* $\\frac{24}{25}$: this copies $\\sin M$; since $\\sin M = \\cos L$, it is the cosine of $L$, not the tangent.\n\n**Test Day Takeaway:** A trig ratio fixes the shape of a right triangle, not its size: write the sides as multiples of $k$, find the third side, and the $k$ cancels in the ratio the question asks for.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "direct-trig-ratio",
@@ -7995,18 +7995,18 @@ export const geometryBank = [
     skills: ["tangent-lines", "circle-equation"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "$(x + 4)^{2} + (y - 1)^{2} = 36$\nIn the $xy$-plane, the graph of the given equation is a circle. For what positive value of $k$ does the line $x = k$ intersect the circle at exactly one point?",
+    question: "$(x + 4)^{2} + (y - 1)^{2} = 25$\nThe graph of the given equation in the $xy$-plane is a circle. Line $p$ is tangent to the circle at the point $(-1, 5)$. What is the slope of line $p$?",
     choices: [
-      // distractor: uses the y-coordinate of the center, 1
-      { id: "A", text: "$1$" },
-      { id: "B", text: "$2$" },
-      // distractor: reports the radius, 6
-      { id: "C", text: "$6$" },
-      // distractor: reads the center as (4, 1) and adds the radius, 4 + 6
-      { id: "D", text: "$10$" }
+      // distractor: negates the slope of the radius, 4/3, but does not take its reciprocal
+      { id: "A", text: "$-\\frac{4}{3}$" },
+      { id: "B", text: "$-\\frac{3}{4}$" },
+      // distractor: takes the reciprocal of the radius slope but does not change its sign
+      { id: "C", text: "$\\frac{3}{4}$" },
+      // distractor: gives the slope of the radius from the center to (-1, 5), not of the tangent line
+      { id: "D", text: "$\\frac{4}{3}$" }
     ],
     correctAnswer: "B",
-    explanation: "**SAT Pattern: Tangent Line to a Circle**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The center is $(-4, 1)$ and the radius is $6$, so the vertical tangent lines are $x = -4 \\pm 6$, that is, $x = -10$ and $x = 2$; the positive one is $k = 2$.\n\n**The Full Solution:**\nStep 1: The circle has center $(-4, 1)$ and radius $\\sqrt{36} = 6$.\nStep 2: A vertical line meets the circle at exactly one point when it is $6$ units from the center horizontally: $x = -4 + 6 = 2$ or $x = -4 - 6 = -10$.\nStep 3: Since $k$ is positive, $k = 2$.\n\nCheck: With $x = 2$, $(2 + 4)^2 + (y - 1)^2 = 36$ gives $(y - 1)^2 = 0$, so $y = 1$ is the only solution. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($1$): uses the $y$-coordinate of the center, which matters for horizontal lines, not vertical ones.\n* Choice C ($6$): reports the radius without adding it to the center's $x$-coordinate.\n* Choice D ($10$): reads the center as $(4, 1)$, missing that $(x + 4)$ means $x$-coordinate $-4$.\n\n**Test Day Takeaway:** A vertical tangent sits one radius left or right of the center: $x = h \\pm r$; read $h$ with its sign flipped from $(x - h)$.",
+    explanation: "**SAT Pattern: Tangent Line to a Circle**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The center is $(-4, 1)$, so the radius to $(-1, 5)$ has slope $\\frac{5 - 1}{-1 - (-4)} = \\frac{4}{3}$; the tangent line is perpendicular to it, with slope $-\\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: The circle has center $(-4, 1)$ and radius $\\sqrt{25} = 5$; the point $(-1, 5)$ is on it because $3^{2} + 4^{2} = 25$.\nStep 2: The radius from $(-4, 1)$ to $(-1, 5)$ has slope $\\frac{4}{3}$.\nStep 3: A tangent line is perpendicular to the radius at the point of tangency, so its slope is the negative reciprocal, $-\\frac{3}{4}$. Check: $\\frac{4}{3}\\left(-\\frac{3}{4}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{4}{3}$): changes the sign of the radius slope but does not flip the fraction.\n* Choice C ($\\frac{3}{4}$): flips the fraction but keeps the positive sign.\n* Choice D ($\\frac{4}{3}$): is the slope of the radius, not the tangent line.\n\n**Test Day Takeaway:** A tangent line meets the radius at a right angle: find the slope from the center to the point, then take its negative reciprocal.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "tangent-line-to-circle",
@@ -8020,19 +8020,19 @@ export const geometryBank = [
     skills: ["special-right-triangles", "circle-equation"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "In the figure shown, $O$ is the center of the circle, and the area of sector $AOB$ is $\\frac{49\\pi}{4}$. What is the length of $\\overline{AB}$?",
+    question: "In the figure shown, $O$ is the center of the circle, and the length of minor arc $AB$ is $\\frac{7\\pi}{2}$. What is the length of $\\overline{AB}$?",
     diagram: { type: "circleWithSector", params: { centralAngle: 90, angleLabel: "90°", showAngleLabel: true, labelCenter: "O", labelPoint1: "A", labelPoint2: "B", figureNote: true } },
     choices: [
-      // distractor: treats 49π/4 as the area of the whole circle, so r = 7/2
-      { id: "A", text: "$\\frac{7\\sqrt{2}}{2}$" },
+      // distractor: treats 7 pi/2 as the circumference of the whole circle, so r = 7/4
+      { id: "A", text: "$\\frac{7\\sqrt{2}}{4}$" },
       // distractor: reports the radius OA instead of the chord AB
       { id: "B", text: "$7$" },
       { id: "C", text: "$7\\sqrt{2}$" },
-      // distractor: adds the two radii, OA + OB = 14
-      { id: "D", text: "$14$" }
+      // distractor: uses pi r as the circumference, so the arc is pi r/4 and r = 14
+      { id: "D", text: "$14\\sqrt{2}$" }
     ],
     correctAnswer: "C",
-    explanation: "**SAT Pattern: Right Triangle at Center — Chord Length**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** A $90^\\circ$ sector is $\\frac{1}{4}$ of the circle, so $\\frac{\\pi r^2}{4} = \\frac{49\\pi}{4}$ gives $r = 7$, and $AB = 7\\sqrt{2}$.\n\n**The Full Solution:**\nStep 1: The central angle is $90^\\circ$, so the sector's area is $\\frac{90}{360}\\pi r^2 = \\frac{\\pi r^2}{4}$.\nStep 2: $\\frac{\\pi r^2}{4} = \\frac{49\\pi}{4}$ gives $r^2 = 49$, so $OA = OB = 7$.\nStep 3: Triangle $AOB$ is an isosceles right triangle with legs $7$, so $AB = 7\\sqrt{2}$.\n\nCheck: $7^2 + 7^2 = 98 = (7\\sqrt{2})^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7\\sqrt{2}}{2}$): sets $\\pi r^2 = \\frac{49\\pi}{4}$, treating the sector as the whole circle, so $r = \\frac{7}{2}$.\n* Choice B ($7$): stops at the radius; $\\overline{AB}$ is the hypotenuse of triangle $AOB$, not a radius.\n* Choice D ($14$): adds $OA$ and $OB$; the hypotenuse is shorter than the sum of the legs.\n\n**Test Day Takeaway:** A sector is its angle's fraction of the full circle; once you have the radius, two radii at $90^\\circ$ make a 45-45-90 triangle.",
+    explanation: "**SAT Pattern: Right Triangle at Center — Chord Length**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** A $90^\\circ$ arc is $\\frac{1}{4}$ of the circumference, so $\\frac{2\\pi r}{4} = \\frac{7\\pi}{2}$ gives $r = 7$, and $AB = 7\\sqrt{2}$.\n\n**The Full Solution:**\nStep 1: The central angle is $90^\\circ$, so the arc length is $\\frac{90}{360}(2\\pi r) = \\frac{\\pi r}{2}$.\nStep 2: $\\frac{\\pi r}{2} = \\frac{7\\pi}{2}$ gives $r = 7$, so $OA = OB = 7$.\nStep 3: Triangle $AOB$ is an isosceles right triangle with legs $7$, so $AB = 7\\sqrt{2}$.\n\nCheck: $7^2 + 7^2 = 98 = (7\\sqrt{2})^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{7\\sqrt{2}}{4}$): sets $2\\pi r = \\frac{7\\pi}{2}$, treating the arc as the whole circle, so $r = \\frac{7}{4}$.\n* Choice B ($7$): stops at the radius; $\\overline{AB}$ is the hypotenuse of triangle $AOB$, not a radius.\n* Choice D ($14\\sqrt{2}$): uses $\\pi r$ for the circumference, so $\\frac{\\pi r}{4} = \\frac{7\\pi}{2}$ and $r = 14$.\n\n**Test Day Takeaway:** An arc is its angle's fraction of the circumference; once you have the radius, two radii at $90^\\circ$ make a 45-45-90 triangle.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "45-45-90-triangle",
@@ -8062,19 +8062,19 @@ export const geometryBank = [
     skills: ["similar-triangles"],
     difficulty: "hard",
     type: "multiple-choice",
-    question: "Triangle $ABC$ is similar to triangle $DEF$, where $A$, $B$, and $C$ correspond to $D$, $E$, and $F$, respectively. The area of triangle $ABC$ is $54$ square units. What is the area, in square units, of triangle $DEF$?",
-    diagram: { type: "similarTriangles", params: { triangle1: { vertices: [[0, 9], [0, 0], [12, 0]], labels: ["A", "B", "C"], sideLabels: ["", "12", ""] }, triangle2: { vertices: [[0, 15], [0, 0], [20, 0]], labels: ["D", "E", "F"], sideLabels: ["", "20", ""] }, figureNote: true } },
+    question: "Triangle $RST$ shown has an area of $162$ square units. Triangle $LMN$ is similar to triangle $RST$, with $L$, $M$, and $N$ corresponding to $R$, $S$, and $T$, respectively. What is the area, in square units, of triangle $LMN$?",
+    diagram: { type: "similarTriangles", params: { triangle1: { vertices: [[4, 12], [0, 0], [12, 0]], labels: ["L", "M", "N"], sideLabels: ["", "12", ""] }, triangle2: { vertices: [[6, 18], [0, 0], [18, 0]], labels: ["R", "S", "T"], sideLabels: ["", "18", ""] }, figureNote: true } },
     choices: [
-      // distractor: multiplies the area by the length ratio 5/3 instead of its square
-      { id: "A", text: "$90$" },
-      // distractor: computes (1/2)(20)(12), mixing a side of each triangle
-      { id: "B", text: "$120$" },
-      { id: "C", text: "$150$" },
-      // distractor: multiplies the area by the cube of the length ratio, (5/3)^3
-      { id: "D", text: "$250$" }
+      // distractor: multiplies the area by the cube of the length ratio, (2/3)^3
+      { id: "A", text: "$48$" },
+      { id: "B", text: "$72$" },
+      // distractor: multiplies the area by the length ratio 2/3 instead of its square
+      { id: "C", text: "$108$" },
+      // distractor: multiplies the area by 3/2, scaling the wrong way and skipping the square
+      { id: "D", text: "$243$" }
     ],
-    correctAnswer: "C",
-    explanation: "**SAT Pattern: Similar Figures Area Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** The length ratio is $\\frac{EF}{BC} = \\frac{20}{12} = \\frac{5}{3}$, so the area ratio is $\\frac{25}{9}$ and the area of $DEF$ is $54 \\cdot \\frac{25}{9} = 150$.\n\n**The Full Solution:**\nStep 1: Sides $\\overline{BC}$ and $\\overline{EF}$ correspond, so the scale factor from $ABC$ to $DEF$ is $\\frac{20}{12} = \\frac{5}{3}$.\nStep 2: Areas of similar figures scale by the square of the length ratio: $\\left(\\frac{5}{3}\\right)^2 = \\frac{25}{9}$.\nStep 3: Area of $DEF$ $= 54 \\cdot \\frac{25}{9} = 150$ square units.\n\nCheck: $\\frac{150}{54} = \\frac{25}{9} = \\left(\\frac{5}{3}\\right)^2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($90$): scales the area by $\\frac{5}{3}$, the length ratio, instead of its square.\n* Choice B ($120$): multiplies $20$ by $12$ and halves, but those sides belong to different triangles.\n* Choice D ($250$): cubes the length ratio, which is how volumes scale, not areas.\n\n**Test Day Takeaway:** Find the length ratio from one pair of corresponding sides, then square it for areas.",
+    correctAnswer: "B",
+    explanation: "**SAT Pattern: Similar Figures Area Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The length ratio is $\\frac{MN}{ST} = \\frac{12}{18} = \\frac{2}{3}$, so the area ratio is $\\frac{4}{9}$ and the area of $LMN$ is $162 \\cdot \\frac{4}{9} = 72$.\n\n**The Full Solution:**\nStep 1: Sides $\\overline{MN}$ and $\\overline{ST}$ correspond, so the scale factor from $RST$ to $LMN$ is $\\frac{12}{18} = \\frac{2}{3}$.\nStep 2: Areas of similar figures scale by the square of the length ratio: $\\left(\\frac{2}{3}\\right)^2 = \\frac{4}{9}$.\nStep 3: Area of $LMN$ $= 162 \\cdot \\frac{4}{9} = 72$ square units. Check: $\\frac{72}{162} = \\frac{4}{9} = \\left(\\frac{2}{3}\\right)^2$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($48$): cubes the length ratio, which is how volumes scale, not areas.\n* Choice C ($108$): scales the area by $\\frac{2}{3}$, the length ratio, instead of its square.\n* Choice D ($243$): multiplies by $\\frac{3}{2}$, which makes the smaller triangle larger and skips the square.\n\n**Test Day Takeaway:** Find the length ratio from one pair of corresponding sides, then square it for areas; check that the smaller triangle gets the smaller area.",
     calculatorAllowed: false,
     tags: [],
     sourceStyleRef: "similar-area-ratio-chain",

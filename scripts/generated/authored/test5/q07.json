@@ -11,19 +11,19 @@
  "choices": [
   {
    "id": "A",
-   "text": "It traces the gradual decline of a flagmaking tradition and identifies the forces responsible for that decline."
+   "text": "It traces the decline of a flagmaking tradition and identifies the forces responsible for that decline."
   },
   {
    "id": "B",
-   "text": "It compares asafo flags with the written records of the period and concludes that the written records are the more dependable source."
+   "text": "It compares asafo flags with written records of the period and concludes that the records are more dependable."
   },
   {
    "id": "C",
-   "text": "It describes how a kind of object was made and used, then explains why historians now treat those objects as historical sources."
+   "text": "It describes how a kind of object was made and used, then explains its value to historians."
   },
   {
    "id": "D",
-   "text": "It presents competing interpretations of the images on the flags and argues that their original meanings can no longer be recovered."
+   "text": "It presents competing interpretations of the flags' images and argues that their original meanings are now lost."
   }
  ],
  "correctAnswer": "C",

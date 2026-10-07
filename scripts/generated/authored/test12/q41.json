@@ -6,40 +6,35 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 2,
- "passage": "Conservators testing protective treatments distinguish between the direction of an effect and its statistical strength. In one field trial at a historic adobe site, five wall sections received a sacrificial shelter coat of mud plaster and were monitored through two rainy seasons alongside matched untreated sections. The team reported that although every treated section lost less material to erosion than its untreated counterpart did, the data do not support the stronger claim that the improvement was statistically significant for every section, since ______",
+ "passage": "Global warming potential (GWP) compares the heat a gas traps over 100 years with the heat an equal mass of carbon dioxide traps. Because sulfur hexafluoride, the longest-lasting gas in the table, also has the highest GWP, a student claimed that among these gases, the longer a gas lasts in the atmosphere, the higher its GWP. The data in the table do not support this claim, however, since ______",
  "questionTable": {
   "type": "table",
-  "caption": "Reduction in surface erosion for shelter-coated adobe wall sections, relative to untreated controls",
+  "caption": "Atmospheric lifetime and 100-year global warming potential (GWP) of four greenhouse gases",
   "headers": [
-   "Wall section",
-   "Reduction in erosion (%)",
-   "Statistical significance"
+   "Gas",
+   "Atmospheric lifetime (years)",
+   "GWP over 100 years"
   ],
   "rows": [
    [
-    "North wall",
-    "31",
-    "p < 0.01"
+    "HFC-134a",
+    "13.4",
+    "1,300"
    ],
    [
-    "East wall",
-    "24",
-    "p < 0.05"
+    "HFC-125",
+    "28.2",
+    "3,170"
    ],
    [
-    "South wall",
-    "6",
-    "p > 0.05 (n.s.)"
+    "Nitrous oxide",
+    "121",
+    "265"
    ],
    [
-    "West wall",
-    "19",
-    "p < 0.05"
-   ],
-   [
-    "Courtyard wall",
-    "27",
-    "p < 0.01"
+    "Sulfur hexafluoride",
+    "3,200",
+    "23,500"
    ]
   ]
  },
@@ -47,21 +42,28 @@
  "choices": [
   {
    "id": "A",
-   "text": "the south wall recorded much the smallest reduction in erosion anywhere in the table, 6 percent, and a reduction that small cannot on its own possibly amount to statistical significance."
+   "text": "sulfur hexafluoride, the longest-lasting gas at 3,200 years, also has the highest GWP of the four gases in the table, 23,500."
   },
   {
    "id": "B",
-   "text": "the north wall recorded the largest reduction in the table, a 31 percent decrease in erosion that was statistically significant at p < 0.01."
+   "text": "HFC-134a, the shortest-lasting gas at 13.4 years, has a GWP of 1,300, which is lower than the GWP of HFC-125."
   },
   {
    "id": "C",
-   "text": "while four of the five sections showed reductions that reached statistical significance at p < 0.05 or better, the south wall's 6 percent reduction did not (p > 0.05)."
+   "text": "nitrous oxide lasts longer in the atmosphere than HFC-134a and HFC-125, yet its GWP of 265 is lower than either of theirs."
   },
   {
    "id": "D",
-   "text": "every treated section lost less material than its untreated control, with reductions ranging from 6 percent on the south wall to 31 percent on the north wall."
+   "text": "the four gases' atmospheric lifetimes range from 13.4 years for HFC-134a to 3,200 years for sulfur hexafluoride."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The sentence separates two claims — every section improved (true), and every improvement was statistically significant (not supported) — so the blank must point to the section that broke the second claim. C names it: the south wall's 6 percent reduction, marked p > 0.05, not significant.\n\n**The Full Solution:**\n- The passage's structure is \"although X, not Y\": although the direction was uniform, significance was not.\n- Scan the significance column: four sections reach p < 0.05 or better; the south wall alone is flagged \"n.s.\"\n- The claim fails on exactly one row, and effective support cites that row against the background of the other four — which is what C does.\n\n**Why the other choices are wrong:**\n- A: It reasons from the effect's size to its non-significance, but magnitude alone cannot establish that — the p-value in the table does, and A never cites it.\n- B: It showcases the strongest result, which bears on the first claim, not on the failure of the second.\n- D: It documents the uniform direction — the part of the finding that was never in question — and says nothing about significance."
+ "explanation": "**Choice C is correct.** The student claims that among these gases, GWP rises as atmospheric lifetime increases. Nitrous oxide breaks that pattern: it lasts longer than HFC-134a and HFC-125 (121 years versus 13.4 and 28.2), yet its GWP of 265 is lower than both of theirs (1,300 and 3,170).\n\n**The Full Solution:**\n- The claim to be rejected: among these gases, the longer a gas lasts in the atmosphere, the higher its GWP.\n- To show that the claim fails, a choice must point to a gas that lasts longer than another gas but has a lower GWP.\n- The table shows nitrous oxide (121 years, 265) lasting longer than HFC-134a (13.4, 1,300) and HFC-125 (28.2, 3,170) but with a lower GWP than both, as choice C states.\n\n**Why the other choices are wrong:**\n- A: Sulfur hexafluoride being both the longest-lasting gas and the one with the highest GWP fits the student's claim; it is the evidence the student started from, not a reason to reject the claim.\n- B: HFC-134a lasting a shorter time than HFC-125 and having a lower GWP also fits the claim rather than contradicting it.\n- D: It reports only the gases' lifetimes and says nothing about how their GWPs compare.",
+ "_meta": {
+  "anchor": "Greenhouse gas atmospheric lifetime vs 100-year GWP (IPCC AR5 Table 8.A.1): nitrous oxide breaks the pattern",
+  "sources": [
+   "https://www.maine.gov/dep/ftp/AIR/DATA/GHG_SUMMARIES/IPCC_2014_AR5_Table_8.A.1_Lifetimes_Radiative_Efficiencies_and_Metric_values_pp_731-738.pdf",
+   "https://ghgprotocol.org/sites/default/files/ghgp/Global-Warming-Potential-Values%20%28Feb%2016%202016%29_1.pdf"
+  ]
+ }
 }

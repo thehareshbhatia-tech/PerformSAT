@@ -1,29 +1,29 @@
 {
-  "question": "A pipe is a hollow right circular cylinder that is $40$ centimeters long. Its outer radius is $3$ centimeters, and its inner radius is $2.5$ centimeters. What is the volume, in cubic centimeters, of the material that makes up the pipe?",
+  "question": "A pipe is a hollow right circular cylinder that is $20$ centimeters long. Its outer radius is $6$ centimeters, and its inner radius is $5$ centimeters. What is the volume, in cubic centimeters, of the material that makes up the pipe?",
   "choices": [
     {
       "id": "A",
-      "text": "$10\\pi$"
+      "text": "$20\\pi$"
     },
     {
       "id": "B",
-      "text": "$110\\pi$"
+      "text": "$220\\pi$"
     },
     {
       "id": "C",
-      "text": "$120\\pi$"
+      "text": "$240\\pi$"
     },
     {
       "id": "D",
-      "text": "$360\\pi$"
+      "text": "$720\\pi$"
     }
   ],
   "correctAnswer": "B",
   "distractorNotes": {
-    "A": "squares the wall thickness, computing pi times 0.5 squared times 40",
+    "A": "squares the wall thickness, computing pi times 1 squared times 20",
     "C": "multiplies the outer curved surface 2 pi r h by the thickness",
-    "D": "reports the volume of the whole outer cylinder, pi times 9 times 40"
+    "D": "reports the volume of the whole outer cylinder, pi times 36 times 20"
   },
-  "explanation": "**SAT Pattern: Cylinder Volume**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The material is the outer cylinder minus the hollow: $\\pi(3^{2} - 2.5^{2})(40) = \\pi(2.75)(40) = 110\\pi$.\n\n**The Full Solution:**\nStep 1: The outer cylinder has volume $\\pi(3)^{2}(40) = 360\\pi$ cubic centimeters.\nStep 2: The hollow center has volume $\\pi(2.5)^{2}(40) = \\pi(6.25)(40) = 250\\pi$ cubic centimeters.\nStep 3: The material is the difference: $360\\pi - 250\\pi = 110\\pi$ cubic centimeters. Check: the ring's cross section is $\\pi(9 - 6.25) = 2.75\\pi$, and $2.75\\pi(40) = 110\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10\\pi$): squares the thickness $0.5$, as if the wall were a solid cylinder of radius $0.5$.\n* Choice C ($120\\pi$): multiplies the outer curved surface $2\\pi(3)(40)$ by the thickness, which overstates the volume because the inner surface is smaller.\n* Choice D ($360\\pi$): gives the volume of the whole outer cylinder and ignores the hollow center.\n\n**Test Day Takeaway:** A pipe wall is a difference of two cylinders: subtract the inner volume from the outer volume.",
+  "explanation": "**SAT Pattern: Cylinder Volume**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The material is the outer cylinder minus the hollow: $\\pi(6^{2} - 5^{2})(20) = \\pi(11)(20) = 220\\pi$.\n\n**The Full Solution:**\nStep 1: The outer cylinder has volume $\\pi(6)^{2}(20) = 720\\pi$ cubic centimeters.\nStep 2: The hollow center has volume $\\pi(5)^{2}(20) = 500\\pi$ cubic centimeters.\nStep 3: The material is the difference: $720\\pi - 500\\pi = 220\\pi$ cubic centimeters. Check: the ring's cross section is $\\pi(36 - 25) = 11\\pi$, and $11\\pi(20) = 220\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20\\pi$): squares the thickness $6 - 5 = 1$, as if the wall were a solid cylinder of radius $1$.\n* Choice C ($240\\pi$): multiplies the outer curved surface $2\\pi(6)(20)$ by the thickness, which overstates the volume because the inner surface is smaller.\n* Choice D ($720\\pi$): gives the volume of the whole outer cylinder and ignores the hollow center.\n\n**Test Day Takeaway:** A pipe wall is a difference of two cylinders: subtract the inner volume from the outer volume.",
   "id": "bank-geo-298"
 }

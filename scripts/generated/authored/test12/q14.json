@@ -6,35 +6,35 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 1,
- "passage": "Among mammals, larger species tend to live longer than smaller ones, a pattern that holds broadly across many groups. Biologists who study aging caution, however, that body size alone is a poor guide to how long a particular species can live. Records of maximum lifespan in captivity show that even species of similar size can differ enormously in how long they live: ______",
+ "passage": "Among the world's rivers, longer ones tend to carry more water than shorter ones, a pattern that holds broadly because a longer river usually drains a larger area. Hydrologists caution, however, that length alone is a poor guide to how much water a particular river carries. Measurements of average discharge show that even rivers of similar length can differ enormously in how much water they carry: ______",
  "questionTable": {
   "type": "table",
-  "caption": "Adult body mass and maximum recorded lifespan (in captivity) of four rodent species",
+  "caption": "Approximate length and average discharge of four rivers",
   "headers": [
-   "Species",
-   "Adult body mass (grams)",
-   "Maximum recorded lifespan (years)"
+   "River",
+   "Length (kilometers)",
+   "Average discharge (cubic meters per second)"
   ],
   "rows": [
    [
-    "house mouse",
-    "20.5",
-    "4.0"
+    "Nile",
+    "7,088",
+    "2,757"
    ],
    [
-    "naked mole-rat",
-    "35",
-    "31.0"
+    "Amazon",
+    "6,575",
+    "223,700"
    ],
    [
-    "Norway rat",
-    "300",
-    "3.8"
+    "Volga",
+    "3,531",
+    "8,060"
    ],
    [
-    "American beaver",
-    "20,250",
-    "23.4"
+    "Seine",
+    "777",
+    "560"
    ]
   ]
  },
@@ -42,21 +42,30 @@
  "choices": [
   {
    "id": "A",
-   "text": "across the four species in the table, maximum recorded lifespans range from as little as 3.8 years to as much as 31 years."
+   "text": "across the four rivers in the table, average discharges range from about 560 to about 223,700 cubic meters per second."
   },
   {
    "id": "B",
-   "text": "the naked mole-rat weighs 35 grams and the house mouse 20.5 grams, yet the mole-rat has lived 31 years, the mouse only 4."
+   "text": "the Amazon, at 6,575 kilometers, discharges about 223,700 cubic meters per second, while the 7,088-kilometer Nile discharges only about 2,757."
   },
   {
    "id": "C",
-   "text": "the American beaver, at more than 20,000 grams, has lived 23.4 years, while the far smaller Norway rat has lived only 3.8 years."
+   "text": "the Volga, at 3,531 kilometers, discharges about 8,060 cubic meters per second, while the far shorter Seine discharges only about 560 cubic meters."
   },
   {
    "id": "D",
-   "text": "the naked mole-rat has lived 31 years in captivity, showing that it ages more slowly than any other mammal on Earth."
+   "text": "the Amazon discharges about 223,700 cubic meters per second, showing that rivers in rainy regions carry the most water."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The claim is that species of SIMILAR SIZE can differ enormously in lifespan, so the supporting data must compare two species close in body mass. The naked mole-rat (35 grams) and the house mouse (20.5 grams) are the only such pair in the table, and their maximum recorded lifespans are 31 years and 4 years.\n\n**The Full Solution:**\n- Reread what the blank must support: \"even species of similar size can differ enormously in how long they live.\"\n- Find the rows close in body mass: only the house mouse and the naked mole-rat, which differ by less than 15 grams.\n- Compare their lifespans: 31 years against 4 years, the enormous difference the sentence asserts, which is exactly what B reports.\n\n**Why the other choices are wrong:**\n- A: It pools all four species into one overall range without comparing species of similar size, so it does not show what the claim requires.\n- C: It compares a very large rodent with a much smaller one, and the larger one lives longer; that fits the general size pattern rather than the exception the claim describes.\n- D: It uses only one row and adds a conclusion about all mammals that a table of four rodents cannot support."
+ "explanation": "**Choice B is correct.** The claim is that rivers of SIMILAR LENGTH can differ enormously in how much water they carry, so the supporting data must compare two rivers close in length. The Amazon (6,575 kilometers) and the Nile (7,088 kilometers) are the only such pair in the table, and their average discharges are about 223,700 and about 2,757 cubic meters per second.\n\n**The Full Solution:**\n- Reread what the blank must support: \"even rivers of similar length can differ enormously in how much water they carry.\"\n- Find the rows close in length: only the Nile and the Amazon, which differ by about 500 kilometers, far less than any other pair.\n- Compare their discharges: the Amazon carries about 80 times as much water as the Nile, the enormous difference the sentence asserts, which is exactly what B reports.\n\n**Why the other choices are wrong:**\n- A: It pools all four rivers into one overall range without comparing rivers of similar length, so it does not show what the claim requires.\n- C: It compares a long river with a much shorter one, and the longer one carries more water; that fits the general length pattern rather than the exception the claim describes.\n- D: It uses only one row and adds a conclusion about rainfall that a table of lengths and discharges cannot support.",
+ "_meta": {
+  "anchor": "River length vs average discharge (Nile, Amazon, Volga, Seine); similar-length Nile and Amazon differ about 80-fold",
+  "sources": [
+   "https://en.wikipedia.org/wiki/Nile",
+   "https://en.wikipedia.org/wiki/Amazon_River",
+   "https://en.wikipedia.org/wiki/Volga",
+   "https://en.wikipedia.org/wiki/Seine"
+  ]
+ }
 }

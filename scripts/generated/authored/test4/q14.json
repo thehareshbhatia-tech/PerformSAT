@@ -6,45 +6,35 @@
   "domain": "information-and-ideas",
   "skill": "command-of-evidence-quantitative",
   "module": 1,
-  "passage": "A nineteenth-century triangulation survey began from a baseline whose length was measured directly on the ground, since every distance in the network would ultimately be computed from it. A historian of surveying claims that the compensated measuring bars adopted at mid-century marked a decisive advance: baselines measured with the bars closed with far smaller errors than those measured with steel chains, even though the bar-measured baselines were longer.",
+  "passage": "Engineers compare materials not only by tensile strength, the pull a material can withstand before it breaks, but also by breaking length: how long a strand of the material could hang before snapping under its own weight. An engineer claims that by this second measure some woods outperform common steels. Balsa and white pine, the engineer notes, have far longer breaking lengths than low-carbon and stainless steel, even though the woods have much lower tensile strengths.",
   "questionTable": {
     "type": "table",
-    "caption": "Baselines measured by one national survey, 1821-1867",
+    "caption": "Tensile strength and breaking length of four materials",
     "headers": [
-      "Baseline",
-      "Year",
-      "Apparatus",
-      "Length (miles)",
-      "Closure error (inches per mile)"
+      "Material",
+      "Tensile strength (megapascals)",
+      "Breaking length (kilometers)"
     ],
     "rows": [
       [
-        "Ashford Flats",
-        "1821",
-        "Steel chain",
-        "5.2",
-        "3.1"
+        "Low-carbon steel",
+        "365",
+        "4.7"
       ],
       [
-        "Redstone Valley",
-        "1838",
-        "Steel chain",
-        "6.0",
-        "2.7"
+        "Stainless steel",
+        "505",
+        "6.4"
       ],
       [
-        "Millbrook Plain",
-        "1852",
-        "Compensated bars",
-        "7.4",
-        "0.6"
+        "White pine",
+        "78",
+        "22.7"
       ],
       [
-        "Saltmarsh Level",
-        "1867",
-        "Compensated bars",
-        "8.9",
-        "0.4"
+        "Balsa",
+        "73",
+        "53.2"
       ]
     ]
   },
@@ -52,24 +42,25 @@
   "choices": [
     {
       "id": "A",
-      "text": "The baselines measured with compensated bars, at 7.4 and 8.9 miles, were longer than either chain-measured baseline, yet they closed with errors of 0.6 and 0.4 inches per mile, against 3.1 and 2.7 for the chains."
+      "text": "The two woods, at 78 and 73 megapascals, had lower tensile strengths than both steels, yet their breaking lengths were 22.7 and 53.2 kilometers, against 4.7 and 6.4 for the steels."
     },
     {
       "id": "B",
-      "text": "The Saltmarsh Level baseline, measured with compensated bars in 1867, was the longest of the four baselines listed in the table, at 8.9 miles."
+      "text": "Stainless steel, at 505 megapascals, had the highest tensile strength of the four materials listed in the table."
     },
     {
       "id": "C",
-      "text": "The survey's closure errors declined with every successive baseline it measured between 1821 and 1867, whatever apparatus was in use."
+      "text": "Across the four materials in the table, the lower a material's tensile strength was, the longer its breaking length was."
     },
     {
       "id": "D",
-      "text": "The Ashford Flats baseline of 1821, measured with a steel chain, closed with an error of 3.1 inches per mile, the largest error of the four in the table."
+      "text": "Low-carbon steel had a breaking length of 4.7 kilometers, the shortest breaking length of the four materials in the table."
     }
   ],
   "correctAnswer": "A",
-  "explanation": "**Choice A is correct.** The claim compares apparatus under a handicap — smaller errors from the bars even on longer baselines — and A cites the lengths and the errors for both pairs, completing the comparison.\n\n**The Full Solution:**\n- The claim's structure: bars beat chains on error despite longer lines.\n- A establishes the handicap (7.4 and 8.9 miles versus 5.2 and 6.0) and the result (0.6 and 0.4 inches per mile versus 3.1 and 2.7).\n- Both conditions of the claim are documented; nothing is left to inference.\n\n**Why the other choices are wrong:**\n- B: One baseline's length says nothing about closure errors or the chain comparison.\n- C: A steady decline over time blurs the claim's point — it credits the sequence of measurements rather than the change of apparatus.\n- D: The single worst chain error omits the bar measurements entirely, so no comparison is made.",
+  "explanation": "**Choice A is correct.** The claim has two parts: the woods are weaker in tensile strength, yet they have longer breaking lengths. Choice A cites the tensile strengths and the breaking lengths of all four materials, so it documents both parts of the comparison.\n\n**The Full Solution:**\n- The claim's structure: the woods beat the steels on breaking length even though they lose on tensile strength.\n- A establishes the handicap (78 and 73 megapascals versus 365 and 505) and the result (22.7 and 53.2 kilometers versus 4.7 and 6.4).\n- Both conditions of the claim are shown; nothing is left to inference.\n\n**Why the other choices are wrong:**\n- B: It reports only one material's tensile strength and says nothing about breaking length or the woods.\n- C: The statement is inaccurate: stainless steel has a higher tensile strength than low-carbon steel and also a longer breaking length (6.4 versus 4.7). It also ignores the comparison between woods and steels that the claim makes.\n- D: It reports a single steel's breaking length and leaves out the woods entirely, so no comparison is made.",
   "_meta": {
-    "anchor": "history of surveying — chain versus compensated-bar baselines; original survey table"
+    "anchor": "specific strength / breaking length: balsa and white pine vs low-carbon (AISI 1010) and stainless (304) steel; values from Wikipedia 'Specific strength' table (balsa 73 MPa, 53.2 km; eastern white pine 78 MPa, 22.7 km; AISI 1010 365 MPa, 4.73 km; 304 SS 505 MPa, 6.4 km)",
+    "source": "https://en.wikipedia.org/wiki/Specific_strength"
   }
 }

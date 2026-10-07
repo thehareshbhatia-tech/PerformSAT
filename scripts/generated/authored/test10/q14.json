@@ -6,30 +6,30 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 1,
- "passage": "On the grasslands of nineteenth-century North America, enclosing land meant hauling timber for fence rails from distant woodlands, and the farther the timber traveled, the more a fence cost. A historian of agriculture argues that barbed wire, mass-produced from the mid-1870s, did more than lower fencing costs generally: its advantage over wooden fencing was greatest precisely where timber had to travel farthest because ______",
+ "passage": "A gasoline engine wastes much of its fuel in stop-and-go traffic, where a car brakes, idles, and speeds up again. A hybrid car adds an electric motor and a battery, which is recharged with energy recovered when the car brakes. An automotive engineer argues that a hybrid's fuel-economy advantage over a gasoline-only car is greatest in city driving, where stops are most frequent, because ______",
  "questionTable": {
   "type": "table",
-  "caption": "Estimated cost of fencing a 160-acre farm in the 1870s, by region (dollars)",
+  "caption": "EPA fuel economy ratings for the gasoline-only and hybrid versions of one 2024 compact car (miles per gallon)",
   "headers": [
-   "Region",
-   "Wooden rail fence",
-   "Barbed wire fence"
+   "Driving condition",
+   "Gasoline-only version",
+   "Hybrid version"
   ],
   "rows": [
    [
-    "Wooded East",
-    "400",
-    "350"
+    "Highway",
+    "41",
+    "46"
    ],
    [
-    "Prairie margin",
-    "700",
-    "360"
+    "Combined",
+    "35",
+    "50"
    ],
    [
-    "Treeless plains",
-    "1,100",
-    "370"
+    "City",
+    "32",
+    "53"
    ]
   ]
  },
@@ -37,21 +37,21 @@
  "choices": [
   {
    "id": "A",
-   "text": "the cost of a rail fence nearly tripled from the wooded East to the treeless plains, while the cost of a wire fence stayed roughly constant across the three regions."
+   "text": "the gasoline-only rating fell from 41 on the highway to 32 in the city, while the hybrid's rose from 46 to 53."
   },
   {
    "id": "B",
-   "text": "a wire fence cost 370 dollars on the treeless plains, more than a wire fence cost in either of the other two regions."
+   "text": "the hybrid version was rated at 53 miles per gallon in city driving, its highest rating in any of the three driving conditions."
   },
   {
    "id": "C",
-   "text": "rail fencing on the prairie margin cost 700 dollars, nearly twice what the same fencing cost in the wooded East."
+   "text": "the gasoline-only version was rated at 41 miles per gallon on the highway, 9 more than its rating in city driving."
   },
   {
    "id": "D",
-   "text": "wire fencing was at least somewhat cheaper than rail fencing in every region listed, including the wooded East, where timber for fence rails remained comparatively plentiful and cheap to haul."
+   "text": "the hybrid version was rated higher than the gasoline-only version in every driving condition, even on the highway."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The claim is about a widening gap, wire's advantage growing with distance from timber, and A captures both halves of the mechanism: rail costs climb steeply across the regions while wire costs barely move.\n\n**The Full Solution:**\n- The historian's statement is comparative across regions: the advantage \"was greatest precisely where timber had to travel farthest.\"\n- In the table, rail fencing rises from 400 to 700 to 1,100 dollars as timber grows scarcer, while wire fencing runs 350, 360, 370, nearly flat. The advantage therefore stretches from 50 dollars in the East to 730 on the plains, which is exactly the pattern A describes.\n\n**Why the other choices are wrong:**\n- B: It cites only wire prices, whose 20-dollar spread is trivial; without the rail column there is no advantage to measure.\n- C: It tracks rail costs between two regions but never mentions wire, so it cannot establish wire's relative advantage anywhere.\n- D: A uniform advantage is the wrong shape for the claim; showing wire cheaper everywhere does not show its edge growing where timber was scarcest."
+ "explanation": "**Choice A is correct.** The claim is that the hybrid's advantage is largest in city driving, so the data must show the gap between the two versions widening from highway to city. A does: the gasoline-only rating falls from 41 to 32 while the hybrid's rises from 46 to 53.\n\n**The Full Solution:**\n- The engineer's statement compares the two versions across driving conditions: the advantage is \"greatest in city driving.\"\n- In the table, the hybrid leads by 5 miles per gallon on the highway (46 vs. 41), by 15 in combined driving (50 vs. 35), and by 21 in the city (53 vs. 32). A reports the movement in both columns that produces this widening gap.\n\n**Why the other choices are wrong:**\n- B: It cites only the hybrid column; without the gasoline-only ratings there is no advantage to measure.\n- C: It cites only the gasoline-only column, so it cannot show how much better the hybrid did anywhere.\n- D: An advantage in every condition does not show that the advantage is largest in the city, which is what the claim requires."
 }

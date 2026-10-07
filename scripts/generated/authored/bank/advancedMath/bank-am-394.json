@@ -1,6 +1,6 @@
 {
   "id": "bank-am-394",
-  "question": "The graph of $y = a(x - h)^{2} + k$ is shown in the $xy$-plane, where $a$, $h$, and $k$ are constants. What is the value of $a + h + k$?",
+  "question": "The parabola shown in the $xy$-plane has the equation $y = a(x - h)^{2} + k$, where $a$, $h$, and $k$ are constants. What is the value of $a + h + k$?",
   "diagram": {
     "type": "quadraticVertex",
     "params": {

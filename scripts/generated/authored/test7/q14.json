@@ -6,34 +6,34 @@
  "domain": "information-and-ideas",
  "skill": "command-of-evidence-quantitative",
  "module": 1,
- "passage": "Removing salt from seawater always takes energy, but the amount that reverse-osmosis plants need has fallen dramatically since the first large ones were built. Reviewing the typical energy budgets of such plants by decade of construction, an engineer argues that the steepest gains came earliest and that each later generation of plants improved on its predecessor by a progressively smaller margin because ______",
+ "passage": "Removing salt from seawater always takes energy, but the amount that reverse-osmosis desalination needs has fallen dramatically since 1970. Reviewing estimates of that energy for selected years, an engineer argues that the largest gain came first and that every later gain was less than half as large because ______",
  "questionTable": {
   "type": "table",
-  "caption": "Typical energy required by large seawater reverse-osmosis desalination plants, by decade of construction (kilowatt-hours per cubic meter of fresh water)",
+  "caption": "Energy needed by the reverse-osmosis stage of seawater desalination, selected years (kilowatt-hours per cubic meter of fresh water)",
   "headers": [
-   "Decade",
+   "Year",
    "Energy (kWh per cubic meter)"
   ],
   "rows": [
    [
-    "1970s",
-    "18"
+    "1970",
+    "16"
    ],
    [
-    "1980s",
+    "1980",
     "8"
    ],
    [
-    "1990s",
-    "6"
+    "1990",
+    "5"
    ],
    [
-    "2000s",
-    "4"
-   ],
-   [
-    "2010s",
+    "2000",
     "3"
+   ],
+   [
+    "2008",
+    "2"
    ]
   ]
  },
@@ -41,21 +41,21 @@
  "choices": [
   {
    "id": "A",
-   "text": "plants of the 1980s used 10 fewer kilowatt-hours per cubic meter than plants of the 1970s, while no later generation improved on the one before it by more than 2."
+   "text": "energy use fell by 8 kilowatt-hours per cubic meter from 1970 to 1980, while no later drop was larger than 3."
   },
   {
    "id": "B",
-   "text": "energy use fell from 18 kilowatt-hours per cubic meter in the 1970s to just 3 in the 2010s, a cumulative decline of more than 80 percent across the whole period shown."
+   "text": "energy use fell from 16 kilowatt-hours per cubic meter in 1970 to 2 in 2008, a decline of more than 85 percent."
   },
   {
    "id": "C",
-   "text": "plants built in the 2000s required 4 kilowatt-hours per cubic meter, two fewer than plants built in the 1990s."
+   "text": "the process required 3 kilowatt-hours per cubic meter in 2000, two fewer than it had required in 1990."
   },
   {
    "id": "D",
-   "text": "the generation-to-generation improvements grew steadily larger over time, from 1 kilowatt-hour per cubic meter after the 2010s back to 10 after the 1970s."
+   "text": "the process needed 5 kilowatt-hours per cubic meter in 1990, less than a third of what it had needed in 1970."
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The engineer's claim is about the size of each successive step, so the evidence must compare consecutive decades — and A does: one 10-unit leap at the start, then steps of 2, 2, and 1.\n\n**The Full Solution:**\n- The claim has two parts: the steepest gain came first, and each later generation improved by a smaller margin.\n- A establishes the first part with the 1970s-to-1980s drop of 10, and the second by capping every later step at 2 or less.\n- Reading the table's consecutive differences — 10, 2, 2, 1 — confirms the progressively shrinking pattern A describes.\n\n**Why the other choices are wrong:**\n- B: The cumulative 80 percent decline shows that energy use fell overall but says nothing about how the fall was distributed among generations.\n- C: A single mid-series comparison cannot show that early gains dwarfed later ones.\n- D: It reverses the series — the 10-unit change belongs to the earliest step, not to a late-blooming acceleration."
+ "explanation": "**Choice A is correct.** The engineer's claim is about the size of each gain from one listed year to the next, so the evidence must compare consecutive years — and A does: one 8-unit drop at the start, then no drop larger than 3.\n\n**The Full Solution:**\n- The claim has two parts: the largest gain came first, and every later gain was less than half as large.\n- A establishes the first part with the 1970-to-1980 drop of 8 and the second by capping every later drop at 3, which is less than half of 8.\n- The table's consecutive differences — 8, 3, 2, 1 — confirm the pattern A describes.\n\n**Why the other choices are wrong:**\n- B: The overall decline of more than 85 percent shows that energy use fell but says nothing about how the fall was spread across the years.\n- C: A single mid-series comparison cannot show that the first gain dwarfed the later ones.\n- D: Comparing 1990 with 1970 spans two intervals at once, so it cannot show which single gain was largest."
 }

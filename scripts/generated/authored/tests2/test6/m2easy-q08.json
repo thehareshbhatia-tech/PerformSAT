@@ -1,29 +1,29 @@
 {
   "id": 8,
-  "question": "The function $h(t) = -16t^{2} + 64t$ gives the height, in feet, of a ball $t$ seconds after it is kicked. Which of the following is the interval of time during which the ball is at least $48$ feet high?",
+  "question": "The function $h(t) = -16t^{2} + 64t$ gives the height, in feet, of a ball $t$ seconds after it is kicked. How many seconds after the ball is kicked does it first reach a height of $48$ feet?",
   "choices": [
     {
       "id": "A",
-      "text": "$0 \\le t \\le 1$"
+      "text": "$1$"
     },
     {
       "id": "B",
-      "text": "$1 \\le t \\le 3$"
+      "text": "$2$"
     },
     {
       "id": "C",
-      "text": "$1 \\le t \\le 4$"
+      "text": "$3$"
     },
     {
       "id": "D",
-      "text": "$3 \\le t \\le 4$"
+      "text": "$4$"
     }
   ],
   "distractorNotes": {
-    "A": "uses the time from the kick up to the first crossing t = 1, when the ball is below 48 feet",
-    "C": "keeps the first crossing but ends at the landing time t = 4 instead of the second crossing t = 3",
-    "D": "uses the time from the second crossing t = 3 to the landing time t = 4, when the ball is below 48 feet"
+    "B": "gives the time of the greatest height, t = 2, instead of the time the height is first 48 feet",
+    "C": "gives the second time the height is 48 feet, on the way down, instead of the first",
+    "D": "gives the time the ball lands, when h(t) = 0, instead of the time the height is 48 feet"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Set $-16t^{2} + 64t = 48$. Dividing by $-16$ gives $t^{2} - 4t + 3 = 0$, so $t = 1$ or $t = 3$. The parabola opens downward, so the ball is at or above $48$ feet between those times.\n\n**The Full Solution:**\nStep 1: Write the condition as an inequality: $-16t^{2} + 64t \\ge 48$.\nStep 2: Subtract $48$ and divide by $-16$, which reverses the inequality: $t^{2} - 4t + 3 \\le 0$. Factoring gives $(t - 1)(t - 3) \\le 0$.\nStep 3: The product is negative or zero only when $t$ is between the roots, so $1 \\le t \\le 3$. Check at $t = 2$: $h(2) = -64 + 128 = 64$, which is at least $48$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0 \\le t \\le 1$): uses the time before the first crossing. At $t = 0.5$, $h(0.5) = -4 + 32 = 28$ feet, which is below $48$.\n* Choice C ($1 \\le t \\le 4$): starts at the right time but ends at the landing time $t = 4$. At $t = 3.5$, $h(3.5) = -196 + 224 = 28$ feet.\n* Choice D ($3 \\le t \\le 4$): uses the time after the ball has dropped back below $48$ feet.\n\n**Test Day Takeaway:** Solve the related equation to find the two crossing times, then test one value to decide whether the interval is between or outside them. A downward-opening parabola is above a level only between its crossings."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Quadratic via Factoring**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Set $-16t^{2} + 64t = 48$. Dividing by $-16$ gives $t^{2} - 4t + 3 = 0$, so $t = 1$ or $t = 3$. The ball first reaches $48$ feet at $t = 1$.\n\n**The Full Solution:**\nStep 1: Set the height equal to $48$: $-16t^{2} + 64t = 48$.\nStep 2: Subtract $48$ and divide by $-16$: $t^{2} - 4t + 3 = 0$. Factoring gives $(t - 1)(t - 3) = 0$, so $t = 1$ or $t = 3$.\nStep 3: The ball is at $48$ feet on the way up and again on the way down; the first time is $t = 1$. Check: $h(1) = -16 + 64 = 48$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2$): is the time of the greatest height, $h(2) = 64$ feet.\n* Choice C ($3$): is the second time the ball is at $48$ feet, on its way down.\n* Choice D ($4$): is when the ball lands, $h(4) = 0$.\n\n**Test Day Takeaway:** A height equation usually has two solutions, one on the way up and one on the way down; reread whether the question asks for the first or the second."
 }

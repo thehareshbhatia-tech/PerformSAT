@@ -1,6 +1,6 @@
 {
   "id": 1,
-  "question": "$y = 3x - 4$\n$y = -x + 8$\nHow many solutions does the given system of equations have?",
+  "question": "$x + 4y = 10$\n$2x + 8y = 15$\nHow many solutions does the given system of equations have?",
   "choices": [
     {
       "id": "A",
@@ -20,11 +20,11 @@
     }
   ],
   "distractorNotes": {
-    "A": "zero solutions requires parallel, distinct lines, but the slopes $3$ and $-1$ are not equal.",
-    "C": "two distinct lines meet at most once, so a system of two linear equations can never have exactly two solutions.",
-    "D": "infinitely many solutions requires the two equations to describe the same line, which would force equal slopes and equal $y$-intercepts."
+    "B": "sees two different equations and assumes their lines cross once, without comparing the coefficients",
+    "C": "thinks two equations give two solutions; two distinct lines meet at most once",
+    "D": "notices that 2x + 8y is twice x + 4y and stops without comparing the constants: 2(10) = 20, not 15"
   },
-  "correctAnswer": "B",
-  "hint": "Compare the slopes of the two lines before counting anything.",
-  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~15s):** The slopes $3$ and $-1$ are different, so the lines cross exactly once and the system has exactly one solution.\n\n**The Full Solution:**\nStep 1: Both equations are in slope-intercept form, with slopes $3$ and $-1$.\nStep 2: Two lines with different slopes are not parallel, so they intersect at exactly one point in the $xy$-plane.\nStep 3: That intersection point is the only ordered pair that satisfies both equations, so the system has exactly one solution. Check: $3x - 4 = -x + 8$ gives $4x = 12$, so $x = 3$ and $y = 5$, a single ordered pair ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: zero solutions requires parallel, distinct lines, but the slopes $3$ and $-1$ are not equal.\n* Choice C: two distinct lines meet at most once, so a system of two linear equations can never have exactly two solutions.\n* Choice D: infinitely many solutions requires the two equations to describe the same line, which would force equal slopes and equal $y$-intercepts.\n\n**Test Day Takeaway:** Count solutions from the slopes first: different slopes give one solution, and equal slopes give either none or infinitely many."
+  "correctAnswer": "A",
+  "hint": "Multiply the first equation by $2$ and compare it with the second.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~15s):** Doubling the first equation gives $2x + 8y = 20$, but the second equation says $2x + 8y = 15$. The same expression cannot equal both, so there are no solutions.\n\n**The Full Solution:**\nStep 1: Multiply both sides of $x + 4y = 10$ by $2$: $2x + 8y = 20$.\nStep 2: The second equation is $2x + 8y = 15$. No ordered pair can make $2x + 8y$ equal to both $20$ and $15$.\nStep 3: So the system has zero solutions; its graphs are parallel lines. Check: both lines have slope $-\\frac{1}{4}$, but their $y$-intercepts are $\\frac{10}{4} = 2.5$ and $\\frac{15}{8} = 1.875$, which are different ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly one): two different-looking equations usually meet once, but these have the same slope, so their lines never cross.\n* Choice C (Exactly two): two distinct lines meet at most once, so a system of two linear equations can never have exactly two solutions.\n* Choice D (Infinitely many): the left sides are proportional, but the constants are not: $2(10) = 20$, not $15$.\n\n**Test Day Takeaway:** When one equation's $x$ and $y$ coefficients are a multiple of the other's, compare the constants: the same multiple means infinitely many solutions, a different one means none."
 }

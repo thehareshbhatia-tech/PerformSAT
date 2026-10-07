@@ -74,6 +74,13 @@ async function ourRows() {
   return out;
 }
 
+// --json is an OUTPUT path. Refuse to clobber content (two reviewers lost item files this way).
+function safeOut(p) {
+  const abs = path.resolve(p);
+  if (abs.startsWith(path.join(ROOT, 'src')) || abs.startsWith(path.join(ROOT, 'scripts')) || abs.startsWith(path.join(ROOT, 'docs'))) { console.error(`refusing to write audit output inside the repo content tree: ${abs} (use a scratch path)`); process.exit(1); }
+  if (fs.existsSync(abs)) { try { const j = JSON.parse(fs.readFileSync(abs, 'utf8')); if (!Array.isArray(j) || (j[0] && !('flags' in j[0]))) throw 0; } catch { console.error(`refusing to overwrite ${abs}: not a previous audit output`); process.exit(1); } }
+  return abs;
+}
 const pct = (arr, p) => { if (!arr.length) return null; const s = [...arr].sort((a, b) => a - b); return s[Math.min(s.length - 1, Math.floor(p * (s.length - 1)))]; };
 const FEATS = ['words', 'wps', 'hard', 'longest', 'choice'];
 const qb = qbankRows();
@@ -99,4 +106,4 @@ for (const s of skills) {
   if (!S) { console.log(`  ${s}: no CB norm`); continue; }
   console.log(`  ${s.padEnd(34)} n=${String(o.length).padStart(3)} flagged ${String(o.filter(r => r.flags.length).length).padStart(2)} · median ours/CB  wps ${pct(o.map(r => r.f.wps), .5)}/${S.wps.p50}  hard ${pct(o.map(r => r.f.hard), .5)}/${S.hard.p50}  longest ${pct(o.map(r => r.f.longest), .5)}/${S.longest.p50}  choice ${pct(o.map(r => r.f.choice), .5)}/${S.choice.p50}`);
 }
-if (args.json) { fs.writeFileSync(args.json, JSON.stringify(ours, null, 1)); console.log(`wrote ${args.json}`); }
+if (args.json) { fs.writeFileSync(safeOut(args.json), JSON.stringify(ours, null, 1)); console.log(`wrote ${args.json}`); }

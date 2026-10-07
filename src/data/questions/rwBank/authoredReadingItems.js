@@ -54,7 +54,7 @@ export const authoredReadingItems = [
         }
       ]
     },
-    "passage": "In Thomas Hardy's 1874 novel Far from the Madding Crowd, the narrator devotes the opening chapter to Gabriel Oak, a young farmer, before any event of the story has taken place. The chapter moves item by item through what Oak owns and wears: his hat, his boots, the outsized watch that is the size of a small clock. A reader might argue that the narrator rarely presents a piece of Oak's outfit without also naming the practical need that shaped it."
+    "passage": "Far from the Madding Crowd is an 1874 novel by Thomas Hardy. The opening chapter introduces Gabriel Oak, a young farmer, by listing what he wears and carries, from his hat and boots to a watch the size of a small clock. In this chapter, Hardy's narrator often pairs a piece of Oak's outfit with the practical need that shaped it: ______"
   },
   {
     "id": 9002,
@@ -101,7 +101,7 @@ export const authoredReadingItems = [
         }
       ]
     },
-    "passage": "In Elizabeth Gaskell's 1853 novel Cranford, a visitor narrates the life of a small English town whose households are run almost entirely by unmarried women of modest means. Much of the first chapter is given over to the town's settled customs: what may be worn, when calls may be paid, how long a caller may stay. A reader might argue that the narrator states one of these rules and, in the same even tone, the peculiar effect that obeying it has on conversation."
+    "passage": "Cranford is an 1853 novel by Elizabeth Gaskell. The novel's narrator describes a small English town whose households are headed almost entirely by women. Much of the first chapter covers the town's customs: what may be worn, when calls may be paid, how long a caller may stay. The narrator states one of these rules and, in the same even tone, the odd effect that obeying it has on conversation: ______"
   },
   {
     "id": 9003,
@@ -148,7 +148,7 @@ export const authoredReadingItems = [
         }
       ]
     },
-    "passage": "In Frances Ellen Watkins Harper's 1892 novel Iola Leroy, Iola has come North after the Civil War and is living with her uncle Robert. He tells her plainly that she is welcome in his house and has no need to go out to work; she answers that she intends to apply for a place as a saleswoman anyway. A reader might argue that Iola treats earning wages as something she would rather do, not as something her situation forces on her."
+    "passage": "Iola Leroy is an 1892 novel by Frances Ellen Watkins Harper. After the Civil War, Iola comes North and lives with her uncle Robert. He tells her plainly that she is welcome in his house and has no need to go out to work, but she plans to apply for a job as a saleswoman anyway. In the novel, Iola treats earning wages as something she would rather do, not something her situation forces on her: ______"
   },
   {
     "id": 9004,
@@ -177,7 +177,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "A",
-    "explanation": "**Choice A is correct.** The quotation names the loss and the gain together: the river's \"romance and the beauty\" are gone, and what remains is the water's \"usefulness\" for piloting safely.\n\n**The Full Solution:**\n- The claim is a trade, so the quotation has to show both sides of it: something the narrator no longer sees, and the practical reading that replaced it.\n- Choice A pairs them in consecutive sentences. The first announces what is gone; the second says exactly what took its place, measuring every feature of the river by \"the amount of usefulness\" it offers a pilot.\n- Eliminate quotations that show only the beauty or only the expertise. A quotation that never puts the two in the same frame cannot illustrate a trade.\n\n**Why the other choices are wrong:**\n- B: This praises the river as endlessly interesting reading, so it records the gain in skill with no hint that anything was surrendered for it.\n- C: This captures the rapture of an early sunset, before the training took hold, and so gives the beauty without the loss.\n- D: This reads one small ripple as a danger sign, which shows the trained eye at work but says nothing about what that eye stopped seeing.",
+    "explanation": "**Choice A is correct.** The quotation names the loss and the gain together: the river's \"romance and the beauty\" are gone, and what remains is the water's \"usefulness\" for piloting safely.\n\n**The Full Solution:**\n- The claim is a trade, so the quotation has to show both sides of it: something Twain no longer sees, and the practical reading that replaced it.\n- Choice A pairs them in consecutive sentences. The first announces what is gone; the second says exactly what took its place, measuring every feature of the river by \"the amount of usefulness\" it offers a pilot.\n- Eliminate quotations that show only the beauty or only the expertise. A quotation that never puts the two in the same frame cannot illustrate a trade.\n\n**Why the other choices are wrong:**\n- B: This praises the river as endlessly interesting reading, so it records the gain in skill with no hint that anything was surrendered for it.\n- C: This captures the rapture of an early sunset, before the training took hold, and so gives the beauty without the loss.\n- D: This reads one small ripple as a danger sign, which shows the trained eye at work but says nothing about what that eye stopped seeing.",
     "authoredBy": "seva-rw-fill-recreation",
     "_meta": {
       "authoredFor": "coe-text-illustrate-quote",
@@ -195,7 +195,7 @@ export const authoredReadingItems = [
         }
       ]
     },
-    "passage": "In Mark Twain's 1883 memoir Life on the Mississippi, the narrator recalls his training as a steamboat pilot, when he learned to read the surface of the river the way a reader takes in a page. A dimple on the water, a floating log, a silver streak in the shade of the forest: each mark told him something about the channel below. A reader might argue that the narrator counts what that skill cost him as carefully as what it gained him."
+    "passage": "Life on the Mississippi is an 1883 memoir by Mark Twain. Twain recalls his training as a steamboat pilot, when he learned to read the surface of the river the way one reads a page. A dimple on the water, a floating log, or a silver streak in the shade told him something about the river. In the memoir, Twain counts what this skill cost him as carefully as what it gained him: ______"
   },
   {
     "id": 9005,
@@ -224,7 +224,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "B",
-    "explanation": "**Choice B is correct.** The sentence calls the work sweet and then says what makes it so: music that takes soul and expression to play and \"which one must study to understand.\"\n\n**The Full Solution:**\n- Fix the claim's two parts first: the quotation must value the work and must root that value in a demand the work makes.\n- Choice B is built that way. \"There is nothing sweeter\" carries the value; \"put some soul, some expression\" and \"must study to understand\" name the demands that earn it.\n- Eliminate quotations that report where Fortier is or how his days are filled. Schedules and settings describe the life around the work, not the worth the narrator finds in it.\n\n**Why the other choices are wrong:**\n- A: This is a schedule, listing rehearsals and performance nights; it shows how much time the work takes without saying what the work is worth.\n- C: This puts Fortier on a street corner greeting a neighbor, a scene of his ordinary evening rather than a judgment about his playing.\n- D: This sums up the household as peaceful and uneventful, which characterizes his domestic life and leaves the value of the music unstated.",
+    "explanation": "**Choice B is correct.** The sentence calls the work sweet and then says what makes it so: music that takes soul and expression to play and \"which one must study to understand.\"\n\n**The Full Solution:**\n- Fix the claim's two parts first: the quotation must value the work and must root that value in a demand the work makes.\n- Choice B is built that way. \"There is nothing sweeter\" carries the value; \"put some soul, some expression\" and \"must study to understand\" name the demands that earn it.\n- Eliminate quotations that report where Fortier is or how his days are filled. Schedules and settings describe the life around the work, not the worth the story finds in it.\n\n**Why the other choices are wrong:**\n- A: This is a schedule, listing rehearsals and performance nights; it shows how much time the work takes without saying what the work is worth.\n- C: This puts Fortier on a street corner greeting a neighbor, a scene of his ordinary evening rather than a judgment about his playing.\n- D: This sums up the household as peaceful and uneventful, which characterizes his domestic life and leaves the value of the music unstated.",
     "authoredBy": "seva-rw-fill-recreation",
     "_meta": {
       "authoredFor": "coe-text-illustrate-quote",
@@ -242,7 +242,7 @@ export const authoredReadingItems = [
         }
       ]
     },
-    "passage": "In Alice Dunbar-Nelson's 1899 story \"M'sieu Fortier's Violin,\" an elderly musician has played first violin in the orchestra of the New Orleans opera house for longer than anyone can remember. Between seasons he goes back to his trade of cigar-making, and at home there is little to fill the hours but practice. A reader might argue that the narrator locates the worth of Fortier's work in what it asks of him rather than in what it brings him."
+    "passage": "Alice Dunbar-Nelson published the short story \"M'sieu Fortier's Violin\" in 1899. Its main character, an elderly musician, has played first violin in the orchestra of the New Orleans opera house for longer than anyone can remember. Between seasons he goes back to making cigars, and at home there is little to fill the hours but practice. In the story, Dunbar-Nelson suggests that Fortier's opera work is satisfying because of the effort and feeling it demands of him: ______"
   },
   {
     "id": 9006,
@@ -255,7 +255,7 @@ export const authoredReadingItems = [
     "choices": [
       {
         "id": "A",
-        "text": "\"Season of mists and mellow fruitfulness, / Close bosom-friend of the maturing sun;\""
+        "text": "\"Season of mists and mellow fruitfulness, / Close bosom-friend of the maturing sun; / Conspiring with him how to load and bless / With fruit the vines that round the thatch-eves run;\""
       },
       {
         "id": "B",
@@ -271,7 +271,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "C",
-    "explanation": "**Choice C is correct.** The lines address autumn as \"thy\" and place that figure asleep on a furrow that is only half reaped, with the reaping hook idle beside the standing flowers.\n\n**The Full Solution:**\n- Track both halves of the claim: the quotation must speak to autumn as a working figure and must show the work interrupted.\n- Choice C does both at once. \"Thy hook\" makes autumn the reaper; \"half-reap'd furrow sound asleep\" and \"Spares the next swath\" show the reaping stopped partway.\n- Eliminate lines in which autumn is addressed but never shown pausing, and lines that describe the season's labor without addressing anyone.\n\n**Why the other choices are wrong:**\n- A: These opening lines address autumn directly but present it as a season of mists and ripeness, with no task under way and so nothing to interrupt.\n- B: Here autumn is addressed and is at work, keeping its laden head steady across a brook, but the figure is moving steadily rather than resting.\n- D: These lines list what the season accomplishes, swelling gourds and setting late flowers, without speaking to autumn as a figure or picturing any pause.",
+    "explanation": "**Choice C is correct.** The lines address autumn as \"thy\" and place that figure asleep on a furrow that is only half reaped, with the reaping hook idle beside the standing flowers.\n\n**The Full Solution:**\n- Track both halves of the claim: the quotation must speak to autumn as a working figure and must show the work interrupted.\n- Choice C does both at once. \"Thy hook\" makes autumn the reaper; \"half-reap'd furrow sound asleep\" and \"Spares the next swath\" show the reaping stopped partway.\n- Eliminate lines in which autumn is addressed but never shown pausing, and lines that describe the season's labor without addressing anyone.\n\n**Why the other choices are wrong:**\n- A: These opening lines address autumn directly and show it plotting the harvest with the sun, but the work is only being planned, and nothing shows the figure pausing in the middle of it.\n- B: Here autumn is addressed and is at work, keeping its laden head steady across a brook, but the figure is moving steadily rather than resting.\n- D: These lines list what the season accomplishes, swelling gourds and setting late flowers, without speaking to autumn as a figure or picturing any pause.",
     "authoredBy": "seva-rw-fill-recreation",
     "_meta": {
       "authoredFor": "coe-text-illustrate-quote",
@@ -289,7 +289,7 @@ export const authoredReadingItems = [
         }
       ]
     },
-    "passage": "John Keats's 1820 poem \"To Autumn\" speaks to the season directly, as though autumn were a person who might be found somewhere about the farm. The first stanza describes the ripening the season brings on; the second goes looking for autumn among the granaries, furrows, and cider presses of the harvest. A reader might argue that the poem addresses autumn as a worker and then catches that worker resting in the middle of the task."
+    "passage": "\"To Autumn\" is an 1820 poem by John Keats. The poem speaks to the season directly, as though autumn were a person who might be found somewhere about the farm. The first stanza describes the ripening the season brings; the second goes looking for autumn among the granaries, furrows, and cider presses of the harvest. In the poem, Keats addresses autumn as a worker and then catches that worker resting in the middle of the task: ______"
   },
   {
     "id": 9007,
@@ -336,7 +336,7 @@ export const authoredReadingItems = [
         }
       ]
     },
-    "passage": "Robert Browning's 1842 poem \"My Last Duchess\" is spoken by a duke who is walking a visitor through his private gallery. The visitor has come to arrange the duke's next marriage. Stopping at a curtained portrait of his late wife, the duke undertakes to explain why her expression in the painting is what it is. A reader might argue that the duke's account of the picture turns into a grievance about how little his rank counted with her."
+    "passage": "\"My Last Duchess\" is an 1842 poem by Robert Browning. The poem's speaker, a duke, is walking a visitor through his private gallery; the visitor has come to arrange the duke's next marriage. Stopping at a portrait of his late wife, the duke explains why her expression in the painting is what it is. In the poem, the duke's account of the picture turns into a grievance about how little his rank counted with her: ______"
   },
   {
     "id": 9008,
@@ -383,7 +383,7 @@ export const authoredReadingItems = [
         }
       ]
     },
-    "passage": "Mary E. Wilkins Freeman's 1891 story \"A New England Nun\" follows Louisa Ellis, who has kept house alone for years and has grown exact about how everything in it is done. The story opens on an ordinary late afternoon: the sewing folded away, currants picked in the garden, supper laid on a small square table. A reader might argue that the narrator presents these routines as ceremonies Louisa performs for her own sake, with no visitor there to see them."
+    "passage": "\"A New England Nun\" is an 1891 short story by Mary E. Wilkins Freeman. It follows Louisa Ellis, who has kept house alone for years and has grown exact about how everything in it is done. The story opens on an ordinary late afternoon: the sewing folded away, currants picked in the garden, supper laid on a small square table. Freeman presents these routines as ceremonies Louisa performs for her own sake, with no visitor there to see them: ______"
   },
   {
     "id": 9009,
@@ -417,7 +417,7 @@ export const authoredReadingItems = [
     "_meta": {
       "authoredFor": "inf-prediction-expectation"
     },
-    "passage": "Many flowering plants block self-pollination with an arrangement of parts rather than with chemistry. The common primrose, for instance, produces two kinds of flower on separate plants. In a pin flower the stigma stands at the mouth of the floral tube and the anthers sit low inside it; in a thrum flower the two positions are reversed. A bee probing a pin flower is therefore dusted with pollen low on its body, at exactly the height where a thrum flower's stigma waits, and a bee leaving a thrum flower carries pollen at the height of a pin flower's stigma. In a meadow where both forms grow, then, botanists would expect that pollen arriving on a pin flower's stigma ______"
+    "passage": "Some flowering plants use the arrangement of their flower parts to favor pollination between different plants. The common primrose, for instance, produces two kinds of flower on separate plants. In a pin flower, the stigma stands at the mouth of the floral tube and the anthers sit low inside it. In a thrum flower, the two positions are reversed. A bee probing a pin flower is therefore dusted with pollen low on its body, at the height where a thrum flower's stigma waits. A bee leaving a thrum flower carries pollen at the height of a pin flower's stigma. In a meadow where both forms grow, then, botanists would expect that pollen arriving on a pin flower's stigma ______"
   },
   {
     "id": 9010,
@@ -451,7 +451,7 @@ export const authoredReadingItems = [
     "_meta": {
       "authoredFor": "inf-prediction-expectation"
     },
-    "passage": "An ice sheet does not sit still. It creeps outward from the interior toward the coast, carrying along whatever has landed on its surface. Where a buried mountain range blocks that flow, the ice is forced upward, and dry winds sweeping the exposed surface strip snow away faster than new snow falls, laying bare old, deep ice as a field of blue. Meteorites that fell anywhere on the ice upstream over hundreds of thousands of years travel with the ice to such a barrier and are stranded at the surface as the ice around them wastes away. A survey team mapping a newly identified blue-ice field just upstream of a mountain barrier should therefore expect that the field ______"
+    "passage": "An ice sheet does not sit still. It creeps outward from the interior toward the coast, carrying along whatever has landed on its surface. Where a buried mountain range blocks that flow, the ice is forced upward. Dry winds sweeping the exposed surface strip snow away faster than new snow falls, laying bare old, deep ice as a field of blue. Meteorites that fell on the ice upstream over hundreds of thousands of years travel with the ice to such a barrier. There they are left at the surface as the ice around them wastes away. A survey team mapping a newly identified blue-ice field just upstream of a mountain barrier should therefore expect that the field ______"
   },
   {
     "id": 9011,
@@ -485,7 +485,7 @@ export const authoredReadingItems = [
     "_meta": {
       "authoredFor": "inf-prediction-expectation"
     },
-    "passage": "When rising seas cut a coastal hilltop off from the mainland, the new island is left holding more species than an island of its size can support for long. Populations once part of a much larger mainland population no longer receive new arrivals, and one by one the smallest of them wink out, a slow loss ecologists call relaxation. The rate of that loss depends on area: the smaller the island, the fewer individuals each species can maintain, and the sooner chance alone erases one. Two islands off the same coast were cut off at the same time, one of them roughly ten times the area of the other. Ecologists comparing their bird faunas today should expect that ______"
+    "passage": "When rising seas cut a coastal hilltop off from the mainland, the new island is left holding more species than an island of its size can support for long. Populations once part of a much larger mainland population no longer receive new arrivals, and one by one the smallest of them die out, a slow loss ecologists call relaxation. The rate of that loss depends on area: the smaller the island, the fewer individuals each species can maintain, and the sooner chance alone erases one. Two islands off the same coast were cut off at the same time, one of them roughly ten times the area of the other. Ecologists comparing their bird faunas today should expect that ______"
   },
   {
     "id": 9012,
@@ -519,7 +519,7 @@ export const authoredReadingItems = [
     "_meta": {
       "authoredFor": "inf-prediction-expectation"
     },
-    "passage": "Sand dunes migrate downwind. Grains are lifted up the gentle windward face, tumble over the crest, and settle on the steeper face beyond, so a dune leaves behind sets of layers that slant downward in the direction the wind was blowing. Buried and cemented into sandstone, those slanting layers survive as a record of an ancient wind. In one formation exposed along a canyon wall, every set of layers dips toward the southeast. If a single dune field under a steady wind built that formation, geologists tracing the same rock unit fifty kilometers away should expect the slanting layers there to ______"
+    "passage": "Sand dunes migrate downwind. Grains are lifted up the gentle windward face, tumble over the crest, and settle on the steeper face beyond. As a result, a dune leaves behind sets of layers that slant downward in the direction the wind was blowing. Buried and cemented into sandstone, those slanting layers survive as a record of an ancient wind. In one formation exposed along a canyon wall, every set of layers dips toward the southeast. If a single dune field under a steady wind built that formation, geologists tracing the same rock unit fifty kilometers away should expect the slanting layers there to ______"
   },
   {
     "id": 9013,
@@ -532,15 +532,15 @@ export const authoredReadingItems = [
     "choices": [
       {
         "id": "A",
-        "text": "carbonate-poor clay at the base of the pile and carbonate-rich ooze at the top."
+        "text": "carbonate-poor sediment at the base of the pile and carbonate-rich sediment at the top."
       },
       {
         "id": "B",
-        "text": "carbonate-rich ooze at the base of the pile and carbonate-poor clay at the top."
+        "text": "carbonate-rich sediment at the base of the pile and carbonate-poor sediment at the top."
       },
       {
         "id": "C",
-        "text": "about the same proportion of carbonate from the base of the pile to the top."
+        "text": "about the same amount of carbonate from the base of the pile to the top."
       },
       {
         "id": "D",
@@ -548,12 +548,12 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "B",
-    "explanation": "**Choice B is correct.** The oldest sediment settled while the crust still stood high above the compensation depth, where carbonate is preserved, and the youngest settled after the crust had sunk below it, where carbonate is not. A core reads that history from the bottom up.\n\n**The Full Solution:**\n- Put the two rules side by side: carbonate survives above the compensation depth and dissolves below it, and seafloor starts shallow at the ridge and deepens with age.\n- Order the layers in time. The bottom of a sediment pile is the oldest material, laid down when the site was shallow; the top is the youngest, laid down after subsidence carried the site into dissolving water.\n- Read the completion as a sequence, not a single value. The expectation is a change with depth in the core, from carbonate-rich below to carbonate-poor above.\n\n**Why the other choices are wrong:**\n- A: This inverts the sequence. It would require the site to have started deep and become shallow, the reverse of the subsidence the text describes.\n- C: A uniform proportion would mean the site never crossed the compensation depth, but the text says aging crust subsides steadily for tens of millions of years.\n- D: The site was not always deep. Carbonate laid down during its shallow youth is still there at the base of the pile.",
+    "explanation": "**Choice B is correct.** The oldest sediment settled while the crust still stood high above the compensation depth, where carbonate is preserved, and the youngest settled after the crust had sunk below it, where carbonate is not. A core reads that history from the bottom up.\n\n**The Full Solution:**\n- Put the two rules side by side: carbonate survives above the compensation depth and dissolves below it, and seafloor starts shallow at the ridge and deepens with age.\n- Order the layers in time. The bottom of a sediment pile is the oldest material, laid down when the site was shallow; the top is the youngest, laid down after subsidence carried the site into dissolving water.\n- Read the completion as a sequence, not a single value. The expectation is a change with depth in the core, from carbonate-rich below to carbonate-poor above.\n\n**Why the other choices are wrong:**\n- A: This inverts the sequence. It would require the site to have started deep and become shallow, the reverse of the subsidence the text describes.\n- C: A uniform amount would mean the site never crossed the compensation depth, but the text says aging crust subsides steadily for tens of millions of years.\n- D: The site was not always deep. Carbonate laid down during its shallow youth is still there at the base of the pile.",
     "authoredBy": "seva-rw-fill-recreation",
     "_meta": {
       "authoredFor": "inf-prediction-expectation"
     },
-    "passage": "Calcium carbonate dissolves more readily in cold, deep, high-pressure seawater than in warm shallows. Below a level called the carbonate compensation depth, which in most basins lies near four kilometers, the carbonate shells of plankton dissolve faster than they arrive, so the sediment gathering there is clay and the silica shells of other plankton, with almost no carbonate in it. Ocean crust also sinks as it ages: rock formed at a mid-ocean ridge stands high, then subsides steadily for tens of millions of years as it cools and drifts away from the ridge. A drill core taken through the entire sediment pile on old, deep seafloor should therefore show ______"
+    "passage": "Calcium carbonate dissolves more readily in cold, deep, high-pressure seawater than in warm shallows. Below a level called the carbonate compensation depth, usually four to five kilometers down, the carbonate shells of plankton dissolve faster than they arrive. The sediment that gathers there holds almost no carbonate. Ocean crust also sinks as it ages. Rock formed at a mid-ocean ridge stands high, then subsides steadily for tens of millions of years as it cools and moves away from the ridge. A drill core taken through the entire sediment pile on old, deep seafloor should therefore show ______"
   },
   {
     "id": 9014,
@@ -587,7 +587,7 @@ export const authoredReadingItems = [
     "_meta": {
       "authoredFor": "inf-prediction-expectation"
     },
-    "passage": "Desert seedlings face their hardest test in their first summers, when the soil surface can reach temperatures that kill young tissue and the top few centimeters dry out within days of a rain. A shrub canopy changes both conditions, shading the ground through the hottest hours and slowing evaporation beneath it, so a seed that germinates under a shrub is far likelier to survive than one that germinates in the open. Columnar cacti grow slowly and eventually overtop the shrubs that sheltered them. A botanist mapping the position and size of every cactus in a study plot should expect that ______"
+    "passage": "Desert seedlings face their hardest test in their first summers, when the soil surface can reach temperatures that kill young tissue and the top few centimeters dry out within days of a rain. A shrub canopy changes both conditions: it shades the ground through the hottest hours and slows evaporation beneath it. A seed that germinates under a shrub is therefore far likelier to survive than one that germinates in the open. Columnar cacti grow slowly and eventually overtop the shrubs that sheltered them. A botanist mapping the position and size of every cactus in a study plot should expect that ______"
   },
   {
     "id": 9015,
@@ -621,7 +621,7 @@ export const authoredReadingItems = [
     "_meta": {
       "authoredFor": "inf-prediction-expectation"
     },
-    "passage": "Lungless salamanders take in oxygen through the skin, which works only while that skin stays wet. Dry air pulls water out of the animal directly, so on nights of low humidity these salamanders stay in the damp spaces beneath logs and stones instead of climbing into the leaf litter where they hunt. Rain changes the calculation within hours, raising humidity near the ground and letting the animals stay out much longer before they dry. A team walking the same forest transects on many summer nights, counting the salamanders visible on the surface, should expect that ______"
+    "passage": "Lungless salamanders take in oxygen through the skin, which works only while that skin stays wet. Dry air pulls water directly out of the animal. On nights of low humidity, these salamanders therefore stay in the damp spaces beneath logs and stones instead of climbing into the leaf litter where they hunt. Rain changes the calculation within hours, raising humidity near the ground and letting the animals stay out much longer before they dry. A team walking the same forest transects on many summer nights, counting the salamanders visible on the surface, should expect that ______"
   },
   {
     "id": 9016,
@@ -693,11 +693,11 @@ export const authoredReadingItems = [
       "intro": "While researching a topic, a student has taken the following notes:",
       "bullets": [
         "The Mexican tetra is a small freshwater fish found in rivers in northeastern Mexico.",
-        "Populations of the tetra that live in caves have no working eyes and almost no body pigment; river populations of the same species have both.",
+        "Tetras that live in caves have no working eyes and almost no body pigment, unlike river tetras.",
         "The olm is a salamander that lives only in the flooded limestone caves of southeastern Europe.",
         "The olm has undeveloped eyes covered over by skin and pale, nearly colorless skin.",
         "Fish and salamanders are not close relatives, and their cave-dwelling forms entered caves separately.",
-        "Each animal finds prey without sight, relying on smell and on sensitivity to movement in the water."
+        "Each animal finds prey by smell and by sensing movement in the water."
       ],
       "goal": "The student wants to emphasize a similarity between the cave tetra and the olm."
     }
@@ -725,7 +725,7 @@ export const authoredReadingItems = [
       },
       {
         "id": "D",
-        "text": "A hawkmoth hovers in front of a blossom, while a bat pushes its head into the flower to reach the nectar."
+        "text": "A hawkmoth hovers in front of a blossom to draw nectar through its long tongue, while a bat pushes its head into the flower to reach the nectar."
       }
     ],
     "correctAnswer": "C",
@@ -897,19 +897,19 @@ export const authoredReadingItems = [
       },
       {
         "id": "B",
-        "text": "A speleothem is a mineral deposit that builds up where water drips onto the floor of a cave."
+        "text": "A speleothem, such as a stalagmite, builds up where dripping water leaves calcite on a cave floor."
       },
       {
         "id": "C",
-        "text": "Ice cores and speleothems both grow layer by layer, and the oxygen isotopes in those layers record past conditions."
+        "text": "Ice cores and speleothems both form in layers whose oxygen isotopes record past conditions."
       },
       {
         "id": "D",
-        "text": "Speleothems can be dated from the decay of uranium in their calcite, over hundreds of thousands of years."
+        "text": "Speleothems can be dated from the decay of uranium in their calcite layers."
       }
     ],
     "correctAnswer": "C",
-    "explanation": "**Choice C is correct.** The goal is a similarity, and the notes give two properties to both records: each is built up in layers, and the oxygen isotopes in each layer preserve information about past conditions.\n\n**The Full Solution:**\n- Pair the notes. The first and third notes both describe layered growth; the fourth and fifth both describe an oxygen-isotope record. Those pairings are the similarity.\n- Name both subjects in the sentence, then attach the shared properties: \"Ice cores and speleothems both grow layer by layer.\"\n- Leave out the features the notes mark as belonging to one record only, however interesting they are.\n\n**Why the other choices are wrong:**\n- A: Trapped air is presented in the notes as something ice cores have and speleothems do not, so this is a difference.\n- B: This defines a speleothem without mentioning ice cores, so no comparison is made.\n- D: Uranium dating is a method available for speleothems alone, which again distinguishes the two records rather than joining them.",
+    "explanation": "**Choice C is correct.** The goal is a similarity, and the notes give two properties to both records: each is built up in layers, and the oxygen isotopes in each layer preserve information about past conditions.\n\n**The Full Solution:**\n- Pair the notes. The first two notes both describe layered growth; the third and fourth both describe an oxygen-isotope record. Those pairings are the similarity.\n- Name both subjects in the sentence, then attach the shared properties: \"Ice cores and speleothems both form in layers whose oxygen isotopes record past conditions.\"\n- Leave out the features the notes mark as belonging to one record only, however interesting they are.\n\n**Why the other choices are wrong:**\n- A: Trapped air is presented in the notes as something ice cores have and speleothems do not, so this is a difference.\n- B: This defines a speleothem without mentioning ice cores, so no comparison is made.\n- D: Uranium dating is a method available for speleothems alone, which again distinguishes the two records rather than joining them.",
     "authoredBy": "seva-rw-fill-recreation",
     "_meta": {
       "authoredFor": "rs-emphasize-similarity"
@@ -917,12 +917,12 @@ export const authoredReadingItems = [
     "studentNotes": {
       "intro": "While researching a topic, a student has taken the following notes:",
       "bullets": [
-        "An ice core is a cylinder drilled out of a glacier or ice sheet; each year of snowfall is preserved in it as a separate layer.",
-        "A speleothem is a mineral deposit, such as a stalagmite, that builds up where water drips onto a cave floor and leaves calcite behind.",
-        "Speleothems also grow in layers, added over hundreds or thousands of years.",
-        "The ratio of oxygen isotopes in a layer of ice reflects the temperature at the time that snow fell.",
-        "The same isotope ratio, measured in a layer of a speleothem, reflects the conditions in the rainfall that fed the drip.",
-        "Ice cores trap bubbles of ancient air, which speleothems do not; speleothems can be dated from the decay of uranium in their calcite."
+        "An ice core is a cylinder drilled from a glacier; each year's snow forms a separate layer in it.",
+        "A speleothem, such as a stalagmite, builds up in layers where dripping water leaves calcite on a cave floor.",
+        "The ratio of oxygen isotopes in a layer of ice reflects the temperature when the snow fell.",
+        "In a speleothem layer, the same ratio reflects the rainfall that fed the drip.",
+        "Ice cores trap bubbles of ancient air, which speleothems do not.",
+        "Speleothems can be dated from the decay of uranium in their calcite."
       ],
       "goal": "The student wants to emphasize a similarity between ice cores and speleothems."
     }
@@ -938,44 +938,44 @@ export const authoredReadingItems = [
     "choices": [
       {
         "id": "A",
-        "text": "Cowan drew on time-use studies comparing diaries kept by American homemakers in the 1920s with diaries kept in the 1960s."
+        "text": "McClintock studied maize plants whose kernels were speckled with spots of color, tracking them across several generations."
       },
       {
         "id": "B",
-        "text": "Mechanizing the American home changed what housework consisted of without reducing the hours a homemaker spent on it."
+        "text": "Some pieces of genetic material are not fixed in place: they can move along a chromosome and switch nearby genes off."
       },
       {
         "id": "C",
-        "text": "The washing machine absorbed work that households had previously sent out to commercial laundresses."
+        "text": "One movable piece of genetic material changed the color of a maize kernel by switching off a nearby gene."
       },
       {
         "id": "D",
-        "text": "Cowan, a historian of technology, published More Work for Mother in 1983."
+        "text": "McClintock, an American geneticist, received the Nobel Prize in 1983."
       }
     ],
     "correctAnswer": "B",
-    "explanation": "**Choice B is correct.** The notes build toward a single generalization — that mechanizing the household changed the character of housework without shortening it — and Choice B states it.\n\n**The Full Solution:**\n- The goal asks for a central claim, so underline the bullets that generalize rather than the ones that name a source, a book, or a single machine.\n- Two bullets carry the generalization together: the hours spent on housework did not fall between the 1920s and the 1960s, and the new machines raised expectations while absorbing work other people used to do. Choice B fuses both halves into one sentence.\n- Anything that reports how the evidence was gathered, where the scholar works, or what one appliance did is support for the claim, not the claim itself.\n\n**Why the other choices are wrong:**\n- A: This is the evidence Cowan worked from — the diary studies — rather than the conclusion she drew from it.\n- C: True of one appliance, but a single example cannot stand in for a claim about household technology as a whole.\n- D: Bibliographic detail. It identifies the book without saying what the book argues.",
+    "explanation": "**Choice B is correct.** The notes build toward a single generalization, that some genetic material can move within a chromosome and turn other genes off, and Choice B states it.\n\n**The Full Solution:**\n- The goal asks for a central claim, so underline the bullets that generalize rather than the ones that name a place, a prize, or a single kernel.\n- Two bullets carry the generalization together: certain pieces of genetic material could move from one place on a chromosome to another, and a piece that landed near a gene could switch that gene off. Choice B fuses both halves into one sentence.\n- Anything that reports how the evidence was gathered, where the scientist worked, or what happened in one kernel is support for the claim, not the claim itself.\n\n**Why the other choices are wrong:**\n- A: This is the evidence McClintock worked from, the spotted kernels she tracked, rather than the conclusion she drew from it.\n- C: True of one case, but a single example cannot stand in for a claim about genes in general.\n- D: Biographical detail. It names an honor without saying what the discovery was.",
     "authoredBy": "seva-rw-fill-recreation",
     "_meta": {
       "authoredFor": "rs-present-claim",
       "people": [
         {
-          "name": "Ruth Schwartz Cowan",
-          "sourceUrl": "https://hss.sas.upenn.edu/people/ruth-schwartz-cowan"
+          "name": "Barbara McClintock",
+          "sourceUrl": "https://www.nobelprize.org/prizes/medicine/1983/press-release/"
         }
       ]
     },
     "studentNotes": {
       "intro": "While researching a topic, a student has taken the following notes:",
       "bullets": [
-        "Ruth Schwartz Cowan is a historian of technology at the University of Pennsylvania.",
-        "Her 1983 book More Work for Mother studies washing machines, gas ranges, vacuum cleaners, and indoor plumbing.",
-        "She drew on time-use studies that compared diaries kept by American homemakers in the 1920s with diaries kept in the 1960s.",
-        "The hours a full-time homemaker spent on housework did not fall between those decades.",
-        "The new machines raised expectations for cleanliness and absorbed tasks that laundresses, delivery drivers, and other household members had once performed.",
-        "Cowan calls the pattern the industrialization of the home."
+        "Barbara McClintock was an American geneticist who worked at Cold Spring Harbor, New York.",
+        "Beginning in the 1940s, she studied maize plants whose kernels were speckled with spots of color.",
+        "She tracked the spotted kernels across several generations of plants.",
+        "Certain pieces of genetic material, she found, could move from one place on a chromosome to another.",
+        "When one of these pieces landed near a gene for kernel color, it could switch that gene off.",
+        "She received the 1983 Nobel Prize in Physiology or Medicine for her discovery of mobile genetic elements."
       ],
-      "goal": "The student wants to present Cowan’s central claim about household technology."
+      "goal": "The student wants to present McClintock’s central claim about genes."
     }
   },
   {
@@ -1048,7 +1048,7 @@ export const authoredReadingItems = [
       },
       {
         "id": "C",
-        "text": "The intonation units in Chafe’s transcripts are often set off from one another by a brief pause."
+        "text": "The intonation units in Chafe’s transcripts, each with its own intonation contour, are often set off from one another by a brief pause."
       },
       {
         "id": "D",
@@ -1056,7 +1056,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "A",
-    "explanation": "**Choice A is correct.** The notes pair an observation about speech with a fact about attention, and Choice A joins them into the claim the notes are built to support.\n\n**The Full Solution:**\n- The goal asks for a claim about the structure of spoken language, so the answer has to explain the structure, not merely describe it.\n- The transcripts show speech arriving in short bursts that each carry one new piece of information; the last bullet supplies the reason — little information is active in awareness at a time. Choice A states that link.\n- A bullet about how the recordings were handled, or about one property of the units, is evidence and not the claim.\n\n**Why the other choices are wrong:**\n- B: The method behind the book rather than its argument.\n- C: One true feature of intonation units. It reports a pause, not a claim about why speech takes this shape.\n- D: Biography, which the goal does not ask for.",
+    "explanation": "**Choice A is correct.** The notes pair an observation about speech with a fact about attention, and Choice A joins them into the claim the notes are built to support.\n\n**The Full Solution:**\n- The goal asks for a claim about the structure of spoken language, so the answer has to explain the structure, not merely describe it.\n- The transcripts show speech arriving in short bursts that each carry one new piece of information; the last bullet supplies the reason — little information is active in awareness at a time. Choice A states that link.\n- A bullet about how the recordings were handled, or about one property of the units, is evidence and not the claim.\n\n**Why the other choices are wrong:**\n- B: The method behind the book rather than its argument.\n- C: Two true features of intonation units. It reports their contour and a pause, not a claim about why speech takes this shape.\n- D: Biography, which the goal does not ask for.",
     "authoredBy": "seva-rw-fill-recreation",
     "_meta": {
       "authoredFor": "rs-present-claim",
@@ -1072,7 +1072,7 @@ export const authoredReadingItems = [
       "bullets": [
         "Wallace Chafe was a linguist at the University of California, Santa Barbara.",
         "For his 1994 book Discourse, Consciousness, and Time he transcribed recordings of ordinary conversation and narration.",
-        "In the transcripts, speech arrives in short bursts of roughly five words, each with its own intonation contour.",
+        "In the transcripts, speech arrives in short bursts of roughly four words, each with its own intonation contour.",
         "Chafe called these bursts intonation units; they are often set off from one another by a brief pause.",
         "Each unit tends to introduce only one new piece of information.",
         "Studies of attention find that only a small amount of information is active in awareness at any moment."
@@ -1141,12 +1141,12 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "B",
-    "explanation": "**Choice B is correct.** Cranes, chassis, rail cars, and paved docks are all fixed physical equipment, and infrastructure is the category those examples belong to.\n\n**The Full Solution:**\n- The colon signals that the list defines the blank, so read the four items before choosing: cranes, truck chassis, rail cars, paved storage.\n- Every item is a piece of built equipment that had to be replaced or resized. Infrastructure names that category precisely, and it also explains why a port that refused the expense lost its traffic.\n- Reject any word that would fit only a document, only a person, or only a name.\n\n**Why the other choices are wrong:**\n- A: Vocabulary would name words. Cranes and docks are equipment, not terminology.\n- C: A workforce is made of people. Not one item in the list is a worker.\n- D: Paperwork would name forms and records. The text lists things that had to be built, not filed.",
+    "explanation": "**Choice B is correct.** Icing stations and the ice houses that supplied them are physical facilities, and infrastructure is the category those examples belong to.\n\n**The Full Solution:**\n- The colon signals that the list defines the blank, so read the items before choosing: icing stations along the rail lines and ice houses to supply them.\n- Each item is a facility that had to be built before refrigerated beef could travel. Infrastructure names that category precisely, and it also explains why the meatpackers had to pay to build it once the railroads refused.\n- Reject any word that would fit only a document, only a person, or only a name.\n\n**Why the other choices are wrong:**\n- A: Vocabulary would name words. Icing stations and ice houses are facilities, not terminology.\n- C: A workforce is made of people. Not one item in the list is a worker.\n- D: Paperwork would name forms and records. The text lists things that had to be built, not filed.",
     "authoredBy": "seva-rw-fill-recreation",
     "_meta": {
       "authoredFor": "wic-example-or-illustration"
     },
-    "passage": "When container shipping spread in the 1960s, the box itself was the cheapest part of the change. Carrying one container from a factory in one country to a warehouse in another meant rebuilding the ______ around it: cranes tall enough to lift a loaded box, truck chassis cut to its dimensions, rail cars fitted with matching locks, and docks with acres of paved storage. Ports that would not rebuild lost their traffic to ports that did."
+    "passage": "When refrigerated railcars began carrying beef from Chicago to eastern cities around 1880, the insulated car was only part of the change. Keeping the meat cold meant building the ______ around it: icing stations along the rail lines, where the cars were repacked with ice every few hundred miles, and ice houses to keep those stations supplied. Railroads with money tied up in shipping live cattle refused to help, so the meatpackers built much of it themselves."
   },
   {
     "id": 9028,
@@ -1175,12 +1175,12 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "D",
-    "explanation": "**Choice D is correct.** The list names four specialists whose separate contributions produced one sheet, and collaboration is the word for work divided that way.\n\n**The Full Solution:**\n- The blank precedes a colon, so the list defines it: publisher, designer, carver, printer.\n- Each of the four does a different job on the same object, and the last sentence stresses that they depend on one another. Collaboration is the only choice that names joint production.\n- The opening clause sets up the point — one name on the print, four hands behind it — so the blank must contradict the impression of solitary authorship.\n\n**Why the other choices are wrong:**\n- A: A commission is an order placed for a work. It names how a project is paid for, not the division of labor the list describes.\n- B: Rivalry would mean the four worked against one another; the text says they depended on one another.\n- C: A compromise is a settlement between opposed positions. Nothing in the list is a dispute.",
+    "explanation": "**Choice D is correct.** The list names four specialists whose separate contributions produced one sheet, and collaboration is the word for work divided that way.\n\n**The Full Solution:**\n- The sentence after the blank defines it by listing four workers: publisher, designer, carver, printer.\n- Each of the four does a different job on the same object, and the last sentence stresses that they depend on one another. Collaboration is the only choice that names joint production.\n- The opening sentence sets up the point — one name on the print, four hands behind it — so the blank must contradict the impression of solitary authorship.\n\n**Why the other choices are wrong:**\n- A: A commission is an order placed for a work. It names how a project is paid for, not the division of labor the list describes.\n- B: Rivalry would mean the four worked against one another; the text says they depended on one another.\n- C: A compromise is a settlement between opposed positions. Nothing in the list is a dispute.",
     "authoredBy": "seva-rw-fill-recreation",
     "_meta": {
       "authoredFor": "wic-example-or-illustration"
     },
-    "passage": "A Japanese woodblock print of the Edo period usually carries a single artist’s name, though the sheet itself was the product of a ______: a publisher put up the money and chose the subject, a designer supplied the drawing, a carver cut that drawing into cherry-wood blocks, and a printer inked the blocks and pulled the impressions. Any one of the four could ruin the work of the other three."
+    "passage": "A Japanese woodblock print of the Edo period usually carries a single artist’s name. Yet each sheet was the product of a ______. A publisher paid for the work and chose the subject, a designer supplied the drawing, a carver cut the drawing into cherry-wood blocks, and a printer inked the blocks and made the prints. Any one of the four could ruin the work of the other three."
   },
   {
     "id": 9029,
@@ -1209,12 +1209,12 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "A",
-    "explanation": "**Choice A is correct.** A middle option, the direction of a scale, and the order of two items are all properties of the questionnaire itself, and features is the category word for them.\n\n**The Full Solution:**\n- The dash after the third example hands the list back to the blank, so the blank must name what the three examples have in common.\n- All three are deliberate design details of the instrument, not mistakes and not results. Features is the precise category, and the phrase of the instrument confirms that the blank belongs to the questionnaire rather than to the respondents.\n- The closing clause — the opinions have not changed — rules out any word that would name something the respondents supplied.\n\n**Why the other choices are wrong:**\n- B: Conclusions are what a survey produces. The listed items are inputs, not findings.\n- C: A misprint is an error. Offering a middle option or ordering two items is a choice the designer makes on purpose.\n- D: An endorsement is an expression of support, which none of the three examples is.",
+    "explanation": "**Choice A is correct.** A middle option, the direction of a scale, and the order of two items are all properties of the questionnaire itself, and features is the category word for them.\n\n**The Full Solution:**\n- Such points back to the list in the previous sentence, so the blank must name what the three examples have in common.\n- All three are deliberate design details of the instrument, not mistakes and not results. Features is the precise category, and the phrase of the questionnaire confirms that the blank belongs to the questionnaire rather than to the respondents.\n- The closing clause — the opinions have not changed — rules out any word that would name something the respondents supplied.\n\n**Why the other choices are wrong:**\n- B: Conclusions are what a survey produces. The listed items are inputs, not findings.\n- C: A misprint is an error. Offering a middle option or ordering two items is a choice the designer makes on purpose.\n- D: An endorsement is an expression of support, which none of the three examples is.",
     "authoredBy": "seva-rw-fill-recreation",
     "_meta": {
       "authoredFor": "wic-example-or-illustration"
     },
-    "passage": "Survey researchers have learned to treat a questionnaire as an instrument that can bend its own readings. Whether a question offers a middle option, whether the response scale runs from good to bad or from bad to good, whether an item about the economy comes before or after an item about jobs — such ______ of the instrument can move a reported percentage by several points, even when the opinions being measured have not changed at all."
+    "passage": "Survey researchers have learned that a questionnaire can bend its own readings. Results can shift depending on whether a question offers a middle option, whether the answer scale runs from good to bad or from bad to good, or which of two related questions comes first. Such ______ of the questionnaire can move a reported percentage by several points, even when the opinions being measured have not changed at all."
   },
   {
     "id": 9030,
@@ -1269,7 +1269,7 @@ export const authoredReadingItems = [
       },
       {
         "id": "C",
-        "text": "By contrast,"
+        "text": "For instance,"
       },
       {
         "id": "D",
@@ -1277,11 +1277,11 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "B",
-    "explanation": "**Choice B is correct.** The passage sets two developments of the 1880s side by side in two countries, and Meanwhile is the transition that holds concurrent developments together.\n\n**The Full Solution:**\n- Take the first sentence as an instruction: two tracks that ran side by side promises two strands in the same period rather than a chain of events.\n- The sentence before the blank reports what was happening in France; the sentence after reports what engineers at a German firm were doing during the same decade. Meanwhile marks that simultaneity without claiming that either strand produced the other.\n- Settle the relation before weighing the wording. When neither half causes, contradicts, or follows the other, the text needs a simultaneity transition.\n\n**Why the other choices are wrong:**\n- A: Consequently would make the German load tests an effect of the French licensing, but the passage presents the two as parallel rather than as cause and effect.\n- C: By contrast requires opposition. Both sentences describe the same technique spreading, so there is nothing for a contrast to work on.\n- D: Eventually would place the testing after the licensing in a sequence, contradicting the two tracks that ran side by side.",
+    "explanation": "**Choice B is correct.** The passage sets two developments of the 1880s side by side in two countries, and Meanwhile is the transition that holds concurrent developments together.\n\n**The Full Solution:**\n- Take the first sentence as an instruction: two tracks that ran side by side promises two strands in the same period rather than a chain of events.\n- The sentence before the blank reports what was happening in France; the sentence after reports what engineers at a German firm were doing during the same decade. Meanwhile marks that simultaneity without claiming that either strand produced the other.\n- Settle the relation before weighing the wording. When neither half causes, contradicts, or follows the other, the text needs a simultaneity transition.\n\n**Why the other choices are wrong:**\n- A: Consequently would make the German load tests an effect of the sale of the French patent rights, but the passage presents the two as parallel rather than as cause and effect.\n- C: For instance would make the German load tests an example of the French patent sales, but testing beams is a separate development, not a case of selling rights.\n- D: Eventually would place the testing after the licensing in a sequence, contradicting the two tracks that ran side by side.",
     "_meta": {
       "sourceRef": "pilot-r1-transitions-meanwhile"
     },
-    "passage": "Reinforced concrete reached ordinary building sites in the 1880s along two tracks that ran side by side. In France, the arrangements of iron rods first patented for garden tubs and water tanks were being licensed to builders abroad, one system at a time. ______, engineers at a German firm were loading test beams until they broke and publishing the figures, so that the rods in a floor could be placed by calculation.",
+    "passage": "Reinforced concrete reached ordinary building sites in the 1880s along two tracks that ran side by side. In France, the rights to iron-rod arrangements first patented for garden tubs and water tanks were being sold to builders abroad, one country at a time. ______, engineers at a German firm were loading test beams until they broke and publishing the figures, so that the rods in a floor could be placed by calculation.",
     "authoredBy": "seva-rw-fill-recreation"
   },
   {
@@ -1345,7 +1345,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "A",
-    "explanation": "**Choice A is correct.** The goal asks why one kind of light steadies and the other does not, and Choice A supplies the reason: a planet is a disc of many points whose separate flickers cancel one another.\n\n**The Full Solution:**\n- Separate the finding from its explanation. The finding is the difference between the flickering stars and the steady planets, so the explanation has to be a mechanism the notes offer for that difference.\n- Two bullets carry it: a planet is near enough to present a tiny disc, which amounts to many neighboring points of light, and the flickers of those points are independent of one another. Choice A joins them and draws the consequence.\n- A statement that is equally true of stars and planets cannot explain why the two look different, however accurate it is.\n\n**Why the other choices are wrong:**\n- B: A restatement of the finding. The goal asks why the planets hold steady, not that they do.\n- C: The notes close this off. The light of both crosses the same atmosphere, so the distance of the source is not what separates them.\n- D: True of everything in the sky. It explains why any light flickers, not why a planet does not.",
+    "explanation": "**Choice A is correct.** The goal asks why one kind of light steadies and the other does not, and Choice A supplies the reason: a planet is a disc of many points whose separate flickers cancel one another.\n\n**The Full Solution:**\n- Separate the finding from its explanation. The finding is the difference between the flickering stars and the steady planets, so the explanation has to be a mechanism the notes offer for that difference.\n- Two bullets carry it: a planet is near enough to appear as a tiny disc, which acts like many neighboring points of light, and the flickers of those points are independent of one another. Choice A joins them and draws the consequence.\n- A statement that is equally true of stars and planets cannot explain why the two look different, however accurate it is.\n\n**Why the other choices are wrong:**\n- B: A restatement of the finding. The goal asks why the planets hold steady, not that they do.\n- C: The notes close this off. The light of both crosses the same atmosphere, so the distance of the source is not what separates them.\n- D: True of everything in the sky. It explains why any light flickers, not why a planet does not.",
     "_meta": {
       "authoredFor": "rs-explain-finding",
       "sourceRef": "pilot-r3-rhetsyn-shortest"
@@ -1354,11 +1354,11 @@ export const authoredReadingItems = [
     "studentNotes": {
       "intro": "While researching a topic, a student has taken the following notes:",
       "bullets": [
-        "On a clear night, the stars flicker in brightness while the planets among them shine with a steady light.",
+        "On a clear night, stars flicker, but planets shine with a steady light.",
         "The light of both crosses the same miles of atmosphere before it reaches the eye.",
-        "Air at different temperatures bends light by different amounts, and pockets of warm and cool air drift across the line of sight.",
-        "Even the nearest star is so distant that its light arrives as a single point, which one drifting pocket of air displaces all at once.",
-        "A planet is far smaller but near enough to present a tiny disc, which is in effect many neighboring points of light.",
+        "Warm and cool air bend light by different amounts, and pockets of each drift across the line of sight.",
+        "A star is so distant that its light arrives as a single point, which one pocket of air shifts all at once.",
+        "A planet is near enough to appear as a tiny disc, which acts like many neighboring points of light.",
         "The flickers of those neighboring points are independent of one another."
       ],
       "goal": "The student wants to explain why the planets do not flicker as the stars do."
@@ -1375,7 +1375,7 @@ export const authoredReadingItems = [
     "choices": [
       {
         "id": "A",
-        "text": "“During the early part of my stay I had been struck by the contrast between the vitality of the climate and the deadness of the community.”"
+        "text": "“During the early part of my stay I had been struck by the contrast between the vitality of the climate and the deadness of the community. Day by day, after the December snows were over, a blazing blue sky poured down torrents of light and air on the white landscape, which gave them back in an intenser glitter.”"
       },
       {
         "id": "B",
@@ -1391,7 +1391,7 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "C",
-    "explanation": "**Choice C is correct.** The envelope is exactly the kind of ordinary object the claim describes, and what it carries — a patent-medicine address, a wife’s name — tells the reader what the household costs without any statement about it.\n\n**The Full Solution:**\n- Split the claim in two before reading the quotations: the disclosure must come through an object that passes through Frome’s hands, and it must arrive without direct commentary.\n- Choice C satisfies both halves at once. The post-master hands Frome an envelope, and the envelope is addressed to Mrs. Frome and franked by a maker of patent medicine, which reveals a sick wife and a recurring expense while the narrator explains nothing.\n- Eliminate any quotation that carries no object, or that states its meaning outright instead of leaving it in the detail.\n\n**Why the other choices are wrong:**\n- A: A generalization about the village and its weather. No object passes through Frome’s hands, and the sentence tells the reader its point rather than showing it.\n- B: This describes how the townspeople treat Frome. It is about manners rather than about anything he handles, so it misses the first half of the claim.\n- D: This is the narrator commenting explicitly on the gaps in his source — the opposite of disclosure through physical detail.",
+    "explanation": "**Choice C is correct.** The envelope is exactly the kind of ordinary object the claim describes, and what it carries — a patent-medicine address, a wife’s name — tells the reader what the household costs without any statement about it.\n\n**The Full Solution:**\n- Split the claim in two before reading the quotations: the disclosure must come through an object that passes through Frome’s hands, and it must arrive without direct commentary.\n- Choice C satisfies both halves at once. The post-master hands Frome an envelope, and the envelope is addressed to Mrs. Frome and franked by a maker of patent medicine, which reveals a sick wife and a recurring expense while the narrator explains nothing.\n- Eliminate any quotation that carries no object, or that states its meaning outright instead of leaving it in the detail.\n\n**Why the other choices are wrong:**\n- A: A generalization about the village and its weather. No object passes through Frome’s hands; Frome himself does not even appear in these lines.\n- B: This describes how the townspeople treat Frome. It is about manners rather than about anything he handles, so it misses the first half of the claim.\n- D: This is the narrator commenting explicitly on the gaps in his source — the opposite of disclosure through physical detail.",
     "_meta": {
       "authoredFor": "coe-text-illustrate-quote",
       "sourceRef": "pilot-r4-coe-textual",
@@ -1403,7 +1403,7 @@ export const authoredReadingItems = [
         "sourceUrl": "https://www.gutenberg.org/ebooks/4517"
       }
     },
-    "passage": "Ethan Frome, a 1911 novel by Edith Wharton, is narrated by an outsider stranded for a winter in the New England village of Starkfield, where he slowly assembles the history of a neighbor who never speaks of himself. A reader might argue that the novel discloses the burdens of Frome’s household through the ordinary objects that pass through his hands rather than through any direct account of his circumstances.",
+    "passage": "Ethan Frome is a 1911 novel by Edith Wharton. The novel’s narrator, stranded for a winter in the New England village of Starkfield, slowly pieces together the history of a neighbor who never speaks of himself. In the novel, Wharton reveals the burdens of Frome’s household through the ordinary objects that pass through his hands rather than through any direct account of his circumstances: ______",
     "authoredBy": "seva-rw-fill-recreation"
   },
   {
@@ -1433,12 +1433,12 @@ export const authoredReadingItems = [
       }
     ],
     "correctAnswer": "B",
-    "explanation": "**Choice B is correct.** Yet flags a reversal, so the blank must name the impression the recordings overturn — speech without rules — and undisciplined is that word.\n\n**The Full Solution:**\n- Find the pivot. Yet separates the common description from the evidence, so whatever the blank says must be the opposite of what the recordings show.\n- The recordings show switches falling at predictable boundaries that speakers can judge as right or wrong — in other words, governed by rules. The description being corrected must therefore mean ungoverned, which is undisciplined.\n- The appositive as though each switch were a lapse in control confirms the direction: the blank is a criticism, not a compliment.\n\n**Why the other choices are wrong:**\n- A: Methodical is what the evidence establishes, so putting it before Yet makes the sentence contradict itself.\n- C: Deliberate likewise agrees with the evidence rather than opposing it, and it does not describe a lapse.\n- D: Hesitant would describe the pace of the speech, not whether it follows rules, which is the question the passage raises.",
+    "explanation": "**Choice B is correct.** Yet flags a reversal, so the blank must name the impression the recordings overturn — speech without rules — and undisciplined is that word.\n\n**The Full Solution:**\n- Find the pivot. Yet separates the common description from the evidence, so whatever the blank says must be the opposite of what the recordings show.\n- The recordings show switches following clear patterns that speakers can judge as right or wrong — in other words, governed by rules. The description being corrected must therefore mean ungoverned, which is undisciplined.\n- The appositive as though each switch were a lapse in control confirms the direction: the blank is a criticism, not a compliment.\n\n**Why the other choices are wrong:**\n- A: Methodical is what the evidence establishes, so putting it before Yet makes the sentence contradict itself.\n- C: Deliberate likewise agrees with the evidence rather than opposing it, and it does not describe a lapse.\n- D: Hesitant would describe the pace of the speech, not whether it follows rules, which is the question the passage raises.",
     "_meta": {
       "authoredFor": "wic-contrast",
       "sourceRef": "pilot-r5-wic-literary"
     },
-    "passage": "Speakers who move between two languages in the middle of a sentence are often described as ______, as though each switch were a lapse in control. Yet recordings of bilingual conversation show that the switches fall at predictable grammatical boundaries: between a clause and its complement, or before a full noun phrase, but almost never between an article and the noun it introduces. Speakers reject the boundaries they never use as plainly ungrammatical.",
+    "passage": "Speakers who move between two languages in the middle of a sentence are often described as ______, as though each switch were a lapse in control. Yet recordings of Spanish-English bilinguals show that the switches follow clear patterns. Speakers often switch between two clauses, for example, but almost never between a subject pronoun and its verb. Asked about such switches, speakers reject them as ungrammatical.",
     "authoredBy": "seva-rw-fill-recreation"
   },
   {
@@ -1509,7 +1509,7 @@ export const authoredReadingItems = [
       "authoredFor": "wic-contrast",
       "sourceRef": "lit-r2-wic-concession-medium"
     },
-    "passage": "The collapsible metal paint tube, patented in 1841, is easy to file among the ______ inventions of the nineteenth century rather than among its consequential ones. Yet before the tube, oil color was kept in animal bladders that leaked and could not be resealed, so a painter who wanted to work outdoors had to grind and mix a day’s colors in advance and use them before they spoiled."
+    "passage": "The collapsible metal paint tube, patented in 1841, is easy to file among the ______ inventions of the nineteenth century rather than among its consequential ones. Yet before the tube, oil color was kept in animal bladders that leaked and could not be resealed. A painter who wanted to work outdoors had to grind and mix a day’s colors in advance and use them before they spoiled."
   },
   {
     "id": 9038,
@@ -1585,7 +1585,7 @@ export const authoredReadingItems = [
     "_meta": {
       "sourceRef": "lit-r4-tsp-repeated-image-hard"
     },
-    "passage": "Most of the world’s office paper follows a standard published in Germany in 1922. The system fixes one starting area, a single square meter, and one proportion: the long side of every sheet is the square root of two times the short side. __That proportion is the only one that survives being halved, since folding a sheet of any other shape changes the relation between its sides.__ Because it survives, each fold produces the next size in the series, and the sizes nest exactly: two A4 pages cover one A3, four cover one A2. A printer can therefore enlarge a page from one size to the next without cropping the image or leaving a band of white, and a cabinet built for one size will hold the folded halves of the size above it."
+    "passage": "Most of the world’s office paper follows a standard published in Germany in 1922. The system fixes one starting area, a single square meter, and one proportion: the long side of every sheet is the square root of two times the short side. __That proportion is the only one that survives being halved, since folding a sheet of any other shape changes the relation between its sides.__ Because it survives, each fold produces the next size in the series, and the sizes nest exactly: two A4 pages cover one A3, four cover one A2. A printer can therefore enlarge a page from one size to the next without cropping the image or leaving a band of white. A cabinet built for one size will also hold the folded halves of the size above it."
   },
   {
     "id": 9040,
@@ -1598,29 +1598,35 @@ export const authoredReadingItems = [
     "choices": [
       {
         "id": "A",
-        "text": "museum visitors everywhere devote less attention to paintings than curators would like them to."
+        "text": "museum visitors everywhere look at most paintings for less than half a minute."
       },
       {
         "id": "B",
-        "text": "visitors find nineteenth-century European painting less engaging than they find other kinds of art."
+        "text": "the six paintings in the study held visitors' attention less well than the museum's other works did."
       },
       {
         "id": "C",
-        "text": "guided tours are what allow museum visitors to spend more than a few seconds with a single work."
+        "text": "visitors would have looked at the paintings longer if the labels beside them had been longer."
       },
       {
         "id": "D",
-        "text": "unguided visitors to this gallery typically looked at a painting for well under a minute."
+        "text": "the visitors in the study typically looked at the six paintings for well under a minute."
       }
     ],
     "correctAnswer": "D",
-    "explanation": "**Choice D is correct.** It keeps every limit the text places on the evidence — one gallery, unguided visitors — and claims no more than the median of seventeen seconds will bear.\n\n**The Full Solution:**\n- Mark the limits before reading the choices. The data come from one gallery, one kind of painting, weekday afternoons, and visitors outside a tour.\n- The blank follows Taken by themselves, the measurements can support only, so the answer must be the smallest conclusion the numbers license. Choice D reports the behavior of exactly the group that was watched, in exactly the place it was watched.\n- Any choice that drops a limit, or that compares the observed group with a group never observed, goes beyond the evidence.\n\n**Why the other choices are wrong:**\n- A: Everywhere abandons the limits. One gallery in one museum cannot speak for museum visitors in general.\n- B: The study looked at only one kind of painting, so it offers no comparison with other kinds of art.\n- C: Visitors on guided tours were excluded, so the text supplies no basis for a claim about what tours do.",
+    "explanation": "**Choice D is correct.** It keeps every limit the text places on the evidence — six paintings, one museum — and claims no more than a median of 17 seconds will bear.\n\n**The Full Solution:**\n- Mark the limits before reading the choices. The data come from six paintings, all in one museum.\n- The blank follows Taken by themselves, the measurements can support only, so the answer must be the smallest conclusion the numbers license. Choice D reports the behavior of the visitors who were watched, at the paintings where they were watched.\n- Any choice that drops a limit, or that compares the observed paintings with something never observed, goes beyond the evidence.\n\n**Why the other choices are wrong:**\n- A: Everywhere abandons the limits. Six paintings in one museum cannot speak for museum visitors in general.\n- B: The study timed visitors only at the six paintings, so it offers no comparison with the museum's other works.\n- C: The text says nothing about labels, so it supplies no basis for a claim about what longer labels would do.",
     "authoredBy": "seva-rw-fill-recreation",
     "_meta": {
       "authoredFor": "inf-generalization-conclusion",
-      "sourceRef": "lit-r5-inf-scoped-hedge-hard"
+      "sourceRef": "lit-r5-inf-scoped-hedge-hard",
+      "source": {
+        "title": "Spending Time on Art",
+        "author": "Jeffrey K. Smith and Lisa F. Smith",
+        "year": 2001,
+        "sourceUrl": "https://journals.sagepub.com/doi/10.2190/5MQM-59JH-X21R-JN5J"
+      }
     },
-    "passage": "Researchers who time museum visitors keep finding that people look at paintings for far less time than curators assume. In one large art museum, the median stop in front of a work lasted about seventeen seconds. The observations, though, were gathered in a single gallery of nineteenth-century European painting, on weekday afternoons, and only from visitors who were not taking part in a guided tour. Taken by themselves, the measurements can support only the conclusion that ______"
+    "passage": "Researchers have tried to measure how long museum visitors actually look at works of art. In a 2001 study at the Metropolitan Museum of Art in New York, researchers timed 150 visitors as they looked at six famous paintings. The median viewing time was 17 seconds. The study, though, observed only those six paintings, all in a single museum. Taken by themselves, the measurements can support only the conclusion that ______"
   },
   {
     "id": 9041,
@@ -1662,6 +1668,6 @@ export const authoredReadingItems = [
         "sourceUrl": "https://www.gutenberg.org/ebooks/2814"
       }
     },
-    "passage": "Eveline, one of the stories in James Joyce’s 1914 collection Dubliners, follows a young woman through the evening on which she has decided to leave her family’s house for a life abroad. A reader might argue that the story registers her attachment to that house not in anything she says about it but in the household things she has kept in order for years."
+    "passage": "James Joyce’s 1914 collection Dubliners includes a story that follows Eveline, a young woman, through the evening on which she has decided to leave her family’s house for a life abroad. In the story, Joyce shows her attachment to that house not in anything she says about it but in the household things she has kept in order for years: ______"
   }
 ];

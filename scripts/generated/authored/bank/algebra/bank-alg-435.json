@@ -1,6 +1,6 @@
 {
  "id": "bank-alg-435",
- "question": "Line $t$ is shown in the $xy$-plane. Line $u$ is parallel to line $t$ and passes through the point $(2, -3)$. If the point $(6, c)$ lies on line $u$, what is the value of $c$?",
+ "question": "Line $t$ is shown in the $xy$-plane. Line $u$ is parallel to line $t$ and passes through the point $(0, 0)$. If the point $(8, c)$ lies on line $u$, what is the value of $c$?",
  "diagram": {
   "type": "linearGraph",
   "params": {
@@ -37,22 +37,22 @@
   },
   {
    "id": "B",
-   "text": "$0$"
+   "text": "$6$"
   },
   {
    "id": "C",
-   "text": "$3$"
+   "text": "$7$"
   },
   {
    "id": "D",
-   "text": "$\\frac{11}{2}$"
+   "text": "$\\frac{32}{3}$"
   }
  ],
  "distractorNotes": {
-  "A": "subtracts the rise of 3 from -3 instead of adding it",
-  "C": "reports the rise of 3 over the run from x = 2 to x = 6, forgetting to start from y = -3",
-  "D": "finds the y-value on line t at x = 6 instead of on line u"
+  "A": "uses slope -3/4, getting -6",
+  "C": "finds the y-value on line t at x = 8, (3/4)(8) + 1, instead of on line u",
+  "D": "inverts the slope to 4/3, getting (4/3)(8)"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Parallel Line through a Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Line $t$ has slope $\\frac{3}{4}$. Going from $x = 2$ to $x = 6$ on line $u$ raises $y$ by $\\frac{3}{4}(4) = 3$, so $c = -3 + 3 = 0$.\n\n**The Full Solution:**\nStep 1: Line $t$ passes through $(0, 1)$ and $(4, 4)$, so its slope is $\\frac{4 - 1}{4 - 0} = \\frac{3}{4}$.\nStep 2: Line $u$ is parallel, so it also has slope $\\frac{3}{4}$. From $x = 2$ to $x = 6$ is a run of $4$, which gives a rise of $\\frac{3}{4}(4) = 3$.\nStep 3: So $c = -3 + 3 = 0$. Check: the slope from $(2, -3)$ to $(6, 0)$ is $\\frac{0 - (-3)}{6 - 2} = \\frac{3}{4}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): subtracts the rise of $3$ from $-3$ instead of adding it.\n* Choice C ($3$): is the rise itself, without starting from $y = -3$.\n* Choice D ($\\frac{11}{2}$): is the $y$-value on line $t$ at $x = 6$, $\\frac{3}{4}(6) + 1$, not on line $u$.\n\n**Test Day Takeaway:** On parallel lines, the same run gives the same rise; start from the given point on the new line."
+ "explanation": "**SAT Pattern: Parallel Line through a Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Line $t$ has slope $\\frac{3}{4}$, so line $u$ is $y = \\frac{3}{4}x$, and $c = \\frac{3}{4}(8) = 6$.\n\n**The Full Solution:**\nStep 1: Line $t$ passes through $(0, 1)$ and $(4, 4)$, so its slope is $\\frac{4 - 1}{4 - 0} = \\frac{3}{4}$.\nStep 2: Line $u$ is parallel to line $t$ and passes through the origin, so it is $y = \\frac{3}{4}x$.\nStep 3: Substitute $x = 8$: $c = \\frac{3}{4}(8) = 6$. Check: the slope from $(0, 0)$ to $(8, 6)$ is $\\frac{6}{8} = \\frac{3}{4}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-6$): uses slope $-\\frac{3}{4}$ instead of $\\frac{3}{4}$.\n* Choice C ($7$): adds line $t$'s $y$-intercept, $1$, so it finds the point on line $t$, not line $u$.\n* Choice D ($\\frac{32}{3}$): inverts the slope to $\\frac{4}{3}$.\n\n**Test Day Takeaway:** A line through the origin has no constant term: once you have the slope, $y$ is just the slope times $x$."
 }

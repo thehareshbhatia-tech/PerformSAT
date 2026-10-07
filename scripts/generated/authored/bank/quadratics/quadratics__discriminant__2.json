@@ -1,30 +1,30 @@
 {
   "id": 2,
-  "question": "Which of the following equations has no real solutions?",
+  "question": "$9x^{2} + 4 = 12x$\nHow many distinct real solutions does the given equation have?",
   "choices": [
     {
       "id": "A",
-      "text": "$x^{2} - 9 = 0$"
+      "text": "Exactly one"
     },
     {
       "id": "B",
-      "text": "$x^{2} + 4x + 4 = 0$"
+      "text": "Exactly two"
     },
     {
       "id": "C",
-      "text": "$x^{2} + 4x - 5 = 0$"
+      "text": "Infinitely many"
     },
     {
       "id": "D",
-      "text": "$x^{2} + 4x + 7 = 0$"
+      "text": "Zero"
     }
   ],
   "distractorNotes": {
-    "A": "confuses x^2 - 9 = 0 with x^2 + 9 = 0; x^2 = 9 has the real solutions 3 and -3",
-    "B": "treats a discriminant of 0 as \"no solutions\"; x^2 + 4x + 4 = (x + 2)^2 has the one solution -2",
-    "C": "assumes a negative constant means no real solutions; the discriminant is 16 + 20 = 36 > 0"
+    "B": "moves 12x correctly but changes the sign of 4, getting 9x^2 - 12x - 4 = 0, whose discriminant 144 + 144 = 288 is positive",
+    "C": "thinks an equation that factors into two equal factors is true for every x",
+    "D": "thinks a discriminant of 0 means no real solutions"
   },
-  "correctAnswer": "D",
-  "hint": "A negative discriminant means no real solutions.",
-  "explanation": "**Choice D is correct.**\n\n**The Fast Way (~20s):** For $x^{2} + 4x + 7 = 0$, $b^{2} - 4ac = 16 - 28 = -12 < 0$, so it has no real solutions.\n\n**The Full Solution:**\nStep 1: An equation $ax^{2} + bx + c = 0$ has no real solutions exactly when $b^{2} - 4ac < 0$.\nStep 2: Compute each discriminant: A: $0 - 4(1)(-9) = 36$; B: $16 - 16 = 0$; C: $16 - 4(1)(-5) = 36$; D: $16 - 4(1)(7) = -12$.\nStep 3: Only choice D is negative. Check by completing the square: $x^{2} + 4x + 7 = (x + 2)^{2} + 3$, which is at least $3$ for every real $x$, so it is never $0$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{2} - 9 = 0$): has the real solutions $3$ and $-3$. The equation with no real solutions would be $x^{2} + 9 = 0$.\n* Choice B ($x^{2} + 4x + 4 = 0$): has discriminant $0$, which means exactly one real solution, $x = -2$, not zero solutions.\n* Choice C ($x^{2} + 4x - 5 = 0$): a negative constant makes $-4ac$ positive; this equation factors as $(x + 5)(x - 1) = 0$.\n\n**Test Day Takeaway:** Zero real solutions means a NEGATIVE discriminant; a discriminant of exactly $0$ still gives one real solution."
+  "correctAnswer": "A",
+  "hint": "Move every term to one side, then find the discriminant or factor.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~20s):** Rewrite as $9x^{2} - 12x + 4 = 0$. The discriminant is $(-12)^{2} - 4(9)(4) = 144 - 144 = 0$, so there is exactly one real solution.\n\n**The Full Solution:**\nStep 1: Subtract $12x$ from both sides: $9x^{2} - 12x + 4 = 0$, so $a = 9$, $b = -12$, and $c = 4$.\nStep 2: Compute the discriminant: $b^{2} - 4ac = 144 - 4(9)(4) = 144 - 144 = 0$.\nStep 3: A discriminant of $0$ means exactly one distinct real solution. Check: $9x^{2} - 12x + 4 = (3x - 2)^{2}$, which equals $0$ only when $x = \\frac{2}{3}$, and $9\\left(\\frac{2}{3}\\right)^{2} + 4 = 8 = 12\\left(\\frac{2}{3}\\right)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B (Exactly two): changes the sign of $4$ while rearranging, getting $9x^{2} - 12x - 4 = 0$ and a discriminant of $144 + 144 = 288$. The $4$ stays on the left side, so it stays positive.\n* Choice C (Infinitely many): $(3x - 2)^{2} = 0$ is true only for $x = \\frac{2}{3}$, not for every $x$.\n* Choice D (Zero): a discriminant of $0$ gives one solution; zero real solutions needs a negative discriminant.\n\n**Test Day Takeaway:** Rearrange to $ax^{2} + bx + c = 0$, then read the sign of $b^{2} - 4ac$: positive gives two solutions, zero gives one, negative gives none."
 }

@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 2,
- "passage": "Ordinary soda-lime glass expands markedly as it warms, so a vessel heated unevenly can crack from internal stress. Borosilicate glass, developed in the late nineteenth century, expands only about a third as much for each degree of warming. ______ vessels made from it withstand abrupt temperature changes, and borosilicate became the standard glass of the laboratory.",
+ "passage": "Polytetrafluoroethylene (PTFE), a slippery plastic, has one of the lowest coefficients of friction of any solid. Very few substances stick to its surface. ______ PTFE is widely used as a nonstick coating for frying pans and other cookware.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The final sentence states the consequence of the property just described: because borosilicate expands far less per degree, vessels made from it tolerate abrupt temperature changes. \"As a result\" marks that cause-effect step.\n\n**The Full Solution:**\n- The causal setup spans two sentences: high expansion makes unevenly heated ordinary glass crack; borosilicate expands only a third as much.\n- The blank introduces what follows from the low expansion, resistance to thermal shock and adoption in laboratories, so a consequence transition is required.\n\n**Why the other choices are wrong:**\n- A: \"For example\" would make the vessels' durability an illustration of the expansion figure rather than its effect.\n- B: \"Instead\" substitutes one course for a rejected alternative, but nothing in the previous sentence is being rejected.\n- D: \"Eventually\" is purely temporal; it drops the causal link between low expansion and shock resistance that the paragraph is built to deliver."
+ "explanation": "**Choice C is correct.** The last sentence states a consequence of the properties just described: because so little sticks to PTFE, it makes a good nonstick coating for cookware. \"As a result\" marks that cause-and-effect step.\n\n**The Full Solution:**\n- Cause: PTFE has extremely low friction, and very few substances stick to it.\n- Effect: it is widely used to coat frying pans and other cookware.\n- A result transition links the property to the use.\n\n**Why the other choices are wrong:**\n- A: The last sentence is not an example of low friction; it describes a use that follows from it.\n- B: \"Instead\" signals a replacement or alternative, but nothing is being replaced.\n- D: \"Eventually\" signals only a later time; the sentence's point is why PTFE is used, not when."
 }

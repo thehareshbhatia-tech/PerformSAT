@@ -6,7 +6,7 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 1,
- "passage": "Each of the large storage jars used to ship bowls aboard the ninth-century Belitung ship, a merchant vessel found off the Indonesian coast with some 60,000 Chinese ceramics in its hold, ______ clues to how the cargo was packed: roughly 130 bowls coiled in a tight spiral and cushioned with straw.",
+ "passage": "The ninth-century Belitung ship, a merchant vessel found off the Indonesian coast, carried some 60,000 Chinese ceramics. Each of the large storage jars used to ship its bowls ______ clues to how the cargo was packed: roughly 130 bowls coiled in a tight spiral and cushioned with straw.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
@@ -27,7 +27,7 @@
   }
  ],
  "correctAnswer": "D",
- "explanation": "**Choice D is correct.** The subject of the sentence is the singular pronoun \"each,\" so the verb must be the singular \"preserves.\"\n\n**The Full Solution:**\n- Strip away the modifiers and the skeleton is: \"Each... preserves clues to how the cargo was packed.\"\n- \"Each\" is grammatically singular even when followed by \"of\" plus a plural noun; \"of the large storage jars\" and the long appositive about the ship are interruptions, not the subject.\n- The singular present \"preserves\" is therefore the only verb that agrees.\n\n**Why the other choices are wrong:**\n- A: \"Have preserved\" is plural, agreeing with the nearby \"jars\" or \"ceramics\" rather than with the true subject \"each.\"\n- B: \"Are preserving\" is plural as well, and the progressive aspect suits an ongoing activity, not a standing property of the jars.\n- C: \"Preserve\" is the plural form, drawn to the intervening plural nouns instead of the singular subject.",
+ "explanation": "**Choice D is correct.** The subject of the sentence is the singular pronoun \"each,\" so the verb must be the singular \"preserves.\"\n\n**The Full Solution:**\n- Strip away the modifiers and the skeleton is: \"Each... preserves clues to how the cargo was packed.\"\n- \"Each\" is grammatically singular even when followed by \"of\" plus a plural noun; \"of the large storage jars used to ship its bowls\" is an interruption, not the subject.\n- The singular present \"preserves\" is therefore the only verb that agrees.\n\n**Why the other choices are wrong:**\n- A: \"Have preserved\" is plural, agreeing with the nearby \"jars\" or \"bowls\" rather than with the true subject \"each.\"\n- B: \"Are preserving\" is plural as well, and the progressive aspect suits an ongoing activity, not a standing property of the jars.\n- C: \"Preserve\" is the plural form, drawn to the intervening plural nouns instead of the singular subject.",
  "_meta": {
   "anchor": "Belitung shipwreck storage jars; 'each' as singular subject across intervening plurals"
  }

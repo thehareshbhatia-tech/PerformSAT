@@ -9,34 +9,34 @@
  "studentNotes": {
   "intro": "While researching a topic, a student has taken the following notes:",
   "bullets": [
-   "Curtis F. Marbut (1863-1935) was an American soil scientist.",
-   "From 1913 until his death, he directed the national soil survey of the United States.",
-   "Earlier surveys had classified soils chiefly by the rock beneath them, as if soil were crushed rock.",
-   "Marbut argued that a soil is a natural body formed by climate, vegetation, and time.",
-   "He organized American soil classification around the soil's own layered profile.",
-   "His system became the basis of the soil classification the US Department of Agriculture published in 1938."
+   "Before the 1790s, France used many different local units of weight and measure.",
+   "In 1790, a proposal for a new system based on natural units was put to France's National Assembly.",
+   "In 1791, the meter was defined as one ten-millionth of the distance from the North Pole to the equator.",
+   "Larger and smaller units were formed by multiplying or dividing by powers of ten, as in kilometer and centimeter.",
+   "France officially adopted the new metric system in 1795.",
+   "Today it is the basis of the International System of Units (SI)."
   ],
-  "goal": "The student wants to explain Marbut's main contribution to an audience unfamiliar with soil science."
+  "goal": "The student wants to explain the main idea behind the metric system to an audience unfamiliar with its history."
  },
  "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
  "choices": [
   {
    "id": "A",
-   "text": "Curtis F. Marbut (1863-1935) was an American soil scientist who directed the national soil survey of the United States from 1913 until his death."
+   "text": "France officially adopted the metric system in 1795, and today it is the basis of the International System of Units."
   },
   {
    "id": "B",
-   "text": "Under Marbut's direction, government surveyors carried the national soil survey of the United States forward using his system of classification."
+   "text": "In 1790, a proposal for a new system of measurement was put to France's National Assembly."
   },
   {
    "id": "C",
-   "text": "Curtis F. Marbut reclassified American soils on a new idea: soil is not crushed rock but a natural body shaped by climate, vegetation, and time."
+   "text": "The metric system replaced local units with units tied to the size of the Earth and related by powers of ten."
   },
   {
    "id": "D",
-   "text": "Marbut's classification replaced an earlier system and became the basis of the soil classification that the US Department of Agriculture published in 1938."
+   "text": "In 1791, the meter was defined as one ten-millionth of the distance from the North Pole to the equator."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The goal is to explain Marbut's main contribution to readers who know nothing of soil science, and C does that job: it identifies him, states the idea he introduced, and contrasts it with the view it replaced.\n\n**The Full Solution:**\n- An unfamiliar audience needs the substance of the contribution, not just its reception: what did Marbut actually change?\n- C names the old view (soil as crushed rock) and the new idea (soil as a natural body shaped by climate, vegetation, and time).\n- That is the contribution itself, explained from the ground up — exactly what the goal demands.\n\n**Why the other choices are wrong:**\n- A: It gives dates and a job title but never says what Marbut contributed.\n- B: It reports that his system was used without ever saying what the system was.\n- D: It says the contribution was adopted but leaves its content a mystery — an unfamiliar reader still cannot say what Marbut's idea actually was."
+ "explanation": "**Choice C is correct.** To explain the main idea behind the metric system to readers new to it, a sentence must say what made the system different, and C does: its units were tied to a natural standard, the size of the Earth, and related to one another by powers of ten.\n\n**The Full Solution:**\n- The notes give two defining features: the meter was based on the distance \"from the North Pole to the equator,\" and other units were formed \"by multiplying or dividing by powers of ten.\"\n- The notes also say the system replaced France's \"many different local units.\"\n- C combines all of this in plain terms, so an unfamiliar reader learns what the system's central idea was.\n\n**Why the other choices are wrong:**\n- A: It gives a date and the system's later role but does not explain the idea behind it.\n- B: It reports that a proposal was made without saying what the proposal's central idea was.\n- D: It gives one precise definition, but it leaves out the decimal relationship among units and does not frame the idea for a new reader."
 }

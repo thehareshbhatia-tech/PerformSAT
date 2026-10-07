@@ -6,7 +6,7 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 1,
- "passage": "Saffron commands a high price partly because the crop is so exacting. Mapping soil drainage and autumn temperatures across a hillside lets growers match ______ notoriously narrow requirements — fast-draining soil, hot and dry summers, mild weather during the autumn bloom — to the ground most likely to satisfy them.",
+ "passage": "Saffron commands a high price partly because the crop is so exacting. Mapping soil drainage and autumn temperatures across a hillside lets growers match ______ narrow requirements — fast-draining soil, hot and dry summers, mild weather during the autumn bloom — to the ground most likely to satisfy them.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The blank needs a possessive pointing back to \"the crop\" — one thing — so the singular possessive \"its\" is the form that fits: the crop's notoriously narrow requirements.\n\n**The Full Solution:**\n- Identify the antecedent: the requirements belong to saffron, called \"the crop\" in the first sentence — a singular noun.\n- The slot is possessive: the word must show that the requirements belong to it, so a possessive form is required, not a contraction.\n- Apply the its/it's test: \"it is notoriously narrow requirements\" fails, confirming the possessive \"its.\"\n\n**Why the other choices are wrong:**\n- A: \"They're\" is the contraction of \"they are\" — plural and not a possessive.\n- C: \"Their\" is possessive but plural, and the antecedent \"the crop\" is singular.\n- D: \"It's\" is the contraction of \"it is,\" which the substitution test rules out."
+ "explanation": "**Choice B is correct.** The blank needs a possessive pointing back to \"the crop\" — one thing — so the singular possessive \"its\" is the form that fits: the crop's narrow requirements.\n\n**The Full Solution:**\n- Identify the antecedent: the requirements belong to saffron, called \"the crop\" in the first sentence — a singular noun.\n- The slot is possessive: the word must show that the requirements belong to it, so a possessive form is required, not a contraction.\n- Apply the its/it's test: \"it is narrow requirements\" fails, confirming the possessive \"its.\"\n\n**Why the other choices are wrong:**\n- A: \"They're\" is the contraction of \"they are\" — plural and not a possessive.\n- C: \"Their\" is possessive but plural, and the antecedent \"the crop\" is singular.\n- D: \"It's\" is the contraction of \"it is,\" which the substitution test rules out."
 }

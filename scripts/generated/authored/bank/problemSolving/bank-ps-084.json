@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-084",
-  "question": "The scatterplot shows the daily high temperature $x$, in degrees Fahrenheit, and the number of smoothies $y$ sold at a shop on each of $9$ days. The line of best fit, $y = 1.5x - 96$, is also shown. What is the residual for the data point $(92, 47)$?",
+  "question": "The scatterplot shows the daily high temperature $x$, in degrees Fahrenheit, and the number of smoothies $y$ sold at a shop on each of $9$ days. The line of best fit, $y = 1.5x - 96$, is also shown. According to the line of best fit, how many smoothies are predicted to be sold on a day with a high temperature of $92$ degrees Fahrenheit?",
   "diagram": {
     "type": "scatterplot",
     "params": {
@@ -55,15 +55,9 @@
       "bestFitLine": {
         "slope": 1.5,
         "intercept": -96
-      },
-      "highlightPoint": [
-        92,
-        47
-      ],
-      "highlightLabel": "(92, 47)",
-      "showResidual": true
+      }
     }
   },
-  "correctAnswer": "5",
-  "explanation": "**SAT Pattern: Residual**\n\n**The correct answer is 5.**\n\n**The Fast Way (~15s):** The line predicts $1.5(92) - 96 = 42$ smoothies, the data point is at $47$, and $47 - 42 = 5$.\n\n**The Full Solution:**\nStep 1: Find the predicted value. Substitute $x = 92$ into $y = 1.5x - 96$: $1.5(92) = 138$, and $138 - 96 = 42$.\nStep 2: The actual value for the data point $(92, 47)$ is $47$.\nStep 3: Residual $=$ actual $-$ predicted $= 47 - 42 = 5$. Check: the point lies above the line, so its residual is positive ✓\n\n**Common Mistakes:**\n* $-5$: subtracts in the wrong order, $42 - 47$; a residual is actual minus predicted.\n* $42$: reports the predicted value instead of the residual.\n* $53$: computes the prediction as $1.5(92 - 96) = -6$, putting the $-96$ inside the parentheses, so $47 - (-6) = 53$.\n\n**Test Day Takeaway:** Residual $=$ actual $-$ predicted. Compute the prediction from the equation, then subtract it from the data value."
+  "correctAnswer": "42",
+  "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is 42.**\n\n**The Fast Way (~10s):** Substitute $x = 92$: $1.5(92) - 96 = 138 - 96 = 42$.\n\n**The Full Solution:**\nStep 1: The line of best fit gives the predicted number of smoothies $y$ for a high temperature of $x$ degrees.\nStep 2: For $x = 92$: $y = 1.5(92) - 96 = 138 - 96 = 42$.\nStep 3: Check: on the graph, the line passes through $(92, 42)$, a little below the data point $(92, 47)$ ✓\n\n**Common Mistakes:**\n* $47$: reads the actual number sold on the day with a high of $92$ degrees, not the number predicted by the line.\n* $138$: computes $1.5(92)$ and forgets to subtract $96$.\n* $234$: adds $96$ instead of subtracting it.\n\n**Test Day Takeaway:** A value \"predicted by the line of best fit\" comes from the line, not from the nearest data point."
 }

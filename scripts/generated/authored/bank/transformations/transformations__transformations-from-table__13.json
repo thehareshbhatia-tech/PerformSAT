@@ -1,6 +1,6 @@
 {
  "id": 13,
- "question": "The table shows four values of $x$ and their corresponding values of $f(x)$. The function $h$ is defined by $h(x) = -3f(x) + 8$. What is the minimum value of $h(x)$ for the four values of $x$ in the table?",
+ "question": "The table shows four values of $x$ and their corresponding values of $f(x)$. The function $h$ is defined by $h(x) = f(x - 2) + 5$. What is the $y$-coordinate of the $y$-intercept of the graph of $y = h(x)$ in the $xy$-plane?",
  "diagram": {
   "type": "dataTable",
   "params": {
@@ -10,20 +10,20 @@
    ],
    "rows": [
     [
-     "1",
-     "2"
+     "-2",
+     "-9"
     ],
     [
-     "3",
-     "-4"
+     "0",
+     "3"
     ],
     [
-     "5",
+     "2",
+     "-1"
+    ],
+    [
+     "4",
      "6"
-    ],
-    [
-     "7",
-     "5"
     ]
    ]
   }
@@ -31,27 +31,27 @@
  "choices": [
   {
    "id": "A",
-   "text": "$-18$"
+   "text": "$-14$"
   },
   {
    "id": "B",
-   "text": "$-10$"
+   "text": "$-4$"
   },
   {
    "id": "C",
-   "text": "$20$"
+   "text": "$4$"
   },
   {
    "id": "D",
-   "text": "$26$"
+   "text": "$8$"
   }
  ],
  "distractorNotes": {
-  "A": "computes -3 times 6 and forgets to add 8",
-  "C": "uses the least value of f, -4, which gives the maximum of h",
-  "D": "drops the negative sign and computes 3(6) + 8"
+  "A": "subtracts 5 instead of adding it",
+  "C": "uses f(2), shifting the input the wrong way",
+  "D": "uses f(0), ignoring the shift inside f"
  },
  "correctAnswer": "B",
- "hint": "Multiplying by a negative number reverses which value of $f$ gives the smallest result.",
- "explanation": "**Choice B is correct.**\n\n**The Fast Way (~35s):** Because the coefficient $-3$ is negative, $h$ is least where $f$ is greatest: $h(5) = -3(6) + 8 = -10$.\n\n**The Full Solution:**\nStep 1: Multiplying by $-3$ reverses order, so the least value of $h(x)$ comes from the greatest value of $f(x)$.\nStep 2: The greatest value of $f(x)$ in the table is $6$, at $x = 5$.\nStep 3: $h(5) = -3(6) + 8 = -18 + 8 = -10$. Check the other rows: $h(1) = 2$, $h(3) = 20$, and $h(7) = -7$, all greater than $-10$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-18$): multiplies $6$ by $-3$ and forgets to add $8$.\n* Choice C ($20$): uses the least value of $f$, $-4$; that gives the maximum of $h$, not the minimum.\n* Choice D ($26$): drops the negative sign and computes $3(6) + 8$.\n\n**Test Day Takeaway:** A negative coefficient flips the graph vertically, so the greatest value of $f$ becomes the least value of the new function."
+ "hint": "The $y$-intercept is where $x = 0$; find the input that $f$ receives then.",
+ "explanation": "**Choice B is correct.**\n\n**The Fast Way (~25s):** $h(0) = f(-2) + 5 = -9 + 5 = -4$.\n\n**The Full Solution:**\nStep 1: The $y$-intercept of the graph of $y = h(x)$ is at $x = 0$: $h(0) = f(0 - 2) + 5 = f(-2) + 5$.\nStep 2: The table gives $f(-2) = -9$.\nStep 3: So $h(0) = -9 + 5 = -4$. Check: the point $(-2, -9)$ on the graph of $f$ moves right $2$ units and up $5$ units to $(0, -4)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-14$): this is $f(-2) - 5$; the $+5$ raises the output.\n* Choice C ($4$): this is $f(2) + 5$, which uses $0 + 2$ instead of $0 - 2$.\n* Choice D ($8$): this is $f(0) + 5$; the input to $f$ is $0 - 2$, not $0$.\n\n**Test Day Takeaway:** To find a $y$-intercept, evaluate at $x = 0$; with $f(x - 2)$, that means reading $f$ at $-2$."
 }

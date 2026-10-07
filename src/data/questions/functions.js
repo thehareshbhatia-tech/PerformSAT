@@ -79,19 +79,19 @@ export const functionsQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "$f(x) = \\dfrac{7}{x^{2} - 10x + c}$\nIn the given function, $c$ is a constant. If $f$ is undefined for exactly one value of $x$, what is the value of $c$?",
+      question: "$f(x) = x^{2} - 10x + c$\nIn the given function, $c$ is a constant. The minimum value of $f(x)$ is $3$. What is the value of $f(2)$?",
       choices: [
-        // distractor: makes a sign error in the discriminant, solving 100 + 4c = 0
-        { id: "A", text: "$-25$" },
-        // distractor: copies the magnitude of the x-coefficient as c
-        { id: "B", text: "$10$" },
-        { id: "C", text: "$25$" },
-        // distractor: sets c equal to b^2 = 100, forgetting the factor of 4 in b^2 - 4ac
-        { id: "D", text: "$100$" }
+        // distractor: takes c = 3, treating the minimum value as the constant term
+        { id: "A", text: "$-13$" },
+        // distractor: reports the minimum value of f
+        { id: "B", text: "$3$" },
+        { id: "C", text: "$12$" },
+        // distractor: reports c instead of evaluating f(2)
+        { id: "D", text: "$28$" }
       ],
       correctAnswer: "C",
-      hint: "When does a quadratic have exactly one zero?",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~30s):** The denominator must have exactly one zero, so its discriminant is $0$: $(-10)^{2} - 4(1)(c) = 0$, giving $c = 25$.\n\n**The Full Solution:**\nStep 1: A fraction is undefined exactly where its denominator equals $0$, so $x^{2} - 10x + c = 0$ must have exactly one real solution.\nStep 2: A quadratic has exactly one real solution when its discriminant is $0$: $(-10)^{2} - 4(1)(c) = 100 - 4c = 0$.\nStep 3: Solve: $4c = 100$, so $c = 25$. Check: $x^{2} - 10x + 25 = (x - 5)^{2}$, which equals $0$ only at $x = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-25$): drops the minus sign in $b^{2} - 4ac$ and solves $100 + 4c = 0$. With $c = -25$ the denominator has two zeros.\n* Choice B ($10$): copies the coefficient of $x$. With $c = 10$ the discriminant is $60$, so there are two zeros.\n* Choice D ($100$): sets $c = b^{2}$ and forgets the factor of $4$; the discriminant would then be $-300$, and $f$ would be defined everywhere.\n\n**Test Day Takeaway:** A rational function is undefined at the zeros of its denominator; \"exactly one\" value means a perfect-square denominator, or a discriminant of $0$.",
+      hint: "The minimum of a parabola that opens upward occurs at its vertex.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~50s):** The minimum occurs at $x = \\frac{10}{2} = 5$, so $f(5) = 25 - 50 + c = 3$ gives $c = 28$; then $f(2) = 4 - 20 + 28 = 12$.\n\n**The Full Solution:**\nStep 1: The graph opens upward, so the minimum is at the vertex, where $x = -\\frac{-10}{2(1)} = 5$.\nStep 2: Set $f(5) = 3$: $25 - 50 + c = 3$, so $c = 28$.\nStep 3: Evaluate: $f(2) = 2^{2} - 10(2) + 28 = 4 - 20 + 28 = 12$. Check: $f(x) = (x - 5)^{2} + 3$, and $(2 - 5)^{2} + 3 = 9 + 3 = 12$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-13$): takes $c = 3$, treating the minimum value as the constant term, so $f(2) = 4 - 20 + 3$.\n* Choice B ($3$): is the minimum value of $f$, which occurs at $x = 5$, not $x = 2$.\n* Choice D ($28$): is the value of $c$, found halfway through the solution.\n\n**Test Day Takeaway:** A minimum (or maximum) value of a quadratic is its value at the vertex; use it to find the missing constant.",
       skills: ["domain-restrictions", "function-notation"]
     }
   ],
@@ -101,37 +101,37 @@ export const functionsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "The functions $h$ and $m$ are defined by $h(x) = 2x + 5$ and $m(x) = 3x - 1$. What is the value of $m(h(4))$?",
+      question: "The function $h$ is defined by $h(x) = 3\\sqrt{x} - 2$. What is the value of $h(25)$?",
       choices: [
-        // distractor: evaluates m(4) and never applies h
-        { id: "A", text: "$11$" },
-        // distractor: composes in the wrong order, computing h(m(4))
-        { id: "B", text: "$27$" },
-        { id: "C", text: "$38$" },
-        // distractor: multiplies h(4) by m(4) instead of composing
-        { id: "D", text: "$143$" }
+        // distractor: reports only the square root of 25
+        { id: "A", text: "$5$" },
+        { id: "B", text: "$13$" },
+        // distractor: forgets to subtract 2
+        { id: "C", text: "$15$" },
+        // distractor: multiplies 3 by 25 without taking the square root
+        { id: "D", text: "$73$" }
       ],
-      correctAnswer: "C",
-      hint: "Work from the inside out: the output of $h$ is the input of $m$.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~20s):** $h(4) = 13$, and $m(13) = 39 - 1 = 38$.\n\n**The Full Solution:**\nStep 1: Evaluate the inner function: $h(4) = 2(4) + 5 = 13$.\nStep 2: Use that output as the input of $m$: $m(h(4)) = m(13)$.\nStep 3: Evaluate: $m(13) = 3(13) - 1 = 38$. Check with the combined rule: $m(h(x)) = 3(2x + 5) - 1 = 6x + 14$, and $6(4) + 14 = 38$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($11$): evaluates $m(4)$ and skips the inner function.\n* Choice B ($27$): applies the functions in the wrong order: $m(4) = 11$ and $h(11) = 27$.\n* Choice D ($143$): multiplies $h(4) = 13$ by $m(4) = 11$ instead of feeding one into the other.\n\n**Test Day Takeaway:** In $m(h(4))$, $h$ acts first because it is innermost; its output becomes the input of $m$.",
+      correctAnswer: "B",
+      hint: "Take the square root first, then multiply by 3 and subtract 2.",
+      explanation: "**Choice B is correct.**\n\n**The Fast Way (~10s):** $\\sqrt{25} = 5$, so $h(25) = 3(5) - 2 = 13$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 25$: $h(25) = 3\\sqrt{25} - 2$.\nStep 2: $\\sqrt{25} = 5$, so $3\\sqrt{25} = 15$.\nStep 3: $15 - 2 = 13$. Check: $13 + 2 = 15 = 3 \\cdot 5$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): stops after taking the square root of $25$.\n* Choice C ($15$): forgets to subtract $2$.\n* Choice D ($73$): computes $3(25) - 2$, skipping the square root.\n\n**Test Day Takeaway:** Substitute, then follow the order of operations: root, multiply, subtract.",
       skills: ["function-composition", "function-evaluation"]
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "The function $k$ is defined by $k(x) = 6x + 5$. Which expression is equivalent to $k(x - 2)$?",
+      question: "The function $k$ is defined by $k(x) = 6x + 5$. For what value of $x$ is $k(x) = 47$?",
       choices: [
-        // distractor: drops the constant +5
-        { id: "A", text: "$6x - 12$" },
-        { id: "B", text: "$6x - 7$" },
-        // distractor: subtracts 2 from the constant instead of substituting
-        { id: "C", text: "$6x + 3$" },
-        // distractor: substitutes x + 2, flipping the sign inside the input
-        { id: "D", text: "$6x + 17$" }
+        { id: "A", text: "$7$" },
+        // distractor: adds 5 instead of subtracting it, getting 6x = 52
+        { id: "B", text: "$\\frac{26}{3}$" },
+        // distractor: subtracts 5 but does not divide by 6
+        { id: "C", text: "$42$" },
+        // distractor: evaluates k(47) instead of solving k(x) = 47
+        { id: "D", text: "$287$" }
       ],
-      correctAnswer: "B",
-      hint: "Substitute the whole expression $x - 2$ for $x$, then distribute.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~15s):** $k(x - 2) = 6(x - 2) + 5 = 6x - 12 + 5 = 6x - 7$.\n\n**The Full Solution:**\nStep 1: Replace $x$ with $x - 2$: $k(x - 2) = 6(x - 2) + 5$.\nStep 2: Distribute the $6$ across both terms: $6(x - 2) = 6x - 12$.\nStep 3: Combine the constants: $6x - 12 + 5 = 6x - 7$. Check at $x = 3$: $k(1) = 6(1) + 5 = 11$, and $6(3) - 7 = 11$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6x - 12$): distributes correctly but drops the $+5$ from the original rule.\n* Choice C ($6x + 3$): subtracts $2$ from the constant term instead of substituting, giving $5 - 2 = 3$.\n* Choice D ($6x + 17$): substitutes $x + 2$, flipping the sign inside the input, and gets $6x + 12 + 5$.\n\n**Test Day Takeaway:** When the input is an expression, put it in parentheses and distribute; only the variable is replaced, never the constant term.",
+      correctAnswer: "A",
+      hint: "Set 6x + 5 equal to 47 and solve for x.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** $6x + 5 = 47$ gives $6x = 42$, so $x = 7$.\n\n**The Full Solution:**\nStep 1: Set the function equal to $47$: $6x + 5 = 47$.\nStep 2: Subtract $5$ from both sides: $6x = 42$.\nStep 3: Divide both sides by $6$: $x = 7$. Check: $k(7) = 6(7) + 5 = 47$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{26}{3}$): adds $5$ to both sides instead of subtracting, giving $6x = 52$.\n* Choice C ($42$): subtracts $5$ but forgets to divide by $6$.\n* Choice D ($287$): evaluates $k(47) = 6(47) + 5$ instead of solving $k(x) = 47$.\n\n**Test Day Takeaway:** \"For what value of $x$ is $k(x) = 47$?\" means solve for the input, not plug $47$ in.",
       skills: ["function-evaluation", "function-transformations"]
     },
     {
@@ -196,56 +196,56 @@ export const functionsQuestions = {
     {
       id: 1,
       difficulty: "easy",
-      question: "The table shows four values of $x$ and their corresponding values of $f(x)$. What is the value of $f(f(3))$?",
-      diagram: { type: "dataTable", params: { headers: ["x", "f(x)"], rows: [["1", "3"], ["2", "5"], ["3", "4"], ["4", "1"]] } },
+      question: "For the function $f$, the table shows four values of $x$ and their corresponding values of $f(x)$. Which equation defines $f$?",
+      diagram: { type: "dataTable", params: { headers: ["x", "f(x)"], rows: [["1", "3"], ["2", "6"], ["3", "11"], ["4", "18"]] } },
       choices: [
-        { id: "A", text: "$1$" },
-        // distractor: starts from x = 4 instead of x = 3
-        { id: "B", text: "$3$" },
-        // distractor: stops at the inner value f(3)
-        { id: "C", text: "$4$" },
-        // distractor: adds f(3) and f(4)
-        { id: "D", text: "$5$" }
+        // distractor: fits only the first row of the table
+        { id: "A", text: "$f(x) = x + 2$" },
+        // distractor: fits the first two rows but gives f(3) = 9, not 11
+        { id: "B", text: "$f(x) = 3x$" },
+        { id: "C", text: "$f(x) = x^{2} + 2$" },
+        // distractor: fits only the first row; it gives f(2) = 9
+        { id: "D", text: "$f(x) = 2x^{2} + 1$" }
       ],
-      correctAnswer: "A",
-      hint: "Look up the inner output in the table first, then treat that number as a new input.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~15s):** $f(3) = 4$, and the row for $4$ gives $f(4) = 1$.\n\n**The Full Solution:**\nStep 1: Read the inner value. The row with $x = 3$ shows $f(3) = 4$.\nStep 2: Replace the inside: $f(f(3)) = f(4)$.\nStep 3: Read $f(4)$ from the row with $x = 4$: $f(4) = 1$. Check the order: applying $f$ twice starting at $3$ gives $3 \\to 4 \\to 1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice B ($3$): starts from the wrong input and computes $f(f(4)) = f(1) = 3$.\n* Choice C ($4$): stops after the inner step and reports $f(3)$.\n* Choice D ($5$): adds the two table values $f(3) + f(4) = 4 + 1$ instead of composing them.\n\n**Test Day Takeaway:** With a table, composition is two lookups: find the inner output, then find that number in the input column.",
+      correctAnswer: "C",
+      hint: "Test each equation on every row, not just the first one.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** $x^{2} + 2$ gives $3, 6, 11, 18$ for $x = 1, 2, 3, 4$, matching every row.\n\n**The Full Solution:**\nStep 1: Check $f(x) = x^{2} + 2$ at $x = 1$ and $x = 2$: $1 + 2 = 3$ and $4 + 2 = 6$.\nStep 2: Check $x = 3$ and $x = 4$: $9 + 2 = 11$ and $16 + 2 = 18$.\nStep 3: Every row matches, so $f(x) = x^{2} + 2$. Check: the outputs rise by $3, 5, 7$, the pattern of $x^{2}$ plus a constant. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($f(x) = x + 2$): fits the first row but gives $f(2) = 4$, not $6$.\n* Choice B ($f(x) = 3x$): fits the first two rows but gives $f(3) = 9$, not $11$.\n* Choice D ($f(x) = 2x^{2} + 1$): fits the first row but gives $f(2) = 9$, not $6$.\n\n**Test Day Takeaway:** An equation defines a table only if it matches every row; check past the first two.",
       skills: ["function-composition", "function-evaluation"]
     },
     {
       id: 2,
       difficulty: "easy",
-      question: "The functions $f$ and $g$ are defined by $f(x) = 2x + 5$ and $g(x) = 3x - 4$. Which expression is equivalent to $g(f(x))$?",
+      question: "The function $f$ is defined by $f(x) = 5(2)^{x}$. What is the value of $f(3)$?",
       choices: [
-        // distractor: composes in the wrong order, computing f(g(x)) = 2(3x - 4) + 5
-        { id: "A", text: "$6x - 3$" },
-        // distractor: multiplies only the x-term of f(x) by 3, giving 6x + 5 - 4
-        { id: "B", text: "$6x + 1$" },
-        { id: "C", text: "$6x + 11$" },
-        // distractor: distributes the 3 but drops the -4 from g
-        { id: "D", text: "$6x + 15$" }
+        // distractor: adds 5 and 2^3 instead of multiplying
+        { id: "A", text: "$13$" },
+        // distractor: multiplies 2 by 3 instead of raising 2 to the third power
+        { id: "B", text: "$30$" },
+        { id: "C", text: "$40$" },
+        // distractor: multiplies 5 by 2 first and then cubes 10
+        { id: "D", text: "$1{,}000$" }
       ],
       correctAnswer: "C",
-      hint: "Replace $x$ in $g$ with the whole expression $2x + 5$.",
-      explanation: "**Choice C is correct.**\n\n**The Fast Way (~20s):** $g(f(x)) = 3(2x + 5) - 4 = 6x + 15 - 4 = 6x + 11$.\n\n**The Full Solution:**\nStep 1: In $g(f(x))$, the output of $f$ is the input of $g$, so replace $x$ in $g(x) = 3x - 4$ with $2x + 5$: $g(f(x)) = 3(2x + 5) - 4$.\nStep 2: Distribute: $3(2x + 5) = 6x + 15$.\nStep 3: Combine the constants: $6x + 15 - 4 = 6x + 11$. Check at $x = 1$: $f(1) = 7$ and $g(7) = 17$, while $6(1) + 11 = 17$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6x - 3$): composes in the wrong order, computing $f(g(x)) = 2(3x - 4) + 5$.\n* Choice B ($6x + 1$): multiplies only the $x$-term of $f(x)$ by $3$, giving $6x + 5 - 4$.\n* Choice D ($6x + 15$): distributes correctly but drops the $-4$ from $g$.\n\n**Test Day Takeaway:** Write the inner expression in parentheses inside the outer rule, then distribute; the outer function's constant still applies at the end.",
+      hint: "Evaluate the power before multiplying by 5.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~10s):** $2^{3} = 8$, so $f(3) = 5 \\cdot 8 = 40$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 3$: $f(3) = 5(2)^{3}$.\nStep 2: The exponent applies only to $2$: $2^{3} = 8$.\nStep 3: Multiply: $5 \\cdot 8 = 40$. Check: $40 \\div 5 = 8 = 2 \\cdot 2 \\cdot 2$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($13$): adds $5 + 2^{3}$ instead of multiplying.\n* Choice B ($30$): treats $2^{3}$ as $2 \\cdot 3$.\n* Choice D ($1{,}000$): multiplies $5 \\cdot 2$ first and cubes $10$; the exponent applies only to $2$.\n\n**Test Day Takeaway:** In $a(b)^{x}$, raise $b$ to the power first, then multiply by $a$.",
       skills: ["function-composition"]
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "$f(x) = 2x + 5$\nThe function $g$ is defined such that $f(g(x)) = 6x - 1$ for all values of $x$. Which expression is equivalent to $g(x)$?",
+      question: "$f(x) = 2x^{2} + c$\nThe function $f$ is defined by the given equation, where $c$ is a constant. If $f(3) = 11$, what is the value of $f(-2)$?",
       choices: [
-        { id: "A", text: "$3x - 3$" },
-        // distractor: adds 5 instead of subtracting it before halving, giving (6x + 4)/2
-        { id: "B", text: "$3x + 2$" },
-        // distractor: subtracts the 5 but never divides by 2
-        { id: "C", text: "$6x - 6$" },
-        // distractor: divides only the constant term by 2
-        { id: "D", text: "$6x - 3$" }
+        // distractor: squares -2 as -4 when evaluating f(-2)
+        { id: "A", text: "$-15$" },
+        // distractor: reports c instead of f(-2)
+        { id: "B", text: "$-7$" },
+        { id: "C", text: "$1$" },
+        // distractor: assumes f(-2) equals f(3)
+        { id: "D", text: "$11$" }
       ],
-      correctAnswer: "A",
-      hint: "Undo what $f$ does, one step at a time.",
-      explanation: "**Choice A is correct.**\n\n**The Fast Way (~30s):** $2g(x) + 5 = 6x - 1$ gives $2g(x) = 6x - 6$, so $g(x) = 3x - 3$.\n\n**The Full Solution:**\nStep 1: Applying $f$ to $g(x)$ means $2g(x) + 5$, and that equals $6x - 1$.\nStep 2: Subtract $5$ from both sides: $2g(x) = 6x - 6$.\nStep 3: Divide by $2$: $g(x) = 3x - 3$. Check at $x = 2$: $g(2) = 3$ and $f(3) = 11$, matching $6(2) - 1 = 11$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($3x + 2$): adds the $5$ instead of subtracting it, producing $\\dfrac{6x + 4}{2}$.\n* Choice C ($6x - 6$): removes the $5$ correctly but never divides by the coefficient $2$.\n* Choice D ($6x - 3$): divides only the constant by $2$ and leaves the $x$-term untouched.\n\n**Test Day Takeaway:** To recover the inner function, undo the outer function's operations in reverse order.",
+      correctAnswer: "C",
+      hint: "Use f(3) = 11 to find c first.",
+      explanation: "**Choice C is correct.**\n\n**The Fast Way (~25s):** $2(9) + c = 11$ gives $c = -7$, so $f(-2) = 2(4) - 7 = 1$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 3$: $f(3) = 2(3)^{2} + c = 18 + c$.\nStep 2: Set $18 + c = 11$, so $c = -7$.\nStep 3: Evaluate: $f(-2) = 2(-2)^{2} - 7 = 8 - 7 = 1$. Check: $f(3) = 18 - 7 = 11$, as given. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-15$): squares $-2$ as $-4$, giving $2(-4) - 7$.\n* Choice B ($-7$): is the value of $c$, not $f(-2)$.\n* Choice D ($11$): assumes $f(-2) = f(3)$; the graph is symmetric about $x = 0$, so $f(-3) = 11$, not $f(-2)$.\n\n**Test Day Takeaway:** Use the given point to find the constant, then evaluate; $(-2)^{2} = 4$, not $-4$.",
       skills: ["function-composition", "finding-function-from-conditions"]
     },
     {
@@ -270,19 +270,19 @@ export const functionsQuestions = {
     {
       id: 5,
       difficulty: "hard",
-      question: "For the function $f$, $f(x + 1) = 2f(x)$ for all values of $x$. If $f(3) = 5$, which expression is equal to $f(6)$?",
+      question: "A bike rental shop charges \\$24 for the first hour and \\$9 for each additional hour. Which function $f$ gives the total charge, in dollars, for renting a bike for $h$ hours, where $h$ is a positive integer?",
       choices: [
-        // distractor: counts two steps from x = 3 to x = 6 instead of three
-        { id: "A", text: "$5(2)^{2}$" },
-        { id: "B", text: "$5(2)^{3}$" },
-        // distractor: uses the step count as the base and the base as the exponent
-        { id: "C", text: "$5(3)^{2}$" },
-        // distractor: uses the input 6 as the number of doublings
-        { id: "D", text: "$5(2)^{6}$" }
+        { id: "A", text: "$f(h) = 9h + 15$" },
+        // distractor: charges 9 dollars for every hour on top of the 24-dollar first hour
+        { id: "B", text: "$f(h) = 9h + 24$" },
+        // distractor: swaps the two rates, charging 9 for the first hour and 24 for each additional hour
+        { id: "C", text: "$f(h) = 24h - 15$" },
+        // distractor: uses 24 as the hourly rate and 9 as a fixed fee
+        { id: "D", text: "$f(h) = 24h + 9$" }
       ],
-      correctAnswer: "B",
-      hint: "Count how many single steps separate $x = 3$ from $x = 6$.",
-      explanation: "**Choice B is correct.**\n\n**The Fast Way (~30s):** Going from $x = 3$ to $x = 6$ takes three doublings, so $f(6) = 5(2)^{3}$.\n\n**The Full Solution:**\nStep 1: The rule doubles the value each time the input rises by $1$.\nStep 2: From $3$ to $6$ the input rises by $1$ three times, so the value doubles three times.\nStep 3: Therefore $f(6) = 5 \\cdot 2 \\cdot 2 \\cdot 2 = 5(2)^{3}$. Check step by step: $f(4) = 10$, $f(5) = 20$, $f(6) = 40$, and $5(2)^3 = 40$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5(2)^{2}$): counts only two doublings, which lands on $f(5) = 20$.\n* Choice C ($5(3)^{2}$): swaps the roles of the doubling factor and the step count.\n* Choice D ($5(2)^{6}$): uses the input $6$ as the number of doublings, ignoring that the count starts at $x = 3$.\n\n**Test Day Takeaway:** A recursive rule multiplies once per step, so count the steps between inputs, not the inputs themselves.",
+      correctAnswer: "A",
+      hint: "The first hour costs 24 dollars; only the remaining h - 1 hours cost 9 dollars each.",
+      explanation: "**Choice A is correct.**\n\n**The Fast Way (~40s):** The charge is $24 + 9(h - 1) = 9h + 15$.\n\n**The Full Solution:**\nStep 1: The first hour costs \\$24, and the other $h - 1$ hours cost \\$9 each.\nStep 2: Total charge: $f(h) = 24 + 9(h - 1)$.\nStep 3: Distribute and combine: $24 + 9h - 9 = 9h + 15$. Check: $f(1) = 9 + 15 = 24$ and $f(3) = 27 + 15 = 42 = 24 + 9 + 9$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($f(h) = 9h + 24$): charges \\$9 for every hour, including the first, on top of the \\$24; this gives $f(1) = 33$.\n* Choice C ($f(h) = 24h - 15$): swaps the rates, charging \\$9 for the first hour and \\$24 for each additional hour.\n* Choice D ($f(h) = 24h + 9$): uses \\$24 as the hourly rate and \\$9 as a fixed fee.\n\n**Test Day Takeaway:** When the first unit has its own price, the rest are counted as $h - 1$; test $h = 1$ to check.",
       skills: ["function-evaluation", "finding-function-from-conditions"]
     }
   ]

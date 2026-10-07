@@ -1,52 +1,52 @@
 {
-  "id": "bank-am-207",
-  "question": "A rectangular pen is enclosed by $120$ meters of fencing. The table shows the area of the pen, in square meters, for three values of its width $w$, in meters. Which type of function best models the area as a function of $w$?",
-  "diagram": {
-    "type": "dataTable",
-    "params": {
-      "headers": [
-        "w (meters)",
-        "Area (square meters)"
-      ],
-      "rows": [
-        [
-          "10",
-          "500"
-        ],
-        [
-          "30",
-          "900"
-        ],
-        [
-          "50",
-          "500"
-        ]
-      ]
-    }
+ "id": "bank-am-207",
+ "question": "The table shows the number of members in a book club at the start of each of three consecutive years. Which type of function best models the number of members as a function of time?",
+ "diagram": {
+  "type": "dataTable",
+  "params": {
+   "headers": [
+    "Years after 2020",
+    "Members"
+   ],
+   "rows": [
+    [
+     "0",
+     "500"
+    ],
+    [
+     "1",
+     "600"
+    ],
+    [
+     "2",
+     "720"
+    ]
+   ]
+  }
+ },
+ "choices": [
+  {
+   "id": "A",
+   "text": "Decreasing exponential"
   },
-  "choices": [
-    {
-      "id": "A",
-      "text": "Decreasing linear"
-    },
-    {
-      "id": "B",
-      "text": "Increasing linear"
-    },
-    {
-      "id": "C",
-      "text": "Increasing exponential"
-    },
-    {
-      "id": "D",
-      "text": "Quadratic"
-    }
-  ],
-  "distractorNotes": {
-    "A": "the area rises before it falls",
-    "B": "the area falls after $w = 30$",
-    "C": "an exponential function never turns around"
+  {
+   "id": "B",
+   "text": "Decreasing linear"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Classify Physical Motion Model**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Half the perimeter is $60$, so the length is $60 - w$, so the area is $w(60 - w) = 60w - w^2$ — a squared term, so the model is quadratic.\n\n**The Full Solution:**\nStep 1: The perimeter is $2w + 2L = 120$, so $w + L = 60$ and the length is $L = 60 - w$ and the area is $A(w) = w(60 - w)$.\nStep 2: Expanding gives $A(w) = 60w - w^2$, a degree-$2$ polynomial, so $A$ is quadratic.\nStep 3: The table confirms the shape: the area rises from $500$ to $900$, then falls back to $500$. Check: $A(10) = 10(50) = 500$, $A(30) = 30(30) = 900$, $A(50) = 50(10) = 500$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A (decreasing linear): matches only the second half of the table; the area increases from $w = 10$ to $w = 30$.\n* Choice B (increasing linear): matches only the first half; the area decreases after $w = 30$.\n* Choice C (increasing exponential): an exponential model rises without ever turning around, and equal steps in $w$ here do not give equal ratios.\n\n**Test Day Takeaway:** A quantity that rises to a maximum and then falls symmetrically is quadratic — a product of two expressions that move in opposite directions is the usual source."
+  {
+   "id": "C",
+   "text": "Increasing exponential"
+  },
+  {
+   "id": "D",
+   "text": "Increasing linear"
+  }
+ ],
+ "distractorNotes": {
+  "A": "the right family, but the number of members is rising, not falling",
+  "B": "the number of members is rising, and the yearly changes are not constant",
+  "D": "the yearly increases, 100 and then 120, are not constant; the ratios are"
+ },
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Classify Physical Motion Model**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\frac{600}{500} = 1.2$ and $\\frac{720}{600} = 1.2$: a constant ratio greater than $1$, so the model is increasing exponential.\n\n**The Full Solution:**\nStep 1: Check the differences: $600 - 500 = 100$ and $720 - 600 = 120$. They are not equal, so a linear model does not fit.\nStep 2: Check the ratios: $\\frac{600}{500} = 1.2$ and $\\frac{720}{600} = 1.2$. They are equal, so the number of members is multiplied by $1.2$ each year, which is exponential.\nStep 3: Because the factor $1.2$ is greater than $1$, the model is increasing exponential. Check: $500(1.2)^{2} = 720$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A (Decreasing exponential): the right family, but the number of members is rising, not falling.\n* Choice B (Decreasing linear): the number of members is rising, and the yearly changes are not constant.\n* Choice D (Increasing linear): the yearly increases, $100$ and then $120$, are not constant; the ratios are.\n\n**Test Day Takeaway:** Equal differences mean linear; equal ratios mean exponential; a factor above $1$ means increasing."
 }

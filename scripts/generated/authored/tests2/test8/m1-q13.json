@@ -1,29 +1,29 @@
 {
  "id": 13,
- "question": "A right triangle has angles measuring $30^{\\circ}$, $60^{\\circ}$, and $90^{\\circ}$. The area of the triangle is $200\\sqrt{3}$ square inches. What is the perimeter, in inches, of the triangle?",
+ "question": "A right triangle has angles measuring $30^{\\circ}$, $60^{\\circ}$, and $90^{\\circ}$. The length of the shorter leg of the triangle is $20$ inches. What is the area, in square inches, of the triangle?",
  "choices": [
   {
    "id": "A",
-   "text": "$20 + 20\\sqrt{3}$"
+   "text": "$100\\sqrt{3}$"
   },
   {
    "id": "B",
-   "text": "$60 + 20\\sqrt{3}$"
+   "text": "$200$"
   },
   {
    "id": "C",
-   "text": "$80 + 20\\sqrt{3}$"
+   "text": "$200\\sqrt{3}$"
   },
   {
    "id": "D",
-   "text": "$60 + 40\\sqrt{3}$"
+   "text": "$400\\sqrt{3}$"
   }
  ],
  "distractorNotes": {
-  "A": "adds only the two legs, 20 and 20*sqrt(3), and omits the 40-inch hypotenuse",
-  "C": "uses 3 times the short leg (60) as the hypotenuse instead of 2 times the short leg (40)",
-  "D": "writes the longer leg as 40*sqrt(3), doubling the short leg before multiplying by sqrt(3)"
+  "A": "computes the longer leg as (sqrt(3)/2)(20) = 10*sqrt(3) instead of 20*sqrt(3), so the area is (1/2)(20)(10*sqrt(3))",
+  "B": "treats the legs as equal, as in a 45-45-90 triangle, so the area is (1/2)(20)(20) = 200",
+  "D": "multiplies the two legs, 20 and 20*sqrt(3), and forgets the factor of 1/2"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Right Triangle Area with Surds**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** The legs are $a$ and $a\\sqrt{3}$, so $\\frac{a^{2}\\sqrt{3}}{2} = 200\\sqrt{3}$ gives $a = 20$, and the perimeter is $20 + 20\\sqrt{3} + 40 = 60 + 20\\sqrt{3}$.\n\n**The Full Solution:**\nStep 1: In a $30^{\\circ}$-$60^{\\circ}$-$90^{\\circ}$ triangle the sides are in the ratio $a : a\\sqrt{3} : 2a$, where $a$ is the side opposite the $30^{\\circ}$ angle.\nStep 2: The legs are perpendicular, so the area is $\\frac{1}{2}(a)(a\\sqrt{3}) = \\frac{a^{2}\\sqrt{3}}{2}$. Setting this equal to $200\\sqrt{3}$ gives $a^{2} = 400$, so $a = 20$.\nStep 3: Add the three sides: $20 + 20\\sqrt{3} + 40 = 60 + 20\\sqrt{3}$. Check: $\\frac{1}{2}(20)(20\\sqrt{3}) = 200\\sqrt{3}$, and $20^{2} + (20\\sqrt{3})^{2} = 400 + 1{,}200 = 1{,}600 = 40^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20 + 20\\sqrt{3}$): adds only the two legs and leaves out the hypotenuse, $40$.\n* Choice C ($80 + 20\\sqrt{3}$): uses $3a = 60$ for the hypotenuse instead of $2a = 40$.\n* Choice D ($60 + 40\\sqrt{3}$): multiplies the hypotenuse, not the shorter leg, by $\\sqrt{3}$ to get the longer leg.\n\n**Test Day Takeaway:** Write the ratio $a : a\\sqrt{3} : 2a$ first. The area uses the two legs; the perimeter uses all three sides."
+ "correctAnswer": "C",
+ "explanation": "**SAT Pattern: Right Triangle Area with Surds**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** The longer leg is $20\\sqrt{3}$, so the area is $\\frac{1}{2}(20)(20\\sqrt{3}) = 200\\sqrt{3}$ square inches.\n\n**The Full Solution:**\nStep 1: In a $30^{\\circ}$-$60^{\\circ}$-$90^{\\circ}$ triangle the sides are in the ratio $a : a\\sqrt{3} : 2a$, where $a$ is the shorter leg. Here $a = 20$.\nStep 2: The longer leg is $20\\sqrt{3}$ inches, and the hypotenuse is $40$ inches.\nStep 3: The legs are perpendicular, so the area is $\\frac{1}{2}(20)(20\\sqrt{3}) = 200\\sqrt{3}$ square inches. Check: $20^{2} + (20\\sqrt{3})^{2} = 400 + 1{,}200 = 1{,}600 = 40^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($100\\sqrt{3}$): computes the longer leg as $\\frac{\\sqrt{3}}{2}(20) = 10\\sqrt{3}$. That rule applies to the hypotenuse; the longer leg is $\\sqrt{3}$ times the shorter leg.\n* Choice B ($200$): treats the legs as equal, as in a $45^{\\circ}$-$45^{\\circ}$-$90^{\\circ}$ triangle.\n* Choice D ($400\\sqrt{3}$): multiplies the legs and forgets the factor of $\\frac{1}{2}$.\n\n**Test Day Takeaway:** Write the ratio $a : a\\sqrt{3} : 2a$ first. The area of a right triangle is half the product of its two legs."
 }

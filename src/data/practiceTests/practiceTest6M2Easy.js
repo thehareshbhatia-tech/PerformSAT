@@ -136,19 +136,19 @@ export const practiceTest6M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "The function $h(t) = -16t^{2} + 64t$ gives the height, in feet, of a ball $t$ seconds after it is kicked. Which of the following is the interval of time during which the ball is at least $48$ feet high?",
+      question: "The function $h(t) = -16t^{2} + 64t$ gives the height, in feet, of a ball $t$ seconds after it is kicked. How many seconds after the ball is kicked does it first reach a height of $48$ feet?",
       choices: [
-        // distractor: uses the time from the kick up to the first crossing t = 1, when the ball is below 48 feet
-        { id: "A", text: "$0 \\le t \\le 1$" },
-        { id: "B", text: "$1 \\le t \\le 3$" },
-        // distractor: keeps the first crossing but ends at the landing time t = 4 instead of the second crossing t = 3
-        { id: "C", text: "$1 \\le t \\le 4$" },
-        // distractor: uses the time from the second crossing t = 3 to the landing time t = 4, when the ball is below 48 feet
-        { id: "D", text: "$3 \\le t \\le 4$" }
+        { id: "A", text: "$1$" },
+        // distractor: gives the time of the greatest height, t = 2, instead of the time the height is first 48 feet
+        { id: "B", text: "$2$" },
+        // distractor: gives the second time the height is 48 feet, on the way down, instead of the first
+        { id: "C", text: "$3$" },
+        // distractor: gives the time the ball lands, when h(t) = 0, instead of the time the height is 48 feet
+        { id: "D", text: "$4$" }
       ],
-      correctAnswer: "B",
-      explanation: "**SAT Pattern: Quadratic Inequality from Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Set $-16t^{2} + 64t = 48$. Dividing by $-16$ gives $t^{2} - 4t + 3 = 0$, so $t = 1$ or $t = 3$. The parabola opens downward, so the ball is at or above $48$ feet between those times.\n\n**The Full Solution:**\nStep 1: Write the condition as an inequality: $-16t^{2} + 64t \\ge 48$.\nStep 2: Subtract $48$ and divide by $-16$, which reverses the inequality: $t^{2} - 4t + 3 \\le 0$. Factoring gives $(t - 1)(t - 3) \\le 0$.\nStep 3: The product is negative or zero only when $t$ is between the roots, so $1 \\le t \\le 3$. Check at $t = 2$: $h(2) = -64 + 128 = 64$, which is at least $48$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0 \\le t \\le 1$): uses the time before the first crossing. At $t = 0.5$, $h(0.5) = -4 + 32 = 28$ feet, which is below $48$.\n* Choice C ($1 \\le t \\le 4$): starts at the right time but ends at the landing time $t = 4$. At $t = 3.5$, $h(3.5) = -196 + 224 = 28$ feet.\n* Choice D ($3 \\le t \\le 4$): uses the time after the ball has dropped back below $48$ feet.\n\n**Test Day Takeaway:** Solve the related equation to find the two crossing times, then test one value to decide whether the interval is between or outside them. A downward-opening parabola is above a level only between its crossings.",
-      skills: ["quadratics"]
+      correctAnswer: "A",
+      explanation: "**SAT Pattern: Quadratic via Factoring**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Set $-16t^{2} + 64t = 48$. Dividing by $-16$ gives $t^{2} - 4t + 3 = 0$, so $t = 1$ or $t = 3$. The ball first reaches $48$ feet at $t = 1$.\n\n**The Full Solution:**\nStep 1: Set the height equal to $48$: $-16t^{2} + 64t = 48$.\nStep 2: Subtract $48$ and divide by $-16$: $t^{2} - 4t + 3 = 0$. Factoring gives $(t - 1)(t - 3) = 0$, so $t = 1$ or $t = 3$.\nStep 3: The ball is at $48$ feet on the way up and again on the way down; the first time is $t = 1$. Check: $h(1) = -16 + 64 = 48$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2$): is the time of the greatest height, $h(2) = 64$ feet.\n* Choice C ($3$): is the second time the ball is at $48$ feet, on its way down.\n* Choice D ($4$): is when the ball lands, $h(4) = 0$.\n\n**Test Day Takeaway:** A height equation usually has two solutions, one on the way up and one on the way down; reread whether the question asks for the first or the second.",
+      skills: ["finding-roots-factoring"]
     },
     {
       id: 9,
@@ -184,20 +184,20 @@ export const practiceTest6M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "The scatterplot shows the elevation $x$, in hundreds of meters, and the average number of beetles per trap $y$ at $10$ sites. A line of best fit for the data is also shown, and its equation is $y = 40 - 3x$. What is the residual for the site at $x = 6$?",
-      diagram: { type: "scatterplot", params: { points: [[1, 38], [2, 32], [3, 33], [4, 27], [5, 26], [6, 17], [7, 18], [8, 17], [9, 12], [10, 11]], xMin: 0, xMax: 10, yMin: 0, yMax: 44, xGridStep: 1, yGridStep: 4, xLabelStep: 2, yLabelStep: 8, xLabel: "Elevation (hundreds of meters)", yLabel: "Beetles per trap", bestFitLine: { slope: -3, intercept: 40 }, highlightPoint: [6, 17], highlightLabel: "(6, 17)", showResidual: true } },
+      question: "The scatterplot shows the elevation $x$, in hundreds of meters, and the average number of beetles per trap $y$ at $10$ sites. A line of best fit for the data, $y = 40 - 3x$, is also shown. Which of the following is the best interpretation of the slope of the line of best fit in this context?",
+      diagram: { type: "scatterplot", params: { points: [[1, 38], [2, 32], [3, 33], [4, 27], [5, 26], [6, 17], [7, 18], [8, 17], [9, 12], [10, 11]], xMin: 0, xMax: 10, yMin: 0, yMax: 44, xGridStep: 1, yGridStep: 4, xLabelStep: 2, yLabelStep: 8, xLabel: "Elevation (hundreds of meters)", yLabel: "Beetles per trap", bestFitLine: { slope: -3, intercept: 40 } } },
       choices: [
-        { id: "A", text: "$-5$" },
-        // distractor: subtracts the actual value from the predicted value (22 - 17) instead of predicted from actual
-        { id: "B", text: "$5$" },
-        // distractor: reports the actual value 17 rather than its difference from the line
-        { id: "C", text: "$17$" },
-        // distractor: reports the predicted value 40 - 3(6) = 22 rather than the difference
-        { id: "D", text: "$22$" }
+        // distractor: ignores the units of x: x is in hundreds of meters, so an increase of 1 in x is an increase of 100 meters
+        { id: "A", text: "The average number of beetles per trap is predicted to decrease by $3$ for every increase of $1$ meter in elevation." },
+        { id: "B", text: "The average number of beetles per trap is predicted to decrease by $3$ for every increase of $100$ meters in elevation." },
+        // distractor: uses the constant 40, the predicted value at x = 0, as the rate of change instead of the slope -3
+        { id: "C", text: "The average number of beetles per trap is predicted to decrease by $40$ for every increase of $100$ meters in elevation." },
+        // distractor: switches the roles of the variables; the line predicts the number of beetles from the elevation, not the elevation from the number of beetles
+        { id: "D", text: "The elevation is predicted to decrease by $300$ meters for every increase of $1$ in the average number of beetles per trap." }
       ],
-      correctAnswer: "A",
-      explanation: "**SAT Pattern: Residual**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** The line predicts $40 - 3(6) = 22$, and the data point is at $17$, so the residual is $17 - 22 = -5$.\n\n**The Full Solution:**\nStep 1: Read the actual value from the scatterplot: the site at $x = 6$ has $y = 17$.\nStep 2: Find the predicted value from the line of best fit: $y = 40 - 3(6) = 40 - 18 = 22$.\nStep 3: A residual is the actual value minus the predicted value: $17 - 22 = -5$. The negative sign matches the graph, since the point lies below the line ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($5$): subtracts in the wrong order, $22 - 17$, which loses the sign that shows the point is below the line.\n* Choice C ($17$): reports the actual value instead of its difference from the line.\n* Choice D ($22$): reports the predicted value and never compares it with the data point.\n\n**Test Day Takeaway:** A residual is always actual minus predicted. Points below the line have negative residuals, and points above the line have positive residuals.",
-      skills: ["calculate-mean", "slope-intercept-form"]
+      correctAnswer: "B",
+      explanation: "**SAT Pattern: Interpret Slope of Best Fit**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The slope is $-3$, so the predicted $y$-value decreases by $3$ for each increase of $1$ in $x$, and an increase of $1$ in $x$ is $100$ meters.\n\n**The Full Solution:**\nStep 1: In $y = 40 - 3x$, the slope is the coefficient of $x$, which is $-3$.\nStep 2: The slope is the predicted change in $y$ for each increase of $1$ in $x$, so the predicted average number of beetles per trap decreases by $3$ each time $x$ increases by $1$.\nStep 3: Since $x$ is measured in hundreds of meters, an increase of $1$ in $x$ is an increase of $100$ meters. Check: from $x = 2$ to $x = 3$ ($200$ to $300$ meters), the prediction drops from $40 - 3(2) = 34$ to $40 - 3(3) = 31$, a decrease of $3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: ignores the units: $x$ counts hundreds of meters, so $1$ unit of $x$ is $100$ meters, not $1$ meter.\n* Choice C: uses $40$, the predicted number at $x = 0$, as the rate of change.\n* Choice D: switches the variables; the line predicts beetles per trap from elevation, not the reverse.\n\n**Test Day Takeaway:** The slope of a line of best fit is the predicted change in $y$ for each increase of $1$ in $x$; say it in the units of the axes.",
+      skills: ["slope-from-points", "scatterplots"]
     },
     {
       id: 12,
@@ -301,9 +301,9 @@ export const practiceTest6M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 6,
-      question: "In the $xy$-plane, triangle $ABC$ has vertices $A(2, 1)$, $B(10, 5)$, and $C(4, t)$, where $t$ is a constant. If the area of triangle $ABC$ is $24$ square units, what is the greatest possible value of $t$?",
-      correctAnswer: "8",
-      explanation: "**SAT Pattern: Area of Triangle from Coordinates**\n\n**The correct answer is 8.**\n\n**The Fast Way (~45s):** The coordinate area formula simplifies to area $= 4|t - 2|$. Setting $4|t - 2| = 24$ gives $|t - 2| = 6$, so $t = 8$ or $t = -4$, and the greater value is $8$.\n\n**The Full Solution:**\nStep 1: Use the coordinate area formula: area $= \\frac{1}{2}\\left|x_A(y_B - y_C) + x_B(y_C - y_A) + x_C(y_A - y_B)\\right|$.\nStep 2: Substitute the vertices: $\\frac{1}{2}\\left|2(5 - t) + 10(t - 1) + 4(1 - 5)\\right| = \\frac{1}{2}\\left|10 - 2t + 10t - 10 - 16\\right| = \\frac{1}{2}\\left|8t - 16\\right| = 4|t - 2|$.\nStep 3: Solve $4|t - 2| = 24$: $|t - 2| = 6$, so $t = 8$ or $t = -4$. The greatest possible value is $8$. Check with $C(4, 8)$: $\\frac{1}{2}\\left|2(-3) + 10(7) + 4(-4)\\right| = \\frac{1}{2}(48) = 24$ ✓\n\n**Common Mistakes:**\n* $-4$: solves the absolute value equation correctly but reports the lesser value.\n* $5$: drops the $\\frac{1}{2}$ in the area formula and solves $8t - 16 = 24$. With $C(4, 5)$ the area is $12$, not $24$.\n* $6$: reports $|t - 2| = 6$ instead of solving for $t$.\n\n**Test Day Takeaway:** When one vertex has an unknown coordinate, the area formula becomes an absolute value equation with two solutions. Simplify fully, solve both cases, and reread which one the question asks for.",
+      question: "In the $xy$-plane, triangle $ABC$ has vertices $A(2, 1)$, $B(10, 1)$, and $C(4, t)$, where $t$ is a constant. If the area of triangle $ABC$ is $24$ square units, what is the greatest possible value of $t$?",
+      correctAnswer: "7",
+      explanation: "**SAT Pattern: Area of Triangle from Coordinates**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~40s):** Side $AB$ is horizontal with length $8$, so the height from $C$ is $\\frac{2(24)}{8} = 6$. Point $C$ is $6$ units above or below the line $y = 1$, so $t = 7$ or $t = -5$, and the greatest value is $7$.\n\n**The Full Solution:**\nStep 1: Points $A$ and $B$ have the same $y$-coordinate, so $\\overline{AB}$ is horizontal with length $10 - 2 = 8$. Use it as the base.\nStep 2: The height is the vertical distance from $C(4, t)$ to the line $y = 1$, which is $|t - 1|$. The area is $\\frac{1}{2}(8)|t - 1| = 4|t - 1|$, so $4|t - 1| = 24$ and $|t - 1| = 6$.\nStep 3: So $t - 1 = 6$ or $t - 1 = -6$, giving $t = 7$ or $t = -5$. The greatest possible value is $7$. Check: with $C(4, 7)$, the height is $6$ and the area is $\\frac{1}{2}(8)(6) = 24$ ✓\n\n**Common Mistakes:**\n* $-5$: solves both cases correctly but reports the lesser value.\n* $6$: reports the height, $|t - 1|$, instead of solving for $t$.\n* $4$: leaves out the $\\frac{1}{2}$ in the area formula, solving $8|t - 1| = 24$.\n\n**Test Day Takeaway:** With a horizontal side as the base, the height is a difference of $y$-coordinates; an absolute value gives two possible points, so reread which one the question asks for.",
       skills: ["triangle-area"]
     },
     {

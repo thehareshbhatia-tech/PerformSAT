@@ -20,12 +20,12 @@
   },
   {
    "id": "D",
-   "text": "Tidal bores were once common around the world but have gradually disappeared from most rivers as coastlines have changed."
+   "text": "Tidal bores were once common around the world but have disappeared from most rivers as coastlines changed."
   }
  ],
  "correctAnswer": "A",
  "explanation": "**Choice A is correct.** The text's through-line is a requirement and its consequence: a bore needs \"an unusual combination of conditions,\" and \"because few coastlines meet both requirements, bores are rare.\"\n\n**The Full Solution:**\n- The text first contrasts the usual gradual tide with the bore's single upstream wave.\n- It then names the two conditions a bore demands — a large tidal range and a funnel-shaped bay or river mouth.\n- The final sentence draws the conclusion choice A restates: the rarity of the combination explains the rarity of the phenomenon.\n\n**Why the other choices are wrong:**\n- B: The text does explain the difference — it lists the exact conditions required — so unsolved mystery is the opposite of its point.\n- C: The text requires both conditions together; a large tidal range alone is never said to be sufficient.\n- D: No historical decline appears anywhere in the text.",
- "passage": "In most rivers, the tide comes in as a gradual swelling. But in some rivers, the leading edge of the incoming tide arrives all at once, as a wave that travels upstream against the current. This phenomenon, called a tidal bore, requires an unusual combination of conditions: a large tidal range, typically more than six meters, and a funnel-shaped bay or river mouth that squeezes the rising water into an ever narrower, shallower channel. Because few coastlines meet both requirements, bores are rare, and rivers with reliable ones draw scientists and surfers alike.",
+ "passage": "In most rivers, the tide comes in as a gradual swelling. But in some rivers, the leading edge of the incoming tide arrives all at once, as a wave that travels upstream against the current. This phenomenon, called a tidal bore, requires an unusual combination of conditions. The tidal range must be large, typically more than six meters, and a funnel-shaped bay or river mouth must squeeze the rising water into an ever narrower, shallower channel. Because few coastlines meet both requirements, bores are rare, and rivers with reliable ones draw scientists and surfers alike.",
  "_meta": {
   "anchor": "tidal bores — required conditions (tidal range > ~6 m + funnel mouth) explain rarity (Wikipedia, Tidal bore, citing Chanson 2011: 'relatively few locations worldwide')",
   "distractors": {

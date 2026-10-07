@@ -6,7 +6,7 @@
   "band": 4,
   "domain": "craft-and-structure",
   "skill": "text-structure-and-purpose",
-  "passage": "Sailors' reports of lone waves towering over the sea around them were long dismissed by oceanographers as exaggeration. The skepticism rested on an assumption: in the standard statistical picture of the sea surface, where many small waves add together at random, a wave of the reported size should arise perhaps once in ten thousand years. __Equations that let waves interact rather than merely add later showed that no such rarity is required: under some conditions, a group of waves can pass energy among its members and briefly concentrate it into a single giant far more often than random addition predicts.__ In 2001, satellite radar images covering just three weeks revealed ten waves more than 25 meters high.",
+  "passage": "Sailors' reports of lone waves towering over the sea were long dismissed by oceanographers as exaggeration. The skepticism rested on an assumption: if many small waves add together at random, a wave of the reported size should arise perhaps once in ten thousand years. __Later equations in which waves interact showed that no such rarity is required: a group of waves can concentrate its energy into a single giant far more often than random addition predicts.__ In 2001, satellite radar images covering just three weeks revealed ten waves more than 25 meters high.",
   "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
   "choices": [
     {
@@ -15,7 +15,7 @@
     },
     {
       "id": "B",
-      "text": "It introduces a competing set of shipboard observations that the equations discussed later in the text failed to predict."
+      "text": "It introduces shipboard observations that the equations described in the text failed to predict."
     },
     {
       "id": "C",
@@ -23,9 +23,9 @@
     },
     {
       "id": "D",
-      "text": "It explains why the assumption underlying the earlier skepticism — that so towering a wave must be vanishingly rare — does not hold."
+      "text": "It explains why the assumption behind the oceanographers' skepticism does not hold."
     }
   ],
   "correctAnswer": "D",
-  "explanation": "**Choice D is correct.** The skepticism depended on the assumption that a wave of the reported size must be almost impossibly rare; the underlined sentence reports the theoretical result that dissolves that assumption — interacting waves can funnel a group's energy into one brief giant far more often than random addition allows.\n\n**The Full Solution:**\n- The second sentence isolates the load-bearing assumption: under random addition, a wave that size \"should arise perhaps once in ten thousand years.\"\n- The underlined sentence answers it directly (\"no such rarity is required\") and gives the mechanism: waves passing energy among themselves and concentrating it into a single short-lived giant.\n- The final sentence adds observational support — ten giant waves found in just three weeks of satellite images — so the underlined sentence functions as the text's pivot from doubt to explanation.\n\n**Why the other choices are wrong:**\n- A: The sentence undercuts the doubts rather than conceding their reasonableness.\n- B: The underlined sentence contains equations, not shipboard observations, and nothing in the text says the equations failed to predict anything.\n- C: The assumption is stated in the sentence before the underlined one; the underlined sentence refutes it."
+  "explanation": "**Choice D is correct.** The skepticism depended on the assumption that a wave of the reported size must be almost impossibly rare; the underlined sentence reports the theoretical result that dissolves that assumption — interacting waves can funnel a group's energy into one brief giant far more often than random addition allows.\n\n**The Full Solution:**\n- The second sentence isolates the load-bearing assumption: under random addition, a wave that size \"should arise perhaps once in ten thousand years.\"\n- The underlined sentence answers it directly (\"no such rarity is required\") and gives the mechanism: a group of waves concentrating its energy into a single giant.\n- The final sentence adds observational support — ten giant waves found in just three weeks of satellite images — so the underlined sentence functions as the text's pivot from doubt to explanation.\n\n**Why the other choices are wrong:**\n- A: The sentence undercuts the doubts rather than conceding their reasonableness.\n- B: The underlined sentence contains equations, not shipboard observations, and nothing in the text says the equations failed to predict anything.\n- C: The assumption is stated in the sentence before the underlined one; the underlined sentence refutes it."
 }

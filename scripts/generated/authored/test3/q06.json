@@ -6,29 +6,29 @@
  "domain": "craft-and-structure",
  "skill": "text-structure-and-purpose",
  "type": "multiple-choice",
- "passage": "Periodical cicadas spend thirteen or seventeen years underground and then emerge by the billions within a few weeks. Why surface all at once? A lone cicada is slow, conspicuous, and edible, and one appearing in an ordinary summer would almost certainly be eaten. When an entire brood emerges together, however, predators eat their fill long before they make a dent in the swarm, and most cicadas survive to reproduce. The density that makes an emergence so overwhelming is, in other words, the species' principal defense.",
+ "passage": "Zebras are among the most boldly patterned animals in Africa. Why would a grazing animal be covered in black and white stripes? A team of biologists filmed horseflies around captive zebras and horses. The flies approached both animals about equally often, but they landed on zebras less than a quarter as often, failing to slow down as they neared the stripes. When horses wore striped coats, flies landed on the coats far less often than on plain black or white ones. The stripes, in other words, appear to be a defense against biting flies.",
  "question": "Which choice best describes the overall structure of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "It presents a widely accepted explanation of an insect behavior, then describes an observation that has led researchers to doubt that explanation"
+   "text": "It presents a widely accepted explanation of an animal trait, then describes an observation that has led researchers to doubt that explanation"
   },
   {
    "id": "B",
-   "text": "It compares the life cycles of two closely related insect species and argues that one species is better adapted to escaping predators than the other"
+   "text": "It contrasts the coat patterns of several grassland animals and argues that the patterns help those animals hide from predators"
   },
   {
    "id": "C",
-   "text": "It describes a striking natural phenomenon, poses a question about it, and then explains the advantage that the phenomenon provides"
+   "text": "It describes a striking natural feature, poses a question about it, and then reports research suggesting what advantage the feature provides"
   },
   {
    "id": "D",
-   "text": "It recounts the history of scientific research on an insect species, ending with the questions about the species that remain unanswered"
+   "text": "It recounts the history of scientific research on an animal, ending with the questions about the animal that remain unanswered"
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The text moves through exactly the three steps C names: a phenomenon (mass emergence after years underground), an explicit question (\"Why surface all at once?\"), and an answer (predators are swamped, so most cicadas survive).\n\n**The Full Solution:**\n- Sentence one states the phenomenon; sentence two asks the question outright.\n- The remainder answers it by contrasting a lone cicada's fate with a brood's, closing with the point that density itself is the defense.\n- Structure questions reward the choice that matches this sequence move for move.\n\n**Why the other choices are wrong:**\n- A: Nothing in the text is doubted or overturned; the explanation given is presented as the answer, not as a discarded view.\n- B: Only one kind of insect is discussed; no second species is compared.\n- D: The text is organized around a question and its answer, not a chronological history of research, and it ends with a conclusion rather than open questions.",
+ "explanation": "**Choice C is correct.** The text moves through exactly the three steps C names: a striking feature (the zebra's bold stripes), an explicit question (\"Why would a grazing animal be covered in black and white stripes?\"), and research that answers it (flies fail to land on stripes, so the stripes defend against biting flies).\n\n**The Full Solution:**\n- Sentence one states the feature; sentence two asks the question outright.\n- The remaining sentences report the study — flies landing on zebras less than a quarter as often, and avoiding striped coats on horses — and close with the conclusion that the stripes are a defense.\n- Structure questions reward the choice that matches this sequence move for move.\n\n**Why the other choices are wrong:**\n- A: Nothing in the text is doubted or overturned; the explanation given is presented as the answer, not as a discarded view.\n- B: Only the zebra's coat is discussed (horses appear only as a comparison in the experiment), and the text concerns biting flies, not hiding from predators.\n- D: The text is organized around a question and its answer, not a chronological history of research, and it ends with a conclusion rather than open questions.",
  "_meta": {
-  "anchor": "Periodical cicada mass emergence as predator satiation (unnamed researchers)"
+  "anchor": "Zebra stripes deter horsefly landings — Caro, How et al., PLOS ONE 2019 (https://www.eurekalert.org/news-releases/798118)"
  }
 }

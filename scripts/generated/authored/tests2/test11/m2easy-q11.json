@@ -1,6 +1,6 @@
 {
  "id": 11,
- "question": "The table shows the number of juniors and seniors in a club who did or did not sign up for a field trip. Two of the students who did not sign up will be selected at random, one at a time, without replacement. What is the probability that both students selected are juniors? (Express your answer as a decimal or fraction, not as a percent.)",
+ "question": "The table shows the number of juniors and seniors in a club who did or did not sign up for a field trip. If one of these students is selected at random, what is the probability of selecting a junior, given that the student did not sign up for the field trip? (Express your answer as a decimal or fraction, not as a percent.)",
  "diagram": {
   "type": "twoWayTable",
   "params": {
@@ -14,24 +14,24 @@
     [
      "Juniors",
      "18",
-     "6",
-     "24"
+     "7",
+     "25"
     ],
     [
      "Seniors",
      "10",
-     "6",
-     "16"
+     "13",
+     "23"
     ],
     [
      "Total",
      "28",
-     "12",
-     "40"
+     "20",
+     "48"
     ]
    ]
   }
  },
- "correctAnswer": "5/22",
- "explanation": "**SAT Pattern: Probability Without Replacement**\n\n**The correct answer is $\\frac{5}{22}$ (or $0.2272$ or $0.2273$).**\n\n**The Fast Way (~30s):** Of the $12$ students who did not sign up, $6$ are juniors, so the probability is $\\frac{6}{12} \\cdot \\frac{5}{11} = \\frac{30}{132} = \\frac{5}{22}$.\n\n**The Full Solution:**\nStep 1: Restrict to the students who did not sign up: there are $12$ of them, and $6$ are juniors.\nStep 2: The first selection is a junior with probability $\\frac{6}{12}$. After one junior is removed, $5$ juniors remain among $11$ students, so the second is a junior with probability $\\frac{5}{11}$.\nStep 3: Multiply: $\\frac{6}{12} \\cdot \\frac{5}{11} = \\frac{30}{132} = \\frac{5}{22}$. Check by counting pairs: there are $6 \\cdot 5 = 30$ ordered junior pairs out of $12 \\cdot 11 = 132$ ordered pairs ✓\n\n**Common Mistakes:**\n* $\\frac{1}{4}$: uses $\\frac{6}{12}$ for both selections, as though the first student were put back.\n* $\\frac{1}{2}$: finds the probability for only the first selection.\n* $\\frac{5}{92}$: divides by the $24$ juniors instead of the $12$ students who did not sign up, computing $\\frac{6}{24} \\cdot \\frac{5}{23}$.\n\n**Test Day Takeaway:** Find the group the selection comes from first, then reduce both the favorable count and the total by one for the second selection."
+ "correctAnswer": "7/20",
+ "explanation": "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**The correct answer is $\\frac{7}{20}$ (or $0.35$).**\n\n**The Fast Way (~20s):** Only the $20$ students who did not sign up count, and $7$ of them are juniors, so the probability is $\\frac{7}{20}$.\n\n**The Full Solution:**\nStep 1: \"Given that the student did not sign up\" limits the selection to the \"Did not sign up\" column, which has a total of $20$ students.\nStep 2: In that column, $7$ students are juniors.\nStep 3: The probability is $\\frac{7}{20} = 0.35$. Check: the column adds up, $7 + 13 = 20$ ✓\n\n**Common Mistakes:**\n* $\\frac{7}{48}$: divides by all $48$ students instead of the $20$ who did not sign up.\n* $\\frac{7}{25}$: divides by the $25$ juniors, which answers a different question (the probability that a junior did not sign up).\n* $\\frac{5}{12}$: gives $\\frac{20}{48}$, the probability that a student did not sign up.\n\n**Test Day Takeaway:** For \"given that\" questions, use only the row or column named after \"given that\" as the total."
 }

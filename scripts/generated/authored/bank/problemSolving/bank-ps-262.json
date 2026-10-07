@@ -1,6 +1,6 @@
 {
  "id": "bank-ps-262",
- "question": "A bag contains $6$ orange tokens and $4$ purple tokens. If $2$ tokens are selected at random without replacement, what is the probability that both are orange?",
+ "question": "A bag contains $6$ orange tokens, $5$ purple tokens, and $4$ green tokens. If one of these tokens is selected at random, what is the probability of selecting a purple token?",
  "choices": [
   {
    "id": "A",
@@ -12,18 +12,18 @@
   },
   {
    "id": "C",
-   "text": "$\\frac{9}{25}$"
+   "text": "$\\frac{2}{5}$"
   },
   {
    "id": "D",
-   "text": "$\\frac{3}{5}$"
+   "text": "$\\frac{1}{2}$"
   }
  ],
  "distractorNotes": {
-  "A": "probability of orange then purple (6/10 times 4/9)",
-  "C": "with replacement: (6/10)(6/10), never reducing the counts",
-  "D": "stops after the first draw (6/10)"
+  "A": "probability of a green token, 4 out of 15",
+  "C": "probability of an orange token, 6 out of 15",
+  "D": "compares purple tokens with the other tokens, 5 to 10, instead of with all 15 tokens"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Probability Without Replacement**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** First orange: $\\frac{6}{10}$. Second orange, with one orange gone: $\\frac{5}{9}$. Multiply: $\\frac{6}{10} \\times \\frac{5}{9} = \\frac{30}{90} = \\frac{1}{3}$.\n\n**The Full Solution:**\nStep 1: There are $6 + 4 = 10$ tokens, so the probability the first token is orange is $\\frac{6}{10}$.\nStep 2: After removing one orange token, $5$ orange tokens remain among $9$ tokens, so the probability the second is orange is $\\frac{5}{9}$.\nStep 3: Multiply the probabilities of the two draws: $\\frac{6}{10} \\times \\frac{5}{9} = \\frac{30}{90} = \\frac{1}{3}$. Check: the number of orange pairs is $\\frac{6 \\times 5}{2} = 15$ out of $\\frac{10 \\times 9}{2} = 45$ pairs, and $\\frac{15}{45} = \\frac{1}{3}$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{4}{15}$): $\\frac{6}{10} \\times \\frac{4}{9} = \\frac{24}{90}$ is the probability of orange followed by purple.\n* Choice C ($\\frac{9}{25}$): $\\frac{6}{10} \\times \\frac{6}{10}$ treats the second draw as if the first token were put back.\n* Choice D ($\\frac{3}{5}$): $\\frac{6}{10}$ is the probability of the first draw alone; the second draw was never included.\n\n**Test Day Takeaway:** Without replacement, both the numerator and the denominator drop by $1$ for the second draw when the first draw succeeded."
+ "explanation": "**SAT Pattern: Basic Probability**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** There are $6 + 5 + 4 = 15$ tokens and $5$ are purple, so the probability is $\\frac{5}{15} = \\frac{1}{3}$.\n\n**The Full Solution:**\nStep 1: Count all the tokens in the bag: $6 + 5 + 4 = 15$.\nStep 2: Count the purple tokens: $5$.\nStep 3: The probability is $\\frac{\\text{purple tokens}}{\\text{all tokens}} = \\frac{5}{15} = \\frac{1}{3}$. Check: the three probabilities $\\frac{6}{15}$, $\\frac{5}{15}$ and $\\frac{4}{15}$ add to $1$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{4}{15}$): this is the probability of selecting a green token.\n* Choice C ($\\frac{2}{5}$): $\\frac{6}{15} = \\frac{2}{5}$ is the probability of selecting an orange token.\n* Choice D ($\\frac{1}{2}$): $\\frac{5}{10}$ divides the purple tokens by the tokens that are not purple; the denominator must be all $15$ tokens.\n\n**Test Day Takeaway:** A probability is the number of favorable outcomes over the number of all outcomes. Add every group to get the denominator."
 }

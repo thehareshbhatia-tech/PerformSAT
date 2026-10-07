@@ -1,29 +1,29 @@
 {
- "id": "bank-alg-478",
- "question": "$4x + 7y = 31$\n$ax - 14y = b$\nIn the given system of equations, $a$ and $b$ are constants. When the first equation is multiplied by $2$ and added to the second equation, the result is $19x = 100$. What is the value of $a + b$?",
- "choices": [
-  {
-   "id": "A",
-   "text": "$-49$"
+  "id": "bank-alg-478",
+  "question": "$3x - 5y = 11$\n$ax + 15y = b$\nFor constants $a$ and $b$, the given system of equations has infinitely many solutions. What is the value of $a + b$?",
+  "choices": [
+    {
+      "id": "A",
+      "text": "$-42$"
+    },
+    {
+      "id": "B",
+      "text": "$-24$"
+    },
+    {
+      "id": "C",
+      "text": "$24$"
+    },
+    {
+      "id": "D",
+      "text": "$42$"
+    }
+  ],
+  "distractorNotes": {
+    "B": "multiplies the y-coefficient and constant by -3 but uses a = 9, getting 9 + (-33)",
+    "C": "uses a = -9 but forgets to negate the constant, getting -9 + 33",
+    "D": "multiplies the first equation by 3 instead of -3, getting 9 + 33"
   },
-  {
-   "id": "B",
-   "text": "$11$"
-  },
-  {
-   "id": "C",
-   "text": "$38$"
-  },
-  {
-   "id": "D",
-   "text": "$49$"
-  }
- ],
- "distractorNotes": {
-  "A": "subtracts the second equation from the doubled first instead of adding, solving $8 - a = 19$ and $62 - b = 100$, so $a = -11$ and $b = -38$",
-  "B": "reports $a = 11$ and never finds $b$",
-  "C": "reports $b = 38$ and never finds $a$"
- },
- "correctAnswer": "D",
- "explanation": "**SAT Pattern: System of Equations (Elimination)**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Doubling gives $8x + 14y = 62$; adding gives $(8 + a)x = 62 + b$, so $a = 11$, $b = 38$, and $a + b = 49$.\n\n**The Full Solution:**\nStep 1: Multiply the first equation by $2$: $8x + 14y = 62$.\nStep 2: Add the second equation: $(8 + a)x + (14 - 14)y = 62 + b$, or $(8 + a)x = 62 + b$.\nStep 3: Match with $19x = 100$: $8 + a = 19$ gives $a = 11$, and $62 + b = 100$ gives $b = 38$. So $a + b = 49$. Check: $(8x + 14y) + (11x - 14y) = 19x$ and $62 + 38 = 100$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($-49$): subtracts the second equation from the doubled first instead of adding, solving $8 - a = 19$ and $62 - b = 100$, so $a = -11$ and $b = -38$\n* Choice B ($11$): reports $a = 11$ and never finds $b$\n* Choice C ($38$): reports $b = 38$ and never finds $a$\n\n**Test Day Takeaway:** When the result of an elimination is given, write the sum with the unknown constants in place and match coefficients and constants separately."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Same Line Infinitely Many Solutions**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The $y$-coefficient changes from $-5$ to $15$, a factor of $-3$, so the second equation must be $-3$ times the first: $a = -9$, $b = -33$, and $a + b = -42$.\n\n**The Full Solution:**\nStep 1: Infinitely many solutions means the equations describe the same line, so the second equation is a constant multiple of the first.\nStep 2: The $y$-coefficients give the multiplier: $\\frac{15}{-5} = -3$. Multiplying the first equation by $-3$ gives $-9x + 15y = -33$.\nStep 3: Match terms: $a = -9$ and $b = -33$, so $a + b = -42$. Check: adding $3$ times the first equation to the second leaves $0 = 0$, so every solution of one equation solves the other ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($-24$): keeps $b = -33$ but takes $a = 9$, missing the sign on the multiplier for the $x$-term.\n* Choice C ($24$): takes $a = -9$ but forgets to negate the constant, using $b = 33$.\n* Choice D ($42$): multiplies the first equation by $3$ instead of $-3$.\n\n**Test Day Takeaway:** For infinitely many solutions, find the one multiplier that turns the first equation into the second, and apply it to every term, the constant included."
 }

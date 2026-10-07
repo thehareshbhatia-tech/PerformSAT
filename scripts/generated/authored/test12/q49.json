@@ -6,26 +6,26 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 2,
- "passage": "Trained in the new methods of iron framing rather than in masonry, ____ whose glass roof spanned every stall without a single interior column, flooding the aisles with the daylight that older markets had always lacked.",
+ "passage": "The Staffordshire Hoard is a collection of almost 4,600 items and fragments of gold and silver metalwork made in Anglo-Saxon England. Searching a farm field in Staffordshire, England, with a metal detector in 2009, ____",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "the city's market hall was designed by a young engineer"
+   "text": "the first objects from the largest hoard of Anglo-Saxon gold yet found were uncovered by a local amateur."
   },
   {
    "id": "B",
-   "text": "a young engineer designed for the city a market hall"
+   "text": "a local amateur uncovered the first objects from the largest hoard of Anglo-Saxon gold yet found."
   },
   {
    "id": "C",
-   "text": "the city's market hall was a young engineer's design"
+   "text": "the uncovering of the first objects from the largest hoard of Anglo-Saxon gold yet found was the work of a local amateur."
   },
   {
    "id": "D",
-   "text": "the market hall the city commissioned came from a young engineer"
+   "text": "archaeologists learned of the largest hoard of Anglo-Saxon gold yet found when a local amateur uncovered its first objects."
   }
  ],
  "correctAnswer": "B",
- "explanation": "**Choice B is correct.** The opening modifier — \"Trained in the new methods of iron framing rather than in masonry\" — describes a person, so the person must come immediately after the comma. Only B places \"a young engineer\" there.\n\n**The Full Solution:**\n- The rule: an introductory descriptive phrase attaches to whatever noun directly follows it; if that noun is not the thing described, the modifier dangles.\n- Ask who was trained in iron framing: the engineer, not the building. So \"a young engineer\" must stand right after the comma.\n- B reads: \"Trained in the new methods..., a young engineer designed for the city a market hall whose glass roof...\" — the modifier lands on its person, and \"whose\" attaches naturally to the hall.\n\n**Why the other choices are wrong:**\n- A: It puts \"the city's market hall\" after the comma, absurdly making the building the thing trained in iron framing.\n- C: Same dangling attachment — the hall, not the engineer, ends up \"trained,\" and the possessive \"engineer's\" cannot rescue it.\n- D: It leads with \"the market hall,\" so the modifier again describes the building rather than the engineer it belongs to."
+ "explanation": "**Choice B is correct.** The sentence opens with a modifier, \"Searching a farm field in Staffordshire, England, with a metal detector in 2009,\" that describes whoever did the searching. A modifier like this must be followed immediately by the person it describes, and only choice B places \"a local amateur\" right after it.\n\n**The Full Solution:**\n- Ask who was searching the field with a metal detector: the local amateur.\n- An introductory phrase applies to the subject that comes right after the comma.\n- In B, the subject is \"a local amateur,\" so the searcher is correctly named as the one who uncovered the objects.\n\n**Why the other choices are wrong:**\n- A: The subject is \"the first objects,\" which suggests the objects were searching the field.\n- C: The subject is \"the uncovering,\" which cannot search anything.\n- D: The subject is \"archaeologists,\" but the archaeologists were not the ones searching the field with a metal detector."
 }

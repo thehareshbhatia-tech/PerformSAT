@@ -1,29 +1,29 @@
 {
   "id": "bank-alg-075",
-  "question": "$h(x) = \\frac{x + 5}{x^{2} - 7x + k}$\nIn the given function, $k$ is a constant. If $h$ is undefined when $x = 3$, for what other value of $x$ is $h$ undefined?",
+  "question": "$f(x) = x^{2} - 9x + k$\nIn the given function, $k$ is a constant. One $x$-intercept of the graph of $f$ is $(4, 0)$. What is the $x$-coordinate of the other $x$-intercept?",
   "choices": [
     {
       "id": "A",
-      "text": "$-4$"
+      "text": "$-5$"
     },
     {
       "id": "B",
-      "text": "$4$"
+      "text": "$5$"
     },
     {
       "id": "C",
-      "text": "$7$"
+      "text": "$9$"
     },
     {
       "id": "D",
-      "text": "$12$"
+      "text": "$20$"
     }
   ],
   "distractorNotes": {
-    "A": "factors x^2 - 7x + 12 with the wrong sign, as (x - 3)(x + 4)",
-    "C": "reports the opposite of the x-coefficient, the sum of the two roots",
-    "D": "reports k instead of the second root"
+    "A": "uses the product of the zeros with the wrong sign, 4r = -20",
+    "C": "reports the coefficient 9 instead of finding the second zero",
+    "D": "reports the value of k instead of the second zero"
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Domain with Quadratic Denominator**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The denominator is $0$ at $x = 3$, so $9 - 21 + k = 0$ and $k = 12$. Then $x^{2} - 7x + 12 = (x - 3)(x - 4)$, which is also $0$ at $x = 4$.\n\n**The Full Solution:**\nStep 1: $h$ is undefined where its denominator is $0$, so $3^{2} - 7(3) + k = 0$, which gives $-12 + k = 0$ and $k = 12$.\nStep 2: Factor the denominator: $x^{2} - 7x + 12 = (x - 3)(x - 4)$.\nStep 3: The denominator is also $0$ when $x = 4$. Check: $4^{2} - 7(4) + 12 = 16 - 28 + 12 = 0$, while the numerator there is $9$, not $0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-4$): factors with a sign error, writing $(x - 3)(x + 4)$, which expands to $x^{2} + x - 12$.\n* Choice C ($7$): reports the sum of the two roots, the opposite of the $x$-coefficient, instead of the second root.\n* Choice D ($12$): finds $k = 12$ and reports it instead of using it to factor.\n\n**Test Day Takeaway:** A known root of a quadratic denominator lets you solve for the missing constant. Then factor, or use the fact that the two roots add to $7$, to get the other one."
+  "explanation": "**SAT Pattern: Recover Parameter from Known Root, then Evaluate**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $f(4) = 16 - 36 + k = 0$ gives $k = 20$, and $x^{2} - 9x + 20 = (x - 4)(x - 5)$, so the other $x$-intercept is at $x = 5$.\n\n**The Full Solution:**\nStep 1: Since $(4, 0)$ is on the graph, $f(4) = 0$: $4^{2} - 9(4) + k = 0$, so $16 - 36 + k = 0$ and $k = 20$.\nStep 2: The function is $f(x) = x^{2} - 9x + 20$. Factor: $x^{2} - 9x + 20 = (x - 4)(x - 5)$.\nStep 3: The zeros are $x = 4$ and $x = 5$, so the other $x$-intercept is $(5, 0)$. Check: $f(5) = 25 - 45 + 20 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-5$): takes the product of the zeros as $-20$ instead of $20$, so $4r = -20$ and $r = -5$; the constant term $20$ is the product itself.\n* Choice C ($9$): reports the opposite of the coefficient of $x$, which is the sum of the zeros, not the other zero.\n* Choice D ($20$): finds $k = 20$ and stops; $20$ is the product of the zeros.\n\n**Test Day Takeaway:** A known $x$-intercept gives a point to substitute: use it to find the constant, then factor to get the other zero."
 }

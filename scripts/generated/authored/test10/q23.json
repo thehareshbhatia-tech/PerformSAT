@@ -6,7 +6,7 @@
  "domain": "expression-of-ideas",
  "skill": "transitions",
  "module": 1,
- "passage": "A moss mat lies almost entirely within the boundary layer, the film of still air that clings to any surface. Wind that would strip moisture from taller plants barely stirs the air a few millimeters down, so a mat loses water far more slowly than the exposed rock around it. ______ the retained moisture supports a community of microscopic animals that could not otherwise survive on a bare boulder.",
+ "passage": "By damming streams, beavers flood the land around them and create ponds and wetlands. The dams slow the water's flow and spread it across a much wider area. ______ these new wetlands become home to fish, insects, birds, and plants that could not live along the fast-moving stream.",
  "question": "Which choice completes the text with the most logical transition?",
  "choices": [
   {
@@ -27,5 +27,5 @@
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** The final sentence describes a further consequence in a causal chain: still air lets the mat keep moisture, and that retained moisture then supports animal life. \"In turn\" signals exactly this next link in the chain.\n\n**The Full Solution:**\n- Map the logic: boundary layer calms the air, so the mat retains water; the retained water then enables a community of microscopic animals.\n- The blank connects a cause's effect to that effect's own effect, the signature of a chained consequence, which \"In turn\" marks.\n\n**Why the other choices are wrong:**\n- B: \"However\" signals a contrast, but the last sentence extends the previous point rather than opposing it.\n- C: \"For example\" would make the animal community an illustration of slow water loss, but it is a result of it, not an instance.\n- D: \"Meanwhile\" marks simultaneous but separate happenings, yet these sentences are causally linked, not merely concurrent."
+ "explanation": "**Choice A is correct.** The text describes a chain of effects: beavers build dams, the dams create wetlands, and the wetlands then support other living things. \"In turn\" signals the next link in that chain.\n\n**The Full Solution:**\n- The first two sentences explain what the dams do to the water.\n- The last sentence describes a further result of that change, wildlife moving into the new wetlands.\n- \"In turn\" marks a result that follows from an earlier result.\n\n**Why the other choices are wrong:**\n- B: \"However\" signals a contrast, but the last sentence extends the earlier point rather than opposing it.\n- C: \"For example\" would make the last sentence an instance of the dams slowing and spreading water, which it is not.\n- D: \"Meanwhile\" signals something happening at the same time, but the wildlife arrives as a consequence of the wetlands, not alongside them."
 }

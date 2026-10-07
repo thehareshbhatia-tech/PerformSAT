@@ -6,12 +6,12 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 1,
- "passage": "On La Gomera in the Canary Islands, shepherds have long communicated across deep ravines using Silbo Gomero, a whistled form of Spanish in which changes in pitch and melody stand in for the vowels and consonants of spoken words. Cognitive scientists wondered whether the brain treats such whistling as language or merely as sound. Brain-imaging studies offered an answer: when experienced whistlers listened to Silbo Gomero, regions of the brain associated with processing spoken language became active, but when Spanish speakers unfamiliar with the whistled form heard the same recordings, those language regions stayed comparatively quiet.",
+ "passage": "On La Gomera in the Canary Islands, shepherds have long communicated across deep ravines using Silbo Gomero. In this whistled form of Spanish, changes in pitch and melody stand in for the vowels and consonants of spoken words. Cognitive scientists wondered whether the brain treats such whistling as language or merely as sound. Brain-imaging studies offered an answer. When experienced whistlers listened to Silbo Gomero, regions of the brain associated with processing spoken language became active. When Spanish speakers unfamiliar with the whistled form heard the same recordings, those language regions stayed comparatively quiet.",
  "question": "Which choice best states the main idea of the text?",
  "choices": [
   {
    "id": "A",
-   "text": "Brain-imaging research indicates that experienced users of a whistled language process it with the same brain regions used for spoken language."
+   "text": "Brain-imaging research indicates that experienced whistlers process Silbo Gomero with the brain regions used for spoken language."
   },
   {
    "id": "B",
@@ -19,11 +19,11 @@
   },
   {
    "id": "C",
-   "text": "Shepherds on La Gomera developed Silbo Gomero because ordinary spoken Spanish cannot be heard clearly across the island's deep ravines and steep volcanic valleys."
+   "text": "Shepherds on La Gomera developed Silbo Gomero because ordinary speech cannot be heard across the island's deep ravines."
   },
   {
    "id": "D",
-   "text": "People who do not know Silbo Gomero are unable to distinguish its whistles from ordinary environmental sounds."
+   "text": "People who do not know Silbo Gomero are unable to distinguish its whistles from birdsong and the other ordinary sounds of the island's environment."
   }
  ],
  "correctAnswer": "A",

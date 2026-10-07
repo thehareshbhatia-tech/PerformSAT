@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-088",
-  "question": "The scatterplot shows the length $x$, in days, and the attendance $y$, in hundreds of visitors, of each of $8$ exhibits at a museum. The line of best fit, $y = 0.6x + 4$, is also shown. What is the greatest residual, in hundreds of visitors, of the $8$ data points?",
+  "question": "The scatterplot shows the length $x$, in days, and the attendance $y$, in hundreds of visitors, of each of $8$ exhibits at a museum. The line of best fit, $y = 0.6x + 4$, is also shown. Based on the line of best fit, how much greater, in hundreds of visitors, is the predicted attendance for an exhibit that lasts $40$ days than for an exhibit that lasts $25$ days?",
   "diagram": {
     "type": "scatterplot",
     "params": {
@@ -54,6 +54,6 @@
       }
     }
   },
-  "correctAnswer": "3",
-  "explanation": "**SAT Pattern: Residual**\n\n**The correct answer is 3.**\n\n**The Fast Way (~25s):** The point farthest above the line is $(40, 31)$. The line predicts $0.6(40) + 4 = 28$ there, so the residual is $31 - 28 = 3$.\n\n**The Full Solution:**\nStep 1: The greatest residual belongs to the point farthest above the line, so the four points below the line can be set aside.\nStep 2: Check the points above the line. At $x = 10$: $11 - 10 = 1$. At $x = 20$: $18 - 16 = 2$. At $x = 30$: $23 - 22 = 1$. At $x = 40$: $31 - 28 = 3$.\nStep 3: The greatest of these is $3$. Check: each point below the line has a residual of $-1$, which is less than $3$ ✓\n\n**Common Mistakes:**\n* $31$: reports the greatest attendance instead of its distance from the line.\n* $28$: reports the predicted value at $x = 40$ instead of the residual.\n* $-3$: subtracts in the wrong order, predicted minus actual.\n\n**Test Day Takeaway:** The greatest residual is the point farthest above the line; scan the plot, then compute actual minus predicted for the few candidates."
+  "correctAnswer": "9",
+  "explanation": "**SAT Pattern: Interpret Slope of Best Fit**\n\n**The correct answer is 9.**\n\n**The Fast Way (~20s):** Each additional day adds $0.6$ hundred visitors, so $15$ more days add $0.6(15) = 9$.\n\n**The Full Solution:**\nStep 1: For $x = 40$, the line predicts $y = 0.6(40) + 4 = 28$ hundred visitors.\nStep 2: For $x = 25$, the line predicts $y = 0.6(25) + 4 = 19$ hundred visitors.\nStep 3: The difference is $28 - 19 = 9$. Check: $0.6 \\times (40 - 25) = 0.6 \\times 15 = 9$ ✓\n\n**Common Mistakes:**\n* $28$: gives the predicted attendance for a $40$-day exhibit, $0.6(40) + 4$, without subtracting.\n* $19$: gives the predicted attendance for a $25$-day exhibit, $0.6(25) + 4$.\n* $15$: subtracts the numbers of days, $40 - 25$, without multiplying by the slope.\n\n**Test Day Takeaway:** The slope of a line of best fit is the predicted change in $y$ for each increase of $1$ in $x$; for a larger change in $x$, multiply the slope by that change."
 }

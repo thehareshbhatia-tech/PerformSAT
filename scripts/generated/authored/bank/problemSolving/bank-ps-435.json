@@ -1,6 +1,6 @@
 {
  "id": "bank-ps-435",
- "question": "The table shows four data points. For these data, a linear model predicts $\\hat{y} = 4x - 3$. What is the sum of the four values of $y - \\hat{y}$?",
+ "question": "The table shows four data points. A linear model for these data is $y = 4x + b$, where $b$ is a constant. The model predicts the actual $y$-value exactly when $x = 6$. For how many of the four data points is the actual $y$-value greater than the $y$-value predicted by the model?",
  "diagram": {
   "type": "dataTable",
   "params": {
@@ -15,7 +15,7 @@
     [
      "y",
      "5",
-     "12",
+     "8",
      "21",
      "36"
     ]
@@ -25,26 +25,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$-10$"
+   "text": "$0$"
   },
   {
    "id": "B",
-   "text": "$2.5$"
+   "text": "$1$"
   },
   {
    "id": "C",
-   "text": "$10$"
+   "text": "$2$"
   },
   {
    "id": "D",
-   "text": "$64$"
+   "text": "$3$"
   }
  ],
  "correctAnswer": "C",
  "distractorNotes": {
-  "A": "subtracts in the wrong order, predicted minus actual for every point",
-  "B": "divides the sum by 4, giving the mean of the differences",
-  "D": "reports the sum of the predicted values, 1 + 9 + 21 + 33 = 64"
+  "A": "makes a sign error and uses b = 3, which puts every prediction above the actual value",
+  "B": "counts the points where the predicted value is greater than the actual value",
+  "D": "also counts the point with x = 6, where the actual and predicted values are equal"
  },
- "explanation": "**SAT Pattern: Residual**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The sum of the differences is the sum of the $y$-values minus the sum of the predictions: $(5 + 12 + 21 + 36) - (1 + 9 + 21 + 33) = 74 - 64 = 10$.\n\n**The Full Solution:**\nStep 1: Evaluate the model at each $x$: $4(1) - 3 = 1$, $4(3) - 3 = 9$, $4(6) - 3 = 21$, and $4(9) - 3 = 33$.\nStep 2: Subtract each prediction from the actual value: $5 - 1 = 4$, $12 - 9 = 3$, $21 - 21 = 0$, and $36 - 33 = 3$.\nStep 3: Add: $4 + 3 + 0 + 3 = 10$. Check: $74 - 64 = 10$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-10$): computes $\\hat{y} - y$ at every point, which flips the sign of the sum.\n* Choice B ($2.5$): is the mean of the four differences, not their sum.\n* Choice D ($64$): is the total of the predicted values before any subtraction.\n\n**Test Day Takeaway:** A sum of differences equals the difference of the sums, which is a quick check on four separate subtractions."
+ "explanation": "**SAT Pattern: Residual**\n\n**Choice C is correct.**\n\n**The Fast Way (~60s):** From $21 = 4(6) + b$, $b = -3$; the predictions $1, 9, 21, 33$ are below the actual values only at $x = 1$ and $x = 9$.\n\n**The Full Solution:**\nStep 1: The model is exact at $(6, 21)$, so $21 = 24 + b$ and $b = -3$.\nStep 2: Predicted values for $x = 1, 3, 6, 9$: $1, 9, 21, 33$. Actual values: $5, 8, 21, 36$.\nStep 3: Actual is greater than predicted at $x = 1$ ($5 > 1$) and at $x = 9$ ($36 > 33$), so the answer is $2$. Check: at $x = 3$, $8 < 9$, and at $x = 6$ the values are equal ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0$): uses $b = 3$; then the predictions $7, 15, 27, 39$ are all above the actual values.\n* Choice B ($1$): counts the one point below the line ($x = 3$) instead of the points above it.\n* Choice D ($3$): counts $x = 6$, but there the actual value equals the prediction; it is not greater.\n\n**Test Day Takeaway:** Find the constant from the point the model fits exactly, then compare actual and predicted point by point."
 }

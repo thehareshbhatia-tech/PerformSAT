@@ -6,34 +6,35 @@
  "domain": "standard-english-conventions",
  "skill": "form-structure-and-sense",
  "module": 2,
- "passage": "The great birch-bark freight canoes of the fur trade combined abilities no other vessel offered: carrying three tons of cargo, crossing the open water of the Great Lakes, and ______ light enough for four voyageurs to carry over a portage.",
+ "passage": "The platypus of eastern Australia combines traits seldom found in a single animal: laying eggs, feeding its young with milk, and ______ prey underwater by detecting the tiny electric currents produced by the prey's muscles.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "they remained"
+   "text": "it senses"
   },
   {
    "id": "B",
-   "text": "to remain"
+   "text": "to sense"
   },
   {
    "id": "C",
-   "text": "remaining"
+   "text": "sensing"
   },
   {
    "id": "D",
-   "text": "it remained"
+   "text": "they sense"
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The blank is the third item in a coordinated series whose first two items are the gerund phrases \"carrying three tons...\" and \"crossing the open water...\"; parallel structure requires a third gerund, \"remaining light enough...\"\n\n**The Full Solution:**\n- Identify the series after the colon: item one begins \"carrying,\" item two begins \"crossing,\" and \"and\" announces the final item.\n- Items in a series must share grammatical form. Only \"remaining\" matches the -ing pattern of its partners.\n\n**Why the other choices are wrong:**\n- A: \"They remained\" switches the item into a full clause, breaking the gerund series (and \"they\" would splice a clause into a list).\n- B: \"To remain\" swaps in an infinitive where its coordinated partners are gerunds.\n- D: \"It remained\" has the same clause problem as A, with a singular pronoun besides.",
+ "explanation": "**Choice C is correct.** The blank is the third item in a series whose first two items are the gerund phrases \"laying eggs\" and \"feeding its young with milk\"; parallel structure requires a third gerund, \"sensing prey underwater.\"\n\n**The Full Solution:**\n- Identify the series after the colon: item one begins \"laying,\" item two begins \"feeding,\" and \"and\" introduces the final item.\n- Items in a series must share the same grammatical form, so the third item must also begin with an -ing word: \"sensing.\"\n\n**Why the other choices are wrong:**\n- A: \"It senses\" turns the third item into a clause, breaking the series of gerund phrases.\n- B: \"To sense\" is an infinitive, which does not match the gerunds \"laying\" and \"feeding.\"\n- D: \"They sense\" is a clause, which breaks the parallel series, and \"they\" does not agree with the singular \"platypus.\"",
  "_meta": {
   "rule": "parallel gerunds in a coordinated series",
   "distractors": {
    "A": "clause breaks gerund parallelism",
    "B": "infinitive breaks gerund parallelism",
    "D": "clause + number shift"
-  }
+  },
+  "anchor": "platypus traits — parallel gerunds in a series"
  }
 }

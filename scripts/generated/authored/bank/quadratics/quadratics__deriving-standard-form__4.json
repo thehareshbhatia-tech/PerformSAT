@@ -1,6 +1,6 @@
 {
   "id": 4,
-  "question": "A rectangular garden is $x$ feet wide and $(x + 6)$ feet long. A path $2$ feet wide runs along the inside of its four edges. Which expression represents the area, in square feet, of the region inside the path?",
+  "question": "A rectangle is $x$ units wide and $(x + 6)$ units long. A second rectangle is $4$ units narrower and $4$ units shorter than the first rectangle. Which expression represents the area, in square units, of the second rectangle?",
   "choices": [
     {
       "id": "A",
@@ -12,7 +12,7 @@
     },
     {
       "id": "C",
-      "text": "$x^2 + 2x - 8$"
+      "text": "$x^2 + 2x - 24$"
     },
     {
       "id": "D",
@@ -20,11 +20,11 @@
     }
   ],
   "distractorNotes": {
-    "B": "uses the correct factors (x - 4)(x + 2) but records (-4)(+2) as +8, a sign slip on the constant term",
-    "C": "expands (x + 4)(x - 2), adding the path to the width rather than removing it",
-    "D": "subtracts 8 from the whole area x(x + 6) instead of shrinking each dimension first"
+    "B": "multiplies -4 by 2 and gets +8 for the constant term",
+    "C": "reduces only the width by 4, computing (x - 4)(x + 6)",
+    "D": "subtracts 4 + 4 from the area x(x + 6) instead of from the side lengths"
   },
   "correctAnswer": "A",
-  "hint": "The path takes 2 feet from each end of both dimensions.",
-  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~25s):** The region inside the path is $(x - 4)$ feet by $(x + 2)$ feet, and that product is $x^{2} - 2x - 8$.\n\n**The Full Solution:**\nStep 1: Shrink each dimension twice. The path is $2$ feet wide on both sides, so the width drops by $4$ to $x - 4$ and the length drops by $4$ to $(x + 6) - 4 = x + 2$.\nStep 2: Multiply. $(x - 4)(x + 2) = x^{2} + 2x - 4x - 8 = x^{2} - 2x - 8$ square feet.\nStep 3: Check with a number. If $x = 10$, the garden is $10$ by $16$ and the region inside the path is $6$ by $12$, or $72$ square feet; the expression gives $100 - 20 - 8 = 72$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($x^{2} - 2x + 8$): uses the right factors, $(x - 4)(x + 2)$, but signs the constant as $+8$. The product $(-4)(+2)$ is $-8$.\n* Choice C ($x^{2} + 2x - 8$): comes from $(x + 4)(x - 2)$, adding the path to the width instead of removing it.\n* Choice D ($x^{2} + 6x - 8$): subtracts $8$ from the whole garden area $x(x + 6)$, but a border removes a frame, not a fixed $8$ square feet.\n\n**Test Day Takeaway:** A uniform border of width $w$ removes $2w$ from EACH dimension. Shrink both dimensions, then multiply."
+  "hint": "Write the new width and the new length first, then multiply.",
+  "explanation": "**Choice A is correct.**\n\n**The Fast Way (~30s):** The second rectangle is $(x - 4)$ by $(x + 2)$, and $(x - 4)(x + 2) = x^{2} - 2x - 8$.\n\n**The Full Solution:**\nStep 1: The new width is $x - 4$ units.\nStep 2: The new length is $(x + 6) - 4 = x + 2$ units.\nStep 3: The area is $(x - 4)(x + 2) = x^{2} + 2x - 4x - 8 = x^{2} - 2x - 8$.\n\nCheck: For $x = 10$, the second rectangle is $6$ by $12$, with area $72$, and $10^{2} - 2(10) - 8 = 72$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($x^2 - 2x + 8$): gets the sign of the constant wrong: $(-4)(2) = -8$.\n* Choice C ($x^2 + 2x - 24$): shortens only the width, computing $(x - 4)(x + 6)$.\n* Choice D ($x^2 + 6x - 8$): subtracts $8$ from the original area instead of shrinking each side.\n\n**Test Day Takeaway:** For area after a change in dimensions, change each side length first, then multiply."
 }

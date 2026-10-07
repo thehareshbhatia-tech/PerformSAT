@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-315",
-  "question": "The $24$ scores in class A range from $79$ to $83$. The $24$ scores in class B range from $46$ to $97$. Which class's scores have the greater standard deviation?",
+  "question": "Which of the following data sets has the greatest standard deviation?",
   "choices": [
     {
       "id": "A",
-      "text": "Class A"
+      "text": "$8$, $8$, $8$, $8$, $8$"
     },
     {
       "id": "B",
-      "text": "Class B"
+      "text": "$6$, $7$, $8$, $9$, $10$"
     },
     {
       "id": "C",
-      "text": "The standard deviations are equal."
+      "text": "$4$, $6$, $8$, $10$, $12$"
     },
     {
       "id": "D",
-      "text": "There is not enough information to compare the standard deviations."
+      "text": "$2$, $5$, $8$, $11$, $14$"
     }
   ],
   "distractorNotes": {
-    "A": "reverses the comparison; class A's scores all lie within 4 points of one another",
-    "C": "treats the equal number of scores as equal spread",
-    "D": "assumes the individual scores are needed, but class A's scores cannot be spread as much as class B's"
+    "A": "reverses greatest and least: every value equals the mean, so this standard deviation is 0, the least possible",
+    "B": "consecutive values sit close to the mean of 8, so this set has little spread",
+    "C": "its values are 2 apart, but the values in choice D are 3 apart and farther from the mean"
   },
-  "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Standard Deviation Comparison**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Class A's scores all lie within a $4$-point band, while class B's scores stretch over $51$ points, so class B has the greater standard deviation.\n\n**The Full Solution:**\nStep 1: Every score in class A is between $79$ and $83$, so no score in class A is more than $4$ points from the class mean.\nStep 2: Class B includes a score of $46$ and a score of $97$. These are $51$ points apart, so at least one of them is more than $25$ points from the class mean.\nStep 3: Since class B's scores lie much farther from their mean, class B has the greater standard deviation. Check: a score $25$ points from the mean is impossible in class A ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: reverses the comparison; scores in a narrow band have a small standard deviation.\n* Choice C: the number of scores does not determine the spread.\n* Choice D: the ranges alone settle it, because class A's scores can never be as far from their mean as class B's extreme scores are from theirs.\n\n**Test Day Takeaway:** A narrow range forces a small standard deviation. When one data set's range is many times the other's, the comparison is settled without the individual values."
+  "correctAnswer": "D",
+  "explanation": "**SAT Pattern: Standard Deviation Comparison**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Every set has a mean of $8$, and the values in choice D lie farthest from $8$, so choice D has the greatest standard deviation.\n\n**The Full Solution:**\nStep 1: Each data set is balanced around $8$, so each has a mean of $8$.\nStep 2: The distances of the values from $8$ are $0, 0, 0, 0, 0$ in choice A; $2, 1, 0, 1, 2$ in choice B; $4, 2, 0, 2, 4$ in choice C; and $6, 3, 0, 3, 6$ in choice D.\nStep 3: Standard deviation measures how far the values are from the mean, and the values in choice D are the farthest from $8$. So choice D has the greatest standard deviation. Check: the ranges are $0$, $4$, $8$ and $12$, and choice D is the most spread out. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A: every value equals the mean, so this standard deviation is $0$, the least possible, not the greatest.\n* Choice B: these values are only $1$ apart and stay within $2$ of the mean, so this set has little spread.\n* Choice C: these values are $2$ apart, but the values in choice D are $3$ apart and farther from the mean.\n\n**Test Day Takeaway:** Standard deviation measures spread from the mean. When the data sets share a mean, the set whose values sit farthest from it has the greatest standard deviation."
 }

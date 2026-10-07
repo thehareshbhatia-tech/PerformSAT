@@ -11,19 +11,19 @@
  "choices": [
   {
    "id": "A",
-   "text": "The Book of Fixed Stars became influential primarily because Arabic was more widely read than Greek among astronomers of the tenth century."
+   "text": "The book became influential mainly because more astronomers of the time could read Arabic than could read Ptolemy's original Greek."
   },
   {
    "id": "B",
-   "text": "Al-Sufi's observation of a \"little cloud\" in Andromeda was the most important astronomical discovery of the tenth century, though it went unrecognized until modern times."
+   "text": "Al-Sufi's notice of a \"little cloud\" in Andromeda was the tenth century's most important astronomical discovery."
   },
   {
    "id": "C",
-   "text": "Ptolemy's catalog contained so many errors that later astronomers discarded it entirely and compiled replacements from fresh observations."
+   "text": "Ptolemy's catalog contained so many errors that later astronomers discarded it entirely."
   },
   {
    "id": "D",
-   "text": "Al-Sufi's book was less a translation of Ptolemy's catalog than a revision of it, preserving Greek astronomy while adding corrections and new observations."
+   "text": "Al-Sufi's book did more than translate Ptolemy's catalog: it preserved the catalog while correcting and adding to it."
   }
  ],
  "correctAnswer": "D",

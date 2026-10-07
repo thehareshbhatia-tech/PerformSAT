@@ -141,9 +141,9 @@ export const practiceTest2M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "The $15$ values in a data set have a mean of $2.6$ and a standard deviation of $0.8$. Each value is multiplied by $5$, and then $3$ is added to each result. What is the mean of the new values?",
-      correctAnswer: "16",
-      explanation: "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**The correct answer is $16$.**\n\n**The Fast Way (~20s):** Whatever is done to every value is done to the mean, so the new mean is $5(2.6) + 3 = 16$.\n\n**The Full Solution:**\nStep 1: Write the rule. A value $v$ in the original data set becomes $5v + 3$.\nStep 2: Multiplying every value by $5$ multiplies the sum, and therefore the mean, by $5$: $5(2.6) = 13$.\nStep 3: Adding $3$ to every value adds $3$ to the mean: $13 + 3 = 16$. Check: the original sum is $15(2.6) = 39$; the new sum is $5(39) + 15(3) = 195 + 45 = 240$, and $\\frac{240}{15} = 16$ ✓\n\n**Common Mistakes:**\n* $13$: multiplies the mean by $5$ but forgets to add the $3$.\n* $28$: adds $3$ before multiplying, computing $5(2.6 + 3) = 28$, which reverses the order of the operations.\n* $4$: transforms the standard deviation, $5(0.8) = 4$, instead of the mean.\n\n**Test Day Takeaway:** A rule of the form $av + b$ applied to every value sends the mean to $a(\\text{mean}) + b$. The standard deviation is only multiplied by $|a|$; the added constant does not affect it.",
+      question: "Data set A consists of $15$ values and has a mean of $26$. Data set B is created by adding $4$ to each of the values in data set A. What is the sum of the $15$ values in data set B?",
+      correctAnswer: "450",
+      explanation: "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**The correct answer is $450$.**\n\n**The Fast Way (~25s):** Adding $4$ to every value raises the mean to $26 + 4 = 30$, so the sum of the $15$ values is $15(30) = 450$.\n\n**The Full Solution:**\nStep 1: The sum of the values in data set A is $15(26) = 390$.\nStep 2: Each of the $15$ values increases by $4$, which adds $15(4) = 60$ to the sum.\nStep 3: The sum for data set B is $390 + 60 = 450$. Check: $\\frac{450}{15} = 30 = 26 + 4$ ✓\n\n**Common Mistakes:**\n* $30$: the mean of data set B, not the sum of its values.\n* $394$: adds $4$ to the sum only once instead of once for each of the $15$ values.\n* $390$: the sum of the values in data set A.\n\n**Test Day Takeaway:** Sum $=$ mean $\\times$ number of values; adding a constant to every value adds that constant to the mean.",
       skills: ["data-analysis"]
     },
     {
@@ -151,18 +151,18 @@ export const practiceTest2M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "$y = 0.5x^{2} - 7x + 20$\nThe graph of the given equation intersects the $x$-axis at two points. What is the distance between the two points?",
+      question: "$y = 2x^{2} - 20x + 42$\nThe graph of the given equation intersects the $x$-axis at two points. What is the distance between the two points?",
       choices: [
-        // distractor: reports the smaller x-intercept, 4, instead of the distance between the two intercepts
-        { id: "A", text: "$4$" },
-        { id: "B", text: "$6$" },
-        // distractor: reports the larger x-intercept, 10, instead of the distance between the two intercepts
-        { id: "C", text: "$10$" },
-        // distractor: adds the two intercepts, 4 + 10, instead of subtracting them
-        { id: "D", text: "$14$" }
+        // distractor: gives the smaller x-intercept, 3, instead of the distance
+        { id: "A", text: "$3$" },
+        { id: "B", text: "$4$" },
+        // distractor: gives the larger x-intercept, 7, instead of the distance
+        { id: "C", text: "$7$" },
+        // distractor: adds the x-intercepts, 3 + 7, instead of subtracting
+        { id: "D", text: "$10$" }
       ],
       correctAnswer: "B",
-      explanation: "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Multiply by $2$ to get $x^{2} - 14x + 40 = 0$, which factors as $(x - 4)(x - 10) = 0$. The intercepts are at $x = 4$ and $x = 10$, which are $10 - 4 = 6$ apart.\n\n**The Full Solution:**\nStep 1: The graph meets the $x$-axis where $y = 0$: $0.5x^{2} - 7x + 20 = 0$. Multiplying both sides by $2$ gives $x^{2} - 14x + 40 = 0$.\nStep 2: Factor: $(x - 4)(x - 10) = 0$, so $x = 4$ or $x = 10$. The points are $(4, 0)$ and $(10, 0)$.\nStep 3: Both points are on the $x$-axis, so the distance between them is $10 - 4 = 6$. Check: $0.5(4)^{2} - 7(4) + 20 = 8 - 28 + 20 = 0$ and $0.5(10)^{2} - 7(10) + 20 = 50 - 70 + 20 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4$): is the smaller $x$-intercept, not the distance between the intercepts.\n* Choice C ($10$): is the larger $x$-intercept, not the distance between the intercepts.\n* Choice D ($14$): adds the intercepts, $4 + 10$, which gives the sum of the solutions rather than the distance.\n\n**Test Day Takeaway:** For the distance between $x$-intercepts, find both zeros and subtract the smaller from the larger. Clearing a decimal coefficient first makes factoring easier.",
+      explanation: "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $2x^{2} - 20x + 42 = 2(x - 3)(x - 7)$, so the graph crosses the $x$-axis at $x = 3$ and $x = 7$, which are $4$ units apart.\n\n**The Full Solution:**\nStep 1: Set $y = 0$ and divide by $2$: $x^{2} - 10x + 21 = 0$.\nStep 2: Factor: $(x - 3)(x - 7) = 0$, so the $x$-intercepts are $(3, 0)$ and $(7, 0)$.\nStep 3: Both points are on the $x$-axis, so the distance between them is $7 - 3 = 4$. Check: $2(3)^{2} - 20(3) + 42 = 18 - 60 + 42 = 0$ and $2(7)^{2} - 20(7) + 42 = 98 - 140 + 42 = 0$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): is the smaller $x$-intercept, not the distance between the two.\n* Choice C ($7$): is the larger $x$-intercept, not the distance between the two.\n* Choice D ($10$): adds the $x$-intercepts instead of subtracting them.\n\n**Test Day Takeaway:** The distance between two $x$-intercepts is the difference of the solutions; factor out any common number first to make the factoring easier.",
       skills: ["quadratics"]
     },
     {
@@ -290,19 +290,19 @@ export const practiceTest2M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 6,
-      question: "In the $xy$-plane, point $P$ has coordinates $(-6, 3)$ and point $Q$ has coordinates $(2a, a + 4)$, where $a$ is a constant. The midpoint of $\\overline{PQ}$ has an $x$-coordinate of $5$. What is the $y$-coordinate of the midpoint of $\\overline{PQ}$?",
+      question: "The graph of $4x - 3y = 24$ in the $xy$-plane is shifted up $4$ units to form line $\\ell$. What is the $x$-coordinate of the $x$-intercept of line $\\ell$?",
       choices: [
-        // distractor: averages the constant a = 8 with the y-coordinate 3, giving 5.5, instead of averaging the two y-coordinates
-        { id: "A", text: "$5.5$" },
-        // distractor: drops the division by 2 in the x-equation, solving -6 + 2a = 5 to get a = 5.5, so Q has y-coordinate 9.5 and the midpoint y-coordinate becomes 6.25
-        { id: "B", text: "$6.25$" },
-        { id: "C", text: "$7.5$" },
-        // distractor: reports Q's y-coordinate, 12, instead of the midpoint's
-        { id: "D", text: "$12$" }
+        { id: "A", text: "$3$" },
+        // distractor: gives the x-intercept of the original graph, which was never shifted
+        { id: "B", text: "$6$" },
+        // distractor: adds 4 to the constant term, using 4x - 3y = 28
+        { id: "C", text: "$7$" },
+        // distractor: shifts the graph down 4 units instead of up, using y = (4/3)x - 12
+        { id: "D", text: "$9$" }
       ],
-      correctAnswer: "C",
-      explanation: "**SAT Pattern: Midpoint Formula**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** From $\\frac{-6 + 2a}{2} = 5$, $a = 8$, so $Q = (16, 12)$. The midpoint's $y$-coordinate is $\\frac{3 + 12}{2} = 7.5$.\n\n**The Full Solution:**\nStep 1: The midpoint's $x$-coordinate is the mean of the endpoints' $x$-coordinates: $\\frac{-6 + 2a}{2} = 5$.\nStep 2: Solve: $-6 + 2a = 10$, so $2a = 16$ and $a = 8$. Then $Q = (2(8), 8 + 4) = (16, 12)$.\nStep 3: The midpoint's $y$-coordinate is $\\frac{3 + 12}{2} = 7.5$. Check: the midpoint is $(5, 7.5)$, and moving from $P(-6, 3)$ to $(5, 7.5)$ is a change of $(11, 4.5)$, which lands exactly on $(16, 12)$ when repeated ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5.5$): averages $a = 8$ with $3$, using the constant in place of $Q$'s $y$-coordinate, $a + 4 = 12$.\n* Choice B ($6.25$): forgets to multiply by $2$, solving $-6 + 2a = 5$ to get $a = 5.5$; then $Q$'s $y$-coordinate is $9.5$ and $\\frac{3 + 9.5}{2} = 6.25$.\n* Choice D ($12$): is the $y$-coordinate of $Q$, an endpoint, not of the midpoint.\n\n**Test Day Takeaway:** Use the coordinate you know to find the constant, then substitute it into the other coordinate and average again. Keep the endpoint and the midpoint separate.",
-      skills: ["coordinate-geometry"]
+      correctAnswer: "A",
+      explanation: "**SAT Pattern: Vertical Shift of a Line — $x$-intercept**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The given line is $y = \\frac{4}{3}x - 8$. Shifting it up $4$ units gives $y = \\frac{4}{3}x - 4$, which equals $0$ when $x = 3$.\n\n**The Full Solution:**\nStep 1: Solve $4x - 3y = 24$ for $y$: $-3y = -4x + 24$, so $y = \\frac{4}{3}x - 8$.\nStep 2: Shifting a graph up $4$ units adds $4$ to every $y$-value: line $\\ell$ is $y = \\frac{4}{3}x - 4$.\nStep 3: Set $y = 0$: $\\frac{4}{3}x = 4$, so $x = 3$. Check: the original graph contains $(3, -4)$, since $4(3) - 3(-4) = 24$, and $4$ units above that point is $(3, 0)$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($6$): is the $x$-intercept of the original graph, before the shift.\n* Choice C ($7$): adds $4$ to the constant, using $4x - 3y = 28$. In this form, adding $4$ to $y$ changes the constant by $3(4) = 12$, not by $4$.\n* Choice D ($9$): shifts the graph down instead of up, using $y = \\frac{4}{3}x - 12$.\n\n**Test Day Takeaway:** To shift a line vertically, write it as $y = mx + b$ and change $b$; then set $y = 0$ to find the new $x$-intercept.",
+      skills: ["slope-from-points", "function-transformations"]
     },
     {
       id: 18,
@@ -338,18 +338,18 @@ export const practiceTest2M2Easy = {
       type: "multiple-choice",
       difficulty: "hard",
       band: 6,
-      question: "A solid right circular cylinder has a radius of $0.6$ meter and a height of $3$ meters. A cylindrical hole with a radius of $0.2$ meter is drilled through its center from top to bottom. What is the volume, in cubic meters, of the remaining solid?",
+      question: "A solid right circular cylinder has a radius of $5$ centimeters and a height of $10$ centimeters. A cylindrical hole with a radius of $2$ centimeters is drilled through its center from top to bottom. What is the volume, in cubic centimeters, of the remaining solid?",
       choices: [
-        // distractor: computes the volume of the hole alone, pi times 0.2 squared times 3
-        { id: "A", text: "$0.12\\pi$" },
-        // distractor: subtracts the radii before squaring, using pi times (0.6 - 0.2) squared times 3 = 0.48 pi
-        { id: "B", text: "$0.48\\pi$" },
-        { id: "C", text: "$0.96\\pi$" },
-        // distractor: ignores the hole and reports the volume of the solid cylinder, pi times 0.6 squared times 3
-        { id: "D", text: "$1.08\\pi$" }
+        // distractor: gives the volume of the hole, pi(2^2)(10), instead of what remains
+        { id: "A", text: "$40\\pi$" },
+        // distractor: subtracts the radii first, using pi(5 - 2)^2(10)
+        { id: "B", text: "$90\\pi$" },
+        { id: "C", text: "$210\\pi$" },
+        // distractor: gives the volume of the whole cylinder and never removes the hole
+        { id: "D", text: "$250\\pi$" }
       ],
       correctAnswer: "C",
-      explanation: "**SAT Pattern: Cylinder Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Subtract the hole from the cylinder: $\\pi(0.6)^{2}(3) - \\pi(0.2)^{2}(3) = 1.08\\pi - 0.12\\pi = 0.96\\pi$.\n\n**The Full Solution:**\nStep 1: The volume of a cylinder is $\\pi r^{2}h$. The full cylinder has volume $\\pi(0.6)^{2}(3) = \\pi(0.36)(3) = 1.08\\pi$ cubic meters.\nStep 2: The hole is a cylinder with the same height: $\\pi(0.2)^{2}(3) = \\pi(0.04)(3) = 0.12\\pi$ cubic meters.\nStep 3: The remaining solid has volume $1.08\\pi - 0.12\\pi = 0.96\\pi$ cubic meters. Check: factoring gives $3\\pi(0.6^{2} - 0.2^{2}) = 3\\pi(0.36 - 0.04) = 3\\pi(0.32) = 0.96\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($0.12\\pi$): is the volume of the hole, the part that was removed.\n* Choice B ($0.48\\pi$): subtracts the radii first, $\\pi(0.6 - 0.2)^{2}(3) = 0.48\\pi$. Areas must be subtracted, not radii.\n* Choice D ($1.08\\pi$): is the volume of the cylinder before the hole is drilled.\n\n**Test Day Takeaway:** For a solid with a hole, compute the outer volume and the hole's volume separately and subtract. Never subtract radii before squaring.",
+      explanation: "**SAT Pattern: Cylinder Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** The remaining volume is the full cylinder minus the hole: $\\pi(5^{2})(10) - \\pi(2^{2})(10) = 250\\pi - 40\\pi = 210\\pi$.\n\n**The Full Solution:**\nStep 1: Volume of the full cylinder: $\\pi(5^{2})(10) = 250\\pi$ cubic centimeters.\nStep 2: The hole is a cylinder with radius $2$ and the same height, $10$: $\\pi(2^{2})(10) = 40\\pi$ cubic centimeters.\nStep 3: Subtract: $250\\pi - 40\\pi = 210\\pi$ cubic centimeters. Check: $\\pi(5^{2} - 2^{2})(10) = \\pi(21)(10) = 210\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($40\\pi$): is the volume of the hole, the part that was removed.\n* Choice B ($90\\pi$): subtracts the radii before squaring, $\\pi(5 - 2)^{2}(10)$; squaring does not distribute over subtraction.\n* Choice D ($250\\pi$): is the volume of the whole cylinder before the hole was drilled.\n\n**Test Day Takeaway:** For a solid with a hole, compute the whole volume and the removed volume separately, then subtract.",
       skills: ["volume-prism"]
     },
     {

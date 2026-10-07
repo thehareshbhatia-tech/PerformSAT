@@ -44,7 +44,7 @@ export const practiceTest5RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "Competitive swimmers lose most of their speed to the water's resistance. When a swimmer pushes off the wall and stretches into a tight, arrow-straight glide — legs together, arms squeezed behind the head — that posture can ______ drag enough to carry the swimmer several extra meters before the first stroke is needed.",
+      "passage": "Competitive swimmers lose most of their speed to the water's resistance. After pushing off the wall, a swimmer stretches into a tight, arrow-straight glide, with legs together and arms squeezed behind the head. That posture can ______ drag enough to carry the swimmer several extra meters before the first stroke is needed.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "record" },
@@ -62,7 +62,7 @@ export const practiceTest5RWM2Easy = {
       "band": 2,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "Backyard birds feed in different ways: finches perch at tubes to crack small seeds, woodpeckers cling to blocks of suet, and doves pick fallen grain off the ground. Because each feeder style suits some birds and not others, people hoping to see many species often ______ several feeder types in one yard rather than relying on a single design.",
+      "passage": "Garam masala, a seasoning used throughout Indian cooking, is not a single spice. To make it, cooks ______ several spices, such as cinnamon, cloves, cardamom, and cumin, roasting them and then grinding them together into one powder.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "repair" },
@@ -71,7 +71,7 @@ export const practiceTest5RWM2Easy = {
         { "id": "D", "text": "conceal" }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The blank must describe using several feeder types together, and \"combine\" means to bring different things together.\n\n**The Full Solution:**\n- How to spot it: the contrast at the end of the sentence — \"several feeder types in one yard rather than relying on a single design\" — tells you the blank is the opposite of using just one.\n- The passage has set up why: each feeder style serves some birds and not others, so one design alone limits which species show up.\n- Putting several designs together covers more feeding styles, and \"combine\" is the verb for doing exactly that.\n\n**Why the other choices are wrong:**\n- A: \"Repair\" means to fix something broken, but nothing in the passage is broken.\n- B: \"Describe\" means to put into words, which would not bring any additional birds to a yard.\n- D: \"Conceal\" means to hide, and hiding feeders would defeat the goal of attracting more species."
+      "explanation": "**Choice C is correct.** Garam masala is made by bringing several spices together into one powder, and \"combine\" means to join separate things into a whole.\n\n**The Full Solution:**\n- How to spot it: the first sentence says garam masala \"is not a single spice,\" so making it must involve more than one spice.\n- The rest of the sentence shows how: several spices are roasted and ground \"together into one powder.\"\n- \"Combine\" names that act of joining several spices into one seasoning.\n\n**Why the other choices are wrong:**\n- A: \"Repair\" means to fix something broken; nothing in the text is damaged.\n- B: \"Describe\" means to tell about something in words, not to make a seasoning from it.\n- D: \"Conceal\" means to hide; the spices are mixed together, not hidden."
     },
     {
       "id": 555,
@@ -80,7 +80,7 @@ export const practiceTest5RWM2Easy = {
       "band": 2,
       "domain": "craft-and-structure",
       "skill": "words-in-context",
-      "passage": "At many farmers markets, the stalls nearest the entrance draw the heaviest foot traffic, and every vendor wants one. Market managers therefore rotate those spaces from month to month, assigning them by lottery or by turn so that no single farm can ______ the most visible spots season after season.",
+      "passage": "In a mature forest, the crowns of the tallest trees spread into a dense, continuous canopy. These crowns ______ the sunlight. Their leaves absorb so much of it that only a few percent reaches the forest floor, where young seedlings may wait years for a fallen tree to open a gap.",
       "question": "Which choice completes the text with the most logical and precise word or phrase?",
       "choices": [
         { "id": "A", "text": "decorate" },
@@ -89,7 +89,7 @@ export const practiceTest5RWM2Easy = {
         { "id": "D", "text": "measure" }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The blank needs a verb for one farm keeping the best spots all to itself, and \"monopolize\" means to take exclusive control of something.\n\n**The Full Solution:**\n- How to spot it: the phrase \"so that no single farm can ______\" tells you the rotation exists to PREVENT something one farm might otherwise do.\n- The passage says every vendor wants the high-traffic stalls and that managers rotate them by lottery or by turn — a system built to keep any one vendor from locking the spots up.\n- \"Monopolize\" names exactly that locked-up control, so the sentence explains what the rotation prevents.\n\n**Why the other choices are wrong:**\n- A: \"Decorate\" is about appearance; rotating stalls by lottery has nothing to do with stopping decoration.\n- C: \"Avoid\" reverses the logic — vendors want these spots, and no rotation is needed to stop a farm from staying away.\n- D: \"Measure\" means to determine size, which no part of the passage discusses."
+      "explanation": "**Choice B is correct.** The canopy's leaves take in nearly all of the light and leave almost none for the plants below, and \"monopolize\" means to take or control nearly all of something.\n\n**The Full Solution:**\n- How to spot it: read the next sentence. The leaves \"absorb so much of it that only a few percent reaches the forest floor.\"\n- The blank needs a verb that matches that picture: the tall crowns keep the sunlight almost entirely for themselves.\n- \"Monopolize\" says exactly that, and the waiting seedlings show who is left without it.\n\n**Why the other choices are wrong:**\n- A: \"Decorate\" means to make something more attractive; the crowns are not adorning the sunlight.\n- C: \"Avoid\" reverses the point; the crowns absorb the sunlight rather than keep away from it.\n- D: \"Measure\" means to find the size or amount of something, which leaves do not do."
     },
     {
       "id": 559,
@@ -119,22 +119,22 @@ export const practiceTest5RWM2Easy = {
       "passages": [
         {
           "label": "Text 1",
-          "text": "Winter is the season that limits many backyard bird populations, and feeders can loosen that limit. In studies spanning several winters, small songbirds with access to well-stocked feeders came through severe cold snaps at higher rates than birds without such access. On this view, a yard with feeders is a modest but genuine conservation gesture: whoever keeps seed out through February is carrying some birds through the hardest weeks of their year."
+          "text": "Winter limits many backyard bird populations, and feeders can ease that limit. In studies spanning several winters, small songbirds with access to well-stocked feeders survived severe cold snaps at higher rates than birds without such access. On this view, keeping seed out through February is a modest but real conservation gesture. It carries some birds through the hardest weeks of their year."
         },
         {
           "label": "Text 2",
-          "text": "Feeding helps the birds that use feeders, but the help is uneven: feeders draw mainly a handful of bold, seed-eating species that are already among a region's most common, while the shyer birds of deep woods rarely visit them. Feeders also concentrate birds in repeated close contact at a shared surface, and outbreaks of eye disease in some feeder-visiting species have been traced to that crowding. A clean, well-tended feeder is a boon to its visitors; a neglected one can be the opposite."
+          "text": "Feeding helps the birds that use feeders, but the help is uneven. Feeders draw mainly a few bold, seed-eating species that are already common, while the shy birds of deep woods rarely visit. Feeders also bring birds into repeated close contact, and outbreaks of eye disease in some feeder species have been traced to that crowding. A clean, well-tended feeder helps its visitors; a neglected one can harm them."
         }
       ],
       "question": "Based on the texts, how would the author of Text 2 most likely respond to the view of backyard feeding presented in Text 1?",
       "choices": [
-        { "id": "A", "text": "Feeders do benefit the birds that visit them, but the benefit reaches only certain species and can be undone when feeders are not kept clean." },
-        { "id": "B", "text": "Feeders make no real difference to the winter survival of the birds that visit them." },
-        { "id": "C", "text": "The songbirds that visit feeders most often are the shy species of deep woods rather than a region's common seed-eaters." },
+        { "id": "A", "text": "Feeders do help their visitors, but only certain species benefit, and dirty feeders can undo the help." },
+        { "id": "B", "text": "Feeders make no real difference to whether the birds that visit them survive the winter." },
+        { "id": "C", "text": "The songbirds that visit feeders most often are the shy species of deep woods rather than common seed-eaters." },
         { "id": "D", "text": "People should stop feeding backyard birds entirely until outbreaks of eye disease have ended." }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** Text 2 opens by granting the benefit — \"Feeding helps the birds that use feeders\" — and then adds two limits: the help goes mostly to common species, and crowded, neglected feeders can spread disease. Choice A is precisely that response: agreement plus limits.\n\n**The Full Solution:**\n- How to spot it: pin down each author's position first. Text 1: feeders improve winter survival, so feeding is a small conservation gesture. Text 2: feeding helps its visitors, but unevenly, and with a disease risk tied to upkeep.\n- Notice that Text 2 never denies Text 1's survival evidence — its complaint is about reach (which species benefit) and about maintenance (clean versus neglected feeders).\n- Applied to Text 1's view, that yields choice A: yes, feeders help, but only some species, and only when kept clean.\n\n**Why the other choices are wrong:**\n- B: Text 2 says the opposite — feeding \"helps the birds that use feeders.\"\n- C: This reverses Text 2, which says feeders draw common seed-eaters while deep-woods birds rarely visit.\n- D: Text 2 distinguishes well-tended feeders from neglected ones; it never calls for stopping feeding altogether."
+      "explanation": "**Choice A is correct.** Text 2 opens by granting the benefit — \"Feeding helps the birds that use feeders\" — and then adds two limits: the help goes mostly to common species, and crowded, neglected feeders can spread disease. Choice A is precisely that response: agreement plus limits.\n\n**The Full Solution:**\n- How to spot it: pin down each author's position first. Text 1: feeders improve winter survival, so feeding is a modest conservation gesture. Text 2: feeding helps its visitors, but unevenly, and with a disease risk tied to upkeep.\n- Notice that Text 2 never denies Text 1's survival evidence — its complaint is about reach (which species benefit) and about maintenance (clean versus neglected feeders).\n- Applied to Text 1's view, that yields choice A: yes, feeders help, but only some species, and only when kept clean.\n\n**Why the other choices are wrong:**\n- B: Text 2 says the opposite — feeding \"helps the birds that use feeders.\"\n- C: This reverses Text 2, which says feeders draw common seed-eaters while deep-woods birds rarely visit.\n- D: Text 2 distinguishes well-tended feeders from neglected ones; it never calls for stopping feeding altogether."
     },
     {
       "id": 560,
@@ -143,16 +143,16 @@ export const practiceTest5RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "text-structure-and-purpose",
-      "passage": "Cities that want more people to walk have learned that distance discourages walkers less than uncertainty does: people decline trips they cannot picture. __One widely copied signage system answers that uncertainty by naming, on every sign, a handful of destinations reachable on foot, each listed with the number of minutes it takes to walk there.__ In surveys taken after such signs went up, residents guessed walking times far more accurately and reported attempting trips on foot that they had always assumed were too long.",
+      "passage": "Pedestrians in a large city often cannot tell how far away a destination is or how to reach it on foot. __London's Legible London signs, first tested near Bond Street in 2007, address that uncertainty with street maps that show what lies within a five-minute and a fifteen-minute walk.__ Evaluations of the system found that walking journeys took about 16 percent less time and that far fewer people got lost.",
       "question": "Which choice best describes the function of the underlined sentence in the text as a whole?",
       "choices": [
         { "id": "A", "text": "It lists the specific destinations that appear most often on the system's signs." },
-        { "id": "B", "text": "It explains why some residents continued to overestimate the length of familiar walking trips even after the new signs had gone up around the city." },
+        { "id": "B", "text": "It explains why some people kept getting lost even after the new signs went up." },
         { "id": "C", "text": "It concedes that the signs offer little help to people who already walk regularly." },
-        { "id": "D", "text": "It describes how the signage system addresses the uncertainty just identified, a design whose effects the final sentence then reports." }
+        { "id": "D", "text": "It describes how the signage system addresses the uncertainty just identified, whose effects the final sentence reports." }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The underlined sentence explains what the signage system does about the problem named before it, and the final sentence reports what happened once the signs were up.\n\n**The Full Solution:**\n- How to spot it: for a function question, read the sentences on either side of the underlined one. Before: the problem — uncertainty, not distance, keeps people from walking. After: the results — better time estimates, more trips attempted.\n- The underlined sentence is the bridge: it describes the design (destinations plus walking minutes on every sign) that turns the problem into the results.\n- Choice D names both halves of that job — the mechanism, and the final sentence's report of its effects.\n\n**Why the other choices are wrong:**\n- A: The sentence says signs name \"a handful of destinations\" but never lists any particular ones.\n- B: The surveys show estimates improving, and the sentence explains the fix, not a lingering failure.\n- C: Nothing in the sentence concedes a limitation; it presents the system's answer to the problem."
+      "explanation": "**Choice D is correct.** The underlined sentence explains what the signs do about the problem named before it, and the final sentence reports what happened once the signs were in use.\n\n**The Full Solution:**\n- How to spot it: for a function question, read the sentences on either side of the underlined one. Before: the problem, that pedestrians cannot tell how far a place is or how to reach it on foot. After: the results, quicker walking journeys and fewer people getting lost.\n- The underlined sentence is the bridge: it describes the design (maps showing what lies within a five-minute and a fifteen-minute walk) that addresses the problem and leads to the results.\n- Choice D names both halves of that job: the solution, and the final sentence's report of its effects.\n\n**Why the other choices are wrong:**\n- A: The sentence describes what the maps show but never names any particular destination.\n- B: The final sentence reports that far fewer people got lost, and the underlined sentence describes the fix, not a lingering failure.\n- C: Nothing in the sentence concedes a limitation; it presents the signs as an answer to the problem."
     },
     {
       "id": 561,
@@ -161,16 +161,16 @@ export const practiceTest5RWM2Easy = {
       "band": 3,
       "domain": "craft-and-structure",
       "skill": "text-structure-and-purpose",
-      "passage": "A keeper's day at a staffed lighthouse ran on the lamp's schedule. Daylight hours went to preparation: trimming wicks, polishing the lens, hauling oil up the tower stairs, logging the weather. At dusk the lamp was lit, and the harder discipline began — someone had to watch it all night, in shifts where a station had two keepers and alone where it had one, because a light that failed for even part of a night could wreck a ship. Retired keepers, asked about the work, seldom mention storms first; what they remember is the watching.",
+      "passage": "In a traditional town bakery, the day's bread had to be on the shelves by early morning. Most of the work was routine: weighing flour, mixing and kneading dough, shaping loaves, and keeping the oven fired. What made the trade hard was the hour at which that work was done. Because dough needs hours to rise, bakers began in the middle of the night and slept while the rest of the town was awake.",
       "question": "Which choice best describes the overall structure of the text?",
       "choices": [
-        { "id": "A", "text": "It traces how the design of lighthouses changed as new kinds of lamps became available." },
-        { "id": "B", "text": "It compares the amount of work performed at lighthouse stations staffed by two keepers with the amount performed at stations staffed by only one." },
-        { "id": "C", "text": "It describes the daily work a lighthouse keeper performed and then singles out the duty that made the job demanding." },
-        { "id": "D", "text": "It argues that accounts given by retired keepers exaggerate the dangers of the work." }
+        { "id": "A", "text": "It traces how the design of bread ovens changed as new kinds of fuel became available." },
+        { "id": "B", "text": "It compares the work done in town bakeries with the work done in bakeries in the countryside." },
+        { "id": "C", "text": "It describes a baker's routine tasks, then singles out what made the trade demanding." },
+        { "id": "D", "text": "It argues that accounts of bakers' working hours have exaggerated how difficult the trade really was." }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The text walks through the keeper's routine and then narrows to the night watch — the duty the text presents as the job's real weight.\n\n**The Full Solution:**\n- How to spot it: for a structure question, label what each part does rather than what it is about.\n- First part: the daytime routine — wicks, lens, oil, logbook. Second part, flagged by \"the harder discipline began\": the all-night watch and why it mattered (a failed light could wreck a ship).\n- The closing sentence confirms the emphasis — what keepers themselves remember is the watching. Describe the work, then single out the demanding duty: that is choice C.\n\n**Why the other choices are wrong:**\n- A: No change in lighthouse design or lamp technology is traced; the text sits inside one routine.\n- B: Two-keeper and one-keeper stations are mentioned only to explain shifts, not compared for workload.\n- D: The text reports what retired keepers remember; it never suggests their accounts overstate anything."
+      "explanation": "**Choice C is correct.** The text first lists the baker's ordinary tasks and then turns, with \"What made the trade hard,\" to the one feature that made the job difficult: working through the night.\n\n**The Full Solution:**\n- How to spot it: look for the hinge sentence. \"What made the trade hard was the hour at which that work was done\" divides the routine from the hardship.\n- Before it, the text lists everyday tasks: weighing flour, kneading dough, shaping loaves, firing the oven.\n- After it, the text explains the night hours: dough needs hours to rise, so bakers started in the middle of the night. That is description followed by a singled-out demand.\n\n**Why the other choices are wrong:**\n- A: Ovens are mentioned only as something to keep fired; the text traces no change in their design.\n- B: Only town bakeries are discussed, so no comparison with country bakeries is made.\n- D: The text presents the night hours as a real hardship and never questions any account of them."
     },
     // ============================================================
     // Q9-Q16: Information and Ideas
@@ -182,16 +182,16 @@ export const practiceTest5RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "central-ideas-and-details",
-      "passage": "At most school science fairs, what a visitor sees is the display: a trifold board, neat lettering, a graph or two. Judges, though, are usually told to score something else. Judging sheets at regional fairs commonly give the largest share of points to the interview — the few minutes in which a student must explain what was tested, what was expected, and what actually happened — and many sheets award more for an honest account of an experiment that failed than for a tidy board describing one that was never in doubt. The polish that visitors notice, in other words, is not what wins.",
+      "passage": "Before 2006, a gymnastics routine was scored out of a maximum of 10.0. That year, the sport's international federation replaced that ceiling with an open-ended system. Each routine now receives two scores that are added together. A difficulty score starts at zero and rises with the value of the skills performed, while an execution score starts at 10.0 and loses points for each error. A gymnast who attempts harder skills can therefore outscore a rival whose routine is cleaner but simpler.",
       "question": "Which choice best states the main idea of the text?",
       "choices": [
-        { "id": "A", "text": "Visitors touring a school science fair generally pay closer attention to the students' interviews with the judges than to the display boards themselves." },
-        { "id": "B", "text": "Regional science fairs have begun eliminating display boards in favor of oral presentations." },
-        { "id": "C", "text": "Students whose experiments fail are usually eliminated in the first round of science fair judging." },
-        { "id": "D", "text": "Science fair judging typically weights a student's understanding, shown in the interview, more heavily than the polished display that visitors notice." }
+        { "id": "A", "text": "Since 2006, gymnastics judges have scored routines mainly on how cleanly and gracefully each skill is performed." },
+        { "id": "B", "text": "The open-ended system was adopted because no gymnast had ever managed to earn a perfect score of 10.0." },
+        { "id": "C", "text": "Gymnasts who perform harder skills usually make more errors than gymnasts who perform simpler skills." },
+        { "id": "D", "text": "Since 2006, gymnastics scoring has rewarded difficulty as well as execution, so harder routines can outscore cleaner ones." }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The passage's point is the gap between what visitors see (the board) and what judges score (the interview and the student's understanding), and choice D states that gap.\n\n**The Full Solution:**\n- How to spot it: when a passage is built on a contrast, the main idea usually IS the contrast. Here it is displays versus interviews.\n- The evidence: judging sheets give the largest share of points to the interview, and many reward an honest account of a failed experiment over a tidy board describing a safe one.\n- The last sentence seals it — \"The polish that visitors notice... is not what wins.\" Choice D restates that whole arc.\n\n**Why the other choices are wrong:**\n- A: It swaps the players — the passage says visitors notice the boards; it is judges who focus on the interviews.\n- B: No fair in the passage eliminates display boards; boards are still there for visitors to see.\n- C: The passage says honest failed experiments can score BETTER, not that failure gets students eliminated."
+      "explanation": "**Choice D is correct.** The text explains that the scoring system adopted in 2006 adds a difficulty score to an execution score, and it ends with the consequence: a harder routine can beat a cleaner, simpler one.\n\n**The Full Solution:**\n- How to spot it: the text moves from the old 10.0 ceiling to the new two-part score and then to what that change means for competitors.\n- The difficulty score rises with harder skills; the execution score only falls with errors.\n- Because the two are added, difficulty can make up for some errors. Choice D states both the system and that result.\n\n**Why the other choices are wrong:**\n- A: Execution is only half of the score; the text stresses that difficulty now counts as well.\n- B: The text gives no reason for the change, and it does not say that no one ever scored 10.0.\n- C: The text does not compare how many errors gymnasts make on hard and easy skills."
     },
     {
       "id": 570,
@@ -200,16 +200,16 @@ export const practiceTest5RWM2Easy = {
       "band": 4,
       "domain": "information-and-ideas",
       "skill": "inferences",
-      "passage": "Nineteenth-century gas balloons controlled altitude with two consumable stores. To rise, the aeronaut poured sand ballast overboard, lightening the craft; to descend, the aeronaut opened a valve and released some of the lifting gas. Neither store could be replenished aloft, and every correction spent one of them: each unwanted climb answered with the valve, each sag answered with sand, left the balloon poorer than before. Since a flight had to end, at the latest, when either store ran out, it follows that ______",
+      "passage": "Nineteenth-century gas balloons controlled altitude with two consumable stores. To rise, the aeronaut poured sand ballast overboard, lightening the craft; to descend, the aeronaut opened a valve and released some of the lifting gas. Neither store could be replenished aloft, and every correction used up some of one: an unwanted climb cost gas, and an unwanted drop cost sand. Since a flight had to end, at the latest, when either store ran out, it follows that ______",
       "question": "Which choice most logically completes the text?",
       "choices": [
         { "id": "A", "text": "a balloon carrying more sand ballast at launch could stay aloft indefinitely if its aeronaut simply avoided opening the valve." },
         { "id": "B", "text": "the valve was the more important of the two controls, since gas, unlike sand, kept the balloon in the air." },
-        { "id": "C", "text": "the length of a flight was set less by the balloon itself than by how sparingly the aeronaut spent gas and sand along the way." },
-        { "id": "D", "text": "aeronauts of the period generally preferred flying in turbulent weather, since its updrafts could carry the balloon higher without costing a single scoop of sand ballast." }
+        { "id": "C", "text": "a flight's length depended less on the balloon itself than on how sparingly the aeronaut spent gas and sand." },
+        { "id": "D", "text": "aeronauts of the period preferred turbulent weather, since updrafts could lift the balloon without costing any sand." }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** If every correction spends an unreplenishable store and the flight ends when a store runs out, then how long a flight lasts depends on how thriftily the aeronaut spends — which is choice C's conclusion.\n\n**The Full Solution:**\n- Line up the premises. One: altitude control consumes gas or sand. Two: neither can be replaced in the air. Three: the flight must end when either store is gone.\n- Ask what those premises jointly force. Two aeronauts in identical balloons could fly for very different times, because each correction is a withdrawal from a fixed account. The pilot who corrects sparingly keeps the account open longer.\n- That is choice C: duration is governed by spending habits along the way, more than by the craft itself.\n\n**Why the other choices are wrong:**\n- A: \"Indefinitely\" overreaches — the passage says descents required the valve, and a flight has to end; more sand delays the limit but cannot remove it.\n- B: The passage treats the two stores symmetrically — running out of EITHER ends the flight — so nothing supports ranking one control above the other.\n- D: It contradicts the setup: an updraft's unwanted climb was \"answered with the valve,\" so turbulence cost gas rather than sparing the stores."
+      "explanation": "**Choice C is correct.** If every correction spends an unreplenishable store and the flight ends when a store runs out, then how long a flight lasts depends on how thriftily the aeronaut spends — which is choice C's conclusion.\n\n**The Full Solution:**\n- Line up the premises. One: altitude control consumes gas or sand. Two: neither can be replaced in the air. Three: the flight must end when either store is gone.\n- Ask what those premises jointly force. Two aeronauts in identical balloons could fly for very different times, because each correction is a withdrawal from a fixed account. The pilot who corrects sparingly keeps the account open longer.\n- That is choice C: duration is governed by spending habits along the way, more than by the craft itself.\n\n**Why the other choices are wrong:**\n- A: \"Indefinitely\" overreaches — the passage says descents required the valve, and a flight has to end; more sand delays the limit but cannot remove it.\n- B: The passage treats the two stores symmetrically — running out of EITHER ends the flight — so nothing supports ranking one control above the other.\n- D: It contradicts the setup: an updraft's unwanted climb \"cost gas,\" so turbulence used up the stores rather than sparing them."
     },
     {
       "id": 566,
@@ -218,16 +218,16 @@ export const practiceTest5RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "command-of-evidence-textual",
-      "passage": "A swimmer at the surface pushes water aside in a bow wave, much as a boat does, and making that wave costs energy. A researcher who studies competitive swimming claims that at racing speeds this wave-making resistance becomes a major part of the total drag a swimmer must overcome — which, the researcher notes, would explain why sprinters stay fully submerged, dolphin-kicking, for as long as the rules allow after starts and turns.",
+      "passage": "Some dung beetles in southern Africa shape dung into a ball and roll it away from the dung pile in a straight line, which helps them escape rivals that might steal it. Many of these beetles work at night. On clear nights without a moon, one of the brightest features of the sky is the Milky Way, a broad band of faint light. A researcher who studies the beetles claims that on moonless nights they keep to a straight course by using the light of the Milky Way.",
       "question": "Which finding, if true, would most directly support the researcher's claim?",
       "choices": [
-        { "id": "A", "text": "Towing swimmers through the water at racing speed requires measurably less force when they are fully submerged than when they are at the surface." },
-        { "id": "B", "text": "Elite swimmers spend more hours training in the pool each week than swimmers who compete at lower levels." },
-        { "id": "C", "text": "The rules of competitive swimming already limit how far a swimmer may remain submerged and dolphin-kick after each start and each turn of a race." },
-        { "id": "D", "text": "Swimmers moving at slow, easy speeds produce almost no visible bow wave at the surface." }
+        { "id": "A", "text": "Under a planetarium dome showing only the Milky Way, beetles rolled nearly as straight as under a full starry sky." },
+        { "id": "B", "text": "Beetles that roll their balls in a straight line lose them to rival beetles less often than beetles that wander." },
+        { "id": "C", "text": "Beetles roll their balls faster on warm nights than on cool nights, whether or not the moon is visible." },
+        { "id": "D", "text": "Beetles that roll dung at night have larger eyes than related beetles that roll dung only during the day." }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The claim is that wave-making resistance is a major part of drag at racing speed. If towing a swimmer at that speed takes measurably less force underwater — where no surface wave can form — the missing force is the wave's cost, directly confirming that the wave accounts for a real share of total drag.\n\n**The Full Solution:**\n- Pin the claim down precisely: at racing speeds, the bow wave contributes a MAJOR part of total drag. Support must connect the wave to a measured share of drag at those speeds.\n- Choice A is a controlled comparison: same swimmer, same speed, with and without a surface wave. The force difference isolates exactly the quantity the claim is about.\n- The submerged condition even matches the behavior the researcher cites — sprinters staying underwater after starts and turns.\n\n**Why the other choices are wrong:**\n- B: Training hours say nothing about what makes up drag.\n- C: The passage already assumes such rules exist (\"as long as the rules allow\"); restating them measures nothing.\n- D: Slow swimmers making no wave is consistent with the claim but never measures the wave's share of drag at racing speed, which is what the claim asserts."
+      "explanation": "**Choice A is correct.** The claim is that the Milky Way's light is what lets the beetles keep a straight course. If beetles that can see only the Milky Way still roll nearly as straight as beetles that see the whole starry sky, the Milky Way alone is enough to guide them.\n\n**The Full Solution:**\n- How to spot it: the claim names one specific guide, the light of the Milky Way, so the best evidence isolates that light.\n- A planetarium dome showing only the Milky Way removes every other feature of the night sky.\n- Beetles that still roll nearly straight under those conditions are doing what the claim predicts.\n\n**Why the other choices are wrong:**\n- B: It explains why rolling straight is useful, not what the beetles use to do it.\n- C: Speed on warm and cool nights says nothing about how the beetles keep their direction.\n- D: Larger eyes might help beetles see at night, but the finding does not show that they steer by the Milky Way."
     },
     {
       "id": 568,
@@ -236,27 +236,47 @@ export const practiceTest5RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "command-of-evidence-quantitative",
-      "passage": "In 2022 a school district paired student researchers at three of its four high schools with volunteer mentors from local laboratories and businesses; the fourth school ran its science fair as before. A district report argues that the gains were not part of a district-wide trend: the share of started projects that were finished and entered rose at every school with mentors and fell at the school without them. The report supports the claim with data from the table.",
+      "passage": "Over the past few decades, the mix of energy sources used to generate electricity in the United States has changed. Using figures from the US Energy Information Administration, a student claims that between 2014 and 2024, electricity generation from natural gas and from wind each rose, while generation from coal fell. The student supports the claim with data from the table.",
       "questionTable": {
         "type": "table",
-        "caption": "Percentage of started science fair projects completed and entered, by high school",
-        "headers": ["School", "Mentoring program", "2021 (%)", "2023 (%)"],
+        "caption": "US electricity generation by energy source, 2014 and 2024 (billion kilowatt-hours)",
+        "headers": [
+          "Energy source",
+          "2014",
+          "2024"
+        ],
         "rows": [
-          ["North", "Yes", "64", "81"],
-          ["Central", "Yes", "58", "70"],
-          ["East", "Yes", "71", "79"],
-          ["South", "No", "66", "59"]
+          [
+            "Coal",
+            "1,582",
+            "652"
+          ],
+          [
+            "Natural gas",
+            "1,127",
+            "1,870"
+          ],
+          [
+            "Nuclear",
+            "797",
+            "782"
+          ],
+          [
+            "Wind",
+            "182",
+            "452"
+          ]
         ]
       },
       "question": "Which choice most effectively uses data from the table to support the claim?",
       "choices": [
-        { "id": "A", "text": "North's completion rate rose from 64 percent to 81 percent, the largest gain at any school in the district." },
-        { "id": "B", "text": "Averaged across the district's four high schools, the share of projects completed and entered rose between 2021 and 2023." },
-        { "id": "C", "text": "The three schools with mentors finished 2023 with completion rates ranging from 70 percent to 81 percent." },
-        { "id": "D", "text": "Completion rose at all three schools with mentors — to 81, 70, and 79 percent — while at South, the school without mentors, it fell from 66 to 59 percent." }
+        { "id": "A", "text": "Wind generation more than doubled between 2014 and 2024, rising from 182 billion kilowatt-hours to 452 billion kilowatt-hours." },
+        { "id": "B", "text": "Taken together, the four sources in the table generated more electricity in 2024 than they did in 2014." },
+        { "id": "C", "text": "In 2024, natural gas generated 1,870 billion kilowatt-hours of electricity, more than any other source in the table." },
+        { "id": "D", "text": "Natural gas rose from 1,127 to 1,870 billion kilowatt-hours and wind from 182 to 452, while coal fell from 1,582 to 652." }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The report's claim has two halves — every mentored school rose, and the unmentored school fell — and only choice D reports both, with the numbers for each.\n\n**The Full Solution:**\n- Break the claim into its parts: (1) completion rose at each school with mentors, and (2) it fell at the school without them. The second part is what rules out a district-wide trend.\n- Choice D covers part one with all three gains (to 81, 70, and 79 percent) and part two with South's drop from 66 to 59 percent, naming South as the school without mentors.\n- That contrast — rises where the program ran, a fall where it did not — is exactly the comparison the claim rests on.\n\n**Why the other choices are wrong:**\n- A: One school's gain, however large, says nothing about the school without mentors.\n- B: An average across all four schools smooths away South's decline — the very data point the claim depends on.\n- C: It reports only the mentored schools' 2023 rates, omitting both the 2021 baselines and the comparison school."
+      "explanation": "**Choice D is correct.** The student's claim has two halves: generation from natural gas and from wind rose, and generation from coal fell. Only choice D reports both, with the 2014 and 2024 values for each source.\n\n**The Full Solution:**\n- Break the claim into its parts: (1) natural gas and wind each rose between 2014 and 2024, and (2) coal fell over the same period.\n- Choice D covers part one with both increases (natural gas from 1,127 to 1,870 and wind from 182 to 452 billion kilowatt-hours) and part two with coal's drop from 1,582 to 652.\n- That contrast, two sources rising while coal fell, is exactly what the claim describes.\n\n**Why the other choices are wrong:**\n- A: Wind's increase covers only one of the two rising sources and says nothing about coal.\n- B: A combined total for all four sources hides coal's decline, the very change the claim depends on.\n- C: It reports a single 2024 value, so it shows no change between 2014 and 2024 for any source."
     },
     {
       "id": 567,
@@ -265,27 +285,42 @@ export const practiceTest5RWM2Easy = {
       "band": 2,
       "domain": "information-and-ideas",
       "skill": "command-of-evidence-quantitative",
-      "passage": "A summer farmers market runs for four hours each Saturday morning. The market's manager counted the shoppers entering during each hour across the season and argues that attendance is heavily front-loaded: the crowd is largest in the opening hour and shrinks in every hour that follows. The manager supports the claim with data from the table.",
+      "passage": "Each year, the US Census Bureau reports the average number of people living in each American household. A student studying the bureau's figures claims that households were largest, on average, in 1960 and grew smaller in every later year shown. The student supports the claim with data from the table.",
       "questionTable": {
         "type": "table",
-        "caption": "Average number of shoppers entering a farmers market, by hour of operation",
-        "headers": ["Hour of operation", "Average shoppers entering"],
+        "caption": "Average number of people per US household, 1960-2020",
+        "headers": [
+          "Year",
+          "Average people per household"
+        ],
         "rows": [
-          ["First", "640"],
-          ["Second", "510"],
-          ["Third", "380"],
-          ["Fourth", "220"]
+          [
+            "1960",
+            "3.33"
+          ],
+          [
+            "1980",
+            "2.76"
+          ],
+          [
+            "2000",
+            "2.62"
+          ],
+          [
+            "2020",
+            "2.53"
+          ]
         ]
       },
       "question": "Which choice most effectively uses data from the table to support the claim?",
       "choices": [
-        { "id": "A", "text": "In the market's first hour of operation, an average of 640 shoppers came through the entrance." },
-        { "id": "B", "text": "The number of shoppers entering was highest in the first hour, at 640, and fell in each hour after that, down to 220 in the fourth." },
-        { "id": "C", "text": "An average of more than 200 shoppers entered the market during each of its four hours of operation." },
-        { "id": "D", "text": "The market operated for the same four morning hours on every Saturday of the season." }
+        { "id": "A", "text": "In 1960, the average American household included 3.33 people, according to the Census Bureau." },
+        { "id": "B", "text": "The average was 3.33 people in 1960 and fell in each later year shown, down to 2.53 in 2020." },
+        { "id": "C", "text": "In every year shown in the table, the average American household included more than two people." },
+        { "id": "D", "text": "The Census Bureau has reported the average size of American households for many decades." }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The claim has two parts — the first hour is the biggest, and every later hour shrinks — and choice B reads both straight out of the table.\n\n**The Full Solution:**\n- How to spot it: when a claim describes a pattern across rows (\"largest, then shrinks every hour\"), the supporting choice must walk the rows, not quote one of them.\n- Check B against the table: 640 in the first hour is the largest value, and the column falls at every step — 640, 510, 380, 220.\n- One choice, both halves of the claim, every number checkable: that is what \"most effectively uses data\" means.\n\n**Why the other choices are wrong:**\n- A: One hour's count shows the opening crowd but says nothing about shrinking afterward.\n- C: A floor of 200 per hour is true but describes steadiness, not decline — it works against the claim if anything.\n- D: The market's schedule is background; it contains no attendance data at all."
+      "explanation": "**Choice B is correct.** The claim has two parts: households were largest in 1960, and they grew smaller in every later year shown. Choice B reads both straight out of the table.\n\n**The Full Solution:**\n- How to spot it: when a claim describes a pattern across rows (\"largest in 1960, then smaller in every later year\"), the supporting choice must walk the rows, not quote one of them.\n- Check B against the table: 3.33 in 1960 is the largest value, and the column falls at every step: 3.33, 2.76, 2.62, 2.53.\n- One choice, both halves of the claim, every number checkable: that is what \"most effectively uses data\" means.\n\n**Why the other choices are wrong:**\n- A: One year's value shows the starting point but says nothing about the decline that followed.\n- C: A floor of two people per household is true but describes what stayed the same, not the decline the claim describes.\n- D: It describes the Census Bureau's reporting, not any of the values in the table."
     },
     {
       "id": 564,
@@ -294,16 +329,16 @@ export const practiceTest5RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "central-ideas-and-details",
-      "passage": "Many village dance traditions have never been written down, and their carriers see no gap in that. The dances are learned at the events where they are danced: a child stands at the edge of the circle, watches through a season of weddings and harvest festivals, and is pulled in by an older relative long before mastering the steps. Mistakes are corrected on the spot, by a hand on the shoulder rather than by explanation. What keeps such a dance alive, dancers often say, is not any record of its steps but an unbroken chain of occasions on which to dance it.",
+      "passage": "Many village dance traditions have never been written down, and their carriers see no gap in that. The dances are learned at the events where they are danced. A child stands at the edge of the circle, watches through a season of weddings and harvest festivals, and is pulled in by an older relative long before mastering the steps. Mistakes are corrected on the spot, by a hand on the shoulder rather than by explanation. What keeps such a dance alive, dancers often say, is not any record of its steps but an unbroken chain of occasions on which to dance it.",
       "question": "According to the text, how are the dances of such village traditions typically learned?",
       "choices": [
-        { "id": "A", "text": "By studying written records of the steps that older dancers have set down." },
-        { "id": "B", "text": "By watching and then joining the dancing at community events, where errors are corrected as they happen." },
-        { "id": "C", "text": "By rehearsing the steps alone at home until they are fully mastered and only then joining the dancing at a wedding or harvest festival." },
-        { "id": "D", "text": "By taking formal lessons from teachers hired to travel between villages." }
+        { "id": "A", "text": "By studying the written records of the steps that older dancers have set down." },
+        { "id": "B", "text": "By watching and joining the dancing at community events, with mistakes corrected on the spot." },
+        { "id": "C", "text": "By rehearsing the steps alone at home until they are mastered and only then joining in." },
+        { "id": "D", "text": "By taking formal lessons from dance teachers who are hired to travel between villages." }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The text says the dances are learned \"at the events where they are danced\" — a child watches, is pulled into the circle, and has mistakes corrected on the spot.\n\n**The Full Solution:**\n- How to spot it: this is a detail question, so the right answer must restate what the text says without stretching it.\n- Find the sentence that answers the question directly: learning happens at weddings and festivals, first by watching from the edge, then by being drawn in by an older relative.\n- The next sentence adds the correction method — on the spot, by hand rather than explanation. Choice B combines exactly these pieces: watching, joining at community events, errors corrected as they happen.\n\n**Why the other choices are wrong:**\n- A: The passage opens by saying these traditions \"have never been written down.\"\n- C: The text says a child is pulled in \"long before mastering the steps\" — the reverse of practicing alone until mastery.\n- D: No teachers, lessons, or travel between villages appear anywhere in the text."
+      "explanation": "**Choice B is correct.** The text says the dances are learned \"at the events where they are danced\" — a child watches, is pulled into the circle, and has mistakes corrected on the spot.\n\n**The Full Solution:**\n- How to spot it: this is a detail question, so the right answer must restate what the text says without stretching it.\n- Find the sentence that answers the question directly: learning happens at weddings and festivals, first by watching from the edge, then by being drawn in by an older relative.\n- The next sentence adds the correction method — on the spot, by hand rather than explanation. Choice B combines exactly these pieces: watching, joining at community events, mistakes corrected on the spot.\n\n**Why the other choices are wrong:**\n- A: The passage opens by saying these traditions \"have never been written down.\"\n- C: The text says a child is pulled in \"long before mastering the steps\" — the reverse of practicing alone until mastery.\n- D: No teachers, lessons, or travel between villages appear anywhere in the text."
     },
     {
       "id": 563,
@@ -312,16 +347,16 @@ export const practiceTest5RWM2Easy = {
       "band": 2,
       "domain": "information-and-ideas",
       "skill": "central-ideas-and-details",
-      "passage": "The first scientific balloon ascents, in the decades around 1800, were made by people who went up themselves, carrying barometers and thermometers in open baskets. Their readings, taken at intervals as the balloon climbed, settled a question that mountaintop measurements never could: the air grows steadily colder and thinner with height not just near peaks — where slopes and snowfields might be blamed — but over open, level country as well. Balloon flights, in short, turned the upper air itself into a place where measurements could be made.",
+      "passage": "In 1968, a chemist at the 3M company was trying to make a very strong glue. Instead, he made a weak one that let paper stick to a surface and then peel off cleanly. For years, no one could think of a use for it. Then, in 1974, a coworker used the glue to keep his paper bookmarks from slipping out of his hymnbook. That idea led to the Post-it Note, which went on sale across the United States in 1980.",
       "question": "Which choice best states the main idea of the text?",
       "choices": [
-        { "id": "A", "text": "The instruments carried aloft on early balloon flights were too fragile to produce trustworthy readings." },
-        { "id": "B", "text": "Mountaintop measurements had already established everything that early balloonists later confirmed." },
-        { "id": "C", "text": "Early balloon ascents produced measurements showing that air grows colder and thinner with height over open country, not only near mountains." },
-        { "id": "D", "text": "The first scientific balloon ascents were undertaken primarily to test whether balloons of the era could stay aloft long enough to cross open, level country." }
+        { "id": "A", "text": "The chemist's weak glue was put to use right away because the company needed a new kind of tape." },
+        { "id": "B", "text": "Chemists in the 1960s often tried to make glues that were stronger than any made before." },
+        { "id": "C", "text": "A glue that first seemed a failure became a successful product once someone found a use for it." },
+        { "id": "D", "text": "The 3M company stopped trying to make strong glues after the Post-it Note went on sale in 1980." }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The text's through-line is what the balloon measurements established: cooling and thinning with height happen everywhere, not just near mountains.\n\n**The Full Solution:**\n- How to spot it: a main idea must cover the whole passage without adding anything. Track what each sentence contributes.\n- Sentence one sets the scene (people aloft with instruments); sentence two delivers the finding, including the key contrast — not just near peaks, but over level country; the last sentence states the larger significance.\n- Choice C carries the finding and the contrast, and it claims nothing the passage does not say.\n\n**Why the other choices are wrong:**\n- A: The passage treats the readings as settling a question — the opposite of untrustworthy — and never discusses instrument fragility.\n- B: The text says mountaintop measurements could NOT settle the question, because slopes and snowfields might be blamed for the cold.\n- D: The ascents are described as scientific measuring trips; crossing country as a test of endurance is never mentioned."
+      "explanation": "**Choice C is correct.** The text follows a weak glue from its start as a failed attempt at a strong glue, through years without a use, to the bookmark idea that turned it into the Post-it Note.\n\n**The Full Solution:**\n- How to spot it: trace the story from beginning to end. The chemist wanted a strong glue but made a weak one.\n- For years no one knew what to do with it. Then a coworker used it to hold bookmarks in place, and that idea led to a product sold across the country.\n- Choice C joins the start and the end of that story: a glue that seemed like a failure became a success once a use was found.\n\n**Why the other choices are wrong:**\n- A: The text says that for years no one could think of a use for the glue, so it was not put to use right away.\n- B: The text describes one chemist's attempt, not what chemists of the period generally did.\n- D: The text says nothing about whether the company kept trying to make strong glues."
     },
     {
       "id": 569,
@@ -330,16 +365,16 @@ export const practiceTest5RWM2Easy = {
       "band": 3,
       "domain": "information-and-ideas",
       "skill": "inferences",
-      "passage": "A traditional kick wheel stores the potter's effort in a heavy flywheel: several kicks bring the massive disk up to speed, and its weight then keeps the wheel head turning steadily while both of the potter's hands are busy with the clay. The heavier the flywheel, the more kicks it takes to bring the wheel up from rest — and the more evenly the wheel holds its speed between kicks. It follows that a potter who replaces a heavy flywheel with a much lighter one ______",
+      "passage": "A block and tackle is a set of ropes and pulleys used to lift heavy loads, such as a ship's sails or cargo. Each pulley added to the system reduces the force needed to lift a given load. There is a cost, though: the more pulleys the rope passes through, the more rope a worker must pull to raise the load the same height. It follows that a sailor who switches to a block and tackle with fewer pulleys ______",
       "question": "Which choice most logically completes the text?",
       "choices": [
-        { "id": "A", "text": "will get the wheel spinning with less effort but give up some of the steadiness the heavier disk provided." },
-        { "id": "B", "text": "will no longer need to kick the wheel at all once the lighter disk has been brought up to its working speed for the first time." },
-        { "id": "C", "text": "will find that the wheel head turns more evenly between kicks than it did before." },
-        { "id": "D", "text": "will be unable to shape clay of any kind on the lighter wheel." }
+        { "id": "A", "text": "will need more force but will haul less rope to raise a load the same height." },
+        { "id": "B", "text": "will be able to lift the same load with less force and with less rope than before." },
+        { "id": "C", "text": "will have to haul more rope than before to raise a load to the same height." },
+        { "id": "D", "text": "will need exactly the same force as before but will have to haul twice as much rope." }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The passage ties weight to two things at once — harder starting, steadier spinning — so less weight must mean the reverse of both: an easier start and a less steady spin.\n\n**The Full Solution:**\n- How to spot it: the key sentence is a paired rule. \"The heavier the flywheel, the more kicks it takes... and the more evenly it holds its speed.\"\n- Run the rule backward for a lighter wheel: fewer kicks to start (a gain), less even speed between kicks (a loss).\n- Choice A states both directions of that trade and nothing more, which is exactly what \"It follows that\" demands.\n\n**Why the other choices are wrong:**\n- B: The flywheel stores effort; it does not create it. Every wheel slows between kicks, and a lighter one slows faster, so kicking remains necessary.\n- C: This keeps only the good half — the passage says evenness comes FROM weight, so a lighter disk turns less evenly, not more.\n- D: The passage supports a loss of steadiness, not impossibility; nothing says a lighter wheel cannot shape clay at all."
+      "explanation": "**Choice A is correct.** Fewer pulleys reverse both effects the text describes: the force needed goes up, and the amount of rope to pull goes down.\n\n**The Full Solution:**\n- How to spot it: the text sets up a trade-off. More pulleys mean less force but more rope.\n- The sailor moves in the other direction, to fewer pulleys, so each effect flips: more force, less rope.\n- Choice A states both halves of that reversed trade-off.\n\n**Why the other choices are wrong:**\n- B: It claims a gain on both sides, but the text says force and rope trade off against each other.\n- C: More rope comes with more pulleys, not fewer.\n- D: The text says the force changes with the number of pulleys, so it would not stay the same."
     },
     // ============================================================
     // Q17-Q22: Standard English Conventions
@@ -351,16 +386,16 @@ export const practiceTest5RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "By the time the last staffed light on the coast was automated in 1998, keepers at the station ______ the same evening routine — lighting the lamp at dusk, logging the weather, standing watch in shifts — for more than a century.",
+      "passage": "By the time the Sydney Opera House in Australia formally opened in 1973, builders ______ on it for fourteen years, ten years longer than the original plan had allowed.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "has been repeating" },
-        { "id": "B", "text": "had been repeating" },
-        { "id": "C", "text": "is repeating" },
-        { "id": "D", "text": "repeats" }
+        { "id": "A", "text": "has been working" },
+        { "id": "B", "text": "had been working" },
+        { "id": "C", "text": "is working" },
+        { "id": "D", "text": "works" }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The sentence orders two past events — the automation in 1998 and the century of routine before it — and the earlier of two past events takes the \"had\" form: \"had been repeating.\"\n\n**The Full Solution:**\n- How to spot it: a sentence that opens with \"By the time...\" is stacking one past event on top of an earlier one, and the earlier one usually needs \"had\" plus the verb.\n- The later event: the light was automated in 1998 — simple past.\n- The blank covers the earlier stretch, the routine that ran \"for more than a century\" up to that moment. \"Had been repeating\" places that stretch before the 1998 automation, exactly where it belongs.\n\n**Why the other choices are wrong:**\n- A: \"Has been repeating\" connects the routine to the present, but the routine ended with automation in 1998 — both events sit in the past.\n- C: \"Is repeating\" is present tense and cannot sit before a past event.\n- D: \"Repeats\" is plain present as well, and it loses the century-long duration the sentence describes."
+      "explanation": "**Choice B is correct.** The building work went on for fourteen years before a past event, the opening in 1973, so the past perfect progressive \"had been working\" is needed.\n\n**The Full Solution:**\n- How to spot it: \"By the time the Sydney Opera House... formally opened in 1973\" sets a point in the past, and \"for fourteen years\" measures an action that continued up to that point.\n- An ongoing action that ran up to a moment in the past takes the past perfect progressive: \"had been\" plus the -ing verb.\n- \"Had been working\" places the building work before and up to the 1973 opening.\n\n**Why the other choices are wrong:**\n- A: \"Has been working\" connects the action to the present, not to a moment in 1973.\n- C: \"Is working\" is present tense and clashes with the past-tense \"opened.\"\n- D: \"Works\" is present tense and does not show an action continuing up to a past moment."
     },
     {
       "id": 576,
@@ -369,16 +404,16 @@ export const practiceTest5RWM2Easy = {
       "band": 4,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "A dance that lives only in its dancers changes as they do. Passed from body to body as the elders who first carried them stop dancing, ______",
+      "passage": "Roman engineers moved water to their cities mainly by gravity, along gently sloping channels. Built in the first century CE to carry one such channel across the Gardon River, ______",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "the tradition as a whole shifts a little with each new generation of dancers." },
-        { "id": "B", "text": "there are figures in such a dance that shift with each generation and steps that eventually drop out." },
-        { "id": "C", "text": "the figures of such a dance shift a little with each generation, and steps that no occasion calls for eventually drop out of the tradition altogether." },
-        { "id": "D", "text": "shifting of the figures follows with each generation as no occasion calls for certain steps." }
+        { "id": "A", "text": "the Romans gave the Pont du Gard three tiers of stone arches near the city of Nîmes." },
+        { "id": "B", "text": "there is a three-tiered stone bridge, the Pont du Gard, near the French city of Nîmes." },
+        { "id": "C", "text": "the Pont du Gard is a stone bridge with three tiers of arches near the French city of Nîmes." },
+        { "id": "D", "text": "the water supply of Nîmes crossed the river on three tiers of stone arches at the Pont du Gard." }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The opening phrase — \"Passed from body to body as the elders who first carried them stop dancing\" — describes the plural things the elders carried, so the words right after the comma must name them: the figures of the dance.\n\n**The Full Solution:**\n- How to spot it: when a sentence opens with a describing phrase and a comma, the very next words must be the thing described. Ask: what is passed from body to body and was carried by the elders? The figures.\n- The pronoun \"them\" inside the phrase is a second clue — it is plural, so the subject that follows must be plural too.\n- Choice C begins the main clause with \"the figures of such a dance,\" so the description lands on its true subject, and the second clause about disappearing steps follows grammatically with \"and.\"\n\n**Why the other choices are wrong:**\n- A: \"The tradition as a whole\" is singular and cannot be the plural \"them\" the elders carried.\n- B: The \"there are\" opening pushes \"figures\" out of the subject position, leaving the opening phrase with nothing to attach to.\n- D: Starting with \"shifting\" absurdly says the SHIFTING was what got passed from body to body."
+      "explanation": "**Choice C is correct.** The opening phrase \"Built in the first century CE to carry one such channel across the Gardon River\" describes a structure, so the noun that follows the comma must name that structure. Choice C places \"the Pont du Gard\" right after the phrase.\n\n**The Full Solution:**\n- How to spot it: ask what was built to carry the channel across the river. The answer is the bridge, the Pont du Gard.\n- An introductory modifier applies to the noun that comes right after it, so that noun must be \"the Pont du Gard.\"\n- Choice C does this and completes the sentence correctly.\n\n**Why the other choices are wrong:**\n- A: It makes \"the Romans\" the thing that was built, which is illogical.\n- B: \"There\" is not a noun the phrase can describe, so the modifier is left dangling.\n- D: It makes \"the water supply\" the thing built to carry the channel, but the water is what the channel carried."
     },
     {
       "id": 572,
@@ -387,7 +422,7 @@ export const practiceTest5RWM2Easy = {
       "band": 2,
       "domain": "standard-english-conventions",
       "skill": "form-structure-and-sense",
-      "passage": "At a village wedding, the figures of the dance ______ called out one by one by a lead dancer, so that even guests who rarely dance can step into the line and follow along.",
+      "passage": "On most English-language computer keyboards, the letter keys ______ arranged in the QWERTY layout, which takes its name from the first six letters of the top row and dates to typewriters of the 1870s.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
         { "id": "A", "text": "is" },
@@ -396,7 +431,7 @@ export const practiceTest5RWM2Easy = {
         { "id": "D", "text": "has been" }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** The subject of the verb is the plural \"figures,\" and the sentence describes what happens in the present, so the plural present-tense \"are\" is the match.\n\n**The Full Solution:**\n- How to spot it: find the true subject. It is \"the figures\" — the phrase \"of the dance\" is a prepositional phrase describing which figures, and the noun inside a prepositional phrase never controls the verb.\n- \"Figures\" is plural, so the verb must be plural.\n- Check the time: the rest of the sentence is present tense (\"can step into the line and follow along\"), so the blank should be present too. Plural plus present gives \"are.\"\n\n**Why the other choices are wrong:**\n- A: \"Is\" is singular; it wrongly agrees with the nearby singular \"dance\" instead of the plural subject \"figures.\"\n- B: \"Was\" is both singular and past tense, so it misses twice.\n- D: \"Has been\" is singular, and its perfect tense clashes with the plain present of the rest of the sentence."
+      "explanation": "**Choice C is correct.** The subject of the verb is the plural noun \"keys,\" and the sentence describes keyboards today, so the plural present-tense verb \"are\" is needed.\n\n**The Full Solution:**\n- How to spot it: find the subject. The phrase \"On most English-language computer keyboards\" comes first, but the subject is \"the letter keys.\"\n- \"Keys\" is plural, so the verb must be plural.\n- The sentence describes how keyboards are arranged now (\"takes its name\"), so the present tense fits. \"Are\" is plural and present.\n\n**Why the other choices are wrong:**\n- A: \"Is\" is singular and does not agree with \"keys.\"\n- B: \"Was\" is singular and in the past tense.\n- D: \"Has been\" is singular and does not agree with \"keys.\""
     },
     {
       "id": 571,
@@ -405,16 +440,16 @@ export const practiceTest5RWM2Easy = {
       "band": 2,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "The newest pedestrian signs downtown are posted at decision points rather than at regular ______ stands wherever a walker must choose between two plausible streets, which is exactly where people report losing their way.",
+      "passage": "The Great Wall of China is not a single, continuous ______ is a network of walls, trenches, and watchtowers built by different dynasties over roughly two thousand years.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "intervals, a sign" },
-        { "id": "B", "text": "intervals. A sign" },
-        { "id": "C", "text": "intervals a sign" },
-        { "id": "D", "text": "intervals, which a sign" }
+        { "id": "A", "text": "wall, it" },
+        { "id": "B", "text": "wall. It" },
+        { "id": "C", "text": "wall it" },
+        { "id": "D", "text": "wall, which it" }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** Each side of the blank is a complete sentence, and no joining word links them, so a period is needed to end the first and begin the second.\n\n**The Full Solution:**\n- How to spot it: cover the blank and test each side on its own. Left: \"The newest pedestrian signs downtown are posted at decision points rather than at regular intervals\" — complete. Right: \"A sign stands wherever a walker must choose between two plausible streets...\" — also complete.\n- Two complete sentences with no conjunction between them need a strong boundary: a period or a semicolon.\n- Choice B supplies the period; read the result aloud and both sentences stand cleanly.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two complete sentences is a comma splice.\n- C: With no punctuation at all, the two sentences run together.\n- D: Inserting \"which\" produces \"at regular intervals, which a sign stands wherever...\" — a clause that never becomes grammatical."
+      "explanation": "**Choice B is correct.** Each side of the blank is a complete sentence, and no joining word links them, so a period is needed to end the first and begin the second.\n\n**The Full Solution:**\n- How to spot it: test each side on its own. Left: \"The Great Wall of China is not a single, continuous wall\" is complete. Right: \"It is a network of walls, trenches, and watchtowers...\" is also complete.\n- Two complete sentences with no conjunction between them need a strong boundary, such as a period.\n- Choice B supplies the period, and both sentences stand on their own.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two complete sentences is a comma splice.\n- C: With no punctuation at all, the two sentences run together.\n- D: \"Which it is a network\" is not grammatical; \"which\" cannot introduce a clause that already has the subject \"it.\""
     },
     {
       "id": 573,
@@ -423,16 +458,16 @@ export const practiceTest5RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "A swimming flume pumps a steady current past a swimmer who stays in place, letting researchers film a full minute of stroke technique from inches ______ however, water flowing past a stationary body does not behave exactly like still water past a moving one, so coaches read flume footage with some caution.",
+      "passage": "A Venus flytrap can snap its leaves shut in about a tenth of a ______ however, the trap closes only if an insect touches its trigger hairs twice within about twenty seconds, a rule that keeps a single raindrop from setting it off.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "away;" },
-        { "id": "B", "text": "away," },
-        { "id": "C", "text": "away" },
-        { "id": "D", "text": "away:" }
+        { "id": "A", "text": "second;" },
+        { "id": "B", "text": "second," },
+        { "id": "C", "text": "second" },
+        { "id": "D", "text": "second:" }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** Both sides of the blank are complete sentences, and the second opens with \"however,\" which cannot glue sentences together the way \"and\" or \"but\" can — so a semicolon is required.\n\n**The Full Solution:**\n- How to spot it: words like however, therefore, and moreover are not conjunctions. When one of them starts the second of two complete sentences, the boundary before it must be a semicolon or a period.\n- Left side stands alone: the flume pumps a current past a stationary swimmer, letting researchers film from inches away. Right side stands alone too: water flowing past a stationary body is not quite the same, so coaches are cautious.\n- The semicolon in choice A makes the required break while keeping the two thoughts in one sentence.\n\n**Why the other choices are wrong:**\n- B: A comma before \"however\" leaves two complete sentences joined only by a comma — a comma splice.\n- C: With no punctuation, the sentences run together.\n- D: A colon promises an explanation or a list of what came before it, but \"however\" introduces a reversal, so the colon sends the wrong signal."
+      "explanation": "**Choice A is correct.** A complete sentence comes before the blank, and another complete sentence, opened by \"however,\" comes after it. A semicolon is the punctuation that can join two independent clauses this way.\n\n**The Full Solution:**\n- How to spot it: \"however\" is not a conjunction like \"but,\" so it cannot join two clauses with only a comma.\n- Left of the blank: \"A Venus flytrap can snap its leaves shut in about a tenth of a second\" is complete. Right: \"however, the trap closes only if...\" is also complete.\n- A semicolon before \"however\" correctly links the two clauses.\n\n**Why the other choices are wrong:**\n- B: A comma before \"however\" creates a comma splice between two complete sentences.\n- C: With no punctuation, the two clauses run together.\n- D: A colon must introduce something that explains or lists what came before; the second clause adds a contrasting condition instead."
     },
     {
       "id": 575,
@@ -441,16 +476,16 @@ export const practiceTest5RWM2Easy = {
       "band": 3,
       "domain": "standard-english-conventions",
       "skill": "boundaries",
-      "passage": "A botanical plate, unlike a ______ can leave out the chewed leaf and the wilted petal, showing instead the form the species returns to again and again.",
+      "passage": "A bat, unlike a flying ______ is capable of true powered flight, beating wings formed from thin skin stretched between its greatly lengthened finger bones.",
       "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
       "choices": [
-        { "id": "A", "text": "photograph" },
-        { "id": "B", "text": "photograph;" },
-        { "id": "C", "text": "photograph:" },
-        { "id": "D", "text": "photograph," }
+        { "id": "A", "text": "squirrel" },
+        { "id": "B", "text": "squirrel;" },
+        { "id": "C", "text": "squirrel:" },
+        { "id": "D", "text": "squirrel," }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The phrase \"unlike a photograph\" is an aside dropped into the middle of the sentence; it opens with the comma after \"plate,\" so it must close with a comma as well.\n\n**The Full Solution:**\n- How to spot it: lift the middle phrase out. \"A botanical plate can leave out the chewed leaf and the wilted petal...\" is still a complete sentence, which proves the phrase is nonessential.\n- A nonessential phrase set into the middle of a sentence takes a comma on each side, like a pair of bookends.\n- The opening comma is already printed after \"plate,\" so the blank must supply the closing one, letting the sentence rejoin its verb \"can leave out.\"\n\n**Why the other choices are wrong:**\n- A: With no punctuation, the aside crashes into the verb and the pair of commas is left half finished.\n- B: A semicolon joins two complete sentences, and \"can leave out the chewed leaf...\" is not one.\n- C: A colon introduces a list or an explanation, not the main verb of the sentence's own clause."
+      "explanation": "**Choice D is correct.** The phrase \"unlike a flying squirrel\" interrupts the sentence between its subject (\"A bat\") and its verb (\"is\"). It opens with a comma, so it must close with a comma.\n\n**The Full Solution:**\n- How to spot it: remove the phrase and the sentence still works: \"A bat... is capable of true powered flight.\"\n- An interrupting phrase is set off by a matching pair of commas, one before it and one after it.\n- The first comma already follows \"bat,\" so Choice D supplies the closing comma after \"squirrel.\"\n\n**Why the other choices are wrong:**\n- A: Without a closing comma, the interrupting phrase runs into the main verb.\n- B: A semicolon separates the subject \"A bat\" from its verb \"is,\" which is not allowed.\n- C: A colon likewise cuts the subject off from its verb."
     },
     // ============================================================
     // Q23-Q27: Expression of Ideas
@@ -462,7 +497,7 @@ export const practiceTest5RWM2Easy = {
       "band": 3,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "A lighthouse works by being seen, and fog defeats it: in thick weather the strongest beam on the coast can vanish within a mile. ______ many stations were also equipped with a sound signal — first a bell, later a horn — and on fog-bound nights the keeper's duty shifted from tending the lamp to keeping that signal sounding on its strict, timed pattern.",
+      "passage": "In the early 1900s, a fungus from Asia was accidentally brought to North America, where it began infecting American chestnut trees. The trees had no natural defense against it, and the disease spread quickly through eastern forests. ______ about four billion chestnut trees died within roughly forty years, and a tree that had once been common almost disappeared.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "As a result," },
@@ -471,7 +506,7 @@ export const practiceTest5RWM2Easy = {
         { "id": "D", "text": "Nevertheless," }
       ],
       "correctAnswer": "A",
-      "explanation": "**Choice A is correct.** The sound signals exist BECAUSE fog blinds the light — the second sentence is the direct consequence of the problem in the first, and \"As a result,\" marks exactly that relationship.\n\n**The Full Solution:**\n- How to spot it: identify what each sentence does. Sentence one states a problem — fog can erase even the strongest beam within a mile. Sentence two describes the response — stations added bells and horns, and keepers tended the signal on foggy nights.\n- A response that exists because of a problem is an effect of that problem.\n- \"As a result,\" tells the reader the equipment follows from the fog, which is the passage's logic.\n\n**Why the other choices are wrong:**\n- B: \"For instance,\" would make the sound signal an example of fog defeating a light, but it is the answer to that defeat, not a case of it.\n- C: \"In other words,\" promises a restatement of the fog problem, yet the second sentence adds something new rather than rewording.\n- D: \"Nevertheless,\" signals defiance of what came before, but nothing in the second sentence resists the first — it responds to it."
+      "explanation": "**Choice A is correct.** The first two sentences describe causes, a fungus the trees could not resist and a disease that spread quickly, and the last sentence describes what followed: billions of trees died. \"As a result\" marks that cause-and-effect link.\n\n**The Full Solution:**\n- How to spot it: ask how the final sentence relates to what comes before. Trees with no defense against a fast-spreading disease are likely to die in large numbers.\n- The loss of about four billion trees is therefore a consequence of the conditions just described.\n- A consequence takes a causal transition, and \"As a result\" supplies it.\n\n**Why the other choices are wrong:**\n- B: The deaths of the trees are not an example of the disease spreading; they are what happened because of it.\n- C: The final sentence does not restate the earlier sentences; it adds a new outcome.\n- D: \"Nevertheless\" signals an outcome that goes against expectations, but the trees' deaths are the expected result of a disease they could not resist."
     },
     {
       "id": 577,
@@ -480,7 +515,7 @@ export const practiceTest5RWM2Easy = {
       "band": 2,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "The walking times printed on the new pedestrian signs are their most popular feature: a corner sign that calls a destination a seven-minute walk turns a vague distance into a decision a person can make on the spot. ______ the printed times assume a steady adult pace, and several community groups have asked the city to add a slower estimate alongside the standard one.",
+      "passage": "The ostrich, the largest living bird, cannot fly: its small wings are far too weak to lift its heavy body off the ground. ______ the ostrich is a remarkable runner, and its long, powerful legs can carry it at about 70 kilometers per hour.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "For example," },
@@ -489,7 +524,7 @@ export const practiceTest5RWM2Easy = {
         { "id": "D", "text": "However," }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The first sentence praises the walking times; the second raises a shortcoming of those same times — they fit only a steady adult pace. Moving from praise to a drawback calls for a contrast word, and \"However,\" supplies it.\n\n**The Full Solution:**\n- How to spot it: read the two sides and ask whether the second continues the first or pushes back on it. Here it pushes back.\n- Upside: the printed times make walking decisions easy, right at the corner.\n- Downside: the times suit only one pace, and community groups want a slower estimate added. That turn from strength to limitation is precisely the job of \"However.\"\n\n**Why the other choices are wrong:**\n- A: \"For example,\" would make the pace problem an illustration of the signs' popularity, but it undercuts the praise instead.\n- B: \"As a result,\" would make the pace assumption a consequence of the signs being popular, and no such cause-and-effect exists.\n- C: \"Similarly,\" needs two parallel points heading the same way, but these two sentences pull in opposite directions."
+      "explanation": "**Choice D is correct.** The first sentence describes something the ostrich cannot do, and the second describes something it does extremely well, so a contrast transition is needed.\n\n**The Full Solution:**\n- How to spot it: compare the two sentences. One is about a limit (it cannot fly); the other is about a strength (it runs very fast).\n- A limit followed by a strength calls for a transition that signals contrast.\n- \"However\" signals that contrast.\n\n**Why the other choices are wrong:**\n- A: The running speed is not an example of the bird's inability to fly.\n- B: The text does not present running speed as a result of the bird's weak wings.\n- C: \"Similarly\" signals a comparable point, but running fast is the opposite of the limitation just described."
     },
     {
       "id": 579,
@@ -498,7 +533,7 @@ export const practiceTest5RWM2Easy = {
       "band": 4,
       "domain": "expression-of-ideas",
       "skill": "transitions",
-      "passage": "Each winter, more than twenty thousand volunteers count the birds at their feeders and submit the tallies, giving researchers a continent-wide record no field team could gather. Yet a feeder count can register only the birds that come to feeders. ______ a woodland species that ignores seed trays may be thriving or collapsing a hundred yards from a counter's window, and the count will say nothing about it.",
+      "passage": "Radiocarbon dating measures the decay of carbon-14, a form of carbon that living things take in until they die. The method therefore works only on materials that were once alive, such as wood, bone, or charcoal. ______ a stone tool cannot be dated directly; archaeologists instead date charcoal or bone found in the same layer of soil.",
       "question": "Which choice completes the text with the most logical transition?",
       "choices": [
         { "id": "A", "text": "Even so," },
@@ -507,7 +542,7 @@ export const practiceTest5RWM2Easy = {
         { "id": "D", "text": "Granted," }
       ],
       "correctAnswer": "B",
-      "explanation": "**Choice B is correct.** The sentence before the blank states a general limit — the count sees only feeder visitors — and the sentence after gives one concrete case of that limit: a woodland species the count cannot see at all. A specific instance of a general point takes \"For example,\".\n\n**The Full Solution:**\n- How to spot it: ask what the sentence after the blank does. It neither resists the limit nor reverses it; it shows the limit operating in a particular case.\n- The general point, already marked by \"Yet\": feeder counts register only feeder birds.\n- The particular case: a seed-ignoring woodland species could thrive or collapse unnoticed a hundred yards away. That is the general limit made concrete, so the illustration transition fits.\n\n**Why the other choices are wrong:**\n- A: \"Even so,\" concedes what came before and turns against it, but this sentence supports the limit rather than resisting it — the passage already made its turn at \"Yet.\"\n- C: \"By contrast,\" needs two things pointing opposite ways, and the unseen woodland bird points the same way as the limit it illustrates.\n- D: \"Granted,\" makes a concession to an opposing side, but the sentence presses the point home instead of conceding anything."
+      "explanation": "**Choice B is correct.** The second sentence states a general limit: the method works only on materials that were once alive. The stone tool is a specific case of that limit, so \"For example\" is the logical transition.\n\n**The Full Solution:**\n- How to spot it: a stone tool was never alive, so it falls outside what the method can date.\n- The final sentence therefore illustrates the general rule just given; it does not oppose or qualify it.\n- An illustration of a general statement takes \"For example.\"\n\n**Why the other choices are wrong:**\n- A: \"Even so\" would suggest that the stone tool goes against what was just said, but it follows from it.\n- C: \"By contrast\" signals a difference, yet the stone tool fits the rule rather than contrasting with it.\n- D: \"Granted\" concedes a point before an argument turns, but no such turn follows."
     },
     {
       "id": 580,
@@ -519,24 +554,23 @@ export const practiceTest5RWM2Easy = {
       "studentNotes": {
         "intro": "While researching a topic, a student has taken the following notes:",
         "bullets": [
-          "The first two kinds of flying balloon, hot-air and gas, both appeared in France in 1783.",
-          "A hot-air balloon stayed aloft only as long as its onboard fire could be kept burning.",
-          "The fire demanded a heavy supply of fuel and constant tending by the crew.",
-          "A gas balloon, once filled, needed no fire and could stay up for many hours.",
-          "Nineteenth-century scientists used balloons to carry instruments high into the atmosphere.",
-          "Their measurements had to be collected over long, steady flights."
+          "Early airplanes were built mainly of wood, wire, and fabric.",
+          "A biplane has two wings, one above the other, joined by struts and bracing wires.",
+          "The struts and wires turned the two wings into a stiff, strong, box-like structure.",
+          "A monoplane's single wing had to support itself, which was hard to achieve with the materials of the time.",
+          "Biplanes dominated aircraft design until the 1930s, when metal monoplanes became common."
         ],
-        "goal": "The student wants to explain why nineteenth-century scientists generally chose gas balloons over hot-air balloons for their flights."
+        "goal": "The student wants to explain why many early aircraft designers chose biplanes over monoplanes."
       },
       "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       "choices": [
-        { "id": "A", "text": "The first two kinds of flying balloon that carried people aloft, hot-air and gas, both appeared before the public in France in the year 1783." },
-        { "id": "B", "text": "The fire aboard a hot-air balloon of the era demanded both a heavy supply of fuel and constant tending by the members of the crew." },
-        { "id": "C", "text": "During the nineteenth century, scientists used balloons of more than one kind to carry recording instruments high into the upper reaches of the atmosphere." },
-        { "id": "D", "text": "Because a gas balloon, unlike a fire-dependent hot-air balloon, could stay up for hours, nineteenth-century scientists generally chose gas balloons for long flights." }
+        { "id": "A", "text": "Early airplanes, which were built mainly of wood, wire, and fabric, often had two wings mounted one above the other." },
+        { "id": "B", "text": "Biplanes dominated aircraft design until the 1930s, when metal monoplanes became common and replaced them." },
+        { "id": "C", "text": "A biplane's two wings, one mounted above the other, were joined to each other by struts and bracing wires." },
+        { "id": "D", "text": "Because braced pairs of wings were stronger than a single wing built from wood and fabric, early designers chose biplanes." }
       ],
       "correctAnswer": "D",
-      "explanation": "**Choice D is correct.** The goal asks for an explanation of a choice, so the sentence must supply a reason — and D does, tying the fire's limits and the gas balloon's endurance to the scientists' need for long, steady flights.\n\n**The Full Solution:**\n- How to spot it: do exactly what the goal sentence says. \"Explain why\" means the winning choice must contain a because, not merely a fact.\n- The notes hold the reason in three pieces: hot-air flight lasted only as long as the fire; the fire needed fuel and tending; gas balloons flew for many hours, and the scientists' measurements needed long, steady flights.\n- Choice D assembles those pieces into a single cause-and-effect sentence: the limitation, the alternative, and the choice it explains.\n\n**Why the other choices are wrong:**\n- A: The 1783 debut is background; it gives no reason for preferring one balloon over the other.\n- B: The fire's demands are half the reason, but with no mention of gas balloons or the scientists' choice, nothing is explained.\n- C: It says scientists used balloons without ever saying why they favored the gas kind — the very thing the goal requires."
+      "explanation": "**Choice D is correct.** The goal asks for a reason, and D gives one: with the materials of the time, two braced wings were stronger than a single wing, so designers chose biplanes.\n\n**The Full Solution:**\n- How to spot it: \"explain why\" means the winning sentence must contain a cause, not just a fact.\n- The notes supply the cause in pieces: early planes were built of wood, wire, and fabric; struts and wires made a biplane's two wings stiff and strong; a monoplane's single wing was hard to make strong enough.\n- Choice D joins those pieces in one \"Because\" sentence that ends with the designers' choice.\n\n**Why the other choices are wrong:**\n- A: It describes what early planes were made of and how their wings were arranged but gives no reason for the choice.\n- B: It says how long biplanes dominated, not why designers chose them.\n- C: It describes how a biplane's wings were joined without saying why that made biplanes the better choice."
     },
     {
       "id": 581,
@@ -548,24 +582,24 @@ export const practiceTest5RWM2Easy = {
       "studentNotes": {
         "intro": "While researching a topic, a student has taken the following notes:",
         "bullets": [
-          "Potters shape vessels on two common kinds of wheel: kick wheels and electric wheels.",
-          "A kick wheel is driven by the potter's foot and needs no electricity.",
-          "Many potters value the way a kick wheel's speed follows the rhythm of the potter's own body.",
-          "An electric wheel holds any chosen speed steadily for as long as the potter needs.",
-          "Keeping a kick wheel's heavy flywheel turning by foot grows tiring over a long session.",
-          "Some studios keep both kinds of wheel and let students try each."
+          "Cast iron and aluminum are both common materials for frying pans.",
+          "A cast-iron pan holds heat well, so food browns evenly in it.",
+          "A cast-iron pan can last for generations.",
+          "A cast-iron pan is much heavier than an aluminum pan of the same size.",
+          "Cast iron must be kept coated with oil to prevent rust.",
+          "Aluminum pans heat quickly and are easy to lift."
         ],
-        "goal": "The student wants to emphasize a trade-off involved in choosing a kick wheel rather than an electric wheel."
+        "goal": "The student wants to emphasize a trade-off involved in choosing a cast-iron pan rather than an aluminum pan."
       },
       "question": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
       "choices": [
-        { "id": "A", "text": "Potters shape vessels on two common kinds of wheel, kick wheels and electric wheels, and some studios keep both for students to try." },
-        { "id": "B", "text": "A kick wheel is driven by the potter's foot rather than a motor, so it can be used in a studio with no electricity." },
-        { "id": "C", "text": "A kick wheel needs no electricity and lets its speed follow the potter's own rhythm, but keeping its heavy flywheel turning by foot grows tiring." },
-        { "id": "D", "text": "Because an electric wheel holds any chosen speed steadily for as long as the potter needs, many studios have replaced their kick wheels with electric ones." }
+        { "id": "A", "text": "Cast iron and aluminum are both common materials for frying pans, and aluminum pans heat quickly." },
+        { "id": "B", "text": "A cast-iron pan holds heat well and can last for generations, so food browns evenly in it for years." },
+        { "id": "C", "text": "A cast-iron pan holds heat well and lasts for generations, but it is much heavier and must be kept oiled." },
+        { "id": "D", "text": "Because aluminum pans heat quickly and are easy to lift, many cooks have replaced their old cast-iron pans with them." }
       ],
       "correctAnswer": "C",
-      "explanation": "**Choice C is correct.** A trade-off has two sides, and C gives both from the notes: what the kick wheel offers (no electricity needed, speed tied to the body's rhythm) and what it costs (tiring foot work over a long session), joined by \"but.\"\n\n**The Full Solution:**\n- How to spot it: when the goal names a trade-off, the winning sentence must hold a gain AND a cost, usually hinged on a word like \"but\" or \"while.\"\n- The gains sit in two notes: the kick wheel needs no electricity, and its speed follows the potter's own rhythm.\n- The cost sits in another: keeping the flywheel turning by foot grows tiring. Choice C sets the gains against the cost in one sentence, which is what \"emphasize a trade-off\" demands.\n\n**Why the other choices are wrong:**\n- A: It inventories the two kinds of wheel and what studios do, naming neither a gain nor a cost.\n- B: It gives only the kick wheel's advantages, so there is no trade to see.\n- D: It gives only the electric wheel's advantage — and its claim that studios have replaced kick wheels appears nowhere in the notes."
+      "explanation": "**Choice C is correct.** A trade-off has two sides, and C gives both: what cast iron offers (it holds heat and lasts for generations) and what it costs (it is much heavier and must be kept oiled), joined by \"but.\"\n\n**The Full Solution:**\n- How to spot it: when the goal names a trade-off, the winning sentence must hold a gain and a cost, usually linked by a word like \"but.\"\n- The gains sit in two notes: cast iron holds heat well and can last for generations.\n- The costs sit in two others: it is much heavier than aluminum and must be kept oiled to prevent rust. Choice C sets the gains against the costs.\n\n**Why the other choices are wrong:**\n- A: It names the two materials and one strength of aluminum but gives no gain and cost of choosing cast iron.\n- B: It gives only cast iron's advantages, so there is no trade-off.\n- D: It gives only aluminum's advantages, and its claim that many cooks have replaced cast-iron pans is not in the notes."
     }
   ]
 };

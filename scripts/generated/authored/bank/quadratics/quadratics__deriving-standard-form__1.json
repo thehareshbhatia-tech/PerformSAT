@@ -1,30 +1,30 @@
 {
   "id": 1,
-  "question": "$f(x) = 3(x - 8)^{2} + 55$\nWhich of the following defines an equivalent form of the given function?",
+  "question": "$f(x) = (x - 4)^{2} + 3$\nWhich of the following defines an equivalent form of the given function?",
   "choices": [
     {
       "id": "A",
-      "text": "$f(x) = 3x^{2} - 48x + 55$"
+      "text": "$f(x) = x^{2} - 8x + 3$"
     },
     {
       "id": "B",
-      "text": "$f(x) = 3x^{2} - 48x + 119$"
+      "text": "$f(x) = x^{2} - 8x + 19$"
     },
     {
       "id": "C",
-      "text": "$f(x) = 3x^{2} - 48x + 247$"
+      "text": "$f(x) = x^{2} - 4x + 19$"
     },
     {
       "id": "D",
-      "text": "$f(x) = 3x^{2} + 48x + 247$"
+      "text": "$f(x) = x^{2} + 8x + 19$"
     }
   ],
   "distractorNotes": {
-    "A": "drops the 3(64) = 192 term entirely, keeping only the 55",
-    "B": "adds 64 to 55 without tripling it: 55 + 64 = 119, so the 3 never reaches the constant",
-    "D": "expands (x - 8)^2 as x^2 + 16x + 64, losing the minus sign on the middle term"
+    "A": "expands (x - 4)^2 as x^2 - 8x, leaving out the 16",
+    "C": "forgets to double the middle term, writing -4x instead of -8x",
+    "D": "uses + 8x, the middle term of (x + 4)^2"
   },
-  "correctAnswer": "C",
-  "hint": "Square the binomial completely before you distribute the 3.",
-  "explanation": "**Choice C is correct.**\n\n**The Fast Way (~20s):** $(x - 8)^{2} = x^{2} - 16x + 64$, so $3(x^{2} - 16x + 64) + 55 = 3x^{2} - 48x + 192 + 55 = 3x^{2} - 48x + 247$.\n\n**The Full Solution:**\nStep 1: Square the binomial. $(x - 8)^{2} = x^{2} - 16x + 64$.\nStep 2: Distribute the $3$. $3(x^{2} - 16x + 64) = 3x^{2} - 48x + 192$.\nStep 3: Combine the constants: $192 + 55 = 247$, so $f(x) = 3x^{2} - 48x + 247$. Check at $x = 8$: the original gives $55$, and $3(64) - 48(8) + 247 = 192 - 384 + 247 = 55$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x^{2} - 48x + 55$): never multiplies the $64$ by $3$, so the $192$ is missing from the constant term.\n* Choice B ($3x^{2} - 48x + 119$): adds $64$ to $55$ without tripling it, giving $119$ instead of $247$.\n* Choice D ($3x^{2} + 48x + 247$): expands $(x - 8)^{2}$ with a plus sign on the middle term. Squaring $x - 8$ gives $-16x$.\n\n**Test Day Takeaway:** Expand the square first, then distribute, then combine. The constant outside the square never reaches the middle term."
+  "correctAnswer": "B",
+  "hint": "Expand $(x - 4)^{2}$ as $(x - 4)(x - 4)$, then add $3$.",
+  "explanation": "**Choice B is correct.**\n\n**The Fast Way (~20s):** $(x - 4)^{2} = x^{2} - 8x + 16$, and $16 + 3 = 19$, so $f(x) = x^{2} - 8x + 19$.\n\n**The Full Solution:**\nStep 1: Expand the square: $(x - 4)^{2} = (x - 4)(x - 4) = x^{2} - 4x - 4x + 16 = x^{2} - 8x + 16$.\nStep 2: Add $3$: $f(x) = x^{2} - 8x + 16 + 3$.\nStep 3: Combine the constants: $f(x) = x^{2} - 8x + 19$.\n\nCheck: At $x = 0$, $(0 - 4)^{2} + 3 = 19$ and $0 - 0 + 19 = 19$. ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x^{2} - 8x + 3$): leaves out the $16$ from $(-4)(-4)$.\n* Choice C ($x^{2} - 4x + 19$): counts the $-4x$ term only once.\n* Choice D ($x^{2} + 8x + 19$): has the wrong sign on the middle term; that is the expansion of $(x + 4)^{2} + 3$.\n\n**Test Day Takeaway:** $(x - h)^{2} = x^{2} - 2hx + h^{2}$: the middle term is doubled and the last term is positive."
 }

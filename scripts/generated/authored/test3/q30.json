@@ -6,7 +6,7 @@
  "domain": "craft-and-structure",
  "skill": "words-in-context",
  "type": "multiple-choice",
- "passage": "Cognitive scientists William Chase and Herbert Simon found that chess masters could reconstruct far more of a briefly glimpsed board position than novices could, yet when the pieces were placed at random, the masters' advantage nearly vanished. Their superior recall, Chase and Simon concluded, was not a general gift of memory but a ______ one: it worked only on positions that made chess sense, where familiar patterns could be grasped as wholes.",
+ "passage": "Cognitive scientists William Chase and Herbert Simon found that chess masters could reconstruct far more of a briefly glimpsed board position than novices could. When the pieces were placed at random, however, the masters' advantage nearly vanished. Their superior recall, Chase and Simon concluded, was not a general gift of memory but a ______ one: it worked only on positions that made chess sense, where familiar patterns could be grasped as wholes.",
  "question": "Which choice completes the text with the most logical and precise word or phrase?",
  "choices": [
   {

@@ -6,7 +6,7 @@
   "band": 2,
   "domain": "standard-english-conventions",
   "skill": "form-structure-and-sense",
-  "passage": "The fields of raised domes set into pavement at street crossings, first installed in Japan in 1967, give pedestrians who are blind or have low vision a signal they can read underfoot. Guidelines that specify the size and spacing of the domes ______ now written into accessibility codes in many countries.",
+  "passage": "During the Antarctic winter, male emperor penguins incubate their eggs for about two months without eating. The huddles the males form during this long fast ______ constantly shifting, as birds on the cold outer edge gradually work their way toward the warm center.",
   "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
   "choices": [
     {
@@ -27,5 +27,5 @@
     }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** The subject of the verb is the plural noun \"Guidelines,\" so the verb must be the plural \"are.\"\n\n**The Full Solution:**\n- Strip the modifier to find the core: \"Guidelines... ______ now written into accessibility codes.\"\n- The clause \"that specify the size and spacing of the domes\" merely describes the subject; it doesn't change its number.\n- Plural subject, plural verb: \"Guidelines... are now written.\"\n\n**Why the other choices are wrong:**\n- A: \"Was\" is singular (and past tense besides, clashing with \"now\").\n- B: \"Is\" is singular, agreeing with nothing in the subject position.\n- D: \"Has been\" is likewise singular; the nearby nouns \"size\" and \"spacing\" sit inside a modifying clause, not in the subject position."
+  "explanation": "**Choice C is correct.** The subject of the verb is the plural noun \"huddles,\" so the verb must be the plural \"are.\"\n\n**The Full Solution:**\n- Strip the modifier to find the core: \"The huddles... ______ constantly shifting.\"\n- The words \"the males form during this long fast\" merely describe the subject; they don't change its number.\n- Plural subject, plural verb: \"The huddles... are constantly shifting.\"\n\n**Why the other choices are wrong:**\n- A: \"Was\" is singular (and past tense besides, clashing with the present-tense description of the huddles).\n- B: \"Is\" is singular; it agrees with the nearby noun \"fast,\" which sits inside the modifier, not with the subject \"huddles.\"\n- D: \"Has been\" is likewise singular and cannot agree with the plural subject \"huddles.\""
 }

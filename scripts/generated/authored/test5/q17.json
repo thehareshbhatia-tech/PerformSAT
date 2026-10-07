@@ -6,29 +6,29 @@
  "domain": "standard-english-conventions",
  "skill": "boundaries",
  "module": 1,
- "passage": "The painter Rachel Ruysch specialized in flower pieces of almost scientific exactness, rendering each petal, beetle, and dewdrop with its own focused ______ collectors across Europe paid some of the highest prices of the era for her paintings, and she continued painting them into her eighties.",
+ "passage": "The 1980 eruption of Mount St. Helens in Washington State lowered the volcano's summit by about 400 ______ ash from the blast drifted east and settled across eleven US states.",
  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
  "choices": [
   {
    "id": "A",
-   "text": "clarity;"
+   "text": "meters;"
   },
   {
    "id": "B",
-   "text": "clarity,"
+   "text": "meters,"
   },
   {
    "id": "C",
-   "text": "clarity"
+   "text": "meters"
   },
   {
    "id": "D",
-   "text": "clarity:"
+   "text": "meters:"
   }
  ],
  "correctAnswer": "A",
- "explanation": "**Choice A is correct.** Two independent clauses meet at the blank, and a semicolon is the standard way to join them without a coordinating conjunction.\n\n**The Full Solution:**\n- Before the blank stands a complete sentence: \"The painter Rachel Ruysch specialized in flower pieces... rendering each petal, beetle, and dewdrop with its own focused clarity.\"\n- After the blank stands another complete sentence: \"collectors across Europe paid some of the highest prices of the era for her paintings, and she continued painting them into her eighties.\"\n- With no conjunction between them, the two independent clauses require a semicolon.\n\n**Why the other choices are wrong:**\n- B: A comma alone between two independent clauses produces a comma splice.\n- C: No punctuation at all fuses the two clauses into a run-on.\n- D: A colon signals that what follows explains or specifies what precedes; the second clause reports the market's response, a related but new statement, not an elaboration of the first clause's content.",
+ "explanation": "**Choice A is correct.** Two independent clauses meet at the blank, and a semicolon is the standard way to join them without a coordinating conjunction.\n\n**The Full Solution:**\n- Before the blank stands a complete sentence: \"The 1980 eruption of Mount St. Helens in Washington State lowered the volcano's summit by about 400 meters.\"\n- After the blank stands another complete sentence: \"ash from the blast drifted east and settled across eleven US states.\"\n- With no conjunction between them, the two independent clauses require a semicolon.\n\n**Why the other choices are wrong:**\n- B: A comma alone between two independent clauses produces a comma splice.\n- C: No punctuation at all fuses the two clauses into a run-on sentence.\n- D: A colon signals that what follows explains or specifies what came before; the spread of the ash is a related new fact, not an explanation of the lowered summit.",
  "_meta": {
-  "anchor": "Rachel Ruysch flower still lifes; semicolon between independent clauses"
+  "anchor": "Mount St. Helens 1980 eruption; semicolon between independent clauses"
  }
 }

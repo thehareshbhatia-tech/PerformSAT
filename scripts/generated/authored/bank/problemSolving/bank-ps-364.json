@@ -1,29 +1,29 @@
 {
   "id": "bank-ps-364",
-  "question": "Dana drove to a lake at $r$ miles per hour and returned on the same road at $2r$ miles per hour. Her average speed for the round trip was $48$ miles per hour. What is the value of $r$?",
+  "question": "Dana drove for $2$ hours at an average speed of $x$ miles per hour and then for $3$ hours at an average speed $10$ miles per hour faster. Her average speed for the entire $5$ hours was $58$ miles per hour. What is the value of $x$?",
   "choices": [
     {
       "id": "A",
-      "text": "$16$"
+      "text": "$48$"
     },
     {
       "id": "B",
-      "text": "$24$"
+      "text": "$52$"
     },
     {
       "id": "C",
-      "text": "$32$"
+      "text": "$53$"
     },
     {
       "id": "D",
-      "text": "$36$"
+      "text": "$58$"
     }
   ],
+  "correctAnswer": "B",
   "distractorNotes": {
-    "A": "divides $48$ by $3$, treating the average speed as the sum $r + 2r$",
-    "B": "sets $2r = 48$, using the faster leg's speed as the average speed",
-    "C": "averages the two speeds, solving $\\frac{r + 2r}{2} = 48$"
+    "A": "subtracts the full 10 from the average speed",
+    "C": "averages the two speeds as if each were driven for the same time: (x + x + 10)/2 = 58",
+    "D": "reports the average speed for the whole drive"
   },
-  "correctAnswer": "D",
-  "explanation": "**SAT Pattern: Average Rate**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** With one-way distance $d$, total time is $\\frac{d}{r} + \\frac{d}{2r} = \\frac{3d}{2r}$, so the average speed is $\\frac{2d}{3d/(2r)} = \\frac{4r}{3}$. Then $\\frac{4r}{3} = 48$ gives $r = 36$.\n\n**The Full Solution:**\nStep 1: Let $d$ be the one-way distance. The round trip covers $2d$ miles.\nStep 2: The trip to the lake takes $\\frac{d}{r}$ hours and the trip back takes $\\frac{d}{2r}$ hours, so the total time is $\\frac{2d}{2r} + \\frac{d}{2r} = \\frac{3d}{2r}$ hours.\nStep 3: Average speed $= \\frac{2d}{\\frac{3d}{2r}} = \\frac{4r}{3}$, and $d$ cancels. Setting $\\frac{4r}{3} = 48$ gives $r = 36$. Check: at $36$ and $72$ miles per hour over $72$ miles each way, the times are $2$ and $1$ hours, so $\\frac{144}{3} = 48$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($16$): divides $48$ by $3$, treating the average speed as the sum $r + 2r$\n* Choice B ($24$): sets $2r = 48$, using the faster leg's speed as the average speed\n* Choice C ($32$): averages the two speeds, solving $\\frac{r + 2r}{2} = 48$\n\n**Test Day Takeaway:** For equal distances at two speeds, the average speed depends only on the speeds, never on the distance. Introduce $d$, write the two times, and watch it cancel."
+  "explanation": "**SAT Pattern: Average Rate**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** Total distance is $2x + 3(x + 10) = 5(58)$, so $5x + 30 = 290$ and $x = 52$.\n\n**The Full Solution:**\nStep 1: Total distance: $2x + 3(x + 10) = 5x + 30$ miles.\nStep 2: Average speed is total distance divided by total time: $\\frac{5x + 30}{5} = 58$, so $5x + 30 = 290$.\nStep 3: Then $5x = 260$ and $x = 52$. Check: $2(52) + 3(62) = 104 + 186 = 290$ miles in $5$ hours is $58$ miles per hour ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($48$): subtracts $10$ from $58$, as if all $5$ hours were at the faster speed.\n* Choice C ($53$): averages $x$ and $x + 10$ equally, but Dana spent more time at the faster speed.\n* Choice D ($58$): is the average speed for the whole drive, not the first speed.\n\n**Test Day Takeaway:** Average speed is total distance over total time; speeds held for different lengths of time are not averaged equally."
 }

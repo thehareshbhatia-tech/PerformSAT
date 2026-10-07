@@ -115,18 +115,18 @@ export const practiceTest6 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "In the $xy$-plane, line $k$ is parallel to the graph of $3x + y = 7$ and passes through the point $(4, 5)$. Which equation defines line $k$?",
+  question: "In the $xy$-plane, line $k$ is parallel to the graph of $3x + y = 7$ and passes through the point $(0, 5)$. Which equation defines line $k$?",
   choices: [
-    // distractor: copies the given equation, which has the right slope but does not pass through (4, 5), since 3(4) + 5 = 17, not 7
-    { id: "A", text: "$3x + y = 7$" },
-    { id: "B", text: "$3x + y = 17$" },
-    // distractor: swaps the coordinates of the point, computing 3(5) + 4 = 19 instead of 3(4) + 5
-    { id: "C", text: "$3x + y = 19$" },
-    // distractor: changes the sign of the y-coefficient; this line passes through (4, 5) but has slope 3, so it is not parallel to the given line
-    { id: "D", text: "$3x - y = 7$" }
+    // distractor: uses slope 3 instead of -3: y = 3x + 5 gives 3x - y = -5
+    { id: "A", text: "$3x - y = -5$" },
+    { id: "B", text: "$3x + y = 5$" },
+    // distractor: substitutes the point as (5, 0), getting 3(5) + 0 = 15
+    { id: "C", text: "$3x + y = 15$" },
+    // distractor: uses slope -1/3 instead of -3: y = (-1/3)x + 5 gives x + 3y = 15
+    { id: "D", text: "$x + 3y = 15$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** A parallel line keeps the left side $3x + y$ and changes only the constant; substituting $(4, 5)$ gives $3(4) + 5 = 17$, so line $k$ is $3x + y = 17$.\n\n**The Full Solution:**\nStep 1: Rewrite the given equation as $y = -3x + 7$; its slope is $-3$, so line $k$ also has slope $-3$, and its equation has the form $3x + y = c$ for some constant $c$.\nStep 2: Line $k$ passes through $(4, 5)$, so $c = 3(4) + 5 = 17$.\nStep 3: Line $k$ is defined by $3x + y = 17$. Check: $3(4) + 5 = 17$ ✓, and the slope of $y = -3x + 17$ is $-3$, the same as the given line, with a different $y$-intercept ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x + y = 7$): this is the given line itself, and $(4, 5)$ is not on it, since $3(4) + 5 = 17$, not $7$.\n* Choice C ($3x + y = 19$): swaps the coordinates, computing $3(5) + 4 = 19$.\n* Choice D ($3x - y = 7$): this line does pass through $(4, 5)$, but it can be written as $y = 3x - 7$, with slope $3$ rather than $-3$, so it is not parallel to the given line.\n\n**Test Day Takeaway:** Parallel lines in standard form share the same $x$- and $y$-coefficients; only the constant changes, and the given point fixes it.",
+  explanation: "**SAT Pattern: Parallel Lines and Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** A line parallel to $3x + y = 7$ can be written $3x + y = c$. The point $(0, 5)$ gives $c = 3(0) + 5 = 5$.\n\n**The Full Solution:**\nStep 1: Solving $3x + y = 7$ for $y$ gives $y = -3x + 7$, so the given line has slope $-3$. Line $k$ is parallel, so it also has slope $-3$.\nStep 2: Line $k$ passes through $(0, 5)$, so its $y$-intercept is $5$ and line $k$ is $y = -3x + 5$.\nStep 3: Add $3x$ to both sides: $3x + y = 5$. Check: $3(0) + 5 = 5$ ✓, and the slope is $-3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x - y = -5$): is $y = 3x + 5$, which has slope $3$ instead of $-3$.\n* Choice C ($3x + y = 15$): substitutes the point as $(5, 0)$, swapping its coordinates.\n* Choice D ($x + 3y = 15$): is $y = -\\frac{1}{3}x + 5$, which has slope $-\\frac{1}{3}$ instead of $-3$.\n\n**Test Day Takeaway:** A line parallel to $ax + by = c$ keeps the same $a$ and $b$; substitute the given point to find the new constant.",
   skills: ["writing-parallel-equation"]
 },
 
@@ -287,9 +287,9 @@ export const practiceTest6 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "$2x^{2} + kx + 8 = 0$\nIn the given equation, $k$ is an integer. If the equation has no real solutions, how many possible values of $k$ are there?",
-  correctAnswer: "15",
-  explanation: "**SAT Pattern: Discriminant with Integer Bound**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~35s):** No real solutions means the discriminant is negative: $k^{2} - 4(2)(8) < 0$, so $k^{2} < 64$ and $-8 < k < 8$. The integers $-7$ through $7$ number $15$.\n\n**The Full Solution:**\nStep 1: A quadratic equation $ax^{2} + bx + c = 0$ has no real solutions when $b^{2} - 4ac < 0$. Here $a = 2$, $b = k$, and $c = 8$, so the condition is $k^{2} - 64 < 0$.\nStep 2: Solve: $k^{2} < 64$ means $-8 < k < 8$. The endpoints are excluded, because $k = \\pm 8$ makes the discriminant $0$ and gives exactly one real solution.\nStep 3: The integers strictly between $-8$ and $8$ are $-7, -6, \\ldots, 6, 7$, which is $7 + 1 + 7 = 15$ values. Check the edges: $k = 7$ gives $49 - 64 = -15 < 0$ ✓, and $k = 8$ gives $64 - 64 = 0$, which is not negative ✓\n\n**Common Mistakes:**\n* $17$: includes $k = -8$ and $k = 8$, which give a discriminant of $0$ and therefore one real solution.\n* $7$: counts only the positive integers $1$ through $7$, ignoring $0$ and the negative values of $k$.\n* $8$: counts the integers $0$ through $7$ and forgets that $k^{2} < 64$ also allows negative values.\n\n**Test Day Takeaway:** \"No real solutions\" means the discriminant is strictly negative; turn $k^{2} < n$ into $-\\sqrt{n} < k < \\sqrt{n}$ and count both sides of zero.",
+  question: "$2x^{2} + kx + 8 = 0$\nIn the given equation, $k$ is an integer. If the equation has no real solutions, what is the greatest possible value of $k$?",
+  correctAnswer: "7",
+  explanation: "**SAT Pattern: Discriminant with Integer Bound**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~35s):** No real solutions means the discriminant is negative: $k^{2} - 4(2)(8) < 0$, so $k^{2} < 64$ and $-8 < k < 8$. The greatest integer in this range is $7$.\n\n**The Full Solution:**\nStep 1: A quadratic equation $ax^{2} + bx + c = 0$ has no real solutions when $b^{2} - 4ac < 0$. Here $a = 2$, $b = k$, and $c = 8$, so the condition is $k^{2} - 64 < 0$.\nStep 2: Solve: $k^{2} < 64$ means $-8 < k < 8$. The endpoints are excluded, because $k = \\pm 8$ makes the discriminant $0$ and gives exactly one real solution.\nStep 3: The greatest integer less than $8$ is $7$. Check: $k = 7$ gives $49 - 64 = -15 < 0$ ✓, and $k = 8$ gives $64 - 64 = 0$, which is not negative ✓\n\n**Common Mistakes:**\n* $8$: includes the endpoint; $k = 8$ makes the discriminant $0$, so the equation has one real solution.\n* $64$: reports the bound on $k^{2}$ instead of the bound on $k$.\n* $3$: leaves out the $4$ in $b^{2} - 4ac$, solving $k^{2} < 16$.\n\n**Test Day Takeaway:** \"No real solutions\" means the discriminant is strictly negative; turn $k^{2} < n$ into $-\\sqrt{n} < k < \\sqrt{n}$ and check the endpoint.",
   skills: ["discriminant-analysis"]
 },
 {
@@ -346,20 +346,20 @@ export const practiceTest6 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "In the $xy$-plane, the distance between the points $(1, 5)$ and $(1 + 4t, 5 + 3t)$ is $35$, where $t$ is a positive constant. What is the value of $t$?",
-  correctAnswer: "7",
-  explanation: "**SAT Pattern: Distance Formula**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~30s):** The horizontal and vertical changes are $4t$ and $3t$, so the distance is $\\sqrt{(4t)^{2} + (3t)^{2}} = 5t$. Then $5t = 35$ and $t = 7$.\n\n**The Full Solution:**\nStep 1: The change in $x$ is $(1 + 4t) - 1 = 4t$, and the change in $y$ is $(5 + 3t) - 5 = 3t$.\nStep 2: By the distance formula, the distance is $\\sqrt{(4t)^{2} + (3t)^{2}} = \\sqrt{25t^{2}} = 5t$, since $t > 0$.\nStep 3: Set $5t = 35$, so $t = 7$. Check: the second point is $(29, 26)$, and $\\sqrt{28^{2} + 21^{2}} = \\sqrt{784 + 441} = \\sqrt{1225} = 35$ ✓\n\n**Common Mistakes:**\n* $5$: adds the changes as if distance were $4t + 3t = 7t$, then solves $7t = 35$.\n* $8.75$: uses only the horizontal change, solving $4t = 35$.\n* About $1.18$: sets $25t^{2} = 35$, forgetting to square the distance on the other side.\n\n**Test Day Takeaway:** When both coordinate changes share a factor of $t$, factor it out of the distance formula; changes of $3t$ and $4t$ give a distance of $5t$.",
-  skills: ["coordinate-geometry"]
+  question: "Line $\\ell$ is defined by $6y + 9x = 4$. Line $n$ is perpendicular to line $\\ell$ in the $xy$-plane. What is the slope of line $n$?",
+  correctAnswer: "2/3",
+  explanation: "**SAT Pattern: Perpendicular Slope**\n\n**The correct answer is $\\frac{2}{3}$.**\n\n**The Fast Way (~30s):** Solving for $y$ gives $y = -\\frac{3}{2}x + \\frac{2}{3}$, so line $\\ell$ has slope $-\\frac{3}{2}$. The slope of a perpendicular line is the negative reciprocal, $\\frac{2}{3}$.\n\n**The Full Solution:**\nStep 1: Solve the equation for $y$: $6y = -9x + 4$, so $y = -\\frac{9}{6}x + \\frac{4}{6} = -\\frac{3}{2}x + \\frac{2}{3}$.\nStep 2: The coefficient of $x$ in slope-intercept form is the slope, so line $\\ell$ has slope $-\\frac{3}{2}$.\nStep 3: Perpendicular slopes are negative reciprocals, so line $n$ has slope $\\frac{2}{3}$. Check: $\\left(-\\frac{3}{2}\\right)\\left(\\frac{2}{3}\\right) = -1$ ✓\n\n**Common Mistakes:**\n* $-\\frac{3}{2}$: gives the slope of line $\\ell$ instead of the slope of the perpendicular line.\n* $\\frac{3}{2}$: reads the equation as if $6$ were the coefficient of $x$ and $9$ the coefficient of $y$, getting slope $-\\frac{2}{3}$ for line $\\ell$ and $\\frac{3}{2}$ for line $n$.\n* $-\\frac{2}{3}$: takes the reciprocal of $-\\frac{3}{2}$ but does not change its sign.\n\n**Test Day Takeaway:** When the $y$-term comes first, solve for $y$ before reading the slope; then flip the fraction and change the sign.",
+  skills: ["perpendicular-negative-reciprocal"]
 },
 {
   id: 20,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "$f(x) = x^{2} - 2x$\n$g(x) = x + 4$\nThe functions $f$ and $g$ are defined by the given equations. If $f(g(a)) = 35$ and $a > 0$, what is the value of $a$?",
+  question: "$f(x) = x^{2} - 2x$\nThe function $g$ is defined by $g(x) = f(x + 4)$. If $g(a) = 35$ and $a > 0$, what is the value of $a$?",
   choices: [
     { id: "A", text: "$3$" },
-    // distractor: solves f(u) = 35 for u = g(a) = 7 and stops, reporting g(a) instead of a
+    // distractor: solves f(u) = 35 for u = a + 4 = 7 and stops, reporting a + 4 instead of a
     { id: "B", text: "$7$" },
     // distractor: takes the other root u = -5, finds a = -9, and drops the negative sign instead of rejecting it
     { id: "C", text: "$9$" },
@@ -367,8 +367,8 @@ export const practiceTest6 = {
     { id: "D", text: "$11$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Function Composition**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** Let $u = g(a)$. Then $u^{2} - 2u = 35$, so $(u - 7)(u + 5) = 0$ and $u = 7$ or $u = -5$. Since $a + 4 = u$, $a = 3$ or $a = -9$, and the positive value is $3$.\n\n**The Full Solution:**\nStep 1: Write $f(g(a))$ in terms of $u = g(a) = a + 4$: $f(u) = u^{2} - 2u$, so $u^{2} - 2u = 35$.\nStep 2: Rearrange and factor: $u^{2} - 2u - 35 = 0$, so $(u - 7)(u + 5) = 0$, giving $u = 7$ or $u = -5$.\nStep 3: Solve $a + 4 = u$: $a = 3$ or $a = -9$. Since $a > 0$, $a = 3$. Check: $g(3) = 7$ and $f(7) = 49 - 14 = 35$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($7$): this is $g(a)$, the input to $f$; the question asks for $a$.\n* Choice C ($9$): comes from the root $u = -5$, which gives $a = -9$; that value is negative and is ruled out by $a > 0$, not turned positive.\n* Choice D ($11$): adds $4$ to $7$ instead of subtracting it, reversing $g$.\n\n**Test Day Takeaway:** For $f(g(a))$, solve for the inner output first, then undo $g$ to get $a$, and apply any condition on $a$ at the end.",
-  skills: ["function-composition"]
+  explanation: "**SAT Pattern: Horizontal Shift**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** Let $u = a + 4$. Then $g(a) = f(u) = u^{2} - 2u = 35$, so $(u - 7)(u + 5) = 0$ and $u = 7$ or $u = -5$. Then $a = 3$ or $a = -9$, and the positive value is $3$.\n\n**The Full Solution:**\nStep 1: By the definition of $g$, $g(a) = f(a + 4)$. Let $u = a + 4$, so $f(u) = u^{2} - 2u = 35$.\nStep 2: Rearrange and factor: $u^{2} - 2u - 35 = 0$, so $(u - 7)(u + 5) = 0$, giving $u = 7$ or $u = -5$.\nStep 3: Solve $a + 4 = u$: $a = 3$ or $a = -9$. Since $a > 0$, $a = 3$. Check: $g(3) = f(7) = 49 - 14 = 35$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($7$): this is $a + 4$, the input to $f$; the question asks for $a$.\n* Choice C ($9$): comes from the root $u = -5$, which gives $a = -9$; that value is ruled out by $a > 0$, not turned positive.\n* Choice D ($11$): adds $4$ to $7$ instead of subtracting it.\n\n**Test Day Takeaway:** For $g(x) = f(x + 4)$, solve for the input to $f$ first, then subtract $4$, and apply any condition on $a$ at the end.",
+  skills: ["function-transformations"]
 },
 {
   id: 21,
@@ -422,19 +422,19 @@ export const practiceTest6 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 2,
-  question: "The scatterplot shows the age $x$, in years, and the height $y$, in feet, of each of $12$ trees. The line of best fit shown has the equation $y = 0.5x + 1.5$. For what value of $x$ does the line of best fit predict a height of $9.5$ feet?",
-  diagram: { type: "scatterplot", params: { points: [[2, 2.5], [4, 3.5], [6, 5], [8, 5], [10, 6.5], [12, 7], [14, 9], [16, 10], [18, 11], [20, 11], [22, 13], [23, 12.5]], xMin: 0, xMax: 24, yMin: 0, yMax: 14, xGridStep: 2, yGridStep: 2, xLabelStep: 4, yLabelStep: 4, xLabel: "Age (years)", yLabel: "Height (feet)", bestFitLine: { slope: 0.5, intercept: 1.5 } } },
+  question: "The scatterplot shows the age $x$, in years, and the height $y$, in feet, of each of $12$ trees. The line of best fit shown has the equation $y = 2x + 3$. For what value of $x$ does the line of best fit predict a height of $19$ feet?",
+  diagram: { type: "scatterplot", params: { points: [[1, 4.5], [2, 7.5], [3, 8], [4, 11.5], [5, 12.5], [6, 15.5], [7, 16.5], [8, 18], [9, 21.5], [10, 22.5], [11, 25.5], [12, 26]], xMin: 0, xMax: 13, yMin: 0, yMax: 30, xGridStep: 1, yGridStep: 2, xLabelStep: 2, yLabelStep: 6, xLabel: "Age (years)", yLabel: "Height (feet)", bestFitLine: { slope: 2, intercept: 3 } } },
   choices: [
-    // distractor: swaps the slope and the intercept: computes (9.5 - 0.5)/1.5 = 6
-    { id: "A", text: "$6$" },
-    { id: "B", text: "$16$" },
-    // distractor: ignores the intercept and divides 9.5 by the slope: 9.5/0.5 = 19
-    { id: "C", text: "$19$" },
-    // distractor: adds the intercept instead of subtracting it: (9.5 + 1.5)/0.5 = 22
-    { id: "D", text: "$22$" }
+    { id: "A", text: "$8$" },
+    // distractor: ignores the intercept and divides 19 by the slope: 19/2 = 9.5
+    { id: "B", text: "$9.5$" },
+    // distractor: adds the intercept instead of subtracting it: (19 + 3)/2 = 11
+    { id: "C", text: "$11$" },
+    // distractor: substitutes 19 for x instead of for y: 2(19) + 3 = 41
+    { id: "D", text: "$41$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** A predicted height is a $y$-value, so set $0.5x + 1.5 = 9.5$. Subtracting the intercept leaves $0.5x = 8$, so $x = 16$.\n\n**The Full Solution:**\nStep 1: On this scatterplot the age is $x$ and the height is $y$, so a predicted height of $9.5$ feet means $y = 9.5$ on the line of best fit, not at a plotted point.\nStep 2: Substitute into the equation of the line: $9.5 = 0.5x + 1.5$. Subtract $1.5$ from both sides to get $8 = 0.5x$.\nStep 3: Divide by $0.5$: $x = 16$. Check by predicting forward: $0.5(16) + 1.5 = 8 + 1.5 = 9.5$ feet ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): swaps the roles of the slope and the intercept, computing $(9.5 - 0.5) \\div 1.5 = 6$.\n* Choice C ($19$): drops the intercept and divides $9.5$ by $0.5$; the line predicts $0.5(19) + 1.5 = 11$ feet at that age, not $9.5$.\n* Choice D ($22$): adds $1.5$ instead of subtracting it, giving $(9.5 + 1.5) \\div 0.5 = 22$.\n\n**Test Day Takeaway:** Working backward on a line of best fit is the same algebra as working forward: undo the intercept first, then divide by the slope.",
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** A predicted height is a $y$-value, so set $2x + 3 = 19$. Then $2x = 16$, so $x = 8$.\n\n**The Full Solution:**\nStep 1: On this scatterplot the age is $x$ and the height is $y$, so a predicted height of $19$ feet means $y = 19$ on the line of best fit.\nStep 2: Substitute into the equation of the line: $19 = 2x + 3$. Subtract $3$ from both sides to get $16 = 2x$.\nStep 3: Divide by $2$: $x = 8$. Check: $2(8) + 3 = 19$ feet ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($9.5$): drops the intercept and divides $19$ by $2$; the line predicts $2(9.5) + 3 = 22$ feet at that age.\n* Choice C ($11$): adds $3$ instead of subtracting it, giving $(19 + 3) \\div 2 = 11$.\n* Choice D ($41$): substitutes $19$ for $x$, finding the predicted height of a $19$-year-old tree instead of the age.\n\n**Test Day Takeaway:** Decide whether the given number is an $x$-value or a $y$-value, then undo the intercept before dividing by the slope.",
   skills: ["scatterplots", "linear-functions"]
 },
 {
@@ -442,18 +442,18 @@ export const practiceTest6 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "In the $xy$-plane, line $p$ is defined by $2x + 5y = 40$. Line $q$ is perpendicular to line $p$ and passes through the point $(10, 5)$. Line $q$ has an x-intercept of $(a, 0)$. What is the value of $a$?",
+  question: "In the $xy$-plane, line $p$ is defined by $2x + 5y = 40$. Line $q$ is perpendicular to line $p$ and passes through the point $(0, -4)$. Which equation defines line $q$?",
   choices: [
-    // distractor: uses slope 2/5, the reciprocal without the sign change: y = 0.4x + 1 crosses the x-axis at -2.5
-    { id: "A", text: "$-2.5$" },
-    { id: "B", text: "$8$" },
-    // distractor: uses slope -5/2, changing the sign twice: y = -2.5x + 30 crosses the x-axis at 12
-    { id: "C", text: "$12$" },
-    // distractor: reuses line p's own slope -2/5: y = -0.4x + 9 crosses the x-axis at 22.5
-    { id: "D", text: "$22.5$" }
+    // distractor: takes the reciprocal of -2/5 but does not change its sign, using -5/2
+    { id: "A", text: "$y = -\\frac{5}{2}x - 4$" },
+    { id: "B", text: "$y = \\frac{5}{2}x - 4$" },
+    // distractor: uses the slope of line p, -2/5, which gives a line parallel to p
+    { id: "C", text: "$y = -\\frac{2}{5}x - 4$" },
+    // distractor: changes the sign of -2/5 but does not take the reciprocal, using 2/5
+    { id: "D", text: "$y = \\frac{2}{5}x - 4$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Line $p$ has slope $-\\frac{2}{5}$, so line $q$ has slope $\\frac{5}{2}$. Through $(10, 5)$ that is $y = \\frac{5}{2}x - 20$, which equals $0$ at $x = 8$.\n\n**The Full Solution:**\nStep 1: Write line $p$ in slope-intercept form: $5y = -2x + 40$, so $y = -\\frac{2}{5}x + 8$ and its slope is $-\\frac{2}{5}$.\nStep 2: A perpendicular line has the negative reciprocal slope, $\\frac{5}{2}$. Using the point $(10, 5)$: $5 = \\frac{5}{2}(10) + b$, so $b = 5 - 25 = -20$ and line $q$ is $y = \\frac{5}{2}x - 20$.\nStep 3: Set $y = 0$: $0 = \\frac{5}{2}x - 20$, so $x = 8$ and $a = 8$. Check: $\\left(-\\frac{2}{5}\\right)\\left(\\frac{5}{2}\\right) = -1$, and $\\frac{5}{2}(10) - 20 = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2.5$): uses $\\frac{2}{5}$, the reciprocal with no sign change, giving $y = 0.4x + 1$, which crosses the x-axis at $-2.5$.\n* Choice C ($12$): changes the sign twice and uses $-\\frac{5}{2}$, giving $y = -2.5x + 30$, which crosses at $12$.\n* Choice D ($22.5$): keeps line $p$'s own slope $-\\frac{2}{5}$, which produces a line parallel to $p$, not perpendicular to it.\n\n**Test Day Takeaway:** Perpendicular slopes multiply to $-1$: flip and change the sign, then use the given point to find the intercept before answering what was actually asked.",
+  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Solving for $y$ gives $y = -\\frac{2}{5}x + 8$, so line $p$ has slope $-\\frac{2}{5}$ and line $q$ has slope $\\frac{5}{2}$. The point $(0, -4)$ is the $y$-intercept, so line $q$ is $y = \\frac{5}{2}x - 4$.\n\n**The Full Solution:**\nStep 1: Solve $2x + 5y = 40$ for $y$: $5y = -2x + 40$, so $y = -\\frac{2}{5}x + 8$. Line $p$ has slope $-\\frac{2}{5}$.\nStep 2: The slope of a perpendicular line is the negative reciprocal, so line $q$ has slope $\\frac{5}{2}$.\nStep 3: Line $q$ passes through $(0, -4)$, so its $y$-intercept is $-4$, and line $q$ is $y = \\frac{5}{2}x - 4$. Check: $\\left(-\\frac{2}{5}\\right)\\left(\\frac{5}{2}\\right) = -1$, and $\\frac{5}{2}(0) - 4 = -4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A: flips $-\\frac{2}{5}$ to $-\\frac{5}{2}$ but keeps the negative sign.\n* Choice C: keeps the slope of line $p$, which gives a line parallel to $p$.\n* Choice D: changes the sign to $\\frac{2}{5}$ but does not flip the fraction.\n\n**Test Day Takeaway:** Solve for $y$ to read the slope from standard form; a perpendicular slope is the negative reciprocal, so flip the fraction and change the sign.",
   skills: ["perpendicular-negative-reciprocal"]
 },
 {
@@ -558,18 +558,18 @@ export const practiceTest6 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 2,
-  question: "$4^{3x} = 8^{x + 2}$\nWhich equation has the same solution as the given equation?",
+  question: "$9^{x} = 3^{x + 4}$\nWhich equation has the same solution as the given equation?",
   choices: [
-    { id: "A", text: "$6x = 3x + 6$" },
-    // distractor: rewrites both sides in base 2 but does not distribute the 3 over x + 2, writing 3x + 2
-    { id: "B", text: "$6x = 3x + 2$" },
-    // distractor: sets the exponents equal without rewriting the bases, as though 4 and 8 were the same base
-    { id: "C", text: "$3x = x + 2$" },
-    // distractor: rewrites 4^(3x) as 2^(12x), multiplying the exponent by 4 instead of by 2
-    { id: "D", text: "$12x = 3x + 6$" }
+    // distractor: sets the exponents equal while the bases are still 9 and 3
+    { id: "A", text: "$x = x + 4$" },
+    // distractor: rewrites (3^2)^x as 3^(x + 2), adding the exponents instead of multiplying them
+    { id: "B", text: "$x + 2 = x + 4$" },
+    { id: "C", text: "$2x = x + 4$" },
+    // distractor: treats 9 as 3^3 instead of 3^2
+    { id: "D", text: "$3x = x + 4$" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Exponential Equation with Common Base**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Write both sides in base $2$: $4^{3x} = 2^{6x}$ and $8^{x + 2} = 2^{3x + 6}$. Equal powers of $2$ force $6x = 3x + 6$.\n\n**The Full Solution:**\nStep 1: Both bases are powers of $2$: $4 = 2^{2}$ and $8 = 2^{3}$.\nStep 2: Apply the power-of-a-power rule: $\\left(2^{2}\\right)^{3x} = 2^{6x}$ and $\\left(2^{3}\\right)^{x + 2} = 2^{3(x + 2)} = 2^{3x + 6}$.\nStep 3: With one common base, the exponents must be equal: $6x = 3x + 6$. Check by solving: $x = 2$, and $4^{6} = 4096 = 8^{4}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($6x = 3x + 2$): forgets to distribute the $3$ across $x + 2$.\n* Choice C ($3x = x + 2$): sets the exponents equal while the bases are still $4$ and $8$, which is valid only once the bases match.\n* Choice D ($12x = 3x + 6$): turns $4^{3x}$ into $2^{12x}$ by multiplying by $4$ rather than by the exponent $2$.\n\n**Test Day Takeaway:** Rewrite both sides with the same base first, then set the exponents equal, distributing across every term in each exponent.",
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Exponential Equation with Common Base**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Since $9 = 3^{2}$, $9^{x} = 3^{2x}$. Equal powers of $3$ have equal exponents, so $2x = x + 4$.\n\n**The Full Solution:**\nStep 1: Write $9$ as a power of $3$: $9 = 3^{2}$.\nStep 2: Apply the power-of-a-power rule: $9^{x} = \\left(3^{2}\\right)^{x} = 3^{2x}$, so the equation is $3^{2x} = 3^{x + 4}$.\nStep 3: With one common base, the exponents must be equal: $2x = x + 4$. Check by solving: $x = 4$, and $9^{4} = 6{,}561 = 3^{8}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($x = x + 4$): sets the exponents equal while the bases are still different.\n* Choice B ($x + 2 = x + 4$): adds the exponents in $\\left(3^{2}\\right)^{x}$ instead of multiplying them.\n* Choice D ($3x = x + 4$): treats $9$ as $3^{3}$; $3^{3} = 27$.\n\n**Test Day Takeaway:** Rewrite both sides with the same base, then set the exponents equal.",
   skills: ["exponential-functions"]
 },
 {
@@ -616,7 +616,7 @@ export const practiceTest6 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "A store received $250$ lamps: $40\\%$ from supplier A and the rest from supplier B. Of these, $6\\%$ of the lamps from supplier A and $10\\%$ of the lamps from supplier B were defective. One of the defective lamps will be selected at random. What is the probability of selecting a lamp from supplier A?",
+  question: "A store received $250$ lamps: $100$ from supplier A and $150$ from supplier B. Of these lamps, $6$ from supplier A and $15$ from supplier B were defective. One of the defective lamps will be selected at random. What is the probability of selecting a lamp from supplier A?",
   choices: [
     // distractor: gives the probability that a lamp from supplier A is defective, 6 out of 100, reversing the condition
     { id: "A", text: "$\\frac{3}{50}$" },
@@ -627,7 +627,7 @@ export const practiceTest6 = {
     { id: "D", text: "$\\frac{2}{5}$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Basic Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** Supplier A sent $0.06(100) = 6$ defective lamps and supplier B sent $0.10(150) = 15$, so there are $21$ defective lamps and $\\frac{6}{21} = \\frac{2}{7}$ of them came from supplier A.\n\n**The Full Solution:**\nStep 1: Split the shipment: $40\\%$ of $250$ is $100$ lamps from supplier A, leaving $250 - 100 = 150$ from supplier B.\nStep 2: Count the defective lamps: $6\\%$ of $100$ is $6$, and $10\\%$ of $150$ is $15$, for $6 + 15 = 21$ defective lamps in all.\nStep 3: The lamp is selected from the defective lamps only, so the denominator is $21$, not $250$: the probability is $\\frac{6}{21} = \\frac{2}{7}$. Check: $\\frac{6}{21} + \\frac{15}{21} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{50}$): answers the reversed question, the probability that a lamp from supplier A is defective, $\\frac{6}{100}$.\n* Choice B ($\\frac{21}{250}$): gives the defect rate for the whole shipment, using all $250$ lamps as the denominator.\n* Choice D ($\\frac{2}{5}$): gives supplier A's share of all $250$ lamps, ignoring that the lamp selected is defective.\n\n**Test Day Takeaway:** When the selection is made from a smaller group, that group is the denominator; count the members of that group first, then count how many of them meet the condition.",
+  explanation: "**SAT Pattern: Basic Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** There are $6 + 15 = 21$ defective lamps, and $6$ of them came from supplier A, so the probability is $\\frac{6}{21} = \\frac{2}{7}$.\n\n**The Full Solution:**\nStep 1: The lamp is selected from the defective lamps only, so count them: $6 + 15 = 21$ defective lamps.\nStep 2: Of these $21$ lamps, $6$ came from supplier A.\nStep 3: The probability is $\\frac{6}{21} = \\frac{2}{7}$. Check: $\\frac{6}{21} + \\frac{15}{21} = 1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{50}$): answers the reversed question, the probability that a lamp from supplier A is defective, $\\frac{6}{100}$.\n* Choice B ($\\frac{21}{250}$): gives the defect rate for the whole shipment, using all $250$ lamps as the denominator.\n* Choice D ($\\frac{2}{5}$): gives supplier A's share of all $250$ lamps, ignoring that the lamp selected is defective.\n\n**Test Day Takeaway:** When the selection is made from a smaller group, that group is the denominator; count the members of that group first.",
   skills: ["probability-basics"]
 },
 {
@@ -673,9 +673,9 @@ export const practiceTest6 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "Cylinder A has radius $r$ and height $h$. Cylinder B has radius $1.5r$ and height $0.5h$. The volume of cylinder B is $k$ times the volume of cylinder A. What is the value of $k$?",
-  correctAnswer: "1.125",
-  explanation: "**SAT Pattern: Cylinder Volume**\n\n**The correct answer is $1.125$.**\n\n**The Fast Way (~30s):** Volume is $\\pi r^{2}h$, so the radius factor enters squared and the height factor enters once: $k = (1.5)^{2}(0.5) = 2.25(0.5) = 1.125$.\n\n**The Full Solution:**\nStep 1: The volume of cylinder A is $\\pi r^{2}h$.\nStep 2: The volume of cylinder B is $\\pi(1.5r)^{2}(0.5h) = \\pi(2.25r^{2})(0.5h) = 1.125\\pi r^{2}h$.\nStep 3: Divide: $k = \\frac{1.125\\pi r^{2}h}{\\pi r^{2}h} = 1.125$. Check with numbers: $r = 2$ and $h = 10$ give $40\\pi$, while $r = 3$ and $h = 5$ give $45\\pi$, and $\\frac{45}{40} = 1.125$ ✓\n\n**Common Mistakes:**\n* $0.75$: multiplies $1.5$ by $0.5$, forgetting that the radius is squared.\n* $2.25$: squares the radius factor but ignores the halved height.\n* $1.5$: uses only the change in radius and drops the change in height.\n\n**Test Day Takeaway:** In $V = \\pi r^{2}h$ a radius factor enters squared and a height factor enters once; multiply the factors instead of recomputing whole volumes.",
+  question: "Cylinder A has radius $r$ and height $h$. Cylinder B has radius $\\frac{3}{2}r$ and height $\\frac{1}{2}h$. The volume of cylinder B is $k$ times the volume of cylinder A. What is the value of $k$?",
+  correctAnswer: "9/8",
+  explanation: "**SAT Pattern: Cylinder Volume**\n\n**The correct answer is $\\frac{9}{8}$.**\n\n**The Fast Way (~30s):** Volume is $\\pi r^{2}h$, so the radius factor enters squared and the height factor enters once: $k = \\left(\\frac{3}{2}\\right)^{2}\\left(\\frac{1}{2}\\right) = \\frac{9}{4} \\cdot \\frac{1}{2} = \\frac{9}{8}$.\n\n**The Full Solution:**\nStep 1: The volume of cylinder A is $\\pi r^{2}h$.\nStep 2: The volume of cylinder B is $\\pi\\left(\\frac{3}{2}r\\right)^{2}\\left(\\frac{1}{2}h\\right) = \\pi\\left(\\frac{9}{4}r^{2}\\right)\\left(\\frac{1}{2}h\\right) = \\frac{9}{8}\\pi r^{2}h$.\nStep 3: Divide: $k = \\frac{\\frac{9}{8}\\pi r^{2}h}{\\pi r^{2}h} = \\frac{9}{8}$. Check with numbers: $r = 2$ and $h = 10$ give $40\\pi$, while $r = 3$ and $h = 5$ give $45\\pi$, and $\\frac{45}{40} = \\frac{9}{8}$ ✓\n\n**Common Mistakes:**\n* $\\frac{3}{4}$: multiplies $\\frac{3}{2}$ by $\\frac{1}{2}$, forgetting that the radius is squared.\n* $\\frac{9}{4}$: squares the radius factor but ignores the halved height.\n* $\\frac{3}{2}$: uses only the change in radius and drops the change in height.\n\n**Test Day Takeaway:** In $V = \\pi r^{2}h$ a radius factor enters squared and a height factor enters once; multiply the factors instead of recomputing whole volumes.",
   skills: ["volume-prism"]
 },
 {
@@ -683,11 +683,11 @@ export const practiceTest6 = {
   type: "fill-in",
   difficulty: "hard",
   band: 6,
-  question: "The table shows the number of books read last month by each of $45$ students. If $n$ more students, each of whom read $3$ books, are added to the data, the new data set will have exactly one mode, $3$ books. What is the least possible value of $n$?",
+  question: "The table shows the number of books read last month by each of $45$ students. If $n$ more students, each of whom read $4$ books, are added to the data, the median of the new data set will be $2$ books. What is the least possible value of $n$?",
   diagram: { type: "dataTable", params: { headers: ["Number of books", "Number of students"], rows: [["0", "11"], ["1", "14"], ["2", "9"], ["3", "7"], ["4", "4"]] } },
-  correctAnswer: "8",
-  explanation: "**SAT Pattern: Mode of a Data Set**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~40s):** The largest frequency in the table is $14$ (students who read $1$ book). For $3$ books to be the only mode, its frequency $7 + n$ must be greater than $14$, so $n > 7$ and the least value is $8$.\n\n**The Full Solution:**\nStep 1: Read the frequencies from the table: $11$ students read $0$ books, $14$ read $1$, $9$ read $2$, $7$ read $3$, and $4$ read $4$, which is $45$ students in all.\nStep 2: Adding $n$ students who each read $3$ books changes only that row, to $7 + n$. The value $3$ is the only mode when $7 + n$ is greater than every other frequency, and the largest other frequency is $14$.\nStep 3: Solve $7 + n > 14$: $n > 7$, so the least whole number is $n = 8$. Check: with $n = 8$ the frequencies are $11$, $14$, $9$, $15$, and $4$, and $15$ is the single largest; with $n = 7$ the values $1$ and $3$ would both have frequency $14$ ✓\n\n**Common Mistakes:**\n* $7$: makes the frequency for $3$ books equal to $14$, which ties with $1$ book and gives two modes.\n* $15$: reports the new frequency for $3$ books instead of the number of students added.\n* $5$: compares with the $11$ students who read $0$ books instead of the largest frequency, $14$.\n\n**Test Day Takeaway:** The mode is the value with the greatest frequency; to make a value the only mode, its frequency must be strictly greater than the largest frequency already in the table.",
-  skills: ["find-mode"]
+  correctAnswer: "6",
+  explanation: "**SAT Pattern: Median Calculation**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~60s):** $11 + 14 = 25$ students read $0$ or $1$ book. The median is $2$ only when the middle value comes after the $25$th, so with an odd total the middle position $\\frac{45 + n + 1}{2}$ must be at least $26$, which first happens at $n = 6$.\n\n**The Full Solution:**\nStep 1: From the table, $11$ students read $0$ books and $14$ read $1$ book, so the $25$ lowest values are $0$ or $1$. The next $9$ values, the $26$th through the $34$th, are $2$. Adding students who read $4$ books puts new values only at the top of the list.\nStep 2: For the median to be $2$, the middle value (or both middle values) must be in positions $26$ through $34$. With $45 + n$ values, an odd total has middle position $\\frac{45 + n + 1}{2}$, and $\\frac{46 + n}{2} \\ge 26$ gives $n \\ge 6$.\nStep 3: Test the smallest cases. With $n = 5$ there are $50$ values, the $25$th and $26$th are $1$ and $2$, and the median is $1.5$. With $n = 6$ there are $51$ values, the middle value is the $26$th, which is $2$ ✓\n\n**Common Mistakes:**\n* $5$: makes $50$ values, but then the median is the mean of the $25$th and $26$th values, $\\frac{1 + 2}{2} = 1.5$, not $2$.\n* $7$: requires both middle values of an even-sized list to be $2$ and overlooks that an odd total of $51$ already works.\n* $9$: matches the number of students who read $2$ books instead of finding where the middle position falls.\n\n**Test Day Takeaway:** For a median from a frequency table, find the cumulative counts, then find the position of the middle value; values added at the top move that position up by half as many places.",
+  skills: ["find-median"]
 },
 {
   id: 17,

@@ -6,29 +6,29 @@
   "domain": "standard-english-conventions",
   "skill": "form-structure-and-sense",
   "module": 2,
-  "passage": "______ a hydrologist waded into the same bend of the river every week for eleven years, lowering a current meter at measured intervals across the channel and noting the stage, the ice, and the drift of every season in a field book that colleagues still consult.",
+  "passage": "______ the ornithologist Margaret Morse Nice followed the song sparrows near her Columbus, Ohio, home for eight years, recording each bird's territory, mates, and nests in exacting detail.",
   "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
   "choices": [
     {
       "id": "A",
-      "text": "While gauging the river's flow by hand"
+      "text": "While fitting each bird with its own combination of colored leg bands"
     },
     {
       "id": "B",
-      "text": "Having gauged the river's flow by hand,"
+      "text": "Having been fitted with its own combination of colored leg bands,"
     },
     {
       "id": "C",
-      "text": "Gauging the river's flow by hand,"
+      "text": "Fitting each bird with its own combination of colored leg bands,"
     },
     {
       "id": "D",
-      "text": "Gauging the river's flow by hand"
+      "text": "Fitting each bird with its own combination of colored leg bands"
     }
   ],
   "correctAnswer": "C",
-  "explanation": "**Choice C is correct.** An introductory present-participial phrase modifying \"a hydrologist\" must end with a comma before the main clause begins, and its tense must fit the ongoing weekly work the sentence describes.\n\n**The Full Solution:**\n- The main clause is \"a hydrologist waded into the same bend ... every week for eleven years.\"\n- \"Gauging the river's flow by hand\" describes what the wading amounted to — action simultaneous with the waded visits, so the present participle is right.\n- An introductory modifier is set off from the clause it modifies with a comma: \"Gauging the river's flow by hand, a hydrologist waded ...\"\n\n**Why the other choices are wrong:**\n- A: The subordinate \"While gauging ...\" lacks the required comma before the main clause.\n- B: \"Having gauged\" marks the gauging as finished before the waded visits began, contradicting the eleven years of simultaneous work.\n- D: The participial phrase is correct but the comma is missing, running the modifier into its clause.",
+  "explanation": "**Choice C is correct.** An introductory participial phrase that describes the subject (\"the ornithologist Margaret Morse Nice\") must end with a comma before the main clause begins.\n\n**The Full Solution:**\n- The main clause is \"the ornithologist Margaret Morse Nice followed the song sparrows ... for eight years.\"\n- \"Fitting each bird with its own combination of colored leg bands\" describes what Nice did as she followed the birds, so it correctly modifies her.\n- An introductory modifier is set off from its clause with a comma.\n\n**Why the other choices are wrong:**\n- A: \"While fitting ...\" needs a comma before the main clause.\n- B: \"Having been fitted ...\" describes something that was fitted with bands, yet it sits next to Nice, so the sentence says she wore the bands.\n- D: The phrase is right, but without a comma it runs into the main clause.",
   "_meta": {
-    "anchor": "stream gauging by hand; present-participial modifier; single defensible answer"
+    "anchor": "Margaret Morse Nice, song sparrows, Columbus Ohio; introductory participial phrase"
   }
 }

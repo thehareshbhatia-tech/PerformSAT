@@ -1,12 +1,12 @@
 {
  "id": "bank-geo-243",
- "question": "The circle shown has center $C$. What is the area, in square centimeters, of sector $MCN$?",
+ "question": "In the circle shown, $C$ is the center. What is the length, in centimeters, of minor arc $MN$?",
  "diagram": {
   "type": "circleWithSector",
   "params": {
-   "centralAngle": 120,
-   "angleLabel": "120°",
-   "radius": "6 cm",
+   "centralAngle": 40,
+   "angleLabel": "40°",
+   "radius": "9 cm",
    "showRadiusLabel": true,
    "labelCenter": "C",
    "labelPoint1": "M",
@@ -16,26 +16,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$4\\pi$"
+   "text": "$\\pi$"
   },
   {
    "id": "B",
-   "text": "$12\\pi$"
+   "text": "$2\\pi$"
   },
   {
    "id": "C",
-   "text": "$36\\pi$"
+   "text": "$9\\pi$"
   },
   {
    "id": "D",
-   "text": "$48\\pi$"
+   "text": "$18\\pi$"
   }
  ],
  "distractorNotes": {
-  "A": "computes the arc length (120/360)(2 pi)(6) = 4 pi instead of the area",
-  "C": "gives the area of the whole circle, ignoring the 120-degree central angle",
-  "D": "squares the diameter 12 instead of the radius: (1/3) pi (12)^2 = 48 pi"
+  "A": "uses pi r instead of 2 pi r for the circumference: (40/360)(9 pi) = pi",
+  "C": "computes the sector area (40/360)(81 pi) = 9 pi instead of the arc length",
+  "D": "gives the circumference of the whole circle, ignoring the 40-degree angle"
  },
  "correctAnswer": "B",
- "explanation": "**SAT Pattern: Sector Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The sector is $\\frac{120}{360} = \\frac{1}{3}$ of a circle with area $\\pi(6)^{2} = 36\\pi$, so its area is $12\\pi$.\n\n**The Full Solution:**\nStep 1: Read the figure: the radius is $6$ centimeters and the central angle of sector $MCN$ is $120^{\\circ}$.\nStep 2: Find the area of the whole circle: $\\pi(6)^{2} = 36\\pi$ square centimeters.\nStep 3: Take the sector's share: $\\frac{120}{360}(36\\pi) = 12\\pi$ square centimeters. Check: three such sectors fill the circle, and $3(12\\pi) = 36\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($4\\pi$): this is the arc length $\\frac{120}{360}(2\\pi)(6) = 4\\pi$, a length rather than an area.\n* Choice C ($36\\pi$): this is the area of the entire circle, ignoring the $120^{\\circ}$ angle.\n* Choice D ($48\\pi$): squares the diameter $12$ instead of the radius, giving $\\frac{1}{3}\\pi(12)^{2} = 48\\pi$.\n\n**Test Day Takeaway:** Sector area is the circle's area times $\\frac{\\text{central angle}}{360^{\\circ}}$. Square the radius, never the diameter."
+ "explanation": "**SAT Pattern: Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** The arc is $\\frac{40}{360} = \\frac{1}{9}$ of a circumference of $2\\pi(9) = 18\\pi$, so its length is $2\\pi$.\n\n**The Full Solution:**\nStep 1: Read the figure: the radius is $9$ centimeters and the central angle $MCN$ is $40^{\\circ}$.\nStep 2: Find the circumference of the circle: $2\\pi(9) = 18\\pi$ centimeters.\nStep 3: Take the arc's share: $\\frac{40}{360}(18\\pi) = 2\\pi$ centimeters. Check: nine such arcs go around the circle, and $9(2\\pi) = 18\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\pi$): uses $\\pi r$ for the circumference instead of $2\\pi r$.\n* Choice C ($9\\pi$): this is the area of the sector, $\\frac{40}{360}\\pi(9)^{2}$, not a length.\n* Choice D ($18\\pi$): this is the circumference of the entire circle, ignoring the $40^{\\circ}$ angle.\n\n**Test Day Takeaway:** Arc length is the circumference times $\\frac{\\text{central angle}}{360^{\\circ}}$."
 }

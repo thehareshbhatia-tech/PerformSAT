@@ -1,10 +1,10 @@
 {
  "id": "bank-geo-245",
- "question": "In the circle shown with center $O$, the circumference of the circle is $8\\sqrt{5}\\pi$ and the area of sector $AOB$ is $30\\pi$. What is the value of $\\theta$?",
+ "question": "In the circle shown with center $O$, the area of the circle is $144\\pi$ and the length of minor arc $AB$ is $4\\pi$. What is the value of $\\theta$?",
  "diagram": {
   "type": "circleWithSector",
   "params": {
-   "centralAngle": 135,
+   "centralAngle": 60,
    "angleLabel": "θ°",
    "labelCenter": "O",
    "labelPoint1": "A",
@@ -15,26 +15,26 @@
  "choices": [
   {
    "id": "A",
-   "text": "$33.75$"
+   "text": "$10$"
   },
   {
    "id": "B",
-   "text": "$67.5$"
+   "text": "$30$"
   },
   {
    "id": "C",
-   "text": "$135$"
+   "text": "$60$"
   },
   {
    "id": "D",
-   "text": "$225$"
+   "text": "$300$"
   }
  ],
  "distractorNotes": {
-  "A": "reads the circumference as pi times the radius, so r = 8 sqrt 5, the circle's area is 320 pi, and theta = (30/320)(360) = 33.75",
-  "B": "finds the correct fraction 30/80 = 3/8 of the circle but multiplies by 180 instead of 360",
-  "D": "finds the angle of the rest of the circle, 360 - 135 = 225, instead of the sector's angle"
+  "A": "treats 144 pi as the circumference, so the arc's share is 4/144 and theta = 10",
+  "B": "finds the correct share 1/6 but multiplies by 180 instead of 360",
+  "D": "finds the angle of the major arc, 360 - 60 = 300, instead of the minor arc"
  },
  "correctAnswer": "C",
- "explanation": "**SAT Pattern: Sector Area**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** $2\\pi r = 8\\sqrt{5}\\pi$ gives $r = 4\\sqrt{5}$, so the circle's area is $80\\pi$; the sector is $\\frac{30}{80} = \\frac{3}{8}$ of it, and $\\frac{3}{8}(360) = 135$.\n\n**The Full Solution:**\nStep 1: Find the radius from the circumference: $2\\pi r = 8\\sqrt{5}\\pi$, so $r = 4\\sqrt{5}$.\nStep 2: Find the area of the circle: $\\pi\\left(4\\sqrt{5}\\right)^{2} = 80\\pi$. The sector's share of the circle is $\\frac{30\\pi}{80\\pi} = \\frac{3}{8}$.\nStep 3: The central angle has the same share of $360^{\\circ}$: $\\theta = \\frac{3}{8}(360) = 135$. Check: $\\frac{135}{360}(80\\pi) = 30\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($33.75$): uses $\\pi r$ for the circumference, so $r = 8\\sqrt{5}$ and the area is $320\\pi$, which makes the share $\\frac{30}{320}$.\n* Choice B ($67.5$): finds the share $\\frac{3}{8}$ correctly but multiplies by $180$ instead of $360$.\n* Choice D ($225$): this is the angle of the unshaded part of the circle, $360 - 135$.\n\n**Test Day Takeaway:** A sector's area, arc length and central angle are all the same fraction of the whole circle. Get the circle's area first, then match the fractions."
+ "explanation": "**SAT Pattern: Arc Length**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** $\\pi r^{2} = 144\\pi$ gives $r = 12$, so the circumference is $24\\pi$; the arc is $\\frac{4\\pi}{24\\pi} = \\frac{1}{6}$ of it, and $\\frac{1}{6}(360) = 60$.\n\n**The Full Solution:**\nStep 1: Find the radius from the area: $\\pi r^{2} = 144\\pi$, so $r^{2} = 144$ and $r = 12$.\nStep 2: Find the circumference: $2\\pi(12) = 24\\pi$. The arc's share of the circle is $\\frac{4\\pi}{24\\pi} = \\frac{1}{6}$.\nStep 3: The central angle has the same share of $360^{\\circ}$: $\\theta = \\frac{1}{6}(360) = 60$. Check: $\\frac{60}{360}(24\\pi) = 4\\pi$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($10$): divides the arc length by the area, $\\frac{4\\pi}{144\\pi}$, as if $144\\pi$ were the circumference.\n* Choice B ($30$): finds the share $\\frac{1}{6}$ correctly but multiplies by $180$ instead of $360$.\n* Choice D ($300$): this is the angle of the major arc, $360 - 60$.\n\n**Test Day Takeaway:** Arc length is a fraction of the circumference, not of the area; get the radius first, then compare the arc to $2\\pi r$."
 }

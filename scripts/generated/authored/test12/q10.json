@@ -6,26 +6,26 @@
  "domain": "information-and-ideas",
  "skill": "central-ideas-and-details",
  "module": 1,
- "passage": "Along the Atlantic coast of North America, farmers once cut hay from the salt marshes every summer, prizing the salt-tolerant grasses as feed and bedding for livestock. Harvesting a marsh, however, meant working land the sea still claimed twice a day. Farmers mowed at low tide, and they did not leave the cut hay lying where it fell: they stacked it on staddles, clusters of wooden posts driven into the mud that held each haystack several feet above the surface. Perched there, the hay stayed dry while the tides washed beneath it, and it could wait for weeks until the ground froze hard enough for wagons or sleds to cross the soft marsh and carry it home.",
- "question": "According to the text, why did farmers stack salt hay on staddles rather than leave it on the marsh?",
+ "passage": "Q'eswachaka, a footbridge over the Apurímac River in southern Peru, is the last surviving Inca rope bridge. Its cables are twisted from a tough mountain grass, and because grass fibers weaken quickly, the bridge is rebuilt every June. A modern bridge now crosses the river nearby, yet four Quechua-speaking communities still spend three days replacing the old span. For them, the work is not mainly about getting across the river. The rebuilding keeps inherited rope-making skills in use and draws the communities together in a shared effort. In 2013, UNESCO recognized the practice as part of the world's intangible cultural heritage.",
+ "question": "According to the text, why do the communities rebuild the grass bridge each year rather than rely only on the modern bridge?",
  "choices": [
   {
    "id": "A",
-   "text": "Because hay left lying on the open marsh attracted wandering livestock that would have scattered and trampled the stacks."
+   "text": "Because the modern bridge is closed each June while workers carry out its own yearly repairs."
   },
   {
    "id": "B",
-   "text": "Because raised stacks could be loaded directly onto boats at high tide far more easily than hay lying loose on the ground."
+   "text": "Because UNESCO will recognize the practice only if the grass bridge is rebuilt every year."
   },
   {
    "id": "C",
-   "text": "Because the raised platforms kept the hay dry and above the reach of the tides that regularly covered the marsh surface."
+   "text": "Because the rebuilding keeps inherited skills in use and brings the communities together."
   },
   {
    "id": "D",
-   "text": "Because the tall stacks could be seen from a distance and so marked the boundaries of each farmer's section of the marsh."
+   "text": "Because the grass bridge can carry heavier loads across the river than the modern bridge can."
   }
  ],
  "correctAnswer": "C",
- "explanation": "**Choice C is correct.** The passage states the reason directly: the marsh was land \"the sea still claimed twice a day,\" and on the staddles \"the hay stayed dry while the tides washed beneath it.\"\n\n**The Full Solution:**\n- The problem the passage sets up is tidal flooding — a marsh is covered by the sea twice daily.\n- The staddles answer that problem: posts held each haystack \"several feet above the surface,\" so the tides passed under the hay instead of soaking it.\n- The elevation also let the hay wait safely for weeks until frozen ground made hauling possible. Choice C restates exactly this.\n\n**Why the other choices are wrong:**\n- A: The passage never mentions livestock reaching the marsh — animals appear only as the eventual consumers of the hay.\n- B: It invents loading by boat; the text says the hay left the marsh by wagon or sled once the ground froze.\n- D: It invents a boundary-marking function that appears nowhere in the passage."
+ "explanation": "**Choice C is correct.** The text says the work \"is not mainly about getting across the river\": the rebuilding \"keeps inherited rope-making skills in use and draws the communities together in a shared effort.\"\n\n**The Full Solution:**\n- The question asks why the communities keep rebuilding the grass bridge even though \"a modern bridge now crosses the river nearby.\"\n- The text answers directly: the work is \"not mainly about getting across the river.\"\n- Instead, it \"keeps inherited rope-making skills in use and draws the communities together,\" which is what choice C states.\n\n**Why the other choices are wrong:**\n- A: The text never says the modern bridge is closed or repaired in June.\n- B: The text says UNESCO recognized the practice in 2013; it does not say recognition depends on yearly rebuilding.\n- D: The text never compares how much weight the two bridges can carry."
 }

@@ -1,6 +1,6 @@
 {
   "id": "bank-ps-120",
-  "question": "A garden has ferns, orchids, and succulents in the ratio $5 : 3 : 7$, respectively. There are $450$ of these plants in all. How many more succulents than ferns are there?",
+  "question": "A garden has only ferns and succulents, and the ratio of ferns to succulents is $5$ to $7$. There are $360$ of these plants in all. How many more succulents than ferns are there?",
   "choices": [
     {
       "id": "A",
@@ -12,7 +12,7 @@
     },
     {
       "id": "C",
-      "text": "$120$"
+      "text": "$150$"
     },
     {
       "id": "D",
@@ -21,9 +21,9 @@
   ],
   "distractorNotes": {
     "A": "30 is the size of one part, not the 7 - 5 = 2 parts by which succulents exceed ferns",
-    "C": "120 is 4 parts, the gap between the succulents and the orchids",
+    "C": "150 is the number of ferns, not the difference",
     "D": "210 is the number of succulents, not the difference"
   },
   "correctAnswer": "B",
-  "explanation": "**SAT Pattern: Sum of Parts Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** There are $5 + 3 + 7 = 15$ parts, so one part is $\\dfrac{450}{15} = 30$ plants, and the succulents exceed the ferns by $7 - 5 = 2$ parts: $2(30) = 60$.\n\n**The Full Solution:**\nStep 1: Write the counts as $5k$ ferns, $3k$ orchids, and $7k$ succulents, so $15k = 450$ and $k = 30$.\nStep 2: There are $7(30) = 210$ succulents and $5(30) = 150$ ferns.\nStep 3: The difference is $210 - 150 = 60$ plants.\nCheck: $150 + 90 + 210 = 450$. $\\checkmark$\n\n**Why the wrong answers are tempting:**\n* Choice A ($30$): This is one part; the succulents lead the ferns by $2$ parts, not $1$.\n* Choice C ($120$): This is $4$ parts, the gap between the succulents and the orchids rather than the ferns.\n* Choice D ($210$): This is the number of succulents, not how many more there are than ferns.\n\n**Test Day Takeaway:** For a \"how many more\" question, subtract the ratio terms first and multiply that difference by the size of one part."
+  "explanation": "**SAT Pattern: Sum of Parts Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** There are $5 + 7 = 12$ parts, so one part is $\\dfrac{360}{12} = 30$ plants, and the succulents exceed the ferns by $7 - 5 = 2$ parts: $2(30) = 60$.\n\n**The Full Solution:**\nStep 1: Write the counts as $5k$ ferns and $7k$ succulents, so $12k = 360$ and $k = 30$.\nStep 2: There are $5(30) = 150$ ferns and $7(30) = 210$ succulents.\nStep 3: The difference is $210 - 150 = 60$ plants. Check: $150 + 210 = 360$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($30$): This is one part; the succulents lead the ferns by $2$ parts, not $1$.\n* Choice C ($150$): This is the number of ferns, not how many more succulents there are.\n* Choice D ($210$): This is the number of succulents, not how many more there are than ferns.\n\n**Test Day Takeaway:** For a \"how many more\" question, subtract the ratio terms first and multiply that difference by the size of one part."
 }

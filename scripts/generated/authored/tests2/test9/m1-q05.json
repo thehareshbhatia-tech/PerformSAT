@@ -1,29 +1,29 @@
 {
  "id": 5,
- "question": "In the $xy$-plane, point $M$ is the midpoint of the line segment with endpoints $(-6, 11)$ and $(14, 1)$. What are the coordinates of point $M$?",
+ "question": "In the $xy$-plane, line $j$ passes through the point $(0, 2)$ and is parallel to the graph of $y = 4x - 7$. Which equation defines line $j$?",
  "choices": [
   {
    "id": "A",
-   "text": "$(4, -5)$"
+   "text": "$y = -4x + 2$"
   },
   {
    "id": "B",
-   "text": "$(4, 6)$"
+   "text": "$y = 2x + 4$"
   },
   {
    "id": "C",
-   "text": "$(8, 12)$"
+   "text": "$y = 4x - 7$"
   },
   {
    "id": "D",
-   "text": "$(10, -5)$"
+   "text": "$y = 4x + 2$"
   }
  ],
  "distractorNotes": {
-  "A": "averages the x-coordinates correctly but halves the difference of the y-coordinates, (1 - 11)/2 = -5",
-  "C": "adds the coordinates without dividing either sum by 2",
-  "D": "halves the differences instead of the sums in both coordinates"
+  "A": "changes the sign of the slope; a parallel line keeps the same slope, 4",
+  "B": "swaps the roles of the numbers, using 2 as the slope and 4 as the y-intercept",
+  "C": "copies the given line, which has the right slope but crosses the y-axis at (0, -7), not (0, 2)"
  },
- "correctAnswer": "B",
- "explanation": "**SAT Pattern: Midpoint Formula**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Average each coordinate: $\\frac{-6 + 14}{2} = 4$ and $\\frac{11 + 1}{2} = 6$, so $M$ is $(4, 6)$.\n\n**The Full Solution:**\nStep 1: The midpoint of the segment with endpoints $(x_1, y_1)$ and $(x_2, y_2)$ is $\\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$.\nStep 2: Average the $x$-coordinates: $\\frac{-6 + 14}{2} = \\frac{8}{2} = 4$. Average the $y$-coordinates: $\\frac{11 + 1}{2} = \\frac{12}{2} = 6$.\nStep 3: So $M = (4, 6)$. Check: from $(-6, 11)$ to $(4, 6)$ the change is $(+10, -5)$, and from $(4, 6)$ to $(14, 1)$ it is also $(+10, -5)$, so $M$ is exactly halfway ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($(4, -5)$): gets the $x$-coordinate right but computes $\\frac{1 - 11}{2} = -5$ for $y$, halving a difference instead of a sum.\n* Choice C ($(8, 12)$): adds the coordinates, $-6 + 14 = 8$ and $11 + 1 = 12$, but never divides by $2$.\n* Choice D ($(10, -5)$): halves the differences, $\\frac{14 - (-6)}{2} = 10$ and $\\frac{1 - 11}{2} = -5$. Those give half the distance between the endpoints, not the midpoint.\n\n**Test Day Takeaway:** A midpoint is an average: add the two $x$-coordinates and divide by $2$, then do the same for $y$. A midpoint always lies between the endpoints' coordinates."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Parallel Line Through a Point**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Parallel lines have the same slope, so line $j$ has slope $4$, and the point $(0, 2)$ makes its $y$-intercept $2$: $y = 4x + 2$.\n\n**The Full Solution:**\nStep 1: The graph of $y = 4x - 7$ has slope $4$.\nStep 2: Parallel lines have equal slopes, so line $j$ can be written as $y = 4x + b$.\nStep 3: Line $j$ passes through $(0, 2)$, a point on the $y$-axis, so $b = 2$ and line $j$ is $y = 4x + 2$. Check: $4(0) + 2 = 2$, and both lines have slope $4$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($y = -4x + 2$): passes through $(0, 2)$, but its slope is $-4$; a parallel line keeps the slope $4$.\n* Choice B ($y = 2x + 4$): swaps the slope and the $y$-intercept.\n* Choice C ($y = 4x - 7$): this is the given line itself; it has the right slope but passes through $(0, -7)$, not $(0, 2)$.\n\n**Test Day Takeaway:** A parallel line keeps the slope; a point of the form $(0, b)$ gives the $y$-intercept directly."
 }

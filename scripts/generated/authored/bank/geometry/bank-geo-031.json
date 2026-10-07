@@ -1,29 +1,29 @@
 {
  "id": "bank-geo-031",
- "question": "The edge length of cube $B$ is $2.5$ times the edge length of cube $A$. The volume of cube $A$ is $96$ cubic inches. What is the volume, in cubic inches, of cube $B$?",
+ "question": "The edge length of cube $B$ is $4$ times the edge length of cube $A$. The volume of cube $A$ is $15$ cubic inches. What is the volume, in cubic inches, of cube $B$?",
  "choices": [
   {
    "id": "A",
-   "text": "$240$"
+   "text": "$60$"
   },
   {
    "id": "B",
-   "text": "$600$"
+   "text": "$180$"
   },
   {
    "id": "C",
-   "text": "$1{,}500$"
+   "text": "$240$"
   },
   {
    "id": "D",
-   "text": "$3{,}750$"
+   "text": "$960$"
   }
  ],
  "distractorNotes": {
-  "A": "multiplies the volume by 2.5 once, as if volume scaled like a single length",
-  "B": "multiplies the volume by 2.5 squared = 6.25, the factor for area",
-  "D": "multiplies by 2.5 a fourth time, giving 1,500 x 2.5"
+  "A": "multiplies the volume by the edge factor 4 instead of 4^3",
+  "B": "multiplies by 4 x 3 = 12 instead of 4^3",
+  "C": "multiplies by 4^2 = 16, the factor for area"
  },
- "correctAnswer": "C",
- "explanation": "**SAT Pattern: Volume Scaling by Cube of Linear Factor**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Volume scales by the cube of the length factor: $96(2.5)^3 = 96(15.625) = 1{,}500$.\n\n**The Full Solution:**\nStep 1: The edge of cube $B$ is $2.5$ times the edge of cube $A$, so each of the three dimensions is multiplied by $2.5$.\nStep 2: Volume is a product of three lengths, so it is multiplied by $(2.5)^3 = 15.625$.\nStep 3: The volume of cube $B$ is $96 \\times 15.625 = 1{,}500$ cubic inches. Check: if cube $A$ has edge $a$, then $a^3 = 96$, and cube $B$ has volume $(2.5a)^3 = 15.625a^3 = 15.625(96) = 1{,}500$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($240$): multiplies by $2.5$ once, the factor for a single length.\n* Choice B ($600$): multiplies by $2.5^2 = 6.25$, the factor for area.\n* Choice D ($3{,}750$): applies the factor a fourth time, multiplying the correct volume by $2.5$ again.\n\n**Test Day Takeaway:** Lengths scale by $k$, areas by $k^2$, and volumes by $k^3$; count the dimensions before choosing the exponent."
+ "correctAnswer": "D",
+ "explanation": "**SAT Pattern: Volume Scaling by Cube of Linear Factor**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Volume scales by the cube of the edge factor: $15 \\cdot 4^{3} = 15 \\cdot 64 = 960$.\n\n**The Full Solution:**\nStep 1: If cube $A$ has edge $s$, then cube $B$ has edge $4s$.\nStep 2: The volume of cube $B$ is $(4s)^{3} = 64s^{3}$, which is $64$ times the volume of cube $A$, $s^{3}$.\nStep 3: So the volume of cube $B$ is $64 \\cdot 15 = 960$ cubic inches. Check: $\\frac{960}{15} = 64 = 4^{3}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($60$): multiplies by the edge factor $4$, as if volume grew at the same rate as length.\n* Choice B ($180$): multiplies by $4 \\cdot 3$ instead of raising $4$ to the third power.\n* Choice C ($240$): multiplies by $4^{2} = 16$, which is how area scales, not volume.\n\n**Test Day Takeaway:** Scale lengths by $k$: areas scale by $k^{2}$ and volumes by $k^{3}$."
 }

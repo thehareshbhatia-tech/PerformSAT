@@ -1,63 +1,63 @@
 {
-  "id": 5,
-  "question": "The scatterplot shows the relationship between two variables, $x$ and $y$, and the line of best fit $y = 0.5x - 4$. The point $(a, 15.5)$, which is not shown, has a residual of $1.5$ with respect to this line. What is the value of $a$?",
-  "diagram": {
-    "type": "scatterplot",
-    "params": {
-      "points": [
-        [
-          20,
-          6.9
-        ],
-        [
-          25,
-          7.4
-        ],
-        [
-          30,
-          11.6
-        ],
-        [
-          35,
-          12.8
-        ],
-        [
-          40,
-          17.3
-        ],
-        [
-          45,
-          18.0
-        ],
-        [
-          50,
-          21.8
-        ],
-        [
-          55,
-          22.3
-        ],
-        [
-          60,
-          26.4
-        ]
-      ],
-      "xMin": 15,
-      "xMax": 65,
-      "yMin": 0,
-      "yMax": 30,
-      "xGridStep": 5,
-      "yGridStep": 5,
-      "xLabelStep": 10,
-      "yLabelStep": 10,
-      "xLabel": "x",
-      "yLabel": "y",
-      "bestFitLine": {
-        "slope": 0.5,
-        "intercept": -4
-      }
-    }
-  },
-  "correctAnswer": "36",
-  "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is 36.**\n\n**The Fast Way (~25s):** A residual of $1.5$ means the point is $1.5$ above the line, so the line predicts $15.5 - 1.5 = 14$ at $x = a$; solving $0.5a - 4 = 14$ gives $a = 36$.\n\n**The Full Solution:**\nStep 1: A residual is the actual $y$-value minus the $y$-value predicted by the line: $15.5 - \\text{predicted} = 1.5$, so the predicted value is $14$.\nStep 2: The line predicts $0.5a - 4$ at $x = a$, so $0.5a - 4 = 14$.\nStep 3: Add $4$ and divide by $0.5$: $0.5a = 18$, so $a = 36$. Check: the line predicts $0.5(36) - 4 = 14$ at $x = 36$, and $15.5 - 14 = 1.5$ ✓\n\n**Common Mistakes:**\n* $42$: adds the residual instead of subtracting it, using a predicted value of $15.5 + 1.5 = 17$ and solving $0.5a - 4 = 17$.\n* $39$: ignores the residual and solves $0.5a - 4 = 15.5$, which treats the point as lying on the line.\n* $11$: uses the residual $1.5$ as the predicted $y$-value, solving $0.5a - 4 = 1.5$.\n\n**Test Day Takeaway:** Residual means actual minus predicted. A positive residual puts the point above the line, so subtract the residual from the actual value to get what the line predicts."
+ "id": 5,
+ "question": "The scatterplot shows the relationship between two variables, $x$ and $y$, for data set A. The line of best fit for data set A is $y = 0.5x - 4$. Data set B is made by tripling the $y$-coordinate of every data point in data set A. The line of best fit for data set B is $y = mx + b$, where $m$ and $b$ are constants. What is the value of $b$?",
+ "diagram": {
+  "type": "scatterplot",
+  "params": {
+   "points": [
+    [
+     20,
+     6.9
+    ],
+    [
+     25,
+     7.4
+    ],
+    [
+     30,
+     11.6
+    ],
+    [
+     35,
+     12.8
+    ],
+    [
+     40,
+     17.3
+    ],
+    [
+     45,
+     18.0
+    ],
+    [
+     50,
+     21.8
+    ],
+    [
+     55,
+     22.3
+    ],
+    [
+     60,
+     26.4
+    ]
+   ],
+   "xMin": 15,
+   "xMax": 65,
+   "yMin": 0,
+   "yMax": 30,
+   "xGridStep": 5,
+   "yGridStep": 5,
+   "xLabelStep": 10,
+   "yLabelStep": 10,
+   "xLabel": "x",
+   "yLabel": "y",
+   "bestFitLine": {
+    "slope": 0.5,
+    "intercept": -4
+   }
+  }
+ },
+ "correctAnswer": "-12",
+ "explanation": "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is $-12$.**\n\n**The Fast Way (~30s):** Tripling every $y$-value triples every $y$-value on the line of best fit too, so the new line is $y = 3(0.5x - 4) = 1.5x - 12$, and $b = -12$.\n\n**The Full Solution:**\nStep 1: Each point $(x, y)$ in data set A becomes $(x, 3y)$ in data set B, so the whole pattern is stretched vertically by a factor of $3$.\nStep 2: The line of best fit is stretched the same way: each predicted value $0.5x - 4$ becomes $3(0.5x - 4)$.\nStep 3: So the line of best fit for data set B is $y = 1.5x - 12$, which gives $m = 1.5$ and $b = -12$. Check: at $x = 20$, data set A's line predicts $0.5(20) - 4 = 6$, and data set B's line predicts $1.5(20) - 12 = 18 = 3(6)$ ✓\n\n**Common Mistakes:**\n* $-4$: triples the slope but keeps the original $y$-intercept.\n* $1.5$: gives the slope $m$ instead of the $y$-intercept $b$.\n* $-1$: adds $3$ to the $y$-intercept instead of multiplying it by $3$.\n\n**Test Day Takeaway:** Multiplying every $y$-value by $k$ multiplies the whole equation of the line of best fit by $k$, so both the slope and the $y$-intercept change."
 }

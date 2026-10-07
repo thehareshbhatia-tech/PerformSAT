@@ -1,53 +1,53 @@
 {
- "id": "bank-am-366",
- "question": "The table shows four values of $x$ and their corresponding values of $f(x)$ for the function $f$. If $g(x) = 2x - 1$, what is the value of $f(g(3))$?",
- "questionTable": {
-  "headers": [
-   "$x$",
-   "$f(x)$"
+  "id": "bank-am-366",
+  "question": "The function $g$ is defined by $g(x) = f(x) + 5$, and some values of the function $f$ are shown in the table. For what value of $x$ is $g(x) = 24$?",
+  "questionTable": {
+    "headers": [
+      "$x$",
+      "$f(x)$"
+    ],
+    "rows": [
+      [
+        "$0$",
+        "$11$"
+      ],
+      [
+        "$2$",
+        "$19$"
+      ],
+      [
+        "$4$",
+        "$24$"
+      ],
+      [
+        "$6$",
+        "$29$"
+      ]
+    ]
+  },
+  "choices": [
+    {
+      "id": "A",
+      "text": "$2$"
+    },
+    {
+      "id": "B",
+      "text": "$4$"
+    },
+    {
+      "id": "C",
+      "text": "$6$"
+    },
+    {
+      "id": "D",
+      "text": "$19$"
+    }
   ],
-  "rows": [
-   [
-    "$1$",
-    "$4$"
-   ],
-   [
-    "$3$",
-    "$9$"
-   ],
-   [
-    "$5$",
-    "$15$"
-   ],
-   [
-    "$7$",
-    "$22$"
-   ]
-  ]
- },
- "choices": [
-  {
-   "id": "A",
-   "text": "$9$"
+  "distractorNotes": {
+    "B": "looks for $f(x) = 24$, ignoring the $+5$ in $g$",
+    "C": "adds $5$ to $24$ and looks for $f(x) = 29$",
+    "D": "gives the value of $f(x)$ instead of the value of $x$"
   },
-  {
-   "id": "B",
-   "text": "$15$"
-  },
-  {
-   "id": "C",
-   "text": "$17$"
-  },
-  {
-   "id": "D",
-   "text": "$22$"
-  }
- ],
- "correctAnswer": "B",
- "distractorNotes": {
-  "A": "reads f(3) from the table without applying g first",
-  "C": "applies the functions in the wrong order, computing g(f(3)) = 2(9) - 1 = 17",
-  "D": "computes g(3) as 2(3) + 1 = 7 and reads f(7) = 22"
- },
- "explanation": "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $g(3) = 2(3) - 1 = 5$, and the table shows $f(5) = 15$.\n\n**The Full Solution:**\nStep 1: Start with the inner function: $g(3) = 2(3) - 1 = 5$.\nStep 2: Now find $f(5)$. In the table, the row with $x = 5$ shows $f(x) = 15$.\nStep 3: So $f(g(3)) = f(5) = 15$. Check: $5$ is one of the $x$-values in the table, and its row reads $15$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($9$): reads $f(3)$ and never applies $g$.\n* Choice C ($17$): applies $f$ first and then $g$, computing $g(f(3)) = 2(9) - 1 = 17$.\n* Choice D ($22$): adds $1$ instead of subtracting it, so $g(3)$ becomes $7$ and the table gives $f(7) = 22$.\n\n**Test Day Takeaway:** With a table, compute the inner function's output first, then look up that output in the $x$ column."
+  "correctAnswer": "A",
+  "explanation": "**SAT Pattern: Vertical Shift**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $g(x) = 24$ means $f(x) + 5 = 24$, so $f(x) = 19$, which the table shows at $x = 2$.\n\n**The Full Solution:**\nStep 1: Substitute the definition of $g$: $f(x) + 5 = 24$.\nStep 2: Subtract $5$ from each side: $f(x) = 19$.\nStep 3: In the table, $f(x) = 19$ when $x = 2$. Check: $g(2) = f(2) + 5 = 19 + 5 = 24$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($4$): finds where $f(x) = 24$, which is where $f$, not $g$, equals $24$.\n* Choice C ($6$): adds $5$ to $24$ and finds $f(x) = 29$, but $f(x)$ must be $5$ less than $24$.\n* Choice D ($19$): finds $f(x) = 19$ but reports that output instead of the input $x$.\n\n**Test Day Takeaway:** When $g(x) = f(x) + 5$, an output of $g$ is $5$ more than the matching output of $f$; undo the $+5$ first, then read the table."
 }

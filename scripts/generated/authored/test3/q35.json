@@ -9,30 +9,30 @@
  "passages": [
   {
    "label": "Text 1",
-   "text": "When people report picturing a scene in their heads, psychologist Stephen Kosslyn takes the report close to face value. In his experiments, participants asked to scan across a mental image of a memorized map took longer to reach distant locations than nearby ones, just as they would if moving their eyes across a physical map. Kosslyn argues that such results reveal mental imagery to be genuinely picture-like: a spatial representation whose parts preserve the distances of the scene it depicts."
+   "text": "When people say they are picturing a scene in their heads, psychologist Stephen Kosslyn takes the report close to face value. In his experiments, participants memorized a map and then scanned across a mental image of it. They took longer to reach distant locations than nearby ones, just as they would on a physical map. Kosslyn argues that such results show mental imagery to be genuinely picture-like: its parts preserve the distances of the scene it depicts."
   },
   {
    "label": "Text 2",
-   "text": "Psychologist Zenon Pylyshyn contends that imagery experiments reveal less than they seem to. Participants know from ordinary experience how looking works — that crossing a greater distance takes more time — and they can unwittingly make their responses conform to that knowledge. On Pylyshyn's account, the mind's underlying representation is more like a structured description than a picture, and scanning times reflect participants' tacit knowledge of the world rather than the spatial format of their thoughts."
+   "text": "Psychologist Zenon Pylyshyn contends that imagery experiments reveal less than they seem to. Participants know from ordinary experience that crossing a greater distance takes more time, and they can unwittingly make their responses fit that knowledge. On Pylyshyn's account, the mind's underlying representation is more like a structured description than a picture. Scanning times reflect participants' tacit knowledge of the world rather than the spatial format of their thoughts."
   }
  ],
  "question": "Based on the texts, how would Pylyshyn (Text 2) most likely respond to the argument presented in Text 1?",
  "choices": [
   {
    "id": "A",
-   "text": "He would contend that the scanning times reflect participants' knowledge of how visual inspection works rather than demonstrating that their mental representations are picture-like."
+   "text": "He would contend that the scanning times reflect participants' knowledge of how looking works, not picture-like mental representations."
   },
   {
    "id": "B",
-   "text": "He would deny that participants in Kosslyn's experiments actually took longer to scan to distant locations on their mental images than to nearby ones."
+   "text": "He would deny that participants actually took longer to scan to distant locations on their mental images than to nearby ones."
   },
   {
    "id": "C",
-   "text": "He would agree that mental images preserve the distances of remembered scenes but argue that they do so only for scenes participants have studied deliberately, such as memorized maps."
+   "text": "He would agree that mental images preserve distances but only for scenes that participants have studied deliberately, such as maps."
   },
   {
    "id": "D",
-   "text": "He would maintain that scanning experiments could establish the format of mental imagery if participants were prevented from learning the experiments' purpose."
+   "text": "He would maintain that scanning experiments could reveal the format of imagery if participants did not know the experiments' purpose."
   }
  ],
  "correctAnswer": "A",

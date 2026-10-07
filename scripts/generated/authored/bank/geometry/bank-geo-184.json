@@ -1,29 +1,29 @@
 {
   "id": "bank-geo-184",
-  "question": "$(x - 10)^{2} + y^{2} = 36$\nIn the $xy$-plane, the line $y = kx$ is tangent to the graph of the given equation. If $k > 0$, what is the value of $k$?",
+  "question": "$(x + 1)^{2} + (y - 4)^{2} = 169$\nIn the $xy$-plane, line $t$ is tangent to the graph of the given equation at the point $(4, 16)$. What is the slope of line $t$?",
   "choices": [
     {
       "id": "A",
-      "text": "$\\frac{9}{16}$"
+      "text": "$-\\frac{12}{5}$"
     },
     {
       "id": "B",
-      "text": "$\\frac{3}{5}$"
+      "text": "$-\\frac{5}{12}$"
     },
     {
       "id": "C",
-      "text": "$\\frac{3}{4}$"
+      "text": "$\\frac{5}{12}$"
     },
     {
       "id": "D",
-      "text": "$\\frac{4}{3}$"
+      "text": "$\\frac{12}{5}$"
     }
   ],
-  "correctAnswer": "C",
+  "correctAnswer": "B",
   "distractorNotes": {
-    "A": "solves the discriminant equation correctly but reports k^2 = 9/16 instead of k",
-    "B": "uses the radius over the distance to the center, 6/10, which is a sine ratio, not the slope",
-    "D": "inverts the slope, using 8/6 instead of 6/8"
+    "A": "negates the slope of the radius without taking the reciprocal",
+    "C": "takes the reciprocal of the radius's slope without changing its sign",
+    "D": "gives the slope of the radius to (4, 16) instead of the tangent line"
   },
-  "explanation": "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**Choice C is correct.**\n\n**The Fast Way (~50s):** Substituting gives $(1 + k^{2})x^{2} - 20x + 64 = 0$; setting the discriminant $400 - 256(1 + k^{2})$ equal to $0$ gives $k^{2} = \\frac{9}{16}$, so $k = \\frac{3}{4}$.\n\n**The Full Solution:**\nStep 1: Substitute $kx$ for $y$: $(x - 10)^{2} + k^{2}x^{2} = 36$, which simplifies to $(1 + k^{2})x^{2} - 20x + 64 = 0$.\nStep 2: Tangency means exactly one intersection point, so the discriminant is $0$: $(-20)^{2} - 4(1 + k^{2})(64) = 0$, so $256(1 + k^{2}) = 400$ and $1 + k^{2} = \\frac{25}{16}$.\nStep 3: Then $k^{2} = \\frac{9}{16}$, and since $k > 0$, $k = \\frac{3}{4}$. Check: the quadratic becomes $\\frac{25}{16}x^{2} - 20x + 64 = \\frac{1}{16}(5x - 32)^{2}$, so the only point is $(6.4, 4.8)$, and $(6.4 - 10)^{2} + 4.8^{2} = 12.96 + 23.04 = 36$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{9}{16}$): is the value of $k^{2}$. The last step, taking the square root, is skipped.\n* Choice B ($\\frac{3}{5}$): divides the radius $6$ by the distance $10$ from the origin to the center. That ratio is the sine of the angle the line makes with the $x$-axis, not its slope.\n* Choice D ($\\frac{4}{3}$): inverts the slope. The tangent segment from the origin has length $\\sqrt{100 - 36} = 8$, so the slope is $\\frac{6}{8}$, not $\\frac{8}{6}$.\n\n**Test Day Takeaway:** For a line through the origin tangent to a circle, substitute $y = kx$, set the discriminant to $0$, and remember the result is usually $k^{2}$ before you take the square root."
+  "explanation": "**SAT Pattern: Tangent Slope from Perpendicular Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** The radius from the center $(-1, 4)$ to $(4, 16)$ has slope $\\frac{16 - 4}{4 - (-1)} = \\frac{12}{5}$, and the tangent line is perpendicular to it, so its slope is $-\\frac{5}{12}$.\n\n**The Full Solution:**\nStep 1: The given equation is in the form $(x - h)^{2} + (y - k)^{2} = r^{2}$, so the center of the circle is $(-1, 4)$.\nStep 2: The slope of the radius from $(-1, 4)$ to the point of tangency $(4, 16)$ is $\\frac{16 - 4}{4 - (-1)} = \\frac{12}{5}$.\nStep 3: A tangent line is perpendicular to the radius at the point of tangency, so its slope is the negative reciprocal of $\\frac{12}{5}$, which is $-\\frac{5}{12}$. Check: $\\left(\\frac{12}{5}\\right)\\left(-\\frac{5}{12}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-\\frac{12}{5}$): changes the sign of the radius's slope but does not take the reciprocal.\n* Choice C ($\\frac{5}{12}$): takes the reciprocal but does not change the sign.\n* Choice D ($\\frac{12}{5}$): is the slope of the radius, not of the tangent line.\n\n**Test Day Takeaway:** A tangent line is perpendicular to the radius at the point of tangency, so its slope is the negative reciprocal of the radius's slope."
 }

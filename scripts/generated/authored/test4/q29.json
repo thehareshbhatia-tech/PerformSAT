@@ -6,7 +6,7 @@
   "domain": "craft-and-structure",
   "skill": "words-in-context",
   "module": 2,
-  "passage": "When opera companies in the 1980s began projecting translations of the libretto onto a screen above the stage, some critics and conductors objected. A strip of glowing text, they argued, would ______ the audience's attention, pulling eyes upward at exactly the moments when a singer's face and body carried the drama.",
+  "passage": "A magician performing sleight of hand cannot hide the hand that does the secret work. Instead, the performer relies on misdirection: a gesture, a glance, or a joke is used to ______ the audience's attention from that hand, so that the move goes unnoticed even though it happens in plain sight.",
   "question": "Which choice completes the text with the most logical and precise word or phrase?",
   "choices": [
     {
@@ -27,8 +27,8 @@
     }
   ],
   "correctAnswer": "B",
-  "explanation": "**Choice B is correct.** The objectors' fear is attention pulled away from the stage — \"pulling eyes upward\" — and \"divert\" means precisely to draw something off its intended course.\n\n**The Full Solution:**\n- The screen sits above the stage; the drama lives in the singer's face and body below.\n- The objection is that the glowing text competes for the audience's gaze at the crucial moments.\n- \"Divert the audience's attention\" names that redirection exactly.\n\n**Why the other choices are wrong:**\n- A: \"Reward\" would make the text a benefit to attention, not a threat to it.\n- C: \"Sharpen\" means to focus attention more keenly — the opposite of the objectors' worry.\n- D: \"Sustain\" means to keep attention going, but the objection is about where attention goes, not whether it lasts.",
+  "explanation": "**Choice B is correct.** Misdirection works by drawing the audience's attention away from the hand doing the secret work, and \"divert\" means to turn something aside from its course.\n\n**The Full Solution:**\n- The magician cannot hide the hand, so the audience must be made to look elsewhere.\n- The gesture, glance, or joke moves attention \"from that hand.\"\n- \"Divert the audience's attention from that hand\" names that turning-away exactly, which is why the move goes unnoticed.\n\n**Why the other choices are wrong:**\n- A: \"Reward\" would make the gesture a benefit to the audience's attention, not a way of steering it away.\n- C: \"Sharpen\" means to make attention keener, the opposite of what misdirection needs.\n- D: \"Sustain\" means to keep attention going, but the point is where attention goes, not how long it lasts.",
   "_meta": {
-    "anchor": "opera supertitles controversy — attention drawn from the stage"
+    "anchor": "magic misdirection: drawing attention away from the secret move"
   }
 }

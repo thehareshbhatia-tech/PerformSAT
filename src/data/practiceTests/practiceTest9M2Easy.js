@@ -19,20 +19,20 @@ export const practiceTest9M2Easy = {
       type: "multiple-choice",
       difficulty: "easy",
       band: 2,
-      question: "What is the distance between the two points shown in the $xy$-plane?",
-      diagram: { type: "coordinatePoints", params: { points: [[-2, -2], [4, 6]], xMin: -6, xMax: 6, yMin: -4, yMax: 8 } },
+      question: "The graph of line $k$ is shown in the $xy$-plane. Line $p$ is perpendicular to line $k$. What is the slope of line $p$?",
+      diagram: { type: "linearGraph", params: { slope: 2, yIntercept: -2, xRange: [-2, 5], yRange: [-6, 8], xTickInterval: 2, yTickInterval: 2, gridInterval: 1, showPoints: [[0, -2], [2, 2]], label: "k" } },
       choices: [
-        // distractor: reports only the horizontal gap, 4 - (-2) = 6
-        { id: "A", text: "$6$" },
-        // distractor: reports only the vertical gap, 6 - (-2) = 8
-        { id: "B", text: "$8$" },
-        { id: "C", text: "$10$" },
-        // distractor: adds the two gaps, 6 + 8 = 14, instead of using the Pythagorean theorem
-        { id: "D", text: "$14$" }
+        // distractor: changes the sign of the slope of line k but does not take the reciprocal
+        { id: "A", text: "$-2$" },
+        { id: "B", text: "$-\\frac{1}{2}$" },
+        // distractor: takes the reciprocal of the slope of line k but does not change the sign
+        { id: "C", text: "$\\frac{1}{2}$" },
+        // distractor: gives the slope of line k itself, which is the slope of a parallel line
+        { id: "D", text: "$2$" }
       ],
-      correctAnswer: "C",
-      explanation: "**SAT Pattern: Distance Formula**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** The points are $(-2, -2)$ and $(4, 6)$, so the horizontal and vertical gaps are $6$ and $8$, and the distance is $\\sqrt{6^{2} + 8^{2}} = 10$.\n\n**The Full Solution:**\nStep 1: Read the coordinates from the grid: the points are $(-2, -2)$ and $(4, 6)$.\nStep 2: Find the horizontal and vertical gaps: $4 - (-2) = 6$ and $6 - (-2) = 8$.\nStep 3: These gaps are the legs of a right triangle whose hypotenuse joins the points, so the distance is $\\sqrt{6^{2} + 8^{2}} = \\sqrt{36 + 64} = \\sqrt{100} = 10$. Check: $6^{2} + 8^{2} = 100 = 10^{2}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): reports only the horizontal gap, $4 - (-2) = 6$, which is one leg of the right triangle, not the distance.\n* Choice B ($8$): reports only the vertical gap, $6 - (-2) = 8$, the other leg.\n* Choice D ($14$): adds the two gaps, $6 + 8 = 14$. That is the length of a path along the grid lines, not the straight-line distance.\n\n**Test Day Takeaway:** The distance between two points is the hypotenuse of the right triangle formed by their horizontal and vertical gaps; it is always less than the sum of the gaps.",
-      skills: ["coordinate-geometry"]
+      correctAnswer: "B",
+      explanation: "**SAT Pattern: Perpendicular Slope**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Line $k$ passes through $(0, -2)$ and $(2, 2)$, so its slope is $\\frac{4}{2} = 2$; the perpendicular slope is the negative reciprocal, $-\\frac{1}{2}$.\n\n**The Full Solution:**\nStep 1: Read two points on line $k$ from the graph: $(0, -2)$ and $(2, 2)$.\nStep 2: The slope of line $k$ is $\\frac{2 - (-2)}{2 - 0} = \\frac{4}{2} = 2$.\nStep 3: Slopes of perpendicular lines multiply to $-1$, so the slope of line $p$ is $-\\frac{1}{2}$. Check: $(2)\\left(-\\frac{1}{2}\\right) = -1$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-2$): changes the sign but does not take the reciprocal; $(2)(-2) = -4$, not $-1$.\n* Choice C ($\\frac{1}{2}$): takes the reciprocal but keeps it positive; $(2)\\left(\\frac{1}{2}\\right) = 1$, not $-1$.\n* Choice D ($2$): this is the slope of line $k$; a line with this slope is parallel to line $k$, not perpendicular.\n\n**Test Day Takeaway:** Find the slope from two grid points, then flip it and change its sign for a perpendicular line.",
+      skills: ["perpendicular-negative-reciprocal"]
     },
     {
       id: 2,
@@ -68,18 +68,18 @@ export const practiceTest9M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 4,
-      question: "In right triangle $ABC$, angle $B$ is the right angle. The perimeter of the triangle is $120$, $AB = 30$, and $AC = 50$. What is the value of $\\tan A$?",
+      question: "In right triangle $ABC$, angle $B$ is the right angle, $AB = 30$, and $\\tan A = \\frac{4}{3}$. What is the perimeter of triangle $ABC$?",
       choices: [
-        // distractor: gives cos A, adjacent over hypotenuse, 30/50 = 3/5
-        { id: "A", text: "$\\frac{3}{5}$" },
-        // distractor: inverts the tangent ratio to adjacent over opposite, 30/40 = 3/4
-        { id: "B", text: "$\\frac{3}{4}$" },
-        // distractor: gives sin A, opposite over hypotenuse, 40/50 = 4/5
-        { id: "C", text: "$\\frac{4}{5}$" },
-        { id: "D", text: "$\\frac{4}{3}$" }
+        // distractor: adds only the two legs, 30 + 40, and leaves out the hypotenuse
+        { id: "A", text: "$70$" },
+        // distractor: treats tan A as AB/BC, so BC = 22.5 and AC = 37.5, giving 30 + 22.5 + 37.5 = 90
+        { id: "B", text: "$90$" },
+        { id: "C", text: "$120$" },
+        // distractor: uses the sum of the legs, 30 + 40 = 70, as the hypotenuse, giving 30 + 40 + 70 = 140
+        { id: "D", text: "$140$" }
       ],
-      correctAnswer: "D",
-      explanation: "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** The third side is $BC = 120 - 30 - 50 = 40$, and $\\tan A = \\frac{BC}{AB} = \\frac{40}{30} = \\frac{4}{3}$.\n\n**The Full Solution:**\nStep 1: Use the perimeter to find the missing side: $BC = 120 - 30 - 50 = 40$.\nStep 2: From angle $A$, the opposite side is $BC = 40$, the adjacent side is $AB = 30$, and the hypotenuse is $AC = 50$, since $AC$ is across from the right angle at $B$.\nStep 3: $\\tan A = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{40}{30} = \\frac{4}{3}$. Check: $30^{2} + 40^{2} = 900 + 1600 = 2500 = 50^{2}$, so the sides do form a right triangle ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{5}$): gives $\\cos A$, adjacent over hypotenuse, $\\frac{30}{50}$.\n* Choice B ($\\frac{3}{4}$): inverts the tangent ratio to adjacent over opposite, $\\frac{30}{40}$, which is $\\tan C$.\n* Choice C ($\\frac{4}{5}$): gives $\\sin A$, opposite over hypotenuse, $\\frac{40}{50}$.\n\n**Test Day Takeaway:** Find all three sides first, then label them opposite, adjacent, and hypotenuse from the angle named in the question before writing the ratio.",
+      correctAnswer: "C",
+      explanation: "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\tan A = \\frac{BC}{AB}$, so $BC = \\frac{4}{3}(30) = 40$; the sides $30$, $40$, $50$ form a $3$-$4$-$5$ triangle, and the perimeter is $120$.\n\n**The Full Solution:**\nStep 1: For angle $A$, the opposite side is $BC$ and the adjacent side is $AB$, so $\\frac{BC}{30} = \\frac{4}{3}$ and $BC = 40$.\nStep 2: The hypotenuse is $AC = \\sqrt{30^{2} + 40^{2}} = \\sqrt{2{,}500} = 50$.\nStep 3: The perimeter is $30 + 40 + 50 = 120$. Check: $\\frac{40}{30} = \\frac{4}{3}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($70$): adds only the two legs and leaves out the hypotenuse $AC = 50$.\n* Choice B ($90$): uses adjacent over opposite, $\\frac{AB}{BC} = \\frac{4}{3}$, which gives $BC = 22.5$ and $AC = 37.5$.\n* Choice D ($140$): takes the hypotenuse to be the sum of the legs, $70$, instead of using the Pythagorean theorem.\n\n**Test Day Takeaway:** Tangent is opposite over adjacent; once two sides are known, the Pythagorean theorem gives the third.",
       skills: ["soh-cah-toa"]
     },
     {
