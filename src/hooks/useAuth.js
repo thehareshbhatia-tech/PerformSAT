@@ -288,8 +288,12 @@ export const useAuth = () => {
 
       if (err.code === 'auth/email-already-in-use') {
         errorMessage = 'This email is already registered. Please log in instead.';
-      } else if (err.code === 'auth/weak-password') {
-        errorMessage = 'Password must be at least 6 characters.';
+      } else if (err.code === 'auth/weak-password' || err.code === 'auth/password-does-not-meet-requirements') {
+        // The Firebase project enforces a password policy (min 8, checked
+        // 2026-10-07 via identitytoolkit v2/passwordPolicy). Its rejection
+        // carries the second code; without this branch it fell through to
+        // the generic "Failed to create account" and students retried blind.
+        errorMessage = 'Password must be at least 8 characters.';
       } else if (err.code === 'auth/invalid-email') {
         errorMessage = 'Please enter a valid email address.';
       }
